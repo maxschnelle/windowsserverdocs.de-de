@@ -1,0 +1,177 @@
+---
+title: "Ändern des Farbschemas für das Dashboard und Launchpad"
+description: Beschreibt, wie Sie Windows Server Essentials
+ms.custom: na
+ms.date: 10/03/2016
+ms.prod: windows-server-2016-essentials
+ms.reviewer: na
+ms.suite: na
+ms.tgt_pltfrm: na
+ms.topic: article
+ms.assetid: b2913e51-7979-4d48-a431-d2ec5f1042be
+author: nnamuhcs
+ms.author: coreyp
+manager: dongill
+ms.openlocfilehash: f7079c9e59c44907fa203db48ce366c2b5a1102b
+ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 12/12/2017
+---
+# <a name="change-the-color-scheme-of-the-dashboard-and-launchpad"></a>Ändern des Farbschemas für das Dashboard und Launchpad
+
+>Gilt für: Windows Server2016 Essentials, Windows Server2012 R2 Essentials, Windows Server2012 Essentials
+
+Sie können Ändern des Farbschemas für das Dashboard, und das Launchpad definieren die Farben, die Sie in eine XML-Datei verwenden möchten formatiert-Datei installieren die XML-Datei in einem Ordner auf dem Server, und geben den Namen der XML-Datei in einem Registrierungseintrag.  
+  
+## <a name="create-the-xml-file"></a>Erstellen der XML-Datei  
+ Das folgende Beispiel zeigt den möglichen Inhalt der XML-Datei:  
+  
+```xml  
+<DashboardTheme xmlns="https://www.microsoft.com/HSBS/Dashboard/Branding/2010">  
+  
+  <!-- Hex color values overwriting default SKU theme colors -->  
+  
+    <SplashScreenBackgroundColor HexValue="FFFFFFFF"/>  
+    <SplashScreenBorderColor HexValue="FF000000"/>  
+    <MainHeaderBackgroundColor HexValue="FF414141"/>  
+    <MainTabBackgroundColor HexValue="FFFFFFFF"/>  
+    <MainTabFontColor HexValue="FF999999"/>  
+    <MainTabHoverFontColor HexValue="FF0072BC"/>  
+    <MainTabSelectedFontColor HexValue="FF0072BC"/>  
+    <MainButtonPressedBackgroundColor HexValue="FF0072BC"/>  
+    <MainButtonFontColor HexValue="FFFFFFFF"/>  
+    <MainButtonBorderColor HexValue="FF6E6E6E"/>  
+    <ScrollButtonBackgroundColor HexValue="FFF0F0F0"/>  
+    <ScrollButtonArrowColor HexValue="FF999999"/>  
+    <ScrollButtonHoverBackgroundColor HexValue="FF999999"/>  
+    <ScrollButtonHoverArrowColor HexValue="FF6E6E6E"/>  
+    <ScrollButtonSelectedBackgroundColor HexValue="FF6E6E6E"/>  
+    <ScrollButtonSelectedArrowColor HexValue="FFFFFFFF"/>  
+    <ScrollButtonDisabledBackgroundColor HexValue="FFF8F8F8"/>  
+    <ScrollButtonDisabledArrowColor HexValue="FFCCCCCC"/>  
+    <AlertTextBlockBackground HexValue="FFFFFFFF"/>  
+    <AlertTextBlockFont HexValue="FF000000"/>  
+    <FontColor HexValue="FF000000"/>  
+    <SubTabBarBackgroundColor HexValue="FFFFFFFF"/>  
+    <SubTabBackgroundColor HexValue="FFFFFFFF"/>  
+    <SubTabSelectedBackgroundColor HexValue="FF414141"/>  
+    <SubTabBorderColor HexValue="FF787878"/>  
+    <SubTabFontColor HexValue="FF787878"/>  
+    <SubTabHoverFontColor HexValue="FF0072BC"/>  
+    <SubTabPressedFontColor HexValue="FFFFFFFF"/>  
+    <ListViewColor HexValue="FFFFFFFF"/>  
+    <PageBorderColor HexValue="FF999999"/>      
+    <LaunchpadButtonHoverBorderColor HexValue="FF6BA0B4"/>  
+    <LaunchpadButtonHoverBackgroundColor HexValue="FF41788F"/>  
+    <ClientArrowColor HexValue="FFFFFFFF"/>  
+    <ClientGlyphColor HexValue="FFFFFFFF"/>  
+    <SplitterColor HexValue="FF83C6E2"/>  
+    <HomePageBackColor     HexValue="FFFFFFFF"/>  
+    <CategoryNotExpandedBackColor HexValue="FFFFB343"/>  
+    <CategoryExpandedBackColor HexValue="FFF26522"/>  
+    <CategoryNotExpandedForeColor HexValue="FF2A2A2A"/>  
+    <CategoryExpandedForeColor HexValue="FFFFFFFF"/>  
+    <HomePageTaskListForeColor    HexValue="FF2A2A2A"/>  
+    <HomePageTaskListBackColor HexValue="FFEAEAEA"/>  
+    <HomePageTaskListHoverForeColor      HexValue="FF2A2A2A"/>  
+    <HomePageTaskListItemBorderColor     HexValue="FF999999"/>  
+    <HomePageTaskListSelectedForeColor   HexValue="FFFFFFFF"/>  
+    <HomePageTaskListSelectedBackColor   HexValue="FFF26522"/>  
+    <HomePageTaskDetailStatusForeColor   HexValue="FFF26522"/>  
+    <HomePageTaskDetailDescriptionForeColor     HexValue="FF2A2A2A"/>  
+    <HomePageLinkForeColor HexValue="FF0072BC"/>  
+    <HomePageLinkSelectedForeColor HexValue="FF0054A6"/>  
+    <HomePageLinkHoverForeColor   HexValue="FF0072BC"/>  
+    <PropertyFormForeColor HexValue="FF2A2A2A"/>  
+    <PropertyFormTabHoverColor HexValue="FF0072BC"/>  
+    <PropertyFormTabSelectedColor HexValue="FFFFFFFF"/>  
+    <PropertyFormTabSelectedBackColor HexValue="FF414141"/>  
+    <TaskPanelBackColor HexValue="FFFFFFFF"/>  
+    <TaskPanelItemForeColor HexValue="FF2A2A2A"/>  
+    <TaskPanelGroupTitleForeColor HexValue="FF2A2A2A"/>  
+    <TaskPanelGroupTitleBackColor HexValue="FFCCCCCC"/>  
+    <DashboardClientBackColor HexValue="FF004050"/>  
+    <DashboardClientTitleColor HexValue="FFFFFFFF"/>  
+    <DashboardClientOptionsForeColor HexValue="FFFFFFFF"/>  
+    <DashboardClientOptionsItemForeColor HexValue="FF2A2A2A"/>  
+    <DashboardClientHelpForeColor HexValue="FF0054A6"/>  
+    <ClientSignInForeColor HexValue="FFFFFFFF"/>  
+    <ClientSignInWaterMarkForeColor HexValue="FF999999"/>  
+    <ClientSignInUserNameForeColor HexValue="FF2A2A2A"/>  
+    <ClientSignInPassWordSpecificBackColor HexValue="FFCCCCCC"/>  
+    <ClientSignInButtonBackColor HexValue="FF004050"/>  
+    <ClientSignInPassWordForeColor HexValue="FF2A2A2A"/>  
+    <LaunchPadBackColor HexValue="FF004050"/>  
+    <LaunchPadPageTitleColor HexValue="FFFFFFFF"/>  
+    <LaunchPadItemForeColor HexValue="FFFFFFFF"/>  
+  <LaunchPadItemHoverColor HexValue="33FFFFFF"/>  
+  <LaunchPadItemIconBackgroundColor HexValue="F2004050"/>  
+</DashboardTheme >  
+  
+```  
+  
+> [!IMPORTANT]
+>  Die XML-Elemente müssen in der Reihenfolge aufgeführt, die im vorherigen Beispiel angegeben werden.  
+  
+> [!NOTE]
+>  Alle Werte für das HexValue-Attribut sind Beispiele von Hexadezimalwerten für Farben. Sie können einen beliebigen hexadezimalen Farbwert eingeben, den Sie verwenden möchten.  
+  
+ Verwenden Sie Editor oder Visual Studio 2010, um die XML-Datei zu erstellen, die die Tags für die Bereiche enthält, die Sie anpassen möchten. Die Datei kann ein beliebiger Name zugewiesen werden, aber die Erweiterung XML aufweisen. Eine Beschreibung der Bereiche, die auf dem Dashboard und Launchpad angepasst werden können, finden Sie unter [Dashboard und Launchpad Areas, die can be können](Change-the-Color-Scheme-of-the-Dashboard-and-Launchpad.md#BKMK_Dashboard).  
+  
+#### <a name="to-install-the-xml-file"></a>So installieren Sie die XML-Datei  
+  
+1.  Auf dem Server, bewegen Sie den Mauszeiger in die obere rechte Ecke des Bildschirms, und klicken Sie auf **Suche**.  
+  
+2.  Geben Sie in das Suchfeld **Regedit**, und klicken Sie dann auf die **Regedit** Anwendung.  
+  
+3.  Erweitern Sie im linken Bereich **HKEY_LOCAL_MACHINE**, erweitern Sie **SOFTWARE**, erweitern Sie **Microsoft**, erweitern Sie **Windows Server**. Wenn die **OEM** Schlüssel ist nicht vorhanden, müssen Sie die folgenden Schritte aus, um ihn zu erstellen:  
+  
+    1.  Mit der rechten Maustaste **Windows Server**, zeigen Sie auf **neu**, und klicken Sie dann auf **Schlüssel**.  
+  
+    2.  Typ **OEM** für den Namen des Schlüssels.  
+  
+4.  Mit der rechten Maustaste **OEM**, zeigen Sie auf **neu**, und klicken Sie dann auf **Zeichenfolgenwert**.  
+  
+5.  EINGABETASTE **CustomColorScheme** als Namen der Zeichenfolge ein, und drücken Sie dann die **EINGABETASTE**.  
+  
+6.  Mit der rechten Maustaste **CustomColorScheme** im rechten Bereich, und klicken Sie dann auf **ändern**.  
+  
+7.  Geben Sie den Namen der Datei, und klicken Sie dann auf **OK**.  
+  
+8.  Kopieren Sie die Datei in %programFiles%\Windows Server\Bin\OEM. Wenn das Verzeichnis "OEM" nicht vorhanden ist, erstellen Sie ihn.  
+  
+##  <a name="BKMK_Dashboard"></a>Dashboard und Launchpad-Bereiche, die geändert werden können.  
+ Dieser Abschnitt enthält Beispiele für Dashboard und Launchpad Bereiche, die angepasst werden können.  
+  
+### <a name="examples"></a>Beispiele für  
+  
+####  <a name="BKMK_Figure1"></a>Abbildung 1: Anmeldeseite des Dashboards  
+ ![Windows Server Essentials-Dashboard](media/SBS8_ADK_Dashboard_Signin_RC.png "SBS8_ADK_Dashboard_Signin_RC")  
+  
+####  <a name="BKMK_Figure2"></a>Abbildung 2: Launchpad  
+ ![Windows SBS-Launchpad anmelden & #45; in](media/SBS8_ADK_LaunchpadSignin2.png "SBS8_ADK_LaunchpadSignin2")  
+  
+####  <a name="BKMK_Figure3"></a>Abbildung 3: Anmeldeseite des LaunchPads  
+ ![Windows Server Essentials-Launchpad](media/SBS8_ADK_Launchpad_Signin_RC.png "SBS8_ADK_Launchpad_Signin_RC")  
+  
+####  <a name="BKMK_Figure4"></a>Abbildung 4: Dashboardtext  
+ ![Windows Server Essentials-Navigationsbereich](media/SBS8_ADK_Navigation_RC.png "SBS8_ADK_Navigation_RC")  
+  
+####  <a name="BKMK_Figure5"></a>Abbildung 5: Rahmen von Unterregisterkarten  
+ ![Windows SBS-Dashboard-Unterregisterkartenrahmen](media/SBS8_ADK_DashboardSubtabborder.png "SBS8_ADK_DashboardSubtabborder")  
+  
+####  <a name="BKMK_Figure6"></a>Abbildung 6: Aufgabenbereich  
+ ![Windows SBS-Dashboard-Aufgabenbereich](media/SBS8_ADK_DashboardTaskPane.png "SBS8_ADK_DashboardTaskPane")  
+  
+####  <a name="BKMK_Figure9"></a>Abbildung 7a: Begrüßungsbildschirm des Produkts  
+ ![Windows Server Essentials-Begrüßungsbildschirm](media/SBS8_ADK_productspalshscreen_RC.png "SBS8_ADK_productspalshscreen_RC")  
+  
+#### <a name="figure-7b-home-page"></a>Abbildung 7 b: Startseite  
+ ![Windows Server Essentials-Startseite](media/SBS8_ADK_Dashboard_HomePage_RC.png "SBS8_ADK_Dashboard_HomePage_RC")  
+  
+## <a name="see-also"></a>Siehe auch  
+ [Erstellen und Anpassen des Abbilds](Creating-and-Customizing-the-Image.md)   
+ [Weitere Anpassungen](Additional-Customizations.md)   
+ [Vorbereiten des Abbilds für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
+ [Testen der Benutzerfreundlichkeit](Testing-the-Customer-Experience.md)

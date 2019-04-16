@@ -1,0 +1,122 @@
+---
+title: Physischen Switch-Konfiguration für die zusammengeführten NIC
+description: Dieses Thema ist Teil der zusammengeführten NIC Konfiguration Anleitung für Windows Server2016.
+ms.prod: windows-server-threshold
+ms.technology: networking
+ms.topic: article
+ms.assetid: 6d53c797-fb67-4b9e-9066-1c9a8b76d2aa
+manager: brianlic
+ms.author: pashort
+author: shortpatti
+ms.openlocfilehash: 98a2e249aea38bd4d07dc1bcbc9b1ca98b98b6d6
+ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 03/28/2018
+---
+# <a name="physical-switch-configuration-for-converged-nic"></a>Physischen Switch-Konfiguration für die zusammengeführten NIC
+
+>Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server 2016
+
+Sie können in den folgenden Abschnitten als Richtlinien für die Konfiguration Ihrer physischen Switches verwenden.
+
+Dies sind nur die Befehle und deren Verwendung. Sie müssen die Ports, mit denen die NICs verbunden sind, in Ihrer Umgebung ermitteln. 
+
+>[!IMPORTANT]
+>Stellen Sie sicher, dass das VLAN und keine Drag & Drop-Richtlinie festgelegt ist, für die Priorität über die SMB konfiguriert ist.
+
+## <a name="arista-switch-dcs-7050s-64-eos-4137m"></a>Arista Switch \ (Dcs\-7050s\-64, EOS\-4.13.7M\)
+
+1.  En \ (Wechseln Sie zu Admin-Modus, in der Regel eine Password\ fordert)
+2.  Config \ (zur Konfiguration Arbeitsplatz\ eingeben)
+3.  Anzeigen ausführen \ (zeigt aktuelle ausgeführten Konfiguration fest.)
+4.  Hier erfahren Sie Switchports, die NICs verbunden sind. Im folgenden Beispiel sind 14/1,15/1,16/1,17/1.
+5.  Int Eth 14/1,15/1,16/1,17/1 \ (Geben Sie in den Config-Modus für diese Ports\)
+6.  Dcbx Modus ieee
+7.  Flusspriorisierung Modus auf
+8.  Switchport Trunk systemeigenes Vlan 225
+9.  Switchport Trunk Vlan 100-225 zulässig
+10. Switchport im Modus "Trunk"
+11. Flusspriorisierung Priorität 3 keine Drag & drop
+12. QoS vertrauen cos
+13. Anzeigen ausführen \ (Stellen Sie sicher, dass die Konfiguration richtig eingerichtet ist auf die Ports\)
+14. WR \ (die Einstellungen weiterhin über den Switch Reboot\)
+
+### <a name="tips"></a>Tipps:
+1.  Keine #Command-negiert einen Befehl
+2.  Vorgehensweise beim Hinzufügen eines neuen VLANs: Int Vlan 100 \ (wenn Speichernetzwerk auf VLAN 100\ ist)
+3.  Vorgehensweise beim Überprüfen der vorhandenen VLANs: Anzeigen von Vlan
+4.  Weitere Informationen zum Konfigurieren von Arista Switch, suchen Sie online nach: Arista EOS manuell
+5.  Verwenden Sie diesen Befehl, um PFC-Einstellungen zu überprüfen: flusspriorisierung Leistungsindikatoren Detail anzeigen
+
+## <a name="dell-switch-s4810-ftos-99-00"></a>Dell-Switch \ (S4810, FTOS 9.9 \(0.0\)\)
+
+    
+    !
+    dcb enable
+    ! put pfc control on qos class 3
+    configure
+    dcb-map dcb-smb
+    priority group 0 bandwidth 90 pfc on
+    priority group 1 bandwidth 10 pfc off
+    priority-pgid 1 1 1 0 1 1 1 1
+    exit
+    ! apply map to ports 0-31
+    configure
+    interface range ten 0/0-31
+    dcb-map dcb-smb
+    exit
+    
+
+## <a name="cisco-switch-nexus-3132-version-602u61"></a>Cisco-Switch \ (Nexus 3132, Version 6.0\(2\)U6\(1\)\)
+
+### <a name="global"></a>Globale
+    
+    class-map type qos match-all RDMA
+    match cos 3
+    class-map type queuing RDMA
+    match qos-group 3
+    policy-map type qos QOS_MARKING
+    class RDMA
+    set qos-group 3
+    class class-default
+    policy-map type queuing QOS_QUEUEING
+    class type queuing RDMA
+    bandwidth percent 50
+    class type queuing class-default
+    bandwidth percent 50
+    class-map type network-qos RDMA
+    match qos-group 3
+    policy-map type network-qos QOS_NETWORK
+    class type network-qos RDMA
+    mtu 2240
+    pause no-drop
+    class type network-qos class-default
+    mtu 9216
+    system qos
+    service-policy type qos input QOS_MARKING
+    service-policy type queuing output QOS_QUEUEING
+    service-policy type network-qos QOS_NETWORK
+    
+
+### <a name="port-specific"></a>Bestimmte Ports
+
+    
+    switchport mode trunk
+    switchport trunk native vlan 99
+    switchport trunk allowed vlan 99,2000,2050   çuse VLANs that already exists
+    spanning-tree port type edge
+    flowcontrol receive on (not supported with PFC in Cisco NX-OS)
+    flowcontrol send on (not supported with PFC in Cisco NX-OS)
+    no shutdown
+    priority-flow-control mode on
+    
+
+## <a name="all-topics-in-this-guide"></a>Alle Themen in diesem Handbuch
+
+Dieses Handbuch enthält die folgenden Themen.
+
+- [Zusammengeführtes NIC-Konfiguration mit einem einzelnen Netzwerkadapter](cnic-single.md)
+- [Zusammengeführtes NIC kombinierten NIC-Konfiguration](cnic-datacenter.md)
+- [Physischen Switch-Konfiguration für die zusammengeführten NIC](cnic-app-switch-config.md)
+- [Problembehandlung bei zusammengeführten NIC-Konfigurationen](cnic-app-troubleshoot.md)
