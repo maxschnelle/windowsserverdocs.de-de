@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: d53be34d04edfac9f30b6e269833be74a6ebcf22
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59820351"
 ---
 # <a name="configure-e-mail-notifications"></a>Konfigurieren von E-Mail-Benachrichtigungen
 
-> Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
 
 Beim Erstellen von Kontingenten und Dateibildschirmen haben Sie die Option, E-Mail-Benachrichtigungen an Benutzer zu senden, wenn ihre Kontingentbegrenzung erreicht wird oder nachdem sie versucht haben, gesperrte Dateien zu speichern. Wenn Sie Speicherberichte generieren, können Sie die Berichte per E-Mail an bestimmte Empfänger senden. Wenn Sie bestimmte Administratoren routinemäßig über Kontingent- und Dateiprüfungsereignisse benachrichtigen oder Speicherberichte senden möchten, können Sie einen oder mehrere standardmäßige Empfänger konfigurieren.
 
@@ -39,6 +40,6 @@ Zum Senden dieser Benachrichtigungen und der Speicherberichte müssen Sie den zu
 6.  Klicken Sie auf **OK**.
 
 
-## <a name="see-also"></a>Weitere Informationen:
+## <a name="see-also"></a>Siehe auch
 
--   [Festlegen der Optionen des Ressourcen-Managers für Dateiserver](setting-file-server-resource-manager-options.md)
+-   [Einstellung File Server Resource Manager-Optionen](setting-file-server-resource-manager-options.md)

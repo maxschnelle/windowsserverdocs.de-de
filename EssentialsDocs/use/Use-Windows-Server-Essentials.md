@@ -1,6 +1,6 @@
 ---
 title: Verwenden von Windows Server Essentials
-description: Beschreibt, wie Sie Windows Server Essentials
+description: Beschreibt, wie Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,22 +13,23 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 7b440215d7ddf2c9119ee4adb8f1c98c7ea1bb34
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59822601"
 ---
 # <a name="use-windows-server-essentials"></a>Verwenden von Windows Server Essentials
 
->Gilt für: Windows Server2016 Essentials, Windows Server2012 R2 Essentials, Windows Server2012 Essentials
+>Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Die folgenden Themen enthalten Informationen, mit denen Sie die ersten Schritte mit Windows Server Essentials:  
+Die folgenden Themen enthalten Informationen, die Sie bei den ersten Schritten mit Windows Server Essentials unterstützen:  
   
 -   [Herstellen einer Verbindung](Get-Connected-in-Windows-Server-Essentials.md)  
   
 -   [Verwenden von freigegebenen Ordnern](Use-Shared-Folders-in-Windows-Server-Essentials.md)  
   
--   [Remote-Arbeit](Work-Remotely-in-Windows-Server-Essentials.md)  
+-   [Arbeiten im Remotemodus](Work-Remotely-in-Windows-Server-Essentials.md)  
   
 -   [Wiedergeben von digitalen Medien](Play-Digital-Media-in-Windows-Server-Essentials.md)  
   

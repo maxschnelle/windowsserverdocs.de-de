@@ -1,35 +1,36 @@
 ---
-title: "Integritätsdienst-Berichte"
+title: Integritätsdienst-Berichte
 ms.prod: windows-server-threshold
 manager: eldenc
 ms.author: cosdar
 ms.technology: storage-health-service
 ms.topic: article
-ms.assetid: 
+ms.assetid: ''
 author: cosmosdarwin
 ms.date: 10/05/2017
 ms.openlocfilehash: bc21b9fdec5700fec23dc6af7ca15873ded34bea
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59821961"
 ---
 # <a name="health-service-reports"></a>Integritätsdienst-Berichte
-> Gilt für WindowsServer 2016
+> Gilt für Windows Server 2016
 
-## <a name="what-are-reports"></a>Was sind Berichte?  
+## <a name="what-are-reports"></a>Was sind Berichte  
 
-Der Integritätsdienst verringert den Arbeitsaufwand zum Abrufen von Leistungs- und Kapazitätsinformationen aus Ihrem "direkte Speicherplätze"-Cluster. Ein neues Cmdlet bietet eine geordnete Liste wichtiger Metriken, die effizient gesammelt und knotenübergreifend dynamisch, mithilfe integrierter Logik zum Erkennen der Clustermitgliedschaft. Alle Werte sind nur in Echtzeit und Point-in-Time.  
+Der Integritätsdienst verringert den Arbeitsaufwand beim aktueller Leistungs- und Kapazitätsinformationen aus Ihrem "direkte Speicherplätze"-Cluster zu erhalten. Ein neues Cmdlet bietet es sich um eine geordnete Liste wichtiger Metriken, die effizient gesammelt und aggregiert dynamisch für einen Knoten, die mithilfe integrierter Logik zum Erkennen der Clustermitgliedschaft. Alle Werte sind in Echtzeit und ausschließlich zeitpunktbezogen.  
 
 ## <a name="usage-in-powershell"></a>Verwendung in PowerShell
 
-Verwenden Sie dieses Cmdlet zum Abrufen von Metriken für den gesamten "direkte Speicherplätze"-Cluster:
+Verwenden Sie dieses Cmdlet aus, um Metriken für den gesamten "direkte Speicherplätze"-Cluster zu erhalten:
 
 ```PowerShell
 Get-StorageSubSystem Cluster* | Get-StorageHealthReport
 ```
 
-Das optionale **Anzahl** Parameter gibt an, wie viele Gruppen mit Werten in einer zweiten Intervallen zurückgegeben.  
+Der optionale **Anzahl** Parameter gibt an, wie viele Gruppen mit Werten in einem-Sekunden-Intervallen zurückgegeben.  
 
 ```PowerShell
 Get-StorageSubSystem Cluster* | Get-StorageHealthReport -Count <Count>  
@@ -43,11 +44,11 @@ Get-Volume -FileSystemLabel <Label> | Get-StorageHealthReport -Count <Count>
 Get-StorageNode -Name <Name> | Get-StorageHealthReport -Count <Count>
 ```
 
-## <a name="usage-in-net-and-c"></a>Verwendung in .NET und C#
+## <a name="usage-in-net-and-c"></a>Nutzung in .NET undC#
 
-### <a name="connect"></a>Eine Verbindung herstellen
+### <a name="connect"></a>Verbinden
 
-Zum Abfragen der Integritätsdienst, müssen Sie zum Herstellen einer **CimSession** mit dem Cluster. Zu diesem Zweck Sie einige Dinge benötigt werden, die nur im vollständigen .NET verfügbar sind, d.h. Sie leicht dies direkt von einem Webserver oder mobile Anwendung nicht möglich. Diese Codebeispiele werden C#-, die einfachste Wahl für diese Datenzugriffsschicht verwenden.
+Um den Health-Dienst abzufragen, müssen Sie zum Herstellen einer **CimSession** mit dem Cluster. Zu diesem Zweck Sie einige Aufgaben benötigen, die nur im vollständigen .NET verfügbar sind, das heißt, Sie sofort diese direkt aus einer Web- oder mobilen app nicht möglich. Diese Codebeispiele verwenden C\#am einfachsten Wahl für diese Data Access-Ebene.
 
 ``` 
 ...
@@ -71,15 +72,15 @@ public CimSession Connect(string Domain = "...", string Computer = "...", string
 }
 ```
 
-Der angegebene Benutzername sollte ein lokaler Administrator des Ziels Computer sein.
+Der angegebene Benutzername sollte ein lokaler Administrator des Ziels Computer.
 
-Es wird empfohlen, dass Sie das Kennwort erstellen, **SecureString** direkt von Benutzereingaben in Echtzeit, also ihr Kennwort wird niemals im Arbeitsspeicher gespeichert in Klartext. Dadurch wird eine Vielzahl von Sicherheitsbedenken verringern. Erstellen sie wie oben in der Praxis allgemeinen Zwecken Prototypen ist jedoch.
+Es wird empfohlen, dass Sie das Kennwort erstellen, **SecureString** direkt aus der Benutzereingabe in Echtzeit, also ihr Kennwort nie im Arbeitsspeicher gespeichert in Klartext. Dadurch wird eine Vielzahl von Sicherheitsrisiken zu verringern. Aber in der Praxis ist es wie oben beschrieben zu erstellen ist üblich für Zwecke der Erstellung von Prototypen.
 
 ### <a name="discover-objects"></a>Ermitteln von Objekten
 
-Mit der **CimSession** eingerichtet wurde, können Sie Windows-Verwaltungsinstrumentation (Windows Management Instrumentation, WMI) auf dem Cluster Abfragen.
+Mit der **CimSession** eingerichtet, können Sie Windows-Verwaltungsinstrumentation (Windows Management Instrumentation, WMI) auf dem Cluster Abfragen.
 
-Bevor Sie Fehler oder Metriken abrufen können, müssen Sie Instanzen von mehreren relevante Objekte abzurufen. Zuerst wird die **MSFT\_StorageSubSystem** des Clusters "direkte Speicherplätze" darstellt. Verwenden, erhalten Sie alle **MSFT\_StorageNode** im Cluster, und alle **MSFT\_Volume**, die Datenvolumes. Abschließend müssen Sie die **MSFT\_StorageHealth**, die Integrität selbst zu bedienen.
+Bevor Sie einen Fehler oder Metriken abrufen können, müssen Sie Instanzen von mehreren relevanten Objekte abzurufen. Zunächst wird die **MSFT\_StorageSubSystem** auf dem Cluster "direkte Speicherplätze" darstellt. Verwenden, die, erhalten Sie alle **MSFT\_StorageNode** im Cluster und jede **MSFT\_Volume**, Datenvolumes. Abschließend müssen Sie die **MSFT\_StorageHealth**, den Health-Dienst, zu.
 
 ```
 CimInstance Cluster;
@@ -107,9 +108,9 @@ public void DiscoverObjects(CimSession Session)
 }
 ```
 
-Hierbei handelt es sich um die gleichen Objekte, die Sie erhalten in PowerShell mithilfe des Cmdlets wie **Get-StorageSubSystem**, **Get-StorageNode**, und **Get-Volume**.
+Hierbei handelt es sich um die gleichen Objekte Sie im PowerShell erhalten-Cmdlets wie über **Get-StorageSubSystem**, **Get-StorageNode**, und **Get-Volume**.
 
-Sie können Zugriff auf die gleichen Eigenschaften behandelt [Storage Management API Classes](https://msdn.microsoft.com/en-us/library/windows/desktop/hh830612(v=vs.85).aspx).
+Es stehen die gleichen Eigenschaften, die am dokumentiert [Storage Management API Classes](https://msdn.microsoft.com/en-us/library/windows/desktop/hh830612(v=vs.85).aspx).
 
 ```
 ...
@@ -122,15 +123,15 @@ foreach (CimInstance Node in Nodes)
 }
 ```
 
-Rufen Sie **GetReport** um Beispiele für eine Experten verwaltet Liste wichtiger Metriken, die effizient gesammelt und knotenübergreifend dynamisch, mithilfe integrierter Logik zum Erkennen der Clustermitgliedschaft streamen zu beginnen. Beispiele werden jede Sekunde danach ankommen. Alle Werte sind nur in Echtzeit und Point-in-Time.
+Rufen Sie **GetReport** um Beispiele für eine Experten kuratierten Liste wichtiger Metriken, die effizient gesammelt und aggregiert dynamisch für einen Knoten, die mithilfe integrierter Logik zum Erkennen der Clustermitgliedschaft streaming zu starten. Beispiele werden danach pro Sekunde eingehen. Alle Werte sind in Echtzeit und ausschließlich zeitpunktbezogen.
 
-Metriken für drei Bereiche gestreamt werden können: das Cluster, einen beliebigen Knoten oder ein Volume.
+Metriken können gestreamt werden, für die drei Bereiche: den Cluster, einen beliebigen Knoten oder ein Volume.
 
-Die vollständige Liste der verfügbaren Metriken auf jeder Ebene in Windows Server2016 dokumentiert ist.
+Die vollständige Liste der Metriken, die in jeder Bereich in Windows Server 2016 verfügbar sind, wird im folgenden dokumentiert.
 
 ### <a name="iobserveronnext"></a>IObserver.OnNext()
 
-Dieser Beispielcode verwendet die [Beobachterentwurfsmuster](https://msdn.microsoft.com/en-us/library/ee850490(v=vs.110).aspx) einen Beobachter implementieren, deren **OnNext()** Methode wird aufgerufen, wenn jedes neue Beispiel Metriken eingehen. Die **OnCompleted()** -Methode wird aufgerufen, wenn beim Streamen von endet. Z.B. können Sie es verwenden, um dieses Streaming, damit es auf unbestimmte Zeit fortgesetzt wird.
+Dieser Beispielcode verwendet die [Entwurfsmuster "Beobachter"](https://msdn.microsoft.com/en-us/library/ee850490(v=vs.110).aspx) zum Implementieren eines observers, deren **OnNext()** Methode wird aufgerufen werden, wenn jedes neues Beispiel von Metriken empfangen. Die **OnCompleted()** Methode wird aufgerufen, wenn/wenn streaming endet. Beispielsweise könnte es können Sie erneut initiieren, streaming, damit es auf unbestimmte Zeit fortgesetzt.
 
 ```
 class MetricsObserver<T> : IObserver<T>
@@ -171,13 +172,13 @@ class MetricsObserver<T> : IObserver<T>
 }
 ```
 
-### <a name="begin-streaming"></a>Streaming beginnen
+### <a name="begin-streaming"></a>Streaming von
 
-Mit der Beobachter definiert können Sie das Streaming beginnen.
+Mit den Beobachter, der definiert wird können Sie das streaming beginnen.
 
-Geben Sie das Ziel **CimInstance** die Metriken beschränkt werden sollen. Der Cluster, einen beliebigen Knoten oder ein Volume möglich.
+Geben Sie das Ziel **CimInstance** , für die Metriken beschränkt werden soll. Sie können den Cluster, einen beliebigen Knoten oder ein Volume sein.
 
-Count-Parameter ist die Anzahl der Proben Streaming endet.
+Der Count-Parameter ist die Anzahl der abtastungen vor dem streaming endet.
 
 ```
 CimInstance Target = Cluster; // From among the objects discovered in DiscoverObjects()
@@ -202,15 +203,15 @@ public void BeginStreamingMetrics(CimSession Session, CimInstance HealthService,
 }
 ```
 
-Diese Metriken können selbstverständlich in einer Datenbank gespeichert oder verwendet in der gewünschten Weise eigenem dargestellt werden.
+Diese Metriken können natürlich in einer Datenbank gespeichert oder ganz nach Bedarf verwendeten visualisiert werden.
 
 ### <a name="properties-of-reports"></a>Eigenschaften von Berichten
 
-Jedes Sample Metriken ist eine "Bericht" enthält viele "Datensätzen", die einzelnen Metriken entsprechen.
+Jedes Beispiels Metriken ist eine "Bericht" viele "Datensätze" für einzelne Metriken enthält.
 
 Überprüfen Sie für das vollständige Schema, das **MSFT\_StorageHealthReport** und **MSFT\_HealthRecord** Klassen im *storagewmi.mof*.
 
-Jede Metrik hat nur drei Eigenschaften, gemäß der folgenden Tabelle.
+Jede Metrik verfügt über nur drei Eigenschaften, die gemäß der folgenden Tabelle.
 
 | **Eigenschaft** | **Beispiel**       |
 | -------------|-------------------|
@@ -218,11 +219,11 @@ Jede Metrik hat nur drei Eigenschaften, gemäß der folgenden Tabelle.
 | Wert        | 0.00021           |
 | Einheiten        | 3                 |
 
-Einheiten = {0, 1, 2, 3, 4}, wobei 0 = "Bytes", 1 = "BytesPerSecond", 2 = "CountPerSecond", 3 = "Seconds", oder 4 = "Prozentsatz".
+Einheiten = {0, 1, 2, 3, 4}, wobei 0 = "Bytes", 1 = "BytesPerSecond", 2 = "CountPerSecond", 3 = "Seconds", oder 4 = "Prozent".
 
 ## <a name="coverage"></a>Abdeckung
 
-Im Folgenden sind die Metriken für die einzelnen Bereiche in Windows Server2016 verfügbar.
+Im folgenden sind die Metriken für jeden Bereich in Windows Server 2016 verfügbar.
 
 ### <a name="msftstoragesubsystem"></a>MSFT_StorageSubSystem
 

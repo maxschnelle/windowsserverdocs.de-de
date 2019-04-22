@@ -1,5 +1,5 @@
 >[!IMPORTANT]
->Andere Kombination von oberen oder Kleinbuchstabe für "True" in den folgenden Tags führt eine partielle Konfiguration des VPN-Profils:
+>Eine beliebige andere Kombination aus Groß- oder Kleinbuchstaben für "True" in der folgenden Tags führt eine partielle Konfiguration von VPN-Profil:
 >
->\ < AlwaysOn\ >**"true"** \ < / AlwaysOn ><br>
->\ < RememberCredentials\ >**"true"** \ < / RememberCredentials >
+>\<AlwaysOn\>**true**\</AlwaysOn><br>
+>\<RememberCredentials\>**true**\</RememberCredentials>

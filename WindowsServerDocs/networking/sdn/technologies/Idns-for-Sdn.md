@@ -1,6 +1,6 @@
 ---
-title: Interne DNS-Dienst (iDNS) für SDN
-description: In diesem Thema wird erläutert, bereitstellen können, das DNS-Dienste auf Ihrer gehosteten mandantenarbeitsauslastungen mithilfe von internen DNS (iDNS), die mit Software Defined Networking in Windows Server 2016 integriert ist.
+title: Interner DNS-Dienst (iDNS) für SDN
+description: In diesem Thema wird erläutert, wie Sie bereitstellen können DNS-Dienste für Ihre mandantenworkloads gehosteten mithilfe von internen DNS (iDNS), die in der Software Defined Networking unter Windows Server 2016 integriert ist.
 manager: brianlic
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -12,82 +12,83 @@ ms.topic: get-started-article
 ms.assetid: ad848a5b-0811-4c67-afe5-6147489c0384
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 4bdb495b585cf60315dee60f9365e282877fdc1d
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 4d4ae5ee5f5600d86349ca26b7acbdb284b45bac
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59824081"
 ---
-# <a name="internal-dns-service-idns-for-sdn"></a>Interne DNS-Dienst \(iDNS\) für SDN
+# <a name="internal-dns-service-idns-for-sdn"></a>Interner DNS-Dienst (iDNS) für SDN
 
->Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
-Wenn Sie für eine Cloud-Dienstanbieter \(CSP\) oder Unternehmen, das Planen der Bereitstellung von Software Defined Networking \(SDN\) in Windows Server 2016 ist arbeiten, können Sie die DNS-Dienste für mandantenarbeitsauslastungen gehosteten bereitstellen, mithilfe der interne DNS-\(iDNS\), das in SDN integriert ist.
+Wenn Sie für einen Cloud-Dienstanbieter arbeiten \(CSP\) oder Unternehmen, die beabsichtigen, das Bereitstellen von Software Defined Networking \(SDN\) in Windows Server 2016 können Sie den DNS-Dienste bereitstellen, Ihre gehosteten mandantenworkloads Mithilfe von internen DNS \(iDNS\), die mit SDN integriert ist.
 
-\(VMs\) gehosteten virtuellen Computer und Anwendungen benötigen DNS innerhalb ihrer eigenen Netzwerke und mit externen Ressourcen im Internet kommunizieren. Mit iDNS können Sie Mandanten mit DNS-Namensauflösungsdienste für ihre isoliert, lokale Namensbereich und Ressourcen im Internet bereitstellen.
+Virtual Machines gehostet \(VMs\) und Anwendungen erfordern, DNS, um in jeweils eigenen Netzwerken, und klicken Sie mit externen Ressourcen im Internet kommunizieren. Mit iDNS können Sie Mandanten mit DNS-Namensauflösungsdienste für ihren Namespace isolierte, lokalen und Ressourcen für Internet bereitstellen.
 
-Da der Dienst iDNS nicht aus der Mandant virtuelle Netzwerke zugänglich ist, ist nicht durch den Proxy iDNS der Server nicht anfällig für böswillige Aktivitäten auf mandantennetzwerke.
+Da der Dienst iDNS nicht zugegriffen werden kann, aus der Mandant virtuelle Netzwerke ist, ist nicht über den Proxy iDNS der Server nicht anfällig für böswillige Aktivitäten auf mandantennetzwerken.
 
 **Wichtige Features**
 
-Im folgenden werden die wichtigsten Features für iDNS.
+Im folgenden werden die wichtigsten Features IDNs.
 
-- Bietet freigegebenen DNS-Namensauflösungsdienst für Mandanten Arbeitslasten name
-- Autorisierenden DNS-Dienst für die namensauflösung und DNS-Registrierung innerhalb der Namespace Mandanten
-- Recursive DNS-Dienst für die Auflösung von Internetnamen von Mandanten-VMs.
+- Bietet freigegebenen DNS-Server adressauflösungsdienste für Mandanten Workloads ein
+- Autorisierender DNS-Dienst für namensauflösung und DNS-Registrierung innerhalb des Bereichs der Tenant-name
+- Recursive DNS-Dienst für die Auflösung von Internetnamen aus den VMs des Mandanten.
 - Falls gewünscht, können Sie konfigurieren, gleichzeitige Hosten von Fabric und Mandanten
-- Eine kostengünstige Lösung für DNS - Mandanten müssen keine eigene DNS-Infrastruktur bereitstellen
+- Eine kostengünstige Lösung für DNS - Mandanten müssen keine eigene DNS-Infrastruktur bereitstellen.
 - Hohe Verfügbarkeit mit Active Directory-Integration, die erforderlich ist.
 
-Zusätzlich zu diesen Features können Sie Sie erhalten Ihre Anzeige integriert sind mit dem Internet-DNS-Server zu öffnen, können Sie iDNS Server hinter einer anderen rekursive Resolver im Umkreisnetzwerk bereitstellen.
+Neben diesen Features können Sie Wenn Sie bedenken, halten Ihre AD integriert sind DNS-Server öffnen, mit dem Internet, können Sie iDNS-Server hinter einer anderen rekursiven Resolver im Umkreisnetzwerk bereitstellen.
 
-Da iDNS auf einem zentralen Server für alle DNS-Abfragen ist, kann einen CSP oder Enterprise auch Implementieren von Mandanten DNS-Firewalls, Filter anwenden, böswillige Aktivitäten zu erkennen und Transaktionen an einem zentralen Speicherort überwachen
+Da iDNS einen zentralen Server für alle DNS-Abfragen ist, kann einen CSP oder Enterprise auch Mandanten DNS-Firewalls zu implementieren, Filter anwenden, böswillige Aktivitäten zu erkennen und überwachen Transaktionen an einem zentralen Ort
 
 ## <a name="idns-infrastructure"></a>iDNS Infrastruktur
-Die iDNS Infrastruktur umfasst iDNS Servern und iDNS Proxy.
+Die iDNS-Infrastruktur umfasst iDNS-Servern und iDNS Proxy.
 
-### <a name="idns-servers"></a>iDNS Servern
-iDNS enthält eine Reihe von DNS-Servern, die Mandanten-spezifischen Daten, z. B. VM DNS-Ressourceneinträge enthalten.
+### <a name="idns-servers"></a>iDNS Server
+iDNS umfasst eine Reihe von DNS-Server, die mandantenspezifische-Daten, z. B. VM-DNS-Ressourceneinträgen zu hosten.
 
-iDNS Server autorisierenden Server für die internen DNS-Zonen sind und auch als Resolver für öffentliche Namen dienen Wenn Mandanten VMs Verbindungsversuch mit externen Ressourcen.
+iDNS Server sind die autorisierenden Server für ihre internen DNS-Zonen, und auch als einen Resolver zum öffentlichen Namen Wenn Mandanten VMs Versuch, auf externe Ressourcen zu verbinden.
 
-Alle Hostnamen für virtuelle Maschinen in virtuelle Netzwerke werden als DNS-Ressourceneinträge unter der gleichen Zone gespeichert. Wenn Sie für eine Zone mit dem Namen "contoso.Local" iDNS bereitstellen, werden die DNS-Ressourceneinträge für die virtuellen Computer auf das Netzwerk in der Zone "contoso.Local" gespeichert.
+Alle Hostnamen für virtuelle Computer in virtuellen Netzwerken werden unter der gleichen Zone als DNS-Ressourceneinträge gespeichert. Wenn Sie iDNS für eine Zone mit dem Namen "contoso.Local" bereitstellen, werden z. B. die DNS-Ressourceneinträge für die virtuellen Computer im Netzwerk in der Zone "contoso.Local" gespeichert.
 
-Mandanten VM Fully Qualified Domain Names \(FQDNs\) bestehen aus den Computernamen und die DNS-Suffix-Zeichenfolge für das virtuelle Netzwerk, im GUID-Format. Besitzen Sie ein Mandant virtuellen Computer namens TENANT1, die im virtuellen Netzwerk Contoso, lokal, ist die VM-FQDN z. B. TENANT1. *Vn-Guid*. "contoso.Local", wobei *Vn-Guid* die DNS-Suffix-Zeichenfolge für das virtuelle Netzwerk ist.
+Mandanten-VM von vollständig qualifizierten Domänennamen \(FQDNs\) bestehen aus den Namen des Computers und die DNS-Suffix-Zeichenfolge für das Virtuellenetzwerk, im GUID-Format. Beispielsweise ist verfügen Sie über eine Mandanten-VM mit dem Namen 1, der auf das virtuelle Netzwerk Contoso, lokal, befindet FQDN der VM 1. *Vn-Guid*. "contoso.Local", wobei *Vn-Guid* ist die DNS-Suffix-Zeichenfolge für das Virtuellenetzwerk.
 
 >[!NOTE]
->Wenn Sie ein fabricadministrator sind, können Sie Ihre CSP oder Unternehmens-DNS-Infrastruktur, wie iDNS Server anstelle von neuen DNS-Server speziell für die Bereitstellung als iDNS Server verwenden. Ob Sie die neuen Server für iDNS bereitstellen, oder Sie Ihre vorhandene Infrastruktur verwenden, verwendet iDNS Active Directory, um hohe Verfügbarkeit bereitzustellen. Ihre iDNS Server müssen daher in Active Directory integriert werden.
+>Wenn Sie ein Fabric-Administrator sind, können Sie Ihrer CSP oder Unternehmens-DNS-Infrastruktur, wie iDNS-Server, ohne neue DNS-Server speziell für die Bereitstellung als iDNS Server verwenden. Ob Sie neue Server IDNs bereitstellen, oder Sie Ihre vorhandene Infrastruktur nutzen, verwendet iDNS Active Directory, um hochverfügbarkeit zu gewährleisten. Ihre iDNS-Server müssen daher in Active Directory integriert werden.
 
 ### <a name="idns-proxy"></a>iDNS Proxy
-iDNS-Proxy ist ein Windows-Dienst, der auf jedem Host ausgeführt wird und die Mandanten virtuelle Netzwerk-DNS-Datenverkehr die iDNS Server weiterleitet.
+iDNS Proxy ist ein Windows-Dienst auf jedem Host ausgeführt wird und die Mandanten virtuelle Netzwerk-DNS-Datenverkehr die iDNS Server weiterleitet.
 
-Die folgende Abbildung zeigt die DNS-Datenverkehr Pfade von Mandanten virtuelle Netzwerke durch den Proxy iDNS, um die iDNS Server und dem Internet.
+Die folgende Abbildung zeigt die DNS-Datenverkehr Pfade aus Mandant virtuelle Netzwerke über die iDNS-Proxy, um die iDNS Server und dem Internet.
 
 ![iDNS Infrastruktur](../../media/Internal-Dns/Internal-Dns.jpg)
 
-## <a name="how-to-deploy-idns"></a>Vorgehensweise beim Bereitstellen iDNS
-Wenn Sie SDN in Windows Server 2016 mithilfe von Skripts bereitstellen, ist iDNS automatisch in Ihrer Bereitstellung enthalten.
+## <a name="how-to-deploy-idns"></a>Wie bereitstellen iDNS
+Wenn Sie SDN in Windows Server 2016 mithilfe von Skripts bereitstellen, ist die iDNS automatisch in Ihrer Bereitstellung enthalten.
 
-Weitere Informationen finden Sie unter den folgenden Themen.
+Weitere Informationen finden Sie in den folgenden Themen.
 
-- [Bereitstellen einer Software-Defined Networking-Infrastruktur mithilfe von Skripts](https://technet.microsoft.com/windows-server-docs/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure-using-scripts)
+- [Bereitstellen einer Software-Defined Networking-Infrastruktur mithilfe von Skripts](https://docs.microsoft.com/windows-server/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure-using-scripts)
 
 
 ## <a name="understanding-idns-deployment-steps"></a>Grundlegendes zu iDNS Bereitstellungsschritte
-In diesem Abschnitt können Sie verstehen, wie iDNS installiert und konfiguriert werden, wenn Sie mithilfe von Skripts SDN bereitstellen.
+Sie können in diesem Abschnitt verwenden, erhalten Sie einen Überblick darüber, wie iDNS installiert und konfiguriert werden, wenn Sie SDN mithilfe von Skripts bereitstellen.
 
 Es folgt eine Übersicht über die erforderlichen Schritte zum Bereitstellen von iDNS.
 
 >[!NOTE]
->Wenn Sie mithilfe von Skripts SDN bereitgestellt haben, müssen Sie keinen der folgenden Schritte ausführen. Die Schritte werden Informationen und dienen nur zur Problembehandlung zu bereitgestellt.
+>Wenn Sie SDN mithilfe von Skripts bereitgestellt haben, müssen Sie nicht diese Schritte ausführen. Die Schritte finden Sie Informationen und nur zur Problembehandlung zu.
 
-### <a name="step-1-deploy-dns"></a>Schritt 1: Bereitstellen von DNS
-Sie können einen DNS-Server bereitstellen, mit der folgende Windows PowerShell-Befehl.
+### <a name="step-1-deploy-dns"></a>Schritt 1: Bereitstellen von DNS
+Sie können einen DNS-Server bereitstellen, anhand des folgenden Beispiels Windows PowerShell-Befehl.
     
     Install-WindowsFeature DNS -IncludeManagementTools
     
-### <a name="step-2-configure-idns-information-in-network-controller"></a>Schritt 2: Konfigurieren von iDNS Informationen im Netzwerk-Controller
-Dieses Skript-Segment ist ein REST-Aufruf, der erfolgt durch den Administrator auf Netzwerkcontroller, informiert die iDNS Zonenkonfiguration – z. B. die IP-Adresse der iDNSServer und die Zone, die zum Hosten der iDNS Namen verwendet wird. 
+### <a name="step-2-configure-idns-information-in-network-controller"></a>Schritt 2: In den Netzwerkcontroller iDNS Informationen konfigurieren
+Dieses Skript-Segment ist ein REST-Aufruf, der erfolgt durch den Administrator für den Netzwerkcontroller, informiert sie über die Konfiguration des iDNS-Zone – z. B. die IP-Adresse der iDNSServer und die Zone, die zum Hosten der iDNS Namen verwendet wird. 
 
 ```
     Url: https://<url>/networking/v1/iDnsServer/configuration
@@ -111,85 +112,85 @@ Method: PUT
 ```
 
 >[!NOTE]
->Hierbei handelt es sich um einen Auszug aus Abschnitt **Konfiguration ConfigureIDns** in SDNExpress.ps1. Weitere Informationen finden Sie unter [Bereitstellen einer Software-Defined Networking-Infrastruktur mithilfe von Skripts](https://technet.microsoft.com/windows-server-docs/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure-using-scripts).
+>Dies ist ein Auszug aus dem Abschnitt **Konfiguration ConfigureIDns** in SDNExpress.ps1. Weitere Informationen finden Sie unter [Bereitstellen einer Software-Defined Networking-Infrastruktur mithilfe von Skripts](https://technet.microsoft.com/windows-server-docs/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure-using-scripts).
 
-### <a name="step-3-configure-the-idns-proxy-service"></a>Schritt 3: Konfigurieren der iDNS Proxy-Dienst
-Die der iDNS Proxy-Dienst ausgeführt wird, auf jedem Hyper-V-Hosts, die Bereitstellung von der Brücke zwischen virtuellen Netzwerk des Mandanten und dem physischen Netzwerk, in dem sich die iDNS Server befinden. Die folgenden Registrierungsschlüssel müssen auf jedem Hyper-V-Host erstellt werden.
+### <a name="step-3-configure-the-idns-proxy-service"></a>Schritt 3: Konfigurieren Sie die iDNS Proxydienst
+Die iDNS Aktivierungsproxydienst ausgeführt wird, auf jedem der Hyper-V-Hosts bereitstellen als Brücke zwischen der virtuellen Netzwerke von Mandanten und dem physischen Netzwerk, in denen die iDNS-Server befinden. Die folgenden Registrierungsschlüssel müssen auf jedem Hyper-V-Host erstellt werden.
 
 
-**DNS-Port:** fester Port 53
+**DNS-Port:** Fester Port 53
 
-- Registrierungsschlüssel = HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NcHostAgent\Parameters\Plugins\Vnet\InfraServices\DnsProxyService "
-- Wert = "Port"
+- Registry Key = HKLM\SYSTEM\CurrentControlSet\Services\NcHostAgent\Parameters\Plugins\Vnet\InfraServices\DnsProxyService"
+- ValueName = "Port"
 - ValueData = 53
 - ValueType = "Dword"
        
 
-**DNS-Proxy-Port:** fester Port 53
+**DNS-Proxy-Port:** Fester Port 53
 
-- Registrierungsschlüssel = HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NcHostAgent\Parameters\Plugins\Vnet\InfraServices\DnsProxyService "
-- Wert = "ProxyPort"
+- Registry Key = HKLM\SYSTEM\CurrentControlSet\Services\NcHostAgent\Parameters\Plugins\Vnet\InfraServices\DnsProxyService"
+- ValueName = "ProxyPort"
 - ValueData = 53
 - ValueType = "Dword"
         
-**DNS IP:** dies die festen IP-Adresse für die Netzwerkschnittstelle konfiguriert ist, für den Fall, dass Mandanten den Dienst iDNS verwenden möchte.
+**DNS-IP-ADRESSE:** Feste IP-Adresse der Netzwerkschnittstelle konfiguriert werden, für den Fall, dass der Mandant entscheidet sich für den iDNS-Dienst verwenden
 
-- Registrierungsschlüssel = HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NcHostAgent\Parameters\Plugins\Vnet\InfraServices\DnsProxyService "
-- Wert = "IP"
+- Registry Key = HKLM\SYSTEM\CurrentControlSet\Services\NcHostAgent\Parameters\Plugins\Vnet\InfraServices\DnsProxyService"
+- ValueName = "IP"
 - ValueData = "169.254.169.254"
 - ValueType = "String"
 
         
 **MAC-Adresse:** Media Access Control-Adresse des DNS-Servers
 
-- Registrierungsschlüssel = HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NcHostAgent\Parameters\Plugins\Vnet\InfraServices\DnsProxyService
-- Wert = "MAC"
-- ValueData = "aa-bb-cc-aa-bb-cc"
+- Registry Key = HKLM\SYSTEM\CurrentControlSet\Services\NcHostAgent\Parameters\Plugins\Vnet\InfraServices\DnsProxyService
+- ValueName = "MAC"
+- ValueData = “aa-bb-cc-aa-bb-cc”
 - ValueType = "String"
 
-**Adresse des Servers IDNS:** eine durch Kommas getrennte Liste mit iDNS Servern.
+**IDNS-Serveradresse:** Eine durch Trennzeichen getrennte Liste mit iDNS Server.
 
-- Registrierungsschlüssel: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DNSProxy\Parameters
-- Wert = "Weiterleitung"
-- ValueData = "10.0.0.9"
+- Registrierungsschlüssel: HKLM\SYSTEM\CurrentControlSet\Services\DNSProxy\Parameters
+- ValueName = "Forwarders"
+- "ValueData" an "10.0.0.9" =
 - ValueType = "String"
 
 
 
 >[!NOTE]
->Hierbei handelt es sich um einen Auszug aus Abschnitt **Konfiguration ConfigureIDnsProxy** in SDNExpress.ps1. Weitere Informationen finden Sie unter [Bereitstellen einer Software-Defined Networking-Infrastruktur mithilfe von Skripts](https://technet.microsoft.com/windows-server-docs/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure-using-scripts).
+>Dies ist ein Auszug aus dem Abschnitt **Konfiguration ConfigureIDnsProxy** in SDNExpress.ps1. Weitere Informationen finden Sie unter [Bereitstellen einer Software-Defined Networking-Infrastruktur mithilfe von Skripts](https://technet.microsoft.com/windows-server-docs/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure-using-scripts).
 
-### <a name="step-4-restart-the-network-controller-host-agent-service"></a>Schritt 4: Starten den Netzwerk-Controller-Host-Agent-Dienst neu.
-Die folgenden Windows PowerShell-Befehl können Sie den Netzwerk-Controller Host-Agent-Dienst neu starten.
+### <a name="step-4-restart-the-network-controller-host-agent-service"></a>Schritt 4: Den Netzwerk-Controller-Host-Agent-Dienst neu starten
+Folgende Windows PowerShell-Befehle können den Netzwerk-Controller-Host-Agent-Dienst neu starten.
     
     Restart-Service nchostagent -Force
     
 Weitere Informationen finden Sie unter [Restart-Service](https://technet.microsoft.com/library/hh849823.aspx).
 
 ### <a name="enable-firewall-rules-for-the-dns-proxy-service"></a>Aktivieren Sie Firewallregeln für den DNS-Proxy-Dienst
-Die folgenden Windows PowerShell-Befehl können Sie eine Firewallregel erstellen, die Ausnahmen für den Proxy zur Kommunikation mit dem virtuellen Computer und Server iDNS zulässt.
+Folgende Windows PowerShell-Befehle können eine Firewallregel erstellen, die Ausnahmen für den Proxy für die Kommunikation mit dem virtuellen Computer und Server iDNS ermöglicht.
     
     Enable-NetFirewallRule -DisplayGroup 'DNS Proxy Firewall'
 
 Weitere Informationen finden Sie unter [Enable-NetFirewallRule](https://technet.microsoft.com/library/jj554869.aspx).
     
-### <a name="validate-the-idns-service"></a>Überprüfen Sie den Dienst iDNS
-Um die iDNS Service zu überprüfen, müssen Sie eine Beispiel für die Mandanten-Arbeitslast bereitstellen.
+### <a name="validate-the-idns-service"></a>Überprüfen Sie die iDNS Service
+Um die iDNS Service überprüfen zu können, müssen Sie eine Beispiel-mandantenarbeitslast bereitstellen.
 
-Weitere Informationen finden Sie unter [erstellen Sie eine virtuelle Maschine und Verbinden mit einem virtuellen Mandantennetzwerk oder VLAN](https://technet.microsoft.com/windows-server-docs/networking/sdn/manage/create-a-tenant-vm).
+Weitere Informationen finden Sie unter [Erstellen eines virtuellen Computers und Herstellen einer Verbindung mit einem virtuellen Mandantennetzwerk oder VLAN](https://technet.microsoft.com/windows-server-docs/networking/sdn/manage/create-a-tenant-vm).
 
-Wenn Sie die Mandanten-VM, den Dienst iDNS verwenden möchten, müssen Sie die Schnittstellen VM-Netzwerk-DNS-Server-Konfiguration leer lassen und die Schnittstellen DHCP verwenden. 
+Wenn Sie die Mandanten-VM zur Verwendung des Diensts iDNS möchten, müssen Sie die VM-Netzwerk-Schnittstellen-DNS-Server-Konfiguration leer lassen und ermöglichen die Schnittstellen für die Verwendung von DHCP. 
 
-Nach der virtuellen Computer mit solchen eine Netzwerkschnittstelle initiiert wird, es erhält automatisch eine Konfiguration, die den virtuellen Computer mit iDNS ermöglicht, und die virtuelle Maschine sofort namensauflösung mithilfe des Diensts iDNS ausführen.
+Nachdem Sie der virtuellen Computer mit solchen eine Netzwerkschnittstelle initiiert wird, er erhält automatisch eine Konfiguration, die dem virtuellen Computer mit iDNS ermöglicht, und des virtuellen Computers beginnt sofort die namensauflösung mithilfe des Diensts iDNS ausführen.
 
-Wenn Sie die Mandanten-VM mit dem iDNS Dienst von Netzwerk-DNS-Server und alternativer DNS-Server Informationen zur Benutzeroberfläche leer lassen konfigurieren, Netzwerkcontroller stellt den virtuellen Computer mit einer IP-Adresse und führt eine Registrierung der DNS-Namen für die virtuelle Maschine mit dem iDNS Server. 
+Sie konfigurieren, dass die Mandanten-VM in den iDNS-Dienst verwenden, indem DNS-Server und alternativer DNS-Server Netzwerkschnittstelleninformationen leer lassen, Netzwerkcontroller stellt den virtuellen Computer mit einer IP-Adresse an und führt eine DNS-Name-Registrierung im Namen des virtuellen Computers mit der iDNS Server . 
 
-Netzwerkcontroller informiert den Proxy iDNS auch über den virtuellen Computer und die erforderlichen Details namensauflösung für den virtuellen Computer ausführen. 
+Netzwerkcontroller enthält außerdem die iDNS-Proxy über den virtuellen Computer und die erforderlichen Details namensauflösung für den virtuellen Computer ausführen. 
 
-Wenn der virtuelle Computer eine DNS-Abfrage initiiert, fungiert der Proxy als Weiterleitung der Abfrage aus dem virtuellen Netzwerk an den Dienst iDNS. 
+Wenn eine DNS-Abfrage mit der virtuellen Computer initiiert wird, fungiert der Proxy als Weiterleitung die Abfrage aus dem Virtuellenetzwerk an den Dienst iDNS. 
 
-Der DNS-Proxy wird sichergestellt, dass die Mandanten-VM-Abfragen isoliert sind. Wenn der iDNS Server für die Abfrage der iDNS Server antwortet mit eine autorisierende Antwort. Ist der Server iDNS nicht autorisierend für die Abfrage, eine Rekursion DNS zum Auflösen von Internetnamen ausgeführt.
+Der DNS-Proxy wird sichergestellt, dass die Mandanten-VM-Abfragen isoliert sind. Wenn die iDNS-Server für die Abfrage autorisierend ist, antwortet der iDNS-Server eine autorisierende Antwort. Wenn der Server iDNS nicht autorisierend für die Abfrage ist, führt es eine Rekursion DNS zum Auflösen von Internetnamen.
 
 >[!NOTE]
->Diese Informationen finden Sie im Abschnitt **Konfiguration AttachToVirtualNetwork** in SDNExpressTenant.ps1. Weitere Informationen finden Sie unter [Bereitstellen einer Software-Defined Networking-Infrastruktur mithilfe von Skripts](https://technet.microsoft.com/windows-server-docs/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure-using-scripts).
+>Diese Informationen sind im Abschnitt enthalten **Konfiguration AttachToVirtualNetwork** in SDNExpressTenant.ps1. Weitere Informationen finden Sie unter [Bereitstellen einer Software-Defined Networking-Infrastruktur mithilfe von Skripts](https://technet.microsoft.com/windows-server-docs/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure-using-scripts).
 

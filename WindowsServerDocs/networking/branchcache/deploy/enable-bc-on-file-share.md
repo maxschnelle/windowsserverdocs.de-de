@@ -1,6 +1,6 @@
 ---
-title: Aktivieren von BranchCache auf einer Dateifreigabe (Optional)
-description: In diesem Thema ist Teil der BranchCache Deployment Guide für Windows Server 2016, der veranschaulicht, wie Sie BranchCache im verteilten und gehosteter cachemodi zum Optimieren der WAN-Bandbreite in Zweigstellen bereitstellen
+title: Aktivieren von BranchCache auf einer Dateifreigabe (optional)
+description: Dieses Thema ist Teil von BranchCache Deployment Guide für Windows Server 2016, die veranschaulicht, wie Sie BranchCache in verteilter und gehosteter Cachemodus zur Optimierung der WAN-bandbreitennutzung in Zweigstellen bereitstellen
 manager: brianlic
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -13,39 +13,40 @@ ms.topic: get-started-article
 ms.assetid: 9c465a9e-c504-44ec-9ebc-4e06ba54db30
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 33ed40ef91d9389bb7940dcf928cba43f0c9dbd2
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 36d8379378529a94874c82e0aa90a6440f0281b2
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59822231"
 ---
-# <a name="enable-branchcache-on-a-file-share-optional"></a>Aktivieren von BranchCache auf einer Dateifreigabe (Optional)
+# <a name="enable-branchcache-on-a-file-share-optional"></a>Aktivieren von BranchCache auf einer Dateifreigabe (optional)
 
->Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
-Dieses Verfahrens können Sie um BranchCache auf einer Dateifreigabe aktivieren.  
+Sie können dieses Verfahren verwenden, zum Aktivieren von BranchCache auf einer Dateifreigabe.  
   
 > [!IMPORTANT]  
 > Sie müssen sich nicht um dieses Verfahren auszuführen, wenn Sie die hashveröffentlichungseinstellung, mit dem Wert konfigurieren **hashveröffentlichung für alle freigegebenen Ordner zulassen**.  
   
-Mitgliedschaft in **Administratoren**, oder einer entsprechenden Gruppe die mindestvoraussetzung, um dieses Verfahren auszuführen.  
+Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe sein, um dieses Verfahren ausführen zu können.  
   
-### <a name="to-enable-branchcache-on-a-file-share"></a>So aktivieren Sie BranchCache auf einer Dateifreigabe  
+### <a name="to-enable-branchcache-on-a-file-share"></a>Zum Aktivieren von BranchCache auf einer Dateifreigabe  
   
-1.  Öffnen Sie Windows PowerShell, geben **Mmc**, und drücken Sie dann die EINGABETASTE. Die Microsoft Management Console (MMC) wird geöffnet.  
+1.  Öffnen Sie Windows PowerShell, geben Sie **mmc**ein, und drücken Sie dann die EINGABETASTE. Die Microsoft Management Console (MMC) wird geöffnet.  
   
-2.  In der MMC auf die **Datei** Menü klicken Sie auf **Snap-In hinzufügen/entfernen**. Die **hinzufügen oder Entfernen von Snap-Ins** Dialogfeld wird geöffnet.  
+2.  Klicken Sie in der MMC im Menü **Datei** auf **Snap-In hinzufügen/entfernen**. Das Dialogfeld **Snap-Ins hinzufügen bzw. entfernen** wird geöffnet.  
   
-3.  In **hinzufügen oder Entfernen von Snap-Ins**im **Verfügbare Snap-Ins**, doppelklicken Sie auf **freigegebene Ordner**. Der Assistent zum freigegebenen Ordner, die mit dem lokalen Computer-Objekt ausgewählt wird geöffnet. Konfigurieren Sie die Ansicht, in der Sie arbeiten möchten, klicken Sie auf **Fertig stellen**, und klicken Sie dann auf **OK**.  
+3.  In **hinzufügen oder Entfernen von-Snap-ins**im **Verfügbare Snap-Ins**, doppelklicken Sie auf **gemeinsam genutzten Ordnern**. Der freigegebene Ordner-Assistent wird geöffnet, mit dem lokalen Computer-Objekt, das ausgewählt. Konfigurieren Sie die Ansicht, die Sie bevorzugen, klicken Sie auf **Fertig stellen**, und klicken Sie dann auf **OK**.  
   
-4.  Doppelklicken Sie auf **freigegebene Ordner (lokal)**, und klicken Sie dann auf **Freigaben**.  
+4.  Doppelklicken Sie auf **gemeinsam genutzten Ordnern (lokal)**, und klicken Sie dann auf **Freigaben**.  
   
-5.  Klicken Sie im Detailbereich mit der rechten Maustaste einer Freigabe, und klicken Sie dann auf **Eigenschaften**. Der Freigabe **Eigenschaften** Dialogfeld wird geöffnet.  
+5.  Klicken Sie im Detailbereich mit der rechten Maustaste in einer Freigabe, und klicken Sie dann auf **Eigenschaften**. Der Freigabe **Eigenschaften** Dialogfeld wird geöffnet.  
   
-6.  In der **Eigenschaften** Dialogfeld auf die **allgemeine** auf **Offline-Einstellungen**. Die **Offline-Einstellungen** Dialogfeld wird geöffnet.  
+6.  In der **Eigenschaften** Dialogfeld auf die **allgemeine** auf **Offlineeinstellungen**. Die **Offlineeinstellungen** Dialogfeld wird geöffnet.  
   
-7.  Stellen Sie sicher, dass **nur die Dateien und Programme, die Benutzer angeben, offline verfügbar** ausgewählt ist, und klicken Sie dann auf **BranchCache aktivieren**.  
+7.  Sicherstellen, dass **nur die Dateien und Programme, die Benutzer angeben, offline verfügbar** ausgewählt ist, und klicken Sie dann auf **BranchCache aktivieren**.  
   
-8.  Klicken Sie auf **OK** zweimal.  
+8.  Klicken Sie zweimal auf **OK** .  
   
 

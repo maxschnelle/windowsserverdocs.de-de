@@ -1,6 +1,6 @@
 ---
-title: Passen freigegebener Ordner an
-description: Beschreibt, wie Sie Windows Server Essentials
+title: Anpassen freigegebener Ordner
+description: Beschreibt, wie Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -12,51 +12,52 @@ ms.assetid: 47bc4986-14eb-4a29-9930-83a25704a3a0
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: bcdd43183512bb225dd4afa916f2782c6eb79d7e
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.openlocfilehash: 552a76ba9c2ff385f1ff09d4869eaeb6613027a7
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59823471"
 ---
-# <a name="customize-shared-folders"></a>Passen freigegebener Ordner an
+# <a name="customize-shared-folders"></a>Anpassen freigegebener Ordner
 
->Gilt für: Windows Server2016 Essentials, Windows Server2012 R2 Essentials, Windows Server2012 Essentials
+>Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Standardmäßig werden Serverordner auf der größten Datenpartition auf Datenträger 0 erstellt. Partner können den Ort anpassen und zusätzliche Serverordner anzugeben, indem Sie die folgenden Schritteaus:  
+Standardmäßig werden Serverordner auf der größten Datenpartition auf Datenträger 0 erstellt. Partner können mit den folgenden Schritten den Ort anpassen und weitere Serverordner erstellen:  
   
-1.  Erstellen Sie mithilfe einer benutzerdefinierten Partitionskonfiguration das werkseitige Image, und klicken Sie dann erstellen Sie einen neuen Registrierungsschlüssel für den Speicher, bevor Sie Sysprep verwenden. Während der ersten Konfiguration (IC) überprüft der speichererstkonfiguration dieser Registrierungsschlüssel. Wenn sie vorhanden ist, werden die standardmäßigen Serverordner im Verzeichnis C:\ServerFolders erstellt.  
+1.  Erstellen Sie mit einer benutzerdefinierten Partitionskonfiguration das Originalabbild, und erstellen Sie dann einen neuen Registrierungsschlüssel "Storage", bevor Sie sysprep verwenden. Während der Erstkonfiguration wird bei der Speichererstkonfiguration dieser Registrierungsschlüssel überprüft. Ist er vorhanden, werden die standardmäßigen Serverordner im Verzeichnis "C:\ServerFolders" erstellt.  
   
-    #### <a name="to-create-a-new-storage-registry-key"></a>Erstellen Sie einen neuen Speicher-Registrierungsschlüssel  
+    #### <a name="to-create-a-new-storage-registry-key"></a>So erstellen Sie einen neuen Registrierungsschlüssel "Storage"  
   
-    1.  Auf dem Server, bewegen Sie den Mauszeiger in die obere rechte Ecke des Bildschirms, und klicken Sie auf **Suche**.  
+    1.  Bewegen Sie Ihre Maus auf dem Server in die obere rechte Ecke des Bildschirms, und klicken Sie auf **Suchen**.  
   
-    2.  Geben Sie in das Suchfeld **Regedit**, und klicken Sie dann auf die **Regedit** Anwendung.  
+    2.  Geben Sie im Suchfeld **regedit**ein, und klicken Sie dann auf die Anwendung **Regedit** .  
   
-    3.  Erweitern Sie im Navigationsbereich **HKEY_LOCAL_MACHINE**, erweitern Sie **SOFTWARE**, und erweitern Sie dann **Microsoft**.  
+    3.  Erweitern Sie im Navigationsbereich **HKEY_LOCAL_MACHINE**, **SOFTWARE** und dann **Microsoft**.  
   
-    4.  Mit der rechten Maustaste **Windows Server**, klicken Sie auf **neu**, und klicken Sie dann auf **Schlüssel**.  
+    4.  Klicken Sie mit der rechten Maustaste auf **Windows Server**, klicken Sie auf **Neu**, und klicken Sie dann auf **Schlüssel**.  
   
-    5.  Benennen Sie den Schlüssel **Speicher**.  
+    5.  Nennen Sie den Schlüssel **Storage**.  
   
-    6.  Klicken Sie im Navigationsbereich mit der Maustaste der neue Speicher-Registrierung, klicken Sie auf **neu**, und klicken Sie dann auf **DWORD-Wert (32-Bit)**.  
+    6.  Klicken Sie im Navigationsbereich mit der rechten Maustaste auf den neuen Registrierungsschlüssel "Storage", klicken Sie auf **Neu**, und klicken Sie dann auf **DWORD-Wert (32-Bit)**.  
   
-    7.  Namen der Zeichenfolge **CreateFoldersOnSystem**.  
+    7.  Geben Sie als Namen der Zeichenfolge **CreateFoldersOnSystem**ein.  
   
-    8.  Mit der rechten Maustaste **CreateFoldersOnSystem**, und klicken Sie dann auf **ändern**. Die **Zeichenfolge bearbeiten** Dialogfeld wird angezeigt.  
+    8.  Klicken Sie mit der rechten Maustaste auf **CreateFoldersOnSystem**, und klicken Sie dann auf **Ändern**. Das Dialogfeld **Zeichenfolge bearbeiten** wird angezeigt.  
   
-    9. Legen Sie den Wert dieses neuen Schlüssels auf **1**, und klicken Sie dann auf **OK**.  
+    9. Legen Sie den Wert dieses neuen Schlüssels auf **1**fest, und klicken Sie dann auf **OK**.  
   
-2.  Verwenden Sie das PostIC.cmd-Skript, um die Ordner an einen anderen Speicherort verschieben oder weitere Ordner zu erstellen. Im folgenden Beispiel dargestellt: [Beispiel 1: Erstellen eines benutzerdefinierten Ordners und Verschieben der Standardordner von PostIC.cmd an einen neuen Speicherort mithilfe von Windows PowerShell](Customize-Shared-Folders.md#BKMK_Example1).  
+2.  Verwenden Sie das Skript "PostIC.cmd", um die Ordner an einen anderen Ort zu verschieben oder um weitere Ordner zu erstellen. Siehe das folgende Beispiel: [Beispiel 1: Erstellen eines benutzerdefinierten Ordners und Verschieben der Standardordner von "postic.cmd" an einen neuen Ort mithilfe von Windows PowerShell](Customize-Shared-Folders.md#BKMK_Example1).  
   
-3.  Verwenden Sie Windows Server Solutions SDK, um die Ordner an einen anderen Speicherort zu verschieben oder um weitere Ordner zu erstellen. Im folgenden Beispiel dargestellt: [Beispiel 2: Erstellen eines benutzerdefinierten Ordners und Verschieben eines vorhandenen Ordners mithilfe von Windows Server Solutions SDK](Customize-Shared-Folders.md#BKMK_Example2).  
+3.  Verwenden Sie das SDK für Windows Server-Lösungen, um die Ordner an einen anderen Ort zu verschieben oder um weitere Ordner zu erstellen. Siehe das folgende Beispiel: [Beispiel 2: Erstellen eines benutzerdefinierten Ordners und Verschieben eines vorhandenen Ordners mit dem Windows Server Solutions SDK](Customize-Shared-Folders.md#BKMK_Example2).  
   
- Optional können Partner die Datenordner auf Laufwerk c: lassen Dadurch können die Endbenutzer oder Wiederverkäufer das Layout der Datenordner auf den Datenlaufwerken bestimmen.  
+ Optional können Partner die Datenordner auf dem Laufwerk "C" belassen. So kann der Endbenutzer oder der Handelspartner das Layout der Datenordner auf den Datenlaufwerken bestimmen.  
   
-###  <a name="BKMK_Example1"></a>Beispiel 1: Erstellen eines benutzerdefinierten Ordners und Verschieben der Standardordner von PostIC.cmd an einen neuen Ort mithilfe von Windows PowerShell  
+###  <a name="BKMK_Example1"></a> Beispiel 1: Erstellen eines benutzerdefinierten Ordners und Verschieben der Standardordner von "PostIC.cmd" an einen neuen Ort mithilfe von Windows PowerShell.  
   
-1.  Erstellen Sie eine Datei "PostIC.cmd" zum Ausführen von Aufgaben zur Erstkonfiguration beschriebenen nach der [erstellen die PostIC.cmd-Datei für die Ausführung Posten Aufgaben zur Erstkonfiguration](Create-the-PostIC.cmd-File-for-Running-Post-Initial-Configuration-Tasks.md) Abschnitt.  
+1.  Erstellen Sie die Datei "PostIC.cmd" zum Ausführen von Aufgaben nach der Erstkonfiguration, wie im Abschnitt [Erstellen der Datei "PostIC.cmd" zum Ausführen von Aufgaben nach der Erstkonfiguration](Create-the-PostIC.cmd-File-for-Running-Post-Initial-Configuration-Tasks.md) erläutert.  
   
-2.  Mit dem Editor, erstellen Sie eine Datei namens **customizefolders. ps1** im C:\Windows\Setup\Scripts Ordner, und fügen Sie dann die folgenden Windows PowerShell® Befehle in die Datei (Markierung entsprechende Zeilen abhängig vom gewünschten Verhalten).  
+2.  Erstellen Sie in Editor eine Datei mit dem Namen **customizefolders.ps1** im Ordner "C:\Windows\Setup\Scripts". Fügen Sie dann die folgenden Windows PowerShell®-Befehle in die Datei ein (heben Sie die Markierung entsprechender Zeilen abhängig vom gewünschten Verhalten auf).  
   
     ```  
     # Move the Documents folder to D:\ServerFolders  
@@ -83,7 +84,7 @@ Standardmäßig werden Serverordner auf der größten Datenpartition auf Datentr
     exit 0  
     ```  
   
-3.  Fügen Sie die folgende Zeile in die Datei "PostIC.cmd" zum Ausführen des Skripts.  
+3.  Fügen Sie der Datei "PostIC.cmd" die folgende Zeile hinzu, um dieses Skript auszuführen.  
   
     ```  
     REM Lower the execution policy  
@@ -93,13 +94,13 @@ Standardmäßig werden Serverordner auf der größten Datenpartition auf Datentr
     "%programfiles%\Windows Server\bin\WssPowershell.exe" -NoProfile -Noninteractive -command ". %windir%\setup\scripts\customizefolders.ps1;exit $LASTEXITCODE"  
     Set error_level=%ERRORLEVEL%  
   
-    REM Restore the execution policy to deafult  
+    REM Restore the execution policy to default  
     "%programfiles%\Windows Server\bin\WssPowershell.exe" "Set-ExecutionPolicy Restricted"  
     Set ERRORLEVEL=%error_level%  
     ```  
   
-###  <a name="BKMK_Example2"></a>Beispiel 2: Erstellen eines benutzerdefinierten Ordners und Verschieben eines vorhandenen Ordners mithilfe von Windows Server Solutions SDK  
- Die, den von Ihnen erstellte Code kann erfüllt als ausführbare Datei, und klicken Sie dann aus der PostIC.cmd-Datei aufgerufen oder direkt aus einem installierten Add-In aufgerufen werden.  
+###  <a name="BKMK_Example2"></a> Beispiel 2: Erstellen eines benutzerdefinierten Ordners und Verschieben eines vorhandenen Ordners mit dem SDK für Windows Server-Lösungen.  
+ Der von Ihnen erstellte Code kann als ausführbare Datei kompiliert werden und dann von der Datei "PostIC.cmd" oder direkt von einem installierten Add-In aufgerufen werden.  
   
 ```  
 static void Main(string[] args)  
@@ -144,6 +145,6 @@ static void Main(string[] args)
   
 ## <a name="see-also"></a>Siehe auch  
  [Erstellen und Anpassen des Abbilds](Creating-and-Customizing-the-Image.md)   
- [Weitere Anpassungen](Additional-Customizations.md)   
+ [Zusätzliche Anpassungen](Additional-Customizations.md)   
  [Vorbereiten des Abbilds für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
  [Testen der Benutzerfreundlichkeit](Testing-the-Customer-Experience.md)

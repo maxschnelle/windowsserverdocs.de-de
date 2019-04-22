@@ -1,6 +1,6 @@
 ---
 title: Bereitstellen von gehosteten Cacheserver (Optional)
-description: In diesem Thema ist Teil der BranchCache Deployment Guide für Windows Server 2016, der veranschaulicht, wie Sie BranchCache im verteilten und gehosteter cachemodi zum Optimieren der WAN-Bandbreite in Zweigstellen bereitstellen
+description: Dieses Thema ist Teil von BranchCache Deployment Guide für Windows Server 2016, die veranschaulicht, wie Sie BranchCache in verteilter und gehosteter Cachemodus zur Optimierung der WAN-bandbreitennutzung in Zweigstellen bereitstellen
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking-bc
@@ -8,36 +8,37 @@ ms.topic: get-started-article
 ms.assetid: 96d03b42-6cd9-4905-b6a2-dc36130dd24f
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: d7345b9acf5ef5003cc2a811569083d7c12894a1
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: b19680e933e7a33871816578b63c5a141db0ce00
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59826211"
 ---
 # <a name="deploy-hosted-cache-servers-optional"></a>Bereitstellen von gehosteten Cacheserver (Optional)
 
->Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
-Sie können dieses Verfahren zum Installieren und Konfigurieren von BranchCache-gehosteten Cacheserver, die sich in Filialen befinden, in der Sie BranchCache-gehosteten Cachemodus bereitstellen möchten. Mit BranchCache in Windows Server2016 können Sie mehrere gehostete Cacheserver in einer Zweigstelle bereitstellen.  
+Sie können dieses Verfahren verwenden, installieren und Konfigurieren von BranchCache-gehosteten Cacheserver, die in Filialen befinden, in der Sie gehosteten BranchCache-Cachemodus bereitstellen möchten. Mit BranchCache in Windows Server 2016 können Sie mehrere gehostete Cacheserver in einer Zweigstelle bereitstellen.  
   
 > [!IMPORTANT]  
-> Dieser Schrittist optional, da Modus für verteilte Caches nicht auf einen gehosteten Server-Computer in Zweigstellen erforderlich sind. Wenn Sie nicht beabsichtigen bereitstellen Modus für gehostete Caches in Zweigstellen, Sie müssen nicht auf einen gehosteten Cacheserver bereitstellen und Sie müssen nicht die Schrittein diesem Verfahren.  
+> Dieser Schritt ist optional, da Modus "verteilter Cache" nicht mit einen gehosteten Cacheserver-Server-Computer in Zweigstellen erfordert. Wenn Sie nicht beabsichtigen bereitstellen Modus für gehostete Caches in Zweigstellen, Sie müssen sich nicht um einen gehosteten Cacheserver bereitzustellen, und Sie müssen nicht die Schritte in diesem Verfahren ausführen.  
   
-Sie müssen ein Mitglied sein **Administratoren**, oder eine gleichwertige, um dieses Verfahren auszuführen.  
+Sie müssen ein Mitglied sein **Administratoren**, oder führen Sie dieses Verfahren entspricht.  
   
-### <a name="to-install-and-configure-a-hosted-cache-server"></a>So installieren und konfigurieren einen gehosteten Cacheserver  
+### <a name="to-install-and-configure-a-hosted-cache-server"></a>Installieren und konfigurieren einen gehosteten Cacheserver  
   
-1.  Führen Sie auf dem Computer, den Sie als einen gehosteten Cacheserver konfigurieren möchten den folgenden Befehl an einer Windows PowerShell-Eingabeaufforderung das BranchCache-Feature installieren.  
+1.  Führen Sie auf dem Computer, den Sie als gehosteten Cacheserver konfigurieren möchten den folgenden Befehl an einer Windows PowerShell-Eingabeaufforderung zur Installation der BranchCache-Funktion.  
   
     `Install-WindowsFeature BranchCache -IncludeManagementTools`  
   
-2.  Konfigurieren Sie den Computer als gehosteten Cacheserver mit einer der folgenden Befehle:  
+2.  Konfigurieren Sie den Computer als gehosteten Cacheserver, indem Sie eine der folgenden Befehle aus:  
   
-    -   Um einen verbundenen Computer außerhalb der Domäne als gehosteten Cacheserver konfigurieren, geben Sie den folgenden Befehl an der Windows PowerShell-Eingabeaufforderung, und drücken Sie dann die EINGABETASTE.  
+    -   Um einen nicht in die Domäne eingebundenen Computer als gehosteten Cacheserver konfigurieren zu können, geben Sie den folgenden Befehl an der Windows PowerShell-Eingabeaufforderung, und drücken Sie dann die EINGABETASTE.  
   
         `Enable-BCHostedServer`  
   
-    -   Zum Konfigurieren einer Domäne beigetreten Computer als gehosteten Cacheserver und um Service Connection Point in Active Directory automatisch nach gehosteten Cacheservern gesucht von Clientcomputern registrieren, geben Sie den folgenden Befehl an der Windows PowerShell-Eingabeaufforderung, und drücken Sie dann die EINGABETASTE.  
+    -   Um einem zur Domäne gehörenden Computer als einen gehosteten Cacheserver konfigurieren und registrieren ein Dienstverbindungspunkts in Active Directory für die automatisch nach gehosteten Cacheservern gesucht von Clientcomputern, geben Sie den folgenden Befehl an der Windows PowerShell-Eingabeaufforderung, und klicken Sie dann Drücken Sie die EINGABETASTE.  
   
         `Enable-BCHostedServer -RegisterSCP`  
   
@@ -46,6 +47,6 @@ Sie müssen ein Mitglied sein **Administratoren**, oder eine gleichwertige, um d
     `Get-BCStatus`  
   
     > [!NOTE]  
-    > Nach dem Ausführen dieses Befehls im Abschnitt **HostedCacheServerConfiguration**, den Wert für **HostedCacheServerIsEnabled** ist **True **. Wenn Sie einen Domäne verbundenen gehosteten Cacheserver einen Dienstverbindungspunkt (SCP) in Active Directory, den Wert für die Registrierung konfiguriert **HostedCacheScpRegistrationEnabled** ist **True **.  
+    > Nach dem Ausführen dieses Befehls im Abschnitt **HostedCacheServerConfiguration**, den Wert für **HostedCacheServerIsEnabled** ist **"true"**. Wenn Sie die Domäne eingebundenen gehosteten Cacheserver um einen Dienstverbindungspunkt (SCP) im Active Directory, dessen Wert für zu registrieren konfiguriert **HostedCacheScpRegistrationEnabled** ist **"true"**.  
   
 

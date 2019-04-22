@@ -1,6 +1,6 @@
 ---
-title: Neues in IPAM unter Windows Server, Version 1803.
-description: Neue Features für Computesysteme, Identität, Verwaltung, Automatisierung, Netzwerk, Sicherheit und Speicher
+title: Neues in Windows Server, Version 1803
+description: Welche neuen Features sind für Compute, Identitäten, Verwaltung, Automatisierung, Netzwerk, Sicherheit und Speicher verfügbar?
 ms.prod: windows-server-threshold
 ms.technology: server-general
 ms.topic: article
@@ -9,11 +9,11 @@ ms.author: greg-lindsay
 ms.localizationpriority: high
 ms.date: 05/07/2018
 ms.openlocfilehash: c4f80b668b91e65b6c8bc528e14f52a1d117a3c9
-ms.sourcegitcommit: e0479b0114eac7f232e8b1e45eeede96ccd72b26
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "2061470"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59823091"
 ---
 # <a name="whats-new-in-windows-server-version-1803"></a>Neues in IPAM unter Windows Server, Version 1803.
 
@@ -43,10 +43,10 @@ Die spezifischen Szenarien für Semi-Annual Channel und Long-Term Servicing Chan
 | ------------- | ------------- | ------------ |
 | Empfohlene Szenarien     | Dateiserver für allgemeine Zwecke, Erst- und Drittanbieter-Arbeitslasten, herkömmliche Apps, Infrastruktur-Rollen, Software-Defined Datacenter und hyperkonvergente Infrastruktur  | Containerisierte Anwendungen, Container-Hosts und Anwendungsszenarien profitieren von schneller Innovation |
 | Neu erschienen  | Alle 2 – 3 Jahre  | Alle sechs Monate |
-| Unterstützung  | 5Jahre Mainstreamsupport und 5Jahre erweiterten Support  | 18 Monate |
-| Editionen  | Alle verfügbaren Editionen von Windows Server  | Standard-Edition und Datacenter-Edition |
-| Wer kann es verwenden  | Alle Kunden über alle Kanäle | Software Assurance und Cloud-Kunden |
-| Installationsoptionen  | Server Core und Server mit Desktop-Version  | Server Core für Containerhost, Containerimage und Nano Server-Containerimage |
+| Support  | 5 Jahre Mainstreamsupport und 5 Jahre erweiterten Support  | 18 Monate |
+| Editionen  | Alle verfügbaren Editionen von Windows Server  | Standard Edition und Datacenter Edition |
+| Wer kann es verwenden  | Alle Kunden über alle Kanäle | Software Assurance und Cloud nur für Kunden |
+| Installationsoptions  | Server Core und Server mit Desktop-Version  | Server Core für Containerhost, Containerimage und Nano Server-Containerimage |
 
 ## <a name="application-platform-and-containers"></a>Anwendungsplattform und Container
 
@@ -54,8 +54,8 @@ Die spezifischen Szenarien für Semi-Annual Channel und Long-Term Servicing Chan
     - Das Server Core-Containerimage wird von Windows Server, Version 1709, um 30 % reduziert. 
     - Anwendungskompatibilität wurde auch zur Unterstützung der traditionellen Anwendungscontainer verbessert.
     - Container Start- und Laufzeitleistung wurden dank verschiedener Fixes und Optimierungen verbessert.
-- Container-Netzwerke: Localhost und HTTP-Proxy-Unterstützung wurde hinzugefügt, und Container-Skalierbarkeit und Startzeit wurden verbessert.
-- Tools: Unterstützung für Curl.exe, Tar.exe und SSH wurde verbessert, um PowerShell als Ergänzung für das Erstellen und Debuggen von Szenarien zu verwenden.
+- Containernetzwerk-Funktionen: "Localhost" und HTTP-Proxy-Unterstützung hinzugefügt wurde, und Container Skalierbarkeit und die Startzeit wird verbessert.
+- Tools: Unterstützung für Curl.exe Tar.exe und SSH wurde verbessert, um PowerShell zum Erstellen und Debuggen von Szenarien zu ergänzen.
 
 ### <a name="server-core-container-image"></a>Server Core-Containerimage
 
@@ -75,9 +75,9 @@ WSL ermöglicht Serveradministratoren, vorhandene Tools und Linux-Skripts auf Wi
 Kubernetes (häufig K8s genannt) ist ein Open-Source-System für die Automatisierung der Bereitstellung, Skalierung und Verwaltung von containerisierten Anwendungen, die unter dem Engagement der [Cloud Native Computing Foundation](https://www.cncf.io)entwickelt wurden. 
 
 In Windows Server, Version 1709, konnten Benutzer Kubernetes auf Windows-Netzwerken nutzen, einschließlich:
-- Freigegebene Pod-Depots: Infrastruktur- und Worker-Pods teilen sich jetzt einen Netzwerkdepot (vergleichbar mit einem Linux-Namespace).
-- Optimierung der Endpunkte: Dank der Depotfreigabe müssen Container-Dienste (mindestens) nur halb so viele Endpunkte wie zuvor nachverfolgen.
-- Optimierung des Datenpfads: Verbesserungen der virtuellen Filterplattform und des Host Networking Service ermöglichen einen Kernel-basierten Lastenausgleich.
+- Freigegebene Pod Depots: Infrastruktur- und Workerrollen Pods verfügen nun über ein netzwerkdepot (analog zu einem Linux-Namespace).
+- Endpunktoptimierung: Dank der Depot freigeben zu können müssen containerdienste mindestens die Hälfte so viele Endpunkte nachverfolgen.
+- Datenpfad-Optimierung: Verbesserungen an der virtuellen Filterplattform und der Dienst für die Host-Netzwerke ermöglichen die Kernel-basierte Lastenausgleich.
 
 Mit der Version von Windows Server, Version 1803 sind weitere Features in kommenden Kubernetes-Versionen verfügbar: 
 - [Speicher-Plug-Ins](https://github.com/Microsoft/K8s-Storage-Plugins) für Windows-Container, von Kubernetes koordiniert.
@@ -108,7 +108,7 @@ Den folgenden Windows PowerShell-Befehl können Sie verwenden, um den Transport-
 Install-WindowsFeature -Name WDS
 ```
 
-## <a name="see-also"></a>Weitere Informationen:
+## <a name="see-also"></a>Siehe auch
 
-[Dateiinformationen für die Windows Server-Version](https://docs.microsoft.com/windows-server/get-started/windows-server-release-info)<br>
-[Neues in Windows10, Version 1803 - IT Pro-Inhalt](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1803)
+[Informationen zu Windows Server-Version](https://docs.microsoft.com/windows-server/get-started/windows-server-release-info)<br>
+[Was ist neu in Windows 10, Version 1803 IT Pro-Inhalt](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1803)

@@ -1,6 +1,6 @@
 ---
-title: "Legen Sie die Zielpriorität zum Überschreiben der Sortiermethode von Verweisen fest"
-description: "Dieser Artikel beschreibt die Vorgehensweise beim Festlegen der Zielpriorität, um die Verweisreihenfolge außer Kraft zu setzen"
+title: Festlegen der Zielpriorität zum Überschreiben der Sortiermethode von Verweisen
+description: Dieser Artikel beschreibt die Vorgehensweise beim Festlegen der Zielpriorität, um die Verweisreihenfolge außer Kraft zu setzen
 ms.date: 6/5/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -8,19 +8,20 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 10f5e8979ae2f6390da76276dfa193226019e5d3
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.openlocfilehash: 59db08d5ef46b696f550a5fa0738c5c1f9375fda
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59826361"
 ---
 # <a name="set-target-priority-to-override-referral-ordering"></a>Legen Sie die Zielpriorität zum Überschreiben der Sortiermethode von Verweisen fest
 
-> Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server2012 R2, Windows Server 2012, Windows Server2008 R2, Windows Server 2008
+> Gilt für: WindowsServer 2019, WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2, WindowsServer 2008
 
 Ein Verweis ist eine sortierte Zielliste, die ein Client-PC von einem Domänencontroller oder Namespaceserver empfängt, wenn der Benutzer auf einen Namespacestamm oder -ordner mit Zielen im Namespace zugreift. Die einzelnen Ziele in einem Verweis werden gemäß der Sortiermethode für den Namespacestamm oder -ordner sortiert. 
 
-Sie können für einzelne Ziele eine Priorität festlegen, um die Sortierung der Ziele zu optimieren. Sie können z.B. angeben, dass das Ziel das erste von allen Zielen, das letzte von allen Zielen oder das erste oder letzte von allen Zielen mit gleichen Kosten ist.
+Sie können für einzelne Ziele eine Priorität festlegen, um die Sortierung der Ziele zu optimieren. Sie können z. B. angeben, dass das Ziel das erste von allen Zielen, das letzte von allen Zielen oder das erste oder letzte von allen Zielen mit gleichen Kosten ist.
 
 ## <a name="to-set-target-priority-on-a-root-target-for-a-domain-based-namespace"></a>So legen Sie die Zielpriorität eines Stammziels für einen domänenbasierten Namespace fest
 
@@ -52,9 +53,9 @@ Verwenden Sie zum Festlegen der Zielpriorität eines Ordnerziels das folgende Ve
 4.  Klicken Sie auf der Registerkarte **Erweitert** auf **Folgende Verweisreihenfolge außer Kraft setzen**, und klicken Sie dann auf die gewünschte Priorität.
 
 > [!NOTE]
-> Um Zielprioritäten mithilfe von Windows PowerShell festzulegen, verwenden Sie die Cmdlets [Set-DfsnRootTarget](https://technet.microsoft.com/library/jj884266.aspx) und [Set-DfsnFolderTarget](https://technet.microsoft.com/library/jj884264.aspx) mit den Parametern **ReferralPriorityClass** und **ReferralPriorityRank**. Diese Cmdlets wurden in Windows Server2012 eingeführt.
+> Um Zielprioritäten mithilfe von Windows PowerShell festzulegen, verwenden Sie die Cmdlets [Set-DfsnRootTarget](https://technet.microsoft.com/library/jj884266.aspx) und [Set-DfsnFolderTarget](https://technet.microsoft.com/library/jj884264.aspx) mit den Parametern **ReferralPriorityClass** und **ReferralPriorityRank**. Diese Cmdlets wurden in Windows Server 2012 eingeführt.
 
-## <a name="see-also"></a>Weitere Informationen:
+## <a name="see-also"></a>Siehe auch
 
 -   [Optimieren von DFS-Namespaces](tuning-dfs-namespaces.md)
 -   [Delegieren von Verwaltungsberechtigungen für DFS-Namespaces](delegate-management-permissions-for-dfs-namespaces.md)

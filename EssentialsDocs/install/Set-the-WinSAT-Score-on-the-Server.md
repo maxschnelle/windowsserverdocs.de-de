@@ -1,6 +1,6 @@
 ---
 title: Festlegen der WinSAT-Bewertung auf dem Server
-description: Beschreibt, wie Sie Windows Server Essentials
+description: Beschreibt, wie Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,35 +13,36 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 77866acccac13ac48da8779700c8654f2c7f3277
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59819951"
 ---
 # <a name="set-the-winsat-score-on-the-server"></a>Festlegen der WinSAT-Bewertung auf dem Server
 
->Gilt für: Windows Server2016 Essentials, Windows Server2012 R2 Essentials, Windows Server2012 Essentials
+>Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Sie sollten die WinSAT-CPU-Bewertung für einen Server festlegen, die das Betriebssystem Windows Server Essentials zum Optimieren Sie die Video-Streaming-Auflösung ausgeführt wird. Dazu erstellen und installieren Sie die XML-Datei, die die Informationen zur WinSAT-Bewertung enthält.  
+Sie sollten die WinSAT-CPU-Bewertung für einen Server festlegen, die die Windows Server Essentials-Betriebssystems zur Optimierung der video-streaming-Lösung ausgeführt wird. Dazu erstellen und installieren Sie die XML-Datei, die die Informationen zur WinSAT-Bewertung enthält.  
   
 ## <a name="obtain-the-winsat-cpu-score"></a>Abrufen der WinSAT-CPU-Bewertung  
- Sie sind ein Programm bereitgestellt, mit dem OPK namens WinServerSAT.exe, die die WinSAT-CPU-Bewertung ermittelt und diese Information in der WinServerSAT.xml-Datei, die vom Betriebssystem gelesen.  
+ Mit dem OPK wird Ihnen ein Programm namens "WinServerSAT.exe" zur Verfügung gestellt, das die WinSAT-CPU-Bewertung ermittelt und diese Information in die Datei "WinServerSAT.xml" einfügt, die vom Betriebssystem gelesen wird.  
   
-#### <a name="to-obtain-the-winsat-cpu-score"></a>Die WinSAT-CPU-Bewertung abrufen  
+#### <a name="to-obtain-the-winsat-cpu-score"></a>So rufen Sie die WinSAT-CPU-Bewertung ab  
   
-1.  Kopieren Sie die Resources\WinServerSAT\\ * ADK-Medium auf dem Referenzcomputer.  
+1.  Kopieren Sie die Resources\WinServerSAT\\* ADK-Medium, auf dem Referenzcomputer.  
   
-2.  Öffnen Sie auf dem Referenzcomputer ein Eingabeaufforderungsfenster mit erhöhten Rechten aus.  
+2.  Öffnen Sie auf dem Referenzcomputer ein Eingabeaufforderungsfenster mit erhöhten Rechten.  
   
-3.  Wenn der Ordner "%ProgramFiles%\Windows Server\Bin\OEM" nicht vorhanden ist, geben Sie folgenden Befehl ein, und drücken Sie dann die EINGABETASTE.  
+3.  Wenn der Ordner "%ProgramFiles%\Windows Server\Bin\OEM" nicht vorhanden ist, geben Sie den folgenden Befehl ein, und drücken Sie dann die EINGABETASTE.  
   
-     **Mkdir "%ProgramFiles%\Windows Server\Bin\OEM"**  
+     **mkdir "%ProgramFiles%\Windows Server\Bin\OEM"**  
   
 4.  Geben Sie den folgenden Befehl ein, und drücken Sie dann die EINGABETASTE.  
   
      **WinServerSAT.exe "%ProgramFiles%\Windows Server\Bin\OEM\WinServerSAT.xml"**  
   
- Das folgende Beispiel zeigt die XML-Inhalt der Datei WinServerSAT.xml, die erstellt wird.  
+ Das folgende Beispiel zeigt den XML-Inhalt der neu erstellten Datei "WinServerSAT.xml".  
   
 ```  
   
@@ -51,7 +52,7 @@ Sie sollten die WinSAT-CPU-Bewertung für einen Server festlegen, die das Betrie
 </WinSAT>  
 ```  
   
- Wo *WinSAT_Score* ersetzt wird, mit dem Wert, der auf dem Server erkannt wird.  
+ Wobei *WinSAT_Score* durch den auf dem Server gefundenen Wert ersetzt wird.  
   
 > [!IMPORTANT]
->  Sie müssen WinServerSAT.exe "," winsat.prx "," winsat.wmv "und" WinSATEncode.wmv Dateien vom Referenzcomputer entfernen, bevor Sie das Image erfassen.
+>  Sie müssen die Dateien "WinServerSAT.exe", "winsat.prx", "winsat.wmv" und "WinSATEncode.wmv" vom Referenzcomputer entfernen, bevor Sie das Abbild aufzeichnen.

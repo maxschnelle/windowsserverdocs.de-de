@@ -6,93 +6,93 @@ ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 02/0s/2018
-Keywords: Storage Spaces Direct
+Keywords: Direkte Speicherplätze
 ms.localizationpriority: medium
 ms.openlocfilehash: 33fd62376e9769c23fc6b00eefde9a9b95eb4650
-ms.sourcegitcommit: 1533d994a6ddea54ac189ceb316b7d3c074307db
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "1894249"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59820591"
 ---
 # <a name="performance-history-for-servers"></a>Leistungsverlauf für Server
 
-> Betrifft: Windows Server-Insider – Vorschau
+> Gilt für: Windows Server-Insider – Vorschau
 
-Unterwebsites beschrieben der [Verlauf Speicher Leerzeichen direkte](performance-history.md) ausführlich der Verlauf für Server erfasst. Leistungsverlauf ist für jeden Server im Cluster verfügbar.
+Dieser Unterabschnitt von [– Leistungsverlauf für "direkte Speicherplätze"](performance-history.md) beschreibt ausführlich den Leistungsverlauf für Server gesammelt. Leistungsverlauf für ist für jeden Server im Cluster verfügbar.
 
    > [!NOTE]
-   > Leistungsverlauf kann nicht für einen Server erfasst werden sollen, die nicht verfügbar ist. Auflistung wird automatisch wieder aufgenommen, wenn der Server wieder verfügbar ist.
+   > Leistungsverlauf für kann nicht für einen Server gesammelt werden, die nicht verfügbar ist. Sammlung wird automatisch fortgesetzt, wenn der Server wieder verfügbar ist.
 
 ## <a name="series-names-and-units"></a>Namen von Datenreihen und Einheiten
 
-Diese Serie sind für jeden zu auswählbaren Server erfasst:
+Dieser Reihe werden für jeden berechtigten Server erfasst:
 
 | Serie                           | Einheit    |
 |----------------------------------|---------|
 | `clusternode.cpu.usage`          | Prozent |
 | `clusternode.cpu.usage.guest`    | Prozent |
 | `clusternode.cpu.usage.host`     | Prozent |
-| `clusternode.memory.total`       |  Bytes   |
-| `clusternode.memory.available`   |  Bytes   |
-| `clusternode.memory.usage`       |  Bytes   |
-| `clusternode.memory.usage.guest` |  Bytes   |
-| `clusternode.memory.usage.host`  |  Bytes   |
+| `clusternode.memory.total`       | Bytes   |
+| `clusternode.memory.available`   | Bytes   |
+| `clusternode.memory.usage`       | Bytes   |
+| `clusternode.memory.usage.guest` | Bytes   |
+| `clusternode.memory.usage.host`  | Bytes   |
 
-Darüber hinaus wie Laufwerk Datenreihe `physicaldisk.size.total` werden für alle Server und Network Adapter Serie wie zugeordnet zu auswählbaren Laufwerke aggregiert `networkadapter.bytes.total` für alle zu auswählbaren Netzwerkadapter, die mit dem Server verbundene zusammengefasst werden.
+Darüber hinaus, wie z. B. Laufwerk Reihe `physicaldisk.size.total` werden aggregiert für alle geeigneten Laufwerke, die angefügt werden, auf dem Server, und Network Adapter-Serie, wie z. B. `networkadapter.bytes.total` werden aggregiert für alle berechtigten Netzwerkadapter, die mit dem Server verbunden.
 
-## <a name="how-to-interpret"></a>Wie interpretiert werden
+## <a name="how-to-interpret"></a>Gewusst wie: interpretieren
 
-| Serie                           | Wie interpretiert werden                                                      |
+| Serie                           | Gewusst wie: interpretieren                                                      |
 |----------------------------------|-----------------------------------------------------------------------|
-| `clusternode.cpu.usage`          | Prozentsatz der Prozessorzeit an, die nicht im Leerlauf ist.                        |
-| `clusternode.cpu.usage.guest`    | Prozentsatz der Prozessorzeit für bei Bedarf Gast (virtueller Computer) verwendet. |
-| `clusternode.cpu.usage.host`     | Prozentsatz der Prozessorzeit für Host bei Bedarf verwendet.                    |
-| `clusternode.memory.total`       | Gesamten physikalischen Arbeitsspeichers des Servers.                              |
+| `clusternode.cpu.usage`          | Prozentsatz der Prozessorzeit, die nicht im Leerlauf befindet.                        |
+| `clusternode.cpu.usage.guest`    | Prozentsatz der Prozessorzeit für den Gast (dem virtuellen Computer) bei Bedarf verwendet. |
+| `clusternode.cpu.usage.host`     | Prozentsatz der Prozessorzeit für den Host bei Bedarf verwendet.                    |
+| `clusternode.memory.total`       | Der gesamte physische Speicher des Servers.                              |
 | `clusternode.memory.available`   | Der verfügbare Arbeitsspeicher des Servers.                                   |
-| `clusternode.memory.usage`       | Die (nicht verfügbar) reservierter Speicher des Servers.                   |
-| `clusternode.memory.usage.guest` | Der Arbeitsspeicher, die bei Bedarf Gast (virtueller Computer) zugewiesen ist.               |
-| `clusternode.memory.usage.host`  | Der Arbeitsspeicher, die bei Bedarf Host zugewiesen ist.                                  |
+| `clusternode.memory.usage`       | Der zugeordnete (nicht verfügbar) Arbeitsspeicher des Servers.                   |
+| `clusternode.memory.usage.guest` | Der Gast (dem virtuellen Computer) bei Bedarf zugewiesene Arbeitsspeicher.               |
+| `clusternode.memory.usage.host`  | Der Host bei Bedarf zugewiesene Arbeitsspeicher.                                  |
 
-## <a name="where-they-come-from"></a>Kommen aus
+## <a name="where-they-come-from"></a>Wo diese herkommen
 
-Die `cpu.*` Serie aus verschiedenen Leistungsindikatoren abhängig davon, ob Hyper-V aktiviert ist gesammelt werden.
+Die `cpu.*` Reihe werden gesammelt, von verschiedenen Leistungsindikatoren, abhängig davon, ob Hyper-V aktiviert ist.
 
 Wenn die Hyper-V aktiviert ist:
 
-| Serie                           | Quelle Indikator |
+| Serie                           | Source-Indikator |
 |----------------------------------|----------------|
 | `clusternode.cpu.usage`          | `Hyper-V Hypervisor Logical Processor` > `_Total` > `% Total Run Time`      |
 | `clusternode.cpu.usage.guest`    | `Hyper-V Hypervisor Virtual Processor` > `_Total` > `% Total Run Time`      |
 | `clusternode.cpu.usage.host`     | `Hyper-V Hypervisor Root Virtual Processor` > `_Total` > `% Total Run Time` |
 
-Mithilfe der `% Total Run Time` Leistungsindikatoren wird sichergestellt, dass die Leistungsverlauf aller Attribute.
+Mithilfe der `% Total Run Time` Leistungsindikatoren wird sichergestellt, dass – Leistungsverlauf für die gesamte Nutzung Attribute.
 
 Wenn Hyper-V nicht aktiviert ist:
 
-| Serie                           | Quelle Indikator |
+| Serie                           | Source-Indikator |
 |----------------------------------|----------------|
 | `clusternode.cpu.usage`          | `Processor` > `_Total` > `% Processor Time` |
-| `clusternode.cpu.usage.guest`    | *0 (null)* |
-| `clusternode.cpu.usage.host`     | *identisch mit Gesamtverwendung* |
+| `clusternode.cpu.usage.guest`    | *zero* |
+| `clusternode.cpu.usage.host`     | *identisch mit gesamtnutzung* |
 
-Ungeachtet der unvollständige Synchronisierung `clusternode.cpu.usage` handelt es sich immer `clusternode.cpu.usage.host` plus `clusternode.cpu.usage.guest`.
+Abweichend von perfekt Synchronisierung `clusternode.cpu.usage` ist immer `clusternode.cpu.usage.host` plus `clusternode.cpu.usage.guest`.
 
-Mit der gleichen Einschränkung `clusternode.cpu.usage.guest` ist immer die Summe der `vm.cpu.usage` für alle virtuellen Computer, auf dem Hostserver.
+Mit der gleichen Einschränkung `clusternode.cpu.usage.guest` ist immer die Summe der `vm.cpu.usage` für alle virtuellen Computer, auf dem Host.
 
-Die `memory.*` Datenreihe sind (in KÜRZE).
+Die `memory.*` Reihen sind (in Kürze verfügbar).
 
   > [!NOTE]
-  > Über die gesamte Intervall nicht aufgenommen werden Leistungsindikatoren gemessen. Wenn der Server für 9 Sekunden jedoch abgeschwächt werden auf 100 % CPU in der zweiten 10., im Leerlauf ist beispielsweise seine `clusternode.cpu.usage` , werden aufgezeichnet als 10 % durchschnittlich während dieses Intervalls 10 Sekunden. Dadurch wird sichergestellt, dessen Leistungsverlauf zeichnet alle Aktivitäten und ist robust, um Rauschen.
+  > Leistungsindikatoren werden anhand des gesamten Intervalls, nicht entnommen gemessen. Wenn der Server für 9 Sekunden, aber auf 100 % CPU-Spitzen im zweiten 10. im Leerlauf ist z. B. die `clusternode.cpu.usage` aufgezeichnet werden als 10 % durchschnittliche Intervall 10 Sekunden. Dadurch wird der Leistungsverlauf erfasst alle Aktivitäten und ist stabil, um Rauschen.
 
-## <a name="usage-in-powershell"></a>Verwendung von Diensten in PowerShell
+## <a name="usage-in-powershell"></a>Verwendung in PowerShell
 
-Verwenden Sie das Cmdlet [Get-ClusterNode](https://docs.microsoft.com/powershell/module/failoverclusters/get-clusternode) :
+Verwenden der [Get-ClusterNode](https://docs.microsoft.com/powershell/module/failoverclusters/get-clusternode) Cmdlet:
 
 ```PowerShell
 Get-ClusterNode <Name> | Get-ClusterPerf
 ```
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="see-also"></a>Siehe auch
 
-- [Speicher Leerzeichen direkte Verlauf](performance-history.md)
+- [Leistungsverlauf für "direkte Speicherplätze"](performance-history.md)

@@ -1,7 +1,7 @@
 ---
 title: Planen einer Software-Defined Networking-Infrastruktur
-description: Dieses Thema enthält Informationen zum Planen der Bereitstellung der Software definierten Netzwerk (SDN)-Infrastruktur.
-manager: brianlic
+description: Dieses Thema enthält Informationen zum Planen der infrastrukturbereitstellung (Software Defined Network, SDN).
+manager: dougkim
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,280 +13,250 @@ ms.topic: get-started-article
 ms.assetid: ea7e53c8-11ec-410b-b287-897c7aaafb13
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: bb3b9313996637fa5ee7367c538fe04d7cbefea9
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.date: 08/10/2018
+ms.openlocfilehash: e3f7f2b6e2f815ec1924b4d476d5e3fd3ab181ec
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59821061"
 ---
 # <a name="plan-a-software-defined-network-infrastructure"></a>Planen einer Software-Defined Networking-Infrastruktur
 
->Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
-Überprüfen Sie die folgende Informationen ein, um die Software definierten Netzwerk (SDN)-Infrastruktur-Bereitstellung planen. Wenn Sie diese Informationen finden Sie unter [Bereitstellen einer Software-Defined Networking-Infrastruktur](../deploy/Deploy-a-Software-Defined-Network-Infrastructure.md) Informationen zur Bereitstellung.
+Informationen Sie zu planen der Bereitstellung für eine Software-Defined Networking-Infrastruktur, einschließlich der Hardware- und softwarevoraussetzungen. 
 
->[!NOTE]
->Zusätzlich zu diesem Thema ist die folgende Planung SDN-Inhalt verfügbar.  
->
-> - [Installation und Anforderungen an die Vorbereitung für die Bereitstellung von Netzwerkcontroller](Installation-and-Preparation-Requirements-for-Deploying-Network-Controller.md)  
 
-Informationen zu Hyper-V-Netzwerkvirtualisierung (HNV), die Sie zum Virtualisieren von Netzwerken in einer Microsoft-SDN-Bereitstellung verwenden können, finden Sie unter [Hyper-V-Netzwerkvirtualisierung](../technologies/hyper-v-network-virtualization/Hyper-V-Network-Virtualization.md).  
+## <a name="prerequisites"></a>Vorraussetzungen
+Dieses Thema beschreibt eine Reihe von Voraussetzungen von Hardware und Software, einschließlich:
 
-## <a name="prerequisites"></a>Erforderliche Komponenten
-Dieses Thema beschreibt eine Reihe von Hardware- und softwarevoraussetzungen, einschließlich:
+-   **Konfiguriert die Sicherheitsgruppen, Speicherorten von Protokolldateien und dynamische DNS-Registrierung** müssen Sie Ihr Rechenzentrum vorbereiten, für die Bereitstellung des Netzwerkcontrollers, die einen oder mehrere Computer oder virtuelle Computer und einen Computer oder virtuellen Computer erforderlich ist. Bevor Sie den Netzwerkcontroller bereitstellen können, müssen Sie die Sicherheitsgruppen, die Speicherorte der Protokolldateien (falls erforderlich) und die dynamische DNS-Registrierung konfigurieren.  Wenn Sie Ihr Rechenzentrum nicht für die Bereitstellung des Netzwerkcontrollers vorbereitet haben, finden Sie unter [Installation und Anforderungen bei der Vorbereitung für die Bereitstellung des Netzwerkcontrollers](Installation-and-Preparation-Requirements-for-Deploying-Network-Controller.md) Details.
 
--   **Physikalisches Netzwerk**  
-    Sie benötigen Zugriff auf Ihre physischen Netzwerkgeräte konfigurieren, wenn eine RDMA-Technologie mit VLANs, Routing, BGP, Data Center Bridging (ETS) und Data Center Bridging (PFC) bei Verwendung einer RoCE RDMA-Technologie basiert. In diesem Thema wird die manuelle Switch-Konfiguration als auch für BGP-Peering Layer-3-Switches / Router oder eine virtuelle Maschine Routing- und RAS-Server (RRAS).   
+-   **Physischen Netzwerk** benötigen Sie Zugriff auf Ihren physischen Netzwerkgeräten zum Konfigurieren von VLANs, Routing, BGP, Data Center Bridging (ETS), wenn eine RDMA-Technologie verwenden, und Data Center Bridging (PCF) bei Verwendung einer RoCE basierte RDMA-Technologie. In diesem Thema wird das manuelle Netzwerkswitch-Konfiguration sowie das BGP-Peering auf Layer-3 Switches / Router oder einen Routing- und RAS-Server (RRAS) virtuellen Computer.   
 
--   **Physische Compute-Hosts**  
-Diese Hosts Hyper-V ausführen und zum Hosten SDN Infrastruktur- und Mandantendatenverkehrs virtueller Computer erforderlich sind.  Bestimmte Netzwerkhardware ist erforderlich, in diese Hosts für eine optimale Leistung, die später in beschrieben wird die **Netzwerkhardware** Abschnitt.  
+-   **Physische rechen-Hosts** diese Hosts, Hyper-V ausführen und sind erforderlich, um SDN-Infrastruktur und Mandanten virtuelle Computer gehostet.  Bestimmte Netzwerkhardware ist erforderlich, auf diesen Hosts für eine optimale Leistung, die in einem späteren Zeitpunkt beschrieben wird die **Netzwerkhardware** Abschnitt.  
       
   
-## <a name="physical-network-configuration"></a>Physische Netzwerkkonfiguration
+## <a name="physical-network-and-compute-host-configuration"></a>Physische Netzwerk- und Compute-Hostkonfiguration
 
-Jedes physische Compute-Host muss eine Netzwerkkonnektivität über einen oder mehrere Netzwerkadapter mit einem physischen Switch-Ports verbunden. Das Netzwerk in mehrere logische Netzwerksegmente hinter dem optional eine Schicht-2 getrennt [VLAN](https://en.wikipedia.org/wiki/Virtual_LAN). Die Präfixe für IP-Subnetz und VLAN-IDs, die nachfolgend aufgeführten Beispiele sind, und müssen für Ihre Umgebung basierend auf Richtlinien von Ihrem Netzwerkadministrator angepasst werden. Verwenden Sie Wenn Ihre logischen Netzwerke nicht gekennzeichnet sind oder im Zugriffsmodus VLAN-ID 0 für diese Netzwerke die logische Subnetze in System Center Virtual Machine Manager oder PowerShell-Skript-Konfigurationsdateien konfigurieren.
+Jede physische computehost sind Netzwerkverbindungen über eine oder mehrere Netzwerkadapter auf einem physischen Switch-Ports erforderlich.  Ein Layer-2 [VLAN](https://en.wikipedia.org/wiki/Virtual_LAN) unterstützt Netzwerke, die in mehrere logische Netzwerksegmente unterteilt. 
 
->[!IMPORTANT]
->Windows Server2016-Software-definierte Netzwerke unterstützt IPv4-Adressierung für die dabei und der Überlagerung. IPv6 wird nicht unterstützt.
-  
-### <a name="management-and-hnv-provider-logical-networks"></a>Verwaltung und Hyper-v-Provider logische Netzwerke
-
-Alle physische rechen-Hosts müssen Zugriff auf das logische Netzwerk für Verwaltung und das logische Netzwerk von Hyper-v-Anbieter haben. Wenn die logischen Netzwerke VLANs verwenden, müssen die physischen Compute-Hosts an einen Switchport mit Trunk-Leitungen verbunden werden, die Zugriff auf diese VLANs hat. Ebenso müssen die physischen Netzwerkadapter auf dem Host Compute kein VLAN Filterung aktiviert. Wenn Sie Switch-Embedded Teaming (SET) verwenden, haben mehrere NIC-Teammitglieder (d.h. Netzwerkadapter) in Ihre Compute-Hosts müssen Sie alle Mitglieder NIC-Team für den jeweiligen Host derselben Broadcast Schicht-2-Domäne verbinden.  
-  
-Für Planungszwecke IP-Adresse muss jeden physischen Compute-Host über mindestens eine IP-Adresse aus dem Management logischen Netzwerk zugewiesen haben. Netzwerkcontroller weist genau zwei IP-Adressen automatisch vom logischen Netzwerk Hyper-v-Anbieter. Wenn der physische Compute-Host sind zusätzliche virtuelle Maschinen (z.B. dem Netzwerkcontroller, SLB/MUX oder Gateway) ausgeführt wird müssen dem Host eine zusätzliche IP-Adresse aus dem Management logischen Netzwerk zugewiesen werden, für jede der Infrastruktur virtueller Maschinen gehostet.   
-  
-Darüber hinaus muss jeder SLB/MUX-Infrastruktur virtuelle Computer eine IP-Adresse in das logische Netzwerk von Hyper-v-Anbieter reserviert haben. 
+>[!TIP]
+>VLAN 0 für logische Netzwerke im Zugriffsmodus verwenden oder nicht gekennzeichnet. 
 
 >[!IMPORTANT]
->Diese SLB/MUX-IP-Adressen müssen von außerhalb des IP-Adresspools zugewiesen werden, die für das logische Netzwerk von Hyper-v-Anbieter konfiguriert ist. Wenn dies nicht der Fall möglicherweise doppelte IP-Adressen im Netzwerk. 
+>IPv4-Adressierung für die dabei und die Überlagerung Defined Networking mit Windows Server 2016-Software unterstützt werden. IPv6 wird nicht unterstützt.
+  
+### <a name="logical-networks"></a>Logische Netzwerke
 
-Netzwerkcontroller ist eine reservierte Adresse aus dem Management-Netzwerk und dient als REST-IP-Adresse erforderlich. Sie müssen die HOST-A-Eintrag manuell in DNS für die REST-IP-Adresse erstellen.  
-  
-Ein DHCP-Server kann automatisch IP-Adressen für das Verwaltungsnetzwerk zuweisen, oder Sie können statische IP-Adresse manuell zuweisen. Die SDN-Stapels weist automatisch IP-Adressen für die Hyper-v-Anbieter für die einzelnen Hyper-V-Hosts aus einem IP-Adresspool über angegeben und vom Netzwerkcontroller verwaltet.   
-  
-Der fabricadministrator weist statisch die Hyper-v-Anbieter-IP-Adressen, die von der SLB/MUX über PowerShell-Skripts oder VMM verwendet. Netzwerkcontroller einen physischen Compute-Host eine Hyper-v-Anbieter-IP-Adresse zugewiesen, nur, nachdem der Agent-Host-Controller Netzwerkrichtlinie für eine bestimmte Mandanten virtuelle Maschine erhält.  
-  
-#### <a name="sample-network-topology"></a>Beispiel-Netzwerktopologie
+#### <a name="management-and-hnv-provider"></a>Verwaltungs- und hnv-Anbieternetzwerk 
 
-Passen Sie die Subnetzpräfixe, VLAN-IDs und Gateway-IP-Adressen basierend auf Ihren Netzwerkadministrator Richtlinien.  
-  
-Netzwerkname|Subnetz|Subnetzmaske|VLAN-ID auf "Trunk"|Gateway|Reservierungen<br />(Beispiele)  
-----------------|----------|--------|--------------------|-----------|-----------------------------  
-|**Verwaltung**|10.184.108.0|24|7|10.184.108.1|10.184.108.1 - router<br /><br />10.184.108.4 - Netzwerkcontroller<br /><br />10.184.108.10 - Compute-Host 1<br /><br />10.184.108.11 - Compute-Host 2<br /><br />10.184.108.X - Compute-Host X  
-|**Hyper-v-Anbieter**|10.10.56.0|23|11|10.10.56.1|10.10.56.1 - router<br /><br />10.10.56.2 - SLB/MUX1  
-  
-### <a name="logical-networks-for-gateways-and-the-software-load-balancer"></a>Logische Netzwerke für Gateways und des Software Load Balancers
-  
-Zusätzliche logische Netzwerke erstellt und für Remotedesktopgateway und SLB Nutzung bereitgestellt werden müssen. In diesem Fall müssen Sie arbeiten mit Ihren Netzwerkadministrator, um die richtige IP-Adresspräfixe, VLAN-IDs und Gateway-IP-Adressen für diesen Netzwerken zu erhalten.
+Alle physischen computeressourcen Hosts müssen es sich um das logische Verwaltungsnetzwerk und das logische hnv-anbieternetzwerk zugreifen.  Für Planungszwecke IP-Adresse muss jede physische computehost mindestens eine IP-Adresse aus dem logischen Verwaltungsnetzwerk zugewiesen haben. Die Netzwerkcontroller ist erforderlich, eine reservierte IP-Adresse als der REST-IP-Adresse verwendet werden. 
 
-#### <a name="transit-logical-network"></a>Während der Übertragung logisches Netzwerk
-  
-Die RAS-Gateway und SLB/MUX verwenden das logische Netzwerk während der Übertragung auf exchange-BGP-Peers Informationen und Nord-Süd (externe intern) Mandantendatenverkehr. Die Größe der diesem Subnetz werden in der Regel kleiner als die anderen. Nur physische Compute-Hosts, auf denen RAS-Gateway oder SLB/MUX-VMs ausführen müssen eine Verbindung zwischen diesem Subnetz mit diesen VLANs mit Trunk-Leitungen und leicht zugänglichen auf die Switch-Ports mit dem Netzwerkadapter die Compute-Hosts verbunden sind. Jedes SLB/MUX oder RAS-Gateway-VM ist eine IP-Adresse statisch aus dem während der Übertragung logischen Netzwerk zugewiesen werden.
-
-#### <a name="public-vip-logical-network"></a>Öffentliche VIP logisches Netzwerk  
-  
-Das logische Netzwerk von öffentlichen VIP-Adresse ist erforderlich, um die IP-Subnetzpräfixe verfügen, die außerhalb der Cloudumgebung (in der Regel Internet Routingfähigen) Routingfähigen sind.  Diese werden die Front-End-IP-Adressen, die von externen Clients Zugriff auf Ressourcen in den virtuellen Netzwerken, einschließlich der front-End VIP-Adresse für das Standort-zu-Standort-Gateway verwendet werden.
-
-#### <a name="private-vip-logical-network"></a>Private VIP logisches Netzwerk
-  
-Im privaten VIP logische Netzwerk ist nicht erforderlich, außerhalb der Cloud Router weitergeleitet werden, da sie für VIPs verwendet wird, die nur über interne Cloud-Clients, z.B. die SLB-Manager unter oder privaten Dienste zugegriffen werden.
-  
-#### <a name="gre-vip-logical-network"></a>GRE-VIP logisches Netzwerk
-
-Das GRE-VIP-Netzwerk ist ein Subnetz, das ausschließlich für die Definition von VIPs, die Gateway-VMs auf Ihre SDN-Fabric für einen S2S GRE-Verbindungstyp zugewiesen sind, vorhanden ist. Dieses Netzwerk nicht bereits in Ihrem physischen Switches oder Router konfiguriert werden müssen und müssen nicht in einem VLAN zugewiesen haben.   
-
-### <a name="sample-network-topology"></a>Beispiel-Netzwerktopologie
-
-Passen Sie die Subnetzpräfixe, VLAN-IDs und Gateway-IP-Adressen basierend auf Ihren Netzwerkadministrator Richtlinien.  
-  
-Netzwerkname|Subnetz|Subnetzmaske|VLAN-ID auf "Trunk"|Gateway|Reservierungen<br />(Beispiele)  
-----------------|----------|--------|--------------------|-----------|-----------------------------  
-|**Während der Übertragung**|10.10.10.0|24|10|10.10.10.1|10.10.10.1 - Router  
-|**Öffentliche VIP**|41.40.40.0|27|NA|41.40.40.1|41.40.40.1 - Router<br /> 41.40.40.2 - SLB/MUX-VIP<br />41.40.40.3 - IPsec-S2S-VPN-VIP  
-|**Private VIP**|20.20.20.0|27|NA|20.20.20.1|20.20.20.1 - Standard-GW (Router)  
-|**GRE-VIP**|31.30.30.0|24|NA|31.30.30.1|31.30.30.1 - Standard-GW|  
-  
-### <a name="logical-networks-required-for-rdma-based-storage"></a>Logische Netzwerke, die für die RDMA-basierter Speicher erforderlich  
-  
-Wenn Sie sind mit RDMA-basierten Speicher, und Sie müssen ein VLAN und die Subnetzmaske für jeden physischen Adapter berechnungs- und Speicher-Hosts definieren. In der Regel müssen Sie zwei physische Adapter pro Knoten für diese Konfiguration.  
-  
-> [!IMPORTANT]  
-> Die meisten physischen Switches erfordern RDMA-Datenverkehr in einem Tag markierten VLAN in der Reihenfolge für Quality of Service-Einstellungen korrekt übernommen gesendet werden.  Platzieren Sie RDMA-Datenverkehr auf eine nicht markierten VLAN oder auf einem physischen Zugriffsmodus Port nicht.  
-  
-Netzwerkname  |Subnetz  |Subnetzmaske  |VLAN-ID auf "Trunk"  |Gateway  |Reservierungen<br />(Beispiele)    
----------|---------|---------|---------|---------|---------  
-**Storage1**     |    10.60.36.0     | 25        |   8      |  10.60.36.1       |  10.60.36.1 - Router<br />10.60.36.x - Compute-Host x<br />10.60.36.y - Compute-Host y<br />10.60.36.v - Compute-Cluster<br />10.60.36.w - speichercluster  
-|**Storage2**|10.60.36.128|25|9|10.60.36.129|10.60.36.129 - Router<br />10.60.36.x - Compute-Host x<br />10.60.36.y - Compute-Host y<br />10.60.36.v - Compute-Cluster<br />10.60.36.w - speichercluster  
-  
-Weitere Informationen zum Konfigurieren von Switches finden Sie unter der **Konfigurationsbeispiele** Abschnitt.  
-  
-## <a name="routing-infrastructure"></a>Routing-Infrastruktur  
-  
-Wenn Sie Ihre SDN-Infrastruktur mithilfe von Skripts bereitstellen, müssen die Verwaltung, Hyper-v-Anbieter, während der Übertragung und VIP Subnetze miteinander im physischen Netzwerk Router weitergeleitet werden.     
-  
-Die Routinginformationen \ (z.B. weiter-Hop\) für die VIP-Adresse Subnetze vom SLB/MUX und RAS-Gateways in das physische Netzwerk mit internen BGP-Peering angekündigt wird. Die logischen Netzwerke für VIP kein VLAN zugewiesen und ist für die nicht in der Schicht-2-Switch (z.B. Top-of-Rack-Switch).  
-  
-Sie müssen einen BGP-Peer auf dem Router zu erstellen, die von Ihrer SDN-Infrastruktur verwendet wird, erhalten Sie Routen für die VIP logischen Netzwerke durch die SLB/MUXes und RAS-Gateways angekündigt. BGP-Peering muss nur eine Möglichkeit (von SLB/MUX oder RAS-Gateway an externe BGP-Peer) ausgeführt werden.  Über die erste Ebene von Routing Sie können statische Routen oder einem anderen dynamisches Routingprotokoll z.B. OSPF, jedoch wie bereits erwähnt, das IP-Subnetzpräfix für die VIP logischen Netzwerke müssen an den externen BGP-Peer aus dem physischen Netzwerk über Router weitergeleitet werden.   
-  
-BGP-Peering wird in der Regel in einem verwalteten Switch oder Router als Teil der Netzwerkinfrastruktur konfiguriert. Der BGP-Peer konnte auch auf einem Windows Server mit installierter Rolle Remote Access Server (RAS) in einem Modus nur Routing konfiguriert werden. Dieser Peer des BGP-Router in der Netzwerkinfrastruktur muss konfiguriert werden, um eine eigene ASN und zulässt, Peering aus einer ASN, die die Komponenten SDN zugewiesen ist \ (SLB/MUX und RAS-Gateways\). Sie müssen die folgende Informationen aus dem physischen Router oder der Netzwerkadministrator Kontrolle über die Router abrufen:
-
-- Router ASN  
-- Router-IP-Adresse  
-- ASN für die Verwendung von SDN-Komponenten (kann eine beliebige Anzahl AS aus dem privaten ASN-Bereich)
+Ein DHCP-Server kann IP-Adressen für das Verwaltungsnetzwerk automatisch zuweisen, oder Sie können statische IP-Adresse manuell zuweisen. SDN-Stapel weist automatisch IP-Adressen für das HNV-Anbieternetzwerk logisches Netzwerk für die einzelnen Hyper-V-Hosts aus einem IP-Adresspool angegeben und verwaltet durch den Netzwerkcontroller. 
 
 >[!NOTE]
->4-Byte-ASNs werden von der SLB/MUX nicht unterstützt. Sie müssen die SLB/MUX und Router 2-Byte-ASNs zuordnen wo der er eine Verbindung herstellt. Sie können die 4-Byte-ASNs an anderer Stelle in Ihrer Umgebung verwenden.  
-  
-Konfigurieren den Peer des BGP-Router akzeptiert Verbindungen aus dem ASN und IP-Adresse oder eine Subnetzadresse des während der Übertragung logischen Netzwerks, die Ihre RAS-Gateway und SLB/MUXes verwenden müssen Sie oder Ihr Netzwerkadministrator.
-  
-Weitere Informationen finden Sie unter [Border Gateway Protocol & 40; BGP & 41;](../../../remote/remote-access/bgp/Border-Gateway-Protocol-BGP.md).
-  
-## <a name="default-gateways"></a>Standard-Gateways
+>Der Netzwerkcontroller weist hnv-Anbieter-IP-Adresse zu einer physischen computehost, erst nach der Netzwerk-Controller-Host-Agent die Netzwerkrichtlinie für einen bestimmten Mandanten virtuelle Computer erhält. 
 
-Computer, die Verbindung mit mehreren Netzwerken, z.B. die physische Hosts und Gateway-VMs konfiguriert werden müssen nur ein Standardgateway konfiguriert haben. Das Standardgateway wird in der Regel auf dem Adapter verwendet, um das erreichen ganz auf das Internet konfiguriert werden.
 
-Verwenden Sie die folgenden Regeln für virtuelle Maschinen entscheiden, welches Netzwerk als Standardgateway verwenden:
+|Situation  |Folge  |
+|---------|---------|
+|Die logischen Netzwerke verwenden, VLANs,     |die physischen computehost muss mit einem einen Trunk bilden Switchport verbinden, das Zugriff auf diese VLANs hat. Es ist wichtig zu beachten, dass die physischen Netzwerkadapter auf dem Computerhost keine müssen eine VLAN-Filterung aktiviert.          |
+|Switched-Embedded Teaming (SET) und mehreren NIC-Teammitgliedern, wie z. B. Netzwerkadapter     |Sie müssen alle NIC-Team-Mitglieder für den bestimmten Host der gleichen Schicht-2-broadcast-Domäne verbinden.         |
+|Der physische computehost, die zusätzlichen virtuellen Computern der Infrastruktur, z. B. dem Netzwerkcontroller, SLB/MUX-Instanz oder Gateway ausgeführt wird,  |Dieser Host muss es sich um eine zusätzliche IP-Adresse aus dem logischen Verwaltungsnetzwerk zugewiesen wird, für die einzelnen gehosteten virtuellen Computer verfügen.<p>Jede VM der SLB/MUX-Infrastruktur muss auch eine IP-Adresse für das logische hnv-anbieternetzwerk reserviert haben. Doppelte IP-Adressen in Ihrem Netzwerk möglicherweise Fehler um eine reservierte IP-Adresse zu erhalten.  |
+---
 
-1. Verwenden Sie das Netzwerk während der Übertragung als Standardgateway, wenn eine virtuelle Maschine mit dem Netzwerk während der Übertragung verbunden ist, oder ist er mehrfach vernetzt der während der Übertragung zu einem anderen Netzwerk.  
-2. Verwenden Sie das Verwaltungsnetzwerk als Standardgateway, wenn eine virtuelle Maschine nur mit dem Verwaltungsnetzwerk verbunden ist.  
-3.  Die Hyper-v-Anbieter Netzwerk muss nie als Standard-Gateway verwendet werden. Nur mit diesem Netzwerk verbundenen virtuellen Computer werden die SLB/MUXes und RAS-Gateways.  
-4.  Virtuelle Computer wird nie direkt an den Storage1, Storage2, VIP öffentlichen oder privaten VIP-Netzwerken verbunden.  
+Informationen zu Hyper-V-Netzwerk Netzwerkvirtualisierung (HNV), die Sie auf die Virtualisierung von Netzwerken in einer Microsoft-SDN-Bereitstellung verwenden können, finden Sie unter [Hyper-V-Netzwerkvirtualisierung](../technologies/hyper-v-network-virtualization/Hyper-V-Network-Virtualization.md).  
   
-Verwenden Sie für Hyper-V-Hosts und Speicherknoten als Standardgateway das Verwaltungsnetzwerk.  Der Speichernetzwerke müssen nie ein Standardgateway zugewiesen haben.
+
+  
+#### <a name="gateways-and-the-software-load-balancer"></a>Gateways und des Software Load Balancer
+  
+Zusätzlicher logische Netzwerke erstellt und für das Gateway und Verwendung von SLB bereitgestellt werden müssen. Stellen Sie sicher, dass die richtige IP-Adresspräfixe, VLAN-IDs und Gateway-IP-Adressen für diese Netzwerke zu erhalten.
+
+
+|  |  |
+|---------|---------|
+|**Logische Transitnetzwerk**     |Die RAS-Gateway und die SLB/MUX-Instanz verwenden das logische Transitnetzwerk zum Austauschen von BGP-peeringinformationen und (externen intern) Nord/Süd-mandantendatenverkehr ein. Die Größe des diesem Subnetz werden in der Regel kleiner als die anderen. Nur physische Compute-Hosts, auf denen RAS-Gateway oder SLB/MUX-VM ausgeführt werden müssen auf die Switch-Ports eine Verbindung mit diesem Subnetz mit diesen VLANs, die einen Trunk bilden und zugänglich kann mit dem Netzwerkadapter für die Compute-Hosts verbunden sind. Jede SLB/MUX-Instanz oder RAS-Gateway-VM wird eine IP-Adresse statisch aus das logische Transitnetzwerk zugewiesen werden.         |
+|**Logisches Netzwerk mit öffentlicher VIP**     |Das logische Netzwerk mit öffentlicher VIP ist erforderlich, um IP-Subnetzpräfixe erhalten, die außerhalb der Cloud-Umgebung (in der Regel Internet routingfähige) geroutet werden.  Dieser werden die Front-End-IP-Adressen, die von externen Clients den Zugriff auf Ressourcen in den virtuellen Netzwerken, einschließlich der Front-End-VIP-Adresse für das Standort-zu-Standort-Gateway verwendet.         |
+|**Logisches Netzwerk mit privater VIP**     |Das logische Netzwerk mit privater VIP ist nicht erforderlich, um außerhalb der Cloud über Router weitergeleitet werden, da es für VIPs verwendet wird, die nur über interne Cloud-Clients, z. B. die SLB-Manager oder den privaten Dienste zugegriffen werden.         |
+|**Logisches GRE-VIP-Netzwerk**     |Das GRE-VIP-Netzwerk ist ein Subnetz, das nur zum Definieren von VIPs, die für eine S2S-GRE-Verbindungstyp Ihre SDN-Fabric laufenden Gateway-VMs zugewiesen sind. Dieses Netzwerk nicht vorab in den physischen Switches oder Router konfiguriert werden müssen und müssen nicht VLAN zugewiesen sein.            |
+---
+
+
+#### <a name="sample-network-topology"></a>Beispiel-Netzwerktopologie
+Ändern Sie die Präfixe von Beispiel-IP-Subnetz und VLAN-IDs für Ihre Umgebung an. 
+
+| **Netzwerkname** | **Subnetz** | **Maske** | **VLAN-ID auf LKW** | **Gateway** | **Reservierungen (Beispiele)** |
+| --- | --- | --- | --- | --- | --- |
+| Management | 10.184.108.0 | 24 | 7 | 10.184.108.1 | 10.184.108.1 – Router10.184.108.4 - Netzwerk Controller10.184.108.10 - computehost 110.184.108.11 - Computeressourcen hosten 210.184.108.X - computehost X |
+| Hnv-Anbieternetzwerk | 10.10.56.0 | 23 | 11 | 10.10.56.1 | 10.10.56.1 – Router10.10.56.2 - SLB/MUX1   |
+| Während der Übertragung | 10.10.10.0 | 24 | 10 | 10.10.10.1 | 10.10.10.1 – router |
+| Öffentliche VIP-Adresse | 41.40.40.0 | 27 | Nicht verfügbar | 41.40.40.1 | 41.40.40.1 – Router41.40.40.2 VIP41.40.40.3 SLB/MUX - IPSec-S2S-VPN-VIP   |
+| Private VIP-Adresse | 20.20.20.0 | 27 | Nicht verfügbar | 20.20.20.1 | 20.20.20.1 - Standard-Gateways (Router)   |
+| GRE-VIP | 31.30.30.0 | 24 | Nicht verfügbar | 31.30.30.1 | 31.30.30.1 - Standard-GW |
+---
+  
+### <a name="logical-networks-required-for-rdma-based-storage"></a>Logische Netzwerke, die für RDMA-basierten Speicher erforderlich sind  
+  
+Wenn Sie RDMA-basierten Speicher verwenden zu können, definieren Sie ein VLAN und ein Subnetz für jeden physischen Adapter (zwei Adapter pro Knoten) auf den Hosts Ihrer COMPUTE- und Speicherressourcen.  
+
+>[!IMPORTANT]
+>Für Quality of Service, (QoS) entsprechend angewendet werden erfordert physische Switches markierten VLAN für RDMA-Datenverkehr.
+
+| **Netzwerkname** | **Subnetz** | **Maske** | **VLAN-ID auf LKW** | **Gateway** | **Reservierungen (Beispiele)** |
+| --- | --- | --- | --- | --- | --- |
+| Storage1 | 10.60.36.0 | 25 | 8 | 10.60.36.1 | 10.60.36.1 – router<p>10.60.36.X - computehost X<p>10.60.36.Y - computehost Y<p>10.60.36.V - Compute-cluster<p>10.60.36.W - speichercluster |
+| Storage2 | 10.60.36.128 | 25 | 9 | 10.60.36.129 | 10.60.36.129 – router<p>10.60.36.X - computehost X<p>10.60.36.Y - computehost Y<p>10.60.36.V - Compute-cluster<p>10.60.36.W - speichercluster   |
+---
+
+ 
+## <a name="routing-infrastructure"></a>Routing-Infrastruktur  
+  
+Wenn Sie Ihre SDN-Infrastruktur mithilfe von Skripts bereitstellen, muss die Verwaltung, hnv-Anbieternetzwerk, während der Übertragung und VIP-Adresse der Subnetze miteinander im physischen Netzwerk geroutet.     
+  
+Routinginformationen \(z. B. nächsten Hop\) für die VIP Subnetze des SLB/MUX-Instanz und der RAS-Gateways, mit dem physischen Netzwerk mithilfe von internen BGP-peering angekündigt wird. Die logischen VIP-Netzwerke müssen sich nicht auf einem VLAN zugewiesen, und es ist nicht vorkonfiguriert, dass in der Schicht-2-Switch (z. B. Tor Switch).  
+  
+Sie müssen BGP-Peer auf dem Router zu erstellen, die von Ihrer SDN-Infrastruktur verwendet wird, um Routen für die logischen VIP-Netzwerke, die von den SLB/MUX- und den RAS-Gateways angekündigten zu erhalten. BGP-peering muss nur eine Möglichkeit (von SLB/MUX-Instanz oder RAS-Gateways, die externe BGP-Peer) auftreten.  Über die erste Ebene des Routings, Sie können statische Routen oder eine andere dynamisches Routingprotokoll wie z. B. OSPF, allerdings wie zuvor erwähnt, das IP-Subnetz-Präfix für die logischen VIP-Netzwerke müssen aus dem physischen Netzwerk auf die externe BGP-Peers geroutet werden.   
+  
+BGP-peering wird in der Regel in einen verwalteten Switch oder Router als Teil der Netzwerkinfrastruktur konfiguriert. Der BGP-Peer konnte auch auf einem Windows Server mit der in einem Modus nur Routing-Rolle (Remote Access Server, RAS) konfiguriert werden. Diese BGP-routerpeer in der Netzwerkinfrastruktur muss konfiguriert werden, um eigene ASN und Zulassen des peerings von einem ASN, die der SDN-Komponenten zugewiesen wird \(SLB/MUX-Instanz und RAS-Gateways\). Sie müssen die folgende Informationen aus dem physischen Router oder der Netzwerkadministrator Kontrolle über diese Router abrufen:
+
+- Router-ASN  
+- Router-IP-Adresse  
+- ASN für die Verwendung von SDN-Komponenten (kann eine beliebige Anzahl AS aus dem private ASN-Bereich sein)
+
+>[!NOTE]
+>Vier-Byte-ASNs werden von der SLB/MUX-Instanz nicht unterstützt. Sie müssen die SLB/MUX-Instanz als auch dem Router 2-Byte-ASNs zuordnen wei an der sie eine Verbindung herstellt. Sie können in Ihrer Umgebung an anderer Stelle auf 4-Byte-ASNs verwenden.  
+  
+Sie oder Ihr Netzwerkadministrator muss zum Akzeptieren von Verbindungen von der ASN und IP-Adresse oder das logische Transitnetzwerk, das das RAS-Gateway und die SLB/MUX-verwenden-Subnetzadresse der BGP-routerpeer konfigurieren.
+  
+Weitere Informationen finden Sie unter [Border Gateway Protocol (BGP)](../../../remote/remote-access/bgp/Border-Gateway-Protocol-BGP.md).
+  
+## <a name="default-gateways"></a>Standard-gateways
+Computer, die für die Verbindung zu mehreren Netzwerken, z. B. die physische Hosts und Gateway-VMs konfiguriert werden, müssen nur eine Standard-Gateway konfiguriert sein. Konfigurieren Sie das Standardgateway für den Adapter verwendet, um das Internet zu erreichen.
+
+Führen Sie diese Regeln, um zu entscheiden, welches Netzwerk für die Verwendung als Standardgateway für virtuelle Computer:
+
+1. Verwenden Sie das logische Transitnetzwerk als Standardgateway, wenn ein virtuellen Computers mit dem Transitnetzwerk verbunden ist, oder ist er mehrfach vernetzt, das Transitnetzwerk oder einem anderen Netzwerk.
+2. Verwenden Sie das Verwaltungsnetzwerk als Standardgateway, wenn eine VM nur mit dem Verwaltungsnetzwerk verbunden. 
+3. Verwenden Sie das hnv-anbieternetzwerk für SLB/MUX und RAS-Gateways. Verwenden Sie nicht das hnv-anbieternetzwerk als Standard-Gateway. 
+4. Verbinden Sie virtuelle Computer nicht direkt mit den Storage1 Storage2, öffentliche VIP-Adresse oder privaten VIP-Netzwerken.
+
+Verwenden Sie für Hyper-V-Hosts und Speicherknoten das Verwaltungsnetzwerk als Standardgateway ein.  Die Speichernetzwerke müssen nie ein Standardgateway zugewiesen.
+
   
 ## <a name="network-hardware"></a>Netzwerkhardware
 
-In den folgenden Abschnitten können Sie die Netzwerk-Hardware-Bereitstellung planen.
+Sie können in den folgenden Abschnitten verwenden, hardwarebereitstellung planen.
 
 ### <a name="network-interface-cards-nics"></a>Netzwerkschnittstellenkarten (NICs)
 
-Um optimale Leistung zu erzielen, werden bestimmte Funktionen in Netzwerkschnittstellenkarten erforderlich, die Sie in der Hyper-V-Hosts und Speicher-Hosts verwenden.  
- 
-(Remote Direct Memory Access, RDMA) ist ein Kernel umgehen Technik, die große Datenmengen übertragen, ohne die Host-CPU ermöglicht. Da das DMA-Modul auf dem Netzwerkadapter die Übertragung ausgeführt wird, wird die CPU nicht für die speicherbewegung verwendet.  Dadurch wird die CPU anderer Aufgaben freigegeben.  
+Der Netzwerkschnittstellenkarten (NICs) verwendet, in der Hyper-V-Hosts und Speicher-Hosts erfordern bestimmte Funktionen, um die bestmögliche Leistung zu erzielen. 
 
-Switch Embedded Teaming (SET) ist eine Alternative NIC-Teaming-Lösung, die Sie in einer Umgebung verwenden können, die Hyper-V und der Stapel Software Defined Networking (SDN) in Windows Server2016 enthalten. SET integriert einige NIC-Teaming-Funktionen in den virtuellen Hyper-V-Switch.
+(Remote Direct Memory Access, RDMA) ist ein Kernel umgehen Technik, die es ermöglicht, übertragen große Mengen von Daten ohne Verwendung des Hosts-CPU, die die CPU für andere Aufgaben freigibt. 
 
-Weitere Informationen finden Sie unter [Remote Direct Memory Access & 40; RDMA & 41; und Switch Embedded Teaming & 40; SET & 41;](../../../virtualization//hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md).  
+Switch Embedded Teaming (SET) ist eine Alternative NIC-Teamvorgang-Lösung, mit denen Sie in Umgebungen, die Hyper-V und den Stapel Software Defined Networking (SDN) in Windows Server 2016 enthalten. SET integriert einige Funktionen mit NIC-Teamvorgang in den virtuellen Hyper-V-Switch. 
 
-Um den Aufwand in virtuellen mandantennetzwerk-Datenverkehr zurückzuführen sind, VXLAN oder NVGRE-Kapselung-Header zu berücksichtigen, die MTU des Netzwerks Fabric Schicht-2 (Switches und Hosts) größer als oder gleich 1674 Bytes festgelegt werden muss \ (einschließlich Schicht-2-Ethernet-Headers\). Netzwerkkarten, die die neue unterstützen *EncapOverhead* erweiterte Adapter-Schlüsselwort wird die MTU automatisch über den Netzwerk-Controller-Agent-Host festgelegt. Netzwerkkarten, die keine neuen *EncapOverhead* Schlüsselwort müssen die MTU-Größe manuell auf jedem physischen Host mit der *JumboPacket* \(or equivalent\)-Schlüsselwort.
+Weitere Informationen finden Sie unter [(Remote Direct Memory Access, RDMA) und Switch Embedded Teaming (SET)](../../../virtualization//hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md).   
+
+Um den Aufwand in virtuellen mandantennetzwerk-Datenverkehr durch VXLAN oder NVGRE-Kapselung-Header verursacht berücksichtigen, die maximale Übertragungseinheit der Schicht-2-Fabric-Netzwerk (Switches und Hosts) muss festgelegt werden auf größer als oder gleich 1674 Bytes \(einschließlich Layer-2-Ethernet Header\). 
+
+Netzwerkkarten, die die Unterstützung der neuen *EncapOverhead* erweiterte Adapter Schlüsselwort legt die maximale Übertragungseinheit automatisch über den Netzwerkcontroller-Host-Agent. NICs, die nicht die neue unterstützen *EncapOverhead* Schlüsselwort müssen manuell festlegen, die MTU-Größe für jeden physischen Host, der mit der *JumboPacket* \(o.ä.\) Schlüsselwort. 
+
 
 ### <a name="switches"></a>Switches
   
-Stellen Sie beim Auswählen einer physischen Switches und Router für Ihre Umgebung sicher unterstützt sie den folgenden Satz von Funktionen.  
+Wenn Sie einen physischen Switches und Router für Ihre Umgebung auswählen, stellen Sie sicher, dass sie den folgenden Satz von Funktionen unterstützt:  
 
-- Switchport MTU-Einstellungen \(required\)  
-- Legen Sie die MTU auf > = 1674 Bytes \ (einschließlich L2-Ethernet-Verkaufskopf\)  
-- L3-Protokolle \(required\)  
+- Switchport MTU-Einstellungen \(erforderlich\)  
+- Legen Sie die maximale Übertragungseinheit auf > = 1674 Bytes \(einschließlich L2-Ethernet-Headers\)  
+- L3-Protokolle \(erforderlich\)  
 - ECMP  
-- BGP \(IETF RFC 4271\)\-based ECMP
+- BGP \(IETF RFC 4271\)\-ECMP basierend
 
-Implementierungen sollte die Anweisungen müssen in den folgenden IETF-Standards unterstützen.
+Implementierungen sollten die Anweisungen müssen in den folgenden IETF-Standards unterstützen.
 
-- RFC 2545: "BGP-4 Multiprotokoll-Erweiterungen für IPv6-Inter-Domain Routing"  
-- RFC 4760: "Multiprotokoll-Erweiterungen für BGP-4"  
-- RFC 4893: "BGP-Unterstützung für vier-Oktett als Zahl Speicherplatz"  
-- RFC 4456: "BGP-Routen Reflektion: eine Alternative zur vollständigen Mesh internes BGP (IBGP)"  
-- RFC 4724: "Mechanismus für die BGP ordnungsgemäß neu starten"  
+- RFC 2545: "BGP-4-Multiprotocol-Erweiterungen für IPv6-Inter-Domain Routing"  
+- RFC 4760: "Multiprotokoll-Erweiterungen für die BGP-4"  
+- RFC 4893: "BGP-Unterstützung für 4-Oktett-AS-Nummer Speicherplatz"  
+- RFC 4456: "Reflektion der BGP-Route: Eine Alternative zum vollständig Vermaschte internes BGP (IBGP)"  
+- RFC 4724: "Ordnungsgemäß neu starten-Mechanismus für BGP"  
 
-Die folgenden Tagging Protokolle sind erforderlich.
+Die folgenden Tags Protokolle sind erforderlich.
 
-- VLAN - Isolation verschiedene Arten von Datenverkehr
+- VLAN - Isolierung der verschiedenen Arten von Datenverkehr
 - 802. 1Q "Trunk"
 
-Die folgenden Artikel bieten Hyperlink-Steuerelement.
+Geben Sie die folgenden Elemente Link-Steuerelement.
 
-- Quality of Service für \ (PFC nur erforderlich, wenn RoCE\ mit)
-- Erweiterte Datenverkehr Auswahl \(802.1Qaz\)
-- Priority Based Flow Control \ (802.1 p/Q und 802.1Qbb\)
+- Quality of Service, \(PCF nur erforderlich, wenn Sie RoCE verwenden\)
+- Erweitert die Auswahl der Datenverkehr \(802.1Qaz\)
+- Prioritätsbasierte flusssteuerung \(802.1 p/Q und 802.1Qbb\)
 
-Die folgenden Artikel bieten Verfügbarkeit und Redundanz.
+Geben Sie die folgenden Elemente, Verfügbarkeit und Redundanz.
 
-- Switch-Verfügbarkeit (erforderlich)
-- Ein Router mit hoher Verfügbarkeit ist erforderlich, Gatewayfunktionen ausführen. Sie können dazu einen Router mit mehreren Gehäuse Switch\ oder Technologien wie VRRP.
+- Verfügbarkeit des Switchs (erforderlich)
+- Ein hoch verfügbarer Router muss Gatewayfunktionen ausführen. Sie erreichen dies, indem Sie einen Multi-Chassis Switch\-Router oder Technologien wie VRRP.
         
-Die folgenden Elemente geben Verwaltungsfunktionen.
+Die folgenden Elemente bieten Verwaltungsfunktionen.
 
 **Überwachung**
 
-- SNMP-v1 oder SNMP-v2 (erforderlich bei Verwendung von Netzwerk-Controller für die Überwachung von physischen Switch)  
-- SNMP-MIBs \ (erforderlich, wenn Sie Netzwerkcontroller zum physischen Switch Sicherheit\ verwenden)  
-- MIB-II (RFC 1213), LLDP, MIB-\(RFC 2863\) IF-MIB-IP-MIB, IP-FORWARD-MIB, Q-BRIDGE-MIB, BRIDGE-MIB, LLDB-MIB, Entität-MIB-, IEEE8023-Verzögerung-MIB-Schnittstelle  
+- SNMP-v1- oder SNMP-v2 (erforderlich bei mithilfe von Netzwerkcontroller für die Überwachung der physischen Switch)  
+- SNMP-MIBs \(erforderlich, wenn Sie den Netzwerkcontroller für die Überwachung der physischen Switch verwenden\)  
+- MIB-II (RFC 1213) LLDP, Interface MIB \(RFC 2863\), IF-MIB, IP-MIB, IP-Weiterleitung-MIB, Q-BRIDGE-MIB, BRIDGE-MIB, LLDB-MIB, Entity-MIB, IEEE8023-Verzögerung-MIB  
   
-Das folgende Diagramm zeigt ein Beispiel für die vier Knoten Setup. Aus Gründen der Klarheit die erste Abbildungzeigt den Netzwerk-Controller, das zweite zeigt den Netzwerkcontroller plus des Software Load Balancers und das dritte Diagramm zeigt, Netzwerkcontroller, softwarelastenausgleich und das Gateway.  
+Die folgenden Diagramme zeigen ein Beispiel mit vier Knoten Setup. Aus Gründen der Übersichtlichkeit das erste Diagramm zeigt nur die dem Netzwerkcontroller, das zweite zeigt, die dem Netzwerkcontroller und den Software Load Balancer und das dritte Diagramm zeigt, die dem Netzwerkcontroller, softwarelastenausgleich und das Gateway.  
   
-Speichernetzwerken und vNICs sind nicht in diesen Diagrammen Shonwn. Wenn Sie SMB-basierten Speicher verwenden möchten, sind diese erforderlich.    
+Diese Diagramme anzeigen nicht Speichernetzwerke und vNICs. Wenn Sie SMB-basierten Speicher verwenden möchten, müssen diese.
   
-Die Infrastruktur und die Mandanten virtuelle Computer können auf jedem physischen Compute-Host (vorausgesetzt, dass die richtigen Netzwerkkonnektivität für das richtige logische Netzwerke vorhanden ist) verteilt werden.  
+Auf jedem physischen computehost (vorausgesetzt, dass die richtigen Netzwerkkonnektivität für die richtigen logischen Netzwerke vorhanden ist), kann die Infrastruktur und die Mandanten-VMs verteilt werden.  
   
-### <a name="network-controller-deployment"></a>Bereitstellung von Domänencontrollern
 
-Bevor Sie Netzwerkcontroller bereitstellen, müssen Sie die Installation und softwareanforderungen sowie Konfigurieren von Sicherheitsgruppen und dynamische DNS-Registrierung überprüfen. Weitere Informationen finden Sie unter [Installation und Anforderungen an die Vorbereitung für die Bereitstellung von Netzwerkcontroller](Installation-and-Preparation-Requirements-for-Deploying-Network-Controller.md).
-
-Die Einrichtung ist mit drei Netzwerkcontroller Knoten konfiguriert, die auf virtuellen Maschinen mit hoher Verfügbarkeit. Auch angezeigt wird, ist zwei Mandanten mit Mandanten 2 virtuelles Netzwerk in zwei virtuelle Subnetze aufgeteilt, eine Webebene und einer Datenbank-Ebene zu simulieren.  
-
-![SDN NC-Planung](../../media/Plan-a-Software-Defined-Network-Infrastructure/SDN-NC-Planning.png)
-
-### <a name="network-controller-and-software-load-balancer-deployment"></a>Netzwerkcontroller und Software laden Lastenausgleichs-Bereitstellung
-
-Für eine hohe Verfügbarkeit müssen Sie zwei oder mehr SLB/MUX-Knoten vorhanden sind.
-   
-![SDN NC-Planung](../../media/Plan-a-Software-Defined-Network-Infrastructure/SDN-SLB-Deployment.png)
-  
-### <a name="network-controller-software-load-balancer-and-ras-gateway-deployment"></a>Netzwerkcontroller, Softwarelastenausgleich und RAS-Gateway-Bereitstellung
-
-Es gibt drei Gateway-VMs. zwei aktiv sind, und ein redundant.
-
-![SDN NC-Planung](../../media/Plan-a-Software-Defined-Network-Infrastructure/SDN-GW-Deployment.png)  
-  
-  
-  
-Für die Automatisierung TP5-basierte Bereitstellung muss Active Directory verfügbar sind und von diesen Subnetzen aus erreichbar sein. Weitere Informationen zu Active Directory finden Sie unter [Active Directory Domain Services Overview](https://technet.microsoft.com/en-us/library/mt703721.aspx).  
-  
->[!IMPORTANT] 
->Wenn Sie mithilfe von VMM bereitstellen, stellen Sie sicher Ihrer Infrastruktur virtuellen Computer (VMM-Server, Active Directory und DNS, SQL Server, usw.) nicht auf jedem der vier Hosts in den Diagrammen gezeigt gehostet werden.  
   
 ## <a name="switch-configuration-examples"></a>Beispiele für wechseln  
   
-Sie können Ihre physischen Switch oder Router konfigurieren, eine Reihe von Beispiel-Konfigurationsdateien für eine Vielzahl von Switch-Modelle und Lieferanten finden Sie unter der [Microsoft-SDN-Github-Repository](https://github.com/microsoft/SDN/tree/master/SwitchConfigExamples). Eine ausführliche Infodatei und getestete über die Befehlszeilenschnittstelle (CLI)-Befehle für spezifische Schalter werden bereitgestellt.         
+Damit können einen physischen Switch oder Router konfigurieren, ein Satz von Beispielkonfigurationsdateien für eine Vielzahl von Switch-Modelle und Anbietern finden Sie unter den [Microsoft SDN Github-Repository](https://github.com/microsoft/SDN/tree/master/SwitchConfigExamples). Einer detaillierten Infodatei und getestete über die Befehlszeilenschnittstelle (CLI)-Befehle für spezifische Schalter werden bereitgestellt.         
   
   
 ## <a name="compute"></a>Compute  
-Alle Hyper-V-Hosts müssen Windows Server2016 installiert haben, Hyper-V aktiviert, und ein externer virtueller Switch mit Hyper-V erstellt mit mindestens einem physischen Netzwerkadapter mit dem logischen Management-Netzwerk verbunden. Der Host muss über eine Management-IP-Adresse der Management-Host-vNIC erreichbar sein.  
+Alle Hyper-V-Hosts müssen Windows Server 2016 installiert haben, Hyper-V aktiviert und ein externes virtuelles Switches von Hyper-V erstellt, die mit mindestens einem physischen Netzwerkadapter, die mit dem logischen Verwaltungsnetzwerk verbunden. Der Host muss über eine Verwaltungs-IP-Adresse, die die Verwaltung von Host-vNIC zugewiesen sein.  
   
-Beliebige Speichertypen, die mit Hyper-V, gemeinsam genutzten oder lokalen kompatibel ist, kann verwendet werden.   
+Jeder Storage-Typ, der mit Hyper-V, freigegebenen oder lokalen kompatibel ist, kann verwendet werden.   
   
 > [!TIP]  
-> Es ist praktisch, wenn Sie den gleichen Namen für alle virtuellen Switches verwenden, es ist jedoch nicht obligatorisch. Wenn Sie mit Skripts bereitstellen möchten, finden Sie unter den Kommentar der `vSwitchName`in der Datei config.psd1.  
+> Es ist sinnvoll, wenn Sie den gleichen Namen für alle virtuellen Switches, aber es nicht erforderlich ist. Wenn Sie mit Skripts bereitstellen möchten, finden Sie unter den zugeordneten Kommentar der `vSwitchName` Variable in der Datei config.psd1.  
   
-**Host Compute-Anforderungen**  
-Die folgende Tabelle zeigt die Mindestanforderungen an Hardware und Software für die vier physischen Hosts, die in der beispielbereitstellung verwendet.  
+**Host-computeanforderungen**  
+Die folgende Tabelle zeigt die Mindestanforderungen für Hardware und Software für die vier physischen Hosts, die in der beispielsbereitstellung verwendet.  
   
-Host|Hardwareanforderungen|Anforderungen der Clientsoftware|  
+Host|Hardwareanforderungen|Softwareanforderungen|  
 --------|-------------------------|-------------------------  
-|Physischen Hyper-V-Host|4-Core-CPU mit 2,66 GHz<br /><br />32GB RAM<br /><br />300GB Speicherplatz<br /><br />1 Gbit/s (oder schneller) physischen Netzwerkadapter|Betriebssystem: Windows Server 2016<br /><br />Hyper-V-Rolle|  
+|Physischen Hyper-V-host|4-Kern-CPU, 2,66 GHz<br /><br />32 GB RAM<br /><br />300 GB Speicherplatz<br /><br />1 Gbit/s (oder schneller) physischen Netzwerkadapter|OS: Windows Server 2016<br /><br />Hyper-V-Rolle|  
   
   
-**Anforderungen für SDN-Infrastruktur VM-Rolle**  
+**SDN-Infrastruktur-Anforderungen für virtuelle Computer-Rolle**  
   
-Rolle|vCPU-Anforderungen|Speicherbedarf|Datenträgeranforderungen|  
+Role-Eigenschaft|vCPU-Anforderungen|Arbeitsspeicheranforderungen|Datenträgeranforderungen|  
 --------|---------------------|-----------------------|---------------------  
-|Netzwerkcontroller (drei Knoten)|4 vCPUs|4GB min (8GB empfohlen)|75GB für das Betriebssystem-Laufwerk  
-|SLB/MUX (drei Knoten)|8 vCPUs|Empfohlen werden 8GB|75GB für das Betriebssystem-Laufwerk  
-|RAS-Gateway<br /><br />(ein einziger Pool von drei Knoten Gateways, zwei aktive, eine passiv)|8 vCPUs|Empfohlen werden 8GB|75GB für das Betriebssystem-Laufwerk  
-|RAS-Gateway-BGP-Router für SLB/MUX-Peering<br /><br />(Sie können auch verwenden Sie ToR-Switch als BGP-Router)|2 vCPUs|2GB|75GB für das Betriebssystem-Laufwerk|  
+|Netzwerkcontroller (drei Knoten)|4 vCPUs|4 GB min. (8 GB empfohlen)|75 GB für das Betriebssystemlaufwerk  
+|SLB/MUX-Instanz (drei Knoten)|8 vCPUs|8 GB empfohlen|75 GB für das Betriebssystemlaufwerk  
+|RAS-Gateway<br /><br />(einzigen Pool von drei Knoten Gateways, zwei aktive, eine passiv)|8 vCPUs|8 GB empfohlen|75 GB für das Betriebssystemlaufwerk  
+|RAS-Gateway-BGP-Router für SLB/MUX-peering<br /><br />(Alternativ verwenden Sie ToR-Switch als BGP-Router)|2 vCPUs|2 GB|75 GB für das Betriebssystemlaufwerk|  
   
   
-Wenn Sie VMM für die Bereitstellung verwenden, sind die Ressourcen für zusätzliche Infrastruktur virtueller Maschinen für VMM und anderen Nicht-SDN-Infrastruktur erforderlich. Weitere Informationen finden Sie unter [mindestens Hardwareempfehlungen für System Center Technical Preview.](https://technet.microsoft.com/library/dn997303.aspx)  
+Wenn Sie VMM für die Bereitstellung verwenden, sind zusätzliche Infrastruktur, VM-Ressourcen für VMM und anderen nicht-SDN-Infrastruktur erforderlich. Weitere Informationen finden Sie unter [Minimum Hardware Recommendations for System Center Technical Preview.](https://technet.microsoft.com/library/dn997303.aspx)  
   
 ## <a name="extending-your-infrastructure"></a>Erweiterung der Infrastruktur  
-Die Größe und die Ressource Anforderungen für die Infrastruktur hängen die Arbeitslast virtuellen mandantencomputer, die Sie hosten möchten. Die CPU, Arbeitsspeicher und datenträgeranforderungen für die Infrastruktur virtuellen Computer (z.B.: Netzwerk Controller SLB, Gateway usw.) sind in der obigen Tabelle aufgeführt. Sie können diese Infrastruktur virtueller Maschinen nach Bedarf skalieren hinzufügen. Alle Mandanten-VMs unter Hyper-V-Hosts müssen jedoch ihre eigenen CPU, Arbeitsspeicher und datenträgeranforderungen, die Sie berücksichtigen müssen.   
+Die Anforderungen für Ihre Infrastruktur zur größenanpassung und Ressourcen sind abhängig von den Mandanten Workload-VMs, die Sie hosten möchten. Die CPU, Arbeitsspeicher und datenträgeranforderungen für den virtuellen Computern der Infrastruktur (z. B.: SLB-Controller-Netzwerkgateways, usw.) werden in der vorherigen Tabelle aufgeführt. Sie können mehrere dieser Infrastruktur-VMs zu skalieren, je nach Bedarf hinzufügen. Allerdings müssen alle Mandanten virtuelle Maschinen auf Hyper-V-Hosts ihre eigenen CPU, Arbeitsspeicher und datenträgeranforderungen, die Sie berücksichtigen müssen.   
   
-Wenn die virtuellen mandantencomputer Arbeitslast zu viele Ressourcen auf dem physischen Hyper-V-Hosts beginnen, können Sie Ihre Infrastruktur erweitern, durch zusätzliche physische Hosts hinzufügen. Dies kann mit Virtual Machine Manager oder mithilfe von PowerShell-Skripts (je nachdem, wie Sie zunächst die Infrastruktur bereitgestellt), neue Serverressourcen über das Netzwerk-Controller zu erstellen. Wenn Sie zusätzliche IP-Adressen für die Hyper-v-Anbieter hinzufügen müssen, können Sie neue logische Subnetze (mit der entsprechenden IP-Adresspools) erstellen, die die Hosts verwenden können.  
+Wenn die virtuellen Maschinen des Mandanten Workload beginnen, die zu viele Ressourcen auf den physischen Hyper-V-Hosts zu nutzen, können Sie Ihrer Infrastruktur erweitern, indem zusätzliche physische Hosts hinzufügen. Dies kann erfolgen mit Virtual Machine Manager oder mithilfe von PowerShell-Skripts (je nachdem, wie Sie zunächst die Infrastruktur bereitgestellt) zum Erstellen von neuen Serverressourcen über den Netzwerkcontroller. Wenn Sie das hnv-anbieternetzwerk zusätzliche IP-Adressen hinzufügen möchten, können Sie neue logische Subnetze (mit der entsprechenden IP-Adresspools) erstellen, die die Hosts verwenden können.  
   
   
 ## <a name="see-also"></a>Siehe auch  
-[Installation und Anforderungen an die Vorbereitung für die Bereitstellung von Netzwerkcontroller](Installation-and-Preparation-Requirements-for-Deploying-Network-Controller.md)  
-[Software-Defined Networking & #40; SDN & #41;](../Software-Defined-Networking--SDN-.md)  
+[Installation und Anforderungen bei der Vorbereitung für die Bereitstellung des Netzwerkcontrollers](Installation-and-Preparation-Requirements-for-Deploying-Network-Controller.md)  
+[Software-Defined Networking &#40;SDN&#41;](../Software-Defined-Networking--SDN-.md)  
   
 
 

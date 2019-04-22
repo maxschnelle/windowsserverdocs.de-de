@@ -1,6 +1,6 @@
 ---
 title: Erstellen einer Benutzerrolle für die Zugriffssteuerung
-description: Dieses Thema ist Teil des Handbuchs Verwaltung von IP-Adressverwaltung (IPAM) in Windows Server2016.
+description: Dieses Thema ist Teil des Leitfadens Verwaltung von IP-Adressverwaltung (IPAM) in Windows Server 2016.
 manager: brianlic
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -13,28 +13,29 @@ ms.topic: article
 ms.assetid: ae6a42db-a104-401b-a8e6-b85c47d30b46
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: fa0ed71d399ad638a648946952fe170d93f69ceb
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 69d7acec19a460b51819bdc30ce40e21089c7bcf
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59823581"
 ---
 # <a name="create-a-user-role-for-access-control"></a>Erstellen einer Benutzerrolle für die Zugriffssteuerung
 
->Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
-In diesem Thema können Sie um eine neue Benutzerrolle für die Steuerung des Zugriffs in der IPAM-Clientkonsole erstellen.  
+Sie können in diesem Thema verwenden, um eine neue Benutzerrolle für die Zugriffssteuerung in der IPAM-Clientkonsole zu erstellen.  
   
-Mitgliedschaft in **Administratoren**, oder einer gleichwertigen Gruppe ist mindestens erforderlich, um dieses Verfahren auszuführen.  
+Die Mitgliedschaft in **Administratoren** oder einer entsprechenden Gruppe ist die Mindestanforderung für die Durchführung dieses Verfahrens.  
   
 > [!NOTE]  
-> Nachdem Sie eine Rolle erstellt haben, können Sie eine Zugriffsrichtlinie zum Zuweisen der Rolle an einen bestimmten Benutzer oder die Active Directory-Gruppe erstellen. Weitere Informationen finden Sie unter [Erstellen einer Zugriffsrichtlinie](../../technologies/ipam/Create-an-Access-Policy.md).  
+> Nachdem Sie eine Rolle erstellt haben, können Sie eine Zugriffsrichtlinie zum Zuweisen der Rolle für einen bestimmten Benutzer oder die Active Directory-Gruppe erstellen. Weitere Informationen finden Sie unter [Erstellen einer Zugriffsrichtlinie](../../technologies/ipam/Create-an-Access-Policy.md).  
   
-### <a name="to-create-a-role"></a>Um eine Rolle zu erstellen.  
+### <a name="to-create-a-role"></a>Zum Erstellen einer Rolle  
   
-1.  Klicken Sie im Server-Manager auf **IPAM**. Die IPAM-Clientkonsole angezeigt wird.  
+1.  Klicken Sie im Server-Manager **IPAM**. Die IPAM-Clientkonsole angezeigt wird.  
   
-2.  Klicken Sie im Navigationsbereich auf **ZUGRIFFSSTEUERUNG**, und klicken Sie im unteren Navigationsbereich, klicken Sie auf **Rollen**.  
+2.  Klicken Sie im Navigationsbereich auf **ZUGRIFFSSTEUERUNG**, und klicken Sie im unteren Navigationsbereich auf **Rollen**.  
   
     ![Zugriffssteuerungsrollen](../../media/Create-a-User-Role-for-Access-Control/ipam_CreateUserRole_01.jpg)  
   
@@ -42,24 +43,24 @@ Mitgliedschaft in **Administratoren**, oder einer gleichwertigen Gruppe ist mind
   
     ![Benutzerrolle hinzufügen](../../media/Create-a-User-Role-for-Access-Control/ipam_CreateUserRole_02.jpg)  
   
-4.  Die **hinzufügen oder bearbeiten Rolle** Dialogfeld wird geöffnet. In **Namen**, geben Sie einen Namen für die Rolle, die die Funktion löschen kann. Z.B., wenn eine Rolle zu erstellen, die Administratoren die Verwaltung von DNS-SRV-Ressourceneinträge gestattet werden soll, Sie möglicherweise den Namen der Rolle **IPAMSrv**. Bei Bedarf einen Bildlauf im **Operations** Art der Vorgänge finden Sie für die Rolle definieren möchten. In diesem Beispiel einen Bildlauf nach unten zu **DNS-Resource Record Verwaltungsvorgänge**.  
+4.  Die **hinzufügen oder Bearbeiten von Rolle** Dialogfeld wird geöffnet. In **Namen**, geben Sie einen Namen für die Rolle, mit der die Rolle-Funktion deaktivieren. Beispielsweise sollten Sie eine Rolle zu erstellen, die Administratoren zum Verwalten von DNS-SRV-Ressourceneinträge ermöglicht, Sie können benennen Sie die Rolle **IPAMSrv**. Bei Bedarf einen Bildlauf **Vorgänge** Arten von Vorgängen finden Sie für die Rolle definieren möchten. In diesem Beispiel führen Sie einen Bildlauf nach unten zum **DNS-datensatzverwaltung Ressourcenvorgänge**.  
   
-    ![DNS-Resource Record Verwaltungsvorgänge](../../media/Create-a-User-Role-for-Access-Control/ipam_CreateUserRole_03.jpg)  
+    ![DNS-datensatzverwaltung Ressourcenvorgänge](../../media/Create-a-User-Role-for-Access-Control/ipam_CreateUserRole_03.jpg)  
   
-5.  Erweitern Sie **DNS-Resource Record Verwaltungsvorgänge**, und suchen Sie **SRV-Datensatz Operations**.  
+5.  Erweitern Sie **DNS-datensatzverwaltung Ressourcenvorgänge**, und suchen Sie dann **SRV-Datensatz Vorgänge**.  
   
-    ![SRV-Datensatz operations](../../media/Create-a-User-Role-for-Access-Control/ipam_CreateUserRole_04.jpg)  
+    ![SRV-Datensatz-Vorgänge](../../media/Create-a-User-Role-for-Access-Control/ipam_CreateUserRole_04.jpg)  
   
-6.  Erweitern und wählen Sie **SRV-Datensatz Operations**, und klicken Sie dann auf **OK**.  
+6.  Erweitern und auszuwählen, **SRV-Datensatz Vorgänge**, und klicken Sie dann auf **OK**.  
   
-    ![Wählen Sie SRV-Datensatz operations](../../media/Create-a-User-Role-for-Access-Control/ipam_CreateUserRole_05.jpg)  
+    ![SRV-Datensatz Vorgänge auswählen](../../media/Create-a-User-Role-for-Access-Control/ipam_CreateUserRole_05.jpg)  
   
-7.  Klicken Sie in der IPAM-Clientkonsole auf die Rolle, die Sie gerade erstellt haben. In **Ansicht mit Detail zur** werden die zulässigen Vorgänge für die Rolle angezeigt.  
+7.  Klicken Sie in der IPAM-Clientkonsole auf die Rolle, die Sie gerade erstellt haben. In **Detailansicht** zulässigen Vorgänge für die Rolle werden angezeigt.  
   
-    ![Neue Rollendetails](../../media/Create-a-User-Role-for-Access-Control/ipam_CreateUserRole_06.jpg)  
+    ![Rollendetails der neuen](../../media/Create-a-User-Role-for-Access-Control/ipam_CreateUserRole_06.jpg)  
   
 ## <a name="see-also"></a>Siehe auch  
-[Rollenbasierte Zugriffsteuerung](Role-based-Access-Control.md)  
+[Rollenbasierte Zugriffssteuerung](Role-based-Access-Control.md)  
 [Verwalten von IPAM](Manage-IPAM.md)  
   
 

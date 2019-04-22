@@ -1,6 +1,6 @@
 ---
-title: Rollen, Rollendienste und Features nicht in WindowsServer - Server Core
-description: Informationen Sie zu Rollen und Features, die nicht in die Server Core-Installationsoption für Windows Server enthalten.
+title: Rollen, Rollendienste und Features nicht in WindowsServer – Server Core
+description: Informationen Sie zu Rollen und Features, die nicht in der Server Core-Installationsoption für Windows Server enthalten.
 ms.prod: windows-server-threshold
 ms.mktglfcycl: manage
 ms.sitesec: library
@@ -8,85 +8,85 @@ author: lizap
 ms.localizationpriority: medium
 ms.date: 02/23/2018
 ms.openlocfilehash: 308bc8a5d25e2ec67438f0ee03cbfce6f7411ca2
-ms.sourcegitcommit: 4b9b21ca1f366388a78ead7413cb581f2b23d4c6
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "2604788"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59825531"
 ---
-# Rollen, Rollendienste und Features nicht in WindowsServer - Server Core
+# <a name="roles-role-services-and-features-not-in-windows-server---server-core"></a>Rollen, Rollendienste und Features nicht in WindowsServer – Server Core
 
-> Betrifft: WindowsServer (Semikolons jährlichen Channel) und WindowsServer 2016
+> Gilt für: WindowsServer (Halbjährlicher Kanal) und WindowsServer 2016
 
-Die folgenden Rollen, Rollendienste und Features wurden aus der Server Core-Installationsoption von Windows Server entfernt. Anhand dieser Informationen können Sie ermitteln, ob die Server Core-Option für Ihre Umgebung funktioniert.
+Die folgenden Rollen, Rollendienste und Features wurden in die Server Core-Installationsoption von Windows Server entfernt. Verwenden Sie diese Informationen, um zu ermitteln, ob die Server Core-Option für Ihre Umgebung funktioniert.
 
 > [!NOTE]
-> Sie können auch einer Liste mit den Rollen, Rollendienste und Features dieser [Server Core enthaltenen](server-core-roles-and-services.md)finden Sie unter. Es ist eine sehr umfangreiche Liste, also für optimale Ergebnisse suchen dieser Liste für die Rolle oder das Feature Sie interessieren.
+> Sie sehen auch eine Liste der Rollen, Rollendiensten und features dieses Produkts [befinden sich im Server Core](server-core-roles-and-services.md). Es ist eine sehr große Liste, also um optimale Ergebnisse zu suchen, Liste der bestimmter Rollen oder Features, die Sie interessiert.
 
-## Rollen nicht in Server Core
+## <a name="roles-not-in-server-core"></a>Rollen nicht im Server Core
 
 - Fax
 - MultiPointServerRole
 - NPAS
 - WDS
 
-## Rollendienste nicht in Server Core
-Notiz, die einige Remotedesktop-Rollendienste in Server Core (Connection Broker, Lizenzierung, Virtualisierungshost), enthalten sind, aber andere Personen sind nicht (RD-Sitzungshost-Gateway Web Access).
+## <a name="role-services-not-in-server-core"></a>Rollendienste, die nicht in Server Core
+Beachten Sie, die für einige Rollendienste Remote Desktop befinden sich im Server-Core (Connection Broker, Lizenzierung,-Virtualisierungshost), aber andere dagegen nicht (Gateway, RD-Sitzungshost, Web Access).
 
-- Print-Scan-Server
-- Drucken im Internet
+- Drucken-Scan-Server
+- Drucken über das Internet
 - RDS-Gateway
 - RDS-RD-Server
-- RDS-Webzugriff
-- Web-Mgmt-Konsole
-- Web-Lgcy-Mgmt-Konsole
+- RDS-Web-Access
+- Web-Mgmt-Console
+- Web-Lgcy-Mgmt-Console
 - WDS-Bereitstellung
 - WDS-Transport *(vor Windows Server, Version 1803)*
 
-## Features nicht in Server Core
+## <a name="features-not-in-server-core"></a>Funktionen, die nicht in Server Core
 
-- BITS-IIS-App.
+- BITS-IIS-Ext
 - BitLocker-NetworkUnlock
-- Direct-wiedergeben
+- Direct-Play
 - Internet-Print-Client
 - LPR-Port-Monitor
 - MSMQ-Multicasting
 - CMAK
-- Remote-Unterstützung
-- RSAT-SMTP-
+- Remote Assistance
+- RSAT-SMTP
 - RSAT-Feature-Tools-BitLocker-RemoteAdminTool
-- RSAT-Bit-Server
+- RSAT-Bits-Server
 - RSAT-NLB
 - RSAT-SNMP
 - RSAT-WINS
 - Hyper-V-Tools
 - RSAT-RDS-Tools
 - RSAT-RDS-Gateway
-- RSAT-RDS-Lizenzierung-Diagnose-UI
-- RDS-Lizenzierung-UI
+- RSAT-RDS-Licensing-Diagnosis-UI
+- RDS-Licensing-UI
 - UpdateServices-UI
-- RSAT-MDE
-- RSAT-MDE-Mgmt
+- RSAT-ADCS
+- RSAT-ADCS-Mgmt
 - RSAT-Online-Responder
 - RSAT-ADRMS
 - RSAT-Fax
-- Dateidienste Remoteserver-Verwaltungstools
-- RSAT-DFS-Mgmt-Kohn
+- RSAT-File-Services
+- RSAT-DFS-Mgmt-Con
 - RSAT-FSRM-Mgmt
 - RSAT-NFS-Admin
 - RSAT-NPAS
-- Druckdienste Remoteserver-Verwaltungstools
+- RSAT-Print-Services
 - RSAT-VA-Tools
-- WDS AdminPack
+- WDS-AdminPack
 - SMTP-Server
 - TFTP-Client
 - WebDAV-Redirector
 - Biometrieframework
 - Windows-Defender-Gui
-- Windows-Identität-Foundation
-- PowerShell ISE
-- Suchdienst
+- Windows-Identity-Foundation
+- PowerShell-ISE
+- Search-Dienst
 - Windows-TIFF-IFilter
-- WLAN-Netzwerk
+- Wireless-Networking
 - XPS-Viewer
 

@@ -10,24 +10,24 @@ author: cosmosdarwin
 ms.date: 01/23/2017
 ms.localizationpriority: medium
 ms.openlocfilehash: 51f58ec23c55a6cb1664d800d6f4a75dae545899
-ms.sourcegitcommit: dfd25348ea3587e09ea8c2224237a3e8078422ae
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "4678649"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59824971"
 ---
-# Erweitern von Volumes in Direkte Speicherplätze
-> Gilt für: WindowsServer 2019, WindowsServer 2016
+# <a name="extending-volumes-in-storage-spaces-direct"></a>Erweitern von Volumes in Direkte Speicherplätze
+> Gilt für: Windows Server 2019, Windows Server 2016
 
 Dieses Thema enthält Anweisungen zum Anpassen der Volumegröße in [Direkte Speicherplätze](storage-spaces-direct-overview.md).
 
-## Voraussetzungen
+## <a name="prerequisites"></a>Vorraussetzungen
 
-### Kapazität im Speicherpool
+### <a name="capacity-in-the-storage-pool"></a>Kapazität im Speicherpool
 
 Bevor Sie die Volumegröße ändern, stellen Sie sicher, dass der Speicherpool über ausreichend Kapazität für den neuen, größeren Speicherbedarf verfügt. Beispielsweise würden beim Ändern der Größe von einem Volume für die Drei-Wege-Spiegelung von 1 TB auf 2 TB der Speicherbedarf von 3 TB auf 6 TB wachsen. Damit die Größenänderung erfolgreich ausgeführt werden kann, benötigen Sie mindestens folgende verfügbare Kapazität im Speicherpool: (6 - 3) = 3 TB.
 
-### Erfahrung mit Volumes in Speicherplätzen
+### <a name="familiarity-with-volumes-in-storage-spaces"></a>Erfahrung mit Volumes in Speicherplätzen
 
 In Direkte Speicherplätze besteht jedes Volume aus mehreren gestapelten Objekten: dem freigegebenen Clustervolume (CSV), bei dem es sich um ein Volume handelt; der Partition; dem Datenträger, der ein virtueller Datenträger ist; und mindestens einer Speicherebene (sofern zutreffend). Zum Ändern der Größe eines Volumes müssen Sie die Größe einiger dieser Objekte ändern.
 
@@ -35,7 +35,7 @@ In Direkte Speicherplätze besteht jedes Volume aus mehreren gestapelten Objekte
 
 Um sich damit vertraut zu machen, führen Sie **Get-** mit dem entsprechenden Substantiv in PowerShell aus.
 
-Beispiel:
+Zum Beispiel:
 
 ```PowerShell
 Get-VirtualDisk
@@ -43,13 +43,13 @@ Get-VirtualDisk
 
 Um die Zuordnungen zwischen Objekten im Stapel zu verfolgen, reichen Sie ein **Get-**-Cmdlet an das nächste weiter.
 
-Hier sehen Sie z.B., wie Sie von einem virtuellen Datenträger bis zum Volume gelangen:
+Hier sehen Sie z. B., wie Sie von einem virtuellen Datenträger bis zum Volume gelangen:
 
 ```PowerShell
 Get-VirtualDisk <FriendlyName> | Get-Disk | Get-Partition | Get-Volume 
 ```
 
-## Schritt1 – Ändern der Größe des virtuellen Datenträgers
+## <a name="step-1--resize-the-virtual-disk"></a>Schritt 1 – Ändern der Größe des virtuellen Datenträgers
 
 Der virtuelle Datenträger kann Speicherebenen verwenden oder nicht, je nachdem, wie sie erstellt wurde.
 
@@ -61,7 +61,7 @@ Get-VirtualDisk <FriendlyName> | Get-StorageTier
 
 Wenn das Cmdlet nichts zurückgibt, verwendet der virtuelle Datenträger keine Speicherebenen.
 
-### Keine Speicherebenen
+### <a name="no-storage-tiers"></a>Keine Speicherebenen
 
 Verfügt der virtuelle Datenträger über keine Speicherkategorien, können Sie seine Größe direkt über das **Resize-VirtualDisk**-Cmdlet anpassen.
 
@@ -75,7 +75,7 @@ Wenn Sie die Größe von **VirtualDisk** anpassen, folgt **Disk** automatisch un
 
 ![Resize-VirtualDisk](media/resize-volumes/Resize-VirtualDisk.gif)
 
-### Mit Speicherebenen
+### <a name="with-storage-tiers"></a>Mit Speicherebenen
 
 Wenn der virtuelle Datenträger Speicherebenen verwendet, können Sie die Größe jeder Ebene separat mit dem Cmdlet **Resize-StorageTier** anpassen.
 
@@ -92,13 +92,13 @@ Get-StorageTier <FriendlyName> | Resize-StorageTier -Size <Size>
 ```
 
 > [!TIP]
-> Wenn es sich bei Ihren Ebenen um unterschiedliche physische Medientypen handelt (z.B. **MediaType = SSD** und **MediaType = HDD**), müssen Sie sicherstellen, dass Sie über ausreichend Kapazität für jeden Medientyp im Speicherpool für den neuen, größeren Speicherbedarf für jede Ebene verfügen.
+> Wenn es sich bei Ihren Ebenen um unterschiedliche physische Medientypen handelt (z. B. **MediaType = SSD** und **MediaType = HDD**), müssen Sie sicherstellen, dass Sie über ausreichend Kapazität für jeden Medientyp im Speicherpool für den neuen, größeren Speicherbedarf für jede Ebene verfügen.
 
 Wenn Sie die Größe von **StorageTier**-Elementen ändern, folgen **VirtualDisk** und **Disk** automatisch und werden ebenfalls angepasst.
 
 ![Resize-StorageTier](media/resize-volumes/Resize-StorageTier.gif)
 
-## Schritt2 – Ändern der Größe der Partition
+## <a name="step-2--resize-the-partition"></a>Schritt 2 – Ändern der Größe der Partition
 
 Passen Sie als Nächstes die Größe der Partition mit dem Cmdlet **Resize-Partition** an. Vom virtuellen Datenträger wird erwartet, dass er zwei Partitionen besitzt: die erste ist reserviert und sollte nicht geändert werden. Für den Datenträger, dessen Größe geändert werden muss, gilt Folgendes **PartitionNumber = 2** und **Type = Basic**.
 
@@ -119,13 +119,13 @@ Wenn Sie die Größe von **Partition** anpassen, folgen **Volume** und **Cluster
 
 ![Resize-Partition](media/resize-volumes/Resize-Partition.gif)
 
-Das war's.
+Das ist alles!
 
 > [!TIP]
 > Sie können überprüfen, ob das Volume die neue Größe aufweist, indem Sie **Get-Volume** ausführen.
 
-## Weitere Informationen:
+## <a name="see-also"></a>Siehe auch
 
-- [Direkte Speicherplätze in Windows Server 2016](storage-spaces-direct-overview.md)
-- [Planen von Volumes in Direkte Speicherplätze](plan-volumes.md)
-- [Erstellen von Volumes in Direkte Speicherplätze](create-volumes.md)
+- ["Direkte Speicherplätze" unter WindowsServer 2016](storage-spaces-direct-overview.md)
+- [Planen von Volumes im "direkte Speicherplätze"](plan-volumes.md)
+- [Erstellen von Volumes in "direkte Speicherplätze"](create-volumes.md)

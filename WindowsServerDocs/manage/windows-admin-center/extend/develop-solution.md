@@ -1,6 +1,6 @@
 ---
-title: Entwickeln Sie eine lösungserweiterung
-description: Entwickeln Sie eine lösungserweiterung Windows Admin Center SDK (Projekt Honolulu)
+title: Entwickeln einer Lösungserweiterung
+description: Entwickeln einer Lösung Erweiterungs Windows Admin Center-SDK (Projekt Honolulu)
 ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
@@ -9,37 +9,37 @@ ms.date: 09/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 ms.openlocfilehash: ed5ecddbaef91f127846825e408a9a6ec65ff741
-ms.sourcegitcommit: be0144eb59daf3269bebea93cb1c467d67e2d2f1
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "4081067"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59825471"
 ---
-# Entwickeln Sie eine lösungserweiterung
+# <a name="develop-a-solution-extension"></a>Entwickeln einer Lösungserweiterung
 
 >Gilt für: Windows Admin Center, Windows Admin Center Preview
 
-Lösungen definieren in erster Linie einen eindeutigen Objekttyp, das Sie über Windows Admin Center verwalten möchten.  Diese Lösungen/Verbindungstypen sind standardmäßig in Windows Admin Center enthalten:
+Lösungen definieren in erster Linie einen eindeutigen Typ des Objekts, die Sie über Windows Admin Center verwalten möchten.  Diese Lösungen/Verbindungstypen sind in Windows Admin Center standardmäßig enthalten:
 
 * Windows Server-Verbindungen
-* Windows-PC-Anschlüsse
-* Failoverclusterverbindungen
-* Zusammengeführte Clusterverbindungen
+* Windows-PC-Verbindungen
+* Failover-Cluster-Verbindungen
+* Hyperkonvergente Clusterverbindungen
 
-Wenn Sie eine Verbindung aus dem Windows Admin Center Verbindung auswählen, wird die Erweiterung der Lösung für diese Verbindung Typ geladen und Windows Admin Center wird versucht, für die Verbindung an den Zielknoten. Wenn die Verbindung erfolgreich ist, wird die Lösung Erweiterung UI geladen, und Windows Admin Center wird die Tools für diese Lösung im linken Navigationsbereich angezeigt.
+Wenn Sie eine Verbindung aus dem Windows Admin Center-Seite "Verbindung" auswählen, die Lösung-Erweiterung für den zugehörigen Typ wird geladen, und Windows Admin Center wird versuchen, zur Verbindung mit des Zielknotens. Wenn die Verbindung erfolgreich ist, die Lösung des Erweiterungs-Benutzeroberfläche wird geladen und Windows Admin Center werden die Tools für die Lösung im linken Navigationsbereich angezeigt.
 
-Wenn Sie eine Management-GUI für Dienste, die nicht durch die Standard-Verbindungstypen oben, solche einem Netzwerkswitch oder andere Hardware, die nicht sichtbar anhand des Computernamens definiert erstellen möchten, sollten Sie Ihre eigene lösungserweiterung erstellen.
+Wenn Sie ein Verwaltungs-GUI für Dienste, die nicht von den Verbindungstypen "Standard" oben, solche ein Netzwerkswitch oder anderer Hardware, die nicht sichtbaren definiert, nach Computernamen erstellen möchten, empfiehlt es sich, eine eigene Lösung-Erweiterung zu erstellen.
 
 > [!NOTE]
-> Mit den anderen Erweiterung nicht vertraut? Erfahren Sie mehr über die [Erweiterbarkeit Architektur und Erweiterung Typen](understand-extensions.md).
+> Sie sind nicht mit anderen Erweiterungstypen vertraut? Erfahren Sie mehr über die [Erweiterbarkeit Architektur und die Erweiterung Typen](understand-extensions.md).
 
-## Vorbereiten der Umgebung
+## <a name="prepare-your-environment"></a>Vorbereiten der Umgebung
 
-Wenn Sie nicht bereits geschehen, durch das Installieren von Abhängigkeiten und globale erforderlichen Komponenten für alle Projekte [Vorbereiten der Umgebung](prepare-development-environment.md) .
+Wenn Sie nicht bereits geschehen, [Vorbereiten der Umgebung](prepare-development-environment.md) durch die Installation von Abhängigkeiten und globale Voraussetzungen für alle Projekte.
 
-## Erstellen Sie eine neue lösungserweiterung mit der Windows Admin Center-CLI ##
+## <a name="create-a-new-solution-extension-with-the-windows-admin-center-cli"></a>Erstellen Sie eine neue Erweiterung für die Lösung, mit der Windows Admin Center-CLI ##
 
-Wenn Sie alle Abhängigkeiten installiert haben, können Sie Ihre neue lösungserweiterung erstellen.  Erstellen oder navigieren Sie zu einem Ordner, der Ihre Projektdateien enthält, ein Eingabeaufforderungsfenster, und legen Sie diesen Ordner als das Arbeitsverzeichnis.  Verwenden die Windows Admin Center-CLI, die zuvor installiert wurde, erstellen Sie eine neue Erweiterung mit folgender Syntax:
+Nachdem Sie alle Abhängigkeiten installiert haben, können Sie die neue projektmappenerweiterung zu erstellen.  Erstellen Sie oder navigieren Sie zu einem Ordner, der Ihre Projektdateien enthält, öffnen Sie eine Eingabeaufforderung, und legen Sie diesen Ordner als Arbeitsverzeichnis.  Verwenden die Windows Admin Center-CLI, die zuvor installiert wurde, erstellen Sie eine neue Erweiterung mit der folgenden Syntax:
 
 ```
 wac create --company "{!Company Name}" --solution "{!Solution Name}" --tool "{!Tool Name}"
@@ -48,7 +48,7 @@ wac create --company "{!Company Name}" --solution "{!Solution Name}" --tool "{!T
 | Wert | Erläuterung | Beispiel |
 | ----- | ----------- | ------- |
 | ```{!Company Name}``` | Den Namen Ihres Unternehmens (mit Leerzeichen) | ```Contoso Inc``` |
-| ```{!Solution Name}``` | Die Namen Ihrer Projektmappe (mit Leerzeichen) | ```Contoso Foo Works Suite``` |
+| ```{!Solution Name}``` | Den Namen der Projektmappe (mit Leerzeichen) | ```Contoso Foo Works Suite``` |
 | ```{!Tool Name}``` | Der Name des Tools (mit Leerzeichen) | ```Manage Foo Works``` |
 
 Beispiel zur Verwendung:
@@ -57,31 +57,31 @@ Beispiel zur Verwendung:
 wac create --company "Contoso Inc" --solution "Contoso Foo Works Suite" --tool "Manage Foo Works"
 ```
 
-Dadurch entsteht einen neuen Ordner in das aktuelle Arbeitsverzeichnis, das mit dem Namen für die Projektmappe angegeben, werden alle erforderlichen Vorlagendateien in Ihrem Projekt kopiert und die Dateien mit Ihrem Unternehmen, Lösung und Name des Tools konfiguriert.  
+Dies erstellt einen neuen Ordner in das aktuelle Arbeitsverzeichnis, das mit dem Namen, den Sie für Ihre Lösung angegeben, kopiert alle erforderlichen Vorlagendateien in Ihr Projekt und die Dateien mit Ihrer Unternehmens-Lösung und Name des Tools konfiguriert.  
 
-Als Nächstes ändern Sie das Verzeichnis in den Ordner, der gerade erstellt haben, und Installieren von erforderlichen lokalen Abhängigkeiten mithilfe des folgenden Befehls:
+Als Nächstes wechseln Sie zu dem Ordner, der gerade erstellt haben, und installieren Sie erforderliche lokale Abhängigkeiten zu, indem Sie den folgenden Befehl ausführen:
 
 ```
 npm install
 ```
 
-Sobald dies abgeschlossen ist, haben Sie alles einrichten die neue Erweiterung in Windows Admin Center geladen werden müssen. 
+Sobald dies abgeschlossen ist, haben Sie alles, was einrichten, die Sie die neue Erweiterung in Windows Admin Center zu laden müssen. 
 
-## Hinzufügen von Inhalten zu der Erweiterung
+## <a name="add-content-to-your-extension"></a>Hinzufügen von Inhalt zu Ihrer Erweiterung
 
-Nun, da Sie eine Erweiterung mit dem Windows Admin Center-CLI erstellt haben, können Sie zur Anpassung von Inhalten.  Beispiele dafür, was Sie tun können finden Sie in diesen Handbüchern aus:
+Nun, dass Sie eine Erweiterung mit der Windows Admin Center-CLI erstellt haben, können Sie Inhalt anpassen.  Diese Leitfäden finden Sie Beispiele für Möglichkeiten:
 
-- Fügen Sie ein [leeres Modul](guides\add-module.md)
-- [IFrame](guides\add-iframe.md) hinzufügen
-- Erstellen Sie einen [benutzerdefinierten Verbindung-Anbieter](guides\create-connection-provider.md)
-- [Stamm Navigationsverhalten](guides\modify-root-navigation.md) ändern
+- Hinzufügen einer [leere-Modul](guides\add-module.md)
+- Hinzufügen einer [iFrame](guides\add-iframe.md)
+- Erstellen Sie eine [benutzerdefinierte Verbindungsanbieter](guides\create-connection-provider.md)
+- Ändern Sie [root Navigationsverhalten](guides\modify-root-navigation.md)
  
-Weitere Beispiele finden Sie unserer [GitHub-SDK-Website](https://aka.ms/wacsdk):
--  [Entwicklertools](https://github.com/Microsoft/windows-admin-center-sdk/tree/master/windows-admin-center-developer-tools) ist eine voll funktionsfähige Erweiterung, die in Windows Admin Center Seite geladen werden können, und enthält eine umfassende Auflistung von Beispiel-Funktion und Tool-Beispiele, in denen Sie durchsuchen und in Ihre eigene Erweiterung verwenden können.
+Weitere Beispiele finden Sie unserem [Website des GitHub-SDKS](https://aka.ms/wacsdk):
+-  [Entwicklertools](https://github.com/Microsoft/windows-admin-center-sdk/tree/master/windows-admin-center-developer-tools) ist eine voll funktionsfähige-Erweiterung, die in Windows Admin Center-Seite geladen werden können, und eine umfangreiche Sammlung von Beispiel-Funktionen und Tools Beispiele, die Sie durchsuchen und verwenden Sie in Ihrer eigenen Extension enthält.
 
-## Build und Seite laden die Erweiterung
+## <a name="build-and-side-load-your-extension"></a>Erstellen und die Seite laden die Erweiterung
 
-Als Nächstes laden Build und Seite die Erweiterung in Windows Admin Center.  Öffnen Sie ein Befehlsfenster, wechseln Sie in Ihrer Quellverzeichnis, und klicken Sie dann erstellen bereit.
+Laden Sie als Nächstes erstellen und die Seite die Erweiterung in Windows Admin Center.  Öffnen Sie ein Befehlsfenster, wechseln Sie in Ihrem Quellverzeichnis, sind Sie bereit zum Erstellen.
 
 * Erstellen und mit schlucken dienen:
 
@@ -106,6 +106,6 @@ Das Projekt kann Seite in eine lokale Instanz des Windows Admin Center zu Testzw
 
 Das Projekt wird jetzt in der Liste Tools mit (Seite geladen) neben dem Namen angezeigt.
 
-## Eine andere Version von Windows Admin Center SDK
+## <a name="target-a-different-version-of-the-windows-admin-center-sdk"></a>Eine andere Version des Windows Admin Center-SDK
 
-Halten die Erweiterung auf dem neuesten Stand mit SDK-Änderungen und Plattform Änderungen ist einfach.  Informationen Sie darüber, wie Sie [Ziel eine andere Version](target-sdk-version.md) von Windows Admin Center SDK.
+Halten die Erweiterung auf dem neuesten Stand mit SDK-Änderungen und Plattform ist einfach.  Erfahren Sie, wie Sie [eine andere Version](target-sdk-version.md) Windows Admin Center SDK.

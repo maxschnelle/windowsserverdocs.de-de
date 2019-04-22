@@ -1,6 +1,6 @@
 ---
 ms.assetid: 56fc7f80-9558-467e-a6e9-a04c9abbee33
-title: "Fehlerdomänenunterstützung"
+title: Fehlerdomänenunterstützung
 ms.prod: windows-server-threshold
 ms.author: cosdar
 ms.manager: eldenc
@@ -9,53 +9,54 @@ ms.topic: article
 author: cosmosdarwin
 ms.date: 09/16/2016
 ms.openlocfilehash: f5c64bb8f8b7d4b8d13c76c4e94cfcf52ee32c30
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59821471"
 ---
-# <a name="fault-domain-awareness-in-windows-server-2016"></a>Fehlerdomänenunterstützung in Windows Server2016
+# <a name="fault-domain-awareness-in-windows-server-2016"></a>Fehlerdomänenunterstützung in Windows Server 2016
 
 > Gilt für: Windows Server 2016
 
-Failover-Clusterunterstützung können mehrere Server zusammenarbeiten, um hohe Verfügbarkeit – oder anders ausgedrückt, um knotenfehlertoleranz zu bieten. Aber moderne Unternehmen verlangen immer höhere Verfügbarkeit ihrer Infrastruktur. Um Betriebszeit zu erreichen, müssen auch sehr unwahrscheinlichen Vorfällen wie z.B. Gehäuse-, rackausfällen oder Naturkatastrophen vor geschützt werden. Daher Failoverclustering in Windows Server2016 Gehäuse-, Rack- und Standort eine Fehlertoleranz wird auch eingeführt.
+Failoverclustering ermöglicht die Zusammenarbeit mehrerer Server, um hohe Verfügbarkeit zu bieten – oder anders ausgedrückt, um Knotenfehlertoleranz zu bieten. Aber moderne Unternehmen verlangen eine immer höhere Verfügbarkeit ihrer Infrastruktur. Um cloudähnliche Betriebszeit zu erreichen, ist auch der Schutz bei sehr unwahrscheinlichen Vorfällen wie z.B. Gehäuse- und Rackausfällen oder Naturkatastrophen erforderlich. Deshalb Failoverclustering in Windows Server 2016 führt die Gehäuse-, Rack- und Fehlertoleranz sowie Standort.
 
-Fehlerdomänen und Fehlertoleranz sind eng miteinander verwandte Konzepte. Eine Fehlerdomäne ist eine Reihe von Hardwarekomponenten, die einen einzelnen Fehlerpunkt gemeinsam nutzen. Um auf eine gewisse Fehlertoleranz, benötigen Sie mehrere Fehlerdomänen auf dieser Ebene. Beispielsweise müssen rackfehlertoleranz fehlertolerant, Ihre Server und die Daten auf mehrere Racks verteilt werden.
+Fehlerdomänen und Fehlertoleranz sind eng miteinander verwandte Konzepte. Eine Fehlerdomäne ist eine Reihe von Hardwarekomponenten, die einen gemeinsamen Single Point of Failure haben. Um ein bestimmtes Niveau an Fehlertoleranz zu erzielen, benötigen Sie mehrere Fehlerdomänen auf dieser Ebene. Beispielsweise setzt Rackfehlertoleranz voraus, dass Ihre Server und Daten auf mehrere Racks verteilt sind.
 
-Dieses kurze Video bietet einen Überblick über Fehlerdomänen in Windows Server2016:  
-[![Klicken Sie auf diesem Bild um einen Überblick über Fehlerdomänen in Windows Server2016 anzusehen.](media/Fault-Domains-in-Windows-Server-2016/Part-1-Fault-Domains-Overview.jpg)](https://channel9.msdn.com/Blogs/windowsserver/Fault-Domain-Awareness-in-WS2016-Part-1-Overview)
+Dieses kurze Video bietet einen Überblick über Fehlerdomänen in Windows Server 2016:  
+[![Klicken Sie auf dieses Bild, um einen Überblick über Fehlerdomänen in Windows Server 2016 dabei zu sein.](media/Fault-Domains-in-Windows-Server-2016/Part-1-Fault-Domains-Overview.jpg)](https://channel9.msdn.com/Blogs/windowsserver/Fault-Domain-Awareness-in-WS2016-Part-1-Overview)
 
 ## <a name="benefits"></a>Vorteile
-- **Von Speicherplätzen, einschließlich direkte Speicherplätze verwendet Fehlerdomänen, um die Datensicherheit zu maximieren.**  
-    Die Resilienz in Storage Spaces ist konzeptionell wie verteiltes, softwaredefiniertes RAID. Mehrere Kopien aller Daten werden synchron gehalten, und wenn bei und eine Kopie verloren geht, andere sind zum Wiederherstellen der Resilienz erneut. Um die bestmögliche Resilienz zu erreichen, sollten Kopien in separaten Fehlerdomänen beibehalten werden.
+- **-Speicherplätzen, einschließlich "direkte Speicherplätze", verwendet Fehlerdomänen, um die datensicherheit zu maximieren.**  
+    Die Resilienz in „Speicherplätze“ ist konzeptionell wie verteiltes, softwaredefiniertes RAID. Mehrere Kopien aller Daten werden synchron beibehalten, und wenn bei einem Hardwareausfall eine Kopie verloren geht, werden andere zum Wiederherstellen der Resilienz erneut kopiert. Um die bestmögliche Resilienz zu erreichen, sollten Kopien in separaten Fehlerdomänen beibehalten werden.
 
-- **Die [Integritätsdienst](health-service-overview.md) verwendet einen Fehler Domänen um nützlichere Warnungen auszugeben.**  
-    Jeder Fehlerdomäne kann speicherortmetadaten zugeordnet werden, die automatisch in alle nachfolgenden Warnungen aufgenommen werden. Diese Deskriptoren können Vorgänge oder Wartungspersonal unterstützen und Fehler reduzieren, indem Wartungspersonal Hardware.  
+- **Die [Integritätsdienst](health-service-overview.md) verwendet Fehlerdomänen, um nützlichere Warnungen auszugeben.**  
+    Jeder Fehlerdomäne können Speicherortmetadaten zugeordnet werden, die automatisch in alle nachfolgenden Warnungen aufgenommen werden. Diese Deskriptoren können Vorgänge oder Wartungspersonal unterstützen und Fehler reduzieren, indem sie Hardware eindeutig machen.  
 
-- **Stretch-Clustering verwendet Fehlerdomänen für Speicher Affinität.** Stretch-Clustering ermöglicht weit entfernten Servern, einem gemeinsamen Cluster beitreten. Für optimale Leistung sollten Anwendungen oder virtuelle Computer auf Servern ausgeführt werden, die in der Nähe, die ihnen Speicherplatz bereitstellen. Fehlerdomänenunterstützung ermöglicht diese Affinität Speicher.   
+- **Stretch-clustering verwendet Fehlerdomänen für Storage-Affinität.** Stretch-Clustering ermöglicht weit entfernten Servern, einem gemeinsamen Cluster beitreten. Für optimale Leistung sollten Anwendungen oder virtuelle Computer auf Servern ausgeführt werden, die sich in der Nähe derer befinden, die ihnen Speicherplatz bereitstellen. Fehlerdomänenunterstützung ermöglicht dieser Speicher-Affinität.   
 
 ## <a name="levels-of-fault-domains"></a>Ebenen der Fehlerdomänen  
-Es gibt vier kanonische Ebenen von Fehlerdomänen – Standort, Rack, Gehäuse und Knoten. Knoten werden automatisch erkannt; Jede zusätzliche Ebene ist optional. Wenn beispielsweise die Bereitstellung keine Blade Server verwendet werden, kann die Gehäuseebene nicht für Sie sinnvoll.  
+Es gibt vier kanonische Ebenen von Fehlerdomänen – Standort, Rack, Gehäuse und Knoten. Knoten werden automatisch erkannt; jede zusätzliche Ebene ist optional. Wenn Ihre Bereitstellung beispielsweise keine Blade Server enthält, ist die Gehäuseebene für Sie wahrscheinlich nicht sinnvoll.  
 
 ![Diagramm mit den verschiedenen Ebenen der Fehlerdomänen](media/Fault-Domains-in-Windows-Server-2016/levels-of-fault-domains.png)
 
 ## <a name="usage"></a>Verwendung  
-PowerShell oder XML-Markup können Fehlerdomänen. Beide Ansätze sind äquivalent und bieten vollständige Funktionalität.
+Sie können PowerShell oder XML-Markup verwenden, auf die Angabe von Fehlerdomänen. Beide Ansätze sind äquivalent und bieten vollständige Funktionalität.
 
 >[!IMPORTANT]
-> Geben Sie Fehlerdomänen, vor dem Aktivieren von "direkte Speicherplätze", wenn möglich. Dies ermöglicht die automatische Konfiguration, um den Pool, Ebenen und Einstellungen wie Resilienz und Anzahl der Spalten für Gehäuse- oder rackfehlertoleranz vorzubereiten. Wenn Pool und Volumes erstellt haben, werden Daten nicht nachträglich in Reaktion auf Änderungen in der fehlerdomänentopologie verschoben. Um nach dem Aktivieren von "direkte Speicherplätze" Knoten zwischen Gehäusen oder Racks zu verschieben sollten Sie zunächst den Knoten sowie seine Laufwerke aus dem Pool entfernen `Remove-ClusterNode -CleanUpDisks`.
+> Geben Sie Fehlerdomänen wenn möglich an, bevor Sie „Direkte Speicherplätze“ aktivieren. Dies ermöglicht die Vorbereitung von Pool, Ebenen und Einstellungen wie Resilienz und Anzahl der Spalten für Gehäuse- oder Rackfehlertoleranz durch automatische Konfiguration. Wenn Pool und Volumes erstellt sind, werden Daten nicht nachträglich in Reaktion auf Änderungen der Fehlerdomänentopologie verschoben. Um nach dem Aktivieren von „Direkte Speicherplätze“ Knoten zwischen Gehäusen oder Racks zu verschieben, sollten Sie zuerst den Knoten sowie seine Laufwerke mit `Remove-ClusterNode -CleanUpDisks` aus dem Pool entfernen.
 
 ### <a name="defining-fault-domains-with-powershell"></a>Definieren von Fehlerdomänen mit PowerShell
-Windows Server2016 führt die folgenden Cmdlets Fehlerdomänen bearbeitet werden können:
+Windows Server 2016 bietet die folgenden Cmdlets zum Arbeiten mit Fehlerdomänen:
 * `Get-ClusterFaultDomain`
 * `Set-ClusterFaultDomain`
 * `New-ClusterFaultDomain` 
 * `Remove-ClusterFaultDomain`
 
 Dieses kurze Video veranschaulicht die Verwendung dieser Cmdlets.
-[![Klicken Sie auf diesem Bild um ein kurzes Video zur Verwendung der Cmdlets Cluster Fehlerdomäne anzusehen.](media/Fault-Domains-in-Windows-Server-2016/Part-2-Using-PowerShell.jpg)](https://channel9.msdn.com/Blogs/windowsserver/Fault-Domain-Awareness-in-WS2016-Part-2-Using-PowerShell)
+[![Klicken Sie auf dieses Image ein kurzes Video zur Nutzung der Fehlerdomäne für Cluster-cmdlets](media/Fault-Domains-in-Windows-Server-2016/Part-2-Using-PowerShell.jpg)](https://channel9.msdn.com/Blogs/windowsserver/Fault-Domain-Awareness-in-WS2016-Part-2-Using-PowerShell)
 
-Verwendung `Get-ClusterFaultDomain`auf der aktuellen fehlerdomänentopologie. Dadurch werden alle Knoten im Cluster sowie alle Gehäuse, Racks oder Standorte, die Sie erstellt haben, aufgelistet. Sie können mit Parametern wie filtern **-Typ** oder **-Namen**, aber diese sind nicht erforderlich.
+Verwendung `Get-ClusterFaultDomain` , finden in der aktuellen fehlerdomänentopologie. Dadurch werden alle Knoten im Cluster sowie alle Gehäuse, Racks oder Standorte aufgelistet, die Sie erstellt haben. Sie können mit Parametern wie **-Type** oder **-Name** filtern, aber diese sind nicht erforderlich.
 
 ```PowerShell
 Get-ClusterFaultDomain
@@ -63,7 +64,7 @@ Get-ClusterFaultDomain -Type Rack
 Get-ClusterFaultDomain -Name "server01.contoso.com"
 ```
 
-Verwendung `New-ClusterFaultDomain`um neue Gehäuse, Racks oder Standorte zu erstellen. Die `-Type`und `-Name`Parameter sind erforderlich. Die möglichen Werte für `-Type`sind `Chassis`, `Rack`, und `Site`. Die `-Name`kann eine beliebige Zeichenfolge sein. (Für `Node`Fehlerdomänen des Typs, der Name der tatsächliche Knotenname automatisch festgelegt werden müssen).
+Verwendung `New-ClusterFaultDomain` um neue Gehäuse, Racks oder Standorte zu erstellen. Die `-Type` und `-Name` Parameter sind erforderlich. Die möglichen Werte für `-Type` sind `Chassis`, `Rack`, und `Site`. Die `-Name` kann eine beliebige Zeichenfolge sein. (Für `Node` Fehlerdomänen des Typs, der Name der tatsächliche Knotenname, automatisch festgelegt werden müssen).
 
 ```PowerShell
 New-ClusterFaultDomain -Type Chassis -Name "Chassis 007"
@@ -72,9 +73,9 @@ New-ClusterFaultDomain -Type Site -Name "Shanghai"
 ```
 
 > [!IMPORTANT]  
-> Windows Server nicht möglich, und nicht überprüfen, ob alle Fehlerdomänen, die Sie erstellen in der realen, physischen Welt entsprechen. (Das klingt offensichtlich, aber es ist wichtig zu verstehen.) Wenn Sie in der physischen Welt Ihre Knoten in einem einzigen Rack befinden, klicken Sie dann das Erstellen von zwei `-Type Rack`Fehlerdomänen in der Software nicht auf magische Rack-Fehlertoleranz. Sie sind dafür verantwortlich sicherzustellen, dass die Topologie, die Sie mithilfe dieser Cmdlets erstellen die tatsächliche Anordnung der Hardware entspricht.
+> Windows Server nicht möglich, und überprüft nicht, dass alle Fehlerdomänen aus, die Sie erstellen, die alle Elemente in der realen, physischen Welt entsprechen. (Dies erscheint nahe liegend, aber es ist wichtig zu verstehen.) Wenn sich in der realen Welt alle Ihre Knoten in einem einzigen Rack befinden, dann schafft das Erstellen von zwei `-Type Rack`-Fehlerdomänen in der Software nicht auf magische Weise Rackfehlertoleranz. Sie sind dafür verantwortlich, sicherzustellen, dass die Topologie, die Sie mithilfe dieser Cmdlets erstellen, der tatsächlichen Anordnung der Hardware entspricht.
 
-Verwendung `Set-ClusterFaultDomain`eine Fehlerdomäne in eine andere verschieben. Die Begriffe "Übergeordnet" und "untergeordnet" werden häufig zur Beschreibung dieser geschachtelten Beziehung verwendet. Die `-Name`und `-Parent`Parameter sind erforderlich. In `-Name`, geben Sie den Namen der Fehlerdomäne an, die verschoben wird; in `-Parent`, geben Sie den Namen des Ziels. Um mehrere Fehlerdomänen gleichzeitig zu verschieben, Listen Sie ihre Namen.
+Verwendung `Set-ClusterFaultDomain` eine Fehlerdomäne in ein anderes zu verschieben. Die Begriffe „übergeordnet“ und „untergeordnet“ werden häufig zur Beschreibung dieser geschachtelten Beziehung verwendet. Die `-Name` und `-Parent` Parameter sind erforderlich. In `-Name`, geben Sie den Namen der Fehlerdomäne, die verschoben wird; in `-Parent`, geben Sie den Namen des Ziels. Um mehrere Fehlerdomänen gleichzeitig zu verschieben, listen Sie ihre Namen auf.
 
 ```PowerShell
 Set-ClusterFaultDomain -Name "server01.contoso.com" -Parent "Rack A"
@@ -82,11 +83,11 @@ Set-ClusterFaultDomain -Name "Rack A", "Rack B", "Rack C", "Rack D" -Parent "Sha
 ```
 
 > [!IMPORTANT]  
-> Wenn Fehlerdomänen verschieben möchten, verschieben ihre Kinder mit ihnen. Im obigen Beispiel, wenn Rack A das übergeordnete Element des server01.contoso.com ist, die zweite Option separat muss nicht an den Standort Shanghai verschoben werden – es ist schon durch das übergeordnete Element dort, wie in der realen Welt.
+> Bei der Verschiebung von Fehlerdomänen werden ihre untergeordneten Objekte mit ihnen verschoben. Wenn Rack A im obigen Beispiel server01.contoso.com übergeordnet ist, muss letztere nicht separat an den Standort Shanghai verschoben werden – sie ist schon durch das übergeordnete Element dort, wie in der realen Welt.
 
-Sehen Sie über- und untergeordnete Elemente in der Ausgabe des `Get-ClusterFaultDomain`in die `ParentName`und `ChildrenNames`Spalten.
+Sehen Sie in der Ausgabe der über-/ unterordnungsbeziehung `Get-ClusterFaultDomain`in die `ParentName` und `ChildrenNames` Spalten.
 
-Sie können auch `Set-ClusterFaultDomain`bestimmte andere Eigenschaften von Fehlerdomänen ändern. Beispielsweise können Sie optional bereitstellen `-Location`oder `-Description`Metadaten für jede Fehlerdomäne. Wenn angegeben, werden diese Informationen in hardwarewarnungen des Integritätsdiensts enthalten sein. Sie können auch mithilfe von Fehlerdomänen Umbenennen der `-NewName`Parameter. Nicht umbenennen `Node`Fehlerdomänen des Typs.
+Sie können auch `Set-ClusterFaultDomain` bestimmte andere Eigenschaften von Fehlerdomänen ändern. Beispielsweise können Sie optional bereitstellen `-Location` oder `-Description` Metadaten für jede Fehlerdomäne. Wenn angegeben, werden diese Informationen in Hardwarewarnungen des Integritätsdiensts einbezogen. Sie können auch mithilfe von Fehlerdomänen Umbenennen der `-NewName` Parameter. Nicht umbenennen `Node` Fehlerdomänen des Typs.
 
 ```PowerShell
 Set-ClusterFaultDomain -Name "Rack A" -Location "Building 34, Room 4010"
@@ -94,35 +95,35 @@ Set-ClusterFaultDomain -Type Node -Description "Contoso XYZ Server"
 Set-ClusterFaultDomain -Name "Shanghai" -NewName "China Region"
 ```
 
-Verwendung `Remove-ClusterFaultDomain`entfernen Gehäuse, Racks oder Standorte, die Sie erstellt haben. Die `-Name` -Parameter ist erforderlich. Nicht entfernt eine Fehlerdomäne, die untergeordneten Elemente enthält – zunächst entweder die untergeordneten Elemente zu entfernen, oder verschieben Sie sie außerhalb mit `Set-ClusterFaultDomain`. Um eine Fehlerdomäne außerhalb von allen anderen Fehlerdomänen verschieben möchten, legen Sie seine `-Parent`auf eine leere Zeichenfolge (""). Sie können keine entfernen `Node`Fehlerdomänen des Typs. Um mehrere Fehlerdomänen gleichzeitig zu entfernen, Listen Sie ihre Namen.
+Verwendung `Remove-ClusterFaultDomain` entfernen, Gehäuse, Racks oder Standorte, die Sie erstellt haben. Der `-Name` -Parameter ist erforderlich. Sie können nicht entfernen eine Fehlerdomäne an, die untergeordneten Elemente enthält – zunächst entfernen Sie die untergeordneten Elemente, oder verschieben Sie sie mithilfe von `Set-ClusterFaultDomain`. Um eine Fehlerdomäne außerhalb von allen anderen Fehlerdomänen heraus zu verschieben, legen Sie dessen `-Parent` auf eine leere Zeichenfolge (""). Sie können nicht entfernt werden `Node` Fehlerdomänen des Typs. Um mehrere Fehlerdomänen gleichzeitig zu entfernen, listen Sie ihre Namen auf.
 
 ```PowerShell
 Set-ClusterFaultDomain -Name "server01.contoso.com" -Parent ""
 Remove-ClusterFaultDomain -Name "Rack A"
 ```
 
-### <a name="defining-fault-domains-with-xml-markup"></a>Definieren von Fehlerdomänen mit XML-markup
-Fehlerdomänen können mithilfe einer XML-Design-Syntax angegeben werden. Wir empfehlen die Verwendung von Ihren bevorzugten Texteditor, wie z.B. Visual Studio Code (verfügbaren freien *[hier](https://code.visualstudio.com/)*) oder Editor, um ein XML-Dokument erstellen, die Sie speichern und wiederverwenden können.  
+### <a name="defining-fault-domains-with-xml-markup"></a>Definieren von Fehlerdomänen mit XML-Markup
+Fehlerdomänen können mithilfe einer XML-Syntax angegeben werden. Sie sollten Ihren bevorzugten Texteditor verwenden, z.B. Visual Studio Code (*[hier](https://code.visualstudio.com/)* kostenlos erhältlich) oder Editor, um ein XML-Dokument zu erstellen, das Sie speichern und wiederverwenden können.  
 
-Dieses kurze Video veranschaulicht die Verwendung von XML-Markup Fehlerdomänen angeben.
+Dieses kurze Video veranschaulicht die Verwendung von XML-Markup zur Angabe von Fehlerdomänen.
 
-[![CLicken Sie dieses Image um ein kurzes Video zur Verwendung von XML an Fehlerdomänen sehen Sie sich auf](media/Fault-Domains-in-Windows-Server-2016/Part-3-Using-XML-Markup.jpg)](https://channel9.msdn.com/Blogs/windowsserver/Fault-Domain-Awareness-in-WS2016-Part-3-Using-XML)
+[![Klicken Sie auf dieses Image ein kurzes Video zum XML verwenden, um die Angabe von Fehlerdomänen](media/Fault-Domains-in-Windows-Server-2016/Part-3-Using-XML-Markup.jpg)](https://channel9.msdn.com/Blogs/windowsserver/Fault-Domain-Awareness-in-WS2016-Part-3-Using-XML)
 
-Führen Sie das folgende Cmdlet in PowerShell:`Get-ClusterFaultDomainXML`. Dadurch wird die aktuelle fehlerdomänenspezifikation für den Cluster im XML-Format zurückgegeben. Dieser enthält jeden ermittelten `<Node>`, eingeschlossen in öffnende und schließende `<Topology>`Tags.  
+Führen Sie in PowerShell das folgende Cmdlet: `Get-ClusterFaultDomainXML`. Dadurch wird die aktuelle Fehlerdomänenspezifikation für den Cluster im XML-Format zurückgegeben. Dies entspricht jede ermittelte `<Node>`, eingeschlossen in öffnende und schließende `<Topology>` Tags.  
 
-Führen Sie Folgendes ein, um diese Ausgabe in einer Datei zu speichern.  
+Führen Sie Folgendes aus, um diese Ausgabe in einer Datei zu speichern.  
 
 ```PowerShell
 Get-ClusterFaultDomainXML | Out-File <Path>  
 ```
 
-Öffnen Sie die Datei, und fügen `<Site>`, `<Rack>`, und `<Chassis>`Tags aus, um anzugeben, wie diese Knoten auf Standorte, Racks und Gehäuse verteilt werden. Jedes Tag muss durch einen eindeutigen identifiziert werden **Namen **. Für Knoten müssen Sie den Knotennamen als standardmäßig aufgefüllt halten.  
+Öffnen Sie die Datei, und fügen `<Site>`, `<Rack>`, und `<Chassis>` Tags angeben, wie diese Knoten auf Standorte, Racks und Gehäuse verteilt werden. Jedes Tag muss durch einen eindeutigen **Name** identifiziert werden. Für Knoten müssen Sie den Knotennamen als standardmäßig aufgefüllt beibehalten.  
 
 > [!IMPORTANT]  
-> Während alle zusätzlichen Tags optional sind, müssen sie die transitive Standort erfüllen &gt;Rack &gt;Gehäuse &gt;Knoten-Hierarchie und ordnungsgemäß geschlossen werden.  
-Zusätzlich zum Namen können formfreie `Location="..."`und `Description="..."`beliebigen Tags hinzugefügt werden.  
+> Während alle zusätzlichen Tags optional sind, muss die transitive Hierarchie Standort &gt; Rack &gt; Gehäuse &gt; Knoten beibehalten und ordnungsgemäß geschlossen werden.  
+Zusätzlich zum Namen können die freiformdeskriptoren `Location="..."` und `Description="..."` beliebigen Tags hinzugefügt werden.  
 
-#### <a name="example-two-sites-one-rack-each"></a>Beispiel: Zwei Standorte, jeweils ein Rack  
+#### <a name="example-two-sites-one-rack-each"></a>Beispiel: Zwei Standorte, jeweils ein rack  
 
 ```XML
 <Topology>  
@@ -159,21 +160,21 @@ Zusätzlich zum Namen können formfreie `Location="..."`und `Description="..."`b
 </Topology>  
 ```
 
-Klicken Sie zum Festlegen der neuen fehlerdomänenspezifikation speichern Sie den XML-Code, und führen Sie Folgendes in PowerShell.  
+Zum Festlegen der neuen fehlerdomänenspezifikation speichern Sie Ihrer XML-Daten, und führen Sie Folgendes in PowerShell.  
 
 ```PowerShell
 $xml = Get-Content <Path> | Out-String  
 Set-ClusterFaultDomainXML -XML $xml
 ```
 
-Dieses Handbuch enthält nur zwei Beispiele, aber die `<Site>`, `<Rack>`, `<Chassis>`, und `<Node>`Tags können werden gemischt und in viele weitere Möglichkeiten, die physische Topologie Ihrer Bereitstellung widerspiegeln unabhängig sein können. Wir hoffen, dass diese Beispiele die Flexibilität dieser Tags und den Wert der freiformpositionsdeskriptoren zu ihrer Unterscheidung veranschaulichen.  
+Dieses Handbuch enthält nur zwei Beispiele, aber die `<Site>`, `<Rack>`, `<Chassis>`, und `<Node>` Tags können gemischt und abgeglichen, die auf viele weitere Arten entsprechend die physische Topologie Ihrer Bereitstellung, was auch immer, die möglicherweise. Wir hoffen, dass diese Beispiele die Flexibilität dieser Tags und den Wert der Freiformpositionsdeskriptoren zu ihrer Unterscheidung veranschaulichen.  
 
-### <a name="optional-location-and-description-metadata"></a>Optional: Position und die Beschreibung Metadaten
+### <a name="optional-location-and-description-metadata"></a>Optional: Speicherort und eine Beschreibung von Metadaten
 
-Sie können optional bereitstellen **Speicherort** oder **Beschreibung** Metadaten für jede Fehlerdomäne. Wenn angegeben, werden diese Informationen in hardwarewarnungen des Integritätsdiensts enthalten sein. Dieses kurze Video veranschaulicht den Wert der diese Deskriptoren hinzufügen.
+Sie können optional angeben **Speicherort** oder **Beschreibung** Metadaten für jede Fehlerdomäne. Wenn angegeben, werden diese Informationen in Hardwarewarnungen des Integritätsdiensts einbezogen. Dieses kurze Video veranschaulicht den Vorteil des Hinzufügens von solchen Deskriptoren.
 
-[![CAuf, um ein kurzes Video zur Veranschaulichung des Wert des Hinzufügens von positionsdeskriptoren zu Fehlerdomänen finden Sie unter](media/Fault-Domains-in-Windows-Server-2016/part-4-location-description.jpg)](https://channel9.msdn.com/Blogs/windowsserver/Fault-Domain-Awareness-in-WS2016-Part-4-Location-Description)
+[![Klicken Sie auf, um ein kurzes Video zur Veranschaulichung des Wert des Hinzufügens von positionsdeskriptoren zu Fehlerdomänen finden Sie unter](media/Fault-Domains-in-Windows-Server-2016/part-4-location-description.jpg)](https://channel9.msdn.com/Blogs/windowsserver/Fault-Domain-Awareness-in-WS2016-Part-4-Location-Description)
 
 ## <a name="see-also"></a>Siehe auch  
 -   [Windows Server 2016](../get-started/windows-server-2016.md)  
--   [Direkte Speicherplätze in WindowsServer 2016](../storage/storage-spaces/storage-spaces-direct-overview.md) 
+-   ["Direkte Speicherplätze" unter WindowsServer 2016](../storage/storage-spaces/storage-spaces-direct-overview.md) 

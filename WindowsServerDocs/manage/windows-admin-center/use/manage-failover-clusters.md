@@ -8,65 +8,65 @@ ms.author: jol
 ms.date: 06/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 63f5fca8e7ef63200e01cfc6e00a979e7f045b51
-ms.sourcegitcommit: f1edfc6525e09dd116b106293f9260123a94de0c
-ms.translationtype: MT
+ms.openlocfilehash: f7e14581f7f6b14b0cf39308de236b68a07e8c9f
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "9296672"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59824071"
 ---
-# Verwalten von Failoverclustern mit Windows Admin Center
+# <a name="manage-failover-clusters-with-windows-admin-center"></a>Verwalten von Failoverclustern mit Windows Admin Center
 
->Betrifft: Windows Admin Center, Windows Admin Center – Vorschau
+>Gilt für: Windows Admin Center, Windows Admin Center Preview
 
 > [!Tip]
 > Neu bei Windows Admin Center?
 > [Erfahren Sie mehr über Windows Admin Center](../understand/windows-admin-center.md) oder [jetzt herunterladen](https://aka.ms/windowsadmincenter).
 
-## Verwalten von Failoverclustern
-[Failover-Clusterunterstützung](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview) ist ein Windows Server-Feature, das Ihnen ermöglicht, mehrere Server zu einem fehlertoleranten Cluster zur Steigerung der Verfügbarkeit und Skalierbarkeit von Anwendungen und Dienste, z. B. Scale-Out-Dateiserver, Hyper-V zu gruppieren und Microsoft SQL Server.
+## <a name="managing-failover-clusters"></a>Verwalten von Failoverclustern
+[Failover-Clusterunterstützung](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview) ist ein Windows Server-Feature, das Ihnen ermöglicht, mehrere Server in einem fehlertoleranten Cluster Erhöhen der Verfügbarkeit und Skalierbarkeit von Anwendungen und Dienste wie z. B. Scale-Out File Server, Hyper-V gruppieren und Microsoft SQL Server.
 
-Während Sie Failover-Clusterknoten als einzelne Server sie als [Server-Verbindungen](manage-servers.md) im Windows Admin Center hinzufügen verwalten können, können Sie auch diese hinzufügen wie zum Anzeigen und Verwalten von Clusterressourcen, Speicher, Netzwerk, Knoten, Rollen, virtuelle für Failovercluster Computer und virtuelle Switches.
+Während Sie Failoverclusterknoten als einzelne Server verwalten können, indem Sie sie als hinzufügen [serververbindungen](manage-servers.md) in Windows Admin Center, Sie können auch beliebig sie zum Anzeigen und Verwalten von Clusterressourcen, Speicher, Netzwerk, Knoten für Failovercluster Rollen, virtuelle Computer und virtuelle Switches.
 
-![Failover Cluster (Übersicht) Bildschirm](../media/manage-failover-clusters/fcm-overview.png)
+![Bildschirm "Systemübersicht" der Failover-cluster](../media/manage-failover-clusters/fcm-overview.png)
 
-## Hinzufügen eines Failoverclusters zu Windows Admin Center
-So fügen Sie einen Cluster in Windows Admin Center hinzu:
+## <a name="adding-a-failover-cluster-to-windows-admin-center"></a>Hinzufügen eines Failoverclusters auf Windows Admin Center
+So fügen Sie einen Cluster Windows Admin Center hinzu
 
-1. Klicken Sie unter alle Verbindungen auf **+ Hinzufügen** .
-2. Wählen Sie zum Hinzufügen einer **Failover-Verbindung**.
-3. Geben Sie den Namen des Clusters und, wenn Sie dazu aufgefordert werden, die Anmeldeinformationen zu verwenden.
-4. Sie haben die Möglichkeit, die Clusterknoten als einzelne Server-Verbindungen im Windows Admin Center hinzufügen.
-5. Klicken Sie auf **übermitteln** zum Abschließen.
+1. Klicken Sie auf **+ hinzufügen** unter alle Verbindungen.
+2. Hinzufügen einer **Failoververbindung**.
+3. Geben Sie den Namen des Clusters und, wenn Sie dazu aufgefordert werden, die zu verwendenden Anmeldeinformationen.
+4. Sie haben die Möglichkeit, die die Clusterknoten als einzelne Server-Verbindungen in Windows Admin Center hinzufügen.
+5. Klicken Sie auf **senden** um den Vorgang abzuschließen.
 
-Cluster wird zur Verbindungsliste, auf der Seite "Übersicht" hinzugefügt. Klicken Sie auf die Verbindung mit dem Cluster.
+Ihre Liste der auf der Seite "Übersicht" wird der Cluster hinzugefügt werden. Klicken Sie darauf, eine Verbindung mit dem Cluster herstellen.
 
 > [!NOTE]
-> Sie können auch zusammengeführte verwalten durch Hinzufügen des Clusters als [Hyper-converged Cluster-Verbindung](manage-hyper-converged.md) in Windows Admin Center gruppiert.
+> Sie können auch verwalten hyperkonvergenten gruppiert nach Hinzufügen des Clusters als eine [Hyper-Converged Clusterverbindung](manage-hyper-converged.md) in Windows Admin Center.
 
-## Tools
+## <a name="tools"></a>Tools
 
-Die folgenden Tools sind für failoverclusterverbindungen verfügbar:
+Die folgenden Tools sind verfügbar für Failover Cluster-Verbindungen:
 
 | Tool | Beschreibung |
 | ---- | ----------- |
-| Übersicht | Zeigen Sie Failover Cluster Details an und Verwalten von Clusterressourcen |
-| Datenträger | Anzeigen von freigegebenen Datenträgern und volumes |
-| Netzwerke | Netzwerke im Cluster anzeigen |
-| Knoten | Zeigen Sie an und Verwalten von Clusterknoten |
+| Übersicht | Failover-Cluster-Details anzeigen und Verwalten von Clusterressourcen |
+| „Datenträger“, | Ansicht freigegebene Datenträger und volumes |
+| „Netzwerke“ | Anzeigen von Netzwerken im cluster |
+| Knoten | Anzeigen und Verwalten von Clusterknoten |
 | Rollen | Verwalten von clusterrollen oder eine leere Rolle erstellen |
-| Updates | Verwalten von Cluster-Aware Updates (erfordert [CredSSP](../understand/faq.md#does-windows-admin-center-use-credssp)) |
-| [Virtuelle Computer](manage-virtual-machines.md) | Zeigen Sie an und Verwalten von virtuellen Computern |
-| Virtuelle Switches | Zeigen Sie an und verwalten Sie virtuelle switches |
+| Updates | Verwalten von Cluster-Aware Updates |
+| [Virtuelle Computer](manage-virtual-machines.md) | Anzeigen und Verwalten von virtuellen Computern |
+| Virtuelle Switches | Anzeigen und Verwalten von virtuellen switches |
 
-## Weitere kommen
+## <a name="more-coming"></a>Weitere folgen
 
-Failovercluster-Verwaltung in Windows Admin Center ist aktiv in der Entwicklung, und neue Features in naher Zukunft hinzugefügt werden. Sie können den Status und die Zustimmung zum Features in UserVoice anzeigen:
+Failover-Clusterverwaltung in Windows Admin Center wird aktiv weiterentwickelt, und werden in naher Zukunft neue Funktionen hinzugefügt werden. Sie können den Status und stimmen Sie für Funktionen in UserVoice anzeigen:
 
-|Feature-Anforderung|
+|Die Anforderung zur|
 |-------|
-| [Mehr gruppierten Datenträger Informationen anzeigen](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/31740424--cluster-more-disk-info-in-failover-cluster-manag) |
-| [Maßnahmen zur Unterstützung zusätzlicher cluster](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/33558076--fcm-full-csv-management-cycle-in-one-place) |
-| [Unterstützen Sie zusammengeführte Cluster mit Hyper-V und Dateiserver mit horizontaler Skalierung auf verschiedene Cluster](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/31729741--cluster-support-for-converged-architecture) |
-| [Ansicht CSV-Block-cache](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/31669477--cluster-csv-block-cache) |
-| [Alle oder neues Feature vorschlagen](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5Bcluster%5D) |
+| [Weitere Datenträgerinformationen die gruppierten anzeigen](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/31740424--cluster-more-disk-info-in-failover-cluster-manag) |
+| [Unterstützung für zusätzliche clusteraktionen](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/33558076--fcm-full-csv-management-cycle-in-one-place) |
+| [Zusammengeführte Clustern, die unter Hyper-V und den Scale-Out File Server auf verschiedenen Clustern zu unterstützen](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/31729741--cluster-support-for-converged-architecture) |
+| [CSV-blockcache anzeigen](https://windowsserver.uservoice.com/forums/295071-management-tools/suggestions/31669477--cluster-csv-block-cache) |
+| [Alle anzeigen oder neues Feature vorschlagen](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5Bcluster%5D) |
