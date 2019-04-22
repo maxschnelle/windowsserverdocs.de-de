@@ -1,181 +1,281 @@
 ---
 ms.assetid: 24c4b9bb-928a-4118-acf1-5eb06c6b08e5
 title: Konfigurieren von AD FS 2016 und Azure MFA
-description: 
-author: billmath
+description: ''
 ms.author: billmath
-manager: femila
-ms.date: 11/01/2017
+author: billmath
+manager: mtillman
+ms.date: 01/28/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: be8e88ae36f344f1265fb76e66c19e0ac8aeb533
-ms.sourcegitcommit: ffdfbb76c7f775e20d089d3f662d4f9a7d642f1e
+ms.openlocfilehash: ae7809089a69ac0ff48168db0aa2e9d61c35257a
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59814091"
 ---
-# <a name="configure-ad-fs-2016-and-azure-mfa"></a>Konfigurieren von AD FS 2016 und Azure MFA
+# <a name="configure-azure-mfa-as-authentication-provider-with-ad-fs"></a>Konfigurieren Sie Azure MFA als Authentifizierungsanbieter mit AD FS
 
->Gilt für: Windows Server 2016
+>Gilt für: WindowsServer 2016, WindowsServer 2019
 
-Wenn Ihre Organisation mit Azure AD verbunden ist, können Sie Azure Multi-Factor Authentication auf sichere AD FS-Ressourcen, sowohl lokal und in der Cloud verwenden. Azure MFA können Sie Kennwörter und sicherere Authentifizierung ermöglichen.  Ab Windows Server2016 können Sie jetzt Azure MFA für die primäre Authentifizierung konfigurieren. 
+Wenn Ihre Organisation einen Verbund mit Azure AD ist, können Sie Azure Multi-Factor Authentication, sichere AD FS-Ressourcen, sowohl lokal und in der Cloud verwenden. Azure MFA können Sie zur Vermeidung von Kennwörtern und bieten eine sicherere Methode zur Authentifizierung.  Ab Windows Server 2016 können Sie jetzt Azure MFA zur primären Authentifizierung konfigurieren oder verwenden Sie diese als als zusätzlicher Authentifizierungsanbieter. 
   
-Im Gegensatz zu mit AD FS unter Windows Server2012 R2, die AD FS 2016 Azure MFA-Adapter direkte Integration mit Azure AD und einer auf lokalen Azure MFA-Server ist nicht erforderlich.   Die Azure MFA-Adapter ist in Windows Server2016 integriert und besteht keine Notwendigkeit für zusätzliche Installation.
+Anders als mit AD FS unter Windows Server 2012 R2 AD FS 2016 Azure MFA-Adapter kann direkt in Azure AD integriert und einen lokalen Azure MFA Server ist nicht erforderlich.   Der Azure MFA-Adapter ist in Windows Server 2016 integriert, und besteht keine Notwendigkeit für die weitere Installation.
 
-## <a name="registering-users-for-azure-mfa-with-ad-fs-2016"></a>Registrieren von Benutzern für Azure MFA mit AD FS 2016
-AD FS unterstützt keine Inline "Nachweis von" oder Erfassung von Azure MFA Überprüfung Sicherheitsinformationen wie z.B. Telefonnummer oder mobile Anwendung. Dies bedeutet, dass Benutzer von geprüft abrufen müssen, Berichtdetails https://account.activedirectory.windowsazure.com/Proofup.aspx vor der Verwendung von Azure MFA zur Authentifizierung der AD FS-Anwendungen. Wenn ein Benutzer, die in Azure AD-Versuche zur Authentifizierung beim Azure MFA zur AD FS nicht noch oben geprüft wurde, erhalten sie einen AD FS-Fehler.  Als AD FS-Administrator können Sie diese Fehler-Erfahrung, um den Benutzer stattdessen an der Proofup-Seite führt anpassen.  Sie können dazu onload.js Anpassung Zeichenfolge der Fehlermeldung in der AD FS-Seite zu erkennen und zeigen eine neue Nachricht, die Benutzer besuchen https://aka.ms/mfasetup führt dann Authentifizierung erneut versuchen. Ausführliche Anweisungen finden Sie auf der "Anpassen der AD FS Benutzer zum Registrieren des MFA-Überprüfungsmethoden geführt" unten in diesem Artikel.
+
+## <a name="registering-users-for-azure-mfa-with-ad-fs"></a>Registrieren von Benutzern für Azure MFA mit AD FS
+
+AD FS unterstützt keine Inline &#34;einrichten Proof&#34;, oder der Azure MFA Überprüfung Sicherheitsinformationen, wie z. B. die Telefonnummer oder eine mobile app-Registrierung. Dies bedeutet, dass Benutzer müssen sich vorabauflistung zu erhalten, finden Sie unter [ https://account.activedirectory.windowsazure.com/Proofup.aspx ](https://account.activedirectory.windowsazure.com/Proofup.aspx) vor der Verwendung von Azure MFA AD FS-Anwendungen zu authentifizieren. Wenn ein Benutzer, die in Azure AD versucht, für die Authentifizierung mit Azure MFA in AD FS nicht noch um vorabauflistung hat, erhalten sie einen AD FS-Fehler.  Als AD FS-Administrator können Sie diese Fehlermeldungen erspart, der den Benutzer stattdessen auf der Seite "Proofup" führt anpassen.  Hierzu können Sie erkennen die fehlermeldungs-Zeichenfolge in der AD FS-Seite, und zeigen eine neue Nachricht, die der Benutzer zum Besuch führen onload.js Anpassung mit [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup), und klicken Sie dann erneut versuchen Authentifizierung. Eine ausführliche Anleitung finden Sie auf "Anpassen der AD FS Webseite, die Benutzer für MFA Überprüfungsmethoden registrieren führen" unten in diesem Artikel.
 
 >[!NOTE]
-> Bisher mussten Benutzer mit der MFA für die Registrierung (besuchen https://account.activedirectory.windowsazure.com/Proofup.aspx, z.B. über die Verknüpfung aka.ms/mfasetup) authentifizieren.  Jetzt kann ein AD FS-Benutzer, die Informationen zur MFA Überprüfung noch nicht registriert ist Azure AD zugreifen Proofup-Seite über die Verknüpfung aka.ms/mfasetup mit dem nur das primäre Authentifizierung (z.B. die integrierte Windows-Authentifizierung oder Benutzernamen und Kennwort über die AD FS Seiten Web) .  Wenn der Benutzer keine Überprüfungsmethoden konfiguriert hat, Azure AD führt Inline-Registrierung, in denen der Benutzer die Meldung sieht "der Administrator hat erforderlich, dass Sie dieses Konto für zusätzliche Sicherheitsüberprüfung einrichten", und der Benutzer kann dann wählen Sie "jetzt einrichten".
-> Benutzer, die bereits über mindestens eine MFA-Überprüfungsmethode konfiguriert werden weiterhin MFA bereitstellen, wenn die Proofup-Seite besuchen aufgefordert.
+> Zuvor mussten Benutzer zur Authentifizierung mit MFA für die Registrierung (unter [ https://account.activedirectory.windowsazure.com/Proofup.aspx ](https://account.activedirectory.windowsazure.com/Proofup.aspx), z. B. über die Verknüpfung [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup)).  Nun kann ein AD FS-Benutzer, die noch nicht Überprüfungsinformationen für MFA registriert hat Azure AD zugreifen&#34;s Seite "Proofup" über die Verknüpfung [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup) nur mit der primären Authentifizierung (z. B. die integrierte Windows-Authentifizierung oder Benutzername und Kennwort über die AD FS Webseiten).  Wenn der Benutzer keine Überprüfungsmethoden konfiguriert hat, führt Azure AD Inline-Registrierung in der der Benutzer die Nachricht sieht &#34;Ihr Administrator verlangt, dass Sie dieses Konto für eine zusätzliche sicherheitsüberprüfung einrichten&#34;, und der Benutzer kann dann Wählen Sie diese Option &#34;jetzt einrichten&#34;.
+> Benutzer, die bereits mindestens eine Überprüfungsmethode für MFA konfiguriert haben werden weiterhin aufgefordert, die MFA geben beim Besuch der Seite "Proofup".
 
-### <a name="recommended-deployment-topologies"></a>Empfohlenen Bereitstellungstopologien
+## <a name="recommended-deployment-topologies"></a>Empfohlene Bereitstellungstopologien
 
-#### <a name="azure-mfa-as-primary-authentication"></a>Azure MFA als primäre Authentifizierung
+### <a name="azure-mfa-as-primary-authentication"></a>Azure MFA als primäre Authentifizierung
+
 Es gibt ein paar gute Gründe für die Verwendung von Azure MFA als primäre Authentifizierung mit AD FS:
- - Vermeiden Sie Kennwörter für die Anmeldung bei Azure AD, Office365 und andere AD FS-Apps
- - Um den Kennwortschutz basierend Anmeldung durch Anfordern einer zusätzlichen Authentifizierungsstufe z.B. Bestätigungscode, bevor Sie das Kennwort
 
-Wenn Sie Azure MFA als primäre Authentifizierungsmethode in AD FS verwenden, um folgende Vorteile zu erzielen möchten Sie wahrscheinlich auch die Möglichkeit zur Verwendung von Azure AD bedingten behalten möchten einschließlich "true MFA" auffordert für weitere Faktoren in AD FS.
+ - Um Kennwörter für die Anmeldung in Azure AD, Office 365 und andere AD FS-apps zu vermeiden.
+ - Um ein Kennwort schützen basierenden Anmeldung durch ein weiterer Faktor, z. B. Prüfcode, bevor Sie das Kennwort anfordern
 
-Sie können nun dazu durch Konfigurieren der Einstellung des Azure AD-Domäne der mehrstufigen Authentifizierung auf lokalen (Einstellung "SupportsMfa" auf $True) zu tun.  In dieser Konfiguration können AD FS von Azure AD aufgefordert, zusätzliche Authentifizierung oder "true MFA" für Szenarien der bedingten ausführen, die dies erfordern.  
+Wenn Sie Azure MFA als primäre Authentifizierungsmethode in AD FS zu verwenden, um diese Vorteile zu erzielen. möchten Sie wahrscheinlich auch die Möglichkeit, einschließlich der Azure AD für den bedingten Zugriff zu &#34;"true" MFA&#34; auffordern zur Angabe weiterer Faktoren in AD FS.
 
-Wie oben beschrieben, jeder AD FS-Benutzer, die noch nicht registrierte (konfigurierten MFA Überprüfungsinformationen) über eine benutzerdefinierte Fehlerseite von AD FS zum aka.ms/mfasetup zum Konfigurieren von Informationen zur Überprüfung, finden aufgefordert werden soll dann erneut versuchen AD FS-Anmeldung.  
-Da Azure MFA als primären einzigen Faktor, betrachtet wird, nach der Erstkonfiguration Benutzer eine zusätzliche Authentifizierungsstufe zu verwalten oder aktualisieren ihre Informationen zur Überprüfung in Azure AD oder auf andere Ressourcen zugreifen, die MFA erfordern angeben müssen.
+Sie können dies jetzt tun, durch Konfigurieren der Azure AD-Domäne-Einstellung Sie MFA lokal (Einstellung &#34;SupportsMfa&#34; auf $True).  In dieser Konfiguration wird AD FS kann werden dazu aufgefordert werden von Azure AD eine zusätzliche Authentifizierung durchführen oder &#34;"true" MFA&#34; für bedingte Szenarios, die dies erfordern.  
 
+Wie oben beschrieben, sollte jeder AD FS-Benutzer, die noch nicht (konfigurierten MFA-Überprüfungsinformationen) registriert hat über eine benutzerdefinierte AD FS-Fehlerseite aufgefordert werden, zu besuchende [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup) so konfigurieren Sie die Informationen zur Überprüfung, klicken Sie dann Wiederholen Sie den AD FS-Anmeldung.  
+Da Azure MFA als primäre einen Faktor, gilt nach der Erstkonfiguration Benutzer einen weiteren Faktor, verwalten oder aktualisieren die Informationen zur Überprüfung in Azure Active Directory oder auf andere Ressourcen zugreifen, die MFA erfordern angeben müssen.
 
-#### <a name="azure-mfa-as-additional-authentication-to-office-365"></a>Azure MFA als zusätzliche Authentifizierung mit Office365
-Wenn Sie wollte wurde wie eine zusätzliche Authentifizierungsmethode in AD FS für Office365 oder anderen vertrauenden Seiten, die beste Option zum Konfigurieren von Azure AD so MFA, die Verbundauthentifizierung in der primären Authentifizierung, lokal in AD FS und MFA ausgeführt wird zuvor Azure MFA tr Iggered von Azure AD. Jetzt können Sie Azure MFA als zusätzliche Authentifizierung in AD FS verwenden, wenn die Einstellung für die SupportsMfa auf $True festgelegt ist.  
+>[!NOTE]
+> Mit AD FS-2019 müssen Sie nehmen eine Änderung an den ankeranspruchstyp für die Active Directory-Anspruchsanbieter-Vertrauensstellung, und ändern dies aus der Windowsaccountname zu UPN. Führen Sie die unten stehenden Powershell-Cmdlet. Dies hat keine Auswirkungen auf die interne Funktionsweise von AD FS-Farm. Sie werden feststellen, dass einige Benutzer zur Eingabe von Anmeldeinformationen reprompted werden können, nachdem diese Änderung vorgenommen wird. Nach der Anmeldung erneut sehen Endbenutzer keinen Unterschied. 
 
-Wie oben beschrieben, jeder AD FS-Benutzer, die noch nicht registrierte (konfigurierten MFA Überprüfungsinformationen) über eine benutzerdefinierte Fehlerseite von AD FS zum aka.ms/mfasetup zum Konfigurieren von Informationen zur Überprüfung, finden aufgefordert werden soll dann erneut versuchen AD FS-Anmeldung.  
+```powershell
+Set-AdfsClaimsProviderTrust -AnchorClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn" -TargetName "Active Directory"
+```
 
+### <a name="azure-mfa-as-additional-authentication-to-office-365"></a>Azure MFA als zusätzliche Authentifizierung für Office 365
 
-## <a name="pre-requisites"></a>Voraussetzungen  
-Die folgenden erforderlichen Komponenten sind erforderlich, wenn mithilfe von Azure MFA für die Authentifizierung mit AD FS:  
+Wenn Sie haben wurde wie eine zusätzliche Authentifizierungsmethode in AD FS für die Office 365 oder andere vertrauenden Seiten, die beste Option zum Konfigurieren von Azure AD zum MFA, zusammengesetzte in der primären Authentifizierung in AD FS und MFA lokal ausgeführt wird zuvor Azure MFA tr Iggered von Azure AD. Jetzt können Sie Azure MFA als zusätzliche Authentifizierung in AD FS verwenden, wenn die Einstellung für die SupportsMfa auf $True festgelegt ist.  
+
+Wie oben beschrieben, sollte jeder AD FS-Benutzer, die noch nicht (konfigurierten MFA-Überprüfungsinformationen) registriert hat über eine benutzerdefinierte AD FS-Fehlerseite aufgefordert werden, zu besuchende [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup) so konfigurieren Sie die Informationen zur Überprüfung, klicken Sie dann Wiederholen Sie den AD FS-Anmeldung.  
+
+## <a name="pre-requisites"></a>Voraussetzungen
+
+Die folgenden Voraussetzungen sind erforderlich, wenn Sie Azure MFA für die Authentifizierung mit AD FS verwenden:  
   
 - Ein [Azure-Abonnement mit Azure Active Directory](https://azure.microsoft.com/pricing/free-trial/).  
 - [Azure Multi-Factor Authentication](https://azure.microsoft.com/documentation/articles/multi-factor-authentication/)  
+- Web-app-Proxy kann Communticate mit den folgenden über die Ports 80 und 443
 
->[!NOTE]   
-> Azure AD und Azure MFA in Azure AD Premium und Enterprise Mobility Suite (EMS) enthalten sind.  Wenn Sie eine der folgenden haben benötigen Sie nicht einzelne Abonnements.   
-- Eine Windows Server2016 AD FS lokalen Umgebung.  
+    - https://adnotifications.windowsazure.com
+    - https://login.microsoftonline.com
+
+
+> [!NOTE]
+> Azure AD und Azure MFA in Azure AD Premium und Enterprise Mobility Suite (EMS) enthalten sind.  Wenn Sie davon haben, benötigen Sie nicht einzelne Abonnements.
+- Ein Windows Server 2016 AD FS in lokalen Umgebung.  
+   - Der Server muss über die Ports 80 und 443 mit den folgenden URLs kommunizieren können.
+      - https://adnotifications.windowsazure.com
+      - https://login.microsoftonline.com
 - Wird von Ihrer lokalen Umgebung [Verbund mit Azure AD.](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-get-started-custom/#configuring-federation-with-ad-fs)  
-- [Windows Azure Active Directory-Modul für WindowsPowerShell](https://go.microsoft.com/fwlink/p/?linkid=236297).  
-- Berechtigungen als globaler Administrator für die Instanz von Azure AD mit Azure AD-PowerShell konfigurieren.  
-- Enterprise-Anmeldeinformationen für Azure MFA die AD FS-Farm zu konfigurieren.  
+- [Windows Azure Active Directory-Modul für Windows PowerShell](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0).  
+- Berechtigungen als globaler Administrator für Ihre Instanz von Azure AD mit Azure AD PowerShell konfigurieren.  
+- Anmeldeinformationen des Unternehmensadministrators für Azure MFA AD FS-Farm zu konfigurieren.  
   
-  
-## <a name="configure-the-ad-fs-servers"></a>Konfigurieren Sie die AD FS-Server  
-Um die Konfiguration für Azure MFA für AD FS abzuschließen, müssen Sie jeden AD FS-Server mithilfe der Schrittekonfigurieren. 
+## <a name="configure-the-ad-fs-servers"></a>Konfigurieren Sie die AD FS-Server
+
+Um die Konfiguration für Azure MFA für AD FS abgeschlossen haben, müssen Sie so konfigurieren Sie jeden AD FS-Server anhand der beschriebenen Schritte aus. 
 
 >[!NOTE]
->Stellen Sie sicher, dass für diese Schritteausgeführt werden **alle** AD FS-Server in der Farm. Wenn Sie haben mehrere AD FS-Server in der Farm verfügen, können Sie die erforderlichen Konfigurationsschritte Remote mit Azure AD-PowerShell ausführen.  
-  
-  
-  
-### <a name="step-1-generate-a-certificate-for-azure-mfa-on-each-ad-fs-server-using-the-new-adfsazuremfatenantcertificate-cmdlet"></a>Schritt1: Erstellen Sie ein Zertifikat auf jedem Server mit AD FS für Azure MFA die `New-AdfsAzureMfaTenantCertificate`Cmdlet.   
-Zunächst müssen Sie ist für Azure MFA verwendet ein Zertifikat generieren.  Dies kann mithilfe von PowerShell.  Das Zertifikat generiert, finden Sie im Zertifikatspeicher lokalen Computer, und mit einem Antragstellernamen an, die die TenantID für Azure AD-Verzeichnis enthält markiert ist.    
-  
+>Stellen Sie sicher, dass diese Schritte ausgeführt werden, auf **alle** AD FS-Server in der Farm. Wenn Sie mehrere AD FS-Server in der Farm verfügen, können Sie die erforderliche Konfiguration Remote mithilfe von Azure AD Powershell durchführen.  
+
+### <a name="step-1-generate-a-certificate-for-azure-mfa-on-each-ad-fs-server-using-the-new-adfsazuremfatenantcertificate-cmdlet"></a>Schritt 1: Generieren eines Zertifikats für Azure MFA auf einzelnen AD FS-Server unter Verwendung der `New-AdfsAzureMfaTenantCertificate` Cmdlet
+
+Zunächst müssen Sie lediglich ist das Generieren eines Zertifikats für Azure MFA verwenden.  Dies kann erfolgen mithilfe von PowerShell.  Generierte Zertifikat im Zertifikatspeicher lokalen Computer befinden, und mit einem Antragstellernamen an, die die "tenantid" für Azure AD-Verzeichnis enthält markiert ist.
+
 ![AD FS und MFA](media/Configure-AD-FS-2016-and-Azure-MFA/ADFS_AzureMFA3.png)  
-  
-Beachten Sie, dass TenantID den Namen des Verzeichnisses in Azure AD.  Verwenden Sie das folgende PowerShell-Cmdlet, um das neue Zertifikat zu generieren.  
+
+Beachten Sie, dass die "tenantid" den Namen Ihres Verzeichnisses in Azure AD fungiert.  Verwenden Sie das folgende PowerShell-Cmdlet, um das neue Zertifikat zu generieren.  
     `$certbase64 = New-AdfsAzureMfaTenantCertificate -TenantID <tenantID>`  
-      
+
 ![AD FS und MFA](media/Configure-AD-FS-2016-and-Azure-MFA/ADFS_AzureMFA1.PNG)  
   
-### <a name="step-2-add-the-new-credentials-to-azure-multi-factor-auth-client-spn"></a>Schritt2: Hinzufügen der neuen Anmeldeinformationen für Azure Multi-Factor Authentication Client Dienstprinzipalnamen   
-Um die AD FS-Server für die Kommunikation mit dem Azure Multi-Factor Authentication-Client zu aktivieren, müssen Sie die Anmeldeinformationen für den Dienstprinzipalnamen für den Azure Multi-Factor Authentication-Client hinzufügen. Die Zertifikate mit der `New-AdfsAzureMFaTenantCertificate`Cmdlet dient als diese Anmeldeinformationen. Führen Sie folgende Schrittemithilfe von PowerShell den Azure Multi-Factor Authentication-Client-SPN die neuen Anmeldeinformationen hinzu.  
+### <a name="step-2-add-the-new-credentials-to-the-azure-multi-factor-auth-client-service-principal"></a>Schritt 2: Fügen Sie die neuen Anmeldeinformationen auf dem Azure Multi-Factor Authentication-Client Dienstprinzipal hinzu
 
->[!NOTE]   
->Um diesen Schrittabgeschlossen haben, müssen Sie zur Verbindung mit Ihrer Instanz von Azure AD mit PowerShell Connect-MsolService verwenden.  Diese Schrittesetzen voraus, dass Sie bereits über PowerShell verbunden sind.  Weitere Informationen finden Sie unter [Connect-MsolService.](https://msdn.microsoft.com/library/dn194123.aspx)  
-     
-  
-2. **Legen Sie das Zertifikat als Anmeldeinformationen für den Azure Multi-Factor Authentication-Client**  
-    
-    `New-MsolServicePrincipalCredential -AppPrincipalId 981f26a1-7f43-403b-a875-f8b09b8cd720 -Type asymmetric -Usage verify -Value $certBase64 `
+Um die AD FS-Server für die Kommunikation mit dem Azure Multi-Factor Authentication-Client zu ermöglichen, müssen Sie die Anmeldeinformationen für den Dienstprinzipal für den Azure Multi-Factor Authentication-Client hinzufügen. Die Zertifikate generiert, mit der `New-AdfsAzureMFaTenantCertificate` Cmdlet dient als diese Anmeldeinformationen. Führen Sie die folgenden Schritte mithilfe von PowerShell die neuen Anmeldeinformationen auf dem Azure Multi-Factor Authentication-Client Dienstprinzipal hinzufügen.  
 
->[!IMPORTANT]
->  Dieser Befehl muss auf allen von der AD FS-Server in der Farm ausgeführt werden.  Azure AD-MFA tritt ein Fehler auf dem Server, auf denen nicht das Zertifikat als Anmeldeinformationen für den Azure Multi-Factor Authentication-Client festgelegt haben. 
+> [!NOTE]
+> Zum Durchführen dieses Schrittes müssen Sie mit einer Instanz von Azure AD mit PowerShell mithilfe der Connect-MsolService herstellen.  Diese Schritte setzen voraus, dass Sie bereits eine Verbindung über PowerShell hergestellt haben.  Weitere Informationen finden Sie unter [Connect-MsolService.](https://msdn.microsoft.com/library/dn194123.aspx)  
 
->[!NOTE]  
-> 981f26a1-7f43-403b-a875-f8b09b8cd720 ist die GUID für Azure Multi-Factor Authentication-Client.  
+**Legen Sie das Zertifikat wie die neuen Anmeldeinformationen für den Azure Multi-Factor Authentication-Client**  
+
+`New-MsolServicePrincipalCredential -AppPrincipalId 981f26a1-7f43-403b-a875-f8b09b8cd720 -Type asymmetric -Usage verify -Value $certBase64`
+
+> [!IMPORTANT]
+> Dieser Befehl muss auf allen AD FS-Servern in der Farm ausgeführt werden.  Azure AD MFA schlägt fehl, auf Servern, die nicht das Zertifikat an, wie die neuen Anmeldeinformationen für den Azure Multi-Factor Authentication-Client festgelegt haben.
+
+> [!NOTE]  
+> 981f26a1-7f43-403b-a875-f8b09b8cd720 ist die GUID für den Azure Multi-Factor Authentication-Client.  
   
 ## <a name="configure-the-ad-fs-farm"></a>Konfigurieren der AD FS-Farm  
   
-Nachdem Sie im vorherigen Abschnittauf jedem AD FS-Server abgeschlossen haben, müssen zum Ausführen der `Set-AdfsAzureMfaTenant`Cmdlet.  
+Nachdem Sie den vorherigen Abschnitt auf jedem AD FS-Server abgeschlossen haben, müssen Sie zum Ausführen der `Set-AdfsAzureMfaTenant` Cmdlet.  
   
-Dieses Cmdlet muss nur einmal für eine AD FS-Farm ausgeführt werden.  Verwenden Sie PowerShell, um diesen Schrittabgeschlossen haben.    
+Dieses Cmdlet muss nur einmal für eine AD FS-Farm ausgeführt werden.  Verwenden Sie PowerShell, um diesen Schritt abzuschließen.
   
->[!NOTE]  
->Sie müssen den AD FS-Dienst auf jedem Server in der Farm neu starten, bevor diese Änderung wirksam.  
+> [!NOTE]  
+> Sie müssen diese Änderungen werden erst ausgeführt, starten Sie den AD FS-Dienst auf jedem Server in der Farm neu.  
   
     Set-AdfsAzureMfaTenant -TenantId <tenant ID> -ClientId 981f26a1-7f43-403b-a875-f8b09b8cd720  
-      
+
 ![AD FS und MFA](media/Configure-AD-FS-2016-and-Azure-MFA/ADFS_AzureMFA5.png)  
   
-Danach sehen Sie sich, dass die Azure MFA als eine primäre Authentifizierungsmethode für Intranet- und Extranetanwendungen verfügbar ist.    
+Anschließend sehen Sie sich, dass es sich bei Azure MFA als eine primäre Authentifizierungsmethode für Intranet- und extranet Verwendung verfügbar ist.    
   
 ![AD FS und MFA](media/Configure-AD-FS-2016-and-Azure-MFA/ADFS_AzureMFA6.png)  
 
 ## <a name="renew-and-manage-ad-fs-azure-mfa-certificates"></a>Erneuern und Verwalten von AD FS Azure MFA-Zertifikate
-Die folgende Anleitung führt Sie durch die Azure MFA-Zertifikate auf Ihre AD FS-Server verwalten.
-Standardmäßig beim Konfigurieren von AD FS mit Azure MFA, sind die Zertifikate, die über das New-AdfsAzureMfaTenantCertificate PowerShell-Cmdlet generiert gültig für 2Jahre.  Um wie schließen, um zu ermitteln Ablaufzeit Ihre Zertifikate sind, und klicken Sie dann zu erneuern, und installieren neue Zertifikate, die mithilfe des folgenden Verfahrens.
 
-### <a name="assess-ad-fs-azure-mfa-certificate-expiration-date"></a>Bewerten der AD FS Azure MFA Zertifikat – Ablaufdatum
-Auf jedem AD FS-Server, auf dem lokalen Computer Shop, es werden ein selbstsigniertes Zertifikat mit "OU = Microsoft AD FS Azure MFA" in der Aussteller und Antragsteller.  Hierbei handelt es sich um den Azure MFA-Zertifikat.  Überprüfen Sie die Gültigkeitsdauer des Zertifikats auf jedem AD FS-Server zu ermitteln, das Ablaufdatum.  
+Die folgende Anleitung führt Sie durch die Azure MFA-Zertifikate auf Ihren AD FS-Servern zu verwalten.
+Beim Konfigurieren von AD FS mit Azure MFA, werden standardmäßig über das New-AdfsAzureMfaTenantCertificate-PowerShell-Cmdlet generierten Zertifikate ungültig für 2 Jahre.  Um zu bestimmen, wie nahe an Ablauf Ihrer Zertifikate sind, und klicken Sie dann zum Erneuern und neue Zertifikate installieren, gehen Sie folgendermaßen vor.
 
-### <a name="create-new-ad-fs-azure-mfa-certificate-on-each-ad-fs-server"></a>Erstellen Sie neue AD FS Azure MFA-Zertifikat auf jedem AD FS-Server
-Wenn die Gültigkeitsdauer der Zertifikate Ende nähert, starten Sie den Erneuerungsprozess generiert ein neues Azure MFA-Zertifikat auf jedem AD FS-Server. Generieren Sie in einem PowerShell-Befehlsfenster ein neues Zertifikat auf jedem AD FS-Server mit dem folgenden Cmdlet:
+### <a name="assess-ad-fs-azure-mfa-certificate-expiration-date"></a>Bewerten der AD FS, Azure MFA Ablaufdatum des Zertifikats
+
+Auf jedem AD FS-Server, auf dem lokalen Computer My-Zertifikatspeicher, wird ein selbstsigniertes Zertifikat mit &#34;OU = Microsoft AD FS, Azure MFA&#34; in der Aussteller und Antragsteller.  Dies ist das Azure MFA-Zertifikat.  Überprüfen Sie die Gültigkeitsdauer des Zertifikats auf jedem AD FS-Server, um zu bestimmen, das Ablaufdatum.  
+
+### <a name="create-new-ad-fs-azure-mfa-certificate-on-each-ad-fs-server"></a>Erstellen von neuen AD FS Azure MFA-Zertifikat auf jedem AD FS-server
+
+Wenn die Gültigkeitsdauer der Zertifikate mit das Ende nähert, starten Sie durch Generieren eines neuen Azure MFA-Zertifikats auf jedem AD FS-Server die Verlängerung durchführen. Generieren Sie in einem Powershell-Befehlsfenster ein neues Zertifikat auf jedem AD FS-Server mit dem folgenden Cmdlet:
 
 ```
 PS C:\> $newcert = New-AdfsAzureMfaTenantCertificate -TenantId <tenant id such as contoso.onmicrosoft.com> -Renew $true
 ```
 
-Aufgrund dieses Cmdlet wird ein neues Zertifikat, das aus zwei Tage in der Zukunft zu 2Tage + 2Jahre gültig ist, generiert werden.  AD FS und Azure MFA-Vorgänge werden von diesem Cmdlet oder das neue Zertifikat nicht beeinflusst. (Hinweis: die Verzögerung von 2Tagen ist beabsichtigt und Zeit, führen Sie die folgenden Schrittezum Konfigurieren des neuen Zertifikats im Mandanten, bevor AD FS gestartet wird, dessen Verwendung für Azure MFA bietet.)
+Als Ergebnis dieses Cmdlet wird ein neues Zertifikat, das über 2 Tage im Voraus zu zwei Tage + 2 Jahre gültig ist, generiert werden.  AD FS und Azure MFA-Vorgänge werden durch dieses Cmdlet aus, oder das neue Zertifikat nicht betroffen. (Hinweis: die Verzögerung von 2 Tagen ist beabsichtigt und stellt die Zeit für die Ausführung der nachstehenden Schritte zum Konfigurieren des neuen Zertifikats im Mandanten vor Beginn der AD FS für Azure MFA verwenden.)
 
+### <a name="configure-each-new-ad-fs-azure-mfa-certificate-in-the-azure-ad-tenant"></a>Konfigurieren Sie jedes neues AD FS, Azure MFA-Zertifikat in Azure AD-Mandanten
 
-### <a name="configure-each-new-ad-fs-azure-mfa-certificate-in-the-azure-ad-tenant"></a>Konfigurieren Sie jedes neue AD FS Azure MFA-Zertifikat in Azure AD-Mandanten
-Verwenden das Azure AD-PowerShell-Modul für jedes neue Zertifikat (auf jedem AD FS-Server), Ihre Azure AD-Mandanten-Einstellungen wie folgt aktualisieren (Hinweis: Sie müssen zunächst eine Verbindung mit Mandanten mit Connect-MsolService zum Ausführen der folgenden Befehle).
+Aktualisieren Sie die Azure AD-Mandanten-Einstellungen wie folgt mithilfe des Azure AD PowerShell-Moduls für jedes neue Zertifikat (auf jedem AD FS-Server) (Hinweis: Sie müssen zuerst eine Verbindung herstellen mit Connect-MsolService zum Ausführen der folgenden Befehle auf den Mandanten).
 
 ```
-PS C:/> New-MsolServicePrincipalCredential -AppPrincipalId 981f26a1-7f43-403b-a875-f8b09b8cd720 -Type Asymmetric -Usage Verify -Value $certbase64
+PS C:/> New-MsolServicePrincipalCredential -AppPrincipalId 981f26a1-7f43-403b-a875-f8b09b8cd720 -Type Asymmetric -Usage Verify -Value $newcert
 ```
-    Where $certbase64 is the new certificate.  The base64 encoded certificate can be obtained by exporting the certificate (without the private key) as a DER encoded file and opening in Notepad.exe, then copy/pasting to the PSH session and assigning to the variable $certbase64
 
-### <a name="verify-that-the-new-certificates-will-be-used-for-azure-mfa"></a>Stellen Sie sicher, dass neue Zertifikate für Azure MFA verwendet werden soll
-Einmal neue Zertifikate gültig, AD FS wird abzuholen und verwenden jedes entsprechenden Zertifikat für Azure MFA innerhalb weniger Stunden einen Tag.  Sobald dies erfolgt ist, auf jedem Server wird daraufhin ein Ereignis im Ereignisprotokoll AD FS-Administrator mit den folgenden Informationen protokolliert: Protokollname: AD FS/Administrator Quelle: AD FS Datum: 2/27/2018 7:33:31 Uhr Ereignis-ID: 547 Aufgabenkategorie: None Ebene: Informationen Schlüsselwörter : AD FS-Benutzer: DOMAIN\adfssvc Computer: ADFS.Domain.contoso.com Beschreibung: der Mandanten-Zertifikat für Azure MFA wurde erneuert wurde.  
+$certbase64 ist das neue Zertifikat.  Die base64-codierte Zertifikat kann abgerufen werden, indem Sie das Zertifikat (ohne den privaten Schlüssel) exportieren, wie einer DER-codiert-Datei und öffnen in Notepad.exe, und klicken Sie dann kopieren/einfügen, um die PSH-Sitzung und der Variablen $certbase64
 
-TenantId: contoso.onmicrosoft.com. Alten Fingerabdruck: 7CC103D60967318A11D8C51C289EF85214D9FC63. Alte Ablaufdatum: 9/15/2019 21:43:17: 00 Uhr. Neue Fingerabdruck: 8110D7415744C9D4D5A4A6309499F7B48B5F3CCF. Neue Ablaufdatum: 2/27/2020 2:16:07 AM.
+### <a name="verify-that-the-new-certificates-will-be-used-for-azure-mfa"></a>Stellen Sie sicher, dass die neuen Zertifikate für Azure MFA verwendet wird
 
-## <a name="customize-the-ad-fs-web-page-to-guide-users-to-register-mfa-verification-methods"></a>Anpassen der AD FS-Webseite zum zum Registrieren von Überprüfungsmethoden MFA-Benutzerhandbuch
+Sobald die neuen Zertifikate gültig sind, wird AD FS HEB sie auf und nutzen jedes entsprechenden Zertifikat für Azure MFA in wenigen Stunden pro Tag.  Sobald dies erfolgt, wird Sie auf jedem Server ein Ereignis im Ereignisprotokoll AD FS-Administrator mit den folgenden Informationen angezeigt: Protokollname:      Quelle für AD FS/Administrator:        AD FS-Datum:          2/27/2018 7:33:31 PM-Ereignis-ID:      547 Aufgabenkategorie: Keine Ebene:         Schlüsselwörter der Informationen:      AD FS-Benutzer:          DOMAIN\adfssvc-Computer:      ADFS.domain.contoso.com-Beschreibung: Die Mandanten-Zertifikat für Azure MFA wurde erneuert.  
 
-Verwenden Sie die folgenden Beispielen angepasst werden, Ihre AD FS-Webseiten für Benutzer, die Sie noch nicht geprüft haben (konfiguriert Überprüfungsinformationen MFA).
+TenantId: contoso.onmicrosoft.com.
+Fingerabdruck des alten: 7CC103D60967318A11D8C51C289EF85214D9FC63.
+Alte Ablaufdatum: 9/15/2019 9:43:17 UHR.
+Neuen Fingerabdruck: 8110D7415744C9D4D5A4A6309499F7B48B5F3CCF.
+Neues Ablaufdatum: 2/27/2020 2:16:07 UHR.
+
+## <a name="customize-the-ad-fs-web-page-to-guide-users-to-register-mfa-verification-methods"></a>Anpassen der AD FS-Webseite zum Benutzerhandbuch um Überprüfungsmethoden für MFA zu registrieren.
+
+Verwenden Sie die folgenden Beispiele zum Anpassen von Ihren AD FS-Webseiten für Benutzer, die noch nicht um vorabauflistung haben (konfiguriert Informationen zur MFA).
 
 ### <a name="find-the-error"></a>Suchen Sie den Fehler
-Zunächst stehen eine Reihe von Fehlermeldungen, die AD FS im Fall zurückgeben kann, in denen dem Benutzer Informationen zur Überprüfung fehlen.
-Bei Verwendung von Azure MFA als primäre Authentifizierung wird der Benutzer nicht proofed eine AD FS-Fehlerseite, enthält die folgenden Meldungen angezeigt:
+
+Es gibt zuerst eine Reihe verschiedener Fehlermeldungen, die AD FS in der dem Benutzer fehlen die Informationen zur Überprüfung in die Groß-/Kleinschreibung zurückgibt.
+Wenn Sie Azure MFA als primäre Authentifizierung verwenden, wird dem nicht proofed Benutzer eine AD FS-Fehlerseite, enthält die folgenden Meldungen angezeigt:
 ```
-    <div id="errorArea"> 
+    <div id="errorArea">
         <div id="openingMessage" class="groupMargin bigText">
-            An error occurred 
-        </div> 
+            An error occurred
+        </div>
         <div id="errorMessage" class="groupMargin">
-            Authentication attempt failed. Select a different sign in option or close the web browser and sign in again. Contact your administrator for more information. 
+            Authentication attempt failed. Select a different sign in option or close the web browser and sign in again. Contact your administrator for more information.
         </div>
 ```
-Bei Azure AD als zusätzliche Authentifizierung versucht wird, wird der Benutzer nicht proofed eine AD FS-Fehlerseite, enthält die folgenden Meldungen angezeigt:
+Wenn Azure AD als zusätzliche Authentifizierung versucht wird, wird der Benutzer nicht proofed eine AD FS-Fehlerseite, enthält die folgenden Meldungen angezeigt:
 ```
 <div id='mfaGreetingDescription' class='groupMargin'>For security reasons, we require additional information to verify your account (mahesh@jenfield.net)</div>
-    <div id="errorArea"> 
+    <div id="errorArea">
         <div id="openingMessage" class="groupMargin bigText">
-            An error occurred 
-        </div> 
+            An error occurred
+        </div>
         <div id="errorMessage" class="groupMargin">
-            The selected authentication method is not available for &#39;username@contoso.com&#39;. Choose another authentication method or contact your system administrator for details. 
+            The selected authentication method is not available for &#39;username@contoso.com&#39;. Choose another authentication method or contact your system administrator for details.
         </div>
 ```
 
-### <a name="catch-the-error-and-update-the-page-text"></a>Abgefangen Sie den Fehler und aktualisieren Sie den Text
-Den Fehler abgefangen und zeigt dem Benutzer benutzerdefinierte Richtlinien ist eine Frage des Anfügen von Javascript an das Ende der onload.js-Datei, die Teil der AD FS ist Web-Design, um (1) suchen identifizierende Fehlerzeichenfolgen und (2) benutzerdefinierte Web-Inhalte.  (Im Allgemeinen zum Anpassen der Datei onload.js Anleitung finden Sie im Artikel [hier](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/advanced-customization-of-ad-fs-sign-in-pages).)
+### <a name="catch-the-error-and-update-the-page-text"></a>Fangen Sie den Fehler, und aktualisieren Sie die Seitentext
 
+Um den Fehler abfangen und zeigt dem Benutzer benutzerdefinierten Prozessleitfaden fügen Sie einfach den JavaScript-Code an das Ende der onload.js-Datei, die Teil des Webdesigns für AD FS ist.  Dadurch können Sie die folgenden Schritte ausführen:
+ - Suchen Sie nach der Identifizierung Fehler Zeichenfolge(n)
+ - Geben Sie benutzerdefinierte Web-Inhalte.  
+
+(Anleitungen im Allgemeinen zum Anpassen der onload.js-Datei finden Sie im Artikel [Advanced Customization of AD FS-Sign-in-Webseiten](advanced-customization-of-ad-fs-sign-in-pages.md).)
+
+Hier ist ein einfaches Beispiel, Sie erweitern möchten:
+
+1. Öffnen Sie Windows PowerShell auf dem primären AD FS-Server aus, und erstellen Sie ein neues AD FS-Web-Design mithilfe des folgenden Befehls:
+    
+    ``` PowerShell
+        New-AdfsWebTheme –Name ProofUp –SourceName default
+    ``` 
+2. Als Nächstes exportieren Sie standardmäßig AD FS-Web-Design:
+
+    ``` PowerShell
+       Export-AdfsWebTheme –Name default –DirectoryPath c:\Theme
+    ```
+3. Öffnen Sie die C:\Theme\script\onload.js-Datei in einem Text-editor
+4. Fügen Sie den folgenden Code am Ende der Datei onload.js
+    
+    ``` JavaScript
+    //Custom Code
+    //Customize MFA exception
+    //Begin
+
+    var domain_hint = "<YOUR_DOMAIN_NAME_HERE>";
+    var mfaSecondFactorErr = "The selected authentication method is not available for";
+    var mfaProofupMessage = "You will be automatically redirected in 5 seconds to set up your account for additional security verification. Once you have completed the setup, please return to the application you are attempting to access.<br><br>If you are not redirected automatically, please click <a href='{0}'>here</a>."
+    var authArea = document.getElementById("authArea");
+    if (authArea) {
+        var errorMessage = document.getElementById("errorMessage");
+        if (errorMessage.innerHTML.indexOf(mfaSecondFactorErr) >= 0) {
+
+        //Hide the error message
+            var openingMessage = document.getElementById("openingMessage");
+            if (openingMessage) {
+                openingMessage.style.display = 'none'
+            }
+            var errorDetailsLink = document.getElementById("errorDetailsLink");
+            if (errorDetailsLink) {
+                errorDetailsLink.style.display = 'none'
+            }
+
+            //Provide a message and redirect to Azure AD MFA Registration Url
+            var mfaRegisterUrl = "https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1&whr=" + domain_hint;
+            errorMessage.innerHTML = "<br>" + mfaProofupMessage.replace("{0}", mfaRegisterUrl);
+            window.setTimeout(function () { window.location.href = mfaRegisterUrl; }, 5000);
+        }
+    }
+
+    //End Customize MFA Exception
+    //End Custom Code
+    ```
+    > [!IMPORTANT]
+    > Sie müssen "< YOUR_DOMAIN_NAME_HERE >"; ändern. um Ihren Domänennamen zu verwenden. Beispiel: `var domain_hint = "contoso.com";`
+    
+5. Speichern Sie die Datei onload.js
+6. Importieren Sie die onload.js-Datei in Ihr benutzerdefiniertes Design, indem Sie die folgenden Windows PowerShell-Befehl eingeben:
+    
+    ``` PowerShell
+    Set-AdfsWebTheme -TargetName ProofUp -AdditionalFileResource @{Uri=’/adfs/portal/script/onload.js’;path="c:\theme\script\onload.js"}
+    ```
+7. Wenden Sie schließlich des benutzerdefinierten Webdesigns für AD FS, indem Sie die folgenden Windows PowerShell-Befehl eingeben:
+    
+    ``` PowerShell
+    Set-AdfsWebConfig -ActiveThemeName
+    ```
+
+## <a name="next-steps"></a>Nächste Schritte
+
+[Verwalten von TLS/SSL-Protokollen und Verschlüsselungssammlungen, die von AD FS und Azure MFA verwendet](manage-ssl-protocols-in-ad-fs.md)

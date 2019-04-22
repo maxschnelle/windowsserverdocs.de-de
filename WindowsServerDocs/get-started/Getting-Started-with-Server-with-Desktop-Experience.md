@@ -15,13 +15,13 @@ ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
 ms.openlocfilehash: eb2e5be2ed19fe7cd64f6c6bd64ca9afafd93bff
-ms.sourcegitcommit: 4b9b21ca1f366388a78ead7413cb581f2b23d4c6
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "2711805"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59812311"
 ---
-# Installieren des Servers mit Desktopdarstellung
+# <a name="install-server-with-desktop-experience"></a>Installieren des Servers mit Desktopdarstellung
 > Gilt für: Windows Server 2016
   
 
@@ -41,20 +41,20 @@ Die Option „Server mit Desktopdarstellung“ installiert die Standardbenutzero
 
 **Microsoft Management Console: installiert**
 
-## Installationsszenarios
+## <a name="installation-scenarios"></a>Installationsszenarios
 
-### Bewertung
+### <a name="evaluation"></a>Bewertung
 Sie erhalten eine für 180 Tage lizenzierte Evaluierungskopie von Windows Server unter [Windows Server-Evaluierungsversionen](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016). Wählen Sie die **Windows Server 2016 | 64-Bit-ISO-Option** zum Download aus, oder besuchen Sie **Windows Server 2016 | Virtual Lab**.
 
 > [!IMPORTANT]  
 > Für ältere Versionen von Windows Server 2016 als 14393.0.161119-1705.RS1_REFRESH können Sie diese Konvertierung aus der Test- in die Einzelhandelsversion nur mit Windows Server 2016 ausführen, das unter Verwendung der Option „Desktopdarstellung“ installiert wurde (und nicht mit der Server Core-Option). Ab Version 14393.0.161119-1705. RS1_REFRESH können Sie Testversionen unabhängig von der verwendeten Installationsoption in Einzelhandelsversionen konvertieren.
 
 
-### Neuinstallation
+### <a name="clean-installation"></a>Neuinstallation
 
 Um die Installationsoption „Server mit Desktopdarstellung“ von den Medium zu installieren, legen Sie das Installationsmedium in ein Laufwerk ein, starten Sie den Computer neu, und führen Sie „Setup.exe“ aus. Wählen Sie im angezeigten Assistenten **Windows Server (Server mit Desktopdarstellung)** (Standard oder Datacenter) aus, und schließen Sie den Assistenten ab.
 
-### Upgrade/Aktualisieren
+### <a name="upgrade"></a>Upgrade/Aktualisieren
 Bei einem**Upgrade** wechseln Sie vom vorhandenen Betriebssystem zu einer neueren Version und verwenden dabei die gleiche Hardware.
 
 Wenn Sie bereits über eine vollständige Installation des entsprechenden Windows Server-Produkts verfügen, können Sie ein Upgrade auf eine Installation von Server mit Desktopdarstellung der entsprechenden Version von Windows Server 2016 durchführen, wie unten angegeben.
@@ -76,7 +76,7 @@ Werden in der rechten Spalte mehrere Editionen angezeigt, wird das Upgrade auf *
 |-------------------|----------|  
 |Windows Server2012 Standard|Windows Server 2016 Standard oder Datacenter|
 |Windows Server2012 Datacenter|Windows Server 2016 Datacenter|
-|Windows Server2012R2 Standard|Windows Server 2016 Standard oder Datacenter|
+|Windows Server 2012 R2 Standard|Windows Server 2016 Standard oder Datacenter|
 |Windows Server2012R2 Datacenter|Windows Server 2016 Datacenter|
 |Windows Server 2012 R2 Essentials|Windows Server 2016 Essentials|
 |Windows Storage Server2012 Standard|Windows Storage Server 2016 Standard|
@@ -86,7 +86,7 @@ Werden in der rechten Spalte mehrere Editionen angezeigt, wird das Upgrade auf *
 
 Viele weitere Optionen für den Wechsel zu Windows Server 2016, z.B. die Konvertierung der Lizenz zwischen Volumenlizenzversionen, Testversionen und anderen, finden Sie unter [Upgrade Options (Aktualisierungsoptionen)](Supported-Upgrade-Paths.md).
 
-### Migration
+### <a name="migration"></a>Migration
 **Migration** bezeichnet den Wechsel von Ihrem bestehenden Betriebssystem zu Windows Server 2016 durch Neuinstallation auf einer anderen Hardware oder einem anderen virtuellen Computer und anschließendem Transfer der Workloads des älteren Servers auf den neuen Server. Ausführliche Informationen zur Migration, die abhängig von den installierten Serverrollen stark variieren kann, finden Sie unter [Windows Server Installation, Upgrade, and Migration (Windows Server-Installation, -Upgrade und -Migration)](https://technet.microsoft.com/windowsserver/dn458795).
 
 Die Fähigkeit zur Migration unterscheidet sich bei verschiedenen Serverrollen. Das folgende Raster veranschaulicht Ihre Optionen für Serverrollen-Upgrades und Migration speziell für den Wechsel zu Windows Server 2016. Einzelne Migrationshandbücher finden Sie unter [Migrieren von Rollen und Features in Windows Server](https://technet.microsoft.com/windowsserver/jj554790.aspx). Weitere Informationen zu Installation und Upgrades finden Sie unter [Windows Server Installation, Upgrade, and Migration (Windows Server-Installation, -Upgrade und -Migration)](https://technet.microsoft.com/windowsserver/dn458795).
@@ -95,7 +95,7 @@ Die Fähigkeit zur Migration unterscheidet sich bei verschiedenen Serverrollen. 
 |-------------------|----------|--------------|--------------|----------|  
 |Active Directory-Zertifikatdienste| Ja|    Ja|    Ja|    Nein|
 |Active Directory Domain Services|  Ja|    Ja|    Ja|    Ja|
-|Active Directory-Verbunddienste|  Nein| Nein| Ja|    Nein (neue Knoten müssen zur Farm hinzugefügt werden)|
+|Active Directory-Verbunddienste (AD FS)|  Nein| Nein| Ja|    Nein (neue Knoten müssen zur Farm hinzugefügt werden)|
 |Active Directory Lightweight Directory Services|   Ja|    Ja|    Ja|    Ja|
 |Active Directory-Rechteverwaltungsdienste|   Ja|    Ja|    Ja|    Nein|
 |Failovercluster|Ja mit dem Prozess [Cluster OS Rolling Upgrade](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade), der Pause-Drain und Evict von Knoten, Upgrade auf Windows Server 2016 und das wieder Zusammenführen von Knoten zu einem ursprünglichen Cluster umfasst. Ja, wenn der Server für ein Upgrade vom Cluster entfernt und dann zu einem anderen Cluster hinzugefügt wird.|Nicht wenn der Server Teil eines Clusters ist. Ja, wenn der Server für ein Upgrade vom Cluster entfernt und dann zu einem anderen Cluster hinzugefügt wird.  |Ja|Nicht für Windows Server 2012-Failovercluster. Ja, für Windows Server 2012 R2-Failovercluster mit virtuellen Hyper-V Computern, oder für Windows Server 2012 R2-Failovercluster, die die Rolle des Dateiservers mit horizontaler Skalierung ausführen. Weitere Informationen finden Sie unter [Cluster OS Rolling Upgrade](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade).|
@@ -103,7 +103,7 @@ Die Fähigkeit zur Migration unterscheidet sich bei verschiedenen Serverrollen. 
 |Druck- und Faxdienste|    Nein| Nein| Ja (Printbrm.exe)| Nein|
 |Remotedesktopdienste|   Ja, für alle untergeordneten Rollen. Die Farm im gemischten Modus wird jedoch nicht unterstützt|   Ja, für alle untergeordneten Rollen. Die Farm im gemischten Modus wird jedoch nicht unterstützt|   Ja|    Nein|
 |Webserver (IIS)|  Ja|    Ja|    Ja|    Nein|
-|Windows Server Essentials Experience|  Ja|    N/V – neues Feature|  Ja|    Nein|
+|Windows Server Essentials-Umgebung|  Ja|    N/V – neues Feature|  Ja|    Nein|
 |Windows Server Update Services|    Ja|    Ja|    Ja|    Nein|
 |Arbeitsordner|  Ja|    Ja|    Ja|    Ja, vom Cluster WS 2012 R2, wenn [Cluster OS Rolling Upgrade](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade) ausgeführt wird.|
 

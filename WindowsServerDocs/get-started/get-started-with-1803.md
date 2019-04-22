@@ -10,30 +10,30 @@ ms.date: 05/02/2018
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 9cf87597-b15d-4f43-8aa1-91e60367f011
-ms.openlocfilehash: c5cd8fbcf8424fa158ad31ca64e3eabe426240a6
-ms.sourcegitcommit: 8e2903c9b58646840eedd63b47a9bba6c6a06bf7
-ms.translationtype: HT
+ms.openlocfilehash: c0a4917d0fdb3e911204601d6137d8c8a296e57a
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "1859873"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59812281"
 ---
 # <a name="introducing-windows-server-version-1803"></a>Einführung in Windows Server, Version 1803
 
 >Gilt für: Windows Server (Semi-Annual Channel)
 
-**Windows Server, Version 1803 ist die aktuelle Version des Semi-Annual Channel**
+**Windows Server ist Version 1803 der aktuellen Version in den neuen Halbjährlicher Kanal**
 
 
 ## <a name="what-the-semi-annual-channel-is--and-isnt"></a>Was ist der Semi-Annual Channel und was nicht
 Windows Server Version 1803 ist *kein* "Update" oder "Servicepack" für Windows Server 2016. Es handelt sich um die erste halbjährliche Freigabe für Server für Kunden, die in einer „Cloudfrequenz” arbeiten, beispielsweise in einem schnellen Entwicklungszyklus. Es eignet sich ideal für moderne Anwendungen und Innovationsszenarien wie Container und Micro-Dienste. Jede Version in diesen Kanal wird ab der ersten Veröffentlichung 18 Monate lang unterstützt. Weitere Informationen zum Semi-Annual Channel sowie **Tipps für die Entscheidung, welchen Kanal Sie wählen sollten**, finden Sie unter [Übersicht über den Semi-Annual Channel](semi-annual-channel-overview.md).
 
 
-**Windows Server 2016 ist das aktuelle langfristige Wartungs-DDE-Kanal-(LTSC) Produkt.**. Der LTSC empfiehlt sich, wenn Sie langfristige Stabilität und Vorhersagbarkeit im Server-Betriebssystem zur Unterstützung von herkömmlichen Arbeitslasten und Anwendungen benötigen. Wenn Sie weiterhin den LTSC verwenden möchten, sollten Sie Windows Server2016 installieren (oder weiterhin nutzen), da dieses Produkt im Server Core-Modus oder im Server with Desktop Experience-Modus installiert werden kann. Weitere Details finden Sie unter [Erste Schritte mit Windows Server 2016](https://docs.microsoft.com/windows-server/get-started/server-basics).
+**Windows Server 2016 ist das aktuelle Produkt für den langfristigen Wartungskanal (LTSC).** Der LTSC empfiehlt sich, wenn Sie langfristige Stabilität und Vorhersagbarkeit im Server-Betriebssystem zur Unterstützung von herkömmlichen Arbeitslasten und Anwendungen benötigen. Wenn Sie weiterhin den LTSC verwenden möchten, sollten Sie Windows Server 2016 installieren (oder weiterhin nutzen), da dieses Produkt im Server Core-Modus oder im Server with Desktop Experience-Modus installiert werden kann. Weitere Details finden Sie unter [Erste Schritte mit Windows Server 2016](https://docs.microsoft.com/windows-server/get-started/server-basics).
 
 
 ## <a name="whats-different-about-windows-server-version-1803"></a>Was ist anders bei Windows Server, Version 1803?
 
-Windows Server Version 1803 wird im Server Core-Modus ausgeführt. Windows Server Core-Modus bietet hervorragende Vorteile wie kleinere Hardwareanforderungen, weit weniger Angriffsfläche und eine Verringerung des Bedarfs für Updates. Da er keine Benutzeroberfläche aufweist, wird der Windows Server Core-Modus am besten remote verwaltet. Wenn Sie noch keine Erfahrung mit Server Core haben, hilft Ihnen [Verwalten eines Servers im Server-Core-Modus](../administration/server-core/server-core-manage.md), um sich in der Umgebung zurecht zu finden. [Verwalten von Windows Server2016](../administration/manage-windows-server.md) zeigt die verschiedenen Optionen für die Remoteverwaltung von Servern.
+Windows Server Version 1803 wird im Server-Core-Modus ausgeführt. Windows Server Core-Modus bietet hervorragende Vorteile wie kleinere Hardwareanforderungen, weit weniger Angriffsfläche und eine Verringerung des Bedarfs für Updates. Da er keine Benutzeroberfläche aufweist, wird der Windows Server Core-Modus am besten remote verwaltet. Wenn Sie noch keine Erfahrung mit Server Core haben, hilft Ihnen [Verwalten eines Servers im Server-Core-Modus](../administration/server-core/server-core-manage.md), um sich in der Umgebung zurecht zu finden. [Verwalten von Windows Server 2016](../administration/manage-windows-server.md) zeigt die verschiedenen Optionen für die Remoteverwaltung von Servern.
 
 [Neuigkeiten in Windows Server, Version 1803](whats-new-in-windows-server-1803.md) führt Sie in die neuen Features und Funktionen von Windows Server, Version 1803 ein.
 
@@ -47,21 +47,21 @@ Nano Server ist als Containerbetriebssystem verfügbar. Weitere Details finden S
 ## <a name="additional-information-about-this-release"></a>Zusätzliche Informationen zu dieser Version
 Um einen umfassenden Überblick über die wichtigsten Fakten der Windows-Server Version 1803 zu erhalten, sollten Sie auch diese Themen vor der Installation durchlesen:
 
-- Welche Hardware ist für die Ausführung erforderlich? Weitere Informationen finden Sie unter [Systemanforderungen](system-requirements.md). Die Systemanforderungen für diese Version sind identisch mit denen für Windows Server2016.
+- Welche Hardware ist für die Ausführung erforderlich? Weitere Informationen finden Sie unter [Systemanforderungen](system-requirements.md). Die Systemanforderungen für diese Version sind identisch mit denen für Windows Server 2016.
 - Welche neuen Features und Funktionen wurden hinzugefügt? Informationen hierzu finden Sie unter [Neues in IPAM unter Windows Server Version 1803](whats-new-in-windows-server-1803.md).
 - Was wurde entfernt? Informationen finden Sie unter [In Windows Server (Version 1803) entfernte oder veraltete Features](windows-server-1803-removed-features.md)
-- Welche speziellen Probleme dieser Version müssen umgangen werden? Siehe [Anmerkungen zu dieser Version – Wichtige Probleme in Windows Server, Version 1803](server-1803-release-notes.md)
+- Was speziellen Probleme dieser Version müssen umgangen werden? Siehe [Anmerkungen zu dieser Version – Wichtige Probleme in Windows Server, Version 1803](server-1803-release-notes.md)
 
 
 ## <a name="where-to-obtain-windows-server-version-1803"></a>Beziehen von Windows Server, Version 1803
 
 Diese Versionen müssen als Neuinstallation installiert werden.
 
-- Volume Licensing Service Center (VLSC): Kunden mit Volumenlizenz für [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default.aspx) können diese Version abrufen, indem Sie auf [Volume Licensing Service Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx) gehen und dann auf **Anmelden** klicken. Klicken Sie dann auf **Downloads und Schlüssel** und suchen Sie nach dieser Version. 
+- Volume Licensing Service Center (VLSC): Kunden mit Volumenlizenzierung lizenzierten [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default.aspx) können diese Version abrufen, indem Sie auf die [Volume Licensing Service Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx) und auf **Anmeldung**. Klicken Sie dann auf **Downloads und SchlüsselKeys** und suchen Sie nach dieser Version. 
 
 - Windows Server Version 1803 ist auch in [Microsoft Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.WindowsServer?tab=Overview) verfügbar.
 
-- Visual Studio Subscriptions: Visual Studio-Abonnenten erhalten Windows Server, Version 1803 von der [Downloadseite für Visual Studio-Abonnenten](https://my.visualstudio.com/downloads?pid=2347). Wenn Sie nicht bereits ein Abonnent sind, wechseln Sie zu [Visual Studio Subscriptions](https://www.visualstudio.com/subscriptions/), um sich anzumelden, und besuchen Sie anschließend die [Seite zum Herunterladen von Visual Studio-Abonnenten](https://my.visualstudio.com/downloads?pid=2347) wie oben beschrieben. Versionen, die über Visual Studio Subscriptions bereitgestellt werden, dienen nur zur Entwicklung und zum Testen.
+- Visual Studio-Abonnements: Visual Studio-Abonnenten erhalten Windows Server, Version 1803 Herunterladen der [Downloadseite für Visual Studio-Abonnent](https://my.visualstudio.com/downloads?pid=2347). Wenn Sie nicht bereits ein Abonnent sind, wechseln Sie zu [Visual Studio Subscriptions](https://www.visualstudio.com/subscriptions/), um sich anzumelden, und besuchen Sie anschließend die [Seite zum Herunterladen von Visual Studio-Abonnenten](https://my.visualstudio.com/downloads?pid=2347) wie oben beschrieben. Versionen, die über Visual Studio Subscriptions bereitgestellt werden, dienen nur zur Entwicklung und zum Testen.
 
 
 

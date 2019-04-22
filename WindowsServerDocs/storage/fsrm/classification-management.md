@@ -1,6 +1,6 @@
 ---
 title: Klassifizierungsverwaltung
-description: Dieser Artikel beschreibt, wie Sie Dateien basierend auf Klassifizierungseigenschaften kategorisieren
+description: In diesem Artikel wird beschrieben, wie zum Kategorisieren von Dateien, die basierend auf Klassifizierungseigenschaften
 ms.date: 7/7/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -8,15 +8,16 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: bf983fe693af7e5ba3f922b14fd1865a72a88296
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.openlocfilehash: 13323cd380c9df5185a7989721ec2574ea880d4f
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59814791"
 ---
 # <a name="classification-management"></a>Klassifizierungsverwaltung
 
-> Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
 
 Klassifizierungseigenschaften dienen zum Kategorisieren von Dateien und können verwendet werden, um Dateien für geplante Dateiverwaltungsaufgaben auszuwählen.
 
@@ -25,13 +26,13 @@ Es gibt zahlreiche Methoden zum Klassifizieren einer Datei. Eine Möglichkeit is
 In diesem Abschnitt werden folgende Themen behandelt:
 
 -   [Erstellen einer Klassifizierungseigenschaft](create-classification-property.md)
--   [Erstellen einer automatischen Klassifizierungseigenschaft](create-automatic-classification-rule.md)
+-   [Erstellen Sie eine Regel für die automatische Klassifizierung](create-automatic-classification-rule.md)
 
 
 > [!Note]
 > Zum Festlegen von E-Mail-Benachrichtigungen und bestimmten Berichtsfunktionen müssen Sie zuerst die Optionen des Ressourcen-Manager für Dateiserverkonfigurieren konfigurieren.
 
 
-## <a name="see-also"></a>Weitere Informationen:
+## <a name="see-also"></a>Siehe auch
 
-[Festlegen der Optionen des Ressourcen-Managers für Dateiserver](setting-file-server-resource-manager-options.md)
+[Einstellung File Server Resource Manager-Optionen](setting-file-server-resource-manager-options.md)

@@ -1,6 +1,6 @@
 ---
 title: Auswählen eines BranchCache-Entwurfs
-description: In diesem Thema ist Teil der BranchCache Deployment Guide für Windows Server 2016, der veranschaulicht, wie Sie BranchCache im verteilten und gehosteter cachemodi zum Optimieren der WAN-Bandbreite in Zweigstellen bereitstellen
+description: Dieses Thema ist Teil von BranchCache Deployment Guide für Windows Server 2016, die veranschaulicht, wie Sie BranchCache in verteilter und gehosteter Cachemodus zur Optimierung der WAN-bandbreitennutzung in Zweigstellen bereitstellen
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking-bc
@@ -8,31 +8,32 @@ ms.topic: get-started-article
 ms.assetid: 86c1ccad-2aa4-40fe-84c1-f77c49eb1216
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 4fe40b3d9ece771a46af8ecc70297b8713d65875
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 330dcbee26f52ff69cd85ef8dc78d2e161b943d1
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59811911"
 ---
 # <a name="choosing-a-branchcache-design"></a>Auswählen eines BranchCache-Entwurfs
 
->Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
-In diesem Thema können Informationen zu BranchCache-Modi und wählen Sie die besten Modi für die Bereitstellung.  
+In diesem Thema können Informationen zu BranchCache-Modi und die beste Modi für die Bereitstellung auswählen.  
   
-Dieses Handbuch können zum Bereitstellen von BranchCache in der folgenden Modi und Modus Kombinationen aus.  
+Sie können dieses Handbuch zum Bereitstellen von BranchCache in der folgenden Modi und sicherheitsmoduskombinationen verwenden.  
   
--   Alle Filialen sind für den Modus für verteilte Caches konfiguriert.  
+-   Alle Zweigstellen sind für Modus "verteilter Cache" konfiguriert.  
   
--   Alle Filialen, die für den gehosteten Cachemodus konfiguriert sind und einen gehosteten Cacheserver zu Standort haben.  
+-   Alle Zweigstellen für Modus "gehosteter Cache" konfiguriert sind und über einen gehosteten Cacheserver für Website verfügen.  
   
--   Einige Filialen für den Modus für verteilte Caches konfiguriert sind, und einige Zweigstellen über einen gehosteten Cacheserver für Website und für den gehosteten Cachemodus konfiguriert sind.  
+-   Einigen Zweigstellen für Modus "verteilter Cache" konfiguriert sind, und einigen Zweigstellen über einen gehosteten Cacheserver für Website und für den Modus "gehosteter Cache" konfiguriert sind.  
   
-Die folgende Abbildung zeigt eine Installation dual-Modus mit einem für den Modus für verteilte Caches konfigurierten Filiale und eine Filiale für den gehosteten Cachemodus konfiguriert.  
+Die folgende Abbildung zeigt eine dual-Modus-Installation mit einer Zweigstelle, die für den Modus "verteilter Cache" konfiguriert und eine Filiale, die für den Modus "gehosteter Cache" konfiguriert.  
   
 ![Auswählen eines BranchCache-Entwurfs](../../media/Choosing-a-BranchCache-Design/bc_new_modes.jpg)  
   
-Wählen Sie den Modus, den Sie für jede Zweigstelle in Ihrer Organisation bevorzugen, vor dem Bereitstellen von BranchCache.  
+Bevor Sie BranchCache bereitgestellt haben, wählen Sie den Modus, die, den Sie für jede Zweigstelle in Ihrer Organisation zu bevorzugen.  
   
 
 

@@ -1,6 +1,6 @@
 ---
-title: Windows Server unterstützte Szenarien für Netzwerke
-description: Dieses Thema enthält Informationen zu neuen unterstützten Szenarien für Netzwerke in Windows Server2016 und höher
+title: Windows Server unterstützte Netzwerkszenarios
+description: Dieses Thema enthält Informationen zu neuen unterstützte Netzwerkszenarien in Windows Server 2016 und höher
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking
@@ -9,175 +9,176 @@ ms.date: ''
 ms.assetid: 6de4232d-b0b3-4e43-8735-ebae35ae4f9f
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 70198f97c4ec39de4b78de28ab196dc3e86a684c
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 85f73f1f7caf833d23d3d693c0d754f52c4aa27d
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59812231"
 ---
-# <a name="windows-server-supported-networking-scenarios"></a>Windows Server unterstützte Szenarien für Netzwerke
+# <a name="windows-server-supported-networking-scenarios"></a>Windows Server unterstützte Netzwerkszenarios
 
->Gilt für: Windows Server-\(Semi-Annual Channel\), Windows Server 2016
+>Gilt für: WindowsServer \(Halbjährlicher Kanal\), WindowsServer 2016
 
-Dieses Thema enthält Informationen zu unterstützten und nicht unterstützten Szenarien, die in dieser Version von Windows Server2016 nicht möglich oder können.  
+Dieses Thema enthält Informationen zu unterstützten und nicht unterstützten Szenarien, die mit dieser Version von Windows Server 2016 kann nicht ausgeführt werden oder können.  
 >[!IMPORTANT]
->Verwenden Sie für alle Produktionsszenarien, die neuesten signierte Hardwaretreiber aus den Originalgerätehersteller \(OEM\) oder unabhängige Hardwarehersteller \(IHV\).
+>Für Produktionsszenarien, verwenden Sie die neueste signierte Hardware-Treiber von Ihrem Originalgerätehersteller \(OEM\) oder unabhängiger Hardwarehersteller \(IHV\).
   
 ## <a name="bkmk_supp"></a>Unterstützte Szenarien für Netzwerke
 
-Dieser Abschnittenthält Informationen zu den unterstützten Netzwerkszenarien für Windows Server2016 und umfasst die folgenden Szenariokategorien.  
+Dieser Abschnitt enthält Informationen zu den unterstützten Szenarien für Netzwerken für Windows Server 2016, und enthält die folgenden Szenariokategorien.  
   
 -   [Software-Defined Networking (SDN)-Szenarien](#bkmk_sdn)  
   
 -   [Plattform-Netzwerkszenarien](#bkmk_netp)  
   
--   [Szenarien für die DNS-Server](#bkmk_dns)  
+-   [DNS-Server-Szenarien](#bkmk_dns)  
   
 -   [IPAM-Szenarien mit DHCP und DNS](#bkmk_ipam)  
   
--   [NIC-Teaming-Szenarien](#bkmk_nicteam)
+-   [NIC-Teamvorgang-Szenarien](#bkmk_nicteam)
 
-- [Switch Embedded Teaming \(SET\) Szenarien](#bkmk_set)
+- [Switch Embedded Teaming \(festgelegt\) Szenarien](#bkmk_set)
   
 ### <a name="bkmk_sdn"></a>Software-Defined Networking (SDN)-Szenarien
  
-Die folgende Dokumentation können SDN-Szenarien mit Windows Server2016 bereitgestellt werden.  
+Sie können die folgende Dokumentation zum Bereitstellen von SDN-Szenarien mit Windows Server 2016 verwenden.  
   
   
 -   [Bereitstellen einer Software-Defined Networking-Infrastruktur mithilfe von Skripts](sdn/deploy/Deploy-a-Software-Defined-Network-infrastructure-using-scripts.md)  
   
-Weitere Informationen finden Sie unter [Software Defined Networking & 40; SDN & 41;](sdn/software-defined-networking.md).  
+Weitere Informationen finden Sie unter [Software Defined Networking &#40;SDN&#41;](sdn/software-defined-networking.md).  
   
-#### <a name="bkmk_netc"></a>Netzwerk-Controller-Szenarien
+#### <a name="bkmk_netc"></a>Controller-Netzwerkszenarien
 
-Die Netzwerk-Controller-Szenarien können Sie:  
+Die Netzwerkcontroller-Szenarien ermöglichen:  
   
--   Bereitstellen und Verwalten einer Instanz mehreren Knoten Netzwerkcontroller. Weitere Informationen finden Sie unter [Bereitstellen des Netzwerkcontrollers mithilfe von Windows PowerShell](sdn/deploy/Deploy-Network-Controller-using-Windows-PowerShell.md).  
+-   Bereitstellen Sie und verwalten Sie eine Instanz mehrere Knoten des Netzwerkcontrollers. Weitere Informationen finden Sie unter [Bereitstellen des Netzwerkcontrollers mithilfe von Windows PowerShell](sdn/deploy/Deploy-Network-Controller-using-Windows-PowerShell.md).  
   
--   Verwenden Sie Netzwerkcontroller Netzwerkrichtlinie programmgesteuert definieren, mit der Northbound REST-API.  
+-   Verwenden Sie den Netzwerkcontroller Netzwerkrichtlinie programmgesteuert definiert, mit der Northbound REST-API.  
   
 -   Verwenden Sie Netzwerkcontroller zum Erstellen und Verwalten von virtuellen Netzwerken mit Hyper-V-Netzwerkvirtualisierung – NVGRE oder VXLAN Kapselung verwenden.  
   
-Weitere Informationen finden Sie unter [Netzwerkcontroller](sdn/technologies/network-controller/Network-Controller.md).  
+Weitere Informationen finden Sie unter [Network Controller](sdn/technologies/network-controller/Network-Controller.md).  
   
-#### <a name="bkmk_netf"></a>Netzwerkszenarien Funktion Virtualization (NFV)  
+#### <a name="bkmk_netf"></a>Szenarien für Netzwerk-Funktion Virtualisierung NFV)  
 Die NFV Szenarien können Sie:  
   
--   Bereitstellen Sie und verwenden Sie eine Software Load Balancers northbound und southbound-Datenverkehr zu verteilen.  
+-   Bereitstellen und Verwenden eines Software Load Balancers, um sowohl die northbound als auch die southbound-Datenverkehr zu verteilen.  
   
--   Bereitstellen Sie und verwenden Sie eine Software Load Balancers zum Verteilen von eastbound und westbound Datenverkehr für virtuelle Netzwerke mit Hyper-V-Netzwerkvirtualisierung erstellt.  
+-   Bereitstellen und Verwenden eines Software Load Balancers eastbound und westbound-Datenverkehr für virtuelle Netzwerke erstellt wurden, mit Hyper-V-Netzwerkvirtualisierung zu verteilen.  
   
--   Bereitstellen Sie und verwenden Sie ein NAT-Software zum Lastenausgleich für virtuelle Netzwerke mit Hyper-V-Netzwerkvirtualisierung erstellt.  
+-   Bereitstellen Sie und verwenden Sie einen NAT-Software-Lastenausgleich für virtuelle Netzwerke, die mit Hyper-V-Netzwerkvirtualisierung erstellt.  
   
--   Bereitstellen Sie und verwenden Sie ein weiterleitungsgateway Layer 3  
+-   Bereitstellen Sie und verwenden Sie eine Layer 3-weiterleitungs-gateway  
   
--   Bereitstellen Sie und verwenden Sie ein virtuelles privates Netzwerk (VPN)-Gateway für Standort-zu-Standort IPsec (IKEv2)-Tunnel  
+-   Bereitstellen Sie und verwenden Sie ein virtuelles privates Netzwerk (VPN)-Gateway für Standort-zu-Standort-IPsec (IKEv2)-Tunnel  
   
--   Bereitstellen Sie und verwenden Sie ein Gateway Generic Routing Encapsulation (GRE).  
+-   Bereitstellen Sie und verwenden Sie einen Gateway Generic Routing Encapsulation (GRE).  
   
--   Bereitstellen Sie und konfigurieren Sie dynamisches Routing und während der Übertragung zwischen Standorten Border Gateway Protocol (BGP) mit Routing.  
+-   Bereitstellen und Konfigurieren von dynamischen Routings und transitrouting zwischen Standorten mithilfe von Border Gateway Protocol (BGP).  
   
--   Konfigurieren Sie M+N Redundanz für Ebene-3 und Standort-zu-Standort-Gateways und BGP-Routing.  
+-   Konfigurieren Sie M + N-Redundanz für Schicht 3 und Standort-zu-Standort-Gateways und für die BGP-routing.  
   
--   Verwenden Sie Netzwerkcontroller ACLs für virtuelle Netzwerke und Netzwerkschnittstellen angeben.  
+-   Verwenden Sie den Netzwerkcontroller ACLs für virtuelle Netzwerke und Netzwerkschnittstellen angeben.  
   
 Weitere Informationen finden Sie unter [Netzwerkfunktionsvirtualisierung](sdn/technologies/network-function-virtualization/Network-Function-Virtualization.md).  
   
 ### <a name="bkmk_netp"></a>Plattform-Netzwerkszenarien
 
-Für die Szenarien in diesem Abschnittder Windows Server-Netzwerke unterstützt Team die Verwendung von allen Windows Server2016-zertifizierten Treiber. Überprüfen Sie mit Ihrer Karte \(NIC\) Hersteller um sicherzustellen, dass Sie die neuesten Treiber aktualisiert haben.
+Für die Szenarien in diesem Abschnitt, der die Windows Server Networking unterstützt Team für die Verwendung von jedem Windows Server 2016-zertifizierten Treiber. Überprüfen Sie mit Ihrem Netzwerk-Schnittstellenkarte \(NIC\) Hersteller, um sicherzustellen, dass die neuesten Treiber aktualisiert.
   
-Die Netzwerk-Plattform-Szenarien können Sie:  
+Die Netzwerk-Plattform-Szenarien ermöglichen:  
   
--   Verwenden Sie eine zusammengeführte NIC RDMA und Ethernet-Datenverkehr über einen einzelnen Netzwerkadapter zu kombinieren.  
+-   Verwenden Sie eine zusammengeführte NIC, um sowohl RDMA- und Ethernet-Datenverkehr mit einem einzelnen Netzwerkadapter zu kombinieren.  
   
--   Erstellen Sie einen Datenpfad mit geringer Wartezeit, mit Paket direkt in den virtuellen Hyper-V-Switch und einem einzelnen Netzwerkadapter aktiviert.  
+-   Erstellen Sie einen Datenpfad zu mit niedriger Latenz mit Packetdirect, in den virtuellen Hyper-V-Switch, und einem einzelnen Netzwerkadapter aktiviert.  
   
--   Verteilen von SMB Direct und RDMA-Datenverkehr fließt zwischen bis zu zwei Netzwerkadapter konfigurieren.  
+-   Konfigurieren Sie die SET, SMB Direct "und" RDMA-Datenverkehrsfluss zwischen bis zu zwei Netzwerkadaptern zu verteilen.  
   
-Weitere Informationen finden Sie unter [Remote Direct Memory Access & 40; RDMA & 41; und Switch Embedded Teaming & 40; SET & 41;](../virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md).  
+Weitere Informationen finden Sie unter [Remote Direct Memory Access &#40;RDMA&#41; und Switch Embedded Teaming &#40;festgelegt&#41;](../virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md).  
   
-#### <a name="bkmk_switch"></a>Szenarien für virtuelle Hyper-V-Switch
+#### <a name="bkmk_switch"></a>Szenarien für virtuelle Hyper-V-Switches
 
-Die Hyper-V Virtual Switch Szenarien können Sie:  
+Die Szenarien für virtuelle Hyper-V-Switch können Sie:  
   
--   Erstellen Sie einen virtuellen Hyper-V-Switch mit einem vNIC (Remote Direct Memory Access, RDMA)  
+-   Erstellen Sie einen virtuellen Hyper-V-Switch mit einer vNIC (Remote Direct Memory Access, RDMA)  
   
 -   Erstellen Sie einen virtuellen Hyper-V-Switch mit Switch Embedded Teaming (SET) und RDMA-vNICs  
   
--   Erstellen eines SET-Teams beim virtuellen Hyper-V-Switch  
+-   Erstellen Sie ein SET-Team im Hyper-V-Switch  
   
 -   Verwalten Sie ein SET-Team mithilfe von Windows PowerShell-Befehle  
   
-Weitere Informationen finden Sie unter [Remote Direct Memory Access & 40; RDMA & 41; und Switch Embedded Teaming & 40; SET & 41;](../virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md)  
+Weitere Informationen finden Sie unter [Remote Direct Memory Access &#40;RDMA&#41; und Switch Embedded Teaming &#40;festlegen&#41;](../virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md)  
   
-### <a name="bkmk_dns"></a>Szenarien für die DNS-Server
+### <a name="bkmk_dns"></a>DNS-Server-Szenarien
 
-Szenarien für die DNS-Server können Sie:  
+DNS-Server-Szenarien ermöglichen:  
   
--   Geben Sie GeoLocation Verwaltung mithilfe von DNS-Richtlinien basiert  
+-   Geben Sie die GeoLocation-Verwaltung des Datenverkehrs mithilfe von DNS-Richtlinien basierten  
   
--   Konfigurieren des Split-Brain-DNS mithilfe von DNS-Richtlinien  
+-   Konfigurieren Sie mithilfe von DNS-Richtlinien-Brain-DNS  
   
--   Anwenden von Filtern auf DNS-Abfragen, die mithilfe von DNS-Richtlinien  
+-   Anwenden von Filtern auf DNS-Abfragen mithilfe von DNS-Richtlinien  
   
 -   Konfigurieren Sie die Anwendung den Lastenausgleich mithilfe von DNS-Richtlinien  
   
--   Geben Sie anhand von der Tageszeit intelligente DNS-Antworten  
+-   Geben Sie abhängig von der Tageszeit intelligente DNS-Antworten  
   
--   Konfigurieren Sie DNS-Zone Übertragung Richtlinien  
+-   Konfigurieren von Richtlinien für die Übertragung von DNS-Zone  
   
--   Konfigurieren von DNS-Server-Richtlinien auf Active Directory-Domänendienste (AD DS) integriert Zonen  
+-   Konfigurieren von DNS-Server-Richtlinien auf Active Directory Domain Services (AD DS) integriert Zonen  
   
--   Konfigurieren von Antworten begrenzen  
+-   Konfigurieren von Antwortquote beschränken  
   
--   Geben Sie die DNS-basierte Authentifizierung von benannten Entitäten (DANE)  
+-   Angeben von DNS-basierte Authentifizierung von benannten Entitäten (DANE)  
   
--   Konfigurieren der Unterstützung für unbekannte Datensätze in DNS  
+-   Konfigurieren Sie Unterstützung für unbekannte Datensätze im DNS.  
   
-Weitere Informationen finden Sie unter den Themen [What's New in DNS-Client unter Windows Server2016](dns/What-s-New-in-DNS-Client.md) und [What's New in DNS-Server unter Windows Server2016](dns/What-s-New-in-DNS-Server.md).  
+Weitere Informationen finden Sie unter den Themen [Neuigkeiten in DNS-Client unter Windows Server 2016](dns/What-s-New-in-DNS-Client.md) und [Neuigkeiten in DNS-Server unter Windows Server 2016](dns/What-s-New-in-DNS-Server.md).  
   
 ### <a name="bkmk_ipam"></a>IPAM-Szenarien mit DHCP und DNS
 
-Die IPAM-Szenarien können Sie:  
+Die IPAM-Szenarien ermöglichen:  
   
--   Ermitteln und Verwalten von DNS- und DHCP-Server und IP-Adressierung in mehreren federated Active Directory-Gesamtstrukturen  
+-   Ermitteln und Verwalten von DNS und DHCP-Server und IP-Adressierung in mehreren verbundenen Active Directory-Gesamtstrukturen  
   
--   Verwenden von IPAM für die zentralisierte Verwaltung der DNS-Eigenschaften einschließlich Zonen und Ressourceneinträge.  
+-   Verwenden von IPAM für die zentrale Verwaltung von DNS-Eigenschaften, einschließlich von Zonen und Ressourceneinträge.  
   
--   Präzise rollenbasierte Zugriffsrichtlinien definieren und Delegieren von IPAM-Benutzer oder Benutzergruppen, um die DNS-Eigenschaften zu verwalten, die Sie angeben.  
+-   Granulare rollenbasierte Access Control-Richtlinien zu definieren, und Delegieren von IPAM-Benutzer oder Benutzergruppen, um den Satz von DNS-Eigenschaften zu verwalten, die Sie angeben.  
   
--   Verwenden Sie Windows PowerShell-Befehle für IPAM zum Automatisieren der Konfiguration für DHCP- und DNS-Steuerelement.  
+-   Verwenden Sie die Windows PowerShell-Befehle für IPAM zum Automatisieren der Konfiguration der Zugriffssteuerung für DHCP- und DNS.  
   
     Weitere Informationen finden Sie unter [Verwalten von IPAM](technologies/ipam/Manage-IPAM.md).  
   
-### <a name="bkmk_nicteam"></a>NIC-Teaming-Szenarien
+### <a name="bkmk_nicteam"></a>NIC-Teamvorgang-Szenarien
 
-Der NIC-Teaming Szenarien können Sie:  
+Die NIC-Teamvorgang-Szenarien ermöglichen:  
   
--   Erstellen Sie ein NIC-Team in einer unterstützten Konfiguration  
+-   Erstellen eines NIC-Teams in einer unterstützten Konfiguration  
   
 -   Löschen eines NIC-Teams  
   
--   Hinzufügen von Netzwerkadaptern zu einer unterstützten Konfiguration der NIC-Team  
+-   Hinzufügen von Netzwerkadaptern an das NIC-Team in einer unterstützten Konfiguration  
   
--   Entfernen von Netzwerkadaptern des NIC-Teams  
+-   Entfernen Sie die Netzwerkadapter des NIC-Teams  
   
 > [!NOTE]  
-> In Windows Server2016 können NIC-Teamvorgang in Hyper-V, Sie jedoch in einigen Fällen Warteschlangen, virtuellen Computer (VMQ) nicht automatisch auf den zugrunde liegenden Netzwerkadaptern ermöglichen könnte bei der Erstellung eines NIC-Teams. In diesem Fall können Sie den folgenden Windows PowerShell-Befehl, um sicherzustellen, dass VMQ für den NIC-Team mitgliederadapter aktiviert ist: `Set-NetAdapterVmq -Name <NetworkAdapterName> -Enable`  
+> In Windows Server 2016 können Sie NIC-Teamvorgang in Hyper-V, verwenden jedoch in einigen Fällen Virtual Machine-Warteschlangen (VMQ) nicht automatisch auf den zugrunde liegenden Netzwerkadaptern beim Erstellen eines NIC-Teams aktiviert kann. In diesem Fall können Sie den folgenden Windows PowerShell-Befehl, um sicherzustellen, dass VMQ für den NIC-Team-mitgliederadapter aktiviert ist: `Set-NetAdapterVmq -Name <NetworkAdapterName> -Enable`  
 
-Weitere Informationen finden Sie unter [NIC-Teaming](technologies/nic-teaming/NIC-Teaming.md). 
+Weitere Informationen finden Sie unter [NIC-Teamvorgang](technologies/nic-teaming/NIC-Teaming.md). 
 
-### <a name="bkmk_set"></a>Switch Embedded Teaming \(SET\) Szenarien
+### <a name="bkmk_set"></a>Switch Embedded Teaming \(festgelegt\) Szenarien
 
-Eine alternative NIC-Teaming-Lösung, die Sie in einer Umgebung verwenden können, die Hyper-V und der Stapel Software Defined Networking (SDN) in Windows Server2016 enthalten ist. SET integriert einige NIC-Teaming-Funktionen in den virtuellen Hyper-V-Switch. 
+Eine alternative Lösung NIC-Teamvorgang, mit denen Sie in Umgebungen, die Hyper-V und den Stapel Software Defined Networking (SDN) in Windows Server 2016 enthalten ist. SET integriert einige Funktionen mit NIC-Teamvorgang in den virtuellen Hyper-V-Switch. 
 
 Weitere Informationen finden Sie unter [(Remote Direct Memory Access, RDMA) und Switch Embedded Teaming (SET)](https://technet.microsoft.com/windows-server-docs/networking/technologies/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming)
   
  
   
 ## <a name="bkmk_unsupp"></a>Nicht unterstützte Szenarien für Netzwerke  
-Die folgenden Szenarios werden in Windows Server2016 nicht unterstützt.  
+Die folgenden Szenarien für Netzwerken werden in Windows Server 2016 nicht unterstützt.  
   
 -   VLAN-basierten virtuellen mandantennetzwerken.  
   

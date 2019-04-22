@@ -1,6 +1,6 @@
 ---
-title: "Dateiprüfungsverwaltung"
-description: "Dieser Artikel beschreibt, wie Dateiprüfungen erstellt, Benachrichtigungen generiert, Dateiprüfungsvorlagen festgelegt und Dateiprüfungsausnahmen erstellt werden"
+title: Dateiprüfungsverwaltung
+description: Dieser Artikel beschreibt, wie Dateiprüfungen erstellt, Benachrichtigungen generiert, Dateiprüfungsvorlagen festgelegt und Dateiprüfungsausnahmen erstellt werden
 ms.date: 7/7/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 52a08ae7eaee81c00985d5334f9abeaa84e30879
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59814161"
 ---
 # <a name="file-screening-management"></a>Dateiprüfungsverwaltung
 
-> Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
 
 Sie können auf dem Knoten **Dateiprüfungsverwaltung** des Ressourcen-Manager für Dateiserver-MMC-Snap-Ins folgende Aufgaben ausführen:
 
@@ -31,17 +32,17 @@ Sie haben u. a. folgende Möglichkeiten:
 
 In diesem Abschnitt werden folgende Themen behandelt:
 
--   [Definieren von Dateigruppen für die Prüfung](define-file-groups-for-screening.md)
--   [Erstellen einer Dateiprüfung](create-file-screen.md)
+-   [Definieren von Dateigruppen für die Sichtung](define-file-groups-for-screening.md)
+-   [Erstellen Sie einen Datei-Bildschirm](create-file-screen.md)
 -   [Erstellen einer Dateiprüfungsausnahme](create-file-screen-exception.md)
--   [Erstellen einer Dateiprüfungsvorlage](create-file-screen-template.md)
--   [Bearbeiten der Eigenschaften der Dateiprüfungsvorlagen](edit-file-screen-template-properties.md)
+-   [Erstellen Sie eine Bildschirmvorlage Datei](create-file-screen-template.md)
+-   [Bearbeiten der Eigenschaften der Vorlage Bildschirm](edit-file-screen-template-properties.md)
 
 > [!Note]
 > Zum Festlegen von E-Mail-Benachrichtigungen und bestimmten Berichtsfunktionen müssen Sie zuerst die Optionen des Ressourcen-Manager für Dateiserverkonfigurieren konfigurieren.
 
-## <a name="see-also"></a>Weitere Informationen:
+## <a name="see-also"></a>Siehe auch
 
--   [Festlegen der Optionen des Ressourcen-Managers für Dateiserver](setting-file-server-resource-manager-options.md)
+-   [Einstellung File Server Resource Manager-Optionen](setting-file-server-resource-manager-options.md)
 
 

@@ -1,25 +1,26 @@
 ---
 redirect_url: /windows-server/windows-server
-ms.openlocfilehash: aa1bc1d94f91a2b9584f72398385575d22db33a9
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.openlocfilehash: 6f6e0d21fdf43ce3cf9f713d5731cfea5bb069de
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59812271"
 ---
 # <a name="windows-server-2016"></a>Windows Server 2016
 
-Diese Bibliothek enthält Informationen für IT-Spezialisten für die Bewertung, Planung, Bereitstellung, Sicherung und das Verwalten von Windows Server2016.
+Diese Bibliothek enthält Informationen für IT-Spezialisten für die Bewertung, Planung, Bereitstellung, Sicherung und das Verwalten von Windows Server 2016.
 
 > [!Note] 
 > Die nächste Version von Windows Server wird geändert. Finden Sie Detail zu den Neuigkeiten in der [Übersicht: Windows Server, Semi-Annual Channel](./get-started/semi-annual-channel-overview.md). 
 
-[![W[Video zu Windows Server 2016 Storage Server](media/front-page-video.png)](https://www.youtube.com/embed/V8oF0JpDzaM)
+[![Windows Server 2016-Übersichtsvideo](media/front-page-video.png)](https://www.youtube-nocookie.com/embed/V8oF0JpDzaM)
 
 <table border="0" width="100%" align='center'>
   <tr style="text-align:center;">
     <td align='center' style="width:25%; border:0;">
       <a href="/windows-server/get-started/what-s-new-in-windows-server-2016">
-        <img height=145 src="media/whats-new-highlight.png" alt="What's new icon" title="Neuerungen in Windows Server16"/></a>
+        <img height=145 src="media/whats-new-highlight.png" alt="What's new icon" title="Neuerungen in Windows Server 16"/></a>
         <br/>Neuigkeiten:
     </td>
     <td align='center' style="width:25%; border:0;">
@@ -79,7 +80,7 @@ Diese Bibliothek enthält Informationen für IT-Spezialisten für die Bewertung,
 
 ## <a name="windows-server-2016-editions"></a>Windows Server 2016-Editionen
 
-Windows Server 2016 ist unter Standard Edition, Datacenter Edition und Essentials Edition verfügbar. Windows Server 2016 Datacenter umfasst unbegrenzte Virtualisierungsrechte sowie neue Funktionen zum Erstellen eines softwaredefinierten Rechenzentrums. Windows Server 2016 Standard bietet Funktionen auf Unternehmensebene mit eingeschränkten Virtualisierungsrechten. Windows Server Essentials ist ein idealer erster Server mit Cloudverbindung. Dieser verfügt über seine eigene [umfassende Dokumentation](http://go.microsoft.com/fwlink/?LinkID=827171). Der Fokus des Inhalts hier liegt auf Standard Edition und Datacenter Edition. In der folgenden Tabelle sind die Hauptunterschiede zwischen Standard Edition und Datacenter Edition kurz zusammengefasst:
+Windows Server 2016 ist unter Standard Edition, Datacenter Edition und Essentials Edition verfügbar. Windows Server 2016 Datacenter umfasst unbegrenzte Virtualisierungsrechte sowie neue Funktionen zum Erstellen eines softwaredefinierten Rechenzentrums. Windows Server 2016 Standard bietet Funktionen auf Unternehmensebene mit eingeschränkten Virtualisierungsrechten. Windows Server Essentials ist ein idealer erster Server mit Cloudverbindung. Dieser verfügt über seine eigene [umfassende Dokumentation](https://go.microsoft.com/fwlink/?LinkID=827171). Der Fokus des Inhalts hier liegt auf Standard Edition und Datacenter Edition. In der folgenden Tabelle sind die Hauptunterschiede zwischen Standard Edition und Datacenter Edition kurz zusammengefasst:
 
 |Feature|Datacenter|Standard|  
 |-------------------|----------|-----------------------|  
@@ -113,10 +114,10 @@ Nun, da Sie wissen, welche Edition und welche Installationsoption für Sie geeig
 <table border="0" width="100%" align='center'>
   <tr style="text-align:center;">
     <td align='center' style="width:33%; border:0;">
-      <a  href="/windows-server/get-started/getting-started-with-nano-server"> <img width="175" src="media/nano.png" alt="Icon representing Nano server" title="Nano Server - Geringstes Gewicht" /><br/>Nano Server - <br/>Geringstes Gewicht</a>
+      <a  href="/windows-server/get-started/getting-started-with-nano-server"> <img width="175" src="media/nano.png" alt="Icon representing Nano server" title="Nano Server - Geringstes Gewicht" /><br/>Nano Server - <br/>Geringste Gewicht</a>
     </td>
     <td align='center' style="width:33%; border:0;"><a href="/windows-server/get-started/getting-started-with-server-core"> <img width="175" src="media/servercore.png" alt="Icon representing the Server Core installation" title="Server Core - Empfohlen" /><br/>Server Core - <br/>Empfohlen</a></td>
-   <td align='center' style="width:33%; border:0;"><a href="/windows-server/get-started/getting-started-with-server-with-desktop-experience"><img width="175" src="media/desktop.png" alt="Icon representing the full desktop experience installation option for Windows Server" title="Desktopdarstellung - Umfassende Benutzererfahrung" /><br/>Desktopdarstellung - <br/>Vollständige Benutzeroberfläche</a></td>
+   <td align='center' style="width:33%; border:0;"><a href="/windows-server/get-started/getting-started-with-server-with-desktop-experience"><img width="175" src="media/desktop.png" alt="Icon representing the full desktop experience installation option for Windows Server" title="Desktopdarstellung - Umfassende Benutzererfahrung" /><br/>Desktopdarstellung - <br/>Komplette-Schnittstelle</a></td>
   </tr>
 </table>
 
@@ -129,9 +130,7 @@ Virtualisierte Speicher-, Netzwerk-, Sicherheits- und Management-Technologien si
 <table border="0" width="100%" align='center'>
   <tr style="text-align:center;">
     <td align='center' style="width:10%; border:0;"></td>
-    <td align='center' style="width:50%; border:0;"><a href="/windows-server/sddc"><img width="400" src="media/sddc/WS16-heading.png" alt="Icon representing SDDC" title="Windows Server-Software-Defined Datacenter (SDDC)" /><br/>Windows Server-Software-Defined Datacenter (SDDC)</a></td>
+    <td align='center' style="width:50%; border:0;"><a href="/windows-server/sddc"><img width="400" src="media/sddc/WS16-heading.png" alt="Icon representing SDDC" title="Windows Server-Software-Defined Datacenter (SDDC)" /><br/>Windows Server Software-Defined Datacenter (SDDC)</a></td>
     <td align='center' style="width:10%; border:0;"></td>
   </tr>
 </table>
-
-Sie können den erforderlichen Inhalt nicht finden? Anwender von Windows 10: Teilen Sie uns Ihre Wünsche im [Feedback-Hub](feedback-hub://?referrer=techDocsUcPage&tabid=2&contextid=898&newFeedback=true&topic=Windows-Server-2016.md) mit. 

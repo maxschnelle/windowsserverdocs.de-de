@@ -1,6 +1,6 @@
 ---
-title: "Legen Sie die Sortiermethode für Ziele in Verweisen fest"
-description: "Dieser Artikel beschreibt die Vorgehensweise beim Festlegen der Sortiermethode für Ziele in Verweisen."
+title: Festlegen der Sortiermethode für Ziele in Verweisen
+description: Dieser Artikel beschreibt die Vorgehensweise beim Festlegen der Sortiermethode für Ziele in Verweisen.
 ms.date: 6/5/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -8,15 +8,16 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 6c67be4b35dd986f14bf7d588d0f3baa88e19171
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.openlocfilehash: 06e7aa1309b453da649537d5ae9b22acce830530
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59816861"
 ---
-# <a name="set-the-ordering-method-for-targets-in-referrals"></a>Legen Sie die Sortiermethode für Ziele in Verweisen fest
+# <a name="set-the-ordering-method-for-targets-in-referrals"></a>Festlegen der Sortiermethode für Ziele in Verweisen
 
-> Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server2012 R2, Windows Server 2012, Windows Server2008 R2, Windows Server 2008
+> Gilt für: WindowsServer 2019, WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2, WindowsServer 2008
 
 Ein Verweis ist eine sortierte Zielliste, die ein Client-PC von einem Domänencontroller oder Namespaceserver empfängt, wenn der Benutzer auf einen Namespacestamm oder -ordner mit Zielen zugreift. Nach Eingang des Verweises auf dem Client wird versucht, auf das erste Ziel in der Liste zuzugreifen. Ist das Ziel nicht verfügbar, wird vom Clientcomputer versucht, auf das nächste Ziel zuzugreifen.
 Ziele am Standort des Clients werden in einem Verweis immer zuerst aufgeführt. Ziele außerhalb des Standorts des Clients werden gemäß der Sortiermethode aufgelistet.
@@ -39,7 +40,7 @@ Verwenden Sie das folgende Verfahren, um die Sortiermethode für den Namespacest
    -   **EnableInsiteReferrals** gibt die Sortiermethode für **Ziele außerhalb des Standorts des Clients ausschließen**
    -   Das Auslassen beider Parameter legt die **zufällige Reihenfolge** der Sortiermethode fest. 
 
-Das DFSN Windows PowerShell-Modul wurde in Windows Server2012 eingeführt.
+Das DFSN Windows PowerShell-Modul wurde in Windows Server 2012 eingeführt.
    
 ## <a name="to-set-the-ordering-method-for-targets-in-folder-referrals"></a>So legen Sie die Sortiermethode für Ziele in Ordnerverweisen fest
 
@@ -66,7 +67,7 @@ Diese drei Sortiermethoden sind:
 
 Bei dieser Methode werden Ziele wie folgt sortiert:
 
-1.  Ziele, die sich am selben Active Directory-Verzeichnisdienst (AD DS)-Standort wie der Client befinden, werden in zufälliger Reihenfolge am oberen Rand der Verweise aufgelistet.
+1.  Ziele am selben Active Directory Directory Services (AD DS) Standort des Clients werden in zufälliger Reihenfolge am oberen Rand der referenzdienstdateien aufgelistet.
 2.  Ziele außerhalb des Standorts des Clients werden in zufälliger Reihenfolge aufgelistet.
 
 Wenn keine Zielserver mit demselben Standort verfügbar sind, wird der Clientcomputer einem zufälligen Zielserver zugeordnet, unabhängig davon, wie teuer die Verbindung ist oder wie weit davon entfernt das Ziel ist.
@@ -88,7 +89,7 @@ Bei dieser Methode enthalten Die Verweise nur die Ziele, die am selben Standort 
 > [!NOTE]
 > Ziele, deren Zielpriorität auf "Das erste von allen Zielen" oder "Das letzte von allen Zielen" festgelegt ist, werden weiterhin im Verweis aufgelistet, auch wenn die Sortiermethode als **Ziele außerhalb des Standorts des Clients ausschließen** festgelegt ist.
 
-## <a name="see-also"></a>Weitere Informationen: 
+## <a name="see-also"></a>Siehe auch 
 
 -   [Optimieren von DFS-Namespaces](tuning-dfs-namespaces.md)
 -   [Delegieren von Verwaltungsberechtigungen für DFS-Namespaces](delegate-management-permissions-for-dfs-namespaces.md)

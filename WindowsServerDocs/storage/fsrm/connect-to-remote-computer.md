@@ -1,6 +1,6 @@
 ---
 title: Verbindung mit einem Remotecomputer herstellen
-description: "In diesem Artikel wird beschrieben, wie eine Verbindung mit einem Remotecomputer zum Verwalten von Speicherressourcen vom Ressourcen-Manager für Dateiserver hergestellt wird"
+description: In diesem Artikel wird beschrieben, wie eine Verbindung mit einem Remotecomputer zum Verwalten von Speicherressourcen vom Ressourcen-Manager für Dateiserver hergestellt wird
 ms.date: 7/7/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 93d2be926437b65ed8eb84a828ea0d7da6a51086
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59818861"
 ---
 # <a name="connect-to-a-remote-computer"></a>Verbindung mit einem Remotecomputer herstellen 
 
-> Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
 
 Um Speicherressourcen von einem Remotecomputer zu verwalten, können Sie vom Ressourcen-Manager für Dateiserver eine Verbindung mit dem Computer herstellen. Während der Verbindung, ermöglicht der Ressourcen-Manager für Dateiserver Kontingente zu verwalten, Dateien zu überprüfen, Klassifizierungen zu verwalten, Dateiverwaltungsaufgaben zu planen und Berichte mit diesen Remote-Ressourcen zu verwalten.
 
@@ -36,7 +37,7 @@ Um Speicherressourcen von einem Remotecomputer zu verwalten, können Sie vom Res
 > [!Important]
 > Der Befehl **Verbindung mit anderem Computer herstellen** ist nur verfügbar, wenn Sie den Ressourcen-Manager für Dateiserver von **Verwaltung** aus öffnen. Wenn Sie den Ressourcen-Manager für Dateiserver vom Server-Manager aus öffnen, ist der Befehl nicht verfügbar.
 
-## <a name="additional-considerations"></a>Weitere Überlegungen
+## <a name="additional-considerations"></a>Weitere Aspekte
 
 So verwalten Sie Remote-Ressourcen mit dem Ressourcen-Manager für Dateiserver:
 
@@ -44,6 +45,6 @@ So verwalten Sie Remote-Ressourcen mit dem Ressourcen-Manager für Dateiserver:
 -   Auf dem Remotecomputer muss Windows Server ausgeführt werden und der Ressourcen-Manager für Dateiserver muss installiert sein.
 -   Die **Remotedateiserver Ressourcen-Manager für Dateiserver**-Ausnahme muss auf dem Remotecomputer aktiviert sein. Aktivieren Sie diese Ausnahme mithilfe von Windows-Firewall in der Systemsteuerung.
 
-## <a name="see-also"></a>Weitere Informationen:
+## <a name="see-also"></a>Siehe auch
 
--   [Verwalten von Remotespeicherressourcen](managing-remote-storage-resources.md)
+-   [Verwalten von Remote-Speicherressourcen](managing-remote-storage-resources.md)

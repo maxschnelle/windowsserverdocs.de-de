@@ -13,11 +13,11 @@ author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
 ms.openlocfilehash: bc1930b681621d4d34c85414dbc2f97df257af20
-ms.sourcegitcommit: e0479b0114eac7f232e8b1e45eeede96ccd72b26
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "2082176"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59817161"
 ---
 # <a name="developing-for-nano-server"></a>Entwickeln für Nano Server
 
@@ -35,7 +35,7 @@ In diesen Themen werden wichtige Unterschiede in PowerShell unter Nano Server er
 Um Nano Server mit Windows PowerShell-Remoting zu verwalten, müssen Sie zuerst die IP-Adresse des Nano Servers der Liste vertrauenswürdiger Hosts hinzufügen, die Ihr Verwaltungscomputer besitzt, dann das Konto, das Sie verwenden, zu den Nano Server-Administratoren hinzufügen und schließlich CredSSP aktivieren, wenn Sie dieses Feature verwenden möchten.  
 
  >[!NOTE]  
-    > Wenn sich der Ziel-Nano Server und Ihr Verwaltungscomputer in derselben AD DS-Gesamtstruktur (oder in unterschiedlichen Gesamtstrukturen in einer Vertrauensstellung) befinden, sollten Sie den Nano Server nicht der Liste der vertrauenswürdigen Hosts hinzufügen. Sie können eine Verbindung mit dem Nano Server herstellen, indem Sie dessen vollständig qualifizierten Domänennamen verwenden, z.B.: PS C:\> Enter-PSSession -ComputerName nanoserver.contoso.com -Credential (Get-Credential).
+    > Wenn die Ziel-Nano Server und Ihr Verwaltungscomputer in derselben AD DS-Gesamtstruktur (oder in Gesamtstrukturen mit einer Vertrauensstellung) sind, sollten Sie nicht der Nano Server-hinzufügen, die Liste der vertrauenswürdigen Hosts können Sie mit dem Nano Server verbinden, mit dessen vollständig qualifizierten Domänennamen Zum Beispiel: PS C:\> Geben Sie-PSSession – ComputerName nanoserver.contoso.com-Credential (Get-Credential)
   
   
 Um den Nano Server zu der Liste der vertrauenswürdigen Hosts hinzuzufügen, führen Sie diesen Befehl über eine Windows PowerShell-Eingabeaufforderung mit erhöhten Rechten aus:  
@@ -55,7 +55,7 @@ Enter-PSSession -ComputerName $ip -Credential $user
 Sie können nun wie gewohnt Windows PowerShell-Befehle auf dem Nano Server ausführen.  
   
 > [!NOTE]  
-> In diesem Release von Nano Server sind nicht alle Windows PowerShell-Befehle verfügbar. Führen Sie aus, um anzuzeigen, welche Befehle verfügbar sind `Get-Command -CommandType Cmdlet`  
+> In diesem Release von Nano Server sind nicht alle Windows PowerShell-Befehle verfügbar. Führen Sie zum Anzeigen der zur Verfügung stehen. `Get-Command -CommandType Cmdlet`  
   
 Beenden Sie die Remotesitzung mit dem Befehl `Exit-PSSession`  
   

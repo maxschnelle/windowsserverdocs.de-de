@@ -13,18 +13,18 @@ ms.assetid: e6cac074-c6fc-46dd-9664-fa0342c0a5e8
 author: jaimeo
 ms.author: jaimeo
 manager: dongill
-ms.localizationpriority: high
-ms.openlocfilehash: 2473b4ffae79c29ec7505616c139c03b21a4427b
-ms.sourcegitcommit: e0479b0114eac7f232e8b1e45eeede96ccd72b26
-ms.translationtype: HT
+ms.localizationpriority: medium
+ms.openlocfilehash: f1b1004d02b53cdfc6d82b232a674e7661e32985
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "1284348"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59816411"
 ---
 # <a name="configure-a-server-core-installation-of-windows-server-2016-or-windows-server-version-1709-with-sconfigcmd"></a>Konfigurieren einer Server Core-Installation von Windows Server mit „Sconfig.cmd“
-> Gilt für: Windows Server (Semi-Annual Channel) and Windows Server 2016
+> Gilt für: WindowsServer (Halbjährlicher Kanal) und WindowsServer 2016
 
-In der Version 1709 von Windows Server2016 können Sie das Server-Konfigurationstool (Sconfig.cmd) zum Konfigurieren und Verwalten verschiedener allgemeiner Aspekte von Server Core-Installationen verwenden. Sie müssen Mitglied der Gruppe %%amp;quot;Administratoren%%amp;quot; sein, um das Tool verwenden zu können.  
+In der Version 1709 von Windows Server 2016 können Sie das Server-Konfigurationstool (Sconfig.cmd) zum Konfigurieren und Verwalten verschiedener allgemeiner Aspekte von Server Core-Installationen verwenden. Sie müssen Mitglied der Gruppe %%amp;quot;Administratoren%%amp;quot; sein, um das Tool verwenden zu können.  
   
 Sie können „Sconfig.cmd“ in Installationen von Server Core und Server mit Desktopdarstellung (nur Windows Server 2016) verwenden. 
   
@@ -32,45 +32,45 @@ Sie können „Sconfig.cmd“ in Installationen von Server Core und Server mit D
   
 1.  Wechseln Sie zum Systemlaufwerk.  
   
-2.  Geben Sie `Sconfig.cmd` ein, und drücken Sie die EINGABETASTE. Die Benutzeroberfläche des Server-Konfigurationstools wird geöffnet:  
+2.  Geben Sie `Sconfig.cmd` ein, und drücken Sie dann die EINGABETASTE. Die Benutzeroberfläche des Serverkonfigurationstools wird geöffnet:  
   
  <img src="mainsconfigpage.png" style='float:left; padding:.5em;' alt="Screenshot of Sconfig.cmd user interface">  
-Screenshot der Benutzeroberfläche von „Sconfig.cmd“  
+Screenshot der Benutzeroberfläche von %%amp;quot;Sconfig.cmd%%amp;quot;  
   
-##  <a name="BKMK_Domainworkgroup"></a> Domänen-/Arbeitsgruppeneinstellungen  
- Die aktuellen Einstellungen für die Domäne/Arbeitsgruppe werden auf dem Standardbildschirm des Server-Konfigurationstools angezeigt. Sie können einer Domäne oder Arbeitsgruppe beitreten, indem Sie über das Hauptmenü auf die Seite **Domäne/Arbeitsgruppe** zugreifen, die Anweisungen auf den folgenden Seiten ausführen und dabei alle erforderlichen Informationen angeben.  
+##  <a name="BKMK_Domainworkgroup"></a> Domänen-/arbeitsgruppeneinstellungen  
+ Die aktuellen Domänen-/Arbeitsgruppeneinstellungen werden auf dem Standardbildschirm des Serverkonfigurationstools angezeigt. Sie können einer Domäne oder Arbeitsgruppe beitreten, indem Sie über das Hauptmenü auf die Einstellungsseite **Domäne/Arbeitsgruppe** zugreifen und den Anweisungen auf den folgenden Seiten unter Eingabe der erforderlichen Informationen folgen.  
   
- Wenn ein Domänenbenutzer nicht der lokalen Administratorgruppe hinzugefügt wurde, können Sie mithilfe des Domänenbenutzers keine Systemänderungen wie das Ändern des Computernamens vornehmen. Lassen Sie einen Neustart des Computers zu, um einen Domänenbenutzer der lokalen Administratorgruppe hinzuzufügen. Melden Sie sich dann als lokaler Administrator auf dem Computer an, und führen Sie die Schritteim Abschnitt [Einstellungen für lokale Administratoren](assetId:///3c2f8ca4-6adc-4ebd-8daf-eb0de16c2c7d#BKMK_Localadministratorsettings) weiter unten in diesem Dokument durch.  
-  
-> [!NOTE]
->  Sie müssen den Server neu starten, damit Änderungen an der Domänen- oder Arbeitsgruppenmitgliedschaft wirksam werden. Sie können jedoch weitere Änderungen vornehmen und erst danach den Server neu starten, damit er nicht mehrmals neu gestartet werden muss. Ausgeführte virtuelle Computer werden vor dem Neustart des Hyper-V-Servers standardmäßig automatisch gesichert.  
-  
-## <a name="computer-name-settings"></a>Einstellungen für Computernamen  
- Der aktuelle Computername wird auf dem Standardbildschirm des Server-Konfigurationstools angezeigt. Sie können den Computernamen ändern, indem Sie über das Hauptmenü die Einstellungsseite „Computername“ öffnen und den Anweisungen folgen.  
+ Wurde ein Domänenbenutzer nicht der Gruppe der lokalen Administratoren hinzugefügt, können Sie keine Systemänderungen, z. B. das Ändern des Computernamens, mithilfe des Domänenbenutzers durchführen. Zum Hinzufügen eines Benutzers zur Gruppe der lokalen Administratoren sollten Sie den Computer neu starten lassen. Melden Sie sich als Nächstes als lokaler Administrator am Computer an und folgen Sie den Schritten im Abschnitt [Lokale Administratoreinstellungen](assetId:///3c2f8ca4-6adc-4ebd-8daf-eb0de16c2c7d#BKMK_Localadministratorsettings) weiter unten in diesem Dokument.  
   
 > [!NOTE]
->  Sie müssen den Server neu starten, damit Änderungen an der Domänen- oder Arbeitsgruppenmitgliedschaft wirksam werden. Sie können jedoch weitere Änderungen vornehmen und erst danach den Server neu starten, damit er nicht mehrmals neu gestartet werden muss. Ausgeführte virtuelle Computer werden vor dem Neustart des Hyper-V-Servers standardmäßig automatisch gesichert.  
+>  Sie müssen den Server neu starten, um Änderungen an der Domänen- oder Arbeitsgruppenzugehörigkeit zu übernehmen. Sie können jedoch weitere Änderungen vornehmen und den Server nach der Durchführung aller Änderungen neu starten, um einen mehrfachen Neustart zu umgehen. Standardmäßig wird die Ausführung virtueller Computer vor dem Neustart des Hyper-V-Servers automatisch gespeichert.  
   
-##  <a name="BKMK_Localadministratorsettings"></a> Lokale Administratoreinstellungen  
- Verwenden Sie die Option **Lokalen Administrator hinzufügen** im Hauptmenü, um der lokalen Administratorgruppe weitere Benutzer hinzuzufügen. Auf einem Computer, der einer Domäne beigetreten ist, geben Sie den Benutzer im folgenden Format ein: Domäne\Benutzername. Auf einem Computer, der keiner Domäne angehört Arbeitsgruppencomputer), geben Sie nur den Benutzernamen ein. Die Änderungen werden sofort wirksam.  
+## <a name="computer-name-settings"></a>Computernamenseinstellungen  
+ Der aktuelle Computername wird auf dem Standardbildschirm des Serverkonfigurationstools angezeigt. Sie können den Computernamen ändern, indem Sie über das Hauptmenü auf die Einstellungsseite "Computername" zugreifen und den Anweisungen folgen.  
+  
+> [!NOTE]
+>  Sie müssen den Server neu starten, um Änderungen an der Domänen- oder Arbeitsgruppenzugehörigkeit zu übernehmen. Sie können jedoch weitere Änderungen vornehmen und den Server nach der Durchführung aller Änderungen neu starten, um einen mehrfachen Neustart zu umgehen. Standardmäßig wird die Ausführung virtueller Computer vor dem Neustart des Hyper-V-Servers automatisch gespeichert.  
+  
+##  <a name="BKMK_Localadministratorsettings"></a> Lokale administratoreinstellungen  
+ Verwenden Sie zum Hinzufügen weiterer Benutzer zur Gruppe der lokalen Administratoren die Option **Lokalen Administrator hinzufügen** im Hauptmenü. Geben Sie auf einem Computer, der zur Domäne gehört, den Benutzer im Format "Domäne\Benutzername" ein. Geben Sie auf einem Computer, der nicht zur Domäne gehört (Arbeitsgruppencomputer), nur den Benutzernamen ein. Die Änderungen werden sofort wirksam.  
   
 ## <a name="network-settings"></a>Netzwerkeinstellungen  
- Sie können die IP-Adresse so konfigurieren, dass sie automatisch von einem DHCP-Server zugewiesen wird, oder Sie können manuell eine statische IP-Adresse zuweisen. Mit dieser Option können Sie auch DNS-Servereinstellungen für den Server konfigurieren.  
+ Sie können die IP-Adresse so konfigurieren, dass sie automatisch von einem DHCP-Server zugewiesen wird, oder Sie weisen manuell eine statische Adresse zu. Mit dieser Option können Sie auch DNS-Server-Einstellungen für den Server konfigurieren.  
   
 > [!NOTE]
->  Diese und viele weitere Optionen sind jetzt über die Windows PowerShell-Netzwerk-Cmdlets verfügbar. Weitere Informationen finden Sie unter [Netzwerkadapter-Cmdlets](https://technet.microsoft.com/library/jj134956.aspx) in der Windows Server-Bibliothek.  
+>  Diese und viele weitere Optionen sind jetzt über die Windows PowerShell-Cmdlets für Netzwerke verfügbar. Weitere Informationen finden Sie unter [Netzwerkadapter-Cmdlets](https://technet.microsoft.com/library/jj134956.aspx) in der Windows Server-Bibliothek.  
   
-## <a name="windows-update-settings"></a>Windows Update-Einstellungen  
- Die aktuellen WindowsUpdate-Einstellungen werden auf dem Standardbildschirm des Server-Konfigurationstools angezeigt. Im Hauptmenü können Sie in der Konfigurationsoption **Windows Update-Einstellungen** automatische oder manuelle Updates für den Server konfigurieren.  
+## <a name="windows-update-settings"></a>Windows Update-Server  
+ Die aktuellen Windows Update-Einstellungen werden auf dem Standardbildschirm des Serverkonfigurationstools angezeigt. Über die Konfigurationsoption **Windows Update-Einstellungen** im Hauptmenü können Sie automatische oder manuelle Updates für den Server konfigurieren.  
   
- Wenn **automatische Updates** aktiviert sind, führt das System täglich um 3:00 Uhr eine Überprüfung auf Updates durch und installiert diese ggf. Die Einstellungen werden sofort wirksam. Wenn **manuelle** Updates ausgewählt sind, sucht das System nicht automatisch nach Updates.  
+ Ist **Automatische Updates** aktiviert, prüft das System täglich um 15:00 Uhr, ob Updates vorliegen, und installiert diese. Die Einstellungen werden sofort wirksam. Wenn **Manuelle Updates** aktiviert ist, prüft das System nicht automatisch, ob Updates vorhanden sind.  
   
- Im Hauptmenü können Sie über die Option **Updates herunterladen und installieren** verfügbare Updates jederzeit herunterladen und installieren.
+ Sie können erforderlich Updates jederzeit über die Option **Updates herunterladen und Installieren** im Hauptmenü herunterladen und installieren.
 
  Mit der Option **Nur herunterladen** werden verfügbare Updates gesucht und herunterladen, und Sie werden im Info-Center benachrichtigt, dass sie bereit für die Installation sind. Dies ist die Standardoption.  
   
-## <a name="remote-desktop-settings"></a>Remotedesktop-Einstellungen  
- Der aktuelle Status von Remotedesktop-Einstellungen wird auf dem Standardbildschirm des Server-Konfigurationstools angezeigt. Sie können die folgenden Remotedesktop-Einstellungen konfigurieren, indem Sie die Hauptmenüoption **Remotedesktop** aufrufen und den Anweisungen auf dem Bildschirm folgen.  
+## <a name="remote-desktop-settings"></a>Remotedesktopeinstellungen  
+ Der aktuelle Status der Remotedesktopeinstellungen wird auf dem Standardbildschirm des Serverkonfigurationstools angezeigt. Sie können die folgenden Remotedesktopeinstellungen konfigurieren, indem Sie im Hauptmenü auf die Option **Remotedesktop** zugreifen und den Anweisungen auf dem Bildschirm folgen.  
   
 -   Remotedesktop für Clients aktivieren, auf denen Remotedesktop mit Authentifizierung auf Netzwerkebene ausgeführt wird  
   
@@ -79,7 +79,7 @@ Screenshot der Benutzeroberfläche von „Sconfig.cmd“
 -   Remotedesktop deaktivieren  
   
 ## <a name="date-and-time-settings"></a>Datums- und Uhrzeiteinstellungen  
- Sie können über die Hauptmenüoption **Datum und Uhrzeit** auf die Datums- und Uhrzeiteinstellungen zugreifen und sie ändern. 
+ Sie können Datum- und Uhrzeiteinstellungen über die Option **Datum und Uhrzeit** im Hauptmenü ändern. 
 
 ## <a name="telemetry-settings"></a>Telemetrieeinstellungen
 Sie können mit dieser Option konfigurieren, welche Daten an Microsoft gesendet werden.
@@ -88,14 +88,14 @@ Sie können mit dieser Option konfigurieren, welche Daten an Microsoft gesendet 
 Sie können mit dieser Option die Aktivierung von Windows konfigurieren.
   
 ## <a name="to-enable-remote-management"></a>So aktivieren Sie die Remoteverwaltung  
-Über die Hauptmenüoption **Remoteverwaltung konfigurieren** können Sie verschiedene Remoteverwaltungsszenarien konfigurieren.  
+Sie können verschiedene Remoteverwaltungsszenarien über die Option **Remoteverwaltung konfigurieren** im Hauptmenü aktivieren:  
   
--   Remoteverwaltung der Microsoft Management Console  
+-   MMC-Remoteverwaltung (Microsoft Management Console)  
 -   Windows PowerShell  
 -   Server-Manager  
   
-## <a name="to-log-off-restart-or-shut-down-the-server"></a>Abmelden, Neustarten oder Herunterfahren des Servers  
- Zum Abmelden, Neustarten oder Herunterfahren des Servers rufen Sie im Hauptmenü das entsprechende Menüelement auf. Diese Optionen sind auch im Windows-Sicherheitsmenü verfügbar, das in jeder Anwendung jederzeit mit der Tastenkombination STRG+ALT+ENTF aufgerufen werden kann.  
+## <a name="to-log-off-restart-or-shut-down-the-server"></a>So können Sie den Server abmelden, neu starten oder herunterfahren  
+ Greifen Sie zum Abmelden, Neustarten oder Herunterfahren des Servers auf das entsprechende Menüelement im Hauptmenü zu. Diese Optionen sind auch über das Menü %%amp;quot;Windows-Sicherheit%%amp;quot; verfügbar, auf das Sie jederzeit aus einer Anwendung zugreifen können, indem Sie STRG+ALT+ENTF drücken.  
   
-## <a name="to-exit-to-the-command-line"></a>So beenden Sie die Befehlszeile  
- Wählen Sie die Option ** Zur Befehlszeile wechseln**, und drücken Sie die EINGABETASTE, um die Befehlszeile zu beenden. Wenn Sie zum Server-Konfigurationstool zurückkehren möchten, geben Sie **Sconfig.cmd** ein und drücken dann die EINGABETASTE.
+## <a name="to-exit-to-the-command-line"></a>So wechseln Sie zur Befehlszeile  
+ Wählen Sie die Option **Zur Befehlszeile wechseln** aus, und drücken Sie die EINGABETASTE, um zur Befehlszeile zu wechseln. Um zum Serverkonfigurationstool zurückzukehren, geben Sie **Sconfig.cmd** ein, und drücken Sie die EINGABETASTE.

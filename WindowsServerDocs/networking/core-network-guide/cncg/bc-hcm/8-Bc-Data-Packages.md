@@ -1,5 +1,5 @@
 ---
-title: Erstellen von Inhalten Datenpaketen für Web- und Dateiinhalte (Optional)
+title: Erstellen von Inhaltsserver-Datenpaketen für Web- und Dateiinhalte (optional)
 description: Dieses Handbuch enthält Anweisungen zum Bereitstellen von BranchCache im Modus für gehostete Caches auf Computern unter Windows Server 2016 und Windows 10
 manager: brianlic
 ms.prod: windows-server-threshold
@@ -8,57 +8,58 @@ ms.topic: article
 ms.assetid: 31e8428f-a482-4734-be1b-213912e34825
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 8f814bbac5c74081259d8eef6deda79d914bfec7
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 4b8cd284a83736d17859968947f381af171fd6bc
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59817171"
 ---
-# <a name="create-content-server-data-packages-for-web-and-file-content-optional"></a>Erstellen von Inhalten Datenpaketen für Web- und Dateiinhalte (Optional)
+# <a name="create-content-server-data-packages-for-web-and-file-content-optional"></a>Erstellen von Inhaltsserver-Datenpaketen für Web- und Dateiinhalte (optional)
 
->Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server2016, Windows Server2012 R2, Windows Server 2012
+>Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
 
-Sie können mithilfe dieses Verfahrens können Sie Inhalte auf Web- und Dateiservern vorab der Hashfunktion unterziehen, und klicken Sie dann Erstellen von Datenpaketen auf dem Cacheserver gehosteten importieren. 
+Sie können mit diesem Verfahren können Sie die Hashes von Inhalten für Web- und Dateiservern und erstellen Sie dann die Datenpakete, die auf den gehosteten Cacheserver importieren. 
 
-Dieses Verfahren ist optional, da Sie auf die gehosteten Cacheserver nicht prehash und vorab geladene erforderlich sind. Wenn Sie Inhalt nicht vorab laden, werden dem gehosteten Cache automatisch Daten hinzugefügt, wie Clients über die WAN-Verbindung heruntergeladen.
+Dieses Verfahren ist optional, da Sie auf die gehosteten Cacheserver nicht zu prehash und preload Inhalten erforderlich sind. Wenn Sie Inhalt nicht vorab laden, werden dem gehosteten Cache automatisch Daten hinzugefügt, wie Clients über die WAN-Verbindung heruntergeladen.
 
-Dieses Verfahren bietet Anweisungen für die Inhalte auf Dateiservern und Webservern voraborganisation. Wenn Sie nicht mit einem dieser Typen von inhaltsservern verfügen, müssen Sie nicht die Anleitung für diesen Typ Inhaltsserver ausführen.
+Dieses Verfahren enthält Anweisungen für voraborganisation Inhalt auf Dateiservern und Webservern. Wenn Sie nicht mit einer dieser Typen von inhaltsservern verfügen, müssen Sie keinen führen Sie die Anweisungen für diesen Typ Inhaltsserver.
 
 >[!IMPORTANT]
->Bevor Sie dieses Verfahren ausführen, müssen Sie installieren und Konfigurieren von BranchCache auf der Inhaltsserver. Darüber hinaus, wenn Sie den Serverschlüssel auf Inhaltsserver ändern möchten, sollte dies vor dem registrierungseintragswert hashing Inhalte – ändern den Serverschlüssel Previously\ generierten Hashes ungültig.
+>Bevor Sie dieses Verfahren auszuführen, müssen Sie installieren und Konfigurieren von BranchCache auf der Inhaltsserver. Darüber hinaus, wenn Sie den geheimen Server auf einem Content Server ändern möchten, sollte dies vor dem vor\-Hashwert der Inhalte – ändern den geheimen Server zuvor erklärt\-Hashes generiert.
 
-Zum Ausführen dieses Verfahrens müssen Sie Mitglied der Gruppe "Administratoren" sein.
+Um dieses Verfahren auszuführen, müssen Sie Mitglied der Gruppe "Administratoren" sein.
 
-## <a name="to-create-content-server-data-packages"></a>Zum Erstellen von Inhaltsserver Datenpaketen
+## <a name="to-create-content-server-data-packages"></a>Zum Erstellen von Inhaltsserver Daten-Paketen
 
-1. Suchen Sie auf jedem Inhaltsserver Ordner und Dateien, die Sie vorab der Hashfunktion unterziehen und einer Datenpaket hinzufügen möchten. Identifizieren Sie, oder erstellen Sie einen Ordner zum Speichern Ihrer Datenpaket später in diesem Verfahren werden soll.
+1. Suchen Sie auf jedem Server Inhalt die Ordner und Dateien, die Hashes und Hinzufügen eines Datenpakets verwendet werden sollen. Identifizieren Sie oder erstellen Sie einen Ordner, in dem Sie Ihr Datenpaket später in diesem Verfahren zu speichern möchten.
 
-2. Öffnen Sie auf dem Servercomputer des Windows PowerShell mit Administratorrechten.
+2. Öffnen Sie auf dem Server-Computer Windows PowerShell mit Administratorrechten aus.
 
-3. Führen Sie eine oder beide der folgenden Optionen, je nachdem, welche Inhaltsserver, die Sie:
+3. Führen Sie eine oder beide der folgenden Einträge, je nach Art von inhaltsservern, die Sie aus:
 
     > [!NOTE]
-    > Der Wert für den – Pfad-Parameter ist der Ordner, in dem der Inhalt befindet. Sie müssen die Beispielwerte in den Befehlen unter durch einen gültigen Speicherort auf dem Inhaltsserver ersetzen, die Daten enthält, die Sie vorab der Hashfunktion unterziehen, und ein Paket hinzufügen möchten.
+    > Der Wert für den – Pfad Parameter wird dem Ordner, in denen Ihre Inhalte gespeichert ist. Die Beispielwerte in der nachfolgenden Befehle ersetzen Sie durch einen gültigen Ordnerpfad auf dem Inhaltsserver, die Daten enthält, die Hashes und einem Paket hinzufügen möchten.
   
-    - Wenn die Inhalte, die Sie vorab der Hashfunktion unterziehen möchten auf einem Dateiserver ist, geben Sie den folgenden Befehl, und drücken Sie dann die EINGABETASTE.
+    - Wenn der Inhalt, den Sie unterziehen möchten auf einem Dateiserver ist, geben Sie den folgenden Befehl, und drücken Sie dann die EINGABETASTE.
 
         ```  
         Publish-BCFileContent -Path D:\share -StageData
         ```  
 
-    -   Ist der Inhalt, den Sie vorab der Hashfunktion unterziehen möchten auf einem Webserver, geben Sie den folgenden Befehl, und drücken Sie dann die EINGABETASTE.
+    -   Wenn der Inhalt, den Sie unterziehen möchten auf einem Webserver ist, geben Sie den folgenden Befehl, und dann die drücken Sie EINGABETASTE.
 
         ```  
         Publish-BCWebContent –Path D:\inetpub\wwwroot -StageData
         ```  
 
-4. Erstellen Sie das Datenpaket durch Ausführen des folgenden Befehls auf jedem der Inhaltsserver. Ersetzen Sie die Beispiel-Wert-\(D:\\temp\) für – Destination-Parameters mit dem Speicherort, den Sie zu Beginn dieses Verfahrens erstellt oder identifiziert.
+4. Erstellen Sie das Paket mithilfe des folgenden Befehls auf jedem der Inhaltsserver an. Ersetzen Sie den Beispielwert \("d:"\\Temp\) für – Destination-Parameters mit dem Speicherort, die Sie identifiziert, oder die zu Beginn dieses Verfahrens erstellt haben.
 
     ```  
     Export-BCDataPackage –Destination D:\temp
     ```  
 
-5. Vom Inhaltsserver Zugriff auf die Freigabe auf die gehosteten Cacheserver, in dem Sie Inhalt vorab laden möchten, und kopieren Sie die Datenpakete zu den Freigaben auf dem gehosteten Cacheserver.
+5. Vom Inhaltsserver zugreifen auf die Freigabe für die gehosteten Cacheserver, in dem Sie Inhalt vorab laden möchten, und kopieren Sie die Datenpakete in die Freigaben auf dem gehosteten Cacheserver.
 
-Wenn Sie mit dieser Anleitung fortfahren, finden Sie unter [Importieren von Datenpaketen auf dem gehosteten Cacheserver & #40; Optional & #41; ](9-Bc-Import-Data.md).
+Mit diesem Handbuch finden Sie [Import-Data-Paketen auf dem gehosteten Cacheserver &#40;Optional&#41;](9-Bc-Import-Data.md).
 

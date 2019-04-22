@@ -1,6 +1,6 @@
 ---
-title: Verwalten von Ressourcen in mehreren Active Directory-Gesamtstrukturen
-description: Dieses Thema ist Teil des Handbuchs Verwaltung von IP-Adressverwaltung (IPAM) in Windows Server2016.
+title: Verwalten von Ressourcen in mehreren ActiveDirectory-Gesamtstrukturen
+description: Dieses Thema ist Teil des Leitfadens Verwaltung von IP-Adressverwaltung (IPAM) in Windows Server 2016.
 manager: brianlic
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -13,37 +13,38 @@ ms.topic: article
 ms.assetid: 82f8f382-246e-4164-8306-437f7a019e0f
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: b01680d4b35461ff85965781ebc60e7a613d1cb8
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: c6752d87be2e689e517b287092a2570e27943c18
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59815971"
 ---
-# <a name="manage-resources-in-multiple-active-directory-forests"></a>Verwalten von Ressourcen in mehreren Active Directory-Gesamtstrukturen
+# <a name="manage-resources-in-multiple-active-directory-forests"></a>Verwalten von Ressourcen in mehreren ActiveDirectory-Gesamtstrukturen
 
->Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
-Sie können in diesem Thema verwenden, erfahren Sie, wie Sie IPAM verwenden, um Domänencontroller, DHCP-Server und DNS-Server in mehreren Active Directory-Gesamtstrukturen zu verwalten.  
+Sie können in diesem Thema verwenden, erfahren, wie Sie IPAM zum Verwalten von Domänencontroller, DHCP-Server und DNS-Servern in mehreren Active Directory-Gesamtstrukturen zu verwenden.  
   
-Um IPAM Ressourcen in Active Directory-Gesamtstrukturen remote verwalten, muss jede Gesamtstruktur, die Sie verwalten möchten haben zwei Weise mit der Gesamtstruktur vertrauen, auf dem IPAM installiert ist.  
+Verwendung von IPAM zum Verwalten von Ressourcen in Active Directory-Remotegesamtstrukturen müssen jede Gesamtstruktur, die Sie verwalten möchten zwei Weise mit der Gesamtstruktur vertrauen, auf dem IPAM installiert ist.  
   
-Um den Ermittlungsprozess für andere Active Directory-Gesamtstrukturen zu starten, öffnen Sie Server-Manager, und klicken Sie auf IPAM. Klicken Sie in der IPAM-Clientkonsole auf **Serverermittlung konfigurieren**, und klicken Sie dann auf **erhalten Gesamtstrukturen**. Initiiert eine Hintergrundaufgabe, die vertrauenswürdigen Gesamtstrukturen und ihre Domänen ermittelt. Klicken Sie nach Abschluss der Ermittlung **Serverermittlung konfigurieren**, die das folgende Dialogfeld geöffnet.  
+Um den Ermittlungsprozess für die verschiedenen Active Directory-Gesamtstrukturen zu starten, öffnen Sie Server-Manager, und klicken Sie auf IPAM. Klicken Sie in der IPAM-Clientkonsole auf **Serverermittlung konfigurieren**, und klicken Sie dann auf **erhalten Gesamtstrukturen**. Hierdurch wird ein Hintergrundtask, mit dem vertrauenswürdigen Gesamtstrukturen und deren Domänen ermittelt initiiert. Nachdem der Ermittlungsvorgang abgeschlossen ist, klicken Sie auf **Serverermittlung konfigurieren**, dadurch wird das folgende Dialogfeld geöffnet.  
   
 ![Konfigurieren der Serverermittlung](../../media/Manage-Resources-in-Multiple-Active-Directory-Forests/ipam_serverdiscovery.jpg)  
 
 >[!NOTE]
->Stellen Sie sicher, dass Sie das folgende Windows PowerShell-Cmdlet auf dem IPAM-Server und nicht auf die vertrauende Domäne Domänencontroller ausführen, für die Gruppe wird-basierte Bereitstellung für ein Szenario gesamtstrukturübergreifende Active Directory. Beispielsweise können der IPAM-Server mit der Gesamtstruktur corp.contoso.com verbunden ist und die vertrauende Gesamtstruktur ist fabrikam.com, Sie das folgende Windows PowerShell-Cmdlet auf dem IPAM-Server im corp.contoso.com für die Gruppe wird basierend auf der Gesamtstruktur fabrikam.com Bereitstellung ausführen. Um dieses Cmdlet ausführen zu können, müssen Sie Mitglied der Gruppe "Domänen-Admins" in der Gesamtstruktur fabrikam.com sein.
+>Für die Gruppenrichtlinie\-für ein Szenario für die gesamtstrukturübergreifende Active Directory-Bereitstellung basiert, stellen Sie sicher, dass Sie das folgende Windows PowerShell-Cmdlet auf dem IPAM-Server und nicht auf die vertrauende Domäne Domänencontroller ausführen. Als Beispiel, wenn der IPAM-Server Mitglied der Gesamtstruktur %% amp;quot;corp.contoso.com%%amp;quot; und die vertrauende Gesamtstruktur ist "Fabrikam.com", können Sie Ausführen der folgende Windows PowerShell-Cmdlet auf dem IPAM-Server in "corp.contoso.com" für die Gruppenrichtlinie\-basierte Bereitstellung auf der Gesamtstruktur für "Fabrikam.com". Um dieses Cmdlet ausführen zu können, müssen Sie Mitglied der Gruppe "Domänen-Admins" in der Gesamtstruktur "Fabrikam.com" sein.
 
     
     Invoke-IpamGpoProvisioning -Domain fabrikam.COM -GpoPrefixName IPAMSERVER -IpamServerFqdn IPAM.CORP.CONTOSO.COM
     
 
-In der **Serverermittlung konfigurieren** Dialogfeld, klicken Sie auf **wählen Sie die Gesamtstruktur**, und wählen Sie dann die Gesamtstruktur, die Sie mit IPAM verwalten möchten. Wählen Sie auch die Domänen, die Sie verwalten möchten, und klicken Sie dann auf **hinzufügen**.
+In der **Serverermittlung konfigurieren** Dialogfeld klicken Sie auf **wählen Sie die Gesamtstruktur**, und wählen Sie dann auf die Gesamtstruktur, die Sie mit IPAM verwalten möchten. Wählen Sie auch die Domänen, die Sie verwalten möchten, und klicken Sie dann auf **hinzufügen**.
 
-In **Auswählen der Serverrollen zur Ermittlung**, für jede Domäne, die Sie verwalten möchten, geben Sie den Typ der zu ermitteln. Die Optionen sind **Domänencontroller**, **DHCP-Server**, und **DNS-Server**.
+In **wählen Sie die Serverrollen zur Ermittlung**, für jede Domäne, die Sie verwalten möchten, geben Sie den Server, um zu ermitteln. Die Optionen sind **Domänencontroller**, **DHCP-Server**, und **DNS-Server**.
 
-Standardmäßig werden Domänencontroller, DHCP-Server und DNS-Server ermittelt. – also wenn Sie nicht eine der folgenden Arten von Servern ermitteln möchten, stellen Sie sicher, dass Sie das Kontrollkästchen für diese Option deaktivieren.
+Domänencontroller, DHCP-Server und DNS-Servern ermittelt werden – also wenn Sie nicht, um einen dieser Typen von Servern zu ermitteln möchten, stellen Sie sicher, dass Sie das Kontrollkästchen für diese Option deaktivieren, in der Standardeinstellung.
 
-Klicken Sie in der obigen Beispiel Abbildungder IPAM-Server in der Gesamtstruktur contoso.com installiert ist, und die Stammdomäne der Gesamtstruktur fabrikam.com ist für die IPAM-Verwaltung hinzugefügt. Die ausgewählten Serverrollen ermöglichen IPAM, zu ermitteln und zu verwalten, Domänencontroller, DHCP-Server und DNS-Server in der Stammdomäne fabrikam.com und der Stammdomäne contoso.com.
+Klicken Sie in der oben genannten Beispiel Abbildung der IPAM-Server in der Gesamtstruktur "contoso.com" installiert ist, und die Stammdomäne der Gesamtstruktur "Fabrikam.com" ist für die IPAM-Verwaltung hinzugefügt. Die ausgewählten Serverrollen ermöglichen IPAM, zu ermitteln und Verwalten von Domänencontroller, DHCP-Server und DNS-Server in der Root-Domäne "Fabrikam.com" und der Root-Domäne "contoso.com".
 
-Nachdem Sie Gesamtstrukturen, Domänen und Serverrollen angegeben haben, klicken Sie auf **OK**. IPAM wird gesucht, und nach Abschluss der Ermittlung können Sie Ressourcen in der Gesamtstruktur lokal und remote verwalten.
+Wenn Sie Gesamtstrukturen, Domänen und Serverrollen angegeben haben, klicken Sie auf **OK**. IPAM führt die Ermittlung, und nach Abschluss der Ermittlung können Sie Ressourcen in der lokalen und Remotecomputern Gesamtstruktur verwalten.

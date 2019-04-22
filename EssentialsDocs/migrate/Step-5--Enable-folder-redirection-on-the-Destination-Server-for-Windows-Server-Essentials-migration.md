@@ -1,6 +1,6 @@
 ---
-title: "Schritt5: Aktivieren der ordnerumleitung auf dem Zielserver für Windows Server Essentials-Migration"
-description: Beschreibt, wie Sie Windows Server Essentials
+title: 'Schritt 5: Aktivieren der ordnerumleitung auf dem Zielserver für Windows Server Essentials-migration'
+description: Beschreibt, wie Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,48 +13,49 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 613ff4c80a80ed4f3207cb0c1ead6db12c723e85
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59815381"
 ---
-# <a name="step-5-enable-folder-redirection-on-the-destination-server-for-windows-server-essentials-migration"></a>Schritt5: Aktivieren der ordnerumleitung auf dem Zielserver für Windows Server Essentials-Migration
+# <a name="step-5-enable-folder-redirection-on-the-destination-server-for-windows-server-essentials-migration"></a>Schritt 5: Aktivieren der ordnerumleitung auf dem Zielserver für Windows Server Essentials-migration
 
->Gilt für: Windows Server2016 Essentials, Windows Server2012 R2 Essentials, Windows Server2012 Essentials
+>Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Wenn die ordnerumleitung auf dem Quellserver aktiviert ist, können Sie Aktivieren der ordnerumleitung auf dem Zielserver, und löschen Sie die alte Gruppenrichtlinie zur Ordnerumleitung-Einstellung.  
+Wenn die Ordnerumleitung auf dem Quellserver installiert ist, können Sie sie auch auf dem Zielserver aktivieren und anschließend die alte Gruppenrichtlinieneinstellung %%amp;quot;Ordnerumleitung%%amp;quot; löschen.  
   
- Verwenden Sie zunächst das Windows Server Essentials-Dashboard zum Aktivieren der ordnerumleitung auf dem Zielserver. Löschen Sie die alte Gruppenrichtlinie zur Ordnerumleitung-Einstellung.  
+ Verwenden Sie zunächst das Windows Server Essentials-Dashboard zum Aktivieren der ordnerumleitung auf dem Zielserver. Löschen Sie daraufhint die alte Gruppenrichtlinieneinstellung zur Ordnerumleitung.  
   
-### <a name="to-enable-folder-redirection-on-the-destination-server"></a>Zum Aktivieren der ordnerumleitung auf dem Zielserver  
+### <a name="to-enable-folder-redirection-on-the-destination-server"></a>So aktivieren Sie die Ordnerumleitung auf dem Zielserver  
   
-1.  Öffnen Sie auf dem Zielserver Windows Server Essentials-Dashboard.  
+1.  Öffnen Sie auf dem Zielserver Windows Server Essentials-Dashboard ein.  
   
-2.  Klicken Sie in der Navigationsleiste auf **Geräte**.  
+2.  Klicken Sie in der Navigationsleiste **Geräte**.  
   
-3.  In der **Geräteaufgaben** Bereich, klicken Sie auf **Gruppenrichtlinie implementieren**.  
+3.  Klicken Sie im Bereich**Geräteaufgaben** auf **Implementieren von Gruppenrichtlinien**.  
   
-4.  Auf der **aktivieren Gruppenrichtlinie zur Ordnerumleitung** Seite, wählen Sie die Ordner umgeleitet werden, und klicken Sie dann auf **Weiter**.  
+4.  Wählen Sie auf der Seite **Aktivieren der Richtlinie für die Ordnerumleitung** die Ordner aus, die umgeleitet werden sollen, und klicken Sie dann auf **Weiter**.  
   
-5.  Auf der **Sicherheitsrichtlinieneinstellungen aktivieren** auf **Fertig stellen**.  
+5.  Klicken Sie auf der Seite **Sicherheitsrichtlinieneinstellungen aktivieren** auf **Fertig stellen**.  
   
-### <a name="to-delete-the-old-folder-redirection-group-policy-setting"></a>So löschen Sie die alte Gruppenrichtlinie zur Ordnerumleitung-Einstellung  
+### <a name="to-delete-the-old-folder-redirection-group-policy-setting"></a>Löschen der alten Gruppenrichtlinieneinstellung zur Ordnerumleitung.  
   
-1.  Öffnen Sie auf dem Zielserver die **Gruppenrichtlinienverwaltung** Verwaltungstool.  
+1.  Öffnen Sie auf dem Zielserver das Verwaltungstool **Gruppenrichtlinienverwaltung**.  
   
-2.  In **die Gruppenrichtlinien-Verwaltungskonsole**, erweitern Sie **Gesamtstruktur:***YourNetworkDomainName*, erweitern Sie **Domänen**, erweitern Sie *YourNetworkDomainName*, und erweitern Sie dann **Group Policy Objects**.  
+2.  In **Gruppenrichtlinienverwaltung**, erweitern Sie **Gesamtstruktur: *** Ihrnetzwerkdomänenname*, erweitern Sie **Domänen**, erweitern Sie *Ihrnetzwerkdomänenname* , und erweitern Sie dann **Group Policy Objects**.  
   
-3.  Mit der rechten Maustaste der Richtlinie, die Sie löschen möchten, und klicken Sie dann auf **löschen**.  
+3.  Klicken Sie mit der rechten Maustaste auf die Richtlinie, die Sie löschen möchten und klicken Sie dann auf **Löschen**.  
   
-4.  Lesen Sie die Warnung, und klicken Sie dann auf **Ja**.  
+4.  Lesen Sie die Warnung und klicken Sie dann auf **Ja**.  
   
-5.  Schließen **Gruppenrichtlinienverwaltung**.  
+5.  Schließen Sie **Gruppenrichtlinienverwaltung**.  
   
- Um die Änderung für die ordnerumleitung zu übernehmen, müssen Benutzer im Netzwerk ihren Computern abmelden und dann wieder anmelden. Dadurch wird die Übertragung von allen umgeleiteten Ordnern auf den Zielserver sichergestellt.  
+ Um die Änderung für die Ordnerumleitung zu übernehmen, müssen Netzwerkbenutzer zuerst ihre Computer abmelden und dann wieder anmelden. Dadurch wird die Übertragung von allen umgeleiteten Ordnern auf den Zielserver sichergestellt .  
   
 ## <a name="next-steps"></a>Nächste Schritte  
- Sie haben die ordnerumleitung auf dem Zielserver aktiviert. Lesen Sie jetzt [Schritt6: Tieferstufen und Entfernen des Quellservers aus dem neuen Windows Server Essentials-Netzwerk](Step-6--Demote-and-remove-the-Source-Server-from-the-new-Windows-Server-Essentials-network.md).  
+ Sie haben die Ordnerumleitung auf dem Zielserver aktiviert. Wechseln Sie nun zur [Schritt 6: Tieferstufen und Entfernen des Quellservers aus dem neuen Windows Server Essentials-Netzwerk](Step-6--Demote-and-remove-the-Source-Server-from-the-new-Windows-Server-Essentials-network.md).  
   
 
-Alle Schrittefinden Sie unter [Migrieren zu Windows Server Essentials](Migrate-from-Previous-Versions-to-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md).
+Alle Schritte finden Sie unter [Migrieren zu Windows Server Essentials](Migrate-from-Previous-Versions-to-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md).
 

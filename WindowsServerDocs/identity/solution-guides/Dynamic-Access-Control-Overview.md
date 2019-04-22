@@ -1,7 +1,7 @@
 ---
 ms.assetid: 9ee8a6cb-7550-46e2-9c11-78d0545c3a97
-title: "Dynamische Zugriffssteuerung (Übersicht)"
-description: 
+title: Übersicht über die dynamische Zugriffssteuerung
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,24 +10,25 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
 ms.openlocfilehash: 5cf74042c9b511abb1fbeb88224dea0c7f2c8706
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59812051"
 ---
-# <a name="dynamic-access-control-overview"></a>Dynamische Zugriffssteuerung (Übersicht)
+# <a name="dynamic-access-control-overview"></a>Übersicht über die dynamische Zugriffssteuerung
 
->Gilt für: Windows Server2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2012 R2, Windows Server 2012
 
-In diesem Übersichtsthema für IT-Experten beschreibt die dynamische Zugriffssteuerung und der zugehörige Elemente, die in Windows Server2012 und Windows8 eingeführt wurden.  
+Dieses Übersichtsthema für IT-Spezialisten beschreibt die dynamische Zugriffssteuerung und die zugehörigen Elemente, die in Windows Server 2012 und Windows 8 eingeführt wurden.  
   
-Domänenbasierten dynamischen Zugriffssteuerung können Administratoren gelten Access-Control-Berechtigungen und Einschränkungen basierend auf klar definierten Regeln, die Vertraulichkeit der Ressourcen, die Auftrag oder Rolle des Benutzers und die Konfiguration des Geräts, das verwendet wird, den Zugriff auf diese Ressourcen enthalten kann.  
+Mithilfe der domänenbasierten dynamischen Zugriffssteuerung können Administratoren Zugriffssteuerungsberechtigungen und Einschränkungen basierend auf klar definierten Regeln anwenden, die sich auf die Vertraulichkeit der Ressourcen, den Auftrag oder die Rolle des Benutzers und die Konfiguration des Geräts beziehen können, das für den Zugriff auf diese Ressourcen verwendet wird.  
   
-Beispielsweise kann ein Benutzer unterschiedliche Berechtigungen verfügen, wenn sie eine Ressource vom Bürocomputer zugreifen, wenn sie einen tragbaren Computer über ein virtuelles privates Netzwerk verwendet werden. Oder den Zugriff erlaubt, dass nur, wenn ein Gerät die Sicherheit erfüllt, die von den Netzwerkadministratoren definiert sind. Bei der dynamischen Zugriffssteuerung verwendet wird, ändern sich Berechtigungen des Benutzers dynamisch ohne Eingreifen des Administrators zusätzliche Wenn Tätigkeit oder Rolle des Benutzers geändert wird (was Attribute des Benutzers in AD DS).  
+Beispielsweise kann ein Benutzer über unterschiedliche Berechtigungen verfügen, je nachdem, ob er vom Bürocomputer aus oder mit einem tragbaren Computer über ein virtuelles privates Netzwerk auf eine Ressource zugreift. Oder der Zugriff wird nur erlaubt, wenn ein Gerät den von den Netzwerkadministratoren definierten Sicherheitsanforderungen entspricht. Wenn dynamische Zugriffssteuerung verwendet wird, Ändern der Berechtigungen eines Benutzers ohne zusätzliches Eingreifen des Administrators dynamisch ein, und wenn der Auftrag oder die Rolle des Benutzers geändert wird (was Attribute des Benutzers in AD DS).  
   
-Dynamische Zugriffssteuerung wird in Windows-Betriebssystemen vor Windows Server2012 und Windows8 nicht unterstützt. Bei der dynamischen Zugriffssteuerung in Umgebungen mit unterstützten und nicht unterstützten Versionen von Windows konfiguriert ist, werden nur die unterstützten Versionen der Änderungen implementiert.  
+Die dynamische Zugriffssteuerung wird in Windows-Betriebssystemen vor Windows Server 2012 und Windows 8 nicht unterstützt. Wenn die dynamische Zugriffssteuerung in Umgebung mit unterstützten und nicht unterstützten Versionen von Windows konfiguriert wird, werden die Änderungen nur in die unterstützten Versionen implementiert.  
   
-Features und Konzepte, die dynamische Zugriffssteuerung gehören:  
+Die dynamische Zugriffssteuerung bietet die folgenden Features und Konzepte:  
   
 -   [Zentrale Zugriffsregeln](#BKMK_Rules)  
   
@@ -40,94 +41,94 @@ Features und Konzepte, die dynamische Zugriffssteuerung gehören:
 -   [Vorgeschlagene Berechtigungen](#BKMK_Permissions2)  
   
 ### <a name="BKMK_Rules"></a>Zentrale Zugriffsregeln  
-Eine zentrale Zugriffsregel ist ein Ausdruck von Autorisierungsregeln, die eine oder mehrere Bedingungen, die im Zusammenhang mit Benutzergruppen, Benutzeransprüche, Geräteansprüche und Ressourceneigenschaften enthalten kann. Mehrere zentrale Zugriffsregeln können in einer zentralen Zugriffsrichtlinie zusammengefasst werden.  
+Eine zentrale Zugriffsregel ist ein Ausdruck von Autorisierungsregeln, die eine oder mehrere Bedingungen beinhalten können, die sich auf Benutzergruppen, Benutzeransprüche, Geräteansprüche und Ressourceneigenschaften beziehen können. Mehrere zentrale Zugriffsregeln können zu einer zentralen Zugriffsrichtlinie zusammengefasst werden.  
   
-Wenn eine oder mehrere zentrale Zugriffsregeln für eine Domäne definiert wurden, können dateifreigabeadministratoren bestimmte Regeln an bestimmte Ressourcen und Geschäftsanforderungen entsprechen.  
+Wenn für eine Domäne eine oder mehrere zentrale Zugriffsregeln definiert werden, können Dateifreigabeadministratoren bestimmte Regeln an bestimmte Ressourcen und Geschäftsanforderungen anpassen.  
   
 ### <a name="BKMK_Policies"></a>Zentrale Zugriffsrichtlinien  
-Zentrale Zugriffsrichtlinien sind Autorisierungsrichtlinien, die bedingte Ausdrücke enthalten. Zum Beispiel angenommen, ein Unternehmen eine Anforderung zum Zugriff auf personenbezogene Daten (PII) hat in Dateien auf den Dateibesitzer und Mitglieder der Personalabteilung (HR), die Personenbezogene Daten einsehen dürfen. Hierbei handelt es sich um eine unternehmensweite Richtlinie, die auf PII-Dateien angewendet werden soll, wenn sie in der gesamten Organisation auf Dateiservern befinden. Um die Implementierung dieser Richtlinie muss ein Unternehmen kann Folgendes:  
+Zentrale Zugriffsrichtlinien sind Autorisierungsrichtlinien, die bedingte Ausdrücke enthalten. Nehmen wir beispielsweise an, dass eine Organisation gilt eine geschäftsanforderung zur des Zugriffs auf personenbezogene Informationen (PII) verfügt, in Dateien auf den Dateibesitzer und die Mitglieder der Personalabteilung (HR), die personenbezogene Daten einsehen dürfen. Es handelt sich hierbei um eine organisationsweite Richtlinie, die für Dateien mit personenbezogenen Daten gilt, und zwar unabhängig davon, auf welchen Dateiservern in der gesamten Organisation sie sich befinden. Für die Implementierung dieser Richtlinie muss ein Unternehmen Folgendes können:  
   
--   Identifizieren Sie und kennzeichnen Sie die Dateien, die die personenbezogene Daten enthalten.  
+-   Es muss die Dateien, die personenbezogene Daten enthalten, identifizieren und kennzeichnen können.  
   
--   Identifizieren Sie die Gruppe der Personalabteilung den Personenbezogene Daten einsehen dürfen.  
+-   Es muss die Gruppe der Mitarbeiter der Personalabteilung identifizieren können, die die personenbezogenen Daten einsehen dürfen.  
   
--   Fügen Sie die zentrale Zugriffsrichtlinie einer zentralen Zugriffsregel hinzu, und wenden Sie die zentrale Zugriffsregel auf alle Dateien, die personenbezogenen, Dateiservern in der gesamten Organisation können.  
+-   Es muss die zentrale Zugriffsrichtlinie einer zentralen Zugriffsregel hinzufügen und die zentrale Zugriffsregel auf alle Dateien mit personenbezogenen Daten auf allen Dateiservern im gesamten Unternehmen anwenden können.  
   
-Zentrale Zugriffsrichtlinien dienen als sicherheitsschirme, die eine Organisation auf alle Server angewendet wird. Diese Richtlinien gelten zusätzlich zu (jedoch nicht ersetzen) den lokalen Zugriffsrichtlinien oder freigegebenen Zugriffssteuerungslisten (DACL), die auf Dateien und Ordner angewendet werden.  
+Zentrale Zugriffsrichtlinien dienen als Sicherheitsschirme, die ein Unternehmen auf alle Server anwendet. Diese Richtlinien gelten zusätzlich zu (nicht anstelle von) den lokalen Zugriffsrichtlinien oder freigegebenen Zugriffssteuerungslisten (Discretionary Access Control Lists, DACLs), die auf Dateien und Ordner angewendet werden.  
   
 ### <a name="BKMK_Claims"></a>Ansprüche  
-Ein Anspruch ist eine eindeutige Information zu einem Benutzer, Gerät oder Ressourcen, die von einem Domänencontroller veröffentlicht wurde. Die Position des Benutzers, der Abteilung Klassifizierung einer Datei oder den Integritätsstatus eines Computers sind gültige Beispiele für einen Anspruch. Eine Entität kann mehrere Ansprüche, und kann eine beliebige Kombination von Ansprüchen zum Autorisieren des Zugriffs auf Ressourcen verwendet werden. Die folgenden Arten von Ansprüchen stehen in den unterstützten Versionen von Windows zur Verfügung:  
+Bei einem Anspruch handelt es sich um eindeutige, von einem Domänencontroller veröffentlichte Informationen zu Benutzern, Geräten oder Ressourcen. Die Position des Benutzers, die abteilungsklassifizierung einer Datei oder den Integritätsstatus eines Computers sind gültige Beispiele für einen Anspruch. Eine Entität kann mehrere Ansprüche aufweisen, und der Zugriff auf Ressourcen kann mit jeder beliebigen Kombination aus Ansprüchen autorisiert werden. Die folgenden Typen von Ansprüchen stehen in den unterstützten Versionen von Windows zur Verfügung:  
   
--   **Benutzeransprüche** Active Directory-Attribute, die einem bestimmten Benutzer zugeordnet sind.  
+-   **Benutzeransprüche**: Active Directory-Attribute, die einem bestimmten Benutzer zugeordnet sind.  
   
--   **Geräteansprüche** Active Directory-Attribute, die einem bestimmten Computerobjekt zugeordnet sind.  
+-   **Geräteansprüche**: Active Directory-Attribute, die einem bestimmten Computerobjekt zugeordnet sind.  
   
--   **Ressourcenattribute** globale Ressourceneigenschaften, die für die Verwendung bei Autorisierungsentscheidungen gekennzeichnet sind, und in Active Directory veröffentlicht.  
+-   **Ressourcenattribute**: Globale Ressourceneigenschaften, die für die Verwendung bei Autorisierungsentscheidungen gekennzeichnet sind und in Active Directory veröffentlicht wurden.  
   
-Ansprüche können Administratoren präzise Organisation oder unternehmensweite Anweisungen zu Benutzern, Geräten und Ressourcen, die integriert werden können in Ausdrücke, Regeln und Richtlinien.  
+Mithilfe von Ansprüchen können Administratoren präzise, unternehmensweite Anweisungen zu Benutzern, Geräten und Ressourcen erstellen, die in Ausdrücke, Regeln und Richtlinien integriert werden können.  
   
 ### <a name="BKMK_Expressions2"></a>Ausdrücke  
-Bedingte Ausdrücke sind eine Verbesserung der Verwaltung der Zugriffssteuerung, die zulassen oder Verweigern des Zugriffs auf Ressourcen nur, wenn bestimmte Bedingungen erfüllt sind, z.B., Gruppenmitgliedschaft, Standort oder Sicherheitsstatus eines Geräts. Ausdrücke werden über das Dialogfeld "Erweiterte Sicherheitseinstellungen" von der ACL-Editor oder die Editors für zentrale Zugriffsregeln in den Active Directory Administrative Center (ADAC) verwaltet.  
+Bedingte Ausdrücke sind eine Erweiterung der Zugriffssteuerungsverwaltung, mit denen der Zugriff auf Ressourcen gewährt oder verweigert wird, wenn bestimmte Bedingungen zu Gruppenmitgliedschaft, Standort oder Sicherheitsstatus eines Geräts erfüllt sind. Ausdrücke werden über das Dialogfeld %%amp;quot;Erweiterte Sicherheitseinstellungen%%amp;quot; des ACL-Editors oder des Editors für zentrale Zugriffsregeln im Active Directory-Verwaltungscenter (AD AC) verwaltet.  
   
-Mithilfe von Ausdrücken können Administratoren den Zugriff auf sensible Ressourcen mit flexiblen Bedingungen in zunehmend komplexeren geschäftsumgebungen leichter verwalten.  
+Mithilfe von Ausdrücken können Administratoren den Zugriff auf vertrauliche Ressourcen mit flexiblen Bedingungen in zunehmend komplexeren Geschäftsumgebungen leichter verwalten.  
   
 ### <a name="BKMK_Permissions2"></a>Vorgeschlagene Berechtigungen  
-Vorgeschlagene Berechtigungen können Administratoren exakter modellieren, die Auswirkungen möglicher Änderungen auf zugriffssteuerungseinstellungen, ohne sie tatsächlich zu ändern.  
+Mithilfe von vorgeschlagenen Berechtigungen können Administratoren die Auswirkungen möglicher Änderungen auf Zugriffssteuerungseinstellungen exakter modellieren, ohne die Änderungen tatsächlich vornehmen zu müssen.  
   
-Wenn Sie den effektiven Zugriff auf eine Ressource vorhersagen können Sie beim Planen und konfigurieren Berechtigungen für diese Ressourcen, bevor Sie diese Änderungen implementieren.  
+Wenn Sie den effektiven Zugriff auf eine Ressource vorhersagen können, können Sie Berechtigungen für diese Ressourcen planen und konfigurieren, bevor Sie diese Änderungen implementieren.  
   
-## <a name="additional-changes"></a>Zusätzliche Änderungen  
-Weitere Verbesserungen in den unterstützten Versionen von Windows, die Unterstützung der dynamischen Zugriffssteuerung gehören:  
+## <a name="additional-changes"></a>Weitere Änderungen  
+Weitere Verbesserungen in den unterstützten Versionen von Windows, die die dynamische Zugriffssteuerung unterstützen:  
   
-### <a name="support-in-the-kerberos-authentication-protocol-to-reliably-provide-user-claims-device-claims-and-device-groups"></a>Unterstützung im Kerberos-Authentifizierungsprotokolls benutzeransprüchen, Geräteansprüchen und Gerätegruppen zuverlässig bereitstellen.  
-Standardmäßig sind Geräte, die mit einem der unterstützten Versionen von Windows im Zusammenhang mit dynamische Zugriffssteuerung Kerberos-Tickets, verarbeiten die Verbundauthentifizierung erforderliche Daten enthalten. Domänencontroller sind ausstellen und Kerberos-Tickets mit zusammengesetzten Authentifizierung-bezogene Informationen reagieren können. Wenn eine Domäne für die dynamische Zugriffssteuerung erkennen konfiguriert ist, Geräte Ansprüche von Domänencontrollern erhalten, während der anfänglichen Authentifizierung, und sie verbundauthentifizierungstickets beim Einreichen von dienstticketanforderungen. Die Verbundauthentifizierung ergibt ein Zugriffstoken, enthält die Identität des Benutzers und das Gerät auf die Ressourcen, die dynamische Zugriffssteuerung erkennen.  
+### <a name="support-in-the-kerberos-authentication-protocol-to-reliably-provide-user-claims-device-claims-and-device-groups"></a>Unterstützung im Kerberos-Authentifizierungsprotokoll zur zuverlässigen Bereitstellung von Benutzeransprüchen, Geräteansprüchen und Gerätegruppen.  
+Geräte, auf denen eine der unterstützten Versionen von Windows ausgeführt wird, können standardmäßig Kerberos-Tickets für die dynamische Zugriffssteuerung verarbeiten, die für die Verbundauthentifizierung erforderliche Daten enthalten. Domänencontroller können Kerberos-Tickets mit Informationen zur Verbundauthentifizierung ausgeben und auf diese reagieren. Wenn eine Domäne für die Erkennung der dynamischen Zugriffssteuerung konfiguriert wurde, empfangen Geräte bei der Erstauthentifizierung Ansprüche von Domänencontrollern und beim Einreichen von Dienstticketanforderungen Verbundauthentifizierungstickets. Die Verbundauthentifizierung ergibt ein Zugriffstoken, der die Identität des Benutzers und des Geräts in den Ressourcen enthält, die die dynamische Zugriffssteuerung erkennen.  
   
-### <a name="support-for-using-the-key-distribution-center-kdc-group-policy-setting-to-enable-dynamic-access-control-for-a-domain"></a>Unterstützung für die Verwendung der Key Distribution Center Schlüsselverteilungscenter (KDC)-Gruppenrichtlinien-Einstellung dynamische Zugriffssteuerung für eine Domäne zu aktivieren.  
-Alle Domänencontroller muss auf die gleiche Richtlinieneinstellung Administrative Vorlage unter **Computer Computerkonfiguration\Richtlinien\Administrative vorlagen\System\kdc\unterstützung dynamische Zugriffssteuerung und Kerberos Armoring**.  
+### <a name="support-for-using-the-key-distribution-center-kdc-group-policy-setting-to-enable-dynamic-access-control-for-a-domain"></a>Unterstützung für die Verwendung der KDC-Gruppenrichtlinieneinstellung (Key Distribution Center, Schlüsselverteilungscenter) zur Aktivierung der dynamischen Zugriffssteuerung für eine Domäne.  
+Alle Domänencontroller müssen dieselbe Einstellung für die Richtlinie für administrative Vorlagen aufweisen, die sich unter **Computerkonfiguration\Richtlinien\Administrative Vorlagen\System\KDC\Unterstützung für die dynamische Zugriffssteuerung und die Kerberos-Hochrüstung** befindet.  
   
-### <a name="support-for-using-the-key-distribution-center-kdc-group-policy-setting-to-enable-dynamic-access-control-for-a-domain"></a>Unterstützung für die Verwendung der Key Distribution Center Schlüsselverteilungscenter (KDC)-Gruppenrichtlinien-Einstellung dynamische Zugriffssteuerung für eine Domäne zu aktivieren.  
-Alle Domänencontroller muss auf die gleiche Richtlinieneinstellung Administrative Vorlage unter **Computer Computerkonfiguration\Richtlinien\Administrative vorlagen\System\kdc\unterstützung dynamische Zugriffssteuerung und Kerberos Armoring**.  
+### <a name="support-for-using-the-key-distribution-center-kdc-group-policy-setting-to-enable-dynamic-access-control-for-a-domain"></a>Unterstützung für die Verwendung der KDC-Gruppenrichtlinieneinstellung (Key Distribution Center, Schlüsselverteilungscenter) zur Aktivierung der dynamischen Zugriffssteuerung für eine Domäne.  
+Alle Domänencontroller müssen dieselbe Einstellung für die Richtlinie für administrative Vorlagen aufweisen, die sich unter **Computerkonfiguration\Richtlinien\Administrative Vorlagen\System\KDC\Unterstützung für die dynamische Zugriffssteuerung und die Kerberos-Hochrüstung** befindet.  
   
-### <a name="support-in-active-directory-to-store-user-and-device-claims-resource-properties-and-central-access-policy-objects"></a>Unterstützung in Active Directory zum Speichern von Benutzer- und Geräteansprüchen, Ressourceneigenschaften und Objekte der zentralen Zugriffsrichtlinie.  
+### <a name="support-in-active-directory-to-store-user-and-device-claims-resource-properties-and-central-access-policy-objects"></a>Unterstützung in Active Directory zum Speichern von Benutzer- und Geräteansprüchen, Ressourceneigenschaften und Objekten der zentralen Zugriffsrichtlinie.  
   
-### <a name="support-for-using-group-policy-to-deploy-central-access-policy-objects"></a>Unterstützung für die Verwendung von Gruppenrichtlinien zum Bereitstellen der Objekte der zentralen Zugriffsrichtlinie.  
-Die folgende Einstellung der Gruppenrichtlinie können Sie Objekte der zentralen Zugriffsrichtlinie für Dateiserver in Ihrem Unternehmen bereitstellen: **computerkonfiguration\richtlinien\ Windows-einstellungen\sicherheitseinstellungen\Dateisystem\zentrale Zugriffsrichtlinie**.  
+### <a name="support-for-using-group-policy-to-deploy-central-access-policy-objects"></a>Unterstützung für die Verwendung von Gruppenrichtlinien zur Bereitstellung von Objekten der zentralen Zugriffsrichtlinie.  
+Die folgende gruppenrichtlinieneinstellung können Sie Objekte der zentralen Zugriffsrichtlinie für Dateiserver in Ihrem Unternehmen bereitstellen: **Computerkonfiguration\richtlinien\ Windows-einstellungen\sicherheitseinstellungen\dateisystem\zentrale Zugriffsrichtlinie**.  
   
-### <a name="support-for-claims-based-file-authorization-and-auditing-for-file-systems-by-using-group-policy-and-global-object-access-auditing"></a>Unterstützung für anspruchsbasierte dateiauthentifizierung und Überwachung für Dateisysteme mithilfe von Gruppenrichtlinien und globaler Objektzugriffsüberwachung  
-Sie müssen die Überwachungsrichtlinien bereitgestellten zentralen Zugriff, um den effektiven Zugriff der zentralen Zugriffsrichtlinie Überwachen mithilfe von vorgeschlagenen Berechtigungen aktivieren. Sie konfigurieren diese Einstellung für den Computer unter **erweiterte Überwachungsrichtlinienkonfiguration** in der **Sicherheitseinstellungen** von einem Gruppenrichtlinienobjekt (GPO). Nachdem Sie die sicherheitseinstellung im GPO konfigurieren, können Sie das Gruppenrichtlinienobjekt auf Computern in Ihrem Netzwerk bereitstellen.  
+### <a name="support-for-claims-based-file-authorization-and-auditing-for-file-systems-by-using-group-policy-and-global-object-access-auditing"></a>Unterstützung für anspruchsbasierte Dateiauthentifizierung und Überwachung für Dateisysteme mithilfe von Gruppenrichtlinien und globaler Objektzugriffsüberwachung  
+Sie müssen die in Phasen ausgeführte Überwachung der zentralen Zugriffsrichtlinie aktivieren, um den effektiven Zugriff der zentralen Zugriffsrichtlinie mithilfe von vorgeschlagenen Berechtigungen zu überwachen. Diese Einstellung wird für den Computer unter **Erweiterte Überwachungsrichtlinienkonfiguration** in den **Sicherheitseinstellungen** eines Gruppenrichtlinienobjekts (GPO) konfiguriert. Nachdem Sie die Sicherheitseinstellung im GPO konfiguriert haben, können Sie das GPO für Computer im Netzwerk bereitstellen.  
   
-### <a name="support-for-transforming-or-filtering-claim-policy-objects-that-traverse-active-directory-forest-trusts"></a>Unterstützung für die Transformation oder Filterung von anspruchsrichtlinienobjekten, die Active Directory-Gesamtstruktur-Vertrauensstellungen durchlaufen  
-Sie können filtern oder Transformieren eingehender und ausgehender Ansprüche, die eine Gesamtstruktur-Vertrauensstellung durchlaufen. Es gibt drei grundlegende Szenarien für die Filterung und Transformation von Ansprüchen:  
+### <a name="support-for-transforming-or-filtering-claim-policy-objects-that-traverse-active-directory-forest-trusts"></a>Unterstützung für die Transformation oder Filterung von Anspruchsrichtlinienobjekten, die Active Directory-Gesamtstruktur-Vertrauensstellungen durchlaufen  
+Sie können ein- und ausgehende Ansprüche, die eine Gesamtstruktur-Vertrauensstellung durchlaufen, filtern oder transformieren. Es gibt drei grundlegende Szenarien für die Filterung und Transformation von Ansprüchen:  
   
--   **Werten basierende Filterung** Filter können basierend auf den Wert eines Anspruchs. Dadurch wird die vertrauenswürdige Gesamtstruktur zu verhindern, dass Ansprüche mit bestimmten Werten für die vertrauende Gesamtstruktur gesendet werden. Domänencontroller in vertrauenden Gesamtstrukturen können Werten basierende Filterung um Elevation of Privilege Angriffen zu schützen, indem Sie von der vertrauenswürdigen Gesamtstruktur die eingehenden Ansprüche mit bestimmten Werten filtern.  
+-   **Auf Werten basierende Filterung**: Filter können basierend auf dem Wert eines Anspruchs definiert werden. Damit kann in der vertrauenswürdigen Gesamtstruktur verhindert werden, dass Ansprüche mit bestimmten Werten an die vertrauende Gesamtstruktur gesendet werden. Domänencontroller in vertrauenden Gesamtstrukturen können mithilfe der wertebasierten Filterung einen Rechteerweiterungsangriff verhindern, indem sie die von der vertrauenswürdigen Gesamtstruktur eingehenden Ansprüche mit bestimmten Werten filtern.  
   
--   **Anspruchstyp basierende Filterung** Filter basieren auf dem Anspruchstyp, anstatt den Wert des Anspruchs. Identifizieren Sie den Anspruchstyp, durch den Namen des Anspruchs. Verwenden Sie den Anspruchstyp basierende Filterung in der vertrauenswürdigen Gesamtstruktur, und es wird verhindert, dass Windows Ansprüche sendet, die Informationen zur vertrauenden Gesamtstruktur preisgeben.  
+-   **Auf dem Anspruchstyp basierende Filterung**: Filter werden nicht nach dem Wert des Anspruchs, sondern basierend auf dem Anspruchstyp definiert. Sie können den Anspruchstyp am Namen des Anspruchs erkennen. Sie verwenden die auf dem Anspruchstyp basierende Filterung in der vertrauenswürdigen Gesamtstruktur, und verhindern damit, dass Windows Ansprüche sendet, die Informationen zur vertrauenden Gesamtstruktur preisgeben.  
   
--   **Anspruchstyp basierende Transformation** ändert einen Anspruch, bevor er an das gewünschte Ziel gesendet wird. Verwenden Sie Anspruchstyp basierende Transformation von Ansprüchen in der vertrauenswürdigen Gesamtstruktur, um einen bekannten Anspruch zu generalisieren, der Informationen enthält. Transformationen können Sie den Anspruchstyp, den Anspruchswert oder beides generalisieren.  
+-   **Auf dem Anspruchstyp basierende Transformation**: Damit wird ein Anspruch geändert, bevor er an das gewünschte Ziel gesendet wird. Die auf dem Anspruchstyp basierende Transformation wird in der vertrauenswürdigen Gesamtstruktur verwendet, um einen bekannten Anspruch, der bestimmte Informationen enthält, zu generalisieren. Mit einer Transformationen können Sie den Anspruchstyp, den Anspruchswert oder beides generalisieren.  
   
-## <a name="software-requirements"></a>Anforderungen der Clientsoftware  
-Da Ansprüche und Verbundauthentifizierung für die dynamische Zugriffssteuerung Kerberos-authentifizierungserweiterungen erfordern, müssen eine Domäne, die dynamische Zugriffssteuerung unterstützt genügend Domänencontroller mit unterstützten Versionen von Windows zur Unterstützung der Authentifizierung über dynamische Zugriffssteuerung unterstützt Kerberos-Clients. Standardmäßig müssen Geräte Domänencontrollern an anderen Standorten verwenden. Wenn keine solchen Domänencontroller verfügbar sind, schlägt die Authentifizierung fehl. Aus diesem Grund müssen Sie eine der folgenden Bedingungen unterstützt:  
+## <a name="software-requirements"></a>Softwareanforderungen  
+Da Ansprüche und Verbundauthentifizierung für die dynamische Zugriffssteuerung Kerberos-Authentifizierungserweiterungen erfordern, müssen alle Domänen, die die dynamische Zugriffssteuerung unterstützen, über genügend Domänencontroller mit unterstützten Versionen von Windows verfügen, um die Authentifizierung über Kerberos-Clients zu unterstützen, die die dynamische Zugriffssteuerung unterstützen. Geräte müssen standardmäßig Domänencontroller an anderen Standorten verwenden. Wenn Domänencontroller dieser Art nicht verfügbar sind, treten bei der Authentifizierung Fehler auf. Daher muss eine der folgenden Bedingungen erfüllt sein:  
   
--   Jede Domäne, die dynamische Zugriffssteuerung unterstützt muss genügend Domänencontroller mit unterstützten Versionen von Windows Server zur Unterstützung der Authentifizierung von allen Geräten, die mit den unterstützten Versionen von Windows oder Windows Server verfügen.  
+-   Jede Domäne, die dynamische Zugriffssteuerung unterstützt muss über genügend Domänencontroller mit unterstützten Versionen von Windows Server verfügen, um die Authentifizierung über Geräte zu unterstützen, auf denen die unterstützten Versionen von Windows oder Windows Server ausgeführt werden.  
   
--   Geräte mit den unterstützten Versionen von Windows oder die Ressourcen nicht mithilfe von Ansprüchen oder Verbundidentität schützen, sollten Unterstützung des Kerberos-Protokolls für die dynamische Zugriffssteuerung deaktivieren.  
+-   Bei Geräten mit unterstützten Versionen von Windows oder bei Geräten, die Ressourcen nicht mithilfe von Ansprüchen oder Verbundidentität schützen, muss die Unterstützung des Kerberos-Protokolls für die dynamische Zugriffskontrolle deaktiviert werden.  
   
-Für Domänen, die Benutzeransprüche unterstützen, muss alle Domänencontroller mit unterstützten Versionen von Windows Server mit den entsprechenden Einstellungen zur Unterstützung von Ansprüchen und Verbundauthentifizierung und Kerberos-hochrüstung konfiguriert werden. Konfigurieren Sie die Einstellungen in der administrativen Vorlage KDC-Richtlinie wie folgt:  
+Bei Domänen, die Benutzeransprüche unterstützen, müssen alle Domänencontroller mit unterstützten Versionen von Windows Server mit den entsprechenden Einstellungen zur Unterstützung von Ansprüchen und Verbundauthentifizierung und für die Bereitstellung der Kerberos-Hochrüstung konfiguriert werden. Konfigurieren Sie die Einstellungen in der KDC-Richtlinie für administrative Vorlagen wie folgt:  
   
--   **Immer Ansprüche bereitstellen** verwenden Sie diese Einstellung, wenn alle Domänencontroller mit unterstützten Versionen von Windows Server ausgeführt werden. Darüber hinaus legen Sie die Domänenfunktionsebene auf Windows Server2012 oder höher.  
+-   **Immer Ansprüche bereitstellen**: Verwenden Sie diese Einstellung, wenn auf allen Domänencontrollern unterstützte Versionen von Windows Server ausgeführt wird. Außerdem muss die Domänenfunktionsebene auf Windows Server 2012 oder höher festgelegt werden.  
   
--   **Unterstützt** Wenn Sie diese Einstellung verwenden, überwachen Sie Domänencontroller, um sicherzustellen, dass die Anzahl der Domänencontroller mit unterstützten Versionen von Windows Server für die Anzahl der Clientcomputer ausreicht, die Zugriff auf Ressourcen durch die dynamische Zugriffssteuerung geschützt werden müssen.  
+-   **Unterstützt**: Wenn Sie diese Einstellung verwenden, überwachen Sie Domänencontroller, um sicherzustellen, dass die Anzahl der Domänencontroller, auf denen unterstützte Versionen von Windows Server ausgeführt werden, für die Anzahl der Clientcomputer ausreicht, die auf Ressourcen zugreifen müssen, die durch die dynamische Zugriffssteuerung geschützt werden.  
   
-Wenn die Benutzerdomäne und die dateiserverdomäne in unterschiedlichen Gesamtstrukturen befinden, müssen alle Domänencontroller im Gesamtstrukturstamm des Dateiservers auf der Windows Server2012 oder eine höhere Funktionsebene festgelegt werden.  
+Wenn sich die Benutzerdomäne und die dateiserverdomäne in unterschiedlichen Gesamtstrukturen befinden, müssen alle Domänencontroller im Gesamtstrukturstamm des Dateiservers auf dem Windows Server 2012 oder eine höhere Funktionsebene festgelegt werden.  
   
-Wenn Clients die dynamische Zugriffssteuerung nicht erkannt werden, muss zwischen den beiden Gesamtstrukturen eine bidirektionale Vertrauensstellung sein.  
+Wenn Clients die dynamische Zugriffssteuerung nicht erkennen, muss zwischen den beiden Gesamtstrukturen eine bidirektionale Vertrauensstellung bestehen.  
   
-Wenn Ansprüche beim Verlassen einer Gesamtstruktur transformiert werden, müssen alle Domänencontroller im Gesamtstrukturstamm des Benutzers auf der Windows Server2012 oder eine höhere Funktionsebene festgelegt werden.  
+Wenn Ansprüche beim Verlassen einer Gesamtstruktur transformiert werden, müssen alle Domänencontroller im Gesamtstrukturstamm des Benutzers auf dem Windows Server 2012 oder eine höhere Funktionsebene festgelegt werden.  
   
-Ein Server unter Windows Server2012 oder Windows Server2012 R2 benötigen eine Gruppenrichtlinien-Einstellung, die angibt, ob Benutzeransprüche für Benutzertoken abgerufen werden, die keine Ansprüche enthalten. Diese Einstellung ist standardmäßig so festgelegt **automatische**, wodurch dieser Einstellung der Gruppenrichtlinie aktiviert werden **auf** ist eine zentrale Richtlinie, die Benutzer- oder Geräteansprüche für diesen Dateiserver enthält. Wenn der Dateiserver freigegebene Zugriffssteuerungslisten, die Benutzeransprüche enthalten enthält, müssen Sie diese Gruppenrichtlinie festlegen, um **auf**, damit der Server weiß, um Ansprüche für Benutzer anfordern, die beim Zugriff auf den Server keine Ansprüche bereitstellen.  
+Ein Dateiserver, auf dem Windows Server 2012 oder Windows Server 2012 R2 ausgeführt wird, muss über eine Gruppenrichtlinieneinstellung verfügen, die angibt, ob Benutzeransprüche für Benutzertoken, die keine Ansprüche enthalten, abgerufen werden müssen. Diese Einstellung ist standardmäßig auf **Automatisch** festgelegt, was dazu führt, dass diese Gruppenrichtlinieneinstellung auf **An** festgelegt wird, wenn eine zentrale Richtlinie vorhanden ist, die Benutzer- oder Geräteansprüche für diesen Dateiserver enthält. Wenn der Dateiserver freigegebene Zugriffssteuerungslisten mit Benutzeransprüchen enthält, muss diese Gruppenrichtlinie auf **An** festgelegt werden, sodass der Server weiß, dass er Ansprüche für Benutzer anfordern muss, die beim Zugriff auf den Server keine Ansprüche bereitstellen.  
   
 ## <a name="additional-resource"></a>Zusätzliche Ressourcen  
-Informationen zur Implementierung von Lösungen, die basierend auf dieser Technologie finden Sie unter [dynamische Zugriffssteuerung: Szenarioübersicht](Dynamic-Access-Control--Scenario-Overview.md).  
+Informationen zum Implementieren von Lösungen basierend auf dieser Technologie finden Sie unter [dynamische Zugriffssteuerung: Übersicht über das Szenario](Dynamic-Access-Control--Scenario-Overview.md).  
   
 
 

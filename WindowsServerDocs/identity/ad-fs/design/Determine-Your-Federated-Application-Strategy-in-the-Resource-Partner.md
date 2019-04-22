@@ -1,7 +1,7 @@
 ---
 ms.assetid: 9eab8c43-a0f2-4d19-a5a4-e1399f0d5f25
 title: Bestimmen der Verbundanwendungsstrategie im Ressourcenpartner
-description: 
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,37 +10,38 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: aca47658cc5a20f63dbd59a26ebe135dd04def92
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59811931"
 ---
 # <a name="determine-your-federated-application-strategy-in-the-resource-partner"></a>Bestimmen der Verbundanwendungsstrategie im Ressourcenpartner
 
->Gilt für: Windows Server2016, Windows Server2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Ein wichtiger Bestandteil des Entwurfs einer neuen Active Directory Federation Services \(AD FS\) Infrastruktur in der Ressourcenpartnerorganisation ist die Bestimmung des vollständigen Satzes von Anwendungen und Dienste, die zur Teilnahme am Verbund verwendet werden und welche Kontopartner werden die Empfänger dieser Ressourcen. Bevor Sie eine verbundanwendungs- und servicestrategie entwerfen, berücksichtigen Sie die folgenden Fragen:  
+Ein wichtiger Teil beim Entwerfen einer neuen Active Directory Federation Services \(AD FS\) -Infrastruktur in der Ressourcenpartnerorganisation ist Ermitteln des vollständigen Satzes von Anwendungen und Dienste, die verwendet werden, um die Teilnahme an der Verbund und welcher Kontopartner die Empfänger dieser Ressourcen werden. Bevor Sie eine Verbundanwendungs- und Servicestrategie entwerfen, berücksichtigen Sie die folgenden Fragen:  
   
--   Sie aktivieren und Bereitstellen einer Anwendung ASP.NET oder einen Windows Communication Foundation \(WCF\)-Dienst für den Verbund?  
+-   Sie aktivieren und Bereitstellen einer ASP.NET-Anwendung oder einen Windows Communication Foundation \(WCF\) Dienst für den Verbund?  
   
--   Werden für Benutzer in Ihrem Unternehmensnetzwerk Zugriff auf die verbundanwendung oder den Dienst über die integrierte Windows-Authentifizierung erforderlich?  
+-   Benötigen Benutzer in Ihrem Unternehmensnetzwerk Zugriff auf die Verbundanwendung oder den Dienst über die integrierte Windows-Authentifizierung?  
   
--   Wird die verbundanwendung oder den Dienst von Benutzern in Ihrem Umkreisnetzwerk werden verwendet? Wenn dies der Fall ist, wird die integrierte Windows-Authentifizierung erforderlich sein?  
+-   Soll die Verbundanwendung oder der Dienst von Benutzern in Ihrem Umkreisnetzwerk verwendet werden? Wird in diesem Fall die integrierte Windows-Authentifizierung erforderlich sein?  
   
--   Werden alle Webserver, werden verbundanwendungen gehostet Windows Server-Betriebssystem und Internetinformationsdienste \(IIS\) ausgeführt?  
+-   Der Webserver, auf denen verbundanwendungen, die mit einem Windows Server-Betriebssystem und Internet Information Services gehostet sind \(IIS\)?  
   
--   Wer wird die verbundanwendung oder der Dienst Ressourcen bereit?  
+-   Für wen stellt die Verbundanwendung oder der Dienst Ressourcen bereit?  
   
-Durch die Beantwortung dieser Fragen hilft Ihnen ein solides AD FS-Entwurfs planen. Es wird auch dazu bei, eine verbundanwendungs- und dienststrategie, die kostengünstig ist und Ressourcen effizient erstellen. Weitere Informationen zum Entwerfen der am besten geeigneten verbundanwendungs- und dienststrategie für Ihre Organisation finden Sie unter den folgenden Themen in diesem Handbuch:  
+Beantwortung dieser Fragen hilft Ihnen eine solide AD FS-Entwurfs planen. Sie trägt auch dazu bei, eine Verbundanwendungs- und Dienststrategie zu erstellen, die kostengünstig ist und ressourceneffizient ist. Weitere Informationen zum Entwerfen der am besten geeigneten Verbundanwendungs- und Dienststrategie für Ihre Organisation finden Sie unter den folgenden Themen in diesem Handbuch:  
   
--   [Bereitstellen der Active Directory-Benutzern den Zugriff auf Ihre Ansprüche unterstützenden Anwendungen und Dienste](Provide-Your-Active-Directory-Users-Access-to-Your-Claims-Aware-Applications-and-Services.md)  
+-   [Geben Sie Ihre Active Directory-Benutzerzugriff auf Ihre Ansprüche unterstützenden Anwendungen und Dienste](Provide-Your-Active-Directory-Users-Access-to-Your-Claims-Aware-Applications-and-Services.md)  
   
--   [Bereitstellen der Active Directory-Benutzern den Zugriff auf die Anwendungen und Dienste anderer Organisationen](Provide-Your-Active-Directory-Users-Access-to-the-Applications-and-Services-of-Other-Organizations.md)  
+-   [Geben Sie Ihre Active Directory-Benutzerzugriff auf die Anwendungen und Dienste anderer Organisationen](Provide-Your-Active-Directory-Users-Access-to-the-Applications-and-Services-of-Other-Organizations.md)  
   
--   [Bieten Sie Benutzern in einer anderen Organisationszugriff auf Ihre Ansprüche unterstützenden Anwendungen und Dienste](Provide-Users-in-Another-Organization-Access-to-Your-Claims-Aware-Applications-and-Services.md)  
+-   [Geben Sie Benutzern in einer anderen Organisationszugriff auf Ihre Ansprüche unterstützenden Anwendungen und Dienste](Provide-Users-in-Another-Organization-Access-to-Your-Claims-Aware-Applications-and-Services.md)  
   
-Weitere Informationen zum Erstellen eines ASP.NET Claims\-fähigen Anwendung oder ein WCF-Dienst finden Sie unter [Windows Identity Foundation SDK](https://go.microsoft.com/fwlink/?LinkId=122266).  
+Weitere Informationen zum Erstellen einer Ansprüche\-bewusst ASP.NET-Anwendung oder WCF-Dienst finden Sie unter [Windows Identity Foundation SDK](https://go.microsoft.com/fwlink/?LinkId=122266).  
   
 ## <a name="see-also"></a>Siehe auch
-[AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[AD FS-Entwurfshandbuch in WindowsServer 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
 
