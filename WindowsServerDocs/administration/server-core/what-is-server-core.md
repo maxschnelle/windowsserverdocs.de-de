@@ -1,6 +1,6 @@
 ---
-title: Was ist die Server Core?
-description: Erfahren Sie mehr über die Server Core-Installationsoption von Windows Server
+title: Was ist Server Core?
+description: Erfahren Sie mehr über die Server Core-Installationsoption in Windows Server
 ms.prod: windows-server-threshold
 ms.mktglfcycl: manage
 ms.sitesec: library
@@ -8,72 +8,72 @@ author: lizap
 ms.localizationpriority: medium
 ms.date: 02/20/2018
 ms.openlocfilehash: 08229e458d0aa0c8e8397f0f053f37a207a1aea5
-ms.sourcegitcommit: 1533d994a6ddea54ac189ceb316b7d3c074307db
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "1718534"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59885601"
 ---
-# <a name="what-is-the-server-core-installation-option-in-windows-server"></a>Was ist die Server Core-Installationsoption von Windows Server?
+# <a name="what-is-the-server-core-installation-option-in-windows-server"></a>Was ist der Server Core-Installationsoption in Windows Server?
 
-> Betrifft: WindowsServer (Semikolons jährlichen Channel) und WindowsServer 2016
+> Gilt für: WindowsServer (Halbjährlicher Kanal) und WindowsServer 2016
 
-Die Server Core-Option ist eine minimale Installation-Option, die verfügbar ist, wenn Sie die Standard oder Datacenter Edition von Windows Server bereitstellen. Server Core enthält die meisten, jedoch nicht alle Serverrollen. Server Core verfügt über einen kleineren Datenträger Speicherbedarf und somit eine kleinere Angriffsfläche aufgrund einer kleineren Codebasis. 
+Die Server Core-Option ist eine Minimalinstallation aus, die verfügbar ist, wenn Sie die Standard oder Datacenter Edition von Windows Server bereitstellen. Server Core umfasst die meisten, aber nicht alle Serverrollen. Server Core verfügt über einen geringeren Speicherbedarf für die Datenträger, und daher eine kleinere Angriffsfläche aufgrund einer kleinere Codebasis. 
 
-## <a name="server-core-vs-server-with-desktop-experience"></a>Server (Core) Vs Server mit Desktopdarstellung 
-Bei der Installation von Windows Server installieren Sie nur die Serverrollen, die Sie auswählen – Dadurch kann der allgemeine Speicherbedarf für Windows Server reduziert. Der Server mit Desktop Experience Installationsoption installiert jedoch noch viele Dienste und anderer Komponenten, die für einen bestimmten Verwendungsszenario häufig nicht benötigt werden. 
+## <a name="server-core-vs-server-with-desktop-experience"></a>Server-(Core) oder Server mit Desktopdarstellung 
+Wenn Sie Windows Server installieren, installieren Sie nur die Serverrollen, die Sie auswählen – Dadurch wird den gesamten Speicherbedarf für Windows Server zu reduzieren. Der Server mit der Installationsoption "Desktopdarstellung" installiert jedoch noch viele Dienste und andere Komponenten, die für ein bestimmtes Einsatzszenario zugängig häufig nicht erforderlich sind. 
 
-Hier kommt Server Core ins Spiel: die Server Core-Installation entfällt alle Dienste und andere Features, die nicht häufig entscheidend für die Unterstützung bestimmter sind verwendet Serverrollen. Beispielsweise kein Hyper-V Server graphical User Interface (GUI), nicht erforderlich, da Sie nahezu alle Aspekte von Hyper-V entweder über die Befehlszeile mithilfe von Windows PowerShell oder Remote über den Hyper-V-Manager verwalten können. 
+Hier kommt Server Core ins Spiel: Server Core-Installation beseitigt, Dienste und andere Funktionen, die nicht häufig wichtig für die Unterstützung bestimmter sind verwendet Server-Rollen. Hyper-V-Server z. B. erforderlich keine grafische Benutzeroberfläche (GUI), da Sie fast alle Aspekte von Hyper-V entweder über die Befehlszeile mithilfe von Windows PowerShell oder mithilfe von Hyper-V-Manager verwalten können. 
 
-## <a name="the-server-core-difference---core-capabilities-without-the-frills"></a>Die Server Core-Differenz - Kernfunktionen, ohne die frills
-Sie nach Abschluss der Installation von Server Core auf einem System und melden Sie sich zum ersten Mal können Sie für eine plötzlich auszudrücken. Der Hauptunterschied zwischen dem Server mit Desktop Experience Installationsoption und Server Core ist, dass die Server Core nicht in den folgenden GUI Shell-Paketen enthalten ist:
+## <a name="the-server-core-difference---core-capabilities-without-the-frills"></a>Der Unterschied für Server Core - Kernfunktionen, ohne die frills
+Wenn Sie die Installation von Server Core auf einem System und melden Sie sich zum ersten Mal abgeschlossen haben, haben Sie für etwas überrascht. Der Hauptunterschied zwischen dem Server mit der Installationsoption "Desktopdarstellung" und die Server Core ist, dass Server Core nicht die folgenden Pakete des GUI-Shell enthält:
 
-- Microsoft Windows-Server-Verwaltungsshell-Paket
+- Microsoft-Windows-Server-Shell-Package
 - Microsoft-Windows-Server-Gui-Mgmt-Package
 - Microsoft-Windows-Server-Gui-RSAT-Package
 - Microsoft-Windows-Cortana-PAL-Desktop-Package
 
-Anders ausgedrückt, wird es **keine Desktop** in Server Core, Verhalten ist erwünscht. Beibehaltung der Funktionen zur Unterstützung von herkömmlichen Geschäftsanwendungen und rollenbasierte Arbeitslasten erforderlich ist Server Core eine herkömmliche desktop-Schnittstelle nicht vorhanden. Server Core soll stattdessen über die Befehlszeile, PowerShell oder ein GUI-Tool (wie [Remoteserver-Verwaltungstools](../../remote/remote-server-administration-tools.md) oder [Windows Admin Center](../../manage/windows-admin-center/overview.md)) remote verwaltet werden.
+Das heißt, es gibt **kein Desktop** in Server Core beabsichtigt. Und gleichzeitig die Funktionen zur Unterstützung von traditionellen Geschäftsanwendungen und rollenbasierte Workloads erforderlich sind, muss die Server Core keine herkömmliche desktop-Benutzeroberfläche. Stattdessen dient Server Core über die Befehlszeile, über PowerShell oder ein GUI-Tool im Remotemodus verwaltet werden (z. B. [RSAT](../../remote/remote-server-administration-tools.md) oder [Windows Admin Center](../../manage/windows-admin-center/overview.md)).
 
-Zusätzlich zur keine Benutzeroberfläche unterscheidet Server Core auch auf dem Server mit Desktopdarstellung auf folgende Weise:
+Zusätzlich zur keine Benutzeroberfläche unterscheidet sich Server Core auch vom Server mit Desktopdarstellung auf folgende Weise:
 
-- Server Core hat keine Eingabehilfen
-- Keine OOBE (Out-of-Box-Experience) für das Einrichten von Server Core
-- Kein audio-Unterstützung
+- Server Core hat keinen Zugriff auf tools
+- Keine OOBE (Out-of-Box-Experience) für die Einrichtung von Server Core
+- Keine audiounterstützung
 
-Die folgende Tabelle zeigt, welche Anwendungen verfügbar *lokal* auf Server Core Vs Server mit Desktopdarstellung sind. **Wichtig**: In den meisten Fällen Programmen, die als "nicht verfügbar" unter Remote von einem Windows-Client-Computer ausgeführt werden kann aufgeführt und zur Verwaltung Ihrer Server Core-Installations verwendet werden.
+Die folgende Tabelle zeigt, welche Anwendungen verfügbar sind *lokal* in Server Core und Server mit Desktopdarstellung. **Wichtig**: In den meisten Fällen, Anwendungen, die als "nicht verfügbar" unter Remote von einem Windows-Clientcomputer ausgeführt werden kann aufgelistet und verwendet, um die Server Core-Installation zu verwalten.
 
 > [!NOTE]
-> Diese Liste ist für die Kurzübersicht - vorgesehen es ist keine vollständige Liste werden soll.
+> Diese Liste erhebt Kurzübersicht – es soll eine vollständige Liste ist nicht.
 
 
 | Application                     | Server Core     | Server mit Desktopdarstellung |
 |------------------------------------|-----------------|--------------------------------|
-| Befehlszeile                     | verfügbar       | verfügbar                      |
-| Windows PowerShell / Microsoft .NET | verfügbar       | verfügbar                      |
+| Eingabeaufforderung                     | verfügbar       | verfügbar                      |
+| Windows PowerShell/ Microsoft .NET | verfügbar       | verfügbar                      |
 | Perfmon.exe                        | nicht verfügbar  | verfügbar                      |
-| WinDbg (GUI)                         | unterstützt       | unterstützt                      |
+| Windbg (GUI)                         | unterstützt       | unterstützt                      |
 | Resmon.exe                         | nicht verfügbar   | verfügbar                      |
-| Regedit ein.                            | verfügbar       | verfügbar                      |
+| "Regedit"                            | verfügbar       | verfügbar                      |
 | Fsutil.exe                         | verfügbar       | verfügbar                      |
 | Disksnapshot.exe                   | nicht verfügbar   | verfügbar                      |
 | Diskpart.exe                       | verfügbar       | verfügbar                      |
 | Diskmgmt.msc                       | nicht verfügbar   | verfügbar                      |
 | Devmgmt.msc                        | nicht verfügbar   | verfügbar                      |
 | Server-Manager                     | nicht verfügbar  | verfügbar                      |
-| MMC.exe                            | nicht verfügbar   | verfügbar                      |
+| Mmc.exe                            | nicht verfügbar   | verfügbar                      |
 | Eventvwr                           | nicht verfügbar  | verfügbar                      |
-| Wevtutil (Ereignisabfragen)           | verfügbar       | verfügbar                      |
+| Wevtutil (Ereignis-Abfragen)           | verfügbar       | verfügbar                      |
 | Services.msc                       | nicht verfügbar   | verfügbar                      |
 | Systemsteuerung                      | nicht verfügbar   | verfügbar                      |
 | Windows Update (GUI)                 | nicht verfügbar | verfügbar                      |
 | Windows-Explorer                   | nicht verfügbar   | verfügbar                      |
 | Taskleiste                            | nicht verfügbar   | verfügbar                      |
-| Taskleiste              | nicht verfügbar   | verfügbar                      |
-| Taskmgr                            | verfügbar       | verfügbar                      |
+| Benachrichtigungen der Taskleiste              | nicht verfügbar   | verfügbar                      |
+| taskmgr                            | verfügbar       | verfügbar                      |
 | InternetExplorer oder Edge          | nicht verfügbar   | verfügbar                      |
-| Integrierte Hilfesystem               | nicht verfügbar   | verfügbar                      |
-| Windows-10-Shell                   | nicht verfügbar   | verfügbar                      |
+| Integriertes Hilfesystem               | nicht verfügbar   | verfügbar                      |
+| Windows 10 Shell                   | nicht verfügbar   | verfügbar                      |
 | Windows Media Player               | nicht verfügbar   | verfügbar                      |
 | PowerShell                         | verfügbar       | verfügbar                      |
 | PowerShell ISE                     | nicht verfügbar   | verfügbar                      |
@@ -83,19 +83,19 @@ Die folgende Tabelle zeigt, welche Anwendungen verfügbar *lokal* auf Server Cor
 | Hyper-V-Manager                    | nicht verfügbar  | verfügbar                      |
 
 
-Weitere Informationen dazu, welche *ist* in Server Core enthalten finden Sie unter [Rollen, Rollendienste und Features in Windows Server - Server Core enthalten](server-core-roles-and-services.md). Und Informationen dazu, welche *ist nicht* in Server Core enthalten, finden Sie unter [Rollen, Rollendienste und Features in Server Core nicht enthalten](server-core-removed-roles.md)
+Weitere Informationen darüber, was *ist* finden Sie in Server Core enthalten, [Rollen, Rollendienste und Features in Windows Server - Server Core enthalten](server-core-roles-and-services.md). Informationen darüber, was *nicht* finden Sie in Server Core enthalten, [Rollen, Rollendienste und Features im Server Core nicht enthalten.](server-core-removed-roles.md)
 
-## <a name="get-started-using-server-core"></a>Erste Schritte mit der Server Core
+## <a name="get-started-using-server-core"></a>Erste Schritte mit Server Core
 Verwenden Sie die folgende Informationen zum Installieren, konfigurieren und verwalten die Server Core-Installationsoption von Windows Server.
 
 Server Core-Installation: 
-- [Rollen, Rollendienste und Features in Server Core enthalten](server-core-roles-and-services.md)
+- [Rollen, Rollendienste und Features im Server Core enthalten](server-core-roles-and-services.md)
 - [Rollen, Rollendienste und Features nicht in Server Core](server-core-removed-roles.md)
 - [Installieren Sie die Server Core-Installationsoption](../../get-started/getting-started-with-server-core.md)
-- [Konfigurieren von Server Core mit dem Tool SConfig](../../get-started/sconfig-on-ws2016.md)
+- [Konfigurieren von Server Core mithilfe des SConfig-Tools](../../get-started/sconfig-on-ws2016.md)
 
-Verwenden von Server Core:
-- [Grundlegende Server Core-Verwaltungsaufgaben mithilfe von Windows PowerShell oder der Befehlszeile](server-core-administer.md)
-- [Server Core verwalten](server-core-manage.md)
+Verwendung von Server Core:
+- [Grundlegende Verwaltungsaufgaben für Server Core mit Windows PowerShell oder über die Befehlszeile](server-core-administer.md)
+- [Verwalten von Server Core](server-core-manage.md)
 - [Patchen von Server Core](server-core-servicing.md)
 - [Konfigurieren von Speicherabbilddateien](server-core-memory-dump.md)

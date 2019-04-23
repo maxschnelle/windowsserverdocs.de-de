@@ -1,7 +1,7 @@
 ---
 ms.assetid: aa20c8b3-7f01-4165-8b73-92642bff9676
-title: "Gründe für das Erstellen eines Verbundserverproxys"
-description: 
+title: Wann sollte ein Verbundserverproxy erstellt werden?
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,31 +10,32 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: 1f0253dfb5a690371dae1a2bfcb6b7520077d473
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59883201"
 ---
-# <a name="when-to-create-a-federation-server-proxy"></a>Gründe für das Erstellen eines Verbundserverproxys
+# <a name="when-to-create-a-federation-server-proxy"></a>Wann sollte ein Verbundserverproxy erstellt werden?
 
->Gilt für: Windows Server2016, Windows Server2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Erstellen eines Verbundserverproxys in Ihrer Organisation hinzugefügt die Bereitstellung der Active Directory-Verbunddienste \(AD FS\) zusätzliche Sicherheitsstufen. Beachten Sie, einen Verbundserverproxy im Umkreisnetzwerk Ihrer Organisation bereitstellen, wenn Sie möchten:  
+Erstellen einen Verbundserverproxy in Ihrer Organisation Ihre Active Directory Federation Services zusätzliche Sicherheitsstufen hinzugefügt \(AD FS\) Bereitstellung. Erwägen Sie einen Verbundserverproxy im Umkreisnetzwerk Ihrer Organisation bereitzustellen, wenn Sie möchten:  
   
--   Verhindern Sie, dass externe Clientcomputer direkten Zugriff auf Ihren Verbundserver. Durch Bereitstellen eines Verbundserverproxys in Ihrem Umkreisnetzwerk, isolieren Sie effektiv Ihren Verbundserver, sodass sie nur von Clientcomputern zugegriffen werden kann, die mit dem Unternehmensnetzwerk über Verbundserverproxys, angemeldet sind, die im Auftrag der externen Clientcomputer Verhalten. Verbundserverproxys können nicht auf die privaten Schlüssel zugreifen, die verwendet werden, um Token zu erzeugen. Weitere Informationen finden Sie unter [Where to Place a Federation Server Proxy](Where-to-Place-a-Federation-Server-Proxy.md).  
+-   Verhindern Sie, dass externe Clientcomputer direkten Zugriff auf Ihre Verbundserver. Durch Bereitstellen eines Verbundserverproxys in Ihrem Umkreisnetzwerk isolieren Sie effektiv Ihre Verbundserver, damit sie nur von den Clientcomputern zugegriffen werden kann, die mit dem Unternehmensnetzwerk über Verbundserverproxys protokolliert werden, denen handeln von der externen Clientcomputer. Verbundserverproxys können nicht auf die privaten Schlüssel zugreifen, die verwendet werden, um Token zu erzeugen. Weitere Informationen finden Sie unter [Where to Place a Federation Server Proxy](Where-to-Place-a-Federation-Server-Proxy.md).  
   
--   Bieten Sie eine bequeme Möglichkeit, die Standardparameter in Erfahrung für Benutzer zu unterscheiden, die aus dem Internet im Gegensatz zu Benutzern, die von Ihrem Unternehmensnetzwerk vertraut sind, über die integrierte Windows-Authentifizierung kommen. Ein Verbundserverproxys sammelt Anmeldeinformationen oder startbereichdetails von internetclientcomputern mit der Anmeldung, Abmeldung und Identity Provider Ermittlung \(homerealmdiscovery.aspx\) Seiten, die für den Verbundserverproxy gespeichert sind.  
+-   Geben Sie eine einfache Möglichkeit, die die Vorzeichen unterscheiden\-Erfahrung für Benutzer, die aus dem Internet im Gegensatz zu Benutzern, die von Ihrem Unternehmensnetzwerk stammen, über die integrierte Windows-Authentifizierung zu kommen. Ein Verbundserverproxys sammelt Anmeldeinformationen oder startbereichdetails von internetclientcomputern, mithilfe der Anmeldung, Abmeldung und Ermittlung von Anbietern \(homerealmdiscovery.aspx\) Seiten, die auf den Verbund gespeichert sind Server-Proxy.  
   
-    Im Gegensatz dazu Clientcomputer, die aus dem Unternehmensnetzwerk Berührungspunkt eine andere Erfahrung, stammen basierend auf der Konfiguration des Verbundservers. Der Verbundserver Unternehmensnetzwerk ist häufig für die integrierte Windows-Authentifizierung, ein Standardparameter-in für Benutzer im Unternehmensnetzwerk nahtloses konfiguriert.  
+    Im Gegensatz dazu-Clientcomputern, die aus dem Unternehmensnetzwerk auftreten eine andere benutzererfahrung bereitstellt, auf Basis der Konfiguration des Verbundservers. Der Unternehmensnetzwerk-Verbundserver ist häufig für die integrierte Windows-Authentifizierung, bietet eine nahtlose Anmeldung konfiguriert\-Erfahrung für Benutzer mit dem Unternehmensnetzwerk verbunden.  
   
-Die Rolle, die ein Verbundserverproxy in Ihrer Organisation spielt, hängt davon ab, ob den Verbundserverproxy in der Kontopartnerorganisation oder in der Ressourcenpartnerorganisation platzieren. Wenn ein Verbundserverproxys im Umkreisnetzwerk des Kontopartners platziert wird, wird seine Rolle z.B. die Benutzeranmeldeinformationen von Browserclients zu erfassen. Wenn ein Verbundserverproxys im Umkreisnetzwerk des Ressourcenpartners platziert wird, sicherheitstokenanforderungen an einen Ressourcenverbundserver und erzeugt organisatorische Sicherheitstoken in Reaktion auf die Sicherheitstoken, die von den Kontopartnern bereitgestellt werden.  
+Die Rolle, die ein Verbundserverproxy in Ihrer Organisation spielt, hängt davon ab, ob Sie Verbundserverproxys in der Kontopartnerorganisation oder in der Ressourcenpartnerorganisation platzieren. Z. B. wenn ein Verbundserverproxy im Umkreisnetzwerk des Kontopartners platziert wird, werden seine Rolle die Benutzeranmeldeinformationen von Browserclients zu erfassen. Wenn ein Verbundserverproxy im Umkreisnetzwerk des Ressourcenpartners platziert wird, überträgt Sie Sicherheitstoken Anforderungen an einen Ressourcenverbundserver und erzeugt organisatorische Sicherheitstoken in Reaktion auf die Sicherheitstoken, die von bereitgestellt werden die Kontopartner.  
   
-Weitere Informationen finden Sie unter [Überprüfen der Rolle des Verbundserverproxys beim Kontopartner](Review-the-Role-of-the-Federation-Server-Proxy-in-the-Account-Partner.md) und [Überprüfen der Rolle des Verbundserverproxys beim Ressourcenpartner](Review-the-Role-of-the-Federation-Server-Proxy-in-the-Resource-Partner.md)  
+Weitere Informationen finden Sie unter [Review the Role of the Federation Server Proxy in the Account Partner](Review-the-Role-of-the-Federation-Server-Proxy-in-the-Account-Partner.md) und [Review the Role of the Federation Server Proxy in the Resource Partner](Review-the-Role-of-the-Federation-Server-Proxy-in-the-Resource-Partner.md).  
   
-## <a name="how-to-create-a-federation-server-proxy"></a>Vorgehensweise beim Erstellen eines Verbundserverproxys  
-Sie können einen Verbundserverproxy mit AD FS Federation Server Proxy-Konfigurations-Assistenten oder das Befehlszeilentool Fsconfig.exe erstellen. Weitere Informationen hierzu finden Sie unter [Konfigurieren eines Computers für die Verbundserverproxy-Rolle](../../ad-fs/deployment/Configure-a-Computer-for-the-Federation-Server-Proxy-Role.md).  
+## <a name="how-to-create-a-federation-server-proxy"></a>Erstellen eines Verbundserverproxys  
+Sie können einen Verbundserverproxy mithilfe des AD FS Federation Server Proxy-Assistenten oder den Befehl Fsconfig.exe erstellen\-Tools "Linie". Anleitungen hierzu finden Sie unter [Configure a Computer for the Federation Server Proxy Role](../../ad-fs/deployment/Configure-a-Computer-for-the-Federation-Server-Proxy-Role.md).  
   
-Allgemeine Informationen zum Einrichten der Voraussetzungen zum Bereitstellen eines Verbundserverproxys finden Sie unter [Checkliste: Einrichten eines Verbundserverproxys](../../ad-fs/deployment/Checklist--Setting-Up-a-Federation-Server-Proxy.md).  
+Allgemeine Informationen zum Einrichten der erforderlichen Komponenten zum Bereitstellen eines Verbundserverproxys erforderlich sind, finden Sie unter [Prüfliste: Das Einrichten eines Verbundserverproxys](../../ad-fs/deployment/Checklist--Setting-Up-a-Federation-Server-Proxy.md).  
   
 ## <a name="see-also"></a>Siehe auch
-[AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[AD FS-Entwurfshandbuch in WindowsServer 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

@@ -1,6 +1,6 @@
 ---
 title: Erstellen eines Kontingents
-description: "Dieser Artikel enthält Informationen zum Erstellen von Kontingenten basierend auf einer Vorlage"
+description: Dieser Artikel enthält Informationen zum Erstellen von Kontingenten basierend auf einer Vorlage
 ms.date: 7/7/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: f3c677f5ebf7dda44f4b99a64d0fbf8d2c72b92e
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59883191"
 ---
 # <a name="create-a-quota"></a>Erstellen eines Kontingents
 
-> Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
 
 Kontingente können aus einer Vorlage oder mit benutzerdefinierten Eigenschaften erstellt werden. Die folgenden Anweisungen beschreiben, wie ein Kontingent basierend auf einer Vorlage (empfohlen) erstellt wird. Wenn Sie ein Kontingent mit benutzerdefinierten Eigenschaften erstellen müssen, können Sie diese Eigenschaften als Vorlage zur Wiederverwendung zu einem späteren Zeitpunkt speichern.
 
@@ -44,14 +45,14 @@ Wenn Sie ein Kontingent erstellen, wählen Sie einen Kontingentpfad aus, der ein
      > [!Note]
      > Um ein automatisch zugewiesenes Kontingent zu erstellen, klicken Sie auf die Option **Vorlage automatisch anwenden und Kontingente für vorhandene und neue Unterordner erstellen**. Weitere Informationen über automatisch zugewiesene Kontingente finden Sie unter [Erstellen eines automatisch zugewiesenen Kontingents](create-auto-apply-quota.md).
 
-6.  Unter **Eigenschaften aus dieser Kontingentvorlage ableiten** ist die zum Erstellen des neuen Kontingents in Schritt2 verwendete Vorlage aktiviert (oder Sie können eine andere Vorlage aus der Liste auswählen). Beachten Sie, das die Eigenschaften der Vorlage unter **Zusammenfassung der Eigenschaften von Kontingenten** angezeigt werden.
+6.  Unter **Eigenschaften aus dieser Kontingentvorlage ableiten** ist die zum Erstellen des neuen Kontingents in Schritt 2 verwendete Vorlage aktiviert (oder Sie können eine andere Vorlage aus der Liste auswählen). Beachten Sie, das die Eigenschaften der Vorlage unter **Zusammenfassung der Eigenschaften von Kontingenten** angezeigt werden.
 
 7.  Klicken Sie auf **Erstellen**.
 
-## <a name="see-also"></a>Weitere Informationen:
+## <a name="see-also"></a>Siehe auch
 
--   [Kontingentverwaltung](quota-management.md)
+-   [Management von sollvorgaben](quota-management.md)
 -   [Erstellen eines automatisch zugewiesenen Kontingents](create-auto-apply-quota.md)
--   [Erstellen einer Kontingentvorlage](create-quota-template.md)
+-   [Erstellen Sie eine Kontingentvorlage](create-quota-template.md)
 
 

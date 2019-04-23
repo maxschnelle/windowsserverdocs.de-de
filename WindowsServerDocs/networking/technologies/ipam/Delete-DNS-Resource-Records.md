@@ -1,6 +1,6 @@
 ---
 title: Löschen von DNS-Ressourceneinträgen
-description: Dieses Thema ist Teil des Handbuchs Verwaltung von IP-Adressverwaltung (IPAM) in Windows Server2016.
+description: Dieses Thema ist Teil des Leitfadens Verwaltung von IP-Adressverwaltung (IPAM) in Windows Server 2016.
 manager: brianlic
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -13,37 +13,38 @@ ms.topic: article
 ms.assetid: 366e6fd5-d563-4de3-9551-5614cbb8f2cb
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: f9ebfeca1da9e36cd00272113f2e86c33174074b
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 2d3c5f4f02cc1a8386bf12fe634620ba98f2f23a
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59883221"
 ---
 # <a name="delete-dns-resource-records"></a>Löschen von DNS-Ressourceneinträgen
 
->Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
-In diesem Thema können Sie um einen oder mehrere DNS-Ressourceneinträge zu löschen, indem Sie mithilfe der IPAM-Clientkonsole.  
+Sie können in diesem Thema verwenden, um eine oder mehrere DNS-Ressourceneinträge mithilfe der IPAM-Clientkonsole zu löschen.  
   
-Mitgliedschaft in **Administratoren**, oder einer gleichwertigen Gruppe ist mindestens erforderlich, um dieses Verfahren auszuführen.  
+Die Mitgliedschaft in **Administratoren** oder einer entsprechenden Gruppe ist die Mindestanforderung für die Durchführung dieses Verfahrens.  
   
-### <a name="to-delete-dns-resource-records"></a>So löschen Sie DNS-Ressourceneinträgen  
+### <a name="to-delete-dns-resource-records"></a>So löschen Sie die DNS-Ressourceneinträgen  
   
-1.  Klicken Sie im Server-Manager auf **IPAM**. Die IPAM-Clientkonsole angezeigt wird.  
+1.  Klicken Sie im Server-Manager **IPAM**. Die IPAM-Clientkonsole angezeigt wird.  
   
-2.  Klicken Sie im Navigationsbereich in **ÜBERWACHEN und verwalten**, klicken Sie auf **DNS-Zonen**.  Der Navigationsbereich unterteilt in ein im oberen Navigationsbereich und einen unteren Navigationsbereich.  
+2.  Klicken Sie im Navigationsbereich in **ÜBERWACHEN und verwalten**, klicken Sie auf **DNS-Zonen**.  Im Navigationsbereich, die in einer oberen Navigationsbereich und einer unteren Navigationsbereich unterteilt werden.  
   
-3.  Erweitern Sie **Forward-Lookup** und der Domäne, in denen die Zone und Ressource Datensätze, die Sie löschen möchten befinden. Klicken Sie auf die Zone, und klicken Sie im Anzeigebereich, klicken Sie auf **aktuelle Ansicht**. Klicken Sie auf **Ressourceneinträge**.  
+3.  Erweitern Sie **Forward-Lookup** und die Domäne, in dem sich die Zone und die Ressourcendatensätze, die Sie löschen möchten befinden. Klicken Sie auf die Zone, und klicken Sie im Anzeigebereich erscheint, klicken Sie auf **aktuelle Ansicht**. Klicken Sie auf **Ressourceneinträge**.  
   
 4.  Klicken Sie im Anzeigebereich suchen Sie, und wählen Sie die Ressourceneinträge, die Sie löschen möchten.  
   
-    ![Wählen Sie die Ressource, die zu löschende Datensätze](../../media/Delete-DNS-Resource-Records/ipam_DeleteRR_01.jpg)  
+    ![Wählen Sie die, die zu löschende Ressourcendatensätze](../../media/Delete-DNS-Resource-Records/ipam_DeleteRR_01.jpg)  
   
-5.  Maustaste auf die ausgewählten Einträge, und klicken Sie dann auf **Löschen von DNS-Ressourceneintrag**.  
+5.  Mit der rechten Maustaste in die ausgewählten Datensätze, und klicken Sie dann auf **Löschen von DNS-Ressourceneintrag**.  
   
     ![Löschen Sie die Datensätze](../../media/Delete-DNS-Resource-Records/ipam_DeleteRR_02.jpg)  
   
-6.  Die **Löschen von DNS-Ressourceneintrag** Dialogfeld wird geöffnet. Stellen Sie sicher, dass der richtige DNS-Server aktiviert ist. Wenn sie nicht der Fall ist, klicken Sie auf **DNS-Server** und wählen Sie den Server, von dem Sie die Ressourceneinträge löschen möchten. Klicken Sie auf **OK**. IPAM löscht die Ressourceneinträge aus der DNS-Server.  
+6.  Die **Löschen von DNS-Ressourceneintrag** Dialogfeld wird geöffnet. Stellen Sie sicher, dass der richtige DNS-Server ausgewählt ist. Wenn sie nicht der Fall ist, klicken Sie auf **DNS-Server** , und wählen Sie den Server aus dem Sie die Ressourceneinträge löschen möchten. Klicken Sie auf **OK**. IPAM löscht die Ressourcendatensätze vom DNS-Server.  
   
     ![Stellen Sie sicher, dass der richtige DNS-Server aktiviert ist, und Löschen von Datensätzen](../../media/Delete-DNS-Resource-Records/ipam_DeleteRR_03.jpg)  
   

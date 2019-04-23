@@ -1,6 +1,6 @@
 ---
 ms.assetid: e5945bae-4a33-487c-a019-92a69db8cf6c
-title: "Aktualisieren der Laufwerkfirmware für in Windows Server 2016"
+title: Aktualisieren der Laufwerkfirmware für in Windows Server 2016
 ms.prod: windows-server-threshold
 ms.author: toklima
 ms.manager: dmoss
@@ -8,14 +8,15 @@ ms.technology: storage-spaces
 ms.topic: article
 author: toklima
 ms.date: 10/04/2016
-ms.openlocfilehash: 90019ed8425d72d30059be5d47458785cac34c73
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.openlocfilehash: 50291bd4da05d9c2736c84443b444b9a43f46344
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59884781"
 ---
-# <a name="updating-drive-firmware-in-windows-server-2016"></a>Aktualisieren der Laufwerkfirmware in Windows Server 2016
->Gilt für: Windows 10, Windows Server (Semi-Annual Channel), Windows Server 2016
+# <a name="updating-drive-firmware-in-windows-server-2016"></a>Aktualisieren der Laufwerkfirmware für in Windows Server 2016
+>Gilt für: Windows 10, WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
 Das Aktualisieren der Firmware für Laufwerke war lange eine umständliche Aufgabe mit potenzieller Downtime. Darum sorgen wir für Verbesserungen in der Funktion „Speicherplätze“, Windows Server und Windows 10, Version 1703, und neuer. Wenn Sie über Laufwerke verfügen, die neue Firmwareupdatemechanismen in Windows unterstützen, können Sie die Firmware von Laufwerken aktualisieren, die sich im Produktivbetrieb befinden. Wenn Sie jedoch die Firmware eines Laufwerks, das sich im Produktivbetrieb befindet, aktualisieren werden, lesen Sie vorher unsere Tipps, wie das Risiko einer Downtime während der Verwendung dieser leistungsfähigen neuen Funktion vermieden werden kann.
 
@@ -29,11 +30,11 @@ Sie müssen über unterstützte Laufwerke verfügen, um Windows Server zum Aktua
 Wenden Sie sich an Ihren Lösungsanbieter, um Informationen darüber zu erhalten, ob Ihre Hardware unterstützt, dass Windows die Laufwerkfirmware aktualisiert.
 Im Folgenden sind Links zu den verschiedenen Anforderungen aufgelistet:
 
--   SATA: [Device.Storage.Hd.Sata](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/device-storage#devicestoragehdsata) – im Abschnitt **[falls implementiert\] Download und Aktivierung der Firmware**
+-   SATA: [Device.Storage.Hd.Sata](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/device-storage#devicestoragehdsata) – in der **[Falls implementiert\] Firmware Download & Activate** Abschnitt
     
--   SAS: [Device.Storage.Hd.Sas](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/device-storage#devicestoragehdsas) – im Abschnitt **[falls implementiert\] Download und Aktivierung der Firmware**
+-   SAS: [Device.Storage.Hd.Sas](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/device-storage#devicestoragehdsas) – in der **[Falls implementiert\] Firmware Download & Activate** Abschnitt
 
--   NVMe: [Device.Storage.ControllerDrive.NVMe](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/device-storage#devicestoragecontrollerdrivenvme) – in den Abschnitten **5.7** und **5.8**
+-   NVMe: [Device.Storage.ControllerDrive.NVMe](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/device-storage#devicestoragecontrollerdrivenvme) – in den Abschnitten **5.7** und **5.8**.
 
 ## <a name="powershell-cmdlets"></a>PowerShell-Cmdlets
 
@@ -42,7 +43,7 @@ Die beiden Windows hinzugefügten Cmdlets sind:
 -   Get-StorageFirmwareInformation
 -   Update-StorageFirmware
 
-Das erste Cmdlet bietet ausführliche Informationen über die Funktionen des Geräts, Firmwareimages und Revisionen. In diesem Fall enthält der Computer nur ein einzelnes SATA-SSD mit einem Firmwareslot. Beispiel:
+Das erste Cmdlet bietet ausführliche Informationen über die Funktionen des Geräts, Firmwareimages und Revisionen. In diesem Fall enthält der Computer nur ein einzelnes SATA-SSD mit einem Firmwareslot. Im Folgenden ein Beispiel:
 
    ```powershell
    Get-PhysicalDisk | Get-StorageFirmwareInformation
@@ -76,7 +77,7 @@ Das Laufwerk lädt zunächst das neue Firmwareimage in einen internen Staging-Be
    FirmwareVersionInSlot : {J3E160@3}
    ```
 
-Laufwerke schließen normalerweise keine E/A-Anforderungen ab, wenn ein neues Firmwareimage aktiviert wird. Wie lange dauert, ein Laufwerk aktivieren, hängt von dem Entwurf und der Firmware aktualisiert werden. Erfahrungsgemäß reicht der Updatezeitraum von weniger als 5 Sekunden bis über 30 Sekunden.
+Laufwerke schließen normalerweise keine E/A-Einforderungen ab, wenn ein neues Firmwareimage aktiviert wird. Wie lange dauert, ein Laufwerk aktivieren, hängt von dem Entwurf und der Firmware aktualisiert werden. Erfahrungsgemäß reicht der Updatezeitraum von weniger als 5 Sekunden bis über 30 Sekunden.
 
 Dieses Laufwerk hat das Firmwareupdate innerhalb von ungefähr 5,8 Sekunden abgeschlossen, wie hier gezeigt wird:
 
@@ -104,7 +105,7 @@ Sobald sich ein Server im Produktivbetrieb befindet, sollten Sie daran so wenig 
 
 1. Lesen Sie die Versionshinweise der Firmware, und bestätigen Sie, dass das Update Probleme behandelt, die Ihre Umgebung beeinträchtigen könnten, und dass die Firmware keine bekannten Probleme enthält, die negative Auswirkungen haben könnten.
 
-2. Installieren Sie die Firmware auf einem Server in Ihrer Testumgebung, die über identische Laufwerke verfügt (einschließlich der Revision des Laufwerks, falls mehrere Revisionen desselben Laufwerks existieren), und testen Sie das Laufwerk unter Last mit der neuen Firmware. Informationen über die Ausführung synthetischer Auslastungstests finden Sie unter [Testen von Speicherplätzen mit synthetischen Arbeitslasten mit Windows Server](https://technet.microsoft.com/en-us/library/dn894707.aspx).
+2. Installieren Sie die Firmware auf einem Server in Ihrer Testumgebung, die über identische Laufwerke verfügt (einschließlich der Revision des Laufwerks, falls mehrere Revisionen desselben Laufwerks existieren), und testen Sie das Laufwerk unter Last mit der neuen Firmware. Informationen über die Ausführung synthetischer Auslastungstests finden Sie unter [Testen von Speicherplätzen mit synthetischen Arbeitslasten mit Windows Server](https://technet.microsoft.com/library/dn894707.aspx).
 
 ## <a name="automated-firmware-updates-with-storage-spaces-direct"></a>Automatische Firmwareupdates mit „Direkte Speicherplätze“
 
@@ -150,7 +151,7 @@ Laden Sie einfach die XML-Datei in die Clusterdatenbank hoch, damit die Installa
 ```powershell
 $SpacesDirect = Get-StorageSubSystem Clus*
 
-$CurrentDoc = $SpacesDirect | Get-StorageHealtHealth Service etting -Name "System.Storage.SupportedComponents.Document"
+$CurrentDoc = $SpacesDirect | Get-StorageHealthSetting -Name "System.Storage.SupportedComponents.Document"
 
 $CurrentDoc.Value | Out-File <Path>
 ```
@@ -163,15 +164,15 @@ $NewDoc = Get-Content <Path> | Out-String
 $SpacesDirect | Set-StorageHealthSetting -Name "System.Storage.SupportedComponents.Document" -Value $NewDoc
 ```
 
-Wenn Sie die Ausführung des Zustandsdiensts sehen möchten, und weitere Informationen über dessen Installationsmechanismus erhalten möchten, dann sehen Sie sich folgendes Video (in englischer Sprache) an: https://channel9.msdn.com/Blogs/windowsserver/Update-Drive-Firmware-Without-Downtime-in-Storage-Spaces-Direct
+Wenn Sie möchten, finden Sie unter den Health-Dienst in Aktion, und erfahren mehr über die Rollout-Mechanismus, haben Sie einen Blick auf dieses Video an: https://channel9.msdn.com/Blogs/windowsserver/Update-Drive-Firmware-Without-Downtime-in-Storage-Spaces-Direct
 
 ## <a name="frequently-asked-questions"></a>Häufig gestellte Fragen
 
 Siehe auch [Problembehandlung für Updates der Laufwerkfirmware](troubleshoot-firmware-update.md).
 
-### <a name="will-this-work-on-any-storage-device"></a>Funktioniert dies auf jedem Speichergerät?
+### <a name="will-this-work-on-any-storage-device"></a>Arbeitet es auf jedem Speichergerät?
 
-Dies funktioniert auf Speichergeräten, die die richtigen Befehle in ihrer Firmware implementieren. Das Cmdlet Get-StorageFirmwareInformation zeigt, wenn die Firmware eines Laufwerks die richtigen Befehle unterstützt (für SATA/NVMe). Durch den HLK-Test können Hersteller und OEMs dieses Verhalten testen.
+Es arbeitet auf Speichergeräten, die die richtigen Befehle in ihrer Firmware implementieren. Das Cmdlet Get-StorageFirmwareInformation zeigt, wenn die Firmware eines Laufwerks die richtigen Befehle unterstützt (für SATA/NVMe). Durch den HLK-Test können Hersteller und OEMs dieses Verhalten testen.
 
 ### <a name="after-i-update-a-sata-drive-it-reports-to-no-longer-support-the-update-mechanism-is-something-wrong-with-the-drive"></a>Nach dem Update eines SATA-Laufwerks erscheint ein Bericht, in dem angegeben ist, dass das Laufwerk den Updatemechanismus nicht länger unterstützt. Gibt es ein Problem mit dem Laufwerk?
 
@@ -194,9 +195,9 @@ Sie können diesen Vorgang auf Windows Server 2016 mit auf „Direkte Speicherpl
 
 ### <a name="what-happens-if-the-update-fails"></a>Was geschieht, wenn das Update fehlschlägt?
 
-Das Update kann aus verschiedenen Gründen fehlschlagen. Einige davon sind: 1) Das Laufwerk unterstützt nicht die richtigen Befehle für Windows zur Aktualisierung der Firmware. In diesem Fall wird das neue Firmwareimage nie aktiviert, und das Laufwerk arbeitet weiterhin mit dem alten Image. 2) Das Image kann nicht heruntergeladen werden oder auf diesem Laufwerk angewendet werden (Versionskonflikt, beschädigtes Image,...). In diesem Fall kann das Laufwerk den Befehl zum Aktivieren nicht ausführen. In diesem Fall wird weiterhin mit dem alten Firmwareimage gearbeitet.
+Das Update kann aus verschiedenen Gründen fehlschlagen, einige davon sind: (1) das Laufwerk unterstützt nicht die richtigen Befehle für Windows zur Aktualisierung der Firmware. In diesem Fall wird das neue Firmwareimage nie aktiviert, und das Laufwerk arbeitet weiterhin mit dem alten Image. 2) Das Image kann nicht heruntergeladen werden oder auf diesem Laufwerk angewendet werden (Versionskonflikt, beschädigtes Image,...). In diesem Fall kann das Laufwerk den Befehl zum Aktivieren nicht ausführen. In diesem Fall wird weiterhin mit dem alten Firmwareimage gearbeitet.
 
-Wenn das Laufwerk nach einem Firmwareupdate gar nicht reagiert, weist möglicherweise die Laufwerkfirmware selbst einen Bug auf. Testen Sie alle Firmwareupdates in einer Testumgebung vor dem Einfügen in die Produktionsumgebung. Die einzige Lösung ist unter Umständen der Austausch des Laufwerks.
+Wenn das Laufwerk nach einem Firmwareupdate gar nicht reagiert, weist möglicherweise die Laufwerkfirmware selbst einen Bug auf. Testen Sie alle Firmwareupdates in einer Testumgebung vor dem Einfügen in die Produktionsumgebung. Die einzige Lösung kann sein, das Laufwerk auszutauschen.
 
 Weitere Informationen finden Sie unter [Problembehandlung für Updates der Laufwerkfirmware](troubleshoot-firmware-update.md).
 

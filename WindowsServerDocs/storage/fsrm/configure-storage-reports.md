@@ -1,6 +1,6 @@
 ---
 title: Konfigurieren von Speicherberichten
-description: "In diesem Artikel wird beschrieben, wie Sie die Standardparameter für Speicherberichte konfigurieren"
+description: In diesem Artikel wird beschrieben, wie Sie die Standardparameter für Speicherberichte konfigurieren
 ms.date: 7/7/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: f62109a8d3ea3e4e6386956789d276f9aa911e80
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59885231"
 ---
 # <a name="configure-storage-reports"></a>Konfigurieren von Speicherberichten
 
-> Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
 
 Sie können die Standardparametern für Speicherberichte konfigurieren. Diese Standardparameter werden für Schadensberichte verwendet, die generiert werden, wenn ein Kontingent- oder Dateiprüfungsereignis auftritt. Sie werden auch für geplante und bedarfsgesteuerte Berichte verwendet und Sie können die Standardparametern außerkraftsetzen, wenn Sie die spezifischen Eigenschaften dieser Berichte festlegen.
 
@@ -39,7 +40,7 @@ Sie können die Standardparametern für Speicherberichte konfigurieren. Diese St
 
 7.  Klicken Sie auf **OK**.
 
-## <a name="see-also"></a>Weitere Informationen:
+## <a name="see-also"></a>Siehe auch
 
--   [Festlegen der Optionen des Ressourcen-Managers für Dateiserver](setting-file-server-resource-manager-options.md)
--   [Speicherberichtmanagement](storage-reports-management.md)
+-   [Einstellung File Server Resource Manager-Optionen](setting-file-server-resource-manager-options.md)
+-   [Speicherverwaltung für Berichte](storage-reports-management.md)

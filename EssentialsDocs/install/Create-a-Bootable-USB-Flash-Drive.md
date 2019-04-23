@@ -1,8 +1,8 @@
 ---
-title: Erstellen eines startbaren USB-Speichersticks
-description: Beschreibt, wie Sie Windows Server Essentials
+title: Erstellen eines startfähigen USB-Speichersticks
+description: Beschreibt, wie Windows Server Essentials
 ms.custom: na
-ms.date: 10/03/2016
+ms.date: 05/04/2018
 ms.prod: windows-server-2016-essentials
 ms.reviewer: na
 ms.suite: na
@@ -12,65 +12,71 @@ ms.assetid: 2fe8e35c-69f9-40b3-a270-22e2402510d8
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 9d587329e1141040b2511e1574649f1844dcec90
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.openlocfilehash: 2716ffb7ce8f74d7c729565064de91e0598d0753
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59884681"
 ---
-# <a name="create-a-bootable-usb-flash-drive"></a>Erstellen eines startbaren USB-Speichersticks
+# <a name="create-a-bootable-usb-flash-drive"></a>Erstellen eines startfähigen USB-Speichersticks
 
->Gilt für: Windows Server2016 Essentials, Windows Server2012 R2 Essentials, Windows Server2012 Essentials
+>Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Sie können einen startbaren USB-Speicherstick zum Bereitstellen von Windows Server Essentials erstellen. Der erste Schrittist das USB-Flashlaufwerk mithilfe von DiskPart, dies ist ein Befehlszeilen-Hilfsprogramm vorbereiten. Weitere Informationen zu DiskPart finden Sie unter [DiskPart-Befehlszeilenoptionen ](https://go.microsoft.com/fwlink/?LinkId=207073).  
+Sie können einen startbaren USB-Speicherstick zum Bereitstellen von Windows Server Essentials erstellen. Der erste Schritt ist die Vorbereitung des USB-Speichersticks mithilfe von DiskPart, einem Befehlszeilenprogramm. Information zu DiskPart finden Sie auf der Seite zu [DiskPart-Befehlszeilenoptionen](https://go.microsoft.com/fwlink/?LinkId=207073).  
+
+
+> [!TIP]
+> Um einen startbaren USB-Speichersticks für die Verwendung in wiederherstellen oder erneuten Installieren von Windows auf einem PC anstelle eines Servers zu erstellen, finden Sie unter [erstellen Sie ein Laufwerk Recovery](https://support.microsoft.com/help/4026852/windows-create-a-recovery-drive).
   
- Weitere Szenarien, in dem Sie möchten möglicherweise erstellen oder verwenden Sie ein startbares USB, Flash-Laufwerk, finden Sie unter den folgenden Themen:  
+ Zusätzliche Szenarien, in denen Sie möglicherweise einen bootfähigen USB-Speicherstick einrichten oder verwenden möchten, finden Sie in den folgenden Themen:  
   
--   [Wiederherstellen eines vollständigen Systems aus einer vorhandenen clientcomputersicherung](https://technet.microsoft.com/library/jj713539.aspx#BKMK_CreateBootable)  
+-   [Wiederherstellen eines vollständigen Systems aus einer vorhandenen clientcomputersicherung](../manage/restore-a-full-system-from-an-existing-client-computer-backup.md)  
   
--   [Wiederherstellen Sie oder reparieren Sie des Servers mit Windows Server Essentials](https://technet.microsoft.com/library/jj593197.aspx#BKMK_Restore_2)  
+-   [Wiederherstellen Sie oder reparieren Sie des Servers mit Windows Server Essentials](../manage/restore-or-repair-your-server-running-windows-server-essentials.md)  
+
   
-### <a name="to-create-a-bootable-usb-flash-drive"></a>Erstellen ein startbares USB-Speichersticks  
+### <a name="to-create-a-bootable-usb-flash-drive"></a>So erstellen Sie einen startfähigen USB-Speicherstick  
   
-1.  Legen Sie einen USB-Speicherstick an einen eingeschalteten Computer.  
+1.  Verbinden Sie einen USB-Speicherstick mit einem eingeschalteten Computer.  
   
 2.  Öffnen Sie ein Eingabeaufforderungsfenster als Administrator.  
   
-3.  Typ `diskpart`.  
+3.  Geben Sie `diskpart` ein.  
   
-4.  Geben Sie in dem neu geöffneten Befehlszeilenfenster, die geöffnet wird, um zu bestimmen, die USB-Flashlaufwerk Laufwerknummer oder des Laufwerkbuchstabens an der Eingabeaufforderung, `list disk`, und drücken Sie die EINGABETASTE. Die `list disk`Befehl zeigt alle Datenträger auf dem Computer. Beachten Sie die Laufwerknummer oder der Laufwerkbuchstabe des USB-Speichersticks.  
+4.  Geben Sie in dem neu geöffneten Befehlszeilenfenster zum Ermitteln der Laufwerknummer oder des Laufwerkbuchstabens des USB-Speichersticks an der Eingabeaufforderung `list disk` ein, und drücken Sie dann die EINGABETASTE. Mit dem Befehl `list disk` werden alle Datenträger im Computer angezeigt. Notieren Sie sich die Laufwerknummer oder den Laufwerkbuchstaben des USB-Speichersticks.  
   
-5.  Geben Sie an der Eingabeaufforderung `select disk <X>`, wobei X die Laufwerknummer ist oder der Laufwerkbuchstabe des USB-Speicherstick, und drücken Sie die EINGABETASTE.  
+5.  Geben Sie an der Eingabeaufforderung `select disk <X>` ein, wobei X die Laufwerknummer oder der Laufwerkbuchstabe des USB-Speichersticks ist, und drücken Sie dann die EINGABETASTE.  
   
-6.  Typ `clean`, und Sie dann die EINGABETASTE. Dieser Befehl löscht alle Daten vom USB-Speicherstick.  
+6.  Geben Sie `clean`ein, und drücken Sie dann die EINGABETASTE. Mit diesem Befehl werden alle Daten vom USB-Speicherstick gelöscht.  
   
-7.  Um eine neue primäre Partition auf dem USB-Speicherstick zu erstellen, geben `create part pri`, und drücken Sie die EINGABETASTE.  
+7.  Um eine neue primäre Partition auf dem USB-Speicherstick zu erstellen, geben Sie `create part pri` ein, und drücken Sie dann die EINGABETASTE.  
   
-8.  Um die Partition auszuwählen, die Sie gerade erstellt haben, geben `select part 1`, und drücken Sie die EINGABETASTE.  
+8.  Um die soeben erstellte Partition auszuwählen, geben Sie `select part 1`ein, und drücken Sie dann die EINGABETASTE.  
   
-9. Um die Partition zu formatieren, geben `format fs=ntfs quick`, und drücken Sie die EINGABETASTE.  
+9. Um die Partition zu formatieren, geben Sie `format fs=ntfs quick`ein, und drücken Sie dann die EINGABETASTE.  
   
     > [!IMPORTANT]
-    >  Wenn Ihre Serverplattform Unified Extensible Firmware Interface (UEFI) unterstützt, sollten Sie den USB-Speicherstick als FAT32 und nicht als NTFS formatieren. Um die Partition als FAT32 zu formatieren, geben `format fs=fat32 quick`, und drücken Sie die EINGABETASTE.  
+    >  Wenn Ihre Serverplattform Unified Extensible Firmware Interface (UEFI) unterstützt, sollten Sie den USB-Speicherstick als FAT32 und nicht als NTFS formatieren. Um die Partition als FAT32 zu formatieren, geben Sie `format fs=fat32 quick`ein, und drücken Sie dann die EINGABETASTE.  
   
-10. Typ `active`, und drücken Sie die EINGABETASTE.  
+10. Geben Sie `active`ein, und drücken Sie dann die EINGABETASTE.  
   
-11. Typ `exit`, und drücken Sie die EINGABETASTE.  
+11. Geben Sie `exit`ein, und drücken Sie dann die EINGABETASTE.  
   
-12. Wenn Sie die Vorbereitung des benutzerdefinierten Abbilds abgeschlossen haben, speichern Sie sie in das Stammverzeichnis des USB-Speicherstick.  
+12. Wenn Sie die Vorbereitung des benutzerdefinierten Abbilds abgeschlossen haben, speichern Sie es im Stamm des USB-Speichersticks.  
   
 ## <a name="see-also"></a>Siehe auch  
 
  [Erste Schritte mit Windows Server Essentials ADK](Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
  [Erstellen und Anpassen des Abbilds](Creating-and-Customizing-the-Image.md)   
- [Weitere Anpassungen](Additional-Customizations.md)   
+ [Zusätzliche Anpassungen](Additional-Customizations.md)   
  [Vorbereiten des Abbilds für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
  [Testen der Benutzerfreundlichkeit](Testing-the-Customer-Experience.md)   
 
  [Erste Schritte mit Windows Server Essentials ADK](../install/Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
  [Erstellen und Anpassen des Abbilds](../install/Creating-and-Customizing-the-Image.md)   
- [Weitere Anpassungen](../install/Additional-Customizations.md)   
+ [Zusätzliche Anpassungen](../install/Additional-Customizations.md)   
  [Vorbereiten des Abbilds für die Bereitstellung](../install/Preparing-the-Image-for-Deployment.md)   
  [Testen der Benutzerfreundlichkeit](../install/Testing-the-Customer-Experience.md)   
 
- [Wie können wir Ihnen helfen?](https://windows.microsoft.com/windows/support)
+ [Wie können wir dir helfen?](https://windows.microsoft.com/windows/support)

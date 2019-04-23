@@ -1,6 +1,6 @@
 ---
 ms.assetid: 13210461-1e92-48a1-91a2-c251957ba256
-title: "Problembehandlung für Updates der Laufwerkfirmware"
+title: Problembehandlung für Updates der Laufwerkfirmware
 ms.prod: windows-server-threshold
 ms.author: toklima
 ms.manager: masriniv
@@ -9,21 +9,22 @@ ms.topic: article
 author: toklima
 ms.date: 04/18/2017
 ms.openlocfilehash: 7ee5c57839f32d71053e983fc14f76c481236779
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59884161"
 ---
 # <a name="troubleshooting-drive-firmware-updates"></a>Problembehandlung für Updates der Laufwerkfirmware
 
->Gilt für: Windows 10, Windows Server (Semi-Annual Channel)
+>Gilt für: Windows 10, WindowsServer (Halbjährlicher Kanal)
 
 Version 1703 von Windows 10 und höher sowie Windows Server (Semi-Annual Channel) verfügt über eine Funktion zum Aktualisieren der Firmware von HDDs und SSDs, die mit dem Firmware Upgradeable AQ (Additional Qualifier) per PowerShell zertifiziert wurden.
 
 Weitere Informationen zu diesem Feature finden Sie hier:
 
-- [Aktualisieren der Laufwerkfirmware in Windows Server 2016](update-firmware.md)
-- [Aktualisieren der Laufwerkfirmware ohne Ausfallzeit in „Direkte Speicherplätze“](https://channel9.msdn.com/Blogs/windowsserver/Update-Drive-Firmware-Without-Downtime-in-Storage-Spaces-Direct)
+- [Aktualisieren der Firmware in Windows Server 2016](update-firmware.md)
+- [Aktualisieren Sie die Laufwerkfirmware ohne Ausfallzeiten für in Storage Spaces Direct](https://channel9.msdn.com/Blogs/windowsserver/Update-Drive-Firmware-Without-Downtime-in-Storage-Spaces-Direct)
 
 Firmwareupdates können aus verschiedenen Gründen fehlschlagen. Dieser Artikel soll Ihnen als Hilfe bei der erweiterten Problembehandlung dienen.
 
@@ -40,7 +41,7 @@ In Bezug auf die Architektur basiert diese neue Funktion auf APIs, die im Window
 Die folgenden Abschnitte enthalten Informationen zur Problembehandlung (unterteilt danach, ob Treiber von Microsoft oder von Drittanbietern verwendet werden).
 
 ## <a name="identifying-inappropriate-hardware"></a>Identifizieren falscher Hardware
-Die schnellste und einfachste Möglichkeit zur Ermittlung, ob ein Gerät den richtigen Befehlssatz unterstützt, ist das Starten von PowerShell und das Übergeben eines Datenträgers, der das PhysicalDisk-Objekt darstellt, an das Get-StorageFirmwareInfo-Cmdlet. Hier ist ein Beispiel angegeben:
+Die schnellste und einfachste Möglichkeit zur Ermittlung, ob ein Gerät den richtigen Befehlssatz unterstützt, ist das Starten von PowerShell und das Übergeben eines Datenträgers, der das PhysicalDisk-Objekt darstellt, an das Get-StorageFirmwareInfo-Cmdlet. Beispiel:
 
 ```powershell
 Get-PhysicalDisk -SerialNumber 15140F55976D | Get-StorageFirmwareInformation
@@ -63,13 +64,13 @@ Im Feld „SupportsUpdate“ wird für mit SAS verbundene Geräte immer „True�
 
 Es gibt zwei Optionen, um zu überprüfen, ob ein SAS-Gerät den erforderlichen Befehlssatz unterstützt:
 1.  Ausprobieren per Update-StorageFirmware-Cmdlet mit einem passenden Firmwareimage
-2.  Nutzen des Windows Server-Katalogs für die Ermittlung, welche SAS-Geräte die Prüfung durch den FW Update AQ bestanden haben (https://www.windowsservercatalog.com/)
+2.  Wenden Sie sich an den Windows Server-Katalog zum Identifizieren der SAS-Geräte erfolgreich die FW Update AQ (erlangt hat https://www.windowsservercatalog.com/)
 
 ### <a name="remediation-options"></a>Lösungsoptionen
 Wenn ein bestimmtes zu testendes Gerät den richtigen Befehlssatz nicht unterstützt, können Sie entweder bei Ihrem Anbieter anfragen, ob eine aktualisierte Firmware mit dem erforderlichen Befehlssatz verfügbar ist, oder Sie können mit dem Windows Server-Katalog Geräte ermitteln, die den richtigen Befehlssatz implementieren.
 
 ## <a name="troubleshooting-with-3rd-party-drivers-sas"></a>Problembehandlung mit Drittanbietertreibern (SAS)
-Die Softwarekomponenten, die am stärksten mit Hardware interagieren, sind Miniport-Treiber im Windows-Speicherstapel. Für einige Speicherprotokolle, z.B. SATA und NVMe, stellt Microsoft native Windows-Treiber bereit. Diese Treiber ermöglichen die Nutzung zusätzlicher Debuginformationen. Drittanbieter von Hardware und Software können für ihre Geräte dagegen eigene Miniport-Treiber schreiben, und die Supportstufe kann für Debuginformationen jeweils variieren.
+Die Softwarekomponenten, die am stärksten mit Hardware interagieren, sind Miniport-Treiber im Windows-Speicherstapel. Für einige Speicherprotokolle, z. B. SATA und NVMe, stellt Microsoft native Windows-Treiber bereit. Diese Treiber ermöglichen die Nutzung zusätzlicher Debuginformationen. Drittanbieter von Hardware und Software können für ihre Geräte dagegen eigene Miniport-Treiber schreiben, und die Supportstufe kann für Debuginformationen jeweils variieren.
 
 Nutzen Sie den folgenden Ereignisprotokollkanal, um zu ermitteln, was mit dem Firmwaredownload passiert ist, und unabhängig vom Miniport-Treiber APIs zu aktivieren, die an den Speicherstapel gesendet wurden:
 
@@ -97,7 +98,7 @@ At line:1 char:47
 + FullyQualifiedErrorId : StorageWMI 4,Microsoft.Management.Infrastructure.CimCmdlets.InvokeCimMethodCommand,Update-StorageFirmware
 ```
     
-PowerShell löst einen Fehler aus und hat Informationen dazu empfangen, dass die aufgerufene Funktion (Kernel-API) fehlerhaft war. Dies kann bedeuten, dass entweder die API vom SAS-Miniport-Treiber nicht implementiert wurde (hier der Fall), oder für die API aus einem anderen Grund ein Fehler aufgetreten ist, z.B. eine Fehlausrichtung der Downloadsegmente.
+PowerShell löst einen Fehler aus und hat Informationen dazu empfangen, dass die aufgerufene Funktion (Kernel-API) fehlerhaft war. Dies kann bedeuten, dass entweder die API vom SAS-Miniport-Treiber nicht implementiert wurde (hier der Fall), oder für die API aus einem anderen Grund ein Fehler aufgetreten ist, z. B. eine Fehlausrichtung der Downloadsegmente.
 
 ```
 EventData
@@ -131,7 +132,7 @@ In Fällen, in denen gemischte Protokolle verwendet und Übersetzungen durchgef�
 Wenn für den Treiber des Drittanbieters ermittelt wird, dass die erforderlichen APIs oder Übersetzungen nicht implementiert werden, kann entweder zu den von Microsoft bereitgestellten Alternativen für SATA (StorAHCI.sys) und NVMe (StorNVMe.sys) gewechselt werden, oder Sie können beim OEM- oder HBA-Anbieter des SAS-Treibers nachfragen, ob eine neuere Version mit der richtigen Unterstützung vorhanden ist.
 
 ## <a name="additional-troubleshooting-with-microsoft-drivers-satanvme"></a>Weitere Problembehandlung mit Microsoft-Treiber (SATA/NVMe)
-Wenn native Windows-Treiber, z.B. „StorAHCI.sys“ oder „StorNVMe.sys“, für den Betrieb von Speichergeräten verwendet werden, können zusätzliche Informationen zu möglichen Fehlerfällen bei den Aktualisierungsvorgängen für die Firmware abgerufen werden.
+Wenn native Windows-Treiber, z. B. „StorAHCI.sys“ oder „StorNVMe.sys“, für den Betrieb von Speichergeräten verwendet werden, können zusätzliche Informationen zu möglichen Fehlerfällen bei den Aktualisierungsvorgängen für die Firmware abgerufen werden.
 
 Über den ClassPnP/Operational-Kanal hinaus protokollieren StorAHCI und StorNVMe die protokollspezifischen Rückgabecodes des Geräts im folgenden ETW-Kanal:
 
@@ -141,7 +142,7 @@ Die Diagnoseprotokolle werden nicht standardmäßig angezeigt und können aktivi
 
 Um diese erweiterten Protokolleinträge zu sammeln, aktivieren Sie das Protokoll, reproduzieren den Fehler beim Firmwareupdate und speichern das Diagnoseprotokoll.
 
-Hier ist ein Beispiel für einen Fehler bei einem Firmwareupdate auf einem SATA-Gerät angegeben. Der Fehler ist aufgetreten, weil das herunterzuladende Image ungültig ist (Ereignis-ID: 258):
+Hier ist ein Beispiel für eine Aktualisierung der Firmware auf einem SATA-Gerät ein, da das Image heruntergeladen werden ungültig war (Ereignis-ID: 258):
 
 ``` 
 EventData
@@ -173,11 +174,11 @@ Parameter8Value 0
 ```
 
 Das obige Ereignis enthält in den Parameterwerten 2 bis 6 ausführliche Geräteinformationen. Hier sind verschiedene ATA-Registerwerte aufgeführt. Die ATA-ACS-Spezifikation kann zum Decodieren der unten angegebenen Werte in Bezug auf das Fehlschlagen eines Befehls zum Herunterladen von Microcode (Download Microcode) verwendet werden:
-- Rückgabecode: 0 (0000 0000) (N/V – bedeutungslos, da keine Nutzlast übertragen wurde)
-- Features: 15 (0000 1111) (Bit 1 ist auf „1“ festgelegt und zeigt „abort“ (Abbruch) an)
-- SectorCount: 0 (0000 0000) (N/V)
-- DriveHead: 160 (1010 0000) (N/V – nur veraltete Bits sind festgelegt)
-- Befehl: 146 (1001 0010) (Bit 1 ist auf „1“ festgelegt und zeigt die Verfügbarkeit von Sense-Daten an)
+- Rückgabecode: 0 (0000 0000) (n/v - bedeutungslos, da keine Nutzlast übertragen wurde)
+- Features: 15 (0000 1111) (Bit 1 auf '1' festgelegt ist, und gibt an, "Abbrechen")
+- SectorCount: 0 (0000 0000) (N/A)
+- DriveHead: 160 (1010 0000) (n/v – nur veraltete Bits festgelegt)
+- -Befehl: 146 (1001 0010) (Bit 1 ist festgelegt auf "1", der angibt, der Verfügbarkeit der Sinn Daten)
 
 Hier erfahren wir, dass der Vorgang zur Aktualisierung der Firmware vom Gerät abgebrochen wurde.
 
