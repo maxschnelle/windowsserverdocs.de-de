@@ -1,7 +1,7 @@
 ---
 ms.assetid: 65e474b5-3076-4ba3-809d-a09160f7c2bd
-title: Die Rolle von Anspruchsregeln
-description: 
+title: Rolle von Anspruchsregeln
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,103 +10,104 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: e47dbecdeee620d3a237ad8d8c41a550d3ef069c
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59860781"
 ---
->Gilt für: Windows Server2016, Windows Server2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-# <a name="the-role-of-claim-rules"></a>Die Rolle von Anspruchsregeln
-Die allgemeine Funktion des Verbunddiensts in Active Directory Federation Services \(AD FS\) ist ein Token ausstellen, die eine Gruppe von Ansprüchen enthält. Die Entscheidung, welche Ansprüche AD FS akzeptiert und anschließend ausgegeben unterliegt Anspruchsregeln.  
+# <a name="the-role-of-claim-rules"></a>Rolle von Anspruchsregeln
+Die allgemeine Funktion des Verbunddiensts in Active Directory-Verbunddienste \(AD FS\) besteht darin, ein Token ausstellen, die einen Satz von Ansprüchen enthält. Die Entscheidung, welche Ansprüche, die AD FS akzeptiert und gibt dann unterliegt Anspruchsregeln.  
   
 ## <a name="what-are-claim-rules"></a>Was sind Anspruchsregeln?  
-Eine Anspruchsregel stellt eine Instanz der Geschäftslogik, wird die nehmen einen oder mehrere eingehende Ansprüche Bedingungen anwendet \ (wenn x dann Y\) und erstellen Sie einen oder mehrere ausgehende Ansprüche, die auf Grundlage der Bedingung-Parameter. Weitere Informationen zu eingehenden und ausgehenden Ansprüchen finden Sie unter [The Role of Claims ](The-Role-of-Claims.md).  
+Eine Anspruchsregel stellt eine Instanz der Geschäftslogik, wird die nehmen eine oder mehrere eingehende Ansprüche Bedingungen anwendet \(If x, dann y\) und erzeugen Sie eine oder mehrere ausgehende Ansprüche, die Grundlage der Bedingungsparameter. Weitere Informationen zu ein- und ausgehende Ansprüche, finden Sie unter [The Role of Claims](The-Role-of-Claims.md).  
   
-Anspruchsregeln werden verwendet, wenn Sie benötigen, um Geschäftslogik zu implementieren, die den anspruchsverlauf in der anspruchspipeline gesteuert werden. Während die anspruchspipeline um ein eher logisches Konzept des ist angeblich der zur Implementierung-zu-Ende-Prozess für den anspruchsverlauf handelt, Anspruchsregeln ein tatsächliches administratives Element handelt, das Sie verwenden können, um den Fluss der anspruchsverlauf im anspruchsausstellungsprozess anpassen.  
+Anspruchsregeln werden verwendet, um Geschäftslogik zu implementieren, die den Anspruchsverlauf in der Anspruchspipeline steuert. Während der anspruchspipeline mehr ein logisches Konzept des Endes\-zu\-Ende des Prozesses für anspruchsverlaufs, beanspruchen Sie die Regeln sind ein tatsächliches administratives Element, mit denen Sie den anspruchsverlauf im anspruchsausstellungsprozess anpassen können.  
   
-Weitere Informationen zur anspruchspipeline finden Sie unter [The Role of the Claims Engine ](The-Role-of-the-Claims-Engine.md).  
+Weitere Informationen zur anspruchspipeline finden Sie unter [die Rolle des Anspruchsmoduls](The-Role-of-the-Claims-Engine.md).  
   
 Anspruchsregeln bieten folgende Vorteile:  
   
--   Bereitstellen eines Mechanismus für Administratoren ausführen Zeit Geschäftslogik für vertrauende Ansprüche von Anspruchsanbietern anwenden  
+-   Bieten einen Mechanismus für Administratoren ausführen anwenden\-Zeit Geschäftslogik für vertrauende Ansprüche von Anspruchsanbietern  
   
--   Bereitstellen eines Mechanismus für Administratoren definieren, welche Ansprüche für vertrauende Seiten ausgegeben werden  
+-   Bereitstellen eines Mechanismus, mit dem Administratoren definieren können, welche Ansprüche für vertrauende Seiten ausgegeben werden  
   
--   Bereitstellen von aussagekräftigen und detaillierten Claims\-basierte Autorisierungsfunktionen für Administratoren, die Zugriff zulassen oder Verweigern des Zugriffs auf bestimmte Benutzer möchten  
+-   Bereitstellen von aussagekräftigen und detaillierten Ansprüche\-Autorisierungsfunktionen für Administratoren, die Zugriff zulassen oder Verweigern des Zugriffs auf bestimmte Benutzer möchten basierend  
   
 ### <a name="how-claim-rules-are-processed"></a>Verarbeiten von Anspruchsregeln  
-Anspruchsregeln werden verarbeitet, über die Pipeline mithilfe der *anspruchsmodul *. Das anspruchsmodul ist eine logische Komponente des Verbunddiensts, die den Satz von eingehenden Ansprüche von einem Benutzer untersucht, und klicken Sie dann abhängig von der Logik in jeder Regel, erzeugt einen ausgabeanspruchssatz von Ansprüchen.  
+Anspruchsregeln werden mithilfe des *Anspruchsmoduls* über die Anspruchspipline verarbeitet. Das Anspruchsmodul ist eine logische Komponente des Verbunddiensts, die den Satz der von einem Benutzer gesendeten eingehenden Ansprüche untersucht und anschließend in Abhängigkeit von der Logik in jeder Regel einen Ausgabeanspruchssatz erzeugt.  
   
-Regel, die Ansprüche zusammen, die-Modul und der Anspruch auf eine bestimmte Vertrauensstellung zugeordnete Regeln zu ermitteln, ob die eingehenden Ansprüche weitergegeben werden, um eine bestimmte Bedingung Kriterien gefiltert oder werden in einen vollständig neuen Satz von Ansprüchen transformiert werden, bevor sie durch den Verbunddienst als ausgehende Ansprüche ausgestellt werden.  
+Das Anspruchsregelmodul und der Anspruchsregelsatz bestimmen in Verbindung mit einer angegebenen Verbundvertrauensstellung, ob eingehende Ansprüche unverändert weitergereicht, anhand der Kriterien einer bestimmten Bedingung gefiltert oder in einen vollständig neuen Satz von Ansprüchen transformiert werden, bevor sie durch den Verbunddienst als ausgehende Ansprüche ausgegeben werden.  
   
-Weitere Informationen zu diesem Prozess finden Sie unter [The Role of the Claims Engine ](The-Role-of-the-Claims-Engine.md).  
+Weitere Informationen zu diesem Prozess finden Sie unter [die Rolle des Anspruchsmoduls](The-Role-of-the-Claims-Engine.md).  
   
-## <a name="what-are-claim-rule-templates"></a>Was sind anspruchsregelvorlagen?  
-AD FS enthält einen vordefinierten Satz von anspruchsregelvorlagen Vorlagen, die entwickelt wurden, können Sie ganz einfach auswählen und erstellen die am besten geeigneten Anspruchsregeln für Ihre spezifischen Anforderungen Ihres Unternehmens. Anspruchsregelvorlagen Sie werden beim Erstellen der Anspruch Regel nur Vorlagen verwendet werden.  
+## <a name="what-are-claim-rule-templates"></a>Was sind Anspruchsregelvorlagen?  
+Einen vordefinierten Satz von anspruchsregelvorlagen, mit denen Sie auf einfache Weise auswählen, und erstellen die am besten geeigneten Anspruchsregeln für Ihre spezifischen Anforderungen Ihres Unternehmens, umfasst AD FS. Anspruchsregelvorlagen werden nur beim Erstellungsprozess für die Anspruchsregel verwendet.  
   
-In der AD FS-Verwaltungs-Snap-In können Regeln nur erstellt werden, mithilfe von anspruchsregelvorlagen wurde. Nachdem Sie das Snap-In zum verwenden eine anspruchsregelvorlage auswählen, die erforderlichen Daten für die Regellogik und auf die Konfigurationsdatenbank speichern, werden \ (von diesem Punkt Forward\) gemäß der Benutzeroberfläche als Anspruchsregel.  
+Im AD FS-Verwaltungs-Snap-\-in Regeln können nur erstellt werden mit anspruchsregelvorlagen. Nachdem Sie mithilfe der angedockten\-in einer anspruchsregelvorlage auswählen, geben Sie die erforderlichen Daten für die Regellogik, und speichern Sie sie mit der Konfigurationsdatenbank, sie werden \(ab diesem Punkt\) in der Benutzeroberfläche als Anspruchsregel bezeichnet.  
   
-### <a name="how-claim-rule-templates-work"></a>Wie von anspruchsregelvorlagen  
-Auf den ersten Blick erscheinen anspruchsregelvorlagen nur Eingabeformulare, die durch das Snap-In zum Sammeln von Daten und prozessspezifischer Logik für eingehende Ansprüche bereitgestellt werden. Fordern Sie jedoch ausführlichere Ebene speichern anspruchsregelvorlagen die erforderlichen Anspruch Framework für die Sie die grundlegende Logik zum Erstellen einer Regel ohne tiefgehende wissen, die Sprache erforderlich machen.  
+### <a name="how-claim-rule-templates-work"></a>Funktionsweise von Anspruchsregelvorlagen  
+Auf den ersten Blick Anspruch Regelvorlagen erscheinen nur durch das Snap-in bereitgestellte Eingabeformulare\-in zum Sammeln von Daten und prozessspezifischer Logik für eingehende Ansprüche. Bei genauerer Betrachtung speichern Anspruchsregelvorlagen jedoch das erforderliche Framework für die Anspruchsregelsprache, das die Basislogik bereitstellt, die Ihnen das schnelle Erstellen einer Regel ohne tiefgehende Kenntnis der Sprache ermöglicht.  
   
-Jede Vorlage, die in der Benutzeroberfläche bereitgestellt wird, stellt \(UI\) eine vordefinierte Syntax anspruchsregelsprache, basierend auf der am häufigsten erforderlichen administrativen Aufgaben. Gibt es eine Regelvorlage jedoch, die eine Ausnahme. Diese Vorlage wird als benutzerdefinierte Regelvorlage bezeichnet. Mit dieser Vorlage wird enthält keine vordefinierte Syntax. Stattdessen müssen Sie die Syntax der anspruchsregelsprache im Hauptteil der Anspruch Vorlagenformular mithilfe der Syntax der anspruchsregelsprache direkt erstellen.  
+Jede Vorlage, die in der Benutzeroberfläche bereitgestellt wird \(UI\) eine vorab aufgefüllte Anspruchsregel-Sprachsyntax, basierend auf den am häufigsten erforderlichen administrativen Aufgaben darstellt. Es gibt jedoch eine Vorlage, die eine Ausnahme bildet. Diese Vorlage wird als benutzerdefinierte Regelvorlage bezeichnet. Sie enthält keine vordefinierte Syntax. Stattdessen müssen Sie die Syntax für die Anspruchsregel mithilfe der Anspruchsregelsprache direkt im Textkörper des Anspruchsregel-Vorlagenformulars erstellen.  
   
 Weitere Informationen zur Verwendung der Syntax der anspruchsregelsprache finden Sie unter [The Role of the Claim Rule Language](The-Role-of-the-Claim-Rule-Language.md) in AD FS-Bereitstellungshandbuch.  
   
 > [!TIP]  
-> Sie können anzeigen, die anspruchsregelsprache einer Regel zugeordnete jederzeit durch Klicken auf die **Regelsprache anzeigen** auf die Eigenschaften einer Anspruchsregel auf die Schaltfläche.  
+> Sie können die einer Regel zugeordnete Anspruchsregelsprache jederzeit anzeigen, indem Sie in den Eigenschaften einer Anspruchsregel auf die Schaltfläche **Regelsprache anzeigen** klicken.  
   
-### <a name="how-to-create-a-claim-rule"></a>Vorgehensweise beim Erstellen einer Anspruchsregel  
-Anspruchsregeln werden separat für jede Verbund-vertrauensstellungsbeziehung innerhalb des Verbunddiensts erstellt und sind nicht mehreren Vertrauensstellungen gemeinsam verwendet. Sie können entweder eine Regel aus einer anspruchsregelvorlage erstellen, von Grund auf neu starten, erstellen Sie die Regel mithilfe der anspruchsregelsprache oder mithilfe von Windows PowerShell eine Regel anpassen.  
+### <a name="how-to-create-a-claim-rule"></a>Erstellen einer Anspruchsregel  
+Anspruchsregeln werden separat für jede Verbund-Vertrauensstellungsbeziehung innerhalb des Verbunddiensts erstellt und werden nicht von mehreren Vertrauensstellungen gemeinsam verwendet. Sie können entweder eine Regel auf Basis einer Anspruchsregelvorlage erstellen, eine Regel mithilfe der Anspruchsregelsprache von Grund auf neu erstellen oder eine Regel mithilfe von Windows PowerShell anpassen.  
   
-Alle diese Optionen zusammen verwendet werden, um Ihnen die Flexibilität, die geeignete Methode für ein bestimmtes Szenario bieten. Weitere Informationen zur Vorgehensweise beim Erstellen einer Anspruchsregel finden Sie unter [Anspruchsregeln konfigurieren](https://technet.microsoft.com/library/ee913571.aspx) im AD FSDeployment Bereitstellungshandbuch.  
+Diese unterschiedlichen Optionen bieten Ihnen die Flexibilität, die geeignete Methode für ein bestimmtes Szenario auszuwählen. Weitere Informationen über das Erstellen einer Anspruchsregel finden Sie unter [Konfigurieren von Anspruchsregeln](https://technet.microsoft.com/library/ee913571.aspx) im AD FSDeployment Guide.  
   
-#### <a name="using-claim-rule-templates"></a>Verwenden von anspruchsregelvorlagen  
-Anspruchsregelvorlagen Sie werden beim Erstellen der Anspruch Regel nur Vorlagen verwendet werden. Sie können eine der folgenden Vorlagen verwenden, um eine Anspruchsregel erstellen:  
+#### <a name="using-claim-rule-templates"></a>Verwenden von Anspruchsregelvorlagen  
+Anspruchsregelvorlagen werden nur beim Erstellungsprozess für die Anspruchsregel verwendet. Mit den folgenden Vorlagen können Sie eine Anspruchsregel erstellen:  
   
--   Weiterleiten oder Filtern eines eingehenden Anspruchs  
+-   Durchlauf oder Filtern eines eingehenden Anspruchs  
   
--   Transformieren eines eingehenden Anspruchs  
+-   Eingehenden Anspruch transformieren  
   
--   LDAP-Attributen als Ansprüche senden  
+-   LDAP-Attribute als Ansprüche senden  
   
--   Senden der Gruppenmitgliedschaft als Anspruch  
+-   Gruppenmitgliedschaft als Anspruch senden  
   
 -   Senden von Ansprüchen mit benutzerdefinierter Regel  
   
--   Zulassen oder Verweigern von Benutzern anhand eines eingehenden Anspruchs  
+-   Benutzer auf der Grundlage eines eingehenden Anspruchs zulassen oder verweigern  
   
 -   Alle Benutzer zulassen  
   
-Für Weitere Informationen zu einzelnen anspruchsregelvorlagen finden Sie unter [bestimmen Sie den Typ der Anspruch Regelvorlage verwenden](Determine-the-Type-of-Claim-Rule-Template-to-Use.md).  
+Weitere Informationen, die einzelnen anspruchsregelvorlagen, finden Sie unter [bestimmt der Typ des Anspruchs Regelvorlage verwenden](Determine-the-Type-of-Claim-Rule-Template-to-Use.md).  
   
-#### <a name="using-the-claim-rule-language"></a>Mithilfe der anspruchsregelsprache  
-Für Geschäftsregeln, die außerhalb des Bereichs des Standard-anspruchsregelvorlage sind, können Sie eine benutzerdefinierte Regelvorlage auf eine Reihe komplexer logikbedingungen mithilfe der anspruchsregelsprache Express. Weitere Informationen zur Verwendung einer benutzerdefinierten Regel finden Sie unter [verwenden eine benutzerdefinierte Anspruchsregel](When-to-Use-a-Custom-Claim-Rule.md).  
+#### <a name="using-the-claim-rule-language"></a>Verwenden der Anspruchsregelsprache  
+Für Geschäftsregeln, die über den Rahmen einer Standard-Anspruchsregelvorlage hinausgehen, können Sie eine benutzerdefinierte Regelvorlage verwenden, um mithilfe der Anspruchsregelsprache eine Reihe komplexer Logikbedingungen auszudrücken. Weitere Informationen zur Verwendung einer benutzerdefinierten Regelsatzes finden Sie unter [verwenden Sie eine benutzerdefinierte Anspruchsregel](When-to-Use-a-Custom-Claim-Rule.md).  
   
-#### <a name="using-windows-powershell"></a>Mithilfe von WindowsPowerShell  
-Sie können auch das Cmdlet-Objekt ADFSClaimRuleSet mit Windows PowerShell verwenden, erstellen oder Verwalten von Regeln in AD FS. Weitere Informationen darüber, wie Sie Windows PowerShell mit diesem Cmdlet verwenden können, finden Sie unter [AD FS-Verwaltung mit Windows PowerShell](https://go.microsoft.com/fwlink/?LinkID=179634).  
+#### <a name="using-windowspowershell"></a>Verwenden von Windows PowerShell  
+Sie können auch die Cmdlet-Objekt ADFSClaimRuleSet mit Windows PowerShell zum Erstellen oder Verwalten von Regeln in AD FS. Weitere Informationen darüber, wie Sie Windows PowerShell mit diesem Cmdlet verwenden können, finden Sie unter [AD FS-Verwaltung mit Windows PowerShell](https://go.microsoft.com/fwlink/?LinkID=179634).  
   
-## <a name="what-is-a-claim-rule-set"></a>Was ist ein anspruchsregelsatz?  
-Wie in der folgenden Abbildunggezeigt, ist ein anspruchsregelsatz eine Gruppierung von einer oder mehreren Regeln für eine angegebene verbundvertrauensstellung, die definieren, wie Ansprüche durch das anspruchsregelmodul verarbeitet werden. Beim Empfang eines eingehenden Anspruchs durch den Verbunddienst wendet das anspruchsregelmodul die Logik, die durch den entsprechenden anspruchsregelsatz angegeben. Es ist das Endergebnis der Logik aller Regeln in der Gruppe, die bestimmt, wie Ansprüche für eine bestimmte Vertrauensstellung in ihrer Gesamtheit ausgegeben werden.  
+## <a name="what-is-a-claim-rule-set"></a>Was ist ein Anspruchsregelsatz?  
+Wie in der folgenden Abbildung dargestellt, ist ein Anspruchsregelsatz eine Gruppierung von einer oder mehreren Regeln für eine angegebene Verbundvertrauensstellung, die definiert, wie Ansprüche durch das Anspruchsregelmodul verarbeitet werden. Bei Empfang eines eingehenden Anspruchs durch den Verbunddienst wendet das Anspruchsregelmodul die Logik an, die durch den entsprechenden Anspruchsregelsatz angegeben wird. Das Endergebnis der Logik aller Regeln im Satz bestimmt, wie die Ansprüche für eine bestimmte Vertrauensstellung in ihrer Gesamtheit ausgegeben werden.  
   
 ![AD FS-Rollen](media/adfs2_claimruleset.gif)  
   
-Anspruchsregeln werden vom anspruchsmodul chronologisch nach einem bestimmten Regelsatz verarbeitet. Diese Reihenfolge ist wichtig, da die Ausgabe einer Regel als Eingabe für die nächste Regel im Satz verwendet werden kann.  
+Anspruchsregeln werden vom Anspruchsmodul innerhalb eines bestimmten Regelsatzes chronologisch verarbeitet. Diese Reihenfolge ist wichtig, da die Ausgabe einer Regel als Eingabe für die nächste Regel im Satz verwendet werden kann.  
   
-## <a name="what-are-claim-rule-set-types"></a>Was sind anspruchsregelsatz festlegen?  
-Ein anspruchsregelsatz-Typ ist ein logisches Segment einer verbundvertrauensstellung, die kategorisch angibt, ob der der Vertrauensstellung zugeordnete anspruchsregelsatz für Ansprüche Ausstellung, Autorisierung oder Akzeptanz verwendet wird. Jeder verbundvertrauensstellung kann eine oder mehrere anspruchsregelsatz-Typen zugeordnet, je nach den Typ der Vertrauensstellung, die verwendet wird.  
+## <a name="what-are-claim-rule-set-types"></a>Was sind Anspruchsregelsatz-Typen?  
+Ein Anspruchsregelsatz-Typ ist ein logisches Segment einer Verbundvertrauensstellung, die kategorisch angibt, ob der der Vertrauensstellung zugeordnete Anspruchsregelsatz für die Ausstellung, Autorisierung oder Akzeptanz von Ansprüchen verwendet wird. Jeder Verbundvertrauensstellung können in Abhängigkeit vom Typ der verwendeten Vertrauensstellung ein oder mehrere Anspruchsregelsatz-Typen zugeordnet werden.  
   
-In der folgende Tabelle werden die verschiedenen Typen von anspruchsregelsätzen beschrieben und erläutert deren Beziehung zu entweder einer Anspruchsanbieter-Vertrauensstellung oder Vertrauensstellung der vertrauenden Seite.  
+Die folgende Tabelle beschreibt die verschiedenen Anspruchsregelsatz-Typen und erläutert deren Beziehung zu entweder einer Anspruchsanbieter-Vertrauensstellung oder einer Vertrauensstellung der vertrauenden Seite.  
   
-|Anspruchsregelsatz-Typ|Beschreibung|Auf verwendet|  
+|Anspruchsregelsatz-Typ|Beschreibung|Verwendung|  
 |-----------------------|---------------|-----------|  
-|Akzeptanztransformations-Regelsatz|Eine Reihe von Anspruchsregeln, mit denen Sie auf eine bestimmte Anspruchsanbieter-Vertrauensstellung angeben, die eingehenden Ansprüche, die von der Organisation des Anspruchsanbieters akzeptiert werden und die ausgehenden Ansprüche, die an die Vertrauensstellung der vertrauenden Seite gesendet werden.<br /><br />Die eingehenden Ansprüche, die verwendet werden, um diesen Regelsatz source werden die Ansprüche, die von der ausstellungstransformations-Regelsatz gemäß der Angabe in der Organisation des Anspruchsanbieters ausgegeben werden.<br /><br />Standardmäßig die Ansprüche enthält einer Anspruch Anspruchsanbieter-Vertrauensstellung mit dem Namen **Active Directory** dem verwendet, um den quellattributspeicher für den akzeptanztransformations-Regelsatz darzustellen. Dieses Vertrauensstellungsobjekt wird verwendet, um die Verbindung von Ihrem Verbunddienst in einer Active Directory-Datenbank in Ihrem Netzwerk darzustellen. Diese Standardeinstellung Vertrauensstellung ist, was verarbeitet Ansprüche für Benutzer, die von Active Directory authentifiziert wurden, und kann nicht gelöscht werden.|Anspruchsanbieter-Vertrauensstellungen|  
-|Ausstellungstransformations-Regelsatz|Eine Reihe von Anspruchsregeln, die Sie für eine Vertrauensstellung der vertrauenden Seite verwenden, um die Ansprüche anzugeben, die auf die vertrauende Seite ausgegeben wird.<br /><br />Die eingehenden Ansprüche, die verwendet werden, um diesen Regelsatz source werden die Ansprüche, die Ausgabe der akzeptanztransformationsregeln sind.|Vertrauensstellungen der vertrauenden Seite Vertrauensstellungen|  
-|Ausstellungsautorisierungs-Regelsatz|Eine Reihe von Anspruchsregeln, die Sie für eine Vertrauensstellung der vertrauenden Seite verwenden, um die Benutzer anzugeben, die ein Token für die vertrauende Seite empfangen dürfen.<br /><br />Diese Regeln bestimmen, ob ein Benutzer Ansprüche für eine vertrauende Seite und somit den Zugriff auf die vertrauende Seite empfangen kann.<br /><br />Wenn Sie keine ausstellungsautorisierungsregel angeben, werden alle Benutzer Zugriff standardmäßig verweigert.|Vertrauensstellungen der vertrauenden Seite Vertrauensstellungen|  
-|Delegationsautorisierungs-Regelsatz|Eine Reihe von Anspruchsregeln, die Sie für eine Vertrauensstellung der vertrauenden Seite verwenden, um die Benutzer anzugeben, die als Stellvertreter für andere Benutzer auf die vertrauende Seite agieren dürfen.<br /><br />Diese Regeln bestimmen, ob die anfordernde Person zur Annahme der Identität eines Benutzers trotzdem identifiziert die anfordernde Person im Token, das auf die vertrauende Seite gesendet wird zulässig ist.<br /><br />Wenn Sie keine ausstellungsautorisierungsregel angeben, können keine Benutzer standardmäßig als Stellvertreter agieren.|Vertrauensstellungen der vertrauenden Seite Vertrauensstellungen|  
-|Identitätswechsel-Regelsatz|Eine Reihe von Anspruch, können Regeln, die Sie konfigurieren mithilfe von Windows PowerShell um zu ermitteln, ob ein Benutzer vollständig, die Identität eines anderen Benutzers auf die vertrauende Seite annehmen.<br /><br />Diese Regeln bestimmen, ob die anfordernde Person zur Annahme der Identität eines Benutzers ohne die Identität der anfordernden Person im Token, das auf die vertrauende Seite gesendet wird zulässig ist.<br /><br />Identität eines anderen Benutzers auf diese Weise ist eine sehr leistungsstarke Funktion, da die vertrauende Seite nicht weiß, dass der Benutzer angenommen wird.|Vertrauensstellung einer vertrauenden Seite|  
+|Akzeptanztransformations-Regelsatz|Ein Anspruchsregelsatz, den Sie für eine bestimmte Anspruchsanbieter-Vertrauensstellung verwenden, um die eingehenden Ansprüche, die von der Organisation des Anspruchsanbieters akzeptiert werden, sowie die ausgehenden Ansprüche anzugeben, die an die Vertrauensstellung der vertrauenden Seite gesendet werden.<br /><br />Die eingehenden Ansprüche, die als Quelle für diesen Regelsatz verwendet werden, sind die Ansprüche, die von dem in der Anspruchsanbieterorganisation angegebenen Ausstellungstransformations-Regelsatz ausgegeben werden.<br /><br />Standardmäßig enthält der Vertrauensstellungsknoten des Anspruchsanbieters eine Anspruchsanbieter-Vertrauensstellung mit dem Namen **Active Directory**, die verwendet wird, um den Quellattributspeicher für den Akzeptanztransformations-Regelsatz darzustellen. Mit diesem Vertrauensstellungsobjekt wird die Verbindung von Ihrem Verbunddienst zu einer Active Directory-Datenbank in Ihrem Netzwerk dargestellt. Diese Standardvertrauensstellung verarbeitet Ansprüche für Benutzer, die von Active Directory authentifiziert wurden, und kann nicht gelöscht werden.|Anspruchsanbieter-Vertrauensstellungen|  
+|Ausstellungstransformations-Regelsatz|Ein Anspruchsregelsatz, den Sie für eine Vertrauensstellung der vertrauenden Seite verwenden, um die Ansprüche anzugeben, die für die vertrauende Seite ausgegeben werden.<br /><br />Die eingehenden Ansprüche, die als Quelle für diesen Regelsatz verwendet werden, sind zunächst die Ansprüche, die von den Ausstellungstransformationsregeln ausgegeben werden.|Vertrauensstellungen der vertrauenden Seite|  
+|Ausstellungsautorisierungs-Regelsatz|Ein Anspruchsregelsatz, den Sie für eine Vertrauensstellung der vertrauenden Seite verwenden, um die Benutzer anzugeben, die zum Empfang eines Tokens für die vertrauende Seite berechtigt sind.<br /><br />Diese Regeln bestimmen, ob ein Benutzer Ansprüche für eine vertrauende Seite empfangen und damit auf die vertrauende Seite zugreifen kann.<br /><br />Wenn Sie keine Ausstellungsautorisierungsregel angeben, wird der Zugriff allen Benutzern standardmäßig verweigert.|Vertrauensstellungen der vertrauenden Seite|  
+|Delegationsautorisierungs-Regelsatz|Ein Anspruchsregelsatz, den Sie für eine Vertrauensstellung der vertrauenden Seite verwenden, um die Benutzer anzugeben, die als Stellvertreter für andere Benutzer der vertrauenden Seite agieren dürfen.<br /><br />Diese Regeln bestimmen, ob die anfordernde Person zur Annahme der Identität eines Benutzers berechtigt ist, wobei die anfordernde Person im an die vertrauende Seite gesendeten Token trotzdem identifiziert wird.<br /><br />Wenn Sie keine Ausstellungsautorisierungsregel angeben, können Benutzer standardmäßig nicht als Stellvertreter agieren.|Vertrauensstellungen der vertrauenden Seite|  
+|Autorisierungsregelsatz für den Identitätswechsel|Ein Anspruchsregelsatz, den Sie mit Windows PowerShell konfigurieren, um zu bestimmen, ob ein Benutzer vollständig die Identität eines anderen Benutzers der vertrauenden Seite annehmen kann.<br /><br />Diese Regeln bestimmen, ob die anfordernde Person zur Annahme der Identität eines Benutzers berechtigt ist, ohne dass die anfordernde Person im an die vertrauende Seite gesendeten Token identifiziert wird.<br /><br />Die Annahme der Identität eines anderen Benutzers in dieser Weise ist eine sehr leistungsstarke Funktion, da die vertrauende Seite nicht weiß, dass ein anderer die Identität des Benutzers angenommen hat.|Vertrauensstellung der vertrauenden Seite|  
   
-Weitere Informationen zum auswählen die geeigneten Anspruchsregeln für die Verwendung in Ihrer Organisation finden Sie unter [bestimmen Sie den Typ der Anspruch Regelvorlage verwenden](Determine-the-Type-of-Claim-Rule-Template-to-Use.md).  
+Weitere Informationen zum auswählen die geeigneten Anspruchsregeln für die Verwendung in Ihrer Organisation finden Sie unter [bestimmt der Typ des Anspruchs Regelvorlage verwenden](Determine-the-Type-of-Claim-Rule-Template-to-Use.md).  
   
 

@@ -1,7 +1,7 @@
 ---
 ms.assetid: 0ac8584c-d0a1-4b87-a9e2-cee909dcaff9
-title: Azure Active Directory herstellen.
-description: 
+title: Azure Active Directory Connect
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,18 +9,19 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 50f5f4dbf02f24ce9f2802832de61d9a96310c93
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.openlocfilehash: 466f03fb2b0e08bf11ad6e6520ecb4e75a3cb49d
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59858921"
 ---
-# <a name="azure-active-directory-connect"></a>Azure Active Directory herstellen.
+# <a name="azure-active-directory-connect"></a>Azure Active Directory Connect
 
->Gilt für: Windows Server2016, Windows Server2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Azure AD Connect wird die lokale Verzeichnisse in Azure Active Directory integriert werden. Dadurch können Sie eine einheitliche Identität für Ihre Benutzer für Office 365, Azure und SaaS-Anwendungen in Azure AD integriert bereitzustellen. .  
+Azure AD Connect werden Ihre lokalen Verzeichnisse in Azure Active Directory integriert. Dadurch können Sie eine allgemeine Identität für Ihre Benutzer für Office 365, Azure und SaaS-Anwendungen in Azure AD integriert bereitstellen. .  
   
-Weitere Informationen finden Sie unter [Integrieren Ihrer lokalen Identitäten in Azure Active Directory](https://azure.microsoft.com/en-us/documentation/articles/active-directory-aadconnect/).  
+Weitere Informationen finden Sie unter [Integrieren Ihrer lokalen Identitäten in Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect/).  
   
 

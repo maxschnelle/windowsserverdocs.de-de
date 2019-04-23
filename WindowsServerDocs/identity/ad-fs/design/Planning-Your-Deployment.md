@@ -1,7 +1,7 @@
 ---
 ms.assetid: bb9b9e18-bf2f-4115-be77-9a165944db41
-title: Planen der Bereitstellung
-description: 
+title: Planen Ihrer Bereitstellung
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,39 +10,40 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: 5c7cec9ad92605f3dc98f8ce8fb7853a7ae61299
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59863691"
 ---
-# <a name="planning-your-deployment"></a>Planen der Bereitstellung
+# <a name="planning-your-deployment"></a>Planen Ihrer Bereitstellung
 
->Gilt für: Windows Server2016, Windows Server2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Wenn Sie Cross\ organisationsübergreifende \(federation\-based\) Zusammenarbeit mithilfe von Active Directory Federation Services \(AD FS\) planen, ermitteln Sie zunächst, wenn Ihre Organisation eine Webressource von anderen Organisationen über das Internet zugegriffen werden gehostet wird, oder wenn Sie den Zugriff auf die Webressource für Mitarbeiter in Ihrer Organisation bereitstellen werden. Dies wirkt sich wie für die Bereitstellung von AD FS, und es ist wesentlich bei der Planung der AD FS-Infrastruktur.  
+Beim Planen plattformübergreifende\-Organisation \(Verbund\-basierend\) Zusammenarbeit mithilfe von Active Directory Federation Services \(AD FS\), zuerst zu bestimmen, ob Ihre Organisation Hosten eine Webressource, die von anderen Organisationen, die über das Internet zugegriffen werden soll, oder wenn Sie den Zugriff auf die Webressource für Mitarbeiter in Ihrer Organisation bereitstellen. Diese Entscheidung wirkt sich auf, wie Sie AD FS bereitstellen, und es ist überaus wichtig, bei der Planung der AD FS-Infrastruktur.  
   
 > [!NOTE]  
-> Stellen Sie sicher, dass die Rolle, die Organisation in der verbundvereinbarung spielt alle Parteien eindeutig angesehen wird.  
+> Stellen Sie sicher, dass alle Parteien eindeutig verstehen, welche Rolle die Organisation in der Verbundvereinbarung spielt.  
   
-Für die [Federated Web SSO Design](Federated-Web-SSO-Design.md), AD FS verwendet Begriffe wie z.B. *Kontopartner* \ (auch bezeichnet als *Identitätsanbieter* in der AD FS-Verwaltungs-Snap-Taste) und *Ressourcenpartner* \ (auch bezeichnet als *vertrauende* in der AD FS-Verwaltungs-Snap-Taste) um die Organisation zu unterscheiden, die die Konten hostet \(the account Partner\) aus der Organisation, die die webbasierten Ressourcen hostet \(the resource Partner\).  
+Für die [Federated Web SSO Design](Federated-Web-SSO-Design.md), AD FS werden Begriffe verwendet, z. B. *Kontopartner* \(so genannte *Identitätsanbieter* im AD FS-Verwaltungs-Snap-\-in\) und *Ressourcenpartner* \(so genannte *vertrauende* im AD FS-Verwaltungs-Snap-\-in\) auf erleichtern die Unterscheidung von der Organisationsstatus, die die Konten hostet \(Kontopartner\) aus der Organisation, die im Web gehostet\-Ressourcen \(Ressourcenpartner\).  
   
-In der [Web-SSO-Entwurf](Web-SSO-Design.md), die Organisation fungiert in sowohl das Konto Partner auch die Ressourcenpartnerrolle, da es die Benutzer mit Zugriff auf ihre Anwendungen bereitstellt.  
+Beim [Web SSO Design](Web-SSO-Design.md)übernimmt die Organisation sowohl die Kontopartnerrolle als auch die Ressourcenpartnerrolle, da die Organisation den eigenen Benutzern Zugriff auf ihre Anwendungen gewährt.  
   
-Die folgenden Themen wird erläutert, dass einige der AD FS Organisation Konzepte Partner. Sie enthalten auch Links zu Themen im Bereitstellungshandbuch für AD FS, die Informationen zum Einrichten und Konfigurieren von Konto- und ressourcenpartnerorganisationen basierend auf der AD FS-Bereitstellungsziele enthalten.  
+Die folgenden Themen wird erläutert, dass einige der AD FS erläutert partner. Es enthält auch Links zu Themen im Bereitstellungshandbuch für AD FS, die Informationen über das Einrichten und Konfigurieren von Konto- und ressourcenpartnerorganisationen basierend auf der AD FS-Bereitstellungsziele enthalten.  
   
-## <a name="in-this-section"></a>In diesem Abschnitt  
+## <a name="in-this-section"></a>Inhalt dieses Abschnitts  
   
 -   [Bewährte Methoden für die sichere Planung und Bereitstellung von AD FS](Best-Practices-for-Secure-Planning-and-Deployment-of-AD-FS.md)  
   
 -   [Planen der Interoperabilität mit AD FS 1.x](Planning-for-Interoperability-with-AD-FS-1.x.md)  
   
--   [Wenn für Identitätsdelegierung](When-to-Use-Identity-Delegation.md)  
+-   [Verwenden Sie die Identitätsdelegierung](When-to-Use-Identity-Delegation.md)  
   
 -   [Bereitstellen von AD FS in der Kontopartnerorganisation](Deploying-AD-FS-in-the-Account-Partner-Organization-2012.md)  
   
 -   [Bereitstellen von AD FS in der Ressourcenpartnerorganisation](Deploying-AD-FS-in-the-Resource-Partner-Organization-2012.md)  
   
 ## <a name="see-also"></a>Siehe auch
-[AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[AD FS-Entwurfshandbuch in WindowsServer 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
 
 

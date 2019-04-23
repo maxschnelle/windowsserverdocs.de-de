@@ -1,25 +1,26 @@
 ---
-title: Health-Dienst-Einstellungen
+title: Service Health-Einstellungen
 ms.prod: windows-server-threshold
 manager: eldenc
 ms.author: cosdar
 ms.technology: storage-health-service
 ms.topic: article
-ms.assetid: 
+ms.assetid: ''
 author: cosmosdarwin
 ms.date: 08/14/2017
 ms.openlocfilehash: 569cf7ba30fd3f993394efd3735a56d116c067e0
-ms.sourcegitcommit: 30fcae929ce7b611f5d3a5f8fee64b0299272110
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59858331"
 ---
-# <a name="health-service-settings"></a>Health-Dienst-Einstellungen
-> Gilt für WindowsServer 2016
+# <a name="health-service-settings"></a>Service Health-Einstellungen
+> Gilt für Windows Server 2016
 
-Der Integritätsdienst ist ein neues Feature in Windows Server 2016, das die tägliche Überwachung verbessert und betriebliche Erfahrung für Cluster mit "direkte Speicherplätze".
+Der Integritätsdienst ist ein neues Feature in Windows Server 2016, die die tägliche Überwachung verbessert und Erfahrungen für Cluster "direkte Speicherplätze".
 
-Viele der Parameter auf, die das Verhalten des Integritätsdiensts werden als Einstellungen verfügbar gemacht. Sie können diese zum Optimieren der Aggressivität von Fehlern oder Aktionen, aktivieren Sie die ein-/Ausschalten des Verhaltens und vieles mehr ändern.
+Viele der Parameter, die steuern das Verhalten des Integritätsdiensts werden als Einstellungen verfügbar gemacht. Sie können ändern, diese an die Aggressivität der Fehler oder Aktionen zu optimieren, aktivieren Sie bestimmte Verhaltensweisen aktivieren/deaktivieren und vieles mehr.
 
 Verwenden Sie das folgende PowerShell-Cmdlet zum Festlegen oder Ändern von Einstellungen.
 
@@ -37,9 +38,9 @@ Get-StorageSubSystem Cluster* | Set-StorageHealthSetting -Name "System.Storage.V
 
 ### <a name="common-settings"></a>Allgemeine Einstellungen
 
-Einige häufig geänderten Einstellungen werden zusammen mit ihren Standardwerten unten aufgeführt.
+Einige häufig geänderten Einstellungen sind, sowie die Standardwerte aufgeführt.
 
-#### <a name="volume-capacity-threshold"></a>Kapazität-Schwellenwert
+#### <a name="volume-capacity-threshold"></a>Kapazität der Replikatvolume-Schwellenwert
 
 ```
 "System.Storage.Volume.CapacityThreshold.Enabled"  = True
@@ -47,13 +48,13 @@ Einige häufig geänderten Einstellungen werden zusammen mit ihren Standardwerte
 "System.Storage.Volume.CapacityThreshold.Critical" = 90
 ```
 
-#### <a name="pool-reserve-capacity-threshold"></a>Pool reservieren Kapazität-Schwellenwert
+#### <a name="pool-reserve-capacity-threshold"></a>Pool reservierte Kapazität-Schwellenwert
 
 ```
 "System.Storage.StoragePool.CheckPoolReserveCapacity.Enabled" = True
 ```
 
-#### <a name="physical-disk-lifecycle"></a>Lebenszyklus von physischen Datenträgern
+#### <a name="physical-disk-lifecycle"></a>Lebenszyklus physischer Datenträger
 
 ```
 "System.Storage.PhysicalDisk.AutoPool.Enabled"                             = True
@@ -66,9 +67,9 @@ Einige häufig geänderten Einstellungen werden zusammen mit ihren Standardwerte
 
 #### <a name="supported-components-document"></a>Unterstützte Komponenten Dokument
 
-Finden Sie im vorherigen Abschnitt.
+Finden Sie im vorherigen Abschnitt aus.
 
-#### <a name="firmware-rollout"></a>Firmware-Einführung
+#### <a name="firmware-rollout"></a>Rollout der Firmware
 
 ```
 "System.Storage.PhysicalDisk.AutoFirmwareUpdate.SingleDrive.Enabled"       = True
@@ -79,7 +80,7 @@ Finden Sie im vorherigen Abschnitt.
 "System.Storage.PhysicalDisk.AutoFirmwareUpdate.RollOut.FailureTolerance"  = 3
 ```
 
-#### <a name="platform--quiescence"></a>Plattform / Ruhe
+#### <a name="platform--quiescence"></a>Plattform / Momentaufnahmedatenbank
 
 ```
 "Platform.Quiescence.MinDelaySeconds" = 120 (i.e. 2 minutes)
@@ -101,4 +102,4 @@ Finden Sie im vorherigen Abschnitt.
 ## <a name="see-also"></a>Siehe auch
 
 - [Integritätsdienst in WindowsServer 2016](health-service-overview.md)
-- [Direkte Speicherplätze in WindowsServer 2016](../storage/storage-spaces/storage-spaces-direct-overview.md)
+- ["Direkte Speicherplätze" unter WindowsServer 2016](../storage/storage-spaces/storage-spaces-direct-overview.md)

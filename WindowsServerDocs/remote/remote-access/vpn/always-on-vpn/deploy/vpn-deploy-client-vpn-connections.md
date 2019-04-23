@@ -1,6 +1,6 @@
 ---
 title: Konfigurieren von Windows 10-Client immer auf VPN-Verbindungen
-description: In diesem Schritt erfahren Sie mehr über die ProfileXML-Optionen und Schema, und Konfigurieren der Windows 10-Clientcomputer für die Kommunikation mit dieser Infrastruktur mit einer VPN-Verbindung.
+description: In diesem Schritt haben Sie erfahren Sie mehr über die Optionen für "profileXML" und das Schema und die Windows 10-Clientcomputern für die Kommunikation mit dieser Infrastruktur mit einer VPN-Verbindung konfigurieren.
 ms.prod: windows-server-threshold
 ms.technology: networking-ras
 ms.topic: article
@@ -11,58 +11,58 @@ ms.author: pashort
 author: shortpatti
 ms.reviewer: deverette
 ms.openlocfilehash: 6b383076686092e20448977bed3766f7d7d1c2b8
-ms.sourcegitcommit: 4147e092d77d9458696e6686bccefe3788c90508
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "9031314"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59865891"
 ---
-# Schritt 6. Konfigurieren von Windows 10-Client Always On VPN-Verbindungen
+# <a name="step-6-configure-windows-10-client-always-on-vpn-connections"></a>Schritt 6 Konfigurieren von Windows 10-Always On-VPN-Clientverbindungen
 
->Gilt für: WindowsServer (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows 10
+>Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
 
-& #171;  [ **Vorherigen:** Schritt 5. Konfigurieren von DNS und Firewall-Einstellungen](vpn-deploy-dns-firewall.md)<br>
-& #187; [ **Weiter:** Schritt 7. (Optional) Bedingter Zugriff für VPN-Konnektivität mit Azure AD](../../ad-ca-vpn-connectivity-windows10.md)
+&#171;  [**Vorherige:** Schritt 5 Konfigurieren von DNS und Firewall-Einstellungen](vpn-deploy-dns-firewall.md)<br>
+&#187; [ **Next:** Schritt 7 (Optional) Bedingter Zugriff für VPN-Verbindungen mithilfe von Azure AD](../../ad-ca-vpn-connectivity-windows10.md)
 
-In diesem Schritt erfahren Sie mehr über die ProfileXML-Optionen und Schema, und Konfigurieren der Windows 10-Clientcomputer für die Kommunikation mit dieser Infrastruktur mit einer VPN-Verbindung. 
+In diesem Schritt haben Sie erfahren Sie mehr über die Optionen für "profileXML" und das Schema und die Windows 10-Clientcomputern für die Kommunikation mit dieser Infrastruktur mit einer VPN-Verbindung konfigurieren. 
 
-Sie können den Always On VPN-Client über PowerShell, SCCM oder Intune konfigurieren. Alle drei erfordern eine XML-VPN-Profil so konfigurieren Sie die entsprechenden VPN-Einstellungen. Automatisieren von PowerShell ist die Registrierung für Organisationen ohne SCCM oder Intune möglich.
+Sie können Always On-VPN-Client über PowerShell, SCCM oder Intune konfigurieren. Alle drei erfordern ein XML VPN-Profil so konfigurieren Sie die entsprechenden VPN-Einstellungen. Automatisieren von PowerShell ist die Registrierung für Organisationen ohne SCCM oder Intune möglich.
 
 >[!NOTE]
->Gruppenrichtlinie enthält keine administrative Vorlagen, um den Windows 10 Remote Access Always On VPN-Client konfigurieren.  Allerdings können Sie Skripts zum Anmelden.
+>Die Gruppenrichtlinie umfasst keine administrative Vorlagen zum Konfigurieren des Windows 10 Remote Access Always On-VPN-Clients.  Allerdings können Sie Anmeldeskripts verwenden.
 
-## ProfileXML-Übersicht
+## <a name="profilexml-overview"></a>Übersicht über die "profileXML"
 
-ProfileXML ist ein URI-Knoten in dem VPNv2-CSP. Anstatt jedem VPNv2-CSP-Knoten einzeln konfigurieren – z. B. Trigger, weiterleiten, Listen und Authentifizierungsprotokolle – verwenden Sie diesen Knoten zum Konfigurieren eines Windows 10-VPN-Clients durch die Bereitstellung von alle Einstellungen als einzelne XML-Block auf einen einzelnen CSP-Knoten. Das ProfileXML-Schema entspricht das Schema der Knoten VPNv2-CSP fast identisch, aber einige Begriffe unterscheiden sich leicht.
+"ProfileXML" ist ein URI-Knoten innerhalb der VPNv2 CSP. Anstatt jeden VPNv2 CSP-Knoten einzeln zu konfigurieren, wie z. B. Trigger, weiterleiten, Listen und Authentifizierungsprotokolle – verwenden Sie diesen Knoten so konfigurieren Sie Windows 10-VPN-Client durch die Bereitstellung alle Einstellungen als ein einziger XML-Block auf einen einzelnen CSP-Knoten. Das Schema "profileXML" entspricht das Schema der VPNv2 CSP-Knoten, fast identisch, aber einige Begriffe unterscheiden sich geringfügig.
 
-Verwenden Sie ProfileXML in alle erforderlichen, die diese Bereitstellung wird beschrieben, einschließlich Windows PowerShell, System Center Configuration Manager und Intune, die Bereitstellungsmethoden. Es gibt zwei Möglichkeiten, den ProfileXML VPNv2-CSP-Knoten in der Bereitstellung zu konfigurieren:
+In allen die Übermittlungsmethoden, die diese Bereitstellung wird beschrieben, wie z.B. Windows PowerShell System Center Configuration Manager und Intune, die verwenden Sie "profileXML". Es gibt zwei Möglichkeiten, den Knoten "profileXML" VPNv2 CSP in dieser Bereitstellung zu konfigurieren:
 
-- **OMA-DM**. Eine Möglichkeit ist die Verwendung von OMA-DM, mit einem MDM-Anbieter, wie weiter oben im Abschnitt [VPNv2-CSP-Knoten](../always-on-vpn-technology-overview.md#vpnv2-csp-nodes)erläutert. Bei Verwendung dieser Methode können Sie einfach das VPN-Profil Configuration XML-Markup in den ProfileXML CSP-Knoten beim Einfügen Intune verwenden.
+- **OMA-DM**. Eine Möglichkeit ist die Verwendung einen MDM-Anbieter mithilfe von OMA-DM, wie im Abschnitt bereits erwähnt [VPNv2 CSP Knoten](../always-on-vpn-technology-overview.md#vpnv2-csp-nodes). Mit dieser Methode können Sie einfach das VPN-Profil Konfigurations-XML-Markup in der ProfileXML CSP-Knoten einfügen bei Verwendung von Intune.
 
-- **Windows-Verwaltungsinstrumentation (WMI) - zu - CSP-Brücke**. Die zweite Methode Konfigurieren des Knotens ProfileXML CSP ist die Verwendung die WMI-CSP-Brücke – eine WMI-Klasse namens **MDM_VPNv2_01**–, die Zugriff auf dem VPNv2-CSP und der ProfileXML-Knoten. Wenn Sie eine neue Instanz der WMI-Klasse erstellen, verwendet WMI CSP VPN-Profil erstellen, wenn Windows PowerShell und System Center Configuration Manager verwenden.
+- **Windows-Verwaltungsinstrumentation (WMI) - zu - CSP-Bridge**. Die zweite Methode der Konfiguration des ProfileXML CSP-Knotens wird die WMI-zu-CSP-Bridge verwenden – eine WMI-Klasse mit dem Namen **MDM_VPNv2_01**–, die auf den VPNv2 CSP und den Knoten "profileXML" zugreifen können. Wenn Sie eine neue Instanz der WMI-Klasse erstellen, mithilfe von WMI den CSP das VPN-Profil zu erstellen, wenn Windows PowerShell und der System Center Configuration Manager verwenden.
 
-Obwohl diese Konfigurationsmethoden unterscheiden zu können, erfordern sowohl ein korrekt formatierten XML-VPN-Profil. Um die ProfileXML VPNv2-CSP-Einstellung verwenden, erstellen Sie XML mithilfe des ProfileXML-Schemas so konfigurieren Sie die Tags für das Szenario einfache Bereitstellung erforderlich. Weitere Informationen finden Sie unter [ProfileXML-XSD](https://msdn.microsoft.com/windows/hardware/commercialize/customize/mdm/vpnv2-profile-xsd).
+Obwohl diese Konfigurationsmethoden unterscheiden zu können, benötigen eine ordnungsgemäß formatierte XML VPN-Profil. Um die Einstellung "profileXML" VPNv2 CSP zu verwenden, erstellen Sie die XML mit dem Schema "profileXML" So konfigurieren Sie die Tags für das einfache Szenario erforderlich sind. Weitere Informationen finden Sie unter [ProfileXML XSD](https://msdn.microsoft.com/windows/hardware/commercialize/customize/mdm/vpnv2-profile-xsd).
 
-Im Anschluss finden Sie die erforderlichen Einstellungen und dem entsprechenden ProfileXML-Tag. Konfigurieren Sie jede Einstellung in einem bestimmten Tag innerhalb des ProfileXML-Schemas, und nicht alle unter dem systemeigenen Profil gefunden werden. Zusätzliche Tag-Platzierung finden Sie unter den ProfileXML-Schema.
+Im folgenden finden Sie alle erforderlichen Einstellungen und die entsprechende "profileXML"-Tag. Konfigurieren Sie jede Einstellung in einem bestimmten Tag innerhalb des Schemas "profileXML", und nicht alle unter dem systemeigenen Profil gefunden werden. Zusätzliches Tag Platzierung finden Sie in das Schema "profileXML".
 
 [!INCLUDE [important-lower-case-true-include](../../../includes/important-lower-case-true-include.md)]
 
-**Verbindungstyp:** Systemeigene IKEv2
+**Verbindungstyp:** Native IKEv2
 
-ProfileXML-Element:
+"ProfileXML"-Element:
 
     <NativeProtocolType>IKEv2</NativeProtocolType>
 
 **Routing:** Split-tunneling
 
-ProfileXML-Element:
+"ProfileXML"-Element:
 
     <RoutingPolicyType>SplitTunnel</RoutingPolicyType>
 
-**Namensauflösung:** Domänennamen-Informationsliste und DNS-suffix
+**Namensauflösung:** Liste der Domänennameninformationen und DNS-suffix
 
-ProfileXML-Elemente:
+"ProfileXML"-Elemente:
 
     <DomainNameInformation>
     <DomainName>.corp.contoso.com</DomainName>
@@ -72,17 +72,17 @@ ProfileXML-Elemente:
     <DnsSuffix>corp.contoso.com</DnsSuffix>
 
 
-**Auslösen:** Always On und Trusted Network Detection
+**Auslösen:** Erkennung von Always On und vertrauenswürdiges Netzwerk
 
-ProfileXML-Elemente:
+"ProfileXML"-Elemente:
 
     <AlwaysOn>true</AlwaysOn>
     <TrustedNetworkDetection>corp.contoso.com</TrustedNetworkDetection>
 
 
-**Authentifizierung:** PEAP-TLS mit TPM-geschütztes Benutzerzertifikate
+**Authentifizierung:** PEAP-TLS mit TPM-geschützten Benutzerzertifikate
 
-ProfileXML-Elemente:
+"ProfileXML"-Elemente:
 
     <Authentication>
     <UserMethod>Eap</UserMethod>
@@ -91,166 +91,166 @@ ProfileXML-Elemente:
     </Eap>
     </Authentication>
 
-Sie können einfache Tags verwenden, einige Authentifizierungsmechanismen VPN konfigurieren. Allerdings sind EAP und PEAP komplizierter. Die einfachste Möglichkeit zum Erstellen von XML-Markup ist das Konfigurieren Sie eines VPN-Clients mit der EAP-Einstellungen, und die Konfiguration dann als XML-Datei exportieren. 
+Sie können einfache Tags verwenden, einige VPN-Authentifizierungsmechanismen zu konfigurieren. EAP und PEAP sind jedoch komplizierter. Die einfachste Möglichkeit zum Erstellen von XML-Markup wird einen VPN-Client mit der EAP-Einstellungen konfigurieren, und klicken Sie dann die gewünschte Konfiguration in XML exportieren. 
 
 Weitere Informationen zu EAP-Einstellungen finden Sie unter [EAP-Konfiguration](https://msdn.microsoft.com/windows/hardware/commercialize/customize/mdm/eap-configuration). 
 
-## <a name="bkmk_profile"></a>Erstellen Sie manuell eine Verbindung Profilvorlage
+## <a name="bkmk_profile"></a>Manuelles Erstellen eines Verbindungsprofils Vorlage
 
-In diesem Schritt verwenden Sie Protected Extensible Authentication Protocol \(PEAP\) zum Schutz der Kommunikation zwischen dem Client und dem Server. Im Gegensatz zu einer einfachen Benutzername und Kennwort erfordert diese Verbindung einen einzigartigen EAPConfiguration Bereich im VPN-Profil funktioniert. 
+In diesem Schritt verwenden Sie Protected Extensible Authentication Protocol \(PEAP\) zum Sichern der Kommunikation zwischen dem Client und dem Server. Im Gegensatz zu einer einfachen Benutzernamen und das Kennwort benötigt diese Verbindung einen eindeutigen EAPConfiguration-Abschnitt in das VPN-Profil funktioniert. 
 
-Anstelle von beschreiben, wie Sie das XML-Markup von Grund auf neu erstellen, verwenden Sie Einstellungen in Windows eine Vorlage VPN-Profil erstellen. Nach dem Erstellen der Vorlage VPN-Profil, verwenden Sie Windows PowerShell, um den EAPConfiguration Teil aus dieser Vorlage zum Erstellen der endgültigen ProfileXML, die bereitgestellt werden später in der Bereitstellung nutzen.
+Statt einer Beschreibung, wie Sie das XML-Markup von Grund auf neu zu erstellen, verwenden Sie Einstellungen in Windows zum Erstellen einer Vorlage VPN-Profil ein. Nach dem Erstellen der Vorlage für VPN-Profil verwenden Sie Windows PowerShell den EAPConfiguration Teil aus dieser Vorlage zum Erstellen der endgültigen "profileXML", die Sie bereitstellen, weiter unten in der Bereitstellung nutzen.
 
-### Notieren Sie die Einstellungen für NPS-Zertifikaten
+### <a name="record-nps-certificate-settings"></a>Notieren Sie die NPS-zertifikateinstellungen
 
-Vor dem Erstellen der Vorlage, notieren Sie den Hostnamen oder der vollqualifizierte Domänenname (FQDN) des Netzwerkrichtlinienservers aus dem Server-Zertifikat und den Namen der Zertifizierungsstelle, die das Zertifikat ausgestellt.
+Notieren Sie sich vor dem Erstellen der Vorlage für den Hostnamen oder den vollqualifizierten Domänennamen (FQDN) des NPS-Servers aus dem Zertifikat des Servers und den Namen der Zertifizierungsstelle, die das Zertifikat ausgestellt hat.
 
-**Verfahren:**
+**Vorgehensweise:**
 
-1.  Öffnen Sie auf dem Netzwerkrichtlinienserver Network Policy Server.
+1.  Öffnen Sie Network Policy Server, auf Ihrem NPS-Server.
 
 2.  Klicken Sie in der NPS-Konsole unter Richtlinien auf **Netzwerkrichtlinien**.
 
 3.  Mit der rechten Maustaste **virtuelles privates Netzwerk \(VPN\) Verbindungen**, und klicken Sie auf **Eigenschaften**.
 
-4.  Klicken Sie auf der Registerkarte " **Einschränkungen** ", und klicken Sie auf **Authentifizierungsmethoden zu verwenden**.
+4.  Klicken Sie auf die **Einschränkungen** Registerkarte, und klicken Sie auf **Authentifizierungsmethoden**.
 
-5.  Klicken Sie im EAP-Typen, auf **Microsoft: geschütztes EAP (PEAP)**, und klicken Sie auf **Bearbeiten**.
+5.  Klicken Sie in der EAP-Typen, auf **Microsoft: Geschütztes EAP (PEAP)**, und klicken Sie auf **bearbeiten**.
 
-6.  Notieren Sie die Werte für das **Zertifikat ausgestellt wurde,** und **Aussteller**an.<p>Verwenden Sie diese Werte in der bevorstehenden VPN-Konfiguration. Z. B. Wenn Sie den FQDN des Servers nps01.corp.contoso.com und der Hostnamen NPS01, der Name des Zertifikats den FQDN oder DNS-Namen des Servers – z. B. nps01.corp.contoso.com basiert auf.
+6.  Notieren Sie die Werte für **Zertifikat ausgestellt für** und **Aussteller**.<p>Sie können diese Werte in der bevorstehenden Konfiguration der VPN-Vorlage verwenden. Z. B. Wenn Sie den FQDN des Servers ist nps01.corp.contoso.com und der Hostnamen NPS01, den Namen des Zertifikats den FQDN oder die DNS-Namen des Servers – z. B. nps01.corp.contoso.com basiert auf.
 
-7.  Stornieren Sie das Dialogfeld Eigenschaften für geschütztes EAP bearbeiten.
+7.  Brechen Sie das Dialogfeld Eigenschaften für geschütztes EAP bearbeiten.
 
-8.  Stornieren Sie das Dialogfeld Virtual Private Network (VPN) Verbindungseigenschaften.
+8.  Brechen Sie das Dialogfeld Verbindungseigenschaften virtuelles privates Netzwerk (VPN).
 
-9.  Netzwerkrichtlinienserver zu schließen.
-
->[!NOTE]
->Wenn Sie mehrere NPS-Server verfügen, führen Sie diese Schritte auf jedem, damit das VPN-Profil Startlaufwerk überprüfen können sie verwendet werden sollen.
-
-### Konfigurieren Sie die Vorlage VPN-Profil auf einem Domäne\ eingebunden Clientcomputer
-
-Die nun die erforderliche Informationen, die die Vorlage VPN-Profil auf einem Domäne Clientcomputer zu konfigurieren. Der Typ des Benutzerkontos, die Sie verwenden \ (d. h. Standardbenutzer oder Administrator\) für diesen Teil des Prozesses keine Rolle spielt. 
-
-Jedoch, wenn Sie den Computer neu gestartet noch nicht seit konfigurieren die automatische Registrierung von Zertifikaten, dazu vor dem Konfigurieren der Vorlage VPN-Verbindung, um sicherzustellen, dass Sie ein nutzbare Zertifikat darauf registriert haben.
+9.  Schließen Sie Netzwerkrichtlinienserver.
 
 >[!NOTE]
->Es gibt keine Möglichkeit keine erweiterten Eigenschaften-VPN-Verbindung, z. B. NRPT-Regeln, ständig manuell hinzufügen vertrauenswürdige Netzwerke usw.. Im nächsten Schritt erstellen Sie eine Test-VPN-Verbindung überprüfen die Konfiguration des VPN-Servers und, dass Sie eine VPN-Verbindung mit dem Server herstellen können.
+>Wenn Sie mehrere NPS-Server verfügen, gehen Sie auf die einzelnen, damit das VPN-Profil jeweils überprüfen können sie verwendet werden sollen.
 
-**Erstellen Sie manuell einen einzelnen Test VPN-Verbindung**
+### <a name="configure-the-template-vpn-profile-on-a-domain-joined-client-computer"></a>Konfigurieren Sie die Vorlage VPN-Profil in einer Domäne\-verknüpften Client-Computer
 
-1.  Melden Sie sich für einen Client Domäne als Mitglied der Gruppe **VPN-Benutzer** .
+Nun, da Sie die erforderlichen Informationen, konfigurieren die Vorlage für VPN-Profil auf einem Computer mit domänenverknüpfung haben. Der Typ des von Ihnen verwendete Benutzerkonto \(, also Standardbenutzer oder Administrator\) für diesen Teil des Prozesses keine Rolle spielt. 
 
-2.  Klicken Sie auf das Menü "Start" Geben Sie **VPN**, und drücken Sie die EINGABETASTE.
+Wenn Sie den Computer neu gestartet noch nicht seit der Konfiguration der automatischen Registrierung von Zertifikaten, gehen Sie hierbei jedoch vor dem Konfigurieren der Vorlage VPN-Verbindung, um sicherzustellen, dass Sie ein verwendbares Zertifikat für sie registriert haben.
 
-3.  Klicken Sie im Detailbereich auf **Hinzufügen einer VPN-Verbindung**.
+>[!NOTE]
+>Es gibt keine Möglichkeit, alle erweiterten Eigenschaften des VPN-, z. B. NRPT-Regeln, Always On, manuell hinzufügen vertrauenswürdiger, Netzwerk usw. Im nächsten Schritt erstellen Sie eine VPN-Testverbindung, um die Konfiguration des VPN-Servers zu überprüfen und, dass Sie eine VPN-Verbindung mit dem Server herstellen können.
 
-4.  Klicken Sie in der Liste VPN-Anbieter auf **Windows (integrierten)**.
+**Manuelles Erstellen eines einzelnen Tests VPN-Verbindung**
 
-5.  Geben Sie im Feld Verbindungsname **Vorlage**.
+1.  Melden Sie sich bei einer Domäne eingebundenen Client-Computer als Mitglied der **VPN-Benutzer** Gruppe.
 
-6.  Geben Sie im Namen oder die Adresse, die **externe** FQDN des VPN-Servers \ (z. B.**vpn.contoso.com**\).
+2.  Geben Sie im Menü Start **VPN**, und drücken Sie EINGABETASTE.
+
+3.  Klicken Sie im Detailbereich auf **fügen Sie eine VPN-Verbindung**.
+
+4.  Klicken Sie in der Liste VPN-Anbieter auf **Windows (integriert)**.
+
+5.  Geben Sie in der Verbindung **Vorlage**.
+
+6.  Geben Sie im Server-Namen oder die Adresse, die **externe** FQDN Ihres VPN-Servers \(z. B. **vpn.contoso.com**\).
 
 7.  Klicken Sie auf **Speichern**.
 
-8.  Klicken Sie verwandte Einstellungen auf **Adapter-Optionen ändern**.
+8.  Klicken Sie unter "Verwandte Einstellungen" auf **ändern Sie Adapteroptionen für die**.
 
 9.  Mit der rechten Maustaste **Vorlage**, und klicken Sie auf **Eigenschaften**.
 
-10. Klicken Sie auf der Registerkarte " **Sicherheit** " in **VPN-Typ** **IKEv2**aus.
+10. Auf der **Sicherheit** Registerkarte **VPN-Typ**, klicken Sie auf **IKEv2**.
 
-11. Verschlüsselung von Daten klicken Sie auf **Maximale Verschlüsselung**.
+11. Bei der datenverschlüsselung, klicken Sie auf **maximale Verschlüsselung**.
 
-12. Klicken Sie auf **verwenden Extensible Authentication-Protokoll (EAP)**. in **Verwenden Extensible Authentication-Protokoll (EAP)**, klicken Sie dann auf **Microsoft: geschütztes EAP (PEAP) (Verschlüsselung aktiviert)**.
+12. Klicken Sie auf **verwenden Extensible Authentication Protocol (EAP)**; klicken Sie auf **verwenden Extensible Authentication Protocol (EAP)**, klicken Sie auf **Microsoft: Geschütztes EAP (PEAP) (Verschlüsselung aktiviert)**.
 
-13. Klicken Sie auf **Eigenschaften** , um die Eigenschaften für geschütztes EAP-Dialogfeld zu öffnen, und führen Sie die folgenden Schritte aus:
+13. Klicken Sie auf **Eigenschaften** zum Öffnen des Dialogfelds Eigenschaften für geschütztes EAP, und schließen die folgenden Schritte aus:
 
-    a. Geben Sie im Feld **Verbindung mit diesen Servern** den Namen des Netzwerkrichtlinienservers, die Sie aus den Einstellungen der NPS-Server-Authentifizierung weiter oben in diesem Abschnitt (z. B. NPS01) abgerufen.
+    a. In der **Herstellen einer Verbindung mit diesen Servern** geben den Namen des NPS-Servers, die Sie die Authentifizierungseinstellungen des NPS-Server weiter oben in diesem Abschnitt (z. B. NPS01) entnommen.
 
     >[!NOTE]
-    >Der Servername eingegebenen muss den Namen im Zertifikat übereinstimmen. Sie wiederhergestellt dieser Name weiter oben in diesem Abschnitt. Wenn der Name nicht übereinstimmt, fehl die Verbindung besagt, dass "die Verbindung durch eine Richtlinie auf dem RAS/VPN-Server konfiguriert verhindert wurde."
+    >Der eingegebene Servername muss der Name im Zertifikat übereinstimmen. Sie wiederhergestellt diesen Namen oben in diesem Abschnitt haben. Wenn der Name nicht übereinstimmt, schlägt die Verbindung mit dem Hinweis, dass "die Verbindung aufgrund einer auf dem RAS-/VPN-Server konfigurierte Richtlinie verhindert wurde." fehl,
 
-    b.  Wählen Sie unter Vertrauenswürdige Stammzertifizierungsstellen der Stammzertifizierungsstelle, die die NPS-Serverzertifikats (z. B. Contoso-CA) ausgestellt.
+    b.  Wählen Sie die Stamm-ZS, die dem NPS-Server-Zertifikat (z. B. Contoso-CA) ausgestellt, unter Vertrauenswürdige Stammzertifizierungsstellen.
 
-    c.  Benachrichtigungen vor dem Herstellen einer Verbindung klicken Sie auf **nicht Benutzer zum Autorisieren neuer Server oder vertrauenswürdiger Zertifizierungsstellen auffordern**.
+    c.  Klicken Sie in den Benachrichtigungen vor der verbindungsherstellung, **nicht Fragen Benutzer zum Autorisieren neuer Server oder vertrauenswürdiger Zertifizierungsstellen**.
 
-    d.  Klicken Sie in Authentifizierungsmethode auswählen auf **Smartcard oder anderes Zertifikat**, und klicken Sie auf **Konfigurieren**. Die Smartcard oder andere Zertifikateigenschaften-Dialogfeld wird geöffnet.
+    d.  Authentifizierungsmethode auswählen, klicken Sie auf **Smartcard- oder anderes Zertifikat**, und klicken Sie auf **konfigurieren**. Die Smartcard oder andere Zertifikateigenschaften-Dialogfeld wird geöffnet.
 
-    e.  Klicken Sie auf **ein Zertifikat auf diesem Computer verwenden**.
+    e.  Klicken Sie auf **verwenden Sie ein Zertifikat auf diesem Computer**.
 
-    f.  Geben Sie in dem diese Server-Feld Verbindung herstellen den Namen des Netzwerkrichtlinienservers, die Sie aus den Einstellungen der NPS-Server-Authentifizierung in den vorherigen Schritten abgerufen haben.
+    f.  Geben Sie auf das Feld für diese Server verbinden den Namen des NPS-Servers, die Sie über die Authentifizierungseinstellungen des NPS-Server in den vorherigen Schritten abgerufen.
 
-    g.  Wählen Sie unter Vertrauenswürdige Stammzertifizierungsstellen der Stammzertifizierungsstelle, die den Netzwerkrichtlinienserver Zertifikat ausgestellt.
+    g.  Wählen Sie die Stamm-ZS, die dem NPS-Server-Zertifikat ausgestellt hat, unter Vertrauenswürdige Stammzertifizierungsstellen.
 
-    h.  Wählen Sie die **fordern Benutzer nicht zum neuen Server autorisieren oder vertrauenswürdigen Zertifizierungsstellen** Kontrollkästchen.
+    h.  Wählen Sie die **keine benutzeraufforderung zur Autorisierung neuer Server oder vertrauenswürdiger Zertifizierungsstellen** Kontrollkästchen.
 
-    i.  Klicken Sie auf **OK** , um die Smartcard oder andere Zertifikateigenschaften-Dialogfeld zu schließen.
+    i.  Klicken Sie auf **OK** Smartcard- oder andere Zertifikateigenschaften-Dialogfeld zu schließen.
 
-    j.  Klicken Sie auf **OK** , um die Eigenschaften für geschütztes EAP-Dialogfeld zu schließen.
+    j.  Klicken Sie auf **OK** um das Dialogfeld "Eigenschaften für geschütztes EAP" zu schließen.
 
-10. Klicken Sie auf **OK** , um die Eigenschaften der Dateiprüfungsvorlagen-Dialogfeld zu schließen.
+10. Klicken Sie auf **OK** um das Dialogfeld "Eigenschaften" zu schließen.
 
 11. Schließen Sie das Fenster Netzwerkverbindungen.
 
-12. Testen Sie das VPN unter "Einstellungen" indem Sie auf **Vorlage**, und klicken Sie auf **Verbinden**.
+12. Testen Sie das VPN in den Einstellungen, indem Sie auf **Vorlage**, und klicken Sie auf **Connect**.
 
 >[!IMPORTANT]
->Stellen Sie sicher, dass die VPN-Verbindung mit dem VPN-Server-Vorlage erfolgreich ist. Dadurch wird sichergestellt, dass die EAP-Einstellungen korrekt sind, bevor Sie sie im nächsten Beispiel verwenden. Sie müssen mindestens einmal, bevor Sie fortfahren verbinden; Andernfalls wird das Profil nicht alle für die VPN-Verbindung erforderlichen Informationen enthalten.
+>Stellen Sie sicher, dass die Vorlage VPN-Verbindung mit Ihrem VPN-Server erfolgreich war. Dadurch wird sichergestellt, dass die EAP-Einstellungen richtig sind, bevor Sie sie im nächsten Beispiel verwenden. Sie müssen eine Verbindung herstellen, mindestens einmal, bevor Sie fortfahren, Andernfalls wird das Profil nicht alle für die Verbindung mit dem VPN erforderlichen Informationen enthalten.
 
-## <a name="bkmk_ProfileXML"></a>Erstellen Sie die ProfileXML-Konfigurationsdateien
+## <a name="bkmk_ProfileXML"></a>Erstellen Sie die Konfigurationsdateien "profileXML"
 
-Vor dem Abschluss in diesem Abschnitt, stellen Sie sicher, dass Sie erstellt und die Vorlage VPN-Verbindung, die im Abschnitt [Erstellen Sie manuell eine Verbindung Profilvorlage](#bkmk_profile) beschreibt getestet haben. Testen die VPN-Verbindung ist erforderlich, um sicherzustellen, dass das Profil alle Informationen, die für die VPN-Verbindung die enthält.
+Bevor Sie in diesem Abschnitt ausführen, stellen Sie sicher, dass Sie erstellt und die Vorlage VPN-Verbindung getestet haben, die im Abschnitt [manuell erstellen ein Verbindungsprofils Vorlage](#bkmk_profile) beschreibt. Testen die VPN-Verbindung ist erforderlich, um sicherzustellen, dass das Profil alle für die Verbindung mit dem VPN erforderlichen Informationen enthält.
 
-Das Windows PowerShell-Skript in Codebeispiel 1 erstellt zwei Dateien auf dem Desktop, die beide enthalten **EAPConfiguration** -Tags, die basierend auf der Vorlage Profil, das Sie zuvor erstellt haben:
+Das Windows PowerShell-Skript in Codebeispiel 1 erstellt zwei Dateien auf dem Desktop, die beide enthalten **EAPConfiguration** Transponderereignisse basierend auf den Verbindungs-Profilvorlage, die Sie zuvor erstellt haben:
 
--   **VPN_Profile.Xml.** Diese Datei enthält das XML-Markup erforderlich, um den ProfileXML-Knoten in dem VPNv2-CSP zu konfigurieren. Verwenden Sie diese Datei mit OMA-DM-kompatiblen MDM-Dienste, z. B. Intune.
+-   **VPN_Profile.Xml.** Diese Datei enthält das XML-Markup erforderlich, um den Knoten "profileXML" im VPNv2 CSP konfigurieren. Verwenden Sie diese Datei mit den OMA-DM-kompatible MDM-Diensten wie z.B. Intune ein.
 
--   **VPN_Profile.ps1.** Diese Datei ist ein Windows PowerShell-Skript, die Sie ausführen können auf Clientcomputern den ProfileXML-Knoten in dem VPNv2-CSP zu konfigurieren. Sie können auch das CSP konfigurieren, durch die Bereitstellung von dieses Skript über System Center Configuration Manager. Dieses Skript kann nicht in einer Remotedesktop-Sitzung, einschließlich einer erweiterten Hyper-V-Sitzung ausgeführt werden.
+-   **VPN_Profile.ps1.** Diese Datei ist ein Windows PowerShell-Skript, das Sie ausführen können, auf den Clientcomputern so konfigurieren Sie den Knoten "profileXML" im VPNv2 CSP. Sie können auch den CSP konfigurieren, durch Bereitstellen dieser über System Center Configuration Manager-Skripts. Sie können nicht mit diesem Skript in einer Remotedesktopsitzung, einschließlich einer Hyper-V erweiterte Sitzungs ausführen.
 
 >[!IMPORTANT]
->Die folgenden Beispielbefehle ist Windows 10 Build 1607 oder höher erforderlich.
+>Die folgenden Beispielbefehle erfordern Windows 10-Build 1607 oder höher.
 
 **Erstellen Sie VPN_Profile.xml und VPN_Proflie.ps1**
 
-1. Melden Sie sich bei der Domäne Clientcomputer mit der Vorlage VPN-Profil mit dem gleichen Benutzer berücksichtigen, die im Abschnitt "Erstellen Sie manuell eine Verbindung Profilvorlage" beschrieben.
+1. Melden Sie sich auf die Domäne eingebundene Clientcomputer mit der Vorlage VPN-Profil mit demselben Benutzer berücksichtigen, die im Abschnitt "Manuelles Erstellen ein Verbindungsprofils Vorlage" beschrieben.
 
-2. Fügen Sie 1 Eintrag in Windows PowerShell integrated scripting Environment \(ISE\), und passen Sie die Parameter in den Kommentaren beschrieben. Hierbei handelt es sich $Template, $ProfileName, $Servers, $DnsSuffix, $DomainName, $TrustedNetwork und $DNSServers. Eine vollständige Beschreibung der einzelnen Einstellungen ist in den Kommentaren.
+2. Fügen Sie Liste 1 in Windows PowerShell integrierte skriptumgebung \(ISE\), und passen Sie die Parameter, die in den Kommentaren beschrieben. Dies sind $Template "," $ProfileName "," $Servers "," $DnsSuffix "," $DomainName "," $TrustedNetwork, und "$DNSServers. Eine vollständige Beschreibung der einzelnen Einstellungen werden in den Kommentaren ist.
 
-3.  Führen Sie das Skript zum Generieren von **VPN_Profile.xml** und **VPN_Profile.ps1** auf dem Desktop.
+3.  Führen Sie das Skript zum generieren **VPN_Profile.xml** und **VPN_Profile.ps1** auf dem Desktop.
 
-#### Codebeispiel 1. Grundlegendes zu MakeProfile.ps1
+#### <a name="listing-1-understanding-makeprofileps1"></a>Codebeispiel 1. Grundlegendes zu MakeProfile.ps1
 
-In diesem Abschnitt wird erläutert, den Beispielcode, den Sie verwenden können, um so erstellen Sie ein VPN-Profil, speziell für die Konfiguration von ProfileXML in dem VPNv2-CSP vertraut wird.
+In diesem Abschnitt wird erläutert, den Beispielcode, den Sie verwenden können, um einen Überblick über die Vorgehensweise: Erstellen Sie ein VPN-Profil, speziell für das Konfigurieren von "profileXML" in der VPNv2 CSP zu erhalten.
 
-Nachdem Sie ein Skript aus dieser Beispielcode zusammenstellen, und führen Sie das Skript, das Skript zwei Dateien generiert: VPN_Profile.xml und VPN_Profile.ps1. Verwenden Sie VPN_Profile.xml, um ProfileXML in OMA-DM-kompatible MDM-Diensten wie Microsoft Intune konfigurieren.
+Nachdem Sie ein Skript, aus dieser Beispielcode zusammenstellen, und führen Sie das Skript, das Skript zwei Dateien generiert: VPN_Profile.XML und VPN_Profile.ps1. Verwenden Sie VPN_Profile.xml "profileXML" in der OMA-DM-kompatible MDM-Diensten wie z.B. Microsoft Intune konfigurieren.
 
-Verwenden Sie das Skript **VPN_Profile.ps1** in Windows PowerShell oder System Center Configuration Manager, um ProfileXML auf dem Windows 10 Desktop zu konfigurieren.
+Verwenden der **VPN_Profile.ps1** Skripts in Windows PowerShell oder System Center Configuration Manager so konfigurieren Sie "profileXML" auf dem Windows 10-Desktop.
 
 >[!NOTE]
->Das Skript vollständiges Beispiel finden Sie unter im Abschnitt [MakeProfile.ps1 vollständige Skript](#bkmk_fullscript).
+>Wenn das vollständige Beispielskript anzeigen möchten, finden Sie im Abschnitt [MakeProfile.ps1 vollständige Skript](#bkmk_fullscript).
 
-#### Parameter
+#### <a name="parameters"></a>Parameter
 
 Konfigurieren Sie die folgenden Parameter:
 
-**$Template**. Der Name der Vorlage aus den EAP-Konfiguration abgerufen werden sollen.
+**$Template**. Der Name der Vorlage aus dem die EAP-Konfiguration abgerufen werden soll.
 
-**$ProfileName**. Eindeutige alphanumerische Kennung für das Profil. Den Namen des Profils darf keinen Schrägstrich (/) enthalten. Hat den Namen des Profils ein Leerzeichen oder andere nicht alphanumerischen Zeichen, muss es ordnungsgemäß gemäß der URL-Codierung mit Escapezeichen versehen werden.
+**$ProfileName**. Eindeutiger alphanumerischer Bezeichner für das Profil. Der Profilname darf keine mit einen Schrägstrich (/) enthalten. Weist der Namen des Profils ein Leerzeichen oder andere nicht alphanumerische Zeichen, müssen sie ordnungsgemäß entsprechend den URL-Codierung mit Escapezeichen versehen werden.
 
-**$Servers**. Öffentliche oder routingfähige IP-Adresse oder DNS-Namen für das VPN-Gateway. Es kann auf die externe IP-Adresse eines Gateways oder eine virtuelle IP-Adresse für eine Serverfarm verweisen. Beispiele, 208.147.66.130 oder vpn.contoso.com.
+**$Servers**. Öffentliche oder routingfähige IP-Adresse oder DNS-Namen für das VPN-Gateway. Sie können auf die externe IP-Adresse, der ein Gateway oder eine virtuelle IP-Adresse für eine Serverfarm verweisen. Beispiele, 208.147.66.130 oder vpn.contoso.com.
 
-**$DnsSuffix**. Gibt an, dass eine oder mehrere Kommas DNS-Suffixe getrennt. Die erste in der Liste wird auch als das primäre verbindungsspezifische DNS-Suffix für die VPN-Schnittstelle verwendet. Die gesamte Liste wird auch in SuffixSearchList hinzugefügt werden.
+**$DnsSuffix**. Gibt an, dass eine oder mehrere Kommas DNS-Suffixe getrennt. Die erste in der Liste wird auch als primäres verbindungsspezifischen DNS-Suffix für die VPN-Schnittstelle verwendet. Die gesamte Liste wird auch in der SuffixSearchList hinzugefügt werden.
 
-**$DomainName**. Verwendet, um den Namespace anzugeben, auf dem die Richtlinie angewendet wird. Wenn eine Namensabfrage ausgegeben wird, vergleicht der DNS-Client den Namen in der Abfrage an alle Namespaces unter DomainNameInformationList eine Übereinstimmung gefunden. Dieser Parameter kann eine der folgenden Typen sein:
+**$DomainName**. Verwendet, um den Namespace anzugeben, den die Richtlinie angewendet wird. Bei eine benannten Abfrage ausgegeben wird, vergleicht der DNS-Client den Namen in der Abfrage alle Namespaces unter DomainNameInformationList eine Übereinstimmung gefunden. Dieser Parameter kann einen der folgenden Typen sein:
 
-- FQDN - vollständig qualifizierten Domänennamen
-- Suffix - Domänensuffix, die auf die Shortname-Abfrage für DNS-Auflösung angefügt werden. Um eine Suffix angeben, stellen Sie einen Zeitraum \ (.) das DNS-Suffix.
+- FQDN – voll qualifizierter Domänenname
+- Suffix - ein Domänensuffix, die auf die Abfrage "Shortname" für DNS-Auflösung angefügt wird. Wenn ein Suffix angeben möchten, stellen Sie einen Zeitraum \(.), die dem DNS-Suffix.
 
-**$DNSServers**. Liste der durch Trennzeichen getrennte DNS-Server-IP-Adressen für den Namespace.
+**$DNSServers**. Liste von durch Trennzeichen getrennte DNS-Server IP-Adressen für den Namespace verwenden.
 
-**$TrustedNetwork**. Durch Trennzeichen getrennte Zeichenfolge zur Identifizierung des vertrauenswürdigen Netzwerks. VPN wird nicht automatisch verbunden, wenn der Benutzer in ihrem WLAN-Unternehmensnetzwerk ist, in dem geschützte Ressourcen direkt auf das Gerät zugreifen können.
+**$TrustedNetwork**. Durch Trennzeichen getrennte Zeichenfolge, die im vertrauenswürdige Netzwerk zu identifizieren. VPN wird nicht automatisch verbinden, wenn der Benutzer auf ihrem drahtlosen Unternehmensnetzwerk ist, in dem geschützte Ressourcen direkt an das Gerät zugegriffen werden kann.
 
-Folgendes Beispielwerte für Parameter, die in die folgenden Befehle verwendet werden. Stellen Sie sicher, dass Sie diese Werte für Ihre Umgebung ändern.
+Sind folgende Beispielwerte für Parameter, die in die folgenden Befehle verwendet. Stellen Sie sicher, dass Sie diese Werte für Ihre Umgebung ändern.
 
     $TemplateName = 'Template'
     $ProfileName = 'Contoso AlwaysOn VPN'
@@ -261,9 +261,9 @@ Folgendes Beispielwerte für Parameter, die in die folgenden Befehle verwendet w
     $TrustedNetwork = 'corp.contoso.com'
 
 
-### Vorbereiten Sie und erstellen Sie das Profil-XML
+### <a name="prepare-and-create-the-profile-xml"></a>Vorbereiten Sie und erstellen Sie das Profil-XML
 
-Die folgenden Beispielbefehle ein rufen EAP-Einstellungen aus der Profilvorlage:
+Die folgenden Beispielbefehle rufen Sie EAP-Einstellungen aus der Profilvorlage:
 
 
     $Connection = Get-VpnConnection -Name $TemplateName
@@ -276,7 +276,7 @@ Die folgenden Beispielbefehle ein rufen EAP-Einstellungen aus der Profilvorlage:
     $EAPSettings= $Connection.EapConfigXmlStream.InnerXml
 
 
-### Erstellen Sie das Profil-XML
+### <a name="create-the-profile-xml"></a>Erstellen Sie das Profil-XML
 
 [!INCLUDE [important-lower-case-true-include](../../../includes/important-lower-case-true-include.md)]
 
@@ -306,40 +306,40 @@ Die folgenden Beispielbefehle ein rufen EAP-Einstellungen aus der Profilvorlage:
     </VPNProfile>'
 
 
-### Ausgabe VPN_Profile.xml für Intune
+### <a name="output-vpnprofilexml-for-intune"></a>Ausgabe VPN_Profile.xml für Intune
 
-Sie können den folgenden Befehl werden beispielsweise verwenden, um die Profil-XML-Datei zu speichern:
+Sie können Befehl im folgenden Beispiel verwenden, um die Profil-XML-Datei zu speichern:
 
     $ProfileXML | Out-File -FilePath ($env:USERPROFILE + '\desktop\VPN_Profile.xml')
 
-### Ausgabe VPN_Profile.ps1 für den Desktop und System Center Configuration Manager
+### <a name="output-vpnprofileps1-for-the-desktop-and-system-center-configuration-manager"></a>Ausgabe VPN_Profile.ps1 für Desktop und System Center Configuration Manager
 
-Im folgenden Codebeispiel wird eine AlwaysOn IKEv2-VPN-Verbindung mit der ProfileXML-Knoten in dem VPNv2-CSP konfiguriert.
+Im folgenden Beispielcode wird eine AlwaysOn-IKEv2-VPN-Verbindung mithilfe des Knotens "profileXML" im VPNv2 CSP konfiguriert.
 
-Sie können dieses Skript auf dem Windows 10-Desktop oder in System Center Configuration Manager verwenden.
+Sie können dieses Skript auf dem Windows 10 Desktop oder in System Center Configuration Manager verwenden.
 
-### Definieren Sie wichtige VPN-Profil-Parameter
+### <a name="define-key-vpn-profile-parameters"></a>Definieren von Schlüsselparametern für VPN-Profil
 
     $Script = '$ProfileName = ''' + $ProfileName + '''
     $ProfileNameEscaped = $ProfileName -replace ' ', '%20'
 
-## Definieren Sie die VPN-ProfileXML
+## <a name="define-vpn-profilexml"></a>Definieren Sie die VPN-"profileXML"
 
     $ProfileXML = ''' + $ProfileXML + '''
     
-### Escapezeichen Sie für Sonderzeichen im Profil
+### <a name="escape-special-characters-in-the-profile"></a>Escapesonderzeichen Sie in das Profil
 
     $ProfileXML = $ProfileXML -replace '<', '&lt;'
     $ProfileXML = $ProfileXML -replace '>', '&gt;'
     $ProfileXML = $ProfileXML -replace '"', '&quot;'
     
-### Definieren Sie WMI-CSP-Brücke-Eigenschaften
+### <a name="define-wmi-to-csp-bridge-properties"></a>Definieren Sie Eigenschaften für WMI-zu-CSP-Bridge
 
     $nodeCSPURI = "./Vendor/MSFT/VPNv2"
     $namespaceName = "root\cimv2\mdm\dmmap"
     $className = "MDM_VPNv2_01"
 
-### Stellen Sie Benutzer-SID für VPN-Profil fest:
+### <a name="determine-user-sid-for-vpn-profile"></a>Bestimmen Sie die Benutzer-SID für VPN-Profil:
 
     try
     {
@@ -358,7 +358,7 @@ Sie können dieses Skript auf dem Windows 10-Desktop oder in System Center Confi
     }
     
 
-### Definieren Sie WMI-Sitzung:
+### <a name="define-wmi-session"></a>Definieren Sie die WMI-Sitzung:
 
     $session = New-CimSession
     $options = New-Object Microsoft.Management.Infrastructure.Options.CimOperationOptions
@@ -366,7 +366,7 @@ Sie können dieses Skript auf dem Windows 10-Desktop oder in System Center Confi
     $options.SetCustomOption("PolicyPlatformContext_PrincipalContext_Id", "$SidValue", $false)
 
 
-### Erkennen und vorheriges VPN-Profil löschen:
+### <a name="detect-and-delete-previous-vpn-profile"></a>Erkennen Sie, und löschen Sie die vorherige VPN-Profil:
 
     try
     {
@@ -393,7 +393,7 @@ Sie können dieses Skript auf dem Windows 10-Desktop oder in System Center Confi
     }
     
 
-### Das VPN-Profil zu erstellen:
+### <a name="create-the-vpn-profile"></a>Erstellen Sie das VPN-Profil:
 
     try
     {
@@ -420,26 +420,26 @@ Sie können dieses Skript auf dem Windows 10-Desktop oder in System Center Confi
     $Message = "Script Complete"
     Write-Host "$Message"'
 
-### Speichern Sie die Profil-XML-Datei
+### <a name="save-the-profile-xml-file"></a>Speichern der Profil-XML-Datei
 
     $Script | Out-File -FilePath ($env:USERPROFILE + '\desktop\VPN_Profile.ps1')
     
     $Message = "Successfully created VPN_Profile.xml and VPN_Profile.ps1 on the desktop."
     Write-Host "$Message"
 
-## <a name="bkmk_fullscript"></a>Vollständige MakeProfile.ps1-Skript
+## <a name="bkmk_fullscript"></a>Vollständiges Skript MakeProfile.ps1
 
-Die meisten Beispiele verwenden des Set-WmiInstance Windows PowerShell-Cmdlets zum Einfügen von ProfileXML in eine neue Instanz der MDM_VPNv2_01 WMI-Klasse. 
+Die meisten Beispiele verwenden die Set-WmiInstance Windows PowerShell-Cmdlet zum Einfügen von "profileXML" in eine neue Instanz der MDM_VPNv2_01 WMI-Klasse. 
 
-Dies kann in System Center Configuration Manager jedoch nicht verwendet, da Sie das Paket im Kontext für die Endbenutzer nicht ausführen können. Aus diesem Grund dieses Skript verwendet das Modell für allgemeine Informationen zum Erstellen einer WMI-Sitzung im Kontext des Benutzers, und klicken Sie dann eine neue Instanz der MDM_VPNv2_01 WMI-Klasse in der Sitzung erstellt. Dieser WMI-Klasse verwendet die WMI-CSP-Brücke, um dem VPNv2-CSP zu konfigurieren. Durch das Hinzufügen der Klasseninstanz, konfigurieren Sie daher das CSP. 
+Dies ist jedoch nicht in System Center Configuration Manager arbeiten, da es sich bei Ausführen des Pakets in der Endbenutzer-Kontext kann nicht. Aus diesem Grund wird dieses Skript verwendet das Common Information Model zum Erstellen einer WMI-Sitzung im Kontext des Benutzers, und erstellt dann eine neue Instanz der MDM_VPNv2_01 WMI-Klasse in dieser Sitzung. Diese WMI-Klasse verwendet die WMI-zu-CSP-Bridge, um die VPNv2 CSP konfigurieren. Durch Hinzufügen der Klasseninstanz, konfigurieren Sie daher den CSP. 
 
 >[!IMPORTANT]
->WMI-CSP-Brücke erfordert lokale Administratorrechte, entwurfsbedingt. Um pro Benutzer VPN-Profile sollten Sie SCCM oder MDM verwenden
+>WMI-zu-CSP-Bridge erfordert lokale Administratorrechte verfügen, beabsichtigt. Um pro Benutzer VPN-Profile bereitstellen, sollten Sie SCCM oder MDM einsetzen
 
 >[!NOTE]
->Das Skript VPN_Profile.ps1 verwendet die SID des aktuellen Benutzers, um Kontext des Benutzers zu identifizieren. Da keine SID in einer Sitzung Remote Desktop verfügbar ist, funktioniert das Skript nicht in einer Remotedesktop-Sitzung. Ebenso funktioniert es nicht in einer Hyper-V-erweiterte Sitzung. Wenn Sie eine Remote Access Always On VPN auf virtuellen Computern testen, deaktivieren Sie die erweiterten Sitzungsmodus auf Ihrem Client VMs vor dem Ausführen dieses Skripts.
+>Das Skript VPN_Profile.ps1 verwendet die SID des aktuellen Benutzers, um den Kontext des Benutzers zu identifizieren. Da keine SID in einer Remotedesktopsitzung verfügbar ist, funktioniert das Skript nicht in einer Remotedesktopsitzung. Ebenso funktioniert es nicht in einer Sitzung für Hyper-V erweitert. Wenn Sie eine Remotezugriffsbereitstellung immer auf VPN auf virtuellen Computern testen, deaktivieren Sie die erweiterten Sitzungsmodus auf dem Client-VMs vor dem Ausführen dieses Skripts.
 
-Das folgende Beispielskript enthält alle Codebeispiele aus den vorherigen Abschnitten. Stellen Sie sicher, dass Sie Beispielwerte Werte ändern, die für Ihre Umgebung geeignet sind.
+Das folgende Beispielskript enthält alle Codebeispiele in den vorherigen Abschnitten. Stellen Sie sicher, dass Sie die Beispielwerte in Werte ändern, die für Ihre Umgebung geeignet sind.
     
    ```XML
     $TemplateName = 'Template'
@@ -575,15 +575,15 @@ Das folgende Beispielskript enthält alle Codebeispiele aus den vorherigen Absch
     Write-Host "$Message"
    ```
 
-## Konfigurieren des VPN-Clients mithilfe von Windows PowerShell
+## <a name="configure-the-vpn-client-by-using-windows-powershell"></a>Konfigurieren des VPN-Clients mithilfe von Windows PowerShell
 
-Um dem VPNv2-CSP auf einem Windows 10-Clientcomputer zu konfigurieren, führen Sie das VPN_Profile.ps1 Windows PowerShell-Skript, das Sie im Abschnitt [Erstellen Sie das XML-Profil](#create-the-profile-xml) erstellt. Öffnen Sie Windows PowerShell als Administrator; Andernfalls erhalten Sie eine Fehlermeldung, die besagt, _Zugriff verweigert_.
+Um die VPNv2 CSP auf einem Windows 10-Clientcomputer zu konfigurieren, führen Sie das VPN_Profile.ps1 Windows PowerShell-Skript, das Sie in erstellt die [erstellen Sie das Profil-XML](#create-the-profile-xml) Abschnitt. Öffnen Sie Windows PowerShell als Administrator an. Andernfalls erhalten Sie eine Fehlermeldung _Zugriffsverweigerung_.
 
-Nach dem Ausführen VPN_Profile.ps1 VPN-Profil zu konfigurieren, können Sie zu einem beliebigen Zeitpunkt überprüfen, dass diese erfolgreich war, mithilfe des folgenden Befehls in der Windows PowerShell ISE:
+Nach der Ausführung VPN_Profile.ps1 das VPN-Profil konfigurieren, können Sie jederzeit überprüfen, dass es erfolgreich war, indem Sie den folgenden Befehl in der Windows PowerShell ISE ausführen:
 
     Get-WmiObject -Namespace root\cimv2\mdm\dmmap -Class MDM_VPNv2_01
 
-**Erfolgreiche Ergebnisse aus dem Cmdlet Get-WmiObject**
+**Erfolgreiche Ergebnisse aus dem Get-WmiObject-cmdlet**
 
 
     __GENUS : 2
@@ -659,119 +659,119 @@ Nach dem Ausführen VPN_Profile.ps1 VPN-Profil zu konfigurieren, können Sie zu 
     TrustedNetworkDetection : corp.contoso.com
     PSComputerName  : WIN01
 
-Die ProfileXML-Konfiguration muss in der Struktur, Rechtschreibprüfung, Konfiguration und manchmal Groß-/Kleinschreibung korrekt sein. Wenn Sie etwas anderes in Struktur auf 1 Eintrag angezeigt wird, enthält das ProfileXML-Markup wahrscheinlich einen Fehler.
+Die "profileXML"-Konfiguration muss in der Struktur, Rechtschreibung, Konfiguration und manchmal Groß-/Kleinschreibung korrekt sein. Wenn Sie etwas anderes in der Struktur, Liste 1 angezeigt wird, enthält das "profileXML"-Markup, das wahrscheinlich einen Fehler aus.
 
-Wenn Sie das Markup beheben müssen, ist es einfacher, die sie in einem XML-Editor als Fehlerbehebung es in der Windows PowerShell ISE versetzt. In beiden Fällen beginnen mit der einfachste Version des Profils, und fügen Sie Komponenten wieder nacheinander bis das Problem erneut auftritt.
+Wenn Sie das Markup beheben müssen, ist es einfacher, es in einem XML-Editor als, beheben sie in der Windows PowerShell ISE zu platzieren. Beginnen Sie in beiden Fällen mit der einfachsten Version des Profils, und fügen Sie Komponenten wieder einzeln nacheinander bis das Problem erneut auftritt.
 
 ## <a name="vpn-deploy-client-sccm"></a>Konfigurieren des VPN-Clients mithilfe von System Center Configuration Manager
 
-In System Center Configuration Manager können Sie VPN-Profile bereitstellen, mithilfe des ProfileXML CSP-Knotens, so wie Sie in Windows PowerShell gemacht haben. Hier verwenden Sie das VPN_Profile.ps1 Windows PowerShell-Skript, das Sie im Abschnitt [Erstellen Sie die ProfileXML-Konfigurationsdateien](#bkmk_ProfileXML)erstellt haben.
+In System Center Configuration Manager können Sie VPN-Profile mithilfe des ProfileXML CSP-Knotens, wie Sie in Windows PowerShell bereitstellen. Hier verwenden Sie das VPN_Profile.ps1 Windows PowerShell-Skript, das Sie im Abschnitt erstellten [erstellen die Konfigurationsdateien "profileXML"](#bkmk_ProfileXML).
 
-Um die System Center Configuration Manager verwenden, um ein Remote Access Always On VPN-Profil auf Windows 10-Clientcomputern bereitstellen, müssen Sie zunächst erstellen eine Gruppe von Computern oder Benutzern, die Sie das Profil bereitstellen. Erstellen Sie in diesem Szenario eine Benutzergruppe aus, um das Skript bereitstellen.
+Um System Center Configuration Manager verwenden, um eine Remote Access Always On-VPN-Profil für Windows 10-Clientcomputern bereitstellen, müssen Sie erstellen Sie zunächst eine Gruppe von Computern oder Benutzern, die Sie das Profil bereitstellen. Erstellen Sie in diesem Szenario eine Benutzergruppe aus, um das Skript bereitzustellen.
 
-### Erstellen Sie eine Benutzergruppe
+### <a name="create-a-user-group"></a>Erstellen einer Benutzergruppe
 
-1.  Öffnen Sie in der Configuration Manager-Konsole Ressourcen und Compliance\\User Sammlungen.
+1.  Öffnen Sie in der Configuration Manager-Konsole Bestand und Kompatibilität\\Benutzersammlungen.
 
-2.  Klicken Sie auf **Benutzer Sammlung erstellen**, auf dem Menüband **Home** in der Gruppe **Erstellen** .
+2.  Auf der **Startseite** im Menüband in die **erstellen** auf **Benutzersammlung erstellen**.
 
-3.  Führen Sie auf der Seite "Allgemein" die folgenden Schritte aus:
+3.  Führen Sie auf der Seite Allgemein die folgenden Schritte aus:
 
-    a. Geben Sie den **Namen** **VPN-Benutzer**.
+    a. In **Namen**, Typ **VPN-Benutzer**.
 
-    b. Klicken Sie auf **Durchsuchen**, klicken Sie auf **Alle Benutzer** , und klicken Sie auf **OK**.
+    b. Klicken Sie auf **Durchsuchen**, klicken Sie auf **alle Benutzer** , und klicken Sie auf **OK**.
 
     c. Klicken Sie auf **Weiter**.
 
-4.  Führen Sie auf der Seite "Mitgliedschaftsregeln" die folgenden Schritte aus:
+4.  Führen Sie die folgenden Schritte aus, auf der Seite Mitgliedschaftsregeln:
 
-    a.  **Mitgliedschaftsregeln**klicken Sie auf **Regel hinzufügen**, und klicken Sie auf **Direkte Regel**. In diesem Beispiel, das Sie einzelne Benutzer zu der Auflistung hinzufügen. Sie können jedoch Abfrageregel verwenden, um Benutzer diese Sammlung dynamisch für eine umfangreichere Bereitstellung hinzufügen.
+    a.  In **Mitgliedschaftsregeln**, klicken Sie auf **Regel hinzufügen**, und klicken Sie auf **Direktregel**. In diesem Beispiel sind die User-Auflistung einzelner Benutzer hinzugefügt werden. Allerdings können Sie eine Abfrageregel verwenden, um Benutzer, die dieser Sammlung dynamisch für eine größere Bereitstellung hinzuzufügen.
 
-    b.  Klicken Sie auf der Seite " **Willkommen** " auf **Weiter**.
+    b.  Klicken Sie auf der **Willkommenseite** auf **Weiter**.
 
-    c.  Geben Sie den Namen des Benutzers, die Sie hinzufügen möchten, auf der Seite Ressourcen im **Wert**suchen. Der Name der enthält die Domäne des Benutzers. Um Ergebnisse auf Grundlage der eine teilweise Übereinstimmung einzubeziehen, setzen Sie die **%** Zeichen am Ende Ihren Suchkriterien. Geben Sie alle Benutzer, die mit der Zeichenfolge "Lori" zu finden, z. B. **% Lori %**. Klicken Sie auf **Weiter**.
+    c.  Auf der Seite "Ressourcen" Suchen in **Wert**, geben Sie den Namen des Benutzers, die Sie hinzufügen möchten. Der Ressourcenname enthält die Domäne des Benutzers. Um Ergebnisse auf Grundlage einer teilweisen Übereinstimmung einzubinden, fügen die **%** -Zeichen am Ende des Ihre Suchkriterium. Um alle Benutzer, die mit der Zeichenfolge "Lori" zu suchen, geben Sie z. B. **% Lori %**. Klicken Sie auf **Weiter**.
 
-    d.  Wählen Sie auf der Seite Ressourcen auswählen die Benutzer, die Sie der Gruppe hinzufügen möchten, und klicken Sie auf **Weiter**.
+    d.  Wählen Sie auf der Seite Ressourcen auswählen die Benutzer, die Sie verwenden möchten, zur Gruppe hinzufügen, und klicken Sie auf **Weiter**.
 
-    e.  Klicken Sie auf der Seite "Zusammenfassung" auf " **Weiter**".
+    e.  Klicken Sie auf der Seite Zusammenfassung auf **Weiter**.
 
-    f.  Klicken Sie auf der Seite Fertigstellung auf **Schließen**.
+    f.  Klicken Sie auf der Seite auf **schließen**.
 
-6.  Zurück auf der Seite des Assistenten zum Erstellen von Benutzer Sammlung Mitgliedschaftsregeln klicken Sie auf " **Weiter**".
+6.  Klicken Sie auf der Seite Mitgliedschaftsregeln des Assistenten zum Erstellen von Benutzer-Auflistung auf **Weiter**.
 
-7.  Klicken Sie auf der Seite "Zusammenfassung" auf " **Weiter**".
+7.  Klicken Sie auf der Seite Zusammenfassung auf **Weiter**.
 
-8.  Klicken Sie auf der Seite Fertigstellung auf **Schließen**.
+8.  Klicken Sie auf der Seite auf **schließen**.
 
-Nachdem Sie die Benutzergruppe Empfang von VPN-Profil erstellen, können Sie erstellen, ein Paket und Programm, um das Windows PowerShell-Skript bereitzustellen, das Sie im Abschnitt [Erstellen Sie die ProfileXML-Konfigurationsdateien](#bkmk_ProfileXML)erstellt haben.
+Nachdem Sie die Gruppe "Benutzer" erhalten das VPN-Profil erstellen, können Sie erstellen, ein Paket und Programm, das Windows PowerShell-Konfigurationsskript bereitzustellen, die Sie im Abschnitt erstellt haben [erstellen die Konfigurationsdateien "profileXML"](#bkmk_ProfileXML).
 
-### Erstellen eines Pakets mit dem Skript für ProfileXML
+### <a name="create-a-package-containing-the-profilexml-configuration-script"></a>Erstellen eines Pakets mit das Konfigurationsskript "profileXML"
 
-1.  Hosten Sie das Skript VPN_Profile.ps1 auf einer Netzwerkfreigabe, die das Computerkonto der Site-Server zugreifen kann.
+1.  Hosten Sie das Skript VPN_Profile.ps1 auf einer Netzwerkfreigabe, die das Computerkonto des Standorts zugreifen können.
 
-2.  Öffnen Sie in der Configuration Manager-Konsole **Software Library\\Application Management\\Packages**.
+2.  Öffnen Sie in der Configuration Manager-Konsole **Softwarebibliothek\\Anwendungsverwaltung\\Pakete**.
 
-3.  Klicken Sie auf **Paket erstellen** , um das Paket erstellen und Programm-Assistenten zu starten, auf dem Menüband **Home** in der Gruppe **Erstellen** .
+3.  Auf der **Startseite** im Menüband in die **erstellen** gruppieren, klicken Sie auf **Erstellen eines Pakets** zum Erstellen von Paketen und Programmerstellungs-Assistenten zu starten.
 
-4.  Führen Sie auf der Seite "Paket" die folgenden Schritte aus:
+4.  Führen Sie auf der Seite Paket die folgenden Schritte aus:
 
-    a. Geben Sie den **Namen** **Windows 10 immer auf VPN-Profil**.
+    a. In **Namen**, Typ **Windows 10 immer auf VPN-Profil**.
 
-    b. Aktivieren Sie das Kontrollkästchen **Dieses Paket enthält Quelldateien** , und klicken Sie auf **Durchsuchen**.
+    b. Wählen Sie die **dieses Paket enthält Quelldateien** , und klicken Sie auf **Durchsuchen**.
 
-    c. Klicken Sie in das Dialogfeld Quellordner festlegen auf **Durchsuchen**, wählen Sie die Dateifreigabe mit VPN_Profile.ps1 und klicken Sie auf **OK**.<p>Stellen Sie sicher, dass Sie einen Netzwerkpfad, nicht auf einen lokalen Pfad auswählen. Anders ausgedrückt, sollte der Pfad etwa *\\fileserver\\vpnscript*, nicht *c:\\vpnscript*sein.
+    c. Klicken Sie in das Dialogfeld Quellordner festlegen, auf **Durchsuchen**, wählen Sie die Dateifreigabe, die VPN_Profile.ps1 enthält, und klicken Sie auf **OK**.<p>Stellen Sie sicher, dass Sie einen Netzwerkpfad, der nicht auf einen lokalen Pfad auswählen. Das heißt, der Pfad sollte etwa wie  *\\Fileserver\\Vpnscript*, nicht *c:\\Vpnscript*.
 
 1.  Klicken Sie auf **Weiter**.
 
-2.  Klicken Sie auf der Seite Programmtyp auf **Weiter**.
+2.  Klicken Sie auf der Seite Programmtyp **Weiter**.
 
 3.  Führen Sie auf der Seite "Standardprogramm" die folgenden Schritte aus:
 
-    a.  Geben Sie den **Namen** **VPN-Profilskript**.
+    a.  In **Namen**, Typ **VPN-Profilskript**.
 
-    b.  Geben Sie in der **Befehlszeile**, **PowerShell.exe - ExecutionPolicy umgehen - Datei "VPN_Profile.ps1"**.
+    b.  In **Befehlszeile**, Typ **umgehen, PowerShell.exe - ExecutionPolicy - Datei "VPN_Profile.ps1"**.
 
-    c.  Klicken Sie im **Ausführungsmodus**auf **mit Administratorrechten ausführen**.
+    c.  In **Ausführmodus**, klicken Sie auf **mit Administratorrechten ausführen**.
 
     d.  Klicken Sie auf **Weiter**.
 
-4.  Führen Sie auf der Seite "Anforderungen" die folgenden Schritte aus:
+4.  Führen Sie auf der Seite Anforderungen die folgenden Schritte aus:
 
-    a.  Wählen Sie **das Programm kann nur auf angegebenen Plattformen ausgeführt**.
+    a.  Wählen Sie **dieses Programm kann nur auf bestimmten Plattformen ausgeführt**.
 
-    b.  Wählen Sie die Kontrollkästchen **Alle Windows 10 (32-Bit)** und **Alle Windows 10 (64-Bit)** .
+    b.  Wählen Sie die **alle Windows 10 (32-Bit)** und **alle Windows 10 (64-Bit)** Kontrollkästchen.
 
-    c.  Geben Sie im **geschätzte Speicherplatz**- **1**.
+    c.  In **geschätzter Speicherplatz**, Typ **1**.
 
-    d.  Geben Sie die **maximal zulässige Laufzeit (Minuten)** **15**.
+    d.  In **maximal zulässige Laufzeit (Minuten)**, Typ **15**.
 
     e.  Klicken Sie auf **Weiter**.
 
-5.  Klicken Sie auf der Seite "Zusammenfassung" auf " **Weiter**".
+5.  Klicken Sie auf der Seite Zusammenfassung auf **Weiter**.
 
-6.  Klicken Sie auf der Seite Fertigstellung auf **Schließen**.
+6.  Klicken Sie auf der Seite auf **schließen**.
 
-Mit dem Paket und Programm erstellt haben müssen Sie es für die **VPN-Benutzer** -Gruppe bereitstellen möchten.
+Mit dem Paket und Programm erstellt haben, müssen Sie zum Bereitstellen der **VPN-Benutzer** Gruppe.
 
-### Das Skript für ProfileXML bereitstellen
+### <a name="deploy-the-profilexml-configuration-script"></a>Das Konfigurationsskript "profileXML" bereitstellen
 
-1.  Öffnen Sie in der Configuration Manager-Konsole Software Library\\Application Management\\Packages.
+1.  Öffnen Sie in der Configuration Manager-Konsole Softwarebibliothek\\Anwendungsverwaltung\\Pakete.
 
-2.  **Pakete**klicken Sie auf **Windows 10 immer auf VPN-Profil**.
+2.  In **Pakete**, klicken Sie auf **Windows 10 immer auf VPN-Profil**.
 
-3.  Auf der Registerkarte " **Programme** " am unteren Rand im Detailbereich mit der rechten Maustaste **VPN-Profilskript**, klicken Sie auf **Eigenschaften**und führen Sie die folgenden Schritte aus:
+3.  Auf der **Programme** Registerkarte am unteren Rand der rechten Maustaste **VPN-Profilskript**, klicken Sie auf **Eigenschaften**, und führen Sie die folgenden Schritte aus:
 
-    a.  Klicken Sie auf der Registerkarte " **Erweitert** ", **Wenn dieses Programm auf einem Computer zugewiesen wird** **einmal für jeden Benutzer, die Benutzer sich anmeldet**.
+    a.  Auf der **erweitert** Registerkarte **Wenn dieses Programm auf einem Computer zugewiesen ist**, klicken Sie auf **einmal für jeden Benutzer, der sich anmeldet**.
 
     b.  Klicken Sie auf **OK**.
 
-4.  Mit der rechten Maustaste **VPN-Profilskript** , und klicken Sie auf **Bereitstellen** , um den Assistenten zum Bereitstellen von Software starten.
+4.  Mit der rechten Maustaste **VPN-Profilskript** , und klicken Sie auf **bereitstellen** um den Assistenten zum Bereitstellen von Software zu starten.
 
-5.  Führen Sie auf der Seite "Allgemein" die folgenden Schritte aus:
+5.  Führen Sie auf der Seite Allgemein die folgenden Schritte aus:
 
-    a.  Neben der **Auflistung**klicken Sie auf " **Durchsuchen**".
+    a.  Neben **Auflistung**, klicken Sie auf **Durchsuchen**.
 
-    b.  Klicken Sie in der Liste **Sammlungstypen** (oben links) auf **Benutzer Sammlungen**.
+    b.  In der **Auflistungstypen** Liste (links oben), klicken Sie auf **Benutzersammlungen**.
 
     c.  Klicken Sie auf **VPN-Benutzer**, und klicken Sie auf **OK**.
 
@@ -779,95 +779,95 @@ Mit dem Paket und Programm erstellt haben müssen Sie es für die **VPN-Benutzer
 
 6.  Führen Sie auf der Seite Inhalt die folgenden Schritte aus:
 
-    a.  Klicken Sie auf **Hinzufügen**, und klicken Sie auf **Verteilungspunkt**.
+    a.  Klicken Sie auf **hinzufügen**, und klicken Sie auf **Verteilungspunkt**.
 
-    b.  Wählen Sie im **verfügbaren Verteilungspunkte**die Verteilungspunkte für die Verteilung des ProfileXML Skripts, und klicken Sie auf **OK**werden soll.
+    b.  In **verfügbaren Verteilungspunkte**, wählen Sie die Verteilungspunkte, die Sie verteilen das Konfigurationsskript "profileXML", und klicken Sie auf möchten **OK**.
 
     c.  Klicken Sie auf **Weiter**.
 
-7.  Klicken Sie auf " **Weiter**" auf der Einstellungsseite Bereitstellung.
+7.  Klicken Sie auf die Bereitstellungseinstellungen (Seite), auf **Weiter**.
 
-8.  Führen Sie auf der Seite Planung die folgenden Schritte aus:
+8.  Führen Sie auf der Seite zeitplanung die folgenden Schritte aus:
 
-    a.  Klicken Sie auf **neu** , um das Dialogfeld Zuweisungszeitplan zu öffnen.
+    a.  Klicken Sie auf **neu** um das Dialogfeld "Zuweisungszeitplan" zu öffnen.
 
     b.  Klicken Sie auf **direkt nach diesem Ereignis zuweisen**, und klicken Sie auf **OK**.
 
     c.  Klicken Sie auf **Weiter**.
 
-9.  Führen Sie auf der Seite "Installationsoptionen" die folgenden Schritte aus:
+9.  Führen Sie auf der Seite Benutzerfreundlichkeit die folgenden Schritte aus:
 
-    1.  Aktivieren Sie das Kontrollkästchen für die **Softwareinstallation** .
+    1.  Wählen Sie die **Softwareinstallation** Kontrollkästchen.
 
     2.  Klicken Sie auf **Zusammenfassung**.
 
-10. Klicken Sie auf der Seite "Zusammenfassung" auf " **Weiter**".
+10. Klicken Sie auf der Seite Zusammenfassung auf **Weiter**.
 
-11. Klicken Sie auf der Seite Fertigstellung auf **Schließen**.
+11. Klicken Sie auf der Seite auf **schließen**.
 
-Melden Sie mit der ProfileXML-Konfigurationsskript bereitgestellt sich auf einem Windows 10-Clientcomputer mit dem Benutzerkonto, die, das Sie ausgewählt, wenn Sie die Auflistung erstellt. Überprüfen Sie die Konfiguration des VPN-Clients.
+Melden Sie sich auf einem Windows 10-Clientcomputer mit dem Benutzerkonto an, die, das Sie ausgewählt, wenn Sie die User-Auflistung erstellt, mit "profileXML" Konfigurationsskript bereitgestellt. Überprüfen Sie die Konfiguration des VPN-Clients aus.
 
 >[!NOTE]
->Das Skript VPN_Profile.ps1 funktioniert nicht in einer Remotedesktop-Sitzung. Ebenso funktioniert es nicht in einer Hyper-V-erweiterte Sitzung. Wenn Sie eine Remote Access Always On VPN auf virtuellen Computern testen, deaktivieren Sie erweiterte Sitzung auf Ihrem Client VMs, bevor Sie fortfahren.
+>Das Skript VPN_Profile.ps1 funktioniert nicht in einer Remotedesktopsitzung. Ebenso funktioniert es nicht in einer Sitzung für Hyper-V erweitert. Wenn Sie eine Remotezugriffsbereitstellung immer auf VPN auf virtuellen Computern testen, deaktivieren Sie die erweiterten Sitzungsmodus auf dem virtuellen Computer-Client, bevor Sie fortfahren.
 
-### Überprüfen Sie die Konfiguration des VPN-Clients
+### <a name="verify-the-configuration-of-the-vpn-client"></a>Überprüfen Sie die Konfiguration des VPN-Clients
 
-1.  Klicken Sie in der Systemsteuerung unter **System\\Security**, **Konfigurations-Manager**aus. 
+1.  In der Systemsteuerung unter **System\\Sicherheit**, klicken Sie auf **Configuration Manager**. 
 
-2.  Führen Sie im Dialogfeld Configuration Manager-Eigenschaften auf der Registerkarte " **Aktionen** " die folgenden Schritte aus:
+2.  Klicken Sie im Dialogfeld "Configuration Manager-Eigenschaften" auf die **Aktionen** Registerkarte, die folgenden Schritte ausführen:
 
-    a.  Klicken Sie auf **Computerrichtlinienabruf & Evaluierungszyklus**, klicken Sie auf **Jetzt ausführen**, und klicken Sie auf **OK**.
+    a.  Klicken Sie auf **Computerrichtlinienabruf und Evaluierungszyklus**, klicken Sie auf **Run Now**, und klicken Sie auf **OK**.
 
-    b.  Klicken Sie auf **Benutzer Richtlinienabruf & Evaluierungszyklus**, klicken Sie auf **Jetzt ausführen**, und klicken Sie auf **OK**.
+    b.  Klicken Sie auf **Benutzerrichtlinienabruf und Auswertungszyklus**, klicken Sie auf **Run Now**, und klicken Sie auf **OK**.
 
     c.  Klicken Sie auf **OK**.
 
 3.  Schließen Sie die Systemsteuerung.
 
-Das neue VPN-Profil sollte kurz angezeigt werden.
+Das neue VPN-Profil sollte in Kürze angezeigt werden.
 
-## Konfigurieren des VPN-Clients mithilfe von Intune
+## <a name="configure-the-vpn-client-by-using-intune"></a>Konfigurieren des VPN-Clients mit Intune
 
-Um Intune verwenden, um Windows 10 Remote Access Always On VPN-Profile bereitzustellen, können Sie können den ProfileXML CSP-Knoten über das VPN-Profil, die, das Sie im Abschnitt [Erstellen Sie die ProfileXML-Konfigurationsdateien](#bkmk_ProfileXML)erstellt, konfigurieren, oder Sie das bereitgestellte base EAP-XML-Beispiel unten.
+Um Intune zum Bereitstellen von Windows 10 Remote Access Always On-VPN-Profilen zu verwenden, können Sie konfigurieren Sie den ProfileXML CSP-Knoten mithilfe des VPN-Profils, die Sie im Abschnitt erstellten [erstellen die Konfigurationsdateien "profileXML"](#bkmk_ProfileXML), oder Sie können die Basis EAP XML-Beispiel unten.
 
 >[!NOTE]
->Intune verwendet nun Azure AD-Gruppen. Wenn Azure AD Connect die VPN-Benutzergruppe von einer lokalen Azure AD synchronisiert und Benutzer werden die VPN-Benutzer-Gruppe zugewiesen, sind Sie bereit sind, fahren Sie fort.
+>Intune verwendet jetzt die Azure AD-Gruppen. Wenn Azure AD Connect der VPN-Benutzergruppe von lokalen Standorten mit Azure AD synchronisiert und der VPN-Benutzergruppe Benutzer zugewiesen sind, sind Sie bereit sind, fortzufahren.
 
-Erstellen Sie die VPN-Konfiguration für Informationen zum Konfigurieren der Windows 10-Clientcomputern für alle Benutzer zur Gruppe hinzugefügt. Da die Vorlage Intune VPN-Parameter enthält, nur kopieren Sie den \<EapHostConfig> \</EapHostConfig> Teil der VPN_ProfileXML-Datei. 
+Erstellen Sie die VPN-Gerät-Konfigurationsrichtlinie zum Konfigurieren der Windows 10-Clientcomputern für alle Benutzer der Gruppe hinzugefügt. Da die Vorlage mit Intune VPN-Parameter bereitstellt, kopieren Sie nur die \<EapHostConfig > \</EapHostConfig > Teil der VPN_ProfileXML-Datei. 
 
 
-### Erstellen Sie die Richtlinie Always On VPN-Konfiguration
+### <a name="create-the-always-on-vpn-configuration-policy"></a>Erstellen Sie die Richtlinie für Always On-VPN-Konfiguration
 
-1.  Melden Sie sich im [Azure-Portal](https://portal.azure.com/).
+1.  Melden Sie sich bei der [Azure-Portal](https://portal.azure.com/).
 
 2.  Wechseln Sie zu **Intune** > **Gerätekonfiguration** > **Profile**.
 
-3.  Klicken Sie auf **Profil erstellen** , um das Profil erstellen Assistenten zu starten.
+3.  Klicken Sie auf **Profil erstellen** um das Profil erstellen Assistenten zu starten.
 
-4.  Geben Sie einen **Namen** für das VPN-Profil und (optional) eine Beschreibung ein.
+4.  Geben Sie einen **Namen** für das VPN-Profil und (optional) eine Beschreibung.
 
-5.   Wählen Sie **Windows 10 oder höher**unter **Plattform**und wählen Sie das Profil Dropdownliste **VPN** .
+5.   Unter **Plattform**wählen **Windows 10 oder höher**, und wählen Sie **-VPN-** aus dem Profil Typ Dropdownliste aus.
 
      >[!TIP]
-     >Wenn Sie eine benutzerdefinierte VPN-ProfileXML erstellen, finden Sie unter [Anwenden von ProfileXML mithilfe von Intune](https://docs.microsoft.com/windows/security/identity-protection/vpn/vpn-profile-options#apply-profilexml-using-intune) die Anweisungen.
+     >Wenn Sie ein benutzerdefiniertes VPN "profileXML" erstellen, finden Sie unter [anwenden "profileXML" mithilfe von Intune](https://docs.microsoft.com/windows/security/identity-protection/vpn/vpn-profile-options#apply-profilexml-using-intune) Anweisungen.
 
-6. Überprüfen Sie unter der Registerkarte **Base VPN** , oder legen Sie die folgenden Einstellungen:
+6. Unter den **Basis-VPN** Registerkarte, stellen Sie sicher, oder legen Sie die folgenden Einstellungen:
 
-    - **Name der Verbindung:** Geben Sie den Namen der VPN-Verbindung, wie er auf dem Clientcomputer in der **VPN** -Registerkarte unter **Einstellungen**, z. B. _Contoso AutoVPN_angezeigt wird.  
+    - **Verbindungsname:** Geben Sie den Namen der VPN-Verbindung, wie er auf dem Clientcomputer die **VPN** Registerkarte **Einstellungen**, z. B. _Contoso AutoVPN_.  
     
     - **Server:** Fügen Sie einen oder mehrere VPN-Server, indem Sie auf **hinzufügen.**
     
-    - **Beschreibung** und **IP-Adresse oder FQDN:** Geben Sie die Beschreibung und IP-Adresse oder FQDN des VPN-Servers. Diese Werte müssen mit den Antragstellernamen in der VPN-Server-Authentifizierungszertifikat angepasst werden. 
+    - **Beschreibung** und **IP-Adresse oder FQDN:** Geben Sie die Beschreibung und die IP-Adresse oder den vollqualifizierten Domänennamen des VPN-Server. Diese Werte müssen mit dem Antragstellernamen in der VPN-Server-Authentifizierungszertifikat ausgerichtet werden. 
     
-    - **Standard-Server:** Wenn dies der Standard-VPN-Server ist, auf **"true"** festgelegt. Auf diese Weise können diesem Server wie der Standardserver, den Geräte verwenden, um die Verbindung herzustellen. 
+    - **Standardserver:** Wenn dies der VPN-Standardserver ist, legen Sie auf **"true"**. Dies aktiviert diesen Server als Standardserver, den Geräte zu verwenden, um die Verbindung herzustellen. 
     
     - **Verbindungstyp:** Legen Sie auf **IKEv2**.  
     
-    - **Always On:** Legen Sie auf das VPN automatisch bei der Anmeldung herstellen und bleiben, bis der Benutzer manuell getrennt **Aktivieren** .
+    - **AlwaysOn:** Legen Sie auf **aktivieren** das VPN automatisch bei der Anmeldung herstellen und diese in Verbindung bleiben, bis der Benutzer manuell getrennt wird.
     
-    - **Speichern von Anmeldeinformationen bei jeder Anmeldung**: boolescher Wert ("true" oder "false") für das Zwischenspeichern von Anmeldeinformationen. Wenn auf "true" Anmeldeinformationen zwischengespeichert werden, wann immer möglich.
+    - **Beachten Sie bei jeder Anmeldung**:  Boolescher Wert ("true" oder "false") für die Zwischenspeicherung von Anmeldeinformationen. Wenn es sich bei Festlegung auf "true", Anmeldeinformationen zwischengespeichert werden, wann immer möglich.
 
-7.  Kopieren Sie die folgende XML-Zeichenfolge in einem Text-Editor:<p>
+7.  Kopieren Sie die folgende XML-Zeichenfolge in einen Texteditor ein:<p>
  
     [!INCLUDE [important-lower-case-true-include](../../../includes/important-lower-case-true-include.md)]
     <p>
@@ -876,37 +876,37 @@ Erstellen Sie die VPN-Konfiguration für Informationen zum Konfigurieren der Win
     <EapHostConfig xmlns="https://www.microsoft.com/provisioning/EapHostConfig"><EapMethod><Type xmlns="https://www.microsoft.com/provisioning/EapCommon">25</Type><VendorId xmlns="https://www.microsoft.com/provisioning/EapCommon">0</VendorId><VendorType xmlns="https://www.microsoft.com/provisioning/EapCommon">0</VendorType><AuthorId xmlns="https://www.microsoft.com/provisioning/EapCommon">0</AuthorId></EapMethod><Config xmlns="https://www.microsoft.com/provisioning/EapHostConfig"><Eap xmlns="https://www.microsoft.com/provisioning/BaseEapConnectionPropertiesV1"><Type>25</Type><EapType xmlns="https://www.microsoft.com/provisioning/MsPeapConnectionPropertiesV1"><ServerValidation><DisableUserPromptForServerValidation>true</DisableUserPromptForServerValidation><ServerNames>NPS.contoso.com</ServerNames><TrustedRootCA>5a 89 fe cb 5b 49 a7 0b 1a 52 63 b7 35 ee d7 1c c2 68 be 4b </TrustedRootCA></ServerValidation><FastReconnect>true</FastReconnect><InnerEapOptional>false</InnerEapOptional><Eap xmlns="https://www.microsoft.com/provisioning/BaseEapConnectionPropertiesV1"><Type>13</Type><EapType xmlns="https://www.microsoft.com/provisioning/EapTlsConnectionPropertiesV1"><CredentialsSource><CertificateStore><SimpleCertSelection>true</SimpleCertSelection></CertificateStore></CredentialsSource><ServerValidation><DisableUserPromptForServerValidation>true</DisableUserPromptForServerValidation><ServerNames>NPS.contoso.com</ServerNames><TrustedRootCA>5a 89 fe cb 5b 49 a7 0b 1a 52 63 b7 35 ee d7 1c c2 68 be 4b </TrustedRootCA></ServerValidation><DifferentUsername>false</DifferentUsername><PerformServerValidation xmlns="https://www.microsoft.com/provisioning/EapTlsConnectionPropertiesV2">true</PerformServerValidation><AcceptServerName xmlns="https://www.microsoft.com/provisioning/EapTlsConnectionPropertiesV2">true</AcceptServerName></EapType></Eap><EnableQuarantineChecks>false</EnableQuarantineChecks><RequireCryptoBinding>false</RequireCryptoBinding><PeapExtensions><PerformServerValidation xmlns="https://www.microsoft.com/provisioning/MsPeapConnectionPropertiesV2">true</PerformServerValidation><AcceptServerName xmlns="https://www.microsoft.com/provisioning/MsPeapConnectionPropertiesV2">true</AcceptServerName></PeapExtensions></EapType></Eap></Config></EapHostConfig>
     ```
 
-8.  Ersetzen Sie die **\<TrustedRootCA>5a 89 Fe Cb 5 b 49 a7 0 b 1a 52 63 b7 35 Ee d7 1c c2 68 werden 4b<\/TrustedRootCA>** im Beispiel durch den Fingerabdruck des Zertifikats, der Ihre lokale Stammzertifizierungsstelle an beiden Stellen vorhanden.
+8.  Ersetzen Sie die  **\<TrustedRootCA > 5a 89 Fe Cb 5 b 49 a7 0 b 1a 52 63 b7 35 Ee d7 1c c2 68 werden 4 b <\/TrustedRootCA >** im obigen Beispiel durch den Zertifikatfingerabdruck der Stammzertifizierungsstelle für Ihre lokalen an beiden Orten.
   
     >[!Important]
-    >Verwenden Sie nicht den Fingerabdruck Beispiel \<TrustedRootCA>\</TrustedRootCA> unten im Abschnitt.  Die TrustedRootCA muss der Fingerabdruck des Zertifikats der Stammzertifizierungsstelle für die lokale sein, die das Server-Authentifizierungszertifikat für RRAS und NPS-Servern ausgestellt. **Dies darf nicht das Cloud-Stammzertifikat, noch intermediate ausstellenden Zertifizierungsstelle den Fingerabdruck des Zertifikats**.
+    >Verwenden Sie nicht den Beispiel-Fingerabdruck in der \<TrustedRootCA >\</TrustedRootCA > Weiter unten.  Die TrustedRootCA muss den Zertifikatfingerabdruck der Stammzertifizierungsstelle für die lokale sein, die das Serverauthentifizierungszertifikat für RRAS und NPS-Server ausgestellt hat. **Dies muss nicht das Stammzertifikat für die Cloud, und der intermediate Zertifikatfingerabdruck für die ausstellende Zertifizierungsstelle**.
 
-10. Ersetzen Sie die **\<ServerNames>NPS.contoso.com\</ServerNames>** im XML-Beispiel, mit dem vollqualifizierten Domänennamen der Domäne NPS, an dem Authentifizierung erfolgt. 
+10. Ersetzen Sie die  **\<ServerNames > NPS.contoso.com\</ServerNames >** in der XML-Beispieldatei mit dem vollqualifizierten Domänennamen, der die Domäne eingebundenen NPS, in denen Authentifizierung erfolgt. 
 
-11. Kopieren Sie die überarbeitete XML-Zeichenfolge und fügen Sie in der **EAP-Xml** -Feld unter der Registerkarte "VPN-Basis", und klicken Sie auf **OK**.<p>Eine immer auf VPN-Gerätekonfiguration-Richtlinie mithilfe von EAP wird in Intune erstellt.
+11. Kopieren Sie die geänderte XML-Zeichenfolge, und fügen Sie in der **EAP-Xml** Feld auf der Basis-VPN-Registerkarte, und klicken Sie auf **OK**.<p>Eine immer auf VPN-Gerätekonfiguration-Richtlinie mithilfe von EAP wird in Intune erstellt.
 
 
-### Synchronisieren Sie die Richtlinie Always On VPN-Konfiguration mit Intune
+### <a name="sync-the-always-on-vpn-configuration-policy-with-intune"></a>Synchronisieren Sie die Always On-VPN-Konfigurationsrichtlinie mit Intune
 
-Um die Konfigurationsrichtlinie zu testen, melden Sie sich an einem Windows 10-Clientcomputer, als des Benutzers, die, den Sie der Gruppe **Immer auf VPN-Benutzer** hinzugefügt, und dann mit Intune synchronisieren.
+Um die Richtlinie für die Konfiguration zu testen, melden Sie sich auf einem Windows 10-Client-Computer als der Benutzer Sie hinzugefügt haben, um die **immer auf VPN-Benutzer** Gruppe und dann auf mit Intune synchronisieren.
 
-1.  **Klicken Sie auf das Menü "Start".**
+1.  Klicken Sie auf im Menü Start auf **Einstellungen**.
 
-2.  Klicken Sie unter "Einstellungen" auf **Konten**, und klicken Sie auf **Arbeits- oder schulkonto zugreifen**.
+2.  Klicken Sie unter "Einstellungen" auf **Konten**, und klicken Sie auf **Zugriff auf Geschäfts-, Schul- oder unikonto**.
 
-3.  Klicken Sie auf das MDM-Profil, und klicken Sie auf **Informationen**.
+3.  Klicken Sie auf das Profil für die Verwaltung mobiler Geräte, und klicken Sie auf **Informationen**.
 
-4.  Klicken Sie auf **Synchronisierung** um eine Auswertung von Intune-Richtlinien und Abruf zu erzwingen.
+4.  Klicken Sie auf **Sync** zu erzwingen, dass eine Auswertung der Intune-Richtlinie und abrufen.
 
-5.  Schließen Sie die Einstellungen. Nach der Synchronisierung sehen Sie das VPN-Profil verfügbar, auf dem Computer.
+5.  Schließen Sie die Einstellungen. Nach der Synchronisierung sehen Sie das VPN-Profil verfügbar sind, auf dem Computer.
 
-## Nächster Schritt
-Bereitstellen von Always On VPN erfolgt.  Andere Features, die Sie konfigurieren können, finden Sie in der folgenden Tabelle:
+## <a name="next-step"></a>Nächster Schritt
+Bereitstellen von Always On-VPN-erfolgt.  Finden Sie für andere Funktionen, die Sie konfigurieren können in der folgenden Tabelle:
 
 |Wenn Sie möchten...  |Anzeige...  |
 |---------|---------|
-|Konfigurieren des bedingten Zugriffs für VPN    |[Schritt 7. (Optional) Konfigurieren des bedingten Zugriffs für VPN-Konnektivität mit Azure AD](../../ad-ca-vpn-connectivity-windows10.md): In diesem Schritt können Sie optimieren wie autorisierten VPN-Benutzerzugriff von Ressourcen mithilfe von [bedingtem Zugriff von Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). Mit Azure AD Bedingter Zugriff für virtuelles privates Netzwerk (VPN)-Konnektivität können Sie schützen die VPN-Verbindungen. Beim bedingten Zugriff handelt es sich um ein richtlinienbasiertes Auswertungsmodul, mit dem Sie Zugriffsregeln für alle mit Azure Active Directory (Azure AD) verknüpften Anwendungen erstellen können.         |
-|Erfahren Sie mehr über die erweiterten VPN-features  |[Erweiterte VPN-Funktionen](always-on-vpn-adv-options.md#advanced-vpn-features): Diese Seite enthält Informationen zum Aktivieren der VPN-Datenverkehrsfilter, so konfigurieren Sie die automatische VPN-Verbindungen mit App-Triggern und so konfigurieren Sie NPS, damit nur VPN-Verbindungen von Clients mithilfe von Azure ausgestellte Zertifikate AD.        |
+|Konfigurieren des bedingten Zugriffs für VPN    |[Schritt 7 fort. (Optional) Konfigurieren des bedingten Zugriffs für VPN-Verbindungen mithilfe von Azure AD](../../ad-ca-vpn-connectivity-windows10.md): In diesem Schritt haben Sie präzise steuern von autorisierten VPN-Benutzerzugriff Ihre Ressourcen mit [Azure Active Directory (Azure AD) bedingten Zugriff](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). Mit Azure AD für bedingten Zugriff für Verbindungen über virtuelles privates Netzwerk (VPN) helfen Ihnen, die VPN-Verbindungen schützen. Beim bedingten Zugriff handelt es sich um ein richtlinienbasiertes Auswertungsmodul, mit dem Sie Zugriffsregeln für alle mit Azure Active Directory (Azure AD) verknüpften Anwendungen erstellen können.         |
+|Erfahren Sie mehr über die erweiterten VPN-Funktionen  |[Erweiterte VPN-Features](always-on-vpn-adv-options.md#advanced-vpn-features): Diese Seite enthält Anleitungen zur VPN-IP-Filter aktivieren, konfigurieren Sie automatische VPN-Verbindungen mithilfe von App-Trigger und Gewusst wie: Konfigurieren von NPS, um VPN-Verbindungen nur von Clients mithilfe von Azure AD ausgestellten Zertifikaten zu ermöglichen.        |
 
 
 ---

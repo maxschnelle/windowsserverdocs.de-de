@@ -1,6 +1,6 @@
 ---
-title: Express-Updates für Windows Server 2016 für November 2018 erneut aktiviert, aktualisieren
-description: Enthält Informationen zu Updates in Windows Server 2016 Express
+title: Express-Updates für Windows Server 2016 Reaktivierung für November 2018 aktualisieren
+description: Enthält Informationen zu Express-Updates in Windows Server 2016
 ms.prod: windows-server-threshold
 ms.technology: server-general
 ms.topic: article
@@ -8,20 +8,20 @@ author: lizap
 ms.author: elizapo
 ms.localizationpriority: medium
 ms.openlocfilehash: c48979440ab7c5cfa86aa1287b354a1e43692f48
-ms.sourcegitcommit: 23e0a68e21985d709e029e7771d3c52d6815bcb4
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "6507851"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59867441"
 ---
-# Express-Updates für Windows Server 2016 für November 2018 erneut aktiviert, aktualisieren
+# <a name="express-updates-for-windows-server-2016-re-enabled-for-november-2018-update"></a>Express-Updates für Windows Server 2016 Reaktivierung für November 2018 aktualisieren
 
->Durch Joel Frauenheim
+>By Joel Frauenheim
 
->Gilt für: Windows Server2016
+>Gilt für: Windows Server 2016
 
-Beginnend mit dem November 13 2018 Update Dienstag, Windows wird erneut veröffentlichen Express-Updates für Windows Server 2016. Express-Updates für Windows Server 2016 beendet Mitte 2017, nachdem ein wichtiges Thema, dass gefunden wurde, die die Updates beibehalten, ordnungsgemäß installiert. Während das Problem im November 2017 behoben wurde, nahm das Update-Team einen konservativen Ansatz zum Veröffentlichen der Express-Pakete, um sicherzustellen, dass die meisten Kunden wäre die 14 November 2017-Update ([KB 4048953](https://support.microsoft.com/help/4048953/windows-10-update-kb4048953)) auf ihrem Server-Umgebungen installiert haben und nicht durch das Problem beeinträchtigt.
+Beginnend mit vom 13. November 2018 Update Dienstag "," Windows wird erneut veröffentlichen Express-Updates für Windows Server 2016. Express-Updates für Windows Server 2016 beendet in der Mitte 2017, nachdem ein wichtiges Problem, dass gefunden wurde, die die Updates beibehalten, korrekte Installation. Zwar das Problem im November 2017 behoben wurde, hat das Update-Team einen konservativen Ansatz veröffentlichen Sie die Express-Pakete, um sicherzustellen, dass die meisten Kunden müssten das 14. November 2017-Update ([KB 4048953](https://support.microsoft.com/help/4048953/windows-10-update-kb4048953)) auf ihrem Server installiert Umgebungen und nicht von dem Problem betroffen.
 
-Systemadministratoren für WSUS und System Center Configuration Manager (SCCM) müssen Sie beachten, dass im November 2018 sie zwei Pakete für die Windows Server 2016-Update erneut angezeigt werden: eine vollständige Aktualisierung und ein Express-Update. Systemadministratoren, die Express für ihre Server-Umgebung verwenden möchten, müssen zu bestätigen, dass das Gerät, eine vollständige Aktualisierung seit 14 November 2017 ([KB 4048953 ausgeführt](https://support.microsoft.com/help/4048953/windows-10-update-kb4048953)) um sicherzustellen, dass die Express-Update ordnungsgemäß installiert. Jedes Gerät auf dem nicht aktualisiert wurde, nachdem das Update vom 14 November 2017 ([KB 4048953](https://support.microsoft.com/help/4048953/windows-10-update-kb4048953)) angezeigt wird wiederholt Fehler, die Bandbreite und CPU-Ressourcen in einer Endlosschleife genutzt werden, wenn, die Express-Update versucht wird.  Wartung für diesen Zustand wäre für den Systemadministrator, beenden Sie die Express-Update weggeschoben und push inzwischen eine vollständige Aktualisierung die Fehler Schleife zu beenden.
+Systemadministratoren für WSUS und System Center Configuration Manager (SCCM) müssen beachtet werden, dass im November 2018 sie zwei Pakete für das Windows Server 2016-Update erneut angezeigt werden: ein vollständiges Update und ein Express-Update. Systemadministratoren, die Express verwenden für ihre serverumgebungen müssen, um sicherzustellen, dass das Gerät ein vollständiges Update seit dem 14. November 2017 erstellt wurde ([KB 4048953](https://support.microsoft.com/help/4048953/windows-10-update-kb4048953)) um sicherzustellen, dass das Express-Update ordnungsgemäß installiert wurde. Von Geräten, die nicht aktualisiert hat, seit dem 14. November 2017 aktualisieren ([KB 4048953](https://support.microsoft.com/help/4048953/windows-10-update-kb4048953)) werden wiederholte Fehler, die von Bandbreite und CPU-Ressourcen in eine Endlosschleife zu nutzen, wenn, dass Sie das Express-Update versucht wird angezeigt.  Für den Systemadministrator, beenden Sie die Übertragung des Express-Updates, und drücken Sie eine aktuelle vollständige Aktualisierung zum Beenden der Schleife Fehler wäre die Wiederherstellung für diesen Zustand.
 
-Mit dem November 13 2018 sehen Express Update Kunden eine sofortige Reduzierung der Größe des Pakets zwischen ihrem Verwaltungssystem und die Windows Server 2016-Endpunkte.  
+Kunden der Express-Update werden vom 13. November 2018 eine sofortige Verringerung der Paketgröße zwischen ihrem Managementsystem und die Windows Server 2016-Endpunkte angezeigt.  

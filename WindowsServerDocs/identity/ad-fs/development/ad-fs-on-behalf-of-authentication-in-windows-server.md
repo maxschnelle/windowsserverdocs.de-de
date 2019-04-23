@@ -1,7 +1,7 @@
 ---
 ms.assetid: 5052f13c-ff35-471d-bff5-00b5dd24f8aa
-title: Erstellen Sie eine Anwendung mit mehreren Ebenen mit On-Behalf-Of (OBO) mit OAuth mit AD FS 2016
-description: 
+title: Erstellen einer Multi-Tier-Anwendung, die mit der im-Auftrag (OBO) mithilfe von OAuth in AD FS 2016
+description: ''
 author: billmath
 ms.author: billmath
 manager: mtillman
@@ -9,120 +9,121 @@ ms.date: 02/22/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 8940cde2b78ce3ead499263e6fba0fbe28aae695
-ms.sourcegitcommit: c16a2bf1b8a48ff267e71ff29f18b5e5cda003e8
+ms.openlocfilehash: 33d0bfa4139f16c90f3d79f5b61188b4d311538b
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59858941"
 ---
-# <a name="build-a-multi-tiered-application-using-on-behalf-of-obo-using-oauth-with-ad-fs-2016"></a>Erstellen Sie eine Anwendung mit mehreren Ebenen mit On-Behalf-Of (OBO) mit OAuth mit AD FS 2016
+# <a name="build-a-multi-tiered-application-using-on-behalf-of-obo-using-oauth-with-ad-fs-2016"></a>Erstellen einer Multi-Tier-Anwendung, die mit der im-Auftrag (OBO) mithilfe von OAuth in AD FS 2016
 
 >Gilt für: Windows Server 2016
 
-Diese exemplarische Vorgehensweise enthält Anweisungen für die Implementierung einer im Auftrag von (OBO) Authentifizierung mit AD FS in Windows Server2016 TP5.  O erfahren Sie mehr über OBO Authentifizierung lesen [AD FS-Szenarien für Entwickler](../../ad-fs/overview/AD-FS-Scenarios-for-Developers.md)
+Diese exemplarische Vorgehensweise enthält Anweisungen für die Implementierung einer im-Auftrag-von (OBO) Authentifizierung mithilfe von AD FS in Windows Server 2016 TP5. Weitere Informationen zum OBO-Authentifizierung finden Sie [AD FS-Szenarien für Entwickler](../../ad-fs/overview/AD-FS-Scenarios-for-Developers.md)
 
->Warnung: Das Beispiel, das Sie hier erstellen können nur zu Lernzwecken ist. Diese Anweisungen gelten für die einfachste und die minimale Implementierung möglich, die erforderlichen Elemente des Modells verfügbar zu machen. Das Beispiel umfasst möglicherweise nicht alle Aspekte der Fehlerbehandlung und andere Funktionen beziehen und konzentriert sich nur auf eine erfolgreiche Authentifizierung der OBO abrufen.
+>WARNUNG: Das Beispiel, das Sie erstellen können, ist nur zu Lernzwecken. Diese Anweisungen gelten für die einfachste und minimale Implementierung, die Möglichkeit, um die erforderlichen Elemente des Modells verfügbar zu machen. Im Beispiel enthalten möglicherweise nicht alle Aspekte der Fehlerbehandlung und andere Funktionen beziehen und konzentriert sich nur auf eine erfolgreiche Authentifizierung für die OBO abrufen.
 
-## <a name="overview"></a>(Übersicht)
+## <a name="overview"></a>Übersicht
 
-In diesem Beispiel werden wir erstellen ein Authentifizierungsablauf, in dem ein Client einen Webdienst mittlerer Ebene greifen und der Webdienst dann für den authentifizierten Client zum erhalten eines Zugriffstokens fungiert.
+In diesem Beispiel werden wir erstellen eine Authentifizierungsablauf, in dem ein Client wird auf einen Webdienst der mittleren Ebene zugreifen werden, und klicken Sie dann der Webdienst für den authentifizierten Client zum Abrufen eines Zugriffstokens angewendet wird.
 
-![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO28.PNG)
+![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO28.png)
 
-Im folgenden ist der Authentifizierungsablauf, die im Beispiel erreicht wird
-1. Client authentifiziert AD FS-Autorisierung-Endpunkt und ein Autorisierungscode angefordert
-2. Autorisierungsendpunkt wird Code für die Authentifizierung an Client zurückgegeben.
-3. Client-Code für die Authentifizierung verwendet und zeigt sie an den AD FS-Token-Endpunkt Anforderung Zugriffstoken für mittlere Ebene Webdienst als WebAPI
-4. AD FS wird das Zugriffstoken auf mittlerer Ebene Webdienst zurückgegeben. Zusätzliche Funktionen muss mittlere Ebenen-Dienst den Zugriff auf die Backend WebAPI
-5. Client verwendet das Zugriffstoken, um mittlere Ebene Dienst zu verwenden.
-6. Mittlere Ebenen-Dienst bietet das Zugriffstoken an den Endpunkt der AD FS-Token und Anforderungen Zugriffstoken für Backend WebAPI im Auftrag von den authentifizierten Benutzer
-7. AD FS gibt Zugriffstoken für Back-End-WebAPI auf mittlere Ebenen-Dienst Actiing als Client
-8. Mittlere Ebenen-Dienst verwendet das Zugriffstoken von AD FS in Schritt7 bereitgestellt, um Zugriff auf die Back-End-WebAPI als Client und Ausführen der erforderlichen Funktionen
+Im folgenden finden Sie der Authentifizierungsablauf, den im Beispiel erreicht wird
+1. Client mit AD FS-Autorisierung-Endpunkt authentifiziert und fordert einen Autorisierungscode
+2. Autorisierungsendpunkt gibt Code für die Authentifizierung an Client zurück.
+3. Client verwendet der Code für die Authentifizierung und präsentiert es den AD FS-token-Endpunkt auf Anforderung von Zugriffstoken für den Webdienst der mittleren Ebene als Web-API
+4. AD FS gibt das Zugriffstoken an Mid-Tier-Webdienst zurück. Zusätzliche Funktionen benötigt der Dienst der mittleren Ebene Zugriff auf die Backend-WebAPI
+5. Client verwendet das Zugriffstoken für den Dienst der mittleren Ebene verwendet.
+6. Dienst der mittleren Ebene stellt das Zugriffstoken an den Endpunkt der AD FS-token und Anforderungen Zugriffstoken für Backend-WebAPI im-Auftrag-von des authentifizierten Benutzers
+7. AD FS gibt Zugriffstoken für die Back-End-Web-API zum Dienst der mittleren Ebene Actiing zurück, als client
+8. Dienst der mittleren Ebene verwendet das Zugriffstoken, das von AD FS in Schritt 7 bereitgestellt, um Zugriff auf das Back-End-Web-API als Client, und führen Sie die erforderlichen Funktionen
 
-## <a name="sample-structure"></a>Beispielstruktur für
+## <a name="sample-structure"></a>Beispielstruktur
 
-Beispiel umfasst drei Modulen
+Beispiel werden drei Modulen besteht.
 
 
 Modul | Beschreibung
 -------|------------
-ToDoClient | Native Client mit dem der Benutzer interagiert.
-ToDoService | Mittlerer Ebene Web-API die fungiert als Client für die Back-End-WebAPI
-WebAPIOBO | Back-End-Web-API, die von ToDoService verwendet wird, zu den erforderlichen Vorgang durchführen, wenn Benutzer a ToDoItem hinzufügt.
+ToDoClient | Native Client, mit denen der Benutzer interagiert
+ToDoService | Middle-Tier-Web-API fungiert als Client für das Back-End-Web-API
+WebAPIOBO | Back-End-web-api, die von ToDoService verwendet wird, um den erforderlichen Vorgang auszuführen, wenn Benutzer ein ToDoItem hinzugefügt
 
 
 
 
 ## <a name="setting-up-the-development-box"></a>Das Feld für die Entwicklung einrichten
 
-Diese exemplarische Vorgehensweise verwendet Visual Studio2015. Das Projekt verwendet stark Active Directory Authentifizierung Library (ADAL). Bitte lesen Sie ADAL Informationen [Active Directory-Authentifizierung Bibliothek .NET](https://msdn.microsoft.com/library/azure/mt417579.aspx)
+In dieser exemplarischen Vorgehensweise wird Visual Studio 2015 verwendet. Das Projekt verwendet häufig Active Directory Authentication Library (ADAL). Informationen finden Sie ADAL [Active Directory Authentication Library .NET](https://msdn.microsoft.com/library/azure/mt417579.aspx)
 
-Im Beispiel wird auch SQL LocalDB 11.0 verwendet. Installieren Sie die SQL LocalDB vor auf dem Beispiel funktioniert.
+Das Beispiel verwendet auch SQL LocalDB V11. 0. Installieren Sie SQL LocalDB vor auf dem Beispiel.
 
 ## <a name="setting-up-the-environment"></a>Einrichten der Umgebung
-Wir arbeiten mit einer einfachen Installation von:
+Wir werden eine grundlegende Einteilung des arbeiten:
 
-1. **DC**: Domänencontroller für die Domäne, in der AD FS gehostet werden,
-2. **AD FS-Server**: der AD FS-Server für die Domäne
-3. **Entwicklungscomputer**: Computer, in denen wir Visual Studio installiert haben und wird unser Beispiel entwickeln,
+1. **DC**: Domänencontroller für die Domäne, die in der AD FS gehostet wird
+2. **AD FS-Server**: Die AD FS-Server für die Domäne
+3. **Entwicklungscomputer**: Computer, auf der Visual Studio installiert haben und wird in diesem Beispiel entwickeln
 
-Sie können, wenn Sie möchten, nur zwei Computer verwenden. Eine für DC/ADFS und die andere für die Entwicklung des Beispiels.
+Sie können, wenn Sie möchten, nur zwei Computer verwenden. Eine für DC/AD FS und der andere für die Entwicklung des Beispiels.
 
-Zum Einrichten der Domänencontroller und die AD FS ist nicht Gegenstand dieses Artikels. Weitere Informationen finden Sie unter:
+Einrichten der Domänencontroller und AD FS sprengen den Rahmen dieses Artikels aus. Zusätzliche bereitstellungs-Informationen finden Sie unter:
 
 - [AD DS-Bereitstellung](../../ad-ds/deploy/AD-DS-Deployment.md)
 - [AD FS-Bereitstellung](../AD-FS-Deployment.md)
 
-Im Beispiel ist, basierend auf dem vorhandenen OBO-Beispiel für Azure erstellt Vittorio Bertocci und [hier](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof). Führen Sie die Anweisungen zum Klonen des Projekts auf dem Entwicklungscomputer, und erstellen Sie eine Kopie des Beispiels zum Beginnen der Arbeit mit.
+Im Beispiel wird basierend auf dem vorhandenen OBO-Beispiel für Azure, die von Vittorio Bertocci erstellt wurden und verfügbar [hier](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof). Führen Sie die Anweisungen zum Klonen des Projekts auf dem Entwicklungscomputer, und erstellen ein Exemplar des Beispiels zum Arbeiten mit ein.
 
-## <a name="clone-or-download-this-repository"></a>Klonen oder dieses Repository herunterladen
+## <a name="clone-or-download-this-repository"></a>Klonen oder Herunterladen von diesem repository
 
-Über die Shell oder die Befehlszeile:
+Der Shell oder über die Befehlszeile:
 
     git clone https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof.git
 
 ## <a name="modifying-the-sample"></a>Ändern das Beispiel
 
-Sobald Sie die Projektmappe WebAPI-OnBehalfOf-DotNet.sln öffnen, sehen Sie sich, dass stehen Ihnen zwei Projekte in der Projektmappe-
+Sobald Sie die Web-API-OnBehalfOf-DotNet.sln Projektmappe öffnen, sehen Sie sich, dass Sie in der Projektmappe zwei Projekte verfügen-
 
-* **ToDoListClient**: Dies dient als die der Benutzer interagiert OpenID Client
-* **ToDoListService**: Dadurch werden die mittlerer Ebene WebServer App / Dienst, interagieren mit einer anderen Back-End-WebAPI OBO den authentifizierten Benutzer
+* **ToDoListClient**: Dies wird wie der OpenID-Client dienen, der der Benutzer interagieren
+* **ToDoListService**: Dadurch werden die Anwendung der mittleren Ebene WebServer / Dienst, wird sein Interaktion mit einem anderen Back-End-WebAPI OBO den authentifizierten Benutzer
 
-Wie Sie sehen können, müssen wir später einem anderen Projekt hinzufügen, die als die Ressource fungiert, die von der ToDoListService mittlerer Ebene zugegriffen wird.
+Wie Sie sehen können, müssen wir später ein anderes Projekt hinzufügen, die als Ressource fungiert, die von der mittleren Ebene "todolistservice" zugegriffen wird.
 
 ### <a name="configuring-ad-fs-for-the-client-and-webserver-app"></a>Konfigurieren von AD FS für den Client und WebServer-App
 
-In der aktuellen Form des Beispiels ist die Authentifizierung mit Azure AD erfolgen konfiguriert. Wir den Authentifizierungsmechanismus ändern möchten, und direkte er zur AD FS lokalen bereitgestellt. Zu diesem Zweck müssen wir Konfigurieren von AD FS, den Client zu erkennen und WebServer-App wir haben im Beispiel.
+In der derzeitigen Form des Beispiels ist die Authentifizierung bei Azure AD durchgeführt werden konfiguriert. Wir den Authentifizierungsmechanismus ändern möchten, und direkte es für AD FS lokal bereitgestellt. Zu diesem Zweck müssen wir Konfigurieren von AD FS für die der Client erkennen und die WebServer-App, die wir im Beispiel.
 
 **Erstellen eine Anwendungsgruppe**
 
-Öffnen Sie die AD FS-MMC, und fügen Sie eine neue Anwendung hinzu. Native-Anwendung-WebAPI Vorlage auswählen.
+Öffnen Sie die AD FS-Verwaltungs-MMC, und fügen Sie eine neue Anwendung hinzu. Native-Anwendung-Web-API-Vorlage auswählen.
 
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO2.PNG)
 
-Klicken Sie auf Weiter, und es wird die Seite für die Angabe von Informationen zu Client-App angezeigt werden. Geben Sie einen passenden Namen für dem Client-App in AD FS. Kopieren Sie die Client-ID ein, und speichern Sie sie an einem Ort, den Sie später, wie dies in der Konfiguration der Anwendung in visual Studio erforderlich sind, zugreifen können.
+Klicken Sie auf Weiter, und es wird mit der Seite für die Bereitstellung von Informationen zu Client-App angezeigt werden. Geben Sie einen passenden Namen, an dem Client-App in AD FS. Kopieren Sie den Client-ID, und speichern Sie sie an einer Stelle dich später, wie dies in der Konfigurationsdatei der Anwendung in visual Studio erforderlich ist.
 
->Hinweis: Umleitungs-URI kann beliebige URIS werden wie bei einem einheitlichen Clients wirklich nicht verwendet wird
+>Hinweis: Der Umleitungs-URI kann jeder beliebigen URI sein, da es nicht wirklich bei nativen Clients verwendet wird
 
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO11.PNG)
 
-Klicken Sie auf Weiter, und es wird die Seite für die Angabe von Informationen zu WebAPI angezeigt werden. Geben Sie einen geeigneten Namen für den AD FS-Eintrag für die WebAPI, und geben Sie die umleitungs-URI als den URI, die Sie in Visual Studio für die ToDoListService finden Sie unter
+Klicken Sie auf Weiter, und es wird mit der Seite für die Bereitstellung von Informationen zu Web-API angezeigt werden. Geben Sie einen geeigneten Namen für den AD FS-Eintrag für die Web-API, und geben Sie den umleitungs-URI als den URI, die Sie für "todolistservice" in Visual Studio angezeigt
 
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO16.PNG)
 
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO18.PNG)
 
-Klicken Sie auf Weiter, und die wählen Sie den Zugriff der Richtlinienseite angezeigt. Stellen Sie sicher, dass Sie finden Sie unter "alle Benutzer im Abschnittzu Richtlinien zulassen".
+Klicken Sie auf Weiter, und Sie sehen, wählen Sie Access Control Seite mit der Richtlinie. Stellen Sie sicher, dass Sie finden Sie unter "alle Benutzer in dem Richtlinienabschnitt zulassen".
 
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO1.PNG)
 
-Klicken Sie auf Weiter, und es wird mit der Seite der App-Berechtigungen konfigurieren angezeigt werden. Wählen Sie auf dieser Seite die zulässigen Bereiche wie Openid (standardmäßig aktiviert) und User_impersonation. Der Bereich "User_impersonation" ist erforderlich, die erfolgreich im Auftrag von Zugriffstoken von AD FS anfordern können.
+Klicken Sie auf Weiter, und es wird mit der Konfigurationsseite der Anwendungsberechtigungen angezeigt werden. Wählen Sie auf dieser Seite die zulässigen Bereiche als Openid (standardmäßig ausgewählt) und "user_impersonation" ein. Der Bereich "User_impersonation" ist erforderlich, die erfolgreich ein im-Auftrag-von Zugriffstoken von AD FS anfordern können.
 
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO12.PNG)
 
-Klicken Sie auf wird der Seite "Zusammenfassung" als Nächstes angezeigt werden. Der Rest des Assistenten durchlaufen Sie, und beenden Sie die Konfiguration.
+Klicken Sie auf wird der Seite "Zusammenfassung" als Nächstes angezeigt werden. Durchlaufen Sie den Assistenten, und schließen Sie die Konfiguration.
 
-Um im Auftrag von Authentifizierung zu aktivieren, müssen wir sicherstellen, dass AD FS ein Zugriffstoken mit Bereich User_impersonation an den Client zurückgegeben. Ändern Sie die Ausstellung Ansprüche für ToDoListServiceWebApi die folgenden drei benutzerdefinierte Regeln enthalten:
+Um eine im-Auftrag-von Authentifizierung zu ermöglichen, müssen wir sicherstellen, dass AD FS ein Zugriffstoken mit Bereich "user_impersonation" an den Client zurückgibt. Ändern Sie die Ausstellung von Ansprüchen für ToDoListServiceWebApi auf die folgenden drei benutzerdefinierte Regeln enthalten:
 
     @RuleName = "All claims"
     c:[]
@@ -136,42 +137,42 @@ Um im Auftrag von Authentifizierung zu aktivieren, müssen wir sicherstellen, da
 
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO10.PNG)
 
-**Hinzufügen von ToDoListService als Client in der Anwendungsgruppe**
+**Hinzufügen von "todolistservice" als Client in der Anwendungsgruppe**
 
-In dieser Phase müssen wir einen zusätzlichen Eintrag in AD FS für die WebServer-App als Client und nicht nur als Ressource fungiert. Öffnen Sie die Anwendungsgruppe, die Sie gerade erstellt haben, und klicken Sie auf die Anwendung hinzufügen.
+In dieser Phase müssen wir einen weiteren Eintrag in AD FS für die WebServer-App, die als Client und nicht nur als Ressource fungiert vornehmen. Öffnen Sie die Anwendungsgruppe, die Sie gerade erstellt haben, und klicken Sie auf die Anwendung hinzufügen.
 
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO15.PNG)
 
-Es wird die Seite "Eine neue Anwendung zum MySampleGroup hinzufügen" angezeigt werden. Wählen Sie auf der Seite "Server-Anwendung oder Website" als eigenständige Anwendung
+Es wird die Seite "Hinzufügen eine neue Anwendung in MySampleGroup" angezeigt werden. Wählen Sie auf dieser Seite "Server-Anwendung oder Website" als eigenständige Anwendung
 
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO19.PNG)
 
-Klicken Sie auf Weiter, und es wird mit der Seite, um die Anwendung Informationen angezeigt werden. Geben Sie einen geeigneten Namen für den Konfigurationseintrag "im AbschnittName. Stellen Sie sicher, dass die Client-ID als Bezeichner für die ToDoListServiceWebAPI übereinstimmt
+Klicken Sie auf Weiter und wird mit der Seite zu Details zur Anwendung angezeigt. Geben Sie einen geeigneten Namen für den Konfigurationseintrag in den "Antragsteller". Stellen Sie sicher, dass die Client-ID als Bezeichner für die ToDoListServiceWebAPI identisch ist
 
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO20.PNG)
 
-Klicken Sie auf Weiter, und es wird die Seite so konfigurieren Sie die Anwendungsanmeldeinformationen angezeigt werden. Klicken Sie auf "einen gemeinsamen geheimen Schlüssel generieren". Es wird mit einem geheimen Schlüssel angezeigt werden, die automatisch generiert wird. Kopieren Sie den geheimen Schlüssel auf eine bestimmte Position, wie dies erforderlich sein wird, während wir die ToDoListService in visual Studio konfigurieren.
+Klicken Sie auf Weiter, und Sie werden die Seite so konfigurieren Sie die Anmeldeinformationen der Anwendung angezeigt werden. Klicken Sie auf "einen gemeinsamen geheimen Schlüssel generieren". Es wird mit einem geheimen Schlüssel angezeigt werden, die automatisch generiert wird. Kopieren Sie den geheimen Schlüssel auf einen Speicherort aus, da dies erforderlich werden, während wir den "todolistservice" in visual Studio konfigurieren.
 
 
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO17.PNG)
 
-Klicken Sie auf Weiter, und schließen Sie den Assistenten ab.
+Klicken Sie auf Weiter, und schließen Sie den Assistenten.
 
-### <a name="modifying-the-todolistclient-code"></a>Ändern des Codes ToDoListClient
+### <a name="modifying-the-todolistclient-code"></a>Ändern des Codes "todolistclient"
 
-#### <a name="modify-the-application-config"></a>Ändern Sie die Anwendung Config
+#### <a name="modify-the-application-config"></a>Ändern der Anwendungskonfiguration
 
-Rufen Sie Sie können das Projekt ToDoListClient WebAPI-OnBehalfOf-DotNet-Lösung. Öffnen Sie die App, und stellen Sie die folgenden Änderungen
+Wechseln Sie zu der Sie können das Projekt "todolistclient" in Web-API-OnBehalfOf-DotNet-Lösung. Öffnen Sie die Datei "App.config", und nehmen die folgenden Änderungen vor
 
 * Kommentieren Sie den Schlüssel Ida: Mandanten-Eintrag
-* Für die Ida: "redirecturi" Geben Sie den beliebigen URI, den Sie beim Konfigurieren der MySampleGroup_ClientApplication in AD FS bereitgestellt.
-* Geben Sie für den Schlüssel Ida: ClientID die ID-Bezeichner, den AD FS beim Konfigurieren der MySampleGroup_ClientApplication gegeben haben.
-* Die Ida: ToDoListResourceID bietet, die Ressourcen-ID konnten Sie beim Konfigurieren der ToDoListServiceWebApi in AD FS
+* Die Ida: umleitungs-URI eingeben, die beliebigen URI, die Sie beim Konfigurieren der MySampleGroup_ClientApplication in AD FS bereitgestellt.
+* Geben Sie für den Schlüssel "Ida: ClientID" den Client-ID-Bezeichner, den AD FS, die beim Konfigurieren der MySampleGroup_ClientApplication gegeben haben.
+* Für die Ida: ToDoListResourceID bieten die Ressourcen-ID konnten Sie beim Konfigurieren der ToDoListServiceWebApi in AD FS
 * Kommentieren Sie die wichtigsten Ida: AADInstance
-* Geben Sie die Ressourcen-ID der ToDoListServiceWebApi, für die Ida: ToDoListBaseAddress. Dies wird beim Aufrufen der ToDoList WebAPI verwendet werden.
-* Hinzufügen einer Tasten Ida: Certification Authority, und geben Sie den Wert als den URI für AD FS.
+* Geben Sie für die Ida: ToDoListBaseAddress der Ressourcen-ID der ToDoListServiceWebApi aus. Diese wird beim Aufrufen der ToDoList WebAPI verwendet werden.
+* Fügen Sie eine wichtige Ida: Autorität aus, und geben Sie den Wert als URI für AD FS.
 
-Ihre **AppSettings** in App.Config sieht etwa wie folgt:
+Ihre **"appSettings"** in "App.config" sieht in etwa wie folgt:
 
     <appSettings>
     <!--<add key="ida:Tenant" value="[Enter tenant name, e.g. contoso.onmicrosoft.com]" />-->
@@ -187,49 +188,49 @@ Ihre **AppSettings** in App.Config sieht etwa wie folgt:
 
 **MainWindow.xaml.cs**
 
-Kommentieren Sie die Zeile, lesen die Mandanteninformationen aus der Konfiguration der Anwendung
+Kommentieren Sie die Zeile, die Informationen des Mandanten aus der Konfigurationsdatei der Anwendung lesen
 
     //private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];
     //private static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];
 
-Ändern Sie den Wert der Zeichenfolge Behörde zu
+Ändern Sie den Wert der Zeichenfolge-Autorität auf
 
     private static string authority = ConfigurationManager.AppSettings["ida:Authority"];
 
-Ändern Sie den Code, um die richtigen Werte der ToDoListResourceId und ToDoListBaseAddress lesen
+Ändern Sie den Code, um die richtigen Werte ToDoListResourceId und ToDoListBaseAddress lesen
 
     private static string todoListResourceId = ConfigurationManager.AppSettings["ida:TodoListResourceId"];
     private static string todoListBaseAddress = ConfigurationManager.AppSettings["ida:TodoListBaseAddress"];
 
-Ändern Sie in der Funktion MainWindow() die Initialisierung Authcontext als:
+Ändern Sie in der Funktion MainWindow() die Authcontext Initialisierung als:
 
     authContext = new AuthenticationContext(authority, false);
 
 ### <a name="adding-the-backend-resource"></a>Hinzufügen der Back-End-Ressource
 
-Um den Fluss im Auftrag von abzuschließen, müssen Sie erstellen eine Back-End-Ressource, die die ToDoListService zugreifen im Auftrag von der authentifizierte Benutzer. Die Wahl der Back-End-Ressource kann entsprechend der Anforderung variieren, aber für dieses Beispiel können Sie eine grundlegende WebAPI erstellen.
+Um den im-Auftrag-von-Fluss abzuschließen, müssen Sie eine Back-End-Ressource, die auf ToDoListService zugreifen im-Auftrag-von Erstellen des authentifizierten Benutzers. Die Wahl der Back-End-Ressource kann nach Bedarf variieren, aber im Rahmen dieses Beispiels können Sie eine einfache Web-API erstellen.
 
-* Klicken Sie mit der rechten Maustaste auf Lösung "WebAPI OnBehalfOf DotNet" im Projektmappen-Explorer, und wählen Sie hinzufügen -> Neues Projekt
-* Wählen Sie die Vorlage "Webanwendung" ASP.NET
+* Klicken Sie mit der rechten Maustaste auf Lösung "WebAPI"onbehalfof "DotNet" im Projektmappen-Explorer, und wählen Sie Add -> Neues Projekt
+* ASP.NET Web Application-Vorlage auswählen
 
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO4.PNG)
 
-* Klicken Sie auf der nächsten Aufforderung auf "Änderung Authentication"
-* Wählen Sie "Arbeit und Schulkonten", und wählen Sie auf der richtigen Dropdownliste "Lokal"
-* Geben Sie den federationmetadata.xml-Pfad für die AD FS-Bereitstellung, und geben Sie eine App-URI (Geben Sie alle URI für den Moment, und Sie später ändern), und klicken Sie auf Ok, um das Projekt der Projektmappe hinzuzufügen.
+* Klicken Sie auf der nächsten Aufforderung auf "Authentifizierung ändern"
+* Wählen Sie "Geschäfts- und Schulkonten", und wählen Sie auf der rechten Dropdownliste "Lokal"
+* Geben Sie den Pfad "FederationMetadata.xml" für Ihre AD FS-Bereitstellung und App-URI (Geben Sie einen beliebigen URI jetzt, und Sie später ändern), und klicken Sie auf Ok, um das Projekt zur Projektmappe hinzuzufügen.
 
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO9.PNG)
 
-* Klicken Sie mit der rechten Maustaste auf Domänencontroller, im Projektmappen-Explorer unter dem neuen Projekt erstellt. Wählen Sie hinzufügen -> Domänencontroller
-* Wählen Sie in der Vorlagenauswahl 'Web-API-2-Controller - Empty', und klicken Sie auf Ok.
+* Klicken Sie mit der rechten Maustaste auf Controller, im Projektmappen-Explorer unter das neue Projekt erstellt wurde. Wählen Sie -> Controller hinzufügen
+* Wählen Sie in der Vorlagenauswahl "Web API 2-Controller - leer", und klicken Sie auf Ok.
 
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO3.PNG)
 
-* Benennen Sie entsprechende Controller
+* Benennen Sie geeigneten controller
 
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO13.PNG)
 
-* Fügen Sie folgenden Code im Controller
+* Fügen Sie den folgenden Code im controller
 
 
         using System;
@@ -249,48 +250,48 @@ Um den Fluss im Auftrag von abzuschließen, müssen Sie erstellen eine Back-End-
             }
         }
 
-Dieser Code wird einfach die Zeichenfolge zurück, wenn jeder Benutzer eine Get-Anforderung für die WebAPI WebAPIOBO versetzt
+Dieser Code wird einfach die Zeichenfolge zurück, wenn jemand eine Get-Anforderung für die WebAPI WebAPIOBO versetzt
 
-### <a name="adding-the-new-backend-webapi-to-ad-fs"></a>Hinzufügen von neuen Back-End WebAPI zu AD FS
+### <a name="adding-the-new-backend-webapi-to-ad-fs"></a>Hinzufügen der neuen Back-Ends-Web-API mit AD FS
 
-Öffnen Sie die Anwendungsgruppe MySampleGroup. Klicken Sie auf die Anwendung hinzufügen und Web-API-Vorlage auswählen, und klicken Sie auf Weiter.
+Öffnen Sie die MySampleGroup Anwendungsgruppe. Klicken Sie auf die Anwendung hinzufügen und die Web-API-Vorlage auswählen, und klicken Sie auf Weiter.
 
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO6.PNG)
 
-Geben Sie auf der Seite konfigurieren Sie Web-API einen entsprechenden Namen für den Eintrag WebAPI und den Bezeichner. Der Bezeichner sollte der Wert SSL-URL von WebAPIOBO-Projekt in visual Studio (ähnlich wie für BackendWebAPIAdfsAdd zuvor).
+Geben Sie einen geeigneten Namen für den Eintrag für die Web-API und die ID, auf der Seite "Konfigurieren von Web-API". Der Bezeichner muss der Wert sein SSL-URL aus WebAPIOBO-Projekt in visual Studio (ähnlich wie für für BackendWebAPIAdfsAdd).
 
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO8.PNG)
 
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO7.PNG)
 
-Führen Sie den Rest des Assistenten gleich als wenn wir die ToDoListService WebAPI konfiguriert. Am Ende sollte Ihre Anwendungsgruppe wie unten dargestellt aussehen:
+Weiterhin über den Assistenten identisch, wenn wir die ToDoListService WebAPI konfiguriert. Am Ende sollten Ihre Anwendungsgruppe wie folgt aussehen:
 
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO5.PNG)
 
 
-### <a name="modifying-the-todolistservice-code"></a>Ändern des Codes ToDoListService
+### <a name="modifying-the-todolistservice-code"></a>Ändern den Code für "todolistservice"
 
-#### <a name="modifying-the-application-config"></a>Ändern die Anwendung config
+#### <a name="modifying-the-application-config"></a>Ändern der Anwendungskonfiguration
 
 * Öffnen Sie die Datei "Web.config"
 * Ändern Sie die folgenden Schlüssel
 
-| Schlüssel | Wert |
+| Key | Wert |
 |:-----|:-------|
-|IDA: Zielgruppe| ID der ToDoListService als AD FS beim Konfigurieren der ToDoListService WebAPI https://localhost:44321/|
-|IDA: ClientID| ID der ToDoListService als AD FS beim Konfigurieren der ToDoListService WebAPI https://localhost:44321/ </br>**Es ist sehr wichtig, dass die Ida: Zielgruppe und Ida: ClientID überein**|
-|IDA: ClientSecret| Dies ist der geheime Schlüssel, den AD FS generiert, wenn Sie den Client ToDoListService in AD FS konfigurieren wurden|
-|IDA: ADFSMetadata| Dies ist die URL zu Ihrer AD FS-Metadaten für z.B. https://fs.anandmsft.com/federationmetadata/2007-06/federationmetadata.xml|
-|IDA: OBOWebAPIBase| Dies ist die Basis-Adresse, mit denen wir das Back-End-API, z.B. https://localhost:44300 aufrufen|
-|IDA: Authority| Dies ist die URL für Ihre AD FS-Dienst wird https://fs.anandmsft.com/adfs/|
+|ida:Audience| Die ID des wie AD FS beim Konfigurieren des ToDoListService WebAPI, z. B. "todolistservice", https://localhost:44321/|
+|ida:ClientID| Die ID des wie AD FS beim Konfigurieren des ToDoListService WebAPI, z. B. "todolistservice", https://localhost:44321/ </br>**Es ist sehr wichtig, dass die Ida: Zielgruppe und die Ida: Client-ID übereinstimmen**|
+|ida:ClientSecret| Dies ist der geheime Schlüssel, den AD FS generiert, wenn Sie den Client "todolistservice" in AD FS konfigurieren wurden|
+|ida:ADFSMetadata| Dies ist die URL für Ihre AD FS-Metadaten für z. B. https://fs.anandmsft.com/federationmetadata/2007-06/federationmetadata.xml|
+|ida:OBOWebAPIBase| Dies ist die Basisadresse, die wir verwenden das Back-End-API, z. B. aufrufen https://localhost:44300|
+|ida:Authority| Dies ist die URL für Ihren AD FS-Dienst, Beispiel https://fs.anandmsft.com/adfs/|
 
 
-Alle anderen Ida: XXXXXXX-Schlüssel der **Appsettings** Knoten auskommentiert oder gelöscht werden kann
+Alle anderen Ida: XXXXXXX-Schlüsseln in der **"appSettings"** Knoten auskommentiert oder gelöscht werden kann
 
-#### <a name="change-authentication-from-azure-ad-to-ad-fs"></a>Ändern Sie die Authentifizierung von Azure AD zu AD FS
+#### <a name="change-authentication-from-azure-ad-to-ad-fs"></a>Ändern Sie die Authentifizierung von Azure AD und AD FS
 
 * Öffnen Sie die Datei Startup.Auth.cs
-* Entfernen Sie den folgenden Code
+* Entfernen Sie den folgenden Code.
 
         app.UseWindowsAzureActiveDirectoryBearerAuthentication(
             new WindowsAzureActiveDirectoryBearerAuthenticationOptions
@@ -300,7 +301,7 @@ Alle anderen Ida: XXXXXXX-Schlüssel der **Appsettings** Knoten auskommentiert o
                 TokenValidationParameters = new TokenValidationParameters{ SaveSigninToken = true }
             });
 
-mit
+durch
 
         app.UseActiveDirectoryFederationServicesBearerAuthentication(
             new ActiveDirectoryFederationServicesBearerAuthenticationOptions
@@ -313,9 +314,9 @@ mit
                 }
             });
 
-#### <a name="modifying-the-todolistcontroller"></a>Ändern der ToDoListController
+#### <a name="modifying-the-todolistcontroller"></a>Ändern die ToDoListController
 
-Verweis auf System.Web hinzufügen. Erweiterungen. Ändern Sie die Member der Klasse, indem der folgende Code ersetzen
+Fügen Sie der Verweis auf System.Web.Extensions hinzu. Ändern Sie die Klassenmember, indem Sie den folgenden Code ersetzen
 
     //
     // The Client ID is used by the application to uniquely identify itself to Azure AD.
@@ -337,7 +338,7 @@ Verweis auf System.Web hinzufügen. Erweiterungen. Ändern Sie die Member der Kl
     private static string graphUserUrl = ConfigurationManager.AppSettings["ida:GraphUserUrl"];
     private const string TenantIdClaimType = "https://schemas.microsoft.com/identity/claims/tenantid";
 
-mit
+durch
 
     //
     // The Client ID is used by the application to uniquely identify itself to Azure AD.
@@ -350,13 +351,13 @@ mit
     // Base address of the WebAPI
     private static string OBOWebAPIBase = ConfigurationManager.AppSettings["ida:OBOWebAPIBase"];
 
-**Ändern Sie den Anspruch für verwendet**
+**Ändern Sie den Anspruch für Namen verwendet**
 
-Von AD FS werden wir den Nmae Anspruch ausstellen, aber wir sind nicht NameIdentifier Anspruch ausstellen. Im Beispiel verwendet NameIdentifier eindeutig Schlüssel in die ToDo-Elemente. Der Einfachheit halber können Sie problemlos die NameIdentifier mit Namensanspruch in den Code entfernen. Suchen Sie und Ersetzen Sie alle Vorkommnisse des NameIdentifier mit Namen.
+Von AD FS werden wir den Nmae Anspruch ausstellen, aber wir NameIdentifier-Anspruch nicht ausgeben. Das Beispiel verwendet die NameIdentifier eindeutig Schlüssel in der ToDo-Elemente. Der Einfachheit halber können Sie problemlos den NameIdentifier mit Name-Anspruch im Code entfernen. Suchen Sie und Ersetzen Sie alle Vorkommen von NameIdentifier mit dem Namen.
 
-**Post-Routine und CallGraphAPIOnBehalfOfUser() ändern**
+**Ändern der Post-Routine und CallGraphAPIOnBehalfOfUser()**
 
-Kopieren Sie und fügen Sie den folgenden Code in ToDoListController.cs ersetzen Sie den Code für die Post und CallGraphAPIOnBehalfOfUser
+Kopieren Sie und fügen Sie den folgenden Code in ToDoListController.cs aus, und Ersetzen Sie den Code für Post- und CallGraphAPIOnBehalfOfUser
 
     // POST api/todolist
     public async Task Post(TodoItem todo)
@@ -421,7 +422,7 @@ Kopieren Sie und fügen Sie den folgenden Code in ToDoListController.cs ersetzen
             retry = false;
             try
             {
-                result = authContext.AcquireToken(OBOWebAPIBase, clientCred, userAssertion);
+                result = await authContext.AcquireTokenAsync(...);
                 accessToken = result.AccessToken;
             }
             catch (AdalException ex)
@@ -465,13 +466,13 @@ Kopieren Sie und fügen Sie den folgenden Code in ToDoListController.cs ersetzen
         return (null);
     }
 
-## <a name="running-the-solution"></a>Ausführen der Projektmappe
+## <a name="running-the-solution"></a>Ausführen der Lösung
 
 
-Standardmäßig ist visual Studio so konfiguriert, dass ein Projekt ausgeführt, wenn Sie auf die Wiedergabeschaltfläche Debug ausgeführt wird.
+Standardmäßig ist visual Studio konfiguriert, um ein Projekt ausgeführt, wenn Sie Debuggen, ausführen erreichen.
 
-* Klicken Sie mit der rechten Maustaste auf die Projektmappe und wählen Sie Eigenschaften.
-* Die Seite "Eigenschaften" Wählen Sie Start mehrere Projekte und ändern Sie die Aktion, die für alle drei Einträge zu starten.
+* Klicken Sie mit der rechten Maustaste auf die Projektmappe, und wählen Sie die Eigenschaften.
+* Die Seite "Eigenschaften" Wählen Sie mehrere Startprojekte und ändern Sie die Aktion, die für alle drei Einträge zu starten.
 
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO14.PNG)
 
@@ -479,22 +480,22 @@ Drücken Sie F5, und führen Sie die Lösung
 
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO24.PNG)
 
-Klicken Sie auf die Schaltfläche "Anmelden". Sie werden aufgefordert, melden Sie sich mit AD FS
+Klicken Sie auf die Schaltfläche "Anmelden". Sie werden aufgefordert, melden Sie sich mithilfe von AD FS
 
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO25.PNG)
 
-Nach dem anmelden, ein ToDo-Element in der Liste hinzufügen. Hinter den Kulissen werden wir einen Post-Vorgang auf den ToDoListService möchten eine POST-Anforderung an die WebAPIOBO Web-API weiter ausgeführt wird.
+Nach der Anmeldung, ToDo-Element in der Liste hinzufügen. Hinter den Kulissen werden wir einen Post-Vorgang um "todolistservice" ausführen, wodurch die weiteren einen POST-Aufruf die WebAPIOBO-Web-API ausgeführt werden.
 
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO26.PNG)
 
-Für den reibungslosen Betrieb sehen Sie sich, dass das Element der Liste mit den zusätzlichen Meldung vom Back-End-Web-API hinzugefügt wurden, auf die zugegriffen wurde mit OBO Auth-Fluss.
+Für die erfolgreiche Ausführung sehen Sie sich, dass das Element der Liste mit der zusätzlichen Meldung aus dem Back-End-Web-API hinzugefügt wurde, auf die zugegriffen wurde mit OBO-authentifizierungsfluss.
 
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO27.PNG)
 
-Sie können auch die detaillierten Spuren auf Fiddler angezeigt. Starten Sie Fiddler, und aktivieren Sie die HTTPS-Entschlüsselung. Sie sehen, dass wir zwei Anforderungen an den Endpunkt /adfs/oautincludes vornehmen.
-In der ersten Interaktion, wir stellen die Zugangscode an den Token-Endpunkt, und erhalten eines Zugriffstokens für https://localhost:44321/ ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO22.PNG)
+Sie können auch die ausführlichen ablaufverfolgungen auf Fiddler sehen. Starten Sie Fiddler, und aktivieren Sie der Entschlüsselung von HTTPS. Sie können sehen, dass wir zwei Anforderungen an den Endpunkt /adfs/oautincludes vornehmen.
+In der ersten Interaktion, wir der Access-Code an den tokenendpunkt vorhanden, und Abrufen eines Zugriffstokens für https://localhost:44321/ ![OBO für AD FS](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO22.PNG)
 
-In der zweiten Interaktion mit dem Token Endpunkt, Sie können sehen, dass wir **Requested_Token_use** als **on_behalf_of**, und wir verwenden das Zugriffstoken für den Webdienst von mittlerer Ebene, d.h. https://localhost:44321/ als der Assertion zum Abrufen der im Auftrag von Token abgerufen.
+Im zweiten Interaktion mit den token-Endpunkt, sehen Sie, dass wir haben **Requested_token_use** als **on_behalf_of** und verwenden wir das Zugriffstoken für den Webdienst der mittleren Ebene, d. h. https://localhost:44321/ als die Assertion, die im-Auftrag-von-Token zu erhalten.
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO23.PNG)
 
 ## <a name="next-steps"></a>Nächste Schritte

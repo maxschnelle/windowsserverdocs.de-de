@@ -1,6 +1,6 @@
 ---
 title: Aktualisieren von Gruppenrichtlinien
-description: In diesem Thema ist Teil des Handbuchs Bereitstellen von Serverzertifikaten für 802.1 X kabelgebundenen und drahtlosen Bereitstellungen
+description: Dieses Thema ist Teil des Handbuchs Bereitstellen von Serverzertifikaten für 802.1 X verkabelte und drahtlose Bereitstellungen
 manager: brianlic
 ms.topic: article
 ms.assetid: 65b36794-bb09-4c1b-a2e7-8fc780893d97
@@ -8,24 +8,25 @@ ms.prod: windows-server-threshold
 ms.technology: networking
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 4d9f5d38199f8cf3c0ffe46df4cd975cd9c56ff6
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 83dd48297535aafe30e48fe37010d81b279f4c91
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59863451"
 ---
 # <a name="refresh-group-policy"></a>Aktualisieren von Gruppenrichtlinien
 
->Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
-Dieses Verfahrens können Sie Gruppenrichtlinien auf dem lokalen Computer manuell aktualisieren. Wenn Gruppenrichtlinien aktualisiert automatische Registrierung von Zertifikaten konfiguriert ist und ordnungsgemäß funktioniert, ist des lokalen Computers automatisch registrierte ein Zertifikat von der Zertifizierungsstelle (CA).  
+Mithilfe dieses Verfahrens können Sie die Gruppenrichtlinie auf dem lokalen Computer aktualisieren. Wenn ist die Gruppenrichtlinie aktualisiert, wenn der automatischen Registrierung von Zertifikaten konfiguriert und ordnungsgemäß funktioniert, der lokale Computer ist ein Zertifikat von der Zertifizierungsstelle (CA).  
   
 > [!NOTE]  
-> Gruppenrichtlinien werden automatisch aktualisiert, wenn Sie den Domänenmitgliedscomputer neu starten, oder wenn ein Benutzer an einem Domänenmitgliedscomputer anmeldet. Darüber hinaus wird der Gruppenrichtlinie in regelmäßigen Abständen aktualisiert. Standardmäßig ist dieser regelmäßige Aktualisierung alle 90Minuten mit einem zufälligen Versatz von bis zu 30Minuten ausgeführt.  
+> Die Gruppenrichtlinie wird automatisch aktualisiert, wenn Sie den Domänenmitgliedscomputer neu starten oder ein Benutzer sich an einem Domänenmitgliedscomputer anmeldet. Darüber hinaus wird eine Gruppenrichtlinie in regelmäßigen Abständen aktualisiert. Standardmäßig wird diese regelmäßige Aktualisierung alle 90 Minuten mit einem zufälligen Versatz von bis zu 30 Minuten ausgeführt.  
   
-Mitgliedschaft in **Administratoren**, oder einer gleichwertigen Gruppe ist mindestens erforderlich, um dieses Verfahren ausführen.  
+Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe sein, damit Sie dieses Verfahren durchführen können.  
   
-### <a name="to-refresh-group-policy-on-the-local-computer"></a>So aktualisieren Sie Gruppenrichtlinien auf dem lokalen Computer  
+### <a name="to-refresh-group-policy-on-the-local-computer"></a>So aktualisieren Sie die Gruppenrichtlinie auf dem lokalen Computer  
   
 1.  Auf dem Computer, auf dem Netzwerkrichtlinienserver installiert ist, öffnen Sie Windows PowerShell&reg; mithilfe des Symbols auf der Taskleiste.  
   

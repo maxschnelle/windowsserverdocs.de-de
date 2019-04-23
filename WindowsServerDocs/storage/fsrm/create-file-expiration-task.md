@@ -1,6 +1,6 @@
 ---
 title: Erstellen einer Dateiablaufaufgabe
-description: "In diesem Artikel wird das Verfahren zum Erstellen einer Dateiablaufaufgabe für Dateien beschrieben, die in Kürze ablaufen"
+description: In diesem Artikel wird das Verfahren zum Erstellen einer Dateiablaufaufgabe für Dateien beschrieben, die in Kürze ablaufen
 ms.date: 7/7/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -9,20 +9,21 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: b3aa535128786d0de5c1a5ef7186e26aa62b478d
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59859301"
 ---
 # <a name="create-a-file-expiration-task"></a>Erstellen einer Dateiablaufaufgabe
 
-> Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
 
 Die folgende Prozedur dient zum Erstellen einer Dateiverwaltungsaufgabe für ablaufende Dateien. Dateiablaufaufgaben werden verwendet, um alle Dateien, die bestimmte Kriterien erfüllen, automatisch in ein bestimmtes Ablaufverzeichnis zu verschieben.
 
 Bei Ausführung einer Dateiablaufaufgabe wird innerhalb des Ablaufverzeichnisses ein neues Verzeichnis erstellt.
 
-Der neue Verzeichnisname basiert auf dem Namen der Dateiverwaltungsaufgabe und der Ausführungszeit. Wird eine abgelaufene Datei gefunden, wird sie in das neue Verzeichnis verschoben, ohne dabei die ursprüngliche Verzeichnisstruktur zu verändern.
+Der neue Verzeichnisname basiert auf dem Namen der Dateiverwaltungsaufgabe und der Ausführungszeit. Wird eine abgelaufene Datei gefunden, wird sie in das neue Verzeichnis verschoben, ohne dabei die ursprüngliche Verzeichnisstruktur zu verändern.
 
 ## <a name="to-create-a-file-expiration-task"></a>So erstellen Sie eine Dateiablaufaufgabe
 
@@ -32,7 +33,7 @@ Der neue Verzeichnisname basiert auf dem Namen der Dateiverwaltungsaufgabe und d
 
 3.  Geben Sie auf der Registerkarte **Allgemein** folgende Informationen ein:
 
-    -   **Name** Geben Sie einen Namen für die neue Aufgabe ein.  
+    -   **Name**: Geben Sie einen Namen für die neue Aufgabe ein.  
 
     -   **Beschreibung** Geben Sie eine optionale aussagekräftige Bezeichnung für die Aufgabe ein.  
     
@@ -60,7 +61,7 @@ Der neue Verzeichnisname basiert auf dem Namen der Dateiverwaltungsaufgabe und d
 
         -   Aktivieren Sie zum Senden einer E-Mail an die Person, deren Dateien ablaufen, das Kontrollkästchen **E-Mail an den Benutzer senden, dessen Dateien demnächst ablaufen**.
 
-        -   Um die Nachricht zu konfigurieren, ändern Sie den vorgegebenen standardmäßigen Betreff und Textkörper. Der Text in Klammern fügt die Variableninformationen über das Kontingent-Ereignis ein, das die Benachrichtigung verursacht hat. Die Variable **\[Quelldateibesitzer\]** fügt den Namen des Benutzers ein, dessen Datei bald abläuft. Um zusätzliche Variablen in den Text einzufügen, klicken Sie auf **Variable einfügen**.
+        -   Um die Nachricht zu konfigurieren, ändern Sie den vorgegebenen standardmäßigen Betreff und Textkörper. Der Text in Klammern fügt die Variableninformationen über das Kontingent-Ereignis ein, das die Benachrichtigung verursacht hat. Z. B. die **\[Source File Owner\]** Variable fügt den Namen des Benutzers, dessen Datei ist in Kürze abläuft. Um zusätzliche Variablen in den Text einzufügen, klicken Sie auf **Variable einfügen**.
 
         -   Um eine Liste der Dateien einzufügen, die demnächst abläuft, klicken Sie auf **An die E-Mail-Liste der Dateien anhängen, für die die Aktion ausgeführt wird** und geben oder wählen Sie einen Wert für **Maximale Anzahl von Dateien in der Liste** aus.
 
@@ -95,7 +96,7 @@ Der neue Verzeichnisname basiert auf dem Namen der Dateiverwaltungsaufgabe und d
 
 8.  Klicken Sie auf der Registerkarte **Zeitplan** auf **Zeitplan erstellen** und dann im Dialogfeld **Zeitplan** auf **Neu**. Die zeigt den Standardzeitplan für 9:00 Uhr täglich an, Sie können allerdings den Standardzeitplan ändern. Wenn Sie die Konfiguration des Zeitplans abgeschlossen haben, klicken Sie auf **OK** und dann erneut auf **OK**.
 
-## <a name="see-also"></a>Weitere Informationen:
+## <a name="see-also"></a>Siehe auch
 
 -   [Klassifizierungsverwaltung](classification-management.md)
 -   [Dateiverwaltungsaufgaben](file-management-tasks.md)

@@ -1,6 +1,6 @@
 ---
-title: "Befehlszeilentools für den Ressourcen-Manager für Dateiserver:"
-description: Dieser Artikel beschreibt die Befehlszeilentools von Windows Server2016
+title: 'Befehlszeilentools für den Ressourcen-Manager für Dateiserver:'
+description: Dieser Artikel beschreibt die Befehlszeilentools von Windows Server 2016
 ms.date: 7/7/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -8,15 +8,16 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 7d36a30ca65ae88afdc11e516968c6f9900a5ae6
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.openlocfilehash: 9b31c133b0ee4382b5b9aeded9b3852c7230d2d8
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59858441"
 ---
 # <a name="file-server-resource-manager-command-line-tools"></a>Befehlszeilentools für den Ressourcen-Manager für Dateiserver:
 
-> Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
 
 Der Ressourcen-Manager für Dateiserver installiert die [FileServerResourceManager](https://technet.microsoft.com/itpro/powershell/windows/fileserverresourcemanager/fileserverresourcemanager) PowerShell-Cmdlets sowie die folgenden Befehlszeilentools:
 
@@ -26,9 +27,9 @@ Der Ressourcen-Manager für Dateiserver installiert die [FileServerResourceManag
 
 Sie können diese Tools zum Verwalten von Speicherressourcen auf einem lokalen Computer oder einem Remotecomputer verwenden. Weitere Informationen zur Verwendung dieser Befehlszeilentools finden Sie in den folgenden Referenzen:
 
--   **Dirquota**: <http://go.microsoft.com/fwlink/?LinkId=92741>
--   **Filescrn**: <http://go.microsoft.com/fwlink/?LinkId=92742>
--   **Storrept**: <http://go.microsoft.com/fwlink/?LinkId=92743>
+-   **Dirquota**: <https://go.microsoft.com/fwlink/?LinkId=92741>
+-   **Filescrn**: <https://go.microsoft.com/fwlink/?LinkId=92742>
+-   **Storrept**: <https://go.microsoft.com/fwlink/?LinkId=92743>
 
 
 > [!Note]
@@ -46,7 +47,7 @@ Jedes Tool verfügt über verschiedene Optionen zum Ausführen von Aktionen, die
 
 <br />
 
-## <a name="additional-considerations"></a>Weitere Überlegungen 
+## <a name="additional-considerations"></a>Weitere Aspekte 
 
 So verwalten Sie Remoteressourcen mit den Befehlszeilentools:
 
@@ -56,6 +57,6 @@ So verwalten Sie Remoteressourcen mit den Befehlszeilentools:
 -   Die **Remotedateiserver Ressourcen-Manager für Dateiserver**-Ausnahme muss auf dem Remotecomputer aktiviert sein. Aktivieren Sie diese Ausnahme mithilfe von Windows-Firewall in der Systemsteuerung.
 
 
-## <a name="see-also"></a>Weitere Informationen:
+## <a name="see-also"></a>Siehe auch
 
--   [Verwalten von Remotespeicherressourcen](managing-remote-storage-resources.md)
+-   [Verwalten von Remote-Speicherressourcen](managing-remote-storage-resources.md)

@@ -1,6 +1,6 @@
 ---
-title: "Erstellen einer Dateiprüfungsvorlage"
-description: "In diesem Artikel wird beschrieben, wie Sie eine Dateiprüfungsvorlage erstellen"
+title: Erstellen einer Dateiprüfungsvorlage
+description: In diesem Artikel wird beschrieben, wie Sie eine Dateiprüfungsvorlage erstellen
 ms.date: 7/7/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: b06597bce0b88ed5a2e98ad45d0cbc355d1b13fc
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59858351"
 ---
 # <a name="create-a-file-screen-template"></a>Erstellen einer Dateiprüfungsvorlage
 
-> Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
 
 Eine *Dateiprüfungsvorlage* definiert einen Satz von zu prüfenden Dateigruppen, den Typ der Prüfung (aktiv oder passiv) und optional eine Gruppe von Benachrichtigungen, die automatisch generiert wird, wenn ein Benutzer eine nicht autorisierte Datei speichert oder zu speichern versucht.
 
@@ -45,7 +46,7 @@ Wenn Sie Dateiprüfungen ausschließlich auf der Grundlage von Vorlagen erstelle
 
     Wählen Sie unter **Dateigruppen** jede Dateigruppe aus, die enthalten sein sollen. (Um das Kontrollkästchen für die Dateigruppe zu aktivieren, doppelklicken Sie auf die Bezeichnung der Dateigruppe.)
 
-    Wenn Sie die Dateitypen ansehen möchten, die in der Dateigruppe enthalten und ausgeschlossen sind, klicken Sie auf die Bezeichnung für die Dateigruppe und dann auf **Bearbeiten**. Klicken Sie zum Erstellen einer neuen Dateigruppe auf **Erstellen**.
+    Wenn Sie verwenden möchten, zeigen Sie die Dateitypen, die eine Dateigruppe enthält, und schließt, klicken Sie auf die Bezeichnung für "Group" und klicken Sie dann auf **bearbeiten**. Um eine neue Dateigruppe zu erstellen, klicken Sie auf **erstellen**.
 
     Darüber hinaus können Sie den Ressourcen-Manager für Dateiserver so konfigurieren, dass eine oder mehrere Benachrichtigungen erstellt werden. Dies geschieht durch das Festlegen der folgenden Optionen in den Registerkarten **E-Mail-Nachricht**, **Ereignisprotokoll**, **Befehl**, und **Bericht**.
 
@@ -55,7 +56,7 @@ Wenn Sie Dateiprüfungen ausschließlich auf der Grundlage von Vorlagen erstelle
 
     -   Um Administratoren zu benachrichtigen, wenn ein Benutzer oder eine Anwendung versucht, nicht autorisierte Dateien zu speichern, aktivieren Sie das Kontrollkästchen **E-Mail an die folgenden Administratoren senden** und geben Sie die Namen der administrativen Konten ein, die die Benachrichtigungen erhalten sollen. Verwenden Sie das Format *account*@*domain*, und verwenden Sie Semikolons zum Trennen mehrerer Konten.
     -   Aktivieren Sie zum Senden einer E-Mail an den Benutzer, der versucht hat, um die Datei zu speichern, das Kontrollkästchen **E-Mail an den Benutzer senden, der nicht autorisierte Datei zu speichern versucht**.
-    -   Um die Nachricht zu konfigurieren, ändern Sie den vorgegebenen standardmäßigen Betreff und Textkörper. Der Text in Klammern fügt die Variableninformationen über das Dateiprüfungsereignis ein, das die Benachrichtigung verursacht hat. Die Variable \[**Quelle E/A-Besitzer**\] fügt den Namen des Benutzers ein, der versucht hat, die nicht autorisierte Datei zu speichern. Um zusätzliche Variablen in den Text einzufügen, klicken Sie auf **Variable einfügen**.
+    -   Um die Nachricht zu konfigurieren, ändern Sie den vorgegebenen standardmäßigen Betreff und Textkörper. Der Text in Klammern fügt die Variableninformationen über das Dateiprüfungsereignis ein, das die Benachrichtigung verursacht hat. Z. B. die \[ **e/a-Quellbesitzer** \] Variable fügt den Namen des Benutzers, der versucht, eine nicht autorisierte Datei zu speichern. Um zusätzliche Variablen in den Text einzufügen, klicken Sie auf **Variable einfügen**.
     -   Wenn Sie weitere Header konfigurieren möchten (einschließlich Von, Cc, Bcc und Antwort an), klicken Sie auf **Weitere E-Mail-Kopfzeilen**.
 
 8.  So protokollieren Sie einen Fehler im Ereignisprotokoll, wenn ein Benutzer versucht, eine nicht autorisierte Datei zu speichern:
@@ -74,9 +75,9 @@ Wenn Sie Dateiprüfungen ausschließlich auf der Grundlage von Vorlagen erstelle
 
 11. Wählen Sie zunächst alle Dateivorlageneigenschaften aus, die verwendet werden sollen, und klicken Sie anschließend zum Speichern der Vorlage auf **OK**.
 
-## <a name="see-also"></a>Weitere Informationen:
+## <a name="see-also"></a>Siehe auch
 
 -   [Dateiprüfungsverwaltung](file-screening-management.md)
--   [Festlegen der Optionen des Ressourcen-Managers für Dateiserver](setting-file-server-resource-manager-options.md)
--   [Bearbeiten der Eigenschaften der Dateiprüfungsvorlagen](edit-file-screen-template-properties.md)
+-   [Einstellung File Server Resource Manager-Optionen](setting-file-server-resource-manager-options.md)
+-   [Bearbeiten der Eigenschaften der Vorlage Bildschirm](edit-file-screen-template-properties.md)
 

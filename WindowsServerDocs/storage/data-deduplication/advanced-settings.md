@@ -1,6 +1,6 @@
 ---
 ms.assetid: 01c8cece-66ce-4a83-a81e-aa6cc98e51fc
-title: "Erweiterte Einstellungen für die Datendeduplizierung"
+title: Erweiterte Einstellungen für die Datendeduplizierung
 ms.prod: windows-server-threshold
 ms.technology: storage-deduplication
 ms.topic: article
@@ -9,10 +9,11 @@ manager: klaasl
 ms.author: wgries
 ms.date: 09/15/2016
 ms.openlocfilehash: 15cfc054810a2cab85aae9a04d6195c3ae6fe0b9
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59861211"
 ---
 # <a name="advanced-data-deduplication-settings"></a>Erweiterte Einstellungen für die Datendeduplizierung
 
@@ -20,15 +21,15 @@ ms.lasthandoff: 10/17/2017
 
 In diesem Dokument wird beschrieben, wie Sie die Einstellungen für die [Datendeduplizierung](overview.md) ändern können. Für [empfohlene Workloads](install-enable.md#enable-dedup-candidate-workloads) sollten die Standardeinstellungen ausreichend sein. Der Hauptgrund für das Ändern dieser Einstellungen ist das Verbessern der Leistung bei der Datendeduplizierung bei anderen Arten von Workloads.
 
-## <a id="modifying-job-schedules"></a>Ändern der Auftragszeitpläne für die Datendeduplizierung
+## <a id="modifying-job-schedules"></a>Ändern der Zeitpläne für die Datendeduplizierung
 Die [standardmäßigen Auftragszeitpläne für die Datendeduplizierung](understand.md#job-info) sind so ausgelegt, dass sie gut für empfohlene Workloads funktionieren und so unaufdringlich wie möglich sind (ausgenommen der Auftrag *PriorityOptimization*, der für den Verwendungstyp [**Sicherung** aktiviert ist](understand.md#usage-type-backup)). Wenn Workloads einen großen Ressourcenbedarf haben, kann sichergestellt werden, dass Aufträge nur zu Leerlaufzeiten ausgeführt werden oder die Menge der Systemressourcen verringert oder erhöht wird, die der Datendeduplizierungsauftrag nutzen darf.
 
 ### <a id="modifying-job-schedules-change-schedule"></a>Ändern eines Zeitplans für die Datendeduplizierung
 Datendeduplizierungsaufträge können über den Windows-Aufgabenplanungsdienst geplant und im Pfad „Microsoft\Windows\Deduplication“ angezeigt und bearbeitet werden. Zur Datendeduplizierung gehören mehrere Cmdlets, die die Planung erleichtern.
-* [`Get-DedupSchedule`](https://technet.microsoft.com/library/hh848446.aspx) zeigt die aktuell geplanten Aufträge.
-* [`New-DedupSchedule`](https://technet.microsoft.com/library/hh848445.aspx) erstellt einen neuen geplanten Auftrag.
-* [`Set-DedupSchedule`](https://technet.microsoft.com/library/hh848447.aspx) ändert einen vorhandenen geplanten Auftrag.
-* [`Remove-DedupSchedule`](https://technet.microsoft.com/library/hh848451.aspx) entfernt einen geplanten Auftrag.
+* [`Get-DedupSchedule`](https://technet.microsoft.com/library/hh848446.aspx) Zeigt die aktuell geplanten Aufträge an.
+* [`New-DedupSchedule`](https://technet.microsoft.com/library/hh848445.aspx) erstellt einen neuen geplanten Auftrag an.
+* [`Set-DedupSchedule`](https://technet.microsoft.com/library/hh848447.aspx) Ändert einen vorhandenen geplanten Auftrag an.
+* [`Remove-DedupSchedule`](https://technet.microsoft.com/library/hh848451.aspx) Entfernt einen geplanten Auftrag an.
 
 Am häufigsten wird der Zeitpunkt der Ausführung von Datendeduplizierungsaufträgen geändert, um sicherzustellen, dass Aufträge außerhalb der Geschäftszeiten ausgeführt werden. Im folgenden Beispiel wird Schritt für Schritt gezeigt, wie Sie den Zeitplan für die Datendeduplizierung in einem *einfachen* Szenario ändern: ein hyperkonvergenter Hyper-V-Host, der an Wochenenden und wochentags ab 19:00 Uhr im Leerlauf ist. Um den Zeitplan zu ändern, führen Sie die folgenden PowerShell-Cmdlets im Kontext eines Administrators aus.
 
@@ -81,7 +82,7 @@ Sie können die folgenden Einstellungen für neue oder geplante Datendeduplizier
                 <ul>
                     <li>Optimization (Optimierung)</li>
                     <li>GarbageCollection</li>
-                    <li>Scrubbing (Bereinigung)</li>
+                    <li>Scrubbing</li>
                 </ul>
             </td>
             <td>Dieser Wert ist erforderlich, da es sich um den Typ des Auftrags handelt, der geplant werden soll. Dieser Wert kann nicht geändert werden, nachdem die Aufgabe geplant wurde.</td>
@@ -91,9 +92,9 @@ Sie können die folgenden Einstellungen für neue oder geplante Datendeduplizier
             <td>Die Systempriorität des geplanten Auftrags</td>
             <td>
                 <ul>
-                    <li>High (Hoch)</li>
-                    <li>Medium (Mittel)</li>
-                    <li>Low (Niedrig)</li>
+                    <li>Hoch</li>
+                    <li>Mittel</li>
+                    <li>Niedrig</li>
                 </ul>
             </td>
             <td>Dieser Wert hilft dem System beim Zuordnen von CPU-Zeit. *High* benötigt mehr CPU-Zeit, *low* weniger.</td>
@@ -131,7 +132,7 @@ Sie können die folgenden Einstellungen für neue oder geplante Datendeduplizier
             <td>Dient zum Deaktivieren eines Auftrags, ohne ihn zu entfernen</td>
         </tr>
         <tr>
-            <td>Full</td>
+            <td>Vollständig</td>
             <td>Dient zum Planen eines vollständigen Garbage Collection-Auftrags</td>
             <td>Schalter (True/False)</td>
             <td>Standardmäßig ist jeder vierte Auftrag ein vollständiger Garbage Collection-Auftrag. Mit diesem Schalter können Sie eine häufigere Ausführung vollständiger Garbage Collection-Aufträge planen.</td>
@@ -143,7 +144,7 @@ Sie können die folgenden Einstellungen für neue oder geplante Datendeduplizier
             <td>Durch die Drosselung wird sichergestellt, dass Aufträge andere E/A-intensive Prozesse nicht beeinträchtigen.</td>
         </tr>
         <tr>
-            <td>Memory</td>
+            <td>Arbeitsspeicher</td>
             <td>Der Prozentsatz des Arbeitsspeichers auf dem System, den ein Auftrag verwenden soll</td>
             <td>Ganze Zahlen von 0 bis 100 (Prozentsatz)</td>
             <td>Dient zum Steuern, welchen Einfluss der Auftrag auf die Arbeitsspeicherressourcen auf dem System hat</td>
@@ -161,7 +162,7 @@ Sie können die folgenden Einstellungen für neue oder geplante Datendeduplizier
             <td>Sie müssen Dateien manuell wiederherstellen, die sich in fehlerhaften Bereichen des Datenträgers befinden.</td>
         </tr>
         <tr>
-            <td>Start</td>
+            <td>Beginn</td>
             <td>Gibt die Startzeit des Auftrags an</td>
             <td>`System.DateTime`</td>
             <td>Der *date*-Teil von `System.Datetime`, der für *Start* angegeben ist, ist irrelevant (solange die Angabe in der Vergangenheit liegt), doch der *time*-Teil gibt an, wann der Auftrag gestartet werden soll.</td>
@@ -175,14 +176,14 @@ Sie können die folgenden Einstellungen für neue oder geplante Datendeduplizier
     </tbody>
 </table>
 
-## <a id="modifying-volume-settings"></a>Ändern der volumeweiten Einstellungen für die Datendeduplizierung
+## <a id="modifying-volume-settings"></a>Ändern die Datendeduplizierung volumeweite Einstellungen
 ### <a id="modifying-volume-settings-how-to-toggle"></a>Umschalten der Volumeeinstellungen
 Sie können die volumeweiten Standardeinstellungen für die Datendeduplizierung über den [Verwendungstyp](understand.md#usage-type) festlegen, den Sie auswählen, wenn Sie eine Deduplizierung für ein Volume aktivieren. Die Datendeduplizierung umfasst Cmdlets, die volumeweite Einstellungen erleichtern:
 
 * [`Get-DedupVolume`](https://technet.microsoft.com/library/hh848448.aspx)
 * [`Set-DedupVolume`](https://technet.microsoft.com/library/hh848438.aspx)
 
-Die Hauptgründe für das Ändern der Volumeeinstellungen für den ausgewählten Verwendungstyp sind das Verbessern der Leseleistung für bestimmte Dateien (z.B. Multimedia- oder andere Dateitypen, die bereits komprimiert sind) oder das Optimieren der Datendeduplizierung für Ihre spezifische Workload. Im folgenden Beispiel wird veranschaulicht, wie die Volumeeinstellungen für die Datendeduplizierung für eine Workload geändert werden, die sehr einer Workload eines allgemeinen Dateiservers ähnelt, aber große Dateien aufweist, die sich häufig ändern.
+Die Hauptgründe für das Ändern der Volumeeinstellungen für den ausgewählten Verwendungstyp sind das Verbessern der Leseleistung für bestimmte Dateien (z. B. Multimedia- oder andere Dateitypen, die bereits komprimiert sind) oder das Optimieren der Datendeduplizierung für Ihre spezifische Workload. Im folgenden Beispiel wird veranschaulicht, wie die Volumeeinstellungen für die Datendeduplizierung für eine Workload geändert werden, die sehr einer Workload eines allgemeinen Dateiservers ähnelt, aber große Dateien aufweist, die sich häufig ändern.
 
 1. Anzeigen der aktuellen Volumeeinstellungen für das freigegebene Clustervolume 1.
     ```PowerShell
@@ -274,7 +275,7 @@ Die Hauptgründe für das Ändern der Volumeeinstellungen für den ausgewählten
     </tbody>
 </table>
 
-## <a id="modifying-dedup-system-settings"></a>Ändern der systemweiten Einstellungen für die Datendeduplizierung
+## <a id="modifying-dedup-system-settings"></a>Ändern die Datendeduplizierung systemweite Einstellungen
 Für die Datendeduplizierung gibt es zusätzliche systemweite Einstellungen, die über [die Registrierung](https://technet.microsoft.com/library/cc755256(v=ws.11).aspx) konfiguriert werden können. Diese Einstellungen gelten für alle Aufträge und Volumes, die auf dem System ausgeführt werden. Die Bearbeitung der Registrierung muss äußerst umsichtig erfolgen.
 
 Angenommen, Sie möchten die vollständige Garbage Collection deaktivieren. Weitere Informationen dazu, warum dies für Ihr Szenario hilfreich sein kann, finden Sie in den [häufig gestellten Fragen](#faq-why-disable-full-gc). So bearbeiten Sie die Registrierung mit PowerShell
@@ -304,12 +305,12 @@ Angenommen, Sie möchten die vollständige Garbage Collection deaktivieren. Weit
         <tr>
             <td>WlmMemoryOverPercentThreshold</td>
             <td>Mithilfe dieser Einstellung können Aufträge mehr Arbeitsspeicher nutzen, als eigentlich für die Datendeduplizierung verfügbar ist. Die Einstellung 300 bedeutet beispielsweise, dass der Auftrag das Dreifache des zugewiesenen Arbeitsspeichers nutzen muss, um abgebrochen zu werden.</td>
-            <td>Positive ganze Zahlen (der Wert 300 bedeutet 300% oder das Dreifache)</td>
+            <td>Positive ganze Zahlen (der Wert 300 bedeutet 300 % oder das Dreifache)</td>
             <td>Wenn es eine andere Aufgabe gibt, die angehalten wird, wenn die Datendeduplizierung mehr Arbeitsspeicher verwendet</td>
         </tr>
         <tr>
             <td>DeepGCInterval</td>
-            <td>Diese Einstellung konfiguriert das Intervall, in dem herkömmliche Garbage Collection-Aufträge [vollständige Garbage Collection-Aufträge](advanced-settings.md#faq-full-v-regular-gc) werden. Die Einstellung „n“ bedeutet, dass jeder n<sup>te</sup> Auftrag ein vollständiger Garbage Collection-Auftrag ist. Beachten Sie, dass die vollständige automatische Speicherbereinigung (unabhängig vom Registrierungswert) für Volumes mit dem [Verwendungstyp Sicherung](understand.md#usage-type-backup) immer deaktiviert ist. `Start-DedupJob -Type GarbageCollection -Full` Kann verwendet werden, wenn die vollständige automatische Speicherbereinigung auf einem Sicherungsvolume gewünscht wird.</td>
+            <td>Diese Einstellung konfiguriert das Intervall, in dem herkömmliche Garbage Collection-Aufträge [vollständige Garbage Collection-Aufträge](advanced-settings.md#faq-full-v-regular-gc) werden. Die Einstellung „n“ bedeutet, dass jeder n<sup>te</sup> Auftrag ein vollständiger Garbage Collection-Auftrag ist. Beachten Sie, dass die vollständige automatische Speicherbereinigung (unabhängig vom Registrierungswert) für Volumes mit dem [Verwendungstyp Sicherung](understand.md#usage-type-backup) immer deaktiviert ist. `Start-DedupJob -Type GarbageCollection -Full` kann verwendet werden, wenn vollständige Garbage Collection auf einem Volume Sicherung gewünscht ist.</td>
             <td>Ganze Zahlen (-1 bedeutet deaktiviert)</td>
             <td>Siehe [diese häufig gestellte](advanced-settings.md#faq-why-disable-full-gc) Frage</td>
         </tr>
@@ -317,18 +318,18 @@ Angenommen, Sie möchten die vollständige Garbage Collection deaktivieren. Weit
 </table>
 
 ## <a id="faq"></a>Häufig gestellte Fragen
-<a id="faq-use-responsibly"></a>**Ich habe eine Einstellung für die Datendeduplizierung geändert. Daraufhin sind Aufträge langsam geworden oder werden nicht abgeschlossen bzw. die Leistung meiner Workload hat nachgelassen. Warum ist dies der Fall?**  
+<a id="faq-use-responsibly"></a>**Ich habe eine Einstellung für die Datendeduplizierung, geändert und jetzt Aufträge sind langsam oder nicht abgeschlossen oder Leistung meiner Workload hat nachgelassen. Warum?**  
 Diese Einstellungen bieten Ihnen viele Möglichkeiten zum Steuern der Ausführung der Datendeduplizierung. Nutzen Sie sie überlegt, und [überwachen Sie die Leistung](run.md#monitoring-dedup).
 
-<a id="faq-running-dedup-jobs-manually"></a>**Ich möchte jetzt sofort einen Datendeduplizierungsauftrag ausführen, ohne vorher einen neuen Zeitplan zu erstellen? Geht das?**  
+<a id="faq-running-dedup-jobs-manually"></a>**Ich möchte einen datendeduplizierungsauftrag sofort ausführen, aber ich möchte keinen neuen Zeitplan zu erstellen geht das?**  
 Ja, [alle Aufträge können manuell ausgeführt werden](run.md#running-dedup-jobs-manually).
 
-<a id="faq-full-v-regular-gc"></a>**Was ist der Unterschied zwischen einer vollständigen und einer herkömmlichen Garbage Collection?**  
+<a id="faq-full-v-regular-gc"></a>**Was ist der Unterschied zwischen vollständigen und einer herkömmlichen Garbage Collection?**  
 Es gibt zwei Arten von [Garbage Collection](understand.md#job-info-gc):
 
 - Für eine *herkömmliche Garbage Collection* wird ein statistischer Algorithmus verwendet, um große nicht referenzierte Datenblöcke zu suchen, die ein bestimmtes Kriterium (niedriger Wert für Arbeitsspeicher und IOPS) erfüllen. Bei der herkömmlichen Garbage Collection wird ein Blockspeicher erst komprimiert, wenn ein Mindestanteil der Blöcke nicht referenziert wird. Dieser Typ der Garbage Collection erfolgt wesentlich schneller und verwendet weniger Ressourcen als eine vollständige Garbage Collection. Der Standardzeitplan sieht eine Ausführung des herkömmlichen Garbage Collection-Auftrags einmal pro Woche vor.
-- Bei der *vollständigen Garbage Collection* wird wesentlich gründlicher nach nicht referenzierten Blöcken gesucht und mehr Speicherplatz auf dem Datenträger freigegeben. Bei der vollständigen Garbage Collection werden alle Container komprimiert, auch wenn nur ein einzelner Block im Container nicht referenziert wird. Bei der vollständigen Garbage Collection wird zudem Speicherplatz freigeben, der ggf. in Gebrauch war, als während eines Optimierungsauftrags ein Absturz oder Stromausfall aufgetreten ist. Vollständige Garbage Collection-Aufträge stellen 100% des verfügbaren Speicherplatzes wieder her, der auf einem deduplizierten Volume wiederhergestellt werden kann. Dazu sind allerdings im Vergleich mit einem herkömmlichen Garbage Collection-Auftrag mehr Zeit und Systemressourcen erforderlich. Beim vollständige Garbage Collection-Auftrag werden zumeist bis zu 5% mehr der nicht referenzierten Daten gefunden und wieder freigegeben als bei einem herkömmlichen Garbage Collection-Auftrag. Jeder vierte geplante Garbage Collection-Auftrag ist ein vollständiger Garbage Collection-Auftrag.
+- Bei der *vollständigen Garbage Collection* wird wesentlich gründlicher nach nicht referenzierten Blöcken gesucht und mehr Speicherplatz auf dem Datenträger freigegeben. Bei der vollständigen Garbage Collection werden alle Container komprimiert, auch wenn nur ein einzelner Block im Container nicht referenziert wird. Bei der vollständigen Garbage Collection wird zudem Speicherplatz freigeben, der ggf. in Gebrauch war, als während eines Optimierungsauftrags ein Absturz oder Stromausfall aufgetreten ist. Vollständige Garbage Collection-Aufträge stellen 100 % des verfügbaren Speicherplatzes wieder her, der auf einem deduplizierten Volume wiederhergestellt werden kann. Dazu sind allerdings im Vergleich mit einem herkömmlichen Garbage Collection-Auftrag mehr Zeit und Systemressourcen erforderlich. Beim vollständige Garbage Collection-Auftrag werden zumeist bis zu 5 % mehr der nicht referenzierten Daten gefunden und wieder freigegeben als bei einem herkömmlichen Garbage Collection-Auftrag. Jeder vierte geplante Garbage Collection-Auftrag ist ein vollständiger Garbage Collection-Auftrag.
 
-<a id="faq-why-disable-full-gc"></a>**Warum sollte ich die vollständige Garbage Collection deaktivieren?**  
+<a id="faq-why-disable-full-gc"></a>**Warum sollten vollständige Garbage Collection deaktivieren?**  
 - Die Garbage Collection kann sich negativ auf die Lebensdauer der Schattenkopien des Volumes und die Größe inkrementeller Sicherungen auswirken. Bei Workloads, die hohe Änderungsraten haben oder E/A-intensiv sind, kann durch vollständige Garbage Collection-Aufträge eine Verschlechterung der Leistung auftreten.           
 - Sie können einen vollständigen Garbage Collection-Auftrag manuell in PowerShell ausführen, um Speicherverluste zu beheben, wenn Sie wissen, dass Ihr System abgestürzt ist.
