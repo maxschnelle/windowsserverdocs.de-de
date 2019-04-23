@@ -1,6 +1,6 @@
 ---
 title: Erstellen und Anpassen des Abbilds
-description: Beschreibt, wie Sie Windows Server Essentials
+description: Beschreibt, wie Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,18 +13,19 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 5d1ec05a5164bf2a870cb5bfb083561a8b23f55f
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59869951"
 ---
 # <a name="creating-and-customizing-the-image"></a>Erstellen und Anpassen des Abbilds
 
->Gilt für: Windows Server2016 Essentials, Windows Server2012 R2 Essentials, Windows Server2012 Essentials
+>Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-In diesem Abschnittwerden Aspekte des Anpassungsvorgangs, die speziell für Windows Server Essentials beschrieben. Normalerweise führen Sie diese Verfahren auf dem Referenzcomputer mit einer Antwortdatei, bevor Sie das Image für die endgültige Bereitstellung erfassen.  
+Dieser Abschnitt beschreibt Aspekte des Anpassungsvorgangs, die mit Windows Server Essentials spezifisch sind. Normalerweise führen Sie diese Verfahren auf dem Referenzcomputer mit einer Antwortdatei aus, bevor Sie das Abbild für die endgültige Bereitstellung erfassen.  
   
- Dieser Abschnittenthält die folgenden Themen:  
+ In diesem Abschnitt werden folgende Themen behandelt:  
   
 
 -   [Erstellen eines einfachen benutzerdefinierten Abbilds](Create-a-Simple-Customized-Image.md)  

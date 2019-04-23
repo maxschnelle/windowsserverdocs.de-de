@@ -1,6 +1,6 @@
 ---
-title: Rollen, Rollendienste und Features nicht in Server Core 1803 Container - Windows-Server-version
-description: Informationen Sie zu Rollen und Features, den, die wir aus diesem Abbild der Server Core-Container für Windows Server entfernt.
+title: Rollen, Rollendienste und Features nicht in Server Core-Container – Windows Server-Version 1803
+description: Informationen Sie zu den Rollen und Features, die wir aus dem Server Core-Container-Image für Windows Server entfernt.
 ms.prod: windows-server-threshold
 ms.mktglfcycl: manage
 ms.sitesec: library
@@ -8,22 +8,22 @@ author: lizap
 ms.localizationpriority: medium
 ms.date: 05/07/2018
 ms.openlocfilehash: 0ad574a04ba7ecd235f1825bd25c247a1565edf6
-ms.sourcegitcommit: 1533d994a6ddea54ac189ceb316b7d3c074307db
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "1859904"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59873781"
 ---
-# <a name="roles-role-services-and-features-not-in-server-core-containers---windows-server-version-1803"></a>Rollen, Rollendienste und Features nicht in Server Core 1803 Container - Windows-Server-version
+# <a name="roles-role-services-and-features-not-in-server-core-containers---windows-server-version-1803"></a>Rollen, Rollendienste und Features nicht in Server Core-Container – Windows Server-Version 1803
 
-> Betrifft: WindowsServer, Version 1803
+> Gilt für: Windows Server, Version 1803
 
-In Windows Server, Version 1803, haben wir [die Gesamtgröße der die Server Core-Container-Bild zur Darstellung der **1,58 GB**reduziert](https://blogs.technet.microsoft.com/virtualization/2018/01/22/a-smaller-windows-server-core-container-with-better-application-compatibility/). Die Möglichkeit, die wir das getan haben ist durch Optimieren der Architektur und Entfernen von Dinge, die Sie benötigen nicht in einer [Server Core-Container](https://docs.microsoft.com/virtualization/windowscontainers/about/). Einige Dinge, die nicht funktionieren in Containern waren, einige Rollen und-Features niemand verwendeten waren. 
+In Windows Server, Version 1803, haben wir [verringert die Gesamtgröße des Server Core-containerimages zu **1,58 GB**](https://blogs.technet.microsoft.com/virtualization/2018/01/22/a-smaller-windows-server-core-container-with-better-application-compatibility/). Die Möglichkeit, die zwar ist die Optimierung der Architektur und entfernen die Schritte müssen keinem [Server Core-Container](https://docs.microsoft.com/virtualization/windowscontainers/about/). Einige Dinge, die funktionieren nicht in Containern, einige Rollen und Features, die niemand verwendet wurde, waren. 
 
 > [!IMPORTANT]
-> Wir entfernt diese aus dem Server Core **Container** Bild, nicht die [Server Core selbst](server-core-roles-and-services.md). 
+> Wir entfernt diese aus der Server Core **Container** image nicht [Server Core selbst](server-core-roles-and-services.md). 
 
-Nachfolgend finden Sie die vollständige Liste der Features und Rollen, die aus dem Server Core-Container-Abbild entfernt:
+Hier ist die vollständige Liste der Features und Rollen, die aus der Server Core-Container-Abbild entfernt:
 
 <div style='font-size:9.0pt'>
 
@@ -32,12 +32,12 @@ Nachfolgend finden Sie die vollständige Liste der Features und Rollen, die aus 
 <br>BitLocker-Hilfsprogramme
 <br>BitLocker
 <br>BITS
-<br>BITSExtensions hochladen
+<br>BITSExtensions-Upload
 <br>CCFFilter
 <br>CertificateEnrollmentPolicyServer
 <br>CertificateEnrollmentServer
 <br>CertificateServices
-<br>ClientForNFS-Infrastruktur
+<br>ClientForNFS-Infrastructure
 <br>Container
 <br>CoreFileServer
 <br>DataCenterBridging-LLDP-Tools
@@ -46,11 +46,11 @@ Nachfolgend finden Sie die vollständige Liste der Features und Rollen, die aus 
 <br>DeviceHealthAttestationService
 <br>DFSN-Server
 <br>DFSR-Infrastructure-ServerEdition
-<br>Verzeichnisdienste ADAM
-<br>Verzeichnisdienste DomainController
-<br>DiskIo QoS
+<br>DirectoryServices-ADAM
+<br>DirectoryServices-DomainController
+<br>DiskIo-QoS
 <br>EnhancedStorage
-<br>FailoverCluster-Verwaltungsprogramme
+<br>FailoverCluster-AdminPak
 <br>FailoverCluster-AutomationServer
 <br>FailoverCluster-CmdInterface
 <br>FailoverCluster-FullServer
@@ -58,12 +58,12 @@ Nachfolgend finden Sie die vollständige Liste der Features und Rollen, die aus 
 <br>Dateidienste
 <br>FileServerVSSAgent
 <br>FRS-Infrastruktur
-<br>FSRM-Infrastruktur-Services
+<br>FSRM-Infrastructure-Services
 <br>FSRM-Infrastruktur
 <br>HardenedFabricEncryptionTask
 <br>HostGuardian
-<br>HostGuardianService-Paket
-<br>IdentityServer SecurityTokenService
+<br>HostGuardianService-Package
+<br>IdentityServer-SecurityTokenService
 <br>IPAMClientFeature
 <br>IPAMServerFeature
 <br>iSCSITargetServer-PowerShell
@@ -73,11 +73,11 @@ Nachfolgend finden Sie die vollständige Liste der Features und Rollen, die aus 
 <br>Lizenzierung
 <br>LightweightServer
 <br>Microsoft-Hyper-V-Management-Clients
-<br>Microsoft Hyper-V-Offline-
+<br>Microsoft-Hyper-V-Offline
 <br>Microsoft-Hyper-V-Online
 <br>Microsoft-Hyper-V
-<br>Microsoft Windows-FCI-Client-Paket
-<br>Microsoft-Windows-Softwarezuweisungsarchitektur-ServerAdminTools-Update
+<br>Microsoft-Windows-FCI-Client-Package
+<br>Microsoft-Windows-GroupPolicy-ServerAdminTools-Update
 <br>Microsoft-Windows-Subsystem-Linux
 <br>MSRDC-Infrastruktur
 <br>MultipathIo
@@ -89,26 +89,26 @@ Nachfolgend finden Sie die vollständige Liste der Features und Rollen, die aus 
 <br>OnlineRevocationServices
 <br>P2P-PnrpOnly
 <br>PeerDist
-<br>Drucken-Client-Gui
-<br>Drucken LPDPrintService
-<br>Drucken-Foundation Serverfeatures
-<br>Druck-Server-Role
+<br>Printing-Client-Gui
+<br>Printing-LPDPrintService
+<br>Drucken-Foundation-Serverfunktionen
+<br>Drucken-Serverrolle
 <br>QWAVE
 <br>RasRoutingProtocols
-<br>Remote-Desktop-Dienste
-<br>RAS
+<br>Remote Desktop Services
+<br>RemoteAccess
 <br>RemoteAccessMgmtTools
 <br>RemoteAccessPowerShell
 <br>RemoteAccessServer
 <br>ResumeKeyFilter
-<br>RightsManagementServices-Rolle
+<br>RightsManagementServices-Role
 <br>RightsManagementServices
 <br>RMS-Verbund
 <br>SBMgr-UI
-<br>ServerCore-Treiber-allgemeine-WOW64
-<br>ServerCore-Treiber-Allgemein
+<br>ServerCore-Drivers-General-WOW64
+<br>ServerCore-Treiber – Allgemein
 <br>ServerForNFS-Infrastruktur
-<br>ServerManager-Kern-RSAT-Feature-Tools
+<br>ServerManager-Core-RSAT-Feature-Tools
 <br>ServerMediaFoundation
 <br>ServerMigration
 <br>SessionDirectory
@@ -120,24 +120,24 @@ Nachfolgend finden Sie die vollständige Liste der Features und Rollen, die aus 
 <br>SmbWitness
 <br>SNMP
 <br>SoftwareLoadBalancer
-<br>Speicher-Replikat-AdminPack
+<br>Storage-Replica-AdminPack
 <br>Speicher-Replikat
-<br>TPM-PSH--Cmdlets
-<br>UpdateServices-Datenbank
-<br>UpdateServices-Dienste
-<br>UpdateServices WidDatabase
+<br>Tpm-PSH-Cmdlets
+<br>UpdateServices-Database
+<br>UpdateServices-Services
+<br>UpdateServices-WidDatabase
 <br>UpdateServices
 <br>VmHostAgent
-<br>VolumeActivation-Full-Rolle
-<br>Web-Anwendung-Proxy
+<br>VolumeActivation-Full-Role
+<br>Web-Application-Proxy
 <br>WebAccess
 <br>WebEnrollmentServices
 <br>Windows-Defender
-<br>Windowsserversicherung
+<br>WindowsServerBackup
 <br>WindowsStorageManagementService
 <br>WINSRuntime
 <br>WMISnmpProvider
 <br>WorkFolders-Server
-<br>WSS-Produkt-Paket
+<br>WSS-Produkt-Package
 
 </div>

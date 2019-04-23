@@ -1,6 +1,6 @@
 ---
 title: Installieren von Server Core
-description: So erhalten und Installieren von Server Core-Installationsoption auf Windows Server 2019, Windows Server 2016 oder Windows Server (Semi-Annual Channel).
+description: Informationen zum Abrufen und Installieren einer Server Core-Installations auf Windows Server-2019, Windows Server 2016 oder Windows Server (Halbjährlicher Kanal).
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -15,17 +15,17 @@ ms.author: jaimeo
 manager: dougkim
 ms.localizationpriority: medium
 ms.openlocfilehash: d99cd0b028d08d5c3247541ce3a868676b60693d
-ms.sourcegitcommit: 7fc7271745e40f110c54918b55624cadd0d7ff98
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "8991797"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59869021"
 ---
-# Installieren von Server Core
+# <a name="install-server-core"></a>Installieren von Server Core
 
-> Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (Semi-Annual Channel)
+> Gilt für: WindowsServer 2019, WindowsServer 2016, WindowsServer (Halbjährlicher Kanal)
   
-Wenn Sie Windows Server zum ersten Mal installieren, haben Sie die folgende Optionen:
+Wenn Sie Windows Server zum ersten Mal installieren, müssen Sie die folgenden Installationsoptionen:
 
 >[!NOTE]
 > In der folgenden Liste sind Editionen ohne "Desktopdarstellung" für die Server Core-Installationsoptionen
@@ -35,7 +35,7 @@ Wenn Sie Windows Server zum ersten Mal installieren, haben Sie die folgende Opti
 -   Windows Server Datacenter
 -   Windows Server Datacenter mit Desktopdarstellung
 
-Bei der Installation von Windows Server (Semi-Annual Channel), einschließlich Version 1709, 1803 und 1809, haben Sie die folgende Optionen:
+Bei der Installation von Windows Server (Halbjährlicher Kanal), einschließlich der Version 1709, 1803 und 1809, haben Sie die folgenden Installationsoptionen:
 
 -   Windows Server Standard 
 -   Windows Server Datacenter
@@ -52,17 +52,17 @@ Bei dieser Option wird die Standardbenutzeroberfläche (die Desktopdarstellung) 
 
 **Lokales Installieren, Konfigurieren und Deinstallieren von Serverrollen:** an einer Eingabeaufforderung mit Windows PowerShell
 
-**Installieren, konfigurieren, Deinstallieren der Serverrollen auf einem Windows-Client-Computer (oder ein Server mit der Desktop-Umgebung installiert):** mit Server-Manager, Remote Server Administration Tools (RSAT), Windows PowerShell oder Windows Admin Center.
+**Installieren, konfigurieren und Deinstallieren von Serverrollen im Remotemodus aus einem Windows-Client-Computer (oder einem Server mit der Desktopdarstellung installiert):** mit Server-Manager, Remoteserver-Verwaltungstools (RSAT), Windows PowerShell oder Windows Admin Center .
 
 >[!NOTE]
 >
 >Für RSAT müssen Sie die Windows 10-Version verwenden.
 >Microsoft Management Console ist lokal nicht verfügbar.
 
-**Beispiel verfügbare Serverrollen:**
+**Beispiel-Serverfunktionen zur Verfügung:**
 
 - Active Directory-Zertifikatdienste
-- ActiveDirectory-Domänendienste (ADDS)
+- Active Directory Domain Services
 - DHCP-Server
 - DNS-Server
 - Dateidienste (einschließlich Ressourcen-Manager für Dateiserver)
@@ -79,22 +79,22 @@ Bei dieser Option wird die Standardbenutzeroberfläche (die Desktopdarstellung) 
 - Virtualisierung
 - Volumenaktivierungsdienste
 
-Rollen, die nicht in Server Core enthalten finden Sie unter [Rollen, Rollendienste und Features, die nicht in Windows Server - Server Core](../administration/server-core/server-core-removed-roles.md).
+Rollen in Server Core nicht enthalten, finden Sie unter [Rollen, Rollendienste und Features nicht in Windows Server – Server Core](../administration/server-core/server-core-removed-roles.md).
 
-## Installieren unter WindowsServer 2019 oder WindowsServer 2016
+## <a name="installing-on-windows-server-2019-or-windows-server-2016"></a>Installieren von auf WindowsServer 2019 oder WindowsServer 2016
 
-Allgemeine Installationsschritte und Optionen für Windows Server (Long-Term Servicing Channel) finden Sie unter [Windows Server-Installation und Upgrade](installation-and-upgrade.md).
+Allgemeine Installationsschritte und Optionen für die Windows-Server (Long Term Wartungskanal), finden Sie unter [Windows Server-Installation und Upgrade](installation-and-upgrade.md).
 
-## Installieren unter WindowsServer (Semi-Annual Channel)
+## <a name="installing-on-windows-server-semi-annual-channel"></a>Installieren unter WindowsServer (Halbjährlicher Kanal)
 
-Die Installationsschritte für Windows Server (Semi-Annual Channel) sind identisch mit der Installation von früheren Versionen von Windows Server (über ein. ISO-Abbild) mit den folgenden Ausnahmen:
+Installationsschritte für Windows Server (Halbjährlicher Kanal) sind identisch mit frühere Versionen von Windows Server installieren (von ein. ISO-Abbild) mit den folgenden Ausnahmen:
 - Keine unterstützten Upgrades von früheren Versionen von Windows Server auf Windows Server, Version 1709. Eine Neuinstallation ist immer erforderlich.
-   Dies bedeutet, dass beim Ausführen von setup.exe über den Desktop eines Windows-Computers die Setup-Erfahrung nicht die Upgrade-Option ist (es ist deaktiviert).
-- Es gibt keine Evaluierungsversion für Windows Server (Semi-Annual Channel)
-- Es gibt kein OEM oder Einzelhandel. Windows Server (Semi-Annual Channel) kann nur über Programme Software Assurance oder Treueprogramme lizenziert werden.
+   Dies bedeutet, dass beim Ausführen von setup.exe auf dem Desktop eines Windows-Computers der Setupvorgang nicht die Option zulässig ist (er ist abgeblendet).
+- Es ist keine Auswertung-Version für Windows Server (Halbjährlicher Kanal)
+- Es gibt kein OEM oder Einzelhandel. Windows Server (Halbjährlicher Kanal) kann nur über Software Assurance oder Loyalität Programme lizenziert werden.
 
 Informationen zum Erwerb der Version 1709 von Windows Server finden Sie unter [Einführung in Windows Server, Version 1709](get-started-with-1709.md).
 
-Um Windows Server, Version 1803 zu erhalten, finden Sie unter [Einführung in Windows Server, Version 1803](get-started-with-1803.md).
+Windows Server-Version 1803 finden Sie unter [Einführung in Windows Server, Version 1803](get-started-with-1803.md).
 
-Was ist neu in der Windows Server, Version 1809, finden Sie unter [Neuigkeiten in Windows Server, Version 1809](whats-new-in-windows-server-1809.md)
+Neuigkeiten in Windows Server, Version 1809, finden Sie unter [Neuigkeiten in Windows Server-Version 1809](whats-new-in-windows-server-1809.md)

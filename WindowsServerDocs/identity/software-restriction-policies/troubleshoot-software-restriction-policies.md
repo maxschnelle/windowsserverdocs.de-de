@@ -1,5 +1,5 @@
 ---
-title: "Problembehandlung bei Richtlinien für Softwareeinschränkung"
+title: Problembehandlung bei Richtlinien für Softwareeinschränkung
 description: Windows Server-Sicherheit
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -14,62 +14,63 @@ ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
 ms.openlocfilehash: abf592930f5347fa10e83c644671f68f9dc1a3f6
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59872381"
 ---
 # <a name="troubleshoot-software-restriction-policies"></a>Problembehandlung bei Richtlinien für Softwareeinschränkung
 
->Gilt für: Windows Server2016, Windows Server2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Dieses Thema beschreibt häufig auftretende Probleme und ihre Lösungen bei der Behandlung von (Software Restriction Policies, SRP) ab Windows Server2008 und Windows Vista.
+Dieses Thema beschreibt allgemeine Probleme und Lösungen, bei der Problembehandlung von Windows Server 2008 und Windows Vista (Software Restriction Policies, SRP) ab.
 
-## <a name="introduction"></a>Einführung in
-(Software Restriction Policies, SRP) ist der Gruppenrichtlinie basierendes Feature, das Softwareprogramme identifiziert, die auf Computern in einer Domäne ausgeführt, und die Fähigkeit zur Ausführung dieser Programme steuert. Mithilfe von Softwareeinschränkungsrichtlinien um eine stark eingeschränkte Konfiguration für Computer zu erstellen, in dem Sie nur explizit angegebene Anwendungen ausführen können. Diese sind mit Microsoft Active Directory-Domänendienste und Gruppenrichtlinien integriert, aber auch auf eigenständigen Computern konfiguriert werden. Weitere Informationen zu SRP finden Sie unter der [Softwareeinschränkungsrichtlinien](software-restriction-policies.md).
+## <a name="introduction"></a>Einführung
+Die Richtlinien für Softwareeinschränkung (Software Restriction Policies, SRP) sind ein auf der Gruppenrichtlinie basierendes Feature, das Softwareprogramme identifiziert, die auf Computern in einer Domäne ausgeführt werden, und die Fähigkeit zur Ausführung dieser Programme steuert. Sie können Richtlinien für Softwareeinschränkung auch verwenden, um eine stark eingeschränkte Konfiguration für Computer zu erstellen, in der Sie ausschließlich die Ausführung explizit angegebener Anwendungen zulassen. Diese in Microsoft Active Directory-Domänendienste und Gruppenrichtlinien integriert sind, aber auch auf eigenständigen Computern konfiguriert werden. Weitere Informationen zu SRP finden Sie unter den [Richtlinien für Softwareeinschränkung](software-restriction-policies.md).
 
-Ab Windows Server 2008 R2 und Windows 7, kann Windows AppLocker anstelle von oder zusammen mit SRP für einen Teil Ihrer anwendungssteuerungsstrategie verwendet werden.
+Ab Windows Server 2008 R2 und Windows 7, Windows AppLocker anstelle oder zusammen mit Richtlinien für Softwareeinschränkung für einen Teil Ihrer anwendungssteuerungsstrategie dienen.
 
-### <a name="windows-cannot-open-a-program"></a>Ein Programm kann nicht geöffnet werden.
-Benutzer erhalten die Meldung "Windows dieses Programm öffnen können, weil es von einer Softwareeinschränkungsrichtlinie verhindert wurde. Weitere Informationen öffnen Sie die Ereignisanzeige, oder wenden Sie sich an den Systemadministrator." Oder in der Befehlszeile eine Meldung "das System das angegebene Programm nicht ausgeführt werden kann."
+### <a name="windows-cannot-open-a-program"></a>Windows kann kein Programm geöffnet werden.
+Benutzer erhalten eine Meldung mit dem Text "Windows dieses Programms öffnen können, da es durch eine Richtlinie für softwareeinschränkung verhindert wurde. Weitere Informationen öffnen Sie-Ereignisanzeige zu, oder wenden Sie sich an Ihren Systemadministrator." Oder, in der Befehlszeile eine Meldung besagt "das System das angegebene Programm nicht ausgeführt werden kann."
 
-**Ursache:** die Standardsicherheitsstufe (oder eine Regel) erstellt wurde, damit das Softwareprogramm festgelegt ist, als **nicht erlaubt**, und daher nicht gestartet.
+**Ursache:** Die Standardsicherheitsstufe (oder eine Regel) erstellt wurde, damit das Softwareprogramm festgelegt ist, als **nicht erlaubt**, und daher wird er nicht gestartet.
 
-**Lösung:** suchen Sie im Ereignisprotokoll für eine detaillierte Beschreibung der Nachricht. Die Meldung im Ereignisprotokoll gibt an, welches Programm festgelegt ist, als **nicht erlaubt** und welche Regel auf die Anwendung angewendet wird.
+**Lösung:** Suchen Sie in das Ereignisprotokoll für eine detaillierte Beschreibung der Nachricht. Die Meldung im Ereignisprotokoll gibt an, welche Softwareprogramm als festgelegt wurde **nicht erlaubt** und an das Programm die Regel angewendet wird.
 
-### <a name="modified-software-restriction-policies-are-not-taking-effect"></a>Geänderte Richtlinien für Softwareeinschränkung sind nicht wirksam
-**Ursache:** Softwareeinschränkungsrichtlinien, die in einer Domäne mithilfe von Gruppenrichtlinien angegeben sind überschreiben alle Einstellungen, die lokal konfiguriert werden. Dies kann bedeutet, dass es ist eine Einstellung aus der Domäne, die die Richtlinieneinstellung außer Kraft setzt.
+### <a name="modified-software-restriction-policies-are-not-taking-effect"></a>Geänderte Richtlinien für softwareeinschränkung sind nicht wirksam
+**Ursache:** Richtlinien für softwareeinschränkung, die in einer Domäne über die Gruppenrichtlinie angegeben werden, überschreiben Richtlinieneinstellungen, die lokal. Möglicherweise heißt das, dass es ist eine richtlinieneinstellung aus der Domäne, die Ihre richtlinieneinstellung außer Kraft gesetzt wird.
 
-**Ursache:** Gruppenrichtlinien möglicherweise nicht die Einstellungen aktualisiert haben. Gruppenrichtlinie wendet Änderungen in regelmäßigen Abständen Richtlinieneinstellungen; Daher ist es wahrscheinlich, dass die Richtlinie ändert, die im Verzeichnis vorgenommen wurden, noch nicht aktualisiert wurde.
+**Ursache:** Die Gruppenrichtlinie kann die Richtlinieneinstellungen nicht aktualisiert haben. Gruppenrichtlinie wendet die Änderungen in regelmäßigen Abständen an den Richtlinieneinstellungen für; aus diesem Grund ist es wahrscheinlich, dass die richtlinienänderungen, die im Verzeichnis vorgenommen wurden, noch nicht aktualisiert wurde.
 
 **Lösungen:**
 
-1.  Der Computer, auf dem Sie Softwareeinschränkungsrichtlinien ändern, für das Netzwerk eine Verbindung mit einen Domänencontroller herstellen muss. Stellen Sie sicher, dass der Computer mit einem Domänencontroller herstellen kann.
+1.  Der Computer, auf dem Sie Richtlinien für softwareeinschränkung für das Netzwerk ändern, muss auf einem Domänencontroller herstellen können. Stellen Sie sicher, dass der Computer einen Domänencontroller herstellen kann.
 
-2.  Aktualisieren Sie Richtlinie vom Netzwerk ab- und dann auf das Netzwerk erneut anmelden. Wenn eine Richtlinie über eine Gruppenrichtlinie angewendet wird, werden diese Richtlinien wieder anmelden aktualisiert werden.
+2.  Die Aktualisierungsrichtlinie von außerhalb des Netzwerks anmelden, und klicken Sie dann auf das Netzwerk erneut anmelden. Wenn keine Richtlinie über die Gruppenrichtlinie angewendet wird, werden diese Richtlinien wieder anmelden aktualisiert werden.
 
-3.  Sie können Einstellungen mit dem Befehlszeilenprogramm Gpupdate oder Abmelden und melden Sie sich dann wieder an Ihren Computer aktualisieren. Führen Sie für optimale Ergebnisse "gpupdate", und melden Sie sich dann aus, und melden Sie sich wieder bei Ihrem Computer. Die Sicherheitseinstellungen werden in der Regel auf einer Arbeitsstation oder einem Server alle 90Minuten und auf einem Domänencontroller alle 5Minuten aktualisiert. Die Einstellungen werden auch alle 16 Stunden aktualisiert, unabhängig davon, ob Änderungen erfolgt sind. Hierbei handelt es sich um konfigurierbare Einstellungen, sodass Aktualisierungsintervalle in jeder Domäne unterscheiden können.
+3.  Sie können Richtlinieneinstellungen, die mit dem Befehlszeilen-Hilfsprogramm Gpupdate oder beim Abmelden von, und melden Sie sich dann wieder bei Ihrem Computer aktualisieren. Für optimale Ergebnisse Ausführen von Gpupdate, und melden Sie sich dann aus, und melden Sie sich wieder bei Ihrem Computer. Die Sicherheitseinstellungen werden im Allgemeinen alle 90 Minuten auf einer Arbeitsstation oder einen Server und auf einem Domänencontroller alle 5 Minuten aktualisiert. Die Einstellungen werden außerdem alle 16 Stunden aktualisiert, unabhängig davon, ob Änderungen erfolgt sind. Dies sind die konfigurierbaren Einstellungen, damit Aktualisierungsintervalle in jeder Domäne möglicherweise unterscheiden.
 
 4.  Überprüfen, welche Richtlinien gelten. Überprüfen Sie die Richtlinien auf Domänenebene für **kein Vorrang** Einstellungen.
 
-5.  Softwareeinschränkungsrichtlinien, die in einer Domäne mithilfe von Gruppenrichtlinien angegeben sind außer Kraft setzen alle Richtlinien, die lokal konfiguriert werden. Verwenden Sie Gpresult-Befehlszeilentool, um zu bestimmen, was im Endeffekt die Richtlinie ist. Dies kann bedeutet, dass eine Richtlinie aus der Domäne, die Ihre lokale Einstellung überschrieben wird.
+5.  Richtlinien für softwareeinschränkung, die in einer Domäne über die Gruppenrichtlinie angegeben werden, überschreiben alle Richtlinien, die lokal. Verwenden Sie Gpresult-Befehlszeilentool, um zu bestimmen, was im Endeffekt die Richtlinie ist. Dies möglicherweise impliziert, dass es sich bei einer Richtlinie aus der Domäne, die Ihre lokale Einstellung außer Kraft gesetzt wird.
 
-6.  Wenn SRP und AppLocker-Richtlinien im selben Gruppenrichtlinienobjekt befinden, AppLocker-Einstellungen Vorrang unter Windows7, Windows Server2008 R2 und höher. Es wird empfohlen, SRP und AppLocker-Richtlinien in unterschiedlichen Gruppenrichtlinienobjekten aufgenommen werden sollen.
+6.  Wenn das gleiche GPO SRP und AppLocker-Richtlinieneinstellungen werden, AppLocker-Einstellungen Vorrang unter Windows 7, Windows Server 2008 R2 und höher. Es wird empfohlen, Richtlinien für Softwareeinschränkung und AppLocker-Richtlinieneinstellungen in unterschiedlichen GPOs zu platzieren.
 
-### <a name="after-adding-a-rule-through-srp-you-cannot-log-on-to-your-computer"></a>Nach dem Hinzufügen einer Regel über SRP, können Sie auf Ihrem Computer anmelden
-**Ursache:** Computers viele Programme und Dateien zugreift, beim Starten. Möglicherweise haben versehentlich Festlegen eines dieser Programme oder Dateien **nicht erlaubt**. Da der Computer das Programm oder die Datei zugreifen kann, kann er nicht ordnungsgemäß gestartet.
+### <a name="after-adding-a-rule-through-srp-you-cannot-log-on-to-your-computer"></a>Nach dem Hinzufügen einer Regel über Richtlinien für Softwareeinschränkung, können Sie auf Ihrem Computer anmelden
+**Ursache:** Ihr Computer greift auf vielen Programmen und Dateien beim Starten. Legen Sie möglicherweise haben versehentlich diese Programme oder Dateien **nicht erlaubt**. Da der Computer das Programm oder die Datei zugreifen kann, kann er nicht ordnungsgemäß gestartet.
 
-**Lösung:** starten Sie den Computer im abgesicherten Modus, melden Sie sich als lokaler Administrator, und ändern Sie Softwareeinschränkungsrichtlinien, damit die Anwendung oder Datei ausführen können.
+**Lösung:** Starten Sie den Computer im abgesicherten Modus, melden Sie sich als lokaler Administrator an und ändern Sie dann die Richtlinien für softwareeinschränkung damit das Programm oder die Datei ausführen können.
 
-### <a name="a-new-policy-setting-is-not-applying-to-a-specific-file-name-extension"></a>Eine neue Einstellung wird nicht auf einer bestimmten Dateinamenerweiterung anwenden.
-**Ursache:** die Dateinamenerweiterung ist nicht in der Liste der unterstützten Dateitypen.
+### <a name="a-new-policy-setting-is-not-applying-to-a-specific-file-name-extension"></a>Eine neue Einstellung wird nicht auf eine bestimmte Dateinamenerweiterung angewendet.
+**Ursache:** Die Dateierweiterung ist nicht in der Liste der unterstützten Dateitypen.
 
-**Lösung:** fügen Sie die Dateinamenerweiterung der Liste der Dateitypen, die von SRP unterstützt.
+**Lösung:** Hinzufügen der Erweiterungs der Liste der Dateitypen, die von SRP unterstützt werden.
 
-Richtlinien für Softwareeinschränkung beheben das Problem des regulieren von unbekannt oder nicht vertrauenswürdigem Code. Richtlinien für Softwareeinschränkung sind Sicherheitseinstellungen, Software erkennen und Steuern der Ausführung auf einem lokalen Computer in einen Standort, Domäne oder Organisationseinheit ausgeführt werden und können über ein Gruppenrichtlinienobjekt implementiert werden.
+Richtlinien für softwareeinschränkung regulieren von unbekannten oder nicht vertrauenswürdigen Code das Problem zu beheben. Richtlinien für softwareeinschränkung sind Sicherheitseinstellungen zum Identifizieren von Software und steuern die Möglichkeit zur Ausführung auf einem lokalen Computer in einer Site, Domäne oder Organisationseinheit, und können über ein Gruppenrichtlinienobjekt implementiert werden.
 
-### <a name="a-default-rule-is-not-restricting-as-expected"></a>Eine Standardregel ist nicht wie erwartet einschränken
-**Ursache:** Regeln, die in einer bestimmten Reihenfolge angewendet werden, wodurch Standardregeln von bestimmte Regeln überschrieben werden können. SRP gilt Regeln in der folgenden Reihenfolge (die speziell für allgemeine):
+### <a name="a-default-rule-is-not-restricting-as-expected"></a>Eine Standardregel ist nicht einschränken, wie erwartet
+**Ursache:** Regeln, die in einer bestimmten Reihenfolge angewendet werden, wodurch Standardregeln, die durch bestimmte Regeln überschrieben werden können. Richtlinien für Softwareeinschränkung wendet Regeln in der folgenden Reihenfolge (die meisten spezifisch für allgemeine) an:
 
 1.  Hashregeln
 
@@ -77,19 +78,19 @@ Richtlinien für Softwareeinschränkung beheben das Problem des regulieren von u
 
 3.  Pfadregeln
 
-4.  Internetzone Regeln
+4.  Regeln für Internetzone
 
 5.  Standardregeln
 
-**Lösung:** bewerten Sie die Regeln schränkt die Anwendung und ggf. entfernen, mit Ausnahme der Standard-Regel.
+**Lösung:** Bewerten Sie die Regeln, die die Anwendung beschränken und bei Bedarf, entfernen Sie alle bis auf die Standardregel.
 
-### <a name="unable-to-discover-which-restrictions-are-applied"></a>Nicht erkennen, welche Einschränkungen angewendet werden
-**Ursache:** kein offensichtlich Grund für unerwartetes Verhalten und GPO-Aktualisierung ist nicht das Problem behoben, sodass weitere Untersuchung notwendig ist.
+### <a name="unable-to-discover-which-restrictions-are-applied"></a>Kann nicht ermitteln, welche Einschränkungen angewendet werden
+**Ursache:** Es gibt keine offensichtliche Ursache für das unerwartete Verhalten und GPO-Aktualisierung ist nicht das Problem gelöst, damit weitere Untersuchung erforderlich ist.
 
 **Lösungen:**
 
-1.  Untersuchen Sie das Systemereignisprotokoll Filtern auf der Quelle "Softwareeinschränkungsrichtlinie." Die Einträge Status explizit an, welche Regel für jede Anwendung implementiert wird.
+1.  Untersuchen Sie das Systemereignisprotokoll, die Filterung auf der Datenquelle "Richtlinie für Softwareeinschränkung". Die Einträge Zustand explizit an, welche Regel für jede Anwendung implementiert wird.
 
-2.  Erweiterte Protokollierung zu aktivieren. Weitere Informationen finden Sie unter [zulassen bzw. verweigern-Liste zu ermitteln und des Anwendungsinventars für Richtlinien für Softwareeinschränkung](software-restriction-policies.md) Weitere Informationen.
+2.  Aktivieren Sie erweiterte Protokollierung. Finden Sie unter [zulassen bzw. verweigern-Liste zu bestimmen und des Anwendungsinventars für Richtlinien für Softwareeinschränkung](software-restriction-policies.md) für Weitere Informationen.
 
 

@@ -1,52 +1,54 @@
 ---
-title: Kopieren Sie das Zertifizierungsstellenzertifikat und die Zertifikatsperrliste auf das virtuelle Verzeichnis
-description: In diesem Thema ist Teil des Handbuchs Bereitstellen von Serverzertifikaten für 802.1 X kabelgebundenen und drahtlosen Bereitstellungen
-manager: brianlic
+title: Kopieren Sie der ZS-Zertifikat und die Zertifikatsperrliste auf das virtuelle Verzeichnis
+description: Dieses Thema ist Teil des Handbuchs Bereitstellen von Serverzertifikaten für 802.1 X verkabelte und drahtlose Bereitstellungen
+manager: dougkim
 ms.topic: article
 ms.assetid: a1b5fa23-9cb1-4c32-916f-2d75f48b42c7
 ms.prod: windows-server-threshold
 ms.technology: networking
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: e37bfce7f8cf33fd7fcb5e6227d783c28bd29d35
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.date: 07/19/2018
+ms.openlocfilehash: 15cc807db805e1be0349ea51119663e515c7e551
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59874031"
 ---
-# <a name="copy-the-ca-certificate-and-crl-to-the-virtual-directory"></a>Kopieren Sie das Zertifizierungsstellenzertifikat und die Zertifikatsperrliste auf das virtuelle Verzeichnis
+# <a name="copy-the-ca-certificate-and-crl-to-the-virtual-directory"></a>Kopieren Sie der ZS-Zertifikat und die Zertifikatsperrliste auf das virtuelle Verzeichnis
 
->Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
-Sie können dieses Verfahren verwenden, Zertifikatsperrliste und Unternehmen das Zertifikat der Stammzertifizierungsstelle von der Zertifizierungsstelle auf ein virtuelles Verzeichnis auf dem Webserver zu kopieren und um sicherzustellen, dass AD CS ordnungsgemäß konfiguriert ist. Bevor Sie die folgenden Befehle ausführen, stellen Sie sicher, dass Sie mit den Verzeichnis- und Server ersetzen, die für Ihre Bereitstellung geeignet sind.  
+Sie können dieses Verfahren verwenden, um Certificate Revocation List, und Unternehmen das Zertifikat der Stammzertifizierungsstelle aus Ihrer Zertifizierungsstelle in ein virtuelles Verzeichnis auf Ihrem Webserver zu kopieren, und um sicherzustellen, dass AD CS ordnungsgemäß konfiguriert ist. Bevor Sie die folgenden Befehle ausführen, stellen Sie sicher, dass Sie die Verzeichnis-und Server durch die ersetzen, die für Ihre Bereitstellung geeignet sind.  
   
-Zum Ausführen dieses Verfahrens müssen Sie Mitglied der sein **Domänen-Admins **.  
+Zum Ausführen dieses Verfahrens müssen Sie Mitglied werden **Domänen-Admins**.  
   
-#### <a name="to-copy-the-certificate-revocation-list-from-ca1-to-web1"></a>Um die Zertifikatsperrliste von CA1 auf WEB1 zu kopieren  
+#### <a name="to-copy-the-certificate-revocation-list-from-ca1-to-web1"></a>Um die Zertifikatsperrliste aus CA1 auf WEB1 zu kopieren.  
   
-1.  Für Zertifizierungsstelle 1 Windows PowerShell als Administrator ausführen, und klicken Sie dann Veröffentlichen der Zertifikatsperrliste mithilfe des folgenden Befehls:  
+1.  Klicken Sie auf ka1 führen Sie Windows PowerShell als Administrator aus, und klicken Sie dann veröffentlichen Sie die Zertifikatsperrliste mit den folgenden Befehl aus:  
   
-    - Typ `certutil -crl`, und drücken Sie dann die EINGABETASTE.  
+    - Geben Sie `certutil -crl` ein, und drücken Sie dann die EINGABETASTE.  
+
+    - Geben Sie zum Kopieren der Zertifikatssperrlisten auf die Dateifreigabe auf dem Webserver `copy C:\Windows\system32\certsrv\certenroll\*.crl \\WEB1\pki`, und drücken Sie dann die EINGABETASTE.  
   
-    - Um das Zertifikat der Zertifizierungsstelle in der Dateifreigabe auf dem Webserver zu kopieren, geben Sie `copy C:\Windows\system32\certsrv\certenroll\*.crt \\WEB1\pki`, und drücken Sie dann die EINGABETASTE.  
-    - Geben Sie zum Kopieren der Zertifikatsperrlisten auf die Dateifreigabe auf dem Webserver `copy C:\Windows\system32\certsrv\certenroll\*.crl \\WEB1\pki`, und drücken Sie dann die EINGABETASTE.  
+2.  Um sicherzustellen, dass die Orte Ihrer CDP- und AIA-Erweiterung ordnungsgemäß konfiguriert sind, geben Sie `pkiview.msc`, und drücken Sie dann die EINGABETASTE. Pkiview wird geöffnet, Unternehmens-PKI-MMC.  
   
-2. Geben Sie zum Neustarten von AD CS `Restart-Service certsvc`, und drücken Sie dann die EINGABETASTE.  
+3.  Klicken Sie im linken Bereich auf den Zertifizierungsstellennamen.<p>Z. B. Wenn Ihr ZS-Name corp.-CA1-CA ist, klicken Sie auf **corp-CA1-CA**. 
+
+4. In der Spalte Status des Ergebnisbereichs, stellen Sie sicher, dass die Werte für die folgenden die **OK**:
+
+    - **Zertifikat der Zertifizierungsstelle**
+    - **Speicherort für AIA #1**
+    - **CDP-Speicherort #1**   
   
-2.  Um sicherzustellen, dass die CDP- und AIA-Erweiterung Speicherorte ordnungsgemäß konfiguriert sind, geben Sie `pkiview.msc`, und drücken Sie dann die EINGABETASTE. Pkiview öffnet Unternehmens-PKI-MMC.  
   
-3.  Klicken Sie auf den Zertifizierungsstellennamen. Wenn beispielsweise der Name der Zertifizierungsstelle corp-Zertifizierungsstelle 1-CA ist, klicken Sie auf **corp-Zertifizierungsstelle 1-CA **. Klicken Sie im Detailbereich, überprüfen Sie, ob die **Status** Wert für die **Zertifizierungsstellenzertifikat**, **AIA Speicherort 1**, und **CDP-Speicherort 1** sind alle **OK **.  
-  
-Die folgende Abbildungzeigt den Ergebnisbereich Pkiview mit dem Status OK für alle Elemente.  
-  
-! [adcs_pkiviewmedia/adcs_pkiview.png)  
-  
-> [!IMPORTANT]  
-> Wenn **Status** für ein Element nicht **OK**, gehen Sie folgendermaßen vor:  
-> -   Öffnen Sie die Freigabe auf dem Webserver, um sicherzustellen, dass das Zertifikat und das Zertifikat Widerruf Dateien erfolgreich auf die Freigabe kopiert wurden. Wenn sie auf die Freigabe nicht erfolgreich kopiert wurden, ändern Sie Ihre Kopierbefehle mit den korrekten Quelle und freigeben Sie Ziel, und führen Sie die Befehle erneut aus.  
-> -   Stellen Sie sicher, dass Sie auf der Registerkarte Zertifizierungsstelle Erweiterungen sicherstellen, dass die richtigen Speicherorte für die CDP- und AIA eingegeben haben, die es sind keine zusätzlichen Leerzeichen oder andere Zeichen an den Speicherorten, die Sie angegeben haben.  
-> -   Stellen Sie sicher, dass Sie das Zertifikat Zertifikatsperrlisten und Zertifizierungsstellenzertifikate an den richtigen Speicherort auf dem Webserver abgelegt und der Speicherort der Speicherort entspricht, den Sie für die CDP- und AIA-Speicherorten auf der Zertifizierungsstelle bereitgestellt.  
-> -   Stellen Sie sicher, dass Sie Berechtigungen für das virtuelle Verzeichnis ordnungsgemäß konfiguriert, in dem der ZS-Zertifikat und die Zertifikatsperrliste gespeichert sind.  
+> [!TIP]  
+> Wenn **Status** für jedes Element nicht ist **OK**, gehen Sie folgendermaßen vor:  
+> -   Öffnen Sie die Freigabe auf Ihrem Webserver, um sicherzustellen, dass das Zertifikat und ein Zertifikat sperren Auflisten von Dateien auf die Freigabe erfolgreich kopiert wurden. Wenn sie auf die Freigabe nicht erfolgreich kopiert wurden, ändern Sie Ihre Kopierbefehle, mit der richtigen Quelle und freigeben Sie Ziel, und führen Sie die Befehle erneut aus.  
+> -   Stellen Sie sicher, dass Sie auf der Registerkarte "CA-Erweiterungen" die korrekten Speicherorte für die CDP- und AIA eingegeben haben. Stellen Sie sicher, dass es keine zusätzlichen Leerzeichen oder andere Zeichen in die Speicherorte, die Sie angegeben haben.  
+> -   Stellen Sie sicher, dass Sie die CRL und CA-Zertifikat auf den richtigen Speicherort auf Ihrem Webserver kopiert und der Speicherort die Position übereinstimmt, die Sie für die CDP- und AIA-Speicherorten für die Zertifizierungsstelle angegeben.  
+> -   Stellen Sie sicher, dass Sie Berechtigungen für den virtuellen Ordner richtig konfiguriert haben, in dem der ZS-Zertifikat und die Zertifikatsperrliste gespeichert sind.  
   
 
 

@@ -9,18 +9,19 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: e83d0b79117144d42a0aff748f482f3c181cb300
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59874051"
 ---
 # <a name="file-management-tasks"></a>Dateiverwaltungsaufgaben
 
-> Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
 
 Dateiverwaltungsaufgaben automatisieren die Suche nach Teilmengen von Dateien auf einem Server und das Anwenden von einfachen Befehlen. Diese Aufgaben können so geplant werden, dass sie automatisch in regelmäßigen Abständen ausgeführt werden, um sich wiederholende Kosten zu senken. Dateien, die durch eine Dateiverwaltungsaufgabe verarbeitet werden, können über folgende Eigenschaften festgelegt werden:
 
--   Speicherort
+-   Pfad
 -   Klassifizierungseigenschaften
 -   Erstellungszeit
 -   Zeitpunkt der Änderung
@@ -40,8 +41,8 @@ In diesem Abschnitt werden folgende Themen behandelt:
 > [!Note]
 > Zum Festlegen von E-Mail-Benachrichtigungen und bestimmten Berichtsfunktionen müssen Sie zuerst die Optionen des Ressourcen-Manager für Dateiserverkonfigurieren konfigurieren.
 
-## <a name="see-also"></a>Weitere Informationen:
+## <a name="see-also"></a>Siehe auch
 
--   [Festlegen der Optionen des Ressourcen-Managers für Dateiserver](setting-file-server-resource-manager-options.md)
+-   [Einstellung File Server Resource Manager-Optionen](setting-file-server-resource-manager-options.md)
 
 

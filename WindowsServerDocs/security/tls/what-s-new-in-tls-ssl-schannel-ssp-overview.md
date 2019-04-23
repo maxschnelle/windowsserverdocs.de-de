@@ -1,5 +1,5 @@
 ---
-title: "TLS – SSL (Schannel SSP) (Übersicht)"
+title: TLS – Übersicht über SSL (Schannel SSP)
 description: Windows Server-Sicherheit
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -9,139 +9,140 @@ ms.technology: security-tls-ssl
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c8836345-16bb-4dcc-8d2b-2b9b687456a3
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
-ms.date: 10/12/2016
-ms.openlocfilehash: b846ed54a1f7c8ef7a85ea9f836ffa75d0036ae6
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+author: justinha
+ms.author: justinha
+manager: brianlic-msft
+ms.date: 05/16/2018
+ms.openlocfilehash: 48dabb5ad83b82f0a93992ad8c24456a8a8e7ef5
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59873091"
 ---
 # <a name="overview-of-tls---ssl-schannel-ssp"></a>Übersicht über TLS – SSL (Schannel SSP)
 
->Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows 10
 
-In diesem Thema für IT-Experten beschreibt die Änderungen an der Funktionalität im der Schannel Security Support Provider (SSP), das Transport Layer Security (TLS), Secure Sockets Layer (SSL) und die Authentifizierungsprotokolle Datagram Transport Layer Security (DTLS) für Windows Server2012 R2, Windows Server2012, Windows8.1 und Windows8 enthält.
+In diesem Thema für IT-Experten Aufschluss über Änderungen an der Funktionalität in die Schannel Security Support Provider (SSP), dazu die Transport Layer Security (TLS), Secure Sockets Layer (SSL) und das Datagram Transport Layer Security (DTLS gehören) Protokolle zur Authentifizierung für Windows Server 2012 R2, Windows Server 2012, Windows 8.1 und Windows 8.
 
-Schannel ist ein Security Support Provider (SSP), die die standardmäßigen Internetauthentifizierungsprotokolle SSL, TLS und DTLS implementiert. Die Security Support Provider-Schnittstelle (SSPI) ist eine API, die von Windows-Systemen verwendet werden, um sicherheitsbezogene Funktionen wie Authentifizierungen durchzuführen. Die SSPI Dienst als gemeinsame Schnittstelle für mehrere Security Support Provider (SSP), einschließlich Schannel SSP.
+Schannel ist ein Security Support Provider (SSP), der die standardmäßigen Internetauthentifizierungsprotokolle SSL, TLS und DTLS implementiert. Die Security Support Provider-Schnittstelle (Security Support Provider Interface, SSPI) ist eine API, die von Windows-Systemen verwendet wird, um sicherheitsbezogene Funktionen wie Authentifizierungen durchzuführen. Die SSPI dienst als gemeinsame Schnittstelle für mehrere SSPs (Security Support Providers), einschließlich des Schannel SSP.
 
-Weitere Informationen zur Microsoft Implementierung von TLS und SSL im Schannel-SSP finden Sie unter der [technische Referenz zu TLS/SSL (2003)](https://technet.microsoft.com/library/cc784149(v=ws.10).aspx).
+Weitere Informationen zur Microsoft Implementierung von TLS und SSL im Schannel SSP finden Sie unter den [technische Referenz zu TLS/SSL (2003)](https://technet.microsoft.com/library/cc784149(v=ws.10).aspx).
 
 
-##<a name="tlsssl-schannel-ssp-features"></a>TLS/SSL (Schannel SSP)-Features
-Im folgenden werden Features von TLS im Schannel SSP. beschrieben.
+##<a name="tlsssl-schannel-ssp-features"></a>TLS/SSL (Schannel SSP)-Funktionen
+Im folgenden werden die Funktionen von TLS im Schannel SSP. beschrieben.
 
-### <a name="tls-session-resumption"></a>TLS-sitzungswiederaufnahme
-Das Transport Layer Security (TLS)-Protokoll, eine Komponente von Schannel-Security Support Provider, wird verwendet, um Daten zu schützen, die zwischen Programmen in einem nicht vertrauenswürdigen Netzwerk gesendet wird. TLS/SSL können Server und Clientcomputer authentifizieren und auch zum Verschlüsseln von Nachrichten zwischen den authentifizierten Parteien verwendet werden.
+### <a name="tls-session-resumption"></a>Wiederaufnahme der TLS-Sitzung
+Das Transport Layer Security (TLS)-Protokoll, eine Komponente von Schannel-Security Support Provider, wird verwendet, um Daten zu schützen, die zwischen Programmen in einem nicht vertrauenswürdigen Netzwerk gesendet werden. Mit TLS/SSL können Server und Clientcomputer authentifiziert werden, und mit dem Protokoll können Nachrichten zwischen den authentifizierten Parteien verschlüsselt werden.
 
-Geräte, die häufig TLS mit Servern herstellen müssen aufgrund der Sitzungsablauf wiederherstellen. Windows8.1 und Windows Server2012 R2 unterstützen jetzt RFC 5077 (TLS-Sitzungswiederaufnahme ohne serverseitigen Zustand). Diese Änderung bietet Windows Phone und Windows RT-Geräte mit:
+Geräte, die häufig eine TSL-Verbindung mit Servern aufbauen, müssen sich bei Ablauf einer Sitzung jeweils neu verbinden. Windows 8.1 und Windows Server 2012 R2 unterstützen jetzt RFC 5077 (TLS-Sitzungswiederaufnahme ohne serverseitigen Zustand). Diese Änderung bietet Windows Phone und Windows RT-Geräte mit:
 
 -   Reduzierter Ressourcenbedarf auf dem Server
 
--   Reduzierte Bandbreite und damit die Effizienz von Clientverbindungen verbessert
+-   Reduzierte Bandbreite und damit verbesserte Effizienz von Clientverbindungen
 
--   Geringere Dauer der TLS-Handshakes durch Wiederaufnahme der Verbindung.
+-   Geringere Dauer des TLS-Handshakes durch Wiederaufnahme der Verbindung
 
 > [!NOTE]
-> Die Implementierung der clientseitigen RFC 5077 wurde in Windows8 hinzugefügt.
+> Die Implementierung der clientseitigen RFC 5077 wurde in Windows 8 hinzugefügt.
 
 Informationen zur statusfreien TLS-sitzungswiederaufnahme finden Sie im IETF-Dokument [RFC 5077.](http://www.ietf.org/rfc/rfc5077)
 
 ### <a name="application-protocol-negotiation"></a>Anwendungsprotokollverhandlung
- Windows Server2012 R2 und Windows8.1 unterstützt clientseitige TLS-Anwendungsprotokolls Anwendungen können Protokolle als Teil der Standard-HTTP-2.0-Entwicklung nutzen und Benutzerzugriff Onlinedienste wie Google und Twitter mithilfe von Apps, die das SPDY-Protokoll ausgeführt.
+ Windows Server 2012 R2 und Windows 8.1 unterstützen die clientseitige TLS-anwendungsprotokollverhandlung, damit Anwendungen Protokolle, als Teil der standard-HTTP-2.0-Entwicklung nutzen können und Onlinedienste wie Google und Twitter können zugreifen mithilfe von apps, die ausgeführt Das SPDY-Protokoll.
 
 **So funktioniert es**
 
-Client- und Serveranwendungen aktivieren Anwendung Aushandlung protokollerweiterung Bereitstellen von Listen unterstützter Anwendungsprotokoll-IDs in absteigender Reihenfolge. Der TLS-Client weist darauf hin, dass es Anwendungsprotokolls unterstützt, indem die Anwendung er (Layer Protocol Negotiation die ALPN)-Erweiterung mit einer Liste clientseitig unterstützter Protokolle in der ClientHello-Nachricht.
+Client- und Serveranwendungen aktivieren die Erweiterung zum Aushandeln des Anwendungsprotokolls durch das Bereitstellen von Listen unterstützter Anwendungsprotokoll-IDs in absteigender bevorzugter Reihenfolge. Der TLS-Client gibt an, dass er das Aushandeln des Anwendungsprotokolls unterstützt, indem er die ALPN-Erweiterung (Application Layer Protocol Negotiation) mit einer Liste clientseitig unterstützter Protokolle in der ClientHello-Nachricht mit einschließt.
 
-Wenn der TLS-Client mit dem Server die Anforderung stellt, liest der TLS-Server, dass es sich um Liste unterstützter Protokolle aus, für das bevorzugtes Protokoll handelt, die der Client ebenfalls unterstützt. Wenn ein solches Protokoll gefunden wird, wird der Server antwortet mit der ausgewählten Protokoll-ID und den Handshake wie gewohnt fort. Wenn kein gemeinsames Anwendungsprotokoll vorhanden ist, sendet der Server ein schwerwiegender Handshake-Fehler.
+Beim Empfang der TLS-Anfrage des Clients durch den Server wertet dieser die Liste unterstützter Protokolle aus, um ein bevorzugtes Protokoll zu finden, das auch der Client unterstützt. Wenn ein solches Protokoll gefunden wird, antwortet der Server mit der ausgewählten Protokoll-ID und führt den Handshake wie gewohnt fort. Ist kein gemeinsames Anwendungsprotokoll vorhanden, sendet der Server eine Meldung über einen kritischen Handshake-Fehler.
 
 ### <a name="BKMK_TrustedIssuers"></a>Verwaltung vertrauenswürdiger Aussteller zur Clientauthentifizierung
-Bei der Authentifizierung des Clientcomputers über SSL oder TLS erforderlich ist, kann der Server konfiguriert werden, um eine Liste vertrauenswürdiger Zertifikataussteller sendet. Diese Liste enthält die Gruppe der Zertifikataussteller, denen der Server vertraut, und ist ein Hinweis auf den Clientcomputer Clientzertifikats auswählen Wenn mehrere Zertifikate vorhanden sind. Darüber hinaus muss die Zertifikatkette, die der Clientcomputer an den Server sendet, anhand der Liste der konfigurierten vertrauenswürdigen Aussteller überprüft werden.
+Wenn die Authentifizierung des Clientcomputers über SSL oder TLS erforderlich ist, kann der Server so konfiguriert werden, dass eine Liste vertrauenswürdiger Zertifikataussteller gesendet wird. Diese Liste enthält die Gruppe der Zertifikataussteller, denen der Server vertraut, und hilft dem Clientcomputer bei der Auswahl des Clientzertifikats, falls mehrere Zertifikate vorhanden sind. Darüber hinaus muss die Zertifikatkette, die der Clientcomputer an den Server sendet, anhand der Liste der konfigurierten vertrauenswürdigen Aussteller überprüft werden.
 
-Vor Windows Server2012 und Windows8 können Anwendungen oder Prozesse, die den Schannel SSP (einschließlich HTTP.sys und IIS) verwendet eine Liste der vertrauenswürdigen Aussteller bereitstellen, die sie für die Clientauthentifizierung über eine Zertifikatvertrauensliste (CTL) unterstützt.
+Vor Windows Server 2012 und Windows 8 können Anwendungen oder Prozesse, die den Schannel SSP (einschließlich HTTP.sys und IIS) verwendet eine Liste der vertrauenswürdigen Herausgeber bereitstellen, die sie für die Clientauthentifizierung über eine Zertifikatvertrauensliste (CTL) unterstützt.
 
-In Windows Server2012 und Windows8, Änderungen an der zugrunde liegenden Authentifizierungsprozess vorgenommen wurden, damit:
+In Windows Server 2012 und Windows 8, wurden Änderungen am zugrunde liegenden Authentifizierungsprozess vorgenommen, damit:
 
--   Verwaltung der Liste vertrauenswürdiger Aussteller CTL-basierte wird nicht mehr unterstützt.
+-   Eine CTL-basierte Verwaltung der Liste vertrauenswürdiger Aussteller wird nicht mehr unterstützt.
 
--   Das Verhalten, senden die Liste vertrauenswürdiger Aussteller wird standardmäßig deaktiviert ist: der Standardwert des Registrierungsschlüssels sendtrustedissuerlist ist jetzt 0 (deaktiviert) anstatt 1.
+-   Das Verhalten, die Liste vertrauenswürdiger Aussteller zu senden, ist standardmäßig deaktiviert: Der Standardwert des Registrierungsschlüssels SendTrustedIssuerList ist jetzt 0 (deaktiviert) anstatt 1.
 
 -   Die Kompatibilität mit früheren Versionen von Windows-Betriebssystemen wurde gewahrt.
 
-**Welchen Nutzen hinzufügen dies?**
+**Welcher Wert fügt diese hinzu?**
 
-Ab Windows Server2012, wurde die Verwendung der CTL mit einem Zertifikat Store-basierten Implementierung ersetzt. Dies ermöglicht vertrautere Verwaltung mithilfe der vorhandenen zertifikatverwaltung des PowerShell-Anbieter sowie Befehlszeilentools wie certutil.exe.
+Ab Windows Server 2012, wurde die Verwendung der CTL durch eine Zertifikat-basierte Store Implementierung ersetzt. Dies ermöglicht eine vertrautere Verwaltung mithilfe der vorhandenen Cmdlets zur Zertifikatverwaltung des PowerShell-Anbieters und von Befehlszeilentools wie „certutil.exe“.
 
-Obwohl verbleibt, wie in Windows Server2008 R2 in Windows Server2012 ist die maximale Größe der Liste der vertrauenswürdigen Zertifizierungsstellen, dass der Schannel SSP (16KB) unterstützt eine neue dedizierte Zertifikatspeicher für clientauthentifizierungsaussteller, damit nicht durch irrelevante Zertifikate nicht in der Meldung enthalten sind.
+Obwohl die maximale Größe der Liste der vertrauenswürdigen Zertifizierungsstellen (16 KB) der Schannel-SSP unterstützt, wie in Windows Server 2008 R2 unverändert, in Windows Server 2012 besteht ein neuen, dedizierten Zertifikatspeicher für clientauthentifizierungsaussteller, damit nicht verknüpfte Zertifikate sind nicht in der Nachricht enthalten.
 
-**So funktioniert es?**
+**So funktioniert's**
 
-In Windows Server2012 wird die Liste vertrauenswürdiger Aussteller mithilfe von Zertifikatspeichern konfiguriert; einer standardmäßigen globalen Computerzertifikatspeicher und eine optionale pro Standort. Die Quelle der Liste wird wie folgt bestimmt werden:
+In Windows Server 2012 wird die Liste vertrauenswürdiger Aussteller mithilfe von Zertifikatspeichern konfiguriert; einem standardmäßigen globalen Computerzertifikatspeicher und einer optionalen pro Standort. Die Quelle der Liste wird wie folgt bestimmt:
 
--   Wenn ein bestimmter Anmeldeinformationsspeicher für den Standort konfigurierten vorhanden ist, wird es als Quelle verwendet werden
+-   Wenn ein bestimmter Anmeldeinformationsspeicher für diese Site konfiguriert ist, wird dieser als Quelle verwendet.
 
--   Wenn keine Zertifikate in der Anwendung definierten Speicher vorhanden sind, prüft Schannel den **Clientauthentifizierungsaussteller** auf dem lokalen Computer zu speichern und, wenn Zertifikate vorhanden sind, verwendet diesen Speicher als Quelle. Wenn in keinem der Speicher kein Zertifikat gefunden wird, wird der Speicher für vertrauenswürdige Stämme überprüft.
+-   Wenn keine Zertifikate in dem von der Anwendung definierten Speicher vorhanden sind, prüft Schannel den Speicher **Clientauthentifizierungsaussteller** auf dem lokalen Computer und verwendet diesen Speicher als Quelle, wenn Zertifikate vorhanden sind. Wenn in keinem der Speicher ein Zertifikat gefunden wird, wird der Speicher für vertrauenswürdige Stämme überprüft.
 
--   Wenn weder die globalen oder lokalen Speicher Zertifikate enthalten, verwendet der Schannel-Anbieter die **vertrauenswürdigen Stammzertifizierungsstellen-Zertifikaten** als Quelle der Liste vertrauenswürdiger Aussteller. (Dies ist das Verhalten für Windows Server2008 R2.)
+-   Wenn weder die globalen oder lokalen Speicher Zertifikate enthalten, verwendet der Schannel-Anbieter die **vertrauenswürdigen Stammzertifizierungsstellen-Zertifikaten** als Quelle der Liste vertrauenswürdiger Aussteller. (Dies ist das Verhalten für Windows Server 2008 R2.)
 
-Wenn die **vertrauenswürdige Stammzertifizierungsstellen Speicher** Speicher, der verwendet wurde, enthält eine Mischung aus (selbstsignierten) und (CA) Aussteller Zertifikate von Zertifizierungsstellen, nur die Zertifikate werden standardmäßig an den Server gesendet werden.
+Wenn die **als vertrauenswürdig eingestufte Stammzertifizierungsstellen Speicher** Speicher, der verwendet wurde, enthält eine Mischung aus (selbstsignierten) und die Aussteller-Zertifikate von Zertifizierungsstellen (ZS), nur die Zertifikate werden standardmäßig an den Server gesendet werden.
 
-**Vorgehensweise beim Konfigurieren von Schannel zur Verwendung des Zertifikatspeichers für vertrauenswürdige Aussteller**
+**Gewusst wie: Konfigurieren von Schannel zur Verwendung des Zertifikatspeichers für vertrauenswürdige Aussteller**
 
-Die Schannel-SSP-Architektur in Windows Server2012 verwenden standardmäßig den Stores wie oben beschrieben zum Verwalten der Liste vertrauenswürdiger Aussteller. Sie können weiterhin die vorhandenen zertifikatverwaltung des PowerShell-Anbieter sowie Befehlszeilentools wie "Certutil" verwenden, zum Verwalten von Zertifikaten.
+Die Schannel-SSP-Architektur in Windows Server 2012 verwenden standardmäßig den Stores wie oben beschrieben zum Verwalten der Liste vertrauenswürdiger Aussteller. Es können weiterhin die vorhandenen Cmdlets des PowerShell-Anbieters und von Befehlszeilentools wie „Certutil“ für die Zertifikatverwaltung verwendet werden.
 
 Informationen zum Verwalten von Zertifikaten mithilfe des PowerShell-Anbieters finden Sie unter [AD CS-Verwaltungs-Cmdlets in Windows](https://technet.microsoft.com/library/hh848365(v=wps.620).aspx).
 
 Informationen zum Verwalten von Zertifikaten mithilfe des zertifikatdienstprogramms finden Sie unter [certutil.exe](https://technet.microsoft.com/library/cc732443.aspx).
 
-Weitere Informationen dazu, welche Daten, einschließlich des anwendungsdefinierten Speichers Anmeldeinformationen für Schannel definiert sind, finden Sie unter [SCHANNEL_CRED Structure (Windows)](https://msdn.microsoft.com/library/windows/desktop/aa379810(v=vs.85).aspx).
+Weitere Informationen dazu, welche Daten, einschließlich des anwendungsdefinierten Speichers, Anmeldeinformationen für Schannel definiert ist, finden Sie unter [SCHANNEL_CRED-Struktur (Windows)](https://msdn.microsoft.com/library/windows/desktop/aa379810(v=vs.85).aspx).
 
 **Standardeinstellungen für Vertrauensstellungsmodi**
 
-Es gibt drei Client vertrauen Authentifizierungsmodi von der Schannel-Anbieter unterstützt werden. Der vertrauenswürdige Modus steuert, wie die Überprüfung der Zertifikatkette des Clients ausgeführt wird und eine systemweite Einstellung durch den REG_DWORD-Wert "ClientAuthTrustMode" unter HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\Schannel gesteuert.
+Es gibt drei Vertrauensstellungsmodi für die Clientauthentifizierung durch den Schannel-Anbieter. Der vertrauensstellungsmodus steuert, wie die Überprüfung der Zertifikatkette des Clients ausgeführt wird, und ist eine systemweite Einstellung, die durch den REG_DWORD-Wert "ClientAuthTrustMode" unter HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\Schannel gesteuert .
 
-|Wert|Vertrauen Sie Modus|Beschreibung|
+|Wert|Vertrauensstellungsmodus|Beschreibung|
 |-----|-------|--------|
-|0|Maschinenvertrauensstellung (Standard)|Erfordert, dass das Clientzertifikat von einem Zertifikat in der Liste der vertrauenswürdigen Aussteller ausgestellt wird.|
-|1|Exklusive Stammvertrauensstellung|Erfordert, dass ein Client Ketten mit einem Stammzertifikat enthalten, die in den Speicher für vertrauenswürdige Aussteller vom Aufrufer angegebene Zertifikat. Das Zertifikat muss auch von einem Herausgeber in der Liste der vertrauenswürdigen Aussteller ausgestellt werden|
-|2|Exklusive Zertifizierungsstellen-Vertrauensstellung|Erfordert, dass in der Zertifikatkette auf ein dazwischenliegendes Zertifizierungsstellenzertifikat oder ein Stammzertifikat in den vom Aufrufer festgelegten Speicher für Aussteller vertrauenswürdig.|
+|0|Maschinenvertrauensstellung (Standard)|Erfordert, dass das Clientzertifikat von einem Zertifikat in der Liste der vertrauenswürdigen Aussteller ausgestellt wurde.|
+|1|Exklusive Stammvertrauensstellung|Erfordert, dass das Clientzertifikat in der Zertifikatkette auf ein Stammzertifikat zurückgeht, das in dem durch den Aufrufer festgelegten Speicher für vertrauenswürdige Aussteller enthalten ist. Das Zertifikat muss auch von einem Herausgeber in der Liste der vertrauenswürdigen Aussteller ausgestellt worden sein.|
+|2|Exklusive Zertifizierungsstellen-Vertrauensstellung|Erfordert, dass das Clientzertifikat in der Zertifikatkette auf ein dazwischenliegendes Zertifizierungsstellenzertifikat oder ein Stammzertifikat zurückgeht, das in dem durch den Aufrufer festgelegten Speicher für vertrauenswürdige Aussteller enthalten ist.|
 
 Informationen zu Authentifizierungsfehlern aufgrund von Konfigurationsproblemen vertrauenswürdiger Aussteller finden Sie im Knowledge Base-Artikel [280256](https://support.microsoft.com/kb/2802568).
 
-### <a name="BKMK_SNI"></a>TLS-Unterstützung für Erweiterungen (Server Name Indicator, SNI)
-Sni-Feature erweitert die SSL- und TLS-Protokolle, um die richtige Identifizierung des Servers zulassen, wenn zahlreiche virtuelle Abbilder auf einem einzelnen Server ausgeführt werden. Um die Kommunikation zwischen einem Clientcomputer und einem Server zu schützen, fordert der Clientcomputer ein digitales Zertifikat vom Server. Nachdem der Server auf die Anforderung antwortet und das Zertifikat sendet, wird der Clientcomputer wird untersucht, verwendet, um die Kommunikation zu verschlüsseln und fährt mit dem normalen Austausch von Anforderungen fort. In einem virtuellen Hostszenarien werden jedoch mehrere Domänen, von denen jede über ein eigenes Zertifikat verfügt, auf einem Server gehostet. In diesem Fall hat der Server keine Möglichkeit, im Voraus wissen, welches Zertifikat er an den Clientcomputer senden. Dank SNI kann des Clientcomputers die Zieldomäne weiter oben im Protokoll informieren, und der Server das richtige Zertifikat auswählen kann.
+### <a name="BKMK_SNI"></a>Unterstützung von TLS-Erweiterungen (Server Name Indicator, SNI)
+Das SNI-Feature stellt eine Erweiterung der Protokolle SSL und TLS dar und ermöglicht die richtige Identifizierung des Servers, wenn zahlreiche virtuelle Images auf einem einzelnen Server ausgeführt werden. Um die Sicherheit der Kommunikation zwischen einem Clientcomputer und einem Server herzustellen, fordert der Clientcomputer ein digitales Zertifikat beim Server an. Nachdem der Server auf die Anforderung geantwortet und das Zertifikat gesendet hat, prüft der Clientcomputer es, verwendet es zur Verschlüsselung der Kommunikation und fährt mit dem normalen Austausch von Anforderungen und Antworten fort. Bei virtuellen Hostszenarien werden jedoch mehrere Domänen, von denen jede über ein eigenes Zertifikat verfügt, auf einem Server gehostet. In diesem Fall kann der Server nicht im Voraus wissen, welches Zertifikat er an den Clientcomputer senden muss. Dank SNI kann der Clientcomputer die Zieldomäne zu einem früheren Zeitpunkt im Protokoll informieren, damit der Server das richtige Zertifikat auswählen kann.
 
-**Welchen Nutzen hinzufügen dies?**
+**Welcher Wert fügt diese hinzu?**
 
 Die folgende zusätzliche Funktionalität:
 
--   Ermöglicht es Ihnen, mehrere SSL-Websites auf einer einzelnen IP- und Portkombination hosten
+-   Sie können mehrere SSL-Websites mit einer einzelnen IP- und Portkombination hosten.
 
--   Verringert die Speicherauslastung, wenn mehrere SSL-Websites auf einem einzelnen Webserver gehostet werden
+-   Der Speicherbedarf wird reduziert, wenn mehrere SSL-Websites auf einem einzelnen Webserver gehostet werden.
 
--   Können mehrere Benutzer gleichzeitig eine Verbindung zu SSL-Websites herstellen
+-   Mehr Benutzer können gleichzeitig die Verbindung zu SSL-Websites herstellen.
 
--   Ermöglicht es Ihnen Hinweise für die Auswahl des richtigen Zertifikats während einer Client-Authentifizierung den Endbenutzern über die Benutzeroberfläche des Computers zu übermitteln.
+-   Sie können Endbenutzern über die Benutzeroberfläche des Computers Hinweise zur Auswahl des richtigen Zertifikats während eines Clientauthentifizierungsprozesses geben.
 
 **So funktioniert es**
 
-Schannel SSP unterhält einen speicherinternen Cache der clientverbindungsstatus, die für Clients. Dies ermöglicht Clientcomputern schnell mit dem SSL-Server ohne unterliegen einer vollständigen SSL-Handshake Besuch herzustellen.  Effiziente Verwendung der zertifikatverwaltung lässt mehrere Websites auf einem einzelnen im Vergleich zu vorherigen Versionen des Betriebssystems Windows Server 2012 gehostet werden.
+Schannel SSP unterhält einen speicherinternen Cache der Clientverbindungsstatus, die für Clients zulässig sind. Dadurch erhalten Clientcomputer die Möglichkeit, die Verbindung mit dem SSL-Server bei Folgeaufrufen schnell wieder aufzubauen, ohne einen vollständigen SSL-Handshake durchführen zu müssen.  Effiziente Verwendung der zertifikatverwaltung können mehr Websites auf einem einzelnen Windows Server 2012 im Vergleich zu vorherigen Betriebssystemversionen gehostet werden.
 
-Zertifikatauswahl durch den Endbenutzer wurde verbessert, indem Sie eine Liste der Namen wahrscheinlicher Zertifikataussteller erstellen, die mit Anhaltspunkte bei der Auswahl der Endbenutzer bereitstellen. Diese Liste kann mithilfe von Gruppenrichtlinien konfiguriert werden.
+Die Zertifikatauswahl durch den Endbenutzer wurde verbessert, indem Ihnen die Möglichkeit gegeben wird, eine Liste der Namen möglicher Zertifikataussteller zu erstellen, die Endbenutzern Anhaltspunkte bei der Auswahl liefert. Diese Liste kann mit einer Gruppenrichtlinie konfiguriert werden.
 
 ### <a name="BKMK_DTLS"></a>Datagram Transport Layer Security (DTLS)
-Das DTLS-Protokoll Version 1.0 wurde Schannel-Security Support Provider hinzugefügt. Das DTLS-Protokoll enthält die Kommunikation datagrammprotokollen für Datenschutz. Das Protokoll ermöglicht Client-/Server-Anwendungen in einer Weise zu kommunizieren, dass Lauschangriffe, Manipulationen oder nachrichtenfälschung verhindert. Das DTLS-Protokoll basiert auf dem Transport Layer Security (TLS)-Protokoll und bietet gleichwertige Sicherheitsgarantien, Reduzieren der Notwendigkeit, IPsec zu verwenden oder eine benutzerdefinierte Anwendungsschicht zu entwerfen.
+Das DTLS-Protokoll in der Version 1.0 wurde Schannel Security Support Provider hinzugefügt. Das DTLS-Protokoll sorgt bei der Kommunikation mit Datagrammprotokollen für Datenschutz. Das Protokoll ermöglicht es Client/Server-Anwendungen, so zu kommunizieren, dass Lauschangriffe, Manipulationen oder Nachrichtenfälschung vermieden werden. Das DTLS-Protokoll basiert auf dem TLS-Protokoll (Transport Layer Security) und bietet gleichwertige Sicherheitsgarantien. Daher wird die Notwendigkeit der Verwendung von IPsec oder der Erstellung eines benutzerdefinierten Sicherheitsprotokolls für die Anwendungsschicht verringert.
 
-**Welchen Nutzen hinzufügen dies?**
+**Welcher Wert fügt diese hinzu?**
 
-Datagramme werden häufig beim Streamen von Medien, z.B. spielen oder sicheren Videokonferenzen. Das DTLS-Protokoll mit dem Schannel-Anbieter hinzufügen, erhalten Sie die Möglichkeit, den vertrauten Windows SSPI-Modell zum Sichern der Kommunikation zwischen Clientcomputern und Servern zu verwenden. DTLS ist absichtlich konzipiert, TLS so ähnlich wie möglich, um infrastrukturwiederverwendung zu minimieren und die Menge der Code-und maximieren.
+Datagramme werden häufig beim Streamen von Medien, wie z. B. spielen oder sicheren Videokonferenzen. Indem Sie das DTLS-Protokoll dem Schannel-Provider hinzufügen, können Sie das gewohnte Windows SSPI-Modell zur Sicherung der Kommunikation zwischen Clientcomputern und -servern nutzen. Zum Konzept von DTLS gehört es, TLS so ähnlich wie möglich zu sein, um einerseits weitere Sicherheitsvorkehrungen zu minimieren und andererseits den Umfang der Code- und Infrastrukturwiederverwendung zu maximieren.
 
 **So funktioniert es**
 
-Anwendungen, die DTLS über UDP nutzen, können das SSPI-Modell in Windows Server 2012 und Windows 8 verwenden. Bestimmte Verschlüsselungssammlungen sind für die Konfiguration, die Konfiguration von TLS ähnelt verfügbar. Schannel nutzt weiterhin den CNG-Kryptografieanbieter verwenden, der FIPS 140-Zertifizierung nutzt, die in Windows Vista eingeführt wurde.
+Anwendungen, die DTLS über UDP nutzen, können das SSPI-Modell in Windows Server 2012 und Windows 8 verwenden. Bestimmte Verschlüsselungssammlungen sind für die Konfiguration verfügbar, die der Konfiguration von TLS ähnelt. Schannel nutzt weiterhin den CNG-Kryptografieanbieter, der die in Windows Vista eingeführte FIPS 140-Zertifizierung nutzt.
 
 ### <a name="BKMK_Deprecated"></a>Veraltete Funktionen
 Im Schannel SSP für Windows Server 2012 und Windows 8 gibt es keine veralteten Features oder Funktionen.

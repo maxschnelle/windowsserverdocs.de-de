@@ -1,6 +1,6 @@
 ---
 ms.assetid: f0d4cecc-5a03-448c-bef9-86c4730b4eb0
-title: "Virtual Machine-Netzwerklastenausgleich (Übersicht)"
+title: VM-Netzwerklastenausgleich (Übersicht)
 ms.prod: windows-server-threshold
 ms.technology: storage-failover-clustering
 ms.topic: article
@@ -8,49 +8,53 @@ author: bhattacharyaz
 manager: eldenc
 ms.author: subhatt
 ms.date: 09/19/2016
-ms.openlocfilehash: 0a106db25d476088898b914481e6041f20ce2e9e
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
+ms.openlocfilehash: 8b8ecee16c778ed26953be325fb88748fc458176
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59867751"
 ---
-# <a name="virtual-machine-load-balancing-overview"></a>Virtual Machine-Netzwerklastenausgleich (Übersicht)
+# <a name="virtual-machine-load-balancing-overview"></a>VM-Netzwerklastenausgleich (Übersicht)
 
-> Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server 2016
+> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
-Ein wichtiges Kriterium für die Bereitstellung der privaten Cloud ist das Kapitalausgaben (<abbr title="Kapitalausgaben">CapEx</abbr>) erforderlich, um in die Produktion gehen. Sehr häufig Redundanz für private cloudbereitstellungen Oberflächenbereich Kapazität bei der spitzenverkehrszeiten in der Produktion vermeiden hinzufügen, aber dies erhöht die <abbr title="Kapitalausgaben">CapEx</abbr>. Die Notwendigkeit von Redundanz über ausgeglichenen privaten Clouds, in denen einige Knoten mehr virtuelle Computer hosten, gesteuert (<abbr title="virtuelle Maschinen">VMs</abbr>) und andere sind nicht ausgelastet (z. B. einem Server neu neu gestartet wird).
+Eine wichtige Überlegung bei Bereitstellungen privater Clouds ist die Investitionen (<abbr title="Planungsrisiken">CapEx</abbr>) erforderlich, um in die Produktion gehen. Es kommt sehr häufig zum Hinzufügen von Redundanz für private cloudbereitstellungen unterdimensionierte Kapazität während der Datenverkehr zu Spitzenzeiten in der Produktion zu vermeiden, aber dies erhöht die <abbr title="Planungsrisiken">CapEx</abbr>. Die Notwendigkeit für höhere Redundanz hängt von unausgeglichenen privaten Clouds, in denen einige Knoten sind mehr virtuelle Computer hosten (<abbr title="virtuelle Computer">VMs</abbr>) und andere unterausgelasteter (z. B. einem Server wird gerade neu gestartet).
+
+<strong>Überblick per Video</strong><br>(6 Minuten)<br>
+> [!VIDEO https://channel9.msdn.com/Blogs/windowsserver/Virtual-Machine-Load-Balancing-in-Windows-Server-2016/player]
 
 ## <a id="what-is-vm-load-balancing"></a>Was ist die VM-Lastenausgleich?
-<abbr title="Virtuelle Maschine">VM</abbr> Lastenausgleich ist ein neues integriertes Feature in Windows Server 2016, mit dem Sie die Nutzung von Knoten in einem Failovercluster optimieren können. Es identifiziert überbelegt Knoten und erneut verteilt <abbr title="virtuelle Maschinen">VMs</abbr> aus diesen Knoten, klicken Sie unter zugesicherte Knoten. Einige der wichtigsten Aspekte dieser Funktion lauten wie folgt:
+<abbr title="virtuellen Computer">VM</abbr> Lastenausgleich ist eine neue in-Box-Funktion in Windows Server 2016, die Ihnen ermöglicht, die Auslastung von Knoten in einem Failovercluster zu optimieren. Es identifiziert überbelegt Knoten und neu verteilt <abbr title="virtuelle Computer">VMs</abbr> aus diesen Knoten zu Knoten committed-klicken Sie unter. Nachfolgend sind einige wichtige Aspekte dieses Features:
 
-* *Dies ist eine Lösung ohne Ausfallzeiten*: <abbr title="virtuelle Maschinen">VMs</abbr> im Leerlauf Knoten live-migriert werden.
-* *Nahtlose Integration in die vorhandene Clusterumgebung*: Fehler bei der Richtlinien wie z. B. antiaffinität, Fehlerdomänen und mögliche Besitzer berücksichtigt werden.
-* *Mithilfe von Heuristik für Lastenausgleich*: <abbr title="virtuellen Computer">VM</abbr> ungenügenden Arbeitsspeicher und CPU-Auslastung des Knotens.
-* *Präzisere Steuerung*: standardmäßig aktiviert. Kann bei Bedarf oder in regelmäßigen Intervallen aktiviert werden.
-* *Aggressivität Schwellenwerte*: drei Schwellenwerte verfügbaren basierend auf den Merkmalen der Bereitstellung.
+* *Es ist eine Lösung ohne Ausfallzeiten*: <abbr title="Virtuelle Computer">VMs</abbr> werden die auf Knoten im Leerlauf.
+* *Nahtlose Integration in Ihre vorhandenen Clusterumgebung*: Fehler-Richtlinien wie z. B. Anti-Affinität, Fehler- und mögliche Besitzer werden berücksichtigt.
+* *Die Heuristik für Lastenausgleich*: <abbr title="virtuellen Computer">VM</abbr> ungenügender Arbeitsspeicher und CPU-Auslastung des Knotens.
+* *Eine präzise Kontrolle*: Standardmäßig aktiviert. Kann bei Bedarf oder in regelmäßigen Abständen aktiviert werden.
+* *Aggressivität Schwellenwerte*: Drei Schwellenwerte verfügbaren basierend auf den Merkmalen Ihrer Bereitstellung.
 
 ## <a id="feature-in-action"></a>Das Feature in Aktion
-### <a id="new-node-added"></a>Den Failovercluster wird ein neuer Knoten hinzugefügt.
-![Grafik eines neuen Knotens zum Failover Cluster hinzugefügt wird](media/vm-load-balancing/overview-VM-load-balancing-1.png)
+### <a id="new-node-added"></a>Ein neuer Knoten wird dem Failovercluster hinzugefügt.
+![Grafik zu der ein neuer Knoten des Failoverclusters hinzugefügt wird](media/vm-load-balancing/overview-VM-load-balancing-1.png)
 
-Wenn Sie den Failovercluster, neue Kapazität hinzufügen der <abbr title="virtuellen Computer">VM</abbr> Lastenausgleich gleicht automatisch Kapazität von vorhandenen Knoten, auf den neu hinzugefügten Knoten in der folgenden Reihenfolge:
+Wenn Sie den Failovercluster, neue Kapazität hinzufügen der <abbr title="VM">VM</abbr> Lastenausgleichsfunktion gleicht automatisch die Kapazität von den vorhandenen Knoten, auf den neu hinzugefügten Knoten in der folgenden Reihenfolge:
 
-1. Der Druck auf die vorhandenen Knoten im Failovercluster ausgewertet.
-2. Alle Knoten Schwellenwert überschreiten, werden identifiziert.
-3. Die Knoten mit der höchsten Druck werden identifiziert, um die Priorität der Lastenausgleich zu bestimmen.
-4. <abbr title="Virtuelle Computer">VMs</abbr> (ohne Ausfallzeiten) von einem Knoten kann der Schwellenwert für einen neu hinzugefügten Knoten im Failovercluster werden Live migriert.
+1. Der Druck wird auf den vorhandenen Knoten im Failovercluster ausgewertet.
+2. Alle Knoten, der Schwellenwert überschritten werden identifiziert.
+3. Die Knoten mit der höchsten Auslastung werden identifiziert, um die Priorität des Lastenausgleichs zu bestimmen.
+4. <abbr title="Virtuelle Computer">VMs</abbr> (ohne Downtime zu) von einem Knoten überschreiten Schwellenwert auf einen neu hinzugefügten Knoten im Failovercluster werden Live migriert.
 
-### <a id="recurring-load-balancing"></a>Wiederholung des Netzwerklastenausgleichs
-![Grafik für eine wiederholte VM-Lastenausgleich](media/vm-load-balancing/overview-VM-load-balancing-2.png)
+### <a id="recurring-load-balancing"></a>Wiederholt den Lastenausgleich
+![Grafik zu einer sich wiederholenden VM des Lastenausgleichs](media/vm-load-balancing/overview-VM-load-balancing-2.png)
 
-Wenn für regelmäßiger Netzwerklastenausgleich konfiguriert sind, wird der Druck auf den Clusterknoten für alle 30 Minuten Lastenausgleich ausgewertet. Alternativ kann der Druck bei Bedarf ausgewertet. Hier ist der Fluss der Schritte aus:
+Wenn für regelmäßige Lastenausgleich konfiguriert wird, wird der Druck auf den Clusterknoten für Lastenausgleich alle 30 Minuten ausgewertet. Alternativ können Sie können der Druck bedarfsgesteuert ausgewertet werden. So sieht der Ablauf der Schritte aus:
 
-1. Der Druck wird auf allen Knoten in der privaten Cloud bewertet.
-2. Alle Knoten Schwellenwert und die darunter Schwellenwert überschreiten, werden identifiziert.
-3. Die Knoten mit der höchsten Druck werden identifiziert, um die Priorität der Lastenausgleich zu bestimmen.
-4. <abbr title="Virtuelle Computer">VMs</abbr> (ohne Ausfallzeiten) von einem Knoten kann der Schwellenwert zum Knoten unter Mindestschwellenwert werden Live migriert.
+1. Der Druck wird auf allen Knoten in der privaten Cloud ausgewertet.
+2. Alle Knoten überschreiten Schwellenwert und die darunter Schwellenwert werden identifiziert.
+3. Die Knoten mit der höchsten Auslastung werden identifiziert, um die Priorität des Lastenausgleichs zu bestimmen.
+4. <abbr title="Virtuelle Computer">VMs</abbr> (ohne Downtime zu) werden Live migriert, von einem Knoten, die der Schwellenwert zum Knoten unter minimaler Schwellenwert überschritten.
 
 ## <a name="see-also"></a>Siehe auch
-* [VM-Lastenausgleich tiefer gehende](vm-load-balancing-deep-dive.md)
+* [VM-Lastenausgleich – ausführliche Informationen](vm-load-balancing-deep-dive.md)
 * [Failover-Clusterunterstützung](failover-clustering-overview.md)
-* [Hyper-V (Übersicht)](../virtualization/hyper-v/Hyper-V-on-Windows-Server.md)
+* [Hyper-V: Übersicht](../virtualization/hyper-v/Hyper-V-on-Windows-Server.md)

@@ -1,7 +1,7 @@
 ---
 ms.assetid: 7f285c9f-c3e8-4aae-9ff4-a9123815114e
 title: Zentrale Zugriffsrichtlinie Szenario
-description: 
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,88 +10,89 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
 ms.openlocfilehash: 1ec4165209b726609b1f9b2caeab02fb5072c756
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59873411"
 ---
 # <a name="scenario-central-access-policy"></a>Szenario: Zentrale Zugriffsrichtlinie
 
->Gilt für: Windows Server2016, Windows Server2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Zentrale Zugriffsrichtlinien für Dateien ermöglichen Organisationen das zentrale bereitstellen und Verwalten von Autorisierungsrichtlinien, die bedingte Ausdrücke enthalten, die Benutzergruppen, Benutzeransprüche, Geräteansprüche und Ressourceneigenschaften verwenden. (Ansprüche sind Assertionen zu den Attributen des Objekts, mit denen sie verknüpft sind.) Z.B. High Business Impact Daten mit den Zugriff auf einen Benutzer muss ein Vollzeitmitarbeiter sein, erhalten Zugriff auf ein verwaltetes Gerät, und melden Sie sich mit einer Smartcard. Diese Richtlinien sind definiert und in Active Directory-Domänendienste (AD DS) gehostet werden.  
+Zentrale Zugriffsrichtlinien für Dateien ermöglichen Organisationen das zentrale Bereitstellen und Verwalten von Autorisierungsrichtlinien, die bedingte Ausdrücke enthalten, die Benutzeransprüche, Geräteansprüche und Ressourceneigenschaften verwenden. (Ansprüche sind Assertionen zu den Attributen des Objekts, mit dem sie verknüpft sind.) Um z. B. auf Daten mit großen Geschäftsauswirkungen (HBI) zuzugreifen, muss ein Benutzer ein Vollzeitmitarbeiter sein, Zugriff auf ein verwaltetes Gerät erhalten und sich mit einer Smartcard anmelden. Diese Richtlinien werden in Active Directory-Domänendiensten (AD DS) definiert und gehostet.  
   
-Organisatorische Zugriffsrichtlinien werden durch Kompatibilitäts- und geschäftsauflagenanforderungen gesteuert. Beispielsweise verfügt ein Unternehmen eine Anforderung zum Einschränken des Zugriffs auf personenbezogene Daten (PII) in Dateien auf den Dateibesitzer und Mitglieder der Personalabteilung (HR), die Personenbezogene Daten einsehen dürfen, gilt diese Richtlinie für PII-Dateien, wo sie in der gesamten Organisation auf Dateiservern befinden. In diesem Beispiel müssen Sie können:  
+Organisatorische Zugriffsrichtlinien werden durch Kompatibilitäts- und Geschäftsauflagenanforderungen gesteuert. Wenn in einer Organisation beispielsweise eine Geschäftsanforderung zur Einschränkung des Zugriffs auf personenbezogene Daten (PII) in Dateien auf den Dateibesitzer und die Mitarbeiter der Personalabteilung (HR) gilt, die personenbezogene Daten einsehen dürfen, handelt es sich hierbei um eine organisationsweite Richtlinie, die auf Dateien mit personenbezogenen Daten auf Dateiservern in der gesamten Organisation angewendet wird. In diesem Beispiel müssen Sie zu Folgendem in der Lage sein:  
   
--   Identifizieren Sie und kennzeichnen Sie die Dateien, die personenbezogene Daten enthalten.  
+-   Es muss die Dateien, die personenbezogene Daten enthalten, identifizieren und kennzeichnen können.  
   
--   Identifizieren Sie die Gruppe der Personalabteilung Personenbezogene Daten einsehen dürfen.  
+-   Es muss die Gruppe der Mitarbeiter der Personalabteilung identifizieren können, die personenbezogene Daten einsehen dürfen.  
   
--   Erstellen Sie eine zentrale Zugriffsrichtlinie, die auf alle Dateien, die personenbezogene Daten enthalten angewendet, wo sie in der gesamten Organisation auf Dateiservern befinden.  
+-   Erstellen einer zentralen Zugriffsrichtlinie, die auf alle Dateien angewendet, die personenbezogene Daten enthalten, unabhängig davon, wo sie sich in der gesamten Organisation auf Dateiservern befinden.  
   
-Die Initiative zum Bereitstellen und Erzwingen einer Autorisierungsrichtlinie kann stammen aus verschiedenen Gründen und auf mehreren Ebenen der Organisation anwenden. Im folgenden sind einige Beispiele für Richtlinientypen aufgeführt:  
+Die Initiative zum Bereitstellen und Erzwingen einer Autorisierungsrichtlinie kann aus vielen Gründen entstehen und auf verschiedenen Organisationsebenen gelten. Im Folgenden sind einige Beispiele für Richtlinientypen aufgeführt:  
   
--   **Organisationsweite Autorisierungsrichtlinie.** Am häufigsten von Sicherheitsbüro der Informationen initiiert, diese Autorisierungsrichtlinie wird gesteuert, Kompatibilität oder eine allgemeine Organisation Anforderungen, und es ist in der gesamten Organisation relevant. HBI-Dateien sind beispielsweise nur Vollzeitmitarbeitern zugänglich.  
+-   **Organisationsweite Autorisierungsrichtlinie.** Diese Autorisierungsrichtlinie wird meist von den Datenschutzbeauftragten initiiert. Sie ist auf Kompatibilität oder übergeordnete Anforderungen der Organisation ausgerichtet und für die gesamte Organisation relevant. HBI-Dateien sind beispielsweise nur Vollzeitmitarbeitern zugänglich.  
   
--   **Abteilungsspezifische Autorisierungsrichtlinie.** Jede Abteilung einer Organisation verfügt über einige speziellen Behandlung von Daten-Anforderungen, die erzwungen werden sollen. Die Finanzabteilung sollten z.B. den Zugriff auf Finanzserver auf die Mitarbeiter der Finanzabteilung beschränken.  
+-   **Abteilungsspezifische Autorisierungsrichtlinie.** Für jede Abteilung einer Organisation gelten spezielle Datenverarbeitungsanforderungen, die erzwungen werden sollen. Beispiel: Die Finanzabteilung möchte den Zugriff auf Finanzserver auf die Mitarbeiter der Finanzabteilung beschränken.  
   
--   **Spezifische datenverwaltungsrichtlinie.** Diese Richtlinie bezieht sich in der Regel auf Kompatibilitäts- und geschäftliche Anforderungen, und es richtet sich an den Zugriff auf die Informationen, die verwaltet wird, schützen. Beispielsweise können Finanzinstitute informationswände implementieren, damit Analysten nicht auf maklerdaten und Makler nicht auf Analysedaten.  
+-   **Spezifische Datenverwaltungsrichtlinie.** Diese Richtlinie bezieht sich in der Regel auf Kompatibilitäts- und geschäftliche Anforderungen und zielt darauf ab, den richtigen Zugriff auf die verwalteten Informationen zu schützen. Finanzinstitute könnten z. B. Informationswände implementieren, damit Analysten nicht auf Maklerdaten und Makler nicht auf Analysedaten zugreifen können.  
   
--   **Richtlinien müssen zu kennen.** Dieser Autorisierungsrichtlinientyp wird in der Regel in Verbindung mit den vorherigen Richtlinientypen verwendet. Lieferanten sollte z.B. zugreifen, und Bearbeiten nur Dateien, die zu einem Projekt gehören, an denen sie arbeiten können.  
+-   **"Need-to-know"-Richtlinie.** Dieser Autorisierungsrichtlinientyp wird in der Regel in Verbindung mit den vorherigen Richtlinientypen verwendet. Lieferanten sollten z. B. nur auf die Dateien zugreifen und die Dateien bearbeiten können, die zu dem Projekt gehören, an dem sie arbeiten.  
   
-Praxis Umgebungen Schulen uns, dass jede Ausnahmen verfügen Autorisierungsrichtlinie, sodass Organisationen schnell reagieren können, wenn wichtige Geschäftsanforderungen auftreten. Beispielsweise können Führungskräfte, die ihre Smartcards finden und benötigen schnellen Zugriff auf HBI-Informationen können nicht zum Abrufen einer temporären Ausnahme Zugriff auf diese Informationen beim Helpdesk aufrufen.  
+Die Realität lehrt auch, dass für jede Autorisierungsrichtlinie Ausnahmen zugelassen werden müssen, sodass Organisationen schnell reagieren können, wenn wichtige Geschäftsanforderungen auftreten. Wenn Führungskräfte z. B. schnellen Zugriff auf HBI-Informationen benötigen und ihre Smartcards nicht finden, können sie den Helpdesk anrufen, um mittels einer temporären Ausnahme Zugriff auf diese Informationen zu erhalten.  
   
-Zentrale Zugriffsrichtlinien dienen als sicherheitsschirme, die eine Organisation auf alle Server angewendet wird. Diese Richtlinien zu verbessern (aber nicht ersetzen) den lokalen Zugriffsrichtlinien oder freigegebenen Zugriffssteuerungslisten (DACL), die auf Dateien und Ordner angewendet werden. Beispielsweise kann nicht wenn eine DACL für eine Datei den Zugriff auf einen bestimmten Benutzer ermöglicht, aber eine zentrale Richtlinie, die auf die Datei angewendet wird beschränkt den Zugriff auf den gleichen Benutzer, der Benutzer erhalten Zugriff auf die Datei. Wenn die zentrale Zugriffsrichtlinie den Zugriff ermöglicht, aber die DACL den Zugriff nicht erlaubt ist, kann nicht der Benutzer Zugriff auf die Datei erhalten.  
+Zentrale Zugriffsrichtlinien dienen als Sicherheitsschirme, die ein Unternehmen auf alle Server anwendet. Diese Richtlinien erweitern lokale Zugriffsrichtlinien oder freigegebene Zugriffssteuerungslisten (DACL) (ohne sie zu ersetzen), die auf Dateien und Ordner angewendet werden. Wenn z. B. eine DACL für eine Datei einem bestimmten Benutzer den Zugriff ermöglicht, aber eine zentrale Richtlinie, die auf die Datei angewendet wird, den Zugriff für denselben Benutzer einschränkt, kann der Benutzer keinen Zugriff auf die Datei erhalten. Wenn die zentrale Zugriffsrichtlinie den Zugriff ermöglicht, aber die DACL den Zugriff nicht erlaubt, kann der Benutzer keinen Zugriff auf die Datei erhalten.  
   
 Eine zentrale Zugriffsrichtlinie besteht aus folgenden logischen Teilen:  
   
--   **Anwendbarkeit.** Eine Bedingung, die definiert, welche Daten gilt die Richtlinie, z.B. Resource.BusinessImpact=High.  
+-   **Anwendbarkeit.** Eine Bedingung, die definiert, für welche Daten die Richtlinie gilt, z. B. "Resource.BusinessImpact=High".  
   
--   **Bedingungen für den Zugriff.** Eine Liste von einem oder mehreren Zugriffssteuerungseinträgen (ACEs), mit denen definiert mit Zugriff auf die Daten, z.B. zulassen | Vollzugriff | User.EmployeeType = FTE.  
+-   **Zugriffsbedingungen.** Eine Liste mit einem oder mehreren Zugriffssteuerungseinträgen (ACEs), die definieren, wer auf die Daten zugreifen kann, z. B. "Allow | Full Control | User.EmployeeType=FTE".  
   
--   **Ausnahmen.** Eine zusätzliche Liste von einem oder mehreren Zugriffssteuerungseinträgen, die eine Ausnahme für die Richtlinie, z.B. MemberOf(HBIExceptionGroup) definieren.  
+-   **Ausnahmen.** Eine zusätzliche Liste mit einem oder mehreren Zugriffssteuerungseinträgen, die Ausnahmen zu dieser Richtlinie definieren, z. B. "MemberOf(HBIExceptionGroup)".  
   
-Die folgenden beiden Abbildungenzeigen den Workflow im zentralen Zugriff und Überwachungsrichtlinien.  
+Die folgenden beiden Abbildungen zeigen den Workflow im zentralen Zugriff und Überwachungsrichtlinien.  
   
 ![Lösungshandbücher](media/Scenario--Central-Access-Policy/DynamicAccessControl_RevGuide.JPG)  
   
-**Abbildung1** Konzepte für zentralen Zugriff und Überwachungsrichtlinie  
+**Abbildung 1** Konzepte für zentralen Zugriff und Überwachungsrichtlinie  
   
 ![Lösungshandbücher](media/Scenario--Central-Access-Policy/DynamicAccessControl_RevGuide_2.JPG)  
   
-**Abbildung2** Workflow der Richtlinie für zentralen Zugriff  
+**Abbildung 2** Workflow der Richtlinie für zentralen Zugriff  
   
 Die zentrale Autorisierungsrichtlinie kombiniert folgende Komponenten:  
   
--   Eine Liste der zentral definierten Zugriffsregeln, die für bestimmte Arten von Informationen, z.B. HBI oder PII bestimmt.  
+-   Eine Liste der zentral definierten Zugriffsregeln, die auf bestimmte Arten von Informationen abzielen, z. B. HBI oder PII.  
   
--   Eine zentral definierte Richtlinie, die eine Liste mit Regeln enthält.  
+-   Eine zentral definierte Richtlinie, die eine Liste von Regeln enthält.  
   
--   Ein richtlinienbezeichner, der in jeder Datei auf den Dateiservern zugewiesen ist, um auf eine bestimmte zentrale Zugriffsrichtlinie zu zeigen, die während der zugriffsautorisierung angewendet werden soll.  
+-   Ein Richtlinienbezeichner, der jeder Datei auf den Dateiservern zugewiesen ist, um auf eine bestimmte zentrale Zugriffsrichtlinie zu zeigen, die während der Zugriffsautorisierung angewendet werden soll.  
   
-In der folgende Abbildungwird veranschaulicht, wie Sie die Richtlinien in Richtlinienlisten zum Steuern des Zugriffs auf Dateien zentral kombinieren können.  
+In der folgenden Abbildung wird veranschaulicht, wie Sie Richtlinien in Richtlinienlisten kombinieren können, um den Zugriff auf Dateien zentral zu steuern.  
   
 ![Lösungshandbücher](media/Scenario--Central-Access-Policy/DynamicAccessControl_RevGuide3.JPG)  
   
-**Abbildung3** Kombinieren von Richtlinien  
+**Abbildung 3** Kombinieren von Richtlinien  
   
-## <a name="in-this-scenario"></a>In diesem Szenario  
-Die folgende Anleitung steht Ihnen für zentrale Zugriffsrichtlinien:  
+## <a name="in-this-scenario"></a>Inhalt dieses Szenarios  
+Die folgende Anleitung steht Ihnen für zentrale Zugriffsrichtlinien zur Verfügung:  
   
 -   [Planen der Bereitstellung einer zentralen Zugriffsrichtlinie](assetId:///0311a76d-d66c-4ddb-ade6-af586a2ad82f)  
   
--   [Bereitstellen einer zentralen Zugriffsrichtlinie & 40; Schrittezur Veranschaulichung & 41;](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md)  
+-   [Bereitstellen eine zentralen Zugriffsrichtlinie &#40;Demonstrationsschritte&#41;](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md)  
   
--   [Dynamische Zugriffssteuerung: Szenarioübersicht](Dynamic-Access-Control--Scenario-Overview.md)  
+-   [Dynamische Zugriffssteuerung: Übersicht über das Szenario](Dynamic-Access-Control--Scenario-Overview.md)  
   
-## <a name="BKMK_NEW"></a>In diesem Szenario enthaltene Rollen und Features  
-Die folgende Tabelle enthält die Rollen und Features, die in diesem Szenario sind und wird beschrieben, wie sie unterstützen.  
+## <a name="BKMK_NEW"></a>In diesem Szenario enthaltene Rollen und features  
+In der folgenden Tabelle sind die Rollen und Features dieses Szenarios und die Art der bereitgestellten Unterstützung aufgeführt.  
   
-|Rollen- und Feature|Wie sie dieses Szenario unterstützt|  
+|Rolle/Feature|Auf welche Weise dieses Szenario unterstützt wird|  
 |-----------------|---------------------------------|  
-|Active Directory-Domänendienste-Rolle|AD DS in Windows Server2012 führt eine anspruchsbasierte Autorisierungsplattform, die ermöglicht die Erstellung von Benutzer- und Geräteansprüchen, zusammengesetzten Identitäten, (Benutzer- plus Geräteansprüche), neuen Modellen für zentrale Zugriffsrichtlinien (CAP) und die Verwendung der Dateiklassifizierungsinformationen in Autorisierungsentscheidungen.|  
-|Datei- und Speicherdiensteserver-Rolle|Datei- und Speicherdienste bietet Technologien, mit denen Sie einrichten und verwalten einen oder mehrere Server, die zentrale Orte im Netzwerk, in dem Sie Dateien speichern und für Benutzer freigeben können, bereitstellen. Wenn Ihre Netzwerkbenutzer Zugriff auf die gleichen Dateien und Anwendungen benötigen, oder wenn eine zentrale datensicherung und dateiverwaltung für Ihre Organisation wichtig ist, sollten Sie einen oder mehrere Computer als Dateiserver einrichten durch Hinzufügen der Datei- und Speicherdienste-Rolle und die geeigneten Rollendienste auf dem Computer.|  
-|Windows Clientcomputer|Benutzer können Dateien und Ordner im Netzwerk über den Clientcomputer zugreifen.|  
+|Active Directory-Domänendienste-Rolle|AD DS unter Windows Server 2012 führt eine anspruchsbasierte autorisierungsplattform, die es ermöglicht die Erstellung von benutzeransprüchen und geräteansprüchen, zusammengesetzten Identitäten, (Benutzer- plus Geräteansprüche), neuen Modellen für zentrale Zugriffsrichtlinien (CAP)-Richtlinie und die Verwendung des Datei-Klassifizierung die Informationen in autorisierungsentscheidungen.|  
+|Datei- und Speicherdiensteserver-Rolle|Die Datei- und Speicherdienste bieten Technologien, mit deren Hilfe Sie einen oder mehrere Dateiserver einrichten und verwalten können. Dateiserver sind Server, die zentrale Orte im Netzwerk bereitstellen, an denen Sie Dateien speichern und für andere Benutzer freigeben können. Wenn Ihre Netzwerkbenutzer in Ihrer Organisation auf die gleichen Dateien und Anwendungen zugreifen müssen oder wenn eine zentrale Datensicherung und Dateiverwaltung für Ihre Organisation wichtig ist, sollten Sie einen oder mehrere Computer als Dateiserver einrichten, indem Sie die Datei- und Speicherdienste-Rolle sowie die geeigneten Rollendienste hinzufügen.|  
+|Windows-Clientcomputer|Benutzer können über den Clientcomputer auf Dateien und Ordner im Netzwerk zugreifen.|  
   
 
 

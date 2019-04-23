@@ -1,5 +1,5 @@
 ---
-title: "Windows-Authentifizierung: Übersicht"
+title: 'Windows-Authentifizierung: Übersicht'
 description: Windows Server-Sicherheit
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -13,30 +13,31 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: c2ec55ed6b09628d1d80a24be766259980e84d6e
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.openlocfilehash: 2021ccf1e0015cc910f43966f9400e6bd56a230c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59870971"
 ---
 # <a name="windows-authentication-overview"></a>Windows-Authentifizierung: Übersicht
 
->Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
-Dieses navigationsthema für IT-Experten sind Dokumentationsressourcen für Windows-Authentifizierung und Anmeldung Technologien, die Produktbewertungen, erste Schritte-Leitfäden, Verfahren, Entwurfs- und Bereitstellungshandbücher, technische Referenzen und Befehlsreferenzen enthalten.
+In diesem Navigationsthema für IT-Experten sind Dokumentationsressourcen für Technologien zur Windows-Authentifizierung und -Anmeldung aufgeführt, die Produktbewertungen, "Erste Schritte"-Handbücher, Verfahren, Entwurfs- und Bereitstellungshandbücher, technische Referenzen und Befehlsverzeichnisse enthalten.
 
 ## <a name="feature-description"></a>Featurebeschreibung
-Authentifizierung ist ein Prozess zur Überprüfung der Identität eines Objekts, Dienst oder einer Person. Wenn Sie ein Objekt authentifizieren, ist das Ziel, stellen Sie sicher, dass das Objekt um eine Originalversion handelt. Wenn Sie einen Dienst oder eine Person authentifizieren, ist das Ziel, stellen Sie sicher, dass die vorgelegten Anmeldeinformationen authentisch sind.
+Authentifizierung ist der Vorgang, durch den die Identität eines Objekts, eines Dienstes oder einer Person überprüft wird. Ziel der Authentifizierung eines Objekts ist es, sicherzustellen, dass das Objekt echt und unverfälscht ist. Beim Authentifizieren eines Diensts oder einer Person ist das Ziel, sicherzustellen, dass die vorgelegten Anmeldeinformationen authentisch sind.
 
-In einem Netzwerk Kontext dient die Authentifizierung der Nachweis der Identität zu einer Netzwerkanwendung oder -Ressource. Identität wird in der Regel durch einen kryptografischen Vorgang nachgewiesen, die entweder einen Schlüssel, den nur der Benutzer weiß verwendet – wie bei der Kryptografie mit öffentlichem Schlüssel – oder ein vorinstallierter Schlüssel. Die Serverseite der Authentifizierung vergleicht die signierten Daten mit einem bekannten Kryptografieschlüssel, um den Authentifizierungsversuch zu überprüfen.
+Im Netzwerkkontext dient die Authentifizierung dazu, die Identität gegenüber einer Netzwerkanwendung oder -ressource nachzuweisen. Identität ist in der Regel durch einen kryptografischen Vorgang nachgewiesen, die entweder einen Schlüssel, den nur von der Benutzer bekannt sind verwendet – wie bei der Kryptografie mit öffentlichem Schlüssel- oder ein vorinstallierter Schlüssel. Auf der Serverseite der Authentifizierungskommunikation werden die signierten Daten mit einem bekannten Kryptografieschlüssel verglichen, um den Authentifizierungsversuch zu überprüfen.
 
-Speichern die kryptografischen Schlüssel an einem sicheren, zentralen Ort wird der Authentifizierungsvorgang skalierbar und verwaltbar. Active Directory-Domänendienste sind die empfohlene und standardmäßig verwendete Technologie zum Speichern von Identitätsinformationen \ (einschließlich der Kryptografieschlüssel, die der Benutzer Credentials\). Active Directory ist für Standardimplementierungen von Kerberos und NTLM-Standard erforderlich.
+Durch die Speicherung der Kryptografieschlüssel an einem zentralen Ort wird der Authentifizierungsvorgang skalierbar und verwaltbar. Active Directory-Domänendienste sind die empfohlene und standardmäßig verwendete Technologie zum Speichern von Identitätsinformationen \(einschließlich der Kryptografieschlüssel, die die Anmeldeinformationen des Benutzers sind\). Active Directory ist für Standardimplementierungen von Kerberos und NTLM erforderlich.
 
-Die verfügbaren Authentifizierungstechniken reichen von der einfachen Anmeldung, die Benutzer basierend auf ein Element, das nur für der Benutzer - wie ein Kennwort leistungsfähigeren Sicherheitsmechanismen bekannt, bei denen der Benutzer hat ist – wie Token, Zertifikate mit öffentlichem Schlüssel und biometrischen Daten identifiziert. In einer Unternehmensumgebung können Dienste oder Benutzer mehrere Anwendungen oder Ressourcen auf viele Arten von Servern an einem einzigen Standort oder auch standortübergreifend zugreifen. Aus diesen Gründen muss die Authentifizierung Umgebungen für andere Plattformen und für andere Windows-Betriebssysteme unterstützen.
+Authentifizierungstechniken reichen von der einfachen Anmeldung, die Benutzern basierend auf etwas, das nur der Benutzer weiß – z. B. ein Kennwort zu leistungsfähigeren Sicherheitsmechanismen, die etwas verwenden, denen der Benutzer - wie-Token, Zertifikate mit öffentlichen Schlüsseln, identifiziert und Biometrie. In einer Unternehmensumgebung ist es Diensten oder Benutzern eventuell möglich, auf unterschiedliche Anwendungen oder Ressourcen auf verschiedenen Arten von Servern an einem einzigen Standort oder auch standortübergreifend zugreifen. Aus diesem Grund muss die Authentifizierung Umgebungen unterstützen, die auf anderen Plattformen und anderen Windows-Betriebssystemen basieren.
 
-Windows-Betriebssystem implementiert einen Standardsatz von Authentifizierungsprotokollen Kerberos, NTLM, Transport Layer Sicherheit\/Secure Sockets Layer-\(TLS\/SSL\) und Digest, im Rahmen einer erweiterbaren Architektur. Darüber hinaus werden einige Protokolle zu Authentifizierungspaketen beispielsweise Negotiate und der Credential Security Support Provider kombiniert. Aktivieren diesen Protokollen und Paketen Authentifizierung von Benutzern, Computern und Diensten. der Authentifizierungsprozess ermöglicht wiederum authentifizierten Benutzern und Diensten auf sichere Weise den Zugriff auf Ressourcen.
+Das Windows-Betriebssystem implementiert einen Standardsatz von Authentifizierungsprotokollen Kerberos, NTLM, Transport Layer Security\/Secure Sockets Layer \(TLS\/SSL\), und Digest als Teil einer erweiterbare Architektur. Darüber hinaus werden einige Protokolle zu Authentifizierungspaketen zusammengefasst, beispielsweise Negotiate und der Credential Security Support Provider. Mit diesen Protokollen und Paketen können Benutzer, Computer und Dienste authentifiziert werden. Der Authentifizierungsprozess wiederum ermöglicht Benutzern und Diensten einen sicheren Zugriff auf Ressourcen.
 
-Weitere Informationen, einschließlich der Windows-Authentifizierung
+Weitere Informationen zur Windows-Authentifizierung einschließlich der Aspekte
 
 -   [Windows-Authentifizierungskonzepte](windows-authentication-concepts.md)
 
@@ -44,44 +45,44 @@ Weitere Informationen, einschließlich der Windows-Authentifizierung
 
 -   [Architektur der Windows-Authentifizierung](windows-authentication-architecture.md)
 
--   [Security Support Provider-Schnittstellenarchitektur](security-support-provider-interface-architecture.md)
+-   [Sicherheitsarchitektur für die Schnittstelle von Support-Anbieter](security-support-provider-interface-architecture.md)
 
--   [Anmeldeinformationen-Prozesse in der Windows-Authentifizierung](credentials-processes-in-windows-authentication.md)
+-   [Anmeldeinformationen-Prozesse bei der Windows-Authentifizierung](credentials-processes-in-windows-authentication.md)
 
--   [Gruppenrichtlinien Sie in Windows-Authentifizierung verwendete](group-policy-settings-used-in-windows-authentication.md)
+-   [Gruppenrichtlinien Sie bei der Windows-Authentifizierung verwendete](group-policy-settings-used-in-windows-authentication.md)
 
-Weitere Informationen finden Sie unter der [technische Übersicht über Windows-Authentifizierung](windows-authentication-technical-overview.md).
+finden Sie unter den [technische Übersicht über Windows-Authentifizierung](windows-authentication-technical-overview.md).
 
-## <a name="practical-applications"></a>In der Praxis
-Windows-Authentifizierung verwendet, stellen Sie sicher, dass die Informationen von einer vertrauenswürdigen Quelle stammen, ob von einer Person oder ein Computerobjekt, beispielsweise einen anderen Computer. Windows bietet viele verschiedene Methoden, um dieses Ziel zu erreichen, wie im folgenden beschrieben.
+## <a name="practical-applications"></a>Praktische Anwendungsfälle
+Mithilfe der Windows-Authentifizierung wird überprüft, ob die Informationen von einer vertrauenswürdigen Quelle stammen, ungeachtet dessen, ob es sich um eine Person oder ein Computerobjekt, beispielsweise einen anderen Computer, handelt. Windows stellt viele verschiedene Methoden bereit, um dies zu erreichen. Im Folgenden werden diese Methoden beschrieben.
 
-|An...|Funktion|Beschreibung|
+|An...|Feature|Beschreibung|
 |----|------|--------|
-|Authentifizierung innerhalb einer Active Directory-Domäne|Kerberos|Microsoft Windows&nbsp;Server-Betriebssysteme implementieren das Kerberos V5-Authentifizierungsprotokoll und Erweiterungen für die Authentifizierung des öffentlichen Schlüssels. Die Kerberos-Authentifizierungsclient wird als Security Support Provider implementiert \(SSP\) über die Security Support Provider Interface \(SSPI\) zugegriffen werden kann. Die Erstauthentifizierung von Benutzern ist in den Winlogon einzelne Standardparameter-Architektur integriert. Die Kerberos-Schlüsselverteilungscenter-\(KDC\) ist in andere auf dem Domänencontroller unter Windows Server-Sicherheitsdienste integriert. Das KDC verwendet die Domäne Datenbank des Active Directory-Dienst als Sicherheitskontendatenbank. Active Directory ist für Kerberos-Standardimplementierungen erforderlich.<br /><br />Weitere Ressourcen finden Sie unter [Kerberos-Authentifizierung: Übersicht](../kerberos/kerberos-authentication-overview.md).|
-|Sichere Authentifizierung im Web|TLS\/SSL wie im Schannel-Security Support Provider implementiert|Die \(TLS\) Transport Layer Security-Protokoll, Version 1.0, 1.1 und 1.2, \(SSL\) Secure Sockets Layer-Protokoll, Version 2.0 und 3.0, Datagram Transport Layer Security-Protokollversion 1.0 und das Private Communications Transport \(PCT\)-Protokoll, Version 1.0, basieren auf Kryptografie mit öffentlichem Schlüssel. Authentifizierungsprotokollsuite des sicheren Kanals \(Schannel\) Anbieter enthält diese Protokolle. Alle Schannel-Protokolle verwenden ein Client- und Servermodell.<br /><br />Weitere Ressourcen finden Sie unter [TLS – SSL & 40; Schannel SSP & 41; Übersicht über die](../tls/tls-ssl-schannel-ssp-overview.md).|
-|Für die Authentifizierung bei einem Webdienst oder einer Anwendung|Integrierte Windows-Authentifizierung<br /><br />Digest-Authentifizierung|Weitere Ressourcen finden Sie unter [integrierte Windows-Authentifizierung] (https://technet.microsoft.com/library/cc758557(v=WS.10.aspx and [Digest Authentication](https://technet.microsoft.com/library/cc738318(v=ws.10).aspx), and [Advanced Digest Authentication](https://technet.microsoft.com/library/cc783131(v=ws.10).aspx).|
-|Authentifizieren bei älteren Anwendungen|NTLM|NTLM ein Challenge\ / Antwort-Stil Authentifizierung protocol.In zusätzlich zur Authentifizierung ist, bietet das NTLM-Protokoll optional für die sitzungssicherheit – insbesondere Nachrichtenintegrität und Vertraulichkeit, durch die Signierung und -Verschlüsselung Funktionen in NTLM.<br /><br />Weitere Ressourcen finden Sie unter [NTLM: Übersicht](../kerberos/ntlm-overview.md).|
-|Mehrstufige Authentifizierung nutzen|Unterstützung von Smartcards<br /><br />Biometrie-Unterstützung|Smartcards sind Tamper\ Manipulationen und Mobil wie Sicherheitslösungen für Aufgaben wie Clientauthentifizierung, Anmeldung bei Domänen, Code, Signieren und Schützen von E\-Mail-werden können.<br /><br />Biometrie stützt sich auf ein unveränderliches physisches Merkmal einer Person zur eindeutigen Identifizierung dieser Person zu messen. Fingerabdrücke gehören zu den am häufigsten genutzten biometrischen Merkmalen, mit Millionen von Fingerabdruck biometrischer Geräte, die PCs und Peripheriegeräte eingebettet sind.<br /><br />Weitere Ressourcen finden Sie unter [technische Referenz zu Smartcards](https://technet.microsoft.com/itpro/windows/keep-secure/smart-card-windows-smart-card-technical-reference). |
-|Bereitstellen Sie lokale Verwaltung, Speicherung und Wiederverwendung von Anmeldeinformationen|Verwaltung von Anmeldeinformationen<br /><br />Local Security Authority<br /><br />Kennwörter|Verwaltung von Anmeldeinformationen in Windows wird sichergestellt, dass Anmeldeinformationen sicher gespeichert werden. Anmeldeinformationen werden gesammelt, auf dem sicheren Desktop \ (für lokale oder domänenspezifische zugriff\) über Apps oder Websites, damit die richtigen Anmeldeinformationen jedes Mal angezeigt werden eine Ressource zugegriffen wird.<br /><br />
-|Erweitern des authentifizierungsschutzes auf Legacysysteme|Erweiterter Schutz für Authentifizierung|Dieses Feature erhöht den Schutz und die Handhabung von Anmeldeinformationen, wenn Netzwerkverbindungen mithilfe der integrierten Windows-Authentifizierung \(IWA\).|
+|Authentifizieren innerhalb einer Active Directory-Domäne|Kerberos|Die Microsoft Windows&nbsp;Server-Betriebssysteme implementieren das Authentifizierungsprotokoll Kerberos Version 5 und Erweiterungen für die Authentifizierung mit öffentlichem Schlüssel. Die Kerberos-Authentifizierungsclient wird als Security Support Provider implementiert \(SSP\) und zugegriffen werden kann, über die Security Support Provider Interface \(SSPI\). Die Erstauthentifizierung von Benutzern ist das einmaligen Anmelden von Windows-Anmeldung integriert\-Architektur. Das Kerberos-Schlüsselverteilungscenter \(KDC\) andere auf dem Domänencontroller unter Windows Server-Sicherheitsdienste integriert ist. Das KDC verwendet die Datenbank des der Domäne Active Directory-Dienst als Sicherheitskontendatenbank. Active Directory ist für Standardimplementierungen von Kerberos erforderlich.<br /><br />Weitere Ressourcen finden Sie unter [Kerberos-Authentifizierung: Übersicht](../kerberos/kerberos-authentication-overview.md).|
+|Sichere Authentifizierung im Web|TLS\/SSL im Schannel Security Support Provider implementiert|Die Transport Layer Security \(TLS\) Versionen 1.0, 1.1 und 1.2, Secure Sockets Layer-Protokoll \(SSL\) Protokoll, Version 2.0 und 3.0, Datagram Transport Layer Security Protocol, Version 1.0 und die Private Kommunikationstransport \(PCT\) Protokoll, Version 1.0, basieren auf Kryptografie mit öffentlichem Schlüssel. Das Secure Channel \(Schannel\) Anbieter-authentifizierungsprotokollsammlung enthält diese Protokolle. Alle Schannel-Protokolle verwenden ein Client- und Servermodell.<br /><br />Weitere Ressourcen finden Sie unter [TLS – SSL &#40;Schannel-SSP&#41; Übersicht](../tls/tls-ssl-schannel-ssp-overview.md).|
+|Authentifizieren bei einem Webdienst oder einer Anwendung|Integrierte Windows-Authentifizierung<br /><br />Digestauthentifizierung|Weitere Ressourcen finden Sie unter [integrierte Windows-Authentifizierung](https://technet.microsoft.com/library/cc758557(v=WS.10).aspx) und [Digestauthentifizierung](https://technet.microsoft.com/library/cc738318(v=ws.10).aspx), und [erweiterte Digestauthentifizierung](https://technet.microsoft.com/library/cc783131(v=ws.10).aspx).|
+|Authentifizieren bei älteren Anwendungen|NTLM|NTLM ist eine Herausforderung\-Antwort Style-Authentifizierungsprotokoll. Zusätzlich zur Authentifizierung bietet das NTLM-Protokoll optional für die sitzungssicherheit – insbesondere Nachrichtenintegrität und Vertraulichkeit durch Signatur und Versiegelung von Funktionen in NTLM.<br /><br />Weitere Ressourcen finden Sie unter [NTLM: Übersicht](../kerberos/ntlm-overview.md).|
+|Nutzen der mehrstufigen Authentifizierung|Unterstützung von Smartcards<br /><br />Biometrie-Unterstützung|Smartcards sind eine Manipulationen\-Schutz vor Angriffen und Transportable Möglichkeit zum Bereitstellen von sicherheitslösungen für Aufgaben wie Clientauthentifizierung, Anmeldung bei Domänen, code, Signieren und Schützen von e\--e-Mails.<br /><br />Bei der Biometrie wird ein unveränderliches physisches Merkmal einer Person erfasst, um diese Person eindeutig identifizieren zu können. Fingerabdrücke gehören zu den am häufigsten genutzten biometrischen Merkmalen, weshalb Millionen PCs und Peripheriegeräte mit biometrischen Fingerabdrucklesern ausgestattet sind.<br /><br />Weitere Ressourcen finden Sie unter [technische Referenz zu Smartcards](https://technet.microsoft.com/itpro/windows/keep-secure/smart-card-windows-smart-card-technical-reference). |
+|Bereitstellen der lokalen Verwaltung, Speicherung und Wiederverwendung von Anmeldeinformationen|Verwaltung von Anmeldeinformationen<br /><br />Lokale Sicherheitsautorität<br /><br />Kennwörter|Durch die Verwaltung von Anmeldeinformationen in Windows wird sichergestellt, Anmeldeinformationen sicher gespeichert werden. Anmeldeinformationen werden auf dem sicheren Desktop erfasst \(für den Zugriff für lokales oder Domänenbenutzerkonto\), über apps oder Websites, damit die richtigen Anmeldeinformationen vorgelegt werden jedes Mal, wenn eine Ressource zugegriffen wird.<br /><br />
+|Erweitern des Authentifizierungsschutzes auf Legacysysteme|Erweiterter Schutz für Authentifizierung|Diese Funktion verbessert den Schutz und die Handhabung von Anmeldeinformationen bei der Authentifizierung von Netzwerkverbindungen mit integrierter Windows-Authentifizierung \(IWA\).|
 
-## <a name="software-requirements"></a>Anforderungen der Clientsoftware
-Windows-Authentifizierung mit früheren Versionen von Windows-Betriebssystems kompatibel sein soll. Mit jeder Version sind jedoch nicht notwendigerweise auch in früheren Versionen. Lesen Sie die Dokumentation zu bestimmten Funktionen für Weitere Informationen.
+## <a name="software-requirements"></a>Softwareanforderungen
+Die Windows-Authentifizierung ist so konzipiert, dass sie mit früheren Versionen des Windows-Betriebssystem kompatibel ist. Verbesserungen in einer neuen Version stehen jedoch nicht notwendigerweise auch in früheren Versionen zur Verfügung. Weitere Informationen finden Sie in der Dokumentation zu den verschiedenen Features.
 
-## <a name="server-manager-information"></a>Server-Manager-Informationen
-Viele Authentifizierungsfeatures können mit Gruppenrichtlinien, die mit dem Server-Manager installiert werden kann konfiguriert werden. Die Windows-Biometrieframework wird mithilfe von Server-Manager installiert. Andere Serverrollen, die Authentifizierungsmethoden, z.B. Webserver \(IIS\) und Active Directory-Domänendiensten abhängig sind, können auch mit Server-Manager installiert werden.
+## <a name="server-manager-information"></a>Informationen zum Server-Manager
+Viele Authentifizierungsfeatures können mit der Gruppenrichtlinie konfiguriert werden, die mithilfe des Server-Managers installiert werden kann. Das Windows-Biometrieframework wird mithilfe des Server-Managers installiert. Andere Serverrollen, die abhängig von der Authentifizierungsmethoden, z. B. Webserver sind \(IIS\) und Active Directory Domain Services kann auch mithilfe von Server-Manager installiert werden.
 
 ## <a name="related-resources"></a>Verwandte Ressourcen
 
 |Authentifizierungstechnologien|Ressourcen|
 |----------------|-------|
-|Windows-Authentifizierung|[Technische Übersicht über Windows-Authentifizierung](../windows-authentication/windows-authentication-technical-overview.md)<br />Enthält Themen, die Unterschiede zwischen Versionen, allgemeine Authentifizierungskonzepte, anmeldungsszenarien, Architekturen für unterstützte Versionen und geeignete Einstellungen-Adressierung.|
-|Kerberos|[Kerberos-Authentifizierung: Übersicht](../kerberos/kerberos-authentication-overview.md)<br /><br />[Eingeschränkte Kerberos-Delegierung (Übersicht)](../kerberos/kerberos-constrained-delegation-overview.md)<br /><br />[technische Referenz zu Kerberos-Authentifizierung](https://technet.microsoft.com/library/cc739058(v=ws.10).aspx)\(2003\)<br /><br />[Sicherheitsleitfaden für Kerberos](https://social.technet.microsoft.com/wiki/contents/articles/4209.kerberos-survival-guide.aspx) \(TechNet Wiki\)|
-|TLS\/SSL und DTLS \ (Schannel Security Support Provider\)|[TLS – SSL & 40; Schannel SSP & 41; (Übersicht)](../tls/tls-ssl-schannel-ssp-overview.md)<br /><br />[Technische Referenz für Schannel Security Support Provider](../tls/schannel-security-support-provider-technical-reference.md)|
-|Digest-Authentifizierung|[Digest-Authentifizierung Technical Reference](https://technet.microsoft.com/library/cc782794(v=ws.10).aspx)\(2003\)|
-|NTLM|[NTLM (Übersicht)](../kerberos/ntlm-overview.md)<br />Enthält Links zu aktuellen und früheren Ressourcen|
-|PKU2U|[Einführung in die PKU2U in Windows](https://technet.microsoft.com/library/dd560634(v=ws.10).aspx)|
+|Windows-Authentifizierung|[Technische Übersicht über Windows-Authentifizierung](../windows-authentication/windows-authentication-technical-overview.md)<br />Enthält Themen, die Unterschiede zwischen Versionen, allgemeine Authentifizierungskonzepte, Anmeldeszenarios, Architekturen für unterstützte Versionen und geeignete Einstellungen adressiert.|
+|Kerberos|[Übersicht über die Kerberos-Authentifizierung](../kerberos/kerberos-authentication-overview.md)<br /><br />[Eingeschränkte Kerberos-Delegierung](../kerberos/kerberos-constrained-delegation-overview.md)<br /><br />[Technische Referenz für die Kerberos-Authentifizierung](https://technet.microsoft.com/library/cc739058(v=ws.10).aspx)\(2003\)<br /><br />[Sicherheitsleitfaden für Kerberos](https://social.technet.microsoft.com/wiki/contents/articles/4209.kerberos-survival-guide.aspx) \(TechNet-Wiki\)|
+|TLS\/SSL und DTLS \(Schannel-Security Support Provider\)|[TLS – SSL &#40;Schannel-SSP&#41; Übersicht](../tls/tls-ssl-schannel-ssp-overview.md)<br /><br />[Technische Referenz für Schannel Security Support Provider](../tls/schannel-security-support-provider-technical-reference.md)|
+|Digestauthentifizierung|[Technische Referenz für die Authentifizierung Digest](https://technet.microsoft.com/library/cc782794(v=ws.10).aspx)\(2003\)|
+|NTLM|[NTLM: Übersicht](../kerberos/ntlm-overview.md)<br />Enthält Links zu aktuellen und früheren Ressourcen|
+|PKU2U|[Einführung in PKU2U in Windows](https://technet.microsoft.com/library/dd560634(v=ws.10).aspx)|
 |Smartcard|[Technische Referenz zu Smartcards](https://technet.microsoft.com/itpro/windows/keep-secure/smart-card-windows-smart-card-technical-reference)<br /><br />
-|Anmeldeinformationen|[Schutz von Anmeldeinformationen und Verwaltung](../credentials-protection-and-management/credentials-protection-and-management.md)<br />Enthält Links zu aktuellen und früheren Ressourcen<br /><br />[Übersicht über Kennwörter](../kerberos/passwords-overview.md)<br />Enthält Links zu aktuellen und früheren Ressourcen|
+|Anmeldeinformationen|[Schutz und Verwaltung von Anmeldeinformationen](../credentials-protection-and-management/credentials-protection-and-management.md)<br />Enthält Links zu aktuellen und früheren Ressourcen<br /><br />[Übersicht über Kennwörter](../kerberos/passwords-overview.md)<br />Enthält Links zu aktuellen und früheren Ressourcen|
 
 

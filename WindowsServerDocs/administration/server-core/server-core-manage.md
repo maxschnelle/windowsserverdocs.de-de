@@ -1,6 +1,6 @@
 ---
-title: Server Core verwalten
-description: Erfahren Sie, wie die Server Core-Installationsoption von Windows Server verwalten.
+title: Verwalten von Server Core
+description: Informationen Sie zum Verwalten einer Server Core-Installations von Windows Server
 ms.prod: windows-server-threshold
 ms.mktglfcycl: manage
 ms.sitesec: library
@@ -8,136 +8,136 @@ author: lizap
 ms.localizationpriority: medium
 ms.date: 10/17/2017
 ms.openlocfilehash: 6836e5db36727294d215f7f98e0faeede55a612a
-ms.sourcegitcommit: 1533d994a6ddea54ac189ceb316b7d3c074307db
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "1718710"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59869301"
 ---
 # <a name="manage-a-server-core-server"></a>Verwalten eines Server Core-Servers
- 
-> Betrifft: WindowsServer (Semikolons jährlichen Channel) und WindowsServer 2016
+ 
+> Gilt für: WindowsServer (Halbjährlicher Kanal) und WindowsServer 2016
 
 Sie können einen Server Core-Server auf folgende Weise verwalten:
-- Verwenden von [Windows Admin Center](../../manage/windows-admin-center/overview.md)
-- Mithilfe der [Remoteserver-Verwaltungstools](../../remote/remote-server-administration-tools.md) auf Windows 10 ausgeführt
-- Lokal und Remote mithilfe von Windows PowerShell
-- Remote mit dem [Server-Manager](../server-manager/server-manager.md)
-- Mit den Remote ein [MMC-Snap-in](#managing-with-microsoft-management-console)
+- Mithilfe von [Windows Admin Center](../../manage/windows-admin-center/overview.md)
+- Mithilfe von [Remoteserver-Verwaltungstools](../../remote/remote-server-administration-tools.md) auf Windows 10 ausgeführt wird
+- Lokal und remote mit Windows PowerShell
+- Remote mit [Server-Manager](../server-manager/server-manager.md)
+- Remote mit einem [MMC-Snap-in](#managing-with-microsoft-management-console)
 - Remote mit [Remote Desktop Services](#managing-with-remote-desktop-services)
 
-Sie können auch Treiber lokal, solange Sie dies, über die Befehlszeile tun zu verwalten und Hinzufügen von Hardware.
+Sie können auch Hinzufügen von Hardware und Treiber lokal verwalten, solange Sie über die Befehlszeile dies.
 
-Es gibt einige wichtige Einschränkungen und Tipps im Hinterkopf behalten Sie beim Arbeiten mit Server Core:
+Es gibt einige wichtige Einschränkungen und Tipps zu bedenken, bei der Arbeit mit Server Core:
 
-- Wenn Sie alle Eingabeaufforderungsfenster schließen und ein Eingabeaufforderungsfenster öffnen möchten, können Sie, die den Task-Manager tun. Drücken Sie **CTRL\ + ALT\ + ENTF**, klicken Sie auf **Task-Manager starten**, klicken Sie auf **Weitere Details > Datei > Ausführen**, und geben Sie **cmd.exe**. (Geben Sie **Powershell.exe** zum Öffnen von Windows PowerShell-Befehl). Alternativ können Sie abmelden und dann wieder anmelden.
-- Alle Befehle oder Tool, das versucht, Windows Explorer zu starten, funktionieren nicht. Beispielsweise ausgeführt **starten.** über eine Befehlszeile funktioniert nicht.
-- Es ist keine Unterstützung für HTML-Rendering oder HTML-Hilfe in Server Core.
-- Server Core unterstützt Windows Installer im stillen Modus, sodass Sie Tools und Dienstprogramme von Windows Installer-Dateien installieren können. Beim Installieren von Windows Installer-Pakete auf Server Core, verwenden Sie die **Option/qb** , um die grundlegende Benutzeroberfläche anzuzeigen.
-- Um die Zeitzone zu ändern, führen Sie **Set-Datum**.
-- Führen Sie zum Ändern von internationaler Einstellungen **Steuerelement intl.cpl**.
-- Einem eigenen **Control.exe** werden nicht ausgeführt auf. Sie müssen sie mit **Timedate.cpl** oder **Intl.cpl**ausgeführt.
-- **Winver.exe** ist nicht verfügbar in Server Core. Verwenden Sie zum Abrufen von Informationen zur Version **Systeminfo.exe**.
+- Wenn Sie alle Fenster der Eingabeaufforderung zu schließen und ein neues Eingabeaufforderungsfenster geöffnet werden soll, können Sie dies aus dem Task-Manager tun. Drücken Sie **STRG\+ALT\+löschen**, klicken Sie auf **Task-Manager starten**, klicken Sie auf **Weitere Details > Datei > Führen Sie**, und geben Sie dann  **cmd.exe**. (Typ **Powershell.exe** um ein PowerShell-Befehlsfenster zu öffnen.) Alternativ können Sie abmelden und dann wieder anmelden.
+- Befehle oder Tools, die versuchen, Windows Explorer zu öffnen, funktionieren nicht. Z. B. Ausführung **starten.** von einer Befehlszeile aus funktioniert nicht.
+- Es gibt keine Unterstützung für HTML-Rendering oder HTML-Hilfe im Server Core.
+- Server Core unterstützt Windows Installer im stillen Modus, sodass Sie Tools und Dienstprogramme von Windows Installer-Dateien installieren können. Wenn Sie Windows Installer-Pakete auf Server Core installieren möchten, verwenden die **/qb** Option, um die Standardbenutzeroberfläche anzuzeigen.
+- Führen Sie zum Ändern der Zeitzone **Set-Date**.
+- Um die gebietsschemaeinstellungen zu ändern, führen **steuern "Intl.cpl"**.
+- **Control.exe** wird nicht eigenständig ausgeführt. Sie müssen diese ausführen, entweder mit **"timedate.cpl"** oder **Intl.cpl**.
+- **Winver.exe** ist in Server Core nicht verfügbar. Zum Abrufen von Informationen verwenden von Version **Systeminfo.exe**.
 
-## <a name="managing-server-core-with-windows-admin-center"></a>Verwalten von Server Core mit Windows-Verwaltungskonsole
-[Windows-Verwaltungskonsole](../../manage/windows-admin-center/overview.md) ist eine browserbasierte Management-app, mit die der lokale Verwaltung von Windows-Servern mit keine Abhängigkeit Azure oder in der Cloud zu können. Windows-Verwaltungskonsole erhalten Sie vollständige Kontrolle über alle Aspekte der Server-Infrastruktur und ist besonders nützlich für die Verwaltung auf private Netzwerke, die nicht mit dem Internet verbunden sind. Sie können Windows Admin Center für Windows 10, auf einem Gatewayserver oder auf einer Installation von Windows Server mit Desktop Experience zu installieren und dann verbinden mit dem Server Core-System, das Sie verwalten möchten.
+## <a name="managing-server-core-with-windows-admin-center"></a>Verwalten von Server-Core mit Windows Admin Center
+[Windows Admin Center](../../manage/windows-admin-center/overview.md) ist eine browserbasierte Management-App, die die lokale Verwaltung von Windows-Servern ohne Abhängigkeit von Azure oder der Cloud ermöglicht. Windows Admin Center ermöglicht die vollständige Kontrolle über alle Aspekte der Server-Infrastruktur und ist besonders nützlich für die Verwaltung auf privaten Netzwerken, die nicht mit dem Internet verbunden sind. Sie können Windows Admin Center zu installieren, auf Windows 10, auf einem Gatewayserver oder in einer Installation von Windows Server mit Desktopdarstellung und verbinden Sie dann mit dem Server Core-System, das Sie verwalten möchten.
 
-## <a name="managing-server-core-remotely-with-server-manager"></a>Verwalten von Server Core Remote mit dem Server-Manager
+## <a name="managing-server-core-remotely-with-server-manager"></a>Verwalten von Server Core Remote mit Server-Manager
 
-Server-Manager ist eine Verwaltungskonsole in Windows Server, die Unterstützung bei der Bereitstellung und Verwaltung von lokalen und remote-Windows-basierten Servern aus Ihre Desktops ohne entweder physisch auf Servern oder Remote Desktop-Protokoll (RDP) aktiviert werden müssen Verbindungen zu den einzelnen Servern. Server-Manager unterstützt remote Management mit mehreren Servern.
+Server-Manager ist eine Verwaltungskonsole in Windows Server, mit dem Sie das Bereitstellen und Verwalten von sowohl lokale als auch Windows-basierten Servern über Ihre Desktops, ohne dass Sie physischen Zugriff auf den Server, oder die Notwendigkeit, Remote Desktop Protocol (RDP) aktivieren Verbindungen zu den einzelnen Servern. Server-Manager unterstützt die Verwaltung von Remoteunterstützung.
 
-Um Ihre lokalen Server zu verwaltenden vom Server-Manager auf einem Remoteserver ausgeführt zu aktivieren, führen Sie das Windows PowerShell-Cmdlet **Konfigurieren SMRemoting.exe – aktivieren**.
+Um Ihr lokaler Server mit Server-Manager auf einem Remoteserver verwaltet werden zu aktivieren, führen Sie das Windows PowerShell-Cmdlet **Configure-SMRemoting.exe-aktivieren**.
 
 ## <a name="managing-with-microsoft-management-console"></a>Verwalten von mit Microsoft Management Console
 
-Sie können viele-Snap-ins für Microsoft Management Console (MMC) zum Verwalten von Ihrem Server Core-Servers Remote verwenden.
+Sie können viele-Snap-ins für Microsoft Management Console (MMC) Remote verwenden, um Ihren Server Core-Server verwalten.
 
-Ein MMC-Snap-in mit um einen Server Core-Server zu verwalten, der Mitglied einer Domäne ist: 
+So verwenden einen Server Core-Server zu verwalten, der Mitglied einer Domäne ist ein MMC-Snap-in: 
 
-1. Starten Sie MMC-Snap-in, wie etwa Computerverwaltung.
-2. Mit der rechten Maustaste das Snap-in, und klicken Sie dann auf **Verbindung mit einem anderen Computer herstellen**.
-2. Geben Sie den Computernamen des Server Core-Servers ein, und klicken Sie dann auf **OK**. Sie jetzt können das MMC-Snap-in Sie den Server Core-Server verwalten wie andere PC oder Server.
+1. Starten Sie ein MMC-Snap-in, z. B. Computerverwaltung.
+2. Mit der rechten Maustaste das Snap-in, und klicken Sie dann auf **Herstellen einer Verbindung mit einem anderen Computer**.
+2. Geben Sie den Namen des Server Core-Server, und klicken Sie dann auf **OK**. Sie können jetzt das MMC-Snap-in verwenden, um die Server Core-Server zu verwalten, wie alle anderen PC oder Server.
 
-Ein MMC-Snap-in verwenden zum Verwalten von eines Server Core-Servers also *nicht* Mitglied einer Domäne: 
+Ein MMC-Snap-in verwenden, um eine Server Core-Server zu verwalten, ist *nicht* Mitglied einer Domäne: 
 
-1. Richten Sie alternative Anmeldeinformationen an, an den Server Core-Computer anschließen, indem Sie den folgenden Befehl an einer Eingabeaufforderung auf dem Remotecomputer eingeben:
+1. Richten Sie alternative Anmeldeinformationen zur verbindungsherstellung mit dem Server Core-Computer den folgenden Befehl an einer Eingabeaufforderung auf dem Remotecomputer eingeben:
    ```
    cmdkey /add:<ServerName> /user:<UserName> /pass:<password>
    ```
-   Wenn Sie zur Eingabe eines Kennworts aufgefordert werden möchten, lassen Sie die **Option/übergeben** .
+   Wenn Sie nach einem Kennwort gefragt werden möchten, lassen Sie die **/pass** Option.
 
-2. Wenn Sie aufgefordert werden, geben Sie das Kennwort für den Benutzernamen ein, den Sie angegeben haben.
-   Wenn die Firewall auf dem Server Core-Server zum Zulassen des MMC-Snap-ins für die Verbindung nicht bereits konfiguriert ist, gehen Sie zum Konfigurieren der Windows-Firewall zum MMC-Snap-in zu ermöglichen. Fahren Sie mit Schritt 3.
-3. Starten Sie auf einem anderen Computer eine MMC-Snap-in, wie etwa **Computerverwaltung**.
-4. Im linken Bereich mit der rechten Maustaste das Snap-in, und klicken Sie dann auf **Verbindung mit einem anderen Computer herstellen**. (Beispielsweise würde im Beispiel Computerverwaltung Sie **Computerverwaltung (lokal)** mit der rechten Maustaste.)
-5. Geben Sie in **einem anderen Computer**den Computernamen des Server Core-Servers ein, und klicken Sie dann auf **OK**. Sie jetzt können das MMC-Snap-in Sie den Server Core-Server verwalten wie bei jedem anderen Computer unter einem Windows Server-Betriebssystem.
+2. Geben Sie bei entsprechender Aufforderung das Kennwort für den Benutzernamen ein, die, den Sie angegeben haben.
+   Wenn die Firewall auf dem Server Core-Server zum MMC-Snap-ins eine Verbindung herstellen dürfen nicht bereits konfiguriert ist, führen Sie die folgenden Schritte zum Konfigurieren der Windows-Firewall, damit MMC-Snap-in. Fahren Sie mit Schritt 3.
+3. Auf einem anderen Computer, starten Sie ein MMC-Snap-in, z. B. **Computerverwaltung**.
+4. Klicken Sie im linken Bereich mit der rechten Maustaste das Snap-in, und klicken Sie dann auf **Herstellen einer Verbindung mit einem anderen Computer**. (Z. B. in der Computerverwaltung beispielsweise Sie würde mit der rechten Maustaste **Computerverwaltung (lokal)**.)
+5. In **einem anderen Computer**, geben Sie den Namen des Server Core-Server, und klicken Sie dann auf **OK**. Sie können nun mit dem MMC-Snap-In den Server im Server-Core-Server wie jeden anderen Computer mit einem Windows-Betriebssystem verwalten.
 
-### <a name="to-configure-windows-firewall-to-allow-mmc-snap-ins-to-connect"></a>So konfigurieren Sie Windows-Firewall zum MMC-Snap-in (s) für die Verbindung zulassen
-Wenn alle MMC-Snap-ins für die Verbindung zulassen möchten, führen Sie den folgenden Befehl ein:
+### <a name="to-configure-windows-firewall-to-allow-mmc-snap-ins-to-connect"></a>So konfigurieren Sie die Windows-Firewall so, dass MMC-Snap-Ins eine Verbindung herstellen dürfen
+Damit um alle MMC-Snap-ins eine Verbindung herstellen zu können, führen Sie den folgenden Befehl aus:
 
 ```
 Enable-NetFirewallRule -DisplayGroup "Remote Administration"
 ```
 
-Wenn nur bestimmte MMC-Snap-ins für die Verbindung zulassen möchten, führen Sie folgenden Befehl:
+Damit um nur bestimmte MMC-Snap-ins eine Verbindung herstellen zu können, führen Sie die folgenden Schritte aus:
 ```
 Enable-NetFirewallRule -DisplayGroup "<rulegroup>"
 ```
 
-Wobei *Regelgruppe* eine der folgenden ist je nachdem, welche-Snap-in eine Verbindung herstellen möchten:
+Wo *Rulegroup* ist eine der folgenden Einträge, je nachdem, welche-Snap-in Sie eine Verbindung herstellen möchten:
 
-| MMC-Snap-in                            | Regelgruppe                                            |
+| MMC-Snap-In                            | Regelgruppe                                            |
 |----------------------------------------|-------------------------------------------------------|
-| Ereignisanzeige                           | Remote Event Log-Management                           |
-| Dienste                               | Remote-Service-Management                             |
+| Ereignisanzeige                           | Remote-Ereignisprotokollverwaltung                           |
+| Dienste                               | Remotedienstverwaltung                             |
 | Freigegebene Ordner                         | Datei- und Druckerfreigabe                              |
-| Aufgabenplanung                         | Performance-Protokolle und Warnungen, Datei- und Druckerfreigabe |
-| Datenträgerverwaltung                        | Volume Remote Management                              |
-| Windows-Firewall und erweiterte Sicherheit | Windows-Firewall-Remoteverwaltung                    |
+| Aufgabenplanung                         | Leistungsprotokolle und Warnungen, die Datei- und Druckerfreigabe |
+| Datenträgerverwaltung                        | Remotevolumeverwaltung                              |
+| Windows-Firewall- und erweiterte Sicherheit | Windows-Firewallremoteverwaltung                    |
 
 
 > [!NOTE] 
-> Einige MMC-Snap-ins müssen keine entsprechende Regelgruppe, die durch die Firewall eine Verbindung herstellen können. Aktivieren der Regelgruppen für Ereignisanzeige, Dienste und freigegebene Ordner können jedoch die meisten anderen-Snap-ins zu verbinden. 
+> Einige MMC-Snap-ins haben keine entsprechende Regelgruppe, die sie über die Firewall eine Verbindung herstellen können. Doch das Aktivieren der Regelgruppen für "Ereignisanzeige", "Dienste" oder "Freigegebene Ordner" können die meisten anderen Snap-Ins eine Verbindung herstellen. 
 >
-> Darüber hinaus müssen bestimmte-Snap-ins weiter konfiguriert werden, bevor sie über die Windows-Firewall eine Verbindung herstellen können:
+> Darüber hinaus benötigen bestimmte Snap-Ins eine weitere Konfiguration, ehe Sie durch die Windows-Firewall eine Verbindung herstellen können:
 >
-> - Datenträgerverwaltung. Sie müssen zunächst die Virtual Disk Service (VDS) auf dem Server Core-Computer starten. Sie müssen auch die Datenträgerverwaltung Regeln entsprechend auf dem Computer konfigurieren, die das MMC-Snap-in ausgeführt wird.
-> - IP-Sicherheitsmonitor. Sie müssen zuerst Remoteverwaltung von diesem-Snap-in aktivieren. Geben Sie dazu an der Befehlszeile **Cscript \windows\system32\scregedit.wsf /im 1**
-> - Zuverlässigkeit und Leistung. Das Snap-In erfordert keine weitere Konfiguration, aber bei Verwendung einen Server Core-Computer überwachen, können Sie nur Leistungsdaten überwachen. Zuverlässigkeit Daten ist nicht verfügbar.
+> - Datenträgerverwaltung. Sie müssen auf dem Server-Core-Computer zunächst den Dienst für virtuelle Datenträger (Virtual Disk Service, VDS) starten. Außerdem müssen Sie Regeln zur Datenträgerverwaltung auf dem Computer, auf dem das MMC-Snap-In ausgeführt wird, entsprechend konfigurieren.
+> - IP-Sicherheitsmonitor. Sie müssen zunächst die Remoteverwaltung dieses Snap-Ins aktivieren. Geben Sie dazu an einer Eingabeaufforderung **Cscript \windows\system32\scregedit.wsf /im 1**
+> - Zuverlässigkeits- und Leistungsüberwachung. Dieses Snap-In erfordert keine weitere Konfiguration, doch wenn Sie mit ihm einen Server-Core-Computer überwachen, können nur Leistungsdaten überwacht werden. Zuverlässigkeitsdaten sind nicht verfügbar.
 
-## <a name="managing-with-remote-desktop-services"></a>Mit Remote Desktop Services verwalten
+## <a name="managing-with-remote-desktop-services"></a>Verwalten mit Remotedesktopdienste
 
-[Remotedesktop](../../remote/remote-desktop-services/welcome-to-rds.md) können Sie um einen Server Core-Server von einem Remotecomputer zu verwalten.
+Sie können [Remotedesktop](../../remote/remote-desktop-services/welcome-to-rds.md) zum Verwalten eines Server Core-Servers von Remotecomputern.
 
 Bevor Sie die Server Core zugreifen können, müssen Sie den folgenden Befehl ausführen: 
 ```
 cscript C:\Windows\System32\Scregedit.wsf /ar 0
 ```
-Auf diese Weise können die Remotedesktop für die Verwaltungsmodus um Verbindungen zu übernehmen.
+Dadurch wird der Remotedesktop für den Verwaltungsmodus zum Akzeptieren von Verbindungen aktiviert.
 
-## <a name="add-hardware-and-manage-drivers-locally"></a>Lokal Treiber verwalten und Hinzufügen von hardware
+## <a name="add-hardware-and-manage-drivers-locally"></a>Hinzufügen von Hardware und Treiber lokal verwalten
 
-Führen Sie die Anweisungen, die vom Hersteller Hardware für die Installation neuen Hardware Hardware auf einen Server Core-Server hinzuzufügen. 
+Um die Hardware mit einem Server Core-Server hinzuzufügen, befolgen Sie die Anweisungen, die vom Hardwarehersteller zur Installation neuer Hardware aus. 
 
-Wenn die Hardware nicht Plug & Play ist, müssen Sie die Treiber manuell installieren. Klicken Sie dazu kopieren Sie die Dateien an einen temporären Speicherort auf dem Server, und führen Sie dann den folgenden Befehl aus:
+Wenn die Hardware nicht Plug & Play ist, müssen Sie die Treiber manuell installieren. Hierzu kopieren Sie die Treiberdateien in einen temporären Speicherort auf dem Server, und führen Sie dann den folgenden Befehl aus:
 ```
 pnputil –i –a <driverinf>
 ```
-Dabei ist *Driverinf* der Dateiname der INF-Datei für den Treiber.
+Wo *Driverinf* ist der Dateiname der INF-Datei für den Treiber.
 
-Wenn Sie aufgefordert werden, starten Sie den Computer neu.
+Starten Sie den Computer bei entsprechender Aufforderung neu.
 
-Um herauszufinden, welche Treiber installiert sind, führen Sie den folgenden Befehl aus: 
+Um anzuzeigen, welche Treiber installiert sind, führen Sie den folgenden Befehl aus: 
 ```
 sc query type= driver
 ```
 
 > [!NOTE] 
-> Sie müssen nach dem Gleichheitszeichen für den Befehl erfolgreich abgeschlossen das Leerzeichen enthalten.
+> Sie müssen hinter dem Gleichheitszeichen ein Leerzeichen einfügen, damit der Befehl erfolgreich ausgeführt werden kann.
 
-Führen Sie die folgenden Schritte aus, um Gerätetreiber zu deaktivieren: 
+Um einen Gerätetreiber zu deaktivieren, führen Sie die folgenden Schritte aus: 
 ```
 sc delete <service_name>
 ```
 
-Wobei *Dienstname* ist der Name des Diensts, die Sie erhalten haben, als Sie ausgeführt haben **sc Abfragetyp = Treiber**.
+In denen *Service_name* ist der Name des Diensts, den Sie abgerufen haben, bei der Ausführung **Abfragetyp sc = Treiber**.

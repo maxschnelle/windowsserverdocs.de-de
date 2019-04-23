@@ -10,21 +10,21 @@ author: JasonGerend
 ms.date: 08/24/2016
 ms.localizationpriority: medium
 ms.openlocfilehash: 0c39d704056c4ae6935f3be9c521c12ca1014820
-ms.sourcegitcommit: 9db0d8b328a286b9a40fe3ab1890703ab025a0f3
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "5014063"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59870551"
 ---
-# Integritätsverwaltung für Speicherklassenspeicher (NVDIMM-N) in Windows
+# <a name="storage-class-memory-nvdimm-n-health-management-in-windows"></a>Integritätsverwaltung für Speicherklassenspeicher (NVDIMM-N) in Windows
 > Gilt für: Windows Server 2016, Windows 10 (Version 1607)
 
 In diesem Artikel finden Systemadministratoren und IT-Experten Informationen zur Fehlerbehandlung und Integritätsverwaltung bei Speicherklassenspeichergeräten (NVDIMM-N) in Windows. Dabei werden die Unterschiede zwischen Speicherklassenspeicher und herkömmlichen Speichergeräten hervorgehoben.
 
 Wenn Sie nicht mit der Windows-Unterstützung für Speicherklassenspeichergeräte vertraut sind, können Sie sich in diesen kurzen Videos einen Überblick verschaffen:
-- [Using Non-volatile Memory (NVDIMM-N) as Block Storage in Windows Server 2016 (Verwenden von permanentem Speicher [NVDIMM-N] als Blockspeicher in Windows Server 2016)](https://channel9.msdn.com/Events/Build/2016/P466)
-- [Using Non-volatile Memory (NVDIMM-N) as Byte-Addressable Storage in Windows Server 2016 (Verwenden von permanentem Speicher [NVDIMM-N] als byteadressierbaren Speicher in Windows Server 2016)](https://channel9.msdn.com/Events/Build/2016/P470)
-- [Beschleunigen der SQL Server 2016-Leistung bei beständigen Speicher in Windows Server 2016](https://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-2016-and-Windows-Server-2016-SCM--FAST)
+- [Verwenden von Non-Volatile Memory (NVDIMM-N) as Block Storage in WindowsServer 2016](https://channel9.msdn.com/Events/Build/2016/P466)
+- [Verwenden von Non-Volatile Memory (NVDIMM-N) als Byte-Addressable Storage in WindowsServer 2016](https://channel9.msdn.com/Events/Build/2016/P470)
+- [Gleichzeitig die Leistung von SQL Server 2016 mit persistenten Speicher in Windows Server 2016](https://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-2016-and-Windows-Server-2016-SCM--FAST)
 
 Ab Windows Server 2016 und Windows 10 (Version 1607) werden JEDEC-kompatible NVDIMM-N-Speicherklassenspeichergeräte in Windows mit nativen Treibern unterstützt. Wenngleich das Verhalten dieser Geräte mit dem Verhalten anderer Datenträger (HDDs und SSDs) vergleichbar ist, müssen einige Unterschiede berücksichtigt werden.
 
@@ -32,14 +32,14 @@ Bei allen hier aufgeführten Bedingungen wird davon ausgegangen, dass diese äu�
 
 Die verschiedenen unten beschriebenen Fälle können sich auf Speicherplatzkonfigurationen beziehen. Die relevante Konfiguration beinhaltet zwei NVDIMM-N-Geräte, die als gespiegelter Zurückschreibcache in einem Speicherplatz verwendet werden. Informationen zum Einrichten einer solchen Konfiguration finden Sie unter [Konfigurieren von Speicherplätzen mit NVDIMM-N-Zurückschreibcache](https://msdn.microsoft.com/library/mt650885.aspx).
 
-In Windows Server2016 zeigt die GUI für Speicherplätze den NVDIMM-N-Bustyp als UNBEKANNT an. Es gibt keinen Funktionalitätsverlust oder Unfähigkeit bei der Erstellung des Pool- und Speicher-VD. Der Bustyp kann mithilfe des folgenden Befehls überprüft werden:
+In Windows Server 2016 zeigt die GUI für Speicherplätze den NVDIMM-N-Bustyp als UNBEKANNT an. Es gibt keinen Funktionalitätsverlust oder Unfähigkeit bei der Erstellung des Pool- und Speicher-VD. Der Bustyp kann mithilfe des folgenden Befehls überprüft werden:
 
 ```powershell
 PS C:\>Get-PhysicalDisk | fl
 ```
 Der Parameter "BusType" in der Ausgabe des Cmdlets zeigt den Bustyp korrekt als "SCM" an.
 
-## Überprüfen der Integrität von Speicherklassenspeicher
+## <a name="checking-the-health-of-storage-class-memory"></a>Überprüfen der Integrität von Speicherklassenspeicher
 Verwenden Sie die folgenden Befehle in einer Windows PowerShell-Sitzung, um die Integrität von Speicherklassenspeicher abzufragen.
 
 ```powershell
@@ -50,22 +50,22 @@ Dabei wird folgende Beispielausgabe zurückgegeben:
 
 |SerialNumber|HealthStatus|OperationalStatus|OperationalDetails|
 |---|---|---|---|
-|802c-01-1602-117cb5fc|Healthy|OK||
-|802c-01-1602-117cb64f|Warning|Vorhersehbarer Fehler|{Threshold Exceeded,NVDIMM\_N Error}|
+|802c-01-1602-117cb5fc|Fehlerfrei|OK||
+|802c-01-1602-117cb64f|Warnung|Predictive Failure|{Threshold Exceeded,NVDIMM\_N Error}|
 
 > [!NOTE]
-> Um den Standort eines in einem Ereignis angegebenen NVDIMM-N-Geräts zu finden, gehen Sie auf der Registerkarte **Details** in der Ereignisanzeige auf **EventData** > **Speicherort**. Beachten Sie, dass Windows Server2016 die NVDIMM-N-Geräte mit falschem Speicherort aufführt. Dies wurde in Windows Server, Version 1709, behoben.
+> Um den Standort eines in einem Ereignis angegebenen NVDIMM-N-Geräts zu finden, gehen Sie auf der Registerkarte **Details** in der Ereignisanzeige auf **EventData** > **Speicherort**. Beachten Sie, dass Windows Server 2016 die NVDIMM-N-Geräte mit falschem Speicherort aufführt. Dies wurde in Windows Server, Version 1709, behoben.
 
 In den folgenden Abschnitten finden Sie Informationen zu den verschiedenen Integritätszuständen.
 
-## Integritätsstatus „Warning“
+## <a name="warning-health-status"></a>Integritätsstatus „Warning“
 
 Diese Bedingung liegt vor, wenn beim Überprüfen der Integrität eines Speicherklassenspeichergeräts der Integritätsstatus **Warning** zurückgegeben wird (wie in der folgenden Beispielausgabe gezeigt):
 
 |SerialNumber|HealthStatus|OperationalStatus|OperationalDetails|
 |---|---|---|---|
-|802c-01-1602-117cb5fc|Healthy|OK||
-|802c-01-1602-117cb64f|Warning|Vorhersehbarer Fehler|{Threshold Exceeded,NVDIMM\_N Error}|
+|802c-01-1602-117cb5fc|Fehlerfrei|OK||
+|802c-01-1602-117cb64f|Warnung|Predictive Failure|{Threshold Exceeded,NVDIMM\_N Error}|
 
 Die folgende Tabelle enthält Informationen zu dieser Bedingung.
 
@@ -76,15 +76,15 @@ Die folgende Tabelle enthält Informationen zu dieser Bedingung.
 |Allgemeines Verhalten|Das Gerät bleibt voll funktionsfähig. Dies ist eine Warnung, kein Fehler.|
 |Speicherplatzverhalten|Das Gerät bleibt voll funktionsfähig. Dies ist eine Warnung, kein Fehler.|
 |Weitere Informationen|OperationalStatus-Feld des PhysicalDisk-Objekts. EventLog – Microsoft-Windows-ScmDisk0101/Operational|
-|Erforderlich|Abhängig davon, welcher Warnungsschwellenwert überschritten wurde, kann es sinnvoll sein, das NVDIMM-N-Gerät vollständig oder teilweise zu ersetzen. Wenn z.B. der Schwellenwert zur NVM-Lebensdauer überschritten wurde, sollte das NVDIMM-N-Gerät ersetzt werden.|
+|Erforderlich|Abhängig davon, welcher Warnungsschwellenwert überschritten wurde, kann es sinnvoll sein, das NVDIMM-N-Gerät vollständig oder teilweise zu ersetzen. Wenn z. B. der Schwellenwert zur NVM-Lebensdauer überschritten wurde, sollte das NVDIMM-N-Gerät ersetzt werden.|
 
-## Fehler bei Schreibvorgängen auf einem NVDIMM-N-Gerät
+## <a name="writes-to-an-nvdimm-n-fail"></a>Fehler bei Schreibvorgängen auf einem NVDIMM-N-Gerät
 
 Diese Bedingung liegt vor, wenn beim Überprüfen der Integrität eines Speicherklassenspeichergeräts der Integritätsstatus **Unhealthy** und im Betriebsstatus ein **IO Error** zurückgegeben wird (wie in der folgenden Beispielausgabe gezeigt):
 
 |SerialNumber|HealthStatus|OperationalStatus|OperationalDetails|
 |---|---|---|---|
-|802c-01-1602-117cb5fc|Healthy|OK||
+|802c-01-1602-117cb5fc|Fehlerfrei|OK||
 |802c-01-1602-117cb64f|Unhealthy|{Stale Metadata, IO Error, Transient Error}|{Lost Data Persistence, Lost Data, NV...}|
 
 Die folgende Tabelle enthält Informationen zu dieser Bedingung.
@@ -98,14 +98,14 @@ Die folgende Tabelle enthält Informationen zu dieser Bedingung.
 |Weitere Informationen|OperationalStatus-Feld des PhysicalDisk-Objekts.<br>EventLog – Microsoft-Windows-ScmDisk0101/Operational|
 |Erforderlich|Die Daten des betroffenen NVDIMM-N-Geräts sollten gesichert werden. Um Lesezugriff zu erhalten, können Sie den Datenträger manuell verfügbar machen (er wird als schreibgeschütztes NTFS-Volume angezeigt).<br><br>Um dieses Problem vollständig zu lösen, muss die Ursache behandelt werden (abhängig vom Problem muss die Stromversorgung wiederhergestellt oder das NVDIMM-N-Gerät ersetzt werden). Außerdem muss das Volume auf dem NVDIMM-N-Gerät offline und dann erneut online geschaltet bzw. das System neu gestartet werden.<br><br>Um das NVDIMM-N-Gerät erneut im Speicherplatzfeature nutzen zu können, verwenden Sie das Cmdlet **Reset-PhysicalDisk**, mit dem das Gerät erneut integriert und der Reparaturvorgang gestartet wird.|
 
-## Das NVDIMM-N-Gerät wird mit einer Kapazität von 0Byte oder als „Generic Physical Disk“ angezeigt
+## <a name="nvdimm-n-is-shown-with-a-capacity-of-0-bytes-or-as-a-generic-physical-disk"></a>Das NVDIMM-N-Gerät wird mit einer Kapazität von 0 Byte oder als „Generic Physical Disk“ angezeigt
 
-Diese Bedingung tritt ein, wenn ein Speicherklassenspeichergerät mit einer Kapazität von 0Bytes angezeigt wird und nicht initialisiert werden kann, oder wenn das Gerät als „Generic Physical Disk“ mit dem Betriebsstatus **Lost Communication** angezeigt wird (siehe Beispielausgabe unten):
+Diese Bedingung tritt ein, wenn ein Speicherklassenspeichergerät mit einer Kapazität von 0 Bytes angezeigt wird und nicht initialisiert werden kann, oder wenn das Gerät als „Generic Physical Disk“ mit dem Betriebsstatus **Lost Communication** angezeigt wird (siehe Beispielausgabe unten):
 
 |SerialNumber|HealthStatus|OperationalStatus|OperationalDetails|
 |---|---|---|---|
-|802c-01-1602-117cb5fc|Healthy|OK||
-||Warning|Lost Communication||
+|802c-01-1602-117cb5fc|Fehlerfrei|OK||
+||Warnung|Lost Communication||
 
 Die folgende Tabelle enthält Informationen zu dieser Bedingung.
 
@@ -113,18 +113,18 @@ Die folgende Tabelle enthält Informationen zu dieser Bedingung.
 |---|---|
 |Wahrscheinliche Bedingung|Das BIOS hat NVDIMM-N nicht für das Betriebssystem offengelegt.|
 |Ursache|NVDIMM-N-Geräte sind DRAM-basiert. Wenn auf eine beschädigte DRAM-Adresse verwiesen wird, initiieren die meisten CPUs eine Computerprüfung und starten den Server neu. Einige Serverplattformen heben dann die Zuordnung des NVDIMM-Geräts auf und verhindern damit, dass das Betriebssystem darauf zugreifen kann. Außerdem wird durch diesen Vorgang möglicherweise erneut eine Computerprüfung ausgelöst. Diese Situation kann auch eintreten, wenn das BIOS ermittelt, dass das NVDIMM-N-Gerät ausgefallen ist und ersetzt werden muss.|
-|Allgemeines Verhalten|Das NVDIMM-N-Gerät wird als nicht initialisiert und mit einer Kapazität von 0Bytes angezeigt. Es können keine Schreib- oder Lesevorgängen für dieses Gerät ausgeführt werden.|
+|Allgemeines Verhalten|Das NVDIMM-N-Gerät wird als nicht initialisiert und mit einer Kapazität von 0 Bytes angezeigt. Es können keine Schreib- oder Lesevorgängen für dieses Gerät ausgeführt werden.|
 |Speicherplatzverhalten|Das Speicherplatzfeature bleibt funktionsfähig (sofern nur ein NVDIMM-N-Gerät betroffen ist).<br>Für das PhysicalDisk-Objekt des NVDIMM-N-Geräts wird der Integritätsstatus „Warning“ angezeigt. Außerdem wird dieses Objekt als „General Physical Disk“ aufgeführt.|
 |Weitere Informationen|OperationalStatus-Feld des PhysicalDisk-Objekts. <br>EventLog – Microsoft-Windows-ScmDisk0101/Operational|
 |Erforderlich|Das NVDIMM-N-Gerät muss ersetzt oder bereinigt werden, damit die Serverplattform das Gerät erneut für das Hostbetriebssystem offenlegt. Da weitere nicht behebbare Fehler auftreten können, sollte das Gerät ersetzt werden. Zum Hinzufügen eines Ersatzgeräts zu einer Speicherplatzkonfiguration kann das Cmdlet **Add-Physicaldisk** verwendet werden.|
 
-## Das NVDIMM-N-Gerät wird nach einem Neustart als Rohdatenträger oder leerer Datenträger angezeigt
+## <a name="nvdimm-n-is-shown-as-a-raw-or-empty-disk-after-a-reboot"></a>Das NVDIMM-N-Gerät wird nach einem Neustart als Rohdatenträger oder leerer Datenträger angezeigt
 
 Diese Bedingung liegt vor, wenn beim Überprüfen der Integrität eines Speicherklassenspeichergeräts der Integritätsstatus **Unhealthy** und als Betriebsstatus **Unrecognized Metadata** zurückgegeben wird (wie in der folgenden Beispielausgabe gezeigt):
 
 |SerialNumber|HealthStatus|OperationalStatus|OperationalDetails|
 |---|---|---|---|
-|802c-01-1602-117cb5fc|Healthy|OK|{Unknown}|
+|802c-01-1602-117cb5fc|Fehlerfrei|OK|{Unknown}|
 |802c-01-1602-117cb64f|Unhealthy|{Unrecognized Metadata, Stale Metadata}|{Unknown}|
 
 Die folgende Tabelle enthält Informationen zu dieser Bedingung.
@@ -138,7 +138,7 @@ Die folgende Tabelle enthält Informationen zu dieser Bedingung.
 |Weitere Informationen|OperationalStatus-Feld des PhysicalDisk-Objekts.<br>EventLog – Microsoft-Windows-ScmDisk0101/Operational|
 |Erforderlich|Wenn der Benutzer das betroffene Gerät nicht ersetzen möchte, kann er mithilfe des Cmdlets **Reset-PhysicalDisk** den Schreibschutz des betroffenen NVDIMM-N-Geräts entfernen. In einer Speicherplatzumgebung wird dabei außerdem versucht, das NVDIMM-N-Gerät erneut in das Speicherplatzfeature zu integrieren und den Reparaturvorgang zu starten.|
 
-## Überlappende Gruppen
+## <a name="interleaved-sets"></a>Überlappende Gruppen
 
 Häufig können im BIOS einer Plattform überlappende Gruppen erstellt werden, um mehrere NVDIMM-N-Geräte als ein einziges Gerät für das Hostbetriebssystem anzuzeigen.
 

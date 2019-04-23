@@ -1,22 +1,23 @@
 ---
 title: ReFS Integrity Streams
-description: 
+description: ''
 author: gawatu
 ms.author: jgerend
 manager: dmoss
-ms.date: 11/14/2016
+ms.date: 10/16/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
 ms.assetid: 1f1215cd-404f-42f2-b55f-3888294d8a1f
-ms.openlocfilehash: d9e14e74591b341048316e9c2e69a312062c3304
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.openlocfilehash: 11f0a696fb843f5cd8b4a7ff3318c28d6c1adeb8
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59871341"
 ---
 # <a name="refs-integrity-streams"></a>ReFS Integrity Streams
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10
+>Gilt für: WindowsServer 2019, WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, WindowsServer (Halbjährlicher Kanal), Windows 10
 
 Integrität-Streams ist ein optionales Feature in ReFS, das die Datenintegrität mithilfe von Prüfsummen überprüft und verwaltet. Während ReFS immer Prüfsummen für Metadaten verwendet, erstellt oder überprüft ReFS standardmäßig keine Prüfsummen für Dateidaten. Integrity Streams ist ein optionales Feature, mit dem Benutzer die Verwendung von Prüfsummen für Dateidaten verwenden können. Wenn Integrity Streams aktiviert sind, können ReFS eindeutig bestimmen, ob Daten ungültig oder beschädigt ist. Darüber hinaus können ReFS und Speicherplätze gemeinsam automatisch beschädigte Metadaten und Daten korrigieren.
 
@@ -26,7 +27,7 @@ Integrity Streams kann für einzelne Dateien, Verzeichnisse oder das gesamte Vol
 
 Nachdem Integrity Streams aktiviert ist, erstellt und verwaltet ReFS eine Prüfsumme für die angegebenen Dateien in den Metadaten der Dateien. Diese Prüfsumme ermöglicht ReFS vor dem Zugriff die Integrität der Daten zu überprüfen. ReFS berechnet vor dem Zurückgeben von Daten, die Integrity Streams aktiviert haben, deren Prüfsumme:
 
-<img src=media/compute-checksum.gif alt="Compute checksum for file data"/>
+![Berechnen der Prüfsumme für Dateidaten](media/compute-checksum.gif)
 
 Anschließend wird die Prüfsumme mit den in der Datei enthaltenen Metadaten verglichen. Wenn die Prüfsummen übereinstimmen, werden die Daten als gültig markiert und an den Benutzer zurückgegebenen. Wenn die Prüfsummen nicht übereinstimmen, sind die Daten beschädigt. Die Volume-Resilienz entscheidet, wie ReFS auf Beschädigungen reagiert:
 
@@ -37,7 +38,7 @@ Anschließend wird die Prüfsumme mit den in der Datei enthaltenen Metadaten ver
 
 ReFS zeichnet alle Schäden im Systemereignisprotokoll auf. Das Protokoll spiegelt wieder, ob die Schäden behoben wurden. 
 
-<img src=media/corrective-write.gif alt="Corrective write restores data integrity."/>
+![Korrekturmaßnahmen schreiben stellt die Datenintegrität wieder her.](media/corrective-write.gif)
 
 ## <a name="performance"></a>Leistung 
 
@@ -92,8 +93,8 @@ PS C:\> Set-FileIntegrity H:\ -Enable $True
 PS C:\> Set-FileIntegrity H:\Docs -Enable $True
 ```
 
-## <a name="see-also"></a>Weitere Informationen finden Sie unter
+## <a name="see-also"></a>Siehe auch
 
--   [ReFS – Übersicht](refs-overview.md)
--   [Block-Clone-Vorgänge auf ReFS](block-cloning.md)
--   [Direkte Speicherplätze – Übersicht](../storage-spaces/storage-spaces-direct-overview.md)
+-   [ReFS-Übersicht](refs-overview.md)
+-   [Klonen von ReFS-block](block-cloning.md)
+-   [Übersicht über Storage "direkte Speicherplätze"](../storage-spaces/storage-spaces-direct-overview.md)

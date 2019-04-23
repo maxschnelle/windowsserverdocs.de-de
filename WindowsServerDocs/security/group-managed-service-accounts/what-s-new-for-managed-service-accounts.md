@@ -1,5 +1,5 @@
 ---
-title: "Neues für verwaltete Dienstkonten"
+title: What's New for Managed Service Accounts
 description: Windows Server-Sicherheit
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -14,41 +14,42 @@ ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
 ms.openlocfilehash: cac55d04a40c84ce160eb3883d6095a7db0ef3be
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59872181"
 ---
-# <a name="what39s-new-for-managed-service-accounts"></a>Was & #39; s für verwaltete Dienstkonten
+# <a name="what39s-new-for-managed-service-accounts"></a>Was&#39;Neues in verwalteten Dienstkonten
 
->Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
-In diesem Thema für IT-Experten werden die Änderungen an der Funktionalität für verwaltete Dienstkonten mit der Einführung des Gruppenverwalteten Dienstkontos (gMSA) in Windows Server 2012 und Windows 8 beschrieben.
+In diesem Thema für IT-Experten beschreibt die Änderungen an der Funktionalität für Gruppenverwaltete Dienstkonten: Übersicht mit der Einführung der gruppenverwalteten Dienstkontos (gMSA) in Windows Server 2012 und Windows 8.
 
-Das verwaltete Dienstkonto dient zum Bereitstellen der Dienste und Aufgaben wie das Windows-Dienste und IIS-Anwendungspools für die eigenen Domänenkonten zu teilen, während ein Administrator Kennwörter für diese Konten manuell verwaltet überflüssig. Es ist von verwalteten Domänenkonten, die automatische kennwortverwaltung bereitstellt.
+Das verwaltete Dienstkonto wurde entwickelt, damit Dienste und Aufgaben wie Windows-Dienste und ISS-Anwendungspools eigene Domänenkonten zur Verfügung stellen und dabei die Anforderung an Administratoren wegfällt, diesen Konten manuell Kennwörter zuweisen zu müssen. Die automatische Kennwortverwaltung wird von verwalteten Domänenkonten bereitgestellt.
 
-## <a name="versions"></a>Neues für verwaltete Dienstkonten in Windows Server 2012 und Windows 8
-Im folgenden wird beschrieben, welche Änderungen an der Funktionalität auf Microsoft-Konto in Windows Server 2012 und Windows 8 vorgenommen wurden.
+## <a name="versions"></a>Neues bei verwalteten Dienstkonten in Windows Server 2012 und Windows 8
+Im folgenden wird beschrieben, welche Änderungen an der Funktionalität funktionsänderungen in Windows Server 2012 und Windows 8 vorgenommen wurden.
 
 ### <a name="group-managed-service-accounts"></a>Gruppenverwaltete Dienstkonten
-Wenn ein Domänenkonto für einen Server in einer Domäne konfiguriert ist, kann der Clientcomputer authentifizieren und eine Verbindung dazu herstellen. Zuvor wurden nur zwei Kontotypen Identität ohne Verwaltung bereitgestellt. Aber diese Kontotypen haben Einschränkungen:
+Wenn ein Domänenkonto für einen Server in einer Domäne konfiguriert wird, kann sich der Clientcomputer bei diesem Gerät authentifizieren und eine Verbindung dazu herstellen. Zuvor stellen nur zwei Kontotypen eine Identität zur Verfügung, ohne dass die Kennwortverwaltung erforderlich war. Diese Kontotypen haben jedoch Einschränkungen:
 
--   Computerkonto ist auf einen Domänenserver beschränkt und die Kennwörter werden vom Computer verwaltet.
+-   Das Computerkonto ist auf einen Domänenserver beschränkt und die Kennwörter werden vom Computer verwaltet.
 
 -   Das verwaltete Dienstkonto ist auf einen Domänenserver beschränkt und die Kennwörter werden vom Computer verwaltet.
 
-Diese Konten können nicht über mehrere Systeme hinweg freigegeben werden. Aus diesem Grund müssen Sie das Konto für jeden Dienst auf jedem System, um zu verhindern, dass unerwünschte Kennwortablauf regelmäßig warten.
+Diese Konten können nicht über mehrere Systeme hinweg freigegeben werden. Aus diesem Grund muss das Konto im Hinblick auf alle Dienste auf allen Systemen regelmäßig gewartet werden, um zu verhindern, dass das Kennwort unbeabsichtigterweise abläuft.
 
-**Hinzufügen der Wert diese Änderung?**
+**Welchen Nutzen bietet diese Änderung?**
 
-Die Group-Managed Service Account löst dieses Problem, da das Kontokennwort von Windows Server 2012-Domänencontroller verwaltet wird und durch mehrere Windows Server 2012-Systeme abgerufen werden kann. Das minimiert den administrativen Mehraufwand eines Dienstkontos, indem Windows gestattet wird, die kennwortverwaltung für diese Konten zu behandeln.
+Das gruppenverwaltete Dienstkonto löst dieses Problem, da das Kennwort für das von Windows Server 2012-Domänencontrollern verwaltet wird und von mehreren Windows Server 2012--Systemen abgerufen werden kann. Das minimiert den administrativen Mehraufwand eines Dienstkontos, indem Windows gestattet wird, die Kennwortverwaltung für diese Konten zu übernehmen.
 
 **Worin bestehen die Unterschiede?**
 
-Auf Computern kann von einem Server unter Windows Server 2012 oder Windows 8, eine Gruppe, die Microsoft-Konto erstellt und über den Dienst-Manager verwaltet, sodass mehrere Instanzen des Diensts, z. B. bereitgestellt, über eine Serverfarm verwaltet werden. Tools und Hilfsprogrammen, die Sie zur Verwaltung von verwalteten Dienstkonten, z. B. IIS Application Pool Manager können mit Gruppenverwalteten Dienstkonten verwendet werden. Domänenadministratoren können die dienstverwaltung an Dienstadministratoren delegieren, die den gesamten Lebenszyklus eines verwalteten Dienstkontos oder Gruppenverwalteten Dienstkontos verwalten können. Vorhandene Computer werden zu allen solchen Diensten authentifizieren, ohne zu wissen, welcher Dienstinstanz sie das tun.
+Auf Computern kann von einem Server unter Windows Server 2012 oder Windows 8, einer Gruppe MSA erstellt und über den Dienststeuerungs-Manager verwaltet werden, damit mehrere Instanzen des Diensts wird z. B. über eine Serverfarm bereitgestellt werden kann, verwaltet werden. Tools und Hilfsprogramme zur Verwaltung von verwalteten Dienstkonten, etwa der ISS-Anwendungspoolmanager, können mit gruppenverwalteten Dienstkonten verwendet werden. Domänenadministratoren können die Dienstverwaltung an Dienstadministratoren delegieren, die den gesamten Lebenszyklus eines verwalteten oder gruppenverwalteten Dienstkontos verwalten können. Bestehende Clientcomputer können sich bei allen solchen Diensten authentifizieren, ohne zu wissen, bei welcher Dienstinstanz sie das tun.
 
-### <a name="interoperability"></a>Entfernte oder veraltete Funktionen
-Für Windows Server 2012, die Windows PowerShell-Cmdlets standardmäßig für die Verwaltung der Gruppenverwalteten Dienstkonten anstatt die serververwalteten Dienstkonten.
+### <a name="interoperability"></a>Entfernten oder veralteten Funktionen
+Für Windows Server 2012, die Windows PowerShell-Cmdlets standardmäßig für die Verwaltung der gruppenverwalteten Dienstkonten anstatt für die Server verwalteten Dienstkonten.
 
 ## <a name="see-also"></a>Siehe auch
 

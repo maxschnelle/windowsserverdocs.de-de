@@ -1,7 +1,7 @@
 ---
 ms.assetid: 28043fc4-a34d-4710-ac3b-5c9d4d6a895c
-title: "Ändern Sie der Name des Unternehmens auf dem AD FS-Anmeldeseite"
-description: 
+title: Ändern Sie den Namen "Unternehmen" auf der AD FS-Anmeldeseite
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,27 +9,28 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 8e99f6fed8922ed15bf78a98b207b6f46767763a
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.openlocfilehash: 1711e7d7de871c9ae9b1b7ea7b21f6e75ae15220
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59868471"
 ---
-# <a name="change-the-company-name-on-the-ad-fs-sign-in-page"></a>Ändern Sie der Name des Unternehmens auf dem AD FS-Anmeldeseite
+# <a name="change-the-company-name-on-the-ad-fs-sign-in-page"></a>Ändern Sie den Namen "Unternehmen" auf der AD FS-Anmeldeseite
 
->Gilt für: Windows Server 2016, Windows Server2012 R2
+>Gilt für: Windows Server 2016, Windows Server 2012 R2
  
-Zum Ändern des Namens des Unternehmens, die auf der Anmeldeseite angezeigt wird, verwenden Sie die folgenden Windows PowerShell-PowerShell-Cmdlet und die folgende Syntax. Dieser Wert wird standardmäßig festgelegt, mit dem Wert aus dem Verbunddienst Anzeigenamen, den Sie während des Setups eingegeben haben.  
+So ändern Sie den Namen des Unternehmens, die auf die Anmeldeseite angezeigt wird\-auf der Seite verwenden Sie die folgenden Windows PowerShell-Cmdlets und Syntax. Dieser Wert wird standardmäßig festgelegt, indem der Wert des Verbunddienst-Anzeigenamens verwendet wird, den Sie während des Setups eingegeben haben.  
 
-![Ändern Sie den Namen](media/AD-FS-user-sign-in-customization/ADFS_Blue_Custom1.png)
+![Ändern des Namens](media/AD-FS-user-sign-in-customization/ADFS_Blue_Custom1.png)
   
   
     Set-AdfsGlobalWebContent –CompanyName "Contoso Corp"  
  
   
 > [!NOTE]  
-> Die Windows PowerShell Integrated Scripting Environment \(ISE\) können auch den Firmennamen ändern. Mithilfe der Windows PowerShell ISE können Sie Inhalte in einer Umgebung mit farblich gekennzeichneter Syntax kompatible anzeigen. Weitere Informationen finden Sie unter [Einführung in die Windows PowerShell ISE](https://technet.microsoft.com/library/dd315244.aspx).  
+> Sie können auch die Windows PowerShell integrierte Skriptumgebung \(ISE\) so ändern Sie den Firmennamen. Mithilfe der Windows PowerShell ISE können Sie Inhalte in einem Unicodeprogramm anzeigen\-kompatiblen Umgebung. Weitere Informationen finden Sie unter [Introducing the Windows PowerShell ISE](https://technet.microsoft.com/library/dd315244.aspx).  
 
 ## <a name="additional-references"></a>Weitere Verweise 
-[AD FS-Anmeldung Anpassung durch den Benutzer](AD-FS-user-sign-in-customization.md)  
+[AD FS-Anmeldung Benutzeranpassung](AD-FS-user-sign-in-customization.md)  
   

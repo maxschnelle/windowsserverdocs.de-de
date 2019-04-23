@@ -1,6 +1,6 @@
 ---
 title: RADIUS-Clients
-description: Dieses Thema enthält eine Übersicht über RADIUS-Clients für Netzwerkrichtlinienserver in Windows Server2016.
+description: Dieses Thema enthält einen Überblick über RADIUS-Clients für Netzwerkrichtlinienserver unter Windows Server 2016.
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking
@@ -8,78 +8,79 @@ ms.topic: article
 ms.assetid: d3a09ac9-75f8-4f57-aab4-b0fdfe110118
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: a970dabcc6f3f4fc4d8ed5a0dedd01b5a7dee71a
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: fdca45237d971c1b2e08443112b63d3ce77e4a2d
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59874311"
 ---
 # <a name="radius-clients"></a>RADIUS-Clients
 
->Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
-Netzwerkserver \(NAS\) ist ein Gerät, das einige Zugriffsrechte auf einem größeren Netzwerk bereitstellt. Ein NAS eine RADIUS-Infrastruktur ist auch ein RADIUS-Client, Senden von Verbindungsanforderungen und Kontoführungsnachrichten an einen RADIUS-Server für die Authentifizierung, Autorisierung und Kontoführung.
+Network Access Server \(NAS\) ist ein Gerät, das Zugriff auf ein größeres Netzwerk bereitstellt. Eine RADIUS-Infrastruktur NAS ist auch ein RADIUS-Client, senden verbindungsanforderungen und Kontoführungsnachrichten an einen RADIUS-Server für die Authentifizierung, Autorisierung und ressourcenerfassung.
 
 >[!NOTE]
->Clientcomputer, z.B. Laptops und andere Computer mit Clientbetriebssystemen, sind keine RADIUS-Clients. RADIUS-Clients sind Netzwerkzugriffsserver – z.B. Drahtloszugriffspunkte, 802.1X-Authentifizierungsswitches, VPN-\(VPN\) Servern und DFÜ-Server -, da sie das RADIUS-Protokoll zur Kommunikation mit RADIUS-Servern, z.B. Netzwerkrichtlinienserver \(NPS\) verwenden.
+>Clientcomputer, z. B. Laptops und andere Computer mit Clientbetriebssystemen, sind keine RADIUS-Clients. RADIUS-Clients sind Netzwerkzugriffsserver – z. B. Drahtloszugriffspunkte, 802.1X-Authentifizierungsswitches, virtuelles privates Netzwerk \(VPN\) -Server und DFÜ-Server – da sie das RADIUS-Protokoll verwenden, für die Kommunikation mit RADIUS Server wie Network Policy Server \(NPS\) Server.
 
-Wenn Sie NPS als RADIUS-Server oder RADIUS-Proxy bereitstellen, müssen Sie RADIUS-Clients in NPS konfigurieren.
+Um NPS als RADIUS-Server oder einen RADIUS-Proxy bereitzustellen, müssen Sie die RADIUS-Clients in NPS konfigurieren.
 
-## <a name="radius-client-examples"></a>Beispiele für die RADIUS-Client
+## <a name="radius-client-examples"></a>Beispiele für die RADIUS-client
 
 Beispiele für Netzwerkzugriffsserver sind:
 
-- Netzwerkzugriffsserver, die RAS-Konnektivität mit einem Unternehmensnetzwerk oder dem Internet zu ermöglichen. Ein Beispiel ist ein Computer unter dem Betriebssystem Windows Server2016 und der RAS-Dienst, der entweder herkömmliche DFÜ-bereitstellt oder virtuelles privates Netzwerk (VPN) RAS-Dienste auf ein Organisationsintranet.
-- Drahtlose Zugriffspunkte, die den Zugriff auf das Netzwerk einer Organisation mit WLAN-basierte sendet und empfängt Technologien bereitstellen.
-- Switches den Zugriff auf das Netzwerk einer Organisation ermöglichen, mit herkömmlichen LAN-Technologien, wie z.B. Ethernet.
-- RADIUS-Proxys, die Verbindungsanforderungen an RADIUS-Server weitergeleitet, die Mitglieder einer RADIUS-Remoteservergruppe sind, die auf dem RADIUS-Proxy konfiguriert ist.
+- Network Access Server, die RAS-Verbindungen mit einem Unternehmensnetzwerk oder dem Internet bereitstellen. Ein Beispiel ist ein Computer unter dem Betriebssystem Windows Server 2016 der RAS-Dienst, der bietet entweder herkömmliche Einwählverbindung, oder virtuelles privates Netzwerk (VPN) von RAS-Dienste auf ein Organisationsintranet.
+- Drahtlose Zugriffspunkte, die den Zugriff auf das Netzwerk einer Organisation, die über drahtlose übertragungs- und empfangstechnologien Technologien zu bieten.
+- Switches, die den Zugriff auf das Netzwerk einer Organisation, mit der LAN-Technologien, z. B. Ethernet bereitstellen.
+- RADIUS-Proxys, die Weiterleitung von verbindungsanforderungen an den RADIUS-Server weiterleiten, die einen remote-RADIUS-Servergruppe angehören, die auf dem RADIUS-Proxy konfiguriert ist.
 
-## <a name="radius-access-request-messages"></a>RADIUS-Zugriffsanforderung Nachrichten
+## <a name="radius-access-request-messages"></a>RADIUS-Access-Request-Nachrichten
 
-RADIUS-Clients RADIUS-Zugriffsanforderung Nachrichten erstellen und diese an einen RADIUS-Proxy oder RADIUS-Server weiterleiten, sie Nachrichten oder Weiterleiten Access-Anforderung an einen RADIUS-Server, den sie einen anderen RADIUS-Client empfangen haben, jedoch nicht selbst erstellt.
+RADIUS-Clients entweder RADIUS-Access-Request-Nachrichten erstellen und an einen RADIUS-Proxy oder RADIUS-Server weitergeleitet werden, oder sie weiterleiten Access-Request-Nachrichten an einen RADIUS-Server, den sie von einem anderen RADIUS-Client erhalten haben, aber noch nicht selbst erstellt.
 
-RADIUS-Clients verarbeiten keine Access-Anforderungsnachrichten durch Ausführen der Authentifizierung, Autorisierung und Kontoführung. RADIUS-Server führen Sie diese Funktionen.
+RADIUS-Clients verarbeiten durch Ausführen von Authentifizierung, Autorisierung und Kontoführung nicht Access-Request-Nachrichten. Nur die RADIUS-Servern führen Sie diese Funktionen.
 
-NPS, können jedoch als RADIUS-Proxy und RADIUS-Server gleichzeitig konfiguriert werden, damit einige Nachrichten Access-Anforderung verarbeitet und andere Nachrichten weitergeleitet.
+NPS, kann jedoch als RADIUS-Proxy und einem RADIUS-Server gleichzeitig konfiguriert werden, damit sie eine Access-Request-Nachrichten verarbeitet und anderen Meldungen weiterleitet.
 
-## <a name="nps-as-a-radius-client"></a>NPS als RADIUS-Client
+## <a name="nps-as-a-radius-client"></a>NPS als RADIUS-client
 
-NPS fungiert als RADIUS-Client, wenn Sie es als RADIUS-Proxy-Zugriffsanforderung Nachrichten an andere RADIUS-Server für die Verarbeitung weiterleiten konfigurieren. Wenn Sie NPS als RADIUS-Proxy verwenden, sind die folgenden allgemeinen Konfigurationsschritte erforderlich:
+NPS fungiert als RADIUS-Client, wenn Sie es als RADIUS-Proxy zum Weiterleiten von Access-Request-Nachrichten an andere RADIUS-Server für die Verarbeitung konfigurieren. Wenn Sie NPS als RADIUS-Proxy verwenden, sind die folgenden allgemeinen Konfigurationsschritte erforderlich:
 
-1. Netzwerkzugriffsserver, z.B. drahtlose Zugriffspunkte und VPN-Server, werden die IP-Adresse des NPS-Proxy als angegebenen RADIUS-Server oder der authentifizierende Server konfiguriert. Dies ermöglicht die Netzwerkzugriffsserver, die Access-Anforderungsnachrichten anhand der Informationen, dass sie von Access-Clients zum Weiterleiten von Nachrichten an den NPS-Proxy empfangen erstellen.
+1. Netzwerkzugriffsserver, z. B. drahtlose Zugriffspunkte und VPN-Server, werden mit der IP-Adresse des NPS-Proxys als die angegebenen RADIUS-Server oder der authentifizierenden Server konfiguriert. Dadurch wird die Netzwerkzugriffsserver, die Access-Request-Nachrichten basierend auf Informationen, dass der Erhalt von Access-Clients zum Weiterleiten von Nachrichten an den NPS-Proxy erstellen.
 
-2. Der NPS-Proxy konfiguriert ist, indem Sie jeden Netzwerkzugriffsserver als RADIUS-Client hinzufügen. Dieser Konfigurationsschritt ermöglicht den NPS-Proxy zum Empfangen von Nachrichten aus den Netzwerkzugriffsservern und in der gesamten Authentifizierung mit ihnen kommunizieren. Darüber hinaus werden Verbindungsanforderungsrichtlinien auf dem NPS-Proxy konfiguriert, um anzugeben, welche Meldungen Access-Anforderung an einen oder mehrere RADIUS-Server weitergeleitet. Diese Richtlinien sind auch mit einem RADIUS-Remoteservergruppe, konfiguriert, die NPS darüber informiert werden, wo Sie von den Netzwerkzugriffsservern empfangenen Nachrichten gesendet.
+2. Der NPS-Proxy wird durch Hinzufügen von jeden Netzwerkzugriffsserver als RADIUS-Client konfiguriert. Dieser Konfigurationsschritt ermöglicht den NPS-Proxy zum Empfangen von Nachrichten aus der Netzwerkzugriffsserver zuzugreifen und mit ihnen in der gesamten Authentifizierung zu kommunizieren. Darüber hinaus sind Verbindungsanforderungsrichtlinien auf dem NPS-Proxy festlegen, welche Access-Request-Nachrichten zum Weiterleiten an einen oder mehrere RADIUS-Server konfiguriert. Diese Richtlinien sind auch mit einem remote-RADIUS-Servergruppe, konfiguriert, die NPS darüber informiert, wohin die Nachrichten an, dass er von der Netzwerkzugriffsserver empfängt gesendet.
 
-3. Der NPS oder andere RADIUS-Server, die Mitglieder der RADIUS-Remoteservergruppe auf dem NPS-Proxy sind sind zum Empfangen von Nachrichten aus der NPS-Proxy konfiguriert. Dies geschieht durch Konfigurieren des NPS-Proxys als RADIUS-Client.
+3. Der NPS oder andere RADIUS-Server, die auf dem NPS-Proxy die remote-RADIUS-Servergruppe angehören, werden zum Empfangen von Nachrichten vom NPS-Proxy konfiguriert. Dies erfolgt durch den Proxy NPS als RADIUS-Client konfigurieren.
 
-## <a name="radius-client-properties"></a>Eigenschaften von RADIUS-Client
+## <a name="radius-client-properties"></a>Eigenschaften von RADIUS-client
 
-Wenn Sie einen RADIUS-Client für die NPS-Konfiguration über die NPS-Konsole oder durch die Verwendung der Netsh-Befehle für Netzwerkrichtlinienserver oder Windows PowerShell-Befehle hinzufügen, konfigurieren Sie NPS zum Empfangen von RADIUS-Zugriffsanforderung Nachrichten von einem Netzwerkzugriffsserver oder RADIUS-Proxy.
+Wenn Sie einen RADIUS-Client mit der NPS-Konfiguration über die NPS-Konsole oder das Netsh-Befehle für Netzwerkrichtlinienserver oder Windows PowerShell-Befehle hinzufügen, werden Sie NPS zum Empfangen von RADIUS-Access-Request-Nachrichten von einem Network Access Server konfigurieren oder ein RADIUS-Proxy.
 
 Wenn Sie einen RADIUS-Client in NPS konfigurieren, können Sie die folgenden Eigenschaften festlegen:
 
-### <a name="client-name"></a>Client-Name
+### <a name="client-name"></a>Clientname
 
- Einen Anzeigenamen für den RADIUS-Client, wodurch es leichter zu identifizieren, wenn Sie die NPS-Snap-In oder Netsh-Befehle für den NPS verwenden.
+ Ein Anzeigename für den RADIUS-Client, dadurch wird es leichter zu identifizieren, wenn Sie die NPS-Snap-Ins oder Netsh-Befehle für den NPS zu verwenden.
 
 ### <a name="ip-address"></a>IP-Adresse
 
-Das Internet Protocol Version 4 \(IPv4\) oder der Domain Name System \(DNS\) Name des RADIUS-Clients.
+Internetprotokoll, Version 4 \(IPv4\) Adresse oder den Domain Name System \(DNS\) Name des RADIUS-Clients.
 
-### <a name="client-vendor"></a>Client-Anbieter
+### <a name="client-vendor"></a>Client-Vendor
 
-Der Hersteller des RADIUS-Clients. Andernfalls können Sie den RADIUS-Standardwert für Client-Hersteller.
+Der Hersteller des RADIUS-Clients. Andernfalls können Sie den RADIUS-Standardwert für Client-Anbieter.
 
-### <a name="shared-secret"></a>Gemeinsamen geheimen Schlüssel
+### <a name="shared-secret"></a>Gemeinsamer geheimer Schlüssel
 
-Eine Textzeichenfolge, die als Kennwort zwischen RADIUS-Clients, RADIUS-Server und RADIUS-Proxys verwendet wird. Wenn das Attribut Nachrichtenauthentifizierung verwendet wird, ist der gemeinsame geheime Schlüssel auch zum Verschlüsseln von RADIUS-Nachrichten als Schlüssel verwendet. Diese Zeichenfolge muss auf dem RADIUS-Client und dem NPS-Snap-In konfiguriert werden.
+Eine Textzeichenfolge, die als Kennwort zwischen RADIUS-Clients, RADIUS-Server und RADIUS-Proxys verwendet wird. Wenn das Attribut für die Nachrichtenauthentifizierung verwendet wird, ist der gemeinsame geheime Schlüssel auch als Schlüssel verwendet, um RADIUS-Nachrichten zu verschlüsseln. Diese Zeichenfolge muss auf dem RADIUS-Client und der NPS-Snap-in konfiguriert werden.
 
-### <a name="message-authenticator-attribute"></a>Nachricht Authentifikator-Attribut
+### <a name="message-authenticator-attribute"></a>Authenticator-Nachrichtenattribut
 
-Beschrieben in RFC 2869, "RADIUS-Erweiterungen", ein Hash Message Digest 5 \(MD5\) der gesamten RADIUS-Nachricht. Wenn der Nachrichtenauthentifizierung RADIUS-Attribut vorhanden ist, wird es überprüft. Wenn die Überprüfung fehlschlägt, wird die RADIUS-Meldung verworfen. Wenn die Clienteinstellungen das Nachrichtenauthentifizierung-Attribut erfordern nicht vorhanden ist, wird die RADIUS-Meldung verworfen. Die Verwendung des Attributs Nachrichtenauthentifizierung wird empfohlen.
+Beschrieben in RFC 2869, "RADIUS-Erweiterungen", ein Message Digest 5 \(MD5\) Hash der gesamten RADIUS-Nachricht. Wenn die Nachrichtenauthentifizierung für RADIUS-Attribut vorhanden ist, wird es überprüft. Wenn sie die Überprüfung fehlschlägt, wird die RADIUS-Nachricht verworfen. Wenn die Clienteinstellungen für die Nachrichtenauthentifizierung-Attribut ist erforderlich, und es nicht vorhanden ist, wird die RADIUS-Nachricht verworfen. Verwendung des Attributs Nachrichtenauthentifizierung wird empfohlen.
 
 >[!NOTE]
->Der Nachrichtenauthentifizierung-Attribut ist erforderlich und standardmäßig aktiviert, wenn Sie die Extensible Authentication Protocol \(EAP\)-Authentifizierung verwenden. 
+>Das Attribut für die Nachrichtenauthentifizierung ist erforderlich, und standardmäßig aktiviert, wenn Sie Extensible Authentication-Protokoll verwenden \(EAP\) Authentifizierung. 
 
 Weitere Informationen zu NPS finden Sie unter [(Network Policy Server, NPS)](nps-top.md).
 

@@ -1,256 +1,243 @@
 ---
 ms.assetid: 65ed5956-6140-4e06-8d99-8771553637d1
-title: "Herabstufen von Domänencontrollern und Domänen (Stufe 200)"
-description: 
-author: billmath
-ms.author: billmath
-manager: femila
-ms.date: 05/31/2017
+title: Tieferstufen von Domänencontrollern und Domänen (Stufe 200)
+description: ''
+author: MicrosoftGuyJFlo
+ms.author: joflore
+manager: mtillman
+ms.date: 11/14/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: c254a01da5534c1ddc673bc1e60382c166ddeda7
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.openlocfilehash: 9b3db1390e8191451ef270ce29a2a37463b1de3c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59869771"
 ---
-# <a name="demoting-domain-controllers-and-domains-level-200"></a>Herabstufen von Domänencontrollern und Domänen (Stufe 200)
+# <a name="demoting-domain-controllers-and-domains"></a>Herabstufen von Domänencontrollern und Domänen
 
->Gilt für: Windows Server2016, Windows Server2012 R2, Windows Server 2012
+>Gilt für: Windows Server
 
-In diesem Thema wird das Entfernen von AD DS mit Server-Manager oder Windows PowerShell erläutert.  
+Dieser Artikel beschreibt die Deinstallation von AD DS mit Server-Manager oder Windows PowerShell.
   
--   [AD DS-Deinstallation: Workflow](../../ad-ds/deploy/Demoting-Domain-Controllers-and-Domains--Level-200-.md#BKMK_Workflow)  
-  
--   [Herabstufung und Rollenentfernung mit WindowsPowerShell](../../ad-ds/deploy/Demoting-Domain-Controllers-and-Domains--Level-200-.md#BKMK_PS)  
-  
--   [Tiefer stufen](../../ad-ds/deploy/Demoting-Domain-Controllers-and-Domains--Level-200-.md#BKMK_Demote)  
-  
-## <a name="BKMK_Workflow"></a>AD DS-Deinstallation: Workflow  
-![Herabstufen eines Domänencontrollers](media/Demoting-Domain-Controllers-and-Domains--Level-200-/adds_demotedomainforest.png)  
-  
-> [!CAUTION]  
-> Entfernen die AD DS-Rollen mit Dism.exe oder dem Windows PowerShell DISM-Modul nach der heraufstufung zu einem Domänencontroller wird nicht unterstützt und wird verhindert, dass den Server normal starten.  
->   
-> Im Gegensatz zu Server-Manager oder das ADDSDeployment-Modul für Windows PowerShell ist DISM einen systemeigenen Dienst, der keine Kenntnisse von AD DS und deren Konfiguration hat. Verwenden Sie Dism.exe oder dem Windows PowerShell DISM-Modul nicht auf um die AD DS-Rolle zu deinstallieren, es sei denn, der Server nicht mehr als ein Domänencontroller ist.  
-  
-## <a name="BKMK_PS"></a>Herabstufung und Rollenentfernung mit WindowsPowerShell  
-  
+## <a name="ad-ds-removal-workflow"></a>AD DS-Deinstallation: workflow
+
+![AD DS Entfernen des Workflow-Diagramm](media/Demoting-Domain-Controllers-and-Domains--Level-200-/adds_demotedomainforest.png)  
+
+> [!CAUTION]
+> Das Entfernen der AD DS-Rollen mithilfe von Dism.exe oder dem Windows PowerShell DISM-Modul nach der Heraufstufung eines Domänencontrollers wird nicht unterstützt und führt dazu, dass der Server nicht mehr normal startet.
+>
+> Im Gegensatz zu Server-Manager oder dem ADDSDeployment-Modul für Windows PowerShell handelt es sich bei DISM um einen systemeigenen Dienst, der keine Kenntnisse von AD DS und deren Konfiguration hat. Verwenden Sie Dism.exe oder das Windows PowerShell DISM-Modul nicht zum Entfernen der AD DS-Rolle, es sei denn, der Server ist bereits kein Domänencontroller mehr.
+
+## <a name="demotion-and-role-removal-with-powershell"></a>Herabstufung und Rolle entfernen mit PowerShell
+
 |||  
 |-|-|  
-|**Addsdeployment- und ServerManager-Cmdlets**|Argumente (**fett** Argumente sind erforderlich. *Kursiv* Argumente können mithilfe von Windows PowerShell oder die AD DS-Konfigurations-Assistenten angegeben werden.)|  
-|Uninstall-AddsDomainController|– SkipPreChecks<br /><br />*-LocalAdministratorPassword*<br /><br />-Bestätigen<br /><br />***-Credential***<br /><br />-DemoteOperationMasterRole<br /><br />*-DNSDelegationRemovalCredential*<br /><br />-Force<br /><br />*-ForceRemoval*<br /><br />*-IgnoreLastDCInDomainMismatch*<br /><br />*-IgnoreLastDNSServerForZone*<br /><br />*-LastDomainControllerInDomain*<br /><br />-Norebootoncompletion<br /><br />*-RemoveApplicationPartitions*<br /><br />*-RemoveDNSDelegation*<br /><br />-RetainDCMetadata|  
-|Deinstallieren Sie-WindowsFeature/Remove-WindowsFeature|***-Name***<br /><br />***-IncludeManagementTools***<br /><br />*– Starten*<br /><br />-Entfernen<br /><br />-Force<br /><br />-ComputerName<br /><br />-Credential<br /><br />-LogPath<br /><br />-Vhd|  
+|**Addsdeployment- und ServerManager-Cmdlets**|Argumente (erforderliche Argumente sind **fett** markiert. Argumente in *Kursivschrift* können mithilfe von Windows PowerShell oder dem AD DS-Konfigurations-Assistenten angegeben werden.)|  
+|Uninstall-AddsDomainController|-SkipPreChecks<br /><br />*-LocalAdministratorPassword*<br /><br />-Confirm<br /><br />***-Credential***<br /><br />-DemoteOperationMasterRole<br /><br />*-DNSDelegationRemovalCredential*<br /><br />-Force<br /><br />*-ForceRemoval*<br /><br />*-IgnoreLastDCInDomainMismatch*<br /><br />*-IgnoreLastDNSServerForZone*<br /><br />*-LastDomainControllerInDomain*<br /><br />-Norebootoncompletion<br /><br />*-RemoveApplicationPartitions*<br /><br />*-RemoveDNSDelegation*<br /><br />-RetainDCMetadata|  
+|Uninstall-WindowsFeature/Remove-WindowsFeature|***-Name***<br /><br />***-IncludeManagementTools***<br /><br />*-Restart*<br /><br />-Remove<br /><br />-Force<br /><br />-ComputerName<br /><br />-Credential<br /><br />-LogPath<br /><br />-Vhd|  
   
 > [!NOTE]  
-> Die **-Anmeldeinformationen** Argument ist nur erforderlich, wenn Sie nicht bereits als Mitglied der Gruppe Organisations-Admins (Herabstufung des letzten Domänencontrollers in einer Domäne) angemeldet sind oder die Gruppe Domänen-Admins (Herabstufung eines Replikat-DC-DC).The **- Includemanagementtools** Argument ist nur erforderlich, wenn Sie alle von der AD DS-Verwaltungshilfsprogramme entfernen möchten.  
+> Das **-credential**-Argument wird nur benötigt, wenn Sie nicht bereits als Mitglied der Gruppe Unternehmens-Admins (Herabstufung des letzten DC in einer Domäne) oder der Gruppe Domänen-Admins (Herabstufung eines Replikat-DC) angemeldet sind. Das **-includemanagementtools**-Argument wird nur benötigt, wenn Sie alle AD DS-Verwaltungshilfsprogramme entfernen möchten.  
   
-## <a name="BKMK_Demote"></a>Tiefer stufen  
+## <a name="demote"></a>Tiefer stufen  
   
-### <a name="remove-roles-and-features"></a>Entfernen von Rollen und Features  
+### <a name="remove-roles-and-features"></a>Entfernen von Rollen und Features
+
 Server-Manager bietet zwei Benutzeroberflächen zum Entfernen der Active Directory-Domänendienste-Rolle:  
   
--   Die **verwalten** Menü im Haupt-Dashboard mit **Entfernen von Rollen und Features**  
+* Das Menü **Verwalten** im Haupt-Dashboard, unter **Rollen und Features entfernen**  
+
+   ![Server-Manager – entfernen von Rollen und Features](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_Manage.png)  
+
+* Klicken Sie im Navigationsbereich auf **AD DS** oder auf **Alle Server**. Blättern Sie nach unten zum Bereich **Rollen und Features**. Klicken Sie mit der rechten Maustaste auf **Active Directory-Domänendienste** in der Liste **Rollen und Features** und klicken Sie auf **Rolle oder Feature entfernen**. Diese Benutzeroberfläche überspringt die Seite **Serverauswahl**.  
+
+   ![Server-Manager – alle Server und Entfernen von Rollen und Features](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_ServerSelection.png)  
+
+Der ServerManager-Cmdlets **Uninstall-WindowsFeature** und **Remove-WindowsFeature** verhindert, dass die AD DS-Rolle entfernen, ohne den Domänencontroller herabzustufen.
   
- ![Herabstufen eines Domänencontrollers](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_Manage.png)  
+### <a name="server-selection"></a>Serverauswahl
+
+![Entfernen von Rollen und Features-Assistenten wählen Sie den Zielserver](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_ServerSelection2.png)  
+
+Im Dialogfeld **Serverauswahl** können Sie einen der zuvor zum Pool hinzugefügten Server auswählen, sofern dieser erreichbar ist. Der lokale Server, auf dem Server-Manager ausgeführt wird, ist immer automatisch verfügbar.  
+
+### <a name="server-roles-and-features"></a>Serverrollen und Features
+
+![Entfernen von Rollen und Features-Assistent – Wählen Sie Rollen entfernen](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_ServerRoles.png)  
+
+Heben Sie die Markierung im Kontrollkästchen **Active Directory-Domänendienste** auf, um einen Domänencontroller herabzustufen. Wenn der Server momentan ein Domänencontroller ist, wird dabei die AD DS-Rolle nicht entfernt und stattdessen zum Dialog **Prüfungsergebnisse** gewechselt, wo Sie die Herabstufung vornehmen können. Ansonsten werden die Binärdateien wie auch jedes andere Rollenfeature einfach entfernt.  
+
+* Entfernen Sie keine weiteren AD DS-verwandten Rollen oder Features wie z. B. DNS, GPMC oder die RSAT-Tools, falls Sie den Domänencontroller im Anschluss direkt wieder heraufstufen möchten. Durch die Entfernung weiterer Rollen und Features wird die Dauer der späteren erneuten Heraufstufung verlängert, da Server-Manager diese Features ebenfalls erneut installiert, wenn Sie die Rolle erneut installieren.  
+* Entfernen Sie nicht benötigte AD DS-Rollen und Features nach eigenem Ermessen, falls Sie den Domänencontroller permanent herabstufen möchten. Heben Sie dazu die Auswahl der Kontrollkästchen für die entsprechenden Rollen und Features auf.  
+
+   Die vollständige Liste der AD DS-verwandten Rollen und Features enthält:  
   
--   Klicken Sie auf **AD DS** oder **alle Server** im Navigationsbereich. Führen Sie einen Bildlauf nach unten, um die **Rollen und Features** Abschnitt. Mit der rechten Maustaste **Active Directory Domain Services** in der **Rollen und Features** aus, und klicken Sie auf **Rolle oder Feature entfernen **. Diese Benutzeroberfläche überspringt die **Serverauswahl** Seite.  
+   * Active Directory-Modul für Windows PowerShell-Feature  
+   * AD DS- und AD LDS-Tools-Feature  
+   * Active Directory-Verwaltungscenter-Feature  
+   * AD DS-Snap-Ins und -Befehlszeilentools-Feature  
+   * DNS-Server  
+   * Gruppenrichtlinien-Verwaltungskonsole  
   
- ![Herabstufen eines Domänencontrollers](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_ServerSelection.png)  
+Die entsprechenden ADDSDeployment- und Server-Manager Windows PowerShell-Cmdlets sind:  
   
-Der ServerManager-Cmdlets **Uninstall-WindowsFeature** und **Remove-WindowsFeature** verhindern, dass Sie die AD DS-Rolle entfernen, bis Sie den Domänencontroller herabzustufen.  
-  
-### <a name="server-selection"></a>-Serverauswahl  
-![Herabstufen eines Domänencontrollers](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_ServerSelection2.png)  
-  
-Die **Serverauswahl** Dialogfeld ermöglicht es Ihnen, wählen aus einem der zuvor zum Pool hinzugefügt Server als darauf zugegriffen werden kann. Der lokale Server mit Server-Manager ist immer automatisch verfügbar.  
-  
-### <a name="server-roles-and-features"></a>Serverrollen und Features  
-![Herabstufen eines Domänencontrollers](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_ServerRoles.png)  
-  
-Deaktivieren der **Active Directory Domain Services** Kontrollkästchen, um einen Domänencontroller, tiefer stufen Wenn der Server momentan ein Domänencontroller ist, dadurch wird die AD DS-Serverrolle nicht entfernt und stattdessen eine **Validation Results** Dialogfeld mit dem Angebot zum Tieferstufen. Andernfalls wird lediglich die Binärdateien wie auch jedes andere rollenfeature entfernt.  
-  
--   Entfernen Sie andere AD DS-verwandten Rollen oder Features – z.B. DNS, Gruppenrichtlinien-Verwaltungskonsole oder die RSAT-Tools – nicht direkt wieder Heraufstufen des Domänencontrollers werden möchten. Zusätzliche Rollen und Features entfernen nimmt die Zeit zum erneuten heraufstufung verlängert, Server-Manager diese Features ebenfalls erneut installiert, wenn Sie die Rolle erneut installieren.  
-  
--   Entfernen Sie nicht benötigte AD DS-Rollen und Features nach eigenem Ermessen, wenn Sie den Domänencontroller permanent herabstufen möchten. Dies erfordert die Kontrollkästchen für die Rollen und Funktionen deaktivieren.  
-  
-    Die vollständige Liste der AD DS-verwandten Rollen und Features umfassen:  
-  
-    -   Active Directory-Modul für Windows PowerShell-Funktion  
-  
-    -   AD DS und AD LDS-Tools-Feature  
-  
-    -   Active Directory-Verwaltungscenter-Feature  
-  
-    -   AD DS-Snap-Ins und -Befehlszeilentools-Feature  
-  
-    -   DNS-Server  
-  
-    -   Gruppenrichtlinien-Verwaltungskonsole  
-  
-Die entsprechenden Addsdeployment- und ServerManager Windows PowerShell-Cmdlets sind:  
-  
-```  
+```
 Uninstall-addsdomaincontroller  
 Uninstall-windowsfeature  
+```
+
+![Entfernen von Rollen und Features-Assistent - Dialogfeld zur Bestätigung akzeptieren](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_RemoveFeatures.png)  
+
+![Entfernen von Rollen und Features-Assistent - Überprüfung](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_Demote.png)  
+
+### <a name="credentials"></a>Anmeldeinformationen
+
+![Active Directory Konfigurations-Assistenten Domänendienste – Auswahl der Anmeldeinformationen](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_Credentials.png)  
+
+Auf der Seite **Anmeldeinformationen** werden Herabstufungsoptionen konfiguriert. Geben Sie in der folgenden Liste die zum Ausführen der Herabstufung erforderlichen Anmeldeinformationen an:  
+
+* Für die Herabstufung eines zusätzlichen Domänencontrollers sind Domänenadministrator-Anmeldeinformationen erforderlich. Auswählen von **Entfernen dieses Domänencontrollers erzwingen** stuft den Domänencontroller, ohne das Objekt die Metadaten des Domänencontrollers aus Active Directory.  
+
+   > [!WARNING]  
+   > Wählen Sie diese Option nur dann aus, wenn der Domänencontroller keine andere Domänencontroller kontaktieren kann und zum Beheben dieses Netzwerkproblems *keine angemessene Möglichkeit* besteht. Bei der erzwungenen Herabstufung bleiben in Active Directory der restlichen Domänencontroller in der Gesamtstruktur verwaiste Metadaten zurück. Zudem gehen alle nicht replizierten Änderungen an diesem Domänencontroller, beispielsweise Kennwörter oder neue Benutzerkonten, für immer verloren. Verwaiste Metadaten stellen die Hauptursache in einem erheblichen Prozentsatz der Microsoft Kundendienstfälle für AD DS, Exchange, SQL und andere Software dar.  
+   >
+   > Wenn Sie einen Domänencontroller zwangsweise herabstufen, *müssen* Sie sofort eine manuelle Metadatenbereinigung ausführen. Informationen zu den entsprechenden Schritten finden Sie unter [Bereinigen von Servermetadaten](https://technet.microsoft.com/library/cc816907(WS.10).aspx).  
+
+   ![Active Directory Konfigurations-Assistenten Domänendienste - Force-Anmeldeinformationen entfernen](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_ForceDemote.png)  
   
-```  
-  
-![Herabstufen eines Domänencontrollers](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_RemoveFeatures.png)  
-  
-![Herabstufen eines Domänencontrollers](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_Demote.png)  
-  
-### <a name="credentials"></a>Anmeldeinformationen  
-![Herabstufen eines Domänencontrollers](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_Credentials.png)  
-  
-Herabstufungsoptionen konfiguriert ist, auf die **Anmeldeinformationen** Seite. Geben Sie die Anmeldeinformationen, die zum Durchführen der Herabstufung aus der folgenden Liste:  
-  
--   Für die Herabstufung eines zusätzlichen Domänencontrollers sind Domänenadministrator-Anmeldeinformationen erforderlich. Auswählen von **Entfernen dieses Domänencontrollers erzwingen** stuft die Domänencontroller ohne die Metadaten des Domänencontrollerobjekts aus Active Directory zu entfernen.  
-  
-    > [!WARNING]  
-    > Wählen Sie diese Option, wenn der Domänencontroller keine mit anderen Domänencontrollern Verbindung kann und es ist nicht *keine angemessene Möglichkeit* zum Beheben dieses Netzwerkproblems. Erzwungene Herabstufung verbleibt der restlichen Domänencontroller in der Gesamtstruktur verwaiste Metadaten in Active Directory. Darüber hinaus sind für immer alle nicht replizierte Änderungen auf diesem Domänencontroller, z.B. Kennwörter oder neue Benutzerkonten, verloren. Verwaiste Metadaten sind die Hauptursache in einem erheblichen Prozentsatz der Microsoft kundendienstfälle für AD DS, Exchange, SQL und andere Software.  
-    >   
-    > Wenn Sie einen Domänencontroller zwangsweise herabstufen Sie *müssen* manuelle Metadatenbereinigung sofort ausführen. Überprüfen Sie die Schritte, [Bereinigen von Servermetadaten](https://technet.microsoft.com/library/cc816907(WS.10).aspx).  
-  
-   ![Herabstufen eines Domänencontrollers](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_ForceDemote.png)  
-  
--   Organisations-Admins der Gruppenmitgliedschaft für die Herabstufung des letzten Domänencontrollers in einer Domäne erforderlich werden, da dies die Domäne selbst entfernt (wenn die letzte Domäne in der Gesamtstruktur, dabei wird die Gesamtstruktur). Server-Manager darüber informiert, wenn der aktuelle Domänencontroller der letzte Domänencontroller in der Domäne ist. Wählen Sie die **letzter Domänencontroller in der Domäne** Kontrollkästchen zur Bestätigung des Domänencontrollers der letzte Domänencontroller in der Domäne ist.  
-  
+* Für das Herabstufen des letzten Domänencontrollers in einer Domäne ist eine Mitgliedschaft in der Gruppe Organisations-Admins erforderlich, da hierbei die Domäne selbst entfernt wird (wenn dies die letzte Domäne in der Gesamtstruktur ist, wird dabei die Gesamtstruktur entfernt). Wenn der aktuelle Domänencontroller der letzte Domänencontroller in der Domäne ist, werden Sie von Server-Manager darüber informiert. Markieren Sie das Kontrollkästchen **Letzter Domänencontroller in der Domäne**, um zu bestätigen, dass der Domänencontroller der letzte Domänencontroller in der Domäne ist.  
+
 Die entsprechenden ADDSDeployment Windows PowerShell-Argumente sind:  
-  
-```  
+
+```
 -credential <pscredential>  
 -forceremoval <{ $true | false }>  
 -lastdomaincontrollerindomain <{ $true | false }>  
-  
-```  
-  
-### <a name="warnings"></a>Warnungen  
-![Herabstufen eines Domänencontrollers](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_Warnings.png)  
-  
-Die **Warnungen** Seite informiert Sie über die Konsequenzen beim Entfernen dieses Domänencontrollers. Um den Vorgang fortzusetzen, müssen Sie auswählen, **Entfernung fortsetzen**.  
-  
+```
+
+### <a name="warnings"></a>Warnungen
+
+![Assistent für Active Directory Domain Services Configuration - Anmeldeinformationen FSMO-Rollen Auswirkungen](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_Warnings.png)  
+
+Die Seite **Warnungen** weist Sie auf die möglichen Konsequenzen beim Entfernen dieses Domänencontrollers hin. Wählen Sie **Entfernen fortsetzen**aus, um fortzufahren.
+
 > [!WARNING]  
-> Wenn Sie zuvor ausgewählt **Entfernen dieses Domänencontrollers erzwingen** auf die **Anmeldeinformationen** Seite, die **Warnungen** Seite zeigt alle flexible Single Master Operations-Rollen, die von diesem Domänencontroller gehostet werden. Sie *müssen* übernehmen Sie die Funktionen von einem anderen Domänencontroller *sofort* nach der Herabstufung dieses Servers. Weitere Informationen zum Übernehmen von FSMO-Rollen finden Sie unter [übernehmen der Rolle des Betriebsmasters](https://technet.microsoft.com/library/cc816779(WS.10).aspx).  
-  
-Diese Seite besitzt keine entsprechende ADDSDeployment Windows PowerShell-Argument.  
-  
-### <a name="removal-options"></a>Optionen zum Entfernen  
-![Herabstufen eines Domänencontrollers](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_ReviewOptions.png)  
-  
-Die **Entfernungsoptionen** Seite wird angezeigt, je nach Auswahl zuvor **letzter Domänencontroller in der Domäne** auf die **Anmeldeinformationen** Seite. Auf dieser Seite können Sie zusätzliche Entfernungsoptionen konfigurieren. Wählen Sie **letzten DNS-Server für Zone ignorieren**, **Anwendungspartitionen entfernen**, und **DNS-Delegierung entfernen** verfügbar machen die **Weiter** Schaltfläche.  
-  
-Die Optionen werden nur angezeigt, wenn auf diesem Domänencontroller. Beispielsweise gibt es ist keine DNS-Delegierung für diesen Server wird dann das Kontrollkästchen nicht angezeigt.  
-  
-Klicken Sie auf **ändern** alternative DNS-Administratoranmeldeinformationen angeben. Klicken Sie auf **Partitionen anzeigen** um weitere Partitionen anzuzeigen, der Assistent bei der Herabstufung entfernt. Standardmäßig werden nur die Partitionen DNS-Domäne und Gesamtstruktur-DNS-Zonen. Alle sonstigen Partitionen sind Nicht-Windows-Partitionen.  
-  
+> Falls Sie zuvor **Entfernen dieses Domänencontrollers erzwingen** auf der Seite **Anmeldeinformationen** ausgewählt haben, werden auf der Seite **Warnungen** alle von diesem Domänencontroller gehosteten FSMO-Rollen angezeigt. Sie *müssen* die Rollen von einem anderen Domänencontroller *sofort* nach der Herabstufung dieses Servers übernehmen. Weitere Informationen zum Übernehmen von FSMO-Rollen finden Sie unter [Übernehmen der Rolle des Betriebsmasters](https://technet.microsoft.com/library/cc816779(WS.10).aspx).
+
+Für diese Seite gibt es kein entsprechendes ADDSDeployment Windows PowerShell-Argument.
+
+### <a name="removal-options"></a>Entfernungsoptionen
+
+![Active Directory Konfigurations-Assistenten Domänendienste - Anmeldeinformationen entfernen DNS und Anwendungspartitionen](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_ReviewOptions.png)  
+
+Die Seite **Entfernungsoptionen** wird in Abhängigkeit davon angezeigt, ob auf der Seite **Anmeldeinformationen** die Option **Entfernen dieses Domänencontrollers erzwingen** ausgewählt wurde. Auf dieser Seite können Sie zusätzliche Optionen für die Entfernung konfigurieren. Wählen Sie **Letzten DNS-Server für Zone ignorieren**, **Anwendungspartitionen entfernen**und **DNS-Delegierung entfernen** aus, um die **Weiter** -Schaltfläche zu aktivieren.
+
+Diese Optionen werden nur angezeigt, wenn sie auf diesem Domänencontroller verfügbar sind. Wenn z. B. keine DNS-Delegierung für diesen Server konfiguriert ist, dann wird das Kontrollkästchen nicht angezeigt.
+
+Klicken Sie auf **Ändern**, um alternative DNS-Administratoranmeldeinformationen anzugeben. Klicken Sie auf **Partitionen anzeigen**, um weitere Partitionen anzuzeigen, die der Assistent bei der Herabstufung entfernt. Standardmäßig existieren nur die Partitionen Domänen-DNS und Gesamtstruktur-DNS. Alle sonstigen Partitionen sind nicht-Windows-Partitionen.
+
 Die entsprechenden ADDSDeployment-Cmdlet-Argumente sind:  
-  
-```  
+
+```
 -ignorelastdnsserverforzone <{ $true | false }>  
 -removeapplicationpartitions <{ $true | false }>  
 -removednsdelegation <{ $true | false }>  
 -dnsdelegationremovalcredential <pscredential>  
-```  
-  
-### <a name="new-administrator-password"></a>Neues Administratorkennwort  
-![Herabstufen eines Domänencontrollers](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_NewAdminPwd.png)  
-  
-Die **Neues Administratorkennwort** Seite müssen Sie ein Kennwort für das integrierte lokale Administratorkonto des Computers, bereitstellen, nachdem die Herabstufung abgeschlossen und der Computer ein Domänenmitgliedsserver oder Arbeitsgruppencomputer ist.  
-  
-Die **Uninstall-ADDSDomainController** -Cmdlet und Argumente folgen dieselben Standardwerte wie Server-Manager, wenn diese nicht angegeben.  
-  
-Die **LocalAdministratorPassword** Argument Sonderregeln:  
-  
--   Wenn *nicht angegeben* als Argument enthält, klicken Sie dann das Cmdlet fordert Sie zur Eingabe und Bestätigung eines maskierten Kennworts. Dies ist die bevorzugte Verwendung bei einer interaktiven Cmdlet-Ausführung  
-  
--   Wenn angegeben *mit dem Wert*, und klicken Sie dann der Wert eine sichere Zeichenfolge sein muss. Dies ist nicht die bevorzugte Verwendung bei einer interaktiven Cmdlet-Ausführung  
-  
-Angenommen, Sie können manuell Kennwort anfordern mithilfe der **Read-Host** Cmdlet, um den Benutzer für eine sichere Zeichenfolge auffordern  
-  
-```  
--localadministratorpassword (read-host -prompt "Password:" -assecurestring)  
-  
-```  
-  
-> [!WARNING]  
-> Wie die beiden vorherigen Optionen das Kennwort nicht bestätigt werden, verwenden Sie äußerst vorsichtig vor: das Kennwort ist nicht sichtbar  
-  
-Sie können auch eine sichere Zeichenfolge als eine konvertierte klartextvariable angeben, obwohl davon dringend abgeraten wird. Zum Beispiel:  
-  
-```  
--localadministratorpassword (convertto-securestring "Password1" -asplaintext -force)  
-  
-```  
-  
-> [!WARNING]  
-> Das Bereitstellen oder Speichern eines Klartextkennworts wird nicht empfohlen. Jeder der Ausführung dieses Befehls in einem Skript oder über die Schulter schaut, weiß das lokale Administratorkennwort dieses Computers. Mit diesem Wissen sie haben Zugriff auf alle Daten und können die Identität des Servers selbst.  
-  
-### <a name="confirmation"></a>Bestätigung  
-![Herabstufen eines Domänencontrollers](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_Confirmation.png)  
-  
-Die **Bestätigung** Seite wird die geplante Herabstufung; die Seite wird nicht mit Konfigurationsoptionen für die Herabstufung aufgeführt. Dies ist die letzte Seite des Assistenten wird, bevor die Herabstufung beginnt. Die Schaltfläche "Skript anzeigen" wird ein Windows PowerShell-herabstufungsskript erstellt.  
-  
-Klicken Sie auf **tiefer stufen** mit dem folgende Cmdlet für die AD DS-Bereitstellung ausführen:  
-  
-```  
-Uninstall-DomainController  
-  
-```  
-  
-Verwenden Sie das optionale **Whatif** Argument mit dem **Uninstall-ADDSDomainController** und Cmdlet, um Konfigurationsinformationen zu überprüfen. Dadurch können Sie die expliziten und impliziten Werte der Argumente eines Cmdlets finden Sie unter.  
-  
-Zum Beispiel:  
-  
-![Herabstufen eines Domänencontrollers](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_PSUninstall.png)  
-  
-Die Aufforderung zum Neustart ist die letzte Gelegenheit, den Vorgang abzubrechen, wenn Sie ADDSDeployment Windows PowerShell verwenden. Um diese Aufforderung zu überschreiben, verwenden die **-erzwingen** oder **bestätigen: $false** Argumente.  
-  
-### <a name="demotion"></a>Herabstufung  
-![Herabstufen eines Domänencontrollers](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_Demotion.png)  
-  
-Wenn die **Herabstufung** Seite wird angezeigt, die Konfiguration des Domänencontrollers beginnt und kann nicht angehalten oder abgebrochen. Detaillierte Informationen zur Operation werden auf dieser Seite angezeigt und in Protokolle schreiben:  
-  
--   %systemroot%\debug\dcpromo.log  
-  
--   %systemroot%\debug\dcpromoui.log  
-  
-Da **Uninstall-AddsDomainController** und **Uninstall-WindowsFeature** nur eine Aktion IND haben, sie sind hier in der bestätigungsphase mit den mindestens erforderlichen Argumenten angezeigt. Durch Drücken der EINGABETASTE den unwiderruflichen Herabstufungsprozess startet und startet den Computer neu.  
-  
-![Herabstufen eines Domänencontrollers](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_PSUninstallConfirm.png)  
-  
-![Herabstufen eines Domänencontrollers](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_PSUninstallWindowsFeature.png)  
-  
-Verwenden, um die Aufforderung zum Neustart automatisch zu akzeptieren, die **-erzwingen** oder **-bestätigen: $false** Argumente mit jedem ADDSDeployment Windows PowerShell-Cmdlet. Um zu verhindern, dass den Server am Ende der heraufstufung automatisch neu, verwenden Sie die **- Norebootoncompletion: $false** Argument.  
-  
-> [!WARNING]  
-> Überschreiben des Neustarts wird nicht empfohlen. Der Mitgliedsserver muss neu gestartet, um korrekt zu funktionieren.  
-  
-![Herabstufen eines Domänencontrollers](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_PSUninstallFinished.png)  
-  
-Hier ist ein Beispiel für eine erzwungene Herabstufung mit den minimalen erforderlichen Argumenten von **- Forceremoval** und **- Demoteoperationmasterrole**. Die **-Anmeldeinformationen** Argument ist nicht erforderlich, da der Benutzer als Mitglied der Gruppe Organisations-Admins angemeldet:  
-  
-![Herabstufen eines Domänencontrollers](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_PSUninstallExampleForce.png)  
-  
-Hier ist ein Beispiel für das Entfernen des letzten Domänencontrollers in der Domäne mit den minimalen erforderlichen Argumenten von **- Lastdomaincontrollerindomain** und **- Removeapplicationpartitions**:  
-  
-![Herabstufen eines Domänencontrollers](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_PSUninstallExampleLastDC.png)  
-  
-Wenn Sie versuchen, die AD DS-Serverrolle zu entfernen, bevor die Herabstufung des Servers, blockiert Windows PowerShell Sie mit einer geplanten Fehlermeldung:  
-  
-```  
-Uninstall-WindowsFeature : An uninstallation prerequisite step failed duringthe removal of AD-Domain-Services, and uninstallation cannot continue.1. The domain controller needs to be demoted before the Active DirectoryDomain Services Role can be uninstalled.  
-```  
-  
-![Herabstufen eines Domänencontrollers](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_PSUninstallError.png)  
-  
-> [!IMPORTANT]  
-> Sie müssen den Computer neu starten, nach der Herabstufung des Servers, bevor Sie die Binärdateien der AD DS-Serverrolle entfernen können.  
-  
-### <a name="results"></a>Ergebnisse  
-![Herabstufen eines Domänencontrollers](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_DemoteSignoff.png)  
-  
-Die **Ergebnisse** Seite zeigt den Erfolg oder Misserfolg der heraufstufung sowie alle wichtigen Administrationsinformationen. Der Domänencontroller wird automatisch nach 10 Sekunden neu gestartet.  
-  
+```
 
+### <a name="new-administrator-password"></a>Neues Administratorkennwort
+
+![Active Directory Domain Services Konfigurations-Assistenten - Anmeldeinformationen-Neues Administratorkennwort](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_NewAdminPwd.png)  
+
+Die **Neues Administratorkennwort** Seite müssen Sie für die integrierte lokale Administratorkonto des Computers, ein Kennwort angeben, nachdem die Herabstufung abgeschlossen und der Computer, Server in einer Domäne oder Arbeitsgruppe ist.
+
+Die **Unistall-ADDSDomainController** -Argumente verwenden dieselben Standardwerte wie Server-Manager, wenn diese nicht angegeben sind.
+
+Für das **LocalAdministratorPassword**-Argument gelten Sonderregeln:
+
+* Wenn dieses Argument *nicht angegeben* wird, fordert Sie das Cmdlet zur Eingabe und Bestätigung eines maskierten Kennworts auf. Dies ist die bevorzugte Verwendung bei einer interaktiven Cmdlet-Ausführung.
+* Bei Angabe *mit einem Wert*muss der Wert eine sichere Zeichenfolge sein. Dies ist nicht die bevorzugte Verwendung bei einer interaktiven Cmdlet-Ausführung.
+
+Beispielsweise können Sie manuell Fragen für ein Kennwort mithilfe der **Read-Host** Cmdlet, um den Benutzer nach einer sicheren Zeichenfolge aufzufordern.
+
+```
+-localadministratorpassword (read-host -prompt "Password:" -assecurestring)
+```
+
+> [!WARNING]
+> Da es sich bei die beiden vorherigen Optionen das Kennwort nicht bestätigt werden, gehen Sie äußerst vorsichtig: das Kennwort ist nicht sichtbar.
+
+Sie können eine sichere Zeichenfolge auch als konvertierte Klartextvariable angeben, obwohl davon dringend abgeraten wird. Zum Beispiel:
+
+```
+-localadministratorpassword (convertto-securestring "Password1" -asplaintext -force)
+```
+
+> [!WARNING]
+> Das Bereitstellen oder Speichern eines Klartextkennworts wird nicht empfohlen. Alle Personen, die diesen Befehl ausführen oder Ihnen dabei zusehen, kennen dann das lokale Administratorkennwort dieses Computers. Jede Person mit diesen Kenntnissen hat vollen Zugriff auf alle Daten und kann die Identität des Servers annehmen.
+
+### <a name="confirmation"></a>Bestätigung
+
+![Assistent für Active Directory Domain Services-Konfiguration - Optionen prüfen](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_Confirmation.png)
+
+Auf der Seite **Bestätigung** wird die geplante Herabstufung angezeigt. Die Seite enthält keine Konfigurationsoptionen für die Herabstufung. Dies ist die letzte Seite des Assistenten, bevor die Herabstufung beginnt. Wenn Sie auf die Schaltfläche Skript anzeigen klicken, wird ein Windows PowerShell-Herabstufungsskript generiert.
+
+Klicken Sie auf **Herabstufen**, um das folgende ADDSDeployment-Cmdlet auszuführen:
+
+```
+Uninstall-DomainController
+```
+
+Verwenden Sie das optionale **Whatif**-Argument für das **Uninstall-ADDSDomainController**-Cmdlet, um die Konfigurationsinformationen zu überprüfen. Auf diese Weise können Sie die expliziten und impliziten Werte der Argumente eines Cmdlets anzeigen.
+
+Zum Beispiel:
+
+![Deinstallieren von PowerShell-ADDSDomainController-Beispiel](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_PSUninstall.png)
+
+Die Aufforderung zum Neustart ist die letzte Gelegenheit, um diese Operation abzubrechen, wenn Sie ADDSDeployment Windows PowerShell verwenden. Verwenden Sie die **-force**- oder **confirm:$false**-Argumente, um diese Aufforderung zu überspringen.  
+
+### <a name="demotion"></a>Herabstufung
+
+![Active Directory Konfigurations-Assistenten Domänendienste - Herabstufung von Eigenschaften in Bearbeitung](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_Demotion.png)  
+
+Wenn die Seite **Herabstufung** angezeigt wird, beginnt die Konfiguration des Domänencontrollers und kann nicht angehalten oder abgebrochen werden. Detaillierte Informationen zur Operation werden auf dieser Seite angezeigt und in die folgenden Logs geschrieben:  
+
+* %systemroot%\debug\dcpromo.log
+* %systemroot%\debug\dcpromoui.log
+
+Da **Uninstall-AddsDomainController** ind **Uninstall-WindowsFeature** nur aus einer Aktion bestehen, werden sie hier in der Bestätigungsphase mit den benötigten Mindestargumenten angezeigt. Mit der EINGABETASTE starten Sie den unwiderruflichen Herabstufungsprozess inklusive Computerneustart.
+
+![Deinstallieren von PowerShell-ADDSDomainController-Beispiel](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_PSUninstallConfirm.png)
+
+![Deinstallieren von PowerShell-WindowsFeature-Beispiel](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_PSUninstallWindowsFeature.png)
+
+Mit dem **-force** -Argument oder dem **-confirm:$false** -Argument können Sie den Neustart in allen Windows PowerShell-Cmdlets vom Typ „ADDSDeployment“ automatisch akzeptieren. Verwenden Sie das **-norebootoncompletion:$false**-Argument, um zu verhindern, dass der Server am Ende der Heraufstufung automatisch neu gestartet wird.
+
+> [!WARNING]
+> Es wird davon abgeraten, den Neustart zu verhindern. Der Mitgliedsserver muss neu gestartet werden, um korrekt zu funktionieren.
+
+![Deinstallieren von PowerShell-ADDSDomainController-Force-Beispiel](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_PSUninstallFinished.png)
+
+Nachstehend finden Sie ein Beispiel für eine erzwungene Herabstufung mit den minimal erforderlichen Argumenten von **-forceremoval** und **-demoteoperationmasterrole**. Das Argument **-credential** ist nicht erforderlich, da der Benutzer als Mitglied der Gruppe %%amp;quot;Organisations-Admins%%amp;quot; angemeldet ist.
+
+![Deinstallieren von PowerShell-ADDSDomainController-Beispiel](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_PSUninstallExampleForce.png)
+
+Es folgt ein Beispiel für das Entfernen des letzten Domänencontrollers in der Domäne mit den minimal erforderlichen Argumenten von **-lastdomaincontrollerindomain** und **-removeapplicationpartitions**:
+
+![Deinstallieren von PowerShell-ADDSDomainController - LastDomainControllerInDomain-Beispiel](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_PSUninstallExampleLastDC.png)
+
+Wenn Sie versuchen, die AD DS-Rolle zu entfernen, bevor die Herabstufung des Servers, blockiert mit Windows PowerShell mit einem Fehler:
+
+![Eine Deinstallation Vorbereitungsschritt Fehler beim Entfernen der AD-Domain-Services und Deinstallation kann nicht fortgesetzt werden. 1. Der Domänencontroller muss tiefer gestuft werden, bevor die aktive DirectoryDomain-Services-Rolle können deinstalliert werden.](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_PSUninstallError.png)
+
+> [!IMPORTANT]
+> Sie müssen den Computer nach der Herabstufung des Servers neu starten, bevor Sie die Rollen-Binärdateien der AD DS-Rolle entfernen können.
+
+### <a name="results"></a>Ergebnisse
+
+![Sie sind im Begriff, deaktivieren die Warnung nach dem Entfernen von AD DS signiert werden](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_DemoteSignoff.png)
+
+Auf der Seite **Ergebnisse** werden Erfolg bzw. Misserfolg der Heraufstufung sowie alle wichtigen Administrationsinformationen angezeigt. Der Domänencontroller wird automatisch nach 10 Sekunden neu gestartet.

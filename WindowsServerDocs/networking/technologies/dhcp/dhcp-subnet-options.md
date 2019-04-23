@@ -1,75 +1,54 @@
 ---
-title: DHCP-Subnetz Auswahloptionen
-description: Dieses Thema enthält Informationen zu DHCP-Subnetz Auswahloptionen für Dynamic Host Configuration Protocol (DHCP) in Windows Server2016.
-manager: brianlic
+title: Auswahloptionen für DHCP-Subnetz
+description: Dieses Thema enthält Informationen zu DHCP-Subnetz-Auswahloptionen für Dynamic Host Configuration Protocol (DHCP) in Windows Server 2016.
+manager: dougkim
 ms.prod: windows-server-threshold
 ms.technology: networking-dhcp
 ms.topic: get-started-article
 ms.assetid: ca19e7d1-e445-48fc-8cf5-e4c45f561607
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 43bc3d165f895767ded921b41118ecaccf9734e8
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.date: 08/17/2018
+ms.openlocfilehash: 034ca48ef13a6bdac63ca99ac753fc9826460922
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59870811"
 ---
-# <a name="dhcp-subnet-selection-options"></a>DHCP-Subnetz Auswahloptionen
+# <a name="dhcp-subnet-selection-options"></a>Auswahloptionen für DHCP-Subnetz
 
->Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
-In diesem Thema können Informationen zu neuen DHCP-Subnetz Auswahloptionen.
+In diesem Thema können Informationen zu neuen DHCP-Subnetz-Auswahloptionen.
 
-DHCP unterstützt jetzt Optionen 118 und 82 \(sub-option 5\). Diese Optionen können Sie DHCP-Proxy-Clients und -Relay-Agents eine IP-Adresse für ein bestimmtes Subnetz und von einer bestimmten IP-Adressbereich und Bereich anfordern können.
+DHCP nun unterstützt 82 option \(untergeordnete option 5\). Sie können diese Optionen verwenden, um DHCP-Proxy-Clients und -Relay-Agents zum Anfordern einer IP-Adresse für ein bestimmtes Subnetz, und von einer bestimmten IP-Adressbereich und den Bereich zu ermöglichen.  Weitere Informationen finden Sie unter **Option 82 unter Option 5**: [RFC 3527 Link untergeordnete Auswahloption für die Relay-Agent Informationen-Option für DHCPv4](https://tools.ietf.org/html/rfc3527).
 
-Wenn Sie einen DHCP-Proxy-Client verwenden, der mit DHCP-Option 118, z.B. ein virtuelles privates Netzwerk (VPN)-Server konfiguriert ist, auf denen Windows Server2016 und die RAS-Serverrolle ausgeführt wird, kann der VPN-Server IP-Adressleases für VPN-Clients aus einer bestimmten IP-Adressbereich anfordern.
-
-Wenn Sie einen DHCP-Relay-Agent verwenden, die mit DHCP-Option 82 konfiguriert ist, untergeordneten Option 5 des Relay-Agent kann eine IP-Adresslease für DHCP-Clients aus einer bestimmten IP-Adressbereich anfordern.
-
-Folgende Links Anforderung für Kommentare Themen für diese Optionen werden.
-
-- **Option 118**: [RFC 3011 IPv4-Subnetz Auswahloption für DHCP](http://www.rfc-base.org/rfc-3011.html)
-- **Option 82 Sub Option 5**: [RFC 3527 Link Auswahl untergeordnete Option für die Option Relay-Agent für DHCPv4](https://tools.ietf.org/html/rfc3527)
+Wenn Sie einen DHCP-Relay-Agent verwenden, der mit DHCP-Option 82 konfiguriert ist, untergeordnete option 5 der Relay-Agent kann eine IP-Adresslease für DHCP-Clients aus einem bestimmten Bereich von IP-Adresse anfordern.
 
 
-## <a name="dhcp-option-118-client-subnet-and-relay-agent-link-selection"></a>DHCP-Option 118: Subnetz des Clients und -Relay-Agent-Link-Auswahl
+## <a name="option-82-sub-option-5-link-selection-sub-option"></a>Option 82 Sub-Option 5: Link-Auswahl-Sub-Option
 
-Die Option für DHCP-Subnetz Auswahl bietet einen Mechanismus für die DHCP-Proxys ein IP-Subnetz angeben, von dem der DHCP-Server IP-Adressen und Optionen zugewiesen werden muss.
+Die untergeordnete Relay-Agent-Link-Auswahl-Option ermöglicht es sich um einen DHCP-Relay-Agent ein IP-Subnetz angeben, von dem der DHCP-Server IP-Adressen und Optionen zugewiesen werden muss.
 
-### <a name="use-case-scenario"></a>Verwendungsszenario
+In der Regel DHCP-Relay-Agents basieren auf der IP-Adresse des Gateways \(GIADDR\) Feld für die Kommunikation mit DHCP-Server. Es ist jedoch GIADDR von seinen zwei operative Funktionen beschränkt:
 
-In diesem Szenario weist der Server ein virtuelles privates Netzwerk \(VPN\) IP-Adressen zu VPN-Clients. 
+1. Den DHCP-Server über das Subnetz informieren auf dem der DHCP-Client, der die IP-Adresslease anfordert befindet.
+2. Um den DHCP-Server die IP-Adresse zu verwenden, um die Kommunikation mit dem Relay-Agent zu informieren.
 
-In diesem Fall der VPN-Server sowohl Intranet, in dem der DHCP-Server installiert ist, und mit dem Internet verbunden ist, damit VPN-Clients von Remotestandorten aus eine Verbindung mit dem VPN-Server herstellen können.
+In einigen Fällen die IP-Adresse, die der Relay-Agent für die Kommunikation mit dem DHCP-Server verwendet den IP-Adressbereich unterscheidet möglicherweise von dem die DHCP-Client-IP-Adresse zugeordnet werden muss. 
 
-Bevor der VPN-Server IP-Adressleases für VPN-Clients bereitstellen kann, wird der Server eine Verbindung mit den DHCP-Server in einem internen Subnetz und einen Textblock IP-Adressen reserviert. Der VPN-Server verwaltet dann die IP-Adressen, die sie aus der DHCP-Server abgerufen. Wenn der VPN-Server in Leases reservierte IP-Adressen zu VPN-Clients bereitstellt, erhält der VPN-Server dann zusätzliche IP-Adressen vom DHCP-Server.
+Der Link Auswahl Sub-Option der 82-Option ist nützlich, in diesem Fall der Relay-Agent explizit anzugeben, dass das Subnetz aus dem die IP-Adresse sollen in Form von DHCP-IPv4-Option 82 Sub-Option 5 zugewiesen.
 
-Durch die Konfiguration des VPN-Servers mit DHCP-Option 118, können Sie angeben, die IP-Adressbereich und der Umfang, die Sie für die VPN-Clients verwenden möchten. Nachdem Sie die Option 118 konfigurieren, fordert der VPN-Server IP-Adressen von einem bestimmten IP-Adressbereich und Bereich, von dem DHCP-Server.
+> [!NOTE]
+>
+> Relay-Agent alle IP-Adressen (GIADDR) müssen einen aktiven DHCP-Bereich IP-Adressbereich gehören. Alle GIADDR außerhalb der DHCP-Bereich IP-Adressbereiche gilt ein Rogue-Relay und Windows-DHCP-Server wird die DHCP-Clientanforderungen aus diesen Relayagents nicht bestätigt.
+>
+> Ein spezieller Bereich kann erstellt werden, um Relay-Agents "Autorisieren". Erstellen Sie einen Bereich mit der GIADDR (oder mehrere, wenn die GIADDR des sequenziellen IP-Adressen), Verteilung ausgeschlossen Sie der GIADDR Adressen, und aktivieren Sie den Bereich. Dadurch wird die Relay-Agents autorisiert, und verhindert, dass die Adressen GIADDR zugewiesen wird.
 
-### <a name="the-dhcp-subnet-selection-option-field"></a>Der DHCP-Subnetz Auswahlfeld Option
 
-Der DHCP-Subnetz Auswahlfeld Option enthält ein einzelnes IPv4-Adresse verwendet, um die ursprünglichen Subnetzadresse für eine DHCP-Lease-Anforderung darzustellen.  Ein DHCP-Server, der konfiguriert ist, zum Reagieren auf diese Option weist die Adresse aus:
+### <a name="use-case-scenario"></a>Anwendungsfall-Beispielszenario
 
-1. Das Subnetz, das die Subnetz-Auswahl-Option angegeben ist.
-2. Ein Subnetz, die sich in demselben Netzwerksegment wie das Subnetz, der die Subnetz-Auswahl-Option angegeben ist.
+In diesem Szenario enthält Netzwerk einer Organisation sowohl eine DHCP-Server und einen drahtlosen Zugriffspunkt \(AP\) für Gastbenutzer. Gäste-Client-IP-Adressen werden zugewiesen, von der Organisation DHCP-Server – jedoch aufgrund von Beschränkungen der Firewall-Richtlinie, die der DHCP-Server kann nicht der Gast-Drahtlosnetzwerk oder drahtlose Clients mit Broadcase Nachrichten zugreifen.
 
-## <a name="option-82-sub-option-5-link-selection-sub-option"></a>Option 82 Sub-Option 5: Link Sub Auswahloption
-
-Die Link-Relay-Agent-Auswahl untergeordnete Option ermöglicht einen DHCP-Relay-Agent an ein IP-Subnetz, von dem der DHCP-Server IP-Adressen und Optionen zugewiesen werden muss.
-
-DHCP-Relay-Agents verwenden in der Regel Feld \(GIADDR\) Gateway-IP-Adresse mit DHCP-Server kommunizieren. Allerdings ist GIADDR von zwei betrieblichen Funktionen beschränkt:
-
-1. Den DHCP-Server über das Subnetz informiert auf dem der DHCP-Client, der die IP-Adresslease anfordert befindet.
-2. Um den DHCP-Server die IP-Adresse verwenden, um die Kommunikation mit der Relay-Agent zu informieren.
-
-In einigen Fällen die IP-Adresse des Relay-Agents mit dem DHCP-Server die Kommunikation von unterscheidet sich die IP-Adressbereich möglicherweise von dem die DHCP-Client-IP-Adresse zugewiesen werden muss. 
-
-Verwenden der Option 118, wie ihre Funktionalität beschränkt und können nur Schreibvorgänge GIADDR oder die Option des Relay-Agent-Informationen \(Option 82\) nicht DHCP-Relay-Agents möglich. 
-
-Die Option Link Auswahl Sub-Option 82 eignet sich in diesem Fall kann so Relay explizit angeben, dass das Subnetz, von dem sie die IP-Adresse möchte, in Form von DHCP-v4-Option 82 Sub-Option 5 zugeordnet.
-
-### <a name="use-case-scenario"></a>Verwendungsszenario
-
-In diesem Szenario enthält ein Unternehmensnetzwerk einen DHCP-Server und drahtlosen Zugriffspunkt \(AP\) für die Gastbenutzer. "Gäste" IP-Adressen werden von der Organisation DHCP-Server – jedoch aufgrund von Einschränkungen für Firewall-Richtlinie zugewiesen, der DHCP-Server kann nicht zugegriffen werden, die Gast-Drahtlosnetzwerk oder Drahtlosclients mit Broadcase Nachrichten.
-
-Um diese Einschränkung zu beheben, wird der Zugriffspunkt konfiguriert, mit dem Link Auswahl Sub Option 5 an das Subnetz, von dem die IP-Adresse zugeordnet für Gastclients in der GIADDR auch die IP-Adresse der internen Schnittstelle, die mit dem Unternehmensnetzwerk führt angeben sollen.
+Um diese Einschränkung zu beheben, wird der Zugriffspunkt mit Link Auswahl unter Option 5 an das Subnetz, aus dem sie die IP-Adresse zugeordnet, die für Gastclients in der GIADDR auch die IP-Adresse der internen Schnittstelle, die zu führt angeben möchte, konfiguriert die Unternehmensnetzwerk.
