@@ -1,6 +1,6 @@
 ---
-title: Entwickeln Sie eine Tool-Erweiterung
-description: Entwickeln Sie eine Tool-Erweiterung Windows Admin Center SDK (Projekt Honolulu)
+title: Entwickeln einer Tool-Erweiterung
+description: Entwickeln Sie eine toolerweiterung Windows Admin Center-SDK (Projekt Honolulu)
 ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
@@ -8,33 +8,33 @@ ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 7dd213f7032ab77021bbfcbdc966c9c2307b86eb
-ms.sourcegitcommit: be0144eb59daf3269bebea93cb1c467d67e2d2f1
+ms.openlocfilehash: 092a97c1166f1090dd7c556f1ab86d42a1f46ee4
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "4081057"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59889271"
 ---
-# Entwickeln Sie eine Tool-Erweiterung
+# <a name="develop-a-tool-extension"></a>Entwickeln einer Tool-Erweiterung
 
 >Gilt für: Windows Admin Center, Windows Admin Center Preview
 
-Eine Tool-Erweiterung ist der bevorzugte Weg, die Interaktion von Benutzern mit Windows Admin Center, um eine Verbindung, z. B. einem Server oder Cluster zu verwalten. Wenn Sie eine Verbindung in der Windows Admin Center-Startseite auf und eine Verbindung herstellen, wird dann mit einer Liste der Tools im linken Navigationsbereich angezeigt werden. Wenn Sie auf ein Tool klicken, wird die Tool-Erweiterung geladen und im rechten Bereich angezeigt.
+Eine toolerweiterung ist der einfachste Weg, die Benutzer mit Windows Admin Center zum Verwalten einer Verbindung, wie z. B. einem Server oder Cluster zu interagieren. Wenn Sie klicken Sie auf eine Verbindung in der Windows Admin Center-Startseite und eine Verbindung herstellen, werden Sie dann eine Liste der Tools im linken Navigationsbereich angezeigt. Beim Klicken auf ein Tool, die Tools-Erweiterung geladen und im rechten Bereich angezeigt.
 
-Wenn eine Tool-Erweiterung geladen wird, können sie WMI-Aufrufe oder PowerShell-Skripts auf einem Zielserver oder Cluster ausführen und Informationen in der Benutzeroberfläche anzeigen oder basierend auf Benutzereingaben Befehle ausführen. Tool-Erweiterungen definieren, welche Lösungen, angezeigt werden sollte sich ergebenden in einen anderen Satz von Tools für jede bereitzustellende Lösung.
+Wenn eine toolerweiterung geladen wird, können sie WMI-Aufrufe oder PowerShell-Skripts auf einem Ziel-Server oder Cluster ausführen und Anzeigen von Informationen in der Benutzeroberfläche oder Ausführen von Befehlen auf Grundlage der Benutzereingabe. Toolerweiterungen definieren, welche Lösungen er, angezeigt werden soll einen anderen Satz von Tools für jede Lösung führt.
 
 > [!NOTE]
-> Mit den anderen Erweiterung nicht vertraut? Erfahren Sie mehr über die [Erweiterbarkeit Architektur und Erweiterung Typen](understand-extensions.md).
+> Sie sind nicht mit anderen Erweiterungstypen vertraut? Erfahren Sie mehr über die [Erweiterbarkeit Architektur und die Erweiterung Typen](understand-extensions.md).
 
-## Vorbereiten der Umgebung
+## <a name="prepare-your-environment"></a>Vorbereiten der Umgebung
 
-Wenn Sie nicht bereits geschehen, durch das Installieren von Abhängigkeiten und globale erforderlichen Komponenten für alle Projekte [Vorbereiten der Umgebung](prepare-development-environment.md) .
+Wenn Sie nicht bereits geschehen, [Vorbereiten der Umgebung](prepare-development-environment.md) durch die Installation von Abhängigkeiten und globale Voraussetzungen für alle Projekte.
 
-## Erstellen Sie eine neue Tool-Erweiterung mit der Windows Admin Center-CLI ##
+## <a name="create-a-new-tool-extension-with-the-windows-admin-center-cli"></a>Erstellen Sie eine neue Tools-Erweiterung, mit der Windows Admin Center-CLI ##
 
-Wenn Sie alle Abhängigkeiten installiert haben, können Sie mit die neuen Tool-Erweiterung erstellen.  Erstellen oder navigieren Sie zu einem Ordner, der Ihre Projektdateien enthält, ein Eingabeaufforderungsfenster, und legen Sie diesen Ordner als das Arbeitsverzeichnis.  Verwenden die Windows Admin Center-CLI, die zuvor installiert wurde, erstellen Sie eine neue Erweiterung mit folgender Syntax:
+Nachdem Sie alle Abhängigkeiten installiert haben, können Sie die neue Tools-Erweiterung zu erstellen.  Erstellen Sie oder navigieren Sie zu einem Ordner, der Ihre Projektdateien enthält, öffnen Sie eine Eingabeaufforderung, und legen Sie diesen Ordner als Arbeitsverzeichnis.  Verwenden die Windows Admin Center-CLI, die zuvor installiert wurde, erstellen Sie eine neue Erweiterung mit der folgenden Syntax:
 
-```
+``` cmd
 wac create --company "{!Company Name}" --tool "{!Tool Name}"
 ```
 
@@ -45,37 +45,57 @@ wac create --company "{!Company Name}" --tool "{!Tool Name}"
 
 Beispiel zur Verwendung:
 
-```
+``` cmd
 wac create --company "Contoso Inc" --tool "Manage Foo Works"
 ```
 
-Dadurch entsteht einen neuen Ordner in das aktuelle Arbeitsverzeichnis, das mit dem Namen für Ihr Tool angegeben, werden alle erforderlichen Vorlagendateien in Ihrem Projekt kopiert und konfiguriert die Dateien mit den Namen Ihrer Firma und Tool.  
+Dies erstellt einen neuen Ordner in das aktuelle Arbeitsverzeichnis, das mit dem Namen, den Sie für Ihr Tool angegeben, kopiert alle erforderlichen Vorlagendateien in Ihr Projekt und die Dateien durch den Namen Ihres Unternehmens und das Tool konfiguriert.  
 
-Als Nächstes ändern Sie das Verzeichnis in den Ordner, der gerade erstellt haben, und Installieren von erforderlichen lokalen Abhängigkeiten mithilfe des folgenden Befehls:
+Als Nächstes wechseln Sie zu dem Ordner, der gerade erstellt haben, und installieren Sie erforderliche lokale Abhängigkeiten zu, indem Sie den folgenden Befehl ausführen:
 
-```
+``` cmd
 npm install
 ```
 
-Sobald dies abgeschlossen ist, haben Sie alles einrichten die neue Erweiterung in Windows Admin Center geladen werden müssen. 
+Sobald dies abgeschlossen ist, haben Sie alles, was einrichten, die Sie die neue Erweiterung in Windows Admin Center zu laden müssen. 
 
-## Hinzufügen von Inhalten zu der Erweiterung
+## <a name="add-content-to-your-extension"></a>Hinzufügen von Inhalt zu Ihrer Erweiterung
 
-Nun, da Sie eine Erweiterung mit dem Windows Admin Center-CLI erstellt haben, können Sie zur Anpassung von Inhalten.  Beispiele dafür, was Sie tun können finden Sie in diesen Handbüchern aus:
+Nun, dass Sie eine Erweiterung mit der Windows Admin Center-CLI erstellt haben, können Sie Inhalt anpassen.  Diese Leitfäden finden Sie Beispiele für Möglichkeiten:
 
-- Fügen Sie ein [leeres Modul](guides\add-module.md)
-- [IFrame](guides\add-iframe.md) hinzufügen
+- Hinzufügen einer [leere-Modul](guides\add-module.md)
+- Hinzufügen einer [iFrame](guides\add-iframe.md)
  
-Weitere Beispiele finden Sie unserer [GitHub-SDK-Website](https://aka.ms/wacsdk):
--  [Entwicklertools](https://github.com/Microsoft/windows-admin-center-sdk/tree/master/windows-admin-center-developer-tools) ist eine voll funktionsfähige Erweiterung, die in Windows Admin Center Seite geladen werden können, und enthält eine umfassende Auflistung von Beispiel-Funktion und Tool-Beispiele, in denen Sie durchsuchen und in Ihre eigene Erweiterung verwenden können.
+Weitere Beispiele finden Sie unserem [Website des GitHub-SDKS](https://aka.ms/wacsdk):
+-  [Entwicklertools](https://github.com/Microsoft/windows-admin-center-sdk/tree/master/windows-admin-center-developer-tools) ist eine voll funktionsfähige-Erweiterung, die in Windows Admin Center-Seite geladen werden können, und eine umfangreiche Sammlung von Beispiel-Funktionen und Tools Beispiele, die Sie durchsuchen und verwenden Sie in Ihrer eigenen Extension enthält.
 
-## Build und Seite laden die Erweiterung
+## <a name="customize-your-extensions-icon"></a>Anpassen der Erweiterung des Symbols
 
-Als Nächstes laden Build und Seite die Erweiterung in Windows Admin Center.  Öffnen Sie ein Befehlsfenster, wechseln Sie in Ihrer Quellverzeichnis, und klicken Sie dann erstellen bereit.
+Das Symbol, das zeigt, können Sie für Ihre Erweiterung in der Liste der Tools anpassen.  Zu diesem Zweck ändern Sie alle ```icon``` Einträge im ```manifest.json``` für Ihre Erweiterung:
+
+``` json
+"icon": "{!icon-uri}",
+```
+
+| Wert | Erläuterung | Beispiel-uri |
+| ----- | ----------- | ------- |
+| ```{!icon-uri}``` | Der Speicherort der Symbolressource | ```assets/foo-icon.svg``` |
+
+HINWEIS: Derzeit nicht benutzerdefinierte Symbole sichtbar, wenn die Seite die Erweiterung im Dev-Modus laden.  Dieses Problem zu umgehen, entfernen Sie den Inhalt der ```target``` wie folgt:
+
+``` json
+"target": "",
+```
+
+Diese Konfiguration ist nur gültig für querladen im Modus "Dev", daher es wichtig ist, um den Wert im beizubehalten ```target``` und wiederhergestellt werden kann, ehe Sie die Erweiterung.
+
+## <a name="build-and-side-load-your-extension"></a>Erstellen und die Seite laden die Erweiterung
+
+Laden Sie als Nächstes erstellen und die Seite die Erweiterung in Windows Admin Center.  Öffnen Sie ein Befehlsfenster, wechseln Sie in Ihrem Quellverzeichnis, sind Sie bereit zum Erstellen.
 
 * Erstellen und mit schlucken dienen:
 
-    ```
+    ``` cmd
     gulp build
     gulp serve -p 4201
     ```
@@ -88,7 +108,7 @@ Das Projekt kann Seite in eine lokale Instanz des Windows Admin Center zu Testzw
 * Öffnen Sie den Debugger (F12)
 * Öffnen Sie die Konsole, und geben Sie den folgenden Befehl ein:
 
-    ```
+    ``` cmd
     MsftSme.sideLoad("http://localhost:4201")
     ```
 
@@ -96,6 +116,6 @@ Das Projekt kann Seite in eine lokale Instanz des Windows Admin Center zu Testzw
 
 Das Projekt wird jetzt in der Liste Tools mit (Seite geladen) neben dem Namen angezeigt.
 
-## Eine andere Version von Windows Admin Center SDK
+## <a name="target-a-different-version-of-the-windows-admin-center-sdk"></a>Eine andere Version des Windows Admin Center-SDK
 
-Halten die Erweiterung auf dem neuesten Stand mit SDK-Änderungen und Plattform Änderungen ist einfach.  Informationen Sie darüber, wie Sie [Ziel eine andere Version](target-sdk-version.md) von Windows Admin Center SDK.
+Halten die Erweiterung auf dem neuesten Stand mit SDK-Änderungen und Plattform ist einfach.  Erfahren Sie, wie Sie [eine andere Version](target-sdk-version.md) Windows Admin Center SDK.

@@ -1,7 +1,7 @@
 ---
 ms.assetid: bdb9ad4b-139c-4031-8f26-827432779829
-title: "Lösungen und Handbüchern"
-description: 
+title: Handbücher zu Lösungen und Szenarien
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,26 +10,27 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
 ms.openlocfilehash: fdfa860d9fdf1c77327b4d0c7d9d41ba68e5ed48
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59888381"
 ---
-# <a name="solutions-and-scenario-guides"></a>Lösungen und Handbüchern
+# <a name="solutions-and-scenario-guides"></a>Handbücher zu Lösungen und Szenarien
 
->Gilt für: Windows Server2016, Windows Server2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
  
   
-Mit Microsoft Zugriff und Informationen Protection Lösungen können beim Bereitstellen und konfigurieren den Zugriff auf Unternehmensressourcen über Ihrer lokalen Umgebung und der Cloud-Anwendungen. Und Sie haben es beim Schutz von Unternehmensdaten.  
+Von Microsoft Access und Lösungen zum Schutz von Informationen können Sie bereitstellen und konfigurieren den Zugriff auf Unternehmensressourcen über Ihre lokale Umgebung und der Cloud-Anwendungen. Dies ist auch möglich, während Sie gleichzeitig die Daten im Unternehmen schützen.  
   
 Zugriffs- und Datenschutz  
   
-|Handbuch|Wie können Sie diese Anleitung helfen                                                                                                                                                                                                                                                                                                                                                                                                    
+|Handbuch|Wie können Sie dieses Handbuch helfen                                                                                                                                                                                                                                                                                                                                                                                                    
 |-----|-----  
-| [Sicherer Zugriff auf Unternehmensressourcen von jedem Standort und jedem Gerät](https://technet.microsoft.com/library/dn550982.aspx)|In dieser Anleitung erfahren zum Zulassen von Mitarbeitern die Verwendung von persönlicher und unternehmenseigener Geräte sicher auf unternehmensanwendungen und Daten zugreifen.                                                                                                                                                                                    
-| [Verbinden mit einem Arbeitsplatz von einem beliebigen Gerät für SSO und nahtlose zweistufige Authentifizierung bei allen Unternehmensanwendungen](https://technet.microsoft.com/library/dn280945.aspx) | Mitarbeiter können Anwendungen und Daten überall auf jedem Gerät zugreifen. Mitarbeiter können einmaliges Anmelden in Browseranwendungen oder unternehmensanwendungen verwenden. Administratoren können steuern, wer Zugriff auf Unternehmensressourcen hat, die auf die Anwendung, Benutzer, Gerät und Standort basieren.                                        
-| [Verwalten von Risiken mit zusätzlicher Mehrstufiger Authentifizierung für sensible Anwendungen](https://technet.microsoft.com/library/dn280949.aspx)| In diesem Szenario können Sie die MFA auf Grundlage der Gruppenmitgliedschaftsdaten des Benutzers, für eine bestimmte Anwendung. Anders ausgedrückt, richten Sie eine Authentifizierungsrichtlinie auf dem Verbundserver die MFA erforderlich ist, wenn Benutzer, die einer bestimmten Gruppe angehören, den Zugriff auf eine bestimmte Anwendung anfordern, die auf einem Webserver gehostet wird.  
-| [Verwalten von Risiken mit Steuerung des bedingten Zugriffs](https://technet.microsoft.com/library/dn280937.aspx) | Zugriffssteuerung in AD FS wird implementiert, mit Anspruchsregeln ausstellungsautorisierung, mit denen Zulassungs- oder verweigern Ansprüche, die bestimmt, ob ein Benutzer oder eine Gruppe von Benutzern auf AD FS-gesicherte Ressourcen zugreifen, oder nicht zulässig. Autorisierungsregeln können nur für Vertrauensstellungen der vertrauenden Seite festgelegt werden.
+| [Sichern des Zugriffs auf Unternehmensressourcen von jedem Ort auf jedem Gerät](https://technet.microsoft.com/library/dn550982.aspx)|Dieser Leitfaden zeigt, wie Mitarbeiter verwenden persönlicher und unternehmenseigener Geräte sicher auf unternehmensanwendungen und-Daten zugreifen.                                                                                                                                                                                    
+| [Verbinden mit einem Arbeitsplatz von einem beliebigen Gerät für SSO und nahtlose zweistufige Authentifizierung bei allen Unternehmensanwendungen](https://technet.microsoft.com/library/dn280945.aspx) | Mitarbeiter können überall mit jedem Gerät auf Anwendungen und Daten zugreifen. Mitarbeiter können das einmalige Anmelden in Browseranwendungen oder Unternehmensanwendungen verwenden. Administratoren können steuern, wer Zugriff auf Unternehmensressourcen hat, die auf Anwendungen, Benutzer, Geräte und Standorte basieren.                                        
+| [Verwalten von Risiken mit zusätzlicher Mehrstufiger Authentifizierung für sensible Anwendungen](https://technet.microsoft.com/library/dn280949.aspx)| In diesem Szenario können Sie die MFA auf Grundlage der Gruppenmitgliedschaftsdaten des Benutzers, für eine bestimmte Anwendung. In anderen Worten: Sie richten eine Authentifizierungsrichtlinie auf dem Verbundserver so ein, dass die MFA erforderlich ist, wenn Benutzer aus einer bestimmten Gruppe Zugriff auf eine spezielle auf einem Webserver gehostete Anwendung anfordern.  
+| [Verwalten von Risiken mit der bedingten Zugriffssteuerung](https://technet.microsoft.com/library/dn280937.aspx) | Zugriffssteuerung in AD FS wird implementiert, mit der Ausstellung von Anspruchsregeln, die verwendet werden, um die Ausstellung eines Zulassungs- oder verweigerungsansprüche, der bestimmt, ob ein Benutzer oder eine Gruppe von Benutzern werden auf AD FS-gesicherte Ressourcen oder nicht zugreifen darf. Autorisierungsregeln können nur für Vertrauensstellungen der vertrauenden Seite festgelegt werden.
   
 
 

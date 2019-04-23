@@ -1,6 +1,6 @@
 ---
 title: Speicherberichtmanagement
-description: "Dieser Artikel beschreibt, wie Speicherberichte in regelmäßigen Abständen generiert, geplant und überwacht werden"
+description: Dieser Artikel beschreibt, wie Speicherberichte in regelmäßigen Abständen generiert, geplant und überwacht werden
 ms.date: 7/7/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: c0d750fd139865daa92319c1d1926dc5d36669b2
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59885771"
 ---
 # <a name="storage-reports-management"></a>Speicherberichtmanagement
 
-> Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
 
 Sie können auf dem Knoten **Speicherberichteverwaltung** des Ressourcen-Manager für Dateiserver Microsoft <sup>®</sup> Management Console (MMC)-Snap-Ins folgende Aufgaben ausführen:
 
@@ -33,14 +34,14 @@ Sie haben u. a. folgende Möglichkeiten:
 
 In diesem Abschnitt werden folgende Themen behandelt:
 
--   [Planen eines Satzes von Berichten](schedule-set-of-reports.md)
--   [Berichte nach Bedarf erstellen](generate-reports-on-demand.md)
+-   [Planen Sie eine Reihe von Berichten](schedule-set-of-reports.md)
+-   [Generieren von Berichten bei Bedarf](generate-reports-on-demand.md)
 
 > [!Note]
 > Zum Festlegen von E-Mail-Benachrichtigungen und bestimmten Berichtsfunktionen müssen Sie zuerst die Optionen des Ressourcen-Manager für Dateiserverkonfigurieren konfigurieren.
 
-## <a name="see-also"></a>Weitere Informationen:
+## <a name="see-also"></a>Siehe auch
 
--   [Festlegen der Optionen des Ressourcen-Managers für Dateiserver](setting-file-server-resource-manager-options.md)
+-   [Einstellung File Server Resource Manager-Optionen](setting-file-server-resource-manager-options.md)
 
 

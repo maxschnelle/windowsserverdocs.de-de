@@ -1,27 +1,28 @@
 ---
 ms.assetid: f0398494-773d-4070-aa4e-25b4815b001e
-title: "Identifizieren der AD DS-Entwurf und Anforderungen für die Bereitstellung"
-description: 
-author: billmath
-ms.author: billmath
-manager: femila
+title: Bestimmen der AD DS-Entwurfs- und -Bereitstellungsanforderungen
+description: ''
+author: MicrosoftGuyJFlo
+ms.author: joflore
+manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: c0da90e3a4b9f50d01c4d158c93a466467e5af49
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.openlocfilehash: 160ebf65348aaff0095f359766c65aebd6fdd3c3
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59889541"
 ---
-# <a name="identifying-your-ad-ds-design-and-deployment-requirements"></a>Identifizieren der AD DS-Entwurf und Anforderungen für die Bereitstellung
+# <a name="identifying-your-ad-ds-design-and-deployment-requirements"></a>Bestimmen der AD DS-Entwurfs- und -Bereitstellungsanforderungen
 
->Gilt für: Windows Server2016, Windows Server2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Eine ausführliche Bewertung Ihrer aktuellen Umgebung ausführen und Ihre Active Directory-Domänendienste (AD DS) Bereitstellungsaufgaben richtig identifiziert ist entscheidend für den Erfolg der AD DS-Bereitstellungsstrategie.  
+Eine grundlegende Bewertung Ihrer aktuellen Umgebung ausführen und die ordnungsgemäße Identifizierung Ihrer Active Directory Domain Services (AD DS)-Bereitstellungstasks ist entscheidend für den Erfolg Ihrer Strategie für AD DS-Bereitstellung.  
   
-Der AD DS-Bereitstellungsstrategie hängt von Ihrer Netzwerkkonfiguration. Wenn Ihre Organisation derzeit Windows Server 2003 ausgeführt wird, können Sie z. B. das Betriebssystem auf Windows Server 2008 aktualisieren. Während des Bereitstellungsprozesses möglicherweise die Umstrukturierung vorhandener Domänen, die innerhalb einer Active Directory-Gesamtstruktur oder zwischen Active Directory-Gesamtstrukturen umfassen. Möglicherweise wird die vorhandenen Domänen neu strukturieren, nach der Bereitstellung von Windows Server 2008 AD DS oder nach dem organisatorischen Änderungen aktualisiert bzw. Unternehmens Käufe.  
+Der AD DS-Bereitstellungsstrategie hängt von Ihrer Netzwerkkonfiguration. Wenn Ihre Organisation momentan Windows Server 2003 ausgeführt wird, können Sie beispielsweise das Betriebssystem auf Windows Server 2008 aktualisieren. Ihr Bereitstellungsprozess könnte die Umstrukturierung vorhandener Domänen, innerhalb einer Active Directory-Gesamtstruktur oder zwischen Active Directory-Gesamtstrukturen beinhalten. Sie müssen möglicherweise Ihre vorhandenen Domänen umstrukturieren, nach der Bereitstellung von Windows Server 2008 AD DS, oder nachdem organisatorische Änderungen vorgenommen oder Unternehmens Akquisitionen.  
   
 -   [AD DS-Entwurfsanforderungen](../../ad-ds/plan/AD-DS-Design-Requirements.md)  
   

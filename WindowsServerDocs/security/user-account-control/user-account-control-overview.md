@@ -1,5 +1,5 @@
 ---
-title: User Account Control Overview
+title: Benutzerkontensteuerung (Übersicht)
 description: Windows Server-Sicherheit
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -14,23 +14,24 @@ ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
 ms.openlocfilehash: 90ce72cb3d1850563d16a12d09a6872d107c0690
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59887671"
 ---
-# <a name="user-account-control-overview"></a>User Account Control Overview
-User Account Control \(UAC\) ist ein grundlegender Baustein der gesamtsicherheitsvision von Microsoft.  Benutzerkontensteuerung trägt dazu bei, die Auswirkungen von Schadsoftware zu reduzieren.
+# <a name="user-account-control-overview"></a>Benutzerkontensteuerung (Übersicht)
+Der Benutzerkontensteuerung \(UAC\) ist eine grundlegende Komponente der übergreifenden Sicherheitsvision von Microsoft.  Die Benutzerkontensteuerung trägt dazu bei, die Auswirkungen von Schadsoftware zu reduzieren.
 
 ## <a name="BKMK_OVER"></a>Featurebeschreibung
-UAC ermöglicht allen Benutzern auf ihren Computern mit einem Standardbenutzerkonto anmelden. Mit einem standardmäßigen Benutzertoken gestartete Prozesse können mithilfe von Zugriffsrechten eines Standardbenutzers Aufgaben ausführen. Windows-Explorer erbt z. B. automatisch Berechtigungen auf standardbenutzerebene. Darüber hinaus alle Programme, die ausgeführt werden, mithilfe von Windows Explorer \ (z. B. durch einen doppelten Klick eine Anwendung Shortcut\) auch mit dem Standardsatz von Benutzerberechtigungen ausgeführt. Viele Anwendungen, einschließlich derer, die das Betriebssystem selbst integriert werden sollen auf diese Weise ordnungsgemäß funktionieren.
+Mithilfe der Benutzerkontensteuerung können sich alle Benutzer an ihren Computern mit einem Standardbenutzerkonto anmelden. Mit einem standardmäßigen Benutzertoken gestartete Prozesse führen möglicherweise Aufgaben unter Verwendung von Zugriffsrechten eines Standardbenutzers aus. Windows-Explorer erbt z. B. automatisch Berechtigungen auf Standardbenutzerebene. Darüber hinaus auf alle Programme, die ausgeführt werden, mit dem Windows-Explorer \(z. B. durch doppelte\-auf eine anwendungsverknüpfung\) auch mit den Standardsatz von Benutzerberechtigungen ausgeführt. Viele Anwendungen, einschließlich derjenigen, die mit dem Betriebssystem selbst eingeschlossen werden sollen ordnungsgemäß auf diese Weise funktioniert.
 
-Andere Anwendungen, insbesondere solche, die nicht speziell mit Sicherheitseinstellungen, denken Sie daran, entworfen wurden, erfordern häufig zur erfolgreichen Ausführung zusätzliche Berechtigungen. Diese Art von Programmen werden als legacy-Anwendungen bezeichnet. Darüber hinaus erfordern Aktionen wie das Installieren neuer Software und Ändern der Konfiguration auf Programme, z. B. Windows-Firewall mehr Berechtigungen als ein Standardbenutzerkonto verfügbar ist.
+Andere Anwendungen, besonders solche, die mit Sicherheitseinstellungen, denken Sie daran, nicht speziell entwickelt wurden, erfordern häufig zusätzliche Berechtigungen für die erfolgreiche Ausführung. Diese Arten von Programmen sind ältere Anwendungen genannt. Darüber hinaus müssen Aktionen wie das Installieren neuer Software oder konfigurationsänderungen auf Programme, z. B. Windows-Firewall, mehr Berechtigungen als ein Standardbenutzerkonto zur Verfügung.
 
-Wenn ein Anwendungen muss mit mehr als den Standardbenutzerrechten ausgeführt wird, kann UAC zusätzliche Benutzergruppen für das Token wiederherstellen. Dies ermöglicht die Benutzer explizit die Kontrolle der Programme, die die auf Systemebene Änderungen am Computer oder Gerät vornehmen.
+Wenn ein Anwendungen muss mit mehr als standardmäßigen Benutzerberechtigungen ausgeführt werden, kann zusätzliche Benutzergruppen von UAC auf das Token wiederherstellen. Dadurch kann der Benutzer damit explizite Kontrolle über Programme, die auf Änderungen am Informationssystem auf ihren Computer oder Gerät erfolgen.
 
-## <a name="BKMK_APP"></a>In der Praxis
-Administratorbestätigungsmodus in UAC wird verhindert, dass Schadsoftware automatisch installiert wird, ohne ein Administrator wissen. Darüber hinaus Schutz vor unbeabsichtigten systemweiten Änderungen. Schließlich kann es ein höheres Maß an Kompatibilität erzwingen, in denen Administratoren müssen aktiv Zustimmung oder Anmeldeinformationen jedem administrativen Prozess, verwendet werden.
+## <a name="BKMK_APP"></a>Praktische Anwendungen
+Admin Approval Mode in die Benutzerkontensteuerung verhindert, dass böswillige Programme im Hintergrund ohne Kenntnis der eines Administrators installiert. Auch dadurch verhindern versehentliches System\-große Änderungen. Schließlich kann ein höherer Kompatibilitätsgrad erzwungen werden, beim dem Administratoren jedem administrativen Prozess aktiv zustimmen oder dafür Anmeldeinformationen angeben müssen.
 
 
 

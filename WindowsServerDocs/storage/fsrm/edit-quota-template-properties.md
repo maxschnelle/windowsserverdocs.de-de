@@ -1,6 +1,6 @@
 ---
 title: Bearbeiten von Kontingentvorlageneigenschaften
-description: "Dieser Artikel beschreibt, wie Kontingentvorlageneigenschaften bearbeitet werden, um die Änderungen an Kontingenten zu erweitern, die mit der ursprünglichen Kontingentvorlage erstellt wurden"
+description: Dieser Artikel beschreibt, wie Kontingentvorlageneigenschaften bearbeitet werden, um die Änderungen an Kontingenten zu erweitern, die mit der ursprünglichen Kontingentvorlage erstellt wurden
 ms.date: 7/7/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 0362b30e16dacb354220c770899195240f3e19ee
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59885781"
 ---
 # <a name="edit-quota-template-properties"></a>Bearbeiten von Kontingentvorlageneigenschaften
 
-> Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
 
 Wenn Sie eine Kontingentvorlage ändern, haben Sie die Möglichkeit, diese Änderungen auf Kontingente anzuwenden, die mit der ursprünglichen Kontingentvorlage erstellt wurden. Sie haben die Möglichkeit, nur die Kontingente zu ändern, die der ursprünglichen Vorlage entsprechen oder alle Kontingente zu ändern, die von der ursprünglichen Vorlage abgeleitet sind, unabhängig von den Änderungen, die Sie an den Kontingenten vorgenommen haben, seit sie erstellt wurden. Dieses Feature vereinfacht die Aktualisierung der Eigenschaften der Kontingente, da alle Änderungen an einem zentralen Ort ausgeführt werden können.
 
@@ -41,9 +42,9 @@ Wenn Sie eine Kontingentvorlage ändern, haben Sie die Möglichkeit, diese Ände
 
 6.  Klicken Sie auf **OK**.
 
-## <a name="see-also"></a>Weitere Informationen:
+## <a name="see-also"></a>Siehe auch
 
--   [Kontingentverwaltung](quota-management.md)
--   [Erstellen einer Kontingentvorlage](create-quota-template.md)
+-   [Management von sollvorgaben](quota-management.md)
+-   [Erstellen Sie eine Kontingentvorlage](create-quota-template.md)
 
 

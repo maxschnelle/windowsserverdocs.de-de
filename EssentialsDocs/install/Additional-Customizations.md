@@ -1,6 +1,6 @@
 ---
 title: Weitere Anpassungen
-description: Beschreibt, wie Sie Windows Server Essentials
+description: Beschreibt, wie Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,16 +13,17 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 347da7117835dde94c72168f77ff15a9cf5275c4
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59887701"
 ---
 # <a name="additional-customizations"></a>Weitere Anpassungen
 
->Gilt für: Windows Server2016 Essentials, Windows Server2012 R2 Essentials, Windows Server2012 Essentials
+>Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Sie können die folgenden zusätzlichen Anpassungen erstellen und Anpassen eines Images von Windows Server Essentials vornehmen:  
+Sie können die folgenden zusätzlichen Anpassungen zu erstellen und Anpassen eines Abbilds von Windows Server Essentials vornehmen:  
   
 
 -   [Hinzufügen von Branding zum Dashboard, Remotewebzugriff und Launchpad](Add-Branding-to-the-Dashboard--Remote-Web-Access--and-Launchpad.md)  
@@ -37,21 +38,21 @@ Sie können die folgenden zusätzlichen Anpassungen erstellen und Anpassen eines
   
 -   [Ändern der Reihenfolge und Gruppierung von Registerkarten](Change-the-Order-and-Grouping-of-Tabs.md)  
   
--   [Installieren oder Entfernen von Language Packs](Install-or-Remove-Language-Packs.md)  
+-   [Installieren oder Entfernen von Sprachpaketen](Install-or-Remove-Language-Packs.md)  
   
 -   [Verwalten von Domänennamen und Domänennamenanbietern](Manage-Domain-Names-and-Domain-Name-Providers.md)  
   
--   [Anpassen der anmelden für Microsoft Online Backup Service-Vorgang](Customize-Sign-Up-for-Microsoft-Online-Backup-Service-task.md)  
+-   [Registrieren Sie sich für Microsoft Online Backup Service Aufgabe anpassen](Customize-Sign-Up-for-Microsoft-Online-Backup-Service-task.md)  
   
 -   [Anpassen von Speicherplätzen](Customize-Storage-Spaces.md)  
   
 -   [Erstellen des mehrsprachigen Mediums zur Clientwiederherstellung](Build-Multi-Language-Client-Restore-Media.md)  
   
--   [Automatisches Installieren von Add-Ins während des Setups](Automate-Installation-of-Add-Ins-During-Setup.md)  
+-   [Automatisieren der Installation von Add-Ins während des Setups](Automate-Installation-of-Add-Ins-During-Setup.md)  
   
--   [Microsoft Online Service Partner Agreement Partner-of-Record Informationen hinzufügen](Add-Microsoft-Online-Service-Partner-Agreement-Partner-of-Record-Information.md)  
+-   [Hinzufügen von Microsoft Online Services Agreement Partner-of-Record-Partnerinformationen](Add-Microsoft-Online-Service-Partner-Agreement-Partner-of-Record-Information.md)  
   
--   [Ersetzen Sie Office 365-Integration Modul kaufen Try-Endpunkt-URL zur Unterstützung von Microsoft Online Service Reseller Agreement](Replace-O365-Integration-Module-Buy-Try-Endpoint-URL-in-Support-of-Microsoft-Online-Service-Reseller-Agreement.md)  
+-   [Ersetzen Sie Office 365-Integration-Modul kaufen-Endpunkt-URLs wiederverkäufervertrags Microsoft Online-Dienst](Replace-O365-Integration-Module-Buy-Try-Endpoint-URL-in-Support-of-Microsoft-Online-Service-Reseller-Agreement.md)  
   
 -   [Erstellen einer Serverwiederherstellungs-DVD für Remote verwaltete Server](Create-a-Server-Recovery-DVD-for-Remotely-Administered-Servers.md)  
   
@@ -69,21 +70,21 @@ Sie können die folgenden zusätzlichen Anpassungen erstellen und Anpassen eines
   
 -   [Ändern der Reihenfolge und Gruppierung von Registerkarten](../install/Change-the-Order-and-Grouping-of-Tabs.md)  
   
--   [Installieren oder Entfernen von Language Packs](../install/Install-or-Remove-Language-Packs.md)  
+-   [Installieren oder Entfernen von Sprachpaketen](../install/Install-or-Remove-Language-Packs.md)  
   
 -   [Verwalten von Domänennamen und Domänennamenanbietern](../install/Manage-Domain-Names-and-Domain-Name-Providers.md)  
   
--   [Anpassen der anmelden für Microsoft Online Backup Service-Vorgang](../install/Customize-Sign-Up-for-Microsoft-Online-Backup-Service-task.md)  
+-   [Registrieren Sie sich für Microsoft Online Backup Service Aufgabe anpassen](../install/Customize-Sign-Up-for-Microsoft-Online-Backup-Service-task.md)  
   
 -   [Anpassen von Speicherplätzen](../install/Customize-Storage-Spaces.md)  
   
 -   [Erstellen des mehrsprachigen Mediums zur Clientwiederherstellung](../install/Build-Multi-Language-Client-Restore-Media.md)  
   
--   [Automatisches Installieren von Add-Ins während des Setups](../install/Automate-Installation-of-Add-Ins-During-Setup.md)  
+-   [Automatisieren der Installation von Add-Ins während des Setups](../install/Automate-Installation-of-Add-Ins-During-Setup.md)  
   
--   [Microsoft Online Service Partner Agreement Partner-of-Record Informationen hinzufügen](../install/Add-Microsoft-Online-Service-Partner-Agreement-Partner-of-Record-Information.md)  
+-   [Hinzufügen von Microsoft Online Services Agreement Partner-of-Record-Partnerinformationen](../install/Add-Microsoft-Online-Service-Partner-Agreement-Partner-of-Record-Information.md)  
   
--   [Ersetzen Sie Office 365-Integration Modul kaufen Try-Endpunkt-URL zur Unterstützung von Microsoft Online Service Reseller Agreement](../install/Replace-O365-Integration-Module-Buy-Try-Endpoint-URL-in-Support-of-Microsoft-Online-Service-Reseller-Agreement.md)  
+-   [Ersetzen Sie Office 365-Integration-Modul kaufen-Endpunkt-URLs wiederverkäufervertrags Microsoft Online-Dienst](../install/Replace-O365-Integration-Module-Buy-Try-Endpoint-URL-in-Support-of-Microsoft-Online-Service-Reseller-Agreement.md)  
   
 -   [Erstellen einer Serverwiederherstellungs-DVD für Remote verwaltete Server](../install/Create-a-Server-Recovery-DVD-for-Remotely-Administered-Servers.md)  
   

@@ -1,6 +1,6 @@
 ---
-title: Erste Schritte mit Remotedesktop für iOS
-description: Erfahren Sie, wie Sie den Remotedesktopclient für iOS einrichten
+title: Erste Schritte mit Remotedesktop auf iOS
+description: Informationen Sie zum Einrichten des Remotedesktopclients für iOS
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -14,192 +14,192 @@ manager: dongill
 ms.author: elizapo
 date: 01/13/2017
 ms.localizationpriority: medium
-ms.openlocfilehash: aab84dde3ded2a3d3f17f4bb318302321c444606
-ms.sourcegitcommit: d3f73936160505a40633ad8dd5931ac5fe3eccdb
-ms.translationtype: MT
+ms.openlocfilehash: 1a1939c7fd6d25d756369c85e4adaa6c15195b37
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "9297229"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59889631"
 ---
-# Erste Schritte mit Remotedesktop für iOS
+# <a name="get-started-with-remote-desktop-on-ios"></a>Erste Schritte mit Remotedesktop auf iOS
 
->Gilt für: Windows 10, Windows 8.1, WindowsServer 2019, WindowsServer 2016, Windows Server 2012 R2
+>Gilt für: Windows 10, Windows 8.1, Windows Server 2012 R2, WindowsServer 2016
 
-Sie können den Remotedesktopclient für iOS verwenden, funktionieren mit Windows-apps, Ressourcen und Desktops von Ihrem Gerät iOS (iPhones und iPads).
+Sie können den Remotedesktopclient für iOS verwenden, zum Arbeiten mit Windows-apps, Ressourcen und Desktops über Ihr iOS-Gerät (iPhones und iPads).
 
-Verwenden Sie die folgende Informationen, um zu beginnen. Achten Sie darauf, um die [– häufig gestellte Fragen](remote-desktop-client-faq.md) zu überprüfen, wenn Sie Fragen haben.
+Verwenden Sie die folgende Informationen, um zu beginnen. Achten Sie darauf, sehen Sie sich die [– häufig gestellte Fragen](remote-desktop-client-faq.md) , wenn Sie Fragen haben.
 
 > [!NOTE]
-> - Sie wissen die neuen Versionen für iOS-Client? Sehen Sie sich [für Remotedesktop auf iOS Neuigkeiten?](ios-whatsnew.md)
-> - Die iOS-Client unterstützt Geräte unter iOS 6.x und höher.
+> - Möchten Sie wissen zu den neuen Releases für die iOS-Client? Sehen Sie sich [für Remotedesktop unter iOS Neuigkeiten?](ios-whatsnew.md)
+> - Das iOS-Client unterstützt Geräte mit iOS 6.x oder höher.
 
-## Remotedesktop-Clients und beginnen sie mit
+## <a name="get-the-remote-desktop-client-and-start-using-it"></a>Abrufen der Remotedesktop-Client, und verwenden
 
-### Den Remotedesktop-Client aus dem iOS-Store herunterladen
-Um mit Remotedesktop auf Ihrem Gerät iOS beginnen, gehen Sie wie folgt vor:
+### <a name="download-the-remote-desktop-client-from-the-ios-store"></a>Der Remotedesktop-Client aus dem iOS-Store herunterladen
+Um mit Remotedesktop auf Ihrem iOS-Gerät zu beginnen, gehen Sie wie folgt vor:
 
-1. Laden Sie die Microsoft-Remotedesktopclient aus [iTunes](https://itunes.apple.com/us/app/microsoft-remote-desktop/id714464092?mt=8).
-2. Die [Einrichtung Ihres PCs für Remoteverbindungen festlegen](remote-desktop-client-faq.md#how-do-i-set-up-a-pc-for-remote-desktop).
-3. Fügen Sie eine [Remotedesktopverbindung](#add-a-remote-desktop-connection) oder eine [remote-Ressourcen](#add-a-remote-resource). Verwenden Sie eine Verbindung zum Herstellen einer direkt auf einem Windows-PC und eine remote-Ressource mit einem RemoteApp-Programm, Sitzung-basierten Desktop oder ein virtueller Desktop veröffentlicht lokale mit RemoteApp und Desktop-Verbindungen. Dieses Feature ist in der Regel in unternehmensumgebungen verfügbar.
+1. Laden Sie die Microsoft-Remotedesktop-Client aus [iTunes](https://itunes.apple.com/us/app/microsoft-remote-desktop/id714464092?mt=8).
+2. [Richten Sie Ihren PC, um Remoteverbindungen](remote-desktop-client-faq.md#how-do-i-set-up-a-pc-for-remote-desktop).
+3. Hinzufügen einer [Remotedesktopverbindung](#add-a-remote-desktop-connection) oder [Remoteressource](#add-a-remote-resource). Können Sie eine Verbindung herstellen einer Verbindung mit einem direkt auf einem Windows-PC ein RemoteApp-Programm verwendet werden und eine Remoteressource, sitzungsbasierten Desktop oder einem virtuellen Desktop veröffentlicht lokal mithilfe der RemoteApp- und Desktopverbindungen. Dieses Feature steht in der Regel in unternehmensumgebungen.
 
-### Herunterladen des Remotedesktop-iOS Beta-Clients
-Befolgen Sie auf Ihrem Gerät iOS [diese Anweisungen,](https://aka.ms/rdiosbeta) um die iOS Beta Remotedesktopclient herunterzuladen.
+### <a name="download-the-remote-desktop-ios-beta-client"></a>Laden Sie den Remotedesktop-iOS-Beta-client
+Führen Sie auf Ihrem iOS-Gerät [diese Anweisungen](https://aka.ms/rdiosbeta) der Remotedesktop-iOS-Beta-Client herunterladen.
 
-### Fügen Sie eine Remotedesktopverbindung
+### <a name="add-a-remote-desktop-connection"></a>Fügen Sie eine Remotedesktopverbindung
 
-So erstellen Sie eine Remotedesktopverbindung: 
-1. In der Verbindung Center tippen **+**, und tippen Sie dann auf **Hinzufügen PC oder Server**.
-2. Geben Sie die folgende Informationen für die Remotedesktopverbindung:
-  - **PC-Name** – der Name des Computers. Dies kann es sich um einen Windows-Computernamen, ein Internetdomänenname oder einer IP-Adresse sein. Sie können auch auf den PC-Namen (z. B. **MyDesktop:3389** oder **10.0.0.1:3389**) Portinformationen anfügen.
-  - **Benutzername** – den Benutzernamen zu verwenden, um die remote-PC zuzugreifen. Sie können die folgenden Formate: *Benutzername*, *Domäne\Benutzername*oder *user_name@domain.com*. Sie können auch angeben, ob für einen Benutzernamen und Kennwort auffordern.
+So erstellen Sie eine Remotedesktopverbindung 
+1. In das Connection Center Tap **+**, und tippen Sie dann auf **hinzufügen PC oder Server**.
+2. Geben Sie die folgende Informationen für die Remotedesktopverbindung aus:
+  - **PC-Namen** – der Name des Computers. Dies kann es sich um einen Windows-Computernamen, einen Internet-Domänennamen oder eine IP-Adresse sein. Sie können auch die Portinformationen anfügen, auf den PC-Namen (z. B. **MyDesktop:3389** oder **10.0.0.1:3389**).
+  - **Benutzername** – den Benutzernamen ein, die auf einem Remotecomputer verwenden. Sie können die folgenden Formate verwenden: *User_name*, *Domäne\Benutzername*, oder *user_name@domain.com*. Sie können auch angeben, ob Benutzername und Kennwort aufgefordert.
 3. Sie können auch die folgenden zusätzlichen Optionen festlegen:
-  - **Anzeigename (optional)** – eine leicht zu merkenden Namen für den PC herstellen. Sie können eine beliebige Zeichenfolge verwenden, aber der PC-Name wird angezeigt, wenn Sie einen Anzeigenamen nicht angeben.
-  - **Gateway (optional)** – der Remotedesktop-Gateway, das Sie zum Herstellen einer virtuellen Desktops, RemoteApp-Programme und Sitzung-basierte Desktops auf einem internen Firmennetzwerk verwenden möchten. Erhalten Sie die Informationen über das Gateway von Ihr Systemadministrator.
-  - **Sound** – wählen Sie das Gerät für Audio während der Remotesitzung verwendet. Sie können auswählen, um auf lokalen Geräten, auf dem Remotegerät oder gar wiederzugeben.
-  - Die gleichen Befehl mit der rechten Maustaste **Maustasten vertauschen** – Wenn eine Maus Geste einen Befehl mit der linken Maustaste senden würden, stattdessen sendet. Dies ist notwendig, wenn die remote-PC für linkshändige mausmodus konfiguriert ist.
-  - **Administratormodus** – eine Verbindung mit einem Administration-Sitzung auf einem Server mit WindowsServer 2003 oder höher.
-4. Tippen Sie auf **Speichern**.
+  - **Anzeigename (optional)** – ein leicht zu merkenden Namen für den PC mit dem Sie eine Verbindung mit. Sie können eine beliebige Zeichenfolge verwenden, aber der PC-Name wird angezeigt, wenn Sie einen Anzeigenamen nicht angeben, aus.
+  - **(Optional) Gateway** – die Remotedesktop-Gateway, das Sie Verbindung mit virtuellen Desktops, RemoteApp-Programmen und sitzungsbasierten Desktops in einem internen Unternehmensnetzwerk herstellen möchten. Rufen Sie Informationen über das Gateway von Ihrem Systemadministrator an.
+  - **Sound** – wählen Sie das Gerät für Audio während der Remotesitzung verwenden. Sie können auswählen, um auf den lokalen Geräten, dem Remotegerät oder überhaupt nicht Systemsound wiederzugeben.
+  - **Austauschen der Maustasten** – Wenn eine mausbewegung einen Befehl mit der linken Maustaste sendet, sendet er stattdessen den gleichen Befehl mit der rechten Maustaste. Dies ist erforderlich, wenn der remote-PC für Linkshänder mausmodus konfiguriert ist.
+  - **Administratormodus** : Verbinden einer Sitzung für die Verwaltung auf einem Server mit WindowsServer 2003 oder höher.
+4. Tippen Sie auf **speichern**.
 
-Möchten Sie diese Einstellungen bearbeiten? Drücken Sie und halten Sie den Desktop, die, den Sie bearbeiten möchten, und tippen Sie dann auf das Symbol "Einstellungen". 
+Möchten Sie diese Einstellungen zu bearbeiten? Drücken Sie und halten Sie den Desktop, die, den Sie bearbeiten möchten, und tippen Sie dann auf das Symbol "Einstellungen". 
 
-### Fügen Sie eine remote-Ressource
-Remote-Ressourcen sind RemoteApp-Programme, Sitzung-basierte Desktops und virtuelle Desktops mit RemoteApp und Desktop Connections veröffentlicht.
+### <a name="add-a-remote-resource"></a>Hinzufügen einer Remoteressource
+Remote-Ressourcen sind die RemoteApp-Programme, sitzungsbasierte Desktops und virtuelle Desktops mithilfe der RemoteApp- und Desktopverbindungen veröffentlicht.
 
-- Die URL zeigt den Link mit dem Web Access für Remotedesktop-Server, der Sie auf RemoteApp und Desktop Connections zugreifen kann.
-- Die konfigurierte RemoteApp und Desktop-Verbindungen werden aufgeführt.
+- Die URL wird die Verknüpfung mit dem Web Access für Remotedesktop-Server, der Sie Zugriff auf RemoteApp- und Desktopverbindungen erhalten.
+- Die konfigurierten RemoteApp- und Desktopverbindungen werden aufgeführt.
 
-So fügen Sie eine remote-Ressourcen hinzu:
+So fügen Sie eine Remoteressource hinzu:
 
-1. Tippen Sie auf dem Bildschirm Verbindung Center auf **+**, und tippen Sie dann auf **Remote-Ressourcen hinzufügen**. 
-2. Geben Sie die Informationen für die remote-Ressourcen:
-   - **Feed-URL** - die URL des Web Access für Remotedesktop-Servers. Sie Ihre unternehmenseigenen e-Mail-Konto auch in diesem Feld – eingeben können, weist dies den Client für den Remotedesktop-Web-Server Ihrer e-Mail-Adresse zugeordnet zu suchen.
-   - **Benutzername** - der Benutzername für das Web Access für Remotedesktop-Server zu verwenden, die Sie zum Verbinden.
-   - **Kennwort** : das Kennwort für das Web Access für Remotedesktop-Server zu verwenden, die Sie zum Verbinden.
-3. Tippen Sie auf **Speichern**.
+1. Tippen Sie auf dem Bildschirm "Connection Center" auf **+**, und tippen Sie dann auf **Remoteressourcen hinzufügen**. 
+2. Geben Sie Informationen für die Remoteressource:
+   - **Feed-URL** -die URL der Web Access für Remotedesktop-Server. Ihr Unternehmens-e-Mail-Konto auch in dieses Feld eingegeben werden können, weist diese den Client, suchen Sie für den RD-Web-Server Ihre e-Mail-Adresse zugeordnet.
+   - **Benutzername** -den Benutzernamen ein, für den Web Access für Remotedesktop-Server verwenden Sie eine Verbindung herstellen.
+   - **Kennwort** -das Kennwort für den Web Access für Remotedesktop-Server hergestellt.
+3. Tippen Sie auf **speichern**.
 
-Die remote-Ressourcen werden in der Mitte Verbindung angezeigt.
-
-
-## Verbinden Sie mit einem RD-Gateway auf interne Ressourcen zugreifen
-
-Ein Remotedesktopgateway (RD-Gateway) können Sie die Verbindung mit eines Remotecomputer in einem Unternehmensnetzwerk von jedem beliebigen Standort auf das Internet. Sie erstellen und Verwalten Ihrer Gateways über den Remotedesktopclient.
-
-So richten ein neues gateway
-
-1. Tippen Sie in der Mitte Verbindung auf **Einstellungen > Gateways**. 
-2. Tippen Sie auf **Hinzufügen des Remotedesktop-Gateway**.
-3. Geben Sie die folgenden Informationen ein:
-  - **Servername** – den Namen des Computers, den Sie als Gateway verwenden möchten. Dies kann es sich um einen Windows-Computernamen, ein Internetdomänenname oder einer IP-Adresse sein. Sie können auch die Portinformationen hinzufügen, um den Namen des Servers (z. B.: **RDGateway:443** oder **10.0.0.1:443**).
-  - **Benutzername** - Benutzername und Kennwort für den Remotedesktop-Gateway verwendet werden, der an angeschlossen sind. Sie können auch die **Verbindungsanmeldeinformationen verwenden** , um den gleichen Benutzernamen und Kennwort als die für die Remotedesktopverbindung verwenden auswählen.
+Der remote-Ressourcen werden im Connection Center angezeigt.
 
 
-## Verwalten von Benutzerkonten 
+## <a name="connect-to-an-rd-gateway-to-access-internal-assets"></a>Verbinden Sie mit einem RD-Gateway auf interne Ressourcen zugreifen
 
-Wenn Sie auf einem desktop oder remote-Ressourcen zugreifen, können Sie die Benutzerkonten Auswahl aus erneut speichern. Sie können Ihre Benutzerkonten mithilfe von Remotedesktop-Clients verwalten.
+Ein Remotedesktopgateway (RD-Gateway) können Sie die Verbindung mit einem Remotecomputer in einem Unternehmensnetzwerk von überall aus im Internet. Sie können erstellen und verwalten Ihre Gateways mit dem Remotedesktop-Client.
+
+So richten ein neues Gateway:
+
+1. Tippen Sie in das Connection Center, auf **Einstellungen > Gateways**. 
+2. Tippen Sie auf **Hinzufügen eines remotedesktopgateways**.
+3. Geben Sie die folgende Informationen ein:
+  - **Servername** – der Name des Computers als Gateway verwenden möchten. Dies kann es sich um einen Windows-Computernamen, einen Internet-Domänennamen oder eine IP-Adresse sein. Sie können auch Informationen hinzufügen, um den Namen des Servers (z. B.: **RDGateway:443** oder **10.0.0.1:443**).
+  - **Benutzername** -den Benutzernamen und Kennwort ein, das für den Remotedesktop-Gateway hergestellt. Sie können auch auswählen, **verwenden Sie die Anmeldeinformationen für die Verbindung** den gleichen Benutzernamen und das Kennwort wie für die Remotedesktopverbindung verwenden.
+
+
+## <a name="manage-your-user-accounts"></a>Verwalten Sie Ihre Benutzerkonten 
+
+Wenn Sie auf einem Desktop- oder remote-Ressourcen verbinden, können Sie die Benutzerkonten erneut aus speichern. Sie können Ihre Benutzerkonten verwalten, mit dem Remotedesktop-Client.
 
 So erstellen Sie ein neues Benutzerkonto:
 
-1. Tippen Sie auf **Einstellungen**, und tippen Sie dann auf **Benutzernamen**, in der Mitte Verbindung.
-2. Tippen Sie auf die **Benutzerkonto hinzufügen**.
-3. Geben Sie die folgenden Informationen ein:
-   - **Benutzername** - der Name des Benutzers für die Verwendung mit eine Remoteverbindung zu speichern. Sie können den Benutzernamen eingeben, in den folgenden Formaten: Benutzername, Domäne\Benutzername, oder user_name@domain.com.
-   - **Kennwort** : das Kennwort für den Benutzer, die, den Sie angegeben. Jedes Benutzerkonto, die Sie speichern, um für Remoteverbindungen verwenden möchten, muss ein Kennwort zugeordnet ist.
-4. Tippen Sie auf **Speichern**, und tippen Sie dann auf **Einstellungen**.
-5. Tippen Sie auf **Fertig** , um die neue Konfiguration zu speichern.
+1. Tippen Sie in das Connection Center, auf **Einstellungen**, und tippen Sie dann auf **Benutzernamen**.
+2. Tippen Sie auf **Benutzerkonto hinzufügen**.
+3. Geben Sie die folgende Informationen ein:
+   - **Benutzername** -der Name des Benutzers, der für die Verwendung mit einer remote-Verbindung zu speichern. Sie können den Benutzernamen eingeben, in einem der folgenden Formate: Domäne\Benutzername, User_name oder user_name@domain.com.
+   - **Kennwort** -das Kennwort für den Benutzer, die Sie angegeben haben. Jedes Benutzerkonto, das Sie speichern, um für Remoteverbindungen verwenden möchten, muss ein Kennwort zugeordnet.
+4. Tippen Sie auf **speichern**, und tippen Sie dann auf **Einstellungen**.
+5. Tippen Sie auf **Fertig** um die neue Konfiguration zu speichern.
 
 So löschen Sie ein Benutzerkonto
 
-1. Tippen Sie in der Mitte Verbindung **Einstellungen > Benutzernamen**ein.
-2. Wischen Sie die Zeile von rechts nach links, um den Benutzer auszuwählen.
-3. Tippen Sie auf **Löschen**.
+1. Tippen Sie in das Connection Center, auf **Einstellungen > Benutzernamen**.
+2. Streichen Sie nach der Zeile von rechts nach links, um den Benutzer auszuwählen.
+3. Tippen Sie auf **löschen**.
 
 
 
-## Navigieren Sie der Remotedesktop-Sitzung
-Wenn Sie eine Remotedesktopsitzung starten, stehen Tools zur Verfügung, die Sie verwenden können, um die Sitzung zu navigieren.
+## <a name="navigate-the-remote-desktop-session"></a>Navigieren Sie von der Remotedesktopsitzung
+Wenn Sie eine Remotedesktopsitzung starten, gibt es Tools zur Verfügung, Sie verwenden können, um die Sitzung zu navigieren.
 
-### Starten Sie eine Remotedesktopverbindung
+### <a name="start-a-remote-desktop-connection"></a>Starten Sie eine Remotedesktopverbindung
 
-1. Tippen Sie auf die Remotedesktopverbindung, um die remote-desktop-Sitzung zu starten. 
-2. Wenn Sie, zum Überprüfen des Zertifikats für den Remotedesktop gefragt werden, tippen Sie auf **annehmen**. Sie können auch immer bewegen Sie den Umschalter **nicht erneut zur Verbindung mit diesem Computer auffordern** , **zu**akzeptieren. 
+1. Tippen Sie auf die Remotedesktopverbindung zum Starten der Remotedesktopsitzung. 
+2. Wenn Sie aufgefordert werden, um zu überprüfen, ob das Zertifikat für den Remotedesktop, tippen Sie auf **Accept**. Sie können auch immer annehmen, indem er mit der **nicht mehr nachfragen für Verbindungen mit diesem Computer** wechseln **ON**. 
 
-### Symbolleiste Verbindung
+### <a name="connection-bar"></a>Verbindungsleiste
 
-Die Verbindung Leiste erhalten Sie Zugriff auf zusätzliche Navigationssteuerelementen. 
+Die Verbindung Leiste ermöglicht den Zugriff auf zusätzliche Navigationssteuerelemente. 
 
-- **Schwenken-Steuerelement**: Das Schwenksteuerelement ermöglicht den Bildschirm vergrößert und anders angeordnet werden. Beachten Sie, dass Schwenken-Steuerelement nur per direct verfügbar ist.
-   - Aktivieren / Deaktivieren der Schwenken-Steuerelement: Tippen Sie auf das Schwenken-Symbol auf der Verbindungsleiste zum Anzeigen des Steuerelements verschieben und vergrößern/verkleinern des Bildschirms. Tippen Sie auf das Schwenken-Symbol auf der Verbindungsleiste erneut aus, um das Steuerelement ausblenden und den Bildschirm an der ursprünglichen Auflösung zurückzugeben.
-   - Verwenden Sie das Schwenksteuerelement: Tippen und halten heruntergezogen steuern und ziehen Sie dann in die Richtung, möchten Sie den Bildschirm zu verschieben.
-   - Verschieben Sie das Schwenksteuerelement: Doppeltippen und halten Sie das Schwenksteuerelement, das Steuerelement auf dem Bildschirm zu verschieben.
-- **Name der Verbindung**: den Verbindungsnamen der aktuellen wird angezeigt. Tippen Sie auf den Verbindungsnamen die Sitzung Leiste angezeigt.
-- **Tastatur**: Tippen Sie auf das Tastatursymbol ein-oder Ausblenden der Tastatur. Schwenken-Steuerelement wird automatisch angezeigt, wenn die Bildschirmtastatur angezeigt wird.
-- **Verschieben Sie die Symbolleiste Verbindung**: Tippen und halten Sie die Symbolleiste Verbindung und dann Drag & Drop an eine neue Position am oberen Rand des Bildschirms.
+- **Schwenken-Steuerelement**: Das Schwenksteuerelement ermöglicht es sich um den Bildschirm vergrößert und verschoben werden. Beachten Sie, dass Pan-Steuerelement ist nur verfügbar, die mithilfe von direkten Touch.
+   - Aktivieren Sie bzw. deaktivieren Sie die Pan-Steuerelement: Tippen Sie auf das schwenksymbol, in der Verbindungsleiste "zum Anzeigen des Steuerelements Schwenken und vergrößern den Bildschirm. Tippen Sie auf das schwenksymbol in die Symbolleiste für die Verbindung erneut aus, um das Steuerelement wird ausgeblendet, und den Bildschirm an seiner ursprünglichen Auflösung zurückgeben.
+   - Verwenden Sie die Pan-Steuerelement: Tippen Sie auf halten Sie das Schwenken STRG gedrückt und ziehen Sie dann in die Richtung auf den Bildschirm verschoben werden soll.
+   - Verschieben Sie die Pan-Steuerelement: Doppelte Tippen Sie und halten Sie die Pan-Steuerelement auf das Steuerelement auf dem Bildschirm verschoben werden.
+- **Verbindungsname**: Der Verbindungsname der aktuellen wird angezeigt. Tippen Sie auf den Verbindungsnamen, um die Leiste Sitzung anzuzeigen.
+- **Tastatur**: Tippen Sie auf das Symbol "Tastatur" zum Anzeigen oder Ausblenden der Tastaturfokus. Schwenken-Steuerelement wird automatisch angezeigt, wenn die Tastatur angezeigt wird.
+- **Verschieben Sie die Symbolleiste Verbindung**: Tippen Sie auf und enthalten Verbindungsleiste, und klicken Sie dann Drag & drop an eine neue Position am oberen Rand des Bildschirms.
 
-### Auswahl der Sitzung
-Sie können mehrere Verbindungen, die auf verschiedenen Computern gleichzeitig öffnen haben. Tippen Sie auf die Symbolleiste Verbindung, um die Sitzung Leiste auf der linken Seite des Bildschirms angezeigt werden soll. Die Sitzung Leiste können Sie Ihre öffnen Verbindungen anzeigen und zwischen diesen zu wechseln. 
+### <a name="session-selection"></a>Auswahl der Sitzung
+Sie können mehrere Verbindungen, die auf anderen PCs gleichzeitig geöffnet haben. Tippen Sie auf die Symbolleiste Verbindung, um die Sitzung Leiste auf der linken Seite des Bildschirms angezeigt. Die Sitzung Leiste können Sie Ihre geöffneten Verbindungen anzeigen und zwischen diesen wechseln. 
 
-- Wechseln Sie zwischen apps in einer Sitzung öffnen remote-Ressourcen.
+- Wechseln Sie zwischen apps in einer Sitzung remote Ressource öffnen.
 
-    Wenn Sie mit remote-Ressourcen verbunden sind, können Sie zwischen geöffnete Anwendungen in dieser Sitzung durch Tippen auf das Menü einer Erweiterung aus der Liste der verfügbaren Elemente auswählen wechseln.
+    Wenn Sie mit den Remoteressourcen verbunden sind, können Sie zwischen Anwendungen innerhalb dieser Sitzung durch Tippen auf das Menü "Expander", und wählen Sie aus der Liste der verfügbaren Elemente öffnen wechseln.
 - Eine neue Sitzung starten
 
-  Sie können neue Anwendungen oder desktop-Sitzung vom innerhalb Ihrer aktuellen Verbindung starten: Tippen Sie auf **Neu starten**, und wählen Sie dann aus der Liste der verfügbaren Elemente.
+  Sie können neue Anwendungen oder Remotedesktopsitzungen aus starten, innerhalb der aktuellen Verbindung: Tippen Sie auf **starten neue**, und wählen Sie dann aus der Liste der verfügbaren Elemente.
 
-- Trennen der Verbindung eine Sitzung
+- Trennen einer Sitzung
 
   Um eine Sitzung tippen X in der linken Seite der Kachel Sitzung zu trennen.
 
-### Befehlsleiste
+### <a name="command-bar"></a>Befehlsleiste
 
-Die Befehlsleiste ersetzt das Dienstprogramm Leiste ab Version 8.0.1. Wechseln Sie zwischen den Modi Maus und zurück zum Verbindungscenter aus der Befehlsleiste.
+Die Befehlsleiste ersetzt das Dienstprogramm Leiste ab Version 8.0.1. Wechseln Sie zwischen den Modi für die Maus und zurück an das Rechenzentrum für die Verbindung in der Befehlsleiste.
 
-## Verwenden von Touchgesten und Maus-Modi in einer Remotesitzung
+## <a name="use-touch-gestures-and-mouse-modes-in-a-remote-session"></a>Verwenden Sie in einer Remotesitzung Fingereingabe und gerätedrehung Maus-Modi
 
-Der Client verwendet standard Touchgesten. Sie können auch Touchgesten verwenden, Mausaktionen auf dem Remotedesktop replizieren. Die verfügbaren Maus-Modi werden in der folgenden Tabelle definiert.
+Der Client verwendet die standard Touchgesten. Sie können auch Touchgesten verwenden, um Aktionen auf dem Remotedesktop zu replizieren. Die Mauszeiger-Modi zur Verfügung, werden in der folgenden Tabelle definiert.
 
 > [!NOTE]
-> Interaktion mit Windows 8 oder höher werden die systemeigenen Touchgesten im direkten Touch-Modus unterstützt. Weitere Informationen zu Windows 8-Gesten, finden Sie unter [Touch: "Wischen", tippen, und darüber hinaus](https://windows.microsoft.com/en-US/windows-8/touch-swipe-tap-beyond).
+> Interaktion mit Windows 8 oder höher werden die systemeigenen Touchgesten in Direct Touch-Modus unterstützt. Weitere Informationen zu Windows 8 finden Sie unter Gesten [Touch: Wischen, tippen Sie auf, und darüber hinaus](https://windows.microsoft.com/en-US/windows-8/touch-swipe-tap-beyond).
 
-| Mausmodus    | Maus-Vorgang      | Geste                                                    |
+| Mausmodus    | Mausvorgang      | Geste                                                    |
 |---------------|----------------------|------------------------------------------------------------|
-| Direkte Toucheingabe  | Linksklick           | 1 Fingern tippen                                               |
-| Direkte Toucheingabe  | Rechtsklick          | 1 Fingern tippen und halten                                      |
-| Mauszeiger | Linksklick           | 1 Fingern tippen                                               |
-| Mauszeiger | Linksklick und ziehen  | Ziehen Sie 1 Finger double tippen und halten,                    |
-| Mauszeiger | Rechtsklick          | 2 Fingern tippen                                               |
-| Mauszeiger | Rechtsklick und ziehen | 2 Finger double tippen und halten, ziehen Sie                    |
-| Mauszeiger | Mausrad          | 2 Finger tippen und halten und ziehen Sie nach oben oder unten                |
-| Mauszeiger | Zoom                 | Zusammendrücken Sie 2 Finger zum Verkleinern oder vergrößern 2 Finger zum Verkleinern |
+| Direct touch  | Linksklick           | 1 Finger tap                                               |
+| Direct touch  | Rechtsklick          | 1 Finger tippen und halten                                      |
+| Mauszeiger | Linksklick           | 1 Finger tap                                               |
+| Mauszeiger | Linksklick und ziehen  | Doppeltippen 1 Finger, und halten, ziehen Sie dann                    |
+| Mauszeiger | Rechtsklick          | 2 Finger tap                                               |
+| Mauszeiger | Rechtsklick und ziehen | 2 Finger Doppeltippen und halten, ziehen Sie dann                    |
+| Mauszeiger | Mausrad          | 2 Finger tippen und halten, und ziehen Sie dann nach oben oder unten                |
+| Mauszeiger | Zoom                 | Zusammendrücken Sie 2 Finger zum Vergrößern und verteilt 2 Finger zum Verkleinern |
 
-## Unterstützte Eingabegeräte
+## <a name="supported-input-devices"></a>Unterstützte Eingabegeräte
 
-Die [iOS Beta Remotedesktopclient](https://aka.ms/rdiosbeta) unterstützt die Swiftpoint GT und ProPoint physischen Mäuse. Swiftpoint bietet eine [exklusive Rabatt](https://www.swiftpoint.com/microsoft/) auf die GT für iOS-Beta-Client-Benutzer an.
+Die [iOS Beta Remotedesktopclient](https://aka.ms/rdiosbeta) unterstützt die Swiftpoint GT und ProPoint physischen Mäuse. Swiftpoint Angebot ist ein [exklusiven Rabatt](https://www.swiftpoint.com/microsoft/) auf GT für iOS-Beta-Client-Benutzer.
 
-Die iOS-Client unterstützt derzeit nur Swiftpoint Mäuse. Verweisen Sie auf die Seite [Neuigkeiten bei der iOS-Client](ios-whatsnew.md) und dem [Store für iOS-App](https://aka.ms/rdios) für Nachrichten über die Unterstützung für andere Geräte in Zukunft an.
+Das iOS-Client unterstützt derzeit nur Swiftpoint Mäuse. Finden Sie in der [Neuigkeiten in der iOS-Client](ios-whatsnew.md) Seite und die [iOS App Store](https://aka.ms/rdios) für Nachrichten über die Unterstützung von anderen Geräten in der Zukunft.
 
-## Verwenden Sie eine Tastatur in einer Remotesitzung
+## <a name="use-a-keyboard-in-a-remote-session"></a>Verwenden Sie eine Tastatur in einer Remotesitzung
 
-Sie können entweder ein auf dem Bildschirm Tastatur oder physische Tastatur in der Remotesitzung.
+Verwenden Sie entweder einen auf dem Bildschirm Tastatur oder physische Tastatur in der Remotesitzung.
 
-Für auf dem Bildschirm Tastaturen, verwenden Sie die Schaltfläche auf der rechten Rand der Leiste über die Tastatur zum Wechseln zwischen der Standard- und zusätzliche Tastatur.
+Für auf dem Bildschirm Tastaturen, verwenden Sie die Schaltfläche am rechten Rand des Balkens über die Tastatur der standard sowie zusätzliche Tastatur wechseln.
 
-Wenn für Ihr Gerät iOS Bluetooth aktiviert ist, erkennt der Client automatisch die Bluetooth-Tastatur.
+Wenn für Ihr iOS-Gerät Bluetooth aktiviert ist, erkennt der Client automatisch die Bluetooth-Tastatur.
 
-Beachten Sie, dass aufgrund von Einschränkungen für das Betriebssystem, spezielle Tasten wie beispielsweise STRG, Option und Funktion nicht erwartungsgemäß funktioniert mit einer Bluetooth-Tastatur. Die folgenden Schlüssel verwendet werden:
+Denken Sie daran, dass aufgrund von Beschränkungen im Betriebssystem spezielle Schlüssel wie z. B. STRG, Option und -Funktion nicht erwartungsgemäß funktioniert mit einer Bluetooth-Tastatur. Arbeiten Sie die folgenden Schlüssel:
 
-- Alphanumerischen Tasten
+- Alphanumerische Schlüssel
 - Pfeiltasten
-- Registerkarte ": Registerkarte" funktioniert, aber die Tastenkombination UMSCHALT + Tabulatortaste funktioniert nicht
-- Home / Pos1: Alt + nach-links = Home
-- Ende: Alt + nach-rechts = Ende
-- Bild-auf: Alt + nach-oben = Bild-auf
-- Bild-ab: Alt + nach-unten = Bild-ab
-- Alle auswählen: Befehl + A = STRG + A (Wählen Sie alle in den meisten Programmen)
-- Ausschneiden: Befehl + X = STRG + X (Ausschneiden in den meisten Programmen)
+- Registerkarte ": Registerkarte funktioniert, aber die Tab-Taste funktioniert nicht
+- Start / Pos1: ALT + nach-links = Home
+- Ende: ALT + nach-rechts = Ende
+- Bild-auf: ALT + nach-oben = Bild-auf
+- Seite nach unten ALT + nach-unten = Bild-ab
+- Wählen Sie alle: Befehl + A = STRG + A (auf alle in den meisten Programmen)
+- Schneiden Sie aus: Befehl + X = STRG + X (Ausschneiden in den meisten Programmen)
 - Kopieren: Befehl + C = STRG + C (Kopieren in den meisten Programmen)
-- Einfügen: Befehl + V = STRG + V (Einfügen in den meisten Programmen)
-- Symbole: Alt + alphanumerisch Schlüssel erzeugen Sie unterschiedliche Symbole abhängig von der Sprache konfiguriert
+- Fügen Sie: Befehl + V = STRG + V (Fügen Sie in den meisten Programmen)
+- Symbole: ALT + alphanumerisch Schlüssel erzeugt andere Symbole, abhängig von der Sprache konfiguriert
 
 > [!TIP]
-> Fragen und Kommentare sind immer Willkommen. Allerdings bitte nicht Veröffentlichen einer Anforderung für Hilfe zur Problembehandlung, mit dem Kommentarfeature am Ende dieses Artikels. Stattdessen, wechseln Sie zu der [Remotedesktop-Client-Forum](https://social.technet.microsoft.com/forums/windowsserver/en-us/home?forum=winrdc) , und starten Sie einen neuen Thread. Haben Sie einen Vorschlag Feature? Teilen Sie uns in der [Client-User-Voice-Forum](https://remotedesktop.uservoice.com/forums/272085-remote-desktop-for-android).
+> Fragen und Kommentare sind immer Willkommen. Allerdings Supportfragen Sie keine Anforderung für die Hilfe zur Problembehandlung, indem Sie über die Kommentarfunktion am Ende dieses Artikels. Wechseln Sie stattdessen zu den [Remotedesktop-Client-Forum](https://social.technet.microsoft.com/forums/windowsserver/en-us/home?forum=winrdc) und einen neuen Thread starten. Haben Sie Vorschläge Feature? Teilen Sie uns in die [Client User Voice-Forum](https://remotedesktop.uservoice.com/forums/272085-remote-desktop-for-android).
 

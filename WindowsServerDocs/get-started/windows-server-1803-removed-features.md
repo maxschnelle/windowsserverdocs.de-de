@@ -9,15 +9,15 @@ author: lizap
 ms.author: elizapo
 ms.date: 05/10/2018
 ms.openlocfilehash: c80738fe7ceda43a1a73adb0a8b1061bbb24319f
-ms.sourcegitcommit: 4b9b21ca1f366388a78ead7413cb581f2b23d4c6
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "2712225"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59886201"
 ---
-# In Windows Server (Version 1803) entfernte oder veraltete Features
+# <a name="features-removed-or-planned-for-replacement-starting-with-windows-server-version-1803"></a>Entfernte oder für den Austausch geplante Features ab Windows Server Version 1803
 
-> Betrifft: Windows Server, Version 1803
+> Gilt für: Windows Server, Version 1803
 
 Jede Version von Windows Server fügt die neuen Features und Funktionen; wir auch gelegentlich entfernen, Features und Funktionen, in der Regel, da wir eine bessere Option hinzugefügt haben. Hier sind Details zu den Features und Funktionen, die wir in Windows Server, Version 1803 entfernt haben.   
 
@@ -25,18 +25,18 @@ Jede Version von Windows Server fügt die neuen Features und Funktionen; wir auc
 > - Sie können den frühen Zugriff auf Windows Server-Builds abrufen, indem Sie am [Windows-Insider-Programm](https://insider.windows.com) teilnehmen. Dies ist eine hervorragende Möglichkeit zum Testen der geänderten Features.
 > - Haben Sie Fragen zu anderen Versionen? Checken Sie die Informationen für [Windows Server 2016](deprecated-features.md)und [Windows Server, Version 1709](removed-features-1709.md).
 
-**Die Liste ist Änderungen vorbehalten. Zudem enthält sie möglicherweise nicht alle veralteten Features oder Funktionen.** 
+**Die Liste kann geändert und enthalten möglicherweise nicht alle betroffenen Features oder Funktionen.** 
 
-## In dieser Version entfernte Features
+## <a name="features-we-removed-in-this-release"></a>In dieser Version entfernte Features
 
 Wir haben die folgenden Features und Funktionen aus dem Produktimage von Windows Server, Version 1803 entfernt. Anwendungen oder Code, der von diesen Features abhängt, funktioniert in dieser Version nicht, se sei denn, Sie verwenden eine alternative Methode.   
 
-|Funktion    |Stattdessen können Sie...|
+|Feature    |Stattdessen können Sie...|
 |-----------|--------------------|
-|[Dateireplikationsdienst](https://support.microsoft.com/en-us/help/4025991/windows-server-version-1709-no-longer-supports-frs)|Dateireplikationsdienste, die in Windows Server 2003 R2 eingeführt wurde, sind durch DFS-Replikation ersetzt. Sie müssen [alle Domänencontroller, die FRS auf DFS-Replikation mit SYSVOL verwenden, migrieren](https://blogs.technet.microsoft.com/filecab/2014/06/25/streamlined-migration-of-frs-to-dfsr-sysvol/).|
+|[Der Dateireplikationsdienst](https://support.microsoft.com/en-us/help/4025991/windows-server-version-1709-no-longer-supports-frs)|Dateireplikationsdienste, die in Windows Server 2003 R2 eingeführt wurde, sind durch DFS-Replikation ersetzt. Sie müssen [alle Domänencontroller, die FRS auf DFS-Replikation mit SYSVOL verwenden, migrieren](https://blogs.technet.microsoft.com/filecab/2014/06/25/streamlined-migration-of-frs-to-dfsr-sysvol/).|
 |Hyper-V-Netzwerkvirtualisierung (HNV)|[Netzwerk-Virtualisierung](../networking/sdn/technologies/hyper-v-network-virtualization/whats-new-hyperv-network-virtualization-windows-server.md) ist jetzt in Windows Server Teil der Lösung der [Softwaredefinierten Netzwerke](../networking/sdn/software-defined-networking.md) (SDN), die auch Netzwerk-Controller, Lastenausgleich, User-Defined Routing und Access Control Lists enthält.|
 
-## Features, die nicht mehr entwickelt werden
+## <a name="features-were-no-longer-developing"></a>Features, die nicht mehr entwickelt werden
 
 Wir werden diese Features nicht mehr aktiv entwickeln und sie von zukünftigen Aktualisierungen entfernen. Einige Features wurden mit anderen Features oder Funktionen ersetzt, während andere aus verschiedenen Quellen jetzt verfügbar sind. 
 
@@ -55,5 +55,5 @@ Wenn Sie Feedback zu der vorgeschlagenen Austausch diese Features haben, können
 |[RemoteFX vGPU](../remote/remote-desktop-services/rds-remotefx-vgpu.md)|Wir entwickeln neue Grafikbeschleunigungsoptionen für virtualisierte Umgebungen. Sie können auch die [separate Gerätezuweisung (DDA)](../virtualization/hyper-v/plan/plan-for-deploying-devices-using-discrete-device-assignment.md) als Alternative verwenden.|
 |[Softwarebeschränkungsrichtlinien](../identity/software-restriction-policies/software-restriction-policies.md) in den Gruppenrichtlinien|Statt der Softwarebeschränkungsrichtlinien mithilfe von Gruppenrichtlinien können Sie [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/applocker/applocker-overview) oder [Windows Defender-Anwendungssteuerung](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control) verwenden, um festzulegen, auf welche Apps Benutzer zugreifen können und welche Codes im Kernel ausgeführt werden können.|
 |Speicherplätze in einer gemeinsamen Konfiguration mit SAS-Fabric|Stellen Sie stattdessen [Direkte Speicherplätze](../storage/storage-spaces/storage-spaces-direct-overview.md) bereit. Direkte Speicherplätze unterstützt die Verwendung der HLK-zertifizierten SAS-Anlagen, allerdings nicht in einer freigegebenen Konfiguration, gemäß den [Hardwareanforderungen für Direkte Speicherplätze](../storage/storage-spaces/storage-spaces-direct-hardware-requirements.md).|
-|Windows Server Essentials Experience|Wir entwickeln für Windows Server Standard oder Windows Server Datacenter-SKUs nicht mehr die Rolle "Essentials Experience". Wenn Sie eine leicht zu bedienende Server-Lösung für kleine bis mittlere Unternehmen benötigen, sehen Sie sich die neue [Microsoft 365 für Unternehmen](https://www.microsoft.com/microsoft-365/business) -Lösung an, oder verwenden Sie [Windows Server 2016 Essentials](https://docs.microsoft.com/windows-server-essentials/get-started/get-started).|
+|Windows Server Essentials-Umgebung|Wir entwickeln für Windows Server Standard oder Windows Server Datacenter-SKUs nicht mehr die Rolle "Essentials Experience". Wenn Sie eine leicht zu bedienende Server-Lösung für kleine bis mittlere Unternehmen benötigen, sehen Sie sich die neue [Microsoft 365 für Unternehmen](https://www.microsoft.com/microsoft-365/business) -Lösung an, oder verwenden Sie [Windows Server 2016 Essentials](https://docs.microsoft.com/windows-server-essentials/get-started/get-started).|
 

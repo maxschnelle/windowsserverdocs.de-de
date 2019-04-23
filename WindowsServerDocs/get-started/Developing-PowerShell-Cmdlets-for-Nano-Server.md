@@ -13,11 +13,11 @@ ms.author: jaimeo
 ms.date: 09/06/2017
 ms.localizationpriority: medium
 ms.openlocfilehash: 4c669db414c4f12b6145a26a75b83449f43e8918
-ms.sourcegitcommit: e0479b0114eac7f232e8b1e45eeede96ccd72b26
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "2082207"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59887681"
 ---
 # <a name="developing-powershell-cmdlets-for-nano-server"></a>Entwickeln von PowerShell-Cmdlets für Nano Server
 
@@ -36,8 +36,8 @@ Wenn Sie über vorhandene PowerShell-Cmdlets verfügen, die Sie auf Nano Server 
   
 Ab Version 5.1 ist PowerShell in verschiedenen Editionen verfügbar, die unterschiedliche Funktionen mitbringen und zu unterschiedlichen Plattformen kompatibel sind.  
   
-- **Desktop Edition:** Basierend auf .NET Framework bietet diese Edition Kompatibilität mit PowerShell-Versionen, die auf Skripts und Module abzielen und unter vollwertigen Editionen von Windows ausgeführt werden, z.B. Server Core und Windows Desktop.  
-- **Core Edition:** Basierend auf .NET Core bietet diese Edition Kompatibilität mit Skripts und Modulen, die auf PowerShell-Versionen abzielen, die auf reduzierten Editionen von Windows ausgeführt werden, z.B. Nano Server und Windows IoT.  
+- **Desktop-Edition:** Basiert auf .NET Framework und bietet Kompatibilität mit Skripts und Modulen für Versionen von PowerShell, die unter Vollversionen von Windows wie Server Core und Windows-Desktop ausgeführt wird.  
+- **Core-Edition:** Basiert auf .NET Core und bietet Kompatibilität mit Skripts und Modulen für Versionen von PowerShell, die unter funktionsreduzierten Versionen von Windows wie Nano Server und Windows IoT ausgeführt wird.  
   
 Die ausgeführte Version von PowerShell wird in der PSEdition-Eigenschaft von $PSVersionTable angezeigt.  
 ```powershell  
@@ -110,7 +110,7 @@ At line:1 char:1
 Einen Schnellstart sowie detaillierte Schritte zur Installation von Nano Server auf virtuellen oder physischen Computern finden Sie im übergeordneten Thema dieses Themas: [Installieren von Nano Server](Getting-Started-with-Nano-Server.md).  
   
 > [!NOTE]  
-> Für Entwicklungen auf Nano Server könnte es hilfreich sein, Nano Server zu installieren, indem Sie den Parameter „-Development“ von New-NanoServerImage verwenden. Dadurch wird es möglich, unsignierte Treiber zu installieren, Debugger-Binärdateien zu kopieren, einen Port für das Debuggen zu öffnen, die Testsignierung zu aktivieren und die Installation von AppX-Paketen ohne Entwicklerlizenz zu aktivieren. Beispiel:  
+> Für Entwicklungen auf Nano Server könnte es hilfreich sein, Nano Server zu installieren, indem Sie den Parameter „-Development“ von New-NanoServerImage verwenden. Dadurch wird es möglich, unsignierte Treiber zu installieren, Debugger-Binärdateien zu kopieren, einen Port für das Debuggen zu öffnen, die Testsignierung zu aktivieren und die Installation von AppX-Paketen ohne Entwicklerlizenz zu aktivieren. Zum Beispiel:  
 >  
 >`New-NanoServerImage -DeploymentType Guest -Edition Standard -MediaPath \\Path\To\Media\en_us -BasePath .\Base -TargetPath .\NanoServer.wim -Development`  
   
@@ -125,7 +125,7 @@ Wenn Sie nicht sicher sind, welche Implementierung Sie für vorhandene Cmdlets v
 * %windir%\system32\WindowsPowerShell\v1.0\Modules   
 * %ProgramFiles%\WindowsPowerShell\Modules   
 * %UserProfile%\Documents\WindowsPowerShell\Modules   
-* \<Speicherort Ihrer Produktinstallation>   
+* \<Speicherort Ihrer Produktinstallation >   
     
  Überprüfen Sie diese Speicherorte auf die folgenden Details:  
  * CIM-Cmdlets haben .cdxml-Dateierweiterungen.  
@@ -160,11 +160,11 @@ Das SDK-Modul hängt auch von den folgenden Funktionen ab, die in Visual Studio 
 Überprüfen Sie Ihre Installation von Visual Studio, bevor Sie das SDK-Modul verwenden, um sicherzustellen, dass diese Voraussetzungen erfüllt sind. Stellen Sie sicher, dass Sie die oben genannte Funktion während der Installation von Visual Studio auswählen, oder ändern Sie Ihre vorhandene Visual Studio 2015-Installation, um sie zu installieren.  
   
 Das PowerShell Core SDK-Modul enthält die folgenden Cmdlets:  
-- New-NanoCSharpProject: erstellt ein neues Visual Studio-C#-Projekt, das auf CoreCLR und PowerShell Core ausgerichtet ist, die im Windows Server 2016-Release von Nano Server enthalten sind  
-- Show-SdkSetupReadMe: öffnet den SDK-Stammordner im Datei-Explorer sowie die README.txt-Datei für das manuelle Setup  
-- Install-RemoteDebugger: installiert und konfiguriert den Remotedebugger von Visual Studio auf einem Nano Server-Computer  
-- Start-RemoteDebugger: startet den Remotedebugger auf einem Remotecomputer, auf dem Nano Server ausgeführt wird  
-- Stop-RemoteDebugger: hält den Remotedebugger auf einem Remotecomputer an, auf dem Nano Server ausgeführt wird  
+- New-NanoCSharpProject: Erstellt eine neue Visual Studio C# Projekt auf CoreCLR und PowerShell Core, die in der Windows Server 2016-Release von Nano Server enthalten.  
+- Show-SdkSetupReadMe: Öffnet den SDK-Stammordner im Datei-Explorer, und öffnet die Datei "Readme.txt" für das manuelle Setup.  
+- Install-RemoteDebugger: Installiert und konfiguriert den Visual Studio-Remotedebugger auf einem Nano Server-Computer.  
+- Start-RemoteDebugger: Startet den Remotedebugger auf einem Remotecomputer mit dem Nano Server ausgeführt wird.  
+- Stop-RemoteDebugger: Hält den Remotedebugger auf einem Remotecomputer mit dem Nano Server ausgeführt wird.  
   
 Ausführliche Informationen zur Verwendung dieser Cmdlets erhalten Sie, indem Sie nach der Installation und der Ausführung des Moduls wie folgt für jedes Cmdlet Get-Help ausführen:  
   
@@ -242,7 +242,7 @@ Stellen Sie eine Verbindung mit dem Remotecomputer her, indem Sie `Enter-PSsessi
   
 ### <a name="migrating-from-wmi-net-to-mi-net"></a>Migrieren von WMI .NET zu MI .NET  
   
-[WMI .NET](https://msdn.microsoft.com/library/mt481551(v=vs.110).aspx) wird nicht unterstützt. Daher müssen alle Cmdlets, die die alte API verwenden, zur unterstützten WMI-API migrieren: [MI .NET](https://msdn.microsoft.com/library/dn387184(v=vs.85).aspx). Sie können direkt über C# oder die Cmdlets im CimCmdlets-Modul auf MI . NET zugreifen.   
+[WMI .NET](https://msdn.microsoft.com/library/mt481551(v=vs.110).aspx) wird nicht unterstützt, sodass alle Cmdlets, die mit der alten API für die unterstützten WMI-API migrieren müssen: [MI. .NET](https://msdn.microsoft.com/library/dn387184(v=vs.85).aspx). Sie können direkt über C# oder die Cmdlets im CimCmdlets-Modul auf MI . NET zugreifen.   
   
 ### <a name="cimcmdlets-module"></a>CimCmdlets-Module  
   

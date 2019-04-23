@@ -1,6 +1,6 @@
 ---
-title: Erste Schrittemit QoS-Richtlinie
-description: Dieses Thema enthält Links zu Übersichtsthemen für Quality of Service (QoS)-Richtlinie, können Sie mithilfe einer Gruppenrichtlinie um Datenverkehr Netzwerkbandbreite von bestimmten Anwendungen und Diensten in Windows Server2016 priorisieren.
+title: Erste Schritte mit QoS-Richtlinie
+description: Dieses Thema enthält Links zu Übersichtsthemen für Quality of Service (QoS)-Richtlinie, die Gruppenrichtlinie zu verwenden, um die Netzwerkbandbreite für Datenverkehr von bestimmten Anwendungen und Diensten in Windows Server 2016 zu priorisieren kann.
 ms.prod: windows-server-threshold
 ms.technology: networking
 ms.topic: article
@@ -8,17 +8,18 @@ ms.assetid: a37398a4-fe46-464f-8a33-829ef3c6db55
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 6db2947253635673721438fde84d9d97f8ff9e24
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 28419bcf29276c0f919231a602faa0711478e224
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59889411"
 ---
-# <a name="getting-started-with-qos-policy"></a>Erste Schrittemit QoS-Richtlinie
+# <a name="getting-started-with-qos-policy"></a>Erste Schritte mit QoS-Richtlinie
 
->Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
-In den folgenden Themen können Sie die ersten Schrittemit Quality of Service \(QoS\) Richtlinie.
+Sie können in den folgenden Themen um zu ersten Schritten mit Quality of Service \(QoS\) Richtlinie.
 
 - [Funktionsweise von QoS-Richtlinie](qos-policy-works.md)
 - [QoS-Richtlinie-Architektur](qos-policy-architecture.md)

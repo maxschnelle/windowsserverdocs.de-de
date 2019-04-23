@@ -1,6 +1,6 @@
 ---
-title: Migrieren von Windows Admin Center SDK 0,1 und 1,0
-description: Dieses Handbuch hilft Ihnen beim Migrieren von Windows Admin Center SDK Version 0,1 und 1,0
+title: Migrieren von Windows Admin Center SDK 0,1 bis 1,0
+description: Dieses Handbuch hilft Ihnen beim Migrieren von Windows Admin Center SDK, Version 0,1 bis 1,0
 ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
@@ -9,59 +9,59 @@ ms.date: 02/26/2019
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 ms.openlocfilehash: ba0e8cda35c51763b5c10b89c76e2bf07e064dfd
-ms.sourcegitcommit: 10d7606a5c2a1ddb234af597f199b6779b0058d4
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "9116586"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59886471"
 ---
-# Migrieren von Windows Admin Center SDK 0,1 und 1,0
+# <a name="migrate-from-windows-admin-center-sdk-01-to-10"></a>Migrieren von Windows Admin Center SDK 0,1 bis 1,0
 
->Gilt für: Windows Admin Center Vorschau
+>Gilt für: Windows Admin Center – Vorschau
 
-Dieses Handbuch hilft Ihnen die Migration von Windows Admin Center SDK Version 0,1 und 1,0.  
+Dieses Handbuch hilft Ihnen die Migration von Windows Admin Center SDK, Version 0,1 bis 1,0 zu machen.  
 
-## 1. erfahren Sie mehr über neue Steuerelemente mit der Erweiterung Dev-Handbuch
+## <a name="1-learn-about-new-controls-with-the-dev-guide-extension"></a>1. Erfahren Sie mehr über neue Steuerelemente, mit der Dev-Guide-Erweiterung
 
-Windows Admin Center Version 1902 und höher enthält die **Dev-Handbuch** -Erweiterung, die Sie verwenden können, finden Sie Beispiele für Steuerelemente (inklusive neu verfügbaren Steuerelemente) und Szenarien, in denen Sie Ihre eigene Erweiterung erstellen können.  Dev-Handbuch ersetzt die **Developer Tools** -Erweiterung von früheren Versionen des SDKS.
+Windows Admin Center 1902 und höher schließt die **-Entwicklerhandbuch** -Erweiterung, die Sie verwenden können, finden Sie Beispiele für Steuerelemente (einschließlich neu verfügbaren Steuerelemente) und Szenarien für die Sie beim Erstellen von eigenen Erweiterungen unterstützt.  Dev-Guide-ersetzt die **Entwicklertools** -Erweiterung aus früheren Versionen des SDK.
 
-### Verwenden Sie die Anleitung Dev in Windows Admin Center
+### <a name="use-the-dev-guide-in-windows-admin-center"></a>Verwenden Sie das Dev-Guide in Windows Admin Center
 
-Dev-Handbuch ist als Windows Admin Center Version 1902 eine Lösung verfügbar und höher.  Dev-Handbuch installiert ist, aber es muss über Einstellungen aktiviert werden.
+Entwicklerhandbuch wird als Windows Admin Center-Version 1902 eine Lösung zur Verfügung und höher.  Entwicklerhandbuch ist bereits installiert, aber über Einstellungen aktiviert werden muss.
 
-**Aktivieren Sie Dev-Handbuch im Windows Admin Center:**
+**Aktivieren Sie in Windows Admin Center-Entwicklerhandbuch:**
 
-* Open Windows Admin Center (Version 1902 und höher)
-* Klicken Sie auf das Symbol " **Einstellungen** " in der oberen rechten Ecke des Fensters
-* Wählen Sie die Registerkarte " **Erweitert** "
-* Klicken Sie unter *Experiment Schlüssel*auf **Hinzufügen**
-* Geben Sie einen neuen Wert ```msft.sme.shell.devguide``` in das leere Feld, die von den vorherigen Schritt erstellt wurde
-* Klicken Sie auf **Speichern und Laden**
+* Öffnen Sie Windows Admin Center (Version 1902 und höher)
+* Klicken Sie auf die **Einstellungen** Symbol in der oberen rechten Ecke des Fensters
+* Wählen Sie die **erweitert** Registerkarte
+* Klicken Sie unter *Experiment Schlüssel*, klicken Sie auf **hinzufügen**
+* Geben Sie einen neuen Wert ```msft.sme.shell.devguide``` in das leere Feld, das im vorherigen Schritt erstellt wurde
+* Klicken Sie auf **speichern und erneuten Laden**
 
-**Öffnen Sie Dev-Handbuch im Windows Admin Center:**
+**Öffnen Sie in Windows Admin Center-Entwicklerhandbuch:**
 
-* Open Windows Admin Center (Version 1902 und höher)
-* Klicken Sie auf die Dropdownliste in der oberen linken alle Lösungstypen anzeigen
-* Wählen Sie die Projektmappe **Dev-Handbuch** 
-    * Wenn die Lösung aufgeführt nicht angezeigt wird, stellen Sie sicher, dass Sie die Anleitung Dev aktiviert haben (siehe oben) und Windows Admin Center geladen haben.
-* Durchsuchen Sie den Inhalt des Dev-Anleitung durch die Auswahl einer der Registerkarten
-    * **Zielseite:** Enthält Codebeispiele für Szenarien *Verwalten als* und *Benachrichtigung*
+* Öffnen Sie Windows Admin Center (Version 1902 und höher)
+* Klicken Sie auf die Dropdownliste in der oberen linken Ecke, um alle Typen von Projektmappen anzuzeigen.
+* Wählen Sie die **Entwicklerhandbuch** Lösung 
+    * Wenn Sie nicht, dass die Lösung aufgeführt sehen, stellen Sie sicher, dass Sie im Handbuch für die Entwicklung aktiviert haben (siehe Abschnitt oben) und haben wieder Windows Admin Center geladen.
+* Navigieren Sie dazu eine der Registerkarten des Inhalts des Dev-Guide
+    * **Landing:** Enthält Codebeispiele für *verwalten als* und *Benachrichtigung* Szenarien
     * **Steuerelemente:** Enthält Beispiele für die einzelnen verfügbaren Steuerelemente im SDK
-    * **Pipes:** Enthält Beispiele für die verfügbaren Konverter und Formatierer-Funktionen
-    * **Stile:** Enthält Beispiele für die CSS-Formatvorlagen im SDK
-    * **MsftSme:** Enthält Beispiele und Richtlinien für erweiterte Szenarien 
+    * **Pipes:** Enthält Beispiele für die verfügbaren Funktionen für Konverter und Formatierungsprogramm
+    * **Formatvorlagen:** Enthält Beispiele für die CSS-Formatvorlagen im SDK verfügbar
+    * **MsftSme:** Enthält Beispiele und Anleitungen für erweiterte Szenarien 
 
-### Durchsuchen Sie den Quellcode des Dev-Anleitung auf GitHub
+### <a name="browse-the-source-code-of-dev-guide-on-github"></a>Durchsuchen Sie den Quellcode auf GitHub-Entwicklerhandbuch
 
-Sie können den [Quellcode](https://github.com/Microsoft/windows-admin-center-sdk/) des Dev-Anleitung auf github herunter, um das Beispiel HTML-, CSS- und Schreibmaschine Codebeispiele finden durchsuchen.
+Können Sie durchsuchen den [Quellcode](https://github.com/Microsoft/windows-admin-center-sdk/) des Dev-Guide auf GitHub Beispiel HTML, CSS und TypeScript-Code-Beispiele zu finden sind.
 
-## 2. Vorbereiten der Entwicklungsumgebung für das aktuelle SDK
+## <a name="2-prepare-your-development-environment-for-the-latest-sdk"></a>2. Vorbereiten Sie Ihrer Entwicklungsumgebung für das neueste SDK
 
-Installieren oder Aktualisieren der node.js-Version [10.15.1 LTS oder höher](https://nodejs.org/en/).
+Installieren oder Aktualisieren von node.js-Version [10.15.1 LTS oder höher](https://nodejs.org/en/).
 
-Aktualisieren Sie die Windows Admin Center-CLI, auf die neueste Version:
+Aktualisieren Sie die Windows Admin Center-CLI auf die neueste Version:
 
-[//]: # "Npm -g windows-admin-center-cli@next deinstallieren"
+[//]: # "Deinstallieren Sie Npm -g windows-admin-center-cli@next"
 
 ``` cmd
 npm uninstall -g windows-admin-center-cli
@@ -78,46 +78,46 @@ npm install typescript@3.1.6 -g
 npm install tslint@5.11.0 -g
 ```
 
-## 3. Erstellen eines neuen Projekts mit das aktuelle SDK
+## <a name="3-create-a-new-project-with-the-latest-sdk"></a>3. Erstellen eines neuen Projekts mit dem aktuellen SDK
 
-Verwenden Sie die Windows Admin Center-CLI zum Erstellen einer neuen Projekt bestimmt die ```next``` Version (SDK 1.0):
+Verwenden Sie die Windows Admin Center-CLI zum Erstellen einer neuen Projekt als Ziel verwendet die ```next``` Version (1.0 SDK):
 
-[//]: # "WAC erstellen – Unternehmen "Contoso Inc – Tool"Verwalten "Foo" funktioniert"– experimentelle Version"
+[//]: # "WAC create--Help Unternehmens "Contoso Inc."--Tool "verwalten"Foo "Works'--experimentelle Version"
 
 ``` cmd
 wac create --company "Contoso Inc" --tool "Manage Foo Works" --version next
 ```
 
-Als Nächstes ändern Sie das Verzeichnis in den Ordner, der gerade erstellt haben, und Installieren von erforderlichen lokalen Abhängigkeiten durch Ausführen von ```npm install ```.
+Als Nächstes wechseln Sie zu dem Ordner, der gerade erstellt haben, und erforderliche lokale Abhängigkeiten installieren, indem Sie Ausführung ```npm install ```.
 
-## 4. ändern Sie ein vorhandenes Projekt zu verwenden, das aktuelle SDK
+## <a name="4-modify-an-existing-project-to-use-the-latest-sdk"></a>4. Ändern Sie ein vorhandenes Projekt aus, um das neueste SDK zu verwenden.
 
-Wichtig: Erstellen einer Sicherung des Projekts, bevor Sie fortfahren.
+WICHTIG: Erstellen Sie eine Sicherung des Projekts, bevor Sie fortfahren.
 
-Ändern Sie die folgende Zeile in ```package.json``` bestimmt die ```next``` Version (SDK 1.0):
+Ändern Sie die folgende Zeile in ```package.json``` soll die ```next``` Version (1.0 SDK):
 
-[//]: # ""@microsoft/windows-admin-center-sdk": "experimentell""
+[//]: # "'@microsoft/windows-admin-center-sdk': 'experimental'"
 
 ``` json
 "@microsoft/windows-admin-center-sdk": "next",
 ```
 
-Führen Sie ```npm install``` Verweise in Ihr Projekt aktualisieren.
+Führen Sie dann ```npm install``` so aktualisieren Sie Verweise im gesamten Projekt.
 
-## 5. verwenden Sie die SDK-CLI, Migrationsprobleme zu beheben
+## <a name="5-use-the-sdk-cli-to-fix-common-migration-issues"></a>5. Verwenden Sie die SDK-CLI, um häufige Migrationsprobleme zu beheben.
 
-Wichtig: Erstellen einer Sicherung des Projekts, bevor Sie fortfahren.
+WICHTIG: Erstellen Sie eine Sicherung des Projekts, bevor Sie fortfahren.
 
-Führen Sie aus dem Stammverzeichnis des Projekts den folgenden CLI-Befehl auf Ihr Projekt, automatisch Migrationsprobleme zu beheben:
+Führen Sie den folgenden CLI-Befehl aus dem Stammordner des Projekts auf das Projekt, häufige Migrationsprobleme automatisch zu beheben:
 
 ``` cmd
 wac updateSeven --update
 ```
 
-Dieser Befehl CLI behandelt Folgendes automatisch:
+Mit diesem CLI-Befehl kann automatisch die folgenden Probleme eingegangen:
 
-* Neu generieren ```package-lock.json```
-* Aktualisieren Sie die Dateien in der kompilierungsumgebung Winkel:
+* Zugriffsschlüssel erneut generieren ```package-lock.json```
+* Aktualisieren Sie die Dateien in der angular-kompilierungsumgebung:
     - ```.gitignore```
     - ```tslint.json```
     - ```tsconfig.json```
@@ -128,170 +128,170 @@ Dieser Befehl CLI behandelt Folgendes automatisch:
     - ```src\tsconfig.lib.json```
     - ```src\tsconfig.spec.json```
 
-## 6. verwenden Sie die SDK-CLI Migrationsprobleme verstehen
+## <a name="6-use-the-sdk-cli-to-understand-common-migration-issues"></a>6. Verwenden Sie die SDK-CLI, um häufige Migrationsprobleme zu verstehen.
 
-Führen Sie aus dem Stammverzeichnis des Projekts den folgenden CLI-Befehl zu Ihrem Projekt überwachen Migrationsprobleme, die manuell behandelt werden müssen:
+Im Stammordner Ihres Projekts, und führen Sie den folgenden CLI-Befehl überwachen Ihr Projekt, und suchen häufige Migrationsprobleme, die manuell behoben werden müssen:
 
 ``` cmd
 wac updateSeven --audit
 ```
 
-Dies findet Instanzen der folgenden Probleme in Ihrem Projekt:
+Dies findet die Instanzen der folgenden Probleme in Ihrem Projekt:
 
-### Ersetzen Sie die Verwendung der folgenden CSS-Klassen mit diesen Sme Klassen:
+### <a name="replace-usage-of-the-following-css-classes-with-these-sme-classes"></a>Ersetzen Sie die Verwendung der folgenden CSS-Klassen mit diesen Klassen Sme:
 
 | Alte CSS-Klasse | Neue CSS-Klasse |
 | -- | -- |
-| .Auto-Flex-Größe |  .SME-Position-Flex-auto |
-| Alle .border |  .SME-Rahmen-eingesetzten-Sm und .sme-Rahmen-Farbe-Basis-90 |
+| .auto-flex-size |  .sme-position-flex-auto |
+| .Border und alle ersetzen |  .sme-border-inset-sm AND .sme-border-color-base-90 |
 | .Border nach unten |  .SME-Rahmen-unten-Sm und .sme-border-bottom-color-base-90 |
-| .Border-horizontal |  .SME-Rahmen-Horizontal-Sm und .sme-border-horizontal-color-base-90 |
-| .Border-links |  .SME-Rahmen-links-Sm und .sme-border-left-color-base-90 |
+| .border-horizontal |  .sme-border-horizontal-sm AND .sme-border-horizontal-color-base-90 |
+| .Border-links |  .SME-Border-Left-Sm und .sme-border-left-color-base-90 |
 | .Border rechts |  .SME-Rahmen-rechts-Sm und .sme-border-right-color-base-90 |
-| .Border-top |  .SME-Rahmen-oben-Sm und .sme-border-top-color-base-90 |
-| .Border vertikal |  .SME-Rahmen-vertikal-Sm und .sme-border-vertical-color-base-90 |
-| .Break-word |  .SME-anordnen-ws-wrap |
-| .btn |  .SME-Schaltfläche Schaltfläche "oder" |
-| .btn primären |  .SME button.sme-Schaltfläche primären OR.button.sme-Schaltfläche-primäre |
-| .Color-dunkel |  .SME-Farbe-alt |
-| .Color schwachem Licht |  .SME-Farbe-base |
-| .Color-hellgrau |  .SME-Farbe-Basis-90 |
-| .Fixed-Flex-Größe |  .SME-Position-Flex-keine |
-| .Flex-layout |  .SME-anordnen-Stapel-h oder .sme-anordnen-Stapel-V |
-| .Font fett |  .SME-Schriftart-emphasis1 |
-| .Highlight |  .SME-Hintergrund-Farbe-Gelb |
-| .horizontal |  .SME-anordnen-Stapel-h |
-| .No Bildlauf |  .SME-Position-Flex-auto |
-| .NoWrap |  .SME-anordnen-Stapel-h oder .sme-anordnen-Stapel-V |
-| .relative |  .SME, Layout-bezogene |
+| .border-top |  .SME-Border-Top-Sm und .sme-border-top-color-base-90 |
+| .Border-vertikal |  .sme-border-vertical-sm AND .sme-border-vertical-color-base-90 |
+| .Break-Wort |  .sme-arrange-ws-wrap |
+| .btn |  .SME-Tasten-Schaltfläche "OR" |
+| primäre .btn |  .SME-button.sme-Schaltfläche-Primary OR.button.sme-Schaltfläche-primärer |
+| .Color-dunkel |  .SME-Farbe – alt |
+| .Color-light |  .sme-color-base |
+| .Color hellgrau |  .sme-color-base-90 |
+| .Fixed-Flex-Größe |  .sme-position-flex-none |
+| .Flex-layout |  .SME-anordnen-Stack-h "oder".sme-anordnen-Stack-V |
+| .Font-bold |  .sme-font-emphasis1 |
+| .highlight |  .sme-background-color-yellow |
+| .horizontal |  .sme-arrange-stack-h |
+| Verschieben des Fensterinhalts Befehlsparameter |  .sme-position-flex-auto |
+| .NoWrap |  .SME-anordnen-Stack-h "oder".sme-anordnen-Stack-V |
+| .relative |  .SME-Layout-relative |
 | .relative-center |  .SME-Layout-absoluten .sme-Position-center |
-| .Reverse |  .SME-anordnen-Stapel-umgekehrt |
-| .Stretch absoluten |  .SME Layout-absoluten .sme-Position-eingesetzten-keine |
-| .Stretch fester |  .SME-Layout-behoben .sme-Position-eingesetzten-keine |
-| .Stretch vertikal |  .SME-Position-Stretch-v |
-| .Stretch Breite |  .SME-Position-Stretch-h |
-| .Vertical |  .SME-anordnen-Stapel-v |
-| .Vertical Bildlauf nur- |  .SME-anordnen-Überlauf-ausblenden-X Sme-anordnen-Überlauf-Auto-y |
-| .Wrap |  .SME-anordnen-Wrapstack-h oder .sme-anordnen-Wrapstack-V |
+| .Reverse |  .SME-anordnen-Stack-rückgängig gemacht |
+| .stretch-absolute |  .SME-Layout-absoluten .sme-Position-Inset-keine |
+| .Stretch behoben |  Layout feste .sme .sme-Position-Inset-keine |
+| .Stretch-vertikal |  .sme-position-stretch-v |
+| .stretch-width |  .sme-position-stretch-h |
+| .Vertical |  .sme-arrange-stack-v |
+| nur für die .vertical Scrollen |  .SME-anordnen-Überlauf-ausblenden-X Sme-anordnen-Überlauf-Auto-y |
+| .wrap |  .SME-anordnen-Wrapstack-h "oder".sme-anordnen-Wrapstack-V |
 
-### Ersetzen Sie die Verwendung der folgenden Komponenten mit diesen Sme Komponenten:
+### <a name="replace-usage-of-the-following-components-with-these-sme-components"></a>Ersetzen Sie mit diesen Komponenten Sme Nutzung der folgenden Komponenten:
 
 | Alte Komponente | Neue Komponente |
 | -- | -- |
-| .Alert |  SME-Warnung |
-| .Alert-Gefahr |  SME-Warnung |
-| .breadCrumb |  SME-Warnung |
-| .CheckBox |  SME Formularfeld [Type = "Checkbox"] |
-| .ComboBox |  SME Formularfeld [Type = "auswählen"] |
-| .Dashboard |  SME-Layout-Content-Zone aufgefüllt Sme-anordnen-Stapel-h |
-| .Details-Bereich |  SME-Eigenschaft-Raster |
-| .Details-Panel-container |  SME-Eigenschaft-Raster |
-| .Details + tab |  SME-Eigenschaft-Raster OR Sme-pivot |
-| .Details-wrapper |  SME-Eigenschaft-Raster |
-| .Disabled |  SME-deaktiviert |
-| nicht in Ordnung-Schaltflächen | SME Formularfeld |
-| nicht in Ordnung-Steuerelement | SME Formularfeld |
-| nicht in Ordnung-Steuerelemente | SME Formularfeld |
-| nicht in Ordnung-Gruppe | SME Formularfeld |
-| nicht in Ordnung--Bezeichnung der Dateigruppe | SME Formularfeld |
-| nicht in Ordnung-Eingabe | SME Formularfeld |
-| nicht in Ordnung-stretch | SME Formularfeld |
-| .Input-Datei | SME Formularfeld |
-| .NAV-Registerkarten |  SME-pivot |
-| .Radio |  SME Formularfeld [Type = "Radio"] |
-| .Required-Hinweis | SME Formularfeld |
-| .searchbox |  SME Formularfeld [Type = "Durchsuchen"] |
-| .Toggle-switch |  SME Formularfeld [Type = "ein/aus-Schalter"] |
-| Tool-container |  SME-Layout-Content-Zone oder Sme-Layout-Content-Zone aufgefüllt |
+| .Alert |  KMU-Warnung |
+| .Alert-danger |  KMU-Warnung |
+| .breadCrumb |  KMU-Warnung |
+| .CheckBox |  sme-form-field[type="checkbox"] |
+| .ComboBox |  sme-form-field[type="select"] |
+| .dashboard |  KMU-Layout-Inhalt-Zone aufgefüllt KMU-anordnen-Stack-h |
+| .Details-Bereich |  sme-property-grid |
+| .details-panel-container |  sme-property-grid |
+| .details-tab |  KMU-Eigenschaftenraster OR KMU-pivot |
+| .Details-Wrappers |  sme-property-grid |
+| .Disabled |  KMU-deaktiviert |
+| nicht in Ordnung-Schaltflächen | KMU-Formular-Feld |
+| .form-control | KMU-Formular-Feld |
+| nicht in Ordnung-Steuerelemente | KMU-Formular-Feld |
+| nicht in Ordnung-Gruppe | KMU-Formular-Feld |
+| .form-group-label | KMU-Formular-Feld |
+| Eingabe nicht in Ordnung | KMU-Formular-Feld |
+| .form-stretch | KMU-Formular-Feld |
+| .Input-Datei | KMU-Formular-Feld |
+| .NAV-Registerkarten |  KMU-pivot |
+| .radio |  sme-form-field[type="radio"] |
+| .required-clue | KMU-Formular-Feld |
+| .searchbox |  sme-form-field[type="search"] |
+| .Toggle-switch |  sme-form-field[type="toggle-switch"] |
+| .tool-container |  KMU-Layout-Inhalt-Zone oder KMU-Layout-Inhalt-Zone aufgefüllt |
 
-### Diese CSS-Klassen sind veraltet und werden nicht mehr unterstützt:
+### <a name="these-css-classes-are-deprecated-and-are-no-longer-supported"></a>Diese CSS-Klassen sind veraltet und werden nicht mehr unterstützt:
 
 | Alte Klasse | Veraltet |
 | -- | -- |
 | .Acceptable | (veraltet) |
 | .Color-Fehler | (veraltet) |
-| .Color-Informationen | (veraltet) |
-| .Color-Erfolg | (veraltet) |
+| .color-info | (veraltet) |
+| .color-success | (veraltet) |
 | .Color-Warnung | (veraltet) |
 | .Delete-Schaltfläche | (veraltet) |
-| .Details-Inhalt | (veraltet) |
+| .details-content | (veraltet) |
 | .Error-Abdeckung | (veraltet) |
 | .Error-Nachricht | (veraltet) |
 | .Guided-Bereich-Schaltfläche | (veraltet) |
-| .Header-container | (veraltet) |
-| hat-win | (veraltet) |
+| .header-container | (veraltet) |
+| hat-Windows-Taste | (veraltet) |
 | .Indent | (veraltet) |
 | .Invalid | (veraltet) |
-| .Item-Liste | (veraltet) |
-| .Modal-bildlauffähigen | (veraltet) |
-| . mit mehreren Abschnitt | (veraltet) |
-| .No Aktionsleiste | (veraltet) |
+| .item-list | (veraltet) |
+| .modal-scrollable | (veraltet) |
+| . Multi-Abschnitt | (veraltet) |
+| Befehlsparameter Aktionsleiste | (veraltet) |
 | .Overflow-Ränder | (veraltet) |
-| .Overflow-tool | (veraltet) |
-| .Progress-Abdeckung | (veraltet) |
-| .Right-Bereich | (veraltet) |
+| .overflow-tool | (veraltet) |
+| .progress-cover | (veraltet) |
+| …genau-Bereich | (veraltet) |
 | .Rollup | (veraltet) |
-| .Rollup-status | (veraltet) |
+| .rollup-status | (veraltet) |
 | .Rollup-Titel | (veraltet) |
 | .Rollup-Wert | (veraltet) |
-| .searchbox Aktionsleiste | (veraltet) |
-| .Size-h-1 | (veraltet) |
-| .Size-h-2 | (veraltet) |
-| .Size-h-3 | (veraltet) |
-| .Size-h-4 | (veraltet) |
-| .Size-h-full | (veraltet) |
-| .Size-h-Hälfte | (veraltet) |
-| .Size-V-1 | (veraltet) |
-| .Size-V-2 | (veraltet) |
-| .Size-V-3 | (veraltet) |
-| .Size-V-4 | (veraltet) |
-| .Status-Symbol | (veraltet) |
-| SVG-16px | (veraltet) |
+| .searchbox-action-bar | (veraltet) |
+| .size-h-1 | (veraltet) |
+| .size-h-2 | (veraltet) |
+| .size-h-3 | (veraltet) |
+| .size-h-4 | (veraltet) |
+| .size-h-full | (veraltet) |
+| .size-h-half | (veraltet) |
+| .size-v-1 | (veraltet) |
+| .size-v-2 | (veraltet) |
+| .size-v-3 | (veraltet) |
+| .size-v-4 | (veraltet) |
+| .status-icon | (veraltet) |
+| .svg-16px | (veraltet) |
 | .Table Einzug | (veraltet) |
-| .Table-sm | (veraltet) |
+| .table-sm | (veraltet) |
 | .Thin | (veraltet) |
 | .Tile | (veraltet) |
 | .Tile-body | (veraltet) |
-| .Tile-Inhalt | (veraltet) |
+| .tile-content | (veraltet) |
 | .Tile-Fußzeile | (veraltet) |
-| .Tile-header | (veraltet) |
+| .tile-header | (veraltet) |
 | .Tile-layout | (veraltet) |
 | .Tile-Tabelle | (veraltet) |
 | .ToolBar | (veraltet) |
-| Tool-Leiste | (veraltet) |
-| Tool-header | (veraltet) |
-| Tool-Header-box | (veraltet) |
+| Tool-weißem Zebrastreifeneffekt | (veraltet) |
+| .tool-header | (veraltet) |
+| Tool-Header-Feld | (veraltet) |
 | Tool-Bereich | (veraltet) |
-| .Usage-Leiste | (veraltet) |
-| .Usage der Statusleiste | (veraltet) |
-| .Usage--Hintergrund | (veraltet) |
-| .Usage-Leiste-Titel | (veraltet) |
-| .Usage-Leiste-Wert | (veraltet) |
+| .Usage-weißem Zebrastreifeneffekt | (veraltet) |
+| .usage-bar-area | (veraltet) |
+| .Usage-Leiste – Hintergrund | (veraltet) |
+| .usage-bar-title | (veraltet) |
+| .Usage-Balken-Wert | (veraltet) |
 | .Usage-Diagramm | (veraltet) |
 | .Usage-Nachricht | (veraltet) |
-| .Usage-Nachricht-Bereich | (veraltet) |
-| .Usage Nachrichtentitel | (veraltet) |
+| .usage-message-area | (veraltet) |
+| .usage-message-title | (veraltet) |
 | .Warning | (veraltet) |
 | .White-Bereich | (veraltet) |
 
-## 7. verstehen und Behandeln von Problemen mit Observable-Objekte
+## <a name="7-understand-and-resolve-issues-with-observable-objects"></a>7. Verstehen und Beheben von Problemen mit dem Observable-Objekte
 
-### Update ```rxjs``` funktionieren für Observable-Objekte
+### <a name="update--rxjs-function-use-for-observable-objects"></a>Update ```rxjs``` funktionieren für Observable-Objekte
 
-Hierbei handelt es sich um einige allgemeine Funktionsnamen, die geändert wurden, gibt es möglicherweise andere Personen in Ihrem Projekt.
+Hierbei handelt es sich um eine allgemeine Funktionsnamen, die geändert wurden, gibt es möglicherweise andere in Ihrem Projekt.
 
-* Update ```Observable.empty()``` zu ```empty()```
-* Update ```Observable.of()``` zu ```of()```
-* Update ```.switchMap()``` zu ```.pipe(switchMap())```
-* Update ```.map()``` zu ```.pipe(map())```
-* Update ```flatMap()``` zu ```mergeMap()```
+* Update ```Observable.empty()``` auf ```empty()```
+* Update ```Observable.of()``` auf ```of()```
+* Update ```.switchMap()``` auf ```.pipe(switchMap())```
+* Update ```.map()``` auf ```.pipe(map())```
+* Update ```flatMap()``` auf ```mergeMap()```
 
 
-### Behandeln von Runtime-Problemen mit ```.map()``` und ```.filter()``` Funktionen auf Observable-Objekte
+### <a name="resolve-runtime-issues-with-map-and-filter-functions-on-observable-objects"></a>Beheben von Laufzeitproblemen mit ```.map()``` und ```.filter()``` Funktionen, die auf Observable-Objekte
 
-Wenn der Compiler nicht korrekt identifizieren kann ein ```observable``` Objekttyp, ```.map()``` und ```.filter()``` Funktionen aus der ```array``` Objekt auf das Objekt, verursacht Fehler zur Laufzeit stattdessen zugeordnet werden könnte.  Stellen Sie sicher, dass Ihre Funktionen zurückgeben einer ```observable``` -Objekt, einen explizite Datentyp, um dieses Problem zu umgehen.
+Wenn der Compiler nicht korrekt identifizieren kann ein ```observable``` Objekttyp, ```.map()``` und ```.filter()``` Funktionen aus der ```array``` Objekt stattdessen auf das Objekt, sodass Fehler zur Laufzeit zugeordnet werden kann.  Stellen Sie sicher, dass Ihre Funktionen zurückgeben einer ```observable``` Objekt, das zur Vermeidung dieses Problems einen expliziten Datentyp angibt.
 
-```any``` kein Rückgabetyp können dieses Problem verursachen, und suchen Sie nach Code mit dieser Muster:
+```any``` und ohne Rückgabetyp kann dazu führen, dass dieses Problem, suchen Sie nach Code dieser Muster:
 
 ``` ts
 public getMyObservable(): any { //any return type can cause issues
@@ -303,31 +303,31 @@ public getMyObservable() { //no return type can cause issues
 }
 ```
 
-## 8. andere allgemeine Probleme zu beheben
+## <a name="8-resolve-other-common-issues"></a>8. Behoben Sie andere allgemeine Probleme werden
 
-Diese Techniken helfen, andere allgemeine Probleme zu beheben:
+Andere häufig auftretende Probleme beheben erleichtern diese Techniken:
 
-* Führen Sie ```ng lint --fix``` , fusselfreien Probleme zu beheben.
-* Führen Sie ```gulp build``` Probleme wiederholt, inkrementell zu beheben, ```gulp build``` automatisch beheben können
+* Führen Sie ```ng lint --fix``` , Lint-Probleme zu beheben.
+* Führen Sie ```gulp build``` wiederholt für inkrementell beheben Probleme, die ```gulp build``` können automatisch auflösen
 
-## 9. erstellen Sie und Ihr Projekt
+## <a name="9-build-and-serve-your-project"></a>9. Erstellt und verarbeitet Sie Ihrem Projekt
 
-Führen Sie die folgenden Befehle zum Erstellen und Ihr Projekt mit der neuesten Version (SDK 1.0):
+Führen Sie die folgenden Befehle zum Erstellen und verarbeiten das Projekt mit der neuesten Version (1.0 SDK):
 
 ``` cmd
 gulp build
 gulp serve --port 4201
 ```
 
-## 10. Aktivieren Sie dunklen Design in Windows Admin Center
+## <a name="10-turn-on-dark-theme-in-windows-admin-center"></a>10. Design "dunkel" in Windows Admin Center aktivieren
 
-Um dunkle Design in Windows Admin Center Version 1902 und höher aktivieren, gehen Sie folgendermaßen vor:
+Um Design "dunkel" in Windows Admin Center Version 1902 und später aktivieren, gehen Sie folgendermaßen vor:
 
-* Open Windows Admin Center (Version 1902 und höher)
-* Klicken Sie auf das Symbol " **Einstellungen** " in der oberen rechten Ecke des Fensters
-* Wählen Sie die Registerkarte " **Erweitert** "
-* Klicken Sie unter *Experiment Schlüssel*auf **Hinzufügen**
-* Geben Sie einen neuen Wert ```msft.sme.shell.personalization``` in das leere Feld, die von den vorherigen Schritt erstellt wurde
-* Klicken Sie auf **Speichern und Laden**
-* Einstellungen verfügen jetzt über eine neue Registerkarte **Personalisierung**.  Wählen Sie diese Registerkarte
-* Ändern von **Farben** in **dunklen Modus (Vorschau)**
+* Öffnen Sie Windows Admin Center (Version 1902 und höher)
+* Klicken Sie auf die **Einstellungen** Symbol in der oberen rechten Ecke des Fensters
+* Wählen Sie die **erweitert** Registerkarte
+* Klicken Sie unter *Experiment Schlüssel*, klicken Sie auf **hinzufügen**
+* Geben Sie einen neuen Wert ```msft.sme.shell.personalization``` in das leere Feld, das im vorherigen Schritt erstellt wurde
+* Klicken Sie auf **speichern und erneuten Laden**
+* Einstellungen haben nun eine neue Registerkarte **Personalisierung**.  Wählen Sie diese Registerkarte
+* Änderung **Farben** zu **dunkel Modus (Vorschau)**
