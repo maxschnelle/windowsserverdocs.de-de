@@ -6,75 +6,75 @@ ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 09/07/2018
-Keywords: Storage Spaces Direct
+Keywords: Direkte Speicherplätze
 ms.localizationpriority: medium
 ms.openlocfilehash: f8072ab5fc853248f2eedd26019956ec864a891d
-ms.sourcegitcommit: d31e266130b3b082372f7af4024e6089cb347d74
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "4239217"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59890871"
 ---
-# Leistungsverlauf für virtuelle Computer
+# <a name="performance-history-for-virtual-machines"></a>Leistungsverlauf für virtuelle Computer
 
-> Gilt für: Windows Server Insider Preview
+> Gilt für: Windows Server-Insider – Vorschau
 
-Untergeordnete in diesem Thema von ["direkte Speicherplätze" Verlauf](performance-history.md) beschreibt ausführlich der Verlauf für virtuelle Computer (VM) erfasst. Leistungsverlauf ist für jede ausgeführt, gruppierten virtuellen Computer verfügbar.
+Dieser Unterabschnitt von [– Leistungsverlauf für "direkte Speicherplätze"](performance-history.md) beschreibt ausführlich den Leistungsverlauf für virtuelle Computer (VM) erfasst. Leistungsverlauf für ist für jede Ausführung, geclusterte VM verfügbar.
 
    > [!NOTE]
-   > Es kann mehrere Minuten Sammlung für neu erstellte oder umbenannt VMs beginnen.
+   > Es dauert einige Minuten, bis die Auflistung, die für neu erstellte oder umbenannte virtuelle Computer zu beginnen.
 
-## Seriennamen und Einheiten
+## <a name="series-names-and-units"></a>Namen von Datenreihen und Einheiten
 
-Diese Serie werden für alle berechtigten VM erfasst:
+Dieser Reihe werden für jeden berechtigten virtuellen Computer gesammelt:
 
 | Serie                            | Einheit             |
 |-----------------------------------|------------------|
 | `vm.cpu.usage`                    | Prozent          |
-| `vm.memory.assigned`              |  Bytes            |
-| `vm.memory.available`             |  Bytes            |
-| `vm.memory.maximum`               |  Bytes            |
-| `vm.memory.minimum`               |  Bytes            |
+| `vm.memory.assigned`              | Bytes            |
+| `vm.memory.available`             | Bytes            |
+| `vm.memory.maximum`               | Bytes            |
+| `vm.memory.minimum`               | Bytes            |
 | `vm.memory.pressure`              | -                |
-| `vm.memory.startup`               |  Bytes            |
-| `vm.memory.total`                 |  Bytes            |
+| `vm.memory.startup`               | Bytes            |
+| `vm.memory.total`                 | Bytes            |
 | `vmnetworkadapter.bandwidth.inbound`  | Bits pro Sekunde |
 | `vmnetworkadapter.bandwidth.outbound` | Bits pro Sekunde |
 | `vmnetworkadapter.bandwidth.total`    | Bits pro Sekunde |
 
-Darüber hinaus werden alle virtuelle Festplatte (VHD)-Serie, z. B. `vhd.iops.total`, aggregiert werden, für jede virtuelle Festplatte für die VM angefügt.
+Darüber hinaus alle Reihen für virtuelle Festplatte (VHD), wie z. B. `vhd.iops.total`, aggregiert werden, für jede VHD dem virtuellen Computer angefügt.
 
-## Zum Interpretieren
+## <a name="how-to-interpret"></a>Gewusst wie: interpretieren
 
 
 | Serie                            | Beschreibung                                                                                                  |
 |-----------------------------------|--------------------------------------------------------------------------------------------------------------|
-| `vm.cpu.usage`                    | Prozentsatz der virtuelle Computer wird mit dem Host-Server-Prozessoren verwendet.                                   |
-| `vm.memory.assigned`              | Die Menge von Arbeitsspeicher, die mit dem virtuellen Computer zugewiesen.                                                      |
-| `vm.memory.available`             | Die Menge des Speichers, der zur Verfügung, die Größe zugewiesen bleibt.                                       |
-| `vm.memory.maximum`               | Bei Verwendung von dynamischem Arbeitsspeicher, ist dies die maximale Menge an Arbeitsspeicher, die mit dem virtuellen Computer zugewiesen werden kann. |
-| `vm.memory.minimum`               | Bei Verwendung von dynamischem Arbeitsspeicher, ist dies die Mindestmenge des Speichers, der mit dem virtuellen Computer zugewiesen werden kann. |
-| `vm.memory.pressure`              | Das Verhältnis von Speicher, die vom virtuellen Computer über den Speicher für den virtuellen Computer reserviert angefordert.            |
-| `vm.memory.startup`               | Die Menge der erforderlichen Speicher für den virtuellen Computer zu starten.                                            |
-| `vm.memory.total`                 | Gesamter Speicher. |
-| `vmnetworkadapter.bandwidth.inbound`  | Die Anzahl der vom virtuellen Computer über dessen virtuellen Netzwerkadapter empfangenen Daten.                        |
-| `vmnetworkadapter.bandwidth.outbound` | Die Anzahl der vom virtuellen Computer über dessen virtuellen Netzwerkadapter gesendeten Daten.                            |
-| `vmnetworkadapter.bandwidth.total`    | Gesamtanzahl der Daten empfangen oder vom virtuellen Computer über dessen virtuellen Netzwerkadapter gesendet.          |
+| `vm.cpu.usage`                    | Prozentsatz der virtuelle Computer wird von dem Host-Server-Prozessoren verwendet.                                   |
+| `vm.memory.assigned`              | Die Menge des Arbeitsspeichers der virtuellen Maschine zugewiesen werden soll.                                                      |
+| `vm.memory.available`             | Die Menge des Arbeitsspeichers, der die zugewiesene Menge verfügbar bleibt.                                       |
+| `vm.memory.maximum`               | Wenn es sich bei Verwendung von dynamischem Arbeitsspeicher ist dies die maximale Menge an Arbeitsspeicher, die mit dem virtuellen Computer zugewiesen werden kann. |
+| `vm.memory.minimum`               | Wenn es sich bei Verwendung von dynamischem Arbeitsspeicher ist dies die Mindestmenge an Arbeitsspeicher, die mit dem virtuellen Computer zugewiesen werden kann. |
+| `vm.memory.pressure`              | Das Verhältnis von Speicher, die von der virtuellen Maschine gefordert wird, über den Speicher der virtuellen Maschine zugewiesen werden soll.            |
+| `vm.memory.startup`               | Die Menge von Speicher für den virtuellen Computer zu starten.                                            |
+| `vm.memory.total`                 | Gesamter Arbeitsspeicher. |
+| `vmnetworkadapter.bandwidth.inbound`  | Rate der vom virtuellen Computer für alle seine virtuellen Netzwerkadapter empfangene Daten.                        |
+| `vmnetworkadapter.bandwidth.outbound` | Rate der vom virtuellen Computer über alle seine virtuellen Netzwerkadapter gesendeten Daten.                            |
+| `vmnetworkadapter.bandwidth.total`    | Gesamtrate Daten empfangen, oder von der virtuellen Maschine über den virtuellen Netzwerkadaptern gesendet.          |
 
    > [!NOTE]
-   > Leistungsindikatoren werden über das gesamte Intervall nicht gesampelt gemessen. Wenn die VM für 9 Sekunden jedoch Spitzen mit 50 % der Host CPU in der zweiten 10. im Leerlauf ist z. B. seine `vm.cpu.usage` aufgezeichnet als 5 % durchschnittlich während dieses Intervalls 10 Sekunden. Dadurch wird sichergestellt, dessen Leistungsverlauf alle Aktivität erfasst und robust, um Rauschen ist.
+   > Leistungsindikatoren werden anhand des gesamten Intervalls, nicht entnommen gemessen. Wenn der virtuelle Computer im Leerlauf, 9 Sekunden jedoch Spitzen in der Sekunde 10. 50 % des Host-CPU mit ist z. B. die `vm.cpu.usage` aufgezeichnet werden als 5 % durchschnittliche Intervall 10 Sekunden. Dadurch wird der Leistungsverlauf erfasst alle Aktivitäten und ist stabil, um Rauschen.
 
-## Verwendung in PowerShell
+## <a name="usage-in-powershell"></a>Verwendung in PowerShell
 
-Verwenden Sie das Cmdlet [Get-VM](https://docs.microsoft.com/powershell/module/hyper-v/get-vm) :
+Verwenden der [Get-VM](https://docs.microsoft.com/powershell/module/hyper-v/get-vm) Cmdlet:
 
 ```PowerShell
 Get-VM <Name> | Get-ClusterPerf
 ```
 
    > [!NOTE]
-   > Das Cmdlet Get-VM gibt nur virtuellen Computern auf dem lokalen (oder angegeben)-Server nicht über den Cluster zurück.
+   > Das Cmdlet "Get-VM" zurück virtuelle Computer nur auf dem lokalen (oder angegebene)-Server nicht auf den Cluster.
 
-## Weitere Informationen:
+## <a name="see-also"></a>Siehe auch
 
-- ["Direkte Speicherplätze" Verlauf](performance-history.md)
+- [Leistungsverlauf für "direkte Speicherplätze"](performance-history.md)

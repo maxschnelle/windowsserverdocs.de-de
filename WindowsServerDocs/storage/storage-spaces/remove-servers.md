@@ -11,19 +11,19 @@ description: Wie entferne ich Server aus einem Direkte Speicherplätze-Cluster i
 ms.date: 2/5/2017
 ms.localizationpriority: medium
 ms.openlocfilehash: 9fcb67b3c5fbcff0ca2a48ee9a1d2e109af3e9a8
-ms.sourcegitcommit: bb626d8626ef47426b781925ea588755dbe2e403
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "7871603"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59890781"
 ---
-# Entfernen von Servern in Direkte Speicherplätze
+# <a name="removing-servers-in-storage-spaces-direct"></a>Entfernen von Servern in Direkte Speicherplätze
 
->Gilt für: WindowsServer 2019, WindowsServer 2016
+>Gilt für: Windows Server 2019, Windows Server 2016
 
 In diesem Thema wird beschrieben, wie Server in [Direkte Speicherplätze](storage-spaces-direct-overview.md) mithilfe von PowerShell entfernt werden.
 
-## Entfernen eines Servers, aber Beibehalten der Laufwerke
+## <a name="remove-a-server-but-leave-its-drives"></a>Entfernen eines Servers, aber Beibehalten der Laufwerke
 
 Wenn Sie den Server bald wieder dem Cluster hinzufügen möchten oder wenn Sie die Laufwerke behalten möchten, indem Sie sie auf einen anderen Server verschieben, können Sie den Server aus dem Cluster entfernen, *ohne* seine Laufwerke aus dem Speicherpool zu entfernen. Dies ist das Standardverhalten bei Verwendung des Failovercluster-Managers zum Entfernen des Servers.
 
@@ -40,7 +40,7 @@ Wenn die Laufwerke zurückkehren, werden sie automatisch erkannt und dem Pool ne
    >[!WARNING]
    > Verteilen Sie keine Laufwerke mit Pooldaten von einem Server auf mehrere andere Server. Beispiel: Wenn ein Server mit zehn Laufwerke ausfällt (beispielsweise weil bei der Hauptplatine oder dem Startlaufwerk ein Fehler auftritt), **können** Sie alle zehn Laufwerke auf einen neuen Server verschieben, aber Sie **können sie nicht** separat auf verschiedene andere Server verschieben.
 
-## Entfernen eines Servers und seiner Laufwerke
+## <a name="remove-a-server-and-its-drives"></a>Entfernen eines Servers und seiner Laufwerke
 
 Wenn Sie einen Server endgültig aus dem Cluster entfernen möchten (auch als horizontales Herunterskalieren bezeichnet), können Sie den Server aus dem Cluster *und* seine Laufwerke aus dem Speicherpool entfernen.
 
@@ -52,17 +52,17 @@ Remove-ClusterNode <Name> -CleanUpDisks
 
 Die Ausführung dieses Cmdlet kann lange dauern (manchmal auch viele Stunden), da Windows alle auf dem Server gespeicherten Daten auf andere Servern im Cluster verschieben muss. Nachdem dieser Vorgang abgeschlossen ist, werden die Laufwerke dauerhaft aus dem Speicherpool entfernt und der fehlerfreie Zustand der betroffenen Volumes wiederhergestellt.
 
-### Anforderungen
+### <a name="requirements"></a>Anforderungen
 
 Zum dauerhaften horizontalen Herunterskalieren (Entfernen eines Servers *und* der Laufwerke) muss der Cluster die folgenden zwei Kriterien erfüllen. Ist dies nicht der Fall, gibt das Cmdlet **Remove-ClusterNode -CleanUpDisks** sofort einen Fehler zurück, bevor die Datenverschiebung beginnt, um Störungen zu minimieren.
 
-#### Ausreichend Kapazität
+#### <a name="enough-capacity"></a>Ausreichend Kapazität
 
-Zunächst benötigen Sie genügend Speicherkapazität auf den verbleibenden Servern für alle Ihre Volumes.
+Zunächst benötigen Sie ausreichend Speicherkapazität, in den verbleibenden Servern aus, um alle Ihre Volumes zu berücksichtigen.
 
-Wenn Sie beispielsweise vier Server mit jeweils zehn 1-TB-Laufwerken besitzen, haben Sie insgesamt 40 TB physische Speicherkapazität. Nach dem Entfernen eines Servers und aller seiner Laufwerke sind 30 TB Kapazität übrig. Wenn der Speicherbedarf Ihrer Volumes zusammen mehr als 30TB beträgt, passen sie nicht auf die verbleibenden Server, daher gibt das Cmdlet einen Fehler zurück, und es werden keine Daten verschoben.
+Wenn Sie beispielsweise vier Server mit jeweils zehn 1-TB-Laufwerken besitzen, haben Sie insgesamt 40 TB physische Speicherkapazität. Nach dem Entfernen eines Servers und aller seiner Laufwerke sind 30 TB Kapazität übrig. Wenn der Speicherbedarf Ihrer Volumes zusammen mehr als 30 TB beträgt, passen sie nicht auf die verbleibenden Server, daher gibt das Cmdlet einen Fehler zurück, und es werden keine Daten verschoben.
 
-#### Genügend Fehlerdomänen
+#### <a name="enough-fault-domains"></a>Genügend Fehlerdomänen
 
 Zweitens benötigen Sie genügend Fehlerdomänen (in der Regel Server), um die Resilizenz Ihrer Volumes bereitzustellen.
 
@@ -77,8 +77,8 @@ In der folgenden Tabelle wird die Mindestanzahl der Fehlerdomänen gezeigt, die 
 |    Duale Parität         |    4                                |
 
    >[!NOTE]
-   > Es ist in Ordnung, kurzzeitig weniger Server zu haben, z.B. bei Ausfällen oder Wartung. Damit die Volumes wieder zurück in einen vollständig fehlerfreien Status wechseln, müssen Sie jedoch die minimale Anzahl von Servern besitzen, die oben aufgeführt ist.
+   > Es ist in Ordnung, kurzzeitig weniger Server zu haben, z. B. bei Ausfällen oder Wartung. Damit die Volumes wieder zurück in einen vollständig fehlerfreien Status wechseln, müssen Sie jedoch die minimale Anzahl von Servern besitzen, die oben aufgeführt ist.
 
-## Weitere Informationen
+## <a name="see-also"></a>Siehe auch
 
-- [Direkte Speicherplätze – Übersicht](storage-spaces-direct-overview.md)
+- [Übersicht über Storage "direkte Speicherplätze"](storage-spaces-direct-overview.md)

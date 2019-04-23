@@ -1,6 +1,6 @@
 ---
 title: Berichte nach Bedarf erstellen
-description: "Dieser Artikel beschreibt, wie Berichte nach Bedarf zum Analysieren der Datenträgerverwendung auf dem Server erstellt werden"
+description: Dieser Artikel beschreibt, wie Berichte nach Bedarf zum Analysieren der Datenträgerverwendung auf dem Server erstellt werden
 ms.date: 7/7/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: e91bfbc306d1d2712f7b35ec48114b3a8a84ec83
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59890991"
 ---
 # <a name="generate-reports-on-demand"></a>Berichte nach Bedarf erstellen
 
-> Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
 
 Während des täglichen Betriebs können Sie die Option **Berichte jetzt generieren** auswählen, um einen oder mehrere Berichte nach Bedarf zu erstellen. Mit diesen Berichten können Sie verschiedene Aspekte der aktuellen Datenträgerverwendung auf dem Server analysieren. Aktuelle Daten werden gesammelt, bevor die Berichte generiert werden.
 
@@ -65,8 +66,8 @@ Wenn Sie Berichte nach Bedarf erstellen, werden die Berichte an einem Standardsp
 
     Beide Optionen speichern die Berichte, und wenn Sie die Übermittlung per E-Mail aktiviert haben, werden die Berichte an die Administratoren in den Formaten gesendet, die Sie ausgewählt haben.
 
-## <a name="see-also"></a>Weitere Informationen:
+## <a name="see-also"></a>Siehe auch
 
--   [Speicherberichtmanagement](storage-reports-management.md)
--   [Festlegen der Optionen des Ressourcen-Managers für Dateiserver](setting-file-server-resource-manager-options.md)
+-   [Speicherverwaltung für Berichte](storage-reports-management.md)
+-   [Einstellung File Server Resource Manager-Optionen](setting-file-server-resource-manager-options.md)
 

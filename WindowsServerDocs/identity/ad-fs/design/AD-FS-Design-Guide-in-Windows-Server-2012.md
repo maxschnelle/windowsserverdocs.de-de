@@ -1,7 +1,7 @@
 ---
 ms.assetid: bb16e39d-566d-436c-b957-394c06d556db
 title: AD FS-Entwurfshandbuch in Windows Server 2012
-description: 
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,32 +10,33 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: e660c1dabcc5a683fa74068ea148fd4efbeee569
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59890211"
 ---
 # <a name="ad-fs-design-guide-in-windows-server-2012"></a>AD FS-Entwurfshandbuch in Windows Server 2012
 
->Gilt für: Windows Server 2012
+>Gilt für: Windows Server 2012
   
 > [!NOTE]  
-> Informationen zum Bereitstellen von AD FS unter Windows Server2012 R2 finden Sie unter [Windows Server2012 R2 AD FS-Bereitstellungshandbuch](../../ad-fs/deployment/Windows-Server-2012-R2-AD-FS-Deployment-Guide.md).  
+> Informationen zum Bereitstellen von AD FS unter Windows Server 2012 R2, finden Sie unter [Windows Server 2012 R2 AD FS-Bereitstellungshandbuch](../../ad-fs/deployment/Windows-Server-2012-R2-AD-FS-Deployment-Guide.md).  
   
-Können Active Directory® Federation Services \(AD FS\) mit dem Betriebssystem Windows Server® 2012 in einer Federation Services Provider Rolle nahtlos authentifizieren Benutzer alle webbasierten Diensten oder Anwendungen, die befinden sich in einer Ressourcenpartnerorganisation übernehmen, ohne dass Administratoren erstellen oder verwalten, externe Vertrauensstellungen oder Gesamtstruktur-Vertrauensstellungen zwischen den Netzwerken beider Organisationen und ohne den Benutzer ein zweites Mal anmelden müssen. Der Vorgang der Authentifizierung mit einem Netzwerk während des Zugriffs auf Ressourcen in einem anderen Netzwerk – ohne den Aufwand wiederholter Anmeldeaktionen durch Benutzer – wird als einzelne Standardparameter auf \(SSO\) bezeichnet.  
+Sie können Active Directory® Federation Services \(AD FS\) mit dem Windows Server® 2012-Betriebssystem in einem Verbund-services-Rolle verwenden, um Ihre Benutzer auf Internet nahtlos zu authentifizieren\--basierte Dienste oder Anwendungen, die befinden sich in einer Ressourcenpartnerorganisation übernehmen, ohne die Notwendigkeit von Administratoren erstellt oder gewahrt, externe Vertrauensstellungen oder Gesamtstruktur-Vertrauensstellungen zwischen den Netzwerken beider Organisationen und ohne die Notwendigkeit der Benutzer auf ein zweites Mal anmelden. Der Vorgang der Authentifizierung mit einem Netzwerk beim Zugriff auf Ressourcen in einem anderen Netzwerk – ohne den Aufwand wiederholter Anmeldeaktionen durch Benutzer – wird als einmaliges Anmelden bezeichnet\-auf \(SSO\).  
   
-## <a name="about-this-guide"></a>Informationen zum Handbuch  
-Dieses Handbuch enthält Empfehlungen helfen Ihnen beim Planen einer neuen Bereitstellung von AD FS, je nach den Erfordernissen Ihrer Organisation \ (auch in diesem Handbuch als Bereitstellung Goals\ bezeichnet) und des Entwurfs, die Sie erstellen möchten. Dieses Handbuch ist für die Verwendung von einem infrastrukturspezialisten oder einem Systemarchitekten vorgesehen. Lassen sich die wesentlichen Entscheidungspunkte hervorheben, mit denen Sie Ihre AD FS-Bereitstellung planen. Bevor Sie dieses Handbuch lesen, sollten Sie ein gutes Verständnis der Funktionsweise von AD FS auf einer Funktionsebene verfügen. Sie sollten auch einen umfassenden Überblick über die organisatorischen Anforderungen, die widergespiegelt werden verfügen, in der AD FS-Entwurfs.  
+## <a name="about-this-guide"></a>Informationen zur Anleitung  
+Dieser Leitfaden bietet Empfehlungen helfen Ihnen beim Planen einer neuen Bereitstellung von AD FS, basierend auf den Anforderungen Ihrer Organisation \(auch in diesem Handbuch als Bereitstellungsziele bezeichnet\) und des gewünschten Entwurfs, die Sie erstellen möchten. Dieses Handbuch ist für die Verwendung durch einen Infrastrukturspezialisten oder Systemarchitekten vorgesehen. Planen der AD FS-Bereitstellung lassen sich die wesentlichen Entscheidungspunkte hervorheben. Bevor Sie dieses Handbuch lesen, sollten Sie ein gutes Verständnis der Funktionsweise von AD FS auf einer Funktionsebene verfügen. Sie sollten auch einen fundierten Überblick über die organisatorischen Anforderungen, die widergespiegelt werden haben, klicken Sie in Ihrer AD FS-Entwurfs.  
   
-Dieses Handbuch beschreibt eine Reihe von bereitstellungszielen, die auf drei primären AD FS-Designs basieren, und erleichtert Ihnen die Entscheidung, des am besten geeigneten Designs für Ihre Umgebung. Sie können diesen bereitstellungszielen können Sie einen der folgenden umfassenden AD FS-Entwürfe oder einen benutzerdefinierten Entwurf entwickeln, der den Anforderungen Ihrer Umgebung entspricht:  
+Dieses Handbuch beschreibt eine Reihe von bereitstellungszielen, die auf drei primären AD FS basieren, und erleichtert Ihnen die Entscheidung, die am besten geeigneten Entwurfs für Ihre Umgebung. Sie können diesen bereitstellungszielen einen der folgenden umfassenden AD FS Entwürfe oder einen benutzerdefinierten Entwurf entwickeln, der den Anforderungen Ihrer Umgebung entspricht:  
   
--   Federated-Web-SSO zur Unterstützung von Business\-zu-Business \(B2B\) und die Zusammenarbeit zwischen Geschäftseinheiten mit unabhängigen Gesamtstrukturen  
+-   Federated-Web-SSO zur Unterstützung von Business\-zu\-Business \(B2B\) Szenarien und die Zusammenarbeit zwischen Geschäftseinheiten mit unabhängigen Gesamtstrukturen zu unterstützen.  
   
--   Web-SSO zur Unterstützung des Kundenzugriffs auf Anwendungen in Business\-zu-Consumer \(B2C\) Szenarien  
+-   Web-SSO zur Unterstützung des Kundenzugriffs auf Anwendungen in Unternehmen\-zu\-Consumer \(B2C\) Szenarien  
   
-Jedem Entwurf finden Sie Richtlinien für das Erfassen der erforderlichen Daten zu Ihrer Umgebung. Dann können diese Richtlinien zum Planen und Entwerfen Ihrer AD FS-Bereitstellung. Nachdem Sie dieses Handbuch gelesen und erfassen, dokumentieren und Zuordnen der Anforderungen Ihrer Organisation abschließen, müssen Sie die nötigen Informationen zum Bereitstellen von AD FS mithilfe der Anleitungen im beginnen die [Windows Server2012 AD FS-Bereitstellungshandbuch](../../ad-fs/deployment/Windows-Server-2012-AD-FS-Deployment-Guide.md).  
+Sie finden zu jedem Entwurf Richtlinien für das Erfassen der erforderlichen Daten zu Ihrer Umgebung. Sie können diese Richtlinien dann verwenden, zum Planen und Entwerfen von AD FS-Bereitstellung. Nachdem Sie dieses Handbuch gelesen und abgeschlossen haben, sammeln, dokumentieren und Zuordnen der Anforderungen Ihrer Organisation, die erforderlichen Informationen zum Bereitstellen von AD FS mithilfe der Anleitungen im haben die [Windows Server 2012 AD FS-Bereitstellungshandbuch](../../ad-fs/deployment/Windows-Server-2012-AD-FS-Deployment-Guide.md).  
   
-## <a name="in-this-guide"></a>In diesem Handbuch  
+## <a name="in-this-guide"></a>Inhalt dieser Anleitung  
   
 -   [Identifizieren der AD FS-Bereitstellungsziele](Identifying-Your-AD-FS-Deployment-Goals.md)  
   
@@ -45,12 +46,12 @@ Jedem Entwurf finden Sie Richtlinien für das Erfassen der erforderlichen Daten 
   
 -   [Planen der Bereitstellung](Planning-Your-Deployment.md)  
   
--   [Planen der Platzierung des Verbundservers](Planning-Federation-Server-Placement.md)  
+-   [Planen der Platzierung](Planning-Federation-Server-Placement.md)  
   
 -   [Planen der Verbundserverproxy-Platzierung](Planning-Federation-Server-Proxy-Placement.md)  
   
 -   [Planen der AD FS-Serverkapazität](Planning-for-AD-FS-Server-Capacity.md)  
   
--   [AnhangA: Überprüfen der AD FS-Anforderungen](Appendix-A--Reviewing-AD-FS-Requirements.md)  
+-   [Anhang A: Überprüfen der AD FS-Anforderungen](Appendix-A--Reviewing-AD-FS-Requirements.md)  
   
 
