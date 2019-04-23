@@ -1,6 +1,6 @@
 ---
 title: Data Center Bridging (DCB)
-description: In diesem Thema können einführende Informationen zum Data Center Bridging in Windows Server2016.
+description: In diesem Thema können einführende Informationen zur Data Center Bridging in Windows Server 2016.
 ms.prod: windows-server-threshold
 ms.technology: networking
 ms.topic: article
@@ -8,105 +8,106 @@ ms.assetid: da58f312-bd3b-4bb6-98ca-6177869dd6ad
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 3d465e855adc387d7136919ac11fbab56c792c34
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 7cb488192a873743db27d9c1d09c5912bc810bb8
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59834181"
 ---
 # <a name="data-center-bridging-dcb"></a>Data Center Bridging \(DCB\)
 
->Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
-In diesem Thema können einführende Informationen zum Data Center Bridging \(DCB\).
+Sie können in diesem Thema verwenden, einführende Informationen zur Data Center Bridging \(DCB\).
 
-DCB ist eine Suite von Institute of Electrical and Electronics Engineers \(IEEE\)-Standards, die Converged Fabrics im Data Center aktivieren, wo Speicher, Datennetzwerke, Cluster Inter\-Process Communication \(IPC\) und Verwaltungsdatenverkehr dieselbe Ethernet-Netzwerkinfrastruktur nutzen.
+DCB ist eine Sammlung von Institute of Electrical and Electronics Engineers \(IEEE\) Standards, die Converged Fabrics im Rechenzentrum, in dem cluster Speicher, Netzwerk, Daten zwischen ermöglichen\-Kommunikation zwischen Prozessen \(IPC\), und Verwaltungsdatenverkehr alle gemeinsam dieselbe Ethernet-Netzwerkinfrastruktur nutzen.
 
 >[!NOTE]
->Zusätzlich zu diesem Thema wird die folgende Dokumentation zum DCB verfügbar
+>Zusätzlich zu diesem Thema finden Sie die folgende DCB-Dokumentation
 >
->- [Installieren Sie DCB wird in Windows Server 2016 oder Windows10.](dcb-install.md)
+>- [Installieren Sie DCB in WindowsServer 2016 oder Windows 10](dcb-install.md)
 >- [Verwalten von Data Center Bridging (DCB)](dcb-manage.md)
 
-DCB bietet Hardware\-basierte bandbreitenzuordnung für einen bestimmten Typ von Netzwerkdatenverkehr und verbessert die ethernettransportzuverlässigkeit durch die Verwendung von Priority\ flusssteuerung.
+DCB bietet Hardware\-basierte bandbreitenzuordnung für einen bestimmten Typ von Netzwerkdatenverkehr und verbessert die ethernettransportzuverlässigkeit durch die Verwendung von Priorität\-flusssteuerung basiert.
 
-Hardware\-basierte bandbreitenzuordnung ist notwendig, wenn Datenverkehr das Betriebssystem umgeht und abgeladen wird, der mit einem zusammengeführten Netzwerkadapter, der Internet Small Computer System Interface \(iSCSI\), Remote Direct Memory Access \(RDMA\) über Ethernet \(FCoE\) over Ethernet oder Fiber-Channel unterstützen kann.
+Hardware\-basierend bandbreitenzuordnung ist notwendig, wenn der Datenverkehr das Betriebssystem umgeht und auf einen converged Network Adapter, die Internet Small Computer System Interface unterstützen möglicherweise abgeladen wird \(iSCSI\), Remote Direct Memory Access \(RDMA\) over Ethernet oder Fiber-Channel over Ethernet \(FCoE\).
 
-Priority\ flusssteuerung ist notwendig, wenn das Protokoll der oberen Ebene, z.B. Fiber-Channel einen verlustfreien zugrunde liegenden Transport ohne Verluste voraussetzt.
+Priorität\-basierend flusssteuerung ist notwendig, wenn ein Protokoll der oberen Ebene, z. B. Fiber-Channel einen verlustfreien zugrunde liegenden Transport ohne Verluste voraussetzt.
 
 ## <a name="dcb-protocols-and-management-options"></a>DCB-Protokolle und Verwaltungsoptionen
 
 DCB besteht aus den folgenden Satz von Protokollen. 
 
-- Erweiterte Übertragung Service \(ETS\) – IEEE 802.1Qaz, baut auf den 802. 1p und 802. 1Q Standards
-- Priorität Steuerung \(PFS\), IEEE 802.1Qbb 
-- DCB-Exchange-Protokoll \(DCBX\), IEEE 802.1AB, in der standardmäßigen 802.1Qaz verlängerte.
+- Erweiterte Übertragungsdienst \(ETS\) – IEEE 802.1Qaz, die auf die 802. 1p und 802. 1Q Standards basiert
+- Der Flusspriorisierung \(PFS\), IEEE 802.1Qbb 
+- DCB-Exchange-Protokoll \(DCBX\), IEEE 802.1AB, in der standard 802.1Qaz erweitert.
 
-Das DCBX-Protokoll können Sie DCB auf einem Switch konfigurieren, die dann automatisch ein End-Gerät, z.B. ein Computer mit Windows Server2016 konfigurieren können.
+Das Protokoll DCBX können Sie zum Konfigurieren von DCB auf einem Switch, die dann automatisch ein Gerät, z. B. ein Computer unter Windows Server 2016 konfigurieren können.
 
-Wenn Sie von einem Switch DCB verwalten möchten, müssen Sie DCB als Feature in Windows Server2016 zu installieren, aber dieser Ansatz einige Einschränkungen enthält.
+Wenn Sie einen Switch DCB verwalten möchten, müssen Sie DCB als Feature in Windows Server 2016 zu installieren, stellen jedoch diesem Ansatz einige Einschränkungen.
 
-Da DCBX nur den Netzwerkadapter des Hosts ETS-Klasse Größen und Aktivierung der PFC informieren kann, müssen jedoch Windows Server-Hosts in der Regel DCB installiert sein, damit Datenverkehr ETS Klassen zugeordnet ist.
+Da nur der Hostnetzwerkadapter ETS-Klasse-Größen und PFC-Aktivierung zu DCBX informieren kann, erfordern jedoch, Windows Server-Hosts in der Regel, dass DCB installiert ist, damit Datenverkehr ETS-Klassen zugeordnet ist.
 
-Windows-Apps sind zur Teilnahme an DCBX Börsen, die in der Regel nicht geeignet. Aus diesem Grund muss der Host separat von der Netzwerk-Switches, aber mit identischen Einstellungen konfiguriert werden.
+Windows-Anwendungen sind in der Regel nicht zur Teilnahme an DCBX Austausch konzipiert. Aus diesem Grund muss der Host separat über die entsprechenden Netzwerkswitches, aber mit identischen Einstellungen konfiguriert werden.
 
-Wenn Sie entscheiden, von einem Switch DCB verwalten, können Sie mithilfe von Windows PowerShell-Befehle weiterhin die Konfigurationen in Windows Server2016 anzeigen.
+Wenn Sie zum Verwalten von DCB aus einem Switch auswählen, können Sie mithilfe von Windows PowerShell-Befehle weiterhin die Konfigurationen in Windows Server 2016 anzeigen.
 
 ##  <a name="important-dcb-functionality"></a>Wichtige DCB-Funktionen
 
-Es folgt eine Liste, die die Funktionalität zusammengefasst, die von DCB bereitgestellt wird.
+im Folgenden finden Sie eine Liste, die die von DCB bereitgestellten Funktionen zusammenfasst.
 
-1. Stellt Interoperabilität zwischen DCB\-fähiger Netzwerkadapter und DCB\-fähigen Switches bereit.
+1. Ermöglicht die Interoperabilität zwischen DCB\-fähigen Netzwerkadaptern und DCB\-fähigen Switches.
 
-2. Stellt einen verlustfreien Ethernet-Transport zwischen einem Computer unter Windows Server2016 und seinen Nachbarn Switch Priority\ flusssteuerung auf dem Netzwerkadapter aktivieren.
+2. Stellt einen verlustfreien Ethernet-Transport zwischen einem Computer unter Windows Server 2016 und dem durch das Aktivieren der Priorität\-basierend der flusssteuerung auf dem Netzwerkadapter.
 
-3. Bietet die Möglichkeit, Bandbreite, eine \(TC\) Steuerung des Datenverkehrs durch (in Prozent) zugewiesen werden soll, in dem das DATENVERKEHRSSTEUERELEMENT aus eine oder mehrere Klassen des Datenverkehrs bestehen möglicherweise, die durch 802. 1p-Datenverkehr Klasse \(priority\) Indikatoren unterscheiden.
+3. Bietet die Möglichkeit, Bandbreite zuordnen, um eine Steuerung des Datenverkehrs \(TC\) nach Prozent, die vom TC kann, in denen eine oder mehrere Klassen von Datenverkehr, die durch 802. 1p-Datenverkehrsklasse unterscheiden bestehen \(Priorität\) Indikatoren.
 
-4. Ermöglicht Serveradministratoren und Netzwerkadministratoren das Zuweisen eine Anwendung zu einer bestimmten Datenverkehrsklasse oder basierend auf bzw. bekannten Protokollen, bekannte TCP/UDP-Ports oder NetworkDirect-Ports, die von der Anwendung verwendet.
+4. Ermöglicht Serveradministratoren und Netzwerkadministratoren das Zuweisen einer Anwendung zu einer bestimmten Datenverkehrsklasse oder zu prioritätsbasierten bzw. bekannten Protokollen, TCP/UDP-Ports oder NetworkDirect-Ports, die von dieser Anwendung verwendet werden.
 
-5. Stellt DCB-Verwaltung per Windows Server2016 Windows Management Instrumentation \(WMI\) und Windows PowerShell. Weitere Informationen finden Sie im Abschnitt [Windows PowerShell-Befehle für DCB](#bkmk_wps) weiter unten in diesem Thema, zusätzlich zu den folgenden Themen.
+5. Stellt DCB-Verwaltung per Windows Server 2016, Windows-Verwaltungsinstrumentation \(WMI\) und Windows PowerShell. Weitere Informationen finden Sie im Abschnitt [Windows PowerShell-Befehle für DCB](#bkmk_wps) weiter unten in diesem Thema in den folgenden Themen.
     - [Vom System bereitgestellten DCB-Komponenten](https://msdn.microsoft.com/windows/hardware/drivers/network/system-provided-dcb-components)
     - [NDIS-QoS-Anforderungen für Data Center Bridging](https://msdn.microsoft.com/windows/hardware/drivers/network/ndis-qos-requirements-for-data-center-bridging)
 
-6. Stellt DCB-Verwaltung mithilfe von Gruppenrichtlinien in Windows Server2016.
+6. Stellt DCB-Verwaltung per Windows Server 2016-Gruppenrichtlinien bereit.
 
-7. Unterstützt die Koexistenz von Quality-of-Service für Windows Server2016 \(QoS\) Lösungen.
+7. Unterstützt die Koexistenz von Quality-of-Service für Windows Server 2016 \(QoS\) Lösungen.
 
 >[!NOTE]
->Vor der Verwendung von jedem RDMA über Ethernet zusammengeführten \(RoCE\) Version von RDMA, müssen Sie DCB aktivieren. Obwohl für Wide Area RDMA Internetprotokoll \(iWARP\) Netzwerke nicht erforderlich ist, hat testen festgestellt werden, dass alle RDMA Ethernet\-basierte Technologien besser mit DCB funktionieren. Aus diesem Grund sollten Sie DCB für iWARP RDMA-Bereitstellungen verwenden. Weitere Informationen finden Sie unter [(Remote Direct Memory Access, RDMA) und Switch Embedded Teaming (SET)](../../../virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md).
+>Vor der Verwendung von jedem RDMA over Converged Ethernet \(RoCE\) Version von RDMA, müssen Sie DCB aktivieren. Zwar nicht erforderlich für Wide Area RDMA Internetprotokoll \(iWARP\) Netzwerken testen wurde festgestellt, dass alle Ethernet\-basierend besser mit DCB RDMA-Technologien zu arbeiten. Aus diesem Grund sollten Sie DCB für iWARP RDMA-Bereitstellungen verwenden. Weitere Informationen finden Sie unter [(Remote Direct Memory Access, RDMA) und Switch Embedded Teaming (SET)](../../../virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md).
 
-##  <a name="practical-applications-of-dcb"></a>In der Praxis DCB
+##  <a name="practical-applications-of-dcb"></a>Praktische Anwendungen von DCB
 
-Viele Unternehmen haben große Fiber-Channel \(FC\) Storage Area Netzwerk \(SAN\) Installationen für Speicherdienste. FC-SANs erfordern spezielle Netzwerkadapter auf Servern und FC-Switches im Netzwerk. Diese Unternehmen verwenden in der Regel auch Ethernet-Netzwerkadapter und Switches.
+Viele Organisationen verfügen über große Fiber-Channel \(FC\) SAN \(SAN\) Installationen für Storage-Dienst. FC-SANs erfordern spezielle Netzwerkadapter auf Servern und FC-Switches im Netzwerk. Diese Organisationen verwenden in der Regel auch Ethernet-Netzwerkadapter und Switches.
 
-In den meisten Fällen ist die FC-Hardware deutlich teurer als Ethernet-Hardware bereitstellen, was zu großen Kapitalausgaben führt. Darüber hinaus muss die Anforderung an separaten Ethernet und FC-SAN Adapter und Switches Netzwerkhardware zusätzlichen Speicherplatz, Leistung und Kapazität in einem Rechenzentrum, was in zusätzlichen laufenden Betriebsausgaben führt Kühlung.
+In den meisten Fällen ist die FC-Hardware deutlich teurer als Ethernet-Hardware, bereitstellen, was zu großen Kapitalausgaben führt. Darüber hinaus erfordert die Notwendigkeit von separaten Ethernet und FC-SAN Adapter und Switches Netzwerkhardware an zusätzlichem Speicherplatz, Stromversorgung und Kühlung von Kapazität in einem Datencenter, die in zusätzlichen laufenden Betriebsausgaben resultiert.
 
-Aus Sicht der Kosten ist es von Vorteil für viele Organisationen, die FC-Technologie mit ihrer Lösung Ethernet\-basierte Hardware, Speicher und Datennetzwerkdienste bereitzustellen zusammenzuführen.
+Aus Sicht der Kosten, es empfiehlt sich für viele Organisationen, die FC-Technologie, mit deren Ethernet zusammenzuführen\-basierten hardwarelösung, um sowohl Speicher- und Netzwerkdienste bereitzustellen.
 
-### <a name="using-dcb-for-an-ethernet-based-converged-fabric-for-storage-and-data-networking"></a>Verwenden DCB für eine Ethernet\-basiertes converged Fabric für Speicher- und Datennetzwerke
+### <a name="using-dcb-for-an-ethernet-based-converged-fabric-for-storage-and-data-networking"></a>Verwenden DCB für eine Ethernet\--basiertes converged Fabric für Speicher- und Datennetzwerke
 
-DCB für Organisationen, die bereits ein großes FC-SAN, aber Weg von zusätzlichen Investitionen in die FC-Technologie migrieren möchten, können Sie beim Erstellen einer auf Ethernet basieren converged Fabric für Speicher- und Datennetzwerke. Ein DCB-converged Fabric kann die zukünftige Gesamtbetriebskosten reduzieren \(TCO\) und die Verwaltung vereinfachen.
+DCB für Organisationen, die bereits über ein großes FC-SAN, aber Weg von zusätzlichen Investitionen in die FC-Technologie migrieren möchten, können Sie erstellen eine-Ethernet-basierten converged Fabric für Speicher- und Datennetzwerke. Ein DCB-converged Fabric kann die zukünftigen Gesamtbetriebskosten verringern \(TCO\) und Verwaltung vereinfachen.
 
-Für Hoster, die bereits erlassen haben oder dies planen, Sie verwenden möchten bieten iSCSI als speicherlösung DCB Hardware\ hardwareunterstützte bandbreitenreservierung für iSCSI-Datenverkehr, um leistungsisolation sicherzustellen. Und im Gegensatz zu anderen proprietären Lösungen DCB Standards\-basierte- und kann daher relativ einfach in einer heterogenen Umgebung bereitgestellt und verwaltet.
+Für Hoster haben, die bereits übernommen haben oder dies planen, zu verwenden, bieten die iSCSI als speicherlösung, DCB Hardware\-unterstützte bandbreitenreservierung für iSCSI-Datenverkehr, um leistungsisolation sicherzustellen. Im Gegensatz zu anderen proprietären Lösungen ist DCB Standards\-basiert – und kann daher relativ einfach in einer heterogenen Umgebung bereitgestellt und verwaltet.
 
-Eine Windows Server2016\-basierten Implementierung von DCB behebt viele der Probleme, die auftreten können, wenn converged Fabric-Lösungen von mehreren Originalgeräteherstellern \(OEMs\) bereitgestellt werden.
+Windows Server 2016\--basierte DCB-Implementierung behebt viele der Probleme, die auftreten können, wenn converged Fabric-Lösungen werden bereitgestellt von mehreren Originalgeräteherstellern \(OEMs\).
 
-Implementierungen proprietärer Lösungen, die von mehreren OEMs bereitgestellt möglicherweise nicht mit anderen zusammenarbeiten, Umständen schwer zu verwalten und haben normalerweise unterschiedliche Zeitpläne für die Softwarewartung. 
+Implementierungen proprietärer Lösungen, die von mehreren OEMs bereitgestellt nicht mit anderen zusammenarbeiten kann, sind möglicherweise schwer zu verwalten und haben normalerweise unterschiedliche Zeitpläne für die Softwarewartung. 
 
-Im Gegensatz dazu Windows Server2016 DCB Standards\-basiert, und Sie bereitstellen und Verwalten von DCB in einem heterogenen Netzwerk.
+Im Gegensatz dazu ist Windows Server 2016 DCB Standards\-basiert, und Sie können auch bereitstellen und Verwalten von DCB in einem heterogenen Netzwerk.
 
 ## <a name="bkmk_wps"></a>Windows PowerShell-Befehle für DCB
 
-Es gibt DCB Windows PowerShell-Befehle für Windows Server2016 und Windows Server2012 R2. Sie können alle Befehle für Windows Server2012 R2 in Windows Server2016 verwenden.
+Es gibt DCB Windows PowerShell-Befehle für Windows Server 2016 und Windows Server 2012 R2. Sie können alle Befehle für Windows Server 2012 R2, Windows Server 2016 verwenden.
 
-### <a name="windows-server-2016-windows-powershell-commands-for-dcb"></a>Windows Server2016 Windows PowerShell-Befehle für DCB
+### <a name="windows-server-2016-windows-powershell-commands-for-dcb"></a>Windows Server 2016-Windows-PowerShell-Befehle für DCB
 
-Im folgende Thema für Windows Server2016 enthält Windows PowerShell-Cmdlet-Beschreibungen und Syntax für alle Data Center Bridging \(DCB\) Quality of Service \ \-specific-Cmdlets (QoS\). Es werden die Cmdlets in alphabetischer Reihenfolge basierend auf dem Verb am Anfang des Cmdlets.
+Im folgende Thema für Windows Server 2016 bietet Windows PowerShell-Cmdlet-Beschreibungen und Syntax für alle Data Center Bridging \(DCB\) Quality of Service \(QoS\)\--spezifische Cmdlets. Die Cmdlets werden in alphabetischer Reihenfolge (basierend auf dem Verb am Anfang des Cmdlets) aufgeführt.
 
 - [DcbQoS-Modul](https://technet.microsoft.com/itpro/powershell/windows/dcbqos/dcbqos)
 
-### <a name="windows-server-2012-r2-windows-powershell-commands-for-dcb"></a>Windows Server2012 R2 Windows PowerShell-Befehle für DCB
+### <a name="windows-server-2012-r2-windows-powershell-commands-for-dcb"></a>Windows Server 2012 R2 Windows PowerShell-Befehle für DCB
 
-Im folgende Thema für Windows Server2012 R2 enthält Windows PowerShell-Cmdlet-Beschreibungen und Syntax für alle Data Center Bridging \(DCB\) Quality of Service \ \-specific-Cmdlets (QoS\). Es werden die Cmdlets in alphabetischer Reihenfolge basierend auf dem Verb am Anfang des Cmdlets.
+Im folgende Thema für Windows Server 2012 R2 bietet Windows PowerShell-Cmdlet-Beschreibungen und Syntax für alle Data Center Bridging \(DCB\) Quality of Service \(QoS\)\--spezifische Cmdlets. Die Cmdlets werden in alphabetischer Reihenfolge (basierend auf dem Verb am Anfang des Cmdlets) aufgeführt.
 
-- [Data Center Bridging (DCB) Quality of Service (QoS)-Cmdlets in WindowsPowerShell](https://technet.microsoft.com/library/hh967440.aspx)
+- [Für Data Center Bridging (DCB) Quality of Service (QoS)-Cmdlets in Windows PowerShell](https://technet.microsoft.com/library/hh967440.aspx)

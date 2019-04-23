@@ -1,6 +1,6 @@
 ---
-title: Fügen Sie ein Modul zu einer Tool-Erweiterung
-description: 'Entwickeln Sie eine Tool-Erweiterung Windows Admin Center SDK (Projekt Honolulu): Hinzufügen von ein Modul zu einer Tool-Erweiterung'
+title: Hinzufügen eines Moduls zu einer Tool-Erweiterung
+description: 'Entwickeln Sie eine toolerweiterung Windows Admin Center-SDK (Projekt Honolulu): Fügen Sie ein Modul zu einer Tools-Erweiterung'
 ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
@@ -9,23 +9,23 @@ ms.date: 09/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 ms.openlocfilehash: e6978ce20a7c6da8addb217de8d30f733b40d261
-ms.sourcegitcommit: be0144eb59daf3269bebea93cb1c467d67e2d2f1
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "4081207"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59834401"
 ---
-# Fügen Sie ein Modul zu einer Tool-Erweiterung
+# <a name="add-a-module-to-a-tool-extension"></a>Hinzufügen eines Moduls zu einer Tool-Erweiterung
 
 >Gilt für: Windows Admin Center, Windows Admin Center Preview
 
-In diesem Artikel werden ein leeres Modul eine Tool-Erweiterung hinzugefügt, die wir mit der Windows Admin Center-CLI erstellt haben.
+In diesem Artikel werden wir eine leere Modul zu einer Tools-Erweiterung hinzufügen, die wir mit der Windows Admin Center-CLI erstellt haben.
 
-## Vorbereiten der Umgebung
+## <a name="prepare-your-environment"></a>Vorbereiten der Umgebung
 
-Wenn Sie noch nicht geschehen, führen Sie die Anweisungen in Entwicklung eine Erweiterung [Tool](..\develop-tool.md) (oder [Lösung](..\develop-solution.md)) zum Vorbereiten der Umgebung, und erstellen Sie eine neue, leere Tool-Erweiterung.
+Wenn Sie nicht bereits getan haben, befolgen Sie die Anweisungen in Entwickeln einer [Tool](..\develop-tool.md) (oder [Lösung](..\develop-solution.md)) Erweiterung für die Vorbereitung Ihrer Umgebung und erstellen Sie eine neue, leere Tools-Erweiterung.
 
-## Verwenden Sie der Winkel CLI, um ein Modul (und die Komponente) zu erstellen
+## <a name="use-the-angular-cli-to-create-a-module-and-component"></a>Verwenden der Angular-Befehlszeilenschnittstelle zum Erstellen eines Moduls (und die Komponente)
 
 Wenn Sie mit Angular vertraut sind, ist das Lesen Sie der Dokumentation zur Angular.Io Websiteseite, um weitere Informationen zu Angular und NgModule dringend empfohlen. Weitere Informationen zu NgModule finden Sie hier:https://angular.io/guide/ngmodule
 
@@ -33,7 +33,7 @@ Wenn Sie mit Angular vertraut sind, ist das Lesen Sie der Dokumentation zur Angu
 * Weitere Informationen zum Generieren von einer neuen Komponente in Winkel CLI:https://github.com/angular/angular-cli/wiki/generate-component
 
 
-Öffnen Sie ein Eingabeaufforderungsfenster, ändern Sie das Verzeichnis auf \src\app in Ihrem Projekt, und führen Sie die folgenden Befehle ```{!ModuleName}``` durch Ihre Modulnamen (entfernt Leerzeichen):
+Öffnen Sie eine Eingabeaufforderung, wechseln Sie zu \src\app in Ihrem Projekt, und führen Sie die folgenden Befehle aus, und Ersetzen Sie dabei ```{!ModuleName}``` durch den Modulnamen Ihres (Leerzeichen):
 
 ```
 cd \src\app
@@ -53,13 +53,13 @@ ng generate component ManageFooWorksPortal
 ```
 
 
-## Routing-Informationen hinzufügen
+## <a name="add-routing-information"></a>Routing-Informationen hinzufügen
 
 Wenn Sie mit Angular vertraut sind, wird empfohlen, dass Winkel Routing und Navigation lernen. In den folgenden Abschnitten werden die erforderlichen routing Elemente, mit denen Windows Admin Center, zur Erweiterung und zwischen Ansichten in der Erweiterung als Antwort auf die Aktivität des Benutzers zu navigieren definiert. Weitere Informationen finden Sie hier:https://angular.io/guide/router
 
-Verwenden Sie den Namen des gleichen Moduls, den Sie im vorigen Schritt verwendet.
+Verwenden Sie den gleichen Modulnamen, den Sie im vorherigen Schritt verwendet.
 
-### Hinzufügen von Inhalten zu neuen routing-Datei
+### <a name="add-content-to-new-routing-file"></a>Hinzufügen von Inhalten zu neuen routing-Datei
 
 * Navigieren Sie zu dem Modul-Ordner, die vom erstellt wurde ``` ng generate ``` im vorherigen Schritt.
 
@@ -108,7 +108,7 @@ Verwenden Sie den Namen des gleichen Moduls, den Sie im vorigen Schritt verwende
     | ```{!ModuleName}``` | Ihre Modulnamen (entfernt Leerzeichen) | ```ManageFooWorksPortal``` |
     | ```{!module-name}``` | Ihre Modulnamen (Kleinbuchstabe, Leerzeichen ersetzt, die mit Bindestrichen) | ```manage-foo-works-portal``` |
 
-### Hinzufügen von Inhalten zu neue Moduldatei
+### <a name="add-content-to-new-module-file"></a>Hinzufügen von Inhalten zu neue Moduldatei
 
 Öffnen Sie die Datei ```{!module-name}.module.ts``` mit folgender Namenskonvention:
 
@@ -136,7 +136,7 @@ Verwenden Sie den Namen des gleichen Moduls, den Sie im vorigen Schritt verwende
 
 * Stellen Sie sicher, dass ```import``` Anweisungen werden alphabetisch sortiert nach Quelle.
 
-### Hinzufügen von Inhalten zu neue Komponentendatei Schreibmaschine
+### <a name="add-content-to-new-component-typescript-file"></a>Neue Typescript-Komponentendatei Inhalte hinzufügen
 
 Öffnen Sie die Datei ```{!module-name}.component.ts``` mit folgender Namenskonvention:
 
@@ -155,9 +155,9 @@ public ngOnInit() {
     // TODO
 }
 ```
-### App-routing.module.ts aktualisieren
+### <a name="update-app-routingmodulets"></a>Aktualisieren der app-routing.module.ts
 
-Öffnen Sie die Datei ```app-routing.module.ts```, und ändern Sie den Standardpfad, damit sie das neue Modul geladen wird, die Sie gerade erstellt haben.  Suchen Sie den Eintrag für ```path: ''```, und aktualisieren Sie ```loadChildren``` zum Laden des Moduls anstelle der Standardmodul:
+Öffnen von Dateien ```app-routing.module.ts```, und den standardmäßige Pfad ändern, damit sie das neue Modul geladen werden, die Sie gerade erstellt haben.  Suchen Sie den Eintrag für ```path: ''```, und Aktualisieren von ```loadChildren``` beim Laden des Moduls, anstatt das Standardmodul:
 
 | Wert | Erläuterung | Beispiel |
 | ----- | ----------- | ------- |
@@ -170,7 +170,7 @@ public ngOnInit() {
         loadChildren: 'app/{!module-name}/{!module-name}.module#{!ModuleName}Module'
     },
 ```
-Hier ist ein Beispiel für eine aktualisierte Standardpfad:
+Hier ist ein Beispiel für einen Standardpfad für die aktualisierte:
 ``` ts
     {
         path: '', 
@@ -179,6 +179,6 @@ Hier ist ein Beispiel für eine aktualisierte Standardpfad:
 ```
 
 
-## Build und Seite laden die Erweiterung
+## <a name="build-and-side-load-your-extension"></a>Erstellen und die Seite laden die Erweiterung
 
-Sie haben jetzt ein Modul zur Erweiterung hinzugefügt.  Als Nächstes können Sie [Build und Seite laden](..\develop-tool.md#build-and-side-load-your-extension) die Erweiterung in Windows Admin Center, um die Ergebnisse anzuzeigen.
+Sie haben nun ein Modul zu Ihrer Erweiterung hinzugefügt.  Als Nächstes können Sie [erstellen und die Seite laden](..\develop-tool.md#build-and-side-load-your-extension) Ihre Erweiterung in Windows Admin Center, um die Ergebnisse anzuzeigen.

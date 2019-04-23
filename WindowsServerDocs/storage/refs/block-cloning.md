@@ -1,22 +1,24 @@
 ---
 ms.assetid: fd427da3-3869-428f-bf2a-56c4b7d99b40
-title: "Block-Clone-Vorgänge auf ReFS"
-description: 
+title: Block-Clone-Vorgänge auf ReFS
+description: ''
 author: gawatu
 ms.author: gawatu
 manager: gawatu
-ms.date: 12/6/2016
+ms.date: 10/17/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage-file-systems
-ms.openlocfilehash: 25cc523eaa2ed266e5b07c53ede4bc9e9be20e93
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.openlocfilehash: 54165700209320eee50fc63d98d78cbf4a92d053
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59838111"
 ---
 # <a name="block-cloning-on-refs"></a>Block-Clone-Vorgänge auf ReFS
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+
+>Gilt für: WindowsServer 2019, WindowsServer 2016, WindowsServer (Halbjährlicher Kanal)
 
 Block-Clone-Vorgänge weisen das Dateisystem an, den Bytewert von Dateien im Namen einer Anwendung zu kopieren, bei der die Zieldatei entweder der Ausgangsdatei gleicht oder nicht. Kopiervorgänge sind leider sehr kostspielig, da sie teure Lese- und Schreibvorgänge für die zugrunde liegenden, physischen Daten auslösen. 
 
@@ -50,7 +52,7 @@ Nach dem Ändern des Schreibvorgangs wird Region B weiterhin von beide Dateien v
 
 ## <a name="functionality-restrictions-and-remarks"></a>Einschränkungen der Funktion und Hinweise
 - Die Quell- und Zielregion muss an einer Cluster-Begrenzung beginnen und enden. 
-- Die geklonte Region muss kleiner als 4GB lang sein. 
+- Die geklonte Region muss kleiner als 4 GB lang sein. 
 - Die maximale Anzahl von Datei-Bereichen, die dem gleichen physischen Bereich zugeordnet werden kann, ist 8175.
 - Die Zielregion darf nicht über das Ende der Datei erweitert werden. Falls die Anwendung das Ziel mit geklonten Daten erweitern möchte, müssen sie zuerst [SetEndOfFile](https://msdn.microsoft.com/library/windows/desktop/aa365531(v=vs.85).aspx) aufrufen. 
 - Wenn sich die Quell- und Zielregionen in derselben Datei befinden, dürfen diese nicht überlappen. (Die Anwendung kann möglicherweise durch Aufteilen des Block-Clone-Vorgangs in mehrere Block-Clone-Vorgänge ausgeführt werden, wenn diese nicht überlappen).
@@ -58,12 +60,12 @@ Nach dem Ändern des Schreibvorgangs wird Region B weiterhin von beide Dateien v
 - Die Quell- und Zieldateien müssen die gleichen [Integrity Streams](https://msdn.microsoft.com/library/windows/desktop/gg258117(v=vs.85).aspx)-Einstellungen aufweisen. 
 - Hat die Quelldatei eine geringe Datendichte, muss die Zieldatei ebenfalls eine geringe Datendichte aufweisen. 
 - Der Block-Clone-Vorgang durchbricht die Shared Opportunistic Sperrfunktion (auch bekannt als [Level 2 Opportunistic Locks](https://msdn.microsoft.com/library/windows/desktop/aa365713(v=vs.85).aspx)).
-- Das ReFS-Volume muss mit Windows Server2016 formatiert worden sein und wenn Failoverclustering verwendet wird muss die Clustering-Funktionsebene Windows Server2016 oder höher zum Zeitpunkt der Formatierung verwendet haben. 
+- Das ReFS-Volume muss mit Windows Server 2016 formatiert worden sein und wenn Failoverclustering verwendet wird muss die Clustering-Funktionsebene Windows Server 2016 oder höher zum Zeitpunkt der Formatierung verwendet haben. 
 
-## <a name="see-also"></a>Weitere Informationen finden Sie unter
+## <a name="see-also"></a>Siehe auch
 
--   [ReFS – Übersicht](refs-overview.md)
--   [ReFS Integrity Streams](integrity-streams.md)
--   [Direkte Speicherplätze – Übersicht](../storage-spaces/storage-spaces-direct-overview.md)
+-   [ReFS-Übersicht](refs-overview.md)
+-   [ReFS integritätsdatenströme](integrity-streams.md)
+-   [Übersicht über Storage "direkte Speicherplätze"](../storage-spaces/storage-spaces-direct-overview.md)
 -   [DUPLICATE_EXTENTS_DATA](https://msdn.microsoft.com/library/windows/desktop/mt590821(v=vs.85).aspx)
 -   [FSCTL_DUPLICATE_EXTENTS_TO_FILE](https://msdn.microsoft.com/library/windows/desktop/mt590823(v=vs.85).aspx)

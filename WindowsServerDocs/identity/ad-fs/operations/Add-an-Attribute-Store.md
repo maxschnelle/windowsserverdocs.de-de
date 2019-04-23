@@ -1,7 +1,7 @@
 ---
 ms.assetid: c60227a8-7b44-40f8-b807-a6532851a4a6
-title: "Attributspeicher hinzufügen"
-description: 
+title: Attributspeicher hinzufügen
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,24 +10,25 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: 11baba5bfdb699f120a506feb8361db21d26cff1
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59837861"
 ---
 # <a name="add-an-attribute-store"></a>Attributspeicher hinzufügen
 
->Gilt für: Windows Server 2016, Windows Server2012 R2
+>Gilt für: Windows Server 2016, Windows Server 2012 R2
 
-Benutzerkonten und Computerkonten, die Zugriff auf eine Ressource erforderlich ist, die durch Active Directory Federation Services \(AD FS\) geschützt ist, werden in einem Attributspeicher, z.B. Active Directory-Domänendienste \(AD DS\) gespeichert. Das anspruchsausstellungsmodul verwendet Attributspeicher zum Sammeln von Daten, die zum Ausstellen von Ansprüchen erforderlich ist. Daten aus dem Attributspeicher werden dann als Ansprüche projiziert.  
+Benutzerkonten und Computerkonten, die Zugriff auf eine Ressource, die von Active Directory Federation Services geschützt ist, erfordern \(AD FS\) befinden sich in einem Attributspeicher, z. B. Active Directory Domain Services \(AD DS \). Die anspruchsausstellungs-Engine verwendet Attributspeicher zum Sammeln von Daten, die zum Ausstellen von Ansprüchen erforderlich ist. Daten aus dem Attributspeicher projiziert werden dann als Ansprüche.  
   
-Das folgende Verfahren können einem Attributspeicher an den Verbunddienst hinzu.  
+Sie können das folgende Verfahren verwenden, einen Attributspeicher für den Verbunddienst hinzufügen.  
   
-Mitgliedschaft in **Administratoren**, oder eine entsprechende Berechtigung auf dem lokalen Computer mindestens erforderlich, um dieses Verfahren ausführen.  Weitere Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften unter [lokale und Domänenstandardgruppen](https://go.microsoft.com/fwlink/?LinkId=83477).   
+Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe auf dem lokalen Computer sein, um dieses Verfahren ausführen zu können.  Weitere Informationen zur Verwendung der geeigneten Konten und Gruppenmitgliedschaften unter [lokale und Domänenstandardgruppen](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
-#### <a name="to-add-an-attribute-store"></a>Hinzufügen ein Attributspeichers  
+#### <a name="to-add-an-attribute-store"></a>Hinzufügen von einem Attributspeicher  
   
-1.  Öffnen **AD FS-Verwaltungs**.  
+1.  Open **AD FS-Verwaltung**.  
   
 2.  Klicken Sie unter **Aktionen** klicken Sie auf **Attributspeicher hinzufügen**.  
 
@@ -37,12 +38,12 @@ Mitgliedschaft in **Administratoren**, oder eine entsprechende Berechtigung auf 
   
     -   In **Anzeigenamen**, geben Sie den Namen, die Sie verwenden, um den Attributspeicher identifizieren möchten.  
   
-    -   In **Store Attributtyp**, wählen Sie entweder einen unterstützten Store Attributtyp **Active Directory**, **LDAP**, oder **SQL**.  
+    -   In **Store Attributtyp**, wählen Sie einen unterstützten Attributspeicher Speicher, entweder **Active Directory**, **LDAP**, oder **SQL**.  
   
-    -   In **Verbindungszeichenfolge**, wenn Sie, entweder eine Lightweight Directory Access Protocol \(LDAP\) oder ein Speicher Structured Query Language \(SQL\) ausgewählt haben Geben Sie die Zeichenfolge, die Sie zum Herstellen einer Verbindung mit dem Attributspeicher verwendet. Für Active Directory-Attributspeicher ist keine Verbindungszeichenfolge erforderlich. Daher ist dieses Feld deaktiviert.  
+    -   In **Verbindungszeichenfolge**, wenn Sie entweder ein Lightweight Directory Access Protocol ausgewählt haben \(LDAP\) Store oder eine strukturierte Abfragesprache \(SQL\) speichern, geben Sie die Zeichenfolge die Sie zum Herstellen einer Verbindung mit dem Attributspeicher verwendet. Für Active Directory-Attributspeicher ist keine Verbindungszeichenfolge erforderlich. aus diesem Grund wird dieses Feld deaktiviert.  
   
         > [!NOTE]  
-        > AD FS erstellt standardmäßig automatisch einen Active Directory-Attributspeicher.  
+        > AD FS erstellt standardmäßig automatisch einen Active Directory-Attributspeicher.  
  
 ![Attributspeicher hinzufügen](media/Add-an-Attribute-Store/addstore2.PNG) 
 

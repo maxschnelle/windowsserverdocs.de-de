@@ -11,16 +11,16 @@ author: shortpatti
 ms.author: pashort
 ms.localizationpriority: high
 ms.openlocfilehash: 1ae36a2e1be1559094dd55dba41fa9a468118260
-ms.sourcegitcommit: 9ed4c9fe04ebf3ef488170503c9a354c992b6fde
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "4339458"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59840061"
 ---
-# Virtualisierung
+# <a name="virtualization"></a>Virtualisierung
 
 >[!TIP]
-> Suchen Sie nach Informationen zu älteren Versionen von Windows? Sehen Sie sich unsere anderen [Windows Server-Bibliotheken](/previous-versions/windows/) auf docs.microsoft.com an. Sie können auch nach bestimmten Informationen [auf dieser Website suchen](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions).
+> Suchen Sie nach Informationen zu älteren Versionen von Windows? Sehen Sie sich unsere [Windows Server-Bibliotheken](/previous-versions/windows/) auf docs.microsoft.com an. Sie können auch nach bestimmten Informationen [auf dieser Website suchen](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions).
 
 <HR />
 
@@ -39,9 +39,9 @@ Virtualisierung in Windows Server ist eine der grundlegenden Technologien, die z
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Guarded Fabric und abgeschirmte VMs</h3>
+                        <h3>Geschütztes Fabric und abgeschirmte VMs</h3>
 <HR />
-                        <p>Als Cloud-Dienstanbieter oder privater Cloud-Administrator in Unternehmen können Sie eine geschützte Fabric verwenden, um eine sicherere Umgebung für VMs bereitzustellen. Eine geschützte Fabric besteht aus einem Host Guardian Service \(HGS\) (Host-Überwachungsdienst) – in der Regel ein Cluster mit drei Knoten – sowie einem oder mehreren geschützten Hosts und einer Reihe von abgeschirmten virtuellen Computern (VMs).</p>
+                        <p>Als Cloud-Dienstanbieter oder privater Cloud-Administrator in Unternehmen können Sie eine geschützte Fabric verwenden, um eine sicherere Umgebung für VMs bereitzustellen. Ein geschütztes Fabric besteht aus einem Host-Überwachungsdienst \(Host-Überwachungsdienst\) – in der Regel ein Cluster mit drei Knoten – sowie einem oder mehreren überwachten Hosts und einen Satz von abgeschirmten VMs.</p>
                      </div>
                   </div>
               </div>
@@ -99,7 +99,7 @@ Virtualisierung in Windows Server ist eine der grundlegenden Technologien, die z
                         </div>
                     </div>
                     <div class="cardText">
-                       <h3>Windows10 für Unternehmen: Beispiele zur Verwendung von Geräten für die Arbeit</h3>
+                       <h3>Windows 10 für Unternehmen: Möglichkeiten, um Geräte für die Arbeit verwenden.</h3>
 <HR />
                        <p>Die Hyper-V-Technologie stellt Computing-Ressourcen durch Hardware-Virtualisierung bereit. Hyper-V erstellt eine Softwareversion von einem Computer, einen virtuellen Computer, auf dem Sie ein Betriebssystem und Anwendungen ausführen können. Sie können mehrere virtuelle Computer gleichzeitig ausführen und bei Bedarf erstellen und löschen.</p>
                      </div>
@@ -119,7 +119,7 @@ Virtualisierung in Windows Server ist eine der grundlegenden Technologien, die z
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Hyper-V Virtual Switch</h3>
+                        <h3>Virtueller Hyper-V-Switch</h3>
 <HR />
                         <p>Der virtuelle Hyper-V-Switch ist ein softwarebasierter Layer-2-Ethernet-Netzwerkswitch, der in allen Versionen von Hyper-V enthalten ist.</p>
 <HR />
@@ -127,7 +127,7 @@ Virtualisierung in Windows Server ist eine der grundlegenden Technologien, die z
 <HR />
                         <p>Hyper-V Virtual Switch umfasst programmgesteuert verwaltete und erweiterbare Funktionen zum Verbinden von virtuellen Computern mit virtuellen Netzwerken und dem physischen Netzwerk.</p>
 <HR />
-                        <p>Außerdem bietet Hyper-V Virtual Switch Richtlinienerzwingung für Sicherheits-, Isolations- und Dienststufen.</p>
+                        <p>Außerdem bietet der virtuelle Hyper-V-Switch Richtlinienerzwingung für Sicherheits-, Isolations- und Dienststufen.</p>
                      </div>
                   </div>
               </div>
@@ -138,7 +138,7 @@ Virtualisierung in Windows Server ist eine der grundlegenden Technologien, die z
 
 ---
 
-### Verwandte Themen
+### <a name="related"></a>Verwandte Themen
 
 - Hyper-V erfordert spezielle Hardware, um die Virtualisierungsumgebung zu erstellen. Weitere Informationen finden Sie unter [Systemanforderungen für Hyper-V unter Windows Server 2016](./hyper-v/system-requirements-for-hyper-v-on-windows.md). 
 

@@ -1,6 +1,6 @@
 ---
 title: Steuern des Tools Sichtbarkeit in einer Projektmappe
-description: Steuern des Tools Sichtbarkeit in einer Projektmappe Windows Admin Center SDK (Projekt Honolulu)
+description: Steuern des Tools Sichtbarkeit in einer Projektmappe Windows Admin Center-SDK (Projekt Honolulu)
 ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
@@ -9,29 +9,29 @@ ms.date: 09/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 ms.openlocfilehash: f3f34b4c86854bfc55cf4b1b57a0fd3c2baf2ffc
-ms.sourcegitcommit: be0144eb59daf3269bebea93cb1c467d67e2d2f1
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "4080967"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59839251"
 ---
-# Steuern des Tools Sichtbarkeit in einer Projektmappe #
+# <a name="control-your-tools-visibility-in-a-solution"></a>Steuern des Tools Sichtbarkeit in einer Projektmappe #
 
 >Gilt für: Windows Admin Center, Windows Admin Center Preview
 
-Möglicherweise soll ausschließen (oder ausblenden) Sie Ihre Erweiterung oder das Tool aus der Liste der verfügbaren Tools. Z. B. wenn das Tool nur Windows Server 2016 (nicht ältere Versionen) ausgerichtet ist, sollten keinen Benutzer Sie, die mit einem Windows Server 2012 R2-Server für das Tool überhaupt finden Sie unter verbindet. (Stellen Sie sich vor der Benutzeroberfläche - sie für dieses auf, klicken Sie auf, warten, bis das Tool zum Laden, nur um eine Meldung angezeigt, dass die Funktionen nicht für die Verbindung verfügbar sind.) Sie können festlegen, wann Ihre Funktion in das Tool manifest.json Datei anzeigen (oder ausblenden).
+Es gibt möglicherweise Situationen ausschließen (oder ausblenden) Sie Ihre Extension oder Tool aus der Liste der verfügbaren Tools. Z. B. wenn das Tool nur Windows Server 2016 (nicht für ältere Versionen) ausgerichtet ist, empfiehlt keinen Benutzer, die auf einem Windows Server 2012 R2-Server, Ihr Tool überhaupt finden eine Verbindung herstellt. (Stellen Sie sich vor der benutzererfahrung: sie klicken Sie darauf, warten Sie, bis das Tool zu laden, nur für eine Meldung angezeigt, dass die Funktionen nicht für die Verbindung verfügbar sind.) Sie können definieren, wenn das Feature in der manifest.json-Datei des Tools angezeigt (oder ausgeblendet).
 
-## Optionen für die Entscheidung darüber, wann ein Tool angezeigt ##
+## <a name="options-for-deciding-when-to-show-a-tool"></a>Optionen für die Entscheidung, wann ein Tool angezeigt werden. ##
 
-Es gibt drei verschiedene Optionen, die Sie verwenden können, um festzustellen, ob Ihr Tool angezeigt und für einen bestimmten Server oder Cluster-Verbindung verfügbar sein sollte.
+Es gibt drei verschiedene Optionen, die Sie verwenden können, um zu bestimmen, ob Ihr Tool angezeigt werden und für einen bestimmten Server oder Cluster-Verbindung verfügbar sein soll.
 
 * localhost
-* Inventar (ein Array von Eigenschaften)
+* Softwareinventur (ein Array von Eigenschaften)
 * Skript
 
-### LocalHost ###
+### <a name="localhost"></a>LocalHost ###
 
-Die LocalHost-Eigenschaft des Objekts Bedingungen enthält einen booleschen Wert, der zum ableiten, wenn der Verbindung Knoten LocalHost (dem gleichen Computer, die auf Windows Admin Center installiert ist) ausgewertet werden kann, oder nicht. Durch die Eigenschaft einen Wert übergeben, Sie zeigen an, wann (Bedingung) das Tool angezeigt. Beispiel, wenn Sie nur die Verwendung des Tools anzuzeigen, wenn der Benutzer tatsächlich mit dem lokalen Host verbunden ist richten Sie wie folgt aus:
+Die "localhost"-Eigenschaft des Objekts Bedingungen enthält einen booleschen Wert, der ausgewertet werden kann, um zu ermitteln, ob der verbindende Knoten "localhost" (dem gleichen Computer, die ist auf Windows Admin Center installiert ist) oder nicht. Durch Übergeben eines Werts der Eigenschaft an, Sie zeigen an, wann (Bedingung) das Tool angezeigt. Z. B., wenn Sie nur vom Tool angezeigt wird, wenn der Benutzer tatsächlich auf dem lokalen Host eine Verbindung herstellt richten sie Sie wie folgt:
 
 ``` json
 "conditions": [
@@ -40,7 +40,7 @@ Die LocalHost-Eigenschaft des Objekts Bedingungen enthält einen booleschen Wert
 }]
 ```
 
-Auch wenn Sie nur Ihr Tool angezeigt wird, wenn die Verbindung Knoten *ist nicht* Localhost:
+Auch wenn Sie nur das Tool angezeigt wird, wenn der Knoten eine Verbindung herstellen *ist nicht* "localhost":
 
 ``` json
 "conditions": [
@@ -49,7 +49,7 @@ Auch wenn Sie nur Ihr Tool angezeigt wird, wenn die Verbindung Knoten *ist nicht
 }]
 ```
 
-Hier wird die Konfigurationseinstellungen auf nur anzeigen ein Tool aussehen bei der Verbindung Knoten kein lokaler Host ist:
+Hier wird die Konfigurationseinstellungen, zeigt nur ein Tool aussehen, wenn der Knoten eine Verbindung herstellt, nicht "localhost" ist:
 
 ``` json
 "entryPoints": [
@@ -79,23 +79,23 @@ Hier wird die Konfigurationseinstellungen auf nur anzeigen ein Tool aussehen bei
 }
 ```
 
-### Inventareigenschaften ###
+### <a name="inventory-properties"></a>Eigenschaften der Hardwareinventur ###
 
-Das SDK enthält einen vorab zusammengestellten Satz von Inventareigenschaften, die Sie zum Erstellen von Bedingungen herausfinden, wann das Tool verfügbar oder nicht verwenden können. Es gibt neun verschiedene Eigenschaften im Array 'Bestand':
+Das SDK enthält einen vorab zusammengestellten Satz von Eigenschaften des Hardwareinventurclient, die Sie verwenden können, um zu bestimmen, wenn das Tool verfügbar sein sollen oder nicht erstellen. Es gibt neun verschiedene Eigenschaften in das Array 'Inventur' ein:
 
-| Eigenschaftennamen | Erwarteten Wertetyp |
+| Eigenschaftenname | Erwarteter Wert |
 | ------------- | ------------------- |
-| computerManufacturer | string |
-| "OperatingSystemSKU" | number |
-| operatingSystemVersion | Version_string (z. B.: "10.1. *") |
-| Produkttyp | number |
-| clusterFqdn | string |
+| computerManufacturer | String |
+| operatingSystemSKU | number |
+| operatingSystemVersion | Version_string (z.B.: "10.1.*") |
+| productType | number |
+| clusterFqdn | String |
 | isHyperVRoleInstalled | boolean |
 | isHyperVPowershellInstalled | boolean |
 | isManagementToolsAvailable | boolean |
 | isWmfInstalled | boolean |
 
-Jedes Objekt im Array Bestand, muss die folgende Json-Struktur entsprechen:
+Jedes Objekt in das Inventar-Array muss die folgenden JSON-Struktur entsprechen:
 
 ``` json
 "<property name>": {
@@ -105,41 +105,41 @@ Jedes Objekt im Array Bestand, muss die folgende Json-Struktur entsprechen:
 }
 ```
 
-#### Über den Mobilfunkanbieter-Werte ####
+#### <a name="operator-values"></a>Operatorwerte ####
 
 | Operator | Beschreibung |
 | -------- | ----------- |
-| gt | größer als |
-| ge | größer als oder gleich |
-| lt | kleiner als |
-| LE | kleiner als oder gleich |
-| EQ | gleich |
-| ne | nicht gleich |
-|  auf  | Überprüfen, ob ein Wert "true" ist. |
-| nicht | Überprüfen, ob ein Wert "falsch" ist. |
-| enthält | Element in einer Zeichenfolge vorhanden ist |
+| gt | Größer als |
+| ge | Größer als oder gleich |
+| lt | Kleiner als |
+| LE | Kleiner als oder gleich |
+| eq | Gleich |
+| ne | Ungleich |
+| auf | überprüft, ob ein Wert "true" ist. |
+| not | überprüft, ob ein Wert "false" ist. |
+| Enthält | Element vorhanden ist, in einer Zeichenfolge |
 | notContains | Element ist in einer Zeichenfolge nicht vorhanden. |
 
-#### Datentypen ####
+#### <a name="data-types"></a>Datentypen ####
 
-Verfügbare Optionen für die Eigenschaft "Typ":
+Verfügbare Optionen für die Eigenschaft "Type":
 
 | Typ | Beschreibung |
 | ---- | ----------- |
-| version | eine Versionsnummer aufweist (z. B.: 10.1. *) |
-| number | einen numerischen Wert |
-| string | einen Zeichenfolgenwert |
+| version | eine Versionsnummer (z. B.: 10.1.*) |
+| number | ein numerischer Wert |
+| String | Ein String-Wert |
 | boolean | "true" oder "false" |
 
-#### Werttypen ####
+#### <a name="value-types"></a>Werttypen ####
 
-Die Value-Eigenschaft akzeptiert die folgenden Typen:
+Die Eigenschaft "Value" akzeptiert diese Typen:
 
-* string
+* String
 * number
 * boolean
 
-Ein korrekt formatiertes Inventar Bedingungssatz sieht wie folgt aus:
+Bedingung festgelegt. eine ordnungsgemäß formatierte Inventur sieht folgendermaßen aus:
 
 ``` json
 "entryPoints": [
@@ -180,9 +180,9 @@ Ein korrekt formatiertes Inventar Bedingungssatz sieht wie folgt aus:
 }
 ```
 
-### Skript ###
+### <a name="script"></a>Skript ###
 
-Schließlich können Sie ein benutzerdefiniertes PowerShell-Skript, um die Verfügbarkeit und den Status des Knotens zu identifizieren ausführen. Alle Skripts müssen es sich um ein Objekt mit folgender Struktur zurückgegeben:
+Schließlich können Sie ein benutzerdefiniertes Powershellskript zum Identifizieren der Verfügbarkeit und Zustand des Knotens ausführen. Alle Skripts müssen es sich um ein Objekt mit der folgenden Struktur zurückgeben:
 
 ``` ps
 @{
@@ -193,14 +193,14 @@ Schließlich können Sie ein benutzerdefiniertes PowerShell-Skript, um die Verf�
         @{Name='Prop2'; Value = 12345678; Type='number'; };
 }
 ```
-Die State-Eigenschaft ist der wichtige Wert, der die Entscheidung zum Anzeigen oder Ausblenden der Erweiterungs in der Liste Tools gesteuert werden.  Zulässige Werte sind:
+Die State-Eigenschaft ist wichtig, Wert, mit der gesteuert wird, die Entscheidung, ein- oder Ausblenden von Ihre Erweiterung in der Liste der Tools.  Zulässige Werte sind:
 | Wert | Beschreibung |
 | ---- | ----------- |
-| Verfügbar | Die Erweiterung sollte in der Liste Tools angezeigt werden. |
-| NotSupported | Die Erweiterung sollte nicht in der Liste Tools angezeigt werden. |
-| Nicht konfiguriert | Dies ist ein Platzhalterwert für zukünftige Aufgaben, die der Benutzer für die weitere Konfiguration aufgefordert wird, bevor das Tool zur Verfügung gestellt wird.  Derzeit wird dieser Wert führt dazu, dass das Tool, das angezeigt wird, und entspricht der funktionalen "Verfügbar". |
+| Verfügbar | Die Erweiterung sollte in der Liste der Tools angezeigt werden. |
+| NotSupported | Die Erweiterung sollte nicht in der Liste der Tools angezeigt werden. |
+| NotConfigured | Dies ist ein Platzhalterwert für künftige Entwicklungen, die der Benutzer für die weitere Konfiguration aufgefordert wird, bevor das Tool zur Verfügung gestellt wird.  Derzeit wird dieser Wert führt dazu, dass das Tool, das angezeigt wird, und entspricht funktional auf "Verfügbar". |
 
-Wenn Sie ein Tool zum Laden von nur dann, wenn der Remoteserver BitLocker installiert möchten, sieht das Skript beispielsweise wie folgt aus:
+Wenn Sie möchten ein Tool zum Laden nur dann, wenn der Remoteserver BitLocker installiert wurde, sucht das Skript beispielsweise wie folgt:
 
 ``` ps
 $response = @{
@@ -224,7 +224,7 @@ if($isGood) {
 $response
 ```
 
-Eine Eintrag Punkt-Konfiguration, die mit der Skriptoption sieht wie folgt aus:
+Eine Punkt der Konfiguration des standardanmeldeeintrags mithilfe der Skriptoption sieht folgendermaßen aus:
 
 ``` json
 "entryPoints": [
@@ -267,11 +267,11 @@ Eine Eintrag Punkt-Konfiguration, die mit der Skriptoption sieht wie folgt aus:
 }
 ```
 
-## Unterstützung von mehreren Anforderung Produktgruppen ##
+## <a name="supporting-multiple-requirement-sets"></a>Unterstützt mehrere Sätze von Anforderungen ##
 
-Sie können mehr als eine Reihe von Anforderungen verwenden, um zu bestimmen, wann das Tool durch mehrere "Anforderungen" Blöcke definieren angezeigt werden sollen.
+Sie können mehr als ein Satz von Anforderungen verwenden, um zu bestimmen, wann Ihr Tool anzeigen, indem Sie mehrere Blöcke von "Anforderungen" definieren.
 
-Z. B. das Tool anzeigen, wenn "Scenario A" oder "Scenario B" auf "true" festgelegt ist, definieren Sie zwei Anforderungen Blöcke; Wenn entweder "true" ist (d. h. alle Bedingungen in einem Block Anforderungen erfüllt sind), das Tool wird angezeigt.
+Das Tool anzeigen, wenn beispielsweise "Szenario A" oder "Szenario B" ist "true", definieren Sie zwei Anforderungen Blöcke; Wenn entweder "true" ist (d. h. alle Bedingungen in einem Block Anforderungen erfüllt sind), das Tool wird angezeigt.
 
 ``` json
 "entryPoints": [
@@ -304,13 +304,13 @@ Z. B. das Tool anzeigen, wenn "Scenario A" oder "Scenario B" auf "true" festgele
 
 ```
 
-## Unterstützung von Bedingung Bereiche ##
+## <a name="supporting-condition-ranges"></a>Unterstützung von Bereichen der Bedingung ##
 
-Sie können auch einen Bereich von Bedingungen definieren, indem mehrere "Bedingungen" Blöcke mit derselben, jedoch mit verschiedenen Operatoren definieren.
+Sie können auch einen Bereich von Bedingungen definieren, durch Definieren von mehreren "Bedingungen"-Blöcken, die mit der gleichen Eigenschaft, aber mit verschiedenen Operatoren verwenden.
 
-Wenn dieselbe Eigenschaft mit anderen Operatoren definiert ist, wird das Tool angezeigt werden, solange der Wert zwischen den beiden Bedingungen ist.
+Wenn die gleiche Eigenschaft, die mit anderen Operatoren definiert ist, wird das Tool angezeigt, solange der Wert zwischen den zwei Bedingungen.
 
-Dieses Tool wird beispielsweise angezeigt, solange das Betriebssystem eine Version zwischen 6.3.0 und 10.0.0 ist:
+Dieses Tool wird beispielsweise angezeigt, solange das Betriebssystem eine Version 6.3.0 bis 10.0.0 ist:
 
 ``` json
 "entryPoints": [

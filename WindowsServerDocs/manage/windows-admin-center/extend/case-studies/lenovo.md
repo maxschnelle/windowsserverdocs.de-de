@@ -1,6 +1,6 @@
 ---
-title: Windows Admin Center SDK-Fallstudie - Lenovo
-description: Windows Admin Center SDK-Fallstudie - Lenovo
+title: 'Windows Admin Center-SDK-Fallstudie: Lenovo'
+description: 'Windows Admin Center-SDK-Fallstudie: Lenovo'
 ms.technology: extend
 ms.topic: article
 author: daniellee-msft
@@ -9,33 +9,33 @@ ms.date: 1/7/2019
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 ms.openlocfilehash: e93c05cc953433836c6b973c6b7bf0327840c181
-ms.sourcegitcommit: ebeec824f802f020d0ece17524ba43b1baeba893
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "8995325"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59835821"
 ---
-# Lenovo XClarity Integrator-Erweiterung
+# <a name="lenovo-xclarity-integrator-extension"></a>Lenovo XClarity Integrator-Erweiterung
 
-## Integrierte Hardware-Verwaltung überall!
+## <a name="integrated-hardware-management-everywhere"></a>Integrierte hardwareverwaltung überall!
 
-Die [Lenovo XClarity Integrator](https://www.lenovo.com/us/en/data-center/software/systems-management/XClarity-Integrator/p/WMD00000370) -Erweiterung für Windows Admin Center bietet Administratoren eine nahtlose Oberfläche für die Verwaltung von Lenovo-Infrastruktur direkt von Windows Admin Center. Die XClarity Integrator-Erweiterung enthält eine eigenständige lösungserweiterung und erweitert auch die vorhandenen Server-Manager, Failovercluster-Manager und Hyper-converged Cluster-Manager-Lösungen in eine einzige, einheitliche Benutzeroberfläche, um einfache Verwaltung zu aktivieren. 
+Die [Lenovo XClarity Integrator](https://www.lenovo.com/us/en/data-center/software/systems-management/XClarity-Integrator/p/WMD00000370) -Erweiterung für Windows Admin Center bietet Administratoren ein nahtloses Erlebnis für die Verwaltung von Lenovo-Infrastruktur direkt aus Windows Admin Center. Die XClarity Integrator-Erweiterung enthält eine eigenständige Lösung-Erweiterung und auch erweitert den vorhandenen Server-Manager, die Failovercluster-Manager und Hyper-Converged-Cluster-Manager-Lösungen in einer einzigen, einheitlichen Benutzeroberfläche um einfacher Server-Verwaltung zu ermöglichen. 
 
-Die Erweiterung der Lösung, die in der Erweiterung XClarity Integrator enthaltene kann gleichzeitig Herstellen einer Verbindung mit einer Lenovo XClarity Administrator, das Lenovo Rack oder Tower-Server oder alle Server in eine gesamte Gehäuse. Nachdem die Server hinzugefügt wurden, können Sie den gesamten Status für alle hinzugefügten Knoten sehen.
+Die Lösung-Erweiterung, die in der XClarity Integrator-Erweiterung enthaltene kann gleichzeitig auf ein Lenovo XClarity-Administrator, Lenovo Rack oder Tower oder alle Server in eine gesamte Gehäuse zu verbinden. Nachdem der Server hinzugefügt wurden, sehen Sie den gesamtintegritätsstatus für alle hinzugefügten Knoten einplanen.
 
 ![Lenovo-Erweiterung](../../media/extend-case-study-lenovo/lenovo-1.png)
 
-Durch die Auswahl eines Servers, können Sie den Server-Hardwareinventur, verfügbare Firmware-Updates, Warnungen, Ereignisse, Protokolle, Energieverbrauch und Temperatur anzeigen. Sie können auch wie Fernbedienung und ein/aus-Vorgänge ausführen.
+Wenn Sie einen Server auswählen, können Sie die Hardwareinventur des Servers, verfügbare Firmware-Updates, Warnungen, Ereignisse, Protokolle, Stromverbrauch und Temperatur anzeigen. Sie können auch Vorgänge wie z. B. Remotesteuerung und ein/aus ausführen.
 
 ![Lenovo-Erweiterung](../../media/extend-case-study-lenovo/lenovo-2.png)
 
-Die gleichen Tools sind als eine Tool-Erweiterung verfügbar, in Windows Admin Center, sodass Sie nahtlos Wechseln zwischen Verwalten Ihrer Infrastruktur-Software und Hardware Verwalten von Servern.
+Die gleichen Tools stehen als Erweiterung des Tools in Windows Admin Center, sodass Sie problemlos zwischen der Verwaltung Ihrer Infrastruktur-Software und Hardware umschalten Verwalten von Servern zur Verfügung.
 
 ![Lenovo-Erweiterung](../../media/extend-case-study-lenovo/lenovo-3.png)
 
-Die Tool-Erweiterung für Failovercluster und hyperkonvergenten Clustern bietet ein Dashboard Anzeigen der allgemeinen Integritätsstatus der Cluster-Hardware, Status Warnungen, Status der Firmware aus Gründen der Konsistenz und Bericht, Energieverbrauch und Temperatur und Lüfter und das Netzteil Health Status.
+Die toolerweiterung für Failovercluster und hyper-konvergiert Cluster bietet ein Dashboard, das Anzeigen von Cluster Hardware gesamtintegritätsstatus, Warnungen zu Clientstatus, Status des Firmwareupdates Konsistenz und Bericht, Stromverbrauch und Temperatur und Lüfter und Netzteile Integritätsstatus.
 
-![Lenovo-Erweiterung](../../media/extend-case-study-lenovo/lenovo-4.png)
+![Lenovo Erweiterung](../../media/extend-case-study-lenovo/lenovo-4.png)
 ![Lenovo-Erweiterung](../../media/extend-case-study-lenovo/lenovo-5.png)
 
-Erfahren Sie mehr über die Lenovo XClarity Integrator-Angebote für Windows Admin Center auf der [Lenovo-Website](https://support.lenovo.com/us/en/solutions/ht507549).
+Erfahren Sie mehr über die Lenovo XClarity Integrator-Angebote für Windows Admin Center auf der [Lenovo Website](https://support.lenovo.com/us/en/solutions/ht507549).

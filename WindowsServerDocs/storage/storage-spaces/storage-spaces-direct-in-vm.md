@@ -1,5 +1,5 @@
 ---
-title: Mithilfe von "direkte Speicherplätze" auf einem virtuellen Computer
+title: Mithilfe von "direkte Speicherplätze" in einem virtuellen Computer
 ms.prod: windows-server-threshold
 ms.author: eldenc
 ms.manager: eldenc
@@ -7,78 +7,78 @@ ms.technology: storage-spaces
 ms.topic: article
 author: eldenchristensen
 ms.date: 10/25/2017
-description: Informationen zum Bereitstellen von direkte Speicherplätze in einem virtuellen Computer Gast-Cluster – z. B. in Microsoft Azure.
+description: "\"Direkte Speicherplätze\" Bereitstellen in einem VM-gastcluster – z. B. in Microsoft Azure"
 ms.localizationpriority: medium
 ms.openlocfilehash: a741475d09ab7f7ab29f158ef55378ca9a37beac
-ms.sourcegitcommit: 52883945fd6e6bb5c24bd81944ca4bc0c5e6a216
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "8964612"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59841021"
 ---
-# Die Verwendung von "direkte Speicherplätze" in gastcluster für virtuelle Computer
+# <a name="using-storage-spaces-direct-in-guest-virtual-machine-clusters"></a>Mithilfe von "direkte Speicherplätze" in VM-gastclustern
 
-> Gilt für: WindowsServer 2019, WindowsServer 2016
+> Gilt für: Windows Server 2019, Windows Server 2016
 
-Sie können den direkten Speicherplätzen auf ein Cluster mit physischen Servern oder virtuellen Computer gastcluster wie in diesem Thema erläutert bereitstellen. Diese Art der Bereitstellung bietet virtuellen freigegebenen Speicher über eine Reihe von VMs auf eine private oder öffentliche Cloud, damit die Anwendung hohe Verfügbarkeit Lösungen zum Erhöhen der Verfügbarkeit von Anwendungen verwendet werden können.
+Sie können "direkte Speicherplätze" in einem Cluster von physischen Servern oder auf der VM-gastclustern wie in diesem Thema beschrieben bereitstellen. Diese Art der Bereitstellung bietet virtuellen freigegebenen Speicher für eine Gruppe von VMs über eine private oder öffentliche Cloud, so, dass hochverfügbarkeitslösungen Anwendung zur Steigerung der Verfügbarkeit von Anwendungen verwendet werden können.
 
 ![](media/storage-spaces-direct-in-vm/storage-spaces-direct-in-vm.png)
 
-## Bereitstellen von in Azure Iaas-VM-gastcluster
+## <a name="deploying-in-azure-iaas-vm-guest-clusters"></a>Bereitstellen in Azure IaaS-VM-gastclustern
 
-[Azure-Vorlagen](https://github.com/robotechredmond/301-storage-spaces-direct-md) wurden veröffentlichten Verringerung der Komplexität, konfigurieren Sie am besten Methoden und Geschwindigkeit des von "direkte Speicherplätze"-Bereitstellungen in einer Azure Iaas-VM. Dies ist die empfohlene Lösung für die Bereitstellung von in Azure.
+[Azure-Vorlagen](https://github.com/robotechredmond/301-storage-spaces-direct-md) wurden veröffentlichten Verringerung der Komplexität, konfigurieren Sie die besten Methoden und die Geschwindigkeit Ihrer "direkte Speicherplätze"-Bereitstellungen in einer Azure-IaaS-VM. Dies ist die empfohlene Lösung für die Bereitstellung in Azure.
 
 <iframe src="https://channel9.msdn.com/Series/Microsoft-Hybrid-Cloud-Best-Practices-for-IT-Pros/Step-by-Step-Deploy-Windows-Server-2016-Storage-Spaces-Direct-S2D-Cluster-in-Microsoft-Azure/player" width="960" height="540" allowfullscreen></iframe>
 
-## Anforderungen
+## <a name="requirements"></a>Anforderungen
 
-Folgendes gilt, wenn Sie "direkte Speicherplätze" in einer virtualisierten Umgebung bereitstellen.
+Die folgenden Überlegungen gelten, wenn Sie "direkte Speicherplätze" in einer virtualisierten Umgebung bereitstellen.
 
 > [!TIP]
-> Azure Vorlagen werden automatisch konfiguriert, die folgenden Aspekte und sind die empfohlene Lösung, bei der Bereitstellung in Azure IaaS-VMs.
+> Azure-Vorlagen konfiguriert automatisch die folgenden Überlegungen, die für Sie und sind die empfohlene Lösung, bei der Bereitstellung in Azure IaaS-VMs.
 
--   Mindestens 2 Knoten und bis zu 3 Knoten
+-   Mindestens 2 Knoten und maximal 3 Knoten
 
--   2-Knoten-Bereitstellungen müssen einen Zeugen (Cloudzeugen oder Dateifreigabezeugen) konfigurieren.
+-   Bereitstellungen mit 2 Knoten müssen ein Zeuge (Cloudzeugen oder File Share Witness) konfigurieren.
 
--   3-Knoten-Bereitstellungen können 1 Knoten nach unten und den Verlust von 1 oder mehr Datenträger auf einen anderen Knoten toleriert.  Wenn 2 Knoten Herunterfahren sind dann die virtueller Datenträger wir offline erst, einen Knoten zurückgibt.  
+-   3-Knoten-Bereitstellungen können es sich um 1 Knoten nach unten und zum Verlust von 1 oder mehrere Datenträger auf einem anderen Knoten tolerieren.  Wenn 2 Knoten heruntergefahren sind. Klicken Sie dann die virtuellen Datenträger wird offline bis einer der Knoten zurückgegeben.  
 
--   Konfigurieren der virtuellen Computer über Fehlerdomänen bereitgestellt werden
+-   Konfigurieren der virtuellen Computer über Fehlerdomänen hinweg bereitgestellt werden
 
-    -   Azure – Verfügbarkeit konfigurieren
+    -   Azure – Konfigurieren der Verfügbarkeitsgruppe
 
-    -   Hyper-V – konfigurieren AntiAffinityClassNames auf die virtuellen Computer, die virtuellen Computer auf die Knoten zu trennen.
+    -   Hyper-V – konfigurieren "AntiAffinityClassNames" auf den virtuellen Computern, um die virtuellen Computer über Knoten hinweg zu trennen.
 
-    -   VMware – Konfigurieren von VM-VM Anti-Affinität Regel erstellen Sie eine DRS Rule vom Typ "separater virtueller Computer", die VMs auf ESX-Hosts zu trennen. Datenträger, die für die Verwendung mit "direkte Speicherplätze" angezeigt, sollte der Paravirtual SCSI (PVSCSI)-Adapter verwenden. PVSCSI-Unterstützung in Windows Server finden Sie in https://kb.vmware.com/s/article/1010398.
+    -   VMware-VM-VM-Antiaffinität Konfigurieren der Regel durch das Erstellen einer DRS Rule vom Typ "Separate virtuelle Computer" um die virtuellen Computer auf ESX-Hosts zu trennen. Der Datenträger angezeigt wird, für den Adapter Paravirtual-SCSI (verwenden) verwenden, die mit "direkte Speicherplätze" verwendet werden soll. -Unterstützung in Windows Server verwenden, finden Sie in https://kb.vmware.com/s/article/1010398.
 
--   Nutzen Sie geringer Latenz / mit hoher Leistung Speicher - Azure-Premium-Speicher verwaltet Datenträger sind erforderlich
+-   Mit geringer Latenz nutzen / verwalteten Speicher für hohe Leistung – Azure Storage Premium-Datenträger erforderlich sind
 
--   Bereitstellen eines Speicherentwurfs flache mit keine Geräte für das Zwischenspeichern konfiguriert
+-   Bereitstellen Sie einen flache Speicherentwurf mit keine konfigurierten Zwischenspeicherung Geräte
 
--   Mindestens 2 virtuelle Datenträger, die von jedem virtuellen Computer angezeigt (VHD / VHDX / VMDK)
+-   Mindestens 2 virtuelle Datenträger, die für jeden virtuellen Computer angezeigt (VHD / VHDX / VMDK-Datei)
 
-    Diese Zahl ist anders als bare-Metal-Bereitstellungen, da die virtueller Datenträger als Dateien implementiert werden können, die keine physischen Fehler anfällig sind.
+    Diese Zahl ist anders als bare-Metal-Bereitstellungen, da die virtuellen Datenträger als Dateien, die anfällig für Ausfälle von physischen nicht implementiert werden können.
 
--   Deaktivieren Sie die automatische Laufwerk Ersatz-Funktionen in der Zustandsdienst durch Ausführen des folgenden PowerShell-Cmdlets:
+-   Deaktivieren Sie die automatische Laufwerk Ersatz-Funktionen in den Health-Dienst durch Ausführen des folgenden PowerShell-Cmdlets:
 
     ```powershell
     Get-storagesubsystem clus* | set-storagehealthsetting -name “System.Storage.PhysicalDisk.AutoReplace.Enabled” -value “False”
     ```
 
--   Nicht unterstützt: Hosten auf virtuellen Datenträger Snapshot und Wiederherstellung
+-   Nicht unterstützt: Hosten Sie auf Datenträger/momentaufnahmenwiederherstellung
 
-    Stattdessen verwenden Sie herkömmliche Gast-Level-backup-Lösungen zum Sichern und Wiederherstellen von Daten auf Volumes "direkte Speicherplätze".
+    Stattdessen verwenden Sie herkömmliche Gast auf sicherungslösungen, Sichern und Wiederherstellen der Daten auf den "direkte Speicherplätze"-Volumes.
 
--   Mögliche VHD größer resilienz erteilen / VHDX / VMDK Speicher Latenz in gastcluster, erhöhen Sie den Speicher Leerzeichen e/a:
+-   Gerne größere resilienz zu möglichen VHD / VHDX / VMDK-Speicherlatenz in gastclustern, erhöhen Sie den Storage Spaces-e/a-Timeout-Wert:
 
     `HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\spaceport\\Parameters\\HwTimeout`
 
     `dword: 00007530`
 
-    Decimal entspricht hexadezimale 7530 30000, d. h. 30 Sekunden. Beachten Sie, dass der Standardwert 1770 hexadezimalen oder 6000 Decimal, 6 Sekunden handelt.
+    Die dezimale Entsprechung des hexadezimal 7530 beträgt 30000, d. h. 30 Sekunden. Beachten Sie, dass der Standardwert 1770 Hexadezimal- oder 6000 Dezimal ist, 6 Sekunden beträgt.
 
-## Weitere Informationen:
+## <a name="see-also"></a>Siehe auch
 
-[Weitere Azure-VM Iaas-Vorlagen für die Bereitstellung von "direkte Speicherplätze", Videos und Leitfäden](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/).
+[Zusätzliche Azure-IaaS-VM-Vorlagen für die Bereitstellung von "direkte Speicherplätze", Videos und Anleitungen](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/).
 
-[Weitere "direkte Speicherplätze" Übersicht über die] (https://docs.microsoft.com/en-us/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
+[Zusätzliche "direkte Speicherplätze" Overview] (https://docs.microsoft.com/en-us/windows-server/storage/storage-spaces/storage-spaces-direct-overview)

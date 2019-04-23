@@ -15,16 +15,16 @@ ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
 ms.openlocfilehash: 2f05bcffa7c8c4f9e74f3699b9838b8a627af1b1
-ms.sourcegitcommit: e0479b0114eac7f232e8b1e45eeede96ccd72b26
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "2082183"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59837721"
 ---
 # <a name="whats-new-in-the-windows-console-in-windows-server-2016"></a>Neues in der Windows-Konsole in Windows Server 2016
 >Gilt für: Windows Server 2016
 
-Der Konsolenhost (d.h. der zugrunde liegende Code, der alle Zeichenmodusanwendungen wie z.B. die Windows-Eingabeaufforderung, die Eingabeaufforderung von Windows PowerShell und andere unterstützt) wurde in mehrfacher Hinsicht aktualisiert und durch eine Reihe von neuen Funktionen ergänzt.  
+Der Konsolenhost (d. h. der zugrunde liegende Code, der alle Zeichenmodusanwendungen wie z. B. die Windows-Eingabeaufforderung, die Eingabeaufforderung von Windows PowerShell und andere unterstützt) wurde in mehrfacher Hinsicht aktualisiert und durch eine Reihe von neuen Funktionen ergänzt.  
 
 ## <a name="controlling-the-new-features"></a>Steuerung der neuen Features  
 Die neuen Funktionen sind standardmäßig aktiviert, aber Sie können jedes neue Feature ein- und ausschalten oder zum vorherigen Konsolenhost zurückwechseln. Dazu verwenden Sie das Dialogfeld „Eigenschaften“ (meist auf der Registerkarte **Optionen**) oder die folgenden Registrierungsschlüssel (alle Schlüssel sind DWORD-Werte unter **HKEY_CURRENT_USER\Console**):  
@@ -38,7 +38,7 @@ Die neuen Funktionen sind standardmäßig aktiviert, aber Sie können jedes neue
 |CtrlKeyShortcutsDisabled|0 aktiviert neue Tastenkombinationen; 1 deaktiviert sie.|  
 |ExtendedEdit Keys|1 aktiviert alle Auswahltasten auf der Tastatur; 0 deaktiviert sie.|  
 |TrimLeadingZeros|1 kürzt führende Nullen in einer per Doppelklick vorgenommenen Auswahl; mit 0 werden die führenden Nullen beibehalten.|  
-|WindowsAlpha|Legt für die Deckkraft einen Wert zwischen 30% und 100% fest. Verwenden Sie 0x4C bis 0xFF oder 76 bis 255, um den Wert festzulegen.|  
+|WindowsAlpha|Legt für die Deckkraft einen Wert zwischen 30 % und 100 % fest. Verwenden Sie 0x4C bis 0xFF oder 76 bis 255, um den Wert festzulegen.|  
 |WordDelimiters|Legt das Zeichen fest, auf das gesprungen wird, wenn in einem Text mithilfe von STRG+UMSCHALT+NACH-LINKS-TASTE oder STRG+UMSCHALT+NACH-RECHTS-TASTE ganze Wörter mit einem Mal markiert werden (Standardwert ist das Leerzeichen). Legen Sie diesen REG_SZ-Wert so fest, dass alle als Trennzeichen zu behandelnden Zeichen enthalten sind. Hinweis: Dieser Schlüssel wird nicht in Verknüpfungen gespeichert, sondern nur in diesem Registrierungsschlüssel.|  
 
 Diese Einstellungen werden in der Registrierung für jeden einzelnen Fenstertitel unter „HKCU\Console“ gespeichert. Bei Konsolenfenstern, die über eine Verknüpfung geöffnet werden, werden diese Einstellungen in der Verknüpfung gespeichert. Wenn die Verknüpfung auf einen anderen Computer kopiert wird, werden die Einstellungen zusammen mit der Verknüpfung auf den neuen Computer übertragen. Einstellungen in Verknüpfungen setzen alle anderen Einstellungen außer Kraft, auch globale Einstellungen und Standardwerte. Wenn Sie jedoch mithilfe der Einstellung **Legacykonsole verwenden** auf der Registerkarte **Optionen** zur ursprünglichen Konsole zurückgewechselt sind, gilt diese Einstellung global und wird fortan für alle Fenster beibehalten, auch nach dem Neustart des Computers.  
@@ -55,9 +55,9 @@ Sie können die Größe des Konsolenfensters nun nach Belieben ändern, indem Si
 
 Das neue Konsolenfenster unterstützt jetzt Zeilenumbrüche. Wenn Sie jedoch mithilfe der Konsolen-APIs den Text in einem Puffer geändert haben, behält die Konsole den Text so bei, wie er ursprünglich eingefügt wurde.  
 
-Das Konsolenfenster kann jetzt halbtransparent dargestellt werden (bis zu einer Mindesttransparenz von 30%). Sie können die Transparenz über das Menü „Eigenschaften“ oder mithilfe der folgenden Tastaturbefehle anpassen:  
+Das Konsolenfenster kann jetzt halbtransparent dargestellt werden (bis zu einer Mindesttransparenz von 30 %). Sie können die Transparenz über das Menü „Eigenschaften“ oder mithilfe der folgenden Tastaturbefehle anpassen:  
 
-|Aufgabe:|Tastenkombination:|  
+|Gehen Sie dazu wie folgt vor:|Tastenkombination:|  
 |---------------|-----------------------------|  
 |Transparenz erhöhen|STRG+UMSCHALT+Plus (+) oder STRG+UMSCHALTT+Mausrad nach oben drehen|  
 |Transparenz verringern|STRG+UMSCHALT+Minus (-) oder STRG+UMSCHALTT+Mausrad nach unten drehen|  
@@ -66,13 +66,13 @@ Das Konsolenfenster kann jetzt halbtransparent dargestellt werden (bis zu einer 
 ## <a name="selection"></a>Auswahl  
 Es gibt viele neue Möglichkeiten zum Auswählen von Text und Zeilen sowie zum Markieren von Text und zum Verwenden des Pufferverlaufs. In der Konsole wird versucht, Konflikte mit anderen Anwendungen zu vermeiden, bei denen die gleichen Tastenkombinationen verwendet werden.  
 
-**Für Entwickler:** Wenn ein Konflikt auftritt, können Sie in der Regel mithilfe der SetConsoleMode()-API steuern, mit welchem Verhalten die Anwendung auf die Nutzung der Modi für Zeileneingaben, verarbeitete Eingaben und Echoeingaben reagiert. Wenn Sie den Modus für verarbeitete Eingaben verwenden, gelten die unten aufgeführten Tastenkombinationen. In anderen Modi müssen diese von Ihrer Anwendung behandelt werden. Alle hier nicht aufgeführten Tastenkombinationen funktionieren genauso wie in den vorherigen Versionen der Konsole. Sie können auch versuchen, Konflikte mit verschiedenen Einstellungen auf der Registerkarte **Optionen** zu lösen. Wenn das Problem weiterhin besteht, können Sie jederzeit zur ursprünglichen Konsole zurückkehren.  
+**Für Entwickler:** Wenn ein Konflikt auftritt, können Sie in der Regel das Verhalten der Anwendung mit mehrzeiligen Eingaben, verarbeitete Eingaben und Echo Eingabe Modi mit der Setconsolemode()-API-API steuern. Wenn Sie den Modus für verarbeitete Eingaben verwenden, gelten die unten aufgeführten Tastenkombinationen. In anderen Modi müssen diese von Ihrer Anwendung behandelt werden. Alle hier nicht aufgeführten Tastenkombinationen funktionieren genauso wie in den vorherigen Versionen der Konsole. Sie können auch versuchen, Konflikte mithilfe der verschiedenen Einstellungen auf der Registerkarte **Optionen** zu lösen. Wenn alle anderen Versuche fehlschlagen, können Sie jederzeit zur ursprünglichen Konsole zurückwechseln.  
 
 Sie können jetzt auch außerhalb des QuickEdit-Modus einen Textabschnitt durch Klicken und Ziehen markieren. Genauso wie in Editor können Sie Text nun zeilenübergreifend markieren, und zwar nicht nur als rechteckigen Textblock. Für Kopiervorgänge brauchen Sie die Zeilenumbrüche nicht mehr zu entfernen. Neben dem Markieren von Textabschnitten durch Klicken und Ziehen stehen die folgenden Tastenkombinationen zur Verfügung:  
 
-**Markieren von Text**  
+**Textauswahl**  
 
-|Aufgabe:|Tastenkombination:|  
+|Gehen Sie dazu wie folgt vor:|Tastenkombination:|  
 |---------------|-----------------------------|  
 |Cursor um ein Zeichen nach links verschieben und die Markierung erweitern|UMSCHALT+NACH-LINKS-TASTE|  
 |Cursor um ein Zeichen nach rechts verschieben und die Markierung erweitern|UMSCHALT+NACH-RECHTS-TASTE|  
@@ -90,11 +90,11 @@ Sie können jetzt auch außerhalb des QuickEdit-Modus einen Textabschnitt durch 
 |Den gesamten Text nach der Eingabeaufforderung markieren, wenn sich der Cursor in der aktuellen Zeile befindet und die Zeile nicht leer ist|STRG+A|  
 |Den gesamten Puffer auswählen, wenn sich der Cursor **nicht** in der aktuellen Zeile befindet|STRG+A|  
 
-**Bearbeiten von Text**  
+**Bearbeiten von text**  
 
 Sie können nun mithilfe von Tastaturbefehlen in der Konsole Text kopieren und einfügen. STRG+C hat jetzt zwei Funktionen. Wenn bei der Verwendung des Tastaturbefehls kein Text markiert ist, wird wie gewohnt der BREAK-Befehl gesendet. Wenn Text markiert ist, wird dieser Text durch die erste Verwendung des Befehls kopiert und die Markierung aufgehoben. Die zweite Verwendung sendet den BREAK-Befehl. Außerdem können folgende Befehle zum Bearbeiten von Text verwendet werden:  
 
-|Aufgabe:|Tastenkombination:|  
+|Gehen Sie dazu wie folgt vor:|Tastenkombination:|  
 |---------------|-----------------------------|  
 |Text in die Befehlszeile einfügen|STRG+V|  
 |Den markierten Text in die Zwischenablage kopieren|STRG+EINFG|  
@@ -105,7 +105,7 @@ Sie können nun mithilfe von Tastaturbefehlen in der Konsole Text kopieren und e
 
 Sie können zu jedem Zeitpunkt in den Markierungsmodus wechseln. Dazu klicken Sie mit der rechten Maustaste auf eine beliebige Stelle in der Titelleiste der Konsole, zeigen auf **Bearbeiten** und wählen im nun angezeigten Menü **Markieren** aus. Sie können auch STRG+M eingeben. Wenn der Markierungsmodus aktiviert ist, verwenden Sie die ALT-TASTE, um den Beginn einer Markierung mit Zeilenumbruch anzugeben. (Wenn **Auswahl des Zeilenumbruchs aktivieren** deaktiviert ist, wird im Markierungsmodus der Text als Block markiert.) Wenn der Markierungsmodus aktiviert ist, werden mit STRG+UMSCHALT+NACH-LINKS-TASTE oder STRG+UMSCHALT+NACH-RECHTS-TASTE einzelne Buchstaben markiert und nicht ganze Wörter wie im normalen Modus. Zusätzlich zu den unter **Bearbeiten von Text** beschriebenen Auswahltasten stehen im Markierungsmodus folgende Tastenkombinationen zur Verfügung:  
 
-|Aufgabe:|Tastenkombination:|  
+|Gehen Sie dazu wie folgt vor:|Tastenkombination:|  
 |---------------|-----------------------------|  
 |Markierungsmodus aufrufen, um den Cursor im Fenster verschieben zu können|STRG+M|  
 |Beginn einer Markierung mit Zeilenumbruch im Markierungsmodus, zusammen mit anderen Tastenkombinationen|ALT|  
@@ -116,7 +116,7 @@ Sie können zu jedem Zeitpunkt in den Markierungsmodus wechseln. Dazu klicken Si
 
 **Navigieren im Verlauf**  
 
-|Aufgabe:|Tastenkombination:|  
+|Gehen Sie dazu wie folgt vor:|Tastenkombination:|  
 |---------------|-----------------------------|  
 |Im Ausgabeverlauf eine Zeile nach oben springen|STRG+NACH-OBEN-TASTE|  
 |Im Ausgabeverlauf eine Zeile nach unten springen|STRG+NACH-UNTEN-TASTE|  
@@ -125,7 +125,7 @@ Sie können zu jedem Zeitpunkt in den Markierungsmodus wechseln. Dazu klicken Si
 
 **Weitere Tastaturbefehle**  
 
-|Aufgabe:|Tastenkombination:|  
+|Gehen Sie dazu wie folgt vor:|Tastenkombination:|  
 |---------------|-----------------------------|  
 |Dialogfeld „Suchen“ öffnen|STRG+F|  
 |Konsolenfenster schließen|ALT+F4|  

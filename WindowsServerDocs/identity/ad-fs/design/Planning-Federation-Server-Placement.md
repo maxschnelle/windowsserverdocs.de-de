@@ -1,7 +1,7 @@
 ---
 ms.assetid: 2e751308-1c86-4d4f-88e4-6a78d3ca4696
-title: Planen der Platzierung des Verbundservers
-description: 
+title: Planen der Verbundserverplatzierung
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,36 +10,37 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: 60e83c7be3b13c32c634eaa555b8785fd6871353
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59836751"
 ---
-# <a name="planning-federation-server-placement"></a>Planen der Platzierung des Verbundservers
+# <a name="planning-federation-server-placement"></a>Planen der Verbundserverplatzierung
 
->Gilt für: Windows Server2016, Windows Server2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Die wichtigste Komponente einer Bereitstellung von Active Directory Federation Services \(AD FS\) ist der Verbundserver. Daher ist es wichtig, dass Sie Ihre Federation Server Platzierung Strategie sorgfältig planen, wie, wann und wo Sie Verbundserver bereitzustellen. Die Informationen in den folgenden Themen können Sie bestimmen, wann und wo ein Verbund erstellen Server oder Verbundserverfarm und ob die Verbundserver im Konto Rolle oder die Ressourcenpartnerrolle Partner:  
+Die wichtigste Komponente einer Active Directory Federation Services \(AD FS\) Bereitstellung ist der Verbundserver. Aus diesem Grund ist es wichtig, dass Sie Ihre Strategie für die Federation Server Platzierung sorgfältig planen, einschließlich wann und wo Verbundserver bereitzustellen. Die Informationen in den folgenden Themen können Sie bestimmen, wann und wo das zum Erstellen eines Verbunds Server oder Verbundserverfarm und angibt, ob diese Verbundserver im Konto verwendet Rolle, Ressourcenpartnerrolle oder beiden partner:  
   
 -   [Überprüfen der Rolle des Verbundservers beim Kontopartner](Review-the-Role-of-the-Federation-Server-in-the-Account-Partner.md)  
   
 -   [Überprüfen der Rolle des Verbundservers beim Ressourcenpartner](Review-the-Role-of-the-Federation-Server-in-the-Resource-Partner.md)  
   
--   [Wann sollte ein Verbundserver erstellt](When-to-Create-a-Federation-Server.md)  
+-   [Wann sollte einen Verbundserver erstellt werden.](When-to-Create-a-Federation-Server.md)  
   
--   [Where to Place a Federation Server](Where-to-Place-a-Federation-Server.md)  
+-   [Platzieren ein Verbundservers](Where-to-Place-a-Federation-Server.md)  
   
--   [Wann sollte eine Verbundserverfarm erstellt](When-to-Create-a-Federation-Server-Farm.md)  
+-   [Wann sollte eine Verbundserverfarm erstellt werden.](When-to-Create-a-Federation-Server-Farm.md)  
   
--   [Certificate Requirements for Federation Servers](Certificate-Requirements-for-Federation-Servers.md)  
+-   [Zertifikatanforderungen für Verbundserver](Certificate-Requirements-for-Federation-Servers.md)  
   
--   [Namensauflösungsanforderungen für Verbundserver](Name-Resolution-Requirements-for-Federation-Servers.md)  
+-   [Anforderungen für die namensauflösung für Verbundserver](Name-Resolution-Requirements-for-Federation-Servers.md)  
   
 > [!NOTE]  
-> Obwohl diese Informationen Ihre platzierungsplanung für Verbundserver hilfreich sein könnten, wird es nicht die richtige Anzahl von Verbundservern und die Hardwareanforderungen für jedes AD FS-Entwurfs bestimmen erläutert.  
+> Obwohl diese Informationen Ihre platzierungsplanung für Verbundserver helfen kann, wird es nicht bestimmen die richtige Anzahl von Verbundservern und die hardwareanforderungen für jede AD FS-Entwurfs erläutert.  
   
-Wie ein Verbundserver in einer der beiden primären AD FS platziert werden kann Beispiele für Szenarien entwerfen, finden Sie unter [Zuordnen von Bereitstellungszielen zu einem AD FS-Entwurf](Mapping-Your-Deployment-Goals-to-an-AD-FS-Design.md).  
+Beispiele wie ein Verbundserver in einer der beiden primären AD FS platziert werden kann Szenarien erstellen, finden Sie unter [Zuordnen der Bereitstellungsziele zu einem AD FS-Entwurf](Mapping-Your-Deployment-Goals-to-an-AD-FS-Design.md).  
   
 ## <a name="see-also"></a>Siehe auch
-[AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[AD FS-Entwurfshandbuch in WindowsServer 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
 

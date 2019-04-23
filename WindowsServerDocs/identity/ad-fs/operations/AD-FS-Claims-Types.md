@@ -1,7 +1,7 @@
 ---
-ms.assetid: 
+ms.assetid: ''
 title: Clientzugriff Anspruchstypen in AD FS
-description: 
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,64 +10,65 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: 1e37aded450555d293806d1ed8903a51e3df9424
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59839141"
 ---
-#<a name="client-access-policy-claim-types-in-ad-fs"></a>Client-Richtlinie Anspruchstypen in AD FS
+#<a name="client-access-policy-claim-types-in-ad-fs"></a>Clientzugriffsrichtlinie Anspruchstypen in AD FS
 
-Um zusätzliche Anforderung Kontextinformationen bereitzustellen, verwenden Sie Client-Richtlinien die folgenden Anspruchstypen, die von AD FS Anforderung Header-Informationen für die Verarbeitung generiert.  Weitere Informationen finden Sie unter [die Rolle des anspruchsmoduls](../technical-reference/the-role-of-the-claims-engine.md).
+Um Informationen zu zusätzlichen Kontext bereitzustellen, verwenden Sie Clientzugriffsrichtlinien die folgenden Anspruchstypen, die AD FS aus Anforderungsheaderinformationen für die Verarbeitung generiert.  Weitere Informationen finden Sie unter [die Rolle des anspruchsmoduls](../technical-reference/the-role-of-the-claims-engine.md).
 
-##<a name="x-ms-forwarded-client-ip"></a>X-MS-weitergeleitet-Client-IP
+##<a name="x-ms-forwarded-client-ip"></a>X-MS-Forwarded-Client-IP
 
-Typ des Anspruchs: `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip`
+Anspruchstyp: `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip`
 
-Diesen Anspruch von AD FS stellt einen "beste Versuch" ermitteln die IP-Adresse des Benutzers (z.B. Outlook-Client), der die Anforderung dar. Diesem Anspruch kann mehrere IP-Adressen, einschließlich der Adresse des jeden Proxy, der die Anforderung weitergeleitet enthalten.  Diesen Anspruch über einen HTTP-Header, die aktuell aufgefüllt wird nur festlegen, indem Sie Exchange Online, mit dem die Kopfzeile gefüllt, wenn Sie die Authentifizierungsanforderung an AD FS übergeben. Der Wert des Anspruchs kann eine der folgenden sein:
+Dieser AD FS-Anspruch stellt eine "versucht," Feststellung der IP-Adresse des Benutzers (z. B. der Outlook-Client) und die Anforderung dar. Dieser Anspruch kann mehrere IP-Adressen, einschließlich der Adresse von jedem Proxy, der die Anforderung weitergeleitet enthalten.  Dieser Anspruch wird aufgefüllt, von einem HTTP-Header, die derzeit wird nur von Exchange Online, die den Header aufgefüllt wird, wenn die Authentifizierungsanforderung an AD FS übergeben festgelegt. Der Wert des Anspruchs kann es sich um eine der folgenden sein:
 
 
-- Eine einzelne IP-Adresse - IP-Adresse des Clients, die direkt mit Exchange Online verbunden ist
+- Eine einzelne IP-Adresse – die IP-Adresse des Clients, die direkt mit Exchange Online verbunden ist
 
-    >! [Hinweis] Die IP-Adresse eines Clients im Unternehmensnetzwerk wird als die externe IP-Adresse Ihres Unternehmens ausgehende Proxy oder Gateway angezeigt.
+    >! [Hinweis] Die IP-Adresse eines Clients im Unternehmensnetzwerk wird als der externe IP-Adresse des Proxys für ausgehenden Datenverkehr der Organisation oder Gateways angezeigt.
 
 - Eine oder mehrere IP-Adressen
-    - Wenn Sie Exchange Online die IP-Adresse des verbundenen Clients nicht ermitteln kann, wird es legen Sie den Wert basierend auf den Wert der X-weitergeleitet-für-Header ein nicht standardmäßiger Header, der HTTP-basierten enthalten sein kann anfordert und von vielen Clients, Lastenausgleichsmodule und Proxys auf dem Markt unterstützt wird.
-    - Mehrere IP-Adressen, der angibt, die Client-IP-Adresse und die Adresse für jeden Proxy, der die Anforderung übergeben werden durch ein Komma getrennt werden.
+    - Wenn Exchange Online die IP-Adresse der verbindende Client nicht ermitteln kann, wird der Wert, der basierend auf dem Wert der X-forwarded-for-Header, eine nicht standardmäßige Headerdateien, die in der HTTP-basierten aufgenommen werden kann, fordert und wird von vielen Clients, Load balancer unterstützt festgelegt und Proxys auf dem Markt.
+    - Mehrere IP-Adressen, der angibt, die Client-IP-Adresse und die Adresse für jeden Proxy, der die Anforderung zu übergeben, werden durch ein Komma getrennt werden.
 
-    >! [Hinweis] IP-Adressen, die im Zusammenhang mit Exchange Online-Infrastruktur werden nicht in der Liste vorhanden sein.
-
-
->! [Warnung] Exchange Online unterstützt derzeit nur-IPv4-Adressen. IPV6-Adressen wird nicht unterstützt. 
+    >! [Hinweis] IP-Adressen, die im Zusammenhang mit Exchange Online-Infrastruktur werden nicht in der Liste vorhanden.
 
 
-## <a name="x-ms-client-application"></a>X-MS-Client-Anwendung
-
-Typ des Anspruchs: `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application`
-
-Diesen Anspruch von AD FS stellt das Protokoll verwendet wird dem Endbenutzer, die lose entspricht der Anwendung verwendet wird.  Diesen Anspruch über einen HTTP-Header, die aktuell aufgefüllt wird nur festlegen, indem Sie Exchange Online, mit dem die Kopfzeile gefüllt, wenn Sie die Authentifizierungsanforderung an AD FS übergeben. Abhängig von der Anwendung wird der Wert dieses Anspruchs eines der folgenden sein:
+>! [Warnung] Exchange Online unterstützt derzeit nur IPV4-Adressen; IPV6-Adressen werden nicht unterstützt. 
 
 
+## <a name="x-ms-client-application"></a>X-MS-Client-Application
 
-- Im Fall von Geräten, die Exchange ActiveSync verwenden, ist der Wert Microsoft.Exchange.ActiveSync. 
-- Verwendung von Microsoft Outlook-Client möglicherweise in einem der folgenden Werte:
+Anspruchstyp: `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application`
+
+Dieser AD FS-Anspruch darstellt, das von der End-Client, der verwendeten Anwendung lose entspricht verwendete Protokoll.  Dieser Anspruch wird aufgefüllt, von einem HTTP-Header, die derzeit wird nur von Exchange Online, die den Header aufgefüllt wird, wenn die Authentifizierungsanforderung an AD FS übergeben festgelegt. Abhängig von der Anwendung wird der Wert dieses Anspruchs einen der folgenden sein:
+
+
+
+- Bei Geräten, die Exchange Active Sync verwenden, ist der Wert Microsoft.Exchange.ActiveSync. 
+- Verwendung von Microsoft Outlook-Clients möglicherweise in einem der folgenden Werte:
     - Microsoft.Exchange.Autodiscover
     - Microsoft.Exchange.OfflineAddressBook
     - Microsoft.Exchange.RPC
     - Microsoft.Exchange.WebServices
     - Microsoft.Exchange.Mapi
-- Andere mögliche Werte für diesen Header sind folgende:
-    - Microsoft.Exchange.PowerShell
+- Weitere mögliche Werte für diesen Header umfassen Folgendes:
+    - Microsoft.Exchange.Powershell
     - Microsoft.Exchange.SMTP
     - Microsoft.Exchange.PopImap
     - Microsoft.Exchange.Pop
     - Microsoft.Exchange.Imap
 
-## <a name="x-ms-client-user-agent"></a>X-MS-Client-Benutzer-Agent
+## <a name="x-ms-client-user-agent"></a>X-MS-Client-User-Agent
 
-Typ des Anspruchs: `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-user-agent`
+Anspruchstyp: `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-user-agent`
 
-Diesen Anspruch von AD FS bietet eine Zeichenfolge, um den Gerätetyp darstellen, den der Client verwendet, um den Dienst zuzugreifen. Dies kann verwendet werden, wenn Kunden, um den Zugriff für bestimmte Geräte (z.B. bestimmte Arten von Smartphones) zu verhindern möchten.  Diesen Anspruch über einen HTTP-Header, die aktuell aufgefüllt wird nur festlegen, indem Sie Exchange Online, mit dem die Kopfzeile gefüllt, wenn Sie die Authentifizierungsanforderung an AD FS übergeben. Beispielwerte für diesen Anspruch enthalten (jedoch nicht beschränkt auf) die folgenden Werte.
->! [Hinweis] Die im folgenden sind Beispiele für was der X-ms-Benutzer-Agent-Wert für einen Client enthalten kann, deren X-ms-Client-Anwendung ist "Microsoft.Exchange.ActiveSync"
+Dieser AD FS-Anspruch enthält eine Zeichenfolge, um den Gerätetyp darstellen, den vom Client verwendet wird, um den Dienst zuzugreifen. Dies kann verwendet werden, wenn Kunden den Zugriff für bestimmte Geräte (z. B. bestimmte Arten von Smartphones) zu verhindern möchten.  Dieser Anspruch wird aufgefüllt, von einem HTTP-Header, die derzeit wird nur von Exchange Online, die den Header aufgefüllt wird, wenn die Authentifizierungsanforderung an AD FS übergeben festgelegt. Beispielwerte für diesen Anspruch enthalten (jedoch nicht beschränkt auf) die folgenden Werte.
+>! [Hinweis] Die im folgenden sind Beispiele für was der Wert der X-ms-Benutzer-Agent für einen Client enthalten kann, dessen X-ms-Client-Anwendung ist "Microsoft.Exchange.ActiveSync"
 
 - Vortex/1.0
 - Apple-iPad1C1/812.1
@@ -82,16 +83,16 @@ Diesen Anspruch von AD FS bietet eine Zeichenfolge, um den Gerätetyp darstellen
 
 ## <a name="x-ms-proxy"></a>X-MS-Proxy
 
-Typ des Anspruchs: `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy`
+Anspruchstyp: `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy`
 
-Diesen Anspruch von AD FS weist darauf hin, dass die Anforderung durch den Verbundserverproxy bestanden hat.  Diesen Anspruch wird durch den Verbundserverproxy aufgefüllt, das die Kopfzeile ausfüllt, wenn die Authentifizierungsanforderung an den Back-End-Verbunddienst übergeben. AD FS konvertiert es dann in einen Anspruch. 
+Dieser AD FS-Anspruch gibt an, dass die Anforderung durch den Verbundserverproxy übergeben wurde.  Dieser Anspruch wird von der Verbundserverproxy, aufgefüllt, die den Header aufgefüllt wird, wenn die Authentifizierungsanforderung an die Back-End-Verbunddienst übergeben. AD FS konvertiert es dann in einen Anspruch. 
 
-Der Wert des Anspruchs ist der DNS-Name des Verbundserverproxys, die die Anforderung übergeben.
+Der Wert des Anspruchs ist der DNS-Name des Verbundserverproxys, die die Anforderung zu übergeben.
 
-## <a name="x-ms-endpoint-absolute-path-active-vs-passive"></a>X-MS-Endpunkt-Absolute-Pfad (aktiv oder passiv)
+## <a name="x-ms-endpoint-absolute-path-active-vs-passive"></a>X-MS-Endpunkt-Absolute-Path (aktiv bzw. passiv)
 
-Typ des Anspruchs: `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path`
+Anspruchstyp: `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path`
 
-Dieser Typ des Anspruchs kann zur Bestimmung von Anfragen von "aktiv" (rich)-Clients im Vergleich zu "passiven" (Web-Browser-basiert)-Clients verwendet werden. Dadurch können externe Anforderungen von browserbasierten Anwendungen wie Outlook Web Access, SharePoint Online oder Office365-Portal zugelassen werden, während die Anfragen von rich-Clients wie Microsoft Outlook blockiert werden.
+Dieser Anspruchstyp kann zur Bestimmung der Anforderungen von "aktiv" (umfassenden)-Clients im Vergleich zu "Passiv" (Web-Browser-basiert)-Clients verwendet werden. Dadurch werden externe Anfragen von browserbasierten Anwendungen wie Outlook Web Access, SharePoint Online oder Office 365-Portal zugelassen werden, während die Anforderungen von rich-Clients wie Microsoft Outlook blockiert werden.
 
-Der Wert des Anspruchs ist der Name des AD FS-Diensts, die die Anforderung empfangen.
+Der Wert des Anspruchs ist der Name der AD FS-Diensts, der die Anforderung empfangen hat.

@@ -1,6 +1,6 @@
 ---
-title: "Verwalten von überall Zugriff in Windows Server Essentials"
-description: Beschreibt, wie Sie Windows Server Essentials
+title: Verwalten von Zugriff überall in Windows Server 2012 Essentials
+description: Beschreibt, wie Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,28 +13,29 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: c9857cc6dd056e36133736c4888b46505ec8c3c7
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59838611"
 ---
-# <a name="manage-anywhere-access-in-windows-server-essentials"></a>Verwalten von überall Zugriff in Windows Server Essentials
+# <a name="manage-anywhere-access-in-windows-server-essentials"></a>Verwalten von Zugriff überall in Windows Server 2012 Essentials
 
->Gilt für: Windows Server2016 Essentials, Windows Server2012 R2 Essentials, Windows Server2012 Essentials
+>Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Wenn Sie "Zugriff überall"-Funktionen, Remotewebzugriff, virtuelles privates Netzwerk und DirectAccess in Windows Server Essentials oder in Windows Server 2012 R2 mit installierter Windows Server Essentials Experience-Rolle aktivieren, können sie Ihre Netzwerkbenutzer von einem beliebigen Standort mit dem Internet verbunden, jederzeit und auf allen Geräten den Zugriff auf Serverressourcen. In den folgenden Themen wird Konfigurieren von Remotewebzugriff, virtuelles privates Netzwerk (VPN) und DirectAccess-Features auf Ihrem Server erläutert.  
+Wenn Sie den Zugriff überall Funktionen, Remotewebzugriff, virtuelles privates Netzwerk und DirectAccess in Windows Server Essentials oder in Windows Server 2012 R2 mit installierter Windows Server Essentials Experience-Rolle aktivieren, aktivieren sie Ihr Netzwerk Benutzer von jedem Ort mit Internetverbindung, jederzeit und auf allen Geräten auf Serverressourcen zugreifen. In den folgenden Themen wird die Konfiguration der Funktionen des Remotewebzugriffs, des virtuellen privaten Netzwerks (VPN) und von DirectAccess auf Ihrem Server erläutert.  
   
 -   [Verwalten des Remotewebzugriffs](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md)  
   
-     Remotewebzugriff bietet eine Browserfunktionen, Fingereingabe geeignete Browserfunktionen, für den Zugriff auf Anwendungen und Daten von jedem beliebigen Standort, dass eine Internetverbindung und über fast alle Geräte.  
+     Der Remotewebzugriff bietet optimale, für die Toucheingabe geeignete Browserfunktionen, um von nahezu allen Orten mit Internetverbindung und über fast alle Geräte auf Anwendungen und Daten zuzugreifen.  
   
 -   [Verwalten des VPN](Manage-VPN-in-Windows-Server-Essentials.md)  
   
-     Verbindungen virtuelles privates Netzwerk (VPN) ermöglichen es Benutzern zu Hause oder unterwegs auf einem Server in einem privaten Netzwerk mithilfe von einem öffentlichen Netzwerk, z. B. dem Internet bereitgestellte Infrastruktur nutzen.  
+     Virtuelle private Netzwerkverbindungen (VPN) ermöglichen es Benutzern, zuhause oder unterwegs zu arbeiten, um auf einen Server in einem privaten Netzwerk zuzugreifen, indem sie die von einem öffentlichen Netzwerk wie z. B. dem Internet bereitgestellte Infrastruktur nutzen.  
   
 -   [Konfigurieren von DirectAccess](Configure-DirectAccess-in-Windows-Server-Essentials.md)  
   
-     DirectAccess ermöglicht es Ihnen, nahtlos Verbindung mit Ihrer Organisation "¢ s-Netzwerk von einem beliebigen Remotestandort Internetanschluss ohne eine Verbindung virtuelles privates Netzwerk (VPN) herzustellen. DirectAccess bietet eine höhere Produktivität für Ihre Organisation "¢ s mobilen Mitarbeiter durch das Angebot der gleiche netzwerkanbindung innerhalb und außerhalb des Büros.  
+     DirectAccess können Sie eine nahtlose Verbindung mit Ihrer Organisation "des s-Netzwerk von einem beliebigen Remotestandort Internetanschluss ohne eine Verbindung virtuelles privates Netzwerk (VPN) herstellen zu müssen. DirectAccess unter bietet höhere Produktivität für Ihre Organisation "des s mobile Belegschaft von bietet die gleiche netzwerkanbindung wie innerhalb und außerhalb des Büros.  
   
 ## <a name="see-also"></a>Siehe auch  
 

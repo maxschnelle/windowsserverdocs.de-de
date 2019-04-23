@@ -1,5 +1,5 @@
 ---
-title: Prehashing und Vorabladen von Inhalt auf dem gehosteten Cacheserver (Optional)
+title: Prehashing und Vorabladen von Inhalt auf dem gehosteten Cacheserver (optional)
 description: Dieses Handbuch enthält Anweisungen zum Bereitstellen von BranchCache im Modus für gehostete Caches auf Computern unter Windows Server 2016 und Windows 10
 manager: brianlic
 ms.prod: windows-server-threshold
@@ -8,27 +8,28 @@ ms.topic: article
 ms.assetid: 7e79c66a-8555-4d8e-8691-d6c37377aab4
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 0e7ffaac4e427222d5539195ecef91768f61c4a3
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: b60a1f24b8988d6e394df0faf678467021e0c882
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59839391"
 ---
-# <a name="prehash-and-preload-content-on-the-hosted-cache-server-optional"></a>Prehashing und Vorabladen von Inhalt auf dem gehosteten Cache-Server \(Optional\)
+# <a name="prehash-and-preload-content-on-the-hosted-cache-server-optional"></a>Unterziehen und Vorabladen von Inhalt auf dem gehosteten Cacheserver \(Optional\)
 
->Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server2016, Windows Server2012 R2, Windows Server 2012
+>Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
 
-Sie können die Verfahren in diesem Abschnitt verwenden, Hashes von Inhalten auf der Inhaltsserver, die Inhalte von Datenpaketen hinzufügen und Vorabladen von Inhalt klicken Sie dann auf die gehosteten Cacheserver. 
+Sie können die Verfahren in diesem Abschnitt Hashes von Inhalten auf der Inhaltsserver Datenpakete den Inhalt hinzu, und klicken Sie dann den Inhalt auf die gehosteten Cacheserver vorab. 
 
-Diese Verfahren sind optional, da Sie auf die gehosteten Cacheserver nicht prehash und vorab geladene erforderlich sind. 
+Diese Verfahren sind optional, da Sie auf die gehosteten Cacheserver nicht zu prehash und preload Inhalten erforderlich sind. 
 
 Wenn Sie Inhalt nicht vorab laden, werden dem gehosteten Cache automatisch Daten hinzugefügt, wie Clients über die WAN-Verbindung heruntergeladen.
 
 >[!IMPORTANT]
->Obwohl diese Verfahren zusammenfassend optional werden, wenn Sie sich prehash und vorab geladene Inhalte auf Ihrer gehosteten Cacheserver, entscheiden ist die beiden Verfahren erforderlich.
+>Diese Verfahren sind zusammen optional, wenn Sie die prehash und preload-Inhalten auf die gehosteten Cacheserver, entscheiden zwar beide Verfahren erforderlich.
 
-- [Erstellen von Inhaltsserver-Datenpaketen für Web und Inhalt der Datei & #40; Optional & #41;](8-Bc-Data-Packages.md)
+- [Erstellen von Inhaltsserver Datenpakete für das Web und Inhalt der Datei &#40;Optional&#41;](8-Bc-Data-Packages.md)
   
-- [Importieren von Datenpaketen auf dem gehosteten Cacheserver & #40; Optional & #41;](9-Bc-Import-Data.md)
+- [Importieren Sie Datenpakete auf dem gehosteten Cacheserver &#40;Optional&#41;](9-Bc-Import-Data.md)
 
-Wenn Sie mit dieser Anleitung fortfahren, finden Sie unter [erstellen Inhalt Datenpaketen für Web und Dateiinhalt & #40; Optional & #41; ](8-Bc-Data-Packages.md).
+Mit diesem Handbuch finden Sie [erstellen-Server Daten Inhaltspaketen für Web- und Dateiinhalt &#40;Optional&#41;](8-Bc-Data-Packages.md).

@@ -1,0 +1,1 @@
+**[Erfahren Sie mehr über die Always On-VPN-Technologie](../vpn/always-on-vpn/always-on-vpn-technology-overview.md).** Für diese Bereitstellung müssen Sie installieren neuen RAS-Server, auf der Windows Server 2016 ausgeführt wird, sowie einige Ihrer vorhandenen Infrastruktur für die Bereitstellung zu ändern.

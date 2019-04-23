@@ -6,196 +6,196 @@ ms.technology: storage-spaces
 ms.topic: article
 author: johnmarlin-msft
 ms.date: 01/30/2019
-description: Dieser Artikel beschreibt das Szenario der Cluster-Gruppen
+description: In diesem Artikel wird das Cluster-Sets-Szenario beschrieben.
 ms.localizationpriority: medium
 ms.openlocfilehash: 2deeb6968f910e80bacb2354ad2e575060a7797a
-ms.sourcegitcommit: 07aefbdbb0eedb42aaed3d195c2429310c761da0
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "9041006"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59833951"
 ---
-# Clustergruppen
+# <a name="cluster-sets"></a>Cluster-Gruppen
 
-> Gilt für: Windows Server Insider Preview-Build 17650 und höher
+> Gilt für: Windows Server Insider Preview Build 17650 und höher
 
-Cluster-Gruppen ist die neue Cloud Scale-Out-Technologie in dieser Preview-Version, die Anzahl der Cluster-Knoten in einer einzelnen Software Defined Data Center (SDDC)-Cloud Größenordnungen erhöht. Ein Cluster ist eine lose Gruppierung von mehrere Failovercluster: Computing, Speicher oder hyperkonvergente. Cluster legt Technologie virtuellen Computer Fluidität über Member-Cluster in einer Cluster-Gruppe und einen einheitlichen Speicher-Namespace über eine Gruppe zur Unterstützung der virtuellen Computer Fluidität. 
+Cluster-Gruppen ist die neue Cloud-Scale-Out-Technologie, die in dieser Preview-Version, die die Anzahl Clusterknoten in einer einzelnen Softwareupdates definiert Data Center (SDDC) Cloud um ein Vielfaches erhöht wird. Ein Clustersatz ist eine lose verbundene Gruppierung mehrere Failovercluster: compute, Speicher oder hyper-konvergiert. Cluster wird Technologie ermöglicht VM Fluidität für Element-Cluster in einen Clustersatz und ein Namespace für ein einheitliches über eine Gruppe zur Unterstützung von VM-Fluidität festgelegt. 
 
-Während beibehalten vorhandenen Failovercluster-Verwaltung auf Member Clustern auftreten, bietet eine Instanz des Clusters außerdem Schlüssel Anwendungsfälle um Lifecycle Management zu dem Aggregat. Diese Evaluierungshandbuch für Windows Server Preview-Szenario bietet Ihnen die erforderlichen Hintergrundinformationen sowie eine schrittweise Anleitung, um zu bewerten, Cluster-Gruppen-Technologie mithilfe von PowerShell. 
+Beim Beibehalten der vorhandenen Failovercluster-Verwaltung auf Member Clustern auftreten, bietet eine Set-Clusterinstanz darüber wichtigsten Anwendungsfälle für die lebenszyklusverwaltung auf das Aggregat. In diesem Evaluierungshandbuch für Windows Server Preview-Szenario bietet die erforderlichen Hintergrundinformationen und schrittweise Anleitungen zum Auswerten von Clustertechnologie-Sets mithilfe von PowerShell. 
 
-## Einführung in die Technologie
+## <a name="technology-introduction"></a>Einführung in die Technologie
 
-Cluster-Gruppen-Technologie wurde entwickelt, um bestimmte Kundenanfragen betrieben Software Defined Datacenter (SDDC) Wolken bei einer Skalierung von erfüllen. Cluster-Sätze Wertversprechen in diesem Release Preview kann wie folgt zusammengefasst werden:  
+Legt Clustertechnologie wurde entwickelt, um bestimmte kundenanforderungen betreiben (Software definiert Datacenter, SDDC)-Clouds nach Maß zu erfüllen. Cluster legt Wertbeitrag in dieser Vorschauversion kann wie folgt zusammengefasst werden:  
 
-- Zu einer deutlichen Erhöhung der unterstützten SDDC-Cloud-Niveau für die Ausführung von hoch verfügbare virtuelle Computer durch die Kombination von mehrere kleinere Cluster in eine einzelne große Fabric sogar Beibehaltung der Software Fehlertoleranz Grenze zu einem einzelnen cluster
-- Verwalten der gesamte Failovercluster-Lebenszyklus, einschließlich Integration und Zurückziehen Clustern, ohne eine Beeinträchtigung der Verfügbarkeit der Mandanten virtuellen Maschinen, über passt migrieren virtuelle Computer über diese großen Fabric
-- Das Compute-Storage-Verhältnis in Ihre zusammengeführten problemlos ändern, ich
-- Profitieren von [Azure-ähnlichen Fehlerdomänen und Verfügbarkeit legt](htttps://docs.microsoft.com/azure/virtual-machines/windows/manage-availability) über Cluster im ersten virtuellen Computer Platzierung und nachfolgende VM-migration
-- Sortiment verschiedene Generationen der CPU-Hardware im selben Cluster festlegen Fabric, sogar Beibehaltung einzelne Fehlerdomänen homogenen für maximale Effizienz.  Bitte beachten Sie, dass die Empfehlung von derselben Hardware in jedem einzelnen Cluster sowie den gesamten Cluster Satz weiterhin vorhanden ist.
+- Erhöhen Sie die unterstützten SDDC-Cloud-Skalierung für die Ausführung von hoch verfügbaren virtuellen Maschinen durch die Kombination von mehreren kleinerer Clusters in einem einzigen großen Fabric, gleichzeitig auch die Grenze der Software-Fehler in einem einzigen Cluster erheblich
+- Verwalten der gesamten Failovercluster-Lebenszyklus, einschließlich der Integration und zum abkoppeln von Clustern, ohne Beeinträchtigung der Mandanten-VM-Verfügbarkeit, über die Migration auch virtuelle Computer für diese großen Fabric
+- Einfach ändern, die Compute-Storage-Verhältnis in Ihre hyper-konvergiert ich
+- Profitieren Sie von [-ähnlichen Azure-Fehlerdomänen und Verfügbarkeitsgruppen](htttps://docs.microsoft.com/azure/virtual-machines/windows/manage-availability) für Cluster in der ersten VM-Platzierung und weiteren VM-Migration
+- Und kombinieren unterschiedliche prozessorgenerationen CPU-Hardware im selben Cluster festlegen Fabric auch, wenn einzelne Fehlerdomänen für maximale Effizienz bei homogene beibehalten.  Beachten Sie, dass die Empfehlung der gleichen Hardware noch vorhanden ist, in jedem einzelnen Cluster sowie den gesamten Cluster-Satz ist.
 
-Aus einer high-Level-Ansicht ist dies welche Cluster Sätze aussehen könnten.
+Von einem auf hoher Ebene ist dies welcher Cluster legt aussehen können.
 
 ![Cluster legt Lösung anzeigen](media\Cluster-sets-Overview\Cluster-sets-solution-View.png)
 
-Die folgenden bietet eine kurze Zusammenfassung der einzelnen Elemente in der obigen Abbildung:
+Im folgenden finden Sie eine kurze Zusammenfassung der einzelnen Elemente in der Abbildung oben:
 
-**Management-cluster**
+**Verwaltungscluster**
 
-Management-Cluster in einem Cluster handelt es sich um einen Failovercluster, die die hoch verfügbare Management-Ebene des die gesamten Cluster und die einheitliche Speicher-Namespace (Cluster festlegen Namespace) Empfehlung sofs (Scale-Out-Datei Server, kontaktieren) hostet. Ein Management-Cluster ist logisch getrennt von Element-Cluster, die die VM-Arbeitslasten ausgeführt. Dadurch wird den Cluster, der Verwaltungsebene robustes auf eine lokalisierte für den gesamten Cluster-Fehler, z. B. einem Stromausfall eines Clusters Member.   
+Verwaltungscluster in einem Clustersatz ist ein Failovercluster, der die hoch verfügbare Verwaltungsebene die gesamten Cluster und die Referenz für unified Storage-Namespace (Cluster festlegen Namespace) Skalierung (Scale-Out-Datei Server, SOFS) hostet. Ein verwaltungscluster ist logisch entkoppelte aus Element-Clustern, die arbeitsauslastungen virtueller Computer ausgeführt. Dadurch wird den Clustersatz Verwaltungsebene robuste auf alle für den gesamten Cluster-Ausfällen, z. B. Stromausfall eines Clusters Member.   
 
 **Member-cluster**
 
-Ein Mitglied-Cluster in einem Cluster ist in der Regel eine herkömmliche zusammengeführte Cluster virtuellen Computer und "direkte Speicherplätze" Workloads ausgeführt. Mehrere Member Cluster teilnehmen in einer einzelnen Gruppe Clusterbereitstellung, bilden die größere SDDC-Cloud-Struktur. Member Cluster unterscheiden sich von einem Management-Cluster in zwei wichtige Aspekte: Member Cluster teilnehmen Fehlerdomäne Verfügbarkeit Konstrukte und gemeinsamen Member Clustern werden auch auf virtuellen Hostcomputer und "direkte Speicherplätze" Workloads Größe. Set virtuellen Maschinen im Cluster, die über Cluster hinweg in einem Cluster zu verschieben müssen aus diesem Grund nicht auf dem Management-Cluster gehostet werden.
+Ein Member-Cluster in einem Clustersatz ist in der Regel einen herkömmlichen hyperkonvergenten Cluster virtuelle Computer und arbeitsauslastungen mit "direkte Speicherplätze". Mehrere Member Cluster Teilnahme an einer Bereitstellung der einzelnen Cluster, der größeren SDDC-Cloud-Struktur bilden. Member-Cluster unterscheiden sich von einem verwaltungscluster in zwei wichtige Aspekte: Member-Clustern beteiligt Fehlerdomäne verfügbarkeitsgruppe erstellt und Member-Clustern sind auch Host-VM und angepasst "direkte Speicherplätze"-Workloads. Auf dem verwaltungscluster aus diesem Grund muss der Cluster die virtuellen Computer, die über die clustergrenzen hinweg in einem Cluster verschieben nicht gehostet werden.
 
-**Cluster festlegen Namespace-Verweis sofs kontaktieren**
+**Cluster eingerichtet, Namespace-Verweis SOFS**
 
-Ein Cluster Satz Namespace-Verweis (Cluster festlegen Namespace) sofs kontaktieren ist ein Scale-Out-Dateiserver in dem eine Freigabe Empfehlung – vom Typ 'SimpleReferral' neu eingeführt wurden in diesem Release Preview jede SMB-Freigabe auf die Cluster festlegen Namespace sofs kontaktieren ist.  Diese Referenz ermöglicht Server Message Block (SMB) Clients den Zugriff auf das Ziel SMB-Freigabe verweist, die auf den Member Cluster sofs kontaktieren. Cluster festgelegt Namespace-Verweis sofs kontaktieren ist eine leichte Referenzmechanismus und daher nimmt in der e/a-Pfad. Die SMB-Referenzen unbefristet auf jedem der Client-Knoten zwischengespeichert, und der Cluster-Gruppen-Namespace dynamisch automatisch aktualisiert diese Verweise wie erforderlich.
+Ein Cluster Satz Namespace-Verweis (Cluster festlegen Namespace) SOFS handelt es sich um einen Scale-Out File Server, die bei dem jede SMB-Freigabe auf dem Cluster festlegen Namespace SOFS eine Verweis-Freigabe – vom Typ "SimpleReferral" in dieser Preview-Version neu eingeführt wird.  Diese Referenz ermöglicht Server Message Block (SMB)-Clients Zugriff auf das Ziel, SMB-Freigabe, auf dem Cluster Member SOFS gehostet. Namespace-Verweis SOFS ist ein Lightweight-Weiterleitungsmechanismus und ist daher nicht Teil festlegen in der e/a-Pfad. Die SMB-Verweise werden Anreiz für jede der Client-Knoten zwischengespeichert und der Cluster legt Namespace dynamisch aktualisiert automatisch diese Verweise nach Bedarf.
 
-**Cluster, der master**
+**Master Clustersatz**
 
-In einem Cluster die Kommunikation zwischen den Member Clustern lose verknüpft ist, und wird durch einen neuen Clusterressource mit dem Namen "Cluster Master festlegen" (CS-Master) koordiniert. Wie jede andere Clusterressource ist CS-Master hoch verfügbarer und flexibel in Bezug auf die einzelnen Member Clusterfehler und/oder die Management-Cluster-Knoten-Fehler. Durch einen neuen Cluster Festlegen von WMI-Anbieter bietet CS-Master den Management-Endpunkt für alle-Clusters Verwaltbarkeit Interaktionen.
+In einer Menge Cluster die Kommunikation zwischen den Clustern Member lose verknüpft und wird durch eine neue Clusterressource namens "Cluster Master festlegen" (CS-Master) koordiniert. Wie jede andere Clusterressource ist CS-Master an hoch verfügbare und einzelne Member-Clusterfehler bzw. die Knoten Verwaltung Clusterfehler resilienz. Durch einen neuen Cluster Festlegen von WMI-Anbieter bietet CS-Master den verwaltungsendpunkt für alle Cluster eingerichtet Verwaltbarkeit Interaktionen.
 
-**Cluster-Satz-worker**
+**Festlegen des Workers als Cluster**
 
-Bei einer Bereitstellung mit Cluster festlegen interagiert der CS-Master mit einer neuen Clusterressource für den Member Clustern "Cluster festlegen Worker" (CS-Worker) aufgerufen. CS-Worker fungiert als die einzige Bindeglied auf dem Cluster aus, um die lokalen Cluster-Interaktionen zu koordinieren, wie es die CS-Master. Beispiele für solche Interaktionen sind Platzierung virtueller Maschinen und Cluster-lokale Ressource inventarisieren. Es gibt nur ein, die CS-Worker-Instanz für die einzelnen des Elements in einer Cluster-Cluster. 
+In einer Bereitstellung für Cluster festgelegt werden die CS-Master mit neuen Clusterressource für das Element namens "Cluster festlegen Worker" (CS-Worker) Cluster interagiert. CS-Worker fungiert als einzige Verbindungsglied auf dem Cluster die Interaktionen für lokalen Cluster orchestrieren, die CS-Master-Anforderung. Beispiele für solche Interaktionen sind Platzierung virtueller Maschinen und Cluster-lokalen Ressource zu erfassen. Es gibt nur eine CS-Worker-Instanz für jede der in ein Clustersatz zu Clustern. 
 
 **Fehlerdomäne**
 
-Eine Fehlerdomäne ist die Gruppierung der Software und Hardware-Artefakte, die der Administrator bestimmt konnte zusammen fehl, wenn ein Fehler auftritt.  Während ein Administrator eine oder mehrere Cluster zusammen als eine Fehlerdomäne bestimmen kann, kann jeder Knoten im eine Fehlerdomäne in einem Verfügbarkeit teilnehmen. Cluster legt fest, indem Design Blätter die Entscheidung der Fehlertoleranz Domäne Grenze Bestimmung an den Administrator, der über Kenntnisse mit Data Center Topologie Aspekte – z. B. PDU, Netzwerke –, Mitglied Cluster teilen. 
+Eine Fehlerdomäne ist die Gruppierung von Software und Hardware-Elemente, die der Administrator könnte zusammen fehlschlagen, wenn ein Fehler auftritt.  Während der Administrator ein oder mehrere Cluster zusammen als eine Fehlerdomäne festlegen kann, kann jeder Knoten in einer Fehlerdomäne in einer verfügbarkeitsgruppe teilnehmen. Cluster legt fest, indem Entwurf lässt die Entscheidung der Fault Domain Grenze Bestimmungskoeffizient an den Administrator, der sich hervorragend mit Überlegungen zur Topologie von Data Center – z. B. PDU, networking –, dass Member-Clustern verwenden. 
 
-**Festlegen der Verfügbarkeit**
+**Verfügbarkeitsgruppe**
 
-Ein Satz Verfügbarkeit hilft den gewünschten Redundanz gruppierten Workloads über Fehlerdomänen, konfigurieren Organisieren in einen Satz Verfügbarkeit und Bereitstellung von Workloads in dieser Gruppe Verfügbarkeit Administrator. Nehmen wir an, wenn Sie eine Anwendung mit zwei Ebenen bereitstellen, wird empfohlen, dass Sie mindestens zwei virtuellen Computern in eine Verfügbarkeit, legen Sie für jede Ebene, um sicherzustellen, dass wenn eine Fehlerdomäne in dieser Verfügbarkeit ausfällt, Ihre Anwendung mindestens wird konfigurieren Legen Sie einen virtuellen Computer in jeder Ebene auf eine andere Fehlerdomäne für die gleiche Verfügbarkeit gehostet.
+Eine verfügbarkeitsgruppe unterstützt den Administrator bei gewünschten Redundanz der geclusterten arbeitsauslastungen auf Fehlerdomänen zu konfigurieren, indem Sie organisieren, die in einer verfügbarkeitsgruppe und Bereitstellung von Workloads in dieser verfügbarkeitsgruppe. Nehmen wir an, wenn Sie eine Anwendung mit zwei Ebenen bereitstellen, es wird empfohlen, dass Sie über mindestens zwei virtuelle Computer in einer verfügbarkeitsgruppe für jede Ebene, um sicherzustellen, dass Ihre Anwendung bei Ausfall einer Fehlerdomäne in dieser verfügbarkeitsgruppe mindestens verfügen wird konfigurieren ein virtueller Computer auf jeder Ebene, die auf einer anderen Fehlerdomäne, einer verfügbarkeitsgruppe gehostet.
 
-## Gründe für die Verwendung Cluster-Gruppen
+## <a name="why-use-cluster-sets"></a>Warum verwenden Sie Cluster-Elemente
 
-Cluster-Gruppen bietet den Vorteil der Skalierung ohne Kompromisse bei der resilienz.  
+Cluster-Gruppen bietet den Vorteil der Skalierung ohne Einbußen bei der resilienz.  
 
-Cluster-Gruppen können für mehrere Cluster clustering zusammen eine große Fabric, zu erstellen, während es sich bei jedem Cluster unabhängige für resilienz, bleibt.  Sie haben z. B. eine mehrere 4-Knoten-HCI Cluster Ausführen von virtuellen Computern.  Jedem Cluster enthält die resilienz für sich selbst erforderlich sind.  Wenn der Speicher oder Speicher voll ist, ist Skalieren im nächsten Schritt.  Mit skalieren, gibt es einige Optionen und Vorschlägen.
+Cluster legt können für mehrere Cluster clustering zusammen eine große-Struktur zu erstellen, solange jeder Cluster für resilienz unabhängig ist.  Z. B. eine mehrere 4-Knoten HCI man Cluster mit virtuellen Computern.  Jeder Cluster enthält, die resilienz für sich selbst erforderlich sind.  Wenn der Speicher- oder Arbeitsspeicher ansammeln beginnt, ist das Skalieren der nächste Schritt aus.  Mit zentral hochskalieren, gibt es einige Optionen und Überlegungen.
 
-1. Mehr Speicher für den aktuellen Cluster hinzufügen.  Bei direkte Speicherplätze kann dies schwierig sein wie die genaue gleichen Modell/Firmware-Laufwerke möglicherweise nicht verfügbar sind.  Die Betrachtung der Wiederherstellungszeiten auch berücksichtigt werden müssen.
-2. Fügen Sie mehr Arbeitsspeicher hinzu.  Was geschieht, wenn sind Sie sich auf den Speicher überlastet, die die Computer verarbeiten können?  Was geschieht, wenn alle verfügbaren Arbeitsspeicher-Steckplätze voll sind?
-3. Zusätzliche Compute-Knoten mit Laufwerken im aktuellen Cluster hinzufügen.  Dadurch gelangen uns zu Option 1 berücksichtigt werden müssen.
-4. Erwerben Sie einen völlig neuen cluster
+1. Fügen Sie mehr Speicher auf den aktuellen Cluster hinzu.  Mit "direkte Speicherplätze" kann dies knifflig sein, da die genau gleiche Modell/Firmware-Laufwerke möglicherweise nicht verfügbar.  Die Betrachtung der Wiederherstellungszeiten ebenfalls berücksichtigt werden müssen.
+2. Fügen Sie weiteren Arbeitsspeicher hinzu.  Was geschieht, wenn sind Sie für den Speicher zuweilen, die die Computer behandelt werden können?  Was geschieht, wenn alle verfügbare Speichersteckplätze voll sind?
+3. Fügen Sie zusätzliche Computeknoten mit Laufwerken, die in den aktuellen Cluster hinzu.  Dies führt uns zurück zu Option 1, die berücksichtigt werden müssen.
+4. Erwerben eines ganz neuen Clusters
 
-Dies ist die Cluster-Gruppen enthält, in denen den Vorteil der Skalierung.  Wenn ich meine Cluster in einer Cluster-Gruppe hinzufügen, kann ich nutzen Speicher oder Speicher, die möglicherweise auf einem anderen Cluster ohne zusätzliche Einkäufe verfügbar.  Aus der Perspektive eines resilienz soll Hinzufügen zusätzlicher Knoten zu einem direkte Speicherplätze nicht zusätzliche stimmen für Quorum bereitzustellen.  Als genannten [hier](drive-symmetry-considerations.md)kann ein Storage Spaces Direct-Cluster den Verlust von 2 Knoten überleben, bevor Sie fortfahren, nach unten.  Wenn Sie einen 4-Knoten-HCI Cluster verfügen, 3 Knoten ausfallen dauert nach unten den gesamten Cluster.  Wenn Sie einen 8-Knoten-Cluster verfügen, 3 Knoten ausfallen dauert nach unten den gesamten Cluster.  Cluster-Sätze, auf denen zwei 4-Knoten-HCI Cluster in der Gruppe ist, 2 Knoten in einem HCI abstürzt und 1 Knoten in der anderen HCI abstürzt, beide Cluster einrichten bleiben.  Ist es besser, eine große "direkte Speicherplätze" 16-Knoten-Cluster erstellen oder Teilen Sie ihn in vier 4-Knoten-Cluster und Cluster verwenden?  Mit vier 4-Knoten-Cluster mit Cluster Sätze bietet den selben Maßstab, aber eine bessere resilienz, mehrere Compute-Knoten (unerwartet oder für die Wartung), nach unten wechseln können und Produktion bleibt.
+Dies ist, in dem Cluster legt bietet des Vorteil der Skalierung.  Wenn ich meine Cluster in einen Clustersatz hinzufügen, kann ich nutzen Speicher oder Speicher, die auf einem anderen Cluster ohne zusätzliche Käufe verfügbar sein können.  Vom Standpunkt der resilienz soll Hinzufügen weiterer Knoten zur einen "direkte Speicherplätze" nicht zusätzliche stimmen für das Quorum zu bieten.  Wie bereits erwähnt [hier](drive-symmetry-considerations.md), einem Cluster für direkte Speicherplätze den Verlust von 2 Knoten überstehen können, vor dem Ausfall.  Wenn Sie einen Cluster mit 4 Knoten HCI verfügen, 3 Knoten ausfallen wird im gesamten Cluster außer Betrieb zu nehmen.  Wenn Sie einen Cluster mit 8 Knoten verfügen, 3 Knoten ausfallen wird im gesamten Cluster außer Betrieb zu nehmen.  Mit Cluster-Sätzen, die über zwei Cluster mit 4 Knoten HCI in der Gruppe verfügt, 2 Knoten in einem HCI ausfallen, und 1 Knoten in der anderen HCI ausfallen, beide Cluster ununterbrochen verfügbar sein.  Ist es besser, erstellen Sie einen großen 16 Knoten "direkte Speicherplätze"-Cluster oder Teilen Sie ihn in vier 4-Knoten-Cluster und Cluster Sets verwenden?  Mit vier 4-Knoten-Cluster mit dem Cluster legt bietet die gleichen Skala, aber eine höhere Flexibilität, da mehrere Compute-Knoten (unerwartet beendet oder zur Wartung) ausfallen können, und die Produktion bleibt.
 
-## Aspekte der Bereitstellung von Cluster-Gruppen
+## <a name="considerations-for-deploying-cluster-sets"></a>Überlegungen zur Bereitstellung von Cluster-Gruppen
 
-Wenn in Erwägung ziehen, wenn Cluster-Gruppen ist etwas, das Sie verwenden müssen, sollten Sie diese Fragen:
+Wenn Sie erwägen, wenn Cluster legt ist etwas, das Sie verwenden möchten, beachten Sie diese Fragen:
 
-- Müssen Sie die aktuellen HCI Compute und Speicher Skalierung Grenzen zu wechseln?
-- Sind alle Compute und Speicher nicht identisch identisch?
-- Können Sie live virtuelle Computer zwischen Clustern migrieren?
-- Möchten Sie diesen Azure-ähnlichen Verfügbarkeit und Fehlerdomänen über mehrere Cluster?
-- Müssen Sie die Zeit zum Betrachten Sie alle Ihre Cluster, um zu bestimmen, in denen alle neuen virtuellen Computern platziert werden müssen?
+- Möchten Sie die aktuellen HCI COMPUTE- und Speicherressourcen Kapazitätsgrenzen hinausgehen?
+- Sind alle COMPUTE- und Speicherressourcen nicht genauso wie identisch?
+- Können Sie live für virtuelle Maschinen zwischen Clustern migrieren?
+- Möchten Sie Azure-ähnlichen Computer-Verfügbarkeitsgruppen und Fehlerdomänen auf mehrere Cluster?
+- Möchten Sie nehmen die Zeit, sehen Sie sich alle Ihre Cluster, um zu bestimmen, in dem alle neuen virtuellen Computer platziert werden müssen?
 
-Ihre Antwort "Ja" dann Cluster Sets ist, was erforderlich ist.
+Ihre Antwort "Ja" lautet, klicken Sie dann legt der Cluster ist, benötigen Sie.
 
-Es gibt einige andere Elemente zu berücksichtigen, in denen eine größere SDDC Ihre allgemeine Daten-Center-Strategien verändern kann.  SQL Server ist ein gutes Beispiel.  Erfordert verschieben SQL Server-VMs zwischen Clustern die Lizenzierung von SQL auf weitere Knoten ausgeführt?  
+Es gibt einige andere Elemente zu berücksichtigen, in dem eine größere SDDC Ihre gesamten Data Center-Strategien ändern können.  SQL Server ist ein gutes Beispiel.  Erfordert Verschieben von SQL Server-Computer zwischen Clustern die Lizenzierung von SQL auf zusätzlichen Knoten ausführen?  
 
-## Dateiserver mit horizontaler Skalierung und Cluster-Gruppen
+## <a name="scale-out-file-server-and-cluster-sets"></a>Scale-Out Dateiserver und die Cluster-sets
 
-In Windows Server 2019 es gibt eine neue Scale-Out-Datei-Serverrolle Infrastruktur sofs (Scale-Out-Datei Server, kontaktieren) aufgerufen. 
+In Windows Server-2019 besteht eine neue Serverrolle für Dateiserver mit horizontaler Skalierung wird aufgerufen, Infrastruktur-Skalierung (Scale-Out-Datei Server, SOFS) zur Verfügung. 
 
-Die folgenden Aspekte gelten für eine Rolle Infrastruktur sofs kontaktieren:
+Die folgenden Überlegungen gelten für eine Infrastruktur SOFS-Rolle:
 
-1.  Es kann nur eine Infrastruktur sofs kontaktieren Cluster-Rolle auf einem Failovercluster sein. Infrastruktur sofs kontaktieren Rolle wird erstellt, indem die "**-Infrastruktur**" Parameter für das **Add-ClusterScaleOutFileServerRole** -Cmdlet zu wechseln.  Beispiel:
+1.  Es kann jeweils nur ein Infrastruktur SOFS-Clusterrolle auf einem Failovercluster vorhanden sein. Infrastruktur-SOFS-Rolle wird erstellt, indem die "**-Infrastruktur**" switch-Parameter, um die **hinzufügen-ClusterScaleOutFileServerRole** Cmdlet.  Zum Beispiel:
 
         Add-ClusterScaleoutFileServerRole -Name "my_infra_sofs_name" -Infrastructure
 
-2.  Jedes CSV-Volume automatisch in das Failover erstellt löst die Erstellung einer SMB-Freigabe mit einem automatisch generierten Namen basierend auf den Namen des CSV-Volumes. Ein Administrator kann nicht direkt erstellen oder Ändern von SMB-Freigaben unter einer Rolle sofs kontaktieren außer über CSV-Volume erstellen/ändern Vorgänge.
+2.  Jedem CSV-Volume, das automatisch erstellt, das Failover löst die Erstellung einer SMB-Freigabe mit einem automatisch generierten Namen basierend auf dem CSV-Volume-Namen. Ein Administrator kann nicht direkt erstellen oder Ändern von SMB-Freigaben unter einer SOFS-Rolle, außer über CSV-Volume erstellen/ändern-Vorgänge.
 
-3.  Zusammengeführte Konfigurationen ermöglicht eine Infrastruktur sofs kontaktieren SMB-Client (Hyper-V-Host) mit garantierte fortlaufenden Verfügbarkeit (CA) an die Infrastruktur sofs kontaktieren SMB-Server kommunizieren. Dieser zusammengeführte SMB Loopback Zertifizierungsstelle erfolgt über virtuelle Computer Zugriff auf ihre virtuellen Datenträger (VHDx)-Dateien, in denen die besitzende Identität der virtuellen Maschine zwischen dem Client und Server weitergeleitet wird. Diese Identität-Weiterleitung ermöglicht ACL-Verknüpfung VHDx-Dateien, ebenso wie bei standardmäßigen zusammengeführte Cluster-Konfigurationen wie vor.
+3.  In Konfigurationen für hyper-konvergiert ermöglicht einem SOFS-Infrastruktur einen SMB-Client (Hyper-V-Host) für die Kommunikation mit garantierter fortlaufende Verfügbarkeit (CA) zum Infrastruktur SOFS SMB-Server. Dieses zusammengeführte SMB-Loopback Zertifizierungsstelle erfolgt über VMs, die Zugriff auf ihren virtuellen Festplattendateien (VHDx), in dem der übergeordneten Identität der virtuellen Maschine zwischen Client und Server weitergeleitet wird. Identität Weiterleitung ermöglicht ACL ähnelte VHDx-Dateien wie standard hyperkonvergenten Cluster entspricht der Konfiguration vor.
 
-Nachdem eine Reihe Cluster erstellt wurde, verwendet der Cluster-Satz-Namespace eine Infrastruktur sofs kontaktieren auf jedem der Member-Cluster, und außerdem eine Infrastruktur sofs kontaktieren im Cluster Management.
+Nachdem ein Clustersatz erstellt wurde, verwendet der Cluster-Set-Namespace eines SOFS-Infrastruktur auf jedem von der Members-Clustern und außerdem eines SOFS-Infrastruktur, in dem verwaltungscluster.
 
-Zum Zeitpunkt wird ein Member-Cluster hinzugefügt eine Reihe Cluster der Administrator den Namen des eine Infrastruktur sofs kontaktieren auf diesem Cluster gibt an, ob eine bereits vorhanden ist. Wenn die Infrastruktur sofs kontaktieren nicht vorhanden ist, wird eine neue Infrastruktur sofs kontaktieren-Rolle auf den neuen Member Cluster durch diesen Vorgang erstellt. Wenn eine Rolle Infrastruktur sofs kontaktieren bereits auf dem Cluster Member vorhanden ist, umbenannt das Hinzufügen eines Elements implizit in den angegebenen Namen nach Bedarf. Alle vorhandenen Singleton SMB-Server oder nicht - Infrastruktur sofs kontaktieren Rollen auf dem Mitglied die Cluster belassen werden vom Cluster festgelegten genutzte. 
+Zum Zeitpunkt wird ein Clusters Element hinzugefügt, ein Clustersatz der Administrator den Namen eines SOFS-Infrastruktur auf diesem Cluster gibt an, ob bereits eine vorhanden ist. Wenn es sich bei den SOFS-Infrastruktur nicht vorhanden ist, wird eine neue Infrastruktur SOFS-Rolle auf dem neuen Element Cluster durch diesen Vorgang erstellt. Wenn eine Infrastruktur SOFS-Rolle bereits auf dem Cluster Member vorhanden ist, benennt der Vorgang zum Hinzufügen implizit es mit dem angegebenen Namen nach Bedarf. Alle vorhandenen Singleton-SMB-Server, oder nicht - Infrastruktur SOFS-Rollen auf dem Element das Cluster verlassen, sind sehr von dem Clustersatz. 
 
-Zum Zeitpunkt der Cluster erstellt wird, muss der Administrator die Möglichkeit, ein bereits vorhandenes AD-Computer-Objekt als Namespacestamm für den auf dem Management-Cluster. Clustervorgänge Set-Erstellung die Infrastruktur sofs kontaktieren Cluster-Rolle auf dem Management-Cluster erstellen oder benennt die vorhandene Infrastruktur sofs kontaktieren Rolle für Member Cluster genau wie zuvor beschrieben. Die Infrastruktur sofs Kontaktieren des Clusters Management wird verwendet, da Cluster Namespace-Verweis (Cluster festlegen Namespace) sofs kontaktieren festgelegt. Es bedeutet lediglich, dass jede SMB-Freigabe auf dem Cluster Namespace, die sofs kontaktieren einer Empfehlung Freigabe – vom Typ 'SimpleReferral' festgelegt - neu eingeführt wurden in dieser Preview-Version ist.  Diese Referenz ermöglicht, dass die SMB-Clients Zugriff auf das Ziel, die SMB-Freigabe auf den Member Cluster sofs kontaktieren gehostet. Cluster festgelegt Namespace-Verweis sofs kontaktieren ist eine leichte Referenzmechanismus und daher nimmt in der e/a-Pfad. Die SMB-Referenzen unbefristet auf der einzelnen Clientknoten zwischengespeichert und der Cluster-Gruppen-Namespace dynamisch updates automatisch diese Verweise nach Bedarf
+Zum Zeitpunkt der Erstellung der Clustersatz ist, kann der Administrator die Möglichkeit, einen bereits vorhandenen AD-Computer-Objekt als Namespacestamm auf dem verwaltungscluster verwenden. Cluster Satz Vorgänge zur Erstellung die Infrastruktur SOFS-Clusterrolle auf dem verwaltungscluster erstellen oder benennt die vorhandene Infrastruktur SOFS-Rolle für Member Cluster einfach wie zuvor beschrieben. Die SOFS-Infrastruktur, auf dem verwaltungscluster wird verwendet, wie Namespace-Verweis (Cluster festlegen Namespace) SOFS festlegen. Es bedeutet lediglich, dass jede SMB-Freigabe auf dem Cluster Namespace, für SOFS eine Verweis-Freigabe – vom Typ "SimpleReferral festgelegt" – in dieser Preview-Version neu eingeführt wurde.  Diese Referenz ermöglicht, dass SMB-Clients den Zugriff auf das Ziel, die SMB-Freigabe auf dem Cluster Member SOFS gehostet. Namespace-Verweis SOFS ist ein Lightweight-Weiterleitungsmechanismus und ist daher nicht Teil festlegen in der e/a-Pfad. Die SMB-Verweise Anreiz für jede der Client-Knoten zwischengespeichert und der Cluster legt Namespace dynamisch aktualisiert automatisch diese Verweise nach Bedarf
 
-## Erstellen eines Satzes Cluster
+## <a name="creating-a-cluster-set"></a>Erstellen eines Cluster-Satzes
 
-### Voraussetzungen
+### <a name="prerequisites"></a>Vorraussetzungen
 
-Beim Erstellen eines Clusters festlegen, werden Sie die folgenden Voraussetzungen empfohlen:
+Beim Erstellen eines Clusters festgelegt werden, sollten Sie folgende Voraussetzungen:
 
-1. Konfigurieren eines Management-Clients die neueste Windows Server-Insider-Version.
-2. Installieren Sie den Failovercluster-Tools auf diesem Verwaltungsserver.
-3. Erstellen Sie die Cluster-Mitglieder (mindestens zwei Cluster mit mindestens zwei freigegebene Clustervolumes auf jedem Cluster)
-4. Erstellen Sie einen Cluster von Management (physisch oder Gast) an, der die Member Cluster überspannt.  Dadurch wird sichergestellt, dass die Verwaltungsebene weiterhin verfügbar trotz möglich Member Clusterfehler Cluster festlegt.
+1. Konfigurieren Sie einen Verwaltungsclient, der die neueste Version von Windows Server Insider ausgeführt.
+2. Installieren Sie den Failovercluster-Tools auf diesem Verwaltungsserver ein.
+3. Erstellen der Clustermitglieder (mindestens zwei Cluster mit mindestens zwei freigegebenen Clustervolumes auf jedem Cluster)
+4. Erstellen eines Management-Clusters (physisch oder Gast), das die Member-Cluster überspannt.  Dieser Ansatz wird sichergestellt, dass die Cluster-Sätze, die Verwaltungsebene weiterhin trotz Clusterfehler möglich Member zur Verfügung.
 
-### Schritte
+### <a name="steps"></a>Schritte
 
-1. Erstellen Sie einen neuen Cluster aus drei Clustern festgelegt werden, wie in die erforderlichen Komponenten definiert.  Die folgenden Diagramm zeigt ein Beispiel für Cluster zu erstellen.  Der Name des Clusters legen Sie in diesem Beispiel wird **CSMASTER**sein.
+1. Erstellen eines neuen Clusters aus drei Clustern festgelegt werden, wie in den Voraussetzungen definiert.  Die unter Diagramm bietet ein Beispiel für den Cluster zu erstellen.  Der Name des Clusters festlegen, die in diesem Beispiel **CSMASTER**.
 
-   | Clusternamen               | Infrastruktur sofs kontaktieren Namen für die spätere Verwendung | 
+   | Clustername               | Infrastruktur-SOFS-Name für die spätere Verwendung | 
    |----------------------------|-------------------------------------------|
-   | SET-CLUSTER                | SOFS KONTAKTIEREN-CLUSTERSET                           |
-   | CLUSTER1                   | SOFS KONTAKTIEREN-CLUSTER1                             |
-   | CLUSTER2                   | SOFS KONTAKTIEREN-CLUSTER2                             |
+   | SET-CLUSTER                | SOFS-CLUSTERSET                           |
+   | CLUSTER1                   | SOFS-CLUSTER1                             |
+   | CLUSTER2                   | SOFS-CLUSTER2                             |
 
-2. Nachdem alle Cluster erstellt wurden, verwenden Sie die folgenden Befehle, um dem Cluster Satz Master erstellen.
+2. Sobald alle Cluster erstellt wurden, verwenden Sie die folgenden Befehle zum Erstellen des Clusters Satz Master an.
 
         New-ClusterSet -Name CSMASTER -NamespaceRoot SOFS-CLUSTERSET -CimSession SET-CLUSTER
 
-3. Auf einem Cluster-Server Cluster, Hinzufügen der unten würde verwendet werden kann.
+3. Hinzufügen eines Cluster-Servers auf dem Clustersatz der im folgenden verwendet werden.
 
         Add-ClusterSetMember -ClusterName CLUSTER1 -CimSession CSMASTER -InfraSOFSName SOFS-CLUSTER1
         Add-ClusterSetMember -ClusterName CLUSTER2 -CimSession CSMASTER -InfraSOFSName SOFS-CLUSTER2
 
    > [!NOTE]
-   > Wenn Sie eine statische IP-Adresse-Schema verwenden, müssen Sie *– StaticAddress x.x.x.x* zum Befehl " **New-ClusterSet** " einfügen.
+   > Wenn Sie eine statische IP-Adresse-Schema verwenden, müssen Sie aufnehmen *- StaticAddress x.x.x.x* auf die **New-ClusterSet** Befehl.
 
-4. Nachdem Sie den Cluster aus Cluster-Mitglieder festlegen erstellt haben, können Sie die Knoten und dessen Eigenschaften auflisten.  Alle Member Cluster in der Cluster aufgelistet werden:
+4. Nachdem Sie den Clustersatz aus Clustermitgliedern erstellt haben, können Sie die Gruppe von Knoten und deren Eigenschaften auflisten.  Um die Member-Cluster in den Cluster aufzulisten:
 
         Get-ClusterSetMember -CimSession CSMASTER
 
-5. Um alle Member Cluster im Cluster festgelegt, einschließlich der Clusterknotens Management aufzulisten:
+5. Um die Member-Cluster im Cluster festlegen, einschließlich der Clusterknoten Management aufzulisten:
 
         Get-ClusterSet -CimSession CSMASTER | Get-Cluster | Get-ClusterNode
 
-6. Listen Sie alle Knoten aus der Member-Clustern:
+6. So Listen Sie alle Knoten von der Members-Clustern:
 
         Get-ClusterSetNode -CimSession CSMASTER
 
-7. Listen Sie alle Ressourcengruppen über den Cluster festgelegt:
+7. Legen Sie zum Auflisten aller Ressourcengruppen im Cluster aus:
 
         Get-ClusterSet -CimSession CSMASTER | Get-Cluster | Get-ClusterGroup 
 
-8. Überprüfen des Clusters fest Erstellungsprozesses erstellt eine SMB-Freigabe (als Volume1 oder der der CSV-Ordner mit der Bereichsname wird der Name der dem Dateiserver-Infrastruktur und den Pfad als beide mit der Bezeichnung gekennzeichnet) auf die Infrastruktur sofs kontaktieren für jedes Clustermitglied CSV-Volume:
+8. Legen zum Überprüfen des Clusters Erstellungsprozess erstellt einen SMB-Freigabe (bezeichnet als Volume1 oder alle der Ordner "CSV" mit der der Name der dem Dateiserver-Infrastruktur und den Pfad als ScopeName mit der Bezeichnung) auf dem SOFS-Infrastruktur für jedes Clustermitglied CSV-Volume:
 
         Get-SmbShare -CimSession CSMASTER
 
-8. Cluster-Gruppen hat Debug-Protokolle, die für die Überprüfung erfasst werden können.  Legen Sie der Cluster sowohl Cluster Debug-Protokolle können für alle Mitglieder und dem Management-Cluster gesammelt werden.
+8. Cluster legt hat es sich um Debugprotokolle wünschen, die zur Überprüfung gesammelt werden können.  Sowohl der Cluster eingerichtet und Debugprotokolle Cluster können für alle Mitglieder und dem verwaltungscluster erfasst werden.
 
         Get-ClusterSetLog -ClusterSetCimSession CSMASTER -IncludeClusterLog -IncludeManagementClusterLog -DestinationFolderPath <path>
 
-9. Konfigurieren Sie die Kerberos- [Eingeschränkte Delegierung](https://blogs.technet.microsoft.com/virtualization/2017/02/01/live-migration-via-constrained-delegation-with-kerberos-in-windows-server-2016/) zwischen alle Cluster.
+9. Konfigurieren von Kerberos [eingeschränkte Delegierung](https://blogs.technet.microsoft.com/virtualization/2017/02/01/live-migration-via-constrained-delegation-with-kerberos-in-windows-server-2016/) Mengenelemente zwischen allen Clustern.
 
-10. Konfigurieren Sie den Cross-Cluster virtuellen Computer Livemigration Authentifizierungstyp Kerberos auf jedem Knoten im Cluster-Set.
+10. Konfigurieren Sie den clusterübergreifenden-VM-live-Migration-Authentifizierungstyp für Kerberos auf jedem Knoten in den Cluster eingerichtet.
 
         foreach($h in $hosts){ Set-VMHost -VirtualMachineMigrationAuthenticationType Kerberos -ComputerName $h }
 
-11. Fügen Sie der lokalen Administratorgruppe auf jedem Knoten im Cluster Satz der Management-Cluster hinzu.
+11. Fügen Sie auf der lokalen Administratorgruppe auf jedem Knoten im Clustersatz des verwaltungsclusters hinzu.
 
         foreach($h in $hosts){ Invoke-Command -ComputerName $h -ScriptBlock {Net localgroup administrators /add <management_cluster_name>$} }
 
-## Erstellen von neuen virtuellen Computern und Cluster-Gruppen hinzufügen
+## <a name="creating-new-virtual-machines-and-adding-to-cluster-sets"></a>Erstellen neuer virtueller Maschinen und auf Cluster hinzufügen
 
-Nach dem Erstellen des Clusters, besteht der nächste Schritt für neue virtuelle Computer erstellen.  In der Regel wann virtuelle Computer erstellen und diese zu einem Cluster hinzufügen, müssen Sie einige Tests in Clustern, finden am besten auf ausgeführt werden kann.  Dieser Überprüfung können gehören:
+Nach dem Erstellen des Clusters festlegen, wird im nächsten Schritts zum Erstellen neuen virtueller Maschinen.  Wenn es Zeit zum Erstellen von virtuellen Computern und in einem Cluster hinzufügen, müssen Sie in der Regel einige Überprüfungen finden Sie unter der sie möglicherweise am besten führen auf den Cluster.  Es konnte diese Prüfungen umfassen:
 
 - Wie viel Arbeitsspeicher auf den Clusterknoten verfügbar ist?
-- Wie viel Speicherplatz auf dem Clusterknoten verfügbar ist?
-- Erfordert die virtuellen Computer bestimmte Speicherbedarf (d. h. meiner virtuellen Computer SQL Server, fahren Sie mit einem Cluster schnellere Laufwerke; ausgeführt werden soll oder der Infrastruktur virtuelle Computer ist nicht so wichtig, und kann auf langsameren Laufwerke ausgeführt).
+- Wie viel Speicherplatz auf den Clusterknoten verfügbar ist?
+- Der virtuelle Computer erfordern bestimmte speicheranforderungen (d. h. ich möchte meine SQL Server-Computer zu einem Cluster unter schnellere Laufwerke; wechseln oder meine virtuellen Computer der Infrastruktur ist nicht so wichtig und kann auf die langsameren Laufwerken ausgeführt).
 
-Sobald diese Fragen beantwortet werden, können Sie den virtuellen Computer auf dem Sie auf die benötigte Cluster erstellen.  Einer der Vorteile der Cluster-Gruppen ist, dass der Cluster-Gruppen Kontrollen für Sie erledigen, und platzieren Sie den virtuellen Computer auf den optimalen Knoten.
+Sobald diese Fragen beantwortet werden, erstellen Sie den virtuellen Computer, auf dem Cluster, den Sie auf die benötigte.  Einer der Vorteile von Cluster-Sätzen ist, dass der Cluster diese Überprüfungen für Sie erledigt und platzieren Sie den virtuellen Computer auf den optimalen Knoten.
 
-Die folgenden Befehle werden beide identifizieren optimalen Cluster und Bereitstellen des virtuellen Computers hinzu.  In dem Beispiel unten haben ein neuer virtuellen Computer erstellt angeben, dass mindestens 4 GB Speicher steht für den virtuellen Computer und 1 virtuellen Prozessors nutzen werden müssen.
+Die folgenden Befehle beide identifiziert den optimalen Cluster und die virtuelle Maschine bereitstellen, damit.  In der folgenden Beispiel wird eine neue virtuelle Maschine erstellt, angeben, dass mindestens 4 GB Arbeitsspeicher für den virtuellen Computer verfügbar ist und es 1 virtuellen Prozessor verwenden muss.
 
 - Stellen Sie sicher, dass 4gb für den virtuellen Computer verfügbar ist
-- Legen Sie den virtuellen Prozessor verwendet bei 1
-- Stellen Sie sicher, dass es mindestens 10 % CPU für den virtuellen Computer verfügbar
+- Legen Sie den virtuellen Prozessor mit 1 verwendet
+- Stellen Sie sicher, es ist mindestens 10 % für den virtuellen Computer verfügbare CPU-Leistung
 
    ```PowerShell
    # Identify the optimal node to create a new virtual machine
@@ -212,73 +212,73 @@ Die folgenden Befehle werden beide identifizieren optimalen Cluster und Bereitst
    Get-VM CSVM1 -ComputerName $targetnode.name | fl State, ComputerName
    ```
 
-Wenn es abgeschlossen ist, erhalten Sie Informationen zum virtuellen Computer und, in dem er gespeichert wurde.  Im obigen Beispiel würde als anzuzeigen:
+Wenn der Vorgang abgeschlossen ist, erhalten Sie die Informationen zum virtuellen Computer und, in dem sie abgelegt wurde.  Im obigen Beispiel würden sie als anzeigen:
 
         State         : Running
         ComputerName  : 1-S2D2
 
-Würden Sie damit nicht genügend Arbeitsspeicher, cpu, oder der verfügbare Speicherplatz auf dem virtuellen Computer hinzufügen, werden Sie die Fehlermeldung angezeigt:
+Würden Sie, dass nicht genügend Arbeitsspeicher, cpu und Speicherplatz auf den virtuellen Computer hinzufügen, erhalten Sie den Fehler:
 
       Get-ClusterSetOptimalNodeForVM : A cluster node is not available for this operation.  
 
-Nachdem der virtuelle Computer erstellt wurde, wird es in Hyper-V-Manager auf dem angegebenen spezifischen Knoten angezeigt.  Als ein Cluster virtuellen Computer und in den Cluster und, der Befehl unten ist hinzufügen.  
+Nachdem der virtuelle Computer erstellt wurde, wird es im Hyper-V-Manager auf dem angegebenen bestimmten Knoten angezeigt.  Hinzufügen ein Clusters festgelegt VM und den Cluster den Befehl unten.  
 
         Register-ClusterSetVM -CimSession CSMASTER -MemberName $targetnode.Member -VMName CSVM1
 
-Wenn es abgeschlossen ist, wird die Ausgabe aussehen:
+Wenn der Vorgang abgeschlossen ist, wird die Ausgabe aussehen:
 
          Id  VMName  State  MemberName  PSComputerName
          --  ------  -----  ----------  --------------
           1  CSVM1      On  CLUSTER1    CSMASTER
 
-Wenn Sie einen Cluster mit vorhandenen virtuellen Computern hinzugefügt haben, müssen die virtuellen Computer auch mit Cluster registriert werden Sätze so registrieren Sie alle virtuellen Computer gleichzeitig, den zu verwendenden Befehl:
+Wenn Sie einen Cluster mit vorhandenen virtuellen Computer hinzugefügt haben, müssen die virtuellen Computer auch beim Cluster registriert werden, legt so registrieren Sie all die virtuellen Computer gleichzeitig angezeigt werden, der Befehl verwendet wird:
 
         Get-ClusterSetMember -name CLUSTER3 -CimSession CSMASTER | Register-ClusterSetVM -RegisterAll -CimSession CSMASTER
 
-Der Prozess ist jedoch nicht abgeschlossen, muss der Pfad zu dem virtuellen Computer auf den Namespace der Cluster-Gruppe hinzugefügt werden.
+Der Prozess ist jedoch nicht abgeschlossen, wie der Pfad zu dem virtuellen Computer auf den Cluster-Set-Namespace hinzugefügt werden muss.
 
-Z. B. ein vorhandener Cluster hinzugefügt wird und sie verfügt über vorkonfigurierte virtuelle Computer die wohnen auf den lokalen Cluster Shared Volumes (CSV), wäre der Pfad für die VHDX "C:\ClusterStorage\Volume1\MYVM\Virtual schwer Disks\MYVM.vhdx. ungefähr  Eine Speichermigration müsste gelingen, als CSV-Pfade entwurfsbedingt lokal auf einem einzelnen Cluster sind. Folglich kann nicht zugegriffen werden mit dem virtuellen Computer Nachdem sie live sind über Member Cluster migriert. 
+Zum Beispiel ein vorhandener Cluster hinzugefügt und verfügt über vorkonfigurierte virtuelle Computer der wohnen auf dem lokalen freigegebenes Clustervolume (CSV), wäre der Pfad für die VHDX etwas Ähnliches wie in "C:\ClusterStorage\Volume1\MYVM\Virtual schwer Disks\MYVM.vhdx.  Eine Speichermigration erreicht werden, da es sich bei Entwurf, die lokal auf einem einzelnen Element Cluster CSV-Pfade werden müssten. Daher werden keine an den virtuellen Computer zugegriffen werden kann, sobald sie aktiv sind. für Member Cluster migriert. 
 
-In diesem Beispiel wurde der Cluster, der Verwendung von Add-ClusterSetMember mit dem Infrastruktur Scale-Out-Dateiserver als sofs kontaktieren-CLUSTER3 CLUSTER3 hinzugefügt.  Um die Konfiguration des virtuellen Computers und den Speicher zu verschieben, ist der Befehl:
+In diesem Beispiel wurde die Infrastruktur Scale-Out File Server als SOFS-CLUSTER3 hinzufügen-ClusterSetMember mit dem Clustersatz CLUSTER3 hinzugefügt.  Um die Konfiguration des virtuellen Computers und den Speicher zu verschieben, wird der Befehl lautet:
 
         Move-VMStorage -DestinationStoragePath \\SOFS-CLUSTER3\Volume1 -Name MYVM
 
-Nach Abschluss wird eine Warnung angezeigt:
+Sobald der Vorgang abgeschlossen ist, wird eine Warnung angezeigt:
 
         WARNING: There were issues updating the virtual machine configuration that may prevent the virtual machine from running.  For more information view the report file below.
         WARNING: Report file location: C:\Windows\Cluster\Reports\Update-ClusterVirtualMachineConfiguration '' on date at time.htm.
 
-Diese Warnung kann ignoriert werden, da die Warnung wird "keine Änderungen in der virtuellen Computer Speicher Rollenkonfiguration erkannt wurden".  Der Grund für die Warnung als den tatsächlichen physischen Speicherort wird nicht geändert. nur die Konfigurationspfade. 
+Diese Warnung kann ignoriert werden, da die Warnung ist "keine Änderungen in der VM-Rollenkonfiguration Speicher erkannt wurden".  Der Grund für die Warnung als den tatsächlichen physischen Speicherort wird nicht geändert werden. nur der Konfigurationspfade. 
 
-Weitere Informationen zum Verschieben-VMStorage überprüfen Sie diesen [Link](https://docs.microsoft.com/powershell/module/hyper-v/move-vmstorage?view=win10-ps). 
+Weitere Informationen zu Move-VMStorage, finden Sie in dieser [Link](https://docs.microsoft.com/powershell/module/hyper-v/move-vmstorage?view=win10-ps). 
 
-Live Migration eines virtuellen Computers zwischen anderen Cluster Satz Clustern entspricht nicht wie in der Vergangenheit. In Szenarien mit nicht-Cluster-Satz wäre die Schritte:
+Live Migration einer virtuellen Maschine zwischen anderen-Cluster-Set-Clustern ist nicht dasselbe wie in der Vergangenheit. In Szenarien ohne Cluster-Satz wäre die Schritte aus:
 
-1. Entfernen Sie die Rolle des virtuellen Computers aus dem Cluster.
-2. Livemigration des virtuellen Computers auf einen Knoten Mitglied von einem anderen Cluster.
-3. Fügen Sie dem virtuellen Computer als eine neue Rolle für den virtuellen Computer zum Cluster hinzu.
+1. Entfernen Sie die Rolle für virtuelle Maschinen, aus dem Cluster.
+2. die Livemigration der virtuellen Computer auf einen Elementknoten eines anderen Clusters.
+3. Fügen Sie den virtuellen Computer im Cluster als eine neue VM-Rolle hinzu.
 
-Mit Cluster legt diese Schritte sind nicht erforderlich, und nur ein Befehl ist erforderlich.  Beispielsweise ich eine VM-Clusters aus CLUSTER1 auf Knoten 2-CL3 auf CLUSTER3 verschieben möchten.  Der einzelne Befehl wäre:
+Mit Cluster diese Schritte sind nicht erforderlich, und nur ein Befehl ist erforderlich.  Beispielsweise möchte ich eine VM-Clusters auf CLUSTER3 von CLUSTER1 in NODE2-CL3 zu verschieben.  Die einzelne Befehl wäre:
 
         Move-ClusterSetVM -CimSession CSMASTER -VMName CSVM1 -Node NODE2-CL3
 
-Bitte beachten Sie, dass dies nicht die Dateien des virtuellen Computers Speicher oder Konfiguration bewegt.  Dies ist nicht erforderlich, da der Pfad zu dem virtuellen Computer als \\SOFS-CLUSTER1\VOLUME1 bleibt.  Nachdem Sie ein virtuellen Computer registriert wurde mit Cluster hat den Infrastruktur-Dateiserver-Freigabepfad, die Laufwerke und virtuelle Computer erfordern nicht auf demselben Computer wie der virtuelle Computer wird.
+Beachten Sie, dass dies nicht der VM-Speicher oder in Konfigurationsdateien verschoben wird.  Dies ist nicht erforderlich, da der Pfad zu dem virtuellen Computer weiterhin \\SOFS-CLUSTER1\VOLUME1.  Nachdem Sie ein virtuellen Computer registriert wurde mit Cluster hat den Freigabepfad Infrastruktur File Server, der Laufwerke und virtuelle Computer ist nicht erforderlich wird, auf dem gleichen Computer wie der virtuelle Computer.
 
-## Erstellen die Verfügbarkeit legt Fehlerdomänen
+## <a name="creating-availability-sets-fault-domains"></a>Erstellen die Verfügbarkeit legt Fehlerdomänen
 
-Wie in der Einführung beschrieben, können Azure-ähnlichen Fehlerdomänen und Verfügbarkeit Gruppen in einem Cluster konfiguriert werden.  Dies ist besonders bei der ersten virtuellen Computer Standorte und Migrationen zwischen Clustern.  
+Wie in der Einführung beschrieben wird, können Azure-ähnliche Fehlerdomänen und Verfügbarkeitsgruppen in einem Cluster konfiguriert werden.  Dies ist nützlich für die ursprüngliche virtuelle Maschine Platzierungen und Migrationen zwischen Clustern.  
 
-Im folgenden Beispiel stehen vier Clustern teilnehmen, die Cluster-Gruppe.  Innerhalb des Satzes wird eine logische Fehlerdomäne mit zwei Clustern und eine Fehlerdomäne erstellt, mit den anderen zwei Clustern erstellt werden.  Diese zwei Fehlerdomänen umfasst die Availabiilty festlegen. 
+Im folgenden Beispiel vier Cluster vorliegen Teilnahme an dem Clustersatz.  In der Gruppe wird eine logische Fehlerdomäne und zwei der Cluster und einer Fehlerdomäne, der mit den anderen beiden Clustern erstellt wurden erstellt.  Diese zwei Fehlerdomänen werden die Gruppe Availabiilty umfassen. 
 
-Im folgenden Beispiel werden CLUSTER1 CLUSTER2 und in eine Fehlerdomäne **FD1** aufgerufen, während CLUSTER3 und CLUSTER4 in eine Fehlerdomäne **FD2**aufgerufen werden.  Aufgerufen, der Verfügbarkeit Satz **CSMASTER-AS** und die zwei Fehlerdomänen besteht.
+Im folgenden Beispiel CLUSTER1, und CLUSTER2 werden in einer Fehlerdomäne namens **FD1** während CLUSTER3 und CLUSTER4 in einer Fehlerdomäne aufgerufen werden **FD2**.  Die verfügbarkeitsgruppe wird aufgerufen, **CSMASTER-AS** und zwei Fehlerdomänen umfassen.
 
-Um die Fehlerdomänen zu erstellen, können Sie die Befehle sind:
+Um die Fehlerdomänen zu erstellen, müssen Sie die Befehle sind:
 
         New-ClusterSetFaultDomain -Name FD1 -FdType Logical -CimSession CSMASTER -MemberCluster CLUSTER1,CLUSTER2 -Description "This is my first fault domain"
 
         New-ClusterSetFaultDomain -Name FD2 -FdType Logical -CimSession CSMASTER -MemberCluster CLUSTER3,CLUSTER4 -Description "This is my second fault domain"
 
-Um sicherzustellen, dass sie erfolgreich erstellt wurde, kann mit der zugehörigen Ausgabe angezeigt Get-ClusterSetFaultDomain ausgeführt werden.
+Um sicherzustellen, dass sie erfolgreich erstellt wurden, kann die Get-ClusterSetFaultDomain mit der Ausgabe ausgeführt werden.
 
         PS C:\> Get-ClusterSetFaultDomain -CimSession CSMASTER -FdName FD1 | fl *
 
@@ -290,15 +290,15 @@ Um sicherzustellen, dass sie erfolgreich erstellt wurde, kann mit der zugehörig
         Id                    : 1
         PSComputerName        : CSMASTER
 
-Nun, da die Fehlerdomänen erstellt wurden, legen Sie die Verfügbarkeit erstellt werden muss.
+Nun, dass die Fehlerdomänen erstellt wurden, legen Sie die Verfügbarkeit erstellt werden muss.
 
         New-ClusterSetAvailabilitySet -Name CSMASTER-AS -FdType Logical -CimSession CSMASTER -ParticipantName FD1,FD2
 
-Zum Validieren erstellt wurde, verwenden Sie dann:
+Um die Validierung erstellt wurde, verwenden Sie dann:
 
         Get-ClusterSetAvailabilitySet -AvailabilitySetName CSMASTER-AS -CimSession CSMASTER
 
-Wenn Sie neuen virtuelle Computer zu erstellen, müssen Sie dann Parameters - AvailabilitySet als Teil der Bestimmung des optimalen Knotens verwenden.  Daher würde es dann etwa wie folgt aussehen:
+Wenn Sie neuen virtuelle Computer zu erstellen, müssten Sie dann mit dem AvailabilitySet - Parameter der Ermittlung des optimalen Knotens.  Daher würde es dann etwa wie folgt aussehen:
 
         # Identify the optimal node to create a new virtual machine
         $memoryinMB=4096
@@ -308,68 +308,68 @@ Wenn Sie neuen virtuelle Computer zu erstellen, müssen Sie dann Parameters - Av
         $secure_string_pwd = convertto-securestring "<password>" -asplaintext -force
         $cred = new-object -typename System.Management.Automation.PSCredential ("<domain\account>",$secure_string_pwd)
 
-Beim Entfernen eines Clusters aus Cluster wird aufgrund der verschiedenen Lebenszyklen. Es gibt Situationen, die bei ein Cluster aus einer Reihe Cluster entfernt werden muss. Als bewährte Vorgehensweise sollten alle Cluster Satz virtuellen Computer aus dem Cluster verschoben werden. Dies kann mithilfe der Befehle **Move-ClusterSetVM** und **Verschieben-VMStorage** durchgeführt werden.
+Einen Cluster aus Cluster entfernen, die aufgrund von verschiedenen Lebenszyklen legt diese fest. Es gibt Situationen, die bei ein Cluster aus einem Cluster entfernt werden muss. Als bewährte Methode sollten alle Cluster virtuelle Computer des Clusters verschoben werden. Dies geschieht mithilfe der **Move-ClusterSetVM** und **Move-VMStorage** Befehle.
 
-Wenn die virtuellen Computer auch nicht verschoben werden, Cluster-Gruppen führt jedoch eine Reihe von Aktionen, um eine intuitive Ergebnis an dem Administrator bereitzustellen.  Wenn der Cluster aus einer Reihe entfernt wird, werden alle verbleibenden Cluster Satz gehosteter virtuellen Computer auf dem Cluster entfernt wird einfach hoch verfügbare virtuelle Computer gebunden zu diesem Cluster, vorausgesetzt, dass sie in ihren Speicher zugreifen.  Cluster-Gruppen werden von Inventar auch automatisch aktualisiert werden:
+Wenn die virtuellen Computer auch nicht verschoben werden, legt der Cluster führt jedoch eine Reihe von Aktionen, die eine intuitive Ergebnis zu erzielen, an dem Administrator.  Wenn der Cluster aus der Gruppe entfernt wird, werden alle verbleibenden Cluster virtuellen Computern im Cluster entfernt wird einfach hoch verfügbare virtuelle Maschinen, die mit diesem Cluster, vorausgesetzt, dass sie Zugriff auf ihren Speicher haben gebunden.  Cluster-legt werden den Bestand von auch automatisch aktualisiert werden:
 
-- Nicht mehr Nachverfolgen der Integrität des Clusters jetzt entfernt und den darauf ausgeführten virtuellen Computern
-- Entfernt aus Cluster Satz Namespace- und alle Verweise auf Freigaben auf dem Cluster jetzt entfernt
+- Keine Überwachung der Integrität des Clusters nun entfernt und die virtuellen Computer ausgeführt wird
+- Entfernt aus der Cluster-Set-Namespace und alle Verweise auf Freigaben, die im Cluster jetzt entfernt
 
-Beispielsweise wäre der Befehl zum CLUSTER1 Cluster aus Cluster-Gruppen zu entfernen:
+Beispielsweise wäre der Befehl zum Cluster legt den Cluster CLUSTER1 aufheben:
 
         Remove-ClusterSetMember -ClusterName CLUSTER1 -CimSession CSMASTER
 
-## Häufig gestellte Fragen
+## <a name="frequently-asked-questions-faq"></a>Häufig gestellte Fragen
 
-**Frage:** In Meine Cluster festgelegt ist kann ich auf nur mithilfe von hyperkonvergenten Clustern beschränkt? <br>
-**Antwort:** Nein.  Sie können mit herkömmlichen Clustern "direkte Speicherplätze" verwenden.
+**Frage:** In meinem Cluster festgelegt ist bin ich auf die Nutzung der hyperkonvergenten Cluster begrenzt? <br>
+**Antwort:** Nein.  Sie können mit herkömmlichen Cluster "direkte Speicherplätze" kombinieren.
 
-**Frage:** Kann ich meine Cluster festlegen über System Center Virtual Machine Manager verwalten? <br>
-**Antwort:** System Center Virtual Machine Manager unterstützt derzeit keine Cluster-Gruppen <br><br> **Frage:** Können Windows Server 2012 R2 oder 2016 Clustern im gleichen Cluster nebeneinander existieren? <br>
-**Frage:** Kann ich Arbeitslasten off Windows Server 2012 R2 migrieren oder beitreten 2016 Cluster, indem Sie einfach die Cluster, den gleichen Cluster einrichten? <br>
-**Antwort:** Cluster-Gruppen ist eine neue Technologie eingeführt in Windows Server Preview-Builds daher als solches ist nicht vorhanden in früheren Versionen. Älter OS-basierten Clustern können eine Reihe Cluster nicht beitreten. Cluster Operating System parallele Upgrades Technologie sollten jedoch die Migrationsfunktionen bereitstellen, die Sie benötigen diese Cluster auf Windows Server 2019 aktualisieren.
+**Frage:** Kann ich meinen Cluster eingerichtet über System Center Virtual Machine Manager verwalten? <br>
+**Antwort:** System Center Virtual Machine Manager unterstützt derzeit keine Cluster legt <br><br> **Frage:** Können Windows Server 2012 R2 oder 2016-Cluster in demselben Cluster gleichzeitig vorhanden sein? <br>
+**Frage:** Kann ich migrieren Sie Workloads aus Windows Server 2012 R2 oder beitreten 2016-Cluster, indem Sie einfach diese Cluster, die demselben Cluster eingerichtet? <br>
+**Antwort:** Cluster-Gruppen ist eine neue Technologie eingeführt wird, in Windows Server Preview-Builds, also beispielsweise ist nicht vorhanden in früheren Versionen. Kompatible OS-basierten Clustern können ein Clustersatz nicht beitreten. Clusterbetriebssystem parallele Upgrades Technologie sollten jedoch die Migrationsfunktion bereitstellen, die Sie suchen ein Upgrade dieser Cluster auf Windows Server-2019.
 
-**Frage:** Können Cluster-Gruppen zulassen skalieren Speicher oder (eigenständig) berechnet? <br>
-**Antwort:** Ja, indem Sie einfach eine direkte Speicherplatz oder herkömmliche Hyper-V-Cluster hinzufügen. Cluster-Gruppen ist es eine einfache Änderung der Compute-Storage-Verhältnis sogar in einem hyperkonvergenten Cluster.
+**Frage:** Können Cluster legt lassen Sie mich skalieren Sie Speicher oder (eigenständig) berechnen? <br>
+**Antwort:** Ja, einfach einen Storage Space Direct "oder" traditionellen Hyper-V-Cluster hinzufügen. Cluster-Sets ist es eine unkomplizierte Änderung Compute-Storage-Verhältnisses sogar in einem hyperkonvergenten Cluster-Satz.
 
-**Frage:** Was ist die Management-Tools für Cluster Sets <br>
+**Frage:** Was ist die Management-Tools für Cluster legt <br>
 **Antwort:** PowerShell oder WMI in dieser Version.
 
-**Frage:** Wie funktioniert die Livemigration Cross-Cluster mit Prozessoren der verschiedenen Generationen?  <br>
-**Antwort:** Cluster-Gruppen nicht Prozessor Unterschiede zu umgehen und Vorrang vor, was Hyper-V derzeit unterstützt.  Aus diesem Grund muss prozessorkompatibilitätsmodus mit schnelle Migrationen verwendet werden.  Die Empfehlung für Cluster Sets ist die Verwendung die gleichen Prozessorhardware in jedem einzelnen Cluster sowie der gesamten Cluster festlegen für live-Migrationen zwischen Clustern auftreten.
+**Frage:** Wie funktioniert die clusterübergreifende live-Migration mit Prozessoren der unterschiedlichen prozessorgenerationen?  <br>
+**Antwort:** Clustersätze nicht umgehen, prozessorunterschiede und ersetzen, was derzeit Hyper-V unterstützt.  Aus diesem Grund muss der prozessorkompatibilitätsmodus mit quick-Migrationen verwendet werden.  Die Empfehlung für Cluster-Gruppen ist die Verwendung der gleichen Prozessorhardware in jedem einzelnen Cluster sowie den gesamten Cluster eingerichtet für live-Migrationen zwischen Clustern auftreten.
 
-**Frage:** Können meine Cluster Satz virtuelle Computer automatisch Failover bei einem Clusterfehler?  <br>
-**Antwort:** In dieser Version kann virtuellen Maschinen im Cluster Satz nur manuell live-migriert über Cluster sein. jedoch nicht automatisch Failovercluster. 
+**Frage:** Können meine Clustersatz virtuelle Computer automatisch ein Failover in einem Clusterfehler?  <br>
+**Antwort:** In dieser Version möglich Cluster virtuelle Computer nur manuell live-Migration zwischen Clustern; jedoch nicht automatisch Failover. 
 
-**Frage:** Wie sicherstellen wir, dass der Speicher für Cluster Serverausfälle robustes ist? <br>
-**Antwort:** Verwenden Sie Cross-Cluster Storage Replica (SR) Lösung über Member Cluster, um zu erkennen, die Speicher-resilienz, um die Clusterfehler.
+**Frage:** Wie können wir sicherstellen, dass Speicher robust gegenüber Fehlern ist? <br>
+**Antwort:** Verwenden Sie clusterübergreifende Speicherreplikat (SR) Lösung für Element-Cluster, um die Storage-resilienz gegenüber clusterfehlern zu nutzen.
 
-**Frage:** Ich verwende Speicher Replikat (SR) über Member Cluster repliziert. Cluster Set-Namespace Speicher UNC-Pfade Änderung auf SR-Failover auf dem Replikat Ziel "direkte Speicherplätze"-Cluster verwenden? <br>
-**Antwort:** In dieser Version erfolgt nicht mit SR-Failover eine solche Cluster Satz Namespace Empfehlung Änderung. Informieren Sie Microsoft wissen, ob dieses Szenario ist entscheidend für Sie und wie Sie sie verwenden möchten.
+**Frage:** Ich verwende Speicherreplikat (SR), um auf Member-Cluster zu replizieren. Cluster Speicherung von Namespace Änderung der UNC-Pfade bei SR-Failover zum Replikat "direkte Speicherplätze" Zielcluster verwenden? <br>
+**Antwort:** In dieser Version tritt eine solche Cluster Satz Namespace Verweis Änderung nicht mit SR-Failover. Informieren Sie Microsoft, die wissen, ob es sich bei diesem Szenario ist wichtig für Sie und wie Sie sie verwenden möchten.
 
-**Frage:** Es ist möglich, Failover-VMs über Fehlerdomänen im Notfall (beispielsweise die gesamte Fehlerdomäne ausgefallen)? <br>
-**Antwort:** Nein, beachten Sie diese Cross-Cluster-Failover in einer logischen Fehlertoleranz Domäne wird noch nicht unterstützt. 
+**Frage:** Es ist möglich, Failover für virtuelle Computer auf Fehlerdomänen in Notfall (z. B. die gesamte Fehlerdomäne ausgefallen)? <br>
+**Antwort:** Nein, beachten Sie, dass clusterübergreifende das Failover in einen logischen Fehler Domäne wird noch nicht unterstützt. 
 
-**Frage:** Kann meine Cluster Span-Cluster in mehrere Websites (oder DNS-Domänen) festgelegt? <br> 
-**Antwort:** Dies ist ein Szenario nicht getestet und nicht sofort für die Produktion Unterstützung geplant. Informieren Sie Microsoft wissen, ob dieses Szenario ist entscheidend für Sie und wie Sie sie verwenden möchten.
+**Frage:** Kann mein Cluster Span-Cluster in mehreren Sites (oder DNS-Domänen) festlegen? <br> 
+**Antwort:** Dies ist ein Szenario nicht getestet und für die Unterstützung für die Produktion nicht sofort geplant. Informieren Sie Microsoft, die wissen, ob es sich bei diesem Szenario ist wichtig für Sie und wie Sie sie verwenden möchten.
 
-**Frage:** Dient zum Cluster mit IPv6 festlegen? <br>
+**Frage:** Wird für Cluster mit IPv6 festgelegt? <br>
 **Antwort:** IPv4 und IPv6 werden wie bei Failoverclustern mit Cluster unterstützt.
 
-**Frage:** Was sind die Active Directory-Gesamtstruktur-Anforderungen für Cluster, legt <br>
-**Antwort:** Alle Member Cluster müssen in derselben AD-Gesamtstruktur sein.
+**Frage:** Legt die Active Directory-Gesamtstruktur Anforderungen für cluster <br>
+**Antwort:** Alle Member-Cluster muss sich in derselben AD-Gesamtstruktur.
 
-**Frage:** Wie viele Cluster oder Knoten kann Teil eines einzigen Clusters werden festgelegt? <br>
-**Antwort:** In der Vorschau, cluster-Gruppen getestet und unterstützt bis zu 64 insgesamt Clusterknoten. Allerdings Cluster legt Architektur, die sich auf viel größeren Grenzwerte und nicht etwas, das bei begrenzt ist. Informieren Sie Microsoft wissen, ob größerem ist entscheidend für Sie und wie Sie sie verwenden möchten.
+**Frage:** Wie viele Cluster oder Knoten kann Teil eines einzelnen Clusters werden festgelegt? <br>
+**Antwort:** In der Vorschau clustersätze getestet und unterstützt bis zu 64 insgesamt Clusterknoten. Allerdings Cluster Architektur, die sich auf viel größeren Einschränkungen festgelegt und ist nicht hartcodiert für einen Grenzwert ist. Informieren Sie Microsoft, die wissen, ob es sich bei größerem Umfang ist wichtig für Sie und wie Sie sie verwenden möchten.
 
-**Frage:** Werden für alle "direkte Speicherplätze"-Cluster in einem Cluster einen einzelnen Speicherpool Formular? <br>
-**Antwort:** Nein. "Direkte Speicherplätze"-Storage-Technologie arbeitet weiterhin in einem einzigen Cluster und nicht über Member-Cluster in einer Cluster-Gruppe.
+**Frage:** Werden alle "direkte Speicherplätze"-Cluster in einem Clustersatz mit einen einzelnen Speicherpool bilden? <br>
+**Antwort:** Nein. Storage Spaces Direct-Technologie arbeitet immer noch in einem einzigen Cluster, und nicht für alle Member-Clustern in einem Clustersatz.
 
-**Frage:** Ist der Cluster Namespace hoch verfügbare festgelegt? <br>
-**Antwort:** Ja, wird der Cluster-Satz-Namespace über einen kontinuierlich verfügbar (CA) Empfehlung sofs kontaktieren Namespace-Server, auf dem Management-Cluster bereitgestellt. Microsoft empfiehlt, genügend Anzahl virtueller Maschinen von Member-Clustern, um lokalisierte für den gesamten Cluster-Fehler, robustes sicher. Allerdings wird um unvorhergesehene schwerwiegende Fehler auftreten – z. B. alle virtuellen Computer in der Management-Cluster gleichzeitig ausfallen – zu berücksichtigen die Empfehlung Informationen darüber dauerhaft in jedem Satz Cluster, sogar über Neustarts hinweg zwischengespeichert.
+**Frage:** Wird der Cluster hoch verfügbaren Namespace festgelegt? <br>
+**Antwort:** Ja, wird der Cluster-Set-Namespace über einen kontinuierlich verfügbaren (CA) Verweis SOFS-Namespaceserver, die auf dem verwaltungscluster ausgeführt bereitgestellt. Microsoft empfiehlt die Verwendung von ausreichende Anzahl von virtuellen Computern von der Members-Clustern, diese zu Ausfällen für den gesamten Cluster stabil zu machen. Allerdings wird um unvorhergesehene schwerwiegenden Ausfällen – z. B. alle virtuellen Computer in den verwaltungscluster, die zur gleichen Zeit ausfällt – berücksichtigen die Verweisinformationen darüber dauerhaft in jedem Clusterknoten für die Gruppe, auch bei Neustarts zwischengespeichert.
  
-**Frage:** Dient zum Cluster-Namespace-basierte Speicherzugriff speicherleistung verlangsamen in einem Cluster festlegen? <br>
-**Antwort:** Nein. Cluster-Satz-Namespace bietet einen Overlay-Referral-Namespace in einem Cluster Set – vom Konzept her wie verteilt Datei System Namespaces (DFSN). Und im Gegensatz zu DFSN, alle Cluster Namespace Referral-Metadaten erfolgt automatisch und auf allen Knoten ohne Eingreifen Administrator automatisch aktualisiert wird also nahezu gar keine Leistungsaufwand in den Speicher Zugriffspfad. 
+**Frage:** Wird der Cluster in einem Clustersatz Verlangsamung der Leistung der Namespace-basierte datenspeicherung und Zugriff festgelegt? <br>
+**Antwort:** Nein. Cluster-Set-Namespace bietet einen Overlay-Verweis-Namespace in einer Cluster-Gruppe – vom Konzept her wie Distributed Datei System Namespaces (DFSN). Und im Gegensatz zu DFSN, alle Cluster Satz Namespace Verweis Metadaten automatisch aufgefüllt und automatisch aktualisiert werden, auf allen Knoten ohne jegliches Eingreifen des Administrators, gibt es also praktisch keinen zusätzlichen Verwaltungsaufwand im Storage-Zugriffspfad. 
 
-**Frage:** Wie kann ich Cluster-Metadaten sichern? <br>
-**Antwort:** Dieser Leitfaden ist identisch mit dem Failovercluster. Das System Zustand Backup wird den Status des Clusters sowie sichern.  Über Windows Server-Sicherung können Sie wieder her, der nur einen Knoten Cluster-Datenbank (die nie aufgrund etliche korrigierten wir haben Logik notwendig sein sollte) festzulegen oder eine autorisierend wiederherstellen, um die gesamte Clusterdatenbank ein Rollback auf allen Knoten ausführen. Im Fall von Cluster-Gruppen empfiehlt Microsoft, solche eine autoritativ Wiederherstellung zunächst auf macht die Member Cluster zu dann Management bei Bedarf. 
+**Frage:** Wie kann ich die Cluster-Metadaten sichern? <br>
+**Antwort:** Diese Anleitung ist identisch mit der Failover-Cluster. Die Systemstatussicherung wird auch der Clusterstatus sichern.  Über Windows Server-Sicherung möglich, Wiederherstellungen von nur einem Knoten des Cluster-Datenbank (die nie aufgrund von Selbstheilende Programmlogik, die wir haben etliche notwendig sein sollte) oder eine autorisierende Wiederherstellung aus, um ein Rollback die gesamten Cluster-Datenbank auf allen Knoten. Im Fall von Cluster-Sets empfiehlt Microsoft, zuerst tun von solchen eine autorisierende Wiederherstellung auf den Member-Cluster und dann auf dem verwaltungscluster, bei Bedarf. 

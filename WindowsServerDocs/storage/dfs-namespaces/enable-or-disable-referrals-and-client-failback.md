@@ -1,5 +1,5 @@
 ---
-title: Erlauben oder verhindern Sie von Verweise und Clientfailbacks
+title: Erlauben oder Verhindern von Verweisen und Clientfailbacks
 description: Dieser Artikel beschreibt, wie Sie Verweise und Clientfailbacks aktivieren oder deaktivieren.
 ms.date: 6/5/2017
 ms.prod: windows-server-threshold
@@ -8,15 +8,16 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: be827ba52beb65219dad30e8c182963054cfbd16
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.openlocfilehash: 20ac61f86ede938efd574fc6a048775437a51211
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59835021"
 ---
-# <a name="enable-or-disable-referrals-and-client-failback"></a>Erlauben oder verhindern Sie von Verweise und Clientfailbacks
+# <a name="enable-or-disable-referrals-and-client-failback"></a>Erlauben oder Verhindern von Verweisen und Clientfailbacks
 
-> Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server2012 R2, Windows Server 2012, Windows Server2008 R2, Windows Server 2008
+> Gilt für: WindowsServer 2019, WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2, WindowsServer 2008
 
 Bei einem Verweis handelt es sich um eine sortierte Liste mit Servern, die ein Clientcomputer von einem Domänencontroller oder Namespaceserver erhält, wenn der Benutzer auf einen Namespacestamm oder DFS-Ordner mit Zielen zugreift. Nach Eingang des Verweises auf dem Computer wird versucht, auf den ersten Server in der Liste zuzugreifen. Ist der Server nicht verfügbar, wird vom Clientcomputer versucht, auf den nächsten Server zuzugreifen. Wenn ein Server nicht mehr verfügbar ist, können Sie Clients so konfigurieren, dass ein Failback zum bevorzugten Server ausgeführt wird, nachdem er wieder verfügbar ist.
 
@@ -38,11 +39,11 @@ Durch Deaktivieren eines Namespaceservers oder eines Verweises für ein Ordnerzi
 
 
 > [!TIP]
-> Verwenden Sie zum Aktivieren oder Deaktivieren der Verweise mithilfe von Windows PowerShell, die Cmdlets [Set-DfsnRootTarget – Status](https://technet.microsoft.com/library/jj884266.aspx) oder [Set-DfsnServerConfiguration](https://technet.microsoft.com/library/jj884277.aspx), die in Windows Server2012 eingeführt wurden.
+> Verwenden Sie zum Aktivieren oder deaktivieren Sie Verweise mithilfe von Windows PowerShell, die [Set-DfsnRootTarget – Status](https://technet.microsoft.com/library/jj884266.aspx) oder [Set-DfsnServerConfiguration](https://technet.microsoft.com/library/jj884277.aspx) -Cmdlets, die in Windows Server 2012 eingeführt wurden.
 
 ## <a name="enable-client-failback"></a>Clientfailback aktivieren
 
-Wenn ein Ziel nicht mehr verfügbar ist, können Sie Clients so konfigurieren, dass ein Failback zu dem Ziel ausgeführt wird, nachdem es wiederhergestellt wurde. Damit das Failback funktioniert, müssen die Clientcomputer die im folgenden Thema [Clientanforderungen für DFS-Namespaces](https://technet.microsoft.com/library/cc771913(v=ws.11).aspx) aufgeführten Anforderungen erfüllen.
+Wenn ein Ziel nicht mehr verfügbar ist, können Sie Clients so konfigurieren, dass ein Failback zu dem Ziel ausgeführt wird, nachdem es wiederhergestellt wurde. Für das Failback funktioniert müssen Clientcomputer, auf die im folgenden Thema aufgeführten Anforderungen erfüllen: [Überprüfen Sie die DFS-Namespaces-Clientanforderungen](https://technet.microsoft.com/library/cc771913(v=ws.11).aspx).
 
 
 > [!NOTE]
@@ -67,8 +68,8 @@ Ordner mit Zielen erben die Clientfailbackeinstellungen des Namespacestamms. Wen
 
 3.  Aktivieren Sie auf der Registerkarte **Verweise** das Kontrollkästchen **Clientfailback zu bevorzugten Zielen**.
 
-## <a name="see-also"></a>Weitere Informationen: 
+## <a name="see-also"></a>Siehe auch 
 
 -   [Optimieren von DFS-Namespaces](tuning-dfs-namespaces.md)
--   [Lesen Sie die DFS-Namespace-Clientanforderungen](https://technet.microsoft.com/library/cc771913(v=ws.11).aspx)
+-   [Überprüfen von Clientanforderungen für DFS-Namespaces](https://technet.microsoft.com/library/cc771913(v=ws.11).aspx)
 -   [Delegieren von Verwaltungsberechtigungen für DFS-Namespaces](delegate-management-permissions-for-dfs-namespaces.md)

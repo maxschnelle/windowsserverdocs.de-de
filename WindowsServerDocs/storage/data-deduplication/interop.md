@@ -1,6 +1,6 @@
 ---
 ms.assetid: 60fca6b2-f1c0-451f-858f-2f6ab350d220
-title: "Interoperabilität der Datendeduplizierung"
+title: Interoperabilität der Datendeduplizierung
 ms.technology: storage-deduplication
 ms.prod: windows-server-threshold
 ms.topic: article
@@ -9,18 +9,19 @@ manager: klaasl
 ms.author: wgries
 ms.date: 09/16/2016
 ms.openlocfilehash: 2a28be1bdd22915182cbdbb2726ab9d37422e889
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59834431"
 ---
 # <a name="data-deduplication-interoperability"></a>Interoperabilität der Datendeduplizierung
 
-> Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
 ## <a id="supported"></a>Unterstützt
 
-### <a id="supported-clusters"></a>Failoverclustering
+### <a id="supported-clusters"></a>Failover-Clusterunterstützung
 
 [Failoverclustering](../..//failover-clustering/failover-clustering-overview.md) wird vollständig unterstützt, wenn auf jedem Knoten im Cluster das [Datendeduplizierungsfeature installiert](install-enable.md#install-dedup) ist. Andere wichtige Hinweise:
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 10/17/2017
 * Die Datendeduplizierung interagiert vollständig mit dem Feature [Paralleles Upgrade für Clusterbetriebssystem](../..//failover-clustering/cluster-operating-system-rolling-upgrade.md).
 * Die Datendeduplizierung wird auf NTFS-formatierten [Direkte Speicherplätze](../storage-spaces/storage-spaces-direct-overview.md)-Datenträgern vollständig unterstützt (Spiegelung oder Parität). Auf Volumes mit mehreren Ebenen wird die Deduplizierung nicht unterstützt. Weitere Informationen finden Sie unter [Data Deduplication auf ReFS](interop.md#unsupported-refs).
 
-### <a id="supported-storage-replica"></a>Speicherreplikat
+### <a id="supported-storage-replica"></a>Funktion "Speicherreplikat"
 [Speicherreplikat](../storage-replica/storage-replica-overview.md) wird vollständig unterstützt. Die Datendeduplizierung sollte nicht für die Ausführung auf der sekundären Kopie konfiguriert werden.
 
 ### <a id="supported-branchcache"></a>BranchCache
@@ -38,7 +39,7 @@ Sie können den Netzwerkzugriff auf Daten optimieren, indem Sie [BranchCache](..
 ### <a id="supported-dfsr"></a>DFS-Replikation
 Die Datendeduplizierung ist mit der Replikation des verteilten Dateisystems (Distributed File System, DFS) einsetzbar. Optimieren oder Deoptimieren einer Datei löst keine Replikation aus, da die Datei nicht geändert wird. DFS-Replikation verwendet Remoteunterschiedskomprimierung, nicht die Blöcke im Blockspeicher, zur Over-the-Wire-Speicherung. Die Dateien auf dem Replikat können auch mithilfe der Deduplizierung optimiert werden, wenn das Replikat die Datendeduplizierung verwendet.
 
-### <a id="supported-quotas"></a>Kontingente
+### <a id="supported-quotas"></a>Quotas
 Das Festlegen einer festen Kontingentgrenze für einen Volumestammordner, für den auch die Deduplizierung aktiviert ist, wird durch die Datendeduplizierung nicht unterstützt. Wenn für einen Volumestamm eine feste Kontingentgrenze vorhanden ist, stimmen der tatsächliche freie Speicherplatz auf dem Volume und der durch die Kontingentgrenze beschränkte Speicherplatz auf dem Volume nicht überein. Dies kann zu Fehlern bei Deduplizierungsoptimierungsaufträgen führen. Es ist jedoch möglich, eine weiche Kontingentgrenze für einen Volumestammordner festzulegen, für den die Deduplizierung aktiviert ist. 
 
 Ist ein Kontingent für ein dedupliziertes Volume aktiviert, wird die logische und nicht die physische Größe der Datei verwendet. Der Kontingentbedarf (einschließlich aller Kontingentschwellenwerte) ändert sich nicht, wenn eine Datei durch die Deduplizierung verarbeitet wird. Alle anderen Kontingentfunktionen, einschließlich weicher Volumestamm-Kontingentgrenzen und Kontingentgrenzen für Unterordner, funktionieren bei Verwendung der Deduplizierung normal.
@@ -60,26 +61,26 @@ Die Windows Server-Sicherung kann ein optimiertes Volume in der vorliegenden For
     wbadmin get versions
     ```
 
-    Diese Ausgabeversions-ID wird eine Datums- und Uhrzeitzeichenfolge sein, z.B. 08/18/2016-06:22.
+    Diese ausgabeversions-ID werden ein Datum und Uhrzeit-Zeichenfolge, z.B.: 08/18/2016-06:22.
 
 4. Stellen Sie das gesamte Volume wieder her.
     ```PowerShell
     wbadmin start recovery –version:02/16/2012-06:22 -itemtype:Volume  -items:E: -recoveryTarget:E:
     ```
 
-    **--ODER--**  
+    **--OR--**  
 
     Wiederherstellen eines bestimmten Ordners (in diesem Fall den Ordner E:\Docs):
     ```PowerShell
     wbadmin start recovery –version:02/16/2012-06:22 -itemtype:File  -items:E:\Docs  -recursive
     ```
 
-## <a id="unsupported"></a>Nicht unterstützt
+## <a id="unsupported"></a>Nicht unterstützte
 ### <a id="unsupported-refs"></a>ReFS
 Windows Server 2016 unterstützt keine Datendeduplizierung auf ReFS-formatierten Volumes. [Stimmen Sie für Windows Server vNext unter Windows Server Storage UserVoice für dieses Element](https://windowsserver.uservoice.com/forums/295056-storage/suggestions/7962813-support-deduplication-on-refs).
 
 ### <a id="unsupported-windows-client"></a>Windows 10 (Clientbetriebssystem)
-Die Datendeduplizierung wird unter Windows10 nicht unterstützt. Es gibt verschiedene beliebte Blogbeiträge in der Windows-Community, die beschreiben, wie Sie die Binärdateien aus Windows Server2016 entfernen und unter Windows10 installieren. Dieses Szenario wurde aber nicht im Rahmen der Entwicklung der Datendeduplizierung bestätigt. [Stimmen Sie für Windows 10 vNext unter Windows Server Storage UserVoice für dieses Element](https://windowsserver.uservoice.com/forums/295056-storage/suggestions/9011008-add-deduplication-support-to-client-os).
+Die Datendeduplizierung wird unter Windows 10 nicht unterstützt. Es gibt verschiedene beliebte Blogbeiträge in der Windows-Community, die beschreiben, wie Sie die Binärdateien aus Windows Server 2016 entfernen und unter Windows 10 installieren. Dieses Szenario wurde aber nicht im Rahmen der Entwicklung der Datendeduplizierung bestätigt. [Stimmen Sie für Windows 10 vNext unter Windows Server Storage UserVoice für dieses Element](https://windowsserver.uservoice.com/forums/295056-storage/suggestions/9011008-add-deduplication-support-to-client-os).
 
 ### <a id="unsupported-windows-search"></a>Windows Search
 Windows Search unterstützt die Datendeduplizierung nicht. Die Datendeduplizierung verwendet Analysepunkte, die Windows Search nicht indizieren kann. Daher überspringt Windows Search alle deduplizierten Dateien und schließt sie aus dem Index aus. Daher können Suchergebnisse für deduplizierte Volumes unvollständig sein. [Stimmen Sie für Windows Server vNext unter Windows Server Storage UserVoice für dieses Element](https://windowsserver.uservoice.com/forums/295056-storage/suggestions/17888647-make-windows-search-service-work-with-data-dedupli).

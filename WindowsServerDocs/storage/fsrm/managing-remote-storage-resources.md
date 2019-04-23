@@ -1,6 +1,6 @@
 ---
 title: Verwalten von Remotespeicherressourcen
-description: "In diesem Artikel wird beschrieben, wie Sie Speicherressourcen einem Remotecomputer verwalten können."
+description: In diesem Artikel wird beschrieben, wie Sie Speicherressourcen einem Remotecomputer verwalten können.
 ms.date: 7/7/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 583c36f399848cf67c6f3a850e62015b224768d9
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59836631"
 ---
 # <a name="managing-remote-storage-resources"></a>Verwalten von Remotespeicherressourcen
 
-> Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
 
 Wenn Sie Speicherressourcen auf einem Remotecomputer verwalten möchten, haben Sie zwei Optionen:
 
@@ -35,5 +36,5 @@ Sie haben u. a. folgende Möglichkeiten:
 
 In diesem Abschnitt werden folgende Themen behandelt:
 
--   [Verbindung mit einem Remotecomputer herstellen](connect-to-remote-computer.md)
+-   [Verbinden Sie mit einem Remotecomputer](connect-to-remote-computer.md)
 -   [Befehlszeilentools](command-line-tools.md)
