@@ -1,6 +1,6 @@
 ---
 title: Verwalten von Data Center Bridging (DCB)
-description: In diesem Thema erhalten Sie Anweisungen zur Verwendung von Windows PowerShell-Befehle zum Verwalten von Data Center Bridging in Windows Server2016.
+description: Dieses Thema enthält Anweisungen zur Verwendung von Windows PowerShell-Befehle zum Verwalten von Data Center Bridging in Windows Server 2016.
 ms.prod: windows-server-threshold
 ms.technology: networking
 ms.topic: article
@@ -8,50 +8,51 @@ ms.assetid: 1575cc7c-62a7-4add-8f78-e5d93effe93f
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: dbe9e5e4af2ddd834b5b8f38e9ffd1b403e92793
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 3912bb6048a06a4656b5b27ccec8f8fb3f5b114b
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59847411"
 ---
 # <a name="manage-data-center-bridging-dcb"></a>Verwalten von Data Center Bridging (DCB)
 
->Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
-In diesem Thema erhalten Sie Anweisungen zur Verwendung von Windows PowerShell-Befehle zum Data Center Bridging \(DCB\) auf einem Netzwerkadapter DCB\-kompatiblen zu konfigurieren, die auf einem Computer installiert ist, auf denen Windows Server2016 oder Windows10 ausgeführt wird.
+Dieses Thema enthält Anweisungen zur Verwendung von Windows PowerShell-Befehle zum Konfigurieren der Data Center Bridging \(DCB\) auf ein DCB\--kompatible Netzwerkkarte, die auf einem Computer installiert ist, die ausgeführt wird WindowsServer 2016 oder Windows 10.
 
-## <a name="install-dcb-in-windows-server-2016-or-windows-10"></a>Installieren Sie DCB wird in Windows Server 2016 oder Windows10.
+## <a name="install-dcb-in-windows-server-2016-or-windows-10"></a>Installieren Sie DCB in WindowsServer 2016 oder Windows 10
 
-Informationen zu Voraussetzungen für die Verwendung und DCB installieren, finden Sie unter [installieren Data Center Bridging (DCB) in Windows Server2016 oder Windows10](dcb-install.md).
+Informationen zu den Voraussetzungen für die Verwendung und DCB installieren, finden Sie unter [installieren Sie Data Center Bridging (DCB) in Windows Server 2016 oder Windows 10](dcb-install.md).
 
 
 ## <a name="dcb-configurations"></a>DCB-Konfigurationen 
 
-Vor Windows Server2016 wurde alle DCB-Konfiguration universell für alle Netzwerkadapter angewendet, die DCB unterstützt. 
+Vor Windows Server 2016 wurde die gesamte DCB-Konfiguration universell für alle Netzwerkadapter angewendet, die DCB unterstützt. 
 
-In Windows Server2016 können Sie DCB-Konfigurationen Richtlinienspeicher Global oder einzelne Richtlinie Store\(s\) anwenden. Wenn einzelne Richtlinien angewendet werden sie alle globalen Einstellungen außer Kraft setzen.
+Sie können in Windows Server 2016 DCB Konfigurationen anwenden, entweder auf die globale Richtlinie Store oder auf einzelne Richtlinie Store\(s\). Wenn einzelne Richtlinien angewendet werden, überschreiben sie alle globalen Richtlinieneinstellungen.
 
-Die Konfigurationen der Zuweisung Datenverkehr-Klasse, PCF und Anwendung der Priorität auf Systemebene ist nicht auf Netzwerkadapter angewendet, bis Sie die folgenden Schritteaus.
+Die Konfigurationen der Zuweisung Datenverkehr-Klasse, die PCF und die Anwendung der Priorität auf Systemebene wird nicht auf Netzwerkadapter angewendet, bis Sie die folgenden Schritte ausführen.
 
 1. Aktivieren Sie das Bit DCBX bereit, auf "false"
 
-2. Aktivieren Sie DCB für die Netzwerkadapter. Weitere Informationen finden Sie unter [aktivieren und Anzeigen von DCB-Einstellungen für Netzwerkadapter](#bkmk_enabledcb).
+2. Aktivieren Sie DCB für die Netzwerkadapter an. Finden Sie unter [aktivieren und Anzeigen von DCB-Einstellungen auf den Netzwerkadaptern](#bkmk_enabledcb).
 
 >[!NOTE]
->Wenn Sie von einem Switch über DCBX DCB konfigurieren möchten, finden Sie unter [DCBX-Einstellungen](#BKMK_DCBX_Settings)
+>Wenn Sie einen Switch über DCBX DCB konfigurieren möchten, finden Sie unter [DCBX-Einstellungen](#BKMK_DCBX_Settings)
 
-Das DCBX bereit Bit ist in der DCB-Spezifikation beschrieben. Wenn das bereit Bit auf einem Gerät festgelegt ist, auf true festgelegt ist, das Gerät ist Konfigurationen von einem Remotegerät über DCBX akzeptiert. Wenn das bereit Bit auf einem Gerät auf "false" festgelegt ist, wird das Gerät Ablehnen aller Configuration Zugriffsversuche von Remotegeräten und nur die lokalen Konfigurationen zu erzwingen.
+Das DCBX bereit Bit ist in der DCB-Spezifikation beschrieben. Wenn das Bit bereit, auf einem Gerät festgelegt ist, auf "true", das Gerät ist bereit, die Konfigurationen von einem Remotegerät über DCBX zu übernehmen. Wenn Bits auf einem Gerät bereit, die auf "false" festgelegt ist, wird das Gerät alle Versuche der Konfiguration von Remotegeräten ablehnen und nur die lokalen Konfigurationen zu erzwingen.
 
-Wenn DCB nicht in Windows Server2016 installiert ist ist der Wert des bereit Bits nicht relevant, als Betriebssystems betroffen ist, da das Betriebssystem keine lokalen Einstellungen auf Netzwerkadapter angewendet wurde. Nach der Installation von DCB ist der Standardwert des bereit Bits "true". Dies ermöglicht die Netzwerkadapter für alle Konfigurationen behalten sie möglicherweise von ihren Remotepeers erhalten haben.
+Wenn DCB nicht in Windows Server 2016 installiert ist ist der Wert des Bits bereit irrelevant, soweit es das Betriebssystem betrifft, da das Betriebssystem keine lokalen Einstellungen, die auf Netzwerkadapter angewendet wurde. Nach der Installation von DCB gilt der Standardwert des Bits bereit. Dieser Entwurf ermöglicht Netzwerkadaptern, um alle Konfigurationen zu halten, sie möglicherweise von ihren Remotepeers erhalten haben.
 
-Wenn ein Netzwerkadapter DCBX unterstützt wird, erhält es nie Konfigurationen von einem Remotegerät. Er erhält Konfigurationen aus dem Betriebssystem, jedoch erst, nachdem Sie die DCBX bereit Bit auf "false" festgelegt ist.
+Wenn ein Netzwerkadapter DCBX unterstützt, erhält es nie Konfigurationen von einem Remotegerät. Konfigurationen auch vom Betriebssystem empfangen, aber erst nach der DCBX bereit Bit auf "false" festgelegt ist.
 
 ## <a name="set-the-willing-bit"></a>Legen Sie das Bit bereit
 
-Betriebssystemkonfigurationen Datenverkehrsklasse sowie PFC Anwendung Priorität Zuordnung für Netzwerkadapter zu erzwingen oder überschreiben Sie einfach die Konfigurationen von Remotegeräten \ – ggf. \ – Sie können den folgenden Befehl ausführen.
+Zum Erzwingen von Betriebssystemkonfigurationen der Datenverkehrsklasse PCF und Priorität der anwendungszuweisung auf den Netzwerkadaptern, oder die Konfigurationen von Remotegeräten einfach überschreiben \ – sofern vorhanden \ – Sie können den folgenden Befehl ausführen.
 
 >[!NOTE]
->DCB Windows PowerShell-Befehlsnamen enthalten "QoS" anstelle von "DCB" in der Zeichenfolge. Dies liegt daran QoS und DCB integriert sind, in Windows Server2016 eine nahtlose QoS-Management-Oberfläche bereitzustellen.
+>DCB Windows PowerShell-Befehlsnamen enthalten "QoS" anstelle von "DCB" in der Zeichenfolge. Dies ist in Windows Server 2016 bieten eine nahtlose Benutzeroberfläche für die QoS-QoS und DCB integriert sind.
 
     
     Set-NetQosDcbxSetting -Willing $FALSE
@@ -62,7 +63,7 @@ Betriebssystemkonfigurationen Datenverkehrsklasse sowie PFC Anwendung Priorität
     [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):
     
 
-Um den Zustand des bereit Bits Einstellung anzuzeigen, können Sie den folgenden Befehl verwenden:
+Um die Anzeige des Status des bereit Bits festlegen können Sie den folgenden Befehl aus:
 
     
     Get-NetQosDcbxSetting
@@ -72,33 +73,33 @@ Um den Zustand des bereit Bits Einstellung anzuzeigen, können Sie den folgenden
     False   Global  
     
 
-## <a name="dcb-configuration-on-network-adapters"></a>DCB-Konfiguration für Netzwerkadapter
+## <a name="dcb-configuration-on-network-adapters"></a>DCB-Konfiguration auf den Netzwerkadaptern
 
-Aktivieren DCB für einen Netzwerkadapter, können Sie die Konfiguration von einem Switch auf den Netzwerkadapter übermittelt finden Sie unter.
+Aktivieren DCB für einen Netzwerkadapter, können Sie die Konfiguration von einem Switch auf den Netzwerkadapter übermittelt, finden Sie unter.
 
-DCB-Konfigurationen umfassen die folgenden Schritteaus.
+DCB-Konfigurationen enthalten die folgenden Schritte aus.
 
-1.  Konfigurieren Sie DCB-Einstellungen auf Systemebene, einschließlich:
+1.  Konfigurieren Sie DCB-Einstellungen auf Systemebene, darunter:
 
-    ein. Datenverkehrsverwaltung-Klasse
+    a. Verwaltung des Datenverkehrs-Klasse
     
-    b. Prioritätseinstellungen Nachrichtenfluss-Steuerelement (PFC)
+    b. Prioritätseinstellungen für Flow-Steuerelement (PCF)
     
-    c. Anwendung Priorität Zuweisung
+    c. Priorität der Anwendungszuweisung
     
     d. DCBX-Einstellungen
 
-2. Konfigurieren Sie DCB für den Netzwerkadapter.
+2. Konfigurieren Sie DCB für den Netzwerkadapter an.
 
 
 
 ##  <a name="dcb-traffic-class-management"></a>Datenverkehrsklasse DCB-Verwaltung
 
-Folgendes Beispiel Windows PowerShell-Befehle für die Datenverkehrsklasse Verwaltung sind.
+Windows PowerShell-Beispielbefehle für die Verwaltung des Traffic Class "folgen".
 
 ### <a name="create-a-traffic-class"></a>Erstellen Sie eine Datenverkehrsklasse
 
-Können die **New-NetQosTrafficClass** Befehl aus, um eine Datenverkehrsklasse zu erstellen.
+Können Sie die **New-NetQosTrafficClass** Befehl aus, um eine Datenverkehrsklasse zu erstellen.
 
     
     New-NetQosTrafficClass -Name SMB -Priority 4 -BandwidthPercentage 30 -Algorithm ETS
@@ -108,15 +109,15 @@ Können die **New-NetQosTrafficClass** Befehl aus, um eine Datenverkehrsklasse z
     SMB  ETS   30   4Global
       
 
-Standardmäßig werden alle 802. 1p-Werte eine Datenverkehrsklasse standardmäßig zugeordnet, die über 100% der Bandbreite der physischen Verbindung. Die **New-NetQosTrafficClass** Befehl erstellt eine neue Datenverkehrsklasse, welche Pakete, die mit 802. 1p-Priorität gekennzeichnet ist 4-Wert zugeordnet ist. Die Übertragung Auswahl Algorithmus \(TSA\) ETS und 30% der Bandbreite.
+Standardmäßig werden alle 802. 1p-Werte auf eine Klasse standardmäßig Datenverkehr zugeordnet, die 100 % der Bandbreite der physischen Verknüpfung hat. Die **New-NetQosTrafficClass** Befehl erstellt eine neue Datenverkehrsklasse, auf welche jedes Paket, die mit der 802. 1p-Priorität gekennzeichnet ist 4 Wert zugeordnet ist. Die Übertragung Auswahlalgorithmus \(TSA\) ETS und 30 % der Bandbreite.
 
-Sie können bis zu 7 neue Klassen erstellen. Einschließlich der Standard-Datenverkehrsklasse darf höchstens 8 Datenverkehrsklassen des Systems. Ein DCB-fähiger Netzwerkadapter unterstützen jedoch nicht, dass viele Klassen in der Hardware des Datenverkehrs. Wenn Sie erstellen Weitere Datenverkehrsklassen als auf einem Netzwerkadapter verwendet werden kann, und Sie DCB auf Netzwerkadapter aktivieren, meldet der Miniporttreiber einen Fehler an das Betriebssystem. Der Fehler wird im Ereignisprotokoll protokolliert.
+Sie können bis zu 7 neue Klassen erstellen. Einschließlich der standardmäßigen Datenverkehr-Klasse darf es nur maximal 8 Datenverkehrsklassen im System. Ein DCB-fähiger Netzwerkadapter unterstützen jedoch nicht, dass viele Klassen in der Hardware Datenverkehr. Wenn Sie weitere Klassen als auf einem Netzwerkadapter untergebracht werden kann und Sie DCB für diesen Netzwerkadapter aktivieren, meldet der Miniporttreiber einen Fehler für das Betriebssystem an. Der Fehler wird im Ereignisprotokoll protokolliert.
 
-Die Summe der Bandbreite Reservierungen für alle erstellten Datenverkehrsklassen darf 99% der Bandbreite nicht überschreiten. Der Standard-Datenverkehrsklasse verfügt immer über mindestens 1Prozent der Bandbreite für sich selbst reserviert.
+Die Summe aus der bandbreitenreservierungen für alle erstellten Datenverkehrsklassen darf 99 % der Bandbreite nicht überschreiten. Die Standardklasse für den Datenverkehr verfügt immer über mindestens 1 % an die Bandbreite, die für sich selbst reserviert.
 
-### <a name="display-traffic-classes"></a>Anzeigen von Klassen
+### <a name="display-traffic-classes"></a>Anzeige Datenverkehrsklassen
 
-Sie können die **Get-NetQosTrafficClass** Befehl, um Datenverkehrsklassen anzuzeigen.
+Sie können die **Get-NetQosTrafficClass** Befehl zum Anzeigen von Klassen.
 
     Get-NetQosTrafficClass
     
@@ -127,11 +128,11 @@ Sie können die **Get-NetQosTrafficClass** Befehl, um Datenverkehrsklassen anzuz
     
 ### <a name="modify-a-traffic-class"></a>Ändern Sie eine Datenverkehrsklasse
 
-Sie können die **Set-NetQosTrafficClass** Befehl aus, um eine Datenverkehrsklasse erstellen. 
+Können Sie die **Set-NetQosTrafficClass** Befehl aus, um eine Datenverkehrsklasse zu erstellen. 
 
     Set-NetQosTrafficClass -Name SMB -BandwidthPercentage 50
 
-Anschließend können Sie die **Get-NetQosTrafficClass** Befehl, um Einstellungen anzuzeigen.
+Anschließend können Sie die **Get-NetQosTrafficClass** Befehl aus, um Einstellungen anzuzeigen.
 
     Get-NetQosTrafficClass
     
@@ -141,25 +142,25 @@ Anschließend können Sie die **Get-NetQosTrafficClass** Befehl, um Einstellunge
     SMB ETS   50   4Global   
     
 
-Nachdem Sie eine Datenverkehrsklasse erstellt haben, können Sie die Einstellungen ändern unabhängig. Die Einstellungen, die Sie ändern können, gehören:
+Nachdem Sie eine Datenverkehrsklasse erstellen, ändern Sie die Einstellungen unabhängig voneinander. Die Einstellungen, die Sie ändern können, lauten:
 
-1. Die Zuordnung \(-BandwidthPercentage\) Bandbreite
+1. Bandbreitenzuordnung \(- BandwidthPercentage\)
 
-2. TSA (\-Algorithm\)
+2. TSA (\-Algorithmus\)
 
-3. Die Zuordnung \(-Priority\) Priorität
+3. Priorität Zuordnung \(-Priorität\)
 
 ### <a name="remove-a-traffic-class"></a>Entfernen Sie eine Datenverkehrsklasse
 
-Sie können die **Remove-NetQosTrafficClass** Befehl aus, um eine Datenverkehrsklasse zu löschen.
+Sie können die **Remove-NetQosTrafficClass** Befehl aus, um eine Datenverkehrsklasse löschen.
 
 >[!IMPORTANT]
->Der Standard-Datenverkehrsklasse nicht entfernt werden.
+>Die Standardklasse für Datenverkehr kann nicht entfernt werden.
 
 
     Remove-NetQosTrafficClass -Name SMB
 
-Anschließend können Sie die **Get-NetQosTrafficClass** Befehl, um Einstellungen anzuzeigen.
+Anschließend können Sie die **Get-NetQosTrafficClass** Befehl aus, um Einstellungen anzuzeigen.
     
     Get-NetQosTrafficClass
     
@@ -168,13 +169,13 @@ Anschließend können Sie die **Get-NetQosTrafficClass** Befehl, um Einstellunge
     [Default]   ETS   100  0-7  Global
     
 
-Wenn Sie eine Datenverkehrsklasse entfernen, zugeordnet der 802. 1p-Wert, dass der standardmäßige Datenverkehrsklasse Datenverkehrsklasse zugeordnet ist. Bei der Datenverkehrsklasse entfernt wird, wird die Reservierung des Standard-Datenverkehr Klasse Bandbreite, die für eine Datenverkehrsklasse reserviert wurde zurückgegeben.
+Wenn Sie eine Datenverkehrsklasse entfernen, zugeordnet der 802. 1p-Wert, dass die Standardklasse für Datenverkehr Datenverkehrsklasse zugeordnet ist. Bandbreite, die für eine Datenverkehrsklasse reserviert wurde wird an die standardzuweisung für Datenverkehr-Klasse zurückgegeben, wenn die Datenverkehrsklasse entfernt wird.
 
-## <a name="per-network-interface-policies"></a>Pro-Netzwerk-Richtlinien für die Benutzeroberfläche
+## <a name="per-network-interface-policies"></a>Pro-Network-Interface-Richtlinien
 
-Alle oben genannten Beispiele wird die globalen Richtlinien festlegen. Es folgen Beispiele für festlegen und Abrufen von pro-NIC-Richtlinien. 
+Globale Richtlinien für alle oben aufgeführten Beispiele festgelegt. Beispiele für wie festlegen und Abrufen von pro-NIC-Richtlinien. 
 
-Das Feld "PolicySet" wird von Global zu AdapterSpecific. Wenn AdapterSpecific Richtlinien angezeigt werden, werden auch die Schnittstellenindex \(ifIndex\) und Schnittstellennamen \(ifAlias\) angezeigt.
+Das Feld "PolicySet" wird von Global zu AdapterSpecific. Wenn AdapterSpecific Richtlinien angezeigt werden, den Schnittstellenindex \(IfIndex\) und Schnittstellennamen \(IfAlias\) werden ebenfalls angezeigt.
 
 ```
 PS C:\> Get-NetQosTrafficClass
@@ -226,9 +227,9 @@ SMBforM1    ETS       30           4                AdapterSpecific  4       M1
 
 ## <a name="priority-flow-control-settings"></a>Flusssteuerung prioritätseinstellungen:
 
-Folgen Befehlsbeispiele für die Einstellung der Priorität flusssteuerung. Diese Einstellungen können auch für einzelne Adapter angegeben werden.
+Folgende werden Beispielbefehle für die Einstellungen für die flusssteuerung Priorität. Diese Einstellungen können auch für die einzelnen Adapter angegeben werden.
 
-### <a name="enable-and-display-priority-flow-control-for-global-and-interface-specific-use-cases"></a>Aktivieren und Anzeige Priorität flusssteuerung für globale und Schnittstelle bestimmte Anwendungsfälle
+### <a name="enable-and-display-priority-flow-control-for-global-and-interface-specific-use-cases"></a>Aktivieren und anzeigen Priorität flusssteuerung für globale und Schnittstelle spezifischen Anwendungsfälle
 
 ```
 PS C:\> Enable-NetQosFlowControl -Priority 4
@@ -262,7 +263,7 @@ Priority   Enabled    PolicySet        IfIndex IfAlias
 ```
 
 
-### <a name="disable-priority-flow-control-global-and-interface-specific"></a>Deaktivieren der Flusspriorisierung (globale spezifische Benutzeroberfläche)
+### <a name="disable-priority-flow-control-global-and-interface-specific"></a>Deaktivieren der Flusspriorisierung (globale und spezifische Schnittstelle)
 
 ```
 PS C:\> Disable-NetQosFlowControl -Priority 4
@@ -296,9 +297,9 @@ Priority   Enabled    PolicySet        IfIndex IfAlias
 
 ```
 
-##  <a name="application-priority-assignment"></a>Anwendung Priorität Zuweisung
+##  <a name="application-priority-assignment"></a>Priorität der anwendungszuweisung
 
-Folgen einige Beispiele für Zuweisung Priorität.
+Beispiele für Priorität Zuweisung.
 
 ### <a name="create-qos-policy"></a>QoS-Richtlinie erstellen
 
@@ -314,13 +315,13 @@ PriorityValue  : 4
 
 ```
 
-Der vorherige Befehl erstellt eine neue Richtlinie für SMB. SMB – ist ein Eingangsbox-Filter, der TCP-Port 445 (SMB-reserviert) entspricht. Wenn ein Paket an TCP-Port 445 gesendet wird, die sie vom Betriebssystem mit 802. 1p-Wert von 4 vor markiert wird das Paket an einen Netzwerk-Miniporttreiber übergeben.
+Der vorherige Befehl erstellt eine neue Richtlinie für SMB. SMB – handelt es sich um ein Posteingang-Filter, der TCP-Port 445 (SMB-reserviert) übereinstimmt. Wenn ein Paket an TCP-Port 445, die es markiert wird vom Betriebssystem mit 802. 1p-Wert von 4 gesendet wird, bevor das Paket an einen Netzwerk-Miniporttreiber übergeben wird.
 
-Zusätzlich zu – SMB enthalten andere Standardfilter – iSCSI (übereinstimmenden TCP-Port 3260), - NFS (übereinstimmenden TCP-Port 2049), --Livemigration (übereinstimmenden TCP-Port 6600), - FCOE (Übereinstimmung EtherType 0x8906) und – NetworkDirect.
+Zusätzlich zu SMB – enthalten andere Standardfilter – iSCSI (entsprechenden TCP-Port 3260) "," - NFS (entsprechenden TCP-Port 2049) "," --Livemigration (entsprechenden TCP-Port 6600) "," - oder FCOE (übereinstimmend EtherType 0x8906) "und" – NetworkDirect.
 
-NetworkDirect ist eine abstrakte Ebene, die wir über keine RDMA-Implementierung auf einem Netzwerkadapter zu erstellen. – NetworkDirect muss von einem Network Direct Port folgen.
+NetworkDirect ist eine abstrakte Ebene, die wir zur auf einem Netzwerkadapter RDMA-Implementierung zu erstellen. – NetworkDirect muss von einem Network Direct Port folgen.
 
-Zusätzlich zu den Standardfilter können Sie Datenverkehr klassifizieren, durch den Namen der ausführbaren Datei der Anwendung (wie im ersten Beispiel unten) oder IP-Adresse, Port und Protokoll (wie im zweiten Beispiel gezeigt):
+Zusätzlich zu den Standard-filtern können Sie Datenverkehr von der ausführbaren Datei den Namen der Anwendung (wie das erste Beispiel unten) oder IP-Adresse, Port und Protokoll (wie im zweiten Beispiel gezeigt) klassifizieren:
 
 **Durch den Namen der ausführbaren Datei**
 
@@ -338,7 +339,7 @@ PriorityValue  : 1
 ```
 
 
-**Nach IP-Adressport oder Protokoll**
+**Nach IP-Adresse, Port oder Protokoll**
 
 ```
 PS C:\> New-NetQosPolicy -Name "Network Management" -IPDstPrefixMatchCondition 10.240.1.0/24 -IPProtocolMatchCondition both -NetworkProfile all -PriorityValue8021Action 7
@@ -407,7 +408,7 @@ PriorityValue  : 7
 
 ```
 
-### <a name="remove-qos-policy"></a>Entfernen Sie QoS-Richtlinie
+### <a name="remove-qos-policy"></a>Entfernen Sie die QoS-Richtlinie
 
 ```
 PS C:\> Remove-NetQosPolicy -Name "Network Management"
@@ -419,15 +420,15 @@ Remove-NetQosPolicy -Name "Network Management" -Store GPO:localhost
 
 ```
 
-## <a name="dcb-configuration-on-network-adapters"></a>DCB-Konfiguration für Netzwerkadapter
+## <a name="dcb-configuration-on-network-adapters"></a>DCB-Konfiguration auf den Netzwerkadaptern
 
-DCB-Konfiguration auf Netzwerkadapter ist unabhängig von der DCB-Konfiguration auf Systemebene, die oben beschriebenen. 
+DCB-Konfiguration für die Netzwerkadapter ist unabhängig von der DCB-Konfiguration auf der Systemebene, die oben beschriebenen. 
 
-Unabhängig davon, ob DCB in Windows Server2016 installiert ist können Sie immer die folgenden Befehle ausführen. 
+Unabhängig davon, ob DCB in Windows Server 2016 installiert ist können Sie immer die folgenden Befehle ausführen. 
 
-Wenn Sie DCB aus einem Switch konfigurieren und DCBX die Konfigurationen zu Netzwerkadaptern weitergegeben abhängig, können Sie überprüfen, welche Konfigurationen empfangen und auf die Netzwerkadapter von der Betriebssystem-Seite erzwungen werden, nachdem Sie DCB für die Netzwerkadapter aktivieren.
+Wenn Sie einen Switch DCB konfigurieren und basieren auf DCBX die Konfigurationen mit den Netzwerkadaptern weitergegeben werden, können Sie überprüfen, welche Konfigurationen empfangen und auf den Netzwerkadaptern, die aus der Betriebssystemebene erzwungen werden, nachdem Sie DCB für die Netzwerkadapter aktiviert werden.
 
-###  <a name="bkmk_enabledcb"></a>Aktivieren und Anzeigen von DCB-Einstellungen für Netzwerkadapter
+###  <a name="bkmk_enabledcb"></a>Aktivieren und Anzeigen der DCB-Einstellungen für Netzwerkadapter
 
 ```
 PS C:\> Enable-NetAdapterQos M1
@@ -454,7 +455,7 @@ OperationalClassifications : Protocol  Port/Type Priority
 
 ```
 
-### <a name="disable-dcb-on-network-adapters"></a>Deaktivieren Sie DCB für Netzwerkadapter
+### <a name="disable-dcb-on-network-adapters"></a>Deaktivieren Sie DCB für die Netzwerkadapter
 
 ```
 PS C:\> Disable-NetAdapterQos M1
@@ -471,16 +472,16 @@ Capabilities :                       Hardware     Current
 ```
 ## <a name="bkmk_wps"></a>Windows PowerShell-Befehle für DCB
 
-Es gibt DCB Windows PowerShell-Befehle für Windows Server2016 und Windows Server2012 R2. Sie können alle Befehle für Windows Server2012 R2 in Windows Server2016 verwenden.
+Es gibt DCB Windows PowerShell-Befehle für Windows Server 2016 und Windows Server 2012 R2. Sie können alle Befehle für Windows Server 2012 R2, Windows Server 2016 verwenden.
 
-### <a name="windows-server-2016-windows-powershell-commands-for-dcb"></a>Windows Server2016 Windows PowerShell-Befehle für DCB
+### <a name="windows-server-2016-windows-powershell-commands-for-dcb"></a>Windows Server 2016-Windows-PowerShell-Befehle für DCB
 
-Im folgende Thema für Windows Server2016 enthält Windows PowerShell-Cmdlet-Beschreibungen und Syntax für alle Data Center Bridging \(DCB\) Quality of Service \ \-specific-Cmdlets (QoS\). Es werden die Cmdlets in alphabetischer Reihenfolge basierend auf dem Verb am Anfang des Cmdlets.
+Im folgende Thema für Windows Server 2016 bietet Windows PowerShell-Cmdlet-Beschreibungen und Syntax für alle Data Center Bridging \(DCB\) Quality of Service \(QoS\)\--spezifische Cmdlets. Die Cmdlets werden in alphabetischer Reihenfolge (basierend auf dem Verb am Anfang des Cmdlets) aufgeführt.
 
 - [DcbQoS-Modul](https://technet.microsoft.com/itpro/powershell/windows/dcbqos/dcbqos)
 
-### <a name="windows-server-2012-r2-windows-powershell-commands-for-dcb"></a>Windows Server2012 R2 Windows PowerShell-Befehle für DCB
+### <a name="windows-server-2012-r2-windows-powershell-commands-for-dcb"></a>Windows Server 2012 R2 Windows PowerShell-Befehle für DCB
 
-Im folgende Thema für Windows Server2012 R2 enthält Windows PowerShell-Cmdlet-Beschreibungen und Syntax für alle Data Center Bridging \(DCB\) Quality of Service \ \-specific-Cmdlets (QoS\). Es werden die Cmdlets in alphabetischer Reihenfolge basierend auf dem Verb am Anfang des Cmdlets.
+Im folgende Thema für Windows Server 2012 R2 bietet Windows PowerShell-Cmdlet-Beschreibungen und Syntax für alle Data Center Bridging \(DCB\) Quality of Service \(QoS\)\--spezifische Cmdlets. Die Cmdlets werden in alphabetischer Reihenfolge (basierend auf dem Verb am Anfang des Cmdlets) aufgeführt.
 
-- [Data Center Bridging (DCB) Quality of Service (QoS)-Cmdlets in WindowsPowerShell](https://technet.microsoft.com/library/hh967440.aspx)
+- [Für Data Center Bridging (DCB) Quality of Service (QoS)-Cmdlets in Windows PowerShell](https://technet.microsoft.com/library/hh967440.aspx)

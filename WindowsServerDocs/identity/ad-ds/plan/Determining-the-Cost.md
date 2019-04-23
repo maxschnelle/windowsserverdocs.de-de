@@ -1,48 +1,49 @@
 ---
 ms.assetid: e3ea1f67-60d4-4566-b24c-37faa95c3b2a
 title: Bestimmen der Kosten
-description: 
-author: billmath
-ms.author: billmath
-manager: femila
+description: ''
+author: MicrosoftGuyJFlo
+ms.author: joflore
+manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: b32d1930fcef944fbd719338797f0f29b70fa29d
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.openlocfilehash: 0b34f1672311768d644c467fda10dc2fc643282d
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59847081"
 ---
 # <a name="determining-the-cost"></a>Bestimmen der Kosten
 
->Gilt für: Windows Server2016, Windows Server2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Sie weisen Kosten standortverknüpfungen, kostengünstige Verbindungen über teure Verbindungen zu bevorzugen. Bestimmte Anwendungen und Dienste, z.B. Domänencontrollerlocator (Domänencontrollerlocator) und verteilt Datei System Namespaces (DFSN), verwenden auch Informationen, die am nächsten gelegenen Ressourcen gesucht werden soll. Standortverknüpfungskosten kann verwendet werden, um zu bestimmen, welche Domänencontroller von Clients an einem Standort kontaktiert wird, wenn der Domänencontroller für die angegebene Domäne an diesem Standort nicht vorhanden ist. Der Client kontaktiert den Domänencontroller mit der standortverknüpfung, das den geringsten Kosten zugewiesen wurde.  
+Sie weisen "Cost"-Werten standortverknüpfungen, teure Verbindungen kostengünstige Verbindungen vorzuziehen. Bestimmte Anwendungen und Dienste wie Domänencontrollerlocator (des DC-Locators) und Distributed Datei System-Namespaces (DFSN) –, verwenden auch Informationen zu den Kosten, die nächsten Ressourcen gesucht werden soll. Kosten für die Verbindung kann verwendet werden, um zu bestimmen, welcher Domänencontroller von den Clients an einem Standort kontaktiert wird, wenn der Domänencontroller für die angegebene Domäne nicht an diesem Standort vorhanden ist. Der Client kontaktiert den Domänencontroller mithilfe der standortverknüpfung, die den geringsten Kosten zugewiesen wurde.  
   
-Es wird empfohlen, dass der Wert der Kosten pro standortweite definiert werden. Kosten basiert in der Regel nicht nur auf die gesamte Bandbreite der Verbindung, sondern auch auf die Verfügbarkeit, Latenz und zu den Kosten des Links.  
+Es wird empfohlen, dass der Kostenwert pro Website-Ebene definiert werden. Die Kosten basieren in der Regel nicht nur auf die gesamte Bandbreite der Verbindung, sondern auch auf die Verfügbarkeit, Latenz und Kosten des Links.  
   
-Um festzustellen, die Kosten für standortverknüpfungen zu platzieren, dokumentieren Sie die Geschwindigkeit der Verbindung Link für jede Site. Weitere Informationen finden Sie in das Arbeitsblatt "Geografische Standorte und Kommunikationsverbindungen" (DSSTOPO_1.doc) in [Sammeln von Netzwerkinformationen](../../ad-ds/plan/Collecting-Network-Information.md) Informationen über die verbindungsgeschwindigkeit, die Sie identifiziert.  
+Um zu bestimmen, die Kosten für standortverknüpfungen zu platzieren, dokumentieren Sie die verbindungsgeschwindigkeit lautet für jede standortverknüpfung. Finden Sie in das Arbeitsblatt "Geografische Standorte und Kommunikationsverbindungen" (DSSTOPO_1.doc) in [Sammeln von Netzwerkinformationen](../../ad-ds/plan/Collecting-Network-Information.md) Informationen von der Geschwindigkeit der Verbindung, die Sie identifiziert.  
   
-Die folgende Tabelle enthält die Geschwindigkeit für unterschiedliche Arten von Netzwerken.  
+Die folgende Tabelle enthält die Geschwindigkeiten für verschiedene Typen von Netzwerken.  
   
-|"Netzwerk"|Geschwindigkeit|  
+|Netzwerktyp|Geschwindigkeit|  
 |----------------|---------|  
-|Sehr langsam|56 Kilobit pro Sekunde (KBit/s)|  
-|Langsam|64 KBit/s|  
-|Integrierte Dienste Digital Network (ISDN)|64 KBit/s oder 128 KBit/s|  
-|Frame Relay|Variable Rate, meistens zwischen 56 KBit/s und 1,5 Megabit pro Sekunde (MBit/s)|  
-|T1|1,5 MBit/s|  
-|T3|45 MBit/s|  
-|10BaseT|10 MBit/s|  
-|Asynchroner Übertragungsmodus (ATM)|Variable Rate, meistens zwischen 155 MBit/s und 622 MBit/s|  
-|100BaseT|100 MBit/s|  
-|Gigabit-Ethernet|1-Gigabit pro Sekunde (Gbit/s)|  
+|Sehr langsam.|56 Kilobit pro Sekunde (Kbit/s)|  
+|Verzögerte Anzeige|64 Kbit/s|  
+|Integrated Services Digital Network (ISDN)|64 Kbit/s oder 128 Kbit/s|  
+|Frame relay|Variabler Rate, meistens zwischen 56 Kbit/s und 1,5 Megabit pro Sekunde (Mbit/s)|  
+|T1|1,5 Mbit/s|  
+|T3|45 Mbit/s|  
+|10BaseT|10 Mbit/s|  
+|Asynchroner Übertragungsmodus (ATM)|Variable Rate, häufig zwischen 155 Mbit/s und 622 Mbit/s|  
+|100BaseT|100 Mbit/s|  
+|Gigabit-Ethernet|1 Gigabit pro Sekunde (Gbit/s)|  
   
-Verwenden Sie in der folgende Tabelle, um die Kosten für jeden Standort-Verbindung basierend auf der verbindungsgeschwindigkeit von wide Area Network Geschwindigkeit (WAN) zu berechnen. Für WAN-verbindungsgeschwindigkeit, die in der Tabelle nicht aufgeführt ist, können Sie einen relativen Kostenfaktor berechnen, 1.024 durch das Protokoll der verfügbaren Bandbreite, gemessen in KBit/s geteilt.  
+Verwenden Sie in der folgende Tabelle, um die Kosten für jede standortverknüpfung basierend auf wide Area Network (WAN)-Geschwindigkeit verbindungsgeschwindigkeit zu berechnen. Für die WAN-verbindungsgeschwindigkeit, die in der Tabelle nicht aufgeführt ist, können Sie die relative Kostenfaktor durch Division von 1.024 durch das Protokoll der verfügbaren Bandbreite, gemessen in Kbit/s berechnen.  
   
-|Verfügbare Bandbreite (KBit/s)|Kosten|  
+|Verfügbare Bandbreite (Kbit/s)|Kosten|  
 |--------------------------------|--------|  
 |9.6|1,042|  
 |19.2|798|  
@@ -56,7 +57,7 @@ Verwenden Sie in der folgende Tabelle, um die Kosten für jeden Standort-Verbind
 |2,048|309|  
 |4,096|283|  
   
-Diese Kosten entsprechen nicht Unterschiede zwischen der Netzwerkverbindungen in Zuverlässigkeit. Höhere Kosten für Netzwerklinks fehleranfällige festgelegt, so, dass Sie nicht auf die Links für die Replikation verlassen verfügen. Durch Einstellung höhere Standortverknüpfungskosten können Sie Replikations-Failovers steuern, wenn eine standortverknüpfung fehlschlägt.  
+Diese Kosten spiegeln sich nicht auf Unterschiede bei der Zuverlässigkeit Netzwerkverbindungen aus. Legen Sie höhere Kosten auf alle fehleranfälliger Netzwerkverbindungen, sodass Sie nicht auf diese Links für die Replikation verlassen verfügen. Durch Einstellung höher Standortverknüpfungskosten können Sie Failover der Replikation steuern, wenn eine standortverknüpfung ein Fehler auftritt.  
   
 
 

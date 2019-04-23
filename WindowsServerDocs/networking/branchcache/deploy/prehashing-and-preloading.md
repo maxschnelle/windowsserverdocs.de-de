@@ -1,6 +1,6 @@
 ---
-title: Prehashing und Vorabladen von Inhalt auf gehosteten Cacheserver (Optional)
-description: Dieses Thema ist Teil der BranchCache Deployment Guide für Windows Server 2016, der veranschaulicht, wie Sie BranchCache im verteilten und gehosteter cachemodi zum Optimieren der WAN-Bandbreite in Zweigstellen bereitstellen.
+title: Prehashing und Vorabladen von Inhalt auf gehostete Cacheserver (optional)
+description: Dieses Thema ist Teil von BranchCache Deployment Guide für Windows Server 2016, die veranschaulicht, wie Sie BranchCache in verteilter und gehosteter Cachemodus zur Optimierung der WAN-bandbreitennutzung in Zweigstellen bereitstellen.
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking-bc
@@ -8,30 +8,31 @@ ms.topic: get-started-article
 ms.assetid: 5a09d9f1-1049-447f-a9bf-74adf779af27
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: c3d1ed62c6dca5b1de0ff560fde0a2e43ed0d080
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: b421132a44240520e3e3ba294623584c36b18ab4
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59867001"
 ---
-# <a name="prehashing-and-preloading-content-on-hosted-cache-servers-optional"></a>Prehashing und Vorabladen von Inhalt auf gehosteten Cacheserver (Optional)
+# <a name="prehashing-and-preloading-content-on-hosted-cache-servers-optional"></a>Prehashing und Vorabladen von Inhalt auf gehostete Cacheserver (optional)
 
->Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
-Dieses Verfahrens können Sie die Erstellung von Inhaltsinformationen - Hashes – auch für BranchCache-fähigen Web- und Dateiservern aufgerufen erzwingen. Sie können auch die Daten auf Datei- und Webserver in Pakete zu sammeln, die für remote gehosteten Cacheserver übertragen werden können.  Dies bietet Ihnen die Möglichkeit, Inhalte auf remote gehosteten Cacheserver vorab laden, damit Daten für den ersten Clientzugriff verfügbar ist.  
+Sie können dieses Verfahren verwenden, um die Erstellung von Inhaltsinformationen – so genannte Hashes - auf BranchCache-fähigen Web- und Dateiservern zu erzwingen. Sie können auch auf Datei-und Web in Pakete Datenerfassung, die für remote gehosteten Cacheserver übertragen werden können.  Dadurch erhalten Sie mit der Möglichkeit, Inhalte auf remote gehosteten Cacheservern vorab zu laden, damit Daten für den ersten Clientzugriff verfügbar ist.  
   
-Sie müssen ein Mitglied sein **Administratoren**, oder eine gleichwertige, um dieses Verfahren auszuführen.  
+Sie müssen ein Mitglied sein **Administratoren**, oder führen Sie dieses Verfahren entspricht.  
   
-### <a name="to-prehash-content-and-preload-the-content-on-hosted-cache-servers"></a>Um Inhalte prehashing und Vorabladen von Inhalt auf gehostete Cacheserver  
+### <a name="to-prehash-content-and-preload-the-content-on-hosted-cache-servers"></a>Unterziehen Inhalt und den Inhalt auf gehosteten Cacheservern vorab zu laden  
   
-1.  Melden Sie sich auf die Datei oder den Webserver, der die Daten enthält, die Sie vorab laden möchten, und identifizieren Sie die Ordner und Dateien, die Sie auf einem oder mehreren remote gehosteten Cacheserver laden möchten.  
+1.  Melden Sie sich auf die Datei oder einen Webserver, der die Daten enthält, die Sie vorab geladen werden soll, und identifizieren Sie die Ordner und Dateien, die Sie auf eine oder mehrere remote gehosteten Cacheserver laden möchten.  
   
-2.  WindowsPowerShell als Administrator ausführen. Für jeden Ordner und die Datei, führen Sie einen der `Publish-BCFileContent`Befehl oder den `Publish-BCWebContent`erhalten Sie, je nach dem Inhaltsserver, hasherzeugung auslösen und ein Datenpaket Daten hinzu.  
+2.  Führen Sie Windows PowerShell als Administrator an. Für jeden Ordner und Dateien, führen Sie entweder die `Publish-BCFileContent` Befehl oder die `Publish-BCWebContent` Befehl hängt vom Inhaltsserver, hasherzeugung auslösen und zum Hinzufügen von Daten zu einem Datenpaket.  
   
-3.  Nach dem alle Daten hinzugefügt wurde das Paket mit Daten, exportieren Sie es mithilfe der `Export-BCCachePackage`Befehl aus, um eine Datei im Paket zu erstellen.  
+3.  Nachdem alle Daten wurde für das Datenpaket hinzugefügt, exportieren Sie es mithilfe der `Export-BCCachePackage` Befehl aus, um eine Datendatei für das Paket zu erstellen.  
   
-4.  Verschieben Sie die Paketdatei Daten an remote gehosteten Cacheserver, mithilfe Ihrer Wahl der Übertragung der Technologie.  FTP, SMB, HTTP, DVD und externe Festplatten sind alle geeignete Transporte.  
+4.  Verschieben Sie die Paket-Datendatei zu remote gehosteten Cacheserver, indem Sie die Wahl der Technologie für die Übertragung von Dateien.  FTP-"," SMB "," HTTP "," DVD "und" tragbaren Festplatten sind alle geeignete Transporte.  
   
-5.  Importieren Sie die Datei auf dem remote gehosteten Cacheserver Paket mithilfe der `Import-BCCachePackage`Befehl.  
+5.  Importieren Sie die Paketdatei der Daten auf remote gehosteten Cacheserver mithilfe der `Import-BCCachePackage` Befehl.  
   
 

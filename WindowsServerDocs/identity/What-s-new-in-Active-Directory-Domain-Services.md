@@ -1,10 +1,10 @@
 ---
 ms.assetid: 9a06cd41-426f-4cb9-89cf-f5be730e0b79
-title: "Was & #39; s Neues in Active Directory-Domänendienste"
+title: Was&#39;Neues in Active Directory Domain Services
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
-ms.service: 
+ms.service: ''
 ms.suite: na
 ms.technology: active-directory-domain-services
 ms.tgt_pltfrm: na
@@ -12,100 +12,101 @@ ms.topic: article
 author: Femila
 ms.author: billmath
 ms.date: 05/31/2017
-ms.openlocfilehash: 56716e2e0d633a19e9c6e02bc829874bbe863833
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.openlocfilehash: ffa8bcb43b17ae8779c70d499bff27a8f77cce75
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59841331"
 ---
-# <a name="what39s-new-in-active-directory-domain-services"></a>Was & #39; s Neues in Active Directory-Domänendienste 
+# <a name="what39s-new-in-active-directory-domain-services"></a>Was&#39;Neues in Active Directory Domain Services 
 
 >Gilt für: Windows Server 2016
 
-Die folgenden neuen Features in Active Directory-Domänendienste (AD DS) verbessern, können Organisationen zum Sichern von Active Directory-Umgebungen und Migration zu reinen cloudbereitstellungen oder Hybridbereitstellungen durchführen, wobei einige Anwendungen und Dienste in der Cloud gehostet werden und andere lokal gehostet werden. Die Verbesserungen umfassen:  
+Die folgenden neuen Features in Active Directory Domain Services (AD DS) verbessern die Fähigkeit für Organisationen, die Active Directory-Umgebungen zu schützen und Ihnen bei der Migration zu reinen cloudbereitstellungen und hybridbereitstellungen, in denen einige Anwendungen und Dienste sind in der Cloud gehostet und andere lokal gehostet werden. Die Verbesserungen umfassen:  
   
--   [Privilegierte zugriffsverwaltung](https://technet.microsoft.com/library/mt150258.aspx   
+-   [Privileged Access management](https://technet.microsoft.com/library/mt150258.aspx   
 )  
   
-- [Erweitern Sie die Cloudfunktionen für Windows10-Geräten über Azure Active Directory beitreten](https://azure.microsoft.com/en-us/documentation/articles/active-directory-azureadjoin-overview/)   
+- [Erweitern von Cloudfunktionen auf Windows 10-Geräte über Azure Active Directory Join](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-overview/)   
   
-- [Verbinden Geräte in einer Domäne mit Azure AD für Windows10-Benutzeroberflächen](https://azure.microsoft.com/en-us/documentation/articles/active-directory-azureadjoin-devices-group-policy/)   
+- [Funktionen in Domänen eingebundene Geräte für Windows 10 mit Azure AD verbinden](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-devices-group-policy/)   
   
-- [Microsoft Passport for Work in Ihrer Organisation aktivieren](https://azure.microsoft.com/en-us/documentation/articles/active-directory-azureadjoin-passport-deployment/)    
+- [Aktivieren von Microsoft Passport for Work in Ihrer Organisation](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-passport-deployment/)    
   
--  [Abschreibung von Funktionsebenen (File Replication Service, FRS) und Windows Server2003](ad-ds/active-directory-functional-levels.md)  
+-  [Als veraltet (File Replication Service, FRS) und Windows Server 2003-Funktionsebenen](ad-ds/active-directory-functional-levels.md)  
   
   
-## <a name="BKMK_PAM"></a>Privilegierte zugriffsverwaltung  
-Privilegierten Zugriff auf Management (PAM) hilft Sicherheit zu mindern Aspekte für Active Directory-Umgebungen, die werden Anmeldeinformationen Techniken Diebstahl von Anmeldeinformationen, solche Pass-the-Hash, Spear-Phishing und ähnliche Arten von Angriffen. Es enthält eine neue Administratorzugriff-Lösung, die mithilfe von Microsoft Identity Manager (MIM) konfiguriert ist. PAM eingeführt:  
+## <a name="BKMK_PAM"></a>Privileged Access management  
+Privilegierte zugriffsverwaltung (PAM) können die Sicherheit zu verringern Sicherheitsrisiken für Active Directory-Umgebungen, die durch verursacht werden Techniken zum Diebstahl von Anmeldeinformationen, solche Pass-the-Hash, Spear-Phishing und ähnliche Arten von Angriffen. Es bietet es sich um eine neue Administratorzugriff-Lösung, die mithilfe von Microsoft Identity Manager (MIM) konfiguriert ist. PAM eingeführt:  
   
--   Einer neuen umfassend geschützten Active Directory-Gesamtstruktur, die von MIM bereitgestellt wird. Die geschützten Gesamtstruktur verfügt über eine spezielle PAM-Vertrauensstellung mit einer vorhandenen Gesamtstruktur. Es enthält eine neue Active Directory-Umgebung, die bekanntermaßen frei von allen böswillige Aktivitäten und Isolierung von einer vorhandenen Gesamtstruktur für die Verwendung von privilegierten Konten.  
+-   Einer neuen umfassend geschützten Active Directory-Gesamtstruktur, die von MIM bereitgestellt wird. Die geschützte Gesamtstruktur verfügt über eine spezielle PAM-Vertrauensstellung mit einer vorhandenen Gesamtstruktur. Es bietet eine neue Active Directory-Umgebung, die bekannt ist, dass der schädlichen Aktivitäten und isoliert von einer vorhandenen Gesamtstruktur für die Verwendung von privilegierten Konten kostenlos zur Verfügung gestellt.  
   
--   Neue Prozesse in MIM Administratorrechte besitzen, zusammen mit neuen Workflows basierend auf die Genehmigung der Anfragen anfordern.  
+-   Neue Prozesse in MIM zum Anfordern von Administratorrechten benötigen, sowie neue Workflows basierend auf die Genehmigung von Anforderungen.  
   
--   Neue Schatten Sicherheitsprinzipale (Gruppen), die von MIM in Reaktion auf Anforderungen von Administratorrechten in der geschützten Gesamtstruktur bereitgestellt werden. Die Shadow-Sicherheitsprinzipale haben ein Attribut, das die SID einer administrativen Gruppe in einer vorhandenen Gesamtstruktur verweist. Dadurch wird die Volumeschattenkopie-Gruppe Zugriff auf Ressourcen in einer vorhandenen Gesamtstruktur ohne Änderung Zugriffssteuerungslisten (ACLs).  
+-   Neue Schattenkopien Sicherheitsprinzipale (Gruppen), die als Antwort auf Anforderungen von Administratorrechten in der geschützten Gesamtstruktur von MIM bereitgestellt werden. Die Schattenkopie-Sicherheitsprinzipale haben ein Attribut, das die SID des eine administrative Gruppe in einer vorhandenen Gesamtstruktur verweist. Dies ermöglicht die Volumeschattenkopie-Gruppe, um den Zugriff auf Ressourcen in einer vorhandenen Gesamtstruktur, ohne alle Zugriffssteuerungslisten (ACLs).  
   
--   Ein ablaufender Links-Feature, das zeitgebundene Mitgliedschaft in einer Gruppe von Schattenkopien ermöglicht. Benutzer kann nur so viel Zeit erforderlich, um eine Verwaltungsaufgabe Ausführen der Gruppe hinzugefügt werden. Die Mitgliedschaft zeitgebundene wird durch einen Time to live (TTL) Wert ausgedrückt, die an ein Kerberos-Ticket-Lebensdauer weitergegeben wird.  
+-   Ein ablaufender Links-Funktion, die zeitgebundenen Mitgliedschaften in einer Gruppe von Schattenkopien ermöglicht. Ein Benutzer kann nur eben genug Zeit, erforderlich, um eine administrative Aufgabe durchführen der Gruppe hinzugefügt werden. Zeitgebundene Mitgliedschaft wird durch einen Wert für die Time-to-live (TTL) angegeben, die an einen Kerberos-ticketlebensdauer weitergegeben wird.  
   
     > [!NOTE]  
-    > Ablaufende Links sind für alle verknüpften Attribute zur Verfügung. Aber Mitglied bzw. Mitglied verknüpften Attributs Beziehung zwischen einer Gruppe und ein Benutzer ist das einzige Beispiel, bei dem eine vollständige Lösung, z.B. PAM vorkonfiguriert ist das ablaufende Links-Feature zu verwenden.  
+    > Ablaufende Links sind für alle verknüpften Attribute verfügbar. Aber das verknüpfte Element/MemberOf-Attribut Beziehung zwischen einer Gruppe und ein Benutzer ist das einzige Beispiel, in denen eine vollständige Lösung wie z. B. PAM vorkonfiguriert ist das ablaufende Links-Feature verwenden.  
   
--   KDC-Erweiterungen integrierten Active Directory-Domänencontroller zu Kerberos-Ticket-Lebensdauer auf den niedrigsten Time to live (TTL) Wert in Fällen zu beschränken, in denen ein Benutzer Mitglied mehrerer zeitgebundene in administrativen Gruppen verfügt. Wenn beispielsweise Sie A zeitgebundene Gruppe hinzugefügt werden, wenn Sie sich anmelden, die Lebensdauer des Kerberos-Ticket-granting Ticket (TGT) gleich viel Zeit ist Ihnen verbleiben in A. Wenn Sie auch ein Mitglied einer anderen zeitgebundene Gruppe B, die mit einer niedrigeren TTL-Wert als Gruppe A sind, ist die TGT-Lebensdauer gleich viel Zeit noch übrig Gruppe B.  
+-   KDC-Erweiterungen sind mit Active Directory-Domänencontrollern, um Kerberos-ticketlebensdauer auf die niedrigste mögliche Time-to-live (TTL) in Fällen zu beschränken, in denen ein Benutzer mehrere zeitgebundenen Mitgliedschaften in administrativen Gruppen hat, integriert. Z. B., wenn Sie ein zeitlich begrenztes Gruppe A, hinzugefügt werden, wenn Sie sich anmelden, die Kerberos-Ticket-granting Ticket (TGT) Lebensdauer gleich die Zeit haben Sie in der Gruppe a Wenn Sie auch ein Mitglied einer anderen zeitgebundene Gruppe B, die mit einer niedrigeren TTL-Wert als Gruppe A sind, ist die TGT-Lebensdauer der Zeit verbleiben in Gruppe b  
   
--   Neue Überwachungsfunktionen können Sie leicht identifizieren, die Zugriff angefordert, welchen Zugriff gewährt wurde und welche Aktivitäten ausgeführt wurden.  
+-   Neue Überwachungsfunktionen, Sie auf einfache Weise identifizieren, die Zugriff angefordert, welchen Zugriff erteilt wurde und welche Aktivitäten durchgeführt wurden.  
   
-**Anforderungen**  
+**Anforderungen an**  
   
--   Microsoft Identity Manager  
+-   Microsoft Identitäts-Manager  
   
--   Active Directory Gesamtstruktur-Funktionsebene von Windows Server2012 R2 oder höher.  
+-   Active Directory-Gesamtstruktur-Funktionsebene von Windows Server 2012 R2 oder höher.  
   
-## <a name="BKMK_AzureADJoin"></a>Beitritt zu Azure AD  
-Azure Active Directory beitreten verbessert die Identität von Erlebnis für Unternehmen, Unternehmen und EDU Kunden - verbesserte Funktionen für Unternehmens- und persönlichen Geräten.  
+## <a name="BKMK_AzureADJoin"></a>Azure AD-Einbindung  
+Azure Active Directory Join verbessert die Oberflächen für die Identität für Enterprise, Business und EDU-Kunden – mit verbesserten Funktionen für Unternehmen und persönlichen Geräten.  
   
 Vorteile:  
   
--   **Verfügbarkeit des moderner Einstellungen** auf Windows-Geräten corp gehören. Sauerstoff Dienste nicht mehr benötigen, ein persönliches Microsoft-Konto: sie nun ausgeführt, aus der Benutzer vorhandene Konten auf Kompatibilität zu gewährleisten. Sauerstoff Dienste funktionieren auf PCs, die eine lokale Windows-Domäne angehören, und PCs und Geräte, die "dem Azure AD-Mandanten ("clouddomäne") hinzugefügt werden". Diese Einstellungen umfassen:  
+-   **Verfügbarkeit von Einstellungen für moderne** auf unternehmenbesitz Windows-Geräten. Sauerstoff Dienste nicht mehr benötigen ein persönliches Microsoft-Konto: sie jetzt ausführen, aus der Benutzer bereits vorhandenen arbeitskonten auf Kompatibilität zu gewährleisten. Sauerstoff Services funktioniert auf PCs, die mit einer lokalen Windows-Domäne angehören und PCs und Geräte, die "Azure AD-Mandanten (" clouddomäne") hinzugefügt werden". Dazu zählen die folgenden Einstellungen:  
   
-    -   Roaming oder Personalisierung, Eingabehilfen und Anmeldeinformationen  
+    -   Roaming oder Personalisierung, Einstellungen für die Barrierefreiheit und Anmeldeinformationen  
   
     -   Sicherung und Wiederherstellung  
   
-    -   Zugriff auf Microsoft Store mit Geschäftskonto  
+    -   Zugriff auf Microsoft Store-Geschäftskonto  
   
     -   Live-Kacheln und Benachrichtigungen  
   
--   **Zugriff auf Unternehmensressourcen** auf mobilen Geräten (Telefone, Phablets), die auf einem Windows-Domäne verknüpft werden können, ob diese sind im Besitz der corp oder BYOD  
+-   **Zugriff auf Unternehmensressourcen** auf mobilen Geräten (Telefone, Phablets), die auf eine Windows-Domäne verknüpft werden können, ob sie mit der corp-Besitzer sind oder BYOD  
   
--   **Single-Sign-On** mit Office365 und andere Organisationseinheiten Apps, Websites und Ressourcen.  
+-   **Einmaliges Anmelden** auf Office 365 und andere Unternehmens-apps, Websites und Ressourcen.  
   
--   **Für BYOD-Geräte**, einem persönlichen Gerät ein Geschäftskonto (aus einer lokalen Domäne oder Azure AD) hinzu, und genießen Sie SSO, um Ressourcen, die über Apps und im Web in einer Weise zu arbeiten, dass die Kompatibilität mit neuen Funktionen wie z.B. bedingte Benutzerkontensteuerung und Geräteintegrität nachweisen kann sichergestellt werden.  
+-   **Auf BYOD-Geräten**eines Geräts Privatbesitz ein Geschäftskonto (aus einer lokalen Domäne oder die Azure AD) hinzu, und genießen Sie SSO, um Ressourcen mithilfe von apps als auch im Web, auf eine Weise zu arbeiten, dass die Kompatibilität mit neuen Funktionen, z. B. bedingte Konto sichergestellt Kontrolle und Integrität für Geräte einen Nachweis an.  
   
--   **Integration mit MDM** können Sie die automatische Registrierung von Geräten mit der MDM-Lösung (Intune oder Drittanbieter-)  
+-   **MDM-Integration** können Sie die automatische Registrierung von Geräten für die Verwaltung mobiler Geräte (Intune oder Drittanbieter-)  
   
--   **Richten Sie "Kioskmodus" und freigegebene Geräte** für mehrere Benutzer in Ihrer Organisation  
+-   **Einrichten von "Kioskmodus" und gemeinsam genutzte Geräte** für mehrere Benutzer in Ihrer Organisation  
   
--   **Entwicklererfahrung** können Sie Apps, die für Unternehmensdaten und persönlichen Kontexten mit einem freigegebenen verwendeten Stapel Formfaktoren erstellen.  
+-   **Entwickler** können Sie apps, die als Enterprise und privaten Kontexten mit einem freigegebenen Nachrichtensystem Stapel zu erfüllen.  
   
--   **Imaging** Option können Sie zwischen Imaging und zulassen, dass Ihre Benutzer corp unternehmenseigenen Geräten direkt während der ersten Ausführung konfigurieren möchten.  
+-   **Imaging** Option können Sie entscheiden für die imageerstellung und Ihren Benutzern unmittelbar während des Eindrucks beim ersten Ausführen der Unternehmen gehörende Geräte zu konfigurieren.  
   
-Weitere Informationen finden Sie unter [Windows10 für Unternehmen: Beispiele zur Verwendung von Geräten für die Arbeit](https://azure.microsoft.com/en-us/documentation/articles/active-directory-azureadjoin-windows10-devices-overview/?rnd=1).  
+Weitere Informationen finden Sie unter [Windows 10 für Unternehmen: Möglichkeiten zur Verwendung von Geräten für die Arbeit](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-windows10-devices-overview/?rnd=1).  
   
 ## <a name="BKMK_IDLocker"></a>Microsoft Passport  
-Microsoft Passport ist eine neue Schlüssel basierende Authentifizierung Ansatz Organisationen und Verbraucher, die über Kennwörter hinausgeht. Diese Art der Authentifizierung basiert auf Verletzung, den Diebstahl und gegen Phishing Anmeldeinformationen.  
+Microsoft Passport ist eine neue Schlüsselbasierte Authentifizierung Ansatz Unternehmen und Verbraucher, die von Kennwörtern hinausgeht. Diese Form der Authentifizierung basiert auf einer sicherheitsverletzung, Diebstahl und Phishing-Schutz vor Angriffen Anmeldeinformationen.  
   
-Der Benutzer meldet sich an das Gerät mit einem Biometrie- oder PIN-Protokoll auf Informationen, die mit einem Zertifikat oder einem asymmetrischen Schlüsselpaar verknüpft ist. Der Identitätsanbieter (IDPs) prüft, ob der Benutzer durch die Zuordnung des öffentlichen Schlüssels des Benutzers zu IDLocker und Informationen über eine Zeit Einmalkennwort (OTP), Phonefactor oder einen anderen Mechanismus Protokoll enthält.  
+Der Benutzer meldet sich an das Gerät mit einem biometrische Daten oder PIN-Protokoll auf Informationen, die mit einem Zertifikat oder einem asymmetrischen Schlüsselpaar verknüpft ist. Der Identitätsanbieter (IDPs) überprüfen Sie den Benutzer, indem Sie den öffentlichen Schlüssel des Benutzers IDLocker zuordnen und Protokoll enthält Informationen über eine Time Password (OTP), Phonefactor oder einen anderen Benachrichtigungsmechanismus.  
   
-Weitere Informationen finden Sie unter [kennwortfreies Authentifizieren von Identitäten mit Microsoft Passport](https://azure.microsoft.com/en-us/documentation/articles/active-directory-azureadjoin-passport/)  
+Weitere Informationen finden Sie unter [Authentifizieren von Identitäten ohne Kennwörter über Microsoft Passport](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-passport/)  
   
-## <a name="BKMK_FRSDeprecation"></a>Abschreibung von Funktionsebenen (File Replication Service, FRS) und Windows Server2003  
-Obwohl in früheren Versionen von Windows Server (File Replication Service, FRS) und die Windows Server2003-Funktionsebenen veraltet sind, Klarstellung es, dass das Betriebssystem Windows Server2003 nicht mehr unterstützt wird. Daher sollten alle Domänencontroller, die Windows Server2003 ausgeführt wird, aus der Domäne entfernt werden. Die Domäne und Gesamtstruktur-Funktionsebene ausgelöst werden soll mindestens Windows Server2008, um zu verhindern, dass einen Domänencontroller, der eine frühere Version von Windows Server ausgeführt wird, von der Umgebung hinzugefügt wird.  
+## <a name="BKMK_FRSDeprecation"></a>Als veraltet (File Replication Service, FRS) und Windows Server 2003-Funktionsebenen  
+Obwohl (File Replication Service, FRS) und die funktionalen Ebenen der Windows Server 2003 in früheren Versionen von Windows Server als veraltet markiert wurden, trägt es wiederholt, dass das Betriebssystem Windows Server 2003 nicht mehr unterstützt wird. Daher sollten alle Domänencontroller mit Windows Server 2003 aus der Domäne entfernt werden. Die Domänen- und Gesamtstruktur-Funktionsebene ausgelöst werden soll mindestens Windows Server 2008 auf einen Domänencontroller zu verhindern, die eine frühere Version von Windows Server ausgeführt wird, in der Umgebung hinzugefügt wird.  
   
-In der Windows Server2008 und höhere Domänenfunktionsebenen wird Replikation des verteilten Dienst (Distributed File System, DFS) zum Replizieren von SYSVOL-Ordnerinhalte zwischen Domänencontrollern verwendet. Wenn Sie eine neue Domäne, auf der Domänenfunktionsebene Windows Server2008 oder höher erstellen, wird die DFS-Replikation zum Replizieren von SYSVOL automatisch verwendet. Wenn Sie auf einer niedrigeren funktionale Ebene die Domäne erstellt haben, müssen Sie über das Verwenden der FRS-zur DFS-Replikation für SYSVOL migriert. Für Migrationsschritte, können Sie entweder führen Sie die [Verfahren auf TechNet](https://technet.microsoft.com/library/dd640019(v=WS.10).aspx) oder verweisen Sie auf die [optimiert die Schritteim Storage Team File Cabinet Blog](http://blogs.technet.com/b/filecab/archive/2014/06/25/streamlined-migration-of-frs-to-dfsr-sysvol.aspx).  
+Auf dem Windows Server 2008 und höher Domänenfunktionsebenen werden Replikation des verteilten Dienst (Distributed File System, DFS) Ordnerinhalt SYSVOL zwischen Domänencontrollern zu replizieren. Wenn Sie eine neue Domäne auf der Domänenfunktionsebene Windows Server 2008 oder höher erstellen, wird die DFS-Replikation zum Replizieren von SYSVOL automatisch verwendet. Wenn Sie auf einer niedrigeren Funktionsebene die Domäne erstellt haben, müssen Sie von der Verwendung von FRS zur DFS-Replikation für SYSVOL migriert. Für Migrationsschritte, können Sie entweder führen Sie die [Prozeduren auf TechNet](https://technet.microsoft.com/library/dd640019(v=WS.10).aspx) oder sehen Sie sich die [optimierte Reihe von Schritten im Storage Team File Cabinet Blog](http://blogs.technet.com/b/filecab/archive/2014/06/25/streamlined-migration-of-frs-to-dfsr-sysvol.aspx).  
   
-Die Windows Server2003-Domäne und Gesamtstruktur-Funktionsebenen werden weiterhin unterstützt, aber Organisationen sollten die Funktionsebene der Windows Server2008 (oder höher, wenn möglich) sorgen für Kompatibilität mit SYSVOL-Replikation und in Zukunft zu unterstützen. Darüber hinaus stehen viele Vorteile und Funktionen auf der höheren höherer Funktionsebenen. Weitere Informationen finden Sie unter den folgenden Ressourcen für Weitere Informationen:  
+Die Windows Server 2003-Domäne und Gesamtstruktur-Funktionsebenen werden weiterhin unterstützt, aber Organisationen sollten Funktionsebene der Windows Server 2008 (oder höher, wenn möglich) sicherstellen der Kompatibilität der SYSVOL-Replikation und in der Zukunft zu unterstützen. Darüber hinaus stehen viele weitere Vorteile und Features auf den höheren funktionalen Ebenen, die höher. Weitere Informationen finden Sie in den folgenden Ressourcen:  
   
--   [Grundlegendes zur Active Directory-Domäne Services (AD DS) Functional Levels](ad-ds/active-directory-functional-levels.md)  
+-   [Grundlegendes zu Active Directory-Domäne (AD DS) Functional Levels "Services"](ad-ds/active-directory-functional-levels.md)  
   
 -   [Heraufstufen der Domänenfunktionsebene](https://technet.microsoft.com/library/cc753104.aspx)  
   

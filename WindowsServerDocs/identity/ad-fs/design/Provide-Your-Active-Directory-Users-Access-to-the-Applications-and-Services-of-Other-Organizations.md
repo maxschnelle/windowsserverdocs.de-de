@@ -1,7 +1,7 @@
 ---
 ms.assetid: 2d62386c-b466-4a54-b6fa-5d16cda120d8
-title: Bereitstellen der Active Directory-Benutzern den Zugriff auf die Anwendungen und Dienste anderer Organisationen
-description: 
+title: Bereitstellen von Zugriff auf die Anwendungen und Dienste anderer Organisationen für Ihre Active Directory-Benutzer
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,40 +10,41 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: d50d26c5c654e5c91b82f6f209e21f257221c12d
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59843581"
 ---
-# <a name="provide-your-active-directory-users-access-to-the-applications-and-services-of-other-organizations"></a>Bereitstellen der Active Directory-Benutzern den Zugriff auf die Anwendungen und Dienste anderer Organisationen
+# <a name="provide-your-active-directory-users-access-to-the-applications-and-services-of-other-organizations"></a>Bereitstellen von Zugriff auf die Anwendungen und Dienste anderer Organisationen für Ihre Active Directory-Benutzer
 
->Gilt für: Windows Server2016, Windows Server2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Dieses Bereitstellungsziel für Active Directory Federation Services \(AD FS\) baut auf das Ziel in [bieten Your Active Directory Users Access to Your Claims-Aware Applications and Services](Provide-Your-Active-Directory-Users-Access-to-Your-Claims-Aware-Applications-and-Services.md).  
+Diese Active Directory Federation Services \(AD FS\) -Bereitstellungsziel baut auf das Ziel in [Provide Your Active Directory Users Access auf Ihre Ansprüche unterstützenden Anwendungen und Dienste](Provide-Your-Active-Directory-Users-Access-to-Your-Claims-Aware-Applications-and-Services.md).  
   
-Wenn Sie ein Administrator in der Kontopartnerorganisation sind und Sie haben ein Bereitstellungsziel darin besteht, verbundzugriff für Mitarbeiter bereitstellen gehosteten Ressourcen in einer anderen Organisation:  
+Wenn Sie Administrator der Kontopartnerorganisation sind und ihr Bereitstellungsziel darin besteht, Mitarbeitern Verbundzugriff auf Ressourcen zu ermöglichen, die in einer anderen Organisation gehostet werden, lesen Sie bitte Folgendes:  
   
--   Singlethread-Standardparameter auf \(SSO\) Funktionen können Mitarbeiter, die Active Directory-Domäne im Unternehmensnetzwerk angemeldet sind Zugriff auf mehrere webbasierte Anwendungen oder Dienste, die von AD FS geschützt sind, wenn die Programme oder Dienste in einer anderen Organisation befinden. Weitere Informationen finden Sie unter [Federated Web SSO Design](Federated-Web-SSO-Design.md).  
+-   Mitarbeiter, die Active Directory-Domäne im Unternehmensnetzwerk angemeldet sind, können einzelne\-anmelden\-auf \(SSO\) Funktionalität für den Zugriff auf mehrere Web\-basierte Anwendungen oder Dienste, die werden durch AD FS geschützt bei der Anwendungen oder Dienste in einer anderen Organisation sind. Weitere Informationen finden Sie unter [Federated Web SSO Design](Federated-Web-SSO-Design.md).  
   
-    Fabrikam möchte z.B. Mitarbeiter Unternehmensnetzwerk Zugriff auf Webdienste verbunden haben, die von Contoso gehostet werden.  
+    Beispielsweise könnte Fabrikam fordern, dass Mitarbeiter im Unternehmensnetzwerk Verbundzugriff auf Webdienste erhalten, die von Contoso gehostet werden.  
   
--   Remotemitarbeiter, die Active Directory-Domäne angemeldet sind, können AD FS-Token abrufen, von dem Verbundserver in Ihrer Organisation verbundzugriff auf AD FS-gesicherte webbasierte Anwendungen oder Dienste, die in einer anderen Organisation gehostet werden zu erhalten.  
+-   Remotemitarbeiter, die Active Directory-Domäne angemeldet sind, können AD FS-Token erhalten, von dem Verbundserver in Ihrer Organisation, um verbundzugriff auf AD FS-gesicherte Web zu erhalten\-basierte Anwendungen oder Dienste, die in einem anderen gehostet werden die Organisation.  
   
-    Fabrikam möchte z.B. Remotemitarbeiter AD FS-gesicherte Services verbundzugriff auf, die Contoso gehostet werden, ohne dass die Fabrikam-Mitarbeiter im Unternehmensnetzwerk von Fabrikam sein.  
+    Fabrikam sollten z. B. Remotemitarbeiter, die Zugriff auf AD FS-gesicherte Dienste verbunden haben, die in Contoso gehostet werden, ohne die Fabrikam-Mitarbeiter im Unternehmensnetzwerk von Fabrikam sein.  
   
-Zusätzlich zu den grundlegenden Komponenten, die in beschriebenen [bieten Your Active Directory Users Access to Your Claims-Aware Applications and Services](Provide-Your-Active-Directory-Users-Access-to-Your-Claims-Aware-Applications-and-Services.md) und, der in der folgenden Abbildungschattiert dargestellt werden, die folgenden Komponenten sind für dieses Bereitstellungsziel erforderlich:  
+Zusätzlich zu den grundlegenden Komponenten, die in [Provide Your Active Directory Users Access to Your Claims-Aware Applications and Services](Provide-Your-Active-Directory-Users-Access-to-Your-Claims-Aware-Applications-and-Services.md) beschrieben und in der folgenden Abbildung schattiert dargestellt werden, sind für dieses Bereitstellungsziel folgende Komponenten erforderlich:  
   
--   **Partner-Verbundserverproxy zu berücksichtigen:** Mitarbeiter, die den Verbunddienst oder die Anwendung aus dem Internet zugreifen können diese AD FS-Komponente verwenden, um die Authentifizierung durchführen. Standardmäßig führt diese Komponente Formularauthentifizierung, aber sie können auch Standardauthentifizierung durchführen. Sie können auch konfigurieren, dass diese Komponente um \(SSL\) Secure Sockets Layer-Clientauthentifizierung durchzuführen, wenn Mitarbeitern Ihrer Organisation Zertifikate vorliegen. Weitere Informationen finden Sie unter [Where to Place a Federation Server Proxy](Where-to-Place-a-Federation-Server-Proxy.md).  
+-   **Partner Kontoverbundserverproxy:** Mitarbeiter, die den Verbunddienst oder die Anwendung über das Internet zugreifen können diese AD FS-Komponente verwenden, um die Authentifizierung durchzuführen. Standardmäßig führt diese Komponente Formularauthentifizierung durch, kann jedoch auch Standardauthentifizierung durchführen. Sie können auch konfigurieren, diese Komponente zum Ausführen von Secure Sockets Layer \(SSL\) Clientauthentifizierung, wenn Mitarbeitern Ihrer Organisation Zertifikate vorliegen. Weitere Informationen finden Sie unter [Where to Place a Federation Server Proxy](Where-to-Place-a-Federation-Server-Proxy.md).  
   
--   **Umkreis-DNS:** diese Implementierung des Domain Name System \(DNS\) bietet die Hostnamen für das Umkreisnetzwerk. Weitere Informationen zum Konfigurieren des Umkreis-DNS für einen Verbundserverproxy finden Sie unter [Name Resolution Requirements for Federation Server Proxies](Name-Resolution-Requirements-for-Federation-Server-Proxies.md).  
+-   **Umkreis-DNS:** Diese Implementierung des Domain Name System \(DNS\) bietet die Hostnamen für das Umkreisnetzwerk. Weitere Informationen zum Konfigurieren des Umkreis-DNS für einen Verbundserverproxy finden Sie unter [Namensauflösungsanforderungen für Verbundserverproxys](Name-Resolution-Requirements-for-Federation-Server-Proxies.md).  
   
--   **Remotemitarbeiter:** der Remotemitarbeiter greift auf einer webbasierten Anwendung \ (über einen unterstützten Web-Browser\) oder einen webbasierten Dienst \ mithilfe von gültigen Anmeldeinformationen aus dem Unternehmensnetzwerk (über eine Application\), während er sich außerhalb des Standorts im Internet befindet. Clientcomputer des Mitarbeiters am Remotestandort kommuniziert direkt mit der Verbundserverproxy ein Token zu generieren und an die Anwendung oder den Dienst zu authentifizieren.  
+-   **Remotemitarbeiter:** Der Remotemitarbeiter greift auf eine Web\--basierten Anwendung \(über einen unterstützten Webbrowser\) oder eines Webdiensts\--basierten Diensts \(durch eine Anwendung\), mit gültigen Anmeldeinformationen aus dem Unternehmensnetzwerk, während er sich außerhalb des Standorts im Internet befindet. Clientcomputer des Mitarbeiters am Remotestandort kommuniziert direkt mit dem Verbundserverproxy Token generieren und an die Anwendung oder Dienst zu authentifizieren.  
   
-Nach dem Überprüfen der Informationen in den verknüpften Themen können Sie beginnen, Umsetzung dieses Bereitstellungsziels anhand der Schrittein [Checklist: Implementing a Federated Web SSO Design](../../ad-fs/deployment/Checklist--Implementing-a-Federated-Web-SSO-Design.md).  
+Nach dem Durchlesen der Informationen in den verknüpften Themen können Sie beginnen können, Umsetzung dieses Bereitstellungsziels anhand der Schritte in [Prüfliste: Implementieren eines Federated-Web-SSO-Entwurfs](../../ad-fs/deployment/Checklist--Implementing-a-Federated-Web-SSO-Design.md).  
   
-Die folgende Abbildungzeigt die einzelnen der erforderlichen Komponenten für dieses Bereitstellungsziel für AD FS.  
+Die folgende Abbildung zeigt jede der erforderlichen Komponenten für dieses Bereitstellungsziel für AD FS.  
   
-![Der Zugriff auf Ihre Apps](media/50af4837-31e0-451f-a942-e705c2300065.gif)  
+![der Zugriff auf Ihre apps](media/50af4837-31e0-451f-a942-e705c2300065.gif)  
   
 ## <a name="see-also"></a>Siehe auch
-[AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[AD FS-Entwurfshandbuch in WindowsServer 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

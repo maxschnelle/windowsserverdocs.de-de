@@ -1,6 +1,6 @@
 ---
-title: Bereitstellen von Serverzertifikaten für 802.1X-authentifizierte Kabel- und Drahtlosnetzwerke Bereitstellungen
-description: In diesem Thema ist Teil des Handbuchs Bereitstellen von Serverzertifikaten für 802.1 X kabelgebundenen und drahtlosen Bereitstellungen
+title: Bereitstellen von Serverzertifikaten für drahtgebundene und drahtlose 802.1X-Bereitstellungen
+description: Dieses Thema ist Teil des Handbuchs Bereitstellen von Serverzertifikaten für 802.1 X verkabelte und drahtlose Bereitstellungen
 manager: brianlic
 ms.topic: article
 ms.assetid: 0a39ecae-39cc-4f26-bd6f-b71ed02fc4ad
@@ -8,25 +8,26 @@ ms.prod: windows-server-threshold
 ms.technology: networking
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: fda9b2b53d088cc389e98cf96fecd748419bc6e2
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 769a4165cfd82056a904c79c41e96fb666d05e43
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59842271"
 ---
-# <a name="deploy-server-certificates-for-8021x-wired-and-wireless-deployments"></a>Bereitstellen von Serverzertifikaten für 802.1X-authentifizierte Kabel- und Drahtlosnetzwerke Bereitstellungen
+# <a name="deploy-server-certificates-for-8021x-wired-and-wireless-deployments"></a>Bereitstellen von Serverzertifikaten für drahtgebundene und drahtlose 802.1X-Bereitstellungen
 
->Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
-Dieses Handbuch können Serverzertifikate für die Infrastrukturserver Remotezugriff und Netzwerkrichtlinienserver (Network Policy Server, NPS) bereitstellen.   
+Sie können dieses Handbuch verwenden, Serverzertifikate für die Infrastruktur-Server Remotezugriff und Netzwerkrichtlinienserver (Network Policy Server, NPS) bereitstellen.   
 
-Dieses Handbuch enthält die folgenden Abschnitte.  
+Dieses Handbuch enthält die folgenden Abschnitte:  
 
 -   [Voraussetzungen für die Verwendung dieses Handbuchs](#bkmk_pre)  
 
--   [Was dieses Handbuch bietet keine](#bkmk_not)  
+-   [Nicht in diesem Handbuch enthaltene Informationen](#bkmk_not)  
 
--   [Technologieübersichten](#bkmk_tech)  
+-   [Technologieübersicht](#bkmk_tech)  
 
 -   [Übersicht über die Bereitstellung von Server-Zertifikat](Server-Certificate-Deployment-Overview.md)  
 
@@ -34,60 +35,60 @@ Dieses Handbuch enthält die folgenden Abschnitte.
 
 -   [Bereitstellung von Serverzertifikaten](Server-Certificate-Deployment.md)  
 
-### **<a name="digital-server-certificates"></a>Digitale Zertifikate**  
-Dieses Handbuch enthält Anweisungen für die Verwendung von Active Directory-Zertifikatdienste (AD CS) zur automatischen Registrierung von Zertifikaten für RAS und Netzwerkrichtlinienserver-Infrastruktur. AD CS können Sie eine public Key-Infrastruktur (PKI) zu erstellen und Bereitstellen von Kryptografie mit öffentlichem Schlüssel, digitale Zertifikate und Funktionen für digitale Signatur für Ihre Organisation.  
+### <a name="digital-server-certificates"></a>**Digitale Serverzertifikate**  
+Dieses Handbuch enthält Anweisungen für die Verwendung von Active Directory-Zertifikatdienste (AD CS), Zertifikate, um den Remotezugriff und NPS-Infrastruktur-Server automatisch zu registrieren. AD CS ermöglichen Ihnen eine public Key-Infrastruktur (PKI) zu erstellen und Bereitstellen von Kryptografie mit öffentlichem Schlüssel, digitale Zertifikate und digitale Signatur-Funktionen für Ihre Organisation.  
 
-Wenn Sie digitale Zertifikate für die Authentifizierung zwischen Computern in Ihrem Netzwerk verwenden, geben die Zertifikate:   
+Wenn Sie digital Serverzertifikate für die Authentifizierung zwischen Computern in Ihrem Netzwerk verwenden, geben Sie die Zertifikate:   
 
-1. Vertraulichkeit durch Verschlüsselung.  
+1. Datenvertraulichkeit durch Verschlüsselung.  
 2. Integrität durch digitale Signaturen.  
-3. Authentifizierung durch Computer, Benutzer oder Gerät Konten in einem Computernetzwerk Zertifikatschlüssel zuordnen.  
+3. Authentifizierung durch Zuordnung von Zertifikatschlüsseln mit-Computer, Benutzer oder Gerät Konten in einem Computernetzwerk.  
 
-### **<a name="server-types"></a>Server-Typen**  
-Mithilfe dieses Handbuchs können Sie Serverzertifikate für die folgenden Typen von Servern bereitstellen.  
-- Server, die das RAS-Dienst ausgeführt werden, die sich DirectAccess oder Server Standard virtuelle private Netzwerke (VPN) und Mitglieder der **RAS- und IAS-Server** Gruppe.  
-- Server, auf denen dem Netzwerkrichtlinienserver (Network Policy Server, NPS)-Dienst sind Mitglieder der **RAS- und IAS-Server** Gruppe.  
+### <a name="server-types"></a>**Server-Typen**  
+Mithilfe dieses Handbuchs können Sie Serverzertifikate, die folgenden Typen von Servern bereitstellen.  
+- Server, die ausgeführt werden, die RAS-Dienst, die sich DirectAccess oder standard virtuelles privates Netzwerk (VPN)-Server, und die Mitglieder von der **RAS- und IAS-Server** Gruppe.  
+- Server, auf denen dem Dienst (Network Policy Server, NPS) sind Mitglieder der **RAS- und IAS-Server** Gruppe.  
 
-### **<a name="advantages-of-certificate-autoenrollment"></a>Vorteile der automatischen Registrierung von Zertifikaten**  
-Automatische Registrierung von Serverzertifikaten, auch als bezeichnet die automatische Registrierung, bietet die folgenden Vorteile.  
+### <a name="advantages-of-certificate-autoenrollment"></a>**Vorteile der automatischen Registrierung von Zertifikaten**  
+Automatische Registrierung von Serverzertifikaten, auch als automatische Registrierung bezeichnet, bietet die folgenden Vorteile.  
 
-- Die AD CS-Zertifizierungsstelle (CA) registriert wird automatisch ein Serverzertifikat für alle NPS und RAS-Server.  
-- Alle Computer in der Domäne erhalten automatisch Ihrer CA-Zertifikat, das in den Speicher vertrauenswürdiger Stammzertifizierungsstellen installiert wird auf alle Domänenmitgliedscomputer speichern. Aus diesem Grund vertrauen alle Computer in der Domäne der Zertifikate, die von der Zertifizierungsstelle ausgestellt wurden. Diese Vertrauensstellung ermöglicht der Authentifizierung, die miteinander ihre Identität nachweisen und sichere Kommunikation vor.  
-- Die manuelle Neukonfiguration von jedem Server ist als die Aktualisierung der Gruppenrichtlinie, nicht erforderlich.  
-- Jedes Zertifikat enthält die Serverauthentifizierung und Clientauthentifizierung in erweiterten Schlüsselverwendung (EKU)-Erweiterungen.  
-- Skalierbarkeit. Nach der Bereitstellung Ihrer Unternehmens-Stammzertifizierungsstelle in diesem Handbuch, können Sie Ihre public Key-Infrastruktur (PKI) durch Hinzufügen von Enterprise-Zertifizierungsstellen erweitern.  
-- Verwaltbarkeit. Sie können AD CS mithilfe der AD CS-Konsole oder mithilfe von Windows PowerShell-Befehle und -Skripts verwalten.  
-- Der Einfachheit halber. Sie geben Sie die Server, die Serverzertifikate mithilfe von Active Directory-Gruppenkonten und Gruppenmitgliedschaft zu registrieren.   
-- Bei der Bereitstellung von Serverzertifikaten basieren die Zertifikate auf einer Vorlage, die Sie mit den Anweisungen in diesem Handbuch zu konfigurieren. Dies bedeutet, dass Sie unterschiedliche Zertifikatvorlagen für bestimmte Servertypen anpassen können, oder Sie können dieselbe Vorlage für alle Zertifikate, die Sie ausstellen möchten.  
+- Die AD CS-Zertifizierungsstelle (CA) wird automatisch ein Zertifikat für alle Ihre NPS und RAS-Server registriert.  
+- Alle Computer in der Domäne erhalten automatisch Ihr CA-Zertifikat, das in der vertrauenswürdigen Stammzertifizierungsstellen installiert wird auf alle Domänenmitgliedscomputer zu speichern. Aus diesem Grund vertrauen alle Computer in der Domäne, die Zertifikate, die von der Zertifizierungsstelle ausgestellt werden. Diese Vertrauensstellung ermöglicht Ihrer Authentifizierungsserver Beweisen ihre Identitäten miteinander, und engagieren Sie sich in die sichere Kommunikation.  
+- Als Aktualisieren der Gruppenrichtlinie, ist die manuelle Neukonfiguration von jedem Server nicht erforderlich.  
+- Jedes Serverzertifikat umfasst den Zertifizierungszweck der Serverauthentifizierung und Zertifizierungszweck der Clientauthentifizierung in erweiterten Schlüsselverwendung (EKU)-Erweiterungen.  
+- Skalierbarkeit. Nach der Bereitstellung Ihrer Unternehmens-Stammzertifizierungsstelle in diesem Leitfaden, können Sie Ihre public Key-Infrastruktur (PKI) erweitern, durch das Hinzufügen von Enterprise-Zertifizierungsstellen.  
+- Verwaltbarkeit. Sie können AD CS mithilfe der AD CS-Konsole oder mithilfe von Windows PowerShell-Befehle und-Skripts verwalten.  
+- Einfachheit. Sie geben die Servern, die Serverzertifikate mithilfe von Active Directory-Gruppe-Konten und Gruppenmitgliedschaften zu registrieren.   
+- Wenn Sie Server-Zertifikate bereitstellen, werden die Zertifikate basierend auf einer Vorlage, die Sie mit den Anweisungen in diesem Handbuch konfigurieren. Dies bedeutet, dass können Sie unterschiedliche Zertifikatvorlagen für bestimmte Servertypen anpassen, oder Sie können die gleiche Vorlage für alle Serverzertifikate, die Sie ausgeben möchten.  
 
 ## <a name="bkmk_pre"></a>Voraussetzungen für die Verwendung dieses Handbuchs  
 
-Dieses Handbuch enthält Anweisungen zum Bereitstellen von Serverzertifikaten mithilfe von AD CS und die Serverrolle Webserver (IIS) in Windows Server2016. Es folgen die Voraussetzungen für die Durchführung der Verfahrens in diesem Handbuch.  
+Dieses Handbuch enthält Anweisungen zum Bereitstellen von Serverzertifikaten mithilfe von AD CS und die Webserver (IIS)-Serverrolle in Windows Server 2016. Es folgen die Voraussetzungen für die Durchführung der Verfahren in diesem Handbuch.  
 
-- Sie müssen ein Hauptnetzwerk mithilfe von Windows Server2016 Core Network Guide bereitstellen, oder müssen Sie vorher die Technologien, die im Kernnetzwerkhandbuch beschriebenen installiert und ordnungsgemäß in Ihrem Netzwerk bereitgestellt haben. Zu diesen Technologien zählen TCP/IP-v4, DHCP, Active Directory Domain Services (AD DS), DNS- und NPS.  
+- Müssen Sie ein Hauptnetzwerk mithilfe der Windows Server 2016 Core Network Guide bereitstellen, oder Sie müssen bereits die Technologien, die in das Handbuch zum Hauptnetzwerk installiert und ordnungsgemäß funktioniert, in Ihrem Netzwerk bereitgestellt haben. Zu diesen Technologien zählen TCP/IP-v4, DHCP, Active Directory Domain Services (AD DS), DNS- und NPS.  
 >[!NOTE]
->Windows Server2016 Core Network Guide ist in der technischen Bibliothek zu Windows Server2016 verfügbar. Weitere Informationen finden Sie unter [Kernnetzwerkhandbuch](../../../core-network-guide/Core-Network-Guide.md).
+>Windows Server 2016 Core Network Guide ist in der technischen Bibliothek zu Windows Server 2016 verfügbar. Weitere Informationen finden Sie unter [Core Network Guide](../../../core-network-guide/Core-Network-Guide.md).
 
-- Sie müssen im Planungsabschnitt dieses Handbuchs, um sicherzustellen, dass Sie für die Bereitstellung vorbereitet sind, vor dem Durchführen der Bereitstellungstyps lesen.  
-- Sie müssen die Schrittein diesem Handbuch in der Reihenfolge ausführen, in denen sie angezeigt werden. Springen im Voraus nicht, und die Zertifizierungsstelle bereitstellen, ohne den Schritten, die Sie zum Bereitstellen von dem Server oder Ihrer Bereitstellung führen schlägt fehl.  
-- Sie müssen darauf vorbereitet, zum Bereitstellen von zwei neuer Servern in Ihrem Netzwerk - ein Server, auf dem Sie AD CS als Unternehmens-Stammzertifizierungsstelle installieren möchten, und ein Server, auf dem Sie Webserver (IIS) installieren, damit die Zertifizierungsstelle die Zertifikatssperrliste (CRL) auf dem Webserver veröffentlichen kann.   
+- Sie müssen im Planungsabschnitt dieses Handbuchs, um sicherzustellen, dass Sie für diese Bereitstellung vorbereitet sind, vor der Durchführung der bereitstellungs lesen.  
+- Sie müssen die Schritte in diesem Handbuch in der Reihenfolge ausführen, in denen sie angezeigt werden. Gehen Sie nicht, und Bereitstellen Sie Ihrer Zertifizierungsstelle, ohne den Schritten, die für die Bereitstellung von dem Server oder der Bereitstellung führen fehl.  
+- Sie müssen vorbereitet sein, zum Bereitstellen von zwei neuer Servern in Ihrem Netzwerk – ein Server, auf denen Sie AD CS als Stammzertifizierungsstelle des Unternehmens installieren möchten, und ein Server, auf dem Sie Webserver (IIS) installieren, damit die Zertifizierungsstelle die Zertifikatsperrliste (CRL) auf die Web-Se veröffentlichen können rvername.   
 
 >[!NOTE]  
->Sie können die Web- und AD CS-Server eine statische IP-Adresse zuweisen, die Sie in diesem Handbuch auch und nennen Sie die Computer gemäß der Benennungskonventionen Ihrer Organisation bereitstellen. Darüber hinaus muss der Computer der Domäne beitreten.  
+>Sie sind bereit, die die Web-Apps und AD CS-Server eine statische IP-Adresse zuweisen, die Sie mit diesem Handbuch ebenfalls, benennen Sie die Computer entsprechend der Benennungskonventionen Ihrer Organisation bereitstellen. Darüber hinaus müssen Sie die Computer mit der Domäne verknüpfen.  
 
 ## <a name="bkmk_not"></a>Was dieses Handbuch bietet keine  
-Dieses Handbuch bietet keine umfassende Anweisungen für das Entwerfen und Bereitstellen einer public Key-Infrastruktur (PKI) mit AD CS. Es wird empfohlen, dass Sie AD CS-Dokumentation und Dokumentation zur PKI-Design vor der Bereitstellung der Technologien in diesem Handbuch zu überprüfen.   
+Dieses Handbuch bietet keine umfassende Informationen zum Entwerfen und Bereitstellen einer public Key-Infrastruktur (PKI) mit AD CS. Es wird empfohlen, dass Sie AD CS-Dokumentation und die Dokumentation des PKI-Entwurf vor der Bereitstellung der Technologien in diesem Handbuch überprüfen.   
 
-## <a name="bkmk_tech"></a>Technologieübersichten  
-Folgendes sind Technologieübersichten für AD CS und Webserver (IIS).  
+## <a name="bkmk_tech"></a>Technologieübersicht  
+Es folgen Technologieübersicht für AD CS- und Webserver (IIS).  
 
 ### <a name="active-directory-certificate-services"></a>Active Directory-Zertifikatdienste  
-AD CS in Windows Server2016 bietet anpassbare Dienste zum Erstellen und Verwalten der x. 509-Zertifikate, die in Softwaresicherheitssystemen verwendet werden, die von öffentlichen Schlüsseln zur Verfügung. Organisationen können AD CS verwenden, um die Sicherheit zu erhöhen, indem Sie die Identität einer Person, Gerät oder Dienst zu einem entsprechenden öffentlichen Schlüssel binden. AD CS umfasst auch Features, mit die Sie die Registrierung von Zertifikaten und Sperren in einer Vielzahl von skalierbare Umgebung verwalten können.  
+AD CS in Windows Server 2016 bietet anpassbare Dienste zum Erstellen und Verwalten von x. 509-Zertifikate, die in Softwaresicherheitssystemen verwendet werden, die Technologien für öffentliche Schlüssel verwenden. Organisationen können AD CS verwenden, um Sicherheit zu verbessern, indem Sie die Identität einer Person, Geräts oder des Diensts an einen entsprechenden öffentlichen Schlüssel binden. AD CS umfasst auch Funktionen, die Ihnen ermöglichen, die Registrierung von Zertifikaten und Zertifikatsperrlisten in einer Vielzahl von skalierbaren Umgebungen verwalten.  
 
-Weitere Informationen finden Sie unter [Active Directory Certificate Services Overview](https://technet.microsoft.com/library/hh831740.aspx) und [Public Key-Infrastruktur-Designleitfaden ](https://social.technet.microsoft.com/wiki/contents/articles/2901.public-key-infrastructure-design-guidance.aspx).  
+Weitere Informationen finden Sie unter [Active Directory Certificate Services Overview](https://technet.microsoft.com/library/hh831740.aspx) und [Public Key-Infrastruktur-Entwurfsrichtlinien](https://social.technet.microsoft.com/wiki/contents/articles/2901.public-key-infrastructure-design-guidance.aspx).  
 
 ### <a name="web-server-iis"></a>Webserver (IIS)  
 
-Die Rolle "Webserver (IIS)" in Windows Server2016 bietet eine sichere, einfach zu verwaltende, modulare und erweiterbare Plattform für ein zuverlässiges Hosting von Websites, Diensten und Anwendungen. Mit IIS können Sie Informationen gemeinsamen mit Benutzern im Internet, Intranet oder einem extranet freigeben. IIS ist eine einheitliche Webplattform, die IIS, ASP.NET, FTP-Dienste, PHP und Windows Communication Foundation (WCF) integriert wird.  
+Die Rolle "Webserver (IIS)" in Windows Server 2016 bietet eine sichere, leicht zu verwaltende, modulare und erweiterbare Plattform für das zuverlässige hosting von Websites, Diensten und Anwendungen. Mit IIS können Sie Informationen für Benutzer auf das Internet, Intranet oder in einem extranet freigeben. IIS ist eine einheitliche Webplattform, die IIS, ASP.NET, FTP-Dienste, PHP, und Windows Communication Foundation (WCF) integriert ist.  
 
-Weitere Informationen finden Sie unter [Webserver (IIS): Übersicht ](https://technet.microsoft.com/library/hh831725.aspx).  
+Weitere Informationen finden Sie unter [Webserver (IIS)-Übersicht](https://technet.microsoft.com/library/hh831725.aspx).  

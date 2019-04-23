@@ -1,53 +1,110 @@
 ---
 ms.assetid: 289cbd10-e7ec-4f2e-8dd1-eb5692565578
-title: "Änderungsverlauf für Failover-Clusterunterstützung Themen"
+title: Änderungsverlauf für Failovercluster-Themen
 ms.prod: windows-server-threshold
 ms.technology: storage-failover-clustering
 ms.topic: article
 author: JasonGerend
-manager: dongill
+manager: daveba
 ms.author: jgerend
-ms.date: 6/7/2017
-description: "Neue und aktualisierte Themen in der Dokumentation der Failover-Clusterunterstützung für Windows Server2016"
-ms.openlocfilehash: 8e9ebc18fba23f2a5299497d8367d53b52521af8
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
+ms.date: 03/08/2019
+description: Neue und aktualisierte Themen in der Failover-Clusterunterstützung für Windows Server 2016
+ms.openlocfilehash: 4044475995175ea527a1ecc487bc0e1cc6f75003
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59861221"
 ---
-# <a name="change-history-for-failover-clustering-topics-in-windows-server-2016"></a>Änderungsverlauf für Failover-Clusterunterstützung Themen in Windows Server2016
+# <a name="change-history-for-failover-clustering-topics"></a>Änderungsverlauf für Failovercluster-Themen
 
->Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server 2016
+>Gilt für: WindowsServer 2019, WindowsServer 2016, WindowsServer (Halbjährlicher Kanal)
 
-In diesem Thema werden neue und aktualisierte Themen in der [Failover-Clusterunterstützung](failover-clustering-overview.md) Dokumentation für Windows Server2016.
+Dieses Thema listet neue und aktualisierte Themen in der [Failover-Clusterunterstützung](failover-clustering-overview.md) Dokumentation zu Windows Server.
 
-> Wenn Sie Updateverlauf für Windows Server2016 suchen, finden Sie unter [Updateverlauf für Windows10 und Windows Server2016](https://support.microsoft.com/help/4000825/windows-10-and-windows-server-2016-update-history).
+> Der Updateverlauf für Windows Server 2016 befindet sich unter [Updateverlauf für Windows 10 und Windows Server 2016](https://support.microsoft.com/help/4000825/windows-10-and-windows-server-2016-update-history).
 
-## <a name="june-2017"></a>Juni2017
+## <a name="march-2019"></a>März 2019
+
+|Neues oder geändertes Thema                                    |Beschreibung |
+|--------------------------------------------------------|------------|
+|[Cluster-Affinität](cluster-affinity.md)| Neu     |
+
+## <a name="february-2019"></a>Februar 2019
+
+|Neues oder geändertes Thema                                    |Beschreibung |
+|--------------------------------------------------------|------------|
+| [Upgrade eines Failoverclusters auf derselben hardware](upgrade-option-same-hardware.md)| Neu |
+|[Bereitstellen eines Dateiservers mit zwei Knoten](deploy-two-node-clustered-file-server.md)| Neu |
+
+## <a name="january-2019"></a>Januar 2019
+
+|Neues oder geändertes Thema                                    |Beschreibung |
+|--------------------------------------------------------|------------|
+|[Bereitstellen Sie ein dateifreigabezeugen](file-share-witness.md)    | Neu        |
+|[Clusterdomäne migration](cluster-domain-migration.md) | Neu        |
+
+## <a name="november-2018"></a>November 2018
 
 |Neues oder geändertes Thema|Beschreibung|
 |---|---|
-|[Cluster-Aware Updating, erweiterte Optionen](cluster-aware-updating-options.md)|Zusätzliche Informationen zur Verwendung von Ausführungsprofil Pfade mit Leerzeichen.|
+|[Konfigurieren von Clusterkonten in Active Directory](configure-ad-accounts.md)|Migriert die [Vorgängerversionen](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/) Bibliothek|
 
-## <a name="april-2017"></a>April2017
+## <a name="october-2018"></a>Oktober 2018
 
 |Neues oder geändertes Thema|Beschreibung|
 |---|---|
-|[Cluster-Aware Updating (Übersicht)](cluster-aware-updating.md)|Neues Thema.|
+|[Neuerungen beim clustering](whats-new-in-failover-clustering.md)| Updates für WindowsServer 2019|
+
+## <a name="june-2018"></a>Juni 2018
+
+|Neues oder geändertes Thema|Beschreibung|
+|---|---|
+|[Clustersätze](../storage/storage-spaces/cluster-sets.md)| Neues Thema|
+
+## <a name="may-2018"></a>Mai 2018
+
+|Neues oder geändertes Thema|Beschreibung|
+|---|---|
+|[Konfigurieren und Verwalten von quorum](manage-cluster-quorum.md) | Migriert die [Vorgängerversionen](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) Bibliothek. |
+
+## <a name="april-2018"></a>April 2018
+
+|Neues oder geändertes Thema|Beschreibung|
+|---|---|
+|[Problembehandlung bei einem Failovercluster mithilfe der Windows-Fehlerberichterstattung](troubleshooting-using-WER-reports.md)| Neues Thema. |
+|[Dateiserver für horizontales Skalieren für Anwendungsdaten](sofs-overview.md)|Migriert die [Vorgängerversionen](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) Bibliothek.|
+|[Hardwareanforderungen](clustering-requirements.md)|Migriert die [Vorgängerversionen](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) Bibliothek.|
+|[Verwenden von freigegebenen Clustervolumes (CSV)](failover-cluster-csvs.md)|Migriert die [Vorgängerversionen](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) Bibliothek.|
+|[Erstellen eines Failoverclusters](create-failover-cluster.md)|Migriert die [Vorgängerversionen](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) Bibliothek.|
+|[Vorabbereitstellen von einem Cluster in AD DS](prestage-cluster-adds.md)|Migriert die [Vorgängerversionen](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) Bibliothek.|
+|[Bereitstellen eines Cloudzeugen für einen Failovercluster](deploy-cloud-witness.md)|Migriert die [Vorgängerversionen](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) Bibliothek.|
+
+## <a name="june-2017"></a>Juni 2017
+
+|Neues oder geändertes Thema|Beschreibung|
+|---|---|
+|[Cluster-Aware Updating, erweiterte Optionen](cluster-aware-updating-options.md)|Hinzugefügte Informationen zur Verwendung von Ausführungsprofil-Pfade, die Leerzeichen enthalten.|
+
+## <a name="april-2017"></a>April 2017
+
+|Neues oder geändertes Thema|Beschreibung|
+|---|---|
+|[Übersicht über die clusterfähige Aktualisierung](cluster-aware-updating.md)|Neues Thema.|
 |[Cluster-Aware Updating Anforderungen und best practices](cluster-aware-updating-requirements.md)|Neues Thema.|
 |[Cluster-Aware Updating, erweiterte Optionen](cluster-aware-updating-options.md)|Neues Thema.|
-|[Clusterfähiges aktualisieren – häufig gestellte Fragen](cluster-aware-updating-faq.md)|Neues Thema.|
-|[Cluster-Aware Updating-Plug-Ins](cluster-aware-updating-plug-ins.md)|Neues Thema.|
-|[Bereitstellen eines cloudzeugen für einen Failovercluster](deploy-cloud-witness.md)|Erläutert den Kontotyp an Speicher, die erforderlich sind (Sie können keine verwenden Azure Storage Premium oder BLOB-Speicher-Konten).|
+|[Clusterfähige Aktualisierung – häufig gestellte Fragen](cluster-aware-updating-faq.md)|Neues Thema.|
+|[Cluster-Aware Updating-Plug-ins](cluster-aware-updating-plug-ins.md)|Neues Thema.|
+|[Bereitstellen eines cloudzeugen für einen Failovercluster](deploy-cloud-witness.md)|Erläutert den Typ der Storage-Konto, das erforderlich ist (Sie können keine Azure Storage Premium oder Blob Storage-Konten).|
 
-## <a name="march-2017"></a>März2017
-
-|Neues oder geändertes Thema|Beschreibung|
-|---|---|
-|[Bereitstellen eines cloudzeugen für einen Failovercluster](deploy-cloud-witness.md)| Aktualisierte Bildschirmfotos Änderungen an Microsoft Azure übereinstimmen.|
-
-## <a name="february-2017"></a>Februar2017
+## <a name="march-2017"></a>März 2017
 
 |Neues oder geändertes Thema|Beschreibung|
 |---|---|
-|[Cluster Operating System rolling Upgrade](Cluster-Operating-System-Rolling-Upgrade.md)|Entfernt eine unnötige Warnhinweis und einen Link hinzugefügt.|
+|[Bereitstellen eines cloudzeugen für einen Failovercluster](deploy-cloud-witness.md)| Aktualisierte Screenshots entsprechend der Änderungen an den Microsoft Azure.|
+
+## <a name="february-2017"></a>Februar 2017
+
+|Neues oder geändertes Thema|Beschreibung|
+|---|---|
+|[Cluster Upgrades des clusterbetriebssystems](Cluster-Operating-System-Rolling-Upgrade.md)|Entfernt eine unnötige Vorsichtshinweis und einen Link hinzugefügt.|

@@ -1,6 +1,6 @@
 ---
-title: "Unterstützung für größere Bereitstellungen"
-description: Beschreibt, wie Sie Windows Server Essentials
+title: Unterstützung für größere Bereitstellungen
+description: Beschreibt, wie Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,56 +13,57 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: c60e5f73c88a225fbd1067992894f9d20da745ad
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59860481"
 ---
 #<a name="support-for-larger-deployments"></a>Unterstützung für größere Bereitstellungen
 
->Gilt für: Windows Server2016 Essentials
+>Gilt für: Windows Server 2016 Essentials
 
 > [!IMPORTANT]  
-> In diesem Thema beschriebenen Features funktionieren nur auf Windows Server2016 mit aktivierter Essentials Experience-Rolle und nicht mit dem Windows Server2016 Essentials-SKU.
+> In diesem Thema beschriebenen Features können nur unter Windows Server 2016, mit die Essentials Experience-Rolle aktiviert und nicht mit der Windows Server 2016 Essentials-SKU.
 
 
-Windows Server Essentials unterstützt jetzt größere Bereitstellungen mit:
+Windows Server Essentials unterstützt nun die größere Bereitstellungen mit:
 
-- Mehrere Domänen
-- Mehrere Domänencontroller
-- Möglichkeit, einen bestimmten Domänencontroller angeben
-- Unterstützung für bis zu 500 Benutzern und 500 Geräte
+- mehrere Domänen
+- mehrere Domänencontroller
+- Möglichkeit zum Angeben eines designierten Domänencontrollers
+- Support für bis zu 500 Benutzer und 500 Geräte
 
 ##<a name="support-for-multiple-domains"></a>Unterstützung mehrerer Domänen
 
-Windows Server 2012 R2 Essentials unterstützt nur eine Domäne pro Server, der erforderlich ist, und der Essentials-Server muss den Stamm der Gesamtstruktur sein. Während einer Domäne und Gesamtstruktur noch erforderlich sind, kann jetzt Windows Server2016 Essentials Experience-Rolle auf Windows Server2016 Standard oder Datacenter, Unterstützung für mehrere Domänen bereitgestellt werden.
+Windows Server 2012 R2 Essentials unterstützt nur eine Domäne pro Server, der erforderlich ist, und der Essentials-Server muss der Stamm der Gesamtstruktur sein. Während einer Domäne und Gesamtstruktur nach wie vor erforderlich sind, kann nun die Windows Server 2016 Essentials Experience-Rolle auf Windows Server 2016 Standard oder Datacenter Unterstützung für mehrere Domänen bereitgestellt werden.
 
 ## <a name="support-for-multiple-domain-controllers"></a>Unterstützung für mehrere Domänencontroller
 
- Windows Server Essentials 2012 R2 blockiert alle Dienste, die Azure Active Directory, z.B. Office365, nutzen, in denen mehrere Domänencontroller bereitgestellt wird. Der Grund ist das Konto und Kennwort-Synchronisierung zwischen dem lokalen Domänencontroller und Azure Active Directory Kontoanmeldeinformationen mit Kennwörtern dazu führen, dass kann, die nicht mehr synchron sind. Diese Einschränkung wurde in Windows Server2016 Essentials entfernt.
+ Windows Server Essentials 2012 R2 blockiert alle Dienste, die Azure Active Directory, z. B. Office 365 nutzen, in denen mehr als einen Domänencontroller bereitgestellt wird. Der Grund ist, dass die Konto- und kennwortsynchronisierung zwischen dem lokalen Domänencontroller und Azure Active Directory, Anmeldeinformationen mit Kennwörtern führen kann, die nicht mehr synchron sind. Diese Einschränkung wurde in Windows Server 2016 Essentials entfernt.
 
-##<a name="ability-to-specify-a-designated-domain-controller"></a>Möglichkeit, einen bestimmten Domänencontroller angeben
+##<a name="ability-to-specify-a-designated-domain-controller"></a>Möglichkeit zum Angeben eines designierten Domänencontrollers
 
-Sie können jetzt wird verbessert abrufen, wie oft für Objekte der Active Directory-Domäne sowie Synchronisierung von Änderung alle anderen Domänencontroller in der Domäne zu koordinieren designierten Domänencontroller auswählen.
+Jetzt können Sie einen designierten Domänencontroller die wird Abrufzeiten für Objekte der Active Directory-Domäne zu verbessern sowie Synchronisierung von kontoänderung in andere Domänencontroller in der Domäne zu koordinieren.
 
-Standard-Domänencontroller benannt werden dem gleichen Server, auf der die Windows Server Essentials Experience-Serverrolle ausgeführt wird. Wenn dieser Server ein Mitgliedsserver ist, hat was bedeutet, dass es sich nicht um einen Domänencontroller, ist die Standardeinstellung, die dafür vorgesehenen Domänencontroller automatisch basierend bestimmt wird auf Tests, welcher Domänencontroller in der Domäne die niedrigste Netzwerklatenz auf den Server mit der Windows Server Experience-Serverrolle. Wenn Sie möchten manuell ändern, welcher Server dem designierten Domänencontroller ist, Sie können die notwendigen Schritteim **Einstellungen** in der **Windows Server Essentials-Dashboard** wie unten dargestellt.
+Standard festgelegten Domänencontroller wird derselbe Server sein, der die Windows Server Essentials Experience-Serverrolle ausgeführt wird. Wenn dieser Server auf einem Mitgliedsserver, d. h., es ist dabei nicht um einen Domänencontroller, und klicken Sie dann die Standardeinstellung designierten Domänencontroller automatisch ermittelt werden wird, basieren auf Tests in ist der Domänencontroller in der Domäne hat, auf den Server mit die niedrigste Netzwerklatenz die Windows Server-Umgebung-Server-Rolle. Sollten Sie manuell ändern, welcher Server auf dem designierten Domänencontroller ist, Sie können dazu **Einstellungen** in die **Windows Server Essentials-Dashboard** wie unten dargestellt.
 
-![Ein Bildschirmfoto, mit der Systemsteuerung im Vordergrund und im Windows Server Essentials-Dashboard im Hintergrund. Zurzeit ist die Domänencontroller festgelegt Seite die Einstellungen der Systemsteuerung ausgewählt.](media/larger-deployments-1.PNG)
+![Dieser Screenshot zeigt die Einstellungen steuern das Bereich in den Vordergrund und dem Windows Server Essentials-Dashboard im Hintergrund. Derzeit ist die Domänencontroller festgelegt-Seite der Systemsteuerung Einstellungen ausgewählt.](media/larger-deployments-1.PNG)
 
-##<a name="support-for-500-users-and-500-devices"></a>Unterstützung für 500 Benutzer und 500 Geräte
+##<a name="support-for-500-users-and-500-devices"></a>Unterstützung von 500 Benutzern und 500 Geräte
 -------------------------------------
 
-Die maximale Anzahl von unterstützten Benutzern und Geräten in Windows Server2012 R2 Essentials ist 25 und 50. Mit der Einführung der Windows Server Essentials Experience-Serverrolle wurde diese Beschränkung zu 100 Benutzern und 200 Geräten erhöht.
+Die maximale Anzahl von unterstützten Benutzer und Geräte in Windows Server 2012 R2 Essentials ist 25 und 50. Mit der Einführung der Windows Server Essentials Experience-Serverrolle diesen Grenzwert zu 100 Benutzern und 200 Geräten erhöht wurde.
 
-Windows Server2016 Essentials unterstützt 500 Benutzer und 500 Geräte. Dies möglich ist ein Update für die anbieterframework und Objekt Listensteuerelemente Zwischenspeichern und große Objektlisten für Benutzer und Gerät schnell zu rendern. Darüber hinaus wurde ein Feature zum Suchen und Filtern hinzugefügt, um den Benutzer oder Gerät, das Sie (siehe Abbildung5-2 Suchen) schnell zu finden. Erfahren Sie, suchen und Filtern von Funktionen in der **Windows Server Essentials-Dashboard**, **Remote Web Access**, und den Windows und Windows Phone Store **My Server** Anwendungen.
+Windows Server 2016 Essentials unterstützt 500 Benutzer "und" 500 Geräte. Dadurch kann ein Update für das anbieterframework und Objektliste steuert, damit sie zwischenspeichern und umfangreiche Listen der Benutzer und Gerät Objekt schnell zu rendern. Darüber hinaus wurde eine Funktion zum Suchen und Filtern hinzugefügt, um dem Benutzer oder Gerät gewünschte (siehe Abbildung 5-2) werden möglicherweise schnell zu finden. Finden Sie Such- und Filterparameter Funktionen in der **Windows Server Essentials-Dashboard**, **Remote Web Access**, und die Windows und Windows Phone Store **My Server** Anwendungen.
 
-![Ein Bildschirmfoto zeigt die Verwendung der Suchfunktion des Windows Server Essentials-Dashboards zum Suchen nach der Zeichenfolge "d5c." Die Ergebnisse der Suche enthalten zwei Dateien und Ordner und zwei Benutzer.](media/larger-deployments-2.PNG)
+![Dieser Screenshot zeigt die Verwendung der Suchfunktion des Windows Server Essentials-Dashboards zum Suchen nach der Zeichenfolge "d5c." Die Ergebnisse dieser Suche enthalten zwei Dateien und Ordner und zwei Benutzer.](media/larger-deployments-2.PNG)
 
-Ein Bildschirmfoto zeigt die Verwendung der Suchfunktion des Windows Server Essentials-Dashboards zum Suchen nach der Zeichenfolge "d5c". Die Ergebnisse der Suche enthalten zwei Dateien und Ordner und zwei Benutzer.
+Dieser Screenshot zeigt die Verwendung der Suchfunktion des Windows Server Essentials-Dashboards für die Zeichenfolge "d5c" suchen. Die Ergebnisse dieser Suche enthalten zwei Dateien und Ordner und zwei Benutzer.
 
 > [!NOTE]  
-> Während das unterstützte Limit für Benutzer und Gerät für Windows Server Essentials-Server-Rolle, das unterstützte Limit für den Client sichern bleibt bei 75 gestiegen ist.
+> Das unterstützte Limit von Benutzern und Geräten für Windows Server Essentials-Server-Rolle, das unterstützte Limit für den Client sichern bleibt unverändert 75 gesteigert.
 
 <a name="see-also"></a>Siehe auch
 --------
-[Erste Schrittemit Windows Server Essentials](get-started.md)
+[Erste Schritte mit Windows Server Essentials](get-started.md)

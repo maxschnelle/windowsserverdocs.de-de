@@ -1,6 +1,6 @@
 ---
 title: Bearbeiten einer DNS-Zone
-description: Dieses Thema ist Teil des Handbuchs Verwaltung von IP-Adressverwaltung (IPAM) in Windows Server2016.
+description: Dieses Thema ist Teil des Leitfadens Verwaltung von IP-Adressverwaltung (IPAM) in Windows Server 2016.
 manager: brianlic
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -13,27 +13,28 @@ ms.topic: article
 ms.assetid: a35164e1-11ad-47c8-9843-580d30c70d07
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 3e7cc75017c2b59293a042d4af0a677d3eda46c0
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: b632203289c3affd16735026e0c553be09c5e9e6
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59847441"
 ---
 # <a name="edit-a-dns-zone"></a>Bearbeiten einer DNS-Zone
 
->Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
-In diesem Thema können Sie eine DNS-Zone in der IPAM-Clientkonsole bearbeiten.  
+Sie können in diesem Thema verwenden, um eine DNS-Zone in der IPAM-Clientkonsole zu bearbeiten.  
   
-Mitgliedschaft in **Administratoren**, oder einer gleichwertigen Gruppe ist mindestens erforderlich, um dieses Verfahren auszuführen.  
+Die Mitgliedschaft in **Administratoren** oder einer entsprechenden Gruppe ist die Mindestanforderung für die Durchführung dieses Verfahrens.  
   
-### <a name="to-edit-a-dns-zone"></a>So bearbeiten Sie eine DNS-Zone  
+### <a name="to-edit-a-dns-zone"></a>So bearbeiten Sie eine DNS-zone  
   
-1.  Klicken Sie im Server-Manager auf **IPAM**. Die IPAM-Clientkonsole angezeigt wird.  
+1.  Klicken Sie im Server-Manager **IPAM**. Die IPAM-Clientkonsole angezeigt wird.  
   
-2.  Klicken Sie im Navigationsbereich in **ÜBERWACHEN und verwalten**, klicken Sie auf **DNS-Zonen**. Der Navigationsbereich unterteilt in ein im oberen Navigationsbereich und einen unteren Navigationsbereich.  
+2.  Klicken Sie im Navigationsbereich in **ÜBERWACHEN und verwalten**, klicken Sie auf **DNS-Zonen**. Im Navigationsbereich, die in einer oberen Navigationsbereich und einer unteren Navigationsbereich unterteilt werden.  
   
-3.  Klicken Sie im unteren Navigationsbereich stellen Sie eine der folgenden Optionen:  
+3.  Stellen Sie im unteren Navigationsbereich wird eine der folgenden Optionen aus:  
   
     -   Forward-Lookupzone  
   
@@ -41,23 +42,23 @@ Mitgliedschaft in **Administratoren**, oder einer gleichwertigen Gruppe ist mind
   
     -   IPv6-Reverse-Lookup  
   
-4.  Wählen Sie z.B. IPv4 Reverse-Lookup.  
+4.  Wählen Sie z. B. die IPv4-Reverse-Lookup.  
   
-    ![Wählen Sie eine Zone](../../media/Edit-a-DNS-Zone/ipam_EditZone_01.jpg)  
+    ![Wählen Sie eine zone](../../media/Edit-a-DNS-Zone/ipam_EditZone_01.jpg)  
   
 5.  Klicken Sie im Anzeigebereich mit der Maustaste der Zone, die Sie bearbeiten möchten, und klicken Sie dann auf **bearbeiten DNS-Zone**.  
   
     ![Bearbeiten von DNS-Zone](../../media/Edit-a-DNS-Zone/ipam_EditZone_02.jpg)  
   
-6.  Die **bearbeiten DNS-Zone** Dialogfeld wird geöffnet, mit der **allgemeine** Seite ausgewählt. Bei Bedarf bearbeiten Sie die allgemeinen Eigenschaften: **DNS-Server**, **Zone Kategorie**, und **Zonentyp**, und klicken Sie dann auf **übernehmen** oder, wenn die Bearbeitung abgeschlossen ist, sind **OK**.  
+6.  Die **bearbeiten DNS-Zone** Dialogfeld wird geöffnet, und die **allgemeine** ausgewählten Seite. Wenn erforderlich, bearbeiten Sie die allgemeine Zoneneigenschaften: **DNS-Server**, **Zone Kategorie**, und **Zonentyp**, und klicken Sie dann auf **übernehmen** oder, wenn die Bearbeitung abgeschlossen ist, sind **OK**.  
   
     ![Zoneneigenschaften bearbeiten und speichern](../../media/Edit-a-DNS-Zone/ipam_EditZone_03a.jpg)  
   
-7.  In der **bearbeiten DNS-Zone** Dialogfeld, klicken Sie auf **erweitert**. Die **erweitert** Zone Eigenschaftenseite wird geöffnet. Bei Bedarf die Eigenschaften, die Sie ändern möchten, und klicken Sie dann auf Bearbeiten **übernehmen** oder, wenn die Bearbeitung abgeschlossen ist, sind **OK**.  
+7.  In der **bearbeiten DNS-Zone** Dialogfeld klicken Sie auf **erweitert**. Die **erweitert** Zoneneigenschaften-Seite wird geöffnet. Wenn erforderlich, bearbeiten Sie die Eigenschaften, die Sie ändern möchten, und klicken Sie dann auf **übernehmen** oder, wenn die Bearbeitung abgeschlossen ist, sind **OK**.  
   
-    ![Bearbeiten der Zoneneigenschaften für erweiterte](../../media/Edit-a-DNS-Zone/ipam_EditZone_04a.jpg)  
+    ![Erweiterte Zoneneigenschaften bearbeiten](../../media/Edit-a-DNS-Zone/ipam_EditZone_04a.jpg)  
   
-8.  Bei Bedarf, wählen Sie die zusätzlichen Eigenschaften Seite Zonennamen (Zonenübertragungen Namenserver, SOA), nehmen Sie die Bearbeitung, und klicken Sie auf **übernehmen** oder **OK**. Um alle Ihre Bearbeitungen Zone zu überprüfen, klicken Sie auf **Zusammenfassung**, und klicken Sie dann auf **OK**.  
+8.  Bei Bedarf wählen Sie die zusätzlichen Eigenschaften Seite Zonennamen (Namenserver, d. h. einer SOA-Zonenübertragungen), nehmen Ihre Bearbeitungen vor, und klicken Sie auf **übernehmen** oder **OK**. Um alle Änderungen Zone zu überprüfen, klicken Sie auf **Zusammenfassung**, und klicken Sie dann auf **OK**.  
   
 ## <a name="see-also"></a>Siehe auch  
 [DNS-Zonenverwaltung](DNS-Zone-Management.md)  

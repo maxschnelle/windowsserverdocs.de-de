@@ -1,7 +1,7 @@
 ---
-title: Verwenden von Zugriffssteuerungslisten (ACLs) zum Verwalten von Datacenter des Netzwerkdatenverkehrs
-description: Dieses Thema ist Teil der Software Defined Networking-Anleitung für zum Verwalten von Mandantenworkloads und virtuellen Netzwerken in Windows Server2016.
-manager: brianlic
+title: Verwenden Zugriffssteuerungslisten (ACLs) zum Verwalten von Rechenzentren des Netzwerkdatenverkehrs
+description: In diesem Thema erfahren Sie, wie so konfigurieren Sie die Zugriffssteuerungslisten (ACLs) zum Verwalten von Data-Datenverkehr, die mit der Datacenter Firewall und ACLs für virtuelle Subnetze. Sie aktivieren und Konfigurieren von Datacenter Firewall durch das Erstellen von ACLs, die auf einem virtuellen Subnetz oder einer Netzwerkschnittstelle angewendet werden.
+manager: dougkim
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -12,47 +12,44 @@ ms.topic: article
 ms.assetid: 6a7ac5af-85e9-4440-a631-6a3a38e9015d
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 64b7e1abf1ddb8132a8c6692fe82521c589f32df
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.date: 08/27/2018
+ms.openlocfilehash: 1364261f7ab1e732ac77b7c90d49c245aa8cbc25
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59861421"
 ---
-# <a name="use-access-control-lists-acls-to-manage-datacenter-network-traffic-flow"></a>Verwenden von Zugriffssteuerungslisten (ACLs) zum Verwalten von Datacenter des Netzwerkdatenverkehrs
+# <a name="use-access-control-lists-acls-to-manage-datacenter-network-traffic-flow"></a>Verwenden Zugriffssteuerungslisten (ACLs) zum Verwalten von Rechenzentren des Netzwerkdatenverkehrs
 
->Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
-In diesem Thema können Sie Informationen zum Konfigurieren von Zugriffssteuerungslisten zum Verwalten von Daten-Datenverkehrsfluss mit Datacenter Firewall und ACLs für virtuelle Subnetze.  
+In diesem Thema erfahren Sie, wie so konfigurieren Sie die Zugriffssteuerungslisten (ACLs) zum Verwalten von Data-Datenverkehr, die mit der Datacenter Firewall und ACLs für virtuelle Subnetze. Sie aktivieren und Konfigurieren von Datacenter Firewall durch das Erstellen von ACLs, die auf einem virtuellen Subnetz oder einer Netzwerkschnittstelle angewendet werden.   
   
-Sie können aktivieren und Konfigurieren von Datacenter Firewall durch Erstellen von ACLs, die auf einem virtuellen Subnetz oder eine Netzwerkschnittstelle angewendet werden.  
+Die folgenden Beispiele in diesem Thema wird gezeigt, wie mit Windows PowerShell diese ACLs erstellt wird.  
   
-Die folgenden Beispiele veranschaulichen, wie Sie Windows PowerShell verwenden, um diese ACLs zu erstellen.  
+## <a name="configure-datacenter-firewall-to-allow-all-traffic"></a>Konfigurieren Sie Datacenter Firewall für den gesamten Datenverkehr  
   
-## <a name="configure-datacenter-firewall-to-allow-all-traffic"></a>Konfigurieren Sie Datacenter Firewall Datenverkehr zulässt  
+Sobald Sie SDN bereitstellen, sollten Sie in die neue Umgebung für die grundlegende Netzwerkkonnektivität testen.  Um dies zu erreichen, erstellen Sie eine Regel für die Datacenter-Firewall, die alle Netzwerkdatenverkehr, ohne Einschränkung zulässt.   
   
-Nach der Bereitstellung von SDN, empfiehlt es sich, dass Sie in der neuen Umgebung grundlegende Netzwerkkonnektivität testen.  
+Verwenden Sie die Einträge in der folgenden Tabelle, einen Satz von Regeln zu erstellen, können alle eingehenden und ausgehenden Netzwerkdatenverkehr.
   
-Um dies zu erreichen, können Sie eine Regel für die Datacenter Firewall erstellen, die gesamte Netzwerkdatenverkehr ohne Einschränkung ermöglicht.   
+|Quell-IP|Ziel-IP|Protokoll|Quellport|Zielport|Direction|Aktion|Priority |   
+|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
+|*    |   *      |   Alle      |    *     |      *   |     Inbound    |   Zulassen      |   100  |      
+|*    |     *    |     Alle    |     *    |     *    |   Outbound      |  Zulassen       |  110  |
+---       
   
-Sie können die Einträge in der folgenden Tabelle einen Satz von Regeln zu erstellen, die alle eingehenden und ausgehenden Netzwerkdatenverkehr zugelassen.  
+### <a name="example-create-an-acl"></a>Beispiel: Erstellen einer ACL 
+In diesem Beispiel erstellen Sie eine ACL mit zwei Regeln:
   
+1. **AllowAll_Inbound** -lässt alle Netzwerkdatenverkehr an die Netzwerkschnittstelle übergeben, in dem diese ACL konfiguriert ist.    
+2. **AllowAllOutbound** -lässt den gesamten Datenverkehr aus dem die Netzwerkschnittstelle übergeben wird. Diese ACL, identifiziert durch die Ressourcen-Id "AllowAll-1" kann jetzt in virtuelle Subnetze und Netzwerkschnittstellen verwendet werden.  
   
-  
-Quell-IP|Ziel-IP-|Protokoll|Quellport|Zielport|Richtung|Aktion|Priorität   
----------|---------|---------|---------|---------|---------|---------|---------  
-*    |   *      |   Alle      |    *     |      *   |     Eingehende    |   Zulassen      |   100        
-*    |     *    |     Alle    |     *    |     *    |   Ausgehende      |  Zulassen       |  110         
-  
-  
-Dieses Beispielskript erstellt eine ACL, die zwei Regeln enthält:    
-- Die erste Regel "AllowAll_Inbound" kann alle Netzwerkdatenverkehr an die Netzwerkschnittstelle übergeben, in denen diese ACL konfiguriert ist.    
-- Die zweite Regel "AllowAllOutbound" lässt den gesamten Datenverkehr über die Netzwerkschnittstelle übergeben.  
-Diese ACL, die Ressourcen-Id "AllowAll-1" identifizierte kann jetzt in virtuellen Subnetzen und Netzwerkschnittstellen verwendet werden.  
-  
-Im folgenden Beispielskript wird Windows PowerShell-Befehle aus exportiert verwendet die **NetworkController** -Modul, um diese ACL zu erstellen.  
+Das folgende Beispielskript, verwendet Windows PowerShell-Befehle, die aus exportiert die **NetworkController** Modul, um diese ACL zu erstellen.  
   
   
-```  
+```PowerShell
 $ruleproperties = new-object Microsoft.Windows.NetworkController.AclRuleProperties  
 $ruleproperties.Protocol = "All"  
 $ruleproperties.SourcePortRange = "0-65535"  
@@ -85,29 +82,27 @@ New-NetworkControllerAccessControlList -ResourceId "AllowAll" -Properties $aclli
 ```  
   
 >[!NOTE]  
->Die Windows PowerShell-Befehlsreferenz für den Netzwerkcontroller befindet sich unter dem Thema [Network Controller Cmdlets](https://technet.microsoft.com/library/mt576401.aspx).  
+>Der Windows PowerShell-Befehlsreferenz für den Netzwerkcontroller befindet sich im Thema [Network Controller-Cmdlets](https://technet.microsoft.com/library/mt576401.aspx).  
   
-## <a name="use-acls-to-limit-traffic-on-a-subnet"></a>Verwenden Sie ACLs, um Datenverkehr in einem Subnetz beschränken  
-  
-In diesem Beispiel können eine ACL zu erstellen, die verhindert, virtuelle Maschinen (VMs dass) innerhalb des Subnetzes 192.168.0.0/24 miteinander kommunizieren.   
-  
-Diese Art der ACL ist hilfreich für die Möglichkeit einschränken, von einem Angreifer Verteilen einer Ebene innerhalb des Subnetzes und dennoch die virtuellen Computer zum Empfangen von Anforderungen von außerhalb des Subnetzes als auch für die Kommunikation mit anderen Diensten in anderen Subnetzen.  
+## <a name="use-acls-to-limit-traffic-on-a-subnet"></a>Verwenden Sie ACLs begrenzen den Datenverkehr in einem Subnetz  
+In diesem Beispiel erstellen Sie eine ACL, die virtuellen Computer innerhalb des Subnetzes 192.168.0.0/24 wird verhindert, dass miteinander kommunizieren. Diese Art von ACL eignet sich für die Möglichkeit einschränken, von einem Angreifer, infolgedessen innerhalb des Subnetzes, zu verteilen, ohne jedoch die virtuellen Computer zum Empfangen von Anforderungen von außerhalb des Subnetzes als auch für die Kommunikation mit anderen Diensten auf anderen Subnetzen.   
   
   
-Quell-IP|Ziel-IP-|Protokoll|Quellport|Zielport|Richtung|Aktion|Priorität   
----------|---------|---------|---------|---------|---------|---------|---------  
-192.168.0.1    | * | Alle | * | * | Eingehende|   Zulassen      |   100        
-* |192.168.0.1 | Alle | * | * | Ausgehende|  Zulassen       |  101         
-192.168.0.0/24 | * | Alle | * | * | Eingehende| Blockieren | 102  
-* | 192.168.0.0/24 |Alle| * | * | Ausgehende | Blockieren |103  
-* | *  |Alle| * | * | Eingehende | Zulassen |104  
-* | *  |Alle| * | * | Ausgehende | Zulassen |105  
+|Quell-IP|Ziel-IP|Protokoll|Quellport|Zielport|Direction|Aktion|Priority |  
+|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|  
+|192.168.0.1    | * | Alle | * | * | Inbound|   Zulassen      |   100        |
+|* |192.168.0.1 | Alle | * | * | Outbound|  Zulassen       |  101         |
+|192.168.0.0/24 | * | Alle | * | * | Inbound| Blockieren | 102  |
+|* | 192.168.0.0/24 |Alle| * | * | Outbound | Blockieren |103  |
+|* | *  |Alle| * | * | Inbound | Zulassen |104  |
+|* | *  |Alle| * | * | Outbound | Zulassen |105  |
+--- 
+
+Die ACL erstellt, durch das Beispielskript unten durch die Ressourcen-Id identifiziert **Subnetz-192-168-0-0**, kann jetzt auf das Subnetz eines virtuellen Netzwerks, das die "192.168.0.0/24" Subnetzadresse verwendet angewendet werden.  Eine beliebige Netzwerkschnittstelle, die in diesem virtuellen Netzwerk-Subnetz, automatisch verbunden ist Ruft ab, die oben genannten ACL-Regeln angewendet.  
   
-Die ACL erstellt, durch die folgenden Beispielskript die Ressourcen-Id identifizierten **Subnetz-192-168-0-0**, kann jetzt auf ein virtuelles Netzwerk-Subnetz mit der "192.168.0.0/24" Subnetzadresse angewendet werden.  Jede Schnittstelle, die mit diesem virtuellen Netzwerk-Subnetz, automatisch verbunden ist Ruft die oben genannten ACL-Regeln angewendet.  
+Im folgenden finden ein Beispielskript, das mithilfe von Windows Powershell-Befehle zum Erstellen dieser ACL mithilfe der Netzwerk-Controller-REST-API:  
   
-Im folgenden finden ein Beispielskript, das Verwenden von Windows Powershell-Befehle zum Erstellen von diese ACL mithilfe der Netzwerk-Controller-REST-API:  
-  
-```  
+```PowerShell  
 import-module networkcontroller  
 $ncURI = "https://mync.contoso.local"  
 $aclrules = @()  

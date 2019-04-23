@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory-Domänendienste und Remote Desktop Services
-description: Informationen Sie zum Integrieren von Azure Active Directory-Domänendienste in Ihre RDS-Bereitstellung.
+title: Azure Active Directory-Domänendienste und Remotedesktopdienste
+description: Erfahren Sie, wie Sie Azure AD Domain Services in Ihre RDS-Bereitstellung integrieren.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,64 +13,64 @@ ms.topic: article
 author: christianmontoya
 ms.localizationpriority: medium
 ms.openlocfilehash: e60cf70f1f91ad87046bedf024fe9afc459075b6
-ms.sourcegitcommit: 1533d994a6ddea54ac189ceb316b7d3c074307db
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "1614516"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59860511"
 ---
-# <a name="integrate-azure-ad-domain-services-with-your-rds-deployment"></a>Integrieren von Azure Active Directory-Domänendienste in Ihrer Bereitstellung RDS
+# <a name="integrate-azure-ad-domain-services-with-your-rds-deployment"></a>Integration von Azure Active Directory Domain Services mit der RDS-Bereitstellung
 
-Sie können in Ihrer Bereitstellung Remote Desktop Services anstelle einer Windows Server Active Directory [Azure Active Directory-Domänendienste](/azure/active-directory-domain-services/active-directory-ds-overview) (Azure AD DS) verwenden. Azure AD DS können Sie Ihre vorhandenen Azure AD Identitäten, sich mit der klassischen Windows-Arbeitslasten zu verwenden.
+Sie können [Azure AD Domain Services](/azure/active-directory-domain-services/active-directory-ds-overview) (Azure AD DS) in der Remote Desktop Services-Bereitstellung anstelle der Windows Server Active Directory. Azure AD DS können Sie Ihre vorhandenen Azure AD-Identitäten, sich mit den klassischen Windows-Workloads zu verwenden.
 
-Azure AD DS ermöglichen Folgendes: 
-- Erstellen einer Azure-Umgebung mit einer lokalen Domäne für geboren in--Cloud-Organisationen. 
-- Erstellen einer isolierten Azure-Umgebung mit der gleichen Identitäten für Ihre lokalen und online-Umgebung verwendet werden, ohne eine Standort-zu-Standort-VPN- oder ExpressRoute erstellen. 
+Mit Azure AD DS können Sie folgende Aktionen ausführen: 
+- Erstellen Sie eine Azure-Umgebung mit einer lokalen Domäne für das Ergebnis jahrelanger-in-the-Cloud-Organisationen. 
+- Erstellen Sie eine isolierte Azure-Umgebung mit den gleichen Identitäten, die für Ihre lokalen und online-Umgebung verwendet werden, ohne eine Standort-zu-Standort-VPN oder ExpressRoute erstellen zu müssen. 
 
-Wenn Sie die Integration von Azure AD DS in Ihrer Bereitstellung Remotedesktop abgeschlossen haben, wird Ihre Architektur wie folgt aussehen:
+Wenn Sie die Integration von Azure AD DS in Ihrer remotedesktopbereitstellung fertig sind, wird Ihre Architektur wie folgt aussehen:
 
-![Ein mit RDS mit Azure AD DS-Architekturdiagramm](media/aadds-rds.png)
+![Ein-Architekturdiagramm mit RDS mit Azure AD DS](media/aadds-rds.png)
 
-Um herauszufinden, wie diese Architektur mit anderen RDS-Bereitstellungsszenarien verglichen, checken Sie [Remote Desktop Services Architekturen](desktop-hosting-logical-architecture.md).
+Sehen Sie sich, um anzuzeigen, wie diese Architektur mit anderen RDS-Bereitstellungsszenarios vergleicht, [Remote Desktop Services Architekturen](desktop-hosting-logical-architecture.md).
 
-Um ein besseres Verständnis von Azure AD DS erhalten möchten, probieren Sie die [Azure AD DS-Übersicht](/azure/active-directory-domain-services/active-directory-ds-overview) und [wie Sie entscheiden, ob Azure AD DS für Ihre Anwendungsfall die richtige Wahl ist](/azure/active-directory-domain-services/active-directory-ds-comparison).
+Um ein besseres Verständnis von Azure AD DS zu erhalten, sehen Sie sich die [Übersicht über die Azure AD DS](/azure/active-directory-domain-services/active-directory-ds-overview) und [Vorgehensweise entscheiden, ob es sich bei Azure AD DS für Ihren Anwendungsfall geeignet ist](/azure/active-directory-domain-services/active-directory-ds-comparison).
 
-Verwenden Sie die folgenden Informationen zum Bereitstellen von Azure AD DS mit RDS.
+Verwenden Sie die folgende Informationen zum Bereitstellen von Azure AD DS mit RDS.
 
-## <a name="prerequisites"></a>Voraussetzungen
+## <a name="prerequisites"></a>Vorraussetzungen
 
-Vor dem bringen Sie Ihre Identitäten aus dem Azure Active Directory in eine RDS-Bereitstellung [Konfigurieren Azure AD zum Speichern der Hash Kennwörter für Ihre Benutzer Identitäten](/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync)verwendet. Geboren in--Cloud-Organisationen müssen keine zusätzlichen Änderungen in ihrem Verzeichnis anzuzeigen. lokalen Organisationen müssen jedoch zulassen Kennworthashes synchronisiert und in Azure AD, die nicht zulässig, einige Organisationen möglicherweise gespeichert werden. Die Benutzer müssen ihre Kennwörter zurücksetzen, nachdem Sie diese konfigurationsänderung vorgenommen haben.
+Bevor Sie Ihre Identitäten von Azure AD in einer RDS-Bereitstellung mit schalten können [Konfigurieren von Azure AD, um die verschlüsselte Kennwörter für die Identitäten Ihrer Benutzer speichern](/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync). Das Ergebnis jahrelanger-in-the-Cloud-Organisationen müssen nicht in ihrem Verzeichnis keine weiteren Änderungen vornehmen. Allerdings müssen auf lokale Organisationen Kennworthashes synchronisiert und in Azure AD, die möglicherweise nicht zulässig, einige Organisationen gespeichert werden können. Benutzer haben ihre Kennwörter zurücksetzen, nach dem vornehmen dieser konfigurationsänderung.
 
 ## <a name="deploy-azure-ad-ds-and-rds"></a>Bereitstellen von Azure AD DS und RDS 
 Verwenden Sie die folgenden Schritte zum Bereitstellen von Azure AD DS und RDS.
 
-1. [Azure AD DS](/azure/active-directory-domain-services/active-directory-ds-getting-started)zu aktivieren. Beachten Sie, dass der verknüpfte Artikel folgende Aktionen ausführt:
-   - Durch das Erstellen der geeigneten Azure AD-Gruppen für die Domänenadministration.
-   - Wenn Sie erzwingen, dass Benutzer ihre Kennwörter ändern, sodass ihre Konten mit Azure AD DS arbeiten können möglicherweise zu markieren.
+1. Aktivieren Sie [Azure AD DS](/azure/active-directory-domain-services/active-directory-ds-getting-started). Beachten Sie, dass es sich bei der verlinkten Artikel durch die folgende Funktion übernimmt:
+   - Exemplarische Vorgehensweise zum Erstellen der entsprechenden Azure AD-Gruppen für die Verwaltung von Domänen.
+   - Markieren Sie bei der Sie möglicherweise erzwingen, dass Benutzer ihr Kennwort zu ändern, sodass ihre Konten mit Azure AD DS arbeiten können.
    
-2. Einrichten von RDS. Sie können eine Azure Vorlage verwenden oder manuelles Bereitstellen von RDS.
-   - Verwenden Sie die [vorhandene AD-Vorlage](https://azure.microsoft.com/resources/templates/rds-deployment-existing-ad/). Stellen Sie sicher, dass Sie Folgendes anpassen:
+2. Einrichten von RDS. Sie können eine Azure-Vorlage verwenden oder RDS manuell bereitstellen.
+   - Verwenden der [vorhandene AD-Vorlage](https://azure.microsoft.com/resources/templates/rds-deployment-existing-ad/). Stellen Sie sicher, dass Folgendes anpassen:
    
       - **Einstellungen**
-         - **Ressourcengruppe**: Verwenden Sie die Ressourcengruppe, in der Sie die RDS-Ressourcen erstellen möchten.
+         - **Ressourcengruppe**: Verwenden Sie die Ressourcengruppe, in dem Sie die RDS-Ressourcen erstellen möchten.
          > [!NOTE] 
-         > Bis zu diesem Zeitpunkt dies die gleiche Ressourcengruppe werden vorhanden ist, in dem das virtuelle Netzwerk aus Azure Ressourcen-Manager hat.
+         > Jetzt muss die gleiche Ressourcengruppe vorhanden ist, in dem die Azure Resource Manager-Netzwerk.
 
-         - **DNS-Bezeichnung Präfix**: Geben Sie die URL, die Benutzer Zugriff auf RD-Website verwenden sollen.
-         - **Ad Domain Name**: Geben Sie den vollständigen Namen der Azure AD-Instanz, zum Beispiel "contoso.onmicrosoft.com" oder "contoso.com".
-         - **Ad Vnet Name** und **Ad Subnetz Name**: Geben Sie die gleichen Werte, die Sie bei der Erstellung des Azure-Ressourcen-Manager virtuelles Netzwerks verwendet. Dies ist das Subnetz, mit dem die RDS-Ressourcen verbinden möchten.
-         - **Und **-Kennwort Admin**** : Geben Sie die Anmeldeinformationen für einen Administrator, der Mitglied der Gruppe der **Administratoren für AAD DC** in Azure Active Directory ist.
+         - **Bezeichnung des DNS-Präfix**: Geben Sie die URL, die Benutzern auf RD-Web zugreifen sollen.
+         - **AD-Domänenname**: Geben Sie den vollständigen Namen Ihrer Azure AD-Instanz, z. B. "contoso.onmicrosoft.com" oder "contoso.com".
+         - **AD-Vnet-Name** und **Ad Subnetzname**: Geben Sie die gleichen Werte, die Sie verwendet werden, wenn Sie die Azure Resource Manager-Netzwerk erstellt haben. Dies ist das Subnetz, mit dem die RDS-Ressourcen verbunden werden.
+         - **Benutzername des Administrators** und **Administratorkennwort**: Geben Sie die Anmeldeinformationen für einen Benutzer mit Administratorrechten, die ein Mitglied der **AAD DC Administrators** Gruppe in Azure AD.
    
       - **Vorlage**
-         - Entfernen Sie alle Eigenschaften des **DnsServers**: nach der Auswahl der **Vorlage bearbeiten** aus der Seite "Azure Schnellstart Vorlage", "DnsServers" Suchen und entfernen Sie die Eigenschaft. 
+         - Entfernen Sie alle Eigenschaften des **DnsServers**: nach der Auswahl **Bearbeitungsvorlage** klicken Sie auf der Azure-Schnellstart-Vorlage, suchen Sie nach "DnsServers", und entfernen Sie die Eigenschaft. 
 
-            Beispielsweise vor dem Entfernen der **DnsServers** -Eigenschaft:
+            Angenommen, vor dem Entfernen der **DnsServers** Eigenschaft:
       
-            ![Azure Schnellstart-Vorlage mit DnsSettings-Eigenschaft](media/rds-remove-dnssettings-before.png)
+            ![Azure-schnellstartvorlage mit DnsSettings-Eigenschaft](media/rds-remove-dnssettings-before.png)
 
-            Und hier dieselbe Datei nach dem Entfernen der-Eigenschaft ist:
+            Und hier ist die gleiche Datei nach dem Entfernen der Eigenschaft:
 
-            ![Azure Schnellstart-Vorlage mit entfernt DnsSettings-Eigenschaft](media/rds-remove-dnssettings-after.png)
+            ![Azure-schnellstartvorlage mit entfernten DnsSettings-Eigenschaft](media/rds-remove-dnssettings-after.png)
    
-   - [RDS bereitstellen manuell](rds-deploy-infrastructure.md). 
+   - [Manuelles Bereitstellen von RDS](rds-deploy-infrastructure.md). 
 

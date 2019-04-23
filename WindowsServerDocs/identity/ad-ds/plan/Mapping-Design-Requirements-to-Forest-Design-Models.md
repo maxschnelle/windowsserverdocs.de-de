@@ -1,153 +1,158 @@
 ---
 ms.assetid: c0d64566-5530-482e-a332-af029a5fb575
-title: Zuordnen von Entwurfsanforderungen zu Gesamtstruktur-Entwurfsmodellen
-description: 
-author: billmath
-ms.author: billmath
-manager: femila
-ms.date: 05/31/2017
+title: Zuordnen von Entwurfsanforderungen zu Gesamtstruktur-Entwurfsmodelle
+description: ''
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.date: 08/07/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 48a2b03c6e29afcca565e861383a831050ef4233
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.openlocfilehash: 4577e65fe5dd2193fe7256cc555e859a78824b4b
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59867941"
 ---
-# <a name="mapping-design-requirements-to-forest-design-models"></a>Zuordnen von Entwurfsanforderungen zu Gesamtstruktur-Entwurfsmodellen
+# <a name="mapping-design-requirements-to-forest-design-models"></a>Zuordnen von Entwurfsanforderungen zu Gesamtstruktur-Entwurfsmodelle
 
->Gilt für: Windows Server2016, Windows Server2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Die meisten Gruppen in Ihrer Organisation können eine einzelne Organisationseinheit Gesamtstruktur freigeben, die von einer einzelnen Gruppe Informationstechnologie (IT) verwaltet wird und enthält die Benutzer- und Ressourcen für alle Gruppen, die die Gesamtstruktur gemeinsam nutzen. Dieser freigegebenen Gesamtstruktur, mit dem Namen der erste Organisationseinheiten Gesamtstruktur ist die Grundlage für das Design-Gesamtstrukturmodell für die Organisation.  
-  
-Da die erste Organisationseinheit Gesamtstruktur mehrere Gruppen in der Organisation gehostet werden kann, muss der Gesamtstrukturbesitzer Service Level Agreements mit jeder Gruppe richten, sodass alle Parteien verstehen, was Sie erwartet wird. Dies schützt den einzelnen Gruppen und der Gesamtstrukturbesitzer, durch die Einrichtung der vereinbarten-Dienst erwartet.  
-  
-Nicht alle Gruppen in Ihrer Organisation können eine einzelne Organisationseinheit Gesamtstruktur freigeben, müssen Sie den Gesamtstrukturentwurf an die Anforderungen der verschiedenen Gruppen gerecht zu erweitern. Dies beinhaltet das Identifizieren der Designanforderungen, die zu den Gruppen, basierend auf ihren Anforderungen für Autonomie und Isolation und davon, ob sie ein Netzwerk begrenzt-Konnektivität verfügen, gelten, und klicken Sie dann identifiziert das Gesamtstrukturmodell, das Sie verwenden können, um diese Anforderungen Rechnung zu tragen. Die folgende Tabelle enthält die Gesamtstruktur Modell Entwicklungsszenarien basierend auf der Autonomie, Isolation und Konnektivität Faktoren. Nachdem Sie das Szenario der Gesamtstruktur-Entwurf, das Ihren Anforderungen am besten entspricht identifiziert, zu bestimmen, ob Sie weiteren Entscheidungen Spezifikationen für den Entwurf zu erfüllen müssen.  
-  
+Die meisten Gruppen in Ihrer Organisation können eine Gesamtstruktur für die Organisation freigeben, die von einer einzelnen Gruppe Informationstechnologie (IT) verwaltet wird und enthält die Benutzer- und Ressourcen für alle Gruppen, die die Gesamtstruktur gemeinsam nutzen. Diese freigegebenen Gesamtstruktur, mit dem Namen der ersten Organisationsgesamtstruktur, ist die Grundlage für die Gesamtstruktur-Entwurfsmodell für die Organisation.  
+
+Da der anfängliche Organisationsgesamtstruktur mehrere Gruppen in der Organisation gehostet werden kann, muss der Gesamtstrukturbesitzer Vereinbarungen zum Servicelevel mit jeder Gruppe herstellen, so, dass alle Parteien verstehen, was von ihnen erwartet wird. Dies schützt sowohl für die einzelnen Gruppen als auch für den Gesamtstrukturbesitzer, durch die Einrichtung von Erwartungen an die vereinbarten-Dienst.  
+
+Wenn nicht alle Gruppen in Ihrer Organisation können eine einzelne Gesamtstruktur für die Organisation freigeben, erweitern Sie Ihren Gesamtstrukturentwurf, um die Anforderungen der verschiedenen Gruppen zu berücksichtigen. Dies umfasst Identifizieren der Designanforderungen, die angewendet werden, die Gruppen auf Grundlage seiner Anforderungen für die Autonomie und Isolation und davon, ob sie über ein Netzwerk begrenzt-Konnektivität verfügen, und anschließend ermitteln das Forest-Modell, das Sie verwenden können, um diese zu berücksichtigen. Anforderungen an. Die folgende Tabelle enthält die Gesamtstruktur Modell Entwurfsszenarien basierend auf der Autonomie, Isolation und Konnektivität Faktoren. Nachdem Sie das Szenario der Gesamtstruktur-Entwurf, das Ihren Anforderungen am besten entspricht identifiziert, bestimmen Sie, ob für jede weitere Entscheidungen Spezifikationen für den Entwurf zu erfüllen müssen.  
+
 > [!NOTE]  
-> Wenn ein Faktor als n/v aufgeführt ist, ist es nicht berücksichtigt, da andere Anforderungen auch dieser Faktor Rechnung tragen.  
-  
-|Szenario|Eingeschränkter Konnektivität|Datenisolation|Datenautonomie|Isolation von Diensten|Autonomie eines Dienstes|  
+> Wenn ein Faktor als n/v aufgeführt ist, ist es nicht berücksichtigt, da andere Anforderungen auch dieses Faktors aufnehmen.  
+
+|Szenario|Eingeschränkte Konnektivität|Datenisolation|Datenautonomie|Isolation von Diensten|Die Autonomie eines Dienstes|  
 |------------|------------------------|------------------|-----------------|---------------------|--------------------|  
-|[Szenario 1: Hinzufügen einer vorhandenen Gesamtstruktur für Datenautonomie](#BKMK_1)|Nein|Nein|Ja|Nein|Nein|  
-|[Szenario 2: Verwenden Sie eine Organisationseinheit Gesamtstruktur oder Domäne für die Autonomie eines Dienstes](#BKMK_2)|Nein|Nein|N/V|Nein|Ja|  
-|[Szenario 3: Verwenden Sie eine Organisationseinheit Gesamtstruktur oder Ressourcen-Gesamtstruktur für die Dienstisolation](#BKMK_3)|Nein|Nein|N/V|Ja|N/V|  
-|[Szenario 4: Verwenden Sie eine Organisationseinheit Gesamtstruktur oder mit eingeschränktem Zugriff für die datenisolierung](#BKMK_4)|N/V|Ja|N/V|N/V|N/V|  
-|[Szenario 5: Verwenden einer Organisationseinheiten Gesamtstruktur, oder ändern Sie die Firewall bei eingeschränkter Verbindung](#BKMK_5)|Ja|Nein|N/V|Nein|Nein|  
-|[Szenario 6: Verwenden Sie einer Organisationseinheit Gesamtstruktur oder Domäne, und konfigurieren Sie die Firewall für die Autonomie eines Dienstes mit eingeschränkter Konnektivität](#BKMK_6)|Ja|Nein|N/V|Nein|Ja|  
-|[Szenario 7: Ressourcengesamtstruktur verwenden und Konfigurieren der Firewalls für die Dienstisolation mit eingeschränkter Konnektivität](#BKMK_7)|Ja|Nein|N/V|Ja|N/V|  
-  
-## <a name="BKMK_1"></a>Szenario 1: Hinzufügen einer vorhandenen Gesamtstruktur für Datenautonomie  
-Sie können eine Voraussetzung für die Daten-, indem Sie einfach als Host der Gruppe in Organisationseinheiten (OUs) in einer vorhandenen Gesamtstruktur für die Organisation erfüllen. Delegieren der Steuerung der Organisationseinheiten an Datenadministratoren aus der Gruppe die Datenautonomie zu erzielen. Weitere Informationen zum Zuweisen der Verwaltung mithilfe von Organisationseinheiten finden Sie unter [erstellen eine Organizational Unit Design](../../ad-ds/plan/Creating-an-Organizational-Unit-Design.md).  
-  
-## <a name="BKMK_2"></a>Szenario 2: Verwenden Sie eine Organisationseinheit Gesamtstruktur oder Domäne für die Autonomie eines Dienstes  
-Wenn eine Gruppe in Ihrer Organisation Service Autonomie als Anforderung identifiziert, empfehlen wir, dass Sie zuerst diese Anforderung überdenken. Erzielen von Service Autonomie erstellt Weitere Verwaltungsaufwand und zusätzliche Kosten für die Organisation. Stellen Sie sicher, dass die Anforderung für die Autonomie eines Dienstes nicht einfach zur Vereinfachung ist und Sie die Kosten für diese Anforderung erfüllt rechtfertigen können.  
-  
-Sie können eine Anforderung für den Dienstautonomie erfüllen, mit einer der folgenden Aktionen:  
-  
--   Erstellen eine Organisationseinheit Gesamtstruktur. Platzieren Sie die Benutzer, Gruppen und Computer für die Gruppe, die Autonomie eines Dienstes in einer separaten Organisationseinheit Gesamtstruktur erforderlich sind. Weisen Sie eine Person aus der Gruppe die Gesamtstrukturbesitzer sein. Wenn der Zugriff auf Ressourcen mit anderen Gesamtstrukturen in der Organisation muss, können sie eine Vertrauensstellung zwischen ihrer Organisation Gesamtstruktur und den anderen Gesamtstrukturen einrichten.  
-  
--   Mithilfe von Organisationseinheiten Domänen. Platzieren Sie die Benutzer, Gruppen und Computer in einer anderen Domäne in einer vorhandenen Gesamtstruktur für die Organisationseinheit. Dieses Modell ermöglicht nur auf Domänenebene Autonomie und Isolation oder Daten Netzwerkisolation nicht für die vollständige Service-Autonomie service.  
-  
-Weitere Informationen zur Verwendung von Organisationseinheiten Domänen finden Sie unter [mit der Organisationseinheit Domain-Gesamtstrukturmodell](../../ad-ds/plan/../../ad-ds/plan/Using-the-Organizational-Domain-Forest-Model.md).  
-  
-## <a name="BKMK_3"></a>Szenario 3: Verwenden Sie eine Organisationseinheit Gesamtstruktur oder Ressourcen-Gesamtstruktur für die Dienstisolation  
-Sie können eine Voraussetzung für die Dienstisolation erfüllen, indem Sie einen der folgenden:  
-  
--   Verwenden eine Organisationseinheit Gesamtstruktur. Platzieren Sie die Benutzer, Gruppen und Computer für die Gruppe, die Isolation von Diensten in einer separaten Organisationseinheit Gesamtstruktur erforderlich sind. Weisen Sie eine Person aus der Gruppe die Gesamtstrukturbesitzer sein. Wenn der Zugriff auf Ressourcen mit anderen Gesamtstrukturen in der Organisation muss, können sie eine Vertrauensstellung zwischen ihrer Organisation Gesamtstruktur und den anderen Gesamtstrukturen einrichten. Allerdings empfohlen nicht dieser Ansatz, da Zugriff auf Ressourcen über universelle Gruppen in der Gesamtstruktur-Vertrauensstellung Szenarien stark eingeschränkt sind.  
-  
--   Verwenden eine Ressourcen-Gesamtstruktur. Direkte Ressourcen und Dienstkonten in einer separaten Ressourcen-Gesamtstruktur, damit Benutzerkonten in einer vorhandenen Gesamtstruktur für die Organisationseinheit. Bei Bedarf können alternative Konten erstellt werden, in der Gesamtstruktur den Zugriff auf Ressourcen in der Ressourcengesamtstruktur, wenn die Organisation Gesamtstruktur nicht mehr verfügbar ist. Die alternativen Konten benötigen die erforderliche Autorität zur Anmeldung an der Ressourcengesamtstruktur und Kontrolle über die Ressourcen warten, bis die Organisationseinheit Gesamtstruktur wieder online ist.  
-  
-    Richten Sie eine Vertrauensstellung zwischen der Ressource und Organisations-Gesamtstrukturen, sodass der Benutzer auf die Ressourcen in der Gesamtstruktur zugreifen können, bei der Verwendung von ihren normalen Benutzerkonten. Diese Konfiguration ermöglicht die zentralisierte Verwaltung von Benutzerkonten während Benutzer alternative Konten in der Ressourcengesamtstruktur zurückgegriffen, wenn die Organisation Gesamtstruktur nicht mehr verfügbar ist.  
-  
-Die folgenden: Überlegungen zur Dienstisolation  
-  
--   Für Dienstisolation erstellten Gesamtstrukturen können Domänen aus anderen Gesamtstrukturen vertrauen, jedoch dürfen keine Benutzer aus anderen Gesamtstrukturen in ihren Dienst Administratorgruppen enthalten. Wenn Benutzer aus anderen Gesamtstrukturen in administrativen Gruppen in der isolierten Gesamtstruktur enthalten sind, kann die Sicherheit der isolierten Gesamtstruktur möglicherweise gefährdet, da die Dienstadministratoren in der Gesamtstruktur nicht exklusive Steuerung verfügen.  
-  
--   Als Domänencontroller in einem Netzwerk zugänglich sind, sind sie Angriffen (z. B. Denial-of-Service-Angriffe) vor schädlicher Software in diesem Netzwerk. Sie können zum Schutz gegen die Möglichkeit eines Angriffs die folgenden Schritte ausführen:  
-  
-    -   Hosten von Domänencontrollern nur auf Netzwerke, die als sicher eingestuft werden.  
-  
-    -   Beschränken Sie den Zugriff auf Netzwerke, die der Domänencontroller hostet.  
-  
--   Dienstisolation ist die Erstellung einer zusätzlichen Gesamtstruktur erforderlich. Bewerten Sie, ob die Kosten für die Verwaltung der Infrastruktur zur Unterstützung der zusätzlichen Gesamtstruktur die Kosten im Zusammenhang mit der Zugriff auf Ressourcen aufgrund einer Organisationseinheit Gesamtstruktur nicht verfügbar ist aufwiegt.  
-  
-## <a name="BKMK_4"></a>Szenario 4: Verwenden Sie eine Organisationseinheit Gesamtstruktur oder mit eingeschränktem Zugriff für die datenisolierung  
-Sie können Datenisolation erreichen, führen Sie einen der folgenden:  
-  
--   Verwenden eine Organisationseinheit Gesamtstruktur. Platzieren Sie die Benutzer, Gruppen und Computer für die Gruppe, die Datenisolation in einer separaten Organisationseinheit Gesamtstruktur erforderlich sind. Weisen Sie eine Person aus der Gruppe die Gesamtstrukturbesitzer sein. Wenn der Zugriff auf Ressourcen mit anderen Gesamtstrukturen in der Organisation muss, richten Sie eine Vertrauensstellung zwischen der Gesamtstruktur der Organisation und den anderen Gesamtstrukturen aufweist. Nur Benutzer, die Zugriff auf vertrauliche Informationen benötigen, die in der neuen Organisationseinheit Gesamtstruktur vorhanden sein. Benutzer haben ein Konto, mit denen sie den Zugriff auf beide klassifiziert Daten in ihrer eigenen Gesamtstruktur und ungeschützten Daten in anderen Gesamtstrukturen mit Vertrauensstellungen.  
-  
--   Verwenden eine Gesamtstruktur mit eingeschränktem Zugriff. Dies ist einer separaten Gesamtstruktur mit den geschützten Daten und die Benutzerkonten, die Zugriff auf diese Daten verwendet werden. Separate Benutzerkonten werden in den vorhandenen Organisationseinheiten Gesamtstrukturen verwaltet, die Zugriff auf die uneingeschränkten Ressourcen im Netzwerk verwendet werden. Keine Vertrauensstellungen werden zwischen der Gesamtstruktur mit eingeschränktem Zugriff und anderen Gesamtstrukturen im Unternehmen erstellt. Sie können weitere die Gesamtstruktur einschränken, indem der Gesamtstruktur auf einem separaten physischen Netzwerk bereitstellen, damit es nicht mit anderen Gesamtstrukturen verbinden kann. Wenn Sie die Gesamtstruktur in einem separaten Netzwerk bereitstellen, müssen Benutzer zwei Arbeitsstationen verfügen: eine für den Zugriff auf die eingeschränkten Gesamtstruktur und eine für den Zugriff auf die nonrestricted Bereiche des Netzwerks.  
-  
-Die folgenden: Überlegungen beim Erstellen von Gesamtstrukturen  
-  
--   Organisatorische Gesamtstrukturen, die für die datenisolierung erstellt Domänen aus anderen Gesamtstrukturen vertrauen können, aber Benutzer aus anderen Gesamtstrukturen darf nicht in einem der folgenden enthalten sein:  
-  
-    -   Gruppen, die verantwortlich für Servicemanagement oder Gruppen, die die Mitgliedschaft der Dienstadministrator-Gruppen verwalten können  
-  
-    -   Gruppen, die administrativen Kontrolle über Computer verfügen, die geschützte Daten speichern  
-  
-    -   Gruppen, die Zugriff auf geschützte Daten oder Gruppen, die sind verantwortlich für die Verwaltung von Benutzerobjekten oder Gruppenobjekten, die Zugriff auf geschützte Daten  
-  
-    Wenn Benutzer aus einer anderen Gesamtstruktur in einer dieser Gruppen enthalten sind, kann eine Gefährdung der anderen Gesamtstruktur zu einer Gefährdung der Gesamtstruktur isoliert und Offenlegung von geschützten Daten führen.  
-  
--   Anderen Gesamtstrukturen können konfiguriert werden, um das Vertrauen der Organisationseinheiten Gesamtstruktur für die datenisolierung erstellt werden, sodass Benutzer in der isolierten Gesamtstruktur auf Ressourcen in anderen Gesamtstrukturen zugreifen können. Allerdings müssen Benutzer aus der isolierten Gesamtstruktur nie interaktiv auf Arbeitsstationen in der vertrauenden Gesamtstruktur anmelden. Der Computer in der vertrauenden Gesamtstruktur kann potenziell gefährliche Software kompromittiert werden und kann verwendet werden, um die Anmeldeinformationen des Benutzers zu erfassen.  
-  
-    > [!NOTE]  
-    > Um Server in einer vertrauenden Gesamtstruktur Identität von Benutzern in der isolierten Gesamtstruktur, und klicken Sie dann Zugriff auf Ressourcen in der isolierten Gesamtstruktur zu verhindern, kann der Gesamtstrukturbesitzer deaktivieren Sie die delegierte Authentifizierung oder verwenden Sie das Feature für die eingeschränkte Delegierung. Weitere Informationen zur delegierten Authentifizierung und eingeschränkte Delegierung finden Sie unter Delegieren der Authentifizierung ([https://go.microsoft.com/fwlink/?LinkId=106614](https://go.microsoft.com/fwlink/?LinkId=106614)).  
-  
--   Sie müssen möglicherweise eine Firewall zwischen der Gesamtstruktur der Organisation und den anderen Gesamtstrukturen in der Organisation Einschränken des Zugriffs auf Daten außerhalb ihrer Gesamtstruktur hergestellt.  
-  
--   Erstellen einer separaten Gesamtstruktur Datenisolation ermöglicht, zwar als Domänencontroller in der isolierten Gesamtstruktur und der Computer die geschützte Hostinformationen in einem Netzwerk zugegriffen werden sind sie Angriffen auf Computern, auf das Netzwerk gestartet. Organisationen, die festlegen, dass das Risiko eines Angriffs zu hoch ist oder zur Folge, dass eine Verletzung der Angriff oder Sicherheit zu groß ist Beschränken des Zugriffs auf Netzwerke, auf denen die Domänencontroller gehostet werden müssen, und die Computer, auf denen gehostet werden geschützte Daten. Einschränken des Zugriffs kann durch Verwendung von Technologien wie Firewalls und Internet Protocol Security (IPsec) erfolgen. In extremen Fällen können Organisationen die geschützten Daten auf einem unabhängigen Netzwerk verwalten, die keine physische Verbindung mit einem anderen Netzwerk in der Organisation hat.  
-  
-    > [!NOTE]  
-    > Wenn Netzwerkkonnektivität zwischen einer Gesamtstruktur mit eingeschränktem Zugriff und einem anderen Netzwerk vorhanden ist, besteht die Möglichkeit für Daten im eingeschränkten Bereich auf den anderen Netzwerk übertragen werden.  
-  
-## <a name="BKMK_5"></a>Szenario 5: Verwenden einer Organisationseinheiten Gesamtstruktur, oder ändern Sie die Firewall bei eingeschränkter Verbindung  
-Um ein eingeschränkter Konnektivität-Anforderung zu erfüllen, können Sie einen der folgenden Schritte ausführen:  
-  
--   Platzieren Sie die Benutzer in einer vorhandenen Gesamtstruktur für die Organisationseinheit, und öffnen Sie die Firewall genug zum Zulassen von Active Directory-Datenverkehr passieren.  
-  
--   Verwenden Sie eine Organisationseinheit Gesamtstruktur. Platzieren Sie die Benutzer, Gruppen und Computer für die Gruppe, die für die Verbindung eingeschränkt ist in einer separaten Organisationseinheit Gesamtstruktur. Weisen Sie eine Person aus der Gruppe die Gesamtstrukturbesitzer sein. Die Organisationseinheit Gesamtstruktur bietet eine separate Umgebung auf der anderen Seite der Firewall. Die Gesamtstruktur enthält Benutzerkonten und Ressourcen, die innerhalb der Gesamtstruktur verwaltet werden, sodass Benutzer nicht benötigen, um durch die Firewall ihren täglichen Aufgaben zu wechseln. Bestimmte Benutzer oder Anwendungen möglicherweise spezielle Anforderungen, die die Möglichkeit, durch die Firewall an anderen Gesamtstrukturen übergeben müssen. Sie können diese Anforderungen einzeln erfüllen, öffnen Sie die entsprechenden Schnittstellen in der Firewall, einschließlich derer, die für alle Vertrauensstellungen, um die Funktion erforderlich.  
-  
-Weitere Informationen zum Konfigurieren von Firewalls für die Verwendung mit Active Directory-Domänendiensten (AD DS) finden Sie unter Active Directory in Netzwerken durch Firewalls segmentiert ([https://go.microsoft.com/fwlink/?LinkId=37928](https://go.microsoft.com/fwlink/?LinkId=37928)).  
-  
-## <a name="BKMK_6"></a>Szenario 6: Verwenden Sie einer Organisationseinheit Gesamtstruktur oder Domäne, und konfigurieren Sie die Firewall für die Autonomie eines Dienstes mit eingeschränkter Konnektivität  
-Wenn eine Gruppe in Ihrer Organisation Service Autonomie als Anforderung identifiziert, empfehlen wir, dass Sie zuerst diese Anforderung überdenken. Erzielen von Service Autonomie erstellt Weitere Verwaltungsaufwand und zusätzliche Kosten für die Organisation. Stellen Sie sicher, dass die Anforderung für die Autonomie eines Dienstes nicht einfach zur Vereinfachung ist und Sie die Kosten für diese Anforderung erfüllt rechtfertigen können.  
-  
-Wenn eingeschränkter Konnektivität ein Problem ist, und Sie eine Anforderung für die Autonomie eines Dienstes haben, können Sie Folgendes tun:  
-  
--   Verwenden Sie eine Organisationseinheit Gesamtstruktur. Platzieren Sie die Benutzer, Gruppen und Computer für die Gruppe, die Autonomie eines Dienstes in einer separaten Organisationseinheit Gesamtstruktur erforderlich sind. Weisen Sie eine Person aus der Gruppe die Gesamtstrukturbesitzer sein. Die Organisationseinheit Gesamtstruktur bietet eine separate Umgebung auf der anderen Seite der Firewall. Die Gesamtstruktur enthält Benutzerkonten und Ressourcen, die innerhalb der Gesamtstruktur verwaltet werden, sodass Benutzer nicht benötigen, um durch die Firewall ihren täglichen Aufgaben zu wechseln. Bestimmte Benutzer oder Anwendungen möglicherweise spezielle Anforderungen, die die Möglichkeit, durch die Firewall an anderen Gesamtstrukturen übergeben müssen. Sie können diese Anforderungen einzeln erfüllen, öffnen Sie die entsprechenden Schnittstellen in der Firewall, einschließlich derer, die für alle Vertrauensstellungen, um die Funktion erforderlich.  
-  
--   Platzieren Sie die Benutzer, Gruppen und Computer in einer anderen Domäne in einer vorhandenen Gesamtstruktur für die Organisationseinheit. Dieses Modell ermöglicht nur auf Domänenebene Autonomie und Isolation oder Daten Netzwerkisolation nicht für die vollständige Service-Autonomie service. Andere Gruppen in der Gesamtstruktur müssen die Dienstadministratoren der neuen Domäne auf demselben Sicherheitsgrad vertrauen, dass sie den Gesamtstrukturbesitzer vertrauen. Aus diesem Grund empfehlen wir nicht dieser Ansatz. Weitere Informationen zur Verwendung von Organisationseinheiten Domänen finden Sie unter [mit der Organisationseinheit Domain-Gesamtstrukturmodell](../../ad-ds/plan/../../ad-ds/plan/Using-the-Organizational-Domain-Forest-Model.md).  
-  
-Sie müssen auch die Firewall genug zum Zulassen von Active Directory-Datenverkehr passieren zu öffnen. Weitere Informationen zum Konfigurieren von Firewalls für die Verwendung mit AD DS finden Sie unter Active Directory in Netzwerken durch Firewalls segmentiert ([https://go.microsoft.com/fwlink/?LinkId=37928](https://go.microsoft.com/fwlink/?LinkId=37928)).  
-  
-## <a name="BKMK_7"></a>Szenario 7: Ressourcengesamtstruktur verwenden und Konfigurieren der Firewalls für die Dienstisolation mit eingeschränkter Konnektivität  
-Wenn eingeschränkter Konnektivität ein Problem ist, und Sie eine Anforderung für die Dienstisolation haben, können Sie Folgendes tun:  
-  
--   Verwenden Sie eine Organisationseinheit Gesamtstruktur. Platzieren Sie die Benutzer, Gruppen und Computer für die Gruppe, die Isolation von Diensten in einer separaten Organisationseinheit Gesamtstruktur erforderlich sind. Weisen Sie eine Person aus der Gruppe die Gesamtstrukturbesitzer sein. Die Organisationseinheit Gesamtstruktur bietet eine separate Umgebung auf der anderen Seite der Firewall. Die Gesamtstruktur enthält Benutzerkonten und Ressourcen, die innerhalb der Gesamtstruktur verwaltet werden, sodass Benutzer nicht benötigen, um durch die Firewall ihren täglichen Aufgaben zu wechseln. Bestimmte Benutzer oder Anwendungen möglicherweise spezielle Anforderungen, die die Möglichkeit, durch die Firewall an anderen Gesamtstrukturen übergeben müssen. Sie können diese Anforderungen einzeln erfüllen, öffnen Sie die entsprechenden Schnittstellen in der Firewall, einschließlich derer, die für alle Vertrauensstellungen, um die Funktion erforderlich.  
-  
--   Verwenden Sie eine Ressourcen-Gesamtstruktur. Direkte Ressourcen und Dienstkonten in einer separaten Ressourcen-Gesamtstruktur, damit Benutzerkonten in einer vorhandenen Gesamtstruktur für die Organisationseinheit. Es ist möglicherweise erforderlich, erstellen einige Alternativen Benutzerkonten in der Ressourcengesamtstruktur Zugriff auf die Ressourcen-Gesamtstruktur beibehalten, wenn die Organisation Gesamtstruktur nicht mehr verfügbar ist. Die alternativen Konten benötigen die erforderliche Autorität zur Anmeldung an der Ressourcengesamtstruktur und Kontrolle über die Ressourcen warten, bis die Organisationseinheit Gesamtstruktur wieder online ist.  
-  
-    Richten Sie eine Vertrauensstellung zwischen der Ressource und Organisations-Gesamtstrukturen, sodass der Benutzer auf die Ressourcen in der Gesamtstruktur zugreifen können, bei der Verwendung von ihren normalen Benutzerkonten. Diese Konfiguration ermöglicht die zentralisierte Verwaltung von Benutzerkonten während Benutzer alternative Konten in der Ressourcengesamtstruktur zurückgegriffen, wenn die Organisation Gesamtstruktur nicht mehr verfügbar ist.  
-  
-Die folgenden: Überlegungen zur Dienstisolation  
-  
--   Für Dienstisolation erstellten Gesamtstrukturen können Domänen aus anderen Gesamtstrukturen vertrauen, jedoch dürfen keine Benutzer aus anderen Gesamtstrukturen in ihren Dienst Administratorgruppen enthalten. Wenn Benutzer aus anderen Gesamtstrukturen in administrativen Gruppen in der isolierten Gesamtstruktur enthalten sind, kann die Sicherheit der isolierten Gesamtstruktur möglicherweise gefährdet, da die Dienstadministratoren in der Gesamtstruktur nicht exklusive Steuerung verfügen.  
-  
--   Als Domänencontroller in einem Netzwerk zugänglich sind, sind sie Angriffen (z. B. Denial-of-Service-Angriffe) von Computern in diesem Netzwerk. Sie können zum Schutz gegen die Möglichkeit eines Angriffs die folgenden Schritte ausführen:  
-  
-    -   Hosten von Domänencontrollern nur auf Netzwerke, die als sicher eingestuft werden.  
-  
-    -   Beschränken Sie den Zugriff auf Netzwerke, die der Domänencontroller hostet.  
-  
--   Dienstisolation ist die Erstellung einer zusätzlichen Gesamtstruktur erforderlich. Bewerten Sie, ob die Kosten für die Verwaltung der Infrastruktur zur Unterstützung der zusätzlichen Gesamtstruktur die Kosten im Zusammenhang mit der Zugriff auf Ressourcen aufgrund einer Organisationseinheit Gesamtstruktur nicht verfügbar ist aufwiegt.  
-  
-    Bestimmte Benutzer oder Anwendungen möglicherweise spezielle Anforderungen, die die Möglichkeit, durch die Firewall an anderen Gesamtstrukturen übergeben müssen. Sie können diese Anforderungen einzeln erfüllen, öffnen Sie die entsprechenden Schnittstellen in der Firewall, einschließlich derer, die für alle Vertrauensstellungen, um die Funktion erforderlich.  
-  
-Weitere Informationen zum Konfigurieren von Firewalls für die Verwendung mit AD DS finden Sie unter Active Directory in Netzwerken durch Firewalls segmentiert ([https://go.microsoft.com/fwlink/?LinkId=37928](https://go.microsoft.com/fwlink/?LinkId=37928)).  
-  
+|[Szenario 1: Verknüpfen einer vorhandenen Gesamtstruktur für die Datenautonomie](#BKMK_1)|Nein|Nein|Ja|Nein|Nein|  
+|[Szenario 2: Verwenden von einer Organisation Gesamtstruktur oder Domäne für die Autonomie eines Dienstes](#BKMK_2)|Nein|Nein|Nicht zutreffend|Nein|Ja|  
+|[Szenario 3: Verwenden Sie Organisationsgesamtstruktur oder Ressourcen-Gesamtstruktur für die Isolation von Diensten.](#BKMK_3)|Nein|Nein|Nicht zutreffend|Ja|Nicht zutreffend|  
+|[Szenario 4: Verwenden Sie eine Organisation Gesamtstruktur oder eine Gesamtstruktur mit eingeschränktem Zugriff für die Datenisolation](#BKMK_4)|Nicht zutreffend|Ja|Nicht zutreffend|Nicht zutreffend|Nicht zutreffend|  
+|[Szenario 5: Verwenden Sie eine Organisationsgesamtstruktur, oder Konfigurieren der Firewalls für eingeschränkte Konnektivität](#BKMK_5)|Ja|Nein|Nicht zutreffend|Nein|Nein|  
+|[Szenario 6: Verwenden einer Organisation Gesamtstruktur oder Domäne, und Konfigurieren der Firewalls für die Autonomie eines Dienstes mit eingeschränkter Konnektivität](#BKMK_6)|Ja|Nein|Nicht zutreffend|Nein|Ja|  
+|[Szenario 7: Verwenden einer Ressourcengesamtstruktur und Konfigurieren der Firewalls für die Isolation von Diensten mit eingeschränkter Konnektivität](#BKMK_7)|Ja|Nein|Nicht zutreffend|Ja|Nicht zutreffend|  
 
+## <a name="BKMK_1"></a>Szenario 1: Verknüpfen einer vorhandenen Gesamtstruktur für die Datenautonomie  
 
+Sie können eine Voraussetzung für die Datenautonomie einfach durch das Hosten der Gruppe in Organisationseinheiten (OEs) in einer vorhandenen Gesamtstruktur für die Organisation erfüllen. Delegieren Sie Kontrolle über Organisationseinheiten für Datenadministratoren aus der Gruppe die Datenautonomie zu erreichen. Weitere Informationen zum Delegieren des Zugriffs mithilfe von Organisationseinheiten finden Sie unter [erstellen eine Organizational Unit Design](../../ad-ds/plan/Creating-an-Organizational-Unit-Design.md).  
+  
+## <a name="BKMK_2"></a>Szenario 2: Verwenden von einer Organisation Gesamtstruktur oder Domäne für die Autonomie eines Dienstes  
+
+Wenn eine Gruppe in Ihrer Organisation die Autonomie eines Dienstes als Anforderung identifiziert, empfehlen wir, dass Sie zuerst diese Anforderung überdenken. Eine Dienstautonomie erstellt, mehr Verwaltungsaufwand und die zusätzlichen Kosten für die Organisation. Stellen Sie sicher, dass die Anforderung für die Autonomie eines Dienstes nicht einfach der Einfachheit halber ist und Sie die Kosten erfüllt diese Anforderung im Blocksatz ausrichten können.  
+  
+Sie können eine Anforderung für die Autonomie eines Dienstes erfüllen, indem Sie eine der folgenden:  
+
+- Erstellen eine Organisationsgesamtstruktur. Platzieren Sie den Benutzer, Gruppen und Computer für die Gruppe, die die Autonomie eines Dienstes in einer separaten Organisation Gesamtstruktur erforderlich sind. Weisen Sie Einzelperson aus dieser Gruppe der Gesamtstrukturbesitzer sein. Wenn der Zugriff auf Ressourcen mit den anderen Gesamtstrukturen in der Organisation muss, können sie eine Vertrauensstellung zwischen ihrer Organisation Gesamtstruktur und den anderen Gesamtstrukturen einrichten.  
+
+- Verwenden die Organisation Domänen. Platzieren Sie den Benutzer, Gruppen und Computer in einer separaten Domäne in einer vorhandenen Organisation Gesamtstruktur an. Dieses Modell ermöglicht nur die Autonomie eines Dienstes von auf Domänenebene und nicht für vollständige Dienstautonomie, der Isolation oder die Datenisolation-Diensts.  
+
+Weitere Informationen zur Verwendung von organisatorischer Domänen finden Sie unter [mit dem Organisations-Gesamtstruktur Domänenmodell](../../ad-ds/plan/../../ad-ds/plan/Using-the-Organizational-Domain-Forest-Model.md).  
+
+## <a name="BKMK_3"></a>Szenario 3: Verwenden Sie Organisationsgesamtstruktur oder Ressourcen-Gesamtstruktur für die Isolation von Diensten.  
+
+Sie können eine Voraussetzung für die Isolation von Diensten erfüllen, indem Sie eine der folgenden:  
+
+- Verwenden eine Organisationsgesamtstruktur. Platzieren Sie den Benutzer, Gruppen und Computer für die Gruppe, die Isolation von Diensten in einer separaten Organisation Gesamtstruktur erforderlich sind. Weisen Sie Einzelperson aus dieser Gruppe der Gesamtstrukturbesitzer sein. Wenn der Zugriff auf Ressourcen mit den anderen Gesamtstrukturen in der Organisation muss, können sie eine Vertrauensstellung zwischen ihrer Organisation Gesamtstruktur und den anderen Gesamtstrukturen einrichten. Allerdings empfehlen wir nicht diesen Ansatz, da Zugriff auf Ressourcen mithilfe von universellen Gruppen in Szenarien der Gesamtstruktur-Vertrauensstellung stark eingeschränkt ist.  
+
+- Verwenden einer Ressourcengesamtstruktur. Platzieren Sie Ressourcen und Dienstkonten in separaten Ressourcengesamtstruktur-Benutzerkonten in einer vorhandenen Organisation Gesamtstruktur beibehalten. Bei Bedarf können alternative Konten erstellt werden, in der Ressourcengesamtstruktur zum Zugriff auf die Ressourcen in der Ressourcengesamtstruktur, wenn der Organisationsgesamtstruktur nicht verfügbar ist. Die alternativen Konten benötigen die erforderliche Autorität zur melden Sie sich bei der Ressourcen-Gesamtstruktur und die Kontrolle über die Ressourcen, bis der Organisationsgesamtstruktur wieder online ist.  
+
+   Eine Vertrauensstellung zwischen der Ressource und Organisations-Gesamtstrukturen, damit die Benutzer auf die Ressourcen in der Gesamtstruktur zugreifen können, bei der Verwendung von ihren normalen Benutzerkonten. Diese Konfiguration ermöglicht die zentralisierte Verwaltung von Benutzerkonten während Benutzer auf alternative Konten in der Ressourcengesamtstruktur zurück, wenn der Organisationsgesamtstruktur nicht verfügbar ist.  
+
+Die folgenden: Überlegungen zur Isolation von Diensten
+
+- Gesamtstrukturen, die für die dienstisolierung kann Domänen aus anderen Gesamtstrukturen "vertrauen", jedoch dürfen keine Benutzer aus anderen Gesamtstrukturen in ihrer Administratoren Dienstgruppen erstellt werden. Wenn Benutzer aus anderen Gesamtstrukturen in der administrativen Gruppen in der isolierten Gesamtstruktur enthalten sind, kann die Sicherheit der isolierten Gesamtstruktur möglicherweise beeinträchtigt werden, da die Dienstadministratoren in der Gesamtstruktur keine exklusive Kontrolle.  
+
+- Als Domänencontroller in einem Netzwerk zugegriffen werden kann, sind sie von Malware in diesem Netzwerk (z. B. Denial-of-Service-Angriffe). Zum Schutz gegen die Möglichkeit eines Angriffs Folgendes möglich:  
+
+   - Host-Domänencontroller nur in Netzwerken, die als sicher eingestuft werden.  
+
+   - Beschränken des Zugriffs auf Netzwerke, die der Domänencontroller gehostet werden.  
+
+- Isolation von Diensten ist die Erstellung einer zusätzlichen Gesamtstruktur erforderlich. Bewerten Sie, ob die Kosten für die Verwaltung der Infrastruktur zur Unterstützung der Gesamtstruktur zusätzlichen Kosten im Zusammenhang mit Verlust des Zugriffs auf Ressourcen aufgrund einer Organisationsgesamtstruktur nicht verfügbar ist überwiegt.  
+
+## <a name="BKMK_4"></a>Szenario 4: Verwenden Sie eine Organisation Gesamtstruktur oder eine Gesamtstruktur mit eingeschränktem Zugriff für die Datenisolation  
+
+Sie können die Datenisolation erreichen, indem Sie eine der folgenden Aktionen ausführen:  
+
+- Verwenden eine Organisationsgesamtstruktur. Platzieren Sie den Benutzer, Gruppen und Computer für die Gruppe, die Datenisolation in einer separaten Organisation Gesamtstruktur erforderlich sind. Weisen Sie Einzelperson aus dieser Gruppe der Gesamtstrukturbesitzer sein. Wenn die Gruppe Zugriff auf Ressourcen mit den anderen Gesamtstrukturen in der Organisation, eine Vertrauensstellung zwischen der Organisation und den anderen Gesamtstrukturen aufweist. Nur Benutzer, die Zugriff auf die vertraulichen Informationen benötigen, sind in der neuen Organisationsgesamtstruktur vorhanden. Benutzer haben ein Konto, mit denen sie den Zugriff auf beide klassifiziert Daten innerhalb ihrer eigenen Gesamtstruktur und nicht klassifizierte Daten in anderen Gesamtstrukturen mithilfe von Vertrauensstellungen.  
+
+- Verwenden eine Gesamtstruktur mit eingeschränktem Zugriff. Dies ist eine separate Gesamtstruktur, die die Datentypen und die Benutzerkonten, die verwendet werden, Zugriff auf diese Daten enthält. Trennen Sie Benutzerkonten werden in den vorhandenen Gesamtstrukturen für die Organisationen verwaltet, die Zugriff auf den uneingeschränkten Ressourcen im Netzwerk verwendet werden. Keine Vertrauensstellungen werden zwischen der Gesamtstruktur mit eingeschränktem Zugriff und den anderen Gesamtstrukturen im Unternehmen erstellt. Sie können weitere die Gesamtstruktur einschränken, indem der Gesamtstruktur auf einem separaten physischen Netzwerk bereitstellen, damit anderen Gesamtstrukturen hergestellt werden kann. Wenn Sie die Gesamtstruktur in einem separaten Netzwerk bereitstellen, müssen Benutzer zwei Arbeitsstationen: eine für den Zugriff auf den eingeschränkten Gesamtstruktur und eine für den Zugriff auf die nonrestricted Bereiche des Netzwerks.  
+
+Überlegungen zum Erstellen von Gesamtstrukturen für die Datenisolation umfassen Folgendes:  
+
+- Organisation Gesamtstrukturen, die für die Datenisolation erstellten Domänen aus anderen Gesamtstrukturen vertrauen können, aber Benutzer aus anderen Gesamtstrukturen müssen nicht in eine der folgenden enthalten:  
+
+   - Gruppen, die verantwortlich für dienstverwaltung oder Gruppen, die die Mitgliedschaft der Dienstadministrator-Gruppen verwalten können  
+
+   - Gruppen, die administrativen Kontrolle über Computer verfügen, die geschützte Daten speichern  
+
+   - Gruppen, die Zugriff auf geschützte Daten oder Gruppen, die sind dafür verantwortlich, für die Verwaltung von Benutzerobjekten oder Group-Objekte, die Zugriff auf, geschützte Daten  
+
+   Wenn Benutzer aus einer anderen Gesamtstruktur in einer dieser Gruppen enthalten sind, kann eine Gefährdung der anderen Gesamtstruktur zu einer Gefährdung der isolierten Gesamtstruktur und Offenlegung der geschützten Daten führen.  
+
+- Anderen Gesamtstrukturen können konfiguriert werden, um Vertrauen der Organisationsgesamtstruktur für die Datenisolation erstellt werden, sodass Benutzer in der isolierten Gesamtstruktur Ressourcen in anderen Gesamtstrukturen zugreifen können. Allerdings müssen Benutzer aus der isolierten Gesamtstruktur nicht interaktiv auf Arbeitsstationen in der vertrauenden Gesamtstruktur anmelden. Der Computer in der vertrauenden Gesamtstruktur kann möglicherweise durch böswillige Software beeinträchtigt werden und kann verwendet werden, um die Anmeldeinformationen des Benutzers zu erfassen.  
+
+   > [!NOTE]
+   > Der Gesamtstrukturbesitzer kann um Server in einer vertrauenden Gesamtstruktur Identität von Benutzern in der isolierten Gesamtstruktur, und klicken Sie dann den Zugriff auf Ressourcen in der isolierten Gesamtstruktur zu verhindern, dass delegierte Authentifizierung zu deaktivieren oder verwenden Sie das Feature für die eingeschränkte Delegierung. Weitere Informationen zur delegierten Authentifizierung und eingeschränkte Delegierung finden Sie unter [Delegieren der Authentifizierung](https://go.microsoft.com/fwlink/?LinkId=106614).  
+
+- Sie müssen möglicherweise eine Firewall zwischen der Organisation und den anderen Gesamtstrukturen in der Organisation, das Beschränken des Zugriffs auf Daten außerhalb der Gesamtstruktur herstellen.  
+
+- Obwohl die Datenisolation, zum Erstellen einer separaten Gesamtstruktur aktiviert werden, solange die Domänencontroller in der isolierten Gesamtstruktur und der Computer,, auf geschützte Hostinformationen in einem Netzwerk zugegriffen werden, sind anfällig für Angriffe, die von Computern im Netzwerk gestartet. Organisationen, die sich entscheiden, dass das Risiko eines Angriffs zu hoch ist oder zur Folge, dass eine Verletzung der Angriff oder Sicherheit zu groß ist Einschränken des Zugriffs auf das Netzwerk oder Netzwerken, die die Domänencontrollern hosten müssen und die Computer auf denen ausgeführt wird, werden geschützte Daten . Beschränken des Zugriffs kann mithilfe von Technologien wie Firewalls und internetprotokollsicherheit (IPsec) erfolgen. In Extremfällen können Organisationen auch die geschützten Daten auf ein unabhängiges Netzwerk zu verwalten, die keine physische Verbindung zu einem anderen Netzwerk in der Organisation aufweist.  
+
+   > [!NOTE]  
+   > Wenn eine Netzwerkverbindung zwischen einer Gesamtstruktur mit eingeschränktem Zugriff und einem anderen Netzwerk vorhanden ist, besteht die Möglichkeit, Daten in der eingeschränkten Bereich mit dem anderen Netzwerk übertragen werden.  
+
+## <a name="BKMK_5"></a>Szenario 5: Verwenden Sie eine Organisationsgesamtstruktur, oder Konfigurieren der Firewalls für eingeschränkte Konnektivität  
+
+Um eine eingeschränkte Konnektivität-Anforderung zu erfüllen, können Sie eine der folgenden Aktionen ausführen:  
+
+- Benutzer in einer bestehenden Organisation Gesamtstruktur platzieren, und Öffnen der Firewalls genug für Active Directory-Datenverkehrs zu durchlaufen.  
+
+- Verwenden Sie eine Organisationsgesamtstruktur. Platzieren Sie den Benutzer, Gruppen und Computer für die Gruppe, die für die Verbindung begrenzt ist, in einer separaten Gesamtstruktur für die Organisation. Weisen Sie Einzelperson aus dieser Gruppe der Gesamtstrukturbesitzer sein. Der Organisationsgesamtstruktur bietet eine separate Umgebung, auf der anderen Seite der Firewall. Die Gesamtstruktur enthält Benutzerkonten und Ressourcen, die in der Gesamtstruktur verwaltet werden, sodass Benutzer nicht über die Firewall für ihre täglichen Aufgaben zu müssen. Bestimmte Benutzer oder Anwendungen möglicherweise spezielle Anforderungen, die die Funktion für die Firewall, wenden Sie sich an anderen Gesamtstrukturen erforderlich. Sie können diese Anforderungen einzeln adressieren, öffnen Sie die entsprechenden Schnittstellen in der Firewall, einschließlich derer für Vertrauensstellungen funktionieren erforderlich sind.  
+
+Weitere Informationen zum Konfigurieren von Firewalls für die Verwendung mit Active Directory Domain Services (AD DS) finden Sie unter [Active Directory in Netzwerken durch Firewalls segmentiert](https://go.microsoft.com/fwlink/?LinkId=37928).  
+
+## <a name="BKMK_6"></a>Szenario 6: Verwenden einer Organisation Gesamtstruktur oder Domäne, und Konfigurieren der Firewalls für die Autonomie eines Dienstes mit eingeschränkter Konnektivität  
+
+Wenn eine Gruppe in Ihrer Organisation die Autonomie eines Dienstes als Anforderung identifiziert, empfehlen wir, dass Sie zuerst diese Anforderung überdenken. Eine Dienstautonomie erstellt, mehr Verwaltungsaufwand und die zusätzlichen Kosten für die Organisation. Stellen Sie sicher, dass die Anforderung für die Autonomie eines Dienstes nicht einfach der Einfachheit halber ist und Sie die Kosten erfüllt diese Anforderung im Blocksatz ausrichten können.  
+
+Wenn eingeschränkte Konnektivität ein Problem ist, und Sie eine Anforderung für die Autonomie eines Dienstes haben, können Sie eine der folgenden führen:  
+
+- Verwenden Sie eine Organisationsgesamtstruktur. Platzieren Sie den Benutzer, Gruppen und Computer für die Gruppe, die die Autonomie eines Dienstes in einer separaten Organisation Gesamtstruktur erforderlich sind. Weisen Sie Einzelperson aus dieser Gruppe der Gesamtstrukturbesitzer sein. Der Organisationsgesamtstruktur bietet eine separate Umgebung, auf der anderen Seite der Firewall. Die Gesamtstruktur enthält Benutzerkonten und Ressourcen, die in der Gesamtstruktur verwaltet werden, sodass Benutzer nicht über die Firewall für ihre täglichen Aufgaben zu müssen. Bestimmte Benutzer oder Anwendungen möglicherweise spezielle Anforderungen, die die Funktion für die Firewall, wenden Sie sich an anderen Gesamtstrukturen erforderlich. Sie können diese Anforderungen einzeln adressieren, öffnen Sie die entsprechenden Schnittstellen in der Firewall, einschließlich derer für Vertrauensstellungen funktionieren erforderlich sind.  
+
+- Platzieren Sie den Benutzer, Gruppen und Computer in einer separaten Domäne in einer vorhandenen Organisation Gesamtstruktur an. Dieses Modell ermöglicht nur die Autonomie eines Dienstes von auf Domänenebene und nicht für vollständige Dienstautonomie, der Isolation oder die Datenisolation-Diensts. Andere Gruppen in der Gesamtstruktur müssen die Dienstadministratoren der neuen Domäne, die den gleichen Grad an vertrauen, dass sie den Gesamtstrukturbesitzer vertrauen. Aus diesem Grund empfehlen wir nicht diesen Ansatz. Weitere Informationen zur Verwendung von organisatorischer Domänen finden Sie unter [mit dem Organisations-Gesamtstruktur Domänenmodell](../../ad-ds/plan/../../ad-ds/plan/Using-the-Organizational-Domain-Forest-Model.md).  
+
+Sie müssen auch die Firewall zum Zulassen von Active Directory-Datenverkehr passieren genug zu öffnen. Weitere Informationen zum Konfigurieren von Firewalls für die Verwendung mit AD DS finden Sie unter [Active Directory in Netzwerken durch Firewalls segmentiert](https://go.microsoft.com/fwlink/?LinkId=37928).  
+
+## <a name="BKMK_7"></a>Szenario 7: Verwenden einer Ressourcengesamtstruktur und Konfigurieren der Firewalls für die Isolation von Diensten mit eingeschränkter Konnektivität  
+
+Wenn eingeschränkte Konnektivität ein Problem ist, und Sie eine Voraussetzung für die Isolation von Diensten haben, können Sie eine der folgenden führen:  
+
+- Verwenden Sie eine Organisationsgesamtstruktur. Platzieren Sie den Benutzer, Gruppen und Computer für die Gruppe, die Isolation von Diensten in einer separaten Organisation Gesamtstruktur erforderlich sind. Weisen Sie Einzelperson aus dieser Gruppe der Gesamtstrukturbesitzer sein. Der Organisationsgesamtstruktur bietet eine separate Umgebung, auf der anderen Seite der Firewall. Die Gesamtstruktur enthält Benutzerkonten und Ressourcen, die in der Gesamtstruktur verwaltet werden, sodass Benutzer nicht über die Firewall für ihre täglichen Aufgaben zu müssen. Bestimmte Benutzer oder Anwendungen möglicherweise spezielle Anforderungen, die die Funktion für die Firewall, wenden Sie sich an anderen Gesamtstrukturen erforderlich. Sie können diese Anforderungen einzeln adressieren, öffnen Sie die entsprechenden Schnittstellen in der Firewall, einschließlich derer für Vertrauensstellungen funktionieren erforderlich sind.  
+
+- Verwenden einer Ressourcengesamtstruktur. Platzieren Sie Ressourcen und Dienstkonten in separaten Ressourcengesamtstruktur-Benutzerkonten in einer vorhandenen Organisation Gesamtstruktur beibehalten. Es ist möglicherweise erforderlich, einige Alternativen Benutzerkonten zu erstellen, in der Ressourcengesamtstruktur, verwalten den Zugriff auf die Ressourcen-Gesamtstruktur aus, wenn der Organisationsgesamtstruktur nicht mehr verfügbar ist. Die alternativen Konten benötigen die erforderliche Autorität zur melden Sie sich bei der Ressourcen-Gesamtstruktur und die Kontrolle über die Ressourcen, bis der Organisationsgesamtstruktur wieder online ist.  
+
+   Eine Vertrauensstellung zwischen der Ressource und Organisations-Gesamtstrukturen, damit die Benutzer auf die Ressourcen in der Gesamtstruktur zugreifen können, bei der Verwendung von ihren normalen Benutzerkonten. Diese Konfiguration ermöglicht die zentralisierte Verwaltung von Benutzerkonten während Benutzer auf alternative Konten in der Ressourcengesamtstruktur zurück, wenn der Organisationsgesamtstruktur nicht verfügbar ist.  
+
+Die folgenden: Überlegungen zur Isolation von Diensten  
+
+- Gesamtstrukturen, die für die dienstisolierung kann Domänen aus anderen Gesamtstrukturen "vertrauen", jedoch dürfen keine Benutzer aus anderen Gesamtstrukturen in ihrer Administratoren Dienstgruppen erstellt werden. Wenn Benutzer aus anderen Gesamtstrukturen in der administrativen Gruppen in der isolierten Gesamtstruktur enthalten sind, kann die Sicherheit der isolierten Gesamtstruktur möglicherweise beeinträchtigt werden, da die Dienstadministratoren in der Gesamtstruktur keine exklusive Kontrolle.  
+
+- Als Domänencontroller in einem Netzwerk zugegriffen werden kann, sind sie anfällig für Angriffe (z. B. Denial-of-Service-Angriffe) von Computern im Netzwerk. Zum Schutz gegen die Möglichkeit eines Angriffs Folgendes möglich:  
+
+   - Host-Domänencontroller nur in Netzwerken, die als sicher eingestuft werden.  
+
+   - Beschränken des Zugriffs auf Netzwerke, die der Domänencontroller gehostet werden.  
+
+- Isolation von Diensten ist die Erstellung einer zusätzlichen Gesamtstruktur erforderlich. Bewerten Sie, ob die Kosten für die Verwaltung der Infrastruktur zur Unterstützung der Gesamtstruktur zusätzlichen Kosten im Zusammenhang mit Verlust des Zugriffs auf Ressourcen aufgrund einer Organisationsgesamtstruktur nicht verfügbar ist überwiegt.  
+
+   Bestimmte Benutzer oder Anwendungen möglicherweise spezielle Anforderungen, die die Funktion für die Firewall, wenden Sie sich an anderen Gesamtstrukturen erforderlich. Sie können diese Anforderungen einzeln adressieren, öffnen Sie die entsprechenden Schnittstellen in der Firewall, einschließlich derer für Vertrauensstellungen funktionieren erforderlich sind.  
+
+Weitere Informationen zum Konfigurieren von Firewalls für die Verwendung mit AD DS finden Sie unter [Active Directory in Netzwerken durch Firewalls segmentiert](https://go.microsoft.com/fwlink/?LinkId=37928).  

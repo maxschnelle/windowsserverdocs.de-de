@@ -1,6 +1,6 @@
 ---
 title: Erstellen eines automatisch zugewiesenen Kontingents
-description: "Dieser Artikel enthält Informationen zum Erstellen von automatisch zugewiesenen Kontingenten basierend auf einer Kontingentvorlage"
+description: Dieser Artikel enthält Informationen zum Erstellen von automatisch zugewiesenen Kontingenten basierend auf einer Kontingentvorlage
 ms.date: 7/7/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -9,18 +9,19 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: e2837df448434252470d783a6c06f0690ba09021
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59847921"
 ---
 # <a name="create-an-auto-apply-quota"></a>Erstellen eines automatisch zugewiesenen Kontingents
 
-> Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
 
 Mit automatisch zugewiesenen Kontingenten können Sie einem übergeordneten Volume oder Ordner eine Kontingentvorlage zuweisen. Der Ressourcen-Manager für Dateiserver generiert automatisch Kontingente, die auf dieser Vorlage basieren. Kontingente werden für jede der vorhandenen Unterordner und alle Unterordner erstellt, die Sie in der Zukunft zu erstellen.
 
-Sie können z.B. ein automatisch zugewiesenes Kontingent für Unterordner erstellen, die bei Bedarf erstellt werden, für das Roamingbenutzer oder für neue Benutzer gelten. Jedes Mal, wenn ein Unterordner erstellt wird, wird mithilfe der Vorlage des übergeordneten Ordners automatisch ein neuer Kontingenteintrag generiert. Diese automatisch generierten Kontingenteinträge können dann als einzelne Kontingente unter dem **Kontingente**-Knoten angezeigt werden. Jeder Kontingenteintrag kann separat verwaltet werden.
+Sie können z. B. ein automatisch zugewiesenes Kontingent für Unterordner erstellen, die bei Bedarf erstellt werden, für das Roamingbenutzer oder für neue Benutzer gelten. Jedes Mal, wenn ein Unterordner erstellt wird, wird mithilfe der Vorlage des übergeordneten Ordners automatisch ein neuer Kontingenteintrag generiert. Diese automatisch generierten Kontingenteinträge können dann als einzelne Kontingente unter dem **Kontingente**-Knoten angezeigt werden. Jeder Kontingenteintrag kann separat verwaltet werden.
 
 ## <a name="to-create-an-auto-apply-quota"></a>So erstellen Sie ein automatisch zugewiesenes Kontingent
 
@@ -39,7 +40,7 @@ Sie können z.B. ein automatisch zugewiesenes Kontingent für Unterordner erstel
 > [!Note]
 > Sie können alle automatisch generierten Kontingente überprüfen, indem Sie den Knoten **Kontingente** auswählen und dann auf **Aktualisieren** klicken. Sie sehen eine Liste der individuellen Kontingente für jeden Unterordner und das automatisch zugewiesene Kontingentenprofil des übergeordneten Volumes oder Ordners.
 
-## <a name="see-also"></a>Weitere Informationen:
+## <a name="see-also"></a>Siehe auch
 
--   [Kontingentverwaltung](quota-management.md)
--   [Bearbeiten der Eigenschaften des automatisch zugewiesenen Kontingents](edit-auto-apply-quota-properties.md)
+-   [Management von sollvorgaben](quota-management.md)
+-   [Bearbeiten Sie die automatische Anwenden von Kontingenteigenschaften](edit-auto-apply-quota-properties.md)

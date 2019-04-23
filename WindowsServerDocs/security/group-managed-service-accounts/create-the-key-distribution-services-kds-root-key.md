@@ -1,5 +1,5 @@
 ---
-title: "Erstellen Sie die Verteilung KDS-Stammschlüssels"
+title: Erstellen des KDS-Stammschlüssels der Schlüsselverteilungsdienste
 description: Windows Server-Sicherheit
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -13,55 +13,56 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 30075e56f3ca8e90a0655508efeacfcf2aaa0337
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.openlocfilehash: 3d5f7b46b28e6a2fbfafb664b69aebc8d34886fe
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59867211"
 ---
-# <a name="create-the-key-distribution-services-kds-root-key"></a>Erstellen Sie die Verteilung KDS-Stammschlüssels
+# <a name="create-the-key-distribution-services-kds-root-key"></a>Erstellen des KDS-Stammschlüssels der Schlüsselverteilungsdienste
 
->Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
-In diesem Thema für IT-Experten wird beschrieben, wie erstellen Sie einen Microsoft-Schlüsselverteilungsdienst (kdssvc.dll) Stammschlüssel auf dem Domänencontroller, die Verwendung von Windows PowerShell zum Generieren von Managed Service Account gruppieren. Kennwörter in Windows Server2012.
+In diesem Thema für IT-Experten wird beschrieben, wie einen Stammschlüssel für den Microsoft-Schlüsselverteilungsdienst ("kdssvc.dll") auf dem Domänencontroller, die mithilfe von Windows PowerShell zum Generieren von Kennwörtern verwaltetes Dienstkonto in Windows Server 2012 zu erstellen.
 
- Windows Server2012-Domänencontroller (DC) erfordern einen Stammschlüssel, damit das Generieren von gMSA-Kennwörtern gestartet. Die Domänencontroller wartet bis zu zehn Stunden ab der Erstellung, um alle Domänencontroller auf ihre AD-Replikation vor der Erstellung eines gmsa zu konvergieren zu ermöglichen. Die zehn Stunden handelt es sich um eine Sicherheitsmaßnahme, um zu verhindern, dass Kennwort Generation von generiert wird, bevor alle Domänencontroller in der Umgebung gMSA-Anforderungen beantwortet werden.  Wenn Sie versuchen, ein gMSA zu verwenden, zu früh der Schlüssel möglicherweise wurde nicht repliziert, alle Windows Server2012-Domänencontrollern und Kennwortabruf kann daher fehlschlagen, wenn der gMSA-Host versucht, das Kennwort abzurufen. Fehler bei der gMSA Kennwort abrufen können auch auftreten, wenn Domänencontroller mit begrenzten Replikationszeitplänen oder wenn ein Replikationsproblem vorliegt.
+ Windows Server 2012-Domänencontroller (DC) erfordern einen Stammschlüssel, Generieren von gMSA-Kennwörtern zu beginnen. Die Domänencontroller warten bis zu zehn Stunden ab der Erstellung, um allen Domänencontrollern zu ermöglichen, ihre AD-Replikation vor der Erstellung eines gMSA zu konvergieren. Bei den zehn Stunden handelt es sich um eine Sicherheitsmaßnahme, um zu verhindern, dass das Kennwort generiert wird, bevor alle Domänencontroller in der Umgebung in der Lage sind, auf gMSA-Anforderungen zu reagieren.  Wenn Sie versuchen, ein gruppenverwaltetes Dienstkonto zu verwenden, zu früh der Schlüssel kann nicht repliziert wurden, alle Windows Server 2012-Domänencontrollern und Kennwortabruf kann aus diesem Grund fehlschlagen, wenn der gMSA-Host versucht, das Kennwort abzurufen. Fehler beim gMSA-Kennwortabruf können auch auftreten, wenn Domänencontroller mit begrenzten Replikationszeitplänen verwendet werden oder wenn ein Replikationsproblem auftritt.
 
-Mitgliedschaft in der **Domänen-Admins** oder **Organisations-Admins** Gruppen oder einer entsprechenden Gruppe ist mindestens erforderlich, um dieses Verfahren ausführen. Ausführliche Informationen zur Verwendung der geeigneten Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänenstandardgruppen](https://technet.microsoft.com/library/dd728026(WS.10).aspx).
+Sie müssen mindestens Mitglied der Gruppe **Domänen-Admins**, **Organisations-Admins** oder einer entsprechenden Gruppe sein, damit Sie dieses Verfahren ausführen können. Detaillierte Informationen zu den geeigneten Konten und Gruppenmitgliedschaften finden Sie unter [Lokale und Domänenstandardgruppen](https://technet.microsoft.com/library/dd728026(WS.10).aspx).
 
 > [!NOTE]
-> Eine 64-Bit-Architektur ist erforderlich, um Windows PowerShell-Befehle ausführen, die zum Verwalten von Gruppenverwalteten Dienstkonten verwendet werden.
+> Zum Ausführen der Windows PowerShell-Befehle ist eine 64-Bit-Architektur erforderlich, die zum Verwalten von gruppenverwalteten Dienstkonten (group Managed Service Accounts, gMSA) verwendet werden.
 
-#### <a name="to-create-the-kds-root-key-using-the-new-kdsrootkey-cmdlet"></a>Erstellen Sie den KDS-Stammschlüssel mithilfe des Cmdlets New-KdsRootKey
+#### <a name="to-create-the-kds-root-key-using-the-add-kdsrootkey-cmdlet"></a>Erstellen Sie den KDS-Stammschlüssel mithilfe des Cmdlets Add-KdsRootKey
 
-1.  Führen Sie auf dem Windows Server2012-Domänencontroller die Windows PowerShell über die Taskleiste.
+1.  Führen Sie auf dem Windows Server 2012-Domänencontroller die Windows PowerShell über die Taskleiste.
 
-2.  Geben Sie die folgenden Befehle an der Eingabeaufforderung für das Windows PowerShell Active Directory-Modul und drücken Sie dann die EINGABETASTE:
+2.  Geben Sie an der Befehlszeile für das Windows PowerShell Active Directory-Modul die folgenden Befehle ein, und drücken Sie die EINGABETASTE:
 
-    **Add-KdsRootKey – EffectiveImmediately**
+    **Add-KdsRootKey -EffectiveImmediately**
 
     > [!TIP]
-    > Der Effective Time-Parameter kann verwendet werden, um die Zeit für Schlüssel an alle Domänencontroller vor der Verwendung weitergegeben werden. Mithilfe von Add-KdsRootKey – EffectiveImmediately wird einen Stammschlüssel für den Zieldomänencontroller hinzufügen, durch den KDS-Dienst sofort verwendet werden. Jedoch andere Windows Server2012-Domänencontrollern nicht den Stammschlüssel verwenden, bis die Replikation erfolgreich ist.
+    > Der Parameter „Effective time“ kann verwendet werden, um Schlüsseln vor der Verwendung die Zeit zu geben, auf alle Domänencontroller aufgefüllt zu werden. Mithilfe der Add-KdsRootKey wird – EffectiveImmediately einen Stammschlüssel zum Zieldomänencontroller hinzufügen das durch den KDS-Dienst sofort verwendet werden soll. Allerdings werden andere Windows Server 2012-Domänencontroller nicht Schlüssel des Stammzertifikats verwenden, erst nach erfolgreicher Replikation.
 
-Für Testumgebungen mit nur einem Domänencontroller können Sie einen KDS-Stammschlüssel erstellen und festlegen die Startzeit in der Vergangenheit auf die schlüsselgenerierung wartet Intervall zu vermeiden, indem Sie mithilfe des folgenden Verfahrens. Überprüfen Sie, ob ein 4004-Ereignis im Kds-Ereignisprotokoll protokolliert wurde.
+Für Testumgebungen mit nur einem Domänencontroller können Sie einen KDS-Stammschlüssel erstellen und die Startzeit in der Vergangenheit festlegen, um zu vermeiden, dass das Intervall auf die Schlüsselgenerierung wartet, indem folgende Vorgehensweise verwendet wird. Überprüfen Sie, ob ein 4004-Ereignis im KDS-Ereignisprotokoll protokolliert wurde.
 
-#### <a name="to-create-the-kds-root-key-in-a-test-environment-for-immediate-effectiveness"></a>Erstellen Sie den KDS-Stammschlüssel in einer Testumgebung unmittelbarer Wirksamkeit
+#### <a name="to-create-the-kds-root-key-in-a-test-environment-for-immediate-effectiveness"></a>So erstellen Sie den KDS-Stammschlüssel in einer Testumgebung mit unmittelbarer Wirksamkeit
 
-1.  Führen Sie auf dem Windows Server2012-Domänencontroller die Windows PowerShell über die Taskleiste.
+1.  Führen Sie auf dem Windows Server 2012-Domänencontroller die Windows PowerShell über die Taskleiste.
 
-2.  Geben Sie die folgenden Befehle an der Eingabeaufforderung für das Windows PowerShell Active Directory-Modul und drücken Sie dann die EINGABETASTE:
+2.  Geben Sie an der Befehlszeile für das Windows PowerShell Active Directory-Modul die folgenden Befehle ein, und drücken Sie die EINGABETASTE:
 
-    **$ein = Get-Date**
+    **$a=Get-Date**
 
     **$b=$a.AddHours(-10)**
 
-    **Add-KdsRootKey – EffectiveTime $b**
+    **Add-KdsRootKey -EffectiveTime $b**
 
-    Oder verwenden Sie einen einzelnen Befehl
+    Oder verwenden Sie einen einzelnen Befehl:
 
-    **((Get-date).addhours(-10)) Add-KdsRootKey – EffectiveTime**
+    **Add-KdsRootKey -EffectiveTime ((get-date).addhours(-10))**
 
 ## <a name="see-also"></a>Siehe auch
-[Erste Schrittemit Gruppe von verwalteten Dienstkonten](getting-started-with-group-managed-service-accounts.md)
+[Erste Schritte mit der Gruppe von verwalteten Dienstkonten](getting-started-with-group-managed-service-accounts.md)
 
 

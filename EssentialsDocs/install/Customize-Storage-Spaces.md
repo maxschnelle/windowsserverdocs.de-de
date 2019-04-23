@@ -1,6 +1,6 @@
 ---
-title: "Anpassen von Speicherplätzen"
-description: Beschreibt, wie Sie Windows Server Essentials
+title: Anpassen von Speicherplätzen
+description: Beschreibt, wie Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,24 +13,25 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: d1b88a0b06931b38072674db403d1c1b75d8af05
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59844291"
 ---
 # <a name="customize-storage-spaces"></a>Anpassen von Speicherplätzen
 
->Gilt für: Windows Server2016 Essentials, Windows Server2012 R2 Essentials, Windows Server2012 Essentials
+>Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Um Speicherplätze für Benutzerfreundlichkeit vorkonfigurieren möchten, können Sie das Konfigurationsskript für Speicherplätze aus PostIC.cmd ausführen. Das Konfigurationsskript für Speicherplätze muss auf dem Zielcomputer ausgeführt werden, nachdem Sie die Windows Server Essentials-Installation abgeschlossen haben.
+Um Speicherplätze zur Erhöhung der Benutzerfreundlichkeit vorzukonfigurieren, können Sie das Konfigurationsskript für Speicherplätze aus der Datei "PostIC.cmd" ausführen. Das Konfigurationsskript für Speicherplätze muss auf dem Zielcomputer ausgeführt werden, nachdem Sie die Windows Server Essentials-Installation abgeschlossen haben.
   
 ## <a name="see-also"></a>Siehe auch  
 
  [Erstellen und Anpassen des Abbilds](Creating-and-Customizing-the-Image.md)   
- [Weitere Anpassungen](Additional-Customizations.md)   
+ [Zusätzliche Anpassungen](Additional-Customizations.md)   
  [Vorbereiten des Abbilds für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
- [Testen der Benutzerfreundlichkeit](Testing-the-Customer-Experience.md)[erstellen und Anpassen des Abbilds](../install/Creating-and-Customizing-the-Image.md)   
- [Weitere Anpassungen](../install/Additional-Customizations.md)   
+ [Testen der Benutzerfreundlichkeit](Testing-the-Customer-Experience.md) [erstellen und Anpassen des Abbilds](../install/Creating-and-Customizing-the-Image.md)   
+ [Zusätzliche Anpassungen](../install/Additional-Customizations.md)   
  [Vorbereiten des Abbilds für die Bereitstellung](../install/Preparing-the-Image-for-Deployment.md)   
  [Testen der Benutzerfreundlichkeit](../install/Testing-the-Customer-Experience.md)
 

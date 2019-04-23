@@ -1,6 +1,6 @@
 ---
 title: Definieren von Anzeigeeinstellungen
-description: Beschreibt, wie Sie Windows Server Essentials
+description: Beschreibt, wie Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,19 +13,20 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 834451975df9610824171e5b92feae7cc8e63437
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59844221"
 ---
 # <a name="define-display-settings"></a>Definieren von Anzeigeeinstellungen
 
->Gilt für: Windows Server2016 Essentials, Windows Server2012 R2 Essentials, Windows Server2012 Essentials
+>Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Die Bildschirmauflösung sollte entsprechend der Hardware festgelegt werden, die mit dem Server verbunden ist. Für eine optimale Anzeige des Dashboards ist eine Einstellung von 1024 x 768 oder höher erforderlich. Weitere Informationen zur Einstellung der Bildschirmauflösung finden Sie unter der [Windows Assessment and Deployment Kit](https://go.microsoft.com/fwlink/?LinkId=248694) Dokumentation.  
+Die Bildschirmauflösung sollte entsprechend der an den Server angeschlossenen Hardware festgelegt werden. Für eine optimale Anzeige des Dashboards ist eine Einstellung von mindestens 1024 x 768 erforderlich. Weitere Informationen zur Einstellung der Bildschirmauflösung finden Sie in der Dokumentation zum [Windows Assessment and Deployment Kit](https://go.microsoft.com/fwlink/?LinkId=248694) .  
   
 ## <a name="see-also"></a>Siehe auch  
  [Erstellen und Anpassen des Abbilds](Creating-and-Customizing-the-Image.md)   
- [Weitere Anpassungen](Additional-Customizations.md)   
+ [Zusätzliche Anpassungen](Additional-Customizations.md)   
  [Vorbereiten des Abbilds für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
  [Testen der Benutzerfreundlichkeit](Testing-the-Customer-Experience.md)
