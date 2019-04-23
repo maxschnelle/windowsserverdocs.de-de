@@ -1,71 +1,72 @@
 ---
 ms.assetid: e3d55565-ad45-4504-ad73-8103d1a92170
-title: "Installieren einer neuen Windows Server 2012 Active Directory untergeordneten oder Gesamtstrukturdomäne (Stufe 200)"
-description: 
-author: billmath
-ms.author: billmath
-manager: femila
+title: Installieren einer neuen untergeordneten oder Active Directory-Gesamtstrukturdomäne in Windows Server 2012 (Stufe 200)
+description: ''
+author: MicrosoftGuyJFlo
+ms.author: joflore
+manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: fc0eecc44bbc5f7459f22aceb5ebe41cd61948b6
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.openlocfilehash: 7292f76155c2bcb47b6c632b969f54f3afb93d50
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59853701"
 ---
-# <a name="install-a-new-windows-server-2012-active-directory-child-or-tree-domain-level-200"></a>Installieren einer neuen Windows Server 2012 Active Directory untergeordneten oder Gesamtstrukturdomäne (Stufe 200)
+# <a name="install-a-new-windows-server-2012-active-directory-child-or-tree-domain-level-200"></a>Installieren einer neuen untergeordneten oder Active Directory-Gesamtstrukturdomäne in Windows Server 2012 (Stufe 200)
 
->Gilt für: Windows Server2016, Windows Server2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-In diesem Thema wird erläutert, wie Sie untergeordnete und strukturdomänen einer vorhandenen Windows Server 2012-Gesamtstruktur mit Server-Manager oder Windows PowerShell hinzufügen.  
+Dieser Artikel beschreibt, wie Sie untergeordnete und Strukturdomänen mithilfe von Server-Manager oder Windows PowerShell zu einer existierenden Windows Server 2012-Gesamtstruktur hinzufügen können.  
   
--   [Untergeordnete und Struktur Domäne Workflow](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md#BKMK_Workflow)  
+-   [Untergeordnete und Tree Domain-Workflow](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md#BKMK_Workflow)  
   
--   [Untergeordnete und Strukturdomänen in WindowsPowerShell](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md#BKMK_PS)  
+-   [Untergeordnete und Strukturdomänen in Windows PowerShell](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md#BKMK_PS)  
   
 -   [Bereitstellung](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md#BKMK_Deployment)  
   
-## <a name="BKMK_Workflow"></a>Untergeordnete und Struktur Domäne Workflow  
-Das folgende Diagramm zeigt den Konfigurationsprozess für Active Directory Domain Services, wenn Sie die AD DS-Rolle zuvor installiert und gestartet haben, die Active Directory Domäne Konfigurations-Assistenten über Server-Manager zum Erstellen einer neuen Domäne in einer vorhandenen Gesamtstruktur.  
+## <a name="BKMK_Workflow"></a>Untergeordnete und Tree Domain-Workflow  
+Das folgende Diagramm zeigt den Konfigurationsprozess für Active Directory-Domänendienste, wenn Sie die AD DS-Rolle zuvor installiert haben und den Konfigurations-Assistenten für die Active Directory-Domänendienste über den Server-Manager gestartet haben, um eine neue Domäne in einer existierenden Gesamtstruktur zu erstellen.  
   
-![Installieren Sie eine neue untergeordnete AD](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/adds_childtreedeploy_beta1.png)  
+![Installieren Sie eine neue AD untergeordnete](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/adds_childtreedeploy_beta1.png)  
   
-## <a name="BKMK_PS"></a>Untergeordnete und Strukturdomänen in WindowsPowerShell  
+## <a name="BKMK_PS"></a>Untergeordnete und Strukturdomänen in Windows PowerShell  
   
 |||  
 |-|-|  
-|**ADDSDeployment-Cmdlet**|Argumente (**fett** Argumente sind erforderlich. *Kursiv* Argumente können mithilfe von Windows PowerShell oder die AD DS-Konfigurations-Assistenten angegeben werden.)|  
-|**Install-AddsDomain**|– SkipPreChecks<br /><br />***-NewDomainName***<br /><br />***-ParentDomainName***<br /><br />***-SafeModeAdministratorPassword***<br /><br />*-ADPrepCredential*<br /><br />-AllowDomainReinstall<br /><br />-Bestätigen<br /><br />*-CreateDNSDelegation*<br /><br />***-Credential***<br /><br />*-DatabasePath*<br /><br />*-Dnsdelegationcredential über*<br /><br />-NoDNSOnNetwork<br /><br />*-DomainMode*<br /><br />***-DomainType***<br /><br />-Force<br /><br />*-InstallDNS*<br /><br />*-LogPath*<br /><br />*-NewDomainNetBIOSName*<br /><br />*– NoGlobalCatalog*<br /><br />-NoNorebootoncompletion<br /><br />*-ReplicationSourceDC*<br /><br />*-SiteName*<br /><br />-SkipAutoConfigureDNS<br /><br />*-SYSVOLPath*<br /><br />*-Whatif*|  
+|**Cmdlet "ADDSDeployment"**|Argumente (erforderliche Argumente sind **fett** markiert. Argumente in *Kursivschrift* können mithilfe von Windows PowerShell oder dem AD DS-Konfigurations-Assistenten angegeben werden.)|  
+|**Install-AddsDomain**|-SkipPreChecks<br /><br />***-NewDomainName***<br /><br />***-ParentDomainName***<br /><br />***-SafeModeAdministratorPassword***<br /><br />*-ADPrepCredential*<br /><br />-AllowDomainReinstall<br /><br />-Confirm<br /><br />*-CreateDNSDelegation*<br /><br />***-Credential***<br /><br />*-DatabasePath*<br /><br />*-DNSDelegationCredential*<br /><br />-NoDNSOnNetwork<br /><br />*-DomainMode*<br /><br />***-DomainType***<br /><br />-Force<br /><br />*-InstallDNS*<br /><br />*-LogPath*<br /><br />*-NewDomainNetBIOSName*<br /><br />*-NoGlobalCatalog*<br /><br />-NoNorebootoncompletion<br /><br />*-ReplicationSourceDC*<br /><br />*-SiteName*<br /><br />-SkipAutoConfigureDNS<br /><br />*-SYSVOLPath*<br /><br />*-Whatif*|  
   
 > [!NOTE]  
-> Die **-Anmeldeinformationen** Argument ist nur erforderlich, wenn Sie derzeit nicht als Mitglied der Gruppe "Organisations-Admins" angemeldet sind. Die **- NewDomainNetBIOSName** Argument ist erforderlich, wenn Sie den automatisch generierten 15-stelligen Namen basierend auf dem DNS-Domänennamen als Präfix ändern möchten, oder wenn der Name mehr als 15 Zeichen umfasst.  
+> Das Argument **-credential** ist nur erforderlich, wenn Sie derzeit nicht als Mitglied der Gruppe Organisations-Admins angemeldet sind. Das Argument **-NewDomainNetBIOSName** ist erforderlich, wenn Sie den automatisch generierten 15-stelligen Namen, der auf dem DNS-Domänennamenspräfix basiert, ändern möchten oder wenn der Name mehr als 15 Zeichen enthält.  
   
 ## <a name="BKMK_Deployment"></a>Bereitstellung  
   
 ### <a name="deployment-configuration"></a>Bereitstellungskonfiguration  
 Der folgende Screenshot zeigt die Optionen beim Hinzufügen einer untergeordneten Domäne:  
   
-![Installieren Sie eine neue untergeordnete AD](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildDeployConfig.png)  
+![Installieren Sie eine neue AD untergeordnete](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildDeployConfig.png)  
   
-Der folgende Screenshot zeigt die Optionen für das Hinzufügen einer Strukturdomäne:  
+Der folgende Screenshot zeigt die Optionen beim Hinzufügen einer Strukturdomäne:  
   
-![Installieren Sie eine neue untergeordnete AD](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_TreeDeployConfig.png)  
+![Installieren Sie eine neue AD untergeordnete](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_TreeDeployConfig.png)  
   
-Server-Manager beginnt jede heraufstufung des Domänencontrollers mit dem **Bereitstellungskonfiguration** Seite. Ändern die restlichen Optionen und erforderlichen Feldern auf dieser Seite und den darauf folgenden Seiten, je nachdem, welcher, die Bereitstellungsvorgang Sie wählen.  
+In Server-Manager beginnt jede Heraufstufung eines Domänencontrollers auf der Seite **Bereitstellungskonfiguration** . Die restlichen Optionen und erforderlichen Felder auf dieser Seite und den folgenden Seiten variieren in Abhängigkeit von dem von Ihnen ausgewählten Bereitstellungsvorgang.  
   
-In diesem Thema verbindet zwei separate Operationen: heraufstufung von untergeordneten Domänen und heraufstufung von strukturdomänen. Der einzige Unterschied zwischen diesen beiden Operation ist der Domänentyp, den Sie erstellen möchten. Alle anderen Schritte sind identisch, zwischen diesen beiden Operation.  
+Dieser Artikel verbindet zwei separate Operationen: Heraufstufung von untergeordneten Domänen und Heraufstufung von Strukturdomänen. Der einzige Unterschied zwischen diesen beiden Operation ist der bei der Erstellung ausgewählte Domänentyp. Alle weiteren Schritte der beiden Operationen sind identisch.  
   
--   Um eine neue untergeordnete Domäne zu erstellen, klicken Sie auf **Hinzufügen einer Domäne zu einer vorhandenen Gesamtstruktur** , und wählen Sie **untergeordnete Domäne**. Für **Name der übergeordneten Domäne**, eingeben, oder wählen Sie den Namen der übergeordneten Domäne. Geben Sie den Namen der neuen Domäne in der **Name der neuen Domäne** Feld. Geben Sie einen gültigen, einteilige untergeordneten Stammdomänennamen an; der Name muss DNS-Domäne Namen Anforderungen verwenden.  
+-   Um eine neue untergeordnete Domäne zu erstellen, klicken Sie auf **Neue Domäne einer vorhandenen Gesamtstruktur hinzufügen** und wählen **Untergeordnete Domäne** aus. Unter **Übergeordnete Domäne**geben Sie den Namen der übergeordneten Domäne ein bzw. wählen diesen aus. Geben Sie anschließend den Namen der neuen Domäne in das Feld **Neuer Domänenname** ein. Geben Sie einen gültigen Namen für die untergeordnete Domäne an, der aus einer einzelnen Bezeichnung besteht; der Name muss die Anforderungen an den DNS-Domänennamen erfüllen.  
   
--   Um eine neue Strukturdomäne innerhalb einer vorhandenen Gesamtstruktur zu erstellen, klicken Sie auf **Hinzufügen einer Domäne zu einer vorhandenen Gesamtstruktur** , und wählen Sie **Strukturdomäne**. Geben Sie den Namen der Stammdomäne der Gesamtstruktur, und geben Sie den Namen der neuen Domäne. Geben Sie einen gültigen, vollqualifizierten Stammdomänennamen an; der Name nicht möglich, einzelnen Bezeichnung bestehen und DNS-Namen domänenanforderungen verwenden muss.  
+-   Um eine neue Strukturdomäne innerhalb einer existierenden Gesamtstruktur zu erstellen, klicken Sie auf **Neue Domäne einer vorhandenen Gesamtstruktur hinzufügen** und wählen **Strukturdomäne** aus. Geben Sie den Namen der Gesamtstruktur-Stammdomäne und anschließend den Namen der neuen Domäne ein. Geben Sie einen gültigen, vollqualifizierten Stammdomänennamen an; der Name darf nicht aus einer einzelnen Bezeichnung bestehen und muss die Anforderungen an den DNS-Domänennamen erfüllen.  
   
 Weitere Informationen zu DNS-Namen finden Sie unter [Namenskonventionen in Active Directory für Computer, Domänen, Standorte und Organisationseinheiten](https://support.microsoft.com/kb/909264).  
   
-Der Server-Manager Active Directory Konfigurations-Assistent Domänendienste fordert Sie Anmeldeinformationen für die Domäne, wenn Ihre aktuellen Anmeldeinformationen nicht aus der Domäne sind. Klicken Sie auf **ändern** um Domänenanmeldeinformationen für die heraufstufung anzugeben.  
+Der Konfigurations-Assistent für die Active Directory-Domänendienste im Server-Manager fordert Sie zur Eingabe der Domänenanmeldeinformationen auf, wenn Ihre aktuellen Anmeldeinformationen nicht zu der Domäne gehören. Klicken Sie auf **Ändern**, um Domänenanmeldeinformationen für die Heraufstufung anzugeben.  
   
-Die Bereitstellung Configuration ADDSDeployment-Cmdlet und Argumente sind:  
+ADDSDeployment-Cmdlet und Argumente für die Konfiguration der Bereitstellung sind:  
   
 ```  
 Install-AddsDomain  
@@ -75,21 +76,21 @@ Install-AddsDomain
 -credential <pscredential>  
 ```  
   
-### <a name="domain-controller-options"></a>Domänencontroller-Optionen  
-![Installieren Sie eine neue untergeordnete AD](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_DCOptions_Child.gif)  
+### <a name="domain-controller-options"></a>Domänencontrolleroptionen  
+![Installieren Sie eine neue AD untergeordnete](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_DCOptions_Child.gif)  
   
-Die **Domänencontrolleroptionen** Seite gibt die Domänencontrolleroptionen für den neuen Domänencontroller. Die konfigurierbaren Domänencontrolleroptionen lauten **DNS-Server** und **globalen Katalog**; Sie können keine schreibgeschützten Domänencontroller als den ersten Domänencontroller in einer neuen Domäne konfigurieren.  
+Auf der Seite **Domänencontrolleroptionen** können Sie die Domänencontrolleroptionen für den neuen Domänencontroller eingeben. Die konfigurierbaren Domänencontrolleroptionen lauten **DNS-Server** und **Globaler Katalog**. Das Konfigurieren eines schreibgeschützten Domänencontrollers als ersten Domänencontroller in einer neuen Domäne ist nicht möglich.  
   
-Microsoft empfiehlt, dass alle Domänencontroller, DNS- und GC-Dienste für hohe Verfügbarkeit in verteilten Umgebungen bereitstellen. GC ist standardmäßig immer ausgewählt, und DNS ist standardmäßig aktiviert, wenn die aktuelle Domäne bereits DNS auf deren GCs, basierend auf einer Abfrage Start of Authority hostet. Sie müssen auch angeben, eine **Domänenfunktionsebene**. Die Standard-Funktionsebene ist Windows Server 2012, und Sie können einen anderen Wert, der gleich oder größer als die aktuelle Gesamtstrukturfunktionsebene auswählen.  
+Für eine hohe Verfügbarkeit in verteilten Umgebungen empfiehlt Microsoft, dass alle Domänencontroller DNS und globale Katalogdienste bereitstellen. GC ist standardmäßig immer ausgewählt, und DNS ist standardmäßig ausgewählt, wenn die aktuelle Domäne bereits DNS auf deren GCs hostet, basierend auf einer Autoritätsursprungs-Abfrage. Außerdem müssen Sie eine **Domänenfunktionsebene**angeben. Die Standard-Funktionsebene ist Windows Server 2012, und Sie können einen beliebigen Wert gleich oder größer der aktuellen Gesamtstrukturfunktionsebene auswählen.  
   
-Die **Domänencontrolleroptionen** auf der Seite können Sie auswählen, die entsprechenden logischen Active Directory auch **Standortname** aus der Gesamtstrukturkonfiguration. Standardmäßig wird die Website mit dem korrektesten Subnetz ausgewählt. Wenn nur ein Standort vorhanden ist, wird dieser automatisch ausgewählt.  
+Auf der Seite **Domänencontrolleroptionen** können Sie unter **Standortname** den entsprechenden logischen Standortnamen für Active Directory in der Gesamtstrukturkonfiguration auswählen. Standardmäßig wird der Standortname mit dem korrektesten Subnetz ausgewählt. Wenn nur ein Standort vorhanden ist, wird dieser automatisch ausgewählt.  
   
 > [!IMPORTANT]  
-> Wenn der Server nicht zu einer Active Directory-Subnetz gehört und mehr als eine Active Directory-Standort vorhanden ist, wird keine Auswahl getroffen, und die **Weiter** Schaltfläche ist nicht verfügbar, bis Sie eine Website aus der Liste auswählen.  
+> Wenn der Server nicht zu einem Active Directory-Subnetz gehört und mehrere Active Directory-Standorte vorhanden sind, wird keine Auswahl getroffen, und die Schaltfläche **Weiter** ist erst wieder verfügbar, nachdem Sie in der Liste einen Standort ausgewählt haben.  
   
-Das angegebene **Directory Services Kennwort für den Wiederherstellungsmodus** müssen die Kennwortrichtlinie auf den Server erfüllen. Wählen Sie immer ein sicheres, komplexes Kennwort oder bevorzugterweise eine Passphrase.  
+Das angegebene **Kennwort für den Verzeichnisdienste-Wiederherstellungsmodus** muss die Kennwortrichtlinie für den Server erfüllen. Wählen Sie stets ein sicheres, komplexes Kennwort oder bevorzugterweise eine Passphrase aus.  
   
-Die **Domänencontrolleroptionen** ADDSDeployment-Argumente sind:  
+Die Argumente des Cmdlets "ADDSDeployment" für **Domänencontrolleroptionen** sind:  
   
 ```  
 -InstallDNS <{$false | $true}>  
@@ -101,23 +102,23 @@ Die **Domänencontrolleroptionen** ADDSDeployment-Argumente sind:
 ```  
   
 > [!IMPORTANT]  
-> Der Standortname muss bereits vorhanden sein, bei der als Wert für die **Sitename** Argument. Die **Install-AddsDomainController** Cmdlet erstellt keine Standortnamen. Können die **neue Adreplicationsite** Cmdlet, um neue Standorte erstellen.  
+> Der Standortname muss bei der Angabe als Wert für das **sitename** -Argument bereits vorhanden sein. Das Cmdlet **install-AddsDomainController** erstellt keine Standortnamen. Sie können das Cmdlet **new-adreplicationsite** zum Erstellen neuer Standorte verwenden.  
   
-Die **Install-ADDSDomainController** -Cmdlet und Argumente führen Sie dieselben Standardwerte wie Server-Manager, wenn diese nicht angegeben.  
+Die Argumente des Cmdlets **Install-ADDSDomainController** verwenden dieselben Standardwerte wie Server-Manager, wenn diese nicht angegeben sind.  
   
-Die **SafeModeAdministratorPassword** des Arguments Sonderregeln:  
+Das Argument **SafeModeAdministratorPassword** funktioniert etwas anders:  
   
--   Wenn *nicht angegeben* als Argument, das Cmdlet fordert Sie zur Eingabe und Bestätigung eines maskierten Kennworts. Dies ist die bevorzugte Verwendung bei einer interaktiven Cmdlet-Ausführung.  
+-   Wenn dieses Argument *nicht angegeben* wird, fordert das Cmdlet Sie auf, ein maskiertes Kennwort einzugeben und zu bestätigen. Dies ist die bevorzugte Verwendung bei einer interaktiven Cmdlet-Ausführung.  
   
-    Zum Beispiel erstellen Sie eine neue untergeordnete Domäne namens NorthAmerica in der Gesamtstruktur "contoso.com" und zur Eingabe und Bestätigung eines maskierten Kennworts aufgefordert werden:  
+    Um z. B. eine neue untergeordnete Domäne namens NorthAmerica in der Contoso.com-Gesamtstruktur zu erstellen und zur Eingabe und Bestätigung eines maskierten Kennworts aufgefordert zu werden:  
   
     ```  
     Install-ADDSDomain "NewDomainName NorthAmerica "ParentDomainName Contoso.com "DomainType Child  
     ```  
   
--   Wenn angegeben *mit dem Wert*, der Wert muss eine sichere Zeichenfolge sein. Dies ist nicht die bevorzugte Verwendung bei einer interaktiven Cmdlet-Ausführung.  
+-   wenn *mit einem Wert* angegeben, muss der Wert eine sichere Zeichenfolge sein. Dies ist nicht die bevorzugte Verwendung bei einer interaktiven Cmdlet-Ausführung.  
   
-Angenommen, Sie können manuell Kennwort anfordern mithilfe der **Read-Host** Cmdlet, um den Benutzer für eine sichere Zeichenfolge aufzufordern:  
+Mithilfe des Cmdlets **Read-Host** können Sie beispielsweise manuell nach einem Kennwort fragen, um den Benutzer zur Eingabe einer sicheren Zeichenfolge aufzufordern:  
   
 ```  
 -safemodeadministratorpassword (read-host -prompt "Password:" -assecurestring)  
@@ -125,16 +126,16 @@ Angenommen, Sie können manuell Kennwort anfordern mithilfe der **Read-Host** Cm
 ```  
   
 > [!WARNING]  
-> Wie die vorherige Option keine kennwortbestätigung umfasst, verwenden Sie äußerst vorsichtig vor: das Kennwort ist nicht sichtbar.  
+> Da mit der vorherigen Option das Kennwort nicht bestätigt wird, gehen Sie äußerst vorsichtig vor: das Kennwort ist nicht sichtbar.  
   
-Sie können auch eine sichere Zeichenfolge als eine konvertierte klartextvariable angeben, obwohl davon dringend abgeraten wird.  
+Sie können eine sichere Zeichenfolge auch als konvertierte Klartextvariable angeben, obwohl davon dringend abgeraten wird.  
   
 ```  
 -safemodeadministratorpassword (convertto-securestring "Password1" -asplaintext -force)  
   
 ```  
   
-Schließlich können Sie das verborgene Kennwort in einer Datei speichern und später wiederverwenden, ohne das Klartextkennwort angezeigt. Zum Beispiel:  
+Zuletzt sollten Sie das verborgene Kennwort in einer Datei speichern und später wiederverwenden, ohne dass jemals das Klartextkennwort erscheint. Zum Beispiel:  
   
 ```  
 $file = "c:\pw.txt"  
@@ -146,62 +147,62 @@ $pw | ConvertFrom-SecureString | Set-Content $file
 ```  
   
 > [!WARNING]  
-> Das Bereitstellen oder Speichern eines Klartext-oder abgeblendeten Kennworts wird nicht empfohlen. Jeder der Ausführung dieses Befehls in einem Skript oder über die Schulter schaut, weiß das DSRM-Kennwort dieses Domänencontrollers.  Jede Person mit Zugriff auf die Datei kann das abgeblendete Kennwort rückgängig machen. Mit diesem Wissen können sie auf einen Domänencontroller im Verzeichnisdienst-Wiederherstellungsmodus anmelden und Identitätswechsel für den Domänencontroller selbst, erhöhen ihre Berechtigungen auf die höchste Stufe in einer Active Directory-Gesamtstruktur. Eine Reihe von Schritten mit weiteren **System.Security.Cryptography** zum Verschlüsseln der Datei Daten werden empfohlen, sind jedoch nicht. Die bewährte Methode ist die Speicherung des Kennworts vollständig zu vermeiden.  
+> Das Bereitstellen oder Speichern eines Klartext- oder abgeblendeten Kennworts wird nicht empfohlen. Alle Personen, die diesen Befehl ausführen oder Ihnen zusehen, kennen dann das DSRM-Kennwort dieses Domänencontrollers.  Jede Person mit Zugriff auf die Datei kann das abgeblendete Kennwort extrahieren. Mit diesem Wissen können sich diese an einem Domänencontroller im Verzeichnisdienst-Wiederherstellungsmodus anmelden, einen Identitätswechsel für den Domänencontroller selbst ausführen und ihre Rechte in einer AD-Gesamtstruktur auf die höchste Stufe heraufstufen. Zusätzliche Schritte mit **System.Security.Cryptography** zur Verschlüsselung der Textdatei werden empfohlen, sind jedoch nicht Teil dieser Anleitung. Generell sollten Sie es vermeiden, Kennwörter zu speichern.  
   
-Das ADDSDeployment-Modul bietet eine zusätzliche Option zum Überspringen der automatischen Konfiguration von DNS-Clienteinstellungen, Weiterleitungen und Stammhinweise. Dies ist nicht konfigurierbar, wenn Sie Server-Manager verwenden. Dieses Argument ist nur dann, wenn Sie den DNS-Serverdienst vor der Konfiguration des Domänencontrollers bereits installiert relevant:  
+Das ADDSDeployment-Modul bietet eine zusätzliche Option zum Überspringen der automatischen Konfiguration von DNS-Clienteinstellungen, Weiterleitungen und Stammhinweise. Dies ist im Server-Manager nicht konfigurierbar. Dieses Argument ist nur relevant, wenn Sie den DNS-Server vor der Konfiguration des Domänencontrollers bereits installiert haben:  
   
 ```  
 -SkipAutoConfigureDNS  
   
 ```  
   
-### <a name="dns-options-and-dns-delegation-credentials"></a>DNS-Optionen und Anmeldeinformationen für DNS-Delegierung  
-![Installieren Sie eine neue untergeordnete AD](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildDNSOptions.png)  
+### <a name="dns-options-and-dns-delegation-credentials"></a>DNS-Optionen und DNS-Delegierungs-Anmeldeinformationen  
+![Installieren Sie eine neue AD untergeordnete](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildDNSOptions.png)  
   
-Die **DNS-Optionen** Seite können Sie alternative DNS-Administratoranmeldeinformationen für die Delegierung einrichten.  
+Auf der Seite **DNS-Optionen** können Sie alternative DNS-Administratoranmeldeinformationen für die Delegierung einrichten.  
   
-Wenn Sie eine neue Domäne in einer vorhandenen Gesamtstruktur - installieren, in dem Sie DNS-Installation ausgewählt, auf die **Domänencontrolleroptionen** (Seite) – Sie keine Optionen; konfigurieren die Delegierung erfolgt automatisch und unwiderruflich. Sie können alternative DNS-Administratoranmeldeinformationen mit Zugriff auf dieser Struktur bereitstellen.  
+Bei der Installation einer neuen Domäne in einer vorhandene Gesamtstruktur – falls Sie DNS-Installation auf der Seite **Domänencontrolleroptionen** ausgewählt haben – können Sie keine Optionen konfigurieren. Die Delegierung erfolgt automatisch und unwiderruflich. Sie können alternative DNS-Administratoranmeldeinformationen eingeben, die Berechtigungen zur Änderung dieser Struktur haben.  
   
-Die **DNS-Optionen** ADDSDeployment Windows PowerShell-Argumente sind:  
+Die Argumente des Windows PowerShell-Cmdlets "ADDSDeployment" für die **DNS-Optionen** sind:  
   
 ```  
 -creatednsdelegation   
 -dnsdelegationcredential <pscredential>  
 ```  
   
-Weitere Informationen zur DNS-Delegierung finden Sie unter [Understanding Zone Delegation](https://technet.microsoft.com/library/cc771640.aspx).  
+Weitere Informationen zur DNS-Delegierung finden Sie unter [Grundlegendes zur Zonendelegierung](https://technet.microsoft.com/library/cc771640.aspx).  
   
-### <a name="additional-options"></a>Weitere Optionen  
-![Installieren Sie eine neue untergeordnete AD](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildAdditionalOptions.png)  
+### <a name="additional-options"></a>Zusätzliche Optionen  
+![Installieren Sie eine neue AD untergeordnete](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildAdditionalOptions.png)  
   
-Die **zusätzliche Optionen** Seite zeigt den NetBIOS-Namen der Domäne, und ermöglicht es Ihnen zu überschreiben. Standardmäßig entspricht der NetBIOS-Domänenname die Bezeichnung ganz links des vollqualifizierten Domänennamens zur Verfügung gestellt, auf die **Bereitstellungskonfiguration** Seite. Wenn Sie den vollständig qualifizierten Domänennamen "corp.contoso.com" angegeben, ist der Standard-NetBIOS-Domänenname z. B. CORP.  
+Auf der Seite **Zusätzliche Optionen** wird der NetBIOS-Name der Domäne angezeigt, und es besteht die Möglichkeit, den Namen zu überschreiben. Standardmäßig stimmt der NetBIOS-Domänenname mit dem linken Teil des vollqualifizierten Domänennamens überein, der auf der Seite **Bereitstellungskonfiguration** eingegeben wurde. Wenn Sie z. B. den vollqualifizierten Domänennamen corp.contoso.com eingegeben haben, dann ist der Standard-NetBIOS-Name CORP.  
   
-Wenn der Name mehr als 15 Zeichen oder weniger beträgt nicht in Konflikt mit einem anderen NetBIOS-Namen, wird er nicht verändert. Wenn es mit einem anderen NetBIOS-Namen in Konflikt steht, wird eine Zahl an den Namen angefügt. Wenn der Name mehr als 15 Zeichen ist, bietet der Assistent einen eindeutigen, abgeschnittenen Vorschlag. In beiden Fällen prüft der Assistent zuerst der Namen nicht bereits mit einer WINS-Suche und NetBIOS-broadcast.  
+Wenn der Name maximal 15 Zeichen lang ist und nicht mit anderen NetBIOS-Namen in Konflikt steht, wird er nicht verändert. Falls der Name mit einem anderen NetBIOS-Namen in Konflikt steht, wird eine Nummer an den Namen angefügt. Wenn der Name länger als 15 Zeichen ist, schlägt der Assistent einen eindeutigen, abgeschnittenen Namen vor. In beiden Fällen prüft der Assistent zunächst mit einer WINS-Suche und einem NetBIOS-Broadcast, ob der Name bereits vergeben ist.  
   
 Weitere Informationen zu DNS-Namen finden Sie unter [Namenskonventionen in Active Directory für Computer, Domänen, Standorte und Organisationseinheiten](https://support.microsoft.com/kb/909264).  
   
-Die **Install-AddsDomain** -Argumente dieselben Standardwerte wie Server-Manager, wenn diese nicht angegeben. Die **DomainNetBIOSName** Vorgang Sonderregeln:  
+Die **Install-AddsDomain** -Argumente verwenden dieselben Standardwerte wie Server-Manager, wenn diese nicht angegeben sind. Für die **DomainNetBIOSName**-Operation gelten Sonderregeln:  
   
-1.  Wenn die **NewDomainNetBIOSName** -Argument nicht angegeben wird, mit einem NetBIOS-Domänenname und das einteilige Präfix des Domänennamens in der **Domänenname** maximal 15 Zeichen lang ist, und klicken Sie dann heraufstufung mit einem automatisch generierten Namen fortgesetzt.  
+1.  Wenn das **NewDomainNetBIOSName**-Argument nicht mit einem NetBIOS-Domänennamen angegeben wird und das einteilige Präfix des Domänennamens im **DomainName**-Argument maximal 15 Zeichen lang ist, wird die Heraufstufung mit einem automatisch generierten Namen fortgesetzt.  
   
-2.  Wenn die **NewDomainNetBIOSName** -Argument nicht angegeben wird, mit einem NetBIOS-Domänenname und das einteilige Präfix des Domänennamens in der **Domänenname** 16 Zeichen lang ist, schlägt die heraufstufung fehl.  
+2.  Wenn das **NewDomainNetBIOSName**-Argument nicht mit einem NetBIOS-Domänennamen angegeben wird und das einteilige Präfix des Domänennamens im **DomainName**-Argument mehr als 16 Zeichen lang ist, missling die Heraufstufung.  
   
-3.  Wenn die **NewDomainNetBIOSName** -Argument mit einem NetBIOS-Domänennamen mit maximal 15 Zeichen angegeben ist, und klicken Sie dann heraufstufung mit diesem angegebenen Namen fortgesetzt.  
+3.  Wenn das **NewDomainNetBIOSName**-Argument mit einem NetBIOS-Domänennamen mit maximal 15 Zeichen angegeben ist, wird die Heraufstufung mit diesem angegebenen Namen fortgesetzt.  
   
-4.  Wenn die **NewDomainNetBIOSName** Argument mit mindestens einen NetBIOS-Domänennamen mit 16 Zeichen angegeben ist, schlägt die heraufstufung fehl.  
+4.  Wenn das **NewDomainNetBIOSName**-Argument mit einem NetBIOS-Domänennamen mit mehr als 15 Zeichen angegeben ist, schlägt die Heraufstufung fehl.  
   
-Die **zusätzliche Optionen** ADDSDeployment-Argumente ist:  
+Das ADDSDeployment Windows PowerShell-Argument für **Zusätzliche Optionen** ist:  
   
 ```  
 -newdomainnetbiosname <string>  
 ```  
   
 ### <a name="paths"></a>Pfade  
-![Installieren Sie eine neue untergeordnete AD](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_UpgradePaths.png)  
+![Installieren Sie eine neue AD untergeordnete](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_UpgradePaths.png)  
   
-Die **Pfade** Seite können Sie die standardmäßigen Ordnerpfade der AD DS-Datenbank, die grundlegende Transaktionsprotokolle für die Daten und der SYSVOL-Freigabe überschreiben. Die Standardspeicherorte befinden sich grundsätzlich in Unterverzeichnissen von systemroot%.  
+Auf der Seite **Pfade** können Sie die standardmäßigen Ordnerpfade der AD DS-Datenbank, der Datenbankprotokolle und der SYSVOL-Freigabe überschreiben. Die Standardspeicherorte befinden sich grundsätzlich in Unterverzeichnissen von %systemroot%.  
   
-Die **Pfade** ADDSDeployment-Argumente sind:  
+Die **Pfade** -Argumente für das Cmdlet „ADDSDeployment“ sind:  
   
 ```  
 -databasepath <string>  
@@ -210,11 +211,11 @@ Die **Pfade** ADDSDeployment-Argumente sind:
 ```  
   
 ### <a name="review-options-and-view-script"></a>Optionen prüfen und Skript anzeigen  
-![Installieren Sie eine neue untergeordnete AD](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildReviewOptions.png)  
+![Installieren Sie eine neue AD untergeordnete](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildReviewOptions.png)  
   
-Die **Optionen prüfen** Seite können Sie Ihre Einstellungen überprüfen und stellen Sie sicher, dass Ihre Anforderungen erfüllt, bevor Sie die Installation zu starten. Dies ist nicht die letzte Gelegenheit, um die Installation beendet, wenn Sie Server-Manager verwenden. Dies ist lediglich eine Option zum Bestätigen Ihrer Einstellungen, bevor Sie die Konfiguration fortsetzen  
+Auf der Seite **Optionen prüfen** können Sie vor dem Starten der Installation Ihre Einstellungen überprüfen und sicherstellen, dass Ihre Anforderungen erfüllt werden. Dies ist jedoch nicht die letzte Möglichkeit, um die Installation mit Server-Manager zu stoppen. Dies ist lediglich eine Option zum Bestätigen Ihrer Einstellungen, bevor Sie die Konfiguration fortsetze  
   
-Die **Optionen prüfen** im Server-Manager bietet auch einen optionalen **Skript anzeigen**, um eine Unicode-Textdatei zu erstellen, die die aktuelle ADDSDeployment-Konfiguration als einzelnes Windows PowerShell-Skript enthält. Dadurch können Sie die Benutzeroberfläche des Server-Manager als Studio ein Windows PowerShell-Bereitstellung verwenden. Verwenden Sie die Dienste Konfigurations-Assistenten von Active Directory-Domäne, um Optionen konfigurieren, exportieren Sie die Konfiguration und den Assistenten abbrechen.  Dieser Prozess wird ein gültiges und syntaktisch korrektes Muster zur weiteren Änderung oder direkten Verwendung erstellt. Zum Beispiel:  
+Die Seite **Optionen prüfen** im Server-Manager bietet zudem die optionale Schaltfläche **Skript anzeigen** zum Erstellen einer Unicode-Textdatei, die die aktuelle ADDSDeployment-Konfiguration als einzelnes Windows PowerShell-Skript enthält. Dies ermöglicht Ihnen die Verwendung der grafischen Oberfläche von Server-Manager als Windows PowerShell-Bereitstellungsstudio. Mithilfe des Konfigurations-Assistenten für die Active Directory-Domänendienste können Sie Optionen konfigurieren, die Konfiguration exportieren und den Assistenten abbrechen.  Bei diesem Prozess wird ein gültiges und syntaktisch korrektes Muster zur weiteren Änderung oder direkten Verwendung erstellt. Zum Beispiel:  
   
 ```  
 #  
@@ -242,63 +243,63 @@ Install-ADDSDomain `
 ```  
   
 > [!NOTE]  
-> Server-Manager füllt normalerweise alle Argumente mit Werten, die beim Heraufstufen und nicht auf Standardwerte basiert (wie zwischen zukünftige Versionen von Windows oder Servicepacks geändert werden können). Die einzige Ausnahme hierbei ist die **- Safemodeadministratorpassword** -Argument (das Skript bewusst ausgelassen wird). Um eine bestätigungsaufforderung zu erzwingen, lassen Sie bei der interaktiven Ausführung des Cmdlets.  
+> Server-Manager füllt bei der Heraufstufung normalerweise alle Argumente mit Werten aus und verlässt sich nicht auf Standardwerte (da sich diese in zukünftigen Windows-Versionen oder Service Packs ändern können). Die einzige Ausnahme hierbei ist das **-safemodeadministratorpassword**-Argument (das im Skript bewusst ausgelassen wird). Lassen Sie dieses Argument bei der interaktiven Ausführung des Cmdlets aus, um eine Bestätigungsaufforderung zu erzwingen.  
   
-Verwenden Sie das optionale **Whatif** Argument mit dem **Install-ADDSForest** Cmdlet, um Konfigurationsinformationen zu überprüfen. Dadurch können Sie die expliziten und impliziten Werte der Argumente für ein Cmdlet finden Sie unter.  
+Verwenden Sie das optionale **Whatif** -Argument für das Cmdlet **Install-ADDSForest** , um die Konfigurationsinformationen zu überprüfen. Auf diese Weise können Sie die impliziten und expliziten Argumentwerte für ein Cmdlet anzeigen.  
   
-![Installieren Sie eine neue untergeordnete AD](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildWhatIf.png)  
+![Installieren Sie eine neue AD untergeordnete](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildWhatIf.png)  
   
-### <a name="prerequisites-check"></a>Prüfung der erforderlichen Komponenten  
-![Installieren Sie eine neue untergeordnete AD](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildPrereqCheck.png)  
+### <a name="prerequisites-check"></a>Voraussetzungsüberprüfung  
+![Installieren Sie eine neue AD untergeordnete](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildPrereqCheck.png)  
   
-Die **Voraussetzungsüberprüfung** ist ein neues Feature in AD DS-Domänenkonfiguration. Diese neue Phase prüft, ob die Serverkonfiguration unterstützen einer neuen AD DS-Domäne ist.  
+Die **Voraussetzungsüberprüfung** ist ein neues Feature in der AD DS-Domänenkonfiguration. Diese neue Phase prüft, ob die Serverkonfiguration in der Lage ist, eine neue AD DS-Domäne zu unterstützen.  
   
-Bei der Installation einer neuen Gesamtstruktur-Stammdomäne ruft der Server-Manager Active Directory Konfigurations-Assistent Domänendienste eine Reihe serialisierter modularer Tests. Diese Tests, die Sie mit vorgeschlagenen Reparaturoptionen benachrichtigt. Sie können die Tests ausführen, so oft wie erforderlich. Prozess für den Domänencontroller kann nicht fortgesetzt, bis alle voraussetzungstests positiv übergeben.  
+Bei der Installation einer neuen Gesamtstruktur-Stammdomäne ruft der Konfigurations-Assistent für Active Directory-Domänendienste im Server-Manager eine Reihe serialisierter, modularer Tests auf. Diese Tests geben anschließend Empfehlungen für Reparaturoptionen aus. Sie können die Tests beliebig oft ausführen. Der Prozess für den Domänencontroller kann erst fortgesetzt werden, wenn alle Voraussetzungstests positiv abgeschlossen wurden.  
   
-Die **Voraussetzungsüberprüfung** auch Flächen relevante Informationen wie z. B., die ältere Betriebssysteme betreffen.  
+Bei der **Voraussetzungsüberprüfung** werden außerdem relevante Informationen wie z. B. Sicherheitsänderungen angezeigt, die ältere Betriebssysteme betreffen.  
   
-Weitere Informationen zu den voraussetzungsprüfungen finden Sie unter [Prerequisite Checking](../../ad-ds/manage/AD-DS-Simplified-Administration.md#BKMK_PrereuisiteChecking).  
+Weitere Informationen zu den Voraussetzungsprüfungen finden Sie unter [Prerequisite Checking](../../ad-ds/manage/AD-DS-Simplified-Administration.md#BKMK_PrereuisiteChecking).  
   
-Sie können nicht umgehen der **Prüfung** Wenn mithilfe von Server-Manager, aber Sie können überspringen, wenn das AD DS-Bereitstellung-Cmdlet mit dem folgenden Argument verwendet wird:  
+Bei Verwendung des Server-Managers können Sie die **Voraussetzungsüberprüfung** nicht überspringen. Sie können diese jedoch mit dem folgenden Argument überspringen, wenn Sie das Cmdlet „ADDSDeployment“ verwenden:  
   
 ```  
 -skipprechecks  
 ```  
   
 > [!WARNING]  
-> Microsoft rät davon ab, die voraussetzungsüberprüfung zu überspringen, kann dazu führen, dass eine teilweise heraufstufung des Domänencontrollers oder AD DS-Gesamtstruktur beschädigt.  
+> Microsoft rät davon ab, die Voraussetzungsüberprüfung zu überspringen, da dies zu einer teilweisen Heraufstufung des Domänencontrollers oder zu einer beschädigten AD DS-Gesamtstruktur führen kann.  
   
-Klicken Sie auf **installieren** der Domänencontroller heraufgestuft werden soll. Dies ist die letzte Gelegenheit, um die Installation abzubrechen. Sobald er beginnt, können Sie den Heraufstufungsprozess nicht abbrechen. Der Computer wird automatisch am Ende der heraufstufung unabhängig von deren Ergebnis neu gestartet.  
+Klicken Sie auf **Installieren**, um mit der Domänencontroller-Heraufstufung zu beginnen. Dies ist die letzte Gelegenheit, um die Installation abzubrechen. Der Heraufstufungsprozess kann während der Ausführung nicht unterbrochen werden. Der Computer wird nach der Heraufstufung automatisch neu gestartet, unabhängig von deren Ergebnis.  
   
 ### <a name="installation"></a>Installation  
-![Installieren Sie eine neue untergeordnete AD](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildInstallation.png)  
+![Installieren Sie eine neue AD untergeordnete](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildInstallation.png)  
   
-Wenn die **Installation** Seite wird angezeigt, die Konfiguration des Domänencontrollers beginnt und kann nicht angehalten oder abgebrochen. Detaillierte Informationen zur Operation werden auf dieser Seite angezeigt und in die Protokolle geschrieben werden:  
+Wenn die Seite **Installation** angezeigt wird, beginnt die Konfiguration des Domänencontrollers und kann nicht angehalten oder abgebrochen werden. Detaillierte Informationen werden auf dieser Seite angezeigt und in die Protokolle geschrieben:  
   
 -   %systemroot%\debug\dcpromo.log  
   
 -   %systemroot%\debug\dcpromoui.log  
   
-Um eine neue Active Directory-Domäne mithilfe des ADDSDeployment-Moduls zu installieren, verwenden Sie das folgende Cmdlet:  
+Verwenden Sie das folgenden Cmdlet, um eine neue Active Directory-Domäne mithilfe des ADDSDeployment-Moduls zu installieren:  
   
 ```  
 Install-addsdomain  
 ```  
   
-Finden Sie unter [untergeordnete und Strukturdomänen in Windows PowerShell](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md#BKMK_PS) für erforderliche und optionale Argumente. Die **Install-Addsdomain** Cmdlet hat nur zwei Phasen (voraussetzungsüberprüfung und Installation). Die zwei folgenden Abbildungen zeigen die Installationsphase mit den mindestens erforderlichen Argumenten von **- Domaintype**, **- Newdomainname**, **- Parentdomainname**, und **-Anmeldeinformationen**. Genau wie beim Server-Manager **Install-ADDSDomain** darauf hingewiesen, dass die Förderung der Server automatisch neu gestartet wird.  
+Siehe [Untergeordnete und Strukturdomänen in Windows PowerShell](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md#BKMK_PS) für benötigte und optionale Argumente. Das **Install-addsdomain**-Cmdlet besteht nur aus zwei Phasen (Voraussetzungsüberprüfung und Installation). Die beiden folgenden Abbildungen zeigen die Installationsphase mit den benötigten Mindestargumenten **-domaintype**, **-newdomainname**, -**parentdomainname** und **-credential**. Ebenso wie beim Server-Manager werden Sie von **Install-ADDSDomain** darauf hingewiesen, dass der Server beim Heraufstufen automatisch neu gestartet wird.  
   
-![Installieren Sie eine neue untergeordnete AD](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_PSInstallADDSDomain.png)  
+![Installieren Sie eine neue AD untergeordnete](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_PSInstallADDSDomain.png)  
   
-![Installieren Sie eine neue untergeordnete AD](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_PSInstallADDSDomainProgress.png)  
+![Installieren Sie eine neue AD untergeordnete](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_PSInstallADDSDomainProgress.png)  
   
-Verwenden, um die Aufforderung zum Neustart automatisch zu akzeptieren, die **-erzwingen** oder **-bestätigen: $false** Argumente mit jedem ADDSDeployment Windows PowerShell-Cmdlet. Um zu verhindern, dass den Server am Ende der heraufstufung automatisch neu, verwenden Sie die **- Norebootoncompletion** Argument.  
+Mit dem **-force** -Argument oder dem **-confirm:$false** -Argument können Sie den Neustart in allen Windows PowerShell-Cmdlets vom Typ „ADDSDeployment“ automatisch akzeptieren. Verwenden Sie das **-norebootoncompletion**-Argument, um den automatischen Neustart am Ende der Heraufstufung zu verhindern.  
   
 > [!WARNING]  
-> Überschreiben des Neustarts wird nicht empfohlen. Der Domänencontroller muss neu gestartet, um korrekt zu funktionieren  
+> Es wird davon abgeraten, den Neustart zu verhindern. Der Domänencontroller muss neu gestartet werden, um korrekt zu funktionieren  
   
 ### <a name="results"></a>Ergebnisse  
-![Installieren Sie eine neue untergeordnete AD](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ForestSignOff.png)  
+![Installieren Sie eine neue AD untergeordnete](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ForestSignOff.png)  
   
-Die **Ergebnisse** Seite zeigt den Erfolg oder Misserfolg der heraufstufung sowie alle wichtigen Administrationsinformationen. Der Domänencontroller wird automatisch nach 10 Sekunden neu gestartet.  
+Auf der Seite **Ergebnisse** werden Erfolg bzw. Misserfolg der Heraufstufung sowie alle wichtigen Administrationsinformationen angezeigt. Der Domänencontroller wird automatisch nach 10 Sekunden neu gestartet.  
   
 

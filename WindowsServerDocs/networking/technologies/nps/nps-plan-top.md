@@ -1,6 +1,6 @@
 ---
 title: Planen eines Netzwerkrichtlinienservers
-description: Dieses Thema enthält Links zu Informationen zum Planen der in Windows Server 2016 Network Policy Server RADIUS-Server-Bereitstellung planen.
+description: Dieses Thema enthält Links zu Informationen zur Planung der Network Policy Server RADIUS-serverbereitstellung, die Planung der Bereitstellung in Windows Server 2016.
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking
@@ -8,25 +8,26 @@ ms.topic: article
 ms.assetid: cd6fc1b8-26b0-47a4-b27d-f6fa9da0d447
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: b1af698e640ec2be9a6ce62c5032419b8dd96171
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 1e2fa9d199b060bd26a5b804afaea562e41cebdc
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59852751"
 ---
 # <a name="plan-network-policy-server"></a>Planen eines Netzwerkrichtlinienservers
 
->Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
-Dieses Thema enthält Links zu Informationen zum Planen der NPS-Server und Proxy-Bereitstellungen.
+Dieses Thema enthält Links zu Informationen über das Planen von NPS- und Proxy-Bereitstellungen.
 
 >[!NOTE]
->Weitere Dokumentation Network Policy Server können Sie die folgenden Abschnitte der Bibliothek verwenden. 
-> - [Erste Schrittemit dem Netzwerkrichtlinienserver](nps-getstart-top.md)
-> - [Bereitstellen eines Netzwerkrichtlinienservers](nps-deploy.md)
-> - [Verwalten eines Netzwerkrichtlinienservers](nps-manage-top.md)
+>Weitere Dokumentation für Network Policy Server können Sie die folgenden Abschnitte der Bibliothek. 
+> - [Erste Schritte mit der Netzwerkrichtlinienserver](nps-getstart-top.md)
+> - [Bereitstellen des Netzwerkrichtlinienservers](nps-deploy.md)
+> - [Verwalten des Netzwerkrichtlinienservers](nps-manage-top.md)
 
-Dieser Abschnitt enthält die folgenden Themen.
+In diesem Abschnitt werden folgende Themen behandelt.
 
 - [Planen Sie NPS als RADIUS-server](nps-plan-server.md)
 - [Planen Sie NPS als RADIUS-proxy](nps-plan-proxy.md)

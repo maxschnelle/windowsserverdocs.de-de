@@ -1,103 +1,104 @@
 ---
 ms.assetid: 40bc24b1-2e7d-4e77-bd0f-794743250888
 title: SPN- und UPN-Eindeutigkeit
-description: 
-author: billmath
-ms.author: billmath
-manager: femila
+description: ''
+author: MicrosoftGuyJFlo
+ms.author: joflore
+manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 81d686c81082ad29384585d541c1304d654e1924
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.openlocfilehash: c9a769fdd9fb7d13c47da465b25bc59e7f55237f
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59856741"
 ---
 # <a name="spn-and-upn-uniqueness"></a>SPN- und UPN-Eindeutigkeit
 
->Gilt für: Windows Server2016, Windows Server2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-**"Author"**: Justin Turner, Senior Support Escalation Engineer mit der Windows-Gruppe  
+**Autor**: Justin Turner, Senior Support Escalation Engineer für die Windows-Gruppe  
   
 > [!NOTE]  
-> Dieser Inhalt wird von Microsoft Customer Support-Mitarbeiter geschrieben und richtet erfahrene Administratoren und Systemarchitekten, die als Themen auf TechNet finden Sie in der Regel einen tieferen technischen Einblick Funktionen und Lösungen in Windows Server 2012 R2 suchen. Allerdings hat es nicht die gleichen linguistischen damit einige der Sprache möglicherweise weniger glänzend als was in der Regel auf TechNet-Website gefunden wird.  
+> Dieser Inhalt wurde von einem Mitarbeiter des Microsoft-Kundendiensts geschrieben und richtet sich an erfahrene Administratoren und Systemarchitekten, die einen tieferen technischen Einblick in die Funktionen und Lösungen von Windows Server 2012 R2 suchen, als Ihnen die Themen im TechNet bieten können. Allerdings wurde er nicht mit der gleichen linguistischen Sorgfalt überprüft wie für die Artikel des TechNet üblich, so dass die Sprache gelegentlich holprig klingen mag.  
   
-## <a name="overview"></a>(Übersicht)  
-Domänencontroller unter Windows Server2012 R2 blockieren die Erstellung doppelter Dienstprinzipalnamen (SPN) und Benutzerprinzipalnamen (UPN). Dazu gehören die Wiederherstellung oder die Wiederherstellung eines gelöschten Objekts oder das Umbenennen eines Objekts ein Duplikat ergeben würde.  
+## <a name="overview"></a>Übersicht  
+Domänencontroller unter Windows Server 2012 R2 blockieren die Erstellung doppelter Dienstprinzipalnamen (SPN) und Benutzerprinzipalnamen (UPN). Dies schließt, wenn es sich bei der Wiederherstellung oder der Wiederbelebung eines gelöschten Objekts oder das Umbenennen eines Objekts zu einem Duplikat führen würde.  
   
 ### <a name="background"></a>Hintergrund  
-Doppelte Dienstprinzipalnamen (SPN) häufig auftreten und zu Authentifizierungsfehlern führen und kann dazu führen, dass eine übermäßige LSASS CPU-Auslastung. Es gibt keine in-Box-Methode, um das Hinzufügen eines doppelten SPN oder UPN zu blockieren. *  
+Doppelte Dienstprinzipalnamen (SPN) häufig auftreten und entstehen Authentifizierungsfehler und kann zu übermäßiger LSASS-CPU-Auslastung führen. Es gibt keine integrierte Methode blockiert das Hinzufügen eines doppelten SPN oder UPN. *  
   
-Doppelten UPN-Werte unterbrechen Synchronisierung zwischen lokalem AD und Office365.  
+UPN Duplikatwerte unterbrechen Synchronisierung zwischen lokalem AD und Office 365.  
   
-*Setspn.exe wird häufig verwendet, um neue SPNs erstellen und funktional in die mit Windows Server2008, die eine Überprüfung auf Duplikate hinzufügt Version erstellt wurde.  
+*Setspn.exe wird häufig verwendet werden, um die neue SPNs zu erstellen, und Funktionen in die mit Windows Server 2008, die eine Überprüfung auf Duplikate hinzufügt Version erstellt wurde.  
   
-**Tabelle SEQ Tabelle \\\ * Arabisch 1: UPN und SPN-Eindeutigkeit**  
+**Tabelle SEQ Tabelle \\ \* Arabisch 1: UPN und die SPN-Eindeutigkeit**  
   
-|Funktion|Kommentar|  
+|Feature|Kommentar|  
 |-----------|-----------|  
-|UPN-Eindeutigkeit|Doppelte Benutzerprinzipalnamen Break-Synchronisierung der lokalen AD-Konten mit Windows Azure Active Directory-basierte Dienste wie Office365.|  
-|SPN-Eindeutigkeit|Kerberos ist ein Dienstprinzipalnamen (SPN) für die gegenseitige Authentifizierung erforderlich.  Doppelte Dienstprinzipalnamen (SPN) zu Authentifizierungsfehlern führen.|  
+|UPN-Eindeutigkeit|Doppelte Benutzerprinzipalnamen-Break-Synchronisierung von lokalen AD-Konten mit Windows Azure AD-basierten Diensten wie Office 365.|  
+|SPN-Eindeutigkeit|Kerberos ist ein SPN für die gegenseitige Authentifizierung erforderlich.  Doppelte SPNs entstehen Authentifizierungsfehler.|  
   
-Weitere Informationen zu Eindeutigkeit für Benutzerprinzipalnamen und Dienstprinzipalnamen (SPN), finden Sie unter [Eindeutigkeit](https://msdn.microsoft.com/library/dn392337.aspx).  
+Weitere Informationen zu den Anforderungen hinsichtlich der Eindeutigkeit für UPNs und SPNs, finden Sie unter [Eindeutigkeit](https://msdn.microsoft.com/library/dn392337.aspx).  
   
 ## <a name="symptoms"></a>Symptome  
-Fehlercodes 8467 oder 8468 oder ihre Hex symbolischen oder Zeichenfolge Entsprechungen werden protokolliert in verschiedenen auf dem Bildschirm Dialoge in Spielen und Ereignis-ID 2974 – im Verzeichnisdienste-Ereignisprotokoll. Der Versuch zum Erstellen eines doppelten UPN oder SPN ist nur unter folgenden Umständen blockiert:  
+8467 oder 8468 oder ihre symbolischen Hexadezimal oder Fehlercodes identische Zeichenfolgen werden protokolliert in verschiedenen auf dem Bildschirm Dialoge und Ereignis-ID-2974-– im Verzeichnisdienste-Ereignisprotokoll. Der Versuch, ein doppelter UPN oder SPN zu erstellen, wird nur unter folgenden Umständen blockiert:  
   
--   Das Schreiben wird von einem Windows Server2012 R2-Domänencontroller verarbeitet werden.  
+-   Der Schreibvorgang wird von einem Windows Server 2012 R2-Domänencontroller verarbeitet werden.  
   
-**Tabelle SEQ Tabelle \\\ * Arabisch 2: UPN und SPN-Eindeutigkeit-Fehlercodes**  
+**Tabelle SEQ Tabelle \\ \* Arabisch 2: UPN und die SPN-Fehlercodes für Eindeutigkeit**  
   
-|Dezimale Sprachen|Hex|Symbolische|Zeichenfolge|  
+|Dezimalzahl|Hex|Symbolische|Zeichenfolge|  
 |-----------|-------|------------|----------|  
-|8467|21C 7|ERROR_DS_SPN_VALUE_NOT_UNIQUE_IN_FOREST|Der Vorgang ist fehlgeschlagen, da SPN-Wert für die Hinzufügung/Änderung nicht eindeutigen Gesamtstruktur ist.|  
-|8648|21C 8|ERROR_DS_UPN_VALUE_NOT_UNIQUE_IN_FOREST|Der Vorgang ist fehlgeschlagen, da UPN-Wert für die Hinzufügung/Änderung nicht eindeutigen Gesamtstruktur ist.|  
+|8467|21C7|ERROR_DS_SPN_VALUE_NOT_UNIQUE_IN_FOREST|Vorgangsfehler, da für die Hinzufügung/Änderung angegebene SPN-Wert nicht eindeutig eine gesamtstrukturweite ist.|  
+|8648|21C8|ERROR_DS_UPN_VALUE_NOT_UNIQUE_IN_FOREST|Vorgangsfehler, da das UPN-Wert für die Hinzufügung/Änderung bereitgestellt, nicht eindeutige Gesamtstruktur ist.|  
   
-## <a name="new-user-creation-fails-if-upn-is-not-unique"></a>Die Erstellung des neuen Benutzers ein Fehler auftritt, wenn UPN nicht eindeutig ist  
+## <a name="new-user-creation-fails-if-upn-is-not-unique"></a>Erstellen des neuen Benutzers schlägt fehl, wenn es sich bei UPN nicht eindeutig ist.  
   
 ### <a name="dsamsc"></a>DSA.msc  
-Anmeldenamen des Benutzers ein, die Sie ausgewählt haben, ist bereits in diesem Unternehmen verwendet. Wählen Sie einen anderen Anmeldenamen, und versuchen Sie es dann erneut.  
+Anmeldenamen des Benutzers ein, die, den Sie ausgewählt haben, ist bereits in dieser Organisation verwendet. Wählen Sie einen anderen Anmeldenamen, und versuchen Sie es dann erneut.  
   
 ![SPN- und UPN-Eindeutigkeit](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig01_DupUPN.gif)  
   
-Ändern Sie ein vorhandenes Konto:  
+Ändern Sie ein vorhandenes Konto an:  
   
-Der angegebene Benutzername für die Anmeldung ist im Unternehmen bereits vorhanden. Geben Sie eine neue, entweder über das Präfix ändern oder ein anderes Suffix aus der Liste auswählen.  
+Der angegebene Benutzername für die Anmeldung bereits im Unternehmen. Geben Sie eine neue, entweder durch das Präfix ändern oder ein anderes Suffix in der Liste auswählen.  
   
 ![SPN- und UPN-Eindeutigkeit](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig02_DupUPNMod.gif)  
   
 ### <a name="active-directory-administrative-center-dsacexe"></a>Active Directory Administrative Center (DSAC.exe)  
-Der Versuch, einen neuen Benutzer in Active Directory Administrative Center mit dem Benutzerprinzipalnamen erstellen, die bereits vorhanden ist, wird den folgenden Fehler ergeben.  
+Der Versuch, einen neuen Benutzer in Active Directory Administrative Center, mit dem UPN erstellen, die bereits vorhanden ist, wird den folgenden Fehler ergeben.  
   
 ![SPN- und UPN-Eindeutigkeit](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig03_DupUPNADAC.gif)  
   
-**Figure SEQ Abbildung \\\ * Arabisch 1-Fehler, die in Active Directory-Verwaltungscenter angezeigt, wenn die Erstellung des neuen Benutzers aufgrund eines doppelten UPN fehl**  
+**Figure SEQ Abbildung \\ \* Arabisch 1 Fehler, die im Active Directory-Verwaltungscenter angezeigt wird, wenn die benutzererstellung neuer aufgrund von doppelten UPN fehlschlägt**  
   
 ### <a name="event-2974-source-activedirectorydomainservice"></a>Ereignis 2974 – Quelle: ActiveDirectory_DomainService  
 ![SPN- und UPN-Eindeutigkeit](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig04_Event2974.gif)  
   
-**Figure SEQ Abbildung \\\ * Arabisch 2-Ereignis-ID 2974 mit Fehler 8648**  
+**Figure SEQ Abbildung \\ \* Arabisch 2-Ereignis-ID 2974 Fehler 8648**  
   
-Ereignis 2974 – enthält den Wert, der blockiert wurde und eine Liste der eines oder mehrere Objekte (bis zu 10), die diesem Wert bereits enthalten.  In der folgenden Abbildungsehen Sie die UPN-Attributwert ***dhunt@blue.contoso.com***auf vier weitere Objekte bereits vorhanden ist.  Da es sich um ein neues Feature in Windows Server2012 R2 handelt, wird versehentliche Erstellung von doppelten UPN und Dienstprinzipalnamen (SPN) in einer gemischten Umgebung weiterhin auftreten, wenn älteren DCs der versuchte Schreibvorgang verarbeiten.  
+Das Ereignis 2974 – Listet den Wert, der blockiert wurde und eine Liste von ein oder mehrere Objekte (bis zu 10), die bereits auf diesen Wert enthalten.  In der folgenden Abbildung sehen Sie, UPN-Attributwert ***dhunt@blue.contoso.com*** ist auf vier weitere Objekte bereits vorhanden.  Da dies ein neues Feature in Windows Server 2012 R2 ist, werden versehentliche Erstellung der doppelten UPN und SPNs in einer gemischten Umgebung weiterhin auftreten, wenn es sich bei älteren DCs der versuchte Schreibvorgang verarbeiten.  
   
 ![SPN- und UPN-Eindeutigkeit](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig05_Event2974ShowAllDups.gif)  
   
-**Figure SEQ Abbildung \\\ * Arabisch 3 Ereignis 2974 Anzeige aller Objekte, die mit der doppelten UPN**  
+**Figure SEQ Abbildung \\ \* Arabisch 3 Ereignis 2974 Anzeige aller Objekte, die mit der doppelten UPN**  
   
 > [!TIP]  
 > Ereignis-ID 2974s regelmäßig zu überprüfen:  
 >   
-> -   Identifizieren Sie Versuche, doppelte Benutzerprinzipalnamen oder SPN zu erstellen  
-> -   Identifizieren von Objekten, die bereits Duplikate enthalten  
+> -   versucht, doppelte UPN oder SPN zu erstellen, zu identifizieren  
+> -   Identifizieren von Objekten, die bereits auf Duplikate enthalten  
   
-8648 = "Den Vorgang ist fehlgeschlagen, da der UPN-Wert für die Hinzufügung/Änderung nicht eindeutigen Gesamtstruktur ist."  
+8648 = "Den Vorgang ist fehlgeschlagen, da das UPN-Wert für die Hinzufügung/Änderung bereitgestellt, nicht eindeutige Gesamtstruktur ist."  
   
 ### <a name="setspn"></a>SetSPN:  
-Setspn.exe wurde doppelten SPN-Erkennung seit der Veröffentlichung von Windows Server2008 integriert, bei Verwendung der **"-S"** Option.  Sie können die doppelte SPN-Erkennung umgehen, indem Sie mit der **"-A"** Option jedoch.  Erstellen einer doppelten SPN ist blockiert, wenn auf einem Windows Server2012 R2-Domänencontroller, SetSPN verwenden, mit der Option-a.  Die angezeigte Fehlermeldung ist identisch mit den angezeigt, wenn die Option -S: "Duplicate SPN gefunden, wird der Vorgang abgebrochen"!  
+Setspn.exe wurden doppelte SPN-Erkennung, die seit der Veröffentlichung von Windows Server 2008 integriert, bei Verwendung der **"-S"** Option.  Sie können die Erkennung von Duplikaten SPN umgehen, indem Sie mit der **"-ein"** jedoch option.  Erstellen eines doppelten SPN wird blockiert, wenn ein Windows Server 2012 R2-Domänencontroller, mithilfe von SetSPN mit der Option – ein.  Die angezeigte Fehlermeldung ist identisch mit der angezeigt wird, wenn die Option ' -s' verwenden: "Doppelter Dienstprinzipalname gefunden, Vorgang wird abgebrochen."  
   
-### <a name="adsiedit"></a>ADSIEDIT:  
+### <a name="adsiedit"></a>ADSI EDIT:  
   
 ```  
 Operation failed. Error code: 0x21c8  
@@ -107,43 +108,43 @@ The operation failed because UPN value provided for addition/modification is not
   
 ![SPN- und UPN-Eindeutigkeit](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig06_ADSI21c8.gif)  
   
-**Figure SEQ Abbildung \\\ * Arabisch 4 angezeigte Fehlermeldung in ADSIEdit beim Hinzufügen von doppelten UPN blockiert wird**  
+**Figure SEQ Abbildung \\ \* Arabisch 4-Fehlermeldung, die in ADSI Edit angezeigt wird, beim Hinzufügen von doppelten UPN blockiert wird**  
   
-### <a name="windows-powershell"></a>WindowsPowerShell  
-Windows Server2012 R2:  
+### <a name="windows-powershell"></a>Windows PowerShell  
+Windows Server 2012 R2:  
   
 ![SPN- und UPN-Eindeutigkeit](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig07_SetADUser2012.gif)  
   
-PS aus einem Windows Server2012 R2-Domänencontroller für Server2012 ausgeführt:  
+PS von Server 2012 auf einem Windows Server 2012 R2-Domänencontroller ausgeführt:  
   
 ![SPN- und UPN-Eindeutigkeit](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig08_SetADUser2012R2.gif)  
   
-DSAC.exe unter Windows Server2012 auf einem Windows Server2012 R2-Domänencontroller:  
+DSAC.exe auf Windows Server 2012 auf einem Windows Server 2012 R2-Domänencontroller ausgeführt wird:  
   
 ![SPN- und UPN-Eindeutigkeit](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig09_UserCreateError.gif)  
   
-**Figure SEQ Abbildung \\\ * Arabisch 5 gilt Folgendes Benutzer – Fehler beim Erstellen auf nicht - Windows Server2012 R2 beim Abzielen auf Windows Server2012 R2-Domänencontroller**  
+**Figure SEQ Abbildung \\ \* Arabisch 5 gilt Folgendes Erstellung Benutzerfehler auf nicht - Windows Server 2012 R2 beim Abzielen auf Windows Server 2012 R2-Domänencontroller**  
   
 ![SPN- und UPN-Eindeutigkeit](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig10_UserModError.gif)  
   
-**Figure SEQ Abbildung \\\ * Arabisch 6 gilt Folgendes Änderung Benutzerfehler auf nicht - Windows Server2012 R2 beim Abzielen auf Windows Server2012 R2-Domänencontroller**  
+**Figure SEQ Abbildung \\ \* Arabisch 6 gilt Folgendes Änderung Benutzerfehler auf nicht - Windows Server 2012 R2 beim Abzielen auf Windows Server 2012 R2-Domänencontroller**  
   
-### <a name="restore-of-an-object-that-would-result-in-a-duplicate-upn-fails"></a>Wiederherstellen eines Objekts, das einen doppelten UPN würde ein Fehler auftritt:  
+### <a name="restore-of-an-object-that-would-result-in-a-duplicate-upn-fails"></a>Wiederherstellen eines Objekts, das einen doppelten UPN führen würde ein Fehler auftritt:  
 ![SPN- und UPN-Eindeutigkeit](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig11_RestoreDupUPN.gif)  
   
 ![SPN- und UPN-Eindeutigkeit](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig12_RestoreDupUPNError.gif)  
   
-Es wird kein Ereignis protokolliert, wenn ein Objekt nicht aufgrund eines doppelten UPN wiederherstellen / SPN.  
+Es wird kein Ereignis protokolliert, wenn ein Objekt nicht aufgrund einer doppelten UPN wiederherstellen / SPN.  
   
-Der UPN des Objekts muss in der Reihenfolge wiederhergestellt werden, damit eindeutig sein.  
+Der UPN des Objekts muss in der Reihenfolge, damit er wiederhergestellt werden, eindeutig sein.  
   
-1.  Identifizieren Sie den UPN, die für das Objekt in den Papierkorb vorhanden sind.  
+1.  Identifizieren Sie den UPN, der für das Objekt im Papierkorb vorhanden ist.  
   
-2.  Identifizieren Sie alle Objekte, die den gleichen Wert aufweisen.  
+2.  Identifizieren Sie alle Objekte, die den gleichen Wert haben  
   
-3.  Entfernen Sie die doppelten UPNs  
+3.  Entfernen Sie die doppelten UPN(s)  
   
-### <a name="identify-the-conflicting-upn-on-the-deleted-objectusing-repadminexe"></a>Identifizieren Sie den in Konflikt stehenden UPN der gelöschten ObjectUsing repadmin.exe  
+### <a name="identify-the-conflicting-upn-on-the-deleted-objectusing-repadminexe"></a>Identifizieren Sie den in Konflikt stehende UPN der gelöschten ObjectUsing repadmin.exe  
   
 ```  
 Repadmin /showattr DCName "DN of deleted objects container" /subtree /filter:"(msDS-LastKnownRDN=<NAME>)" /deleted /atts:userprincipalname  
@@ -158,7 +159,7 @@ s,DC=blue,DC=contoso,DC=com
     1> userPrincipalName: dhunt@blue.contoso.com  
 ```  
   
-### <a name="to-identify-all-objects-with-the-same-upnusing-repadminexe"></a>Um alle Objekte mit den gleichen UPN zu identifizieren: verwenden Repadmin.exe  
+### <a name="to-identify-all-objects-with-the-same-upnusing-repadminexe"></a>Identifizieren Sie alle Objekte mit dem gleichen UPN: Repadmin.exe verwenden  
   
 ```  
 repadmin /showattr WinBlueDC1 "DC=blue,DC=contoso,DC=com" /subtree /filter:"(userPrincipalName=dhunt@blue.contoso.com)" /deleted /atts:DN  
@@ -173,23 +174,23 @@ DN: CN=Dianne Hunt2\0ADEL:dd3ab8a4-3005-4f2f-814f-d6fc54a1a1c0,CN=Deleted Object
 ```  
   
 > [!TIP]  
-> Die zuvor nicht dokumentierte **/ gelöscht** Parameter im repadmin.exe wird verwendet, um gelöschte Objekte in dem Ergebnis einschließen  
+> Die zuvor nicht dokumentierte **/ deleted** Parameter Repadmin.exe wird verwendet, um gelöschte Objekte in das Resultset einschließen  
   
 ### <a name="using-global-search"></a>Mithilfe der globalen Suche  
   
--   Öffnen Sie Active Directory-Verwaltungscenter und navigieren Sie zu **globale Suche**  
+-   Öffnen Sie Active Directory Administrative Center, und navigieren Sie zu **globale Suche**  
   
 -   Wählen Sie die **in LDAP konvertieren** Optionsfeld  
   
--   Typ **(UserPrincipalName =*ConflictingUPN*) **  
+-   Typ **("userPrincipalName" =*ConflictingUPN*)**  
   
-    -   Ersetzen Sie ***ConflictingUPN*** mit der tatsächlichen UPN dem in Konflikt  
+    -   Ersetzen Sie dies ***ConflictingUPN*** mit den tatsächlichen UPN in Konflikt stehende  
   
 -   Wählen Sie **anwenden**  
   
 ![SPN- und UPN-Eindeutigkeit](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig13_GlobalSearch.gif)  
   
-### <a name="using-windows-powershell"></a>Mithilfe von WindowsPowerShell  
+### <a name="using-windows-powershell"></a>Verwenden von Windows PowerShell  
   
 ```  
 Get-ADObject -LdapFilter "(userPrincipalName=dhunt@blue.contoso.com)" -IncludeDeletedObjects -SearchBase "DC=blue,DC=Contoso,DC=com" -SearchScope Subtree -Server winbluedc1.blue.contoso.com  
@@ -197,21 +198,21 @@ Get-ADObject -LdapFilter "(userPrincipalName=dhunt@blue.contoso.com)" -IncludeDe
   
 ![SPN- und UPN-Eindeutigkeit](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig13_GlobalSearchPS.gif)  
   
-Wenn das Objekt werden wiederhergestellt muss, werden Sie die doppelten UPNs von anderen Objekten entfernen müssen.  Nur ein Objekt ist es einfach ADSIEdit verwenden, um das Duplikat zu entfernen.  Wenn mehrere Objekte mit Duplikate vorhanden sind, möglicherweise Windows PowerShell die bessere Tool verwenden.  
+Wenn das Objekt werden wiederhergestellt muss, werden Sie die doppelten UPNs aus den anderen Objekten entfernen müssen.  Nur ein Objekt ist es einfach genug, um die ADSIEdit verwenden, um das Duplikat zu entfernen.  Wenn mehrere Objekte ohne Duplikate vorhanden sind, möglicherweise Windows PowerShell zu verwendenden bessere Tools.  
   
-Auf NULL fest, das UserPrincipalName-Attribut, das mithilfe von Windows PowerShell:  
+Auf null zu setzen das UserPrincipalName-Attribut, das mithilfe von Windows PowerShell:  
   
 ![SPN- und UPN-Eindeutigkeit](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig15_NullUPN.gif)  
   
 > [!NOTE]  
-> Das UserPrincipalName-Attribut ist einwertiges Attribut, damit Sie dieses Verfahren nur den doppelten UPN entfernt werden soll.  
+> Das Attribut "userPrincipalName" ist einwertiges Attribut, damit diese Prozedur nur den doppelten UPN entfernt.  
   
 ### <a name="duplicate-spn"></a>Doppelten SPN  
 ![SPN- und UPN-Eindeutigkeit](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig16_DupSPN.gif)  
   
-**Figure SEQ Abbildung \\\ * Arabisch 8 angezeigte Fehlermeldung in ADSIEdit beim Hinzufügen von doppelten SPN blockiert wird**  
+**Figure SEQ Abbildung \\ \* Arabische 8-Fehlermeldung, die in ADSI Edit angezeigt wird, wenn, Hinzufügen von doppelten SPN blockiert wird**  
   
-In den Verzeichnisdiensten im Ereignisprotokoll wird protokolliert eine **ActiveDirectory_DomainService** Ereignis-ID **2974**.  
+In den Verzeichnisdiensten, die Kapazität des Ereignisprotokolls protokolliert eine **ActiveDirectory_DomainService** Ereignis-ID **2974**.  
   
 ```  
 Operation failed. Error code: 0x21c7  
@@ -223,25 +224,25 @@ servicePrincipalName Value=<SPN>
   
 ![SPN- und UPN-Eindeutigkeit](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig17_DupSPN2974.gif)  
   
-**Figure SEQ Abbildung \\\ * Arabisch 9 Fehler protokolliert, wenn die Erstellung von doppelten SPN blockiert wird**  
+**Figure SEQ Abbildung \\ \* Arabische 9-Fehler protokolliert, wenn die Erstellung von doppelten SPN blockiert wird**  
   
 ### <a name="workflow"></a>Workflow  
   
--   **Wenn Domänencontroller == GC**  
+-   **If DC == GC**  
   
-    -   Kein Off-Box-Aufruf erforderlich, die Abfrage lokal erfüllt werden kann  
+    -   Kein Aufruf Offbox erforderlich, die Abfrage lokal ausgeführt werden können  
   
-    -   ***UPN-Anfrage***  
+    -   ***UPN Groß-/Kleinschreibung***  
   
-        -   Abfrage lokale Gesamtstruktur UPN-Index für die angegebenen UPN (*UserPrincipalName; globaler Index*)  
+        -   Lokale Gesamtstruktur UPN abfragenindex für den angegebenen UPN (*"userPrincipalName"; einen globalen Index*)  
   
-            -   Wenn Einträge zurückgegeben == 0 -> Write-Erlöse  
+            -   Wenn Einträge zurückgegeben == 0 -> Schreibvorgang durchgeführt wird  
   
-            -   Wenn Einträge zurückgegeben! = 0 -> schreiben ein Fehler auftritt.  
+            -   Wenn Einträge zurückgegeben! = 0 -> Schreibvorgang ein Fehler auftritt.  
   
-                -   Ereignis protokolliert  
+                -   Ereignis  
   
-                -   Außerdem gibt erweiterten Fehler zurück:  
+                -   Gibt auch erweiterten Fehler zurück:  
   
                     -   **8648:**  
   
@@ -249,39 +250,39 @@ servicePrincipalName Value=<SPN>
   
     -   ***SPN Groß-/Kleinschreibung***  
   
-        -   Abfrage lokale Gesamtstruktur SPN Index für bereitgestellten SPN (*ServicePrincipalName; globaler Index*)  
+        -   Lokale Gesamtstruktur SPN abfragenindex für angegebene SPN (*%ServicePrincipalName; einen globalen Index*)  
   
-            -   Wenn Einträge zurückgegeben == 0 -> Write-Erlöse  
+            -   Wenn Einträge zurückgegeben == 0 -> Schreibvorgang durchgeführt wird  
   
-            -   Wenn Einträge zurückgegeben! = 0 -> schreiben ein Fehler auftritt.  
+            -   Wenn Einträge zurückgegeben! = 0 -> Schreibvorgang ein Fehler auftritt.  
   
-                -   Ereignis protokolliert  
+                -   Ereignis  
   
-                -   Außerdem gibt erweiterten Fehler zurück:  
+                -   Gibt auch erweiterten Fehler zurück:  
   
                     -   **8647:**  
   
                         **ERROR_DS_SPN_VALUE_NOT_UNIQUE_IN_FOREST**  
   
--   **Wenn Domänencontroller! = GC**  
+-   **If DC != GC**  
   
-    -   Off-Box-Aufruf **wünschenswert** jedoch nicht wichtig sind, d.h. eine Überprüfung der bestmöglichen Eindeutigkeit  
+    -   Offbox Aufruf **wünschenswert** jedoch nicht kritisch ist, d. h. Dies ist eine Best-Effort-Prinzip eindeutigkeitsprüfung  
   
-        -   Überprüfen Sie vor lokalen DIT wird fortgesetzt, nur dann, wenn GC nicht gefunden werden kann  
+        -   Überprüfung erfolgt für lokale DIT nur dann, wenn GC nicht gefunden werden kann  
   
-        -   Ereignis protokolliert, um z.B. anzugeben  
+        -   Ereignis protokolliert, um anzugeben, z. B.  
   
-    -   ***UPN-Anfrage***  
+    -   ***UPN Groß-/Kleinschreibung***  
   
-        -   Übermitteln Sie die LDAP-Abfrage am nächsten gelegenen GC? Abfragen des globalen Katalogs gesamtstrukturweite UPN Index für die angegebenen UPN (*UserPrincipalName; globaler Index*)  
+        -   Senden von LDAP-Abfrage an den nächstgelegenen GC? der GC-Abfrage eine gesamtstrukturweite UPN-Index für den angegebenen UPN (*"userPrincipalName"; einen globalen Index*)  
   
-            -   Wenn Einträge zurückgegeben == 0 -> Write-Erlöse  
+            -   Wenn Einträge zurückgegeben == 0 -> Schreibvorgang durchgeführt wird  
   
-            -   Wenn Einträge zurückgegeben! = 0 -> schreiben ein Fehler auftritt.  
+            -   Wenn Einträge zurückgegeben! = 0 -> Schreibvorgang ein Fehler auftritt.  
   
-                -   Ereignis protokolliert  
+                -   Ereignis  
   
-                -   Außerdem gibt erweiterten Fehler zurück:  
+                -   Gibt auch erweiterten Fehler zurück:  
   
                     -   **8648:**  
   
@@ -289,23 +290,23 @@ servicePrincipalName Value=<SPN>
   
     -   ***SPN Groß-/Kleinschreibung***  
   
-        -   Übermitteln Sie die LDAP-Abfrage am nächsten gelegenen GC? Abfragen des globalen Katalogs gesamtstrukturweite SPN Index für bereitgestellten SPN (*ServicePrincipalName; globaler Index*)  
+        -   Senden von LDAP-Abfrage an den nächstgelegenen GC? der GC-Abfrage eine gesamtstrukturweite SPN-Index für die angegebene SPN (*%ServicePrincipalName; einen globalen Index*)  
   
-            -   Wenn Einträge zurückgegeben == 0 -> Write-Erlöse  
+            -   Wenn Einträge zurückgegeben == 0 -> Schreibvorgang durchgeführt wird  
   
-            -   Wenn Einträge zurückgegeben! = 0 -> schreiben ein Fehler auftritt.  
+            -   Wenn Einträge zurückgegeben! = 0 -> Schreibvorgang ein Fehler auftritt.  
   
-                -   Ereignis protokolliert  
+                -   Ereignis  
   
-                -   Außerdem gibt erweiterten Fehler zurück:  
+                -   Gibt auch erweiterten Fehler zurück:  
   
                     -   **8647:**  
   
                         *ERROR_DS_SPN_VALUE_NOT_UNIQUE_IN_FOREST*  
   
-Wenn gelöschte Objekte erneut animierte sind, werden SPN oder UPN Werten auf Eindeutigkeit hin überprüft. Wenn ein Duplikat gefunden wird, schlägt die Anforderung fehl.  
+Wenn gelöschte Objekte erneut animierte sind, werden SPN oder UPN Werte auf Eindeutigkeit überprüft. Wenn ein Duplikat gefunden wird, schlägt die Anforderung fehl.  
   
--   Wenn die Änderung vorgenommen wird, werden Dienstprinzipalnamen (SPN) für bestimmte Attribut Änderungen wie DNS-Hostnamen, SAM-Konto Namen usw. entsprechend aktualisiert. Während dieses Prozesses die veralteten SPN gelöscht und neue SPN erstellt und der Datenbank hinzugefügt werden. Werden die erforderlichen Attribut Änderungen für die dieser Pfad ausgelöst wird:  
+-   Wenn die Änderung vorgenommen wird, werden SPNs für bestimmte attributänderungen wie DNS-Hostnamen, SAM-Kontos Namen usw. entsprechend aktualisiert. Im Prozess die veralteten SPNs werden gelöscht und neue SPNs erstellt werden, und der Datenbank hinzugefügt werden sollen. Die erforderlichen attributänderungen, die für die ausgelöst wird, diesen Pfad sind:  
   
     -   ATT_DNS_HOST_NAME  
   
@@ -319,49 +320,49 @@ Wenn gelöschte Objekte erneut animierte sind, werden SPN oder UPN Werten auf Ei
   
     -   ATT_USER_ACCOUNT_CONTROL  
   
-Wenn keines der neuen SPN-Wert ist ein Duplikat, fehl, wird die Änderung. Der oben genannten Liste sind die wichtigen Attribute ATT_DNS_HOST_NAME (Computername) und ATT_SAM_ACCOUNT_NAME (SAM-Kontoname).  
+Wenn keines der neuen SPN-Wert ist ein Duplikat, fehl, wir die Änderung. Von der Liste oben sind die wichtigen Attribute ATT_DNS_HOST_NAME (Computername) und ATT_SAM_ACCOUNT_NAME (SAM-Kontoname).  
   
-### <a name="try-this-exploring-spn-and-upn-uniqueness"></a>Versuchen Sie Folgendes: SPN- und UPN-Eindeutigkeit erkunden  
-Dies ist der erste von mehreren "**versuchen Sie es**" Aktivitäten im Modul.  Es gibt keine separate testlab-Handbuch für dieses Modul.  Die **versuchen Sie es** Aktivitäten sind im Wesentlichen Freiform-Aktivitäten, mit denen Sie das Material Lektion in der Testumgebung durchsuchen.  Sie haben die Möglichkeit, befolgen die Eingabeaufforderung oder Skript verschwindet, und mit Ihren eigenen Aktivitäten zusammengestellt.  
+### <a name="try-this-exploring-spn-and-upn-uniqueness"></a>Versuchen Sie Folgendes aus: Untersuchen von SPN- und UPN-Eindeutigkeit  
+Dies ist die erste von mehreren "**Probieren Sie dies**" Aktivitäten im Modul.  Eine separate Lab-Handbuch für dieses Modul besteht nicht.  Die **Probieren Sie dies** Aktivitäten sind im Wesentlichen Freiform-Aktivitäten, mit denen Sie das Lektion Material in der laborumgebung untersuchen.  Sie haben die Möglichkeit, befolgen die Eingabeaufforderung oder das Skript an und ich und Entwickeln Ihrer eigenen Aktivität.  
   
 > [!NOTE]  
-> -   Dies ist der erste von mehreren "**versuchen Sie es**" Aktivitäten.  
-> -   Es gibt keine separate testlab-Handbuch für dieses Modul.  
-> -   Die **versuchen Sie es** Aktivitäten sind im Wesentlichen Freiform-Aktivitäten, mit denen Sie das Material Lektion in der Testumgebung durchsuchen.  
-> -   Sie haben die Möglichkeit, befolgen die Eingabeaufforderung oder Skript verschwindet, und mit Ihren eigenen Aktivitäten zusammengestellt.  
-> -   Zwar nicht alle Abschnitte enthalten eine **versuchen Sie es** dazu aufgefordert werden, es wird weiterhin empfohlen, den Lektionsinhalt im Labor gegebenenfalls entdecken.  
+> -   Dies ist die erste von mehreren "**Probieren Sie dies**" Aktivitäten.  
+> -   Eine separate Lab-Handbuch für dieses Modul besteht nicht.  
+> -   Die **Probieren Sie dies** Aktivitäten sind im Wesentlichen Freiform-Aktivitäten, mit denen Sie das Lektion Material in der laborumgebung untersuchen.  
+> -   Sie haben die Möglichkeit, befolgen die Eingabeaufforderung oder das Skript an und ich und Entwickeln Ihrer eigenen Aktivität.  
+> -   Zwar nicht alle Abschnitte einer **Probieren Sie dies** dazu aufgefordert werden, es wird weiterhin empfohlen, den Lektionsinhalt im Labor gegebenenfalls untersuchen.  
   
-Experimentieren Sie mit SPN- und UPN-Eindeutigkeit.  Befolgen Sie diese Anweisungen aus, oder führen Sie Ihre eigene.  
+Experimentieren Sie mit SPN und UPN-Eindeutigkeit.  Befolgen Sie diese Anweisungen, oder führen Sie Ihre eigenen.  
   
 1.  Erstellen Sie neue Benutzer mit UPN  
   
-2.  Erstellen von Konten mit Dienstprinzipalnamen (SPN)  
+2.  Erstellen von Konten mithilfe von SPNs  
   
-3.  Erstellen Sie einen neuen Benutzer mit dem Benutzerprinzipalnamen bereits zuvor definierten oder ändern Sie ein vorhandenes Konto UPN.  Gleiches gilt für einen SPN für ein anderes Konto  
+3.  Erstellen eines neuen Benutzers mit einem bereits zuvor definierten UPN oder ändern Sie ein vorhandenes Konto UPN.  Gleiches gilt für einen SPN für ein anderes Konto  
   
-    1.  Füllen Sie ein vorhandenes Benutzerkonto mit dem Benutzerprinzipalnamen bereits in Verwendung  
+    1.  Füllen Sie ein bestehendes Benutzerkonto an, mit dem UPN bereits in Verwendung  
   
         1.  Mithilfe von PowerShell, ADSIEDIT oder Active Directory-Verwaltungscenter (DSAC.exe)  
   
-    2.  Füllen Sie ein Konto bei der SPN bereits in Verwendung  
+    2.  Füllen Sie ein vorhandenes Konto mit einem SPN bereits in Verwendung  
   
-        1.  Verwenden von Windows PowerShell, ADSIEDIT oder SetSPN  
+        1.  Mithilfe von Windows PowerShell, ADSIEDIT oder SetSPN  
   
 4.  Beachten Sie die Fehler  
   
-**Optional**  
+**Optionally**  
   
-1.  Dozenten Kursraum überprüfen Sie, ob es ok, um das Aktivieren der *[Active Directory-Papierkorb](https://technet.microsoft.com/library/jj574144.aspx#BKMK_EnableRecycleBin)* im Active Directory-Verwaltungscenter.  Wenn dies der Fall ist, fahren Sie mit dem nächsten Schritt.  
+1.  Mit der seminarleiter überprüfen, ob es zum Aktivieren "ok" die *[AD-Papierkorb](https://technet.microsoft.com/library/jj574144.aspx#BKMK_EnableRecycleBin)* im Active Directory-Verwaltungscenter.  Wenn dies der Fall ist, fahren Sie mit der im nächsten Schritt.  
   
 2.  Füllen Sie den UPN eines Benutzerkontos  
   
 3.  Das Konto löschen  
   
-4.  Füllen Sie ein anderes Konto mit den gleichen UPN als das gelöschte Konto  
+4.  Füllen Sie ein anderes Konto mit dem gleichen UPN als das gelöschte Konto  
   
-5.  Versuchen Sie, die Recycle Bin GUI zu verwenden, um das Konto wiederherzustellen  
+5.  Auf der grafischen Benutzeroberfläche Wiederverwenden von "bin" zu verwenden, um das Konto wiederherstellen  
   
-6.  Angenommen Sie, Sie mit dem Fehler nur gestellt worden sind, die Sie im vorherigen Schrittangezeigt.  (und keinen Verlauf der Schritte, die Sie gerade durchgeführt haben) Ihr Ziel ist die Wiederherstellung des Kontos abschließen.  Weitere Informationen finden Sie in die Arbeitsmappe z.B. die Schritte.  
+6.  Angenommen Sie, Sie einfach mit dem Fehler angezeigt wurden, die im vorherigen Schritt angezeigt.  (und nicht über einen Verlauf der soeben ausgeführten Schritte) Ihr Ziel ist zum Abschließen des Wiederherstellungsvorgangs des Kontos.  Finden Sie in die Arbeitsmappe beispielsweise die Schritte.  
   
 
 

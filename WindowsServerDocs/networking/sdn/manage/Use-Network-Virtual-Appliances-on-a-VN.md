@@ -1,7 +1,7 @@
 ---
-title: Verwenden Sie virtueller Netzwerkgeräte in einem virtuellen Netzwerk
-description: Dieses Thema ist Teil der Software Defined Networking-Anleitung für zum Verwalten von Mandantenworkloads und virtuellen Netzwerken in Windows Server2016.
-manager: brianlic
+title: Verwenden virtueller Netzwerkgeräte in einem virtuellen Netzwerk
+description: In diesem Thema erfahren Sie, wie Sie virtuelle Netzwerkgeräte in virtuellen mandantennetzwerken bereitstellen. Sie können virtuelle Netzwerkgeräte Netzwerke hinzufügen, die von benutzerdefinierten Routen und Funktionen für die portspiegelung durchführen.
+manager: dougkim
 ms.custom: na
 ms.reviewer: na
 ms.suite: na
@@ -12,77 +12,60 @@ ms.technology: networking-sdn
 ms.assetid: 3c361575-1050-46f4-ac94-fa42102f83c1
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: db46189931263d230f013431f319eb2497589dee
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.date: 08/30/2018
+ms.openlocfilehash: e715a782651a5b9867f3b45251fd6ea6e4a9e4f7
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59847371"
 ---
-# <a name="use-network-virtual-appliances-on-a-virtual-network"></a>Verwenden Sie virtueller Netzwerkgeräte in einem virtuellen Netzwerk
+# <a name="use-network-virtual-appliances-on-a-virtual-network"></a>Verwenden virtueller Netzwerkgeräte in einem virtuellen Netzwerk
 
->Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
-In diesem Thema können Sie Informationen zum Bereitstellen von virtuellen Netzwerkgeräten auf Mandanten virtuelle Netzwerke.
+In diesem Thema erfahren Sie, wie Sie virtuelle Netzwerkgeräte in virtuellen mandantennetzwerken bereitstellen. Sie können virtuelle Netzwerkgeräte Netzwerke hinzufügen, die von benutzerdefinierten Routen und Funktionen für die portspiegelung durchführen.
 
-Sie können virtuelle Netzwerkgeräte mit Netzwerken hinzufügen, die benutzerdefinierte routing und Funktionen der portspiegelung ausführen.
+## <a name="types-of-network-virtual-appliances"></a>Typen von virtuellen Netzwerkgeräten
 
-Dieses Thema enthält die folgenden Abschnitte.
+Sie können eine der beiden Typen von virtuellen Geräten verwenden:
 
-- [Typen von virtuellen Netzwerkgeräten](#bkmk_types)
-- [Bereitstellen einer virtuellen Network Appliance](#bkmk_deploy)
-- [Beispiel: Benutzerdefinierte Routing](#bkmk_routing)
-- [Beispiel: Portspiegelung](#bkmk_port)
+1. **Benutzerdefiniertes routing** -verteilten Router im virtuellen Netzwerk durch die Routingfunktionen des virtuellen Geräts ersetzt.  Mit benutzerdefiniertem routing, ruft das virtuelle Gerät als Router zwischen den virtuellen Subnetzen im virtuellen Netzwerk verwendet.
 
-## <a name="bkmk_types"></a>Typen von virtuellen Netzwerkgeräten
+2. **Portspiegelung** : gesamten Netzwerkdatenverkehr, die eintritt oder Verlassen des überwachte Ports ist doppelt vorhanden und gesendet, um eine virtuelle Appliance für die Analyse. 
 
-Es gibt zwei Arten von virtuellen Geräten, die Sie in virtuellen Netzwerken verwenden können:
 
-1. **Benutzerdefinierte routing**. Benutzerdefinierte routing ersetzt verteilten Router auf das virtuelle Netzwerk durch die routing-Funktionen für die virtuelle Anwendung.  Mit benutzerdefinierten routing wird die virtuelle Anwendung als Router zwischen den virtuellen Subnetzen im virtuellen Netzwerk verwendet.
-2. **Portspiegelung**. Bei der portspiegelung wird alle Netzwerkverkehr, der betreten oder verlassen den überwachten Port wird dupliziert und an eine virtuelle Anwendung zur Analyse gesendet. 
-## <a name="bkmk_deploy"></a>Bereitstellen einer virtuellen Network Appliance
+## <a name="deploying-a-network-virtual-appliance"></a>Ein virtuelles Netzwerkgerät bereitstellen
 
-Um eine virtuelle Anwendung bereitstellen möchten, müssen Sie zunächst erstellen Sie einen virtuellen Computer (VM), der das Gerät enthält und verbinden Sie dann den virtuellen Computer mit den entsprechenden virtuellen Netzwerk-Subnetzen.
+Um ein virtuelles Netzwerkgerät bereitstellen zu können, müssen Sie zuerst erstellen Sie einen virtuellen Computer, die das Gerät enthält und verbinden Sie dann auf die entsprechende virtuelle Netzwerk-Subnetze des virtuellen Computers. Weitere Informationen finden Sie unter [erstellen Sie eine Mandanten-VM und das Herstellen einer Verbindung mit einem virtuellen Mandantennetzwerk oder VLAN](Create-a-Tenant-VM.md).
 
->[!NOTE]
->Weitere Informationen finden Sie unter [erstellen Sie ein Mandant virtuellen Computer und Verbinden mit einem virtuellen Mandantennetzwerk oder VLAN](Create-a-Tenant-VM.md)
+Einige Anwendungen erfordern mehrere virtuelle Netzwerkadapter. In der Regel einen dedizierten Netzwerkadapter für die Verwaltung des Geräts während der zusätzliche Adapter Datenverkehr zu verarbeiten.  Wenn Ihr Gerät auf mehrere Netzwerkadapter erforderlich ist, müssen Sie jede Netzwerkschnittstelle im Netzwerkcontroller erstellen. Sie müssen auch eine Schnittstellen-ID auf jedem Host für die einzelnen die zusätzlichen Adapter zuweisen, die auf verschiedene virtuelle Subnetze sind.
 
-Einige Geräte erfordern, mehrere virtuelle Netzwerkadapter. In der Regel ein Netzwerkadapter vorgesehen ist für die Verwaltung der Appliance, während zusätzliche Adapter für die Verarbeitung von Datenverkehr verwendet werden. 
+Nachdem Sie das virtuelle Netzwerkgerät bereitgestellt haben, können Sie die Appliance für definierte routing, Portieren der Spiegelung oder beides verwenden. 
 
-Wenn Ihre Anwendung mehrere Netzwerkadapter erforderlich ist, müssen Sie jede Netzwerkschnittstelle in Netzwerkcontroller erstellen. 
 
-Sie müssen auch eine Schnittstellen-ID auf jedem Host für jede der weiteren Adapter zuweisen, die auf verschiedene virtuelle Subnetze vorhanden sind.
+## <a name="example-user-defined-routing"></a>Beispiel: Benutzerdefiniertes routing
 
-Nachdem Sie die Bereitstellung für die virtuelle Anwendung abgeschlossen haben, können Sie die Einheit für benutzerdefinierte routing, portspiegelung oder beides.
+Für die meisten Umgebungen benötigen Sie nur die von verteilten Router für das virtuelle Netzwerk bereits definierten systemrouten. Allerdings müssen Sie möglicherweise eine Routingtabelle erstellen, und fügen Sie einer oder mehrerer Routen in bestimmten Fällen, z. B.:
 
-##<a name="bkmk_routing"></a>Beispiel: Benutzerdefinierte Routing
+- Erzwingen von Tunneln mit dem Internet über das lokale Netzwerk.
+- Die Verwendung von virtuellen Geräten in Ihrer Umgebung.
 
-Für die meisten Umgebungen benötigen Sie nur die System-Routen, die bereits vom verteilten Router für das virtuelle Netzwerk definiert. Allerdings müssen Sie eine Route-Tabelle zu erstellen, und fügen eine oder mehrere Routen in bestimmten Fällen, z. B.:
+Für diese Szenarios müssen Sie eine Routingtabelle erstellen und Hinzufügen von benutzerdefinierten Routen zur Tabelle. Sie können mehrere Routingtabellen, und Sie können die gleiche Routingtabelle zu einem oder mehreren Subnetzen zuordnen. Sie können nur jedes Subnetz mit einer einzelnen Routingtabelle zuordnen. Alle virtuellen Computer in einem Subnetz verwenden Sie die Routingtabelle dem Subnetz zugeordnet ist.
 
-* Erzwingen von Tunneln über das lokale Netzwerk mit dem Internet.
-* Verwenden von virtuellen Geräten in Ihrer Umgebung.
+Subnetze gelten solange systemrouten, bis eine Routingtabelle mit dem Subnetz zugeordnete erhält. Nachdem Sie eine Zuordnung vorhanden ist, wird das routing auf längsten Präfix Übereinstimmung (LPM) zwischen sowohl benutzerdefinierte Routen und systemrouten Basis durchgeführt. Liegt mehr als eine Route mit identischer Längster präfixübereinstimmung vorhanden sind, wird die benutzerdefinierte Route zuerst – bevor Sie die systemroute ausgewählt.
+ 
+**Vorgehensweise:**
 
-Für diese Szenarien müssen Sie eine Route-Tabelle zu erstellen und Hinzufügen von benutzerdefinierten Routen in der Tabelle. Sie können mehrere Routetabellen und dieselbe Routentabelle kann ein oder mehrere Subnetze zugeordnet werden. 
+1. Erstellen Sie die Route Tabelleneigenschaften, der alle von der benutzerdefinierten Routen enthält.<p>Systemrouten gelten weiterhin gemäß den oben definierten Regeln.
 
-Jedes Subnetz kann nur eine Routingtabelle zugeordnet werden. Alle virtuellen Maschinen in einem Subnetz mithilfe der Routentabelle, die diesem Subnetz zugeordnet ist.
-
-Subnetze basieren auf System Routen, bis eine Route-Tabelle mit dem Subnetz zugeordnet ist. Nachdem eine Zuordnung vorhanden ist, routing auf längsten Präfix Übereinstimmung (LPM) zwischen benutzerdefinierten Routen und System-Routen Basis erfolgt. 
-
-Wenn mehr als eine Route mit gleichen LPM Übereinstimmung vorhanden ist, wird der Benutzer definierten Route zuerst - vor der Route System ausgewählt. 
-
-###<a name="step-1-create-the-route-table-properties"></a>Schritt 1: Erstellen der Route Eigenschaften
-
-Diese Routingtabelle enthält alle benutzerdefinierten Routen.  System-Routen werden weiterhin gemäß den oben definierten Regeln angewendet.
-
-Die folgenden Beispielbefehle können Sie die um Eigenschaften der Route-Tabelle zu erstellen.
-
+   ```PowerShell
     $routetableproperties = new-object Microsoft.Windows.NetworkController.RouteTableProperties
+   ```
 
-###<a name="step-2-add-a-route-to-the-route-table-properties"></a>Schritt 2: Hinzufügen einer Route mit den Eigenschaften der Route-Tabelle
+2. Hinzufügen einer Route zu dem routing Tabelleneigenschaften.<p>Jede Route, die für 12.0.0.0/8 Subnetz bestimmt ist an das virtuelle Gerät auf 192.168.1.10 weitergeleitet. Das Gerät muss einen virtuellen Netzwerkadapter im virtuellen Netzwerk mit dieser IP-Adresse einer Netzwerkschnittstelle angefügt haben.
 
-Datenverkehr, der für das Subnetz 12.0.0.0/8 bestimmt ist, gesendet werden, sollten diese Route laut der die virtuelle Anwendung am 192.168.1.10 weitergeleitet werden.  Es ist wichtig, dass die Anwendung einen virtuellen Netzwerkadapter mit dem virtuellen Netzwerk verbunden, mit dieser IP-Adresse, eine Netzwerkschnittstelle zugewiesen ist.
-
-Die folgenden Beispielbefehle können die Eigenschaften für die Route-Tabelle eine Route hinzu.
-
+   ```PowerShell
     $route = new-object Microsoft.Windows.NetworkController.Route
     $route.ResourceID = "0_0_0_0_0"
     $route.properties = new-object Microsoft.Windows.NetworkController.RouteProperties
@@ -90,97 +73,101 @@ Die folgenden Beispielbefehle können die Eigenschaften für die Route-Tabelle e
     $route.properties.nextHopType = "VirtualAppliance"
     $route.properties.nextHopIpAddress = "192.168.1.10"
     $routetableproperties.routes += $route
+   ```
+   >[!TIP]
+   >Wenn Sie weitere Routen hinzufügen möchten, wiederholen Sie diesen Schritt für jede Route, die Sie definieren möchten.
 
-Sie können zusätzliche Routen hinzufügen, wiederholen Sie diesen Schritt für jede Route, die Sie definieren möchten.
-s
-###<a name="step-3-add-the-route-table-to-network-controller"></a>Schritt 3: Hinzufügen der Routentabelle auf Netzwerk-Controller
-Die folgenden Beispielbefehle können Netzwerkcontroller Routentabelle hinzu.
+3. Fügen Sie der Routingtabelle, in den Netzwerkcontroller.
 
+   ```PowerShell
     $routetable = New-NetworkControllerRouteTable -ConnectionUri $uri -ResourceId "Route1" -Properties $routetableproperties
+   ```
 
-###<a name="step-4-apply-the-route-table-to-the-virtual-subnet"></a>Schritt 4: Verwenden Sie die Routentabelle auf das virtuelle Subnetz
- 
-Wenn Sie das virtuelle Subnetz die Routentabelle zuweisen, wird das erste virtuelle Subnetz im Netzwerk Tenant1_Vnet1 Routentabelle verwendet. Sie können die Routentabelle beliebig viele Subnetze im virtuellen Netzwerk zuweisen möchten.
+4. Wenden Sie die Routingtabelle, in dem virtuellen Subnetz.<p>Wenn Sie die Routingtabelle auf das virtuelle Subnetz anwenden, verwendet das erste virtuelle Subnetz im Netzwerk Tenant1_Vnet1 die Routentabelle an. Sie können die Routingtabelle auf so viele der Subnetze im virtuellen Netzwerk zuweisen, wie Sie möchten.
 
-Die folgenden Beispielbefehle können Sie die Routentabelle auf das virtuelle Subnetz anzuwenden.
-
+   ```PowerShell
     $vnet = Get-NetworkControllerVirtualNetwork -ConnectionUri $uri -ResourceId "Tenant1_VNet1"
     $vnet.properties.subnets[0].properties.RouteTable = $routetable
     new-networkcontrollervirtualnetwork -connectionuri $uri -properties $vnet.properties -resourceId $vnet.resourceid
+   ```
 
-Sobald Sie in der Routentabelle mit dem virtuellen Netzwerk anwenden, wird Datenverkehr an die virtuelle Anwendung weitergeleitet. Sie müssen die Routingtabelle konfigurieren, in die virtuelle Anwendung auf den Datenverkehr in einer Weise weiterleiten, die für Ihre Umgebung geeignet ist.
+Sobald Sie die Routingtabelle mit dem virtuellen Netzwerk anwenden, ruft der Datenverkehr an das virtuelle Gerät weitergeleitet. Sie müssen die Routingtabelle konfigurieren, in das virtuelle Gerät aus, um den Datenverkehr in einer Weise weiterzuleiten, die für Ihre Umgebung geeignet ist.
 
-##<a name="bkmk_port"></a>Beispiel: Portspiegelung
+## <a name="example-port-mirroring"></a>Beispiel: Portspiegelung
 
-In diesem Beispiel können Sie MyVM_Ethernet1s Datenverkehr so konfigurieren, dass der Datenverkehr auf Appliance_Ethernet1 gespiegelt wird.
+In diesem Beispiel konfigurieren Sie den Datenverkehr für MyVM_Ethernet1 auf Spiegel Appliance_Ethernet1.  Es wird davon ausgegangen, dass Sie zwei virtuelle Computer, eine als das Gerät und der andere als die VM mit datenbankspiegelung überwachen bereitgestellt haben. 
 
-In diesem Beispiel wird davon ausgegangen, dass Sie zwei virtuelle Computer eine wie das Gerät und eine als die VM mit Spiegelung überwachen, die bereits bereitgestellt haben.
+Die Appliance muss es sich um eine zweite Netzwerkschnittstelle für die Verwaltung verfügen. Nach der Aktivierung der datenbankspiegelung als ein Ziel auf Appliciance_Ethernet1 empfängt es nicht mehr Datenverkehr, der für die IP-Schnittstelle, die es konfiguriert.
 
-Es ist wichtig, dass das Gerät für die Verwaltung eine zweite Netzwerkschnittstelle hat, da nach Spiegelung als Ziel für Appliance_Ethernet1 aktiviert ist, es nicht mehr Datenverkehr empfängt, die für die IP-Schnittstelle konfiguriert es bestimmt ist.
 
-###<a name="step-1-get-the-virtual-network-on-which-your-vms-are-located"></a>Schritt 1: Abrufen des virtuellen Netzwerks auf dem Ihre virtuellen Computer gespeichert sind
-Befehl im folgenden Beispiel können Sie um das virtuelle Netzwerk zu erhalten.
+**Vorgehensweise:**
 
-    $vnet = Get-NetworkControllerVirtualNetwork -ConnectionUri $uri -ResourceId "Tenant1_VNet1"
+1. Erhalten Sie das virtuelle Netzwerk, in dem sich Ihre virtuellen Computer befinden.
 
-###<a name="step-2-get-the-network-controller-network-interfaces-for-the-mirroring-source-and-destination"></a>Schritt 2: Abrufen der Netzwerkcontroller Netzwerkschnittstellen für die Spiegelung Quelle und Ziel
-Die folgenden Beispielbefehle können Sie um Netzwerkcontroller Netzwerkschnittstellen für die Spiegelung Quelle und Ziel zu erhalten.
+   ```PowerShell
+   $vnet = Get-NetworkControllerVirtualNetwork -ConnectionUri $uri -ResourceId "Tenant1_VNet1"
+   ```
 
-    $dstNic = get-networkcontrollernetworkinterface -ConnectionUri $uri -ResourceId "Appliance_Ethernet1"
-    $srcNic = get-networkcontrollernetworkinterface -ConnectionUri $uri -ResourceId "MyVM_Ethernet1"
+2. Rufen Sie die Netzwerkcontroller-Netzwerkschnittstellen, für die datenbankspiegelung Quelle und Ziel.
 
-###<a name="step-3-create-a-serviceinsertionproperties-object-to-contain-the-port-mirroring-rules-and-the-element-which-represents-the-destination-interface"></a>Schritt 3: Erstellen Sie ein Serviceinsertionproperties-Objekt enthält die portspiegelung des Regeln und das Element, das die Zielschnittstelle darstellt
-Die folgenden Beispielbefehle können Sie um ein Ziel Serviceinsertionproperties Objekt zu erstellen.
+   ```PowerShell
+   $dstNic = get-networkcontrollernetworkinterface -ConnectionUri $uri -ResourceId "Appliance_Ethernet1"
+   $srcNic = get-networkcontrollernetworkinterface -ConnectionUri $uri -ResourceId "MyVM_Ethernet1"
+   ```
 
-    $portmirror = [Microsoft.Windows.NetworkController.ServiceInsertionProperties]::new()
-    $portMirror.Priority = 1
+3. Erstellen Sie ein Serviceinsertionproperties Objekt der portspiegelung, Regeln und das Element, das die Zielschnittstelle darstellt.
 
-###<a name="step-4-create-a-serviceinsertionrules-object-to-contain-the-rules-that-must-be-matched-in-order-for-the-traffic-to-be-sent-to-the-appliance"></a>Schritt 4: Erstellen einer Serviceinsertionrules-Objekt, um die Regeln enthalten, die erfüllt sein müssen, Reihenfolge für den Datenverkehr an das Gerät gesendet werden
+   ```PowerShell
+   $portmirror = [Microsoft.Windows.NetworkController.ServiceInsertionProperties]::new()
+   $portMirror.Priority = 1
+   ```
 
-Die Regeln definiert unten Übereinstimmung der gesamte Datenverkehr, den eingehenden und ausgehenden, der eine herkömmliche Spiegelung darstellt.  Sie können diese Regeln anpassen, wenn Sie einen bestimmten Port oder bestimmte Quell-/Ziele Spiegelung interessiert sind.
+4. Erstellen Sie ein Serviceinsertionrules-Objekt, um die Regeln enthalten, die in der Reihenfolge für den Datenverkehr an das Gerät gesendet werden, erfüllt werden müssen.<p>Die Regeln, die unter Übereinstimmung gesamten Datenverkehr, eingehende und ausgehende, steht für eine herkömmliche Spiegelung definiert.  Sie können diese Regeln anpassen, wenn Sie möchten an der Spiegelung von einem bestimmten Port oder bestimmte Quell-bzw.-Ziele.
 
-Sie können die folgenden Beispielbefehle verwenden, zum Erstellen eines Objekts Serviceinsertionproperties.
+   ```PowerShell
+   $portmirror.ServiceInsertionRules = [Microsoft.Windows.NetworkController.ServiceInsertionRule[]]::new(1)
 
-    $portmirror.ServiceInsertionRules = [Microsoft.Windows.NetworkController.ServiceInsertionRule[]]::new(1)
+   $portmirror.ServiceInsertionRules[0] = [Microsoft.Windows.NetworkController.ServiceInsertionRule]::new()
+   $portmirror.ServiceInsertionRules[0].ResourceId = "Rule1"
+   $portmirror.ServiceInsertionRules[0].Properties = [Microsoft.Windows.NetworkController.ServiceInsertionRuleProperties]::new()
 
-    $portmirror.ServiceInsertionRules[0] = [Microsoft.Windows.NetworkController.ServiceInsertionRule]::new()
-    $portmirror.ServiceInsertionRules[0].ResourceId = "Rule1"
-    $portmirror.ServiceInsertionRules[0].Properties = [Microsoft.Windows.NetworkController.ServiceInsertionRuleProperties]::new()
+   $portmirror.ServiceInsertionRules[0].Properties.Description = "Port Mirror Rule"
+   $portmirror.ServiceInsertionRules[0].Properties.Protocol = "All"
+   $portmirror.ServiceInsertionRules[0].Properties.SourcePortRangeStart = "0"
+   $portmirror.ServiceInsertionRules[0].Properties.SourcePortRangeEnd = "65535"
+   $portmirror.ServiceInsertionRules[0].Properties.DestinationPortRangeStart = "0"
+   $portmirror.ServiceInsertionRules[0].Properties.DestinationPortRangeEnd = "65535"
+   $portmirror.ServiceInsertionRules[0].Properties.SourceSubnets = "*"
+   $portmirror.ServiceInsertionRules[0].Properties.DestinationSubnets = "*"
+   ```
 
-    $portmirror.ServiceInsertionRules[0].Properties.Description = "Port Mirror Rule"
-    $portmirror.ServiceInsertionRules[0].Properties.Protocol = "All"
-    $portmirror.ServiceInsertionRules[0].Properties.SourcePortRangeStart = "0"
-    $portmirror.ServiceInsertionRules[0].Properties.SourcePortRangeEnd = "65535"
-    $portmirror.ServiceInsertionRules[0].Properties.DestinationPortRangeStart = "0"
-    $portmirror.ServiceInsertionRules[0].Properties.DestinationPortRangeEnd = "65535"
-    $portmirror.ServiceInsertionRules[0].Properties.SourceSubnets = "*"
-    $portmirror.ServiceInsertionRules[0].Properties.DestinationSubnets = "*"
+5. Erstellen Sie ein Serviceinsertionelements-Objekt, um die Netzwerkschnittstelle der gespiegelten Appliance enthalten.
 
-###<a name="step-5-create-a-serviceinsertionelements-object-to-contain-the-network-interface-of-the-appliance-you-are-mirroring-to"></a>Schritt 5: Erstellen einer Serviceinsertionelements-Objekt, um die Netzwerkschnittstelle des Geräts enthalten, die Sie zum Spiegeln
-Die folgenden Beispielbefehle können Sie ein Objekt für die Netzwerkschnittstelle Serviceinsertionelements erstellen.
+   ```PowerShell
+   $portmirror.ServiceInsertionElements = [Microsoft.Windows.NetworkController.ServiceInsertionElement[]]::new(1)
 
-    $portmirror.ServiceInsertionElements = [Microsoft.Windows.NetworkController.ServiceInsertionElement[]]::new(1)
+   $portmirror.ServiceInsertionElements[0] = [Microsoft.Windows.NetworkController.ServiceInsertionElement]::new()
+   $portmirror.ServiceInsertionElements[0].ResourceId = "Element1"
+   $portmirror.ServiceInsertionElements[0].Properties = [Microsoft.Windows.NetworkController.ServiceInsertionElementProperties]::new()
 
-    $portmirror.ServiceInsertionElements[0] = [Microsoft.Windows.NetworkController.ServiceInsertionElement]::new()
-    $portmirror.ServiceInsertionElements[0].ResourceId = "Element1"
-    $portmirror.ServiceInsertionElements[0].Properties = [Microsoft.Windows.NetworkController.ServiceInsertionElementProperties]::new()
+   $portmirror.ServiceInsertionElements[0].Properties.Description = "Port Mirror Element"
+   $portmirror.ServiceInsertionElements[0].Properties.NetworkInterface = $dstNic
+   $portmirror.ServiceInsertionElements[0].Properties.Order = 1
+   ```
 
-    $portmirror.ServiceInsertionElements[0].Properties.Description = "Port Mirror Element"
-    $portmirror.ServiceInsertionElements[0].Properties.NetworkInterface = $dstNic
-    $portmirror.ServiceInsertionElements[0].Properties.Order = 1
+6. Fügen Sie das Dienstobjekt für das Einfügen in den Netzwerkcontroller hinzu.<p>Wenn Sie diesen Befehl ausgeben, sämtlichen Datenverkehr an das Gerät Netzwerkschnittstelle in der vorherigen Schritt beendet angegeben.
 
-###<a name="step-6-add-the-service-insertion-object-in-network-controller"></a>Schritt 6: Hinzufügen von der Einfügemarke Dienstobjekt in Netzwerk-Controller
-Wenn Sie diesen Befehl ausführen, wird der gesamte Datenverkehr zu der Netzwerk-Anwendungsoberfläche, die im vorherigen Schritt angegebenen beendet.
+   ```PowerShell
+   $portMirror = New-NetworkControllerServiceInsertion -ConnectionUri $uri -Properties $portmirror -ResourceId "MirrorAll"
+   ```
 
-Die folgenden Beispielbefehle können die Einfügung Dienstobjekt in Netzwerk-Controller hinzu.
+7. Aktualisieren Sie die Netzwerkschnittstelle der Datenquelle, die gespiegelt werden.
 
-    $portMirror = New-NetworkControllerServiceInsertion -ConnectionUri $uri -Properties $portmirror -ResourceId "MirrorAll"
+   ```PowerShell
+   $srcNic.Properties.IpConfigurations[0].Properties.ServiceInsertion = $portMirror
+   $srcNic = New-NetworkControllerNetworkInterface -ConnectionUri $uri  -Properties $srcNic.Properties -ResourceId $srcNic.ResourceId
+   ```
 
-###<a name="step-7-update-the-network-interface-of-the-source-to-be-mirrored"></a>Schritt 7: Aktualisieren Sie die Netzwerkschnittstelle der Quelle gespiegelt werden
-Die folgenden Beispielbefehle können Sie um die Netzwerkschnittstelle zu aktualisieren.
-
-    $srcNic.Properties.IpConfigurations[0].Properties.ServiceInsertion = $portMirror
-    $srcNic = New-NetworkControllerNetworkInterface -ConnectionUri $uri  -Properties $srcNic.Properties -ResourceId $srcNic.ResourceId
-
-Wenn Sie diese Schritte abgeschlossen haben, wird der Datenverkehr von der Schnittstelle MyVM_Ethernet1 von der Schnittstelle Appliance_Ethernet1 gespiegelt.
+Nach Abschluss dieser Schritte, spiegelt die Appliance_Ethernet1-Schnittstelle den Datenverkehr von der MyVM_Ethernet1-Schnittstelle.
  
+---

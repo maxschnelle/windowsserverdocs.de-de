@@ -9,15 +9,15 @@ ms.date: 06/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 ms.openlocfilehash: b00ee847088d038e59266154bcbbe9499bfe47fa
-ms.sourcegitcommit: 4b9b21ca1f366388a78ead7413cb581f2b23d4c6
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "2712095"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59850111"
 ---
-# Grundlegendes zu Windows Admin Center-Erweiterungen
+# <a name="understanding-windows-admin-center-extensions"></a>Grundlegendes zu Windows Admin Center-Erweiterungen
 
->Betrifft: Windows Admin Center, Windows Admin Center – Vorschau
+>Gilt für: Windows Admin Center, Windows Admin Center Preview
 
 Falls Sie noch nicht mit der Funktionsweise von Windows Admin Center vertraut sind, beginnen wir mit der allgemeinen Architektur: Windows Admin Center besteht aus zwei Hauptkomponenten:
 
@@ -28,7 +28,7 @@ Falls Sie noch nicht mit der Funktionsweise von Windows Admin Center vertraut si
 
 Die vom Webdienst bedienten Webseiten der Windows Admin Center-Benutzeroberfläche besteht aus zwei UI Komponenten aus Sicht der Erweiterbarkeit, Lösungen und Tools, die als Erweiterungen implementiert werden, und einem dritten Erweiterungstyp der Gateway-Plug-In genannt wird.
 
-## Erweiterungen für Lösungen
+## <a name="solution-extensions"></a>Erweiterungen für Lösungen
 
 In der Windows Admin Center-Startseite können Sie in der Standardeinstellung vier Typen von Verbindungen hinzufügen – Windows Server-Verbindungen, Windows-PC-Verbindungen, Failoverclusterverbindungen und hyperkonvergente Clusterverbindungen. Nachdem eine Verbindung hinzugefügt wird, wird der Verbindungsname und der Typ in der Startseite angezeigt. Durch Klicken auf den Verbindungsnamen wird versucht, eine Verbindung mit dem Zielserver oder Cluster zu erstellen und die Benutzeroberfläche für die Verbindung hochzuladen.
 
@@ -36,7 +36,7 @@ In der Windows Admin Center-Startseite können Sie in der Standardeinstellung vi
 
 Jeder dieser Verbindungstypen ist einer Lösung zugeordnet und Lösungen werden über einen Typ der Erweiterung mit dem Namen "Lösung"-Erweiterungen definiert. Lösungen definieren normalerweise einen eindeutigen Objekttyp, das Sie über Windows Admin Center verwalten, wie Server, PCs oder Failovercluster. Sie können auch eine neue Lösung zum Verbinden mit und Verwalten von anderen Geräten wie Netzwerkswitches und Linux-Server oder sogar Diensten wie Remotedesktopdienste definieren.
 
-## Tool-Erweiterungen
+## <a name="tool-extensions"></a>Tool-Erweiterungen
 
 Wenn Sie auf eine Verbindung auf der Startseite im Windows Admin Center klicken und eine Verbindung herstellen, wird die Erweiterung der Lösung für den ausgewählten Verbindungstyp geladen, und wer wird mit der Lösungs-Benutzeroberfläche einschließlich einer Liste der Tools im linken Navigationsbereich angezeigt. Wenn Sie auf ein Tool klicken, wird die Tool-UI geladen und im rechten Bereich angezeigt.
 
@@ -46,10 +46,10 @@ Alle diese Tools werden durch einen zweiten Typ der Erweiterung mit dem Namen "T
 
 ![Liste der Tools für jede bereitzustellende Lösung](../media/understand-extensions/tools-for-solutions.png)
 
-## Gateway-Plug-Ins
+## <a name="gateway-plugins"></a>Gateway-Plug-Ins
 
 Der Gatewaydienst macht REST-APIs für die Benutzeroberfläche verfügbar und leitet Befehle und Skripts auf den Zielcomputer. Der Gatewaydienst kann von Gateway-Plug-Ins erweitert werden, die verschiedene Protokolle unterstützen. Windows Admin Center ist vorkonfigurierte mit zwei Gateway-Plug-Ins, eins für PowerShell-Skripts und das andere für WMI-Befehle. Wenn Sie mit dem Ziel über ein anderes Protokoll als PowerShell oder WMI kommunizieren, wie etwa REST, können Sie ein Gateway-Plug-In für dieses erstellen.
 
-## Nächste Schritte
+## <a name="next-steps"></a>Nächste Schritte
 
 Je nachdem, welche Funktionen Sie in Windows Admin Center erstellen, reicht das [Erstellen einer Tool-Erweiterung](develop-tool.md) für einen vorhandenen Server oder Clusterlösungen möglicherweise aus, und es ist am einfachsten, zunächst die Erweiterungen zu erstellen. Wenn die Funktion für die Verwaltung eines Geräts, Services oder eines vollständig neuen Dienstes anstatt eines Servers oder Clusters ist, sollten Sie [eine Lösungserweiterung](develop-solution.md) mit einem oder mehreren Tools erstellen. Wenn Sie mit dem Ziel über ein anderes Protokoll als WMI-Filterung oder PowerShell kommunizieren, müssen Sie [ein Gateway-Plug-In erstellen](develop-gateway-plugin.md). [Lesen Sie weiter](developing-extensions.md) für Informationen zum Einrichten Ihrer Entwicklungsumgebung und zum Schreiben der ersten Erweiterung.

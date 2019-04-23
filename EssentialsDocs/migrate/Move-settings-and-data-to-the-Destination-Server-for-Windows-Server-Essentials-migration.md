@@ -1,6 +1,6 @@
 ---
-title: "Verschieben von Einstellungen und Daten auf den Zielserver für Windows Server Essentials-migration"
-description: Beschreibt, wie Sie Windows Server Essentials
+title: Verschieben von Einstellungen und Daten auf den Zielserver für die Migration zu Windows Server Essentials
+description: Beschreibt, wie Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,87 +13,88 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 97a9f7ec7a9710b66236d8eca05dea2432df04ba
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59857481"
 ---
-# <a name="move-settings-and-data-to-the-destination-server-for-windows-server-essentials-migration"></a>Verschieben von Einstellungen und Daten auf den Zielserver für Windows Server Essentials-migration
+# <a name="move-settings-and-data-to-the-destination-server-for-windows-server-essentials-migration"></a>Verschieben von Einstellungen und Daten auf den Zielserver für die Migration zu Windows Server Essentials
 
->Gilt für: Windows Server2016 Essentials, Windows Server2012 R2 Essentials, Windows Server2012 Essentials
+>Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Verschieben von Einstellungen und Daten wie folgt auf den Zielserver:  
+Verschieben von Einstellungen und Daten auf den Zielserver:  
   
 
-1.  [Kopieren von Daten auf dem Zielserver](Move-Windows-SBS-2008-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md#BKMK_CopyData)  
+1.  [Kopieren von Daten auf den Zielserver](Move-Windows-SBS-2008-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md#BKMK_CopyData)  
   
 2.  [Konfigurieren des Netzwerks](Move-Windows-SBS-2008-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md#BKMK_Network)  
   
 3.  [Ordnen Sie zugelassener Computer zu Benutzerkonten zu](Move-Windows-SBS-2008-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md#BKMK_MapPermittedComputers)  
  
-##  <a name="BKMK_CopyData"></a>Kopieren von Daten auf dem Zielserver  
- Bevor Sie Daten vom Quellserver auf den Zielserver kopieren, werden führen Sie die folgenden Aufgaben aus:  
+##  <a name="BKMK_CopyData"></a> Kopieren von Daten auf den Zielserver  
+ Führen Sie die folgenden Aufgaben aus, bevor Sie Daten vom Quellserver zum Zielserver kopieren:  
   
--   Überprüfen Sie die Liste der freigegebenen Ordner auf dem Quellserver, einschließlich der Berechtigungen für jeden Ordner. Erstellen Sie oder passen Sie der Ordner auf dem Zielserver, der Ordnerstruktur entsprechen, die Sie vom Quellserver migrieren an.  
+-   Prüfen Sie die Liste der freigegebenen Ordner auf dem Quellserver, einschließlich der Berechtigungen für jeden Ordner. Erstellen Sie die Ordner auf dem Zielserver so bzw. passen Sie diese so an, dass sie der Ordnerstruktur entsprechen, die Sie vom Quellserver migrieren.  
   
 -   Überprüfen Sie die Größe der einzelnen Ordner, und stellen Sie sicher, dass der Zielserver ausreichend Speicherplatz aufweist.  
   
--   Stellen Sie die freigegebenen Ordner auf dem Quellserver nur Lesezugriff für alle Benutzer daher nicht geschrieben werden kann, auf das Laufwerk, während Sie Dateien auf den Zielserver kopieren.  
+-   Machen Sie die freigegebenen Ordner auf dem Quellserver für alle Benutzer schreibgeschützt, damit auf das Laufwerk nicht geschrieben werden kann, während Sie Dateien auf den Zielserver kopieren.  
   
-#### <a name="to-copy-data-from-the-source-server-to-the-destination-server"></a>Kopieren von Daten vom Quellserver auf den Zielserver  
+#### <a name="to-copy-data-from-the-source-server-to-the-destination-server"></a>Kopieren von Daten vom Quellserver auf den Zielserver.  
   
-1.  Melden Sie sich auf den Zielserver als Domänenadministrator an, und öffnen Sie ein Eingabeaufforderungsfenster.  
+1.  Melden Sie sich am Zielserver als ein Domänenadministrator an, und öffnen Sie dann ein Befehlsfenster.  
   
-2.  Geben Sie den folgenden Befehl an der Eingabeaufforderung, und drücken Sie dann die EINGABETASTE:  
+2.  Geben Sie an der Eingabeaufforderung den folgenden Befehl ein, und drücken Sie die EINGABETASTE:  
   
     `robocopy \\<SourceServerName> \<SharedSourceFolderName> \\<DestinationServerName> \<SharedDestinationFolderName> /E /B /COPY:DATSOU /LOG:C:\Copyresults.txt`  
   
      Dabei gilt:
-     - \ < SourceServerName\ > ist der Name des Quellservers
-     - \ < SharedSourceFolderName\ > ist der Name des freigegebenen Ordners auf dem Quellserver
-     - \ < DestinationServerName\ > ist der Name des Zielservers,
-     - \ < SharedDestinationFolderName\ > ist der freigegebene Ordner auf dem Zielserver, der die Daten kopiert werden.  
+     - \<Quellservername\> ist der Name des Quellservers
+     - \<Namedesfreigegebenenquellordners\> ist der Name des freigegebenen Ordners auf dem Quellserver
+     - \<Zielservername\> ist der Name des Zielservers,
+     - \<Namedesfreigegebenenzielordners\> ist der freigegebene Ordner auf dem Zielserver, auf denen die Daten kopiert werden.  
   
-3.  Wiederholen Sie den vorherigen Schritt für jeden freigegebenen Ordner, den Sie vom Quellserver migrieren.  
+3.  Wiederholen Sie den vorherigen Schritt für jeden freigegebenen Ordner, zu dem Sie die Migration vom Quellserver aus vornehmen.  
   
-##  <a name="BKMK_Network"></a>Konfigurieren des Netzwerks  
- Nachdem Sie die DHCP-Serverrolle auf den Router verschieben, konfigurieren Sie die Netzwerkeinstellungen auf dem Zielserver.  
+##  <a name="BKMK_Network"></a> Konfigurieren des Netzwerks  
+ Nachdem Sie die DHCP-Rolle zum Router verschoben haben, konfigurieren Sie die Netzwerkeinstellungen auf dem Zielserver.  
   
-#### <a name="to-configure-the-network"></a>Konfigurieren des Netzwerks  
+#### <a name="to-configure-the-network"></a>So konfigurieren Sie das Netzwerk  
   
-1.  Öffnen Sie das Dashboard, auf dem Zielserver.  
+1.  Öffnen Sie auf dem Zielserver das Dashboard.  
   
-2.  Auf dem Dashboard **Home** auf **SETUP**, klicken Sie auf **"Zugriff überall" einrichten**, und wählen Sie dann die **zum Konfigurieren von "Zugriff überall"** Option.  
+2.  Klicken Sie auf dem Dashboard **Home** auf **Setup**, klicken Sie auf **"Zugriff überall" einrichten**, und wählen Sie dann die Option **Zum Konfigurieren von "Zugriff überall" klicken** aus.  
   
-3.  Führen Sie die Anweisungen im Assistenten so konfigurieren Sie den Router und Domänennamen.  
+3.  Vervollständigen Sie die Anweisungen im Assistenten, um Ihren Router und Domänennamen zu konfigurieren.  
   
- Wenn Ihr Router das UPnP-Framework nicht unterstützt oder wenn das UPnP-Framework deaktiviert ist, kann ein gelbes Warnsymbol neben dem Namen des Routers angezeigt werden. Stellen Sie sicher, dass folgende Ports geöffnet sind und sie an die IP-Adresse des Zielservers weitergeleitet werden:  
+ Wenn Ihr Router das UPnP-Framework nicht unterstützt, oder wenn das UPnP-Framework deaktiviert ist, wird möglicherweise ein gelbes Warnsymbol neben dem Namen des Routers angezeigt. Stellen Sie sicher, dass folgende Ports geöffnet sind, und dass sie an die IP-Adresse des Zielservers weitergeleitet werden:  
   
 -   Port 80: HTTP-Webdatenverkehr  
   
 -   Port 443: HTTPS-Webdatenverkehr  
   
-##  <a name="BKMK_MapPermittedComputers"></a>Ordnen Sie zugelassener Computer zu Benutzerkonten zu  
+##  <a name="BKMK_MapPermittedComputers"></a> Ordnen Sie zugelassener Computer zu Benutzerkonten zu  
  Jedes Benutzerkonto, das vom Quellserver migriert wird, muss einem oder mehreren Computern zugeordnet werden.  
   
-#### <a name="to-map-user-accounts-to-computers"></a>So weisen Sie Benutzerkonten für Computer  
+#### <a name="to-map-user-accounts-to-computers"></a>So weisen Sie Benutzerkonten Computern zu  
   
-1.  Öffnen Sie das Windows Server Essentials-Dashboard.  
+1.  Öffnen Sie Windows Server Essentials-Dashboard.  
   
-2.  Klicken Sie in der Navigationsleiste auf **Benutzer**.  
+2.  Klicken Sie auf der Navigationsleiste auf **Benutzer**.  
   
-3.  Klicken Sie in der Liste der Benutzerkonten, Maustaste auf ein Benutzerkonto, und klicken Sie dann auf **Kontoeigenschaften anzeigen**.  
+3.  Klicken Sie in der Liste von Benutzerkonten mit der rechten Maustaste auf ein Benutzerkonto, und klicken Sie dann auf **Kontoeigenschaften anzeigen**.  
   
-4.  Klicken Sie auf die **"Zugriff überall"** Registerkarte, und klicken Sie dann auf **ermöglichen den Remotewebzugriff und Zugriff auf Webdienstanwendungen. **.  
+4.  Klicken Sie auf die Registerkarte **Zugriff überall**, und klicken Sie dann auf **Remotewebzugriff und Zugriff auf Webdienstanwendungen zulassen**.  
   
-5.  Wählen Sie **freigegebene Ordner**wählen **Computer**wählen **Links auf der Startseite**, und klicken Sie dann auf **übernehmen**.  
+5.  Wählen Sie **Freigegebene Ordner**, **Computers**und **Links auf der Startseite**aus, und klicken Sie dann auf **Übernehmen**.  
   
-6.  Klicken Sie auf die **Zugriff auf den Computer** Registerkarte, und klicken Sie dann auf den Namen des Computers, zu dem Sie den Zugriff zulassen möchten.  
+6.  Klicken Sie auf der Registerkarte **Computerzugriff** auf den Namen des Computers, für den Sie Zugriff gewähren möchten.  
   
 7.  Wiederholen Sie die Schritte 3, 4, 5 und 6 für jedes Benutzerkonto.  
   
 > [!NOTE]
->  Sie müssen nicht zum Ändern der Konfiguration des Client-Computers. Es wird automatisch konfiguriert.  
+>  Die Konfiguration des Clientcomputers braucht nicht geändert zu werden. Er wird automatisch konfiguriert.  
   
 > [!NOTE]
->  Nach der Migration durchführen, wenn Sie ein Problem auftritt, bei der Erstellung des ersten neuen Benutzerkontos auf dem Zielserver entfernen Sie das Benutzerkonto an, das Sie hinzugefügt haben, und erstellen Sie es erneut.
+>  Wenn nach abgeschlossener Migration ein Problem beim Erstellen des ersten neuen Benutzerkontos auf dem Zielserver auftritt, entfernen Sie das Benutzerkonto, das Sie hinzugefügt haben, und erstellen Sie es erneut.

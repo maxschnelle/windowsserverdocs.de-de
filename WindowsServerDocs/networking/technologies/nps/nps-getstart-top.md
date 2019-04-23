@@ -1,6 +1,6 @@
 ---
-title: Erste Schrittemit dem Netzwerkrichtlinienserver
-description: Dieses Thema enthält Links zu einführende Themen für Netzwerkrichtlinienserver in Windows Server 2016 und enthält Links zu weiteren Anleitungen zum NPS.
+title: Erste Schritte mit dem Netzwerkrichtlinienserver
+description: Dieses Thema enthält Links zu einführende Themen zum Netzwerkrichtlinienserver unter Windows Server 2016, und enthält Links zu weiteren Anleitungen zum NPS.
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking
@@ -8,29 +8,30 @@ ms.topic: article
 ms.assetid: 29976baf-b0e2-4c01-ab4d-f2940e2bc327
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 75bb1d05edfdfb121e3c04fbc9171e0bae03c244
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: b240bafba718af497e1b35264812b8153d030f9c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59851921"
 ---
-# <a name="getting-started-with-network-policy-server"></a>Erste Schrittemit dem Netzwerkrichtlinienserver
+# <a name="getting-started-with-network-policy-server"></a>Erste Schritte mit dem Netzwerkrichtlinienserver
 
->Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
-Die Themen können in diesem Abschnitt Informationen zu Network Policy Server-Features und Funktionen.  
+Sie können in den Themen in diesem Abschnitt verwenden, Informationen zu Network Policy Server-Features und Funktionen.  
   
 >[!NOTE]
->Weitere Dokumentation Network Policy Server können Sie die folgenden Abschnitte der Bibliothek verwenden.  
->- [Planen eines Netzwerkrichtlinienservers](nps-plan-top.md)
->- [Bereitstellen eines Netzwerkrichtlinienservers](nps-deploy.md)
->- [Verwalten eines Netzwerkrichtlinienservers](nps-manage-top.md)
+>Weitere Dokumentation für Network Policy Server können Sie die folgenden Abschnitte der Bibliothek.  
+>- [Planen des Netzwerkrichtlinienservers](nps-plan-top.md)
+>- [Bereitstellen des Netzwerkrichtlinienservers](nps-deploy.md)
+>- [Verwalten des Netzwerkrichtlinienservers](nps-manage-top.md)
   
   
-Dieser Abschnittenthält die folgenden Themen.
+In diesem Abschnitt werden die folgenden Themen behandelt:
   
-- [Verarbeitung von Verbindungsanforderungen](nps-crp-top.md)
-- [Richtlinien für Netzwerke](nps-np-overview.md)
+- [Verbindung Anforderungsverarbeitung](nps-crp-top.md)
+- [Netzwerkrichtlinien](nps-np-overview.md)
 - [NPS-Vorlagen](nps-templates.md)
 - [RADIUS-Clients](nps-radius-clients.md)
 

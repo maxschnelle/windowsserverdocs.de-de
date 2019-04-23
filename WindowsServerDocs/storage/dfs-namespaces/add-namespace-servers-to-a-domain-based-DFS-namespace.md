@@ -1,6 +1,6 @@
 ---
-title: "Hinzufügen von Namespaceserver zu einem domänenbasierten DFS-Namespace"
-description: "Dieser Artikel beschreibt, wie Sie zusätzliche Namespaceserver zum Hosten eines Namespaces mit DFS-Verwaltung angeben."
+title: Hinzufügen von Namespaceserver zu einem domänenbasierten DFS-Namespace
+description: Dieser Artikel beschreibt, wie Sie zusätzliche Namespaceserver zum Hosten eines Namespaces mit DFS-Verwaltung angeben.
 ms.date: 6/5/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -8,15 +8,16 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 70ab3cac71f5766bc572015c6b23c0937e5252f0
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.openlocfilehash: bb3b98e1ea687b68bbb87d0da413f9624d336370
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59853331"
 ---
 # <a name="add-namespace-servers-to-a-domain-based-dfs-namespace"></a>Hinzufügen von Namespaceserver zu einem domänenbasierten DFS-Namespace
 
-> Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server2012 R2, Windows Server 2012, Windows Server2008 R2, Windows Server 2008
+> Gilt für: WindowsServer 2019, WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2, WindowsServer 2008
 
 Sie können die Verfügbarkeit eines domänenbasierten Namespaces erhöhen, indem Sie zusätzliche Namespaceserver zum Hosten des Namespaces angeben.
 
@@ -35,12 +36,12 @@ Um einen domänenbasierten Namespace mit DFS-Verwaltung einem Namespaceserver hi
 
 
 > [!TIP]
-> Verwenden Sie zum Hinzufügen eines Namespaceservers mithilfe von Windows PowerShell das [New-DfsnRootTarget-Cmdlet](https://docs.microsoft.com/powershell/module/dfsn/set-dfsnroottarget). Das DFSN Windows PowerShell-Modul wurde in Windows Server2012 eingeführt.
+> Verwenden Sie zum Hinzufügen eines Namespaceservers mithilfe von Windows PowerShell das [New-DfsnRootTarget-Cmdlet](https://docs.microsoft.com/powershell/module/dfsn/set-dfsnroottarget). Das DFSN Windows PowerShell-Modul wurde in Windows Server 2012 eingeführt.
 
-## <a name="see-also"></a>Weitere Informationen:
+## <a name="see-also"></a>Siehe auch
 
 -   [Bereitstellen von DFS-Namespaces](deploying-dfs-namespaces.md)
--   [Lesen Sie die DFS-Namespaceserveranforderungen](https://technet.microsoft.com/library/cc753448(v=ws.11).aspx)
--   [Erstellen eines DFS-Namespaces](create-a-dfs-namespace.md)
+-   [Überprüfen der Serveranforderungen für DFS-Namespaces](https://technet.microsoft.com/library/cc753448(v=ws.11).aspx)
+-   [Erstellen Sie eine DFS-Namespace](create-a-dfs-namespace.md)
 -   [Delegieren von Verwaltungsberechtigungen für DFS-Namespaces](delegate-management-permissions-for-dfs-namespaces.md)
 

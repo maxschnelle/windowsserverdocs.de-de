@@ -1,5 +1,5 @@
 ---
-title: Willkommen beim Remote Desktop Services in WindowsServer 2016
+title: Willkommen beim Remote Desktop Services unter WindowsServer 2016
 description: Bietet eine Übersicht über Remote Desktop Services
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -15,38 +15,38 @@ author: christianmontoya
 manager: scottman
 ms.localizationpriority: medium
 ms.openlocfilehash: cd00f92254f9e55f83442f5e68e344e0aa7579a2
-ms.sourcegitcommit: 1533d994a6ddea54ac189ceb316b7d3c074307db
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "1708513"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59855501"
 ---
-# <a name="welcome-to-remote-desktop-services"></a>Willkommen beim Remote Desktop Services 
+# <a name="welcome-to-remote-desktop-services"></a>Willkommen bei den Remotedesktopdiensten 
 
-Remote Desktop Services (RDS) ist die Plattform Wahl für die Erstellung von Virtualisierungslösungen für jede End Kunden erforderlich, einschließlich Bereitstellung von einzelnen virtualisierte Anwendungen und Bereitstellen von sicheren mobilen und remote desktop Zugriff Endbenutzer die die Möglichkeit, ihre Anwendungen und Desktops aus der Cloud ausgeführt.
+Remote Desktop Services (RDS) ist die Plattform der Wahl für das Erstellen von Virtualisierungslösungen für jedes End-Kunde sind, einschließlich einzelne virtualisierte Anwendungen bereitstellen, einen sicheren mobilen und desktop-Zugriff und die Endbenutzer die Möglichkeit, ihre Anwendungen und Desktops aus der Cloud auszuführen.
 
-![Remote Desktop Services (Übersicht)](.\media\rds-overview.png)
+![Übersicht über Remotedesktopdienste](.\media\rds-overview.png)
 
-RDS bietet Flexibilität bei der Bereitstellung, Effizienz und Erweiterbarkeit Kosten – alle gelieferten über verschiedene Bereitstellungsoptionen, einschließlich Windows Server 2016 für lokale Bereitstellungen, Microsoft Azure für Cloud-Bereitstellungen und einem robusten Array von Partner Lösungen.
+RDS bietet Flexibilität bei der Bereitstellung, Kosten der Effizienz und Erweiterbarkeit – alle übermittelten über eine Vielzahl von Bereitstellungsoptionen, einschließlich Windows Server 2016 für lokale Bereitstellungen, Microsoft Azure für Cloud-Bereitstellungen und eine stabile Array des Partners Lösungen.
 
-Je nach Ihrer Umgebung und Voreinstellungen können Sie die RDS-Lösung für die Virtualisierung sitzungsbasierte als einer virtuellen Desktopinfrastruktur (VDI) oder als eine Kombination aus beidem einrichten:
+Je nach Umgebung und Einstellungen können Sie die RDS-Lösung für die sitzungsbasierte Virtualisierung als einer virtuellen Desktopinfrastruktur (VDI) oder als eine Kombination aus beidem einrichten:
 
-- **Sitzungsbasierte Virtualisierung**: Nutzen Sie die Compute von Windows Server eine kostengünstige Multi-Session-Umgebung Ihrer Benutzer alltägliche Arbeitslasten Laufwerk bieten
-- **VDI**: Nutzen Sie Windows-Client auf hohe Leistung, app-Kompatibilität und vertraut sind, die Ihre Benutzer heutzutage erwarten von ihren Windows-desktop-Version angeben.
+- **Sitzungsbasierte Virtualisierung**: Nutzen Sie die rechenleistung von Windows Server, bieten eine kostengünstige Multisession-Umgebung, um alltägliche Workloads für Ihrer Benutzer fördern
+- **VDI**: Nutzen Sie die Windows-Client, um die hohe Leistung, Anwendungskompatibilität und vertraut sind, die Ihre Benutzer von uns erwarten von ihren Windows-desktop-Erlebnis zu bieten.
 
-In diesen Virtualisierungsumgebungen müssen Sie zusätzliche Flexibilität bei was Sie für Ihre Benutzer veröffentlichen:
+In diesen Virtualisierungsumgebungen müssen Sie zusätzliche Flexibilität bei der was Sie für Ihre Benutzer veröffentlichen:
 
-- **Desktops**: Stellen Sie den Benutzern eine vollständige Desktopansicht Erfahrung mit einer Vielzahl von Anwendungen, die Sie installieren und verwalten. Ideal für Benutzer, die sich auf diesen Computern als ihren primären Arbeitsstationen oder, die thin Clients wie beispielsweise mit MultiPoint Services stammen.
-- **RemoteApps**: Geben Sie einzelne Anwendungen, die auf dem virtuellen Computer gehostet/ausführen sind aber angezeigt werden, als ob sie auf dem Desktop des Benutzers wie lokale Anwendungen ausgeführt werden. Apps können haben einen eigenen Eintrag in der Taskleiste und geändert und auf Monitore verschoben werden. Ideal für die Bereitstellung und Verwaltung von wichtige Anwendungen in der Umgebung für sichere, remote Benutzer arbeiten aus, und passen ihren eigenen Desktop.
+- **Desktops**: Bieten Sie Ihren Benutzern uneingeschränkte Desktopfeatures mit einer Vielzahl von Anwendungen, die Sie installieren und verwalten. Ideal für Benutzer, die auf diesen Computern als ihren primären Arbeitsstationen basieren, die sind stammen oder von thin Clients, z. B. mit MultiPoint Services.
+- **RemoteApps**: Geben Sie die einzelne Anwendungen, die auf dem virtuellen Computer gehostete/ausführen werden jedoch angezeigt, als ob sie auf dem Desktop des Benutzers wie bei lokalen Anwendungen ausgeführt werden. Die apps können haben ihre eigenen Eintrag in der Taskleiste und werden geändert und auf Bildschirme verschoben werden. Ideal für die Bereitstellung und Verwaltung von schlüsselanwendungen in der Umgebung sichere während Benutzer mit arbeiten und Anpassen ihrer eigenen Desktops.
 
-Umgebungen, in denen Kosteneffektivität entscheidend ist und Sie die Vorteile der Bereitstellung von vollständigen Desktops in einer Virtualisierungsumgebung sitzungsbasierte erweitern möchten können Sie für [MultiPoint Services](../multipoint-services/multipoint-services.md) besten Wert anzubieten. 
+Für Umgebungen, in denen Kosteneffizienz ist von entscheidender Bedeutung, und Sie die Vorteile einer Bereitstellung von vollständigen Desktops in einer Umgebung für die sitzungsbasierte Virtualisierung erweitern möchten, können Sie [MultiPoint Services](../multipoint-services/multipoint-services.md) optimal zu übermitteln. 
 
-Mit diesen Optionen und Konfigurationen haben Sie die Möglichkeit zum Bereitstellen des Desktops und der Anwendungen, die Ihre Benutzer in einer sicheren, Remote und kostengünstige Weise benötigen.
+Mit diesen Optionen und Konfigurationen müssen Sie die Flexibilität zum Bereitstellen von Desktops und Anwendungen, mit denen, die Ihre Benutzer in einer Remote, sichere und kostengünstige Weise zu müssen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Hier sind einige weitere Schritte, damit Sie besser zu verstehen, von RDS und sogar Starten Ihrer Umgebung bereitstellen:
--   Grundlegendes zu den [unterstützten Konfigurationen](rds-supported-config.md) für RDS mit den verschiedenen Versionen von Windows und Windows Server
--   [Planen und Entwerfen](rds-plan-and-design.md) einer RDS-Umgebung zu verschiedenen Erfordernissen, wie hohe Verfügbarkeit und die mehrstufige Authentifizierung gerecht zu werden.
--   Überprüfen Sie die [Remote Desktop Services-Architektur-Modelle](desktop-hosting-logical-architecture.md) , die am besten für Ihre Umgebung gewünschten.
--   Starten Sie [Ihre RDS-Umgebung mit ARM und Azure Marketplace](rds-in-azure.md)bereitstellen.
+Hier sind die folgenden Schritte ausführen können Sie ein besseres Verständnis von RDS und Bereitstellen Ihrer eigenen Umgebung neu starten:
+-   Verstehen der [unterstützte Konfigurationen](rds-supported-config.md) für RDS mit den verschiedenen Windows und Windows Server-Versionen
+-   [Planen und Entwerfen von](rds-plan-and-design.md) einer RDS-Umgebung, um verschiedene Anforderungen, wie z. B. hohe Verfügbarkeit und Multi-Factor Authentication zu berücksichtigen.
+-   Überprüfen Sie die [Remote Desktop Services Architekturmodelle](desktop-hosting-logical-architecture.md) , die am besten für die gewünschte Umgebung funktionieren.
+-   Damit beginnen, [der RDS-Umgebung mit ARM und dem Azure Marketplace bereitstellen](rds-in-azure.md).

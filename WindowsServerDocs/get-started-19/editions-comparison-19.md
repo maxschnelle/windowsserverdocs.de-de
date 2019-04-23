@@ -1,5 +1,5 @@
 ---
-title: Vergleich der Standard- und Datacenter-Editionen von Windows Server 2019
+title: Vergleich von Standard- und Datacenter-Editionen von Windows Server-2019
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -12,18 +12,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: jasgroce
 ms.localizationpriority: medium
-ms.openlocfilehash: e94c88ab7fb4aede7554dd621843b613fa16b6dc
-ms.sourcegitcommit: 0b51cf8d0a1db31d6d2e2e45a145011311fbdf34
-ms.translationtype: MT
+ms.openlocfilehash: ba7487a7e063775219182645a273d49c473f52e2
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "9169934"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59854131"
 ---
-# Vergleich der Standard- und Datacenter-Editionen von Windows Server 2019
+# <a name="comparison-of-standard-and-datacenter-editions-of-windows-server-2019"></a>Vergleich von Standard- und Datacenter-Editionen von Windows Server-2019
 
-> Gilt für: Windows Server2019
+> Gilt für: Windows Server 2019
   
-## Sperren und Beschränkungen
+## <a name="locks-and-limits"></a>Sperren und Beschränkungen
 |Sperren und Beschränkungen|Windows Server 2019 Standard|Windows Server 2019 Datacenter|  
 |-------------------|----------|---------------------------|  
 |Maximale Anzahl von Benutzern|Basierend auf Clientzugriffslizenzen|Basierend auf Clientzugriffslizenzen|
@@ -36,26 +36,26 @@ ms.locfileid: "9169934"
 |Maximaler RAM|24 TB|24 TB|
 |Kann als Virtualisierungsgast verwendet werden|Ja. 2 virtuelle Computer plus ein Hyper-V-Host pro Lizenz|Ja. Unbegrenzte Anzahl von virtuellen Computern plus ein Hyper-V-Host pro Lizenz|
 |Server kann einer Domäne beitreten.|ja|ja|
-|Umkreisnetzwerkschutz/-firewall|nein|Nein|
+|Umkreisnetzwerkschutz/-firewall|nein|nein|
 |DirectAccess|ja|ja|
 |DLNA-Codecs und Webmedienstreaming|Ja, bei der Installation als Server mit Desktopdarstellung|Ja, bei der Installation als Server mit Desktopdarstellung|
 
-## Serverrollen
+## <a name="server-roles"></a>Serverrollen
 |Verfügbare Windows Server-Rollen|Rollendienste|Windows Server 2019 Standard|Windows Server 2019 Datacenter|  
 |-------------------|----------|----------|---------------------------|  
-|Active Directory-Zertifikatdienste| |Ja.|Ja.|
+|Active Directory-Zertifikatdienste| |Ja|Ja|
 |Active Directory Domain Services| |Ja|Ja|
-|Active Directory-Verbunddienste (AD FS)| |Ja.|Ja.|
-|AD Lightweight Directory Services| |Ja.|Ja.|
-|AD Rights Management Services| |Ja.|Ja.|
-|Integritätsnachweis für Geräte| |Ja.|Ja.|
-|DHCP-Server| |Ja.|Ja.|
-|DNS-Server| |Ja.|Ja.|
-|Faxserver| |Ja.|Ja|
-|Datei- und Speicherdienste|Dateiserver|Ja.|Ja|
-|Datei- und Speicherdienste|BranchCache für Netzwerkdateien|Ja.|Ja|
-|Datei- und Speicherdienste|Datendeduplizierung|Ja.|Ja|
-|Datei- und Speicherdienste|DFS-Namespaces|Ja.|Ja|
+|Active Directory-Verbunddienste (AD FS)| |Ja|Ja|
+|AD Lightweight Directory Services| |Ja|Ja|
+|AD Rights Management Services| |Ja|Ja|
+|Integritätsnachweis für Geräte| |Ja|Ja|
+|DHCP-Server| |Ja|Ja|
+|DNS-Server| |Ja|Ja|
+|Faxserver| |Ja|Ja|
+|Datei- und Speicherdienste|Dateiserver|Ja|Ja|
+|Datei- und Speicherdienste|BranchCache für Netzwerkdateien|Ja|Ja|
+|Datei- und Speicherdienste|Datendeduplizierung|Ja|Ja|
+|Datei- und Speicherdienste|DFS-Namespaces|Ja|Ja|
 |Datei- und Speicherdienste|DFS-Replikation|Ja|Ja|
 |Datei- und Speicherdienste|Ressourcen-Manager für Dateiserver|Ja|Ja|
 |Datei- und Speicherdienste|Dateiserver-VSS-Agent-Dienst|Ja|Ja|
@@ -66,21 +66,22 @@ ms.locfileid: "9169934"
 |Datei- und Speicherdienste|Speicherdienste|Ja|Ja|
 |Host-Überwachungsdienst| |Ja|Ja|
 |Hyper-V| |Ja|Ja; einschließlich abgeschirmte virtuelle Computer|
-|Netzwerkcontroller| |Nein|Ja.|
+|MultiPoint Services| |Ja|Ja|
+|Netzwerkcontroller| |Nein|Ja|
 |Network Policy and Access Services| |Ja, bei der Installation als Server mit Desktopdarstellung|Ja, bei der Installation als Server mit Desktopdarstellung|
 |Druck- und Dokumentdienste| |Ja|Ja|
 |Remotezugriff| |Ja|Ja|
-|Remotedesktopdienste| |Ja|Ja.|
+|Remotedesktopdienste| |Ja|Ja|
 |Volumenaktivierungsdienste| |Ja|Ja|
 |Webdienste (IIS)| |Ja|Ja|
 |Windows-Bereitstellungsdienste| |Ja*|Ja*|
-|Windows Server Essentials Experience| |Ja|Ja|
+|Windows Server Essentials-Umgebung| |Ja|Ja|
 |Windows Server Update Services| |Ja|Ja|
 
-* WDS-Transport-Server ist neu in Server Core-Installationen in Windows Server 2019 (auch in Windows Server, Version 1803 ab Semi-annual Channel)
+* Die WDS-Transportserver ist neu in Server Core-Installationen in Windows Server-2019 (ebenfalls in der halbjährlicher Kanal, beginnend mit Windows Server, Version 1803)
 
 
-## Features
+## <a name="features"></a>Features
 
 |Windows Server-Features mit Server-Manager (oder PowerShell) installierbar|Windows Server 2019 Standard|Windows Server 2019 Datacenter|  
 |-------------------|----------|---------------------------|  
@@ -92,7 +93,7 @@ ms.locfileid: "9169934"
 |BranchCache|Ja|Ja|
 |Client für NFS|Ja|Ja|
 |Container|Ja (Windows-Container unbegrenzt; Hyper-V-Container bis zu 2)|Ja (alle Containertypen unbegrenzt)|
-|Data Center Bridging|Ja|Ja.|
+|Data Center Bridging|Ja|Ja|
 |DirectPlay|Ja, bei der Installation als Server mit Desktopdarstellung|Ja, bei der Installation als Server mit Desktopdarstellung|
 |Erweitertes Speichern|Ja|Ja|
 |Failoverclustering|Ja|Ja|
@@ -137,7 +138,7 @@ ms.locfileid: "9169934"
 |Windows-Prozessaktivierungsdienst|Ja|Ja|
 |Windows Search-Dienst|Ja, bei der Installation als Server mit Desktopdarstellung|Ja, bei der Installation als Server mit Desktopdarstellung|
 |Windows Server-Sicherung|Ja|Ja|
-|WindowsServer-Migrationstools|Ja|Ja|
+|Windows Server-Migrationstools|Ja|Ja|
 |Standardbasierte Windows-Speicherverwaltung|Ja|Ja|
 |Windows-TIFF-IFilter|Ja, bei der Installation als Server mit Desktopdarstellung|Ja, bei der Installation als Server mit Desktopdarstellung|
 |WinRM-IIS-Erweiterung|Ja|Ja|
@@ -149,7 +150,7 @@ ms.locfileid: "9169934"
 |Allgemein verfügbare Funktionen|Windows Server 2019 Standard|Windows Server 2019 Datacenter|  
 |-------------------|----------|---------------------------|  
 |Best Practices Analyzer|Ja|Ja|
-|Eingeschränkte Speicherreplikaten|Ja, (1 Partnerschaft und 1 Ressourcengruppe mit einzelnen 2-TB-Volume)|"Ja", "Unbegrenzt"|
+|Eingeschränkte Funktion "Speicherreplikat"|Ja, (1-Partnerschaft und 1 Ressourcengruppe mit einzelnen 2TB)|Ja, unbegrenzt|
 |Direct Access|Ja|Ja|
 |Dynamischer Arbeitsspeicher (in Virtualisierung)|Ja|Ja|
 |RAM im laufenden Systembetrieb hinzufügen/entfernen|Ja|Ja|
@@ -161,11 +162,11 @@ ms.locfileid: "9169934"
 |Nano Server-Installationsoption|Ja|Ja|
 |Server-Manager|Ja|Ja|
 |SMB Direct und SMB über RDMA|Ja|Ja|
-|Softwaredefinierte Netzwerke|Nein.|Ja|
-|Speicherverwaltungsdienst|Ja|Ja.|
+|Softwaredefinierte Netzwerke|Nein|Ja|
+|Speicherverwaltungsdienst|Ja|Ja|
 |Speicherplätze|Ja|Ja|
-|Direkte Speicherplätze|Nein.|Ja.|
-|Volumenaktivierungsdienste|Ja|Ja.|
+|Direkte Speicherplätze|Nein|Ja|
+|Volumenaktivierungsdienste|Ja|Ja|
 |Integration mit Volumeschattenkopie-Dienst (Volume Shadow Copy Service, VSS)|Ja|Ja|
 |Windows Server Update Services|Ja|Ja|
 |Windows-Systemressourcen-Manager|Ja|Ja|

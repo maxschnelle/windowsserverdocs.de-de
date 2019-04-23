@@ -1,6 +1,6 @@
 ---
 title: Dynamic Host Configuration-Protokoll (DHCP)
-description: Dieses Thema enthält eine kurze Übersicht über die von Dynamic Host Configuration Protokoll (DHCP) in Windows Server2016.
+description: Dieses Thema enthält eine kurze Übersicht des Dynamic Host Configuration Protocol (DHCP), in Windows Server 2016.
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking-dhcp
@@ -8,65 +8,66 @@ ms.topic: article
 ms.assetid: 0ff29ef3-c458-4432-9065-e50a7de5b4b9
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 770cfd78c7b9a0e122bd9f9936623a73b56af808
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 08b07e902486ae633b30949270e15f8bf94afaaf
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59857491"
 ---
 # <a name="dynamic-host-configuration-protocol-dhcp"></a>Dynamic Host Configuration-Protokoll (DHCP)
 
->Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
-In diesem Thema können eine kurze Übersicht über DHCP in Windows Server2016.
+Sie können in diesem Thema für einen kurzen Überblick über DHCP unter Windows Server 2016 verwenden.
 
 >[!NOTE]
->Zusätzlich zu diesem Thema ist die folgende DHCP-Dokumentation verfügbar.
+>Zusätzlich zu diesem Thema wird die folgende Dokumentation zum DHCP-verfügbar.
 >
 >- [Neues in DHCP](What-s-New-in-DHCP.md)
->- [Bereitstellen von DHCP mit der WindowsPowerShell](dhcp-deploy-wps.md)
+>- [Bereitstellen von DHCP mit Windows PowerShell](dhcp-deploy-wps.md)
 
-Dynamic Host Configuration-Protokoll (DHCP) ist ein Client/Server-Protokoll, das automatisch einen Host IP (Internet Protocol) mit der IP-Adresse und andere Konfigurationsinformationen, z.B. die Subnetzmaske und das Standardgateway. In den RFCs 2131 und 2132 definieren Sie DHCP als ein Internet Engineering Task Force (IETF) Standard basierend auf Bootstrap Protokoll (BOOTP), ein Protokoll, mit denen DHCP viele Implementierungsdetails teilt. DHCP ermöglicht Hosts von einem DHCP-Server erforderlichen TCP/IP-Konfigurationsinformationen abzurufen.
+Dynamic Host Configuration Protocol (DHCP) ist ein Client/Server-Protokoll, das einen Host IP (Internet Protocol) automatisch mit der IP-Adresse und andere verwandte Konfigurationsinformationen wie z. B. die Subnetzmaske und das Standard-Gateway bereitstellt. RFC 2131 und 2132 definieren DHCP als ein Internet Engineering Task Force (IETF) standard basierend auf Bootstrapprotokoll (BOOTP), ein Protokoll, mit denen viele Implementierungsdetails von DHCP teilt. DHCP ermöglicht Hosts das Abrufen von erforderlichen TCP/IP-Konfigurationsinformationen von DHCP-Server.
 
-Windows Server2016 enthält DHCP-Server eine optionale Netzwerk Serverrolle ist, die Sie auf das Netzwerk für die IP-Adressleases und andere Informationen zu DHCP-Clients bereitstellen können. Alle Windows-basierter Client-Betriebssysteme enthalten den DHCP-Client als Teil des TCP/IP und DHCP-Client ist standardmäßig aktiviert.
+Windows Server 2016 enthält DHCP-Server, der eine optionale networking-Serverrolle, die Sie für Ihr Netzwerk für die IP-Adressleases und Weitere Informationen zum DHCP-Clients bereitstellen können. Alle Windows-basierten Client-Betriebssysteme enthalten den DHCP-Client als Teil des TCP/IP und DHCP-Client ist standardmäßig aktiviert.
 
 ## <a name="why-use-dhcp"></a>Gründe für die Verwendung von DHCP
 
-Jedes Gerät in einem TCP/IP-basierten Netzwerk muss eine eindeutige Unicast-IP-Adresse den Zugriff auf das Netzwerk und seine Ressourcen verfügen. Ohne DHCP müssen IP-Adressen für neue Computer oder für Computer, die aus einem Subnetz auf einen anderen verschoben werden manuell konfiguriert werden; IP-Adressen für Computer, die aus dem Netzwerk entfernt werden, müssen manuell freigegeben werden.
+Jedes Gerät in einem TCP/IP-basierten Netzwerk müssen eine eindeutige Unicast IP-Adresse im Netzwerk und seine Ressourcen zugreifen. Ohne DHCP müssen die IP-Adressen für neue Computer oder Computer, die aus einem Subnetz in ein anderes verschoben werden manuell konfiguriert werden; IP-Adressen für Computer, die aus dem Netzwerk entfernt werden, müssen manuell freigegeben werden.
 
-Mit DHCP wird das gesamte Verfahren automatisiert und zentral verwaltet. Der DHCP-Server verwaltet einen Pool von IP-Adressen und verleiht eine Adresse an alle DHCP-fähige Clients, wenn es im Netzwerk startet. Da die IP-Adressen dynamisch sind (geleasten), statt statische (dauerhaft zugewiesen), werden Adressen nicht mehr in der automatisch dem Pool zur erneuten Belegung zurückgegeben.
+Mit DHCP wird der gesamte Prozess automatisiert und zentral verwaltet. Der DHCP-Server verwaltet einen Pool mit IP-Adressen und eine Adresse für andere DHCP-fähigen Clients geleast, wenn es im Netzwerk wird gestartet. Da die IP-Adressen dynamisch sind (geleast), statt statisch (dauerhaft zugewiesen), werden nicht mehr verwendeten Adressen automatisch an den Pool für die neuzuordnung zurückgegeben.
 
-Der Netzwerkadministrator erstellt DHCP-Servern, die die TCP/IP-Konfigurationsinformationen verwalten und Konfiguration der Adresse für DHCP-fähige Clients in Form von angebotene Lease an. Der DHCP-Server werden die Konfigurationsinformationen in einer Datenbank, die enthält:
+Der Netzwerkadministrator richtet ein DHCP-Servern, die TCP/IP-Konfigurationsinformationen verwalten und Konfigurieren der Adresse für DHCP-fähigen Clients in Form von als Lease angeboten. Der DHCP-Server speichert die Konfigurationsinformationen in einer Datenbank, die enthält:
 
 - Gültige TCP/IP-Konfigurationsparameter für alle Clients im Netzwerk.
 
-- Gültige IP-Adressen in einem Pool für die Zuweisung an Clients verwaltet, sowie Adressen ausgeschlossen.
+- Gültige IP-Adressen, verwaltet, die in einem Pool für die Zuweisung an Clients als auch Adressen ausgeschlossen.
 
-- Reservierte IP-Adressen bestimmter DHCP-Clients zugeordnet. Dies ermöglicht eine einheitliche Zuweisung einer IP-Adresse für einen einzelnen DHCP-Client.
+- Reservierte IP-Adressen bestimmten DHCP-Clients. Dies ermöglicht eine konsistente Zuweisung einer einzelnen IP-Adresse für einen einzelnen DHCP-Client.
 
-- Die Leasedauer, oder die Zeitspanne, für die die IP-Adresse verwendet werden kann, bevor eine Leaseerneuerung erforderlich ist.
+- Die Leasedauer, oder die Zeitspanne, die für die die IP-Adresse verwendet werden kann, bevor die Erneuerung einer Lease erforderlich ist.
 
-Ein DHCP-fähige Client, auf eine Lease-Angebot akzeptiert wird:
+Ein DHCP-fähigen Client, auf die als Lease angeboten, akzeptieren erhält:
 
-- Eine gültige IP-Adresse für das Subnetz, zu dem eine Verbindung hergestellt wird.  
+- Eine gültige IP-Adresse für das Subnetz, das sie eine Verbindung herstellt.  
   
-- DHCP-Optionen, zusätzliche Parameter, die ein DHCP-Server konfiguriert ist angefordert Clients zuweisen. Einige Beispiele für DHCP-Optionen sind Router (Standardgateway), DNS-Server und DNS-Domänennamen.
+- Angefordert von DHCP-Optionen, mit denen zusätzliche Parameter, der auf ein DHCP-Server konfiguriert ist, sind Clients zuweisen. Einige Beispiele für die DHCP-Optionen sind Router (Standardgateway), DNS-Server und DNS-Domänennamen an.
 
 ## <a name="benefits-of-dhcp"></a>Vorteile von DHCP
 
 DHCP bietet folgende Vorteile.
 
-- **Zuverlässige IP-Adresskonfiguration**. DHCP Konfigurationsfehler durch manuelle IP-Adresskonfiguration, z.B. Rechtschreibfehler, minimiert oder -Konflikte zurückzuführen, dass die Zuweisung von IP-Adresse für mehrere Computer gleichzeitig.
+- **Zuverlässige IP-Adresskonfiguration**. DHCP wird durch manuelle Konfiguration IP-Adresse, z. B. Rechtschreibfehler, verursacht Konfigurationsfehler minimiert oder durch die Zuweisung einer IP-Adresse auf mehrere Computer gleichzeitig verursachten Konflikte zu beheben.
 
-- **Reduzierte Netzwerkadministration**. DHCP umfasst die folgenden Features aus, um die Netzwerkadministration reduzieren:
+- **Reduziert die Netzwerkadministration**. DHCP umfasst die folgenden Funktionen aus, um die Netzwerkadministration zu reduzieren:
 
     - Zentralisierte und automatisierte TCP/IP-Konfiguration.
 
-    - Die Möglichkeit, TCP/IP-Konfigurationen von einem zentralen Ort zu definieren.
+    - Die Fähigkeit, TCP/IP-Konfigurationen von einem zentralen Ort zu definieren.
 
-    - Die Möglichkeit, eine Vielzahl von zusätzlichen TCP/IP-Konfigurationswerte durch DHCP-Optionen zugewiesen.
+    - Die Möglichkeit, zahlreiche weitere Werte von TCP/IP-Konfiguration mithilfe von DHCP-Optionen zugewiesen werden soll.
 
-    - Effiziente Behandlung der IP-Adresse wird für Clients, die häufig, z.B. für tragbare Geräte aktualisiert werden müssen, die an andere Speicherorte in einem Drahtlosnetzwerk zu verschieben.
+    - Effiziente Behandlung der IP-Adressänderungen für Clients, die häufig, z. B. für tragbare Geräte aktualisiert werden muss, die an unterschiedliche Positionen in einem drahtlosen Netzwerk zu verschieben.
 
-    - Die Weiterleitung der ursprünglichen DHCP-Nachrichten mit einem DHCP-Relay-Agent, der ein DHCP-Server in jedem Subnetz überflüssig.
+    - Die Weiterleitung der anfänglichen DHCP-Nachrichten mithilfe eines DHCP-Relay-Agents, der entfällt die Notwendigkeit von einem DHCP-Server auf jedem Subnetz.
 

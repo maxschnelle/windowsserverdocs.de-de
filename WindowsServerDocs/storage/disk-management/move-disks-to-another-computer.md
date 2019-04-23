@@ -1,6 +1,6 @@
 ---
-title: "Den Datenträger einen anderen Computer verschieben"
-description: "In diesem Artikel wird beschrieben, wie Sie Datenträger auf einen anderen Computer verschieben"
+title: Den Datenträger einen anderen Computer verschieben
+description: In diesem Artikel wird beschrieben, wie Sie Datenträger auf einen anderen Computer verschieben
 ms.date: 10/12/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 6b235ce8e5b936940629d5977a17bbc729efbe82
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59854001"
 ---
 # <a name="move-disks-to-another-computer"></a>Den Datenträger einen anderen Computer verschieben
 
-> **Gilt für**: Windows 10, Windows 8.1, Windows Server (Semi-Annual Channel), Windows Server 10, Windows Server8.1 R2, Windows Server 2016, Windows Server2012 R2, Windows Server 2012
+> **Gilt für:** Windows 10, Windows 8.1, WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012
 
 Dieser Abschnitt beschreibt die Schritte und Überlegungen, Datenträger auf einen anderen Computer zu verschieben. Möglicherweise möchten Sie dieses Verfahren ausdrucken oder die Schritte notieren, bevor Sie versuchen, den Datenträger von einem Computer auf einen anderen zu verschieben.
 
@@ -33,7 +34,7 @@ Um den Datenträgerstatus im Menü **Ansicht** zu überprüfen, überprüfen Sie
 
 Deinstallieren Sie mithilfe des Geräte-Managers die Datenträger, die verschoben werden sollen.
 
-**So deinstallieren Sie die Datenträger**
+**So deinstallieren Sie Datenträger**
 
 1.  Öffnen Sie den Geräte-Manager in der Computerverwaltung.
 
@@ -62,7 +63,7 @@ Deinstallieren Sie mithilfe des Geräte-Managers die Datenträger, die verschobe
 3. Klicken Sie mit der rechten Maustaste auf einen Datenträger mit der Markierung **Fremd**. 
 4. Klicken Sie auf **Fremde Datenträger importieren**, und befolgen Sie dann die Anweisungen auf dem Bildschirm.
 
-## <a name="additional-considerations"></a>Weitere Überlegungen
+## <a name="additional-considerations"></a>Weitere Aspekte
 
 -   Nach dem Verschieben auf einen anderen Computer erhalten Basisvolumes den nächsten verfügbaren Laufwerkbuchstaben auf dem Computer. 
 -   Dynamische Volumes behalten den Laufwerkbuchstaben, den sie auf dem vorherigen Computer hatten. Wenn ein dynamisches Volume keinen Laufwerkbuchstaben auf dem vorherigen Computer hatte, erhält es keinen Laufwerkbuchstaben, wenn es auf den anderen Computer verschoben wird. Wenn der Laufwerkbuchstabe auf dem Computer bereits verwendet wird, auf denen das Volume verschoben wird, erhält das Volume den nächsten verfügbaren Laufwerkbuchstaben.

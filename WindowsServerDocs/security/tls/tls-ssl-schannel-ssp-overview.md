@@ -1,5 +1,5 @@
 ---
-title: "TLS – SSL (Schannel SSP) (Übersicht)"
+title: Übersicht über die TLS/SSL (Schannel SSP)
 description: Windows Server-Sicherheit
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -12,52 +12,46 @@ ms.assetid: 1b7b0432-1bef-4912-8c9a-8989d47a4da9
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
-ms.date: 10/12/2016
-ms.openlocfilehash: afd0b70264dba1e720f95e40d3d201c2c5bf1c64
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.date: 05/16/2018
+ms.openlocfilehash: a6571e5e06e07fd62ad4cf39bab322b45c90a9f9
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59848601"
 ---
-# <a name="tls---ssl-schannel-ssp-overview"></a>TLS – SSL (Schannel SSP) (Übersicht)
+# <a name="tlsssl-overview-schannel-ssp"></a>Übersicht über die TLS/SSL (Schannel SSP)
 
->Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows 10
 
-In diesem Thema für IT-Experten werden die TLS/SSL-Implementierung in Windows mithilfe des Schannel Security Service Provider (SSP) beschrieben praktische Anwendungsfälle, Änderungen an der Implementierung von Microsoft und softwareanforderungen sowie zusätzliche Ressourcen für Windows Server2012 und Windows8 eingeführt.
+In diesem Thema für IT-Experten die TLS- und SSL-Implementierungen in Windows, indem Sie praktische Anwendungen, die Schannel Security Service Provider (SSP) vorgestellt, ändert sich in der Microsoft Implementierung und softwareanforderungen für plus Zusätzliche Ressourcen für Windows Server 2012 und Windows 8.
 
-**Meinten Sie:**
+## <a name="BKMK_OVER"></a>Beschreibung
+Schannel ist ein Sicherheitsdienstanbieter (Security Support Provider, SSP), der die Internet-Standardauthentifizierungsprotokolle SSL (Secure Sockets Layer) und TSL (Transport Layer Security) implementiert.
 
--   [Das Schannel-Sicherheitspaket](https://msdn.microsoft.com/library/ms678421.aspx)
+Die Security Support Provider-Schnittstelle (Security Support Provider Interface, SSPI) ist eine API, die von Windows-Systemen verwendet wird, um sicherheitsbezogene Funktionen wie Authentifizierungen durchzuführen. Die SSPI-Funktionen als eine allgemeine Schnittstelle für mehrere SSPs, einschließlich des Schannel SSP.
 
--   [Sicheren Kanal](https://msdn.microsoft.com/library/windows/desktop/aa380123.aspx)
+TLS-Versionen 1.0, 1.1 und 1.2, SSL-Versionen 2.0 und 3.0, sowie das Datagram Transport Layer Security \(DTLS\) Protocol, Version 1.0 und das Private Communications Transport \(PCT\) Protokoll basiert auf Verschlüsselung mit öffentlichem Schlüssel. Die Schannel-Authentifizierungsprotokollsammlung enthält diese Protokolle. Alle Schannel-Protokolle verwenden ein Client/Server-Modell.
 
--   [Transport Layer Security-Protokoll](https://msdn.microsoft.com/library/windows/desktop/aa380516.aspx)
+## <a name="BKMK_APP"></a>Anwendungen
+Ein Problem beim Verwalten eines Netzwerks ist das Sichern von Daten, die zwischen Anwendungen in einem nicht vertrauenswürdigen Netzwerk gesendet werden. Sie können TLS und SSL verwenden, Authentifizierung von Servern und Clientcomputern und dann das Protokoll zu verwenden, um Nachrichten zwischen den authentifizierten Parteien zu verschlüsseln.
 
-## <a name="BKMK_OVER"></a>TLS\SSL \(Schannel\) Beschreibung
-Schannel ist ein Security Support Provider-\(SSP\), der Secure Sockets Layer-\(SSL\) und Transport Layer Security \(TLS\) implementiert, Internet-Standardauthentifizierungsprotokolle.
+Sie können TLS/SSL beispielsweise für Folgendes verwenden:
 
-Die Security Support Provider Interface \(SSPI\) ist eine API, die von Windows-Systemen verwendet werden, um Sicherheit\-bezogene Funktionen wie Authentifizierungen durchzuführen. Die SSPI Dienst als gemeinsame Schnittstelle für mehrere Security Support Provider-\(SSPs\), einschließlich Schannel SSP.
-
-Die Transport Layer Security \(TLS\)-Protokollversionen 1.0, 1.1 und 1.2, \(SSL\) Secure Sockets Layer-Protokoll, Version 2.0 und 3.0, Datagram Transport Layer Security \(DTLS\) Version 1.0, und das Private Communications Transport \(PCT\) Protokoll basieren auf Kryptografie mit öffentlichem Schlüssel. Die Sicherheitskanal \(Schannel\)-authentifizierungsprotokollsammlung enthält diese Protokolle. Alle Schannel-Protokolle verwenden ein Client/Server-Modell.
-
-## <a name="BKMK_APP"></a>In der Praxis
-Ein Problem beim Verwalten eines Netzwerks ist Daten schützen, die zwischen Programmen in einem nicht vertrauenswürdigen Netzwerk gesendet wird. Sie können TLS\SSL authentifizieren, Servern und Clientcomputern, und klicken Sie dann das Protokoll verwenden, um Nachrichten zwischen den authentifizierten Parteien zu verschlüsseln.
-
-Beispielsweise können Sie TLS\SSL für:
-
--   SSL\-gesicherte Transaktionen mit einer E\-E-Commerce-Website
-
--   Authentifizierter Clientzugriff auf eine SSL\-gesicherten Website
-
+-   SSL-gesicherte Transaktionen mit einer E-Commerce-Website
+-   Authentifizierten Clientzugriff auf einer SSL-gesicherten Website
 -   Remotezugriff
-
 -   SQL-Zugriff
+-   E-Mail
 
--   E\-mail
+## <a name="BKMK_SOFT"></a>Anforderungen an
+TLS und SSL-Protokolle verwenden ein Client/Server-Modell und basiert auf Zertifikatauthentifizierung, wofür eine public Key-Infrastruktur erfordert.
 
-## <a name="BKMK_SOFT"></a>Anforderungen der Clientsoftware
-Das Protokoll TLS\SSL ein Client\server-Modell und basiert auf Zertifikatauthentifizierung, wofür eine Public Key-Infrastruktur erforderlich ist.
+## <a name="BKMK_INSTALL"></a>Informationen zur Server-Manager
+Es sind keine Konfigurationsschritte erforderlich, TLS, SSL oder Schannel zu implementieren.
 
-## <a name="BKMK_INSTALL"></a>Server-Manager-Informationen
-Es sind keine Konfigurationsschritte erforderlich, um TLS, SSL oder Schannel implementieren.
+## <a name="see-also"></a>Siehe auch ##
 
+-   [Das Schannel-Sicherheitspaket](https://docs.microsoft.com/windows/desktop/com/schannel)
+-   [Sicherer Kanal](https://docs.microsoft.com/windows/desktop/SecAuthN/secure-channel)
+-   [Transport Layer Security Protocol](https://docs.microsoft.com/windows/desktop/SecAuthN/transport-layer-security-protocol)

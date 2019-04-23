@@ -1,6 +1,6 @@
 ---
-title: "Erstellen einer Serverwiederherstellungs-DVD für die Unterstützung mehrerer Sprachen"
-description: Beschreibt, wie Sie Windows Server Essentials
+title: Erstellen einer Serverwiederherstellungs-DVD für die Unterstützung mehrerer Sprachen
+description: Beschreibt, wie Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,71 +13,72 @@ ms.assetid: c7da0f6c-9732-4784-9c28-7dad72c4071d
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: ac547f97b48e4cd0ebf87e0935cadc2c539b4d0b
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59855001"
 ---
 # <a name="create-a-server-recovery-dvd-for-multi-language-support"></a>Erstellen einer Serverwiederherstellungs-DVD für die Unterstützung mehrerer Sprachen
 
->Gilt für: Windows Server2016 Essentials, Windows Server2012 R2 Essentials, Windows Server2012 Essentials
+>Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-##  <a name="BKMK_MLHeadedRecovery"></a>Erstellen einer Serversetup- und serverwiederherstellungs-DVD für die Unterstützung für mehrere Sprachen auf lokal verwalteten Servern  
+##  <a name="BKMK_MLHeadedRecovery"></a> Erstellen einer Serversetup- und serverwiederherstellungs-DVD für die Unterstützung für mehrere Sprachen auf lokal verwalteten Servern  
   
 > [!NOTE]
->  Sie müssen zuerst ein mehrsprachiges Windows-Image erstellen, wie beschrieben in die [Exemplarische Vorgehensweise: mehrsprachige Windows-Imageerstellung](https://technet.microsoft.com/library/jj126995) , bevor Sie die Windows Server Essentials--Sprachpaket in install.wim hinzufügen.  
+>  Sie müssen zuerst ein mehrsprachiges Windows-Abbild erstellen, wie beschrieben in der [Exemplarische Vorgehensweise: Mehrsprachiges Windows-Abbilderstellung](https://technet.microsoft.com/library/jj126995) bevor Sie die Windows Server Essentials--Sprachpaket in install.wim hinzufügen.  
   
- Es gibt zwei Konfigurationsphasen: die Windows Preinstallation Environment (Windows PE) und die Erstkonfiguration. Standardmäßig wird die Sprachauswahlseite bei der Erstkonfiguration nicht angezeigt werden.  
+ Es gibt zwei Konfigurationsphasen: die Konfiguration von Windows Preinstallation Environment (Windows PE) und die Erstkonfiguration. Standardmäßig wird bei der Erstkonfiguration die Sprachauswahlseite nicht angezeigt.  
   
--   Für einen Remote verwalteten OEM-Installation oder einer OEM-vorinstallationsszenario müssen Sie eine Registrierung mithilfe des folgenden Befehls die Sprachauswahlseite bei der Erstkonfiguration anzeigen hinzufügen.  
+-   Bei einem remote verwalteten OEM-Installations- oder einem OEM-Vorinstallationsszenario müssen Sie mithilfe des folgenden Befehls einen Registrierungsschlüssel hinzufügen, um die Sprachauswahlseite bei der Erstkonfiguration anzuzeigen.  
   
     ```  
     %systemroot%\system32\reg.exe add "HKLM\Software\microsoft\windows server\setup" /v ShowPreinstallPages /t REG_SZ /d true /f  
     ```  
   
     > [!IMPORTANT]
-    >  Wenn OEMs im Labor ein Abbild erstellen, wählen sie **Englisch** während der Windows PE-Phase des Setups als Sprache.  
+    >  Wenn OEMs im Labor ein Abbild erstellen, müssen sie während der Windows PE-Phase des Setups als Sprache **Englisch** auswählen.  
   
--   In einem Szenario (Reseller Option Kit, ROK) erhält der Kunde eine DVD und ggf. Hardware. Der Kunde sollte während der Installation von Windows PE die Sprache aus, und die Sprachauswahlseite wird während der Erstkonfiguration nicht mehr angezeigt.  
+-   In einem ROK-Szenario (Reseller Option Kit) erhält der Kunde eine DVD und ggf. Hardware. Der Kunde sollte die Sprache bei der Konfiguration von Windows PE auswählen können, und die Sprachauswahlseite wird bei der Erstkonfiguration nicht mehr angezeigt.  
   
- Sie können eine einzelne Dual-Layer-DVD ausliefern, die mehrere Sprachen enthält.  
+ Sie können eine doppelschichtige DVD ausliefern, die mehrere Sprachen enthält.  
   
- In diesem Abschnittwird beschrieben, wie Sie Windows Setup sprachunterstützung hinzufügen. Das wichtigste Tool für die Anpassung von Windows PE 3.0 ist Deployment Image Servicing and Management (DISM), ein Befehlszeilentool. Diese Lösung ermöglicht die folgenden Szenarien:  
+ In diesem Abschnitt wird beschrieben, wie Sie Windows Setup Sprachunterstützung hinzufügen. Das wichtigste Tool für die Anpassung von Windows PE 3.0 ist die Abbildverwaltung für die Bereitstellung (Deployment Image Servicing and Management, DISM), ein Befehlszeilentool. Diese Lösung ermöglicht die folgenden Szenarien:  
   
 1.  Erstellen mehrsprachiger Installationen  
   
 2.  Erstellen verteilbarer Medien  
   
-### <a name="prerequisites"></a>Erforderliche Komponenten  
- Zum Hinzufügen der Unterstützung mehrerer Sprachen zu Windows Setup benötigen Sie Folgendes:  
+### <a name="prerequisites"></a>Vorraussetzungen  
+ Sie benötigen Folgendes, um Windows Setup mehrsprachige Unterstützung hinzuzufügen:  
   
 
--   Einen Referenzcomputer, der alle Tools und Quelldateien, die zum Erstellen eines benutzerdefinierten Windows PE-Abbilds bereitstellt. Weitere Informationen finden Sie unter [Vorbereiten des Referenzcomputers ](Prepare-the-Technician-Computer.md).  
+-   Einen Referenzcomputer mit allen Tools und Quelldateien, die zum Erstellen eines angepassten WinPE-Abbilds erforderlich sind. Weitere Informationen finden Sie unter [Prepare the Technician Computer](Prepare-the-Technician-Computer.md).  
 
--   Einen Referenzcomputer, der alle Tools und Quelldateien, die zum Erstellen eines benutzerdefinierten Windows PE-Abbilds bereitstellt. Weitere Informationen finden Sie unter [Vorbereiten des Referenzcomputers ](../install/Prepare-the-Technician-Computer.md).  
+-   Einen Referenzcomputer mit allen Tools und Quelldateien, die zum Erstellen eines angepassten WinPE-Abbilds erforderlich sind. Weitere Informationen finden Sie unter [Prepare the Technician Computer](../install/Prepare-the-Technician-Computer.md).  
 
   
--   Eine Windows Server Essentials-DVD.  
+-   A  Windows Server Essentials DVD.  
   
 -   Ein Windows Server Essentials Sprachpaket-DVD.  
   
-###  <a name="BKMK_Steps"></a>Hinzufügen der Unterstützung mehrerer Sprachen  
- Zum Hinzufügen der Unterstützung mehrerer Sprachen zu Windows Setup, aktualisieren Sie Install.wim durch Hinzufügen von Windows Server2012, und die Windows Server Essentials Sprachpakete.  
+###  <a name="BKMK_Steps"></a> Hinzufügen von Unterstützung für mehrere Sprachen  
+ Um Windows Setup Unterstützung mehrerer Sprachen hinzufügen, aktualisieren Sie Install.wim durch Hinzufügen von Windows Server 2012 und die Windows Server Essentials-Language packs für sie.  
   
-#### <a name="update-installwim"></a>Aktualisieren Sie Install.wim  
- In diesem Schrittfügen Sie Windows Server2012 und Windows Server Essentials-Sprachpakete in Install.wim hinzu.  
+#### <a name="update-installwim"></a>Aktualisieren von "Install.wim"  
+ In diesem Schritt fügen Sie Windows Server 2012 und Windows Server Essentials-Sprachpakete in "Install.wim" hinzu.  
   
 > [!NOTE]
->  Stellen Sie sicher, dass Sie Sprachpakete für Windows Server2012 installieren. Dadurch wird sichergestellt, dass Sie das richtige Branding sichergestellt. Die Windows Server2012 Multilingual User Interface Language Packs stehen auf [Microsoft.com](https://www.microsoft.com/OEM/en/installation/downloads/Pages/technical-downloads.aspx). Befolgen Sie die Anweisungen, wie beschrieben in die [exemplarische Vorgehensweise: mehrsprachige Windows-Imageerstellung zum Erstellen von mehreren Sprachen](https://technet.microsoft.com/library/jj126995.aspx) auf ein mehrsprachiges Windows-Image erstellen, bevor Sie das Windows Server Essentials-Sprachpaket in hinzufügen Install.wim.  
+>  Stellen Sie sicher, dass Sie Language Packs für Windows Server 2012 installieren. Dadurch wird das richtige Branding sichergestellt. Die Windows Server 2012 Multilingual User Interface Language Packs stehen auf ["Microsoft.com"](https://www.microsoft.com/OEM/en/installation/downloads/Pages/technical-downloads.aspx). Befolgen Sie die Anweisungen aus, unter dem [Exemplarische Vorgehensweise: Mehrsprachiges Windows-Abbilderstellung Sprachen](https://technet.microsoft.com/library/jj126995.aspx) auf Mehrsprachiges Windows-Abbild erstellen, bevor Sie das Sprachpaket für Windows Server Essentials in install.wim hinzufügen.  
 >   
->  Windows Server Essentials-Sprachpakete sind in der Language Pack-Medium am \Language Packs\\ < CultureName\ > verfügbar.  
+>  Windows Server Essentials-Sprachpakete sind verfügbar, in der Language Pack-Medium auf \Language Packs\\< CultureName\>.  
   
 > [!NOTE]
->  Nicht alle Sprachpakete unter Umständen nicht vor der Veröffentlichung von Windows Server2012 verfügbar.  
+>  Nicht alle Sprachpakete möglicherweise nicht vor der Veröffentlichung von Windows Server 2012 verfügbar.  
   
-###### <a name="to-add-language-packs-to-installwim"></a>Install.wim Sprachpakete hinzu  
+###### <a name="to-add-language-packs-to-installwim"></a>So fügen Sie "Install.wim" Sprachpakete hinzu  
   
-1.  Hinzufügen von Betriebssystem und produktsprachpakete in Install.wim wie folgt (in diesem Beispiel wird Französisch verwendet):  
+1.  Gehen Sie wie folgt vor, um "Install.wim" Betriebssystem- und Produktsprachpakete hinzuzufügen (in diesem Beispiel wird Französisch verwendet):  
   
     ```  
     Dism /Mount-Wim /WimFile:C:\my_distribution\sources\install.wim /index:1 /MountDir:C:\InstallMount  
@@ -88,19 +89,19 @@ ms.lasthandoff: 12/12/2017
     ```  
   
 
-2.  Fügen Sie sprachspezifische Dateien unterstützt, erstellen die Client-Sicherung wiederherstellen USB-Speicherstick, mithilfe des Verfahrens [erstellen mehrsprachigen Mediums zur Clientwiederherstellung ](Build-Multi-Language-Client-Restore-Media.md).  
+2.  Fügen Sie sprachspezifische Dateien unterstützen, erstellen die Client-Sicherung wiederherstellen-USB-Flashlaufwerk, mit dem Verfahren in [erstellen mehrsprachigen Mediums zur Clientwiederherstellung](Build-Multi-Language-Client-Restore-Media.md).  
 
-2.  Fügen Sie sprachspezifische Dateien unterstützt, erstellen die Client-Sicherung wiederherstellen USB-Speicherstick, mithilfe des Verfahrens [erstellen mehrsprachigen Mediums zur Clientwiederherstellung ](../install/Build-Multi-Language-Client-Restore-Media.md).  
+2.  Fügen Sie sprachspezifische Dateien unterstützen, erstellen die Client-Sicherung wiederherstellen-USB-Flashlaufwerk, mit dem Verfahren in [erstellen mehrsprachigen Mediums zur Clientwiederherstellung](../install/Build-Multi-Language-Client-Restore-Media.md).  
 
   
-3.  Erstellen Sie die Datei Lang.ini im beweglichen Medium, die zusätzliche sprachunterstützung widerspiegelt neu der `DISM /Gen-LangINI`Befehl, beispielsweise:  
+3.  Erstellen Sie mit dem Befehl `DISM /Gen-LangINI` die Datei "Lang.ini" auf dem beweglichen Medium neu, sodass sie die zusätzliche Sprachunterstützung widerspiegelt. Beispiel:  
   
     ```  
     Dism /image:C:\InstallMount /Gen-LangINI /distribution:C:\my_distribution  
   
     ```  
   
-4.  Speichern Sie die Änderungen im Abbild mithilfe der `DISM /unmount /commit`Befehl, beispielsweise:  
+4.  Speichern Sie die Änderungen mit dem Befehl `DISM /unmount /commit` im Abbild. Beispiel:  
   
     ```  
     Dism /Unmount-Wim /MountDir:C:\InstallMount /Commit  
@@ -109,12 +110,12 @@ ms.lasthandoff: 12/12/2017
 ## <a name="see-also"></a>Siehe auch  
 
  [Erstellen und Anpassen des Abbilds](Creating-and-Customizing-the-Image.md)   
- [Weitere Anpassungen](Additional-Customizations.md)   
+ [Zusätzliche Anpassungen](Additional-Customizations.md)   
  [Vorbereiten des Abbilds für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
  [Testen der Benutzerfreundlichkeit](Testing-the-Customer-Experience.md)
 
  [Erstellen und Anpassen des Abbilds](../install/Creating-and-Customizing-the-Image.md)   
- [Weitere Anpassungen](../install/Additional-Customizations.md)   
+ [Zusätzliche Anpassungen](../install/Additional-Customizations.md)   
  [Vorbereiten des Abbilds für die Bereitstellung](../install/Preparing-the-Image-for-Deployment.md)   
  [Testen der Benutzerfreundlichkeit](../install/Testing-the-Customer-Experience.md)
 

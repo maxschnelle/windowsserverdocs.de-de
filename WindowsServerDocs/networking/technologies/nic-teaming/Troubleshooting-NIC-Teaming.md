@@ -1,7 +1,7 @@
 ---
-title: Problembehandlung bei der NIC-Teamvorgang
-description: Dieses Thema enthält Informationen zur Problembehandlung beim NIC-Teamvorgang in Windows Server2016.
-manager: brianlic
+title: Problembehandlung beim NIC-Teamvorgang
+description: Dieses Thema enthält Informationen zur Problembehandlung beim NIC-Teamvorgang in Windows Server 2016.
+manager: dougkim
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,54 +13,54 @@ ms.topic: article
 ms.assetid: fdee02ec-3a7e-473e-9784-2889dc1b6dbb
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 634ec1a5eee0cd661ca89c2673e5b74abd458cd6
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.date: 09/13/2018
+ms.openlocfilehash: d39dc6a4dcf5dca8186b0599fb479ed5ae684e0f
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59856251"
 ---
-# <a name="troubleshooting-nic-teaming"></a>Problembehandlung bei der NIC-Teamvorgang
+# <a name="troubleshooting-nic-teaming"></a>Problembehandlung beim NIC-Teamvorgang
 
->Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
-Dieses Thema enthält Informationen zur Problembehandlung beim NIC-Teaming, und enthält die folgenden Abschnitte, die mögliche Ursachen von Problemen mit NIC-Teamvorgang zu beschreiben.  
+In diesem Thema werden Möglichkeiten zum Beheben von NIC-Teamvorgang, z. B. Hardware- und physischen Switch Wertpapiere besprochen.  Wenn Hardware-Implementierungen von Standardprotokollen Spezifikationen nicht entsprechen, kann der NIC-Teamvorgang Leistung beeinträchtigt werden. Darüber hinaus kann je nach Konfiguration, NIC-Teamvorgang Pakete die gleiche IP-Adresse mit mehreren MAC-Adressen, die am physischen Switch Sicherheitsfunktionen Speicherprobleme senden.
+
   
--   [Hardware, die Spezifikation entsprechen nicht](#bkmk_hardware)  
+## <a name="hardware-that-doesnt-conform-to-specification"></a>Hardware, die Spezifikation entsprechen nicht  
   
--   [Sicherheitsfeatures physischen Switch](#bkmk_switch)  
+Während des normalen Betriebs kann der NIC-Teamvorgang Pakete von derselben IP-Adresse, noch mit mehreren MAC-Adressen senden. Gemäß Protokollstandards müssen die IP-Adresse des Hosts oder der VM die Empfängern dieser Pakete an die MAC-Adresse aus dem empfangenden Paket reagieren, anstatt eine bestimmte MAC-Adresse aufgelöst werden.  Clients, die die Adresse-Auflösung-Protokolle (ARP und NDP) ordnungsgemäß implementieren senden Pakete mit die richtige Ziel-MAC-Adressen – d. h. die MAC-Adresse des virtuellen Computers oder Hosts, die die IP-Adresse besitzt. 
   
--   [Mit WindowsPowerShell aktivieren und deaktivieren](#bkmk_ps)  
+Eingebettete Hardware die Protokolle der Adresse-Auflösung nicht richtig implementiert, und auch behebt möglicherweise nicht explizit eine IP-Adresse zu einer MAC-Adresse, die über ARP oder NDP.  Beispielsweise kann ein Storage Area Network (SAN)-Controller auf diese Weise ausführen. Nicht konforme Geräte kopieren die Quell-MAC-Adresse aus eines empfangenen Pakets und verwenden sie dann als MAC-Zieladresse in die entsprechenden ausgehenden Paketen, wodurch Pakete, die zu einem falschen Ziel-MAC-Adresse gesendet werden. Aus diesem Grund werden die Pakete vom virtuellen Hyper-V-Switch gelöscht, da sie keine bekannten Ziel übereinstimmen.  
   
-## <a name="bkmk_hardware"></a>Hardware, die Spezifikation entsprechen nicht  
-Beim hardwareimplementierungen von Standardprotokollen Spezifikation nicht entsprechen, NIC-Teaming Leistung möglicherweise beeinträchtigt.  
+Wenn Sie haben Probleme beim Herstellen einer Verbindung mit SAN-Controllern oder anderen Hardware eingebettet, Sie paketerfassungen, um festzustellen, ob die Hardware ordnungsgemäß ARP- oder NDP implementiert werden soll, und wenden Sie sich für Unterstützung an Ihren Hardwarehersteller.  
+
   
-Während des normalen Betriebs möglicherweise NIC-Teaming Pakete aus der IP-Adresse, jedoch mit Zugriff auf mehrere andere Quelle Media Control (MAC)-Adressen senden. Entsprechend Protocol-Standards müssen die Empfänger dieser Pakete die IP-Adresse des Hosts oder virtuellen Computer in Reaktion auf die MAC-Adresse, von der das Paket empfangen wurde, anstatt eine bestimmte MAC-Adresse aufgelöst.  Clients, die die Adresse Auflösung Protokolle, IPv4s-Protokoll ARP (Address Resolution) oder des IPv6-Neighbor Discovery-Protokoll (NDP), ordnungsgemäß implementieren sendet Pakete mit dem richtigen Ziel-MAC-Adresse (die MAC-Adresse des virtuellen Computers oder der Host, der die IP-Adresse besitzt).  
+## <a name="physical-switch-security-features"></a>Sicherheitsfunktionen für physischen switch  
+Je nach der Konfiguration möglicherweise NIC-Teamvorgang Pakete die gleiche IP-Adresse mit mehrere Quell-MAC-Adressen, die am physischen Switch Sicherheitsfunktionen Speicherprobleme senden. Z. B. ist dynamische ARP-Überprüfung oder die IP-Quell-Wächter bietet insbesondere dann, wenn das physische switch nicht beachten Sie, dass die Ports Teil eines Teams, das auftritt, wenn Sie NIC-Teaming im Switchunabhängig Modus konfigurieren. Überprüfen Sie die Switch-Protokolle, um zu bestimmen, ob die Switch-Sicherheitsfunktionen Konnektivitätsprobleme verursacht werden. 
   
-Einige Hardware eingebettet, jedoch die Adresse Resolution-Protokolle nicht richtig implementiert, und auch möglicherweise nicht explizit eine IP-Adresse aufzulösen einer MAC-Adresse mit ARP oder NDP.  Ein Storage Area Network (SAN) Controller ist ein Beispiel für ein Gerät, das auf diese Weise ausgeführt werden kann. Nicht übereinstimmende Geräte die Quell-MAC-Adresse, die enthalten ist ein empfangenes Paket kopieren und verwenden, die als Ziel-MAC-Adresse in die entsprechenden ausgehenden Pakete.  
+## <a name="disabling-and-enabling-network-adapters-by-using-windows-powershell"></a>Deaktivieren und Aktivieren von Netzwerkadapter mithilfe von Windows PowerShell  
+
+Eine häufige Ursache für das Fehlschlagen eines NIC-Teams ist, dass die teamschnittstelle deaktiviert ist, und in vielen Fällen verhindern, wenn eine Sequenz von Befehlen ausgeführt.  Diese bestimmte Sequenz von Befehlen ermöglicht nicht aller der NetAdapters deaktiviert, da die NIC-Team-Schnittstelle deaktivieren alle zugrunde liegenden physischen Mitglieder von NICs entfernt werden. 
+
+In diesem Fall die NIC-Team-Schnittstelle nicht mehr angezeigt wird, in der Get-NetAdapter und aus diesem Grund **aktivieren-NetAdapter \***  ermöglicht nicht das NIC-Team. Die **aktivieren-NetAdapter \***  Befehl der Fall ist, jedoch aktivieren, das Element Netzwerkkarten, die (nach kurzer Zeit) klicken Sie dann die teamschnittstelle erstellt. Die teamschnittstelle bleibt im Zustand "deaktiviert" erst wieder aktiviert, Netzwerk-Datenverkehr fließen beginnen. 
+
+Die folgende Windows PowerShell Befehlsfolge kann die teamschnittstelle versehentlich deaktivieren:  
   
-Dies führt dazu, dass Pakete, die zu einem falschen Ziel-MAC-Adresse gesendet werden. Aus diesem Grund werden die Pakete vom virtuellen Hyper-V-Switch gelöscht, da sie keine bekannten Ziel übereinstimmen.  
-  
-Wenn Sie Probleme haben Probleme beim Herstellen einer Verbindung mit SAN-Domänencontroller oder andere Hardware eingebettet, sollten Paket erfasst werden und zu bestimmen, ob die Hardware ordnungsgemäß ARP oder NDP implementiert, und wenden Sie sich an Ihren Hardwarehersteller für Unterstützung.  
-  
-## <a name="bkmk_switch"></a>Sicherheitsfeatures physischen Switch  
-Je nach Konfiguration möglicherweise NIC-Teaming Pakete aus der IP-Adresse mit mehreren anderen Quelle MAC-Adressen senden.  Dies kann insbesondere dann, wenn der Schalter nicht bekannt ist, sind die Ports in einem Team von Features auf dem physischen Switch z.B. dynamische ARP-Überprüfung oder IP-Quelle zu schützen, Sicherheit Reise. Dies kann vorkommen, wenn Sie NIC-Teaming-Switch unabhängigen Modus konfigurieren.  Überprüfen Sie die Switch-Protokolle, um festzustellen, ob die Switch-Sicherheitsfeatures Konnektivitätsprobleme mit NIC-Teamvorgang verursacht werden.  
-  
-## <a name="bkmk_ps"></a>Deaktivieren und Aktivieren von Netzwerkadapter mithilfe von Windows PowerShell  
-Eine häufige Ursache für einen NIC-Team zu Fehlern ist, dass die teamschnittstelle deaktiviert ist. In vielen Fällen ist die Schnittstelle versehentlich deaktiviert, wenn die folgende Sequenz von Windows PowerShell-Befehle ausgeführt wird:  
-  
-```  
+```PowerShell 
 Disable-NetAdapter *  
 Enable-NetAdapter *  
 ```  
   
-Diese Abfolge von Befehlen wird nicht alle der NetAdapters ermöglichen, die deaktiviert.  
+
   
-Dies liegt daran deaktivieren alle zugrunde liegenden physischen Member NICs bewirkt, dass der NIC-Team-Benutzeroberfläche entfernt wird und nicht mehr im Get-NetAdapter angezeigt. Aus diesem Grund die **Enable-NetAdapter \ *** Befehl nicht das NIC-Team aktivieren, da diese Karte entfernt wird.  
-  
-Die **Enable-NetAdapter \ *** Befehl, jedoch ermöglicht das Mitglied NICs, wodurch dann (nach kurzer Zeit) der Team-Benutzeroberfläche neu erstellt werden. In diesem Fall ist der teamschnittstelle weiterhin im Status "deaktiviert", da es nicht erneut aktiviert wurde. Die teamschnittstelle aktivieren, nachdem es neu erstellt wird, wird Datenverkehr Datenfluss erneut beginnen kann.  
-  
-## <a name="see-also"></a>Siehe auch  
-[NIC-Teamvorgang](NIC-Teaming.md)  
+## <a name="related-topics"></a>Verwandte Themen  
+- [NIC-Teamvorgang](NIC-Teaming.md): In diesem Thema stellen wir Ihnen in Windows Server 2016 einen Überblick über die Windows-Verwaltungsinstrumentation (Network Interface Card, NIC)-Teamvorgang. NIC-Teamvorgang ermöglicht Ihnen, zwischen 1 und 32 gruppieren, physische Ethernet-Netzwerkadapter in ein oder mehrere softwarebasierte virtuelle Netzwerkadapter. Diese virtuellen Netzwerkadapter bieten schnelle Leistung und Fehlertoleranz bei Ausfall eines Netzwerkadapters.   
+
+- [NIC-Teamvorgang-MAC-Adresse und -Verwaltung](NIC-Teaming-MAC-Address-Use-and-Management.md): Beim Konfigurieren eines NIC-Teams mit unabhängigen Modus wechseln und adresshash oder dynamische lastverteilung steuern das Team verwendet, die die MAC-Adresse (MAC) des primären Mitglieds-NIC-Team für ausgehenden Datenverkehr. Dem primären NIC-Team-Mitglied ist, einen Netzwerkadapter, die vom Betriebssystem aus den anfänglichen Satz von Team-Mitglieder ausgewählt wird.
+
+- [Einstellungen für die NIC-Teamvorgang](nic-teaming-settings.md): In diesem Thema haben wir bieten Ihnen einen Überblick über den NIC-Team-Eigenschaften, z. B. Teamvorgang und Lastenausgleich Modi zu laden. Sie haben zudem Details über die Standby-adaptereinstellung und die Eigenschaft des primären Team-Schnittstelle. Wenn Sie in einem NIC-Team über mindestens zwei Netzwerkadapter verfügen, müssen Sie keinen Standby-Adapter für die Fehlertoleranz zu bestimmen.
   
 
 

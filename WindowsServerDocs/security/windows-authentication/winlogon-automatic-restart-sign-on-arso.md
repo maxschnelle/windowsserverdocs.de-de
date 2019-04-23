@@ -1,5 +1,5 @@
 ---
-title: Windows-Anmeldung automatisch Neustart anmelden (nach einem)
+title: Winlogon-Anmeldung nach einem automatischen Neustart
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -14,91 +14,92 @@ ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
 ms.openlocfilehash: 172eb34fbfdb8a91adf55e35f888e90f5688d0e7
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59849241"
 ---
-# <a name="winlogon-automatic-restart-sign-on-arso"></a>Windows-Anmeldung automatisch Neustart anmelden (nach einem)
+# <a name="winlogon-automatic-restart-sign-on-arso"></a>Winlogon-Anmeldung nach einem automatischen Neustart
 
->Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
-**"Author"**: Justin Turner, Senior Support Escalation Engineer mit der Windows-Gruppe  
+**Autor**: Justin Turner, Senior Support Escalation Engineer für die Windows-Gruppe  
   
 > [!NOTE]  
-> Dieser Inhalt wird von Microsoft Customer Support-Mitarbeiter geschrieben und richtet erfahrene Administratoren und Systemarchitekten, die als Themen auf TechNet finden Sie in der Regel einen tieferen technischen Einblick Funktionen und Lösungen in Windows Server 2012 R2 suchen. Allerdings hat es nicht die gleichen linguistischen damit einige der Sprache möglicherweise weniger glänzend als was in der Regel auf TechNet-Website gefunden wird.  
+> Dieser Inhalt wurde von einem Mitarbeiter des Microsoft-Kundendiensts geschrieben und richtet sich an erfahrene Administratoren und Systemarchitekten, die einen tieferen technischen Einblick in die Funktionen und Lösungen von Windows Server 2012 R2 suchen, als Ihnen die Themen im TechNet bieten können. Allerdings wurde er nicht mit der gleichen linguistischen Sorgfalt überprüft wie für die Artikel des TechNet üblich, so dass die Sprache gelegentlich holprig klingen mag.  
   
-## <a name="overview"></a>(Übersicht)  
-Sperrbildschirm-apps, Windows 8 eingeführt.  Hierbei handelt es sich um den Programmen, ausführen und Benachrichtigungen anzeigen, während die Sitzung des Benutzers gesperrt ist (Kalender, Termine, e-Mails und Nachrichten.).  Geräte, die aufgrund der Windows Update-Prozesses neu gestartet werden nicht auf diese Benachrichtigungen bei gesperrtem Bildschirm nach dem Neustart angezeigt.  Einige Benutzer hängen diese Anwendungen sperren.  
+## <a name="overview"></a>Übersicht  
+Windows 8 wurde die Sperre Bildschirm apps eingeführt.  Hierbei handelt es sich um die Anwendungen, die Benachrichtigungen angezeigt, während die Sitzung des Benutzers gesperrt ist und ausgeführt (Kalender, Termine, e-Mail- und Nachrichten.).  Geräte, die aufgrund der Windows Update-Vorgang neu gestartet werden nicht mehr diese Benachrichtigungen bei gesperrtem Bildschirm nach dem Neustart angezeigt.  Einige Benutzer, die diese Sperre Bildschirm-Anwendungen abhängig ist.  
   
-## <a name="whats-changed"></a>Was hat sich geändert?  
-Wenn ein Benutzer auf einem Windows 8.1-Gerät anmeldet, speichert LSA die Anmeldeinformationen des Benutzers im verschlüsselten Speicher zugegriffen werden nur von lsass.exe. Wenn Windows Update einen automatischen Neustart ohne Benutzeranwesenheit initiiert, werden diese Anmeldeinformationen verwendet werden, so konfigurieren Sie die automatische Anmeldung für den Benutzer. Windows Update mit TCB-Berechtigung als System ausgeführten initiieren den RPC-Aufruf dazu.  
+## <a name="whats-changed"></a>Änderungen  
+Wenn ein Benutzer auf einem Windows 8.1-Gerät anmeldet, speichert der LSA die Anmeldeinformationen des Benutzers im verschlüsselten Speicher zugegriffen werden kann nur von lsass.exe. Wenn Windows Update einen automatischen Neustart ohne Benutzeranwesenheit initiiert wird, werden diese Anmeldeinformationen verwendet werden, so konfigurieren Sie die automatische Anmeldung für den Benutzer. Windows Update als System mit TCB-Berechtigung wird der RPC-Aufruf zu diesem Zweck initiiert.  
   
-Auf einem Neustart wird der Benutzer automatisch über den Mechanismus für die automatische Anmeldung angemeldet und darüber hinaus zum Schutz der Sitzung des Benutzers gesperrt werden. Das Sperren wird über Windows-Anmeldung initiiert werden, während die Verwaltung von Anmeldeinformationen von LSA ausgeführt wird.  Automatisch anmelden, und den Benutzer auf der Konsole Sperren werden die Anwendungen des Benutzers gesperrten Bildschirm Neustart und Verfügbarkeit.  
+Beim Neustart wird der Benutzer automatisch über den Mechanismus für die automatische Anmeldung angemeldet sein, und klicken Sie dann darüber gesperrt, um die Sitzung des Benutzers zu schützen. Das Sperren wird über Windows-Anmeldung initiiert werden, während die Verwaltung von Anmeldeinformationen von LSA durchgeführt wird.  Anmeldung automatisch an, und Sperren den Benutzer in der Konsole werden Anwendungen Sperren des Benutzers neu gestartet wurde und verfügbar.  
   
 > [!NOTE]  
-> Nach dem ein Windows-Update Neustart ausgelöst, der letzte interaktive Benutzer automatisch angemeldet, und die Sitzung gesperrt ist, können also des Benutzers Sperrbildschirm-apps ausführen.  
+> Nach dem ein Windows-Update Neustarts verursachte und die letzte interaktive Benutzer automatisch angemeldet wird die Sitzung gesperrt können also auf des Benutzers sperren Bildschirm apps ausführen.  
   
-![Bildschirmfoto, die mit dem Sperrbildschirm](../media/winlogon-automatic-restart-sign-on-arso/GTR_ADDS_LockScreenApp.gif)  
+![Screenshot: Sperrbildschirm](../media/winlogon-automatic-restart-sign-on-arso/GTR_ADDS_LockScreenApp.gif)  
   
-![Bildschirmfoto, die mit dem gesperrten Bildschirm apps](../media/winlogon-automatic-restart-sign-on-arso/GTR_ADDS_LockScreen.gif)  
+![Screenshot mit die Sperre Bildschirm apps](../media/winlogon-automatic-restart-sign-on-arso/GTR_ADDS_LockScreen.gif)  
   
-**Kurzübersicht**  
+**Kurze Übersicht**  
   
--   Windows Update Neustart erforderlich ist.  
+-   Windows Update-Neustart erforderlich ist  
   
--   Computer neu gestartet wird (*keine apps ausgeführt, die Daten verloren gehen würden*)?  
+-   Ist der Computer neu starten (*keine apps ausgeführt, die Daten verlieren würden*)?  
   
     -   Neustart für Sie  
   
-    -   Melden Sie sich wieder in  
+    -   Melden Sie sich wieder  
   
-    -   Sperren  
+    -   Lock-Computer  
   
--   Durch eine Gruppenrichtlinie aktiviert oder deaktiviert  
+-   Von der Gruppenrichtlinie aktiviert oder deaktiviert  
   
     -   In Server-SKUs standardmäßig deaktiviert.  
   
--   Warum?  
+-   Weshalb?  
   
-    -   Einige Updates können nicht abgeschlossen werden, bis der Benutzer wieder anmeldet.  
+    -   Einige Updates abschließen nicht, bis der Benutzer wieder anmeldet.  
   
-    -   Eine bessere benutzererfahrung: müssen nicht warten Sie 15 Minuten für Updates zum Abschließen der Installation  
+    -   Bessere Benutzererlebnis: keine Updates für den Abschluss der Installation von 15 Minuten warten, bis  
   
--   Wie? Die automatische Anmeldung  
+-   Wie? AutoLogon  
   
-    -   Speichert das Kennwort, verwendet die Anmeldeinformationen zum Anmelden bei  
+    -   Speichert das Kennwort, verwendet diese Anmeldeinformationen, um die Anmeldung  
   
-    -   speichert Anmeldeinformationen als LSA-Schlüssel im Auslagerungsspeicher  
+    -   speichert Anmeldeinformationen als LSA-Schlüssel in ausgelagerter Speicher  
   
     -   Kann nur aktiviert werden, wenn BitLocker aktiviert ist  
   
-## <a name="group-policy-sign-in-last-interactive-user-automatically-after-a-system-initiated-restart"></a>Gruppenrichtlinie: Anmeldung letzte interaktive Benutzer automatisch nach einem systeminitiierten Neustart  
-In Windows 8.1 / Windows Server 2012 R2, die automatische Anmeldung des Benutzers Bildschirm sperren nach ein Neustart von Windows Update wird Abonnieren von Server-SKUs und für die Client-SKUs abmelden.  
+## <a name="group-policy-sign-in-last-interactive-user-automatically-after-a-system-initiated-restart"></a>Gruppenrichtlinie: Anmeldung letzten interaktiven Benutzer automatisch nach einem vom System initiierte Neustart  
+In Windows 8.1 / Windows Server 2012 R2, die automatische Anmeldung des Benutzers Bildschirm sperren nach ein Neustart des Windows Update ist wurde für Server-SKUs aktivieren und Deaktivieren der für Client-SKUs.  
   
-**Richtlinienspeicherort:** Computerkonfiguration > Richtlinien > Administrative Vorlagen > Windows-Komponenten > Windows-Anmeldeoption  
+**Richtlinienspeicherort:** Computerkonfiguration > Richtlinien > Administrative Vorlagen > Windows-Komponenten > Option der Windows-Anmeldung  
   
-**Richtlinienname:** Anmeldung letzte interaktive Benutzer automatisch nach einem systeminitiierten Neustart  
+**Richtlinienname:** Anmeldung letzten interaktiven Benutzer automatisch nach einem vom System initiierte Neustart  
   
-**Unterstützt in:** mindestens Windows Server 2012 R2, Windows 8.1 oder Windows RT 8.1  
+**Unterstützt auf:** Mindestens WindowsServer 2012 R2, Windows 8.1 oder Windows RT 8.1  
   
 **Beschreibung/Hilfe:**  
   
-Mit dieser richtlinieneinstellung wird gesteuert, ob ein Gerät automatisch die letzten interaktiven Anmeldung wird nach dem Neustart des Systems durch Windows Update.  
+Diese Einstellung steuert, ob ein Gerät automatisch die letzte interaktive Benutzer anmelden wird nach dem Neustart des Systems durch Windows Update-Richtlinie.  
   
-Wenn Sie aktivieren oder diese Einstellung nicht konfigurieren, wird das Gerät sicher die Anmeldeinformationen des Benutzers (einschließlich der Benutzername, Domäne und das verschlüsselte Kennwort) um die automatische Anmeldung konfigurieren, nach dem Neustart von Windows Update gespeichert. Der Benutzer automatisch angemeldet ist, und die Sitzung automatisch mit allen der Sperrbildschirm-apps für diesen Benutzer konfiguriert gesperrt ist, nach dem Neustart von Windows Update.  
+Wenn Sie aktivieren oder diese richtlinieneinstellung nicht konfigurieren, speichert das Gerät sicher die Anmeldeinformationen des Benutzers (einschließlich Benutzername, Domäne und das verschlüsselte Kennwort) um die automatische Anmeldung zu konfigurieren, nach dem Neustart eines Windows-Updates. Nach dem Neustart des Windows Update der Benutzer automatisch angemeldet wird, und alle Sperren Bildschirm-Apps, die für diesen Benutzer konfiguriert wird automatisch die Sitzung gesperrt.  
   
-Wenn Sie diese Einstellung deaktivieren, speichert das Gerät nicht die Anmeldeinformationen des Benutzers für die automatische Anmeldung, nach dem Neustart von Windows Update. Der Benutzer Sperrbildschirm-apps werden nicht neu gestartet, nach dem Neustart des Systems.  
+Wenn Sie diese richtlinieneinstellung deaktivieren, speichert das Gerät keine Anmeldeinformationen für die automatische Anmeldung des Benutzers, nach dem Neustart eines Windows-Updates. Der Benutzer sperren Bildschirm apps werden nicht neu gestartet, nach dem Neustart des Systems.  
   
 **Registrierungs-Editor**  
   
 |Wertname|Typ|Daten|  
 |-------|----|----|  
-|DisableAutomaticRestartSignOn|DWORD-WERT|0<br /><br />**Beispiel:**<br /><br />0 (aktiviert)<br /><br />1 (deaktiviert)|  
+|DisableAutomaticRestartSignOn|DWORD|0<br /><br />**Beispiel:**<br /><br />0 (aktiviert)<br /><br />1 (deaktiviert)|  
   
-**Richtlinie Registrierungsspeicherort:** HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System  
+**Registrierungspfad der Richtlinie:** HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System  
   
-**Typ:** DWORD-Wert  
+**Typ:** DWORD  
   
 **Registrierungsname:** DisableAutomaticRestartSignOn  
   
@@ -108,44 +109,44 @@ Wert: 0 oder 1
   
 1 = deaktiviert  
   
-![Bildschirmfoto, die mit der Einstellung steuert UI Sie angeben können, ob ein Gerät automatisch die letzten interaktiven Anmeldung wird nach dem Neustart des Systems durch Windows Update](../media/winlogon-automatic-restart-sign-on-arso/GTR_ADDS_SignInPolicy.gif)  
+![Screenshot mit Einstellung für die Richtlinie steuert die Benutzeroberfläche, in dem Sie angeben können, ob ein Gerät automatisch die letzte interaktive Benutzer anmelden wird nach dem Neustart des Systems durch Windows Update](../media/winlogon-automatic-restart-sign-on-arso/GTR_ADDS_SignInPolicy.gif)  
   
 ## <a name="troubleshooting"></a>Problembehandlung  
-Beim Windows-Anmeldung automatisch sperrt, wird im Ereignisprotokoll Windows-Anmeldung WinLogon Zustand Trace gespeichert werden.  
+Bei der Windows-Anmeldung automatisch gesperrt wird, werden im Ereignisprotokoll Windows-Anmeldung WinLogons-Status-Ablaufverfolgung gespeichert.  
   
-Der Status der automatischen Anmeldung Konfiguration versucht wird protokolliert.  
+Der Status eines Versuchs der automatische Konfiguration wird protokolliert.  
   
--   Ist dies erfolgreich  
+-   Bei Erfolg  
   
-    -   Daher werden  
+    -   Zeichnet sie als solche  
   
--   Wenn ein Fehler ist:  
+-   Wenn es sich um ein Fehler ist:  
   
-    -   Zeichnet des Fehlers  
+    -   zeichnet, was der Fehler aufgetreten  
   
--   Wenn die BitLocker Status ändert:  
+-   Wenn sich BitLockers-Zustand ändert:  
   
     -   das Entfernen der Anmeldeinformationen werden protokolliert  
   
         -   Diese werden in der LSA-Betriebsprotokoll gespeichert werden.  
   
-### <a name="reasons-why-autologon-might-fail"></a>Gründe, warum die automatische Anmeldung möglicherweise nicht  
-Es gibt mehrere Fälle, in denen eine automatische Anmeldung des Benutzers nicht erreicht werden.  In diesem Abschnitt sollen die bekannten Szenarien erfassen, in denen dies auftreten kann.  
+### <a name="reasons-why-autologon-might-fail"></a>Gründe, warum die automatische Anmeldung fehlschlägt  
+Es gibt mehrere Fälle, in denen eine automatische Anmeldung der Benutzer nicht erreicht werden.  In diesem Abschnitt soll die bekannten Szenarien zu erfassen, in denen dies auftreten kann.  
   
 ### <a name="user-must-change-password-at-next-login"></a>Benutzer muss Kennwort bei der nächsten Anmeldung ändern.  
-Anmeldung des Benutzers kann einen blockierten Zustand übergeht, wenn eine Änderung des Kennworts bei der nächsten Anmeldung erforderlich ist.  Dies kann vor dem Neustart in den meisten Fällen erkannt, aber nicht alle sein (z. B. Kennwortablauf erreicht werden kann zwischen Herunterfahren und der nächsten Anmeldung.  
+Anmeldung des Benutzers kann einen blockierten Zustand eingeben, wenn eine kennwortänderung bei der nächsten Anmeldung erforderlich ist.  Dies kann vor dem Neustart in den meisten Fällen erkannt, aber nicht alle sein (beispielsweise bei Ablauf des Kennworts erreicht werden kann. zwischen dem Schließen und die nächste Anmeldung.  
   
 ### <a name="user-account-disabled"></a>Benutzerkonto wurde deaktiviert.  
-Eine vorhandene Sitzung des Benutzers kann verwaltet werden, auch wenn deaktiviert.  Neustart für ein Konto, das deaktiviert ist kann lokal in den meisten Fällen im Voraus je nach Gp erkannt werden, die möglicherweise nicht für Domänenkonten (einige Domäne zwischengespeichert Anmeldung Szenarien Arbeit, auch wenn das Konto Domänencontroller deaktiviert ist).  
+Auch wenn deaktiviert, kann eine vorhandene benutzersitzung verwaltet werden.  Neustart für ein Konto, das deaktiviert ist kann lokal in den meisten Fällen im voraus, dass je nach Gp erkannt werden, die möglicherweise nicht für Domänenkonten (eine Domäne zwischengespeichert Anmeldung funktionieren, auch wenn das Konto auf dem Domänencontroller deaktiviert ist).  
   
 ### <a name="logon-hours-and-parental-controls"></a>Anmeldezeiten und Jugendschutz  
-Die Anmeldezeiten und Jugendschutz können verhindern, dass eine neue Sitzung des Benutzers erstellt wird.  Wenn ein Neustart während dieses Fenster auftreten würden, würde der Benutzer nicht zulässig, anmelden.  Zusätzliche Richtlinie, bei dem Sperren oder Abmelden als Aktion Kompatibilität, ist vorhanden.  Dies kann für viele untergeordnete Fälle, in dem Konto Sperrmodus zwischen Bett und Reaktivierung auftreten kann, problematisch sein, insbesondere dann, wenn das Wartungsfenster häufig während dieser Zeit ist.  
+Die Anmeldezeiten und Jugendschutz können verhindern, dass eine neue benutzersitzung erstellt wird.  Wenn ein Neustart während dieses Zeitfensters ausgeführt wurden, würde der Benutzer nicht zugelassen anmelden.  Es gibt zusätzliche Richtlinie, die Sperre oder Abmelden als Compliance Aktion bewirkt, dass ein.  Dies kann für viele untergeordnete Fälle, in dem Konto Sperrung zwischen konzentrieren und Reaktivierung auftreten können, problematisch sein, insbesondere, wenn das Wartungsfenster häufig während dieser Zeit ist.  
   
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen  
-**Tabelle SEQ Tabelle \\\ * Arabisch 3: nach einem Glossar**  
+**Tabelle SEQ Tabelle \\ \* Arabisch 3: Nach einem-Glossar**  
   
 |Begriff|Definition|  
 |----|-------|  
-|Die automatische Anmeldung|Die automatische Anmeldung ist ein Feature, das in Windows für mehrere Versionen vorhanden war.  Es ist ein dokumentierten Feature von Windows, die Tools, z. B. die automatische Anmeldung für Windows-v3.01 ist * [http:/technet.microsoft.com/sysinternals/bb963905.aspx](https://technet.microsoft.com/sysinternals/bb963905.aspx)*<br /><br />Sie können einen einzelnen Benutzer des Geräts automatisch anmelden, ohne Anmeldeinformationen eingeben zu müssen. Die Anmeldeinformationen sind konfiguriert und in der Registrierung als verschlüsselte LSA-Schlüssel gespeichert.|  
+|Automatische Anmeldung|Automatische Anmeldung ist ein Feature, das in Windows für mehrere Versionen vorhanden war.  Es ist eine dokumentierte Funktion von Windows, die auch Tools wie z. B. die automatische Anmeldung für Windows-v3.01  *[http:/technet.microsoft.com/sysinternals/bb963905.aspx](https://technet.microsoft.com/sysinternals/bb963905.aspx)*<br /><br />Sie können einen einzelnen Benutzer des Geräts und der automatisch ohne Eingabe von Anmeldeinformationen anmelden. Die Anmeldeinformationen sind konfiguriert und in der Registrierung als verschlüsselte LSA-Schlüssel gespeichert.|  
   
 

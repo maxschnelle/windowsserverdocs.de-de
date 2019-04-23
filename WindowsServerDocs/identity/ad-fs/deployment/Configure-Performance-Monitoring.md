@@ -1,7 +1,7 @@
 ---
 ms.assetid: 67d8a8d7-2fbd-4ed7-bb41-75769f942024
-title: "Konfigurieren der Leistungsüberwachung"
-description: 
+title: Konfigurieren der Leistungsüberwachung
+description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -10,68 +10,69 @@ ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
 ms.openlocfilehash: 6a7602cddcaee274d42213cd9365f6d1722dab79
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59852911"
 ---
 # <a name="configure-performance-monitoring"></a>Konfigurieren der Leistungsüberwachung
 
->Gilt für: Windows Server2016, Windows Server2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
   
 ## <a name="bkmk_ConfigurePerfMon"></a>  
-AD FS beinhaltet eigene dedizierte Leistungsindikatoren, um die Leistung der Verbundserver und Verbundserverproxy-Computer zu überwachen. Um Performance Monitor verwenden, um die Leistung Ihrer AD FS-Server überwachen, ist es hilfreich, einen neuen datensammlersatz erstellen und die Ansicht die AD FS-Indikatoren hinzufügen. Das folgende Verfahren beschreibt die Vorgehensweise beim Konfigurieren der Leistungsüberwachung für AD FS.  
+AD FS umfasst eine eigene dedizierte Leistungsindikatoren, um die Leistung der Verbundserver und Verbundserverproxy-Computer zu überwachen. Um Systemmonitor zur Überwachung der Leistung von AD FS-Server zu verwenden, ist es nützlich, um einen neuen datensammlersatz erstellen und diese Ansicht die AD FS-Leistungsindikatoren hinzugefügt. Das folgende Verfahren beschreibt das Konfigurieren der Leistungsüberwachung für AD FS.  
   
-#### <a name="to-configure-performance-monitoring-for-ad-fs-using-performance-monitor"></a>Zum Konfigurieren der Leistungsüberwachung für AD FS mithilfe des Systemmonitors  
+#### <a name="to-configure-performance-monitoring-for-ad-fs-using-performance-monitor"></a>Zum Konfigurieren der Leistungsüberwachung für AD FS mit dem Systemmonitor  
   
 1.  Auf der **starten** geben **Systemmonitor**, und drücken Sie dann die EINGABETASTE.  
   
-2.  Erweitern Sie in der Konsolenstruktur **Datensammlersätze**, klicken Sie auf **Benutzerdefiniert**, zeigen Sie auf **neu**, und klicken Sie dann auf **Datensammlersatz**.  
+2.  Erweitern Sie in der Konsolenstruktur **Data Collector Sets**mit der rechten Maustaste\-klicken Sie auf **benutzerdefinierte**, zeigen Sie auf **neu**, und klicken Sie dann auf **Data Collector Set** .  
   
-    Erstellen Sie Data Collector festlegen-Assistenten für neue angezeigt wird.  
+    Die Assistenten Erstellen einer neuen Data Collector festgelegt wird.  
   
-3.  In **erstellen neue Datensammlersatz**, für **Namen** Geben Sie einen Namen für den neuen datensammlersatz \ (z. B. "AD FS-Leistung" \), klicken Sie auf **\(Advanced\) manuell erstellen**, und klicken Sie dann auf **Weiter**.  
+3.  In **Erstellen neuer Data Collector Set**, für die **Namen** Geben Sie einen Namen für den neuen datensammlersatz \(wie z. B. "AD FS-Leistung"\), klicken Sie auf **manuell erstellen \( Erweiterte\)**, und klicken Sie dann auf **Weiter**.  
   
-4.  Für den Typ der Daten enthalten, überprüfen Sie, ob **Daten Protokolle erstellen** ausgewählt ist, und klicken Sie dann auf die Kontrollkästchen für die folgenden Daten: **Leistungsindikator**, **Ereignisablaufverfolgungsdaten**, **Systemkonfigurationsinformationen**.  
+4.  Überprüfen Sie für den Typ der Daten eingeschlossen werden sollen, ob **erstellen Datenprotokolle** ausgewählt ist, und klicken Sie dann auf die Kontrollkästchen für die folgenden Datentypen: **Leistungsindikator**, **Ereignisablaufverfolgungsdaten**, **Informationen zur Betriebssystemkonfiguration**.  
   
-5.  Erweitern Sie für die Leistungsindikatoren, **AD FS** in der **Verfügbare Leistungsindikatoren** aus, und klicken Sie dann auf **hinzufügen**.  
+5.  Erweitern Sie für die Leistungsindikatoren, **AD FS** in die **Verfügbare Leistungsindikatoren** aus, und klicken Sie dann auf **hinzufügen**.  
   
-    Die AD FS-Leistungsindikatoren sollte angezeigt werden, der **Leistungsindikatoren hinzugefügt** Liste.  
+    Die AD FS-Leistungsindikatoren angezeigt werden soll die **Leistungsindikatoren hinzugefügt** Liste.  
   
-6.  Wenn Sie aufgefordert werden, Ereignisablaufverfolgungsanbieter hinzuzufügen, klicken Sie auf **hinzufügen**Option **Ereignisse für AD FS** und **AD FS-Ablaufverfolgung** aus der Liste der Anbieter.  
+6.  Wenn Sie aufgefordert werden, Ereignisablaufverfolgungsanbieter hinzuzufügen, klicken Sie auf **hinzufügen**Option **AD FS-Ereignisse** und **AD FS-Ablaufverfolgung** aus der Liste der Anbieter.  
   
-7.  Wenn Sie aufgefordert werden, Hinzufügen von Registrierungsschlüsseln zu überwachen, klicken Sie auf **Weiter**.  
+7.  Wenn Sie gefragt werden zum Hinzufügen von Registrierungsschlüsseln, um zu überwachen, klicken Sie auf **Weiter**.  
   
-8.  Wenn Sie aufgefordert werden, geben Sie den Speicherort für die Performance-Daten speichern, können Sie den Standardspeicherort akzeptieren \ (**%systemdrive%\\PerfLogs\\Admin\\***< Data\_collector\_set >*, und klicken Sie dann auf **Weiter**.  
+8.  Wenn Sie aufgefordert werden, um den Speicherort zum Speichern der Daten anzugeben, können Sie den Standardspeicherort übernehmen \( * *%SystemDrive%\\PerfLogs\\Admin\\*** < Daten\_Collector\_festgelegt >*, und klicken Sie dann auf **Weiter**.  
   
-9. Wenn Sie aufgefordert werden, den datensammlersatz erstellen, wählen Sie **speichern und schließen Sie**, und klicken Sie dann auf **Fertig stellen**.  
+9. Wenn Sie aufgefordert werden, um den Sammlungssatz zu erstellen, wählen Sie **speichern und schließen Sie**, und klicken Sie dann auf **Fertig stellen**.  
   
-    Die neuen datensammlersatz angezeigt wird, in der Konsolenstruktur unter dem **Benutzerdefiniert** Knoten.  
+    Der neue Sammlungssatz wird angezeigt, in der Konsolenstruktur unter den **benutzerdefinierte** Knoten.  
   
-10. Verwenden Sie die folgenden Schritte aus, um Arbeiten mit der AD FS-Leistungsindikatoren:  
+10. Verwenden Sie die folgenden Schritte aus, um die Arbeit mit den AD FS-Leistungsindikatoren:  
   
-    -   Leistung überwachen mithilfe von Leistungsindikatoren im Zusammenhang mit AD FS\ zunächst mit der rechten Maustaste auf die Sammlung festlegen, dass Sie hinzugefügt \ (z. B. "AD FS-Leistung" \), und klicken Sie dann auf **starten**.  
+    -   Um zu beginnen, Überwachung der Anwendungsleistung mithilfe von AD FS\-bezogene Indikatoren, die direkt\-klicken Sie auf den datensammlersatz, den Sie hinzugefügt \(wie z. B. "AD FS-Leistung"\), und klicken Sie dann auf **starten**.  
   
-    -   Um einen Bericht zum Anzeigen der Ergebnisse der Systemmonitor erstellen, mit der rechten Maustaste auf die Sammlung festlegen, dass Sie hinzugefügt \ (z. B. "AD FS-Leistung" \), und klicken Sie dann auf **neuesten Bericht**.  
+    -   Zum Erstellen eines Berichts zum Anzeigen der Ergebnisse für die Leistungsüberwachung rechten\-klicken Sie auf den datensammlersatz, den Sie hinzugefügt \(wie z. B. "AD FS-Leistung"\), und klicken Sie dann auf **des neuesten Berichts**.  
   
-    -   Um eine Sammlung von Leistungsdaten zu beenden, damit Sie den neuesten Bericht anzeigen können, klicken Sie auf die Sammlung festlegen, dass Sie hinzugefügt \ (z. B. "AD FS-Leistung" \), und klicken Sie dann auf **beenden**.  
+    -   Um eine Erfassung von Leistungsdaten zu beenden, damit Sie den aktuellen Bericht anzeigen können, nach rechts\-klicken Sie auf den datensammlersatz, den Sie hinzugefügt \(wie z. B. "AD FS-Leistung"\), und klicken Sie dann auf **beenden**.  
   
-    Der neueste Bericht hinzugefügt und automatisch nummeriert \(starting at 000001\) unter der **Report\\User definiert***\\ < Data\_collector\_set >* Knoten in der Konsolenstruktur.  
+    Der aktuelle Bericht hinzugefügt und automatisch nummerierten \(000001 beginnend\) unter den **Bericht\\Benutzer benutzerdefinierte ***\\< Daten\_Collector\_festgelegt >* Knoten in der Konsolenstruktur.  
   
 ## <a name="ad-fs-performance-counters"></a>AD FS-Leistungsindikatoren  
-In der folgende Tabelle werden die AD FS-Leistungsindikatoren aufgeführt und beschrieben, wie sie eignen sich für die Überwachung der Aktivitäten, die auf einem Verbundserver oder Verbundserverproxy bezieht.  
+In der folgende Tabelle werden die AD FS-Leistungsindikatoren aufgeführt und beschrieben, wie sie sind hilfreich für die Überwachung der Aktivität, die auf einem Verbundserver oder Verbundserverproxy bezieht.  
   
-|Leistungsindikator|Beschreibung|Kann auf verwendet werden: 
+|Leistungsindikator|Beschreibung|Auf die Option kann verwendet werden: 
 |-----------|---------------|------------------- 
-|Tokenanforderungen|Überwacht die Anzahl der token-Anfragen an den Verbundserver einschließlich SSOAuth tokenanforderungen gesendet.|Verbundserver 
-|Token Requests\/s|Überwacht die Anzahl der token-Anfragen an den Verbundserver, einschließlich der SSOAuth token Anforderungen pro Sekunde gesendet.|Verbundserver  
-|Verbund-Metadaten-Anforderungen|Überwacht die Anzahl der eingehenden Federation Metadatenanforderungen an den Verbundserver gesendet.|Verbundserver  
-|Verbund Metadaten Requests\/s|Überwacht die Anzahl der eingehenden Federation Metadaten Anfragen pro Sekunde, die an den Verbundserver gesendet werden.|Verbundserver  
-|Artefakt Auflösung Anforderungen|Überwacht die Anzahl der eingehenden Federation Metadaten Anfragen pro Sekunde, die an den Verbundserver gesendet werden.|Verbundserver  
-|Artefakt Auflösung Requests\/s|Überwacht die Anzahl der Anfragen an den Artefakt Auflösung Endpunkt pro Sekunde, die an den Verbundserver gesendet werden.|Verbundserver  
-|Proxy-Anfragen|Überwacht die Anzahl der eingehenden Anfragen an der Verbundserverproxy gesendet.|Verbundserverproxys  
-|Proxy Requests\/s|Überwacht die Anzahl der eingehenden Anfragen pro Sekunde, die an der Verbundserverproxy gesendet werden.|Verbundserverproxys  
-|MEX Proxyanforderungen|Überwacht die Anzahl der eingehenden \(MEX\) WS-Metadaten-Anforderungen, die an der Verbundserverproxy gesendet werden.|Verbundserverproxys 
-|Proxy MEX Requests\/s|Überwacht die Anzahl der eingehenden MEX-Anforderungen pro Sekunde, die an der Verbundserverproxy gesendet werden.|Verbundserverproxys  
+|Tokenanforderungen|Überwacht die Anzahl der token an den Verbundserver, einschließlich SSOAuth tokenanforderungen gesendeten Anforderungen.|Verbundserver 
+|Tokenanforderungen\/Sek.|Überwacht die Anzahl der token an den Verbundserver, einschließlich SSOAuth tokenanforderungen pro Sekunde gesendeten Anforderungen.|Verbundserver  
+|Verbundmetadatenanforderungen|Überwacht die Anzahl von eingehenden Anforderungen des Verbund-Metadaten an den Verbundserver gesendet.|Verbundserver  
+|Verbund-Metadatenanforderungen\/Sek.|Überwacht die Anzahl der Verbund-Metadaten pro Sekunde eingehende Anforderungen, die an den Verbundserver gesendet werden.|Verbundserver  
+|Artefaktauflösungsanforderungen|Überwacht die Anzahl der Verbund-Metadaten pro Sekunde eingehende Anforderungen, die an den Verbundserver gesendet werden.|Verbundserver  
+|Artefakt-Namensauflösungsanforderungen\/Sek.|Überwacht die Anzahl der Anforderungen an den Artefakt-Auflösung-Endpunkt pro Sekunde, die an den Verbundserver gesendet werden.|Verbundserver  
+|Proxy für Anforderungen|Überwacht die Anzahl von eingehenden Anforderungen an den Verbundserverproxy gesendet.|Verbundserverproxys  
+|Fordert der Reverseproxy\/Sek.|Überwacht die Anzahl der pro Sekunde eingehende Anforderungen, die auf dem Verbundserverproxy gesendet werden.|Verbundserverproxys  
+|Proxy-MEX-Anforderungen|Überwacht die Anzahl der eingehenden WS\-Metadatenaustausch \(MEX\) Anforderungen, die an den Verbundserverproxy gesendet werden.|Verbundserverproxys 
+|MEX-Proxyanforderungen\/Sek.|Überwacht die Anzahl der pro Sekunde eingehende MEX-Anforderungen, die auf dem Verbundserverproxy gesendet werden.|Verbundserverproxys  
   
 
