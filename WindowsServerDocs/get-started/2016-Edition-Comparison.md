@@ -1,5 +1,5 @@
 ---
-title: Windows Server2016-Produkte und -Editionen
+title: Windows Server 2016-Produkte und -Editionen
 description: Erläutert die Unterschiede zwischen der Standard- und der Datacenter-Edition
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -15,18 +15,18 @@ ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
 ms.openlocfilehash: 2c26d6d0c4c4465b5f9073dbcac951fc0adce1d5
-ms.sourcegitcommit: e0479b0114eac7f232e8b1e45eeede96ccd72b26
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "1534008"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59882051"
 ---
-# <a name="comparison-of-standard-and-datacenter-editions-of-windows-server-2016"></a>Vergleich der Standard- und Datacenter-Editionen von Windows Server2016
+# <a name="comparison-of-standard-and-datacenter-editions-of-windows-server-2016"></a>Vergleich der Standard- und Datacenter-Editionen von Windows Server 2016
 
 > Gilt für: Windows Server 2016
   
 ## <a name="locks-and-limits"></a>Sperren und Beschränkungen
-|Sperren und Beschränkungen|Windows Server2016 Standard|Windows Server 2016 Datacenter|  
+|Sperren und Beschränkungen|Windows Server 2016 Standard|Windows Server 2016 Datacenter|  
 |-------------------|----------|---------------------------|  
 |Maximale Anzahl von Benutzern|Basierend auf Clientzugriffslizenzen|Basierend auf Clientzugriffslizenzen|
 |Maximale Anzahl von SMB-Verbindungen|16777216|16777216|
@@ -37,13 +37,13 @@ ms.locfileid: "1534008"
 |Maximale Anzahl von Kernen|unbegrenzt|unbegrenzt|
 |Maximaler RAM|24 TB|24 TB|
 |Kann als Virtualisierungsgast verwendet werden|Ja. 2 virtuelle Computer plus ein Hyper-V-Host pro Lizenz|Ja. Unbegrenzte Anzahl von virtuellen Computern plus ein Hyper-V-Host pro Lizenz|
-|Server kann einer Domäne beitreten.|Ja|Ja|
-|Umkreisnetzwerkschutz/-firewall|Nein|Nein|
-|DirectAccess|Ja|Ja|
+|Server kann einer Domäne beitreten.|ja|ja|
+|Umkreisnetzwerkschutz/-firewall|nein|nein|
+|DirectAccess|ja|ja|
 |DLNA-Codecs und Webmedienstreaming|Ja, bei der Installation als Server mit Desktopdarstellung|Ja, bei der Installation als Server mit Desktopdarstellung|
 
 ## <a name="server-roles"></a>Serverrollen
-|Verfügbare Windows Server-Rollen|Rollendienste|Windows Server2016 Standard|Windows Server 2016 Datacenter|  
+|Verfügbare Windows Server-Rollen|Rollendienste|Windows Server 2016 Standard|Windows Server 2016 Datacenter|  
 |-------------------|----------|----------|---------------------------|  
 |Active Directory-Zertifikatdienste| |Ja|Ja|
 |Active Directory Domain Services| |Ja|Ja|
@@ -82,17 +82,17 @@ ms.locfileid: "1534008"
 
 ## <a name="features"></a>Features
 
-|Windows Server-Features mit Server-Manager (oder PowerShell) installierbar|Windows Server2016 Standard|Windows Server 2016 Datacenter|  
+|Windows Server-Features mit Server-Manager (oder PowerShell) installierbar|Windows Server 2016 Standard|Windows Server 2016 Datacenter|  
 |-------------------|----------|---------------------------|  
 |.NET Framework 3.5|Ja|Ja|
 |.NET Framework 4.6|Ja|Ja|
 |BITS (Background Intelligent Transfer Service, Intelligenter Hintergrundübertragungsdienst)|Ja|Ja|
 |BitLocker-Laufwerkverschlüsselung|Ja|Ja|
 |BitLocker-Netzwerkentsperrung|Ja, bei der Installation als Server mit Desktopdarstellung|Ja, bei der Installation als Server mit Desktopdarstellung|
-|BranchCache|Ja.|Ja.|
-|Client für NFS|Ja.|Ja.|
+|BranchCache|Ja|Ja|
+|Client für NFS|Ja|Ja|
 |Container|Ja (Windows-Container unbegrenzt; Hyper-V-Container bis zu 2)|Ja (alle Containertypen unbegrenzt)|
-|Data Center Bridging|Ja.|Ja.|
+|Data Center Bridging|Ja|Ja|
 |DirectPlay|Ja, bei der Installation als Server mit Desktopdarstellung|Ja, bei der Installation als Server mit Desktopdarstellung|
 |Erweitertes Speichern|Ja|Ja|
 |Failoverclustering|Ja|Ja|
@@ -137,7 +137,7 @@ ms.locfileid: "1534008"
 |Windows-Prozessaktivierungsdienst|Ja|Ja|
 |Windows Search-Dienst|Ja, bei der Installation als Server mit Desktopdarstellung|Ja, bei der Installation als Server mit Desktopdarstellung|
 |Windows Server-Sicherung|Ja|Ja|
-|WindowsServer-Migrationstools|Ja|Ja|
+|Windows Server-Migrationstools|Ja|Ja|
 |Standardbasierte Windows-Speicherverwaltung|Ja|Ja|
 |Windows-TIFF-IFilter|Ja, bei der Installation als Server mit Desktopdarstellung|Ja, bei der Installation als Server mit Desktopdarstellung|
 |WinRM-IIS-Erweiterung|Ja|Ja|
@@ -146,7 +146,7 @@ ms.locfileid: "1534008"
 |WoW64-Unterstützung|Installiert|Installiert|
 |XPS-Viewer|Ja, bei der Installation als Server mit Desktopdarstellung|Ja, bei der Installation als Server mit Desktopdarstellung|
 
-|Allgemein verfügbare Funktionen|Windows Server2016 Standard|Windows Server 2016 Datacenter|  
+|Allgemein verfügbare Funktionen|Windows Server 2016 Standard|Windows Server 2016 Datacenter|  
 |-------------------|----------|---------------------------|  
 |Best Practices Analyzer|Ja|Ja|
 |Direct Access|Ja|Ja|
@@ -157,14 +157,14 @@ ms.locfileid: "1534008"
 |Netzwerklastenausgleich|Ja|Ja|
 |Windows PowerShell|Ja|Ja|
 |Server Core-Installationsoption|Ja|Ja|
-|Nano Server-Installationsoption|Ja|Ja.|
-|Server-Manager|Ja.|Ja.|
-|SMB Direct und SMB über RDMA|Ja.|Ja.|
-|Softwaredefinierte Netzwerke|Nein.|Ja.|
-|Speicherverwaltungsdienst|Ja.|Ja.|
-|Speicherplätze|Ja.|Ja.|
-|Direkte Speicherplätze|Nein.|Ja|
-|Volumenaktivierungsdienste|Ja|Ja.|
+|Nano Server-Installationsoption|Ja|Ja|
+|Server-Manager|Ja|Ja|
+|SMB Direct und SMB über RDMA|Ja|Ja|
+|Softwaredefinierte Netzwerke|Nein|Ja|
+|Speicherverwaltungsdienst|Ja|Ja|
+|Speicherplätze|Ja|Ja|
+|Direkte Speicherplätze|Nein|Ja|
+|Volumenaktivierungsdienste|Ja|Ja|
 |Integration mit Volumeschattenkopie-Dienst (Volume Shadow Copy Service, VSS)|Ja|Ja|
 |Windows Server Update Services|Ja|Ja|
 |Windows-Systemressourcen-Manager|Ja|Ja|

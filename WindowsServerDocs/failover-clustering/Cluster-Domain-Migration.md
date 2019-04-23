@@ -1,98 +1,98 @@
 ---
-title: Überschreiten Sie Migration von Cluster in Windows Server 2016/2019
+title: Cross-Domain-Clustermigration in Windows Server 2016/2019
 ms.prod: windows-server-threshold
 ms.manager: eldenc
 ms.technology: failover-clustering
 ms.topic: article
 author: johnmarlin-msft
 ms.date: 01/18/2019
-description: Dieser Artikel beschreibt, verschieben einen Windows Server 2019 Cluster von einer Domäne zu einer anderen
+description: Dieser Artikel beschreibt das Verschieben eines 2019 für Windows Server-Clusters von einer Domäne in eine andere
 ms.localizationpriority: medium
 ms.openlocfilehash: bcfd458c94d33820f434cde3313dc069fc42ffd9
-ms.sourcegitcommit: 21677706eb85cb1396c1f40bf443146c09ef1b0d
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "9042034"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59875941"
 ---
-# Migration von Failovercluster
+# <a name="failover-cluster-domain-migration"></a>Migration von Failover-Cluster
 
-> Gilt für: WindowsServer 2019, WindowsServer 2016
+> Gilt für: Windows Server 2019, Windows Server 2016
 
-Dieses Thema enthält eine Übersicht über für ein Failover Gleitender Windows Server von einer Domäne zu einer anderen Cluster.
+Dieses Thema enthält eine Übersicht für Windows Server-Failoverclusterknoten Verschieben von einer Domäne zu einem anderen Cluster.
 
-## Warum migrieren zwischen Domänen
+## <a name="why-migrate-between-domains"></a>Warum migrieren zwischen Domänen
 
-Es gibt mehrere Szenarien, in denen Migrieren von eines Clusters von einem Domain zu einem anderen erforderlich ist.
+Es gibt mehrere Szenarien, in denen Migration eines Clusters aus einem Domain in ein anderes erforderlich ist.
 
-- FirmaA mit UnternehmenB zusammengeführt, und verschieben alle Cluster muss in FirmaA Domäne
-- Cluster im Hauptmenü Datencenter erstellt und sich an Remotestandorten ausgeliefert
-- Cluster als Arbeitsgruppe Cluster erstellt wurde, und jetzt muss Teil einer Domäne
-- Cluster als Domäne Cluster erstellt wurde, und jetzt muss Teil einer Arbeitsgruppe
-- Cluster mit einem Bereich des Unternehmens zu einer anderen verschoben wird, und ist eine andere untergeordnete Domäne
+- FirmaA führt mit UnternehmenB zusammen, und muss allen Clustern in FirmaA Domäne verschieben
+- Cluster in der main-Rechenzentrum erstellt und an Remotestandorte versandt
+- Cluster als ein workgroupcluster erstellt wurde und nun Teil einer Domäne sein muss.
+- Cluster, die als Netzwerklastenausgleich-Cluster Domäne erstellt wurde und nun Teil einer Arbeitsgruppe sein muss
+- Cluster auf einen Bereich des Unternehmens auf einen anderen verschoben wird, und ist eine andere Unterdomäne
 
-Microsoft stellt keine Unterstützung für Administratoren bereit, die versuchen, Ressourcen aus einer Domäne zu einer anderen zu verschieben, wenn der zugrunde liegenden Anwendung Vorgang nicht unterstützt wird. Beispielsweise unterstützen nicht Microsoft an Administratoren, die versuchen, einen Microsoft Exchange-Server von einer Domäne zu einer anderen zu verschieben.
+Microsoft bereit keine Unterstützung für Administratoren, die versuchen, Ressourcen von einer Domäne in eine andere verschoben wird, wenn die zugrunde liegenden Vorgang für die Anwendung nicht unterstützt wird. Z. B. bereit nicht Microsoft Support für Administratoren, die versuchen, einen Microsoft Exchange-Server von einer Domäne in eine andere zu verschieben.
 
    > [!WARNING]
-   > Es wird empfohlen, dass Sie eine vollständige Sicherung der freigegebene Speicher im Cluster ausführen, bevor Sie den Cluster verschieben.
+   > Es wird empfohlen, dass Sie eine vollständige Sicherung der gesamten freigegebenen Speichers im Cluster ausführen, bevor Sie den Cluster verschieben.
 
-## WindowsServer 2016 und frühere Versionen
+## <a name="windows-server-2016-and-earlier"></a>WindowsServer 2016 und früher
 
-In Windows Server 2016 und früher, war der Cluster-Dienst die Funktion Verschieben von einer Domäne in eine andere nicht vorhanden.  Dies ist aufgrund der zunehmende Abhängigkeit von Active Directory Domain Services und die virtuellen Namen erstellt.   
+In Windows Server 2016 und früher muss nicht der Clusterdienst die Möglichkeit, von einer Domäne in eine andere verschieben.  Dies war aufgrund der erhöhten Abhängigkeit von Active Directory Domain Services und die virtuellen Namen erstellt.   
 
-## Optionen
+## <a name="options"></a>Optionen
 
-Es gibt zwei Optionen, um eine solche Verschiebung Zweck.
+Um eine solche Verschiebung zu tun, gibt es zwei Optionen zur Verfügung.
 
-Die erste Option umfasst das Löschen des Clusters und Neuerstellen in die neue Domäne.
+Die erste Option umfasst den Cluster löschen und ihn in der neuen Domäne neu zu erstellen.
 
 ![Löschen und neu erstellen](media\Cross-Domain-Cluster-Migration\Cross-Cluster-Domain-Migration-1.gif)
 
-Die Animation zeigt, ist diese Option mit den Schritten destruktiv wird:
+Diese Option ist destruktive mit den Schritten, wie die Animation wird gezeigt, wird:
 
-1. Löschen Sie den Cluster.
-2. Ändern Sie die Domänenmitgliedschaft der Knoten in die neue Domäne.
-3. Erstellen des Clusters als neue in der aktualisierten Domäne neu.  Dies würde vorliegen, müssen alle Ressourcen neu erstellen.
+1. Löschen Sie den Cluster ein.
+2. Ändern Sie die Domänenmitgliedschaft der Knoten in der neuen Domäne ein.
+3. Erstellen Sie den Cluster wie in der aktualisierten Domäne neu.  Dies würde hingegen, dass alle Ressourcen neu erstellen.
 
-Die zweite Option ist weniger destruktive jedoch zusätzlichen Hardware erforderlich, wie Sie ein neuer Cluster in der neuen Domäne erstellt werden muss.  Nachdem der Cluster in der neuen Domäne wird, führen Sie den Cluster-Migration-Assistenten, um die Ressourcen zu migrieren. Beachten Sie, dass dies nicht von Daten migrieren – Sie müssen mit einem anderen Tool migriert Daten, z. B. [Storage Migration Service](../storage/storage-migration-service/overview.md)(nach Unterstützung für Cluster hinzugefügt wird).
+Die zweite Option ist weniger destruktiv jedoch zusätzliche Hardware erforderlich ist, wie Sie ein neuer Cluster in der neuen Domäne erstellt werden müssten.  Sobald der Cluster in der neuen Domäne ist, führen Sie der Cluster-Assistent zum Migrieren von Ressourcen. Beachten Sie, dass dies nicht von Daten migrieren – Sie ein anderes Tool verwenden, z. B. Datenmigration müssen [Speicherung Datenbankmigrationsdienst](../storage/storage-migration-service/overview.md)(sobald der Cluster-Unterstützung hinzugefügt wurde).
 
 ![Erstellen und migrieren](media\Cross-Domain-Cluster-Migration\Cross-Cluster-Domain-Migration-2.gif)
 
-Die Animation zeigt, diese Option ist nicht destruktive erfordert jedoch unterschiedliche Hardware oder eines Knotens aus einem vorhandenen Cluster als entfernt wurde.
+Wie die Animation wird gezeigt, wird diese Option ist nicht zerstörerische jedoch erfordert entweder auf anderer Hardware oder auf einen Knoten aus dem vorhandenen Cluster als entfernt wurde.
 
-1. Erstellen Sie eine neue Clusterin die neue Domäne, während Sie gleichzeitig den alten Cluster verfügbar.
-2. Verwenden Sie den [Assistenten für die Cluster-Migration](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754481(v=ws.10)) , um alle Ressourcen für den neuen Cluster zu migrieren. Zur Erinnerung dies nicht kopiert Daten, daher müssen einzeln ausgeführt werden.
-3. Außer Betrieb genommen Sie oder löschen Sie den alten Cluster.
+1. Erstellen Sie eine neue Clusterin der neuen Domäne, während Sie weiterhin den alten Cluster zur Verfügung.
+2. Verwenden der [Cluster Migration Wizard](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754481(v=ws.10)) alle Ressourcen für den neuen Cluster migrieren. Zur Erinnerung: Dies kopiert keine Daten, daher müssen separat ausgeführt werden.
+3. Außer Betrieb nehmen Sie, oder entfernen Sie den alten Cluster.
 
-In beiden Optionen des neuen Clusters müssten alle [Clusteranwendungen](https://technet.microsoft.com/aa369082(v=vs.90)) installiert haben, Treiber, die alle auf dem neuesten Stand, und möglicherweise testen, um sicherzustellen, dass alle ordnungsgemäß ausgeführt wird.  Dies ist die Zeit in Anspruch, wenn Daten auch verschoben werden.
+Bei beiden Optionen müssen im neue Cluster, dass alle [clusterfähige Anwendungen](https://technet.microsoft.com/aa369082(v=vs.90)) installiert ist, Treiber, die alle auf dem neuesten Stand, und möglicherweise testen, um sicherzustellen, dass alle ordnungsgemäß ausgeführt wird.  Dies ist ein zeitaufwändiger Prozess, wenn die Daten auch verschoben werden müssen.
 
-## Windows Server 2019
+## <a name="windows-server-2019"></a>Windows Server 2019
 
-In Windows Server 2019 vorgestellt Cross Cluster Domäne Migration-Funktionen.  Nun, die oben genannten Szenarien einfach möglich ist und die Notwendigkeit der erneuten Erstellung wird nicht mehr benötigt.  
+Windows Server-2019 wir Cross Cluster Domäne migrationsfunktionalitäten eingeführt.  Jetzt die oben genannten Szenarien problemlos ausgeführt werden können und die Notwendigkeit der erneuten Erstellung nicht mehr benötigt.  
 
-Verschieben von einem Cluster von einer Domäne ist ein Vorgang. Zu diesem Zweck stehen zwei neue PowerShell-Cmdlets.
+Verschieben eines Clusters von einer Domäne ist ein Prozess einfach. Um dies zu erreichen, gibt es zwei neue PowerShell-Cmdlets.
 
-**New-ClusterNameAccount** – erstellt ein Cluster Name-Konto in Active Directory- **Remove-ClusterNameAccount** – entfernt den Namen Clusterkonten aus Active Directory
+**Neue ClusterNameAccount** – erstellt ein Clusternamenkonto in Active Directory **Remove-ClusterNameAccount** – entfernt die Cluster-Name-Konten aus Active Directory
 
-Der Prozess zu diesem Zweck besteht darin, Cluster von einer Domäne in einer Arbeitsgruppe und wieder in die neue Domäne zu ändern.  Die Notwendigkeit, Zerstören eines Clusters, erstellen Sie einen Cluster neu installieren von Anwendungen usw. ist nicht erforderlich. Beispielsweise würde es wie folgt aussehen:
+Der Prozess hierfür ist so ändern Sie den Cluster aus einer Domäne mit einer Arbeitsgruppe und zurück in die neue Domäne.  Die Notwendigkeit, einen Cluster entfernen, erstellen Sie einen Cluster neu installieren, Anwendungen usw. ist nicht erforderlich. Beispielsweise würde es folgendermaßen aussehen:
 
 ![Migrieren](media\Cross-Domain-Cluster-Migration\Cross-Cluster-Domain-Migration-3.gif)
 
-## Migrieren eines Clusters mit einer neuen Domäne
+## <a name="migrating-a-cluster-to-a-new-domain"></a>Die Migration eines Clusters in eine neue Domäne
 
-In den folgenden Schritten wird ein Cluster aus der Domäne "contoso.com" in die neue Domäne Fabrikam.com verschoben.  Der Clustername ist *CLUSCLUS* und mit einer Datei-Serverrolle *FS-CLUSCLUS*aufgerufen.
+In den folgenden Schritten wird ein Cluster aus der Domäne "contoso.com" in die neue Domäne "Fabrikam.com" verschoben.  Der Clustername ist *CLUSCLUS* und mit einer Dateiserverfunktion namens *FS-CLUSCLUS*.
 
-1. Erstellen Sie ein lokales Administratorkonto mit den gleichen Namen und das Kennwort auf allen Servern im Cluster.  Dies kann erforderlich sein, um anmelden, während die Server zwischen Domänen verschieben.
-2. Melden Sie sich mit einem Domänenkonto Benutzer oder Administrator, die Active Directory-Berechtigungen für das Cluster Name Objekt (Clusternamenobjekt), virtuelle Computer Objekte (VCO), ist der erste Server hat Zugriff auf den Cluster und PowerShell öffnen.
-3. Sicherstellen, dass alle Cluster Netzwerk Benennen von Ressourcen in einer Offline Zustands- und Ausführen der folgenden Befehl.  Dieser Befehl entfernt Active Directory-Objekte, die möglicherweise Cluster.
+1. Erstellen Sie ein lokales Administratorkonto, mit dem gleichen Namen und Kennwort auf allen Servern im Cluster.  Dies kann erforderlich sein, für die Anmeldung beim Server zwischen Domänen verschoben werden.
+2. Melden Sie sich an den ersten Server mit einem Domänenkonto Benutzer oder Administrator, die Active Directory-Berechtigungen auf den Cluster Name Objekt (CNO), virtuelle Computer Objekte (VCO), hat Zugriff auf den Cluster, und öffnen Sie PowerShell.
+3. Sicherstellen, dass alle Cluster-Netzwerknamenressourcen sind eine Offline-Status, und führen den folgenden Befehl aus.  Dieser Befehl entfernt die Active Directory-Objekte, die der Cluster möglicherweise.
 
    ```PowerShell
    Remove-ClusterNameAccount -Cluster CLUSCLUS -DeleteComputerObjects
    ```
-4. Verwenden Sie Active Directory-Benutzer und-Computer, um sicherzustellen, dass den Computer CNO und VCO, die alle gruppierten Namen zugeordneten Objekte entfernt wurden.
+4. Verwenden Sie Active Directory-Benutzer und Computer, um sicherzustellen, dass den CNO und VCO-Computer, die alle gruppierten Namen zugeordneten Objekte entfernt wurden.
 
    > [!NOTE]
-   > Es ist sinnvoll, beenden Sie den Cluster-Dienst auf allen Servern im Cluster und Starttyp des Dienstes manuell so festzulegen, dass der Cluster-Dienst nicht startet, wenn die Server neu starten, während der Änderung von Domänen.
+   > Es ist eine gute Idee, beenden den Clusterdienst auf allen Servern im Cluster und der Starttyp des Diensts auf manuell festgelegt werden, so dass der Clusterdienst gestartet wird, wenn der Server neu, beim Ändern von Domänen gestartet werden.
 
    ```PowerShell
    Stop-Service -Name ClusSvc
@@ -100,15 +100,15 @@ In den folgenden Schritten wird ein Cluster aus der Domäne "contoso.com" in die
    Set-Service -Name ClusSvc -StartupType Manual
    ```
 
-5. Ändern Sie der Server-Domänenmitgliedschaft in einer Arbeitsgruppe und starten Sie die Servern, die Server in die neue Domäne beitreten erneut starten.
-6. Sobald die Server in der neuen Domäne sind, melden Sie sich mit einem Server mit einem Domänenkonto Benutzer oder Administrator, die Active Directory-Berechtigungen zum Erstellen von Objekten, hat Zugriff auf den Cluster, und öffnen Sie PowerShell. Starten Sie den Cluster-Dienst, und legen Sie sie wieder auf automatisch.
+5. Ändern Sie der Domänenmitgliedschaft für den Server zu einer Arbeitsgruppe, starten Sie Server erneut, verknüpfen Sie die Server mit der neuen Domäne und starten Sie neu.
+6. Nachdem Sie die Server in der neuen Domäne sind, melden Sie sich mit einem Server mit einem Domänenkonto Benutzer oder Administrator, die Active Directory-Berechtigungen zum Erstellen von Objekten ist, hat Zugriff auf den Cluster, und öffnen Sie PowerShell. Starten Sie des Clusterdiensts an, und legen Sie sie zurück auf automatisch.
 
    ```PowerShell
    Start-Service -Name ClusSvc
 
    Set-Service -Name ClusSvc -StartupType Automatic
    ```
-7. Schalten Sie den Namen des Clusters und alle anderen Cluster Netzwerknamen Ressourcen Onlinestatus.
+7. Schalten Sie den Namen des Clusters und aller anderen Cluster-Netzwerknamenressourcen in einen Onlinestatus.
 
    ```PowerShell
    Start-ClusterResource -Name "Cluster Name"
@@ -116,15 +116,15 @@ In den folgenden Schritten wird ein Cluster aus der Domäne "contoso.com" in die
    Start-ClusterResource -Name FS-CLUSCLUS
    ```
 
-8. Ändern Sie den Cluster zum Teil die neue Domäne mit zugeordneten active Directory-Objekte werden soll. Zu diesem Zweck wird der Befehl unten ist, und die Netzwerk Benennen von Ressourcen in einem online Zustand sein.  Dieser Befehl Vorgehen ist Name-Objekte in Active Directory neu erstellen.
+8. Ändern Sie den Cluster, um die neue Domäne mit zugeordneten active Directory-Objekten gehören. Zu diesem Zweck wird der Befehl unten ist ein, und die Netzwerknamenressourcen muss sich im Onlinestatus.  Was durchgeführt wird, mit diesem Befehl ist die Name-Objekte in Active Directory neu erstellen.
 
    ```PowerShell
    New-ClusterNameAccount -Name CLUSTERNAME -Domain NEWDOMAINNAME.com -UpgradeVCOs
    ```
 
-    Hinweis: Wenn Sie keinen zusätzlichen Gruppen mit Netzwerknamen (d. h. einem Hyper-V-Cluster mit nur virtuelle Computer) ist der Switch - UpgradeVCOs Parameter nicht erforderlich.
+    HINWEIS: Wenn Sie nicht über alle weiteren Gruppen Netzwerknamen (d. h. ein Hyper-V-Cluster mit nur virtuelle Computer) verfügen, wird der Schalter - UpgradeVCOs ist nicht erforderlich.
 
-9. Verwenden Sie Active Directory-Benutzer und-Computer, um die neue Domäne zu überprüfen und sicherzustellen, dass die zugeordnete Computerobjekte erstellt wurden. Wenn sie aufweisen, schalten Sie die verbleibenden Ressourcen in den Gruppen online.
+9. Verwenden Sie Active Directory-Benutzer und-Computer zum Überprüfen der neuen Domäne ein, und stellen Sie sicher, dass die zugeordneten Computerobjekte erstellt wurden. Wenn sie aufweisen, fahren Sie die verbleibenden Ressourcen in der Gruppe online.
 
    ```PowerShell
    Start-ClusterGroup -Name "Cluster Group"
@@ -132,9 +132,9 @@ In den folgenden Schritten wird ein Cluster aus der Domäne "contoso.com" in die
    Start-ClusterGroup -Name FS-CLUSCLUS
    ```
 
-## Bekannte Probleme
+## <a name="known-issues"></a>Bekannte Probleme
 
-Wenn Sie das neue Feature der USB-Zeugen verwenden, werden kann nicht in die neue Domäne den Cluster hinzugefügt.  Die Logik ist, dass der Freigabe Zeugen Dateityp Kerberos für die Authentifizierung verwenden muss.  Ändern Sie den Zeugen None vor dem Hinzufügen des Clusters mit der Domäne.  Abgeschlossen ist, erstellen Sie den USB-Zeugen neu.  Der Fehler, die angezeigt wird, ist:
+Wenn Sie die neue USB-Zeuge-Funktion verwenden, werden Sie nicht möglich, um den Cluster in die neue Domäne hinzuzufügen.  Der Grund dafür ist, dass der Zeuge-Dateifreigabetyp Kerberos für die Authentifizierung verwenden muss.  Ändern Sie den Zeugen auf "None", bevor Sie den Cluster mit der Domäne hinzuzufügen.  Sobald er abgeschlossen ist, erstellen Sie den Zeugen USB-neu.  Der Fehler, die angezeigt werden, ist:
 
 ```
 New-ClusternameAccount : Cluster name account cannot be created.  This cluster contains a file share witness with invalid permissions for a cluster of type AdministrativeAccesssPoint ActiveDirectoryAndDns. To proceed, delete the file share witness.  After this you can create the cluster name account and recreate the file share witness.  The new file share witness will be automatically created with valid permissions.

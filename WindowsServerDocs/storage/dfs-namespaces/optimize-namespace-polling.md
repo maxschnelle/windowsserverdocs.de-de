@@ -1,6 +1,6 @@
 ---
-title: Optimieren Sie die Namespaceabfrage
-description: "In diesem Artikel wird das Optimieren der Namespaceabfrage beschrieben, um auf allen Namespaceservern einen konsistenten domänenbasierten Namespace beizubehalten"
+title: Optimieren der Namespaceabfrage
+description: In diesem Artikel wird das Optimieren der Namespaceabfrage beschrieben, um auf allen Namespaceservern einen konsistenten domänenbasierten Namespace beizubehalten
 ms.date: 6/5/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -8,17 +8,18 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: be9a7623089d99a5b9c791b219dbcc64d61466cf
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.openlocfilehash: 995b01604b680746c4b0d6502b3b3968503d4210
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59878271"
 ---
-# <a name="optimize-namespace-polling"></a>Optimieren Sie die Namespaceabfrage
+# <a name="optimize-namespace-polling"></a>Optimieren der Namespaceabfrage
 
-> Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server2012 R2, Windows Server 2012, Windows Server2008 R2, Windows Server 2008
+> Gilt für: WindowsServer 2019, WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2, WindowsServer 2008
 
-Um auf allen Namespaceservern einen konsistenten domänenbasierten Namespace aufrecht zu erhalten, müssen Namespaceserver regelmäßig die Active Directory Domain Services (Active Directory Domain Services, AD DS) abfragen, um die aktuellen Namespacedaten abzurufen. 
+Um auf allen Namespaceservern einen konsistenten domänenbasierten Namespace aufrecht zu erhalten, müssen Namespaceserver regelmäßig die Active Directory-Domänendienste (Active Directory Domain Services, AD DS) abfragen, um die aktuellen Namespacedaten abzurufen. 
 
 ## <a name="to-optimize-namespace-polling"></a>So optimieren Sie die Namespaceabfrage
 
@@ -34,9 +35,9 @@ Sie können die Ausführung dieser Namespaceabfrage wie im Folgenden beschrieben
     -   Wählen Sie **Für Skalierbarkeit optimieren** aus, wenn mehr als 16 Namespaceserver vorhanden sind. Dadurch wird die Last für den PDC-Emulator (primärer Domänencontroller) verringert, die zum Replizieren von Änderungen am Namespace zu allen Namespaceservern erforderliche Zeit wird aber erhöht. Bis Änderungen zu allen Servern repliziert werden, verfügen die Benutzer möglicherweise über eine uneinheitliche Ansicht des Namespaces.
 
 > [!NOTE]
-> Verwenden Sie zum Festlegen des Namespaceabfrage-Modus mit Windows PowerShell das Cmdlet [Set-DfsnRoot EnableRootScalability](https://technet.microsoft.com/library/jj884281.aspx), das in Windows Server2012 eingeführt wurde.
+> Verwenden Sie zum Festlegen des Namespaceabfrage-Modus mithilfe von Windows PowerShell die [Set-DfsnRoot EnableRootScalability](https://technet.microsoft.com/library/jj884281.aspx) -Cmdlet, das in Windows Server 2012 eingeführt wurde.
 
-## <a name="see-also"></a>Weitere Informationen:
+## <a name="see-also"></a>Siehe auch
 
 -   [Optimieren von DFS-Namespaces](tuning-dfs-namespaces.md)
 -   [Delegieren von Verwaltungsberechtigungen für DFS-Namespaces](delegate-management-permissions-for-dfs-namespaces.md)

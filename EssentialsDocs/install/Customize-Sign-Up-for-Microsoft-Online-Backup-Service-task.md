@@ -1,6 +1,6 @@
 ---
-title: "Anpassen der anmelden für Microsoft Online Backup Service-Vorgang"
-description: Beschreibt, wie Sie Windows Server Essentials
+title: Anpassen der Aufgabe "Anmelden bei Microsoft Online Backup Service"
+description: Beschreibt, wie Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,25 +13,26 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: cd148e0e58cd80dbff7f7884ead95dc1e46b6257
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59879931"
 ---
-# <a name="customize-sign-up-for-microsoft-online-backup-service-task"></a>Anpassen der anmelden für Microsoft Online Backup Service-Vorgang
+# <a name="customize-sign-up-for-microsoft-online-backup-service-task"></a>Anpassen der Aufgabe "Anmelden bei Microsoft Online Backup Service"
 
->Gilt für: Windows Server2016 Essentials, Windows Server2012 R2 Essentials, Windows Server2012 Essentials
+>Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Standardmäßig die **für Microsoft Online Backup Service anmelden** Aufgabe auf den **Geräte** Dashboard-Registerkarte geöffnet wird, die Microsoft Online Backup Service-Website. Die Website bietet Informationen über den Dienst, und hilft Ihnen, den Dienst abonnieren und die erforderliche Software herunterzuladen.  
+Standardmäßig wird über die Aufgabe **Für Microsoft Online Backup Service anmelden** auf der Registerkarte **GERÄTE** des Dashboards die Microsoft Online Backup Service-Website geöffnet. Die Website stellt Informationen zum Dienst bereit und hilft Ihnen, den Dienst zu abonnieren und die erforderliche Software herunterzuladen.  
   
- Sie können anpassen, die **für Microsoft Online Backup Service anmelden** Aufgabe auf zwei Arten:  
+ Ihnen stehen zwei Möglichkeiten zur Verfügung, um die Aufgabe **Bei Microsoft Online Backup Service anmelden** anzupassen:  
   
--   Sie können die URL für die Standardwebsite durch eine URL ersetzen, die eine benutzerdefinierte Benutzeroberfläche darstellt. Um die Standard-URL zu ersetzen, Registrierungs-Editor zu öffnen, erstellen Sie den Registrierungsschlüssel: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Server\OnlineBackup\LinkUrl**, und weisen Sie die benutzerdefinierte URL als Wert für den Schlüssel.  
+-   Sie können die URL für die Standardwebsite durch eine URL mit angepasster Benutzerfreundlichkeit ersetzen. Um die Standard-URL zu ersetzen, öffnen Sie den Registrierungs-Editor, und erstellen Sie den Registrierungsschlüssel: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Server\OnlineBackup\LinkUrl**. Weisen Sie dann die benutzerdefinierte URL als Schlüsselwert zu.  
   
--   Sie können die Aufgabe ausblenden. Um die Aufgabe auszublenden, Registrierungs-Editor zu öffnen, und erstellen den Registrierungsschlüssel: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Server\OnlineBackup\OnlineBackupInstalled **.  
+-   Sie können die Aufgabe ausblenden. Um die Aufgabe auszublenden, öffnen Sie den Registrierungs-Editor, und erstellen Sie den Registrierungsschlüssel: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Server\OnlineBackup\OnlineBackupInstalled**.  
   
 ## <a name="see-also"></a>Siehe auch  
  [Erstellen und Anpassen des Abbilds](Creating-and-Customizing-the-Image.md)   
- [Weitere Anpassungen](Additional-Customizations.md)   
+ [Zusätzliche Anpassungen](Additional-Customizations.md)   
  [Vorbereiten des Abbilds für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
  [Testen der Benutzerfreundlichkeit](Testing-the-Customer-Experience.md)

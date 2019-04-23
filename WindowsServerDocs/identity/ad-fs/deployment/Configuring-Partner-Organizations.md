@@ -1,7 +1,7 @@
 ---
 ms.assetid: 4d002764-58b4-4137-9c86-1e55b02e07ce
 title: Konfigurieren von Partnerorganisationen
-description: 
+description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -10,30 +10,31 @@ ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
 ms.openlocfilehash: 5494f3bd8d012bf1ecc240439ff880d1bb52c280
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59875181"
 ---
 # <a name="configuring-partner-organizations"></a>Konfigurieren von Partnerorganisationen
 
->Gilt für: Windows Server2016, Windows Server2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Um eine neue Partnerorganisation in Active Directory Federation Services \(AD FS\) bereitzustellen, führen Sie die Aufgaben in einem [Prüfliste: Konfigurieren der Ressourcenpartnerorganisation](Checklist--Configuring-the-Resource-Partner-Organization.md) oder [Prüfliste: Konfigurieren der Kontopartnerorganisation](Checklist--Configuring-the-Account-Partner-Organization.md)abhängig von der AD FS-Entwurfs.  
+Bereitstellen eine neuen Partnerorganisation in Active Directory-Verbunddienste \(AD FS\), führen Sie die Aufgaben in einem [Prüfliste: Konfigurieren der Ressourcenpartnerorganisation](Checklist--Configuring-the-Resource-Partner-Organization.md) oder [Prüfliste: Konfigurieren der Kontopartnerorganisation](Checklist--Configuring-the-Account-Partner-Organization.md), abhängig von Ihrer AD FS-Entwurfs.  
   
 > [!NOTE]  
-> Wenn Sie eine der folgenden Prüflisten verwenden, wird dringend empfohlen, lesen Sie zunächst die Verweise auf Kontopartner oder Planen der Anleitung im Ressourcenpartner die [AD FS-Entwurfshandbuch in Windows Server2012](https://technet.microsoft.com/library/dd807036.aspx) vor dem fortfahren zu den Vorgehensweisen zum Einrichten der neuen Partnerorganisation. Befolgen die Checkliste auf diese Weise können ein besseres Verständnis der AD FS Entwurfs- und umfassende für der Kontopartnerorganisation Partner oder Ressource bereitstellen.  
+> Wenn Sie einer dieser Prüflisten verwenden, es wird dringend empfohlen, dass Sie die Verweise auf Kontopartner oder planen die Anleitung im Ressourcenpartner lesen Sie zuerst die [AD FS-Entwurfshandbuch in Windows Server 2012](https://technet.microsoft.com/library/dd807036.aspx) vor dem Fortfahren mit der Verfahren für das Einrichten der neuen Partnerorganisation. Mithilfe der folgenden Checkliste für die auf diese Weise können bieten ein besseres Verständnis der AD FS Design und Bereitstellung ganz für der Kontopartnerorganisation Partner oder Ressource.  
   
 ## <a name="about-account-partner-organizations"></a>Informationen zu kontopartnerorganisationen  
-Ein Kontopartner ist die Organisation in der verbundvertrauensstellung, die physisch Benutzerkonten in einem AD FS unterstützte Attributspeicher speichert. Der Kontopartner ist sammeln und Authentifizieren der Anmeldeinformationen eines Benutzers, das Zusammenstellen von Ansprüchen für diesen Benutzer und das Integrieren der Ansprüche in Sicherheitstoken. Diese Token können dann angezeigt werden, über eine verbundvertrauensstellung ermöglichen den Zugriff auf webbasierte Ressourcen, die in der Ressourcenpartnerorganisation befinden.  
+Kontopartner ist die Organisation in der verbundvertrauensstellung, die physisch Benutzerkonten in einem AD FS unterstützte Attributspeicher speichert. Kontopartner ist für das Sammeln von und die Anmeldeinformationen eines Benutzers zu authentifizieren, um Ansprüche für diesen Benutzer erstellen und Packen die Ansprüche in Sicherheitstokens verantwortlich. Mit diesen Token können dann über eine verbundvertrauensstellung So aktivieren Sie den Zugriff auf Web angezeigt werden\-Ressourcen, die in der Ressourcenpartnerorganisation befinden.  
   
-Anders ausgedrückt, stellt Kontopartner die Organisation, für die Benutzer der Zuordnung überprüfen\ clientseitigen Verbundserver Sicherheitstoken ausstellt. Der Verbundserver in der Kontopartnerorganisation authentifiziert lokale Benutzer und erstellt Sicherheitstoken, die der Ressourcenpartner verwendet bei der Bereitstellung von Autorisierungsentscheidungen.  
+Das heißt, Kontopartner stellt die Organisation dar, dessen Benutzer das Konto\-Verbundserver Seite Ausstellen von Sicherheitstoken. Der Verbundserver in der Kontopartnerorganisation authentifiziert lokale Benutzer und erstellt Sicherheitstoken, die der Ressourcenpartner wird verwendet, in das treffen von autorisierungsentscheidungen.  
   
-In Bezug auf Attributspeicher entspricht der Kontopartner in AD FS vom Konzept her einer Active Directory-Gesamtstruktur, deren Konten auf Ressourcen zugreifen, die sich physisch in einer anderen Gesamtstruktur befinden. Konten in dieser Gesamtstruktur können Ressourcen in der Gesamtstruktur zugreifen, nur, wenn eine externe Vertrauensstellung oder Gesamtstruktur-Vertrauensstellung Beziehung zwischen den beiden Gesamtstrukturen vorhanden ist und dass die Ressourcen, die Benutzer versuchen, für den Zugriff, mit den Berechtigungen für die ordnungsgemäße Autorisierung festgelegt wurden.  
+Im Hinblick auf Attributspeicher ist der Kontopartner AD FS vergleichbar mit einer einzelnen Active Directory-Gesamtstruktur, deren Konten Zugriff auf Ressourcen benötigen, die physisch in einer anderen Gesamtstruktur befinden. Konten in dieser Gesamtstruktur können Zugriff auf Ressourcen in der Ressourcengesamtstruktur nur, wenn eine externe Vertrauensstellung oder eine Beziehung zwischen den beiden Gesamtstrukturen vorhanden ist und die Ressourcen, die Benutzer Zugriff erhalten möchten, die richtige Autorisierung festgelegt wurden, vertraut Gesamtstruktur Berechtigungen.  
   
 ## <a name="about-resource-partner-organizations"></a>Informationen zu ressourcenpartnerorganisationen  
-Der Ressourcenpartner ist die Organisation in einer AD FS-Bereitstellung in dem sich Webserver befinden. Der Ressourcenpartner vertraut den Kontopartner, um Benutzer zu authentifizieren. Daher nutzt der Ressourcenpartner zur Autorisierung von Entscheidungen, die Ansprüche, die in Sicherheitstoken gepackt sind, die von Benutzern in der Kontopartner stammen.  
+Der Ressourcenpartner ist die Organisation in einer AD FS-Bereitstellung, in dem sich Webserver befinden. Der Ressourcenpartner wird den Kontopartnern zum Authentifizieren von Benutzern. Um autorisierungsentscheidungen zu treffen, nutzt der Ressourcenpartner aus diesem Grund die Ansprüche, die in Sicherheitstoken gepackt werden, die von Benutzern in der Kontopartner stammen.  
   
-Anders ausgedrückt, stellt Ressourcenpartner die Organisation, die vom Verbundserver Resource\-Seite, deren Webserver geschützt sind. Der Verbundserver an den Ressourcenpartner verwendet die Sicherheitstoken, die der Kontopartner zum treffen von Autorisierungsentscheidungen für Webserver in der Ressourcenpartnerorganisation erzeugt werden.  
+Das heißt, ein Ressourcenpartner die Organisation, deren Webserver werden von der Ressource geschützt, darstellt\-Verbundserver für die Seite. Der Verbundserver in der Ressourcenpartner verwendet die Sicherheitstoken, die vom Kontopartner autorisierungsentscheidungen für Webserver beim Ressourcenpartner erstellt werden.  
   
-Wie AD FS-Ressource, Webserver in der Ressourcenpartnerorganisation Windows Identity Foundation \(WIF\) entweder benötigen, installiert, oder die Active Directory Federation Services \(AD FS\) 1.x Claims\-Aware Web Agent-Rollendienste installiert haben. Webserver, die als AD FS-Ressource fungieren können entweder Browser\-webbasierten oder Service\-webbasierten Anwendungen gehostet werden.  
+Als AD FS-Ressource funktioniert, müssen Webserver in der Ressourcenpartnerorganisation Windows Identity Foundation entweder haben \(WIF\) installiert oder über die Active Directory Federation Services \(AD FS\) 1.x Ansprüche\-Aware Web Agent-Rollendienste installiert. Web-Server, die wie AD FS-Ressource entweder Web hosten kann\-Browser\-basieren oder Web-\-Service\--basierte Anwendungen.  

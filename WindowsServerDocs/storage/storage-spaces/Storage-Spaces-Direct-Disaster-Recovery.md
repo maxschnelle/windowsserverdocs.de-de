@@ -1,129 +1,129 @@
 ---
-title: Notfallwiederherstellungsszenarien für Hyperkonvergente Infrastruktur
+title: Szenarien für die notfallwiederherstellung für Hyper-konvergiert-Infrastruktur
 ms.prod: windows-server-threshold
 ms.manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: johnmarlin-msft
 ms.date: 03/29/2018
-description: Dieser Artikel beschreibt die Szenarien erhältliche für die Wiederherstellung von Microsoft HCI ("direkte Speicherplätze")
+description: Dieser Artikel beschreibt die Szenarien, die heute verfügbar sind, für die notfallwiederherstellung von Microsoft HCI (Storage Spaces Direct)
 ms.localizationpriority: medium
 ms.openlocfilehash: 32bbf02ca78d5c6a2147162768c984d0e0b27e36
-ms.sourcegitcommit: dfd25348ea3587e09ea8c2224237a3e8078422ae
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "4678609"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59879591"
 ---
-# Notfallwiederherstellung mit "direkte Speicherplätze"
+# <a name="disaster-recovery-with-storage-spaces-direct"></a>Notfallwiederherstellung mit "direkte Speicherplätze"
 
-> Gilt für: WindowsServer 2019, WindowsServer 2016
+> Gilt für: Windows Server 2019, Windows Server 2016
 
-Dieses Thema enthält, dass Szenarien wie hyperkonvergente Infrastruktur (HCI) für die Wiederherstellung konfiguriert werden können.
+Dieses Thema enthält Sie Szenarien wie hyperkonvergenten Infrastruktur (HCL) für die notfallwiederherstellung können so konfiguriert werden.
 
-Zahlreiche Unternehmen zusammengeführte Lösungen ausgeführt werden, und Planen von einem Notfall bietet die Möglichkeit, im verbleiben oder schnell wieder für die Produktion wäre eine Notfallsituation eintritt. Es gibt verschiedene Möglichkeiten zum Konfigurieren von HCI für notfallwiederherstellung und in diesem Dokument erläutert die Optionen, die heute für Sie verfügbar sind.
+Zahlreiche Unternehmen hyperkonvergenten Lösungen ausgeführt werden, und Planen eines Notfalls ermöglicht, noch in oder schnell wieder in die Produktion, wenn ein Notfall auftritt. Es gibt mehrere Möglichkeiten zum Konfigurieren von HCI für die notfallwiederherstellung und in diesem Dokument erläutert die Optionen, die heute für Sie verfügbar sind.
 
-Wenn Diskussionen Verfügbarkeit wiederherstellen, wenn Notfall im Wesentlichen was als Recovery Time Objective (RTO) bekannt ist. Dies ist die Dauer bestimmt, in denen Dienste wiederhergestellt werden müssen, um unangemessen Folgen für das Unternehmen zu vermeiden. In einigen Fällen kann dieser Prozess automatisch bei Produktion wiederhergestellt fast sofort auftreten. In anderen Fällen muss Administrator manuelle Eingriffe erfolgen, um Dienste wiederherzustellen.
+Wenn Diskussionen der Wiederherstellung der Verfügbarkeit bei einem Notfall als Recovery Time Objective (RTO genannten) betreffen. Dies ist die Zeitspanne, die als Ziel, in denen Dienste wiederhergestellt werden muss, um unzulässige Auswirkungen auf das Geschäft zu vermeiden. In einigen Fällen kann dieser Vorgang automatisch mit fast sofort wiederhergestellt auftreten. In anderen Fällen muss manuelle Administratoreingriff erfolgen, um Dienste wiederherzustellen.
 
-Notfall Wiederherstellungsoptionen mit einem hyperkonvergenten sind heute:
+Die Optionen für die notfallwiederherstellung mit einer hyperkonvergenten sind heute:
 
-1. Mehrere Cluster für die Nutzung von Speicherreplikaten
+1. Funktion "Speicherreplikat" mithilfe mehrerer-Clustern
 2. Hyper-V-Replikat zwischen Clustern
-3. Sichern und Wiederherstellen
+3. Sicherung und Wiederherstellung
 
-## Mehrere Cluster für die Nutzung von Speicherreplikaten
+## <a name="multiple-clusters-utilizing-storage-replica"></a>Funktion "Speicherreplikat" mithilfe mehrerer-Clustern
 
-[Das Speicherreplikat](../storage-replica/storage-replica-overview.md) ermöglicht die Replikation von Volumes und synchrone und asynchrone Replikation unterstützt. Bei der Entscheidung zwischen entweder synchron oder asynchron Replikation verwenden, sollten Sie Ihre Recovery Point Objective (RPO). Recovery Point Objective ist der Betrag möglichem Datenverlust, die Sie bereit sind, entstehen, bevor er größeren gilt. Wenn Sie bei der synchronen Replikation hinausgehen, wird er in beiden Enden nacheinander zur gleichen Zeit geschrieben. Wenn Sie mit asynchronen hinausgehen, Schreibvorgänge repliziert sehr schnell jedoch noch nicht mehr auffindbar sein. Sie sollten die Anwendung oder Datei Verwendung finden Sie unter dem für Sie am besten geeignet.
+[Funktion "Speicherreplikat"](../storage-replica/storage-replica-overview.md) ermöglicht die Replikation von Volumes und unterstützt die synchrone und asynchrone Replikation. Bei der Auswahl zwischen der Verwendung von entweder synchron oder asynchron Replikation sollten Sie Ihre Recovery Point Objective (RPO). RPO ist die Menge eines möglichen Datenverlusts, die Sie bereit sind, entstehen, bevor sie mit wichtigen Verlust gilt. Wenn Sie bei der synchronen Replikation wechseln, wird es für beide Enden sequenziell zur gleichen Zeit schreiben. Wenn Sie mit asynchronen wechseln, werden Schreibvorgänge werden sehr schnell replizieren jedoch verloren gegangen sein könnte. Sie sollten berücksichtigen, dass die Anwendung oder Datei Nutzung finden Sie unter der sich am besten für Sie funktioniert.
 
-Das Speicherreplikatfeature ist ein Block Kopien Mechanismus im Vergleich zu Dateiebene; Was bedeutet, spielt es keine Rolle welche Arten von Daten, die repliziert. Dadurch wird eine beliebte Option für hyperkonvergenten Infrastrukturen. Speicher-Replikat kann auch verschiedene Arten von Laufwerken zwischen der Replikationspartner, also, da alle von einem Typenspeicher auf eine HCI nutzen und eine andere Art Speicher andererseits ist perfekt in Ordnung. 
+Funktion "Speicherreplikat" ist eine Ebene kopiermechanismen Block im Vergleich zu Dateiebene. Das heißt, spielt es keine Rolle welche Arten von Daten, die repliziert werden. Dies macht es eine beliebte Option für den hyperkonvergenten Infrastruktur. Funktion "Speicherreplikat" kann auch andere Arten von Laufwerken zwischen den Replikationspartnern, daher haben alle eine Art von Speicher auf einem HCI nutzen und einen anderen Typenspeicher auf dem anderen ist in Ordnung. 
 
-Eine wichtige Funktion von Speicher-Replikat ist, dass sie in Azure als auch lokal ausgeführt werden kann. Sie können lokalen zu lokalen, Azure, Azure oder sogar lokale auf Azure (oder umgekehrt) einrichten.
+Eine wichtige Funktion von Funktion "Speicherreplikat" ist, dass es in Azure als auch lokal ausgeführt werden kann. Sie können lokal zu lokal, Azure zu Azure oder sogar lokal in Azure (oder umgekehrt) einrichten.
 
-In diesem Szenario gibt es zwei separate unabhängige Cluster. Konfigurieren von Speicherreplikaten zwischen HCI, können Sie die Schritte im [Cluster-zu-Cluster-Speicherreplikation](../storage-replica/cluster-to-cluster-storage-replication.md)ausführen.
+In diesem Szenario sind zwei separate unabhängige Cluster. Zum Konfigurieren von Funktion "Speicherreplikat" zwischen HCI, Sie können die Schritte in [Cluster-zu-Cluster-Speicherreplikation](../storage-replica/cluster-to-cluster-storage-replication.md).
 
-![Diagramm der Speicher-Replikation](media\storage-spaces-direct-disaster-recovery\Disaster-Recovery-Figure1.png)
+![Diagramm der Storage-Replikation](media\storage-spaces-direct-disaster-recovery\Disaster-Recovery-Figure1.png)
 
-Bei der Bereitstellung von Speicher-Replikat ist Folgendes zu berücksichtigen. 
+Die folgenden Überlegungen gelten beim Bereitstellen der Funktion "Speicherreplikat". 
 
-1.  Konfigurieren der Replikation erfolgt außerhalb des Failoverclustering. 
-2.  Auswählen der Methode der Replikation wird die Netzwerklatenz und RPO Anforderungen abhängig sein. Synchrone Replikation der Daten in Netzwerken mit geringer Latenz mit Replikationsmodi Konsistenz um sicherzustellen, dass kein Datenverlust zu einem Zeitpunkt des Fehlers. Asynchrone Replikation die Daten über Netzwerke mit höherer Latenzen wider, jedoch mit jedem Standort verfügen möglicherweise nicht identische Kopien zu einem Zeitpunkt des Fehlers. 
-3.  Bei einem Notfall Failovers zwischen Clustern sind nicht automatisch und manuell über die Speicher-Replikat PowerShell-Cmdlets koordiniert werden müssen. Im obigen Diagramm ClusterA ist das primäre und ClusterB ist eine sekundäre. Wenn ClusterA ausfällt, müssten Sie manuell ClusterB als primären festlegen, bevor Sie die Ressourcen bringen können. Sobald ClusterA wieder verfügbar ist, müssen Sie es sekundäre vereinfachen. Nachdem alle Daten wurden oben synchronisiert, nehmen Sie die Änderung und tauschen Sie die Rollen zurück an, wie, die er ursprünglich eingerichtet wurden.
-4.  Da das Speicherreplikat nur die Daten repliziert wird, müssten einen neuen virtuellen Computer oder Skalierung, Datei-Server (sofs kontaktieren) unter Verwendung dieser Daten im Failovercluster-Manager auf dem Replikationspartner erstellt werden.
+1.  Konfigurieren der Replikation erfolgt außerhalb der Failover-Clusterunterstützung. 
+2.  Auswählen der Methode der Replikation werden abhängig von Ihren Netzwerklatenz und der RPO-Anforderungen. Synchron repliziert die Daten in Netzwerken mit geringer Latenz mit Absturzkonsistenz, um sicherzustellen, dass kein Datenverlust zu einem Zeitpunkt des Fehlers an. Asynchrone repliziert die Daten über Netzwerke mit höherer Latenz kommen, aber jeder Standort verfügen möglicherweise nicht identische Kopien zu einem Zeitpunkt des Fehlers. 
+3.  Im Fall eines Notfalls Failover zwischen den Clustern werden nicht automatisch und manuell über die Storage-Replikat-PowerShell-Cmdlets koordiniert werden müssen. Im obigen Diagramm ClusterA ist der primäre und ClusterB der sekundäre Server. Wenn ClusterA ausfällt, müssen Sie würde manuell ClusterB als primär festlegen, bevor Sie die Ressourcen öffnen können. Sobald ClusterA wieder verfügbar ist, müssten Sie sekundäre Datenbank zu erleichtern. Nachdem alle Daten wurden Sie synchronisiert wurden, nehmen Sie die Änderung ein, und tauschen Sie die Rollen wieder auf die Möglichkeit, die sie ursprünglich festgelegt wurden.
+4.  Da die Funktion "Speicherreplikat" nur die Daten repliziert wird, müssen eine neue virtuelle Maschine oder die Scale Out-Datei Server Skalierung (SOFS) verwenden diese Daten in Failovercluster-Manager auf das Replikat erstellt werden.
 
-Das Speicherreplikatfeature kann verwendet werden, wenn Sie virtuelle Computer oder eine sofs kontaktieren in einem Cluster ausgeführt haben. Portieren von Ressourcen in das Replikat jederzeit HCI kann manuell oder automatisch durch die Verwendung von PowerShell-Skripting erfolgen.
+Funktion "Speicherreplikat" kann verwendet werden, wenn Sie virtuelle Maschinen oder eines SOFS, die in Ihrem Cluster ausgeführt haben. Onlineschalten von Ressourcen im Replikat HCI kann manuell oder durch die Verwendung von PowerShell-Skripts automatisiert sein.
 
-## Hyper-V-Replikat
+## <a name="hyper-v-replica"></a>Hyper-V-Replikat
 
-[Hyper-V-Replikat](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/set-up-hyper-v-replica) bietet Ebene VM-Replikation für die Wiederherstellung hyperkonvergenten Infrastrukturen. Was jedoch Hyper-V-Replikat können zu nutzen eines virtuellen Computers auf einen sekundären Standort oder Azure (Replikat) repliziert werden. Dann können Hyper-V-Replikat aus den sekundären Standort des virtuellen Computers in einem dritten (Erweiterte Replikat) replizieren.
+[Hyper-V-Replikat](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/set-up-hyper-v-replica) Ebene Replikation des virtuellen Computers für die notfallwiederherstellung für hyperkonvergente Infrastrukturen enthält. Hyper-V-Replikat Möglichkeiten ist, einen virtuellen Computer und auf einem sekundären Standort oder in Azure (Replikat) repliziert werden. Dann können vom sekundären Standort, Hyper-V-Replikat replizieren des virtuellen Computers in einer dritten (Erweiterte Replikat).
 
-![Hyper-V-Replikation-Diagramm](media\storage-spaces-direct-disaster-recovery\Disaster-Recovery-Figure2.png)
+![Diagramm für Hyper-V-Replikation](media\storage-spaces-direct-disaster-recovery\Disaster-Recovery-Figure2.png)
 
-Mit Hyper-V-Replikat ist die Replikation von Hyper-V durchgeführt. Wenn Sie einen virtuellen Computer für die Replikation zunächst aktivieren, gibt es drei Optionen für die wie die anfängliche kopieren möchten, die an die entsprechenden Replikat-Cluster mit gesendet werden.
+Mit Hyper-V-Replikat wird die Replikation von Hyper-V übernommen. Wenn Sie erstmals einen virtuellen Computer für die Replikation aktivieren, gibt es drei Optionen für die sollen wie für der ersten Kopie an das entsprechende Replikat-Cluster gesendet werden.
 
-1.  Senden Sie die erste Kopie über das Netzwerk
-2.  Senden Sie die erste Kopie um externe Datenträger, sodass es manuell auf dem Server kopiert werden kann
-3.  Verwenden Sie einen vorhandenen virtuellen Computer bereits auf dem Replikat-Hosts erstellt
+1.  Die erste Kopie über das Netzwerk gesendet.
+2.  Senden Sie die erste Kopie auf externe Medien, sodass sie manuell auf den Server kopiert werden können
+3.  Verwenden einer vorhandenen virtuellen Maschine, die bereits auf den replikathosts erstellt.
 
-Die andere Möglichkeit ist für, wenn Sie möchten, dass diese erste Replikation stattfinden soll.
+Die andere Option ist für, wenn Sie möchten, dass diese anfängliche Replikation durchgeführt werden soll.
 
-1.  Starten Sie die Replikation sofort
-2.  Planen Sie eine Uhrzeit für den bei der erste Replikation stattfindet. 
+1.  Die Replikation sofort starten
+2.  Planen Sie eine Uhrzeit für die bei die erste Replikation stattfindet. 
 
-Weitere Aspekte, die Sie benötigen sind:
+Weitere Überlegungen, die Sie benötigen werden:
 
-- Welche VHD/VHDX repliziert werden sollen. Sie können auch alle oder nur einer davon repliziert.
-- Anzahl der Wiederherstellungspunkte, die Sie speichern möchten. Wenn Sie möchten verfügen über mehrere Optionen zu welchem Zeitpunkt Punkt, die Sie wiederherstellen möchten, sollten Sie angeben, wie viele werden sollen. Wenn Sie nur ein Wiederherstellungspunkt möchten, können Sie, die ebenfalls auswählen.
-- Wie oft Sie möchten die ein inkrementeller Schattenkopie replizieren Volume Shadow Copy Service (VSS).
-- Wie oft Änderungen erhalten (30 Sekunden, 5 Minuten, 15 Minuten) repliziert.
+- Welche VHD/VHDXs Sie replizieren möchten. Sie können auch alle oder nur einer von ihnen zu replizieren.
+- Die Anzahl der Wiederherstellungspunkte, die Sie speichern möchten. Wenn Sie möchten, gibt es mehrere Möglichkeiten, zu welchem Zeitpunkt Punkt, die Sie wiederherstellen möchten, klicken Sie dann möchten Sie angeben, wie viele werden sollen. Wenn Sie nur einen Wiederherstellungspunkt möchten, können Sie, die ebenfalls auswählen.
+- Wie oft Sie möchten die eine inkrementelle Schattenkopien replizieren Volume Shadow Copy Service (VSS) haben.
+- Wie oft Änderungen repliziert (30 Sekunden, 5 Minuten, 15 Minuten).
 
-Wenn HCI teilnehmen in Hyper-V-Replikat, benötigen Sie die [Hyper-V-Replikat-Broker](https://blogs.technet.microsoft.com/virtualization/2012/03/27/why-is-the-hyper-v-replica-broker-required/) -Ressource in jedem Cluster erstellt haben. Diese Ressource enthält Folgendes:
+Wenn HCI teilnehmen in Hyper-V-Replikat, benötigen Sie die [Hyper-V-Replikatbroker](https://blogs.technet.microsoft.com/virtualization/2012/03/27/why-is-the-hyper-v-replica-broker-required/) in jedem Cluster erstellten Ressource. Diese Ressource führt mehrere Aufgaben aus:
 
-1.  Erhalten Sie einen einzigen Namespace für jeden Cluster für Hyper-V-Replikat zum herstellen.
-2.  Bestimmt, welche Knoten innerhalb des Clusters das Replikat (oder den erweiterten Replikat) auf gespeichert werden soll, wenn sie zuerst die Kopie empfängt.
-3.  Verfolgt der Knoten der Replikat (oder erweiterte Replikat) besitzt, für den Fall, dass Sie den virtuellen Computer auf einen anderen Knoten verschoben wird. Es muss zu verfolgen, damit beim Replikation durchgeführt wurde, die Informationen an den richtigen Knoten senden können.
+1.  Erhalten Sie einen einzelnen Namespace für jeden Cluster für Hyper-V-Replikat für die Verbindung.
+2.  Bestimmt, welcher Knoten innerhalb dieses Clusters, der das Replikat (oder die erweiterten Replikat) auf befinden soll, wenn sie zuerst die Kopie erhält.
+3.  Verfolgt des welchem Knoten das Replikat (oder die erweiterten Replikat) besitzt, für den Fall, dass die virtuelle Maschine auf einen anderen Knoten verschoben wird. Es muss dies nachverfolgen, sodass bei der Replikation erfolgt, die Informationen auf den richtigen Knoten senden können.
 
-## Sichern und Wiederherstellen
+## <a name="backup-and-restore"></a>Sicherung und Wiederherstellung
 
-Eine herkömmliche Notfall-Wiederherstellung-Option, die nicht ist die Rede sehr viel aber ist genauso wichtig ist die Fehler der den gesamten Cluster oder einen Knoten im Cluster. Eine der Optionen in diesem Szenario nutzt Windows NT-Sicherung. 
+Eine herkömmliche Disaster-Recovery-Option, die ist nicht gesprochen, sehr ähnlich, jedoch ist genauso wichtig ist, einen Fehler im gesamten Cluster oder einen Knoten im Cluster. Beiden Optionen in diesem Szenario wird von Windows NT Backup verwenden. 
 
-Es ist immer eine Empfehlung regelmäßige Sicherungskopien der hyperkonvergenten Infrastruktur verfügen. Während der Cluster-Dienst, ausgeführt wird Wenn Sie ein System Zustand Sicherung durchführen, wäre die Registrierung Clusterdatenbank Teil dieser Sicherung. Wiederherstellen des Clusters oder die Datenbank verfügt über zwei unterschiedliche Methoden (Non-autoritativ und autoritativ).
+Es ist immer eine Empfehlung für regelmäßige Sicherungen der hyperkonvergenten Infrastruktur haben. Während der Clusterdienst, ausgeführt wird Wenn Sie eine Systemstatussicherung verwenden, wäre die Registrierungsdatenbank für den Cluster ein Teil dieser Sicherung. Wiederherstellen des Clusters oder der Datenbank bietet zwei verschiedene Installationsmethoden, die (nicht-autorisierend und autorisiert).
 
-### Nichtautorisierte
+### <a name="non-authoritative"></a>Nicht-autoritative
 
-Eine nicht autorisierte Wiederherstellung mithilfe von Windows NT-Sicherung ausgeführt werden kann und eine vollständige Wiederherstellung von nur den Clusterknoten selbst entspricht. Wenn Sie nur einen Clusterknoten (und die Registrierung Clusterdatenbank) wiederherstellen müssen, und alle aktuellen Clusterinformationen gute, Sie würden Wiederherstellen mit der nicht autorisierte. Nichtautorisierte Wiederherstellung können über die Windows NT-Sicherung-Benutzeroberfläche oder über die Befehlszeile WBADMIN erfolgen. EXE-DATEI.
+Eine nicht autoritative Wiederherstellung mithilfe von Windows NT Backup ausgeführt werden kann und entspricht einer vollständigen Wiederherstellung nur Cluster-Knoten selbst. Wenn Sie nur ein Knoten (und der Registrierung Clusterdatenbank) wiederherstellen müssen und alle aktuellen Clusterinformationen gut, Sie werden beim Wiederherstellen nicht autorisierend. Nicht-autorisierende Wiederherstellungen können über die Windows NT Backup-Benutzeroberfläche oder der Befehlszeile WBADMIN erfolgen. EXE-DATEI.
 
-Nachdem Sie den Knoten wiederherstellen, können Sie es dem Cluster beizutreten. Was passiert ist, dass es die vorhandenen ausgeführten Cluster hinzugefügt werden und aktualisieren Sie alle Informationen mit was derzeit vorhanden ist.
+Nachdem Sie den Knoten wiederhergestellt haben, können sie dem Cluster beitreten. Was passiert ist, wird auf der die vorhandenen aktiven Cluster und alle zugehörigen Informationen mit, was derzeit es jedoch ist zu aktualisieren.
 
-### Autorisierend
+### <a name="authoritative"></a>Autorisierende
 
-Eine autoritativ Wiederherstellung von der Cluster-Konfiguration dauert andererseits, die Cluster-Konfiguration zurück. Diese Art der Wiederherstellung sollten nur erfolgen, wenn die Clusterinformationen selbst verloren und muss wiederhergestellt wurde. Z. B. eine Person ein Dateiserver, die mehr als 1.000 Freigaben enthalten versehentlich gelöscht, und Sie sie wieder benötigen. Abschluss eine autoritativ Wiederherstellung des Clusters erfordert, dass Sicherung über die Befehlszeile ausgeführt werden.
+Einer autorisierenden Wiederherstellung der Clusterkonfiguration, wird auf der anderen Seite die Cluster-Konfiguration in der Zeit zurück. Diese Art von Wiederherstellung sollte nur erfolgen, wenn die Clusterinformationen selbst verloren gehen und muss wiederhergestellt wurde. Beispielsweise jemand versehentlich gelöscht, einen Dateiserver, die mehr als 1.000 Freigaben enthalten, und Sie benötigen diese später wieder. Eine autorisierende Wiederherstellung des Clusters erfordert, dass die Sicherung über die Befehlszeile ausgeführt werden.
 
-Wenn eine autoritativ Wiederherstellung auf einem Clusterknoten gestartet wird, der Cluster-Dienst auf allen anderen Knoten im Cluster-Ansicht beendet wird, und die Cluster-Konfiguration wird eingefroren. Daher ist es wichtig ist, dass der Cluster-Dienst auf dem Knoten auf dem die Wiederherstellung ausgeführt wurde zuerst gestartet werden, damit der Cluster gebildet wird mithilfe der neuen Kopie von der Cluster-Konfiguration.
+Wenn auf einem Clusterknoten eine autorisierende Wiederherstellung initiiert wird, wird der Clusterdienst auf allen anderen Knoten in der Ansicht der Cluster beendet, und die Clusterkonfiguration ist fixiert. Daher ist es wichtig ist, dass der Clusterdienst auf dem Knoten, auf dem die Wiederherstellung ausgeführt wurde, zuerst gestartet werden, damit der Cluster gebildet wird, verwenden die neue Kopie der Clusterkonfiguration.
 
-Zum Ausführen von über eine autoritativ Wiederherstellung können die folgenden Schritte ausgeführt werden.
+Führen Sie über eine autorisierende Wiederherstellung können die folgenden Schritte ausgeführt werden.
 
-1.  Führen Sie WBADMIN. EXE-Datei über eine administrative Eingabeaufforderung um die neueste Version von Sicherungen abzurufen, die Sie installieren möchten und sicherstellen, dass Systemzustand eine Komponente ist können Sie wiederherstellen.
+1.  Führen Sie WBADMIN. EXE-Datei aus einer administrativen Eingabeaufforderung um die neueste Version von Sicherungen zu erhalten, die Sie installieren möchten und stellen Sie sicher, dass den Systemstatus der Komponenten ist, können Sie wiederherstellen.
 
     ```powershell
     Wbadmin get versions
     ```
 
-2.  Ermitteln Sie, ob die Sicherung Version haben Sie die Cluster-Registrierungsinformationen als Komponente enthält. Es gibt eine Reihe von diesen Befehl, die Version und die Anwendung/Komponente für den Einsatz in Schritt 3 benötigten Elemente. Für die Version z. B. die Sicherung erfolgte 3 Januar 2018 2:04:00 Uhr und dies ist die benötigten wiederhergestellt.
+2.  Bestimmt, ob die Version-Sicherung haben Sie die Clusterinformationen für die Registrierung als Komponente enthält. Es gibt einige Punkte, die Sie von diesem Befehl, die Version und die Anwendung/Komponente für die Verwendung in Schritt 3 benötigen. Für die Version z. B. die Sicherung wurde am 3. Januar 2018 um 2:04 Uhr beendet, und dies ist der benötigten wiederhergestellt.
 
     ```powershell
     wbadmin get items -backuptarget:\\backupserver\location
     ```
 
-3.  Starten Sie die autorisierend wiederherstellen, um nur die Clusterversion der Registrierung wiederherstellen, die Sie benötigen. 
+3.  Starten Sie die autorisierende Wiederherstellung aus, um nur die Clusterversion Registrierung wiederherzustellen, die Sie benötigen. 
 
     ```powershell
     wbadmin start recovery -version:01/03/2018-02:04 -itemtype:app -items:cluster
     ```
 
-Nachdem die Wiederherstellung durchgeführt wurde, muss dieser Knoten sein, die der Cluster-Dienst zuerst starten und den Cluster zu bilden. Alle anderen Knoten müsste dann gestartet werden und den Cluster beitreten.
+Nach die Wiederherstellung stattgefunden hat, muss dieser Knoten die Vorlage zum Starten des Clusterdiensts zuerst und den Cluster bilden. Alle anderen Knoten müssten dann gestartet werden, und den Cluster beitreten.
 
-## Zusammenfassung 
+## <a name="summary"></a>Zusammenfassung 
 
-Wenn dies alle summieren möchten, ist hyperkonvergenten notfallwiederherstellung etwas, das Sie sorgfältig geplant werden soll. Es gibt verschiedene Szenarien, die Ihre Anforderungen am besten gerecht können und sollten sorgfältig getestet werden. Ein Element zu beachten ist, wenn Sie in der Vergangenheit mit Failoverclustern vertraut sind, Stretched Cluster einen sehr beliebtere Option im Laufe der Jahre wurden. Es ist etwas einer Designänderung mit der zusammengeführte Lösung und basiert auf resilienz. Wenn Sie zwei Knoten in einem hyperkonvergenten Cluster vergessen haben, wird der gesamte Cluster sinken. Mit dieser wird in einer Umgebung mit hyperkonvergenter der Fall ist das Stretched Szenario nicht unterstützt.
+Wenn dies ganz summieren möchten, ist die hyper-konvergiert notfallwiederherstellung etwas, das Sie sorgfältig geplant werden sollte. Es gibt mehrere Szenarien, die können am besten Ihren Anforderungen und sollte gründlich getestet werden kann. Ein Element zu beachten ist, dass wenn Sie in der Vergangenheit mit Failoverclustern vertraut sind, Stretched Cluster eine sehr beliebte Option im Laufe der Jahre wurden. Gab es ein wenig einer entwurfsänderung mit der Lösung für die hyper-konvergiert, und sie basiert auf resilienz. Wenn Sie zwei Knoten in einem hyperkonvergenten Cluster verlieren, wird der gesamte Cluster ausfallen. Mit diesem wird der Fall, in einer Umgebung mit hyper-konvergiert ist die Stretch-Szenario nicht unterstützt.
 
 

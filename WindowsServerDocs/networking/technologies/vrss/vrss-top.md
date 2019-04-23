@@ -1,6 +1,6 @@
 ---
 title: Virtual Receive Side Scaling (vRSS)
-description: Erfahren Sie, Virtual Receive Side Scaling (vRSS) in Windows Server und wie Sie einen virtuellen Netzwerkadapter zum Laden des Saldo eingehende Netzwerkverkehr über mehrere logische Prozessorkerne auf einem virtuellen Computer zu konfigurieren. Sie können auch mehrere physischen Kernen für einen Host konfigurieren virtuelle Netzwerkkarte (vNIC).
+description: Erfahren Sie mehr über die virtuelle empfangsseitige Skalierung (vRSS), in Windows Server und zum Laden von Lastenausgleich für eingehenden Netzwerk-Datenverkehr über mehrere logische Prozessorkerne auf einem virtuellen Computer einen virtuellen Netzwerkadapter zu konfigurieren. Sie können auch mehrere physische CPU-Kerne für einen Host konfigurieren virtuelle Netzwerkkarte (vNIC).
 ms.prod: windows-server-threshold
 ms.technology: networking
 ms.topic: article
@@ -11,82 +11,82 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.openlocfilehash: 0c1cb11cb8ce69463a31cfa5061290f79d8dda91
-ms.sourcegitcommit: e84e328c13a701e8039b16a4824a6e58a6e59b0b
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2018
-ms.locfileid: "4133686"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59875231"
 ---
-# Virtuelle Side Scaling \(vRSS\) erhalten
+# <a name="virtual-receive-side-scaling-vrss"></a>Virtuelle empfangsseitige Skalierung \(vRSS\)
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
-In diesem Thema erfahren Sie Virtual Receive Side Scaling (vRSS) und wie Sie einen virtuellen Netzwerkadapter zum Laden des Saldo eingehende Netzwerkverkehr über mehrere logische Prozessorkerne auf einem virtuellen Computer zu konfigurieren. Sie können auch vRSS verwenden, um physischen Kernen für einen Host-virtuelle Netzwerkkarte \(vNIC\) zu konfigurieren.
+In diesem Thema erfahren Sie, über die virtuelle empfangsseitige Skalierung (vRSS) und wie Sie einen virtuellen Netzwerkadapter zum Laden von Lastenausgleich für eingehenden Netzwerk-Datenverkehr über mehrere logische Prozessorkerne auf einem virtuellen Computer zu konfigurieren. Sie können auch vRSS verwenden, so konfigurieren Sie mehrere physische Kerne für einen Host virtual Network Interface Card \(vNIC\).
 
-Diese Konfiguration ermöglicht das Laden von einem virtuellen Netzwerkadapter auf mehreren virtuellen Prozessoren auf einem virtuellen Computer verteilt werden \(VM\), sodass weitere Netzwerkdatenverkehr verarbeitet schneller als mit einem einzigen logischen Prozessor möglich den virtuellen Computer.
+Diese Konfiguration mit die Last einem virtuellen Netzwerkadapters auf mehrere virtuelle Prozessoren auf einem virtuellen Computer verteilt werden \(VM\), damit die virtuelle Maschine mehr Netzwerkverkehr schneller als mit einem einzelnen möglich verarbeiten. Logischer Prozessor.
 
 >[!TIP]
->Können vRSS in virtuellen Computern auf Hyper-V-Hosts, die mehrere Prozessoren, eine einzelne mehrere Core-Prozessor verfügen oder mehr als eine mehrere Core-Prozessoren installiert und für die VM-Verwendung konfiguriert.
+>Können Sie vRSS auf virtuellen Computern auf Hyper\-V-Hosts, die mehrere Prozessoren, ein einzelnes mehrere Core-Prozessor oder mehrere Mehrkernprozessoren installiert und konfiguriert Sie für die Verwendung des virtuellen Computers.
 
-vRSS ist mit allen anderen Hyper-V-netzwerktechnologien kompatibel. vRSS ist \(VMQ\) Warteschlange des virtuellen Computers auf dem Hyper-V-Host und RSS auf dem virtuellen Computer oder auf die Host-vNIC abhängig.
+vRSS ist kompatibel mit allen anderen Hyper\-V netzwerktechnologien. vRSS ist abhängig von der Warteschlange für virtuelle Maschinen \(VMQ\) auf den virtuellen Hyper\-V-Host und RSS auf dem virtuellen Computer oder auf die Host-vNIC.
 
-Standardmäßig Windows Server ermöglicht vRSS, aber Sie können Sie mithilfe von Windows PowerShell auf einem virtuellen Computer deaktivieren. Weitere Informationen finden Sie unter [Verwalten vRSS](vrss-manage.md) und [Windows PowerShell-Befehlen für RSS- und vRSS](vrss-wps.md).
+Standardmäßig Windows Server ermöglicht vRSS, aber Sie können Sie mithilfe von Windows PowerShell auf einem virtuellen Computer deaktivieren. Weitere Informationen finden Sie unter [verwalten vRSS](vrss-manage.md) und [Windows PowerShell-Befehle für RSS und vRSS](vrss-wps.md).
 
 
 
-## Betriebssystem-Kompatibilität
+## <a name="operating-system-compatibility"></a>Betriebssystemkompatibilität
 
-RSS können auf jedem Computer mit mehreren Prozessoren oder Steuerung- oder vRSS auf eine beliebige VM mit mehreren Prozessoren oder Steuerung -, auf denen Windows Server 2016 ausgeführt wird.
+Sie können RSS verwenden, auf einem Multiprozessor- oder multicore-Computer- oder die vRSS auf jeder Multiprozessor- oder multicore-VM -, auf denen Windows Server 2016 ausgeführt wird.
 
-Mit mehreren Prozessoren oder Multicore virtuellen Computern, die die folgenden Microsoft-Betriebssysteme ausgeführt werden auch unterstützen vRSS.
+Unterstützung von Multiprozessor- oder Multicore-VMs, die folgenden Microsoft-Betriebssysteme ausgeführt werden, auch vRSS.
 
 - Windows Server 2016
 - Windows 10 Pro oder Enterprise
-- Windows Server 2012 R2
+- Windows Server 2012 R2
 - Windows 8.1 Pro oder Enterprise
-- Windows Server 2012 mit der Windows Server 2012 R2-Integrationskomponenten installiert.
-- Windows 8 mit der Windows Server 2012 R2-Integrationskomponenten installiert.
+- Windows Server 2012 mit installierten Komponenten des Windows Server 2012 R2.
+- Windows 8 mit Komponenten des Windows Server 2012 R2 installiert.
 
-Informationen zur vRSS-Unterstützung für virtuelle Computer FreeBSD oder Linux als Gastbetriebssystem auf Hyper-V finden Sie unter [unterstützte Linux- und FreeBSD virtuellen Computer für Hyper-V unter Windows](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows).
+Weitere Informationen zu vRSS-Unterstützung für virtuelle Maschinen von FreeBSD oder Linux als Gastbetriebssystem auf Hyper-V, finden Sie unter [unterstützt Linux und FreeBSD-VMs für Hyper-V unter Windows](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows).
   
-## Hardwareanforderungen
+## <a name="hardware-requirements"></a>Hardwareanforderungen
 
-Im folgenden werden die hardwareanforderungen für vRSS.
+Es folgen die hardwareanforderungen für vRSS.
  
-- Physischen Netzwerkadaptern müssen Warteschlange des virtuellen Computers \(VMQ\) unterstützen. Wenn VMQ deaktiviert oder nicht unterstützt, ist vRSS für den Hyper-V-Host und alle virtuellen Computer auf dem Host konfiguriert wurde deaktiviert.
-- Netzwerkadapter müssen mindestens eine Verknüpfung Geschwindigkeit von 10 Gbit/s ist.
-- Hyper-V-Hosts müssen mit mehreren Prozessoren oder mindestens eine Multi\-Core-Prozessor mit vRSS konfiguriert werden.
-- Virtuelle Computer \(VMs\) muss konfiguriert werden, um zwei oder mehr logischen Prozessoren verwenden.
+- Physische Netzwerkadapter müssen die Warteschlange für virtuelle Computer unterstützen \(VMQ\). Wenn VMQ deaktiviert ist, oder nicht unterstützt, ist vRSS deaktiviert, für die Hyper\-V-Host und alle virtuellen Computer, auf dem Host konfiguriert.
+- Netzwerkadapter müssen mindestens eine verbindungsgeschwindigkeit von 10 Gbit/s haben.
+- Hyper\-V-Hosts müssen konfiguriert werden, mit mehreren Prozessoren oder mindestens mit mehreren\-core-Prozessor vRSS verwenden.
+- Virtuelle Computer \(VMs\) muss zur Verwendung von zwei oder mehreren logischer Prozessoren konfiguriert werden.
 
 
-## Anwendungsfälle
+## <a name="use-case-scenarios"></a>Anwendungsszenarien
 
-Die folgenden zwei Anwendungsfälle dargestellt übliche Verwendung von vRSS für Prozessor-Lastenausgleich und Software Load balancing.
+Die folgenden zwei Szenarien zu Anwendungsfällen darzustellen übliche Nutzung vRSS prozessorlastenausgleich und softwarelastenausgleich.
 
-### Prozessor-Lastenausgleich
+### <a name="processor-load-balancing"></a>Prozessorlastenausgleich
   
-Anthony, Netzwerkadministrator, einen neuen Hyper-V-Host mit zwei Netzwerkadapter zum Einrichten von, die einzelnen Stamm ein-/ Ausgabe-Virtualisierung \(SR\-IOV\) unterstützt. Er stellt Windows Server 2016 um einen VM-Dateiserver zu hosten.
+Michael, ein Netzwerkadministrator, Einrichten von einen neuen Hyper-V-Host mit zwei Netzwerkadapter, Single Root Input-Output Vortualization unterstützt \(SR\-IOV\). Er stellt Windows Server 2016, um einen Dateiserver für die virtuellen Computer zu hosten.
 
-Nach der Installation von Hardware und Software, konfiguriert Anthony acht virtuelle Prozessoren verwenden einen virtuellen Computer und 4.096 MB Arbeitsspeicher. Leider verfügt Anthony nicht die Möglichkeit, SR\-IOV einschalten, da seine VMs auf Durchsetzen von Richtlinien über den virtuellen Switch angewiesen, die er mit dem Hyper-V Virtual Switch-Manager erstellt haben. Aus diesem Grund entscheidet Anthony vRSS anstelle SR\-IOV verwenden.
+Nach der Installation von Hardware und Software, konfiguriert Michael an einen virtuellen Computer mit acht virtuellen Prozessoren und 4096 MB Arbeitsspeicher. Anthony haben leider nicht die Möglichkeit, SR einschalten\-IOV da seiner VMs auf dem richtlinienerzwingung über den virtuellen Switch basieren er, mit Hyper erstellt\-V Virtual Switch-Manager. Aus diesem Grund entscheidet, Anthony mit vRSS statt SR\-IOV.
 
-Zunächst weist Anthony vier virtuelle Prozessoren mithilfe von Windows PowerShell für die Verwendung mit vRSS verfügbar sein. Die Verwendung des Dateiservers nach einer Woche schien ziemlich beliebte sein, damit Anthony die Leistung des virtuellen Computers überprüft.  Er ermittelt vollständige Nutzung der vier virtuellen Prozessoren.
+Zunächst weist Michael vier virtuelle Prozessoren mithilfe von Windows PowerShell für die Verwendung mit vRSS verfügbar sein. Die Verwendung des Dateiservers nach einer Woche erschien sehr beliebt ist, damit Michael die Leistung des virtuellen Computers überprüft.  Er stellt die vollständige Nutzung der vier virtuellen Prozessoren.
 
-Aus diesem Grund entscheidet Anthony des virtuellen Computers für die Verwendung von vRSS Prozessoren hinzu.  Er weist zwei weitere virtuellen Prozessoren auf dem virtuellen Computer, die automatisch für vRSS zu behandeln die Last großen Netzwerk verfügbar sind. Seine bemühungen führen eine bessere Leistung für die VM-Dateiserver, die sechs Prozessoren effizient behandeln die Netzwerk-Datenverkehr geladen.
-
-
-### Softwarelastenausgleich
-
-Sandra, Netzwerkadministrator Einrichten einer einzigen High-End-VM auf einem der ihre Systeme, die als eine Software Load Balancers fungieren. Er verfügt über alle verfügbaren logischen Prozessoren mit diesem einzelnen virtuellen Computer zugewiesen.
-
-Nach der Installation von Windows Server wird mit seiner vRSS parallel Netzwerkdatenverkehr Verarbeitung auf mehreren logischen Prozessoren auf dem virtuellen Computer. Da Windows Server vRSS ermöglicht, keinen Sandra keine konfigurationsänderungen vornehmen.
+Aus diesem Grund entscheidet, Anthony Prozessoren mit dem virtuellen Computer für die Verwendung von vRSS hinzufügen.  Er weist zwei weitere virtuellen Prozessoren der VM, die vRSS können von der hohen Netzwerklast behandelt automatisch zur Verfügung stehen. Seine bemühungen führen eine bessere Leistung für den Dateiserver des virtuellen Computers mit den sechs Prozessoren effiziente Behandlung der Datenverkehrslast im Netzwerk.
 
 
-## Verwandte Themen
+### <a name="software-load-balancing"></a>Softwarelastenausgleich
+
+Stefan, ein Netzwerkadministrator, ist eine einzelne Hochleistungs-VM auf eines seiner Systeme einrichten, die als eines Software Load Balancer fungiert. Er verfügt über alle verfügbaren logischen Prozessoren auf diese einzelnen virtuellen Computer zugewiesen.
+
+Nach der Installation von Windows Server, verwendet sie vRSS auf um parallele Verarbeitung auf mehreren logischen Prozessoren auf dem virtuellen Computer Netzwerkdatenverkehr zu erhalten. Da Windows Server vRSS ermöglicht, keine Stefan konfigurationsänderungen vornehmen.
+
+
+## <a name="related-topics"></a>Verwandte Themen
 
 - [Planen der Verwendung von vRSS](vrss-plan.md)
 - [Aktivieren Sie vRSS auf einem virtuellen Netzwerkadapter](vrss-enable.md)
-- [Verwalten von vRSS](vrss-manage.md)
+- [Verwalten Sie vRSS](vrss-manage.md)
 - [vRSS häufig gestellte Fragen](vrss-faq.md)
-- [Windows PowerShell-Befehlen für RSS- und vRSS](vrss-wps.md)
+- [Windows PowerShell-Befehle für RSS und vRSS](vrss-wps.md)
 
 ---

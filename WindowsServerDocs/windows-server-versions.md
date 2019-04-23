@@ -15,11 +15,11 @@ ms.author: elizapo
 manager: dongill
 ms.localizationpriority: medium
 ms.openlocfilehash: 8d14ccf734d5242301030bbb6e3c2489e1a0266a
-ms.sourcegitcommit: e0479b0114eac7f232e8b1e45eeede96ccd72b26
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "2082200"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59876351"
 ---
 # <a name="windows-server---it-administrator-content-for-current-and-previous-releases"></a>Windows Server – IT-Administrator-Inhalt für aktuelle und frühere Versionen
 
@@ -34,36 +34,36 @@ Verwenden Sie die unten angegebenen Links zum Anzeigen von technischen Inhalten 
 
 ## <a name="windows-server-2016"></a>Windows Server 2016
 
-[Windows Server 2016 technische Inhalte](windows-server-2016.md)
+[Technische Inhalte von Windows Server 2016](windows-server-2016.md)
 
-## <a name="windows-server-2012-r2-and-windows-server-2012"></a>WindowsServer2012R2 und Windows Server2012
+## <a name="windows-server-2012-r2-and-windows-server-2012"></a>Windows Server 2012 R2 und Windows Server 2012
 
-[Technische Bibliothek zu Windows Server 2012R2 und Windows Server2012](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/) 
+[Windows Server 2012 R2 und technischen Bibliothek zu Windows Server 2012](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/) 
 
-[Entwicklerbibliothek zu Windows Server 2012R2 in MSDN](https://msdn.microsoft.com/library/dn609939(v=vs.85).aspx) 
+[Entwicklerbibliothek zu Windows Server 2012 R2 auf MSDN](https://msdn.microsoft.com/library/dn609939(v=vs.85).aspx) 
 
-## <a name="windows-server-2008-r2-and-windows-server-2008"></a>WindowsServer2008R2 und Windows Server2008
+## <a name="windows-server-2008-r2-and-windows-server-2008"></a>Windows Server 2008 R2 und Windows Server 2008
 
-[Technische Bibliothek zu Windows Server 2008R2 und Windows Server2008](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008)
+[Windows Server 2008 R2 und technischen Bibliothek zu Windows Server 2008](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008)
  
-[Entwicklerbibliothek zu Windows Server2008 in MSDN](https://msdn.microsoft.com/library/hh738539.aspx) 
+[Entwicklerbibliothek zu Windows Server 2008 auf MSDN](https://msdn.microsoft.com/library/hh738539.aspx) 
 
 ## <a name="windows-server-2003"></a>Windows Server 2003
 
-[Technische Bibliothek für Windows Server2003](https://www.microsoft.com/download/details.aspx?id=53314) – Laden Sie eine PDF-Version der archivierten Inhalte herunter
+[Technische Bibliothek für Windows Server 2003](https://www.microsoft.com/download/details.aspx?id=53314) – Laden Sie eine PDF-Version der archivierten Inhalte herunter
 
-[Entwicklerbibliothek zu Windows Server2003 in MSDN](https://msdn.microsoft.com/library/dn792549.aspx)
+[Entwicklerbibliothek zu Windows Server 2003 auf MSDN](https://msdn.microsoft.com/library/dn792549.aspx)
 
 
 ## <a name="product-evaluations"></a>Produktbewertung
 
-[Produktbewertung von Windows Server2016 herunterladen](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016?i=1) 
+[Download von Windows Server 2016 Evaluation](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016?i=1) 
 
-[Testversion von Windows Server2012R2 herunterladen](https://www.microsoft.com/evalcenter/evaluate-windows-server-2012-r2) 
+[Windows Server 2012 R2-Testversion herunterladen](https://www.microsoft.com/evalcenter/evaluate-windows-server-2012-r2) 
 
 
 ## <a name="related-links"></a>Verwandte Links
-[Produktinformationen zu WindowsServer2016](https://www.microsoft.com/cloud-platform/windows-server) 
+[Windows Server 2016-Produktinformationen](https://www.microsoft.com/cloud-platform/windows-server) 
 
 <br>
 

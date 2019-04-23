@@ -1,7 +1,7 @@
 ---
 ms.assetid: 8a64545b-16bd-4c13-a664-cdf4c6ff6ea0
-title: "AD FS-Szenarien für Entwickler"
-description: 
+title: AD FS-Szenarien für Entwickler
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,290 +9,291 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 753b2b235cb1d73ab47588f8f229410c1f81db40
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.openlocfilehash: a2a88608f3989522b1ec1c123f29bd679db7e318
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59877941"
 ---
 # <a name="ad-fs-scenarios-for-developers"></a>AD FS-Szenarien für Entwickler
 
 >Gilt für: Windows Server 2016
 
-AD FS unter Windows Server 2016 [AD FS 2016] können Sie hinzufügen Industry standard OpenID Connect und OAuth 2.0-basierte Authentifizierung und Autorisierung für Anwendungen, die Sie entwickeln und diese Anwendungen, die Benutzer direkt mit AD FS zu authentifizieren.    
+AD FS unter Windows Server 2016 [AD FS 2016] können Sie hinzufügen Industry standard OpenID Connect und OAuth 2.0-basierte Authentifizierung und Autorisierung für Anwendungen, die Sie entwickeln, und diese Anwendungen direkt in AD FS authentifizieren.    
   
-AD FS 2016 unterstützt auch das WS-Federation, WS-Trust und SAML Protokolle und -Profilen, wir haben in früheren Versionen unterstützt.  Wenn Sie für diese Protokolle Entwicklerleitfaden interessiert sind, finden Sie im Artikel hier.  In diesem Artikel geht verwenden, und profitieren Sie von der Unterstützung für neuere Protokolle.  
+AD FS 2016 unterstützt auch die WS-Verbund, WS-Trust, und die SAML-Protokolle und Profile, wir haben in früheren Versionen unterstützt.  Wenn Sie die Anleitung für Entwickler für diesen Protokollen interessiert sind, finden Sie unter diesem Artikel.  In diesem Artikel liegt der Schwerpunkt auf und aus dem neueren Protokoll Support profitieren.  
   
-## <a name="why-modern-authentication"></a>Warum moderne Authentifizierung  
-Können Sie zwar weiterhin mit AD FS für die Anmeldung auf WS-Federation, verfügen Sie über WS-Trust und SAML-Protokolle wie, bevor mit der neueren Protokollen Bereich Sie die folgenden Vorteile erhalten:  
+## <a name="why-modern-authentication"></a>Warum moderner Authentifizierung  
+Während Sie mit AD FS für die Anmeldung unter mit dem WS-Verbund-fortsetzen zu können, haben WS-Trust und SAML-Protokolle, wie Sie vor, mit der neueren Protokolle, Bereich erhalten Sie die folgenden Vorteile:  
   
 * **Einfachheit und Konsistenz**  
-    * Verwenden Sie den gleichen Satz von APIs und Muster, um anmelden für zu aktivieren:   
-        *   mehrere Typen von Anwendungen (Server, Desktop, Mobile, Browser)  
+    * Verwenden Sie den gleichen Satz von APIs und Muster, um anmelden zu aktivieren, für die:   
+        *   mehrere Typen von Anwendungen ("Server", "Desktop", "Mobile", "Browser")  
         *   mehrere Plattformen (android, iOS, Windows)  
-        *   Anwendungen innerhalb des Unternehmensnetzwerks oder in der Cloud gehostet  
-    * Verwenden Sie den gleichen Satz von Bibliotheken, die Sie bereits zum Authentifizieren von Benutzern bei Azure AD verwenden können  
+        *   Anwendungen innerhalb des Unternehmensnetzwerks oder in der Cloud gehostet werden  
+    * Verwenden Sie den gleichen Satz von Bibliotheken, die Sie bereits, zum Authentifizieren von Benutzern für Azure AD verwenden können  
 * **Flexibilität**  
-    * Aktivieren Sie zusätzlich zur Autorisierung Standardbenutzern z. B. komplexere Szenarien:      
-        * ? 3-Abschnitten anmelden Flüsse, die in denen ein Benutzer autorisiert, einer Web-Anwendung oder einem Dienst auf Ressourcen zugreifen, die mit einem anderen Web-app oder Dienst befinden.    
-        * ? Server-zu-Server-Flüsse, die in denen Mid-Tier-Dienst ein Back-End-API-zugreift  
-        * ? JavaScript-basierte Einzelseiten-Anwendungen (SPA)  
-* **Unterstützung**  
-    * OAuth 2.0 und OpenID Connect genießen Breite Auslastung gesamten Branche zusammen, damit Kenntnisse in dieser Muster eine Authentifizierung und Autorisierung außerhalb einer Active Directory-Umgebung unterstützen  
+    * Aktivieren Sie neben der Autorisierung für Standardbenutzer z. B. komplexere Szenarien:      
+        * ? 3 Abschnitten anmelden Flows, die in denen sich ein Benutzer autorisiert, eine Webanwendung oder Dienst, den Zugriff auf Ressourcen, die mit einer anderen Web-app oder -Dienst befinden.    
+        * ? Server-zu-Server-Flows, die in denen ein Mid-Tier-Dienst ein Back-End-API zugreift  
+        * ? JavaScript-basierte Single-Page-Anwendungen (SPA)  
+* **Branchenweite Unterstützung**  
+    * OAuth 2.0 und OpenID Connect profitieren große Auslastung in der Branche, sodass Kenntnisse dieser Muster Sie die Authentifizierung und Autorisierung außerhalb einer Active Directory-Umgebung auch aktivieren können  
   
-## <a name="how-it-works-the-basics"></a>Funktionsweise: Grundlagen  
-Sie können moderne AD FS-Authentifizierung hinzufügen, der Anwendung mit den gleichen Satz von Tools und Bibliotheken, die Sie bereits zum Authentifizieren von Benutzern bei Azure AD verwenden können.   
+## <a name="how-it-works-the-basics"></a>So funktioniert es: Die Grundlagen  
+Sie können die moderne Authentifizierung von AD FS für Ihre Anwendung mit den gleichen Satz von Tools und Bibliotheken, die Sie bereits, zum Authentifizieren von Benutzern für Azure AD verwenden können hinzufügen.   
   
-In AD FS-Szenarien, ist es AD FS und kein Azure AD, der als Identitätsanbieter herzustellen und Autorisierung dient Server.  Andernfalls die Konzepte sind identisch: Benutzer ihre Anmeldeinformationen eingeben und Abrufen von Token, entweder direkt oder über ein Vermittler, für den Zugriff auf Ressourcen.  
+In AD FS-Szenarien, es ist AD FS und nicht in Azure AD, die als die Identitätsanbieter und die Autorisierung fungiert Server.  Andernfalls die Konzepte sind identisch: Benutzer ihre Anmeldeinformationen bereitstellen und Abrufen von Token, entweder direkt oder über einen Vermittler, für den Zugriff auf Ressourcen.  
   
-Das einfachste Szenario besteht aus einem Benutzer oder "Ressourcenbesitzer", die Interaktion mit einem Browser, um eine Webanwendung zugreifen:  
+Das grundlegende Szenario besteht aus einer Benutzer- oder "Resource Owner", die Interaktion mit einem Browser auf eine Webanwendung zuzugreifen:  
   
 ![AD FS für Entwickler](media/ADFS_DEV_1.png)  
   
-Die Web-Anwendung wird ein "Client" aufgerufen, da es die Anforderung an die autorisierungsserver (AD FS) für ein Zugriffstoken mit der Ressource initiiert.  Die Ressource kann von der Web-app selbst gehostet werden oder kann als Web-API-Netzwerk oder Internet zugegriffen werden.   Der Benutzer oder der "Besitzer der Ressource" wird die Client-Web-app das Zugriffstoken zu erhalten, durch die Bereitstellung von Anmeldeinformationen an den autorisierungsserver autorisiert.    
+Die Webanwendung wird einen "Client" aufgerufen werden, da er die Anforderung an den autorisierungsserver (AD FS) für ein Zugriffstoken für die Ressource initiiert.  Die Ressource kann von der Web-app selbst gehostet werden oder als eine Web-API an einer beliebigen Stelle auf das Netzwerk oder das Internet zugänglich sein.   Der Benutzer oder "Besitzer der Ressource" Act autorisiert die Client-Web-app, um das Zugriffstoken zu erhalten, durch die Bereitstellung von Anmeldeinformationen für den autorisierungsserver.    
   
 ## <a name="how-it-works-components"></a>Funktionsweise: Komponenten  
-OAuth 2.0 und OpenID Connect Szenarien in AD FS-Hersteller verwenden den gleichen Satz von Tools und Bibliotheken, die Sie verwenden, wenn es sich bei Azure AD der Identitätsanbieter ist.  Diese Komponenten sind:  
-* Active Directory-Authentifizierung Library (ADAL): Client-Bibliotheken erleichtern, die Anmeldeinformationen des Benutzers sammeln, erstellen und übermitteln token anfordert und die resultierenden Token abrufen.    
-* OWIN (Open Web Interface for .NET) Middleware: während OWIN ist ein communityprojekt basierend, Microsoft hat eine Reihe von Server Seite Bibliotheken, die für den Schutz von Webanwendungen und web-APIs mit OpenID Connect und OAuth 2.0  
+OAuth 2.0 und OpenID Connect-Szenarien sind AD FS verwenden den gleichen Satz von Tools und Bibliotheken, die Sie verwenden, wenn es sich bei Azure AD des Identitätsanbieters erfolgt ist.  Diese Komponenten sind:  
+* Active Directory-Authentifizierungsbibliothek (ADAL):-Clientbibliotheken erleichtern, die Sammeln von Benutzeranmeldeinformationen, erstellen und token-Anforderungen senden und Abrufen von den sich ergebenden Token.    
+* OWIN (Open Web Interface für .NET)-Middleware: Obwohl OWIN basierten communityprojekt ist, hat Microsoft einen Satz von Bibliotheken der Seite, die erstellt für den Schutz von Webanwendungen und Web-APIs mit OpenID Connect und OAuth 2.0  
   
-Die Funktionen der folgenden Komponenten sind im folgenden Diagramm dargestellt:  
+Die Rollen der diese Komponenten sind im folgenden Diagramm dargestellt:  
   
 ![AD FS für Entwickler](media/ADFS_DEV_2.png)  
   
-## <a name="modeling-these-scenarios-in-ad-fs-2016"></a>Erstellen von diesen Szenarien in AD FS 2016  
+## <a name="modeling-these-scenarios-in-ad-fs-2016"></a>Modellierung dieser Szenarien in AD FS 2016  
   
 ### <a name="application-groups"></a>Anwendungsgruppen  
-Um diese Szenarien in AD FS-Richtlinie darzustellen, haben wir ein neues Konzept namens Anwendungsgruppen eingeführt.  Eine Anwendungsgruppe kann eine beliebige Anzahl und Kombination der folgenden grundlegenden Typen der Anwendung enthalten:  
+Um dieser Szenarien für AD FS darzustellen, haben wir ein neues Konzept namens Anwendungsgruppen eingeführt.  Eine Anwendungsgruppe kann beliebiger Anzahl und die Kombination von der Anwendung die folgenden grundlegenden Typen enthalten:  
   
   
   
-Anwendungsgruppe / Anwendung geben  |Beschreibung  |Rolle    
+Anwendungsgruppe / Anwendungstyp  |Beschreibung  |Role-Eigenschaft    
 ---------|---------|---------  
-Systemeigene Anwendung     |  In einigen Fällen einen öffentlichen Client aufgerufen wird, ist dies soll eine Client-app, die auf einem pc oder Gerät und mit dem der Benutzer interagiert ausgeführt wird.       | Anforderungen Token vom autorisierungsserver (AD FS) für den Benutzerzugriff auf Ressourcen.  Sendet HTTP-Anforderungen auf geschützte Ressourcen, die das Token als HTTP-Header verwenden.        
-Server-Anwendung     |   Eine Anwendung, die auf einem Server ausgeführt wird und in der Regel für Benutzer über einen Browser zugänglich ist.  Da es einen eigenen geheimen' ' oder Anmeldeinformationen verwalten kann, wird sie manchmal einen vertraulichen Client aufgerufen.      | Anforderungen Token vom autorisierungsserver (AD FS) für den Benutzerzugriff auf Ressourcen.  Sendet HTTP-Anforderungen auf geschützte Ressourcen, die das Token als HTTP-Header verwenden.               
-Web-API     |  Der End-Ressourcen der Benutzer greift auf. Betrachten Sie diese als neue Darstellung von "vertrauende Seiten".| Nimmt Token abgerufen, indem clients  
+Systemeigene Anwendung     |  Bezeichnet einen öffentlichen Client handelt, Dies dient eine Client-app sein, die ausgeführt wird, auf einem pc oder Gerät und mit denen der Benutzer interagiert.       | Anforderungen der Token vom autorisierungsserver (AD FS) für den Benutzerzugriff auf Ressourcen.  HTTP-Anforderungen auf geschützte Ressourcen, mit dem Token als HTTP-Header gesendet.        
+Server-Anwendung     |   Eine Webanwendung, die auf einem Server ausgeführt und ist im Allgemeinen für Benutzer über einen Browser zugegriffen werden kann.  Da es kann einen eigenen Client "Secret" oder Anmeldeinformationen handelt, wird sie manchmal einen vertraulichen Client aufgerufen.      | Anforderungen der Token vom autorisierungsserver (AD FS) für den Benutzerzugriff auf Ressourcen.  HTTP-Anforderungen auf geschützte Ressourcen, mit dem Token als HTTP-Header gesendet.               
+Web-API     |  Die End-Ressource der Benutzer greift auf. Stellen Sie sich diese als neue Darstellung des "vertrauende Seiten".| Nimmt Token, die von Clients abgerufen  
   
-### <a name="differences-from-ad-fs-2012-r2"></a>Unterschiede von AD FS 2012 R2  
-Anwendungsgruppen kombinieren, als vertrauenswürdig einstufen und Autorisierung-Elemente, die AD FS 2012 R2 separat als vertrauende Seiten, Clients und Berechtigungen zur Verfügung gestellt.  
+### <a name="differences-from-ad-fs-2012-r2"></a>Unterschiede zwischen AD FS 2012 R2  
+Anwendungsgruppen kombinieren Trust- und -Autorisierung-Elemente, die AD FS 2012 R2 separat als vertrauende Seiten, Clients und Anwendungsberechtigungen verfügbar gemacht.  
   
-In den folgenden Tabellen werden die Methoden, mit der entsprechenden Anwendung Vertrauensstellung Objekte in AD FS 2012 R2 Vs AD FS 2016 erstellt wurden, verglichen:  
+In den folgenden Tabellen werden verglichen, die Methoden, die mit dem entsprechenden Anwendungsvertrauensstellungsobjekte in AD FS 2012 R2 und AD FS 2016 erstellt werden:  
   
-AD FS unter Windows Server 2012 R2|In PowerShell|AD FS-Verwaltung  
+AD FS in Windows Server 2012 R2|In PowerShell|AD FS-Verwaltung  
 ---------|---------|---------  
-Native Client hinzufügen|Hinzufügen AdfsClient|NA  
-Server-Anwendung als Client hinzu.|Hinzufügen AdfsClient|NA  
-Hinzufügen von Web-API / Ressource|Hinzufügen AdfsRelyingPartyTrust|Erstellen Sie die Vertrauensstellung der vertrauenden Seite  
+Native Client hinzufügen|Add-AdfsClient|Nicht verfügbar  
+Fügen Sie Server-Anwendung als Client hinzu.|Add-AdfsClient|Nicht verfügbar  
+Hinzufügen von Web-APIs / Ressourcen|Add-AdfsRelyingPartyTrust|Erstellen der Vertrauensstellung der vertrauenden Seite  
   
 AD FS 2016|In PowerShell|AD FS-Verwaltung  
 ---------|---------|---------  
-Native Client hinzufügen|Hinzufügen AdfsNativeClientApplication|Systemeigene Anwendung Gruppe hinzufügen  
-Server-Anwendung als Client hinzu.|Hinzufügen AdfsServerApplication|Anwendung Servergruppe hinzufügen  
-Hinzufügen von Web-API / Ressource|Hinzufügen AdfsWebApiApplication|Web-API-Anwendung Gruppe hinzufügen  
+Native Client hinzufügen|Add-AdfsNativeClientApplication|Systemeigene Anwendung zu Anwendung-Gruppe hinzufügen  
+Fügen Sie Server-Anwendung als Client hinzu.|Add-AdfsServerApplication|Servergruppe für die Anwendung zu Anwendung hinzufügen  
+Hinzufügen von Web-APIs / Ressourcen|Add-AdfsWebApiApplication|Web-API-Anwendung zu Anwendung Gruppe hinzufügen  
   
-### <a name="application-permissions-and-consent"></a>Berechtigungen und die Zustimmung  
-Standardmäßig sind die Clients in einer Anwendungsgruppe zulässig, Zugriff auf die Ressourcen in der gleichen Gruppe.  Der Administrator hat keinen bestimmten Berechtigungen zu konfigurieren.  Anwendungsgruppen ermöglichen Administratoren die Bereiche, die zulässig sind, z. B. Openid oder User_impersonation angeben.  Die folgenden szenariobeschreibungen angeben, genau welche Bereiche für die einzelnen Szenarien erforderlich sind.  
+### <a name="application-permissions-and-consent"></a>Anwendungsberechtigungen und Zustimmung  
+Standardmäßig sind die Clients in einer Anwendungsgruppe den Zugriff auf die Ressourcen in der gleichen Gruppe zulässig.  Der Administrator keine Berechtigungen für bestimmte Anwendung zu konfigurieren.  Mit Anwendungsgruppen können auch Administratoren, die Bereiche, die zulässig sind, z. B. Openid oder "user_impersonation" anzugeben.  Geben Sie die folgenden szenariobeschreibungen genau die Bereiche für welches Szenario erforderlich sind.  
   
-Da AD FS ein Modell der Administrator Zustimmung verwendet werden, sind Benutzer nicht zur Bestätigung aufgefordert, den Zugriff auf Ressourcen.  Konfigurieren Sie die Anwendungsgruppe, ermöglicht es dem Systemadministrator in Kraft Zustimmung für alle Anwendungsbenutzer.  
+Da AD FS ein Modell der Zustimmung des Administrators verwendet werden, werden Benutzer beim Zugriff auf Ressourcen nicht zur Zustimmung aufgefordert.  Konfigurieren Sie die Anwendungsgruppe, stellt der Administrator in Kraft Zustimmung im Auftrag aller Anwendungsbenutzer bereit.  
   
 ## <a name="supported-scenarios"></a>Unterstützte Szenarien  
-Im folgenden Abschnitt werden die Szenarien, die wir noch ausführlicher unterstützen.  
+Der folgende Abschnitt beschreibt die Szenarien, die wir im Detail zu unterstützen.  
   
 ### <a name="tokens-used"></a>Token verwendet  
-Stellen Sie diese Szenarien von drei token verwenden:  
+Diese Szenarien ist der drei Tokentypen verwenden:  
   
-* **Id_token:** ein JWT-Token verwendet, um die Identität des Benutzers darzustellen. Der Anspruch 'Aud' oder Zielgruppe von der Id_token entspricht die Client-ID der Anwendung systemeigen oder Server.  
-* **Access_token:** ein JWT-Token verwendet Oauth und OpenID connect-Szenarien und beabsichtigen, die von der Ressource genutzt werden.  Der Anspruch 'Aud' oder Zielgruppe dieses Token muss den Bezeichner der Ressource oder Web-API übereinstimmen.  
-* **Refresh_token:** dieses Token wird übermittelt, anstatt das Sammeln von Benutzeranmeldeinformationen um ein einmaliges Anmelden Erfahrung zu bieten.  Dieses Token ist sowohl ausgestellt und von AD FS, verbraucht und kann nicht von Clients oder Ressourcen gelesen.    
+* **id_token:** Ein JWT-Token verwendet, um die Identität des Benutzers darstellen. Der Anspruch "Aud" oder die Zielgruppe des ID-Tokens entspricht die Client-ID der einheitlichen Modus oder Anwendung.  
+* **access_token:** Ein JWT-Token verwendet, in Oauth und OpenID connect, Szenarien und von der Ressource verwendet werden soll.  Der Anspruch "Aud" oder die Zielgruppe des Tokens muss die ID der Ressource oder des Web-API übereinstimmen.  
+* **refresh_token:** Dieses Token wird übermittelt, anstelle von Sammeln von Benutzeranmeldeinformationen, um einen einmaligen Erfahrung bereitzustellen.  Dieses Token wird sowohl ausgegeben und AD FS, genutzt und ist nicht von Clients oder Ressourcen gelesen werden.    
   
-### <a name="native-client-to-web-api"></a>Native Client Web-API  
-Dieses Szenario kann der Benutzer eine systemeigene Clientanwendung eine AD FS 2016 geschützte Web-API aufrufen.  
-* Die systemeigene Clientanwendung verwendet ADAL Autorisierung senden und Token Anforderungen für AD FS, Aufforderung zur Eingabe von Anmeldeinformationen des Benutzers nach Bedarf, und klicken Sie dann sendet das resultierende Token als einen HTTP-Header auf die Anforderung an die Web-API  
-* [Dieser Teil dient nur zu Demonstrationszwecken] Die Web-API liest die Ansprüche aus dem ClaimsPrincipal-Objekt, das das Zugriffstoken, die vom Client gesendeten Ergebnisse und sendet sie an den Client zurück.  
+### <a name="native-client-to-web-api"></a>Native Client-Web-API  
+Dieses Szenario ermöglicht es, dem Benutzer von einer nativen Clientanwendung zum Aufrufen einer Web-API von AD FS 2016 geschützt werden.  
+* Die systemeigene Clientanwendung verwendet die ADAL zum Senden von Autorisierung und Token-Anforderungen an AD FS, Aufforderung zur Eingabe von Anmeldeinformationen des Benutzers nach Bedarf, und sendet dann das resultierende Token als HTTP-Header in der Anforderung an die Web-API  
+* [Dieser Teil ist nur zu Demonstrationszwecken] Die Web-API liest die Ansprüche aus den "ClaimsPrincipal"-Objekt, das resultiert aus der das Zugriffstoken, die vom Client gesendet werden, und sendet diese an den Client zurück.  
   
-![Beschreibung des Protokolls Fluss](media/ADFS_DEV_3.png)  
+![Beschreibung des protokollflusses](media/ADFS_DEV_3.png)  
   
-1.  Die systemeigene Clientanwendung initiiert den Ablauf mit einem Aufruf der ADAL-Bibliothek.  Dies führt dazu, eine browserbasierte HTTP GET, um die AD FS Endpunkt autorisieren:  
+1.  Die systemeigene Clientanwendung initiiert den Flow mit einem Aufruf der ADAL-Bibliothek.  Dies löst eine browserbasierte HTTP GET, um die AD FS authorize-Endpunkt:  
   
-**Autorisierungsanforderung:**  
-GET https://fs.contoso.com/adfs/oauth2/authorize?  
+**Genehmigungsanfrage:**  
+ERHALTEN https://fs.contoso.com/adfs/oauth2/authorize?  
   
 Parameter|Wert  
 ---------|---------  
 response_type|"Code"  
-Ressource|RP-ID (ID) des Web-API in Anwendungsgruppe  
-client_id|Client-Id der einheitlichen Anwendung in der Anwendungsgruppe  
-redirect_uri|Umleiten von einheitlichen Anwendung in Anwendungsgruppe URI  
+Ressource|RP-ID (ID) der Web-API in der Anwendungsgruppe  
+client_id|Client-Id der nativen Anwendung in der Anwendungsgruppe  
+redirect_uri|Umleitungs-URI der nativen Anwendung in der Anwendungsgruppe  
   
-**Die Antwort auf Autorisierung:**  
-Wenn der Benutzer nicht angemeldet hat, bevor der Benutzer zur Eingabe von Anmeldeinformationen aufgefordert wird.    
-AD FS reagiert, indem Sie einen Autorisierungscode als Parameter "Code" in der Abfragekomponente von den Redirect_uri zurückgeben.  Beispiel: HTTP/1.1 302 gefundenen Ort: **Http://redirect_uri:80 /? Code =&lt;Code&gt;.**  
+**Anforderung-autorisierungsantwort:**  
+Wenn sich der Benutzer nicht angemeldet hat, bevor der Benutzer zur Eingabe von Anmeldeinformationen aufgefordert wird.    
+AD FS reagiert, indem Sie einen Autorisierungscode als Parameter "Code" in der Abfragekomponente von der umleitungs-URI zurückgeben.  Zum Beispiel: Speicherort der HTTP/1.1 302 gefunden:  **http://redirect_uri:80/?code=&lt; Code&gt;.**  
   
-2.  Der native Client sendet dann den Code mit den folgenden Parametern, zum Endpunkt AD FS-token:  
+2.  Der native Client sendet dann den Code, zusammen mit den folgenden Parametern an die AD FS-token-Endpunkt:  
   
-**Tokenanforderung:**  
-POST https://fs.contoso.com/adfs/oauth2/Token  
+**Token anfordern:**  
+POST https://fs.contoso.com/adfs/oauth2/token  
   
 Parameter|Wert  
 ---------|---------  
 grant_type|"Authorization_code" 
-Code|Autorisierungscode von 1  
-Ressource|RP-ID (ID) des Web-API in Anwendungsgruppe  
-client_id|Client-Id der einheitlichen Anwendung in der Anwendungsgruppe  
-redirect_uri|Umleiten von einheitlichen Anwendung in Anwendungsgruppe URI  
+code|Autorisierungscode von 1  
+Ressource|RP-ID (ID) der Web-API in der Anwendungsgruppe  
+client_id|Client-Id der nativen Anwendung in der Anwendungsgruppe  
+redirect_uri|Umleitungs-URI der nativen Anwendung in der Anwendungsgruppe  
   
-**Tokenanforderung Antwort:**  
-AD FS antwortet mit einer HTTP-200 mit Access_token, Refresh_token und Id_token im Textkörper.  
+**Token-Anforderung-Antwort:**  
+AD FS reagiert mit HTTP 200 mit dem Zugriffstoken, Aktualisierungstoken und ID-Token im Text.  
   
-3.  Klicken Sie dann auf die ursprüngliche Anwendung sendet die Access_token Teil der oben genannten Antwort als Autorisierungsheader in der HTTP-Anforderung an die Web-API.  
+3.  Klicken Sie dann die systemeigene Anwendung sendet den Access_token-Teil der obigen Antwort als dem Autorisierungsheader in der HTTP-Anforderung an die Web-API.  
   
-### <a name="single-sign-on-behavior"></a>Das Verhalten für einmaliges Anmelden  
-Nachfolgende Clientanforderungen innerhalb von 1 Stunde (standardmäßig) die Access_token weiterhin gültig im Cache, und eine neue Anforderung, Datenverkehr zu AD FS wird nicht ausgelöst.  Die Access_token wird von ADAL automatisch aus dem Cache abgerufen werden.  
+### <a name="single-sign-on-behavior"></a>SSO-Verhalten  
+Nachfolgende Client fordert innerhalb 1 Stunde (standardmäßig) das Zugriffstoken weiterhin gültige im Cache, und eine neue Anforderung wird kein Datenverkehr an AD FS ausgelöst.  Das Zugriffstoken wird automatisch aus dem Cache von ADAL abgerufen werden.  
   
-Nachdem das Zugriffstoken abgelaufen ist, sendet ADAL automatisch eine Aktualisierung token Basis-Anforderung an den Endpunkt der AD FS-token (die autorisierungsanforderung automatisch überspringen).  
-**Aktualisieren Sie tokenanforderung:**  
-POST https://fs.contoso.com/adfs/oauth2/Token
+Nachdem das Zugriffstoken abgelaufen ist, sendet ADAL automatisch eine Refresh-token-Basis-Anforderung an die AD FS-token-Endpunkt (überspringen die autorisierungsanforderung automatisch).  
+**Aktualisieren Sie die Anforderung eines Zugriffstokens:**  
+POST https://fs.contoso.com/adfs/oauth2/token
    
 
 Parameter|Wert|
 ---------|---------
-grant_type|"Refresh_token"|
-Ressource|RP-ID (ID) des Web-API in Anwendungsgruppe|
-client_id|Client-Id der einheitlichen Anwendung in der Anwendungsgruppe
-refresh_token|Das Aktualisierungstoken von AD FS in Reaktion auf die erste Anforderung token ausgestellt
+grant_type|"refresh_token"|
+Ressource|RP-ID (ID) der Web-API in der Anwendungsgruppe|
+client_id|Client-Id der nativen Anwendung in der Anwendungsgruppe
+refresh_token|Das Aktualisierungstoken, das von AD FS als Reaktion auf die anfängliche tokenanforderung ausgestellten
 
   
   
-**Aktualisieren Sie die Antwort auf token:**  
-Wenn das Aktualisierungstoken innerhalb von < SSO_period > ist, führt die Anforderung ein neues Zugriffstoken. Der Benutzer wird nicht zur Eingabe von Anmeldeinformationen aufgefordert.  Weitere Informationen zu SSO-Einstellungen finden Sie unter [AD FS einzelne Zeichen auf-Einstellungen](../../ad-fs/operations/AD-FS-2016-Single-Sign-On-Settings.md)  
+**Aktualisieren Sie die token Anforderungsantwort:**  
+Wenn das Aktualisierungstoken, das innerhalb von < SSO_period > ist, führt die Anforderung eines neuen Zugriffstokens. Der Benutzer wird nicht zur Eingabe von Anmeldeinformationen aufgefordert.  Weitere Informationen zu SSO-Einstellungen finden Sie unter [AD FS Single Sign On Settings](../../ad-fs/operations/AD-FS-2016-Single-Sign-On-Settings.md)  
   
-Wenn das Aktualisierungstoken abgelaufen ist, führt die Anforderung mit Fehler "Invalid_grant" und "Error_description" HTTP 401 "MSIS9615: das Aktualisierungstoken erhalten im Refresh_token-Parameter ist abgelaufen". In diesem Fall fordert die ADAL automatisch neue Autorisierung, die genau wie #1 oben aussieht.    
+Wenn das Aktualisierungstoken abgelaufen ist, führt die Anforderung ein HTTP 401 mit Fehler "Invalid_grant" und ""error_description "" "MSIS9615: Das Aktualisierungstoken, das im Aktualisierungstoken Parameter empfangen ist abgelaufen". In diesem Fall sendet ADAL automatisch eine neue autorisierungsanforderung an, die genau wie #1 oben aussieht.    
   
-### <a name="web-browser-to-web-app"></a>Webbrowser, um Web-App   
-In diesem Szenario muss ein Benutzer mit einem Browser Zugriff auf Ressourcen, die von einer Webanwendung gehostet werden.    
+### <a name="web-browser-to-web-app"></a>Webbrowser zu Webanwendung   
+In diesem Szenario muss ein Benutzer mit einem Browser den Zugriff auf Ressourcen, die von einer Webanwendung gehostet wird.    
 Es gibt zwei Szenarien, die dies zu erreichen.  
   
-#### <a name="oauth-confidential-client"></a>Vertrauliche OAuth-client  
-Dieses Szenario ähnelt der vorstehenden ergibt sich eine autorisierungsanforderung, gefolgt von einem Code für den tokenaustausch.  Die Web-app (modelliert als Server-Anwendung in AD FS) initiiert die autorisierungsanforderung über den Browser und tauscht den Code für das Token (durch die direkte Verbindung mit AD FS)  
+#### <a name="oauth-confidential-client"></a>Vertraulicher OAuth-client  
+Dieses Szenario ist ähnlich wie das oben, dass eine autorisierungsanforderung, gefolgt von einem Code für den tokenaustausch vorhanden ist.  Die Web-app (modelliert als Serveranwendung in AD FS) initiiert die autorisierungsanforderung über den Browser und tauscht den Code für das Token (durch die direkte Verbindung mit AD FS)  
   
-![Beschreibung des Protokolls Fluss](media/ADFS_DEV_4.png)  
+![Beschreibung des protokollflusses](media/ADFS_DEV_4.png)  
   
-1.  Die Web-App initiiert eine Genehmigung anfordern, über den Browser, sendet eine HTTP GET an der AD FS autorisieren Endpunkt  
+1.  Die Web-App initiiert eine autorisierungsanforderung, über den Browser, der eine HTTP GET-Anforderung für den AD FS sendet authorize-Endpunkt  
 **Autorisierungsanforderung**:  
-GET https://fs.contoso.com/adfs/oauth2/authorize?  
+ERHALTEN https://fs.contoso.com/adfs/oauth2/authorize?  
   
 Parameter|Wert  
 ---------|---------  
 response_type|"Code"  
-Ressource|RP-ID (ID) des Web-API in Anwendungsgruppe  
-client_id|Client-Id der einheitlichen Anwendung in der Anwendungsgruppe  
-redirect_uri|Umleiten der URI des Web-app (Server-Anwendung) in "Anwendungsserver"  
+Ressource|RP-ID (ID) der Web-API in der Anwendungsgruppe  
+client_id|Client-Id der nativen Anwendung in der Anwendungsgruppe  
+redirect_uri|Umleitungs-URI der Web-app (Server-Anwendung) in der Anwendungsgruppe  
   
-Die Antwort auf Autorisierung:  
-Wenn der Benutzer nicht angemeldet hat, bevor der Benutzer zur Eingabe von Anmeldeinformationen aufgefordert wird.  
-AD FS reagiert, indem Sie einen Autorisierungscode z. B. als "Code"-Parameter in der Abfragekomponente von den Redirect_uri zurückgeben: HTTP/1.1 302 gefundenen Ort: https://webapp.contoso.com/?code=&lt;Code&gt;.  
+Anforderung-autorisierungsantwort:  
+Wenn sich der Benutzer nicht angemeldet hat, bevor der Benutzer zur Eingabe von Anmeldeinformationen aufgefordert wird.  
+AD FS reagiert, indem Sie einen Autorisierungscode z. B. als Parameter "Code" in der Abfragekomponente von der umleitungs-URI zurückgibt: Speicherort der HTTP/1.1 302 gefunden: https://webapp.contoso.com/?code=&lt; Code&gt;.  
   
-2.  Aufgrund der oben genannten 302 Browser initiiert eine HTTP GET an die Web-app, zum Beispiel: GET Http://redirect_uri:80 /? Code =&lt;Code&gt;.   
+2.  Aufgrund der oben genannten 302 initiiert der Browser HTTP GET für die Web-app, z. B.: ERSTE http://redirect_uri:80/?code=&lt; Code&gt;.   
   
-3.  An diesem Punkt wird eine Anforderung an den AD FS-token-Endpunkt, senden die folgenden initiiert die Web-app, die den Code erhalten haben  
-**Tokenanforderung:**  
-POST https://fs.contoso.com/adfs/oauth2/Token  
+3.  An diesem Punkt initiiert die Web-app erhalten haben den Code, eine Anforderung an den AD FS-token-Endpunkt, senden die folgenden  
+**Token anfordern:**  
+POST https://fs.contoso.com/adfs/oauth2/token  
   
 Parameter|Wert  
 ---------|---------  
 grant_type|"Authorization_code"  
-Code|Autorisierungscode von 2 oben  
-Ressource|RP-ID (ID) des Web-API in Anwendungsgruppe  
-client_id|Client-Id für die Web-app (Server-Anwendung) in der Anwendungsgruppe  
-redirect_uri|Umleiten der URI des Web-app (Server-Anwendung) in "Anwendungsserver"  
-client_secret|Die geheimen Schlüssel der Web-App (Server-Anwendung) in der Anwendungsgruppe. **Hinweis: Die Client-Anmeldeinformationen muss kein Client_secret werden.  AD FS unterstützt die Möglichkeit, Zertifikate oder integrierte Windows-Authentifizierung verwenden.**  
+code|Autorisierungscode aus 2 oben  
+Ressource|RP-ID (ID) der Web-API in der Anwendungsgruppe  
+client_id|Client-Id der Web-app (Server-Anwendung) in der Anwendungsgruppe  
+redirect_uri|Umleitungs-URI der Web-app (Server-Anwendung) in der Anwendungsgruppe  
+client_secret|Geheime Schlüssel der Web-app (Server-Anwendung) in der Anwendungsgruppe. **Hinweis: Anmeldeinformationen für den Client muss nicht "client_secret" werden.  AD FS unterstützt die Möglichkeit, Zertifikate oder die integrierte Windows-Authentifizierung verwenden.**  
   
-**Tokenanforderung Antwort:**  
-AD FS antwortet mit einer HTTP-200 mit Access_token, Refresh_token und Id_token im Textkörper.  
+**Token-Anforderung-Antwort:**  
+AD FS reagiert mit HTTP 200 mit dem Zugriffstoken, Aktualisierungstoken und ID-Token im Text.  
 Ansprüche  
-4.  Die Web-Anwendung, und klicken Sie dann entweder die Access_token Teil der oben genannten Antwort (in der Fall, in dem die Web-app selbst die Ressource hostet) verwendet oder auf andere Weise sendet er als Autorisierungsheader in der HTTP-Anforderung an die Web-API.  
+4.  Die Web-Anwendung, und klicken Sie dann entweder nutzt den Access_token-Teil der obigen Antwort (in dem Fall, in dem die Web-app selbst die Ressource hostet) oder auf andere sendet sie als den Authorization-Header in der HTTP-Anforderung an, an die Web-API.  
   
-#### <a name="single-sign-on-behavior"></a>Das Verhalten für einmaliges Anmelden  
-Während das Zugriffstoken noch gültig für 1 Stunde (standardmäßig) im Cache des Clients enthalten sind, denken Sie vielleicht, dass die zweite Anforderung funktioniert wie in der oben genannten - native Client-Szenario, dass eine neue Anforderung sämtlicher Datenverkehr, der AD FS nicht ausgelöst wird, wie das Zugriffstoken wird durch ADAL automatisch aus dem Cache abgerufen werden.  Es ist jedoch möglich, dass die Web-app kann unterschiedliche Autorisierung und tokenanforderungen sendet, die erste über eindeutige URL verknüpfen, wie Sie in unserem Beispiel.  
+#### <a name="single-sign-on-behavior"></a>SSO-Verhalten  
+Während das Zugriffstoken weiterhin gültig für eine Stunde (standardmäßig) in den Cache des Clients befinden, Sie denken möglicherweise, dass die zweite Anforderung funktioniert wie im obigen - native Clientszenario, dass eine neue Anforderung Datenverkehr an AD FS nicht ausgelöst wird, wie das Zugriffstoken automatisch abgerufen Sie aus dem Cache werden, von ADAL.  Allerdings ist es möglich, dass die Web-app unterschiedliche Autorisierungs- und tokenanforderungen; der erste Wert über unterschiedliche URL-Link, wie in unserem Beispiel senden kann.  
   
-In diesem Fall ist es das AD FS-Browser-SSO-Cookie, das AD FS einen neuen Autorisierungscode ausgestellt werden, ohne dass der Benutzer zur Eingabe von Anmeldeinformationen ermöglicht. Die Web-app ruft dann zu AD FS zum Austausch von des neuen Autorisierungscodes für ein neues Zugriffstoken.  Der Benutzer wird nicht zur Eingabe von Anmeldeinformationen aufgefordert.  
+In diesem Fall ist es das AD FS-Browser-SSO-Cookie, das AD FS, um einen neuen Autorisierungscode ausgeben, ohne dass der Benutzer zur Eingabe von Anmeldeinformationen ermöglicht. Die Web-app ruft dann für AD FS, um den neuen Autorisierungscode gegen ein neues Zugriffstoken auszutauschen.  Der Benutzer wird nicht zur Eingabe von Anmeldeinformationen aufgefordert.  
   
-Andernfalls ist die Web-app smart genug, um zu wissen, wenn der Benutzer bereits authentifiziert ist, die zum Autorisieren Anforderung übersprungen werden kann und entweder:  
-* das zwischengespeicherte Zugriffstoken, wenn nicht abgelaufen ist, abgerufen und verwendet wird, oder   
-* eine Anforderung token Basis-Anforderung kann der AD FS-token-Endpunkt, gesendet werden, wie unten beschrieben  
+Andernfalls ist die Web-app intelligente ausreichend zu wissen, wenn der Benutzer bereits authentifiziert ist, der autorisierungsanforderung übersprungen werden kann und entweder:  
+* des zwischengespeicherten Zugriffstokens, wenn nicht abgelaufen ist, abgerufen und verwendet wird, oder   
+* eine Anforderung basierend-tokenanforderung kann an den AD FS-token-Endpunkt gesendet werden, wie unten beschrieben  
   
-**Aktualisieren Sie tokenanforderung:**  
-POST https://fs.contoso.com/adfs/oauth2/Token
+**Aktualisieren Sie die Anforderung eines Zugriffstokens:**  
+POST https://fs.contoso.com/adfs/oauth2/token
    
 Parameter|Wert  
 ---------|---------  
-grant_type|"Refresh_token"  
-Ressource|RP-ID (ID) des Web-API in Anwendungsgruppe  
-client_id|Client-Id für die Web-app (Server-Anwendung) in der Anwendungsgruppe  
-refresh_token|Aktualisieren von AD FS in Reaktion auf die erste token Anforderung ausgestellte token  
-client_secret|Geheimen Schlüssel der Web-App (Server-Anwendung) in der Anwendungsgruppe  
+grant_type|"refresh_token"  
+Ressource|RP-ID (ID) der Web-API in der Anwendungsgruppe  
+client_id|Client-Id der Web-app (Server-Anwendung) in der Anwendungsgruppe  
+refresh_token|Aktualisieren von AD FS als Reaktion auf die anfängliche tokenanforderung ausgestellten token  
+client_secret|Geheimen Schlüssel der Web-app (Server-Anwendung) in der Anwendungsgruppe  
   
-**Aktualisieren Sie die Antwort auf token:**  
-Wenn das Aktualisierungstoken innerhalb von < SSO_period > ist, führt die Anforderung ein neues Zugriffstoken. Der Benutzer wird nicht zur Eingabe von Anmeldeinformationen aufgefordert. Weitere Informationen zu SSO-Einstellungen finden Sie unter [AD FS einzelne Zeichen auf-Einstellungen](../../ad-fs/operations/AD-FS-2016-Single-Sign-On-Settings.md)   
+**Aktualisieren Sie die token Anforderungsantwort:**  
+Wenn das Aktualisierungstoken, das innerhalb von < SSO_period > ist, führt die Anforderung eines neuen Zugriffstokens. Der Benutzer wird nicht zur Eingabe von Anmeldeinformationen aufgefordert. Weitere Informationen zu SSO-Einstellungen finden Sie unter [AD FS Single Sign On Settings](../../ad-fs/operations/AD-FS-2016-Single-Sign-On-Settings.md)   
   
-Wenn das Aktualisierungstoken abgelaufen ist, führt die Anforderung mit Fehler "Invalid_grant" und "Error_description" HTTP 401 "MSIS9615: das Aktualisierungstoken erhalten im Refresh_token-Parameter ist abgelaufen". In diesem Fall fordert die ADAL automatisch neue Autorisierung, die genau wie #1 oben aussieht.    
+Wenn das Aktualisierungstoken abgelaufen ist, führt die Anforderung ein HTTP 401 mit Fehler "Invalid_grant" und ""error_description "" "MSIS9615: Das Aktualisierungstoken, das im Aktualisierungstoken Parameter empfangen ist abgelaufen". In diesem Fall sendet ADAL automatisch eine neue autorisierungsanforderung an, die genau wie #1 oben aussieht.    
   
-#### <a name="openid-connect-hybrid-flow"></a>OpenID Connect: Hybrid-Fluss  
-Dieses Szenario ist ähnlich wie die oben genannten, gibt es eine autorisierungsanforderung durch die Web-app über den Browser-Umleitung sowie einen Code token Exchange über die Web-app für den AD FS initiiert wird.  Der Unterschied in diesem Szenario besteht darin, dass AD FS ein Id_token als Teil der Antwort auf die erste Anforderung ausstellt.  
+#### <a name="openid-connect-hybrid-flow"></a>OpenID Connect: Hybridflow  
+Dieses Szenario ist ähnlich wie oben, gibt es eine autorisierungsanforderung durch die Web-app über den Browser umleiten und einen Code für den Austausch von der Web-app mit AD FS token initiiert wird.  Der Unterschied in diesem Szenario besteht darin, dass AD FS ein ID-Token als Teil der ersten Autorisierung Anforderung-Antwort gibt.  
   
-![Beschreibung des Protokolls Fluss](media/ADFS_DEV_5.png)  
+![Beschreibung des protokollflusses](media/ADFS_DEV_5.png)  
   
-1.  Die Web-App initiiert eine Genehmigung anfordern, über den Browser, sendet eine HTTP GET an der AD FS autorisieren Endpunkt  
+1.  Die Web-App initiiert eine autorisierungsanforderung, über den Browser, der eine HTTP GET-Anforderung für den AD FS sendet authorize-Endpunkt  
   
-**Autorisierungsanforderung:**  
-GET https://fs.contoso.com/adfs/oauth2/authorize?  
+**Genehmigungsanfrage:**  
+ERHALTEN https://fs.contoso.com/adfs/oauth2/authorize?  
   
 Parameter|Wert  
 ---------|---------  
-response_type|"Code + Id_token"  
-response_mode|"Form_post"  
-Ressource|RP-ID (ID) des Web-API in Anwendungsgruppe  
-client_id|Client-Id für die Web-app (Server-Anwendung) in der Anwendungsgruppe  
-redirect_uri|Umleiten der URI des Web-app (Server-Anwendung) in der Anwendungsgruppe  
+response_type|"code+id_token"  
+response_mode|"form_post"  
+Ressource|RP-ID (ID) der Web-API in der Anwendungsgruppe  
+client_id|Client-Id der Web-app (Server-Anwendung) in der Anwendungsgruppe  
+redirect_uri|Umleitungs-URI der Web-app (Server-Anwendung) in der Anwendungsgruppe  
   
-**Die Antwort auf Autorisierung:**  
-Wenn der Benutzer nicht angemeldet hat, bevor der Benutzer zur Eingabe von Anmeldeinformationen aufgefordert wird.  
-AD FS antwortet mit einem HTTP-200 und Formular mit den unten als ausgeblendete Elemente:  
-* Code: den Autorisierungscode  
-* Id_token: ein JWT-Token mit Ansprüchen beschreiben die Benutzerauthentifizierung  
-2.  Das Formular wird automatisch an den Redirect_uri Web-App, die den Code und die Id_token an die Web-app senden.  
+**Anforderung-autorisierungsantwort:**  
+Wenn sich der Benutzer nicht angemeldet hat, bevor der Benutzer zur Eingabe von Anmeldeinformationen aufgefordert wird.  
+AD FS antwortet mit einer HTTP 200 und das Formular mit den unten als ausgeblendete Elemente:  
+* Code: des Autorisierungscodes  
+* "id_token": ein JWT-Token mit Ansprüchen, beschreibt die Benutzerauthentifizierung  
+2.  Das Formular sendet automatisch auf der umleitungs-URI der Web-app, den Code und das ID-Token an die Web-app senden.  
   
-3.  An diesem Punkt wird eine Anforderung an den AD FS-token-Endpunkt, senden die folgenden initiiert die Web-app, die den Code erhalten haben  
+3.  An diesem Punkt initiiert die Web-app erhalten haben den Code, eine Anforderung an den AD FS-token-Endpunkt, senden die folgenden  
   
-**Tokenanforderung:**  
-POST https://fs.contoso.com/adfs/oauth2/Token
+**Token anfordern:**  
+POST https://fs.contoso.com/adfs/oauth2/token
   
   
   
 Parameter|Wert  
 ---------|---------  
 grant_type|"Authorization_code"  
-Code|Autorisierungscode von oben  
-Ressource|RP-ID (ID) des Web-API in Anwendungsgruppe  
-client_id|Client-Id für die Web-app (Server-Anwendung) in der Anwendungsgruppe  
-redirect_uri|Umleiten der URI des Web-app (Server-Anwendung) in "Anwendungsserver"  
-client_secret|Geheimen Schlüssel der Web-App (Server-Anwendung) in der Anwendungsgruppe  
+code|Autorisierungscode oben  
+Ressource|RP-ID (ID) der Web-API in der Anwendungsgruppe  
+client_id|Client-Id der Web-app (Server-Anwendung) in der Anwendungsgruppe  
+redirect_uri|Umleitungs-URI der Web-app (Server-Anwendung) in der Anwendungsgruppe  
+client_secret|Geheimen Schlüssel der Web-app (Server-Anwendung) in der Anwendungsgruppe  
   
-**Tokenanforderung Antwort:**  
-AD FS antwortet mit einer HTTP-200 mit Access_token, Refresh_token und Id_token im Textkörper.  
+**Token-Anforderung-Antwort:**  
+AD FS reagiert mit HTTP 200 mit dem Zugriffstoken, Aktualisierungstoken und ID-Token im Text.  
   
-4.  Die Web-Anwendung, und klicken Sie dann entweder die Access_token Teil der oben genannten Antwort (in der Fall, in dem die Web-app selbst die Ressource hostet) verwendet oder auf andere Weise sendet er als Autorisierungsheader in der HTTP-Anforderung an die Web-API.  
+4.  Die Web-Anwendung, und klicken Sie dann entweder nutzt den Access_token-Teil der obigen Antwort (in dem Fall, in dem die Web-app selbst die Ressource hostet) oder auf andere sendet sie als den Authorization-Header in der HTTP-Anforderung an, an die Web-API.  
   
-#### <a name="single-sign-on-behavior"></a>Das Verhalten für einmaliges Anmelden  
-Das Verhalten für einmaliges Anmelden ist identisch mit denen für die Steuerung der Oauth 2.0-vertrauliche Client oben.  
+#### <a name="single-sign-on-behavior"></a>SSO-Verhalten  
+Der SSO-Verhalten entspricht derjenigen der obige Ablauf der Oauth 2.0 vertraulicher Client.  
   
 ### <a name="on-behalf-of"></a>Im Auftrag von  
-In diesem Szenario verwendet eine Web-app das ursprüngliche Zugriffstoken eines Benutzers anfordern und erhalten einen anderen Zugriffstoken für einen anderen Web-API, die die Web-app dann als der Benutzer zugreifen.  Dies ist ein Fluss "im Auftrag von" bezeichnet.  
+In diesem Szenario verwendet eine Web-app das ursprüngliche Zugriffstoken von einem Benutzer anfordern, und rufen Sie ein neues Zugriffstoken für eine andere Web-API, die die Web-app klicken Sie dann als Endbenutzer zugreifen.  Dies ist einen Fluss "im Auftrag von" bezeichnet.  
   
-![Beschreibung des Protokolls Fluss](media/ADFS_DEV_6.png)  
+![Beschreibung des protokollflusses](media/ADFS_DEV_6.png)  
   
-Schritte 1 und 2 funktioniert genau wie die Schritte 3 und 4 im vorherigen Fluss.  
-In Schritt 3 ist die wichtigste Anforderung, dass der Client_id-Parameter, die Client-ID der Web-App 2, die RP-ID der Web-API A. übereinstimmen müssen Anders ausgedrückt, muss die Zielgruppe des Zugriffstokens, die für das neue Token ausgetauscht werden die Client-ID der Entität, die neue Token anfordert übereinstimmen.  
+Schritt 1 und 2 funktionieren genau wie die Schritte 3 und 4 im vorherigen Datenfluss.  
+In Schritt 3 ist die wichtigste Anforderung, dass der Parameter für "client_id", die Client-ID der Web-app 2, die RP-ID der Web-API a entsprechen muss  Das heißt, muss die Zielgruppe des Zugriffstokens, die für das neue Token ausgetauscht werden, die Client-ID der Entität, die das neue Token anfordert übereinstimmen.  
 
-## <a name="related-content"></a>Verwandte Inhalte  
-Finden Sie unter [AD FS-Entwicklung](../AD-FS-Development.md) für die vollständige Liste der exemplarischen Vorgehensweise Artikel, die eine schrittweise Anleitung zur Verwendung von verwandten Flüsse bereitstellen. 
+## <a name="related-content"></a>Verwandte Themen  
+Finden Sie unter [AD FS-Entwicklung](../AD-FS-Development.md) für die vollständige Liste von Artikeln mit exemplarischen, enthalten die schrittweise Anleitungen zur Verwendung der dazugehörige Flows. 

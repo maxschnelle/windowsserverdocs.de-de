@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: aa2155268d42293ade925d53da5e29142d13aae4
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59878061"
 ---
 # <a name="edit-auto-apply-quota-properties"></a>Bearbeiten der Eigenschaften des automatisch zugewiesenen Kontingents
 
-> Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
 
 Wenn Sie Änderungen an einem automatisch zugewiesenen Kontingent vornehmen, haben Sie die Möglichkeit, diese Änderungen auf vorhandene Kontingente des automatisch zugewiesenen Kontingentpfads anzuwenden. Sie haben die Möglichkeit, nur die Kontingente zu ändern, die mit dem ursprünglichen automatisch zugewiesenen Kontingent übereinstimmen oder alle Kontingente des automatisch zugewiesenen Kontingentpfads zu ändern, unabhängig von den Änderungen, die an den Kontingenten vorgenommen wurden, seit sie erstellt wurden. Dieses Feature vereinfacht das Aktualisieren der Eigenschaften von Kontingenten, die von einem automatisch zugewiesenen Kontingent abgeleitet wurden, da alle Updates an einem zentralen Ort ausgeführt werden können.
 
@@ -41,9 +42,9 @@ Wenn Sie Änderungen an einem automatisch zugewiesenen Kontingent vornehmen, hab
 
 6.  Klicken Sie auf **OK**.
 
-## <a name="see-also"></a>Weitere Informationen:
+## <a name="see-also"></a>Siehe auch
 
--   [Kontingentverwaltung](quota-management.md)
+-   [Management von sollvorgaben](quota-management.md)
 -   [Erstellen eines automatisch zugewiesenen Kontingents](create-auto-apply-quota.md)
 
 

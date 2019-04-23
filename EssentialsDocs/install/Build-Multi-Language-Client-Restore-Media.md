@@ -1,6 +1,6 @@
 ---
 title: Erstellen des mehrsprachigen Mediums zur Clientwiederherstellung
-description: Beschreibt, wie Sie Windows Server Essentials
+description: Beschreibt, wie Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,76 +13,77 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 1ad934d297c3092050bd6adbb6bb0f50d1ec6f36
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59879871"
 ---
 # <a name="build-multi-language-client-restore-media"></a>Erstellen des mehrsprachigen Mediums zur Clientwiederherstellung
 
->Gilt für: Windows Server2016 Essentials, Windows Server2012 R2 Essentials, Windows Server2012 Essentials
+>Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
 > [!NOTE]
->  Sie müssen zuerst ein mehrsprachiges Windows-Image erstellen, wie beschrieben in die [Exemplarische Vorgehensweise: mehrsprachige Windows-Imageerstellung](https://technet.microsoft.com/library/jj126995) , bevor Sie die Windows Server Essentials--Sprachpaket in install.wim hinzufügen.  
+>  Sie müssen zuerst ein mehrsprachiges Windows-Abbild erstellen, wie beschrieben in der [Exemplarische Vorgehensweise: Mehrsprachiges Windows-Abbilderstellung](https://technet.microsoft.com/library/jj126995) bevor Sie die Windows Server Essentials--Sprachpaket in install.wim hinzufügen.  
   
- Beim Erstellen der mehrsprachigen Serverinstallations-DVD werden für Server "Install.wim" Sprachpakete installiert. Die lokalisierten Ressourcen für Assistenten werden als Bestandteil des Sprachpakets installiert werden.  
+ Beim Erstellen der mehrsprachigen Serverinstallations-DVD werden für "Install.wim" für Server die Sprachpakete installiert. Als Bestandteil des Sprachpakets werden die lokalisierten Ressourcen für den Wiederherstellungs-Assistenten installiert.  
   
-### <a name="to-build-a-multi-language-client-restore-media"></a>Ein Client mehrsprachigen Wiederherstellungsmedium erstellen  
+### <a name="to-build-a-multi-language-client-restore-media"></a>So erstellen Sie ein mehrsprachiges Medium zur Clientwiederherstellung  
   
-1.  Laden Sie "Install.wim" am c:\mount, rufen wir c:\mount\Program Files\Windows Server\bin\ClientRestore Ordner als Stammverzeichnis des Mediums zur clientwiederherstellung: [RestoreMediaRoot] im folgenden:  
+1.  Stellen Sie "Install.wim" unter "C:\mount" bereit. Der Ordner "C:\mount\Programme\Windows Server\bin\ClientRestore" wird als Stamm für das Medium der Clientwiederherstellung verwendet: [RestoreMediaRoot] im unteren Beispiel:  
   
     ```  
     dism /mount-wim /wimfile:install.wim /index:1 /mountdir:c:\mount  
     ```  
   
-2.  Binden Sie die Clients Wiederherstellung WIM-Datei am [RestoreMediaRoot]\Sources\Boot.wim (müssen dieselben Schritte auch für "boot_x86.wim" ausgeführt werden). Die Befehlszeile lautet:  
+2.  Stellen Sie die WIM-Datei für die Clientwiederherstellung unter "[RestoreMediaRoot]\Sources\Boot.wim" bereit (für "boot_x86.wim" müssen dieselben Schritte ausgeführt werden). Die Befehlszeile lautet wie folgt:  
   
     ```  
     dism /mount-wim /wimfile:boot.wim /index:1 /mountdir:c:\mountRestore  
     ```  
   
-3.  Fügen Sie WinPE-Setup.cab Paket, das Wiederherstellungsmedium durch ausführen:  
+3.  Fügen Sie dem Wiederherstellungsmedium das Paket "WinPE-Setup.cab" hinzu, indem Sie Folgendes ausführen:  
   
     ```  
     dism /image:c:\mountRestore /add-package /packagepath:WinPE-Setup.cab  
     ```  
   
-4.  Mit dem Editor c:\mountRestore\windows\system32\winpeshl.ini bearbeiten, fügen Sie folgenden Inhalt:  
+4.  Bearbeiten Sie "c:\mountRestore\windows\system32\winpeshl.ini" in Editor, und fügen Sie die folgenden Inhalte hinzu:  
   
     ```  
     [LaunchApp]  
     AppPath = %SYSTEMDRIVE%\sources\SelectLanguage.exe  
     ```  
   
-5.  Das Wiederherstellungsmedium Sprachpakete hinzufügen. Hinzufügen von Language Packs kann durch Ausführen des folgenden Befehls erfolgen:  
+5.  Fügen Sie dem Wiederherstellungsmedium Sprachpakete hinzu. Sprachpakete können durch Ausführen des folgenden Befehls hinzugefügt werden:  
   
     ```  
     dism /image:c:\mountRestore /add-package /packagepath:[language pack path]  
     ```  
   
-     Folgende Sprachpakete hinzugefügt werden müssen:  
+     Es sind die folgenden Sprachpakete hinzuzufügen:  
   
-    1.  WinPE-Sprachpaket (lp.cab)  
+    1.  WinPE-Sprachpaket ("lp.cab")  
   
-    2.  WinPE-Setup-Sprachpaket (WinPE-Setup_ [Lang] .cab, z. B. WinPE-Setup_en-us.cab)  
+    2.  WinPE-Setup-Sprachpaket ("WinPE-Setup_[lang].cab", beispielsweise "WinPE-Setup_en-us.cab")  
   
-    3.  Für asiatische Schriftarten wie Zh-Cn, Zh-Tw, Zh-Hk, Ko-Kr, ja-jp, zusätzliches Schriftartenpaket installiert werden (Winpe - Fontsupport-[Sprache] .cab, z. B. Winpe-Fontsupport-Zh-cn.cab)  
+    3.  Für asiatische Schriftarten wie zh-cn, zh-tw, zh-hk, ko-kr und ja-jp muss ein zusätzliches Schriftartenpaket installiert werden ("winpe-fontsupport-[Sprache].cab", z. B. "winpe-fontsupport-zh-cn.cab").  
   
-6.  Generieren Sie neue Datei "lang.ini", durch ausführen:  
+6.  Erstellen Sie eine neue Datei "Lang.ini". Führen Sie dazu Folgendes aus:  
   
     ```  
     dism /image:c:\mountRestore /Gen-LangINI /distribution:mount  
     ```  
   
-7.  Übernehmen und Aufheben der Bereitstellung der Images, durch ausführen:  
+7.  Führen Sie ein Commit des Abbilds aus, und heben Sie die Bereitstellung des Abbilds auf. Führen Sie dazu Folgendes aus:  
   
     ```  
     dism /unmount-wim /mountdir:c:\mountRestore /commit  
     ```  
   
-8.  Wiederholen Sie Schritt 2 bis 7 für [RestoreMediaroot]\Sources\Boot_x86.wim.  
+8.  Wiederholen Sie für "[RestoreMediaroot]\Sources\Boot_x86.wim" die Schritte 2 bis 7.  
   
-9. Übernehmen und Aufheben der Bereitstellung der Images, durch ausführen:  
+9. Führen Sie ein Commit des Abbilds aus, und heben Sie die Bereitstellung des Abbilds auf. Führen Sie dazu Folgendes aus:  
   
     ```  
     dism /unmount-wim /mountdir:c:\mount /commit  
@@ -91,12 +92,12 @@ ms.lasthandoff: 12/12/2017
 ## <a name="see-also"></a>Siehe auch  
 
  [Erstellen und Anpassen des Abbilds](Creating-and-Customizing-the-Image.md)   
- [Weitere Anpassungen](Additional-Customizations.md)   
+ [Zusätzliche Anpassungen](Additional-Customizations.md)   
  [Vorbereiten des Abbilds für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
  [Testen der Benutzerfreundlichkeit](Testing-the-Customer-Experience.md)
 
  [Erstellen und Anpassen des Abbilds](../install/Creating-and-Customizing-the-Image.md)   
- [Weitere Anpassungen](../install/Additional-Customizations.md)   
+ [Zusätzliche Anpassungen](../install/Additional-Customizations.md)   
  [Vorbereiten des Abbilds für die Bereitstellung](../install/Preparing-the-Image-for-Deployment.md)   
  [Testen der Benutzerfreundlichkeit](../install/Testing-the-Customer-Experience.md)
 

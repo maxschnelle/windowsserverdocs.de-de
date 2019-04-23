@@ -1,6 +1,6 @@
 ---
-title: Verwenden Sie die Windows Server Essentials Log Collector
-description: Beschreibt, wie Sie Windows Server Essentials
+title: Verwenden des Windows Server Essentials-Protokollsammlers
+description: Beschreibt, wie Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,48 +13,49 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: d003c6a45159548f7e34d86ca242f74868659d2f
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59877991"
 ---
-# <a name="use-the-windows-server-essentials-log-collector"></a>Verwenden Sie die Windows Server Essentials Log Collector
+# <a name="use-the-windows-server-essentials-log-collector"></a>Verwenden des Windows Server Essentials-Protokollsammlers
 
->Gilt für: Windows Server2016 Essentials, Windows Server2012 R2 Essentials, Windows Server2012 Essentials
+>Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Sie bei der Behandlung von Computerproblemen können Sie von einem Vertreter des Microsoft-Kundendienst und Support aufgefordert, Protokolle von Servern, Computern im Netzwerk oder beides mit der Windows Server Essentials Log Collector zu erfassen.  
+Wenn Sie Probleme mit dem behandeln möchten, unter Umständen einem Vertreter des Microsoft-Kundendienst und Support zu erfassen Protokolle von Servern, Computern im Netzwerk oder beides mit der Windows Server Essentials Log Collector erforderlich.  
   
- Der Log Collector kopiert programmprotokolle, Event-Reviewer-Protokolle und zugehörige Umgebungsinformationen in einer einzelnen Zip-Datei an einem angegebenen Speicherort. Sie können den Log Collector direkt vom Server oder von einem beliebigen Computer im Netzwerk oder mithilfe einer Remoteverbindung zu den Computern ausführen.  
+ Log Collector kopiert Programmprotokolle, Event-Reviewer-Protokolle und zugehörige Umgebungsinformationen in eine einzelne ZIP-Datei an einem angegebenen Speicherort. Sie können Log Collector direkt vom Server oder einem beliebigen Computer im Netzwerk oder mithilfe einer Remoteverbindung zu den Computern ausführen.  
   
 > [!NOTE]
->  -   Der Log Collector analysiert Netzwerkprobleme oder nehmen Sie Änderungen an einem Server oder Computer im Netzwerk nicht. Informationen zur Behandlung von Netzwerkproblemen finden Sie in der Hilfedokumentation für das Serverprodukt.  
+>  -   Log Collector analysiert Netzwerkprobleme nicht und nimmt auch keine Änderungen an einem Server oder Computer im Netzwerk vor. Informationen zur Behandlung von Netzwerkproblemen finden Sie in der Hilfedokumentation für das Serverprodukt.  
 > -   In diesem Handbuch werden die Computer in Ihrem Netzwerk, anders als Ihr Server, Netzwerkcomputer aufgerufen.  
 > -   [Herunterladen des Windows Server Essentials Log Collector-Installationspakets](https://go.microsoft.com/fwlink/?LinkID=266341).  
   
- Installieren und Ausführen von Log Collector, führen Sie die Schritte in den folgenden Themen:  
+ Zum Installieren und Ausführen von Log Collector führen Sie die Schritte in den folgenden Themen aus:  
   
 
-1.  [Installieren Sie den Log Collector](Install-the-Windows-Server-Essentials-Log-Collector.md)  
+1.  [Installieren des Log Collectors](Install-the-Windows-Server-Essentials-Log-Collector.md)  
   
 2.  [Führen Sie den Log Collector](Run-the-Windows-Server-Essentials-Log-Collector.md)  
 
-1.  [Installieren Sie den Log Collector](../support/Install-the-Windows-Server-Essentials-Log-Collector.md)  
+1.  [Installieren des Log Collectors](../support/Install-the-Windows-Server-Essentials-Log-Collector.md)  
   
 2.  [Führen Sie den Log Collector](../support/Run-the-Windows-Server-Essentials-Log-Collector.md)  
 
   
 ## <a name="environment-information-collected"></a>Erfasste Umgebungsinformationen  
- Für jeden Computer im Netzwerk oder der Server, den Sie angeben, den Log Collector sammelt die folgenden Umgebungsinformationen und verschiebt sie in der protokollerfassungsdatei.  
+ Für jeden Netzwerkcomputer oder Server, den Sie angeben, erfasst Lob Collector folgende Umgebungsinformationen in der Protokollerfassungsdatei.  
   
 -   Version des Betriebssystems  
   
--   CPU-Hersteller und Beschreibung  
+-   CPU-Hersteller und -Beschreibung  
   
--   Speichermenge und-Zuweisung  
+-   Speichermenge und -zuweisung  
   
 -   Netzwerkadapter, die an TCP/IP gebunden sind  
   
--   Gebietsschema  
+-   Locale  
   
 -   Prozesse  
   
@@ -64,7 +65,7 @@ Sie bei der Behandlung von Computerproblemen können Sie von einem Vertreter des
   
 -   Ereignisprotokolle, einschließlich Anwendung, System, Windows Server und Media Center  
   
--   Dienststeuerungs-Manager-Nachrichten  
+-   Dienststeuerungs-Manager-Meldungen  
   
 -   Neustartereignisse und Windows Update-Ereignisse  
   
@@ -74,11 +75,11 @@ Sie bei der Behandlung von Computerproblemen können Sie von einem Vertreter des
   
 ### <a name="server-services"></a>Server-Dienste  
   
--   Windows Server Client Computer Backup Service  
+-   Windows Server-Dienst für die Clientcomputersicherung  
   
--   Windows Server Client Computer Backup Provider Service  
+-   Windows Server-Anbieterdienst für die Clientcomputersicherung  
   
--   Windows-Geräte-Anbieter  
+-   Anbieter für Windows Server-Geräte  
   
 -   Windows Server-Domänennamenverwaltung  
   
@@ -86,11 +87,11 @@ Sie bei der Behandlung von Computerproblemen können Sie von einem Vertreter des
   
 -   Windows Server-Einstellungsanbieter  
   
--   Windows-Serverdienst UPnP-Gerät  
+-   UPnP-Gerätedienst von Windows Server  
   
--   Anbieter für Windows Server Remote Web Access-Verwaltung  
+-   Windows Server-Verwaltungsanbieter für Remotewebzugriff  
   
--   Windows Server-Integritätsdienst  
+-   Integritätsdienst von Windows Server  
   
 -   Windows Server-Speicherdienst  
   
@@ -98,24 +99,24 @@ Sie bei der Behandlung von Computerproblemen können Sie von einem Vertreter des
   
 ### <a name="network-computer-services"></a>Netzwerkcomputerdienste  
   
--   Windows Server Client Computer Backup Provider Service  
+-   Windows Server-Anbieterdienst für die Clientcomputersicherung  
   
--   Windows Server-Integritätsdienst  
+-   Integritätsdienst von Windows Server  
   
 -   Dienstanbieterregistrierung von Windows Server  
   
 -   SQM-Dienst von Windows Server  
   
-## <a name="logs-and-registry-information-collected"></a>Protokolle und die gesammelten Informationen in der Registrierung  
- Für jeden Computer im Netzwerk oder der angegebene Server sammelt Log Collector Protokoll-und Registrierungsinformationen vom Server und Computer im Netzwerk wie folgt.  
+## <a name="logs-and-registry-information-collected"></a>Erfasste Protokolle und Registrierungsinformationen  
+ Für jeden angegebenen Netzwerkcomputer oder Server sammelt Log Collector folgende Protokoll- und Registrierungsinformationen vom Server und Netzwerkcomputer.  
   
-### <a name="server-logs-and-registry-information"></a>Informationen zur Registrierung und SQL Server  
+### <a name="server-logs-and-registry-information"></a>Server-Protokoll- und Registrierungsinformationen  
   
--   Server-Produktprotokolle aus < ProgramData\ > \Microsoft\Windows Server\Logs  
+-   Server-Produktprotokolle aus < ProgramData\>\Microsoft\Windows Server\Logs  
   
 -   Geplante Aufgaben  
   
--   API-Setup-Protokollen  
+-   Setup-API-Protokolle  
   
 -   Windows Update-Protokolle  
   
@@ -137,35 +138,35 @@ Sie bei der Behandlung von Computerproblemen können Sie von einem Vertreter des
   
     -   \\\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DomainManagerProviderSvc  
   
-### <a name="network-computer-logs-and-registry-information"></a>Netzwerkcomputerprotokollen und Registrierungsinformationen  
+### <a name="network-computer-logs-and-registry-information"></a>Informationen zu Netzwerkcomputerprotokollen und -registrierung  
   
--   Netzwerkcomputer-Produktprotokolle am < ProgramData\ > \Microsoft\Windows Server\Logs  
+-   Netzwerkcomputer-Produktprotokolle < ProgramData\>\Microsoft\Windows Server\Logs  
   
--   Integritätswarnungsdatei < ProgramData\ > \Microsoft\Windows Server\Data  
+-   Integritätswarnungsdatei < ProgramData\>\Microsoft\Windows Server\Data  
   
 -   Windows Update-Protokolle  
   
--   API-Setup-Protokollen  
+-   Setup-API-Protokolle  
   
 -   Info zu geplanten Aufgaben  
   
 -   Registrierungsschlüssel aus \\\HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows Server\  
   
-## <a name="logs-for-computers-that-do-not-run-a-version-of-the-windows-operating-system"></a>Protokolle für Computer, auf denen eine Version von Windows-Betriebssystem nicht ausgeführt werden.  
- Der Log Collector ist nicht Protokolldateien von Computern sammeln, die eine Version von Windows-Betriebssystem nicht ausgeführt werden. Kopieren Sie für nicht-Windows-Computer die folgenden Protokolldateien manuell an demselben Speicherort, in dem Sie die Log Collector-Dateien gespeichert werden.  
+## <a name="logs-for-computers-that-do-not-run-a-version-of-the-windows-operating-system"></a>Protokolle für Computer, die keine Version des Windows-Betriebssystems ausführen  
+ Log Collector erfasst nur Protokolldateien von Computern, die eine Version des Windows-Betriebssystems ausführen. Bei Nicht-Windows-Computern kopieren Sie die folgenden Protokolldateien manuell an den gleichen Speicherort, an dem die Log Collector-Dateien gespeichert sind.  
   
 -   System.log  
   
--   Bibliothek/Protokolle/Windows Server.log  
+-   Library/Logs/Windows Server.log  
   
--   Library/Logs/CrashReporter/LaunchPad-< Nnn\ > (Kopieren Sie alle Launchpad-< Nnn\ > .crash-Dateien)  
+-   Library/Logs/CrashReporter/LaunchPad-< Nnn\> (Kopieren Sie alle Launchpad-< Nnn\>.crash-Dateien)  
   
--   Bibliothek/Protokolle/DiagnosticReports/LaunchPad-< Nnn\ > (Kopieren Sie alle Launchpad-< Nnn\ > .crash-Dateien)  
+-   Bibliothek/Protokolle/DiagnosticReports/LaunchPad-< Nnn\> (Kopieren Sie alle Launchpad-< Nnn\>.crash-Dateien)  
   
 ## <a name="see-also"></a>Siehe auch  
   
 
--   [Problembehandlung für Log Collector-Fehler](Troubleshoot-Windows-Server-Essentials-Log-Collector-Errors.md)
+-   [Problembehandlung bei der Log Collector-Fehler](Troubleshoot-Windows-Server-Essentials-Log-Collector-Errors.md)
 
--   [Problembehandlung für Log Collector-Fehler](../support/Troubleshoot-Windows-Server-Essentials-Log-Collector-Errors.md)
+-   [Problembehandlung bei der Log Collector-Fehler](../support/Troubleshoot-Windows-Server-Essentials-Log-Collector-Errors.md)
 

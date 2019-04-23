@@ -1,6 +1,6 @@
 ---
-title: "Versionsdokumentation für Windows Server Essentials"
-description: Beschreibt, wie Sie Windows Server Essentials
+title: Versionsdokumentation für Windows Server Essentials
+description: Beschreibt, wie Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,22 +13,23 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: ffbf87ccb8ee29efa62bd9c45db172db7aa59269
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59875321"
 ---
 # <a name="release-documentation-for-windows-server-essentials"></a>Versionsdokumentation für Windows Server Essentials
 
->Gilt für: Windows Server2016 Essentials
+>Gilt für: Windows Server 2016 Essentials
 
-Willkommen Sie bei der Versionsdokumentation für die Windows Server2016 Essentials-Serversoftware. Dieses Thema enthält Informationen zu Problemen, die beim Installieren und die Windows2016 Server Essentials-Server-Software ausführen auftreten können. Lesen Sie vor dem Installieren und Ausführen von Windows Server2016 Essentials in Ihrem Netzwerk in diesem Thema.  
+Willkommen Sie bei der Versionsdokumentation für die Windows Server 2016 Essentials-Serversoftware. Dieses Thema enthält Informationen zu Problemen, die beim Installieren und die Windows 2016-Server Essentials-Serversoftware ausführen möglicherweise auftreten. Lesen Sie in diesem Thema, bevor Sie installieren und Ausführen von Windows Server 2016 Essentials in Ihrem Netzwerk.  
   
-## <a name="client-computers"></a>Clientcomputern  
+## <a name="client-computers"></a>Clientcomputer  
   
-### <a name="install-all-available-critical-and-security-updates-from-windows-update"></a>Installieren Sie alle verfügbaren wichtigen Updates und Sicherheitsupdates von Windows Update  
+### <a name="install-all-available-critical-and-security-updates-from-windows-update"></a>Installieren aller erforderlichen wichtigen Updates und Sicherheitsupdates über Windows Update  
 
-Bevor Sie einen Clientcomputer mit dem Server herstellen, stellen Sie sicher, dass Sie alle verfügbaren kritischen und Sicherheits-Updates zu installieren und öffnen Sie Windows Update auf dem Clientcomputer.  
+Bevor Sie einen Clientcomputer mit dem Server verbinden, stellen Sie sicher, dass Sie Windows Update auf dem Clientcomputer öffnen, und installieren alle verfügbaren kritischen und Sicherheits-Updates.  
   
-### <a name="client-computer-restore-may-not-succeed-after-migration-to-windows-10"></a>Wiederherstellen des Clientcomputers möglicherweise nach der Migration zu Windows10 nicht erfolgreich.  
- Nach dem Aktualisieren von eines Clientcomputers aus Windows8.1 auf Windows10 haben möglicherweise Wiederherstellen des Clientcomputers nicht ordnungsgemäß. Sie müssen eine Verbindung des Clients für die Windows Server2016 Essentials herzustellen. 
+### <a name="client-computer-restore-may-not-succeed-after-migration-to-windows-10"></a>Wiederherstellen des Clientcomputers möglicherweise nach der Migration zu Windows 10 nicht erfolgreich.  
+ Nach der Aktualisierung von eines Clientcomputers aus Windows 8.1 auf Windows 10, möglicherweise Wiederherstellen des Clientcomputers nicht ordnungsgemäß. Sie müssen den Client auf Windows Server 2016 Essentials zu verbinden. 

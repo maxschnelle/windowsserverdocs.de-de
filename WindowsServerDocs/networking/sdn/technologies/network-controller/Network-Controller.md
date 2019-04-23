@@ -1,6 +1,6 @@
 ---
 title: Netzwerkcontroller
-description: Dieses Thema enthält eine Übersicht über Netzwerkcontroller in Windows Server 2016.
+description: Dieses Thema enthält eine Übersicht über den Netzwerkcontroller in Windows Server 2016.
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking-sdn
@@ -8,127 +8,128 @@ ms.topic: article
 ms.assetid: 31f3fa4e-cd25-4bf3-89e9-a01a6cec7893
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: acb9abbd716e9930fb01431e7004abb72a7da10c
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 7ace628c6ae9802c0c65d360aedfac8c80ac5537
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59875681"
 ---
 # <a name="network-controller"></a>Netzwerkcontroller
 
->Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
-Neue bietet in Windows Server 2016 Netzwerkcontroller einer zentralen, programmierbaren Automatisierung zu verwalten, Konfiguration, Überwachung und Problembehandlung von virtuellen und physischen Netzwerkinfrastruktur in Ihrem Rechenzentrum. 
+In Windows Server 2016 bietet neue Netzwerkcontroller einen Punkt zentralen, programmierbaren Automatisierung von Verwaltung, konfigurieren, überwachen und Problembehandlung der virtuellen und physischen Netzwerkinfrastruktur in Ihrem Rechenzentrum an. 
 
-Mithilfe von Netzwerkcontroller können Sie die Konfiguration der Netzwerkinfrastruktur, sondern die manuelle Konfiguration von Netzwerkgeräten und Diensten automatisieren.
+Mithilfe von Netzwerkcontroller können Sie die Konfiguration der Netzwerkinfrastruktur automatisieren und müssen Netzwerkgeräte und -dienste nicht länger manuell konfigurieren.
 
 > [!NOTE]
-> Zusätzlich zu diesem Thema ist die folgende Netzwerk-Controller-Dokumentation verfügbar.
-> - [Netzwerk-Controller mit hoher Verfügbarkeit](network-controller-high-availability.md)
-> - [Installation und Anforderungen an die Vorbereitung für die Bereitstellung von Netzwerkcontroller](../../plan/Installation-and-Preparation-Requirements-for-Deploying-Network-Controller.md)  
+> Zusätzlich zu diesem Thema wird die folgende Dokumentation zum Netzwerkcontroller verfügbar.
+> - [Hohe Netzwerkverfügbarkeit für Controller](network-controller-high-availability.md)
+> - [Installation und Anforderungen bei der Vorbereitung für die Bereitstellung des Netzwerkcontrollers](../../plan/Installation-and-Preparation-Requirements-for-Deploying-Network-Controller.md)  
 > - [Bereitstellen des Netzwerkcontrollers mithilfe von Windows PowerShell](../../deploy/Deploy-Network-Controller-using-Windows-PowerShell.md)  
-> - [Installieren Sie die Netzwerk-Controller-Serverrolle mit Server-Manager](Install-the-Network-Controller-server-role-using-Server-Manager.md)
+> - [Installieren Sie die Netzwerkcontroller-Serverrolle, die mithilfe des Server-Manager](Install-the-Network-Controller-server-role-using-Server-Manager.md)
 > - [Schritte nach der Bereitstellung für den Netzwerkcontroller](post-deploy-steps-nc.md)
 > - [Netzwerk-Controller-Cmdlets](https://technet.microsoft.com/library/mt576401.aspx) 
 
 ## <a name="bkmk_overview"></a>Netzwerkcontroller – Übersicht
 
-Netzwerkcontroller ist eine hoch verfügbare und skalierbare Serverrolle, und bietet eine Programmierschnittstellen Benutzeroberfläche \(API\), die Kommunikation zwischen Netzwerkcontroller mit dem Netzwerk ermöglicht, und eine zweite API, die die Kommunikation mit Netzwerkcontroller ermöglicht.
+Netzwerkcontroller ist eine hoch verfügbare und skalierbare Serverrolle, und bietet eine Anwendungsprogrammierschnittstelle \(API\) Netzwerkcontroller für die Kommunikation mit dem Netzwerk und eine zweite API, die Ihnen ermöglicht, ermöglicht die Kommunikation mit Netzwerkcontroller.
 
-Sie können Netzwerkcontroller in der Domäne und nicht der Domäne Umgebungen bereitstellen. In domänenumgebungen authentifiziert Netzwerkcontroller Benutzern und Geräten mithilfe von Kerberos; in einer Umgebung nicht in einer Domäne müssen Sie Zertifikate für die Authentifizierung bereitstellen.
+Sie können den Netzwerkcontroller in sowohl domänenbezogene als auch nicht in die Domäne Umgebungen bereitstellen. In domänenumgebungen authentifiziert die Netzwerkcontroller-Benutzer und Geräte mithilfe von Kerberos; in nicht-domänenumgebungen müssen Sie Zertifikate für die Authentifizierung bereitstellen.
 
 >[!IMPORTANT]
->Stellen Sie die Serverrolle "Netzwerkcontroller" auf physischen Hosts nicht. Sie müssen die Netzwerk-Controller-Serverrolle auf einem virtuellen Hyper-V-Computer installieren, zum Bereitstellen von Netzwerkcontroller \(VM\), die auf einem Hyper-V-Host installiert ist. Nachdem Sie Netzwerkcontroller auf virtuellen Computern auf drei verschiedenen Hyper\-V-Hosts installiert haben, müssen Sie die Hyper\-V-Hosts für die Software Defined Networking \(SDN\) durch Hinzufügen von Hosts des Netzwerkcontrollers mithilfe von Windows PowerShell-Befehl aktivieren **neu NetworkControllerServer**. Auf diese Weise aktivieren Sie das Lastenausgleichsmodul für SDN-Software funktioniert. Weitere Informationen finden Sie unter [neu NetworkControllerServer](https://technet.microsoft.com/itpro/powershell/windows/network-controller/new-networkcontrollerserver).
+>Stellen Sie keine der Serverrolle "Netzwerkcontroller" auf physischen Hosts ausgeführt werden. Sie müssen die Netzwerkcontroller-Serverrolle auf einem virtuellen Hyper-V-Computer installieren, zum Bereitstellen des Netzwerkcontrollers \(VM\) , die auf einem Hyper-V-Host installiert ist. Nach der Installation des Netzwerkcontrollers auf virtuellen Computern für drei verschiedene Hyper\-V-Hosts müssen Sie die Hyper aktivieren\-V-Hosts für die Software Defined Networking \(SDN\) durch Hinzufügen von Hosts mit dem Netzwerkcontroller der Windows PowerShell-Befehl **New-NetworkControllerServer**. Auf diese Weise aktivieren Sie den SDN-Softwarelastenausgleich-Funktion. Weitere Informationen finden Sie unter [New-NetworkControllerServer](https://technet.microsoft.com/itpro/powershell/windows/network-controller/new-networkcontrollerserver).
 
-Netzwerkcontroller kommuniziert mit Netzwerkgeräten, Dienste und Komponenten mithilfe der Southbound-API. Mit der Southbound-API kann Netzwerkcontroller Netzwerkgeräte zu ermitteln, Dienstkonfigurationen und alle benötigten Informationen über das Netzwerk zu sammeln. Zusätzlich stellt die Southbound-API Netzwerkcontroller einen Pfad zum Senden von Informationen an der Netzwerkinfrastruktur, z. B. Änderungen an der Konfiguration, die Sie erstellt haben.
+Netzwerkcontroller kommuniziert mit Netzwerkgeräten, -diensten und -komponenten über die Southbound-API. Mithilfe der Southbound-API kann Netzwerkcontroller Netzwerkgeräte und Dienstkonfigurationen ermitteln und alle benötigten Informationen zum Netzwerk sammeln. Zusätzlich stellt die Southbound-API Netzwerkcontroller einen Pfad zum Senden von Informationen an die Netzwerkinfrastruktur bereit, wenn beispielsweise Änderungen an der Konfiguration vorgenommen wurden.
 
-Die Northbound-API von Netzwerkcontroller bietet Ihnen die Möglichkeit zum Sammeln von Netzwerkinformationen aus Netzwerkcontroller und verwenden es zum Überwachen und Konfigurieren des Netzwerks.
+Die Northbound-API von Netzwerkcontroller ermöglicht das Sammeln von Netzwerkinformationen aus Netzwerkcontroller und wird verwendet, um das Netzwerk zu überwachen und zu konfigurieren.
 
-Die Northbound-API von Netzwerkcontroller können Sie konfigurieren, überwachen, Problembehandlung und neue Geräte im Netzwerk mithilfe von Windows PowerShell, die Representational State Transfer \(REST\)-API oder einer verwaltungsanwendung mit einer grafischen Benutzeroberfläche, z. B. System Center Virtual Machine Manager bereitstellen.
+Die Northbound-API von Netzwerkcontroller können Sie konfigurieren, überwachen, beheben und neue Geräte im Netzwerk bereitstellen, indem Sie mithilfe von Windows PowerShell die Representational State Transfer \(REST\) -API oder einer verwaltungsanwendung mit einer grafischen Benutzeroberfläche, z. B. System Center Virtual Machine Manager.
 
 >[!NOTE]
 >Die Northbound-API von Netzwerkcontroller wird als REST-Schnittstelle implementiert.
 
-Sie können Ihr datencenternetzwerk mit Netzwerkcontroller verwalten, mithilfe von verwaltungsanwendungen wie System Center Virtual Machine Manager-\(SCVMM\) und System Center Operations Manager-\(SCOM\), da Netzwerkcontroller können Sie konfigurieren, überwachen, Programmieren und Problembehandlung der Netzwerkinfrastruktur, die von ihr gesteuert werden.
+Sie können Ihr datencenternetzwerk mit Netzwerkcontroller verwalten, indem Sie die Verwendung von verwaltungsanwendungen wie System Center Virtual Machine Manager- \(SCVMM\), und System Center Operations Manager \(SCOM\), Da Sie zum Konfigurieren von Netzwerkcontroller ermöglicht es, überwachen, Programmieren und Problembehandlung der kontrollierten Netzwerkinfrastruktur, die unter ihrer Kontrolle ist.
 
-Mit Windows PowerShell, der REST-API oder einer verwaltungsanwendung, können Sie Netzwerkcontroller zum Verwalten der folgenden physischen und virtuellen Netzwerkinfrastruktur verwenden:
+Unter Verwendung von Windows PowerShell, der REST-API oder einer Verwaltungsanwendung können Sie Netzwerkcontroller zum Verwalten der folgenden physischen und virtuellen Netzwerkinfrastrukturkomponenten einsetzen:
 
-- Hyper-V-VMs und virtuelle switches
+- Virtuelle Hyper-V-Computer und -Switches
 
-- Datacenter Firewall
+- Rechenzentrumsfirewall
 
-- Remote Access Service \(RAS\) mehrinstanzenfähige Gateways, virtuelle Gateways und Gateway-pools
+- RAS-Dienst \(RAS\) mehrinstanzenfähigen Gateways und Gateways für virtuelle gatewaypools
 
-- Software-Lastenausgleich
+- Software-Lastenausgleichsmodule
 
-In der folgenden Abbildung verwendet ein Administrator ein Verwaltungstool, die interagiert direkt mit Netzwerkcontroller. Netzwerkcontroller enthält Informationen zur Netzwerkinfrastruktur, einschließlich der virtuellen und physischen Infrastruktur, um das Verwaltungstool und führt konfigurationsänderungen gemäß der Administrator Aktionen aus, wenn das Tool verwenden.  
+In der folgenden Abbildung verwendet ein Administrator ein Verwaltungstool, das direkt mit Netzwerkcontroller interagiert. Netzwerkcontroller bietet Informationen zur Netzwerkinfrastruktur, einschließlich virtuelle und physische Infrastruktur, um das Verwaltungstool und führt konfigurationsänderungen gemäß des Administrators Aktionen aus, wenn das Tool verwenden.  
 
 ![Netzwerkcontroller – Übersicht](../../../media/Network-Controller/NetController_overview.png)  
 
-Wenn Sie Netzwerkcontroller in einer testumgebung bereitstellen, können Sie die Netzwerk-Controller-Serverrolle ausführen, auf einem virtuellen Hyper-V-\(VM\), die auf einem Hyper-V-Host installiert ist.
+Wenn Sie den Netzwerkcontroller in einer testumgebung bereitstellen, können Sie die Netzwerkcontroller-Serverrolle ausführen, auf einem virtuellen Hyper-V-Computer \(VM\) , die auf einem Hyper-V-Host installiert ist.
 
-Für hohe Verfügbarkeit in größeren Datencentern können Sie einen Cluster bereitstellen, mithilfe von drei virtuellen Maschinen, die auf drei oder mehreren Hyper-V-Hosts installiert sind. Weitere Informationen finden Sie unter [Netzwerk Netzwerkcontroller – hohe Verfügbarkeit](network-controller-high-availability.md).
+Für eine hohe Verfügbarkeit in größeren Datencentern können Sie einen Cluster bereitstellen, mithilfe von drei virtuellen Computern, die auf drei oder mehreren Hyper-V-Hosts installiert sind. Weitere Informationen finden Sie unter [hohe Netzwerkverfügbarkeit für Controller](network-controller-high-availability.md).
 
 ## <a name="bkmk_features"></a>Funktionen von Netzwerkcontroller
 
-Die folgenden Funktionen von Netzwerkcontroller können Sie konfigurieren und Verwalten von virtuellen und physischen Netzwerkgeräten und Diensten.  
+Die folgenden Funktionen von Netzwerkcontroller ermöglichen Ihnen das Konfigurieren und Verwalten von virtuellen und physischen Netzwerkgeräten und diensten.  
   
--   [Firewall-Verwaltung](#bkmk_firewall)  
+-   [Firewallverwaltung](#bkmk_firewall)  
   
 -   [Verwalten des Softwarelastenausgleichs](#bkmk_slb)  
   
--   [Des virtuellen Netzwerks](#bkmk_virtual)  
+-   [Verwalten des virtuellen Netzwerks](#bkmk_virtual)  
   
--   [RAS-Gateway-Management](#bkmk_gateway)
+-   [Verwalten des RAS-Gateways](#bkmk_gateway)
 
 >[!IMPORTANT]
->Netzwerk-Controller-Sicherung und Wiederherstellung ist derzeit nicht verfügbar in Windows Server 2016.
+>Netzwerk Websitecontroller-Sicherung und Wiederherstellung ist nicht aktuell in Windows Server 2016 verfügbar.
   
-### <a name="bkmk_firewall"></a>Firewall-Verwaltung
+### <a name="bkmk_firewall"></a>Firewallverwaltung
 
-Diese Funktion von Netzwerkcontroller können Sie konfigurieren und Verwalten von Zulassen/Verweigern Firewall-Zugriffssteuerungsregeln für Ihre Workload VMs für OST-West und Nord/Süd-Netzwerkdatenverkehr in Ihrem Rechenzentrum. Die Firewallregeln werden im vSwitch-Port des virtuellen angewandten und damit sie auf Ihre Workload im Datencenter verteilt werden. Die Northbound-API verwenden, können Sie die Firewallregeln für eingehenden und ausgehenden Datenverkehr über den virtuellen Computer definieren. Sie können auch konfigurieren, dass jede Firewallregel, um den Datenverkehr zu protokollieren, der zugelassen oder verweigert werden, indem Sie die Regel wurde.  
+Mit dieser Funktion von Netzwerkcontroller können Sie Firewall-Zugriffssteuerungsregeln für die virtuellen Computer für Ihre Arbeitsauslastungen konfigurieren und verwalten (Zulassen/Verweigern), die sowohl für den Ost/West- als auch den Nord/Süd-Netzwerkdatenverkehr in Ihrem Datencenter gelten. Die Firewallregeln werden im vSwitch-Port des virtuellen Computers für die Arbeitsauslastung bereitgestellt, sodass sie auf alle Arbeitsauslastungen im Datencenter angewendet werden. Unter Verwendung der Northbound-API können Sie die Firewallregeln für eingehenden und ausgehenden Datenverkehr über den virtuellen Computer für Ihre Arbeitsauslastungen definieren. Außerdem können Sie jede Firewallregel so konfigurieren, dass der über die Regel zugelassene oder abgelehnte Datenverkehr protokolliert wird.  
 
-Weitere Informationen finden Sie unter [Datacenter Firewall (Übersicht)](../../../sdn/technologies/network-function-virtualization/Datacenter-Firewall-Overview.md).
+Weitere Informationen finden Sie unter [Datacenter Firewall – Übersicht](../../../sdn/technologies/network-function-virtualization/Datacenter-Firewall-Overview.md).
 
 ### <a name="bkmk_slb"></a>Verwalten des Softwarelastenausgleichs
 
-Diese Funktion von Netzwerkcontroller können Sie mehrere Server zum Hosten derselben Workload hohe Verfügbarkeit und Skalierbarkeit zu aktivieren.  
+Diese Funktion von Netzwerkcontroller ermöglicht es Ihnen, mehrere Server zum Hosten derselben Arbeitsauslastung zu aktivieren, um hohe Verfügbarkeit und Skalierbarkeit bereitzustellen.  
   
-Weitere Informationen finden Sie unter [Lastenausgleich & #40; SLB & #41; für SDN](../../../sdn/technologies/network-function-virtualization/Software-Load-Balancing--SLB--for-SDN.md).  
+Weitere Informationen finden Sie unter [Softwarelastenausgleich &#40;SLB&#41; für SDN](../../../sdn/technologies/network-function-virtualization/Software-Load-Balancing--SLB--for-SDN.md).  
   
-### <a name="bkmk_virtual"></a>Des virtuellen Netzwerks
+### <a name="bkmk_virtual"></a>Verwalten des virtuellen Netzwerks
 
-Diese Funktion von Netzwerkcontroller können Sie zum Bereitstellen und Konfigurieren von Hyper-V-Netzwerkvirtualisierung, einschließlich des virtuellen Hyper-V-Switches und virtuelle Netzwerkadapter auf einzelnen virtuellen Computern, und speichern und Richtlinien für virtuelle Netzwerke zu verteilen.
+Diese Funktion von Netzwerkcontroller ermöglicht es Ihnen, die Hyper-V-Netzwerkvirtualisierung bereitzustellen und zu konfigurieren – virtuelle Hyper-V-Switches und virtuelle Netzwerkadapter auf einzelnen virtuellen Computern eingeschlossen – sowie Richtlinien für virtuelle Netzwerke zu speichern und anzuwenden.
 
-Netzwerkcontroller unterstützt sowohl die Network Virtualization Generic Routing Encapsulation (NVGRE) als auch die Virtual Extensible Local Area Network (VXLAN).
+Netzwerkcontroller unterstützt sowohl NVGRE (Network Virtualization Generic Routing Encapsulation) als auch VXLAN (Virtual Extensible Local Area Network).
 
-### <a name="bkmk_gateway"></a>RAS-Gateway-Management
+### <a name="bkmk_gateway"></a>Verwalten des RAS-Gateways
 
-Diese Funktion von Netzwerkcontroller können Sie bereitstellen, konfigurieren und Verwalten von virtuellen Computern (VMs), die Mitglieder einer RAS-Gateway-Pool Gatewaydienste für Ihre Mandanten sind. Netzwerkcontroller ermöglicht es Ihnen automatisch ausgeführter virtueller Maschinen auf RAS-Gateway mit den folgenden Gateway-Funktionen bereitstellen:
+Diese Funktion von Netzwerkcontroller können Sie bereitstellen, konfigurieren und Verwalten von virtuellen Computern (VMs), die Mitglieder eines RAS-Gateway-Pools und Gatewaydienste für Ihre Mandanten sind. Netzwerkcontroller ermöglicht es Ihnen, zum automatischen Bereitstellen von VMs, die RAS-Gateway mit den folgenden Gateway-Funktionen ausgeführt:
 
 > [!NOTE]
-> In System Center Virtual Machine Manager wird RAS-Gateway mit Windows Server-Gateway bezeichnet.
+> In System Center Virtual Machine Manager heißt RAS-Gateway dem Windows Server-Gateway.
 
-- Hinzufügen und Entfernen von Gateway-VMs aus dem Cluster angeben, inwieweit der Sicherung erforderlich.
+- Hinzufügen von Entfernen von virtuellen Gatewaycomputern zum Cluster bzw. aus dem Cluster und Festlegen der erforderlichen Sicherungsstufe
 
-- Standort-zu-Standort virtuelles privates Netzwerk (VPN)-gatewaykonnektivität zwischen remotemandantennetzwerken und Ihrem Datencenter unter Verwendung von IPsec.
+- Standort-zu-Standort-VPN-Gatewaykonnektivität zwischen Remotemandantennetzwerken und Ihrem Datencenter unter Verwendung von IPsec
 
-- Standort-zu-Standort-VPN-gatewaykonnektivität zwischen remotemandantennetzwerken und Ihrem Datencenter unter Verwendung von Generic Routing Encapsulation (GRE).
+- Standort-zu-Standort-VPN-Gatewaykonnektivität zwischen Remotemandantennetzwerken und Ihrem Datencenter unter Verwendung von GRE (Generic Routing Encapsulation)
 
-- Layer-3-Weiterleitungsfunktion.
+- Schicht 3-Weiterleitungsfunktion
 
-- Border Gateway Protocol (BGP) weiterleiten, können Sie zum Verwalten des Routings von Netzwerkdatenverkehr zwischen VM-Netzwerken Ihrer Mandanten und Remotestandorten.
+- Border Gateway Protocol (BGP) routing, die Sie zum Verwalten des Routings von Netzwerkdatenverkehr zwischen VM-Netzwerken Ihrer Mandanten und Remotestandorten ermöglicht.
 
-Netzwerkcontroller kann weitere Verbindungen einen Mandanten auf separaten Gateways platzieren. Sie können eine einzelne öffentliche IP-Adresse für alle Gateway-Verbindungen verwenden oder anderen öffentlichen IP-Adressen für eine Teilmenge der Verbindungen. Netzwerkcontroller protokolliert alle Gatewaykonfiguration und Zustandsänderungen, die für die Überwachung und Problembehandlung verwendet werden können.
+Netzwerkcontroller kann verschiedene Verbindungen eines Mandanten auf separaten Gateways platzieren. Sie können eine einzelne öffentliche IP-Adresse für alle Gateway-Verbindungen oder bei anderen öffentlichen IP-Adressen für eine Teilmenge der Verbindungen. Netzwerkcontroller protokolliert alle Gateway-Konfiguration und Zustandsänderungen, die für die Überwachung und Problembehandlung verwendet werden kann.
 
-Weitere Informationen zu BGP finden Sie unter [Border Gateway Protocol & #40; BGP & #41; ](../../../../remote/remote-access/bgp/Border-Gateway-Protocol-BGP.md).
+Weitere Informationen zu BGP finden Sie unter [Border Gateway Protocol &#40;BGP&#41;](../../../../remote/remote-access/bgp/Border-Gateway-Protocol-BGP.md).
 
 Weitere Informationen auf dem RAS-Gateway finden Sie unter [RAS-Gateway für SDN](../../../sdn/technologies/network-function-virtualization/RAS-Gateway-for-SDN.md).
 
-## <a name="network-controller-deployment-options"></a>Netzwerk-Controller-Bereitstellungsoptionen
+## <a name="network-controller-deployment-options"></a>Optionen zur netzwerkbereitstellung Controller
 
-Zum Bereitstellen von Netzwerkcontroller mithilfe von System Center Virtual Machine Manager-\(VMM\) finden Sie unter [richten Sie ein SDN-Netzwerkcontroller in der VMM-Fabric](https://technet.microsoft.com/system-center-docs/vmm/scenario/sdn-network-controller).
+Um die Bereitstellung des Netzwerkcontrollers mithilfe von System Center Virtual Machine Manager- \(VMM\), finden Sie unter [richten Sie eine SDN-Netzwerkcontroller im VMM-Fabric](https://technet.microsoft.com/system-center-docs/vmm/scenario/sdn-network-controller).
 
-Zum Bereitstellen des Netzwerkcontrollers mithilfe von Skripts finden Sie unter [Bereitstellen einer Software definiert Netzwerk-Infrastruktur mithilfe von Skripts](../../deploy/Deploy-a-Software-Defined-Network-infrastructure-using-scripts.md).
+Zum Bereitstellen des Netzwerkcontrollers mithilfe von Skripts finden Sie unter [Bereitstellen von Software definierte Netzwerk-Infrastruktur mithilfe von Skripts](../../deploy/Deploy-a-Software-Defined-Network-infrastructure-using-scripts.md).
 
 Zum Bereitstellen des Netzwerkcontrollers mithilfe von Windows PowerShell finden Sie unter [Bereitstellen des Netzwerkcontrollers mithilfe von Windows PowerShell](../../deploy/Deploy-Network-Controller-using-Windows-PowerShell.md)

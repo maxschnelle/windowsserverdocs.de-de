@@ -11,129 +11,132 @@ ms.topic: article
 author: justinha
 ms.author: justinha
 manager: brianlic-msft
-ms.date: 06/05/2017
-ms.openlocfilehash: e26d1f833dbb7219251947f1cb3cb09def958aea
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.date: 05/16/2018
+ms.openlocfilehash: 8053a14a74797cccce4c441d41f1f1623ba0ad6e
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59879441"
 ---
 # <a name="manage-transport-layer-security-tls"></a>Verwalten von Transport Layer Security (TLS)
 
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows 10
+
 ## <a name="configuring-tls-cipher-suite-order"></a>Konfigurieren von Reihenfolge der TLS-Verschlüsselungssammlungen
 
-Verschiedene Versionen von Windows unterstützen unterschiedliche TLS-Verschlüsselungssammlungen und Reihenfolge ihrer Priorität aufgelistet. Finden Sie unter [Verschlüsselungssammlungen in TLS/SSL (Schannel SSP)](https://msdn.microsoft.com/library/windows/desktop/aa374757.aspx) für die Standardreihenfolge vom Microsoft Schannel-Provider in verschiedenen Windows-Versionen unterstützt.
+Verschiedene Windows-Versionen unterstützen verschiedene TLS-Verschlüsselungssammlungen und die Reihenfolge ihrer Priorität. Finden Sie unter [Verschlüsselungssammlungen in TLS/SSL (Schannel SSP)](https://msdn.microsoft.com/library/windows/desktop/aa374757.aspx) für die Standardreihenfolge, die von der Microsoft-Schannel-Provider in verschiedenen Windows-Versionen unterstützt.
 
 > [!NOTE] 
-> Sie können auch das Ändern der Liste der Verschlüsselungssammlungen mit CNG-Funktionen, finden Sie unter [Verschlüsselungssammlungen priorisieren](https://msdn.microsoft.com/library/windows/desktop/bb870930.aspx) Details.
+> Sie können auch die Liste ändern von Verschlüsselungssammlungen mit CNG-Funktionen finden Sie unter [Priorisieren von Schannel Cipher Suites](https://msdn.microsoft.com/library/windows/desktop/bb870930.aspx) Details.
 
-Änderungen an der Reihenfolge der TLS-Verschlüsselungssammlungen werden beim nächsten Start wirksam. Bis zum Neustarten oder Herunterfahren wird die vorhandene Reihenfolge in Kraft sein.
+Änderungen an der Reihenfolge der TLS-Verschlüsselungssammlungen werden auf den nächsten Systemstart wirksam. Bis zum Neustarten oder Herunterfahren wird die vorhandene Reihenfolge aktiviert sein.
 
 > [!WARNING] 
-> Aktualisieren die registrierungseinstellungen für die Priorität Standardreihenfolge wird nicht unterstützt und kann mit Wartungsupdates zurückgesetzt werden. 
+> Aktualisieren die registrierungseinstellungen für die Priorität Standardreihenfolge wird nicht unterstützt und für die Verarbeitung der Updates zurückgesetzt werden. 
 
-### <a name="configuring-tls-cipher-suite-order-by-using-group-policy"></a>Konfigurieren der Reihenfolge der TLS-Verschlüsselungssammlungen mithilfe von Gruppenrichtlinien
+### <a name="configuring-tls-cipher-suite-order-by-using-group-policy"></a>Konfigurieren der Reihenfolge der TLS-Verschlüsselungssammlungen mithilfe einer Gruppenrichtlinie
 
-Die SSL-Verschlüsselung Suite Reihenfolge-gruppenrichtlinieneinstellungen können so konfigurieren Sie die Standardreihenfolge TLS-Verschlüsselung Suite.
+Sie können die SSL Cipher Suite Order-gruppenrichtlinieneinstellungen verwenden, so konfigurieren Sie die Standardreihenfolge TLS Cipher Suite.
 
-1.  Die Gruppenrichtlinien-Verwaltungskonsole, wechseln Sie zu **Computerkonfiguration** > **Administrative Vorlagen** > **Netzwerke** > **SSL-Konfigurationseinstellungen**.
+1.  Die Gruppenrichtlinien-Verwaltungskonsole, navigieren Sie zu **Computerkonfiguration** > **Administrative Vorlagen** > **Netzwerke**  >  **SSL-Konfigurationseinstellungen**.
 2.  Doppelklicken Sie auf **Reihenfolge der SSL-Verschlüsselungssammlungen**, und klicken Sie dann auf die **aktiviert** Option.
 3.  Mit der rechten Maustaste **SSL-Verschlüsselungssammlungen** und wählen Sie **wählen Sie alle** aus dem Popupmenü.
 
     ![Gruppenrichtlinieneinstellung](../media/Transport-Layer-Security-protocol/ssl-cipher-suite-order-gp-setting.png)
 
-4.  Mit der rechten Maustaste in des markierten Texts, und wählen Sie **Kopie** aus dem Popupmenü.
-5.  Fügen Sie den Text in einem Text-Editor wie z. B. notepad.exe und mit der neuen Cipher Suite Liste aktualisieren.
+4.  Mit der rechten Maustaste in des ausgewählten Texts, und wählen **Kopie** aus dem Popupmenü.
+5.  Fügen Sie den Text in einem Text-Editor wie notepad.exe und Update mit der neuen Cipher Suite Liste aus.
 
     > [!NOTE]
-    > Die TLS-Verschlüsselung Suite Liste muss strikte durch Trennzeichen getrennte Format aufweisen. Jede Cipher Suite-Zeichenfolge wird durch ein Komma (,) auf der rechten Seite des beendet. 
+    > Der TLS-Verschlüsselungsverfahren Suite Bestellliste muss strenge durch Trennzeichen getrennten Format aufweisen. Jede Cipher Suite Zeichenfolge endet mit einem Komma (,), auf die rechte Seite des Zertifikats. 
 
-    > Darüber hinaus ist die Liste der Verschlüsselungssammlungen auf 1023 Zeichen begrenzt.
+    > Darüber hinaus ist die Liste der Verschlüsselungssammlungen maximal 1.023 Zeichen.
 
-6.  Ersetzen der Liste in der **SSL-Verschlüsselungssammlungen** mit der aktualisierten sortierte Liste.
-7.  Klicken Sie auf **OK** oder **gelten**.
+6.  Ersetzen Sie die Liste in der **SSL-Verschlüsselungssammlungen** mit der aktualisierten sortierten Liste.
+7.  Klicken Sie auf **OK** oder **Übernehmen**.
 
-### <a name="configuring-tls-cipher-suite-order-by-using-mdm"></a>Konfigurieren der Reihenfolge der TLS-Verschlüsselungssammlungen mit MDM
+### <a name="configuring-tls-cipher-suite-order-by-using-mdm"></a>Konfigurieren der Reihenfolge der TLS-Verschlüsselungssammlungen mithilfe von MDM
 
-Windows 10 Policy CSP unterstützt die Konfiguration der Verschlüsselungssammlungen, TLS. Finden Sie unter [Kryptografie/TLSCipherSuites](https://msdn.microsoft.com/windows/hardware/commercialize/customize/mdm/policy-configuration-service-provider#cryptography-tlsciphersuites) Weitere Informationen.
+Die Windows 10 Policy, CSP unterstützt die Konfiguration der Verschlüsselungssammlungen, TLS. Finden Sie unter [Kryptografie/TLSCipherSuites](https://msdn.microsoft.com/windows/hardware/commercialize/customize/mdm/policy-configuration-service-provider#cryptography-tlsciphersuites) für Weitere Informationen.
 
 ### <a name="configuring-tls-cipher-suite-order-by-using-tls-powershell-cmdlets"></a>Konfigurieren der Reihenfolge der TLS-Verschlüsselungssammlungen mithilfe von TLS-PowerShell-Cmdlets
 
-Das TLS-PowerShell-Modul unterstützt das Abrufen der sortierten Liste der TLS-Verschlüsselungssammlungen, eine Verschlüsselungssammlung zu deaktivieren und eine Verschlüsselungssammlung zu aktivieren. Finden Sie unter [TLS-Modul](https://technet.microsoft.com/itpro/powershell/windows/tls/tls) Weitere Informationen.
+Das TLS-PowerShell-Modul unterstützt die geordnete Liste der TLS-Verschlüsselungssammlungen abrufen, eine Verschlüsselungssammlung zu deaktivieren und eine Verschlüsselungssammlung zu aktivieren. Finden Sie unter [TLS-Modul](https://technet.microsoft.com/itpro/powershell/windows/tls/tls) für Weitere Informationen.
 
-## <a name="configuring-tls-ecc-curve-order"></a>Konfigurieren von TLS ECC Kurve Reihenfolge 
+## <a name="configuring-tls-ecc-curve-order"></a>Konfigurieren die Reihenfolge der TLS-ECC-Kurve 
 
-Ab Windows 10 und Windows Server 2016, kann ECC Kurve Reihenfolge unabhängig von der Reihenfolge der Verschlüsselungssammlungen konfiguriert werden. Wenn die TLS dieses Feld enthält die Reihenfolge der, dass die Liste Elliptische Kurve Suffixe sind, werden sie durch die neue Elliptische Kurve Prioritätsreihenfolge überschrieben werden, wenn aktiviert. Dadurch können Organisationen ein Gruppenrichtlinienobjekt zu verwenden, um verschiedene Versionen von Windows mit der gleichen Reihenfolge der Cipher Suites konfigurieren.
+Ab Windows 10 und Windows Server 2016 kann ECC-Kurve Reihenfolge unabhängig von der Reihenfolge der Verschlüsselungssammlungen konfiguriert werden. Wenn TLS dieses Feld enthält die Reihenfolge der, dass Liste Elliptische Kurve Suffixe aufweist, wird von der Reihenfolge ihrer Priorität von neuen Elliptische Kurve überschrieben werden bei Aktivierung. Dadurch können Organisationen ein Gruppenrichtlinienobjekt zu verwenden, um verschiedene Versionen von Windows mit der gleichen Reihenfolge der Cipher Suites konfigurieren zu können.
 
 > [!NOTE]
-> Vor Windows 10 wurden Verschlüsselungssammlungen Suite Zeichenfolgen Elliptische Kurve die Priorität der Kurve bestimmt angefügt.
+> Vor Windows 10 wurden die Elliptische Kurve zum Festlegen der Priorität der Kurve Cipher Suite Zeichenfolgen angefügt.
 
-### <a name="managing-windows-ecc-curves-using-certutil"></a>Verwalten von Windows-ECC-Kurven verwenden von CertUtil
+### <a name="managing-windows-ecc-curves-using-certutil"></a>Verwalten von Windows-ECC-Kurven, die das Verwenden von CertUtil
 
-Ab Windows 10 und Windows Server 2016, sorgt Windows Elliptische Kurve Parameter Management über die Befehlszeile Dienstprogramm certuil.exe. Elliptische Kurvenzugparameter sind in der bcryptprimitives.dll gespeichert. Verwenden certutil.exe, können Administratoren hinzufügen und entfernen kurvenparametern zu und von Windows, bzw.. Certutil.exe speichert die Kurvenzugparameter sicher in der Registrierung. Windows kann die Verwendung der Kurvenzugparameter mit dem Namen der Kurve zugeordnet beginnen.    
+Ab Windows 10 und Windows Server 2016 bietet Windows parameterverwaltung für Elliptische Kurve über die Befehlszeile Hilfsprogramm certutil.exe. Elliptische Kurve-Parameter werden in der bcryptprimitives.dll gespeichert. Verwenden certutil.exe, können Administratoren hinzufügen und entfernen Kurvenparameter zu und von Windows, bzw. Die Kurvenparameter wird von Certutil.exe sicher in der Registrierung gespeichert. Windows kann beginnen mit den Parametern für die Kurve und der Name der Kurve zugeordnet.    
 
 #### <a name="displaying-registered-curves"></a>Anzeigen von registrierten Kurven
 
-Verwenden Sie den folgenden certutil.exe-Befehl, um eine Liste der für den aktuellen Computer registrierten Kurven anzuzeigen.
+Verwenden Sie den folgenden certutil.exe-Befehl, um eine Liste von Kurven, die für den aktuellen Computer registrierten anzuzeigen.
 
 ```powershell
 certutil.exe –displayEccCurve
 ```
 
-![Certutil Anzeige Kurven](../media/Transport-Layer-Security-protocol/certutil-display-curves.png)
+![Certutil-Anzeige-Kurven](../media/Transport-Layer-Security-protocol/certutil-display-curves.png)
 
-*Abbildung 1 Certutil.exe Ausgabe in die Liste der registrierten Kurven anzuzeigen.*
+*Abbildung 1-Certutil.exe ausgeben, um die Liste der registrierten Kurven anzuzeigen.*
 
 #### <a name="adding-a-new-curve"></a>Hinzufügen einer neuen Kurve
 
-Organisationen können erstellen und Verwenden von anderen vertrauenswürdigen Entitäten Recherchen kurvenparametern.  
-Administratoren, die diese neue Kurven in Windows verwenden, müssen die Kurve hinzufügen.  
-Verwenden Sie den folgenden certutil.exe-Befehl, um eine Kurve mit aktuellen Computer hinzufügen:
+Organisationen können erstellen und Verwenden von Kurvenparameter, die von anderen vertrauenswürdigen Entitäten untersucht.  
+Administratoren, die diese neuen Kurven in Windows verwenden möchten, müssen die Kurve hinzufügen.  
+Verwenden Sie den folgenden certutil.exe-Befehl, eine Kurve aktuellen Computer hinzu:
 
 ```powershell
 Certutil —addEccCurue curveName curveParameters [curveOID] [curveType]
 ```
 
-- Die **partiell** Argument stellt den Namen der Kurve, unter dem die Kurvenzugparameter hinzugefügt wurden.
-- Die **CurveParameters** Argument stellt den Dateinamen eines Zertifikats mit den Parametern der Kurven hinzugefügt werden soll.
-- Die **CurveOid** Argument stellt einen Dateinamen eines Zertifikats, das die OID der Kurvenzugparameter enthält (optional) hinzufügen möchten.
-- Die **CurveType** Argument stellt einen Dezimalwert für die benannte Kurve aus der [EG namens Kurve Registrierung](http://www.iana.org/assignments/tls-parameters/tls-parameters.xhtml#tls-parameters-8) (optional).
+- Die **partiell** Argument darstellt, den Namen der Kurve, die unter dem die Kurvenparameter hinzugefügt wurden.
+- Die **CurveParameters** Argument darstellt, den Dateinamen eines Zertifikats mit den Parametern der Kurven hinzugefügt werden soll.
+- Die **CurveOid** Argument darstellt, einen Dateinamen eines Zertifikats, das die OID der Kurvenparameter enthält (optional) hinzufügen möchten.
+- Die **CurveType** Argument stellt einen Dezimalwert aus der benannten Kurve dar. die [EC benannte Kurve Registrierung](http://www.iana.org/assignments/tls-parameters/tls-parameters.xhtml#tls-parameters-8) (optional).
 
-![Certutil Kurven hinzufügen](../media/Transport-Layer-Security-protocol/certutil-add-curves.png)
+![Certutil hinzufügen Kurven](../media/Transport-Layer-Security-protocol/certutil-add-curves.png)
 
-*Abbildung 2 eine Kurve mit certutil.exe hinzufügen.*
+*Abbildung 2: Hinzufügen einer Kurve mit certutil.exe.*
 
-#### <a name="removing-a-previously-added-curve"></a>Entfernen eine zuvor hinzugefügte Kurve
+#### <a name="removing-a-previously-added-curve"></a>Entfernt eine zuvor hinzugefügte Kurve
 
-Administratoren können eine zuvor hinzugefügte Kurve mit dem folgenden Befehl mit certutil.exe entfernen:
+Administratoren können eine zuvor hinzugefügte Kurve, die mit dem folgenden certutil.exe-Befehl entfernen:
 
 ```powershell
 Certutil.exe –deleteEccCurve curveName
 ```
 
-Eine benannte Kurve kann nicht verwendet werden, nachdem ein Administrator die Kurve vom Computer entfernt.
+Windows kann nicht auf eine benannte Kurve verwenden, nachdem ein Administrator die Kurve vom Computer entfernt.
 
 ## <a name="managing-windows-ecc-curves-using-group-policy"></a>Verwalten von Windows-ECC-Kurven, die mithilfe von Gruppenrichtlinien
 
-Organisationen können kurvenparametern für Unternehmen, Domäne, Computer mithilfe von Gruppenrichtlinien und der Registrierungseinstellungen für Gruppenrichtlinieneinstellungen Erweiterung verteilen.  
-Der Prozess zum Verteilen einer Kurve ist:
+Organisationen können Kurvenparameter, Enterprise, Domäne eingebundene Computer mithilfe von Gruppenrichtlinien und der Registrierungseinstellungen für Gruppenrichtlinieneinstellungen-Erweiterung verteilen.  
+Der Prozess für die Verteilung der Kurve ist:
 
-1.  Auf Windows 10 und Windows Server 2016 verwenden **certutil.exe** registrierte neue benannte Kurven zu Windows hinzufügen.
-2.  Öffnen Sie auf dem gleichen Computer die Gruppe Gruppenrichtlinien-Verwaltungskonsole (GPMC), erstellen Sie ein neues Gruppenrichtlinienobjekt zu und bearbeiten.
-3.  Navigieren Sie zu **Computerkonfiguration | Einstellungen | Windows-Einstellungen | Registrierung**.  Mit der rechten Maustaste **Registrierung**. Zeigen Sie auf **neu** , und wählen Sie **Auflistungselement**. Benennen Sie die Sammlungselement, um den Namen der Kurve entsprechen. Erstellen Sie eine Registrierung Auflistungselement für jeden Registrierungsschlüssel unter *HKEY_LOCAL_MACHINE\CurrentControlSet\Control\Cryptography\ECCParameters*.
-4.  Konfigurieren Sie die neu erstellte Einstellung Registrierung Erfassung von Gruppenrichtlinien durch Hinzufügen eines neuen **Registrierungselement** für jeden Registrierungswert unter aufgeführten *HKEY_LOCAL_MACHINE\CurrentControlSet\Control\Cryptography\ECCParameters\ [partiell]*.
-5.  Stellen Sie das Gruppenrichtlinienobjekt mit Registrierung Erfassung von Gruppenrichtlinien Artikel für Windows 10 und Windows Server 2016-Computer, die die neuen benannten Kurven erhalten sollen, bereit.
+1.  Verwenden Sie auf Windows 10 und Windows Server 2016, **certutil.exe** Windows eine neue registrierten benannte Kurve hinzu.
+2.  Öffnen Sie von demselben Computer die Gruppe Gruppenrichtlinien-Verwaltungskonsole (GPMC), erstellen Sie ein neues Gruppenrichtlinienobjekt und bearbeiten.
+3.  Navigieren Sie zu **Computerkonfiguration | Einstellungen | Windows-Einstellungen | Registrierung**.  Mit der rechten Maustaste **Registrierung**. Zeigen Sie auf **neu** , und wählen Sie **Sammelelement**. Benennen Sie das sammelelement entsprechend den Namen der Kurve. Erstellen Sie eine Registrierung sammelelement für jeden Registrierungsschlüssel unter *HKEY_LOCAL_MACHINE\CurrentControlSet\Control\Cryptography\ECCParameters*.
+4.  Konfigurieren Sie die neu erstellte Einstellung Registrierung Erfassung von Gruppenrichtlinien durch Hinzufügen eines neuen **Registrierungselement** für jeden Registrierungswert unter aufgeführten *HKEY_LOCAL_MACHINE\CurrentControlSet\Control\Cryptography\ ECCParameters\[partiell]*.
+5.  Stellen Sie das Gruppenrichtlinienobjekt mit Registrierung Erfassung von Gruppenrichtlinien-Element für Windows 10 und Windows Server 2016-Computer, die die neuen benannten Kurven erhalten soll.
 
-    ![GPP verteilen Kurven](../media/Transport-Layer-Security-protocol/gpp-distribute-curves.png)
+    ![GPP Verteilen von Kurven](../media/Transport-Layer-Security-protocol/gpp-distribute-curves.png)
 
-    *Abbildung 3 mithilfe von Voreinstellungen für Gruppenrichtlinien zur Verteilung von Kurven*
+    *Abbildung 3 Using Group Policy Preferences zum Verteilen von Kurven*
 
-## <a name="managing-tls-ecc-order"></a>Verwalten von TLS ECC-Auftrag
+## <a name="managing-tls-ecc-order"></a>Verwalten von TLS ECC-Reihenfolge
 
-Ab Windows 10 und Windows Server 2016, ECC Kurve Reihenfolge Konfiguration einer Gruppenrichtlinie Einstellungen verwendet werden, können standardmäßig TLS ECC Kurve Reihenfolge. Generische ECC und diese Einstellung, die Organisationen können eigene vertrauenswürdige mit dem Namen Kurven (die für die Verwendung mit TLS genehmigt wurden) für das Betriebssystem hinzufügen und dann fügen diesen benannten Kurven der Kurve Priorität Gruppenrichtlinien-Einstellung, um sicherzustellen, dass sie in zukünftigen TLS-Handshakes verwendet werden. Neue Kurve Priorität Listen werden beim nächsten Neustart nach Erhalt der Richtlinieneinstellungen aktiviert.     
+Ab Windows 10 und Windows Server 2016 können ECC-Kurve Reihenfolge der Gruppenrichtlinie die Einstellungen verwendet werden können konfigurieren die Standardeinstellung für die TLS ECC-Kurve Reihenfolge. Mithilfe von generischen ECC und diese Einstellung, die Organisationen kann ihre eigenen vertrauenswürdigen benannter Kurven (die für die Verwendung mit TLS genehmigt wurden) an das Betriebssystem hinzufügen und dann diese benannten Kurven hinzufügen, auf die Kurve Priorität Gruppenrichtlinien-Einstellung, um sicherzustellen, dass sie in zukünftigen TLS verwendet werden SSL-Handshakes. Neue Kurve Priorität Listen werden beim nächsten Neustart nach Erhalt der Richtlinieneinstellungen aktiv.     
 
-![GPP verteilen Kurven](../media/Transport-Layer-Security-protocol/gp-managing-tls-curve-priority-order.png)
+![GPP Verteilen von Kurven](../media/Transport-Layer-Security-protocol/gp-managing-tls-curve-priority-order.png)
 
-*Abbildung 4 Verwalten von TLS Kurve Priorität mithilfe von Gruppenrichtlinien*
+*Abbildung 4 Verwalten von TLS-Kurve Priorität, die mithilfe von Gruppenrichtlinien*
 
 

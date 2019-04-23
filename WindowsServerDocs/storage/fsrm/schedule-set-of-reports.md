@@ -1,6 +1,6 @@
 ---
 title: Planen eines Satzes von Berichten
-description: "Dieser Artikel beschreibt, wie ein Satz von Berichten in regelmäßigen Abständen generiert wird"
+description: Dieser Artikel beschreibt, wie ein Satz von Berichten in regelmäßigen Abständen generiert wird
 ms.date: 7/7/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 15b69e723af3a30375beae73782ab122c68f8880
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59879721"
 ---
 # <a name="schedule-a-set-of-reports"></a>Planen eines Satzes von Berichten
 
-> Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
 
 Um einen Satz von Berichten in regelmäßigen Abständen zu generieren, planen Sie eine *Berichtsaufgabe.* Die Berichtsaufgabe gibt an, welche Berichte generiert und welche Parameter verwendet werden sollen; in welche Volumes und Ordner diese Berichte erstellt werden sollen; wie oft die Berichte generiert werden sollen und in welchem Dateiformaten sie gespeichert werden sollen.
 
@@ -76,9 +77,9 @@ Die Berichtsaufgabe wird dem **Speicherberichtmanagement**-Knoten hinzugefügt. 
 
 Darüber hinaus können Sie den aktuellen Status des Berichts einsehen (gibt an, ob der Bericht ausgeführt wird oder nicht), die letzte Laufzeit und das Ergebnis dieser Ausführung sowie die nächste geplante Laufzeit.
 
-## <a name="see-also"></a>Weitere Informationen:
+## <a name="see-also"></a>Siehe auch
 
--   [Speicherberichtmanagement](storage-reports-management.md)
--   [Festlegen der Optionen des Ressourcen-Managers für Dateiserver](setting-file-server-resource-manager-options.md)
+-   [Speicherverwaltung für Berichte](storage-reports-management.md)
+-   [Einstellung File Server Resource Manager-Optionen](setting-file-server-resource-manager-options.md)
 
 

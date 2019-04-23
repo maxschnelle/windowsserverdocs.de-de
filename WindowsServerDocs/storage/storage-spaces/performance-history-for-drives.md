@@ -1,32 +1,32 @@
 ---
-title: Verlauf Laufwerke
+title: Leistungsverlauf für Laufwerke
 ms.author: cosdar
 ms.manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 02/02/2018
-Keywords: Storage Spaces Direct
+Keywords: Direkte Speicherplätze
 ms.localizationpriority: medium
 ms.openlocfilehash: d162275a885dac79e7efe749328ebdca471fcad1
-ms.sourcegitcommit: 1533d994a6ddea54ac189ceb316b7d3c074307db
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "1589754"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59879191"
 ---
-# <a name="performance-history-for-drives"></a>Verlauf Laufwerke
+# <a name="performance-history-for-drives"></a>Leistungsverlauf für Laufwerke
 
-> Betrifft: Windows Server-Insider – Vorschau
+> Gilt für: Windows Server-Insider – Vorschau
 
-In diesem Thema unter der [Verlauf Speicher Leerzeichen direkte](performance-history.md) wird ausführlich der Verlauf für Laufwerke gesammelt beschrieben. Der Leistungsverlauf für jedes Laufwerk im Cluster-Speichersubsystem, unabhängig davon Bus verfügbar ist oder Medientyp. Es ist jedoch nicht für OS Boot-Laufwerken zur Verfügung.
+Dieser Unterabschnitt von [– Leistungsverlauf für "direkte Speicherplätze"](performance-history.md) beschreibt ausführlich den Leistungsverlauf für Laufwerke erfasst. Leistungsverlauf für jedes Laufwerk im Cluster Speichersubsystem, unabhängig von der Bus verfügbar ist, oder geben Sie Medien. Allerdings ist sie nicht für Betriebssystemlaufwerke-Start verfügbar.
 
    > [!NOTE]
-   > Leistungsverlauf kann nicht für Laufwerke in einem Server erfasst werden sollen, die nicht verfügbar ist. Auflistung wird automatisch wieder aufgenommen, wenn der Server wieder verfügbar ist.
+   > Leistungsverlauf für kann nicht für die Laufwerke auf einem Server gesammelt werden, die nicht verfügbar ist. Sammlung wird automatisch fortgesetzt, wenn der Server wieder verfügbar ist.
 
 ## <a name="series-names-and-units"></a>Namen von Datenreihen und Einheiten
 
-Diese Serie sind für jedes zu auswählbaren Laufwerk erfasst:
+Dieser Reihe werden für alle berechtigten Laufwerk gesammelt:
 
 | Serie                          | Einheit             |
 |---------------------------------|------------------|
@@ -39,30 +39,30 @@ Diese Serie sind für jedes zu auswählbaren Laufwerk erfasst:
 | `physicaldisk.latency.read`     | Sekunden          |
 | `physicaldisk.latency.write`    | Sekunden          |
 | `physicaldisk.latency.average`  | Sekunden          |
-| `physicaldisk.size.total`       |  Bytes            |
-| `physicaldisk.size.used`        |  Bytes            |
+| `physicaldisk.size.total`       | Bytes            |
+| `physicaldisk.size.used`        | Bytes            |
 
-## <a name="how-to-interpret"></a>Wie interpretiert werden
+## <a name="how-to-interpret"></a>Gewusst wie: interpretieren
 
-| Serie                          | Wie interpretiert werden                                                            |
+| Serie                          | Gewusst wie: interpretieren                                                            |
 |---------------------------------|-----------------------------------------------------------------------------|
-| `physicaldisk.iops.read`        | Anzahl der Lesevorgänge pro Sekunde abgeschlossen, indem Sie das Laufwerk.                |
-| `physicaldisk.iops.write`       | Anzahl der Schreibvorgänge pro Sekunde abgeschlossen, indem Sie das Laufwerk.               |
-| `physicaldisk.iops.total`       | Gesamtzahl der Lese- oder Schreibvorgängen pro Sekunde abgeschlossen, indem Sie das Laufwerk. |
-| `physicaldisk.throughput.read`  | Menge der Daten, die vom Laufwerk pro Sekunde gelesen.                            |
-| `physicaldisk.throughput.write` | Die Menge der Daten auf dem Laufwerk pro Sekunde geschrieben.                           |
-| `physicaldisk.throughput.total` | Gesamtmenge der Daten aus gelesenen oder geschriebenen auf dem Laufwerk pro Sekunde.        |
-| `physicaldisk.latency.read`     | Durchschnittliche Wartezeit von Lesevorgänge aus dem Laufwerk.                          |
-| `physicaldisk.latency.write`    | Durchschnittliche Wartezeit von Schreibvorgängen auf dem Laufwerk.                           |
-| `physicaldisk.latency.average`  | Durchschnittliche Wartezeit aller Vorgänge zum oder vom Laufwerk.                     |
-| `physicaldisk.size.total`       | Die Speicherkapazität des Laufwerks.                                    |
+| `physicaldisk.iops.read`        | Die Anzahl der Lesevorgänge pro Sekunde, die vom Laufwerk wurde abgeschlossen.                |
+| `physicaldisk.iops.write`       | Die Anzahl der Schreibvorgänge pro Sekunde, die vom Laufwerk wurde abgeschlossen.               |
+| `physicaldisk.iops.total`       | Gesamtanzahl der Lese- oder Schreibvorgängen pro Sekunde, die vom Laufwerk wurde abgeschlossen. |
+| `physicaldisk.throughput.read`  | Menge der Daten, die aus dem Laufwerk pro Sekunde gelesen werden.                            |
+| `physicaldisk.throughput.write` | Die Menge der Daten in das Laufwerk pro Sekunde geschrieben.                           |
+| `physicaldisk.throughput.total` | Die Gesamtmenge der Daten gelesen oder geschrieben werden, auf das Laufwerk pro Sekunde.        |
+| `physicaldisk.latency.read`     | Durchschnittliche Wartezeit für Lesevorgänge auf dem Laufwerk.                          |
+| `physicaldisk.latency.write`    | Die durchschnittliche Wartezeit der Schreibvorgänge auf dem Laufwerk.                           |
+| `physicaldisk.latency.average`  | Die durchschnittliche Wartezeit für alle Vorgänge in oder aus dem Laufwerk.                     |
+| `physicaldisk.size.total`       | Die Gesamtspeicherkapazität des Laufwerks.                                    |
 | `physicaldisk.size.used`        | Die verwendete Speicherkapazität des Laufwerks.                                     |
 
-## <a name="where-they-come-from"></a>Kommen aus
+## <a name="where-they-come-from"></a>Wo diese herkommen
 
-Die `iops.*`, `throughput.*`, und `latency.*` Serie von gesammelt werden die `Physical Disk` Leistungsindikator festlegen auf dem Server, auf dem das Laufwerk verbunden ist, eine Instanz pro Laufwerk. Mit diesen Zählern werden gemessen, indem `partmgr.sys` und nicht Teil der Windows-Softwarestapel noch Netzwerkhops einschließen. Sie sind Vertreter der Leistung der Hardware.
+Die `iops.*`, `throughput.*`, und `latency.*` Reihe werden gesammelt, aus der `Physical Disk` Leistungsindikator auf dem Server festgelegt, in das Laufwerk verbunden ist, eine Instanz pro Laufwerk. Diese Leistungsindikatoren werden gemessen, indem `partmgr.sys` und beinhalten keine viel von der Windows-Software-Stack noch Netzwerk-Hops. Sie sind repräsentativ geräteleistung-Hardware.
 
-| Serie                          | Quelle Indikator           |
+| Serie                          | Source-Indikator           |
 |---------------------------------|--------------------------|
 | `physicaldisk.iops.read`        | `Disk Reads/sec`         |
 | `physicaldisk.iops.write`       | `Disk Writes/sec`        |
@@ -75,23 +75,23 @@ Die `iops.*`, `throughput.*`, und `latency.*` Serie von gesammelt werden die `Ph
 | `physicaldisk.latency.average`  | `Avg. Disk sec/Transfer` |
 
    > [!NOTE]
-   > Über die gesamte Intervall nicht aufgenommen werden Leistungsindikatoren gemessen. Angenommen, wenn das Laufwerk für im Leerlauf ist 9 Sekunden aber abgeschlossen ist 30 IOs in das zweite 10., dessen `physicaldisk.iops.total` , werden aufgezeichnet als 3 e/As pro Sekunde im Durchschnitt während dieses Intervalls 10 Sekunden. Dadurch wird sichergestellt, dessen Leistungsverlauf zeichnet alle Aktivitäten und ist robust, um Rauschen.
+   > Leistungsindikatoren werden anhand des gesamten Intervalls, nicht entnommen gemessen. Wenn das Laufwerk im Leerlauf ist 9 Sekunden jedoch abgeschlossen hat z. B. 30 IOs im zweiten 10. die `physicaldisk.iops.total` aufgezeichnet werden als 3 IOs pro Sekunde durchschnittliche Intervall 10 Sekunden. Dadurch wird der Leistungsverlauf erfasst alle Aktivitäten und ist stabil, um Rauschen.
 
-Die `size.*` Serie von gesammelt werden die `MSFT_PhysicalDisk` -Klasse in WMI eine Instanz pro Laufwerk.
+Die `size.*` Reihe werden gesammelt, aus der `MSFT_PhysicalDisk` Klasse in WMI, eine Instanz pro Laufwerk.
 
 | Serie                          | Source-Eigenschaft        |
 |---------------------------------|------------------------|
 | `physicaldisk.size.total`       | `Size`                 |
 | `physicaldisk.size.used`        | `VirtualDiskFootprint` |
 
-## <a name="usage-in-powershell"></a>Verwendung von Diensten in PowerShell
+## <a name="usage-in-powershell"></a>Verwendung in PowerShell
 
-Verwenden Sie das Cmdlet [Get-PhysicalDisk](https://docs.microsoft.com/powershell/module/storage/get-physicaldisk) :
+Verwenden der [Get-PhysicalDisk](https://docs.microsoft.com/powershell/module/storage/get-physicaldisk) Cmdlet:
 
 ```PowerShell
 Get-PhysicalDisk -SerialNumber <SerialNumber> | Get-ClusterPerf
 ```
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="see-also"></a>Siehe auch
 
-- [Speicher Leerzeichen direkte Verlauf](performance-history.md)
+- [Leistungsverlauf für "direkte Speicherplätze"](performance-history.md)

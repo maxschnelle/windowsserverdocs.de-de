@@ -1,90 +1,93 @@
 ---
 title: Installieren und Verwalten von Erweiterungen
-description: Installieren Sie und Verwalten von Erweiterungen in Windows Admin Center (Projekt Honolulu)
+description: Installieren und Verwalten von Erweiterungen in Windows Admin Center (Projekt Honolulu)
 ms.technology: manage
 ms.topic: article
 author: daniellee-msft
 ms.author: jol
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: c775dd5a3011115bbb031c0b9e4e24a8911d378e
-ms.sourcegitcommit: f1edfc6525e09dd116b106293f9260123a94de0c
-ms.translationtype: MT
+ms.openlocfilehash: 6091edd7aa7f790f6029ca6b6ae402bf1b7e61ca
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "9296702"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59877021"
 ---
-# Installieren und Verwalten von Erweiterungen
+# <a name="install-and-manage-extensions"></a>Installieren und Verwalten von Erweiterungen
 
->Betrifft: Windows Admin Center, Windows Admin Center – Vorschau
+>Gilt für: Windows Admin Center, Windows Admin Center Preview
 
-Windows Admin Center wird als eine erweiterbare Plattform erstellt, in denen jede Verbindungstyp und jedes Tool eine Erweiterung ist, die Sie installieren, deinstallieren und einzeln aktualisieren können. Sie können neue Erweiterungen, die von Microsoft und anderen Entwicklern veröffentlicht suchen und installieren und einzeln aktualisieren, ohne die gesamte Windows Admin Center-Installation zu aktualisieren. Sie können auch konfigurieren einen separaten NuGet-Feed oder Dateifreigabe und Erweiterungen für die interne Verwendung in Ihrer Organisation verteilen.
+Windows Admin Center wird als eine erweiterbare Plattform erstellt, in dem einzelnen Verbindungstyp und Tools eine Erweiterung ist, die Sie installieren, deinstallieren und einzeln aktualisieren können. Suchen Sie nach neuen Erweiterungen veröffentlicht von Microsoft und andere Entwickler, und installieren, und diese einzeln aktualisieren, ohne die gesamte Windows Admin Center-Installation aktualisieren zu müssen. Sie können auch konfigurieren einen separaten NuGet-Feed oder -Dateifreigabe und Erweiterungen intern in Ihrer Organisation verwenden.
 
-## Installieren einer Erweiterung
+## <a name="installing-an-extension"></a>Installieren einer Erweiterung
 
-Windows Admin Center wird von der angegebenen NuGet feed Erweiterungen verfügbar angezeigt. Standardmäßig zeigt Windows Admin Center auf der offiziellen Microsoft-NuGet feed der Erweiterungen, die von Microsoft und anderen Entwicklern veröffentlicht hostet.
+Windows Admin Center-werden Erweiterungen zur Verfügung stehen aus der angegebenen NuGet-feed angezeigt werden. Standardmäßig zeigt Windows Admin Center auf Microsoft offiziellen NuGet-feed hostet Erweiterungen, die von Microsoft und anderen Entwicklern veröffentlicht.
 
-1. Klicken Sie auf die Schaltfläche " **Einstellungen** " in der oberen rechten > im linken Bereich, klicken Sie auf **Erweiterungen**. 
-2. Die Registerkarte " **Verfügbare Erweiterungen** " wird die Erweiterungen auf den Feed aufgeführt, die für die Installation verfügbar sind.
-3. Klicken Sie auf eine Erweiterung, um die Erweiterung Beschreibung, Version, Herausgeber und andere Informationen im **Detailbereich** anzuzeigen.
-4. Klicken Sie auf **Installieren** , um eine Erweiterung zu installieren. Wenn das Gateway im Modus mit erhöhten Rechten für diese Änderung ausführen muss, wird ein UAC-Aufforderung angezeigt werden. Nach Abschluss der Installation Ihren Browser automatisch aktualisiert werden, und Windows Admin Center wird mit der neuen Erweiterung installiert neu geladen werden. Wenn die Erweiterung, die Sie installieren möchten ein Update zu einer zuvor installierten-Erweiterung ist, können Sie die Schaltfläche **auf dem neuesten Update** zum Installieren des Updates klicken. Sie gelangen Sie auf der Registerkarte " **Installierte Erweiterungen** " zum Anzeigen von installierter Erweiterungen und festzustellen, ob ein Update in **der Statusspalte** verfügbar ist.
+1. Klicken Sie auf die **Einstellungen** -Schaltfläche in der oberen rechten Ecke > Klicken Sie im linken Bereich auf **Erweiterungen**. 
+2. Die **verfügbaren Erweiterungen** Registerkarte listet die Erweiterungen auf dem Feed, die für die Installation verfügbar sind.
+3. Klicken Sie auf eine Erweiterung an die erweiterungsbeschreibung, Version, Publisher und andere Informationen in den **Details** Bereich.
+4. Klicken Sie auf **installieren** eine Erweiterung installieren. Wenn das Gateway im erweiterten Modus für diese Änderung ausführen muss, wird ein UAC-Eingabeaufforderung für erhöhte Rechte angezeigt werden. Nach Abschluss der Installation Ihr Browser wird automatisch aktualisiert werden, und Windows Admin Center wird erneut geladen werden, mit der neuen Erweiterung installiert. Wenn die Erweiterung versuchen Sie zu installieren ist ein Update für einen zuvor installierten Erweiterung, können Sie auf die **Aktualisierung auf neueste** Schaltfläche, um das Update zu installieren. Sie können auch zum Wechseln der **installierte Erweiterungen** Registerkarte Erweiterungen anzeigen, die installiert und sehen Sie sich, wenn ein Update in verfügbar ist die **Status** Spalte.
 
-## Installieren von Erweiterungen aus einem anderen feed
+## <a name="installing-extensions-from-a-different-feed"></a>Installieren von Extensions von einem anderen feed
 
-Windows Admin Center unterstützt mehrere Feeds und können Sie anzeigen und Verwalten von Paketen aus mehr als ein Feed zu einem Zeitpunkt. Alle NuGet-feed, unterstützt die NuGet-V2-APIs oder eine Dateifreigabe bei Windows Admin Center hinzugefügt werden kann, für die Installation von Erweiterungen.
+Windows Admin Center unterstützt mehrere Feeds, und können Sie anzeigen und Verwalten von Paketen aus mehr als ein Feed zu einem Zeitpunkt. Alle NuGet-feed, unterstützt die NuGet V2-APIs oder eine Dateifreigabe kann Windows Admin Center für die Installation von Erweiterungen hinzugefügt werden.
 
-1. Klicken Sie auf die Schaltfläche " **Einstellungen** " in der oberen rechten > im linken Bereich, klicken Sie auf **Erweiterungen**.
-2. Klicken Sie im rechten Bereich auf der Registerkarte " **Feeds** ".
-3. Klicken Sie auf die Schaltfläche **Hinzufügen** , um einen anderen Feed hinzuzufügen. Geben Sie für ein NuGet-Feed das NuGet-V2 feed-URL ein. Das NuGet-feed Anbieter oder Administrator sollten in der Lage, die URL-Informationen bereitzustellen. Geben Sie den vollständigen Pfad der Datei für eine Dateifreigabe Teilen, in denen die Erweiterung-Paketdateien (NUPKG) gespeichert sind.
-4. Klicken Sie auf **Hinzufügen**. Wenn das Gateway im Modus mit erhöhten Rechten für diese Änderung ausführen muss, wird ein UAC-Aufforderung angezeigt werden.
+1. Klicken Sie auf die **Einstellungen** -Schaltfläche in der oberen rechten Ecke > Klicken Sie im linken Bereich auf **Erweiterungen**.
+2. Klicken Sie im rechten Bereich auf die **Feeds** Registerkarte.
+3. Klicken Sie auf die **hinzufügen** , um einem anderen Feed hinzuzufügen. Geben Sie für ein NuGet-Feed der NuGet V2-feed-URL ein. Anbieter für die NuGet-feed oder Administrator muss die URL-Informationen bereitstellen. Geben Sie für eine Dateifreigabe, die Sie des vollständigen Pfads der Datei Freigabe in der die Erweiterungsdateien-Paket (NUPKG-Datei) gespeichert werden.
+4. Klicken Sie auf **Hinzufügen**. Wenn das Gateway im erweiterten Modus für diese Änderung ausführen muss, wird ein UAC-Eingabeaufforderung für erhöhte Rechte angezeigt werden.
 
-Die Liste der **Verfügbaren Erweiterungen** werden Erweiterungen von allen registrierten Feeds angezeigt. Sie können überprüfen, welche Feed jede Erweiterung aus mithilfe der Spalte " **Paket Feed** " ist.
+Die **verfügbaren Erweiterungen** Liste werden die Erweiterungen von allen registrierten Feeds angezeigt. Sie können überprüfen, welche Feed jede Erweiterung von der Verwendung wird der **Paket Feed** Spalte.
 
-## Deinstallieren einer Erweiterung
+## <a name="uninstalling-an-extension"></a>Deinstallieren einer Erweiterung
 
-Deinstallieren Sie alle Erweiterungen, die Sie zuvor installiert haben können alle Tools, die als Teil der Windows Admin Center-Installation vorab installiert wurden, oder sogar deinstalliert werden.
+Sie können alle Erweiterungen, die Sie zuvor installiert haben auch deinstallieren oder von Tools, die bereits als Teil der Windows Admin Center-Installation installiert wurden.
 
-1. Klicken Sie auf die Schaltfläche " **Einstellungen** " in der oberen rechten > im linken Bereich, klicken Sie auf **Erweiterungen**. 
-2. Klicken Sie auf der Registerkarte " **Installierte Erweiterungen** ", um alle installierte Erweiterungen anzuzeigen.
-3. Wählen Sie eine Erweiterung von deinstallieren, und klicken Sie auf **Deinstallieren**.
+1. Klicken Sie auf die **Einstellungen** -Schaltfläche in der oberen rechten Ecke > Klicken Sie im linken Bereich auf **Erweiterungen**. 
+2. Klicken Sie auf die **installierte Erweiterungen** Registerkarte, um alle installierten Erweiterungen anzuzeigen.
+3. Wählen Sie eine Erweiterung zu deinstallieren, und klicken Sie dann **Deinstallieren**.
 
-Nach der Deinstallation ist abgeschlossen, Ihren Browser automatisch aktualisiert werden, und Windows Admin Center wird neu geladen werden, mit der Erweiterung entfernt. Wenn Sie ein Tool, die als Teil des Windows Admin Center vorinstalliert wurde deinstalliert, wird das Tool für die Neuinstallation in der Registerkarte " **Verfügbare Erweiterungen** " verfügbar sein.
+Nach der Deinstallation ist abgeschlossen, Ihren Browser automatisch aktualisiert werden, und Windows Admin Center wird mit der Erweiterung neu geladen werden. Wenn Sie ein Tool, die bereits als Teil des Windows Admin Center installiert wurde deinstalliert, das Tool stehen für die Neuinstallation in die **verfügbaren Erweiterungen** Registerkarte.
 
-## Installieren von Erweiterungen auf einem Computer ohne Internetzugang
+## <a name="installing-extensions-on-a-computer-without-internet-connectivity"></a>Installieren von Erweiterungen auf einem Computer ohne Internetverbindung
 
-Wenn Windows Admin Center auf einem Computer, die nicht mit dem Internet verbunden ist oder hinter einem Proxy befindet installiert ist, sind sie möglicherweise nicht in der auf zugreifen und die Erweiterungen aus dem Windows Admin Center-feed installieren. Sie können Erweiterung Pakete manuell oder mit einem Powershellskript herunterladen, und konfigurieren Windows Admin Center, um Pakete aus einer Dateifreigabe oder lokalen Laufwerk abzurufen.
+Wenn Windows Admin Center auf einem Computer, die nicht mit dem Internet verbunden ist oder hinter einem Proxy installiert ist, sind sie möglicherweise nicht in der zugreifen und die Erweiterungen aus der Windows Admin Center-feed installieren können. Sie können Erweiterungspakete herunterladen, manuell oder mit einem PowerShell-Skript, und Sie können Windows Admin Center zum Abrufen von Paketen aus einer Dateifreigabe oder ein lokales Laufwerk konfigurieren.
 
-### Erweiterung Pakete manuell herunterladen
+### <a name="manually-downloading-extension-packages"></a>Erweiterungspakete manuell herunterzuladen
 
-1. Klicken Sie auf einem anderen Computer, die über Internetkonnektivität verfügt, öffnen Sie einen Webbrowser, und navigieren Sie mit folgender URL:[https://msft-sme.myget.org/gallery/windows-admin-center-feed](https://msft-sme.myget.org/gallery/windows-admin-center-feed) 
+1. Klicken Sie auf einem anderen Computer, die dem Internet verbunden ist, öffnen Sie einen Webbrowser, und navigieren Sie zu folgender URL: [https://msft-sme.myget.org/gallery/windows-admin-center-feed](https://msft-sme.myget.org/gallery/windows-admin-center-feed) 
 
-  * Sie müssen möglicherweise ein Konto auf Msft-sme.myget.org und melden Sie sich die Erweiterung Pakete anzeigen zu erstellen.
+  * Sie müssen ein Konto auf Msft-sme.myget.org und melden Sie sich an die Erweiterungspakete erstellen.
 
-2. Klicken Sie auf den Namen des Pakets, die Sie installieren, um die Paket-Details-Seite anzeigen möchten.
-3. Klicken Sie auf den Link **herunterladen** im rechten Bereich der Seite Details Paket und Laden Sie die Datei NUPKG für die Erweiterung.
+2. Klicken Sie auf den Namen des Pakets, die Sie installieren, um die Detailseite des Pakets anzeigen möchten.
+3. Klicken Sie auf die **herunterladen** verknüpfen Sie im rechten Bereich der Detailseite des Pakets und Laden Sie die NUPKG-Datei für die Erweiterung.
 4. Wiederholen Sie die Schritte 2 und 3 für alle Pakete, die Sie herunterladen möchten.
-5. Kopieren Sie die Paketdateien, auf eine Dateifreigabe, die auf dem Computer zugegriffen werden kann, denen Windows Admin Center installiert ist, oder auf der lokalen Festplatte des Computers.
-6. [Folgen Sie den Anweisungen Erweiterungen aus einem anderen Feed installieren](#installing-extensions-from-a-different-feed).
+5. Kopieren Sie die Paketdateien an eine Dateifreigabe, die auf dem Computer zugegriffen werden kann, die, denen auf Windows Admin Center installiert ist, oder auf der lokalen Festplatte des Computers.
+6. [Führen Sie die Anweisungen zum Installieren von Erweiterungen aus einem anderen Feed](#installing-extensions-from-a-different-feed).
 
-### Herunterladen von Paketen mit einem Powershellskript
+### <a name="downloading-packages-with-a-powershell-script"></a>Herunterladen von Paketen mit einem Powershellskript
 
-Es gibt viele Skripts im Internet für das Herunterladen von NuGet-Pakete aus einem feed NuGet verfügbar. Wir verwenden das [Skript von Jon Galloway bereitgestellt](https://weblogs.asp.net/jongalloway/downloading-a-local-nuget-repository-with-powershell), Senior Program Manager bei Microsoft.
+Es gibt viele Skripts im Internet zum Herunterladen des NuGet-Pakete aus einem NuGet-feed verfügbar. Wir verwenden die [von Jon Galloway bereitgestellte Skript](https://weblogs.asp.net/jongalloway/downloading-a-local-nuget-repository-with-powershell), Senior Program Manager bei Microsoft.
 
-1. Gemäß der [Blogbeitrag](https://weblogs.asp.net/jongalloway/downloading-a-local-nuget-repository-with-powershell), installieren Sie das Skript als NuGet-Paket oder kopieren, und fügen Sie das Skript in der PowerShell ISE.
-2. Bearbeiten, die die erste Zeile des Skripts auf Ihre NuGet feed's v2-URL. Wenn Sie Pakete aus dem Windows Admin Center offiziellen feed herunterladen, verwenden Sie die folgenden URL.
+1. Siehe die [Blogbeitrag](https://weblogs.asp.net/jongalloway/downloading-a-local-nuget-repository-with-powershell), installieren Sie das Skript als NuGet-Paket, oder kopieren und fügen Sie das Skript in PowerShell ISE.
+2. Bearbeiten, die die erste Zeile des Skripts in Ihr NuGet-feed ist v2-URL. Wenn Sie Pakete aus dem offiziellen Windows Admin Center Feeds heruntergeladen haben, verwenden Sie die unten aufgeführte URL.
 
 ```powershell
 $feedUrlBase = "https://aka.ms/sme-extension-feed"
 ```
 
-3. Führen Sie das Skript, und es werden alle NuGet-Pakete aus dem Feed herunterladen, in den folgenden lokalen Ordner: %USERPROFILE%\Documents\NuGetLocal
-4. [Folgen Sie den Anweisungen Erweiterungen aus einem anderen Feed installieren](#installing-extensions-from-a-different-feed).
+3. Das Skript auszuführen, und es werden alle NuGet-Pakete aus dem Feed in den folgenden lokalen Ordner heruntergeladen: %USERPROFILE%\Documents\NuGetLocal
+4. [Führen Sie die Anweisungen zum Installieren von Erweiterungen aus einem anderen Feed](#installing-extensions-from-a-different-feed).
 
-## Verwalten von Erweiterungen mit PowerShell
+## <a name="manage-extensions-with-powershell"></a>Verwalten von Erweiterungen mit PowerShell
 
->Betrifft: Windows Admin Center, Windows Admin Center – Vorschau
+>Gilt für: Windows Admin Center, Windows Admin Center Preview
 
-Windows Admin Center – Vorschau enthält ein PowerShell-Modul, um Ihre Gateway-Erweiterungen zu verwalten.
+Windows Admin Center Preview umfasst ein PowerShell-Modul, um Ihre Gateway-Erweiterungen zu verwalten.
+
+>[!IMPORTANT]
+>Verwalten von Gateway-Erweiterungen mit dem PowerShell-Modul wird nur unterstützt, wenn Windows Admin Center als Gatewaydienst unter Windows Server bereitgestellt wird.
 
 ```powershell
 # Add the module to the current session
@@ -119,4 +122,4 @@ Uninstall-Extension "https://wac.contoso.com" "msft.sme.containers"
 Update-Extension "https://wac.contoso.com" "msft.sme.containers"
 ```
 
-### [Erfahren Sie mehr über das Erstellen einer Erweiterung mit dem Windows Admin Center SDK](../extend/extensibility-overview.md).
+### <a name="learn-more-about-building-an-extension-with-the-windows-admin-center-sdkextendextensibility-overviewmd"></a>[Weitere Informationen zum Erstellen einer Erweiterung mit dem Windows Admin Center-SDK](../extend/extensibility-overview.md).

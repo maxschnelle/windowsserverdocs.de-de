@@ -1,163 +1,164 @@
 ---
 ms.assetid: 6416d125-bcaf-433d-971a-2f0283bca2c2
-title: "Cluster-Aware Updating - gestellte häufig Fragen"
+title: Clusterfähige Aktualisierung – gestellte häufig Fragen
 ms.topic: article
-ms.prod: storage-failover-clustering
+ms.prod: windows-server-threshold
 manager: dongill
 ms.author: jgerend
 author: JasonGerend
-ms.date: 4/28/2017
-description: "Erhalten Sie Antworten auf häufig gestellte Fragen zur Cluster-Aware Updating in Windows Server."
-ms.openlocfilehash: 8417ea8b6b76e16c3f4db3bac5062d90a8da3ff2
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
+ms.date: 04/28/2017
+description: Antworten auf häufig gestellte Fragen zur Cluster-Aware Updating in Windows Server.
+ms.openlocfilehash: f9009811093823554f16295cc1205f1b99ead93f
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59882521"
 ---
-# <a name="cluster-aware-updating-frequently-asked-questions"></a>Cluster-Aware Updating: Häufig gestellte Fragen
+# <a name="cluster-aware-updating-frequently-asked-questions"></a>Clusterfähiges aktualisieren: Häufig gestellte Fragen
 
-> Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server2016, Windows Server2012 R2, Windows Server 2012
+> Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
 
-[Cluster-Aware Updating](cluster-aware-updating.md) \(CAU\) ist ein Feature, das Softwareupdates auf allen Servern in einem Failovercluster auf eine Weise koordiniert, die die dienstverfügbarkeit mehr als ein geplantes Failover eines Clusterknotens auswirken nicht wird. Bei einigen Anwendungen mit stets Verfügbarkeitsfeatures \ z.B. (Hyper\-V mit Livemigration) oder ein SMB-3.x-Dateiserver mit SMB Transparent Failover\, kann CAU koordiniert, automatisierte Clusteraktualisierung ohne Auswirkungen auf die Verfügbarkeit des Diensts.
+[Cluster-Aware Updating](cluster-aware-updating.md) \(CAU\) ist ein Feature, das koordiniert die Software aktualisiert auf allen Servern in einem Failovercluster auf eine Weise, die die dienstverfügbarkeit auswirkt, nicht mehr als ein geplantes Failover eines Clusterknotens. Bei einigen Anwendungen mit stets Verfügbarkeitsfeatures \(wie z. B. Hyper\-V mit Livemigration oder SMB 3.x-Dateiserver mit SMB Transparent Failover\), kann durch CAU koordiniert automatisierte Clusteraktualisierung ohne Auswirkungen auf die dienstverfügbarkeit.
 
-## <a name="does-cau-support-updating-storage-spaces-direct-clusters"></a>Unterstützt CAU Updates "direkte Speicherplätze"-Cluster?  
-Ja. CAU unterstützt die Aktualisierung ["direkte Speicherplätze"](../storage/storage-spaces/storage-spaces-direct-overview.md) Cluster unabhängig von der Art der Bereitstellung: zusammengeführten oder zusammengefasst. CAU Orchestrierung wird insbesondere sichergestellt, dass jeder Clusterknoten anhalten auf die zugrunde liegenden Clusterspeicherplatzes fehlerfrei ist wartet.
+## <a name="does-cau-support-updating-storage-spaces-direct-clusters"></a>Unterstützt CAU die Aktualisierung "direkte Speicherplätze"-Cluster?  
+Ja. Unterstützt CAU die Aktualisierung ["direkte Speicherplätze"](../storage/storage-spaces/storage-spaces-direct-overview.md) Cluster unabhängig von der Art der Bereitstellung: hyperkonvergenten oder konvergiert. Insbesondere wird CAU Orchestrierung wartet, das Anhalten der einzelnen Knoten für den zugrunde liegenden gruppierten Speicherplatz fehlerfrei sind.
 
-## <a name="does-cau-work-with-windows-server-2008-r2-or-windows-7"></a>Kann CAU für Windows Server2008 R2 oder Windows7 werden verwendet?  
-Nein. CAU koordiniert die Clusteraktualisierung nur auf Computern mit Windows Server2016, Windows Server2012 R2, Windows Server2012, Windows10, Windows8.1 oder Windows8. Im Failovercluster aktualisiert wird, muss Windows Server2016, Windows Server2012 R2 oder Windows Server2012 ausführen.
+## <a name="does-cau-work-with-windowsserver-2008r2-or-windows7"></a>Kann CAU für Windows Server 2008 R2 oder Windows 7 verwendet werden?  
+Nein. CAU koordiniert die Clusteraktualisierung nur auf Computern mit Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10, Windows 8.1 oder Windows 8. Im Failovercluster aktualisiert wird, muss Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 ausgeführt.
   
-## <a name="is-cau-limited-to-specific-clustered-applications"></a>Ist CAU bestimmte Clusteranwendungen beschränkt?  
-Nein. CAU ist in den Typ der Clusteranwendung unabhängig. CAU ist eine externe Cluster\ aktualisieren Lösung, die über die Cluster-APIs und PowerShell-Cmdlets gelagert ist. Daher kann CAU koordiniert Aktualisierung für eine beliebige geclusterte Anwendung, die in einem Windows Server-Failovercluster konfiguriert ist.  
+## <a name="is-cau-limited-to-specific-clustered-applications"></a>Wird für clusterfähiges aktualisieren auf bestimmte Clusteranwendungen beschränkt?  
+Nein. CAU ist der Typ der Clusteranwendung unbekannt. CAU ist ein externer Cluster\-aktualisieren die Lösung, die über die Cluster-APIs und PowerShell-Cmdlets gelagert ist. Daher kann durch CAU koordiniert Aktualisierung für eine beliebige geclusterte Anwendung, die in einem Windows Server-Failovercluster konfiguriert ist.  
   
 > [!NOTE]  
-> Derzeit die folgenden geclusterten Arbeitsauslastungen getestet und für CAU zertifiziert: SMB, Hyper\-V, DFS-Replikation, DFS-Namespaces, iSCSI und NFS.  
+> Derzeit werden die folgenden geclusterten arbeitsauslastungen getestet und zertifiziert für clusterfähiges aktualisieren: SMB, Hyper\-V, DFS-Replikation, DFS-Namespaces, iSCSI und NFS.  
   
 ## <a name="does-cau-support-updates-from-microsoft-update-and-windows-update"></a>Unterstützt CAU Updates von Microsoft Update und Windows Update?  
-Ja. Standardmäßig wird CAU mit einem Remoteverwaltungssoftware-in konfiguriert, die auf den Clusterknoten \(WUA\) Windows Update-Agent-Hilfsprogramm-APIs verwendet. Die WUA-Infrastruktur kann konfiguriert werden, um Microsoft Update und Windows Update oder Windows Server Update Services \(WSUS\) als Updatequelle verweist.  
+Ja. Standardmäßig wird CAU mit eine Plug & konfiguriert\-, verwendet der Windows Update-Agent \(WUA\) Dienstprogramm-APIs auf den Clusterknoten. Die WUA-Infrastruktur kann so konfiguriert werden, dass die auf Microsoft Update und Windows Update oder auf Windows Server Update Services verweisen \(WSUS\) als Quelle des Updates.  
   
 ## <a name="does-cau-support-wsus-updates"></a>Unterstützt CAU WSUS-Updates?  
-Ja. Standardmäßig wird CAU mit einem Remoteverwaltungssoftware-in konfiguriert, die auf den Clusterknoten \(WUA\) Windows Update-Agent-Hilfsprogramm-APIs verwendet. Die WUA-Infrastruktur kann konfiguriert werden, um Microsoft Update und Windows Update oder auf einem lokalen Windows Server Update Services \(WSUS\) Server als Updatequelle verweist.  
+Ja. Standardmäßig wird CAU mit eine Plug & konfiguriert\-, verwendet der Windows Update-Agent \(WUA\) Dienstprogramm-APIs auf den Clusterknoten. Die WUA-Infrastruktur kann so konfiguriert werden, dass die auf Microsoft Update und Windows Update oder auf einem lokalen Windows Server Update Services verweisen \(WSUS\) Server als Quelle des Updates.  
   
-## <a name="can-cau-apply-limited-distribution-release-updates"></a>Kann CAU Updates von Versionen mit eingeschränkter Verteilung angewendet?  
-Ja. Eingeschränkter Verteilung \(LDR\) von Updates auch als Hotfixes bezeichnet werden nicht über Microsoft Update oder Windows Update veröffentlicht, damit sie von der Windows Update-Agent-\(WUA\) plug\ heruntergeladen werden können – in diesem CAU wird standardmäßig verwendet.  
+## <a name="can-cau-apply-limited-distribution-release-updates"></a>Können von CAU Updates von Versionen mit eingeschränkter Verteilung angewendet werden?  
+Ja. Eingeschränkte GDR \(LDR\) Updates, so genannte Hotfixes werden nicht über Microsoft Update oder Windows Update veröffentlicht, damit sie nicht von der Windows Update-Agent heruntergeladen werden können \(WUA\) einbinden\-, da für clusterfähiges aktualisieren in der Standardeinstellung verwendet.  
   
-CAU bietet jedoch ein zweites Remoteverwaltungssoftware-in, dass Sie auswählen können, um das Hotfix-Updates anwenden. Dieses Hotfix Remoteverwaltungssoftware-in kann auch angepasst werden, um-Microsoft-Treiber, Firmware und BIOS-Updates anzuwenden.  
+CAU bietet jedoch eine zweite Plug\-, Sie wählen können, um die Hotfix-Updates anwenden. Dieser Hotfix-Plug\-in kann auch so angepasst werden nicht angewendet\-Microsoft-Treiber, Firmware und BIOS-Updates.  
   
 ## <a name="can-i-use-cau-to-apply-cumulative-updates"></a>Kann ich CAU verwenden, um kumulative Updates anzuwenden?  
-Ja. Wenn es sich bei den kumulativen Updates um Updates von Versionen mit allgemeiner Verteilung oder LDR-Updates handelt, kann CAU angewendet.  
+Ja. Wenn es sich bei den kumulativen Updates um Updates von Versionen mit allgemeiner Verteilung oder LDR-Updates handelt, können sie von CAU angewendet werden.  
   
 ## <a name="can-i-schedule-updates"></a>Kann ich Updates planen?  
-Ja. CAU unterstützt die folgenden aktualisierungsmodi, die Updates geplant werden können:  
+Ja. CAU unterstützt die folgenden Aktualisierungsmodi, bei denen Updates jeweils geplant werden können:  
   
-**Aktualisieren von deren Hilfe** ermöglicht dem Cluster, sich gemäß eines definierten Profils und regelmäßigen Zeitplans, z.B. während eines monatlichen Wartungszeitfensters zu aktualisieren. Sie können auch eine deren Hilfe-Updateausführung bei Bedarf jederzeit starten. Um deren Hilfe Remoteaktualisierungsmodus zu aktivieren, müssen Sie die Clusterrolle für clusterfähiges aktualisieren zum Cluster hinzufügen. Das Aktualisieren von deren Hilfe CAU-Feature wird wie jeder andere clusterarbeitsauslastung ausgeführt kann, und es problemlos mit der geplanten und ungeplanten Failover von eines updatekoordinatorcomputers.  
+**Self\-aktualisieren** kann der Cluster selbst gemäß eines definierten Profils und regelmäßigen Zeitplans, z. B. während eines monatlichen Wartungszeitfensters aktualisieren. Sie können auch ein selbstsigniertes starten\-aktualisiert bei Bedarf jederzeit ausführen. So aktivieren Sie Self-Service\-Updatemodus, müssen Sie die Clusterrolle für clusterfähiges Aktualisieren mit dem Cluster hinzufügen. Für clusterfähiges aktualisieren selbst\-aktualisieren die Funktion wie jede andere geclusterte Arbeitslast ausgeführt, und es funktioniert nahtlos mit der geplanten und ungeplanten Failover eines updatekoordinatorcomputers.  
   
-**Aktualisieren von Remote\** ermöglicht es Ihnen, eine Aktualisierungsausführung zu einem beliebigen Zeitpunkt von einem Computer unter Windows oder Windows Server starten. Sie können über das Fenster des clusterfähigen Aktualisierens oder über eine Updateausführung Starten der **Invoke-CauRun** PowerShell-Cmdlet. Remote\-Aktualisierung ist der standardaktualisierungsmodus für CAU. Sie können mithilfe der Aufgabenplanung Ausführen der [Invoke-CauRun](https://technet.microsoft.com/itpro/powershell/windows/cluster-aware-updating/invoke-caurun) Cmdlet auf einem gewünschten Zeitplan auf einem Remotecomputer, der nicht einem Knoten eines Clusters ist.  
+**Remote\-aktualisieren** ermöglicht es Ihnen, eine Updateausführung zu einem beliebigen Zeitpunkt auf einem Computer unter Windows oder Windows Server zu starten. Sie können eine Aktualisierungsausführung über das Fenster des clusterfähigen Aktualisierens oder Starten der **Invoke\-CauRun** PowerShell-Cmdlet. Remote\-aktualisieren, ist der standardaktualisierungsmodus für CAU. Mit der Aufgabenplanung können Sie das Cmdlet [Invoke-CauRun](https://technet.microsoft.com/itpro/powershell/windows/cluster-aware-updating/invoke-caurun) nach einem gewünschten Zeitplan auf einem Remotecomputer ausführen, bei dem es sich nicht um einen der Clusterknoten handelt.  
   
 ## <a name="can-i-schedule-updates-to-apply-during-a-backup"></a>Kann ich während einer Sicherung anzuwendenden Updates planen?  
-Ja. CAU Hinsicht keine Einschränkungen in dieser. Allerdings Ausführen von Softwareupdates auf einem Server \ (mit den zugehörigen potenziellen Neustartanzahl\) während eine Sicherung wird Fortschritt ist keine bewährte IT-Methode. Achten Sie darauf, dass es sich bei CAU nur Cluster-APIs, um ressourcenfailover und -Failbacks zu bestimmen nutzt; Daher ist CAU der serversicherungsstatus nicht bekannt.  
+Ja. CAU festlegen keine Einschränkungen in dieser Hinsicht. Ausführen von Softwareupdates jedoch auf einem Server \(die zugeordneten möglicherweise neu gestartet wird\) während eine Sicherung wird ausgeführt ist keine bewährte IT-Methode. Beachten Sie, dass von CAU nur Cluster-APIs verwendet werden, um Ressourcenfailover und -failbacks zu bestimmen. Daher ist CAU der Serversicherungsstatus nicht bekannt.  
   
 ## <a name="can-cau-work-with-system-center-configuration-manager"></a>Werden CAU kann mit System Center Configuration Manager verwendet?  
-CAU ist ein Tool, das Softwareupdates auf einem Clusterknoten koordiniert, und Configuration Manager werden auch serversoftwareupdates ausgeführt. Es ist wichtig, diese Tools so konfigurieren, dass sie keinen überlappende Abdeckung derselben Server in jeder Datacenter-Bereitstellung, einschließlich der Verwendung von anderen Windows Server Update Services-Server. Dadurch wird sichergestellt, dass die Absicht hinter der Verwendung von CAU nicht versehentlich aufgehoben wird, da Configuration Manager\ gesteuerte Aktualisierungen keine Clusterinformationen beinhalten.  
+CAU ist ein Tool, das Softwareupdates auf einem Clusterknoten koordiniert, und Configuration Manager werden auch serversoftwareupdates ausgeführt. Es ist wichtig, diese Tools zu konfigurieren, sodass sie keine überlappende Abdeckung derselben Server in jeder Datacenter-Bereitstellung, einschließlich der Verwendung von unterschiedlichen Windows Server Update Services-Servern. Dadurch wird sichergestellt, dass die Absicht hinter der Verwendung von CAU nicht versehentlich aufgehoben wird, da Configuration Manager\-testgesteuerte aktualisiert nicht die Standortinformationen für den Cluster integrieren.  
   
 ## <a name="do-i-need-administrative-credentials-to-run-cau"></a>Benötige ich Administratoranmeldeinformationen, um CAU auszuführen?  
-Ja. Für das Ausführen der CAU-Tools für clusterfähiges aktualisieren administrative Anmeldeinformationen auf dem lokalen Server benötigt, oder es muss die **annehmen der Clientidentität nach Authentifizierung** Benutzer direkt auf dem lokalen Server oder Clientcomputer, auf dem es ausgeführt wird. Zum Koordinieren von Softwareupdates auf den Clusterknoten erfordert CAU jedoch clusteradministratoranmeldeinformationen auf jedem Knoten. Obwohl die CAU-UI ohne die Anmeldeinformationen gestartet werden können, werden aufgefordert, für die administrative Anmeldeinformationen für Cluster beim Herstellen einer zu einer Clusterinstanz Verbindung, um eine Vorschau oder Anwenden von Updates.  
+Ja. Zum Ausführen der CAU-Tools sind Administratoranmeldeinformationen auf dem lokalen Server oder das Benutzerrecht **Annehmen der Clientidentität nach Authentifizierung** auf dem lokalen Server oder Clientcomputer erforderlich, auf dem CAU ausgeführt wird. Zum Koordinieren von Softwareupdates auf den Clusterknoten sind für CAU jedoch Clusteradministratoranmeldeinformationen auf allen Knoten erforderlich. Auch wenn die CAU-UI ohne die Anmeldeinformationen gestartet werden kann, werden die clusteradministratoranmeldeinformationen Verbindung mit einer Clusterinstanz zum Anzeigen einer updatevorschau oder zum Anwenden von Updates.  
   
 ## <a name="can-i-script-cau"></a>Kann ich CAU Skript?  
-Ja. CAU enthält PowerShell-Cmdlets, die einen umfassenden Satz von Skriptoptionen anbieten. Dies sind dieselben Cmdlets, die die CAU-UI CAU-Aktionen aufgerufen.  
+Ja. CAU enthält PowerShell-Cmdlets, die einen umfangreichen Satz von Skriptoptionen zu bieten. Dies sind dieselben Cmdlets, die von der CAU-Benutzeroberfläche zum Ausführen von CAU-Aktionen aufgerufen werden.  
 
-## <a name="what-happens-to-active-clustered-roles"></a>Was geschieht mit aktiven Clusterrollen?
+## <a name="what-happens-to-active-clustered-roles"></a>Was geschieht mit aktiven clusterrollen?
 
-Clusterrollen \ (ehemals Anwendungen und -Dienste\), die auf einem Knoten aktiv sind, führen Sie ein Failover auf andere Knoten vor der Aktualisierung der Software beginnen kann. CAU orchestriert diese Failover mithilfe des Wartungsmodus, der anhält und ihm ausgleicht den Knoten alle aktiven Clusterrollen. Wenn die Softwareupdates abgeschlossen sind, CAU fortgesetzt wird, den Knoten, und die Clusterrollen wird ein Failback auf den aktualisierten Knoten. Dadurch wird sichergestellt, dass die Verteilung von Clusterrollen im Vergleich zu Knoten bei den CAU-Aktualisierungsausführungen von einem Cluster gleich bleibt.  
+Gruppierte Rollen \(ehemals Anwendungen und Dienste\) , die auf einem Knoten aktiv sind, führen Sie ein Failover auf andere Knoten vor der Aktualisierung der Software beginnen kann. Diese Failover werden von CAU mithilfe des Wartungsmodus koordiniert, der den Knoten anhält und alle aktiven Clusterrollen auf ihm ausgleicht. Wenn die Softwareupdates abgeschlossen sind, wird der Knoten durch CAU fortgesetzt, und für die Clusterrollen wird ein Failback auf den aktualisierten Knoten ausgeführt. Dadurch wird sichergestellt, dass die Verteilung von Clusterrollen im Vergleich zu den Knoten bei den CAU-Aktualisierungsausführungen auf einem Cluster gleich bleibt.  
   
-## <a name="how-does-cau-select-target-nodes-for-clustered-roles"></a>Wie wird CAU die Zielknoten für Clusterrollen ausgewählt?
+## <a name="how-does-cau-select-target-nodes-for-clustered-roles"></a>Wie wird CAU die Zielknoten für clusterrollen ausgewählt?
 
-CAU wird, hängt davon ab, Cluster-APIs, um die Failover zu koordinieren. Die Cluster-API-Implementierung wählt die Knoten durch verwenden interner Metriken und intelligenter platzierungsheuristiken \ (z.B. Arbeitsauslastung Levels\) auf dem Zielknoten.  
+Von CAU werden Cluster-APIs verwendet, um die Failover zu koordinieren. Der clustering-API-Implementierung wählt die Knoten durch die Verwendung interner Metriken und intelligenter platzierungsheuristiken \(z. B. arbeitsauslastungsstufen\) alle Zielknoten.  
   
-## <a name="does-cau-load-balance-the-clustered-roles"></a>Lastenausgleich CAU die Clusterrollen?
+## <a name="does-cau-load-balance-the-clustered-roles"></a>Lastenausgleich CAU die clusterrollen?
 
-CAU lädt nicht den Lastenausgleich, die die Clusterknoten, aber es wird versucht, die Verteilung der Clusterrollen beizubehalten. Durch CAU beendet wird, einen Clusterknoten zu aktualisieren, versucht, ein auszuführen zurück zuvor gehosteten Clusterrollen auf diesen Knoten. CAU werden Cluster-APIs verwendet, um die Ressourcen an den Anfang des angehaltenen Vorgangs ein Failback basiert. Keine ungeplanten Failover und bevorzugten besitzereinstellungen, sollte die Verteilung der Clusterrollen daher unverändert bleiben.  
+CAU nicht den Lastenausgleich die gruppierten Knoten, aber es wird versucht, die Verteilung der clusterrollen beizubehalten. Wenn das Update eines Clusterknotens durch CAU beendet wird, wird für die zuvor auf dem jeweiligen Knoten gehosteten Clusterrollen ein Failback ausgeführt. Von CAU werden Cluster-APIs verwendet, um für die Ressourcen ein Failback zum Anfang des angehaltenen Vorgangs auszuführen. Wenn keine ungeplanten Failover und bevorzugten Besitzereinstellungen vorhanden sind, bleibt die Verteilung der Clusterrollen daher unverändert.  
   
-## <a name="how-does-cau-select-the-order-of-nodes-to-update"></a>Wie wird CAU die Reihenfolge zu aktualisierenden Knoten ausgewählt?  
-Standardmäßig wählt clusterfähiges aktualisieren die Reihenfolge von Knoten zu aktualisierenden basierend auf der Ebene der Aktivität. Der Knoten, auf denen die wenigsten Clusterrollen gehostet werden, werden zuerst aktualisiert. Allerdings kann ein Administrator eine bestimmte Reihenfolge für das Aktualisieren der Knoten durch Angabe eines Parameters für die Updateausführung in die CAU-UI oder mithilfe der PowerShell-Cmdlets angeben.  
+## <a name="how-does-cau-select-the-order-of-nodes-to-update"></a>Wie wird von CAU die Reihenfolge der zu aktualisierenden Knoten ausgewählt?  
+Standardmäßig wird die Reihenfolge der zu aktualisierenden Knoten von CAU basierend auf dem Aktivitätsgrad ausgewählt. Die Knoten, auf denen die wenigsten Clusterrollen gehostet werden, werden zuerst aktualisiert. Allerdings kann ein Administrator für das Aktualisieren der Knoten, durch Angabe eines Parameters für die Updateausführung in die CAU-UI oder mithilfe von PowerShell-Cmdlets eine bestimmte Reihenfolge angeben.  
   
 ## <a name="what-happens-if-a-cluster-node-is-offline"></a>Was geschieht, wenn ein Knoten offline ist?
 
-Der Administrator, der Aktualisierungsausführung initiiert kann den zulässigen Schwellenwert für die Anzahl der Knoten angeben, die offline sein können. Aus diesem Grund kann eine Updateausführung auf einem Cluster fortfahren, selbst wenn keiner die Clusterknoten online ist.  
+Der Administrator, der die Aktualisierungsausführung initiiert, kann den zulässigen Schwellenwert für die Anzahl von Knoten angeben, die offline sein können. Daher kann eine Aktualisierungsausführung selbst dann auf einem Cluster fortgesetzt werden, wenn keiner der Clusterknoten online ist.  
   
-## <a name="can-i-use-cau-to-update-only-a-single-node"></a>Kann ich CAU verwenden, um nur einen einzelnen Knoten aktualisieren?  
-Nein. CAU ist ein Cluster\ Bereich aktualisieren Tool, sodass er nur zu aktualisierende Cluster auswählen kann. Wenn Sie einen einzelnen Knoten aktualisieren möchten, können Sie vorhandene serveraktualisierungstools für clusterfähiges aktualisieren.  
+## <a name="can-i-use-cau-to-update-only-a-single-node"></a>Kann ich CAU verwenden, um nur einen einzelnen Knoten zu aktualisieren?  
+Nein. CAU ist ein Cluster\-Bereichsbezogene Tool aktualisieren, sodass er nur zu aktualisierende Cluster auswählen kann. Wenn Sie einen einzelnen Knoten aktualisieren möchten, können Sie vorhandene Serveraktualisierungstools außerhalb von CAU verwenden.  
   
 ## <a name="can-cau-report-updates-that-are-initiated-from-outside-cau"></a>Kann CAU Updates melden, die außerhalb von CAU initiiert werden?  
-Nein. CAU können nur Aktualisierungsausführungen gemeldet werden, die innerhalb von CAU initiiert werden. Allerdings wird eine nachfolgende CAU-Aktualisierungsausführung gestartet, werden Updates, die von CAU-Methoden installiert wurden entsprechend interpretiert, um die zusätzlichen Updates zu ermitteln, die auf jedem Clusterknoten erforderlich sein kann.  
+Nein. Von CAU können nur Aktualisierungsausführungen gemeldet werden, die innerhalb von CAU initiiert wurden. Aber wenn eine nachfolgende CAU-Aktualisierungsausführung gestartet wird, Updates, die durch nicht installiert wurden\-CAU-Methoden sind entsprechend interpretiert, um die zusätzlichen Updates zu bestimmen, die auf jedem Clusterknoten angewendet werden kann.  
   
-## <a name="can-cau-support-my-unique-it-process-needs"></a>Können CAU-Unterstützung meinen individuellen IT-prozessanforderungen muss?  
-Ja. CAU bietet die folgenden Dimensionen Maß an Flexibilität, entsprechend der Unternehmen, die Kunden individuellen IT-prozessanforderungen benötigt:  
+## <a name="can-cau-support-my-unique-it-process-needs"></a>Können CAU-Unterstützung, die meinen individuellen IT-prozessanforderungen muss?  
+Ja. CAU bietet die folgenden Dimensionen der Flexibilität, um den individuellen IT-Prozessanforderungen von Unternehmenskunden gerecht zu werden:  
   
-**Skripts** eine Aktualisierungsausführung ein PowerShell-Skript registrierungseintragswert und ein PowerShell-Skript Post\ angeben können. Das Skript registrierungseintragswert-Update wird auf jedem Clusterknoten ausgeführt, bevor der Knoten angehalten wird. Das Skript Post\-Update wird auf jedem Clusterknoten ausgeführt, nachdem die knotenupdates installiert wurden.  
+**Skripts** eine Aktualisierungsausführung kann Geben Sie einen vorangestellten\-aktualisieren Sie PowerShell-Skript und Post\-PowerShell-Skript zu aktualisieren. Des präproduktionsclients\-Updateskript wird auf jedem Clusterknoten ausgeführt, bevor der Knoten angehalten wird. Der Beitrag\-Updateskript wird auf jedem Clusterknoten ausgeführt, nachdem die knotenupdates installiert wurden.  
   
 > [!NOTE]  
-> .NET Framework 4.6 oder 4.5 und PowerShell muss auf jedem Clusterknoten, auf dem Sie die Skripts registrierungseintragswert- und Post\-Update ausführen möchten, installiert werden. Sie müssen auch die PowerShell-Remoting auf den Clusterknoten aktivieren. Ausführliche Informationen zu Systemanforderungen, finden Sie unter [Anforderungen und Best Practices for Cluster-Aware Updating](cluster-aware-updating-requirements.md).  
+> .NET Framework 4.6 "oder" 4.5 "und" PowerShell muss auf jedem Clusterknoten, die Sie auf Ausführen des präproduktionsclients installiert sein\-aktualisieren und buchen\-Skripts zu aktualisieren. Sie müssen auch die PowerShell-Remoting auf den Clusterknoten aktivieren. Ausführliche Informationen zu den Systemanforderungen finden Sie unter [Anforderungen und Best Practices for Cluster-Aware Updating](cluster-aware-updating-requirements.md).  
   
-**Erweiterte updateausführungsoptionen** der Administrator kann darüber hinaus eine Reihe erweiterter updateausführungsoptionen wie z.B. die maximale Häufigkeit, mit der der Updatevorgang auf jedem Knoten wiederholt wird angeben. Diese Optionen können mithilfe der CAU-UI oder der CAU-PowerShell-Cmdlets angegeben werden. Diese benutzerdefinierten Einstellungen können in einem Profil für die Updateausführung gespeichert und bei späteren Updateausführungen wiederverwendet werden.  
+**Erweiterte updateausführungsoptionen** der Administrator kann darüber hinaus angeben, eine Reihe erweiterter updateausführungsoptionen wie z. B. die maximale Anzahl von Wiederholungen, die der Updatevorgang auf jedem Knoten wiederholt wird. Diese Optionen können mithilfe der CAU-UI oder der CAU-PowerShell-Cmdlets angegeben werden. Diese benutzerdefinierten Einstellungen können in einem Profil für die Updateausführung gespeichert und bei späteren Updateausführungen wiederverwendet werden.  
   
-**Öffentliche Remoteverwaltungssoftware-in-Architektur** CAU bietet Features zum Registrieren, Aufheben der Registrierung, und wählen Sie Remoteverwaltungssoftware-ins cau bietet zwei Standard-Remoteverwaltungssoftware-ins: eines koordiniert die Windows Update-Agent-\(WUA\) APIs auf jedem Clusterknoten; die zweite wendet Hotfixes an, die manuell in eine Dateifreigabe kopiert werden, die die Clusterknoten zugegriffen werden kann. Wenn ein Unternehmen individuelle Anforderungen, die mit diesen beiden Remoteverwaltungssoftware Plug-Ins nicht erfüllt werden können hat, kann Unternehmen ein neues CAU Remoteverwaltungssoftware eingehend gemäß der öffentlichen API-Spezifikation erstellen. Weitere Informationen finden Sie unter [Cluster\-Aware Updating Remoteverwaltungssoftware im Verweis](http://msdn.microsoft.com/library/hh418084(VS.85).aspx).  
+**Öffentliche Plug-in\-in Architektur** CAU bietet Features zum Registrieren, Aufheben der Registrierung, und wählen Sie anschließen\-ins. Cau bietet zwei Standard-Plug &\-ins: eines koordiniert der Windows Update-Agent \(WUA\) APIs auf jedem Clusterknoten installieren; das zweite wendet Hotfixes, die manuell in eine Dateifreigabe kopiert werden, die an die Clusterknoten zugegriffen werden kann. Wenn ein Unternehmen individuelle Anforderungen hat, die mit diesen nicht erfüllt werden können, die zwei anschließen\-ins, die Unternehmen kann erstellen ein neues CAU-Plug\-entsprechend in der öffentlichen API-Spezifikation. Weitere Informationen finden Sie unter [Cluster\-bewusst Aktualisieren von Plug-Ins\-Referenz](https://msdn.microsoft.com/library/hh418084(VS.85).aspx).  
   
-Informationen zum Konfigurieren und Anpassen von CAU Remoteverwaltungssoftware Plug-Ins unterstützen verschiedene Szenarien, Aktualisieren finden Sie [Funktionsweise Remoteverwaltungssoftware ins](assetId:///847b571b-12b3-473c-953f-75a5a1f51333).  
+Schließen Sie Informationen zum Konfigurieren und Anpassen von CAU\-ins zur Unterstützung der verschiedenen Szenarien aktualisieren finden Sie unter [wie anschließen\-ins funktionieren](assetId:///847b571b-12b3-473c-953f-75a5a1f51333).  
   
-## <a name="how-can-i-export-the-cau-preview-and-update-results"></a>Wie kann ich exportieren die CAU-Vorschau und aktualisieren Ergebnisse zu?  
-CAU bietet Exportoptionen über die Befehlszeilenschnittstelle und die Benutzeroberfläche.  
+## <a name="how-can-i-export-the-cau-preview-and-update-results"></a>Wie kann ich die CAU-Vorschau- und -Aktualisierungsergebnisse exportieren?  
+CAU bietet Exportoptionen über den Befehl\-Befehlszeilenschnittstelle (CLI) und über die Benutzeroberfläche.  
   
-**Schnittstelle Befehlszeilenoptionen:**  
+**Befehl\-Schnittstelle Befehlszeilenoptionen:**  
   
--   Vorschauergebnisse mithilfe des PowerShell-Cmdlets **Invoke-CauScan | ConvertTo-XML-**. Ausgabe: XML  
+-   Vorschauergebnisse mithilfe des PowerShell-Cmdlets **Invoke\-CauScan | ConvertTo\-Xml**. Ausgabe: XML  
   
--   Berichtsergebnisse mithilfe des PowerShell-Cmdlets **Invoke-CauRun | ConvertTo-XML-**. Ausgabe: XML  
+-   Berichtsergebnisse mithilfe des PowerShell-Cmdlets **Invoke\-CauRun | ConvertTo\-Xml**. Ausgabe: XML  
   
--   Berichtsergebnisse mithilfe des PowerShell-Cmdlets **Get-CauReport | Export\-CauReport**. Ausgabe: HTML, CSV  
+-   Berichtsergebnisse mithilfe des PowerShell-Cmdlets **erhalten\-CauReport | Exportieren Sie\-CauReport**. Ausgabe: HTML, CSV  
   
-**UI-Optionen:**  
+**Optionen der Benutzeroberfläche:**  
   
--   Kopieren Sie die Berichtsergebnisse aus dem **Updatevorschau** Bildschirm. Ausgabe: CSV  
+-   Kopieren Sie die Berichtsergebnisse aus dem Bildschirm **Vorschau der Updates anzeigen**. Ausgabe: CSV  
   
--   Kopieren Sie die Berichtsergebnisse aus dem **Bericht** Bildschirm. Ausgabe: CSV  
+-   Kopieren Sie die Berichtsergebnisse aus dem Bildschirm **Bericht generieren** . Ausgabe: CSV  
   
--   Exportieren Sie die Berichtsergebnisse aus dem **Bericht** Bildschirm. Ausgabe: HTML  
+-   Exportieren Sie die Berichtsergebnisse aus dem Bildschirm **Bericht generieren** . Ausgabe: HTML  
   
 ## <a name="how-do-i-install-cau"></a>Wie installiere ich CAU?  
-Eine CAU-Installation ist nahtlos in das Feature Failoverclustering integriert. CAU wird wie folgt installiert:  
+Eine CAU-Installation ist nahtlos in das Feature "Failoverclustering" integriert. CAU wird wie folgt installiert:  
   
--   Wenn Failoverclustering auf einem Clusterknoten installiert ist, wird der \(WMI\) CAU-WMI-Anbieter automatisch installiert.  
+-   Wenn Failoverclustering installiert ist, auf einem Clusterknoten, die CAU-Windows-Verwaltungsinstrumentierung \(WMI\) Anbieter wird automatisch installiert.  
   
--   Wenn das Feature Failoverclustering-Tools auf einem Server oder Clientcomputer installiert ist, werden die clusterfähige Aktualisierung UI und PowerShell-Cmdlets automatisch installiert.
+-   Wenn das Feature Failoverclustering-Tools auf einem Server oder Clientcomputer installiert ist, werden die Benutzeroberfläche für clusterfähiges aktualisieren und PowerShell-Cmdlets automatisch installiert.
   
-## <a name="does-cau-need-components-running-on-the-cluster-nodes-that-are-being-updated"></a>Benötigt CAU Komponenten auf den Clusterknoten, die aktualisiert werden?  
-CAU ist einen Dienst, der auf den Clusterknoten ausgeführt erforderlich. CAU benötigt jedoch eine Softwarekomponente \ (der WMI-Provider\) auf den Clusterknoten installiert. Diese Komponente wird mit dem Feature Failoverclustering installiert.  
+## <a name="does-cau-need-components-running-on-the-cluster-nodes-that-are-being-updated"></a>Ist für clusterfähiges aktualisieren erforderlich Komponenten auf den Clusterknoten, die aktualisiert werden?  
+CAU benötigt keinen Dienst, der auf den Clusterknoten. CAU benötigt jedoch eine Softwarekomponente \(der WMI-Anbieter\) auf den Clusterknoten installiert. Diese Komponente wird mit dem Feature Failoverclustering installiert.  
   
-Um deren Hilfe Remoteaktualisierungsmodus zu aktivieren, muss die CAU-Clusterrolle auch dem Cluster hinzugefügt werden.  
+So aktivieren Sie Self-Service\-Updatemodus an, die Clusterrolle für clusterfähiges aktualisieren muss außerdem werden dem Cluster hinzugefügt.  
   
 ## <a name="what-is-the-difference-between-using-cau-and-vmm"></a>Was ist der Unterschied zwischen der Verwendung von CAU und VMM?  
   
--   System Center Virtual Machine Manager \(VMM\) konzentriert sich nur Hyper\-V-Cluster, aktualisieren, während CAU jeder Art von unterstützter Failovercluster, einschließlich Hyper\-V-Cluster aktualisiert werden kann.  
+-   System Center Virtual Machine Manager- \(VMM\) konzentriert sich auf Update nur Hyper\-V-Cluster, während CAU kann jede Art von unterstützter Failovercluster, einschließlich Hyper aktualisieren\-V-Cluster.  
   
--   VMM erfordert zusätzliche Lizenzen, während CAU für alle Windows Server lizenziert ist. Die CAU-Features, Tools und UI werden mit Failoverclusteringkomponenten installiert.  
+-   VMM erfordert zusätzliche Lizenzen, während CAU für alle Windows Server lizenziert ist. Die CAU-Features, -Tools und -Benutzeroberfläche werden mit Failoverclusteringkomponenten installiert.  
   
--   Wenn Sie bereits eine System Center-Lizenz besitzen, können Sie weiterhin mit VMM Hyper\-V-Cluster zu aktualisieren, da es sich um eine integrierte Verwaltungs- und softwareaktualisierungserfahrung bietet.  
+-   Wenn Sie bereits System Center-Lizenz besitzen, Sie können weiterhin mit VMM Hyper aktualisieren\-V-Cluster, da es sich um eine integrierte Verwaltungs- und softwareaktualisierungserfahrung bietet.  
   
--   CAU wird nur auf Clustern unterstützt, auf denen Windows Server2016, Windows Server2012 R2 und Windows Server2012 ausgeführt werden. VMM unterstützt auch Hyper\-V-Cluster auf Computern unter Windows Server2008 R2 und Windows Server2008.  
+-   CAU wird nur auf Clustern unterstützt, auf denen Windows Server 2016, Windows Server 2012 R2 und Windows Server 2012 ausgeführt werden. VMM unterstützt auch Hyper\-V-Cluster auf Computern unter Windows Server 2008 R2 und Windows Server 2008.  
   
-## <a name="can-i-use-remote-updating-on-a-cluster-that-is-configured-for-self-updating"></a>Kann ich verwenden Remote\ aktualisieren in einem Cluster, der so konfiguriert ist, für deren Hilfe aktualisieren?  
-Ja. Ein Failovercluster in einer Konfiguration mit deren Hilfe aktualisieren kann über Remote\ aktualisieren bedarfsgesteuerte, aktualisiert werden, wie Sie eine Windows Update-Überprüfung zu einem beliebigen Zeitpunkt auf dem Computer erzwingen können, auch wenn Windows Update konfiguriert ist, dass Updates automatisch installiert. Allerdings müssen Sie sicherstellen, dass eine Updateausführung nicht bereits ausgeführt wird.  
+## <a name="can-i-use-remote-updating-on-a-cluster-that-is-configured-for-self-updating"></a>Kann ich verwenden remote\-aktualisieren, die in einem Cluster, die für Self-Service konfiguriert ist\-aktualisieren?  
+Ja. Eines Failoverclusters in einem selbstaktivierten\-Aktualisieren der Konfiguration kann aktualisiert werden, über Remote\-aktualisieren auf\-erfordern, wie Sie eine Windows Update-Überprüfung zu einem beliebigen Zeitpunkt auf dem Computer erzwingen können, selbst wenn Windows Update konfiguriert ist Updates automatisch installiert. Sie müssen jedoch sicherstellen, dass gerade keine Aktualisierungsausführung erfolgt.  
   
-## <a name="can-i-reuse-my-cluster-update-settings-across-clusters"></a>Kann ich meine clusteraktualisierungseinstellung für mehrere Cluster wiederverwenden?  
-Ja. CAU unterstützt eine Reihe von updateausführungsoptionen, die bestimmen, wie die Updateausführung verhält sich, wenn den Cluster aktualisiert. Diese Optionen können als Aktualisierungsausführungsprofil gespeichert werden, und für beliebige Cluster wiederverwendet werden. Es wird empfohlen, dass Sie speichern und Ihre Einstellungen auf Failoverclustern, die ähnlichen aktualisierungsanforderungen wiederzuverwenden. Sie können z.B. ein "Business\ erforderliche SQL Server-Cluster Aktualisierungsausführungsprofil" für alle Microsoft SQL Server-Cluster, die Business\ kritischen Dienste unterstützen erstellen.  
+## <a name="can-i-reuse-my-cluster-update-settings-across-clusters"></a>Kann ich meine Clusteraktualisierungseinstellung für mehrere Cluster wiederverwenden?  
+Ja. Von CAU werden einige Aktualisierungsausführungsoptionen unterstützt, mit denen das Verhalten der Aktualisierungsausführung beim Aktualisieren des Clusters bestimmt wird. Diese Optionen können als Aktualisierungsausführungsprofil gespeichert und für beliebige Cluster wiederverwendet werden. Es wird empfohlen, Ihre Einstellungen für Failovercluster mit ähnlichen Aktualisierungsanforderungen zu speichern und wiederzuverwenden. Sie können z. B. Erstellen einer "Business\-kritische SQL Server-Cluster aktualisieren ausführen-Profil" für alle Microsoft SQL Server-Cluster, die Unterstützung von Business\-wichtige Dienste.  
   
-## <a name="where-is-the-cau-plug-in-specification"></a>Wo finde ich die CAU-Remoteverwaltungssoftware-in-Spezifikation?  
+## <a name="where-is-the-cau-plug-in-specification"></a>Wobei die Plug-Ins für clusterfähiges aktualisieren ist\-in Spezifikation?  
   
--   [Cluster\ unterstützende Remoteverwaltungssoftware im Verweis aktualisieren](http://msdn.microsoft.com/library/hh418084(VS.85).aspx)  
+-   [Cluster\-clusterfähige Aktualisierung Plug\-Referenz](https://msdn.microsoft.com/library/hh418084(VS.85).aspx)  
   
--   [Cluster-Aware Updating Remoteverwaltungssoftware-in-Beispiel](http://code.msdn.microsoft.com/windowsdesktop/Cluster-Aware-Updating-6a8854c9)  
+-   [Cluster-Aware Updating Plug &\-im Beispiel](https://code.msdn.microsoft.com/windowsdesktop/Cluster-Aware-Updating-6a8854c9)  
   
 ## <a name="see-also"></a>Siehe auch  
   
--   [Übersicht über das Cluster\ unterstützende aktualisieren](cluster-aware-updating.md)  
+-   [Cluster\-clusterfähige Aktualisierung – Übersicht](cluster-aware-updating.md)  
   

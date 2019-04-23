@@ -1,6 +1,6 @@
 ---
 title: Erste Schritte
-description: 'Grundlagen für Server: Systemanforderungen, Versionshinweise'
+description: 'Grundlagen für Server: Systemanforderungen, Anmerkungen zu dieser Version'
 ms.prod: windows-server-threshold
 ms.service: na
 manager: jasgroce
@@ -11,15 +11,15 @@ author: coreyp-at-msft
 ms.author: coreyp
 ms.localizationpriority: medium
 ms.openlocfilehash: 5604edf201213f8758b697dc683717f312941e0f
-ms.sourcegitcommit: b69683f1485e1a87d41557e1765660da5dcf04be
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "4408686"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59878331"
 ---
-# Erste Schritte mit WindowsServer 2019
+# <a name="get-started-with-windows-server-2019"></a>Erste Schritte mit WindowsServer 2019
 
->Gilt für: WindowsServer 2019
+>Gilt für: Windows Server 2019
 
 
 <hr />
@@ -36,7 +36,7 @@ ms.locfileid: "4408686"
                                         </div>
                                         <div class="cardText">
                                             <h3>Das ist neu:</h3>
-                                            <p>Erfahren Sie, was neu in Windows Server 2019 ist</p>
+                                            <p>Erfahren Sie, was neu in Windows Server-2019 ist</p>
                                         </div>
                                     </div>
                                 </div>
@@ -58,7 +58,7 @@ ms.locfileid: "4408686"
                     </div>
                     <div class="cardText">
                         <h3>Servicing Channels</h3>
-                        <p>Besser planen der Bereitstellung und Patches Zeitpläne Kenntnisse der Unterschied zwischen unsere Long Term Servicing Channel (LTSB) und die Semi-Annual Channel (SAC)-Versionen.</p>
+                        <p>Besser planen Sie Ihrer Bereitstellung und patching Zeitpläne verstehen, die der Unterschied zwischen unseren Long Term Servicing-Kanal (LTSB) und (Halbjährlicher Kanal, SAC) frei.</p>
                     </div>
                 </div>
             </div>
@@ -75,8 +75,8 @@ ms.locfileid: "4408686"
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Installieren Sie | Upgrade | Migrieren</h3>
-                        <p>Sie können eine Reihe von Möglichkeiten, Windows Server 2019 verschieben. Erfahren Sie, ob Sie neu installieren, ein direktes Upgrade oder Migration von Anwendungen und Server-Rollen, empfiehlt es sich hier.</p>
+                        <h3>Installieren | Upgraden | Migrieren</h3>
+                        <p>Sie können eine Reihe von Möglichkeiten in Windows Server-2019 verschieben. Entdecken Sie, ob Sie neu installieren, ein direktes Upgrade, oder Migrieren von Anwendungen und Serverrollen, hier den besten Ansatz.</p>
                     </div>
                 </div>
             </div>
@@ -94,7 +94,7 @@ ms.locfileid: "4408686"
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Anmerkungen zu dieser Version</h3>
+                        <h3>Versionshinweise</h3>
                         <p>Punkte, die schwerwiegende Probleme verursachen können, wenn Sie nicht vermieden oder umgangen werden.</p>
                     </div>
                 </div>
@@ -114,7 +114,7 @@ ms.locfileid: "4408686"
                     </div>
                     <div class="cardText">
                         <h3>Systemanforderungen</h3>
-                        <p>Die Mindestanforderungen zum Installieren und Ausführen von Windows Server 2019.</p>
+                        <p>Die empfohlenen hardwareanforderungen zum Installieren und Ausführen von Windows Server-2019.</p>
                     </div>
                 </div>
             </div>
@@ -133,7 +133,7 @@ ms.locfileid: "4408686"
                     </div>
                     <div class="cardText">
                         <h3>Aktivierung</h3>
-                        <p>Grundlegende Informationen zur Aktivierung von Windows Server 2019 selbst und anderen Betriebssystemen mithilfe von Windows Server 2019.</p>
+                        <p>Grundlegende Informationen zur Aktivierung von Windows Server-2019 selbst und andere Betriebssysteme, unter Verwendung von Windows Server-2019.</p>
                     </div>
                 </div>
             </div>
@@ -151,8 +151,8 @@ ms.locfileid: "4408686"
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Windows Server 2019 und Microsoft-Server-Anwendungskompatibilität</h3>
-                        <p>Müssen auf Windows Server 2019 funktioniert SQL abrufen oder die Schritte durch, damit Exchange funktioniert? Dieses Thema enthält Links zur Dokumentation für kompatible Microsoft-Anwendungen.</p>                    </div>
+                        <h3>2019 für Windows Server und Microsoft Server-Anwendungskompatibilität</h3>
+                        <p>Benötigen Sie zum Abrufen von SQL auf Windows Server-2019 arbeiten, oder suchen die Schritte aus, damit Exchange funktioniert? Dieses Thema enthält Links zur Dokumentation für Microsoft-Anwendungen, die kompatibel ist.</p>                    </div>
                 </div>
             </div>
         </div>
@@ -170,7 +170,7 @@ ms.locfileid: "4408686"
                     </div>
                     <div class="cardText">
                         <h3>Features bei Bedarf</h3>
-                        <p>Features bei Bedarf (FODs) sind Windows Server-Featurepakete, die zu einem beliebigen Zeitpunkt hinzugefügt werden können. </p>
+                        <p>Features bei Bedarf (FODs) sind Windows Server-Feature-Pakete, die zu einem beliebigen Zeitpunkt hinzugefügt werden können. </p>
                     </div>
                 </div>
             </div>
@@ -188,8 +188,8 @@ ms.locfileid: "4408686"
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Standard | Vergleich der Datacenter-Editionen</h3>
-                        <p>Windows Server Standard und Datacenter-Editionen verfügen über unterschiedliche Funktionen. Erfahren Sie, welche Version Sie benötigen.</p>
+                        <h3>Vergleich von Standard- und Datacenter-Editionen</h3>
+                        <p>Windows Server Standard und Datacenter Edition haben verschiedene Funktionen. Erfahren Sie, welche der beiden Sie benötigen.</p>
                     </div>
                 </div>
             </div>

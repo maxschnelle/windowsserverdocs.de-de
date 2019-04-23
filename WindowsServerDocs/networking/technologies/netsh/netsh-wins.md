@@ -1,6 +1,6 @@
 ---
-title: Network Shell (Netsh) Beispielbatchdatei
-description: Sie können in diesem Thema erfahren Sie, wie Sie eine Stapelverarbeitungsdatei erstellen, die mehrere Aufgaben mithilfe von Netsh in Windows Server 2016 verwenden.
+title: Beispielbatchdatei für Network Shell (Netsh)
+description: Sie können in diesem Thema verwenden, erfahren Sie, wie eine Batchdatei erstellen, die mehrere Aufgaben, die mithilfe von Netsh in Windows Server 2016 ausgeführt werden.
 ms.prod: windows-server-threshold
 ms.technology: networking
 ms.topic: article
@@ -9,34 +9,35 @@ manager: brianlic
 ms.author: pashort
 author: shortpatti
 ms.openlocfilehash: b0528cfaef201ba30e00e30f56a763be39a6b828
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59880171"
 ---
-# <a name="network-shell-netsh-example-batch-file"></a>Network Shell \(Netsh\)-Batch-Beispieldatei
+# <a name="network-shell-netsh-example-batch-file"></a>Netzwerk-Shell \(Netsh\) Beispielbatchdatei
 
 Gilt für: Windows Server 2016
 
-Sie können in diesem Thema erfahren Sie, wie Sie eine Stapelverarbeitungsdatei erstellen, die mehrere Aufgaben mithilfe von Netsh in Windows Server 2016 verwenden. In diesem Beispiel Batch-Datei die **Netsh Wins** Kontext verwendet wird.
+Sie können in diesem Thema verwenden, um zu erfahren, wie Sie eine Batchdatei erstellen, die mehrere Aufgaben ausführt, mithilfe von Netsh in Windows Server 2016. In dieser Beispiel-Batchdatei die **Netsh Wins** Kontext verwendet wird.
 
-## <a name="example-batch-file-overview"></a>Beispiel-Stapel (Übersicht)
+## <a name="example-batch-file-overview"></a>Beispiel für Batch File (Übersicht)
 
-Sie können Netsh-Befehle für Windows Internet Name Service-\(WINS\) Batch-Dateien und anderen Skripts zum Automatisieren von Aufgaben verwenden. Im folgenden Stapel wird veranschaulicht, wie Netsh-Befehle für WINS zu verwenden, um eine Reihe von verwandten Aufgaben auszuführen.
+Sie können den Netsh-Befehle verwenden, für Windows Internet Name Service \(WINS\) in Batchdateien und anderen Skripts zum Automatisieren von Aufgaben. In der folgenden Batch wird veranschaulicht die Netsh-Befehle für WINS zu verwenden, um eine Vielzahl von Aufgaben ausführen.
 
-In diesem Beispielbatchdatei WINS\ ein WINS-Server mit der IP-Adresse 192.168.125.30 und WINS\-B ist ein WINS-Server mit der IP-Adresse 192.168.0.189.
+In diesem Beispielbatchdatei WINS\-A ist ein WINS-Server mit der IP-Adresse 192.168.125.30 und WINS\-B ist ein WINS-Server mit der IP-Adresse 192.168.0.189.
 
-Die Beispiel-Batchdatei führt die folgenden Aufgaben aus.
+Die Beispiel-Batchdatei führt die folgenden Aufgaben.
 
-- Fügt eine dynamische Namen Datensatz mit IP-Adresse 192.168.0.205 MY\_RECORD \[04h\], zu WINS\ ein
-- Festlegen von WINS\-B als Push-/Pull-Replikationspartner WINS\ a
-- Wird eine Verbindung mit WINS\ B und legt dann WINS\-A als Push-/Pull-Replikationspartner von WINS\ B
-- Initiiert eine Push-Replikation von WINS\ A WINS\ B
-- Wird eine Verbindung mit WINS\-B, um sicherzustellen, dass der neue Datensatz, MY\_RECORD, erfolgreich repliziert wurde
+- Fügt einen Datensatz der dynamischen Namen mit der IP-Adresse 192.168.0.205, MY\_Datensatz \[04h\], um WINS\-ein
+- Legt WINS\-B als Push-/Pull-Replikationspartner von WINS\-ein
+- Eine Verbindung mit WINS\-B und dann legt WINS\-ein als Push-/Pull-Replikationspartner von WINS\-B
+- Initiiert eine Push-Replikation von WINS\-A, um WINS\-B
+- Eine Verbindung mit WINS\-B, um zu überprüfen, ob der neue Datensatz, MY\_Datensatz wurde erfolgreich repliziert
 
-## <a name="netsh-example-batch-file"></a>Netsh-Beispiel-Batch-Datei
+## <a name="netsh-example-batch-file"></a>Netsh-Beispielbatchdatei
 
-Im folgenden Beispiel-Batch-Datei sind Zeilen, die Kommentare enthalten für Hinweis "Rem" vorangestellt. Kommentare werden von Netsh ignoriert.
+In der folgenden Beispielbatchdatei werden Zeilen, die Kommentare enthalten für Anmerkung "Rem," vorangestellt. Netsh Kommentare werden ignoriert.
 
     rem: Begin example batch file.
     
@@ -68,14 +69,14 @@ Im folgenden Beispiel-Batch-Datei sind Zeilen, die Kommentare enthalten für Hin
     
     rem 6. End example batch file.
 
-## <a name="netsh-wins-commands-used-in-the-example-batch-file"></a>Netsh-Befehle für WINS in der Beispiel-Batchdatei verwendet
+## <a name="netsh-wins-commands-used-in-the-example-batch-file"></a>Netsh-WINS-Befehle, die in der Beispiel-Batchdatei verwendet
 
-Im folgenden Abschnitt Listen der **Netsh Wins** Befehle, die im folgenden Beispiel verwendet werden.
+Im folgenden Abschnitt listet die **Netsh Wins** Befehle, die in diesem Beispiel verwendet werden.
 
-- **Server**. Verschiebt den aktuellen Kontext der WINS-Befehlszeile mit dem Server, die entweder durch den Namen oder IP-Adresse angegeben.
-- **Geben Sie**. Ein Name auf dem WINS-Server registriert.
-- **Hinzufügen von Partner**. Fügt einen Replikationspartner des WINS-Servers hinzu.
-- **Init Push**. Initiiert und einen Push-Trigger an einen WINS-Server gesendet.
-- **Anzeigen der Namen**. Zeigt detaillierte Informationen für einen bestimmten Eintrag in der WINS-Server-Datenbank.  
+- **Server**. Verschiebt den aktuellen WINS-Befehl\-Zeile Kontext an den Server, mit dessen Namen oder IP-Adresse angegeben.
+- **Fügen Sie Namen**. Registriert einen Namen für den WINS-Server an.
+- **Partner hinzufügen**. Fügt einen Replikationspartner in der WINS-Server hinzu.
+- **Init-Push**. Initiiert und einen Push-Trigger auf einem WINS-Server sendet.
+- **Namen anzeigen**. Zeigt detaillierte Informationen für einen bestimmten Datensatz in der WINS-Server-Datenbank.  
 
 Weitere Informationen finden Sie unter [Netzwerkshell (Netsh)](netsh.md).

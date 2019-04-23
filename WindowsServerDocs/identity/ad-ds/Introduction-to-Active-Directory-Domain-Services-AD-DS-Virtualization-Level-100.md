@@ -1,186 +1,178 @@
 ---
 ms.assetid: 7a3114c8-bda8-49bb-83a8-4e04340ab221
-title: "Einführung in die Active Directory Domain Services (AD DS) Virtualization (Level 100)"
-description: 
-author: billmath
-ms.author: billmath
-manager: femila
+title: Einführung in die Virtualisierung der Active Directory-Domänendienste (Active Directory Domain Services, ADDS) (Ebene100)
+description: ''
+author: MicrosoftGuyJFlo
+ms.author: joflore
+manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 3c7fdc2e20bc4a27f2555af54f396a15f664d6c7
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
-ms.translationtype: MT
+ms.openlocfilehash: b818ba5a58db38bdb3c0f630a8d9d2daa1494403
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59878091"
 ---
-# <a name="introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100"></a>Einführung in die Active Directory Domain Services (AD DS) Virtualization (Level 100)
+# <a name="introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100"></a>Einführung in die Virtualisierung der Active Directory-Domänendienste (Active Directory Domain Services, ADDS) (Ebene100)
 
->Gilt für: Windows Server2016, Windows Server2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Virtualisierung von Active Directory-Domänendienste (AD DS)-Umgebungen wurde für eine Anzahl von Jahren laufende. Ab Windows Server 2012, bietet AD DS mehr Unterstützung für das Virtualisieren von Domänencontrollern, indem virtualisierungssichere Funktionen eingeführt und die schnelle Bereitstellung von virtuellen Domänencontrollern durch Klonen ermöglicht wurde. Diese neuen Virtualisierungsfeatures größer öffentlicher und privater Clouds unterstützen, hybridumgebungen Teile von AD DS lokal vorhanden sind und in der Cloud und AD DS-Infrastrukturen, die vollständig befinden sich auf lokale.
+An der Virtualisierung von AD DS (Active Directory Domain Services)-Umgebungen wird schon seit einigen Jahren gearbeitet. Ab Windows Server 2012 bietet AD DS mehr Unterstützung für das Virtualisieren von Domänencontrollern, indem virtualisierungssichere Funktionen eingeführt.
 
-**In diesem Dokument**
+## <a name="safe-virtualization-of-domain-controllers"></a>Sichere Virtualisierung von Domänencontrollern
 
--   [Sichere Virtualisierung von Domänencontrollern](../ad-ds/Introduction-to-Active-Directory-Domain-Services-AD-DS-Virtualization-Level-100.md#safe_virt_dc)
+Virtuelle Umgebungen bedeuten individuelle Herausforderungen für verteilte Arbeitslasten, die von einem logischen taktbasierten Replikationsschema abhängen. Die AD DS-Replikation verwendet beispielsweise einen monoton steigenden Wert (als %%amp;quot;USN%%amp;quot; oder %%amp;quot;Updatesequenznummer%%amp;quot;), der Transaktionen auf jedem Domänencontroller zugewiesen ist. Jeder Domänencontroller-Datenbank-Instanz erhält auch eine Identität, einen InvocationID genannt. Die Aufrufkennung eines Domänencontrollers dient in Verbindung mit der USN als eindeutiger Bezeichner, der jeder Schreibtransaktion auf jedem Domänencontroller zugeordnet ist, und innerhalb der Gesamtstruktur eindeutig sein muss.
 
--   [Klonen virtualisierter Domänencontroller](../ad-ds/Introduction-to-Active-Directory-Domain-Services-AD-DS-Virtualization-Level-100.md#virtualized_dc_cloning)
+Die AD DS-Replikation verwendet Aufrufkennungen und USNs auf jedem Domänencontroller, um zu bestimmen, welche Änderungen auf anderen Domänencontrollern repliziert werden müssen. Wenn ein Domänencontroller ein außerhalb seines Wirkungsbereichs die Rollback wird und eine USN für eine vollkommen andere Transaktion wiederverwendet wird, wird die Replikation nicht zusammengeführt, da andere Domänencontroller davon ausgehen werden, dass sie die Updates bereits empfangen haben der wiederverwendeten USN im Kontext der Aufrufkennung zugeordnet ist.
 
--   [Schritte zum Bereitstellen eines geklonten virtualisierten Domänencontrollers](../ad-ds/Introduction-to-Active-Directory-Domain-Services-AD-DS-Virtualization-Level-100.md#steps_deploy_vdc)
-
--   [Problembehandlung](../ad-ds/Introduction-to-Active-Directory-Domain-Services-AD-DS-Virtualization-Level-100.md#troubleshooting)
-
-## <a name="safe_virt_dc"></a>Sichere Virtualisierung von Domänencontrollern
-Virtuelle Umgebungen bedeuten individuelle Herausforderungen für verteilte Arbeitslasten, die eine logische Uhr Replikationsschema abhängen. AD DS-Replikation verwendet beispielsweise einen monoton steigenden Wert (bekannt als eine USN oder Update Sequence Number) für Transaktionen auf jedem Domänencontroller zugewiesen. Jeder Domänencontroller-Datenbankinstanz erhält auch eine andere Identität als ein InvocationID bezeichnet. Die Aufrufkennung eines Domänencontrollers und seine USN dienen zusammen, wie eine eindeutige Kennung, die Verbindung mit jeder Schreibtransaktion auf jedem Domänencontroller ausgeführt und muss innerhalb der Gesamtstruktur eindeutig sein.
-
-AD DS-Replikation verwendet Aufrufkennungen und USNs auf jedem Domänencontroller, um zu bestimmen, welche Änderungen auf andere Domänencontroller repliziert werden müssen. Wenn ein Domänencontroller ein außerhalb seines Wirkungsbereichs der Rollback wird und eine USN für eine vollkommen andere Transaktion wiederverwendet wird, wird die Replikation nicht zusammengeführt, da andere Domänencontroller davon ausgehen können, dass sie bereits im Kontext der Aufrufkennung der wiederverwendet USN zugeordneten Aktualisierungen erhalten haben.
-
-Die folgende Abbildung zeigt z. B. die Abfolge der Ereignisse, die durchgeführt wird in Windows Server 2008 R2 und älteren Betriebssystemen, wenn ein USN-Rollback auf VDC2, dem Zieldomänencontroller erkannt wird, die auf einem virtuellen Computer ausgeführt wird. In der folgenden Abbildung wird das USN-Rollback auf vdc2 erkannt, wenn ein Replikationspartner feststellt, dass VDC2 einen aktualitäts-USN-Wert gesendet hat, der zuvor vom Replikationspartner gesehen wurde das angibt, dass die Datenbank von VDC2 des rechtzeitig unzulässiges Rollback ausgeführt wurde.
+Die folgende Abbildung veranschaulicht z. B. die Abfolge von Ereignissen in Windows Server 2008 R2 und älteren Betriebssystemen, wenn ein USN-Rollback auf VDC2, dem auf einem virtuellen Computer ausgeführten Zieldomänencontroller, erkannt wird. In dieser Abbildung wird das USN-Rollback auf VDC2, wenn ein Replikationspartner feststellt, dass VDC2 einen aktualitäts-USN-Wert gesendet hat, der zuvor vom Replikationspartner, aufgetreten ist, gibt an, dass die Datenbank von VDC2 des Rollback hat nicht ordnungsgemäß.
 
 ![Einführung in AD DS](../media/Introduction-to-Active-Directory-Domain-Services--AD-DS--Virtualization--Level-100-/ADDS_Exampleofhowreplicationcanbecomeinconsistent.png)
 
-Ein virtuellen Computer (VM) ganz einfach hypervisoradministratoren einer Domäne des Controllers USNs (die logische Uhr), Rollback z. B. Anwenden eines Snapshots außerhalb seines Wirkungsbereichs der. Weitere Informationen zu USN und USN Rollback, einschließlich weiterer Abbildungen zur Veranschaulichung unerkannter Instanzen eines USN-Rollbacks, finden Sie unter [USN und USN-Rollback](https://technet.microsoft.com/library/virtual_active_directory_domain_controller_virtualization_hyperv(WS.10).aspx#usn_and_usn_rollback).
+Ein virtuellen Computer (VM) erleichtert hypervisoradministratoren einer Domäne des Controllers USNs (die logische Uhr), ein Rollback z. B. eine Momentaufnahme außerhalb seines Wirkungsbereichs der angewendet. Weitere Informationen zur USN und zum USN-Rollback, einschließlich weiterer Abbildungen zur Veranschaulichung unerkannter Instanzen eines USN-Rollbacks, finden Sie unter [USN and USN Rollback](https://technet.microsoft.com/library/virtual_active_directory_domain_controller_virtualization_hyperv(WS.10).aspx#usn_and_usn_rollback).
 
-Ab Windows Server 2012, AD DS virtuelle Domänencontroller gehostet, auf hypervisorplattformen, die Bezeichner mit dem Namen VM-Generations-ID ermitteln und Bereitstellen der erforderlichen Sicherheitsmaßnahmen die AD DS-Umgebung zu schützen, wenn die virtuelle Maschine durch die Anwendung einer VM-Momentaufnahme zeitlich zurückgesetzt wird. VM-Generations-ID verwendet einen unabhängigen Mechanismus des Hypervisor-Hersteller dieser Bezeichner im Adressbereich des virtuellen Gastcomputer verfügbar machen, damit die sichere Virtualisierung ständig von jedem Hypervisor verfügbar ist, der die VM-Generations-ID unterstützt. Dieser Bezeichner kann verwendet werden, von Diensten und Anwendungen, die innerhalb des virtuellen Computers ausgeführt werden, zu ermitteln, ob eine virtuelle Maschine zeitlich zurückgesetzt wurde.
+Ab Windows Server 2012, AD DS virtuelle Domänencontroller gehostet, die auf Hypervisor-Plattformen, die Bezeichner mit VM-Generations-ID ermitteln und bereitstellen, erforderlichen Sicherheitsmaßnahmen auf die AD DS-Umgebung zu schützen, wenn der virtuelle Computer ein Rollback ausgeführt wird in der Zeit von der Anwendung von einer VM-Momentaufnahme. Der VM-Generations-ID-Entwurf verwendet einen unabhängigen Mechanismus des Hypervisoranbieters, um diesen Bezeichner im Adressbereich des virtuellen Gastcomputers bereitzustellen, damit die sichere Virtualisierung ständig von jedem Hypervisor verfügbar ist, der VM-Generations-ID unterstützt. Dieser Bezeichner kann von Diensten und Anwendungen verwendet werden, die innerhalb des virtuellen Computers ausgeführt werden, um zu ermitteln, ob für einen virtuellen Computer ein Rollback durchgeführt wurde.
 
-### <a name="BKMK_HowSafeguardsWork"></a>Wie funktionieren diese Virtualisierungs-Sicherheitsmaßnahmen implementiert?
-Während der Installation des Domänencontrollers speichert AD DS den Bezeichner VM-Generations-ID zunächst als Teil des MsDS-GenerationID-Attributs auf dem Domänencontroller-Computerobjekt in seiner Datenbank (häufig als Verzeichnisstruktur oder DIT bezeichnet). Die VM-Generations-ID wird von einem Windows-Treiber innerhalb des virtuellen Computers unabhängig nachverfolgt.
+### <a name="BKMK_HowSafeguardsWork"></a>Wie funktionieren diese Virtualisierungs-Sicherheitsmaßnahmen?
+Während der Installation des Domänencontrollers speichert AD DS den Bezeichner VM-Generations-ID anfänglich als Teil des MsDS-GenerationID-Attributs auf die Domänencontroller Computerobjekt in der Datenbank (häufig als Verzeichnisinformationsstruktur oder DIT bezeichnet). Die VM-Generations-ID wird von einem Windows-Treiber innerhalb des virtuellen Computers unabhängig nachverfolgt.
 
-Wenn ein Administrator den virtuellen Computer aus einem früheren Momentaufnahme wiederherstellt, wird der aktuelle Wert der die VM-Generations-ID aus dem Treiber des virtuellen Computers mit einem Wert in der DIT verglichen.
+Wenn ein Administrator den virtuellen Computer aus einem früheren Momentaufnahme wiederherstellt, wird der aktuelle Wert der VM-Generations-ID aus dem Treiber des virtuellen Computers mit einem Wert in der DIT verglichen.
 
-Wenn die beiden Werte unterschiedlich sind, wird die Aufrufkennung zurückgesetzt und der RID-Pool verworfen, und vermeiden somit erneute verwenden der USN. Wenn die Werte identisch sind, wird die Transaktion normal ausgeführt.
+Unterscheiden sich die beiden Werte, wird die Aufrufkennung zurückgesetzt und der RID-Pool verworfen, um das erneute Verwenden der USN zu verhindern. Sind die Werte identisch, wird die Transaktion normal ausgeführt.
 
-AD DS vergleicht auch den aktuellen Wert der VM-Generations-ID des virtuellen Computers mit dem Wert in der DIT jedes Mal der Domänencontroller neu gestartet wird und, falls abweichend, es wird die Aufrufkennung zurückgesetzt, der RID-Pool und die DIT mit dem neuen Wert aktualisiert. Ebenfalls nicht autoritativ wird den SYSVOL-Ordner synchronisiert, um die sichere Wiederherstellung abzuschließen. Dadurch können Schutzvorrichtungen die Anwendung von Momentaufnahmen auf virtuellen Computern erweitern. Diese Schutzvorrichtungen, die in Windows Server 2012 eingeführte ermöglichen AD DS-Administratoren der individuellen Vorteile der Bereitstellung und Verwaltung von Domänencontrollern in einer virtualisierten Umgebung profitieren.
+AD DS vergleicht auch bei jedem Neustart des Domänencontrollers den aktuellen Wert der VM-Generations-ID des virtuellen Computers mit dem Wert in der DIT. Unterscheiden sich die Werte, wird die Aufrufkennung zurückgesetzt, der RID-Pool verworfen und die DIT mit dem neuen Wert aktualisiert. Außerdem wird der Ordner %%amp;quot;SYSVOL%%amp;quot; nicht autorisierend synchronisiert, um die sichere Wiederherstellung abzuschließen. Dadurch können Schutzvorrichtungen die Anwendung von Momentaufnahmes auf heruntergefahrenen virtuellen Computern erweitern. Diese in Windows Server 2012 eingeführten Schutzvorrichtungen ermöglichen AD DS-Administratoren zum Nutzen der individuellen Vorteile der Bereitstellung und Verwaltung von Domänencontrollern in einer virtualisierten Umgebung.
 
-Die folgende Abbildung zeigt, wie virtualisierungsschutzvorrichtungen angewendet werden, wenn dasselbe USN-Rollback auf einem virtualisierten Domänencontroller erkannt wird, die Windows Server 2012 auf einem Hypervisor ausgeführt wird, der die VM-Generations-ID unterstützt.
+Die folgende Abbildung zeigt, wie virtualisierungsschutzvorrichtungen angewendet werden, wenn dasselbe USN-Rollback auf einem virtualisierten Domänencontroller erkannt wird, die Windows Server 2012 auf einem Hypervisor ausgeführt wird, die VM-Generations-ID unterstützt.
 
 ![Einführung in AD DS](../media/Introduction-to-Active-Directory-Domain-Services--AD-DS--Virtualization--Level-100-/ADDS_VDC_Exampleofhowsafeguardswork.gif)
 
-In diesem Fall, wenn der Hypervisor eine Änderung auf VM-Generations-ID-Wert erkennt, virtualisierungsschutzvorrichtungen ausgelöst, einschließlich das Zurücksetzen die aufrufkennung des virtualisierten Domänencontrollers (von A zu B im vorherigen Beispiel) und Aktualisieren des VM-Generations-ID-Werts auf dem virtuellen Computer entsprechend den neuen vom Hypervisor gespeicherten Wert (G2) gespeichert. Den Schutzvorrichtungen wird sichergestellt, dass die Replikation für beide Domänencontroller zusammengeführt.
+In diesem Fall werden Virtualisierungsschutzvorrichtungen ausgelöst, wenn der Hypervisor eine Änderung am Wert der VM-Generations-ID erkennt. Dabei wird auch die Aufrufkennung des virtualisierten Domänencontrollers (im vorhergehenden Beispiel von A zu B) zurückgesetzt und der auf dem virtuellen Computer gespeicherte Wert der VM-Generations-ID so aktualisiert, dass er mit dem neuen vom Hypervisor gespeicherten Wert (G2) übereinstimmt. Mit den Schutzvorrichtungen wird sichergestellt, dass die Replikation für beide Domänencontroller zusammengeführt wird.
 
-Mit Windows Server 2012 AD DS Schutzvorrichtungen auf virtuellen Domänencontrollern auf VM-Generations-ID-fähigen Hypervisoren gehostet und stellt sicher, dass die versehentliche Anwendung von Momentaufnahmen oder ähnliche Hypervisor-fähigen Mechanismen, die könnte der Rollback Zustand eines virtuellen Computers nicht unterbrechen die AD DS-Umgebung (durch Verhindern von Replikationsproblemen wie z. B. einer USN-Blase oder veralteten Objekten). Wiederherstellen eines Domänencontrollers durch Anwenden der Momentaufnahme eines virtuellen Computers wird jedoch als alternativmechanismus zum Sichern von einem Domänencontroller nicht empfohlen. Es wird empfohlen, dass Sie Windows Server-Sicherung oder andere VSS Writer weiterhin-basierte sicherungslösungen zu verwenden.
+In Windows Server 2012 AD DS Schutzvorrichtungen auf virtuellen Domänencontrollern, die auf VM-Generations-ID-fähigen Hypervisoren gehostet werden soll, und stellt sicher, dass die versehentliche Anwendung von Momentaufnahmen oder ähnlicher Hypervisor-fähigen Mechanismen, die ein Rollback einer virtuellen könnten Status des Computers ist die AD DS-Umgebung nicht unterbrochen werden (durch Verhindern von Replikationsproblemen wie z. B. einer USN-Blase oder veralteten Objekten). Das Wiederherstellen eines Domänencontrollers mittels Anwendung eines Momentaufnahmes eines virtuellen Computers wird jedoch nicht als Alternativmechanismus zum Sichern eines Domänencontrollers empfohlen. Es wird empfohlen, weiterhin die Windows Server-Sicherung oder andere VSS Writer-basierte Sicherungslösungen zu verwenden.
 
 > [!CAUTION]
-> Wenn ein Domänencontroller in einer produktionsumgebung versehentlich auf einen Momentaufnahme zurückgesetzt wird, wird empfohlen, dass Sie wenden Sie sich an die Anbieter für die Anwendungen und Dienste auf diesem virtuellen Computer, um Anweisungen zum Überprüfen des Status dieser Programme nach der Momentaufnahme wiederherstellen.
+> Wenn ein Domänencontroller in einer produktionsumgebung versehentlich mit einer Momentaufnahme wiederhergestellt wird, wird empfohlen, dass Sie die Hersteller für Anwendungen und Dienste, die auf diesem virtuellen Computer, um Anweisungen zum Überprüfen des Status dieser Programme nach gehostet werden. Wenden Sie sich an Wiederherstellung einer Momentaufnahme.
 
-Weitere Informationen finden Sie unter [Architektur virtualisierter Domänencontroller die sichere Wiederherstellung](../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Architecture.md#BKMK_SafeRestoreArch).
+Weitere Informationen finden Sie unter [Virtualized domain controller safe restore architecture](../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Architecture.md#BKMK_SafeRestoreArch).
 
-## <a name="virtualized_dc_cloning"></a>Klonen virtualisierter Domänencontroller
-Ab Windows Server 2012, können Administratoren einfach und sicher replikatsdomänencontroller bereitstellen ein vorhandenen virtuellen Domänencontrollers kopieren. In einer virtuellen Umgebung müssen Administratoren nicht mehr wiederholt Bereitstellen eines Images für Server mit Hilfe von sysprep.exe vorbereitet, den Server zu einem Domänencontroller heraufstufen, und schließen Sie zusätzliche konfigurationsanforderungen für die Bereitstellung von jedem Replikat-Domänencontroller.
+## <a name="virtualized_dc_cloning"></a>Klonen von virtualisierten Domänencontrollern
+Ab Windows Server 2012, können Administratoren einfach und sicher replikatsdomänencontroller bereitstellen durch Kopieren eines vorhandenen virtuellen Domänencontrollers. In einer virtuellen Umgebung müssen Administratoren nicht mehr jedesmal ein mit %%amp;quot;sysprep.exe%%amp;quot; vorbereitetes Serverabbild bereitstellen, den Server zu einem Domänencontroller heraufstufen und zusätzliche Konfigurationsanforderungen erfüllen, um einen Replikatsdomänencontroller bereitzustellen.
 
 > [!NOTE]
-> Administratoren müssen vorhandene Prozessen zum Bereitstellen von des ersten Domänencontrollers in einer Domäne, z. B. die Verwendung einer sysprep.exe, den Server zu einem Domänencontroller heraufstufen und schließen Sie alle zusätzlichen konfigurationsanforderungen Vorbereiten einer Server virtuellen Festplatte (VHD) folgen. Verwenden Sie die aktuelle serversicherung in einem notfallwiederherstellungs-Szenario den ersten Domänencontroller in einer Domäne wiederherstellen.
+> Administratoren müssen vorhandenen Prozessen folgen, um den ersten Domänencontroller in einer Domäne bereitzustellen, z. B. Vorbereiten einer virtuellen Serverfestplatte mithilfe von %%amp;quot;sysprep.exe%%amp;quot;, Heraufstufen des Servers zu einem Domänencontroller und Erfüllen zusätzlicher Konfigurationsanforderungen. In einem Notfallwiederherstellungs-Szenario verwenden Sie die aktuelle Serversicherung zum Wiederherstellen des ersten Domänencontrollers in einer Domäne.
 
 ### <a name="scenarios-that-benefit-from-virtual-domain-controller-cloning"></a>Szenarien, die vom Klonen virtueller Domänencontroller profitieren
 
 -   Schnelle Bereitstellung zusätzlicher Domänencontroller in einer neuen Domäne
 
--   Schnelle Wiederherstellung der Geschäftskontinuität während der Wiederherstellung durch Wiederherstellen von AD DS-Kapazität mittels schneller Bereitstellung von Domänencontrollern durch Klonen
+-   Schnelle Wiederherstellung der Geschäftskontinuität bei einer Notfallwiederherstellung durch Wiederherstellung der AD DS-Kapazität mittels schneller Bereitstellung von Domänencontrollern durch Klonen
 
--   Optimieren Sie privater cloudbereitstellungen mittels eine flexible Bereitstellung von Domänencontrollern auf eine höhere zu erfüllen
+-   Optimieren privater Cloudbereitstellungen mittels flexibler Bereitstellung von Domänencontrollern, um höhere Skalierungsanforderungen zu erfüllen
 
--   Schnelle Bereitstellung von testumgebungen, die das Bereitstellen und Testen der neuen Features und Funktionen vor dem Produktionsrollout
+-   Schnelle Bereitstellung von Testumgebungen, um das Bereitstellen und Testen neuer Features und Funktionen vor dem Produktionsrollout zu ermöglichen
 
--   Schnelles erfüllen höherer kapazitätsanforderungen in Zweigstellen durch Klonen vorhandener Domänencontroller in Filialen
+-   Schnelles Erfüllen höherer Kapazitätsanforderungen in Zweigstellen durch Klonen vorhandener Domänencontroller in Zweigstellen
 
-Wenn Sie eine große Anzahl von Domänencontrollern schnell bereitstellen, weiterhin Ihren vorhandenen Verfahren zum Überprüfen der Integritäts jedes Domänencontrollers nach Abschluss der Installation. Bereitstellen Sie Domänencontroller in Batches angemessener Größe bereit, damit Sie deren Integrität nach jeder abgeschlossenen Installation eines Abschluss überprüfen können. Die empfohlene Batchgröße ist 10. Weitere Informationen finden Sie unter [Schritte zum Bereitstellen eines geklonten virtualisierten Domänencontrollers](../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/Introduction-to-Active-Directory-Domain-Services-AD-DS-Virtualization-Level-100.md#steps_deploy_vdc).
+Folgen Sie beim schnellen Bereitstellen einer großen Anzahl von Domänencontrollern weiterhin Ihren vorhandenen Verfahren zum Überprüfen der Integrität jedes Domänencontrollers nach Abschluss der Installation. Stellen Sie Domänencontroller in Batches angemessener Größe bereit, damit Sie deren Integrität nach jeder abgeschlossenen Installation eines Batches überprüfen können. Die empfohlene Batchgröße ist 10. Weitere Informationen finden Sie unter [Steps for deploying a clone virtualized domain controller](../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/Introduction-to-Active-Directory-Domain-Services-AD-DS-Virtualization-Level-100.md#steps_deploy_vdc).
 
-### <a name="clear-separation-of-responsibilities"></a>Klare verantwortungsteilung
-Die Autorisierung zum Klonen virtualisierter Domänencontroller wird von der AD DS-Administrator gesteuert. Damit hypervisoradministratoren zusätzliche Domänencontroller durch Kopieren virtueller Domänencontroller bereitstellen muss der AD DS-Administrator auswählen und einen Domänencontroller zu autorisieren, und führen Sie die vorbereitenden Schritte aus, damit es als Quelle für das Klonen.
+### <a name="clear-separation-of-responsibilities"></a>Klare Verantwortungsteilung
+Die Autorisierung zum Klonen virtualisierter Domänencontroller wird vom AD DS-Administrator gesteuert. Damit Hypervisoradministratoren zusätzliche Domänencontroller durch Kopieren virtueller Domänencontroller bereitstellen können, muss der AD DS-Administrator einen Domänencontroller auswählen, autorisieren und anschließend vorbereitende Schritte für die Aktivierung des Controllers als Quelle zum Klonen ausführen.
 
-Mit der Bereitstellung virtueller Computer in der Regel unter den Geltungsbereich des Administrators Hypervisor, können hypervisoradministratoren Replikat virtuellen domänencontrollercomputern bereitstellen, indem virtualisierte Domänencontroller, die für das Klonen von der AD DS-Administrator vorbereitet und autorisiert werden kopiert.
+Da der virtuelle Computer in der Regel im Geltungsbereich des Hypervisoradministrators bereitgestellt wird, können Hypervisoradministratoren virtuelle Replikatsdomänencontroller bereitstellen, indem virtualisierte Domänencontroller kopiert werden, die zum Klonen durch den AD DS-Administrator autorisiert und vorbereitet sind.
 
 > [!WARNING]
-> Alle Personen dürfen die Hypervisors, der einen virtuellen Domänencontroller hostet Hoch vertrauenswürdig und in der Umgebung überwacht.
+> Jeder, der als Administrator des Hypervisors zugelassen ist, der einen virtuellen Domänencontroller hostet, muss in der Umgebung sehr vertrauenswürdig sein und überwacht werden.
 
 ### <a name="how-does-virtual-domain-controller-cloning-work"></a>Wie funktioniert das Klonen eines virtuellen Domänencontrollers?
-Der klonprozess beinhaltet das Erstellen einer Kopie der virtuellen Festplatte einer vorhandenen virtuellen Domänencontrollers (oder für komplexere Konfigurationen, die VM-Domänencontroller), für das Klonen in AD DS, und erstellen eine Konfigurationsdatei zum Klonen autorisieren. Dies reduziert die Anzahl der Schritte und die benötigte Zeit Bereitstellen eines virtuellen Replikatsdomänencontrollers Beseitigung ansonsten wiederholt auszuführende Bereitstellungsaufgaben.
+Der klonprozess beinhaltet eine Kopie eines vorhandenen virtuellen Domänencontrollers des VHD (oder für komplexere Konfigurationen, der den virtuellen Domänencontrollercomputer), für das Klonen in AD DS, und erstellen eine Konfigurationsdatei zum Klonen autorisieren. Dadurch werden die Anzahl der Schritte und die benötigte Zeit für das Bereitstellen eines virtuellen Replikatsdomänencontrollers reduziert, indem ansonsten wiederholt auszuführende Bereitstellungsaufgaben eliminiert werden.
 
-Der geklonte Domänencontroller verwendet die folgenden Kriterien ermitteln, ob es sich um eine Kopie eines anderen Domänencontrollers ist:
+Der geklonte Domänencontroller stellt anhand folgender Kriterien fest, dass er eine Kopie eines anderen Domänencontrollers ist:
 
-1.  Der Wert der VM-Generations-ID angegeben, von der virtuellen Maschine unterscheidet sich der Wert der in der DIT gespeicherten VM-Generations-ID zur Verfügung.
+1.  Der vom virtuellen Computer bereitgestellte Wert der VM-Generations-ID unterscheidet sich vom Wert der in der DIT gespeicherten VM-Generations-ID.
 
     > [!NOTE]
-    > Die Hypervisor-Plattform muss die VM-Generations-ID unterstützen (Windows Server 2012 Hyper-V unterstützt VM-Generations-ID).
+    > Die hypervisorplattform muss die VM-Generations-ID unterstützen (Windows Server 2012 Hyper-V unterstützt VM-Generations-ID).
 
-2.  Vorhandensein einer Datei %% amp;quot;dccloneconfig.XML%%amp;quot; in einem der folgenden Speicherorte:
+2.  Die Datei %%amp;quot;DCCloneConfig.xml%%amp;quot; muss an einem der folgenden Speicherorte vorhanden sein:
 
-    -   Das Verzeichnis, in dem die DIT befindet
+    -   Das Verzeichnis, in dem sich die DIT befindet
 
-    -   %windir%\ntds
+    -   %windir%\NTDS
 
-    -   Im Stammverzeichnis eines Wechselmedienlaufwerks
+    -   Der Stamm eines Wechselmedienlaufwerks
 
-Die Kriterien erfüllt, wird es durch den Prozess zum Bereitstellen von sich selbst als einen Replikatdomänencontroller klonen.
+Sobald die Kriterien erfüllt sind, durchläuft der Domänencontroller den Klonprozess, um sich selbst als Replikatsdomänencontroller bereitzustellen.
 
-Der geklonte Domänencontroller verwendet den Sicherheitskontext des Quell-Domänencontroller (der Domänencontroller, dessen Kopie er darstellt), wenden Sie sich an den Windows Server 2012 primären Domänencontroller (PDC) Emulator Inhaber der Betriebsmasterfunktion (auch als flexible einfache Mastervorgänge oder FSMO-Funktion). Der PDC-Emulator muss Windows Server 2012 ausgeführt werden, aber es muss nicht auf einem Hypervisor ausgeführt werden.
+Der geklonte Domänencontroller verwendet den Sicherheitskontext des Quelldomänencontrollers (der Domänencontroller, dessen Kopie er darstellt), die Windows Server 2012 primären Domänencontroller (PDC) Emulator Inhaber der Betriebsmasterfunktion (auch bekannt als kontaktieren flexible einfache Mastervorgänge oder FSMO-Funktion). Der PDC-Emulator muss Windows Server 2012 ausgeführt werden, aber es muss nicht auf einem Hypervisor ausgeführt werden.
 
 > [!NOTE]
-> Wenn Sie eine schemaerweiterung mit Attributen, die auf den Quelldomänencontroller verweisen und das Attribut auf einem der kopierten Objekte (Computerobjekt, NTDS-Einstellungsobjekt) zum Erstellen des Klons ist, dieses Attribut nicht kopiert oder aktualisiert, um den geklonten Domänencontroller verweisen.
+> Wenn Sie eine Schemaerweiterung mit Attributen haben, die auf den Quelldomänencontroller verweisen, und das Attribut sich auf einem der kopierten Objekte (Computerobjekt, NTDS-Einstellungsobjekt) befindet, um den Klon zu erstellen, wird dieses Attribut nicht kopiert oder so aktualisiert, dass es auf den geklonten Domänencontroller verweist.
 
-Nachdem Sie sichergestellt, dass der anfordernde Domänencontroller für das Klonen autorisiert ist, der PDC-Emulator eine neue Computeridentität neues Konto, SID, Namen und Kennwort, die Computer als einen Replikatdomänencontroller identifiziert erstellen und senden diese Informationen an den Klon zurück. Der geklonte Domänencontroller bereitet dann die AD DS-Datenbankdateien, sondern als Replikat dienen soll, und er bereinigt auch den Zustand des Computers.
+Nach dem Überprüfen, ob der anfordernde Domänencontroller für das Klonen autorisiert ist, erstellt der PDC-Emulator eine neue Computeridentität mit neuem Konto sowie SID, Namen und Kennwort, die den Computer als Replikatsdomänencontroller identifizieren, und sendet diese Informationen an den Klon zurück. Der geklonte Domänencontroller bereitet dann die AD DS-Datenbankdateien vor, die als Replikat dienen sollen, und bereinigt auch den Status des Computers.
 
-Weitere Informationen finden Sie unter [virtualisierte Domänencontroller, die Architektur für das Klonen](../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Architecture.md#BKMK_CloneArch).
+Weitere Informationen finden Sie unter [Sichere Klonarchitektur für virtualisierte Domänencontroller](../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Architecture.md#BKMK_CloneArch).
 
-### <a name="cloning-components"></a>Das Klonen Komponenten
-Die klonkomponenten umfassen neue Cmdlets im Active Directory-Modul für Windows PowerShell und dazugehörige XML-Dateien:
+### <a name="cloning-components"></a>Klonkomponenten
+Die Klonkomponenten umfassen neue Cmdlets im Active Directory-Modul für Windows PowerShell und dazugehörige XML-Dateien:
 
--   **New-ADDCCloneConfigFile** "dieses Cmdlet erstellt, und platziert dccloneconfig.XML-Datei am richtigen Speicherort um sicherzustellen, dass sie zum Auslösen des Klonens verfügbar. Es führt auch voraussetzungsprüfungen um erfolgreiches Klonen sicherzustellen. Es ist in Active Directory-Modul für Windows PowerShell enthalten. Kann lokal auf einem virtualisierten Domänencontroller, der zum Klonen vorbereitet wird ausgeführt, oder Sie können dafür Remote mit der offline-Option. Sie können die Einstellungen für den geklonten Domänencontroller, z. B. Name, Website und IP-Adresse angeben.
+-   **New-ADDCCloneConfigFile** "mit diesem Cmdlet erstellt und platziert dccloneconfig.XML-Datei am richtigen Speicherort, um sicherzustellen, dass er für das Auslösen des Klonens verfügbar. Zudem werden Voraussetzungsprüfungen durchgeführt, um ein erfolgreiches Klonen sicherzustellen. Das Cmdlet ist im Active Directory-Modul für Windows PowerShell enthalten. Sie können es lokal auf einem virtualisierten Domänencontroller ausführen, der zum Klonen vorbereitet ist, oder Sie können es mithilfe der Option %%amp;quot;-offline%%amp;quot; remote ausführen. Sie können Einstellungen für die den geklonten Domänencontroller festlegen, z. B. Name, Website und IP-Adresse.
 
-    Die voraussetzungsprüfungen, die ausgeführt werden:
+    Folgende Voraussetzungsprüfungen werden durchgeführt:
 
     > [!NOTE]
-    > Werden keine voraussetzungsprüfungen durchgeführt, wenn die "offline-Option wird verwendet. Weitere Informationen finden Sie unter [Running New-ADDCCloneConfigFile im Offlinemodus](../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/Introduction-to-Active-Directory-Domain-Services-AD-DS-Virtualization-Level-100.md#BKMK_OfflineMode).
+    > Werden keine voraussetzungsprüfungen durchgeführt, wenn die "offline-Option verwendet wird. Weitere Informationen finden Sie unter [Ausführen von %%amp;quot;New-ADDCCloneConfigFile%%amp;quot; im Offlinemodus](../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/Introduction-to-Active-Directory-Domain-Services-AD-DS-Virtualization-Level-100.md#BKMK_OfflineMode).
 
-    -   Der vorbereitete DC ist für das Klonen autorisiert (ist ein Mitglied der **Klonbare Domänencontroller** Gruppe)
+    -   Der vorbereitete DC ist für das Klonen autorisiert (er ist Mitglied der Gruppe **Klonbare Domänencontroller**)
 
     -   Der PDC-Emulator ausgeführt wird, Windows Server 2012.
 
-    -   Programme oder Dienste aufgeführt, Ausführen von **Get-ADDCCloningExcludedApplicationList** in CustomDCCloneAllowList.xml (am Ende der Liste mit klonkomponenten ausführlicher erläutert) enthalten sind.
+    -   Alle Programme oder Dienste, die nach dem Ausführen von **Get-ADDCCloningExcludedApplicationList** aufgelistet wurden, sind in der Liste %%amp;quot;CustomDCCloneAllowList.xml%%amp;quot; enthalten (und werden am Ende dieser Liste mit Klonkomponenten ausführlicher erklärt).
 
--   **DCCloneConfig.xml** "erfolgreich Klonen ein virtualisierten Domänencontrollers, diese Datei muss vorhanden sein, in dem Verzeichnis, in dem die DIT befindet, *%windir%\NTDS*, oder im Stammverzeichnis eines Wechselmedienlaufwerks. Außer als ein Auslöser verwendet wird, um zu erkennen und Initiieren eines Klonvorgangs, bietet es auch die Möglichkeit, Konfigurationseinstellungen für den geklonten Domänencontroller festgelegt.
+-   **DCCloneConfig.xml** "um das erfolgreiche Klonen ein virtualisierten Domänencontrollers, muss diese Datei vorhanden ist, in dem Verzeichnis, das sich die DIT befindet, werden *%windir%\NTDS*, oder im Stammverzeichnis eines Wechselmedienlaufwerks. Sie wird als ein Auslöser zum Ermitteln und Initiieren eines Klonvorgangs verwendet und bietet auch eine Methode zum Festlegen der Konfigurationseinstellungen für den geklonten Domänencontroller.
 
-    Das Schema und eine Beispieldatei für die Datei DCCloneConfig.xml befinden sich auf alle Windows Server 2012-Computer an:
+    Das Schema und eine Beispieldatei für die Datei %% amp;quot;dccloneconfig.XML%%amp;quot; werden auf allen Windows Server 2012-Computern unter gespeichert:
 
     -   %windir%\system32\DCCloneConfigSchema.xsd
 
-    -   %windir%\system32\SampleDCCloneConfig.Xml
+    -   %windir%\system32\SampleDCCloneConfig.xml
 
-    Es wird empfohlen, dass Sie das Cmdlet "New-ADDCCloneConfigFile" verwenden, um die Datei DCCloneConfig.xml zu erstellen. Sie könnten zwar auch auch die Schemadatei mit einem XML-fähigen Editor zum Erstellen dieser Datei, erhöht die Manuelles Editieren der Datei die Wahrscheinlichkeit von Fehlern. Wenn Sie die Datei bearbeiten, müssen sie mithilfe von XML-fähigen Editor, z. B. Visual Studio ausgeführt werden [XML Notepad](https://www.microsoft.com/download/details.aspx?displaylang=en&id=7973), oder Drittanbieter-Anwendungen (verwenden Sie nicht Editor).
+    Es wird empfohlen, das Cmdlet %%amp;quot;New-ADDCCloneConfigFile%%amp;quot; zum Erstellen das Datei %%amp;quot;DCCloneConfig.xml%%amp;quot; zu verwenden. Das Verwenden der Schemadatei mit einem XML-fähigen Editor zum Erstellen dieser Datei ist zwar möglich, das manuelle Bearbeiten der Datei erhöht jedoch die Fehlerwahrscheinlichkeit. Wenn Sie die Datei bearbeiten, müssen Sie dazu einen XML-fähigen Editor wie z. B. Visual Studio, [XML Notepad](https://www.microsoft.com/download/details.aspx?displaylang=en&id=7973)oder eine Anwendung eines Drittanbieters verwenden (verwenden Sie nicht Editor).
 
--   **Get-ADDCCloningExcludedApplicationList** "dieses Cmdlet wird ausgeführt, auf dem Quelldomänencontroller vor dem Beginn des klonprozesses, um festzustellen, welche Dienste oder installierte Programme nicht auf der unterstützten Standardliste %% amp;quot;defaultdccloneallowlist.XML%%amp;quot; sind oder einen benutzerdefinierten Aufnahmeliste Liste mit dem Namen %% amp;quot;customdccloneallowlist.XML%%amp;quot und somit nicht Auswirkungen des Klonens ausgewertet.
+-   **Get-ADDCCloningExcludedApplicationList** "dieses Cmdlet wird ausgeführt auf dem Quelldomänencontroller vor dem Beginn des klonprozesses auf, um zu ermitteln, welche Dienste oder installierten Programme nicht auf der unterstützten Standardliste, %% Amp;quot;defaultdccloneallowlist.XML%%amp;quot; oder einer benutzerdefinierten Aufnahmeliste benannte %% amp;quot;customdccloneallowlist.XML%%amp;quot, und haben dadurch nicht für die Auswirkungen des Klonens ausgewertet wurden.
 
-    Dieses Cmdlet durchsucht den Quelldomänencontroller für Dienste im Dienste-Manager, und der installierten Programme aufgeführt, unter **HKLM\Software\Microsoft\Windows\CurrentVersion\Uninstall** , die nicht in der Standardliste (%% amp;quot;defaultdccloneallowlist.XML%%amp;quot;) angegeben oder, sofern angegeben ist, die benutzerdefinierten Aufnahmeliste (%% amp;quot;customdccloneallowlist.XML%%amp;quot). Die Liste der Anwendungen und Dienste, die durch Ausführen des Cmdlets zurückgegeben wird, ist der Unterschied zwischen was bereits bereitgestellt wurde in DefaultDCCloneAllowList.xml oder die Datei CustomDCCloneAllowList.xml und die Liste, die zur Laufzeit erstellt wurde, basierend auf was auf dem Quelldomänencontroller installiert ist. Die Dienste und Programme Ausgabe von Get-ADDCCloningExcludedApplicationList kann zur Datei CustomDCCloneAllowList.xml hinzugefügt werden, wenn Sie feststellen, dass die Dienste oder Programme sicher geklont werden können. Um festzustellen, ob ein Dienst oder ein installiertes Programm sicher geklont werden kann, Werten Sie die folgenden Bedingungen:
+    Dieses Cmdlet durchsucht den Quelldomänencontroller nach Diensten im Dienststeuerungs-Manager und unter **HKLM\Software\Microsoft\Windows\CurrentVersion\Uninstall** aufgeführten installierten Programmen, die nicht in der Standardliste (%%amp;quot;DefaultDCCloneAllowList.xml%%amp;quot;) oder ggf. in der benutzerdefinierten Aufnahmeliste (%%amp;quot;CustomDCCloneAllowList.xml%%amp;quot;) enthalten sind. Die Liste der Anwendungen und Dienste, die durch das Ausführen des Cmdlets zurückgegeben wird, zeigt den Unterschied zwischen dem, was bereits in der Datei %%amp;quot;DefaultDCCloneAllowList.xml%%amp;quot; oder %%amp;quot;CustomDCCloneAllowList.xml%%amp;quot; bereitgestellt wurde, und der Liste, die zur Laufzeit erstellt wurde, basierend auf den Installationen auf dem Quelldomänencontroller. Die Dienst- und Programmausgabe von %%amp;quot;Get-ADDCCloningExcludedApplicationList%%amp;quot; kann der Datei %%amp;quot;CustomDCCloneAllowList.xml%%amp;quot; hinzugefügt werden, wenn Sie feststellen, dass die Dienste oder Programme sicher geklont werden können. Werten Sie die folgenden Bedingungen aus, um zu ermitteln. ob ein Dienst oder ein installiertes Programm sicher geklont werden kann:
 
-    -   Ist der Dienst oder das installierte Programm durch die Computeridentität, z. B. Name, SID, Kennwort und So weiter beeinträchtigt?
+    -   Hat die Computeridentität (z. B. Name, SID, Kennwort) Auswirkungen auf den Dienst oder das installierte Programm?
 
-    -   Wird den Dienst oder installiert Anwendung Store alle Zustände lokal auf dem Computer, der die Funktionen auf dem Klon beeinflussen könnten?
+    -   Speichert der Dienst oder das installierte Programm auf dem Computer lokal einen Status, der u. U. Auswirkungen auf dessen Funktionalität auf dem Klon hat?
 
     Sie müssen gemeinsam mit dem Softwareanbieter der Anwendung bestimmen, ob der Dienst oder das Programm sicher geklont werden kann.
 
     > [!NOTE]
-    > Überprüfen Sie vor der Bereitstellung zusätzlicher Dienste oder Programme in der Datei %% amp;quot;customdccloneallowlist.XML%%amp;quot; ob Sie die erforderliche Lizenz zum Kopieren der Software auf diesem virtuellen Computer verfügen.
+    > Überprüfen Sie vor dem Bereitstellen zusätzlicher Dienste oder Programme in der Datei %%amp;quot;CustomDCCloneAllowList.xml%%amp;quot;, ob Sie über die erforderliche Lizenz zum Kopieren der Software auf diesem virtuellen Computer verfügen.
 
-    Wenn die Anwendungen nicht klonbar, entfernen sie aus dem Quelldomänencontroller vor dem Erstellen der Klon-Medium. Wenn eine Anwendung in der Cmdlet-Ausgabe angezeigt, aber nicht in der Datei %% amp;quot;customdccloneallowlist.XML%%amp;quot; enthalten ist, schlägt das Klonen fehl. Für das Klonen erfolgreich ist, sollte die Cmdlet-Ausgabe keine Dienste oder Programme aufgelistet. Anders ausgedrückt, sollte eine Anwendung in der Datei %% amp;quot;customdccloneallowlist.XML%%amp;quot; enthalten oder vom Quelldomänencontroller entfernt.
+    Sind die Anwendungen nicht klonbar, entfernen Sie sie vom Quelldomänencontroller, bevor Sie das Klonmedium erstellen. Ist eine Anwendung in der Cmdlet-Ausgabe enthalten, in der Datei %%amp;quot;CustomDCCloneAllowList.xml%%amp;quot; jedoch nicht, schlägt das Klonen fehl. Für ein erfolgreiches Klonen sollte die Cmdlet-Ausgabe keine Dienste oder Programme enthalten. Eine Anwendung sollte also entweder in der Liste %%amp;quot;CustomDCCloneAllowList.xml%%amp;quot; enthalten sein oder vom Quelldomänencontroller entfernt werden.
 
-    Die folgende Tabelle erläutert die Optionen für die Ausführung von Get-ADDCCloningExcludedApplicationList.
+    In der folgenden Tabelle werden die Optionen zum Ausführen von %%amp;quot;Get-ADDCCloningExcludedApplicationList%%amp;quot; erklärt.
 
     |||
     |-|-|
     |Argument|Erläuterung|
-    |*<no argument specified>*|Zeigt eine Liste der Dienste oder Programme auf der Konsole, die für das Klonen nicht berücksichtigt wurden. Wenn bereits eine CustomDCCloneAllowList.XML in einem der zulässigen Speicherorte vorhanden ist, wird die Datei zeigt die verbleibenden Dienste und Programme (u. u. keine, wenn die Listen übereinstimmen) verwendet.|
-    |– GenerateXml|Erstellt die Datei %% amp;quot;customdccloneallowlist.XML%%amp;quot; mit den Diensten und Programmen auf der Konsole aufgeführt.|
-    |-Force|Überschreibt eine vorhandene %% amp;quot;customdccloneallowlist.XML%%amp;quot;-Datei.|
-    |-Pfad|Der Ordnerpfad CustomDCCloneAllowList.XML erstellen.|
+    |*<no argument specified>*|Zeigt eine Liste mit Diensten oder Programmen auf der Konsole an, die beim Klonen nicht berücksichtigt wurden. Wenn die Datei %%amp;quot;CustomDCCloneAllowList.XML%%amp;quot; bereits an einem der zulässigen Speicherorte vorhanden ist, verwendet sie diese Datei, um die verbleibenden Dienste und Programme anzuzeigen (u. U. keine, wenn die Listen übereinstimmen).|
+    |-GenerateXml|Erstellt die Datei %%amp;quot;CustomDCCloneAllowList.XML%%amp;quot; mit den in der Konsole aufgeführten Diensten und Programmen.|
+    |-Force|Überschreibt eine vorhandene %%amp;quot;CustomDCCloneAllowList.XML%%amp;quot;-Datei.|
+    |-Path|Ordnerpfad zum Erstellen von %%amp;quot;CustomDCCloneAllowList.XML%%amp;quot;.|
 
--   **DefaultDCCloneAllowList.xml** "Diese Datei ist standardmäßig auf alle Windows Server 2012 Domain Controller In die *%windir%\system32*. Es listet die Dienste und Programme, die standardmäßig sicher geklont werden können. Sie müssen den Speicherort oder den Inhalt dieser Datei nicht ändern oder das Klonen fehl.
+-   **DefaultDCCloneAllowList.xml** "Diese Datei ist vorhanden, wird standardmäßig auf jedem Windows Server 2012-Domäne-Controller In der *%windir%\system32*. Darin sind die Dienste und Programme aufgeführt, die standardmäßig sicher geklont werden können. Ändern Sie nicht den Speicherort oder den Inhalt dieser Datei, andernfalls schlägt das Klonen fehl.
 
--   **CustomDCCloneAllowList.xml** "besitzen Sie Dienste oder installierte Programme, die auf dem Quell-Domänencontroller befinden, die in der Datei %% amp;quot;defaultdccloneallowlist.XML%%amp;quot; aufgeführten sind, diese Dienste und Programme in enthalten sein müssen diese Datei. Nach der Dienste oder installierte Programme, die nicht aufgeführt sind die in der Datei %% amp;quot;defaultdccloneallowlist.XML%%amp;quot; führen Sie die **Get-ADDCCloningExcludedApplicationList** Cmdlet. Verwenden Sie die **"GenerateXml** Argument, um die XML-Datei zu generieren.
+-   **CustomDCCloneAllowList.xml** "Wenn Sie Dienste oder installierte Programme, die sich auf Ihrem Quelldomänencontroller befinden, in der Datei %% amp;quot;defaultdccloneallowlist.XML%%amp;quot; aufgeführten, diese Dienste und Programme enthalten sein müssen in diesem die Datei. Führen Sie das Cmdlet **Get-ADDCCloningExcludedApplicationList** aus, um Dienste oder installierte Programme ausfindig zu machen, die nicht in der Datei %%amp;quot;DefaultDCCloneAllowList.xml%%amp;quot; aufgeführt sind. Verwenden Sie die **"GenerateXml** Argument für die XML-Datei zu generieren.
 
-    Der Klonvorgang überprüft die folgenden Speicherorten in der Reihenfolge nach dieser Datei und die erste XML-Datei gefunden, unabhängig von den anderen Inhalt des Ordners verwendet:
+    Der Klonprozess überprüft der Reihe nach folgende Speicherorte auf diese Datei und verwendet unabhängig vom Inhalt des Ordners die erste gefundene XML-Datei:
 
-    1.  Die folgenden Registrierungsschlüssel:
+    1.  Der folgende Registrierungsschlüssel:
 
         ```
         HKey_Local_Machine\System\CurrentControlSet\Services\NTDS\Parameters
@@ -191,14 +183,14 @@ Die klonkomponenten umfassen neue Cmdlets im Active Directory-Modul für Windows
 
     3.  %systemroot%\NTDS
 
-    4.  Lese-/Schreib-Wechselmedien Wechselmedien in der Reihenfolge des Laufwerkbuchstabens, im Stammverzeichnis des Laufwerks
+    4.  Lese-/Schreib-Wechselmedien in der Reihenfolge des Laufwerkbuchstabens, im Stamm des Laufwerks
 
-### <a name="deployment-scenarios"></a>Szenarien für die Bereitstellung
-Die folgenden Bereitstellungsszenarios werden für das Klonen des virtuellen Domänencontrollers unterstützt:
+### <a name="deployment-scenarios"></a>Bereitstellungsszenarien
+Folgende Bereitstellungsszenarien werden für das Klonen eines virtuellen Domänencontrollers unterstützt:
 
 -   Bereitstellen eines geklonten Domänencontrollers durch Erstellen einer Kopie der Datei von einem Quelldomänencontroller virtuelle Festplatte (Vhd).
 
--   Bereitstellen eines geklonten Domänencontrollers durch Kopieren des virtuellen Computers des Quelldomänencontrollers mithilfe der Export-/Importsemantik vom Hypervisor.
+-   Bereitstellen eines geklonten Domänencontrollers durch Kopieren des virtuellen Computers eines Quelldomänencontrollers mithilfe der vom Hypervisor bereitgestellten Export-/Importsemantik.
 
 > [!NOTE]
 > Die Schritte im Abschnitt [Schritte zum Bereitstellen eines geklonten virtualisierten Domänencontrollers](../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/Introduction-to-Active-Directory-Domain-Services-AD-DS-Virtualization-Level-100.md#steps_deploy_vdc) veranschaulichen das Kopieren eines virtuellen Computers mithilfe der Export-/Importfeatures von Windows Server 2012 Hyper-V.
@@ -207,220 +199,220 @@ Die folgenden Bereitstellungsszenarios werden für das Klonen des virtuellen Dom
 
 -   [Erforderliche Komponenten](../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/Introduction-to-Active-Directory-Domain-Services-AD-DS-Virtualization-Level-100.md#prerequisites)
 
--   [Schritt 1: Erteilen Sie dem virtualisierten Quelldomänencontroller die Berechtigung, geklont zu werden](../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/Introduction-to-Active-Directory-Domain-Services-AD-DS-Virtualization-Level-100.md#bkmk4_grant_source)
+-   [Schritt 1: Gewähren Sie dem virtualisierten Quelldomänencontroller die Berechtigung, geklont zu werden](../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/Introduction-to-Active-Directory-Domain-Services-AD-DS-Virtualization-Level-100.md#bkmk4_grant_source)
 
--   [Schritt 2: Ausführen von Get-ADDCCloningExcludedApplicationList-cmdlet](../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/Introduction-to-Active-Directory-Domain-Services-AD-DS-Virtualization-Level-100.md#bkmk6_run_get-addccloningexcludedapplicationlist_cmdlet)
+-   [Schritt 2: Das Cmdlet Get-ADDCCloningExcludedApplicationList "ausführen"](../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/Introduction-to-Active-Directory-Domain-Services-AD-DS-Virtualization-Level-100.md#bkmk6_run_get-addccloningexcludedapplicationlist_cmdlet)
 
--   [Schritt 3: Ausführen von New-ADDCCloneConfigFile](../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/Introduction-to-Active-Directory-Domain-Services-AD-DS-Virtualization-Level-100.md#bkmk5_create_insert_dccloneconfig)
+-   [Schritt 3: New-ADDCCloneConfigFile ausführen](../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/Introduction-to-Active-Directory-Domain-Services-AD-DS-Virtualization-Level-100.md#bkmk5_create_insert_dccloneconfig)
 
--   [Schritt 4: Exportieren Sie und importieren Sie der virtuellen Maschine von der Quell-Domänencontroller](../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/Introduction-to-Active-Directory-Domain-Services-AD-DS-Virtualization-Level-100.md#bkmk7_export_import_vm_sourcedc)
+-   [Schritt 4: Exportieren Sie und importieren Sie des virtuellen Computers des Quelldomänencontrollers](../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/../ad-ds/Introduction-to-Active-Directory-Domain-Services-AD-DS-Virtualization-Level-100.md#bkmk7_export_import_vm_sourcedc)
 
 ### <a name="prerequisites"></a>Erforderliche Komponenten
 
--   Um die Schritte in den folgenden Verfahren ausführen zu können, müssen Sie Mitglied der Gruppe "Domänen-Admins" sein, oder die entsprechenden Berechtigungen zugewiesen haben sie.
+-   Damit Sie die Schritte in den folgenden Verfahren ausführen können, müssen Sie ein Mitglied der Gruppe der Domänen-Admins sein oder über dieselben Berechtigungen verfügen, die dieser Gruppe zugewiesen sind.
 
--   Windows PowerShell-Befehle in diesem Handbuch verwendeten müssen über ein Eingabeaufforderungsfenster mit erhöhten Rechten ausgeführt werden. Zu diesem Zweck mit der rechten Maustaste die **Windows PowerShell** Symbol, und klicken Sie dann auf **als Administrator ausführen**.
+-   Die Windows PowerShell-Befehle, die in diesem Handbuch verwendeten müssen eine Eingabeaufforderung mit erhöhten Rechten ausgeführt werden. Zu diesem Zweck mit der rechten Maustaste die **Windows PowerShell** Symbol, und klicken Sie dann auf **als Administrator ausführen**.
 
--   Ein Windows Server 2012-Server mit der Hyper-V-Serverrolle installiert (**HyperV1**).
+-   Ein Windows Server 2012-Server mit Hyper-V-Serverrolle installiert (**HyperV1**).
 
--   Einen zweiten Windows Server 2012-Server mit der Hyper-V-Serverrolle installiert (**HyperV2**).
+-   Einen zweiten Windows Server 2012-Server mit Hyper-V-Serverrolle installiert (**HyperV2**).
 
     > [!NOTE]
-    > -   Wenn Sie einen anderen Hypervisor verwenden, wenden Sie den Anbieter, um sicherzustellen, dass der Hypervisor VM-Generations-ID unterstützt. Wenn der Hypervisor die VM-Generations-ID nicht unterstützt, und Sie haben eine dccloneconfig.XML-Datei angegeben, wird die neue virtuelle Maschine in Directory Services-Wiederherstellungsmodus (DSRM) gestartet.
-    > -   Dieses Handbuch empfiehlt und enthält zwei verschiedene Hyper-V-Hosts, welche wird verhindert, einen einzigen Fehlerpunkt dass mit Anweisungen, um die Verfügbarkeit des AD DS-Diensts zu erhöhen. Allerdings benötigen Sie keine zwei Hyper-V-Hosts zum Klonen virtueller Domänencontroller ausführen.
-    > -   Sie müssen ein Mitglied der Gruppe "Administratoren" auf jedem Hyper-V-Server (**HyperV1** und **HyperV2**).
-    > -   Um erfolgreich zu importieren und Exportieren von einer VHD-Datei, die mithilfe von Hyper-V, sollten die virtuellen Netzwerkswitches auf beiden Hyper-V-Hosts den gleichen Namen haben. Beispielsweise haben ein virtueller Netzwerkswitch auf **HyperV1** VNet mit dem Namen, und es muss ein virtueller Netzwerkswitch auf **HyperV2** mit dem Namen VNet.
-    > -   Wenn die zwei Hyper-V-Hosts (**HyperV1** und **HyperV2**) verschiedene Prozessoren haben, fahren Sie den virtuellen Computer (**VirtualDC1**), die Sie verwenden möchten, exportieren, mit der rechten Maustaste des virtuellen Computers aus, und klicken Sie auf **Einstellungen**, klicken Sie auf **Prozessor**, und wählen Sie unter **Prozessorkompatibilität** wählen **Migrieren zu einem physischen Computer mit einer anderen Prozessorversion** , und klicken Sie auf **OK**.
+    > -   Wenn Sie einen anderen Hypervisor verwenden, wenden Sie sich an den Anbieter, um zu überprüfen, ob der Hypervisor die VM-Generations-ID unterstützt. Wenn der Hypervisor die VM-Generations-ID nicht unterstützt und Sie eine %%amp;quot;DCCloneConfig.xml%%amp;quot;-Datei bereitgestellt haben, wird der neue virtuelle Computer im Verzeichnisdienst-Wiederherstellungsmodus (Directory Services Restore Mode, DSRM) gestartet.
+    > -   Um die Verfügbarkeit des AD DS-Diensts zu erhöhen, werden in diesem Handbuch Anweisungen empfohlen und zur Verfügung gestellt, bei denen zwei verschiedene Hyper-V-Hosts verwendet werden; dadurch wird verhindert, dass nur ein einziger potenzieller Fehlerpunkt vorhanden ist. Sie benötigen jedoch keine zwei Hyper-V-Host, um einen virtuellen Domänencontroller zu klonen.
+    > -   Sie müssen auf allen Hyper-V-Servern (**HyperV1** und **HyperV2**) Mitglied der lokalen Gruppe %%amp;quot;Administratoren%%amp;quot; sein.
+    > -   Um eine VHD-Datei mithilfe von Hyper-V erfolgreich zu importieren und exportieren, sollten die virtuellen Netzwerkswitches auf beiden Hyper-V-Hosts denselben Namen haben. Ist auf **HyperV1** beispielsweise ein virtueller Netzwerkswitch mit dem Namen %%amp;quot;VNet%%amp;quot; vorhanden, muss auch auf **HyperV2** ein virtueller Netzwerkswitch mit dem Namen %%amp;quot;VNet%%amp;quot; vorhanden sein.
+    > -   Wenn die beiden Hyper-V-Hosts (**HyperV1** und **HyperV2**) verschiedene Prozessoren verwenden, fahren Sie den virtuellen Computer (**VirtualDC1**) herunter, den die exportieren möchten, klicken Sie mit der rechten Maustaste auf den virtuellen Computer, klicken Sie auf **Einstellungen** und auf **Prozessor**, wählen Sie unter **Prozessorkompatibilität** die Option **Zu einem physischen Computer mit einer anderen Prozessorversion migrieren**, und klicken Sie auf **OK**.
 
--   Einer bereitgestellten Windows Server 2012-Domänencontroller (virtualisiert oder physisch), der die PDC-Emulatorrolle hostet (**DC1**). Führen Sie den folgenden Windows PowerShell-Befehl, um zu überprüfen, ob die PDC-Emulatorrolle auf einem Windows Server 2012-Domänencontroller gehostet wird:
+-   Eine bereitgestellte Windows Server 2012-Domänencontroller (virtualisiert oder physisch), der die PDC-Emulatorrolle hostet (**DC1**). Um zu überprüfen, ob die PDC-Emulatorrolle auf einem Windows Server 2012-Domänencontroller gehostet wird, führen Sie den folgenden Windows PowerShell-Befehl ein:
 
     ```
     Get-ADComputer (Get-ADDomainController "Discover "Service "PrimaryDC").name "Property operatingsystemversion | fl
     ```
 
-    Der OperatingSystemVersion-Wert sollte als Version 6.2 zurückgegeben werden. Bei Bedarf können Sie die PDC-Emulatorrolle auf einen Domänencontroller übertragen, die Windows Server 2012 ausgeführt wird. Weitere Informationen finden Sie unter [Using Ntdsutil.exe to transfer oder FSMO-Funktionen auf einem Domänencontroller](https://support.microsoft.com/kb/255504).
+    Der OperatingSystemVersion-Wert sollte als Version 6.2 zurückgegeben werden. Bei Bedarf können Sie die PDC-Emulatorrolle auf einem Domänencontroller übertragen, die Windows Server 2012 ausgeführt wird. Weitere Informationen finden Sie unter [Using Ntdsutil.exe to transfer or seize FSMO roles to a domain controller](https://support.microsoft.com/kb/255504).
 
--   Eine bereitgestellte virtualisierte Domänencontroller einer Windows Server 2012-Gast (**VirtualDC1**), die sich in derselben Domäne wie der Windows Server 2012-Domänencontroller, der die PDC-Emulatorrolle hostet (**DC1**). Dadurch werden die für das Klonen verwendeten Quelldomänencontroller. Der virtuelle gastdomänencontroller wird auf einem Windows Server 2012 Hyper-V-Server gehostet werden (**HyperV1**).
+-   Eine bereitgestellte Windows Server 2012 virtualisierter-gastdomänencontroller (**VirtualDC1**), die sich in derselben Domäne wie der Windows Server 2012-Domänencontroller, den PDC-Emulatorrolle hostet (**DC1**). Hierbei handelt es sich um den zum Klonen verwendeten Quelldomänencontroller. Der virtuelle gastdomänencontroller wird auf einem Windows Server 2012 Hyper-V-Server gehostet werden (**HyperV1**).
 
     > [!NOTE]
-    > -   Für das Klonen erfolgreich ist, der Quelldomänencontroller, mit dem Erstellen des Klons, von einem Domänencontroller nicht möglich, die seit der Erstellung der Quelle VHD Media herabgestuft wurde.
-    > -   Beenden Sie den Quelldomänencontroller vor dem Kopieren des virtuellen Computers oder der virtuellen Festplatte.
-    > -   Sie sollten nicht Klonen eine virtuellen Festplatte oder Wiederherstellen einen Momentaufnahme, die älter als die Tombstone-Lebensdauer (oder die Gültigkeitsdauer gelöschten Objekts, wenn die Active Directory-Papierkorb aktiviert ist). Wenn Sie eine virtuelle Festplatte eines vorhandenen Domänencontrollers kopieren, müssen Sie die VHD-Datei ist nicht älter-Wert der Tombstone-Lebensdauer (standardmäßig 60 Tage). Kopieren Sie keine virtuelle Festplatte eines aktiven Domänencontrollers Klon-Medium zu erstellen.
+    > -   Damit das Klonen erfolgreich ist, darf der zum Erstellen des Klons verwendete Quelldomänencontroller nicht von einem Domänencontroller stammen, der seit der Erstellung des VHD-Quellmediums herabgestuft wurde.
+    > -   Fahren Sie den Quelldomänencontroller vor dem Kopieren des virtuellen Computers oder der virtuellen Festplatte herunter.
+    > -   Sie sollten keine virtuelle Festplatte klonen bzw. einen Momentaufnahme wiederherstellen, die die Tombstone-Lebensdauer überschreiten (bzw. die Lebensdauer des gelöschten Objekts, wenn der Active Directory-Papierkorb aktiviert ist). Wenn Sie eine virtuelle Festplatte eines vorhandenen Domänencontrollers kopieren, stellen Sie sicher, dass die VHD-Datei die Tombstone-Lebensdauer nicht überschreitet (Standardwert: 60 Tage). Sie sollten nicht die virtuelle Festplatte eines aktiven Domänencontrollers kopieren, um Klonmedien zu erstellen.
 
-    Werfen Sie alle virtuellen Diskettenlaufwerks (VFD) der Quelle vorhanden sind. Dies kann zu freigabeproblemen führen, bei dem Versuch, den neuen virtuellen Computer importieren.
+    Werfen Sie alle virtuellen Diskettenlaufwerke aus, die u. U. auf dem Quelldomänencontroller vorhanden sind. Dies kann beim Versuch, den neuen virtuellen Computer zu importieren, zu Freigabeproblemen führen.
 
-    Nur Windows Server 2012-Domänencontroller auf einem VM-Generations-ID-Hypervisor gehostet können als Quelle für das Klonen verwendet werden. Die Windows Server 2012 verwendeten Quelldomänencontroller für das Klonen sollte in einem fehlerfreien Zustand. Bestimmen Sie den Status der Quelldomänencontroller ausgeführt [Dcdiag](https://technet.microsoft.com/library/cc731968(WS.10).aspx). Um ein besseres Verständnis der von Dcdiag zurückgegebenen Ausgabe zu erhalten, finden Sie unter [tatsächlich Funktionsweise von DCDIAG... tun? ](http://blogs.technet.com/b/askds/archive/2011/03/22/what-does-dcdiag-actually-do.aspx).
+    Nur Windows Server 2012-Domänencontroller auf einem VM-Generations-ID-Hypervisor gehostet, können als Quelle zum Klonen verwendet werden. Die Windows Server 2012 verwendeten Quelldomänencontroller für das Klonen sollte in einem fehlerfreien Zustand. Zum Ermitteln des Status des Quelldomänencontrollers führen Sie [dcdiag](https://technet.microsoft.com/library/cc731968(WS.10).aspx)aus. Um ein besseres Verständnis der von Dcdiag zurückgegebenen Ausgabe zu erhalten, finden Sie unter [What does DCDIAG... tun? ](http://blogs.technet.com/b/askds/archive/2011/03/22/what-does-dcdiag-actually-do.aspx).
 
-    Wenn der Quelldomänencontroller ein DNS-Server ist, werden der geklonte Domänencontroller auch einen DNS-Server. Sie sollten einem DNS-Server die Hosts nur Active Directory-integrierte Zonen auswählen.
+    Wenn es sich beim Quelldomänencontroller um einen DNS-Server handelt, ist auch der geklonte Domänencontroller ein DNS-Server. Sie sollten einen DNS-Server auswählen, der nur Active Directory-integrierte Zonen hostet.
 
-    DNS-Clienteinstellungen werden nicht geklont, sondern stattdessen in die Datei DCCloneConfig.xml-Datei angegeben sind. Wenn sie nicht angegeben sind, wird der geklonte Domänencontroller standardmäßig auf sich selbst als bevorzugter DNS-Server zeigen. Der geklonte Domänencontroller haben keine DNS-Delegierung. Der Administrator der übergeordneten DNS-Zone sollte die DNS-Delegierung für den geklonten Domänencontroller nach Bedarf aktualisiert werden.
+    DNS-Clienteinstellungen werden nicht geklont, sondern in der Datei %%amp;quot;DCCloneConfig.xml%%amp;quot; angegeben. Werden die Einstellungen nicht angegeben, verweist der geklonte Domänencontroller standardmäßig auf sich selbst als bevorzugten DNS-Server. Für den geklonten Domänencontroller ist keine DNS-Delegierung vorhanden. Der Administrator der übergeordneten DNS-Zone sollte die DNS-Delegierung für den geklonten Domänencontroller bei Bedarf aktualisieren.
 
     > [!WARNING]
-    > Virtualisierungs-Sicherheitsmaßnahmen werden nicht auf Active Directory Lightweight Directory Services (AD LDS) erweitert. Aus diesem Grund sollten Sie nicht versuchen, einen AD DS-Domänencontroller zu klonen, auf dem AD LDS-Instanz gehostet wird, durch Hinzufügen von AD LDS-Instanz zu CustomDCCloneAllowList.xml. Da AD LDS nicht VM-Generations-ID-fähig ist, kann Klonen eines Domänencontrollers mit AD LDS USN-Rollback-zu-abweichungen auf die AD LDS-Konfigurationssatz führen.
+    > Die Virtualisierungsschutzvorrichtungen sind nicht auf Active Directory Lightweight Directory Services (AD LDS) erweiterbar. Daher sollten Sie nicht versuchen, einen AD DS-Domänencontroller zu klonen, der eine AD LDS-Instanz hostet, indem Sie der Liste %%amp;quot;CustomDCCloneAllowList.xml%%amp;quot; diese AD LDS-Instanz hinzufügen. Das AD LDS nicht VM-Generations-ID-fähig ist, kann das Klonen eines Domänencontroller mit AD LDS zu Abweichungen in diesem AD LDS-Konfigurationssatz führen, die durch ein USN-Rollback verursacht werden.
 
-    Die folgenden Serverrollen werden nicht für das Klonen unterstützt:
+    Folgende Serverrollen werden nicht für das Klonen unterstützt:
 
     -   Dynamic Host Configuration-Protokoll (DHCP)
 
     -   Active Directory-Zertifikatdienste (AD CS)
 
-    -   Active Directory Lightweight Directory Services (AD LDS)
+    -   Active Directory Lightweight Directory Services (ADLDS)
 
-### <a name="bkmk4_grant_source"></a>Schritt 1: Erteilen Sie dem virtualisierten Quelldomänencontroller die Berechtigung, geklont zu werden
-In diesem Verfahren Sie erteilen dem Quelldomänencontroller die Berechtigung, geklont zu werden mithilfe von **Active Directory-Verwaltungscenter** der Quelldomänencontroller Hinzufügen der **Klonbare Domänencontroller** Gruppe.
+### <a name="bkmk4_grant_source"></a>Schritt 1: Erteilen der Berechtigung, geklont zu werden, für den virtualisierten Quelldomänencontroller
+In diesem Verfahren erteilen Sie dem Quelldomänencontroller die Berechtigung, geklont zu werden, indem Sie mit dem **Active Directory-Verwaltungscenter** den Quelldomänencontroller der Gruppe **Klonbare Domänencontroller** hinzufügen.
 
-##### <a name="to-grant-the-source-virtualized-domain-controller-the-permission-to-be-cloned"></a>So gewähren Sie dem virtualisierten Quelldomänencontroller die Berechtigung, geklont zu werden
+##### <a name="to-grant-the-source-virtualized-domain-controller-the-permission-to-be-cloned"></a>So erteilen Sie dem virtualisierten Quelldomänencontroller die Berechtigung, geklont zu werden
 
-1.  Auf einem beliebigen Domänencontroller in derselben Domäne wie der zum Klonen vorbereitete Domänencontroller (**VirtualDC1**) öffnen **Active Directory Administrative Center** (ADAC), suchen Sie das virtualisierte Domänencontrollerobjekt (Domänencontroller befinden sich in der Regel unter der **Domänencontroller** Container in ADAC), mit der rechten Maustaste es, wählen Sie **zur Gruppe hinzufügen** und wählen Sie unter **Geben Sie die zu verwendenden Objektnamen ein** Typ **Klonbare Domänencontroller** , und klicken Sie dann auf **OK**.
+1.  Öffnen Sie auf einem beliebigen Domänencontroller in derselben Domäne wie der zum Klonen vorbereitete Domänencontroller (**VirtualDC1**), das **Active Directory-Verwaltungscenter** (ADAC), suchen Sie das virtualisierte Domänencontrollerobjekt (Domänencontroller befinden sich in der Regel im ADAC im Container **Domänencontroller** ), klicken Sie mit der rechten Maustaste darauf, wählen Sie die Option **Zur Gruppe hinzufügen** , geben Sie unter **Geben Sie die zu verwendenden Objektnamen ein****Cloneable Domain Controllers** ein, und klicken Sie dann auf **OK**.
 
-    In diesem Schritt durchgeführte Aktualisierung der Gruppenmitgliedschaft muss zu der PDC-Emulator repliziert werden, bevor der Klonvorgang ausgeführt werden kann. Wenn die **Klonbare Domänencontroller** Gruppe gefunden wird, zu der PDC-Emulatorrolle möglicherweise nicht auf einem Domänencontroller mit Windows Server 2012 gehostet werden.
+    Die in diesem Schritt durchgeführte Aktualisierung der Gruppenmitgliedschaft muss auf dem PDC-Emulator repliziert werden, bevor der Klonvorgang ausgeführt werden kann. Wenn die **Klonbare Domänencontroller** Gruppe wurde nicht gefunden, der die PDC-Emulatorrolle möglicherweise nicht auf einem Domänencontroller mit Windows Server 2012 gehostet.
 
     > [!NOTE]
-    > Öffnen Sie zum Öffnen von ADAC auf einem Windows Server 2012-Domänencontroller, die Windows PowerShell, und geben **dsac.exe**.
+    > Öffnen Sie zum Öffnen von ADAC auf einem Windows Server 2012-Domänencontroller mit Windows PowerShell, und geben **dsac.exe**.
 
 ![Einführung in AD DS](../media/Introduction-to-Active-Directory-Domain-Services--AD-DS--Virtualization--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***
 
-Das folgende Windows PowerShell-Cmdlet führt dieselbe Funktion wie das vorhergehende Verfahren:
+Das folgende Windows PowerShell-Cmdlet führt dieselbe Funktion aus wie das vorhergehende Verfahren:
 
 
     Add-ADGroupMember "Identity "CN=Cloneable Domain Controllers,CN=Users, DC=Fabrikam,DC=Com" "Member "CN=VirtualDC1,OU=Domain Controllers,DC=Fabrikam,DC=com"
 
 
-### <a name="bkmk6_run_get-addccloningexcludedapplicationlist_cmdlet"></a>Schritt 2: Ausführen von Get-ADDCCloningExcludedApplicationList-cmdlet
-In diesem Verfahren führen Sie die `Get-ADDCCloningExcludedApplicationList` Cmdlet auf dem virtualisierten Quelldomänencontroller zu identifizieren, Programme oder Dienste, die nicht für das Klonen ausgewertet werden. Sie müssen das Cmdlet "Get-ADDCCloningExcludedApplicationList", bevor Sie das Cmdlet "New-ADDCCloneConfigFile" ausgeführt werden, da das Cmdlet "New-ADDCCloneConfigFile" eine ausgeschlossene Anwendung ermittelt, es keine DCCloneConfig.xml-Datei erstellt wird.
+### <a name="bkmk6_run_get-addccloningexcludedapplicationlist_cmdlet"></a>Schritt 2: Ausführen des Cmdlets „Get-ADDCCloningExcludedApplicationList“
+In diesem Verfahren führen Sie das Cmdlet `Get-ADDCCloningExcludedApplicationList` auf dem virtualisierten Quelldomänencontroller aus, um Programme oder Dienste zu identifizieren, die nicht im Hinblick auf das Klonen ausgewertet wurden. Sie müssen das Cmdlet %%amp;quot;Get-ADDCCloningExcludedApplicationList%%amp;quot; vor dem Cmdlet %%amp;quot;New-ADDCCloneConfigFile%%amp;quot; ausführen, da das Cmdlet %%amp;quot;New-ADDCCloneConfigFile%%amp;quot; keine %%amp;quot;DCCloneConfig.xml%%amp;quot;-Datei erstellt, wenn es eine ausgeschlossene Anwendung ermittelt.
 
-##### <a name="to-identify-applications-or-services-that-run-on-a-source-domain-controller-which-have-not-been-evaluated-for-cloning"></a>Identifizieren von Anwendungen oder Dienste, die auf einem Quelldomänencontroller ausgeführt, die nicht für das Klonen ausgewertet wurden
+##### <a name="to-identify-applications-or-services-that-run-on-a-source-domain-controller-which-have-not-been-evaluated-for-cloning"></a>So identifizieren Sie Anwendungen oder Dienste, die auf einem Quelldomänencontroller ausgeführt werden und nicht im Hinblick auf Klonen ausgewertet wurden
 
-1.  Auf dem Quelldomänencontroller (**VirtualDC1**), klicken Sie auf **Server-Manager**, klicken Sie auf **Tools**, klicken Sie auf **Active Directory-Modul für Windows PowerShell** und geben Sie dann den folgenden Befehl:
+1.  Klicken Sie auf dem Quelldomänencontroller (**VirtualDC1**) auf **Server-Manager**, **Tools** und **Active Directory-Modul für Windows PowerShell**, und geben Sie dann den folgenden Befehl ein:
 
 
     Get-ADDCCloningExcludedApplicationList
 
 
-2.  Überprüfen Sie die Liste mit zurückgegebenen Diensten und installierten Programme, mit dem Softwarehersteller, um festzustellen, ob diese sicher geklont werden können. Wenn Anwendungen oder Dienste in der Liste sicher geklont werden können, müssen Sie sie aus dem Quelldomänencontroller entfernen, oder das Klonen fehl.
+2.  Prüfen Sie gemeinsam mit dem Softwareanbieter die Liste mit zurückgegebenen Diensten und installierten Programmen, um zu ermitteln, ob diese sicher geklont werden können. Wenn bestimmte Anwendungen oder Dienste in der Liste nicht sicher geklont werden können, müssen Sie vom Quelldomänencontroller entfernt werden, andernfalls schlägt das Klonen fehl.
 
-3.  Für den Satz von Diensten und installierten Programme, um sicher geklont werden, führen Sie den Befehl erneut mit dem **"GenerateXML** Switch bereitstellen, diese Dienste und Programme in der **CustomDCCloneAllowList.xml** Datei.
-
-
-    Get-ADDCCloningExcludedApplicationList - GenerateXml
+3.  Für den Satz von Diensten und installierten Programme, die sicher geklont werden ermittelt wurde, führen Sie den Befehl erneut mit der **"GenerateXML** wechseln Sie zur Bereitstellung dieser Dienste und Programme in der **%% amp;quot;customdccloneallowlist.XML%%amp;quot;**  Datei.
 
 
-### <a name="bkmk5_create_insert_dccloneconfig"></a>Schritt 3: Ausführen von New-ADDCCloneConfigFile
-New-ADDCCloneConfigFile auf dem Quelldomänencontroller ausgeführt, und geben Sie optional Konfigurationseinstellungen für den geklonten Domänencontroller, z. B. den Namen, IP-Adresse und DNS-Auflösung.
+    Get-ADDCCloningExcludedApplicationList -GenerateXml
 
-Geben Sie z. B. zum Erstellen eines geklonten Domänencontrollers mit dem Namen VirtualDC2 mit einer statischen IPv4-Adresse:
+
+### <a name="bkmk5_create_insert_dccloneconfig"></a>Schritt 3: New-ADDCCloneConfigFile ausführen
+Führen Sie auf dem Quelldomänencontroller %%amp;quot;New-ADDCCloneConfigFile%%amp;quot; aus, und geben Sie optional Konfigurationseinstellungen für den geklonten Domänencontroller an, z. B. Name, IP-Adresse und DNS-Auflösung.
+
+Geben Sie z. B. Folgendes ein, um einen geklonten Domänencontroller mit dem Namen %%amp;quot;VirtualDC2%%amp;quot; mit einer statischen IPv4-Adresse zu erstellen:
 
 
     New-ADDCCloneConfigFile "Static -IPv4Address "10.0.0.2" -IPv4DNSResolver "10.0.0.1" -IPv4SubnetMask "255.255.255.0" -CloneComputerName "VirtualDC2" -IPv4DefaultGateway "10.0.0.3" -SiteName "REDMOND"
 
 > [!NOTE]
-> Der geklonte Domänencontroller wird am selben Standort wie der Quelldomänencontroller befinden, es sei denn, ein anderen Standort in der Datei DCCloneConfig.xml-Datei angegeben wird. Es wird empfohlen, dass Sie einen geeigneten Standort in der Datei DCCloneConfig.xml-Datei für den geklonten Domänencontroller anhand seiner IP-Adresse angeben.
+> Der geklonte Domänencontroller wird sich am selben Standort wie der Quelldomänencontroller befinden, außer in der Datei %%amp;quot;DCCloneConfig.xml%%amp;quot; ist ein anderer Standort angegeben. Es wird empfohlen, in der Datei %%amp;quot;DCCloneConfig.xml%%amp;quot; einen geeigneten Standort für den geklonten Domänencontroller basierend auf dessen IP-Adresse anzugeben.
 
-Der Computername ist optional. Wenn Sie nicht angeben, wird basierend auf folgendem Algorithmus ein eindeutiger Name generiert werden:
+Der Computername ist optional. Wenn Sie keinen angeben, wird basierend auf folgendem Algorithmus ein eindeutiger Name generiert:
 
--   Das Präfix ist die ersten 8 Zeichen des Namens des Quellcomputers Domain Controller. Beispielsweise wird der quellcomputername des Sourcecomputer% auf Präfixzeichenfolge %% SourceCo gekürzt.
+-   Das Präfix besteht aus den ersten acht Zeichen des Computernamens des Quelldomänencontrollers. Beispielsweise wird der Quellcomputername %%amp;quot;SourceComputer%%amp;quot; zur Präfixzeichenfolge %%amp;quot;SourceCo%%amp;quot; verkürzt.
 
--   Ein eindeutiges Namenssuffix im Format "" CL*nnnn*"wird an die Präfixzeichenfolge angehängt, in denen * nnnn * der nächste verfügbare Wert zwischen 0001-9999, die vom PDC ermittelt wird derzeit nicht verwendet wird. Z. B. wenn 0047 die nächste verfügbare Zahl im zulässigen Bereich ist, wird im vorangehenden Beispiel der Computer Name sourceco% mit, der abgeleitete Name für den geklonten Computer verwenden als SourceCo-CL0047 festgelegt.
+-   Ein eindeutiges Namenssuffix im Format "" CL*Nnnn*"wird an die Präfixzeichenfolge angehängt, in denen *Nnnn* ist der nächste Wert zwischen 0001-9999 darstellt, der vom PDC ermittelt wird derzeit nicht verwendet. Wenn die nächste verfügbare Zahl im zulässigen Bereich z. B. 0047 ist und wie im vorangehenden Beispiel das Computernamenpräfix %%amp;quot;SourceCo%%amp;quot; verwendet wird, wird der abgeleitete Name für den geklonten Computer als %%amp;quot;SourceCo-CL0047%%amp;quot; festgelegt.
 
 > [!NOTE]
-> Ein globaler Katalogserver (GC) ist erforderlich für das Cmdlet "New-ADDCCloneConfigFile" ordnungsgemäß funktioniert. Der Quelldomänencontroller Mitgliedschaft in der **Klonbare Domänencontroller** Gruppe muss auf dem globalen Katalogserver wiedergegeben werden. Der globale Katalogserver muss nicht auf dem Domänencontroller als PDC-Emulator sein, aber vorzugsweise sollten Sie sich am selben Standort sein. Wenn kein globaler Katalogserver nicht verfügbar ist, schlägt der Befehl fehl mit Fehler "der Server ist nicht betriebsbereit." Weitere Informationen finden Sie unter [Virtualized Domain Controller Troubleshooting](../ad-ds/manage/virtual-dc/Virtualized-Domain-Controller-Troubleshooting.md).
+> Damit das Cmdlet %%amp;quot;New-ADDCCloneConfigFile%%amp;quot; ordnungsgemäß funktioniert, ist ein globaler Katalogserver erforderlich. Der Quelldomänencontroller Mitgliedschaft in der **Klonbare Domänencontroller** Gruppe muss auf dem globalen Katalogserver wiedergegeben werden. Der globale Katalogserver muss nicht derselbe Domänencontroller wie der PDC-Emulator sein, sollte sich jedoch möglichst am selben Standort befinden. Wenn kein globaler Katalogserver nicht verfügbar ist, kann der Befehl mit dem Fehler "der Server ist nicht funktionstüchtig." Weitere Informationen finden Sie unter [Virtualized Domain Controller Troubleshooting](../ad-ds/manage/virtual-dc/Virtualized-Domain-Controller-Troubleshooting.md).
 
-Zum Erstellen eines geklonten Domänencontrollers mit dem Namen Clone1 mit statischen IPv4-Einstellungen, und geben Sie bevorzugte und alternative WINS-Server aus, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um einen geklonten Domänencontroller mit dem Namen %%amp;quot;Clone1%%amp;quot; und statischen IPv4-Einstellungen zu erstellen, und geben Sie bevorzugte und alternative WINS-Server an:
 
 
     New-ADDCCloneConfigFile "CloneComputerName "Clone1" "Static -IPv4Address "10.0.0.5" "IPv4DNSResolver "10.0.0.1" "IPv4SubnetMask "255.255.0.0" "PreferredWinsServer "10.0.0.1" "AlternateWinsServer "10.0.0.2"
 
 
 > [!NOTE]
-> Wenn Sie WINS-Server angeben, müssen Sie angeben, beide **"PreferredWINSServer** und **" AlternateWINSServer**. Wenn Sie nur eines dieser Argumente angeben, schlägt fehl mit Fehler Code 0 x 80041005 beim angezeigt, in die Datei dcpromo.log klonen.
+> Wenn Sie die WINS-Server angeben, müssen Sie angeben, beide **"PreferredWINSServer** und **" AlternateWINSServer**. Wenn Sie nur eines dieser Argumente angeben, schlägt das Klonen mit dem Fehlercode %%amp;quot;0x80041005%%amp;quot;, der in der Protokolldatei %%amp;quot;dcpromo.log%%amp;quot; angezeigt wird.
 
-Geben Sie zum Erstellen eines geklonten Domänencontrollers mit dem Namen Clone2 mit dynamischen IPv4-Einstellungen:
+Zum Erstellen eines geklonten Domänencontrollers mit dem Namen %%amp;quot;Clone2%%amp;quot; mit dynamischen IPv4-Einstellungen geben Sie Folgendes ein:
 
 
     New-ADDCCloneConfigFile -CloneComputerName "Clone2" -IPv4DNSResolver "10.0.0.1" 
 
 
 > [!NOTE]
-> In diesem Fall, wird ein DHCP-Server in der Umgebung, dass der Klon erreichen kann und die IP-Adresse und andere relevante Netzwerkeinstellungen zu erhalten.
+> In diesem Fall sollte sich in der Umgebung ein DHCP-Server befinden, den der Klon erreichen kann und die IP-Adresse sowie andere relevante Netzwerkeinstellungen davon abrufen kann.
 
-Zum Erstellen eines geklonten Domänencontrollers mit dem Namen Clone2 mit dynamischen IPv4-Einstellungen, und geben Sie bevorzugte und alternative WINS-Server aus, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um einen geklonten Domänencontroller mit dem Namen %%amp;quot;Clone2%%amp;quot; und dynamischen IPv4-Einstellungen zu erstellen, und geben Sie bevorzugte und alternative WINS-Server an:
 
 
     New-ADDCCloneConfigFile -CloneComputerName "Clone2" -IPv4DNSResolver "10.0.0.1" -SiteName "REDMOND" "PreferredWinsServer "10.0.0.1" "AlternateWinsServer "10.0.0.2"
 
 
-Um einen geklonten Domänencontroller mit dynamischen IPv6-Einstellungen zu erstellen, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um einen geklonten Domänencontroller mit dynamischen IPv6-Einstellungen zu erstellen:
 
 
     New-ADDCCloneConfigFile -IPv6DNSResolver "2002:4898:e0:31fc:d61:2b0a:c9c9:2ccc"
 
 
-Um einen geklonten Domänencontroller mit statischen IPv6-Einstellungen zu erstellen, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um einen geklonten Domänencontroller mit statischen IPv6-Einstellungen zu erstellen:
 
 
     New-ADDCCloneConfigFile "Static -IPv6DNSResolver "2002:4898:e0:31fc:d61:2b0a:c9c9:2ccc"
 
 
 > [!NOTE]
-> Wenn Sie IPv6-Einstellungen angeben, ist der einzige Unterschied zwischen den Einstellungen für statischen und dynamischen die Einbindung von **-statische** wechseln. Die Aufnahme der **-statische** Switch ist es notwendig, geben Sie mindestens eine **IPv6DNSResolver**. Die statische IPv6-Adresse wird erwartet, über die automatische Konfiguration zustandsloser Adressen (SLAAC) mit Router zugewiesenen Präfixen konfiguriert werden. Bei dynamischem IPv6 sind die DNS-Auflösungen sind optional, aber es wird erwartet, dass der Klon einen IPv6-fähigen DHCP-Server im Subnetz zum Abrufen von IPv6-Adresse und DNS-Konfigurationsinformationen erreichen kann.
+> Wenn Sie IPv6-Einstellungen angeben, ist der einzige Unterschied zwischen den Einstellungen für statischen und dynamischen die Aufnahme der **-statische** wechseln. Die Einbeziehung der **-statische** Switch macht es erforderlich, geben Sie mindestens eine **IPv6DNSResolver**. Die statische IPv6-Adresse wird erwartet, automatische Konfiguration zustandsloser Adressen (SLAAC) mit vom Router zugewiesenen Präfixen konfiguriert wird. Bei dynamischem IPv6 sind die DNS-Auflösungen sind optional, aber es wird erwartet, dass der Klon einen IPv6-fähigen DHCP-Server, auf das Subnetz, das Abrufen von IPv6-Adresse und DNS-Konfigurationsinformationen erreichen kann.
 
-#### <a name="BKMK_OfflineMode"></a>Ausführen von New-ADDCCloneConfigFile im Offlinemodus
-Wenn Sie mehrere Kopien der Quelldomänencontroller-Medien, die zum Klonen vorbereitet wurden (d. h. der Quelldomänencontroller für das Klonen autorisiert ist, das Cmdlet "Get-ADDCCloningExcludedApplicationList" wurde ausgeführt usw.) und für jede Kopie des Mediums verschiedene Einstellungen angeben möchten, können Sie New-ADDCCloneConfigFile im Offlinemodus ausführen. Dies kann effizienter als das individuelle vorbereiten jedes virtuellen Computers, z. B. durch Importieren aller Kopien sein.
+#### <a name="BKMK_OfflineMode"></a>Ausführen von New-ADDCCloneConfigFile in offline-Modus
+Wenn Sie über mehrere Kopien von zum Klonen vorbereiteten Quelldomänencontroller-Medien verfügen (d. h. der Quelldomänencontroller ist zum Klonen autorisiert, das Cmdlet %%amp;quot;Get-ADDCCloningExcludedApplicationList%%amp;quot; wurde ausgeführt usw.), und Sie möchten für jede Kopie des Mediums verschiedene Einstellungen festlegen, können Sie %%amp;quot;New-ADDCCloneConfigFile%%amp;quot; im Offlinemodus ausführen. Dies ist möglicherweise effizienter als das individuelle Vorbereiten jedes einzelnen virtuellen Computers, z. B. durch Importieren aller Kopien.
 
-In diesem Fall können Domänen-Admins den Offlinedatenträger bereitstellen und Remoteserver-Verwaltungstools (RSAT) zum Ausführen des Cmdlets New-ADDCCloneConfigFile mit dem - offline-Argument verwenden, um die XML-Dateien, die werksähnliche Automatisierung mithilfe der neue Windows PowerShell-Optionen, die in Windows Server 2012 enthalten ermöglicht hinzufügen. Weitere Informationen dazu, wie Sie die Offlinedatenträgers zum Ausführen der Cmdlets New-ADDCCloneConfigFile im Offlinemodus finden Sie unter [Adding XML to the Offline System Disk](../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Deployment-and-Configuration.md#BKMK_Offline).
+In diesem Fall können Domänen-Admins den Offlinedatenträger bereitstellen und Remote Serveradministration Tools (RSAT) zum Ausführen des Cmdlets New-ADDCCloneConfigFile mit den - offline-Argument verwenden, um die XML-Dateien, was die werksähnliche Automatisierung mithilfe neuer hinzufügen Windows PowerShell-Optionen, die in Windows Server 2012 enthalten. Weitere Informationen zum Bereitstellen des Offlinedatenträgers zum Ausführen des Cmdlets %%amp;quot;New-ADDCCloneConfigFile%%amp;quot; im Offlinemodus finden Sie unter [Hinzufügen von XML zum Offlinesystemdatenträger](../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Deployment-and-Configuration.md#BKMK_Offline).
 
-Sie sollten zunächst das Cmdlet lokal ausführen, auf den Quellmedien, um sicherzustellen, dass die voraussetzungsprüfungen erfolgreich durchgeführt. Die voraussetzungsprüfungen werden nicht im Offlinemodus ausgeführt, da das Cmdlet von einem Computer ausgeführt werden kann, die nicht aus der gleichen Domäne oder von einem Computer einer Domäne angehört. Nachdem Sie das Cmdlet lokal ausführen, wird eine DCCloneConfig.xml-Datei erstellt. Sie können die Datei DCCloneConfig.xml löschen, die lokal erstellt wird, wenn Sie anschließend den Offlinemodus verwenden möchten.
+Sie sollten das Cmdlet zunächst lokal auf den Quellmedien ausführen, um sicherzustellen, dass die Voraussetzungsprüfungen erfolgreich durchgeführt werden. Die Voraussetzungsprüfungen werden nicht im Offlinemodus durchgeführt, da das Cmdlet u. U. auf einem Computer ausgeführt wird, der sich nicht in derselben Domäne befindet, bzw. auf einem Computer, der einer Domäne angehört. Nach dem lokalen Ausführen des Cmdlets wird die Datei %%amp;quot;DCCloneConfig.xml%%amp;quot; erstellt. Sie können die lokal erstellte Datei %%amp;quot;DCCloneConfig.xml%%amp;quot; löschen, wenn Sie anschließend den Offlinemodus verwenden möchten.
 
-Zum Erstellen eines geklonten Domänencontrollers mit dem Namen CloneDC1 im Offlinemodus am Standort REDMOND"mit statischen IPv4-Adresse, Typ:
+Erstellen ein geklonten Domänencontrollers mit dem Namen CloneDC1 im Offlinemodus am Standort REDMOND"mit statischen IPv4-Adresse, Typ:
 
 
     New-ADDCCloneConfigFile -Offline -CloneComputerName CloneDC1 -SiteName REDMOND -IPv4Address "10.0.0.2" -IPv4DNSResolver "10.0.0.1" -IPv4SubnetMask "255.255.0.0" -IPv4DefaultGateway "10.0.0.1" -Static -Path F:\Windows\NTDS
 
 
-Zum Erstellen eines geklonten Domänencontrollers mit dem Namen Clone2 im Offlinemodus mit statischen IPv4- und IPv6-Einstellungen geben:
+Zum Erstellen eines geklonten Domänencontrollers mit dem Namen %%amp;quot;Clone2%%amp;quot; im Offlinemodus mit statischen IPv4- und IPv6-Einstellungen geben Sie Folgendes ein:
 
 
     New-ADDCCloneConfigFile -Offline -IPv4Address "10.0.0.2" -IPv4DNSResolver "10.0.0.1" -IPv4SubnetMask "255.255.0.0" -Static -IPv6DNSResolver "2002:4898:e0:31fc:d61:2b0a:c9c9:2ccc" -CloneComputerName "Clone2" -PreferredWINSServer "10.0.0.1" -AlternateWINSServer "10.0.0.3" -Path F:\Windows\NTDS
 
 
-Zum Erstellen eines geklonten Domänencontrollers im Offlinemodus mit statischen IPv4 und IPv6-Einstellungen, und geben Sie mehrere DNS-Server für die DNS-auflösungseinstellungen, geben Sie Folgendes ein:
+Zum Erstellen eines geklonten Domänencontrollers im Offlinemodus mit statischen IPv4- und dynamischen IPv6-Einstellungen und zum Angeben mehrerer DNS-Server für die DNS-Auflösungseinstellungen geben Sie Folgendes ein:
 
 
     New-ADDCCloneConfigFile -Offline -IPv4Address "10.0.0.10" -IPv4SubnetMask "255.255.0.0" -IPv4DefaultGateway "10.0.0.1" -IPv4DNSResolver @( "10.0.0.1","10.0.0.2" ) -Static -IPv6DNSResolver "2002:4898:e0:31fc:d61:2b0a:c9c9:2ccc" -Path F:\Windows\NTDS 
 
 
-Zum Erstellen eines geklonten Domänencontrollers mit dem Namen Clone1 im Offlinemodus mit dynamischen IPv4- und IPv6-Einstellungen geben:
+Zum Erstellen eines geklonten Domänencontrollers mit dem Namen %%amp;quot;Clone1%%amp;quot; im Offlinemodus mit statischen IPv4- und IPv6-Einstellungen geben Sie Folgendes ein:
 
 
     New-ADDCCloneConfigFile -Offline -Static -IPv6DNSResolver "2002:4898:e0:31fc:d61:2b0a:c9c9:2ccc" -CloneComputerName "Clone1" -PreferredWINSServer "10.0.0.1" -AlternateWINSServer "10.0.0.3" -SiteName "REDMOND" -Path F:\Windows\NTDS
 
 
-Geben Sie zum Erstellen eines geklonten Domänencontrollers im Offlinemodus mit dynamischen IPv4 und IPv6-Einstellungen:
+Zum Erstellen eines geklonten Domänencontrollers im Offlinemodus mit dynamischen IPv4- und IPv6-Einstellungen geben Sie Folgendes ein:
 
 
     New-ADDCCloneConfigFile -Offline -IPv4DNSResolver "10.0.0.1" -IPv6DNSResolver "2002:4898:e0:31fc:d61:2b0a:c9c9:2ccc" -Path F:\Windows\NTDS
 
 
-### <a name="bkmk7_export_import_vm_sourcedc"></a>Schritt 4: Exportieren Sie und importieren Sie der virtuellen Maschine von der Quell-Domänencontroller
-Exportieren Sie in diesem Verfahren der virtuellen Maschine von dem virtualisierten Quelldomänencontroller und importieren Sie dann den virtuellen Computer. Diese Aktion wird in der Domäne einen geklonter virtualisierte Domänencontroller erstellt.
+### <a name="bkmk7_export_import_vm_sourcedc"></a>Schritt 4: Exportieren und anschließendes Importieren des virtuellen Computers des Quelldomänencontrollers
+In diesem Verfahren exportieren Sie den virtuellen Computer des virtualisierten Quelldomänencontroller und importieren dann den virtuellen Computer. Durch diese Aktion wird in Ihrer Domäne ein geklonter virtualisierte Domänencontroller erstellt.
 
-Sie müssen ein Mitglied der Gruppe "Administratoren" auf jedem Hyper-V-Host sein. Wenn Sie für jeden Server unterschiedliche Anmeldeinformationen verwenden, führen Sie die Windows PowerShell-Cmdlets zum Exportieren und importieren die virtuelle Maschine in verschiedenen Windows PowerShell-Sitzungen.
+Sie müssen auf jedem Hyper-V-Host Mitglied der lokalen Gruppe %%amp;quot;Administratoren%%amp;quot; sein. Wenn Sie für jeden Server unterschiedliche Anmeldeinformationen verwenden, führen Sie die Windows PowerShell-Cmdlets aus, um den virtuellen Computern in verschiedenen Windows PowerShell-Sitzungen zu exportieren und importieren.
 
-Wenn auf dem Quelldomänencontroller Momentaufnahmen vorhanden sind, sollten gelöscht werden, bevor der Quelldomänencontroller exportiert wird, da der virtuelle Computer nicht importiert wird, wenn eine Momentaufnahme prozessoreinstellungen verfügt, die mit dem hyper-V-Zielhost nicht kompatibel sind. Wenn die prozessoreinstellungen zwischen den Quell- und Ziel-hyper-V-Hosts kompatibel sind, können Sie exportieren und kopieren die Quelle ohne vorheriges Löschen von Momentaufnahmen. Nach dem importieren müssen jedoch die Momentaufnahmen gelöscht werden vom geklonten virtuellen Computer vor dem Beginn.
+Wenn auf dem Quelldomänencontroller Momentaufnahmen vorhanden sind, sollten diese vor dem Exportieren des Quelldomänencontrollers gelöscht werden, da der virtuelle Computer nicht importiert wird, wenn die Prozessoreinstellungen einer Momentaufnahme nicht mit dem Hyper-V-Zielhost kompatibel sind. Wenn die Prozessoreinstellungen zwischen den Hyper-V-Quell- und Zielhosts kompatibel sind, können Sie die Quelle ohne vorheriges Löschen von Momentaufnahmen exportieren und kopieren. Nach dem Importieren müssen die Momentaufnahmen jedoch vom geklonten virtuellen Computer gelöscht werden, bevor er gestartet wird.
 
-##### <a name="to-copy-a-virtual-domain-controller-by-exporting-and-then-importing-the-virtualized-source-domain-controller"></a>Um einen virtuellen Domänencontroller durch Exportieren und importieren dann den virtualisierten Quelldomänencontroller kopieren
+##### <a name="to-copy-a-virtual-domain-controller-by-exporting-and-then-importing-the-virtualized-source-domain-controller"></a>So kopieren Sie einen virtuellen Domänencontroller durch Exportieren und anschließendes Importieren des virtualisierten Quelldomänencontrollers
 
-1.  Auf **HyperV1**, Herunterfahren der Quelldomänencontroller (**VirtualDC1**).
+1.  Fahren Sie auf **HyperV1** den Quelldomänencontroller (**VirtualDC1**) herunter.
 
     ![Einführung in AD DS](../media/Introduction-to-Active-Directory-Domain-Services--AD-DS--Virtualization--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***
 
-    Stop-VM-Namen VirtualDC1 - ComputerName HyperV1
+    Stop-VM -Name VirtualDC1 -ComputerName HyperV1
 
 
-2.  Auf **HyperV1**, löschen Sie Momentaufnahmen und exportieren Sie dann den Quelldomänencontroller (VirtualDC1) in das Verzeichnis c:\CloneDCs.
+2.  Löschen Sie auf **HyperV1** Momentaufnahmen, und exportieren Sie dann den Quelldomänencontroller (VirtualDC1) in das Verzeichnis %%amp;quot;c:\CloneDCs%%amp;quot;.
 
 > [!NOTE]
-> Sie sollten alle zugeordneten Momentaufnahmen löschen, da jedes Mal, wenn eine Momentaufnahme erstellt wird, eine neue AVHD-Datei, die erstellt wird als differenzierender Datenträger fungiert. Dies löst eine Kettenreaktion aus. Wenn Sie Momentaufnahmen erstellt haben, und legen Sie die Datei DCCLoneConfig.xml in der virtuellen Festplatte, können Sie am Ende Erstellen eines Klons von einer älteren DIT-Version oder die Konfigurationsdatei in die falsche VHD-Datei einfügen. Löschen der Momentaufnahme werden alle diese AVHDs in die virtuelle Festplatte.
+> Löschen Sie alle zugeordneten Momentaufnahmen, da bei jeder Erstellung einer Momentaufnahme auch eine neue AVHD-Datei erstellt wird, die als differenzierender Datenträger fungiert. Dies löst eine Kettenreaktion aus. Wenn Sie Momentaufnahmen erstellt haben, und die Datei %%amp;quot;DCCLoneConfig.xml%%amp;quot; auf der virtuellen Festplatte einfügen, erstellen Sie möglicherweise einen Klon einer älteren DIT-Version oder fügen die Konfigurationsdatei in die falsche VHD-Datei ein. Durch Löschen der Momentaufnahme werden all diese AVHDs in der Basis-VHD zusammengeführt.
 
 ![Einführung in AD DS](../media/Introduction-to-Active-Directory-Domain-Services--AD-DS--Virtualization--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***
 
@@ -429,11 +421,11 @@ Wenn auf dem Quelldomänencontroller Momentaufnahmen vorhanden sind, sollten gel
     Export-VM -Name VirtualDC1 -ComputerName HyperV1 -Path c:\CloneDCs\VirtualDC1
 
 
-3.  Kopieren Sie den Ordner **virtualdc1** in das Verzeichnis c:\Import **HyperV2**.
+3.  Kopieren Sie den Ordner **virtualdc1** in das Verzeichnis %%amp;quot;c:\Import%%amp;quot; von **HyperV2**.
 
-4.  Auf **HyperV2**mit **Hyper-V-Manager**, Importieren des virtuellen Computers (mit der **virtuellen Computer importieren** Assistenten **Hyper-V-Manager**) aus dem Ordner **c:\Import\virtualdc1** und löschen Sie alle verknüpften **Snapshots**.
+4.  Importieren Sie auf **HyperV2**mit dem **Hyper-V-Manager**den virtuellen Computer (verwenden Sie dazu den Assistenten zum **Importieren virtueller Computer** in **Hyper-V-Manager**) aus dem Ordner **c:\Import\virtualdc1** , und löschen Sie alle dazugehörigen **Momentaufnahmen**.
 
-Verwenden der **virtuellen Computer kopieren (neue eindeutige ID erstellen)** beim Importieren des virtuellen Computers die option.
+Verwenden Sie beim Importieren des virtuellen Computers die Option **Virtuellen Computer kopieren (neue eindeutige ID erstellen)** .
 
 ![Einführung in AD DS](../media/Introduction-to-Active-Directory-Domain-Services--AD-DS--Virtualization--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***
 
@@ -442,26 +434,26 @@ Verwenden der **virtuellen Computer kopieren (neue eindeutige ID erstellen)** be
     Rename-VM $vm VirtualDC2
 
 
-Zum Erstellen mehrerer geklonter Domänencontroller vom selben Quelldomänencontroller:
+So erstellen Sie mehrere geklonte Domänencontroller vom selben Quelldomänencontroller:
 
-  -   UI: in der **virtuellen Computer importieren** -Assistenten geben Sie neue Speicherorte für **Ordner für Virtual Machine Configuration**, **momentaufnahmespeicher**, **Ordner für Smart Paging**, und ein anderes **Speicherort** für die virtuellen Festplatten für den virtuellen Computer.
+  -   Benutzeroberfläche: Geben Sie im Assistenten zum **Importieren virtueller Computer** neue Speicherorte für den **Ordner für die Konfiguration des virtuellen Computers**, den **Momentaufnahmespeicher**und den **Ordner für Smart Paging**sowie einen anderen **Speicherort** für die virtuellen Festplatten für dem virtuellen Computer an.
 
-  -   WindowsPowerShell: Geben Sie neue Speicherorte für die virtuelle Maschine mithilfe der folgenden Parameter für die `Import-VM` Cmdlet:
+  -   Windows PowerShell: Geben Sie neue Speicherorte für den virtuellen Computer mithilfe der folgenden Parameter für die `Import-VM` Cmdlet:
 
-        $path = Get-ChildItem "C:\CloneDCs\VirtualDC1\VirtualDC1\Virtual Computer" Import-VM-Pfad $path.fullname-Kopie - GenerateNewId - ComputerName HyperV2 - VhdDestinationPath "Path" - SnapshotFilePath "Path" - SmartPagingFilePath "Path" - VirtualMachinePath "Pfad"
+        $path = Get-ChildItem "C:\CloneDCs\VirtualDC1\VirtualDC1\Virtual Computer" Import-VM-Pfad $path.fullname - kopieren - GenerateNewId - ComputerName HyperV2 - VhdDestinationPath "Path" - SnapshotFilePath "Path" - SmartPagingFilePath "Path" - VirtualMachinePath "Path"
 
 
 > [!NOTE]
-> Erstellen mehrerer geklonter Domänencontroller gleichzeitig die empfohlene Batchgröße ist 10. Die maximale Anzahl wird eingeschränkt, indem Sie die maximale Anzahl von ausgehenden replikationsverbindungen, d. h. 16 für verteilte Datei-Replikation (DFSR) und 10 für Windows-Verwaltungsinstrumentation (File Replication Service, FRS). Sie sollten nicht mehr als die empfohlene Anzahl von geklonten Domänencontrollern gleichzeitig bereitstellen, wenn Sie die Nummer für Ihre Umgebung gründlich getestet haben.
+> Die empfohlene Batchgröße beim gleichzeitigen Erstellen mehrerer geklonter Domänencontroller ist 10. Die maximale Anzahl wird durch die maximale Anzahl von ausgehenden Replikationsverbindungen begrenzt, d. h. 16 für die DFS-Replikation (DFSR) und 10 für den Dateireplikationsdienst (File Replication Service, FRS). Sie sollten nicht mehr als die empfohlene Anzahl von geklonten Domänencontrollern gleichzeitig bereitstellen, außer Sie haben diese Anzahl in Ihrer Umgebung ausgiebig getestet.
 
-5.  Auf **HyperV1**, starten Sie den Quelldomänencontroller (**(VirtualDC1**) wieder online zu schalten.
+5.  Starten Sie auf **HyperV1**den Quelldomänencontroller (**(VirtualDC1**) neu, um ihn wieder online zu schalten.
 
 ![Einführung in AD DS](../media/Introduction-to-Active-Directory-Domain-Services--AD-DS--Virtualization--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***
 
     Start-VM -Name VirtualDC1 -ComputerName HyperV1
 
 
-6.  Auf **HyperV2**, starten Sie den virtuellen Computer (**VirtualDC2**) online als geklonten Domänencontroller in der Domäne zugänglich.
+6.  Starten Sie auf **HyperV2**den virtuellen Computer (**VirtualDC2**), um ihn als geklonten Domänencontroller in der Domäne online zu schalten.
 
 ![Einführung in AD DS](../media/Introduction-to-Active-Directory-Domain-Services--AD-DS--Virtualization--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***
 
@@ -469,25 +461,25 @@ Zum Erstellen mehrerer geklonter Domänencontroller vom selben Quelldomänencont
     Start-VM -Name VirtualDC2 -ComputerName HyperV2
 
 > [!NOTE]
-> Für das Klonen erfolgreich ist, muss der PDC-Emulator ausgeführt werden. Wenn er heruntergefahren wurde, stellen Sie sicher, dass er wieder hochgefahren und die erstsynchronisierung ausgeführt, d. h. fähig ist die PDC-Emulatorrolle enthält. Weitere Informationen finden Sie unter Microsoft [KB-Artikel 305476](https://support.microsoft.com/kb/305476).
+> Damit das Klonen erfolgreich ist, muss der PDC-Emulator ausgeführt werden. Wenn er heruntergefahren wurde, stellen Sie sicher, dass er wieder hochgefahren und die Erstsynchronisierung ausgeführt wurde, damit er seine Rolle als PDC-Emulatorrolle erkennt. Weitere Informationen finden Sie im Microsoft [KB-Artikel 305476](https://support.microsoft.com/kb/305476).
 
-Nach Abschluss des Klonvorgangs, vergewissern Sie sich, der Namen des geklonten Computers um sicherzustellen, dass der Klonvorgang erfolgreich war. Stellen Sie sicher, dass der virtuelle Computer nicht in Directory Services-Wiederherstellungsmodus (DSRM) gestartet wurde. Wenn Sie versuchen, anmelden und eine Fehlermeldung, dass keine Anmeldeserver verfügbar sind, versuchen Sie sich im Verzeichnisdienst-Wiederherstellungsmodus. Wenn der Domänencontroller nicht erfolgreich geklont wurde und im Verzeichnisdienst-Wiederherstellungsmodus gestartet wird, überprüfen Sie die Protokolle in der Ereignisanzeige und Dcpromo-Protokolle im Ordner "%systemroot%/debug".
+Überprüfen Sie nach dem Abschließen des Klonvorgangs anhand des Namens des geklonten Computers, ob das Klonen erfolgreich war. Stellen Sie sicher, dass der virtuelle Computer nicht im Verzeichnisdienst-Wiederherstellungsmodus (Directory Services Restore Mode, DSRM) gestartet wurde. Wenn Sie bei der Anmeldung die Fehlermeldung erhalten, dass keine Anmeldeserver verfügbar sind, versuchen Sie sich im Verzeichnisdienst-Wiederherstellungsmodus anzumelden. Wenn der Domänencontroller nicht erfolgreich geklont wurde und im Verzeichnisdienst-Wiederherstellungsmodus gestartet wurde, überprüfen Sie die Protokolle in der Ereignisanzeige und die DCpromo-Protokolle im Ordner %%amp;quot;%systemroot%/debug%%amp;quot;.
 
-Der geklonte Domänencontroller wird Mitglied der **Klonbare Domänencontroller** gruppieren, weil sie die Mitgliedschaft vom Quelldomänencontroller kopiert. Als bewährte Methode sollten Sie lassen den **Klonbare Domänencontroller** Gruppe leer, bis Sie zum Ausführen von Klonvorgängen bereit sind, und Sie Mitglieder entfernen sollten, nachdem das Klonen abgeschlossen wurden.
+Der geklonte Domänencontroller wird Mitglied der Gruppe **Klonbare Domänencontroller**, da diese Mitgliedschaft vom Quelldomänencontroller kopiert wird. Als bewährte Methode sollten Sie die Gruppe **Klonbare Domänencontroller** leer lassen, bis Sie zum Ausführen von Klonvorgängen bereit sind. Zudem sollten Sie Mitglieder nach dem Abschließen der Klonvorgänge entfernen.
 
-Wenn der Quelldomänencontroller ein Sicherungsmedium speichert, wird der geklonte Domänencontroller auch das Sicherungsmedium gespeichert. Sie können ausführen `wbadmin get versions` auf dem Sicherungsmedium auf dem geklonten Domänencontroller anzuzeigen. Ein Mitglied der Gruppe Domänen-Admins, sollte das Sicherungsmedium auf dem geklonten Domänencontroller zu verhindern, dass versehentlich wiederhergestellt löschen. Weitere Informationen zur Vorgehensweise beim Löschen einer systemstatussicherung mithilfe von wbadmin.exe finden Sie unter [Wbadmin delete Systemstatebackup](https://technet.microsoft.com/library/cc742081(v=WS.10).aspx).
+Wenn der Quelldomänencontroller ein Sicherungsmedium speichert, wird dieses auch vom geklonten Domänencontroller gespeichert. Führen Sie `wbadmin get versions` aus, um das Sicherungsmedium auf dem geklonten Domänencontroller anzuzeigen. Ein Mitglied der Gruppe %%amp;quot;Domänen-Admins%%amp;quot; sollte das Sicherungsmedium vom geklonten Domänencontroller entfernen, damit es nicht versehentlich wiederhergestellt wird. Weitere Informationen zum Löschen einer Systemstatussicherung mithilfe von „wbadmin.exe“ finden Sie unter [Wbadmin delete systemstatebackup](https://technet.microsoft.com/library/cc742081(v=WS.10).aspx).
 
-## <a name="troubleshooting"></a>Problembehandlung
-Wenn der geklonte Domänencontroller (**VirtualDC2**) in Directory Services-Wiederherstellungsmodus (DSRM) gestartet, es gibt keine zurück zum normalen Modus auf den nächsten Neustart. Um zu einem Domänencontroller anzumelden, der im Verzeichnisdienst-Wiederherstellungsmodus gestartet wird, verwenden Sie **. \Administrator** , und geben Sie das DSRM-Kennwort.
+## <a name="troubleshooting"></a>Problembehandlung bei
+Wenn der geklonte Domänencontroller (**VirtualDC2**) im Verzeichnisdienst-Wiederherstellungsmodus (Directory Services Restore Mode, DSRM) gestartet wird, kehrt er beim nächsten Neustart nicht automatisch zum normalen Modus zurück. Zum Anmelden an einem Domänencontroller, der im Verzeichnisdienst-Wiederherstellungsmodus gestartet wird, verwenden Sie **.\Administrator** und geben das DSRM-Kennwort ein.
 
-Korrigieren Sie die Ursache des Fehlers beim Klonen, und stellen Sie sicher, dass die Datei dcpromo.log nicht darauf hinweist, dass der Klonvorgang nicht wiederholt werden kann nicht. Wenn der Klonvorgang nicht wiederholt werden kann, verwerfen Sie das Medium sicher. Wenn der Klonvorgang wiederholt werden kann, müssen Sie den DS-Wiederherstellungsmodus löschen, um wiederholen Sie den Klonvorgang erneut auszuführen.
+Beheben Sie die Ursache des Fehlers beim Klonen, und stellen Sie sicher, dass in der Protokolldatei %%amp;quot;dcpromo.log%%amp;quot; nicht angegeben ist, dass der Klonvorgang nicht wiederholt werden kann. Wenn der Klonvorgang nicht wiederholt werden kann, verwerfen Sie das Medium auf sichere Art und Weise. Wenn der Klonvorgang wiederholt werden kann, müssen Sie das DSRM-Startkennzeichen löschen, um den Klonvorgang erneut auszuführen.
 
 1.  Öffnen von Windows Server 2012 mit einem Befehl mit erhöhten Rechten, (rechts klicken Sie auf Windows Server 2012, und wählen Sie als Administrator ausführen), und geben Sie dann **Msconfig**.
 
-2.  Auf der **Start** Registerkarte **Startoptionen**Kontrollkästchen **Abgesicherter Start** (mit der Option bereits ausgewählt **Active Directory-Reparatur aktiviert**).
+2.  Deaktivieren Sie auf der Registerkarte **Start** unter **Startoptionen**die Option **Abgesicherter Start** (diese Option ist bereits mit der **%%amp;quot;Active Directory-Reparatur%%amp;quot;** aktiviert).
 
-3.  Klicken Sie auf **OK** und neu starten, wenn Sie aufgefordert werden.
+3.  Klicken Sie auf **OK** , und starten Sie den Computer neu, wenn Sie dazu aufgefordert werden.
 
-Weitere Informationen zur Problembehandlung bei virtualisierte Domänencontroller, finden Sie unter [Virtualized Domain Controller Troubleshooting](../ad-ds/manage/virtual-dc/Virtualized-Domain-Controller-Troubleshooting.md).
+Weitere Informationen zur Problembehandlung bei virtuellen Domänencontrollern finden Sie unter [Problembehandlung für virtualisierte Domänencontroller](../ad-ds/manage/virtual-dc/Virtualized-Domain-Controller-Troubleshooting.md).
 
 

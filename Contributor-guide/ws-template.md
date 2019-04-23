@@ -14,86 +14,86 @@ ms.technology: ''
 ms.localizationpriority:
 - high/medium/low
 ms.openlocfilehash: 4f885680426c0bfa55d5f73a7ef0c2143a8dd5a9
-ms.sourcegitcommit: e0479b0114eac7f232e8b1e45eeede96ccd72b26
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "2082157"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59879561"
 ---
-# <a name="metadata-and-markdown-template"></a>Metadaten und Abzugsverteilung(en)-Vorlage
+# <a name="metadata-and-markdown-template"></a>Metadaten- und Markdownvorlage
 
-Diese Vorlage VORGÄNGEN enthält Beispiele der Abzugsverteilung(en) Syntax sowie Anleitungen zum Festlegen der Metadaten. Wenn der Großteil erhalten möchten, müssen Sie sowohl die [Rohdaten Abzugsverteilung(en)](https://raw.githubusercontent.com/Microsoft/WindowsServerDocs-pr/master/Contributor-guide/ws-template.md?token=AG1vEhARRHNLtPgKXP35BGjNZGajKOArks5YLNIwwA%3D%3D) und die [Ansicht gerendert](https://github.com/Microsoft/WindowsServerDocs-pr/blob/master/Contributor-guide/ws-template.md)anzeigen. (Die Rohdaten Abzugsverteilung(en) zeigt den Metadaten-Block, während die gerenderte Ansicht nicht der Fall ist.)
+Diese OPS-Vorlage enthält Beispiele für markdownsyntax sowie Anleitungen zum Festlegen der Metadaten. Um die meisten davon zu erhalten, müssen Sie beide anzeigen die [unformatierte Markdown](https://raw.githubusercontent.com/Microsoft/WindowsServerDocs-pr/master/Contributor-guide/ws-template.md?token=AG1vEhARRHNLtPgKXP35BGjNZGajKOArks5YLNIwwA%3D%3D) und [Ansicht gerendert](https://github.com/Microsoft/WindowsServerDocs-pr/blob/master/Contributor-guide/ws-template.md). (Das unformatierte Markdown zeigt die Metadaten-Block, die gerenderte Ansicht jedoch nicht.)
 
-Beim Erstellen einer Abzugsverteilung(en)-Datei sollten Sie diese Vorlage in eine neue Datei kopieren, füllen Sie die Metadaten als unten angegebenen Satz die H1-Überschrift an den Titel des Artikels und löschen Sie den Inhalt. Alles in Großbuchstaben in eckige Klammern benötigt Ihre Aufmerksamkeit.
+Beim Erstellen einer markdowndatei sollten Sie diese Vorlage in eine neue Datei kopieren, füllen Sie die Metadaten wie unten festgelegten die H1-Überschrift oben auf den Titel des Artikels und löschen Sie den Inhalt. Alle Elemente in die OBERGRENZEN in eckigen Klammern erfordert Ihre Aufmerksamkeit.
 
 
 ## <a name="metadata"></a>Metadaten 
 
-Der vollständige Metadaten-Block ist oben. Einige wichtige Hinweise:
+Der vollständige metadatenblock ist oben. Wichtige Hinweise:
 
-- Sie **müssen** haben ein Leerzeichen zwischen dem Doppelpunkt (:)) und den Wert für ein Metadata-Element.
-- Doppelpunkte in einen Wert (beispielsweise einen Titel) unterbrechen den Parser Metadaten. Verwenden Sie die HTML-Codierung für ein Doppelpunkt des an ihrer Stelle `&#58;` (z. B. `"title: Azure Rights Management&#58; the basics | Azure RMS"`).
-- **Titel**: Dieser Titel wird in Suchergebnissen angezeigt. 
-- **Autor**: das Autorenfeld sollte die **GitHub Benutzername** des Autors, nicht ihre Alias enthalten.
-- **ms.Prod**, **ms.technology**: Verwenden von "Windows-Server-Schwellenwert" für ms.prod (oder w10, wenn Sie diese Vorlage zum Erstellen von Inhalten für Windows 10 verwenden). Wenden Sie sich an Ihren CX-Kontakt, den ms.technology-Eigenschaftswert abzurufen.
+- Sie **müssen** ein Leerzeichen zwischen dem Doppelpunkt (:)) und der Wert für ein Metadatenelement einfügen.
+- Doppelpunkte in einem Wert (z.B. einem Titel) unterbrechen den metadatenparser. Verwenden Sie an ihre Stelle die HTML-Codierung für einen Doppelpunkt von `&#58;` (z. B. `"title: Azure Rights Management&#58; the basics | Azure RMS"`).
+- **title**: Dieser Titel wird in suchmaschinenergebnissen angezeigt. 
+- **author**: Das Feld "Autor" muss enthalten der **GitHub-Benutzernamen** des Autors, nicht seinen Alias.
+- **ms.prod**, **ms.technology**: Verwenden Sie "Windows-Server-Threshold" ms.prod (oder w10, wenn Sie diese Vorlage zum Erstellen von Inhalt für Windows 10 verwenden). Wenden Sie sich an Ihre CX wenden Sie sich an den ms.technology-Wert abgerufen werden soll.
 
-## <a name="basic-markdown-gfm-and-special-characters"></a>Grundlegende Abzugsverteilung(en), GFM und Sonderzeichen
+## <a name="basic-markdown-gfm-and-special-characters"></a>Grundlegendes Markdown, GFM und Sonderzeichen
 
-Alle grundlegenden und GitHub flavored Abzugsverteilung(en) wird unterstützt. Weitere Informationen dazu finden Sie unter:
+Alle basic "und" GitHub-flavored Markdown wird unterstützt. Weitere Informationen dazu finden Sie unter:
 
-- [Geplante Abzugsverteilung(en) syntax](https://daringfireball.net/projects/markdown/syntax)
-- [Dokumentation zu GitHub flavored Abzugsverteilung(en) (GFM)](https://guides.github.com/features/mastering-markdown)
+- [Grundlegende markdownsyntax](https://daringfireball.net/projects/markdown/syntax)
+- [Dokumentation zu GitHub-flavored Markdown (GFM)](https://guides.github.com/features/mastering-markdown)
 
-Abzugsverteilung(en) verwendet Sonderzeichen wie \ *, \', und \ # für die Formatierung. Wenn Sie eines der folgenden Zeichen in Ihrer Inhalte aufnehmen möchten, müssen Sie einen der folgenden Schritte ausführen:
+Markdown verwendet Sonderzeichen wie z. B. \*, \`, und \# für die Formatierung. Wenn Sie eines dieser Zeichen in Ihren Inhalt einschließen möchten, müssen Sie einen der folgenden Schritte ausführen:
 
-- Platzieren Sie einen umgekehrten Schrägstrich vor das Sonderzeichen "sie" Escapezeichen (beispielsweise \\\ * für eine \ *)
-- Verwenden Sie die [HTML-Entität Code](http://www.ascii.cl/htmlcodes.htm) für das Zeichen (beispielsweise \ & \#42\; für eine & #42;).
+- Fügen einen umgekehrten Schrägstrich vor das Sonderzeichen "es" Escapezeichen (z. B. \\ \* für eine \*)
+- Verwenden der [HTML-Entitätscode](http://www.ascii.cl/htmlcodes.htm) nach dem Zeichen (z. B. \& \#42\; für eine &#42;).
 
-## <a name="headings"></a>Überschriften
+## <a name="headings"></a>Spaltenüberschriften
 
-Überschriften sollte erfolgen 1-6 Hash-Zeichen (#) am Anfang der Zeile an, dass eine Überschrift, entsprechend der HTML-Überschriften Ebenen H1 bis H6 Atx-Formatvorlage verwenden, d. h., verwenden. Beispiele der ersten und zweiten Ebene Kopfzeilen werden oben verwendet. 
+Überschriften sollten erfolgen Atx-Stils, d. h. verwenden 1-6 Hash-Zeichen (#) am Anfang der Zeile um eine Überschrift, die für HTML-Überschriftenebenen H1 bis H6 anzugeben. Beispiele für die Header der ersten und zweiten Ebene werden oben verwendet. 
 
-Es **muss nur eine Überschrift der ersten Ebene (H1) in Ihrer Thema, das als Titel auf der Seite angezeigt wird** .  
+Es **müssen** werden nur eine Überschrift der ersten Ebene (H1) in Ihrem Thema, die als Titel auf der Seite angezeigt wird.  
 
 Überschriften der zweiten Ebene generiert das Inhaltsverzeichnis auf der Seite, die im Abschnitt "In diesem Artikel" unterhalb des Titels auf der Seite angezeigt wird.
 
 ### <a name="third-level-heading"></a>Überschrift der dritten Ebene
 #### <a name="fourth-level-heading"></a>Überschrift der vierten Ebene
-##### <a name="fifth-level-heading"></a>Fünften Ebene Überschrift
-###### <a name="sixth-level-heading"></a>Überschrift der sechsten-Ebene
+##### <a name="fifth-level-heading"></a>Überschrift der fünften Ebene
+###### <a name="sixth-level-heading"></a>Überschrift der sechsten Ebene
 
-## <a name="text-styling"></a>Text formatieren
+## <a name="text-styling"></a>Textformat
 
 *Kursiv* 
 
 **Fett** 
 
-~~Durchgestrichen~~
+~~Strikethrough~~
 
 ## <a name="links"></a>Links
 
-### <a name="internal-links"></a>Interne Hyperlinks
+### <a name="internal-links"></a>Interne Links
 
-Um eine Kopfzeile in der gleichen Abzugsverteilung(en) Datei verknüpfen, die Quelle des veröffentlichten Artikels, suchen Sie die ID der Head (z. B. `id="blockquote"`), und Verknüpfen mit # + -Id (z. B. `#blockquote`).
+Um auf einen Header in der gleichen markdowndatei zu verlinken, zeigen Sie die Quelle des veröffentlichten Artikels, suchen Sie die ID des Anfangswerts (z. B. `id="blockquote"`), und Verknüpfen mit # + Id (z. B. `#blockquote`).
 
 - Beispiel: [Blockquotes](#blockquote)
 
-Verwenden Sie zum Verknüpfen mit einer Abzugsverteilung(en)-Datei in der gleichen Repo [relative Hyperlinks](https://www.w3.org/TR/WD-html40-970917/htmlweb.html#h-5.1.2), einschließlich ".md" am Ende des Dateinamens.
+Verwenden Sie zum Verknüpfen mit einer markdowndatei im gleichen Repository [relative Links](https://www.w3.org/TR/WD-html40-970917/htmlweb.html#h-5.1.2), einschließlich ".md" am Ende des Dateinamens.
 
-- Beispiel: [Tipps und Punkte](tips-gotchas.md)
-- Beispiel: [Tools und Setup für Teilnehmer](../readme.md)
+- Beispiel: [Tipps und Probleme](tips-gotchas.md)
+- Beispiel: [Tools und Setup für Mitwirkende](../readme.md)
 
-Verwenden Sie zum Verknüpfen mit einer Kopfzeile in einer Abzugsverteilung(en)-Datei in der gleichen Repo relative verknüpfen + Hashtag verknüpfen.
+Um auf einen Header in einer markdowndatei im gleichen Repository zu verlinken, verwenden Sie relative Verknüpfung + hashtagverknüpfung.
 
 - Beispiel: [Löschen von Dateien](tips-gotchas.md#deleting-files)
 
 ### <a name="external-links"></a>Externe Links
 
-Um in einer externen Datei zu verknüpfen, verwenden Sie die vollständige URL als den Link.
+Verwenden Sie zum Verknüpfen mit einer externen Datei die vollständige URL als Link.
 
 - Beispiel: [GitHub](http://www.github.com)
 
-Wenn eine URL in einer Datei Abzugsverteilung(en) angezeigt wird, wird es in einem Link umgewandelt.
+Wenn eine URL in einer markdowndatei angezeigt wird, wird sie in einen klickbaren Link umgewandelt werden.
 
 - Beispiel: http://www.github.com
 
@@ -101,68 +101,68 @@ Wenn eine URL in einer Datei Abzugsverteilung(en) angezeigt wird, wird es in ein
 
 ### <a name="ordered-lists"></a>Sortierte Listen
 
-1. Dies  
-1. Ist
-1. Ein
-1. Bestellt
-1. Liste  
+1. Diese 
+1. Is
+1. Eine
+1. Sortiert
+1. List  
 
 
 #### <a name="ordered-list-with-an-embedded-list"></a>Sortierte Liste mit einer eingebetteten Liste
 
 1. Hier
-1. stammen
-1. ein
-1. eingebettete
-    1. Verpassen leicht
-    1. Pflaume Dozenten
-1. bestellt
+1. stammt
+1. Ein
+1. Eingebettete
+    1. Fehler leicht
+    1. Professor Plum
+1. Sortiert
 1. list
 
 
-### <a name="unordered-lists"></a>Nicht sortierte Listen
+### <a name="unordered-lists"></a>Unsortierte Listen
 
-- Dies 
--  auf 
+- Diese
+- auf
 - a
-- Aufzählung
+- Liste mit Aufzählungszeichen
 - list
 
 
-##### <a name="unordered-list-with-an-embedded-list"></a>Ungeordnete Liste mit einer eingebetteten Liste
+##### <a name="unordered-list-with-an-embedded-list"></a>Unsortierte Liste mit einer eingebetteten Liste
 
-- Dies  
-- Aufzählung 
+- Diese 
+- Liste mit Aufzählungszeichen 
 - list
-    - Frau Peacock
-    - John Green
-- enthält  
-- Andere
+    - Mrs Peacock
+    - Mr. grün
+- Enthält  
+- andere
     1. Colonel Senf
-    1. Frau weiß
+    1. Mrs-Whitepaper
 - Listen
 
 
-## <a name="horizontal-rule"></a>Horizontale Linie
+## <a name="horizontal-rule"></a>Horizontale Trennlinie
 
 ---
 
 ## <a name="tables"></a>Tabellen
 
-Verwenden Sie in fast jeder Instanz MD-Formatierung für Tabellen. Während der HTML-Tabellen mehr Flexibilität bieten Verwendung wir nicht deren in unseren Content. Wenn Sie eine HTML-Tabelle in Ihrer Artikel haben, werden wir diese Artikel nicht zusammengeführt.
+Verwenden Sie in fast jeder Instanz MD, die Formatierung für Tabellen. Während die HTML-Tabellen für mehr Flexibilität sorgen verwenden wir nicht sie in unserer Inhalte. Wenn Sie eine HTML-Tabelle in Ihrem Artikel verfügen, werden wir diesen Artikel nicht zusammen.
 
-| Tabellen        | Sind           | Leuchtstoff  |
+| Tabellen        | sind           | Cool  |
 | ------------- |:-------------:| -----:|
-| Spalte 3 ist      | rechts ausgerichtet | $1600 |
-| Spalte 2 ist      | Zentriert      |   12 USD |
-| SP 1 ist Standard | Linksbündig     |    $1 |
+| SP 3 ist      | Rechtsbündig | $1600 |
+| SP 2 ist      | Zentriert      |   12 USD |
+| SP 1 ist standardmäßig | Linksbündig     |    $1 |
 
 
 ## <a name="code"></a>Code
 
-### <a name="generic-codeblock"></a>Generische codeblock
+### <a name="generic-codeblock"></a>Generischer codeblock
 
-Leerzeichen Sie Code vier für die Codierung von generischen Codeblock.
+Einrücken von Code vier Leerzeichen für die Codierung generischer Codeblock.
 
     function fancyAlert(arg) {
       if(arg) {
@@ -171,11 +171,11 @@ Leerzeichen Sie Code vier für die Codierung von generischen Codeblock.
     }
 
 
-### <a name="codeblocks-with-language-identifier"></a>Codeblocks mit Sprach-ID
+### <a name="codeblocks-with-language-identifier"></a>Codeblocks mit Sprachen-ID
 
-Verwenden Sie drei Backticks (& 96 #; #96; & #96;) + eine Sprach-ID anzuwendende Farbe sprachspezifische-Codierung auf einen Codeblock.  Hier wird die gesamte Liste der [Sprachen-IDs GitHub Flavored Abzugsverteilung(en) (GFM)](https://github.com/jmm/gfm-lang-ids/wiki/GitHub-Flavored-Markdown-(GFM)-language-IDs).
+Verwenden Sie drei Graviszeichen (&#96;&#96;&#96;) + eine Sprachen-ID, um sprachenspezifische gelten für einen Codeblock zu codieren.  Hier ist die gesamte Liste der [GitHub Flavored Markdown (GFM) Sprachen-IDs](https://github.com/jmm/gfm-lang-ids/wiki/GitHub-Flavored-Markdown-(GFM)-language-IDs).
 
-##### <a name="c9839"></a>C & #9839;
+##### <a name="c9839"></a>C&#9839;
 
 ```c#
 using System;
@@ -212,28 +212,28 @@ $Files = Get-Childitem $Directory -recurse -Include *.log `
 
 ### <a name="inline-code"></a>Inlinecode
 
-Verwenden Sie Backticks (& #96;) für `inline code`.
+Verwenden Sie Graviszeichen (&#96;) für `inline code`.
 
 ## <a name="blockquotes"></a>Blockquotes
 
-> Der Dürre jetzt zehn Millionen Jahren dauerte hatte, und die von der schlechte Lizards Kaiserherrschaft hatte lange inzwischen beendet. Hier auf die Äquator, in dem Kontinent, die einen Tag als Afrika bezeichnet werden würde der Wettbewerb um Vorhandensein hatte erreicht eine neue Climax der Kämpfe, und die Victor wurde noch nicht im Blick. In diesem Land barren und verdorrt ist konnte nur kleine oder die Swift die harten Schnörkel oder sogar hoffe überstehen.
+> Die Trockenheit hatte nun zehn Millionen Jahre, und die Herrschaft der schrecklichen echsen hatte längst geendet. Hier am Äquator, in dem Kontinent, der eines Tages Afrika, existenzkampf Miete Vorhandensein hatte einen neuen Gipfel der grausamkeit, und der Sieger war noch nicht im Blick. In diesem trostlosen und verdorrten Land konnte nur geringe oder der schnelle oder der wilde Gedeihen oder sogar zu Überleben hoffen.
 
-## <a name="images"></a>Images
+## <a name="images"></a>Abbilder
 
 ### <a name="static-image"></a>Statisches Bild
 
-![Dies ist die Alt-text](../windowsserverdocs/get-started/media/wsbanner.png)
+![Dies ist der alternative Text.](../windowsserverdocs/get-started/media/wsbanner.png)
 
 ### <a name="linked-image"></a>Verknüpftes Bild
 
-[![aLt Text für verknüpfte Bild](../windowsserverdocs/get-started/nano.png)](../windowsserverdocs/get-started/getting-started-with-nano-server.md) 
+[![Alternativer Text für verknüpftes Bild](../windowsserverdocs/get-started/nano.png)](../windowsserverdocs/get-started/getting-started-with-nano-server.md) 
 
-## <a name="alerts"></a>Warnungen
+## <a name="alerts"></a>Benachrichtigungen
 
-### <a name="note"></a>Hinweis:
+### <a name="note"></a>Hinweis
 
 > [!NOTE]
-> Hierbei handelt es sich um Hinweis
+> Dies ist ein Hinweis
 
 ### <a name="warning"></a>Warnung
 
@@ -243,7 +243,7 @@ Verwenden Sie Backticks (& #96;) für `inline code`.
 ### <a name="tip"></a>Tipp
 
 > [!TIP]
-> Hierbei handelt es sich um Tipp
+> Dies ist ein Tipp
 
 ### <a name="important"></a>Wichtig
 

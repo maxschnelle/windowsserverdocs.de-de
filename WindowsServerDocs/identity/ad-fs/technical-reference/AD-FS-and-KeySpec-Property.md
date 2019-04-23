@@ -1,6 +1,6 @@
 ---
-title: "Active Directory-Verbunddienste und Zertifikat Schlüssel-Spezifikation Eigenschaft Informationen"
-description: 
+title: Active Directory-Verbunddienste und Zertifikat, Schlüssel-Spezifikation Eigenschaft Informationen
+description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -10,21 +10,22 @@ ms.assetid: a5307da5-02ff-4c31-80f0-47cb17a87272
 ms.technology: identity-adfs
 ms.author: billmath
 ms.openlocfilehash: db58fcce054f34c4b0a3f6725456badae9fd0468
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59879311"
 ---
-# <a name="ad-fs-and-certificate-keyspec-property-information"></a>AD FS und das Zertifikat von Schlüsselspezifikationen Eigenschaft Informationen
-Schlüssel-Spezifikation ("von Schlüsselspezifikationen") ist eine Eigenschaft eines Zertifikats und Schlüssels zugeordnet. Es gibt an, ob ein mit einem Zertifikat verknüpften privater Schlüssel für die Signierung, Verschlüsselung oder beides verwendet werden kann.   
+# <a name="ad-fs-and-certificate-keyspec-property-information"></a>AD FS und Zertifikat KeySpec-Eigenschaft Informationen
+Schlüssel-Spezifikation ("KeySpec") ist, eine Eigenschaft, die ein Zertifikat und Schlüssel zugeordnet wird. Es gibt an, ob es sich bei ein privater Schlüssel, der einem Zertifikat zugeordnet, die für die Signierung, Verschlüsselung oder beides verwendet werden kann.   
 
-AD FS und Web Application Proxy-Fehler kann z.B. ein falscher Wert für die von Schlüsselspezifikationen verursacht werden:
+AD FS und Webanwendungsproxy-Fehler kann z. B. ein falscher Wert für die KeySpec verursacht werden:
 
 
-- Fehler beim Herstellen eine SSL/TLS-Verbindung mit AD FS oder das Web Application Proxy mit keine AD FS-Ereignisse protokolliert (obwohl SChannel 36888 und 36874 Ereignisse protokolliert werden können)
-- Fehler beim Anmelden am AD FS oder WAP forms-Seite für Authentifizierung, jedoch keine Fehlermeldung angezeigt, die auf der Seite angezeigt.
+- Fehler beim Herstellen eine SSL/TLS-Verbindung mit AD FS oder den Webanwendungsproxy ohne AD FS-Ereignisse protokolliert (obwohl SChannel 36888 und 36874 Ereignisse möglicherweise protokolliert werden)
+- Fehler bei der Anmeldung auf dem AD FS oder WAP forms-Seite für Authentifizierung, jedoch keine Fehlermeldung angezeigt, die auf der Seite angezeigt.
 
-Sie können die folgenden im Ereignisprotokoll finden Sie unter:
+Sie können Folgendes in das Ereignisprotokoll angezeigt werden:
 
     Log Name:      AD FS Tracing/Debug
     Source:        AD FS Tracing
@@ -38,78 +39,78 @@ Sie können die folgenden im Ereignisprotokoll finden Sie unter:
     Description:
     Ignore corrupted SSO cookie.
 
-## <a name="what-causes-the-problem"></a>Was das Problem verursacht wird.
-Die von Schlüsselspezifikationen-Eigenschaft gibt an, wie die Schlüssel generiert oder abgerufen durch Microsoft CryptoAPI (CAPI), aus einer Microsoft ältere kryptografischen Storage Provider (CSP), verwendet werden kann.
+## <a name="what-causes-the-problem"></a>Was bewirkt, dass das problem
+Die KeySpec-Eigenschaft gibt an, wie ein Schlüssel generiert, oder aus dieser abgerufen durch Microsoft CryptoAPI (CAPI), aus einer Microsoft ältere kryptografischen Storage Provider (CSP), verwendet werden kann.
 
-Der Wert von Schlüsselspezifikationen **1**, oder **AT_KEYEXCHANGE**, für Signierung und Verschlüsselung verwendet werden kann.  Der Wert **2**, oder **AT_SIGNATURE**, wird nur für die Signierung verwendet.
+Wert KeySpec **1**, oder **AT_KEYEXCHANGE**, kann für Signierung und Verschlüsselung verwendet werden.  Der Wert **2**, oder **AT_SIGNATURE**, wird nur für die Signierung verwendet.
 
-Die am häufigsten verwendeten Fehlkonfiguration von Schlüsselspezifikationen wird der Wert 2 für ein Zertifikat als das Tokensignaturzertifikat verwendet.  
+Die häufigste Fehlkonfiguration KeySpec verwendet den Wert 2 für ein anderes Zertifikat als das Tokensignaturzertifikat.  
 
-Für Zertifikate, deren Schlüssel generiert wurden Cryptography Next Generation (CNG)-Anbieter verwenden, ist es gibt kein Konzept von Schlüssel-Spezifikation, und des Werts von Schlüsselspezifikationen immer 0 (null).
+Für Zertifikate, deren Schlüssel mit Anbietern von Cryptography Next Generation (CNG) generiert wurden, ist es kein Konzept für die Schlüssel-Spezifikation, und die KeySpec-Wert wird immer 0 (null) sein.
 
-Informationen Sie zum Prüfen, ob eines gültigen von Schlüsselspezifikationen Wert unter. 
+Erfahren Sie, wie für einen gültigen KeySpec-Wert, der unten überprüfen. 
 
 ### <a name="example"></a>Beispiel
-Ein Beispiel für eine ältere CSP ist der Microsoft Enhanced Cryptographic Provider. 
+Ein Beispiel für eine ältere CSP ist das Microsoft Enhanced Cryptographic Provider. 
 
-Microsoft RSA CSP Schlüssel-BLOB-Format enthält einen Algorithmusbezeichner entweder **calg_rsa_keyx** oder **CALG_RSA_SIGN**bzw. für Serviceanfragen für entweder ** AT_KEYEXCHANGE ** oder **AT_SIGNATURE** Schlüssel.
+Microsoft RSA CSP Schlüssel-BLOB-Format umfasst einen Algorithmusbezeichner entweder **CALG_RSA_KEYX** oder **CALG_RSA_SIGN**, Anforderungen für eine ** "AT_KEYEXCHANGE" ** oder **AT_ Signatur** Schlüssel.
   
-Die IDs der RSA-Algorithmus wie folgt auf Werte von Schlüsselspezifikationen zugeordnet
+Die RSA-Algorithmus für Schlüssel-IDs wie folgt auf KeySpec Werte zugeordnet
 
-| Anbieter unterstützten Algorithmus| Schlüssel-Spezifikation Wert für CAPI-Aufrufe |
+| Unterstützten Anbieter-Algorithmus| Spezifikation der Schlüssel-Wert für den CAPI-Aufrufe |
 | --- | --- |
-|Calg_rsa_keyx.: RSA-Schlüssel, die zum Signieren und Verschlüsseln verwendet werden können| AT_KEYEXCHANGE (oder von Schlüsselspezifikationen = 1)|
-CALG_RSA_SIGN: Nur die wichtigsten RSA-Signatur |AT_SIGNATURE (oder von Schlüsselspezifikationen = 2)|
+|CALG_RSA_KEYX : RSA-Schlüssel, der zum Signieren und Verschlüsseln verwendet werden kann| "AT_KEYEXCHANGE" (oder KeySpec = 1)|
+CALG_RSA_SIGN: Schlüssel RSA-Signatur |AT_SIGNATURE (oder KeySpec = 2)|
 
-## <a name="keyspec-values-and-associated-meanings"></a>Werte von Schlüsselspezifikationen und zugehörigen Bedeutung
-Im folgenden sind die Bedeutung der verschiedenen von Schlüsselspezifikationen Werte:
+## <a name="keyspec-values-and-associated-meanings"></a>KeySpec-Werte und zugehörigen Bedeutung
+Im folgenden sind die Bedeutung der verschiedenen KeySpec-Werte:
 
-|Von Schlüsselspezifikationen Wert|Bedeutet, dass|Empfohlene Verwendung von AD FS|
+|KeySpec-Wert|Bedeutet, dass|Empfohlene Verwendung von AD FS|
 | --- | --- | --- |
-|0|Das Zertifikat ist ein CNG-Zertifikat|Nur SSL-Zertifikat|
-|1|Für eine ältere CAPI (Nicht-CNG)-Zertifikat kann der Schlüssel zum Signieren und Verschlüsseln verwendet werden|    SSL, Tokensignaturzertifikat, Token entschlüsseln, dienstkommunikationszertifikate|
-|2|Für eine ältere CAPI (Nicht-CNG)-Zertifikat kann der Schlüssel nur für das Signieren verwendet werden|Nicht empfohlen.|
+|0|Das Zertifikat ist ein CNG-Zertifikat|Nur die SSL-Zertifikat|
+|1|Der Schlüssel kann für eine ältere CAPI (nicht-CNG)-Zertifikat zum Signieren und Verschlüsseln verwendet werden|    SSL "," Token "Signierung", "token entschlüsseln, dienstkommunikationszertifikate|
+|2|Für eine ältere CAPI (nicht-CNG)-Zertifikat kann der Schlüssel nur zum Signieren verwendet werden|nicht empfohlen.|
 
-## <a name="how-to-check-the-keyspec-value-for-your-certificates--keys"></a>Überprüfen Sie den Wert von Schlüsselspezifikationen für Ihre Zertifikate / Schlüssel
-Um einen Wert für die Zertifikate anzuzeigen, können Sie, die **Certutil** Befehlszeilentool.  
+## <a name="how-to-check-the-keyspec-value-for-your-certificates--keys"></a>So prüfen Sie die KeySpec-Wert für die Zertifikate / Schlüssel
+Um einen Wert für die Zertifikate anzuzeigen, Sie können, die **Certutil** -Befehlszeilentools.  
 
-Im folgenden finden Sie ein Beispiel: **Certutil-v – store mein**.  Dadurch wird die Zertifikatinformationen auf dem Bildschirm ausgeben.
+Im folgenden finden Sie ein Beispiel: **Certutil-v – speichern Sie meine**.  Dadurch wird die Zertifikatsinformationen auf dem Bildschirm sichern.
 
-![Von Schlüsselspezifikationen cert](media/AD-FS-and-KeySpec-Property/keyspec1.png)
+![KeySpec-Zertifikat](media/AD-FS-and-KeySpec-Property/keyspec1.png)
 
 Unter CERT_KEY_PROV_INFO_PROP_ID suchen für zwei Dinge:
 
 
-1. **ProviderType:** Dies gibt an, ob das Zertifikat eine ältere kryptografischen Storage Provider (CSP verwendet) oder einen Key Storage Provider auf neuere Zertifikat Next Generation (CNG) APIs basierend.  Alle Nicht-NULL-Wert gibt einen Legacy-Anbieter an.
-2.  **Von Schlüsselspezifikationen:** die folgenden Werte sind gültig von Schlüsselspezifikationen für ein AD FS-Zertifikat:
+1. **ProviderType:** Dies gibt an, ob das Zertifikat, eine ältere kryptografischen Storage Provider (CSP verwendet) oder einen Schlüsselspeicheranbieter auf neuere Zertifikat Next Generation (CNG) APIs basierend.  Jeder Wert ungleich Null gibt an, einen legacy-Anbieter.
+2.  **KeySpec:** Die folgenden sind Werte gültig KeySpec für eine AD FS-Zertifikat:
 
-    Ältere Kryptografiedienstanbieter (ProviderType ungleich 0):
+    Legacy-CSP-Anbieter (ProviderType ungleich 0):
     
-    |AD FS-Zertifikatzweck|Gültige von Schlüsselspezifikationen Werte|
+    |AD FS-Zertifikat den Zertifizierungszweck|Gültige KeySpec-Werte|
     | --- | --- |
-    |Die Kommunikation zwischen der|1|
-    |Entschlüsseln von Token|1|
-    |Signieren von Token|1 und 2|
+    |Dienstkommunikation|1|
+    |Tokenentschlüsselungszertifikat|1|
+    |Tokensignatur|1 und 2|
     |SSL|1|
 
-    CNG-Anbieter (ProviderType = 0):
-    |AD FS-Zertifikatzweck|Gültige von Schlüsselspezifikationen Werte|
+    CNG provider (ProviderType = 0):
+    |AD FS-Zertifikat den Zertifizierungszweck|Gültige KeySpec-Werte|
     | --- | --- |   
     |SSL|0|
 
-## <a name="how-to-change-the-keyspec-for-your-certificate-to-a-supported-value"></a>Zum Ändern der von Schlüsselspezifikationen für das Zertifikat auf einem unterstützten Wert
-Ändern des Werts von Schlüsselspezifikationen erfordert keine das Zertifikat neu erstellt oder erneut von der Zertifizierungsstelle ausgestellt werden.  Die von Schlüsselspezifikationen kann geändert werden, durch einen erneuten Import die vollständige Zertifikat und den privaten Schlüssel in eine PFX-Datei in den Zertifikatspeicher, verwenden die folgenden Schritteaus:
+## <a name="how-to-change-the-keyspec-for-your-certificate-to-a-supported-value"></a>Wie Sie Keyspec für Ihr Zertifikat in einen unterstützten Wert ändern
+Ändern des Werts KeySpec erfordert keine das Zertifikat erneut generiert oder erneut von der Zertifizierungsstelle ausgegeben werden soll.  Die KeySpec kann geändert werden, durch einen erneuten Import der vollständiges Zertifikat und den privaten Schlüssel aus einer PFX-Datei in den Zertifikatspeicher, verwenden die folgenden Schritte aus:
 
 
-1. Zuerst überprüfen Sie und notieren Sie die privaten Schlüssel Berechtigungen für das vorhandene Zertifikat, damit sie neu konfigurierten bei Bedarf nach der erneut importiert werden können.
+1. Zuerst überprüfen Sie, und notieren Sie die Berechtigungen für den privaten Schlüssel auf das vorhandene Zertifikat, damit sie neu konfiguriert bei Bedarf nach der erneut importieren können.
 2. Exportieren Sie das Zertifikat, einschließlich des privaten Schlüssels in eine PFX-Datei.
-3. Führen Sie die folgenden Schrittefür jeden Server, AD FS und WAP
-    1. Löschen Sie das Zertifikat (aus der AD FS / WAP-Server)
-    2. Öffnen Sie ein Eingabeaufforderungsfenster mit erhöhten Rechten PowerShell, und importieren Sie die PFX-Datei auf jedem AD FS und WAP-Server das folgende Cmdlet-Syntax verwenden, der AT_KEYEXCHANGE Wert (die für alle Zwecke der AD FS-Zertifikat kann):
-        1. C:\ > Certutil – Importpfx certfile.pfx AT_KEYEXCHANGE
-        2. Geben Sie die PFX-Kennwort
+3. Führen Sie die folgenden Schritte aus, für jeden AD FS- und WAP-server
+    1. Löschen Sie das Zertifikat (von der AD FS / WAP-Server)
+    2. Öffnen Sie eine PowerShell-Eingabeaufforderung, und importieren Sie die PFX-Datei auf jedem AD FS- und WAP-Server mithilfe der folgenden Cmdlet-Syntax, die Angabe des Werts von "AT_KEYEXCHANGE" (die für alle Zwecke der AD FS-Zertifikat funktioniert):
+        1. C:\>certutil –importpfx certfile.pfx AT_KEYEXCHANGE
+        2. Geben Sie ein PFX-Kennwort
     3. Wenn die oben genannten abgeschlossen ist, führen Sie folgende Schritte
-        1. Überprüfen Sie die Berechtigungen für privaten Schlüssel
+        1. Überprüfen Sie die Berechtigungen für den privaten Schlüssel
         2. Starten Sie den AD FS oder Wap-Dienst
 
 
