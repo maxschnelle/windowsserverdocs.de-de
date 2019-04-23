@@ -1,6 +1,6 @@
 ---
-title: DNS-Datensatz Ressourcenverwaltung
-description: Dieses Thema ist Teil des Handbuchs Verwaltung von IP-Adressverwaltung (IPAM) in Windows Server2016.
+title: Verwaltung von DNS-Ressourceneinträgen
+description: Dieses Thema ist Teil des Leitfadens Verwaltung von IP-Adressverwaltung (IPAM) in Windows Server 2016.
 manager: brianlic
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -13,37 +13,38 @@ ms.topic: article
 ms.assetid: 7b66c09d-e401-4f70-9a2a-6047dd629bfa
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 5ed781ef37243b80ea9da8aad27a29046b8dc8c9
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 2edf0fef80cfcfb2c754cacd53df3b38c3881733
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59844611"
 ---
-# <a name="dns-resource-record-management"></a>DNS-Datensatz Ressourcenverwaltung
+# <a name="dns-resource-record-management"></a>Verwaltung von DNS-Ressourceneinträgen
 
->Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
 Dieses Thema enthält Informationen zum Verwalten von DNS-Ressourceneinträge mithilfe von IPAM.  
   
 > [!NOTE]  
-> Zusätzlich zu diesem Thema werden die folgenden DNS-Ressource aufzeichnen Management-Themen in diesem Abschnitt.  
+> Zusätzlich zu diesem Thema sind die folgenden DNS-Ressource-datensatzverwaltung Themen in diesem Abschnitt verfügbar.  
 >   
 > -   [Hinzufügen eines DNS-Ressourceneintrags](../../technologies/ipam/Add-a-DNS-Resource-Record.md)  
 > -   [Löschen von DNS-Ressourceneinträgen](../../technologies/ipam/Delete-DNS-Resource-Records.md)  
 > -   [Filtern der Ansicht von DNS-Ressourceneinträgen](../../technologies/ipam/Filter-the-View-of-DNS-Resource-Records.md)  
-> -   [Anzeigen von DNS-Ressourceneinträgen für eine bestimmte IP-Adresse](../../technologies/ipam/View-DNS-Resource-Records-for-a-Specific-IP-Address.md)  
+> -   [Anzeigen von DNS-Ressourceneinträge für eine bestimmte IP-Adresse](../../technologies/ipam/View-DNS-Resource-Records-for-a-Specific-IP-Address.md)  
   
-## <a name="resource-record-management-overview"></a>Resource Record Management (Übersicht)  
-Bei der Bereitstellung von IPAM in Windows Server2016 können Sie Server-Ermittlung zum Hinzufügen von DHCP- und DNS-Servern für die IPAM-Server Management Console durchführen. Der IPAM-Server dann dynamisch DNS-Daten erfasst alle sechs Stunden die DNS-Server, die Konfiguration zur verwalten. IPAM verwaltet eine lokale Datenbank, in denen diese DNS-Daten gespeichert. IPAM bietet Ihnen eine Benachrichtigung über den Tag und Zeit, die die Server-Daten gesammelt wurden, sowie die am nächsten Tag angezeigt wird, und die Datensammlung von DNS-Servern erfolgen wird.  
+## <a name="resource-record-management-overview"></a>Übersicht über die Resource-datensatzverwaltung  
+Wenn Sie IPAM unter Windows Server 2016 bereitstellen, können Sie die serverermittlung zum Hinzufügen von DHCP- und DNS-Server zur IPAM-Server-Verwaltungskonsole ausführen. Der IPAM-Server dann dynamisch erfasst DNS-Daten alle sechs Stunden von der DNS-Servern, die sie konfiguriert ist verwalten. IPAM verwaltet eine lokale Datenbank, in dem sie diese DNS-Daten speichert. IPAM bietet Ihnen Benachrichtigungen über den Tag und die Zeit, die die Server-Daten gesammelt wurden, sowie die am nächsten Tag angezeigt, und die Uhrzeit, wann die Datensammlung von DNS-Server ausgeführt wird.  
   
-Gelbe Statusleiste in der folgenden Abbildungzeigt den Speicherort der Benutzeroberfläche der IPAM-Benachrichtigungen.  
+Die gelbe Statusleiste in der folgenden Abbildung zeigt den Speicherort der Benutzeroberfläche des IPAM-Benachrichtigungen.  
   
 ![IPAM-Benachrichtigungen](../../media/DNS-Resource-Record-Management/ipam_DataCollection_01.jpg)  
   
-Die DNS-Daten, die gesammelt werden enthält DNS-Zone Informationen und Ressourcen aufzeichnen. Sie können IPAM zum Sammeln von Informationen aus Ihrem bevorzugten DNS-Server konfigurieren.  IPAM sammelt dateibasierte und Active Directory-Zonen.  
+Die gesammelten Daten für die DNS-enthält DNS-Zone und Ressource Informationen aufzuzeichnen. Sie können IPAM zum Sammeln von Zoneninformationen über Ihre bevorzugten DNS-Server konfigurieren.  IPAM sammelt sowohl die dateibasierte als auch die Active Directory-Zonen.  
   
 > [!NOTE]  
-> IPAM sammelt Daten ausschließlich von Microsoft DNS-Servern Domäne. Die DNS-Servern von Drittanbietern und nicht der Domäne verbundene Server werden durch IPAM nicht unterstützt.  
+> IPAM sammelt Daten ausschließlich aus der Domäne verbundene Microsoft DNS-Server. Die DNS-Servern von Drittanbietern und nicht in Domänen eingebundene Server werden von IPAM nicht unterstützt.  
   
 Es folgt eine Liste der DNS-Ressourcendatensatztypen, die von IPAM gesammelt werden.  
   
@@ -59,21 +60,21 @@ Es folgt eine Liste der DNS-Ressourcendatensatztypen, die von IPAM gesammelt wer
   
 -   Host A oder AAAA  
   
--   Host-Informationen  
+-   Informationen zum Host  
   
 -   ISDN  
   
 -   MX  
   
--   Namensserver  
+-   Namenserver  
   
 -   Zeigerressourceneinträge (PTR)  
   
--   Verantwortliche Person  
+-   Verantwortliche person  
   
--   Umleiten  
+-   Weiterleitung über  
   
--   Speicherort  
+-   Dienstidentifizierung  
   
 -   SOA  
   
@@ -87,31 +88,31 @@ Es folgt eine Liste der DNS-Ressourcendatensatztypen, die von IPAM gesammelt wer
   
 -   WINS-R  
   
--   X. 25  
+-   X.25  
   
-In Windows Server2016 bietet IPAM Integration von IP-adressbestand, DNS-Zonen und DNS-Ressourceneinträge:  
+In Windows Server 2016 bietet IPAM eine Integration zwischen IP-adressbestand, DNS-Zonen und DNS-Ressourceneinträge:  
   
--   IPAM können Sie um eine IP-adressbestand von DNS-Ressourceneinträge automatisch erstellen.  
+-   Sie können IPAM verwenden, um automatisch eine IP-adressbestand von DNS-Ressourceneinträge erstellen.  
   
--   Sie können manuell eine IP-adressbestand von DNS A- und AAAA-Ressourceneinträge erstellen.  
+-   Sie können eine IP-adressbestand manuell vom DNS A- und AAAA-Ressourceneinträge erstellen.  
   
--   Sie können DNS-Ressourceneinträgen für eine bestimmte DNS-Zone anzeigen und Filtern der Datensätze, die je nach Typ, IP-Adresse, Datensatz Ressourcendaten und andere Filteroptionen.  
+-   Sie können DNS-Ressourceneinträgen für eine bestimmte DNS-Zone anzeigen und Filtern die Datensätze basierend auf Typ, IP-Adresse, Datensatz Ressourcendaten und anderen Filteroptionen.  
   
--   IPAM wird automatisch eine Zuordnung zwischen IP-Adressbereiche und DNS-Reverse-Lookupzonen erstellt.  
+-   IPAM erstellt automatisch eine Zuordnung zwischen IP-Adressbereiche und DNS-Reverse-Lookup-Zonen.  
   
--   IPAM erstellt IP-Adressen für die PTR-Einträge, die in der Reverse-Lookupzone vorhanden sind und die in die IP-Adressbereich enthalten sind. Sie können diese Zuordnung auch manuell ändern, falls erforderlich.  
+-   IPAM erstellt IP-Adressen für die PTR-Einträge, die in der reverse-Lookup-Zone vorhanden sind und die in diesen IP-Adressbereich enthalten sind. Sie können diese Zuordnung auch manuell ändern, falls erforderlich.  
   
-IPAM können Sie die folgenden Vorgänge für Ressourceneinträge aus der IPAM-Konsole ausführen.  
+IPAM ermöglicht Ihnen die folgenden Vorgänge für Ressourceneinträge in der IPAM-Konsole ausführen.  
   
 -   Erstellen von DNS-Ressourceneinträgen  
   
--   Bearbeiten von DNS-Ressourceneinträgen  
+-   Bearbeiten Sie die DNS-Ressourceneinträgen  
   
 -   Löschen von DNS-Ressourceneinträgen  
   
 -   Erstellen Sie die zugehörigen Ressourceneinträge  
   
-IPAM meldet Sie automatisch alle DNS-Konfiguration geändert wird, Sie mit der IPAM-Konsole.  
+IPAM meldet Sie automatisch alle DNS-Änderungen an der Konfiguration, dass Sie mithilfe der IPAM-Konsole vornehmen.  
   
 ## <a name="see-also"></a>Siehe auch  
 [Verwalten von IPAM](Manage-IPAM.md)  

@@ -1,7 +1,7 @@
 ---
 ms.assetid: 2bac7744-9de3-491a-b0a2-4e843cec7344
-title: "Hinzufügen von Helpdesklinks"
-description: 
+title: Hinzufügen eines Helpdesklinks
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,19 +9,20 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 6d16cc0a75bfe636c29b44687b669e87f31b69ce
-ms.sourcegitcommit: 76e57a5453d6ee9a04dcff6a8cca087132cb1d5f
+ms.openlocfilehash: 1654add6a81169b3d4831d6ebba320402e0734c5
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59849861"
 ---
-# <a name="add-help-desk-link"></a>Hinzufügen von Helpdesklinks 
+# <a name="add-help-desk-link"></a>Hinzufügen eines Helpdesklinks 
 
->Gilt für: Windows Server 2016, Windows Server2012 R2
+>Gilt für: Windows Server 2016, Windows Server 2012 R2
 
 
-## <a name="to-add-a-help-desk-link"></a>So fügen Sie eine Helpdesklinks hinzu  
-Um helpdesklinks hinzufügen, die auf der Anmeldeseite angezeigt wird, verwenden Sie die folgenden Windows PowerShell-PowerShell-Cmdlet und die folgende Syntax.  
+## <a name="to-add-a-help-desk-link"></a>Hinzufügen einer Helpdesklinks  
+Helpdesklinks hinzufügen, die auf die Anmeldeseite angezeigt wird\-auf der Seite verwenden Sie die folgenden Windows PowerShell-Cmdlets und Syntax.  
 
 ![Fügen Sie beim Helpdesk](media/AD-FS-user-sign-in-customization/ADFS_Blue_Custom2.png)
   
@@ -30,8 +31,8 @@ Um helpdesklinks hinzufügen, die auf der Anmeldeseite angezeigt wird, verwenden
  
   
 > [!IMPORTANT]  
-> Die `linkText`Parameter in diesem Cmdlet ist nicht erforderlich, es sei denn, Sie verwenden einen anderen Wert als den Standardwert handelt es sich *Hilfe*. Der Vorteil der Verwendung der Standardwert ist, dass sie für alle clientgebietsschemata lokalisiert sind. Nachdem die Seite angepasst ist, hat die Anpassung Vorrang vor; aus diesem Grund sollten Sie für alle Sprachen anpassen, die Sie unterstützen möchten.  
+> Der `linkText` -Parameter in diesem Cmdlet ist nur erforderlich, wenn Sie einen anderen Wert als den Standardwert *Help*verwenden. Der Vorteil des Standardwerts ist, dass er für alle Clientgebietsschemata lokalisiert ist. Nachdem die Seite angepasst ist, hat die Anpassung Vorrang, daher sollten Sie für alle Sprachen anpassen, die Sie unterstützen möchten.  
 
 
 ## <a name="additional-references"></a>Weitere Verweise 
-[AD FS-Anmeldung Anpassung durch den Benutzer](AD-FS-user-sign-in-customization.md)  
+[AD FS-Anmeldung Benutzeranpassung](AD-FS-user-sign-in-customization.md)  

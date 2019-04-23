@@ -1,7 +1,7 @@
 ---
 ms.assetid: fdd1c1fd-55aa-4eb8-ae84-53f811de042c
-title: Konfigurieren eines Verbundservers mit Device Registration Service
-description: 
+title: Konfigurieren eines Verbundservers mit dem Geräteregistrierungsdienst
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,64 +10,65 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: 511a039afd47cf7570fffdcaf17842e0eccc5683
-ms.sourcegitcommit: 9278435cbfa8dbeb30d0557ed0d27832b154edd2
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59843061"
 ---
-# <a name="configure-a-federation-server-with-device-registration-service"></a>Konfigurieren eines Verbundservers mit Device Registration Service
+# <a name="configure-a-federation-server-with-device-registration-service"></a>Konfigurieren eines Verbundservers mit dem Geräteregistrierungsdienst
 
->Gilt für: Windows Server 2012 R2
+>Gilt für: Windows Server 2012 R2
 
-Sie können Device Registration Service \(DRS\) auf dem Verbundserver aktivieren, schließen Sie die Verfahren in [Schritt4: Konfigurieren eines Verbundservers](https://technet.microsoft.com/library/dn303424.aspx). Die Device Registration Service bietet einen Onboarding-Mechanismus für die nahtlose zweistufige Authentifizierung, permanente einzelne Standardparameter auf \(SSO\) und bedingten Zugriff für Kunden, die Zugriff auf Unternehmensressourcen erfordern. Weitere Informationen zu DRS finden Sie unter [Verbinden mit einem Arbeitsplatz von einem beliebigen Gerät für SSO und nahtlose zweistufige Authentifizierung über Unternehmensanwendungen](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md)  
+Sie können Device Registration Service \(DRS\) auf dem Verbundserver, die nach der Durchführung der Verfahren in [Schritt 4: Konfigurieren eines Verbundservers](https://technet.microsoft.com/library/dn303424.aspx). Der Device Registration Service bietet einen Onboarding-Mechanismus für die nahtlose-Factor Authentication, persistente einmaliges Anmelden\-auf \(SSO\), und den bedingten Zugriff für Kunden, die Zugriff auf die Unternehmensressourcen benötigen. Ressourcen zu. Weitere Informationen zu DRS finden Sie unter [Verbinden mit einem Arbeitsplatz von einem beliebigen Gerät für SSO und nahtlose Second Factor Authentication Across Company Applications](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md)  
   
-## <a name="prepare-your-active-directory-forest-to-support-devices"></a>Vorbereiten von Active Directory-Gesamtstruktur Geräte zu unterstützen  
+## <a name="prepare-your-active-directory-forest-to-support-devices"></a>Vorbereiten der Active Directory-Gesamtstruktur zur Unterstützung von Geräten  
   
 > [!NOTE]  
-> Dies ist ein einmaligen Vorgang, den Sie ausführen müssen, zum Vorbereiten von Active Directory-Gesamtstruktur Geräte zu unterstützen. Sie müssen mit Enterprise-Administratorberechtigungen angemeldet sein, und die Active Directory-Gesamtstruktur muss das Windows Server2012 R2-Schema zum Durchführen dieses Verfahrens haben.  
+> Dies ist eine\-Zeit Vorgang, die Sie ausführen müssen, um Active Directory-Gesamtstrukturen zur Unterstützung von Geräten vorzubereiten. Sie müssen mit Enterprise-Administratorberechtigungen angemeldet sein, und Active Directory-Gesamtstruktur muss das Windows Server 2012 R2-Schema zum Durchführen dieses Verfahrens haben.  
 >   
-> Darüber hinaus DRS muss mindestens ein globaler Katalogserver in der Gesamtstruktur-Stammdomäne sein. Der globale Katalogserver ist erforderlich, um Initialize\ ADDeviceRegistration ausführen und bei der AD FS-Authentifizierung. AD FS Initialisiert eine Taste Arbeitsspeicher-Darstellung des Objekts DRS-Konfiguration in jede Authentifizierungsanforderung, und wenn das Objekt DRS-Konfiguration auf einem Domänencontroller in der aktuellen Domäne gefunden werden kann, versucht der Anforderungs gegen die GC, auf denen die DRS-Objekte während der Initialize\ ADDeviceRegistration bereitgestellt wurden.  
+> Darüber hinaus DRS erfordert, dass Sie mindestens ein globaler Katalogserver in der Stammdomäne der Gesamtstruktur verfügen. Der globale Katalogserver ist erforderlich, um die Initialisierung ausführen\-ADDeviceRegistration und während der AD FS-Authentifizierung. AD FS Initialisiert ein in\-Objekt-Memory-Darstellung der DRS-Konfiguration auf allen authentifizierungsanforderungen angegeben und wenn die DRS-Config-Objekt auf einem Domänencontroller in der aktuellen Domäne gefunden werden kann, wird die Anforderung versucht, vor der Garbage Collector auf dem die DRS-Objekte wurden Bei der Initialisierung bereitgestellt\-ADDeviceRegistration.  
   
 #### <a name="to-prepare-the-active-directory-forest"></a>Vorbereiten von Active Directory-Gesamtstruktur  
   
-1.  Öffnen Sie auf dem Verbundserver eine Windows PowerShell-Befehlsfenster, und geben:  
+1.  Öffnen Sie auf Ihrem Verbundserver ein Windows PowerShell-Befehlsfenster, und geben ein:  
   
     ```  
     Initialize-ADDeviceRegistration  
     ```  
   
-2.  Wenn ServiceAccountName dazu aufgefordert werden, geben Sie den Namen des Dienstkontos ein, die Sie als Dienstkonto für AD FS ausgewählt.  Wenn sie ein gMSA-Konto ist, geben Sie das Konto in der **Domain\\accountname$** Format. Verwenden Sie für ein Domänenkonto, das Format **Domain\\accountname**.  
+2.  Wenn Sie zur ServiceAccountName aufgefordert werden, geben Sie den Namen des Dienstkontos, die Sie als Dienstkonto für AD FS ausgewählt.  Wenn es sich um ein gMSA-Konto handelt, geben Sie das Konto in der **Domäne\\Kontoname$** Format. Verwenden Sie für ein Domänenkonto, das Format **Domäne\\Accountname**.  
   
-## <a name="enable-device-registration-service-on-a-federation-server-farm-node"></a>Aktivieren von Device Registration Service auf einem Federation Serverfarm Knoten  
+## <a name="enable-device-registration-service-on-a-federation-server-farm-node"></a>Aktivieren des Geräteregistrierungsdiensts auf einem Federation Serverfarm Knoten  
   
 > [!NOTE]  
 > Sie müssen mit Domänenadministrator-Berechtigungen zum Durchführen dieses Verfahrens angemeldet sein.  
   
-#### <a name="to-enable-device-registration-service"></a>So aktivieren Sie Device Registration Service  
+#### <a name="to-enable-device-registration-service"></a>Um Device Registration Service zu aktivieren.  
   
-1.  Öffnen Sie auf dem Verbundserver eine Windows PowerShell-Befehlsfenster, und geben:  
+1.  Öffnen Sie auf Ihrem Verbundserver ein Windows PowerShell-Befehlsfenster, und geben ein:  
   
     ```  
     Enable-AdfsDeviceRegistration  
     ```  
   
-2.  Wiederholen Sie diesen Schrittauf jedem Verbundserverproxy-Farmknoten in der AD FS-Farm.  
+2.  Wiederholen Sie diesen Schritt für jede Verbund-farmknoten in AD FS-Farm aus...  
   
-## <a name="enable-seamless-second-factor-authentication"></a>Aktivieren, die eine nahtlose zweistufige Authentifizierung  
-Nahtlose zweistufige Authentifizierung ist eine Verbesserung in AD FS, die ein höheres Maß an Zugriffsschutz auf Unternehmensressourcen und Anwendungen von externen Geräten, die versuchen bietet, darauf zuzugreifen. Bei ein persönliches Gerät dem Arbeitsplatz verbunden sind, wird eine "bekannten" Gerät und Administratoren können mithilfe dieser Informationen um bedingten Zugriff und erhalten Sie Zugriff auf Ressourcen zu steuern.  
+## <a name="enable-seamless-second-factor-authentication"></a>Aktivieren, die nahtlose zweistufige Authentifizierung  
+Nahtlose zweistufige Authentifizierung ist eine Erweiterung im AD FS, die ein höheres Maß an Schutz von Zugriffs auf Unternehmensressourcen und Anwendungen von externen Geräten bereitstellt, die sie zugreifen möchten. Wenn Sie ein Persönliches Gerät dem Arbeitsplatz verknüpft ist, wird er einem "bekannten" Gerät aus, und Administratoren können diese Informationen verwenden, um für den bedingten Zugriff und Steuern des Zugriffs auf Ressourcen.  
   
-#### <a name="to-enable-seamless-second-factor-authentication-persistent-single-sign-on-sso-and-conditional-access-for-workplace-joined-devices"></a>So aktivieren Sie die nahtlose zweistufige Authentifizierung, permanente einzelne Standardparameter auf \(SSO\) und bedingten Zugriff für Geräte mit dem Arbeitsplatz verbunden sind  
+#### <a name="to-enable-seamless-second-factor-authentication-persistent-single-sign-on-sso-and-conditional-access-for-workplace-joined-devices"></a>Nahtlose zweite aktivieren-Factor Authentication, persistente einmaligen Anmeldung\-auf \(SSO\) und den bedingten Zugriff für Geräte dem Arbeitsplatz beigetretene  
   
-1.  Wechseln Sie in der AD FS-Verwaltungskonsole zu Authentifizierungsrichtlinien. Wählen Sie globale primäre Authentifizierung bearbeiten. Wählen Sie das Kontrollkästchen neben Geräteauthentifizierung aktivieren, und klicken Sie dann auf OK.  
+1.  Navigieren Sie in der AD FS-Verwaltungskonsole zu Authentifizierungsrichtlinien. Wählen Sie globale primäre Authentifizierung bearbeiten. Wählen Sie das Kontrollkästchen neben der Geräteauthentifizierung aktivieren, und klicken Sie dann auf OK.  
   
 ## <a name="update-the-web-application-proxy-configuration"></a>Aktualisieren Sie die Web Application Proxy-Konfiguration  
   
 > [!IMPORTANT]  
-> Sie müssen nicht den Geräteregistrierungsdienst in the Web Application Proxy veröffentlichen.  Der Device Registration Service werden über das Web Application Proxy verfügbar, sobald er auf einem Verbundserver aktiviert ist.  Sie müssen zum Abschließen dieses Verfahren, um die Web Application Proxy-Konfiguration zu aktualisieren, wenn sie vor dem Aktivieren des Geräteregistrierungsdiensts bereitgestellt wurde.  
+> Sie müssen nicht den Geräteregistrierungsdienst in der Web Application Proxy zu veröffentlichen.  Beim Device Registration Service wird über den Webanwendungsproxy verfügbar sein, sobald er auf einem Verbundserver aktiviert ist.  Sie müssen dieses Verfahren, um die Web Application Proxy-Konfiguration zu aktualisieren, wenn sie vor dem Aktivieren des Geräteregistrierungsdiensts bereitgestellt wurde.  
   
-#### <a name="to-update-the-web-application-proxy-configuration"></a>Aktualisieren Sie die Konfiguration von Web Application Proxy  
+#### <a name="to-update-the-web-application-proxy-configuration"></a>Die Webproxykonfiguration für die Anwendung aktualisieren  
   
-1.  Öffnen Sie auf Ihrem Server Web Application Proxy eine Windows PowerShell-Befehlsfenster, und geben  
+1.  Öffnen Sie auf dem Webanwendungsproxy-Server eine Windows PowerShell-Befehlsfenster, und geben  
   
     ```  
     Update-WebApplicationProxyDeviceRegistration  
@@ -79,7 +80,7 @@ Nahtlose zweistufige Authentifizierung ist eine Verbesserung in AD FS, die ein h
 
 [AD FS-Bereitstellung](../../ad-fs/AD-FS-Deployment.md)  
 
-[Windows Server2012 R2 ADFS-Bereitstellungshandbuch](../../ad-fs/deployment/Windows-Server-2012-R2-AD-FS-Deployment-Guide.md)  
+[Windows Server 2012 R2 AD FS-Bereitstellung geführt.](../../ad-fs/deployment/Windows-Server-2012-R2-AD-FS-Deployment-Guide.md)  
  
 [Bereitstellen einer Verbundserverfarm](../../ad-fs/deployment/Deploying-a-Federation-Server-Farm.md)  
   

@@ -1,6 +1,6 @@
 ---
-title: Problembehandlung bei der Firewall in Windows Server Essentials
-description: Beschreibt, wie Sie Windows Server Essentials
+title: Behandeln von Problemen mit der Firewall in Windows Server Essentials
+description: Beschreibt, wie Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,38 +13,39 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 3c48d2abb7fd8431f40f76f8eece5c4142be4c75
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59846551"
 ---
-# <a name="troubleshoot-your-firewall-in-windows-server-essentials"></a>Problembehandlung bei der Firewall in Windows Server Essentials
+# <a name="troubleshoot-your-firewall-in-windows-server-essentials"></a>Behandeln von Problemen mit der Firewall in Windows Server Essentials
  
->Gilt für: Windows Server2016 Essentials, Windows Server2012 R2 Essentials, Windows Server2012 Essentials
+>Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
   
- Wenn Sie Probleme mit dem Remotezugriff auftreten, führen Sie reparieren überall Zugriff.  
+ Wenn Probleme mit dem Remotezugriff auftreten, führen Sie den Assistenten zur Reparatur von "Zugriff überall" aus.  
   
-### <a name="to-run-the-repair-anywhere-access-wizard"></a>Zum Ausführen des Reparatur Anywhere Access-Assistenten  
+### <a name="to-run-the-repair-anywhere-access-wizard"></a>Ausführen des Assistenten zur Reparatur von "Zugriff überall"  
   
 1.  Öffnen Sie das Dashboard.  
   
-2.  Klicken Sie auf **Einstellungen**, klicken Sie auf die **"Zugriff überall"** Registerkarte, und klicken Sie dann auf **Reparatur**.  
+2.  Klicken Sie auf **Einstellungen**, auf die Registerkarte **Zugriff überall** und dann auf **Reparieren**.  
   
-3.  Folgen Sie den Anweisungen in der überall Zugriff Reparaturassistent.  
+3.  Folgen Sie den Anweisungen im Assistenten zur Reparatur von "Zugriff überall".  
   
- Wenn Sie eine erweiterte netzwerkeinrichtung oder eine nicht von Microsoft stammende Firewall verwenden, müssen Sie möglicherweise zusätzliche Ports der Firewall öffnen. Die Ports in der folgenden Tabelle werden die mit Internet zugewiesen Numbers Authority (IANA) registriert.  
+ Wenn Sie eine erweiterte Netzwerkeinrichtung oder eine nicht von Microsoft stammende Firewall verwenden, müssen Sie unter Umständen zusätzliche Ports der Firewall öffnen. Die Ports in der folgenden Tabelle sind bei IANA (Internet Assigned Numbers Authority) registriert.  
   
 |Portnummer|Beschreibung|  
 |-----------------|-----------------|  
 |65500|Zertifkatwebdienst|  
-|65510 und 65515|Website für die Bereitstellung von Clientcomputer|  
+|65510 und 65515|Website zur Bereitstellung von Clientcomputern|  
 |65520|Webdienst für Mac-Clientcomputer|  
-|65532|Anbieterframework für Server-loopbackkommunikation|  
-|6602|Anbieterframework für Kommunikation zwischen dem Server und Clientcomputern|  
+|65532|Anbieterframework für Server-Loopbackkommunikation|  
+|6602|Anbieterframework für Kommunikation zwischen den Server- und Clientcomputern|  
   
 ## <a name="see-also"></a>Siehe auch  
   
--   [Verwenden von Web Access](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md)  
+-   [Verwenden des Remotewebzugriffs](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md)  
   
 -   [Verwalten des Remotewebzugriffs](../manage/Manage-Remote-Web-Access-in-Windows-Server-Essentials.md)  
   

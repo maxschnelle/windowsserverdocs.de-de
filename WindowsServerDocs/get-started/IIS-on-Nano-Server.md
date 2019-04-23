@@ -13,11 +13,11 @@ author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
 ms.openlocfilehash: 1461f3e3266d77d2510aba37208347253a8f78e7
-ms.sourcegitcommit: e0479b0114eac7f232e8b1e45eeede96ccd72b26
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "2082206"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59851621"
 ---
 # <a name="iis-on-nano-server"></a>IIS unter Nano Server
 
@@ -38,7 +38,7 @@ In diesem Release von Nano Server sind die folgenden IIS-Features verfügbar:
 |HTTP-Fehler|x|  
 |Statischer Inhalt|x|  
 |HTTP-Umleitung||  
-|**Integrität und Diagnose**||  
+|**Systemzustand und Diagnose**||  
 |HTTP-Protokollierung|x|  
 |Benutzerdefinierte Protokollierung||  
 |Anforderungsüberwachung||  
@@ -65,7 +65,7 @@ In diesem Release von Nano Server sind die folgenden IIS-Features verfügbar:
 |**Verwaltungstools**||  
 |IISAdministration-Modul für Windows PowerShell|x|  
 
-Eine Reihe von Artikeln auf weitere Konfigurationen von IIS (z. B. mit ASP.NET, PHP und Java) sowie andere weiterführende Inhalt wird veröffentlicht am [http://iis.net/learn](http://iis.net/learn).  
+Eine Reihe von Artikeln zu anderen Konfigurationen, die von IIS (z.B. mithilfe von ASP.NET, PHP und Java) sowie anderen relevanten Inhalten auf [ http://iis.net/learn ](http://iis.net/learn).  
 
 ## <a name="installing-iis-on-nano-server"></a>Installieren von IIS unter Nano Server  
 Sie können diese Serverrolle entweder offline (Nano Server deaktiviert) oder online (Nano Server ausgeführt) installieren, aber die Offlineinstallation ist die empfohlene Option.  
@@ -129,12 +129,12 @@ Obwohl die Offlineinstallation der Serverrolle empfohlen wird, müssen Sie sie m
 
     **dism /online /get-packages**  
 
-    Sie sollten den Text „Package Identity : Microsoft-NanoServer-IIS-Package~31bf3856ad364e35~amd64~~10.0.14393.1000“ zweimal sehen, einmal für den Versionstyp (Release Type) „Language Pack“ und einmal für den Versionstyp „Feature Pack“.  
+    Daraufhin sollte "Package Identity: Microsoft-NanoServer-IIS-Package ~ 31bf3856ad364e35 ~ amd64 ~ ~ 10.0.14393.1000" zweimal aufgeführt, einmal für den Versionstyp: Language Pack und einmal für den Versionstyp: FeaturePack.  
 
 6.  Starten Sie den W3SVC-Dienst entweder mit **net start w3svc** oder durch einen Neustart des Nano Servers.  
 
 ## <a name="starting-iis"></a>Starten von IIS  
-Sobald IIS installiert ist und ausgeführt wird, können Webanfragen bedient werden. Stellen Sie sicher, dass IIS ausgeführt wird, indem Sie die IIS-Standardwebseite unter http://\<IP-Adresse von Nano Server> durchsuchen. Auf einem physischen Computer können Sie die IP-Adresse ermitteln, indem Sie die Wiederherstellungskonsole verwenden. Auf einem virtuellen Computer erhalten Sie die IP-Adresse, indem Sie über die Windows PowerShell-Eingabeaufforderung Folgendes ausführen:  
+Sobald IIS installiert ist und ausgeführt wird, können Webanfragen bedient werden. Stellen Sie sicher, dass IIS ausgeführt wird, indem Sie die IIS-Standardwebseite unter http://\<IP-Adresse des Nano Servers> durchsuchen. Auf einem physischen Computer können Sie die IP-Adresse ermitteln, indem Sie die Wiederherstellungskonsole verwenden. Auf einem virtuellen Computer erhalten Sie die IP-Adresse, indem Sie über die Windows PowerShell-Eingabeaufforderung Folgendes ausführen:  
 
 `Get-VM -name <VM name> | Select -ExpandProperty networkadapters | select IPAddresses`  
 
@@ -177,7 +177,7 @@ Der vollständige Satz an untergeordneten IIS-Features ist in Anhang 1 enthalten
     ```
 
 ## <a name="other-common-iis-configuration-tasks"></a>Andere häufige Aufgaben bei der IIS-Konfiguration  
-**Erstellen von Websites**  
+**Erstellen von websites**  
 
 Verwenden Sie das folgende Cmdlet:  
 
@@ -189,7 +189,7 @@ Sie können anschließend `Get-IISSite` ausführen, um den Zustand der Website z
 
 Führen Sie `Remove-IISSite -Name TestSite -Confirm:$false` aus.  
 
-**Erstellen virtueller Verzeichnisse**  
+**Erstellen von virtuellen Verzeichnissen**  
 
 Sie können die virtuellen Verzeichnisse mithilfe des von Get-IISServerManager zurückgegebenen IISServerManager-Objekts erstellen, das die Microsoft.Web.Administration.ServerManager-API von .NET verfügbar macht. In diesem Beispiel greifen die Befehle auf das Element „Default Web Site“ der Sammlung „Sites“ und das Stammanwendungselement (/) des Abschnitts „Applications“ zu. Sie rufen anschließend die Add()-Methode der Sammlung „VirtualDirectories“ für dieses Anwendungselement auf, um das neue Verzeichnis zu erstellen:  
 
@@ -242,9 +242,9 @@ Verwenden Sie das Dienstprogramm „Certoc.exe“ wie in diesem Beispiel zum Imp
     $sm.CommitChanges()  
     ```  
 
-    Sie könnten auch die Servernamensanzeige (Server Name Indication, SNI) mit einem bestimmten Hostnamen mit der folgenden Syntax verwenden: `$sm.Sites["Default Web Site"].Bindings.Add("*:443:www.foo.bar.com", $hash, "My", "Sni".`  
+    Sie können auch (Server Name Indication, SNI) mit einem bestimmten Hostnamen mit folgender Syntax verwenden: `$sm.Sites["Default Web Site"].Bindings.Add("*:443:www.foo.bar.com", $hash, "My", "Sni".`  
 
-## <a name="appendix-1-list-of-iis-sub-features"></a>Anhang 1: Liste der untergeordneten IIS-Features
+## <a name="appendix-1-list-of-iis-sub-features"></a>Anhang 1: Liste der untergeordneten IIS-features
 
 - IIS-WebServer
 - IIS-CommonHttpFeatures
@@ -280,7 +280,7 @@ Verwenden Sie das Dienstprogramm „Certoc.exe“ wie in diesem Beispiel zum Imp
 - IIS-HttpTracing
 - IIS-CustomLogging
 
-## <a name="appendix-2-elements-of-http-features"></a>Anhang 2: Elemente von HTTP-Features  
+## <a name="appendix-2-elements-of-http-features"></a>Anhang 2: Elemente von HTTP-features  
 Jedes Feature von IIS besteht aus einer Reihe von Konfigurationselementen. In diesem Anhang werden die Konfigurationselemente aller Features dieser Nano Server-Version aufgeführt.  
 
 ### <a name="common-http-features"></a>Allgemeine HTTP-Features  
@@ -295,7 +295,7 @@ Jedes Feature von IIS besteht aus einer Reihe von Konfigurationselementen. In di
 
 Der Eintrag `StaticFile <handlers>` ist möglicherweise bereits vorhanden. Fügen Sie dem Attribut \<modules> in diesem Fall einfach durch ein Komma getrennt „DefaultDocumentModule“ hinzu.  
 
-**Verzeichnissuche**  
+**Verzeichnis durchsuchen**  
 
 |Abschnitt|Konfigurationselemente|  
 |----------------|--------------------------|   
@@ -411,7 +411,7 @@ Der Eintrag `StaticFile \<handlers>` ist möglicherweise bereits vorhanden. Füg
 |`<modules>`|`<add name="DigestAuthenticationModule" lockItem="true" />`|  
 |`<other>`|`<digestAuthentication enabled="false" />`|  
 
-**Authentifizierung durch IIS-Clientzertifikatszuordnung**  
+**IIS-Clientzertifikatzuordnung**  
 
 |Abschnitt|Konfigurationselemente|  
 |----------------|--------------------------|   
@@ -419,7 +419,7 @@ Der Eintrag `StaticFile \<handlers>` ist möglicherweise bereits vorhanden. Füg
 |`<modules>`|`<add name="CertificateMappingAuthenticationModule" lockItem="true" `/>`|  
 |`<clientCertificateMappingAuthentication>`|`<clientCertificateMappingAuthentication enabled="false" />`|  
 
-**Einschränkungen für IP-Adressen und Domänen**  
+**IP- und domäneneinschränkungen**  
 
 |Abschnitt|Konfigurationselemente|  
 |----------------|--------------------------|  
@@ -474,7 +474,7 @@ Der Eintrag `StaticFile \<handlers>` ist möglicherweise bereits vorhanden. Füg
 |`<globalModules>`|`<add name="IsapiFilterModule" image="%windir%\System32\inetsrv\filter.dll" />`|  
 |`<modules>`|`<add name="IsapiFilterModule" lockItem="true" />`|  
 
-**Serverseitige Includes**  
+**Serverseitige includes**  
 
 |Abschnitt|Konfigurationselemente|  
 |----------------|--------------------------|  

@@ -1,80 +1,81 @@
 ---
 ms.assetid: 3acaa977-ed63-4e38-ac81-229908c47208
-title: Behandlung von LDAP-Server-Cookies
-description: 
-author: billmath
-ms.author: billmath
-manager: femila
+title: Behandlung von LDAP-Servercookies
+description: ''
+author: MicrosoftGuyJFlo
+ms.author: joflore
+manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 89369cb1e52a315520062ca5ecc96b66ac3e2bfc
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.openlocfilehash: e9c293d04f1fd1b8091b768e49db554a23e7ce95
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59846561"
 ---
-# <a name="how-ldap-server-cookies-are-handled"></a>Behandlung von LDAP-Server-Cookies
+# <a name="how-ldap-server-cookies-are-handled"></a>Behandlung von LDAP-Servercookies
 
->Gilt für: Windows Server2016, Windows Server2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Legen in LDAP ergeben einige Abfragen einen großen Ergebnissatz. Solche Abfragen stellen eine Herausforderung dar, mit dem Windows-Server.  
+In LDAP ergeben einige Abfragen einen großen Ergebnissatz. Solche Abfragen stellen Windows Server vor Herausforderungen.  
   
-Die Erfassung und Zusammenstellung solcher großen Ergebnissätze bedeutet einen beträchtlichen Arbeitsaufwand. Viele Attribute müssen von einer internen Darstellung in der LDAP-Wire-Darstellung konvertiert werden. Einige Attribute muss eine Konvertierung aus einem internen, meist binären Format in ein textbasiertes UTF-8-Format im LDAP-Antwort Frame auftreten.  
+Die Erfassung und Zusammenstellung solcher großen Ergebnissätze bedeutet einen beträchtlichen Arbeitsaufwand. Viele Attribute müssen von einer internen Darstellung in die LDAP-Wire-Darstellung konvertiert werden. Einige Attribute müssen für den LDAP-Antwortframe auch von einem internen, meist binären Format in ein textbasiertes UTF-8-Format konvertiert werden.  
   
-Eine weitere Herausforderung stellt Ergebnis mit Zehntausenden von Objekten erreichen sehr einfach mehrere hundert schiere fest. Diese erfordern sehr viel virtuellen Adressraum, und auch die Übertragung über das Netzwerk kann problematisch werden, wenn die TCP-Sitzung während der Übertragung zusammenbricht.  
+Eine weitere Herausforderung stellt die schiere Größe der Ergebnissätze dar. Ergebnissätze mit Zehntausenden von Objekten erreichen sehr schnell eine Größe von mehreren hundert Megabyte. Diese erfordern sehr viel virtuellen Adressraum, und auch die Übertragung über das Netzwerk kann problematisch werden, wenn die TCP-Sitzung während der Übertragung zusammenbricht.  
   
-Diese Kapazität und Logistik führten die Microsoft-LDAP-Entwickler zum Erstellen einer LDAP-Erweiterungs, die als "Seitenweisen Abfrage" bezeichnet. Es ist ein LDAP-Steuerelement, um eine große Abfrage in Blöcke kleinerer Ergebnissätze trennen implementieren. RFC-Standard geworden [RFC 2696](http://www.ietf.org/rfc/rfc2696).  
+Diese Kapazität und Logistik brachten die Microsoft-LDAP-Entwickler geführt, erstellen eine LDAP-Erweiterung, die als "Seitenweisen Abfrage" bezeichnet. Diese Erweiterung implementiert ein LDAP-Steuerelement, das eine große Abfrage in mehrere Chunks kleinerer Ergebnissätze aufteilt. RFC-Standard geworden [RFC 2696](http://www.ietf.org/rfc/rfc2696).  
   
 ## <a name="cookie-handling-on-client"></a>Handhabung clientseitiger Cookies  
-Methode der seitenweisen Abfrage verwendet die Seitengröße vom Client oder über eine [LDAP-Richtlinie](https://support.microsoft.com/kb/315071/en-us) ("MaxPageSize"). Der Client muss die Auslagerung durch Senden einer LDAP-Steuerelement aktivieren.  
+Methode der seitenweisen Abfrage verwendet die Seitengröße, legen Sie entweder vom Client oder über, eine [LDAP-Richtlinie](https://support.microsoft.com/kb/315071/en-us) ("MaxPageSize"). Der Client muss die Auslagerung durch die Übergabe eines LDAP-Steuerelements aktivieren.  
 
   
-Wenn Sie eine Abfrage mit sehr vielen Ergebnissen arbeiten, zu einem bestimmten Zeitpunkt ist die maximale Anzahl der zulässigen Objekte erreicht. Der LDAP-Server verpackt die Antwortnachricht und fügt ein Cookie mit Informationen, die sie die Suche später fortsetzen muss.  
+Eine Abfrage mit sehr vielen Ergebnissen gelangt irgendwann an einen Punkt, an dem die maximale Anzahl der zulässigen Objekte erreicht ist. Der LDAP-Server verpackt die Antwortnachricht und fügt ihr ein Cookie mit Informationen hinzu, die er später zur Fortsetzung der Suche benötigt.  
   
-Die Clientanwendung muss das Cookie als nicht transparentes Blob behandeln. Sie können die Anzahl der Objekte in der Antwort abrufen und kann weiterhin die Suche auf das Vorhandensein des Cookies. Der Client wird die Suche fortgesetzt wird, indem Sie die Abfrage an den LDAP-Server mit denselben Parametern wie z. B. Basisobjekt und Filter erneut gesendet und enthält den Cookiewert, der von der vorherigen Antwort zurückgegeben wurde.  
+Die Clientanwendung muss das Cookie als nicht transparentes BLOB behandeln. Der Client kann die Anzahl der Objekte in der Antwort abrufen und die Suche mithilfe dieses Cookies fortsetzen. Dazu sendet er die Abfrage mit denselben Parametern (z. B. Basisobjekt und Filter) zurück an den LDAP-Server, wobei er den mit der vorherigen Antwort zurückgegebenen Cookiewert einfügt.  
   
-Wenn die Anzahl der Objekte keine Seite mehr füllt, die LDAP-Abfrage abgeschlossen und die Antwort enthält kein seitencookie. Wenn kein Cookie vom Server zurückgegeben wird, berücksichtigen der Client die seitenweise Suche erfolgreich abgeschlossen wurde.  
+Wenn die Anzahl der Objekte keine Seite füllt mehr, die LDAP-Abfrage abgeschlossen ist, und die Antwort enthält kein seitencookie. Wenn vom Server kein Cookie mehr zurückgegeben wird, kann der Client davon ausgehen, dass die seitenweise Suche erfolgreich abgeschlossen wurde.  
   
-Wenn ein Fehler vom Server zurückgegeben wird, berücksichtigen der Client die seitenweise Suche fehlgeschlagen ist. Wiederholen die Suche wird dazu, dass die Suche von der ersten Seite.  
+Wenn vom Server ein Fehler zurückgegeben wird, muss der Client davon ausgehen, dass die seitenweise Suche fehlgeschlagen ist. Eine Wiederholung der Suche führt dazu, dass die Suche erneut bei der ersten Seite beginnt.  
   
-## <a name="server-side-cookie-handling"></a>Serverseitige Verarbeitung von Cookies  
-Die Windows-Server gibt das Cookie an den Client und manchmal speichert Informationen im Zusammenhang mit das Cookie auf dem Server. Diese Informationen werden in einem Cache auf dem Server gespeichert und bestimmten Einschränkungen unterliegt.  
+## <a name="server-side-cookie-handling"></a>Handhabung serverseitiger Cookies  
+Windows Server gibt das Cookie an den Client zurück. Gelegentlich werden auf dem Server auch Informationen zum Cookie gespeichert. Diese Informationen werden in einem Server-Cache gespeichert, der bestimmten Einschränkungen unterliegt.  
   
-In diesem Fall das vom Server an den Client gesendete Cookie auch vom Server dient zum Suchen der Informationen aus dem Cache auf dem Server. Wenn der Client die seitenweise Suche fortsetzt, wird der Windows Server das Clientcookie sowie alle relevanten Informationen aus dem Cookiecache des Servers verwendet zum Fortsetzen der Suche. Wenn der Server relevanten Informationen aus den Servercache aus irgendeinem Grund nicht finden kann, wird die Suche nicht mehr unterstützt und Fehler an den Client zurückgegeben wird.  
+Falls Informationen im Cache gespeichert werden, wird das vom Server an den Client gesendete Cookie auch vom Server zum Suchen der Informationen aus dem Server-Cache verwendet. Wenn der Client die seitenweise Suche fortsetzt, verwendet Windows Server das Clientcookie wie auch alle relevanten Informationen aus dem Cookiecache des Servers zum Fortsetzen der Suche. Findet der Server, aus welchem Grund auch immer, im Servercache keine relevanten Cookieinformationen, so wird die Suche abgebrochen und ein Fehler an den Client zurückgegeben.  
   
-## <a name="how-the-cookie-pool-is-managed"></a>Verwaltung des cookiepools  
-Natürlich der LDAP-Server bedient mehrere Clients gleichzeitig, und auch mehrere Clients gleichzeitig Abfragen ausführen, die Verwendung von Cookiecache des Servers starten. Daher gibt es die Windows Server-Implementierung ist eine Überwachung der Verwendung von Cookies Pool und Grenzen cookiepoolauslastung so, dass der cookiepool zu viele Ressourcen nicht ausgeführt wird. Die Grenzwerte können vom Administrator festgelegt werden, verwenden die folgenden Einstellungen in LDAP-Richtlinie. Die Standardeinstellungen und erläuterungen sind:  
+## <a name="how-the-cookie-pool-is-managed"></a>Verwaltung des Cookiepools  
+Der LDAP-Server bedient mehrere Clients gleichzeitig und natürlich können auch mehrere Clients gleichzeitig Abfragen ausführen, die den Cookiecache des Servers beanspruchen. Aus diesem Grund wird die Cookiepoolauslastung vom Windows Server überwacht, wobei die Windows Server-Implementierung Grenzwerte vorsieht, um zu verhindern, dass der Cookiepool zu viele Ressourcen an sich zieht. Diese Grenzwerte können vom Administrator in der LDAP-Richtlinie mit den folgenden Einstellungen festgelegt werden. Nachfolgend sind die Standardwerte mit Erläuterungen angegeben:  
   
 **MinResultSets: 4**  
   
-Der LDAP-Server wird nicht auf die maximale Poolgröße erläutert, gesucht, wenn weniger als MinResultSets-Einträge in der Cookiecache des Servers.  
+Der LDAP-Server ignoriert die nachfolgend beschriebene maximale Poolgröße, wenn der Cookiecache weniger als MinResultSets-Einträge enthält.  
   
 **MaxResultSetSize: 262.144 bytes**  
   
-Die gesamte Cookiecache auf dem Server darf maximal MaxResultSetSize in Bytes nicht überschreiten. Wenn dies der Fall ist, werden Cookies beginnend beim ältesten gelöscht, bis der Pool kleiner als MaxResultSetSize in Bytes ist oder weniger als MinResultSets Cookies befinden sich in den Pool. Dies bedeutet, dass mit den Standardeinstellungen der LDAP-Server einen Pool von 450KB OK sein berücksichtigt, wenn Sie nur 3 Cookies gespeichert.  
+Die Gesamtgröße des Cookiecache auf dem Server darf  MaxResultSetSize in Bytes nicht überschreiten. Andernfalls werden Cookies beginnend beim ältesten Cookie gelöscht, bis die Größe des Pools wieder kleiner als MaxResultSetSize in Bytes ist oder sich im Pool weniger als MinResultSets Cookies befinden. Mit den Standardeinstellungen akzeptiert der LDAP-Server also einen Pool mit einer Größe von 450 KB, wenn der Pool nur 3 Cookies enthält.  
   
 **MaxResultSetsPerConn: 10**  
   
-Der LDAP-Server kann nicht mehr als MaxResultSetsPerConn Cookies pro LDAP-Verbindung im Pool.  
+Der LDAP-Server lässt im Pool nicht mehr als MaxResultSetsPerConn Cookies pro LDAP-Verbindung zu.  
   
 ## <a name="handling-deleted-cookies"></a>Handhabung gelöschter Cookies  
-Das Entfernen von Cookie-Informationen aus dem Cache des LDAP-Server führt nicht zu einem Anwendungsfehler in allen Fällen. Anwendungen möglicherweise neu starten die seitenweise Suche von Beginn und schließen Sie sie in einem weiteren Versuch. Einige Anwendungen verfügen über diese Art von Wiederholungsmechanismus einen Wiederholungsmechanismus.  
+Das Entfernen von Cookie-Informationen aus dem Cache des LDAP-Servers führt nicht in jedem Fall sofort zu einem Anwendungsfehler. Vielmehr können die Anwendungen die seitenweise Suche von Beginn an neu starten und in einem weiteren Versuch erfolgreich zu Ende führen. Einige Anwendungen verfügen aus Stabilitätsgründen über diese Art von Wiederholungsmechanismus.  
   
-Einige Programme möglicherweise eine seitenweise Suche durchlaufen, und schließen Sie sie nie. Dadurch kann Einträge in der LDAP-Server Cookie-Cache beibehalten werden, über den Mechanismus in Abschnitt 4 behandelt wird. Dies ist wichtig, um Speicherplatz auf dem Server für aktive LDAP-Suchvorgänge freizugeben.  
+Andere Anwendungen hingegen schließen eine seitenweise Suche eventuell nie ab. Dadurch können im Cookiecache des LDAP-Servers Einträge zurückbleiben, in welchem Fall der in Abschnitt 4 beschriebene Mechanismus zum Zuge kommt. Diese Behandlung ist wichtig, um den Speicherplatz des Servers wieder für aktive LDAP-Suchvorgänge freizugeben.  
   
-Was geschieht, wenn solches Cookie auf dem Server gelöscht wird und des Clients die Suche mit diesem Cookiehandle? Der LDAP-Server nicht findet das Cookie auf dem Server Cookiecache und gibt einen Fehler für die Abfrage zurück, die Fehlerantwort ähnelt:  
+Was passiert aber, wenn ein solches Cookie auf dem Server gelöscht wird und der Client die Suche mit diesem Cookiehandle fortsetzt? Der LDAP-Server findet das Cookie in diesem Fall nicht in seinem Cookiecache und gibt für die Abfrage eine Fehlermeldung wie die Folgende zurück:  
   
 ```  
 00000057: LdapErr: DSID-xxxxxxxx, comment: Error processing control, data 0, v1db1  
 ```  
   
 > [!NOTE]  
-> Der Hexadezimalwert "DSID" variiert je nach Buildversion der Binärdateien des LDAP-Server.  
+> Der Hexadezimalwert "DSID" variieren je nach Buildversion der Binärdateien des LDAP-Server.  
   
-## <a name="reporting-on-the-cookie-pool"></a>Berichterstattung über den cookiepool  
-Der LDAP-Server hat die Möglichkeit zum Protokollieren von Ereignissen über die Kategorie "16 Ldap Interface" in der [NTDS-Diagnoseschlüssel](https://support.microsoft.com/kb/314980/en-us). Wenn Sie diese Kategorie auf "2" festlegen, erhalten Sie die folgenden Ereignisse:  
+## <a name="reporting-on-the-cookie-pool"></a>Rückmeldungen über den Cookiepool  
+Der LDAP-Server hat die Möglichkeit, Ereignisse über die Kategorie "16 Ldap Interface" Melden Sie sich in der [NTDS-Diagnoseschlüssel](https://support.microsoft.com/kb/314980/en-us). Wenn Sie diese Kategorie auf "2" festlegen, erhalten Sie die folgenden Ereignisse:  
   
 ```  
 Log Name:      Directory Service  
@@ -116,20 +117,20 @@ The client should consider a more efficient search filter.  The limit for Maximu
   
 ```  
   
-Diese Ereignisse signalisieren, dass ein gespeichertes Cookie entfernt wurde. Es bedeutet nicht, dass ein Client den LDAP-Fehler, aber nur eingelesen wurden, dass der LDAP-Server die Verwaltung Grenzen für den Cache erreicht hat.  In einigen Fällen wird ein LDAP-Client kann die seitenweise Suche abgebrochen haben und der Fehler wird möglicherweise nie angezeigt.  
+Diese Ereignisse signalisieren, dass ein gespeichertes Cookie entfernt wurde. Es bedeutet nicht, dass der LDAP-Fehler bereits bis zu einem Client durchgedrungen ist, sondern lediglich, dass der LDAP-Server die vom Administrator festgelegten Grenzen für den Cache erreicht hat.  In einigen Fällen hat der LDAP-Client seine seitenweise Suche auch schon abgebrochen, so dass der Fehler bei ihm gar nicht in Erscheinung tritt.  
   
-## <a name="monitoring-the-cookie-pool"></a>Überwachen des cookiepools  
-Wenn Sie in Ihrer Domäne nie LDAP-Suche Fehler auftreten, müssen Sie möglicherweise nie auf Seite Suchen-Cookie für LDAP-Serverpool überwachen. Für den Fall, dass Sie LDAP-Suchen Sie verwandte Fehler in Ihrer Umgebung angezeigt, haben Sie möglicherweise ein Problem mit der das Cookie vom Administrator festgelegten Grenzen.  
+## <a name="monitoring-the-cookie-pool"></a>Überwachen des Cookiepools  
+Wenn in Ihrer Domäne noch nie ein LDAP-Suchfehler aufgetreten ist, brauchen Sie den Cookiepool des LDAP-Servers für die seitenweise Suche gar nicht zu überwachen. Treten in Ihrer Umgebung hingegen Fehler in Verbindung mit der seitenweisen LDAP-Suche auf, liegt eventuell ein Problem mit den vom Administrator festgelegten Grenzen für den Cookiepool vor.  
   
-Die Ereignisse 2898 und 2899 sind der einzige wissen, dass der LDAP-Server die administratorgrenzen erreicht hat. Wenn Sie die LDAP-Abfragen Fehler aufgrund der oben aufgeführten steuerverarbeitungsfehler auftritt, sollten Sie überprüfen, höheren Einschränkungen auf einem oder mehreren der LDAP-Richtlinieneinstellungen, die gemäß Abschnitt 4, je nachdem, welches, die Ereignis Sie abrufen.  
+Die Ereignisse 2898 und 2899 sind der einzige sichere Hinweis darauf, dass der LDAP-Server die Administratorgrenzen erreicht hat. Wenn Sie feststellen, dass LDAP-Abfragen aufgrund der oben aufgeführten Steuerverarbeitungsfehler fehlschlagen, sollten Sie je nach zurückgegebenem Ereignis die Grenzwerte der in Abschnitt 4 beschriebenen LDAP-Richtlinieneinstellungen heraufsetzen.  
   
-Wenn Sie auf Ihrem DC/LDAP-Server Ereignis 2898 angezeigt werden, wird empfohlen, dass Sie MaxResultSetsPerConn auf 25 festgelegt. Mehr als 25 parallele ausgeführte seitenweise Suchen über eine LDAP-Verbindung sind ungewöhnlich. Wenn Sie Ereignis 2898 weiterhin, untersuchen Sie die LDAP-Clientanwendung, die der Fehler auftritt. Der Verdacht auf wäre, dass sie aus irgendeinem Grund bleibt Abrufen weiterer seitenweiser Ergebnisse hängen, bewirkt, das Cookie ausstehende dass und eine neue Abfrage startet. Um festzustellen, ob die Anwendung zu einem bestimmten Zeitpunkt ausreichend Cookies müssten für ihre Zwecke, Sie können auch den Wert der MaxResultSetsPerConn über 25. erhöhen, wenn Sie 2899-Ereignisse auf den Domänencontrollern finden Sie unter, der Plan wären unterschiedlich. Wenn Ihr DC/LDAP-Server auf einem Computer mit ausreichend Arbeitsspeicher (mehrere GB freien Speicher) ausgeführt wird, sollten Sie Sie MaxResultSetSize auf dem LDAP-Server > = 250MB. Dieser Grenzwert ist groß genug für große Mengen von LDAP-Seite-Suchen auch in sehr großen Verzeichnissen.  
+Erhalten Sie auf Ihrem DC/LDAP-Server Ereignis 2898, empfiehlt sich eine Erhöhung von MaxResultSetsPerConn auf 25. Mehr als 25 parallel ausgeführte seitenweise Suchen über eine einzige LDAP-Verbindung sind ungewöhnlich. Falls Sie Ereignis 2898 weiterhin erhalten, sollten Sie die LDAP-Clientanwendung überprüfen, in der der Fehler auftritt. In diesem Fall liegt es nahe, dass die Anwendung beim Abrufen weiterer seitenweiser Ergebnisse hängen bleibt, das Cookie daraufhin im Status „Ausstehend“ belässt und eine neue Abfrage startet. Um festzustellen, ob der Anwendung an einem bestimmten Punkt für ihre Zwecke ausreichend Cookies zur Verfügung stehen, können Sie MaxResultSetsPerConn auch auf einen höheren Wert als 25 einstellen. Werden Ihren Domänencontrollern hingegen 2899-Ereignisse zurückgegeben, sähe die Strategie anders aus. Läuft Ihr DC/LDAP-Server in diesem Fall auf einem Computer mit ausreichend Arbeitsspeicher (d. h. es sind mehrere GB Arbeitsspeicher frei), sollten Sie MaxResultsetSize auf dem LDAP-Server auf einen Wert größer oder gleich 250 MB setzen. Dieser Grenzwert ist auch für große Mengen umfangreicher seitenweiser LDAP-Suchen auch in sehr großen Verzeichnissen mehr als ausreichend.  
   
-Wenn Sie sind immer noch angezeigt Ereignisse 2899 einen Pool von 250MB oder mehr wahrscheinlich mit vielen Clients mit sehr hohe Anzahl von Objekten zurückgegeben werden, werden in einer Weise sehr häufig abgefragt. Die Daten, die Sie sammeln können, mit der [Active Directory Data Collector Set](http://blogs.technet.com/b/askds/archive/2010/06/08/son-of-spa-ad-data-collector-sets-in-win2008-and-beyond.aspx) Gebucht-Informationen finden Sie wiederholte seitenweise Abfragen, die Ihre LDAP-Server können. Diese Abfragen werden alle mit einer Reihe von "zurückgegebenen Einträge" angezeigt, die die Größe der verwendeten Seite entspricht.  
+Wenn Sie bei einem Pool mit dieser Größe nach wie vor 2899-Ereignisse erhalten, ist zu vermuten, dass auf dicht aufeinander folgende Abfragen sehr vieler Clients große Mengen an Objekten in kürzester Folge zurückgegeben werden. Die Daten, die Sie sammeln können, mit der [Active Directory Data Collector Set](http://blogs.technet.com/b/askds/archive/2010/06/08/son-of-spa-ad-data-collector-sets-in-win2008-and-beyond.aspx) Hilfe finden Sie wiederholte seitenweise Abfragen, die Ihre LDAP-Server können gebucht werden. Diese Abfragen werden alle mit einer Anzahl von "zurückgegebenen Einträge" angezeigt, die die Größe der verwendeten Seite entspricht.  
   
-Wenn möglich, sollten Sie das Anwendungsdesign überprüfen und implementieren einen anderen Ansatz mit einer niedrigeren Frequenz, Datenvolumen und/oder weniger Clientinstanzen, die diese Daten Abfragen. Im Fall von Anwendungen für die, die Sie über Zugriff auf den Quellcode, dieses Handbuchs [Erstellen von effizienten AD-Enabled Anwendungen](https://msdn.microsoft.com/en-us/library/ms808539.aspx) können Sie besser verstehen die optimale Methode für Anwendungen für den Zugriff auf Active Directory.  
+Wenn möglich, sollten Sie das Anwendungsdesign überprüfen und implementieren einen anderen Ansatz mit einer niedrigeren Häufigkeit, Datenvolumen und/oder weniger Clientinstanzen, die die Abfrage dieser Daten. Bei den Anwendungen, die für die Sie Zugriff auf den Quellcode, dieses Handbuchs haben [effiziente AD-Enabled anwendungserstellung](https://msdn.microsoft.com/en-us/library/ms808539.aspx) ermöglicht Ihnen die optimale Methode zugreifen AD-Anwendungen zu verstehen.  
   
-Wenn das Abfrageverhalten nicht geändert werden kann, wird ein Ansatz auch Hinzufügen von mehr replizierten Instanzen von der benötigten Namenskontexte und zum Verteilen von den Clients und schließlich die Belastung der einzelnen LDAP-Server zu reduzieren.  
+Wenn das Abfrageverhalten kann nicht geändert werden, wird ein Ansatz auch hinzugefügt mehr replizierte Instanzen der benötigten Namenskontexte und um die Clients verteilen und schließlich reduzieren die Last auf den einzelnen LDAP-Servern.  
   
 
 

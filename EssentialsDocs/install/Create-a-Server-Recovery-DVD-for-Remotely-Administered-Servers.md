@@ -1,6 +1,6 @@
 ---
-title: "Erstellen einer Serverwiederherstellungs-DVD für Remote verwaltete Server"
-description: Beschreibt, wie Sie Windows Server Essentials
+title: Erstellen einer Serverwiederherstellungs-DVD für remote verwaltete Server
+description: Beschreibt, wie Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,58 +13,59 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 7bfe1686ac84962cdb4ab1cde8d6ca5226cb9d44
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59844351"
 ---
-# <a name="create-a-server-recovery-dvd-for-remotely-administered-servers"></a>Erstellen einer Serverwiederherstellungs-DVD für Remote verwaltete Server
+# <a name="create-a-server-recovery-dvd-for-remotely-administered-servers"></a>Erstellen einer Serverwiederherstellungs-DVD für remote verwaltete Server
 
->Gilt für: Windows Server2016 Essentials, Windows Server2012 R2 Essentials, Windows Server2012 Essentials
+>Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-##  <a name="BKMK_HeadlessRecovery"></a>Erstellen einer serverwiederherstellungs-DVD für Remote verwaltete Server  
- Es stehen zwei Modelle für die Factory und Wiederherstellung und unterscheiden sich abhängig von der Hardware, die der Kunde erhalten hat.  
+##  <a name="BKMK_HeadlessRecovery"></a> Erstellen einer serverwiederherstellungs-DVD für Remote verwaltete Server  
+ Es gibt zwei Modelle für die Wiederherstellung der Herstellerstandards und die Serverwiederherstellung. Sie sind von der Hardware abhängig, die der Kunde erhalten hat.  
   
- **Remote verwaltete Server**  
+ **Remote verwalteter server**  
   
- Diese serverwiederherstellungsoption erfordert, dass der Prozess auf einem Clientcomputer im selben Netzwerk ausgeführt wird. Da auf die Werkseinstellungen zurücksetzen mit dem Server ein Images hardwarespezifische geliefert werden muss, muss der Partner die serverwiederherstellungs-DVD erstellen.  
+ Diese Serverwiederherstellungsoption erfordert, dass der Prozess auf einem Clientcomputer im selben Netzwerk ausgeführt wird. Da für die Wiederherstellung der Herstellerstandards ein mit dem Server bereitgestelltes hardwarespezifisches Abbild erforderlich ist, muss der Partner die Serverwiederherstellungs-DVD erstellen.  
   
- **Lokal verwalteter Server**  
+ **Lokal verwalteter server**  
   
- Dies ist das klassische Modell, in dem der Server über die Serverkonsole verwaltet wird. Das serverinstallationsmedium dient zum Ausführen einer Wiederherstellung. Dies erfordert, dass die Möglichkeit, Videoausgabe neben ein DVD-Lesegerät einschließlich der Server Lieferumfang. Der Kunde startet über dieses serverinstallationsmedium und wählt dann die geeignete Wiederherstellungsmethode. Sie müssen sich nicht um eine serverwiederherstellungs-DVD für Server zu erstellen, die lokal verwaltet werden.  
+ Dies ist das klassische Modell, bei dem der Server über die Serverkonsole verwaltet wird. Das Serverinstallationsmedium dient zum Ausführen einer Wiederherstellung. Dafür muss der Server über die Möglichkeit zur Anzeige von Videoausgaben und ein DVD-Lesegerät verfügen. Der Kunde startet über dieses Serverinstallationsmedium und wählt dann die geeignete Wiederherstellungsmethode aus. Es ist nicht erforderlich, eine Serverwiederherstellungs-DVD für Server zu erstellen, die lokal verwaltet werden.  
   
 > [!NOTE]
->  Für das Modell mit lokal verwaltetem Server kann der Kunde eine Wiederherstellung der Herstellerstandards durch eine Neuinstallation durchführen. Allerdings wird der Partner Anpassungen unterbrochen.  
+>  Beim Modell mit lokal verwaltetem Server kann der Kunde eine Wiederherstellung der Herstellerstandards durch eine Neuinstallation vornehmen. Allerdings gehen dabei die durch den Partner vorgenommenen Anpassungen verloren.  
   
- Es gibt zwei Arten von serverwiederherstellung.  
+ Es gibt zwei Arten von Serverwiederherstellung.  
   
- **Konsole zurücksetzen**  
+ **Zurücksetzung auf werkseinstellungen**  
   
- Mit dieser Wiederherstellung wird den Server auf den ursprünglichen Zustand, der vorhanden waren, wenn der Server vom Hersteller geliefert wurde. Nach auf die Werkseinstellungen zurücksetzen werden Sie aufgefordert, wie Sie beim ersten Einschalten waren die Erstkonfiguration des Servers ausführen, und alle Einstellungen und Anpassungen sind verloren. Dies wird auch als Tag 0 bezeichnet.? Da auf die Werkseinstellungen zurücksetzen mit dem Server ein Images hardwarespezifische geliefert werden muss, muss der Partner die serverwiederherstellungs-DVD erstellen.  
+ Mit dieser Wiederherstellung wird der Server wieder in den Ursprungszustand versetzt, der bei der Auslieferung vom Werk vorlag. Nach der Wiederherstellung der Herstellerstandards müssen Sie die Erstkonfiguration des Servers wie beim ersten Einschalten des Servers erneut vornehmen. Alle Einstellungen und Anpassungen sind verloren. Dies wird auch als Tag 0 bezeichnet.? Da für die Wiederherstellung der Herstellerstandards ein mit dem Server bereitgestelltes hardwarespezifisches Abbild erforderlich ist, muss der Partner die Serverwiederherstellungs-DVD erstellen.  
   
- **Bare-Metal-Recovery**  
+ **Bare-Metal-Wiederherstellung**  
   
- Bei diesem Wiederherstellungsvorgang wird davon ausgegangen, dass Sie eine Server-Sicherung konfiguriert und die Server-Sicherung mindestens ein Mal vor dem Serverausfall erfolgreich abgeschlossen wurde. Bare-Metal-Recovery (BMR) unterstützt das Wiederherstellen der System- und Startvolume Laufwerke nur von einer früheren Sicherung.  
+ Diese Wiederherstellung setzt voraus, dass Sie eine Serversicherung konfiguriert haben und dass die Serversicherung beim letzten Mal vor dem Serverausfall erfolgreich abgeschlossen wurde. Die Bare-Metal-Recovery (BMR) unterstützt nur die Wiederherstellung des Systems und der Startlaufwerke aus einer früheren Serversicherung.  
   
- Nach einer BMR wird der Server in den Zustand zurückgegeben, die zum Zeitpunkt der Sicherung vorhanden waren, die für die Wiederherstellung verwendet wird. Dies ist in der Regel die aktuelle Sicherung, aber in einigen Fällen kann es sein, eine frühere Sicherung. Wiederherstellen von Daten erfolgt, nachdem das System mit dem Wiederherstellen von Dateien und Ordner-Assistent wiederhergestellt wird. BMR ist die bevorzugte serverwiederherstellungsmethode, da alle Einstellungen und Konfigurationen zurückgegeben werden, während auf die Werkseinstellungen Zurücksetzen des Servers in einen Zustand Tag 0 zurückgibt.  
+ Nach einer BMR wird der Server wieder in den Zustand versetzt, der zum Zeitpunkt der Sicherung bestand, die für die Wiederherstellung verwendet wird. Dies ist in der Regel die aktuelle Sicherung, in einigen Fällen kann es aber auch eine frühere Sicherung sein. Die Datenwiederherstellung erfolgt nach der Systemwiederherstellung mithilfe des Assistenten für die Dateien- und Ordnerwiederherstellung. BMR ist die bevorzugte Serverwiederherstellungsmethode, da alle Einstellungen und Konfigurationen anschließend wieder vorhanden sind. Bei der Wiederherstellung der Herstellerstandards wird der Server jedoch in den Zustand "Tag 0" versetzt.  
   
-### <a name="remotely-administered-server-recovery"></a>Remote verwaltete serverwiederherstellung  
- Dieser Abschnittbeschreibt die erforderlichen Anpassungen durch der Partner muss und die endgültigen Medien, die mit jedem Server ausgeliefert werden müssen. Sehen Sie bevor Sie mit den Detail befassen wir uns die Kundenzufriedenheit.  
+### <a name="remotely-administered-server-recovery"></a>Remote verwaltete Serverwiederherstellung  
+ In diesem Abschnitt werden die erforderlichen Anpassungen durch den Partner und die endgültigen Medien beschrieben, die mit jedem Server ausgeliefert werden müssen. Bevor wir uns mit den Details befassen, sehen wir uns zuerst die Situation beim Kunden an.  
   
- In diesem Szenario wird der Kunde "¢ s-Server nicht mehr funktioniert. Dies kann durch einen Virus, ein Festplattenfehler oder eine andere Ursache verursacht werden. Der Kunde legt die serverwiederherstellungs-DVD in einen Clientcomputer, der sich im selben Netzwerk wie der Server befindet. Die Anwendung führt sie durch die drei Schritteauf ihrem Server wiederherstellen:  
+ In diesem Szenario wird der Kunde "des s-Server funktioniert nicht mehr. Der Grund kann ein Virus, ein Festplattenfehler oder eine andere Ursache sein. Der Kunde legt die Serverwiederherstellungs-DVD in einen Clientcomputer ein, der sich im selben Netzwerk wie der Server befindet. Mit der Anwendung für die Serverwiederherstellung wird der Kunde durch die drei Schritte zur Wiederherstellung des Servers geführt:  
   
-1.  Erstellt einen startbaren USB-Speicherstick, mit dem der Server im Wiederherstellungsmodus neu gestartet. Das USB-Flashlaufwerk muss 8GB groß.  
+1.  Die Anwendung erstellt einen startfähigen USB-Speicherstick, über den der Server im Wiederherstellungsmodus neu gestartet wird. Der USB-Speicherstick muss mindestens 8 GB groß sein.  
   
-2.  Erkennt der Server, der jetzt im Wiederherstellungsmodus befindet.  
+2.  Die Anwendung ermittelt den Server, der sich jetzt im Wiederherstellungsmodus befindet.  
   
-3.  Kann der Kunde auf die Werkseinstellungen zurückgesetzt oder eine bare-Metal-Wiederherstellung auswählen, und versetzt dann den Server in einen betriebsbereiten Zustand.  
+3.  Die Anwendung lässt den Kunden festlegen, ob die Herstellerstandards wiederherstellt oder eine Bare-Metal-Recovery ausgeführt wird, und versetzt dann den Server wieder in einen betriebsbereiten Zustand.  
   
-### <a name="steps-for-creating-a-server-recovery-dvd-for-multiple-language-support"></a>Schrittezum Erstellen einer serverwiederherstellungs-DVD für mehrere Sprachen unterstützen.  
- Es gibt sechs Hauptschritte zum Erstellen einer serverwiederherstellungs-DVD  
+### <a name="steps-for-creating-a-server-recovery-dvd-for-multiple-language-support"></a>Schritte zum Erstellen einer Serverwiederherstellungs-DVD für die Unterstützung mehrerer Sprachen  
+ Zum Erstellen einer Serverwiederherstellungs-DVD sind sechs Hauptschritte auszuführen:  
   
 1.  [(Optional) Aktualisieren von WinPE](Create-a-Server-Recovery-DVD-for-Remotely-Administered-Servers.md#BKMK_Updating)  
   
-2.  [Sammeln die Wiederherstellung der Herstellerstandards Abbildern und XML-Dateien](Create-a-Server-Recovery-DVD-for-Remotely-Administered-Servers.md#BKMK_Collecting)  
+2.  [Sammelt die Wiederherstellung der Herstellerstandards Abbildern und XML-Dateien](Create-a-Server-Recovery-DVD-for-Remotely-Administered-Servers.md#BKMK_Collecting)  
   
 3.  [Erstellen der serverwiederherstellungs-DVD](Create-a-Server-Recovery-DVD-for-Remotely-Administered-Servers.md#BKMK_Creating)  
   
@@ -74,101 +75,101 @@ ms.lasthandoff: 07/03/2017
   
 6.  [Testen der Wiederherstellungs-DVD](Create-a-Server-Recovery-DVD-for-Remotely-Administered-Servers.md#BKMK_Testing)  
   
-####  <a name="BKMK_Updating"></a>Schritt1: (Optional) aktualisieren von WinPE  
- Das ADK umfasst eine Kopie von Windows PE, das angepasst wird. Wenn dieses Image gestartet wird, wird automatisch für die clientwiederherstellung, die von dem die Anwendung verwendet wird, eine Verbindung zu einem Server im Wiederherstellungsmodus gestartet.  
+####  <a name="BKMK_Updating"></a> Schritt 1: (Optional) Aktualisieren von WinPE  
+ Das ADK umfasst eine angepasste Kopie von Windows PE. Beim Starten des Abbilds wird automatisch das Signal gestartet, mit dem die Anwendung für die Clientwiederherstellung eine Verbindung mit einem Server im Wiederherstellungsmodus herstellt.  
   
- Windows PE muss weiter angepasst werden, indem hardwarespezifische Treiber wie Netzwerk oder für Festplattencontroller-Treiber hinzugefügt. Nach dem Start von WinPE, müssen die Festplatten auf dem System erkannt werden, und das Netzwerk muss funktionieren.  
+ Windows PE muss weiter angepasst werden, indem hardwarespezifische Treiber wie Treiber für das Netzwerk oder für Festplattencontroller hinzugefügt werden. Nach dem Start über WinPE müssen die Festplatten im System erkannt werden können, und das Netzwerk muss funktionieren.  
   
-####  <a name="BKMK_Collecting"></a>Schritt2: Sammeln die Wiederherstellung der Herstellerstandards Abbildern und XML-Dateien  
- Um einen Server auf die werkseitigen Standardeinstellungen zurückzusetzen, müssen die folgenden beiden Abbilder erfasst werden:  
+####  <a name="BKMK_Collecting"></a> Schritt 2: Erfassen von Abbildern und XML-Dateien für die Wiederherstellung der Herstellerstandards  
+ Die folgenden beiden Abbilder müssen aufgezeichnet werden, um einen Server auf die Herstellerstandards zurückzusetzen:  
   
 -   Das Abbild des Systemlaufwerks  
   
--   Das System reservierte Partition  
+-   Die für das System reservierte Partition  
   
- Zur Aufzeichnung dieser Abbilder wird das Tool GenDiskXML.exe bereitgestellt. GenDiskXML.exe sammelt auch eine Datei namens disk.xml, die von den Wiederherstellungsvorgang verwendet wird, um die Datenträgerkonfiguration neu erstellt.  
+ Zur Aufzeichnung dieser Abbilder wird das Tool "GenDiskXML.exe" bereitgestellt. Mit "GenDiskXML.exe" wird auch die Datei "disk.xml" erfasst, mit der während der Wiederherstellung die Datenträgerkonfiguration neu erstellt wird.  
   
 1.  Starten Sie nach Sysprep das System mit einer 64-Bit-Version von Windows PE neu.  
   
-2.  Um die XML- und WIM-Dateien in einer externen Quelle auszugeben, führen Sie `GenDiskXML /outputdir:<path>`um die XML- und WIM-Dateien in eine externe Quelle auszugeben. Die Dateien werden von der DVD im nächsten Schritthinzugefügt.  
+2.  Führen Sie `GenDiskXML /outputdir:<path>` aus, um die XML- und WIM-Dateien in eine externe Quelle auszugeben. Die Dateien werden der DVD im nächsten Schritt hinzugefügt.  
   
     > [!NOTE]
-    >  Die WIM-Datei des Systems wird zum Erfüllen der FAT32-Anforderung, dass Dateien höchstens 4GB aufgeteilt werden. Während des Vorgangs muss die erforderliche Kapazität des Ziels, mit dem die WIM-Dateien erfassen, größer als 8GB betragen, damit die Teilung sein.  
+    >  Die WIM-Datei des Systems wird geteilt, damit die FAT32-Anforderung, dass Dateien höchstens 4 GB aufweisen dürfen, erfüllt wird. Dabei muss die erforderliche Kapazität des Ziels, mit dem die WIM-Dateien aufgezeichnet werden, mehr als 8 GB betragen, damit die Teilung vorgenommen werden kann.  
   
-####  <a name="BKMK_Creating"></a>Schritt3: Erstellen der serverwiederherstellungs-DVD  
- Jeder vom Hersteller ausgelieferten Server muss eine serverwiederherstellungs-DVD beizufügen. Die ADK-Tools-DVD enthält die Dateien, die zum Erstellen der DVD.  
+####  <a name="BKMK_Creating"></a> Schritt 3: Erstellen der Serverwiederherstellungs-DVD  
+ Zu jedem vom Hersteller ausgelieferten Server muss eine Serverwiederherstellungs-DVD gehören. Auf Ihrer DVD mit den ADK-Tools finden Sie die für die Erstellung der DVD erforderlichen Dateien.  
   
-###### <a name="to-create-the-server-recovery-dvd"></a>Zum Erstellen der serverwiederherstellungs-DVD  
+###### <a name="to-create-the-server-recovery-dvd"></a>So erstellen Sie die Serverwiederherstellungs-DVD  
   
-1.  Erstellen Sie einen Ordner als Speicherort verwenden, für die endgültige ISO-Datei zu speichern.  
+1.  Erstellen Sie einen Arbeitsordner, in dem die endgültige ISO gespeichert wird.  
   
-2.  Kopieren Sie den Inhalt der von der Partner-CD, die **Serverwiederherstellungs** Ordner, die Sie in Schritt1 erstellten Arbeitsordner.  
+2.  Kopieren Sie den Inhalt des Ordners **Server Recovery** von der Partner-CD in den in Schritt 1 erstellten Arbeitsordner.  
   
-3.  Kopieren Sie die disk.xml-Datei, die erstellt wurde, bei der Ausführung GenDiskXML.exe auf die **zurücksetzen** Ordner.  
+3.  Kopieren Sie die Datei "disk.xml", die bei der Ausführung von "GenDiskXML.exe" erstellt wurde, in den Ordner **Reset**.  
   
-4.  Kopieren Sie die Bilddateien, die erstellt wurden, bei der Ausführung **GenDiskXML.exe** auf die **zurücksetzen** Ordner. Die Dateien sind die WIM- und SWM-Dateien, und die Anzahl der Dateien kann variieren.  
+4.  Kopieren Sie die Abbilddatei, die bei der Ausführung von **GenDiskXML.exe** erstellt wurde, in den Ordner **Reset**. Bei den Dateien handelt es sich um WIM- und SWM-Dateien. Deren Anzahl kann variieren.  
   
-5.  Entfernen Sie GenDiskXML.exe aus dem Ordner. Es wird nur für werkseitige verwendet und sollte nicht auf der DVD, die an den Kunden ausgeliefert wird aufgenommen werden.  
+5.  Entfernen Sie "GenDiskXML.exe" aus dem Ordner. Diese Datei ist nur für werkseitige Arbeiten vorgesehen und sollte nicht auf der DVD enthalten sein, die an den Kunden geliefert wird.  
   
-####  <a name="BKMK_Customizing"></a>Schritt4: Anpassen des Assistenten  
- Mit einem Bild des Geräts und der Text, der beschreibt, wie Sie das Gerät in den Wiederherstellungsmodus zu starten, muss die Anwendung angepasst werden. Da diese Seite des Wiederherstellen von Dateien und Ordnern Assistenten hardwarespezifisch ist, variieren die Schritte, um den Server in den Wiederherstellungsmodus zu starten.  
+####  <a name="BKMK_Customizing"></a> Schritt 4: Anpassen des Assistenten  
+ Die Anwendung für die Serverwiederherstellung muss mit einem Abbild des Geräts sowie mit einer Beschreibung für den Start des speziellen Geräts im Wiederherstellungsmodus angepasst werden. Da diese Seite des Assistenten für die Dateien- und Ordnerwiederherstellung hardwarespezifisch ist, variieren die Schritte für den Start des Servers im Wiederherstellungsmodus.  
   
 > [!NOTE]
 >  Die aufgeführten Dateinamen müssen genau übereinstimmen.  
   
-1.  Die Seite ist ein Link für zusätzliche Hilfe. Wenn diese CHM-Datei vorhanden ist, wird der FWLink für die Webhilfe überschrieben. Die Hilfedatei befindet sich unter:  
+1.  Auf der Seite des Assistenten ist ein Link für zusätzliche Hilfe angegeben. Wenn diese CHM-Datei vorhanden ist, wird der FWLink für die Webhilfe überschrieben. Die Hilfedatei befindet sich unter:  
   
-     < DVD Root\ > \\$OEM$\Customization\\ < Kultur Tokentypen > \RestartHelp.chm  
+     < DVD-Stamm\>\\$OEM$ \Customization\\< Kulturname\>\RestartHelp.chm  
   
-2.  Diese Datei enthält den Text, den der Kunde auf der Seite des Assistenten angezeigt wird. Der Text sollte der Server im Wiederherstellungsmodus gestartet erläutert. Das Steuerelement sind Bildläufe die stellt eine praktische Beschränkung an, auf die Menge an Text, der hinzugefügt werden kann.  
+2.  Diese Datei enthält den Text, der dem Kunden auf der Seite des Assistenten angezeigt wird. Der Text sollte erklären, wie der Server im Wiederherstellungsmodus gestartet wird. Für das Steuerelement sind Bildläufe möglich. Beim Umfang des hinzugefügten Texts bestehen also praktische Grenzen.  
   
-     Die folgende Datei wird verwendet, um das Beispielbild im Assistenten ersetzt, und sie dient vorwiegend dem Branding. Es muss eine PNG-Datei sein. Die Dateigröße muss 256 Pixel X 256 Pixel sein, oder es werden abgeschnitten, wenn sie im Assistenten angezeigt wird.  
+     Mit dieser Datei wird das Beispielbild im Assistenten ersetzt, sie dient vorwiegend dem Branding. Es muss eine PNG-Datei sein. Die Dateigröße muss 256 Pixel x 256 Pixel betragen, andernfalls wird das Bild bei der Anzeige im Assistenten abgeschnitten.  
   
-     < DVD Root\ > \\$OEM$\Customization\\ < Kultur Tokentypen > \RestartInstructions.rtf  
+     < DVD-Stamm\>\\$OEM$ \Customization\\< Kulturname\>\RestartInstructions.rtf  
   
-3.  < DVD Root\ > \\$OEM$\Customization\\ < Kultur Tokentypen > \ServerImage.png  
+3.  < DVD-Stamm\>\\$OEM$ \Customization\\< Kulturname\>\ServerImage.png  
   
- Wenn Sie Ihre serverwiederherstellungs-DVD zur Unterstützung mehrerer Sprachen konvertieren, stellen Sie sicher, dass Sie die folgenden Schritteaus:  
+ Beachten Sie unbedingt Folgendes, wenn Sie Ihre Serverwiederherstellungs-DVD für die Unterstützung mehrerer Sprachen konvertieren:  
   
-1.  Benötigen Sie immer die En-us Ordner. Falls die Anwendung die kulturspezifischen Dateien nicht findet, die den Clientcomputer entsprechen, Computer, es fragt En-us.  
+1.  Der Ordner "en-us" muss immer vorhanden sein. Wenn die Anwendung für die Serverwiederherstellung die kulturspezifischen Dateien, die zu dem Clientcomputer passen, auf dem sie ausgeführt wird, nicht findet, wird "en-us" verwendet.  
   
-2.  Fügen Sie in jedem Kulturordner, den Sie erstellen, die drei Anpassungsdateien (.png, chm und RTF).  
+2.  Fügen Sie in jedem Kulturordner, den Sie erstellen, die drei Anpassungsdateien (PNG, CHM und RTF) hinzu.  
   
-3.  Kopieren Sie beide Kulturordner aus Sprache Packs\\ < CultureName\ > \Server Recovery, mit dem Stamm der serverwiederherstellungs-DVD. Beispiel: die Ordner ES und ES-ES in das Stammverzeichnis der DVD zur Unterstützung von Spanisch kopiert werden.  
+3.  Kopieren Sie beide Kulturordner aus Language Packs\\< CultureName\>\Server Recovery auf den Stamm der serverwiederherstellungs-DVD. Zum Beispiel: Die Ordner ES und ES-ES würden beide in das Stammverzeichnis der DVD zur Unterstützung der spanischen Sprache kopiert.  
   
-4.  Abschließen der ISO-Datei.  
+4.  Schließen Sie die ISO-Datei ab.  
   
  Unterstützte Kulturnamen:  
 
 |-|-|  
-|-Cs-CZ<br /><br /> -de-DE<br /><br /> -en-US<br /><br /> -es-ES<br /><br /> -fr-FR<br /><br /> -Hu-HU<br /><br /> -it-IT<br /><br /> -Ja-JP<br /><br /> -Ko-KR<br /><br /> -Nl-NL |-pl-PL<br /><br /> -Pt-BR<br /><br /> -Pt-PT<br /><br /> -Ru-RU<br /><br /> -Sv-SE<br /><br /> -Tr-TR<br /><br /> -Zh-CN<br /><br /> -Zh-HK<br /><br /> -zh-TW
+|- cs-CZ<br /><br /> - de-DE<br /><br /> -En-US<br /><br /> - es-ES<br /><br /> - fr-FR<br /><br /> - hu-HU<br /><br /> -It-IT<br /><br /> - ja-JP<br /><br /> - ko-KR<br /><br /> -nl-NL |-pl-PL<br /><br /> - pt-BR<br /><br /> - pt-PT<br /><br /> - ru-RU<br /><br /> - sv-SE<br /><br /> - tr-TR<br /><br /> - zh-CN<br /><br /> - zh-HK<br /><br /> - zh-TW
   
-####  <a name="BKMK_CreatingISO"></a>Schritt5: Erstellen der ISO-Datei  
- Der Ordner, der erstellt wurde und der Inhalt können auf eine DVD gebrannt werden. Dies ist die DVD, die für Kunden mit einem neuen Server bereitgestellt werden.  
+####  <a name="BKMK_CreatingISO"></a> Schritt 5: Erstellen der ISO-Datei  
+ Der Ordner, der erstellt wurde, kann mit seinem kompletten Inhalt auf eine DVD gebrannt werden. Dies ist die DVD, die Kunden zusammen mit einem neuen Server bereitgestellt wird.  
   
-####  <a name="BKMK_Testing"></a>Schritt6: Testen der Wiederherstellungs-DVD  
- Konfigurieren Sie nach Abschluss der Serverinstallation die Server-Sicherung, führen Sie eine Server-Sicherung aus und Testen Sie die Wiederherstellungs-DVD.  
+####  <a name="BKMK_Testing"></a> Schritt 6: Testen der Wiederherstellungs-DVD  
+ Wenn die Serverinstallation abgeschlossen ist, konfigurieren Sie die Serversicherung, führen eine Serversicherung aus und testen dann die Wiederherstellungs-DVD.  
   
-###### <a name="to-configure-and-run-a-server-backup"></a>Zum Konfigurieren und Ausführen einer Sicherung  
+###### <a name="to-configure-and-run-a-server-backup"></a>So konfigurieren Sie eine Serversicherung und führen sie aus  
   
-1.  Öffnen Sie das Dashboard, klicken Sie auf die **Geräte** Registerkarte, und klicken Sie dann auf **Sicherung für den Server einrichten** in der **Aufgaben** Bereich.  
+1.  Öffnen Sie das Dashboard, klicken Sie auf die Registerkarte **Geräte** und klicken Sie dann im Bereich **Aufgaben** auf **Sicherung für den Server einrichten**.  
   
-2.  Führen Sie die Anweisungen im Assistenten, um eine serversicherung zu konfigurieren. Sie benötigen eine externe Festplatte für die Sicherung.  
+2.  Folgen Sie den Anweisungen des Assistenten, um eine Serversicherung zu konfigurieren. Für die Sicherung benötigen Sie eine externe Festplatte.  
   
-3.  Klicken Sie auf **starten Sie eine Sicherung für den Server** in der **Aufgaben** Bereich, und folgen Sie dann die Anweisungen im Assistenten.  
+3.  Klicken Sie im Bereich **Aufgaben** auf **Sicherung für den Server starten** , und folgen Sie dann den Anweisungen des Assistenten.  
   
-4.  Wenn die Sicherung abgeschlossen ist, stellen Sie sicher, dass der Vorgang erfolgreich war.  
+4.  Wenn die Sicherung abgeschlossen ist, überprüfen Sie, ob sie erfolgreich war.  
   
-###### <a name="to-restore-a-server"></a>Zum Wiederherstellen eines Servers  
+###### <a name="to-restore-a-server"></a>So stellen Sie einen Server wieder her  
   
-1.  Legen Sie die Wiederherstellungs-DVD, die Sie erstellt haben, in einen Clientcomputer, der mit dem gleichen Netzwerk wie der Server über einen Hub oder Switch verbunden ist.  
+1.  Legen Sie die Wiederherstellungs-DVD, die Sie erstellt haben, in einen Clientcomputer ein, der über einen Hub oder Switch mit demselben Netzwerk verbunden ist wie der Server.  
   
-2.  Doppelklicken Sie auf **setup.exe**. Der Assistent für die Serverwiederherstellung durch den gleichen Prozess, den der Kunde, aufgefordert.  
+2.  Doppelklicken Sie auf **setup.exe**. Der Assistent für die Serverwiederherstellung führt Sie durch den gleichen Prozess, durch den auch der Kunde geführt wird.  
   
-3.  Klicken Sie auf **den Server aus einer Sicherung wiederherstellen**, und folgen Sie dann die Anweisungen im Assistenten.  
+3.  Klicken Sie auf **Den Server aus einer Sicherung wiederherstellen**, und folgen Sie dann den Anweisungen des Assistenten.  
   
 ## <a name="see-also"></a>Siehe auch  
  [Erstellen und Anpassen des Abbilds](Creating-and-Customizing-the-Image.md)   
- [Weitere Anpassungen](Additional-Customizations.md)   
+ [Zusätzliche Anpassungen](Additional-Customizations.md)   
  [Vorbereiten des Abbilds für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
  [Testen der Benutzerfreundlichkeit](Testing-the-Customer-Experience.md)

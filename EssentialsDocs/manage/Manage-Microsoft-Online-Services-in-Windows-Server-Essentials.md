@@ -1,6 +1,6 @@
 ---
 title: Verwalten von Microsoft Online Services in Windows Server Essentials
-description: Beschreibt, wie Sie Windows Server Essentials
+description: Beschreibt, wie Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,22 +13,23 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 9feb65903be589e6f6a9cc6c3b8738d858a70f30
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59849511"
 ---
 # <a name="manage-microsoft-online-services-in-windows-server-essentials"></a>Verwalten von Microsoft Online Services in Windows Server Essentials
 
->Gilt für: Windows Server2016 Essentials, Windows Server2012 R2 Essentials, Windows Server2012 Essentials
+>Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Die folgenden Themen enthalten Informationen über Methoden, die Sie zum Verwalten von online-Dienste für Ihre Organisation verwenden können:  
+Die folgenden Themen enthalten Informationen zu den Methoden, mit denen Sie Onlinedienste für Ihre Organisation verwalten können:  
   
--   [Verwalten von Office365](Manage-Office-365-in-Windows-Server-Essentials.md)   
+-   [Verwalten von Office 365](Manage-Office-365-in-Windows-Server-Essentials.md)   
   
 -   [Verwalten der Onlinesicherung](Manage-Online-Backup-in-Windows-Server-Essentials.md)  
   
--   [Verwalten von SharePoint Online](Manage-SharePoint-Online-in-Windows-Server-Essentials.md)  
+-   [Manage SharePoint Online](Manage-SharePoint-Online-in-Windows-Server-Essentials.md)  
   
 ## <a name="see-also"></a>Siehe auch  
   

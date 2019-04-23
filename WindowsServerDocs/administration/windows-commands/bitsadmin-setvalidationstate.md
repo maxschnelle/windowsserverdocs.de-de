@@ -1,0 +1,52 @@
+---
+title: Bitsadmin setvalidationstate
+description: Windows-Befehle Thema **Bitsadmin Setvalidationstate** -legt den Status der Überprüfung des Inhalts der angegebenen Datei innerhalb des Auftrags fest.
+ms.custom: na
+ms.prod: windows-server-threshold
+ms.reviewer: na
+ms.suite: na
+ms.technology: manage-windows-commands
+ms.tgt_pltfrm: na
+ms.topic: article
+ms.assetid: e8fc8e8c-171c-4681-8057-6986b018e576
+author: coreyp-at-msft
+ms.author: coreyp
+manager: dongill
+ms.date: 10/16/2017
+ms.openlocfilehash: 647389aaac06d1eb109052548c1b24f7579bde2f
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59851241"
+---
+# <a name="bitsadmin-setvalidationstate"></a>Bitsadmin setvalidationstate
+
+
+
+Legt den Status der Überprüfung des Inhalts der angegebenen Datei innerhalb des Auftrags fest.
+
+## <a name="syntax"></a>Syntax
+
+```
+bitsadmin /SetValidationState <Job> <file index> <true|false> 
+```
+
+## <a name="parameters"></a>Parameter
+
+|Parameter|Beschreibung|
+|---------|-----------|
+|Auftrag|Anzeigenamen oder die GUID des Auftrags|
+|Datei-index|Beginnt bei 0|
+|True|False|Auf TRUE festlegen, festgelegt Wenn der Inhalt der Datei gültig ist, andernfalls auf FALSE|
+
+## <a name="BKMK_examples"></a>Beispiele für
+
+Im folgenden Beispiel wird den Status der Überprüfung des Inhalts der Datei 2 auf "true" für den Auftrag mit dem Namen *MyJob*.
+```
+C:\>bitsadmin /SetValidationState myJob 2 TRUE 
+```
+
+#### <a name="additional-references"></a>Weitere Verweise
+
+[Befehlszeilensyntax](command-line-syntax-key.md)

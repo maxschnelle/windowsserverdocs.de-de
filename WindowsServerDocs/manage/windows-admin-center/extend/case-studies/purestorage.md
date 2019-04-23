@@ -1,6 +1,6 @@
 ---
-title: Windows Admin Center SDK-Fallstudie - reinen Speicher
-description: Windows Admin Center SDK-Fallstudie - reinen Speicher
+title: 'Windows Admin Center-SDK-Fallstudie: reine Speicher'
+description: 'Windows Admin Center-SDK-Fallstudie: reine Speicher'
 ms.technology: extend
 ms.topic: article
 author: daniellee-msft
@@ -9,48 +9,48 @@ ms.date: 1/7/2019
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 ms.openlocfilehash: 25018474fd22d05804ecc7faafbd633fbb4db269
-ms.sourcegitcommit: ebeec824f802f020d0ece17524ba43b1baeba893
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "8995322"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59849921"
 ---
-# Reine Speicher-Erweiterung
+# <a name="pure-storage-extension"></a>Reine Speichererweiterung.
 
-## Bietet End-to-End-Array-Verwaltung für Windows Admin Center 
+## <a name="providing-end-to-end-array-management-for-windows-admin-center"></a>Bereitstellung von End-to-End-Array-Verwaltung für Windows Admin Center 
 
-[Reine Speicher](https://www.purestorage.com/) bietet Unternehmen, Daten für reine Flash-Speicher-Lösungen, die auf Daten ausgerichtete Architektur Ihres Unternehmens für einen Wettbewerbsvorteil verschaffen und beschleunigen damit bereitstellen.  Pure ist ein Microsoft Gold Partner für Microsoft Windows Server, zertifiziert und entwickelt technische Integration für die wichtigsten Microsoft-Lösungen wie Azure, Hyper-V, SQL Server, System Center, Windows PowerShell und Windows-SMB. Pure angekündigt eine Tech Preview einer Erweiterung unterstützen die neueste Version von Windows Admin Center, die eine Einzelansicht in reinen FlashArray Produkte bereitstellt.  Dieser Erweiterung sind Benutzer über ein Tool zur Überwachung Aufgaben durchführen, Leistungsmetriken in Echtzeit anzeigen und Verwalten von Speicher-Volumes und Initiatoren befugt.
+[Reine Storage](https://www.purestorage.com/) bietet Unternehmen, die All-Flash-Daten-Storage-Lösungen, die datenorientierte Architektur beschleunigen Sie Ihr Unternehmen einen Wettbewerbsvorteil zu übermitteln.  Reiner Microsoft Gold-Partner für Microsoft Windows Server zertifiziert ist und entwickelt technische Integrationen für wichtige Microsoft-Lösungen wie Azure, Hyper-V, SQL Server, System Center, Windows PowerShell und Windows-SMB. Reiner kündigte vor kurzem eine technische Vorschau einer Erweiterung, die Unterstützung der neuesten Version von Windows Admin Center, das eine Einzelansicht in reinen FlashArray Produkte bereitstellt.  Von dieser Erweiterung sind Benutzer befugt ist, über ein Tool zur führen Sie Überwachungsaufgaben, in Echtzeit Leistungsmetriken anzeigen und Verwalten von Speichervolumes und Initiatoren.
 
-Früh zu Windows Admin Center als "Projekt Honolulu" bezeichnet wurde, Pure gesehen hat den Wert auf Kunden und Partner die Möglichkeit, mehrere reinen Speicher FlashArrays von der zentralen Konsole zu verwalten, die Windows Admin Center bietet.
+Wenn Windows Admin Center als "Project Honolulu" bekannt war, reiner gesehen haben den Wert der Kunden zu bieten und Partnern die Möglichkeit, mehrere reine Storage FlashArrays über die zentrale Konsole zu verwalten, die Windows Admin Center bietet.
 
-Zu Beginn Pure Untersuchung des Anwendungsfalls mit "Projekt Honolulu" realisiert sie sofort das Risiko, dass eine einheitliche Verwaltung benutzererfahrung zwischen Windows Admin Center und FlashArray. Pure Virtualisierungssoftware eng mit dem Windows Admin Center-Entwicklungsteam, was die Implementierungsdetails für die Features zu definieren. Pure konnte auch Feedback in den frühen Phasen von Windows Admin Center und Beiträge für das Microsoft-Team. 
+Wenn reiner informierte den Anwendungsfall mit "Projekt Honolulu" fanden sie sofort das Potenzial für die Bereitstellung einer einheitliche Verwaltungsoberfläche zwischen Windows Admin Center und FlashArray. Reiner zusammengearbeitet eng mit dem Windows Admin Center-Entwicklungsteam, das bei der die Implementierungsdetails für die Funktionen zu definieren. Reiner konnte auch Feedback in den frühen Phasen des Windows Admin Center, und Beiträge an den Microsoft-Team. 
 
-![Reine Speicher-Erweiterung](../../media/extend-case-study-purestorage/purestorage-1.png)
+![Reine Speichererweiterung.](../../media/extend-case-study-purestorage/purestorage-1.png)
 
-> <cite>"Wir haben eine Featuregruppe, die unsere FlashArray-Web-Benutzeroberfläche, um die direkte Verwaltung von Windows Admin Center ermöglichen imitiert integriert. Unsere Kunden und Partner profitieren von einer zentralen Konsole im Vergleich mit zwei unterschiedliche Management-Tools arbeiten müssen. Neben der zentrale Verwaltung kann Vorteile für den Kunden je nach Kontext auf Windows-Servern verwalten, die mit der FlashArray verbunden sind."</cite>
+> <cite>"Wir haben einen Satz, der unsere FlashArray Weboberfläche zum Aktivieren der direktverwaltung von Windows Admin Center imitiert integriert. Unsere Kunden und Partner profitieren von einem einzelnen Bereich zusammengefasst und zusammen mit zwei andere Verwaltungstools verwenden müssen. Zusätzlich zu den einzelnen Verwaltungspunkt werden Vorteile für den Kunden je nach Kontext Windows-Server zu verwalten, die mit der FlashArray verbunden sind."</cite>
 >
-> – Barkz, Director technische Microsoft-Lösungen und Integration von reinen Speicher
+> --Barkz, Technical Director, Microsoft-Lösungen und -Integration, reine Speicher
 
-Die Funktionen, die in die Erweiterung der reinen Speicher-Lösung enthalten sind enthalten:
-- Herstellen einer Verbindung, um mehrere FlashArrays.
-- Anzeigen von FlashArray Details, einschließlich IOPs, Bandbreite, Latenz, Reduzierung der Daten und Platz-Verwaltung. Hierbei handelt es sich um die gleichen Details, die Sie von der FlashArray Management-Benutzeroberfläche zu erhalten.
-- Anzeigen von konfigurierten Host-Gruppen, die verwendet werden, um die freigegebenen Volume Zugriff für Windows Server-Hosts und freigegebenen Clustervolumes (CSVs) zu aktivieren.
-- Ansicht Hosts – Alle Konnektivitätsinformationen, ist verfügbar, einschließlich Hostnamen, iSCSI qualifizierten Namen (IQNs) und World Wide Names (WWNs).
-- Verwalten von Datenträgern – Dazu gehören die Fähigkeit zum Erstellen und Löschen von Volumes. Nachdem Sie ein Volume gelöscht wird in der zerstören Elemente Zelle platziert und müssen Sie Eradicate von der wichtigsten FlashArray Management-Benutzeroberfläche.
-- Verwalten von Initiatoren – Dies ist ein von der interessantesten Features, die mit der Kontext, um den einzelnen Servern, die durch die Bereitstellung von Windows Admin Center verwaltet. Multipfad-e/a (MPIO) installiert/konfiguriert und erstellen/Montage neue Volumes ist, können Sie die verbundenen Datenträger (Volumes) für einzelne Windows Server, aktivieren Sie das Kontrollkästchen anzeigen.
+Die Funktionen, die in der reinen Speichererweiterung Lösung enthalten sind enthalten:
+- Die Verbindung mit mehreren FlashArrays.
+- Anzeigen von FlashArray Details, darunter IOPs, Bandbreite, Latenz, eine Reduzierung der Datenmenge und Verwaltung des Adressraums ein. Hierbei handelt es sich um den gleichen Details, die Sie über die grafische Benutzeroberfläche FlashArray-Management zu erhalten.
+- Zeigen Sie die konfigurierten Hostgruppen, die verwendet werden, um Zugriff auf freigegebenen Volumes für Windows Server-Hosts und freigegebene Clustervolumes (CSVs) zu aktivieren.
+- Ansicht Hosts – Alle Informationen, die Konnektivität ist verfügbar, einschließlich Hostnamen-iSCSI-qualifizierten Namen (IQN) "und" World Wide Names (WWNs).
+- Verwalten von Volumes – Dies schließt die Möglichkeit zum Erstellen und Zerstören von Volumes. Sobald ein Volume zerstört wird wird im Bucket Destroyed Elemente dieser und müssen Sie Eradicate über die wichtigsten FlashArray Management GUI.
+- Verwalten von Initiatoren – Dies ist eines der interessantesten Features, die Bereitstellung von Kontext, der den einzelnen Servern, die von der Bereitstellung von Windows Admin Center verwaltet. Sie können für einzelne Windows-Server, überprüfen Sie die verbundenen Datenträgern (Volumes) anzeigen, Multipfad-e/a (MPIO) ist installiert/konfiguriert, und erstellen und einbinden neue Volumes.
 
-Eine [Demo-video](https://youtu.be/IFAeCAd6V2g) wurde erstellt, der alle Features, die die Erweiterung der reinen Speicher-Lösung enthält. 
+Ein [Demovideo](https://youtu.be/IFAeCAd6V2g) erstellt wurde, die zeigt, alle Features, die der reinen Speichererweiterung Lösung bereitstellt. 
 
-Der folgende Screenshot veranschaulicht die anzeigen, welche Datenträger (Volumes) mit einem bestimmten Windows Server-Host verbunden sind. Zusätzlich zur Anzeige der Konnektivität Detail, überprüfen wir, ob Multipfad-e/a konfiguriert ist.
+Der nachfolgende Screenshot zeigt anzeigen, welche Datenträger (Volumes) mit einem bestimmten Windows Server-Host verbunden sind. Zusätzlich zum Anzeigen von Details Konnektivität, überprüfen wir, ob es sich bei Multipfad-e/a konfiguriert ist.
 
-![Reine Speicher-Erweiterung](../../media/extend-case-study-purestorage/purestorage-2.png)
+![Reine Speichererweiterung.](../../media/extend-case-study-purestorage/purestorage-2.png)
 
-Zusätzlich zur Anzeige der Datenträger, können neue Volumes erstellt und sofort auf den Host bereitgestellt, ohne Windows Datenträger Management-Tool verwenden zu müssen.
+Zusätzlich zum Anzeigen der Datenträger können können sofort auf den Host ohne Windows-datenträgerverwaltung verwenden neue Volumes erstellt und eingebunden werden.
 
-![Reine Speicher-Erweiterung](../../media/extend-case-study-purestorage/purestorage-3.png)
+![Reine Speichererweiterung.](../../media/extend-case-study-purestorage/purestorage-3.png)
 
-Da unsere Technical Preview, die bisher gesammelten Kundenfeedback Freigabe wurde und einen Einblick in verschiedene Features in zukünftigen Versionen hinzufügen auch uns erhalten haben. 
+Da unsere Technical Preview, die bisher erfasst Feedback von Kunden freigegeben sehr positiv wurde und hat auch bietet uns einen Einblick in die verschiedenen Funktionen in zukünftigen Versionen hinzufügen. 
 
 Weitere Ressourcen:
-- [Reine Speicher Erweiterung Ankündigung Blogbeitrag](https://blog.purestorage.com/tech-preview-of-the-pure-storage-extension-for-windows-admin-center/)
-- [PureReport](https://itunes.apple.com/us/podcast/windows-admin-center-extension-from-pure-storage/id1392639991?i=1000424316130&mt=2) podcast
+- [Reine Blogbeitrag von Storage-Erweiterung Ankündigung](https://blog.purestorage.com/tech-preview-of-the-pure-storage-extension-for-windows-admin-center/)
+- [PureReport](https://itunes.apple.com/us/podcast/windows-admin-center-extension-from-pure-storage/id1392639991?i=1000424316130&mt=2) Podcast

@@ -1,7 +1,7 @@
 ---
 ms.assetid: 963a3d37-d5f1-4153-b8d5-2537038863cb
-title: "Bewährte Methoden für die sichere Planung und Bereitstellung von AD FS"
-description: 
+title: Bewährte Methoden für die sichere Planung und Bereitstellung von AD FS
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,136 +9,141 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: ed8c36d4bec455879ffd00ad40b72fd5e90484ab
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.openlocfilehash: 67b122353ca9dff3a4df6cbfac56b16bed52b539
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59848081"
 ---
 # <a name="best-practices-for-secure-planning-and-deployment-of-ad-fs"></a>Bewährte Methoden für die sichere Planung und Bereitstellung von AD FS
 
->Gilt für: Windows Server2016, Windows Server2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Dieses Thema enthält bewährte Informationen zum Planen und auswerten Sicherheit beim Entwerfen Ihrer Bereitstellung von Active Directory-Verbunddienste (AD FS). In diesem Thema ist ein Ausgangspunkt für die Überprüfung und Auswertung von Überlegungen, die die allgemeine Sicherheit bei der Verwendung von AD FS betreffen. Die Informationen in diesem Thema ist Entwurfsmethoden ergänzen und erweitern Ihre vorhandene sicherheitsplanung und andere Bewährte Entwurfsmethoden vorgesehen.  
+Dieses Thema enthält bewährte Methoden-Informationen zur Planung und Auswertung von Sicherheit beim Entwerfen Ihrer Bereitstellung von Active Directory-Verbunddienste (AD FS). Dieses Thema ist ein Ausgangspunkt für die Prüfung und Bewertung von Überlegungen, die die allgemeine Sicherheit bei der Verwendung von AD FS auswirken. Die Informationen in diesem Thema sollen Ihre vorhandene Sicherheitsplanung und andere bewährte Entwurfsmethoden ergänzen und erweitern.  
   
 ## <a name="core-security-best-practices-for-ad-fs"></a>Wichtige bewährte Sicherheitsmethoden für AD FS  
 Die folgenden wichtigen bewährten Sicherheitsmethoden gelten für alle AD FS-Installationen, wo Sie möchten verbessern oder erweitern die Sicherheit des Entwurfs oder der Bereitstellung werden:  
   
--   **Verwenden des Sicherheitskonfigurations-Assistenten zum Anwenden von AD FS-spezifischen bewährten Sicherheitsmethoden für Verbundserver- und Verbundserverproxy-Computer**  
+-   **Verwenden des Sicherheitskonfigurations-Assistenten AD FS-spezifischen bewährten Sicherheitsmethoden für Verbundserver- und Verbundserverproxy-Computer anwenden**  
   
-    (Security Configuration Wizard, SCW) ist ein Tool, das auf allen Windows Server 2008, Windows Server 2008 R2 und Windows Server 2012-Computer vorinstalliert ist. Sie können es verwenden, Sicherheitsmethoden anwenden, bewährte Methoden, die Ihnen helfen, der Angriffsfläche für einen Server reduzieren, basierend auf den Serverrollen, die Sie installieren.  
+    (Security Configuration Wizard, SCW) ist ein Tool, das auf alle Windows Server 2008, Windows Server 2008 R2 und Windows Server 2012-Computer vorinstalliert ist. Sie können mit dem Assistenten bewährte Sicherheitsmethoden anwenden, die dazu beitragen, die Angriffsfläche für einen Server auf der Basis der von Ihnen installierten Serverrollen zu reduzieren.  
   
-    Bei der Installation von AD FS erstellt das Setupprogramm Rolle Erweiterungsdateien, die Sie mit dem Sicherheitskonfigurations-Assistenten verwenden können, um eine Sicherheitsrichtlinie erstellen, die auf die bestimmte AD FS-Serverrolle (Verbundserver oder Verbundserverproxy) angewendet wird, die Sie während des Setups auswählen.  
+    Wenn Sie AD FS installieren, erstellt das Setupprogramm Rollenerweiterungsdateien mit dem Sicherheitskonfigurations-Assistenten, um eine Sicherheitsrichtlinie zu erstellen, die für die bestimmte AD FS-Serverrolle (Verbundserver oder Verbundserverproxy) angewendet wird, die Sie während des Setups auswählen.  
   
-    Jede Rolle Extension-Datei, die installiert wird stellt den Typ der Rollen- und unterrollentyp für die einzelnen Computer konfiguriert ist. Die folgenden rollenerweiterungsdateien werden im Verzeichnis C:WindowsADFSScw installiert:  
+    Jede installierte Rollenerweiterungsdatei stellt den Rollen- und Unterrollentyp dar, für den jeder Computer konfiguriert ist. Die folgenden rollenerweiterungsdateien werden im C:WindowsADFSScw Verzeichnis installiert:  
   
-    -   Farm.Xml  
+    -   Farm.xml  
   
     -   SQLFarm.xml  
   
     -   StandAlone.xml  
   
-    -   Proxy.XML (diese Datei ist nur vorhanden, wenn Sie den Computer in der Verbundserverproxy-Rolle konfiguriert.)  
+    -   Proxy.xml (Diese Datei ist nur vorhanden, wenn der Computer in der Verbundserverproxy-Rolle konfiguriert wurde.)  
   
-    Wenn die AD FS-Rolle Erweiterungen für den Sicherheitskonfigurations-Assistenten anwenden möchten, müssen führen Sie die folgenden Schritte in der Reihenfolge aus:  
+    Führen Sie die folgenden Schritte in der angegebenen Reihenfolge durch, um die AD FS-Rollenerweiterungen im Sicherheitskonfigurations-Assistenten zuzuweisen:  
   
-    1.  Installieren Sie AD FS, und wählen Sie die geeignete Serverrolle für diesen Computer. Weitere Informationen finden Sie unter [Verbunddienst-Rollendienst installieren](../../ad-fs/deployment/Install-the-Federation-Service-Proxy-Role-Service.md) in AD FS-Bereitstellungshandbuch.  
+    1.  Installieren Sie AD FS, und wählen Sie die geeignete Serverrolle für diesen Computer aus. Weitere Informationen finden Sie unter [Verbunddienst-Rollendienst installieren](../../ad-fs/deployment/Install-the-Federation-Service-Proxy-Role-Service.md) in AD FS-Bereitstellungshandbuch.  
   
-    2.  Registrieren Sie die geeignete rollenerweiterungsdatei mit dem Scwcmd-Befehlszeilentool. Finden Sie in der folgenden Tabelle finden Sie Details zur Verwendung dieses Tools in der Rolle für die der Computer konfiguriert ist.  
+    2.  Registrieren Sie die geeignete Rollenerweiterungsdatei mit dem Scwcmd-Befehlszeilentool. Ausführliche Informationen zur Verwendung des Tools in der Rolle, für die Ihr Computer konfiguriert ist, finden Sie in der folgenden Tabelle.  
   
-    3.  Stellen Sie sicher, dass der Befehl erfolgreich ausgeführt wurde, die Datei scwregister_log.XML untersuchen, die sich im Verzeichnis WindowssecurityMsscwLogs befindet.  
+    3.  Stellen Sie sicher, dass der Befehl erfolgreich abgeschlossen wurde, mithilfe der Datei scwregister_log.XML untersuchen, die sich im Verzeichnis WindowssecurityMsscwLogs befindet.  
   
-    Auf jedem Verbundserver oder Verbundserverproxy-Computer, dem Sie AD FS-basierte Sicherheitsrichtlinien anwenden möchten, müssen Sie alle diese Schritte ausführen.  
+    Sie müssen all diese Schritte auf jedem Verbundserver- oder Verbundserverproxy-Computer durchführen, für den Sie AD FS-basierte Sicherheitsrichtlinien des Sicherheitskonfigurations-Assistenten anwenden möchten.  
   
-    In der folgende Tabelle wird erläutert, wie die geeignete rollenerweiterung, basierend auf dem AD FS-Serverrolle, die Sie auf dem Computer ausgewählt haben, auf dem AD FS installiert, registrieren.  
+    In der folgenden Tabelle wird erklärt, wie Sie die geeignete Rollenerweiterung des Sicherheitskonfigurations-Assistenten auf der Basis der AD FS-Serverrolle registrieren, die Sie auf dem Computer ausgewählt haben, auf dem AD FS installiert ist.  
   
-    |AD FS-Serverrolle|AD FS-Konfigurationsdatenbank verwendet|Geben Sie folgenden Befehl an einer Eingabeaufforderung ein:|  
+    |AD FS-Serverrolle|Verwendete AD FS-Konfigurationsdatenbank|Geben Sie an einer Eingabeaufforderung den folgenden Befehl ein:|  
     |---------------------|-------------------------------------|---------------------------------------------------|  
     |Eigenständiger Verbundserver|Interne Windows-Datenbank|`scwcmd register /kbname:ADFS2Standalone /kbfile:"WindowsADFSscwStandAlone.xml"`|  
-    |Einer Farm Angehöriger Verbundserver|Interne Windows-Datenbank|`scwcmd register /kbname:ADFS2Standalone /kbfile:"WindowsADFSscwFarm.xml"`|  
-    |Einer Farm Angehöriger Verbundserver|SqlServer|`scwcmd register /kbname:ADFS2Standalone /kbfile:"WindowsADFSscwSQLFarm.xml"`|  
-    |Verbundserverproxy|N/V|`scwcmd register /kbname:ADFS2Standalone /kbfile:"WindowsADFSscwProxy.xml"`|  
+    |Einer Farm angehöriger Verbundserver|Interne Windows-Datenbank|`scwcmd register /kbname:ADFS2Standalone /kbfile:"WindowsADFSscwFarm.xml"`|  
+    |Einer Farm angehöriger Verbundserver|SQL Server|`scwcmd register /kbname:ADFS2Standalone /kbfile:"WindowsADFSscwSQLFarm.xml"`|  
+    |Verbundserverproxy|Nicht zutreffend|`scwcmd register /kbname:ADFS2Standalone /kbfile:"WindowsADFSscwProxy.xml"`|  
   
-    Weitere Informationen zu den Datenbanken, die Sie mit AD FS verwenden können, finden Sie unter [die Rolle der AD FS-Konfigurationsdatenbank](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md).  
+    Weitere Informationen zu den Datenbanken, die Sie mit AD FS verwenden können, finden Sie unter [Die Rolle der AD FS-Konfigurationsdatenbank](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md).  
   
--   **Verwenden Sie Erkennung von tokenwiederholungen in Situationen, in der Sicherheit sehr wichtig ist, z. B. wenn Kioske verwendet werden.**  
-    Erkennung von tokenwiederholungen ist ein Feature von AD FS, die sicherstellt, dass jeder Versuch der Wiederholung einer tokenanforderung, die an den Verbunddienst vorgenommen wird erkannt, und die Anforderung verworfen. Erkennung von tokenwiederholungen ist standardmäßig aktiviert. Es funktioniert für das passive WS-Federation-Profil und das Security Assertion Markup Language (SAML)-WebSSO-Profil, indem Sie sicherstellen, dass dasselbe Token niemals mehr als einmal verwendet wird.  
+-   **Verwenden Sie Erkennung von tokenwiederholungen in Situationen, in denen Sicherheit sehr wichtig ist, z. B. ist wenn Kiosks verwendet werden.**  
+    Erkennung von tokenwiederholungen ist ein Feature von AD FS, die sicherstellt, dass jeder Versuch der Wiederholung einer tokenanforderung, die an den Verbunddienst vorgenommen wird, wird erkannt, und die Anforderung wird verworfen. Die Erkennung von Tokenwiederholungen ist standardmäßig aktiviert. Sie funktioniert sowohl für das passive WS-Verbundprofil als auch das Security Assertion Markup Language (SAML)-WebSSO-Profil, indem sie sicherstellt, dass dasselbe Token niemals mehr als einmal verwendet wird.  
   
-    Wenn der Verbunddienst gestartet wird, beginnt es einen Cache aller erfüllten tokenanforderungen aufgebaut. Im Laufe der Zeit anschließende tokenanforderungen zum Cache hinzugefügt werden erhöht sich die Fähigkeit, erkennen alle Versuche, Wiederholung einer tokenanforderung mehrmals für den Verbunddienst. Wenn Sie die Erkennung von tokenwiederholungen deaktivieren und später entscheiden, sie erneut zu aktivieren, denken Sie daran, dass der Verbunddienst weiterhin Token für einen gewissen Zeitraum akzeptieren, die zuvor verwendet wurden, bis der Cache Replay genug Zeit gewährt, seine Inhalte aufzubauen. Weitere Informationen finden Sie unter [die Rolle der AD FS-Konfigurationsdatenbank](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md).  
+    Wenn der Verbunddienst gestartet wird, wird ein Cache aller erfüllten Tokenanforderungen aufgebaut. Wenn mit der Zeit anschließende Tokenanforderungen zum Cache hinzugefügt werden, hat der Verbunddienst immer bessere Möglichkeiten, alle Versuche der mehrmaligen Wiederholung von Tokenanforderungen zu erkennen. Wenn Sie Erkennung von Tokenwiederholungen deaktivieren und später entscheiden, sie erneut zu aktivieren, denken Sie daran, dass der Verbunddienst für einen gewissen Zeitraum weiterhin Token akzeptiert, die zuvor verwendet wurden, bis der Wiederholungscache ausreichend Zeit erhält, seine Inhalte aufzubauen. Weitere Informationen finden Sie unter [Die Rolle der AD FS-Konfigurationsdatenbank](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md).  
   
--   **Verwenden der tokenverschlüsselung, insbesondere dann, wenn Sie die unterstützende SAML-artefaktauflösung verwenden.**  
+-   **Verwenden der tokenverschlüsselung, insbesondere dann, wenn Sie unterstützende SAML-artefaktauflösung verwenden.**  
   
-    Verschlüsselung von Token wird dringend empfohlen, zum Erhöhen der Sicherheit und Schutz vor potenziellen Man-in-the-Middle (MITM)-Angriffen, die vor der Bereitstellung von AD FS versucht werden kann. Verwendung der Verschlüsselung möglicherweise eine geringe Auswirkung auf in der gesamten jedoch im Allgemeinen ist es sollte nicht bemerkbar sein und in vielen Bereitstellungen überschreiten die Vorteile für eine höhere Sicherheit alle Nachteile hinsichtlich der Leistung.  
+    Verschlüsselung von Token wird dringend empfohlen, zum Erhöhen der Sicherheit und Schutz vor potenziellen Man-in-the-Middle (MITM)-Angriffe, die für Ihre AD FS-Bereitstellung ausgeführt werden kann. Die Verwendung der Verschlüsselung hat möglicherweise geringfügige allgemeine Auswirkungen, aber in der Regel sollten diese nicht bemerkbar sein, und in vielen Bereitstellungen überwiegen die Vorteile einer höheren Sicherheit alle Nachteile hinsichtlich der Serverleistung.  
   
-    Klicken Sie zum Aktivieren der tokenverschlüsselung ersten Satz ein Verschlüsselungszertifikat für Vertrauensstellungen der vertrauenden Seite hinzufügen. Sie können ein Verschlüsselungszertifikat entweder beim Erstellen einer der vertrauenden Seite der Vertrauensstellung Partei oder höher. Sie können ein Zertifikat zur Verwendung auf festlegen, um ein Verschlüsselungszertifikat später zu einer vorhandenen Vertrauensstellung für vertrauende Seiten hinzuzufügen, die **Verschlüsselung** Registerkarte in Eigenschaften der Vertrauensstellung bei der Verwendung von AD FS-Snap-in. Verwenden Sie zum Angeben eines Zertifikats für eine vorhandene Vertrauensstellung mit der AD FS-Cmdlets den Parameter "EncryptionCertificate" des entweder die **Set-ClaimsProviderTrust** oder **Set-RelyingPartyTrust** Cmdlets. Verwenden Sie zum Festlegen eines Zertifikats für den Verbunddienst zur Entschlüsselung von Token der **Set-ADFSCertificate** Cmdlet, und geben Sie "`Token-Encryption`" für die *CertificateType* Parameter. Aktivieren und Deaktivieren der Verschlüsselung für bestimmte vertrauende vertrauen, können Sie dazu die *EncryptClaims* -Parameter von der **Set-RelyingPartyTrust** Cmdlet.  
+    Zum Aktivieren der Tokenverschlüsselung fügen Sie zuerst ein Verschlüsselungszertifikat für die Vertrauensstellungen der vertrauenden Seite hinzu. Sie können ein Verschlüsselungszertifikat entweder bei der Erstellung einer Vertrauensstellung der vertrauenden Seite oder später erstellen. Sie können ein Zertifikat zur Verwendung für festlegen, um ein Verschlüsselungszertifikat später zu einer vorhandenen Vertrauensstellung der vertrauenden hinzufügen, die **Verschlüsselung** im Eigenschaften der Vertrauensstellung bei der Verwendung von AD FS-Snap-in auf der Registerkarte. Um ein Zertifikat für eine vorhandene Vertrauensstellung mit der AD FS-Cmdlets angeben, verwenden Sie den Parameter "EncryptionCertificate" entweder die **Set-ClaimsProviderTrust** oder **Set-RelyingPartyTrust** Cmdlets. Um ein Zertifikat für den Verbunddienst zur Entschlüsselung von Token festzulegen, verwenden die **Set-ADFSCertificate** Cmdlet, und geben Sie "`Token-Encryption`" für die *CertificateType* Parameter. Die Aktivierung und Deaktivierung der Verschlüsselung für eine bestimmte Vertrauensstellung der vertrauenden Seite kann über den Parameter *EncryptClaims* des Cmdlets **Set-RelyingPartyTrust** durchgeführt werden.  
   
--   **Verwenden des erweiterten Schutzes für die Authentifizierung**  
+-   **Verwenden des erweiterten Schutzes zur Authentifizierung**  
   
-    Um Ihre Bereitstellungen zu sichern, können Sie festlegen und verwenden den erweiterten Schutz für Authentifizierungsfeature mit AD FS. Diese Einstellung gibt die Ebene der erweiterten Schutz für die Authentifizierung von einem Verbundserver unterstützt werden.  
+    Um Ihre Bereitstellungen zu schützen, können Sie festlegen und den erweiterten Schutz für Authentifizierungsfunktion mit AD FS verwenden. Diese Einstellung gibt an, die Stufe des erweiterten Schutzes zur Authentifizierung von einem Verbundserver unterstützt wird.  
   
-    Der erweiterte Schutz für die Authentifizierung schützt vor Man-in-the-Middle (MITM)-Angriffe, in denen ein Angreifer Clientanmeldeinformationen abfängt und an einen Server weiterleitet. Schutz vor solchen Angriffen wird durch einen Kanal Binding Token (CBT) ermöglicht die können entweder erforderlich, zugelassen, oder werden nicht vom Server erforderlich, wenn sie die Kommunikation mit Clients einrichtet.  
+    Der erweiterte Schutz für die Authentifizierung trägt dazu bei, Schutz vor Man-in-the-Middle-Angriffen (MITM) bereitzustellen, bei denen ein Angreifer Clientanmeldeinformationen abfängt und an einen Server weiterleitet. Der Schutz vor solchen Angriffen wird durch ein Kanalbindungstoken ermöglicht, das vom Server erfordert, zugelassen oder nicht erfordert wird, wenn diese eine Kommunikation mit Clients einrichtet.  
   
-    Um die erweiterten Schutz zu aktivieren, verwenden Sie die **ExtendedProtectionTokenCheck** Parameter auf die **Set-ADFSProperties** Cmdlet. Mögliche Werte für diese Einstellung und die Sicherheitsstufe, die die Werte angeben, werden in der folgenden Tabelle beschrieben.  
+    Zur Aktivierung der Funktion für den erweiterten Schutz verwenden Sie den Parameter **ExtendedProtectionTokenCheck** des Cmdlets **Set-ADFSProperties**. Mögliche Werte für diese Einstellung und die Sicherheitsstufe, die der jeweilige Wert bereitstellt, sind in der folgenden Tabelle beschrieben.  
   
-    |Parameterwert|Sicherheitsstufe|Die Einstellung Schutz|  
+    |Parameterwert|Sicherheitsstufe|Schutzeinstellung|  
     |-------------------|------------------|----------------------|  
-    |Erfordern|Server ist vollständig verstärkt.|Der erweiterte Schutz wird erzwungen, und immer erforderlich.|  
-    |Zulassen|Servers ist teilweise verstärkt.|Der erweiterte Schutz wird erzwungen, in denen beteiligten Systeme einen Patch erhalten haben, für die Unterstützung.|  
+    |Require|Die Sicherheit des Servers ist vollständig verstärkt.|Der erweiterte Schutz wird erzwungen und ist immer erforderlich.|  
+    |Zulassen|Die Sicherheit des Servers ist teilweise verstärkt.|Der erweiterte Schutz wird erzwungen, wenn die beteiligten Systeme einen Patch erhalten haben, um diesen zu unterstützen.|  
     |Keine|Der Server ist anfällig.|Der erweiterte Schutz wird nicht erzwungen.|  
   
--   **Wenn Sie die Protokollierung und Ablaufverfolgung verwenden, stellen Sie den Datenschutz für alle sensiblen Informationen sicher.**  
+-   **Wenn Sie Protokollierung und Ablaufverfolgung verwenden, stellen Sie auf den Datenschutz für alle sensiblen Informationen sicher.**  
   
-    AD FS nicht standardmäßig oder Verfolgung von persönlich identifizierbare Informationen (PII) direkt als Teil des Verbunddiensts oder normaler Vorgänge. Wenn in AD FS-ereignisprotokollierung und Debug-ablaufverfolgungsprotokollierung aktiviert sind, können jedoch je nach der Richtlinie Ansprüche, einige Ansprüche zu konfigurieren Typen und die zugehörigen Werte PII enthalten, die in der AD FS-Ereignis oder Ablaufverfolgungsprotokollen protokolliert werden kann.  
+    AD FS, in der Standardeinstellung verfügbar machen oder nicht persönlich identifizierbare Informationen (PII) direkt als Teil des Verbunddiensts oder normaler Vorgänge überwachen. Bei der Protokollierung von Komponentenereignissen und Debug-ablaufverfolgungsprotokollierung in AD FS aktiviert sind, können jedoch abhängig von der Richtlinie für Ansprüche, die Sie konfigurieren, dass einige Ansprüche Typen und die zugehörigen Werte personenbezogene Informationen enthalten, die in der AD FS-Ereignis oder Ablaufverfolgungsprotokollen protokolliert sein können.  
   
-    Aus diesem Grund wird das Erzwingen der Zugriffssteuerung auf die AD FS-Konfiguration und ihre Protokolldateien dringend empfohlen. Wenn Sie nicht, dass diese Art von Informationen angezeigt werden möchten, sollten Sie herausfiltern deaktivieren oder alle personenbezogenen Informationen oder sensiblen Daten in Ihren Protokollen filtern, bevor Sie mit anderen zu teilen.  
+    Aus diesem Grund wird das Erzwingen einer Zugriffssteuerung für die AD FS-Konfiguration und ihre Protokolldateien dringend empfohlen. Wenn diese Art von Informationen nicht sichtbar sein soll, sollten Sie die Protokollierung deaktivieren oder alle personenbezogenen Informationen oder sensiblen Daten in Ihren Protokollen herausfiltern, bevor Sie diese mit anderen gemeinsam verwenden.  
   
-    Die folgenden Tipps helfen Ihnen die verhindern, dass des Inhalts einer Protokolldatei nicht versehentlich verfügbar:  
+    Die folgenden Tipps können Ihnen helfen, die Inhalte einer Protokolldatei nicht versehentlich verfügbar zu machen:  
   
-    -   Stellen Sie sicher, dass der AD FS-Ereignisprotokoll und Ablaufverfolgungsprotokoll-Dateien durch Zugriffssteuerungslisten (ACLs) geschützt sind, die Zugriff auf die vertrauenswürdige Administratoren einschränken, wer Zugriff darauf benötigen.  
+    -   Stellen Sie sicher, dass das AD FS-Ereignisprotokoll und die Ablaufverfolgungs-Protokolldateien durch Access Control Lists (ACL) geschützt sind, die Zugriff auf die vertrauenswürdige Administratoren einschränken, die Zugriff darauf benötigen.  
   
-    -   Kopieren Sie oder Sie keine archivieren Sie Protokolldateien, die mit Dateierweiterungen oder Pfaden, die einfach über eine webanforderung bereitgestellt werden können. Beispielsweise ist die XML-Erweiterung nicht sichere Option. Sie können überprüfen, die Internetinformationsdienste (Internet Information Services, IIS)-Administratorhandbuch zum Anzeigen einer Liste der Erweiterungen, die bereitgestellt werden können.  
+    -   Kopieren oder archivieren Sie Protokolldateien nicht mit Dateierweiterungen oder Pfaden, die einfach über eine Webanforderung bereitgestellt werden können. Beispielsweise ist die Dateinamenerweiterung .xml keine sichere Option. Im Administratorhandbuch für die Internetinformationsdienste finden Sie eine Liste der Erweiterungen, die bereitgestellt werden können.  
   
-    -   Wenn Sie den Pfad der Protokolldatei ändern, achten Sie darauf, dass Sie einen absoluten Pfad für den Speicherort der Protokolldatei an, der außerhalb des Web-Host virtuellen webhoststamms öffentlichen Verzeichnisses zu verhindern, dass Zugriff auf eine externe Partei über einen Webbrowser werden soll.  
+    -   Wenn Sie den Pfad zur Protokolldatei überprüfen, stellen Sie sicher, dass Sie einen absoluten Pfad für den Speicherort der Protokolldatei angeben, der außerhalb öffentlichen Verzeichnisses des virtuellen Webhoststamms liegt, um zu verhindern, dass eine externe Partei über einen Webbrowser darauf zugreifen kann.  
 
--   **AD FS Extranet Lockout Schutz**  
+-   **Soft-Extranetsperre von AD FS und AD FS Extranet intelligente Schutz durch Kontosperrung**  
     
-    Bei einem Angriff in Form von authentifizierungsanforderungen mit invalid(bad) Kennwörter, die über das Web Application Proxy stammen, können mit AD FS-extranet-Sperre die Benutzer aus einer AD FS-Kontosperre zu schützen. Zusätzlich zum Schutz von Ihren Benutzern von einem AD FS Kontosperren, AD FS-extranet-Sperre schützt auch Kennwortermittlung brute-Force-Angriffe.  Weitere Informationen finden Sie unter [AD FS Extranet-Sperre Schutz](../../ad-fs/operations/Configure-AD-FS-Extranet-Lockout-Protection.md).  
+    Bei einem Angriff in Form von authentifizierungsanforderungen invalid(bad) Kennwörter, die über den Webanwendungsproxy stammen, können AD FS extranet Lockout Sie Ihre Benutzer vor einer AD FS-kontosperrung zu schützen. Zusätzlich zum Schutz von Benutzern aus einem AD FS-kontosperrung, AD FS extranet Lockout schützt auch Kennwortermittlung brute-Force-Angriffe.  
+    
+    Weiche Extranetsperre für AD FS unter Windows Server 2012 R2 finden Sie unter [AD FS vorläufig Extranetsperrschutz](../../ad-fs/operations/Configure-AD-FS-Extranet-Soft-Lockout-Protection.md).  
+
+     Extranet Smart Lockout für AD FS unter Windows Server 2016 finden Sie unter [AD FS intelligente Extranetsperrschutz](../../ad-fs/operations/Configure-AD-FS-Extranet-Smart-Lockout-Protection.md).  
   
-## <a name="sql-serverspecific-security-best-practices-for-ad-fs"></a>SQL Server-spezifische Bewährte Sicherheitsmethoden für AD FS  
-Die folgenden bewährten Sicherheitsmethoden sind spezifisch für die Verwendung von Microsoft SQL Server® oder Windows Internal Database (WID), wenn diese Datenbank Technologien zum Verwalten von Daten in AD FS-Entwurf und die Bereitstellung verwendet werden.  
+## <a name="sql-serverspecific-security-best-practices-for-ad-fs"></a>Wichtige SQL Server-spezifische bewährte Sicherheitsmethoden für AD FS  
+Die folgenden bewährten Sicherheitsmethoden sind spezifisch für die Verwendung von Microsoft SQL Server® oder Windows Internal Database (WID), wenn diese datenbanktechnologien verwendet werden, um Daten in AD FS-Entwurfs und der Bereitstellung zu verwalten.  
   
 > [!NOTE]  
-> Diese Empfehlungen sollen erweitern, aber nicht ersetzen, Sicherheitsleitfaden für SQL Server-Produkt. Weitere Informationen zur Planung einer sicheren SQL Server-Installations finden Sie unter [Überlegungen zur Sicherheit für eine sichere SQL-Installation](https://go.microsoft.com/fwlink/?LinkID=139831) (https://go.microsoft.com/fwlink/?LinkID=139831).  
+> Die Empfehlungen sollen SQL Server-Produktsicherheitsanleitungen ergänzen, aber nicht ersetzen. Weitere Informationen zur Planung einer sicheren SQL Server-Installation finden Sie unter [Überlegungen zur Sicherheit für eine sichere SQL-Installation](https://go.microsoft.com/fwlink/?LinkID=139831) (https://go.microsoft.com/fwlink/?LinkID=139831).  
   
--   **Stellen Sie SQL Server immer hinter einer Firewall in einer physisch sicheren Netzwerkumgebung bereit.**  
+-   **Bereitstellen von SQL Server immer hinter einer Firewall in einem physisch sicheren Netzwerkumgebung.**  
   
-    SQL Server-Installation sollte niemals direkt mit dem Internet verfügbar gemacht werden. Nur Computer, die in Ihrem Rechenzentrum befinden sollten Ihre SQL Server-Installation zu erreichen, die AD FS unterstützt werden. Weitere Informationen finden Sie unter [Prüfliste für bewährte Sicherheitsmethoden](https://go.microsoft.com/fwlink/?LinkID=189229) (https://go.microsoft.com/fwlink/?LinkID=189229).  
+    Eine SQL Server-Installation sollte niemals direkt für das Internet verfügbar gemacht werden. Nur Computer, die in Ihrem Rechenzentrum befinden muss SQL Server-Installation zu erreichen, die AD FS unterstützt. Weitere Informationen finden Sie unter [Prüfliste für bewährte Sicherheitsmethoden](https://go.microsoft.com/fwlink/?LinkID=189229) (https://go.microsoft.com/fwlink/?LinkID=189229).  
   
 -   **Führen Sie SQL Server unter einem Dienstkonto anstelle der integrierten Standardsystem-Dienstkonten.**  
   
-    Standardmäßig wird SQL Server oft installiert und so konfiguriert, dass eine der unterstützten integrierten Systemkonten, z. B. die Konten "LocalSystem" oder "NetworkService" verwenden. Um die Sicherheit der SQL Server-Installation für AD FS zu verbessern, wo ein separates Dienstkonto für den Zugriff auf Ihre SQL Server-Dienst verwenden und Kerberos-Authentifizierung aktivieren, indem Sie den Sicherheitsprinzipalnamen (SPN) für dieses Konto in Active Directory-Bereitstellung registrieren. Dies ermöglicht die gegenseitigen Authentifizierung zwischen Client und Server. Ohne SPN-Registrierung eines separaten Dienstkontos verwendet SQL Server NTLM für die Windows-basierte Authentifizierung, in denen nur der Client authentifiziert wird.  
+    Standardmäßig wird SQL Server oft installiert und konfiguriert, um eins der unterstützten integrierten Systemkonten zu verwenden, beispielsweise das LocalSystem- oder das NetworkService-Konto. Um die Sicherheit von SQL Server-Installation für AD FS zu verbessern, ganz egal, wo möglich ein separates Dienstkonto für den Zugriff auf Ihre SQL Server-Dienst und Kerberos-Authentifizierung aktivieren, indem Sie den Sicherheitsprinzipalnamen (SPN) dieses Kontos registrieren Ihre Active Directory-Bereitstellung. Damit wird eine gegenseitige Authentifizierung zwischen Client und Server ermöglicht. Ohne SPN-Registrierung eines separaten Dienstkontos verwendet SQL Server NTLM für die Windows-basierte Authentifizierung, bei der nur der Client authentifiziert wird.  
   
 -   **Minimieren Sie die Oberfläche von SQL Server.**  
   
-    Aktivieren Sie nur für diese SQL Server-Endpunkte, die erforderlich sind. Standardmäßig stellt SQL Server einen einzigen integrierten TCP-Endpunkt, der nicht entfernt werden kann. Für AD FS sollten Sie diesen TCP-Endpunkt für die Kerberos-Authentifizierung aktivieren. Zum Überprüfen der aktuellen TCP-Endpunkte, um festzustellen, ob zusätzliche benutzerdefinierte TCP-Ports zu einer SQL-Installation hinzugefügt werden, können Sie die "Wählen Sie * FROM SYS. tcp_endpoints" Abfrage in einer Sitzung (T-SQL) Transact-SQL-Anweisung. Weitere Informationen zu SQL Server-Endpunktkonfiguration finden Sie unter [so wird's gemacht: Konfigurieren der Datenbankmoduls zum Überwachen mehrerer TCP-Ports](https://go.microsoft.com/fwlink/?LinkID=189231) (https://go.microsoft.com/fwlink/?LinkID=189231).  
+    Aktivieren Sie nur die SQL Server-Endpunkte, die erforderlich sind. Standardmäßig stellt SQL Server einen einzigen integrierten TCP-Endpunkt bereit, der nicht entfernt werden kann. Für AD FS sollten Sie diesen TCP-Endpunkt für die Kerberos-Authentifizierung aktivieren. Zum Überprüfen der aktuellen TCP-Endpunkte, um zu sehen, ob zusätzliche benutzerdefinierte TCP-Ports zu einer SQL-Installation hinzugefügt werden, können Sie die Abfrageanweisung „SELECT * FROM sys.tcp_endpoints“ in einer Transact-SQL-Sitzung (T-SQL) verwenden. Weitere Informationen zu SQL Server-Endpunktkonfiguration, finden Sie unter [so wird's gemacht: Konfigurieren Sie die Datenbank-Engine zum Überwachen mehrerer TCP-Ports](https://go.microsoft.com/fwlink/?LinkID=189231) (https://go.microsoft.com/fwlink/?LinkID=189231).  
   
--   **Verwenden Sie keine SQL-basierten Authentifizierung.**  
+-   **Verwenden Sie SQL-basierte Authentifizierung.**  
   
-    Um zu vermeiden, dass Kennwörter als Klartext über das Netzwerk übertragen oder Speichern von Kennwörtern in Konfigurationseinstellungen, Windows-Authentifizierung nur mit der SQL Server-Installation verwenden. SQL Server-Authentifizierung ist ein legacyauthentifizierungsmodus. Speichern von Structured Query Language (SQL)-Anmeldeinformationen (SQL-Benutzernamen und Kennwörter) bei Verwendung der SQL Server-Authentifizierung nicht empfohlen. Weitere Informationen finden Sie unter [Authentifizierungsmodi](https://go.microsoft.com/fwlink/?LinkID=189232) (https://go.microsoft.com/fwlink/?LinkID=189232).  
+    Damit Sie Kennwörter nicht in Klartext über Ihrer Netzwerk übertragen oder in Konfigurationseinstellungen speichern müssen, verwenden Sie nur die Windows-Authentifizierung mit Ihrer SQL Server-Installation. Die SQL Server-Authentifizierung ist ein Legacyauthentifizierungsmodus. Das Speichern von SQL-Anmeldeinformationen (SQL-Benutzernamen und -Kennwörter) bei der Verwendung der SQL Server-Authentifizierung ist nicht empfehlenswert. Weitere Informationen finden Sie unter [Authentifizierungsmodi](https://go.microsoft.com/fwlink/?LinkID=189232) (https://go.microsoft.com/fwlink/?LinkID=189232).  
   
--   **Bewerten Sie sorgfältig Weitere Channel-Sicherheit in Ihrer SQL-Installation.**  
+-   **Bewerten Sie die Notwendigkeit zusätzliche kanalsicherheit in Ihrer SQL-Installation sorgfältig.**  
   
-    Selbst mit Kerberos-Authentifizierung bietet die SQL Server Security Support Provider-Schnittstelle (SSPI) im Grunde keine Sicherheit auf. Jedoch kann für Installationen, die in denen Server sicher auf eine Firewall geschützten Netzwerk befinden, Verschlüsselung der SQL-Kommunikation nicht erforderlich.  
+    Selbst bei wirksamer Kerberos-Authentifizierung bietet die SQL Server Security Support Provider-Schnittstelle (SSPI) keine Sicherheit auf Kanalebene. Für Installationen, bei denen sich Server sicher in einem durch eine Firewall geschützten Netzwerk befinden, ist eine Verschlüsselung der SQL-Kommunikation möglicherweise jedoch nicht erforderlich.  
   
-    Zwar Verschlüsselung ein wertvolles Tool zur Sicherheit zu gewährleisten, sollten sie nicht für alle Daten oder Verbindungen betrachtet werden. Berücksichtigen Sie, ob zum Implementieren der Verschlüsselung entscheiden, wie Benutzer auf Daten zugreifen. Wenn Benutzer über ein öffentliches Netzwerk auf Daten zugreifen, kann datenverschlüsselung erforderlich sein, um die Sicherheit zu erhöhen. Jedoch, wenn alle Zugriff auf SQL-Daten von AD FS eine sichere Intranetkonfiguration beinhaltet, möglicherweise Verschlüsselung nicht erforderlich sein. Die Verwendung von Verschlüsselung sollte auch eine Wartungsstrategie für Kennwörter, Schlüssel und Zertifikate enthalten.  
+    Auch wenn die Verschlüsselung ein wertvolles Tool ist, um für Sicherheit zu sorgen, sollte sie nicht für alle Daten oder Verbindungen in Betracht gezogen werden. Wenn Sie entscheiden, ob Sie eine Verschlüsselung implementieren, bedenken Sie, wie Benutzer auf Daten zugreifen. Wenn Benutzer über ein öffentliches Netzwerk auf Daten zugreifen, ist eine Datenverschlüsselung möglicherweise erforderlich, um die Sicherheit zu erhöhen. Jedoch, wenn alle Zugriff auf SQL-Daten von AD FS eine sichere Intranetkonfiguration abspielt, möglicherweise Verschlüsselung nicht erforderlich sein. Jede Verschlüsselungsverwendung beinhaltet auch eine Wartungsstrategie für Kennwörter, Schlüssel und Zertifikate.  
   
-    Liegt ein Problem, dass die SQL-Daten angezeigt werden oder über das Netzwerk manipuliert werden können, verwenden Sie Internet Protocol Security (IPsec) oder Secure Sockets Layer (SSL) zum Schutz Ihrer SQL-Verbindungen. Jedoch möglicherweise Dies beeinträchtigt die Leistung von SQL Server, die beeinträchtigen oder AD FS-Leistung in einigen Situationen einschränken. Beispielsweise kann AD FS-Leistung bei der tokenausstellung verschlechtert, wenn Sie das Abrufen von Attributen aus einem SQL-basierten Attributspeicher wichtig für die tokenausstellung sind. Sie können eine SQL-manipulationsbedrohung durch die Verwendung einer umkreissicherheitskonfiguration besser vermeiden. Beispielsweise ist die bessere Lösung für das Sichern der SQL Server-Installation um sicherzustellen, dass rechenzentrumsumgebung für Internet-Benutzer und Computer nur von Benutzern oder Computern in Ihrer Umgebung Datacenter zugegriffen werden bleibt.  
+    Wenn Sie Bedenken haben, dass SQL-Daten möglicherweise in Ihrem Netzwerk gesehen oder manipuliert werden, verwenden Sie die Internetprotokollsicherheit (IPsec) oder Secure Sockets Layer (SSL), um Ihre SQL-Verbindungen zu sichern. Allerdings möglicherweise dies negative Auswirkungen auf die Leistung von SQL Server, die möglicherweise Auswirkungen auf oder AD FS-Leistung in einigen Fällen zu beschränken. AD FS-Leistung bei der tokenausstellung kann z. B. beeinträchtigt werden, wenn das Abrufen von Attributen aus einem SQL-basierten Attributspeicher wichtig für die tokenausstellung sind. Sie können eine SQL-Manipulationsbedrohung einfacher vermeiden, indem Sie eine robuste Umkreissicherheitskonfiguration haben. Für eine bessere Lösung für das Sichern einer SQL Server-Installation sollten Sie beispielsweise sicherstellen, dass sie für Internetbenutzer und -computer nicht zugänglich ist und der Zugriff nur für Benutzer oder Computer in Ihrer Rechenzentrumsumgebung möglich ist.  
   
     Weitere Informationen finden Sie unter [Verschlüsseln von Verbindungen zu SQL Server](https://go.microsoft.com/fwlink/?LinkID=189234) oder [SQL Server-Verschlüsselung](https://go.microsoft.com/fwlink/?LinkID=189233).  
   
--   **Konfigurieren Sie mithilfe von gespeicherten Prozeduren ausführen alle SQL-basierten Abfragen von AD FS von SQL-gespeicherten Daten sicher entworfenen Zugriff.**  
+-   **Konfigurieren Sie mithilfe von gespeicherten Prozeduren zum Ausführen von Lookups aller SQL-basierten AD FS der SQL-gespeicherten Daten sicher entworfenen Zugriff.**  
   
-    Um eine bessere Dienst- und datenisolierung bereitzustellen, können Sie gespeicherte Prozeduren für alle Abrufbefehle für Attribut erstellen. Sie können eine Datenbankrolle erstellen, die Sie dann über die Berechtigung zum Ausführen der gespeicherten Prozeduren erteilen. Weisen Sie dieser Datenbankrolle die Dienstidentität des AD FS-Windows-Diensts. Der AD FS-Windows-Dienst sollte nicht in der Lage, eine beliebige andere SQL-Anweisung außer den geeigneten gespeicherten Verfahren auszuführen, die für die Suche Attribut verwendet werden. Sperren Sie den Zugriff auf SQL Server-Datenbank auf diese Weise reduziert das Risiko eines Angriffs Erhöhung von Berechtigungen.  
+    Für eine bessere Dienst- und Datenisolierung können Sie gespeicherte Verfahren für alle Abrufbefehle für den Attributspeicher erstellen. Sie können eine Datenbankrolle erstellen, der Sie dann die Berechtigung erteilen, die gespeicherten Verfahren auszuführen. Weisen Sie dieser Datenbankrolle die Dienstidentität des AD FS-Windows-Diensts. Der AD FS-Windows-Dienst sollte nicht zu einer anderen SQL-Anweisung als die entsprechenden gespeicherten Prozeduren ausführen, die für die Attributsuche verwendet werden können. Wenn Sie den Zugriff auf die SQL Server-Datenbank auf diese Weise sperren, reduzieren Sie das Risiko von Rechteerweiterungsangriffen.  
   
 ## <a name="see-also"></a>Siehe auch
-[AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[AD FS-Entwurfshandbuch in WindowsServer 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

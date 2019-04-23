@@ -1,6 +1,6 @@
 ---
-title: Ereignisprotokollierung
-description: Protokollierung von Windows Admin Center (Project Honolulu)
+title: Protokollierung
+description: Ereignisprotokollierung von Windows Admin Center (Projekt Honolulu)
 ms.technology: manage
 ms.topic: article
 author: haley-rowland
@@ -9,38 +9,38 @@ ms.date: 06/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 ms.openlocfilehash: d91b92cb3bba99ae4aa96a96650a251a6df4cea5
-ms.sourcegitcommit: e0479b0114eac7f232e8b1e45eeede96ccd72b26
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "2074341"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59849301"
 ---
-# <a name="use-event-logging-in-windows-admin-center-to-gain-insight-into-management-activities-and-track-gateway-usage"></a>Verwenden der Protokollierung in Windows-Verwaltungskonsole Einblick in Management-Aktivitäten und Nachverfolgen Gateway Verwendungsanalyse
+# <a name="use-event-logging-in-windows-admin-center-to-gain-insight-into-management-activities-and-track-gateway-usage"></a>Verwenden Sie die ereignisprotokollierung in Windows Admin Center Einblick in den Management-Aktivitäten und Gateway-Verwendung nachverfolgen
 
->Betrifft: Windows-Verwaltungskonsole, Windows-Verwaltungskonsole – Vorschau
+>Gilt für: Windows Admin Center, Windows Admin Center Preview
 
-Windows-Verwaltungskonsole schreibt Ereignisprotokolle finden Sie in der Management-Aktivitäten auf den Servern in Ihrer Umgebung durchgeführt werden können, als auch zum Windows-Verwaltungskonsole Probleme beheben von Problemen.
+Windows Admin Center schreibt Ereignisprotokolle finden Sie in der Management-Aktivitäten, die für die Server in Ihrer Umgebung ausgeführt werden können, als auch können Sie die Windows Admin Center-Probleme zu beheben.
 
-## <a name="gain-insight-into-management-activities-in-your-environment-through-user-action-logging"></a>Management von Aktivitäten in Ihrer Umgebung durch Benutzer Aktion Protokollierung Einblick
+## <a name="gain-insight-into-management-activities-in-your-environment-through-user-action-logging"></a>Gewinnen von Einblicken in den Management-Aktivitäten in Ihrer Umgebung über die Benutzer-Aktion-Protokollierung
 
-Windows-Verwaltungskonsole bietet einen Einblick in die Aktivitäten Management auf den Servern in Ihrer Umgebung von Protokollierungsaktionen an den **Microsoft-ServerManagementExperience** Ereignis Kanal im Ereignisprotokoll des verwalteten Servers an, mit EventID 4000 und SMEGateway Datenquelle. Windows-Verwaltungskonsole protokolliert nur Aktionen auf dem verwalteten Server, damit Sie nicht Ereignisse protokolliert sehen, wenn ein Benutzer einen Server für schreibgeschützte Zwecke greift auf.
+Windows Admin Center bietet einen Einblick in den Management-Aktivitäten, die auf den Servern in Ihrer Umgebung ausgeführt werden, durch die der Protokollierungsaktionen, die die **Microsoft-ServerManagementExperience** ereigniskanal im Ereignisprotokoll der verwalteten Server, mit der EventID-4000 und Quelle SMEGateway. Windows Admin Center protokolliert Aktionen, die nur auf dem verwalteten Server, damit Sie nicht, dass Ereignisse protokolliert sehen, wenn ein Benutzer für nur-Lese Zwecke auf einen Server zugreift.
 
-Protokollierten Ereignisse enthalten die folgenden Informationen:
+Protokollierte Ereignisse umfassen die folgende Informationen an:
 
-| Schlüssel           | Wert                                                                                              |
+| Key           | Wert                                                                                              |
 |---------------|----------------------------------------------------------------------------------------------------|
-| PowerShell    | PowerShell-Skriptname, der auf dem Server ausgeführt wurde, wenn die Aktion ein PowerShell-Skripts ausgeführt wurde |
-| CIM           | CIM-Anruf, der auf dem Server ausgeführt wurde, wenn die Aktion ein Anrufs CIM ausgeführt wurde.                        |
-| Modul        | Tool (oder Modul), in der die Aktion ausgeführt wurde                                                     |
-| Gateway       | Name des Windows-Verwaltungskonsole Gateway Computers, auf dem die Aktion ausgeführt wurde                     |
-| UserOnGateway | Benutzernamen für den Zugriff auf das Gateway Windows Admin Center und die Aktion ausgeführt                    |
-| UserOnTarget  | Benutzernamen für den Zugriff auf den verwalteten Zielserver, falls verschieden vom die UserOnGateway (d. h. der Benutzer mit dem Server mit den Anmeldeinformationen "Als verwalten" zugegriffen) |
-| Delegierung    | Boolean: Wenn das Ziel verwaltete Server das Gateway vertraut und Anmeldeinformationen werden von der Clientcomputer des Benutzers delegiert             |
-| RUNDEN          | Boolean: Wenn der Benutzer Zugriff auf den Server, die mit [runden](https://technet.microsoft.com/mt227395.aspx) Anmeldeinformationen                          |
-| Datei          | Name der Datei hochgeladen, wenn die Aktion Dateiuploads war.                                |
+| PowerShell    | Namen der PowerShell-Skripts, die auf dem Server ausgeführt wurde, wenn die Aktion ein PowerShell-Skript ausgeführt wurde. |
+| CIM           | CIM-Aufruf, der auf dem Server ausgeführt wurde, wenn die Aktion einen CIM-Aufruf ausgeführt wurde.                        |
+| Modul        | -Tool (oder Moduls), in dem die Aktion ausgeführt wurde                                                     |
+| Gateway       | Name des Gatewaycomputers Windows Admin Center, in dem die Aktion ausgeführt wurde                     |
+| UserOnGateway | Benutzername für das Gateway Windows Admin Center zugreifen, und führen die Aktion                    |
+| UserOnTarget  | Benutzername, den Zugriff auf die verwalteten Ziel-Server verwendet wird, falls diese von der UserOnGateway (d. h. der Benutzer, der mit dem Server mithilfe von "Verwalten als" Anmeldeinformationen zugegriffen) |
+| Delegierung    | Boolescher Wert: Wenn der verwaltete Server vertraut, das Gateway und Anmeldeinformationen werden von Client-Computer des Benutzers delegiert             |
+| LAPS          | Boolescher Wert: Wenn der Benutzer dem Server mit Zugriff auf [LAPS](https://technet.microsoft.com/mt227395.aspx) Anmeldeinformationen                          |
+| Datei          | Name der Datei hochgeladen, wenn die Aktion eine Datei hoch war.                                |
 
-## <a name="learn-about-windows-admin-center-activity-with-event-logging"></a>Erfahren Sie mehr über die Windows-Verwaltungskonsole dortigen ereignisprotokollierung
+## <a name="learn-about-windows-admin-center-activity-with-event-logging"></a>Erfahren Sie mehr über Windows Admin Center-Aktivität, bei der Protokollierung von Komponentenereignissen
 
-Windows-Verwaltungskonsole protokolliert Gateway Aktivitäten in der Event-Kanal auf dem Gatewaycomputer, mit denen Sie Probleme zu beheben und Metriken zur Verwendung anzeigen. Diese Ereignisse werden in der **Microsoft-ServerManagementExperience** -Kanal-Ereignis protokolliert.
+Windows Admin Center protokolliert die Gateway-Aktivität an den ereigniskanal auf dem Gatewaycomputer zum Behandeln von Problemen und Anzeigen von Metriken auf der Nutzung. Diese Ereignisse werden protokolliert, um die **Microsoft-ServerManagementExperience** Ereignis-Kanal.
 
-[Weitere Informationen zur Problembehandlung für Windows-Verwaltungskonsole.](troubleshooting.md)
+[Weitere Informationen zur Problembehandlung bei Windows Admin Center.](troubleshooting.md)

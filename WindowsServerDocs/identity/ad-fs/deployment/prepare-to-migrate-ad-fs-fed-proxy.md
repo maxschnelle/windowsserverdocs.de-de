@@ -1,6 +1,6 @@
 ---
-title: Vorbereiten der Migration der AD FS 2.0-Verbundserver-Proxy
-description: "Enthält Informationen zum Vorbereiten den AD FS-Proxy zu Windows Server2012 migrieren."
+title: Vorbereiten der Migration des AD FS 2.0-Verbundserverproxys
+description: Enthält Informationen zur Vorbereitung den AD FS-Proxy zu Windows Server 2012 zu migrieren.
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,51 +9,52 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: f207993580e6fd06c9ff185e58e5b7e81af60252
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59847831"
 ---
-# <a name="prepare-to-migrate-the-ad-fs-20-federation-server-proxy"></a>Vorbereiten der Migration der AD FS 2.0-Verbundserver-Proxy
+# <a name="prepare-to-migrate-the-ad-fs-20-federation-server-proxy"></a>Vorbereiten der Migration des AD FS 2.0-Verbundserverproxys
 
-Zum Vorbereiten der Migration eines AD FS 2.0-Verbundserverproxys zu Windows Server2012, müssen Sie exportieren und Sichern Sie die AD FS-Konfigurationsdaten von diesem Serverproxy.  Die Schrittein diesem Thema gelten für ein Szenario mit einem proxyverbundserver oder mehreren proxyverbundservern.  
+Zum Vorbereiten der Migration eines AD FS 2.0-Verbundserverproxys zu Windows Server 2012, müssen Sie exportieren und Sichern der AD FS-Konfigurationsdaten von diesem Serverproxy.  Die Schritte in diesem Thema gelten für ein Szenario mit einem Proxyverbundserver oder mehreren Proxyverbundservern.  
   
- Führen Sie zum Exportieren der AD FS-Konfigurationsdaten die folgenden Aufgaben aus:  
+ Führen Sie zum Exportieren der AD FS-Konfigurationsdaten die folgenden Schritte aus:  
   
--   [Schritt1: Exportieren der proxydiensteinstellungen](#step-1-export-proxy-service-settings)  
+-   [Schritt 1: Exportieren der proxydiensteinstellungen](#step-1-export-proxy-service-settings)  
   
--   [Schritt2: Sichern der webseitenanpassungen](#step-2-back-up-webpage-customizations)  
+-   [Schritt 2: Sichern der webseitenanpassungen](#step-2-back-up-webpage-customizations)  
   
-##  <a name="step-1-export-proxy-service-settings"></a>Schritt1: Exportieren der proxydiensteinstellungen  
- Um die Verbundserverproxy-diensteinstellungen zu exportieren, führen Sie die folgenden Schritteaus:  
+##  <a name="step-1-export-proxy-service-settings"></a>Schritt 1: Exportieren der Proxydiensteinstellungen  
+ Gehen Sie wie folgt vor, um die Verbundserverproxy-Diensteinstellungen zu exportieren:  
   
-### <a name="to-export-proxy-service-settings"></a>So exportieren Sie proxydiensteinstellungen  
+### <a name="to-export-proxy-service-settings"></a>So exportieren Sie Proxydiensteinstellungen  
   
-1.  Exportieren Sie das Secure Sockets Layer (SSL)-Zertifikat und seinen privaten Schlüssel in eine PFX-Datei. Weitere Informationen finden Sie unter [Exportieren des Bereichs der privaten Schlüssel eines Serverauthentifizierungszertifikats](export-the-private-key-portion-of-a-server-authentication-certificate.md).  
+1.  Exportieren Sie das SSL-Zertifikat (Secure Sockets Layer) und den zugehörigen privaten Schlüssel in eine PFX-Datei. Weitere Informationen finden Sie unter [Exportieren des Bereichs mit dem privaten Schlüssel eines Serverauthentifizierungszertifikats](export-the-private-key-portion-of-a-server-authentication-certificate.md).  
   
 > [!NOTE]
->  Dieser Schrittist optional, da dieses Zertifikat während der Aktualisierung des Betriebssystems erhalten bleibt.  
+>  Dieser Schritt ist optional, da dieses Zertifikat während des Betriebssystemupgrades erhalten bleibt.  
   
-2.  Exportieren Sie AD FS 2.0-Verbundserver-Proxyeigenschaften in eine Datei. Sie können dies mithilfe von Windows PowerShell.  
+2.  Exportieren Sie die AD FS 2.0-Verbundserver-Proxyeigenschaften in eine Datei. Sie können dies über Windows PowerShell durchführen.  
   
-Öffnen Sie Windows PowerShell, und führen Sie den folgenden Befehl zum Hinzufügen der AD FS-Cmdlets zur Windows PowerShell-Sitzung: `PSH:>add-pssnapin “Microsoft.adfs.powershell”`. Führen Sie dann den folgenden Befehl zum Exportieren der Verbundserver-Proxyeigenschaften in eine Datei:`PSH:> Get-ADFSProxyProperties | out-file “.\proxyproperties.txt”`.  
+Öffnen Sie Windows PowerShell, und führen Sie den folgenden Befehl zum Hinzufügen der AD FS-Cmdlets zur Windows PowerShell-Sitzung aus: `PSH:>add-pssnapin “Microsoft.adfs.powershell”`. Führen Sie dann den folgenden Befehl zum Exportieren der Verbundserver-Proxyeigenschaften in eine Datei aus: `PSH:> Get-ADFSProxyProperties | out-file “.\proxyproperties.txt”`.  
   
-3.  Stellen Sie sicher, dass Sie wissen, dass die Anmeldeinformationen des Kontos ein, ist entweder ein Administrator des AD FS-Verbundservers, oder das Dienstkonto, unter dem die AD FS-Verbunddienst ausgeführt wird.  Diese Informationen sind für die Einrichtung der proxyvertrauensstellung erforderlich.  
+3.  Vergewissern Sie sich, dass Sie die Anmeldeinformationen für ein Konto kennen, das entweder ein Administrator des AD FS-Verbundservers oder das Dienstkonto ist, unter dem der AD FS-Verbunddienst ausgeführt wird.  Diese Informationen sind für die Einrichtung der Proxyvertrauensstellung erforderlich.  
   
- Durch den Abschluss dieses Schrittswerden die folgenden Informationen gesammelt, die zur Konfiguration des AD FS-Verbundserverproxys erforderlich sind:  
+ Durch den Abschluss dieses Schritts werden die folgenden Informationen gesammelt, die zur Konfiguration des AD FS-Verbundserverproxys erforderlich sind:  
   
--   AD FS-verbunddienstname  
+-   AD FS-Verbunddienstname  
   
--   Name des Domänenkontos, das für die Einrichtung der proxyvertrauensstellung erforderlich ist.  
+-   Name des Domänenkontos, das zur Einrichtung der Proxyvertrauensstellung erforderlich ist  
   
--   Die Adresse und der Port des HTTP-Proxys (falls ein HTTP-Proxy zwischen der AD FS-Verbundserverproxy und AD FS-Verbundserver vorhanden ist)  
+-   Die Adresse und der Port des HTTP-Proxys (falls ein HTTP-Proxy zwischen dem AD FS-Verbundserverproxy und AD FS-Verbundserver vorhanden ist)  
   
-##  <a name="step-2-back-up-webpage-customizations"></a>Schritt2: Sichern der webseitenanpassungen  
- Um webseitenanpassungen zu sichern, kopieren Sie die AD FS-proxywebseiten und die **"Web.config"** Datei aus dem Verzeichnis, das den virtuellen Pfad zugeordnet ist **"/ Adfs/ls"** in IIS.  Es wird standardmäßig der **%systemdrive%\inetpub\adfs\ls** Verzeichnis.  
+##  <a name="step-2-back-up-webpage-customizations"></a>Schritt 2: Sichern der Webseitenanpassungen  
+ Kopieren Sie die AD FS-Proxywebseiten und die Datei **web.config** aus dem zugeordneten Verzeichnis in den virtuellen Pfad **“/adfs/ls”** in IIS, um Webseitenanpassungen zu sichern.  Standardmäßig befindet sie sich im Verzeichnis **%systemdrive%\inetpub\adfs\ls**.  
   
 ## <a name="next-steps"></a>Nächste Schritte
  [Vorbereiten der Migration des AD FS 2.0-Verbundservers](prepare-to-migrate-ad-fs-fed-server.md)   
- [Vorbereiten der Migration der AD FS 2.0-Verbundserver-Proxy](prepare-to-migrate-ad-fs-fed-proxy.md)   
+ [Vorbereiten der Migration von AD FS 2.0-Verbundserver-Server-Proxy](prepare-to-migrate-ad-fs-fed-proxy.md)   
  [Migrieren des AD FS 2.0-Verbundservers](migrate-the-ad-fs-fed-server.md)   
- [Migrieren der AD FS 2.0-Verbundserver-Proxy](migrate-the-ad-fs-2-fed-server-proxy.md)   
+ [Migrieren der AD FS 2.0-Verbundserver-Server-Proxy](migrate-the-ad-fs-2-fed-server-proxy.md)   
  [Migrieren der AD FS 1.1-Web-Agents](migrate-the-ad-fs-web-agent.md)

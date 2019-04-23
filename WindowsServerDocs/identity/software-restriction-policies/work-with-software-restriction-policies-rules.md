@@ -1,5 +1,5 @@
 ---
-title: Arbeiten Sie mit Software Restriction Policies Regeln
+title: Arbeiten mit Regeln der Richtlinien für die Softwareeinschränkung
 description: Windows Server-Sicherheit
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -14,305 +14,306 @@ ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
 ms.openlocfilehash: 2dd1810b50f4f02be99eb2e2c0893501f99d1e93
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59844951"
 ---
-# <a name="work-with-software-restriction-policies-rules"></a>Arbeiten Sie mit Software Restriction Policies Regeln
+# <a name="work-with-software-restriction-policies-rules"></a>Arbeiten mit Regeln der Richtlinien für die Softwareeinschränkung
 
->Gilt für: Windows Server2016, Windows Server2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Dieses Thema beschreibt Verfahren arbeiten mit Zertifikat, Pfad, Internet Zone und Hash-Regeln mithilfe von Softwareeinschränkungsrichtlinien.
+Dieses Thema beschreibt Verfahren, die Arbeit mit Zertifikat "," Path "," Internet-Zone und Hash-Regeln, die mithilfe von Richtlinien für Softwareeinschränkung.
 
-## <a name="introduction"></a>Einführung in
-Mit Softwareeinschränkungsrichtlinien können Sie Ihre EDV-Umgebung vor nicht vertrauenswürdiger Software schützen, indem Sie festlegen, welche Software ausgeführt werden darf. Sie können die Standardsicherheitsstufe der definieren **Unrestricted** oder **nicht erlaubt** für ein Gruppenrichtlinienobjekt (GPO) so, dass Software entweder zugelassen ist zulässig, wird standardmäßig ausgeführt. Sie können Ausnahmen für diese Standardsicherheitsstufe vornehmen, indem Softwareeinschränkungsrichtlinien Regeln der Richtlinien für bestimmte Software erstellen. Wenn als Standardsicherheitsstufe festgelegt ist, um z. B. **nicht erlaubt**, Sie können Regeln erstellen, die zum Ausführen bestimmter Software zulassen. Die Typen von Regeln sind wie folgt:
+## <a name="introduction"></a>Einführung
+Mit Richtlinien für softwareeinschränkung können Sie Ihre computerumgebung vor nicht vertrauenswürdiger Software schützen, indem Sie festlegen, welche Software ausgeführt werden darf. Sie können die Standardsicherheitsstufe der definieren **uneingeschränkt** oder **nicht erlaubt** (Group Policy Object, GPO), damit Software entweder erlaubt ist zulässig, wird standardmäßig ausgeführt. Sie können Ausnahmen für diese Standardsicherheitsstufe vornehmen, durch das Erstellen von Softwareeinschränkungsrichtlinien für bestimmte Software Richtlinien Regeln. Wird als Standardsicherheitsstufe beispielsweise **Nicht erlaubt** festgelegt, können Sie Regeln erstellen, die die Ausführung bestimmter Software zulassen. Die Typen von Regeln lauten wie folgt aus:
 
 -   **Zertifikatregeln**
 
-    Informationen zu entsprechenden Verfahren finden Sie unter [arbeiten mit Zertifikatregeln](#BKMK_Cert_Rules).
+    Informationen zu entsprechenden Verfahren finden Sie unter [Arbeiten mit Zertifikatregeln](#BKMK_Cert_Rules).
 
 -   **Hashregeln**
 
-    Informationen zu entsprechenden Verfahren finden Sie unter [arbeiten mit Hashregeln](#BKMK_Hash_Rules).
+    Informationen zu entsprechenden Verfahren finden Sie unter [Arbeiten mit Hashregeln](#BKMK_Hash_Rules).
 
 -   **Internetzonenregeln**
 
-    Informationen zu entsprechenden Verfahren finden Sie unter [arbeiten mit Regeln der Zone des Internets](#BKMK_Internet_Zone_Rules).
+    Anleitungen finden Sie im [arbeiten mit der Zone des Internets Regeln](#BKMK_Internet_Zone_Rules).
 
 -   **Pfadregeln**
 
-    Informationen zu entsprechenden Verfahren finden Sie unter [arbeiten mit Pfadregeln](#BKMK_Path_Rules).
+    Informationen zu entsprechenden Verfahren finden Sie unter [Arbeiten mit Pfadregeln](#BKMK_Path_Rules).
 
-Informationen über andere Aufgaben zum Verwalten von Softwareeinschränkungsrichtlinien finden Sie unter [Administer Software Restriction Policies](administer-software-restriction-policies.md).
+Weitere Informationen über andere Aufgaben zum Verwalten von Richtlinien für Softwareeinschränkung finden Sie unter [Administer Software Restriction Policies](administer-software-restriction-policies.md).
 
 ## <a name="BKMK_Cert_Rules"></a>Arbeiten mit Zertifikatregeln
-Richtlinien für softwareeinschränkung können auch Software anhand ihres Signaturzertifikats identifizieren. Sie können eine Zertifikatregel erstellen, die Software identifiziert und ermöglicht es, oder, abhängig von der Sicherheitsstufe ausführen die Software ist nicht zulässig. Beispielsweise können Sie Zertifikatregeln, um Software aus einer vertrauenswürdigen Quelle in einer Domäne automatisch zu vertrauen, ohne den Benutzer aufzufordern. Sie können Zertifikatregeln auch verwenden, um Dateien in nicht zulässigen Bereichen des Betriebssystems auszuführen. Zertifikatregeln sind nicht standardmäßig aktiviert.
+Richtlinien für softwareeinschränkung können auch Software anhand ihres Signaturzertifikats identifizieren. Sie können eine Zertifikatregel erstellen, die Software identifiziert und anschließend ihre Ausführung abhängig von der Sicherheitsstufe zulässt oder verweigert. Sie können Zertifikatregeln beispielsweise verwenden, um Software aus einer vertrauenswürdigen Quelle in einer Domäne automatisch ohne Benutzeraufforderung zu vertrauen. Sie können mithilfe von Zertifikatregeln auch Dateien in nicht zulässigen Bereichen des Betriebssystems ausführen. Zertifikatregeln sind nicht standardmäßig aktiviert.
 
-Bei der Erstellung von Regeln für die Domäne mithilfe von Gruppenrichtlinien müssen Sie die Berechtigungen zum Erstellen oder Bearbeiten eines Gruppenrichtlinienobjekts verfügen. Wenn Sie Regeln für den lokalen Computer erstellen, müssen Sie auf diesem Computer Administratorrechte besitzen.
+Wenn Regeln für die Domäne, die mithilfe von Gruppenrichtlinien erstellt werden, müssen Sie Berechtigungen zum Erstellen oder Ändern eines Gruppenrichtlinienobjekts verfügen. Beim Erstellen von Regeln für den lokalen Computer benötigen Sie Administratorrechte für diesen Computer.
 
-#### <a name="to-create-a-certificate-rule"></a>Erstellen Sie eine Zertifikatregel
+#### <a name="to-create-a-certificate-rule"></a>So erstellen Sie eine Zertifikatregel
 
-1.  Öffnen Sie die Richtlinien für Softwareeinschränkung.
+1.  Öffnen Sie %%amp;quot;Richtlinien für Softwareeinschränkung%%amp;quot;.
 
-2.  In der Konsolenstruktur oder im Detailbereich mit der rechten Maustaste **zusätzliche Regeln**, und klicken Sie dann auf **neue Zertifikatregel**.
+2.  In der Konsolenstruktur oder im Detailbereich, mit der Maustaste **zusätzliche Regeln**, und klicken Sie dann auf **neue Zertifikatregel**.
 
-3.  Klicken Sie auf **Durchsuchen**, und wählen Sie dann ein Zertifikat oder eine signierte Datei.
+3.  Klicken Sie auf **Durchsuchen**, und wählen Sie ein Zertifikat oder eine signierte Datei aus.
 
-4.  In **Sicherheitsstufe**, klicken Sie entweder **nicht erlaubt** oder **Unrestricted**.
+4.  In **Sicherheitsstufe**, klicken Sie auf **nicht erlaubt** oder **uneingeschränkt**.
 
-5.  In **Beschreibung**, geben Sie eine Beschreibung für diese Regel ein, und klicken Sie dann auf **OK**.
+5.  Geben Sie unter **Beschreibung** eine Beschreibung für die Regel ein, und klicken Sie anschließend auf **OK**.
 
 > [!NOTE]
-> -   Es ist möglicherweise erforderlich, um eine neue Softwareeinschränkungsrichtlinien-Einstellung für das Gruppenrichtlinienobjekt (GPO) erstellen, wenn Sie nicht bereits geschehen.
+> -   Möglicherweise muss eine neue Softwareeinschränkungsrichtlinien-Einstellung für das Gruppenrichtlinienobjekt erstellt werden, sofern noch nicht geschehen.
 > -   Zertifikatregeln sind nicht standardmäßig aktiviert.
-> -   Nur die Dateitypen, die von Zertifikatregeln betroffen sind sind für die aufgelisteten **Designierte Dateitypen** klicken Sie im Detailbereich für Softwareeinschränkungsrichtlinien. Es gibt eine Liste der designierten Dateitypen, die von allen Regeln gemeinsam verwendet wird.
-> -   Für Softwareeinschränkungsrichtlinien wirksam wird müssen Benutzer Richtlinieneinstellungen von Abmelden und zum Anmelden bei ihren Computern aktualisieren.
-> -   Wenn mehr als eine Software Restriction Richtlinien Regel Richtlinieneinstellungen angewendet wird, gibt es eine Rangfolge der Regeln für die Behandlung von Konflikten.
+> -   Zertifikatregeln wirken sich nur auf die Dateitypen aus, die im Detailbereich von %%amp;quot;Richtlinien für Softwareeinschränkung%%amp;quot; unter **Designierte Dateitypen** aufgeführt sind. Dort finden Sie eine Liste der designierten Dateitypen, die für alle Regeln gilt.
+> -   Richtlinien, für softwareeinschränkung wirksam wird müssen Benutzer die Richtlinieneinstellungen beim Abmelden von und Anmelden bei ihren Computern aktualisieren.
+> -   Wenn mehr als eine Softwareeinschränkungsregel Richtlinien auf die Richtlinieneinstellungen angewendet wird, wird eine Rangfolge der Regeln für das Behandeln von Konflikten.
 
 ### <a name="enabling-certificate-rules"></a>Aktivieren von Zertifikatregeln
-Es gibt unterschiedliche Verfahren zum Aktivieren von Zertifikatregeln abhängig von Ihrer Umgebung:
+Abhängig von Ihrer Umgebung stehen verschiedene Vorgehensweisen zum Aktivieren von Zertifikatregeln zur Verfügung:
 
 -   [Für den lokalen computer](#BKMK_1)
 
--   [Für ein Gruppenrichtlinienobjekt, und Sie auf einem Server, der einer Domäne angehört](#BKMK_2)
+-   [Für ein Gruppenrichtlinienobjekt, und Sie auf einem Server befinden, die einer Domäne angehört](#BKMK_2)
 
--   [Für ein Gruppenrichtlinienobjekt, und Sie auf einem Domänencontroller oder einer Arbeitsstation arbeiten, die die Remoteserver-Verwaltungstools installiert wurde](#BKMK_3)
+-   [Für ein Gruppenrichtlinienobjekt, und Sie befinden sich auf einem Domänencontroller oder eine Arbeitsstation, die den Remoteserver-Verwaltungstools installiert wurde.](#BKMK_3)
 
--   [Sind ausschließlich für Domänencontroller, wobei Sie ein, auf einem Domänencontroller oder einer Arbeitsstation, die das Remote Server Administration Tools Pack installiert ist](#BKMK_4)
+-   [Für nur Domäne sind die Controller, und Sie auf einem Domänencontroller oder auf einer Arbeitsstation, die die Remote Server Administration Tools Pack installiert wurde](#BKMK_4)
 
-#### <a name="BKMK_1"></a>So aktivieren Sie Zertifikatregeln für den lokalen computer
+#### <a name="BKMK_1"></a>So aktivieren Sie Zertifikatregeln für Ihren lokalen computer
 
-1.  Öffnen Sie die lokalen Sicherheitseinstellungen.
+1.  Öffnen Sie %%amp;quot;Lokale Sicherheitseinstellungen%%amp;quot;.
 
-2.  Klicken Sie in der Konsolenstruktur auf **Sicherheitsoptionen** befindet sich unter/Lokale Sicherheitsrichtlinien.
+2.  Klicken Sie in der Konsolenstruktur auf **Sicherheitsoptionen** befindet sich unter Sicherheitseinstellungen/lokale Richtlinien.
 
-3.  Doppelklicken Sie im Detailbereich auf **Systemeinstellungen: Zertifikatregeln auf Windows-Programme für Softwareeinschränkungsrichtlinien**.
+3.  Doppelklicken Sie im Detailbereich auf **Systemeinstellungen: Verwenden von Zertifikatregeln auf ausführbare Windows-Dateien für Richtlinien für Softwareeinschränkung**.
 
-4.  Führen Sie eine der folgenden Optionen aus, und klicken Sie dann auf **OK**:
+4.  Führen Sie eine der folgenden Aktionen aus, und klicken Sie dann auf **OK**:
 
-    -   Klicken Sie zum Aktivieren von Zertifikatregeln auf **aktiviert**.
+    -   Klicken Sie zum Aktivieren von Zertifikatregeln auf **Aktiviert**.
 
-    -   Klicken Sie zum Deaktivieren von Zertifikatregeln auf **deaktiviert**.
+    -   Klicken Sie zum Deaktivieren von Zertifikatregeln auf **Deaktiviert**.
 
-#### <a name="BKMK_2"></a>Werden zum Aktivieren von Zertifikatregeln für ein Gruppenrichtlinienobjekt, und Sie auf einem Server, der einer Domäne angehört
+#### <a name="BKMK_2"></a>Sind zum Aktivieren von Zertifikatregeln für ein Gruppenrichtlinienobjekt, und Sie auf einem Server, der einer Domäne angehört
 
-1.  Öffnen Sie Microsoft Management Console (MMC).
+1.  Öffnen Sie die Microsoft Management Console (MMC).
 
-2.  Auf der **Datei** Menü klicken Sie auf **Snap-In hinzufügen/entfernen**, und klicken Sie dann auf **hinzufügen**.
+2.  Klicken Sie im Menü **Datei** auf **Snap-In hinzufügen/entfernen**, und klicken Sie dann auf **Hinzufügen**.
 
-3.  Klicken Sie auf **Editor für lokale Gruppenrichtlinien Objekt**, und klicken Sie dann auf **hinzufügen**.
+3.  Klicken Sie auf **Lokaler Gruppenrichtlinienobjekt-Editor** und anschließend auf **Hinzufügen**.
 
-4.  In **Gruppenrichtlinienobjekt auswählen**, klicken Sie auf **Durchsuchen**.
+4.  Klicken Sie unter **Gruppenrichtlinienobjekt auswählen** auf **Durchsuchen**.
 
-5.  In **für ein Gruppenrichtlinienobjekt Durchsuchen**, wählen Sie in der entsprechenden Domäne, Site oder Organisationseinheit (Group Policy Object, GPO)- oder eine neue zu erstellen, und klicken Sie dann auf **Fertig stellen**.
+5.  In **für ein Gruppenrichtlinienobjekt, das Durchsuchen**, wählen Sie in der entsprechenden Domäne, Site oder Organisationseinheit (Group Policy Object, GPO)- oder ein neues erstellen, und klicken Sie dann auf **Fertig stellen**.
 
-6.  Klicken Sie auf **schließen**, und klicken Sie dann auf **OK**.
+6.  Klicken Sie auf **Schließen**und dann auf **OK**.
 
-7.  Klicken Sie in der Konsolenstruktur auf **Sicherheitsoptionen** befindet sich unter *Gruppenrichtlinienobjekt* [*ComputerName*] Richtlinie/Computer Configuration/Windows-Einstellungen/Sicherheitseinstellungen/lokale Richtlinien /.
+7.  Klicken Sie in der Konsolenstruktur auf **Sicherheitsoptionen** befindet sich im *Gruppenrichtlinienobjekt* [*ComputerName*] Richtlinie/Computer Configuration/Windows-Einstellungen/Sicherheitseinstellungen / Lokale Richtlinien /.
 
-8.  Doppelklicken Sie im Detailbereich auf **Systemeinstellungen: Zertifikatregeln auf Windows-Programme für Softwareeinschränkungsrichtlinien**.
+8.  Doppelklicken Sie im Detailbereich auf **Systemeinstellungen: Verwenden von Zertifikatregeln auf ausführbare Windows-Dateien für Richtlinien für Softwareeinschränkung**.
 
-9. Wenn diese richtlinieneinstellung noch nicht definiert wurde, wählen Sie die **diese Richtlinieneinstellungen definieren** Kontrollkästchen.
+9. Wurde diese Richtlinieneinstellung noch nicht definiert, aktivieren Sie das Kontrollkästchen **Diese Richtlinieneinstellungen definieren**.
 
-10. Führen Sie eine der folgenden Optionen aus, und klicken Sie dann auf **OK**:
+10. Führen Sie eine der folgenden Aktionen aus, und klicken Sie dann auf **OK**:
 
-    -   Klicken Sie zum Aktivieren von Zertifikatregeln auf **aktiviert**.
+    -   Klicken Sie zum Aktivieren von Zertifikatregeln auf **Aktiviert**.
 
-    -   Klicken Sie zum Deaktivieren von Zertifikatregeln auf **deaktiviert**.
+    -   Klicken Sie zum Deaktivieren von Zertifikatregeln auf **Deaktiviert**.
 
-#### <a name="BKMK_3"></a>So aktivieren Sie die Zertifikat-Regeln für ein Gruppenrichtlinienobjekt, und auf einem Domänencontroller oder einer Arbeitsstation mit den Remoteserver-Verwaltungstools installiert sind
+#### <a name="BKMK_3"></a>Regeln für ein Gruppenrichtlinienobjekt, das Zertifikat zu aktivieren, und Sie sind auf einem Domänencontroller oder auf einer Arbeitsstation, die den Remoteserver-Verwaltungstools installiert wurde
 
-1.  Active Directory-Benutzer und -Computer zu öffnen.
+1.  Öffnen Sie %%amp;quot;Active Directory-Benutzer und -Computer%%amp;quot;.
 
-2.  Klicken Sie in der Konsolenstruktur auf die Gruppe Gruppenrichtlinienobjekt (GPO) für die Sie Zertifikatregeln aktivieren möchten.
+2.  Klicken Sie in der Konsolenstruktur mit der rechten Maustaste auf das Gruppenrichtlinienobjekt, für das Zertifikatregeln aktiviert werden sollen.
 
-3.  Klicken Sie auf **Eigenschaften**, und klicken Sie dann auf die **Gruppenrichtlinien** Registerkarte.
+3.  Klicken Sie auf **Eigenschaften** und dann auf die Registerkarte **Gruppenrichtlinie**.
 
-4.  Klicken Sie auf **bearbeiten** um das Gruppenrichtlinienobjekt zu öffnen, die Sie bearbeiten möchten. Sie können auch klicken **neu** erstellen ein neues Gruppenrichtlinienobjekt, und klicken Sie auf **bearbeiten**.
+4.  Klicken Sie auf **Bearbeiten**, um das zu bearbeitende Gruppenrichtlinienobjekt zu öffnen. Sie können auch auf **Neu** klicken, um ein neues Gruppenrichtlinienobjekt zu erstellen, und anschließend auf **Bearbeiten** klicken.
 
-5.  Klicken Sie in der Konsolenstruktur auf **Sicherheitsoptionen** befindet sich unter *Gruppenrichtlinienobjekt*[*ComputerName*] Richtlinie/Computerkonfiguration/Windows-Einstellungen/Sicherheitseinstellungen/lokale Richtlinien.
+5.  Klicken Sie in der Konsolenstruktur auf **Sicherheitsoptionen** befindet sich im *Gruppenrichtlinienobjekt*[*ComputerName*] Richtlinie/Computer Configuration/Windows-Einstellungen/Sicherheitseinstellungen / Lokale Richtlinien.
 
-6.  Doppelklicken Sie im Detailbereich auf **Systemeinstellungen: Zertifikatregeln auf Windows-Programme für Softwareeinschränkungsrichtlinien**.
+6.  Doppelklicken Sie im Detailbereich auf **Systemeinstellungen: Verwenden von Zertifikatregeln auf ausführbare Windows-Dateien für Richtlinien für Softwareeinschränkung**.
 
-7.  Wenn diese richtlinieneinstellung noch nicht definiert wurde, wählen Sie die **diese Richtlinieneinstellungen definieren** Kontrollkästchen.
+7.  Wurde diese Richtlinieneinstellung noch nicht definiert, aktivieren Sie das Kontrollkästchen **Diese Richtlinieneinstellungen definieren**.
 
-8.  Führen Sie eine der folgenden Optionen aus, und klicken Sie dann auf **OK**:
+8.  Führen Sie eine der folgenden Aktionen aus, und klicken Sie dann auf **OK**:
 
-    -   Klicken Sie zum Aktivieren von Zertifikatregeln auf **aktiviert**.
+    -   Klicken Sie zum Aktivieren von Zertifikatregeln auf **Aktiviert**.
 
-    -   Klicken Sie zum Deaktivieren von Zertifikatregeln auf **deaktiviert**.
+    -   Klicken Sie zum Deaktivieren von Zertifikatregeln auf **Deaktiviert**.
 
-#### <a name="BKMK_4"></a>Sind Zertifikatregeln nur für Domänencontroller, und Sie zum Aktivieren auf einem Domänencontroller oder einer Arbeitsstation mit den Remoteserver-Verwaltungstools installiert
+#### <a name="BKMK_4"></a>Sind Zertifikatregeln nur für Domänencontroller, und Sie zum Aktivieren auf einem Domänencontroller oder auf einer Arbeitsstation, die den Remoteserver-Verwaltungstools installiert wurde
 
 1.  Öffnen Sie die Domänencontroller-Sicherheitseinstellungen.
 
-2.  Klicken Sie in der Konsolenstruktur auf **Sicherheitsoptionen** befindet sich unter *Gruppenrichtlinienobjekt* [*ComputerName*] Richtlinie/Computerkonfiguration/Windows-Einstellungen/Sicherheitseinstellungen/lokale Richtlinien.
+2.  Klicken Sie in der Konsolenstruktur auf **Sicherheitsoptionen** (unter Richtlinie *Gruppenrichtlinienobjekt* für [*Computername*]/Computerkonfiguration/Windows-Einstellungen/Sicherheitseinstellungen/Lokale Richtlinien).
 
-3.  Doppelklicken Sie im Detailbereich auf **Systemeinstellungen: Zertifikatregeln auf Windows-Programme für Softwareeinschränkungsrichtlinien**.
+3.  Doppelklicken Sie im Detailbereich auf **Systemeinstellungen: Verwenden von Zertifikatregeln auf ausführbare Windows-Dateien für Richtlinien für Softwareeinschränkung**.
 
-4.  Wenn diese richtlinieneinstellung noch nicht definiert wurde, wählen Sie die **diese Richtlinieneinstellungen definieren** Kontrollkästchen.
+4.  Wurde diese Richtlinieneinstellung noch nicht definiert, aktivieren Sie das Kontrollkästchen **Diese Richtlinieneinstellungen definieren**.
 
-5.  Führen Sie eine der folgenden Optionen aus, und klicken Sie dann auf **OK**:
+5.  Führen Sie eine der folgenden Aktionen aus, und klicken Sie dann auf **OK**:
 
-    -   Klicken Sie zum Aktivieren von Zertifikatregeln auf **aktiviert**.
+    -   Klicken Sie zum Aktivieren von Zertifikatregeln auf **Aktiviert**.
 
-    -   Klicken Sie zum Deaktivieren von Zertifikatregeln auf **deaktiviert**.
+    -   Klicken Sie zum Deaktivieren von Zertifikatregeln auf **Deaktiviert**.
 
 > [!NOTE]
-> Sie müssen dieses Verfahren ausführen, damit Zertifikatregeln wirksam werden können.
+> Sie müssen dieses Verfahren ausführen, damit Zertifikatregeln wirksam werden.
 
-### <a name="set-trusted-publisher-options"></a>Festlegen von Optionen für vertrauenswürdige Herausgeber
-Signieren von Software wird verwendet von immer mehr Softwareherausgeber und Anwendungsentwickler um zu überprüfen, ob ihre Anwendungen von einer vertrauenswürdigen Quelle stammen. Jedoch viele Benutzer nicht verstehen oder schenken diesen wenig Beachtung Signaturzertifikate zugeordneten Anwendungen, die sie installieren.
+### <a name="set-trusted-publisher-options"></a>Legen Sie Optionen für vertrauenswürdige Herausgeber
+Immer mehr Softwareherausgeber und Anwendungsentwickler verwenden Softwaresignierung, um zu bestätigen, dass ihre Anwendungen aus einer vertrauenswürdigen Quelle stammen. Viele Benutzer kennen jedoch die mit den installierten Anwendungen verbundenen Signaturzertifikate nicht oder schenken diesen wenig Beachtung.
 
-Die Richtlinieneinstellungen in der **vertrauenswürdige Herausgeber** auf der Registerkarte der Zertifikatpfads kann Administratoren steuern, welche Zertifikate akzeptiert werden können, da Sie von einem vertrauenswürdigen Herausgeber stammen.
+Mit den Richtlinieneinstellungen auf der Registerkarte **Vertrauenswürdige Herausgeber** der Richtlinie für die Überprüfung des Zertifikatpfads können Administratoren steuern, welche Zertifikate akzeptiert werden können, da sie von einem vertrauenswürdigen Herausgeber stammen.
 
-##### <a name="to-configure-the-trusted-publishers-policy-settings-for-a-local-computer"></a>So konfigurieren Sie die Einstellungen für vertrauenswürdige Herausgeber für einen lokalen computer
+##### <a name="to-configure-the-trusted-publishers-policy-settings-for-a-local-computer"></a>So konfigurieren Sie die Richtlinieneinstellungen für vertrauenswürdige Herausgeber für einen lokalen Computer
 
-1.  Auf der **starten** geben**gpedit.msc** und drücken Sie dann die EINGABETASTE.
+1.  Auf der **starten** geben **"Gpedit.msc"** und drücken Sie dann die EINGABETASTE.
 
-2.  In der Konsolenstruktur unter **lokaler Computer-Einstellungen\sicherheitseinstellungen**, klicken Sie auf **Richtlinien öffentlicher Schlüssel**.
+2.  Klicken Sie in der Konsolenstruktur unter **Richtlinie für %%amp;quot;Lokaler Computer%%amp;quot;\Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen** auf **Richtlinien öffentlicher Schlüssel**.
 
-3.  Doppelklicken Sie auf **Einstellungen für die Überprüfung von Zertifikaten Pfad**, und klicken Sie dann auf die **vertrauenswürdige Herausgeber** Registerkarte.
+3.  Doppelklicken Sie auf **Einstellungen für die Überprüfung des Zertifikatpfades**, und klicken Sie dann auf die Registerkarte **Vertrauenswürdige Herausgeber**.
 
-4.  Wählen Sie die **diese Richtlinieneinstellungen definieren** Kontrollkästchen, wählen Sie die Richtlinieneinstellungen, die im Diagramm angezeigt werden sollen, und klicken Sie dann auf **OK** zum Anwenden der neuen Einstellungen.
+4.  Aktivieren Sie das Kontrollkästchen **Diese Richtlinieneinstellungen definieren**, wählen Sie die gewünschten Richtlinienoptionen aus, und klicken Sie dann auf **OK**, um die neuen Einstellungen zu übernehmen.
 
-##### <a name="to-configure-the-trusted-publishers-policy-settings-for-a-domain"></a>So konfigurieren Sie die Einstellungen für vertrauenswürdige Herausgeber für eine Domäne
+##### <a name="to-configure-the-trusted-publishers-policy-settings-for-a-domain"></a>So konfigurieren Sie die Richtlinieneinstellungen für vertrauenswürdige Herausgeber für eine Domäne
 
-1.  Öffnen **Gruppenrichtlinienverwaltung**.
+1.  Open **Gruppenrichtlinienverwaltung**.
 
-2.  Doppelklicken Sie in der Konsolenstruktur auf **Group Policy Objects** in der Gesamtstruktur und Domäne, enthält die **Default Domain Policy** Gruppenrichtlinienobjekt (GPO), die Sie bearbeiten möchten.
+2.  Doppelklicken Sie in der Konsolenstruktur auf **Group Policy Objects** in der Gesamtstruktur und Domäne, enthält die **Default Domain Policy** Gruppe Gruppenrichtlinienobjekt (GPO), die Sie bearbeiten möchten.
 
-3.  Mit der rechten Maustaste die **Default Domain Policy** Gruppenrichtlinienobjekt, und klicken Sie dann auf **bearbeiten**.
+3.  Klicken Sie mit der rechten Maustaste auf das Gruppenrichtlinienobjekt **Standarddomänenrichtlinie**, und klicken Sie dann auf **Bearbeiten**.
 
-4.  In der Konsolenstruktur unter **Computerkonfiguration\Windows-Einstellungen\sicherheitseinstellungen**, klicken Sie auf **Richtlinien öffentlicher Schlüssel**.
+4.  Klicken Sie in der Konsolenstruktur unter **Computerkonfiguration\Windows-Einstellungen\Sicherheitseinstellungen** auf **Richtlinien öffentlicher Schlüssel**.
 
-5.  Doppelklicken Sie auf **Einstellungen für die Überprüfung von Zertifikaten Pfad**, und klicken Sie dann auf die **vertrauenswürdige Herausgeber** Registerkarte.
+5.  Doppelklicken Sie auf **Einstellungen für die Überprüfung des Zertifikatpfades**, und klicken Sie dann auf die Registerkarte **Vertrauenswürdige Herausgeber**.
 
-6.  Wählen Sie die **diese Richtlinieneinstellungen definieren** Kontrollkästchen, wählen Sie die Richtlinieneinstellungen, die im Diagramm angezeigt werden sollen, und klicken Sie dann auf **OK** zum Anwenden der neuen Einstellungen.
+6.  Aktivieren Sie das Kontrollkästchen **Diese Richtlinieneinstellungen definieren**, wählen Sie die gewünschten Richtlinienoptionen aus, und klicken Sie dann auf **OK**, um die neuen Einstellungen zu übernehmen.
 
-##### <a name="to-allow-only-administrators-to-manage-certificates-used-for-code-signing-for-a-local-computer"></a>Nur Administratoren zum Verwalten von Zertifikaten für die Codesignatur für einen lokalen Computer zulassen
+##### <a name="to-allow-only-administrators-to-manage-certificates-used-for-code-signing-for-a-local-computer"></a>So lassen Sie nur für Administratoren das Verwalten von Zertifikaten, die für Codesignaturen verwendet werden, für einen lokalen Computer zu
 
-1.  Auf der **starten** geben, **gpedit.msc** in der **Programme und Dateien suchen** oder in Windows 8, auf dem Desktop, und drücken Sie dann die EINGABETASTE.
+1.  Auf der **starten** Bildschirm, Typ, **"Gpedit.msc"** in die **Programme / Dateien durchsuchen** oder in Windows 8 auf dem Desktop, und drücken Sie dann die EINGABETASTE.
 
-2.  In der Konsolenstruktur unter **Default Domain Policy** oder **Richtlinie des lokalen Computers**, doppelklicken Sie auf **Computerkonfiguration**, **Windows-Einstellungen**, und **Sicherheitseinstellungen**, und klicken Sie dann auf **Richtlinien öffentlicher Schlüssel**.
+2.  Doppelklicken Sie in der Konsolenstruktur unter **Standarddomänenrichtlinie** oder **Richtlinie für "Lokaler Computer"** auf **Computerkonfiguration**, **Windows-Einstellungen** und **Sicherheitseinstellungen**, und klicken Sie dann auf **Richtlinien öffentlicher Schlüssel**.
 
-3.  Doppelklicken Sie auf **Einstellungen für die Überprüfung von Zertifikaten Pfad**, und klicken Sie dann auf die **vertrauenswürdige Herausgeber** Registerkarte.
+3.  Doppelklicken Sie auf **Einstellungen für die Überprüfung des Zertifikatpfades**, und klicken Sie dann auf die Registerkarte **Vertrauenswürdige Herausgeber**.
 
-4.  Wählen Sie die **diese Richtlinieneinstellungen definieren** Kontrollkästchen.
+4.  Aktivieren Sie das Kontrollkästchen **Diese Richtlinieneinstellungen definieren**.
 
-5.  Klicken Sie unter **vertrauenswürdige Herausgeber Management**, klicken Sie auf **können nur Administratoren zum Verwalten von vertrauenswürdige Herausgeber**, und klicken Sie dann auf **OK** zum Anwenden der neuen Einstellungen.
+5.  Klicken Sie unter **Verwaltung von vertrauenswürdigen Herausgebern** auf **Nur Administratoren sind berechtigt, %%amp;quot;Vertrauenswürdige Herausgeber%%amp;quot; zu verwalten**, und klicken Sie dann auf **OK**, um die neuen Einstellungen zu übernehmen.
 
-##### <a name="to-allow-only-administrators-to-manage-certificates-used-for-code-signing-for-a-domain"></a>Nur Administratoren zum Verwalten von Zertifikaten für die Codesignatur für eine Domäne zulassen
+##### <a name="to-allow-only-administrators-to-manage-certificates-used-for-code-signing-for-a-domain"></a>So lassen Sie nur für Administratoren das Verwalten von Zertifikaten, die für Codesignaturen verwendet werden, für eine Domäne zu
 
-1.  Öffnen **Gruppenrichtlinienverwaltung**.
+1.  Open **Gruppenrichtlinienverwaltung**.
 
 2.  Doppelklicken Sie in der Konsolenstruktur auf **Group Policy Objects** in der Gesamtstruktur und Domäne, enthält die **Default Domain Policy** Gruppenrichtlinienobjekt, das Sie bearbeiten möchten.
 
-3.  Mit der rechten Maustaste die **Default Domain Policy** Gruppenrichtlinienobjekt, und klicken Sie dann auf **bearbeiten**.
+3.  Klicken Sie mit der rechten Maustaste auf das Gruppenrichtlinienobjekt **Standarddomänenrichtlinie**, und klicken Sie dann auf **Bearbeiten**.
 
-4.  In der Konsolenstruktur unter **Computerkonfiguration\Windows-Einstellungen\sicherheitseinstellungen**, klicken Sie auf **Richtlinien öffentlicher Schlüssel**.
+4.  Klicken Sie in der Konsolenstruktur unter **Computerkonfiguration\Windows-Einstellungen\Sicherheitseinstellungen** auf **Richtlinien öffentlicher Schlüssel**.
 
-5.  Doppelklicken Sie auf **Einstellungen für die Überprüfung von Zertifikaten Pfad**, und klicken Sie dann auf die **vertrauenswürdige Herausgeber** Registerkarte.
+5.  Doppelklicken Sie auf **Einstellungen für die Überprüfung des Zertifikatpfades**, und klicken Sie dann auf die Registerkarte **Vertrauenswürdige Herausgeber**.
 
-6.  Wählen Sie die **diese Richtlinieneinstellungen definieren** Kontrollkästchen, implementieren Sie die Änderungen, die Sie möchten, und klicken Sie dann auf **OK** zum Anwenden der neuen Einstellungen.
+6.  Aktivieren Sie das Kontrollkästchen **Diese Richtlinieneinstellungen definieren**, implementieren Sie die gewünschten Änderungen, und klicken Sie dann auf **OK**, um die neuen Einstellungen zu übernehmen.
 
 ## <a name="BKMK_Hash_Rules"></a>Arbeiten mit Hashregeln
-Ein Hash ist eine Reihe von Bytes mit einer festen Länge, die ein Softwareprogramm oder eine Datei eindeutig identifiziert. Der Hash wird durch einen Hashalgorithmus berechnet. Wenn für ein Softwareprogramm eine Hashregel erstellt wird, Berechnen von Softwareeinschränkungsrichtlinien einen Hash des Programms. Wenn ein Benutzer versucht, ein Softwareprogramm zu öffnen, wird ein Hash des Programms mit vorhandenen Hashregeln für Softwareeinschränkungsrichtlinien verglichen. Der Hash eines Softwareprogramms ist immer gleich, unabhängig davon, wo sich die Anwendung auf dem Computer befindet. Sollte ein Softwareprogramm in keiner Weise geändert werden, jedoch der Hashwert ändert sich auch, und sie nicht mehr den Hash in der Hashregel für Softwareeinschränkungsrichtlinien übereinstimmt.
+Ein Hash ist eine Reihe von Bytes mit einer festen Länge, der eindeutig ein Softwareprogramm oder eine Datei angibt. Der Hash wird durch einen Hashalgorithmus berechnet. Wenn für ein Softwareprogramm eine Hashregel erstellt wird, wird von den Softwareeinschränkungsrichtlinien ein Hash des Programms berechnet. Wenn ein Benutzer versucht, ein Softwareprogramm zu öffnen, wird ein Hash des Programms mit vorhandenen Hashregeln für Softwareeinschränkungsrichtlinien verglichen. Der Hash eines Softwareprogramms ist immer gleich, unabhängig vom Speicherort des Programms auf dem Computer. Wird ein Softwareprogramm jedoch in irgendeiner Weise geändert, ändert sich auch sein Hash. Er entspricht dann nicht mehr dem Hash in der Hashregel für Softwareeinschränkungsrichtlinien.
 
-Sie können beispielsweise eine Hashregel erstellen und legen Sie die Sicherheitsstufe auf **nicht erlaubt** um zu verhindern, dass Benutzer eine bestimmte Datei ausführen. Eine Datei kann umbenannt oder in einen anderen Ordner verschoben und dennoch denselben Hash. Änderungen an der Datei selbst wird jedoch auch der Hashwert geändert, und der lassen Sie die Einschränkungen zu umgehen.
+Sie können beispielsweise eine Hashregel erstellen und als Sicherheitsstufe **Nicht erlaubt** festlegen, um die Ausführung einer bestimmten Datei durch Benutzer zu verhindern. Eine Datei kann umbenannt oder in einen anderen Ordner verschoben werden – der Hash bleibt derselbe. Durch Änderungen an der Datei selbst ändert sich jedoch auch der Hashwert, und die Datei kann dadurch Einschränkungen umgehen.
 
-#### <a name="to-create-a-hash-rule"></a>Erstellen Sie eine Hashregel
+#### <a name="to-create-a-hash-rule"></a>So erstellen Sie eine Hashregel
 
-1.  Öffnen Sie die Richtlinien für Softwareeinschränkung.
+1.  Öffnen Sie %%amp;quot;Richtlinien für Softwareeinschränkung%%amp;quot;.
 
-2.  In der Konsolenstruktur oder im Detailbereich mit der rechten Maustaste **zusätzliche Regeln**, und klicken Sie dann auf **Neue Hashregel**.
+2.  In der Konsolenstruktur oder im Detailbereich, mit der Maustaste **zusätzliche Regeln**, und klicken Sie dann auf **Neue Hashregel**.
 
 3.  Klicken Sie auf **Durchsuchen** um eine Datei zu suchen.
 
     > [!NOTE]
-    > In Windows XP ist es möglich, fügen Sie einen zuvor berechneten Hash in **Dateihash**. In Windows Server 2008 R2, Windows 7 oder höher ist diese Option nicht verfügbar.
+    > In Windows XP ist es möglich, fügen Sie einen vorab berechneten Hash in **Dateihash**. In Windows Server 2008 R2, Windows 7 und höher ist diese Option nicht verfügbar.
 
-4.  In **Sicherheitsstufe**, klicken Sie entweder **nicht erlaubt** oder **Unrestricted**.
+4.  In **Sicherheitsstufe**, klicken Sie auf **nicht erlaubt** oder **uneingeschränkt**.
 
-5.  In **Beschreibung**, geben Sie eine Beschreibung für diese Regel ein, und klicken Sie dann auf **OK**.
-
-> [!NOTE]
-> -   Möglicherweise ist es erforderlich, um eine neue Softwareeinschränkungsrichtlinien-Einstellung für das Gruppenrichtlinienobjekt (GPO) erstellen, wenn noch nicht geschehen.
-> -   Für einen Virus oder ein trojanisches Pferd, um zu verhindern, dass ausführen kann eine Hashregel erstellt werden.
-> -   Wenn Sie möchten andere Benutzer eine Hashregel so, dass Viren ausgeführt werden kann, berechnet den Hash des Virus mithilfe von Softwareeinschränkungsrichtlinien und per e-mail an die anderen Teilnehmer den Hashwert. Versenden Sie niemals den Virus selbst.
-> -   Wenn ein Virus per E-mail gesendet wurde, können Sie auch zur Ausführung von e-Mail-Anlagen zu verhindern, dass eine Pfadregel erstellen.
-> -   Eine Datei, die umbenannt oder in einen anderen Ordner Ergebnisse in den gleichen Hash verschoben wird. Jede Änderung an der Datei selbst führt zu einem anderen Hash.
-> -   Nur die Dateitypen, die von Hashregeln betroffen sind sind für die aufgelisteten **Designierte Dateitypen** klicken Sie im Detailbereich für Softwareeinschränkungsrichtlinien. Es gibt eine Liste der designierten Dateitypen, die von allen Regeln gemeinsam verwendet wird.
-> -   Für Softwareeinschränkungsrichtlinien wirksam wird müssen Benutzer Richtlinieneinstellungen von Abmelden und zum Anmelden bei ihren Computern aktualisieren.
-> -   Wenn mehr als eine Software Restriction Richtlinien Regel Richtlinieneinstellungen angewendet wird, gibt es eine Rangfolge der Regeln für die Behandlung von Konflikten.
-
-## <a name="BKMK_Internet_Zone_Rules"></a>Arbeiten mit Regeln der Zone des Internets
-Internetzonenregeln gelten nur für Windows Installer-Pakete. Mit einer Zonenregel kann Software aus einer Zone zu identifizieren, die über Internet Explorer angegeben ist. Diese Zonen sind Internet, lokales Intranet, eingeschränkte Sites, vertrauenswürdige Sites und Arbeitsplatz. Eine Internetzonenregel soll verhindern, dass Benutzer Software herunterladen und installieren.
-
-#### <a name="to-create-an-internet-zone-rule"></a>Erstellen Sie eine Internetzonenregel
-
-1.  Öffnen Sie die Richtlinien für Softwareeinschränkung.
-
-2.  In der Konsolenstruktur oder im Detailbereich mit der rechten Maustaste **zusätzliche Regeln**, und klicken Sie dann auf **Neue Internetzonenregel**.
-
-3.  In **Internetzone**, klicken Sie auf eine Internetzone.
-
-4.  In **Sicherheitsstufe**, klicken Sie entweder **nicht erlaubt** oder **Unrestricted**, und klicken Sie dann auf **OK**.
+5.  Geben Sie unter **Beschreibung** eine Beschreibung für die Regel ein, und klicken Sie anschließend auf **OK**.
 
 > [!NOTE]
-> -   Möglicherweise ist es erforderlich, um eine neue Softwareeinschränkungsrichtlinien-Einstellung für das Gruppenrichtlinienobjekt (GPO) erstellen, wenn noch nicht geschehen.
-> -   Zonenregeln gelten nur für Dateien mit Dateityp MSI, die Windows Installer-Pakete sind.
-> -   Für Softwareeinschränkungsrichtlinien wirksam wird müssen Benutzer Richtlinieneinstellungen von Abmelden und zum Anmelden bei ihren Computern aktualisieren.
-> -   Wenn mehr als eine Software Restriction Richtlinien Regel Richtlinieneinstellungen angewendet wird, gibt es eine Rangfolge der Regeln für die Behandlung von Konflikten.
+> -   Möglicherweise muss eine neue Softwareeinschränkungsrichtlinien-Einstellung für das Gruppenrichtlinienobjekt erstellt werden, sofern noch nicht geschehen.
+> -   Hashregeln können für Viren oder Trojaner erstellt werden, um ihre Ausführung zu verhindern.
+> -   Wenn Sie möchten anderen Personen eine Hashregel verwenden, sodass ein Virus nicht ausgeführt werden kann, berechnen Sie den Hash des Virus mithilfe von Richtlinien für softwareeinschränkung und dann per e-mail den Hashwert an die andere Personen. Versenden Sie niemals den Virus selbst.
+> -   Wenn ein Virus per E-mail gesendet wurde, können Sie auch eine Pfadregel, um zu verhindern, dass bei der Ausführung von e-Mail-Anlagen erstellen.
+> -   Eine umbenannte oder in einen anderen Ordner verschobene Datei ergibt denselben Hash. Jede Änderung an der Datei selbst führt zu einem anderen Hash.
+> -   Hashregeln wirken sich nur auf die Dateitypen aus, die im Detailbereich von %%amp;quot;Richtlinien für Softwareeinschränkung%%amp;quot; unter **Designierte Dateitypen** aufgeführt sind. Dort finden Sie eine Liste der designierten Dateitypen, die für alle Regeln gilt.
+> -   Richtlinien, für softwareeinschränkung wirksam wird müssen Benutzer die Richtlinieneinstellungen beim Abmelden von und Anmelden bei ihren Computern aktualisieren.
+> -   Wenn mehr als eine Softwareeinschränkungsregel Richtlinien auf die Richtlinieneinstellungen angewendet wird, wird eine Rangfolge der Regeln für das Behandeln von Konflikten.
+
+## <a name="BKMK_Internet_Zone_Rules"></a>Arbeiten mit der Zone des Internets-Regeln
+Internetzonenregeln gelten nur für Windows Installer-Pakete. Mit einer Zonenregel kann Software aus einer durch Internet Explorer angegebenen Zone identifiziert werden. Diese Zonen sind %%amp;quot;Internet%%amp;quot;, %%amp;quot;Lokales Intranet%%amp;quot;, %%amp;quot;Eingeschränkte Sites%%amp;quot;, %%amp;quot;Vertrauenswürdige Sites%%amp;quot; und %%amp;quot;Eigener Computer%%amp;quot;. Eine Internetzonenregel soll verhindern, dass Benutzer Software herunterladen und installieren.
+
+#### <a name="to-create-an-internet-zone-rule"></a>So erstellen Sie eine Internetzonenregel
+
+1.  Öffnen Sie %%amp;quot;Richtlinien für Softwareeinschränkung%%amp;quot;.
+
+2.  In der Konsolenstruktur oder im Detailbereich, mit der Maustaste **zusätzliche Regeln**, und klicken Sie dann auf **Neue Internetzonenregel**.
+
+3.  Klicken Sie unter **Internetzone** auf eine Internetzone.
+
+4.  In **Sicherheitsstufe**, klicken Sie auf **nicht erlaubt** oder **uneingeschränkt**, und klicken Sie dann auf **OK**.
+
+> [!NOTE]
+> -   Möglicherweise muss eine neue Softwareeinschränkungsrichtlinien-Einstellung für das Gruppenrichtlinienobjekt erstellt werden, sofern noch nicht geschehen.
+> -   Zonenregeln gelten nur für Dateien mit der Erweiterung %%amp;quot;.msi%%amp;quot;. Dabei handelt es sich um Windows Installer-Pakete.
+> -   Richtlinien, für softwareeinschränkung wirksam wird müssen Benutzer die Richtlinieneinstellungen beim Abmelden von und Anmelden bei ihren Computern aktualisieren.
+> -   Wenn mehr als eine Softwareeinschränkungsregel Richtlinien auf die Richtlinieneinstellungen angewendet wird, wird eine Rangfolge der Regeln für das Behandeln von Konflikten.
 
 ## <a name="BKMK_Path_Rules"></a>Arbeiten mit Pfadregeln
-Eine Pfadregel identifiziert Software anhand des Dateipfads. Wenn Sie über einen Computer verfügen, die Standardsicherheitsstufe der verfügt z. B. **nicht erlaubt**, können Sie dennoch uneingeschränkten Zugriff auf einen bestimmten Ordner für jeden Benutzer gewähren. Sie können eine Pfadregel erstellen, indem Sie den Dateipfad und zum Festlegen der Sicherheitsstufe der Pfadregel **Unrestricted**. Häufig verwendete Pfade für diese Art der Regel sind % USERPROFILE%, % windir%, % appdata%, % ProgramFiles% und % Temp%. Sie können auch Registrierung Pfadregeln erstellen, die den Registrierungsschlüssel der Software als Pfad verwenden.
+Eine Pfadregel identifiziert Software anhand des Dateipfads. Wenn auf einem Computer beispielsweise die Standardsicherheitsstufe **Nicht erlaubt** festgelegt ist, können Sie jedem Benutzer dennoch unbeschränkten Zugriff auf einen bestimmten Ordner gewähren. Sie können eine Pfadregel erstellen, indem Sie den Dateipfad verwenden und als Sicherheitsstufe der Pfadregel **Nicht eingeschränkt** festlegen. Häufig verwendete Pfade für diesen Regeltyp: %userprofile%, %windir%, %appdata%, %programfiles%, und %temp%. Außerdem können Sie Registrierungspfadregeln erstellen, die den Registrierungsschlüssel der Software als Pfad verwenden.
 
-Da diese Regeln anhand des Pfads angegeben werden, wenn ein Softwareprogramm verschoben wird, gilt die Pfadregel nicht mehr.
+Da diese Regeln anhand des Pfads angegeben werden, gilt die Pfadregel nicht mehr, wenn ein Softwareprogramm verschoben wird.
 
-#### <a name="to-create-a-path-rule"></a>Erstellen Sie eine Pfadregel
+#### <a name="to-create-a-path-rule"></a>So erstellen Sie eine Pfadregel
 
-1.  Öffnen Sie die Richtlinien für Softwareeinschränkung.
+1.  Öffnen Sie %%amp;quot;Richtlinien für Softwareeinschränkung%%amp;quot;.
 
-2.  In der Konsolenstruktur oder im Detailbereich mit der rechten Maustaste **zusätzliche Regeln**, und klicken Sie dann auf **neue Pfadregel**.
+2.  In der Konsolenstruktur oder im Detailbereich, mit der Maustaste **zusätzliche Regeln**, und klicken Sie dann auf **neue Pfadregel**.
 
-3.  In **Pfad**, geben Sie einen Pfad ein, oder klicken Sie auf **Durchsuchen** um eine Datei oder einen Ordner zu suchen.
+3.  Geben Sie unter **Pfad** den Pfad ein, oder klicken Sie zum Suchen einer Datei oder eines Ordners auf **Durchsuchen**.
 
-4.  In **Sicherheitsstufe**, klicken Sie entweder **nicht erlaubt** oder **Unrestricted**.
+4.  In **Sicherheitsstufe**, klicken Sie auf **nicht erlaubt** oder **uneingeschränkt**.
 
-5.  In **Beschreibung**, geben Sie eine Beschreibung für diese Regel ein, und klicken Sie dann auf **OK**.
+5.  Geben Sie unter **Beschreibung** eine Beschreibung für die Regel ein, und klicken Sie anschließend auf **OK**.
 
 > [!CAUTION]
-> -   In bestimmten Ordnern, z. B. Windows-Ordner, Festlegen der Sicherheitsstufe auf **nicht erlaubt** können sich negativ auf den Betrieb von Ihrem Betriebssystem auswirken. Stellen Sie sicher, dass Sie eine wichtige Komponente des Betriebssystems oder eines abhängigen Programms nicht verhindert werden.
+> -   In bestimmten Ordnern, z. B. die Windows-Ordner, durch Festlegen der Sicherheits auf **nicht erlaubt** kann sich negativ auf den Vorgang des Betriebssystems auswirken. Stellen Sie sicher, dass die Ausführung einer wichtigen Komponente des Betriebssystems oder eines davon abhängigen Programms nicht verhindert wird.
 
 > [!NOTE]
-> -   Möglicherweise ist es erforderlich, neue Softwareeinschränkungsrichtlinien für das Gruppenrichtlinienobjekt (GPO) erstellen, wenn noch nicht geschehen.
-> -   Wenn Sie eine Pfadregel für Software mit der Sicherheitsstufe erstellen **nicht erlaubt**, Benutzer können die Software dennoch ausführen, indem Sie sie an einen anderen Speicherort kopieren.
-> -   Sind die Platzhalterzeichen, die von der Pfadregel unterstützt werden * und?.
-> -   Sie können Umgebungsvariablen wie % ProgramFiles% "oder" systemroot%, in der Pfadregel.
-> -   Wenn Sie eine Pfadregel für Software erstellen, wenn Sie nicht wissen, in dem sie auf einem Computer gespeichert ist, aber Sie den Registrierungsschlüssel besitzen möchten, können Sie eine Registrierungspfadregel erstellen.
-> -   Um zu verhindern, dass Benutzer e-Mail-Anlagen ausführen, können Sie eine Pfadregel für das Anlagenverzeichnis Ihres e-Mail-Programms erstellen, die verhindert, dass Benutzer e-Mail-Anlagen ausführen.
-> -   Nur die Dateitypen, die von Pfadregeln betroffen sind sind für die aufgelisteten **Designierte Dateitypen** klicken Sie im Detailbereich für Softwareeinschränkungsrichtlinien. Es gibt eine Liste der designierten Dateitypen, die von allen Regeln gemeinsam verwendet wird.
-> -   Für Softwareeinschränkungsrichtlinien wirksam wird müssen Benutzer Richtlinieneinstellungen von Abmelden und zum Anmelden bei ihren Computern aktualisieren.
-> -   Wenn mehr als eine Software Restriction Richtlinien Regel Richtlinieneinstellungen angewendet wird, gibt es eine Rangfolge der Regeln für die Behandlung von Konflikten.
+> -   Möglicherweise müssen neue Softwareeinschränkungsrichtlinien für das Gruppenrichtlinienobjekt erstellt werden, sofern noch nicht geschehen.
+> -   Wenn Sie eine Pfadregel für Software mit der Sicherheitsstufe **Nicht erlaubt** erstellen, können Benutzer die Software dennoch ausführen, indem sie sie an einen anderen Speicherort kopieren.
+> -   Für Pfadregeln sind die Platzhalterzeichen %%amp;quot;*%%amp;quot; und %%amp;quot;?%%amp;quot; zulässig.
+> -   In Pfadregeln können Umgebungsvariablen wie %%amp;quot;%programfiles%%%amp;quot; oder %%amp;quot;%systemroot%%%amp;quot; verwendet werden.
+> -   Wenn Sie eine Pfadregel für Software erstellen möchten und nicht wissen, wo sie auf dem Computer gespeichert ist, aber den Registrierungsschlüssel besitzen, können Sie eine Registrierungspfadregel erstellen.
+> -   Um zu verhindern, dass Benutzer-e-Mail-Anlagen ausführen, können Sie eine Pfadregel für das Anlagenverzeichnis Ihres e-Mail-Programms erstellen, die verhindert, dass die Benutzer-e-Mail-Anlagen ausführen.
+> -   Pfadregeln wirken sich nur auf die Dateitypen aus, die im Detailbereich von %%amp;quot;Richtlinien für Softwareeinschränkung%%amp;quot; unter **Designierte Dateitypen** aufgeführt sind. Dort finden Sie eine Liste der designierten Dateitypen, die für alle Regeln gilt.
+> -   Richtlinien, für softwareeinschränkung wirksam wird müssen Benutzer die Richtlinieneinstellungen beim Abmelden von und Anmelden bei ihren Computern aktualisieren.
+> -   Wenn mehr als eine Softwareeinschränkungsregel Richtlinien auf die Richtlinieneinstellungen angewendet wird, wird eine Rangfolge der Regeln für das Behandeln von Konflikten.
 
-#### <a name="to-create-a-registry-path-rule"></a>Erstellen Sie eine Registrierungspfadregel
+#### <a name="to-create-a-registry-path-rule"></a>So erstellen Sie eine Registrierungspfaddatei
 
-1.  Auf der **starten** Bildschirm, geben Sie regedit ein.
+1.  Auf der **starten** Bildschirm, und geben Sie "regedit".
 
-2.  In der Konsolenstruktur mit der Maustaste des Registrierungsschlüssels, die Sie verwenden möchten, erstellen Sie eine Regel für, und klicken Sie dann auf **Schlüsselnamen kopieren**. Beachten Sie den Wertnamen im Detailbereich.
+2.  Klicken Sie in der Konsolenstruktur mit der rechten Maustaste auf den Registrierungsschlüssel, für den eine Regel erstellt werden soll, und klicken Sie dann auf **Schlüsselnamen kopieren**. Notieren Sie den Wertnamen im Detailbereich.
 
-3.  Öffnen Sie die Richtlinien für Softwareeinschränkung.
+3.  Öffnen Sie %%amp;quot;Richtlinien für Softwareeinschränkung%%amp;quot;.
 
-4.  In der Konsolenstruktur oder im Detailbereich mit der rechten Maustaste **zusätzliche Regeln**, und klicken Sie dann auf **neue Pfadregel**.
+4.  In der Konsolenstruktur oder im Detailbereich, mit der Maustaste **zusätzliche Regeln**, und klicken Sie dann auf **neue Pfadregel**.
 
-5.  In **Pfad**, fügen Sie den Namen des Registrierungsschlüssels, gefolgt vom Wert ein.
+5.  In **Pfad**, fügen Sie den Registrierungsschlüsselnamen, gefolgt von den Wertnamen.
 
-6.  Schließen Sie den Registrierungspfad in Prozentzeichen (%), z. B. % HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PlatformSDK\Directories\InstallDir%.
+6.  Schließen Sie den Registrierungspfad in Prozentzeichen (%), z. B. % HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PlatformSDK\Directories\InstallDir% an.
 
-7.  In **Sicherheitsstufe**, klicken Sie entweder **nicht erlaubt** oder **Unrestricted**.
+7.  In **Sicherheitsstufe**, klicken Sie auf **nicht erlaubt** oder **uneingeschränkt**.
 
-8.  In **Beschreibung**, geben Sie eine Beschreibung für diese Regel ein, und klicken Sie dann auf **OK**.
+8.  Geben Sie unter **Beschreibung** eine Beschreibung für die Regel ein, und klicken Sie anschließend auf **OK**.
 
 

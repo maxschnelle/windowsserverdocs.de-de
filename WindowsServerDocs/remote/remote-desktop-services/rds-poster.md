@@ -15,15 +15,15 @@ ms.topic: article
 ms.assetid: a8c6d5fa-399b-4823-8f10-affec1bbfe65
 ms.localizationpriority: medium
 ms.openlocfilehash: 601261780f64a779d0aa43ea8d14f58fdcb5f502
-ms.sourcegitcommit: 3883eebbba70bfea0221e510863ee1a724a5f926
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "5783632"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59874141"
 ---
-# Planungsposter für Remotedesktopdienste
+# <a name="remote-desktop-services---planning-poster"></a>Planungsposter für Remotedesktopdienste
 
-## Remotedesktopdienste in Windows Server
+## <a name="remote-desktop-services-in-windows-server"></a>Remotedesktopdienste in Windows Server
 
 Das Team für die Remotedesktopdienste hat ein Poster entworfen, das Sie bei der Planung, Erstellung und Ausführung einer RDS-Umgebung unterstützen kann.
 
@@ -31,12 +31,12 @@ Das Team für die Remotedesktopdienste hat ein Poster entworfen, das Sie bei der
 
 Rufen Sie eine Kopie des Posters ab, indem Sie mit der rechten Maustaste auf das Bild klicken und das Poster auf Ihrem lokalen System speichern.
 
-Sehen Sie sich in den folgenden Themen Weitere Informationen zu planen:
+Sehen Sie sich den folgenden Themen Weitere Informationen zum Planen:
 
-- [Planen und Entwerfen einer RDS-Umgebung](rds-plan-and-design.md)
-- [RDS erstellen und bereitstellen](rds-build-and-deploy.md)
-- [Ausführen und Abstimmen der RDS-Umgebung](rds-run-and-tune.md)
+- [Planen Sie und Entwerfen Sie Ihre RDS-Bereitstellung](rds-plan-and-design.md)
+- [Erstellen und Bereitstellen von RDS](rds-build-and-deploy.md)
+- [Führen Sie aus und Optimieren Sie Ihre RDS-Umgebung](rds-run-and-tune.md)
 
-## Virtuelle Windows-Desktop
+## <a name="windows-virtual-desktop"></a>Virtueller Windows-Desktop
 
-Sie können uns über eine neue "moderne Infrastruktur" für den Remotedesktop sprechen haben gehört. Vielleicht haben Sie uns verwenden Sie den Ausdruck "RDmi." gehört Der Ausdruck, die, den Sie wissen müssen, ist "Windows Virtual Desktop". Informationen Sie zu diesem neuen Virtualisierung in [Microsoft 365 modernen Desktop auf Azure hinzugefügt](https://azure.microsoft.com/blog/microsoft-365-adds-modern-desktop-on-azure/) und unser [2018 Ignite-Präsentation auf virtuellen Windows-Desktop](https://www.youtube.com/watch?v=_7G37PFYVe4)bietet. Virtuelle Windows-Desktop ist derzeit in privaten Vorschau.
+Wir sprechen eine neue "moderne Infrastruktur" für Remote Desktop können haben Sie gehört. Vielleicht haben Sie uns die verwenden Sie des Ausdrucks "RDmi." gehört Der Ausdruck müssen Sie wissen, ist "Windows Virtual Desktop" ein. Erfahren Sie mehr über das neue Angebot in die Virtualisierung [Microsoft 365 fügt die moderne Desktop in Azure](https://azure.microsoft.com/blog/microsoft-365-adds-modern-desktop-on-azure/) und unseren [2018 der Ignite-Präsentation auf virtuellen Windows-Desktop](https://www.youtube.com/watch?v=_7G37PFYVe4). Virtueller Windows-Desktop befindet sich derzeit in der privaten Vorschau.

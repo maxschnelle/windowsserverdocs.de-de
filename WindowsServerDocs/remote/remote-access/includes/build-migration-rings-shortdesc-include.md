@@ -1,0 +1,1 @@
+**Erstellen Sie die Migration von Ringen.** Wie in den meisten anderen System-Migrationen als Ziel die Client-Migration in Phasen auf mögliche Probleme identifizieren können, bevor sie sich auf die gesamte Organisation auswirken. Der erste Teil des Always On-VPN-Migration unterscheidet sich nicht.

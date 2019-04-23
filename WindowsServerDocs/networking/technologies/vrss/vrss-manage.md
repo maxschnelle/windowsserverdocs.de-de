@@ -1,6 +1,6 @@
 ---
 title: Verwalten von vRSS
-description: In diesem Thema verwenden Sie die Windows PowerShell-Befehle zum vRSS auf virtuellen Computern (VMs) und Hyper-V-Hosts verwalten.
+description: In diesem Thema verwenden Sie die Windows PowerShell-Befehle zum Verwalten von vRSS auf virtuellen Computern (VMs) und auf Hyper-V-Hosts an.
 ms.prod: windows-server-threshold
 ms.technology: networking
 ms.topic: article
@@ -11,22 +11,22 @@ ms.date: 09/05/2018
 ms.author: pashort
 author: shortpatti
 ms.openlocfilehash: 8af800608bee7037b48141a7a2edb0c872a7aac0
-ms.sourcegitcommit: e84e328c13a701e8039b16a4824a6e58a6e59b0b
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/22/2018
-ms.locfileid: "4133836"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59856191"
 ---
-# Verwalten von vRSS
+# <a name="manage-vrss"></a>Verwalten von vRSS
 
-In diesem Thema verwenden Sie die Windows PowerShell-Befehle zum vRSS in virtuelle Computer \(VMs\) und auf Hyper-V-Hosts verwalten.
+In diesem Thema verwenden Sie die Windows PowerShell-Befehle zum Verwalten von vRSS auf virtuellen Computern \(VMs\) und auf Hyper\-V-Hosts.
 
 >[!NOTE]
->Weitere Informationen zu den Befehlen in diesem Thema genannten finden Sie unter [Windows PowerShell-Befehlen für RSS- und vRSS](vrss-wps.md).
+>Weitere Informationen zu den Befehlen in diesem Thema erwähnt, finden Sie unter [Windows PowerShell-Befehle für RSS und vRSS](vrss-wps.md).
 
-## VMQ auf Hyper-V-Hosts
+## <a name="vmq-on-hyper-v-hosts"></a>VMQ auf dem Hyper-V-Hosts
 
-Auf dem Hyper-V-Host müssen Sie die Schlüsselwörter verwenden, die die VMQ Prozessoren steuern.
+Auf dem Hyper-V-Host müssen Sie die Schlüsselwörter verwenden, die steuern die VMQ-Prozessoren.
 
 **Zeigen Sie die aktuellen Einstellungen an:** 
 
@@ -41,9 +41,9 @@ Set-NetAdapterVmq
 ```
 
 
-## vRSS auf Hyper-V-Switchports
+## <a name="vrss-on-hyper-v-switch-ports"></a>vRSS auf Hyper-V-Switchports
 
-Auf dem Hyper-V-Host müssen Sie auch vRSS auf dem Hyper-V Virtual Switch-Port aktivieren.
+Auf dem Hyper-V-Host müssen Sie auch vRSS auf dem Hyper aktivieren\-virtuellen V-Switchport.
 
 **Zeigen Sie die aktuellen Einstellungen an:**
 
@@ -53,17 +53,17 @@ Get-VMNetworkAdapter <vm-name> | fl
 Get-VMNetworkAdapter -ManagementOS | fl
 ```
     
-Beide der folgenden Einstellungen sollten **"true"** sein. 
+Beide der folgenden Einstellungen muss **"true"**. 
 
 - VrssEnabledRequested: True
 - VrssEnabled: True
     
 >[!IMPORTANT]
->Unter bestimmten Umständen Ressource Einschränkung möglicherweise ein Hyper-V Virtual Switch-Port nicht dieses Feature aktiviert werden. Dies ist ein vorübergehender Zustand, und das Feature möglicherweise zu einem späteren Zeitpunkt zur Verfügung gestellt.
+>Unter bestimmten Umständen Ressource Einschränkung einem virtuellen Hyper\-virtuellen V-Switchport ist möglicherweise nicht diese Funktion nicht aktiviert haben. Dies ist ein temporäres Problem, und die Funktion zu einem späteren Zeitpunkt möglicherweise verfügbar.
 >
->Wenn **VrssEnabled** **"true ist"**, und klicken Sie dann die Funktion für diesen Hyper-V Virtual Switch-Port aktiviert ist – d. h. für diesen virtuellen Computer oder vNIC.
+>Wenn **VrssEnabled** ist **"true"**, und klicken Sie dann das Feature, für diese Hyper aktiviert ist\-V Virtual Switch Port –, also für diesen virtuellen Computer oder die vNIC.
 
-**Konfigurieren Sie die Switch-Port vRSS Einstellungen:**
+**Konfigurieren Sie die Porteinstellungen vRSS Switch:**
 
 ```PowerShell
 Set-VMNetworkAdapter <vm-name> -VrssEnabled $TRUE
@@ -71,9 +71,9 @@ Set-VMNetworkAdapter <vm-name> -VrssEnabled $TRUE
 Set-VMNetworkAdapter -ManagementOS -VrssEnabled $TRUE
 ```
 
-## vRSS im virtuellen Computer und Host-vNICs
+## <a name="vrss-in-vms-and-host-vnics"></a>vRSS auf VMs und Host-vNICs
 
-Sie können die gleichen Befehle für systemeigene RSS um vRSS um Einstellungen zu konfigurieren in VMs und Host-vNICs, also auch die Möglichkeit zum Aktivieren von RSS auf Host-vNICs verwendet.  
+Sie können die gleichen Befehle, die für das systemeigene RSS verwendet werden, um die Konfigurationseinstellungen vRSS auf VMs und Host-vNICs, das ist auch die Möglichkeit zum Aktivieren von RSS für Host-vNICs.  
 
 **Zeigen Sie die aktuellen Einstellungen an:**
 
@@ -81,37 +81,37 @@ Sie können die gleichen Befehle für systemeigene RSS um vRSS um Einstellungen 
 Get-NetAdapterRSS
 ```
 
-**Konfigurieren Sie vRSS Einstellungen:**
+**Konfigurieren Sie vRSS-Einstellungen:**
 
 ```PowerShell
 Set-NetAdapterRss
 ```
 
 >[!NOTE]
-> Festlegen des Profils innerhalb des virtuellen Computers hat keinen Einfluss auf die Planung der Arbeit. Hyper-V entscheidet, alle scheduling und das Profil innerhalb des virtuellen Computers ignoriert.
+> Das Festlegen des Profils innerhalb des virtuellen Computers wirkt sich nicht die Planung der Arbeit. Hyper\-V erleichtert die Planung, Entscheidungen zu treffen und ignoriert das Profil auf dem virtuellen Computer.
 
-## VRSS deaktivieren
+## <a name="disable-vrss"></a>Deaktivieren Sie vRSS
 
-Sie können vRSS zum Deaktivieren von den zuvor genannten Einstellungen deaktivieren.
+Sie können vRSS, um die zuvor genannten Einstellungen deaktivieren, deaktivieren.
 
-- Deaktivieren Sie VMQ für der physischen NIC oder den virtuellen Computer.
+- Deaktivieren Sie VMQ, für die physische NIC oder dem virtuellen Computer.
 
   >[!CAUTION]
-  >Deaktivieren von VMQ auf den physischen wirkt sich auf NIC stark die Fähigkeit von Ihrem Hyper-V-Host, eingehende Pakete zu behandeln.
+  >Deaktivieren VMQ auf dem physischen NIC stark wirkt sich auf die Fähigkeit Ihrer Hyper\-V-Host zum Verarbeiten eingehender Pakete.
 
-- Deaktivieren Sie vRSS für einen virtuellen Computer auf dem Hyper-V Virtual Switch-Port auf dem Hyper-V-Host.
+- Deaktivieren Sie vRSS für einen virtuellen Computer, auf dem Hyper\-Port die Hyper V-Switches\-V-Host.
 
    ```PowerShell
    Set-VMNetworkAdapter <vm-name> -VrssEnabled $FALSE
    ```
 
-- Deaktivieren Sie vRSS für eine Host-vNIC auf dem Hyper-V Virtual Switch-Port auf dem Hyper-V-Host.
+- Deaktivieren Sie vRSS für einen Host-vNIC für die Hyper\-Port die Hyper V-Switches\-V-Host.
 
    ```PowerShell
    Set-VMNetworkAdapter -ManagementOS -VrssEnabled $FALSE
    ```
 
-- Deaktivieren von RSS auf dem virtuellen Computer \(or host vNIC\) innerhalb des virtuellen Computers \ (oder auf die Host\)
+- Deaktivieren von RSS auf dem virtuellen Computer \(oder Host-vNIC\) innerhalb des virtuellen Computers \(oder auf dem Host\)
 
    ```PowerShell
    Disable-NetAdapterRSS *

@@ -1,32 +1,33 @@
 ---
-title: Health Service-Aktionen
+title: Integrität von Dienstaktionen
 ms.prod: windows-server-threshold
 manager: eldenc
 ms.author: cosdar
 ms.technology: storage-health-service
 ms.topic: article
-ms.assetid: 
+ms.assetid: ''
 author: cosmosdarwin
 ms.date: 08/14/2017
 ms.openlocfilehash: efdf8f04e68fcbdc7051e78d6725cb919e740ffa
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59843021"
 ---
-# <a name="health-service-actions"></a>Health Service-Aktionen
+# <a name="health-service-actions"></a>Integrität von Dienstaktionen
 
-> Gilt für WindowsServer 2016
+> Gilt für Windows Server 2016
 
-Der Integritätsdienst ist ein neues Feature in Windows Server 2016, das die tägliche Überwachung verbessert und betriebliche Erfahrung für Cluster mit "direkte Speicherplätze".
+Der Integritätsdienst ist ein neues Feature in Windows Server 2016, die die tägliche Überwachung verbessert und Erfahrungen für Cluster "direkte Speicherplätze".
 
 ## <a name="actions"></a>Aktionen  
 
-Im nächste Abschnitt wird beschrieben, Workflows, die vom Integritätsdienst automatisiert werden. Stellen Sie sicher, dass eine Aktivität tatsächlich autonom erfolgt, oder den Fortschritt oder Ihr Ergebnis nachzuverfolgen, generiert der Integritätsdienst "Aktionen". Im Gegensatz zu Protokollen verschwinden Aktionen, kurz nachdem abgeschlossen ist, und dienen in erster Linie zur Einblicken in laufende Aktivitäten bereitstellen, die Leistung oder Kapazität (z. B. Wiederherstellen der ausfallsicherheit oder Neuverteilen von Daten) auswirken können.  
+Im nächsten Abschnitt werden Workflows beschrieben, die vom Integritätsdienst automatisiert werden. Um sicherzustellen, dass eine Aktivität tatsächlich autonom erfolgt, oder um ihren Fortschritt oder ihr Ergebnis nachzuverfolgen, generiert der Integritätsdienst „Aktionen“. Im Gegensatz zu Protokollen verschwinden Aktionen, kurz nachdem sie erfolgt sind, und dienen hauptsächlich zum Gewinnen von Einblicken in laufende Aktivitäten, die sich auf die Leistung oder Kapazität auswirken können (z. B. Wiederherstellen der Ausfallsicherheit oder Neuverteilen von Daten).  
 
 ### <a name="usage"></a>Verwendung  
 
-Eine neue PowerShell-Cmdlet werden alle Aktionen angezeigt:  
+Mit einem neuen PowerShell-Cmdlet werden alle Aktionen angezeigt:  
 
 ```PowerShell
 Get-StorageHealthAction  
@@ -36,15 +37,15 @@ Get-StorageHealthAction
 
 In Windows Server 2016 die **Get-StorageHealthAction** Cmdlet kann die folgenden Informationen zurück:  
 
--   Zurückziehen von misslungen, Verbindung verloren oder nicht reagierender physischer Datenträger  
+-   Außerbetriebnahme misslungen, Verbindung verloren oder nicht reagierender physischer Datenträger  
 
--   Wechsel des Speicherpools, um physischen austauschdatenträger zu verwenden  
+-   Wechsel des Speicherpools, um physischen Austauschdatenträger zu verwenden  
 
--   Wiederherstellen der vollständigen ausfallsicherheit für Daten  
+-   Wiederherstellen der vollständigen Ausfallsicherheit für Daten  
 
 -   Neuverteilen von Speicherpools  
 
 ## <a name="see-also"></a>Siehe auch
 
 - [Integritätsdienst in WindowsServer 2016](health-service-overview.md)
-- [Entwicklerdokumentation, Beispielcode und API-Referenz auf MSDN](https://msdn.microsoft.com/windowshealthservice)
+- [Dokumentation für Entwickler, Beispielcode und API-Referenz auf MSDN](https://msdn.microsoft.com/windowshealthservice)

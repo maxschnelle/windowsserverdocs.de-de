@@ -1,6 +1,6 @@
 ---
-title: "Migrieren der Rollendienste für Active Directory Federation Services zu Windows Server 2012 R2"
-description: "Enthält Anweisungen zum Migrieren des AD FS-Diensts zu Windows Server 2012 R2."
+title: Migrieren von Rollendiensten der Active Directory Federation zu Windows Server 2012 R2
+description: Enthält Anweisungen zum Migrieren von AD FS-Diensts in Windows Server 2012 R2.
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,28 +9,29 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: 478729a7b6560beba5f04a1a15ad035561ad31f0
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59847951"
 ---
-# <a name="migrate-active-directory-federation-services-role-services-to-windows-server-2012-r2"></a>Migrieren der Rollendienste für Active Directory Federation Services zu Windows Server 2012 R2
- Dieses Dokument enthält Anweisungen zum Migrieren die folgenden Rollendienste zu Active Directory-Verbunddienste (AD FS), die mit Windows Server 2012 R2 installiert ist:  
+# <a name="migrate-active-directory-federation-services-role-services-to-windows-server-2012-r2"></a>Migrieren von Rollendiensten der Active Directory Federation zu Windows Server 2012 R2
+ Dieses Dokument enthält Anweisungen zum Migrieren von die folgenden Rollendienste zu Active Directory-Verbunddienste (AD FS), die mit Windows Server 2012 R2 installiert ist:  
   
 -   AD FS 2.0-Verbundserver installiert unter Windows Server 2008 oder Windows Server 2008 R2  
   
--   AD FS-Verbundservers installiert unter Windows Server 2012  
+-   AD FS-Verbundserver installiert unter Windows Server 2012  
   
 ## <a name="supported-migration-scenarios"></a>Unterstützte Migrationsszenarien  
- Die Anweisungen zur Migration in diesem Handbuch umfassen die folgenden Aufgaben:  
+ Die Anweisungen zur Migration in diesem Handbuch beinhalten die folgenden Aufgaben:  
   
 -   Exportieren der AD FS 2.0-Konfigurationsdaten von Ihrem Server, auf denen Windows Server 2008, Windows Server 2008 R2 oder Windows Server 2012 ausgeführt wird  
   
--   Ausführen von ein direktes Upgrade des Betriebssystems dieses Servers von Windows Server 2008, Windows Server 2008 R2 oder Windows Server 2012 für Windows Server 2012 R2. 
+-   Ausführen von ein direktes Upgrade des Betriebssystems dieses Servers von Windows Server 2008, Windows Server 2008 R2 oder Windows Server 2012 auf Windows Server 2012 R2. 
   
--   Neuerstellen der ursprünglichen AD FS-Konfiguration und Wiederherstellen der übrigen AD FS-diensteinstellungen auf dem Server, auf dem nun die AD FS-Serverrolle ausgeführt wird, die mit Windows Server 2012 R2 installiert ist.  
+-   Neuerstellen der ursprünglichen AD FS-Konfiguration und Wiederherstellen der übrigen AD FS-diensteinstellungen auf dem Server, der jetzt die AD FS-Serverrolle ausgeführt wird, die mit Windows Server 2012 R2 installiert ist.  
   
- Dieses Handbuch enthält keine Anweisungen zum Migrieren eines Servers, das mehrere Rollen ausgeführt werden. Wenn Ihr Server mehrere Rollen ausgeführt wird, wird empfohlen, dass ein benutzerdefiniertes Migrationsverfahren für die serverumgebung anhand der Informationen in anderen Handbüchern für die Migration zu entwickeln. Migrationshandbücher für weitere Rollen sind verfügbar, auf die [Windows Server Migration Portal](https://go.microsoft.com/fwlink/?LinkId=247608).  
+ Dieses Handbuch enthält keine Anweisungen zum Migrieren eines Servers, auf dem mehrere Rollen ausgeführt werden. Wenn auf dem Server mehrere Rollen ausgeführt werden, wird empfohlen, anhand der Informationen in anderen Handbüchern für die Rollenmigration ein benutzerdefiniertes Migrationsverfahren für die Serverumgebung zu entwickeln. Migrationsanweisungen für weitere Rollen sind im [Windows Server-Migrationsportal](https://go.microsoft.com/fwlink/?LinkId=247608)verfügbar.  
   
 ### <a name="supported-operating-systems"></a>Unterstützte Betriebssysteme  
  Betriebssystem des Zielservers:  
@@ -39,27 +40,27 @@ ms.lasthandoff: 12/12/2017
   
  Prozessor des Zielservers:  
   
- X64-basierte  
+ x64-basiert  
   
 |Prozessor des Quellservers|Betriebssystem des Quellservers|  
 |-----------------------------|------------------------------------|  
-|x86- oder x 64-basierte| Windows Server 2008, vollständige Installation und Server Core-Installationsoptionen|  
-|X64-basierte|Windows Server2008 R2|  
-|X64-basierte|Server Core-Installationsoption von Windows Server 2008 R2|  
-|X64-basierte|Server Core-Installation und vollständige Installation von Windows Server 2012|  
+|x86- oder x64-basiert| Windows Server 2008, vollständige Installation und Server Core-Installationsoptionen|  
+|x64-basiert|Windows Server 2008 R2|  
+|x64-basiert|Server Core-Installationsoption von Windows Server 2008 R2|  
+|x64-basiert|Server Core "und" vollständige Installation von Windows Server 2012|  
   
 > [!NOTE]
->  -   Die Versionen der Betriebssysteme, die in der obigen Tabelle aufgeführt sind, werden die ältesten Kombinationen von Betriebssystemen und Servicepacks, die unterstützt werden.  
-> -   Die Foundation, Standard, Enterprise und Datacenter-Editionen des Windows Server-Betriebssystems werden als Quell- oder Zielserver unterstützt.  
+>  -   Die in der obigen Tabelle aufgeführten Betriebssystemversionen sind die ältesten unterstützten Kombinationen von Betriebssystemen und Service Packs.  
+> -   Die Foundation, Standard, Enterprise und Datacenter-Editionen des Betriebssystems Windows Server werden als die Quelle oder als Zielserver unterstützt.  
 > -   Migrationen zwischen physischen und virtuellen Betriebssystemen werden unterstützt.  
   
 ### <a name="supported-ad-fs-role-services-and-features"></a>Unterstützte AD FS-Rollendienste und features  
- Die folgende Tabelle enthält die Migrationsszenarien der AD FS-Rollendienste und die entsprechenden Einstellungen, die in diesem Handbuch beschrieben werden.  
+ Die folgende Tabelle beschreibt die Migrationsszenarien der AD FS-Rollendienste und ihre entsprechenden Einstellungen, die in diesem Handbuch beschrieben werden.  
   
-|Von|Zu AD FS, installiert mit Windows Server 2012 R2|  
+|Von|Um AD FS, installiert mit Windows Server 2012 R2|  
 |----------|----------------------------------------------------------------------------------------------|  
-|AD FS 2.0-Verbundserver installiert unter Windows Server 2008 oder Windows Server 2008 R2|Die Migration auf demselben Server wird unterstützt. Weitere Informationen finden Sie unter:<br /><br /> [Vorbereiten der Migration des AD FS-Verbundservers](prepare-migrate-ad-fs-server-r2.md)<br /><br /> [Migrieren des AD FS-Verbundservers](migrate-ad-fs-fed-server-r2.md)|  
-|AD FS-Verbundservers installiert unter Windows Server 2012|Die Migration auf demselben Server wird unterstützt.  Weitere Informationen finden Sie unter:<br /><br /> [Vorbereiten der Migration des AD FS-Verbundservers](prepare-migrate-ad-fs-server-r2.md)<br /><br /> [Migrieren des AD FS-Verbundservers](migrate-ad-fs-fed-server-r2.md)|  
+|AD FS 2.0-Verbundserver installiert unter Windows Server 2008 oder Windows Server 2008 R2|Die Migration auf demselben Server wird unterstützt. Weitere Informationen finden Sie in den folgenden Themen:<br /><br /> [Vorbereiten der Migration des AD FS-Verbundservers](prepare-migrate-ad-fs-server-r2.md)<br /><br /> [Migrieren des AD FS-Verbundservers](migrate-ad-fs-fed-server-r2.md)|  
+|AD FS-Verbundserver installiert unter Windows Server 2012|Die Migration auf demselben Server wird unterstützt.  Weitere Informationen finden Sie unter:<br /><br /> [Vorbereiten der Migration des AD FS-Verbundservers](prepare-migrate-ad-fs-server-r2.md)<br /><br /> [Migrieren des AD FS-Verbundservers](migrate-ad-fs-fed-server-r2.md)|  
   
 ## <a name="next-steps"></a>Nächste Schritte
  [Vorbereiten der Migration des AD FS-Verbundservers](prepare-migrate-ad-fs-server-r2.md)   

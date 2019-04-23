@@ -1,6 +1,6 @@
 ---
-title: Konfigurieren der Dateidienst-Serverrolle
-description: In diesem Thema ist Teil der BranchCache Deployment Guide für Windows Server 2016, der veranschaulicht, wie Sie BranchCache im verteilten und gehosteter cachemodi zum Optimieren der WAN-Bandbreite in Zweigstellen bereitstellen
+title: Konfigurieren der Serverrolle „Dateidienste“
+description: Dieses Thema ist Teil von BranchCache Deployment Guide für Windows Server 2016, die veranschaulicht, wie Sie BranchCache in verteilter und gehosteter Cachemodus zur Optimierung der WAN-bandbreitennutzung in Zweigstellen bereitstellen
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking-bc
@@ -8,21 +8,22 @@ ms.topic: get-started-article
 ms.assetid: 68b0f5a0-1ae8-489e-b8f8-1190267a0e1d
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 558b05b494e9dbe08fc6c04c2250ac6d029f6bc2
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 9674f125adad7d278954dcd07534dfb8e3d78026
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59855581"
 ---
-# <a name="configure-the-file-services-server-role"></a>Konfigurieren der Dateidienst-Serverrolle
+# <a name="configure-the-file-services-server-role"></a>Konfigurieren der Serverrolle „Dateidienste“
 
->Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
-Sie können BranchCache Datei Server basierende Inhaltsserver auf Computern unter Windows Server 2016 und der Serverrolle "Dateidienste" mit Bereitstellen der **BranchCache für Netzwerkdateien** -Rollendienst installiert.  
+Sie können die BranchCache-Datei Server basierende Inhaltsserver auf Computern unter Windows Server 2016 und die Serverrolle "Dateidienste" mit Bereitstellen der **BranchCache für Netzwerkdateien** -Rollendienst installiert.  
   
--   Um BranchCache-Inhaltsserver auf einem Computer installieren, die noch nicht über Dateidienste verfügt, finden Sie unter [Installieren eines neuen Dateiservers als Inhaltsserver](../../branchcache/deploy/Install-a-New-File-Server-as-a-Content-Server.md).  
+-   Um eines BranchCache-Inhaltsservers auf einem Computer installieren, die nicht bereits installierten Dateidienste verfügt, finden Sie unter [Installieren eines neuen Dateiservers als Inhaltsserver](../../branchcache/deploy/Install-a-New-File-Server-as-a-Content-Server.md).  
   
--   Um BranchCache-Inhaltsserver auf einem Computer installieren, die bereits mit der Serverrolle Dateidienste konfiguriert ist, finden Sie unter [Konfigurieren eines vorhandenen Dateiservers als Inhaltsserver](../../branchcache/deploy/Configure-an-Existing-File-Server-as-a-Content-Server.md).  
+-   Um einen BranchCache-Inhaltsserver auf einem Computer zu installieren, die bereits mit der Serverrolle "Dateidienste" konfiguriert ist, finden Sie unter [Konfigurieren eines vorhandenen Dateiservers als Inhaltsserver](../../branchcache/deploy/Configure-an-Existing-File-Server-as-a-Content-Server.md).  
   
 
 
