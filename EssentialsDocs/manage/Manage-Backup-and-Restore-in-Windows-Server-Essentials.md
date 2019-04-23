@@ -1,6 +1,6 @@
 ---
-title: Verwalten der Sicherung und Wiederherstellung in Windows Server Essentials
-description: Beschreibt, wie Sie Windows Server Essentials
+title: Verwalten der Sicherung und Wiederherstellung in Windows Server Essentials
+description: Beschreibt, wie Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,22 +13,23 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 6f6f0d27472664cd1cc538897d3d525fad506282
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59828521"
 ---
-# <a name="manage-backup-and-restore-in-windows-server-essentials"></a>Verwalten der Sicherung und Wiederherstellung in Windows Server Essentials
+# <a name="manage-backup-and-restore-in-windows-server-essentials"></a>Verwalten der Sicherung und Wiederherstellung in Windows Server Essentials
 
->Gilt für: Windows Server2016 Essentials, Windows Server2012 R2 Essentials, Windows Server2012 Essentials
+>Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
  
- Windows Server Essentials bietet zuverlässige Möglichkeiten für regelmäßige Sicherungen des Servers und Sicherungen der Computer im Netzwerk ausführen. Im Fall eines Datenverlusts können Sie Daten aus einer erfolgreichen Sicherung auf dem Server wiederherstellen, ohne den gesamten Computer wiederherstellen. Bei Bedarf können Sie eine vollständige Systemwiederherstellung auf Server- oder Clientcomputern im Netzwerk ausführen. In der folgende Tabelle werden die verschiedenen Sicherungsoptionen für Sie und ihre Vorteile beschrieben.  
+ Windows Server Essentials bietet zuverlässige Möglichkeiten für regelmäßige Sicherungen des Servers und Sicherungen der Computer im Netzwerk. Im Fall eines Datenverlusts können Sie Daten aus einer erfolgreichen Sicherung auf dem Server wiederherstellen, ohne den gesamten Computer wiederherstellen. Bei Bedarf können Sie eine vollständige Systemwiederherstellung auf Server- oder Clientcomputern im Netzwerk ausführen. In der folgende Tabelle werden die verschiedenen Sicherungsoptionen und ihre Vorteile beschrieben.  
   
-|Sicherungsfeature|Beschreibung|Vorteile|  
+|Sicherungsfunktion|Beschreibung|Vorteile|  
 |--------------------|-----------------|----------------|  
-|Server-Sicherung|Sichert den Server mit Windows Server Essentials. Die Daten werden auf einem externen USB-Laufwerk gesichert.<br /><br /> Weitere Informationen finden Sie unter [Manage Server Backup](Manage-Server-Backup-in-Windows-Server-Essentials.md) und [wiederherstellen oder Reparieren des Servers](Restore-or-repair-your-server-running-Windows-Server-Essentials.md).|-Können Dateien und Ordner auf Ihrem Server wiederherstellen.<br /><br /> – Vollständige Systemwiederherstellung des Servers möglich.|  
-|Client Computer Backup|Sichert die Clientcomputer im Netzwerk. Die Daten werden auf dem Server mit Windows Server Essentials gesichert.<br /><br /> Weitere Informationen finden Sie unter [Client-Sicherung verwalten](Manage-Client-Computer-Backup-in-Windows-Server-Essentials.md) und [Wiederherstellen eines vollständigen Systems aus einer vorhandenen clientcomputersicherung](Restore-a-full-system-from-an-existing-client-computer-backup.md).|-Können Dateien und Ordner von Ihrem Server wiederherstellen.<br /><br /> – Vollständige Systemwiederherstellung des Servers möglich.|  
-| Microsoft Azure Backup|Führt eine onlinesicherung von Dateien oder Ordnern auf dem Server. Wenn Sie Azure Backup Sichern von Serverdaten verwenden, werden die Informationen mithilfe Ihrer Passphrase, bevor sie in ein sicheres Datacenter im Internet hochgeladen werden verschlüsselt.<br /><br /> Weitere Informationen finden Sie unter [Manage Online Backup](Manage-Online-Backup-in-Windows-Server-Essentials.md).|-Können Dateien und Ordner von Ihrem Server wiederherstellen.<br /><br /> -Mit inkrementellen Sicherungen werden nur Änderungen an Dateien in die Cloud übertragen.<br /><br /> -Sicherungen werden in Microsoft Azure und sind extern gespeichert Reduzieren der Notwendigkeit zum Sichern und Schützen der Sicherungsmedien.|  
+|Serversicherung|Sichert den Server, auf dem Windows Server Essentials ausgeführt wird. Die Daten werden auf einem externen USB-Laufwerk gesichert.<br /><br /> Weitere Informationen finden Sie unter [Manage Server Backup](Manage-Server-Backup-in-Windows-Server-Essentials.md) und [wiederherstellen oder Reparieren des Servers](Restore-or-repair-your-server-running-Windows-Server-Essentials.md).|– Sie können Dateien und Ordner auf Ihrem Server wiederherstellen.<br /><br /> – Sie können die vollständige Systemwiederherstellung des Servers führen.|  
+|Clientcomputersicherung|Sichert die Clientcomputer im Netzwerk. Die Daten werden auf dem Server gesichert, der Windows Server Essentials ausführt.<br /><br /> Weitere Informationen finden Sie unter [Client-Sicherung verwalten](Manage-Client-Computer-Backup-in-Windows-Server-Essentials.md) und [Wiederherstellen eines vollständigen Systems aus einer vorhandenen clientcomputersicherung](Restore-a-full-system-from-an-existing-client-computer-backup.md).|– Sie können Dateien und Ordner von Ihrem Server wiederherstellen.<br /><br /> – Sie können die vollständige Systemwiederherstellung des Servers führen.|  
+| Microsoft Azure Backup|Führt eine Onlinesicherung von Dateien oder Ordnern auf dem Server durch. Wenn Sie Azure Backup zum Sichern der Serverdaten verwenden, wird die Informationen verschlüsselt mithilfe Ihrer Passphrase aus, bevor sie in ein sicheres Datacenter im Internet hochgeladen werden.<br /><br /> Weitere Informationen finden Sie unter [Verwalten der Onlinesicherung](Manage-Online-Backup-in-Windows-Server-Essentials.md).|– Sie können Dateien und Ordner von Ihrem Server wiederherstellen.<br /><br /> -Bei inkrementellen Sicherungen werden nur Änderungen an Dateien in die Cloud übertragen.<br /><br /> -Sicherungen werden gespeichert, in Microsoft Azure und externen, wodurch der Bedarf zum Sichern und Schützen von internen Sicherungsmedien reduziert.|  
   
 ## <a name="see-also"></a>Siehe auch  
   

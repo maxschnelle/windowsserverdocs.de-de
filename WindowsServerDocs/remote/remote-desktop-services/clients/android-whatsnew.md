@@ -1,6 +1,6 @@
 ---
-title: Neuigkeiten für Remotedesktop für Android
-description: Erfahren Sie mehr über die aktuellen Änderungen an den Remotedesktop-Client für Android
+title: Neuerungen bei den für den Remotedesktop unter Android
+description: Erfahren Sie mehr über die letzten Änderungen an den Remotedesktopclient für Android
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -11,41 +11,26 @@ ms.topic: article
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.date: 03/28/2019
+ms.date: 07/06/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 220aeddfd98ec99c018404f6c76a9e196c85cd37
-ms.sourcegitcommit: 49424aa8b4c1e43bba44fa899c13bf6516c18ee2
-ms.translationtype: MT
+ms.openlocfilehash: 0722ee739a9e2ed429018d3a311cceeeb4ec2d9b
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "9272485"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59827301"
 ---
-# Neuigkeiten für die Remotedesktopclients für Android
+# <a name="whats-new-for-the-remote-desktop-client-on-android"></a>Neuerungen bei den für den Remotedesktop-Client unter Android
 
-Wir aktualisieren regelmäßig [Remotedesktopclients für Android](remote-desktop-android.md)Hinzufügen neuer Funktionen und Behebung von Problemen. Sehen Sie sich die neuesten Updates unten.
+Wir aktualisieren regelmäßig die [Remotedesktopclient für Android](remote-desktop-android.md), neue Features hinzugefügt wurden, und Beheben von Problemen. Sehen Sie sich die neuesten Updates, die weiter unten.
 
-## Updates für Version 8.1.67
-*Datum der Veröffentlichung: 03/28/2019*
+## <a name="updates-for-version-8161"></a>Updates für Version 8.1.61
+*Veröffentlichungsdatum: 07/05/2018*
 
-- Ein Problem behoben, in denen wurden Drücken von Tasten wiederholt, während der Eingabe in einer Remotesitzung.
+- Erste Unterstützung für Samsung DeX (Android 8.0 und höher).
 
-## Updates für Version 8.1.66
-*Datum der Veröffentlichung: 03/19/2019*
+## <a name="updates-for-version-8160"></a>Updates für Version 8.1.60
+*Veröffentlichungsdatum: 04/30/2018*
 
-- Anfängliche Unterstützung für [Virtuelle Windows-Desktop](https://aka.ms/wvd).
-- Feste ein Problem, das verursacht einen schwarzen Bereich am unteren Bildschirmrand auf einige Chromebook-Geräte und DeX Szenarien angezeigt werden.
-- Immersiven Modus-Unterstützung für Samsung DeX, Ausblenden der Taskleiste nach unten hinzugefügt.
-- Unterstützung für das Senden von Meta und Alt-Taste von der physischen Tastatur an die Remotesitzung für Samsung DeX.
-- Die Mauszeiger jetzt Updates basierend auf den Inhalt der Remotesitzung (Android 7.0 +)
-- Zusätzliche Fehlerkorrekturen.
-
-## Updates für Version 8.1.61
-*Datum der Veröffentlichung: 07/05/2018*
-
-- Anfängliche Unterstützung für Samsung DeX (Android 8.0 +).
-
-## Updates für Version 8.1.60
-*Datum der Veröffentlichung: 04/30/2018*
-
-- Aktualisiert, um CredSSP Verschlüsselung Oracle Wartung in CVE-2018-0886 beschrieben.
-- Einen Absturz behoben, beim Starten von Verbindungen von einer früheren Version übernommen.
+- Aktualisiert, um CredSSP Verschlüsselung Oracle Wiederherstellung in CVE-2018-0886 beschrieben.
+- Korrektur eines Absturzes, beim Starten von Verbindungen von einer früheren Version übernommen.

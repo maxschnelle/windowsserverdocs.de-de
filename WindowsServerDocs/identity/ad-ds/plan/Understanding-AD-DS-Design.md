@@ -1,35 +1,31 @@
 ---
 ms.assetid: d590c90e-9adf-4305-b226-eb2a5743337b
-title: Grundlegendes zu AD DS-Design
-description: 
-author: billmath
-ms.author: billmath
-manager: femila
-ms.date: 05/31/2017
+title: Grundlegendes zum ADDS-Entwurf
+description: ''
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.date: 08/07/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 09afe3d19add87327d05bfafba6e0492a278b968
-ms.sourcegitcommit: 1c3e6375b2e8eb01cfd299d0e9478fee46905c99
+ms.openlocfilehash: c94f6ddd19e3178243545b0cc71f6f4c7bb4dbec
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59828791"
 ---
-# <a name="understanding-ad-ds-design"></a>Grundlegendes zu AD DS-Design
+# <a name="understanding-ad-ds-design"></a>Grundlegendes zum ADDS-Entwurf
 
->Gilt für: Windows Server2016, Windows Server2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Organisationen können in Windows Server Active Directory-Domänendienste (AD DS) verwenden, zur Vereinfachung der Verwaltung von Benutzern und Ressourcen während des Erstellens skalierbare, sichere und verwaltbare Infrastruktur. AD DS können Sie um Ihre Netzwerkinfrastruktur, einschließlich der Filiale, die Microsoft Exchange Server und die Umgebung mit mehreren Gesamtstrukturen zu verwalten.  
+Organisationen können Active Directory Domain Services (AD DS) in Windows Server verwenden, um Benutzer und ressourcenverwaltung zu vereinfachen, während der Erstellung der skalierbare, sichere und verwaltbare Infrastruktur. Sie können AD DS verwenden, Ihre Netzwerkinfrastruktur einschließlich Branch Office, Microsoft Exchange Server und Umgebungen mit mehreren Gesamtstrukturen verwalten.  
   
-Ein Projekt der AD DS-Bereitstellung besteht aus drei Phasen: eine Entwurfsphase, einer Bereitstellungsphase und einer Phase Vorgänge. Während der Entwurfsphase erstellt das Entwurfsteam ein Entwurfs für die logischen AD DS-Struktur, die am besten den Anforderungen für jede Abteilung in der Organisation entspricht, der den Verzeichnisdienst verwendet wird. Nachdem das Design genehmigt wurde, wird das Bereitstellungsteam testet den Entwurf in einer Testumgebung und klicken Sie dann in der Produktionsumgebung implementiert das Design. Da Tests von dem Bereitstellungsteam durchgeführt, und es potenziell wirkt sich auf der Entwurfsphase, ist ein Zwischenschritt, der Entwurf und der Bereitstellung überschneidet. Wenn die Bereitstellung abgeschlossen ist, ist das Betriebsteam zuständig für die Verwaltung des Verzeichnisdiensts.  
+Ein AD DS-Bereitstellungsprojekt besteht aus drei Phasen: einer Entwurfsphase, einer Bereitstellungsphase und einer Einsatzphase. Während der Entwurfsphase erstellt das Designteam ein Design für die logischen AD DS-Struktur, die die Anforderungen der einzelnen Abteilungen in der Organisation am besten, die den Verzeichnisdienst verwendet werden. Nachdem das Design gebilligt wurde, wird das Bereitstellungsteam das Design in einer testumgebung getestet und implementiert das Design anschließend in der produktionsumgebung. Da Tests durch das Bereitstellungsteam durchgeführt wird, und sie potenziell wirkt sich auf der Entwurfsphase, ist es ein Zwischenschritt, der Entwurf und der Bereitstellung überschneidet. Wenn die Bereitstellung abgeschlossen ist, ist das Betriebsteam für die Wartung des Verzeichnisdiensts verantwortlich.  
   
-Obwohl die Windows Server-AD DS Entwurfs- und Strategien, die in diesem Handbuch beschriebenen auf umfangreiche Lab und Pilot-Programm testen und erfolgreiche Implementierung in Kundenumgebungen basieren, müssen Sie möglicherweise den AD DS-Entwurf anzupassen und Bereitstellung auf bestimmte, komplexe Umgebungen besser geeignet.  
+Obwohl die Windows Server AD DS-Entwurf und Bereitstellung von Strategien, die in diesem Handbuch angezeigt werden, die sich auf die umfangreichen und Tests und erfolgreiche Implementierung in kundenumgebungen basieren, müssen Sie möglicherweise Ihren AD DS-Entwurf anpassen und Bereitstellung besser spezifische, komplexe Umgebungen entsprechend anpassen.
   
--   Weitere Informationen zum Bereitstellen von AD DS in einer filialenumgebung finden Sie unter der Read-Only Domänencontroller (RODC) Branch Office Planning Guide ([https://go.microsoft.com/fwlink/?LinkId=100207](https://go.microsoft.com/fwlink/?LinkId=100207)).  
-  
--   Weitere Informationen zum Bereitstellen von AD DS in einer Exchange-Umgebung finden Sie unter Exchange 2007 – Planen von Active Directory ([https://go.microsoft.com/fwlink/?LinkId=88904](https://go.microsoft.com/fwlink/?LinkId=88904)).  
-  
--   Weitere Informationen zum Bereitstellen von AD DS in einer Umgebung mit mehreren Gesamtstrukturen finden Sie unter Aspekte mehrerer Gesamtstrukturen in Windows2000 und Windows Server2003 ([https://go.microsoft.com/fwlink/?LinkId=88905](https://go.microsoft.com/fwlink/?LinkId=88905)).  
-  
-
-
+- Weitere Informationen zum Bereitstellen von AD DS in einer Umgebung mit unternehmensniederlassungen finden Sie unter den [Read-Only-Domänencontroller (RODC) Branch Office Planning Guide](https://go.microsoft.com/fwlink/?LinkId=100207).  
+- Weitere Informationen zum Bereitstellen von AD DS in einer Exchange-Umgebung finden Sie im Artikel [Exchange 2007 - Planen von Active Directory](https://go.microsoft.com/fwlink/?LinkId=88904).  
+- Weitere Informationen zum Bereitstellen von AD DS in einer Umgebung mit mehreren Gesamtstrukturen finden Sie im Artikel [Multiple Forest Considerations in Windows 2000 und Windows Server 2003](https://go.microsoft.com/fwlink/?LinkId=88905).  

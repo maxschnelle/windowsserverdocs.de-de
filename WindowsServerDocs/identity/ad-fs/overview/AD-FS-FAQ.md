@@ -1,193 +1,285 @@
 ---
 ms.assetid: acc9101b-841c-4540-8b3c-62a53869ef7a
-title: "AD FS 2016 – HÄUFIG GESTELLTE FRAGEN"
-description: "Häufig gestellte Fragen für AD FS 2016"
-author: jenfieldmsft
+title: FAQ zu AD FS 2016
+description: Häufig gestellte Fragen für AD FS 2016
+author: billmath
 ms.author: billmath
-manager: femila
-ms.date: 03/06/2018
+manager: mtillman
+ms.date: 12/07/2018
 ms.topic: article
 ms.custom: it-pro
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 313447d2c92c15505434ec5c39898ca84aef46db
-ms.sourcegitcommit: 556361fe7c73c75d6cdc46a67dc88679fbe89c61
-ms.translationtype: MT
+ms.openlocfilehash: d8014cd72e66642ea9200afd6cd4266cbccba30c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59826811"
 ---
 # <a name="ad-fs-frequently-asked-questions-faq"></a>AD FS-häufig gestellte Fragen (FAQ)
 
 >Gilt für: Windows Server 2016
 
-Die folgende Dokumentation ist ein Haus auf häufig gestellte Fragen in Bezug auf Active Directory Federation Services.  Das Dokument wurde basierend auf den Typ der Frage in Gruppen aufgeteilt.
+Die folgende Dokumentation ist ein Zuhause auf häufig gestellte Fragen in Bezug auf Active Directory Federation Services.  Das Dokument wurde basierend auf der Art der Frage in Gruppen aufgeteilt.
 
 ## <a name="deployment"></a>Bereitstellung 
 
-### <a name="how-can-i-upgrademigrate-from-previous-versions-of-ad-fs"></a>Wie kann ich Upgrade/von früheren Versionen von AD FS migrieren
-Sie können mithilfe einer der folgenden AD FS aktualisieren:
+### <a name="how-can-i-upgrademigrate-from-previous-versions-of-ad-fs"></a>Wie kann ich Upgrade/aus früheren Versionen von AD FS migrieren
+Sie können AD FS mithilfe einer der folgenden aktualisieren:
 
 
-- Windows Server2012 R2 AD FS zu Windows Server2016 AD FS
-    - [Upgrade von ADFS in Windows Server2016 mithilfe einer WID-Datenbank](../deployment/Upgrading-to-AD-FS-in-Windows-Server-2016.md)
-    - [Upgrade von ADFS in Windows Server2016 mithilfe einer SQL-Datenbank](../deployment/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL.md)
-- Windows Server2012 AD FS to Windows Server2012 R2 AD FS
-    - [Migrieren Sie zu AD FS unter Windows Server2012 R2](https://technet.microsoft.com/library/dn486815.aspx)
-- AD FS 2.0 zu Windows Server2012 AD FS
-    - [Migrieren Sie zu AD FS unter Windows Server 2012](https://technet.microsoft.com/library/jj647765.aspx)
-- AD FS 1.x, um die AD FS 2.0 
-    - [Ein Upgrade von AD FS 1.x, um die AD FS 2.0](https://technet.microsoft.com/library/ff678035.aspx)
+- Windows Server 2012 R2 AD FS Windows Server 2016 AD FS
+    - [Upgrade von AD FS in Windows Server 2016 mithilfe einer WID-Datenbank](../deployment/Upgrading-to-AD-FS-in-Windows-Server-2016.md)
+    - [Upgrade von AD FS in Windows Server 2016 mithilfe einer SQL-Datenbank](../deployment/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL.md)
+- Windows Server 2012 AD FS für Windows Server 2012 R2 AD FS
+    - [Migrieren von AD FS unter Windows Server 2012 R2](https://technet.microsoft.com/library/dn486815.aspx)
+- AD FS 2.0 für Windows Server 2012 AD FS
+    - [Migrieren von AD FS unter WindowsServer 2012](https://technet.microsoft.com/library/jj647765.aspx)
+- AD FS 1.x auf AD FS 2.0 
+    - [Upgrade von AD FS 1.x auf AD FS 2.0](https://technet.microsoft.com/library/ff678035.aspx)
 
-Wenn Sie ein Upgrade von AD FS 2.0 oder 2.1 (Windows Server2008 R2 oder Windows Server2012) ausführen möchten, müssen Sie den in-Box-Skripts (im C:\Windows\ADFS) verwenden.
+Wenn Sie ein Upgrade von AD FS 2.0 oder 2.1 (Windows Server 2008 R2 oder Windows Server 2012) durchführen möchten, müssen Sie den integrierten Skripts (C:\Windows\ADFS) verwenden.
 
-### <a name="why-does-ad-fs-installation-require-a-reboot-of-the-server"></a>Warum ist die AD FS-Installation einen Neustart des Servers erforderlich?
+### <a name="why-does-ad-fs-installation-require-a-reboot-of-the-server"></a>Warum erfordert AD FS-Installation einen Neustart des Servers?
 
-HTTP/2-Unterstützung in Windows Server2016 hinzugefügt wurde, aber HTTP/2 nicht für die Authentifizierung per Clientzertifikat verwendet werden.  Da viele Szenarien für AD FS Verwendung der Authentifizierung per Clientzertifikat und eine größere Anzahl von Clients führen keine Unterstützung für wiederholen machen-Anforderungen mit HTTP/1.1, AD FS-Farm Konfiguration neu konfiguriert des lokalen Servers HTTP-Einstellungen auf HTTP/1.1.  Dies erfordert einen Neustart des Servers.  
+HTTP/2-Unterstützung wurde in Windows Server 2016 hinzugefügt, aber die HTTP/2 kann nicht für die Authentifizierung per Clientzertifikat verwendet werden.  Da viele AD FS-Szenarien Verwendung der Authentifizierung per Clientzertifikat und eine große Anzahl von Clients führen keine Unterstützung für Wiederholung vornehmen fordert die Verwendung von HTTP/1.1, AD FS-Farm Konfiguration neu konfiguriert HTTP-Einstellungen des lokalen Servers auf HTTP/1.1.  Dies erfordert einen Neustart des Servers.  
 
-### <a name="is-using-windows-2016-wap-servers-to-publish-the-ad-fs-farm-to-the-internet-without-upgrading-the-back-end-ad-fs-farm-supported"></a>Ist Windows2016 WAP-Servern mithilfe die AD FS-Farm mit dem Internet zu veröffentlichen, ohne dass eine Aktualisierung der Back-End-AD FS-Farm unterstützt?
-Ja, wird diese Konfiguration unterstützt, jedoch keine neuen Features für AD FS 2016 in dieser Konfiguration unterstützt werden würde.  Diese Konfiguration gilt als temporäre während der Migration von AD FS 2012 R2 AD FS 2016 und für einen längeren Zeitraum nicht bereitgestellt werden.
+### <a name="is-using-windows-2016-wap-servers-to-publish-the-ad-fs-farm-to-the-internet-without-upgrading-the-back-end-ad-fs-farm-supported"></a>Verwendet Windows 2016-WAP-Server, um AD FS-Farm mit dem Internet zu veröffentlichen, ohne dass ein Upgrade der Back-End-AD FS-Farm unterstützt?
+Ja, wird diese Konfiguration unterstützt, jedoch keine neuen AD FS 2016-Funktionen in dieser Konfiguration unterstützt werden.  Diese Konfiguration wird während der Migration von AD FS 2012 R2 AD FS 2016 temporär sein und für längere Zeit nicht bereitgestellt werden.
 
-## <a name="design"></a>Design
+### <a name="is-it-possible-to-deploy-ad-fs-for-office-365-without-publishing-a-proxy-to-office-365"></a>Ist es möglich, AD FS für Office 365 bereitstellen, ohne einen Proxy in Office 365 veröffentlichen?
+Ja, dies wird unterstützt. Allerdings als Nebeneffekt
+
+1. Sie müssen für das manuelle Verwalten der Tokensignaturzertifikate aktualisieren, da es sich bei Azure AD nicht auf die Metadaten des Verbunds zugreifen kann. Lesen Sie weitere Informationen zum manuellen Aktualisieren Tokensignaturzertifikat [Erneuern von verbundzertifikaten für Office 365 und Azure Active Directory](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-o365-certs)
+2. Sie werden nicht die legacyauthentifizierung Flows (z. B. ExO-Proxy Authentication Flow) nutzen können
+
+### <a name="what-are-load-balancing-requirements-for-ad-fs-and-wap-servers"></a>Was sind Lastenausgleich lastanforderungen für AD FS und WAP-Server? 
+
+AD FS ist einem zustandslosen System. Daher ist des Lastenausgleichs für Anmeldungen recht einfach. Im folgenden werden die wichtigsten Empfehlungen für den Lastenausgleich von Systemen. 
+
+
+- Load Balancer sollte nicht mit der IP-Affinität konfiguriert werden. Dies kann unrechtmäßigen auf eine Teilmenge Ihrer Server in bestimmten Szenarien mit Exchange Online belasten.
+- Load Balancer müssen nicht die HTTPS-Verbindungen zu beenden und initiieren Sie eine neue Verbindung mit dem ADFS-Server erneut. 
+- Lastenausgleichsmodule sorgen dafür, dass sich die IP-Adresse als die Quell-IP in der HTTP-Paket übersetzt werden soll, wenn AD FS gesendet werden. Wenn ein Lastenausgleich die Quell-IP in der HTTP-Paket senden kann, muss der Load Balancer hinzufügen (oder bei einem vorhandenen anfügen) die IP-Adresse für den X-forwarded-for-Header. Dies ist erforderlich, für die richtige Verarbeitung von bestimmten IP-bezogene Features (gesperrter IP-Adressen, Extranet Smart Lockout,...) und kann zur reduzierten Sicherheit nicht ordnungsgemäß konfiguriert. 
+- Load Balancer sollte SNI unterstützen. In der ereignismeldung nicht der Fall, stellen Sie sicher, dass AD FS für die HTTPS-Bindungen, um keine SNI-fähige Clients verarbeiten Erstellung konfiguriert ist.
+- Load Balancer sollten erkennen, wenn die AD FS oder WAP-Server ausgeführt werden, und sie ausschließen, wenn eine 200 OK wird nicht zurückgegeben, die AD FS-HTTP-Endpunkt für Integritätstests verwenden. 
+
+### <a name="what-multi-forest-configurations-are-supported-by-ad-fs"></a>Welche Konfigurationen mit mehreren Gesamtstrukturen werden von AD FS unterstützt? 
+
+AD FS unterstützt die Konfiguration mit mehreren mit mehreren Gesamtstrukturen und basiert auf dem zugrunde liegenden AD DS-Trust-Netzwerk zum Authentifizieren von Benutzern in mehreren vertrauenswürdigen Bereichen. Wir empfehlen dringend die 2-Wege, Gesamtstrukturvertrauensstellungen, da es sich handelt es sich um ein einfacheres Setup aus, um sicherzustellen, dass die vertrauenswürdigen Subsystem ohne Probleme funktioniert. Darüber hinaus 
+
+- Im Falle eine unidirektionale Gesamtstruktur-Vertrauensstellung wie z. B. eine DMZ-Gesamtstruktur, die mit der partneridentitäten empfehlen wir, Bereitstellen von AD FS in der corp-Gesamtstruktur, und zum Behandeln der DMZ-Gesamtstruktur als einen anderen lokalen Anspruchsanbieter-Vertrauensstellung über LDAP verbunden. Falls Sie diese Option können nicht zu verfolgen, müssten Sie zum Ausführen von AD FS in der "vertrauenswürdigen" Gesamtstruktur über ein Dienstkonto in der "vertrauenswürdigen Gesamtstruktur", die uneingeschränkten Zugriff auf die Benutzer in der "vertrauenswürdigen" Gesamtstruktur verfügt.
+- Während Vertrauensstellungen auf domäneneben werden unterstützt, und arbeiten können, empfehlen wir ausdrücklich eine Gesamtstruktur-Vertrauensstellung auf Gesamtstrukturebene-Modell zu verschieben. Darüber hinaus müssen Sie sicherstellen, dass der UPN routing und NetBIOS-namensauflösung mit den Namen der müssen korrekt arbeiten. 
+
+
+
+## <a name="design"></a>Entwurf
 
 ### <a name="what-third-party-multi-factor-authentication-providers-are-available-for-ad-fs"></a>Welche Multi-Factor Authentication-Anbieter von Drittanbietern sind für AD FS verfügbar? 
-Es folgt eine Liste der Drittanbieter-Anbieter, denen wir kennen.  Möglicherweise gibt es immer Anbieter zur Verfügung, wir wissen nicht zu, und wir die Liste aktualisieren werden, wie wir diese Informationen.
+Es folgt eine Liste von Drittanbietern, die, denen wir bekannt sind.  Möglicherweise gibt es immer Anbieter verfügbar, die wir nicht zu kennen, und wir lernen Sie die Liste aktualisieren.
 
 - [Gemalto Identitäts- & Sicherheitsdienste](http://www.gemalto.com/identity)
 - [InWebo Enterprise Authentication-Dienst](http://www.inwebo.com/)
-- [Melden Sie sich Personen MFA-API-Connector](https://www.loginpeople.com)
-- [RSA SecurID Authentication Agent für Microsoft Active Directory-Verbunddienste](http://www.emc.com/security/rsa-securid/rsa-authentication-agents/microsoft-ad-fs.htm)
-- [SafeNet Authentifizierung (SAS)-Dienst-Agent für AD FS](http://www.safenet-inc.com/resources/integration-guide/data-protection/Safenet_Authentication_Service/SafeNet_Authentication_Service__AD_FS_Agent_Configuration_Guide/?langtype=1033)
+- [Login People MFA-API-connector](https://www.loginpeople.com)
+- [RSA SecurID-Authentifizierung-Agent für Microsoft Active Directory-Verbunddienste](http://www.emc.com/security/rsa-securid/rsa-authentication-agents/microsoft-ad-fs.htm)
+- [SafeNet-Authentifizierung (SAS)-Dienst-Agent für AD FS](http://www.safenet-inc.com/resources/integration-guide/data-protection/Safenet_Authentication_Service/SafeNet_Authentication_Service__AD_FS_Agent_Configuration_Guide/?langtype=1033)
 - [Swisscom Mobile-ID-Authentifizierungsdienst](http://swisscom.ch/mid)
 - [Symantec-Überprüfung und ID-Schutzdienst (VIP)](http://www.symantec.com/vip-authentication-service) 
 
-### <a name="are-third-party-proxies-supported-with-ad-fs"></a>Werden Drittanbieter-Proxys werden mit AD FS unterstützt?
-Ja, vor the Web Application Proxy können von Drittanbietern Proxys platziert werden, aber Drittanbieter-Proxy muss unterstützen die [MS-ADFSPIP Protokoll](https://msdn.microsoft.com/library/dn392811.aspx) anstelle der Web Application Proxy verwendet werden.
+### <a name="are-third-party-proxies-supported-with-ad-fs"></a>Sind Drittanbieter-Proxys mit AD FS unterstützt?
+Ja, Drittanbieter-Proxys platziert werden können, vor der Web Application Proxy, sondern muss jeden beliebigen Proxy von Drittanbietern unterstützen die [MS-ADFSPIP Protokoll](https://msdn.microsoft.com/library/dn392811.aspx) anstelle der Web Application Proxy verwendet wird.
 
 ### <a name="what-third-party-proxies-are-available-for-ad-fs-that-support-ms-adfspip"></a>Welche Drittanbieter-Proxys für AD FS verfügbar sind, die MS-ADFSPIP unterstützen?
 
-Es folgt eine Liste der Drittanbieter-Anbieter, denen wir kennen.  Möglicherweise gibt es immer Anbieter zur Verfügung, wir wissen nicht zu, und wir die Liste aktualisieren werden, wie wir diese Informationen.
+Es folgt eine Liste von Drittanbietern, die, denen wir bekannt sind.  Möglicherweise gibt es immer Anbieter verfügbar, die wir nicht zu kennen, und wir lernen Sie die Liste aktualisieren.
 
-- [F5 Access-Richtlinien-Manager](https://support.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-third-party-integration-13-1-0/12.html#guid-1ee8fbb3-1b33-4982-8bb3-05ae6868d9ee)
+- [F5 Access Policy Manager](https://support.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-third-party-integration-13-1-0/12.html#guid-1ee8fbb3-1b33-4982-8bb3-05ae6868d9ee)
 
-### <a name="where-is-the-capacity-planning-sizing-spreadsheet-for-ad-fs-2016"></a>Wo ist die Kapazität Dimensionierung für AD FS 2016 planen?
-Die AD FS 2016-Version der Kalkulationstabelle heruntergeladen werden kann [hier](http://adfsdocs.blob.core.windows.net/adfs/ADFSCapacity2016.xlsx).
-Dies kann auch für AD FS unter Windows Server2012 R2 verwendet werden.
+### <a name="where-is-the-capacity-planning-sizing-spreadsheet-for-ad-fs-2016"></a>Wo ist die Kapazität Arbeitsblatt zur Dimensionierung für AD FS 2016 planen?
+Die AD FS 2016-Version des Arbeitsblatts kann heruntergeladen werden [hier](http://adfsdocs.blob.core.windows.net/adfs/ADFSCapacity2016.xlsx).
+Dies kann auch für AD FS in Windows Server 2012 R2 verwendet werden.
 
 ### <a name="how-can-i-ensure-my-ad-fs-and-wap-servers-support-apples-atp-requirements"></a>Wie kann ich meine AD FS und WAP-Server-Unterstützung von Apple ATP Anforderungen sicherstellen?
 
-Apple stellt eine Reihe von Anforderungen, die App Transport Security (ATS), die Aufrufe von iOS-Apps auswirken können, die Authentifizierung bei AD FS aufgerufen.  Sie können sicherstellen, dass Ihre AD FS und WAP-Servern entsprechen, indem Sie sicherstellen, dass sie unterstützen die [Anforderungen für das Herstellen einer Verbindung mit ATS](https://developer.apple.com/library/prerelease/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW57).  
-Insbesondere sollten Sie sicherstellen, dass Ihre AD FS und WAP-Server TLS 1.2 unterstützen und die TLS-Verbindung ausgehandelte Verschlüsselungssammlung unterstützt, die mit perfect forward Secrecy.
+Apple hat einen Satz von Anforderungen, die Namen der App Transport Security (ATS), die Aufrufe von iOS-apps beeinträchtigen können, die mit AD FS authentifizieren.  Sie können sicherstellen, dass Ihre AD FS und WAP-Servern entsprechen, indem Sie sicherstellen, dass sie unterstützen die [Anforderungen für die Verbindung mithilfe von ATS](https://developer.apple.com/library/prerelease/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW57).  
+Insbesondere sollten Sie sicherstellen, dass Ihre AD FS und WAP-Server TLS 1.2-Unterstützung und ausgehandelten Verschlüsselungssammlung der TLS-Verbindung mit perfect forward Secrecy unterstützt wird.
 
-Sie können aktivieren und Deaktivieren von SSL 2.0 und 3.0 und TLS Version 1.0, 1.1 und 1.2 mit [verwalten SSL-Protokolle in AD FS](../operations/Manage-SSL-Protocols-in-AD-FS.md).
+Sie aktivieren und Deaktivieren von SSL 2.0 und 3.0 und TLS-Versionen 1.0, 1.1 und 1.2 mit [Verwalten von SSL-Protokolle in AD FS](../operations/Manage-SSL-Protocols-in-AD-FS.md).
 
-Um sicherzustellen, dass Ihre AD FS und WAP Server aushandeln nur TLS-Verschlüsselungssammlungen, die ATP unterstützen, können Sie alle Verschlüsselungssammlungen ab, die nicht in Deaktivieren der [Liste der kompatiblen Verschlüsselungssammlungen ATP](https://developer.apple.com/library/prerelease/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW57).  Verwenden Sie hierzu die [Windows TLS-PowerShell-Cmdlets](https://technet.microsoft.com/itpro/powershell/windows/tls/index). 
+Um sicherzustellen, dass Ihre AD FS und WAP Server aushandeln nur TLS-Verschlüsselungssammlungen, die ATP unterstützen möchten, können Sie alle Verschlüsselungssammlungen, die nicht in Deaktivieren der [Liste von ATP-kompatible Verschlüsselungssammlungen](https://developer.apple.com/library/prerelease/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW57).  Verwenden Sie hierzu die [Windows TLS-PowerShell-Cmdlets](https://technet.microsoft.com/itpro/powershell/windows/tls/index). 
 
+## <a name="developer"></a>Entwickler
+
+### <a name="when-generating-an-idtoken-with-adfs-for-a-user-authenticated-against-ad-how-is-the-sub-claim-generated-in-the-idtoken"></a>Zur Erstellung eines Benutzers authentifiziert AD ein ID-Token mit AD FS ist der Anspruch "sub" wie im ID-Token werden generiert?
+Der Wert des Anspruchs mit "Sub" ist der Hash des Client-ID + Anker Anspruchswert.
+
+### <a name="what-is-the-lifetime-of-the-refresh-tokenaccess-token-when-the-user-logs-in-via-a-remote-claims-provider-trust-over-ws-fedsaml-p"></a>Was ist die Lebensdauer des aktualisierungstokens Token/Zugriff, bei der Anmeldung des Benutzers über eine remote-Anspruchsanbieter-Vertrauensstellung über WS-Fed/SAML-P? 
+Die Lebensdauer der Aktualisierungstoken werden die Lebensdauer des Tokens, die AD FS vom remote-Anspruchsanbieter-Vertrauensstellung erhalten haben. Die Lebensdauer des Zugriffstokens werden die Lebensdauer des Tokens der vertrauenden Seite für die Zugriffstoken ausgestellt wird.
+
+### <a name="i-need-to-return-profile-and-email-scopes-as-well-in-addition-to-the-openid-scope-can-i-obtain-additional-information-using-scopes-how-to-do-it-in-ad-fs"></a>Ich möchte Profil und e-Mail-Bereiche sowie zusätzlich zu den OpenId-Bereich zurück. Erhalte ich weitere Informationen, die Verwendung von Bereichen? Wie in der AD FS?
+Sie können benutzerdefinierte ID-Token verwenden, relevante Informationen in das ID-Token hinzufügen. Weitere Informationen finden Sie im Artikel [Anpassen von Ansprüchen in ID-Token an](../development/Custom-Id-Tokens-in-AD-FS.md).
+
+### <a name="how-to-issue-json-blobs-inside-jwt-tokens"></a>Wie Sie Json-Blobs im JWT-Token zu stellen?
+Eine spezielle ValueType ("http://www.w3.org/2001/XMLSchema#json") und character(\x22) Escapezeichen zu versehen, dies in AD FS 2016 hinzugefügt wurde. Führen Sie im folgenden Beispiel für die Regel für die Ausstellung und auch die endgültige Ausgabe aus dem Zugriffstoken aus.
+
+Beispielregel für Ausstellung:
+
+    => issue(Type = "array_in_json", ValueType = "http://www.w3.org/2001/XMLSchema#json", Value = "{\x22Items\x22:[{\x22Name\x22:\x22Apple\x22,\x22Price\x22:12.3},{\x22Name\x22:\x22Grape\x22,\x22Price\x22:3.21}],\x22Date\x22:\x2221/11/2010\x22}");
+
+-Anspruch in Zugriffstoken ausgestellt:
+
+    "array_in_json":{"Items":[{"Name":"Apple","Price":12.3},{"Name":"Grape","Price":3.21}],"Date":"21/11/2010"}
+
+### <a name="can-i-pass-resource-value-as-part-of-the-scope-value-like-how-requests-are-done-against-azure-ad"></a>Kann ich übergeben Ressourcenwert als Teil des Bereichswerts wie wie Anforderungen für Azure AD erfolgen? 
+Mit AD FS-Server 2019 können Sie jetzt in der Parameter "Scope" eingebetteten Ressourcenwert übergeben. Der Parameter "Scope" kann jetzt als eine durch Leerzeichen getrennte Liste organisiert werden, in dem jeder Eintrag Struktur als Ressourcenbereich/ist. Zum Beispiel  
+**< erstellen Sie eine gültige beispielanforderung >**
+
+### <a name="does-ad-fs-support-pkce-extension"></a>Unterstützt AD FS PKCE-Erweiterung?
+AD FS-Server 2019 unterstützt Proof Key für Code Exchange (PKCE) für OAuth Authorization Code Grant-flow 
 
 ## <a name="operations"></a>Vorgänge
 
-### <a name="how-do-i-replace-the-ssl-certificate-for-ad-fs"></a>Wie ersetzen kann ich das SSL-Zertifikat für AD FS? 
-Das AD FS-SSL-Zertifikat ist nicht identisch mit AD FS dienstkommunikationszertifikat finden Sie in der AD FS-Verwaltungs-Snap-In.  Um das AD FS-SSL-Zertifikat zu ändern, müssen Sie mithilfe von PowerShell. Folgen Sie den Anweisungen im folgenden Artikel:
+### <a name="how-do-i-replace-the-ssl-certificate-for-ad-fs"></a>Wie ersetzen ich das SSL-Zertifikat für AD FS? 
+Das AD FS-SSL-Zertifikat ist nicht identisch mit AD FS dienstkommunikationszertifikat finden Sie in das AD FS-Verwaltungs-Snap-in.  Um das AD FS-SSL-Zertifikat zu ändern, müssen Sie PowerShell verwenden. Führen Sie die Anweisungen in der folgenden Artikel:
 
-[Verwalten von SSL-Zertifikaten in AD FS und WAP 2016](../operations/Manage-SSL-Certificates-AD-FS-WAP-2016.md)
+[Verwalten von SSL-Zertifikaten in AD FS und WAP-2016](../operations/Manage-SSL-Certificates-AD-FS-WAP-2016.md)
 
-### <a name="how-can-i-enable-or-disable-tlsssl-settings-for-ad-fs"></a>Wie kann ich aktivieren oder Deaktivieren von TLS/SSL-Einstellungen für AD FS
-Verwenden Sie zum Deaktivieren oder Aktivieren von SSL-Protokolle und Verschlüsselungssuiten, folgende Schritteaus:
+### <a name="how-can-i-enable-or-disable-tlsssl-settings-for-ad-fs"></a>Wie kann ich zu aktivieren oder Deaktivieren von TLS/SSL-Einstellungen für AD FS
+Verwenden Sie zum Deaktivieren oder aktivieren Sie die SSL-Protokolle und Verschlüsselungssammlungen, folgende Schritte aus:
 
 [Verwalten von SSL-Protokolle in AD FS](../operations/Manage-SSL-Protocols-in-AD-FS.md)
 
-### <a name="does-the-proxy-ssl-certificate-have-to-be-the-same-as-the-ad-fs-ssl-certificate"></a>Verfügt die Proxy-SSL-Zertifikat des AD FS-SSL-Zertifikats identisch sein?  
-Verwenden Sie die folgende Richtlinien in Bezug auf die Proxy-SSL-Zertifikat und das AD FS-SSL-Zertifikat:
+### <a name="does-the-proxy-ssl-certificate-have-to-be-the-same-as-the-ad-fs-ssl-certificate"></a>Muss das SSL-Zertifikat des AD FS-SSL-Zertifikats übereinstimmen?  
+Verwenden Sie die folgende Anleitungen in Bezug auf die SSL-Zertifikat und das AD FS-SSL-Zertifikat:
 
 
-- Wenn der Proxy, um verwendet wird müssen AD FS-Proxy-Anfragen, die integrierte Windows-Authentifizierung, die Proxy-SSL-Zertifikat verwenden identisch sein (mit dem gleichen Schlüssel) das SSL-Zertifikat Föderation
-- Wenn die AD FS-Eigenschaft, die "ExtendedProtectionTokenCheck" ist (die Standardeinstellung in AD FS) aktiviert ist, muss die Proxy-SSL-Zertifikat identisch sein (verwenden Sie den gleichen Schlüssel) das SSL-Zertifikat Föderation
-- Andernfalls die Proxy-SSL-Zertifikat kann einen anderen Schlüssel aus dem AD FS-SSL-Zertifikat verfügen, aber erfüllt die gleiche [Anforderungen](../overview/AD-FS-2016-Requirements.md)
+- Wenn der Proxy, um verwendet wird müssen AD FS-Proxy für Anforderungen, die integrierte Windows-Authentifizierung, die SSL-Zertifikat verwenden identisch sein (verwenden Sie den gleichen Schlüssel) als Verbund-Server SSL-Zertifikat
+- Wenn die AD FS-Eigenschaft, die "ExtendedProtectionTokenCheck" ist (die Standardeinstellung bei AD FS) aktiviert, muss die SSL-Zertifikat identisch sein (verwenden Sie den gleichen Schlüssel) als Verbund-Server SSL-Zertifikat
+- Andernfalls die SSL-Zertifikat kann über einen anderen Schlüssel aus dem AD FS-SSL-Zertifikat verfügen, aber erfüllt die gleiche [Anforderungen](../overview/AD-FS-2016-Requirements.md)
 
-### <a name="how-can-i-configure-promptlogin-behavior-for-ad-fs"></a>Wie kann ich die Eingabeaufforderung konfigurieren Anmeldung Verhalten für AD FS =?
-Informationen zum Konfigurieren der Aufforderung = Anmeldung, finden Sie unter [Active Directory Federation Services auffordern = Anmelde-Parameter Unterstützung](../operations/AD-FS-Prompt-Login.md).
+### <a name="how-can-i-configure-promptlogin-behavior-for-ad-fs"></a>Wie kann ich konfigurieren Prompt = Login-Verhalten für AD FS?
+Informationen zum Konfigurieren der Eingabeaufforderung = Anmeldung finden Sie unter [Active Directory Federation Services auffordern = der Anmeldename die parameterunterstützung](../operations/AD-FS-Prompt-Login.md).
 
-### <a name="how-can-i-configure-browsers-to-use-windows-integrated-authentication-wia-with-ad-fs"></a>Wie kann ich Browser Windows integrierte Authentifizierung (WIA) mit AD FS konfigurieren?
+### <a name="how-can-i-configure-browsers-to-use-windows-integrated-authentication-wia-with-ad-fs"></a>Wie kann ich Windows integrierte Authentifizierung (WIA) mit AD FS Verwendung durch Browser konfigurieren?
 
-Informationen zum Konfigurieren von Browsern finden Sie unter [konfigurieren Browser, um Windows integrierte Authentifizierung (WIA) mit AD FS verwenden](../operations/Configure-AD-FS-Browser-WIA.md).
+Informationen zum Konfigurieren von Browsern finden Sie unter [Browser, um die Verwendung von Windows integrierte Authentifizierung (WIA) mit AD FS konfigurieren](../operations/Configure-AD-FS-Browser-WIA.md).
 
+### <a name="can-i-trun-off-browserssoenabled"></a>Kann ich schalten Sie BrowserSsoEnabled?
+Wenn Sie nicht über Richtlinien für die Zugriffssteuerung basierend auf dem Gerät auf die AD FS oder Windows Hello für Business-zertifikatregistrierung mithilfe von ADFS verfügen; Sie können die BrowserSsoEnabled deaktivieren. BrowserSsoEnabled kann AD FS eine PRT (Primary Refresh Token) vom Client zu sammeln der Geräteinformationen enthält. Ohne das Gerät funktioniert nicht auf Windows 10-Geräten Authentifizierung von AD FS.
 
-### <a name="how-long-are-ad-fs-tokens-valid"></a>Wie lange sind die AD FS-Token gültig?
+### <a name="how-long-are-ad-fs-tokens-valid"></a>Wie lange werden die AD FS-Token ist gültig?
 
-Häufig bedeutet, dass diese Frage "wie lange Benutzer erhalte für einmaliges Anmelden (SSO) ohne neue Anmeldeinformationen eingeben zu müssen, und wie kann ich als Administrator, die steuern?"  Dieses Verhalten und die Konfigurationseinstellungen, die steuern, in diesem Artikel beschriebenen [hier](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-fs/operations/ad-fs-2016-single-sign-on-settings).
+Häufig bedeutet, dass diese Frage "wie lange Benutzer erhalte einmalige Anmelden (SSO) ohne neue Anmeldeinformationen eingeben zu müssen und wie kann ich als Administrator steuern,?"  Dieses Verhalten und die Konfigurationseinstellungen, die steuern, werden in diesem Artikel beschrieben [AD FS Sign-Einstellungen für einmaliges](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/ad-fs-2016-single-sign-on-settings).
 
-Die Standardwerte für die Gültigkeitsdauer der verschiedenen Cookies und Token sind unten aufgeführt, (sowie die Parameter, die bestimmen, die Lebensdauer):
+Die Standardgültigkeitsdauer von den verschiedenen Cookies und Token sind nachfolgend aufgeführt, (sowie die Parameter, die steuern, die Lebensdauer):
 
 **Registrierte Geräte**
 
-- Druck und SSO Cookies: 90Tage maximale, unterliegt PSSOLifeTimeMins. (Bereitgestellten Gerät wird mindestens alle 14Tage verwendet, die durch DeviceUsageWindow gesteuert wird)
+- PRT und SSO-Cookies: bis 90 Tage, PSSOLifeTimeMins unterliegt. (Bereitgestellte Gerät mindestens alle 14 Tage verwendet die von DeviceUsageWindow gesteuert wird)
 
-- Aktualisieren von Token: berechnet anhand der oben genannten einheitliches Verhalten bereitstellen
+- Aktualisierungstoken: berechnet auf Grundlage des obigen in konsistentes Verhalten bereitzustellen.
 
-- Access_Token: 1 Stunde standardmäßig basierend auf die vertrauende Seite
+- access_token: 1 Stunde standardmäßig basierend auf die vertrauende Seite
 
-- ID_Token: wie Zugriffstoken
+- ID-Token: identisch mit dem Zugriffstoken
 
 **Nicht registrierte Geräte**
 
-- SSO Cookies: 8 Stunden in der Standardeinstellung unterliegt SSOLifetimeMins.  Wenn beibehalten, die ich angemeldet (KMSI) aktiviert ist, wird standardmäßig 24 Stunden und konfigurierbar über KMSILifetimeMins.
+- SSO-Cookies: 8 Stunden in der Standardeinstellung SSOLifetimeMins unterliegen.  Wenn bleiben angemeldet ("angemeldet bleiben") aktiviert ist, Standardwert ist 24 Stunden und kann über KMSILifetimeMins konfiguriert.
 
 
-- Aktualisieren von Token: standardmäßig acht Stunden. 24 Stunden mit KMSI aktiviert
+- Aktualisierungstoken: standardmäßig acht Stunden. 24 Stunden mit "angemeldet bleiben" aktiviert
 
-- Access_Token: 1 Stunde standardmäßig basierend auf die vertrauende Seite
+- access_token: 1 Stunde standardmäßig basierend auf die vertrauende Seite
 
-- ID_Token: wie Zugriffstoken
+- ID-Token: identisch mit dem Zugriffstoken
 
-### <a name="does-ad-fs-support-http-strict-transport-security-hsts"></a>Unterstützt die AD FS-HTTP-Strict Transport Security (HSTS)?  
+### <a name="does-ad-fs-support-http-strict-transport-security-hsts"></a>Unterstützt AD FS HTTP Strict Transport Security (HSTS)?  
 
-HTTP Strict Transport Security (HSTS) handelt es sich um eine Web-Richtlinie Sicherheitsmechanismus Dies trägt zu verringern, Protokoll Downgrade-Angriffe und Cookie-Missbrauch für Dienste, die HTTP- und HTTPS-Endpunkte haben. Es kann Webserver zu deklarieren, dass Webbrowser (oder andere leitete Benutzer-Agents) nur mit HTTPS und nie über die HTTP-Protokoll interagieren soll.
+HTTP Strict Transport Security (HSTS) ist ein Web-Richtlinie Sicherheitsmechanismus wodurch zu verringern, Protokoll Downgrade-Angriffe und Cookie-Hijacking für Dienste, die HTTP- und HTTPS-Endpunkte haben. Sie können Webserver deklarieren, dass der Webbrowser (oder anderen leitete Benutzer-Agents) nur mithilfe von HTTPS und nie über das HTTP-Protokoll interagieren müssen.
 
-Alle AD FS-Endpunkte für Web-Authentifizierungsdatenverkehr werden ausschließlich über HTTPS geöffnet.  AD FS reduziert daher effektiv die Bedrohungen, bei denen HTTP-Strict Transport Security Policy Mechanismus (ist es kein Downgrade HTTP gab es keine Listener in HTTP). Darüber hinaus verhindert, dass AD FS Cookies auf einen anderen Server mit HTTP-Protokoll-Endpunkten gesendet werden, indem Sie alle Cookies mit dem sicheren Flag markiert.
+Alle AD FS-Endpunkte für die Authentifizierung von Webverkehr werden ausschließlich über HTTPS geöffnet.  AD FS werden daher effektiv die Risiken, die HTTP Strict Transport Security richtlinienmechanismus bereitstellt (ist es kein Downgrade auf HTTP da es sich um keine Listener in HTTP). Darüber hinaus verhindert, dass AD FS die Cookies, die auf einen anderen Server mit HTTP-Protokoll-Endpunkten gesendet werden, indem Sie alle Cookies mit dem sicheren Flag markiert.
 
-Aus diesem Grund ist implementieren HSTS auf einem AD FS-Server nicht erforderlich, da es nie herabgestuft werden kann.  Zur Einhaltung von Vorschriften werden die folgenden Anforderungen von AD FS-Server erfüllen, da sie nie HTTP verwenden können, und alle Cookies sicheren gekennzeichnet sind.
+Aus diesem Grund ist die Implementierung von HSTS auf AD FS-Server nicht erforderlich, da es nie herabgestuft werden kann.  Zur Einhaltung von Vorschriften erfüllt die AD FS-Server diese Anforderungen können nie HTTP und alle Cookies werden als sicher markiert.
 
-### <a name="x-ms-forwarded-client-ip-does-not-contain-the-ip-of-the-client-but-contains-ip-of-the-firewall-in-front-of-the-proxy-where-can-i-get-the-right-ip-of-the-client"></a>X-ms-weitergeleitet-Client-IP-enthält IP-Adresse der Firewall vor der Proxy jedoch enthält nicht die IP-Adresse des dem Client. Wo finde ich die richtige IP-Adresse des dem Client?
-Es wird nicht empfohlen, SSL-Tunnelabschluss vor WAP tun. Für den Fall, dass SSL-Tunnelabschluss vor dem drahtlosen Zugriffspunkt abgeschlossen ist, wird die X-ms-weitergeleitet-Client-IP-die IP-Adresse des das Netzwerkgerät vor WAP enthalten. Im Folgenden ist eine kurze Beschreibung der verschiedenen IP-Ansprüche in Bezug, die von AD FS unterstützt werden:
- - X-ms-Client-Ip: Netzwerk IP-Adresse des Geräts, das mit der STS verbunden.  Bei einer Extranet-Anforderung enthält diese immer die IP-Adresse des dem drahtlosen Zugriffspunkt.
- - X-ms-weitergeleitet-Client-Ip: mehrwertige Anspruch die enthält alle Werte an AD FS durch Exchange Online und die IP-Adresse des Geräts, das Verbindung mit dem drahtlosen Zugriffspunkt weitergeleitet.
- - Userip: Für Extranet-Anforderungen werden diesem Anspruch den Wert der X-ms-weitergeleitet-Client-IP-enthalten.  Für Intranet-Anforderungen wird diesem Anspruch den gleichen Wert wie X-ms-Client-IP-enthalten.
+### <a name="x-ms-forwarded-client-ip-does-not-contain-the-ip-of-the-client-but-contains-ip-of-the-firewall-in-front-of-the-proxy-where-can-i-get-the-right-ip-of-the-client"></a>X-ms-forwarded-Client-Ip enthält nicht die IP-Adresse des Clients jedoch IP-Adresse der Firewall vor dem Proxy enthält. Wo erhalte ich die richtige IP-Adresse des Clients?
+Es wird nicht empfohlen, vor dem WAP-SSL-Beendigung zu tun. Für den Fall, dass Sie vor der WAP SSL-Beendigung abgeschlossen ist, wird die X-ms-weitergeleitet-Client-IP-Adresse die IP-Adresse des Netzwerkgeräts vor WAP enthalten. Im folgenden finden Sie wahrscheinlich nicht durch eine kurze Beschreibung der verschiedenen IP-Ansprüche, die von AD FS unterstützt werden:
+ - X-ms-Client-Ip: Netzwerk-IP-Adresse des Geräts, das Verbindung mit dem STS.  Im Fall von einer extranet-Anforderung enthält immer die IP-Adresse der WAP.
+ - X-ms-forwarded-Client-Ip: Mehrwertigen Anspruch enthält alle Werte, die AD FS von Exchange Online sowie die IP-Adresse des Geräts, das Verbindung mit dem drahtlosen Zugriffspunkt weitergeleitet.
+ - Userip: Dieser Anspruch wird den Wert der X-ms-forwarded-Client-Ip enthalten, für extranet-Anforderungen.  Für Intranet-Anforderungen wird dieser Anspruch auf den gleichen Wert wie X-ms-Client-Ip enthalten.
 
-### <a name="i-am-trying-to-get-additional-claims-on-the-user-info-endpoint-but-its-only-returning-subject-how-can-i-get-additional-claims"></a>Ich versuche, um zusätzliche Ansprüche auf dem Endpunkt der Benutzer Informationen zu erhalten, aber es wird nur zurückgegeben, Betreff. Wie erhalte ich zusätzliche Ansprüche?
-Der AD FS-Endpunkt Userinfo gibt immer den Betreff Anspruch gemäß den Standards OpenID zurück. AD FS bietet keine zusätzliche Ansprüche, die über den Endpunkt UserInfo angefordert. Wenn Sie zusätzliche Ansprüche in Tokens ID benötigen, finden Sie unter [benutzerdefinierte ID Token in AD FS](../development/custom-id-tokens-in-ad-fs.md).
+### <a name="i-am-trying-to-get-additional-claims-on-the-user-info-endpoint-but-its-only-returning-subject-how-can-i-get-additional-claims"></a>Ich versuche, um zusätzliche Ansprüche auf UserInfo-Endpoint, aber die einzige zurückgeben Betreff zu erhalten. Wie erhalte ich weitere Ansprüche?
+Der AD FS-Userinfo-Endpunkt gibt immer den Anspruch "Antragsteller" gemäß den Standards OpenID zurück. AD FS bietet keine zusätzliche Ansprüche, die über den UserInfo-Endpunkt angefordert. Wenn Sie zusätzliche Ansprüche in ID-Token benötigen, finden Sie unter [benutzerdefinierte ID-Token in AD FS](../development/custom-id-tokens-in-ad-fs.md).
 
-### <a name="why-do-i-see-alot-of-1021-errors-on-my-ad-fs-servers"></a>Warum sehe ich auf Meine AD FS-Server viele 1021 Fehler?
-Dieses Ereignis wird in der Regel für eine ungültige Zugriff auf Ressourcen auf AD FS für die Ressource 00000003-0000-0000-c000-000000000000 protokolliert. Dieser Fehler wird durch eine fehlerhafte Verhalten des Clients verursacht, in denen versucht wird, ein Zugriffstoken für den Dienst von Azure AD-Diagramm abzurufen. Da die Ressource nicht auf AD FS vorhanden ist, führt dies im Ereignis-ID 1021 auf die AD FS-Server. Es ist Warn- oder Fehlermeldungen für die Ressource 00000003-0000-0000-c000-000000000000 von AD FS ignoriert. 
+### <a name="why-do-i-see-a-lot-of-1021-errors-on-my-ad-fs-servers"></a>Warum sehe ich auf meinen AD FS-Servern viele 1021 Fehler?
+Dieses Ereignis wird in der Regel für eine ungültige Ressource den Zugriff auf AD FS für die Ressource 00000003-0000-0000-c000-000000000000 protokolliert. Dieser Fehler wird durch eine fehlerhafte Verhalten des Clients verursacht, in denen versucht wird, ein Zugriffstoken für den Azure AD Graph-Dienst abzurufen. Da die Ressource nicht in AD FS vorhanden ist, führt dies im Ereignis-ID 1021 auf AD FS-Servern. Es ist sicher keine Warnungen oder Fehler für Ressourcen 00000003-0000-0000-c000-000000000000 in AD FS ignoriert werden sollen. 
 
-### <a name="why-am-i-seeing-a-warning-for-failure-to-add-the-ad-fs-service-account-to-the-enterprise-key-admins-group"></a>Warum sehe ich eine Warnung für Fehler bei der Gruppe der Unternehmensadministratoren Schlüssel der AD FS-Dienstkonto hinzu?
-Diese Gruppe wird nur erstellt, wenn ein Windows2016-Domänencontroller mit der PDC-FSMO-Rolle in der Domäne vorhanden ist. Um den Fehler zu beheben, können Sie die Gruppe manuell erstellen und befolgen Sie die unten, um nach dem Hinzufügen des Dienstkontos als Mitglied der Gruppe die Berechtigung zu erteilen.
-1.  Öffnen **Active Directory-Benutzer und -Computer**. 
+### <a name="why-am-i-seeing-a-warning-for-failure-to-add-the-ad-fs-service-account-to-the-enterprise-key-admins-group"></a>Warum sehe ich eine Warnung für Fehler beim Hinzufügen der AD FS-Dienstkonto der Gruppe der Unternehmensadministratoren-Schlüssel?
+Diese Gruppe wird nur erstellt, wenn ein Windows-2016-Domänencontroller mit die FSMO-PDC-Rolle in der Domäne vorhanden ist. Um den Fehler zu beheben, können Sie die Gruppe manuell erstellen und befolgen Sie die unten, um die erforderliche Berechtigung nach dem Hinzufügen des Dienstkontos als Mitglied der Gruppe erhalten.
+1.  Öffnen Sie **Active Directory-Benutzer und -Computer**. 
 2.  **Mit der rechten Maustaste** Ihren Domänennamen im Navigationsbereich und **klicken Sie auf** Eigenschaften.
-3.  **Klicken Sie auf** Sicherheit (fehlt die Registerkarte "Sicherheit", aktivieren Sie erweiterte Funktionen aus dem Menü "Ansicht").
+3.  **Klicken Sie auf** Sicherheit (wenn die Registerkarte "Sicherheit" nicht vorhanden ist, aktivieren Sie erweiterte Funktionen aus dem Menü "Ansicht").
 4.  **Klicken Sie auf** erweitert. **Klicken Sie auf** hinzufügen. **Klicken Sie auf** Prinzipal auswählen.
-5.  Das Dialogfeld Benutzer, Computer, Dienstkonto oder Gruppe angezeigt wird.  Geben Sie im Feld Geben Sie die zu verwendenden Objektnamen Textfeld Schlüssel administrativen Gruppe.  Klicken Sie auf OK.
-6.  Wählen Sie in das Listenfeld, **Nachfolger Benutzerobjekte**.
-7.  Verwenden die Bildlaufleiste, scrollen Sie zum unteren Rand der Seite und **klicken Sie auf** alle löschen.
-8.  In der **Eigenschaften** Abschnitt **Lesen des MsDS-KeyCredentialLink** und **schreiben MsDS-KeyCrendentialLink**.
+5.  Das Dialogfeld Benutzer, Computer, Dienstkonto oder Gruppe angezeigt wird.  Geben Sie im Feld Geben Sie den Objektnamen ein Textfeld Schlüssel-Administratorgruppe.  Klicken Sie auf „OK“.
+6.  Wählen Sie in das Listenfeld, **untergeordnete Benutzerobjekte**.
+7.  Verwenden die Bildlaufleiste, scrollen Sie zum unteren Rand der Seite und **klicken Sie auf** Auswahl aufheben.
+8.  In der **Eigenschaften** wählen Sie im Abschnitt **MsDS-KeyCredentialLink lesen** und **schreiben MsDS-KeyCredentialLink**.
 
-### <a name="why-does-modern-authentication-from-android-devices-fail-if-the-server-does-not-send-all-the-intermediate-certificates-in-the-chain-with-the-ssl-cert"></a>Warum fehl moderne von Android-Geräte, wenn der Server nicht alle Zwischenzertifizierungsstellen-Zertifikate in der Kette mit dem SSL-Zertifikat sendet?
+### <a name="why-does-modern-authentication-from-android-devices-fail-if-the-server-does-not-send-all-the-intermediate-certificates-in-the-chain-with-the-ssl-cert"></a>Warum misslingt die moderner Authentifizierung auf Android-Geräten nicht, wenn der Server nicht alle Zwischenzertifikate in der Kette mit der SSL-Zertifikat sendet?
 
-Verbundbenutzer können Authentifizierung mit Azure AD für Apps auftreten, die den Android ADAL Bibliothek fehlerhaften verwenden. Die App erhalten eine **AuthenticationException** wenn er versucht, die Anmeldeseite angezeigt. In der AD FS-Chrom kann Anmeldeseite als unsicher aufgerufen werden.
+Verbundbenutzer können Authentifizierung an Azure AD für apps auftreten, die die Android-ADAL-Bibliothek fehlerhaften verwenden. Die app erhält ein **AuthenticationException** wenn er versucht, die Anmeldeseite angezeigt. In Chrome die AD FS kann Anmeldeseite als unsicher hingewiesen.
 
-Android – für alle Versionen und alle Geräte – unterstützt keine herunterladen zusätzliche Zertifikate von der **AuthorityInformationAccess** Feld des Zertifikats. Dies gilt auch für Chrome-Browsers zur Verfügung. Alle Serverauthentifizierungszertifikat, die Zwischenzertifizierungsstellen-Zertifikate nicht angezeigt wird, wird dieser Fehler führen, wenn die gesamte Zertifikatkette nicht von AD FS übergeben wird. 
+Android – für alle Versionen und alle Geräte: unterstützt nicht heruntergeladen zusätzliche Zertifikate aus dem **AuthorityInformationAccess** Feld des Zertifikats. Dies gilt auch den Chrome-Browser. Alle-Authentifizierung-Serverauthentifizierungszertifikat, das Fehlen der Zwischenzertifizierungsstellen-Zertifikate führt zu diesem Fehler, wenn die gesamte Zertifikatkette nicht von AD FS übergeben wird. 
 
-Eine richtige Lösung für dieses Problem wird so konfigurieren Sie die AD FS und WAP-Server, um die erforderlichen Zwischenzertifizierungsstellen-Zertifikate und das SSL-Zertifikat zu senden. 
+Eine richtige Lösung für dieses Problem wird so konfigurieren Sie die AD FS und WAP-Server, um die erforderlichen Zwischenzertifikate zusammen mit dem SSL-Zertifikat zu senden. 
 
-Stellen Sie beim Exportieren des SSL-Zertifikats von einem Computer, auf den persönlichen Speicher des Computers, der AD FS und WAP-Server importiert werden so exportieren Sie den privaten Schlüssel, und wählen Sie **privater Informationsaustausch – PKCS 12**. 
+Achten Sie beim Exportieren des SSL-Zertifikats von einem Computer, auf dem persönlichen Speicher, der die AD FS und WAP-Servern, des Computers importiert werden Sie darauf, exportieren den privaten Schlüssel, und wählen **privater Informationsaustausch – PKCS #12**. 
 
-Es ist wichtig, dass das Kontrollkästchen **, wenn möglich, alle Zertifikate im Zertifizierungspfad einbeziehen** aktiviert ist, sowie **alle erweiterte Eigenschaften exportieren**. 
+Es ist wichtig, dass das Kontrollkästchen zum **möglichst alle Zertifikate im Zertifizierungspfad einbeziehen** aktiviert ist, als auch **alle erweiterten Eigenschaften exportieren**. 
 
-Führen Sie certlm.msc auf Windows-Servern und importieren Sie die *. PFX in persönlichen Zertifikatspeicher des Computers. Dadurch wird den Server die gesamte Zertifikatkette der ADAL Bibliothek übergeben. 
+Führen Sie "certlm.msc" auf den Windows-Servern und importieren Sie die *. PFX in persönlichen Zertifikatspeicher des Computers. Dies bewirkt, dass den Server die gesamte Zertifikatkette an die ADAL-Bibliothek zu übergeben. 
 
 >[!NOTE]
-> Zertifikat Store des Netzwerks Lastenausgleichsmodule sollten ebenfalls aktualisiert werden die gesamte Zertifikatkette, falls vorhanden
+> Die Zertifikat-Speicher von Netzwerk-Load Balancer sollte ebenfalls aktualisiert und umfassen die gesamte Zertifikatkette, falls vorhanden
 
-### <a name="does-ad-fs-support-head-requests"></a>Unterstützt die AD FS HEAD-Anfragen?
-AD FS unterstützt HEAD-Anfragen nicht.  Anwendungen sollten nicht HEAD-Anforderungen anhand der AD FS-Endpunkte verwenden.  Dadurch kann HTTP-Fehlerseiten, die unerwartete und/oder verzögert werden.  Darüber hinaus können Sie unerwartete Fehlerereignisse im AD FS-Ereignisprotokoll finden Sie unter.
+### <a name="does-ad-fs-support-head-requests"></a>Unterstützt HEAD-Anforderungen werden von AD FS?
+AD FS unterstützt nicht die HEAD-Anforderungen.  Anwendungen sollten nicht HEAD-Anforderungen für AD FS-Endpunkte verwendet werden.  Dies verursacht möglicherweise HTTP-Fehlerseiten, die unerwartete und/oder verzögert werden.  Darüber hinaus möglicherweise unerwartete Fehlerereignisse in das AD FS-Ereignisprotokoll angezeigt.
 
-### <a name="why-am-i-not-seeing-a-refresh-token-when-i-am-logging-in-with-a-remote-idp"></a>Warum sehe ich die keinen Aktualisierungstoken ich die Anmeldung mit einem Remote-IdP bin?
-Ein Aktualisierungstoken wird nicht ausgegeben, wenn der IdP ausgestellte Token eine Validty von weniger als 1 Stunde hat. Um sicherzustellen, dass ein Aktualisierungstoken ausgestellt wurde, erhöhen Sie die Gültigkeit der IdP auf mehr als 1 Stunde ausgestellte Token.
+### <a name="why-am-i-not-seeing-a-refresh-token-when-i-am-logging-in-with-a-remote-idp"></a>Warum angezeigt ich kein Aktualisierungstoken wird, wenn ich mit einem remote-Identitätsanbieter werde?
+Ein Aktualisierungstoken wird nicht ausgegeben, wenn das vom Identitätsanbieter ausgestellte Token einen Validty von weniger als einer Stunde verfügt. Um sicherzustellen, dass ein Aktualisierungstoken ausgegeben wird, erhöhen Sie die Gültigkeit des Tokens, die vom Identitätsanbieter ausgestellt werden, auf mehr als 1 Stunde.
+
+### <a name="do-we-have-any-way-to-change-rp-token-encryption-algorithm"></a>Haben wir eine Möglichkeit, die RP-token-Verschlüsselungsalgorithmus ändern?
+Standardmäßig ist die Verschlüsselung von token der vertrauenden Seite, AES256 festgelegt und kann nicht auf einen anderen Wert geändert werden.
+
+### <a name="on-a-mixed-mode-farm-i-get-error-when-trying-to-set-the-new-ssl-certificate-using-set-adfssslcertificate--thumbprint-how-can-i-update-the-ssl-certificate-in-a-mixed-mode-ad-fs-farm"></a>In einer Farm im gemischten Modus Fehlermeldung beim Versuch, legen Sie das neue SSL-Zertifikat mithilfe der Set-AdfsSslCertificate-Thumbprint. Wie kann ich die SSL-Zertifikat in einem AD FS-Farm im gemischten Modus aktualisieren?
+Für WAP-Server können Sie die Set-WebApplicationProxySslCertificate weiterhin verwenden. Auf den AD FS-Servern müssen Sie Netsh verwenden. Gehen Sie wie folgt:
+
+1. Wählen Sie die Teilmenge der AD FS 2016-Server für die Wartung (z. B. aus dem Load Balancer entfernen)
+2. Importieren Sie auf den Servern in #1 ausgewählt haben das neue Zertifikat über MMC
+3. Löschen Sie die vorhandenen Zertifikate
+
+    a. netsh http delete sslcert hostnameport=fs.contoso.com:443 b. netsh http delete sslcert hostnameport=localhost:443 c. Netsh http Delete Sslcert hostnameport=fs.contoso.com:49443
+
+4.  Fügen Sie das neue Zertifikat hinzu.
+
+    a. Netsh http hinzufügen Sslcert hostnameport=fs.contoso.com:443 Certhash = CERTTHUMBPRINT Appid = {5d89a20c-beab-4389-9447-324788eb944a} Certstorename = Meine Sslctlstorename AdfsTrustedDevices =
+    
+    b. Netsh http hinzufügen Sslcert Hostnameport = Localhost:443 Certhash CERTTHUMBPRINT Appid = {5d89a20c-beab-4389-9447-324788eb944a} Certstorename = = Meine Sslctlstorename AdfsTrustedDevices =
+    
+    c. Netsh http hinzufügen Sslcert hostnameport=fs.contoso.com:49443 Certhash = CERTTHUMBPRINT Appid = {5d89a20c-beab-4389-9447-324788eb944a} Certstorename = Meine Sslctlstorename AdfsTrustedDevices =
+
+5. AD FS-Dienst auf dem ausgewählten Server neu starten
+6. Entfernen Sie die Teilmenge der WAP-Server für die Wartung
+7. Importieren Sie auf den ausgewählten WAP-Servern das neue Zertifikat über MMC
+8. Legen Sie das neue Zertifikat für WAP, die mithilfe von Cmdlets
+
+    a. Set-WebApplicationProxySslCertificate-Fingerabdruck "CERTTHUMBPRINT"
+
+9. Dienst für die ausgewählte WAP-Server neu starten
+10. Fügen Sie die ausgewählten WAP und AD FS-Server wieder in die produktionsumgebung. 
+    
+Führen Sie das Update auf dem Rest der AD FS und WAP-Server, auf ähnliche Weise. 
+
+### <a name="is-adfs-supported-when-web-application-proxy-wap-servers-are-behind-azure-web-application-firewallwaf"></a>Werden AD FS wird unterstützt, wenn der Web Application Proxy (WAP)-Server hinter dem Azure-Web-Anwendung Firewall(WAF) sind?
+AD FS und Web Application-Server unterstützt Firewall, die keine SSL-Tunnelabschluss für den Endpunkt durchführt. Darüber hinaus AD FS/WAP-Servern über eine integrierte Mechanismen, um zu verhindern, dass allgemeinen Webangriffen wie z. B. Cross-Site scripting, AD FS-Proxy und erfüllen alle Anforderungen von definiert die [MS-ADFSPIP Protokoll](https://msdn.microsoft.com/library/dn392811.aspx).

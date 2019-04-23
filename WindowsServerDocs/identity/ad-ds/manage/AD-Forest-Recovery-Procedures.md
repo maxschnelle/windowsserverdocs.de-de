@@ -1,59 +1,60 @@
 ---
-title: Wiederherstellung der Active Directory-Gesamtstruktur - Verfahren
-description: 
-author: billmath
-ms.author: billmath
-manager: femila
-ms.date: 07/07/2017
+title: Wiederherstellung der AD-Gesamtstruktur - Verfahren
+description: ''
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.date: 08/09/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.assetid: 47a471fb-3b0b-4aa8-8525-1c92d0d51e93
-ms.technology: identity-adfs
-ms.openlocfilehash: 91e3954c05fe3cd12d35b5db91afd29fb3a31e00
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.technology: identity-adds
+ms.openlocfilehash: da45e3b20c370a2a37b0eab31a78216434dd60be
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59827721"
 ---
-# <a name="ad-forest-recovery---procedures"></a>Wiederherstellung der Active Directory-Gesamtstruktur - Verfahren
+# <a name="ad-forest-recovery---procedures"></a>Wiederherstellung der AD-Gesamtstruktur - Verfahren
 
+>Gilt für: Windows Server 2016, Windows Server 2012 und 2012 R2, Windows Server 2008 und 2008 R2
 
->Gilt für: Windows Server2016, Windows Server2012 und 2012 R2, Windows Server2008 und 2008 R2
+Dieser Abschnitt enthält Verfahren im Zusammenhang mit der Gesamtstruktur-Wiederherstellungsprozess. Die Prozeduren gelten für Windows Server 2016, 2012 R2, 2012 und gelten auch für Windows Server 2008 R2 und 2008 mit einigen kleineren Ausnahmen.
 
-Dieser Abschnittenthält Verfahren, die im Zusammenhang mit der Wiederherstellungsvorgang für die Gesamtstruktur. Die Verfahren gelten für Windows Server2016, 2012 R2 2012 und gelten auch für Windows Server2008 R2 und 2008 mit einigen kleineren Ausnahmen. 
+Prozeduren, die Schritte umfassen, die für Windows Server 2003 variieren befinden sich unter [Wiederherstellung der Gesamtstruktur mit Windows Server 2003-Domänencontrollern](AD-Forest-Recovery-Windows-Server-2003.md).  
 
-Prozeduren, die Schritteumfassen, die für Windows Server2003 unterscheiden, befinden sich in [Wiederherstellung der Gesamtstruktur mit Windows Server2003-Domänencontrollern](AD-Forest-Recovery-Windows-Server-2003.md).  
+Im folgenden finden eine Liste von Prozeduren, die in der Sicherung und Wiederherstellung von Domänencontrollern und Active Directory verwendet werden.
 
-Im folgenden finden eine Liste der Prozeduren, die in der Sicherung und Wiederherstellung von Domänencontrollern und Active Directory verwendet werden.
-  
--   [Sichern einen vollständigen Server](AD-Forest-Recovery-Backing-up-a-Full-Server.md)  
--   [Sichern von Daten des Systemstatus](AD-Forest-Recovery-Backing-up-System-State.md)  
--   [Ausführen einer vollständigen Wiederherstellungs](AD-Forest-Recovery-Perform-a-Full-Recovery.md)  
--   [Durchführen einer autorisierenden Synchronisieren des DFSR-repliziertes SYSVOL](AD-Forest-Recovery-Authoritative-Recovery-SYSVOL.md)
--   [Eine nicht autoritative Wiederherstellung der Active Directory-Domänendienste ausführen](AD-Forest-Recovery-Nonauthoritative-Restore.md)  
-  
-     Diese Schritteerläutern, wie eine autorisierende Wiederherstellung von SYSVOL zur gleichen Zeit ausgeführt.  
--   [Konfigurieren des DNS-Server-Diensts](AD-Forest-Recovery-Configure-DNS.md)  
--   [Entfernen des globalen Katalogs](AD-Forest-Recovery-Remove-GC.md)  
--   [Auslösen den Wert des verfügbaren RID-Pools](AD-Forest-Recovery-Raise-RID-Pool.md)  
--   [Den aktuellen RID-Pool ungültig](AD-Forest-Recovery-Invaildate-RID-Pool.md)  
--   [Übernehmen einer Betriebsmasterfunktion](AD-Forest-Recovery-Seizing-Operations-Master-Role.md)  
--   [Bereinigen nach der Wiederherstellung](AD-Forest-Recovery-Cleanup.md)
--   [Bereinigen von Metadaten entfernter beschreibbarer Domänencontroller](AD-Forest-Recovery-Cleaning-Metadata.md)  
--   [Zurücksetzen des Kennworts für das Computerkonto des Domänencontrollers](AD-Forest-Recovery-Reset-Computer-Account-DC.md)  
--   [Das Krbtgt-Kennwort zurücksetzen](AD-Forest-Recovery-Resetting-the-krbtgt-password.md)  
--   [Zurücksetzen des Kennworts Vertrauensstellung auf einer Seite der Vertrauensstellung](AD-Forest-Recovery-Reset-Trust.md)  
--   [Hinzufügen des globalen Katalogs](AD-Forest-Recovery-Add-GC.md)  
--   [Ressourcen, um sicherzustellen, dass die Replikation funktioniert](AD-Forest-Recovery-Verify-Replication.md)  
-  
-  
+- [Einen vollständigen Server sichern](AD-Forest-Recovery-Backing-up-a-Full-Server.md)  
+- [Sicherung der Systemstatusdaten](AD-Forest-Recovery-Backing-up-System-State.md)  
+- [Ausführen einer vollständigen Wiederherstellungs](AD-Forest-Recovery-Perform-a-Full-Recovery.md)  
+- [Ausführen einer autoritativen Synchronisierung der DFSR-repliziertes SYSVOL](AD-Forest-Recovery-Authoritative-Recovery-SYSVOL.md)
+- [Ausführen einer nicht autorisierenden Wiederherstellung von Active Directory Domain Services](AD-Forest-Recovery-Nonauthoritative-Restore.md)  
+
+Diese Schritte wird erläutert, wie eine autorisierende Wiederherstellung von SYSVOL zur gleichen Zeit durchzuführen.  
+
+- [Konfigurieren des DNS-Server-Diensts](AD-Forest-Recovery-Configure-DNS.md)  
+- [Entfernen des globalen Katalogs](AD-Forest-Recovery-Remove-GC.md)  
+- [Auslösen den Wert des verfügbaren RID-pools](AD-Forest-Recovery-Raise-RID-Pool.md)  
+- [Den aktuelle RID-Pool ungültig](AD-Forest-Recovery-Invaildate-RID-Pool.md)  
+- [Übernehmen einer Betriebsmasterfunktion](AD-Forest-Recovery-Seizing-Operations-Master-Role.md)  
+- [Das Bereinigen nach einer Wiederherstellung](AD-Forest-Recovery-Cleanup.md)
+- [Bereinigen von Metadaten entfernter beschreibbarer Domänencontroller](AD-Forest-Recovery-Cleaning-Metadata.md)  
+- [Zurücksetzen des Kennworts für das Computerkonto des Domänencontrollers](AD-Forest-Recovery-Reset-Computer-Account-DC.md)  
+- [Das Krbtgt-Kennwort zurücksetzen](AD-Forest-Recovery-Resetting-the-krbtgt-password.md)  
+- [Zurücksetzen eines Kennworts vertrauen auf einer Seite der Vertrauensstellung](AD-Forest-Recovery-Reset-Trust.md)  
+- [Hinzufügen des globalen Katalogs](AD-Forest-Recovery-Add-GC.md)  
+- [Ressourcen, um sicherzustellen, dass die Replikation funktioniert](AD-Forest-Recovery-Verify-Replication.md)  
+
 ## <a name="next-steps"></a>Nächste Schritte
--   [Wiederherstellung der Active Directory-Gesamtstruktur - Voraussetzungen](AD-Forest-Recovery-Prerequisties.md)  
--   [Wiederherstellung des AD-Gesamtstruktur - Konzipierung einen Wiederherstellungsplan benutzerdefinierte Gesamtstruktur](AD-Forest-Recovery-Devising-a-Plan.md)  
-- [Wiederherstellung der Active Directory-Gesamtstruktur - identifizieren](AD-Forest-Recovery-Identify-the-Problem.md)
--   [Wiederherstellung der Active Directory-Gesamtstruktur - Bestimmen der Vorgehensweise beim Wiederherstellen](AD-Forest-Recovery-Determine-how-to-Recover.md)
--   [Wiederherstellung der Active Directory-Gesamtstruktur - führen Sie erste wiederherstellen](AD-Forest-Recovery-Perform-initial-recovery.md)  
--   [Wiederherstellung der Active Directory-Gesamtstruktur - Verfahren](AD-Forest-Recovery-Procedures.md)  
--   [AD-Gesamtstruktur-Wiederherstellung – häufig gestellte Fragen](AD-Forest-Recovery-FAQ.md)  
--   [Wiederherstellung des AD-Gesamtstruktur - Wiederherstellung von einer einzelnen Domäne innerhalb einer Gesamtstruktur Multidomain](AD-Forest-Recovery-Single-Domain-in-Multidomain-Recovery.md)  
--   [Wiederherstellung der Active Directory-Gesamtstruktur - Wiederherstellung der Gesamtstruktur mit Windows Server2003-Domänencontroller](AD-Forest-Recovery-Windows-Server-2003.md) 
+
+- [Wiederherstellung der Gesamtstruktur der Active Directory - Voraussetzungen](AD-Forest-Recovery-Prerequisties.md)  
+- [Wiederherstellung der Active Directory-Gesamtstruktur - Ausarbeiten eines Wiederherstellungsplans für die benutzerdefinierte Gesamtstruktur](AD-Forest-Recovery-Devising-a-Plan.md)  
+- [Wiederherstellung der Gesamtstruktur des Active Directory - Ermittlung des Problems](AD-Forest-Recovery-Identify-the-Problem.md)
+- [AD-Gesamtstruktur-Wiederherstellung: Bestimmen der Vorgehensweise beim Wiederherstellen](AD-Forest-Recovery-Determine-how-to-Recover.md)
+- [Wiederherstellung der Active Directory-Gesamtstruktur - erste Wiederherstellung ausführen](AD-Forest-Recovery-Perform-initial-recovery.md)  
+- [Wiederherstellung der Gesamtstruktur der Active Directory - Prozeduren](AD-Forest-Recovery-Procedures.md)  
+- [Wiederherstellung der Active Directory-Gesamtstruktur – häufig gestellte Fragen](AD-Forest-Recovery-FAQ.md)  
+- [AD-Gesamtstruktur-Wiederherstellung: Wiederherstellen einer einzelnen Domäne innerhalb einer Gesamtstruktur Multidomain](AD-Forest-Recovery-Single-Domain-in-Multidomain-Recovery.md)  
+- [Wiederherstellung der Active Directory-Gesamtstruktur - Wiederherstellung der Gesamtstruktur mit Windows Server 2003-Domänencontrollern](AD-Forest-Recovery-Windows-Server-2003.md) 

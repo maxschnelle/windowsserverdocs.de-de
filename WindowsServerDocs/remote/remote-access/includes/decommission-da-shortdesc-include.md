@@ -1,0 +1,1 @@
+**Setzen Sie der DirectAccess-Server außer Betrieb.** Wenn Sie die Konfigurationseinstellungen und die DNS-Einträge erfolgreich entfernt haben, können Sie Sie den DirectAccess-Server zu entfernen. Zu diesem Zweck entweder entfernen Sie die Rolle im Server-Manager oder setzen Sie den Server außer Betrieb und entfernen Sie sie aus AD DS.

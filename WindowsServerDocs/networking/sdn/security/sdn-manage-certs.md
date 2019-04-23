@@ -1,62 +1,64 @@
 ---
-title: Verwalten von Zertifikaten für Software-Networking Defined
-description: Sie können in diesem Thema verwenden, finden Sie Informationen zum Verwalten von Zertifikaten für die Netzwerk-Controller Northbound und Southbound Kommunikation, bei der Bereitstellung von Software Defined Networking (SDN) in Windows Server2016 Datacenter.
-manager: brianlic
+title: Verwalten von Zertifikaten für die Software Defined Networking
+description: Sie können in diesem Thema verwenden, um Informationen zum Verwalten von Zertifikaten für Network Controller Northbound und die Southbound-Kommunikation, beim Bereitstellen von Software-Defined Networking (SDN) in Windows Server 2016 Datacenter.
+manager: dougkim
 ms.prod: windows-server-threshold
 ms.technology: networking-sdn
 ms.topic: article
 ms.assetid: c4e2f6c7-0364-4bf8-bb66-9af59c0bbd74
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 3036de9161cabc2f3a85a1d3b2ce7739f0ff6bd3
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.date: 08/22/2018
+ms.openlocfilehash: 618c2c4da60decc94f84c2a40cd4d2aa80d5f26b
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59827571"
 ---
-# <a name="manage-certificates-for-software-defined-networking"></a>Verwalten von Zertifikaten für Software-Networking Defined
+# <a name="manage-certificates-for-software-defined-networking"></a>Verwalten von Zertifikaten für die Software Defined Networking
 
->Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
-Sie können in diesem Thema finden Sie Informationen zum Verwalten von Zertifikaten für Netzwerk-Controller Northbound und Southbound Kommunikation, wenn Sie die Software Defined Networking \(SDN\) in Windows Server2016 Datacenter bereitstellen und Sie System Center Virtual Machine Manager-\(SCVMM\) als Ihre SDN-Verwaltungsclient verwenden verwenden.
+Sie können in diesem Thema erfahren, wie das Verwalten von Zertifikaten für Network Controller Northbound und die Southbound-Kommunikation, beim Bereitstellen von Software Defined Networking \(SDN\) in Windows Server 2016 Datacenter, und Sie werden verwendet, System Center Virtual Machine Manager- \(SCVMM\) als Ihre SDN-Management-Client.
 
 >[!NOTE]
->Übersicht über Netzwerkcontroller, finden Sie unter [Netzwerkcontroller](../technologies/network-controller/Network-Controller.md).
+>Übersicht über den Netzwerkcontroller, finden Sie unter [Netzwerkcontroller](../technologies/network-controller/Network-Controller.md).
 
-Wenn Sie Kerberos nicht zum Sichern der Kommunikation Netzwerkcontroller verwenden, können Sie die x. 509-Zertifikate für Authentifizierung, Autorisierung und Verschlüsselung.
+Wenn Sie Kerberos für die Sicherung der Kommunikation des Netzwerkcontrollers nicht verwenden, können Sie die x. 509-Zertifikate für Authentifizierung, Autorisierung und Verschlüsselung.
 
-In Windows Server2016 Datacenter SDN unterstützt sowohl mit deren Hilfe signiert und Zertifizierungsstelle \ (CA\)-signierte x. 509-Zertifikate. Dieses Thema enthält eine schrittweise Anleitung zum Erstellen dieser Zertifikate und diese anwenden zum Sichern von Netzwerk-Controller Northbound Kommunikationskanäle mit Management-Clients und für die Southbound-Kommunikation mit Netzwerkgeräten, z.B. die Software Load Balancers \(SLB\).
+SDN in Windows Server 2016 Datacenter unterstützt beide Self\-signiert und Zertifizierungsstelle \(Zertifizierungsstelle\)-x. 509-Zertifikaten. Dieses Thema enthält schrittweise Anweisungen für diese Zertifikate erstellen und diese anwenden zu Network Controller Northbound Kommunikationskanäle mit Verwaltungsclients zu schützen und die Southbound-Kommunikation mit Netzwerkgeräten, z. B. der Software Load Balancer \(SLB\).
 .
-Wenn Sie Certificate\-basierte Authentifizierung verwenden, müssen Sie ein Zertifikat auf dem Netzwerkcontroller Knoten registrieren, die auf folgende Weise verwendet wird.
+Bei Verwendung Zertifikat\-basierte Authentifizierung, Sie müssen registrieren, ein Zertifikat auf dem Netzwerkcontroller-Knoten, die auf folgende Weise verwendet wird.
 
-1. Verschlüsseln der Northbound Kommunikation mit Secure Sockets Layer-\(SSL\) zwischen Netzwerkcontroller Knoten und Management-Clients, z.B. System Center Virtual Machine Manager.
-2. Authentifizierung zwischen Knoten Netzwerkcontroller und Southbound Geräte und Dienste, z.B. Hyper-V-Hosts und Software Load Balancers \(SLBs\).
+1. Verschlüsseln die Northbound-Kommunikation mit Secure Sockets Layer \(SSL\) zwischen Netzwerkcontroller und Verwaltungsclients, z. B. System Center Virtual Machine Manager.
+2. Authentifizierung zwischen dem Netzwerkcontroller-Knoten und Southbound-Geräte und Dienste, wie Hyper-V-Hosts und Software-Lastenausgleichsmodulen \(SLBs\).
 
 ## <a name="creating-and-enrolling-an-x509-certificate"></a>Erstellen und registrieren ein x. 509-Zertifikat
 
-Sie erstellen und Registrieren einer deren Hilfe signiertes Zertifikat oder ein Zertifikat, das von einer Zertifizierungsstelle ausgestellt wurde.
+Sie können das Erstellen und registrieren Sie entweder ein selbstsigniertes\-signiert oder ein Zertifikat, das von einer Zertifizierungsstelle ausgestellt wurde.
 
 >[!NOTE]
->Wenn Sie zum Bereitstellen von Netzwerkcontroller SCVMM verwenden, müssen Sie das x. 509-Zertifikat angeben, das zum Verschlüsseln der Northbound Kommunikation während der Konfiguration der Netzwerk-Controller-Dienstvorlage verwendet wird.
+>Wenn Sie SCVMM verwenden, um die Bereitstellung des Netzwerkcontrollers zu verwenden, müssen Sie das x. 509-Zertifikat angeben, das zum Verschlüsseln der Northbound-Kommunikation während der Konfiguration der Netzwerkcontroller-Dienstvorlage verwendet wird.
 
-Die Konfiguration des Zertifikats muss die folgenden Werte enthalten.
+Konfiguration des Zertifikats muss die folgenden Werte enthalten.
 
-- Der Wert für die **RestEndPoint** Textfeld muss die \(FQDN\) Network Controller vollqualifizierter Domänenname oder IP-Adresse sein. 
-- Die **RestEndPoint** Wert muss der Name des Antragstellers entsprechen \ (Common Name, CN\) des x. 509-Zertifikats.
+- Der Wert für die **RestEndPoint** Textfeld muss entweder der Controller vollständig qualifizierte Domänenname \(FQDN\) oder IP-Adresse. 
+- Die **RestEndPoint** Wert muss der Name des Antragstellers übereinstimmen \(allgemeiner Name, CN\) des x. 509-Zertifikats.
 
-### <a name="creating-a-self-signed-x509-certificate"></a>Erstellen eines signierten mit deren Hilfe x. 509-Zertifikats
+### <a name="creating-a-self-signed-x509-certificate"></a>Erstellen ein selbstsigniertes\-signiertes x. 509-Zertifikat
 
-Sie können ein selbstsigniertes x. 509-Zertifikat zu erstellen und es mit dem privaten Schlüssel exportieren \ (mit einer Password\ geschützt) folgende Schrittefür die Singlethread-Knoten und Listenfeld Bereitstellung von Netzwerk-Controller.
+Sie können ein selbstsigniertes x. 509-Zertifikat erstellen und exportieren Sie es mit dem privaten Schlüssel \(mit einem Kennwort geschützt\) mit folgenden Schritten für einzelne\-Knoten und mehreren\-knotenbereitstellungen des Netzwerkcontrollers .
 
-Wenn Sie mit deren Hilfe signierte Zertifikate erstellen, können Sie die folgenden Richtlinien.
+Beim Erstellen von Self-Service\-selbstsignierten Zertifikaten verwenden, können Sie die folgenden Richtlinien.
 
-- Sie können die IP-Adresse der Netzwerk-Controller-REST-Endpunkt für den DNS-Name-Parameter -, aber dies wird nicht empfohlen, da sie erfordert, dass die Netzwerk-Controller-Knoten alle in einem einzigen Management-Subnetz befinden \ (z.B. auf einem einzelnen Rack\)
-- Für mehrere Knoten NC-Bereitstellungen, der DNS-Namen, den Sie angeben, werden den FQDN des Clusters Controller Netzwerk \ (DNS-Host-A-Datensätze werden automatisch erstellt. \) 
-- Für die einzelnen Knoten Netzwerkcontroller Bereitstellungen kann der DNS-Name der Netzwerkcontroller Hostnamen gefolgt von dem Domänennamen sein.
+- Sie können die IP-Adresse der Netzwerk-Controller-REST-Endpunkt für den DNS-Name-Parameter -, aber dies wird nicht empfohlen, da sie erfordert, dass die Netzwerkcontroller-Knoten alle in einem einzelnen Management-Subnetz befinden \(z. B. auf einem einzelnen Rack\)
+- Der DNS-Namen, die Sie angeben, werden für mehrere knotenbereitstellungen für NC-, den FQDN des Clusters Network Controller \(DNS-Host-A-Datensätze werden automatisch erstellt.\) 
+- Für Bereitstellungen für einzelne Knoten Netzwerkcontroller kann der DNS-Namen des Netzwerkcontrollers, Hostname, gefolgt von den vollständigen Domänennamen sein.
 
 #### <a name="multiple-node"></a>Mehrere Knoten
 
-Sie können die [New-SelfSignedCertificate](https://technet.microsoft.com/en-us/itpro/powershell/windows/pkiclient/new-selfsignedcertificate) Windows PowerShell-Befehl zum Erstellen eines Zertifikats mit deren Hilfe signiert.
+Sie können die [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate) Windows PowerShell-Befehl erstellen Sie ein selbstsigniertes\-signiertes Zertifikat.
 
 **Syntax**
 
@@ -66,9 +68,9 @@ Sie können die [New-SelfSignedCertificate](https://technet.microsoft.com/en-us/
 
     New-SelfSignedCertificate -KeyUsageProperty All -Provider "Microsoft Strong Cryptographic Provider" -FriendlyName "MultiNodeNC" -DnsName @("NCCluster.Contoso.com")
 
-#### <a name="single-node"></a>Einem einzelnen Knoten
+#### <a name="single-node"></a>Einzelner Knoten
 
-Sie können die [New-SelfSignedCertificate](https://technet.microsoft.com/en-us/itpro/powershell/windows/pkiclient/new-selfsignedcertificate) Windows PowerShell-Befehl zum Erstellen eines Zertifikats mit deren Hilfe signiert.
+Sie können die [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate) Windows PowerShell-Befehl erstellen Sie ein selbstsigniertes\-signiertes Zertifikat.
 
 **Syntax**
 
@@ -78,97 +80,97 @@ Sie können die [New-SelfSignedCertificate](https://technet.microsoft.com/en-us/
 
     New-SelfSignedCertificate -KeyUsageProperty All -Provider "Microsoft Strong Cryptographic Provider" -FriendlyName "SingleNodeNC" -DnsName @("SingleNodeNC.Contoso.com")
 
-### <a name="creating-a-ca-signed-x509-certificate"></a>Erstellen eines CA\ signierte x. 509-Zertifikats
+### <a name="creating-a-ca-signed-x509-certificate"></a>Erstellen eine Zertifizierungsstelle\-signiertes x. 509-Zertifikat
 
-Um ein Zertifikat einer Zertifizierungsstelle mit erstellen, müssen Sie bereits eine Public Key-Infrastruktur \(PKI\) mit Active Directory Certificate Services \(AD CS\) bereitgestellt. 
-
->[!NOTE]
->Drittanbieter-Zertifizierungsstellen oder Tools, z.B. Openssl, können ein Zertifikat für die Verwendung mit Netzwerkcontroller, erstellen, aber die Anweisungen in diesem Thema für AD CS spezifisch sind. Um erfahren Sie, wie Sie eine Drittanbieter-Zertifizierungsstelle oder ein Tool verwenden, finden Sie in der Dokumentation für die Software, die Sie verwenden.
-
-Erstellen ein Zertifikat mit einer Zertifizierungsstelle umfasst die folgenden Schritteaus.
-
-1. Sie oder Ihre Domäne oder Organisation Sicherheitsadministrator konfiguriert die Zertifikatvorlage
-2. Sie oder Ihre Organisation Controller Netzwerkadministrator oder SCVMM-Administrator fordert ein neues Zertifikat von der Zertifizierungsstelle.
-
-#### <a name="certificate-configuration-requirements"></a>Konfiguration von Zertifikatanforderungen
-
-Während Sie im nächsten Schritteine Zertifikatvorlage konfigurieren, stellen Sie sicher, dass die Vorlage, die Sie konfigurieren die folgenden erforderlichen Elemente enthält.
-
-1. Der Antragstellername des Zertifikats muss den FQDN des Hyper-V-Host sein.
-2. Das Zertifikat muss im persönlichen Speicher lokalen Computers platziert werden (Meine – Cert: \localmachine\my)
-3. Das Zertifikat muss sowohl Serverauthentifizierung enthalten (EKU: 1.3.6.1.5.5.7.3.1) und Client-Authentifizierung (EKU: 1.3.6.1.5.5.7.3.2) Anwendungsrichtlinien.
+Um ein Zertifikat von einer Zertifizierungsstelle zu erstellen, Sie müssen bereits bereitgestellt haben eine Public Key-Infrastruktur \(PKI\) mit Active Directory Certificate Services \(AD CS\). 
 
 >[!NOTE]
->Wenn der persönliche \ (Meine – Cert: \localmachine\my\) Zertifikat Store auf dem Hyper\-V-Host hat mehr als ein x. 509 certificate mit Betreff Name (CN) wie des Hosts \(FQDN\) Fully Qualified Domain Name, stellen Sie sicher, dass das Zertifikat, das von SDN verwendet werden, eine zusätzliche benutzerdefinierte Enhanced Key Usage-Eigenschaft mit der OID 1.3.6.1.4.1.311.95.1.1.1 verfügt. Andernfalls funktioniert die Kommunikation zwischen Netzwerkcontroller und dem Host möglicherweise nicht.
+>Sie können Drittanbieter-Zertifizierungsstellen oder Tools wie Openssl, verwenden, um ein Zertifikat zur Verwendung mit Netzwerkcontroller, zu erstellen, aber die Anweisungen in diesem Thema an AD CS spezifisch sind. Um zu erfahren, wie Sie eine Drittanbieter-Zertifizierungsstelle oder ein Tool verwenden, finden Sie in der Dokumentation für die Software, die Sie verwenden.
+
+Erstellen ein Zertifikat mit einer Zertifizierungsstelle enthält die folgenden Schritte aus.
+
+1. Sie oder Ihre Organisation Domäne oder Sicherheitsadministrator wird die Zertifikatvorlage konfiguriert.
+2. Sie oder Ihre Organisation Network Controller-Administratoren oder SCVMM-Administrator fordert bei der Zertifizierungsstelle ein neues Zertifikat.
+
+#### <a name="certificate-configuration-requirements"></a>Zertifikatanforderungen für die Konfiguration
+
+Während Sie im nächsten Schritt eine Zertifikatvorlage konfigurieren, stellen Sie sicher, dass die Vorlage, die Sie konfigurieren die folgenden erforderlichen Elemente enthält.
+
+1. Antragstellername des Zertifikats muss den FQDN des Hyper-V-Host sein.
+2. Das Zertifikat muss im persönlichen Speicher lokalen Computers abgelegt werden (Meine – Cert: \localmachine\my)
+3. Das Zertifikat muss beide Server-Authentifizierung verfügen (EKU: 1.3.6.1.5.5.7.3.1) und die Clientauthentifizierung (EKU: 1.3.6.1.5.5.7.3.2) Richtlinien für die Anwendungen.
+
+>[!NOTE]
+>Wenn das Personal \(Meine – Cert: \localmachine\my\) Zertifikatspeicher auf dem Hyper\-V-Host hat mehr als ein x. 509-Zertifikat mit Betreff Name (CN) wie der Host vollständig qualifizierten Domänennamens \(FQDN\), Stellen Sie sicher, dass das Zertifikat, das von SDN verwendet werden, eine zusätzliche benutzerdefinierte Enhanced Key Usage-Eigenschaft mit der OID 1.3.6.1.4.1.311.95.1.1.1 verfügt. Andernfalls funktioniert die Kommunikation zwischen Netzwerkcontroller und dem Host möglicherweise nicht.
 
 #### <a name="to-configure-the-certificate-template"></a>So konfigurieren Sie die Zertifikatvorlage
   
 >[!NOTE]
->Bevor Sie dieses Verfahren ausführen, sollten Sie die Zertifikatanforderungen und die verfügbaren Zertifikatvorlagen in die Zertifikatvorlagenkonsole überprüfen. Sie können entweder eine vorhandene Vorlage ändern oder erstellen Sie ein Duplikat einer vorhandenen Vorlage und ändern Sie Ihre Kopie der Vorlage. Wird empfohlen, eine Kopie einer vorhandenen Vorlage erstellen.
+>Bevor Sie dieses Verfahren durchführen, prüfen Sie die zertifikatanforderungen und verfügbaren Zertifikatvorlagen in der Verwaltungskonsole für Zertifikatvorlagen. Sie können entweder eine vorhandene Vorlage ändern oder erstellen Sie ein Duplikat einer vorhandenen Vorlage und dann die Kopie der Vorlage ändern. Erstellen eine Kopie einer vorhandenen Vorlage wird empfohlen.
 
-1. Klicken Sie auf dem Server, auf dem AD CS wird, wird im Server-Manager installiert, auf **Tools**, und klicken Sie dann auf **Zertifizierungsstelle**. Die Microsoft-Verwaltungskonsole \(MMC\) wird geöffnet. 
-2. Doppelklicken Sie in der MMC auf den Namen der Zertifizierungsstelle, mit der rechten Maustaste **Zertifikatvorlagen**, und klicken Sie dann auf **verwalten**.
+1. Klicken Sie auf dem Server, auf dem AD CS, im Server-Manager installiert ist auf **Tools**, und klicken Sie dann auf **Zertifizierungsstelle**. Die Microsoft-Verwaltungskonsole \(MMC\) wird geöffnet. 
+2. Doppelklicken Sie in der MMC auf den Zertifizierungsstellennamen, mit der rechten Maustaste **Zertifikatvorlagen**, und klicken Sie dann auf **verwalten**.
 3. Die Zertifikatvorlagenkonsole wird geöffnet. Alle Zertifikatvorlagen werden im Detailbereich angezeigt.
 4. Klicken Sie im Detailbereich auf die Vorlage, die Sie duplizieren möchten.
 5.  Klicken Sie auf die **Aktion** , und klicken Sie dann auf **Doppelte Vorlage**. Die Vorlage **Eigenschaften** Dialogfeld wird geöffnet.
-6.  In der Vorlage **Eigenschaften** Dialogfeld auf die **Antragstellername** auf **Geben Sie in der Anforderung**. \ (Diese Einstellung ist für die Controller-SSL-Zertifikate erforderlich. \)
-7.  In der Vorlage **Eigenschaften** Dialogfeld auf die **Anforderungsverarbeitung** sicher, dass der **Exportieren von privatem Schlüssel zulassen** ausgewählt ist. Außerdem sicherstellen, dass die **Signatur und Verschlüsselung** Zweck ausgewählt ist.
+6.  In der Vorlage **Eigenschaften** Dialogfeld auf die **Antragstellername** auf **Geben Sie in der Anforderung**. \(Diese Einstellung ist für die Netzwerk-Controller-SSL-Zertifikate erforderlich.\)
+7.  In der Vorlage **Eigenschaften** Dialogfeld auf die **Anforderungsverarbeitung** sicher, dass **privatem Schlüssel zulassen zu exportierenden** ausgewählt ist. Stellen Sie außerdem sicher, dass die **Signatur- und verschlüsselungselemente** Zweck ausgewählt ist.
 8.  In der Vorlage **Eigenschaften** Dialogfeld auf die **Erweiterungen** Registerkarte **Schlüsselverwendung**, und klicken Sie dann auf **bearbeiten**.
-9.  In **Signatur**, stellen Sie sicher, dass **digitale Signatur** ausgewählt ist.
+9.  In **Signatur**, sicher, dass **digitale Signatur** ausgewählt ist.
 10.  In der Vorlage **Eigenschaften** Dialogfeld auf die **Erweiterungen** Registerkarte **Anwendungsrichtlinien**, und klicken Sie dann auf **bearbeiten**.
-11.  In **Anwendungsrichtlinien**, stellen Sie sicher, dass **Clientauthentifizierung** und **Serverauthentifizierung** aufgeführt sind.
-12.  Speichern Sie die Kopie der Zertifikatvorlage mit einem eindeutigen Namen, z.B. **Netzwerkcontroller Vorlage**.
+11.  In **Anwendungsrichtlinien**, sicher, dass **Clientauthentifizierung** und **Serverauthentifizierung** aufgeführt sind.
+12.  Speichern Sie die Kopie der Zertifikatvorlage durch einen eindeutigen Namen, z. B. **Netzwerkcontroller Vorlage**.
 
 #### <a name="to-request-a-certificate-from-the-ca"></a>Von der Zertifizierungsstelle ein Zertifikat anfordern
 
-Sie können das Zertifikate-Snap-In zum Anfordern von Zertifikaten verwenden. Sie können jede Art von Zertifikat anfordern, die vorkonfiguriert und zur Verfügung gestellt, durch den Administrator der Zertifizierungsstelle, die die Anforderung verarbeitet wurde.
+Sie können das Zertifikate-Snap-in zum Anfordern von Zertifikaten verwenden. Sie können jede Art von Zertifikat anfordern, die vorkonfiguriert und zur Verfügung gestellt, von einem Administrator der Zertifizierungsstelle, die die Anforderung verarbeitet wurde.
 
-**Benutzer** oder lokalen **Administratoren** mindestens Mitglied der Gruppe zum Durchführen dieses Verfahrens erforderlich ist.
+**Benutzer** oder lokale **Administratoren** mindestens Mitglied der Gruppe zum Durchführen dieses Verfahrens erforderlich ist.
 
-1. Öffnen Sie die Zertifikate-Snap-In für einen Computer.
-2. Klicken Sie in der Konsolenstruktur auf **Zertifikate \(Local Computer\)**. Wählen Sie die **persönliche** Zertifikatspeicher.
-3. Auf der **Aktion** auf ** alle Aufgaben **, und klicken Sie dann auf **neues Zertifikat anfordern** auf den Zertifikatregistrierungs-Assistenten zu starten. Klicken Sie auf **Weiter**.
-4. Wählen Sie die **vom Administrator konfiguriert** Zertifikatregistrierungsrichtlinie und klicken Sie auf **Weiter**.
-5. Wählen Sie die **Active Directory-Registrierungsrichtlinie** \ (basierend auf der CA-Vorlage, die Sie in der vorherigen Section\ konfiguriert).
-6. Erweitern Sie die **Details** Abschnitt, und konfigurieren Sie die folgenden Elemente.
-    1. Stellen Sie sicher, dass **Schlüssel Nutzung** beinhaltet ** digitale Signatur ** und **Schlüsselverschlüsselung**.
-    2. Stellen Sie sicher, dass **Anwendungsrichtlinien** beinhaltet **Serverauthentifizierung** \(1.3.6.1.5.5.7.3.1\) und **Clientauthentifizierung** \(1.3.6.1.5.5.7.3.2\).
+1. Öffnen Sie das Zertifikate-Snap-in für einen Computer an.
+2. Klicken Sie in der Konsolenstruktur auf **Zertifikate \(lokalen Computer\)**. Wählen Sie die **persönliche** Zertifikatspeicher.
+3. Auf der **Aktion** , zeigen Sie auf ** alle Aufgaben **, und klicken Sie dann auf **neues Zertifikat anfordern** zum Starten des Assistenten für die Registrierung von Zertifikaten. Klicken Sie auf **Weiter**.
+4. Wählen Sie die **von Ihrem Administrator konfiguriert** Certificate Enrollment-Richtlinie, und klicken Sie auf **Weiter**.
+5. Wählen Sie die **Active Directory-Registrierungsrichtlinie** \(basierend auf der ZS-Vorlage, die Sie im vorherigen Abschnitt konfiguriert\).
+6. Erweitern Sie die **Details** aus und konfigurieren Sie die folgenden Elemente.
+    1. Sicherstellen, dass **Schlüsselverwendung** enthält die beiden ** digitale Signatur ** und **Schlüsselverschlüsselung**.
+    2. Sicherstellen, dass **Anwendungsrichtlinien** enthält die beiden **Serverauthentifizierung** \(1.3.6.1.5.5.7.3.1\) und **Clientauthentifizierung** \(1.3.6.1.5.5.7.3.2\).
 7. Klicken Sie auf **Eigenschaften**.
-8. Auf der **Betreff** Registerkarte **Antragstellername**im **Typ**Option **allgemeiner Name**. Geben Sie im Feld Wert **Netzwerk-Controller-REST-Endpunkt**.
-9. Klicken Sie auf **übernehmen**, und klicken Sie dann auf **OK**.
-10. Klicken Sie auf **registrieren**.
+8. Auf der **Betreff** Registerkarte **Antragstellername**im **Typ**Option **allgemeiner Name**. Geben Sie in "Wert" **Network Controller-REST-Endpunkt**.
+9. Klicken Sie auf **Übernehmen**, und klicken Sie anschließend auf **OK**.
+10. Klicken Sie auf **Registrieren**.
 
-Klicken Sie in der MMC-Zertifikate auf den persönlichen Speicher des Zertifikats anzeigen, die Sie von der Zertifizierungsstelle registriert haben.
+Das Zertifikate-MMC klicken Sie auf dem persönlichen Speicher, um das Zertifikat anzuzeigen, die, das Sie von der Zertifizierungsstelle registriert haben.
 
 ## <a name="exporting-and-copying-the-certificate-to-the-scvmm-library"></a>Exportieren und kopieren das Zertifikat in der SCVMM-Bibliothek
 
-Nach dem Erstellen eines Zertifikats signiert mit deren Hilfe oder CA\ angemeldet haben, müssen Sie das Zertifikat mit dem privaten Schlüssel exportieren \(in.pfx Format\) und ohne den privaten Schlüssel \ (in Base64-CER-Format) in das Zertifikate-Snap-In. 
+Nach dem Erstellen entweder ein selbstsigniertes\-signiert oder von einer Zertifizierungsstelle\-signiertes Zertifikat verwenden, müssen Sie das Zertifikat mit dem privaten Schlüssel exportieren \(im PFX-Format\) und ohne den privaten Schlüssel \(im Base64-CER-Format\) aus dem Zertifikate-Snap-in. 
 
-Sie müssen die beiden exportierten Dateien zum Kopieren der **ServerCertificate.cr** und **NCCertificate.cr** Ordner, die Sie zu dem Zeitpunkt angegeben beim Importieren von der Dienstvorlage NC.
+Dann müssen Sie die beiden exportierten Dateien zum Kopieren der **ServerCertificate.cr** und **"nccertificate.CR"** Ordnern, die Sie angegeben haben, die zum Zeitpunkt beim Importieren der Dienstvorlage NC.
 
-1. Öffnen Sie das Zertifikate-Snap-In (certlm.msc), und suchen Sie das Zertifikat in den persönlichen Zertifikatspeicher des lokalen Computers.
-2. Klicken Sie mit der rechten Maustaste auf das Zertifikat auf **alle Aufgaben**, und klicken Sie dann auf **exportieren**. Der Zertifikatexport-Assistent wird geöffnet. Klicken Sie auf **Weiter**.
+1. Öffnen Sie das Zertifikate-Snap-in (certlm.msc), und suchen Sie das Zertifikat im persönlichen Zertifikatspeicher für den lokalen Computer.
+2. Rechts\-klicken Sie auf das Zertifikat, klicken Sie auf **alle Aufgaben**, und klicken Sie dann auf **exportieren**. Der Zertifikatexport-Assistent wird geöffnet. Klicken Sie auf **Weiter**.
 3. Wählen Sie **Ja**, exportieren Sie die Option für private Schlüssel, klicken Sie auf **Weiter**.
-4. Wählen Sie **privater Informationsaustausch – PKCS 12 (.PFX)** und akzeptieren Sie die Standardeinstellung, **, alle Zertifikate im Zertifizierungspfad einbeziehen** Wenn möglich.
+4. Wählen Sie **privater Informationsaustausch – PKCS #12 (. PFX)** und übernehmen Sie die Standardeinstellung **alle Zertifikate im Zertifizierungspfad einbeziehen** Wenn möglich.
 5. Weisen Sie dem Benutzer/Gruppen und ein Kennwort für das Zertifikat, das Sie exportieren, klicken Sie auf **Weiter**.
-6. Durchsuchen Sie auf der Seite zu exportieren den Pfad, in dem die exportierte Datei erstellt werden soll, und geben sie einen Namen.
-7. Auf ähnliche Weise Exportieren des Zertifikats in. CER-Format. Hinweis: Um zu exportieren. CER-Format, deaktivieren Sie die Option Ja, exportieren die Option für private Schlüssel.
-8. Kopieren der. PFX in den Ordner ServerCertificate.cr.
-9. Kopieren der. CER-Datei in den Ordner NCCertificate.cr.
+6. Klicken Sie auf der Seite zu exportierende Datei durchsuchen Sie den Pfad, in dem Sie die exportierte Datei speichern möchten, und geben sie einen Namen.
+7. Exportieren Sie außerdem das Zertifikat im. CER-Format. Hinweis: Zu exportieren. CER-Format, deaktivieren Sie die "Ja", Option für private Schlüssel zu exportieren.
+8. Kopieren der. PFX zu dem Ordner "ServerCertificate.cr".
+9. Kopieren der. CER-Datei in den Ordner "nccertificate.CR".
 
-Wenn Sie fertig sind, aktualisieren Sie diese Ordner in der Bibliothek SCVMM, und stellen Sie sicher, dass Sie diese Zertifikate kopiert haben. Fahren Sie mit der Netzwerkdienst Controller-Vorlagenkonfiguration und Bereitstellung.
+Wenn Sie fertig sind, aktualisieren Sie diese Ordner in der SCVMM-Bibliothek, und stellen Sie sicher, dass Sie diese Zertifikate kopiert haben. Setzen Sie die Netzwerkkonfiguration für die Vorlage von Controller-Dienst und die Bereitstellung.
 
 ## <a name="authenticating-southbound-devices-and-services"></a>Authentifizieren von Southbound-Geräten und Diensten 
 
-Die Controller-Netzwerkkommunikation mit Hosts und SLB MUX-Geräten werden Zertifikate für die Authentifizierung verwendet. Kommunikation mit den Hosts ist über OVSDB Protokoll, während die Kommunikation mit den SLB MUX-Geräten über das WCF-Protokoll ist.
+Die Controller-Netzwerkkommunikation mit Hosts und Geräte für SLB MUX verwendet Zertifikate zur Authentifizierung an. Kommunikation mit den Hosts ist über OVSDB-Protokoll, während der Kommunikation mit der SLB MUX-Geräte über das WCF-Protokoll ist.
 
 ### <a name="hyper-v-host-communication-with-network-controller"></a>Hyper-V-Host-Kommunikation mit Netzwerkcontroller
 
-Für die Kommunikation mit der Hyper-V-Hosts über OVSDB muss Netzwerkcontroller ein Zertifikat auf dem Hostcomputer an. In der Standardeinstellung SCVMM wählt das SSL-Zertifikat auf dem Controller Netzwerk konfiguriert und für die southbound-Kommunikation mit den Hosts verwendet.
+Für die Kommunikation mit den Hyper-V-Hosts über OVSDB muss Netzwerkcontroller ein Zertifikat auf dem Hostcomputer bereitstellen. In der Standardeinstellung SCVMM übernimmt das SSL-Zertifikat konfiguriert werden, auf dem Netzwerkcontroller und wird für die southbound-Kommunikation mit den Hosts verwendet.
 
-Dies ist der Grund, warum das SSL-Zertifikat der Client konfiguriert EKU für Serverauthentifizierung muss. Dieses Zertifikat wird auf "Server" REST konfiguriert Ressource \ (Hyper-V-Hosts sind im Netzwerkcontroller als ein Server Resource\ dargestellt) und können mit dem Windows PowerShell-Befehl angezeigt werden **Get-NetworkControllerServer**.
+Dies ist der Grund, warum das SSL-Zertifikat der konfigurierten Clientauthentifizierungs-EKU aufweisen muss. Dieses Zertifikat wird auf "Server" REST konfiguriert Ressource \(Hyper-V-Hosts werden in den Netzwerkcontroller wie ein Server-Ressource dargestellt\), und können angezeigt werden, mit dem Windows PowerShell-Befehl  **Get-NetworkControllerServer**.
 
-Es folgt ein Beispiel für Teil des Servers REST-Ressource.
+Es folgt ein teilbeispiel des Servers REST-Ressource.
 
       "resourceId": "host31.fabrikam.com",
       "properties": {
@@ -184,23 +186,23 @@ Es folgt ein Beispiel für Teil des Servers REST-Ressource.
           }
         ],
 
-Hyper-V-Host muss auch ein Zertifikat zur Kommunikation mit Netzwerkcontroller verfügen, für die gegenseitige Authentifizierung. 
+Bei der gegenseitigen Authentifizierung benötigen des Hyper-V-Hosts außerdem ein Zertifikat für die Kommunikation mit Netzwerkcontroller. 
 
-Sie können das Zertifikat von einer Zertifizierungsstelle \(CA\) registrieren. Wenn ein Zertifizierungsstellenzertifikat basierend auf dem Hostcomputer nicht gefunden wird, wird SCVMM erstellt ein selbstsigniertes Zertifikat und stellt es auf dem Hostcomputer.
+Sie können das Zertifikat von einer Zertifizierungsstelle registrieren \(Zertifizierungsstelle\). Wenn das Zertifikat einer Zertifizierungsstelle, die basierend auf dem Hostcomputer nicht gefunden wird, kann SCVMM erstellt ein selbstsigniertes Zertifikat und wird auf dem Hostcomputer bereitgestellt.
 
-Netzwerkcontroller und die Hyper-V-Host-Zertifikate müssen jeweils anderen vertrauenswürdig sein. Das Hyper-V-Host-Zertifikat Stammzertifikats muss in vorhanden sein, die Netzwerk-Controller vertrauenswürdige Stammzertifizierungsstellen für den lokalen Computer (und umgekehrt) zu speichern. 
+Netzwerkcontroller und die Hyper-V-Host-Zertifikate müssen gegenseitig vertrauen. Stammzertifikat für das Hyper-V-hostzertifikat muss vorliegen, in der Netzwerk-Controller vertrauenswürdige Stammzertifizierungsstellen für den lokalen Computer (und umgekehrt). 
 
-Wenn Sie mit deren Hilfe signierte Zertifikate verwenden, gewährleistet SCVMM, dass die erforderlichen Zertifikate im Speicher vertrauenswürdige Stammzertifizierungsstellen für den lokalen Computer vorhanden sind. 
+Bei der Verwendung von Self-Service\-selbstsignierten Zertifikaten, SCVMM wird sichergestellt, dass die erforderlichen Zertifikate im Speicher Vertrauenswürdige Stammzertifizierungsstellen für den lokalen Computer vorhanden sind. 
 
-Wenn Sie basierende Zertifizierungsstellenzertifikate für die Hyper-V-Hosts verwenden, müssen Sie sicherstellen, dass das Stammzertifikat der Zertifizierungsstelle auf dem Netzwerkcontroller vertrauenswürdige Stammzertifizierungsstellen für den lokalen Computer vorhanden ist.
+Wenn Sie Zertifizierungsstellen basierende Zertifikate für die Hyper-V-Hosts verwenden, müssen Sie sicherstellen, dass die Zertifizierungsstellen-Stammzertifikat für den Netzwerkcontroller vertrauenswürdige Stammzertifizierungsstellen für den lokalen Computer vorhanden ist.
 
-### <a name="software-load-balancer-mux-communication-with-network-controller"></a>Software Load Balancer MUX-Kommunikation mit Netzwerkcontroller
+### <a name="software-load-balancer-mux-communication-with-network-controller"></a>Software Load Balancer-MUX-Kommunikation mit Netzwerkcontroller
 
-Die Software Load Balancer Multiplexor \(MUX\) und Netzwerkcontroller kommunizieren über das Protokoll WCF mithilfe von Zertifikaten für die Authentifizierung.
+Den Software Load Balancer-Multiplexer \(MUX\) und Netzwerkcontroller kommunizieren über das WCF-Protokoll, das mithilfe von Zertifikaten für die Authentifizierung.
 
-In der Standardeinstellung SCVMM wählt das SSL-Zertifikat auf dem Controller Netzwerk konfiguriert und für die southbound-Kommunikation mit den Mux-Geräten verwendet. Dieses Zertifikat wird auf die "NetworkControllerLoadBalancerMux" konfiguriert, die Ressource zu positionieren und können durch Ausführen des PowerShell-Cmdlets angezeigt werden **Get-NetworkControllerLoadBalancerMux**.
+In der Standardeinstellung SCVMM übernimmt das SSL-Zertifikat auf dem Netzwerkcontroller konfiguriert und verwendet es für die southbound-Kommunikation mit den Geräten MUX-Instanz. Dieses Zertifikat wird auf der "NetworkControllerLoadBalancerMux" konfiguriert, dass REST-Ressourcen und können angezeigt werden, indem Sie Ausführung des Powershell-Cmdlets **Get-NetworkControllerLoadBalancerMux**.
 
-Beispiel für die Ressource \(partial\) MUX-REST:
+Beispiel für MUX-REST-Ressource \(teilweise\):
 
       "resourceId": "slbmux1.fabrikam.com",
       "properties": {
@@ -216,12 +218,12 @@ Beispiel für die Ressource \(partial\) MUX-REST:
           }
         ],
 
-Für die gegenseitige Authentifizierung müssen Sie auch ein Zertifikat auf den Geräten SLB MUX verfügen. Dieses Zertifikat wird von SCVMM automatisch konfiguriert, bei der Bereitstellung von Software Load Balancers mit SCVMM.
+Bei der gegenseitigen Authentifizierung müssen Sie auch ein Zertifikat verfügen, auf den SLB MUX-Geräten. Dieses Zertifikat wird automatisch von SCVMM konfiguriert, beim Bereitstellen von Software Load Balancer mit SCVMM.
 
 >[!IMPORTANT]
->Auf dem Host und SLB Knoten, es ist wichtig, dass keine Zertifikate in der Zertifikatspeicher für vertrauenswürdige Stammzertifizierungsstellen enthalten ist "ausgestellt" ist nicht identisch mit "Ausgestellt von". In diesem Fall schlägt die Kommunikation zwischen Netzwerkcontroller und dem southbound-Gerät.
+>Auf dem Host und die SLB-Knoten, es ist wichtig, dass der Zertifikatspeicher für vertrauenswürdige Stammzertifizierungsstellen keines Zertifikat enthält, der "ausgestellt" entspricht nicht der "Ausgestellt von". In diesem Fall schlägt die Kommunikation zwischen Netzwerkcontroller und die southbound-Gerät.
 
-Netzwerkcontroller und dem SLB MUX-Zertifikate müssen als vertrauenswürdig festgelegt sein jeweils anderen \ (das SLB MUX-Zertifikat Stammzertifikats muss auf dem Computer Netzwerkcontroller vertrauenswürdige Stammzertifizierungsstellen speichern und umgekehrt Versa\ vorhanden sein). Wenn Sie mit deren Hilfe signierte Zertifikate verwenden, SCVMM wird sichergestellt, dass die erforderlichen Zertifikate vorhanden, in der in den Speicher vertrauenswürdiger Stammzertifizierungsstellen für den lokalen Computer zu speichern.
+Netzwerkcontroller und der SLB MUX-Zertifikate müssen vertrauenswürdig sein miteinander \(Stammzertifikat der SLB MUX-Zertifikat muss in den Speicher vertrauenswürdiger Stammzertifizierungsstellen des Netzwerkcontrollers-Computer vorhanden sein und umgekehrt\). Bei der Verwendung von Self-Service\-selbstsignierten Zertifikaten, SCVMM stellt sicher, dass die erforderlichen Zertifikate vorhanden, in der in der vertrauenswürdigen Stammzertifizierungsstellen für den lokalen Computer zu speichern.
 
 
 

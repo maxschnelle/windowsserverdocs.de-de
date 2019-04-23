@@ -1,49 +1,50 @@
 ---
 ms.assetid: 73a4deba-7da6-4eae-8fdd-2a4d369f9cbb
-title: "Technische Referenz zu virtualisierten Domänencontroller, Anhang"
-description: 
-author: billmath
-ms.author: billmath
-manager: femila
+title: Technische Referenz für virtualisierte Domänencontroller, Anhang
+description: ''
+author: MicrosoftGuyJFlo
+ms.author: joflore
+manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 2e7f264a098b6f67d98c9aa47ec5794374b8920d
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.openlocfilehash: 9e3a5cc2c71455bb040f1311bdbfed1ac7e213fb
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59832231"
 ---
-# <a name="virtualized-domain-controller-technical-reference-appendix"></a>Technische Referenz zu virtualisierten Domänencontroller, Anhang
+# <a name="virtualized-domain-controller-technical-reference-appendix"></a>Technische Referenz für virtualisierte Domänencontroller, Anhang
 
->Gilt für: Windows Server2016, Windows Server2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Dieses Thema behandelt:  
+In diesem Thema werden folgende Inhalte behandelt:  
   
 -   [Terminologie](../../../ad-ds/reference/virtual-dc/../../../ad-ds/reference/virtual-dc/Virtualized-Domain-Controller-Technical-Reference-Appendix.md#BKMK_Terms)  
   
--   [Fixvdcpermissions. ps1](../../../ad-ds/reference/virtual-dc/../../../ad-ds/reference/virtual-dc/Virtualized-Domain-Controller-Technical-Reference-Appendix.md#BKMK_FixPDCPerms)  
+-   [FixVDCPermissions.ps1](../../../ad-ds/reference/virtual-dc/../../../ad-ds/reference/virtual-dc/Virtualized-Domain-Controller-Technical-Reference-Appendix.md#BKMK_FixPDCPerms)  
   
 ## <a name="BKMK_Terms"></a>Terminologie  
   
--   **Momentaufnahme** -den Zustand einer virtuellen Maschine zu einem bestimmten Zeitpunkt. Sie sind abhängig, in der Kette des vorherigen Momentaufnahmen, die Hardware, und klicken Sie auf der Virtualization-Plattform.  
+-   **Momentaufnahme** -der Status eines virtuellen Computers zu einem bestimmten Zeitpunkt. Es richtet sich in der Kette der vorherigen Momentaufnahmen, auf der Hardware, und klicken Sie auf der Virtualization-Plattform.  
   
--   **Klon** : ein abzuschließen und das Kopieren eines virtuellen Computers zu trennen. Es ist die virtuelle Hardware (Hypervisor) abhängig.  
+-   **Klon** : abgeschlossen, und trennen Sie die Kopie eines virtuellen Computers. Es ist die virtuelle Hardware (Hypervisor) abhängig.  
   
--   **Vollständige Klon** -vollständige Klon wird eine separate Kopie einer virtuellen Maschine, die keine Ressourcen für die übergeordnete virtuelle Maschine nach der Klonvorgang freigegeben. Vollständige Klon laufenden Betrieb ist vollkommen unabhängig von der übergeordneten virtuellen Maschine.  
+-   **Vollständiger Klon** – ein vollständiger Klon ist eine unabhängige Kopie einer virtuellen Maschine, die keine Ressourcen mit dem übergeordneten virtuellen Computer nach der Klonvorgang freigibt. Aufrechterhaltung der ein vollständiger Klon ist vollständig von der übergeordneten virtuellen Computer getrennt.  
   
--   **Differenzierende Datenträger** -eine Kopie eines virtuellen Computers, der virtuelle Datenträger mit dem übergeordneten virtuellen Computer auf eine laufende Weise freigibt. Dies wird in der Regel spart Speicherplatz, und ermöglicht mehreren virtuellen Computern, die gleiche Softwareinstallation verwenden.  
+-   **Differenzierende Datenträger** -eine Kopie eines virtuellen Computers, der virtuelle Datenträger mit dem übergeordneten virtuellen Computer in einer laufenden Weise freigibt. Dadurch in der Regel spart Speicherplatz und mehrere virtuelle Computer, die gleiche Softwareinstallation verwenden.  
   
--   **VM-Kopie**– eine Datei Kopieren aller zugehörigen Dateien und Ordner von einer virtuellen Maschine.  
+-   **VM kopieren**– eine Datei kopieren alle zugehörigen Dateien und Ordner eines virtuellen Computers.  
   
--   **VHD-Datei kopieren** -eine Kopie der virtuellen Festplatte eines virtuellen Computers  
+-   **Kopieren einer VHD-Datei** -eine Kopie eines virtuellen Computers VHD  
   
--   **VM-Generations-ID** – eine 128-Bit-Ganzzahl mit dem virtuellen Computer vom Hypervisor zugewiesen. Diese ID ist im Arbeitsspeicher gespeichert und jeder Anwendung eine Momentaufnahme zurückgesetzt. Der Entwurf verwendet einen Hypervisor-unabhängige Mechanismus zum Einblenden von VM-Generations-ID auf dem virtuellen Computer. Die Hyper-V-Implementierung gibt die ID der ACPI-Tabelle des virtuellen Computers an.  
+-   **VM-Generations-ID** : Ein 128-Bit-Ganzzahl, die mit dem virtuellen Computer vom Hypervisor zugewiesen. Diese ID wird im Arbeitsspeicher gespeichert und zurückgesetzt wird jedes Mal, wenn eine Momentaufnahme angewendet wird. Der Entwurf verwendet einen Unabhängigkeit von der Hypervisor-Mechanismus für die VM-Generations-ID auf dem virtuellen Computer anzeigen. Die Hyper-V-Implementierung stellt die ID des virtuellen Computers der ACPI-Tabelle.  
   
--   **Importieren/Exportieren von** – ein Hyper-V-Feature, das dem Benutzer ermöglicht, speichern Sie den ganzen virtuellen Computer (VM-Dateien, virtuelle Festplatte und die Konfiguration des Computers). Sie können dann Benutzer mithilfe dieser Gruppe von Dateien, schalten Sie den Computer wieder auf demselben Computer wie den gleichen virtuellen Computer (Wiederherstellen), auf einem anderen Computer als dem gleichen virtuellen Computer (verschieben) oder eine neue virtuelle Maschine (Kopieren)  
+-   **Import/Export-** – ein Hyper-V-Feature, das dem Benutzer ermöglicht, den gesamten virtuellen Computer (VM-Dateien, virtuelle Festplatte und die Konfiguration des Computers) zu speichern. Damit können dann Benutzer mit diesem Satz von Dateien, schalten Sie den Computer wieder auf dem gleichen Computer wie den gleichen virtuellen Computer (Wiederherstellung), auf einem anderen Computer als dem gleichen virtuellen Computer (verschieben) oder einen neuen virtuellen Computer (Kopie)  
   
-## <a name="BKMK_FixPDCPerms"></a>Fixvdcpermissions. ps1  
+## <a name="BKMK_FixPDCPerms"></a>FixVDCPermissions.ps1  
   
 ```  
 # Unsigned script, requires use of set-executionpolicy remotesigned -force  

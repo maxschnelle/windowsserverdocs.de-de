@@ -1,6 +1,6 @@
 ---
-title: "Hinzufügen von Domänennamen der dritten Ebene"
-description: Beschreibt, wie Sie Windows Server Essentials
+title: Hinzufügen von Domänennamen der dritten Ebene
+description: Beschreibt, wie Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,44 +13,45 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 64bf24e45155fdd981e2061b3de7ebce1c53b36c
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59833321"
 ---
 # <a name="add-third-level-domain-names"></a>Hinzufügen von Domänennamen der dritten Ebene
 
->Gilt für: Windows Server2016 Essentials, Windows Server2012 R2 Essentials, Windows Server2012 Essentials
+>Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Sie können die Möglichkeit für Benutzer Domänennamen der dritten Ebene in den Domain Name-Assistenten anzufordern hinzufügen. Dazu erstellen und installieren Sie eine Codeassembly, die vom Domain-Manager im Betriebssystem verwendet wird.  
+Sie können es Benutzern ermöglichen, Domänennamen der dritten Ebene im Assistenten zum Einrichten von Domänennamen anzufordern. Dazu erstellen und installieren Sie eine Codeassembly, die vom Domain-Manager im Betriebssystem verwendet wird.  
   
-## <a name="create-a-provider-of-third-level-domain-names"></a>Erstellen Sie einen Anbieter von Domänennamen der dritten Ebene  
- Sie können Domänennamen der dritten Ebene verfügbar machen, erstellen und installieren eine Codeassembly, die der Assistent den Domänennamen bereitstellt. Zu diesem Zweck müssen Sie die folgenden Aufgaben ausführen:  
+## <a name="create-a-provider-of-third-level-domain-names"></a>Erstellen eines Anbieters für Domänennamen der dritten Ebene  
+ Sie können Domänennamen der dritten Ebene verfügbar machen, indem Sie eine Codeassembly erstellen und installieren, die dem Assistenten Domänennamen bereitstellt. Dazu führen Sie die folgenden Schritte aus:  
   
--   [Hinzufügen einer Implementierung der IDomainSignupProvider-Schnittstelle zur assembly](Add-Third-Level-Domain-Names.md#BKMK_DomainSignup)  
+-   [Eine Implementierung der IDomainSignupProvider-Schnittstelle zur Assembly hinzufügen](Add-Third-Level-Domain-Names.md#BKMK_DomainSignup)  
   
--   [Hinzufügen einer Implementierung der IDomainMaintenanceProvider-Schnittstelle zur assembly](Add-Third-Level-Domain-Names.md#BKMK_DomainMaintenance)  
+-   [Eine Implementierung der IDomainMaintenanceProvider-Schnittstelle zur Assembly hinzufügen](Add-Third-Level-Domain-Names.md#BKMK_DomainMaintenance)  
   
 -   [Signieren der Assembly mit Authenticode-Signatur](Add-Third-Level-Domain-Names.md#BKMK_SignAssembly)  
   
--   [Installieren Sie die Assembly auf dem Referenzcomputer](Add-Third-Level-Domain-Names.md#BKMK_InstallAssembly)  
+-   [Installieren Sie die Assembly, auf dem Referenzcomputer](Add-Third-Level-Domain-Names.md#BKMK_InstallAssembly)  
   
--   [Starten Sie den Dienst Windows Server-Domänennamenverwaltung](Add-Third-Level-Domain-Names.md#BKMK_RestartService)  
+-   [Starten Sie den Dienst von Windows Server-Domänennamenverwaltung](Add-Third-Level-Domain-Names.md#BKMK_RestartService)  
   
-###  <a name="BKMK_DomainSignup"></a>Hinzufügen einer Implementierung der IDomainSignupProvider-Schnittstelle zur assembly  
- Die IDomainSignupProvider-Schnittstelle wird verwendet, um dem Assistenten domänenangebote hinzufügen.  
+###  <a name="BKMK_DomainSignup"></a> Eine Implementierung der IDomainSignupProvider-Schnittstelle zur Assembly hinzufügen  
+ Die IDomainSignupProvider-Schnittstelle wird verwendet, um dem Assistenten Domänenangebote hinzufügen.  
   
-##### <a name="to-add-the-idomainsignupprovider-code-to-the-assembly"></a>Die IDomainSignupProvider-Code auf die Assembly hinzufügen  
+##### <a name="to-add-the-idomainsignupprovider-code-to-the-assembly"></a>So fügen Sie der Assembly den Code für "IDomainSignupProvider" hinzu  
   
-1.  Öffnen Sie Visual Studio2008 als Administrator mit der rechten Maustaste in das Programm in die **starten** Menü und Auswählen von **als Administrator ausführen**.  
+1.  Öffnen Sie Visual Studio 2008 als Administrator, indem Sie im Menü **Start** mit der rechten Maustaste auf das Programm klicken und **Als Administrator ausführen** auswählen.  
   
-2.  Klicken Sie auf **Datei**, klicken Sie auf **neu**, und klicken Sie dann auf **Projekt**.  
+2.  Klicken Sie auf **Datei**, auf **Neu**und anschließend auf **Projekt**.  
   
-3.  In der **neues Projekt** Dialogfeld, klicken Sie auf **Visual C#-**, klicken Sie auf **Klassenbibliothek**, geben Sie einen Namen für die Projektmappe, und klicken Sie dann auf **OK**.  
+3.  Klicken Sie im Dialogfeld **Neues Projekt** auf **Visual C#**, klicken Sie auf **Klassenbibliothek**, geben Sie einen Namen für die Projektmappe ein, und klicken Sie dann auf **OK**.  
   
-4.  Benennen Sie die Datei Class1.cs. Beispielsweise MyDomainNameProvider.cs  
+4.  Benennen Sie die Datei "Class1.cs" um, beispielsweise in "MyDomainNameProvider.cs".  
   
-5.  Fügen Sie Verweise auf die Dateien Wssg.Web.DomainManagerObjectModel.dll "," CertManaged.dll "," WssgCertMgmt.dll "und" WssgCommon.dll.  
+5.  Fügen Sie Verweise auf die Dateien "Wssg.Web.DomainManagerObjectModel.dll", "CertManaged.dll", "WssgCertMgmt.dll" und "WssgCommon.dll" hinzu.  
   
 6.  Fügen Sie die folgenden using-Anweisungen hinzu.  
   
@@ -65,7 +66,7 @@ Sie können die Möglichkeit für Benutzer Domänennamen der dritten Ebene in de
     using Microsoft.Win32;  
     ```  
   
-7.  Ändern Sie den Namespace und den klassenheader entsprechend dem folgenden Beispiel.  
+7.  Ändern Sie den Namespace und den Klassenheader entsprechend dem folgenden Beispiel.  
   
     ```c#  
     namespace Microsoft.WindowsServerSolutions.RemoteAccess.Domains  
@@ -76,12 +77,12 @@ Sie können die Möglichkeit für Benutzer Domänennamen der dritten Ebene in de
     }  
     ```  
   
-8.  Fügen Sie der Klasse, die definiert die Angebote im Assistenten die Initialize-Methode und die erforderlichen Variablen hinzu.  
+8.  Fügen Sie der Klasse die Initialize-Methode und die erforderlichen Variablen hinzu, um die Angebote im Assistenten zu definieren.  
   
     > [!NOTE]
-    >  Die Initialize-Methode definiert einen Bezeichner für den domänenanbieter, der eindeutig sein muss. Eine typische Möglichkeit hierzu ist eine GUID als Bezeichner definiert. Weitere Informationen zum Erstellen einer GUID finden Sie unter [GUID erstellen (guidgen.exe)](https://go.microsoft.com/fwlink/?LinkId=116098).  
+    >  Die Initialize-Methode definiert einen Bezeichner für den Domänenanbieter, der eindeutig sein muss. Üblicherweise wird eine GUID als Bezeichner definiert. Weitere Informationen zum Erstellen einer GUID finden Sie unter [GUID erstellen (guidgen.exe)](https://go.microsoft.com/fwlink/?LinkId=116098).  
   
-     Das folgende Codebeispiel zeigt die Initialize-Methode.  
+     Mit dem folgenden Codebeispiel wird die Initialize-Methode veranschaulicht.  
   
     ```c#  
   
@@ -109,7 +110,7 @@ Sie können die Möglichkeit für Benutzer Domänennamen der dritten Ebene in de
     }  
     ```  
   
-9. Fügen Sie die GetOfferings-Methode, die die Liste der Angebote, die initialisiert wurde im vorherigen Schrittzurückgibt. Das folgende Codebeispiel zeigt die GetOfferings-Methode.  
+9. Fügen Sie die GetOfferings-Methode hinzu, die die Liste der Angebote zurückgibt, die im vorherigen Schritt initialisiert wurde. Mit dem folgenden Codebeispiel wird die GetOfferings-Methode veranschaulicht.  
   
     ```c#  
   
@@ -119,7 +120,7 @@ Sie können die Möglichkeit für Benutzer Domänennamen der dritten Ebene in de
     }  
     ```  
   
-10. Fügen Sie die FindOfferingForDomain-Methode, die das Angebot aus der Liste zurückgibt. Das folgende Codebeispiel zeigt die FindOfferingForDomain-Methode.  
+10. Fügen Sie die FindOfferingForDomain-Methode hinzu, die das Angebot aus der Liste zurückgibt. Mit dem folgenden Codebeispiel wird die FindOfferingForDomain-Methode veranschaulicht.  
   
     ```  
   
@@ -131,7 +132,7 @@ Sie können die Möglichkeit für Benutzer Domänennamen der dritten Ebene in de
   
     ```  
   
-11. Fügen Sie die SetCredentials-Methode, die die Anmeldeinformationen definiert, die zum Zugriff auf die Angebote erforderlich sind. Das folgende Codebeispiel zeigt die SetCredentials-Methode.  
+11. Fügen Sie die SetCredentials-Methode hinzu, mit der die Anmeldeinformationen definiert werden, die für den Zugriff auf die Angebote erforderlich sind. Mit dem folgenden Codebeispiel wird die SetCredentials-Methode veranschaulicht.  
   
     ```c#  
   
@@ -152,7 +153,7 @@ Sie können die Möglichkeit für Benutzer Domänennamen der dritten Ebene in de
     }  
     ```  
   
-12. Fügen Sie die ValidateCredentials-Methode, die die durch die SetCredentials definierten Anmeldeinformationen überprüft. Das folgende Codebeispiel zeigt die ValidateCredentials-Methode.  
+12. Fügen Sie die ValidateCredentials-Methode hinzu, die die durch die SetCredentials-Methode definierten Anmeldeinformationen überprüft. Mit dem folgenden Codebeispiel wird die ValidateCredentials-Methode veranschaulicht.  
   
     ```c#  
   
@@ -173,7 +174,7 @@ Sie können die Möglichkeit für Benutzer Domänennamen der dritten Ebene in de
     }  
     ```  
   
-13. Fügen Sie die GetAvailableDomainRoots-Methode, die die Liste der Stammdomänennamen zurückgibt, die von den in der Anforderung angegebenen Angebot unterstützt werden. Diese Liste der Stammdomänennamen darf nicht leer sein. Das folgende Codebeispiel zeigt die GetAvailableDomainRoots-Methode.  
+13. Fügen Sie die GetAvailableDomainRoots-Methode hinzu, die die Liste der Stammdomänennamen zurückgibt, die von dem in der Anforderung angegebenen Angebot unterstützt werden. Diese Liste der Stammdomänennamen darf nicht leer sein. Mit dem folgenden Codebeispiel wird die GetAvailableDomainRoots-Methode veranschaulicht.  
   
     ```c#  
   
@@ -187,7 +188,7 @@ Sie können die Möglichkeit für Benutzer Domänennamen der dritten Ebene in de
     }  
     ```  
   
-14. Fügen Sie die GetUserDomainNames-Methode, die eine Liste von Domänennamen, die der aktuelle Benutzer bereits besitzt zurückgibt, vom aktuellen Angebot. Diese Liste kann leer sein. Das folgende Codebeispiel zeigt die GetUserDomainNames-Methode.  
+14. Fügen Sie die GetUserDomainNames-Methode hinzu, die abhängig vom aktuellen Angebot eine Liste von Domänennamen zurückgibt, die der aktuelle Benutzer bereits besitzt. Diese Liste kann leer sein. Mit dem folgenden Codebeispiel wird die GetUserDomainNames-Methode veranschaulicht.  
   
     ```c#  
   
@@ -206,7 +207,7 @@ Sie können die Möglichkeit für Benutzer Domänennamen der dritten Ebene in de
     }  
     ```  
   
-15. Fügen Sie die GetUserDomainQuota-Methode, die die maximale Anzahl von Domänen zurückgibt, die die angegebene Angebot ermöglicht. Wenn ein Maximum nicht anwendbar ist, sollte diese Methode 0 zurück. Das folgende Beispiel zeigt die GetUserDomainQuota-Methode.  
+15. Fügen Sie die GetUserDomainQuota-Methode hinzu, die die maximale Anzahl von Domänen zurückgibt, die das angegebene Angebot zulässt. Wenn kein Maximum gilt, sollte diese Methode "0" zurückgeben. Mit dem folgenden Codebeispiel wird die GetUserDomainQuota-Methode veranschaulicht.  
   
     ```c#  
   
@@ -216,7 +217,7 @@ Sie können die Möglichkeit für Benutzer Domänennamen der dritten Ebene in de
     }  
     ```  
   
-16. Fügen Sie die CheckDomainAvailability-Methode, die für die Verfügbarkeit des Domänennamens überprüft und können eine Liste mit Vorschlägen zurückgeben. Das folgende Codebeispiel zeigt die CheckDomainAvailability-Methode.  
+16. Fügen Sie die CheckDomainAvailability-Methode hinzu, die die Verfügbarkeit des angegebenen Domänennamens überprüft und eine Liste mit Vorschlägen zurückgeben kann. Mit dem folgenden Codebeispiel wird die CheckDomainAvailability-Methode veranschaulicht.  
   
     ```c#  
   
@@ -229,7 +230,7 @@ Sie können die Möglichkeit für Benutzer Domänennamen der dritten Ebene in de
     }  
     ```  
   
-17. Fügen Sie die CommitDomain-Methode, die den angeforderten Domänennamen übergibt. Erfolgreiche Abschluss dieser Methode bedeutet, dass der Domänenname dem Benutzerkonto zugeordnet ist, der Wartungsanbieter wird sofort aufgerufen, um das Zertifikat abzurufen, wenn der Status "fullyoperational" ist und der Anbieter und das Angebot aktiviert werden. Das folgende Codebeispiel zeigt die CommitDomain-Methode.  
+17. Fügen Sie die CommitDomain-Methode hinzu, die den angeforderten Domänennamen übergibt. Der erfolgreiche Abschluss dieser Methode bedeutet, dass der Domänenname dem Benutzerkonto zugeordnet ist. Der Wartungsanbieter wird sofort aufgerufen, um das Zertifikat abzurufen, wenn der Status "FullyOperational" ist. Der Anbieter und das Angebot werden aktiviert. Mit dem folgenden Codebeispiel wird die CommitDomain-Methode veranschaulicht.  
   
     ```c#  
   
@@ -245,7 +246,7 @@ Sie können die Möglichkeit für Benutzer Domänennamen der dritten Ebene in de
     }  
     ```  
   
-18. Fügen Sie die ReleaseDomain-Methode, die den Anbieter darüber informiert, den der Benutzer den Domänennamen freigeben möchte. Das folgende Codebeispiel zeigt die ReleaseDomain-Methode.  
+18. Fügen Sie die ReleaseDomain-Methode hinzu, die den Anbieter darüber informiert, dass der Benutzer den Domänennamen freigeben möchte. Mit dem folgenden Codebeispiel wird die ReleaseDomain-Methode veranschaulicht.  
   
     ```c#  
   
@@ -255,7 +256,7 @@ Sie können die Möglichkeit für Benutzer Domänennamen der dritten Ebene in de
     }  
     ```  
   
-19. Fügen Sie die GetProviderLandingUrl-Methode, die die URL für die Angebotsseite im domänenanmeldeworkflow zurückgibt. Das folgende Codebeispiel zeigt die GetProviderLandingUrl-Methode.  
+19. Fügen Sie die GetProviderLandingUrl-Methode hinzu, die die URL für die Angebotsseite im Domänenanmeldeworkflow zurückgibt. Mit dem folgenden Codebeispiel wird die GetProviderLandingUrl-Methode veranschaulicht.  
   
     ```c#  
   
@@ -265,7 +266,7 @@ Sie können die Möglichkeit für Benutzer Domänennamen der dritten Ebene in de
     }  
     ```  
   
-20. Fügen Sie die GetDomainMaintenanceProvider-Methode, die eine Instanz der idomainmaintenanceprovider-Schnittstelle zurückgibt, die für domänenwartungsaufgaben verwendet wird. Diese Methode wird aufgerufen, nachdem die CommitDomain-Methode erfolgreich ist, und wenn Domain-Manager gestartet wird. Das folgende Codebeispiel zeigt die GetDomainMaintenanceProvider-Methode.  
+20. Fügen Sie die GetDomainMaintenanceProvider-Methode hinzu, die eine Instanz der IDomainMaintenanceProvider-Schnittstelle zurückgibt, die für Domänenwartungsaufgaben verwendet wird. Diese Methode wird nach erfolgreicher Ausführung der CommitDomain-Methode und beim Start des Domain-Managers aufgerufen. Mit dem folgenden Codebeispiel wird die GetDomainMaintenanceProvider-Methode veranschaulicht.  
   
     ```c#  
   
@@ -275,14 +276,14 @@ Sie können die Möglichkeit für Benutzer Domänennamen der dritten Ebene in de
     }  
     ```  
   
-21. Speichern Sie das Projekt, und schließen Sie es nicht, da Sie es mit dem nächsten Verfahren hinzufügen möchten. Sie werden nicht zum Erstellen des Projekts, bis Sie das nächste Verfahren ausführen können.  
+21. Speichern Sie das Projekt, aber schließen Sie es nicht, da Sie es mit dem nächsten Verfahren erweitern. Sie können das Projekt erst erstellen, wenn Sie das nächste Verfahren abgeschlossen haben.  
   
-###  <a name="BKMK_DomainMaintenance"></a>Hinzufügen einer Implementierung der IDomainMaintenanceProvider-Schnittstelle zur assembly  
- Der idomainmaintenanceprovider-Schnittstelle wird verwendet, um die Domäne zu verwalten, nachdem dieser erstellt wurde.  
+###  <a name="BKMK_DomainMaintenance"></a> Eine Implementierung der IDomainMaintenanceProvider-Schnittstelle zur Assembly hinzufügen  
+ Die IDomainMaintenanceProvider-Schnittstelle wird verwendet, um die Domäne zu verwalten, nachdem sie erstellt wurde.  
   
-##### <a name="to-add-the-idomainmaintenanceprovider-code-to-the-assembly"></a>Der Assembly den Code für "idomainmaintenanceprovider" hinzu  
+##### <a name="to-add-the-idomainmaintenanceprovider-code-to-the-assembly"></a>So fügen Sie der Assembly den Code für "IDomainMaintenanceProvider" hinzu  
   
-1.  Fügen Sie den klassenheader für den domänenwartungsanbieter hinzu. Stellen Sie sicher, dass der Name, den Sie für den Anbieter definiert den Namen in der GetDomainMaintenanceProvider-Methode übereinstimmt, die Sie zuvor definiert.  
+1.  Fügen Sie den Klassenheader für den Domänenwartungsanbieter hinzu. Stellen Sie sicher, dass der für den Anbieter definierte Name mit dem zuvor definierten Namen in der GetDomainMaintenanceProvider-Methode übereinstimmt.  
   
     ```c#  
   
@@ -291,7 +292,7 @@ Sie können die Möglichkeit für Benutzer Domänennamen der dritten Ebene in de
     }  
     ```  
   
-2.  Fügen Sie die Activate-Methode, die den aktiven Anbieter festlegt. Das folgende Codebeispiel zeigt die Activate-Methode.  
+2.  Fügen Sie die Activate-Methode hinzu, die den aktiven Anbieter festlegt. Mit dem folgenden Codebeispiel wird die Activate-Methode veranschaulicht.  
   
     ```c#  
   
@@ -307,7 +308,7 @@ Sie können die Möglichkeit für Benutzer Domänennamen der dritten Ebene in de
     }  
     ```  
   
-3.  Fügen Sie die Deactivate-Methode, die verwendet wird, um alle Aktionen zu deaktivieren. Das folgende Codebeispiel zeigt die Deactivate-Methode.  
+3.  Fügen Sie die Deactivate-Methode hinzu, die verwendet wird, um alle Aktionen zu deaktivieren. Mit dem folgenden Codebeispiel wird die Deactivate-Methode veranschaulicht.  
   
     ```  
   
@@ -318,7 +319,7 @@ Sie können die Möglichkeit für Benutzer Domänennamen der dritten Ebene in de
   
     ```  
   
-4.  Fügen Sie die SetCredentials-Methode, die Anmeldeinformationen des Benutzers aktualisiert. Diese Methode kann beispielsweise aufgerufen werden, um Anmeldeinformationen zu aktualisieren, die nicht mehr gültig sind. Das folgende Codebeispiel zeigt die SetCredentials-Methode.  
+4.  Fügen Sie die SetCredentials-Methode hinzu, die die Anmeldeinformationen des Benutzers aktualisiert. Diese Methode kann beispielsweise aufgerufen werden, um nicht mehr gültige Anmeldeinformationen zu aktualisieren. Mit dem folgenden Codebeispiel wird die SetCredentials-Methode veranschaulicht.  
   
     ```c#  
   
@@ -332,7 +333,7 @@ Sie können die Möglichkeit für Benutzer Domänennamen der dritten Ebene in de
     }  
     ```  
   
-5.  Fügen Sie die ValidateCredentials-Methode, die die angegebenen Anmeldeinformationen überprüft. Das folgende Codebeispiel zeigt die ValidateCredentials-Methode.  
+5.  Fügen Sie die ValidateCredentials-Methode hinzu, die die angegebenen Anmeldeinformationen überprüft. Mit dem folgenden Codebeispiel wird die ValidateCredentials-Methode veranschaulicht.  
   
     ```c#  
   
@@ -351,7 +352,7 @@ Sie können die Möglichkeit für Benutzer Domänennamen der dritten Ebene in de
     }  
     ```  
   
-6.  Fügen Sie die GetPublicAddress-Methode, die externe IP-Adresse des Servers zurückgibt. Das folgende Codebeispiel zeigt die GetPublicAddress-Methode.  
+6.  Fügen Sie die GetPublicAddress-Methode hinzu, die die externe IP-Adresse des Servers zurückgibt. Mit dem folgenden Codebeispiel wird die GetPublicAddress-Methode veranschaulicht.  
   
     ```c#  
   
@@ -387,7 +388,7 @@ Sie können die Möglichkeit für Benutzer Domänennamen der dritten Ebene in de
     }  
     ```  
   
-7.  Fügen Sie die SubmitCertificateRequest-Methode, die die Zertifikatanforderung für den gegenwärtig konfigurierten Domänennamen übermittelt.  
+7.  Fügen Sie die SubmitCertificateRequest-Methode hinzu, die die Zertifikatanforderung für den gegenwärtig konfigurierten Domänennamen übermittelt.  
   
     ```c#  
   
@@ -403,7 +404,7 @@ Sie können die Möglichkeit für Benutzer Domänennamen der dritten Ebene in de
     }  
     ```  
   
-8.  Fügen Sie die GetCertificateResponse-Methode, die der Zertifikatantwort zurückgibt, wenn der Domänenstatus "fullyoperational" ist. Diese Methode wird für neue Zertifikatanforderungen und für zertifikaterneuerungsanforderungen aufgerufen. Das folgende Codebeispiel zeigt die GetCertificateResponse-Methode.  
+8.  Fügen Sie die GetCertificateResponse-Methode hinzu, die eine Zertifikatantwort zurückgibt, wenn der Domänenstatus "FullyOperational" ist. Diese Methode wird für neue Zertifikatanforderungen und für Zertifikaterneuerungsanforderungen aufgerufen. Mit dem folgenden Codebeispiel wird die GetCertificateResponse-Methode veranschaulicht.  
   
     ```c#  
   
@@ -413,7 +414,7 @@ Sie können die Möglichkeit für Benutzer Domänennamen der dritten Ebene in de
     }  
     ```  
   
-9. Fügen Sie die SubmitRenewCertificateRequest-Methode, die die Erneuerung des Zertifikats verarbeitet. Das folgende Codebeispiel zeigt die SubmitRenewCertificateRequest-Methode.  
+9. Fügen Sie die SubmitRenewCertificateRequest-Methode hinzu, die die Erneuerung des Zertifikats verarbeitet. Mit dem folgenden Codebeispiel wird die SubmitRenewCertificateRequest-Methode veranschaulicht.  
   
     ```c#  
   
@@ -423,7 +424,7 @@ Sie können die Möglichkeit für Benutzer Domänennamen der dritten Ebene in de
     }  
     ```  
   
-10. Fügen Sie die UpdateDNSRecords-Methode, die vom Anbieter gespeicherten DNS-Einträge aktualisiert. Das folgende Codebeispiel zeigt die UpdateDNS-Methode.  
+10. Fügen Sie die UpdateDNSRecords-Methode hinzu, die die vom Anbieter gespeicherten DNS-Einträge aktualisiert. Mit dem folgenden Codebeispiel wird die UpdateDNS-Methode veranschaulicht.  
   
     ```c#  
   
@@ -440,7 +441,7 @@ Sie können die Möglichkeit für Benutzer Domänennamen der dritten Ebene in de
   
     ```  
   
-11. Fügen Sie die TestConnection-Methode, die versucht, eine Verbindung zu Back-End-Dienst hinzu. Wenn diese Methode eine Authentifizierung erforderlich ist, sollte eine entsprechende Ausnahme ausgelöst. Das folgende Codebeispiel zeigt die TestConnection-Methode.  
+11. Fügen Sie die TestConnection-Methode hinzu, die versucht, eine Verbindung mit einem Back-End-Dienst herzustellen. Wenn für diese Methode eine Authentifizierung erforderlich ist, sollte eine entsprechende Ausnahme ausgelöst werden. Mit dem folgenden Codebeispiel wird die TestConnection-Methode veranschaulicht.  
   
     ```c#  
   
@@ -452,7 +453,7 @@ Sie können die Möglichkeit für Benutzer Domänennamen der dritten Ebene in de
     }  
     ```  
   
-12. Fügen Sie die GetDomainState-Methode, die den aktuellen Zustand der Domäne zurückgibt. Das folgende Codebeispiel zeigt die GetDomainState-Methode.  
+12. Fügen Sie die GetDomainState-Methode hinzu, die den aktuellen Status der Domäne zurückgibt. Mit dem folgenden Codebeispiel wird die GetDomainState-Methode veranschaulicht.  
   
     ```c#  
   
@@ -504,7 +505,7 @@ Sie können die Möglichkeit für Benutzer Domänennamen der dritten Ebene in de
     }  
     ```  
   
-13. Fügen Sie die GetCertificateState-Methode, die den aktuellen Status des Zertifikats zurückgibt. Das folgende Codebeispiel zeigt die GetCertificateState-Methode.  
+13. Fügen Sie die GetCertificateState-Methode hinzu, die den aktuellen Status des Zertifikats zurückgibt. Mit dem folgenden Codebeispiel wird die GetCertificateState-Methode veranschaulicht.  
   
     ```c#  
   
@@ -514,72 +515,72 @@ Sie können die Möglichkeit für Benutzer Domänennamen der dritten Ebene in de
     }  
     ```  
   
-14. Speichern Sie und erstellen Sie die Projektmappe.  
+14. Speichern und erstellen Sie die Projektmappe.  
   
-###  <a name="BKMK_SignAssembly"></a>Signieren der Assembly mit Authenticode-Signatur  
- Sie müssen mit Authenticode Signieren der Assembly für sie in das Betriebssystem verwendet werden. Weitere Informationen zum Signieren der Assembly finden Sie unter [signieren und Überprüfen von Code mit Authenticode](https://msdn.microsoft.com/library/ms537364\(VS.85\).aspx#SignCode).  
+###  <a name="BKMK_SignAssembly"></a> Signieren der Assembly mit Authenticode-Signatur  
+ Sie müssen die Assembly mit Authenticode signieren, damit sie im Betriebssystem verwendet werden kann. Weitere Informationen zum Signieren der Assembly finden Sie unter [Signieren und Überprüfen von Code mit Authenticode](https://msdn.microsoft.com/library/ms537364\(VS.85\).aspx#SignCode).  
   
-###  <a name="BKMK_InstallAssembly"></a>Installieren Sie die Assembly auf dem Referenzcomputer  
- Fügen Sie der Assembly in einem Ordner auf dem Referenzcomputer. Notieren Sie sich den Ordnerpfad, da Sie ihn in der Registrierung im nächsten Schritteingeben werden.  
+###  <a name="BKMK_InstallAssembly"></a> Installieren Sie die Assembly, auf dem Referenzcomputer  
+ Platzieren Sie die Assembly in einem Ordner auf dem Referenzcomputer. Notieren Sie sich den Ordnerpfad, da Sie ihn im nächsten Schritt in die Registrierung einfügen.  
   
-### <a name="add-a-key-to-the-registry"></a>Fügen Sie einen Schlüssel zur Registrierung hinzu  
- Sie fügen einen Registrierungseintrag, um die Eigenschaften und den Speicherort der Assembly zu definieren.  
+### <a name="add-a-key-to-the-registry"></a>Hinzufügen eines Schlüssels zur Registrierung  
+ Sie fügen einen Registrierungseintrag hinzu, um die Eigenschaften und den Speicherort der Assembly zu definieren.  
   
-##### <a name="to-add-a-key-to-the-registry"></a>Hinzufügen eines Schlüssels zur Registrierung  
+##### <a name="to-add-a-key-to-the-registry"></a>So fügen Sie einen Schlüssel zur Registrierung hinzu  
   
-1.  Klicken Sie auf dem Referenzcomputer auf **starten**, geben Sie **Regedit**, und drücken Sie dann die **EINGABETASTE**.  
+1.  Klicken Sie auf dem Referenzcomputer auf **Start**, geben Sie **regedit**ein, und drücken Sie die **Eingabetaste**.  
   
-2.  Erweitern Sie im linken Bereich **HKEY_LOCAL_MACHINE**, erweitern Sie **SOFTWARE**, erweitern Sie **Microsoft**, erweitern Sie **Windows Server**, erweitern Sie **Manager**, und erweitern Sie dann **Anbieter**.  
+2.  Erweitern Sie im linken Bereich **HKEY_LOCAL_MACHINE**, **SOFTWARE**, **Microsoft**, **Windows Server**, dann **Domain Managers** und schließlich **Providers**.  
   
-3.  Mit der rechten Maustaste **Anbieter**, zeigen Sie auf **neu**, und klicken Sie dann auf **Schlüssel**.  
+3.  Klicken Sie mit der rechten Maustaste auf **Providers**, zeigen Sie auf **Neu**, und klicken Sie dann auf **Schlüssel**.  
   
-4.  Geben Sie den Bezeichner für den Anbieter als Namen für den Schlüssel. Der Bezeichner ist die GUID, die Sie für den Anbieter in Schritt8 von definiert [Hinzufügen einer Implementierung der IDomainSignupProvider-Schnittstelle zur Assembly](Add-Third-Level-Domain-Names.md#BKMK_DomainSignup).  
+4.  Geben Sie den Bezeichner für den Anbieter als Namen des Schlüssels ein. Der Bezeichner ist die GUID, die Sie für den Anbieter in Schritt 8 unter [Hinzufügen einer Implementierung der IDomainSignupProvider-Schnittstelle zur Assembly](Add-Third-Level-Domain-Names.md#BKMK_DomainSignup) definiert haben.  
   
-5.  Maustaste, die Sie gerade erstellt haben, und klicken Sie dann auf **Zeichenfolgenwert**.  
+5.  Klicken Sie mit der rechten Maustaste auf den gerade erstellten Schlüssel, und klicken Sie dann auf **Zeichenfolgenwert**.  
   
-6.  Typ **Assembly** für den Namen der Zeichenfolge ein, und drücken Sie dann die **EINGABETASTE**.  
+6.  Geben Sie **Assembly** als Namen der Zeichenfolge ein, und drücken Sie die **EINGABETASTE**.  
   
-7.  Mit der rechten Maustaste die neue **Assembly** im rechten Bereich eine Zeichenfolge, und klicken Sie dann auf **ändern**.  
+7.  Klicken Sie mit der rechten Maustaste im rechten Bereich auf die neue Zeichenfolge **Assembly**, und klicken Sie dann auf **Ändern**.  
   
-8.  Geben Sie den vollständigen Pfad zur Assemblydatei, die Sie zuvor erstellt haben, und klicken Sie dann auf **OK**.  
+8.  Geben Sie den vollständigen Pfad der Assemblydatei ein, die Sie zuvor erstellt haben, und klicken Sie dann auf **OK**.  
   
-9. Mit der rechten Maustaste erneut auf des Schlüssels, und klicken Sie dann auf **Zeichenfolgenwert**.  
+9. Klicken Sie mit der rechten Maustaste erneut auf den Schlüssel, und klicken Sie dann auf **Zeichenfolgenwert**.  
   
-10. Typ **aktiviert** für den Namen der Zeichenfolge ein, und drücken Sie dann die **EINGABETASTE**.  
+10. Geben Sie **Aktiviert** als Namen der Zeichenfolge ein, und drücken Sie die **EINGABETASTE**.  
   
-11. Mit der rechten Maustaste die neue **aktiviert** im rechten Bereich eine Zeichenfolge, und klicken Sie dann auf **ändern**.  
+11. Klicken Sie mit der rechten Maustaste im rechten Bereich auf die neue Zeichenfolge **Aktiviert**, und klicken Sie dann auf **Ändern**.  
   
-12. Typ **True**, und klicken Sie dann auf **OK**.  
+12. Geben Sie **True**ein und klicken Sie dann auf **OK**.  
   
-13. Mit der rechten Maustaste erneut auf des Schlüssels, und klicken Sie dann auf **Zeichenfolgenwert**.  
+13. Klicken Sie mit der rechten Maustaste erneut auf den Schlüssel, und klicken Sie dann auf **Zeichenfolgenwert**.  
   
-14. Typ **Typ** für den Namen der Zeichenfolge ein, und drücken Sie dann die **EINGABETASTE**.  
+14. Geben Sie **Typ** als Namen der Zeichenfolge ein, und drücken Sie die **EINGABETASTE**.  
   
-15. Mit der rechten Maustaste die neue **Typ** im rechten Bereich eine Zeichenfolge, und klicken Sie dann auf **ändern**.  
+15. Klicken Sie mit der rechten Maustaste im rechten Bereich auf die neue Zeichenfolge **Typ**, und klicken Sie dann auf **Ändern**.  
   
-16. Geben Sie den vollständigen Klassennamen des Anbieters in der Assembly definiert, und klicken Sie dann auf **OK**.  
+16. Geben Sie den vollständigen Klassennamen des Anbieters ein, der in der Assembly definiert ist, und klicken Sie dann auf **OK**.  
   
-###  <a name="BKMK_RestartService"></a>Starten Sie den Dienst Windows Server-Domänennamenverwaltung  
- Sie müssen neu starten, die Windows Server-Dienst für den Anbieter, um das Betriebssystem zur Verfügung gestellt.  
+###  <a name="BKMK_RestartService"></a> Starten Sie den Dienst von Windows Server-Domänennamenverwaltung  
+ Sie müssen den Windows Server-Dienst für die Domänenverwaltung neu starten, damit der Anbieter dem Betriebssystem zur Verfügung steht.  
   
-##### <a name="restart-the-service"></a>Starten Sie den Dienst neu.  
+##### <a name="restart-the-service"></a>Neustarten des Diensts  
   
-1.  Klicken Sie auf **starten**, Typ **Mmc**, und drücken Sie dann die **EINGABETASTE**.  
+1.  Click **Start**, type **mmc**, and then press **Enter**.  
   
-2.  Wenn das Dienste-Snap-In in der Konsole nicht aufgeführt ist, fügen Sie es mithilfe des folgenden Verfahrens:  
+2.  Wenn das Snap-In "Dienste" in der Konsole nicht aufgeführt wird, fügen Sie es mit den folgenden Schritten hinzu:  
   
-    1.  Klicken Sie auf **Datei**, und klicken Sie dann auf **Snap-In hinzufügen/entfernen**.  
+    1.  Klicken Sie im Menü **Datei** auf **Snap-In hinzufügen/entfernen**.  
   
-    2.  In der **Verfügbare Snap-Ins** auf **Dienste**, und klicken Sie dann auf **hinzufügen**.  
+    2.  Klicken Sie in der Liste **Verfügbare Snap-Ins** auf **Dienste**, und klicken Sie dann auf **Hinzufügen**.  
   
-    3.  In der **Dienste** Dialogfeld sicher, dass **lokalen Computer** ausgewählt ist, und klicken Sie dann auf **Fertig stellen**.  
+    3.  Stellen Sie im Dialogfeld **Dienste** sicher, dass **lokaler Computer** ausgewählt ist, und klicken Sie dann auf **Fertig stellen**.  
   
-    4.  Klicken Sie auf **OK** zum Schließen der **-Snap-Ins hinzufügen/entfernen** Dialogfeld.  
+    4.  Klicken Sie auf **OK**, um das Dialogfeld **Snap-In hinzufügen/entfernen** zu schließen.  
   
-3.  Doppelklicken Sie auf **Dienste**, scrollen Sie nach unten, und wählen Sie **Windows Server-Domänenverwaltung**, und klicken Sie dann auf **starten Sie den Dienst**.  
+3.  Doppelklicken Sie auf **Dienste**, führen Sie einen Bildlauf nach unten aus, und wählen Sie **Windows Server-Domänenverwaltung**aus. Klicken Sie anschließend auf **Dienst neu starten**.  
   
 ## <a name="see-also"></a>Siehe auch  
  [Erstellen und Anpassen des Abbilds](Creating-and-Customizing-the-Image.md)   
- [Weitere Anpassungen](Additional-Customizations.md)   
+ [Zusätzliche Anpassungen](Additional-Customizations.md)   
  [Vorbereiten des Abbilds für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
  [Testen der Benutzerfreundlichkeit](Testing-the-Customer-Experience.md)

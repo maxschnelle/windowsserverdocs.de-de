@@ -1,6 +1,6 @@
 ---
-title: Hochladen eines spezialisierten Windows Server2008/2008 R2-Images in Azure
-description: Windows Server2008 und 2008R2 werden demnächst eingestellt. Erfahren Sie, wie Sie diese in Azure auslagern können, indem Sie Windows Server in der Cloud hosten.
+title: Hochladen eines spezialisierten Windows Server 2008/2008 R2-Images in Azure
+description: Windows Server 2008 und 2008 R2 werden demnächst eingestellt. Erfahren Sie, wie Sie diese in Azure auslagern können, indem Sie Windows Server in der Cloud hosten.
 ms.prod: windows-server-threshold
 ms.mktglfcycl: manage
 ms.sitesec: library
@@ -11,22 +11,22 @@ ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.localizationpriority: high
 ms.openlocfilehash: af98a219a4a5aa708df9c648f1b245a21e95f016
-ms.sourcegitcommit: f7113ccc8b664494f664cd4b100dcac06eef5654
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "7012074"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59827811"
 ---
-# Hochladen eines spezialisierten Windows Server2008/2008 R2-Images in Azure 
+# <a name="upload-a-windows-server-20082008-r2-specialized-image-to-azure"></a>Hochladen eines spezialisierten Windows Server 2008/2008 R2-Images in Azure 
 
 ![Bildthema mit Banner zur Einführung von WS08](media/WS08-image-banner-large.png)
 
 Sie können mit Azure nun eine Windows Server 2008/2008 R2-VM in der Cloud ausführen. 
 
-## Vorbereiten des spezialisierten Windows Server2008/2008 R2-Images
+## <a name="prep-the-windows-server-20082008-r2-specialized-image"></a>Vorbereiten des spezialisierten Windows Server 2008/2008 R2-Images
 Bevor Sie ein Image hochladen können, nehmen Sie die folgenden Änderungen vor:
 
-- Laden Sie Windows Server2008 Service Pack2 (SP2) herunter und installieren Sie es, sofern es nicht bereits in Ihrem Image installiert ist.
+- Laden Sie Windows Server 2008 Service Pack 2 (SP2) herunter und installieren Sie es, sofern es nicht bereits in Ihrem Image installiert ist.
 
 - Konfigurieren Sie die Einstellungen für das Remotedesktop (RDP).
    1. Klicken Sie auf **Systemsteuerung** > **Systemeinstellungen**.   
@@ -43,22 +43,22 @@ Bevor Sie ein Image hochladen können, nehmen Sie die folgenden Änderungen vor:
 - Konfigurieren Sie die Windows-Firewall-Einstellungen.   
    1. Geben Sie an der Eingabeaufforderung im Administratormodus "**wf.msc**" für Windows-Firewall und erweiterte Sicherheitseinstellungen ein.   
    2. Sortieren Sie die Ergebnisse nach **Ports**, und wählen Sie **Port 3389** aus.   
-     ![Screenshot der eingehenden Regeln in den Windows-Firewall-Einstellungen.](media/3b_inboundrules.png)   
-   3. Aktivieren Sie das Remotedesktop (TCP-IN) für die Profile **Domäne**, **Privat** und **Öffentlich** (siehe oben).
+     ![Screenshot der WIndows-Firewall-Einstellungen eingehenden Regeln.](media/3b_inboundrules.png)   
+   3. Aktivieren Sie Remotedesktop (TCP-IN) für die Profile an: **Domäne**, **Private**, und **öffentliche** (siehe oben).
 
 - Speichern Sie alle Einstellungen, und fahren Sie das Image herunter.   
 - Wenn Sie Hyper-V verwenden, stellen Sie sicher, dass die untergeordnete AVHD für dauerhafte Änderungen mit der übergeordneten virtuellen Festplatte zusammengeführt wird.
 
-Ein bekannter aktueller Fehler bewirkt, dass das Administratorkennwort auf dem hochgeladenen Image innerhalb von 24Stunden abläuft. Führen Sie die folgenden Schritte aus, um dieses Problem zu umgehen: 
+Ein bekannter aktueller Fehler bewirkt, dass das Administratorkennwort auf dem hochgeladenen Image innerhalb von 24 Stunden abläuft. Führen Sie die folgenden Schritte aus, um dieses Problem zu umgehen: 
 
 1. Wechseln Sie zu **Start** > **Ausführen**.
 2. Geben Sie **lusrmgr.msc** ein.
 3. Wählen Sie unter "Lokale Benutzer und Gruppen" **Benutzer** aus.
 4. Klicken Sie mit der rechten Maustaste auf **Administrator**, und wählen Sie **Eigenschaften** aus.
-5. Wählen Sie **Kennwort läuft nie ab** und anschließend **OK**
-![Screenshot der Administratoreigenschaften.](media/6_adminprops.png)
+5. Wählen Sie **Kennwort läuft nie ab** , und wählen Sie **OK**
+![Screenshot der Eigenschaften von Administrator.](media/6_adminprops.png)
 
-## Hochladen des VHD-Images
+## <a name="uploading-the-image-vhd"></a>Hochladen des VHD-Images
 Sie können die virtuelle Festplatte anhand des folgenden Skripts hochladen. Zuvor benötigen Sie jedoch die Publish-Einstellungsdatei für Ihr Azure-Konto. Rufen Sie die [Azure-Dateieinstellungen](https://azure.microsoft.com/downloads/) ab.
 
 Dies ist das Skript:
@@ -80,7 +80,7 @@ Login-AzureRmAccount
       $urlOfUploadedImageVhd = "<BlobUrl>/<NameForVHD>.vhd"
       Add-AzureRmVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd -LocalFilePath "<FilePath>"  
 ```
-## Bereitstellen des Images in Azure
+## <a name="deploy-the-image-in-azure"></a>Bereitstellen des Images in Azure
 In diesem Abschnitt stellen Sie die Image-VHD auf Azure bereit. 
 
 > [!IMPORTANT]
@@ -95,12 +95,12 @@ In diesem Abschnitt stellen Sie die Image-VHD auf Azure bereit.
      a. Wechseln Sie zu "Datenträger", und klicken Sie auf **Hinzufügen**.  
      b. Geben Sie einen Namen für den Datenträger ein. Wählen Sie das Abonnement aus, das Sie verwenden möchten, legen Sie die Region fest, und wählen Sie den Kontotyp aus.   
      c. Wählen Sie für den Quelltyp "Speicher" aus. Navigieren Sie anhand des Skripts zum Speicherort der Blob-VHD.  
-     d. Wählen Sie den Betriebssystemtyp "Windows" und die Größe "(Standard: 1023)" aus.   
+     d. Wählen Sie Windows für Betriebssystem-Typ und Größe (Standardwert: 1023).   
      e. Klicken Sie auf **Erstellen**.   
 
 7.  Wechseln Sie zum erstellten Datenträger, und klicken Sie auf **VM erstellen**.   
      a. Benennen Sie die VM.   
-     b. Wählen Sie die vorhandene Gruppe aus, die Sie in Schritt5 erstellt und in die Sie den Datenträger hochgeladen haben.   
+     b. Wählen Sie die vorhandene Gruppe aus, die Sie in Schritt 5 erstellt und in die Sie den Datenträger hochgeladen haben.   
      c. Wählen Sie eine Größe und einen SKU-Plan für Ihre VM aus.   
      d. Wählen Sie eine Netzwerkschnittstelle auf der Einstellungsseite aus. Stellen Sie sicher, dass die Netzwerkschnittstelle über die folgende Regel verfügt:
  

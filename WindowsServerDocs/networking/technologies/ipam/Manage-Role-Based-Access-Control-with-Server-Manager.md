@@ -1,6 +1,6 @@
 ---
 title: Verwalten der rollenbasierten Zugriffssteuerung mit Server-Manager
-description: Dieses Thema ist Teil des Handbuchs Verwaltung von IP-Adressverwaltung (IPAM) in Windows Server2016.
+description: Dieses Thema ist Teil des Leitfadens Verwaltung von IP-Adressverwaltung (IPAM) in Windows Server 2016.
 manager: brianlic
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -13,17 +13,18 @@ ms.topic: article
 ms.assetid: 77b6ac92-eaff-46d7-95db-ee6fc96742ed
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 75c7e56b6fb974a8f13e6b737045168fea994c0b
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 4fdefab9cb51e3c521ca7cc68c882632178a5d18
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59827761"
 ---
 # <a name="manage-role-based-access-control-with-server-manager"></a>Verwalten der rollenbasierten Zugriffssteuerung mit Server-Manager
 
->Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
-In den folgenden Themen können Sie die rollenbasierte Zugriffssteuerung mithilfe von Server-Manager mit einer grafischen Benutzeroberfläche verwalten.  
+Sie können die folgenden Themen verwenden, zum Verwalten der rollenbasierten Zugriffssteuerung mit Server-Manager, die über eine grafische Benutzeroberfläche verfügt.  
   
 -   [Erstellen einer Benutzerrolle für die Zugriffssteuerung](../../technologies/ipam/Create-a-User-Role-for-Access-Control.md)  
   
@@ -31,11 +32,11 @@ In den folgenden Themen können Sie die rollenbasierte Zugriffssteuerung mithilf
   
 -   [Festlegen des Zugriffsbereichs für eine DNS-Zone](../../technologies/ipam/Set-Access-Scope-for-a-DNS-Zone.md)
   
--   [Festlegen des Zugriffsbereichs für DNS-Ressourceneinträge](../../technologies/ipam/Set-Access-Scope-for-DNS-Resource-Records.md)
+-   [Festlegen des Zugriffsbereichs für DNS-Ressourceneinträgen](../../technologies/ipam/Set-Access-Scope-for-DNS-Resource-Records.md)
   
 -   [Anzeigen von Rollen und Rollenberechtigungen](../../technologies/ipam/View-Roles-and-Role-Permissions.md)
   
-Alternativ können Sie Windows PowerShell zum Verwalten von IPAM rollenbasierte Zugriffssteuerung. Weitere Informationen finden Sie unter [verwalten Role Based Access Control mit Windows PowerShell](../../technologies/ipam/Manage-Role-Based-Access-Control-with-Windows-PowerShell.md).
+Alternativ können Sie Windows PowerShell zum Verwalten von IPAM rollenbasierte Zugriffssteuerung. Weitere Informationen finden Sie unter [verwalten rollenbasierte Zugriffssteuerung mit Windows PowerShell](../../technologies/ipam/Manage-Role-Based-Access-Control-with-Windows-PowerShell.md).
   
 ## <a name="see-also"></a>Siehe auch  
 [Verwalten von IPAM](Manage-IPAM.md)  

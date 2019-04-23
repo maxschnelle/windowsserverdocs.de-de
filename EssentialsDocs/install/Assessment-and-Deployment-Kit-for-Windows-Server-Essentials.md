@@ -1,6 +1,6 @@
 ---
-title: "Assessment and Deployment Kit für Windows Server Essentials"
-description: Beschreibt, wie Sie Windows Server Essentials
+title: Assessment and Deployment Kit für Windows Server Essentials
+description: Beschreibt, wie Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,21 +13,22 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 10f962d4da118d6ffc412a4837d7ad0bd0b2bf39
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59833211"
 ---
 # <a name="assessment-and-deployment-kit-for-windows-server-essentials"></a>Assessment and Deployment Kit für Windows Server Essentials
 
->Gilt für: Windows Server2016 Essentials, Windows Server2012 R2 Essentials, Windows Server2012 Essentials
+>Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Die Windows Server® 2012 Essentials Assessment and Deployment Kit (ADK) ist eine Sammlung von Tools, Binärdateien und Betriebssystem-Sprachpakete, die Sie zum Anpassen, bewerten und Bereitstellen von Windows Server Essentials auf neuen Computern verwenden können. Dieses Dokument enthält spezifische Informationen für Partner, die das Betriebssystem für ihre Kunden vorinstallieren möchten, und enthält die folgenden Themen:  
+Das Windows Server® 2012 Essentials Assessment und Deployment Kit (ADK) ist eine Sammlung von Tools, Binärdateien und Betriebssystem-Sprachpakete, die Sie zum Anpassen, bewerten und Bereitstellen von Windows Server Essentials auf neuen Computern verwenden können. Dieses Dokument enthält Informationen für Partner, die eine Vorinstallation des Betriebssystems für ihre Kunden beabsichtigen. Darüber hinaus umfasst es die folgenden Themen:  
   
 
 -   [Erste Schritte mit Windows Server Essentials ADK](Getting-Started-with-the-Windows-Server-Essentials-ADK.md)  
   
-    -   [Wichtige Informationen für die Verwendung von Windows Server Essentials ADK](Important-Information-for-Using-the-Windows-Server-Essentials-ADK.md)  
+    -   [Wichtige Informationen zum Verwenden von Windows Server Essentials ADK](Important-Information-for-Using-the-Windows-Server-Essentials-ADK.md)  
   
     -   [Hardwareanforderungen für den Zielcomputer](Hardware-Requirements-for-the-Target-Computer.md)  
   
@@ -35,7 +36,7 @@ Die Windows Server® 2012 Essentials Assessment and Deployment Kit (ADK) ist ein
   
     -   [Vorbereiten des Referenzcomputers](Prepare-the-Technician-Computer.md)  
   
-    -   [Konfigurieren von Serverspeicher](Configure-Server-Storage.md)  
+    -   [Konfigurieren des Serverspeichers](Configure-Server-Storage.md)  
   
 -   [Erstellen und Anpassen des Abbilds](Creating-and-Customizing-the-Image.md)  
   
@@ -47,7 +48,7 @@ Die Windows Server® 2012 Essentials Assessment and Deployment Kit (ADK) ist ein
   
     -   [Anpassen des Abbilds](Customize-the-Image.md)  
   
--   [Weitere Anpassungen](Additional-Customizations.md)  
+-   [Zusätzliche Anpassungen](Additional-Customizations.md)  
   
     -   [Hinzufügen von Branding zum Dashboard, Remotewebzugriff und Launchpad](Add-Branding-to-the-Dashboard--Remote-Web-Access--and-Launchpad.md)  
   
@@ -61,21 +62,21 @@ Die Windows Server® 2012 Essentials Assessment and Deployment Kit (ADK) ist ein
   
     -   [Ändern der Reihenfolge und Gruppierung von Registerkarten](Change-the-Order-and-Grouping-of-Tabs.md)  
   
-    -   [Installieren oder Entfernen von Language Packs](Install-or-Remove-Language-Packs.md)  
+    -   [Installieren oder Entfernen von Sprachpaketen](Install-or-Remove-Language-Packs.md)  
   
     -   [Verwalten von Domänennamen und Domänennamenanbietern](Manage-Domain-Names-and-Domain-Name-Providers.md)  
   
-    -   [Anpassen der anmelden für Microsoft Online Backup Service-Vorgang](Customize-Sign-Up-for-Microsoft-Online-Backup-Service-task.md)  
+    -   [Registrieren Sie sich für Microsoft Online Backup Service Aufgabe anpassen](Customize-Sign-Up-for-Microsoft-Online-Backup-Service-task.md)  
   
     -   [Anpassen von Speicherplätzen](Customize-Storage-Spaces.md)  
   
     -   [Erstellen des mehrsprachigen Mediums zur Clientwiederherstellung](Build-Multi-Language-Client-Restore-Media.md)  
   
-    -   [Automatisches Installieren von Add-Ins während des Setups](Automate-Installation-of-Add-Ins-During-Setup.md)  
+    -   [Automatisieren der Installation von Add-Ins während des Setups](Automate-Installation-of-Add-Ins-During-Setup.md)  
   
-    -   [Microsoft Online Service Partner Agreement Partner-of-Record Informationen hinzufügen](Add-Microsoft-Online-Service-Partner-Agreement-Partner-of-Record-Information.md)  
+    -   [Hinzufügen von Microsoft Online Services Agreement Partner-of-Record-Partnerinformationen](Add-Microsoft-Online-Service-Partner-Agreement-Partner-of-Record-Information.md)  
   
-    -   [Ersetzen Sie Office 365-Integration Modul kaufen Try-Endpunkt-URL zur Unterstützung von Microsoft Online Service Reseller Agreement](Replace-O365-Integration-Module-Buy-Try-Endpoint-URL-in-Support-of-Microsoft-Online-Service-Reseller-Agreement.md)  
+    -   [Ersetzen Sie Office 365-Integration-Modul kaufen-Endpunkt-URLs wiederverkäufervertrags Microsoft Online-Dienst](Replace-O365-Integration-Module-Buy-Try-Endpoint-URL-in-Support-of-Microsoft-Online-Service-Reseller-Agreement.md)  
   
     -   [Erstellen einer Serverwiederherstellungs-DVD für Remote verwaltete Server](Create-a-Server-Recovery-DVD-for-Remotely-Administered-Servers.md)  
   
@@ -87,7 +88,7 @@ Die Windows Server® 2012 Essentials Assessment and Deployment Kit (ADK) ist ein
 
 -   [Erste Schritte mit Windows Server Essentials ADK](../install/Getting-Started-with-the-Windows-Server-Essentials-ADK.md)  
   
-    -   [Wichtige Informationen für die Verwendung von Windows Server Essentials ADK](../install/Important-Information-for-Using-the-Windows-Server-Essentials-ADK.md)  
+    -   [Wichtige Informationen zum Verwenden von Windows Server Essentials ADK](../install/Important-Information-for-Using-the-Windows-Server-Essentials-ADK.md)  
   
     -   [Hardwareanforderungen für den Zielcomputer](../install/Hardware-Requirements-for-the-Target-Computer.md)  
   
@@ -95,7 +96,7 @@ Die Windows Server® 2012 Essentials Assessment and Deployment Kit (ADK) ist ein
   
     -   [Vorbereiten des Referenzcomputers](../install/Prepare-the-Technician-Computer.md)  
   
-    -   [Konfigurieren von Serverspeicher](../install/Configure-Server-Storage.md)  
+    -   [Konfigurieren des Serverspeichers](../install/Configure-Server-Storage.md)  
   
 -   [Erstellen und Anpassen des Abbilds](../install/Creating-and-Customizing-the-Image.md)  
   
@@ -107,7 +108,7 @@ Die Windows Server® 2012 Essentials Assessment and Deployment Kit (ADK) ist ein
   
     -   [Anpassen des Abbilds](../install/Customize-the-Image.md)  
   
--   [Weitere Anpassungen](../install/Additional-Customizations.md)  
+-   [Zusätzliche Anpassungen](../install/Additional-Customizations.md)  
   
     -   [Hinzufügen von Branding zum Dashboard, Remotewebzugriff und Launchpad](../install/Add-Branding-to-the-Dashboard--Remote-Web-Access--and-Launchpad.md)  
   
@@ -121,21 +122,21 @@ Die Windows Server® 2012 Essentials Assessment and Deployment Kit (ADK) ist ein
   
     -   [Ändern der Reihenfolge und Gruppierung von Registerkarten](../install/Change-the-Order-and-Grouping-of-Tabs.md)  
   
-    -   [Installieren oder Entfernen von Language Packs](../install/Install-or-Remove-Language-Packs.md)  
+    -   [Installieren oder Entfernen von Sprachpaketen](../install/Install-or-Remove-Language-Packs.md)  
   
     -   [Verwalten von Domänennamen und Domänennamenanbietern](../install/Manage-Domain-Names-and-Domain-Name-Providers.md)  
   
-    -   [Anpassen der anmelden für Microsoft Online Backup Service-Vorgang](../install/Customize-Sign-Up-for-Microsoft-Online-Backup-Service-task.md)  
+    -   [Registrieren Sie sich für Microsoft Online Backup Service Aufgabe anpassen](../install/Customize-Sign-Up-for-Microsoft-Online-Backup-Service-task.md)  
   
     -   [Anpassen von Speicherplätzen](../install/Customize-Storage-Spaces.md)  
   
     -   [Erstellen des mehrsprachigen Mediums zur Clientwiederherstellung](../install/Build-Multi-Language-Client-Restore-Media.md)  
   
-    -   [Automatisches Installieren von Add-Ins während des Setups](../install/Automate-Installation-of-Add-Ins-During-Setup.md)  
+    -   [Automatisieren der Installation von Add-Ins während des Setups](../install/Automate-Installation-of-Add-Ins-During-Setup.md)  
   
-    -   [Microsoft Online Service Partner Agreement Partner-of-Record Informationen hinzufügen](../install/Add-Microsoft-Online-Service-Partner-Agreement-Partner-of-Record-Information.md)  
+    -   [Hinzufügen von Microsoft Online Services Agreement Partner-of-Record-Partnerinformationen](../install/Add-Microsoft-Online-Service-Partner-Agreement-Partner-of-Record-Information.md)  
   
-    -   [Ersetzen Sie Office 365-Integration Modul kaufen Try-Endpunkt-URL zur Unterstützung von Microsoft Online Service Reseller Agreement](../install/Replace-O365-Integration-Module-Buy-Try-Endpoint-URL-in-Support-of-Microsoft-Online-Service-Reseller-Agreement.md)  
+    -   [Ersetzen Sie Office 365-Integration-Modul kaufen-Endpunkt-URLs wiederverkäufervertrags Microsoft Online-Dienst](../install/Replace-O365-Integration-Module-Buy-Try-Endpoint-URL-in-Support-of-Microsoft-Online-Service-Reseller-Agreement.md)  
   
     -   [Erstellen einer Serverwiederherstellungs-DVD für Remote verwaltete Server](../install/Create-a-Server-Recovery-DVD-for-Remotely-Administered-Servers.md)  
   
@@ -146,8 +147,8 @@ Die Windows Server® 2012 Essentials Assessment and Deployment Kit (ADK) ist ein
 -   [Testen der Benutzerfreundlichkeit](../install/Testing-the-Customer-Experience.md)  
 
   
-## <a name="copyright-information"></a>Copyright-Informationen  
- Dieses Dokument dient als-ist. Informationen und Stellungnahmen, die in diesem Dokument, einschließlich URLs und anderer Verweise auf Internetwebsites, können ohne vorherige Ankündigung geändert. Einige Beispiele dienen nur zur Veranschaulichung und sind frei erfunden. Keine wirkliche Vereinigung oder Verbindung soll oder rein zufällig. Dieses Dokument bietet keine keine Rechte an geistigem Eigentum in Microsoft-Produkten. Können Sie kopieren und verwenden Sie dieses Dokument für interne Referenzzwecke.  
+## <a name="copyright-information"></a>Copyrightinformationen  
+ Dieses Dokument dient als-ist. Die in diesem Dokument enthaltenen Informationen und Ansichten, einschließlich URLs und andere Verweise auf Internetwebsites, können ohne vorherige Ankündigung geändert werden. Einige Beispiele dienen lediglich der Anschauung und sind frei erfunden. Ähnlichkeiten mit real existierenden Personen, Unternehmen oder Szenarien sind weder beabsichtigt noch ableitbar. Dieses Dokument stellt Ihnen keinerlei Rechte am geistigen Eigentum eines beliebigen Microsoft-Produkts zur Verfügung. Dieses Dokument darf für interne Zwecke kopiert und verwendet werden.  
   
  Active Directory, Microsoft, Windows Live, Windows PowerShell, Windows und Windows Server sind Marken der Microsoft-Unternehmensgruppe. Alle anderen Marken sind Eigentum der jeweiligen Inhaber.  
   

@@ -1,7 +1,7 @@
 ---
 ms.assetid: 846c3680-b321-47da-8302-18472be42421
-title: "Bereitstellen von Ansprüchen über Gesamtstrukturen (Demonstrationsschritte)"
-description: 
+title: Bereitstellen von Ansprüchen über Gesamtstrukturen (Demonstrationsschritte)
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,23 +10,24 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
 ms.openlocfilehash: 3bab7a396061ecae8a187cc6986d6d026a9e4b32
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59830351"
 ---
 # <a name="deploy-claims-across-forests-demonstration-steps"></a>Bereitstellen von Ansprüchen über Gesamtstrukturen (Demonstrationsschritte)
 
->Gilt für: Windows Server2016, Windows Server2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-In diesem Thema werden wir ein grundlegendes Szenario behandelt, das erläutert, wie die Anspruchstransformation zwischen vertrauenden und vertrauenswürdigen Gesamtstrukturen konfigurieren. Sie erfahren, wie Ansprüche Transformation Gruppenrichtlinienobjekte erstellt und der Vertrauensstellung der vertrauenden Gesamtstruktur und der vertrauenswürdigen Gesamtstruktur verknüpft werden können. Sie werden dann das Szenario überprüfen.  
+In diesem Thema wird ein grundlegendes Szenario behandelt, das erklärt, wie Sie Transformationen von Ansprüchen zwischen vertrauenden und vertrauenswürdigen Gesamtstrukturen konfigurieren. Sie lernen, wie Ansprüche Transformation Gruppenrichtlinienobjekte erstellt und verknüpft die Vertrauensstellung der vertrauenden Gesamtstruktur und der vertrauenswürdigen Gesamtstruktur werden können. Sie werden dann das Szenario überprüfen.  
   
-## <a name="scenario-overview"></a>Beispielszenario (Übersicht)  
-Adatum Corporation bietet Finanzdienstleistungen auf Contoso, Ltd. Jedes Quartal kopieren Adatum Abteilungsserver ihre Konto-Tabellen in einen Ordner auf einem Dateiserver befindet sich bei Contoso, Ltd. Es gibt eine bidirektionale Vertrauensstellung, die von Contoso Adatum eingerichtet. Contoso, Ltd. möchte die Freigabe schützen, sodass nur Adatum Mitarbeiter auf die Remotefreigabe zugreifen können.  
+## <a name="scenario-overview"></a>Szenarioübersicht  
+Adatum Corporation stellt Finanzdienstleistungen an Contoso, Ltd. In jedem Quartal kopieren Adatum Accountants ihre Konto-Tabellen in einen Ordner auf einem Dateiserver befindet sich bei Contoso, Ltd. Es gibt eine bidirektionale Vertrauensstellung, die von Contoso auf Adatum einrichten. Contoso, Ltd. möchte die Freigabe schützen, sodass nur Adatum Mitarbeitern Freigabe auf den Remotecomputer zugreifen können.  
   
 In diesem Szenario:  
   
-1.  [Richten Sie die erforderlichen Komponenten und der Testumgebung](Deploy-Claims-Across-Forests--Demonstration-Steps-.md#BKMK_1.1)  
+1.  [Richten Sie die Voraussetzungen und die testumgebung](Deploy-Claims-Across-Forests--Demonstration-Steps-.md#BKMK_1.1)  
   
 2.  [Einrichten der Transformation von Ansprüchen auf vertrauenswürdige Gesamtstruktur (Adatum)](Deploy-Claims-Across-Forests--Demonstration-Steps-.md#BKMK_3)  
   
@@ -34,59 +35,59 @@ In diesem Szenario:
   
 4.  [Überprüfen Sie das Szenario](Deploy-Claims-Across-Forests--Demonstration-Steps-.md#BKMK_5)  
   
-## <a name="BKMK_1.1"></a>Richten Sie die erforderlichen Komponenten und der Testumgebung  
-Die Testkonfiguration umfasst das Einrichten von zwei Gesamtstrukturen: Adatum Corporation und Contoso, Ltd. und müssen eine bidirektionale Vertrauensstellung zwischen Contoso und "Adatum". "adatum.com" ist der vertrauenswürdigen Gesamtstruktur, und "contoso.com" ist die vertrauende Gesamtstruktur.  
+## <a name="BKMK_1.1"></a>Richten Sie die Voraussetzungen und die testumgebung  
+Die Testkonfiguration umfasst das Einrichten von zwei Gesamtstrukturen: Adatum Corporation und Contoso, Ltd lautet, und dass eine bidirektionale Vertrauensstellung zwischen Contoso und Adatum. "adatum.com" ist der vertrauenswürdigen Gesamtstruktur aus, und "contoso.com" lautet die vertrauende Gesamtstruktur.  
   
-Ansprüche Transformation Szenario veranschaulicht die Transformation von Ansprüchen in der vertrauenswürdigen Gesamtstruktur zum einen Anspruch in der vertrauenden Gesamtstruktur. Zu diesem Zweck müssen Sie zum Einrichten einer neuen Gesamtstruktur adatum.com bezeichnet und zum Auffüllen der Gesamtstruktur mit einem Testbenutzer mit einem Unternehmens-Wert von "Adatum". Sie müssen eine bidirektionale Vertrauensstellung zwischen contoso.com und adatum.com einrichten.  
+Ansprüche Transformation Szenario veranschaulicht Transformation eines Anspruchs in der vertrauenswürdigen Gesamtstruktur einem Anspruch in der vertrauenden Gesamtstruktur. Zu diesem Zweck müssen Sie zum Einrichten einer neuen Gesamtstruktur "adatum.com" aufgerufen, und füllen Sie die Gesamtstruktur mit einem Testbenutzer mit einem Unternehmens-Wert von "Adatum". Sie müssen eine bidirektionale Vertrauensstellung zwischen "contoso.com" und "adatum.com" einrichten.  
   
 > [!IMPORTANT]  
-> Beim Einrichten der Contoso "und" Adatum Gesamtstrukturen müssen Sie sicherstellen, dass beide Stammdomänen unter Windows Server2012 als Domänenfunktionsebene für die Transformation von Ansprüchen funktioniert.  
+> Beim Einrichten der Contoso und Adatum Gesamtstrukturen müssen Sie sicherstellen, dass der Root-Domänen unter Windows Server 2012 Funktionsebene der Domäne für die Anspruchstransformation arbeiten werden.  
   
-Sie müssen die folgenden für das Labor einrichten. Diese Verfahren werden ausführlich im [AnhangB: Einstellung Einrichten der Testumgebung](Appendix-B--Setting-Up-the-Test-Environment.md)  
+Sie müssen die folgenden für die laborumgebung einrichten. Diese Verfahren werden ausführlich im [Anhang B: Einrichten der Testumgebung](Appendix-B--Setting-Up-the-Test-Environment.md)  
   
-Sie müssen die folgenden Verfahren zum Einrichten der Testumgebung für dieses Szenario implementieren:  
+Sie müssen die folgenden Verfahren zum Einrichten der testumgebung für dieses Szenario zu implementieren:  
   
-1.  [Legen Sie als vertrauenswürdigen Gesamtstruktur Contoso Adatum fest](Appendix-B--Setting-Up-the-Test-Environment.md)  
+1.  [Legen Sie Adatum als vertrauenswürdigen Gesamtstruktur Contoso](Appendix-B--Setting-Up-the-Test-Environment.md)  
   
-2.  [Erstellen Sie den Anspruchstyp "Unternehmen" auf Contoso](Appendix-B--Setting-Up-the-Test-Environment.md#BKMK_2.8)  
+2.  [Erstellen Sie den Anspruchstyp "Unternehmen" für Contoso](Appendix-B--Setting-Up-the-Test-Environment.md#BKMK_2.8)  
   
-3.  [Aktivieren Sie die Ressourceneigenschaft "Unternehmen" auf Contoso](Appendix-B--Setting-Up-the-Test-Environment.md#BKMK_2.55)  
+3.  [Aktivieren der Ressourceneigenschaft "Company" auf Contoso](Appendix-B--Setting-Up-the-Test-Environment.md#BKMK_2.55)  
   
 4.  [Erstellen Sie die zentrale Zugriffsregel](Appendix-B--Setting-Up-the-Test-Environment.md#BKMK_2.9)  
   
 5.  [Erstellen Sie die zentrale Zugriffsrichtlinie](Appendix-B--Setting-Up-the-Test-Environment.md#BKMK_2.10)  
   
-6.  [Veröffentlichen der neuen Richtlinie mithilfe von Gruppenrichtlinien](Appendix-B--Setting-Up-the-Test-Environment.md#BKMK_2.11)  
+6.  [Veröffentlichen der neuen Richtlinie über Gruppenrichtlinien](Appendix-B--Setting-Up-the-Test-Environment.md#BKMK_2.11)  
   
 7.  [Erstellen Sie den Ordner "Ergebnis" auf dem Dateiserver](Appendix-B--Setting-Up-the-Test-Environment.md#BKMK_2.12)  
   
-8.  [Legen Sie die Klassifizierung, und wenden Sie die zentrale Zugriffsrichtlinie auf den neuen Ordner](Appendix-B--Setting-Up-the-Test-Environment.md#BKMK_2.13)  
+8.  [Festlegen von Klassifizierung, und wenden Sie die zentrale Zugriffsrichtlinie auf den neuen Ordner](Appendix-B--Setting-Up-the-Test-Environment.md#BKMK_2.13)  
   
-Verwenden Sie die folgende Informationen, um dieses Szenario:  
+Verwenden Sie die folgende Informationen, um dieses Szenario zu vervollständigen:  
   
-|Objekte|Detail|  
+|Objekte|Details|  
 |-----------|-----------|  
 |Benutzer|Jeff Low, Contoso|  
-|Benutzeransprüche auf Adatum und Contoso|-ID: Ad: / / Ext/Unternehmen: ContosoAdatum,<br /><br />Quellattribut: Unternehmen<br /><br />Vorgeschlagene Werte: Contoso, Adatum **wichtig:** müssen Sie die ID für die "Unternehmen" Anspruchstyp auf setzen Contoso sowohl Adatum für die Transformation von Ansprüchen gleich funktioniert.|  
-|Zentrale Zugriffsregel auf Contoso|AdatumEmployeeAccessRule|  
-|Zentrale Zugriffsrichtlinie auf Contoso|Nur Zugriffsrichtlinie adatum|  
-|Ansprüche Transformation Richtlinien auf Adatum und Contoso|DenyAllExcept Unternehmen|  
-|Dateiordner auf Contoso|D:\EARNINGS|  
+|Benutzeransprüche auf Adatum "und" Contoso|ID: Ad: / / Ext/Unternehmen: ContosoAdatum,<br /><br />Quellattribut: Unternehmen<br /><br />Vorgeschlagene Werte: Contoso, Adatum **wichtig:** Sie müssen die ID für die "Unternehmen" Typ des Anspruchs auf Contoso und Adatum identisch für die Anspruchstransformation funktioniert festlegen.|  
+|Zentrale Zugriffsregel für Contoso|AdatumEmployeeAccessRule|  
+|Zentrale Zugriffsrichtlinie auf Contoso|Nur Adatum-Zugriffsrichtlinie|  
+|Transformationsrichtlinien auf Adatum "und" Contoso-Ansprüche|DenyAllExcept Unternehmen|  
+|Ordner für Contoso|D:\EARNINGS|  
   
 ## <a name="BKMK_3"></a>Einrichten der Transformation von Ansprüchen auf vertrauenswürdige Gesamtstruktur (Adatum)  
-In diesem Schritterstellen Sie eine Transformation-Richtlinie in der Adatum verweigern, alle Ansprüche mit Ausnahme von "Unternehmen" an Contoso übergeben.  
+In diesem Schritt erstellen Sie eine transformationsrichtlinie in der Adatum, alle Ansprüche mit Ausnahme von "Unternehmen" für die Übergabe an Contoso zu verweigern.  
   
-Active Directory-Modul für Windows PowerShell bietet die **DenyAllExcept** Argument, das alles außer dem angegebenen Ansprüche in der Transformation-Richtlinie fällt.  
+Das Active Directory-Modul für Windows PowerShell bietet die **DenyAllExcept** -Argument, das alles mit Ausnahme der angegebenen Ansprüche in der transformationsrichtlinie löscht.  
   
-Um eine Transformation von Ansprüchen einzurichten, müssen Sie eine Ansprüche Transformation-Richtlinie erstellen und verknüpfen sie den vertrauenswürdigen und vertrauenden Gesamtstrukturen.  
+Um eine Transformation von Ansprüchen einzurichten, müssen Sie eine Ansprüche Transformation-Richtlinie erstellen und den vertrauenswürdigen als auch vertrauenden Gesamtstrukturen zu verknüpfen.  
   
-### <a name="BKMK_2.2"></a>Erstellen Sie eine Richtlinie für Ansprüche Transformation in Adatum  
+### <a name="BKMK_2.2"></a>Erstellen einer Ansprüche Transformation-Richtlinie in Adatum  
   
-##### <a name="to-create-a-transformation-policy-adatum-to-deny-all-claims-except-company"></a>Erstellen eine Richtlinie Transformation Adatum alle Ansprüche mit Ausnahme von "Unternehmen" verweigern  
+##### <a name="to-create-a-transformation-policy-adatum-to-deny-all-claims-except-company"></a>Zum Erstellen einer transformationsrichtlinie Adatum, alle Ansprüche, mit Ausnahme von "Unternehmen" zu verweigern.  
   
-1.  Melden Sie sich an den Domänencontroller adatum.com als Administrator mit dem Kennwort **pass@word1**.  
+1.  Melden Sie sich bei dem Domänencontroller "adatum.com" als Administrator mit dem Kennwort **pass@word1**.  
   
-2.  Öffnen Sie ein Eingabeaufforderungsfenster mit erhöhten Rechten in Windows PowerShell, und geben Sie Folgendes ein:  
+2.  Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten in Windows PowerShell, und geben Sie Folgendes ein:  
   
     ```  
     New-ADClaimTransformPolicy `  
@@ -97,14 +98,14 @@ Um eine Transformation von Ansprüchen einzurichten, müssen Sie eine Ansprüche
   
     ```  
   
-### <a name="BKMK_2.3"></a>Legen Sie einen Ansprüche Transformation Link auf der Adatum-Gesamtstruktur-Vertrauensstellung Domänenobjekt  
-In diesem Schrittwenden Sie die Richtlinie für neu erstellte Ansprüche Transformation auf der Adatum-Gesamtstruktur-Vertrauensstellung Domänenobjekt für Contoso.  
+### <a name="BKMK_2.3"></a>Legen Sie einen Ansprüche Transformation-Link für Adatum-Trust-Domain-Objekt  
+In diesem Schritt wenden Sie die neu erstellte Transformation anspruchsrichtlinie auf Adatum Domäne Vertrauensstellungsobjekt für Contoso.  
   
-##### <a name="to-apply-the-claims-transformation-policy"></a>Die Ansprüche Transformation Richtlinie anwenden  
+##### <a name="to-apply-the-claims-transformation-policy"></a>Um die Ansprüche transformationsrichtlinie anzuwenden  
   
-1.  Melden Sie sich an den Domänencontroller adatum.com als Administrator mit dem Kennwort **pass@word1**.  
+1.  Melden Sie sich bei dem Domänencontroller "adatum.com" als Administrator mit dem Kennwort **pass@word1**.  
   
-2.  Öffnen Sie ein Eingabeaufforderungsfenster mit erhöhten Rechten in Windows PowerShell, und geben Sie Folgendes ein:  
+2.  Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten in Windows PowerShell, und geben Sie Folgendes ein:  
   
     ```  
   
@@ -116,15 +117,15 @@ In diesem Schrittwenden Sie die Richtlinie für neu erstellte Ansprüche Transfo
     ```  
   
 ## <a name="BKMK_4"></a>Einrichten der Transformation von Ansprüchen in der vertrauenden Gesamtstruktur (Contoso)  
-In diesem Schritterstellen Sie eine Ansprüche Transformation-Richtlinie in Contoso (der vertrauenden Gesamtstruktur) verweigern, alle Ansprüche mit Ausnahme von "Unternehmen". Sie müssen eine Ansprüche Transformation Richtlinie erstellen und verknüpfen Sie es mit der Gesamtstruktur-Vertrauensstellung.  
+In diesem Schritt erstellen Sie eine Transformation anspruchsrichtlinie Contoso (der vertrauenden Gesamtstruktur), verweigern alle Ansprüche, mit Ausnahme von "Unternehmen". Sie müssen eine Ansprüche Transformation-Richtlinie erstellen und verknüpfen Sie sie mit der Gesamtstruktur-Vertrauensstellung.  
   
-### <a name="BKMK_4.1"></a>Erstellen Sie eine Richtlinie für Ansprüche Transformation in Contoso  
+### <a name="BKMK_4.1"></a>Erstellen einer Ansprüche Transformation-Richtlinie in Contoso  
   
-##### <a name="to-create-a-transformation-policy-adatum-to-deny-all-except-company"></a>Erstellen eine Richtlinie Transformation Adatum verweigern, alle mit Ausnahme von "Unternehmen"  
+##### <a name="to-create-a-transformation-policy-adatum-to-deny-all-except-company"></a>Zum Erstellen einer transformationsrichtlinie Adatum, verweigern alle bis auf "Unternehmen"  
   
-1.  Melden Sie sich an den Domänencontroller contoso.com als Administrator mit dem Kennwort **pass@word1**.  
+1.  Melden Sie sich an den Domänencontroller, "contoso.com" als Administrator mit dem Kennwort **pass@word1**.  
   
-2.  Öffnen Sie ein Eingabeaufforderungsfenster mit erhöhten Rechten in Windows PowerShell, und geben Sie Folgendes ein:  
+2.  Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten in Windows PowerShell, und geben Sie Folgendes:  
   
     ```  
     New-ADClaimTransformPolicy `  
@@ -135,14 +136,14 @@ In diesem Schritterstellen Sie eine Ansprüche Transformation-Richtlinie in Cont
   
     ```  
   
-### <a name="BKMK_4.2"></a>Legen Sie einen Link der Ansprüche Transformation auf Contoso Domäne Vertrauensobjekt  
-In diesem Schrittwenden Sie das neu erstellte Ansprüche Transformation Richtlinie auf das contoso.com Vertrauensstellung Domänenobjekt Adatum zulassen "Unternehmen" an contoso.com übergeben werden. Das Domänenobjekt Vertrauensstellung heißt adatum.com.  
+### <a name="BKMK_4.2"></a>Legen Sie einen Link der Ansprüche Transformation auf Contoso Domäne Vertrauensstellungsobjekt  
+In diesem Schritt wenden Sie an die neu erstellte anspruchsrichtlinie der Transformation für das Domänencontrollerobjekt für "contoso.com" Vertrauensstellung für Adatum "Company" zu "contoso.com" übergeben werden. Das Domänenobjekt Vertrauensstellung heißt "adatum.com".  
   
-##### <a name="to-set-the-claims-transformation-policy"></a>Ansprüche Transformation Richtlinie festlegen  
+##### <a name="to-set-the-claims-transformation-policy"></a>Die Ansprüche transformationsrichtlinie festlegen  
   
-1.  Melden Sie sich an den Domänencontroller contoso.com als Administrator mit dem Kennwort **pass@word1**.  
+1.  Melden Sie sich an den Domänencontroller, "contoso.com" als Administrator mit dem Kennwort **pass@word1**.  
   
-2.  Öffnen Sie ein Eingabeaufforderungsfenster mit erhöhten Rechten in Windows PowerShell, und geben Sie Folgendes ein:  
+2.  Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten in Windows PowerShell, und geben Sie Folgendes:  
   
     ```  
   
@@ -154,35 +155,35 @@ In diesem Schrittwenden Sie das neu erstellte Ansprüche Transformation Richtlin
     ```  
   
 ## <a name="BKMK_5"></a>Überprüfen Sie das Szenario  
-In diesem Schrittversuchen Sie den D:\EARNINGS Ordner zugreifen, der eingerichtet wurde auf dem Dateiserver "file1" zu überprüfen, ob der Benutzer Zugriff auf den freigegebenen Ordner hat.  
+In diesem Schritt versuchen Sie auf den D:\EARNINGS-Ordner zugegriffen, der eingerichtet wurde, auf dem Dateiserver "file1" zu überprüfen, ob der Benutzer Zugriff auf den freigegebenen Ordner hat.  
   
-#### <a name="to-ensure-that-the-adatum-user-can-access-the-shared-folder"></a>Um sicherzustellen, dass den Adatum-Benutzer kann den freigegebenen Ordner zugreifen.  
+#### <a name="to-ensure-that-the-adatum-user-can-access-the-shared-folder"></a>Um sicherzustellen, dass den Adatum-Benutzer kann den freigegebenen Ordner zuzugreifen.  
   
-1.  Melden Sie sich an den Clientcomputer CLIENT1 als Jeff Low mit dem Kennwort **pass@word1**.  
+1.  Melden Sie sich an den Client Computer CLIENT1 als Jeff Low mit dem Kennwort **pass@word1**.  
   
-2.  Navigieren Sie zu dem Ordner \\\FILE1.contoso.com\Earnings.  
+2.  Navigieren Sie zum Ordner \\\FILE1.contoso.com\Earnings.  
   
 3.  Jeff Low sollte auf den Ordner zugreifen können.  
   
-## <a name="additional-scenarios-for-claims-transformation-policies"></a>Weitere Szenarien für Ansprüche Transformation Richtlinien  
-Es folgt eine Liste der zusätzliche allgemeine Fälle, in die Transformation von Ansprüchen.  
+## <a name="additional-scenarios-for-claims-transformation-policies"></a>Zusätzliche Szenarien für die Richtlinien für die Transformation von Ansprüchen  
+Es folgt eine Liste der zusätzliche allgemeine Fälle, in der Transformation von Ansprüchen.  
   
 |Szenario|Richtlinie|  
 |------------|----------|  
-|Zulassen Sie alle Ansprüche, die Adatum-Gesamtstruktur auf Contoso Adatum durchlaufen stammen|Code- <br />New-ADClaimTransformPolicy \ "<br /> -Beschreibung: "Ansprüche Transformation-Richtlinie zum Zulassen von alle Ansprüche" \ "<br />-Name: "AllowAllClaimsPolicy" \ "<br />-AllowAll \ "<br />-Server: "contoso.com" \ "<br />Set-ADClaimTransformLink \ "<br />-Identity: "adatum.com" \ "<br />-Richtlinie: "AllowAllClaimsPolicy" \ "<br />-TrustRole: vertrauen \ "<br />-Server: "contoso.com" '|  
-|Verweigern Sie alle Ansprüche, die Adatum-Gesamtstruktur auf Contoso Adatum durchlaufen stammen|Code- <br />New-ADClaimTransformPolicy \ "<br />-Beschreibung: "Ansprüche Transformation-Richtlinie auf alle Ansprüche verweigern" \ "<br />-Name: "DenyAllClaimsPolicy" \ "<br /> -DenyAll \ "<br />-Server: "contoso.com" \ "<br />Set-ADClaimTransformLink \ "<br />-Identity: "adatum.com" \ "<br />-Richtlinie: "DenyAllClaimsPolicy" \ "<br />-TrustRole: vertrauen \ "<br />-Server: "contoso.com" '|  
-|Zulassen Sie alle Ansprüche, die mit Ausnahme von "Unternehmen" und "Department" durchlaufen bei Contoso Adatum Adatum-Gesamtstruktur stammen|Code <br />-New-ADClaimTransformationPolicy \ "<br />-Beschreibung: "Ansprüche Transformation-Richtlinie zum Zulassen von alle Ansprüche mit Ausnahme von Unternehmen" und "Department" \ "<br /> -Name: "AllowAllClaimsExceptCompanyAndDepartmentPolicy" \ "<br />-AllowAllExcept: Unternehmen, Abteilung \ "<br />-Server: "contoso.com" \ "<br />Set-ADClaimTransformLink \ "<br /> -Identity: "adatum.com" \ "<br />-Richtlinie: "AllowAllClaimsExceptCompanyAndDepartmentPolicy" \ "<br /> -TrustRole: vertrauen \ "<br />-Server: "contoso.com" '|  
+|Können Sie alle Ansprüche, die Adatum-Gesamtstruktur auf Contoso-Adatum durchlaufen werden|Code: <br />New-ADClaimTransformPolicy \`<br /> -Description: "Ansprüche transformationsrichtlinie, damit alle Ansprüche" \`<br />-Name:"AllowAllClaimsPolicy" \`<br />-AllowAll \`<br />-Server:"contoso.com" \`<br />Set-ADClaimTransformLink \`<br />-Identity:"adatum.com" \`<br />-Policy:"AllowAllClaimsPolicy" \`<br />-TrustRole: Gewähren von vertrauen \`<br />-Server:"contoso.com" `|  
+|Verweigern Sie alle Ansprüche, die von Adatum auf Contoso-Adatum durchlaufen stammen|Code: <br />New-ADClaimTransformPolicy \`<br />-Description: "Ansprüche transformationsrichtlinie für alle Ansprüche verweigern" \`<br />-Name:"DenyAllClaimsPolicy" \`<br /> -DenyAll \`<br />-Server:"contoso.com" \`<br />Set-ADClaimTransformLink \`<br />-Identity:"adatum.com" \`<br />-Policy:"DenyAllClaimsPolicy" \`<br />-TrustRole: Gewähren von vertrauen \`<br />-Server:"contoso.com"`|  
+|Können Sie alle Ansprüche, die Adatum-Gesamtstruktur mit Ausnahme von "Company" und "Department", um Contoso Adatum durchlaufen werden|Code <br />- New-ADClaimTransformationPolicy \`<br />-Description: "Ansprüche transformationsrichtlinie, damit alle Ansprüche, mit Ausnahme von Unternehmen" und "Department" \`<br /> -Name:"AllowAllClaimsExceptCompanyAndDepartmentPolicy" \`<br />-AllowAllExcept: Unternehmen, die Abteilung \`<br />-Server:"contoso.com" \`<br />Set-ADClaimTransformLink \`<br /> -Identity:"adatum.com" \`<br />-Policy:"AllowAllClaimsExceptCompanyAndDepartmentPolicy" \`<br /> -TrustRole: Gewähren von vertrauen \`<br />-Server:"contoso.com" `|  
   
 ## <a name="BKMK_Links"></a>Siehe auch  
   
--   Eine Liste aller Windows PowerShell-Cmdlets, die für die Transformation von Ansprüchen verfügbar sind, finden Sie unter [Active Directory-PowerShell-Cmdlet-Referenz ](https://go.microsoft.com/fwlink/?LinkId=243150).  
+-   Eine Liste aller Windows PowerShell-Cmdlets, die für die Transformation von Ansprüchen verfügbar sind, finden Sie unter [Active Directory-PowerShell-Cmdlet-Referenz](https://go.microsoft.com/fwlink/?LinkId=243150).  
   
--   Verwenden Sie für erweiterte Aufgaben mit Export und Import von DAC-Konfigurationsinformationen zwischen zwei Gesamtstrukturen, die [Dynamic Access-Steuerelement PowerShell-Referenz](https://go.microsoft.com/fwlink/?LinkId=243150)  
+-   Verwenden Sie für erweiterte Aufgaben, bei denen exportieren und Importieren der DAC-Konfigurationsinformationen zwischen zwei Gesamtstrukturen, die [Dynamic Access Control-PowerShell-Referenz](https://go.microsoft.com/fwlink/?LinkId=243150)  
   
 -   [Bereitstellen von Ansprüchen über Gesamtstrukturen](Deploy-Claims-Across-Forests.md)  
   
 -   [Ansprüche Transformation Regeln Sprache](Claims-Transformation-Rules-Language.md)  
   
--   [Dynamische Zugriffssteuerung: Szenarioübersicht](Dynamic-Access-Control--Scenario-Overview.md)  
+-   [Dynamische Zugriffssteuerung: Übersicht über das Szenario](Dynamic-Access-Control--Scenario-Overview.md)  
   
 

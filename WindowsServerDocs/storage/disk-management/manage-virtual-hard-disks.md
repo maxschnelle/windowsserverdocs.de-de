@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 2e371710752d59ebc7a1f8aa2dad3d9189872c47
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59827111"
 ---
 # <a name="manage-virtual-hard-disks-vhd"></a>Verwalten virtueller Festplatten (VHD)
 
-> **Gilt für**: Windows 10, Windows 8.1, Windows Server (Semi-Annual Channel), Windows Server 10, Windows Server8.1 R2, Windows Server 2016, Windows Server2012 R2, Windows Server 2012
+> **Gilt für:** Windows 10, Windows 8.1, WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012
 
 Dieses Thema beschreibt die Vorgehensweise beim Erstellen, Hinzufügen und Trennen virtueller Festplatten mit der Datenträgerverwaltung. Virtuelle Festplatten (VHDs) sind virtuelle Festplattendateien, die, sobald Sie bereitgestellt sind, mehr oder weniger wie eine physische Festplatte aussehen und sich verhalten. Sie werden am häufigsten mit Hyper-V-Computern verwendet. 
 
@@ -29,7 +30,7 @@ VHDs sehen genau wie physische Datenträger in der Datenträgerverwaltung aus. W
 > [!NOTE]
 > Sie müssen mindestens ein Mitglied der Gruppe **Sicherungsoperatoren** or **Administratoren** sein, um diese Schritte durchzuführen.
 
-**So erstellen Sie eine virtuelle Festplatte**
+**Zum Erstellen einer virtuellen Festplatte**
 
 1.  Klicken Sie im Menü **Aktion** auf **VHD erstellen**.
 
@@ -45,11 +46,11 @@ So machen Sie eine virtuelle Festplatte für die Verwendung verfügbar (entweder
 
 2. Geben Sie den vollständigen Pfad zum Standort der VHD an.
 
-Trennen Sie die virtuelle Festplatte, indem Sie diese nicht verfügbar machen: Klicken Sie mit der rechten Maustaste auf den Datenträger, und wählen Sie **virtuelle Festplatte trennen** aus und klicken Sie dann auf **OK**. Das Trennen einer virtuellen Festplatte löscht nicht die virtuelle Festplatte oder die darin gespeicherten Daten.
+Trennen Sie die virtuelle Festplatte, sodass es nicht verfügbar sind: Mit der rechten Maustaste in des Datenträgers, wählen Sie **virtuelle Festplatte trennen**, und klicken Sie dann auf **OK**. Das Trennen einer virtuellen Festplatte löscht nicht die virtuelle Festplatte oder die darin gespeicherten Daten.
 
-## <a name="additional-considerations"></a>Weitere Überlegungen
+## <a name="additional-considerations"></a>Weitere Aspekte
 
--   Der Pfad zur Angabe des Speicherort für die virtuelle Festplatte muss vollständig qualifiziert sein und kann sich nicht im Verzeichnis \\Windows-Verzeichnis befinden.
+-   Der Pfad, der den Speicherort angeben, für die virtuelle Festplatte vollqualifiziert sein muss und darf sich nicht in der \\Windows-Verzeichnis.
 -   Die Mindestgröße für eine virtuelle Festplatte ist 3 Megabyte (MB).
 -   Eine virtuelle Festplatte kann nur ein Basisdatenträger sein.
 -   Da die virtuelle Festplatte bei der Erstellung initialisiert wird, kann das Erstellen einer virtuelle Festplatten mit fester Größe einige Zeit dauern.

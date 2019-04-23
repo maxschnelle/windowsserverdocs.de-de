@@ -13,89 +13,89 @@ ms.topic: article
 author: lizap
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: a5a56d56038d94869c5246f8d4d3eae2796616a3
-ms.sourcegitcommit: d3f73936160505a40633ad8dd5931ac5fe3eccdb
-ms.translationtype: MT
+ms.openlocfilehash: acfdd99fa67e218f58fe650de5607f2a5ba97bf8
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "9297439"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59833831"
 ---
-# Bereitstellen einer Remotedesktop-Umgebung
+# <a name="deploy-your-remote-desktop-environment"></a>Bereitstellen einer Remotedesktop-Umgebung
 
->Gilt für: WindowsServer (Semi-Annual Channel), WindowsServer 2019, WindowsServer 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
-Verwenden Sie die folgenden Schritte aus, um den Remotedesktop-Servern in Ihrer Umgebung bereitstellen. Sie können die Serverrollen auf physischen oder virtuellen Computern, je nachdem, ob Sie eine lokale, Cloud-basierte, erstellen oder hybridumgebung installieren. 
+Verwenden Sie die folgenden Schritte aus, um die Remotedesktop-Server in Ihrer Umgebung bereitstellen. Sie können die Serverrollen auf physischen oder virtuellen Computern, je nachdem, ob Sie einer lokalen, cloudbasierten erstellen oder Hybrid-Umgebung installieren. 
 
-Wenn Sie virtuelle Computer für alle Server Remote Desktop Services verwenden, stellen Sie sicher, dass Sie [Diese virtuellen Computer vorbereitet](rds-prepare-vms.md)haben.
+Wenn Sie virtuelle Computer für einen beliebigen Server Remote Desktop Services verwenden, stellen Sie sicher, dass [diese virtuellen Computer vorbereitet](rds-prepare-vms.md).
   
   
-1.  Fügen Sie alle Server, die Sie vorhaben, für Remote Desktop Services zum Server-Manager verwenden:  
-    1.  Im Server-Manager, klicken Sie auf **Verwalten > Server hinzufügen**.  
+1.  Fügen Sie allen Servern, die Sie verwenden, für die Remote Desktop Services Server-Manager möchten:  
+    1.  Klicken Sie in Server-Manager auf **verwalten > Hinzufügen von Servern**.  
     2.  Klicken Sie auf **Jetzt suchen**.  
-    3.  Klicken Sie auf jedem Server in der Bereitstellung (z. B. Contoso-Cb1 Contoso-WebGw1 und Contoso-Sh1), und klicken Sie auf **OK**.  
-2.  Erstellen Sie eine Sitzung-basierte Bereitstellung zum Bereitstellen von Remotedesktopdienste-Komponenten:  
-    1.  Klicken Sie im Server-Manager auf **Verwalten > Rollen und Features hinzufügen**.  
-    2.  Klicken Sie auf **Remote Desktop Services-Installation**, **Standard-Bereitstellung**und **Sitzung-basierten desktop-Bereitstellung**.  
-    3.  Wählen Sie die entsprechenden Server für den Remotedesktop-Verbindungsbrokerserver Web Access für Remotedesktop-Server und Remotedesktop-Sitzungshostserver (z. B. Contoso-Cb1, Contoso-WebGw1, und Contoso-SH1, bzw.).  
-    4.  Wählen Sie **den Zielserver neu starten, automatisch, wenn erforderlich**, und klicken Sie dann auf **Bereitstellen**.  
-    5.  Warten Sie, bis die Bereitstellung erfolgreich abgeschlossen  
-3.  Fügen Sie RD-Lizenzserver hinzu:  
-    1.  Klicken Sie im Server-Manager auf **Remote Desktop Services > Übersicht > + RD-Lizenzierung**.  
-    2.  Wählen Sie den virtuellen Computer, auf der Lizenzserver RD (z. B. Contoso-Cb1) installiert wird.  
-    3.  Klicken Sie auf **Weiter**, und klicken Sie auf **Hinzufügen**.  
-4.  Aktivieren des Lizenzservers RD und die Lizenzserver-Gruppe hinzugefügt:  
-    1.  Klicken Sie im Server-Manager auf **Tools > Terminaldienste > Lizenzierung-Manager**.  
-    2.  Wählen Sie in RD-Lizenzierung-Manager den Server und klicken Sie dann auf **Aktion > Server aktivieren**.  
-    3.  Akzeptieren Sie die Standardwerte im Assistenten Standardwerte akzeptieren, bis Sie die Seite **Unternehmensinformationen** erreichen. Geben Sie Informationen zu Ihrem Unternehmen an.  
-    4.  Übernehmen Sie die Standardwerte für die verbleibenden Seiten, bis der letzten Seite. Deaktivieren Sie **Installieren Lizenzen Assistent für starten**, und klicken Sie dann auf **Fertig stellen**.  
-    5.  Klicken Sie auf die **Aktion > Konfiguration prüfen > hinzu Gruppe > OK**. Geben Sie Anmeldeinformationen für einen Benutzer in der Gruppe AAD DC Administratoren und als SCP registrieren. Dieser Schritt funktioniert möglicherweise nicht, wenn Sie Azure Active Directory Domain Services verwenden, aber Sie können alle Warnungen oder Fehler ignorieren.  
-5.  Fügen Sie der RD-Gateway-Server und Zertifikat Name:  
-    1.  Klicken Sie im Server-Manager auf **Remote Desktop Services > Übersicht > + RD-Gateway**.  
-    2.  Wählen Sie im Assistenten für die RD-Gateway-Server Hinzufügen der virtuelle Computer, wo Sie den RD-Gateway-Server (z. B. Contoso-WebGw1) installieren möchten.  
-    3.  Geben Sie den Namen des SSL-Zertifikat für den RD-Gateway-Server mit den externen vollständig qualifizierten DNS-Namen (FQDN) des Servers RD-Gateway ein. In Azure Dies ist die Bezeichnung für die **DNS-Namen** und das Format servicename.location.cloudapp.azure.com verwendet. Beispielsweise contoso.westus.cloudapp.azure.com.  
-    4.  Klicken Sie auf **Weiter**, und klicken Sie auf **Hinzufügen**.
-6.  Erstellen Sie und installieren Sie selbstsignierte Zertifikate für die RD-Gateway und RD Connection Broker-Server.
+    3.  Klicken Sie auf jedem Server in der Bereitstellung (z. B. Contoso-Cb1, Contoso-WebGw1 und Contoso-Sh1), und klicken Sie auf **OK**.  
+2.  Erstellen Sie eine sitzungsbasierte Bereitstellung zum Bereitstellen von Remote Desktop Services-Komponenten:  
+    1.  Klicken Sie im Server-Manager **verwalten > Rollen und Features hinzufügen**.  
+    2.  Klicken Sie auf **Remote Desktop Services-Installation**, **Standardbereitstellung**, und **sitzungsbasierte desktopbereitstellung**.  
+    3.  Wählen Sie die entsprechenden Server für den Remotedesktop-Verbindungsbrokerserver, Web Access für Remotedesktop-Server und Remotedesktop-Sitzungshostserver (z. B. Contoso-Cb1, Contoso-WebGw1, und Contoso-SH1, bzw.).  
+    4.  Wählen Sie **automatisch neu starten die Zielserver bei Bedarf**, und klicken Sie dann auf **bereitstellen**.  
+    5.  Warten Sie, bis die Bereitstellung erfolgreich abgeschlossen.  
+3.  Fügen Sie die Remotedesktop-Lizenzserver hinzu:  
+    1.  Klicken Sie im Server-Manager **Remote Desktop Services > Übersicht > + RD-Lizenzierung**.  
+    2.  Wählen Sie den virtuellen Computer, in denen der Remotedesktop-Lizenzserver (z. B. Contoso-Cb1) installiert werden soll.  
+    3.  Klicken Sie auf **Weiter**, und klicken Sie dann auf **hinzufügen**.  
+4.  Aktivieren Sie den Remotedesktop-Lizenzserver, und der Lizenzserver-Gruppe hinzufügen:  
+    1.  Klicken Sie im Server-Manager **Tools > "Terminal Services" > Remotedesktoplizenzierungs-Manager**.  
+    2.  Remotedesktoplizenzierungs-Manager, wählen Sie den Server, und klicken Sie dann auf **Aktion > Server aktivieren**.  
+    3.  Akzeptieren Sie die Standardwerte in der Serveraktivierungs-Assistent, um Standardwerte zu übernehmen, bis Sie erreichen die **Unternehmensinformationen** Seite. Geben Sie dann die Informationen für Ihr Unternehmen.  
+    4.  Übernehmen Sie die Standardwerte für die verbleibenden Seiten, bis die letzte Seite. Klare **starten Lizenzinstallations-Assistenten jetzt**, und klicken Sie dann auf **Fertig stellen**.  
+    5.  Klicken Sie auf **Aktion > Überprüfen Sie die Konfiguration > zu Gruppe hinzufügen > OK**. Geben Sie Anmeldeinformationen für einen Benutzer in der Administratorengruppe und als Dienstverbindungspunkt registrieren. Dieser Schritt funktioniert möglicherweise nicht, wenn Sie Azure AD Domain Services verwenden, aber Sie können alle Warnungen oder Fehler ignorieren.  
+5.  Fügen Sie den Remotedesktopgateway-Server und das Zertifikat-Namen:  
+    1.  Klicken Sie im Server-Manager **Remote Desktop Services > Übersicht > + RD-Gateway**.  
+    2.  Wählen Sie den virtuellen Computer, in dem Sie den RD-Gateway-Server (z. B. Contoso-WebGw1) installieren möchten, im Assistenten RD-Gateway-Server hinzufügen.  
+    3.  Geben Sie den Namen des SSL-Zertifikat für den RD-Gateway-Server mit den externen vollqualifizierten DNS-Namen (FQDN) des RD-Gatewayservers ein. In Azure, ist dies die **DNS-Namen** Bezeichnung und den servicename.location.cloudapp.azure.com Format verwendet. Z. B. contoso.westus.cloudapp.azure.com.  
+    4.  Klicken Sie auf **Weiter**, und klicken Sie dann auf **hinzufügen**.
+6.  Erstellen Sie und installieren Sie selbstsignierte Zertifikate für die RD-Gateway und RD Connection Broker Server.
 
        > [!NOTE]
-       > Wenn Sie bereitstellen und Installieren von Zertifikaten von einer vertrauenswürdigen Zertifizierungsstelle, führen Sie die Verfahren aus Schritt h Schritt k für jede Rolle. Sie müssen die verfügbaren PFX-Datei für jede dieser Zertifikate verfügen.
+       > Wenn Sie bereitstellen und Installieren von Zertifikaten von einer vertrauenswürdigen Zertifizierungsstelle verwenden, können führen Sie die Prozeduren aus Schritt h k für jede Rolle schrittweise aus. Sie benötigen, um die PFX-Datei verfügbar für jede dieser Zertifikate zu erhalten.
        
-    1.  Klicken Sie im Server-Manager auf **Remote Desktop Services > Übersicht > Aufgaben > Bereitstellungseigenschaften bearbeiten**.  
-    2.  Erweitern Sie **Zertifikate**, und Sie dann einen Bildlauf in der Tabelle. Klicken Sie auf **RD-Gateway > erstellen Neues Zertifikat**.  
-    3.  Geben Sie den Zertifikatnamen, die mit den externen FQDN des RD-Gateway-Servers (z. B. contoso.westus.cloudapp.azure.com), und geben Sie dann das Kennwort.  
-    4.  **Store dieses Zertifikat** auswählen, und klicken Sie dann auf den freigegebenen Ordner für Zertifikate in einem vorherigen Schritt erstellten navigieren. (Z. B. \Contoso Cb1\Certificates.)  
-    5.  Geben Sie einen Namen für das Zertifikat (z. B. ContosoRdGwCert), und klicken Sie dann auf **Speichern**.  
-    6.  Wählen Sie **das Zertifikat im Zertifikatspeicher "Vertrauenswürdige Stammzertifizierungsstellen" auf den Zielcomputern hinzugefügt werden zulassen**, und klicken Sie dann auf **OK**.  
-    7.  Klicken Sie auf **Übernehmen**, und warten Sie für das Zertifikat an den Server RD-Gateway erfolgreich angewendet werden.  
-    8.  Klicken Sie auf **Web Access für Remotedesktop > vorhandenes Zertifikat auswählen**.  
-    9.  Navigieren Sie zu verwendende Zertifikat, das für den RD-Gateway-Server (z. B. ContosoRdGwCert) erstellt, und klicken Sie dann auf **Öffnen**.  
-    10. Geben Sie das Kennwort für das Zertifikat ein, wählen **ermöglichen das Zertifikat hinzugefügt werden an den Store vertrauenswürdige Stammzertifikat auf den Zielcomputern**, und klicken Sie dann auf **OK**.  
-    11. Klicken Sie auf **Übernehmen**, und warten Sie auf das Zertifikat mit dem Web Access für Remotedesktop-Server erfolgreich angewendet werden.  
-    12. Wiederholen Sie die Schritte 1 bis 11 für die **RD Connection Broker - einmaliges Anmelden aktivieren** und **RD Connection Broker - Veröffentlichen von Diensten**, mit der interne FQDN des RD Connection Broker-Servers für das neue Zertifikat Namen (z. B. Contoso-Cb1.Contoso.com).  
-7.  Exportieren Sie selbstsignierte öffentliche Zertifikate, und kopieren Sie sie auf einem Clientcomputer installieren. Wenn Sie Zertifikate von einer vertrauenswürdigen Zertifizierungsstelle verwenden, können Sie diesen Schritt überspringen.  
-    1.  Starten Sie certlm.msc.  
-    2.  Erweitern Sie **Eigene**, und klicken Sie dann auf **Zertifikate**.  
-    3.  Im rechten Bereich mit der rechten Maustaste des RD Connection Broker-Zertifikats für die Clientauthentifizierung, z. B. **Contoso-Cb1.Contoso.com**vorgesehen.  
-    4.  Klicken Sie auf **Alle Aufgaben > exportieren**.  
-    5.  Akzeptieren Sie, dass die Standardoptionen im der Zertifikatexport-Assistent Standardwerte zu übernehmen, bis die **Exportdatei** Seite.  
-    6.  Navigieren Sie zu den freigegebenen Ordner, die, den Sie für Zertifikate, z. B. \Contoso-Cb1\Certificates erstellt.  
-    7.  Geben Sie einen Dateinamen, z. B. ContosoCbClientCert, und klicken Sie dann auf **Speichern**.  
-    8.  Klicken Sie auf **Weiter**, und klicken Sie dann auf **Fertig stellen**.  
-    9.  Wiederholen Sie die Schritte 1 bis 8 für den RD-Gateway und Web-Zertifikat, (z. B. contoso.westus.cloudapp.azure.com), für dem exportierten Zertifikat einen entsprechenden Dateinamen ein, z. B. **ContosoWebGwClientCert**.  
-    10. Navigieren Sie im Datei-Explorer zu dem Ordner, in denen die Zertifikate gespeichert sind, z. B. \Contoso-Cb1\Certificates.  
-    11. Wählen Sie die zwei exportierten Clientzertifikate, und klicken Sie dann mit der rechten Maustaste darauf, und klicken Sie auf **Kopieren**.  
-    12. Fügen Sie die Certifcates auf dem lokalen Client-Computer.  
-8.  Konfigurieren Sie die Bereitstellungseigenschaften Remotedesktopgateway und RD-Lizenzierung:  
-    1.  Klicken Sie im Server-Manager auf **Remote Desktop Services > Übersicht > Aufgaben > Bereitstellungseigenschaften bearbeiten**.  
-    2.  Erweitern Sie **RD-Gateway** , und deaktivieren Sie die Option **Remotedesktop-Gatewayserver für lokale Adressen umgehen** .  
-    3.  Erweitern Sie **RD-Lizenzierung** und wählen Sie **Pro Benutzer**  
+    1.  Im Server-Manager, klicken Sie auf **Remote Desktop Services > Übersicht > Vorgänge > bearbeiten Eigenschaften**.  
+    2.  Erweitern Sie **Zertifikate**, und klicken Sie dann die Tabelle scrollen. Klicken Sie auf **RD-Gateway > Neues Zertifikat erstellen**.  
+    3.  Geben Sie den Zertifikatnamen, mit der externe FQDN des Remotedesktop-Gatewayservers (z. B. contoso.westus.cloudapp.azure.com), und geben Sie dann das Kennwort.  
+    4.  Wählen Sie **Store dieses Zertifikat** und navigieren Sie dann auf den freigegebenen Ordner, die Sie für die Zertifikate in einem vorherigen Schritt erstellt haben. (Z. B. \Contoso-Cb1\Certificates.)  
+    5.  Geben Sie einen Dateinamen für das Zertifikat (z. B. ContosoRdGwCert), und klicken Sie dann auf **speichern**.  
+    6.  Wählen Sie **können Sie das Zertifikat dem Zertifikatspeicher "Vertrauenswürdige Stammzertifizierungsstellen" auf den Zielcomputern hinzugefügt werden**, und klicken Sie dann auf **OK**.  
+    7.  Klicken Sie auf **übernehmen**, und warten Sie, bis das Zertifikat auf dem Remotedesktop-Gatewayserver wurde erfolgreich angewendet werden.  
+    8.  Klicken Sie auf **Web Access für Remotedesktop > Option Vorhandenes Zertifikat**.  
+    9.  Navigieren Sie zu dem Zertifikat für den RD-Gateway-Server (z. B. ContosoRdGwCert) erstellt, und klicken Sie dann auf **öffnen**.  
+    10. Geben Sie das Kennwort für das Zertifikat, wählen **können Sie das Zertifikat hinzugefügt werden in den vertrauenswürdigen Stamm-Zertifikatspeicher auf den Zielcomputern**, und klicken Sie dann auf **OK**.  
+    11. Klicken Sie auf **übernehmen**, und warten Sie, bis das Zertifikat wurde erfolgreich auf dem Web Access für Remotedesktop-Server angewendet werden.  
+    12. Wiederholen Sie die Schritte 1 bis 11 für den **RD-Verbindungsbroker - einmaliges Anmelden aktivieren** und **RD-Verbindungsbroker - Publishingdienste**, verwenden den internen FQDN des Remotedesktop-Verbindungsbrokerservers für die neue Name des Zertifikats (z. B. Contoso-Cb1.Contoso.com).  
+7.  Exportieren Sie des selbstsignierten öffentlichen Zertifikate, und kopieren Sie sie auf einen Clientcomputer. Wenn Sie Zertifikate von einer vertrauenswürdigen Zertifizierungsstelle verwenden, können Sie diesen Schritt überspringen.  
+    1.  Starten Sie "certlm.msc".  
+    2.  Erweitern Sie **persönliche**, und klicken Sie dann auf **Zertifikate**.  
+    3.  Im rechten Bereich mit der Maustaste des RD Connection Broker-Zertifikats zur Clientauthentifizierung, z. B. **Contoso-Cb1.Contoso.com**.  
+    4.  Klicken Sie auf **alle Aufgaben > Exportieren**.  
+    5.  Akzeptieren Sie die Standardoptionen im Zertifikatexport-Assistenten übernehmen die Standardwerte, bis Sie erreichen die **zu exportierende Datei** Seite.  
+    6.  Navigieren Sie zu den freigegebenen Ordner für Zertifikate, z. B. \Contoso-Cb1\Certificates erstellten.  
+    7.  Geben Sie einen Dateinamen ein, z. B. ContosoCbClientCert, und klicken Sie dann auf **speichern**.  
+    8.  Klicken Sie auf **Weiter**und dann auf **Fertig stellen**.  
+    9.  Wiederholen Sie die Teilschritte 1 bis 8 für das RD-Gateway und Web-Zertifikat (z. B. contoso.westus.cloudapp.azure.com), sodass dem exportierten Zertifikat Dateiname eignet, z. B. **ContosoWebGwClientCert**.  
+    10. Navigieren Sie im Datei-Explorer zu dem Ordner, in denen die Zertifikate gespeichert werden, z. B. \Contoso-Cb1\Certificates.  
+    11. Wählen Sie die zwei exportierte Clientzertifikate, und klicken Sie dann mit der rechten Maustaste sie und klicken Sie auf **Kopie**.  
+    12. Fügen Sie den Zertifikaten auf dem lokalen Clientcomputer aus.  
+8.  Konfigurieren Sie die Bereitstellungseigenschaften RD-Gateway und RD-Lizenzierung:  
+    1.  Im Server-Manager, klicken Sie auf **Remote Desktop Services > Übersicht > Vorgänge > bearbeiten Eigenschaften**.  
+    2.  Erweitern Sie **RD-Gateway** und deaktivieren Sie die **Remotedesktop-Gatewayserver für lokale Adressen umgehen** Option.  
+    3.  Erweitern Sie **RD-Lizenzierung** , und wählen Sie **pro Benutzer**  
     4.  Klicken Sie auf **OK**.  
-10. Erstellen Sie eine Sitzung-Sammlung. Folgendermaßen erstellen Sie eine grundlegende Sammlung. Sehen Sie sich [Erstellen einer Remotedesktopdienste-Sammlung für Desktops und apps ausgeführt](rds-create-collection.md) , Weitere Informationen zu Sammlungen.
+10. Erstellen einer sitzungssammlung. Diesen Schritten erstellen eine basic-Auflistung. Sehen Sie sich [erstellen Sie eine Remote Desktop Services-Sammlung für Desktops und apps ausführen](rds-create-collection.md) für Weitere Informationen zu Sammlungen.
  
-    1.  Klicken Sie im Server-Manager auf **Remote Desktop Services > Sammlungen > Aufgaben > erstellen Sitzung Sammlung**.  
-    2.  Geben Sie eine Sammlung Namen (z. B. ContosoDesktop).  
-    3.  Wählen Sie einen RD-Sitzungshostserver (Contoso-Sh1), akzeptieren Sie die Standard-Benutzergruppen (namens Benutzer), und geben Sie den Pfad Universal Naming Convention (UNC) auf die Benutzerprofil Laufwerke oben (\Contoso-Cb1\UserDisks) erstellt.  
-    4.  Legen Sie eine Maximalgröße, und klicken Sie auf **Erstellen**.  
+    1.  Klicken Sie im Server-Manager **Remote Desktop Services > Sammlungen > Vorgänge > Sitzungssammlung erstellen**.  
+    2.  Geben Sie eine Auflistung von Namen (z. B. ContosoDesktop) aus.  
+    3.  Wählen Sie ein Remotedesktop-Sitzungshostserver (Contoso-Sh1), akzeptieren Sie die Standard-Benutzergruppen (namens-Benutzer), und geben Sie den Pfad für die Universal Naming Convention (UNC) die Benutzerprofil-Datenträger oben (\Contoso-Cb1\UserDisks) erstellt haben.  
+    4.  Legen Sie eine Maximalgröße, und klicken Sie dann auf **erstellen**.  
   
 
-Sie haben nun eine grundlegende Remotedesktopdienste-Infrastruktur erstellt. Wenn Sie eine hoch verfügbare Bereitstellung erstellen müssen, können Sie eine [Connection Broker Cluster](rds-connection-broker-cluster.md) oder einem [zweiten RD-Sitzungshostserver](rds-scale-rdsh-farm.md)hinzufügen.
+Sie haben nun eine grundlegende Remote Desktop Services-Infrastruktur erstellt. Wenn Sie eine hoch verfügbare Bereitstellung erstellen möchten, können Sie Hinzufügen einer [Connection Broker Cluster](rds-connection-broker-cluster.md) oder [zweiten Remotedesktop-Sitzungshostserver](rds-scale-rdsh-farm.md).
 

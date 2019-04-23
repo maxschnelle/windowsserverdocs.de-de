@@ -1,5 +1,5 @@
 ---
-title: Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy - Schritt2, Konfigurationsaufgaben nach dem Einrichten von AD FS
+title: Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy - Schritt 2, Konfigurationsaufgaben nach dem Einrichten von AD FS
 ms.prod: windows-server-threshold
 ms.technology: storage-work-folders
 ms.topic: article
@@ -8,35 +8,36 @@ ms.author: jeffpatt
 author: JeffPatt24
 ms.date: 4/5/2017
 ms.assetid: 0a48852e-48cc-4047-ae58-99f11c273942
-ms.openlocfilehash: 2a07f31e3040f63edfb8c73d454b6301aad46583
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.openlocfilehash: 87fdcf06c601d3362488eaf6a83e4f88ad191305
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59828231"
 ---
-# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-2-ad-fs-post-configuration-work"></a>Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt2, Konfigurationsaufgaben nach dem Einrichten von AD FS
+# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-2-ad-fs-post-configuration-work"></a>Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 2, und AD FS-Konfiguration nach der Arbeit
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
 In diesem Thema wird der zweite Schritt bei der Bereitstellung von Arbeitsordnern mit Active Directory-Verbunddiensten (AD FS) und Webanwendungsproxy beschrieben. Weitere Schritte des Prozesses finden Sie in folgenden Themen:  
   
--   [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Übersicht](deploy-work-folders-adfs-overview.md)  
+-   [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Übersicht über die](deploy-work-folders-adfs-overview.md)  
   
--   [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt1, Einrichten von ADFS](deploy-work-folders-adfs-step1.md)  
+-   [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 1: Einrichten der AD FS](deploy-work-folders-adfs-step1.md)  
   
--   [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt3, Einrichten von Arbeitsordnern](deploy-work-folders-adfs-step3.md)  
+-   [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 3, Einrichten von Arbeitsordnern](deploy-work-folders-adfs-step3.md)  
   
--   [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt4, Einrichten des Webanwendungsproxy](deploy-work-folders-adfs-step4.md)  
+-   [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 4: Einrichten des Webanwendungsproxys](deploy-work-folders-adfs-step4.md)  
   
--   [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt5, Einrichten des Clients](deploy-work-folders-adfs-step5.md)  
+-   [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 5, richten Sie Clients](deploy-work-folders-adfs-step5.md)  
   
 > [!NOTE]
->   Die in diesem Abschnitt enthaltenen Anweisungen gelten für eine Server2016-Umgebung. Wenn Sie Windows Server2012 R2 verwenden, folgen Sie den [Anweisungen für Windows Server2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
+>   Die in diesem Abschnitt enthaltenen Anweisungen gelten für eine Server 2016-Umgebung. Wenn Sie Windows Server 2012 R2 verwenden, folgen Sie den [Anweisungen für Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
 
-In Schritt1 wurde AD FS installiert und konfiguriert. Jetzt müssen Sie folgende Schritte nach der Konfiguration für AD FS durchführen.  
+In Schritt 1 wurde AD FS installiert und konfiguriert. Jetzt müssen Sie folgende Schritte nach der Konfiguration für AD FS durchführen.  
   
 ## <a name="configure-dns-entries"></a>Konfigurieren von DNS-Einträgen  
-Sie müssen zwei DNS-Einträge für AD FS erstellen. Hierbei handelt es sich um die gleichen zwei Einträge, die in den Schrittenvor der Installation bei der Erstellung des Zertifikats der alternativen Antragstellernamen (SAN) erstellt wurden.  
+Sie müssen zwei DNS-Einträge für AD FS erstellen. Hierbei handelt es sich um die gleichen zwei Einträge, die in den Schritten vor der Installation bei der Erstellung des Zertifikats der alternativen Antragstellernamen (SAN) erstellt wurden.  
   
 DNS-Einträge haben folgende Form:  
   
@@ -44,7 +45,7 @@ DNS-Einträge haben folgende Form:
   
 -   enterpriseregistration.domain  
   
--   AD FS server name.domain   (DNS-Eintrag sollte bereits vorhanden sein. z.B. 2016-ADFS.contoso.com)
+-   AD FS server name.domain   (DNS-Eintrag sollte bereits vorhanden sein. z. B. 2016-ADFS.contoso.com)
   
 Im Testbeispiel sind diese Werte wie folgt:  
   
@@ -92,7 +93,7 @@ So richten Sie die Vertrauensstellung der vertrauenden Seite ein:
   
 3.  Wählen Sie auf der **Willkommen**-Seite **Ansprüche unterstützen** und klicken Sie auf **Start**.  
   
-4.  Wählen Sie auf der Seite **Datenquelle auswählen** **Daten über die vertrauende Seite manuell eingeben** und klicken Sie anschließend auf **Weiter**.  
+4.  Wählen Sie auf der Seite **Datenquelle auswählen****Daten über die vertrauende Seite manuell eingeben** und klicken Sie anschließend auf **Weiter**.  
   
 5.  Geben Sie im Dialogfeld **Anzeigename** den **Arbeitsordner** ein und klicken Sie auf **Weiter**.  
   
@@ -100,7 +101,7 @@ So richten Sie die Vertrauensstellung der vertrauenden Seite ein:
   
 7.  Klicken Sie auf der Seite **URL konfigurieren** auf **Weiter**.  
   
-8. Fügen Sie auf der Seite **Konfigurieren von Bezeichnern** die folgenden Bezeichner hinzu: **https://windows-server-work-folders/V1**. Dieser Bezeichner ist eine hartcodierter Wert, der von den Arbeitsordnern verwendet wird und wird durch den Arbeitsordnerdienst gesendet wird, wenn er mit AD FS kommuniziert. Klicken Sie auf **Weiter**.  
+8. Auf der **Konfigurieren von Bezeichnern** Seite fügen Sie die folgenden Bezeichner: **https://windows-server-work-folders/V1**. Dieser Bezeichner ist eine hartcodierter Wert, der von den Arbeitsordnern verwendet wird und wird durch den Arbeitsordnerdienst gesendet wird, wenn er mit AD FS kommuniziert. Klicken Sie auf **Weiter**.  
   
 9. Wählen Sie auf der Seite „Zugriffssteuerungsrichtlinie” **Jeder** und klicken Sie dann auf **Weiter**.  
   
@@ -112,21 +113,21 @@ So richten Sie die Vertrauensstellung der vertrauenden Seite ein:
 
 13. Das Fenster **Anspruch auf Ausstellungsrichtlinie für WorkFolders bearbeiten** wird geöffnet. Klicken Sie auf **Regel hinzufügen...**.  
   
-14. Wählen Sie aus der Dropdown-Liste **Anspruchsvorlage** **LDAP-Attribute als Ansprüche senden** und klicken Sie auf **Weiter**.  
+14. Wählen Sie aus der Dropdown-Liste **Anspruchsvorlage****LDAP-Attribute als Ansprüche senden** und klicken Sie auf **Weiter**.  
   
 15. Geben Sie auf der Seite **Konfigurieren einer Anspruchsregel** in das Dialogfeld **Name der Anspruchsregel** den **Arbeitsordner** ein.  
   
-16. Wählen Sie aus der Dropdown-Liste **Attributspeicher** **Active Directory** aus.  
+16. Wählen Sie aus der Dropdown-Liste **Attributspeicher****Active Directory** aus.  
   
 17. Geben Sie in der Zuordnungstabelle diese Werte ein:  
   
-    -   Benutzerprinzipalname: UPN  
+    -   User-Principal-Name: UPN  
   
     -   Anzeigename: Name  
   
     -   Nachname: Nachname  
   
-    -   Der angegebene Name: Vorname  
+    -   Angegebene-Name: Angegebener Name  
   
 18. Klicken Sie auf **Fertig stellen**. In der Registerkarte für Ausstellungstransformationsregeln sehen Sie die Regel der Arbeitsordner. Klicken Sie auf **OK**.  
   
@@ -137,7 +138,7 @@ Nachdem die Vertrauensstellung der vertrauenden Seite für AD FS eingerichtet wu
   
 -   Verschlüsselte Ansprüche deaktivieren  
   
--   Automatisches Update aktivieren  
+-   Automatisches\-Update aktivieren  
   
 -   Ausgabe der OAuth-Aktualisierungstoken für alle Geräte festlegen  
 
@@ -146,11 +147,11 @@ Nachdem die Vertrauensstellung der vertrauenden Seite für AD FS eingerichtet wu
 Um diese Optionen festzulegen, verwenden Sie folgende Befehle:  
   
 ```powershell  
-Set-ADFSRelyingPartyTrust -TargetIdentifier "https://windows-server-work-folders/V1" -EnableJWT $true   
-Set-ADFSRelyingPartyTrust -TargetIdentifier "https://windows-server-work-folders/V1" -Encryptclaims $false   
+Set-ADFSRelyingPartyTrust -TargetIdentifier "https://windows-server-work-folders/V1" -EnableJWT $true   
+Set-ADFSRelyingPartyTrust -TargetIdentifier "https://windows-server-work-folders/V1" -Encryptclaims $false   
 Set-ADFSRelyingPartyTrust -TargetIdentifier "https://windows-server-work-folders/V1" -AutoupdateEnabled $true   
-Set-ADFSRelyingPartyTrust -TargetIdentifier "https://windows-server-work-folders/V1" -IssueOAuthRefreshTokensTo AllDevices
-Grant-AdfsApplicationPermission -ServerRoleIdentifier "https://Windows-Server-Work-Folders/V1" -AllowAllRegisteredClients  
+Set-ADFSRelyingPartyTrust -TargetIdentifier "https://windows-server-work-folders/V1" -IssueOAuthRefreshTokensTo AllDevices
+Grant-AdfsApplicationPermission -ServerRoleIdentifier "https://windows-server-work-folders/V1" -AllowAllRegisteredClients -ScopeNames openid,profile  
 ```  
   
 ## <a name="enable-workplace-join"></a>Aktivieren Sie Workplace Join  
@@ -165,7 +166,7 @@ Set-ADFSGlobalAuthenticationPolicy -DeviceAuthenticationEnabled $true
 ```  
   
 ## <a name="export-the-ad-fs-certificate"></a>Exportieren Sie das AD FS-Zertifikat.  
-Exportieren Sie anschließend das selbstsignierte AD FS-Zertifikat, damit es auf den folgenden Computern in der Testumgebung installiert werden kann:  
+Exportieren Sie anschließend das selbst\-signierte AD FS-Zertifikat, damit es auf den folgenden Computern in der Testumgebung installiert werden kann:  
   
 -   Der Server, der für Arbeitsordner verwendet wird  
   
@@ -177,13 +178,13 @@ Exportieren Sie anschließend das selbstsignierte AD FS-Zertifikat, damit es auf
   
 Gehen Sie folgendermaßen vor, um das Zertifikat zu exportieren:  
   
-1.  Klicken Sie auf **Start**und dann auf **Ausführen**.  
+1.  Klicken Sie auf **Start** und dann auf **Ausführen**.  
   
 2.  Geben Sie **MMC** ein.  
   
 3.  Klicken Sie im Menü **Datei** auf **Snap-In hinzufügen/entfernen**.  
   
-4.  Wählen Sie aus der Liste **Verfügbare Snap-Ins** **Zertifikate** aus und klicken Sie auf **Hinzufügen**. Der Zertifikate-Snap-In-Assistent wird gestartet.  
+4.  Wählen Sie in der Liste **Verfügbare Snap-Ins** die Option **Zertifikate** aus, und klicken Sie auf **Hinzufügen**. Der Zertifikate-Snap-In-Assistent wird gestartet.  
   
 5.  Wählen Sie **Computerkonto** aus, und klicken Sie auf **Weiter**.  
   
@@ -191,7 +192,7 @@ Gehen Sie folgendermaßen vor, um das Zertifikat zu exportieren:
   
 7.  Klicken Sie auf **OK**.  
   
-8.  Erweitern Sie den Ordner **Konsolenstamm\Zertifikate\(Lokaler Computer)\Persönlich\Zertifikate**.  
+8.  Erweitern Sie den Ordner **Console Root\Certificates\(Local Computer)\Personal\Certificates**.  
   
 9.  Klicken Sie mit der rechten Maustaste auf das **AD FS-Zertifikat**, und klicken Sie dann auf **Alle Aufgaben** und **Exportieren...**.  
   
@@ -208,13 +209,13 @@ Die Installation des Zertifikats wird später im Bereitstellungsverfahren behand
 ## <a name="manage-the-private-key-setting"></a>Die Einstellung des private Schlüssels verwalten  
 Sie müssen dem AD FS-Dienstkonto Zugriff auf den privaten Schlüssel des neuen Zertifikats erteilen. Sie müssen diese Berechtigung erneut gewähren, wenn Sie das Kommunikationszertifikat ersetzen, nachdem es abgelaufen ist. Um die Berechtigung zu erteilen, gehen Sie folgendermaßen vor:  
   
-1.  Klicken Sie auf **Start**und dann auf **Ausführen**.  
+1.  Klicken Sie auf **Start** und dann auf **Ausführen**.  
   
 2.  Geben Sie **MMC** ein.  
   
 3.  Klicken Sie im Menü **Datei** auf **Snap-In hinzufügen/entfernen**.  
   
-4.  Wählen Sie aus der Liste **Verfügbare Snap-Ins** **Zertifikate** aus und klicken Sie auf **Hinzufügen**. Der Zertifikate-Snap-In-Assistent wird gestartet.  
+4.  Wählen Sie in der Liste **Verfügbare Snap-Ins** die Option **Zertifikate** aus, und klicken Sie auf **Hinzufügen**. Der Zertifikate-Snap-In-Assistent wird gestartet.  
   
 5.  Wählen Sie **Computerkonto** aus, und klicken Sie auf **Weiter**.  
   
@@ -222,7 +223,7 @@ Sie müssen dem AD FS-Dienstkonto Zugriff auf den privaten Schlüssel des neuen 
   
 7.  Klicken Sie auf **OK**.  
   
-8.  Erweitern Sie den Ordner **Konsolenstamm\Zertifikate\(Lokaler Computer)\Persönlich\Zertifikate**.  
+8.  Erweitern Sie den Ordner **Console Root\Certificates\(Local Computer)\Personal\Certificates**.  
   
 9.  Klicken Sie mit der rechten Maustaste auf das **AD FS-Zertifikat**, und klicken Sie dann auf **Alle Aufgaben** und **Private Schlüssel verwalten**.  
   
@@ -234,16 +235,16 @@ Sie müssen dem AD FS-Dienstkonto Zugriff auf den privaten Schlüssel des neuen 
   
 13. Geben Sie im Fenster **Berechtigungen** dem Konto mindestens Leseberechtigungen und klicken Sie auf **OK**.  
   
-Wenn Ihnen die Option zum Verwalten der private Schlüssel nicht zur Verfügung steht, müssen Sie den folgenden Befehl ausführen: `certutil -repairstore my *`  
+Wenn Sie nicht die Option zum Verwalten von privaten Schlüssel haben, müssen Sie möglicherweise den folgenden Befehl ausführen: `certutil -repairstore my *`  
   
 ## <a name="verify-that-ad-fs-is-operational"></a>Stellen Sie sicher, dass AD FS betriebsbereit ist  
-Um sicherzustellen, dass AD FS betriebsbereit ist, öffnen Sie ein Browserfenster und wechseln Sie zu https://blueadfs.contoso.com/federationmetadata/2007-06/federationmetadata.xml 
+Um sicherzustellen, dass AD FS funktioniert, öffnen Sie ein Browserfenster, und wechseln Sie zu https://blueadfs.contoso.com/federationmetadata/2007-06/federationmetadata.xml 
   
 Im Browser-Fenster werden die Verbundservermetadaten ohne Formatierung angezeigt. Wenn die Daten ohne SSL-Fehler oder -Warnungen angezeigt wird, ist Ihr Verbundserver betriebsbereit.  
   
-Nächster Schritt: [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt3, Einrichten von Arbeitsordnern](deploy-work-folders-adfs-step3.md)  
+Nächster Schritt: [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 3, Einrichten von Arbeitsordnern](deploy-work-folders-adfs-step3.md)  
   
-## <a name="see-also"></a>Weitere Informationen  
+## <a name="see-also"></a>Siehe auch  
 [Übersicht: Arbeitsordner](Work-Folders-Overview.md)  
   
 

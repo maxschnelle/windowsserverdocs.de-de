@@ -1,6 +1,6 @@
 ---
 title: Verarbeitung von Verbindungsanforderungen
-description: Dieses Thema enthält eine Übersicht der Anforderung der Netzwerkrichtlinienserver-Verbindung Verarbeitung in Windows Server 2016.
+description: Dieses Thema enthält einen Überblick über die Netzwerkrichtlinienserver-verbindungsanforderung, die Verarbeitung in Windows Server 2016.
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking
@@ -8,92 +8,93 @@ ms.topic: article
 ms.assetid: 849d661a-42c1-4f93-b669-6009d52aad39
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 6756c89dadbd01998ffef6a6d785c079076f2532
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 6ab08dced15cfadd5a0fc773efc2ddaa2da24c08
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59829111"
 ---
 # <a name="connection-request-processing"></a>Verarbeitung von Verbindungsanforderungen
 
->Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
-In diesem Thema können Sie die Verarbeitung in der Netzwerkrichtlinienserver in Windows Server 2016-verbindungsanforderung Informationen.
+Sie können in diesem Thema verwenden, Informationen zu verbindungsanforderung, die Verarbeitung in der Netzwerkrichtlinienserver unter Windows Server 2016.
 
 >[!NOTE]
->Zusätzlich zu diesem Thema ist die folgenden Verbindungsanfrage Verarbeitung Dokumentation verfügbar.
+>Zusätzlich zu diesem Thema ist die folgenden verbindungsanforderung verarbeitet der Dokumentation verfügbar.
 > - [Verbindungsanforderungsrichtlinien](nps-crp-crpolicies.md)
 > - [Bereichsnamen](nps-crp-realm-names.md)
-> - [RADIUS-Remoteservergruppen](nps-crp-rrsg.md)
+> - [Remote-RADIUS-Servergruppen](nps-crp-rrsg.md)
 
-Verarbeitung der Anforderung Verbindung können Sie angeben, in dem die Authentifizierung von verbindungsanforderungen ausgeführt wird, auf dem lokalen Computer oder einen RADIUS-Remoteserver, der Mitglied einer RADIUS-Remoteservergruppe -. 
+Sie können verbindungsanforderungsverarbeitung verwenden, um anzugeben, in dem die Authentifizierung der verbindungsanforderungen durchgeführt wird, auf dem lokalen Computer oder einen RADIUS-Remoteserver, der Mitglied einer remote-RADIUS-Servergruppe -. 
 
-Wenn Sie auf den lokalen Server ausgeführt wird (Network Policy Server, NPS) für verbindungsanforderungen Authentifizierung durchführen möchten, können Sie die Standard-Verbindungsanforderungsrichtlinie ohne zusätzliche Konfiguration. NPS basierend auf der Standardrichtlinie, authentifiziert werden, Benutzer und Computer, auf denen ein Konto in der lokalen Domäne und in vertrauenswürdigen Domänen verfügen.
+Wenn Sie den lokalen Server (Network Policy Server, NPS) zum Durchführen der Authentifizierung für die Weiterleitung von verbindungsanforderungen ausführen möchten, können Sie die Standard-Verbindungsanforderungsrichtlinie ohne zusätzliche Konfiguration. NPS basierend auf der Standardrichtlinie, authentifiziert werden, Benutzer und Computer, auf denen ein Konto in der lokalen Domäne und in vertrauenswürdigen Domänen.
 
-Wenn auf einem Remoteserver NPS oder anderen RADIUS-Server verbindungsanforderungen weitergeleitet werden sollen, erstellen Sie eine RADIUS-Remoteservergruppe, und konfigurieren Sie eine Verbindungsanforderungsrichtlinie, die Anforderungen an die RADIUS-Remoteservergruppe weiterleitet. Bei dieser Konfiguration NPS können Authentifizierungsanfragen mit einem RADIUS-Server weiterleiten, und Benutzer mit einem Konto in nicht vertrauenswürdigen Domänen authentifiziert werden können.
+Wenn Sie die Weiterleitung von verbindungsanforderungen an einen Remoteserver NPS oder anderen RADIUS-Server weiterleiten möchten, erstellen Sie eine remote-RADIUS-Servergruppe, und Konfigurieren einer Verbindungsanforderungsrichtlinie, die Anforderungen an diese remote-RADIUS-Server-Gruppe weiterleitet. Mit dieser Konfiguration können NPS können authentifizierungsanforderungen an RADIUS-Server weiterleiten, und Benutzer mit Konten in nicht vertrauenswürdigen Domänen authentifiziert werden können.
 
-Die folgende Abbildung zeigt den Pfad einer Nachricht Access-Anforderung in einem Netzwerkzugriffsserver an einen RADIUS-Proxy und klicken Sie dann an einen RADIUS-Server in einer RADIUS-Remoteservergruppe. Auf dem RADIUS-Proxy ist der Netzwerkzugriffsserver als RADIUS-Client konfiguriert. und auf jedem RADIUS-Server, der RADIUS-Proxy als RADIUS-Client konfiguriert ist.
-
-
-![Verarbeitung von NPS Verbindungsanforderungen](../../media/Nps-Connection-Request-Processing/Nps-Connection-Request-Processing.jpg)
+Die folgende Abbildung zeigt den Pfad einer Access-Request-Nachricht von einem Netzwerkserver für den Zugriff auf einen RADIUS-Proxy und dann an einen RADIUS-Server in einer remote-RADIUS-Servergruppe an. Klicken Sie auf den RADIUS-Proxy wird Network Access Server als RADIUS-Client konfiguriert; und der RADIUS-Proxy wird auf jedem RADIUS-Server als RADIUS-Client konfiguriert.
 
 
->[!NOTE]
->Die Netzwerkzugriffsserver, die Sie mit dem Netzwerkrichtlinienserver verwenden kann, Gateway-Geräte, die mit dem RADIUS-Protokoll, z. B. 802.1 X drahtlose Zugriffspunkte und authentifizierenden Switches, Server mit Remote-Zugriff, die als VPN konfiguriert sind oder DFÜ-Server, kompatibel sind oder andere RADIUS-kompatible Geräte.
+![Verarbeitung der NPS-Verbindungsanforderung](../../media/Nps-Connection-Request-Processing/Nps-Connection-Request-Processing.jpg)
 
-Wenn Sie NPS einige Authentifizierungsanfragen lokal zu verarbeiten, während die anderen Anforderungen an einer RADIUS-Remoteservergruppe weitergeleitet werden soll, konfigurieren Sie mehr als eine Verbindungsanforderungsrichtlinie.
-
-Finden Sie Verbindungsanforderungsrichtlinien, um eine Verbindungsanforderungsrichtlinie zu konfigurieren, die angibt, welche NPS oder RADIUS-Server-Gruppe authentifizierungsanforderungen verarbeitet.
-
-Zum Angeben von NPS oder andere RADIUS-Server, auf welche, die Authentifizierung Anforderungen weitergeleitet werden, finden Sie unter RADIUS-Remoteservergruppen.
-
-## <a name="nps-as-a-radius-server-connection-request-processing"></a>NPS als ein RADIUS-Server-verbindungsverarbeitung
-
-Wenn Sie NPS als RADIUS-Server verwenden, bieten RADIUS-Nachrichten Authentifizierung, Autorisierung und Kontoführung für Netzwerkverbindungen für den Zugriff auf folgende Weise:
-
-1. Server, z. B. DFÜ-Netzwerkzugriffsserver, VPN-Server und drahtlose Zugriffspunkte erhalten verbindungsanforderungen von auf Clients. 
-
-2. Die Access-Server so konfiguriert, dass für die Verwendung von RADIUS als die Authentifizierung, Autorisierung und Kontoführung-Protokoll wird eine Nachricht Access-Anforderung erstellt und an den NPS-Server gesendet. 
-
-3. Der NPS-Server wertet die Access-Anforderungsnachricht. 
-
-4. Falls erforderlich, sendet der NPS-Server eine Access-Challenge-Nachricht an einem Server. Die Access-Server verarbeitet die Abfrage und sendet eine aktualisierte Access-Anforderung an den NPS-Server. 
-
-5. Die Anmeldeinformationen des Benutzers werden überprüft, und die DFÜ-Eigenschaften des Benutzerkontos werden mit einer sicheren Verbindung mit einem Domänencontroller abgerufen. 
-
-6. Der Verbindungsversuch wird mit beiden die DFÜ-Eigenschaften des Benutzerkontos und Netzwerkrichtlinien autorisiert. 
-
-7. Der Verbindungsversuch authentifiziert und autorisiert ist, sendet der NPS-Server eine Access-Accept-Nachricht an den Server zugreifen. Wenn der Verbindungsversuch nicht authentifiziert oder nicht autorisiert wurde, sendet der NPS-Server eine Access-Reject-Nachricht auf einem Server. 
-
-8. Die Access-Server schließt den Verbindungsvorgang mit dem Zugriffsclient und sendet eine Accounting-Request-Nachricht an den NPS-Server, auf dem die Meldung protokolliert wird. 
-
-9. Der NPS-Server sendet eine Kontoführung-Antwort an den Server zugreifen. 
 
 >[!NOTE]
->Der RAS-Server sendet Kontoführungsanforderung Nachrichten auch die Zeit, an dem die Verbindung hergestellt wird, wenn der Clientverbindung geschlossen wird, und bei ein Server gestartet oder beendet wird.
+>Die Netzwerkzugriffsserver, die Verwendung mit NPS möglich Gatewaygeräte, die mit dem RADIUS-Protokoll, z. B. 802.1X-authentifizierten drahtlosen Zugriffspunkten und authentifizierenden Switches, Ausführen des Remotezugriffs, die wie VPN konfiguriert sind oder DFÜ-Server, kompatibel sind oder anderen RADIUS-kompatiblen Geräten.
 
-## <a name="nps-as-a-radius-proxy-connection-request-processing"></a>NPS als ein RADIUS-Proxy verbindungsverarbeitung
+Wenn Sie NPS, um einige authentifizierungsanforderungen beim Weiterleiten von anderen Anforderungen an einer remote-RADIUS-Servergruppe lokal zu verarbeiten möchten, konfigurieren Sie mehr als eine Verbindungsanforderungsrichtlinie.
 
-Wenn Sie NPS als RADIUS-Proxy zwischen RADIUS-Client und einem RADIUS-Server verwendet wird, zugreifen RADIUS-Nachrichten für Netzwerk Verbindung, die Versuche auf folgende Weise weitergeleitet werden:
+Um eine Verbindungsanforderungsrichtlinie zu konfigurieren, die angibt, welche NPS oder RADIUS-Server-Gruppe authentifizierungsanforderungen verarbeitet, finden Sie unter "Verbindungsanforderungsrichtlinien".
 
-1. Server, z. B. DFÜ-Netzwerkzugriffsserver, virtuelles privates Netzwerk (VPN)-Server und drahtlose Zugriffspunkte erhalten verbindungsanforderungen von auf Clients.
+Um anzugeben, NPS- oder andere RADIUS-Server, an die Authentifizierung Anforderungen weitergeleitet werden, finden Sie unter "RADIUS-Remoteservergruppen".
 
-2. Die Access-Server so konfiguriert, dass für die Verwendung von RADIUS als die Authentifizierung, Autorisierung und Kontoführung-Protokoll wird eine Nachricht Access-Anforderung erstellt und sendet sie an den NPS-Server, der als der NPS RADIUS-Proxy verwendet wird.
+## <a name="nps-as-a-radius-server-connection-request-processing"></a>NPS als verbindungsanforderungsverarbeitung ein RADIUS-server
 
-3. Der NPS RADIUS-Proxy empfängt die Zugriffsanforderung Meldung und, basierend auf der lokal konfigurierten Verbindungsanforderungsrichtlinien, legt fest, wo die Zugriffsanforderung Nachricht weiterzuleiten.
+Wenn Sie NPS als RADIUS-Server verwenden, geben Sie RADIUS-Nachrichten-Authentifizierung, Autorisierung und Kontoführung für Verbindungen mit Netzwerken den Zugriff auf folgende Weise:
 
-4. Der NPS RADIUS-Proxy leitet die Zugriffsanforderung Nachricht an den entsprechenden RADIUS-Server weiter.
+1. Zugriffsserver, z. B. DFÜ-Netzwerk-Zugriffsserver, VPN-Server und Drahtloszugriffspunkte, empfangen verbindungsanforderungen von Zugriffsclients. 
 
-5. Der RADIUS-Server wertet die Access-Anforderungsnachricht.
+2. Der Zugriffsserver, der so konfiguriert, dass für die Verwendung von RADIUS als die Authentifizierung, Autorisierung und Kontoführungsprotokoll, erstellt eine Access-Request-Nachricht und sendet sie an den NPS. 
 
-6. Falls erforderlich, sendet der RADIUS-Server eine Access-Challenge-Nachricht an den NPS RADIUS-Proxy, in dem sie die Access-Server weitergeleitet. Die Access-Server verarbeitet die Abfrage mit dem Zugriffsclient und sendet eine aktualisierte Access-Anforderung an den NPS RADIUS-Proxy, wo sie mit dem RADIUS-Server weitergeleitet.
+3. Der NPS wertet die Access-Request-Nachricht. 
+
+4. Falls erforderlich, sendet der NPS eine Access-Challenge-Nachricht an den Zugriffsserver. Der Zugriffsserver verarbeitet die Abfrage und sendet eine aktualisierte Access-Request an den NPS. 
+
+5. Die Anmeldeinformationen des Benutzers werden überprüft, und die Einwähleigenschaften des Benutzerkontos werden abgerufen, indem Sie über eine sichere Verbindung zu einem Domänencontroller. 
+
+6. Der Verbindungsversuch wird mit der Einwähleigenschaften des Benutzerkontos und Netzwerkrichtlinien autorisiert. 
+
+7. Wenn der Verbindungsversuch authentifiziert und autorisiert ist, sendet der NPS eine Access-Accept-Nachricht an den Zugriffsserver. Wenn der Verbindungsversuch entweder nicht authentifiziert oder nicht autorisiert, sendet der NPS eine Access-Reject-Nachricht an den Zugriffsserver. 
+
+8. Der Zugriffsserver den Verbindungsprozess mit dem Zugriffsclient abgeschlossen und sendet eine Accounting-Request-Nachricht an den NPS, in dem die Meldung protokolliert wird. 
+
+9. Der NPS sendet eine Accounting-Response an den Zugriffsserver. 
+
+>[!NOTE]
+>Der Access-Server sendet Accounting-Request-Nachrichten auch während des Zeitraums, in dem die Verbindung hergestellt wird, wenn die Access-Client-Verbindung geschlossen wird und wenn die Access-Server gestartet oder beendet wird.
+
+## <a name="nps-as-a-radius-proxy-connection-request-processing"></a>NPS als ein RADIUS-Proxy-verbindungsanforderungsverarbeitung
+
+Wenn NPS als RADIUS-Proxy zwischen RADIUS-Client und RADIUS-Server verwendet wird, auf RADIUS-Nachrichten für das Netzwerk Verbindung, die Versuche, wie folgt weitergeleitet werden zugreifen:
+
+1. Zugriffsserver, z. B. DFÜ-Netzwerk-Zugriffsserver, virtuelles privates Netzwerk (VPN)-Server und Drahtloszugriffspunkte, empfangen verbindungsanforderungen von Zugriffsclients.
+
+2. Der Zugriffsserver, der so konfiguriert, dass RADIUS als die Authentifizierung, Autorisierung und Kontoführungsprotokoll verwenden, erstellt eine Access-Request-Nachricht und sendet sie an den NPS, der als der NPS RADIUS-Proxy verwendet wird.
+
+3. Der NPS RADIUS-Proxy die Access-Request-Nachricht empfängt und, basierend auf den lokal konfigurierten Verbindungsanforderungsrichtlinien, bestimmt, wo Sie die Access-Request-Nachricht weitergeleitet werden.
+
+4. Der NPS RADIUS-Proxy leitet die Access-Request-Nachricht an den geeigneten RADIUS-Server weiter.
+
+5. Der RADIUS-Server wertet die Access-Request-Nachricht.
+
+6. Falls erforderlich, sendet der RADIUS-Server eine Access-Challenge-Nachricht an den NPS RADIUS-Proxy, in dem sie den Zugriff auf den Server weitergeleitet wird. Der Zugriffsserver die Herausforderung bei der Zugriffsclient verarbeitet und sendet eine aktualisierte Access-Request an den NPS RADIUS-Proxy, in dem sie an den RADIUS-Server weitergeleitet.
 
 7. Der RADIUS-Server authentifiziert und autorisiert den Verbindungsversuch.
 
-8. Der Verbindungsversuch authentifiziert und autorisiert ist, sendet der RADIUS-Server eine Access-Accept-Nachricht an den NPS RADIUS-Proxy, wo sie die Access-Server weitergeleitet. Wenn der Verbindungsversuch nicht authentifiziert oder nicht autorisiert wurde, sendet der RADIUS-Server eine Access-Reject-Nachricht an den NPS RADIUS-Proxy, in dem sie die Access-Server weitergeleitet.
+8. Wenn der Verbindungsversuch authentifiziert und autorisiert ist, sendet der RADIUS-Server eine Access-Accept-Nachricht an den NPS RADIUS-Proxy, in dem sie den Zugriff auf den Server weitergeleitet wird. Wenn der Verbindungsversuch entweder nicht authentifiziert oder nicht autorisiert, sendet der RADIUS-Server eine Access-Reject-Nachricht an den NPS RADIUS-Proxy, in dem sie den Zugriff auf den Server weitergeleitet wird.
 
-9. Die Access-Server schließt den Verbindungsvorgang mit dem Zugriffsclient und sendet eine Nachricht Kontoführung-Anforderung an den NPS-RADIUS-Proxy. Der NPS RADIUS-Proxy protokolliert die Kontoführungsdaten und leitet die Nachricht an den RADIUS-Server weiter.
+9. Der Zugriffsserver den Verbindungsprozess mit dem Zugriffsclient abgeschlossen und sendet eine Accounting-Request-Nachricht an den NPS RADIUS-Proxy. Der NPS RADIUS-Proxy protokolliert die Buchhaltungsdaten und leitet die Nachricht an den RADIUS-Server weiter.
 
-10. Der RADIUS-Server sendet eine Accounting-Antwort an den NPS RADIUS-Proxy, wo sie die Access-Server weitergeleitet.
+10. Der RADIUS-Server sendet eine Accounting-Response an den NPS RADIUS-Proxy, in dem sie den Zugriff auf den Server weitergeleitet werden.
 
 Weitere Informationen zu NPS finden Sie unter [(Network Policy Server, NPS)](nps-top.md).

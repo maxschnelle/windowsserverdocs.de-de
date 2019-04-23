@@ -14,26 +14,27 @@ ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
 ms.openlocfilehash: d6a1d52bee3c2d14ea83ccb794ecea1872868df5
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59828181"
 ---
 # <a name="windows-logon-scenarios"></a>Windows-Anmeldeszenarios
 
->Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
-Dieses Referenzthema für IT-Experten werden allgemeine Windows-Anmeldung und anmeldeszenarien zusammengefasst.
+In diesem Referenzthema für IT-Experten werden die allgemeinen Windows-Anmeldung und anmeldeszenarien zusammengefasst.
 
-Windows-Betriebssysteme müssen alle Benutzer melden Sie sich bei dem Computer mit einem gültigen Konto für den Zugriff auf lokale und Netzwerkressourcen. Windows-basierte Computer Sichern von Ressourcen durch die Implementierung des Anmeldevorgangs, in dem Benutzer authentifiziert werden. Nachdem ein Benutzer authentifiziert wurde, implementieren Autorisierung und Technologien zum kontrollieren die zweite Phase des Ressourcenschutzes: bestimmen, ob der authentifizierte Benutzer berechtigt ist, auf eine Ressource zuzugreifen.
+Die Windows-Betriebssysteme müssen alle Benutzer melden Sie sich bei dem Computer mit einem gültigen Konto für den Zugriff auf lokale Ressourcen und Netzwerkressourcen. Windows-Computern Sichern von Ressourcen durch die Implementierung des Anmeldevorgangs, in dem Benutzer authentifiziert werden. Nachdem ein Benutzer authentifiziert wurde, Autorisierung und Techniken zur Versionskontrolle implementieren Sie die zweite Phase des Ressourcenschutzes: bestimmen, ob der authentifizierte Benutzer autorisiert ist, auf eine Ressource zuzugreifen.
 
-Der Inhalt dieses Themas gilt für Versionen von Windows in der **gilt für** -Liste am Anfang dieses Themas.
+Den Inhalt der in diesem Thema gelten für Versionen von Windows in festgelegt die **gilt für** Liste am Anfang dieses Themas.
 
-Darüber hinaus können Anwendungen und Dienste müssen Benutzer anmelden, um die Ressourcen zugreifen, die von der Anwendung oder ein Dienst angeboten werden. Der Anmeldevorgang ähnelt den Anmeldevorgang, ein gültiges Konto und die richtigen Anmeldeinformationen erforderlich sind, aber Anmeldeinformationen werden in der Datenbank (Security Account Manager, SAM) auf dem lokalen Computer und in Active Directory gespeichert, sofern zutreffend. Anmeldung Konto- und Anmeldeinformationen erfolgt durch die Anwendung oder den Dienst, und optional kann lokal gespeichert werden im Schließfach für Anmeldeinformationen.
+Darüber hinaus können Anwendungen und Dienste müssen Benutzer melden Sie sich auf diese Ressourcen zugreifen, die von der Anwendung oder Dienst angeboten werden. Der Anmeldeprozess ähnelt der Anmeldeprozess ein gültiges Konto und die richtigen Anmeldeinformationen erforderlich sind, jedoch die Anmeldeinformationen werden in der Datenbank (Security Account Manager, SAM) auf dem lokalen Computer und in Active Directory gespeichert, sofern zutreffend. Anmeldung Konto- und Anmeldeinformationen, die von der Anwendung oder Dienst verwaltet wird, und optional können lokal gespeichert werden im Schließfach für Anmeldeinformationen.
 
-Zum Verständnis der Funktionsweise der Authentifizierung finden Sie unter [Windows-Authentifizierungskonzepte](windows-authentication-concepts.md).
+Funktionsweise der Authentifizierung finden Sie unter [Windows-Authentifizierungskonzepte](windows-authentication-concepts.md).
 
-In diesem Thema werden die folgenden Szenarien beschrieben:
+In diesem Thema wird beschrieben, die folgenden Szenarien:
 
 -   [Interaktive Anmeldung](#BKMK_InteractiveLogon)
 
@@ -44,78 +45,78 @@ In diesem Thema werden die folgenden Szenarien beschrieben:
 -   [Biometrische Anmeldung](#BKMK_BioLogon)
 
 ## <a name="BKMK_InteractiveLogon"></a>Interaktive Anmeldung
-Die Anmeldung beginnt, wenn ein Benutzer im Dialogfeld Anmeldeinformationen Eintrag Anmeldeinformationen eingibt oder wenn der Benutzer eine Smartcard in den Smartcardleser oder wenn der Benutzer, eine biometrische Geräte interagiert. Benutzer können eine interaktive Anmeldung mithilfe eines lokalen Benutzerkontos oder ein Domänenkonto anmelden an einem Computer ausführen.
+Der Anmeldeprozess beginnt, wenn ein Benutzer Anmeldeinformationen im Dialogfeld Anmeldeinformationen Eintrag eingibt oder, wenn der Benutzer eine Smartcard in den Smartcardleser einfügt oder wenn der Benutzer mit einem biometrischen Gerät interagiert. Benutzer können eine interaktive Anmeldung mit, dass ein lokales Benutzerkonto oder ein Domänenkonto auf einem Computer Anmelden ausführen.
 
-Das folgende Diagramm zeigt die interaktive Anmeldung Elemente und die Anmeldung.
+Das folgende Diagramm zeigt die interaktive Anmeldung-Elemente und der Anmeldevorgang.
 
-![Das Diagramm zeigt die interaktive Anmeldung Elemente und die Anmeldung](../media/windows-logon-scenarios/AuthN_LSA_Architecture_Client.gif)
+![Das Diagramm zeigt die interaktive Anmeldung-Elemente und der Anmeldevorgang](../media/windows-logon-scenarios/AuthN_LSA_Architecture_Client.gif)
 
 **Windows Client – Authentifizierungsarchitektur**
 
-### <a name="BKMK_LocaDomainLogon"></a>Lokale Benutzerkonten und Anmeldung
-Anmeldeinformationen, die der Benutzer für eine domänenanmeldung zeigt enthalten alle Elemente, die für eine lokale Anmeldung, z.B. von Kontonamen und das Kennwort oder Zertifikat sowie Informationen zur Active Directory-Domäne erforderlich. Der Prozess bestätigt die Identifizierung des Benutzers auf die Sicherheitsdatenbank auf dem Computer des Benutzers lokale oder Active Directory-Domäne. Diese obligatorische Anmeldevorgang kann für Benutzer in einer Domäne deaktiviert werden.
+### <a name="BKMK_LocaDomainLogon"></a>Lokale und Domänenprinzipale-Anmeldung
+Anmeldeinformationen, die der Benutzer für eine domänenanmeldung vorweisen enthalten alle Elemente, die für eine lokale Anmeldung, z. B. Kontoname und das Kennwort oder Zertifikat sowie Informationen in Active Directory-Domäne erforderlich sind. Der Vorgang bestätigt die Identifizierung des Benutzers die Sicherheitsdatenbank auf dem lokalen Computer des Benutzers oder einer Active Directory-Domäne. Dieser erforderliche Anmeldevorgang kann nicht für Benutzer in einer Domäne deaktiviert werden.
 
-Benutzer können eine interaktive Anmeldung an einem Computer auf zwei verschiedene Arten ausführen:
+Benutzer können eine interaktive Anmeldung an einem Computer auf zwei Arten ausführen:
 
--   Lokal, hat der Benutzer beim direkten physischen Zugriff auf den Computer, oder wenn der Computer in einem Netzwerk von Computern ist.
+-   Lokal, hat der Benutzer beim direkten physischen Zugriff auf dem Computer, oder wenn der Computer Teil eines Netzwerks der Computer ist.
 
-    Eine lokale Anmeldung gewährt eine Benutzer die Berechtigung zum Zugriff auf Windows-Ressourcen auf dem lokalen Computer. Eine lokale Anmeldung erfordert, dass der Benutzer ein Benutzerkonto in der Sicherheitskontenverwaltung (SAM) auf dem lokalen Computer. Die Sicherheitskontenverwaltung schützt und verwaltet, Benutzer- und Gruppeninformationen in Form von Sicherheitskonten, die in der Registrierung des lokalen Computers gespeichert. Der Computer kann Zugriff auf das Netzwerk haben, aber es ist nicht erforderlich. Lokale Benutzerkonten und Gruppen Mitgliedschaft Benutzerinformationen wird verwendet, um den Zugriff auf lokale Ressourcen verwalten.
+    Eine lokale Anmeldung gewährt eine Benutzer die Berechtigung den Zugriff auf Windows-Ressourcen auf dem lokalen Computer. Eine lokale Anmeldung ist erforderlich, dass der Benutzer ein Benutzerkonto in den Security Accounts Manager (SAM) auf dem lokalen Computer verfügt. Das SAM schützt und verwaltet, Benutzer- und Gruppeninformationen in Form von Sicherheitskonten, die in der Registrierung des lokalen Computers gespeichert. Der Computer über das Netzwerk zugreifen kann, aber es ist nicht erforderlich. Lokale Benutzerkonten und-Gruppen Benutzermitgliedschaftsinformationen dient zum Verwalten des Zugriffs auf lokale Ressourcen.
 
-    Zur Anmeldung am Netzwerk gewährt eine Benutzer die Berechtigung Windows auf dem lokalen Computer sowie alle Ressourcen auf Computern im Netzwerk den Zugriff auf Ressourcen gemäß der Anmeldeinformation Zugriffstoken. Eine lokale Anmeldung und zur Anmeldung am Netzwerk erforderlich, dass der Benutzer ein Benutzerkonto in der Sicherheitskontenverwaltung (SAM) auf dem lokalen Computer. Lokale Benutzerkonten und Gruppen Mitgliedschaft Benutzerinformationen wird verwendet, um den Zugriff auf lokale Ressourcen zu verwalten, und das Zugriffstoken des Benutzers definiert, welche Ressourcen auf Computern im Netzwerk zugegriffen werden können.
+    Zur Anmeldung am Netzwerk gewährt eine Benutzer die Berechtigung Windows auf dem lokalen Computer zusätzlich zu den Ressourcen auf vernetzten Computern den Zugriff auf Ressourcen gemäß der Anmeldeinformationen des Zugangs-Token. Sowohl eine lokale Anmeldung und zur Anmeldung am Netzwerk erfordern, dass der Benutzer ein Benutzerkonto in den Security Accounts Manager (SAM) auf dem lokalen Computer verfügt. Lokale Benutzerkonten und-Gruppen Benutzermitgliedschaftsinformationen dient zum Verwalten des Zugriffs auf lokale Ressourcen und das Zugriffstoken für den Benutzer definiert, welche Ressourcen auf vernetzten Computern zugegriffen werden können.
 
-    Eine lokale Anmeldung und zur Anmeldung am Netzwerk sind nicht ausreichend, um die Benutzer und Computer verwenden, um Zugriff auf und Domänenressourcen Berechtigung.
+    Eine lokale Anmeldung und zur Anmeldung am Netzwerk sind nicht ausreichend zum Erteilen der Benutzer- und Computerobjekte Berechtigung den Zugriff auf und auf Domänenressourcen verwenden.
 
--   Remote qualifiziert über Terminaldienste oder Remotedesktopdienste (RDS), in dem Fall die Anmeldung Weitere ist als remote interaktive.
+-   Remote vollqualifizierten über "Terminal Services" oder Remote Desktop Services (RDS), in dem Fall der Anmeldung weiter ist als remote interactive.
 
-Nach einer interaktiven Anmeldung Windows Anwendungen im Auftrag des Benutzers ausgeführt, und dem Benutzer die Interaktion mit den betreffenden Anwendungen.
+Nach einer interaktiven Anmeldung Windows Anwendungen im Auftrag des Benutzers ausgeführt, und der Benutzer mit den Anwendungen interagieren kann.
 
-Eine lokale Anmeldung gewährt eine Benutzer die Berechtigung zum Zugriff auf Ressourcen auf dem lokalen Computer oder Ressourcen auf Computern im Netzwerk. Wenn der Computer einer Domäne angehört, versucht die Winlogon-Funktionalität für diese Domäne anmelden.
+Eine lokale Anmeldung gewährt eine Benutzer die Berechtigung für den Zugriff auf Ressourcen auf dem lokalen Computer oder Ressourcen auf vernetzten Computern. Wenn der Computer einer Domäne angehört, versucht die Winlogon-Funktionalität für diese Domäne anmelden.
 
-Eine domänenanmeldung gewährt einem Benutzer die Berechtigung für den lokalen Zugriff auf und Domänenressourcen. Eine domänenanmeldung erfordert, dass der Benutzer ein Benutzerkonto in Active Directory verfügt. Der Computer muss über ein Konto verfügen, in der Active Directory-Domäne und physisch mit dem Netzwerk verbunden sein. Benutzer benötigen auch die Benutzerrechte auf einem lokalen Computer oder einer Domäne anmelden. Domäne Benutzerkontoinformationen und Informationen zur Gruppenmitgliedschaft werden verwendet, um den Zugriff auf die Domäne und den lokalen Ressourcen verwalten.
+Eine domänenanmeldung gewährt einem Benutzer die Berechtigung auf lokalen und Domänenressourcen. Eine domänenanmeldung ist erforderlich, dass der Benutzer ein Benutzerkonto in Active Directory verfügt. Der Computer muss über ein Konto in Active Directory-Domäne verfügen und mit dem Netzwerk physisch verbunden sein. Benutzer müssen auch die Benutzerrechte zum Anmelden bei einem lokalen Computer oder eine Domäne verfügen. Informationen zum Domänenbenutzerkonto und Informationen zu Gruppenmitgliedschaften werden zum Verwalten des Zugriffs auf Domänen- und lokalen Ressourcen.
 
-### <a name="BKMK_RemoteLogon"></a>Remote-Anmeldung
-In Windows stützt sich auf über Remote-Anmeldung auf einem anderen Computer zugreifen auf die RDP (Remotedesktopprotokoll). Da der Benutzer bereits erfolgreich an den Clientcomputer angemeldet haben muss, bevor Sie versuchen, eine Remoteverbindung, haben die interaktive Anmeldung Prozesse erfolgreich abgeschlossen.
+### <a name="BKMK_RemoteLogon"></a>Remoteanmeldung
+In Windows stützt sich auf den Zugriff auf einen anderen Computer über remote-Anmeldung für das Remote Desktop Protocol (RDP). Da der Benutzer bereits erfolgreich auf dem Clientcomputer angemeldet haben muss, bevor Sie versuchen, eine Remoteverbindung, interaktive Anmeldung Prozesse erfolgreich abgeschlossen.
 
-RDP verwaltet die Anmeldeinformationen, die der Benutzer eingibt, mit dem Remotedesktopclient an. Diese Anmeldeinformationen für den Zielcomputer vorgesehen sind, und der Benutzer muss ein Konto auf dem Zielcomputer verfügen. Darüber hinaus muss der Zielcomputer konfiguriert werden, um eine Remoteverbindung zu übernehmen. Die Ziel-Computer-Anmeldeinformationen werden gesendet, um zu versuchen, den Authentifizierungsvorgang ausführen. Wenn die Authentifizierung erfolgreich ist, wird der Benutzer an lokale verbunden ist, und Netzwerkressourcen verfügbar sind mit den angegebenen Anmeldeinformationen.
+RDP werden die Anmeldeinformationen, die der Benutzer eingibt, mithilfe von Remote Desktop-Client verwaltet. Diese Anmeldeinformationen für den Zielcomputer vorgesehen sind, und der Benutzer muss ein Konto auf diesem Zielcomputer verfügen. Darüber hinaus muss der Zielcomputer konfiguriert werden, um eine Remoteverbindung zu akzeptieren. Die Ziel-Computer-Anmeldeinformationen werden gesendet, um zu versuchen, Sie führen den Authentifizierungsprozess. Wenn die Authentifizierung erfolgreich ist, wird der Benutzer auf den lokalen verbunden ist, und Netzwerkressourcen, die verfügbar sind, indem mithilfe der angegebenen Anmeldeinformationen.
 
 ## <a name="BKMK_NetworkLogon"></a>Netzwerkanmeldung
-Zur Anmeldung am Netzwerk kann nur verwendet werden, nachdem die Benutzer, Dienst oder Computerauthentifizierung ausgeführt wurde. Bei der Anmeldung am Netzwerk wird der Prozess nicht die Anmeldeinformationen Eintrag Dialogfelder verwenden, zum Sammeln von Daten. In diesem Fall Anmeldeinformationen zuvor eingerichtet oder ein anderes Verfahren zum Sammeln von Anmeldeinformationen verwendet wird. Dieser Vorgang bestätigt die Identität des Benutzers einem Netzwerkdienst, die der Benutzer zugreifen möchte. Dieser Prozess wird in der Regel für den Benutzer nicht sichtbar, es sei denn, alternative Anmeldeinformationen bereitgestellt werden.
+Zur Anmeldung am Netzwerk kann nur verwendet werden, nachdem der Benutzer, Computer oder Dienst-Authentifizierung stattgefunden hat. Während der Anmeldung am Netzwerk wird der Prozess nicht die Dialogfelder der Anmeldeinformationen-Eintrag verwendet, zum Sammeln von Daten. Stattdessen Anmeldeinformationen zuvor eingerichtet oder eine andere Methode zum Sammeln von Anmeldeinformationen verwendet wird. Dieser Prozess wird die Identität des Benutzers, dem Netzwerkdienst, der der Benutzer versucht, den Zugriff auf bestätigt. Dieser Prozess ist in der Regel für den Benutzer unsichtbar, es sei denn, Sie müssen alternative Anmeldeinformationen angegeben werden.
 
-Um diese Art der Authentifizierung bereitzustellen, enthält das Sicherheitssystem Authentifizierungsmechanismen:
+Um diese Art der Authentifizierung zu ermöglichen, enthält das Sicherheitssystem Authentifizierungsmechanismen:
 
 -   Kerberos V5-Protokoll
 
--   Zertifikate mit öffentlichem Schlüssel
+-   Zertifikate mit öffentlichen Schlüsseln
 
 -   Secure Sockets Layer/Transport Layer Security (SSL/TLS)
 
--   Digestauthentifizierung
+-   Digest
 
--   NTLM für die Kompatibilität mit Microsoft Windows NT 4.0-basierte Systeme
+-   NTLM, für die Kompatibilität mit Microsoft Windows NT 4.0-basierte Systeme
 
-Informationen zu den Elementen und Prozesse finden Sie im obigen Diagramm interaktive Anmeldung.
+Informationen zu den Elementen und -Prozesse finden Sie unter dem oben stehenden Diagramm für interaktive Anmeldung.
 
 ## <a name="BKMK_SmartCardLogon"></a>Smartcard-Anmeldung
-Smartcards können verwendet werden, nur für Domänenkonten, keine lokalen Konten anmelden. Smartcard-Authentifizierung erfordert die Verwendung des Kerberos-Authentifizierungsprotokolls. Eingeführt in Windows2000 Server in Windows-Betriebssystemen eine public Key-Erweiterung der Kerberos-Protokolls anfängliche Authentifizierungsanforderung implementiert wird. Im Gegensatz zur freigegebenen Kryptografie mit geheimem Schlüssel Kryptografie mit öffentlichem Schlüssel asymmetrischen ist, zwei verschiedene Schlüssel werden benötigt, d.h.: eine zum Verschlüsseln, einen anderen entschlüsseln. Zusammen bilden die Schlüssel, die für beide Vorgänge erforderlich sind ein Paar aus privatem und öffentlichem Schlüssel.
+Smartcards können nur für Domänenkonten, die nicht für lokale Konten anmelden verwendet werden. Smartcard-Authentifizierung erfordert die Verwendung des Kerberos-Authentifizierungsprotokolls. Eingeführt in Windows 2000 Server in Windows-basierten Betriebssystemen eine public Key-Erweiterung auf die ursprüngliche Authentifizierungsanforderung des Protokolls implementiert ist Kerberos. Im Gegensatz zu gemeinsamen geheimen Schlüsseln, Kryptografie mit öffentlichem Schlüssel asymmetrischen ist, also zwei verschiedene Schlüssel sind erforderlich: eine zum Verschlüsseln, ein weiteres zum Entschlüsseln. Zusammen bilden die Schlüssel, die beide Vorgänge durchführen müssen eine Private/öffentliche Schlüsselpaar.
 
-Um eine normale Sitzung zu initiieren, muss ein Benutzer seine Identität nachweisen, durch Bereitstellen von Informationen, die nur für den Benutzer und die zugrunde liegende Infrastruktur des Kerberos-Protokoll bezeichnet. Die geheime Informationen ist ein freigegebener Kryptografieschlüssel das Kennwort des Benutzers abgeleitet. Ein gemeinsamen geheimer Schlüssel ist symmetrischen, was bedeutet, dass für die Ver- und Entschlüsselung derselbe Schlüssel verwendet wird.
+Um einer typischen Sitzung zu initiieren, muss ein Benutzer seine Identität nachweisen, durch die Bereitstellung von Informationen, die nur für den Benutzer und die zugrunde liegende Infrastruktur von Kerberos-Protokoll bekannt. Die geheime Informationen ist eine kryptografische gemeinsam verwendeten Schlüssel, der das Kennwort des Benutzers abgeleitet. Ein gemeinsamen geheimer Schlüssel ist symmetrisch, was bedeutet, dass der gleiche Schlüssel für die Verschlüsselung und Entschlüsselung verwendet wird.
 
-Das folgende Diagramm zeigt die Elemente und Prozesse für die Smartcard-Anmeldung erforderlich.
+Das folgende Diagramm zeigt die Elemente und Prozesse, die für die Smartcard-Anmeldung.
 
-![Das Diagramm zeigt die Elemente und Prozesse für die Smartcard-Anmeldung erforderlich](../media/windows-logon-scenarios/SmartCardCredArchitecture.gif)
+![Das Diagramm zeigt die Elemente und Prozesse, die für die Smartcard-Anmeldung](../media/windows-logon-scenarios/SmartCardCredArchitecture.gif)
 
-**Smartcard-Anmeldeinformationsanbieter-Architektur**
+**Smartcard-anmeldeanbieterarchitektur**
 
-Wenn eine Smartcard anstelle eines Kennworts verwendet wird, wird ein privates/öffentliches Schlüsselpaar auf Smartcard des Benutzers gespeichert für den gemeinsamen geheimen Schlüssel ersetzt, die von das Kennwort des Benutzers abgeleitet wird. Der private Schlüssel ist nur auf der Smartcard gespeichert. Der öffentliche Schlüssel kann für alle Personen zur Verfügung werden mit dem Besitzer vertrauliche Informationen austauschen möchte.
+Wenn eine Smartcard anstelle eines Kennworts verwendet wird, wird eine Private/öffentliche Schlüsselpaar auf Smartcard des Benutzers gespeichert für den gemeinsamen geheimen Schlüssel ersetzt, die von das Kennwort des Benutzers abgeleitet ist. Der private Schlüssel wird nur auf der Smartcard gespeichert. Der öffentliche Schlüssel kann verfügbar für jeden gemacht werden für die der Besitzer möchte vertrauliche Informationen austauschen.
 
-Weitere Informationen über die Smartcard-Anmeldung in Windows finden Sie unter [Funktionsweise Smartcard-Anmeldung in Windows](https://technet.microsoft.com/library/ff404285.aspx).
+Weitere Informationen über den Prozess des Smartcard-Anmeldung in Windows finden Sie unter [Funktionsweise Smartcard-Anmeldung in Windows](https://technet.microsoft.com/library/ff404285.aspx).
 
 ## <a name="BKMK_BioLogon"></a>Biometrische Anmeldung
-Ein Gerät wird zum Erfassen und erstellen eine digitale Eigenschaft ein Artefakt bereit, z.B. ein Fingerabdruck verwendet. Diese digitalen Darstellung wird dann zum Beispiel für das gleiche Artefakt verglichen und Authentifizierung kann auftreten, wenn die beiden erfolgreich verglichen werden. Computer unter einem der Betriebssysteme in der **gilt für** Liste am Anfang dieses Themas kann konfiguriert werden, um diese Form der Anmeldung zu akzeptieren. Wenn biometrische Anmeldeinformationen nur für die lokale Anmeldung konfiguriert ist, muss der Benutzer jedoch Domänenanmeldeinformationen zu präsentieren, beim Zugriff auf Active Directory-Domäne.
+Ein Gerät wird verwendet, um zu erfassen und erstellen ein digitales Merkmal eines Artefakts, z. B. ein Fingerabdruck. Diese digitalen Darstellung wird dann mit der ein Beispiel für dasselbe Element verglichen, und die Authentifizierung kann auftreten, wenn die beiden erfolgreich verglichen werden. Computer mit einem Betriebssystem, der festgelegt wird, der **gilt für** Liste am Anfang dieses Themas kann konfiguriert werden, um diese Form der Anmeldung zu akzeptieren. Wenn biometrische Anmeldung nur für die lokale Anmeldung konfiguriert ist, muss der Benutzer jedoch Anmeldeinformationen für die Domäne vorhanden, wenn Active Directory-Domäne den Zugriff auf.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
-Informationen zur Verwaltung von Anmeldeinformationen, die während des Anmeldevorgangs in Windows finden Sie unter [Verwaltung von Anmeldeinformationen in Windows-Authentifizierung](https://technet.microsoft.com/library/dn169014.aspx).
+Informationen dazu, wie Windows beim Anmeldevorgang übermittelte Anmeldeinformationen verwaltet, finden Sie unter [Verwaltung von Anmeldeinformationen bei der Windows-Authentifizierung](https://technet.microsoft.com/library/dn169014.aspx).
 
-[Windows-Anmeldung und Authentifizierung (technische Übersicht)](https://technet.microsoft.com/library/dn169029.aspx)
+[Windows-Anmeldung und Authentifizierung – technische Übersicht](https://technet.microsoft.com/library/dn169029.aspx)
 
 

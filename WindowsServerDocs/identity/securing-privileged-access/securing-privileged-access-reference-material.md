@@ -1,745 +1,634 @@
 ---
-title: "Schützen des privilegierten Zugriffs – Referenzmaterial"
-description: Windows Server-Sicherheit
-ms.custom: na
+title: Schützen des privilegierten Zugriffs – Referenzmaterial
+description: Betriebssicherheit-Steuerelemente für Windows Server Active Directory-Domänen
 ms.prod: windows-server-threshold
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 22ee9a77-4872-4c54-82d9-98fc73a378c0
-author: coreyp-at-msft
-ms.author: coreyp
-manager: dongill
-ms.date: 10/12/2016
-ms.openlocfilehash: ee5769a3ed0225ebdd31645027bace38f0bff1b9
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
+ms.date: 02/14/2019
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
+ms.reviewer: mas
+ms.openlocfilehash: 75474bd37f425388f01986ca32073107ee4fed99
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59830691"
 ---
-# <a name="securing-privileged-access-reference-material"></a>Schützen des privilegierten Zugriffs – Referenzmaterial
+# <a name="active-directory-administrative-tier-model"></a>Active Directory-Verwaltungsebenenmodell
 
->Gilt für: Windows Server2016, Windows Server2012 R2, Windows Server 2012
+>Gilt für: Windows Server
 
+Dieses Ebenenmodell wird eingesetzt, um Identitätssysteme zu schützen. Zu diesem Zweck werden Pufferzonen zwischen der vollständigen Kontrolle der Umgebung (Ebene 0) und den Arbeitsstationsassets implementiert, die ein häufiges Ziel von Angreifern sind.
 
-Dieser Abschnittenthält Referenzinformationen zum Schützen des privilegierten Zugriffs einschließlich:
+![Diagramm, das die drei Ebenen des Tier-Modells zeigt](../media/securing-privileged-access-reference-material/PAW_RM_Fig1.JPG)
 
--   [Active Directory-verwaltungsebenenmodell](#ADATM_BM)
+Dieses Modell beinhaltet drei Ebenen sowie ausschließlich Administratorkonten (keine standardmäßigen Benutzerkonten):
 
--   [Prinzip der vertrauenswürdigen Quelle](#CSP_BM)
-
--   [ESAE-Verwaltungsgesamtstruktur Entwurfsansatz](#ESAE_BM)
-
--   [Äquivalenz zur Ebene 0](#T0E_BM)
-
--   [Verwaltungstools und Anmeldetypen](#ATLT_BM)
-
-## <a name="ADATM_BM"></a>Active Directory-verwaltungsebenenmodell
-Der Zweck dieses Ebenenmodell wird mithilfe einer Reihe von Pufferzonen zwischen der vollständige Kontrolle über die Umgebung (Ebene 0) und die mit hohem Risiko Arbeitsstation-Ressourcen, die Angreifer häufig gefährden Identitätssysteme zu schützen.
-
-![Das Diagramm zeigt die drei Ebenen des Tier-Modells](../media/securing-privileged-access-reference-material/PAW_RM_Fig1.JPG)
-
-Dieses Modell besteht aus drei Ebenen und enthält nur Administratorkonten, keine standardmäßigen Benutzerkonten:
-
--   **Ebene 0** -unmittelbaren Kontrolle des Unternehmens Identitäten in der Umgebung. Ebene 0 umfasst Konten, Gruppen und andere Ressourcen, die direkte oder indirekte administrative Kontrolle über die Active Directory-Gesamtstruktur, Domänen oder Domänencontrollern verfügen und alle Ressourcen darin. Die Vertraulichkeit aller Assets der Ebene 0 entspricht alle effektiv gegenseitig steuern werden.
-
--   **Ebene 1** -Kontrolle von Unternehmensservern und Anwendungen. Assets der Ebene 1 umfassen Serverbetriebssysteme, Clouddienste und unternehmensanwendungen. Administratorkonten der Ebene 1 haben administrative Kontrolle für eine signifikante Menge von gehostet wird, auf diese Ressourcen. Ein gängiges Beispiel sind Serveradministratoren, die diese Betriebssysteme, die Möglichkeit beizubehalten, alle Unternehmensdienste auswirken.
-
--   **Ebene 2** -Kontrolle von Benutzerarbeitsstationen und Geräte. Administratorkonten der Ebene 2 verfügen auf Benutzerarbeitsstationen und -Geräten administrative Kontrolle für eine signifikante Menge von gehostet wird. Beispiele sind Helpdesk- und computersupportadministratoren sie die Integrität von praktisch sämtlichen Benutzerdaten auswirken können.
+- **Ebene 0**: Direkte Kontrolle von Unternehmensidentitäten innerhalb der Umgebung. Die Ebene 0 umfasst Konten, Gruppen und andere Assets mit direkter oder indirekter Administratorkontrolle der Active Directory-Gesamtstruktur, -Domänen oder -Domänencontroller sowie aller zugehörigen Assets. Da die Assets der Ebene 0 sich effektiv gegenseitig steuern und kontrollieren, ist die Vertraulichkeit dieser Assets äquivalent.
+- **Ebene 1**: Kontrolle von Unternehmensservern und -anwendungen. Assets der Ebene 1 umfassen Serverbetriebssysteme, Clouddienste und Unternehmensanwendungen. Administratorkonten der Ebene 1 verfügen über administrative Berechtigungen für eine signifikante Menge von Unternehmensressourcen, die auf diesen Assets gehostet werden. Ein gängiges Beispiel sind Serveradministratoren, die die zugehörigen Betriebssysteme verwalten und damit Aufgaben ausführen, die sich auf alle Unternehmensdienste auswirken können.
+- **Ebene 2**: Kontrolle von Benutzerarbeitsstationen und -geräten. Administratorkonten der Ebene 2 verfügen über administrative Berechtigungen für eine signifikante Menge von Unternehmensressourcen, die auf Benutzerarbeitsstationen und -geräten gehostet werden. Beispiele sind Helpdesk- und Computersupportadministratoren, deren Aufgaben sich auf die Integrität von praktisch sämtlichen Benutzerdaten auswirken können.
 
 > [!NOTE]
-> Die Ebenen dienen zudem als grundlegender priorisierungsmechanismus zum Schutz von administrativen Assets, aber es ist wichtig zu beachten, dass ein Angreifer mit Kontrolle aller Assets einer beliebigen Ebene die meisten oder alle unternehmensassets zugreifen kann. Der Grund ist es hilfreich, als grundlegender priorisierungsmechanismus ist Angreifer Probleme/Kosten. Es ist einfacher, ein Angreifer mit vollständiger Kontrolle aller Identitäten (Ebene 0) oder Servern ausgeführt werden und Clouddienste (Ebene 1) als ist, wenn sie auf jedem einzelnen Arbeitsstationen oder Benutzergeräte (Ebene 2) zum Abrufen der Daten Ihrer Organisation zugreifen müssen.
+> Die Ebenen dienen zudem als grundlegender Priorisierungsmechanismus zum Schutz von administrativen Assets. Bedenken Sie jedoch stets, dass ein Angreifer mit Kontrolle aller Assets einer beliebigen Ebene auf die meisten oder alle Unternehmensassets zugreifen kann. Das Ebenenmodell ist ein nützlicher grundlegender Priorisierungsmechanismus, weil es eine zusätzliche Hürde für Angreifer darstellt. Angreifer können ihre Pläne bei vollständiger Kontrolle aller Identitäten (Ebene 0) oder Server und Clouddienste (Ebene 1) einfacher umsetzen als in einem Szenario, in dem sie auf die einzelnen Arbeitsstationen oder Benutzergeräte (Ebene 2) zugreifen müssen, um Zugang zu den Daten Ihrer Organisation zu erhalten.
 
-### <a name="containment-and-security-zones"></a>Eindämmung und Sicherheitszonen
-Die Ebenen werden relativ zu einer bestimmten Sicherheitszone. Während sie viele Namen überschritten haben, sind Sicherheitszonen einen bewährten Ansatz, die Kapselung von Sicherheitsrisiken durch eine Isolierung zwischen ihnen zu ermöglichen. Das Ebenenmodell ergänzt die Isolierung durch Eindämmen von Angriffsversuchen innerhalb einer Sicherheitszone, in denen die Netzwerkisolation nicht wirksam ist. Sicherheitszonen können umfassen sowohl lokal und Cloud-Infrastruktur, wie im Beispiel, in denen Domänencontroller und Domänenmitglieder innerhalb derselben Domäne lokal sind, und in Azure.
+## <a name="containment-and-security-zones"></a>Eindämmung und Sicherheitszonen
 
-![Das Diagramm zeigt, wie Sicherheitszonen umfassen sowohl lokal als auch Cloud-Infrastruktur](../media/securing-privileged-access-reference-material/PAW_RM_Fig2.JPG)
+Die Ebenen werden relativ zu einer bestimmten Sicherheitszone implementiert. Bei Sicherheitszonen handelt es sich um einen bewährten Ansatz, mit dem Sicherheitsbedrohungen durch eine Isolierung auf der Vermittlungsschicht eingedämmt werden können. Das Ebenenmodell ergänzt dieses Verfahren durch das Eindämmen von Angriffsversuchen innerhalb einer Sicherheitszone, in der die Netzwerkisolation nicht greift. Sicherheitszonen können sich sowohl über lokale als auch über cloudbasierte Infrastrukturen erstrecken, beispielsweise in einem Szenario, in dem Domänencontroller und Domänenmitglieder innerhalb derselben Domäne sowohl lokal als auch in Azure gehostet werden.
 
-Das Ebenenmodell verhindert eine Ausweitung von rechten beschränken, welche Administratoren steuern und, in dem sie sich anmelden können (da es sich um eine Anmeldung an einem Computer Kontrolle über diese Anmeldeinformationen und allen Assets, die über diese Anmeldeinformationen verwaltet gewährt).
+![Diagramm, das zeigt, wie Sicherheitszonen jeweils die lokale als auch die Cloudinfrastruktur umfassen können](../media/securing-privileged-access-reference-material/PAW_RM_Fig2.JPG)
 
-### <a name="control-restrictions"></a>Eingeschränkten Kontrolle
-Eingeschränkten Kontrolle sind in der folgenden Abbildungdargestellt:
+Das Ebenenmodell verhindert eine Ausweitung von Rechten, indem die Bereiche eingeschränkt werden, die Administratoren steuern und in denen sich Administratoren anmelden können (durch die Anmeldung an einem Computer erhält der Benutzer Zugang zu diesen Anmeldeinformationen und allen Assets, die über diese Anmeldeinformationen verwaltet werden).
+
+### <a name="control-restrictions"></a>Eingeschränkte Kontrolle
+
+In der Abbildung unten sind die Kontrollbereiche eingeschränkt:
 
 ![Diagramm der eingeschränkten Kontrolle](../media/securing-privileged-access-reference-material/PAW_RM_Fig3.JPG)
 
 ### <a name="primary-responsibilities-and-critical-restrictions"></a>Primäre Aufgaben und wichtige Einschränkungen
-**Administrator der Ebene 0** -Identitätsspeicher und eine kleine Anzahl von Systemen, die effektive steuern, verwalten und:
 
--   Verwalten und Steuern von Assets auf sämtlichen Ebenen nach Bedarf
+**Administrator der Ebene 0**: Verwalten des Identitätsspeichers und einer kleinen Anzahl von Systemen, die diesen Speicher effektiv kontrollieren und steuern: Außerdem:
 
--   Interaktives anmelden oder Zugriff auf Assets, die auf der Ebene 0 als vertrauenswürdig eingestuft werden können
+- Bei Bedarf Verwalten und Steuern von Assets auf sämtlichen Ebenen
+- Interaktives Anmelden oder Zugriff auf Assets, die auf der Ebene 0 als vertrauenswürdig eingestuft werden
 
-**Administrator der Ebene 1** -Unternehmensservern, Dienste und Anwendungen verwalten und:
+**Administrator der Ebene 1**: Verwalten von Unternehmensservern, -diensten und -anwendungen. Außerdem:
 
--   Ausschließlich Verwaltung und Steuerung von Assets auf Ebene 1 oder Ebene 2
+- Ausschließlich Verwaltung und Steuerung von Assets auf Ebene 1 und Ebene 2
+- Ausschließlich Zugriff auf Assets (über den Anmeldetyp „Netzwerk“), die auf Ebene 1 und Ebene 0 als vertrauenswürdig eingestuft werden
+- Interaktives Anmelden bei Assets, die auf der Ebene 1 als vertrauenswürdig eingestuft werden
 
--   Ausschließlich Zugriff auf Assets (über den Anmeldetyp "Netzwerk"), die auf Ebene 1 oder Ebene 0 als vertrauenswürdig gelten
+**Administrator der Ebene 2**: Verwalten von Unternehmensdesktops, -laptops, -druckern und anderen Benutzergeräten. Außerdem:
 
--   Können nur interaktiv anmelden bei Assets auf Ebene 1 als vertrauenswürdig eingestuft
-
-**Administrator der Ebene 2** -Enterprise-Desktops, Laptops, Drucker und andere Benutzergeräte verwalten und:
-
--   Ausschließlich Verwaltung und Steuerung von Assets auf Ebene 2
-
--   Assets (über Anmeldetyp "Netzwerk") auf jeder Ebene bei Bedarf können zugreifen werden.
-
--   Können nur interaktiv anmelden bei Assets auf Ebene 2 als vertrauenswürdig eingestuft
+- Ausschließlich Verwaltung und Steuerung von Assets auf Ebene 2
+- Bei Bedarf Zugriff auf Assets auf allen Ebenen (über den Anmeldetyp „Netzwerk“)
+- Ausschließlich interaktives Anmelden bei Assets, die auf der Ebene 2 als vertrauenswürdig eingestuft werden
 
 ### <a name="logon-restrictions"></a>Anmeldeeinschränkungen
-Anmeldebeschränkungen sind in der folgenden Abbildungdargestellt:
 
-![Diagramm der anmeldeeinschränkungen](../media/securing-privileged-access-reference-material/PAW_RM_Fig4.JPG)
+Die Abbildung unten zeigt Anmeldeeinschränkungen:
+
+![Diagramm der Anmeldeeinschränkungen](../media/securing-privileged-access-reference-material/PAW_RM_Fig4.JPG)
 
 > [!NOTE]
-> Beachten Sie, dass einige Ressourcen können Auswirkungen auf Ebene 0 für die Verfügbarkeit der Umgebung, aber nicht direkt beeinträchtigt die Vertraulichkeit oder Integrität der Assets. Dazu gehören der DNS-Serverdienst sowie wichtige Netzwerkgeräte wie internetproxys.
+> Beachten Sie, dass einige Assets sich im Umfang von Ebene 0 auf die Verfügbarkeit der Umgebung auswirken können. Die Vertraulichkeit oder Integrität der Assets wird jedoch nicht direkt beeinträchtigt. Dazu zählen der DNS-Serverdienst sowie wichtige Netzwerkgeräte wie Internetproxys.
 
-## <a name="CSP_BM"></a>Prinzip der vertrauenswürdigen Quelle
-Das Prinzip der vertrauenswürdigen Quelle muss alle sicherheitsabhängigkeiten weniger vertrauenswürdig als das Objekt, das gesichert werden.
+## <a name="clean-source-principle"></a>Prinzip der vertrauenswürdigen Quelle
 
-![Das Diagramm zeigt, wie jedes Subjekt, das ein Objekt eine sicherheitsabhängigkeit dieses Objekts ist](../media/securing-privileged-access-reference-material/PAW_RM_Fig5.JPG)
+Beim Prinzip der vertrauenswürdigen Quelle müssen alle Sicherheitsabhängigkeiten genauso vertrauenswürdig sein wie das zu sichernde Objekt.
 
-Jedes Subjekt, das in ein Objekt ist eine sicherheitsabhängigkeit dieses Objekts. Wenn ein Angreifer effektiver Kontrolle über ein Zielobjekt steuern kann, können sie dieses Zielobjekt kontrollieren. Aus diesem Grund müssen Sie sicherstellen, dass die Zusicherungen für alle sicherheitsabhängigkeiten mindestens über die gewünschte Sicherheitsstufe des Objekts selbst.
+![Diagramm, das zeigt, dass jedes Subjekt, das ein Objekt kontrolliert, eine Sicherheitsabhängigkeit dieses Objekts ist](../media/securing-privileged-access-reference-material/PAW_RM_Fig5.JPG)
 
-Beim einfach ist erfordert dies Umsetzung die kontrollbeziehungen eines Element (Objekt) und eine Abhängigkeitsanalyse davon ermittelt alle sicherheitsabhängigkeiten (Subjekte) durchführen.
+Jedes Subjekt, das ein Objekt kontrolliert, ist eine Sicherheitsabhängigkeit dieses Objekts. Wenn ein Angreifer ein Asset mit effektiver Kontrolle über ein Zielobjekt kontrollieren und steuern kann, so kann er auch dieses Zielobjekt kontrollieren. Daher müssen Sie sicherstellen, dass die Zusicherungen für alle Sicherheitsabhängigkeiten mindestens der Sicherheitsstufe des Objekts selbst entsprechen.
 
-Da eine transitive Kontrolle handelt, muss dieses Prinzip rekursiv wiederholt werden. Für Beispiel, wenn ein Steuerelemente B und B, C Steuerelemente, steuert dann A indirekt auch C.
+Wenngleich dies an sich einfach ist, müssen Sie zur Umsetzung die Kontrollbeziehungen eines Assets (Objekt) kennen und eine Abhängigkeitsanalyse durchführen, um alle Sicherheitsabhängigkeiten (Subjekte) zu ermitteln.
 
-![Das Diagramm zeigt, wie wenn eine Steuerelemente B, und B steuert C, dann A indirekt auch C-Steuerelemente](../media/securing-privileged-access-reference-material/PAW_RM_Fig6.JPG)
+Da es sich um eine transitive Kontrolle handelt, muss dieses Prinzip rekursiv wiederholt werden. Beispiel: Wenn B von A und C von B gesteuert wird, dann steuert A indirekt auch C.
 
-Ein Angreifer Zugriff gefährdet, erhält auf Alles, was eine steuert (einschließlich B) und alles B steuert (einschließlich C). Verwenden die Sprache des sicherheitsabhängigkeiten dieses Beispiels, B und A sicherheitsabhängigkeiten von C und müssen auf die gewünschte Sicherheitsstufe von C nacheinander für C, um die Sicherheitsstufe müssen gesichert werden.
+![Diagramm, das folgendes Beispiel zeigt: Wenn B von A und C von B gesteuert wird, dann steuert A indirekt auch C](../media/securing-privileged-access-reference-material/PAW_RM_Fig6.JPG)
 
-Für IT-Infrastrukturen und Identitätssystemen Systeme sollte dieses Prinzip zu den am häufigsten verwendeten Steuerelement auch die Hardware, auf dem Systeme installiert sind, die Installationsmedien für Systeme, die Architektur und die Konfiguration des Systems sowie tägliche Vorgänge angewendet werden.
+Ein Angreifer, der A gefährdet, erhält Zugriff auf alle Elemente, die A steuert (einschließlich B) sowie alle Elemente, die B steuert (einschließlich C). Im Hinblick auf die Sicherheitsabhängigkeiten dieses Beispiels sind sowohl B als auch A Sicherheitsabhängigkeiten von C. Beide müssen folglich die gewünschte Sicherheitsstufe von C aufweisen, damit diese Stufe für C eingehalten wird.
 
-### <a name="clean-source-for-installation-media"></a>Vertrauenswürdige Quelle für Installationsmedien
-![Das Diagramm zeigt eine vertrauenswürdige Quelle für Installationsmedien](../media/securing-privileged-access-reference-material/PAW_RM_CSIM.JPG)
+Bei IT-Infrastrukturen und Identitätssystemen sollte dieses Prinzip auf die meisten gängigen Kontrollmechanismen angewendet werden. Dies umfasst auch die Hardware, auf der Systeme installiert sind, die Installationsmedien für die Systeme, die Architektur und die Konfiguration des Systems sowie tägliche Vorgänge.
 
-Das Prinzip der vertrauenswürdigen Quelle auf Installationsmedien anwenden, müssen Sie sicherstellen, dass das Installationsmedium nicht manipuliert wurde seit der Freigabe durch den Hersteller (so gut wie bestimmt werden kann). Diese Abbildungzeigt einen Angreifer diesen Weg auf um einen Computer zu gefährden:
+## <a name="clean-source-for-installation-media"></a>Vertrauenswürdige Quelle für Installationsmedien
 
-![Diese Abbildungzeigt einen Angreifer mit einem Pfad, einen Computer zu gefährden](../media/securing-privileged-access-reference-material/PAW_RM_Fig8.JPG)
+![Diagramm, das eine vertrauenswürdige Quelle für Installationsmedien zeigt](../media/securing-privileged-access-reference-material/PAW_RM_CSIM.JPG)
 
-Das Prinzip der vertrauenswürdigen Quelle auf Installationsmedien anzuwenden, müssen Überprüfen der Integrität der Software des gesamten Zyklus verfügen, während der Übernahme, Speicher, einschließlich zu übertragen, bis es verwendet wird.
+Um das Prinzip der vertrauenswürdigen Quelle auf Installationsmedien anzuwenden, müssen Sie (so gut wie möglich) sicherstellen, dass das Installationsmedium seit der Freigabe durch den Hersteller nicht manipuliert wurde. Nachfolgend wird gezeigt, wie ein Angreifer diesen Weg nutzt, um einen Computer zu gefährden:
 
-#### <a name="software-acquisition"></a>Erwerb von Software
+![Die Abbildung zeigt, wie ein Angreifer diesen Weg nutzt, um einen Computer zu gefährden](../media/securing-privileged-access-reference-material/PAW_RM_Fig8.JPG)
+
+Um das Prinzip der vertrauenswürdigen Quelle auf Installationsmedien anzuwenden, muss die Softwareintegrität während des gesamten Zyklus seit dem Erwerb überprüft werden (also vom Kauf über die Aufbewahrung und Übermittlung bis hin zur Verwendung).
+
+### <a name="software-acquisition"></a>Erwerb der Software
+
 Die Quelle der Software sollte über eine der folgenden Methoden überprüft werden:
 
--   Software wird auf einem physischen Medium abgerufen, die bekannt ist, das vom Hersteller oder einer seriösen Quelle, in der Regel werden diese Medien von einem Anbieter stammen.
+- Software wird auf einem physischen Medium erworben, das vom Hersteller oder einer seriösen Quelle stammt (üblicherweise werden diese Medien von einem Anbieter ausgeliefert).
+- Software wird aus dem Internet bezogen und mit Dateihashes überprüft, die vom Anbieter bereitgestellt werden.
+- Software wird aus dem Internet bezogen und durch den Download und Vergleich von zwei unabhängigen Kopien überprüft:
+   - Laden Sie die beiden Kopien auf zwei Hosts ohne Sicherheitsbeziehung herunter (die sich nicht innerhalb derselben Domäne befinden und nicht über dieselben Tools verwaltet werden), vorzugsweise über getrennte Internetverbindungen.
+   - Vergleichen Sie die heruntergeladenen Dateien über ein Hilfsprogramm wie Certutil:  `certutil -hashfile <filename>`
 
--   Software wird aus dem Internet bezogen und mit Hersteller bereitgestellten Dateihashes überprüft.
+Wenn möglich, sollte Anwendungssoftware wie Anwendungsinstallationsprogramme und -tools immer digital signiert und unter Verwendung von Windows Authenticode überprüft werden. Verwenden Sie dabei das Tool [Windows Sysinternals](https://www.microsoft.com/sysinternals), *sigcheck.exe*, mit Sperrüberprüfung. Möglicherweise sind auch Softwareprogramme erforderlich, bei denen der Anbieter diese Art von digitaler Signatur nicht bereitstellt.
 
--   Software wird aus dem Internet bezogen und durch den Download und Vergleich von zwei unabhängigen Kopien überprüft:
+### <a name="software-storage-and-transfer"></a>Speicherung und Übertragung von Software
 
-    -   Laden Sie auf zwei Hosts ohne sicherheitsbeziehung herunter (nicht in derselben Domäne befindet und nicht von dieselben Tools verwaltet werden), vorzugsweise über getrennte Internetverbindungen.
+Nach dem Kauf der Software sollte die Software an einem Speicherort gespeichert werden, der nicht bearbeitet oder geändert werden kann. Dies gilt insbesondere für mit dem Internet verbundene Hosts oder Mitarbeiter, deren Vertrauensebene niedriger ist als die der Systeme, auf denen die Software oder das Betriebssystem installiert wird. Bei diesem Speicher kann es sich um physische Medien oder einen sicheren elektronischen Speicherort handeln.
 
-    -   Vergleichen Sie die heruntergeladenen Dateien über ein Hilfsprogramm wie Certutil:
+### <a name="software-usage"></a>Verwendung der Software
 
-        `certutil -hashfile <filename>`
+Die Software sollte idealerweise überprüft werden, wenn sie verwendet wird, also bei der manuellen Installation, beim Verpacken für ein Konfigurationsverwaltungstool oder beim Import in ein Konfigurationsverwaltungstool.
 
-Wenn möglich, alle Anwendungssoftware wie Anwendungsinstallationsprogramme und -Tools digital signiert und überprüft mithilfe von Windows Authenticode mit der [Windows Sysinternals](https://www.microsoft.com/sysinternals)s-Tool *sigcheck.exe*, mit sperrüberprüfung. Bestimmte Software kann erforderlich sein, in denen der Anbieter kann diese Art von digitaler Signatur nicht bereitstellen.
+## <a name="clean-source-for-architecture-and-design"></a>Vertrauenswürdige Quelle für Architektur und Entwurf
 
-#### <a name="software-storage-and-transfer"></a>Software-Speicherung und Übertragung
-Wenn die Software erhalten haben, sollte es an einem Ort gespeichert werden, der nicht geändert werden, insbesondere durch das Internet verbundene Hosts oder Mitarbeiter, deren auf einer niedrigeren Ebene als die Systeme, die Software oder ein Betriebssystem installiert werden. Bei diesem Speicher kann es sich um physische Medien oder einen sicheren elektronischen Speicherort handeln.
+Um das Prinzip der vertrauenswürdigen Quelle auf die Systemarchitektur anzuwenden, müssen Sie sicherstellen, dass das System nicht von Systemen mit niedrigerer Vertrauensebene abhängt. Ein System kann von einem System mit höherer Vertrauensebene abhängen, jedoch nicht von einem System mit niedrigerer Vertrauensebene und niedrigeren Sicherheitsstandards.
 
-#### <a name="software-usage"></a>Der Softwareverwendung
-Im Idealfall sollte die Software zum Zeitpunkt überprüft werden, die sie verwendet wird, z.B. wenn es manuell installiert, für ein Konfigurationsverwaltungstool verpackt oder in ein Konfigurationsverwaltungstool importiert.
+Beispiel: Active Directory kann einen standardmäßigen Benutzerdesktop steuern, wenn ein standardmäßiger Benutzerdesktop jedoch eine Active Directory-Implementierung steuern würde, wäre dies eine erhebliche Ausweitung von Berechtigungen, die ein erhöhtes Risiko nach sich ziehen würde.
 
-### <a name="clean-source-for-architecture-and-design"></a>Vertrauenswürdige Quelle für Architektur und Entwurf
-Das Prinzip der vertrauenswürdigen Quelle auf die Systemarchitektur anzuwenden, müssen Sie sicherstellen, dass das System nicht auf Systemen mit niedrigerer Vertrauensebene abhängt. Ein System abhängige kann auf eine höhere Vertrauensstellung System, jedoch nicht auf einem System mit niedrigeren Sicherheitsstandards Vertrauensebene.
+![Diagramm, das zeigt, dass ein System von einem System mit höherer Vertrauensebene abhängen kann, jedoch nicht von einem System mit niedrigerer Vertrauensebene und niedrigeren Sicherheitsstandards](../media/securing-privileged-access-reference-material/PAW_RM_Fig09.JPG)
 
-Beispielsweise ist die akzeptabel für Active Directory zum Steuern von einem standardmäßigen Benutzerdesktop, sondern eine erhebliche Ausweitung von Berechtigungen Risiko für einen standardbenutzerdesktop Kontrolle von Active Directory.
+Die Kontrollbeziehung kann über verschiedene Methoden definiert werden, u. a. über Zugriffssteuerungslisten für Objekte wie Dateisysteme, über die Mitgliedschaft in der lokalen Administratorengruppe eines Computers oder über Agents, die auf einem als System ausgeführten Computer installiert werden (mit der Möglichkeit, beliebigen Code und beliebige Skripts auszuführen).
 
-![Das Diagramm zeigt, wie ein System auf einem System mit höherer Vertrauensstellung abhängig sein kann, aber nicht auf einem System mit niedrigeren Sicherheitsstandards Vertrauensebene](../media/securing-privileged-access-reference-material/PAW_RM_Fig09.JPG)
+Ein häufig übersehenes Beispiel ist die Offenlegung von Informationen bei der Anmeldung. In diesem Fall entsteht eine Kontrollbeziehung, indem die Administratoranmeldeinformationen eines Systems für ein anderes System offengelegt werden. Aus diesem Grund sind Angriffe zum Diebstahl von Anmeldeinformationen (z. B. Pass-the-Hash) so gefährlich. Wenn ein Administrator sich mit Anmeldeinformationen der Ebene 0 bei einem standardmäßigen Benutzerdesktop anmeldet, werden diese Anmeldeinformationen für den Desktop offengelegt und können damit von AD kontrolliert und gesteuert werden. Die Berechtigungen können also auf AD ausgeweitet werden. Weitere Informationen zu diesen Angriffen finden Sie auf [dieser Seite](https://technet.microsoft.com/security/dn785092).
 
-Die kontrollbeziehung kann über verschiedene Methoden, einschließlich der Sicherheits-Zugriffssteuerungslisten (ACLs) für Objekte wie Dateisysteme, über die Mitgliedschaft in der lokalen Administratorgruppe auf einem Computer oder auf einem Computer (mit der Möglichkeit, beliebigen Code und Skripts auszuführen) als System ausgeführten installierten Agents verwendet werden.
+Aufgrund der großen Anzahl von Assets, die von Identitätssystemen wie Active Directory abhängen, sollten Sie die Anzahl von Systemen minimieren, von denen Ihre Active Directory-Bereitstellung und Ihre Domänencontroller abhängen.
 
-Ein häufig übersehenes Beispiel ist die Offenlegung Anmeldung, wodurch eine kontrollbeziehung, entsteht indem die Administratoranmeldeinformationen eines Systems, um ein anderes System. Dies ist die zugrunde liegende Ursache, warum den Diebstahl von Angriffen wie den Hashwert zu übergeben sind so gefährlich. Wenn ein Administrator mit Anmeldeinformationen der Ebene 0 Benutzerdesktop anmeldet, werden sie die Anmeldeinformationen für den Desktop, platzieren es in der AD-Steuerelement, und erstellen eine Erhöhung der Rechte in Active Directory verfügbar machen. Weitere Informationen zu diesen Angriffen finden Sie unter [auf dieser Seite](https://technet.microsoft.com/en-us/security/dn785092).
+![Diagramm, das zeigt, dass Sie die Anzahl der Systeme minimieren sollten, von denen Ihre Active Directory und Domänencontroller abhängig sind](../media/securing-privileged-access-reference-material/PAW_RM_Fig010.JPG)
 
-Aufgrund der großen Anzahl von Objekten, die von Identitätssystemen wie Active Directory abhängen, sollten Sie die Anzahl der Systeme minimieren, denen Ihre Active Directory und Domänencontroller abhängig sind.
+Weitere Informationen zum Minimieren der wichtigsten Risiken im Zusammenhang mit Active Directory finden Sie auf [dieser Seite](http://aka.ms/hardenAD).
 
-![Das Diagramm zeigt, dass Sie Ihre Active Directory, der Anzahl der Systeme minimieren sollten und hängen von Domänencontrollern](../media/securing-privileged-access-reference-material/PAW_RM_Fig010.JPG)
+## <a name="operational-standards-based-on-clean-source-principle"></a>Prinzip der vertrauenswürdigen Quelle für betriebliche Standards
 
-Weitere Informationen zum Minimieren der wichtigsten Risiken von active Directory finden Sie unter [auf dieser Seite](http://aka.ms/hardenAD).
+In diesem Abschnitt werden die betrieblichen Standards und Erwartungen für Mitarbeiter mit administrativen Berechtigungen beschrieben. Mithilfe dieser Standards soll die administrative Steuerung der IT-Systeme einer Organisation gegen Risiken geschützt werden, die durch betriebliche Verfahren und Prozesse entstehen könnten.
 
-### <a name="OSBCS_BM"></a>Prinzip der vertrauenswürdigen Quelle für betriebliche Standards
-In diesem Abschnittwird beschrieben, die betriebliche Standards und die Ziele für die administrative Mitarbeiter dürfen. Diese Standards soll die administrative Kontrolle über eine Organisation IT-Systeme gegen Risiken zu sichern, die durch betriebliche Verfahren und Prozesse entstehen könnten.
+![Diagramm, das zeigt, dass mithilfe dieser Standards die administrative Steuerung der IT-Systeme einer Organisation gegen Risiken geschützt werden soll, die durch betriebliche Verfahren und Prozesse entstehen könnten](../media/securing-privileged-access-reference-material/PAW_RM_Fig11.JPG)
 
-![Das Diagramm zeigt, wie Standards entworfen werden, um administrative Kontrolle über Unternehmensdaten IT-Systeme gegen Risiken abzusichern, die durch betriebliche Verfahren und Prozesse entstehen könnten](../media/securing-privileged-access-reference-material/PAW_RM_Fig11.JPG)
+### <a name="integrating-the-standards"></a>Integrieren der Standards
 
-#### <a name="integrating-the-standards"></a>Integrieren der Standards
-Sie können diese Standards in allgemeinen Standards und Verfahren Ihrer Organisation integrieren. Sie können anpassen, um die spezifischen Anforderungen, die verfügbaren Tools und die Risikobereitschaft Ihrer Organisation, aber nur minimale Änderungen an das Risiko zu reduzieren, wird empfohlen. Es wird empfohlen, dass Sie die Standardeinstellungen in diesem Leitfaden als Benchmark für Ihren idealen Endzustand verwenden und Verwalten von Deltas als Ausnahmen in der Reihenfolge ihrer Priorität behandelt werden.
+Sie können diese Standards in die allgemeinen Standards und Verfahren Ihrer Organisation integrieren. Dabei können die Standards an die spezifischen Anforderungen, die verfügbaren Tools und die Risikobereitschaft Ihrer Organisation angepasst werden. Um Risiken zu minimieren, sollten diese Standards jedoch so wenig wie möglich geändert werden. Es wird empfohlen, die Standards in diesem Leitfaden als Benchmark für Ihren idealen Endzustand zu verwenden und Deltas als Ausnahmen zu verwalten, die nach Priorität behandelt werden.
 
-Der Leitfaden zu Standards gliedert ist in die folgenden Abschnitte unterteilt:
+Der Leitfaden zu Standards gliedert sich in die folgenden drei Abschnitte:
 
--   Annahmen
+- Annahmen
+- Change Advisory Board
+- Betriebsmethoden
+   - Zusammenfassung
+   - Standards im Detail
 
--   Change Advisory Board
+### <a name="assumptions"></a>Annahmen
 
--   Betriebliche Verfahren
+Bei den Standards in diesem Abschnitt wird davon ausgegangen, dass die Organisation über folgende Merkmale verfügt:
 
-    -   Zusammenfassung
+- Die meisten oder alle Server und Arbeitsstationen sind Teil der Active Directory-Implementierung.
+- Auf allen zu verwaltenden Servern wird Windows Server 2008 R2 oder eine höhere Version ausgeführt, und der RDP-Modus RestrictedAdmin ist aktiviert.
+- Auf allen zu verwaltenden Arbeitsstationen wird Windows 7 oder eine höhere Version ausgeführt, und der RDP-Modus RestrictedAdmin ist aktiviert.
 
-    -   Standards-Detail
+   > [!NOTE]
+   > Informationen zum Aktivieren des RDP-Modus RestrictedAdmin finden Sie auf [dieser Seite](http://aka.ms/RDPRA).
 
-#### <a name="assumptions"></a>Annahmen
-Die Standards in diesem Abschnittwird davon ausgegangen, dass die Organisation die folgenden Attribute:
+- Smartcards sind verfügbar und werden für alle Administratorkonten bereitgestellt.
+- Für jede Domäne wurde *Builtin\Administrator* als Konto für den Notfallzugriff festgelegt.
+- Es wurde eine Lösung zur Verwaltung von Unternehmensidentitäten bereitgestellt.
+- Zur Verwaltung des Kennworts des lokalen Administratorkontos wurde [LAPS](http://aka.ms/laps) für Server und Arbeitsstationen bereitgestellt.
+- Es wurde eine Privileged Access Management-Lösung wie Microsoft Identity Manager bereitgestellt, oder die Einführung einer solchen Lösung ist geplant.
+- Es wurden Mitarbeiter zugewiesen, um Sicherheitshinweise zu überwachen und auf diese zu reagieren.
+- Es ist technisch möglich, in kürzester Zeit Microsoft-Sicherheitsupdates anzuwenden.
+- Es werden keine Baseboard-Verwaltungscontroller auf Servern verwendet, oder die Sicherheitsmaßnahmen werden strikt eingehalten.
+- Administratorkonten und -gruppen für Server (Administratoren der Ebene 1) und Arbeitsstationen (Administratoren der Ebene 2) werden von Domänenadministratoren (Ebene 0) verwaltet.
+- Änderungen an Active Directory werden von einem Change Advisory Board (CAB) oder einer anderen benannten Stelle genehmigt.
 
--   Die meisten oder alle Server und Arbeitsstationen sind mit Active Directory verknüpft.
+### <a name="change-advisory-board"></a>Change Advisory Board
 
--   Alle zu verwaltenden Servern ausgeführt werden Windows Server2008 R2 oder höher und RDP-Modus RestrictedAdmin-Modus ist aktiviert.
+Ein Change Advisory Board (CAB) ist das Diskussionsforum oder die Genehmigungsstelle für Änderungen, die sich auf das Sicherheitsprofil der Organisation auswirken können. Ausnahmen bezüglich dieser Standards sollten mit einer Risikobewertung und Begründung an das CAB übermittelt werden.
 
--   Alle zu verwaltenden Arbeitsstationen Windows7 oder höher ausgeführt werden und RDP-Modus RestrictedAdmin-Modus ist aktiviert.
-
-    > [!NOTE]
-    > Zum Aktivieren des RDP-Modus RestrictedAdmin-Modus finden Sie unter [auf dieser Seite](http://aka.ms/RDPRA).
-
--   Smartcards sind verfügbar und werden für alle Administratorkonten bereitgestellt.
-
--   Die *Builtin\Administrator* für jede Domäne als ein Konto Notfallzugriff festgelegt wurde
-
--   Eine Lösung zur Verwaltung von Unternehmen bereitgestellt wird.
-
--   [LAPS](http://aka.ms/laps) für Server und Arbeitsstationen, verwalten Sie das Kennwort des lokalen Administratorkontos bereitgestellt wurde
-
--   Eine privileged Access Management-Lösung wie Microsoft Identity Manager an, oder es ist ein Plan für die eine verwenden möchten.
-
--   Mitarbeiter zugewiesen Sicherheitshinweise zu überwachen und reagieren Sie darauf.
-
--   Die technische Möglichkeit, schnell Microsoft-Sicherheitsupdates anzuwenden ist verfügbar.
-
--   Baseboard-Verwaltungscontroller auf Servern verwendet werden, oder die Sicherheitsmaßnahmen werden strikt eingehalten.
-
--   Administratorkonten und -Gruppen für Server (Administratoren der Ebene 1) und Arbeitsstationen (Administratoren der Ebene 2) werden von Domänenadministratoren (Ebene 0) verwaltet werden.
-
--   Es ist ein Change Advisory Board (CAB) oder einer anderen benannten Stelle genehmigt Änderungen an Active Directory.
-
-#### <a name="change-advisory-board"></a>Change advisory Board
-Ein Change Advisory Board (CAB) ist die Diskussion genehmigungsstelle für Änderungen, die das Sicherheitsprofil der Organisation auswirken kann. Ausnahmen bezüglich dieser Standards sollten auf die CAB-Datei mit einer Risikobewertung und Begründung übermittelt werden.
-
-Die einzelnen Standards in diesem Dokument wird nach der Bedeutung des jeweiligen Standards für eine bestimmte Ebene aufgeteilt.
+Die einzelnen Standards in diesem Dokument sind danach untergliedert, wie wichtig die Einhaltung des jeweiligen Standards für eine bestimmte Ebene ist.
 
 ![Diagramm des Standards für angegebenen Ebenen](../media/securing-privileged-access-reference-material/PAW_RM_Fig12.JPG)
 
-Alle Ausnahmen für erforderliche Elemente (mit einem roten Achteck oder orangefarbenen Dreieck in diesem Dokument gekennzeichnet) werden als vorübergehend betrachtet, und sie müssen vom CAB genehmigt werden. Folgende Richtlinien:
+Alle Ausnahmen für erforderliche Elemente (markiert mit roten Achteck oder orangefarbenen Dreieck in diesem Dokument), werden als vorübergehend betrachtet, und sie müssen vom CAB genehmigt werden. Die Richtlinien umfassen:
 
--   Die erste Anforderung Begründung und das Risiko muss vom unmittelbaren Vorgesetzten des Mitarbeiters abgezeichnet signiert, läuft nach sechs Monaten ab.
+- Die Begründung und das Risiko der ersten Anforderung müssen vom unmittelbaren Vorgesetzten des Mitarbeiters abgezeichnet werden. Die Anforderung läuft nach sechs Monaten ab.
+- Bei einer Erneuerung der Anforderung müssen die Begründung und das Risiko vom Leiter der Unternehmenseinheit abgezeichnet werden. Auch hier gilt ein Ablaufzeitraum von sechs Monaten.
 
--   Verlängerung benötigen, ein Unternehmen abgezeichnet Begründung und das Risiko und Ablaufzeitraum von sechs Monaten.
+Alle Ausnahmen für empfohlene Elemente (markiert mit einem gelben Kreis in diesem Dokument) werden als vorübergehend betrachtet und müssen vom CAB genehmigt werden. Die Richtlinien umfassen:
 
-Alle Ausnahmen für empfohlene Elemente (mit einem gelben Kreis in diesem Dokument gekennzeichnet) werden als vorübergehend betrachtet und müssen vom CAB genehmigt werden. Folgende Richtlinien:
+- Die Begründung und das Risiko der ersten Anforderung müssen vom unmittelbaren Vorgesetzten des Mitarbeiters abgezeichnet werden. Die Anforderung läuft nach 12 Monaten ab.
+- Bei einer Erneuerung der Anforderung müssen die Begründung und das Risiko vom Leiter der Unternehmenseinheit abgezeichnet werden. Auch hier gilt ein Ablaufzeitraum von 12 Monaten.
 
--   Die erste Anforderung Begründung und das Risiko muss vom unmittelbaren Vorgesetzten des Mitarbeiters abgezeichnet signiert, läuft nach 12Monaten ab.
+### <a name="operational-practices-standards-summary"></a>Zusammenfassung der Standards für Betriebsmethoden
 
--   Verlängerung benötigen, ein Unternehmen abgezeichnet Begründung und das Risiko und Ablaufzeitraum von 12Monaten.
+Die Spalten für die Ebenen in dieser Tabelle beziehen sich auf die Ebene des Administratorkontos, dessen Kontroll- und Steuerungsvorgänge sich üblicherweise auf alle Assets dieser Ebene auswirken.
 
-#### <a name="operational-practices-standards-summary"></a>Standards für Betriebsmethoden
-Die Spalten für die Ebenen in dieser Tabelle finden Sie in der Ebene des Administratorkontos, die Kontrolle über die in der Regel alle Assets dieser Ebene auswirkt.
+![Die Tabelle zeigt die Ebene des Administratorkontos](../media/securing-privileged-access-reference-material/PAW_RM_Fig13.JPG)
 
-![Tabelle zeigt die Ebene des Administratorkontos](../media/securing-privileged-access-reference-material/PAW_RM_Fig13.JPG)
+Entscheidungen bezüglich der Betriebsvorgänge, die regelmäßig getroffen werden, sind entscheidend, um den Sicherheitsstatus der Umgebung aufrechtzuerhalten. Diese Standards für Prozesse und Verfahren tragen dazu bei, dass betriebliche Fehler nicht zu einem Sicherheitsrisiko bei den Betriebsvorgängen innerhalb der Umgebung führen, das von einem Angreifer ausgenutzt werden kann.
 
-Entscheidungen bezüglich, die in regelmäßigen Abständen vorgenommen werden, sind wichtig, um den Sicherheitsstatus der Umgebung. Diese Standards für Prozesse und Verfahren können Sie sicherstellen, dass betriebliche Fehler nicht zu einer Betriebsvorgängen innerhalb der Umgebung führt.
+#### <a name="administrator-enablement-and-accountability"></a>Befähigung und Verantwortlichkeit von Administratoren
 
-##### <a name="administrator-enablement-and-accountability"></a>Befähigung und Verantwortlichkeit
-Administratoren müssen darüber informiert, befugt sind, geschult und Handlungen Umgebung so sicher wie möglich werden.
+Administratoren müssen für eine maximale Sicherheit innerhalb der Umgebung geschult und für ihre Handlungen verantwortlich sein.
 
-###### <a name="administrative-personnel-standards"></a>Administrative Mitarbeiter dürfen Standards
-Mitarbeiter mit administrativen müssen überprüft werden, um sicherzustellen, dass sie vertrauenswürdig sind und eine Administratorrechte benötigen:
+##### <a name="administrative-personnel-standards"></a>Standards für Mitarbeiter mit administrativen Berechtigungen
 
--   Führen Sie hintergrundüberprüfung für Mitarbeiter durch, bevor Sie Administratorrechte zuweisen.
+Mitarbeiter mit administrativen Aufgaben müssen überprüft werden, um sicherzustellen, dass sie vertrauenswürdig sind und die Administratorrechte benötigen:
 
--   Überprüfen Sie Administratorrechte Quartal um zu bestimmen, welche Mitarbeiter weiterhin eine seriösen Administratorzugriff benötigen.
+- Führen Sie eine Hintergrundüberprüfung für Mitarbeiter durch, bevor Sie Administratorrechte zuweisen.
+- Überprüfen Sie die Administratorrechte einmal pro Quartal, um zu überprüfen, welche Mitarbeiter weiterhin Administratorzugriff benötigen.
 
-###### <a name="administrative-security-briefing-and-accountability"></a>Administrative Sicherheit Einweisung und Verantwortlichkeit
-Administratoren müssen informiert und für die Risiken der Organisation sowie ihre Rolle beim Umgang mit diesen Risiken verantwortlich sein. Administratoren sollten jährlich in geschult werden:
+##### <a name="administrative-security-briefing-and-accountability"></a>Einweisung und Verantwortlichkeit für administrative Sicherheit
 
--   Allgemeine Bedrohungslandschaft
+Administratoren müssen über die Risiken der Organisation sowie ihre Rolle beim Umgang mit diesen Risiken informiert und für ihre Handlungen verantwortlich sein. Administratoren sollten jährlich in den folgenden Bereichen geschult werden:
 
-    -   Entschlossene
+- Allgemeine Bedrohungslandschaft
+   - Bestimmte Angreifer
+   - Angriffstechniken, einschließlich Pass-the-Hash und Diebstahl von Anmeldeinformationen
+- Organisationsspezifische Bedrohungen und Incidents
+- Die Rolle des Administrators beim Schutz gegen Angriffe
+   - Verwalten der Offenlegung von Anmeldeinformationen mit dem Ebenenmodell
+   - Verwenden von administrativen Arbeitsstationen
+   - Verwenden des RDP-Modus RestrictedAdmin
+- Organisationsspezifische administrative Verfahren
+   - Überprüfen aller betrieblichen Richtlinien in diesem Standard
+   - Befolgen Sie die folgenden wichtigen Regeln:
+      - Verwenden Sie Administratorkonten ausschließlich auf administrativen Arbeitsstationen
+      - Deaktivieren oder entfernen Sie keinesfalls Sicherheitskontrollen Ihrer Konten oder Arbeitsstationen (z. B. Anmeldeeinschränkungen oder Attribute, die für Smartcards erforderlich sind)
+      - Melden Sie Probleme oder ungewöhnliche Aktivität
 
-    -   Angriffstechniken, einschließlich Pass-the-Hash und Diebstahl von Anmeldeinformationen
+Um eine eindeutige Verantwortlichkeit sicherzustellen, sollten alle Mitarbeiter mit Administratorkonten ein Dokument mit Verhaltensregeln für Administratorrechte unterzeichnen, das besagt, dass die Mitarbeiter ihre Aufgaben in Übereinstimmung mit organisationsspezifischen Administratorichtlinien ausführen.
 
--   Organisationsspezifische Bedrohungen und incidents
+##### <a name="provisioning-and-deprovisioning-processes-for-administrative-accounts"></a>Verfahren zum Bereitstellen und Aufheben der Bereitstellung für Administratorkonten
 
--   Die Rolle des Administrators beim Schutz gegen Angriffe
+Die folgenden Standards müssen eingehalten werden, um Lebenszyklusanforderungen einzuhalten.
 
-    -   Verwalten der Offenlegung von Anmeldeinformationen mit dem Ebenenmodell
+- Alle Administratorkonten müssen von der in der folgenden Tabelle aufgeführten genehmigenden Stelle genehmigt werden.
+   - Die Genehmigung darf nur erteilt werden, wenn geschäftliche Gründe dafür vorliegen, dass einem Mitarbeiter Administratorrechte zugewiesen werden.
+   - Die Genehmigung für Administratorrechte darf für maximal sechs Monate erteilt werden.
+- In den folgenden Fällen müssen die Administratorrechte umgehend entfernt werden:
+   - Mitarbeiter übernehmen eine neue Position.
+   - Mitarbeiter verlassen die Organisation.
+- Wenn Mitarbeiter die Organisation verlassen, müssen die Konten umgehend deaktiviert werden.
+- Deaktivierte Konten müssen innerhalb von sechs Monaten gelöscht werden, und der Nachweis über den Löschvorgang muss in den Daten des Change Approval Boards erfasst werden.
+- Überprüfen Sie einmal pro Monat die Mitgliedschaft aller privilegierten Konten, um sicherzustellen, dass nicht autorisierten Benutzern keine Berechtigungen erteilt wurden. Stattdessen kann ein automatisiertes Tool eingesetzt werden, dass bei Änderungen eine Benachrichtigung sendet.
 
-    -   Verwenden von administrativen Arbeitsstationen
-
-    -   Verwenden von Remote Desktop Protocol RestrictedAdmin-Modus
-
--   Organisationsspezifische administrative Verfahren
-
-    -   Überprüfen Sie aller betrieblichen Richtlinien in diesem Standard
-
-    -   Implementieren Sie die folgenden wichtigen Regeln:
-
-        -   Verwenden Sie keine Administratorkonten auf administrativen Arbeitsstationen
-
-        -   Deaktivieren oder entfernen Sie keinesfalls Sicherheitskontrollen Ihrer Konten oder Arbeitsstationen (z.B. anmeldeeinschränkungen oder Attribute für Smartcards erforderlich)
-
-        -   Melden Sie Probleme oder ungewöhnliche Aktivität
-
-Um Verantwortlichkeit sicherzustellen, sollten alle Mitarbeiter mit Administratorkonten ein Dokument Administrative Verhaltensregeln signieren, die besagt, dass er organisationsspezifischen administratorichtlinien möchten.
-
-###### <a name="provisioning-and-deprovisioning-processes-for-administrative-accounts"></a>Bereitstellung und Aufheben der Bereitstellung für Administratorkonten
-Die folgenden Standards müssen eingehalten werden, um lebenszyklusanforderungen einzuhalten.
-
--   Alle Administratorkonten müssen von den in der folgenden Tabelle aufgeführten genehmigenden Stelle genehmigt werden.
-
-    -   Genehmigung darf nur erteilt werden, wenn das Personal, dass einem vorliegen Unternehmen Administratorrechte benötigen.
-
-    -   Genehmigung für Administratorrechte darf sechs Monate nicht überschreiten.
-
--   Zugriff auf Administratorrechte muss sofort hat beim:
-
-    -   Mitarbeiter übernehmen eine neue Position.
-
-    -   Mitarbeiter verlassen die Organisation.
-
--   Konten müssen sofort deaktiviert werden, wenn Mitarbeiter das Unternehmen verlässt.
-
--   Deaktivierte Konten müssen innerhalb von sechs Monaten gelöscht werden und der Datensatz ihrer Löschung in Change Approval Boards erfasst eingegeben werden muss.
-
--   Überprüfen Sie alle privilegierten Konto pro Monat die Mitgliedschaft, um sicherzustellen, dass keine nicht autorisierten Berechtigungen erteilt wurden. Dies kann durch ein automatisiertes Tool ersetzt werden, mit der Änderung benachrichtigt.
-
-|Ebene der Kontoberechtigung|Genehmigen von Berechtigungen|Häufigkeit der Überprüfung von Mitgliedschaft|
+|Ebene der Kontoberechtigung|Genehmigende Stelle|Häufigkeit der Überprüfung von Mitgliedschaften|
 |--------------|------------|----------------|
-|Administrator der Ebene 0|Change Approval Board|Monatlich oder automatisiert|
-|Administrator der Ebene 1|Administratoren der Ebene 0 oder Sicherheit|Monatlich oder automatisiert|
-|Administrator der Ebene 2|Administratoren der Ebene 0 oder Sicherheit|Monatlich oder automatisiert|
+|Administrator der Ebene 0|Change Approval Board|Monatlich oder automatisiert|
+|Administrator der Ebene 1|Administratoren der Ebene 0 oder Sicherheit|Monatlich oder automatisiert|
+|Administrator der Ebene 2|Administratoren der Ebene 0 oder Sicherheit|Monatlich oder automatisiert|
 
-##### <a name="operationalize-least-privilege"></a>Operationalisieren der geringsten Rechte
-Diese Standards unterstützen jeweils geringsten Rechte implementiert, durch Reduzieren der Anzahl der Administratoren-Rolle und die Zeitdauer, über die Rechte verfügen.
+#### <a name="operationalize-least-privilege"></a>Operationalisieren der geringsten Rechte
 
-> [!NOTE]
-> Erreichen der geringsten Rechte in Ihrer Organisation benötigen Sie die Rollen, ihren Anforderungen und entwurfsmechanismen, um sicherzustellen, dass sie ihre Aufgaben ausführen können, mit der geringsten Rechte zu verstehen. Die jeweils geringsten Rechte in einem administrativen Modell häufig erfordert die Verwendung von mehrere Ansätze:
->
-> -   Beschränken Sie die Anzahl von Administratoren oder Mitgliedern privilegierter Gruppen
-> -   Delegieren Sie weniger Berechtigungen an Konten
-> -   Geben Sie bei Bedarf zeitgebundene Berechtigungen
-> -   Ermöglichen Sie anderen Mitarbeitern das Ausführen von Aufgaben (Concierge-Ansatz)
-> -   Implementieren Sie Prozesse für den Notfallzugriff und seltene Szenarien
-
-###### <a name="limit-count-of-administrators"></a>Einschränken der Anzahl von Administratoren
-Mindestens zwei Mitarbeiter sollten jeder Administratorrolle zugewiesen werden, um Geschäftskontinuität sicherzustellen.
-
-Wenn die Anzahl der Mitarbeiter zu einer Funktion zugewiesen zwei übersteigt, muss das Change Approval Board die spezifischen Gründe für das Zuweisen von Berechtigungen zu den einzelnen Mitgliedern (einschließlich der zwei ursprünglichen) genehmigen. Die Gründe für die Genehmigung muss Folgendes umfassen:
-
--   Die technischen Aufgaben, die von den Administratoren ausgeführt werden, die die Administratorrechte erforderlich sind
-
--   Wie oft werden die Aufgaben ausgeführt
-
--   Grund, warum die Aufgaben von einem anderen Administrator in ihrem Auftrag ausgeführt werden kann
-
--   Dokumentieren Sie alle anderen bekannten alternative Ansätze zum Erteilen der Berechtigung und warum nicht umsetzbar sind
-
-###### <a name="dynamically-assign-privileges"></a>Dynamisches Zuweisen von Berechtigungen
-Administratoren müssen abrufen "just-in-Time-Berechtigungen, deren Verwendung ihre Aufgaben auszuführen. Keine Berechtigungen werden Administratorkonten dauerhaft zugewiesen werden.
+Mit diesen Standards werden die jeweils geringsten Rechte implementiert, sodass die Anzahl von Administratoren sowie die Zeitdauer reduziert wird, während der die Administratoren über die Rechte verfügen.
 
 > [!NOTE]
-> Dauerhaft zugewiesene Administratorrechten denken beim Erstellen einer Strategie für die "höchsten Rechte" da administrative Mitarbeiter dürfen den schnellen Zugriff auf Berechtigungen erfordern für betriebliche Verfügbarkeit aufrechterhalten, wenn ein Problem vorliegt. Just-in-Time-Berechtigungen ermöglichen:
+> Um in Ihrer Organisation die jeweils geringsten Rechte zuzuweisen, müssen Sie mit Organisationsrollen, ihren Anforderungen und den Entwurfsmechanismen vertraut sein, um sicherzustellen, dass die Aufgaben dieser Rollen mit den jeweils geringsten Rechten ausgeführt werden. Um in einem administrativen Modell die jeweils geringsten Rechte zu nutzen, sind häufig mehrere Ansätze erforderlich:
 >
-> -   Weisen Sie Berechtigungen genauer gesagt, Abrufen der geringsten Rechte näher zu.
-> -   Geringere Dauer der Offenlegung von rechten
-> -   Tracking-Berechtigungen verwenden, um Missbrauch oder Angriffe zu erkennen.
+> - Beschränken Sie die Anzahl von Administratoren oder Mitgliedern privilegierter Gruppen
+> - Delegieren Sie weniger Berechtigungen an Konten
+> - Stellen Sie nach Bedarf zeitgebundene Berechtigungen bereit
+> - Ermöglichen Sie anderen Mitarbeitern das Ausführen von Aufgaben (Concierge-Ansatz)
+> - Implementieren Sie Prozesse für den Notfallzugriff und seltene Szenarien
 
-##### <a name="manage-risk-of-credential-exposure"></a>Verwalten von Risiken einer Offenlegung von Anmeldeinformationen
-Verwenden Sie die folgenden Methoden, um ordnungsgemäße Risiko einer Offenlegung von Anmeldeinformationen verwalten.
+##### <a name="limit-count-of-administrators"></a>Einschränken der Anzahl von Administratoren
 
-###### <a name="separate-administrative-accounts"></a>Separate Administratorkonten
-Alle Mitarbeiter, die über Administratorrechte verfügen müssen separate Konten für administrative Funktionen verfügen, die Benutzerkonten sind.
+Um Geschäftskontinuität sicherzustellen, sollten jeder Administratorrolle mindestens zwei Mitarbeiter zugewiesen werden.
 
--   **Standardbenutzerkonten** -gewährt Standardbenutzerrechte für standardmäßige Benutzeraufgaben, z.B. E-Mail, Surfen im Web, und Line-of-Business-Anwendungen. Diese Konten sollten keine Administratorrechte erteilt werden.
+Wenn einer Rolle mehr als zwei Mitarbeiter zugewiesen werden, muss das Change Approval Board die spezifischen Gründe für das Zuweisen von Rechten zu den einzelnen Mitgliedern (einschließlich der zwei ursprünglichen Mitarbeiter) genehmigen. Die Gründe für die Genehmigung müssen Folgendes umfassen:
 
--   **Administratorkonten** -separate Konten für Mitarbeiter, die die entsprechenden Administratorrechte zugewiesen werden. Ein Administrator, der zur Verwaltung von Assets auf allen Ebenen erforderlich ist, sollte ein separates Konto für jede Ebene verfügen. Diese Konten sollten keinen Zugriff auf E-Mail-Adresse oder das öffentliche Internet verfügen.
+- Die technischen Aufgaben, die von den Administratoren ausgeführt werden und für die die Administratorrechte erforderlich sind
+- Die Häufigkeit, mit der die Aufgaben ausgeführt werden
+- Besondere Gründe, weshalb die Aufgaben nicht von einem anderen Administrator im Namen der Benutzer ausgeführt werden können
+- Dokumentation aller bekannten Alternativen, um das Recht zu erteilen, sowie eine Erklärung, weshalb diese Alternativen nicht umsetzbar sind
 
-###### <a name="administrator-logon-practices"></a>Die administratoranmeldung
-Bevor ein Administrator auf einem Host interaktiv (lokal über Standard-RDP, unter Verwendung von RunAs oder über die Konsole Virtualization) anmelden kann, muss dem Host erfüllen und den Standard für die Ebene des Administratorkontos (oder einer höheren Ebene).
+##### <a name="dynamically-assign-privileges"></a>Dynamisches Zuweisen von Berechtigungen
 
-Administratoren können nur mit ihren Administratorkonten bei Administratorarbeitsstationen anmelden. Administratoren melden Sie sich nur auf verwaltete Ressourcen mithilfe der genehmigten supporttechnologie im nächsten Abschnittbeschrieben.
+Administratoren müssen Berechtigungen rechtzeitig („Just-In-Time“) erhalten, um ihre Aufgaben auszuführen. Berechtigungen werden Administratorkonten nie dauerhaft zugewiesen.
 
 > [!NOTE]
-> Dies ist erforderlich, da auf diesem Host interaktiv anmelden bei einem Host Kontrolle über die Anmeldeinformationen erteilt werden.
+> Mit dauerhaft zugewiesenen Administratorrechten wird eine Strategie der höchsten Rechte verfolgt, da administrative Mitarbeiter einen schnellen Zugriff auf Berechtigungen benötigen, um bei Problemen einen unterbrechungsfreien Betrieb sicherzustellen. Just-in-Time-Berechtigungen ermöglichen Folgendes:
 >
-> Weitere Informationen finden Sie unter der [Verwaltungstools und Anmeldetypen](http://aka.ms/admintoolsecurity) Einzelheiten zu Anmeldetypen, allgemeinen Verwaltungstools und Offenlegung von Anmeldeinformationen.
+> - Granulare Zuweisung von Berechtigungen, um dem Ansatz der geringsten Rechte näher zu kommen
+> - Geringere Dauer der Offenlegung von Rechten
+> - Nachverfolgen der Verwendung von Berechtigungen, um einen Missbrauch oder Angriffe zu ermitteln
 
-###### <a name="use-of-approved-support-technology-and-methods"></a>Verwenden genehmigter supporttechnologien und -Methoden
-Administratoren, die Remote-Systeme und Benutzer zu unterstützen, müssen diese Richtlinien, um zu verhindern, dass ein Angreifer die Steuerung des Remotecomputers Anmeldeinformationen des Administrators stiehlt folgen.
+#### <a name="manage-risk-of-credential-exposure"></a>Mindern des Risikos einer Offenlegung von Anmeldeinformationen
 
--   Die primären Supportoptionen sollte verwendet werden, sofern diese verfügbar sind.
+Wirken Sie dem Risiko einer Offenlegung von Anmeldeinformationen mithilfe der folgenden Maßnahmen entgegen.
 
--   Die sekundären Supportoptionen sollten nur verwendet werden, wenn die primäre Supportoption nicht verfügbar ist.
+##### <a name="separate-administrative-accounts"></a>Trennen von Administratorkonten
 
--   Zulässige Supportmethoden dürfen niemals verwendet werden.
+Alle Mitarbeiter, die über Administratorrechte verfügen dürfen, müssen über separate Konten für administrative Funktionen verfügen, die nicht mit ihren Benutzerkonten identisch sind.
 
--   Kein Browsen oder E-Mail-Zugriff auf das Internet kann ein Administratorkonto zu einem beliebigen Zeitpunkt ausgeführt werden.
+- **Standardbenutzerkonten**: Erteilen Sie Standardbenutzerrechte für standardmäßige Benutzeraufgaben, z. B. für E-Mail-, Webbrowsing- und Branchenanwendungen. Diesen Konten sollten keine Administratorrechte erteilt werden.
+- **Administratorkonten**: Separate Konten für Mitarbeiter, denen die entsprechenden Administratorrechte zugewiesen werden. Ein Administrator, der Assets auf allen Ebenen verwalten muss, sollte über ein separates Konto für jede Ebene verfügen. Diese Konten sollten nicht über Zugriff auf E-Mails oder das öffentliche Internet verfügen.
 
-###### <a name="tier-0-forest-domain-and-dc-administration"></a>Ebene-0-Gesamtstruktur, Domäne und DC-Verwaltung
-Stellen Sie sicher, dass für dieses Szenario die folgenden Methoden angewendet werden:
+##### <a name="administrator-logon-practices"></a>Verfahren für die Administratoranmeldung
 
--   **Remoteserversupport** -beim Remotezugriff auf einen Server müssen Administratoren der Ebene 0 folgenden Richtlinien befolgen:
+Bevor ein Administrator sich interaktiv bei einem Host anmelden kann (lokal über Standard-RDP, unter Verwendung von RunAs oder über die Virtualisierungskonsole), muss der Host mindestens den Standard für die Ebene des Administratorkontos (oder einer höheren Ebene) erfüllen.
 
-    -   **Primär (Tool)** -Remotetools, die Netzwerkanmeldungen verwenden (Typ 3). Weitere Informationen finden Sie unter [Verwaltungstools und Anmeldetypen](http://aka.ms/admintoolsecurity).
+Administratoren können sich nur mit ihren Administratorkonten bei Administratorarbeitsstationen anmelden. Administratoren können sich nur bei Verwendung der genehmigten Supporttechnologie (siehe nächster Abschnitt) bei verwalteten Ressourcen anmelden.
 
-    -   **Primär (interaktiv)** -RDP-Modus RestrictedAdmin verwenden oder eine Standard-RDP-Sitzung auf einer Administratorarbeitsstation mit Domänenkonto
+> [!NOTE]
+> Der Grund für diese Anforderung ist, dass beim Anmelden an einem Host interaktiv Kontrolle über die Anmeldeinformationen für diesen Host gewährt wird.
+>
+> Einzelheiten zu Anmeldetypen, zu gängigen Verwaltungstools und zur Offenlegung von Anmeldeinformationen finden Sie unter [Verwaltungstools und Anmeldeinformationen](http://aka.ms/admintoolsecurity).
 
-    > [!NOTE]
-    > Wenn Sie eine Ebene 0 verfügen, fügen Sie hinzu ", die Berechtigungen verwendet just-in-Time von einer privileged Access Management-Lösung erhalten."
+##### <a name="use-of-approved-support-technology-and-methods"></a>Verwenden genehmigter Supporttechnologien und -methoden
 
--   **Unterstützung für physische Server** : Wenn physisch an der Serverkonsole darstellen oder VM-Konsole (Hyper-V oder VMWare Tools), haben diese Konten keine bestimmten Verwaltungstool nutzungseinschränkungen lediglich die allgemeinen Einschränkungen von standardmäßigen Benutzeraufgaben wie E-Mail und Durchsuchen des Internets.
+Administratoren, die Support für Remotesysteme und -benutzer bieten, müssen die folgenden Richtlinien befolgen, um zu verhindern, dass ein Angreifer, der die Kontrolle über den Remotecomputer hat, die Anmeldeinformationen des Administrators stiehlt.
 
-    > [!NOTE]
-    > Verwaltung der Ebene 0 unterscheidet sich von der Verwaltung von anderen Ebenen, da alle Assets der Ebene 0 bereits über direkte oder indirekte Kontrolle aller Assets verfügen. Beispielsweise verfügt eine Angreifer Kontrolle über Domänencontroller die Anmeldeinformationen von angemeldeten Administratoren stehlen, da diese bereits Zugriff auf alle Domänenanmeldeinformationen in der Datenbank haben.
+- Sofern verfügbar, sollten die primären Supportoptionen verwendet werden.
+- Die sekundären Supportoptionen sollten nur verwendet werden, wenn die primäre Supportoption nicht verfügbar ist.
+- Nicht zulässige Supportmethoden dürfen niemals verwendet werden.
+- Über ein Administratorkonto darf zu keinem Zeitpunkt das Internet durchsucht oder auf E-Mails zugegriffen werden.
 
-###### <a name="tier-1-server-and-enterprise-application-support"></a>Ebene-1-Server und Application Supportseite für Unternehmen
-Stellen Sie sicher, dass für dieses Szenario die folgenden Methoden angewendet werden:
+###### <a name="tier-0-forest-domain-and-dc-administration"></a>Verwalten von Gesamtstrukturen, Domänen und Domänencontrollern der Ebene 0
 
--   **Remoteserversupport** -beim Remotezugriff auf einen Server müssen Administratoren der Ebene 1 diese Richtlinien befolgen:
+Stellen Sie sicher, dass für dieses Szenario die folgenden Verfahren verwendet werden:
 
-    -   **Primär (Tool)** -Remotetools, die Netzwerkanmeldungen verwenden (Typ 3). Weitere Informationen finden Sie unter [Mitigating Pass-the-Hash and Other Credential Theft](https://www.microsoft.com/pth) v1 (Seite 42-47).
+- **Remoteserversupport**: Beim Remotezugriff auf einen Server müssen Administratoren der Ebene 0 die folgenden Richtlinien befolgen:
+   - **Primär (Tool)**: Remotetools, die Netzwerkanmeldungen verwenden (Typ 3). Weitere Informationen finden Sie unter [Verwaltungstools und Anmeldetypen](http://aka.ms/admintoolsecurity).
+   - **Primär (interaktiv)**: Verwenden Sie den RDP-Modus RestrictedAdmin oder eine RDP-Standardsitzung auf einer Administratorarbeitsstation mit Domänenkonto
 
-    -   **Primär (interaktiv)** -Verwendung RDP-Modus RestrictedAdmin auf einer Administratorarbeitsstation mit Domänenkonto, die Berechtigungen verwendet just-in-Time von einer privileged Access Management-Lösung abgerufen.
+   > [!NOTE]
+   > Wenn Sie über eine Rechteverwaltungslösung der Ebene 0 verfügen, fügen Sie Folgendes hinzu: Verwendung von Just-in-Time-Berechtigungen von einer Privileged Access Management-Lösung.
 
-    -   **Sekundäre** – melden Sie sich bei dem Server mithilfe eines lokalen Kontokennworts, das von LAPS auf einer Administratorarbeitsstation festgelegt ist.
+- **Physischer Serversupport**: Bei physischer Präsenz an einer Server- oder VM-Konsole (Hyper-V oder VMware Tools) gelten für diese Konten keine bestimmten Einschränkungen bezüglich der Nutzung von Verwaltungstools. Es gelten lediglich die allgemeinen Einschränkungen für standardmäßige Benutzeraufgaben wie der Zugriff auf E-Mails und das Durchsuchen des Internets.
 
-    -   **Verboten** -Standard-RDP darf nicht mit einem Domänenkonto verwendet werden.
+   > [!NOTE]
+   > Die Verwaltung der Ebene 0 unterscheidet sich von der Verwaltung der anderen Ebenen, da alle Assets der Ebene 0 bereits über direkte oder indirekte Kontrolle aller Assets verfügen. Beispiel: Ein Angreifer, der die Kontrolle über einen Domänencontroller hat, muss keine Anmeldeinformationen von angemeldeten Administratoren stehlen, da er bereits auf alle Domänenanmeldeinformationen in der Datenbank zugreifen kann.
 
-    -   **Verboten** -mit dem Domänenkonto Anmeldeinformationen während der Sitzung (z.B. *RunAs* oder die Authentifizierung gegenüber einer Freigabe). Dies gibt an, der das Risiko des Diebstahls von Anmeldeinformationen.
+###### <a name="tier-1-server-and-enterprise-application-support"></a>Support für Server und Unternehmensanwendungen der Ebene 1
 
--   **Unterstützung für physische Server** – wenn physisch an der Serverkonsole darstellen oder VM-Konsole (Hyper-V oder VMWare Tools) Administratoren der Ebene 1 müssen rufen Sie das Kennwort des lokalen aus LAPS vor dem Zugriff auf den Server.
+Stellen Sie sicher, dass für dieses Szenario die folgenden Verfahren verwendet werden:
 
-    -   **Primäre** -das von LAPS auf einer Administratorarbeitsstation vor der Anmeldung beim Server festgelegte lokale Kontokennwort abzurufen.
+- **Remoteserversupport**: Beim Remotezugriff auf einen Server müssen Administratoren der Ebene 1 die folgenden Richtlinien befolgen:
+   - **Primär (Tool)**: Remotetools, die Netzwerkanmeldungen verwenden (Typ 3). Weitere Informationen finden Sie auf Seite 42-47 unter [Mitigating Pass-the-Hash and Other Credential Theft](https://www.microsoft.com/pth) v1 (Verhindern von Pass-the-Hash-Angriffen und anderen Angriffen zum Diebstahl von Anmeldeinformationen).
+   - **Primär (interaktiv)**: Verwenden Sie den RDP-Modus RestrictedAdmin auf einer Administratorarbeitsstation mit Domänenkonto, das Just-in-Time-Berechtigungen von einer Privileged Access Management-Lösung erhalten hat.
+   - **Sekundär**: Melden Sie sich unter Verwendung eines lokalen Kontokennworts beim Server an, das von LAPS auf einer Administratorarbeitsstation festgelegt wird.
+   - **Nicht zulässig**: Standard-RDP darf nicht mit einem Domänenkonto verwendet werden.
+   - **Nicht zulässig**: Verwenden der Anmeldeinformationen des Domänenkontos während der Sitzung (z. B. die Verwendung von *RunAs* oder die Authentifizierung gegenüber einer Freigabe). Dabei besteht das Risiko eines Diebstahls der Anmeldeinformationen.
+- **Physischer Serversupport**: Bei physischer Präsenz an einer Server- oder VM-Konsole (Hyper-V oder VMware Tools) müssen Administratoren der Ebene 1 das lokale Kontokennwort vor dem Zugriff auf den Server von LAPS abrufen.
+   - **Primär**: Rufen Sie das von LAPS festgelegte lokale Kontokennwort von einer Administratorarbeitsstation ab, bevor Sie sich beim Server anmelden.
+   - **Nicht zulässig**: Die Anmeldung über ein Domänenkonto ist in diesem Szenario nicht zulässig.
+   - **Nicht zulässig**: Verwenden der Anmeldeinformationen des Domänenkontos während der Sitzung (z. B. die Verwendung von RunAs oder die Authentifizierung gegenüber einer Freigabe). Dabei besteht das Risiko eines Diebstahls der Anmeldeinformationen.
 
-    -   **Verboten** -mit einem Domänenkonto anmelden ist in diesem Szenario nicht zulässig.
+###### <a name="tier-2-help-desk-and-user-support"></a>Helpdesk- und Benutzersupport der Ebene 2
 
-    -   **Verboten** -mit dem Domänenkonto Anmeldeinformationen während der Sitzung (z.B. RunAs oder Authentifizierung gegenüber einer Freigabe). Dies gibt an, der das Risiko des Diebstahls von Anmeldeinformationen.
+Helpdesk- und Benutzersupportorganisationen bieten Support für Endbenutzer (keine Administratorrechte erforderlich) und die Arbeitsstationen der Benutzer (Administratorrechte erforderlich).
 
-###### <a name="tier-2-help-desk-and-user-support"></a>Helpdesk- und Benutzersupport der Ebene 2-Hilfe
-Helpdesk- und benutzersupportorganisationen bieten Support für Endbenutzer (die keine Administratorrechte erforderlich) und die Arbeitsstationen der Benutzer (die Administratorrechte erforderlich sind) ausführen.
+**Benutzersupport**: Unterstützung der Benutzer beim Durchführen von Aufgaben, bei denen keine Änderungen an der Arbeitsstation erforderlich sind. Häufig wird den Benutzern dabei gezeigt, wie sie ein Anwendungs- oder Betriebssystemfeature verwenden.
 
-**Benutzersupport** -Aufgaben gehören zur Unterstützung von Benutzern beim Durchführen von Aufgaben, die keine Änderungen an der Arbeitsstation erfordern häufig ihnen zeigen, wie ein Anwendungs- oder Betriebssystemfeature verwenden.
-
--   **Deskseitiger Benutzersupport** -Supportmitarbeiter der Ebene 2 sind physisch am Arbeitsplatz des Benutzers präsent.
-
-    -   **Primäre** -"über die Schulter" Unterstützung bereitgestellt wird, keine Tools.
-
-    -   **Verboten** -mit administrativen Anmeldeinformationen für Domänen-Konto anmeldet, ist in diesem Szenario nicht zulässig. Wechseln Sie zu deskseitigen Support, wenn Administratorrechte erforderlich sind.
-
--   **Remotebenutzersupport** -der Ebene 2 Supportmitarbeiter sind physisch an den Benutzer zu verbinden.
-
-    -   **Primäre** -Remoteunterstützung, Skype for Business oder ähnliche Freigabe des Benutzerbildschirms können verwendet werden. Weitere Informationen finden Sie unter [Neuigkeiten von Windows-Remoteunterstützung?](https://windows.microsoft.com/en-us/windows/what-is-windows-remote-assistance)
-
-    -   **Verboten** -mit administrativen Anmeldeinformationen für Domänen-Konto anmeldet, ist in diesem Szenario nicht zulässig. Wechseln Sie zu der Support für Arbeitsstationen, wenn Administratorrechte erforderlich sind.
-
--   **Support für Arbeitsstationen** - Aufgaben umfassen die Wartung von Arbeitsstationen oder Zugriff auf ein System zur Problembehandlung, die benötigt werden, für die Protokolle anzuzeigen, Installieren von Software, Treiber zu aktualisieren und So weiter.
-
-    -   **Deskseitigen Support** -Supportmitarbeiter der Ebene 2 sind physisch am Computer des Benutzers.
-
-        -   **Primäre** -die vor dem Herstellen einer Verbindung mit der Arbeitsstation des Benutzers auf einer Administratorarbeitsstation von LAPS festgelegte lokale Kontokennwort abzurufen.
-
-        -   **Verboten** -mit administrativen Anmeldeinformationen für Domänen-Konto anmeldet, ist in diesem Szenario nicht zulässig.
-
-    -   **Support für Arbeitsstationen** -der Ebene 2 Supportmitarbeiter sind physisch an der Arbeitsstation zu verbinden.
-
-        -   **Primäre** -Verwendung RDP-Modus RestrictedAdmin auf einer Administratorarbeitsstation mit Domänenkonto, die Berechtigungen verwendet just-in-Time von einer privileged Access Management-Lösung abgerufen.
-
-        -   **Sekundäre** -ein, das vor dem Herstellen einer Verbindung mit der Arbeitsstation des Benutzers auf einer Administratorarbeitsstation von LAPS festgelegte lokale Kontokennwort abzurufen.
-
-        -   **Verboten** -Standard-RDP mit einem Domänenkonto verwenden.
+- **Deskseitiger Benutzersupport**: Supportmitarbeiter der Ebene 2 sind physisch am Arbeitsplatz des Benutzers präsent.
+   - **Primär**: Für Support, der vor Ort „über die Schulter“ bereitgestellt wird, sind möglicherweise keine Tools erforderlich.
+   - **Nicht zulässig**: Die Anmeldung über die Administratoranmeldeinformationen eines Domänenkontos ist in diesem Szenario nicht zulässig. Wenn Administratorrechte erforderlich sind, wählen Sie den deskseitigen Support für Arbeitsstationen.
+- **Remotebenutzersupport**: Supportmitarbeiter der Ebene 2 unterstützen den Benutzer von einem Remotestandort aus.
+   - **Primär**: Remoteunterstützung, Skype for Business oder ähnliche Tools zur Freigabe des Benutzerbildschirms können verwendet werden. Weitere Informationen finden Sie unter [What is Windows Remote Assistance?](https://windows.microsoft.com/en-us/windows/what-is-windows-remote-assistance) (Was ist die Windows-Remoteunterstützung?)
+   - **Nicht zulässig**: Die Anmeldung über die Administratoranmeldeinformationen eines Domänenkontos ist in diesem Szenario nicht zulässig. Wenn Administratorrechte erforderlich sind, wählen Sie den Support für Arbeitsstationen.
+- **Support für Arbeitsstationen**: Die Aufgaben umfassen die Wartung von Arbeitsstationen oder eine Problembehandlung, für die Zugriff auf ein System erforderlich ist, um Protokolle anzuzeigen, Software zu installieren, Treiber zu aktualisieren usw.
+   - **Deskseitiger Support für Arbeitsstationen**: Supportmitarbeiter der Ebene 2 sind physisch an der Arbeitsstation des Benutzers präsent.
+      - **Primär**: Rufen Sie das von LAPS festgelegte lokale Kontokennwort von einer Administratorarbeitsstation ab, bevor Sie eine Verbindung mit der Arbeitsstation eines Benutzers herstellen.
+      - **Nicht zulässig**: Die Anmeldung über die Administratoranmeldeinformationen eines Domänenkontos ist in diesem Szenario nicht zulässig.
+   - **Remotesupport für Arbeitsstationen**: Supportmitarbeiter der Ebene 2 unterstützen den Benutzer von einem Remotestandort aus.
+      - **Primär**: Verwenden Sie den RDP-Modus RestrictedAdmin auf einer Administratorarbeitsstation mit Domänenkonto, das Just-in-Time-Berechtigungen von einer Privileged Access Management-Lösung erhalten hat.
+      - **Sekundär**: Rufen Sie ein von LAPS festgelegtes lokales Kontokennwort von einer Administratorarbeitsstation ab, bevor Sie eine Verbindung mit der Arbeitsstation eines Benutzers herstellen.
+      - **Nicht zulässig**: Verwenden von Standard-RDP mit einem Domänenkonto.
 
 ###### <a name="no-browsing-the-public-internet-with-admin-accounts-or-from-admin-workstations"></a>Kein Browsen im öffentlichen Internet über Administratorkonten oder auf Administratorarbeitsstationen
-Administrative Mitarbeiter können nicht Durchsuchen des Internets, während Sie mit einem Administratorkonto oder bei einer Administratorarbeitsstation angemeldet sind, auf. Die einzige Ausnahme ist die Verwendung eines Webbrowsers einen cloudbasierten Dienst, z.B. Microsoft Azure, Amazon Web Services, Microsoft Office365 oder Gmail für Unternehmen verwalten.
+
+Administrative Mitarbeiter dürfen nicht im öffentlichen Internet browsen, während sie mit einem Administratorkonto oder bei einer Administratorarbeitsstation angemeldet sind. Die einzigen autorisierten Ausnahmen sind die Verwendung eines Webbrowsers, um einen cloudbasierten Dienst zu verwalten.
 
 ###### <a name="no-accessing-email-with-admin-accounts-or-from-admin-workstations"></a>Kein Zugriff auf E-Mails über Administratorkonten oder auf Administratorarbeitsstationen
-Administrative Mitarbeiter dürfen nicht auf E-Mail, während Sie mit einem Administratorkonto oder bei einer Administratorarbeitsstation angemeldet sind, auf zugreifen.
 
-###### <a name="store-service-and-application-account-passwords-in-a-secure-location"></a>Store-Dienst und die Anwendung an einem sicheren Ort Kontokennwörter
-Die folgenden Richtlinien sollte verwendet werden, für die physische Sicherheit, Steuern des Zugriffs auf das Kennwort verarbeitet:
+Administrative Mitarbeiter dürfen nicht auf E-Mails zugreifen, während sie mit einem Administratorkonto oder bei einer Administratorarbeitsstation angemeldet sind.
 
--   Sperren Sie Kennwörter für Dienstkonten in einem Safe.
+###### <a name="store-service-and-application-account-passwords-in-a-secure-location"></a>Speichern von Kennwörtern für Dienst- oder Anwendungskonten an einem sicheren Speicherort
 
--   Stellen Sie sicher, dass nur Mitarbeiter, oder über die Vertrauensebene des Kontos haben Sie Zugriff auf das Kontokennwort.
+Die folgenden Richtlinien sollten für die physischen Sicherheitsverfahren befolgt werden, mit denen der Zugriff auf das Kennwort gesteuert wird:
 
--   Die Anzahl der Personen, die auf die Kennwörter auf ein Minimum zu für nachvollziehbare Verantwortlichkeiten zugreifen.
-
--   Stellen Sie sicher, dass alle Zugriff auf das Kennwort angemeldet, nachverfolgt und von einer unbeteiligten Partei, z.B. ein Vorgesetzter, der nicht zum Ausführen von IT-Administration geschult wurde überwacht wird.
+- Bewahren Sie Kennwörter für Dienstkonten in einem Safe auf.
+- Stellen Sie sicher, dass nur Mitarbeiter, die mindestens über die Vertrauensebene der Kontoebene verfügen, auf das Kontokennwort zugreifen können.
+- Für nachvollziehbare Verantwortlichkeiten schränken Sie die Anzahl von Benutzern, die auf die Kennwörter zugreifen, auf ein Minimum ein.
+- Stellen Sie sicher, dass jeder Zugriff auf das Kennwort von einer unbeteiligten Partei (z. B. ein Vorgesetzter, der nicht im Bereich der IT-Administration geschult wurde) protokolliert, nachverfolgt und überwacht wird.
 
 ##### <a name="strong-authentication"></a>Strenge Authentifizierung
-Verwenden Sie die folgenden Methoden, um die ordnungsgemäße Konfiguration der strengen Authentifizierung.
 
-###### <a name="enforce-smartcard-multi-factor-authentication-mfa-for-all-admin-accounts"></a>Erzwingen der Smartcard Multi-Factor Authentication (MFA) für alle Administratorkonten
-Kein Administratorkonto ist zulässig, ein Kennwort zur Authentifizierung verwendet. Die einzigen autorisierten Ausnahmen sind die notfallzugriffskonten, die über die geeigneten Prozesse geschützt sind.
+Nutzen Sie die folgenden Verfahren für eine ordnungsgemäße Konfiguration der strengen Authentifizierung.
 
-Verknüpfen Sie alle Administratorkonten mit einer Smartcard, und aktivieren Sie das Attribut "**Smartcard für die interaktive Anmeldung erforderlich**."
+###### <a name="enforce-smartcard-multi-factor-authentication-mfa-for-all-admin-accounts"></a>Erzwingen Sie die mehrstufige Smartcard-Authentifizierung für alle Administratorkonten
 
-Ein Skript sollte implementiert werden, um automatisch und in regelmäßigen Abständen den zufälligen Kennworthashwert zurücksetzen, indem Sie deaktivieren und umgehend erneut aktiviert das Attribut "**Smartcard für die interaktive Anmeldung erforderlich**."
+Administratorkonten dürfen keine Kennwörter für die Authentifizierung verwenden. Die einzigen autorisierten Ausnahmen sind die Konten für den Notfallzugriff, die über die geeigneten Prozesse geschützt werden.
 
-Erlauben Sie keine Ausnahmen für Konten von Mitarbeitern die notfallzugriffskonten verwendet.
+Verknüpfen Sie alle Administratorkonten mit einer Smartcard, und aktivieren Sie das Attribut **Benutzer muss sich mit einer Smartcard anmelden**.
+
+Implementieren Sie ein Skript, um den zufälligen Kennworthashwert automatisch und regelmäßig zurückzusetzen. Dazu muss das Attribut **Benutzer muss sich mit einer Smartcard anmelden** deaktiviert und umgehend erneut aktiviert werden.
+
+Lassen Sie mit Ausnahme der Konten für den Notfallzugriff keine weiteren Ausnahmen für Konten zu, die von Mitarbeitern verwendet werden.
 
 ###### <a name="enforce-multi-factor-authentication-for-all-cloud-admin-accounts"></a>Erzwingen der mehrstufigen Authentifizierung für alle Cloudadministratorkonten
-Alle Konten mit Administratorrechten in einem Cloud-Dienst, z.B. Microsoft Azure und Office365, müssen die mehrstufige Authentifizierung verwenden.
+
+Alle Konten mit Administratorrechten in einem Clouddienst (z. B. Microsoft Azure und Office 365) müssen die mehrstufige Authentifizierung verwenden.
 
 ##### <a name="rare-use-emergency-procedures"></a>Selten erforderliche Notfallmaßnahmen
-Betriebliche Verfahren müssen die folgenden Standards zu unterstützen:
 
--   Stellen Sie sicher, dass Ausfälle schnell behoben werden können.
+Bei Betriebsmethoden müssen die folgenden Standards eingehalten werden:
 
--   Sicherstellen Sie, dass nur selten mit umfassenden rechten Aufgaben abgeschlossen werden können, je nach Bedarf.
+- Stellen Sie sicher, dass Ausfälle schnell behoben werden können.
+- Stellen Sie sicher, dass seltene Aufgaben, für die hohe Rechte erforderlich sind, abgeschlossen werden können.
+- Stellen Sie sicher, dass sichere Verfahren verwendet werden, um die Anmeldeinformationen und Berechtigungen zu schützen.
+- Stellen Sie sicher, dass geeignete Verfahren für Nachverfolgung und Genehmigung implementiert sind.
 
--   Stellen Sie sicher, dass sichere Verfahren verwendet werden, um die Anmeldeinformationen und Berechtigungen zu schützen.
+###### <a name="correctly-follow-appropriate-processes-for-all-emergency-access-accounts"></a>Ordnungsgemäße Implementierung der geeigneten Verfahren für alle Notfallzugriffskonten
 
--   Stellen Sie sicher, dass die geeignete Verfahren für Nachverfolgung und Genehmigung implementiert sind.
+Stellen Sie sicher, dass für jedes Notfallzugriffskonto ein Dokument zur Nachverfolgung im Safe hinterlegt ist.
 
-###### <a name="correctly-follow-appropriate-processes-for-all-emergency-access-accounts"></a>Ordnungsgemäße Implementierung der geeignete Verfahren für alle notfallzugriffskonten
-Stellen Sie sicher, dass jedes notfallzugriffskonto ein Tracking Blatt im Safe hinterlegt ist.
+Das in diesem Dokument aufgezeichnete Verfahren sollte für sämtliche Konten befolgt werden. Beispielsweise sollte das Kennwort nach jeder Verwendung und Abmeldung bei Arbeitsstationen oder Servern geändert werden.
 
-Das Verfahren für das Kennwort beispielsweise dokumentiert sollten für jedes Konto befolgt werden Ändern des Kennworts nach jeder Verwendung und Abmeldung bei Arbeitsstationen oder Servern, die nach Abschluss des Vorgangs verwendet.
+Die Verwendung von Konten für den Notfallzugriff sollte immer vorab vom Change Approval Board genehmigt werden bzw. ggf. nachträglich als genehmigte Notfallverwendung.
 
-Die Verwendung von Notfallzugriff, die Konten durch das Change Approval Board bzw. nach dem Ereignis als genehmigte Notfallverwendung genehmigt werden sollen.
+###### <a name="restrict-and-monitor-usage-of-emergency-access-accounts"></a>Einschränken und Überwachen der Verwendung von Notfallzugriffskonten
 
-###### <a name="restrict-and-monitor-usage-of-emergency-access-accounts"></a>Einschränken Sie und überwachen Sie der Verwendung von notfallzugriffskonten
-Für jede Verwendung von notfallzugriffskonten:
+Für jede Verwendung von Notfallzugriffskonten gilt Folgendes:
 
--   Nur autorisierte Domänenadministratoren können die notfallzugriffskonten mit Domänenadministratorberechtigungen zugreifen.
+- Nur autorisierte Domänenadministratoren können auf die Notfallzugriffskonten mit Domänenadministratorberechtigungen zugreifen.
+- Die Notfallzugriffskonten können nur auf Domänencontrollern und anderen Hosts der Ebene 0 verwendet werden.
+- Dieses Konto sollte ausschließlich für folgende Zwecke verwendet werden:
+   - Problembehandlung und Behebung technischer Probleme, die eine Verwendung der richtigen Administratorkonten verhindern.
+   - Durchführen seltener Aufgaben, wie z. B.:
+      - Schemaverwaltung
+      - Gesamtstrukturweite Aufgaben, die Enterprise-Administratorrechte erfordern.
 
--   Die notfallzugriffskonten können nur auf Domänencontrollern und anderen Hosts der Ebene 0 verwendet werden.
+      > [!NOTE]
+      > Topologieverwaltung, einschließlich der Verwaltung von Active Directory-Standort und das Subnetz wird delegiert, um die Nutzung dieser Rechte einzuschränken.
 
--   Dieses Konto sollte nur verwendet werden:
+- Für jede Verwendung dieser Konten sollte eine schriftliche Genehmigung vom Leiter der Sicherheitsgruppe vorliegen
+- Das im Dokument zur Nachverfolgung für jedes Notfallzugriffskonto festgelegte Verfahren sieht vor, dass das Kennwort nach jeder Verwendung geändert wird. Ein Mitglied des Sicherheitsteams sollte überprüfen, ob dieser Schritt ordnungsgemäß ausgeführt wurde.
 
-    -   Führen Sie die Problembehandlung und Behebung technischer Probleme, die die Verwendung der richtigen Administratorkonten verhindern.
+###### <a name="temporarily-assign-enterprise-admin-and-schema-admin-membership"></a>Vorübergehendes Zuweisen der Mitgliedschaft als Unternehmens- oder Schemaadministrator
 
-    -   Durchführen Sie seltener Aufgaben, z.B. an:
+Die Berechtigungen sollten nach Bedarf hinzugefügt und nach der Verwendung entfernt werden. Diese Berechtigungen sollten Notfallzugriffskonten nur solange zugewiesen werden, bis die Aufgabe abgeschlossen ist. Die maximale Zeitdauer sollte 10 Stunden betragen. Die gesamte Verwendung dieser Berechtigungen sowie die Dauer sollten nach Abschluss der Aufgabe in den Aufzeichnungen des Change Approval Boards erfasst werden.
 
-        -   Schema-Verwaltung
+## <a name="esae-administrative-forest-design-approach"></a>ESAE-basierter Ansatz für den Entwurf einer administrativen Gesamtstruktur
 
-        -   Gesamtstrukturweite Aufgaben, die Administratorrechte auf Unternehmensebene erforderlich ist. Beachten Sie, dass die topologieverwaltung, einschließlich der Verwaltung von Active Directory Standort- und Subnetzinformationen delegiert wird, um die Nutzung dieser Rechte einzuschränken.
+In diesem Abschnitt wird ein Ansatz für den Entwurf einer administrativen Gesamtstruktur beschrieben, die auf der ESAE-Referenzarchitektur (Enhanced Security Administrative Environment) basiert. Diese wird von Microsoft-Dienstleistungsteams für Internetsicherheit bereitgestellt, um Kunden vor Angriffen im Internet zu schützen.
 
--   Für jede Verwendung eines dieser Konten sollte Genehmigung vom Leiter Sicherheitsgruppe geschrieben haben
+Mit einer dedizierten administrativen Gesamtstruktur sind Organisationen in der Lage, Administratorkonten, Arbeitsstationen und Gruppen zu hosten. Dabei weist die Umgebung stärkere Sicherheitskontrollen auf als die Produktionsumgebung.
 
--   Das Verfahren auf dem Blatt Nachverfolgung für jedes notfallzugriffskonto erfordert das Kennwort nach jeder Verwendung geändert werden. Ein Mitglied des Sicherheitsteams sollte überprüfen, dass diese ordnungsgemäß ausgeführt wurde.
+Diese Architektur ermöglicht eine Reihe von Sicherheitskontrollen, die in einer Architektur mit einer einzelnen Gesamtstruktur nicht möglich oder nicht einfach zu konfigurieren sind. Dies gilt sogar für Gesamtstrukturen, die über Arbeitsstationen mit privilegiertem Zugriff verwaltet werden. Dieser Ansatz ermöglicht die Bereitstellung von Konten als Standardbenutzer ohne erweiterte Berechtigungen in der administrativen Gesamtstruktur, die in der Produktionsumgebung über weitgehende Berechtigungen verfügen, und somit eine umfassende technische Erzwingung von Governance. Zudem ermöglicht diese Architektur die Verwendung der ausgewählten Authentifizierung von Vertrauensstellungen zum Einschränken von Anmeldungen (und Offenlegen der Anmeldeinformationen) auf autorisierte Hosts. In Situationen, in denen eine umfassendere Sicherung für die Produktionsgesamtstruktur ohne die Kosten und Komplexität einer vollständigen Wiederherstellung erwünscht ist, kann eine administrative Gesamtstruktur eine Umgebung bereitstellen, in der für das Produktionsumfeld eine höhere Sicherheitsstufe gilt.
 
-###### <a name="temporarily-assign-enterprise-admin-and-schema-admin-membership"></a>Vorübergehendes Zuweisen der Mitgliedschaft als Organisations-Admins und schema
-Erforderliche und entfernt nach verwenden sollten Berechtigungen hinzugefügt werden. Notfallzugriffskonten sollten diese Berechtigungen nur die Dauer des Vorgangs ausgeführt werden und bis zu 10 Stunden zugewiesen haben. Alle Verwendung und die Dauer dieser Berechtigungen sollten in Change Approval Boards erfasst werden, nachdem der Vorgang abgeschlossen ist.
-
-## <a name="ESAE_BM"></a>ESAE-Verwaltungsgesamtstruktur Entwurfsansatz
-Dieser Abschnittenthält einen Ansatz für eine administrative Gesamtstruktur basierend auf der Enhanced Security Administrative Environment (ESAE)-Referenzarchitektur bereitgestellt, die von Microsoft dienstleistungsteams um Kunden vor Cyberangriffen zu schützen.
-
-Dedizierten administrativen Gesamtstruktur können Organisationen Host Administratorkonten, Arbeitsstationen und Gruppen in einer Umgebung stärkere Sicherheitskontrollen auf als die Produktionsumgebung.
-
-Diese Architektur ermöglicht eine Reihe von Sicherheitskontrollen, die nicht in einer einzelnen Gesamtstruktur-Architektur, auch ein Arbeitsstationen mit privilegiertem Zugriff (PAWs) verwaltet möglich oder nicht einfach zu konfigurieren sind. Dieser Ansatz ermöglicht die Bereitstellung von Konten als Standard nicht privilegierten Benutzern in der administrativen Gesamtstruktur, die in der Produktionsumgebung hohe Berechtigungen sind umfassende technische Erzwingung von Governance. Diese Architektur ermöglicht auch die Verwendung des Features ausgewählte Authentifizierung einer Vertrauensstellung als zum Einschränken Anmeldungen (und Offenlegung von Anmeldeinformationen) nur autorisierte Hosts. In Situationen, in denen größer ein gewisses Maß an Sicherheit für die Produktionsgesamtstruktur gewünscht ist ohne die Kosten und Komplexität einer vollständigen Wiederherstellung, kann eine administrative Gesamtstruktur eine Umgebung bereitstellen, die den Sicherheitsgrad der der Produktionsumgebung erhöht wird.
-
-Während dieser Ansatz eine Gesamtstruktur zu einer Active Directory-Umgebung hinzufügt, sind die Kosten und Komplexität der festen Aufbaus kleine Hardware- und softwareanforderungen und geringe Anzahl von Benutzern beschränkt.
+Wenngleich bei diesem Ansatz eine Gesamtstruktur zu einer Active Directory-Umgebung hinzugefügt wird, sind die Kosten und die Komplexität aufgrund des festen Aufbaus, der geringen Hardware- und Softwareanforderungen und der geringen Anzahl von Benutzern gering.
 
 > [!NOTE]
-> Dieser Ansatz funktioniert gut für die Verwaltung von Active Directory, aber viele Anwendungen sind mit nicht kompatibel, die von Konten aus einer externen Gesamtstruktur eine verwaltet wird.
+> Dieser Ansatz eignet sich gut für die Verwaltung von Active Directory, viele Anwendungen können jedoch nicht über Konten aus einer externen Gesamtstruktur verwaltet werden, die eine Standardvertrauensstellung verwendet.
 
-Diese Abbildungzeigt eine ESAE-Gesamtstruktur verwendet für die Verwaltung von Assets der Ebene 0 sowie eine PRIV-Gesamtstruktur, die für die Verwendung mit Privileged Access Management-Funktion von Microsoft Identity Manager konfiguriert. Weitere Informationen zum Bereitstellen einer MIM PAM-Instanz finden Sie unter [Privileged Identity Management für Active Directory-Domänendienste (AD DS)](https://technet.microsoft.com/en-us/library/mt150258.aspx) Artikel.
+Diese Abbildung zeigt eine ESAE-Gesamtstruktur, die zur Verwaltung von Assets der Ebene 0 verwendet wird, sowie eine PRIV-Gesamtstruktur, die für die Verwendung mit der Privileged Access Management-Funktion von Microsoft Identity Manager konfiguriert ist. Weitere Informationen zur Bereitstellung einer Instanz von MIM PAM finden Sie im Artikel [Privileged Identity Management für Active Directory Domain Services (AD DS)](https://technet.microsoft.com/library/mt150258.aspx).
 
-![Diese Abbildungzeigt eine ESAE-Gesamtstruktur verwendet für die Verwaltung von Assets der Ebene 0 sowie eine PRIV-Gesamtstruktur, die für die Verwendung mit Privileged Access Management-Funktion von Microsoft Identity Manager konfiguriert](../media/securing-privileged-access-reference-material/PAW_RM_Fig14.JPG)
+![Diese Abbildung zeigt eine ESAE-Gesamtstruktur, die zur Verwaltung von Assets der Ebene 0 verwendet wird, sowie eine PRIV-Gesamtstruktur, die für die Verwendung mit der Privileged Access Management-Funktion von Microsoft Identity Manager konfiguriert ist](../media/securing-privileged-access-reference-material/PAW_RM_Fig14.JPG)
 
-Eine dedizierte administrative Gesamtstruktur ist eine standardmäßige einzelne Domäne Active Directory-Gesamtstruktur für die Funktion des Active Directory-Verwaltung. Administrative Gesamtstrukturen und Domänen strikter abgesichert werden als Produktionsgesamtstrukturen aufgrund des begrenzten Anwendungsfälle Produktionsgesamtstrukturen.
+Eine dedizierte administrative Gesamtstruktur ist eine Active Directory-Standardgesamtstruktur mit einer einzelnen Domäne, die ausschließlich der Active Directory-Verwaltung dient. Aufgrund des begrenzten Einsatzgebiets können administrative Gesamtstrukturen und Domänen strikter abgesichert werden als Produktionsgesamtstrukturen.
 
-Entwurf einer administrativen Gesamtstruktur sollte Folgendes berücksichtigt werden:
+Beim Entwurf einer administrativen Gesamtstruktur sollte Folgendes berücksichtigt werden:
 
--   **Beschränkter Gültigkeitsbereich** -der primäre Nutzen einer administrativen Gesamtstruktur ist die hohes Maß an Sicherheit und der verringerten Angriffsfläche geringeren Restrisiko. Die Gesamtstruktur kann verwendet werden, um zusätzliche Verwaltungsfunktionen und -Anwendungen, aber jede Erweiterung des Bereichs wird die Angriffsfläche der Gesamtstruktur und seine Ressourcen zu erhöhen. Ziel ist es, die Funktionen der Gesamtstruktur und der Administrator Benutzer innerhalb beschränken, um die Angriffsfläche minimal zu halten, daher sollte jede Erweiterung des Bereichs sorgfältig überlegt werden.
+- **Beschränkter Gültigkeitsbereich**: Der primäre Nutzen einer administrativen Gesamtstruktur liegt in der hohen Sicherheitsstufe und der verringerten Angriffsfläche, die zu einem geringeren Restrisiko führen. Die Gesamtstruktur kann für zusätzliche Verwaltungsfunktionen und -anwendungen verwendet werden, jede Erweiterung des Bereichs vergrößert jedoch die Angriffsfläche der Gesamtstruktur und ihrer Ressourcen. Das Ziel ist die Einschränkung der Funktionen der Gesamtstruktur und ihrer Administratorbenutzer, um die Angriffsfläche minimal zu halten, daher sollte jede Erweiterung des Bereichs sorgfältig durchdacht werden.
+- **Konfiguration von Vertrauensstellungen**: Die Konfiguration von Vertrauensstellungen wird von verwalteten Gesamtstrukturen oder Domänen zur administrativen Gesamtstruktur verlagert.
+   - Von der Produktionsumgebung zur administrativen Gesamtstruktur ist eine unidirektionale Vertrauensstellung erforderlich. Dabei kann es sich um eine Domänen- oder Gesamtstruktur-Vertrauensstellung handeln. Die administrative Gesamtstruktur muss den verwalteten Domänen/Gesamtstrukturen nicht vertrauen, um Active Directory verwalten zu können. Zusätzliche Anwendungen können jedoch eine bidirektionale Vertrauensstellung, Sicherheitsüberprüfungen und Tests erfordern.
+   - Um Konten in der administrativen Gesamtstruktur auf die Protokollierung auf den richtigen Produktionshosts zu beschränken, sollte die ausgewählte Authentifizierung verwendet werden. Zur Verwaltung von Domänencontrollern und Delegierung von Rechten in Active Directory ist hierbei in der Regel die Berechtigung für die Anmeldung auf Domänencontrollern für die jeweiligen Administratorkonten der Ebene 0 in der administrativen Gesamtstruktur erforderlich. Weitere Informationen finden Sie unter „Konfigurieren der Einstellungen für ausgewählte Authentifizierung“.
+- **Berechtigungen und Härten von Domänen**: Die administrative Gesamtstruktur sollte anhand der geringsten erforderlichen Rechte für die Active Directory-Verwaltung konfiguriert werden.
+   - Zum Erteilen von Rechten für die Verwaltung von Domänencontrollern und Delegieren von Berechtigungen müssen der lokalen Gruppe der Domäne „BUILTIN\Administrators“ Administratorkonten für die Gesamtstruktur hinzugefügt werden. Der Grund dafür ist, dass die globale Gruppe „Domänen-Admins“ nicht über Mitglieder einer externen Domäne verfügen darf.
+   - Gegen die Verwendung dieser Gruppe zum Erteilen von Rechten spricht, dass standardmäßig kein Administratorzugriff auf neue Gruppenrichtlinienobjekte zugewiesen wird. Diese Standardberechtigungen für Schemas können über die in [diesem Knowledge Base-Artikel](https://support.microsoft.com/kb/321476) beschriebenen Schritte geändert werden.
+   - Konten in der administrativen Gesamtstruktur, die für die Verwaltung der Produktionsumgebung verwendet werden, sollten keine Administratorberechtigungen für die administrative Gesamtstruktur oder die enthaltenen Domänen oder Arbeitsstationen erhalten.
+   - Administratorrechte für die administrative Gesamtstruktur sollten über ein Offlineverfahren streng kontrolliert werden, um das Löschen von Überwachungsprotokollen durch Angreifer oder böswillige Mitarbeiter zu erschweren. Dies trägt auch dazu bei, dass Mitarbeiter mit Administratorkonten für die Produktion die Einschränkungen ihrer Konten nicht lockern und damit das Risiko für die Organisation steigern können.
+   - Die administrative Gesamtstruktur sollte die Microsoft Security Compliance-Baseline (SCB)-Konfigurationen für die Domäne, einschließlich sicherer Konfigurationen für Authentifizierungsprotokolle folgen.
+   - Alle Hosts in der administrativen Gesamtstruktur sollten automatisch mit Sicherheitsupdates aktualisiert werden. Dies birgt zwar das Risiko einer Unterbrechung des Domänencontroller-Wartungsbetriebs, bietet jedoch eine erhebliche Verringerung von Sicherheitsrisiken durch nicht behobene Schwachstellen.
 
--   **Konfiguration von Vertrauensstellungen** -Vertrauensstellung aus verwalteten Forestss oder Domänen zur administrativen Gesamtstruktur konfigurieren
+      > [!NOTE]
+      > Eine dedizierte Windows Server Update Services-Instanz kann so konfiguriert werden, dass Updates automatisch genehmigt werden. Weitere Informationen finden Sie im Abschnitt „Automatisches Genehmigen der Installation von Updates“ des Dokuments „Genehmigen von Updates“.
 
-    -   Eine unidirektionale Vertrauensstellung ist von der Produktionsumgebung zur administrativen Gesamtstruktur erforderlich. Dies kann eine Domänen- oder Gesamtstruktur-Vertrauensstellung. Der administrativen Gesamtstruktur bzw. der Domäne muss nicht die verwalteten Domänen/Gesamtstrukturen zum Verwalten von Active Directory zu vertrauen, jedoch möglicherweise zusätzliche Anwendungen sind, eine bidirektionale Vertrauensstellung, Sicherheitsüberprüfungen erforderlich und Tests.
+- **Härten von Arbeitsstationen**: Erstellen Sie die Administratorarbeitsstationen unter Verwendung der [Arbeitsstationen mit privilegiertem Zugriff](../securing-privileged-access/privileged-access-workstations.md) (über Phase 3), ändern Sie die Domänenmitgliedschaft jedoch so, dass anstelle der Produktionsumgebung die administrative Gesamtstruktur verwendet wird.
+- **Härten von Servern und Domänencontrollern**: Für alle Domänencontroller und Server in der administrativen Gesamtstruktur gilt Folgendes:
+   - Stellen Sie sicher, dass alle Medien über die in [Vertrauenswürdige Quelle für Installationsmedien](http://aka.ms/cleansource) beschriebenen Verfahren überprüft wurden.
+   - Stellen Sie sicher, dass auf den Servern innerhalb der administrativen Gesamtstruktur aktuelle Betriebssysteme installiert sind (selbst wenn dies in der Produktionsumgebung nicht möglich ist).
+   - Hosts in der administrativen Gesamtstruktur sollten automatisch mit Sicherheitsupdates aktualisiert werden.
 
-    -   Die ausgewählte Authentifizierung sollte verwendet werden, um Konten in der administrativen Gesamtstruktur Protokollierung nur auf, um den richtigen produktionshosts zu beschränken. Für die Verwaltung von Domänencontrollern und Delegieren von rechten in Active Directory, dies in der Regel "Darf-Anmeldung" ist Berechtigung erforderlich von Domänencontrollern auf Ebene 0 Administratorkonten in der administrativen Gesamtstruktur. Weitere Informationen finden Sie in der Einstellungen für ausgewählte Authentifizierung konfigurieren.
+      > [!NOTE]
+      > Windows Server Update Services können so konfiguriert werden, dass Updates automatisch genehmigt werden. Weitere Informationen finden Sie im Abschnitt „Automatisches Genehmigen der Installation von Updates“ des Dokuments „Genehmigen von Updates“.
 
--   **Berechtigungen und Härten von Domänen** -die administrative Gesamtstruktur geringsten Rechte, die anhand der Anforderungen für Active Directory-Verwaltung konfiguriert werden soll.
+   - Sicherheitsbaselines sollten als Ausgangskonfiguration verwendet werden.
 
-    -   Erteilen von Berechtigungen für die Verwaltung von Domänencontrollern und Delegieren von Berechtigungen muss der lokalen Domänengruppe "VORDEFINIERT\Administratoren" Administratorkonten für die Gesamtstruktur hinzugefügt. Dies ist, da der globalen Gruppe Domänen-Admins Mitglieder einer externen Domäne haben kann.
+      > [!NOTE]
+      > Kunden können das Microsoft Security Compliance Toolkit (SCT) für das Konfigurieren von Baselines auf administrativen Hosts verwenden.
 
-    -   Die Verwendung dieser Gruppe zum Erteilen von rechten spricht ist, dass sie Administratorzugriff auf neue Gruppenrichtlinienobjekte standardmäßig nicht. Dies kann geändert werden, mithilfe des folgenden Verfahrens in [diesem Knowledge Base-Artikel](https://support.microsoft.com/kb/321476) so ändern Sie die Standardberechtigungen für Schemas.
+   - Sicherer Start zur Abhilfe gegen Angreifer oder Schadsoftware, die versuchen, während des Startvorgangs nicht signierten Code zu laden.
 
-    -   Konten in der administrativen Gesamtstruktur, die verwendet werden, um die Verwaltung der Produktionsumgebung sollte nicht über Administratorrechte für die administrative Gesamtstruktur, Domänen oder Arbeitsstationen gewährt werden.
+      > [!NOTE]
+      > Diese Funktion wurde in Windows 8 eingeführt, um UEFI (Unified Extensible Firmware Interface) zu nutzen.
 
-    -   Administratorrechte für die administrative Gesamtstruktur sollten von Offline-Vorgang, reduzieren Sie die Gelegenheit für Angreifer oder böswillige, Löschen von Überwachungsprotokollen eng kontrolliert werden. Dies hilft sicherzustellen, dass Mitarbeiter mit Administratorkonten für die Produktion die Einschränkungen ihrer Konten entspannen und das Risiko für die Organisation erhöhen können nicht.
+   - Verschlüsselung ganzer Volumes zur Verringerung des Risikos durch den Verlust physischer Computer, z. B. administrativer Laptops, die an Remotestandorten eingesetzt werden.
 
-    -   Die administrative Gesamtstruktur muss die Microsoft Security Compliance Basislinie (SCB)-Konfigurationen für die Domäne, einschließlich sicherer Konfigurationen für Authentifizierungsprotokolle.
+      > [!NOTE]
+      > Weitere Informationen finden Sie unter [BitLocker](https://technet.microsoft.com/library/dn641993.aspx).
 
-    -   Alle Hosts in der administrativen Gesamtstruktur sollten automatisch mit Sicherheitsupdates aktualisiert werden. Während das Risiko einer Unterbrechung der Domänencontroller erstellen kann, bietet es eine erhebliche Verringerung von Sicherheitsrisiken nicht gepatchten Schwachstellen.
+   - USB-Einschränkungen zum Schutz vor physischen Infektionsvektoren.
 
-        > [!NOTE]
-        > Eine dedizierte Instanz von Windows Server Update Services kann konfiguriert werden, dass Updates automatisch genehmigt. Weitere Informationen finden Sie im Abschnitt "Automatisches genehmigen Sie Updates für die Installation" Genehmigen von Updates.
+      > [!NOTE]
+      > Weitere Informationen finden Sie unter [Control Read or Write Access to Removable Devices or Media](https://technet.microsoft.com/library/cc730808(v=ws.10).aspx) (Kontrollieren des Lese- oder Schreibzugriffs auf Wechselmedien).
 
--   **Härten von Arbeitsstationen** -Build der administrativen Arbeitsstationen mit dem [Privileged Access Workstations](../securing-privileged-access/privileged-access-workstations.md) (über Phase 3), ändern Sie jedoch die Domänenmitgliedschaft zur administrativen Gesamtstruktur anstelle der Produktionsumgebung.
+   - Netzwerkisolation zum Schutz vor Netzwerkangriffen und unbeabsichtigten Administratoraktionen. Hostfirewalls sollten alle eingehenden Verbindungen, mit Ausnahme der ausdrücklich erforderlichen, und sämtliche ausgehenden Internetzugriffe sperren.
 
--   **Server und Domänencontroller Hardening** – für alle Domänencontroller und Server in der administrativen Gesamtstruktur:
+   - Antischadsoftware zum Schutz vor bekannten Risiken und Schadsoftware.
 
-    -   Stellen Sie sicher, alle Medien wird überprüft mithilfe der Anleitungen im [vertrauenswürdige Quelle für Installationsmedien](http://aka.ms/cleansource)
+   - Analyse der Angriffsfläche zum Verhindern der Einführung neuer Angriffsvektoren auf Windows während der Installation von neuer Software.
 
-    -   Stellen Sie sicher, dass die administrative Gesamtstruktur-Server den neuesten Betriebssystemen installiert ist, werden soll, auch wenn dies nicht in der Produktion möglich ist.
+      > [!NOTE]
+      > Die Verwendung von Tools wie [Attack Surface Analyzer (ASA)](https://www.microsoft.com/en-us/download/details.aspx?id=24487) trägt dazu bei, die Konfigurationseinstellungen auf einem Host auszuwerten und Angriffsvektoren zu identifizieren, die durch Software oder Konfigurationsänderungen eingeführt werden.
 
-    -   Hosts in der administrativen Gesamtstruktur sollten automatisch mit Sicherheitsupdates aktualisiert werden.
+- Härten von Konten
+   - Mit Ausnahme eines Kontos sollte die mehrstufige Authentifizierung für alle Konten in der administrativen Gesamtstruktur konfiguriert werden. Mindestens ein Administratorkonto sollte kennwortbasiert sein, um bei einem Ausfall der mehrstufigen Authentifizierung die Möglichkeit des Zugriffs sicherzustellen. Dieses Konto sollte durch strikte physische Kontrollmechanismen geschützt werden.
+   - Konten, die für die mehrstufige Authentifizierung konfiguriert sind, sollten für die regelmäßige Festlegung eines neuen NTLM-Hashs für Konten konfiguriert werden. Zu diesem Zweck können Sie das Attribut „Benutzer muss sich mit einer Smartcard anmelden“ deaktivieren und umgehend erneut aktivieren.
 
-        > [!NOTE]
-        > Windows Server Update Services können konfiguriert werden, dass Updates automatisch genehmigt. Weitere Informationen finden Sie im Abschnitt "Automatisches genehmigen Sie Updates für die Installation" Genehmigen von Updates.
+      > [!NOTE]
+      > Durch diese Aktion können laufende Vorgänge unterbrochen werden, die dieses Konto nutzen. Daher sollte die Aktion nur initiiert werden, wenn das Konto nicht von Administratoren verwendet wird (z. B. nachts oder am Wochenende).
 
-    -   Sicherheitsbaselines sollten als Ausgangskonfiguration verwendet werden.
+- Erkennungskontrollen
+   - Erkennungskontrollen für die administrative Gesamtstruktur sollten bei Anomalien in der administrativen Gesamtstruktur Warnungen ausgeben. Die begrenzte Anzahl von autorisierten Szenarios und Aktivitäten trägt dazu bei, diese Kontrollen präziser als die Produktionsumgebung zu optimieren.
 
-        > [!NOTE]
-        > Kunden können die Microsoft Security Compliance-Toolkit (SCT) zum Konfigurieren von Baselines auf den administrativen Hosts verwenden.
+Weitere Informationen zu Microsoft-Diensten für den Entwurf und die Bereitstellung einer ESAE für Ihre Umgebung finden Sie auf [dieser Seite](https://www.microsoft.com/services).
 
-    -   Sicherer Start, um gegen Angreifer oder Malware, die beim Laden von nicht signierten Codes in den Startprozess zu verringern.
+## <a name="tier-0-equivalency"></a>Äquivalenz zur Ebene 0
 
-        > [!NOTE]
-        > Dieses Feature wurde in Windows8 zu nutzen, die Unified Extensible Firmware Interface (UEFI) eingeführt.
+Die meisten Organisationen kontrollieren die Mitgliedschaft wichtiger Active Directory-Gruppen der Ebene 0 (z. B. Administratoren, Domänen-Admins und Unternehmensadministratoren).  Dabei übersehen viele Organisationen jedoch das Risiko anderer Gruppen, die in einer typischen Active Directory-Umgebung effektiv über äquivalente Berechtigungen verfügen. Diese Gruppen bieten einen Recht problemlosen Eskalationspfad für Angreifer den gleichen explizite Ebene-0-Berechtigungen, die über verschiedene Angriffsmethoden.
 
-    -   Verschlüsselung ganzer Volumes zur Verlust physischer Computer, z.B. administrativer Laptops verwendet Remote zu verringern.
+Ein Serveroperator könnte z. B. Zugang zum Sicherungsmedium eines Domänencontrollers erhalten und alle Anmeldeinformationen aus den Dateien auf diesem Medium abrufen, um diese zur Ausweitung von Berechtigungen zu nutzen.
 
-        > [!NOTE]
-        > Weitere Informationen finden Sie unter [BitLocker](https://technet.microsoft.com/en-us/library/dn641993.aspx) Weitere Informationen.
+Organisationen sollten die Mitgliedschaft in allen Gruppen der Ebene 0 (einschließlich geschachtelter Mitgliedschaften) kontrollieren und überwachen. Dazu zählen u. a. die Folgenden:
 
-    -   USB-Einschränkungen zum Schutz vor physischen infektionsvektoren.
+- Organisations-Admins
+- Domänen-Admins
+- Schema-Admin
+- BUILTIN\Administrators
+- Konten-Operatoren
+- Sicherungsoperatoren
+- Druck-Operatoren
+- Server-Operatoren
+- Domänencontroller
+- Read-only-Domänencontroller
+- Richtlinien-Ersteller-Besitzer
+- Kryptografie-Operatoren
+- Distributed COM-Benutzer
+- Andere delegierte Gruppen – benutzerdefinierte Gruppen, die von Ihrer Organisation zu verwalten, die müssen unter Umständen auch der effektive Zugriff auf Ebene 0 erstellt werden können.
 
-        > [!NOTE]
-        > Weitere Informationen finden Sie unter [Steuerelement Lese- oder Write Access to Removable Devices or Media](https://technet.microsoft.com/en-us/library/cc730808(v=ws.10).aspx) Weitere Informationen.
+## <a name="administrative-tools-and-logon-types"></a>Verwaltungstools und Anmeldetypen
 
-    -   Die Netzwerkisolation zum Schutz vor Netzwerkangriffen und unbeabsichtigten. Hostfirewalls sollten alle eingehenden Verbindungen, mit Ausnahme der ausdrücklich erforderlichen, und sämtliche ausgehenden Internetzugriffe sperren.
+Anhand dieser Referenzinformationen können Sie das Risiko einer Offenlegung von Anmeldeinformationen ermitteln, das mit der Verwendung verschiedener Tools für die Remoteverwaltung einhergeht.
 
-    -   Antischadsoftware zum Schutz vor bekannten Risiken und Malware.
+In einem Remoteverwaltungsszenario werden die Anmeldeinformationen auf dem Quellcomputer immer offengelegt. Daher wird für vertrauliche Konten oder Konten mit großen Auswirkungen eine vertrauenswürdige Arbeitsstation mit privilegiertem Zugriff empfohlen. Ob Anmeldeinformationen auf dem Zielcomputer (Remotecomputer) offengelegt werden und potenziell gestohlen werden können, hängt in erster Linie vom Windows-Anmeldetyp ab, der von der Verbindungsmethode verwendet wird.
 
-    -   Attack Surface Analyse, um die Einführung neuer Angriffsvektoren auf Windows während der Installation von neuer Software zu verhindern.
+Diese Tabelle umfasst Informationen zu den meisten gängigen Verwaltungstools und Verbindungsmethoden:
 
-        > [!NOTE]
-        > Verwendung von Tools wie z.B. die [Attack Surface Analyzer (ASA)](https://www.microsoft.com/en-us/download/details.aspx?id=24487) hilft Konfigurationseinstellungen auf einem Host und durch Software oder Konfigurationsänderungen eingeführt Angriffsvektoren zu identifizieren.
-
--   Härtung von Konto
-
-    -   Multi-Factor Authentication sollte für alle Konten in der administrativen Gesamtstruktur, mit Ausnahme eines Kontos konfiguriert werden. Mindestens ein Administratorkonto sollte sein, dass die Kennwort-basiert, um sicherzustellen, dass Zugriff für den Fall, dass die mehrstufige Authentifizierung verarbeiten Pausen funktionieren. Dieses Konto sollte durch strikte physische Kontrollmechanismen geschützt werden.
-
-    -   Für Multi-Factor Authentication konfigurierte Konten sollten eines neuen NTLM Hash für Konten regelmäßig festgelegt, konfiguriert werden. Dies erfolgt durch das Deaktivieren und Aktivieren des Kontoattributs Smartcard für die interaktive Anmeldung erforderlich ist.
-
-        > [!NOTE]
-        > Dadurch kann laufende Vorgänge unterbrochen, die dieses Konto verwenden, damit dieser Vorgang nur, wenn Administratoren das Konto, z.B. nachts oder am Wochenende verwenden, wird nicht gestartet werden sollen.
-
--   Der sprungserver
-
-    -   Der sprungserver Steuerelemente für die administrative Gesamtstruktur sollten bei Anomalien in der administrativen Gesamtstruktur Warnungen ausgeben entworfen werden. Die begrenzte Anzahl von autorisierten Szenarios und Aktivitäten können diese Steuerelemente präziser als die Produktionsumgebung optimieren.
-
-Weitere Informationen zu Microsoft-Diensten zum Entwerfen und Bereitstellen einer ESAE für Ihre Umgebung, finden Sie unter [auf dieser Seite](https://www.microsoft.com/services).
-
-## <a name="T0E_BM"></a>Äquivalenz zur Ebene 0
-Die meisten Organisationen kontrollieren die Mitgliedschaft leistungsstarke Gruppen auf Ebene 0 Active Directory wie Administratoren, Domänen-Admins und Organisations-Admins.  Viele Organisationen übersehen das Risiko anderer Gruppen, die Rechte in einer typischen active Directory-Umgebung effektiv entsprechen. Diese Gruppen bieten einen Recht problemlosen Eskalationspfad für Angreifer die gleichen expliziten Ebene-0-Berechtigungen, die über verschiedene Angriffsmethoden.
-
-Beispiel: ein konnte Zugriff auf ein Sicherungsmedium eines Domänencontrollers erhalten und extrahieren alle Anmeldeinformationen aus den Dateien auf diesem Medium und verwenden, um Berechtigungen zu erweitern.
-
-Organisationen sollten steuern und überwachen Sie die Mitgliedschaft in allen Gruppen der Ebene 0 (einschließlich geschachtelter Mitgliedschaften) einschließlich:
-
--   Organisations-Admins
-
--   Domänen-Admins
-
--   Schema-Admins
-
--   "VORDEFINIERT\Administratoren"
-
--   Konten-Operatoren
-
--   Sicherungs-Operatoren
-
--   Druck-Operatoren
-
--   Server-Operatoren
-
--   Domänencontroller
-
--   Read-only Domain Controller
-
--   Richtlinien-Ersteller-Besitzer
-
--   Kryptografische Operatoren
-
--   Distributed COM-Benutzer
-
--   Andere delegierte Gruppen
-
-    > [!NOTE]
-    > "Andere delegierten Gruppen" bezieht sich auf Gruppen, die von Ihrer Organisation zu verwalten, die ebenfalls über effektiven Zugriff der Ebene 0 möglicherweise erstellt werden können.
-
-## <a name="ATLT_BM"></a>Verwaltungstools und Anmeldetypen
-Dies ist die Referenzinformationen, um das Risiko einer Offenlegung von Anmeldeinformationen mit der Verwendung verschiedener Tools für die Remoteverwaltung zu identifizieren.
-
-In einem Szenario mit Remote-Verwaltung werden Anmeldeinformationen immer auf dem Quellcomputer verfügbar gemacht, damit eine Arbeitsstation mit vertrauenswürdigen privilegiertem Zugriff (PAW) für sensible oder hoher Auswirkung Konten immer empfohlen wird. Gibt an, ob die Anmeldeinformationen und potenziell gestohlen, auf dem Zielcomputer (Remotecomputer) offengelegt werden, hängt in erster Linie auf der Windows-Anmeldetyp, der von der Verbindungsmethode verwendet.
-
-Diese Tabelle enthält Richtlinien für die meisten gängigen Verwaltungstools und Verbindungsmethoden:
-
-|Verbindung<br />Methode|Anmeldetyp|Wiederverwendbare Anmeldeinformationen auf dem Zielserver|Kommentare|
+|Verbindungsmethode|Anmeldetyp|Wiederverwendbare Anmeldeinformationen auf dem Ziel|Anmerkungen|
 |-----------|-------|--------------------|------|
-|Melden Sie sich an der Konsole|Interaktive|v|Umfasst Remotehardwarezugriff / Lights-out-Karten und Netzwerk-KVMs.|
-|RUNAS|Interaktive|v||
-|RUNAS//NETWORK|Neue Anmeldeinformationen|v|Klont die aktuelle LSA-Sitzung für den lokalen Zugriff, jedoch neue Anmeldeinformationen mit Netzwerkressourcen Herstellen einer Verbindung verwendet.|
-|Remotedesktop (erfolgreich)|RemoteInteractive|v|Wenn die Remotedesktop-Client konfiguriert ist, um lokale Geräte und Ressourcen freizugeben, können diese auch gefährdet sein.|
-|Remotedesktop (Fehler – Anmeldetyp verweigert)|RemoteInteractive|-|Standardmäßig werden nur sehr kurz gespeichert RDP-Anmeldeinformationen für ein Fehler auftritt. Dies kann nicht der Fall sein, wenn der Computer gefährdet ist.|
-|NET verwenden * \\\SERVER|Netzwerk|-||
-|NET verwenden * \\\SERVER /u: Benutzer|Netzwerk|-||
-|MMC-Snap-Ins für Remotecomputer|Netzwerk|-|Beispiel: Computer Computerverwaltung, Ereignisanzeige, Geräte-Manager, Dienste|
-|PowerShell WinRM|Netzwerk|-|Beispiel: Enter-PSSession Server|
-|PowerShell WinRM mit CredSSP|NetworkClearText|v|New-PSSession Server<br />-Credssp Authentifizierung<br />-Cred credential|
-|PsExec ohne explizite Anmeldeinformationen|Netzwerk|-|Beispiel: PsExec \\\server cmd|
-|PsExec mit expliziten Anmeldeinformationen|Netzwerk und interaktive|v|PsExec \\\server u - Benutzer -p Pwd cmd<br />Erstellt mehrere anmeldesitzungen.|
-|Remote-Registrierung|Netzwerk|-||
-|Remotedesktop-Gatewayserver|Netzwerk|-|Authentifizierung gegenüber Remotedesktopgateway.|
-|Geplante Aufgabe|Stapel|v|Kennwort wird auch als geheime LSA-Daten auf dem Datenträger gespeichert werden.|
-|Führen Sie Tools als Dienst|Dienst|v|Kennwort wird auch als geheime LSA-Daten auf dem Datenträger gespeichert werden.|
-|Sicherheitsrisiken überprüfen|Netzwerk|-|Die meisten Scanner standardmäßig die Netzwerkanmeldungen, obwohl einige Anbieter können nicht Netzwerkanmeldungen implementieren und weitere Anmeldeinformationen das Risiko eines Diebstahls einzuführen.|
+|Anmeldung bei der Konsole|Interactive (Interaktiv)|v|Umfasst Remotehardwarezugriff/Lights-out-Karten und Netzwerk-KVMs.|
+|RUNAS|Interactive (Interaktiv)|v||
+|RUNAS/NETZWERK|NewCredentials|v|Klont die aktuelle LSA-Sitzung für den lokalen Zugriff, verwendet bei der Verbindung mit Netzwerkressourcen jedoch neue Anmeldeinformationen.|
+|Remotedesktop (erfolgreich)|RemoteInteractive|v|Wenn der Remotedesktopclient für die Freigabe lokaler Geräte und Ressourcen konfiguriert ist, können auch diese gefährdet sein.|
+|Remotedesktop (Fehler – Anmeldetyp verweigert)|RemoteInteractive|-|Wenn bei der Anmeldung über RDP ein Fehler auftritt, werden die Anmeldeinformationen standardmäßig nur sehr kurz gespeichert. Wenn der Computer gefährdet ist, ist dies möglicherweise nicht der Fall.|
+|Net use * \\\SERVER|Network|-||
+|Net use * \\\SERVER /u:user|Network|-||
+|MMC-Snap-Ins für Remotecomputer|Network|-|Beispiel: Computer-Verwaltung, Ereignisanzeige, Geräte-Manager, Dienste|
+|PowerShell WinRM|Network|-|Beispiel: Geben Sie-PSSession server|
+|PowerShell WinRM mit CredSSP|NetworkClearText|v|New-PSSession server<br />-Authentication Credssp<br />-Credential cred|
+|PsExec ohne explizite Anmeldeinformationen|Network|-|Beispiel: PsExec \\\server Cmd|
+|PsExec mit expliziten Anmeldeinformationen|Netzwerk und interaktiv|v|PsExec \\\server -u user -p pwd cmd<br />Erstellt mehrere Anmeldesitzungen.|
+|Remoteregistrierung|Network|-||
+|Remotedesktopgateway|Network|-|Authentifizierung gegenüber Remotedesktopgateway.|
+|Geplanter Task|Batch (Stapel)|v|Das Kennwort wird auch als geheime LSA-Information auf dem Datenträger gespeichert.|
+|Tools als Dienst ausführen|Service|v|Das Kennwort wird auch als geheime LSA-Information auf dem Datenträger gespeichert.|
+|Überprüfung auf Sicherheitsrisiken|Network|-|Bei den meisten Überprüfungen werden Netzwerkanmeldungen verwendet. Einige Anbieter implementieren jedoch möglicherweise andere Anmeldeverfahren, die ein höheres Risiko für einen Diebstahl von Anmeldeinformationen zur Folge haben.|
 
-Verwenden Sie Informationen zur Webauthentifizierung finden Sie in der folgenden Tabelle:
+Informationen zur Webauthentifizierung finden Sie in der Tabelle unten:
 
-|Verbindung<br />Methode|Anmeldetyp|Wiederverwendbare Anmeldeinformationen auf dem Zielserver|Kommentare|
+|Verbindungsmethode|Anmeldetyp|Wiederverwendbare Anmeldeinformationen auf dem Ziel|Anmerkungen|
 |-----------|-------|--------------------|------|
-|IIS "Standardauthentifizierung"|NetworkCleartext<br />(IIS) 6.0 +<br /><br />Interaktive<br />(vor IIS 6.0)|v||
-|IIS integrierte Windows-Authentifizierung"|Netzwerk|-|NTLM- und Kerberos-Anbieter.|
+|IIS-Standardauthentifizierung|NetworkCleartext<br />(IIS 6.0 und höher)<br /><br />Interactive (Interaktiv)<br />(vor IIS 6.0)|v||
+|Integrierte Windows-Authentifizierung (IIS)|Network|-|NTLM- und Kerberos-Anbieter.|
 
-Definitionen:
+Spaltendefinitionen:
 
--   **Anmeldetyp** identifiziert den Anmeldetyp, der von der Verbindung initiiert.
+- **Anmeldetyp** identifiziert den Anmeldetyp, der von der Verbindung initiiert wird.
+- **Wiederverwendbare Anmeldeinformationen auf dem Ziel** gibt an, dass die folgenden Typen von Anmeldeinformationen im LSASS-Prozessspeicher auf dem Zielcomputer gespeichert werden, auf dem das angegebene Konto lokal angemeldet wird:
+   - LM- und NT-Hashes
+   - Kerberos TGTs
+   - Nur-Text-Kennwort (falls zutreffend).
 
--   **Wiederverwendbare Anmeldeinformationen auf dem Ziel** gibt an, dass die folgenden Typen von Anmeldeinformationen im LSASS-Prozessspeicher auf dem Zielcomputer gespeichert werden, in denen das angegebene Konto lokal angemeldet wird:
+Die Symbole in dieser Tabelle sind wie folgt definiert:
 
-    -   LM- und NT-hashes
+- (-) zeigt an, dass die Anmeldeinformationen nicht offengelegt werden.
+- (v) zeigt an, dass die Anmeldeinformationen offengelegt werden.
 
-    -   Kerberos-TGTs
+Bei Verwaltungsanwendungen, die nicht in dieser Tabelle aufgeführt sind, können Sie den Anmeldetyp anhand des entsprechenden Felds in den überwachten Anmeldeereignissen ermitteln. Weitere Informationen finden Sie unter [Anmeldeereignisse überwachen](https://technet.microsoft.com/library/cc787567(v=ws.10).aspx).
 
-    -   Nur-Text-Kennwort (falls zutreffend).
+Auf Windows-basierten Computern werden alle Authentifizierungen als einer von mehreren Anmeldetypen verarbeitet (unabhängig davon, welches Authentifizierungsprotokoll oder welcher Authenticator verwendet wird). Diese Tabelle enthält die gängigsten Anmeldetypen sowie die zugehörigen Attribute im Hinblick auf den Diebstahl von Anmeldeinformationen:
 
-    -
-
-Die Symbole in dieser Tabelle wie folgt definiert:
-
--   (-) zeigt an, dass Anmeldeinformationen nicht offengelegt werden.
-
--   (V) Zeigt an, dass Anmeldeinformationen verfügbar gemacht werden.
-
-Bei Verwaltungsanwendungen, die nicht in dieser Tabelle enthalten sind, können Sie den Anmeldetyp anhand des entsprechenden Felds in den überwachten Anmeldeereignissen ermitteln. Weitere Informationen finden Sie unter [Anmeldeereignisse](https://technet.microsoft.com/en-us/library/cc787567(v=ws.10).aspx).
-
-In Windows-basierten Computern werden alle Authentifizierungen als einer von mehreren Anmeldetypen verarbeitet, unabhängig davon, welches Authentifizierungsprotokoll oder welcher Authenticator verwendet wird. Diese Tabelle enthält die gängigsten Anmeldetypen sowie die zugehörigen Attribute relativ zum Diebstahl von Anmeldeinformationen:
-
-|Anmeldetyp|#|Akzeptierte Authenticators|Wiederverwendbare Anmeldeinformationen in LSA-Sitzung|Beispiele für|
+|Anmeldetyp|#|Akzeptierte Authenticators|Wiederverwendbare Anmeldeinformationen in LSA-Sitzung|Beispiele|
 |-------|---|--------------|--------------------|------|
-|Interaktiv (lokale Anmeldung)|2|Kennwort, Smartcard,<br />andere|Ja|Konsolenanmeldung;<br />RUNAS;<br />Lösungen zur Remotesteuerung Hardware (z.B. Netzwerk-KVM oder Remotezugriff / Lights-Out-Karte in Servern)<br />IIS-Standardauthentifizierung (vor IIS 6.0)|
-|Netzwerk|3|Kennwort<br />NT-Hash<br />Kerberos-Tickets|Nein (Ausnahme: Wenn Delegierung und Kerberos-vorhanden Tickets und aktiviert)|NET USE;<br />RPC-Aufrufe;<br />Remotezugriff auf die Registrierung;<br />IIS integrierte Windows-Authentifizierung;<br />SQL-Windows-Authentifizierung,|
-|Stapel|4|Kennwort (üblicherweise als geheime LSA-Daten gespeichert)|Ja|Geplante Aufgaben|
-|Dienst|5|Kennwort (üblicherweise als geheime LSA-Daten gespeichert)|Ja|Windows-Dienste|
-|NetworkCleartext|8|Kennwort|Ja|IIS-Standardauthentifizierung (IIS 6.0 und höher);<br />WindowsPowerShell mit CredSSP|
-|Neue Anmeldeinformationen|9|Kennwort|Ja|RUNAS//NETWORK|
-|RemoteInteractive|10|Kennwort, Smartcard,<br />andere|Ja|Remotedesktop (früher als "Terminal Services" bezeichnet)|
+|Interaktiv (lokale Anmeldung)|2|Kennwort, Smartcard,<br />andere|Ja|Konsolenanmeldung,<br />RUNAS,<br />Lösungen zur Remotesteuerung von Hardware (z. B. Netzwerk-KVM oder Remotezugriff/Lights-Out-Karte in Servern)<br />IIS-Standardauthentifizierung (vor IIS 6.0)|
+|Network|3|Kennwort,<br />NT-Hash,<br />Kerberos-Ticket|Nein (Ausnahme: Wenn die Delegierung aktiviert ist, sind Kerberos-Tickets vorhanden)|NET USE,<br />RPC-Aufrufe,<br />Remoteregistrierung,<br />Integrierte Windows-Authentifizierung (IIS),<br />SQL-Windows-Authentifizierung,|
+|Batch (Stapel)|4|Kennwort (üblicherweise als geheime LSA-Daten gespeichert)|Ja|Geplante Aufgaben|
+|Service|5|Kennwort (üblicherweise als geheime LSA-Daten gespeichert)|Ja|Windows-Dienste|
+|NetworkCleartext|8|Kennwort|Ja|IIS-Standardauthentifizierung (IIS 6.0 und höher),<br />Windows PowerShell mit CredSSP|
+|NewCredentials|9|Kennwort|Ja|RUNAS/NETZWERK|
+|RemoteInteractive|10|Kennwort, Smartcard,<br />andere|Ja|Remotedesktop (früher „Terminaldienste“)|
 
-Definitionen:
+Spaltendefinitionen:
 
--   **Anmeldetyp** ist der Typ der angeforderten Anmeldung.
-
--   **#**ist der numerische Bezeichner für den Anmeldetyp, der in Überwachungsereignissen des Sicherheitsereignisprotokolls gemeldet wird.
-
--   **Akzeptierte Authenticators** gibt an, welche Typen von Authenticators eine Anmeldung dieses Typs initiieren können.
-
--   **Wiederverwendbare Anmeldeinformationen** in LSA angibt, ob der Anmeldetyp zur Folge der LSA-Sitzung Anmeldeinformationen, z.B. Nur-Text-Kennwörter, NT-Hashes oder Kerberos-Tickets, die Authentifizierung gegenüber anderer Netzwerkressourcen verwendet werden können.
-
--   **Beispiele für** Liste allgemeine Szenarien, in denen der Anmeldetyp verwendet wird.
+- **Anmeldetyp** ist der Typ der angeforderten Anmeldung.
+- **#** ist der numerische Bezeichner für den Anmeldetyp, der in Überwachungsereignissen des Sicherheitsereignisprotokolls gemeldet wird.
+- **Akzeptierte Authenticators** gibt an, welche Typen von Authenticators eine Anmeldung dieses Typs initiieren können.
+- **Wiederverwendbare Anmeldeinformationen in einer LSA-Sitzung** gibt an, ob der Anmeldetyp zur Folge hat, dass die LSA-Sitzung die Anmeldeinformationen (z. B. Nur-Text-Kennwörter, NT-Hashes oder Kerberos-Tickets) speichert, sodass diese gegebenenfalls für die Authentifizierung gegenüber anderer Netzwerkressourcen verwendet werden können.
+- Unter **Beispiele** sind gängige Szenarien aufgeführt, in denen der Anmeldetyp verwendet wird.
 
 > [!NOTE]
-> Weitere Informationen zu Anmeldetypen, finden Sie unter [SECURITY_LOGON_TYPE Enumeration](https://technet.microsoft.com/en-us/library/aa380129(VS.85).aspx).
+> Weitere Informationen zu Anmeldetypen finden Sie unter [SECURITY_LOGON_TYPE enumeration](https://technet.microsoft.com/library/aa380129(VS.85).aspx) (SECURITY_LOGON_TYPE-Enumeration).

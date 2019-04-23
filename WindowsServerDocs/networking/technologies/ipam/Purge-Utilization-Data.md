@@ -1,6 +1,6 @@
 ---
 title: Endgültiges Löschen von Nutzungsdaten
-description: Dieses Thema ist Teil des Handbuchs Verwaltung von IP-Adressverwaltung (IPAM) in Windows Server2016.
+description: Dieses Thema ist Teil des Leitfadens Verwaltung von IP-Adressverwaltung (IPAM) in Windows Server 2016.
 manager: brianlic
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -13,24 +13,25 @@ ms.topic: article
 ms.assetid: 45cada9e-69b9-43df-b6f5-6d3942435809
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: c41be119099aed4867df1bae1a55e2fbaa5c9064
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
+ms.openlocfilehash: 7b471417d4c44c22f115443f1f2dcca6f351e6f4
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59827941"
 ---
 # <a name="purge-utilization-data"></a>Endgültiges Löschen von Nutzungsdaten
 
->Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
-In diesem Thema können Sie Informationen zum Löschen von Nutzungsdaten aus der IPAM-Datenbank.  
+Sie können in diesem Thema verwenden, Informationen zum Löschen von Nutzungsdaten aus der IPAM-Datenbank.  
 
-Sie müssen ein Mitglied sein **IPAM-Administratoren**, dem lokalen Computer **Administratoren** Gruppe oder eine entsprechende Berechtigung, um dieses Verfahren auszuführen.
+Sie müssen ein Mitglied sein **IPAM-Administratoren**, dem lokalen Computer **Administratoren** oder einer gleichwertigen Gruppe, um dieses Verfahren auszuführen.
 
-## <a name="to-purge-the-ipam-database"></a>Die IPAM-Datenbank gelöscht.  
-1. Öffnen Sie Server-Manager, und suchen Sie anschließend die IPAM-Client-Benutzeroberfläche.
+## <a name="to-purge-the-ipam-database"></a>So löschen Sie die IPAM-Datenbank  
+1. Öffnen Sie Server-Manager, und navigieren Sie dann auf die IPAM-Client-Schnittstelle.
 2. Suchen Sie einen der folgenden Speicherorte: **IP-Adressblöcke**, **IP-Adressbestand**, oder **IP-Adressbereichsgruppen**.  
 3. Klicken Sie auf **Aufgaben**, und klicken Sie dann auf **Löschen von Nutzungsdaten**. Die **Löschen von Nutzungsdaten** Dialogfeld wird geöffnet.
-4. In **löschen Sie alle Auslastung Daten am oder vor dem**, klicken Sie auf **wählen Sie ein Datum**.
-5. Wählen Sie das Datum für das Sie alle Datensätze auf und vor diesem Zeitpunkt löschen möchten.
+4. In **löschen Sie alle Auslastung Daten am oder vor**, klicken Sie auf **wählen Sie ein Datum**.
+5. Wählen Sie das Datum, die für das Sie alle Datenbankdatensätze auf und vor diesem Datum löschen möchten.
 6. Klicken Sie auf **OK**. IPAM löscht alle Datensätze, die Sie angegeben haben.

@@ -1,6 +1,6 @@
 ---
-title: "Hinzufügen von Ordnerzielen"
-description: "In diesem Thema wird beschrieben, wie Sie Ordnerziele (UNC-Pfade) hinzufügen"
+title: Hinzufügen von Ordnerzielen
+description: In diesem Thema wird beschrieben, wie Sie Ordnerziele (UNC-Pfade) hinzufügen
 ms.prod: windows-server-threshold
 ms.author: jgerend
 ms.manager: brianlic
@@ -8,15 +8,16 @@ ms.technology: storage
 ms.topic: article
 author: jasongerend
 ms-date: 06/05/2017
-ms.openlocfilehash: 71305089553d622f54cb4e5608034edfaf7abc5f
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
-ms.translationtype: HT
+ms.openlocfilehash: 8cc61189076669d5c24244294b2f0eee2b783517
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59831001"
 ---
 # <a name="add-folder-targets"></a>Hinzufügen von Ordnerzielen
 
-> Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server2012 R2, Windows Server 2012, Windows Server2008 R2, Windows Server 2008
+> Gilt für: WindowsServer 2019, WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2, WindowsServer 2008
 
 Ein Ordnerziel ist der Universal Naming Convention (UNC)-Pfad eines freigegebenen Ordners oder ein anderer Namespace, der einem Ordner in einem Namespace zugeordnet ist. Das Hinzufügen mehrerer Ordnerziele erhöht die Verfügbarkeit des Ordners im Namespace.
 
@@ -33,13 +34,13 @@ Verwenden Sie das folgende Verfahren, um mithilfe der DFS-Verwaltung ein Ordnerz
 4.  Wenn der Ordner mit DFS-Replikation repliziert wird, können Sie angeben, ob Sie das neue Ordnerziel der Replikationsgruppe hinzuzufügen möchten.
 
 > [!TIP]
-> Verwenden Sie zum Hinzufügen eines Ordnerziels mithilfe von Windows PowerShell das Cmdlet [New-DfsnFolderTarget](https://docs.microsoft.com/powershell/module/dfsn/new-dfsnfoldertarget). Das DFSN Windows PowerShell-Modul wurde in Windows Server2012 eingeführt.
+> Verwenden Sie zum Hinzufügen eines Ordnerziels mithilfe von Windows PowerShell das Cmdlet [New-DfsnFolderTarget](https://docs.microsoft.com/powershell/module/dfsn/new-dfsnfoldertarget). Das DFSN Windows PowerShell-Modul wurde in Windows Server 2012 eingeführt.
 
 > [!NOTE]
 > Ordner können Ordnerziele oder anderen DFS-Ordner enthalten, aber nicht beide auf der gleichen Ebene in der Hierarchie der Ordner.
 
-## <a name="see-also"></a>Weitere Informationen:
+## <a name="see-also"></a>Siehe auch
 
 -   [Bereitstellen von DFS-Namespaces](deploying-dfs-namespaces.md)
 -   [Delegieren von Verwaltungsberechtigungen für DFS-Namespaces](delegate-management-permissions-for-dfs-namespaces.md)
--   [Replizieren von Ordnerzielen mit DFS-Replikation](replicate-folder-targets-using-dfs-replication.md)
+-   [Replizieren Sie die Ordnerziele des DFS-Replikation verwenden](replicate-folder-targets-using-dfs-replication.md)
