@@ -1,0 +1,94 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Remotezugriff auf Always On-VPN
+metadata:
+  document_id: null
+  title: Remotezugriff auf Always On-VPN
+  description: 'Informationen zu Features, Technologie und Bereitstellung von Always On-VPN.'
+  text: 'Always On-VPN-bietet eine einzige, einheitliche Lösung für den Remotezugriff für all Ihre verbundenen Geräte, sogar Geräte in Privatbesitz. Mit Always On-VPN muss der Verbindungstyp nicht ausschließlich Benutzer oder Gerät, sondern kann eine Kombination aus beidem sein. Sie könnten z.B. die Geräteauthentifizierung für die Remotegeräteverwaltung aktivieren und dann die Benutzerauthentifizierung für Konnektivität mit internen Unternehmenssites und -diensten.'
+  keywords: 'Windows 10, Windows Server, Windows Server 2016, Remotezugriff, VPN'
+  ms.localizationpriority: high
+  author: shortpatti
+  ms.author: pashort
+  ms.date: 11/05/2018
+  ms.topic: article
+  ms.devlang: na
+sections:
+  - title: Weitere Informationen...
+  - items:
+      - type: markdown
+        text: 'Stellen Sie den Remotezugriff als einzelnes Mandanten-VPN-RAS-Gateway für Point-to-Site-VPN-Verbindungen mit einer der vier unten erwähnten Szenarios für Remoteclientcomputer bereit, auf denen Windows 10 ausgeführt wird.  Wenn Sie derzeit DirectAccess verwenden, sollten Sie die Always On-VPN-Funktionalität sorgfältig untersuchen, um zu bestimmen, ob sie alle Ihre Remotezugriffsanforderungen erfüllt, bevor Sie von DirectAccess zu Always On-VPN migrieren.'
+  - items:
+      - type: list
+        style: cards
+        className: cardsE
+        columns: 3
+        items:
+          - href: \windows-server\remote\remote-access\vpn\always-on-vpn\deploy\always-on-vpn-deploy
+            html: '<p>Sie erhalten Informationen über die Always On-VPN-Bereitstellung und darüber, wo Sie beginnen.</p>'
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_get-started.svg'
+            title: Der Beginn Ihrer Reise
+          - href: \windows-server\remote\remote-access\vpn\vpn-map-da
+            html: <p>Sie erhalten Informationen zu Features und Funktionalität von Always On-VPN.</p>
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_quick-start.svg'
+            title: Always On-VPN-Features und Funktionalität
+          - href: \windows-server\remote\remote-access\vpn\always-on-vpn\always-on-vpn-enhancements
+            html: '<p>Informationen zu den wichtigsten Verbesserungen in Integration, Sicherheit, Konnektivität, Netzwerksteuerung und Kompatibilität.</p>'
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_whats-new.svg'
+            title: Always On VPN-Verbesserungen
+          - href: \windows-server\remote\remote-access\vpn\always-on-vpn\always-on-vpn-technology-overview
+            html: '<p>Erfahren Sie mehr über die Technologien, die in der Always On-VPN-Bereitstellung verwendet werden.</p>'
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_overview.svg'
+            title: Technologieübersicht
+          - href: \windows-server\remote\remote-access\vpn\always-on-vpn\deploy\always-on-vpn-adv-options
+            html: '<p>Erfahren Sie mehr über die erweiterten VPN-Features, die Sie zur Verbesserung der Sicherheit und Verfügbarkeit Ihrer VPN-Verbindung hinzufügen können.</p>'
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_advanced.svg'
+            title: Erweitern des Always On-VPN mit erweiterten Features
+  - title: Erste Schritte
+    items:
+      - type: paragraph
+        text: Stellen Sie Always On-VPN-Verbindungen für in die Domäne eingebundene Windows 10-Clientcomputer bereit. Sie können auch von DirectAccess zu Always On-VPN migrieren und den bedingten Zugriff mithilfe von Azure AD konfigurieren.
+      - type: list
+        style: cards
+        className: cardsE
+        columns: 3
+        items:
+          - href: \windows-server\remote\remote-access\vpn\always-on-vpn\deploy\always-on-vpn-deploy-deployment
+            html: '<p>Ermitteln Sie, welche Anforderungen zum Bereitstellen von VPN-Verbindungen vorliegen.</p>'
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_architecture.svg'
+            title: Bereitstellungsworkflow und Szenarien
+          - href: \windows-server\remote\remote-access\vpn\always-on-vpn\deploy\always-on-vpn-deploy-planning
+            html: <p>Beginnen Sie mit Planung und Vorbereitung der Always On VPN-Bereitstellung.</p>
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_guidelines.svg'
+            title: Planen der Always On VPN-Bereitstellung
+          - href: \windows-server\remote\remote-access\vpn\always-on-vpn\deploy\vpn-deploy-server-infrastructure
+            html: <p>Beginnen Sie mit dem Einrichten und Konfigurieren der VPN-Infrastruktur gemäß der Windows 10-Client-VPN-Konnektivität.</p>
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_setup.svg'
+            title: Bereitstellen der VPN-Infrastruktur
+          - href: \windows-server\remote\remote-access\vpn\ad-ca-vpn-connectivity-windows10
+            html: '<p>Legen Sie in der Feinabstimmung fest, wie VPN-Benutzer mithilfe des bedingten Zugriffs von Azure AD auf Ihre Ressourcen zugreifen.</p>'
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_setup.svg'
+            title: Konfigurieren des bedingten Zugriffs
+  - items:
+      - type: list
+        style: cards
+        className: cardsL
+        items:
+          - title: Problembehandlung bei Always On VPN
+            html: |-
+              <p><a class="barLink" href="/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy-troubleshooting#vpnprofileps1-script-issues">Skriptprobleme bei „VPN_Profile.ps1“</a></p>
+              <p><a class="barLink" href="/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy-troubleshooting#always-on-vpn-client-connection-issues">Always On-VPN-Client-Verbindungsprobleme</a></p>
+              <p><a class="barLink" href="/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy-troubleshooting#azure-ad-conditional-access-connection-issues">Verbindungsprobleme bei bedingtem Zugriff unter Azure AD</a></p>
+              <p><a class="barLink" href="/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy-troubleshooting#error-codes">Fehlercodes</a></p><br>
+              <p><a class="barLink" href="/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy-troubleshooting#logs">Protokolldateien</a></p></div>
+          - title: Zusätzliche Ressourcen
+            html: "<p><a class=\"barLink\" href=\"https://docs.microsoft.com/windows/access-protection/vpn/vpn-guide\">Technische VPN-Anleitung für Windows\_10</a></p>\n<p><a class=\"barLink\" href=\"https://msdn.microsoft.com/windows/hardware/commercialize/customize/mdm/vpnv2-csp\">VPNv2-Konfigurationsdienstanbieter</a></p>\n<p><a class=\"barLink\" href=\"https://technet.microsoft.com/library/hh831740.aspx\">Active Directory-Zertifikatdienste: Übersicht</a></p>\n<p><a class=\"barLink\" href=\"https://technet.microsoft.com/library/cc730705.aspx\">Zertifikatvorlagen</a></p>\n<p><a class=\"barLink\" href=\"https://social.technet.microsoft.com/wiki/contents/articles/2901.public-key-infrastructure-design-guidance.aspx\">Anleitung zum Entwerfen der Public Key-Infrastruktur (PKI)</a></p><p></p>\n<p><a class=\"barLink\" href=\"https://social.technet.microsoft.com/wiki/contents/articles/15037.ad-cs-step-by-step-guide-two-tier-pki-hierarchy-deployment.aspx\">AD CS-Schritt-für-Schritt-Anleitung – Bereitstellung einer Zwei-Ebenen-PKI-Hierarchie</a></p>"

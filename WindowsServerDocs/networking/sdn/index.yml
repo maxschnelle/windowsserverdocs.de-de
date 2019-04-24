@@ -1,0 +1,89 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Software-Defined Networking (SDN)
+metadata:
+  document_id: null
+  title: Software-Defined Networking (SDN)
+  description: 'Informationen zu Features, Technologie und Bereitstellung von Software Defined Networking (SDN).'
+  text: 'Mit Software-Defined Networking (SDN) können Sie Ihr Rechenzentrumsnetzwerk dynamisch verwalten, um Workload- und App-Anforderungen zu erfüllen. Sie können Netzwerkrichtlinien auch dann konsistent und in unterschiedlichem Umfang implementieren, wenn Sie neue Workloads bereitstellen oder Workloads zwischen virtuellen oder physischen Netzwerken verschieben.'
+  keywords: 'Windows Server, Windows Server 2016, Software-Defined Networking, SDN'
+  ms.localizationpriority: medium
+  author: shortpatti
+  ms.author: pashort
+  ms.date: 09/04/2018
+  ms.topic: article
+  ms.devlang: na
+sections:
+  - title: Weitere Informationen...
+  - items:
+      - type: markdown
+        text: 'Implementieren Sie Software Defined Networking, wodurch Ihr Netzwerk virtualisiert wird, um physische Hardware-Netzwerkelemente wie Switches und Router zu abstrahieren.'
+  - items:
+      - type: list
+        style: cards
+        className: cardsE
+        columns: 3
+        items:
+          - href: \windows-server\networking\sdn\sdn-whats-new
+            html: <p>Erfahren Sie mehr über die neuen und aktualisierten Features von SDN.</p>
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_whats-new.svg'
+            title: Neues in SDN für Windows Server 2019
+          - href: \windows-server\networking\sdn\software-defined-networking
+            html: '<p>Erfahren Sie, wie Sie physische und virtuelle Netzwerkgeräte zentral konfigurieren und verwalten können.</p>'
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_overview.svg'
+            title: Übersicht zu Software-Defined Networking (SDN)
+          - href: \windows-server\networking\sdn\technologies\Software-Defined-Networking-Technologies
+            html: <p>Lernen Sie die in Windows Server 2016 enthaltenen SDN-Technologien kennen.</p>
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_tools.svg'
+            title: Hauptkomponenten der SDN-Architektur
+          - href: \windows-server\networking\sdn\security\sdn-security-top
+            html: <p>Informieren Sie sich über das Implementieren und Verwalten der Sicherheit für SDN einschließlich Authentifizierung und virtueller Verschlüsselung.</p>
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_security-management.svg'
+            title: Sicherheit für SDN
+          - href: 'https://youtu.be/f501zUUcXD0'
+            html: <p>Sehen Sie sich die Präsentation der Funktionen von Software Defined Networking in Windows Server 2016 durch Windows Server-SDN-Techniker Greg Cusanza und Matt McSpirit an.</p>
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_video.svg'
+            title: Microsoft-SDN-Mechanik
+  - title: Erste Schritte...
+    items:
+      - type: paragraph
+        text: 'Planen, konfigurieren und verwalten Sie physische und virtuelle Netzwerkgeräte wie Router, Switches und Gateways zentral in Ihrem Rechenzentrum.'
+      - type: list
+        style: cards
+        className: cardsE
+        columns: 3
+        items:
+          - href: \windows-server\networking\sdn\plan\Plan-a-Software-Defined-Network-Infrastructure
+            html: '<p>Ermitteln Sie, was erforderlich ist, um eine SDN-Infrastruktur bereitzustellen.</p>'
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_design.svg'
+            title: Planen einer SDN-Infrastruktur
+          - href: \windows-server\networking\sdn\deploy\Deploy-a-Software-Defined-Network-Infrastructure
+            html: '<p>Stellen Sie alle Technologien bereit, die Sie für eine voll funktionsfähige Infrastruktur benötigen. </p>'
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_deploy.svg'
+            title: Bereitstellen einer SDN-Infrastruktur
+          - href: \windows-server\networking\sdn\plan\Plan-a-Software-Defined-Network-Infrastructure
+            html: <p> </p>
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_management.svg'
+            title: Verwalten einer SDN-Infrastruktur
+          - href: \windows-server\networking\sdn\troubleshoot\troubleshoot-windows-server-software-defined-networking-stack
+            html: <p> </p>
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_debug.svg'
+            title: Problembehandlung und Diagnose in einer SDN-Infrastruktur
+  - items:
+      - type: list
+        style: cards
+        className: cardsL
+        items:
+          - title: SDN-Lernressourcen
+            html: |-
+              <p><a class="barLink" href="https://blogs.technet.microsoft.com/networking/2017/03/06/troubleshoot-configuring-sdn-ras-gateway-vpn-bandwidth-settings-in-virtual-machine-manager/">Troubleshoot Configuring SDN RAS Gateway VPN Bandwidth Settings in VMM</a> (Problembehandlung beim Konfigurieren von SDN-RAS-Gateway-VPN-Bandbreiteneinstellungen in VMM)</p></div>
+              <p><a class="barLink" href="https://download.microsoft.com/download/1/5/A/15AC87E7-E99C-4E98-B6AF-9346790AD2DF/Software_Defined_Networking_is_built_in_with_Windows_Server_2016_solution_brief_EN_US.pdf/">Datenblatt zu Software Defined Networking von Microsoft</a></p></div>

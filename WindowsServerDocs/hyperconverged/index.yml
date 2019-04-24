@@ -1,0 +1,50 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentation zur hyperkonvergenten Infrastruktur
+metadata:
+  document_id: null
+  title: Dokumentation zur hyperkonvergenten Infrastruktur
+  description: Dokumentation zur hyperkonvergenten Infrastruktur
+  text: 'Konsolidieren von softwaredefinierten Compute-, Speicher- und Netzwerkressourcen in einem Cluster, um hoch leistungsfähige, kostengünstige und einfach skalierbare Virtualisierung zu ermöglichen'
+  keywords: 'Windows Server, Windows Server 2016, Hyper-V, SDN, Direkte Speicherplätze, WSSD'
+  ms.localizationpriority: high
+  author: coreyp-at-msft
+  ms.author: coreyp
+  ms.topic: article
+  ms.devlang: na
+sections:
+  - title: null
+  - items:
+      - type: markdown
+        text: 'Konsolidieren von softwaredefinierten Compute-, Speicher- und Netzwerkressourcen in einem Cluster, um hoch leistungsfähige, kostengünstige und einfach skalierbare Virtualisierung zu ermöglichen.'
+  - items:
+      - type: list
+        style: cards
+        className: cardsI
+        columns: 2
+        items:
+          - href: ../virtualization/hyper-v/index.md
+            html: '<p>Virtualisiert Serverhardware, sodass Sie virtuelle Computer serverübergreifend in einem hyperkonvergenten Cluster ausführen können</p>'
+            image:
+              src: ../media/i-virtualize.svg
+            title: Hyper-V
+          - href: ../storage/storage-spaces/storage-spaces-direct-overview.md
+            html: '<p>Virtualisiert Speicherhardware, sodass Sie Volumes auf einem virtualisierten Pool von Laufwerken erstellen können, die in einem hyperkonvergenten Cluster auf Server verteilt sind.</p>'
+            image:
+              src: ../media/i-store.svg
+            title: Direkte Speicherplätze
+          - href: ../failover-clustering/failover-clustering-overview.md
+            html: '<p>Gruppiert mehrere Server, sodass Workloads wie z.B. virtuelle Computer auf einem beliebigen Server im Cluster ausgeführt werden können, wobei Lastenausgleich und Failover ordnungsgemäß auf die Server verteilt werden.</p>'
+            image:
+              src: ../media/i-cluster.svg
+            title: Failoverclustering
+          - href: 'https://docs.microsoft.com/windows-server/networking/sdn/'
+            html: '<p>Virtualisiert die Netzwerkhardware, sodass Sie Netzwerke und Richtlinien, die Ihre Workloads aus zugrunde liegenden physischen Netzwerken abstrahieren, dynamisch erstellen und verwalten können.</p>'
+            image:
+              src: ../media/i-network.svg
+            title: Software-Defined Networking
+          - href: 'https://www.microsoft.com/cloud-platform/software-defined-datacenter'
+            html: '<p>Koppelt Virtualisierungs- und Clustertechnologien von Windows Server mit überprüften Hardwarelösungen des Partners Ihrer Wahl, sodass Sie bei der Optimierung eines softwaredefinierten Rechenzentrums nichts dem Zufall überlassen müssen.</p>'
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_data-collection.svg'
+            title: Windows Server Software-Defined (WSSD)
