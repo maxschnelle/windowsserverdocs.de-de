@@ -1,7 +1,7 @@
 ---
 ms.assetid: 8738c03d-6ae8-49a7-8b0c-bef7eab81057
 title: Bereitstellen einer zentralen Zugriffsrichtlinie (Demonstrationsschritte)
-description: 
+description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -10,83 +10,84 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
 ms.openlocfilehash: 16973b32407985ffc3f66bf5ac579384a756b5d0
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
-ms.translationtype: MT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59817141"
 ---
 # <a name="deploy-a-central-access-policy-demonstration-steps"></a>Bereitstellen einer zentralen Zugriffsrichtlinie (Demonstrationsschritte)
 
->Gilt für: Windows Server2016, Windows Server2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-In diesem Szenario wird der Finance-Abteilung Sicherheitsvorgänge mit der zentralen Informationssicherheit an einer zentralen Zugriffsrichtlinie erforderlich, damit sie auf Dateiservern archivierte Finanzinformationen schützen können. Die archivierten Finanzinformationen jedes Land kann durch alle finanzmitarbeiter aus demselben Land als schreibgeschützt zugegriffen werden. Eine zentrale finanzadministratorgruppe kann die Finanzinformationen aus allen Ländern zugreifen.  
+In diesem Szenario werden die Finanzabteilungs-Sicherheitsvorgänge zusammen mit der zentralen Informationssicherheit verwendet, um die Notwendigkeit für eine zentrale Zugriffsrichtlinie anzugeben, sodass sie auf Dateiservern archivierte Finanzinformationen schützen kann. Die archivierten Finanzinformationen jedes Lands kann durch alle Finanzmitarbeiter aus demselben Land mit Lesezugriff aufgerufen werden. Eine zentrale Finanzadministratorgruppe kann auf die Finanzinformationen aus allen Ländern zugreifen.  
   
-Bereitstellen einer zentralen Zugriffsrichtlinie beinhaltet die folgenden Phasen:  
+Das Bereitstellen einer zentralen Zugriffsrichtlinie beinhaltet die folgenden Phasen:  
   
 |Phase|Beschreibung  
 |---------|---------------  
-|[Plan: Identifizieren der richtliniennotwendigkeit und der für die Bereitstellung erforderlichen Konfiguration](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md#BKMK_1.2)|Identifizieren Sie die Notwendigkeit einer Richtlinie und der für die Bereitstellung erforderlichen Konfiguration. 
+|[Planen: Bestimmen der richtliniennotwendigkeit und der erforderlichen Konfiguration für die Bereitstellung](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md#BKMK_1.2)|Bestimmen der Richtliniennotwendigkeit und der für die Bereitstellung erforderlichen Konfiguration. 
 |[Implementieren: Konfigurieren der Komponenten und Richtlinie](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md#BKMK_1.3)|Konfigurieren der Komponenten und Richtlinie.  
-|[Bereitstellen der zentralen Zugriffsrichtlinie](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md#BKMK_1.4)|Bereitstellen Sie diese Richtlinie.  
-|[Verwalten Sie ändern und Staging der Richtlinie](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md#BKMK_1.5)|Richtlinienänderungen und Staging. 
+|[Bereitstellen der zentralen Zugriffsrichtlinie](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md#BKMK_1.4)|Stellen Sie die Richtlinie bereit.  
+|[Verwalten: Ändern und Staging der Richtlinie](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md#BKMK_1.5)|Richtlinienänderungen und Staging. 
   
-## <a name="BKMK_1.1"></a>Einrichten einer Testumgebung  
-Bevor Sie beginnen, müssen Sie Labor zum Testen dieses Szenarios einrichten. Die Schrittezum Einrichten des Labors werden detailliert erläutert [AnhangB: Setting Up the Test Environment ](Appendix-B--Setting-Up-the-Test-Environment.md).  
+## <a name="BKMK_1.1"></a>Einrichten einer testumgebung  
+Bevor Sie beginnen, müssen Sie ein Labor zum Testen dieses Szenarios einrichten. Die Schritte zum Einrichten der testumgebung werden ausführlich im [Anhang B: Einrichten der Testumgebung](Appendix-B--Setting-Up-the-Test-Environment.md).  
   
-## <a name="BKMK_1.2"></a>Plan: Identifizieren der richtliniennotwendigkeit und der für die Bereitstellung erforderlichen Konfiguration  
-Dieser Abschnittenthält die Reihe allgemeiner Schritte, die in der Planungsphase Ihrer Bereitstellung unterstützen.  
+## <a name="BKMK_1.2"></a>Plan: Bestimmen der Richtliniennotwendigkeit und der für die Bereitstellung erforderlichen Konfiguration  
+In diesem Abschnitt werden eine Reihe allgemeiner Schritte erläutert, die Sie in der Planungsphase Ihrer Bereitstellung unterstützen.  
   
 ||Schritt|Beispiel|  
 |-|--------|-----------|  
-|1.1|Unternehmen bestimmt, dass eine zentrale Zugriffsrichtlinie erforderlich ist|Um Finanzinformationen zu schützen, die auf Dateiservern gespeichert sind, die Finanzabteilung Abteilung Sicherheitsvorgänge mit der zentralen Informationssicherheit an einer zentralen Zugriffsrichtlinie erforderlich.|  
-|1.2|Ausdrücken der Zugriffsrichtlinie|Finanzdokumente sollten nur von Mitgliedern der Finanzabteilung gelesen werden. Mitglieder der Finanzabteilung sollten nur auf Dokumente in ihrem eigenen Land zugreifen. Nur Finanzadministratoren sollten Schreibzugriff haben. Für Mitglieder der Gruppe "FinanceException" wird eine Ausnahme zugelassen. Diese Gruppe verfügt über Lesezugriff.|  
-|1.3|Ausdrücken der Zugriffsrichtlinie in Windows Server2012-Konstrukten|Werbung:<br /><br />-"Resource.Department" enthält "Finance"<br /><br />Regeln:<br /><br />– Kann User.Country=Resource.Country und User.department = "Resource.Department"<br />-Vollzugriff User.MemberOf(FinanceAdmin)<br /><br />Ausnahme:<br /><br />Lesen memberOf(FinanceException) zulassen|  
-|1.4|Bestimmen Sie, die für die Richtlinie erforderlichen Dateieigenschaften|Dateien kennzeichnen mit:<br /><br />-Abteilung<br />-Land|  
-|1.5|Bestimmen Sie die Anspruchstypen und für die Richtlinie erforderlichen Gruppen|Anspruchstypen:<br /><br />-Land<br />-Abteilung<br /><br />Gruppen:<br /><br />-FinanceAdmin<br />-"Financeexception"|  
-|1.6|Bestimmen Sie den Server, auf denen diese Richtlinie anwenden|Wenden Sie die Richtlinie auf alle finanzdateiserver an.|  
+|1.1|Unternehmen bestimmt, dass eine zentrale Zugriffsrichtlinie erforderlich ist|Damit auf Dateiservern gespeicherte Finanzinformationen zu schützen, werden die Finanzabteilungs-Sicherheitsvorgänge mit der zentralen Informationssicherheit verwendet, um die Notwendigkeit für eine zentrale Zugriffsrichtlinie zu bestimmen.|  
+|1.2|Ausdrücken der Zugriffsrichtlinie|Finanzdokumente sollten nur von Mitgliedern der Finanzabteilung gelesen werden. Mitglieder der Finanzabteilung sollten nur auf Dokumente in ihrem eigenen Land zugreifen. Nur Finanzadministratoren sollten über Schreibzugriff verfügen. Für Mitglieder der Gruppe "FinanceException" wird eine Ausnahme zugelassen. Diese Gruppe verfügt über Lesezugriff.|  
+|1.3|Ausdrücken der Zugriffsrichtlinie in Windows Server 2012-Konstrukten|Ziel:<br /><br />-"Resource.Department" enthält "Finance"<br /><br />Zugriffsregeln:<br /><br />-Gelesen User.Country=Resource.Country und User.department zulassen = "Resource.Department"<br />– Ermöglichen Sie vollständige Kontrolle User.MemberOf(FinanceAdmin)<br /><br />Ausnahme:<br /><br />Allow read memberOf(FinanceException)|  
+|1.4|Bestimmen der für die Richtlinie erforderlichen Dateieigenschaften|Dateien kennzeichnen mit:<br /><br />-Abteilung<br />/ Land|  
+|1.5|Bestimmen der für die Richtlinie erforderlichen Anspruchstypen und -gruppen|Anspruchstypen:<br /><br />/ Land<br />-Abteilung<br /><br />Benutzergruppen:<br /><br />-FinanceAdmin<br />-"Financeexception"|  
+|1.6|Bestimmen der Server, auf denen diese Richtlinie angewendet werden soll|Wenden Sie die Richtlinie auf alle Finanzdateiserver an.|  
   
 ## <a name="BKMK_1.3"></a>Implementieren: Konfigurieren der Komponenten und Richtlinie  
-Dieser Abschnittenthält ein Beispiel, das eine zentrale Zugriffsrichtlinie für Finanzdokumente bereitgestellt wird.  
+In diesem Abschnitt ist ein Beispiel vorhanden, in dem eine zentrale Zugriffsrichtlinie für Finanzdokumente bereitgestellt wird.  
   
 |Nein|Schritt|Beispiel|  
 |------|--------|-----------|  
-|2.1|Erstellen von Anspruchstypen|Erstellen Sie die folgenden Anspruchstypen:<br /><br />-Abteilung<br />-Land|  
-|2.2|Erstellen von Ressourceneigenschaften|Erstellen Sie und aktivieren Sie die folgenden Eigenschaften:<br /><br />-Abteilung<br />-Land|  
-|2.3|Konfigurieren einer zentralen Zugriffsregel|Erstellen Sie eine Regel für Finanzdokumente, die die im vorherigen Abschnittbestimmte Richtlinie enthält.|  
-|2.4|Konfigurieren einer zentralen Zugriffsrichtlinie (CAP)|Erstellen Sie eine CAP Finance Policy aufgerufen, und fügen Sie dieser zentralen Zugriffsrichtlinie die Regel für Finanzdokumente hinzu.|  
-|2.5|Zentrale Zugriffsrichtlinie auf den Dateiservern abzielen|Veröffentlichen der Finance-CAP-Richtlinie auf den Dateiservern.|  
-|2.6|Aktivieren Sie KDC-Unterstützung für Ansprüche, Verbundauthentifizierung und Kerberos Armoring.|Aktivieren Sie KDC-Unterstützung für Ansprüche, Verbundauthentifizierung und Kerberos Armoring für contoso.com.|  
+|2.1|Erstellen von Anspruchstypen|Erstellen Sie die folgenden Anspruchstypen:<br /><br />-Abteilung<br />/ Land|  
+|2.2|Erstellen von Ressourceneigenschaften|Erstellen und aktivieren Sie die folgenden Ressourceneigenschaften:<br /><br />-Abteilung<br />/ Land|  
+|2.3|Konfigurieren einer zentralen Zugriffsregel|Erstellen Sie eine Regel für Finanzdokumente, die die im vorherigen Abschnitt bestimmte Richtlinie enthält.|  
+|2.4|Konfigurieren einer zentralen Zugriffsrichtlinie|Erstellen Sie eine zentrale Zugriffsrichtlinie mit dem Namen „Finance Policy“, und fügen Sie dieser zentralen Zugriffsrichtlinie die Regel „Finance Documents“ hinzu.|  
+|2.5|Vorgeben einer zentralen Zugriffsrichtlinie für die Dateiserver|Veröffentlichen der zentrale Zugriffsrichtlinie „Finance Policy“ auf den Dateiservern.|  
+|2.6|Ermöglichen der KDC-Unterstützung für Ansprüche, Verbundauthentifizierung und Kerberos Armoring.|Ermöglichen der KDC-Unterstützung für Ansprüche, Verbundauthentifizierung und Kerberos Armoring für „contoso.com“.|  
   
-Im folgenden Verfahren erstellen Sie zwei Anspruchstypen: Land "und" Department.  
+Im folgenden Verfahren erstellen Sie zwei Anspruchstypen: „Country“ und „Department“.  
   
-#### <a name="to-create-claim-types"></a>Zum Erstellen von Anspruchstypen  
+#### <a name="to-create-claim-types"></a>So erstellen Sie Anspruchstypen:  
   
-1.  Öffnen Sie Server "DC1" im Hyper-V-Manager, und melden sich als "Contoso\administrator" mit dem Kennwort **pass@word1**.  
+1.  Öffnen Sie auf Server "DC1" im Hyper-V-Manager, und melden als "Contoso\Administrator" mit dem Kennwort **pass@word1**.  
   
-2.  Active Directory-Verwaltungscenter zu öffnen.  
+2.  Öffnen Sie das Active Directory-Verwaltungscenter.  
   
-3.  Klicken Sie auf die **strukturansichtssymbol**, erweitern Sie **dynamische Zugriffssteuerung**, und wählen Sie dann **Anspruchstypen **.  
+3.  Klicken Sie auf das Strukturansichtssymbol****, erweitern Sie **Dynamische Zugriffssteuerung**, und wählen Sie dann **Anspruchstypen** aus.  
   
-    Mit der rechten Maustaste **Anspruchstypen**, klicken Sie auf **neu**, und klicken Sie dann auf **Anspruchstyp **.  
+    Klicken Sie mit der rechten Maustaste auf **Anspruchstypen**, klicken Sie auf **Neu** und dann auf **Anspruchstyp**.  
   
     > [!TIP]  
-    > Sie können auch Öffnen einer **Anspruchstyp erstellen:** Fenster aus der **Aufgaben** Bereich. Auf der **Aufgaben** Bereich, klicken Sie auf **neu**, und klicken Sie dann auf **Anspruchstyp **.  
+    > Sie können ein Fenster vom Typ **Anspruchstyp erstellen** auch im Bereich **Aufgaben** öffnen. Klicken Sie im Bereich **Aufgaben** auf **Neu**, und klicken Sie dann auf **Anspruchstyp**.  
   
-4.  In der **Quellattribut** aus, führen Sie einen Bildlauf nach unten durch die Liste der Attribute, und auf **Abteilung **. Dies sollte Auffüllen der **Anzeigenamen** Feld **Abteilung **. Klicken Sie auf **OK**.  
+4.  Führen Sie in der Liste **Quellattribut** einen Bildlauf durch die Liste der Attribute durch, und klicken Sie auf **department**. Dadurch sollte das Feld **Anzeigename** mit **department** aufgefüllt werden. Klicken Sie auf **OK**.  
   
-5.  In **Aufgaben** Bereich, klicken Sie auf **neu**, und klicken Sie dann auf **Anspruchstyp**.  
+5.  Klicken Sie im Bereich **Aufgaben** auf **Neu**, und klicken Sie dann auf **Anspruchstyp**.  
   
-6.  In der **Quellattribut** aufzulisten, führen Sie einen Bildlauf nach unten durch die Liste der Attribute und klicken Sie dann auf die **c** Attribut (Ländername). In der **Anzeigenamen** geben **Land**.  
+6.  Führen Sie in der Liste **Quellattribut** einen Bildlauf durch die Liste der Attribute durch, und klicken Sie dann auf das Attribut **c** (Ländername). Geben Sie in das Feld **Anzeigename****country** ein.  
   
-7.  In der **vorgeschlagene Werte** Abschnitt **die folgenden Werte werden vorgeschlagen:**, und klicken Sie dann auf **hinzufügen**.  
+7.  Wählen Sie im Abschnitt **Vorgeschlagene Werte** die Option **Folgende Werte werden vorgeschlagen** aus, und klicken Sie dann auf **Hinzufügen**.  
   
-8.  In der **Wert** und **Anzeigenamen** Felder, Typ **US**, und klicken Sie dann auf **OK**.  
+8.  Geben Sie in die Felder **Wert** und **Anzeigename****US** ein, und klicken Sie dann auf **OK**.  
   
-9. Wiederholen Sie den obigen Schritt. In der **vorgeschlagenen Wert hinzufügen**, geben Sie im Dialogfeld **JP** in die **Wert** und **Anzeigenamen** Felder, und klicken Sie dann auf **OK**.  
+9. Wiederholen Sie den obigen Schritt. Geben Sie im Dialogfeld **Vorgeschlagenen Wert hinzufügen****JP** in die Felder **Wert** und **Anzeigename** ein, und klicken Sie dann auf **OK**.  
   
 ![Lösungshandbücher](media/Deploy-a-Central-Access-Policy--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***  
   
-Die folgenden Windows PowerShell-Cmdlet oder Cmdlets führen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie jedes Cmdlet in einer einzelnen Zeile, auch wenn sie über mehrere Zeilen umgebrochen angezeigt werden möglicherweise aufgrund von formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
+Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
  
     New-ADClaimType country -SourceAttribute c -SuggestedValues:@((New-Object Microsoft.ActiveDirectory.Management.ADSuggestedValueEntry("US","US","")), (New-Object Microsoft.ActiveDirectory.Management.ADSuggestedValueEntry("JP","JP","")))  
@@ -95,34 +96,34 @@ Die folgenden Windows PowerShell-Cmdlet oder Cmdlets führen dieselbe Funktion w
  
   
 > [!TIP]  
-> Können die Windows PowerShell-Verlaufsanzeige im Active Directory-Verwaltungscenter auf um Windows PowerShell-Cmdlets nach jeder Prozedur zu durchsuchen, die Sie im Active Directory-Verwaltungscenter ausführen. Weitere Informationen finden Sie unter [Windows PowerShell History Viewer](https://technet.microsoft.com/library/hh831702)  
+> Sie können die Windows PowerShell-Verlaufsanzeige im Active Directory-Verwaltungscenter verwenden, um Windows PowerShell-Cmdlets nach jeder Prozedur zu durchsuchen, die Sie im Active Directory-Verwaltungscenter ausführen. Weitere Informationen finden Sie unter [Windows PowerShell History Viewer](https://technet.microsoft.com/library/hh831702)  
   
-Im nächste Schrittwerden Ressourceneigenschaften erstellt. Im folgenden Verfahren erstellen Sie eine Ressourceneigenschaft, die die Liste der globalen Ressourceneigenschaften auf dem Domänencontroller automatisch hinzugefügt wird, damit sie für den Dateiserver verfügbar ist.  
+Im nächsten Schritt werden Ressourceneigenschaften erstellt. Im folgenden Verfahren erstellen Sie eine Ressourceneigenschaft, die der Liste mit den globalen Ressourceneigenschaften auf dem Domänencontroller automatisch hinzugefügt wird, sodass sie für den Dateiserver verfügbar ist.  
   
-#### <a name="to-create-and-enable-pre-created-resource-properties"></a>So erstellen und aktivieren vorab erstellte Ressourceneigenschaften  
+#### <a name="to-create-and-enable-pre-created-resource-properties"></a>So erstellen und aktivieren Sie vorab erstellte Ressourceneigenschaften  
   
-1.  Klicken Sie im linken Bereich des Active Directory-Verwaltungscenters auf **Strukturansicht**. Erweitern Sie **dynamische Zugriffssteuerung**, und wählen Sie dann **Ressourceneigenschaften**.  
+1.  Klicken Sie im linken Bereich des Active Directory-Verwaltungscenters auf **Strukturansicht**. Erweitern Sie **Dynamische Zugriffssteuerung**, und wählen Sie dann **Ressourceneigenschaften** aus.  
   
-2.  Mit der rechten Maustaste **Ressourceneigenschaften**, klicken Sie auf **neu**, und klicken Sie dann auf **Referenzressourceneigenschaft**.  
+2.  Klicken Sie mit der rechten Maustaste auf **Ressourceneigenschaften**, klicken Sie auf **Neu** und dann auf **Referenzressourceneigenschaft**.  
   
     > [!TIP]  
-    > Sie können auch eine Ressourceneigenschaft aus der **Aufgaben** Bereich. Klicken Sie auf **neu**, und klicken Sie dann auf **Referenzressourceneigenschaft**.  
+    > Sie können auch eine Ressourceneigenschaft aus dem Bereich **Aufgaben** auswählen. Klicken Sie auf **Neu** und dann auf **Referenzressourceneigenschaft**.  
   
-3.  In **wählen Sie ein Anspruchstyp zum Freigeben wird vorgeschlagen Werte Liste**, klicken Sie auf **Land**.  
+3.  Klicken Sie in **Wählen Sie den Anspruchstyp aus, dessen vorgeschlagene Werte verwendet werden sollen** auf **country**.  
   
-4.  In der **Anzeigenamen** geben **Land**, und klicken Sie dann auf **OK**.  
+4.  Geben Sie **country** in das Feld **Anzeigename** ein, und klicken Sie dann auf **OK**.  
   
-5.  Doppelklicken Sie auf die **Ressourceneigenschaften** aufzulisten, führen Sie einen Bildlauf nach unten, um die **Abteilung** Ressourceneigenschaft. Mit der rechten Maustaste, und klicken Sie dann auf **aktivieren**. Dadurch kann die integrierte **Abteilung** Ressourceneigenschaft.  
+5.  Doppelklicken Sie auf die Liste **Ressourceneigenschaften**, führen Sie einen Bildlauf zur Ressourceneigenschaft **Department** durch. Klicken Sie mit der rechten Maustaste, und klicken Sie dann auf **Aktivieren**. Dadurch wird die integrierte Ressourceneigenschaft **Department** aktiviert.  
   
-6.  In der **Ressourceneigenschaften** Liste im Navigationsbereich des Active Directory-Verwaltungscenter, Sie haben nun zwei aktivierte Ressourceneigenschaften:  
+6.  In der Liste **Ressourceneigenschaften** im Navigationsbereich des Active Directory-Verwaltungscenters stehen Ihnen nun zwei aktivierte Ressourceneigenschaften zur Verfügung:  
   
     -   Land  
   
-    -   Abteilung  
+    -   Department  
   
 ![Lösungshandbücher](media/Deploy-a-Central-Access-Policy--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***  
   
-Die folgenden Windows PowerShell-Cmdlet oder Cmdlets führen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie jedes Cmdlet in einer einzelnen Zeile, auch wenn sie über mehrere Zeilen umgebrochen angezeigt werden möglicherweise aufgrund von formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
+Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
 ```  
 New-ADResourceProperty Country -IsSecured $true -ResourcePropertyValueType MS-DS-MultivaluedChoice -SharesValuesWith country  
@@ -132,7 +133,7 @@ Add-ADResourcePropertyListMember "Global Resource Property List" -Members Depart
   
 ```  
   
-Der nächste Schrittist die Erstellung zentrale Zugriffsregeln, die definieren, wer auf Ressourcen zugreifen können. In diesem Szenario lauten die Geschäftsregeln:  
+Im nächsten Schritt erstellen Sie die zentralen Zugriffsregeln, in denen definiert wird, wer auf Ressourcen zugreifen kann. In diesem Szenario lauten die Geschäftsregeln wie folgt:  
   
 -   Finanzdokumente können nur von Mitgliedern der Finanzabteilung gelesen werden.  
   
@@ -140,90 +141,90 @@ Der nächste Schrittist die Erstellung zentrale Zugriffsregeln, die definieren, 
   
 -   Nur Finanzadministratoren können über Schreibzugriff verfügen.  
   
--   Wir können eine Ausnahme für Mitglieder der Gruppe "FinanceException". Diese Gruppe verfügt über Lesezugriff.  
+-   Wir ermöglichen eine Ausnahme für die Mitglieder der Gruppe „FinanceException“. Diese Gruppe verfügt über Lesezugriff.  
   
--   Der Administrator auch der Dokumentbesitzer haben weiterhin Vollzugriff.  
+-   Sowohl der Administrator als auch der Dokumentbesitzer haben weiterhin Vollzugriff.  
   
-Oder zum Ausdrücken der Regeln mit Windows Server2012-Konstrukten:  
+Oder zum Ausdrücken der Regeln mit Windows Server 2012-Konstrukten:  
   
-Werbung: "Resource.Department" enthält "Finance"  
+Ziel: „Resource.Department“ enthält „Finance“  
   
-Regeln:  
+Zugriffsregeln:  
   
--   Lesen User.Country=Resource.Country und User.department zulassen = "Resource.Department"  
+-   Allow Read User.Country=Resource.Country AND User.department = Resource.Department  
   
--   Vollzugriff User.MemberOf(FinanceAdmin)  
+-   Allow Full control User.MemberOf(FinanceAdmin)  
   
--   Lesen User.MemberOf(FinanceException) zulassen  
+-   Allow Read User.MemberOf(FinanceException)  
   
-#### <a name="to-create-a-central-access-rule"></a>Erstellen Sie eine zentrale Zugriffsregel  
+#### <a name="to-create-a-central-access-rule"></a>So erstellen Sie eine zentrale Zugriffsregel  
   
-1.  Klicken Sie im linken Bereich des Active Directory-Verwaltungscenter auf **Strukturansicht**Option **dynamische Zugriffssteuerung**, und klicken Sie dann auf **zentrale Zugriffsregeln**.  
+1.  Klicken Sie im linken Bereich des Active Directory-Verwaltungscenters auf **Strukturansicht**, wählen Sie **Dynamische Zugriffssteuerung** aus, und klicken Sie dann auf **Zentrale Zugriffsregeln**.  
   
-2.  Mit der rechten Maustaste **zentrale Zugriffsregeln**, klicken Sie auf **neu**, und klicken Sie dann auf **zentrale Zugriffsregel**.  
+2.  Klicken Sie mit der rechten Maustaste auf **Zentrale Zugriffsregeln**, klicken Sie auf **Neu** und dann auf **Zentrale Zugriffsregel**.  
   
-3.  In den **Namen** geben **Finance Documents Rule**.  
+3.  Geben Sie **Finance Documents Rule** in das Feld **Name** ein.  
   
-4.  In der **Zielressourcen** auf **bearbeiten**, und in der **zentrale Zugriffsregel** Dialogfeld klicken Sie auf **eine Bedingung hinzufügen,**. Fügen Sie die folgende Bedingung hinzu:   
-    [**Ressource**] [**Abteilung**] [**Gleich**] [**Value**] [**Finanzen**], und klicken Sie dann auf **OK**.  
+4.  Klicken Sie im Abschnitt **Zielressourcen** auf **Bearbeiten**, und klicken Sie im Dialogfeld **Zentrale Zugriffsregel** auf **Bedingung hinzufügen**. Fügen Sie die folgende Bedingung hinzu:   
+    [**Resource**] [**Department**] [**Equals**] [**Value**] [**Finance**], und klicken Sie dann auf **OK**.  
   
-5.  In der **Berechtigungen** Abschnitt **folgende Berechtigungen als aktuelle Berechtigungen verwenden**, klicken Sie auf **bearbeiten**, und in der **Advanced Security Settings for Berechtigungen** Dialogfeld auf **hinzufügen**.  
+5.  Wählen Sie im Abschnitt **Berechtigungen** die Option **Folgende Berechtigungen als aktuelle Berechtigungen verwenden** aus, klicken Sie auf **Bearbeiten**, und klicken Sie im Dialogfeld **Erweiterte Sicherheitseinstellungen für Berechtigungen** auf **Hinzufügen**.  
   
     > [!NOTE]  
-    > **Verwenden Sie die folgenden Berechtigungen als vorgesehene Berechtigungen** Option können Sie die Richtlinie in Staging erstellen. Weitere Informationen hierzu finden Sie in der verwalten: Ändern und Phase im Richtlinienabschnitt "in diesem Thema.  
+    > Mit der Option **Folgende Berechtigungen als vorgesehene Berechtigungen verwenden** können Sie die Richtlinie in Staging erstellen. Weitere Informationen darüber, wie Sie dies umsetzen können, finden Sie im Abschnitt „Warten: Ändern und Staging der Richtlinie“ in diesem Thema.  
   
-6.  In der **Berechtigungseintrag für Berechtigungen** Dialogfeld, klicken Sie auf **Prinzipal auswählen**, Typ **authentifizierte Benutzer**, und klicken Sie dann auf **OK**.  
+6.  Klicken Sie im Dialogfeld **Berechtigungseintrag für Berechtigungen**, klicken Sie auf **Prinzipal auswählen**, geben Sie **Authentifizierte Benutzer** ein, und klicken Sie dann auf **OK**.  
   
-7.  In der **Berechtigungseintrag für Berechtigungen** Dialogfeld, klicken Sie auf **eine Bedingung hinzufügen,**, und fügen Sie die folgenden Bedingungen hinzu:   
-    [**User**] [**Land**] [**Any of**] [**Ressource**] [**Land**]   
-     Klicken Sie auf **fügen Sie eine Bedingung**.   
+7.  Klicken Sie im Dialogfeld **Berechtigungseintrag** auf **Bedingung hinzufügen**, und fügen Sie die folgenden Bedingungen hinzu:   
+    [**Benutzer**] [**Land**] [**eines**] [**Ressource**] [**Land**]   
+     Klicken Sie auf **Bedingung hinzufügen**.   
      [**And**]   
-    Klicken Sie auf [**Benutzer**] [**Abteilung**] [**eines**] [**Ressource**] [**Abteilung**]. Legen Sie die **Berechtigungen** auf **lesen**.  
+    Klicken Sie auf [**Benutzer**] [**Abteilung**] [**eines**] [**Ressource**] [**Abteilung**]. Legen Sie die **Berechtigungen** auf **Lesen** fest.  
   
-8.  Klicken Sie auf **OK**, und klicken Sie dann auf **hinzufügen**. Klicken Sie auf **Prinzipal auswählen**, Typ **FinanceAdmin**, und klicken Sie dann auf **OK**.  
+8.  Klicken Sie auf **OK** und dann auf **Hinzufügen**. Klicken Sie auf **Prinzipal auswählen**, geben Sie **FinanceAdmin** ein, und klicken Sie dann auf **OK**.  
   
-9. Wählen Sie die **ändern, lesen und ausführen, lesen, schreiben** Berechtigungen, und klicken Sie dann auf **OK**.  
+9. Wählen Sie die Berechtigungen **Ändern, Lesen und Ausführen, Lesen, Schreiben** aus, und klicken Sie dann auf **OK**.  
   
-10. Klicken Sie auf **hinzufügen**, klicken Sie auf **Prinzipal auswählen**, Typ **FinanceException**, und klicken Sie dann auf **OK**. Wählen Sie die Berechtigungen werden **lesen** und **Lese- und Ausführungsberechtigungen**.  
+10. Klicken Sie auf **Hinzufügen**, klicken Sie auf **Prinzipal auswählen**, geben Sie **FinanceException** ein, und klicken Sie dann auf **OK**. Wählen Sie aus, dass die Berechtigungen **Lesen** und **Lesen und Ausführen** lauten sollen.  
   
-11. Klicken Sie auf **OK** dreimal ab, und kehren Sie zu Active Directory-Verwaltungscenter zurück.  
+11. Klicken Sie dreimal auf **OK** zum Abschließen des Vorgangs, und kehren Sie zum Active Directory-Verwaltungscenter zurück.  
   
     ![Lösungshandbücher](media/Deploy-a-Central-Access-Policy--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***  
   
-    Die folgenden Windows PowerShell-Cmdlet oder Cmdlets führen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie jedes Cmdlet in einer einzelnen Zeile, auch wenn sie über mehrere Zeilen umgebrochen angezeigt werden möglicherweise aufgrund von formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
+    Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
  
-    $countryClaimType = Get-ADClaimType Land  
-    $departmentClaimType = Get-ADClaimType Abteilung  
-    $countryResourceProperty = Get-ADResourceProperty Land  
+    $countryClaimType = Get-ADClaimType country  
+    $departmentClaimType = Get-ADClaimType department  
+    $countryResourceProperty = Get-ADResourceProperty Country  
     $departmentResourceProperty = Get-ADResourceProperty Abteilung  
-    $currentAcl = "O:SYG:SYD:AR(A;; FA;; O W) (A; FA;; BA) (A; 0 x1200a9;; S-1-5-21-1787166779-1215870801-2157059049-1113) (A; 0 x1301bf;; S-1-5-21-1787166779-1215870801-2157059049-1112) (A; FA;; SY) (XA; 0 x1200a9;; AU;((@USER." + $countryClaimType.Name + "Any_of @RESOURCE." + $countryResourceProperty.Name + ") & & (@USER." + $departmentClaimType.Name + "Any_of @RESOURCE." + $departmentResourceProperty.Name + ")))"  
+    $currentAcl = "O:SYG:SYD:AR(A;; FA;; O W) (A; FA;; BA); (A; 0 x1200a9;; S-1-5-21-1787166779-1215870801-2157059049-1113) (A; 0 x1301bf;; S-1-5-21-1787166779-1215870801-2157059049-1112) (A; FA;; SY) (XA; 0 x1200a9;; AU ;((@USER. " + $countryClaimType.Name + " Any_of @RESOURCE." + $countryResourceProperty.Name + ") && (@USER." + $departmentClaimType.Name + " Any_of @RESOURCE." + $departmentResourceProperty.Name + ")))"  
     $resourceCondition = "(@RESOURCE." + $departmentResourceProperty.Name + "enthält {`"Finance`"}) "  
-    New-ADCentralAccessRule "Finance Documents Rule" - CurrentAcl $currentAcl - ResourceCondition $resourceCondition  
+    New-ADCentralAccessRule "Finance Documents Rule" -CurrentAcl $currentAcl -ResourceCondition $resourceCondition  
 
   
 > [!IMPORTANT]  
-> Im obigen Cmdlet-Beispiel werden die Sicherheits-IDs (SIDs) für die Gruppe "financeadmin" und der Benutzer wird zur Erstellungszeit bestimmt und unterscheiden sich in Ihrem Beispiel. Beispielsweise die bereitgestellten SID-Wert (S-1-5-21-1787166779-1215870801-2157059049-1113) für die FinanceAdmins muss durch die tatsächliche Sicherheits-ID für die Gruppe "FinanceAdmin" ersetzt werden, die Sie in Ihrer Bereitstellung erstellen müssen. Sie können Windows PowerShell verwenden, suchen Sie nach der SID-Wert dieser Gruppe, den Wert einer Variablen zuweisen und verwenden Sie die Variable hier. Weitere Informationen finden Sie unter [Windows PowerShell-Tipp: Verwenden von SIDs](https://go.microsoft.com/fwlink/?LinkId=253545).  
+> Im obigen Cmdlet-Beispiel werden die Sicherheits-IDs für die Gruppe „FinanceAdmin“ und Benutzer zur Erstellungszeit bestimmt, und sie unterscheiden sich in Ihrem Beispiel. Beispielsweise muss der angegebene Sicherheits-ID-Wert (S-1-5-21-1787166779-1215870801-2157059049-1113) für „FinanceAdmins“ durch die tatsächliche Sicherheits-ID für die Gruppe „FinanceAdmin“ ersetzt werden, die Sie zum Erstellen in Ihrer Bereitstellung bräuchten. Sie können Windows PowerShell verwenden, zum Suchen des SID-Wertes, der diese Gruppe, diesen Wert einer Variablen zuweisen und verwenden Sie dann die Variable hier. Weitere Informationen finden Sie unter [Windows PowerShell-Tipp: Arbeiten mit SIDs](https://go.microsoft.com/fwlink/?LinkId=253545).  
   
-Sie verfügen jetzt über eine zentrale Zugriffsregel, die Personen Zugriff auf Dokumente aus demselben Land und derselben Abteilung ermöglicht. Die Regel ermöglicht der Gruppe "FinanceAdmin", die Dokumente zu bearbeiten, und ermöglicht der Gruppe "FinanceException", um die Dokumente zu lesen. Diese Regel zielt nur auf Dokumente als Finance klassifiziert.  
+Sie sollten nun über eine zentrale Zugriffsregel verfügen, die Personen erlaubt, auf Dokumente aus demselben Land und derselben Abteilung zuzugreifen. Die Regel ermöglicht der Gruppe „FinanceAdmin“ die Bearbeitung der Dokumente, und sie ermöglicht der Gruppe „FinanceException“, die Dokumente zu lesen. Diese Regel zielt nur auf Dokumente ab, die als „Finance“ klassifiziert wurden.  
   
-#### <a name="to-add-a-central-access-rule-to-a-central-access-policy"></a>Eine zentrale Zugriffsrichtlinie einer zentralen Zugriffsregel hinzu  
+#### <a name="to-add-a-central-access-rule-to-a-central-access-policy"></a>So fügen Sie eine zentrale Zugriffsregel zu einer zentralen Zugriffsrichtlinie hinzu  
   
-1.  Klicken Sie im linken Bereich des Active Directory-Verwaltungscenter auf **dynamische Zugriffssteuerung**, und klicken Sie dann auf **zentrale Zugriffsrichtlinien**.  
+1.  Klicken Sie im linken Bereich des Active Directory-Verwaltungscenters auf **Dynamische Zugriffssteuerung**, und klicken Sie dann auf **Zentrale Zugriffsrichtlinien**.  
   
-2.  In der **Aufgaben** Bereich, klicken Sie auf **neu**, und klicken Sie dann auf **zentrale Zugriffsrichtlinie**.  
+2.  Klicken Sie im Bereich **Aufgaben** auf **Neu**, und klicken Sie dann auf **Zentrale Zugriffsrichtlinie**.  
   
-3.  In **zentrale Zugriffsrichtlinie erstellen:**, Typ **Finance Policy** in den **Namen** Feld.  
+3.  Geben Sie unter **Zentrale Zugriffsrichtlinie erstellen****Finance Policy** in das Feld **Name** ein.  
   
-4.  In **Member zentrale Zugriffsregeln**, klicken Sie auf **hinzufügen**.  
+4.  Klicken Sie in **Zentrale Zugriffsregeln des Mitglieds** auf **Hinzufügen**.  
   
-5.  Doppelklicken Sie auf die **Finance Documents Rule** mit dem sie die **folgende zentrale Zugriffsregeln hinzufügen** aus, und klicken Sie dann auf **OK**.  
+5.  Doppelklicken Sie auf **Finance Documents Rule**, um sie zur Liste **Folgende zentrale Zugriffsregeln hinzufügen** hinzuzufügen, und klicken Sie dann auf **OK**.  
   
-6.  Klicken Sie auf **OK** beendet. Sie verfügen jetzt über eine zentrale Zugriffsrichtlinie namens Finance Policy.  
+6.  Klicken Sie auf **OK**, um den Vorgang abzuschließen. Sie sollten nun über eine zentrale Zugriffsrichtlinie namens „Finance Policy“ verfügen.  
   
     ![Lösungshandbücher](media/Deploy-a-Central-Access-Policy--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***  
   
-    Die folgenden Windows PowerShell-Cmdlet oder Cmdlets führen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie jedes Cmdlet in einer einzelnen Zeile, auch wenn sie über mehrere Zeilen umgebrochen angezeigt werden möglicherweise aufgrund von formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
+    Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
     ```  
     New-ADCentralAccessPolicy "Finance Policy" Add-ADCentralAccessPolicyMember   
@@ -232,176 +233,176 @@ Sie verfügen jetzt über eine zentrale Zugriffsregel, die Personen Zugriff auf 
   
     ```  
   
-#### <a name="to-apply-the-central-access-policy-across-file-servers-by-using-group-policy"></a>Die zentrale Zugriffsrichtlinie dateiserverübergreifend anwenden, mithilfe von Gruppenrichtlinien  
+#### <a name="to-apply-the-central-access-policy-across-file-servers-by-using-group-policy"></a>So wenden Sie die zentrale Zugriffsrichtlinie dateiserverübergreifend mithilfe der Gruppenrichtlinie an  
   
-1.  Auf der **starten** Bildschirm, in der **Suche** geben **die Gruppenrichtlinien-Verwaltungskonsole**. Doppelklicken Sie auf **Gruppenrichtlinienverwaltung**.  
-  
-    > [!TIP]  
-    > Wenn die **Verwaltungstools anzeigen** Einstellung deaktiviert ist, die **Verwaltung** Ordner und dessen Inhalt werden nicht angezeigt, dem **Einstellungen** Ergebnisse.  
+1.  Geben Sie **Gruppenrichtlinienverwaltung** im Feld **Suchen** auf dem Startbildschirm an****. Doppelklicken Sie auf **Gruppenrichtlinienverwaltung**.  
   
     > [!TIP]  
-    > In Ihrer Produktionsumgebung sollten Sie erstellen eine Datei Server Organisationseinheit (OU) und alle Ihre Dateiserver dieser Organisationseinheit hinzufügen, möchten Sie diese Richtlinie anwenden. Sie können dann eine Gruppenrichtlinie erstellen und dieser Richtlinie diese Organisationseinheit hinzufügen.  
+    > Wenn die Einstellung **Verwaltungstools anzeigen** deaktiviert ist, werden der Ordner **Verwaltung** und sein Inhalt nicht in den Ergebnissen für **Einstellungen** angezeigt.  
   
-2.  In diesem Schrittbearbeiten Sie das Gruppenrichtlinienobjekt, das Sie erstellt, in haben [Erstellen des Domänencontrollers](Appendix-B--Setting-Up-the-Test-Environment.md#BKMK_Build) Abschnittin der Umgebung für die zentrale Zugriffsrichtlinie enthalten, die Sie erstellt haben. In der Gruppenrichtlinienverwaltungs-Editor, wechseln Sie zu, und wählen Sie die Organisationseinheit, in der Domäne (in diesem Beispiel contoso.com): **Gruppenrichtlinienverwaltung**, **Gesamtstruktur: contoso.com**, **Domänen**, **contoso.com**, **Contoso**, **FileServerOU **.  
+    > [!TIP]  
+    > In Ihrer Produktionsumgebung sollten Sie eine Dateiserver-Organisationseinheit erstellen und dieser Organisationseinheit alle Ihre Dateiserver hinzufügen, auf die Sie diese Richtlinie anwenden möchten. Sie können eine Gruppenrichtlinie erstellen und dieser Richtlinie diese Organisationseinheit hinzufügen.  
   
-3.  Mit der rechten Maustaste **flexibleAccessGPO**, und klicken Sie dann auf **bearbeiten **.  
+2.  In diesem Schritt bearbeiten Sie das im Abschnitt für das [Erstellen des Domänencontrollers](Appendix-B--Setting-Up-the-Test-Environment.md#BKMK_Build) in der Testumgebung erstellte Gruppenrichtlinienobjekt, um die von Ihnen erstellte zentrale Zugriffsrichtlinie einzubeziehen. Navigieren Sie im Gruppenrichtlinienverwaltungs-Editor zur Organisationseinheit in der Domäne (in diesem Beispiel „contoso.com“), und wählen Sie sie aus: **Gruppenrichtlinienverwaltung**, **Gesamtstruktur: contoso.com**, **Domänen**, **contoso.com**, **Contoso**, **FileServerOU**.  
   
-4.  Wechseln Sie in der Gruppenrichtlinienverwaltungs-Editor-Fenster zu **Computerkonfiguration**, erweitern Sie **Richtlinien**, erweitern Sie **Windows-Einstellungen**, und klicken Sie auf **Sicherheitseinstellungen **.  
+3.  Klicken Sie mit der rechten Maustaste auf **FlexibleAccessGPO**, und klicken Sie dann auf **Bearbeiten**.  
   
-5.  Erweitern Sie **Dateisystem**, mit der rechten Maustaste **zentrale Zugriffsrichtlinie**, und klicken Sie dann auf **zentrale Zugriffsrichtlinien verwalten**.  
+4.  Wechseln Sie im Gruppenrichtlinienverwaltungs-Editor zu **Computerkonfiguration**, erweitern Sie **Richtlinien**, erweitern Sie **Windows-Einstellungen**, und klicken Sie auf **Sicherheitseinstellungen**.  
   
-6.  In der **Konfiguration der zentralen Zugriffsrichtlinien** Dialogfeld fügen **Finance Policy**, und klicken Sie dann auf **OK **.  
+5.  Erweitern Sie **Dateisystem**, klicken Sie mit der rechten Maustaste auf **Zentrale Zugriffsrichtlinie**, und klicken Sie dann auf **Zentrale Zugriffsrichtlinien verwalten**.  
   
-7.  Führen Sie einen Bildlauf nach unten zu **erweiterte Überwachungsrichtlinienkonfiguration**, und erweitern Sie ihn.  
+6.  Fügen Sie **Finance Policy**  im Dialogfeld **Konfiguration der zentralen Zugriffsrichtlinien** hinzu, und klicken Sie dann auf **OK**.  
   
-8.  Erweitern Sie **Überwachungsrichtlinien**, und wählen Sie **Objektzugriff **.  
+7.  Führen Sie einen Bildlauf zu **Erweiterte Überwachungsrichtlinienkonfiguration** durch, und erweitern Sie den Knoten.  
   
-9. Doppelklicken Sie auf **Staging zentraler Zugriffsrichtlinien Überwachen **. Wählen Sie alle drei Kontrollkästchen, und klicken Sie dann auf **OK **. Dieser Schrittkann das System Überwachungsereignisse im Zusammenhang mit zentralen Zugriffs-Staging-Richtlinien erhalten.  
+8.  Erweitern Sie **Überwachungsrichtlinien**, und wählen Sie **Objektzugriff** aus.  
   
-10. Doppelklicken Sie auf **Dateisystemeigenschaften Überwachen **. Wählen Sie alle drei Kontrollkästchen und klicken Sie dann **OK **.  
+9. Doppelklicken Sie auf **Staging zentraler Zugriffsrichtlinien überwachen**. Aktivieren Sie alle drei Kontrollkästchen, und klicken Sie dann auf **OK**. Dadurch kann das System Überwachungsereignisse empfangen, die mit zentralen Zugriffs-Staging-Richtlinien in Zusammenhang stehen.  
+  
+10. Doppelklicken Sie auf **Dateisystemeigenschaften überwachen**. Aktivieren Sie alle drei Kontrollkästchen, und klicken Sie dann auf **OK**.  
   
 11. Schließen Sie den Gruppenrichtlinienverwaltungs-Editor. Sie haben nun der Gruppenrichtlinie die zentrale Zugriffsrichtlinie hinzugefügt.  
   
-Für eine Domäne Domänencontroller Ansprüche oder gerätautorisierungsdaten bereitstellen müssen die Domänencontroller für die Unterstützung der dynamischen Zugriffssteuerung konfiguriert werden.  
+Für einen Domänencontroller der Ansprüche oder gerätautorisierungsdaten bereitstellen müssen die Domänencontroller so konfiguriert werden, dass die dynamische Zugriffssteuerung unterstützen.  
   
-#### <a name="to-enable-support-for-claims-and-compound-authentication-for-contosocom"></a>So aktivieren Sie die Unterstützung für Ansprüche und Verbundauthentifizierung für die contoso.com  
+#### <a name="to-enable-support-for-claims-and-compound-authentication-for-contosocom"></a>So aktivieren Sie die Unterstützung für Ansprüche und die Verbundauthentifizierung für „contoso.com“  
   
-1.  Öffnen Sie die Gruppenrichtlinien-Verwaltungskonsole, klicken Sie auf **contoso.com**, und klicken Sie dann auf **Domänencontroller **.  
+1.  Öffnen Sie die Gruppenrichtlinien-Verwaltungskonsole, klicken Sie auf **contoso.com** und auf **Domänencontroller**.  
   
-2.  Mit der rechten Maustaste **Standarddomänencontroller-Richtlinie**, und klicken Sie dann auf **bearbeiten **.  
+2.  Klicken Sie mit der rechten Maustaste auf **Standard-Domänencontrollerrichtlinie**, und klicken Sie dann auf **Bearbeiten**.  
   
-3.  Doppelklicken Sie in der Gruppenrichtlinienverwaltungs-Editor-Fenster auf **Computerkonfiguration**, doppelklicken Sie auf **Richtlinien**, doppelklicken Sie auf **Administrative Vorlagen**, doppelklicken Sie auf **System**, und doppelklicken Sie dann auf **KDC**.  
+3.  Doppelklicken Sie im Fenster „Gruppenrichtlinienverwaltungs-Editor“ auf **Computerkonfiguration**, doppelklicken Sie auf **Richtlinien**, doppelklicken Sie auf **Administrative Vorlagen**, doppelklicken Sie auf **System**, und doppelklicken Sie dann auf **KDC**.  
   
-4.  Doppelklicken Sie auf **KDC-Unterstützung für Ansprüche, Verbundauthentifizierung und Kerberos Armoring **. In der **KDC-Unterstützung für Ansprüche, Verbundauthentifizierung und Kerberos Armoring** Dialogfeld klicken Sie auf **aktiviert**, und wählen Sie **unterstützte** aus der **Optionen** Dropdownliste. (Sie müssen zum Aktivieren dieser Einstellung Benutzeransprüche in zentralen Zugriffsrichtlinien verwenden.)  
+4.  Doppelklicken Sie auf **KDC-Unterstützung für Ansprüche, Verbundauthentifizierung und Kerberos Armoring**. Klicken Sie im Dialogfeld **KDC-Unterstützung für Ansprüche, Verbundauthentifizierung und Kerberos Armoring** auf **Aktiviert**, und wählen Sie **Unterstützt** aus der Dropdownliste **Optionen** aus. (Sie müssen diese Einstellung aktivieren, um Benutzeransprüche in zentralen Zugriffsrichtlinien verwenden zu können.)  
   
-5.  Schließen **Gruppenrichtlinienverwaltung**.  
+5.  Schließen Sie **Gruppenrichtlinienverwaltung**.  
   
-6.  Öffnen Sie ein Eingabeaufforderungsfenster, und geben `gpupdate /force`.  
+6.  Öffnen Sie eine Eingabeaufforderung, und geben Sie `gpupdate /force` ein.  
   
 ## <a name="BKMK_1.4"></a>Bereitstellen der zentralen Zugriffsrichtlinie  
   
 ||Schritt|Beispiel|  
 |-|--------|-----------|  
-|3.1|Weisen Sie der Caps zu den entsprechenden freigegebenen Ordnern auf dem Dateiserver.|Weisen Sie die zentrale Zugriffsrichtlinie zu den entsprechenden freigegebenen Ordner auf dem Dateiserver.|  
-|3.2|Stellen Sie sicher, dass der Zugriff richtig konfiguriert ist.|Überprüfen Sie den Zugriff für Benutzer aus anderen Ländern und Abteilungen.|  
+|3.1|Weisen Sie die zentrale Zugriffsrichtlinie zu den entsprechenden freigegebenen Ordnern auf dem Dateiserver zu.|Weisen Sie die zentrale Zugriffsrichtlinie zu dem entsprechenden freigegebenem Ordner auf dem Dateiserver zu.|  
+|3.2|Stellen Sie sicher, dass der Zugriff ordnungsgemäß konfiguriert wurde.|Überprüfen Sie den Zugriff für Benutzer aus anderen Ländern und Abteilungen.|  
   
-In diesem Schrittweisen Sie die zentrale Zugriffsrichtlinie auf einem Dateiserver. Sie melden Sie sich an einen Dateiserver, der die zentrale Zugriffsrichtlinie empfängt, dass Sie die vorherigen Schrittenerstellt haben und die Richtlinie in einen freigegebenen Ordner zuweisen.  
+In diesem Schritt weisen Sie die zentrale Zugriffsrichtlinie zu einem Dateiserver zu. Sie melden sich auf einem Dateiserver an, der die von Ihnen in den vorherigen Schritten erstellte zentrale Zugriffsrichtlinie empfängt, und Sie weisen einem freigegebenen Ordner die Richtlinie zu.  
   
-#### <a name="to-assign-a-central-access-policy-to-a-file-server"></a>Ein Dateiserver eine zentrale Zugriffsrichtlinie zuweisen  
+#### <a name="to-assign-a-central-access-policy-to-a-file-server"></a>So weisen Sie einem Dateiserver eine zentrale Zugriffsrichtlinie zu  
   
-1.  Schließen Sie in Hyper-V-Manager auf Server "file1". Melden Sie sich bei dem Server mithilfe von "Contoso\Administrator" mit dem Kennwort:**pass@word1**.  
+1.  Stellen Sie im Hyper-V-Manager eine Verbindung mit dem Server „FILE1“ her. Melden Sie sich bei dem Server mithilfe von "Contoso\Administrator" mit dem Kennwort: **pass@word1**.  
   
-2.  Öffnen Sie ein Eingabeaufforderungsfenster mit erhöhten Rechten und Typ: **Gpupdate/force**. Dadurch wird sichergestellt, dass Ihre gruppenrichtlinienänderungen auf Ihrem Server wirksam.  
+2.  Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten, und geben Sie Folgendes ein: **gpupdate /force**. Dadurch wird sichergestellt, dass Ihre Gruppenrichtlinienänderungen auf Ihrem Server wirksam werden.  
   
-3.  Sie müssen auch die globalen Ressourceneigenschaften aus Active Directory zu aktualisieren. Öffnen einer Windows PowerShell-Fenster mit erhöhten Rechten, und geben `Update-FSRMClassificationpropertyDefinition`. Drücken Sie die EINGABETASTE, und schließen Sie Windows PowerShell.  
+3.  Sie müssen auch die globalen Ressourceneigenschaften in Active Directory aktualisieren. Öffnen Sie ein Windows PowerShell-Fenster mit erhöhten Rechten, und geben Sie `Update-FSRMClassificationpropertyDefinition` ein. Drücken Sie die EINGABETASTE, und schließend Sie anschließend die Windows PowerShell.  
   
     > [!TIP]  
-    > Sie können auch die globalen Ressourceneigenschaften durch Anmelden bei der Dateiserver aktualisieren. Um die globalen Ressourceneigenschaften vom Dateiserver zu aktualisieren, führen Sie folgende Schritte  
+    > Sie können die globalen Ressourceneigenschaften auch aktualisieren, indem Sie sich am Dateiserver anmelden. So aktualisieren Sie die globalen Ressourceneigenschaften vom Dateiserver  
     >   
-    > 1.  Melden Sie sich die Datei Server FILE1 als Contoso\administrator mit dem Kennwort **pass@word1**.  
-    > 2.  File Server Resource Manager zu öffnen. File Server Resource Manager zu öffnen, klicken Sie auf **starten**, Typ **Ressourcen-Manager für Dateiserver**, und klicken Sie dann auf **File Server Resource Manager**.  
-    > 3.  Klicken Sie im der Resource Manager für Dateiserver, auf **Dateiklassifizierungsverwaltung**, mit der rechten Maustaste **Klassifizierungseigenschaften**, und klicken Sie dann auf **aktualisieren **.  
+    > 1.  Melden Sie sich die Dateiserver FILE1 als %% amp;quot;Contoso\Administrator%%amp;quot; mit dem Kennwort **pass@word1**.  
+    > 2.  Öffnen Sie den Ressourcen-Manager für Dateiserver. Klicken Sie zum Öffnen des Ressourcen-Managers für Dateiserver auf **Start**, geben Sie **Ressourcen-Manager für Dateiserver**ein, und klicken Sie dann auf **Ressourcen-Manager für Dateiserver**.  
+    > 3.  Klicken Sie im Ressourcen-Manager für Dateiserver auf **Dateiklassifizierungsverwaltung**, klicken Sie mit der rechten Maustaste auf **Klassifizierungseigenschaften**, und klicken Sie dann auf **Aktualisieren**.  
   
-4.  Öffnen Sie Windows Explorer, und klicken Sie im linken Bereich auf Laufwerk "d" mit der rechten Maustaste die **Finanzdokumente** Ordner, und klicken Sie dann auf **Eigenschaften **.  
+4.  Öffnen Sie den Windows-Explorer, und klicken Sie im linken Bereich auf das Laufwerk „D“. Klicken Sie mit der rechten Maustaste auf den Ordner **Finance Documents**, und klicken Sie auf **Eigenschaften**.  
   
-5.  Klicken Sie auf die **Klassifizierung** auf **Land**, und wählen Sie dann **US** in die **Wert** Feld.  
+5.  Klicken Sie auf die Registerkarte **Klassifizierung**, klicken Sie auf **Country**, und wählen Sie dann **US** im Feld **Wert** aus.  
   
-6.  Klicken Sie auf **Abteilung**, und wählen Sie dann **Finanzen** in die **Wert** ein, und klicken Sie dann auf **übernehmen **.  
+6.  Klicken Sie auf **Department**, wählen Sie dann **Finance** im Feld **Wert** aus, und klicken Sie auf **Übernehmen**.  
   
     > [!NOTE]  
-    > Denken Sie daran, dass die zentrale Zugriffsrichtlinie für die Zieldateien für die Finanzabteilung konfiguriert wurde. Die vorherigen Schrittemarkieren Sie alle Dokumente im Ordner mit den Attributen Land "und" Department.  
+    > Beachten Sie, dass die zentrale Zugriffsrichtlinie konfiguriert wurde, um auf Dateien für die Finanzabteilung abzuzielen. In den vorherigen Schritten wurden alle Dokumente im Ordner mit den Attributen „Country“ und „Department“ markiert.  
   
-7.  Klicken Sie auf die **Security** Registerkarte, und klicken Sie dann auf **erweitert**. Klicken Sie auf die **zentrale Richtlinie** Registerkarte.  
+7.  Klicken Sie auf die Registerkarte **Sicherheit** und dann auf **Erweitert**. Klicken Sie auf die Registerkarte **Zentrale Richtlinie**.  
   
-8.  Klicken Sie auf **ändern**Option **Finance Policy** aus der Dropdownmenü, und klicken Sie dann auf **übernehmen **. Sehen Sie die **Finance Documents Rule** in der Richtlinie aufgelistet. Erweitern Sie das Element, um alle Berechtigungen anzeigen, die Sie festlegen, wenn Sie die Regel in Active Directory erstellt.  
+8.  Klicken Sie auf **Ändern**, wählen Sie **Finance Policy** aus dem Dropdownmenü aus, und klicken Sie dann auf **Übernehmen**. **Finance Documents Rule** wird in der Richtlinie aufgelistet angezeigt. Erweitern Sie das Element, um alle von Ihnen beim Erstellen der Regel in Active Directory festgelegten Berechtigungen anzuzeigen.  
   
-9. Klicken Sie auf **OK** zurückkehren zu Windows-Explorer.  
+9. Klicken Sie auf **OK**, um zum Windows-Explorer zurückzukehren.  
   
-Im nächsten Schrittstellen Sie sicher, dass der Zugriff richtig konfiguriert ist.  Benutzerkonten müssen die entsprechenden Abteilung-Attribut festgelegt sein (Legen Sie dies mithilfe von Active Directory Administrative Center). Die einfachste Möglichkeit zum Anzeigen der effektiven Ergebnisse der neuen Richtlinie ist die Verwendung der **effektiver Zugriff** Registerkarte in Windows Explorer. Die **effektiver Zugriff** auf der Registerkarte werden die Zugriffsrechte für ein bestimmtes Benutzerkonto.  
+Im nächsten Schritt stellen Sie sicher, dass der Zugriff richtig konfiguriert wurde.  Für Benutzerkonten muss das richtige „Department“-Attribut festgelegt sein (legen Sie dieses mithilfe des Active Directory-Verwaltungscenters fest). Die einfachste Möglichkeit, die effektiven Ergebnisse der neuen Richtlinie anzuzeigen, besteht darin, die Registerkarte **Effektiver Zugriff** im Windows-Explorer zu verwenden. Auf der Registerkarte **Effektiver Zugriff** werden die Zugriffsrechte für ein angegebenes Benutzerkonto angezeigt.  
   
-#### <a name="to-examine-the-access-for-various-users"></a>Überprüfen Sie den Zugriff für verschiedene Benutzer  
+#### <a name="to-examine-the-access-for-various-users"></a>So überprüfen Sie den Zugriff für verschiedene Benutzer  
   
-1.  Schließen Sie in Hyper-V-Manager auf Server "file1". Melden Sie sich an den Server mit "Contoso\Administrator" an. Navigieren Sie zu D:\ in Windows-Explorer. Mit der rechten Maustaste die **Finanzdokumente** Ordner, und klicken Sie dann auf **Eigenschaften **.  
+1.  Stellen Sie im Hyper-V-Manager eine Verbindung mit dem Server „FILE1“ her. Melden Sie sich am Server unter Verwendung von „contoso\administrator“ an. Navigieren Sie im Windows-Explorer zu Laufwerk „D:\“. Klicken Sie mit der rechten Maustaste auf den Ordner **Finance Documents**, und klicken Sie dann auf **Eigenschaften**.  
   
-2.  Klicken Sie auf die **Security** auf **erweitert**, und klicken Sie dann auf die **effektiver Zugriff** Registerkarte.  
+2.  Klicken Sie auf der Registerkarte **Sicherheit** auf **Erweitert**, und klicken Sie dann auf die Registerkarte **Effektiver Zugriff**.  
   
 3.  Klicken Sie zum Überprüfen der Berechtigungen für einen Benutzer auf **wählen Sie einen Benutzer**, geben Sie den Namen des Benutzers ein, und klicken Sie dann auf **effektiven Zugriff anzeigen** um die effektiven Zugriffsrechte anzuzeigen. Zum Beispiel:  
   
-    -   Myriam Delesalle (MDelesalle) ist in der Finanzabteilung und sollte Lesezugriff für den Ordner haben.  
+    -   Myriam Delesalle (MDelesalle) ist Mitglied der Finanzabteilung und sollte die Zugriffsberechtigung „Lesen“ für den Ordner haben.  
   
-    -   Miles Reid (MReid) ist ein Mitglied der Gruppe "FinanceAdmin" und sollte Zugriff ändern für den Ordner haben.  
+    -   Miles Reid (MReid) ist ein Mitglied der Gruppe „FinanceAdmin“ und sollte die Zugriffsberechtigung „Ändern“ für den Ordner haben.  
   
-    -   Esther Valle (EValle) ist nicht in der Finanzabteilung. Sie ist jedoch ein Mitglied der Gruppe "FinanceException" und sollte über Lesezugriff verfügen.  
+    -   Esther Valle (EValle) ist kein Mitglied in der Finanzabteilung, sie ist jedoch ein Mitglied der Gruppe „FinanceException“ und sollte die Zugriffsberechtigung „Lesen“ haben.  
   
-    -   Maira Wenzel (MWenzel) ist nicht in der Finanzabteilung und ist nicht Mitglied der Gruppe "FinanceAdmin" oder "FinanceException". Sie sollten nicht Zugriff auf den Ordner haben.  
+    -   Maira Wenzel (MWenzel) ist kein Mitglied der Finanzabteilung und weder ein Mitglied der Gruppe „FinanceAdmin“ noch der Gruppe „FinanceException“. Sie sollte keinerlei Zugriffsrechte für den Ordner haben.  
   
-    Beachten Sie, die die letzte Spalte namens **Zugriff eingeschränkt durch** im Fenster effektiven Zugriff. Diese Spalte verrät Ihnen, welche Gates Berechtigungen der Person begegnen können. In diesem Fall ermöglicht die Freigabe- und NTFS-Berechtigungen allen Benutzern Vollzugriff. Die zentrale Zugriffsrichtlinie schränkt jedoch den Zugriff basierend auf den Regeln, die Sie zuvor konfiguriert.  
+    Beachten Sie die letzte Spalte namens **Zugriff eingeschränkt durch** im Fenster für den effektiven Zugriff. Diese Spalte verrät Ihnen mit, welche Gates Berechtigungen der Person begegnen können. In diesem Fall ermöglichen die Berechtigungen „Share“ und „NTFS“ allen Benutzern den vollständigen Zugriff. Die zentrale Zugriffsrichtlinie schränkt jedoch den Zugriff anhand der von Ihnen zuvor konfigurierten Regeln ein.  
   
-## <a name="BKMK_1.5"></a>Verwalten Sie ändern und Staging der Richtlinie  
+## <a name="BKMK_1.5"></a>Maintain: Ändern und Staging der Richtlinie  
   
 ||||  
 |-|-|-|  
-|Anzahl|Schritt|Beispiel|  
-|4.1|Konfigurieren von Geräteansprüchen für Clients|Legen Sie die Gruppenrichtlinieneinstellung zum Aktivieren von Geräteansprüchen|  
-|4.2|Aktivieren Sie einen Anspruch für Geräte.|Aktivieren Sie den landanspruchstyp für Geräte.|  
-|4.3|Hinzufügen einer staging-Richtlinie auf den vorhandenen zentralen Zugriffsrichtlinie, den Sie ändern möchten.|Ändern Sie die Finance Documents Rule zum Hinzufügen einer staging-Richtlinie.|  
-|4.4|Die Ergebnisse der staging-Richtlinie anzeigen.|Suchen Sie nach Velles Berechtigungen.|  
+|Number|Schritt|Beispiel|  
+|4.1|Konfigurieren von Geräteansprüchen für Clients|Festlegen der Gruppenrichtlinieneinstellung zum Aktivieren von Geräteansprüchen|  
+|4.2|Aktivieren Sie einen Anspruch für Geräte.|Aktivieren Sie den Landanspruchstyp für Geräte.|  
+|4.3|Fügen Sie der vorhandenen zentralen Zugriffsrichtlinie eine Staging-Richtlinie hinzu, die Sie ändern möchten.|Ändern Sie die „Finance Documents Rule“ zum Hinzufügen einer Staging-Richtlinie.|  
+|4.4|Zeigen Sie die Ergebnisse der Staging-Richtlinie an.|Suchen Sie nach Velles Berechtigungen.|  
   
-#### <a name="to-set-up-group-policy-setting-to-enable-claims-for-devices"></a>Informationen zum Einrichten von Gruppenrichtlinien-Einstellung zum Aktivieren der Ansprüche für Geräte  
+#### <a name="to-set-up-group-policy-setting-to-enable-claims-for-devices"></a>So richten Sie die Gruppenrichtlinieneinstellung zum Aktivieren von Ansprüchen für Geräte ein  
   
-1.  Melden Sie sich bei DC1 Öffnen der Gruppenrichtlinien-Verwaltungskonsole auf **contoso.com**, klicken Sie auf **Default Domain Policy**mit der rechten Maustaste auf, und wählen Sie **bearbeiten **.  
+1.  Melden Sie sich bei „DC1“ an, öffnen Sie die Gruppenrichtlinienverwaltung, klicken Sie auf **contoso.com**, klicken Sie auf  **Standarddomänenrichtlinie**, klicken Sie mit der rechten Maustaste auf **Bearbeiten**, und wählen Sie die Option aus.  
   
-2.  Wechseln Sie in der Gruppenrichtlinienverwaltungs-Editor-Fenster zu **Computerkonfiguration**, **Richtlinien**, **Administrative Vorlagen**, **System**, **Kerberos **.  
+2.  Navigieren Sie im Gruppenrichtlinienverwaltungs-Editor-Fenster zu **Computerkonfiguration**, **Richtlinien**, **Administrative Vorlagen**, **System**, **Kerberos**.  
   
-3.  Wählen Sie **Kerberos-Clientunterstützung für Ansprüche, Verbundauthentifizierung und Kerberos Armoring**, und klicken Sie auf **aktivieren **.  
+3.  Wählen Sie die Option für die Kerberos-Clientunterstützung für Ansprüche, Verbundauthentifizierung und Kerberos Armoring****, und klicken Sie auf **Aktivieren**.  
   
 #### <a name="to-enable-a-claim-for-devices"></a>So aktivieren Sie einen Anspruch für Geräte  
   
-1.  Öffnen Sie Server "DC1" im Hyper-V-Manager, und melden sich als "Contoso\Administrator" mit dem Kennwort **pass@word1**.  
+1.  Öffnen Sie auf Server "DC1" im Hyper-V-Manager, und melden als "Contoso\Administrator" mit dem Kennwort **pass@word1**.  
   
-2.  Von der **Tools** Menü Öffnen von Active Directory Administrative Center.  
+2.  Öffnen Sie im Menü **Extras** das Active Directory-Verwaltungscenter.  
   
-3.  Klicken Sie auf **Strukturansicht**, erweitern Sie **dynamische Zugriffssteuerung**, doppelklicken Sie auf **Anspruchstypen**, und doppelklicken Sie auf die **Land** geltend machen.  
+3.  Klicken Sie auf **Strukturansicht**, erweitern Sie **Dynamische Zugriffssteuerung**, doppelklicken Sie auf **Anspruchstypen**, und doppelklicken Sie auf den Anspruch **country**.  
   
-4.  In **Ansprüche von diesem Typ können für die folgenden Klassen ausgegeben werden**, wählen die **Computer** Kontrollkästchen. Klicken Sie auf **OK**.   
-    Beide **Benutzer** und **Computer** Kontrollkästchen sollten nun aktiviert sein. Der Anspruch Land kann jetzt mit Geräten zusätzlich zu Benutzern verwendet werden.  
+4.  Aktivieren Sie das Kontrollkästchen **Computer** unter **Ansprüche von diesem Typ können für die folgenden Klassen ausgegeben werden**. Klicken Sie auf **OK**.   
+    Die Kontrollkästchen **Benutzer** und **Computer** sollten nun aktiviert sein. Der Anspruch „country“ kann nun mit Geräten zusätzlich zu Benutzern verwendet werden.  
   
-Im nächste Schrittwird eine staging-Richtlinienregel erstellen. Staging-Richtlinien können verwendet werden, um die Auswirkungen eines neuen Richtlinieneintrags überwachen, bevor Sie ihn aktivieren. In den folgenden Schrittaus Sie erstellen einen staging-Richtlinieneintrag und überwachen die Auswirkung auf Ihre freigegebenen Ordner.  
+Im nächsten Schritt wird eine Staging-Richtlinienregel erstellt. Staging-Richtlinien können zum Überwachen von Auswirkungen eines neuen Richtlinieneintrags verwendet werden, bevor Sie ihn aktivieren. Im folgenden Schritt erstellen Sie einen Staging-Richtlinieneintrag und überwachen die Auswirkung auf Ihren freigegebenen Ordner.  
   
-#### <a name="to-create-a-staging-policy-rule-and-add-it-to-the-central-access-policy"></a>Erstellen eine staging-Richtlinienregel und die zentrale Zugriffsrichtlinie hinzufügen  
+#### <a name="to-create-a-staging-policy-rule-and-add-it-to-the-central-access-policy"></a>So erstellen Sie eine Staging-Richtlinienregel und fügen sie zur zentralen Zugriffsrichtlinie hinzu  
   
-1.  Öffnen Sie Server "DC1" im Hyper-V-Manager, und melden sich als "Contoso\Administrator" mit dem Kennwort **pass@word1**.  
+1.  Öffnen Sie auf Server "DC1" im Hyper-V-Manager, und melden als "Contoso\Administrator" mit dem Kennwort **pass@word1**.  
   
-2.  Active Directory-Verwaltungscenter zu öffnen.  
+2.  Öffnen Sie das Active Directory-Verwaltungscenter.  
   
-3.  Klicken Sie auf **Strukturansicht**, erweitern Sie **dynamische Zugriffssteuerung**, und wählen Sie **zentrale Zugriffsregeln **.  
+3.  Klicken Sie auf **Strukturansicht**, erweitern Sie **Dynamische Zugriffssteuerung**, und wählen Sie **Zentrale Zugriffsregeln** aus.  
   
-4.  Mit der rechten Maustaste **Finance Documents Rule**, und klicken Sie dann auf **Eigenschaften **.  
+4.  Klicken Sie mit der rechten Maustaste auf **Finance Documents Rule**, und klicken Sie dann auf **Eigenschaften**.  
   
-5.  In der **vorgesehene Berechtigungen** Abschnittder **staging-Konfiguration aktivieren Berechtigung** Kontrollkästchen, klicken Sie auf **bearbeiten**, und klicken Sie dann auf **hinzufügen **. In der **Berechtigungseintrag für vorgesehene Berechtigungen** Fenster, klicken Sie auf die **Prinzipal auswählen** verknüpfen, geben Sie **authentifizierte Benutzer**, und klicken Sie dann auf **OK **.  
+5.  Aktivieren Sie das Kontrollkästchen **Konfiguration des Berechtigungsstaging aktivieren** im Abschnitt **Vorgesehene Berechtigungen**, klicken Sie auf **Bearbeiten** und dann auf **Hinzufügen**. Klicken Sie im Fenster **Berechtigungseintrag für vorgesehene Berechtigungen** auf die Verknüpfung **Prinzipal auswählen**, geben Sie **Authentifizierte Benutzer** ein, und klicken Sie dann auf **OK**.  
   
-6.  Klicken Sie auf die **fügen Sie eine Bedingung** verknüpfen, und fügen Sie die folgende Bedingung hinzu:   
-     [**User**] [**Land**] [**Any of**] [**Ressource**] [**Land**].  
+6.  Klicken Sie auf die Verknüpfung **Bedingung hinzufügen**, und fügen Sie die folgende Bedingung hinzu:   
+     [**User**] [**country**] [**Any of**] [**Resource**] [**Country**].  
   
-7.  Klicken Sie auf **fügen Sie eine Bedingung** erneut, und fügen Sie die folgende Bedingung hinzu:  
+7.  Klicken Sie erneut auf **Bedingung hinzufügen**, und fügen Sie die folgende Bedingung hinzu:  
     [**And**]   
-     [**Gerät**] [**Land**] [**Any of**] [**Ressource**] [**Land**]  
+     [**Device**] [**country**] [**Any of**] [**Resource**] [**Country**]  
   
-8.  Klicken Sie auf **fügen Sie eine Bedingung** erneut, und fügen Sie die folgende Bedingung hinzu.  
-    [Und]   
-     [**User**] [**Group**] [**Mitglied einer**] [**Wert**] \ (**FinanceException**)  
+8.  Klicken Sie erneut auf **Bedingung hinzufügen**, und fügen Sie die folgende Bedingung hinzu.  
+    [And]   
+     [**Benutzer**] [**Gruppe**] [**Mitglied einer**] [**Wert**]\(**"financeexception"**)  
   
-9. Klicken Sie zum Festlegen der FinanceException Gruppe, klicken Sie auf **Elemente hinzufügen** und in der **Benutzer, Computer, Dienstkonto oder Gruppe** geben **FinanceException **.  
+9. Klicken Sie zum Festlegen der Gruppe „FinanceException“ auf **Add items**, und geben Sie **FinanceException** in das Fenster **Benutzer, Computer, Dienstkonto oder Gruppe auswählen** ein.  
   
-10. Klicken Sie auf **Berechtigungen**Option **Vollzugriff**, und klicken Sie auf **OK **.  
+10. Klicken Sie auf **Berechtigungen**, wählen Sie **Vollzugriff** aus, und klicken Sie auf **OK**.  
   
-11. Wählen Sie in den erweiterten Sicherheitseinstellungen für vorgesehene Berechtigungen Fenster, **FinanceException**, und klicken Sie auf **entfernen **.  
+11. Wählen Sie **FinanceException** im Fenster für die erweiterten Sicherheitseinstellungen für vorgesehene Berechtigungen aus, und klicken Sie auf **Entfernen**.  
   
-12. Klicken Sie auf **OK** zweimal auf Fertig stellen.  
+12. Klicken Sie zweimal auf **OK**, um den Vorgang abzuschließen.  
   
 ![Lösungshandbücher](media/Deploy-a-Central-Access-Policy--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***  
   
-Die folgenden Windows PowerShell-Cmdlet oder Cmdlets führen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie jedes Cmdlet in einer einzelnen Zeile, auch wenn sie über mehrere Zeilen umgebrochen angezeigt werden möglicherweise aufgrund von formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
+Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
 ```  
 Set-ADCentralAccessRule  
@@ -412,25 +413,25 @@ Set-ADCentralAccessRule
 ```  
   
 > [!NOTE]  
-> Im obigen Cmdlet-Beispiel zeigt den Server-Wert den Server in der Testumgebung. Windows PowerShell History Viewer können Sie um Windows PowerShell-Cmdlets nach jeder Prozedur zu durchsuchen, die Sie im Active Directory-Verwaltungscenter ausführen. Weitere Informationen finden Sie unter [Windows PowerShell History Viewer](https://technet.microsoft.com/library/hh831702)  
+> Im obigen Cmdlet-Beispiel spiegelt der Wert „Server“ den Server in der Testlaborumgebung wider. Sie können die Windows PowerShell-Verlaufsanzeige verwenden, um Windows PowerShell-Cmdlets nach jeder Prozedur zu durchsuchen, die Sie im Active Directory-Verwaltungscenter ausführen. Weitere Informationen finden Sie unter [Windows PowerShell History Viewer](https://technet.microsoft.com/library/hh831702)  
   
-In diesem Satz vorgesehener Berechtigungen sind Mitglieder der Gruppe "FinanceException" besitzen vollständigen Zugriff auf Dateien von ihrem eigenen Land beim Zugriff über ein Gerät aus demselben Land wie das Dokument. Überwachungseinträge stehen im Dateiserver-Sicherheitsprotokoll aufgezeichnet, wenn ein Mitarbeiter der Finanzabteilung versucht, auf Dateien zugreifen. Sicherheitseinstellungen werden jedoch nicht erzwungen, bis die Richtlinie vom Staging höher gestuft wird.  
+In diesem Satz vorgesehener Berechtigungen verfügen Mitglieder der Gruppe „FinanceException“ über den vollständigen Zugriff auf Dateien ihres eigenen Lands, wenn sie über ein Gerät aus demselben Land wie das Dokument auf die Dateien zugreifen. Überwachungseinträge stehen im Dateiserver-Sicherheitsprotokoll zur Verfügung, wenn jemand aus der Finanzabteilung versucht, auf die Dateien zuzugreifen. Die Sicherheitseinstellungen werden jedoch nicht erzwungen, bis die Richtlinie vom Staging höher gestuft wird.  
   
-In den nächsten Verfahren fort überprüfen Sie die Ergebnisse der staging-Richtlinie. Sie Zugriff auf den freigegebenen Ordner mit einem Benutzernamen, der über Berechtigungen auf Grundlage der aktuellen Regel verfügt. Esther Valle (EValle) ist ein Mitglied von "financeexception", und er derzeit über die Leseberechtigung. Gemäß unserer staging-Richtlinie sollte EValle keinerlei Rechte besitzen.  
+Im nächsten Verfahren stellen Sie die Ergebnisse der Staging-Richtlinie sicher. Sie greifen mit einem Benutzernamen, der über Berechtigungen auf Grundlage der aktuellen Regel verfügt, auf den freigegebenen Ordner zu. Esther Valle (EValle) ist ein Mitglied von „FinanceException“, und zurzeit verfügt sie über Lesezugriff. Gemäß unserer Staging-Richtlinie sollte EValle keinerlei Rechte besitzen.  
   
-#### <a name="to-verify-the-results-of-the-staging-policy"></a>So überprüfen Sie die Ergebnisse der staging-Richtlinie  
+#### <a name="to-verify-the-results-of-the-staging-policy"></a>So überprüfen Sie die Ergebnisse der Staging-Richtlinie  
   
-1.  Mit der Datei Server FILE1 im Hyper-V-Manager, und melden in als "Contoso\administrator" mit dem Kennwort verbinden **pass@word1**.  
+1.  Herstellen einer Verbindung mit dem Dateiserver FILE1 im Hyper-V-Manager, und melden für als "Contoso\Administrator" mit dem Kennwort **pass@word1**.  
   
-2.  Öffnen Sie ein Eingabeaufforderungsfenster, und geben **Gpupdate/force **. Dadurch wird sichergestellt, dass Ihre gruppenrichtlinienänderungen auf Ihrem Server wirksam werden.  
+2.  Öffnen Sie ein Eingabeaufforderungsfenster, und geben Sie **gpupdate /force** ein. Dadurch wird sichergestellt, dass Ihre Gruppenrichtlinienänderungen auf Ihrem Server wirksam werden.  
   
-3.  Schließen Sie in Hyper-V-Manager auf Server "client1". Melden Sie sich der Benutzer, der aktuell angemeldet ist. Starten Sie den virtuellen Computer "client1" neu. Klicken Sie dann melden Sie sich bei dem Computer mit Contoso\EValle pass@word1.  
+3.  Stellen Sie im Hyper-V-Manager eine Verbindung mit dem Server „CLIENT1“ her. Melden Sie den derzeit angemeldeten Benutzer ab. Starten Sie den virtuellen Computer „CLIENT1“ neu. Klicken Sie dann melden Sie sich bei dem Computer mit Contoso\EValle pass@word1.  
   
-4.  Doppelklicken Sie auf die Desktopverknüpfung zu \\\FILE1\Finance Dokumente. EValle sollte weiterhin auf die Dateien zugreifen. Wechseln Sie zu "file1".  
+4.  Doppelklicken Sie auf die desktopverknüpfung zu \\\FILE1\Finance Dokumente. EValle sollte weiterhin auf die Dateien zugreifen können. Wechseln Sie zurück zu „FILE1“.  
   
-5.  Öffnen **Ereignisanzeige** über die Verknüpfung auf dem Desktop. Erweitern Sie **Windows-Protokolle**, und wählen Sie dann **Security **. Öffnen Sie die Einträge mit **Event ID 4818**unter der **Staging zentraler Zugriffsrichtlinien** Aufgabenkategorie. Sie sehen, dass EValle der Zugriff gewährt wurde. jedoch entsprechend der staging-Richtlinie des Benutzers wird der Zugriff verweigert wurde.  
+5.  Öffnen Sie die Ereignisanzeige über die Verknüpfung auf dem Desktop****. Erweitern Sie **Windows-Protokolle**, und wählen Sie dann **Sicherheit** aus. Öffnen Sie die Einträge mit **Event ID 4818**unter der **Staging zentraler Zugriffsrichtlinien** Aufgabenkategorie. Sie werden sehen, dass EValle der Zugriff gewährt wurde. Entsprechend der Staging-Richtlinie würde dem Benutzer jedoch der Zugriff verweigert werden.  
   
 ## <a name="next-steps"></a>Nächste Schritte  
-Wenn Sie ein Verwaltungssystem zentralen Server z.B. System Center Operations Manager verfügen, können Sie auch die ereignisüberwachung für Ereignisse konfigurieren. Dadurch können Administratoren die Auswirkungen der zentralen Zugriffsrichtlinien zu überwachen, bevor Sie erzwungen werden.  
+Wenn Sie über ein zentrales Serververwaltungssystem wie System Center Operations Manager verfügen, können Sie auch die Ereignisüberwachung konfigurieren. Dadurch können Administratoren die Auswirkungen der zentralen Zugriffsrichtlinien überwachen, bevor sie sie erzwingen.  
   
 

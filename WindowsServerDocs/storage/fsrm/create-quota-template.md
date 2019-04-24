@@ -1,6 +1,6 @@
 ---
 title: Erstellen einer Kontingentvorlage
-description: "In diesem Artikel wird beschrieben, wie Sie eine Kontingentvorlage zum Definieren einer Speicherplatzbeschränkung erstellen"
+description: In diesem Artikel wird beschrieben, wie Sie eine Kontingentvorlage zum Definieren einer Speicherplatzbeschränkung erstellen
 ms.date: 7/7/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -9,14 +9,15 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: f74382c4a5e2c0a8636edbd4f9cfe2227cd6334a
-ms.sourcegitcommit: 583355400f6b0d880dc0ac6bc06f0efb50d674f7
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59875871"
 ---
 # <a name="create-a-quota-template"></a>Erstellen einer Kontingentvorlage
 
-> Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
 
 Eine *Kontingentvorlage* dient zum Definieren einer Speicherplatzbeschränkung, des Kontingenttyps (weich oder hart) und einer Gruppe von Benachrichtigungen, die automatisch generiert werden, wenn der Kontingentbedarf die definierten Schwellenwerte erreicht.
 
@@ -47,26 +48,26 @@ Wenn Sie Kontingente ausschließlich auf der Grundlage von Vorlagen erstellen, k
 
 Wenn der Speicher in einem Volume oder in einem Ordner einen Schwellenwert erreicht, den Sie definieren, sendet der Ressourcen-Manager für Dateiserver E-Mail-Nachrichten an Administratoren oder bestimmte Benutzern, protokolliert ein Ereignis, führt einen Befehl oder ein Skript aus oder erstellt Berichte. Sie können mehr als eine Art der Benachrichtigung für jeden Schwellenwert konfigurieren, und Sie können mehrere Schwellenwerte für Kontingente (oder Kontingentvorlagen) definieren. Standardmäßig werden keine Benachrichtigungen erstellt.
 
-Beispielsweise können Sie Schwellenwerte konfigurieren, um eine E-Mail-Nachricht an den Administrator und an die Benutzer zu senden, die wissen möchten, wann ein Ordner 85% der Kontingentgrenze erreicht, und eine weitere Benachrichtigung, wenn die Kontingentgrenze erreicht ist. Darüber hinaus sollten Sie ein Skript ausführen, das den Befehl **dirquota.exe** verwendet, um das Kontingentlimit automatisch auszulösen, wenn ein Schwellenwert erreicht wird.
+Beispielsweise können Sie Schwellenwerte konfigurieren, um eine E-Mail-Nachricht an den Administrator und an die Benutzer zu senden, die wissen möchten, wann ein Ordner 85 % der Kontingentgrenze erreicht, und eine weitere Benachrichtigung, wenn die Kontingentgrenze erreicht ist. Darüber hinaus sollten Sie ein Skript ausführen, das den Befehl **dirquota.exe** verwendet, um das Kontingentlimit automatisch auszulösen, wenn ein Schwellenwert erreicht wird.
 
 > [!Important]
 > Zum Senden von E-Mail-Benachrichtigungen und um Speicherberichte mit Parametern zu konfigurieren, die für die Serverumgebung geeignet sind, müssen Sie zuerst die allgemeinen Optionen des Ressourcen-Managers für Dateiserver festlegen. Weitere Informationen finden Sie unter [Festlegen der Einstellungen des Ressourcen-Managers für Dateiserver](setting-file-server-resource-manager-options.md)
 
-**So konfigurieren Sie Benachrichtigungen, damit der Ressourcen-Managers für Dateiserver einen Schwellenwert erstellt**
+**So konfigurieren Sie Benachrichtigungen, die Ressourcen-Manager generiert, mit einem Kontingentschwellenwert**
 
 1.  Klicken Sie im Dialogfeld **Kontingentvorlage erstellen** unter **Benachrichtigungsschwellenwerte** auf **Hinzufügen**. Das Dialogfeld **Schwellenwert hinzufügen** wird geöffnet.
 
 2.  So legen Sie eine prozentuale Kontingentgrenze fest, die eine Benachrichtigung generiert:
 
-    Geben Sie in das Textfeld **Benachrichtigungen generieren, wenn die Auslastung den folgenden Prozentwert erreicht: (%)** einen Prozentsatz der Kontingentgrenze für den Benachrichtigungsschwellenwert ein. (Der Standardprozentsatz des ersten Benachrichtigungsschwellenwerts ist 85%.)
+    Geben Sie in das Textfeld **Benachrichtigungen generieren, wenn die Auslastung den folgenden Prozentwert erreicht: (%)** einen Prozentsatz der Kontingentgrenze für den Benachrichtigungsschwellenwert ein. (Der für den Schwellenwert für die erste Benachrichtigung liegt bei 85 Prozent.)
 
 3.  So konfigurieren Sie E-Mail-Benachrichtigungen:
 
     Legen Sie auf der Registerkarte **E-Mail-Nachricht** folgende Optionen fest:
 
-    -   Um Administratoren zu benachrichtigen, wenn ein Schwellenwert erreicht wird, aktivieren Sie das Kontrollkästchen **E-Mail an folgenden Administratoren senden** und geben Sie die Namen der administrativen Konten ein, die die Benachrichtigungen erhalten sollen. Verwenden Sie das Format *account@domain*, und verwenden Sie Semikolons zum Trennen mehrerer Konten.
+    -   Um Administratoren zu benachrichtigen, wenn ein Schwellenwert erreicht wird, aktivieren Sie das Kontrollkästchen **E-Mail an die folgenden Administratoren senden** und geben Sie die Namen der administrativen Konten ein, die die Benachrichtigungen erhalten sollen. Verwenden Sie das Format *account@domain*, und verwenden Sie Semikolons zum Trennen mehrerer Konten.
     -   Aktivieren Sie zum Senden der E-Mail an die Person, deren gespeicherte Datei den Kontingentschwelle erreicht hat, das Kontrollkästchen **E-Mail an den Benutzer senden, der den Schwellenwert überschritten hat**.
-    -   Um die Nachricht zu konfigurieren, ändern Sie den vorgegebenen standardmäßigen Betreff und Textkörper. Der Text in Klammern fügt die Variableninformationen über das Kontingent-Ereignis ein, das die Benachrichtigung verursacht hat. Die Variable **\[Quelle E/A-Besitzer\]** fügt den Namen des Benutzers ein, dessen Datei den Kontingentschwellwert erreicht hat. Um zusätzliche Variablen in den Text einzufügen, klicken Sie auf **Variable einfügen**.
+    -   Um die Nachricht zu konfigurieren, ändern Sie den vorgegebenen standardmäßigen Betreff und Textkörper. Der Text in Klammern fügt die Variableninformationen über das Kontingent-Ereignis ein, das die Benachrichtigung verursacht hat. Z. B. die **\[e/a-Quellbesitzer\]** Variable fügt den Namen des Benutzers, der die Datei gespeichert, die die Kontingentschwelle erreicht. Um zusätzliche Variablen in den Text einzufügen, klicken Sie auf **Variable einfügen**.
     -   Wenn Sie weitere Header konfigurieren möchten (einschließlich Von, Cc, Bcc und Antwort an), klicken Sie auf **Weitere E-Mail-Kopfzeilen**.
 
 4.  So protokollieren Sie ein Ereignis:
@@ -85,13 +86,13 @@ Beispielsweise können Sie Schwellenwerte konfigurieren, um eine E-Mail-Nachrich
 
 7.  Klicken Sie auf **OK**, um den Benachrichtigungsschwellenwert zu speichern.
 
-8.  Wiederholen Sie diese Schritteaus, wenn Sie zusätzliche Benachrichtigungsschwellenwerte für die Kontingentvorlage konfigurieren möchten.
+8.  Wiederholen Sie diese Schritte aus, wenn Sie zusätzliche Benachrichtigungsschwellenwerte für die Kontingentvorlage konfigurieren möchten.
 
-## <a name="see-also"></a>Weitere Informationen:
+## <a name="see-also"></a>Siehe auch
 
--   [Kontingentverwaltung](quota-management.md)
--    [Festlegen der Optionen des Ressourcen-Managers für Dateiserver](setting-file-server-resource-manager-options.md)
--   [Bearbeiten von Kontingentvorlageneigenschaften](edit-quota-template-properties.md)
+-   [Management von sollvorgaben](quota-management.md)
+-    [Einstellung File Server Resource Manager-Optionen](setting-file-server-resource-manager-options.md)
+-   [Kontingentvorlageneigenschaften bearbeiten](edit-quota-template-properties.md)
 -   [Befehlszeilentools](command-line-tools.md)
 
 
