@@ -1,159 +1,159 @@
 ---
 title: Netzwerklastenausgleich
-description: Dieses Thema enthält eine Übersicht über das Feature Netzwerklastenausgleich (Network Load Balancing, NLB) in Windows Server 2016 und enthält Links zu weiteren Anleitungen zum Erstellen, konfigurieren und Verwalten von NLB-Clustern.
-manager: brianlic
+description: In diesem Thema, wir bieten Ihnen einen Überblick über den Netzwerklastenausgleich \(NLB\) -Feature in Windows Server 2016. Sie können NLB verwenden, um zwei oder mehr Servern als einzelnen virtuellen Cluster verwalten. NLB verbessert die Verfügbarkeit und Skalierbarkeit von Internet-serveranwendungen wie für Web-, FTP, firewall, Proxyserver, virtuelles privates Netzwerk \(VPN\), und andere unternehmenskritische\-wichtigen Servern.
+manager: dougkim
 ms.prod: windows-server-threshold
 ms.technology: networking-nlb
 ms.topic: article
 ms.assetid: 244a4b48-06e5-4796-8750-a50e4f88ac72
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: b9fd39381316a8bcd06328e7aa75492ed99bc7f1
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
-ms.translationtype: MT
+ms.date: 09/13/2018
+ms.openlocfilehash: d0cf1e1d6b1681a0f18908b08cd17572159e0462
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59881751"
 ---
 # <a name="network-load-balancing"></a>Netzwerklastenausgleich
 
->Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
-Dieses Thema enthält eine Übersicht über das Feature Netzwerklastenausgleich \(NLB\) in Windows Server 2016 und enthält Links zu weiteren Anleitungen zum Erstellen, konfigurieren und Verwalten von NLB-Clustern.
-
-NLB können Sie zwei oder mehr Servern als einzelnen virtuellen Cluster verwalten. NLB verbessert die Verfügbarkeit und Skalierbarkeit von Internet-serveranwendungen wie im Web, FTP verwendeten, firewall, Proxyserver, virtuelle Private Netzwerk-\(VPN\) und andere wichtige Mission\.   
+In diesem Thema, wir bieten Ihnen einen Überblick über den Netzwerklastenausgleich \(NLB\) -Feature in Windows Server 2016. Sie können NLB verwenden, um zwei oder mehr Servern als einzelnen virtuellen Cluster verwalten. NLB verbessert die Verfügbarkeit und Skalierbarkeit von Internet-serveranwendungen wie für Web-, FTP, firewall, Proxyserver, virtuelles privates Netzwerk \(VPN\), und andere unternehmenskritische\-wichtigen Servern.  
 
 >[!NOTE]
->Windows Server 2016 enthält ein neues Azure inspiriert Software Load Balancers \(SLB\) als Komponente der \(SDN\) Software Defined Networking-Infrastruktur. Verwendung SLB anstelle von NLB bei Verwendung von SDN, nicht-Windows-Arbeitslasten verwenden, benötigen Sie ausgehende Netzwerkadressübersetzung \(NAT\), oder Layer 3-\(L3\) oder nicht-TCP-basierte Lastenausgleich erforderlich. Sie können weiterhin NLB für nicht-SDN-Bereitstellungen mit Windows Server 2016 verwenden. Weitere Informationen zu SLB, finden Sie unter [Software Load Balancing (SLB) für SDN](../sdn/technologies/network-function-virtualization/Software-Load-Balancing--SLB--for-SDN.md).
+>Windows Server 2016 enthält ein neuer Azure Inspirierte Software Load Balancer \(SLB\) als Komponente von der Software Defined Networking \(SDN\) Infrastruktur. Verwendung SLB anstelle von NLB bei Verwendung von SDN-nicht-Windows-Workloads verwenden, benötigen Sie ausgehenden NAT \(NAT\), oder Layer 3 benötigen \(L3\) oder nicht-TCP-basierte Lastenausgleich. Sie können weiterhin Verwendung von NLB mit Windows Server 2016 für nicht-SDN-Bereitstellungen. Weitere Informationen zu den SLB, finden Sie unter [Software Load Balancing (SLB) für SDN](../sdn/technologies/network-function-virtualization/Software-Load-Balancing--SLB--for-SDN.md).
 
-Das Feature Netzwerklastenausgleich \(NLB\) verteilt den Datenverkehr mithilfe des TCP/IP TCP/IP-Netzwerkprotokolls über mehrere Server. Durch die Kombination von zwei oder mehr Computer, auf denen eine Anwendung in einem einzelnen virtuellen Cluster ausgeführt werden, bietet NLB Zuverlässigkeit und Leistung für Webserver und andere wichtige Mission\ Server.  
+Der Netzwerklastenausgleich \(NLB\) Feature verteilt den Datenverkehr auf mehrere Server mithilfe von TCP\/IP-Netzwerkprotokolls. Durch die Kombination von zwei oder mehr Computern, die Anwendungen in einem einzelnen virtuellen Cluster ausgeführt werden, bietet NLB Zuverlässigkeit und Leistung für Webserver und andere unternehmenskritische\-wichtigen Servern.  
   
-Die Server in einem NLB-Cluster werden als bezeichnet *Hosts*, und jeder Host führt eine separate Kopie der serveranwendungen. Netzwerklastenausgleich werden eingehende Clientanforderungen auf die Hosts im Cluster verteilt. Sie können die Last konfigurieren, die von jedem Host behandelt werden sollen. Sie können auch dynamisch Hosts des Clusters um erhöhte Lasten verarbeiten hinzufügen. NLB kann auch der gesamte Datenverkehr zu einem einzelnen zugewiesenen Host, die aufgerufen wird, leiten die *Standardhost*.  
+Die Server in einem NLB-Cluster werden als *Hosts*bezeichnet, und jeder Host führt eine separate Kopie der Serveranwendungen aus. Beim Netzwerklastenausgleich werden eingehende Clientanforderungen an die Hosts des Clusters verteilt. Sie können die Last konfigurieren, die von jedem Host behandelt werden soll. Sie können Hosts auch dynamisch dem Cluster hinzufügen, um erhöhte Lasten verarbeiten zu können. NLB kann auch den gesamten Datenverkehr zu einem einzelnen zugewiesenen Host weiterleiten. Dieser Host wird als *Standardhost* bezeichnet.  
   
-NLB kann alle Computer im Cluster mit den gleichen Satz von IP-Adressen adressiert werden, und es wird eine Gruppe von eindeutigen dedizierten IP-Adressen für jeden Host beibehalten. Für Anwendungen Load\ mit Lastenausgleich Wenn ein Host ausfällt oder offline geschaltet wird, wird die Last automatisch zwischen den Computern verteilt, die weiterhin ausgeführt werden. Wenn es bereit ist, kann die offline-Computer transparent treten Sie dem Cluster und erneuten seinen Anteil an die Arbeitslast, wodurch die anderen Computer im Cluster weniger Datenverkehr verarbeitet.  
+Mit NLB können alle Computer eines Clusters mit derselben Gruppe von IP-Adressen adressiert werden. Dabei wird eine Gruppe von eindeutigen dedizierten IP-Adressen für jeden Host beibehalten. Last\--Anwendungen mit Lastenausgleich, wenn ein Host ausfällt oder offline geht, die Last wird automatisch neu verteilt, zwischen den Computern, die weiterhin ausgeführt werden. Wenn der offline geschaltete Computer wieder bereit ist, kann er erneut transparent mit dem Cluster verbunden werden und seinen Teil der Arbeitsauslastung wieder aufnehmen. Dadurch muss von den anderen Computern weniger Datenverkehr verarbeitet werden.  
   
-## <a name="BKMK_APP"></a>In der Praxis  
-NLB ist hilfreich, um sicherzustellen, dass statusfreie Anwendungen, beispielsweise Webserver, die unter Internetinformationsdienste \(IIS\) mit minimaler Downtime verfügbar sind, und skalierbar sind \ (durch Hinzufügen weiterer Server als die Load-Increases\). In den folgenden Abschnitten wird beschrieben, wie NLB unterstützt wird, eine hohe Verfügbarkeit, Skalierbarkeit und verwaltbarkeit der geclusterten Server, auf denen diese Anwendungen ausgeführt.  
+## <a name="practical-applications"></a>Praktische Anwendungsfälle  
+NLB ist hilfreich, um sicherzustellen, dass statusfreie Anwendungen, z. B. Webserver mit Internet Information Services \(IIS\), mit minimaler Downtime verfügbar sind und dass diese skalierbar sind \(durch Hinzufügen zusätzlicher Server als die Auslastung steigt\). In den folgenden Abschnitten wird beschrieben, wie NLB eine hohe Verfügbarkeit, Skalierbarkeit und Verwaltbarkeit der geclusterten Server unterstützt, auf denen diese Anwendungen ausgeführt werden.  
   
 ### <a name="high-availability"></a>Hohe Verfügbarkeit  
-Ein System mit hoher Verfügbarkeit bietet zuverlässig einen akzeptablen Grad an Leistung mit minimaler Downtime. Eine hohe Verfügbarkeit zu bieten, umfasst NLB integrierten Features, die automatisch können:  
+Ein System mit hoher Verfügbarkeit bietet zuverlässig einen akzeptablen Grad an Leistung mit minimaler Downtime. Um hochverfügbarkeit zu gewährleisten, NLB umfasst erstellt\-in Funktionen, die automatisch können:  
   
--   Erkennen eines Clusterhosts, der ausfällt oder offline geschaltet, und klicken Sie dann wiederhergestellt werden.  
+-   Erkennen und Wiederherstellen, wenn bei einem Clusterhost Fehler auftreten oder der Clusterhost offline geschaltet wird  
   
--   Ausgleichen der Netzwerklast, wenn Hosts hinzugefügt oder entfernt werden.  
+-   Ausgleichen der Netzwerklast, wenn Hosts hinzugefügt oder entfernt werden  
   
--   Wiederherstellen und Verteilen der arbeitsauslastung innerhalb von 10 Sekunden.  
+-   Wiederherstellen und Verteilen der Arbeitsauslastung innerhalb von 10 Sekunden  
   
 ### <a name="scalability"></a>Skalierbarkeit  
-Skalierbarkeit ist ein Maß dafür, wie gut ein Computer, den Dienst oder die Anwendung an wachsende leistungsanforderungen angepasst haben kann. NLB-Cluster ist Skalierbarkeit die Möglichkeit, ein oder mehrere Systeme inkrementell zu einem vorhandenen Cluster hinzufügen, wenn die Gesamtauslastung des Clusters seine Funktionen überschreitet. Zur Unterstützung der Skalierbarkeit, können Sie mit NLB Folgendes tun:  
+Die Skalierbarkeit ist ein Maß dafür, wie gut ein Computer, ein Dienst oder eine Anwendung an wachsende Leistungsanforderungen angepasst werden kann. In Bezug auf NLB-Cluster bedeutet Skalierbarkeit, dass dem vorhandenen Cluster schrittweise ein oder mehrere Systeme hinzugefügt werden können, wenn die Gesamtlast die Leistungsfähigkeit des Clusters überschreitet. Zur Unterstützung der Skalierbarkeit kann mit NLB Folgendes ausgeführt werden:  
   
--   Guthaben lastanforderungen des NLB-Clusters für einzelne TCP/IP TCP/IP-Dienste.  
+-   Lastenausgleich von Anforderungen zum Laden in den NLB-Cluster für einzelne TCP\/IP-Dienste.  
   
--   Unterstützt bis zu 32 Computern in einem einzigen Cluster.  
+-   Unterstützen von bis zu 32 Computern in einem einzigen Cluster  
   
--   Ausgleichen mehrerer serverlastanforderungen \ (vom gleichen Client oder von mehreren Clients\) auf mehreren Hosts im Cluster.  
+-   Ausgleichen mehrerer serverlastanforderungen \(vom gleichen Client oder von verschiedenen Clients\) auf mehreren Hosts im Cluster.  
   
--   Hinzufügen von Hosts zum NLB-Cluster zunehmender Last ohne Ausfall des Clusters fehlschlägt.  
+-   Hinzufügen von Hosts zum NLB-Cluster bei zunehmender Last ohne Ausfall des Clusters  
   
--   Entfernen von Hosts aus dem Cluster bei abnehmender Last.  
+-   Entfernen von Hosts aus dem Cluster bei abnehmender Last  
   
--   Aktivieren Sie eine hohe Leistung und eines geringen Verwaltungsaufwands durch vollständige pipelineimplementierung. Durch Pipelining können Anforderungen an den NLB-Cluster gesendet werden, ohne dass eine Antwort auf eine vorherige Anforderung gewartet.  
+-   Ermöglichen einer hohen Leistung und eines geringen Verwaltungsaufwands durch vollständige Pipelineimplementierung. Durch Pipelining können Anforderungen an den NLB-Cluster gesendet werden, ohne dass auf eine Antwort auf die vorher gesendete Anforderung gewartet werden muss.  
   
 ### <a name="manageability"></a>Verwaltbarkeit  
-Zur Unterstützung der Verwaltbarkeit können Sie mit NLB Folgendes tun:  
+Zur Unterstützung der Verwaltbarkeit kann mit NLB Folgendes ausgeführt werden:  
   
--   Verwalten und konfigurieren Sie mehrere NLB-Cluster und die Clusterhosts über einen einzelnen Computer mithilfe des NLB-Managers oder der [(Network Load Balancing, NLB)-Cmdlets in Windows PowerShell](https://technet.microsoft.com/library/hh801274.aspx).
+-   Verwalten und konfigurieren Sie mehrere NLB-Cluster und die Clusterhosts über einen einzelnen Computer mithilfe von NLB-Manager oder das [Netzwerklastenausgleich (Network Load Balancing, NLB)-Cmdlets in Windows PowerShell](https://technet.microsoft.com/library/hh801274.aspx).
   
--   Geben Sie den NLB-Verhalten für einen IP-Port oder eine Gruppe von Ports mit Portverwaltungsregeln.  
+-   Festlegen des Lastausgleichsverhaltens für einen einzigen IP-Port oder eine Gruppe von Ports mit Portverwaltungsregeln  
   
--   Definieren Sie verschiedene Portregeln für jede Website. Wenn Sie den gleichen Satz von Load\-Servern für mehrere Anwendungen oder Websites verwenden, basieren die Portregeln auf der virtuellen Ziel-IP-Adresse \(using virtual clusters\).  
+-   Festlegen unterschiedlicher Portregeln für jede Website. Wenn Sie den gleichen Satz von Auslastung verwenden\-mit Lastenausgleich-Servern für mehrere Anwendungen oder Websites, Port-Regeln basieren auf der virtuellen IP-Zieladresse \(bei Verwendung virtueller Cluster\).  
 
--   Leiten Sie alle Clientanforderungen auf einen einzelnen Host mithilfe optionaler, Singlethread-Host-Regeln. NLB leitet Clientanforderungen an einen bestimmten Host, der bestimmte Anwendungen ausgeführt werden.  
+-   Leiten Sie alle Clientanforderungen für einen einzelnen Host mit optionalen, einzelne\-Regeln zu hosten. NLB leitet Clientanforderungen an einen bestimmten Host weiter, auf dem bestimmte Anwendungen ausgeführt werden.  
 
--   Netzwerkzugriffe auf bestimmte IP-Ports zu blockieren.  
+-   Blockieren unerwünschter Netzwerkzugriffe auf bestimmte IP-Ports  
 
--   Aktivieren der Unterstützung von Internet Group Management Protocol \(IGMP\) auf den Clusterhosts zur Steuerung der Switchüberflutung \ (, werden eingehende Netzwerkpakete an alle Ports auf dem die Switch\ gesendet) im Multicastmodus fungierte.  
+-   Internet Group Management Protocol aktivieren \(IGMP\) Unterstützung für die Clusterhosts zur Steuerung der Switchüberflutung \(, an die eingehende Netzwerkpakete an alle Ports auf dem Switch gesendet werden\) während des Betriebs in Multicast-Modus.  
 
--   Starten, beenden und NLB-Aktionen mithilfe von Windows PowerShell-Befehle oder Skripts remote steuern.  
+-   Remotes Starten, Anhalten und Steuern der NLB-Aktionen mit Befehlen oder Skripten von Windows PowerShell  
 
--   Zeigen Sie das Windows-Ereignisprotokoll, um NLB-Ereignisse zu überprüfen. NLB werden alle Aktionen und Änderungen der Cluster im Ereignisprotokoll protokolliert.  
+-   Anzeigen des Windows-Ereignisprotokolls zur Überprüfung von NLB-Ereignissen. Alle Aktionen und Änderungen des Clusters werden von NLB im Ereignisprotokoll aufgeführt.  
 
-## <a name="important-functionality"></a>Wichtige Funktionen  
+## <a name="important-functionality"></a>Wichtige Funktionalität  
  
-NLB wird als eine standardmäßige Windows Server-Netzwerktreiberkomponente installiert. Die Vorgänge sind für den TCP/IP TCP/IP-Netzwerkstapel transparent. Die folgende Abbildung zeigt die Beziehung zwischen NLB und anderen Softwarekomponenten in einer typischen Konfiguration.  
+NLB ist als eine standardmäßige Windows Server-Netzwerktreiberkomponente installiert. Vorgänge sind für die TCP transparent\/IP-Netzwerkstapel. Die folgende Abbildung zeigt die Beziehung zwischen NLB und anderen Softwarekomponenten in einer typischen Konfiguration.  
   
 ![Netzwerklastenausgleich und andere Softwarekomponenten](../media/NLB/nlb.jpg)  
   
-Im folgenden werden die wichtigsten Features von NLB.  
+Im folgenden werden die wichtigsten Features des NLB.  
   
-- Erfordert keine Änderung der Hardware ausgeführt.  
+- Keine Erfordernis von Hardwareänderungen für die Ausführung.  
   
-- Bietet Tools für den Netzwerklastenausgleich zur Konfiguration und Verwaltung mehrerer Cluster und alle Hosts von einem einzelnen Remote- oder lokalen Computer.  
+- Bereitstellung von NLB-Tools zur Konfiguration und Verwaltung mehrerer Cluster und aller Hosts von einem einzelnen Remote- oder lokalen Computer.  
   
-- Ermöglicht Clients den Zugriff auf den Cluster mit einem einzelnen, logischen Internetnamen und virtuelle IP-Adresse, der als die Cluster-IP-Adresse bekannt ist \ (individuelle Namen für die einzelnen Computer\ werden beibehalten). NLB kann mehrere virtuelle IP-Adressen für mehrfach vernetzte Server.  
-  
-> [!NOTE]  
-> Wenn Sie virtuelle Computer als virtuelle Cluster bereitstellen, ist NLB Server mehrfach vernetzt sein, damit mehrere virtuelle IP-Adressen können nicht erforderlich.  
-  
-- Können NLB an mehrere Netzwerkadapter gebunden werden soll, dem Sie mehrere unabhängige Cluster auf jedem Host konfigurieren kann. Unterstützung für mehrere Netzwerkadapter unterscheidet sich von virtuellen Clustern, in diesem virtuelle Clustern mehrere Cluster auf einem einzelnen Netzwerkadapter konfigurieren können.  
-  
-- Erfordert keine Änderungen für serveranwendungen, so, dass sie in einem NLB-Cluster ausgeführt werden können.  
-  
-- Kann konfiguriert werden, um automatisch hinzugefügt, dass ein Host dem Cluster, wenn dieser Clusterhost ausfällt und anschließend wieder online geschaltet. Der hinzugefügte Host kann die Verarbeitung von neuen serveranforderungen von Clients gestartet.  
-  
--   Können Sie Computer für vorbeugende Wartungsmaßnahmen offline ohne des clusterbetriebs auf den anderen Hosts dauern.  
-  
-## <a name="BKMK_HARD"></a>Hardwareanforderungen  
-Im folgenden werden die hardwareanforderungen zur Ausführung eines NLB-Clusters.  
-  
--   Alle Hosts im Cluster müssen sich im gleichen Subnetz befinden.  
-  
--   Es besteht keine Einschränkung hinsichtlich der Anzahl der Netzwerkadapter auf jedem Host, und verschiedene Hosts können eine unterschiedliche Anzahl an Netzwerkadaptern aufweisen.  
-  
--   In den einzelnen Clustern müssen alle Netzwerkadapter entweder Multicast- oder Unicastadressen sein. NLB bietet keine Unterstützung für eine gemischte Umgebung mit Multicast- und in einem einzigen Cluster.  
-  
--   Wenn Sie die Unicast-Modus verwenden, muss der Netzwerkadapter, der verwendet wird, um die Client-zu-Cluster-Datenverkehr behandeln Ändern seiner Mac-\(MAC\) Adresse unterstützen.  
-  
-## <a name="BKMK_SOFT"></a>Anforderungen der Clientsoftware  
-Im folgenden werden die softwareanforderungen zum Ausführen eines NLB-Clusters.  
-  
--   Nur TCP\IP kann auf dem Adapter verwendet werden, für die NLB auf jedem Host aktiviert ist. Fügen Sie keine weiteren Protokolle nicht \ (z. B. IPX\) zu diesem Adapter.  
-  
--   Die IP-Adressen der Server im Cluster müssen statisch sein.  
+- Ermöglicht Clients, auf den Cluster zugreifen, mithilfe eines einzigen, logischen Internetnamen und virtuelle IP-Adresse, bekannt als die IP-Clusteradresse \(individuelle Namen für jeden Computer bleiben\). Mit Netzwerklastausgleich sind mehrere virtuelle IP-Adressen für mehrfach vernetzte Server möglich.  
   
 > [!NOTE]  
-> NLB bietet keine Unterstützung für Dynamic Host Configuration-Protokoll \(DHCP\). NLB deaktiviert DHCP auf jede Schnittstelle, die konfiguriert werden.  
+> Wenn Sie virtuelle Computer als virtuelle Cluster bereitstellen, erfordert NLB keine Server mehrfach vernetzt sein, um mehrere virtuelle IP-Adressen erhalten können.  
   
-## <a name="BKMK_INSTALL"></a>Informationen zur Installation  
-Sie können NLB mithilfe von Server-Manager oder Windows PowerShell-Befehle für den Netzwerklastenausgleich installieren.
+- Möglichkeit, dass NLB an mehrere Netzwerkadapter gebunden wird. Dadurch können Sie mehrere unabhängige Cluster auf den einzelnen Hosts konfigurieren. Die Unterstützung für mehrere Netzwerkadapter unterscheidet sich von der für virtuelle Cluster, da Sie bei virtuellen Clustern mehrere Cluster auf einem einzigen Netzwerkadapter konfigurieren können.  
+  
+- Keine Notwendigkeit von Änderungen der Serveranwendungen für die Ausführung in einem NLB-Cluster.  
+  
+- Möglichkeit der Konfiguration zum automatischen Hinzufügen eines Hosts zu dem Cluster, wenn dieser Clusterhost ausfällt und anschließend wieder online geschaltet wird. Der hinzugefügte Host kann mit der Verarbeitung von neuen Serveranforderungen von Clients beginnen.  
+  
+-   Möglichkeit der Offlineschaltung von Computern für vorbeugende Wartungsmaßnahmen ohne Beeinträchtigung des Clusterbetriebs auf den anderen Hosts.  
+  
+## <a name="hardware-requirements"></a>Hardwareanforderungen  
+Es folgen die hardwareanforderungen zur Ausführung eines NLB-Clusters.  
+  
+-   Alle Hosts in dem Cluster müssen sich in demselben Subnetz befinden.  
+  
+-   Die Anzahl der Netzwerkadapter für jeden Host ist nicht eingeschränkt. Verschiedene Hosts können eine unterschiedliche Anzahl an Netzwerkadaptern aufweisen.  
+  
+-   In den einzelnen Clustern müssen alle Netzwerkadapter entweder Multicast- oder Unicastadressen aufweisen. NLB bietet keine Unterstützung für eine Umgebung, in der sowohl Multicast- als auch Unicastadressen in einem einzigen Cluster verwendet werden.  
+  
+-   Bei Verwendung von Unicast-Modus, den Netzwerkadapter, die verwendet wird, behandelt der Client\-zu\-Clusterdatenverkehr muss ändern die Media-Zugriffssteuerung unterstützt \(MAC\) Adresse.  
+  
+## <a name="software-requirements"></a>Softwareanforderungen  
+Im folgenden werden die softwareanforderungen zum NLB-Cluster ausführen.  
+  
+-   Nur TCP\/IP-Adresse kann verwendet werden, auf dem Adapter für die auf jedem Host NLB aktiviert ist. Fügen Sie keine andere Protokolle \(z. B. IPX\) an diesen Adapter.  
+  
+-   Die IP-Adressen der Server in dem Cluster müssen statisch sein.  
+  
+> [!NOTE]  
+> NLB bietet keine Unterstützung für Dynamic Host Configuration Protocol \(DHCP\). DHCP wird für jede zu konfigurierende Schnittstelle von NLB deaktiviert.  
+  
+## <a name="installation-information"></a>Informationen zur Installation  
+Sie können NLB installieren, mithilfe von Server-Manager oder die Windows PowerShell-Befehle für den Netzwerklastenausgleich.
 
-Optional können Sie die Tools für den Netzwerklastenausgleich zum Verwalten von einem lokalen oder Remotecomputer NLB-Cluster installieren. Die Tools beinhalten den Netzwerklastenausgleich-Manager und NLB Windows PowerShell-Befehle.
+Optional können Sie auch die Tools für Netzwerklastenausgleich für die Verwaltung eines lokalen oder Remote-NLB-Clusters installieren. Die Tools beinhalten den Netzwerklastenausgleich-Manager "und" die NLB-Windows-PowerShell-Befehle.
 
 ### <a name="installation-with-server-manager"></a>Installation mit Server-Manager
 
-Im Server-Manager können das Hinzufügen von Rollen und Features Assistenten zum Hinzufügen der **Network Load Balancing** Feature. Beim Ausführen des Assistenten NLB installiert ist, und Sie müssen nicht auf den Computer neu starten.
+Im Server-Manager können Hinzufügen von Rollen und Features-Assistenten zum Hinzufügen der **Netzwerklastenausgleich** Feature. Wenn Sie den Assistenten abgeschlossen haben, NLB installiert ist, und Sie müssen nicht den Computer neu starten.
 
 
-### <a name="installation-with-windows-powershell"></a>Installation mit WindowsPowerShell  
+### <a name="installation-with-windows-powershell"></a>Installation mit Windows PowerShell  
 
-Um NLB mithilfe von Windows PowerShell zu installieren, führen Sie den folgenden Befehl an einer Windows PowerShell-Eingabeaufforderung mit erhöhten Rechten auf dem Computer, der Sie NLB installieren möchten.
+Um NLB mithilfe von Windows PowerShell zu installieren, führen Sie den folgenden Befehl an einer Windows PowerShell-Eingabeaufforderung mit erhöhten Rechten auf dem Computer, in dem Sie NLB installieren möchten.
 
     
     Install-WindowsFeature NLB -IncludeManagementTools
     
-Nach Abschluss der Installation ist kein Neustart des Computers erforderlich.
+Nachdem die Installation abgeschlossen ist, ist kein Neustart des Computers erforderlich.
 
-Weitere Informationen finden Sie unter [Install-WindowsFeature](https://technet.microsoft.com/library/jj205467.aspx).
+Weitere Informationen finden Sie unter [Install-WindowsFeature](https://docs.microsoft.com/powershell/module/servermanager/install-windowsfeature?view=win10-ps).
 
 ### <a name="network-load-balancing-manager"></a>Netzwerklastenausgleich-Manager
-Klicken Sie zum Öffnen des Netzwerklastenausgleich-Managers im Server-Manager **Tools**, und klicken Sie dann auf **des Netzwerklastenausgleich-Managers**.
+Klicken Sie zum Öffnen des Netzwerklastenausgleich-Managers im Server-Manager auf **Extras**, und klicken Sie dann auf **Netzwerklastenausgleich-Manager**.
   
-## <a name="BKMK_LINKS"></a>Zusätzliche Ressourcen  
+## <a name="additional-resources"></a>Zusätzliche Ressourcen  
 Die folgende Tabelle enthält Links zu weiteren Informationen zum NLB-Feature.  
   
 |Inhaltstyp|Verweise|  
 |----------------|--------------|  
-|Bereitstellung|[Für den Netzwerklastenausgleich-Bereitstellungshandbuch](https://technet.microsoft.com/library/cc754833(WS.10).aspx) & #124; [Konfigurieren des Netzwerklastenausgleichs mit Terminaldiensten](https://technet.microsoft.com/library/cc771300(v=WS.10).aspx)|  
-|Vorgänge|[Verwalten von Netzwerklastenausgleich-Clustern](https://technet.microsoft.com/library/cc753954(WS.10).aspx) & #124; [Festlegen von Parametern für den Netzwerklastenausgleich](https://technet.microsoft.com/library/cc731619(WS.10).aspx) & #124; [Steuern von Hosts in Netzwerklastenausgleich-Cluster](https://technet.microsoft.com/library/cc770870(WS.10).aspx)|  
-|Problembehandlung|[Problembehandlung für Netzwerklastenausgleich-Clustern](https://technet.microsoft.com/library/cc732592(WS.10).aspx) & #124; [NLB-Clusterereignisse und-Fehler](https://technet.microsoft.com/library/cc731678(WS.10).aspx)|
+|Bereitstellung|[Für den Netzwerklastenausgleich-Bereitstellungshandbuch](https://technet.microsoft.com/library/cc754833(WS.10).aspx) &#124; [Konfigurieren des Netzwerklastenausgleichs mit Terminaldiensten](https://technet.microsoft.com/library/cc771300(v=WS.10).aspx)|  
+|Vorgänge|[Verwalten von Netzwerklastenausgleich-Cluster](https://technet.microsoft.com/library/cc753954(WS.10).aspx) &#124; [Festlegen von Parametern für den Netzwerklastenausgleich](https://technet.microsoft.com/library/cc731619(WS.10).aspx) &#124; [Steuern von Hosts in Netzwerklastenausgleich-Cluster](https://technet.microsoft.com/library/cc770870(WS.10).aspx)|  
+|Problembehandlung|[Problembehandlung für Netzwerklastenausgleich-Cluster](https://technet.microsoft.com/library/cc732592(WS.10).aspx) &#124; [NLB-Clusterereignisse und-Fehler](https://technet.microsoft.com/library/cc731678(WS.10).aspx)|
 |Tools und Einstellungen|[Network Load Balancing Windows PowerShell-cmdlets](https://go.microsoft.com/fwlink/p/?LinkId=238123)|
-|Community-Ressourcen|[Forum für hohe Verfügbarkeit \(Clustering\)](https://go.microsoft.com/fwlink/p/?LinkId=230641)
+|Communityressourcen|[Hohe Verfügbarkeit \(Clustering\) Forum](https://go.microsoft.com/fwlink/p/?LinkId=230641)

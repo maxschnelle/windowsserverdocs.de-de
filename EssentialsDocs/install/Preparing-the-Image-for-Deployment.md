@@ -1,6 +1,6 @@
 ---
-title: "Vorbereiten des Abbilds für die Bereitstellung"
-description: Beschreibt, wie Sie Windows Server Essentials
+title: Vorbereiten des Abbilds für die Bereitstellung
+description: Beschreibt, wie Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,45 +13,46 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 16411ab073e9417c52592aa9a6b13707dd461537
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
-ms.translationtype: MT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59838531"
 ---
-# <a name="preparing-the-image-for-deployment"></a>Vorbereiten des Abbilds für die Bereitstellung
+# <a name="preparing-the-image-for-deployment"></a>Vorbereiten des Abbilds für die Bereitstellung
 
->Gilt für: Windows Server2016 Essentials, Windows Server2012 R2 Essentials, Windows Server2012 Essentials
+>Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Ein typisches Tool zur Vorbereitung eines Abbilds ist sysprep.exe. Mit diesem Tool generalisiert das Image und der Server heruntergefahren werden, damit die Erstkonfiguration ausgeführt wird, wenn der Server mit dem Bild neu gestartet wird. Alle Änderungen auf das Image müssen abgeschlossen sein, bevor Sie sysprep.exe ausführen.  
+"Sysprep.exe" stellt ein typisches Tool zur Vorbereitung eines Abbilds dar. Mit diesem Tool wird das Abbild generalisiert und der Server heruntergefahren, sodass die Erstkonfiguration ausgeführt wird, wenn der Server, auf dem das Abbild enthalten ist, neu gestartet wird. Vor der Ausführung von "Sysprep.exe" müssen alle Änderungen am Abbild abgeschlossen sein.  
   
 > [!NOTE]
->  Sie können die Windows-produktaktivierung höchstens dreimal mit sysprep.exe zurücksetzen.  
+>  Sie können die Windows-Produktaktivierung höchstens dreimal mit "Sysprep.exe" zurücksetzen.  
   
-#### <a name="to-prepare-the-image"></a>Um das Image vorzubereiten  
+#### <a name="to-prepare-the-image"></a>So bereiten Sie das Abbild vor  
   
-1.  Löschen Sie SkipIC.txt, die Sie hinzugefügt haben?  
+1.  Löschen Sie die von Ihnen hinzugefügte Datei "SkipIC.txt".  
   
-2.  Öffnen Sie ein Eingabeaufforderungsfenster mit erhöhten Rechten. Klicken Sie auf **starten**, klicken Sie mit der rechten Maustaste auf **Eingabeaufforderung**, und wählen Sie dann **als Administrator ausführen**.  
+2.  Öffnen Sie ein Eingabeaufforderungsfenster mit erhöhten Rechten. Klicken Sie auf **Start**, klicken Sie mit der rechten Maustaste auf **Eingabeaufforderung**, und wählen Sie dann **Als Administrator ausführen** aus.  
   
-3.  Führen Sie den folgenden Befehl aus, um den Registrierungsschlüssel zurückzusetzen, sodass der Benutzer die vollständige Karenzzeit hat, bevor der Server nicht kompatibel ist.  
+3.  Führen Sie den folgenden Befehl aus, um den Registrierungsschlüssel zurückzusetzen, sodass dem Benutzer die vollständige Karenzzeit zur Verfügung steht, bevor die Richtlinienkonformität des Servers erlischt.  
   
     ```  
     %systemroot%\system32\reg.exe add HKLM\Software\Microsoft\ServerInfrastructureLicensing /v Rearm /t REG_DWORD /d 1 /f  
     ```  
   
-4.  Führen Sie den folgenden Befehl zum Hinzufügen des Registrierungsschlüssels zum Schlüssel, Sprache, Gebietsschema Seite und Endbenutzer-Lizenzvertrag Seite anzeigen. Standardmäßig werden diese Seiten während der Erstkonfiguration nicht angezeigt. Wenn Sie eine vorinstallierte Box freigeben, müssen Sie daher diesen Registrierungsschlüssel hinzuzufügen. Aber wenn Sie eine DVD freigeben, sollten Sie nicht diesen Schlüssel hinzufügen wie diese Seiten bei der Windows PE und Erstkonfiguration angezeigt werden.  
+4.  Führen Sie den folgenden Befehl aus, um den Registrierungsschlüssel der Schlüsselanzeige, Sprachseite, Gebietsschemaseite und der Seite des Endbenutzer-Lizenzvertrags hinzuzufügen. Standardmäßig werden diese Seiten bei der Erstkonfiguration nicht angezeigt. Daher müssen Sie diesen Registrierungsschlüssel hinzufügen, wenn Sie eine vorinstallierte Box freigeben. Wenn Sie jedoch eine DVD freigeben, sollten Sie diesen Schlüssel nicht hinzufügen, da diese Seiten bei der Konfiguration von WinPE und der Erstkonfiguration angezeigt werden.  
   
     ```  
     %systemroot%\system32\reg.exe add "HKLM\Software\microsoft\windows server\setup" /v ShowPreinstallPages /t REG_SZ /d true /f  
     ```  
   
-5.  Deaktivieren Sie die schlüsselseite der Erstkonfiguration, wenn die Box bereits mit Schlüssel ist. Die schlüsselseite wird nur angezeigt, wenn ShowPreinstallPages = True und KeyPreInstalled! = True.  
+5.  Deaktivieren Sie die Schlüsselseite der Erstkonfiguration, wenn die Box bereits einen Schlüssel enthält. Die Schlüsselseite wird nur angezeigt, wenn "ShowPreinstallPages = true" und "KeyPreInstalled != true" festgelegt sind.  
   
     ```  
     %systemroot%\system32\reg.exe add "HKLM\Software\microsoft\windows server\setup" /v KeyPreInstalled /t REG_SZ /d true /f  
     ```  
   
-6.  Führen Sie den folgenden Befehl aus, um den Registrierungsschlüssel hinzuzufügen, wenn Sie die Überprüfungen der Hardwareanforderungen deaktivieren möchten. Dies ist nur für die vorinstallierte Box, die die Hardwareanforderungen nicht erfüllt. Wenn Sie eine DVD freigeben, oder Ihre Box die Hardwareanforderungen erfüllt, wird empfohlen, diesen Schlüssel nicht hinzufügen.  
+6.  Führen Sie den folgenden Befehl aus, um den Registrierungsschlüssel hinzuzufügen, wenn Sie die Überprüfungen der Hardwareanforderungen deaktivieren möchten. Dies gilt nur für die vorinstallierte Box, die die Hardwareanforderungen nicht erfüllt. Wenn Sie eine DVD freigeben, oder Ihre Box die Hardwareanforderungen erfüllt, wird empfohlen, dass Sie diesen Schlüssel nicht hinzufügen.  
   
     ```  
     %systemroot%\system32\reg.exe add "HKLM\Software\microsoft\windows server\setup" /v HWRequirementChecks /t REG_DWORD /d 0 /f  
@@ -59,7 +60,7 @@ Ein typisches Tool zur Vorbereitung eines Abbilds ist sysprep.exe. Mit diesem To
   
 7.  (Optional) Entfernen Sie die Protokolle unter **%programdata%\Microsoft\Windows Server\Logs**.  
   
-8.  Vorbereiten der unbeaufsichtigten XML-Datei für Sysprep wie in der folgenden Vorlage dargestellt.  
+8.  Bereiten Sie die XML-Datei für den unbeaufsichtigten Modus für Sysprep vor, wie in der folgenden Vorlage dargestellt.  
   
     ```  
     <unattend xmlns="urn:schemas-microsoft-com:unattend" xmlns:ms="urn:schemas-microsoft-com:asm.v3">  
@@ -115,16 +116,16 @@ Ein typisches Tool zur Vorbereitung eines Abbilds ist sysprep.exe. Mit diesem To
     </unattend>  
     ```  
   
-9. Führen Sie den folgenden Befehl für Sysprep.  
+9. Führen Sie den folgenden Befehl für Sysprep aus.  
   
     ```  
     %systemroot%\system32\sysprep\sysprep.exe /generalize /OOBE /unattend:xxx.xml /Quit  
     ```  
   
     > [!IMPORTANT]
-    >  Sie können auch die "unattend.xml" unter "% SystemDrive%" anstelle von als Parameter von Sysprep hinzufügen. Befindet sich die Datei unter c:\, es wird, fallen s-Einstellungen des Benutzers, aber wenn als Parameter von Sysprep verwendet wird, nicht behandelt wird durch Benutzer s Einstellungen. Die "unattend.xml" unter "% SystemDrive%" wird jedes Mal gelöscht, der Server neu gestartet wird. Stellen Sie daher sicher, dass nach der Erstellung unattend.xml unter "% SystemDrive%" der Server nicht neu gestartet wird.  
+    >  Anstelle eines Parameters von Sysprep können Sie auch die Datei "unattend.xml" unter "%systemdrive%" hinzufügen. Wenn die Datei sich unter c:\ befindet Es wird erläutert, durch die benutzereinstellungen s, aber wenn als Parameter von Sysprep verwendet wird, nicht behandelt wird durch die Benutzer s-Einstellungen. Die Datei "unattend.xml" unter "%systemdrive%" wird bei jedem Neustart des Servers gelöscht. Stellen Sie daher nach dem Erstellen von "unattend.xml" unter "%systemdrive%" sicher, dass der Server nicht neu gestartet wird.  
   
-10. Führen Sie den folgenden Befehl aus, um den Registrierungsschlüssel zum Überspringen der Windows OOBE-schlüsselseite hinzuzufügen.  
+10. Führen Sie den folgenden Befehl aus, um den Registrierungsschlüssel zum Überspringen der Windows OOBE-Schlüsselseite hinzuzufügen.  
   
     ```  
     %systemroot%\system32\reg.exe add "HKLM\Software\microsoft\Windows\CurrentVersion\Setup\OOBE" /v SetupDisplayedProductKey /t REG_DWORD /d 1 /f  
@@ -137,9 +138,9 @@ Ein typisches Tool zur Vorbereitung eines Abbilds ist sysprep.exe. Mit diesem To
     ```  
   
     > [!IMPORTANT]
-    >  Sie müssen die letzten 2 Schritteausführen, da andernfalls die Windows-Willkommensseite wird angezeigt mit der Erstkonfiguration und Remote verwalteten Server-Szenario ist.  
+    >  Sie müssen die letzten beiden Schritte ausführen, andernfalls wird die Seite für Windows OOBE angezeigt, die mit der Erstkonfigurationsseite angezeigt wird und die das remote verwaltete Serverszenario abbricht.  
   
-12. Fahren das Feld, nach Sysprep, können Sie Aufzeichnen eines Images oder starten Sie den Server aus, um die Erstkonfiguration von einem Clientcomputer aus fortzusetzen.  
+12. Fahren Sie die Box nach der Ausführung von Sysprep herunter. Sie können ein Abbild erfassen oder den Server neu starten, um die Erstkonfiguration von einem Clientcomputer aus fortzusetzen.  
   
 > [!IMPORTANT]
->  Partner, die zum Erstellen von Wiederherstellungsmedien Server müssen das Image aufzeichnen und das Wiederherstellungsmedium vor dem Fortfahren mit dem nächsten Schritterstellen.
+>  Partner, die Serverwiederherstellungsmedien erstellen möchten, müssen das Abbild aufzeichnen und die Wiederherstellungsmedien erstellen, bevor sie mit dem nächsten Schritt fortfahren.

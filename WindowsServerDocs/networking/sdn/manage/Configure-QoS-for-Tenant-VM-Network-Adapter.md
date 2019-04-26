@@ -1,7 +1,7 @@
 ---
-title: Konfigurieren von Quality of Service (QoS) für einen Mandanten VM-Netzwerkadapter
-description: Dieses Thema ist Teil der Software Defined Networking-Anleitung für zum Verwalten von Mandantenworkloads und virtuellen Netzwerken in Windows Server2016.
-manager: brianlic
+title: Konfigurieren von Quality of Service (QoS) für einen Mandanten-VM-Netzwerkadapter
+description: Wenn Sie QoS für einen Mandanten-VM-Netzwerkadapter konfigurieren, Sie haben die Wahl zwischen Data Center Bridging \(DCB\)oder Software Defined Networking \(SDN\) QoS.
+manager: dougkim
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -12,33 +12,37 @@ ms.topic: article
 ms.assetid: 6d783ff6-7dd5-496c-9ed9-5c36612c6859
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: cde4e21beaec58a98a5d5fbe5c4631e2f113dbf7
-ms.sourcegitcommit: 19d9da87d87c9eefbca7a3443d2b1df486b0b010
-ms.translationtype: MT
+ms.date: 08/23/2018
+ms.openlocfilehash: 0b9ce318c3d249b23d7560e0b6bb90a83e60d64d
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59880601"
 ---
-# <a name="configure-quality-of-service-qos-for-a-tenant-vm-network-adapter"></a>Konfigurieren von Quality of Service (QoS) für einen Mandanten VM-Netzwerkadapter
+# <a name="configure-quality-of-service-qos-for-a-tenant-vm-network-adapter"></a>Konfigurieren von Quality of Service (QoS) für einen Mandanten-VM-Netzwerkadapter
 
->Gilt für: Windows Server (Semikolons jährlichen Channel), Windows Server 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
-Wenn Sie QoS für einen Mandanten VM-Netzwerkadapter konfigurieren, Sie haben die Wahl zwischen Data Center Bridging \ (DCB\) oder Software Defined Networking \(SDN\) QoS.
+Wenn Sie QoS für einen Mandanten-VM-Netzwerkadapter konfigurieren, Sie haben die Wahl zwischen Data Center Bridging \(DCB\)oder Software Defined Networking \(SDN\) QoS.
 
-1.  **DCB**. Sie können DCB mit den NetQoS von Windows PowerShell-Cmdlets konfigurieren. Ein Beispiel finden Sie im Abschnitt "Aktivieren Data Center Bridging" im Thema [(Remote Direct Memory Access, RDMA) und Switch Embedded Teaming (SET)](../../../virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md).
+1.  **DCB**. Sie können mithilfe der Cmdlets für Windows PowerShell NetQoS DCB konfigurieren. Ein Beispiel finden Sie im Abschnitt "Data Center Bridging aktivieren" im Thema [(Remote Direct Memory Access, RDMA) und Switch Embedded Teaming (SET)](../../../virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md).
 
-2.  **SDN QoS**. Sie können mithilfe von Netzwerkcontroller, die festgelegt werden können, um Bandbreite auf eine virtuelle Schnittstelle, um zu verhindern, dass eine VM mit hoher Auslastung blockieren andere Benutzer zu beschränken, SDN QoS aktivieren.  Sie können auch konfigurieren, dass SDN QoS reservieren Sie eine bestimmte Menge an Bandbreite für eine virtuelle Maschine, um sicherzustellen, dass die virtuelle Maschine unabhängig von der Menge des Netzwerkverkehrs zugänglich ist.  
+2.  **SDN QoS**. Sie können die SDN QoS ermöglichen, mithilfe von Netzwerkcontroller, der festgelegt werden, um die Bandbreite für eine virtuelle Schnittstelle, um zu verhindern, dass eine VM mit hohem Datenverkehr andere Benutzer zu blockieren.  Sie können auch konfigurieren, dass SDN QoS, um eine bestimmte Menge an Bandbreite für einen virtuellen Computer, um sicherzustellen, dass die virtuellen Computer zugegriffen werden kann, unabhängig von der Menge des Netzwerkverkehrs zu reservieren.  
 
-Über die Port-Einstellungen der Netzwerkschnittstelle Eigenschaften entsprechend der folgenden Tabelle werden alle SDN-Qos-Einstellungen angewendet.
+Alle SDN QoS-Einstellungen über die Porteinstellungen der Netzwerkschnittstelle Eigenschaften anwenden. Finden Sie in der Tabelle unten für weitere Details.
 
 |Elementname|Beschreibung|
 |------------|-----------| 
-|macSpoofing|Gibt an, ob virtuelle Computer die Quelle Mac-\(MAC\) Adresse in ausgehenden Paketen in eine MAC-Adresse ändern können, die nicht mit dem virtuellen Computer zugewiesen ist. Zulässige Werte sind "aktiviert" \ (ermöglicht den virtuellen Computer auf einen anderen MAC Address\ verwenden) und "deaktiviert" \ (ermöglicht den virtuellen Computer nur die zugewiesene MAC-Adresse It\ verwenden).|
-|arpGuard|Gibt an, ob ARP Guard aktiviert ist.  ARP Guard kann nur Adressen, die in ArpFilter über den Port angegeben werden.  Zulässige Werte sind "aktiviert" oder "deaktiviert".
-|dhcpGuard|Gibt an, ob DHCP-Nachrichten von einem virtuellen Computer gelöscht werden, die sich tatsächlich um einen DHCP-Server. Zulässige Werte sind "aktiviert" die DHCP-Nachrichten gelöscht werden, da der virtuelle DHCP-Server gilt als nicht vertrauenswürdig eingestuft wird, oder "deaktiviert", wodurch die Nachricht empfangen werden, da der virtuelle DHCP-Server als vertrauenswürdig eingestuft wird.
-|stormLimit|Gibt die Anzahl der Broadcast-, Multicast- und unbekannten Unicastpakete pro Sekunde, die ein virtuellen Computer über den angegebenen virtuellen Netzwerkadapter senden darf. Broadcast-, Multicast- und unbekannte Unicastpakete außerhalb des Grenzwerts während dieses Intervalls von einer Sekunde werden gelöscht. Der Wert 0 (null) \(0\) bedeutet, dass es keine Begrenzung.
-|portFlowLimit|Gibt die maximale Anzahl der Flüsse, die für den Port ausgeführt werden können.  Der Wert leer oder NULL \(0\) bedeutet, dass es keine Begrenzung.
-|vmqWeight|Gibt an, ob die Warteschlange für virtuelle Computer (VMQ) auf dem virtuellen Netzwerkadapter aktiviert ist. Die relative Gewichtung beschreibt die Affinität des virtuellen Netzwerkadapters zur Verwendung der VMQ. Der Bereich der Wert ist 0 bis 100. Geben Sie 0 an, um VMQ auf dem virtuellen Netzwerkadapter zu deaktivieren.
-|iovWeight|Gibt an, ob Single-Root-e/a-Virtualisierung \(SR-IOV\) ist auf diesem virtuellen Netzwerkadapter aktiviert. Die relative Gewichtung legt die Affinität des virtuellen Netzwerkadapters an, die zugewiesenen virtuellen SR-IOV-Funktion. Der Bereich der Wert ist 0 bis 100. Geben Sie 0 an, um SR-IOV auf dem virtuellen Netzwerkadapter zu deaktivieren. 
-|iovInterruptModeration|Gibt den Wert der interruptüberprüfung für eine Single-Root-e/a-Virtualisierung \(SR-IOV\) virtuelle Funktion mit einem virtuellen Netzwerkadapter zugewiesen. Zulässige Werte sind "Default", "adaptive", "off", "Niedrig", "Mittel" und "Hoch".   Wenn standardmäßig ausgewählt ist, wird der Wert von physischen Netzwerk Hersteller des Adapters die Einstellung bestimmt.  Wenn Adaptive ausgewählt wird, basiert die Rate der interruptüberprüfung auf dem Laufzeit-Verkehrsmuster. 
-|iovQueuePairsRequested|Gibt die Anzahl der Hardware-warteschlangenpaaren an eine virtuelle SR-IOV-Funktion zugeordnet werden soll. Wenn empfangsseitige Skalierung \(RSS\) erforderlich ist und der physischen Netzwerkadapter, der mit dem virtuellen Switch gebunden ist RSS für virtuelle SR-IOV unterstützt Funktionen, mehr als ein warteschlangenpaar erforderlich ist. Zulässige Werte liegen zwischen 1 und 4294967295. 
-|QosSettings|Sie können die folgenden Qos-Einstellungen konfigurieren, die optional sind:  <br/><br />**OutboundReservedValue:**<br/>Wenn OutboundReservedMode auf "absolut" festgelegt ist, gibt den Wert der Bandbreite in Mbit/s, mit dem virtuellen Port für die Übertragung (ausgehende) garantiert. Wenn OutboundReservedMode "seid" ist, gibt den Wert den gewichteten Teil der Bandbreite garantiert. <br/><br />**OutboundMaximumMbps:**  <br/>Gibt an, dass die maximal zulässige Sendeseite Bandbreite in Mbit/s, für den virtuellen Port (ausgehende). <br/><br/>**InboundMaximumMbps:**  <br/>Gibt an, dass die maximale empfangsseitige Bandbreite für den virtuellen Port (Ausgang) in Mbit/s zulässig. |
+|macSpoofing| Sind die virtuellen Computer so ändern Sie die Source Media-Zugriffssteuerung \(MAC\) Adresse in ausgehenden Paketen auf einem MAC-Adresse, die nicht mit dem virtuellen Computer zugewiesen.<p>Zulässige Werte:<ul><li>Aktiviert – verwenden Sie eine andere MAC-Adresse.</li><li>Deaktiviert – verwenden Sie nur die MAC-Adresse zugewiesen.</li></ul>|
+|arpGuard| Ermöglicht die ARP-Guard nur Adressen in ArpFilter für die Übergabe über den Port angegeben.<p>Zulässige Werte:<ul><li>Aktiviert – zulässig</li><li>Deaktiviert – nicht zulässig</li></ul>|
+|dhcpGuard| Ermöglicht es, oder löscht DHCP-Nachrichten von einem virtuellen Computer, der vorgibt ein DHCP-Server. <p>Zulässige Werte:<ul><li>Aktiviert – löscht DHCP-Nachrichten, da der virtuelle DHCP-Server als nicht vertrauenswürdig eingestuft wird.</li><li>Deaktiviert – kann die Nachricht empfangen werden, da der virtuelle DHCP-Server als vertrauenswürdig eingestuft wird.</li></ul>|
+|stormLimit| Die Anzahl der Pakete (Unicast Broadcast-, Multicast- und unbekannten) pro Sekunde einen virtuellen Computer ist zulässig, über den virtuellen Netzwerkadapter gesendet wird. Pakete, die außerhalb des Grenzwerts während dieses Intervalls von einer Sekunde gelöscht. Der Wert 0 (null) \(0\) bedeutet, es gibt keine Beschränkung...|
+|portFlowLimit| Die maximale Anzahl der Datenflüsse, die für den Port ausgeführt werden soll. Ein Wert leer oder NULL \(0\) bedeutet, es gibt keine Beschränkung. |
+|vmqWeight| Die relative Gewichtung beschreibt die Affinität des virtuellen Netzwerkadapters Warteschlange für virtuelle Computer (VMQ) verwenden. Der Wertebereich ist 0 bis 100.<p>Zulässige Werte:<ul><li>0 – deaktiviert die VMQ auf dem virtuellen Netzwerkadapter an.</li><li>1 bis 100 – ermöglicht die VMQ auf dem virtuellen Netzwerkadapter.</li></ul>|
+|iovWeight| Die relative Gewichtung legt die Affinität des virtuellen Netzwerkadapters auf dem zugewiesenen Single-Root-e/a-Virtualisierung \(SR-IOV\) virtuelle Funktion. <p>Zulässige Werte:<ul><li>0 – SR-IOV auf dem virtuellen Netzwerkadapter deaktiviert.</li><li>1 bis 100 – können SR-IOV auf dem virtuellen Netzwerkadapter.</li></ul>|
+|iovInterruptModeration|<p>Zulässige Werte:<ul><li>Standard – Einstellung für den physischen Adapter des Herstellers des Werts bestimmt.</li><li>Adaptive- </li><li>Ortung erlauben </li><li>Niedrig</li><li>mittel</li><li>Hohe</li></ul><p>Auf Wunsch **Standard**, dem physischen Adapter herstellereinstellung des bestimmt den Wert.  Wenn Sie sich entscheiden, **adaptive**, des Musters Rate der interruptüberprüfung des Common Language Runtime-Datenverkehrs bestimmt.|
+|iovQueuePairsRequested| Die Anzahl der Hardware-warteschlangenpaaren, die einer virtuellen SR-IOV-Funktion zugeordnet. Wenn empfangsseitige Skalierung \(RSS\) ist erforderlich, und wenn dem physischen Netzwerkadapter, die mit dem virtuellen Switch gebunden unterstützt RSS für virtuelle SR-IOV-Funktionen, und klicken Sie dann mehr als ein warteschlangenpaar erforderlich ist. <p>Zulässige Werte: 1 bis 4294967295.|
+|QosSettings| Konfigurieren Sie die folgenden Qos-Einstellungen, die alle optional sind: <ul><li>**OutboundReservedValue** – Wenn OutboundReservedMode "absolut" ist, und klicken Sie dann der Wert der Bandbreite in Mbit/s, auf den virtuellen Port für die Übertragung (ausgehend) garantiert angibt. Ist OutboundReservedMode "Weight" gibt den Wert den gewichteten Teil der Bandbreite garantiert.</li><li>**OutboundMaximumMbps** – gibt an, der maximal zulässige für die sendeseitige Bandbreite in Mbit/s, für den virtuellen Port (ausgehend).</li><li>**InboundMaximumMbps** – gibt an, der maximal zulässige empfangsseitige Bandbreite für den virtuellen Port (Eingang) in Mbit/s.</li></ul> |
+
+---

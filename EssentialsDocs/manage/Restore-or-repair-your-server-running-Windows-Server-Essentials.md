@@ -1,6 +1,6 @@
 ---
-title: Wiederherstellen Sie oder reparieren Sie des Servers mit Windows Server Essentials
-description: Beschreibt, wie Sie Windows Server Essentials
+title: Wiederherstellen oder Reparieren des Servers mit Windows Server Essentials
+description: Beschreibt, wie Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,14 +13,15 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: e1ebc539928d13b0d34dfe5a0ee57ce6e98088e9
-ms.sourcegitcommit: 70c1b6cedad55b9c7d2068c9aa4891c6c533ee4c
-ms.translationtype: MT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59862351"
 ---
-# <a name="restore-or-repair-your-server-running-windows-server-essentials"></a>Wiederherstellen Sie oder reparieren Sie des Servers mit Windows Server Essentials
+# <a name="restore-or-repair-your-server-running-windows-server-essentials"></a>Wiederherstellen oder Reparieren des Servers mit Windows Server Essentials
 
->Gilt für: Windows Server2016 Essentials, Windows Server2012 R2 Essentials, Windows Server2012 Essentials
+>Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
  
  Dieses Thema bietet eine Übersicht sowie unterstützende Verfahren bezüglich des Wiederherstellens oder Reparierens eines Servers mit Windows Server Essentials und umfasst die folgenden Abschnitte:  
   
@@ -28,117 +29,117 @@ ms.lasthandoff: 07/03/2017
   
 -   [Wiederherstellen oder Reparieren des Systemlaufwerks](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_Restore)  
   
--   [Wiederherstellen von Dateien und Ordnern auf dem Server](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_RestoreFilesAndFolders)  
+-   [Wiederherstellen von Dateien und Ordner auf dem server](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_RestoreFilesAndFolders)  
   
-##  <a name="BKMK_Overview"></a>Übersicht über die des Serversystems  
- Der Status des Servers beim Ausführen einer Wiederherstellung wirkt sich auf die Restore-Methode, die verfügbar ist und wie umfassend eine Wiederherstellung durchführen können.  
+##  <a name="BKMK_Overview"></a> Übersicht über die des Serversystems  
+ Beim Ausführen einer Wiederherstellung wirkt sich der Status des Servers auf die verfügbare Wiederherstellungsmethode aus und darauf, wie umfassend Sie eine Wiederherstellung durchführen können.  
   
- Die häufigsten Gründe für die Wiederherstellung eines Servers sind:  
+ Die häufigsten Gründe für die Wiederherstellung eines Servers sind im Folgenden aufgeführt:  
   
 -   Ein Virus auf dem Server kann nicht bekämpft oder gelöscht werden.  
   
--   Konfigurationseinstellungen des Servers sind unzureichend, und Sie können den Server nicht starten.  
+-   Die Konfigurationseinstellungen des Servers sind unzureichend, und der Server kann nicht gestartet werden.  
   
--   Sie können das Systemlaufwerk ausgetauscht.  
+-   Sie haben das Systemlaufwerk ausgetauscht.  
   
--   Werden Sie den Server abkoppeln, und Sie zu einem neuen Server wiederherstellen möchten.  
+-   Sie nehmen den Server außer Betrieb. Sie möchten eine Wiederherstellung auf einem neuen Server durchführen.  
   
- Sie können entweder den Server aus einer Sicherung wiederherstellen, oder Sie können den Server wiederherstellen, um die werkseitigen Standardeinstellungen.  
+ Sie können den Server entweder mithilfe von Sicherheitskopien oder über die werkseitigen Standardeinstellungen wiederherstellen.  
   
 -   [Wiederherstellen des Servers aus einer Sicherung](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_RestoreFromBackup)  
   
 -   [Zurücksetzen des Servers auf die werkseitigen Standardeinstellungen](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_FactoryReset)  
   
-###  <a name="BKMK_RestoreFromBackup"></a>Wiederherstellen des Servers aus einer Sicherung  
- Dieser Abschnittenthält Richtlinien, auf welche Art der Sicherung auswählen.  
+###  <a name="BKMK_RestoreFromBackup"></a> Wiederherstellen des Servers aus einer Sicherung  
+ Dieser Abschnitt enthält Anleitungen in Bezug auf die Auswahl der Sicherungsart.  
   
- Wenn eine Sicherung verfügbar ist, ist die beste Wahl zum Wiederherstellen des Servers mit dem Hersteller s-Installationsmedium aus einer externen Sicherung wiederherstellen. Die Wiederherstellung wird servereinstellungen und Ordner aus der Sicherung wiederherstellen, die Sie auswählen. Sie müssen nur konfigurieren, und nach der Sicherung erstellten Daten wiederherstellen.  
+ Wenn eine Sicherung verfügbar ist, werden die beste Wahl zum Wiederherstellen des Servers ab, die Installationsmedien des Herstellers s zu verwenden, um aus einer externen Sicherung wiederherzustellen. Durch die Wiederherstellung werden die von Ihnen ausgewählten Servereinstellungen und -ordner aus den Sicherheitskopien erneut abgerufen und angewendet. Sie müssen lediglich die entsprechenden Einstellungen konfigurieren und die nach der Sicherung erstellten Daten wiederherstellen.  
   
- Wenn Sie den Server wiederherstellen, indem Sie aus einer früheren Sicherung wiederherstellen möchten, wählen Sie die konkrete Sicherung, die wiederhergestellt werden sollen, und benötigen Sie eine gültige Sicherungsdatei auf einer externen Festplatte, die direkt mit dem Server verbunden ist:  
+ Wenn Sie den Server über eine frühere Sicherung wiederherstellen möchten, wählen Sie die konkrete Sicherheitskopie, die für die Wiederherstellung angewendet werden soll. Sie benötigen dafür eine gültige Sicherungsdatei auf einem externen Festplattenlaufwerk, das direkt mit dem Server verbunden ist:  
   
--   **Wenn Sie eine möglichst aktuelle erfolgreiche Sicherung des Servers haben**, und Sie wissen, dass die Sicherung enthält alle wichtigen Daten Ihrer Wahl ist recht einfach. Sie müssen nur jene Daten neu erstellen, die erstellt wurde, nachdem Ihre letzten guten Sicherung und neu konfigurieren Einstellungen nach der Sicherung geändert.  
+-   **Wenn Sie erst vor Kurzem eine Sicherung des Servers erfolgreich durchgeführt haben** und Sie wissen, dass in der Sicherung sämtliche Ihrer kritischen Daten enthalten sind, verläuft Ihre Auswahl recht unkompliziert. Sie müssen nur jene Daten neu erstellen, die nach der letzten erfolgreichen Sicherung erstellt wurden. Außerdem müssen Sie die nach der Sicherung vorgenommenen Einstellungsänderungen neu konfigurieren.  
   
--   **Wenn Sie den Server aufgrund eines Virus wiederherstellen**, wählen Sie eine Sicherung, die Sie kennen, die vor dem Auftreten des Virus aufgetreten ist. Sie müssen möglicherweise mehrere Tage zurückdatieren, um eine Sicherung auszuwählen, die einwandfrei ist.  
+-   **Wenn Sie die Wiederherstellung des Servers aufgrund eines Virus durchführen**, wählen Sie Sicherheitskopien, bei denen Sie sicher sind, dass sie vor dem Auftreten des Virus erstellt wurden. Sie müssen möglicherweise mehrere Tage zurückdatieren, um eine Sicherung auszuwählen, die einwandfrei ist.  
   
--   **Wenn Sie den Server wegen fehlerhafter Konfigurationseinstellungen wiederherstellen**, wählen Sie eine Sicherung, die Sie kennen, die vor der Konfiguration, die Einstellung ändern, die das Problem auf dem Server verursacht aufgetreten ist.  
+-   **Wenn Sie den Server wegen fehlerhafter Konfigurationseinstellungen wiederherstellen**, wählen Sie eine Sicherung, von der Sie wissen, dass sie vor der Konfigurationseinstellungsänderung vorgenommen wurde, welche das Problem auf dem Server verursacht hat.  
   
- Wenn Sie aus einer Sicherung wiederherstellen, hängen das genaue Vorgehen und die erforderlichen Folgemaßnahmen die Anzahl der Festplatten auf dem Server und gibt an, ob das Systemlaufwerk ersetzt wird:  
+ Wenn Sie eine Wiederherstellung über eine Sicherung vornehmen, hängen das genaue Vorgehen und die erforderlichen Folgemaßnahmen von der Anzahl der Festplatten auf dem Server sowie davon ab, ob das Systemlaufwerk ersetzt wird:  
   
--   **Wenn der Server über eine einzelne Festplatte verfügt und das Laufwerk nicht ersetzt**, die Informationen zur Laufwerkspartition beim Wiederherstellen des Servers. Das Systemvolumen wird wiederhergestellt, und die Daten auf den verbleibenden Datenträger werden beibehalten.  
+-   **Wenn der Server über eine einzelne Festplatte verfügt und das Laufwerk nicht ersetzt wird**, bleiben die Informationen zur Laufwerkspartition beim Wiederherstellen des Servers unberührt. Das Systemvolumen wird wiederhergestellt, und die Daten auf dem verbleibenden Datenträger werden beibehalten.  
   
--   **Wenn der Server über eine einzelne Festplatte verfügt und das Laufwerk ersetzt**, das Systemvolumen wird wiederhergestellt, und Sie müssen dann manuell wiederherstellen Ordner für die Datenträger. Alle nicht standardmäßigen freigegebenen Ordner müssen erstellt werden, da sie nicht erstellt werden, wenn der Serverspeicher neu erstellt wird.  
+-   **Wenn der Server über eine einzelne Festplatte verfügt und das Laufwerk ersetzt wird**, so wird das Systemvolumen wiederhergestellt. Sie müssen dann die Ordner für die Datenträger manuell wiederherstellen. Alle nicht standardmäßig freigegebenen Ordner müssen erstellt werden, da diese nicht erstellt werden, wenn der Serverspeicher neu erstellt wird.  
   
--   **Wenn der Server über mehrere Festplatten verfügt und Laufwerk 0 (enthält das Systemvolumen) nicht ersetzt**, die Informationen zur Laufwerkspartition beim Wiederherstellen des Servers. Das Systemvolumen wird wiederhergestellt, und die Daten auf allen verbleibenden Datenträgern werden beibehalten.  
+-   **Wenn der Server über mehrere Festplatten verfügt und Laufwerk 0 (enthält das Systemvolumen) nicht ersetzt wird**, bleiben die Informationen zur Laufwerkspartition beim Wiederherstellen des Servers unberührt. Das Systemvolumen wird wiederhergestellt, und die Daten auf allen verbleibenden Datenträgern werden beibehalten.  
   
--   **Wenn der Server über mehrere Festplatten verfügt und Laufwerk 0 (enthält das Systemvolumen) ersetzt**, das Systemvolumen wird wiederhergestellt und müssen dann alle freigegebenen Ordner, die zuvor auf Laufwerk 0 gespeichert waren manuell wiederherstellen.  
+-   **Wenn der Server über mehrere Festplatten verfügt und Laufwerk 0 (enthält das Systemvolumen) ersetzt wird**, so wird das Systemvolumen wiederhergestellt. Sie müssen dann alle freigegebenen Ordner, die zuvor auf Laufwerk 0 gespeichert waren, manuell wiederherstellen.  
   
-###  <a name="BKMK_FactoryReset"></a>Zurücksetzen des Servers auf die werkseitigen Standardeinstellungen  
- Wenn Sie keine Sicherung haben, die Sie wiederherstellen können, aus oder einem anderen Grund möchten oder müssen eine vollständige Systemwiederherstellung ausführen, ohne die vorherige Serverkonfiguration wiederherzustellen, können Sie eine Wiederherstellung durchführen, die den Server auf die werkseitigen Standardeinstellungen zurückgesetzt werden, indem Sie mithilfe von Installations- oder Wiederherstellungsmedien vom Hardware-Hersteller.  
+###  <a name="BKMK_FactoryReset"></a> Zurücksetzen des Servers auf die werkseitigen Standardeinstellungen  
+ Wenn Sie über keine Sicherheitskopien verfügen, über die Sie eine Wiederherstellung vornehmen können, oder wenn Sie aus einem anderen Grund eine vollständige Systemwiederherstellung durchführen möchten oder müssen, ohne die vorherige Serverkonfiguration wiederherzustellen, können Sie eine Wiederherstellung durchführen, die den Server auf die werkseitigen Standardeinstellungen zurückgesetzt, indem Sie die Installations- oder Wiederherstellungsmedien vom Hardware-Hersteller verwenden.  
   
- Wenn Sie den Server wiederherstellen, indem Sie auf die werkseitigen Standardeinstellungen zurücksetzen, werden alle vorhandenen Einstellungen und installierten Programme auf dem Server gelöscht, und müssen Sie den Server erneut konfigurieren. Nach dem Zurücksetzen einer Factory der Server neu starten.  
+ Wenn Sie den Server wiederherstellen, indem Sie ihn auf die werkseitigen Standardeinstellungen zurücksetzen, werden sämtliche vorhandenen Einstellungen und installierten Anwendungen auf dem Server gelöscht. Sie müssen den Server dann erneut konfigurieren. Nach dem Zurücksetzen auf die Werkseinstellungen muss der Server neu starten.  
   
- Wenn Sie auf die Werkseinstellungen Zurücksetzen ausführen, können Sie Ihre Daten beibehalten oder gelöscht werden soll, die folgenden Auswirkungen beachten:  
+ Beim Zurücksetzen auf die Werkseinstellungen können Sie wählen, ob Sie Ihre Daten beibehalten oder löschen möchten. Dabei müssen Sie die folgenden Auswirkungen beachten:  
   
--   Wenn Sie alle Daten, werden alle Daten beibehalten möchten das Systemvolume wird gelöscht, aber die Daten auf anderen Datenträgern werden beibehalten.  
+-   Wenn Sie sämtliche Ihrer Daten beibehalten möchten, werden alle Daten im Systemvolumen gelöscht. Die Daten auf anderen Volumen werden jedoch beibehalten.  
   
     > [!CAUTION]
-    >  Wenn die datenträgereinstellungen nicht die Standardeinstellungen übereinstimmen, werden alle Daten auf einem Datenträger gelöscht werden. Wenn Sie den Systemdatenträger ersetzt haben, muss der neue Datenträger größer als das ursprüngliche Datenträger s Systemvolume sein.  
+    >  Wenn die Datenträgereinstellungen nicht den Standardeinstellungen entsprechen, werden alle Daten auf einem betreffenden Datenträger gelöscht. Wenn Sie den Systemdatenträger ersetzt haben, muss der neue Datenträger größer als der ursprüngliche Datenträger s Systemvolume sein.  
     >   
-    >  Wenn die Partitionsinformationen für ein Systemlaufwerk nicht lesbar ist, oder wenn Sie das Systemlaufwerk ersetzen, alle Daten auf dem Systemlaufwerk, entfernt werden auch wenn Sie alle Ihre Daten beibehalten möchten.  
+    >  Falls die Partitionsinformationen für ein Systemlaufwerk nicht gelesen werden können, oder falls Sie das Systemlaufwerk ersetzen, werden alle Daten auf dem Systemlaufwerk entfernt, auch wenn Sie alle Ihre Daten beibehalten möchten.  
   
--   Wenn Sie außer Betrieb nehmen oder des Servers wiederverwenden möchten, wählen Sie alle Ihre Daten gelöscht. Zusätzlich zur Konfiguration des Servers, andere Einstellungen und Daten auf dem Systemdatenträger werden alle anderen Daten gelöscht, und alle Festplatten auf dem Server neu formatiert.  
+-   Wenn Sie den Server außer Betrieb nehmen oder für einen anderen Zweck verwenden möchten, wählen Sie die Löschung all Ihrer Daten. Neben der Serverkonfiguration, weiteren Einstellungen und den Daten im Systemvolumen werden alle anderen Daten gelöscht und alle Festplatten auf dem Server neu formatiert.  
   
 > [!NOTE]
->  Wenn Speicherplätze auf dem Server konfiguriert ist, bevor Sie auf die Werkseinstellungen Zurücksetzen ausführen, verwenden Sie die **erweitert** Teil der **Verwalten von Speicherplätzen** Konsole alle Speicherplätze manuell zu entfernen.  
+>  Wenn Speicherplätze auf dem Server konfiguriert werden, bevor Sie ein Zurücksetzen auf die Werkseinstellungen vornehmen, sollten Sie den Abschnitt **Erweitert** der Konsole **Verwalten von Speicherplätzen** anwenden, um alle Speicherplätze manuell zu entfernen.  
   
  Nach dem Zurücksetzen auf die Werkseinstellungen müssen Sie die folgenden Aufgaben ausführen:  
   
--   **Konfigurieren Sie den Server neu.** Verwenden Sie auf dem Server den Assistenten zum Konfigurieren von Server, um die Konfigurationseinstellungen erneut einzugeben. Um einen Remote verwalteten Windows Server Essentials-Server von einem Clientcomputer zu konfigurieren, öffnen Sie einen Webbrowser, und geben Sie dann **http://***< YourServerName\ >* in die Adressleiste.  
+-   **Konfigurieren Sie den Server neu.** Verwenden Sie auf dem Server den Assistenten zum Konfigurieren von Servern, um die Konfigurationseinstellungen erneut einzugeben. Um einen per Fernzugriff verwalteten Windows Server Essentials-Server auf einem Clientcomputer zu konfigurieren, öffnen Sie einen Webbrowser, und geben Sie dann **http://***<YourServerName\>*  in der Adressleiste.  
   
--   **Verbinden Sie Clientcomputer mit dem Server erneut.** Wenn ein Computer zuvor mit dem Server verbunden wurde, müssen Sie die Windows Server Essentials Connector-Software vom Computer deinstallieren, bevor Sie den Computer erneut mit dem Server verbinden. Weitere Informationen finden Sie unter [deinstallieren die Connector-Software](../use/Get-Connected-in-Windows-Server-Essentials.md#BKMK_13) und [Verbinden von Computern mit dem Server](../use/Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
+-   **Verbinden Sie Clientcomputer erneut mit dem Server** Wenn ein Computer zuvor mit dem Server verbunden war, müssen Sie die Windows Server Essentials Connector-Software vom Computer deinstallieren, bevor Sie den Computer erneut mit dem Server verbinden. Weitere Informationen finden Sie unter [Uninstall the Connector software](../use/Get-Connected-in-Windows-Server-Essentials.md#BKMK_13) und [Connect computers to the server](../use/Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
   
-##  <a name="BKMK_Restore"></a>Wiederherstellen oder Reparieren des Systemlaufwerks  
- Der erste Schrittbeim Wiederherstellen der Server ist zum Wiederherstellen oder Reparieren des Systemlaufwerks des Servers. Nachdem Sie das Systemlaufwerk wiederhergestellt haben, werden Sie tun, was zum Wiederherstellen der Datenlaufwerke auf dem Server und wieder her, die Freigabe, die bei der Wiederherstellung verloren gegangen erforderlich ist.  
+##  <a name="BKMK_Restore"></a> Wiederherstellen oder Reparieren des Systemlaufwerks  
+ Der erste Schritt bei der Serverwiederherstellung besteht darin, das Server-Systemlaufwerk wiederherzustellen oder zu reparieren. Nachdem Sie das Systemlaufwerk wiederhergestellt haben, führen Sie alle zum Wiederherstellen der Datenlaufwerke erforderlichen Maßnahmen durch. Stellen Sie außerdem sämtliche Freigabedaten wieder her, die bei der Wiederherstellung verloren gegangen sind.  
   
- Für die Wiederherstellung stehen drei Methoden zur Auswahl:  
+ Für die Wiederherstellung stehen drei Methoden zur Verfügung:  
   
--   [Wiederherstellen oder Reparieren des Servers mithilfe eines Installationsmediums](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_Restore_1). Verwenden Sie die Installationsmedien des serverherstellers aus einer Sicherung wiederherstellen.  
+-   [Wiederherstellen oder Reparieren des Servers mithilfe des Installationsmediums](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_Restore_1). Verwenden Sie die Installationsmedien des Server-Herstellers, um die Wiederherstellung über Sicherheitskopien durchzuführen.  
   
--   **Verwenden Sie die Installationsmedien zum Wiederherstellen des Servers auf die werkseitigen Standardeinstellungen**. Um herauszufinden, wie Sie hierzu auf dem Server, finden Sie in der Dokumentation des serverherstellers.  
+-   **Verwenden Sie die Installationsmedien, um den Server auf die Werkseinstellungen zurückzusetzen**. Informationen darüber, welche Schritte Sie dafür am Server vornehmen müssen, finden Sie in der Dokumentation des Serverherstellers.  
   
--   [Wiederherstellen oder Zurücksetzen des Servers von einem Clientcomputer mit dem Wiederherstellungs-DVD](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_Restore_2). Wenn Sie müssen einen Remote verwalteten Server wiederherstellen, auf der Windows Server Essentials ausgeführt wird, müssen Sie die Wiederherstellung von einem Clientcomputer ausführen, mithilfe der Wiederherstellungs-DVD des serverherstellers.  
+-   [Wiederherstellen oder Zurücksetzen des Servers von einem Client-Computer mit der Wiederherstellungs-DVD](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_Restore_2). Wenn Sie müssen einen per Fernzugriff verwalteten Server wiederherstellen, auf der Windows Server Essentials ausgeführt wird, müssen Sie die Wiederherstellung von einem Clientcomputer durchführen, mit der Wiederherstellungs-DVD des serverherstellers.  
   
-###  <a name="BKMK_Restore_1"></a>Wiederherstellen Sie oder reparieren Sie des Servers mithilfe eines Installationsmediums  
- Im folgenden wird beschrieben, wie Sie das Systemlaufwerk des Servers aus einer Sicherung wiederherstellen, indem Sie mithilfe des Windows Server Essentials-Installationsmediums. (Um herauszufinden, wie Sie das Installationsmedium zu verwenden, um die werkseitigen Standardeinstellungen wiederherstellen, finden Sie in der Dokumentation des serverherstellers.)  
+###  <a name="BKMK_Restore_1"></a> Wiederherstellen Sie oder reparieren Sie des Servers mithilfe der Installationsmedien  
+ Das folgende Verfahren beschreibt das Systemlaufwerk des Servers aus einer Sicherung wiederherstellen, indem Sie mithilfe des Installationsmediums für Windows Server Essentials. (Um herauszufinden, wie die Installationsmedien eingesetzt werden, um die werkseitigen Standardeinstellungen wiederherzustellen, lesen Sie die Dokumentation des Serverherstellers).  
   
 > [!NOTE]
->  Wenn der Server Speicherplätze verwendet und Sie die Daten auf einem neuen Server wiederherstellen, sollten Sie das Systemlaufwerk zunächst wiederherstellen und melden Sie sich bei Windows Server Essentials-Dashboard, Speicherplätze auf ähnliche Weise wie beim alten Server konfigurieren und dann die Datenvolumen wiederherstellen.  
+>  Wenn der Server Speicherplätze verwendet und Sie die Daten auf einem neuen Server wiederherstellen, sollten Sie das Systemlaufwerk zuerst wiederhergestellt und melden Sie sich bei Windows Server Essentials-Dashboard, Speicherplätze auf ähnliche Weise wie auf dem alten Server konfigurieren und anschließend wiederherstellen, das Datenzugriffstool ein Datenträger.  
   
-##### <a name="to-restore-the-server-system-drive-from-a-backup-using-installation-media"></a>Das Server-Systemlaufwerk über eine Sicherung mithilfe eines Installationsmediums wiederherstellen  
+##### <a name="to-restore-the-server-system-drive-from-a-backup-using-installation-media"></a>So stellen Sie das Server-Systemlaufwerk über eine Sicherung mithilfe der Installationsmedien wieder her  
   
-1.  Legen Sie die Windows Server Essentials-Installations-DVD in das DVD-Laufwerk des Servers, starten Sie den Server neu, und drücken Sie dann eine beliebige Taste, um von der DVD zu starten.  
+1.  Fügen Sie der Windows Server Essentials-Installations-DVD in das DVD-Laufwerk des Servers, starten Sie den Server neu, und drücken Sie dann auf eine beliebige Taste, um von der DVD zu starten.  
   
     > [!NOTE]
-    >  Wenn der Wiederherstellungsvorgang nicht automatisch gestartet wird, überprüfen Sie die BIOS-Einstellungen für den Server, um sicherzustellen, dass das DVD-Laufwerk zuerst im Menü "Start" angezeigt wird.  
+    >  Wenn der Wiederherstellungsvorgang nicht automatisch gestartet wird, überprüfen Sie die BIOS-Einstellungen für den Server, um sicherzustellen, dass das DVD-Laufwerk an erster Stelle im Boot-Menü steht.  
   
      – Oder –  
   
-     Wenn der Hersteller die Installationsmedien auf dem Server geladen, drücken Sie F8 beim Systemstart, um von den Installationsmedien starten.  
+     Wenn der Hersteller die Installationsmedien vorab auf den Server geladen hat, drücken Sie beim Start die Taste F8, um die Installationsmedien aufzurufen und zu starten.  
   
-2.  Nachdem die Windows Server Dateien laden, wählen Sie die Sprache und andere Einstellungen, und klicken Sie dann auf **Weiter**.  
+2.  Nachdem die Windows Server-Dateien geladen werden, wählen Sie Ihre Sprache und die weiteren Präferenzen. Klicken Sie anschließend auf **Weiter**.  
   
 3.  Klicken Sie auf der nächsten Seite des Assistenten auf **Computer reparieren**.  
   
     > [!CAUTION]
-    >  Wählen Sie nicht die **jetzt installieren** Option. Diese Option führt Sie durch eine vollständige Installation, die alle Konfigurationseinstellungen und alle Daten auf dem Systemlaufwerk gelöscht.  
+    >  Wählen Sie nicht die Option **Jetzt installieren** . Diese Option führt Sie durch eine vollständige Systeminstallation, bei der alle Konfigurationseinstellungen und alle Daten auf dem Systemlaufwerk gelöscht werden.  
   
-4.  Auf der **wählen Sie eine Option** auf **Problembehandlung**.  
+4.  Klicken Sie auf der Seite **Wählen Sie eine Option** auf **Problembehandlung**.  
   
 5.  Auf der **Systemabbild-Wiederherstellung** Seite, wählen Sie das aktuelle System? entweder **Windows Server Essentials** oder **Windows Server Essentials**.  
   
-     Der Assistent zum neues Abbild des Computers wird geöffnet.  
+     Der Assistent zum erneuten Abbilden des Computers wird geöffnet.  
   
-6.  Auf der **wählen Sie eine systemabbildsicherung** Seite, Sie können auch die neueste Sicherung verwenden, oder Sie können eine frühere Sicherung auswählen. Das System wird in den Zustand wiederhergestellt werden, in dem zum Zeitpunkt der Sicherung, die Sie auswählen, zum Wiederherstellen oder Reparieren des Server heranziehen. Hinzugefügte Daten oder Änderungen an den Einstellungen, die vorgenommen wurden, nachdem die Sicherung gespeichert wurde neu erstellt werden müssen.  
+6.  Sie können auf der Seite **Auswählen einer Systemabbildsicherung** wählen, ob Sie die neueste Sicherung oder eine frühere Sicherung verwenden möchten. Das System wird in jenen Zustand zurückversetzt, der zum Zeitpunkt jener Sicherung aktuell war, die Sie zum Wiederherstellen oder Reparieren des Server heranziehen. Hinzugefügte Daten oder Änderungen an den Einstellungen, die nach dem Speichern der Sicherheitskopien vorgenommen wurden, müssen neu erstellt bzw. neu erfasst werden.  
   
      Wählen Sie eine der folgenden Optionen aus, und klicken Sie dann auf **Weiter**:  
   
@@ -147,100 +148,100 @@ ms.lasthandoff: 07/03/2017
     -   **Wählen Sie ein Systemabbild**  
   
     > [!NOTE]
-    >  Wenn Sie eine möglichst aktuelle erfolgreiche Sicherung des Servers, und Sie wissen, dass die Sicherung alle wichtigen Daten enthält, ist Ihre Auswahl recht einfach. Sie müssen nur jene Daten neu erstellen, die erstellt wurde, nachdem Ihre letzten guten Sicherung und neu konfigurieren Einstellungen nach der Sicherung geändert.  
+    >  Wenn Sie erst vor Kurzem eine Sicherung des Servers erfolgreich durchgeführt haben, und Sie wissen, dass in der Sicherung sämtliche Ihrer kritischen Daten enthalten sind, verläuft Ihre Auswahl recht unkompliziert. Sie müssen nur jene Daten neu erstellen, die nach der letzten erfolgreichen Sicherung erstellt wurden. Außerdem müssen Sie die nach der Sicherung vorgenommenen Einstellungsänderungen neu konfigurieren.  
     >   
-    >  Wenn Sie Ihre Server aufgrund eines Virus wiederherstellen möchten, wählen Sie eine Sicherung, die Sie kennen, vor dem Auftreten des Virus aufgetreten ist. Sie müssen möglicherweise mehrere Tage zurückdatieren, um eine Sicherung auszuwählen, die einwandfrei ist.  
+    >  Wenn Sie die Wiederherstellung des Servers aufgrund eines Virus durchführen, wählen Sie Sicherheitskopien, bei denen Sie sicher sind, dass sie vor dem Auftreten des Virus erstellt wurden. Sie müssen möglicherweise mehrere Tage zurückdatieren, um eine Sicherung auszuwählen, die einwandfrei ist.  
     >   
-    >  Wenn Sie den Server wegen fehlerhafter Konfigurationseinstellungen wiederherstellen möchten, wählen Sie eine Sicherung, die Sie kennen vor der konfigurationseinstellungsänderung ist aufgetreten, der das Problem auf dem Server verursacht.  
+    >  Wenn Sie den Server wegen fehlerhafter Konfigurationseinstellungen wiederherstellen, wählen Sie eine Sicherung, von der Sie wissen, dass sie vor der Konfigurationseinstellungsänderung vorgenommen wurde, welche das Problem auf dem Server verursacht hat.  
   
-7.  Führen Sie die Anweisungen im Assistenten, um die Systemwiederherstellung abzuschließen.  
+7.  Befolgen Sie die Anweisungen im Assistenten, um die Systemwiederherstellung abzuschließen.  
   
-8.  Nachdem der Server erfolgreich wiederhergestellt wird, entfernen Sie die Installations-DVD zu, wenn Sie eine verwendet, und klicken Sie dann starten Sie den Server neu.  
+8.  Nachdem der Server erfolgreich wiederhergestellt ist, entfernen Sie die Installations-DVD, wenn Sie eine solche verwendet haben. Starten Sie danach den Server neu.  
   
 > [!NOTE]
->  Zum Wiederherstellen und Freigeben von Ordnern auf dem Server, müssen Sie möglicherweise zusätzliche Schritteerforderlich. Weitere Informationen finden Sie unter [Wiederherstellen von Dateien und Ordnern auf dem Server](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_RestoreFilesAndFolders).  
+>  Zum Wiederherstellen und Freigeben von Ordnern auf dem Server müssen Sie eventuell zusätzliche Schritte durchführen. Weitere Informationen finden Sie unter [Restore files and folders on the server](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_RestoreFilesAndFolders).  
   
-###  <a name="BKMK_Restore_2"></a>Wiederherstellen Sie oder Zurücksetzen Sie des Servers von einem Clientcomputer mit dem Wiederherstellungs-DVD  
- In Windows Server Essentials Sie können den Server von starten einen startbaren USB-Speicherstick, die Sie erstellen, und klicken Sie den Server Wiederherstellen von einem Clientcomputer mithilfe der Wiederherstellungs-DVD, die Sie vom Hersteller Servers erhalten haben. Der Clientcomputer muss sich im selben Netzwerk wie der Server. Diese Methode ist nicht verfügbar in Windows Server Essentials.  
+###  <a name="BKMK_Restore_2"></a> Wiederherstellen Sie oder Zurücksetzen Sie des Servers von einem Clientcomputer mit der Wiederherstellungs-DVD  
+ In Windows Server Essentials können Sie den Server von starten einen startbaren USB-Speicherstick, die Sie erstellen, und klicken Sie dann Sie den Server wiederherstellen auf einem Clientcomputer mithilfe der Wiederherstellungs-DVD, die Sie vom Hersteller Servers erhalten haben. Der Clientcomputer muss sich im selben Netzwerk wie der Server befinden. Diese Methode ist nicht in Windows Server Essentials verfügbar.  
   
- Das folgende Verfahren umfasst allgemeine Schrittezum Ausführen einer Wiederherstellung des Servers. Die Schrittegelten gleichermaßen für aus einer Sicherungskopie wiederherstellen oder auf die werkseitigen Standardeinstellungen wiederherstellen. Weitere ausführliche Anweisungen finden Sie in der Dokumentation des serverherstellers.  
+ Das folgende Verfahren umfasst allgemeine Schritte zum Ausführen einer Server-Wiederherstellung. Die Schritte gelten gleichermaßen für das Wiederherstellen über Sicherheitskopien wie auch für das Zurücksetzen auf die werkseitigen Standardeinstellungen. Weitere ausführliche Anweisungen finden Sie in der Dokumentation des Serverherstellers.  
   
-##### <a name="to-restore-or-reset-the-server-from-a-client-computer-using-the-recovery-dvd"></a>Zum Wiederherstellen oder Zurücksetzen des Servers von einem Clientcomputer mit dem Wiederherstellungs-DVD  
+##### <a name="to-restore-or-reset-the-server-from-a-client-computer-using-the-recovery-dvd"></a>So stellen Sie den Server von einem Clientcomputer aus mit der Wiederherstellungs-DVD wieder her oder setzen diesen zurück  
   
-1.  Legen Sie die Windows Server Essentials-Server Recovery-Medien, die Sie von den Hersteller des Servers in einen Clientcomputer empfangen.  
+1.  Fügen Sie die Windows Server Essentials-Server-Wiederherstellungsmedien, die Sie vom Server-Hersteller auf einem Clientcomputer zu erhalten.  
   
      Der Assistent zum Wiederherstellen des Servers wird geöffnet.  
   
-2.  Führen Sie die Anweisungen im Assistenten, um einen startbaren USB-Speicherstick zu erstellen, den Sie verwenden, um den Server im Wiederherstellungsmodus starten.  
+2.  Befolgen Sie die Anweisungen im Assistenten, um einen bootfähigen USB-Speicherstick einzurichten, mit dem Sie den Server im Wiederherstellungsmodus starten können.  
   
-3.  Nachdem der Assistent zum Wiederherstellen des Servers den bootfähigen USB-Speicherstick vorbereitet hat, legen Sie das Flash-Laufwerk auf dem Server, und starten Sie den Server im Wiederherstellungsmodus. So erfahren Sie, wie Sie den Server im Wiederherstellungsmodus starten, finden Sie in der Dokumentation des Herstellers der Server-Hardware.  
+3.  Nachdem der Assistent zum Wiederherstellen des Servers den bootfähigen USB-Speicherstick vorbereitet hat, stecken Sie den Speicherstick am Server ein. Starten Sie dann den Server im Wiederherstellungsmodus. Lesen Sie die Dokumentation des Herstellers der Server-Hardware, um zu erfahren, wie Sie den Server im Wiederherstellungsmodus starten.  
   
-     Nachdem Sie den Server im Wiederherstellungsmodus starten, wird der Assistent zum Wiederherstellen des Servers ermittelt den Server und stellt dann eine Verbindung her.  
+     Nachdem Sie den Server im Wiederherstellungsmodus gestartet haben, ermittelt der Assistent zur Server-Wiederherstellung den Server und stellt dann eine Verbindung her.  
   
-4.  Folgen Sie den Anweisungen im Assistenten zum Wiederherstellen des Servers abzuschließen.  
-  
-> [!NOTE]
->  Diese Methode der Server-Wiederherstellung ignoriert externe Speichergeräte, die während der Wiederherstellung mit dem Server verbunden sind. Wenn Sie die Daten auf einem externen Speichergerät löschen möchten, müssen Sie dies manuell tun.  
+4.  Befolgen Sie die Anweisungen im Assistenten, um das Wiederherstellen des Servers abzuschließen.  
   
 > [!NOTE]
->  Wenn Sie zusätzliche freigegebene Ordner auf dem Server erstellt, nachdem Sie die Daten aus der Sicherung wiederherstellen, möglicherweise zusätzlichen freigegebenen Ordner vom Server nicht erkannt werden. Sie müssen diese Ordner erneut freigeben. Weitere Informationen finden Sie unter [Wiederherstellen von Dateien und Ordnern auf dem Server](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_RestoreFilesAndFolders).  
-  
-##  <a name="BKMK_RestoreFilesAndFolders"></a>Wiederherstellen von Dateien und Ordnern auf dem Server  
- Je nach der Methode, die Sie zum Wiederherstellen oder Reparieren des Servers und der Typ des Speichers des Servers verwendet müssen Sie möglicherweise die Datenvolumen wiederherstellen, nachdem Sie das Systemlaufwerk wiederhergestellt haben. In einigen Fällen müssen Sie vorhandene Ordner erneut freigeben, damit der Server sie erkennt.  
-  
- Es folgen einige Beispiele für müssen Sie u. u. auf Dateien und Ordner wiederherstellen:  
-  
--   [Wiederherstellen von Dateien und Ordnern aus einer Sicherung](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_RestoreFilesFromBackup). Wenn Sie den Systemdatenträger ersetzt, oder die Partitionsinformationen auf dem Systemdatenträger nicht lesbar ist, können Sie das System wiederherstellen, jedoch Daten von anderen Volumen auf diesem Datenträger können nicht wiederhergestellt werden können. Zum Wiederherstellen von Dateien und Ordnern aus anderen Datenvolumen müssen Sie das Wiederherstellen von Dateien und Ordner-Assistenten verwenden.  
-  
--   [Wiederherstellen von freigegebenen Ordnern auf dem Server](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_ConfigreSharedFolders). Wenn Sie zusätzliche freigegebene Ordner auf dem Server erstellt, nachdem Sie das Systemlaufwerk aus der Sicherung wiederherstellen, die freigegebenen Ordner sind weiterhin auf der Datenpartition oder in der Datenpartition wiederhergestellt wurden, aber möglicherweise nicht vom Server erkannt werden. Sie müssen diese Ordner erneut freigeben.  
-  
-###  <a name="BKMK_RestoreFilesFromBackup"></a>Wiederherstellen von Dateien und Ordnern aus einer Sicherung  
- Wiederherstellen von Dateien und Ordner-Assistenten können Sie Ihre Daten schützen, wenn die Festplatte nicht mehr funktioniert oder Dateien versehentlich gelöscht. Mit Windows Server Essentials-Sicherung können Sie eine Kopie aller Daten auf der Festplatte erstellen und die Daten auf einem externen Speichergerät ablegen. Wenn die ursprünglichen Daten auf der Festplatte versehentlich gelöscht, überschrieben oder aufgrund einer Fehlfunktion nicht zugegriffen werden, können Sie die Daten aus der Sicherung wiederherstellen. Das Wiederherstellen von Dateien oder Ordner-Assistenten können Sie eine einzelne Datei oder Ordner, mehrere Dateien oder Ordner oder eine ganze Festplatte aus einer vorhandenen Sicherung wiederherstellen.  
-  
- Nach einer Systemwiederherstellung müssen Sie verwenden das Wiederherstellen von Dateien und Ordner-Assistent zum Wiederherstellen von Dateien und Ordnern, die während der Wiederherstellung nicht beibehalten wurden. Beispielsweise können nicht, wenn Sie den Systemdatenträger ersetzt, oder die Partitionsinformationen auf dem Systemdatenträger nicht lesbar ist, Sie Daten von anderen Volumen auf dem Systemdatenträger wiederherstellen.  
+>  Bei dieser Methode der Server-Wiederherstellung werden externe Speichergeräte, die während der Wiederherstellung mit dem Server verbunden sind, nicht beachtet. Wenn Sie die Daten auf einem externen Speichergerät löschen möchten, müssen Sie dies manuell tun.  
   
 > [!NOTE]
->  Wiederherstellen von Dateien und Ordner-Assistenten können Sie das komplette Systemlaufwerk wiederherzustellen. Informationen dazu, wie Sie das komplette System wiederherstellen können, finden Sie unter [wiederherstellen oder Reparieren des Servers mithilfe eines Installationsmediums](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_Restore_1) oder [wiederherstellen oder Zurücksetzen des Servers von einem Clientcomputer mit dem Wiederherstellungs-DVD](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_Restore_2).  
+>  Wenn Sie nach dem Wiederherstellen der Daten über eine Sicherung zusätzliche freigegebene Ordner auf dem Server erstellt haben, werden diese zusätzlichen freigegebenen Ordner unter Umständen nicht vom Server erkannt. Sie müssen diese Ordner erneut freigeben. Weitere Informationen finden Sie unter [Restore files and folders on the server](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_RestoreFilesAndFolders).  
   
-##### <a name="to-restore-files-and-folders-from-a-server-backup"></a>Wiederherstellen von Dateien und Ordnern aus einer Sicherung  
+##  <a name="BKMK_RestoreFilesAndFolders"></a> Wiederherstellen von Dateien und Ordner auf dem server  
+ Je nach der Methode, die Sie zur Wiederherstellung oder Reparatur des Servers verwenden, und je nach dem vom Server verwendeten Speichertyp müssen Sie die Datenvolumen eventuell wiederherstellen, nachdem Sie das Systemlaufwerk wiederhergestellt haben. In einigen Fällen müssen Sie vorhandene Ordner eventuell erneut freigeben, damit der Server sie erkennt.  
   
-1.  Öffnen Sie das Windows Server Essentials-Dashboard, und klicken Sie dann auf die **Geräte** Registerkarte.  
+ Im Folgenden sind einige Beispiele von Fällen aufgeführt, in denen Sie Dateien und Ordner unter Umständen wiederherstellen müssen:  
   
-2.  Klicken Sie auf den Namen des Servers, und klicken Sie dann auf **Wiederherstellen von Dateien oder Ordner für den Server** in der **Aufgaben** Bereich.  
+-   [Wiederherstellen von Dateien und Ordnern über eine Server-Sicherung](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_RestoreFilesFromBackup). Wenn Sie den Systemdatenträger ersetzt haben oder die Partitionsinformationen auf dem Systemdatenträger nicht lesbar sind, können Sie das System wiederherstellen. Sie können allerdings keine Daten von anderen Volumen auf diesem Datenträger wiederherstellen. Zum Wiederherstellen von Dateien und Ordnern aus anderen Datenvolumen müssen Sie den Assistenten zum Wiederherstellen von Dateien und Ordnern verwenden.  
   
-     Das Wiederherstellen von Dateien und Ordner-Assistent wird geöffnet.  
+-   [Restore shared folders on the server](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_ConfigreSharedFolders). Wenn Sie nach dem Wiederherstellen des Systemlaufwerks über die Sicherung weitere freigegebene Ordner auf dem Server erstellen, befinden sich die freigegebenen Ordner weiterhin auf der Datenpartition oder werden in der Datenpartition wiederhergestellt. Sie werden aber möglicherweise vom Server nicht erkannt. Sie müssen diese Ordner erneut freigeben.  
   
-3.  Führen Sie die Anweisungen im Assistenten, um die Dateien oder Ordner wiederherzustellen.  
+###  <a name="BKMK_RestoreFilesFromBackup"></a> Wiederherstellen von Dateien und Ordnern aus einer Sicherung  
+ Der Assistent zum Wiederherstellen von Dateien und Ordnern unterstützt Sie beim Schützen Ihrer Daten, wenn die Festplatte nicht mehr funktioniert oder Dateien versehentlich gelöscht werden. Mit Windows Server Essentials-Sicherung können Sie eine Kopie aller Daten auf der Festplatte erstellen und die Daten auf einem externen Speichergerät ablegen. Wenn die ursprünglichen Daten auf der Festplatte versehentlich gelöscht, überschrieben oder aufgrund einer Fehlfunktion unbrauchbar werden, können Sie die Daten über die Sicherung wiederherstellen. Der Assistent zum Wiederherstellen von Dateien oder Ordnern unterstützt Sie über vorhandene Sicherheitskopien bei der Wiederherstellung einer einzelnen Datei oder eines einzelnen Ordners, mehrerer Dateien oder Ordner oder einer kompletten Festplatte.  
+  
+ Nach einer Systemwiederherstellung müssen Sie möglicherweise den Assistenten zum Wiederherstellen von Dateien und Ordnern verwenden, um Dateien und Ordner wiederherzustellen, die während der Wiederherstellung nicht erfasst wurden. Wenn Sie beispielsweise den Systemdatenträger ersetzt haben oder die Partitionsinformationen auf dem Systemdatenträger unlesbar sind, können Sie Daten von anderen Volumen auf dem Systemdatenträger nicht wiederherstellen.  
+  
+> [!NOTE]
+>  Sie können den Assistenten zum Wiederherstellen von Dateien und Ordnern nicht verwenden, um das komplette Systemlaufwerk wiederherzustellen. Informationen darüber, wie Sie das komplette System wiederherstellen können, finden Sie unter [Restore or repair your server using installation media](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_Restore_1) oder [Restore or reset your server from a client computer using the recovery DVD](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_Restore_2).  
+  
+##### <a name="to-restore-files-and-folders-from-a-server-backup"></a>So stellen Sie Dateien und Ordner über eine Server-Sicherung wieder her  
+  
+1.  Öffnen Sie Windows Server Essentials-Dashboard, und klicken Sie dann auf die **Geräte** Registerkarte.  
+  
+2.  Klicken Sie auf den Namen des Servers und anschließend auf **Wiederherstellen von Dateien oder Ordnern für den Server** im Bereich **Aufgaben**.  
+  
+     Der Assistent zum Wiederherstellen von Dateien und Ordnern wird geöffnet.  
+  
+3.  Befolgen Sie die Anweisungen im Assistenten, um die Dateien oder Ordner wiederherzustellen.  
   
 > [!WARNING]
 >  Weitere Informationen zum Sichern und Wiederherstellen von Dateien und Ordnern finden Sie unter [Manage Backup and Restore](Manage-Backup-and-Restore-in-Windows-Server-Essentials.md).  
   
-###  <a name="BKMK_ConfigreSharedFolders"></a>Freigegebene Ordner auf dem Server wiederherstellen  
- Nachdem Sie das Systemlaufwerk des Servers, wiederherstellen, wenn freigegebene Ordner weiterhin auf der Datenpartition sind oder in der Datenpartition wiederhergestellt wurden, müssen Sie dem Server die Ordner erkennen kann die freigegebenen Ordner erneut konfigurieren. Das folgende Verfahren beschreibt, wie freigegebene Ordner hinzuzufügen, die vor dem freigegeben wurden.  
+###  <a name="BKMK_ConfigreSharedFolders"></a> Wiederherstellen von freigegebenen Ordnern auf dem server  
+ Nachdem Sie das Systemlaufwerk Server s wiederherstellen, wenn freigegebene Ordner befinden sich weiterhin auf der Datenpartition oder auf der Datenpartition wiederhergestellt wurden, müssen Sie konfigurieren die freigegebenen Ordner erneut, damit für den Server die Ordner erkennen. Im folgenden Verfahren wird beschrieben, wie freigegebene Ordner hinzuzufügen sind, die bereits zuvor einmal freigegeben waren.  
   
-##### <a name="to-add-an-existing-folder-to-the-server-shared-folders"></a>Einen vorhandenen Ordner auf dem Server Hinzufügen freigegebener Ordner  
+##### <a name="to-add-an-existing-folder-to-the-server-shared-folders"></a>So fügen Sie einen vorhandenen Ordner zu den freigegebenen Ordnern des Servers hinzu  
   
-1.  Suchen Sie im Datei-Explorer den freigegebenen Ordner auf der Festplatte.  
+1.  Suchen Sie im Datei-Explorer den freigegebenen Ordner auf dem Festplattenlaufwerk.  
   
-2.  Mit der rechten Maustaste in des freigegebenen Ordners, klicken Sie auf **Eigenschaften**, klicken Sie auf die **Freigabe** Registerkarte, und notieren Sie die Ordnerberechtigungen.  
+2.  Klicken Sie mit der rechten Maustaste auf den freigegebenen Ordner. Klicken Sie dann auf **Eigenschaften**und auf die Registerkarte **Freigabe** . Notieren Sie sich anschließend die Ordnerberechtigungen.  
   
-3.  Melden Sie sich bei Windows Server Essentials-Dashboards, klicken Sie auf die **Speicher** Registerkarte, und klicken Sie dann auf **Hinzufügen eines Ordners** in der **Tasks für Serverordner** Bereich.  
+3.  Melden Sie sich bei Windows Server Essentials-Dashboard, klicken Sie auf die **Storage** Registerkarte, und klicken Sie dann auf **fügen Sie einen Ordner** in die **Tasks für Serverordner** Bereich.  
   
-     Hinzufügen, wird ein Ordner-Assistent geöffnet.  
+     Der Assistent zum Hinzufügen eines Ordners wird geöffnet.  
   
-4.  Geben Sie einen Namen für die Freigabe in der **Namen** Feld.  
+4.  Geben Sie einen Namen für die Freigabe im Feld **Name** ein.  
   
-5.  Klicken Sie auf **Durchsuchen**, navigieren Sie zu *< Laufwerk\ > \\ < ServerName\ >*\ServerFolders (z.B. *d:\Contoso\ServerFolders*), wählen Sie den Ordner, die Sie freigeben möchten, und klicken Sie dann auf **OK**.  
+5.  Klicken Sie auf **Durchsuchen**, navigieren Sie zu *< Laufwerk\>\\< ServerName\>* \ServerFolders (z. B. *d:\Contoso\ServerFolders*), wählen Sie den Ordner, die Sie freigeben möchten, und klicken Sie dann auf **OK**.  
   
 6.  Klicken Sie auf **Weiter**.  
   
-7.  Geben Sie die Berechtigungen, die Sie in Schritt2 notiert, und klicken Sie dann auf **Ordner hinzufügen**.  
+7.  Geben Sie die Berechtigungen an, die Sie in Schritt 2 notiert haben. Klicken Sie dann auf **Ordner hinzufügen**.  
   
     > [!IMPORTANT]
-    >  Diese Berechtigungen ersetzen alle vorhandenen Berechtigungen, die nicht in den Ordner mithilfe der Windows Server Essentials-Dashboard hinzugefügt wurden.  
+    >  Diese Berechtigungen ersetzen alle vorhandenen Berechtigungen, die nicht in den Ordner hinzugefügt wurden, mithilfe von Windows Server Essentials-Dashboard.  
   
 > [!IMPORTANT]
->  Nachdem Sie das Hinzufügen von Ordnern zur Liste der freigegebenen Ordner abgeschlossen haben, stellen Sie sicher, dass die Ordner in der Server-Sicherung enthalten sind. Informationen zum Hinzufügen von Ordnern zur serversicherung finden Sie unter [festlegen einrichten oder Anpassen der serversicherung](Set-up-or-customize-server-backup.md).  
+>  Nachdem Sie das Hinzufügen von Ordnern zur Liste der freigegebenen Ordner abgeschlossen haben, müssen Sie sicherstellen, dass die Ordner in der Server-Sicherung enthalten sind. Informationen zum Hinzufügen von Ordnern in die Server-Sicherung finden Sie unter [Einrichten oder Anpassen der Server-Sicherung](Set-up-or-customize-server-backup.md).  
   
 ## <a name="see-also"></a>Siehe auch  
   

@@ -1,6 +1,6 @@
 ---
 title: Verwalten von Serverspeicher in Windows Server Essentials
-description: Beschreibt, wie Sie Windows Server Essentials
+description: Beschreibt, wie Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,227 +13,228 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: e0f65dfd25afbd584764d33904ba82e4da4c5443
-ms.sourcegitcommit: db290fa07e9d50686667bfba3969e20377548504
-ms.translationtype: MT
+ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59842451"
 ---
 # <a name="manage-server-storage-in-windows-server-essentials"></a>Verwalten von Serverspeicher in Windows Server Essentials
 
->Gilt für: Windows Server2016 Essentials, Windows Server2012 R2 Essentials, Windows Server2012 Essentials
+>Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
    
- Windows Server Essentials können Sie zum Verwalten der gesamten Serverspeicher (einschließlich Festplatten und Speicherplätzen) aus der **Festplatten** Seiten, auf die **Speicher** Dashboard-Registerkarte.  
+ Mit Windows Server Essentials können Sie den gesamten Serverspeicher (einschließlich Festplatten und Speicherplätzen) über die Seiten **Festplatten** auf der Registerkarte **Speicher** des Dashboards verwalten.  
   
- Die folgenden Abschnitte enthalten Informationen, die Ihnen das Vergrößern des Serverspeichers, verstehen und Verwenden von Speicherplätzen und Verwalten Ihrer Festplatten helfen:  
+ Die folgenden Abschnitte enthalten Informationen, die Ihnen beim Vergrößern des Serverspeichers, Verstehen und Verwenden von Speicherplätzen sowie beim Verwalten Ihrer Festplatten helfen:  
   
--   [Verwalten von Festplatten mithilfe des Dashboards](Manage-Server-Storage-in-Windows-Server-Essentials.md#BKMK_1)  
+-   [Verwalten von Festplatten, die mithilfe des Dashboards](Manage-Server-Storage-in-Windows-Server-Essentials.md#BKMK_1)  
   
 -   [Vergrößern des Speichers auf dem server](Manage-Server-Storage-in-Windows-Server-Essentials.md#BKMK_2)  
   
 -   [Ausführen von Überprüfungen und Reparaturen auf Festplatten](Manage-Server-Storage-in-Windows-Server-Essentials.md#BKMK_Check)  
   
--   [Formatieren von Festplatten](Manage-Server-Storage-in-Windows-Server-Essentials.md#BKMK_3)  
+-   [Laufwerke-Format](Manage-Server-Storage-in-Windows-Server-Essentials.md#BKMK_3)  
   
--   [Fügen Sie eine neue Festplatte hinzu](Manage-Server-Storage-in-Windows-Server-Essentials.md#BKMK_4)  
+-   [Hinzufügen einer neuen Festplatte](Manage-Server-Storage-in-Windows-Server-Essentials.md#BKMK_4)  
   
 -   [Speicherplätze – Übersicht](Manage-Server-Storage-in-Windows-Server-Essentials.md#BKMK_5)  
   
 -   [Erstellen eines Speicherplatzes](Manage-Server-Storage-in-Windows-Server-Essentials.md#BKMK_6)  
   
-##  <a name="BKMK_1"></a>Verwalten von Festplatten mithilfe des Dashboards  
- Windows Server Essentials können Sie alle Festplatten verwalten, die mit dem Server über das Dashboard verbunden sind. Auf dem Dashboard **Speicher** Registerkarte **Festplatten** zeigt alle Festplatten, die auf dem Server zum Speichern von Daten und serversicherungen verfügbar sind. Der Server überwacht den auf jeder Festplatte verfügbaren Speicherplatz und zeigt eine Warnung, wenn Festplatten-Speicherplatz gering ist. Die **Festplatten** Registerkarte die folgenden Informationen angezeigt:  
+##  <a name="BKMK_1"></a> Verwalten von Festplatten, die mithilfe des Dashboards  
+ Windows Server Essentials ermöglicht Ihnen das Verwalten aller Festplatten, die mit dem Server verbunden sind, über das Dashboard. Auf der Registerkarte **Speicher** des Dashboards werden unter **Festplatten** alle Festplatten angezeigt, die auf dem Server zum Speichern von Daten und Serversicherungen verfügbar sind. Der Server überwacht den auf jeder Festplatte verfügbaren Speicherplatz und zeigt eine Warnung an, wenn der Festplattenspeicherplatz nahezu belegt ist. Auf der Registerkarte **Festplatten** werden die folgenden Informationen angezeigt:  
   
 -   Der Name jeder Festplatte  
   
 -   Die Kapazität jeder Festplatte  
   
--   Die Menge des belegten Speicherplatzes auf jeder Festplatte  
+-   Der belegte Speicherplatz auf jeder Festplatte  
   
--   Die Menge an freiem Speicherplatz auf jeder Festplatte  
+-   Der freie Speicherplatz auf jeder Festplatte  
   
 -   Der Status jeder Festplatte; ein leerer Status bedeutet, dass das Laufwerk ordnungsgemäß funktioniert  
   
--   Im Detailbereich, in dem alle speicherstapelinformationen (für Speicherpool, Speicherplatz und Festplatte) angezeigt, wenn die ausgewählte Festplatte auf einem Speicherplatz (anstelle eines physischen Datenträgers) befindet  
+-   Der Detailbereich, in dem alle Speicherstapelinformationen (für Speicherpool, Speicherplatz und Festplatte) angezeigt werden, wenn sich die ausgewählte Festplatte auf einem Speicherplatz (und nicht auf einem physikalischen Datenträger) befindet  
   
- Die folgende Tabelle enthält die Aufgaben zur festplattenverwaltung, die in das Dashboard und deren Beschreibungen verfügbar sind. Einige Aufgaben werden nur angezeigt, wenn eine Festplatte ausgewählt ist.  
+ In der folgenden Tabelle sind die im Dashboard verfügbaren Aufgaben zur Festplattenverwaltung und deren Beschreibungen aufgelistet. Einige der Aufgaben werden nur angezeigt, wenn eine Festplatte ausgewählt ist.  
   
-### <a name="available-hard-drive-management-tasks"></a>Verfügbare Aufgaben zur festplattenverwaltung  
+### <a name="available-hard-drive-management-tasks"></a>Verfügbare Aufgaben zur Festplattenverwaltung  
   
-|Den Namen der Aufgabe|Beschreibung|  
+|Name der Aufgabe|Beschreibung|  
 |---------------|-----------------|  
-|**Festplatteneigenschaften anzeigen**|Öffnet die *Festplattenname***Eigenschaften** Seite. Diese Aufgabe wird angezeigt, wenn die Festplatte ausgewählt ist. Die **allgemeine** auf der Registerkarte der *Festplattenname* Eigenschaftenseite enthält die folgenden zusätzlichen Aufgaben:<br /><br /> -   **Bereinigung**: ermöglicht Ihnen das Bereinigen nicht verwendeter Dateien auf der Festplatte (diese Aufgabe ist nur verfügbar in Windows Server Essentials).<br />-   **Überprüfen und reparieren**: überprüft die Festplatte auf Dateisystemfehler und versucht, erkannte Fehler automatisch zu reparieren.<br /><br /> Die **Schattenkopien** auf der Registerkarte der *Festplattenname***Eigenschaften** Seite können Sie Schattenkopien aktivieren. Diese Registerkarte zeigt auch das nächste Mal die Schattenkopien geplant ist.|  
-|**Verwalten von Speicherplätzen**|**Hinweis:** für Windows Server Essentials dieser Aufgabe wird nur angezeigt, wenn bereits ein Speicherplatz vorhanden ist.<br /><br /> Öffnet die **Speicherplätze** Systemsteuerung, von dem Sie erstellen und Verwalten von Speicherpools und Speicherplätze.|  
-|**Erstellen eines Speicherplatzes**|Öffnet den Speicher Speicherplatz Assistenten zum Erstellen eines, dem Sie eine oder mehrere Festplatten zum Erhöhen der Kapazität eines Speicherpools verwenden können.|  
-|**Erhöhen der Speicherpoolkapazität**|**Hinweis:** diese Aufgabe ist nur sichtbar, wenn die ausgewählte Festplatte auf einem Speicherplatz befindet.<br /><br /> Öffnet das Erhöhen der Kapazität eines Storage Pool-Assistenten, können Sie eine oder mehrere Festplatten zum Erhöhen der Kapazität eines Speicherpools verwenden.|  
+|**Festplatteneigenschaften anzeigen**|Öffnet die *Festplattenname *** Eigenschaften** Seite. Diese Aufgabe wird angezeigt, wenn die Festplatte ausgewählt ist. Die Registerkarte **Allgemein** der Seite "Eigenschaften von *Festplattenname* " enthält die folgenden zusätzlichen Aufgaben:<br /><br /> -   **Bereinigung der Festplatte**:  Können Sie zum Bereinigen nicht verwendeter Dateien auf der Festplatte (diese Aufgabe ist nur in Windows Server Essentials verfügbar).<br />-   **Überprüfen und reparieren**:  Überprüft die Festplatte auf Dateisystemfehler und versucht, erkannte Fehler automatisch zu reparieren.<br /><br /> Die **Schattenkopien** Registerkarte die *Festplattenname *** Eigenschaften** Seite können Sie Schattenkopien aktivieren. Diese Registerkarte zeigt auch den Zeitpunkt an, für den die nächste Ausführung von Schattenkopien geplant ist.|  
+|**Verwalten von Speicherplätzen**|**Hinweis**: Für Windows Server Essentials wird diese Aufgabe nur angezeigt, wenn ein Speicherplatz vorhanden ist.<br /><br /> Öffnet die Systemsteuerung für **Speicherplätze**, von der aus Sie Speicherpools und Speicherplätze erstellen und verwalten können.|  
+|**Erstellen eines Speicherplatzes**|Öffnet den Assistenten zum Erstellen eines Speicherplatzes, der Ihnen die Verwendung einer oder mehrerer Festplatten zum Erhöhen der Kapazität eines Speicherpools ermöglicht.|  
+|**Speicherpoolkapazität erhöhen**|**Hinweis**: Diese Aufgabe ist nur sichtbar, wenn sich die ausgewählte Festplatte auf einem Speicherplatz befindet.<br /><br /> Öffnet den Assistenten zum Erhöhen der Kapazität eines Speicherpools, der Ihnen die Verwendung einer oder mehrerer Festplatten zum Erhöhen der Kapazität eines Speicherpools ermöglicht.|  
   
-##  <a name="BKMK_2"></a>Vergrößern des Speichers auf dem server  
- Um den Speicher auf dem Server zu erhöhen, können Sie eine zusätzliche interne Festplatte zum Server hinzufügen. Um die zusätzliche interne Festplatte hinzufügen möchten, müssen Sie Herunterfahren des Servers, die interne Festplatte hinzufügen und dann den Server neu starten. Sie müssen nicht den Server Herunterfahren, wenn die Festplatte an den SCSI-Controller angeschlossen ist. In diesem Fall kann die Festplatte angeschlossen werden während der Server ausgeführt wird.  
+##  <a name="BKMK_2"></a> Vergrößern des Speichers auf dem server  
+ Um den Speicher auf dem Server zu vergrößern, können Sie eine zusätzliche interne Festplatte zum Server hinzufügen. Zum Hinzufügen der zusätzlichen internen Festplatte müssen Sie den Server herunterfahren, die interne Festplatte hinzufügen und dann den Server neu starten. Wenn die Festplatte an den SCSI-Controller angeschlossen ist, müssen Sie den Server nicht herunterfahren. In diesem Fall kann die Festplatte bei aktivem Server angeschlossen werden.  
   
- Je nachdem, ob die Festplatte hinzugefügt werden formatiert ist führen Sie eine der folgenden:  
+ Je nachdem, ob die hinzuzufügende Festplatte formatiert ist, führen Sie eine der folgenden Aktionen aus:  
   
--   **Formatiert** Wenn die interne Festplatte mit NTFS oder ReFS formatiert ist, der Server einen Laufwerkbuchstaben weist und die Festplatte wird auf der **Festplatten** Registerkarte. Sie können jetzt erstellen oder Verschieben von Serverordnern auf der neuen Festplatte.  
+-   **Formatiert** Wenn die interne Festplatte mit NTFS oder ReFS formatiert ist, weist ihr der Server einen Laufwerkbuchstaben zu, und die Festplatte wird auf der Registerkarte **Festplatten** angezeigt. Sie können jetzt Serverordnern auf der neuen Festplatte erstellen oder dorthin verschieben.  
   
--   **Nicht formatiert** , wenn die interne Festplatte nicht formatiert ist, wird die folgende Warnung angezeigt: mindestens eine unformatierte Festplatte mit dem Server verbunden sind. Verwenden Sie das folgende Verfahren zum Formatieren der Festplatte.  
+-   **Nicht formatiert** , wenn die interne Festplatte nicht formatiert ist, wird die folgende Warnung angezeigt: Mindestens eine unformatierte Festplatte ist mit dem Server verbunden. Verwenden Sie das folgende Verfahren, um die Festplatte zu formatieren.  
   
-#### <a name="to-format-the-hard-disk"></a>Zum Formatieren der Festplatte  
-  
-1.  Öffnen Sie das Dashboard.  
-  
-2.  Klicken Sie im Navigationsbereich auf das Warnungssymbol zum Starten der **Alert Viewer** in Windows Server Essentials oder die **Überwachung der Integrität** Registerkarte in Windows Server Essentials.  
-  
-3.  In der **Alert Viewer** oder **Überwachung der Integrität** Registerkarte auf die Warnung, und klicken Sie dann im Aufgabenbereich auf **Problem behandeln**.  
-  
-4.  Folgen Sie den Anweisungen zum Hinzufügen eines neuen Hard Drive-Assistenten abschließen.  
-  
-###  <a name="BKMK_Clean"></a>Bereinigen der Festplatte  
+#### <a name="to-format-the-hard-disk"></a>Formatieren der Festplatte  
   
 1.  Öffnen Sie das Dashboard.  
   
-2.  Klicken Sie im Navigationsbereich auf **Speicher**, und klicken Sie dann auf **Festplatten**.  
+2.  Klicken Sie auf das Warnungssymbol, um zu starten, klicken Sie im Navigationsbereich der **Alert Viewer** in Windows Server Essentials oder **Systemüberwachung** Registerkarte in Windows Server Essentials.  
   
-3.  In der **Festplatten** Abschnitt, wählen Sie den Laufwerkbuchstaben an, die auf die neu hinzugefügten Festplatte, und klicken Sie im Aufgabenbereich zugewiesen wurde, klicken Sie auf **Festplatteneigenschaften anzeigen**.  
+3.  Klicken Sie in der **** Meldungsanzeige oder auf der Registerkarte **Systemüberwachung** auf die Warnung, und klicken Sie dann im Aufgabenbereich auf **Problem behandeln**.  
   
-4.  In **< Driveletter\ > Eigenschaften**auf die **allgemeine** auf **Bereinigung**.  
+4.  Befolgen Sie die Anweisungen, um den Assistenten zum Hinzufügen einer neuen Festplatte abzuschließen.  
   
-##  <a name="BKMK_Check"></a>Ausführen von Überprüfungen und Reparaturen auf Festplatten  
- Die Festplatten überprüfen und Reparieren Prozess prüft die Integrität des Dateisystems auf den Festplatten gespeichert. Ausführung einer **Chkdsk** Prozess auf dem Datenträger, die in die Sicherungsdateien gespeichert sind. Die folgende Warnung Problem aufgelöst werden kann, durch Ausführen einer Überprüfung und Reparatur auf den Festplatten:  
-  
--   Eine oder mehrere Festplatten in Server-Sicherung müssen überprüft werden.  
-  
-#### <a name="to-check-and-repair-hard-drives"></a>Um zu überprüfen und Reparieren von Laufwerken  
+###  <a name="BKMK_Clean"></a> Zum Bereinigen der Festplatte  
   
 1.  Öffnen Sie das Dashboard.  
   
-2.  Klicken Sie auf **Serverordner und Festplatten**, und klicken Sie dann auf **Festplatten**.  
+2.  Klicken Sie im Navigationsbereich auf **Speicher**und dann auf **Festplatten**.  
   
-3.  Wählen Sie die Festplatte, die der Fehler angezeigt wird, und wählen Sie dann **Festplatteneigenschaften anzeigen**.  
+3.  Wählen Sie im Abschnitt **Festplatten** den Laufwerkbuchstaben aus, der der neu hinzugefügten Festplatte zugewiesen wurde, und klicken Sie im Aufgabenbereich auf **Festplatteneigenschaften anzeigen**.  
   
-4.  Auf der **überprüfen und reparieren** auf **überprüfen und reparieren**.  
+4.  In **< Driveletter\> Eigenschaften**auf die **allgemeine** auf **Laufwerk Bereinigung**.  
   
-##  <a name="BKMK_3"></a>Formatieren von Festplatten  
- Wenn eine unformatierte interne Festplatte auf dem Server erkannt wird, führt eine integritätswarnung den Benutzer durch den Prozess der formatieren. Hinzufügen eines neuen Festplatte Laufwerk Assistenten führt Sie durch die Formatierung der Festplatte und können Sie die Festplatte in einem der folgenden Methoden konfigurieren:  
+##  <a name="BKMK_Check"></a> Ausführen von Überprüfungen und Reparaturen auf Festplatten  
+ Mit dem Überprüfungs- und Reparaturprozess für Festplatten wird die Integrität des auf den Festplatten gespeicherten Dateisystems sichergestellt. Es wird ein **chkdsk**-Prozess auf dem Volume ausgeführt, auf dem die Sicherungsdateien gespeichert sind. Die folgende Warnung kann durch Ausführen einer Überprüfung und Reparatur auf den Festplatten behoben werden:  
   
-1.  Die Festplatte formatieren und automatisch ein Laufwerk darauf erstellen. Wenn Sie diese Option auswählen, wenn der Assistent abgeschlossen ist, wird eine logische Festplatte mit dem NTFS-Dateisystem formatierte erstellt.  
+-   Mindestens eine Festplatte in der Serversicherung muss überprüft werden.  
   
-2.  Die Festplatte formatieren und für die Server-Sicherung einrichten. Wenn Sie diese Option auswählen, der Server-Sicherung-Assistent wird gestartet und führt Sie durch die Serversicherungskonfiguration.  
+#### <a name="to-check-and-repair-hard-drives"></a>Überprüfen und Reparieren von Laufwerken  
   
-3.  Wenn eine Speicherplatz Datenspeicher-t vorhanden sind, verwenden Sie die neue Festplatte zum Erstellen eines Speicherplatzes. Sie benötigen mindestens zwei Festplatten, um einen Speicherplatz zu erstellen.  
+1.  Öffnen Sie das Dashboard.  
   
-4.  Wenn bereits ein Speicherplatz vorhanden ist, verwenden Sie die neue Festplatte zum Erhöhen der Kapazität eines Speicherpools. Diese Option wird nur angezeigt, wenn ein Speicherplatz auf dem Server erstellt ist. Wenn Sie diese Option auswählen, wird der Assistent diese Festplatte zum Speicherpool hinzufügen.  
+2.  Klicken Sie auf **Serverordner und Festplatten** und dann auf **Festplatten**.  
   
-##  <a name="BKMK_4"></a>Fügen Sie eine neue Festplatte hinzu  
- Wenn Sie eine neue Festplatte an einen Server mit Windows Server Essentials anschließen, können Sie folgende Schritte ausführen:  
+3.  Wählen Sie die Festplatte aus, für die der Fehler angezeigt wird, und wählen Sie dann **Festplatteneigenschaften anzeigen** aus.  
   
--   [Verwenden Sie die neue Festplatte zum Speichern von Serverordnern](Manage-Server-Storage-in-Windows-Server-Essentials.md#BKMK_4a)  
+4.  Klicken Sie auf der Registerkarte **Überprüfen und reparieren** auf **Überprüfen und reparieren**.  
+  
+##  <a name="BKMK_3"></a> Laufwerke-Format  
+ Wenn eine unformatierte interne Festplatte auf dem Server erkannt wird, wird der Benutzer durch eine Integritätswarnung durch den Formatierungsprozess geführt. Der Assistent zum Hinzufügen einer neuen Festplatte führt Sie durch das Formatieren der Festplatte und ermöglicht Ihnen das Konfigurieren der Festplatte auf eine der folgenden Arten:  
+  
+1.  Festplatte formatieren und automatisch ein Laufwerk darauf erstellen. Wenn Sie diese Option auswählen, haben Sie nach Abschluss des Assistenten eine logische Festplatte erstellt, die mit dem NTFS-Dateisystem formatiert ist.  
+  
+2.  Die Festplatte formatieren und für die Serversicherung einrichten. Wenn Sie diese Option auswählen, wird der Assistent zum Einrichten der Serversicherung gestartet und führt Sie durch die Serversicherungskonfiguration.  
+  
+3.  Wenn eine Speicherplatz verfügt t vorhanden ist, verwenden Sie die neue Festplatte zum Erstellen eines Speicherplatzes. Sie benötigen mindestens zwei Festplatten, um einen Speicherplatz zu erstellen.  
+  
+4.  Wenn bereits ein Speicherplatz vorhanden ist, verwenden Sie die neue Festplatte, um die Kapazität eines Speicherpools zu erhöhen. Diese Option wird nur angezeigt, wenn bereits ein Speicherplatz auf dem Server erstellt ist. Wenn Sie diese Option auswählen, fügt der Assistent diese Festplatte zum Speicherpool hinzu.  
+  
+##  <a name="BKMK_4"></a> Hinzufügen einer neuen Festplatte  
+ Wenn Sie eine neue Festplatte an einen Server mit Windows Server Essentials anschließen, haben Sie folgende Möglichkeiten:  
+  
+-   [Verwenden der neuen Festplatte zum Speichern von Serverordnern](Manage-Server-Storage-in-Windows-Server-Essentials.md#BKMK_4a)  
   
 -   [Verwenden Sie die neue Festplatte zum Speichern von serversicherungen](Manage-Server-Storage-in-Windows-Server-Essentials.md#BKMK_4b)  
   
 -   [Verwenden Sie die neue Festplatte zum Erhöhen der Speicherpoolkapazität](Manage-Server-Storage-in-Windows-Server-Essentials.md#BKMK_4c)  
   
-###  <a name="BKMK_4a"></a>Verwenden Sie die neue Festplatte zum Speichern von Serverordnern  
- Verwendung die neue Festplatte zum Speichern von Serverordnern können Sie einen neuen Serverordner auf der Festplatte hinzufügen oder verschieben einen vorhandenen Serverordner auf der Festplatte.  
+###  <a name="BKMK_4a"></a> Verwenden der neuen Festplatte zum Speichern von Serverordnern  
+ Wenn Sie die neue Festplatte zum Speichern von Serverordnern verwenden möchten, können Sie einen neuen Serverordner zur Festplatte hinzufügen oder einen vorhandenen Serverordner auf die Festplatte verschieben.  
   
-##### <a name="to-store-server-folders"></a>Zum Speichern von Serverordnern  
+##### <a name="to-store-server-folders"></a>Speichern von Serverordnern  
   
 1.  Öffnen Sie das Dashboard.  
   
-2.  Klicken Sie auf die **Speicher** Registerkarte, und klicken Sie dann auf **Serverordner**.  
+2.  Klicken Sie auf die Registerkarte **SPEICHER** und anschließend auf **Serverordner**.  
   
-3.  In der **Tasks für Serverordner** Bereich, führen Sie einen der folgenden:  
+3.  Führen Sie im Bereich **Tasks für Serverordner** einen der folgenden Schritte aus:  
   
-    1.  Klicken Sie auf einen Serverordner hinzufügen, **fügen Sie einen Ordner**.  
+    1.  Zum Hinzufügen eines Serverordners klicken Sie auf **Ordner hinzufügen**.  
   
-    2.  Um einen Ordner zu verschieben, wählen Sie den Ordner, die Sie verwenden möchten, auf die neue Festplatte verschieben, und klicken Sie dann auf **Verschieben eines Serverordners**.  
+    2.  Zum Verschieben eines Serverordners wählen Sie den Ordner aus, den Sie auf die neue Festplatte verschieben möchten, und klicken Sie dann auf **Ordner verschieben**.  
   
     > [!NOTE]
-    >  Wenn Sie auf die Festplatte durchsuchen und wählen Sie ihn als Speicherort für Serverordner, ohne einen Ordner zu erstellen, wird die folgende Fehlermeldung angezeigt: **ein Stammverzeichnis (z. B. C:\\, D:\\) kann nicht als Serverordner hinzugefügt werden. Erstellen Sie einen neuen Ordner oder wählen Sie eine vorhandene unter dem Stammverzeichnis und versuchen Sie es dann erneut**. Um diesen Fehler zu beheben, erstellen Sie einen neuen Ordner in der neu hinzugefügten Festplatte, und wählen Sie dann den neuen Ordner als Speicherort für Serverordner.  
+    >  Wenn Sie zur Festplatte navigieren und sie als Speicherort für Serverordner auswählen, ohne einen Ordner zu erstellen, wird die folgende Fehlermeldung angezeigt: **Ein Stammverzeichnis (z. B. "c:"\\, "d:"\\) kann nicht als Serverordner hinzugefügt werden. Erstellen Sie einen neuen Ordner oder eine vorhandene auszuwählen, unter dem Stammverzeichnis, und wiederholen Sie den erneut**. Um diesen Fehler zu beheben, erstellen Sie einen neuen Ordner auf der neu hinzugefügten Festplatte, und wählen Sie dann den neuen Ordner als Speicherort für Serverordner aus.  
   
-4.  Führen Sie die Anweisungen, um den Assistenten zu beenden.  
+4.  Folgen Sie den Anweisungen, um den Assistenten zu beenden.  
   
- Weitere Informationen zum Verschieben von Serverordnern finden Sie unter [hinzufügen oder Verschieben eines Serverordners](Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_5).  
+ Weitere Informationen zum Verschieben von Serverordnern finden Sie unter [Add or move a server folder](Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_5).  
   
-###  <a name="BKMK_4b"></a>Verwenden Sie die neue Festplatte zum Speichern von serversicherungen  
- Sie können die neu hinzugefügte Festplatte zum Speichern von serversicherungen verwenden.  
+###  <a name="BKMK_4b"></a> Verwenden Sie die neue Festplatte zum Speichern von serversicherungen  
+ Sie können die neu hinzugefügte Festplatte zum Speichern von Serversicherungen verwenden.  
   
-##### <a name="to-store-server-backups"></a>Zum Speichern von serversicherungen  
+##### <a name="to-store-server-backups"></a>Speichern von Serversicherungen  
   
 1.  Öffnen Sie das Dashboard.  
   
-2.  Klicken Sie auf die **Geräte** Registerkarte, wählen Sie den Server aus dem Listenbereich aus, und führen Sie dann im Aufgabenbereich eine der folgenden:  
+2.  Klicken Sie auf die Registerkarte **Geräte**, wählen Sie den Server aus dem Listenbereich aus, und führen Sie dann im Aufgabenbereich eine der folgenden Aktionen aus:  
   
-    1.  Wenn der Server-Sicherung nicht auf dem Server konfiguriert ist, klicken Sie auf **Serversicherung einrichten**.  
+    1.  Wenn die Serversicherung nicht auf dem Server konfiguriert ist, klicken Sie auf **Serversicherung einrichten**.  
   
-    2.  Wenn der Server-Sicherung auf dem Server konfiguriert ist, klicken Sie auf **Anpassen der Serversicherung**.  
+    2.  Wenn die Serversicherung auf dem Server konfiguriert ist, klicken Sie auf **Serversicherung anpassen**.  
   
-     Der Server-Sicherung-Assistent wird angezeigt.  
+     Der Assistent zum Einrichten der Serversicherung wird angezeigt.  
   
-3.  In der **Sicherungsziel auswählen** Seite, die neue Festplatte als Sicherungsziel auswählen.  
+3.  Wählen Sie auf der Seite **Sicherungsziel auswählen** die neue Festplatte als Sicherungsziel aus.  
   
-4.  Führen Sie die Anweisungen, um den Assistenten zu beenden.  
+4.  Folgen Sie den Anweisungen, um den Assistenten zu beenden.  
   
-###  <a name="BKMK_4c"></a>Verwenden Sie die neue Festplatte zum Erhöhen der Speicherpoolkapazität  
- Wenn die Speicherpoolkapazität gering ist, erhalten Sie eine Warnung, die besagt, dass Sie die Speicherpoolkapazität erhöhen können, durch das Hinzufügen einer neuen Festplatte zum Speicherpool mit dem das Erhöhen der Kapazität eines Storage Pool-Assistenten.  
+###  <a name="BKMK_4c"></a> Verwenden Sie die neue Festplatte zum Erhöhen der Speicherpoolkapazität  
+ Wenn die Speicherpoolkapazität gering ist, wird Ihnen eine Warnung angezeigt, die besagt, dass Sie die Speicherpoolkapazität erhöhen können, indem Sie mithilfe des Assistenten zum Erhöhen der Kapazität eines Speicherpools eine neue Festplatte zum Speicherpool hinzufügen.  
   
 > [!NOTE]
->  Sie können dieses Verfahren ausführen, nur dann, wenn Sie einen Speicherpool auf dem Server erstellt.  
+>  Sie können dieses Verfahren nur ausführen, wenn Sie einen Speicherpool auf dem Server erstellt haben.  
   
 ##### <a name="to-increase-storage-pool-capacity"></a>Erhöhen der Speicherpoolkapazität  
   
 1.  Öffnen Sie das Dashboard.  
   
-2.  Klicken Sie auf die **Speicher** Registerkarte, und klicken Sie dann auf **Festplatten**.  
+2.  Klicken Sie auf die Registerkarte **Speicher** und anschließend auf **Festplatten**.  
   
-3.  Wählen Sie das Laufwerk, das ein geringer Kapazität.  
+3.  Wählen Sie die Festplatte mit geringer Kapazität aus.  
   
-4.  Wählen Sie im Aufgabenbereich **Speicherpoolkapazität**. Das Erhöhen der Kapazität ein Speicher-Pool-Assistent wird angezeigt.  
+4.  Wählen Sie im Aufgabenbereich die Option **Speicherpoolkapazität erhöhen** aus. Der Assistent zum Erhöhen der Kapazität eines Speicherpools wird angezeigt.  
   
-5.  Führen Sie die Anweisungen, um den Assistenten zu beenden.  
+5.  Folgen Sie den Anweisungen, um den Assistenten zu beenden.  
   
-##  <a name="BKMK_5"></a>Speicherplätze – Übersicht  
- Mit Speicherplätzen können Sie gruppieren Datenträger zusammen in einem Speicherpool. Sie können dann Pool-Kapazität verwenden, zum Erstellen von Speicherplätzen. Speicherplätze sind virtuelle Laufwerke, die auf die **Festplatten** Dashboard-Registerkarte. Können Speicherplätze wie jedes andere Laufwerk, sodass es einfach mit Dateien arbeiten. Wenn der Pool-Kapazität erschöpft ist, können Sie große Speicherplätze erstellen und weitere Laufwerke zum Speicherpool hinzufügen. Wenn Sie zwei oder mehr Datenträger im Speicherpool verfügen, können Sie Speicherplätze erstellen, durch eine zwei-Wege-Spiegelung, die von einem Laufwerksfehler nicht beeinträchtigt sind? oder sogar den Ausfall von zwei Laufwerken? Wenn Sie einen drei-Wege-spiegelspeicherplatz erstellen.  
+##  <a name="BKMK_5"></a> Speicherplätze – Übersicht  
+ Mithilfe von Speicherplätzen können Sie Datenträger in einem Speicherpool zu Gruppen zusammenfassen. Dann können Sie Poolkapazität zum Erstellen von Speicherplätzen verwenden. Speicherplätze sind virtuelle Laufwerke, die auf der Registerkarte **Festplatten** des Dashboards angezeigt werden. Können Speicherplätze wie jedes andere Laufwerk, sodass es einfach ist, arbeiten mit Dateien darauf. Wenn die Poolkapazität nur noch gering ist, können Sie große Speicherplätze erstellen und weitere Laufwerke zum Speicherpool hinzufügen. Wenn Sie zwei oder mehr Datenträger im Speicherpool haben, können Sie Speicherplätze erstellen, mit-Wege-Spiegelung, die nicht von einem defekten Laufwerk betroffen? oder sogar zwei Laufwerke einen Fehler? Wenn Sie einen drei-Wege-spiegelspeicherplatz erstellen.  
   
- Um einen Speicherplatz zu erstellen, müssen Sie, lediglich ein oder mehrere zusätzliche Laufwerke darüber hinaus auf das Laufwerk, auf dem Windows installiert ist. Diese Laufwerke können interne oder externe Festplatten und solid State-Laufwerke werden. Sie können eine Vielzahl von Laufwerkstypen mit Speicherplätzen, einschließlich USB-, SATA- und SAS-Laufwerke verwenden.  
-  
-> [!NOTE]
->  Wenn Sie Speicherplätze auf einem Server unter Windows Server Essentials konfigurieren, ist nicht möglich Herstellerstandards mit der **Daten bereinigen** Option. Dieses Problem zu umgehen, entfernen Sie zuerst mithilfe von Speicherplätzen und führen Sie dann die Herstellerstandards mit ist die **Daten bereinigen** Option.  
-  
- Weitere Informationen zu Speicherplätzen finden Sie unter [Storage Spaces häufig gestellte Fragen (FAQ)](https://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).  
-  
-##  <a name="BKMK_6"></a>Erstellen eines Speicherplatzes  
- Um die Arbeit mit Speicherplätzen auf Server beginnen, müssen die folgenden Mindestanforderungen erfüllt sein:  
-  
--   Der Server mit Windows Server Essentials muss mit zusätzlichen physischen Laufwerken (nicht nur dem Startlaufwerk) verbunden sein, die Laufwerke müssen keine Volumes gehostet und müssen eine Mindestkapazität von 10 GB haben. Erstellen eines Speicherpools ist ein physisches Laufwerk erforderlich; mindestens zwei physische Laufwerke ist erforderlich, um einen robusten spiegelspeicherplatz zu erstellen.  
-  
--   Mindestens zwei physische Laufwerke sind erforderlich, um einen Speicherplatz mit resilienz durch Parität oder zwei-Wege-Spiegelung zu erstellen.  
+ Zum Erstellen eines Speicherplatzes benötigen Sie lediglich ein oder mehrere Laufwerke zusätzlich zu dem, auf dem Windows installiert ist. Bei diesen Laufwerken kann es sich um interne oder externe Festplatten oder Festkörperlaufwerke handeln. Sie können eine Vielzahl von Laufwerkstypen für Speicherplätze verwenden, einschließlich USB-, SATA- und SAS-Laufwerke.  
   
 > [!NOTE]
->  Wenn Sie Speicherplätze auf einem Server unter Windows Server Essentials konfigurieren, ist nicht möglich Herstellerstandards mit der **Daten bereinigen** Option. Dieses Problem zu umgehen, entfernen Sie zuerst mithilfe von Speicherplätzen und führen Sie dann die Herstellerstandards mit ist die **Daten bereinigen** Option.  
+>  Wenn Sie Speicherplätze auf einem Server mit Windows Server Essentials konfigurieren, ist nicht möglich eine Wiederherstellung der Herstellerstandards mit der **Daten bereinigen** Option. Um dieses Problem zu umgehen, entfernen Sie zunächst die Speicherplätze, und führen Sie dann eine Wiederherstellung der Herstellerstandards mit der Option **Daten bereinigen** aus.  
+  
+ Weitere Informationen zu Speicherplätzen finden Sie unter [Häufig gestellte Fragen zu Speicherplätzen](https://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).  
+  
+##  <a name="BKMK_6"></a> Erstellen eines Speicherplatzes  
+ Wenn Sie mit Speicherplätzen auf einem Server arbeiten möchten, müssen die folgenden Mindestanforderungen erfüllt sein:  
+  
+-   Der Server mit Windows Server Essentials muss mit zusätzlichen physischen Laufwerken (nicht nur dem Startlaufwerk) verbunden sein, auf den Laufwerken dürfen keine Volumes gehostet sein und sie müssen eine Mindestkapazität von 10 GB aufweisen. Zum Erstellen eines Speicherpools ist ein physisches Laufwerk erforderlich; mindestens zwei physische Laufwerke werden benötigt, um einen robusten Spiegelspeicherplatz zu erstellen.  
+  
+-   Mindestens zwei physische Laufwerke sind erforderlich, um einen Speicherplatz mit Resilienz durch Parität oder Zwei-Wege-Spiegelung zu erstellen.  
+  
+> [!NOTE]
+>  Wenn Sie Speicherplätze auf einem Server mit Windows Server Essentials konfigurieren, ist nicht möglich eine Wiederherstellung der Herstellerstandards mit der **Daten bereinigen** Option. Um dieses Problem zu umgehen, entfernen Sie zunächst die Speicherplätze, und führen Sie dann eine Wiederherstellung der Herstellerstandards mit der Option **Daten bereinigen** aus.  
   
 #### <a name="to-create-a-storage-space-in-windows-server-essentials"></a>Zum Erstellen eines Speicherplatzes in Windows Server Essentials  
   
-1.  Fügen Sie hinzu, oder Verbinden Sie die Laufwerke, die Sie mit dem Server mit Windows Server Essentials Speicherplätzen gruppieren möchten.  
+1.  Fügen Sie alle Laufwerke, die Sie mithilfe von Speicherplätzen in einer Gruppe zusammenfassen möchten, zum Server mit Windows Server Essentials hinzu oder stellen Sie eine Verbindung her.  
   
-2.  Klicken Sie auf dem Dashboard auf **erweitert: Speicherplatz verwalten**.  
+2.  Klicken Sie auf dem Dashboard auf **erweitert: Verwalten von Speicherplätzen**.  
   
-3.  Klicken Sie auf **erstellen einen neuen Pool und Speicherplatz**.  
+3.  Klicken Sie auf **Neuen Pool und Speicherplatz erstellen**.  
   
-4.  Wählen Sie die Laufwerke, die Sie verwenden möchten, auf dem neuen Speicherplatz hinzufügen, und klicken Sie dann auf **-Pool erstellen**.  
+4.  Wählen Sie die Laufwerke aus, die Sie zu dem neuen Speicherplatz hinzufügen möchten, und klicken Sie dann auf **Pool erstellen**.  
   
-5.  Weisen Sie dem Laufwerk einen Namen und einen Buchstaben aus, und wählen Sie dann ein Layout. **Zwei-Wege-Spiegelung**, **drei-Wege-Spiegelung**, und **Parität** schützen die Dateien am Speicherplatz vor Laufwerksfehlern.  
+5.  Weisen Sie dem Laufwerk einen Namen und einen Buchstaben zu, und wählen Sie dann ein Layout. Mithilfe von**Zwei-Wege-Spiegelung**, **Drei-Wege-Spiegelung**und **Parität** können Sie die Dateien am Speicherplatz bei Laufwerkfehlern schützen.  
   
-6.  Geben Sie die maximale Größe des Speicherplatzes erreichen kann, und klicken Sie dann auf **Speicherplatz erstellen**.  
+6.  Geben Sie die maximale Größe an, die der Speicherplatz erreichen kann, und klicken Sie dann auf **Speicherplatz erstellen**.  
   
- In Windows Server Essentials können Sie einen bidirektionalen gespiegelten Speicherplatz mit dem Speicherplatz Assistent zum Erstellen eines über das Dashboard.  
+ In Windows Server Essentials können Sie einen bidirektionalen gespiegelten Speicherplatz erstellen mit der ein Storage Space-Assistent aus dem Dashboard.  
   
 #### <a name="to-create-a-storage-space-in-windows-server-essentials"></a>Zum Erstellen eines Speicherplatzes in Windows Server Essentials  
   
-1.  Fügen Sie hinzu, oder Verbinden Sie die Laufwerke, die Sie mit dem Server mit Windows Server Essentials Speicherplätzen gruppieren möchten.  
+1.  Fügen Sie alle Laufwerke, die Sie mithilfe von Speicherplätzen in einer Gruppe zusammenfassen möchten, zum Server mit Windows Server Essentials hinzu oder stellen Sie eine Verbindung her.  
   
-2.  Klicken Sie auf dem Dashboard auf **Verwalten von Speicherplätzen**. Erstellen, den einer Speicherplatz-Assistent wird angezeigt.  
+2.  Klicken Sie auf dem Dashboard auf **Speicherplatz verwalten**. Der Assistent zum Erstellen eines Speicherplatzes wird angezeigt.  
   
-3.  Führen Sie die Anweisungen, um den Assistenten abzuschließen.  
+3.  Folgen Sie den Anweisungen, um den Assistenten fertigzustellen.  
   
- Informationen zum Erhöhen der Speicherpoolkapazität finden Sie unter [verwenden Sie die neue Festplatte zum Erhöhen der Speicherpoolkapazität](Manage-Server-Storage-in-Windows-Server-Essentials.md#BKMK_4c).  
+ Informationen zum Erhöhen der Speicherpoolkapazität finden Sie unter [Use the new hard drive to increase storage pool capacity](Manage-Server-Storage-in-Windows-Server-Essentials.md#BKMK_4c).  
   
 ## <a name="see-also"></a>Siehe auch  
   
