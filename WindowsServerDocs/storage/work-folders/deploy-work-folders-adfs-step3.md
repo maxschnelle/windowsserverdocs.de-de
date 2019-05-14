@@ -10,7 +10,7 @@ ms.date: 4/5/2017
 ms.assetid: 5a43b104-4d02-4d73-a385-da1cfb67e341
 ms.openlocfilehash: 81f30a7a4d50423a68719343fec3032cc6a1602e
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59854711"
@@ -167,13 +167,13 @@ Gehen Sie folgendermaßen vor, um Arbeitsordner zu konfigurieren:
   
     Wenn der Pfad nicht vorhanden ist, werden Sie aufgefordert, ihn zu erstellen. Klicken Sie auf **OK**.  
   
-5.  Wählen Sie auf der Seite **Ordnerstruktur****Benutzeralias** aus und klicken Sie dann auf **Weiter**.  
+5.  Wählen Sie auf der Seite **Ordnerstruktur** **Benutzeralias** aus und klicken Sie dann auf **Weiter**.  
   
 6.  Geben Sie auf der Seite **Name der Synchronisierungsfreigabe** den Namen der Synchronisierungsfreigabe ein. Im Testbeispiel ist dies **WorkFolders**. Klicken Sie auf **Weiter**.  
   
 7.  Fügen Sie auf der Seite **Synchronisierungszugriff** die Benutzer oder Gruppen hinzu, die auf die neue Synchronisierung Zugriff haben. Gewähren Sie für dieses Testbeispiel allen Domänenbenutzer Zugriff. Klicken Sie auf **Weiter**.  
   
-8.  Wählen Sie auf der Seite **PC-Sicherheitsrichtlinien****Arbeitsordner verschlüsseln** und **Bildschirm automatisch sperren und ein Kennwort anfordern** aus. Klicken Sie auf **Weiter**.  
+8.  Wählen Sie auf der Seite **PC-Sicherheitsrichtlinien** **Arbeitsordner verschlüsseln** und **Bildschirm automatisch sperren und ein Kennwort anfordern** aus. Klicken Sie auf **Weiter**.  
   
 9. Klicken Sie auf der Seite **Bestätigung** auf **Erstellen**, um den Konfigurationsprozess abzuschließen.  
   
@@ -248,7 +248,7 @@ Gehen Sie folgendermaßen vor, um Arbeitsordner zum Verwenden von AD FS zur Auth
   
 3.  Klicken Sie mit der rechten Maustaste auf den Servernamen und klicken Sie anschließend auf **Arbeitsordnereinstellungen**.  
   
-4.  Wählen Sie im Dialogfenster **Arbeitsordnereinstellungen****Active Directory-Verbunddienste** und geben Sie eine Verbunddienst-URL ein. Klicken Sie auf **Übernehmen**.  
+4.  Wählen Sie im Dialogfenster **Arbeitsordnereinstellungen** **Active Directory-Verbunddienste** und geben Sie eine Verbunddienst-URL ein. Klicken Sie auf **Übernehmen**.  
   
     Im Testbeispiel die URL ist **https://blueadfs.contoso.com**.  
   

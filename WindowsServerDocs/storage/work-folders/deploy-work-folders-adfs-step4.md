@@ -10,7 +10,7 @@ ms.date: 6/242017
 ms.assetid: 4a11ede0-b000-4188-8190-790971504e17
 ms.openlocfilehash: 1f452fd1e2f054c449660eb0ee12642fefe4da8f
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59865051"
@@ -82,11 +82,11 @@ Gehen Sie folgendermaßen vor, um Webanwendungsproxys zu installieren:
   
 3.  Wählen Sie auf der Seite **Serverauswahl** den Server aus und klicken Sie auf **Weiter**.  
   
-4.  Wählen Sie auf der Seite **Serverrolle****Remotezugriff** und klicken Sie dann auf **Weiter**.  
+4.  Wählen Sie auf der Seite **Serverrolle** **Remotezugriff** und klicken Sie dann auf **Weiter**.  
   
 5.  Klicken Sie auf der Seite Features und Remotezugriff auf **Weiter**.  
   
-6.  Wählen Sie auf der Seite **Rollendienste****Webanwendungsproxy** aus, klicken Sie auf **Features hinzufügen** und dann auf **Weiter**.
+6.  Wählen Sie auf der Seite **Rollendienste** **Webanwendungsproxy** aus, klicken Sie auf **Features hinzufügen** und dann auf **Weiter**.
 
 7.  Klicken Sie auf der Seite **Installationsauswahl bestätigen** auf **Installieren**.  
   
@@ -118,9 +118,9 @@ Im nächste Schritt wird gezeigt, wie eine Anwendung veröffentlicht wird, die A
   
 5.  Klicken Sie auf der Seite **Vorauthentifizierung** auf **Active Directory-Verbunddienste (AD FS)** und klicken Sie dann auf **Weiter**.  
   
-6.  Wählen Sie auf der Seite **Clients unterstützen****OAuth2** aus und klicken Sie auf **Weiter**.
+6.  Wählen Sie auf der Seite **Clients unterstützen** **OAuth2** aus und klicken Sie auf **Weiter**.
 
-7.  Wählen Sie auf der Seite **Vertrauensstellung der vertrauenden Seite****Arbeitsordner** aus und klicken Sie dann auf **Weiter**. Diese Liste wird von AD FS auf der Webanwendungsproxy veröffentlicht.  
+7.  Wählen Sie auf der Seite **Vertrauensstellung der vertrauenden Seite** **Arbeitsordner** aus und klicken Sie dann auf **Weiter**. Diese Liste wird von AD FS auf der Webanwendungsproxy veröffentlicht.  
   
 8.  Geben Sie auf der Seite **Veröffentlichungseinstellungen** folgende Informationen ein und klicken Sie dann auf **Weiter**:  
   

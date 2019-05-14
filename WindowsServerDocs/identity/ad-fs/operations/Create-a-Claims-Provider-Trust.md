@@ -37,7 +37,7 @@ Mitgliedschaft in **Administratoren**, oder einer entsprechenden, auf dem lokale
 4.  Klicken Sie auf der Seite **Datenquelle auswählen** auf **Daten über die Anspruchsanbieter-Vertrauensstellung manuell eingeben**, und klicken Sie anschließend auf **Weiter**.  
 ![Anspruchsanbieter-Vertrauensstellung](media/Create-a-Claims-Provider-Trust/addclaim3.PNG)     
 
-5.  Geben Sie auf der Seite **Anzeigename angeben** einen Anzeigenamen**** und unter **Anmerkungen** eine Beschreibung für diese Anspruchsanbieter-Vertrauensstellung ein, und klicken Sie dann auf **Weiter**.  
+5.  Geben Sie auf der Seite **Anzeigename angeben** einen **Anzeigenamen** und unter **Anmerkungen** eine Beschreibung für diese Anspruchsanbieter-Vertrauensstellung ein, und klicken Sie dann auf **Weiter**.  
 ![Anspruchsanbieter-Vertrauensstellung](media/Create-a-Claims-Provider-Trust/addclaim4.PNG)     
 
 6.  Auf der **-URL konfigurieren** Seite die **URL des passiven WS-Verbund** ggf., und klicken Sie auf **Weiter**.

@@ -169,10 +169,10 @@ Sie können nun den auf Ihrem Verbundserver installierten Windows Azure Multi-Fa
 
 2.  Wechseln Sie zum Aktivieren des Multi-Factor Authentication-Servers zurück auf die Seite im Multi-Factor Authentication-Verwaltungsportal, auf der Sie den Multi-Factor Authentication-Server heruntergeladen haben, und klicken Sie auf die Schaltfläche **Anmeldeinformationen für Aktivierung generieren** . Geben Sie auf der Benutzeroberfläche des Multi-Factor Authentication-Servers die generierten Anmeldeinformationen ein, und klicken Sie auf **Aktivieren**.
 
-3.  Auf der Benutzeroberfläche von **Multi-Factor Authentication-Server** werden Sie zum Ausführen des Multiserverkonfigurations-Assistenten**** aufgefordert.  Klicken Sie auf **Nein**.
+3.  Auf der Benutzeroberfläche von **Multi-Factor Authentication-Server** werden Sie zum Ausführen des **Multiserverkonfigurations-Assistenten** aufgefordert.  Klicken Sie auf **Nein**.
 
     > [!IMPORTANT]
-    > Da zum Abschließen dieser exemplarischen Vorgehensweise eine Testumgebung mit nur einem Verbundserver verwendet wird, können Sie die Ausführung des Multiserverkonfigurations-Assistenten**** überspringen. Wenn Ihre Umgebung jedoch mehrere Verbundserver enthält, müssen Sie den Multi-Factor Authentication-Server installieren und den Multiserverkonfigurations-Assistenten **** auf jedem Verbundserver ausführen, um die Replikation zwischen den auf den Verbundservern ausgeführten Multi-Factor-Servern zu ermöglichen.
+    > Da zum Abschließen dieser exemplarischen Vorgehensweise eine Testumgebung mit nur einem Verbundserver verwendet wird, können Sie die Ausführung des **Multiserverkonfigurations-Assistenten** überspringen. Wenn Ihre Umgebung jedoch mehrere Verbundserver enthält, müssen Sie den Multi-Factor Authentication-Server installieren und den **Multiserverkonfigurations-Assistenten** auf jedem Verbundserver ausführen, um die Replikation zwischen den auf den Verbundservern ausgeführten Multi-Factor-Servern zu ermöglichen.
 
 4.  Wählen Sie auf der Benutzeroberfläche **Multi-Factor Authentication-Server** das Symbol **Benutzer** aus, klicken Sie auf **Aus Active Directory importieren**, wählen Sie das Konto **Robert Hatley** für die Bereitstellung in Windows Azure Multi-Factor Authentication aus, und klicken Sie anschließend auf **Importieren**.
 

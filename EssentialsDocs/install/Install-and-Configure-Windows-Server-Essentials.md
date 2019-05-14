@@ -62,7 +62,7 @@ ms.locfileid: "59870161"
   
      Wenn Sie eine unbeaufsichtigte Installation ausführen, stellen Sie eine Verbindung mit dem Wechselmedium (z. B. einer Diskette oder einem USB-Speicherstick) her, auf dem sich die Antwortdateien befinden. Je nach Inhalt der Antwortdateien sind einige oder alle der folgenden Installationsbildschirme für Sie nicht sichtbar.  
   
-3.  Starten Sie den Computer neu. Drücken Sie eine Taste, wenn Sie aufgefordert werden, **** zum Starten von CD oder DVD eine beliebige Taste zu drücken.  
+3.  Starten Sie den Computer neu. Drücken Sie eine Taste, wenn Sie aufgefordert werden, **zum Starten von CD oder DVD** eine beliebige Taste zu drücken.  
   
     > [!NOTE]
     >  Wenn der Computer nicht über das DVD-Laufwerk startet, stellen Sie sicher, dass das CD-ROM-Laufwerk in der BIOS-Startreihenfolge an oberster Stelle steht. Weitere Informationen zur BIOS-Startreihenfolge finden Sie in der Dokumentation des Computerherstellers.  

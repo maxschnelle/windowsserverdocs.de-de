@@ -11,7 +11,7 @@ ms.technology: identity-adfs
 ms.author: billmath
 ms.openlocfilehash: 53d0e24f7fcb9efc64406dc6ed01f5bb1deb2277
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59868081"
@@ -125,7 +125,7 @@ Der nächste Schritt ist die Konfiguration des Verbundservers.
   
     Der **Konfigurations-Assistent für Active Directory-Verbunddienste** wird geöffnet.  
   
-2.  Wählen Sie auf der Seite **Willkommen****Erstellen des ersten Verbundservers in einer Verbundserverfarm**aus, und klicken Sie dann auf **Weiter**.  
+2.  Wählen Sie auf der Seite **Willkommen** **Erstellen des ersten Verbundservers in einer Verbundserverfarm**aus, und klicken Sie dann auf **Weiter**.  
   
 3.  Geben Sie auf der Seite **Verbinden mit AD DS** ein Konto mit Domänenadministratorrechten für die Active Directory-Domäne **contoso.com** an, der dieser Computer angehört, und klicken Sie dann auf **Weiter**.  
   
@@ -195,7 +195,7 @@ Sie müssen mindestens Mitglied der Gruppe Administratoren oder einer entspreche
   
 5.  Klicken Sie mit der rechten Maustaste auf **contoso.com**, und klicken Sie dann auf **Neuer Alias (CNAME)**.  
   
-6.  Geben Sie im Dialogfeld **Neuer Ressourcendatensatz****enterpriseregistration** in das Feld **Aliasname** ein.  
+6.  Geben Sie im Dialogfeld **Neuer Ressourcendatensatz** **enterpriseregistration** in das Feld **Aliasname** ein.  
   
 7.  Geben Sie das Feld für den vollqualifizierten Domänennamen (FQDN) auf dem Zielhost **adfs1.contoso.com** ein, und klicken Sie dann auf **OK**.  
   
@@ -243,7 +243,7 @@ Sie müssen die folgenden Schritte durchführen, um einen Webserver mit dieser a
   
 8.  Klicken Sie auf der Seite **Webserverrolle (IIS)** auf **Weiter**.  
   
-9. Wählen Sie auf der Seite **Rollendienste auswählen****Anwendungsentwicklung** aus, und erweitern Sie die Option. Wählen Sie **ASP.NET 3.5**aus, und klicken Sie auf **Features hinzufügen**und dann auf **Weiter**.  
+9. Wählen Sie auf der Seite **Rollendienste auswählen** **Anwendungsentwicklung** aus, und erweitern Sie die Option. Wählen Sie **ASP.NET 3.5**aus, und klicken Sie auf **Features hinzufügen**und dann auf **Weiter**.  
   
 10. Klicken Sie auf der Seite **Installationsauswahl bestätigen** auf **Alternativen Quellpfad angeben**. Geben Sie den Pfad zum Sxs-Verzeichnis, das in den Windows Server 2012 R2-Installationsmedien befindet. Beispiel: D:SourcesSxs. Klicken Sie auf **OK**und dann auf **Installieren**.  
   
@@ -341,7 +341,7 @@ Sie müssen jetzt Ihre beispielanwendung sichern, die auf dem Webserver mit AD F
   
 8.  Wählen Sie auf der Seite **Auswählen eines Regeltyps** die Option **Senden von Ansprüchen mit benutzerdefinierter Regel**aus, und klicken Sie dann auf **Weiter**.  
   
-9. Geben Sie auf der Seite **Konfigurieren einer Anspruchsregel** in das Feld **Name der Anspruchsregel****All Claims** ein. Geben Sie im Feld **Benutzerdefinierte Regel** die folgende Anspruchsregel ein.  
+9. Geben Sie auf der Seite **Konfigurieren einer Anspruchsregel** in das Feld **Name der Anspruchsregel** **All Claims** ein. Geben Sie im Feld **Benutzerdefinierte Regel** die folgende Anspruchsregel ein.  
   
     ```  
     c:[ ]  
