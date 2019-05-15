@@ -11,7 +11,7 @@ ms.prod: windows-server-threshold
 ms.technology: identity-adds
 ms.openlocfilehash: e3b44dbc1c869680db91f5e9732a50504d80e7b8
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59877501"
@@ -27,7 +27,7 @@ Die empfohlene Vorgehensweise zum Upgrade einer Domäne besteht im Heraufstufen 
   
 1. Stellen Sie sicher, dass der Zielserver die [Systemanforderungen](https://technet.microsoft.com/library/dn303418.aspx)erfüllt.  
 2. Lesen Sie unter [Application compatibility](../../ad-ds/deploy/Upgrade-Domain-Controllers-to-Windows-Server-2012-R2-and-Windows-Server-2012.md#BKMK_AppCompat)nach.  
-3. Überprüfen Sie die Sicherheitseinstellungen. Weitere Informationen finden Sie unter [Veraltete Features und Verhaltensänderungen in Bezug auf AD DS unter Windows Server 2012 und [Secure default settings in Windows Server 2008 und Windows Server 2008 R2](https://technet.microsoft.com/library/upgrade-domain-controllers-to-windows-server-2008-r2(WS.10).aspx#BKMK_SecureDefault).  
+3. Überprüfen Sie die Sicherheitseinstellungen. Weitere Informationen finden Sie unter [Veraltete Features und Verhaltensänderungen in Bezug auf AD DS unter Windows Server 2012](../../ad-ds/deploy/Upgrade-Domain-Controllers-to-Windows-Server-2012-R2-and-Windows-Server-2012.md#BKMK_DeprecatedFeatures) und [Secure default settings in Windows Server 2008 und Windows Server 2008 R2](https://technet.microsoft.com/library/upgrade-domain-controllers-to-windows-server-2008-r2(WS.10).aspx#BKMK_SecureDefault).  
 4. Überprüfen Sie die Verbindung zum Zielserver für den Computer, auf dem Sie die Ausführung des Installationsvorgangs planen.  
 5. Überprüfen Sie, ob die erforderlichen Betriebsmasterrollen verfügbar sind.  
 
