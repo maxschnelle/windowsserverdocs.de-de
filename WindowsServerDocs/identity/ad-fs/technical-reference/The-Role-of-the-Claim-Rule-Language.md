@@ -11,7 +11,7 @@ ms.assetid: dda9d148-d72f-4bff-aa2a-f2249fa47e4c
 ms.technology: identity-adfs
 ms.openlocfilehash: 05728f04f6fb924cf3793bc843df3832c7c383f7
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59855691"
@@ -75,7 +75,7 @@ Die folgende Tabelle enthält ein Beispiel für mehrere - Expression-Bedingungen
   
 |Beschreibung der Bedingung|Syntaxbeispiel der Bedingung|  
 |-------------------------|----------------------------|  
-|Diese Regel besitzt eine Bedingung, überprüfen Sie, ob zwei zur Eingabe, Ansprüche, jeweils mit einem festgelegten Anspruchstyp ("http://test/name"und"http://test/email"). Wenn die zwei übereinstimmenden Ansprüche in den Eingabeansprüchen vorhanden sind, kopiert die Regel den Namensanspruch in die Menge der Ausgabeansprüche.|``` c1: [type  == "http://test/name"] && c2: [type == "http://test/email"] => issue (claim  = c1 );```|  
+|Diese Regel besitzt eine Bedingung, überprüfen Sie, ob zwei zur Eingabe, Ansprüche, jeweils mit einem festgelegten Anspruchstyp ("http://test/name" und "http://test/email"). Wenn die zwei übereinstimmenden Ansprüche in den Eingabeansprüchen vorhanden sind, kopiert die Regel den Namensanspruch in die Menge der Ausgabeansprüche.|``` c1: [type  == "http://test/name"] && c2: [type == "http://test/email"] => issue (claim  = c1 );```|  
   
 #### <a name="regular--condition-examples"></a>Reguläre - Beispiele für die erste Bedingung  
 Die folgende Tabelle enthält ein Beispiel für einen regulären, Ausdruck-Bedingung basiert.  
