@@ -15,7 +15,7 @@ manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: 1f22578cc54a22464fe5d9208731fe681be30481
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59832981"
@@ -26,7 +26,7 @@ ms.locfileid: "59832981"
 
 In Windows Server, Server-Manager können Sie sowohl den lokalen Server verwalten, (Wenn Sie Server-Manager unter Windows Server und nicht auf einem Windows-basierten Client-Betriebssystem ausgeführt werden) und Remoteservern, auf denen Windows Server 2008 und neueren Versionen von dem Windows ausgeführt werden Server-Betriebssystem.
 
-Die **lokalen Server** Seite im Server-Manager zeigt die Server-Eigenschaften, Ereignisse, Dienst und Leistungsindikatordaten sowie Best Practices Analyzer (BPA) für den lokalen Server führt. Die Kacheln "Ereignis", "Dienst", "BPA" und "Leistung" funktionieren wie auf den Rollen- und Servergruppenseiten. Weitere Informationen zum Konfigurieren der Daten, die auf diesen Kacheln angezeigt werden, finden Sie unter [View und Configure Performance, Event, und Service Data und [Run Best Practices Analyzer Scans und Manage Scan Results.
+Die **lokalen Server** Seite im Server-Manager zeigt die Server-Eigenschaften, Ereignisse, Dienst und Leistungsindikatordaten sowie Best Practices Analyzer (BPA) für den lokalen Server führt. Die Kacheln "Ereignis", "Dienst", "BPA" und "Leistung" funktionieren wie auf den Rollen- und Servergruppenseiten. Weitere Informationen zum Konfigurieren der Daten, die auf diesen Kacheln angezeigt werden, finden Sie unter [Anzeigen und Konfigurieren von Leistungs-, Ereignis- und Dienstdaten](view-and-configure-performance-event-and-service-data.md) und unter [Ausführen von Best Practices Analyzer-Überprüfungen und Verwalten der Überprüfungsergebnisse](run-best-practices-analyzer-scans-and-manage-scan-results.md).
 
 Menübefehle und Einstellungen in den überschriftenleisten der Server-Manager-Konsole global auf allen Servern im Serverpool angewendet, und können Sie Server-Manager, die zum Verwalten des gesamten Serverpools verwenden.
 
@@ -104,7 +104,7 @@ Beim Hinzufügen von Servern, die in einem Cluster Server-Manager, ob sie physis
 Daten, die im Rollen-Homepages im Server-Manager für Remote Desktop Services, IP-Adresse, Verwaltung, und die Datei- und Speicherdienste angezeigt werden, werden nicht automatisch aktualisiert. Aktualisieren Sie die auf diesen Seiten angezeigten Daten manuell, durch Drücken von ist **F5** oder durch Klicken auf **aktualisieren** in den Server-Manager-Konsolenüberschrift auf diesen Seiten möchten.
 
 ### <a name="add-or-remove-roles-or-features"></a>Hinzufügen oder Entfernen von Rollen oder features
-Die Befehle, die das Hinzufügen von Rollen und Features-Assistenten zu öffnen, und Entfernen von Rollen und Features-Assistenten und ermöglichen, die Sie hinzufügen oder Entfernen von Rollen, Rollendienste und Features auf Servern im Serverpool, befinden sich in der **verwalten** im Menü des Server-Managers Konsole und die **Aufgaben** im Menü der **Rollen und Features** Kachel auf Rollen- oder Gruppenseiten. Weitere Informationen zum Hinzufügen oder Entfernen von Rollen oder Features finden Sie unter [Install or Uninstall Roles, Role Services, or Features](install-or-uninstall-roles-role-services-or-features.md).
+Die Befehle, die das Hinzufügen von Rollen und Features-Assistenten zu öffnen, und Entfernen von Rollen und Features-Assistenten und ermöglichen, die Sie hinzufügen oder Entfernen von Rollen, Rollendienste und Features auf Servern im Serverpool, befinden sich in der **verwalten** im Menü des Server-Managers Konsole und die **Aufgaben** im Menü der **Rollen und Features** Kachel auf Rollen- oder Gruppenseiten. Ausführliche Informationen zum Hinzufügen oder Entfernen von Rollen oder Features finden Sie unter [installieren oder Deinstallieren von Rollen, Rollendienste oder Features](install-or-uninstall-roles-role-services-or-features.md).
 
 Im Server-Manager wird die Rollen-und Featuredaten in der Basissprache des Systems, auch als GUI-Standardsprache des Systems oder der während der Installation des Betriebssystems ausgewählten Sprache angezeigt.
 
