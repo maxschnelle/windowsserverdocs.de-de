@@ -15,7 +15,7 @@ manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: 5cd84269a5ac1a85d4b6cf359cc97f478a500c4f
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59825981"
@@ -32,7 +32,7 @@ arp [/a [<Inetaddr>] [/n <ifaceaddr>]] [/g [<Inetaddr>] [-n <ifaceaddr>]] [/d <I
 ### <a name="parameters"></a>Parameter
 |Parameter|Beschreibung|
 |-------|--------|
-|/a [<Inetaddr>] [/n <ifaceaddr>]|Zeigt die Tabellen für aktuelle Arp-Cache für alle Schnittstellen. Der/n-Parameter ist Groß-/Kleinschreibung beachtet.<br /><br />Verwenden Sie zum Anzeigen der Arp-Cacheeintrags für eine bestimmte IP-Adresse **Arp/a** mit der *IP-Adr* -Parameter, in denen *IP-Adr* eine IP-Adresse. Wenn *IP-Adr* nicht angegeben ist, wird die erste geeignete Schnittstelle verwendet.<br /><br />Verwenden Sie zum Anzeigen der Arp-Cache-Tabelle für eine bestimmte Schnittstelle die **/n *** IP-Adr_Schnittst* Parameter in Verbindung mit der **/a** Parameter, in denen *IP-Adr_Schnittst* die IP-Adresse die Schnittstelle zugewiesen.|
+|/a [<Inetaddr>] [/n <ifaceaddr>]|Zeigt die Tabellen für aktuelle Arp-Cache für alle Schnittstellen. Der/n-Parameter ist Groß-/Kleinschreibung beachtet.<br /><br />Verwenden Sie zum Anzeigen der Arp-Cacheeintrags für eine bestimmte IP-Adresse **Arp/a** mit der *IP-Adr* -Parameter, in denen *IP-Adr* eine IP-Adresse. Wenn *IP-Adr* nicht angegeben ist, wird die erste geeignete Schnittstelle verwendet.<br /><br />Verwenden Sie zum Anzeigen der Arp-Cache-Tabelle für eine bestimmte Schnittstelle die **/n***IP-Adr_Schnittst* Parameter in Verbindung mit der **/a** Parameter, in denen *IP-Adr_Schnittst* die IP-Adresse die Schnittstelle zugewiesen.|
 |/g [<Inetaddr>] [/n <ifaceaddr>]|Identisch mit **/a**.|
 |[/d <Inetaddr> [<ifaceaddr>]|Löscht einen Eintrag mit einer bestimmten IP-Adresse, in denen *IP-Adr* die IP-Adresse.<br /><br />Um einen Eintrag in einer Tabelle für eine bestimmte Schnittstelle zu löschen, verwenden die *IP-Adr_Schnittst* Parameter, in denen *IP-Adr_Schnittst* ist die IP-Adresse der Schnittstelle.<br /><br />Um alle Einträge löschen möchten, verwenden Sie das Sternchen (\*) anstelle der Platzhalter-Spaltennamens *IP-Adr*.|
 |/s <Inetaddr> <Etheraddr> [<ifaceaddr>]|Fügt einen statischen Eintrag in der Arp-Cache, der die IP-Adresse aufgelöst wird *IP-Adr* in die physische Adresse *EtherAdr*.<br /><br />Um eine statische Arp-Cacheeintrags, in der Tabelle für eine bestimmte Schnittstelle hinzuzufügen, verwenden die *IP-Adr_Schnittst* Parameter, in denen *IP-Adr_Schnittst* eine IP-Adresse der Schnittstelle zugewiesen.|

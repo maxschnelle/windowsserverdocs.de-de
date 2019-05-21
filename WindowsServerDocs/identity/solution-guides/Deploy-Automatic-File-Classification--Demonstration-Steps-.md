@@ -11,7 +11,7 @@ ms.prod: windows-server-threshold
 ms.technology: identity-adds
 ms.openlocfilehash: 77fb8cc6e13cb82e4d07808c3ae77757a4b2de79
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59826781"
@@ -56,7 +56,7 @@ Die Ressourceneigenschaften „Impact“ und „Personally Identifiable Informat
   
 5.  Klicken Sie mit der rechten Maustaste auf **Personenbezogene Informationen**, und klicken Sie dann auf **Aktivieren**.  
   
-![Lösungshandbücher](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***  
+![Lösungshandbücher](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)****Windows PowerShell entsprechende Befehle****  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -107,7 +107,7 @@ Eine Zeichenfolgeninhalts-Klassifizierungsregeln durchsucht eine Datei auf eine 
   
 13. Aktivieren Sie auf der Registerkarte **Evaluierungstyp** das Kontrollkästchen **Vorhandene Eigenschaftenwerte erneut auswerten**, klicken Sie auf **Vorhandenen Wert überschreiben**, und klicken Sie dann auf **OK**.  
   
-![Lösungshandbücher](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***  
+![Lösungshandbücher](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)****Windows PowerShell entsprechende Befehle****  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -155,7 +155,7 @@ Eine Klassifizierungsregel für reguläre Ausdrücke durchsucht eine Datei auf e
   
 12. Aktivieren Sie auf der Registerkarte **Evaluierungstyp** das Kontrollkästchen **Vorhandene Eigenschaftenwerte erneut auswerten**, klicken Sie auf **Vorhandenen Wert überschreiben**, und klicken Sie dann auf **OK**.  
   
-![Lösungshandbücher](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***  
+![Lösungshandbücher](media/Deploy-Automatic-File-Classification--Demonstration-Steps-/PowerShellLogoSmall.gif)****Windows PowerShell entsprechende Befehle****  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   

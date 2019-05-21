@@ -15,7 +15,7 @@ ms.author: pashort
 author: shortpatti
 ms.openlocfilehash: 0d51ac71fa2fbe4d0bb7121a9ef511524c47f4f4
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59826611"
@@ -57,7 +57,7 @@ Um den Remotezugriff bereitzustellen, müssen Sie die Remotezugriffsrolle auf ei
   
 6.  Überprüfen Sie im Dialogfeld **Installationsstatus**, ob die Installation erfolgreich war, und klicken Sie dann auf **Schließen**.  
   
-![Die Bearbeitung erfolgreicher Installation.](../../../media/Step-2-Configuring-DirectAccess-Servers/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***  
+![Die Bearbeitung erfolgreicher Installation.](../../../media/Step-2-Configuring-DirectAccess-Servers/PowerShellLogoSmall.gif)****Windows PowerShell entsprechende Befehle****  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   

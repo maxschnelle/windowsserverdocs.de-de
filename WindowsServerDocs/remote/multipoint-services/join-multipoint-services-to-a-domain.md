@@ -26,7 +26,7 @@ Wenn Sie auf dem MultiPoint Services-Computer über Active Directory-Domäne zug
 > [!IMPORTANT]  
 > Sie müssen Ihre Zeitzone überprüfen, bevor der Computer einer Domäne beitreten. Anweisungen hierzu finden Sie unter [legen Sie das Datum, Uhrzeit und Zeitzone](Set-the-date--time--and-time-zone.md).  
    
-1.  Öffnen Sie auf der **** Startseite die **** Systemsteuerung. Klicken Sie auf **System und Sicherheit**, und klicken Sie dann auf **System**.  
+1.  Öffnen Sie auf der **Startseite die ****Systemsteuerung**. Klicken Sie auf **System und Sicherheit**, und klicken Sie dann auf **System**.  
   
 2.  Klicken Sie unter **Einstellungen für Computernamen, Domäne und Arbeitsgruppe**auf **Einstellungen ändern**.  
   

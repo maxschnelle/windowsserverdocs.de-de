@@ -23,7 +23,7 @@ Die folgende Anweisung führt Sie durch den Prozess zum Erstellen einer Klassifi
 
 ## <a name="to-create-a-classification-rule"></a>So erstellen Sie eine Klassifizierungsregel
 
-1.  Klicken Sie in der Klassifizierungsverwaltung **** auf den Knoten **Klassifizierungsregeln**.
+1.  Klicken **Sie in der Klassifizierungsverwaltung** auf den Knoten **Klassifizierungsregeln**.
 
 2.  Klicken Sie mit der rechten Maustaste auf **Klassifizierungsregeln** und dann auf **Neue Regel erstellen** (oder klicken Sie auf **Neue Regel erstellen** im Bereich **Aktionen** aus). Daraufhin wird das Dialogfeld **Definitionen für Klassifizierungsregeln** geöffnet.
 
