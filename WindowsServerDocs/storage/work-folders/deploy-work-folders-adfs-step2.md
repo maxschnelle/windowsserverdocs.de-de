@@ -10,7 +10,7 @@ ms.date: 4/5/2017
 ms.assetid: 0a48852e-48cc-4047-ae58-99f11c273942
 ms.openlocfilehash: 87fdcf06c601d3362488eaf6a83e4f88ad191305
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59828231"
@@ -93,7 +93,7 @@ So richten Sie die Vertrauensstellung der vertrauenden Seite ein:
   
 3.  Wählen Sie auf der **Willkommen**-Seite **Ansprüche unterstützen** und klicken Sie auf **Start**.  
   
-4.  Wählen Sie auf der Seite **Datenquelle auswählen****Daten über die vertrauende Seite manuell eingeben** und klicken Sie anschließend auf **Weiter**.  
+4.  Wählen Sie auf der Seite **Datenquelle auswählen** **Daten über die vertrauende Seite manuell eingeben** und klicken Sie anschließend auf **Weiter**.  
   
 5.  Geben Sie im Dialogfeld **Anzeigename** den **Arbeitsordner** ein und klicken Sie auf **Weiter**.  
   
@@ -113,11 +113,11 @@ So richten Sie die Vertrauensstellung der vertrauenden Seite ein:
 
 13. Das Fenster **Anspruch auf Ausstellungsrichtlinie für WorkFolders bearbeiten** wird geöffnet. Klicken Sie auf **Regel hinzufügen...**.  
   
-14. Wählen Sie aus der Dropdown-Liste **Anspruchsvorlage****LDAP-Attribute als Ansprüche senden** und klicken Sie auf **Weiter**.  
+14. Wählen Sie aus der Dropdown-Liste **Anspruchsvorlage** **LDAP-Attribute als Ansprüche senden** und klicken Sie auf **Weiter**.  
   
 15. Geben Sie auf der Seite **Konfigurieren einer Anspruchsregel** in das Dialogfeld **Name der Anspruchsregel** den **Arbeitsordner** ein.  
   
-16. Wählen Sie aus der Dropdown-Liste **Attributspeicher****Active Directory** aus.  
+16. Wählen Sie aus der Dropdown-Liste **Attributspeicher** **Active Directory** aus.  
   
 17. Geben Sie in der Zuordnungstabelle diese Werte ein:  
   

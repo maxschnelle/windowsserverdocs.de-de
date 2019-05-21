@@ -60,7 +60,7 @@ Der nächste Schritt zur Bereitstellung des WSUS-Servers ist die Installation de
 
 13. Klicken Sie nach Abschluss der WSUS-Installation im Fenster "Zusammenfassung" im Bereich **Installationsstatus** auf **Nachinstallationsaufgaben starten**. Der Text ändert sich und fordert Folgendes an: **Der Server wird konfiguriert. Bitte warten**. Wenn der Vorgang abgeschlossen ist, ändert sich der Text in: **Die Konfiguration wurde erfolgreich abgeschlossen**. Klicken Sie auf **Schließen**.
 
-14. Überprüfen Sie, ob in **** Server-Manager eine Benachrichtigung erscheint, die Sie über einen erforderlichen Neustart informiert. Dies kann je nach installierter Serverrolle variieren. Falls ein Neustart erforderlich ist, starten Sie den Server neu, um die Installation abzuschließen.
+14. Überprüfen Sie, ob in **Server-Manager** eine Benachrichtigung erscheint, die Sie über einen erforderlichen Neustart informiert. Dies kann je nach installierter Serverrolle variieren. Falls ein Neustart erforderlich ist, starten Sie den Server neu, um die Installation abzuschließen.
 
 > [!IMPORTANT]
 > An diesem Punkt der Installationsvorgang abgeschlossen ist, damit WSUS funktionale müssen Sie jedoch mit fortfahren [Schritt2: Konfigurieren von WSUS](2-configure-wsus.md).

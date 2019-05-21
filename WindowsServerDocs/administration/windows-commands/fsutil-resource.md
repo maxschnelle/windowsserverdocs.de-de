@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 10/16/2017
 ms.openlocfilehash: b55063c3c5ea41b43573e6322b5efb36d2dad90e
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59828331"
@@ -57,7 +57,7 @@ fsutil resource [stop] <RmRootPathname>
 |setavailable|Gibt an, dass ein Transaktionsressourcen-Manager. Verfügbarkeit als die Konsistenz bevorzugt wird.|
 |setconsistent|Gibt an, dass ein Transaktionsressourcen-Manager. Konsistenz über Verfügbarkeit bevorzugen.|
 |setlog|Ändert die Eigenschaften eines transaktionalen Ressourcen-Managers, die bereits ausgeführt wird.|
-|Wachstum|Gibt die Menge, die mit der das Transaktionsressourcen-Manager-Protokoll vergrößert werden kann.<br /><br />Der Parameter Wachstum kann wie folgt angegeben werden:<br /><br />-Anzahl der Container, die mit dem Format: *Container ***Container**<br />- Prozentsatz, mit dem Format: *Prozent *** Prozent**|
+|Wachstum|Gibt die Menge, die mit der das Transaktionsressourcen-Manager-Protokoll vergrößert werden kann.<br /><br />Der Parameter Wachstum kann wie folgt angegeben werden:<br /><br />-Anzahl der Container, die mit dem Format: *Container***Container**<br />-   Prozentsatz, mit dem Format: *Prozent***Prozent**|
 |<containers>|Gibt an, die Datenobjekte, die vom Transaktions-Manager verwendet werden.|
 |maxextent|Gibt die maximale Anzahl von Containern für den angegebenen Transaktions-Manager an.|
 |minextent|Gibt die minimale Anzahl von Containern für den angegebenen Transaktions-Manager an.|

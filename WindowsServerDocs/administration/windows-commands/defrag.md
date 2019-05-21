@@ -15,7 +15,7 @@ manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: 6997e878b2bb7b77a5920ad7398ef7c2301cc8c0
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59813191"
@@ -67,7 +67,7 @@ defrag <volume> [/<Parameter>]*
 -   Das Volume muss mindestens 15 % freier Speicherplatz für gibt **Defragmentieren** vollständig und ordnungsgemäß defragmentiert werden kann. **Defragmentieren** verwendet diesen als Sortierbereich zum Dateifragmente. Wenn ein Volume mit weniger als 15 % freien Speicherplatz, verfügt **Defragmentieren** wird nur teilweise defragmentiert werden. Um den freien Speicherplatz auf einem Volume zu erhöhen, nicht benötigte Dateien löschen, oder auf einen anderen Datenträger verschieben.
 -   Während **Defragmentieren** ist analysieren und Defragmentieren eines Volumes, einen blinkenden Cursor angezeigt. Wenn **Defragmentieren** ist fertig analysieren und Defragmentieren das Volume, er zeigt den Bericht, Defragmentierungsberichts oder beide Berichte, beendet das Hilfsprogramm dann to the commund Prompt.
 -   In der Standardeinstellung **Defragmentieren** wird eine Zusammenfassung der Analyse und die Defragmentierung Berichte angezeigt, wenn Sie nicht angeben der **/a** oder **/v** Parameter.
--   Sie können die Berichte in eine Textdatei senden, indem Sie eingeben **> ***FileName.txt*, wobei *Dateiname.txt* ist ein Dateiname, die Sie angeben. Beispiel: `defrag volume /v > FileName.txt`
+-   Sie können die Berichte in eine Textdatei senden, indem Sie eingeben **>** *FileName.txt*, wobei *Dateiname.txt* ist ein Dateiname, die Sie angeben. Beispiel: `defrag volume /v > FileName.txt`
 -   Um die Defragmentierung ab, in der Befehlszeile zu unterbrechen, drücken Sie **STRG + C**.
 -   Ausführen der **Defragmentieren** Befehl und Defragmentierung schließen sich gegenseitig. Wenn Sie die Defragmentierung Defragmentieren ein Volumes verwenden und Ausführen der **Defragmentieren** -Befehl an einer Befehlszeile, die **Defragmentieren** Befehl schlägt fehl. Im Gegensatz dazu, wenn das Ausführen der **Defragmentieren** Befehl, und Öffnen von Defragmentierung, für die Defragmentierungsoptionen in der Defragmentierung nicht verfügbar sind.
 
