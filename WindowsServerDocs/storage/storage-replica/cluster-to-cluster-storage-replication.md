@@ -7,29 +7,27 @@ ms.technology: storage-replica
 ms.topic: get-started-article
 ms.assetid: 834e8542-a67a-4ba0-9841-8a57727ef876
 author: nedpyle
-ms.date: 10/11/2017
-description: Verwendung von Speicherreplikaten zum Replizieren von Volumes von einem Cluster auf einen anderen Cluster in der Windows Server 2016 Datacenter Edition.
-ms.openlocfilehash: 46bd5a53ff0e704844f10264a9f3a6fbe0e4d512
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.date: 04/26/2019
+description: So verwenden Sie Speicherreplikat zum Replizieren von Volumes in einem Cluster in einem anderen Cluster mit Windows Server.
+ms.openlocfilehash: 2e3245320b2ef7035ac600ff783684083f3f929a
+ms.sourcegitcommit: 0099873d69bd23495d275d7bcb464594de09ee3c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59838661"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65699898"
 ---
 # <a name="cluster-to-cluster-storage-replication"></a>Cluster-zu-Cluster-Speicherreplikation
 
-> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+> Gilt für: WindowsServer 2019, WindowsServer 2016, WindowsServer (Halbjährlicher Kanal)
 
-Die Cluster-zu-Cluster-Replikation ist jetzt in Windows Server 2016 Datacenter Edition verfügbar, einschließlich der Replikation von Clustern mithilfe von „Direkte Speicherplätze“ (d.h. direkt angeschlossenem Shared-Nothing-Speicher). Die Verwaltung und Konfiguration ähnelt derjenigen der Server-zu-Server-Replikation.  
+Funktion "Speicherreplikat" kann Volumes zwischen Clustern, einschließlich der Replikation von Clustern mithilfe von "direkte Speicherplätze" replizieren. Die Verwaltung und Konfiguration ähnelt derjenigen der Server-zu-Server-Replikation.  
 
 Sie konfigurieren diese Computer und Speicherkomponenten in einer Cluster-zu-Cluster-Konfiguration, bei der ein Cluster seinen eigenen Speicher mit einem anderen Cluster und dessen Speicher repliziert. Diese Knoten und der zugehörige Speicher sollten sich an unterschiedlichen physischen Standorten befinden. Dies ist jedoch keine Voraussetzung.  
-
-In Windows Server 2016 Datacenter Edition gibt es keine grafischen Tools, die die Speicherreplikation für die Cluster-zu-Cluster-Replikation konfigurieren können, wobei Azure Site Recovery dieses Szenario zukünftig konfigurieren kann.
 
 > [!IMPORTANT]
 > Die vier Server in diesem Test sind ein Beispiel. Sie können eine beliebige Anzahl von Servern, die von Microsoft unterstützt in jedem Cluster an, die sich derzeit 8 für einen Cluster mit "direkte Speicherplätze"- und 64 für einen Cluster mit freigegebenem Speicher befindet.  
 >   
-> In diesem Handbuch wird das Konfigurieren von „Direkte Speicherplätze“ nicht behandelt. Weitere Informationen zum Konfigurieren von „Direkte Speicherplätze“ finden Sie unter [Storage Spaces Direct in Windows Server 2016 (Direkte Speicherplätze in Windows Server 2016)](../storage-spaces/storage-spaces-direct-overview.md).  
+> In diesem Handbuch wird das Konfigurieren von „Direkte Speicherplätze“ nicht behandelt. Informationen zum Konfigurieren von "direkte Speicherplätze" finden Sie unter ["direkte Speicherplätze" Übersicht über die](../storage-spaces/storage-spaces-direct-overview.md).  
 
 Für diese exemplarische Vorgehensweise wird die folgende Beispielumgebung verwendet:  
 
@@ -46,7 +44,7 @@ Für diese exemplarische Vorgehensweise wird die folgende Beispielumgebung verwe
 ## <a name="prerequisites"></a>Vorraussetzungen  
 
 * Active Directory Domain Services-Gesamtstruktur (in dieser Gesamtstruktur muss nicht Windows Server 2016 ausgeführt werden).  
-* Mindestens vier Server (zwei Server in zwei Clustern), auf denen Windows Server 2016 Datacenter Edition installiert ist. Unterstützt bis zu zwei Cluster mit 64 Knoten.  
+* 4-128-Server (zwei Cluster von 2-64-Servern) unter Windows Server-2019 oder Windows Server 2016 Datacenter Edition. Wenn Sie Windows Server-2019 ausführen, Sie können stattdessen verwenden Standard Edition, wenn Sie nur ein einzelnes Volume OK replizieren, bis zu 2 TB groß.  
 * Zwei Gruppen von Speicher, die SAS-JBODs, Fibre Channel-SAN, freigegebene VHDX, Direkte Speicherplätze oder iSCSI-Ziel verwenden. Der Speicher sollte eine Kombination aus HDD- und SSD-Medien umfassen. Die einzelnen Speichergruppen werden nur für jeweils einen Cluster bereitgestellt, ein gemeinsamer Zugriff zwischen Clustern wird nicht konfiguriert.  
 * Jede Speichergruppe muss das Erstellen von mindestens zwei virtuellen Datenträgern ermöglichen, einen Datenträger für replizierte Daten und einen Datenträger für Protokolle. Der physische Speicher muss auf allen Datenträgern für Daten dieselben Sektorgrößen aufweisen. Der physische Speicher muss auf allen Datenträgern für Protokolle dieselben Sektorgrößen aufweisen.  
 * Mindestens eine Ethernet/TCP-Verbindung auf jedem Server für die synchrone Replikation (vorzugsweise RDMA).   
@@ -59,7 +57,7 @@ Das Vorliegen vieler dieser Voraussetzungen lässt sich mit dem `Test-SRTopology
 
 ## <a name="step-1-provision-operating-system-features-roles-storage-and-network"></a>Schritt 1: Bereitstellen von Betriebssystem, Features, Rollen, Speicher und Netzwerk
 
-1.  Installieren Sie Windows Server 2016 auf allen vier Serverknoten mit dem Installationstyp Windows Server 2016 Datacenter **(Desktopdarstellung)**. Wählen Sie nicht „Standard Edition“, falls diese Option verfügbar ist, da diese Edition das Speicherreplikatfeature nicht beinhaltet.  
+1.  Installieren Sie Windows Server auf allen vier Serverknoten mit dem Installationstyp Windows Server **(Desktopdarstellung)**. 
 
 2.  Fügen Sie Netzwerkinformationen hinzu, konfigurieren Sie den Domänenbeitritt, und starten Sie die Serverknoten neu.  
 
@@ -95,7 +93,7 @@ Das Vorliegen vieler dieser Voraussetzungen lässt sich mit dem `Test-SRTopology
         $Servers | ForEach { Install-WindowsFeature -ComputerName $_ -Name Storage-Replica,Failover-Clustering,FS-FileServer -IncludeManagementTools -restart }  
         ```  
 
-        Weitere Informationen zu diesen Schritten finden Sie unter [Installieren oder Deinstallieren von Rollen, Rollendiensten oder Features](https://technet.microsoft.com/library/hh831809.aspx).  
+        Weitere Informationen zu diesen Schritten finden Sie unter [Installieren oder Deinstallieren von Rollen, Rollendiensten oder Features](../../administration/server-manager/install-or-uninstall-roles-role-services-or-features.md).  
 
 9. Konfigurieren Sie den Speicher wie folgt:  
 
@@ -109,37 +107,37 @@ Das Vorliegen vieler dieser Voraussetzungen lässt sich mit dem `Test-SRTopology
     > -   Die Protokollvolumes sollten Flash-basierten Speicher verwenden (z. B. SSD).  Microsoft empfiehlt, dass die Protokollspeicherung schneller als die Datenspeicherung durchgeführt wird. Protokollvolumes dürfen niemals für andere Workloads verwendet werden.
     > -   Die Datenträger für Daten können HDD, SSD oder eine mehrstufige Kombination verwenden. Außerdem kann gespiegelter Speicherplatz oder Paritätsspeicherplatz bzw. RAID 1, RAID 10, RAID 5 oder RAID 50 verwendet werden.  
     > -   Das Protokollvolume muss mindestens 8GB in der Standardeinstellung und größere oder kleinere basierend auf protokollanforderungen möglicherweise.
-    > -   Wenn Sie Storage Spaces Direct (S2D) mit einem NVME oder SSD-Cache verwenden zu können, sehen Sie größer als erwarteten Anstieg der Wartezeit beim Konfigurieren der Funktion "Speicherreplikat" Replikation zwischen Clustern mit S2D. Die Änderung der Latenz ist proportional wesentlich höher als wird angezeigt, wenn NVME und SSD-Speicher in eine Leistung + kapazitätskonfiguration und keine HDD-Ebene und Kapazität zu verwenden.
+    > -   Wenn "direkte Speicherplätze" (Storage Spaces Direct) mit einem NVME oder SSD-Cache verwenden zu können, sehen Sie ein größer als erwarteten Anstieg der Wartezeit beim Konfigurieren der Funktion "Speicherreplikat" Replikation zwischen Clustern von "direkte Speicherplätze". Die Änderung der Latenz ist proportional wesentlich höher als wird angezeigt, wenn NVME und SSD-Speicher in eine Leistung + kapazitätskonfiguration und keine HDD-Ebene und Kapazität zu verwenden.
 
-Dieses Problem tritt aufgrund der architektonischen Einschränkungen in den SR-Mechanismus in Kombination mit den extrem niedrigen Latenzen von NVME im Vergleich zu langsameren Media. Bei Verwendung des S2D-Caches werden alle e/a von SR-Protokolle, zusammen mit allen aktuellen Lese-/Schreibzugriff e/a-Anwendungen, in den Cache und niemals auf die Leistung oder Kapazität Ebenen auftreten. Dies bedeutet, dass alle SR-Aktivitäten auf dem Medium der gleichen Geschwindigkeit geschieht – diese Konfiguration nicht unterstützt wird, nicht empfohlen (finden Sie unter https://aka.ms/srfaq für protokollempfehlungen). 
+    Dieses Problem tritt aufgrund der architektonischen Einschränkungen in den SR-Mechanismus in Kombination mit den extrem niedrigen Latenzen von NVME im Vergleich zu langsameren Media. Wenn Sie Storage Spaces Direct "direkte Speicherplätze"-Cache zu verwenden, werden alle e/a von SR-Protokolle, zusammen mit allen aktuellen Lese-/Schreibzugriff e/a-Anwendungen, im Cache und niemals auf die Leistung oder Kapazität Ebenen auftreten. Dies bedeutet, dass alle SR-Aktivitäten auf dem Medium der gleichen Geschwindigkeit geschieht – diese Konfiguration nicht unterstützt wird, nicht empfohlen (finden Sie unter https://aka.ms/srfaq für protokollempfehlungen). 
 
-Wenn S2D mit HDDs verwendet wird, kann nicht deaktivieren oder den Cache vermeiden. Dieses Problem zu umgehen, wenn nur SSD und NVME verwenden können Sie nur die Leistung und Kapazität Ebenen konfigurieren. Wenn diese Konfiguration verwenden, und platzieren Sie die SR-Protokolle auf die Leistungsstufe nur mit den Daten-Volumes, die sie bedienen, befindet er sich auf nur die Stufe "Kapazität", vermeiden Sie das oben beschriebene Problem für hohe Latenz. Dasselbe kann mit einer Mischung aus schneller und langsamer SSDs und keine NVME durchgeführt werden.
+    Wenn "direkte Speicherplätze" mit HDDs verwenden zu können, kann nicht deaktivieren oder den Cache vermeiden. Dieses Problem zu umgehen, wenn nur SSD und NVME verwenden können Sie nur die Leistung und Kapazität Ebenen konfigurieren. Wenn diese Konfiguration verwenden, und platzieren Sie die SR-Protokolle auf die Leistungsstufe nur mit den Daten-Volumes, die sie bedienen, befindet er sich auf nur die Stufe "Kapazität", vermeiden Sie das oben beschriebene Problem für hohe Latenz. Dasselbe kann mit einer Mischung aus schneller und langsamer SSDs und keine NVME durchgeführt werden.
 
-Diese problemumgehung ist natürlich nicht ideal, und einige Kunden möglicherweise nicht zu verwenden. Die SR-Team arbeitet an Optimierungen und aktualisierte Log-Mechanismus für die Zukunft dieser künstliche Engpässe zu reduzieren, die auftreten. Es ist keine ETA dafür, aber beim Kunden TIPPEN zum Testen zur Verfügung steht, werden diese häufig gestellten Fragen aktualisiert werden. 
+    Diese problemumgehung ist natürlich nicht ideal, und einige Kunden möglicherweise nicht zu verwenden. Die SR-Team arbeitet an Optimierungen und aktualisierte Log-Mechanismus für die Zukunft dieser künstliche Engpässe zu reduzieren, die auftreten. Es ist keine ETA dafür, aber beim Kunden TIPPEN zum Testen zur Verfügung steht, werden diese häufig gestellten Fragen aktualisiert werden. 
 
-    -   **Für JBOD-Speicherserver:**  
+-   **Für JBOD-Speicherserver:**  
 
-        1.  Stellen Sie sicher, dass jedem Cluster nur die Speichergehäuse des jeweiligen Standorts angezeigt werden und die SAS-Verbindungen ordnungsgemäß konfiguriert sind.  
+1. Stellen Sie sicher, dass jedem Cluster nur die Speichergehäuse des jeweiligen Standorts angezeigt werden und die SAS-Verbindungen ordnungsgemäß konfiguriert sind.  
 
-        2.  Stellen Sie den Speicher mithilfe von Speicherplätzen bereit. Führen Sie dazu die unter [Bereitstellen von Speicherplätzen auf einem eigenständigen Server](https://technet.microsoft.com/library/jj822938.aspx) beschriebenen **Schritte 1-3** mithilfe von Windows PowerShell oder über den Server-Manager aus.  
+2. Stellen Sie den Speicher mithilfe von Speicherplätzen bereit. Führen Sie dazu die unter [Bereitstellen von Speicherplätzen auf einem eigenständigen Server](../storage-spaces/deploy-standalone-storage-spaces.md) beschriebenen **Schritte 1-3** mithilfe von Windows PowerShell oder über den Server-Manager aus.  
 
-    -   **Für iSCSI-Zielspeicher:**  
+-   **Für iSCSI-Zielspeicher:**  
 
-        1.  Stellen Sie sicher, dass jedem Cluster nur die Speichergehäuse des jeweiligen Standorts angezeigt werden. Bei Verwendung von iSCSI sollten mehrere Netzwerkkarten verwendet werden.  
+1. Stellen Sie sicher, dass jedem Cluster nur die Speichergehäuse des jeweiligen Standorts angezeigt werden. Bei Verwendung von iSCSI sollten mehrere Netzwerkkarten verwendet werden.  
 
-        2.  Befolgen Sie die Anweisungen in der Dokumentation des jeweiligen Herstellers, um den Speicher bereitzustellen. Bei Verwendung von Windows-basierten iSCSI-Zielen finden Sie unter [iSCSI-Zielblockspeicher: So wird's gemacht](https://technet.microsoft.com/library/hh848268.aspx) weitere Informationen.  
+2. Befolgen Sie die Anweisungen in der Dokumentation des jeweiligen Herstellers, um den Speicher bereitzustellen. Bei Verwendung von Windows-basierten iSCSI-Zielen finden Sie unter [iSCSI-Zielblockspeicher: So wird's gemacht](../iscsi/iscsi-target-server.md) weitere Informationen.  
 
-    -   **Für FC-SAN-Speicher:**  
+-   **Für FC-SAN-Speicher:**  
 
-        1.  Stellen Sie sicher, dass jedem Cluster nur die Speichergehäuse des jeweiligen Standorts angezeigt werden und die Zonen für die Hosts ordnungsgemäß festgelegt wurden.  
+1. Stellen Sie sicher, dass jedem Cluster nur die Speichergehäuse des jeweiligen Standorts angezeigt werden und die Zonen für die Hosts ordnungsgemäß festgelegt wurden.  
 
-        2.  Befolgen Sie die Anweisungen in der Dokumentation des jeweiligen Herstellers, um den Speicher bereitzustellen.  
+2. Befolgen Sie die Anweisungen in der Dokumentation des jeweiligen Herstellers, um den Speicher bereitzustellen.  
 
-    -   **Für Speicherplätze weiterleiten:**  
+-   **Für Speicherplätze weiterleiten:**  
 
-        1.  Stellen Sie sicher, dass jeder Cluster nur die Speicherserver des jeweiligen Standorts erkennen kann, indem direkte Speicherplätze bereitgestellt werden. (https://docs.microsoft.com/windows-server/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct) 
+1. Stellen Sie sicher, dass jeder Cluster nur die Speicherserver des jeweiligen Standorts erkennen kann, indem direkte Speicherplätze bereitgestellt werden. (https://docs.microsoft.com/windows-server/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct) 
 
-        2.  Stellen Sie sicher, dass die SR-Protokollvolumes sich immer auf dem schnellsten Flash-Speicher und die Datenvolumes sich in einem langsameren Speicher mit hoher Kapazität befinden.
+2. Stellen Sie sicher, dass die SR-Protokollvolumes sich immer auf dem schnellsten Flash-Speicher und die Datenvolumes sich in einem langsameren Speicher mit hoher Kapazität befinden.
 
 10. Starten Sie Windows PowerShell, und überprüfen Sie mithilfe des Cmdlets `Test-SRTopology`, ob alle Anforderungen für das Speicherreplikatfeature erfüllt sind. Für einen schnellen Test können Sie das Cmdlet in einem Modus zur ausschließlichen Überprüfung der Anforderungen ausführen, oder Sie wählen einen Modus mit langer Ausführungsdauer, um die Leistung auszuwerten.  
 Beispiel:  
@@ -159,7 +157,7 @@ Beispiel:
     ![Bildschirm, der die Replikationstopologie der Berichtsergebnisse darstellt](./media/Cluster-to-Cluster-Storage-Replication/SRTestSRTopologyReport.png)      
 
 ## <a name="step-2-configure-two-scale-out-file-server-failover-clusters"></a>Schritt 2: Konfigurieren von zwei Failoverclustern mit horizontaler Skalierung  
-Im Folgenden erstellen Sie zwei normale Failovercluster. Nach der Konfiguration, der Überprüfung und dem Testen replizieren Sie diese mithilfe des Speicherreplikatfeatures. Die unten beschriebenen Schritte können unmittelbar auf den Clusterknoten oder über einen Remoteverwaltungscomputer ausgeführt werden, auf dem die RSAT-Verwaltungstools von Windows Server 2016 installiert sind.  
+Im Folgenden erstellen Sie zwei normale Failovercluster. Nach der Konfiguration, der Überprüfung und dem Testen replizieren Sie diese mithilfe des Speicherreplikatfeatures. Sie können alle unten beschriebenen Schritte ausführen, auf den Clusterknoten direkt oder über einen Remoteverwaltungscomputer, der die Windows Server-Remoteserver-Verwaltungstools enthält.  
 
 ### <a name="graphical-method"></a>Grafische Methode  
 
@@ -172,10 +170,10 @@ Im Folgenden erstellen Sie zwei normale Failovercluster. Nach der Konfiguration,
 4.  Konfigurieren Sie einen Dateifreigabe- oder Cloudzeugen.  
 
     > [!NOTE]  
-    > Windows Server 2016 enthält nun eine Option für einen (Azure-basierten) Cloudzeugen. Sie können diese Quorumoption anstelle des Dateifreigabezeugen auswählen.  
+    > WIndows Server enthält nun eine Option für die Cloud (Azure)-basierte Zeugen. Sie können diese Quorumoption anstelle des Dateifreigabezeugen auswählen.  
 
     > [!WARNING]  
-    > Weitere Informationen zur Quorumkonfiguration finden Sie im Abschnitt **Zeugenkonfiguration** unter [Konfigurieren und Verwalten des Quorums in einem Windows Server 2012-Failovercluster](https://technet.microsoft.com/library/jj612870.aspx). Weitere Informationen zum Cmdlet `Set-ClusterQuorum` finden Sie unter [Set-ClusterQuorum](https://technet.microsoft.com/library/hh847275.aspx).  
+    > Weitere Informationen zur Quorumkonfiguration finden Sie unter den **Zeugenkonfiguration** im Abschnitt [konfigurieren und Verwalten von Quorum](../../failover-clustering/manage-cluster-quorum.md). Weitere Informationen zum Cmdlet `Set-ClusterQuorum` finden Sie unter [Set-ClusterQuorum](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterquorum).  
 
 5.  Fügen Sie am Standort **Redmond** den freigegebenen Clustervolumes einen Datenträger hinzu. Zu diesem Zweck klicken Sie im Bereich **Speicher** mit der rechten Maustaste auf den Knoten **Datenträger** und klicken dann auf **Zu freigegebenen Clustervolumes hinzufügen**.  
 
@@ -204,17 +202,17 @@ Im Folgenden erstellen Sie zwei normale Failovercluster. Nach der Konfiguration,
     ```  
 
     > [!NOTE]  
-    > Windows Server 2016 enthält nun eine Option für einen (Azure-basierten) Cloudzeugen. Sie können diese Quorumoption anstelle des Dateifreigabezeugen auswählen.  
+    > WIndows Server enthält nun eine Option für die Cloud (Azure)-basierte Zeugen. Sie können diese Quorumoption anstelle des Dateifreigabezeugen auswählen.  
 
     > [!WARNING]  
-    > Weitere Informationen zur Quorumkonfiguration finden Sie im Abschnitt **Zeugenkonfiguration** unter [Konfigurieren und Verwalten des Quorums in einem Windows Server 2012-Failovercluster](https://technet.microsoft.com/library/jj612870.aspx). Weitere Informationen zum Cmdlet `Set-ClusterQuorum` finden Sie unter [Set-ClusterQuorum](https://technet.microsoft.com/library/hh847275.aspx).  
+    > Weitere Informationen zur Quorumkonfiguration finden Sie unter den **Zeugenkonfiguration** im Abschnitt [konfigurieren und Verwalten von Quorum](../../failover-clustering/manage-cluster-quorum.md). Weitere Informationen zum Cmdlet `Set-ClusterQuorum` finden Sie unter [Set-ClusterQuorum](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterquorum).  
 
 4.  Erstellen Sie die gruppierten Dateiserver mit horizontaler Skalierung in beiden Clustern mithilfe der Anweisungen in [Konfigurieren des Dateiservers mit horizontaler Skalierung](https://technet.microsoft.com/library/hh831718.aspx).  
 
 ## <a name="step-3-set-up-cluster-to-cluster-replication-using-windows-powershell"></a>Schritt 3: Richten Sie die Cluster-zu-Cluster-Replikation mithilfe von Windows PowerShell  
-Jetzt richten Sie die Cluster-zu-Cluster-Replikation mit Windows PowerShell ein. Die unten beschriebenen Schritte können unmittelbar auf den Knoten oder über einen Remoteverwaltungscomputer ausgeführt werden, auf dem die RSAT-Verwaltungstools von Windows Server 2016 installiert sind.  
+Jetzt richten Sie die Cluster-zu-Cluster-Replikation mit Windows PowerShell ein. Sie können alle unten beschriebenen Schritte ausführen, auf den Knoten direkt oder über einen Remoteverwaltungscomputer, der die Windows Server-Remoteserver-Verwaltungstools enthält.  
 
-1.  Gewähren Sie dem ersten Cluster Vollzugriff auf die anderen Cluster, indem Sie Ausführung der **Grant-SRAccess** Cmdlet auf einem beliebigen Knoten im ersten Cluster oder Remote.  
+1.  Gewähren Sie dem ersten Cluster Vollzugriff auf die anderen Cluster, indem Sie Ausführung der **Grant-SRAccess** Cmdlet auf einem beliebigen Knoten im ersten Cluster oder Remote.  Windows Server-Remoteserver-Verwaltungstools
 
     ```PowerShell
     Grant-SRAccess -ComputerName SR-SRV01 -Cluster SR-SRVCLUSB  
@@ -300,9 +298,9 @@ Jetzt richten Sie die Cluster-zu-Cluster-Replikation mit Windows PowerShell ein.
 
 ## <a name="step-4-manage-replication"></a>Schritt 4: Verwalten der Replikation
 
-Jetzt können Sie Ihre Cluster-zu-Cluster-Replikation verwalten und betreiben. Die unten beschriebenen Schritte können unmittelbar auf den Clusterknoten oder über einen Remoteverwaltungscomputer ausgeführt werden, auf dem die RSAT-Verwaltungstools von Windows Server 2016 installiert sind.  
+Jetzt können Sie Ihre Cluster-zu-Cluster-Replikation verwalten und betreiben. Sie können alle unten beschriebenen Schritte ausführen, auf den Clusterknoten direkt oder über einen Remoteverwaltungscomputer, der die Windows Server-Remoteserver-Verwaltungstools enthält.  
 
-1.  Verwenden Sie **Get-ClusterGroup** oder den **Failovercluster-Manager**, um die aktuelle Quelle und das aktuelle Ziel der Replikation sowie den zugehörigen Status zu ermitteln.  
+1.  Verwenden Sie **Get-ClusterGroup** oder den **Failovercluster-Manager**, um die aktuelle Quelle und das aktuelle Ziel der Replikation sowie den zugehörigen Status zu ermitteln.  Windows Server-Remoteserver-Verwaltungstools
 
 2.  Zum Ermitteln der Replikationsleistung verwenden Sie das Cmdlet **Get-Counter** sowohl auf dem Quell- als auch auf dem Zielknoten. Es werden folgende Leistungsindikatoren verwendet:  
 
@@ -358,7 +356,7 @@ Jetzt können Sie Ihre Cluster-zu-Cluster-Replikation verwalten und betreiben. D
 
     -   \Speicherreplikatstatistik(*)\Anzahl gesendeter Nachrichten  
 
-    Weitere Informationen zu Leistungsindikatoren in Windows PowerShell finden Sie unter [Get-Counter](https://technet.microsoft.com/library/hh849685.aspx).  
+    Weitere Informationen zu Leistungsindikatoren in Windows PowerShell finden Sie unter [Get-Counter](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Diagnostics/Get-Counter).  
 
 3.  Zum Ändern der Replikationsrichtung eines Standorts verwenden Sie das Cmdlet **Set-SRPartnership**.  
 
@@ -367,14 +365,14 @@ Jetzt können Sie Ihre Cluster-zu-Cluster-Replikation verwalten und betreiben. D
     ```  
 
     > [!NOTE]  
-    > Windows Server 2016 verhindert einen Rollenwechsel während der ersten Synchronisierung, da es zu Datenverlust führen kann, wenn Sie vor Abschluss der ersten Replikation versuchen, einen Wechsel vorzunehmen. Erzwingen Sie keinen Richtungswechsel, bevor die erste Synchronisierung abgeschlossen ist.
+    > Windows Server verhindert einen Rollenwechsel bei der erstsynchronisierung ausgeführt, wird, wie es zu Datenverlust führen kann, wenn Sie versuchen, wechseln Sie vor der ersten Replikation abzuschließen. Erzwingen Sie keinen Richtungswechsel, bevor die erste Synchronisierung abgeschlossen ist.
 
     Überprüfen Sie die Ereignisprotokolle auf eine Richtungsänderung bei der Replikation und einen Wiederherstellungsmodus, und bringen Sie die Konfiguration in Einklang. Schreib-E/As können anschließend in den Speicher schreiben, der sich im Besitz des neuen Quellservers befindet. Durch das Ändern der Replikationsrichtung werden Schreib-E/As auf dem vorherigen Quellcomputer verhindert.  
 
     > [!NOTE]  
     > Der Zielcluster-Datenträger wird bei der Replikation immer als **Online (kein Zugriff)** angezeigt.  
 
-4.  Zum Ändern des Standardwerts der Protokollgröße von 8 GB in Windows Server 2016 verwenden Sie **Set-SRGroup** für die Quell- und Ziel-Speicherreplikatgruppen.  
+4.  Zum Ändern der Größe des von der Standardeinstellung 8GB verwenden **Set-SRGroup** auf den Quell- und Ziel-speicherreplikatgruppen.  
 
     > [!IMPORTANT]  
     > Die standardmäßige Protokollgröße beträgt 8GB. Abhängig von den Ergebnissen des Cmdlets **Test-SRTopology** können Sie „-LogSizeInBytes“ mit einem höheren oder niedrigeren Wert verwenden.  
@@ -387,13 +385,13 @@ Jetzt können Sie Ihre Cluster-zu-Cluster-Replikation verwalten und betreiben. D
     ```  
 
     > [!NOTE]  
-    > Das Speicherreplikatfeature hebt die Bereitstellung der Zielvolumes auf. Dies ist entwurfsbedingt.
+    > Das Speicherreplikatfeature hebt die Bereitstellung der Zielvolumes auf. Dies ist beabsichtigt.
 
 ## <a name="see-also"></a>Siehe auch
 
 -   [Übersicht über Speicherreplikate](storage-replica-overview.md) 
 -   [Replikation eines Stretched Clusters mithilfe von freigegebenem Speicher](stretch-cluster-replication-using-shared-storage.md)  
 -   [Server-zu-Server-Replikation](server-to-server-storage-replication.md)  
--   [Funktion "Speicherreplikat": Bekannte Probleme](storage-replica-known-issues.md)  
--   [Funktion "Speicherreplikat": Häufig gestellte Fragen](storage-replica-frequently-asked-questions.md)  
+-   [Speicherreplikat: Bekannte Probleme](storage-replica-known-issues.md)  
+-   [Speicherreplikat: Häufig gestellte Fragen](storage-replica-frequently-asked-questions.md)  
 -   ["Direkte Speicherplätze" unter WindowsServer 2016](../storage-spaces/storage-spaces-direct-overview.md)  
