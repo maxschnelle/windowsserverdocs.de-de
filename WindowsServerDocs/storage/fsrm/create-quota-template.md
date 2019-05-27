@@ -27,7 +27,7 @@ Wenn Sie Kontingente ausschließlich auf der Grundlage von Vorlagen erstellen, k
 
 1.  Klicken Sie unter **Kontingentverwaltung** auf den Knoten **Kontingentvorlagen**.
 
-2.  Klicken Sie mit der rechten Maustaste auf **Kontingentvorlagen**, und klicken Sie anschließend auf **Kontingentvorlage erstellen** (oder wählen Sie im Aktionsbereich**** die Option **Kontingentvorlage erstellen** aus). Das Dialogfeld **Kontingentvorlage erstellen** wird geöffnet.
+2.  Klicken Sie mit der rechten Maustaste auf **Kontingentvorlagen**, und klicken Sie anschließend auf **Kontingentvorlage erstellen** (oder wählen Sie im **Aktionsbereich** die Option **Kontingentvorlage erstellen** aus). Das Dialogfeld **Kontingentvorlage erstellen** wird geöffnet.
 
 3.  Wenn Sie die Eigenschaften einer vorhandenen Vorlage als Grundlage für eine neue Vorlage kopieren und verwenden möchten, wählen Sie in der Dropdownliste **Eigenschaften aus Kontingentvorlage kopieren** eine Vorlage aus, und klicken Sie anschließend auf Kopieren. Klicken Sie anschließend auf **Kopieren**.
 

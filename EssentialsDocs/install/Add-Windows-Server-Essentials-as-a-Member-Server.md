@@ -51,7 +51,7 @@ Dieses Thema bezieht sich auf einem Server unter Windows Server 2012 R2 Standard
   
 1.  Schließen Sie nach Abschluss der Installation von Windows Server Essentials auf Ihrem zweiten Server den Assistenten zum Konfigurieren von Windows Server Essentials.  
   
-2.  Geben Sie im Feld **Suche****System Settings**ein, und klicken Sie in den Suchergebnissen auf **Erweiterte Systemeinstellungen anzeigen**.  
+2.  Geben Sie im Feld **Suche** **System Settings**ein, und klicken Sie in den Suchergebnissen auf **Erweiterte Systemeinstellungen anzeigen**.  
   
 3.  Klicken Sie in **Systemeigenschaften** auf die Registerkarte **Computername**.  
   
