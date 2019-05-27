@@ -44,7 +44,7 @@ color [[<B>]<F>]
 
 ## <a name="remarks"></a>Hinweise
 
--   Die folgende Tabelle enthält gültige hexadezimale Ziffern, mit denen Sie als Werte für *B* und *F*.   
+-   Die folgende Tabelle enthält gültige hexadezimale Ziffern, mit denen Sie als Werte für *B* und *F*.  
     |Wert|Farbe|
     |-----|-----|
     |0|Schwarz|
