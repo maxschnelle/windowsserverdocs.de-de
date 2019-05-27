@@ -14,7 +14,7 @@ ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 613ff4c80a80ed4f3207cb0c1ead6db12c723e85
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59815381"
@@ -43,7 +43,7 @@ Wenn die Ordnerumleitung auf dem Quellserver installiert ist, können Sie sie au
   
 1.  Öffnen Sie auf dem Zielserver das Verwaltungstool **Gruppenrichtlinienverwaltung**.  
   
-2.  In **Gruppenrichtlinienverwaltung**, erweitern Sie **Gesamtstruktur: *** Ihrnetzwerkdomänenname*, erweitern Sie **Domänen**, erweitern Sie *Ihrnetzwerkdomänenname* , und erweitern Sie dann **Group Policy Objects**.  
+2.  In **Gruppenrichtlinienverwaltung**, erweitern Sie **Gesamtstruktur:*** Ihrnetzwerkdomänenname*, erweitern Sie **Domänen**, erweitern Sie *Ihrnetzwerkdomänenname* , und erweitern Sie dann **Group Policy Objects**.  
   
 3.  Klicken Sie mit der rechten Maustaste auf die Richtlinie, die Sie löschen möchten und klicken Sie dann auf **Löschen**.  
   

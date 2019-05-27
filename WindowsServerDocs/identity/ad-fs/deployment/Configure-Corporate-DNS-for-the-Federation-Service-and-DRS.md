@@ -11,7 +11,7 @@ ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: 9b66bed99cbc2ac2cdf116579adaea282c45fabe
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59876391"
@@ -44,7 +44,7 @@ Mitgliedschaft in **Administratoren**, oder entspricht, ist die Mindestanforderu
   
 5.  Rechts\-klicken Sie auf die **Domäne\_Namen** Knoten, und klicken Sie dann auf **neuer Alias \(CNAME\)**.  
   
-6.  Geben Sie im Dialogfeld **Neuer Ressourcendatensatz****enterpriseregistration** in das Feld **Aliasname** ein.  
+6.  Geben Sie im Dialogfeld **Neuer Ressourcendatensatz** **enterpriseregistration** in das Feld **Aliasname** ein.  
   
 7.  In den vollständig qualifizierten Domänennamen \(FQDN\) Typ von Feld Target Host **Verbund\_Service\_Farm\_Benutzername.Domänenname.com\_steht**, und klicken Sie dann Klicken Sie auf **OK**.  
   

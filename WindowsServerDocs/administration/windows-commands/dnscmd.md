@@ -15,7 +15,7 @@ manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: 39478e9b7dd8e8c69ed07f5d431486a7ed96b9cb
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59815501"
@@ -721,7 +721,7 @@ dnscmd [<ServerName>] /resetforwarders [<IPaddress> [,<IPaddress>]...] [/ Timeou
 Gibt an, den DNS-Server für die Verwaltung, durch die IP-Adresse, den FQDN oder Hostnamen dargestellt wird. Wenn dieser Parameter ausgelassen wird, wird der lokale Server verwendet.  
 **<IPaddress>**  
 Listet die IP-Adressen, der DNS-Server nicht aufgelöste Abfragen weiterleitet.  
-** / Timeout <timeOut>**  
+|**/Timeout <timeOut>**  
 Legt die Anzahl der Sekunden an, denen der DNS-Server wartet, bis eine Antwort von der Weiterleitung fest. Standardmäßig ist dieser Wert über fünf Sekunden.  
 **/slave|/noslave**  
 Bestimmt, ob der DNS-Server eine eigene iterativen Abfragen ausführt, fällt die Weiterleitung zum Auflösen einer Abfrage:  
@@ -814,19 +814,19 @@ Gibt den Namen der Zone.
 Gibt den Typ der Zone zu erstellen. Jeder Typ verfügt über verschiedene erforderliche Parameter:  
 **/dsprimary**  
 erstellt eine active Directory integrierte Zone an.  
-** / primary/File <FileName>**  
+**/primary/File <FileName>**  
 eine primäre Standardzone erstellt und gibt den Namen der Datei, die die Zoneninformationen gespeichert werden.  
-** / sekundären <MasterIPaddress> [<MasterIPaddress>...] **  
+**/sekundären <MasterIPaddress> [<MasterIPaddress>...]**  
 erstellt eine sekundäre Standardzone.  
-** / stub <MasterIPaddress> [<MasterIPaddress>...] / file <FileName>**  
+**/stub <MasterIPaddress> [<MasterIPaddress>...] / file <FileName>**  
 erstellt eine Stubzone mit zugrunde liegender Datei.  
-** / Dsstub <MasterIPaddress> [<MasterIPaddress>...] **  
+**/Dsstub <MasterIPaddress> [<MasterIPaddress>...]**  
 erstellt eine active Directory-integrierte Stub-Zone.  
-** / Weiterleitung <MasterIPaddress> [<MasterIPaddress>]... / file <FileName>**  
+**/Weiterleitung <MasterIPaddress> [<MasterIPaddress>]... / file <FileName>**  
 Gibt an, dass die erstellte Zone nicht aufgelöste Abfragen an einen anderen DNS-Server weiterleitet.  
 **/dsforwarder**  
 Gibt an, dass die erstellten active Directory integrierte Zone nicht aufgelöste Abfragen an einen anderen DNS-Server weiterleitet.  
-** / DP <FQDN> {/ Domäne | /enterprise | / ältere} **  
+**/DP <FQDN> {/ Domäne | /enterprise | / ältere}**  
 Gibt an, die Verzeichnispartition, auf dem die Zone gespeichert.  
 **<FQDN>**  
 Hiermit wird der FQDN der Verzeichnispartition.  
@@ -876,7 +876,7 @@ Gibt den Namen der Zone.
 **<ZoneExportFile>**  
 Gibt den Namen des zu erstellenden Datei. ### "Hinweise" – die **Zoneexport** Vorgang erstellt eine Datei von Ressourceneinträgen für eine active Directory integrierte Zone für die Problembehandlung. Standardmäßig wird die Datei, die mit diesem Befehl wird im DNS-Verzeichnis platziert, die wird standardmäßig das Verzeichnis %systemroot%/System32/Dns. ### Beispiel finden Sie unter [Beispiel 10: Liste der Zone Ressource Datensätze in eine Datei exportieren](https://technet.microsoft.com/library/cc784399(v=ws.10).aspx).  
 ### <a name="BKMK_26"></a>dnscmd /zoneinfo  
-Zeigt die Einstellungen aus dem Abschnitt der Registrierung der angegebenen Zone: ** HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DNS\Parameters\Zones\\<ZoneName>** ### Syntax ```  
+Zeigt die Einstellungen aus dem Abschnitt der Registrierung der angegebenen Zone: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DNS\Parameters\Zones\\<ZoneName>** ### Syntax ```  
 dnscmd [<ServerName>] / zoneinfo <ZoneName> [<Setting>] ```  
 #### Parameters  
 **<ServerName>**  
@@ -884,7 +884,7 @@ Gibt an, den DNS-Server für die Verwaltung, durch die IP-Adresse, den FQDN oder
 **<ZoneName>**  
 Gibt den Namen der Zone.  
 **<Setting>**  
-Sie können einzeln angeben, eine Einstellung, die die **zoneinfo der Anwendung** -Befehl zurückgegeben. Wenn Sie eine Einstellung nicht angeben, werden alle Einstellungen zurückgegeben. ### "Hinweise" – die **zoneinfo der Anwendung** Befehl zeigt die registrierungseinstellungen, die auf die DNS-Zone auf ** HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DNS\Parameters\Zones\\<ZoneName>**. -Wenn Sie registrierungseinstellungen auf Serverebene anzeigen zu können, verwenden die [Informationen](#BKMK_12) Befehl. -Eine Liste der Einstellungen, die Sie mit dem folgenden Befehl anzeigen können, finden Sie unter den [Config](#BKMK_3) Befehl. ### Beispiel finden Sie unter [Beispiel 11: RefreshInterval-Einstellung aus der Registrierung anzeigen](https://technet.microsoft.com/library/cc784399(v=ws.10).aspx) oder [Beispiel 12: Anzeigen, die Einstellung aus der Registrierung altern](https://technet.microsoft.com/library/cc784399(v=ws.10).aspx).  
+Sie können einzeln angeben, eine Einstellung, die die **zoneinfo der Anwendung** -Befehl zurückgegeben. Wenn Sie eine Einstellung nicht angeben, werden alle Einstellungen zurückgegeben. ### "Hinweise" – die **zoneinfo der Anwendung** Befehl zeigt die registrierungseinstellungen, die auf die DNS-Zone auf **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DNS\Parameters\Zones\\<ZoneName>**. -Wenn Sie registrierungseinstellungen auf Serverebene anzeigen zu können, verwenden die [Informationen](#BKMK_12) Befehl. -Eine Liste der Einstellungen, die Sie mit dem folgenden Befehl anzeigen können, finden Sie unter den [Config](#BKMK_3) Befehl. ### Beispiel finden Sie unter [Beispiel 11: RefreshInterval-Einstellung aus der Registrierung anzeigen](https://technet.microsoft.com/library/cc784399(v=ws.10).aspx) oder [Beispiel 12: Anzeigen, die Einstellung aus der Registrierung altern](https://technet.microsoft.com/library/cc784399(v=ws.10).aspx).  
 ### <a name="BKMK_27"></a>dnscmd /zonepause  
 hält an die angegebene Zone, die dann abfrageanforderungen ignoriert. ### Syntax ```  
 dnscmd [<ServerName>] /zonepause <ZoneName> ```  
@@ -949,7 +949,7 @@ dnscmd [<ServerName>] /zoneresetsecondaries <ZoneName> {/ Noxfr | / nicht sicher
 Gibt an, den DNS-Server für die Verwaltung, durch die IP-Adresse, den FQDN oder Hostnamen dargestellt wird. Wenn die ist der Parameter ausgelassen wird, wird der lokale Server verwendet.  
 **<ZoneName>**  
 Gibt den Namen der Zone, die die sekundären Server haben, werden zurückgesetzt.  
-** / Noxfr | / nicht sichere | /securens | / SecureList <SecurityIPaddresses>**  
+**/Noxfr | / nicht sichere | /securens | / SecureList <SecurityIPaddresses>**  
 Gibt an, ob alle oder nur einige der sekundären Server ein Update angefordert ein Update zu erhalten.  
 **/noxfr**  
 Gibt an, dass keine zonenübertragungen zulässig sind.  
@@ -985,15 +985,15 @@ Identifiziert die Zone, die auf der der Typ geändert werden.
 Gibt den Typ der Zone zu erstellen. Jeder Typ verfügt über verschiedene erforderliche Parameter:  
 **/dsprimary**  
 erstellt eine active Directory integrierte Zone an.  
-** / primary/File <FileName>**  
+**/primary/File <FileName>**  
 erstellt eine primäre Standardzone.  
-** / sekundären <MasterIPaddress> [,<MasterIPaddress>...] **  
+**/sekundären <MasterIPaddress> [,<MasterIPaddress>...]**  
 erstellt eine sekundäre Standardzone.  
-** / stub <MasterIPaddress>[,<MasterIPaddress>...] / file <FileName>**  
+**/stub <MasterIPaddress>[,<MasterIPaddress>...] / file <FileName>**  
 erstellt eine Stubzone mit zugrunde liegender Datei.  
-** / Dsstub <MasterIPaddress>[,<MasterIPaddress>...] **  
+**/Dsstub <MasterIPaddress>[,<MasterIPaddress>...]**  
 erstellt eine active Directory-integrierte Stub-Zone.  
-** / Weiterleitung <MasterIPaddress[,<MasterIPaddress>]... / file<FileName>**  
+**/Weiterleitung <MasterIPaddress[,<MasterIPaddress>]... / file<FileName>**  
 Gibt an, dass die erstellte Zone nicht aufgelöste Abfragen an einen anderen DNS-Server weiterleitet.  
 **/dsforwarder**  
 Gibt an, dass die erstellten active Directory integrierte Zone nicht aufgelöste Abfragen an einen anderen DNS-Server weiterleitet.  

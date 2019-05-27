@@ -10,7 +10,7 @@ ms.date: 10/18/2018
 ms.assetid: 938cdda2-f17e-4964-9218-f5868fd96735
 ms.openlocfilehash: a26b784c18049ee473a191abc7bfa0a5d253d15e
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59883031"
@@ -143,7 +143,7 @@ Gehen Sie folgendermaßen vor, um AD FS mit Server-Manager zu konfigurieren:
     > [!NOTE]  
     > Der Verbunddienstname kann nicht der Namen eines vorhandenen Servers in der Umgebung sein. Wenn Sie den Namen eines vorhandenen Servers verwenden, schlägt die AD FS-Installation fehl und muss neu gestartet werden.  
   
-6.  Geben Sie auf der Seite **Angeben des Dienstkontos** den Namen ein, den Sie für die verwaltete Dienstkonto verwenden möchten. Wählen Sie für das Testbeispiel **Gruppenverwaltetes Dienstkonto erstellen** und geben Sie unter **Kontoname****ADFSService** ein. Klicken Sie auf **Weiter**.  
+6.  Geben Sie auf der Seite **Angeben des Dienstkontos** den Namen ein, den Sie für die verwaltete Dienstkonto verwenden möchten. Wählen Sie für das Testbeispiel **Gruppenverwaltetes Dienstkonto erstellen** und geben Sie unter **Kontoname** **ADFSService** ein. Klicken Sie auf **Weiter**.  
   
 7.  Wählen Sie auf der Seite **Angeben der Konfigurationsdatenbank** die Option **Erstellen einer Datenbank auf diesem Server mit der internen Windows-Datenbank** aus und klicken Sie auf **Weiter**.  
   

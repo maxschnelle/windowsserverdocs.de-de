@@ -23,7 +23,7 @@ ms.locfileid: "59872671"
 # <a name="install-updates"></a>Installieren von Updates
 Es wird empfohlen, Updates zu installieren, falls verfügbar. Installieren von Updates ist eine Internetverbindung erforderlich.  
 
-1.  Öffnen Sie auf der **** Startseite die **** Systemsteuerung.  
+1.  Öffnen Sie auf der **Startseite** die **Systemsteuerung**.  
   
 2.  Geben Sie in der Systemsteuerung **Updates**, und klicken Sie dann auf **nach Updates suchen**.  
   

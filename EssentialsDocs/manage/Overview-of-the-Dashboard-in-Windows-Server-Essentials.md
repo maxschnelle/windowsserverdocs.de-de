@@ -14,7 +14,7 @@ ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: c2cc603f5e0303ada245956a524151393c538b27
 ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59881571"
@@ -120,7 +120,7 @@ ms.locfileid: "59881571"
   
     -   Doppelklicken Sie auf dem Desktop auf **Dashboard**.  
   
-    -   Geben Sie im Bereich **Suchen****dashboard** ein, und klicken Sie dann in den Suchergebnissen auf **Dashboard**.  
+    -   Geben Sie im Bereich **Suchen** **dashboard** ein, und klicken Sie dann in den Suchergebnissen auf **Dashboard**.  
   
 ###  <a name="BKMK_Network"></a> Zugriff auf das Dashboard von einem Computer, der mit dem Netzwerk verbunden ist  
  Nachdem Sie einen Computer mit dem Netzwerk verbunden haben, können Administratoren in Windows Server Essentials das Launchpad verwenden, um vom Computer aus auf das Server-Dashboard zuzugreifen.  

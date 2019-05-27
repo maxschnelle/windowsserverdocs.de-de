@@ -37,7 +37,7 @@ Die folgende Anweisung führt Sie durch den Prozess zum Erstellen einer Klassifi
 
 ## <a name="to-create-a-classification-property"></a>So erstellen Sie eine Klassifizierungseigenschaft
 
-1.  Klicken Sie in der Klassifizierungsverwaltung **** auf den Knoten **Klassifizierungseigenschaft**.
+1.  Klicken Sie in der **Klassifizierungsverwaltung** auf den Knoten **Klassifizierungseigenschaft**.
 
 2.  Klicken Sie mit der rechten Maustaste auf **Klassifizierungseigenschaften** und dann auf **Neue Eigenschaft erstellen** (oder klicken Sie auf **Neue Eigenschaft erstellen** im Bereich **Aktionen** aus). Daraufhin wird das Dialogfeld **Definitionen für Klassifizierungseigenschaften** geöffnet.
 
