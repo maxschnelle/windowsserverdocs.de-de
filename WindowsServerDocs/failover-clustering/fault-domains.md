@@ -8,23 +8,41 @@ ms.technology: storage-failover-clustering
 ms.topic: article
 author: cosmosdarwin
 ms.date: 09/16/2016
-ms.openlocfilehash: f5c64bb8f8b7d4b8d13c76c4e94cfcf52ee32c30
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 18b7a932cc8a22c356fde89baa316c0532ebc374
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821471"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476002"
 ---
-# <a name="fault-domain-awareness-in-windows-server-2016"></a>Fehlerdomänenunterstützung in Windows Server 2016
+# <a name="fault-domain-awareness"></a>Fehlerdomänenunterstützung
 
-> Gilt für: Windows Server 2016
+> Gilt für: Windows Server 2019 und Windows Server 2016
 
-Failoverclustering ermöglicht die Zusammenarbeit mehrerer Server, um hohe Verfügbarkeit zu bieten – oder anders ausgedrückt, um Knotenfehlertoleranz zu bieten. Aber moderne Unternehmen verlangen eine immer höhere Verfügbarkeit ihrer Infrastruktur. Um cloudähnliche Betriebszeit zu erreichen, ist auch der Schutz bei sehr unwahrscheinlichen Vorfällen wie z.B. Gehäuse- und Rackausfällen oder Naturkatastrophen erforderlich. Deshalb Failoverclustering in Windows Server 2016 führt die Gehäuse-, Rack- und Fehlertoleranz sowie Standort.
+Failoverclustering ermöglicht die Zusammenarbeit mehrerer Server, um hohe Verfügbarkeit zu bieten – oder anders ausgedrückt, um Knotenfehlertoleranz zu bieten. Aber moderne Unternehmen verlangen eine immer höhere Verfügbarkeit ihrer Infrastruktur. Um cloudähnliche Betriebszeit zu erreichen, ist auch der Schutz bei sehr unwahrscheinlichen Vorfällen wie z.B. Gehäuse- und Rackausfällen oder Naturkatastrophen erforderlich. Deshalb Failoverclustering in Windows Server 2016 eingeführt, Gehäuse-, Rack- und Fehlertoleranz sowie Standort.
+
+## <a name="fault-domain-awareness"></a>Fehlerdomänenunterstützung
 
 Fehlerdomänen und Fehlertoleranz sind eng miteinander verwandte Konzepte. Eine Fehlerdomäne ist eine Reihe von Hardwarekomponenten, die einen gemeinsamen Single Point of Failure haben. Um ein bestimmtes Niveau an Fehlertoleranz zu erzielen, benötigen Sie mehrere Fehlerdomänen auf dieser Ebene. Beispielsweise setzt Rackfehlertoleranz voraus, dass Ihre Server und Daten auf mehrere Racks verteilt sind.
 
 Dieses kurze Video bietet einen Überblick über Fehlerdomänen in Windows Server 2016:  
 [![Klicken Sie auf dieses Bild, um einen Überblick über Fehlerdomänen in Windows Server 2016 dabei zu sein.](media/Fault-Domains-in-Windows-Server-2016/Part-1-Fault-Domains-Overview.jpg)](https://channel9.msdn.com/Blogs/windowsserver/Fault-Domain-Awareness-in-WS2016-Part-1-Overview)
+
+### <a name="fault-domain-awareness-in-windows-server-2019"></a>Fehlerdomänenunterstützung in Windows Server-2019
+
+Fehlerdomänenunterstützung in Windows Server-2019 verfügbar ist, aber es ist standardmäßig deaktiviert und muss über die Windows-Registrierung aktiviert werden.
+
+Fehlerdomänenunterstützung in Windows Server-2019 aktivieren, wechseln zu der Windows-Registrierung und festlegen (Get-Cluster). AutoAssignNodeSite den Registrierungsschlüssel auf 1 fest.
+
+```Registry
+    (Get-Cluster).AutoAssignNodeSite=1
+```
+
+Um fehlerdomänenunterstützung in Windows 2019 zu deaktivieren, wechseln Sie zu der Windows-Registrierung aus, und legen Sie die (Get-Cluster). AutoAssignNodeSite den Registrierungsschlüssel auf 0 fest.
+
+```Registry
+    (Get-Cluster).AutoAssignNodeSite=0
+```
 
 ## <a name="benefits"></a>Vorteile
 - **-Speicherplätzen, einschließlich "direkte Speicherplätze", verwendet Fehlerdomänen, um die datensicherheit zu maximieren.**  
@@ -103,7 +121,7 @@ Remove-ClusterFaultDomain -Name "Rack A"
 ```
 
 ### <a name="defining-fault-domains-with-xml-markup"></a>Definieren von Fehlerdomänen mit XML-Markup
-Fehlerdomänen können mithilfe einer XML-Syntax angegeben werden. Sie sollten Ihren bevorzugten Texteditor verwenden, z.B. Visual Studio Code (*[hier](https://code.visualstudio.com/)* kostenlos erhältlich) oder Editor, um ein XML-Dokument zu erstellen, das Sie speichern und wiederverwenden können.  
+Fehlerdomänen können mithilfe einer XML-Syntax angegeben werden. Sie sollten Ihren bevorzugten Texteditor verwenden, z.B. Visual Studio Code ( *[hier](https://code.visualstudio.com/)* kostenlos erhältlich) oder Editor, um ein XML-Dokument zu erstellen, das Sie speichern und wiederverwenden können.  
 
 Dieses kurze Video veranschaulicht die Verwendung von XML-Markup zur Angabe von Fehlerdomänen.
 
@@ -176,5 +194,6 @@ Sie können optional angeben **Speicherort** oder **Beschreibung** Metadaten fü
 [![Klicken Sie auf, um ein kurzes Video zur Veranschaulichung des Wert des Hinzufügens von positionsdeskriptoren zu Fehlerdomänen finden Sie unter](media/Fault-Domains-in-Windows-Server-2016/part-4-location-description.jpg)](https://channel9.msdn.com/Blogs/windowsserver/Fault-Domain-Awareness-in-WS2016-Part-4-Location-Description)
 
 ## <a name="see-also"></a>Siehe auch  
--   [Windows Server 2016](../get-started/windows-server-2016.md)  
--   ["Direkte Speicherplätze" unter WindowsServer 2016](../storage/storage-spaces/storage-spaces-direct-overview.md) 
+- [Erste Schritte mit Windows Server 2019](https://docs.microsoft.com/windows-server/get-started-19/get-started-19)  
+- [Erste Schritte mit Windows Server 2016](https://docs.microsoft.com/windows-server/get-started/server-basics)  
+-   [Übersicht über "direkte Speicherplätze"](../storage/storage-spaces/storage-spaces-direct-overview.md) 

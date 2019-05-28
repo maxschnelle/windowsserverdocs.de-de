@@ -2,22 +2,22 @@
 title: Übersicht über DFS-Namespaces
 ms.prod: windows-server-threshold
 ms.author: jgerend
-ms.manager: brianlic
+ms.manager: daveba
 ms.technology: storage
 ms.topic: article
 author: jasongerend
-ms.date: 10/15/2018
+ms.date: 05/09/2019
 description: In diesem Thema wird beschrieben, wie Sie mithilfe des Rollendiensts für DFS-Namespaces in Windows Server freigegebene Ordner, die sich auf verschiedenen Servern befinden, in logisch strukturierten Namespaces gruppieren.
-ms.openlocfilehash: 0f80e5a25254513702c25ce895a28c4cb1e0f2b4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 33b5a36c9f13179286a95735621272f79983231c
+ms.sourcegitcommit: 75f257d97d345da388cda972ccce0eb29e82d3bc
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844251"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65613184"
 ---
 # <a name="dfs-namespaces-overview"></a>Übersicht über DFS-Namespaces
 
-> Gilt für: WindowsServer 2019, WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2, WindowsServer 2008
+> Gilt für: WindowsServer 2019, WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2, WindowsServer 2008, WindowsServer (Halbjährlicher Kanal)
 
 Mithilfe des Rollendiensts für DFS-Namespaces in Windows Server können Sie freigegebene Ordner, die sich auf verschiedenen Servern befinden, in logisch strukturierten Namespaces gruppieren. Dadurch ist eine virtuelle Ansicht der freigegebenen Ordner für Benutzer möglich, wobei ein einzelner Pfad zu Dateien führt, die sich auf mehreren Servern befinden, wie in der folgenden Abbildung dargestellt:
 
@@ -42,11 +42,12 @@ Ein Namespaceserver ist ein Domänencontroller oder ein Mitgliedsserver, der ein
 
 Server, auf denen die folgenden Betriebssysteme ausgeführt werden, können zusätzlich zu einem einzelnen eigenständigen Namespace mehrere domänenbasierte Namespaces hosten. 
 
-- Windows Server (Semi-Annual Channel)
+- Windows Server 2019
 - Windows Server 2016
 - Windows Server 2012 R2
 - Windows Server 2012
-- Windows Server 2008 R2 Datacenter/Enterprise
+- Windows Server 2008 R2 Datacenter und Enterprise Edition
+- Windows Server (Semi-Annual Channel)
 
 Server, auf denen die folgenden Betriebssysteme ausgeführt werden, können einen einzelnen eigenständigen Namespace hosten:
 
@@ -78,7 +79,7 @@ Installieren Sie DFS-Namespaces mit [Windows Admin Center](../../manage/windows-
 
     - Erweitern Sie auf der Seite **Features** die Option **Remoteserver-Verwaltungstools**, erweitern Sie **Rollenverwaltungstools**, erweitern Sie **Tools für Dateidienste**, und wählen Sie anschließend **DFS-Verwaltungstools** aus.
 
-         Im Rahmen der**** DFS-Verwaltungstools werden auf dem Server das DFS-Verwaltungs-Snap-In, das DFS-Namespaces-Modul für Windows PowerShell sowie Befehlszeilentools, aber keine DFS-Dienste installiert.
+         Im Rahmen der **DFS-Verwaltungstools** werden auf dem Server das DFS-Verwaltungs-Snap-In, das DFS-Namespaces-Modul für Windows PowerShell sowie Befehlszeilentools, aber keine DFS-Dienste installiert.
 
 ### <a name="to-install-dfs-by-using-windows-powershell"></a>So installieren Sie DFS mithilfe von Windows PowerShell
 
@@ -126,5 +127,5 @@ Weitere verwandte Informationen finden Sie in den folgenden Ressourcen:
 |**Betrieb**|[DFS-Namespaces: Häufig gestellte Fragen](https://technet.microsoft.com/library/ee404780.aspx)|
 |**Communityressourcen**|[Zu Dateidiensten und Speicher-TechNet-Forum](https://social.technet.microsoft.com/forums/winserverfiles/threads/)|
 |**Protokolle**|[Protokolle in WindowsServer für Dateidienste](https://msdn.microsoft.com/en-us/library/cc239318.aspx) (veraltet)|
-|**Verwandte Technologien**| [Failover-Clusterunterstützung](../../failover-clustering/failover-clustering-overview.md)|
+|**Verwandte Technologien**| [Failoverclustering](../../failover-clustering/failover-clustering-overview.md)|
 |**Support**|[Windows IT Pro-Support](https://www.microsoft.com/itpro/windows/support)|

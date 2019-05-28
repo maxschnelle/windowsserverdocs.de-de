@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 3e555d1003878e12320cb8557bd205ac24e1bbb3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6be56c25cc6f639f73842f57cdf48a6339dccf9c
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882441"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191853"
 ---
 # <a name="windows-server-2012-ad-fs-deployment-guide"></a>Bereitstellungshandbuch für ADFS unter Windows Server 2012
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Sie können Active Directory® Federation Services \(AD FS\) mit dem Betriebssystem Windows Server® 2012, um eine Verbund-identitätsverwaltungslösung zu erstellen, die verteilte Identifikation, erweitert-Authentifizierung und Web-Autorisierungsdienste\--basierte Anwendungen über Unternehmens- und plattformübergreifend hinweg. Durch die Bereitstellung von AD FS können Sie die vorhandenen Identitätsverwaltungsfunktionen Ihrer Organisation auf das Internet erweitern.  
   
@@ -30,7 +29,7 @@ Die Bereitstellung von AD FS ermöglicht Ihnen Folgendes:
   
 -   Geben Sie Ihre Mitarbeiter oder Kunden reibungslosen Zugriff auf Web\-basierend Ressourcen in einer beliebigen verbundpartnerorganisation im Internet, ohne dass Mitarbeiter oder Kunden sich mehr als einmal anmelden.  
   
--   Behalten Sie vollständige Kontrolle über Mitarbeiter- oder Kundenidentitäten, ohne Verwendung von anderen\-Anbietern \(Windows Live ID, Liberty Alliance usw.\).  
+-   Behalten Sie vollständige Kontrolle über Mitarbeiter- oder Kundenidentitäten, ohne Verwendung von anderen\-Anbietern \(Windows Live ID, Liberty Alliance usw\).  
   
 ## <a name="about-this-guide"></a>Informationen zur Anleitung  
 Dieses Handbuch ist für die Verwendung von Systemadministratoren und System Engineers vorgesehen. Es bietet eine detaillierte Anleitung zum Bereitstellen einer AD FS-Entwurfs, der von Ihnen oder einem infrastrukturspezialisten oder einem Systemarchitekten in Ihrem Unternehmen bereits vorausgewählt wurde.  
@@ -60,9 +59,9 @@ Folgendes ist in diesem Handbuch nicht enthalten:
   
 ## <a name="in-this-guide"></a>Inhalt dieser Anleitung  
   
--   [Planen der Bereitstellung von AD FS](Planning-to-Deploy-AD-FS.md)  
+-   [Planen der Bereitstellung von AD FS](Planning-to-Deploy-AD-FS.md)  
   
--   [Implementieren von AD FS Plan entwerfen](Implementing-Your-AD-FS-Design-Plan.md)  
+-   [Implementieren des AD FS-Entwurfsplans](Implementing-Your-AD-FS-Design-Plan.md)  
   
 -   [Prüfliste: Implementieren eines Web-SSO-Entwurfs](Checklist--Implementing-a-Web-SSO-Design.md)  
   
@@ -76,4 +75,4 @@ Folgendes ist in diesem Handbuch nicht enthalten:
   
 -   [Bereitstellen von Verbundserverproxys](Deploying-Federation-Server-Proxies.md)  
   
--   [Interaktion mit AD FS 1.x](Interoperating-with-AD-FS-1.x.md)  
+-   [Interagieren mit AD FS 1.x](Interoperating-with-AD-FS-1.x.md)  

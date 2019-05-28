@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: a94e4de181cd8794d479bbd6695a94658aba0f86
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8aef8b3d8f1e6dde4f960a3bee5a93964d07c72b
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855021"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191282"
 ---
 # <a name="name-resolution-requirements-for-federation-server-proxies"></a>Namensauflösungsanforderungen für Verbundserverproxys
-
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Wenn Clientcomputer im Internet versuchen, auf eine Anwendung zuzugreifen, die von Active Directory Federation Services gesichert ist \(AD FS\), sie müssen sich zunächst an den Verbundserver authentifizieren. In den meisten Fällen ist der Verbundserver in der Regel nicht direkt über das Internet zugegriffen werden. Internetclientcomputer müssen daher stattdessen an den Verbundserverproxy umgeleitet werden. Sie können die Umleitung erreichen, durch Hinzufügen der entsprechenden Domain Name System \(DNS\) Datensätze zu Ihrer DNS-Zone oder Zonen, die das Internet auftreten.  
   
@@ -45,7 +43,7 @@ Da DNS im Umkreisnetzwerk konfiguriert ist, um alle Anforderungen für "FS.Fabri
 ### <a name="2-configure-perimeter-dns"></a>2. Konfigurieren des Umkreis-DNS  
 Da ist es nur ein einzelner AD FS Hostnamen an, an die Clientcomputer geleitet werden, gibt an, ob sie in einem Intranet oder im Internet sind –-Clientcomputern im Internet, die den Umkreis-DNS-Server verwenden, müssen den FQDN der Kontoverbundserver aufgelöst\("FS.Fabrikam.com"\) auf die IP-Adresse des Kontos Verbundserverproxys im Umkreisnetzwerk. Damit es beim Versuch, "FS.Fabrikam.com" aufzulösen Clients an die Kontoverbundserverproxy weiterleiten kann, enthält das Umkreis-DNS eine begrenzte "corp.Fabrikam.com" DNS-Zone mit einem einzelnen Host \(ein\) -Ressourceneintrag für die fs \("FS.Fabrikam.com"\) und die IP-Adresse des Kontos Verbundserverproxys im Umkreisnetzwerk.  
   
-Weitere Informationen zum Ändern der Hosts-Datei der Verbundserverproxys und Konfigurieren von DNS im Umkreisnetzwerk finden Sie unter [Konfigurieren der namensauflösung für a Federation Server Proxy in einer DNS-Zone, die ausschließlich das Umkreisnetzwerkdient.](../../ad-fs/deployment/Configure-Name-Resolution-for-a-Federation-Server-Proxy-in-a-DNS-Zone-That-Serves-Only-the-Perimeter-Network.md).  
+Weitere Informationen zum Ändern der Hosts-Datei der Verbundserverproxys und Konfigurieren von DNS im Umkreisnetzwerk finden Sie unter [Konfigurieren der namensauflösung für a Federation Server Proxy in einer DNS-Zone, die ausschließlich das Umkreisnetzwerkdient](../../ad-fs/deployment/Configure-Name-Resolution-for-a-Federation-Server-Proxy-in-a-DNS-Zone-That-Serves-Only-the-Perimeter-Network.md).  
   
 ## <a name="dns-zone-serving-both-the-perimeter-network-and-internet-clients"></a>DNS-Zone für das Umkreisnetzwerk und Internetclients  
 In diesem Szenario kontrolliert Ihre Organisation die DNS-Zone im Umkreisnetzwerk und mindestens eine DNS-Zone im Internet. Erfolgreiche namensauflösung für einen Verbundserverproxy in diesem Szenario hängt von folgenden Bedingungen ab:  
@@ -69,4 +67,4 @@ Damit die Namensauflösung in diesem Szenario erfolgreich ist, müssen alle Anfo
 Weitere Informationen dazu, wie Sie das Umkreisnetzwerk und der Internet-DNS-Zonen ändern, finden Sie unter [Konfigurieren der namensauflösung für einen Verbundserverproxy in einer DNS-Zone, dient sowohl Umkreisnetzwerk und Internetclients](../../ad-fs/deployment/Configure-Name-Resolution-for-a-Federation-Server-Proxy-in-a-DNS-Zone-That-Serves-Both-the-Perimeter-Network-and-Internet-Clients.md).  
   
 ## <a name="see-also"></a>Siehe auch
-[AD FS-Entwurfshandbuch in WindowsServer 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
