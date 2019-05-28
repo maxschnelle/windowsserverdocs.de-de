@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 484dd08edef85b91e777f8963f175a6172c75430
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0191c822ec068c5486a1b0d5da4c1ae2ee9e4d31
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847391"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191097"
 ---
 # <a name="planning-for-ad-fs-server-capacity"></a>Planen der AD FS-Serverkapazität
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
   
 > [!NOTE]  
@@ -36,9 +35,9 @@ Bevor Sie mit der Lektüre dieser Informationen zur Kapazitätsplanung fortfahre
   
 |Empfohlene Aufgabe|Beschreibung|Referenz|  
 |--------------------|---------------|-------------|  
-|Grundlegendes zu den Anforderungen für die Bereitstellung von AD FS-Verbundservern und Verbundserverproxys|Überprüfen Sie wichtige Hardware- und Softwareanforderungen, die für die Bereitstellung von Verbundservern und Verbundserverproxies erforderlich sind.|[Anhang A: Überprüfen der AD FS-Anforderungen](Appendix-A--Reviewing-AD-FS-Requirements.md)|  
-|Wählen Sie den Typ der AD FS-Konfigurationsdatenbank, die Sie in Ihrer Organisation bereitstellen|Bevor Sie die kapazitätsplanungsdaten in diesem Abschnitt verwenden beginnen können, müssen Sie um zu bestimmen, welcher AD FS-Konfiguration Datenbanktyp Sie bereitstellen werden – entweder Windows Internal Database \(WID\) oder eine strukturierte Abfragesprache \(SQL\) Datenbank.|[The Role of the AD FS Configuration Database](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md);<br /><br />[Überlegungen zur Topologie der AD FS-Bereitstellung](AD-FS-Deployment-Topology-Considerations.md)|  
-|Festlegen, welche Art von Topologielayout Sie mit Ihrer neuen AD FS-Konfigurationdatenbank verwenden|Nachdem Sie entschieden haben, welchen AD FS-Konfigurationsdatenbanktyp Sie in Ihrer Bereitstellung verwenden, müssen Sie überlegen, welche Bereitstellungstopologie am ehesten der vorgesehenden Platzierung der Verbundserver und Verbundserverproxies in Ihrer Produktionsumgebung entspricht.|[Bestimmen der AD FS-Bereitstellungstopologie](Determine-Your-AD-FS-Deployment-Topology.md)|  
+|Grundlegendes zu den Anforderungen für die Bereitstellung von AD FS-Verbundservern und Verbundserverproxys|Überprüfen Sie wichtige Hardware- und Softwareanforderungen, die für die Bereitstellung von Verbundservern und Verbundserverproxies erforderlich sind.|[Anhang A: Überprüfen der AD FS-Anforderungen](Appendix-A--Reviewing-AD-FS-Requirements.md)|  
+|Wählen Sie den Typ der AD FS-Konfigurationsdatenbank, die Sie in Ihrer Organisation bereitstellen|Bevor Sie die kapazitätsplanungsdaten in diesem Abschnitt verwenden beginnen können, müssen Sie um zu bestimmen, welcher AD FS-Konfiguration Datenbanktyp Sie bereitstellen werden – entweder Windows Internal Database \(WID\) oder eine strukturierte Abfragesprache \(SQL\) Datenbank.|[The Role of the AD FS Configuration Database](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md);<br /><br />[Überlegungen zur AD FS-Bereitstellungstopologie](AD-FS-Deployment-Topology-Considerations.md)|  
+|Festlegen, welche Art von Topologielayout Sie mit Ihrer neuen AD FS-Konfigurationdatenbank verwenden|Nachdem Sie entschieden haben, welchen AD FS-Konfigurationsdatenbanktyp Sie in Ihrer Bereitstellung verwenden, müssen Sie überlegen, welche Bereitstellungstopologie am ehesten der vorgesehenden Platzierung der Verbundserver und Verbundserverproxies in Ihrer Produktionsumgebung entspricht.|[Bestimmen der AD FS-Bereitstellungstopologie](Determine-Your-AD-FS-Deployment-Topology.md)|  
 |Verstehen Sie Key AD FS-bezogene kapazitätsplanung Begriffe|Überprüfen Sie die Definitionen gängiger rund um die Planung von Begriffen, die in die Erläuterung der AD FS-kapazitätsplanung verwendet werden.|Lesen Sie den Abschnitt [AD FS capacity planning terms](Planning-for-AD-FS-Server-Capacity.md#bk_terms) in diesem Thema.|  
   
 Nachdem Sie die Inhalte der vorherigen Tabelle durchgesehen haben, können Sie die in der nächsten Tabelle aufgeführten erforderlichen Aufgaben abschließen.  
@@ -98,9 +97,9 @@ Normalerweise sind die CPU, der Arbeitsspeicher, die Festplatte und die Netzwerk
 ## <a name="continue-reading-more-about-ad-fs-capacity-planning"></a>Weitere Lektüre zur AD FS-Kapazitätsplanung  
 Nachdem Sie die erforderlichen Aufgaben abgeschlossen haben und mit den relevanten Begriffen und hardwareanforderungen vertraut geworden, können Sie die folgende zusätzliche kapazitätsplanung Inhalten können Sie bestimmen die empfohlene Anzahl von AD FS-Server erforderlich, die für Ihre Einsatz:  
   
--   [Planen der verbundserverkapazität](Planning-for-Federation-Server-Capacity.md)  
+-   [Planen der Verbundserverkapazität](Planning-for-Federation-Server-Capacity.md)  
   
 -   [Planen der Verbundserverproxy-Kapazität](Planning-for-Federation-Server-Proxy-Capacity.md)  
   
 ## <a name="see-also"></a>Siehe auch
-[AD FS-Entwurfshandbuch in WindowsServer 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

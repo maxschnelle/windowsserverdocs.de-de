@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 511a039afd47cf7570fffdcaf17842e0eccc5683
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f1367f03ea8a9ba96bfe4bae1c324deff92576f0
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843061"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192260"
 ---
 # <a name="configure-a-federation-server-with-device-registration-service"></a>Konfigurieren eines Verbundservers mit dem Geräteregistrierungsdienst
-
->Gilt für: Windows Server 2012 R2
 
 Sie können Device Registration Service \(DRS\) auf dem Verbundserver, die nach der Durchführung der Verfahren in [Schritt 4: Konfigurieren eines Verbundservers](https://technet.microsoft.com/library/dn303424.aspx). Der Device Registration Service bietet einen Onboarding-Mechanismus für die nahtlose-Factor Authentication, persistente einmaliges Anmelden\-auf \(SSO\), und den bedingten Zugriff für Kunden, die Zugriff auf die Unternehmensressourcen benötigen. Ressourcen zu. Weitere Informationen zu DRS finden Sie unter [Verbinden mit einem Arbeitsplatz von einem beliebigen Gerät für SSO und nahtlose Second Factor Authentication Across Company Applications](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md)  
   
@@ -78,7 +76,7 @@ Nahtlose zweistufige Authentifizierung ist eine Erweiterung im AD FS, die ein h�
   
 ## <a name="see-also"></a>Siehe auch 
 
-[AD FS-Bereitstellung](../../ad-fs/AD-FS-Deployment.md)  
+[AD FS-Bereitstellung](../../ad-fs/AD-FS-Deployment.md)  
 
 [Windows Server 2012 R2 AD FS-Bereitstellung geführt.](../../ad-fs/deployment/Windows-Server-2012-R2-AD-FS-Deployment-Guide.md)  
  

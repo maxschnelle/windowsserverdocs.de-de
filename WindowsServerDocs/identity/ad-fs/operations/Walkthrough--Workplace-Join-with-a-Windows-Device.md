@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: fd222eb47982591e051594e8a572443b65c0357f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8b3b2934e7aa177e873e19d77530b2d796ccd521
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864001"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188896"
 ---
 # <a name="walkthrough-workplace-join-with-a-windows-device"></a>Exemplarische Vorgehensweise: Arbeitsplatzbeitritt mit einem Windows-Gerät
-
->Gilt für: Windows Server 2016, Windows Server 2012 R2
 
 In diesem Thema wird gezeigt, wie Sie den Arbeitsplatzbeitritt verwenden, um Ihr Windows-Gerät mit Ihrem Arbeitsplatz zu verbinden. Sie erfahren außerdem, wie Sie über das einmalige Anmelden auf eine Webanwendung zugreifen. Sie müssen die Schritte in der [Einrichten der testumgebung für AD FS in Windows Server 2012 R2](../deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md) Abschnitt, bevor Sie in dieser exemplarischen Vorgehensweise ausprobieren können.
 

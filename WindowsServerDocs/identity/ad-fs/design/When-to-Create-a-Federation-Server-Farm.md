@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 2e7c991cf87bc0e6914e158f0878bcadbede3c22
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 91a0122198639bf75e9e43e9da9edf68dd0453d9
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816231"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190677"
 ---
 # <a name="when-to-create-a-federation-server-farm"></a>Wann sollte eine Verbundserverfarm erstellt werden?
-
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Sollten Sie eine Verbundserverfarm erstellen, in Active Directory-Verbunddienste \(AD FS\) bei eine größere AD FS-Bereitstellung haben und Sie möchten Fehlertoleranz bereitzustellen, laden\-Lastenausgleich oder Skalierbarkeit für Ihre Verbunddienst der Organisation. Der Vorgang, erstellen zwei oder mehr Verbundserver in demselben Netzwerk, konfigurieren jeweils den gleichen Verbunddienst verwendet und Hinzufügen von der öffentliche Schlüssel der einzelnen Server ist token\-Signieren von Zertifikaten, die AD FS-Verwaltungs-Snap\-in erstellt eine Verbundserverfarm.  
   
@@ -55,4 +53,4 @@ Die folgende Tabelle beschreibt die Aufgaben, die ausgeführt werden müssen, da
 |Zeigen auf die gleiche SQL Server-Instanz|Wenn die AD FS-Konfigurationsdatenbank in einer SQL­Datenbank gespeichert werden, muss der neue Verbundserver auf derselben SQL Server-Instanz verweisen, die von anderen Verbundserver in der Farm verwendet wird, sodass der neue Server in der Farm teilnehmen kann.|  
   
 ## <a name="see-also"></a>Siehe auch
-[AD FS-Entwurfshandbuch in WindowsServer 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

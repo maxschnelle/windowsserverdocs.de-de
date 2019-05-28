@@ -9,16 +9,15 @@ ms.date: 10/25/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 3d622686a3cc34316f0cf5187839785195c2f104
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2f6e4abb4255281be85b7fa928566f681bcf2de2
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880231"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188361"
 ---
 # <a name="auditing-enhancements-to-ad-fs-in-windows-server-2016"></a>Überwachung von Erweiterungen für AD FS unter Windows Server 2016
 
->Gilt für: Windows Server 2016
 
 Derzeit in AD FS für Windows Server 2012 R2 gibt es zahlreiche Überwachungsereignisse, die für eine einzelne Anforderung und die relevanten Informationen zu einer Anmeldung generiert werden oder die Ausstellung von token-Aktivität ist entweder nicht vorhanden (in einigen Versionen von AD FS) oder über mehrere Überwachungsereignisse verbreiten sich. Der AD FS werden Überwachungsereignisse aufgrund der Natur ausführliche standardmäßig deaktiviert.  
     Mit der Version von AD FS in Windows Server 2016-Überwachung optimierte und weniger ausführlich geworden.  

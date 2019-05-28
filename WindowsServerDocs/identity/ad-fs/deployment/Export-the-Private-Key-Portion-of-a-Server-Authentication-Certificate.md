@@ -9,16 +9,14 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: c968f0702d56b56d0a80459e5cf0c9e658c56741
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c3a39f9d51ed8243118522ae37bc7d205a7ea416
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857191"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192139"
 ---
 # <a name="export-the-private-key-portion-of-a-server-authentication-certificate"></a>Exportieren des Teils eines privaten Schlüssels aus einem Serverauthentifizierungszertifikat
-
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Jedes Verbundservers in einer Active Directory Federation Services \(AD FS\) Farm benötigen Zugriff auf den privaten Schlüssel des serverauthentifizierungszertifikats. Wenn Sie eine Serverfarm mit Verbundserver oder Webservern implementieren, müssen Sie ein einzelnes Authentifizierungszertifikat verfügen. Dieses Zertifikat muss von einer Unternehmenszertifizierungsstelle ausgestellt sein \(Zertifizierungsstelle\), und sie müssen einen exportierbaren privaten Schlüssel. Der private Schlüssel des Serverauthentifizierungszertifikats muss exportierbar sein, damit er für alle Server in der Farm zur Verfügung gestellt werden kann.  
   
@@ -55,12 +53,12 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
 9. Importieren Sie das exportierte Serverauthentifizierungszertifikat in den Zertifikatspeicher auf dem neuen Server, bevor Sie den Verbunddienst installieren. Informationen dazu, wie Sie das Zertifikat zu importieren, finden Sie unter Importieren eines Serverzertifikats \( [http:\/\/"go.Microsoft.com"\/Fwlink\/? LinkId\=108283](https://go.microsoft.com/fwlink/?LinkId=108283)\).  
   
 ## <a name="additional-references"></a>Weitere Verweise  
-[Prüfliste: Das Einrichten eines Verbundservers](Checklist--Setting-Up-a-Federation-Server.md)  
+[Prüfliste: Einrichten eines Verbundservers](Checklist--Setting-Up-a-Federation-Server.md)  
   
-[Prüfliste: Das Einrichten eines Verbundserverproxys](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
+[Prüfliste: Einrichten eines Verbundserverproxys](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
   
 [Zertifikatanforderungen für Verbundserver](https://technet.microsoft.com/library/dd807040.aspx)  
   
-[Zertifikatanforderungen für Verbundserverproxies](https://technet.microsoft.com/library/dd807054.aspx)  
+[Zertifikatanforderungen für Verbundserverproxys](https://technet.microsoft.com/library/dd807054.aspx)  
   
 
