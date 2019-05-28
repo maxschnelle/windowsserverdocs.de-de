@@ -3,22 +3,20 @@ ms.assetid: 8e7015bc-c489-4ec7-8b6e-3ece90f72317
 title: Konfigurieren von Authentifizierungsrichtlinien
 description: ''
 author: billmath
-ms.author: billmath
 manager: femila
 ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 7faffb7ccbb4b0ea3c65329d18f915d7dafcd46f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.author: billmath
+ms.openlocfilehash: 9345f995af2f256dddcbcbd7d05c4bf6170b563e
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861791"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189858"
 ---
 # <a name="configure-authentication-policies"></a>Konfigurieren von Authentifizierungsrichtlinien
-
->Gilt für: Windows Server 2012 R2
 
 In AD FS in Windows Server 2012 R2 den Zugriff auf Steuerelement, und der Authentifizierungsmechanismus verbessert, mit mehreren Faktoren ab, die Benutzer, Gerät, Standort und die Authentifizierung Daten enthalten. Diese Verbesserungen können Sie entweder über die Benutzeroberfläche oder über Windows PowerShell, um das Risiko von Gewähren von Berechtigungen für AD FS zu verwalten\-gesicherte Anwendungen über mehrere\-berücksichtigen, Zugriffssteuerung und mehreren\--Factor Authentication, die für Benutzer von Benutzeridentität oder der Gruppenmitgliedschaft, Netzwerkadresse, Gerätedaten, die Arbeitsplatz ist basieren\-hinzugefügt, und der Zustand über, wenn der Authentifizierungs mit mehreren\--Factor Authentication \(MFA\) durchgeführt wurde.  
   
@@ -305,4 +303,4 @@ Die Mindestanforderung zum Abschließen dieser Verfahren ist die Mitgliedschaft 
 
 ## <a name="additional-references"></a>Weitere Verweise  
 
-[AD FS-Vorgänge](../../ad-fs/AD-FS-2016-Operations.md)
+[AD FS-Vorgänge](../../ad-fs/AD-FS-2016-Operations.md)

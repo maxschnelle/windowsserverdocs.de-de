@@ -13,12 +13,12 @@ ms.assetid: 063783cd-d748-489e-b175-46eadc993f7a
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 60d2e1fedc018136f5668d55a8afb2e0574d94de
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: da27467efb842368167b7a315056506e99331e8d
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845071"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034599"
 ---
 # <a name="multipoint-services-site-planning"></a>MultiPoint Services-Standortplanung
 Sie sollten erwägen, den Speicherort, in dem einen oder mehrere Computer mit MultiPoint Services und die zugehörigen Stationen bereitgestellt wird.  
@@ -86,11 +86,11 @@ Es gibt keine physische Entfernung Einschränkungen für die LAN-Clients. Solang
 ## <a name="using-additional-hubs"></a>Zusätzliche Hubs verwenden  
 Zusätzliche Hubs können verwendet werden, um die Installation zu erleichtern. Es gibt drei Arten von Hubs, die auf einem MultiPoint Services-System verwendet werden:  
   
--   [Stationshubs](#Station-hubs)  
+-   [Stationshubs](#station-hubs)  
   
--   [Zwischen hubs](#Intermediate-hubs)  
+-   [Zwischen hubs](#intermediate-hubs)  
   
--   [Downstreamhubs](#Downstream-hubs)  
+-   [Downstreamhubs](#downstream-hubs)  
   
 ### <a name="station-hubs"></a>Stationshubs  
 Ein stationshub ist eine externe Hub, der eine MultiPoint Services-Station zugeordnet wurde. Der stationshub müssen mindestens eine Tastatur an der es. Möglicherweise müssen sie auch zusätzliche angefügte Peripheriegeräten. Ein stationshub möglich ein generischer USB-Hub, der die USB 2.0 oder höher-Spezifikation entspricht. Stationshubs sollten extern unterstützt werden, wenn leistungsstarke Geräte-Plug-Ins werden werden.  

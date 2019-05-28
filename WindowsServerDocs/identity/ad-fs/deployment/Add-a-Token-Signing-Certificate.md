@@ -9,16 +9,15 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 8a94e0724d6fd2a04e2fbfc22b3054b49d87f440
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ac9f9b95ad6226a8e3b7012e317899f1d48c60c9
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826151"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192467"
 ---
 # <a name="add-a-token-signing-certificate"></a>Hinzufügen eines Tokensignaturzertifikats
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Verbundserver in Active Directory Federation Services \(AD FS\) erfordern Token\-Signaturzertifikate zum hindert Angreifer daran, ändern oder zu fälschen Sicherheitstoken zu versuchen, nicht autorisierten Zugriff zu erhalten. mit verbundenen Ressourcen. Jedes Token\-Signaturzertifikat enthält, kryptografische private und öffentliche Schlüssel, die verwendet werden, zum digitalen Signieren von \(mit dem privaten Schlüssel\) ein Sicherheitstoken. Später, nachdem diese Schlüssel von einem Partnerverbundserver empfangen werden, überprüfen sie die Echtheit \(mit dem öffentlichen Schlüssel\) des verschlüsselten Sicherheitstokens.  
   
@@ -40,7 +39,7 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
 4.  In der **Zertifikatsdatei suchen** Dialogfeld navigieren Sie zu der Zertifikatdatei, die Sie verwenden möchten, hinzufügen, wählen Sie die Zertifikatdatei aus, und klicken Sie dann auf **öffnen**.  
   
 ## <a name="additional-references"></a>Weitere Verweise  
-[Prüfliste: Das Einrichten eines Verbundservers](Checklist--Setting-Up-a-Federation-Server.md)  
+[Prüfliste: Einrichten eines Verbundservers](Checklist--Setting-Up-a-Federation-Server.md)  
   
 [Zertifikatanforderungen für Verbundserver](https://technet.microsoft.com/library/dd807040.aspx)  
   

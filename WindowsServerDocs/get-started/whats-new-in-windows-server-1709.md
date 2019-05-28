@@ -7,25 +7,25 @@ ms.topic: article
 author: coreyp-at-msft
 ms.author: coreyp
 ms.localizationpriority: medium
-ms.openlocfilehash: 1d63721dde484756e67b68bcff078257c130ae36
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 32ce591a8b50c6e35c3fde4fedb177b6d76fccdd
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59825491"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976726"
 ---
 # <a name="whats-new-in-windows-server-version-1709"></a>Neues in IPAM unter Windows Server, Version 1709.
 
 >Gilt für: Windows Server (Semi-Annual Channel)
 
-<img src="../media/landing-icons/new.png" style='float:left; padding:.5em;' alt="Icon showing a newspaper">&nbsp;In diesem Abschnitt wird beschrieben, was in Windows Server, Version 1709, neu ist und was sich geändert hat. Die hier aufgeführten Neuerungen und Änderungen haben bei der Arbeit in dieser Version vermutlich die größte Auswirkung. Weitere Informationen finden Sie unter [Windows Server, Version 1709](https://blogs.technet.microsoft.com/windowsserver/2017/08/24/sneak-peek-1-windows-server-version-1709/).
+<img src="../media/landing-icons/new.png" style='float:left; padding:.5em;' alt="Icon showing a newspaper">&nbsp;Weitere Informationen zu den neuesten Features in Windows finden Sie unter [Neuigkeiten in Windows Server](whats-new-in-windows-server.md). In diesem Abschnitt wird beschrieben, was in Windows Server, Version 1709, neu ist und was sich geändert hat. Die hier aufgeführten Neuerungen und Änderungen haben bei der Arbeit in dieser Version vermutlich die größte Auswirkung. Weitere Informationen finden Sie unter [Windows Server, Version 1709](https://blogs.technet.microsoft.com/windowsserver/2017/08/24/sneak-peek-1-windows-server-version-1709/).
    
 
 ## <a name="new-cadence-of-releases"></a>Neuer Versionsrhythmus
 
 Ab dieser Version haben Sie zwei Optionen für den Empfang von Funktionsupdates für Windows Server:
-- **Langfristiger Wartungskanal (LTSC)**: Dies ist die Unternehmen wie gewohnt mit 5 Jahre mainstream-Support und 5 Jahre erweiterter Support. Sie haben die Möglichkeit, alle 2 bis 3 Jahre auf die nächste LTSC-Version zu aktualisieren, die genau wie auch die letzten 20 Jahre unterstützt wird.
-- **Halbjährlicher Kanal (, SAC)**: Dies ist ein Software Assurance-Vorteil und wird vollständig in einer produktionsumgebung unterstützt. Der Unterschied besteht darin, dass sie 18 Monate lang unterstützt wird, und es alle sechs Monate eine neue Version gibt.
+- **Langfristiger Wartungskanal (LTSC)** : Dies ist die Unternehmen wie gewohnt mit 5 Jahre mainstream-Support und 5 Jahre erweiterter Support. Sie haben die Möglichkeit, alle 2 bis 3 Jahre auf die nächste LTSC-Version zu aktualisieren, die genau wie auch die letzten 20 Jahre unterstützt wird.
+- **Halbjährlicher Kanal (, SAC)** : Dies ist ein Software Assurance-Vorteil und wird vollständig in einer produktionsumgebung unterstützt. Der Unterschied besteht darin, dass sie 18 Monate lang unterstützt wird, und es alle sechs Monate eine neue Version gibt.
 
 Veröffentlichungskanäle werden in der folgenden Tabelle zusammengefasst:
 
@@ -36,7 +36,7 @@ Veröffentlichungskanäle werden in der folgenden Tabelle zusammengefasst:
 | Verfügbarkeit  | Software Assurance oder Azure (in der Cloud gehostet)  | Alle Kanäle |
 | Benennungskonvention  | Windows Server, Version JJMM  | YYYY für Windows Server |
 
-Weitere Informationen finden Sie unter [Übersicht: Windows Server, Semi-Annual Channel](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview).
+Weitere Informationen finden Sie unter [Vergleich wartungskanälen](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview).
 
 ## <a name="application-containers-and-micro-services"></a>Anwendungscontainer und Microservices
 
@@ -66,7 +66,7 @@ Weitere Informationen zu Containern finden Sie unter [Übersicht über Container
 
 **Virtualized Persistent Memory (vPMEM)** wird durch das Erstellen einer VHD-Datei (.vhdpmem) auf einem direkten Zugriffsvolume auf einem Host ermöglicht, wodurch ein vPMEM Controller auf einen VM und das erstelle Gerät (.vhdpmem) auf einen VM hinzugefügt wird. Das Verwenden von vhdpmem-Dateien auf Volumes mit direktem Zugriff auf einem Host zur Sicherung von vPMEM ermöglicht die Zuordnung von Flexibilität und nutzt ein vertrautes Verwaltungsmodell zum Hinzufügen von Datenträgern zum virtuellen Computer.
 
-**Container-Speicher – permanente Datenvolumes auf freigegebenen Clustervolumes (CSV)**. In Windows Server, Version 1709, und auf Windows Server 2016 mit den neuesten Updates, haben wir Unterstützung für Container hinzugefügt, damit Sie auf permanente Datenvolumes auf freigegebenen Clustervolumes zugreifen können, einschließlich freigegebenen Clustervolumes für "direkte Speicherplätze". Dadurch erhalten die Anwendungscontainer permanenten Zugriff auf das Volume, unabhängig davon, welchen Cluster-Knoten die Container-Instanz ausführt. Weitere Informationen finden Sie unter [Container Storage Support with Cluster Shared Volumes (CSV), direkte Speicherplätze (S2D), SMB Global Mapping](https://blogs.msdn.microsoft.com/clustering/2017/08/10/container-storage-support-with-cluster-shared-volumes-csv-storage-spaces-direct-s2d-smb-global-mapping/).
+**Container-Speicher – permanente Datenvolumes auf freigegebenen Clustervolumes (CSV)** . In Windows Server, Version 1709, und auf Windows Server 2016 mit den neuesten Updates, haben wir Unterstützung für Container hinzugefügt, damit Sie auf permanente Datenvolumes auf freigegebenen Clustervolumes zugreifen können, einschließlich freigegebenen Clustervolumes für "direkte Speicherplätze". Dadurch erhalten die Anwendungscontainer permanenten Zugriff auf das Volume, unabhängig davon, welchen Cluster-Knoten die Container-Instanz ausführt. Weitere Informationen finden Sie unter [Container Storage Support with Cluster Shared Volumes (CSV), direkte Speicherplätze (S2D), SMB Global Mapping](https://blogs.msdn.microsoft.com/clustering/2017/08/10/container-storage-support-with-cluster-shared-volumes-csv-storage-spaces-direct-s2d-smb-global-mapping/).
 
 **Container Storage – permanente Datenvolumes mit SMB Global Mapping**. In Windows Server, Version 1709, wurde die Unterstützung für das Zuordnen einer SMB-Dateifreigabe auf einen Laufwerkbuchstaben in einem Container hinzugefügt – Dies wird als „SMB Global Mapping” bezeichnet. Dieses zugeordnete Laufwerk ist dann für alle Benutzer auf dem lokalen Server zugänglich, sodass das die Dateifreigabe der Container-E/A auf dem Datenvolume auf dem bereitgestellten Laufwerk die zugrunde liegende Dateifreigabe durchlaufen kann. Weitere Informationen finden Sie unter [Container Storage Support with Cluster Shared Volumes (CSV), direkte Speicherplätze (S2D), SMB Global Mapping](https://blogs.msdn.microsoft.com/clustering/2017/08/10/container-storage-support-with-cluster-shared-volumes-csv-storage-spaces-direct-s2d-smb-global-mapping/).
 
@@ -76,7 +76,7 @@ Weitere Informationen zu Containern finden Sie unter [Übersicht über Container
 
 **Netzwerkverschlüsselung** ermöglicht das schnelle Verschlüsseln von Netzwerksegmenten auf einer Software-definierten Networking-Infrastruktur, um Sicherheits- und Compliance-Anforderungen zu erfüllen.
 
-**Host-Überwachungsdienst (Host Guardian Service, HGS)**, wenn eine abgeschirmte VM aktiviert ist. Vor dieser Version war die Empfehlung, einen physischen 3-Knoten-Cluster bereitzustellen. Obwohl dadurch garantiert wurde, dass die Host-Überwachungsdienst-Umgebung nicht durch einen Administrator gefährdet ist, war dies oft sehr kostenintensiv.
+**Host-Überwachungsdienst (Host Guardian Service, HGS)** , wenn eine abgeschirmte VM aktiviert ist. Vor dieser Version war die Empfehlung, einen physischen 3-Knoten-Cluster bereitzustellen. Obwohl dadurch garantiert wurde, dass die Host-Überwachungsdienst-Umgebung nicht durch einen Administrator gefährdet ist, war dies oft sehr kostenintensiv.
 
 **Linux als eine abgeschirmte VM** wird jetzt unterstützt.
 
@@ -86,7 +86,7 @@ Weitere Informationen finden Sie unter [Übersicht über geschütztes Fabric und
 
 ## <a name="storage"></a>Speicher
 
-**Funktion "Speicherreplikat"**: Der Schutz für die notfallwiederherstellung von der Funktion "Speicherreplikat" in Windows Server 2016 hinzugefügt wurde erweitert, gehören:
+**Funktion "Speicherreplikat"** : Der Schutz für die notfallwiederherstellung von der Funktion "Speicherreplikat" in Windows Server 2016 hinzugefügt wurde erweitert, gehören:
 - **Testen des Failovers**: die Option zum Bereitstellen des Ziel-Speichers ist jetzt mit der Funktion zum Testen des Failovers möglich. Sie können einen Snapshot des replizierten Speichers auf Zielknoten vorübergehend zu Test- und Sicherungszwecken bereitstellen.  Weitere Informationen finden Sie unter [Häufig gestellte Fragen zu Speicherreplikaten](https://aka.ms/srfaq). 
 - **Projekt Honolulu Unterstützung**: Unterstützung für die grafische Verwaltung der Server zu Server-Replikation ist jetzt im Projekt Honolulu verfügbar. Dadurch wird die Anforderung, PowerShell zum Verwalten einer allgemeinen Arbeitslast zum Notfallschutz, entfernt.
 
@@ -115,7 +115,7 @@ Weitere Informationen finden Sie unter [Übersicht über geschütztes Fabric und
 **Windows-Netzwerke mit Linux Featuresätze für Kubernetes**: Windows ist jetzt im Hinblick auf Netzwerkbetrieb mit Linux. Kunden können gemischt-OS, Kubernetes-Cluster in einer Umgebung bereitstellen, die Azure, lokale, und auf Drittanbieter-Cloud-Stapel mit den gleichen Netzwerk-Grundtypen und Topologien unter Linux unterstützt, ohne Problemumgehungen oder Switcherweiterungen.
 
 **Core-Netzwerkstapel**: Einige Features der Netzwerkstapel Core wurden verbessert. Weitere Informationen zu diesen Features finden Sie unter [Core-Netzwerkstapelfunktionen im Creators Update für Windows 10](https://blogs.technet.microsoft.com/networking/2017/07/13/core-network-stack-features-in-the-creators-update-for-windows-10/).
-- **TCP Fast Open (TFO)**: Unterstützung für TFO wurde hinzugefügt, um den TCP-3-Wege-Handshake-Prozess zu optimieren. TFO richtet ein sicheren TFO Cookie in der ersten Verbindung mit einem standardmäßigen 3-Wege-Handshake ein.  Nachfolgende Verbindungen auf dem gleichen Server verwenden das TFO-Cookie anstelle eines 3-Wege-Handshakes zum Herstellen einer Verbindung mit 0 (null) Roundtripzeit.
+- **TCP Fast Open (TFO)** : Unterstützung für TFO wurde hinzugefügt, um den TCP-3-Wege-Handshake-Prozess zu optimieren. TFO richtet ein sicheren TFO Cookie in der ersten Verbindung mit einem standardmäßigen 3-Wege-Handshake ein.  Nachfolgende Verbindungen auf dem gleichen Server verwenden das TFO-Cookie anstelle eines 3-Wege-Handshakes zum Herstellen einer Verbindung mit 0 (null) Roundtripzeit.
 - **CUBIC**: Experimentelle Windows native Implementierung KUBISCHE, ist ein TCP-Überlastung Steuerelement Algorithmus verfügbar. Die folgenden Befehle aktivieren oder deaktivieren CUBIC.
 
     ```
@@ -140,7 +140,7 @@ Weitere Informationen finden Sie unter [Übersicht über geschütztes Fabric und
     ```
 
     - **ISATAP und 6to4**: Als Maßnahme zur zukünftigen Veraltung müssen dem Creators Update dieser Technologien, die standardmäßig deaktiviert.
-- **Erkennung von Gateways (DGD)**: Der Algorithmus DGD geht automatisch Verbindungen über in ein anderes Gateway, wenn das aktuelle Gateway nicht erreichbar ist. In dieser Version ist der Algorithmus verbessert, um die Netzwerkumgebung in regelmäßigen Abständen erneut zu überprüfen.
+- **Erkennung von Gateways (DGD)** : Der Algorithmus DGD geht automatisch Verbindungen über in ein anderes Gateway, wenn das aktuelle Gateway nicht erreichbar ist. In dieser Version ist der Algorithmus verbessert, um die Netzwerkumgebung in regelmäßigen Abständen erneut zu überprüfen.
 - [Test-NetConnection](https://technet.microsoft.com/itpro/powershell/windows/nettcpip/test-netconnection) ist ein integriertes Cmdlet in Windows PowerShell, das eine Vielzahl von Netzwerkdiagnosen ausführt.  In dieser Version haben wir das Cmdlet verbessert, um detaillierte Informationen sowohl zur Routenauswahl als auch zur Quelladresse zu verbessern.
 
 **Software-Defined Networking**

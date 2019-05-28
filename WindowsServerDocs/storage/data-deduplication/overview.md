@@ -8,23 +8,23 @@ author: wmgries
 manager: klaasl
 ms.author: wgries
 ms.date: 05/09/2017
-ms.openlocfilehash: 4344108f96d14475c15a31bd1ab917e7fc78ef9f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4376dbb2c172a82c4ab64dc63acefbc37457110f
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59860131"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476043"
 ---
 # <a name="data-deduplication-overview"></a>Datendeduplizierung (Übersicht)
 
-> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+> Gilt für: WindowsServer 2019, WindowsServer 2016, WindowsServer (Halbjährlicher Kanal) 
 
 ## <a name="what-is-dedup"></a>Was ist Datendeduplizierung?
 
-Datendeduplizierung ist ein Feature von Windows Server 2016, mit dessen Hilfe Sie die Auswirkungen redundanter Daten auf Speicherkosten verringern können. Falls aktiviert, optimiert die Datendeduplizierung den freien Speicherplatz auf einem Volume, indem die Daten auf dem Volume durch Suchen nach duplizierten Teilen auf dem Volume untersucht werden. Duplizierte Teile des Datasets des Volumes werden einmal gespeichert und für weitere Einsparungen (optional) komprimiert. Die Datendeduplizierung optimiert Redundanzen, ohne dadurch die Originaltreue oder Integrität von Daten zu gefährden. Weitere Informationen über die Funktionsweise der Datendeduplizierung finden Sie im Abschnitt [Wie funktioniert die Datendeduplizierung?](understand.md#how-does-dedup-work) auf der Seite [Grundlegendes zur Datendeduplizierung](understand.md).
+Die Datendeduplizierung, die häufig bei der Deduplizierung aufgerufen, kurz, ist ein Feature, mit denen die Auswirkungen redundanter Daten auf Speicherkosten verringern kann. Falls aktiviert, optimiert die Datendeduplizierung den freien Speicherplatz auf einem Volume, indem die Daten auf dem Volume durch Suchen nach duplizierten Teilen auf dem Volume untersucht werden. Duplizierte Teile des Datasets des Volumes werden einmal gespeichert und für weitere Einsparungen (optional) komprimiert. Die Datendeduplizierung optimiert Redundanzen, ohne dadurch die Originaltreue oder Integrität von Daten zu gefährden. Weitere Informationen über die Funktionsweise der Datendeduplizierung finden Sie im Abschnitt [Wie funktioniert die Datendeduplizierung?](understand.md#how-does-dedup-work) auf der Seite [Grundlegendes zur Datendeduplizierung](understand.md).
 
 > [!Important]  
-> [KB4025334](https://support.microsoft.com/kb/4025334) schließt einen Hotfixrollup für Datendeduplizierung ein, und es wird dringend empfohlen, diesen sowie einen Zuverlässigkeitsfix zu installieren, wenn die Datendeduplizierung unter Windows Server 2016 verwendet wird.
+> [KB4025334](https://support.microsoft.com/kb/4025334) enthält ein Rollup auf Korrekturen für die Datendeduplizierung, einschließlich wichtiger Zuverlässigkeit behoben, und es wird dringend empfohlen bei Verwendung der Datendeduplizierung mit Windows Server 2016 und Windows Server-2019 installieren.
 
 ## <a name="why-is-dedup-useful"></a>Warum ist Datendeduplizierung nützlich?
 
@@ -36,7 +36,7 @@ Die Datendeduplizierung hilft Speicheradministratoren bei der Reduzierung der Ko
 
 Die Einsparungen von Speicherplatz, die Sie mit Datendeduplizierung erzielen können, sind abhängig vom Dataset oder der Workload auf dem Volume. Bei Datasets mit hoher Duplizierung kann eine Optimierungsquote von bis zu 95 % bzw. eine um das 20-fache reduzierte Speicherbelegung erreicht werden. In der folgenden Tabelle sind die typischen Einsparungen aufgeführt, die für verschiedene Inhaltstypen durch Deduplizierung erzielt werden können:
 
-| Szenario       | Content                                        | Typische Platzeinsparung |
+| Szenario       | Inhalt                                        | Typische Platzeinsparung |
 |----------------|------------------------------------------------|-----------------------|
 | Benutzerdokumente | Office-Dokumente, Fotos, Musik, Videos usw.  | 30 - 50 %                |
 | Bereitstellungsfreigaben | Softwarebinärdateien, CAB-Dateien, Symboldateien usw. | 70 - 80 %                |

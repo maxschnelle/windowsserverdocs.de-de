@@ -13,16 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 966ac7f70984dff6d26265e07a26a6eebcde9fb6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7d9b99dbe7e26190e87c5dfc9de29980b9cb2f43
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874391"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192586"
 ---
 # <a name="cmd"></a>Cmd
-
-
 
 Startet eine neue Instanz der den Befehlsinterpreter, Cmd.exe. Wenn Sie ohne Angabe von Parametern **Cmd** zeigt die Version und urheberrechtliche Informationen des Betriebssystems.
 
@@ -104,6 +102,7 @@ Die folgende Tabelle enthält gültige hexadezimale Ziffern, mit denen Sie als W
 
 > [!CAUTION]
 > Durch eine fehlerhafte Bearbeitung der Registrierung können schwerwiegende Schäden am System verursacht werden. Bevor Sie Änderungen an der Registrierung vornehmen, sollten Sie alle wichtigen Computerdaten sichern.
+
 -   Aktivieren und Deaktivieren von befehlserweiterungen
 
     Befehlserweiterungen sind in Windows XP standardmäßig aktiviert. Sie können diese für einen bestimmten Prozess deaktivieren, indem Sie mithilfe von **/e: off**. Sie können aktivieren oder Deaktivieren von Erweiterungen für alle **Cmd** Befehlszeilenoptionen, indem Sie folgende Einstellungen auf einem Computer oder Benutzer **REG_DWORD** Werte:
@@ -114,34 +113,35 @@ Die folgende Tabelle enthält gültige hexadezimale Ziffern, mit denen Sie als W
 
     Legen Sie die **REG_DWORD** Wert entweder **0 x 1** (aktiviert) oder **0 x 0** (deaktiviert) in der Registrierung mithilfe von Regedit.exe. Benutzerdefinierte Einstellungen haben Vorrang vor Einstellungen des Computers, und Befehlszeilenoptionen haben Vorrang vor registrierungseinstellungen.
 
->     [!CAUTION]
->     Incorrectly editing the registry may severely damage your system. Before making changes to the registry, you should back up any valued data on the computer.
+> [!CAUTION]
+> Durch eine fehlerhafte Bearbeitung der Registrierung können schwerwiegende Schäden am System verursacht werden. Bevor Sie Änderungen an der Registrierung vornehmen, sollten Sie alle wichtigen Computerdaten sichern.
 
     When you enable command extensions, the following commands are affected:  
-    -   **assoc**
-    -   **call**
-    -   **chdir (cd)**
-    -   **color**
-    -   **del (erase)**
-    -   **endlocal**
-    -   **for**
-    -   **ftype**
-    -   **goto**
-    -   **if**
-    -   **mkdir (md)**
-    -   **popd**
-    -   **prompt**
-    -   **pushd**
-    -   **set**
-    -   **setlocal**
-    -   **shift**
-    -   **start** (also includes changes to external command processes)
+    -  **assoc**
+    -  **call**
+    -  **chdir (cd)**
+    -  **color**
+    -  **del (erase)**
+    -  **endlocal**
+    -  **for**
+    -  **ftype**
+    -  **goto**
+    -  **if**
+    -  **mkdir (md)**
+    -  **popd**
+    -  **prompt**
+    -  **pushd**
+    -  **set**
+    -  **setlocal**
+    -  **shift**
+    -  **start** (also includes changes to external command processes)
+
 -   Aktivieren des verzögerten Erweiterung von Umgebungsvariablen
 
     Wenn Sie verzögerte umgebungsvariablenerweiterung zu aktivieren, können Sie Ausrufezeichens, ersetzen Sie den Wert einer Umgebungsvariablen zur Laufzeit.
 -   Aktivieren der Datei- und Vervollständigung von Objektnamen
 
-    Vervollständigung von Datei- und Verzeichnis ist nicht standardmäßig aktiviert. Sie können aktivieren oder deaktivieren Sie die Datei Vervollständigung von Objektnamen für einen bestimmten Prozess die **Cmd** Befehl **/f:**{**auf**|**aus**}. Sie können aktivieren oder deaktivieren Sie die Vervollständigung von Datei- und Verzeichnis für alle Prozesse, die von der **Cmd** Befehl auf einem Computer oder für eine benutzersitzung Anmeldung, indem Sie folgende Einstellungen **REG_DWORD** Werte:
+    Vervollständigung von Datei- und Verzeichnis ist nicht standardmäßig aktiviert. Sie können aktivieren oder deaktivieren Sie die Datei Vervollständigung von Objektnamen für einen bestimmten Prozess die **Cmd** Befehl **/f:** {**auf**|**aus**}. Sie können aktivieren oder deaktivieren Sie die Vervollständigung von Datei- und Verzeichnis für alle Prozesse, die von der **Cmd** Befehl auf einem Computer oder für eine benutzersitzung Anmeldung, indem Sie folgende Einstellungen **REG_DWORD** Werte:
 
     **HKEY_LOCAL_MACHINE\Software\Microsoft\Command Processor\CompletionChar\REG_DWORD**
 
@@ -170,4 +170,4 @@ Wenn Sie Dateien und Verzeichnisse Vervollständigung von Objektnamen aus verarb
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

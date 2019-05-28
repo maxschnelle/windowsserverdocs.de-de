@@ -11,12 +11,12 @@ ms.assetid: 930e758f-bd50-46b4-a3a4-9857110f17b4
 author: shirgall
 ms.author: kathydav
 ms.date: 08/30/2017
-ms.openlocfilehash: 013328953321bc66b3fd30759e5be321eea32dde
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a398334700f7c292732207919b73a33145a6aae9
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824231"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222692"
 ---
 # <a name="supported-freebsd-virtual-machines-on-hyper-v"></a>Unterstützte FreeBSD-Maschinen in Hyper-V
 
@@ -35,9 +35,9 @@ Die folgende Funktion Verteilung Karte gibt an, die Funktionen in der jeweiligen
 |**Funktion**|**Windows Server-Betriebssystemversion**|**11.1/11.2**|**11.0**|**10.3**|**10.2**|**10.0 - 10.1**|**9.1 - 9.3, 8.4**|
 |-|-|-|-|-|-|-|-|
 |**Verfügbarkeit**||Erstellt|Erstellt|Erstellt|Erstellt|Erstellt|[Ports](https://svnweb.freebsd.org/ports/branches/2015Q1/emulators/hyperv-is/) |
-|**[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_core)**|2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004; |
+|**[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#core)**|2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004; |
 |Windows Server 2016 – genaue Uhrzeit|2016|&#10004;||||||
-|**[Netzwerkfunktionen](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Networking)**||||||||
+|**[Netzwerkfunktionen](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#networking)**||||||||
 |Großrahmen|2016, 2012 R2, 2012, 2008 R2|&#10004;Hinweis 3|&#10004;Hinweis 3|&#10004;Hinweis 3|&#10004;Hinweis 3|&#10004;Hinweis 3|&#10004;Hinweis 3|
 |VLAN-Kennzeichnung und trunking|2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Livemigration|2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
@@ -46,28 +46,28 @@ Die folgende Funktion Verteilung Karte gibt an, die Funktionen in der jeweiligen
 |Segmentierung von TCP und Prüfsumme Abladungen|2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|||
 |Large Offload (LRO) empfangen|2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;||||
 |SR-IOV|2016|||||||
-|**[Speicher](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Storage)**||Hinweis 1|Hinweis 1|Hinweis 1|Hinweis 1|Beachten Sie 1,2|Beachten Sie 1,2|
+|**[Speicher](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**||Hinweis 1|Hinweis 1|Hinweis 1|Hinweis 1|Beachten Sie 1,2|Beachten Sie 1,2|
 |VHDX resize|2016, 2012 R2|&#10004;Beachten Sie 7|&#10004;Beachten Sie 7|||||
 |Virtueller Fibre Channel|2016, 2012 R2|||||||
 |VM-Sicherung|2016, 2012 R2|&#10004;||||||
 |TRIM-Unterstützung|2016, 2012 R2|&#10004;||||||
 |SCSI WWN|2016, 2012 R2|||||||
-|**[Arbeitsspeicher](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Memory)**||||||||
+|**[Arbeitsspeicher](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#memory)**||||||||
 |Kernel-Unterstützung für PAE|2016, 2012 R2, 2012, 2008 R2|||||||
 |Konfiguration der MMIO-Lücke|2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Dynamischer Arbeitsspeicher - Hot-Add-|2016, 2012 R2, 2012|||||||
 |Dynamische Speichererweiterungsfunktion-|2016, 2012 R2, 2012|||||||
 |Laufzeitspeichers|2016|||||||
-|**[Video](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Video)**||||||||
+|**[Video](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#video)**||||||||
 |Hyper-V-spezifischen Videogerät|2016, 2012 R2, 2012, 2008 R2|||||||
-|**[Sonstige](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Misc)**||||||||
+|**[Sonstige](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#miscellaneous)**||||||||
 |Schlüssel/Wert-Paar|2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;Hinweis 6|&#10004;Hinweis 5, 6|&#10004;Hinweis 6|
 |Nicht maskierbarer Interrupt|2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Kopieren von Dateien vom Host zum Gast|2016, 2012 R2|||||||
 |Lsvmbus-Befehl|2016, 2012 R2, 2012, 2008 R2|||||||
 |Hyper-V-Sockets|2016|||||||
 |PCI-Pass-Through-/ DDA|2016|&#10004;||||||
-|**[Virtuelle Computer der Generation 2](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_gen2)**||||||||
+|**[Virtuelle Computer der Generation 2](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#generation-2-virtual-machines)**||||||||
 |Mit UEFI Boot|2016, 2012 R2|&#10004;||||||
 |Sicherer Start|2016|||||||
 

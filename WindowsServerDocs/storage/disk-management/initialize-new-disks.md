@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 61c8eb2321ee2a282345aba01c6d04a128f0448c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e009780d83220b528ba7dac6e2561be36e662f71
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819391"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192763"
 ---
 # <a name="initialize-new-disks"></a>Initialisieren neuer Datenträger
 
@@ -22,17 +22,23 @@ ms.locfileid: "59819391"
 Wenn Sie einen neuen Datenträger auf Ihren PC hinzufügen, und es nicht im Datei-Explorer angezeigt, Sie müssen möglicherweise [Hinzufügen eines Laufwerksbuchstabens](change-a-drive-letter.md), oder initialisieren Sie sie vor der Verwendung. Sie können nur einem Laufwerk initialisieren, die noch nicht formatiert ist. Initialisieren eines Datenträgers Löscht alles, was darauf, und bereitet es für die Verwendung von Windows, nach dem können Sie sie formatieren und dann speichern Dateien vor.
 
 > [!WARNING]
-> Wenn Ihr Datenträger bereits Dateien, die Sie interessiert verfügt, nicht initialisieren Sie es – verlieren Sie alle Dateien. Stattdessen es wird empfohlen, zur Problembehandlung des Datenträgers angezeigt, wenn Sie die Dateien – lesen können, finden Sie unter [der Status eines Datenträgers ist nicht initialisiert oder der Datenträger fehlt vollständig](troubleshooting-disk-management.md#disk-not-initialized).
+> Wenn Ihr Datenträger bereits Dateien, die Sie interessiert verfügt, nicht initialisieren Sie es – verlieren Sie alle Dateien. Stattdessen es wird empfohlen, zur Problembehandlung des Datenträgers angezeigt, wenn Sie die Dateien – lesen können, finden Sie unter [der Status eines Datenträgers ist nicht initialisiert oder der Datenträger fehlt vollständig](troubleshooting-disk-management.md#a-disks-status-is-not-initialized-or-the-disk-is-missing).
 
 ## <a name="to-initialize-new-disks"></a>So initialisieren Sie neue Datenträger
 
 So sieht wie einen neuen Datenträger mit der Datenträgerverwaltung initialisiert. Wenn Sie PowerShell lieber, verwenden Sie die [Initialize-Disk](https://docs.microsoft.com/powershell/module/storage/initialize-disk) Cmdlet stattdessen.
 
-1. Öffnen Sie Datenträgerverwaltung mit Administratorberechtigungen aus. <br>Geben Sie dazu in das Suchfeld auf der Taskleiste **Datenträgerverwaltung**, wählen Sie aus, und halten (oder mit der rechten Maustaste) **Datenträgerverwaltung**, und wählen Sie dann **als Administrator ausführen**  >  **Ja**. Wenn Sie sie als Administrator öffnen können, geben Sie **Computerverwaltung** stattdessen, und navigieren Sie zu **Storage** > **Datenträgerverwaltung**.
-1. In der Datenträgerverwaltung mit der Maustaste des Datenträgers zu initialisieren, und klicken Sie dann auf **Datenträgerinitialisierung** (hier gezeigt). Wenn der Datenträger als aufgeführt wird *Offline*, zuerst mit der rechten Maustaste darauf und wählen **Online**.<br>Beachten Sie, dass einige USB-Laufwerke haben keine Möglichkeit, das initialisiert wird, werden sie nur die erste formatiert und ein [Laufwerkbuchstaben](change-a-drive-letter.md).
+1. Öffnen Sie Datenträgerverwaltung mit Administratorberechtigungen aus. 
+ 
+    Geben Sie dazu in das Suchfeld auf der Taskleiste **Datenträgerverwaltung**, wählen Sie aus, und halten (oder mit der rechten Maustaste) **Datenträgerverwaltung**, und wählen Sie dann **als Administrator ausführen**  >  **Ja**. Wenn Sie sie als Administrator öffnen können, geben Sie **Computerverwaltung** stattdessen, und navigieren Sie zu **Storage** > **Datenträgerverwaltung**.
+1. In der Datenträgerverwaltung mit der Maustaste des Datenträgers zu initialisieren, und klicken Sie dann auf **Datenträgerinitialisierung** (hier gezeigt). Wenn der Datenträger als aufgeführt wird *Offline*, zuerst mit der rechten Maustaste darauf und wählen **Online**.
+
+     Beachten Sie, dass einige USB-Laufwerke haben keine Möglichkeit, das initialisiert wird, werden sie nur die erste formatiert und ein [Laufwerkbuchstaben](change-a-drive-letter.md).
 
     ![Datenträgerverwaltung, die einen unformatierten Datenträger anzeigt und im Kontextmenü "Datenträger initialisieren" angezeigt](media\uninitialized-disk.PNG)
-2. In der **Datenträgerinitialisierung** Dialogfeld (hier gezeigt), überprüfen, stellen Sie sicher, dass die richtige Datenträger ausgewählt ist, und klicken Sie dann auf **OK** , dem standardpartitionsstil zu akzeptieren. Wenn Sie den Partition Stil ("GPT" oder "MBR") finden Sie unter ändern müssen [zu Partitionstyp - GPT- und MBR](#about-partition-styles-GPT-and-MBR).<br>Kurz ändert sich der Datenträgerstatus **Initializing** und wählen Sie dann die **Online** Status. Wenn aus irgendeinem Grund ein Fehler auftritt initialisieren möchten, finden Sie unter [der Status eines Datenträgers ist nicht initialisiert oder der Datenträger fehlt vollständig](troubleshooting-disk-management.md#disk-not-initialized).
+2. In der **Datenträgerinitialisierung** Dialogfeld (hier gezeigt), überprüfen, stellen Sie sicher, dass die richtige Datenträger ausgewählt ist, und klicken Sie dann auf **OK** , dem standardpartitionsstil zu akzeptieren. Wenn Sie den Partition Stil ("GPT" oder "MBR") finden Sie unter ändern müssen [zu Partitionstypen - GPT- und MBR](#about-partition-styles---gpt-and-mbr).
+
+     Kurz ändert sich der Datenträgerstatus **Initializing** und wählen Sie dann die **Online** Status. Wenn aus irgendeinem Grund ein Fehler auftritt initialisieren möchten, finden Sie unter [der Status eines Datenträgers ist nicht initialisiert oder der Datenträger fehlt vollständig](troubleshooting-disk-management.md#a-disks-status-is-not-initialized-or-the-disk-is-missing).
 
     ![Das Dialogfeld "Datenträger initialisieren", mit dem GPT-Partitionsstil ausgewählt](media\initialize-disk.PNG)
 

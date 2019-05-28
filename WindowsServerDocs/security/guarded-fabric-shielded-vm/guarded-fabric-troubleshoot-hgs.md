@@ -7,12 +7,12 @@ ms.assetid: 424b8090-0692-49a6-9dc4-3c0e77d74b80
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
-ms.openlocfilehash: 2dc9a612fa9760a6ca5f05efe1c287fd0872a1d8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 05888ce57b5b922fc330d9deab430d329fede69b
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861251"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222534"
 ---
 # <a name="troubleshooting-the-host-guardian-service"></a>Problembehandlung für die Host-Überwachungsdienst
 
@@ -93,7 +93,7 @@ Wenden Sie sich an den HSM-Hersteller, genaue Informationen, die das jeweilige G
 HSM-Marke/Serien      | Vorschlag
 ----------------------|-------------
 Gemalto SafeNet       | Stellen Sie sicher, dass die Schlüssel-Usage-Eigenschaft in die Datei zur zertifikatanforderung 0xa0 und festgelegt ist das Zertifikat zum Signieren und Verschlüsseln verwendet werden können. Darüber hinaus müssen Sie das gMSA-Konto gewähren *lesen* Zugriff auf den privaten Schlüssel mit dem lokalen Zertifikat-Manager-Tool (siehe oben genannten Schritte).
-Thales nShield        | Stellen Sie sicher, dass jeder Host-Überwachungsdienst-Knoten auf die Security World, die die Signierung und Verschlüsselung Schlüssel zugreifen. Sie müssen sich nicht um gMSA-spezifischen Berechtigungen zu konfigurieren.
+unterstützende nCipher nShield        | Stellen Sie sicher, dass jeder Host-Überwachungsdienst-Knoten auf die Security World, die die Signierung und Verschlüsselung Schlüssel zugreifen. Sie müssen sich nicht um gMSA-spezifischen Berechtigungen zu konfigurieren.
 Utimaco CryptoServers | Stellen Sie sicher, dass die Schlüssel-Usage-Eigenschaft in die Datei zur zertifikatanforderung auf 0 x 13, festgelegt ist, können das Zertifikat für die Verschlüsselung, Entschlüsselung und Signatur verwendet werden.
 
 ### <a name="certificate-requests"></a>Zertifikatanforderungen

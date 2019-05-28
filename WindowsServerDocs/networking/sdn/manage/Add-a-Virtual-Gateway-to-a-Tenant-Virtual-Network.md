@@ -13,12 +13,12 @@ ms.assetid: b9552054-4eb9-48db-a6ce-f36ae55addcd
 ms.author: pashort
 author: shortpatti
 ms.date: 08/23/2018
-ms.openlocfilehash: 6d31cde5252cd7f7e8d286d6f8886f779d17735d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b76019232be5091440c3e0cf5ad85569cbe0d4dc
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59875811"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034482"
 ---
 # <a name="add-a-virtual-gateway-to-a-tenant-virtual-network"></a>Hinzufügen eines Gateways zu einem virtuellen Mandantennetzwerk 
 
@@ -100,7 +100,7 @@ Die Windows PowerShell-Beispielskripts und Befehle in diesem Thema wird gezeigt,
 4. Erstellen Sie eine Standort-zu-Standort-VPN-Verbindung mit GRE, IPsec oder Layer-3 (L3) weiterleiten.  
 
    >[!TIP]
-   >Optional können Sie alle vorherigen Schritte kombinieren und konfigurieren ein virtuelles Gateway des Mandanten mit allen drei Verbindungsoptionen.  Weitere Informationen finden Sie unter [konfigurieren Sie ein Gateway mit allen drei Verbindungstypen (L3 GRE, IPsec) und BGP](#configure-a-gateway-with-all-three-connection-types-ipsec-gre-l3-and-bgp).
+   >Optional können Sie alle vorherigen Schritte kombinieren und konfigurieren ein virtuelles Gateway des Mandanten mit allen drei Verbindungsoptionen.  Weitere Informationen finden Sie unter [konfigurieren Sie ein Gateway mit allen drei Verbindungstypen (L3 GRE, IPsec) und BGP](#optional-step-configure-a-gateway-with-all-three-connection-types-ipsec-gre-l3-and-bgp).
   
    **IPsec VPN-Standort-zu-Standort-Netzwerkverbindung**
   

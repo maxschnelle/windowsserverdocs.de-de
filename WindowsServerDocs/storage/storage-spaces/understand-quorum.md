@@ -10,12 +10,12 @@ ms.topic: article
 author: adagashe
 ms.date: 01/18/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 24890b191db8bc6934132857e830d4f77c394b02
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 66d4796a6ffb453f6edb5fed20dba29b70f7ec4b
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879971"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476109"
 ---
 # <a name="understanding-cluster-and-pool-quorum"></a>Grundlegendes zu-Cluster und Pool-quorum
 
@@ -27,7 +27,7 @@ Quorum wurde entwickelt, um zu verhindern, dass *Split-Brain* Szenarien, in dene
 
 Quorum bestimmt die Anzahl von Fehlern, die der Cluster tolerieren kann, während Sie weiterhin online bleiben. Quorum wurde entwickelt, um das Szenario abzudecken, wenn ein Problem bei der Kommunikation zwischen Teilmengen von Clusterknoten vorhanden ist, damit mehrere Server nicht versuchen, gleichzeitig hosten eine Ressourcengruppe aus, und gleichzeitig auf demselben Datenträger zu schreiben. Wenn Sie dieses Konzept des Quorums, erzwingt der Cluster den Clusterdienst beenden in eine der Teilmengen von Knoten, um sicherzustellen, dass nur eine "true" Besitzer einer bestimmten Ressourcengruppe vorhanden ist. Nach Knoten, die beendet wurden, erneut mit der primären Gruppe von Knoten kommunizieren können, werden sie automatisch dem Cluster wieder beitreten und starten Sie ihren Clusterdienst.
 
-In Windows Server 2016 gibt es zwei Komponenten des Systems, die über eigene Mechanismen Quorum verfügen:
+In Windows Server-2019 und Windows Server 2016 gibt es zwei Komponenten des Systems, die über eigene Mechanismen Quorum verfügen:
 
 - <strong>Cluster-Quorum</strong>: Dies funktioniert auf Clusterebene (d. h. Sie können Knoten verlieren und über den Betrieb aufrecht Cluster)
 - <strong>Pool Quorum</strong>: Dies funktioniert auf der Ebene des Pools, wenn "direkte Speicherplätze" aktiviert ist (d. h. Sie können verloren gehen, Knoten und Laufwerke und über den Pool, der immer verfügbar sein). Speicherpools wurden entwickelt, in gruppierten und nicht gruppierten Szenarios verwendet werden, d.h., warum sie einen Quorummechanismus für die verschiedenen verfügen.
@@ -164,7 +164,7 @@ Failover-Clusterunterstützung unterstützt drei Arten von Quorum Zeugen hinzu:
 
 - <strong>[Cloudzeugen](../../failover-clustering\deploy-cloud-witness.md)</strong>  -Blob-Speicher in Azure zugegriffen werden kann, von allen Knoten des Clusters. Es verwaltet clustering Informationen in eine Datei "witness.log", aber eine Kopie der Clusterdatenbank speichert nicht.
 - <strong>Datei Dateifreigabenzeugen</strong> – ein SMB-Dateifreigabe, die auf einem Dateiserver unter Windows Server konfiguriert ist. Es verwaltet clustering Informationen in eine Datei "witness.log", aber eine Kopie der Clusterdatenbank speichert nicht.
-- <strong>Datenträgerzeuge</strong> -einen kleinen Clusterdatenträger, die im Cluster verfügbaren Speichergruppe ist. Dieser Datenträger ist hoch verfügbar und kann ein Failover zwischen Knoten. Sie enthält eine Kopie der Clusterdatenbank.  <strong>*Ein Datenträgerzeuge wird nicht unterstützt, mit "direkte Speicherplätze"*</strong>.
+- <strong>Datenträgerzeuge</strong> -einen kleinen Clusterdatenträger, die im Cluster verfügbaren Speichergruppe ist. Dieser Datenträger ist hoch verfügbar und kann ein Failover zwischen Knoten. Sie enthält eine Kopie der Clusterdatenbank.  <strong>*Ein Datenträgerzeuge wird nicht unterstützt, mit "direkte Speicherplätze"*</strong> .
 
 ## <a id="poolQuorum"></a>Pool-Quorum-Überblick
 
@@ -229,5 +229,5 @@ Jedes Laufwerk 24 hat es sich um eine Stimme und Knoten zwei verfügt auch über
 
 ## <a name="more-information"></a>Weitere Informationen
 
-- [Konfigurieren und Verwalten von quorum](../../failover-clustering/manage-cluster-quorum.md)
+- [Konfigurieren und Verwalten des Quorums](../../failover-clustering/manage-cluster-quorum.md)
 - [Bereitstellen eines cloudzeugen](../../failover-clustering/deploy-cloud-witness.md)

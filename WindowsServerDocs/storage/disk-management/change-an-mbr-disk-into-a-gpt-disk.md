@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 8af76edbdb5fc2aa5768811f01c563aab1a89fc6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f6aba72c329ba380f9617f484c4cf754fbcbb363
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849601"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192727"
 ---
 # <a name="convert-an-mbr-disk-into-a-gpt-disk"></a>Konvertieren Sie einen MBR-Datenträger in einen GPT-Datenträger
 
@@ -23,15 +23,11 @@ Master Boot Record (MBR)-Festplatten verwenden die Standard-BIOS-Partitionstabel
 
 Sie können eine Festplatte von einem MBR- in einen GPT-Partitionsstil ändern, solange sie leer ist und keine Partitionen oder Volumes enthält.
 
-
 > [!NOTE]
 > Bevor Sie einen Datenträger konvertieren, Sichern Sie alle Daten darauf aus, und schließen Sie alle Programme, die auf den Datenträger zugreifen.
 
-
 > [!NOTE]
 > Sie müssen mindestens ein Mitglied der Gruppe **Sicherungsoperatoren** or **Administratoren** sein, um diese Schritte durchzuführen.
-
-<a id="BKMK_WINUI"></a>
 
 ## <a name="converting-using-the-windows-interface"></a>Konvertieren mithilfe der Windows-Benutzeroberfläche
 
@@ -40,8 +36,6 @@ Sie können eine Festplatte von einem MBR- in einen GPT-Partitionsstil ändern, 
 2.  Wenn die Festplatte Partitionen oder Volumes enthält, klicken Sie mit der rechten Maustaste auf jede und klicken Sie dann auf **Partition löschen** oder **Volume löschen**.
 
 3.  Klicken Sie mit der rechten Maustaste auf die MBR-Festplatte, die Sie in eine GPT-Festplatte konvertieren möchten, und klicken Sie dann auf **in GPT-Datenträger konvertieren**.
-
-<a id="BKMK_CMD"></a>
 
 ## <a name="converting-using-a-command-line"></a>Konvertieren mithilfe einer Befehlszeile
 
@@ -64,14 +58,12 @@ Verwenden Sie die folgenden Schritte aus, um einen leeren MBR-Datenträger auf e
 
 7.  Geben Sie an der **DISKPART**-Eingabeaufforderung `convert gpt` ein.
 
-<br />
-
 | Wert  | Beschreibung  |
 | ----- | ----|
-| <p>**Liste Datenträger**</p> | <p>Zeigt eine Liste der Festplatten und deren Informationen an wie z. B. ihre Größe, die Menge an Speicherplatz, ob es sich um einen dynamischen Datenträger handelt und ob die Festplatte den Partitionsstil Master Boot Record (MBR) oder GUID-Partitionstabelle (GPT) verwendet. Die Festplatte mit einem Sternchen (*) hat den Fokus.</p> |
-| <p>**Wählen Sie Datenträger** <em>Disknumber</em></p> | <p>Wählt die angegebene Festplatte aus, wobei <em>disknumber</em> die Nummer der Festplatte ist, und legt den Fokus fest.</p> |
-| <p>**clean**</p> | <p>Entfernt alle Partitionen oder Volumes vom Datenträger mit dem Fokus.</p>  |
-| <p>**Konvertieren von gpt**</p>| <p>Konvertiert einen leeren Basisdatenträger mit dem Master Boot Record (MBR)-Partitionsstil zu einem Basisdatenträger mit dem GUID-Partitionstabelle-Partitionsstil.</p> |
+| **Liste Datenträger** | Zeigt eine Liste der Festplatten und deren Informationen an wie z. B. ihre Größe, die Menge an Speicherplatz, ob es sich um einen dynamischen Datenträger handelt und ob die Festplatte den Partitionsstil Master Boot Record (MBR) oder GUID-Partitionstabelle (GPT) verwendet. Die Festplatte mit einem Sternchen (*) hat den Fokus. |
+| **Wählen Sie Datenträger** *Disknumber* | Wählt die angegebene Festplatte aus, wobei *disknumber* die Nummer der Festplatte ist, und legt den Fokus fest. |
+| **clean** | Entfernt alle Partitionen oder Volumes vom Datenträger mit dem Fokus.  |
+| **Konvertieren von gpt**| Konvertiert einen leeren Basisdatenträger mit dem Master Boot Record (MBR)-Partitionsstil zu einem Basisdatenträger mit dem GUID-Partitionstabelle-Partitionsstil. |
 
 ## <a name="see-also"></a>Siehe auch
 

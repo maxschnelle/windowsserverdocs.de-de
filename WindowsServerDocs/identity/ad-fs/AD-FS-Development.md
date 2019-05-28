@@ -9,20 +9,21 @@ ms.date: 02/22/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 5638db30f1f2dc149ef9254d2f89e3fed33ea052
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 984ba6993f63aa5bf22a25e4276f6d1b5e7d14ab
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857181"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192549"
 ---
 # <a name="ad-fs-development"></a>AD FS-Entwicklung
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Dieses Dokument enthält eine Liste aller Dokumentation exemplarischen Vorgehensweisen für AD FS für WindowsServer 2016. Dazu gehören unter anderem:  
+Dieses Dokument enthält eine Liste aller Anleitungen Dokumentation für die AD FS-Entwicklung. Dazu gehören unter anderem:  
   
  
+
+- [Erstellen Sie mit AD FS 2019 Risk Assessment-Modell-Plug-ins](../ad-fs/development/ad-fs-risk-assessment-model.md)
   
 * [Erstellen einer Webanwendung mithilfe von OpenID Connect mit AD FS 2016](../ad-fs/development/Enabling-OpenId-Connect-with-AD-FS.md)  
 
@@ -41,6 +42,7 @@ Dieses Dokument enthält eine Liste aller Dokumentation exemplarischen Vorgehens
 - [Identitätsdelegierung mit AD FS](../ad-fs/development/ad-fs-identity-delegation.md)
 
 - [Einmaligen Abmeldens für OpenID Connect mit AD FS 2016](../ad-fs/development/ad-fs-logout-openid-connect.md)
+
 
 
 

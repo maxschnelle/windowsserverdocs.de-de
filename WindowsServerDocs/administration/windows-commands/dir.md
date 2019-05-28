@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5d11a2d149ec1d83facd4aea64019bbb963ec70e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: acd3b4bb0342dfb8dc651ce7c31e85f1e77a2569
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840681"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222968"
 ---
 # <a name="dir"></a>dir
 
@@ -26,7 +26,7 @@ ms.locfileid: "59840681"
 
 Zeigt eine Liste der Dateien und Unterverzeichnisse des Verzeichnisses. Wenn Sie ohne Angabe von Parametern **Dir** zeigt Volumebezeichnung des Datenträgers und die Seriennummer, gefolgt von einer Liste von Verzeichnissen und Dateien auf dem Datenträger (einschließlich ihrer Namen und das Datum und die jeweils die zuletzt geändert wurde). Für Dateien **Dir** zeigt die Erweiterung und die Größe in Bytes an. **Dir** auch zeigt die Gesamtanzahl der Dateien und Verzeichnisse aufgelistet, die kumulierte Größe und der freie Speicherplatz (in Byte) auf dem Datenträger verbleibenden.
 
-Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
+Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#examples).
 
 ## <a name="syntax"></a>Syntax
 
@@ -52,14 +52,14 @@ dir [<Drive>:][<Path>][<FileName>] [...] [/p] [/q] [/w] [/d] [/a[[:]<Attributes>
 |/l|Zeigt nicht sortierte, Verzeichnis- und Dateinamen in Kleinbuchstaben.|
 |/n|Zeigt ein Format lange Liste mit Dateinamen am rechten Rand des Bildschirms.|
 |/x|Zeigt die Kurznamen für nicht-8.3-Dateinamen generiert. Die Anzeige ist identisch mit der Anzeige für **/n**, aber der Kurzname wird vor den langen Namen eingefügt.|
-|/c|Zeigt das Tausendertrennzeichen in der Dateigröße. Hierbei handelt es sich um das standardmäßige Verhalten. Verwendung **/-c** Trennzeichen ausblenden.|
+|/c|Zeigt das Tausendertrennzeichen in der Dateigröße. Dies ist das Standardverhalten. Verwendung **/-c** Trennzeichen ausblenden.|
 |/4|Zeigt die Jahre im vierstelligen Format.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
 
 -   Verwenden Sie mehrere *FileName* Parameter trennen Sie den Namen der Dateien durch ein Leerzeichen, Komma oder Semikolon.
--   Sie können Platzhalterzeichen verwenden (**&#42;** oder **?**), um ein oder mehrere Zeichen, der einen Dateinamen und eine Teilmenge der Dateien oder Unterverzeichnisse anzuzeigen.
+-   Sie können Platzhalterzeichen verwenden (**&#42;** oder **?** ), um ein oder mehrere Zeichen, der einen Dateinamen und eine Teilmenge der Dateien oder Unterverzeichnisse anzuzeigen.
 
     **Sternchen (\*):** Verwenden Sie das Sternchen als Ersatz für eine beliebige Zeichenfolge von Zeichen, z. B.:  
     -   **Dir \*.txt** Listet alle Dateien im aktuellen Verzeichnis mit Erweiterungen, die mit txt, z. B. txt, .txt1, .txt_old beginnen.
@@ -90,10 +90,10 @@ dir [<Drive>:][<Path>][<FileName>] [...] [/p] [/q] [/w] [/d] [/a[[:]<Attributes>
     Bei Angabe von mehr als eine *SortOrder* Wert **Dir** sortiert die Dateinamen, nach dem ersten Kriterium aus, und klicken Sie dann durch das zweite Kriterium, und So weiter. Angenommen, Sie verwenden **/o** mit der **e** und **-s** Werte für *SortOrder* (indem Sie entweder **OE-s**oder **/oe-s**), **Dir** sortiert die Namen von Verzeichnissen und Dateien nach Erweiterung, mit dem größten ersten und zeigt dann das endgültige Ergebnis. Die alphabetische Sortierung nach Erweiterung bewirkt, dass Dateinamen ohne Erweiterungen zuerst angezeigt werden und Verzeichnisnamen, und klicken Sie dann Dateinamen mit der Erweiterung.
 -   Mithilfe der Umleitungssymbole und pipes
 
-    Bei Verwendung der Umleitungssymbol (**>**) zum Senden von **Dir** Ausgabe in eine Datei oder einen senkrechten Strich (**|**) zum Senden von **Dir**Ausgabe an einen anderen Befehl verwenden **z.** und **/b** nur Dateinamen auflisten. Können Sie *FileName* mit **/b** und **/s** an, dass **Dir** besteht darin, das aktuelle Verzeichnis und seinen Unterverzeichnissen für alle Dateien suchen Diese Übereinstimmung nennt *FileName*. **Dir** Listet nur den Laufwerkbuchstaben, Verzeichnisname, Dateiname und Dateierweiterung (ein Pfad pro Zeile), für jede Datei sucht nach Namen. Bevor Sie eine Pipe, zum Senden von verwenden **Dir** Ausgabe an einen anderen Befehl, Sie sollten legen Sie die TEMP-Umgebungsvariable in Ihrer Datei.
+    Bei Verwendung der Umleitungssymbol ( **>** ) zum Senden von **Dir** Ausgabe in eine Datei oder einen senkrechten Strich ( **|** ) zum Senden von **Dir**Ausgabe an einen anderen Befehl verwenden **z.** und **/b** nur Dateinamen auflisten. Können Sie *FileName* mit **/b** und **/s** an, dass **Dir** besteht darin, das aktuelle Verzeichnis und seinen Unterverzeichnissen für alle Dateien suchen Diese Übereinstimmung nennt *FileName*. **Dir** Listet nur den Laufwerkbuchstaben, Verzeichnisname, Dateiname und Dateierweiterung (ein Pfad pro Zeile), für jede Datei sucht nach Namen. Bevor Sie eine Pipe, zum Senden von verwenden **Dir** Ausgabe an einen anderen Befehl, Sie sollten legen Sie die TEMP-Umgebungsvariable in Ihrer Datei.
 -   Die **Dir** -Befehl, mit verschiedenen Parametern finden Sie in der Wiederherstellungskonsole.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="examples"></a>Beispiele
 
 Klicken Sie zum Anzeigen von allen Verzeichnissen eine nach dem anderen, in alphabetischer Reihenfolge, klicken Sie im breiten Format und nach jedem Bildschirm anhalten stellen Sie sicher, dass das Root-Verzeichnis im aktuellen Verzeichnis ist, und geben:
 ```
@@ -127,4 +127,4 @@ dir c:\*.txt /w/o/s/p
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

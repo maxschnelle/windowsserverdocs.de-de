@@ -1,29 +1,98 @@
 ---
-ms.assetid: a9f229eb-bef4-4231-97d0-0899e17cef32
 title: Erstellen von Volumes in Direkte Speicherplätze
+description: 'Vorgehensweise: Erstellen von Volumes in Storage Spaces Direct using Windows Admin Center und PowerShell.'
 ms.prod: windows-server-threshold
-ms.author: cosdar
-ms.manager: eldenc
-ms.technology: storage-spaces
-ms.topic: article
+ms.reviewer: cosmosdarwin
 author: cosmosdarwin
-ms.date: 01/11/2017
-ms.localizationpriority: medium
-ms.openlocfilehash: 277a676d8e53a7847d54039aab6607be8e5a78c5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.author: cosdar
+manager: eldenc
+ms.technology: storage-spaces
+ms.date: 05/09/2019
+ms.openlocfilehash: d7c842a9b393f67c482dadeaa4090627887a67a3
+ms.sourcegitcommit: 75f257d97d345da388cda972ccce0eb29e82d3bc
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59823611"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65613214"
 ---
 # <a name="creating-volumes-in-storage-spaces-direct"></a>Erstellen von Volumes in Direkte Speicherplätze
 
->Gilt für: Windows Server 2016
+>Gilt für: Windows Server 2019, Windows Server 2016
 
-In diesem Thema wird beschrieben, wie Volumes in Direkte Speicherplätze mithilfe von PowerShell oder dem Failovercluster-Manager erstellt werden.
+In diesem Thema wird beschrieben, wie zum Erstellen von Volumes auf einem Cluster "direkte Speicherplätze" mithilfe des Failovercluster-Manager, PowerShell oder Windows Admin Center wird.
 
    >[!TIP]
    >  Lesen Sie zunächst [Planen von Volumes in Direkte Speicherplätze](plan-volumes.md), falls noch nicht geschehen.
+
+## <a name="create-a-three-way-mirror-volume"></a>Erstellen Sie ein Volume für die drei-Wege-Spiegelung
+
+So erstellen ein Volume für die drei-Wege-Spiegelung in Windows Admin Center: 
+
+1. Windows Admin Center, eine Verbindung mit einem "direkte Speicherplätze"-Cluster herstellen, und wählen Sie dann **Volumes** aus der **Tools** Bereich.
+2. Wählen Sie auf der Seite "Volumes" die **Inventur** Registerkarte, und wählen Sie dann **erstellen Volumes**.
+3. In der **erstellen Volumes** , geben Sie einen Namen für das Volume, und lassen Sie **Resilienz** als **drei-Wege-Spiegelung**.
+4. In **Größe auf**, geben Sie die Größe des Volumes. Beispiel: 5 TB (Terabyte).
+5. Wählen Sie **Erstellen** aus.
+
+Je nach Größe kann das Erstellen des Volumes einige Minuten dauern. Benachrichtigungen in der oberen rechten Ecke teilt Ihnen mit, wenn das Volume erstellt wird. Das neue Volume wird in der Inventarliste angezeigt.
+
+Sehen Sie sich ein kurzes Video zum Erstellen eines Volumes drei-Wege-Spiegelung.
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/o66etKq70N8]
+
+## <a name="create-a-mirror-accelerated-parity-volume"></a>Erstellen Sie ein Volume Parität Mirror-Beschleunigung
+
+Mirror-beschleunigte Parität reduziert den Platzbedarf des Datenträgers auf die HDD. Beispielsweise wäre ein drei-Wege-Spiegelung-Volume, dass der Größe 10 Terabyte, Sie 30 Terabyte als Speicherbedarf benötigen. Um den Aufwand beim Speicherbedarf zu reduzieren, erstellen Sie ein Volume mit Parität Mirror-Beschleunigung. Dies verringert sich der Speicherplatzbedarf von 30 TB nur 22 Terabyte fassen, sogar in nur 4 Server, indem Sie spiegeln die aktivsten 20 Prozent der Daten und Parität für mehr Speicherplatz effizient zum Speichern des Rests ist. Sie können anpassen, dass dieses Verhältnis von Parität und Spiegelung aus, um die Leistung und Kapazität Kompromiss zu machen, die für Ihre Workload geeignet ist. Beispielsweise Parität und 10 Prozent Spiegel von 90 Prozent weniger Leistung ergibt jedoch den Fußabdruck weiter optimiert.
+
+Erstellen eines Volumes mit Spiegelung beschleunigte Parität in Windows Admin Center:
+
+1. Windows Admin Center, eine Verbindung mit einem "direkte Speicherplätze"-Cluster herstellen, und wählen Sie dann **Volumes** aus der **Tools** Bereich.
+2. Wählen Sie auf der Seite "Volumes" die **Inventur** Registerkarte, und wählen Sie dann **erstellen Volumes**.
+3. In der **erstellen Volumes** Bereich, geben Sie einen Namen für das Volume.
+4. In **Resilienz**Option **Mirror-beschleunigte Parität**.
+5. In **Parität Prozentsatz**, wählen Sie den Prozentsatz der Parität.
+6. Wählen Sie **Erstellen** aus.
+
+Sehen Sie sich ein kurzes Video zum Erstellen eines Volumes Mirror-beschleunigte Parität.
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/R72QHudqWpE]
+
+## <a name="open-volume-and-add-files"></a>Öffnen Sie die Datei und Hinzufügen von Dateien
+
+So öffnen Sie ein Volume aus, und fügen Dateien auf dem Volume in Windows Admin Center:
+
+1. Windows Admin Center, eine Verbindung mit einem "direkte Speicherplätze"-Cluster herstellen, und wählen Sie dann **Volumes** aus der **Tools** Bereich.
+2. Wählen Sie auf der Seite Volumes die **Inventur** Registerkarte.
+2. Wählen Sie in der Liste der Volumes den Namen des Datenträgers, den Sie öffnen möchten.
+
+    Auf der Detailseite des Volumes sehen Sie den Pfad auf dem Volume.
+
+4. Wählen Sie am oberen Rand der Seite, **öffnen**. Dadurch wird das Dateitool in Windows Admin Center.
+5. Navigieren Sie zu dem Pfad des Volumes an. Hier können Sie die Dateien im Volume durchsuchen.
+6. Wählen Sie **hochladen**, und wählen Sie dann eine Datei zum Hochladen.
+7. Verwenden Sie den Browser **wieder** Schaltfläche, um zurück zum Bereich "Tools" in Windows Admin Center zu wechseln.
+
+Sehen Sie sich ein kurzes Video zum Öffnen eines Volumes und Dateien hinzufügen.
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/j59z7ulohs4]
+
+## <a name="turn-on-deduplication-and-compression"></a>Aktivieren Sie Deduplizierung und Komprimierung
+
+Deduplizierung und Komprimierung wird pro Volume verwaltet. Deduplizierung und Komprimierung verwendet ein nachbearbeitungsmodell, was bedeutet, dass Sie nicht einsparungen sehen, bis er ausgeführt wird. Wenn dies der Fall, arbeiten sie über alle Dateien, auch solche, die von vorher aufgerufen wurden.
+
+1. Windows Admin Center, eine Verbindung mit einem "direkte Speicherplätze"-Cluster herstellen, und wählen Sie dann **Volumes** aus der **Tools** Bereich.
+2. Wählen Sie auf der Seite Volumes die **Inventur** Registerkarte.
+3. Wählen Sie in der Liste der Volumes den Namen des Volumes, die zu verwaltenden aus.
+4. Klicken Sie auf der Detailseite des Volume, auf die Schalter, mit der Bezeichnung **Deduplizierung und Komprimierung**.
+5. Wählen Sie im Bereich Datendeduplizierung Aktivieren der deduplizierungsmodus.
+
+    Anstelle von komplizierten Einstellungen Sie können Windows Admin Center auswählen zwischen vordefinierten Profile für verschiedene Workloads. Wenn Sie nicht sicher sind, verwenden Sie die Standardeinstellung.
+
+6. Wählen Sie **Aktivieren** aus.
+
+Sehen Sie sich ein kurzes Video zum Deduplizierung und Komprimierung zu aktivieren.
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/PRibTacyKko]
 
 ## <a name="create-volumes-using-powershell"></a>Erstellen von Volumes mithilfe von PowerShell
 
@@ -120,3 +189,5 @@ Fertig! Wiederholen Sie diese Schritte ggf., um mehrere Volumes zu erstellen.
 
 - [Übersicht über Storage "direkte Speicherplätze"](storage-spaces-direct-overview.md)
 - [Planen von Volumes im "direkte Speicherplätze"](plan-volumes.md)
+- [Erweitern von Volumes in "direkte Speicherplätze"](resize-volumes.md)
+- [Löschen von Volumes in "direkte Speicherplätze"](delete-volumes.md)

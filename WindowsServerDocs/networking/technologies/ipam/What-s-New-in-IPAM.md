@@ -13,12 +13,12 @@ ms.topic: get-started-article
 ms.assetid: f2f2f1a5-ac2f-41b7-a495-98ad0e2a9b20
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 1305f889339fb4ca6815912924ba2232cfaf4cab
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 04838cba63805d20ba31629ed9c8e95290046320
+ms.sourcegitcommit: 29ad32b9dea298a7fe81dcc33d2a42d383018e82
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880751"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65624686"
 ---
 # <a name="whats-new-in-ipam"></a>Neues in IPAM
 
@@ -43,7 +43,7 @@ Im folgenden werden die neuen und verbesserten Features von IPAM unter Windows S
 ### <a name="EIP"></a>Verbesserte Verwaltung von IP-Adresse  
 Die folgenden Funktionen verbessern die Verwaltungsfunktionen der IPAM-Adresse.  
 >[!NOTE]
->Finden Sie in der IPAM-Windows-PowerShell-Befehlsreferenz [(IP Address Management, IPAM)-Server-Cmdlets in Windows PowerShell](https://technet.microsoft.com/library/jj553807.aspx).  
+>Finden Sie in der IPAM-Windows-PowerShell-Befehlsreferenz [(IP Address Management, IPAM)-Server-Cmdlets in Windows PowerShell](https://docs.microsoft.com/en-us/powershell/module/ipamserver/).  
   
 #### <a name="support-for-31-32-and-128-subnets"></a>Unterstützung für /31 /32 und /128 Subnetze  
 IPAM in Windows Server 2016 jetzt unterstützen /31, /32 und /128 Subnetzen. Zum Beispiel ein Subnetz mit zwei Adresse (/ 31 IPv4) für eine PPP-Verbindung zwischen zwei Switches können erforderlich sein. Außerdem erfordern einige Switches einzelne Loopback-Adressen (/ 32 für IPv4, / 128 für IPv6).  
@@ -57,7 +57,7 @@ Wenn die Anzahl der verfügbaren Subnetze kleiner als die Anzahl der angefordert
 >[!NOTE]
 >Diese Funktion ist nicht tatsächlich die Subnetzen zugeordnet, es werden nur die Verfügbarkeit gemeldet. Allerdings für die Cmdlet-Ausgabe weitergeleitet werden kann, um die **hinzufügen-IpamSubnet** Befehl aus, um das Subnetz zu erstellen.  
   
-Weitere Informationen finden Sie unter [suchen-IpamFreeSubnet](https://technet.microsoft.com/library/mt712782.aspx).  
+Weitere Informationen finden Sie unter [suchen-IpamFreeSubnet](https://docs.microsoft.com/en-us/powershell/module/ipamserver/Find-IpamFreeSubnet).  
   
 #### <a name="find-free-address-ranges-with-find-ipamfreerange"></a>**Kostenlose-Adressbereiche mit Find-IpamFreeRange suchen**  
   
@@ -68,7 +68,7 @@ Der Befehl sucht nach eine kontinuierliche Reihe von verfügbaren IP-Adressen, d
 > [!NOTE]
 > Diese Funktion nicht tatsächlich die Bereiche reserviert, er meldet nur ihre Verfügbarkeit. Allerdings für die Cmdlet-Ausgabe weitergeleitet werden kann, um die **hinzufügen-IpamRange** Befehl aus, um den Bereich festzulegen.  
   
-Weitere Informationen finden Sie unter [suchen-IpamFreeRange](https://technet.microsoft.com/library/mt712772.aspx).  
+Weitere Informationen finden Sie unter [suchen-IpamFreeRange](https://docs.microsoft.com/en-us/powershell/module/ipamserver/Find-IpamFreeRange).  
   
 ### <a name="EDNS"></a>Verbesserte Verwaltung von DNS-Dienst  
 IPAM in Windows Server 2016 unterstützt jetzt die Ermittlung von dateibasierten, Domäne-DNS-Server in einer Active Directory-Gesamtstruktur, die in der IPAM ausgeführt wird.  
@@ -129,5 +129,5 @@ Sie können jetzt Windows PowerShell verwenden, Role Based Access Control zu kon
   
 -   DHCP-Bereiche  
   
-Weitere Informationen finden Sie unter [verwalten rollenbasierte Zugriffssteuerung mit Windows PowerShell](../../technologies/ipam/Manage-Role-Based-Access-Control-with-Windows-PowerShell.md) und [(IP Address Management, IPAM)-Server-Cmdlets in Windows PowerShell](https://technet.microsoft.com/library/jj553807.aspx).  
+Weitere Informationen finden Sie unter [verwalten rollenbasierte Zugriffssteuerung mit Windows PowerShell](../../technologies/ipam/Manage-Role-Based-Access-Control-with-Windows-PowerShell.md) und [(IP Address Management, IPAM)-Server-Cmdlets in Windows PowerShell](https://docs.microsoft.com/en-us/powershell/module/ipamserver/).  
 

@@ -8,16 +8,16 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 09/10/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: adc93906cb7ff958fc1db7b00abdc557623e764e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b006742c9256c357d9aff3fb1b765dbed087383a
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834201"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65475879"
 ---
 # <a name="disable-offline-files-on-individual-redirected-folders"></a>Offlinedateien auf einzelne umgeleiteten Ordnern deaktivieren
 
->Gilt für: Windows 10, Windows 8, Windows 8.1, WindowsServer 2012, Windows Server 2012 R2, WindowsServer 2016
+>Gilt für: Windows 10, Windows 8, Windows 8.1, WindowsServer 2019, WindowsServer 2016, WindowsServer 2012, Windows Server 2012 R2, Windows (halbjährlicher Kanal)
 
 In diesem Thema wird beschrieben, wie Dateien in den einzelnen Ordnern, die auf Netzwerkfreigaben umgeleitet werden, mithilfe der Ordnerumleitung Zwischenspeicherung deaktivieren, wird. Dies bietet die Möglichkeit, die angeben, welche Ordner ausschließen, lokal zwischenspeichern, muss reduzieren Zwischenspeicher für Offlinedateien Größe und Synchronisieren von Offlinedateien.
 
@@ -29,7 +29,7 @@ In diesem Thema wird beschrieben, wie Dateien in den einzelnen Ordnern, die auf 
 Um Offlinedateien Zwischenspeichern bestimmter umgeleiteten Ordner zu deaktivieren, muss Ihre Umgebung die folgenden Voraussetzungen erfüllen.
 
 - Eine Domäne der Active Directory Domain Services (AD DS) mit Clientcomputern, die in die Domäne eingebunden. Es gibt keine Anforderungen von Gesamtstruktur oder Domäne auf Funktionsebene oder schemaanforderungen.
-- Client-Computer unter Windows 10, Windows 8.1, Windows 8, Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012.
+- Client-Computer unter Windows 10, Windows 8.1, Windows 8, Windows Server-2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 oder Windows (halbjährlicher Kanal).
 - Ein Computer mit die Gruppenrichtlinien-Verwaltungskonsole installiert.
 
 ## <a name="disabling-offline-files-on-individual-redirected-folders"></a>Offlinedateien auf einzelne umgeleiteten Ordnern deaktivieren

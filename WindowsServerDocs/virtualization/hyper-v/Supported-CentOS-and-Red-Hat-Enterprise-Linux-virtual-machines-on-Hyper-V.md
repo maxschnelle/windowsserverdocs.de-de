@@ -10,12 +10,12 @@ ms.assetid: 4bf8783d-dee5-4b3e-8cce-2b11b117c189
 author: danihalfin
 ms.author: daniha
 ms.date: 12/20/2017
-ms.openlocfilehash: 6bf15e5bfff4b875c4debd3c682bbdccd81a7bb6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6c9ed85c2249a4671e52eb7d512298a75f53b309
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869431"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222674"
 ---
 # <a name="supported-centos-and-red-hat-enterprise-linux-virtual-machines-on-hyper-v"></a>Unterstützt von CentOS und Red Hat Enterprise Linux-VMs auf Hyper-V
 
@@ -55,9 +55,9 @@ Diese Serie bietet nur 64-Bit-Kernel.
 |**Funktion**|**Windows Server-version**|**7.5-7.6**|**7.3-7.4**|**7.0-7.2**|**7.5-7.6**|**7.4**|**7.3**|**7.2**|**7.1**|**7.0**|
 |-|-|-|-|-|-|-|-|-|-|-|
 |**Verfügbarkeit**||[LIS 4.2](https://www.microsoft.com/download/details.aspx?id=55106)|[LIS 4.2](https://www.microsoft.com/download/details.aspx?id=55106)|[LIS 4.2](https://www.microsoft.com/download/details.aspx?id=55106)|Erstellt|Erstellt|Erstellt|Erstellt|Erstellt|Erstellt||
-|**[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_core)**|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|**[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#core)**|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Windows Server 2016 – genaue Uhrzeit|2019, 2016|&#10004;|&#10004;|||||||
-|**[Netzwerkfunktionen](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Networking)**|||||||
+|**[Netzwerkfunktionen](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#networking)**|||||||
 |Großrahmen|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |VLAN-Kennzeichnung und trunking|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Livemigration|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
@@ -65,28 +65,28 @@ Diese Serie bietet nur 64-Bit-Kernel.
 |vRSS|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;||
 |Segmentierung von TCP und Prüfsumme Abladungen|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;||
 |SR-IOV|2019, 2016|&#10004;|&#10004;||&#10004;|&#10004;|&#10004;|||
-|**[Speicher](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Storage)**||||
+|**[Speicher](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**||||
 |VHDX resize|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Virtueller Fibre Channel|2019, 2016, 2012 R2|&#10004;Hinweis 3|&#10004;Hinweis 3|&#10004;Hinweis 3|&#10004;Hinweis 3|&#10004;Hinweis 3|&#10004;Hinweis 3|&#10004;Hinweis 3|&#10004;Hinweis 3|&#10004;Hinweis 3|
 |VM-Sicherung|2019, 2016, 2012 R2|&#10004;Hinweis 5|&#10004;Hinweis 5|&#10004;Hinweis 5|&#10004;Beachten Sie 4,5|&#10004;Hinweis 4, 5|&#10004;Hinweis 4, 5|&#10004;Hinweis 4, 5|&#10004;Hinweis 4, 5|&#10004;Hinweis 4, 5|
 |TRIM-Unterstützung|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|||
 |SCSI WWN|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|||||
-|**[Arbeitsspeicher](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Memory)**||||
+|**[Arbeitsspeicher](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#memory)**||||
 |Kernel-Unterstützung für PAE|2019, 2016, 2012 R2, 2012, 2008 R2|Nicht zutreffend|Nicht zutreffend|Nicht zutreffend|Nicht zutreffend|Nicht zutreffend|Nicht zutreffend|Nicht zutreffend|Nicht zutreffend|Nicht zutreffend|
 |Konfiguration der MMIO-Lücke|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Dynamischer Arbeitsspeicher - Hot-Add-|2019, 2016, 2012 R2, 2012|&#10004;Beachten Sie, 8, 9, 10|&#10004;Beachten Sie, 8, 9, 10|&#10004;Beachten Sie, 8, 9, 10|&#10004;Hinweis 9, 10|&#10004;Hinweis 9, 10|&#10004;Hinweis 9, 10|&#10004;Hinweis 9, 10|&#10004;Hinweis 9, 10|&#10004;Beachten Sie, 8, 9, 10|
 |Dynamische Speichererweiterungsfunktion-|2019, 2016, 2012 R2, 2012|&#10004;Beachten Sie, 8, 9, 10|&#10004;Beachten Sie, 8, 9, 10|&#10004;Beachten Sie, 8, 9, 10|&#10004;Hinweis 9, 10|&#10004;Hinweis 9, 10|&#10004;Hinweis 9, 10|&#10004;Hinweis 9, 10|&#10004;Hinweis 9, 10|&#10004;Beachten Sie, 8, 9, 10|
 |Laufzeitspeichers|2019, 2016|&#10004;|&#10004;|&#10004;|||||||
-|**[Video](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Video)**||||
+|**[Video](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#video)**||||
 |Hyper-V-spezifischer Videogerät|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|**[Sonstige](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Misc)**||||
+|**[Sonstige](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#miscellaneous)**||||
 |Schlüssel-Wert-Paar|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Nicht maskierbarer Interrupt|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Kopieren von Dateien vom Host zum Gast|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;||
 |Lsvmbus-Befehl|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|||||||
 |Hyper-V-Sockets|2019, 2016|&#10004;|&#10004;|&#10004;|||||||
 |PCI-Pass-Through-/ DDA|2019, 2016|&#10004;|&#10004;||&#10004;|&#10004;|&#10004;||||
-|**[Virtuelle Computer der Generation 2](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_gen2)**|||||
+|**[Virtuelle Computer der Generation 2](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#generation-2-virtual-machines)**|||||
 |Mit UEFI Boot|2019, 2016, 2012 R2|&#10004;Beachten Sie 14|&#10004;Beachten Sie 14|&#10004;Beachten Sie 14|&#10004;Beachten Sie 14|&#10004;Beachten Sie 14|&#10004;Beachten Sie 14|&#10004;Beachten Sie 14|&#10004;Beachten Sie 14|&#10004;Beachten Sie 14|
 |Sicherer Start|2019, 2016|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 
@@ -97,9 +97,9 @@ Der 32-Bit-Kernel für diese Reihe wird PAE aktiviert. Es gibt keine integrierte
 |**Funktion**|**Windows Server-version**|**6.4-6.10**|**6.0-6.3**|**6.10, 6.9, 6.8**|**6.6, 6.7**|**6.5**|**6.4**|
 |-|-|-|-|-|-|-|-|
 |**Verfügbarkeit**||[LIS 4.2](https://www.microsoft.com/download/details.aspx?id=55106)|[LIS 4.2](https://www.microsoft.com/download/details.aspx?id=55106)|Erstellt|Erstellt|Erstellt|Erstellt|
-|**[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_core)**|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|**[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#core)**|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Windows Server 2016 – genaue Uhrzeit|2019, 2016||||||
-|**[Netzwerkfunktionen](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Networking)**|
+|**[Netzwerkfunktionen](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#networking)**|
 |Großrahmen|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |VLAN-Kennzeichnung und trunking|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;Hinweis 1|&#10004;Hinweis 1|&#10004;Hinweis 1|&#10004;Hinweis 1|&#10004;Hinweis 1|&#10004;Hinweis 1|
 |Livemigration|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
@@ -107,28 +107,28 @@ Der 32-Bit-Kernel für diese Reihe wird PAE aktiviert. Es gibt keine integrierte
 |vRSS|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|||
 |Segmentierung von TCP und Prüfsumme Abladungen|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|||
 |SR-IOV|2019, 2016|||||||
-|**[Speicher](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Storage)**|
+|**[Speicher](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**|
 |VHDX resize|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;||
 |Virtueller Fibre Channel|2019, 2016, 2012 R2|&#10004;Hinweis 3|&#10004;Hinweis 3|&#10004;Hinweis 3|&#10004;Hinweis 3|&#10004;Hinweis 3||
 |VM-Sicherung|2019, 2016, 2012 R2|&#10004;Hinweis 5|&#10004;Hinweis 5|&#10004;Hinweis 4, 5|&#10004;Hinweis 4, 5|&#10004;Beachten Sie, 4, 5, 6|&#10004;Beachten Sie, 4, 5, 6|
 |TRIM-Unterstützung|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;||||
 |SCSI WWN|2019, 2016, 2012 R2|&#10004;|&#10004;|||||
-|**[Arbeitsspeicher](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Memory)**|
+|**[Arbeitsspeicher](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#memory)**|
 |Kernel-Unterstützung für PAE|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Konfiguration der MMIO-Lücke|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Dynamischer Arbeitsspeicher - Hot-Add-|2019, 2016, 2012 R2, 2012|&#10004;Beachten Sie, 7, 9, 10|&#10004;Beachten Sie, 7, 9, 10|&#10004;Beachten Sie, 7, 9, 10|&#10004;Beachten Sie, 7, 8, 9, 10|&#10004;Beachten Sie, 7, 8, 9, 10||
 |Dynamische Speichererweiterungsfunktion-|2019, 2016, 2012 R2, 2012|&#10004;Beachten Sie, 7, 9, 10|&#10004;Beachten Sie, 7, 9, 10|&#10004;Beachten Sie, 7, 9, 10|&#10004;Beachten Sie, 7, 9, 10|&#10004;Beachten Sie, 7, 9, 10|&#10004;Beachten Sie, 7, 9, 10, 11|
 |Laufzeitspeichers|2019, 2016|||||||
-|**[Video](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Video)**|
+|**[Video](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#video)**|
 |Hyper-V-spezifischer Videogerät|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;||
-|**[Sonstige](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Misc)**|
+|**[Sonstige](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#miscellaneous)**|
 |Schlüssel-Wert-Paar|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;Hinweis 12|&#10004;Hinweis 12|&#10004;Hinweis 12, 13|&#10004;Hinweis 12, 13|
 |Nicht maskierbarer Interrupt|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Kopieren von Dateien vom Host zum Gast|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|||
 |Lsvmbus-Befehl|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;||||||
 |Hyper-V-Sockets|2019, 2016|&#10004;|&#10004;|||||
 |PCI-Pass-Through-/ DDA|2019, 2016|||||||
-|**[Virtuelle Computer der Generation 2](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_gen2)**|
+|**[Virtuelle Computer der Generation 2](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#generation-2-virtual-machines)**|
 |Mit UEFI Boot|2012 R2|||||||
 ||2019, 2016|&#10004;Beachten Sie 14|&#10004;Beachten Sie 14|&#10004;Beachten Sie 14||||
 |Sicherer Start|2019, 2016||||||
@@ -140,9 +140,9 @@ Diese Serie bietet es sich um eine unterstützte 32-Bit-PAE-Kernelversion, die f
 |**Funktion**|**Windows Server-version**|5.2 -5.11|**5.2-5.11**|**5.9 - 5.11**|
 |-|-|-|-|-|
 |**Verfügbarkeit**||[LIS 4.2](https://www.microsoft.com/download/details.aspx?id=55106)|[LIS 4.1](https://www.microsoft.com/download/details.aspx?id=51612)|Erstellt|
-|**[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_core)**|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|
+|**[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#core)**|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|
 |Windows Server 2016 – genaue Uhrzeit|2019, 2016||||
-|**[Netzwerkfunktionen](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Networking)**|
+|**[Netzwerkfunktionen](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#networking)**|
 |Großrahmen|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|
 |VLAN-Kennzeichnung und trunking|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;Hinweis 1|&#10004;Hinweis 1|&#10004;Hinweis 1|
 |Livemigration|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|
@@ -150,28 +150,28 @@ Diese Serie bietet es sich um eine unterstützte 32-Bit-PAE-Kernelversion, die f
 |vRSS|2019, 2016, 2012 R2||||
 |Segmentierung von TCP und Prüfsumme Abladungen|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;||
 |SR-IOV|2019, 2016||||||
-|**[Speicher](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Storage)**|
+|**[Speicher](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**|
 |VHDX resize|2019, 2016, 2012 R2|&#10004;|&#10004;||
 |Virtueller Fibre Channel|2019, 2016, 2012 R2|&#10004;Hinweis 3|&#10004;Hinweis 3||
 |VM-Sicherung|2019, 2016, 2012 R2|&#10004;Hinweis 5, 15|&#10004;Hinweis 5|&#10004;Beachten Sie, 4, 5, 6|
 |TRIM-Unterstützung|2019, 2016, 2012 R2||||
 |SCSI WWN|2019, 2016, 2012 R2||||
-|**[Arbeitsspeicher](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Memory)**|
+|**[Arbeitsspeicher](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#memory)**|
 |Kernel-Unterstützung für PAE|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|
 |Konfiguration der MMIO-Lücke|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|
 |Dynamischer Arbeitsspeicher - Hot-Add-|2019, 2016, 2012 R2, 2012||||
 |Dynamische Speichererweiterungsfunktion-|2019, 2016, 2012 R2, 2012|&#10004;Beachten Sie, 7, 9, 10, 11|&#10004;Beachten Sie, 7, 9, 10, 11||
 |Laufzeitspeichers|2019, 2016||||
-|**[Video](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Video)**|
+|**[Video](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#video)**|
 |Hyper-V-spezifischer Videogerät|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;||
-|**[Sonstige](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Misc)**|
+|**[Sonstige](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#miscellaneous)**|
 |Schlüssel-Wert-Paar|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;||
 |Nicht maskierbarer Interrupt|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|
 |Kopieren von Dateien vom Host zum Gast|2019, 2016, 2012 R2|&#10004;|&#10004;||
 |Lsvmbus-Befehl|2019, 2016, 2012 R2, 2012, 2008 R2||||
 |Hyper-V-Sockets|2019, 2016||||
 |PCI-Pass-Through-/ DDA|2019, 2016||||||
-|**[Virtuelle Computer der Generation 2](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_gen2)**|
+|**[Virtuelle Computer der Generation 2](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#generation-2-virtual-machines)**|
 |Mit UEFI Boot|2019, 2016, 2012 R2||||
 |Sicherer Start|2019, 2016||||
 
@@ -230,7 +230,7 @@ Siehe auch
 
 * [Set-VMFirmware](https://technet.microsoft.com/library/dn464287.aspx)
 
-* [Virtuelle Debian-Computer unterstützt auf Hyper-V](Supported-Debian-virtual-machines-on-Hyper-V.md)
+* [Unterstützte virtuelle Debian-Computer in Hyper-V](Supported-Debian-virtual-machines-on-Hyper-V.md)
 
 * [Unterstützte Oracle Linux-VMs auf Hyper-V](Supported-Oracle-Linux-virtual-machines-on-Hyper-V.md)
 

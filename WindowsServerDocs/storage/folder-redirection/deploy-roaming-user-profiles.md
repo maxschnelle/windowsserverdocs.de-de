@@ -8,30 +8,30 @@ author: JasonGerend
 manager: brianlic
 ms.date: 07/09/2018
 ms.author: jgerend
-ms.openlocfilehash: b977af31663b675a56c65e06a2a0d60b1d2ad811
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c662b8c44e3603ec972e06f3fb0ddbd55e1af904
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857141"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192719"
 ---
 # <a name="deploying-roaming-user-profiles"></a>Bereitstellen von Roamingbenutzerprofilen
 
->Gilt für: Windows 10, Windows 8.1, Windows 8, Windows 7, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+>Gilt für: Windows 10, Windows 8.1, Windows 8, Windows 7, WindowsServer 2019, WindowsServer 2016, WindowsServer (halbjährlicher Kanal), Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
 
 In diesem Thema wird beschrieben, wie mit Windows Server bereitstellen [servergespeicherte Benutzerprofile](folder-redirection-rup-overview.md) für Windows-Clientcomputer. Servergespeicherte Benutzerprofile leiten Benutzerprofile an eine Dateifreigabe, damit Benutzer die dieselben Betriebssystem- und Anwendungseinstellungen auf mehreren Computern.
 
 Eine Liste der zuletzt vorgenommenen Änderungen zu diesem Thema finden Sie die [Änderungsverlauf](#change-history) Abschnitt dieses Themas.
 
 >[!IMPORTANT]
->Aufgrund der sicherheitsänderungen in [MS16-072](https://support.microsoft.com/help/3163622/ms16-072-security-update-for-group-policy-june-14%2c-2016), wir aktualisiert [Schritt 4: Erstellen Sie optional ein Gruppenrichtlinienobjekt für Roamingbenutzerprofile](#step-4:-optionally-create-a-gpo-for-roaming-user-profiles) in diesem Thema, Windows kann die Roamingbenutzerprofile-Richtlinie ordnungsgemäß angewendet (und nicht auf lokale Richtlinien auf betroffenen Computern zurückgesetzt).
+>Aufgrund der sicherheitsänderungen in [MS16-072](https://support.microsoft.com/help/3163622/ms16-072-security-update-for-group-policy-june-14%2c-2016), wir aktualisiert [Schritt 4: Erstellen Sie optional ein Gruppenrichtlinienobjekt für Roamingbenutzerprofile](#step-4-optionally-create-a-gpo-for-roaming-user-profiles) in diesem Thema, Windows kann die Roamingbenutzerprofile-Richtlinie ordnungsgemäß angewendet (und nicht auf lokale Richtlinien auf betroffenen Computern zurückgesetzt).
 
 > [!IMPORTANT]
 >  Benutzeranpassungen Start bleibt nach einem Betriebssystemupgrade des direktes in der folgenden Konfiguration:
 > - Benutzer werden für ein servergespeichertes Profil konfiguriert.
 > - Benutzer dürfen, um den Start zu ändern
 >
-> Daher wird im Startmenü auf den Standardwert von der neuen Versionen des Betriebssystems zurückgesetzt, nachdem das Betriebssystem ein direktes Upgrade. Informationen zu problemumgehungen finden Sie unter [Anhang C: Arbeiten rund um Start Menülayouts zurücksetzen, nachdem Sie Upgrades](#appendix-c-workaround).
+> Daher wird im Startmenü auf den Standardwert von der neuen Versionen des Betriebssystems zurückgesetzt, nachdem das Betriebssystem ein direktes Upgrade. Informationen zu problemumgehungen finden Sie unter [Anhang C: Arbeiten rund um Start Menülayouts zurücksetzen, nachdem Sie Upgrades](#appendix-c-working-around-reset-start-menu-layouts-after-upgrades).
 
 ## <a name="prerequisites"></a>Vorraussetzungen
 
@@ -54,7 +54,7 @@ Für Roamingbenutzerprofile gelten folgende Softwarevoraussetzungen:
     - Wenn die Dateifreigabe die DFS-Replikation zum Replizieren der Inhalte mit einem anderen Server verwendet, dürfen Benutzer nur in der Lage sein, auf den Quellserver zuzugreifen, damit Benutzer keine in Konflikt stehenden Änderungen auf unterschiedlichen Servern vornehmen können.
     - Wenn die Dateifreigabe gruppiert ist, deaktivieren Sie die fortlaufende Verfügbarkeit für die Dateifreigabe, um Leistungsprobleme zu vermeiden.
 - Um die Unterstützung primärer Computer in der servergespeicherte Benutzerprofile verwenden zu können, stehen zusätzliche Clientcomputer- und Active Directory-Schema-Anforderungen. Weitere Informationen finden Sie unter [Bereitstellen von Hauptcomputern für Ordnerumleitung und servergespeicherte Benutzerprofile](deploy-primary-computers.md).
-- Das Layout eines Benutzers Start im Menü unter Windows 10 oder Windows Server 2016 Roaming wird nicht, wenn sie mehr als ein PC, Remote Desktop Session Host oder virtualisierten Desktopinfrastruktur (VDI)-Server verwenden. Dieses Problem zu umgehen können Sie ein Layout Start angeben, wie in diesem Thema beschrieben. Oder Sie können mithilfe von Benutzerprofil-Datenträgern, die ordnungsgemäß starten im menüeinstellungen bei der Verwendung mit Remotedesktop-Sitzungshostserver oder VDI-Server nutzen. Weitere Informationen finden Sie unter [einfachere Datenverwaltung für Benutzer mit dem Benutzerprofil-Datenträgern in Windows Server 2012](https://blogs.technet.microsoft.com/enterprisemobility/2012/11/13/easier-user-data-management-with-user-profile-disks-in-windows-server-2012/).
+- Das Layout eines Benutzers Start im Menü auf Windows 10, Windows Server-2019 oder Windows Server 2016 Roaming wird nicht, wenn sie mehr als ein PC, Remote Desktop Session Host oder virtualisierten Desktopinfrastruktur (VDI)-Server verwenden. Dieses Problem zu umgehen können Sie ein Layout Start angeben, wie in diesem Thema beschrieben. Oder Sie können mithilfe von Benutzerprofil-Datenträgern, die ordnungsgemäß starten im menüeinstellungen bei der Verwendung mit Remotedesktop-Sitzungshostserver oder VDI-Server nutzen. Weitere Informationen finden Sie unter [einfachere Datenverwaltung für Benutzer mit dem Benutzerprofil-Datenträgern in Windows Server 2012](https://blogs.technet.microsoft.com/enterprisemobility/2012/11/13/easier-user-data-management-with-user-profile-disks-in-windows-server-2012/).
 
 ### <a name="considerations-when-using-roaming-user-profiles-on-multiple-versions-of-windows"></a>Überlegungen zur Verwendung von Roamingbenutzerprofilen in mehreren Windows-Versionen
 
@@ -65,7 +65,7 @@ Wenn Sie Roamingbenutzerprofile mit mehreren Windows-Versionen verwenden möchte
 - Weisen Sie den Roamingbenutzerprofilen ausreichend Speicherplatz zu. Wenn Sie zwei Betriebssystemversionen unterstützen, verdoppelt sich die Anzahl der Profile (somit auch der verbrauchte Speicherplatz), da für jede Betriebssystemversion ein separates Profil gespeichert wird.
 - Verwenden Sie keine Roamingbenutzerprofile auf Computern unter Windows Vista/Windows Server 2008 und Windows 7/Windows Server 2008 R2. Roaming zwischen diesen Betriebssystemversionen wird aufgrund von Inkompatibilitäten in den Profilversionen nicht unterstützt.
 - Informieren Sie Ihre Benutzer darüber, dass an einer Betriebssystemversion vorgenommene Änderungen nicht zu einer anderen Betriebssystemversion "wandern".
-- Beim Verschieben Ihrer Umgebung auf eine Version von Windows, die eine anderes Profil-Version verwendet (z. B. von Windows 10, um Windows 10 Version 1607, finden Sie unter [Anhang B: Referenzinformationen zur Profilversion](#appendix-b:-profile-version-reference-information) eine Liste), erhalten Benutzer ein neue, leere servergespeichertes Benutzerprofil. Sie können die Auswirkungen der Abrufen eines neuen Profils mit Ordnerumleitung gemeinsamen Ordner umleiten minimieren. Es gibt keine Methode zum Migrieren von servergespeicherte Benutzerprofile aus ein Profilversion in einen anderen.
+- Beim Verschieben Ihrer Umgebung auf eine Version von Windows, die eine anderes Profil-Version verwendet (z. B. von Windows 10, um Windows 10 Version 1607, finden Sie unter [Anhang B: Referenzinformationen zur Profilversion](#appendix-b-profile-version-reference-information) eine Liste), erhalten Benutzer ein neue, leere servergespeichertes Benutzerprofil. Sie können die Auswirkungen der Abrufen eines neuen Profils mit Ordnerumleitung gemeinsamen Ordner umleiten minimieren. Es gibt keine Methode zum Migrieren von servergespeicherte Benutzerprofile aus ein Profilversion in einen anderen.
 
 ## <a name="step-1-enable-the-use-of-separate-profile-versions"></a>Schritt 1: Aktivieren Sie die Verwendung separater Profilversionen
 
@@ -120,7 +120,7 @@ Hier wird eine Dateifreigabe unter Windows Server zu erstellen:
 2. Wählen Sie in der Kachel "Freigaben" **Aufgaben**, und wählen Sie dann **neue Freigabe**. Der Assistent für neue Freigaben wird angezeigt.
 3. Auf der **Profil auswählen** Seite **SMB-Freigabe – schnell**. Wenn Sie Resource Manager für Dateiserver installiert haben und ordnerverwaltungseigenschaften verwenden, wählen Sie stattdessen **SMB-Freigabe - erweitert**.
 4. Wählen Sie auf der Seite **Freigabeort** den Server und das Volume aus, auf dem Sie die Freigabe erstellen möchten.
-5. Geben Sie auf der Seite **Freigabename** einen Namen für die Freigabe ein (z. B. **Benutzerprofile$**) in dem Feld **Freigabename**.
+5. Geben Sie auf der Seite **Freigabename** einen Namen für die Freigabe ein (z. B. **Benutzerprofile$** ) in dem Feld **Freigabename**.
 
     >[!TIP]
     >Wenn Sie die Freigabe zu erstellen, die Freigabe ausblenden, indem Sie platzieren einen ```$``` nach dem Freigabenamen. So wird die Freigabe bei informellen Browsern ausgeblendet.
@@ -138,44 +138,14 @@ Hier wird eine Dateifreigabe unter Windows Server zu erstellen:
 
 ### <a name="required-permissions-for-the-file-share-hosting-roaming-user-profiles"></a>Die erforderlichen Berechtigungen für die Datei-Freigabe hosting servergespeicherte Profile
 
-<table>
-<tbody>
-<tr class="odd">
-<td>Benutzerkonto</td>
-<td>Access</td>
-<td>Betrifft</td>
-</tr>
-<tr class="even">
-<td>System</td>
-<td>Vollzugriff</td>
-<td>Dieser Ordner, die Unterordner und Dateien</td>
-</tr>
-<tr class="odd">
-<td>Administratoren</td>
-<td>Vollzugriff</td>
-<td>Nur dieser Ordner</td>
-</tr>
-<tr class="even">
-<td>Ersteller/Besitzer</td>
-<td>Vollzugriff</td>
-<td>Nur Unterordner und Dateien</td>
-</tr>
-<tr class="odd">
-<td>Sicherheitsgruppe der Benutzer, die Daten in der Freigabe speichern müssen (Roamingbenutzerprofil-Benutzer und -Computer)</td>
-<td>Ordner auflisten / Daten lesen<sup>1</sup><br />
-<br />
-Ordner erstellen / Daten anhängen<sup>1</sup></td>
-<td>Nur dieser Ordner</td>
-</tr>
-<tr class="even">
-<td>Andere Gruppen und Konten</td>
-<td>Keine (entfernen)</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-
-1 Erweiterte Berechtigungen
+|       |       |       |
+|   -   |   -   |   -   |
+| Benutzerkonto | Zugriff | Betrifft |
+|   System    |  Vollzugriff     |  Dieser Ordner, die Unterordner und Dateien     |
+|  Administratoren     |  Vollzugriff     |  Nur dieser Ordner     |
+|  Ersteller/Besitzer     |  Vollzugriff     |  Nur Unterordner und Dateien     |
+| Sicherheitsgruppe der Benutzer, die Daten in der Freigabe speichern müssen (Roamingbenutzerprofil-Benutzer und -Computer)      |  Ordner auflisten / Daten lesen *(erweiterte Berechtigungen)* <br />Ordner erstellen / Daten anhängen *(erweiterte Berechtigungen)* |  Nur dieser Ordner     |
+| Andere Gruppen und Konten   |  Keine (entfernen)     |       |
 
 ## <a name="step-4-optionally-create-a-gpo-for-roaming-user-profiles"></a>Schritt 4: Erstellen Sie optional ein Gruppenrichtlinienobjekt für Roamingbenutzerprofile
 
@@ -200,7 +170,7 @@ Hier wird ein Gruppenrichtlinienobjekt für Roamingbenutzerprofile zu erstellen:
 
 ## <a name="step-5-optionally-set-up-roaming-user-profiles-on-user-accounts"></a>Schritt 5: Richten Sie optional Roamingbenutzerprofile in den Benutzerkonten ein
 
-Wenn Sie Roamingbenutzerprofile für Benutzerkonten bereitstellen, verwenden Sie folgendes Verfahren, um Roamingbenutzerprofile für Benutzerkonten in Active Directory-Domänendiensten anzugeben. Wenn Sie Roamingbenutzerprofile auf Computern bereitstellen wie in der Regel für Remotedesktopdienste oder virtualisierte desktopbereitstellungen, verwenden stattdessen das Verfahren finden Sie im [Schritt 6: Richten Sie optional Roamingbenutzerprofile auf Computern](#step-6:-optionally-set-up-roaming-user-profiles-on-computers).
+Wenn Sie Roamingbenutzerprofile für Benutzerkonten bereitstellen, verwenden Sie folgendes Verfahren, um Roamingbenutzerprofile für Benutzerkonten in Active Directory-Domänendiensten anzugeben. Wenn Sie Roamingbenutzerprofile auf Computern bereitstellen wie in der Regel für Remotedesktopdienste oder virtualisierte desktopbereitstellungen, verwenden stattdessen das Verfahren finden Sie im [Schritt 6: Richten Sie optional Roamingbenutzerprofile auf Computern](#step-6-optionally-set-up-roaming-user-profiles-on-computers).
 
 >[!NOTE]
 >Wenn Sie in Benutzerkonten Roamingbenutzerprofile mithilfe von Active Directory und auf Computern mithilfe der Gruppenrichtlinie einrichten, hat die computerbasierte Richtlinieneinstellung eine höhere Priorität.
@@ -223,9 +193,9 @@ Hier ist so richten Sie Roamingbenutzerprofile für Benutzerkonten:
 
 ## <a name="step-6-optionally-set-up-roaming-user-profiles-on-computers"></a>Schritt 6: Richten Sie optional Roamingbenutzerprofile auf den Computern ein
 
-Wenn Sie Roamingbenutzerprofile für Computer bereitstellen, wie es in der Regel für Remotedesktopdienste oder virtualisierte Desktopbereitstellungen erfolgt, verwenden Sie das folgende Verfahren. Wenn Sie Roamingbenutzerprofile für Benutzerkonten bereitstellen, verwenden Sie die Verfahren in [Schritt 5: Richten Sie optional Roamingbenutzerprofile in den Benutzerkonten](#step-5:-optionally-set-up-roaming-user-profiles-on-user-accounts).
+Wenn Sie Roamingbenutzerprofile für Computer bereitstellen, wie es in der Regel für Remotedesktopdienste oder virtualisierte Desktopbereitstellungen erfolgt, verwenden Sie das folgende Verfahren. Wenn Sie Roamingbenutzerprofile für Benutzerkonten bereitstellen, verwenden Sie die Verfahren in [Schritt 5: Richten Sie optional Roamingbenutzerprofile in den Benutzerkonten](#step-5-optionally-set-up-roaming-user-profiles-on-user-accounts).
 
-Sie können Gruppenrichtlinien verwenden, anzuwendende Roamingbenutzerprofile auf Computern mit Windows 8.1, Windows 8, Windows 7, Windows Vista, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 oder Windows Server 2008.
+Sie können Gruppenrichtlinien verwenden, anzuwendende Roamingbenutzerprofile auf Computern mit Windows 8.1, Windows 8, Windows 7, Windows Vista, Windows Server-2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 oder Windows Server 2008.
 
 >[!NOTE]
 >Wenn Sie auf Computern Roamingbenutzerprofile mithilfe von Active Directory und in Benutzerkonten mithilfe der Gruppenrichtlinie einrichten, hat die computerbasierte Richtlinieneinstellung eine höhere Priorität.
@@ -238,7 +208,7 @@ Hier ist so richten Sie Roamingbenutzerprofile auf Computern:
 4. Navigieren Sie im Fenster des Gruppenrichtlinienverwaltungs-Editors zu **Computerkonfiguration**, **Richtlinien**, **Administrative Vorlagen**, **System** und dann zu **Benutzerprofile**.
 5. Mit der rechten Maustaste **Festlegen der Pfad des servergespeicherten Profils für alle Benutzer, die an diesem Computer anmelden** und wählen Sie dann **bearbeiten**.
     > [!TIP]
-    > Ein Benutzer-Basisordner (sofern konfiguriert) ist der von einigen Programmen (z. B. Windows PowerShell) verwendete Standardordner. Sie können einen alternativen lokalen oder Netzwerkspeicherort pro Benutzer konfigurieren, indem Sie den Abschnitt **Basisordner** der Benutzerkontoeigenschaften in AD DS verwenden. Um den basisordnerspeicherort für alle Benutzer eines Computers mit Windows 8.1, Windows 8, Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 in einer virtuellen desktopumgebung konfigurieren zu können, aktivieren die **benutzerbasisordner festlegen** richtlinieneinstellung wird festgelegt, und geben Sie dann die Datei-Freigabe und den Laufwerkbuchstaben zuzuordnen (oder geben Sie einen lokalen Ordner). Verwenden Sie keine Umgebungsvariablen oder Ellipsen. Der Benutzeralias wird an das Ende des während der Benutzeranmeldung angegebenen Pfads angefügt.
+    > Ein Benutzer-Basisordner (sofern konfiguriert) ist der von einigen Programmen (z. B. Windows PowerShell) verwendete Standardordner. Sie können einen alternativen lokalen oder Netzwerkspeicherort pro Benutzer konfigurieren, indem Sie den Abschnitt **Basisordner** der Benutzerkontoeigenschaften in AD DS verwenden. Um den basisordnerspeicherort für alle Benutzer eines Computers mit Windows 8.1, Windows 8, Windows Server-2019, Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 in einer virtuellen desktopumgebung konfigurieren zu können, aktivieren die **benutzerbasisordner festlegen**  richtlinieneinstellung, und geben Sie dann die Datei-Freigabe und den Laufwerkbuchstaben zuzuordnen (oder geben Sie einen lokalen Ordner). Verwenden Sie keine Umgebungsvariablen oder Ellipsen. Der Benutzeralias wird an das Ende des während der Benutzeranmeldung angegebenen Pfads angefügt.
 6. In der **Eigenschaften** wählen Sie im Dialogfeld **aktiviert**
 7. In der **Benutzer, die an diesem Computer anmelden, sollten diesen Profilpfad für servergespeicherte verwenden** Geben Sie den Pfad zur Dateifreigabe, wo Sie möchten des Benutzers Roamingbenutzerprofil, gefolgt von Speichern `%username%` (wird automatisch durch ersetzt mit den Benutzer bei der erstmaligen Verwendung der Benutzer angemeldet). Zum Beispiel:
 
@@ -259,43 +229,18 @@ Um ein Start-Layout anzugeben, führen Sie folgende Schritte aus:
 3. Mithilfe der Gruppenrichtlinie das Gruppenrichtlinienobjekt für Roamingbenutzerprofile erstellten der benutzerdefinierten startlayouts zuweisen. Zu diesem Zweck finden Sie unter [mithilfe von Gruppenrichtlinien auf einem benutzerdefinierten startlayouts in einer Domäne anwenden](https://docs.microsoft.com/windows/configuration/customize-windows-10-start-screens-by-using-group-policy#bkmk-domaingpodeployment).
 4. Verwenden Sie die Gruppenrichtlinie, um den folgenden Registrierungswert auf Ihrem Windows 10-PCs festzulegen. Zu diesem Zweck finden Sie unter [Konfigurieren eines Registrierungselements](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753092(v=ws.11)>).
 
-    <table>
-    <thead>
-    <tr class="header">
-    <th>Aktion</th>
-    <th>Update/Aktualisieren</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="odd">
-    <td>Hive</td>
-    <td><strong>HKEY_LOCAL_MACHINE</strong></td>
-    </tr>
-    <tr class="even">
-    <td>Schlüsselpfad</td>
-    <td><strong>Software\Microsoft\Windows\CurrentVersion\Explorer</strong></td>
-    </tr>
-    <tr class="odd">
-    <td>Wertname</td>
-    <td><strong>SpecialRoamingOverrideAllowed</strong></td>
-    </tr>
-    <tr class="even">
-    <td>Werttyp</td>
-    <td><strong>REG_DWORD</strong></td>
-    </tr>
-    <tr class="odd">
-    <td>Wertdaten</td>
-    <td><strong>1</strong> (oder <strong>0</strong> deaktivieren)</td>
-    </tr>
-    <tr class="even">
-    <td>Base</td>
-    <td><strong>Decimal</strong></td>
-    </tr>
-    </tbody>
-    </table>
+| **Aktion** | **Update** |
+|------------|------------|
+|Hive|**HKEY_LOCAL_MACHINE**|
+|Schlüsselpfad|**Software\Microsoft\Windows\CurrentVersion\Explorer**|
+|Wertname|**SpecialRoamingOverrideAllowed**|
+|Werttyp|**REG_DWORD**|
+|Wertdaten|**1** (oder **0** deaktivieren)|
+|Base|**Decimal**|
+
 5. (Optional) Aktivieren Sie die erstmalige Anmeldung Optimierungen verwenden, stellen schneller für Benutzer anmelden. Zu diesem Zweck finden Sie unter [Anwenden von Richtlinien zur Verbesserung der Zeitpunkt der Anmeldung](https://docs.microsoft.com/windows/client-management/mandatory-user-profile#apply-policies-to-improve-sign-in-time).
-6. (Optional) Zur Verringerung von Anmeldezeiten durch das Entfernen von ist ggf. unnötig apps aus dem Windows 10-Basis-Image, die, das Sie zum Bereitstellen von Client-PCs verwenden. Windows Server 2016 müssen keine vorab bereitgestellte apps, Sie auf Server-Images können diesen Schritt überspringen.
-– Um apps zu entfernen, verwenden Sie die [Remove-AppxProvisionedPackage](https://docs.microsoft.com/powershell/module/dism/remove-appxprovisionedpackage?view=win10-ps) Cmdlet in Windows PowerShell die folgenden Anwendungen deinstallieren. Wenn Sie Ihre PCs bereits bereitgestellt wurden, können Sie das Entfernen dieser Apps mithilfe von Skripts die [Remove-AppxPackage](https://docs.microsoft.com/powershell/module/appx/remove-appxpackage?view=win10-ps).
+6. (Optional) Zur Verringerung von Anmeldezeiten durch das Entfernen unnötiger apps aus dem Windows 10-Basis-Image, die, das Sie zum Bereitstellen von Client-PCs verwenden. 2019 für Windows Server und Windows Server 2016 keine vorab bereitgestellte apps, damit Sie auf Server-Images können diesen Schritt überspringen.
+    - Um apps zu entfernen, verwenden Sie die [Remove-AppxProvisionedPackage](https://docs.microsoft.com/powershell/module/dism/remove-appxprovisionedpackage?view=win10-ps) Cmdlet in Windows PowerShell die folgenden Anwendungen deinstallieren. Wenn Sie Ihre PCs bereits bereitgestellt wurden, können Sie das Entfernen dieser Apps mithilfe von Skripts die [Remove-AppxPackage](https://docs.microsoft.com/powershell/module/appx/remove-appxpackage?view=win10-ps).
     
       - Microsoft.windowscommunicationsapps\_8wekyb3d8bbwe
       - Microsoft.BingWeather\_8wekyb3d8bbwe
@@ -369,7 +314,7 @@ In der folgenden Tabelle sind die Speicherorte von Roamingbenutzerprofilen in ve
 |Windows 10|```\\<servername>\<fileshare>\<username>.V5```|
 |Windows 10, Version 1703 und Version 1607|```\\<servername>\<fileshare>\<username>.V6```|
 
-## <a id="appendix-c-workaround"></a>Anhang C: Arbeit zurücksetzen Start Menülayouts etwa nach upgrades
+## <a name="appendix-c-working-around-reset-start-menu-layouts-after-upgrades"></a>Anhang C: Arbeit zurücksetzen Start Menülayouts etwa nach upgrades
 
 Hier sind einige Möglichkeiten zum Umgehen der Start-Menülayouts erste zurücksetzen, nachdem Sie ein direktes Upgrade aus:
 
@@ -392,19 +337,20 @@ Hier sind einige Möglichkeiten zum Umgehen der Start-Menülayouts erste zurück
 
 In der folgenden Tabelle sind die wichtigsten Änderungen zu diesem Thema zusammengefasst.
 
-|Datum|Beschreibung |Grund|
+|date|Beschreibung |Grund|
 |--- |---         |---   |
+|1. Mai 2019|Zusätzliche Updates für 2019|
 |10. April 2018|Zusätzliche Erläuterung der Wenn benutzeranpassungen Start nach einem Betriebssystemupgrade des direktes nicht mehr vorhanden sind|Legende bekanntes Problem.|
 |13. März 2018 |Für WindowsServer 2016 aktualisiert | Verschoben aus früheren Versionen-Bibliothek und aktualisiert die aktuelle Version von Windows Server.|
 |Am 13. April 2017|Informationen zum Eigenschaftsprofil für Windows 10, Version 1703, hinzugefügt und es wird erläutert wie servergespeicherte Profile Versionen Arbeit bei der Aktualisierung von Betriebssystemen, finden Sie unter [Überlegungen zur Verwendung von Roamingbenutzerprofilen in mehreren Versionen von Windows](#considerations-when-using-roaming-user-profiles-on-multiple-versions-of-windows).|Kundenfeedback.|
-|14. März 2017|Hinzugefügte Optionaler Schritt zum Angeben von für Windows 10-PCs in eine obligatorische startlayouts [Anhang A: Checkliste für die Bereitstellung von Roamingbenutzerprofilen](#appendix-a:-checklist-for-displaying-roaming-user-profiles).|Featureänderungen Sie das aktuellste Update für Windows.|
-|23. Januar 2017|Einen Schritt hinzugefügt [Schritt 4: Erstellen Sie optional ein Gruppenrichtlinienobjekt für Roamingbenutzerprofile](#step-4:-optionally-create-a-gpo-for-roaming-user-profiles) , delegieren Leseberechtigungen für authentifizierte Benutzer, das jetzt ist aufgrund der Aktualisierung der Gruppenrichtlinie Sicherheit erforderlich sind.|Sicherheitsbezogene Änderungen an der gruppenrichtlinienverarbeitung.|
-|Am 29. Dezember 2016|Einen Link hinzugefügt [Schritt 7: Aktivieren Sie das Gruppenrichtlinienobjekt Roaming User Profiles](#step-7:-enable-the-roaming-user-profiles-gpo) zu beim Abrufen von Informationen zum Festlegen von Gruppenrichtlinien für die primären Computern vereinfachen. Einige Verweise auf die Schritte 5 und 6, die die Zahlen hatten falsche auch behoben.|Kundenfeedback.|
+|14. März 2017|Hinzugefügte Optionaler Schritt zum Angeben von für Windows 10-PCs in eine obligatorische startlayouts [Anhang A: Checkliste für die Bereitstellung von Roamingbenutzerprofilen](#appendix-a-checklist-for-deploying-roaming-user-profiles).|Featureänderungen Sie das aktuellste Update für Windows.|
+|23. Januar 2017|Einen Schritt hinzugefügt [Schritt 4: Erstellen Sie optional ein Gruppenrichtlinienobjekt für Roamingbenutzerprofile](#step-4-optionally-create-a-gpo-for-roaming-user-profiles) , delegieren Leseberechtigungen für authentifizierte Benutzer, das jetzt ist aufgrund der Aktualisierung der Gruppenrichtlinie Sicherheit erforderlich sind.|Sicherheitsbezogene Änderungen an der gruppenrichtlinienverarbeitung.|
+|Am 29. Dezember 2016|Einen Link hinzugefügt [Schritt 8: Aktivieren Sie das Gruppenrichtlinienobjekt Roaming User Profiles](#step-8-enable-the-roaming-user-profiles-gpo) zu beim Abrufen von Informationen zum Festlegen von Gruppenrichtlinien für die primären Computern vereinfachen. Einige Verweise auf die Schritte 5 und 6, die die Zahlen hatten falsche auch behoben.|Kundenfeedback.|
 |5. Dezember 2016|Hinzugefügte Informationen, die eine Start-menüeinstellungen roaming Problem erläutert.|Kundenfeedback.|
-|6. Juli 2016|Hinzugefügt von Windows 10-profilversionensuffixe in [Anhang B: Referenzinformationen zur Profilversion](#appendix-b:-profile-version-reference-information). Auch Windows XP und Windows Server 2003 aus der Liste der unterstützten Betriebssysteme entfernt werden.|Updates für die neuen Versionen von Windows und entfernte Informationen zu Versionen von Windows, die nicht mehr unterstützt werden.|
+|6. Juli 2016|Hinzugefügt von Windows 10-profilversionensuffixe in [Anhang B: Referenzinformationen zur Profilversion](#appendix-b-profile-version-reference-information). Auch Windows XP und Windows Server 2003 aus der Liste der unterstützten Betriebssysteme entfernt werden.|Updates für die neuen Versionen von Windows und entfernte Informationen zu Versionen von Windows, die nicht mehr unterstützt werden.|
 |7. Juli 2015|Anforderung und Schritt zum Deaktivieren der kontinuierlichen Verfügbarkeit bei Verwendung eines gruppierten Dateiservers hinzugefügt.|Gruppierte Dateifreigaben bieten eine bessere Leistung für kleine Schreibvorgänge (die für Roamingbenutzerprofile typisch sind), wenn die kontinuierliche Verfügbarkeit deaktiviert ist.|
-|19. März 2014|Großgeschriebene profilversionensuffixe (. V2. V3. V4) in [Anhang B: Referenzinformationen zur Profilversion](#appendix-b:-profile-version-reference-information).|Obwohl Windows Groß-/Kleinschreibung ist bei der Verwendung von NFS mit der Dateifreigabe ist es wichtig, dass die richtigen profilsuffix für das Profil-Suffix haben.|
-|09. Oktober 2013|Überarbeitet, Windows Server 2012 R2 und Windows 8.1, es wird ein paar Dinge erläutert und hinzugefügt der [Überlegungen zur Verwendung von Roamingbenutzerprofilen in mehreren Versionen von Windows](#considerations-when-using-roaming-user-profiles-on-multiple-versions-of-windows) und [Anhang B: Referenzinformationen zur Profilversion](#appendix-b:-profile-version-reference-information) Abschnitte.|Updates für die neue version Kundenfeedback.|
+|19. März 2014|Großgeschriebene profilversionensuffixe (. V2. V3. V4) in [Anhang B: Referenzinformationen zur Profilversion](#appendix-b-profile-version-reference-information).|Obwohl Windows Groß-/Kleinschreibung ist bei der Verwendung von NFS mit der Dateifreigabe ist es wichtig, dass die richtigen profilsuffix für das Profil-Suffix haben.|
+|09. Oktober 2013|Überarbeitet, Windows Server 2012 R2 und Windows 8.1, es wird ein paar Dinge erläutert und hinzugefügt der [Überlegungen zur Verwendung von Roamingbenutzerprofilen in mehreren Versionen von Windows](#considerations-when-using-roaming-user-profiles-on-multiple-versions-of-windows) und [Anhang B: Referenzinformationen zur Profilversion](#appendix-b-profile-version-reference-information) Abschnitte.|Updates für die neue version Kundenfeedback.|
 
 ## <a name="more-information"></a>Weitere Informationen
 

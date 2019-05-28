@@ -8,12 +8,12 @@ ms.author: jeffpatt
 author: JeffPatt24
 ms.date: 4/5/2017
 ms.assetid: f168292b-0dbc-44b9-965f-d480e5134a0c
-ms.openlocfilehash: fa8b2b15ff411a59b28308a329d7ca2341ef0886
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4b2c771a83824318f889c955f6194bcb062761f3
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871941"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976796"
 ---
 # <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-5-set-up-clients"></a>Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 5: Einrichten von Clients
 
@@ -79,7 +79,7 @@ Gehen Sie folgendermaßen vor, um Arbeitsordner auf dem Clientcomputer zu konfig
   
 2.  Klicken Sie auf **Arbeitsordner einrichten**.  
   
-3.  Auf der **Geben Sie Ihre geschäftliche e-Mail-Adresse** Seite, die der Benutzer e-Mail-Adresse eingeben (z. B. user@contoso.com) oder die Arbeitsordner-URL (im Testbeispiel https://workfolders.contoso.com), und klicken Sie dann auf **Weiter**.  
+3.  Auf der **Geben Sie Ihre geschäftliche e-Mail-Adresse** Seite, die der Benutzer e-Mail-Adresse eingeben (z. B. user@contoso.com) oder die Arbeitsordner-URL (im Testbeispiel Https:\//workfolders.contoso.com), und klicken Sie dann auf  **Nächste**.  
   
 4.  Wenn der Benutzer mit dem Unternehmensnetzwerk verbunden ist, erfolgt die Authentifizierung durch die integrierte Windows-Authentifizierung. Wenn der Benutzer nicht mit dem Unternehmensnetzwerk verbunden ist, erfolgt die Authentifizierung durch AD FS (OAuth) und der Benutzer wird zur Eingabe der Anmeldeinformationen aufgefordert. Geben Sie Ihre Anmeldeinformationen ein, und klicken Sie auf **OK**.  
   

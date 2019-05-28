@@ -13,19 +13,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: db264181ef8e5e3632f3312ade61183cac3fc8f5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c31098a7dc151b29def2f3615da1e969ff8c5664
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853081"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222943"
 ---
 # <a name="taskkill"></a>taskkill
 
 >Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
 
 Beendet eine oder mehrere Aufgaben oder Prozesse. Prozesse können nach Prozess-ID oder Imagename beendet werden. **Taskkill** ersetzt die **kill** Tool.
-Beispiele für diesen Befehl verwenden, finden Sie unter [Beispiele](#BKMK_examples).
+Beispiele für diesen Befehl verwenden, finden Sie unter [Beispiele](#examples).
 
 ## <a name="syntax"></a>Syntax
 ```
@@ -37,13 +37,13 @@ taskkill [/s <computer> [/u [<Domain>\]<UserName> [/p [<Password>]]]] {[/fi <Fil
 |/s \<computer>|Gibt den Namen oder die IP-Adresse eines Remotecomputers (umgekehrte Schrägstriche nicht verwenden). Der Standardwert ist der lokale Computer.|
 |/ u \<Domäne >\\\<Benutzername >|Führt den Befehl mit den Berechtigungen des Benutzers, der angegebenen *Benutzername* oder *Domäne*\\*Benutzername*. **/ u** können angegeben werden, wenn **/s** angegeben ist. Der Standardwert ist die Berechtigungen des Benutzers, der derzeit auf dem Computer angemeldet ist, die den Befehl ausgegeben wird.|
 |/ p \<Kennwort >|Gibt das Kennwort des Benutzerkontos ein, die im angegebenen die **/u** Parameter.|
-|/fi \<Filter>|Wendet einen Filter, um eine Reihe von Aufgaben auszuwählen. Sie können mehr als ein Filter oder verwenden Sie das Platzhalterzeichen (**\***) Geben Sie alle Aufgaben oder Namen von Images. Finden Sie in der folgenden [Tabelle gültiger Filternamen](#BKMK_table), Operatoren und Werten.|
+|/fi \<Filter>|Wendet einen Filter, um eine Reihe von Aufgaben auszuwählen. Sie können mehr als ein Filter oder verwenden Sie das Platzhalterzeichen ( **\*** ) Geben Sie alle Aufgaben oder Namen von Images. Finden Sie in der folgenden [Tabelle gültiger Filternamen](#filter-names-operators-and-values), Operatoren und Werten.|
 |"/ PID" \<Prozess-ID >|Gibt die Prozess-ID des Prozesses beendet werden soll.|
-|/im \<ImageName >|Gibt den imagenamen des Prozesses beendet werden soll. Verwenden Sie das Platzhalterzeichen (**\***) an alle Namen von Images.|
+|/im \<ImageName >|Gibt den imagenamen des Prozesses beendet werden soll. Verwenden Sie das Platzhalterzeichen ( **\*** ) an alle Namen von Images.|
 |/f|Gibt an, dass Prozesse beendet werden. Dieser Parameter wird bei ignoriert; Alle remote-Prozesse werden beendet.|
 |/t|Beendet den angegebenen Prozess und alle untergeordneten Prozesse werden gestartet.|
 
-#### <a name="BKMK_table"></a>Filternamen, Operatoren und Werte
+#### <a name="filter-names-operators-and-values"></a>Filternamen, Operatoren und Werte
 |Filtername|Gültige Operatoren|Gültige Werte|
 |--------|----------|----------|
 |STatUS|eq, ne|AUSFÜHRUNG &AMP;#124; REAGIERT NICHT &AMP;#124; UNBEKANNT|
@@ -59,7 +59,7 @@ taskkill [/s <computer> [/u [<Domain>\]<UserName> [/p [<Password>]]]] {[/fi <Fil
 
 ## <a name="remarks"></a>Hinweise
 * Die Filter WINDOWTITLE und STatUS werden nicht unterstützt, wenn einem Remotesystem angegeben wird.
-* Das Platzhalterzeichen (**\***) wird akzeptiert, die **/im** option nur, wenn ein Filter angewendet wird.
+* Das Platzhalterzeichen ( **\*** ) wird akzeptiert, die **/im** option nur, wenn ein Filter angewendet wird.
 * Beenden von Remoteprozessen immer durchgeführt wird erzwungen, unabhängig davon, ob die **/f** angegeben wird.
 * Bereitstellen eines Computernamens zu dem hostnamensfilter führt dazu, dass das Herunterfahren und alle Prozesse beendet werden.
 * Sie können **Tasklist** um zu bestimmen, den Prozess-ID (PID) für den Prozess beendet wird.
@@ -87,4 +87,4 @@ taskkill /f /fi "PID ge 1000" /im *
 ```
 
 #### <a name="additional-references"></a>Zusätzliche Referenzen
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 3a015c27f784d5b1f488f984450612820d4a06b1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8bcc653cc9eb9adb6d31331463d01774d4faec1a
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59828981"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189220"
 ---
 # <a name="custom-error-messages-for-ad-fs-sign-in-page"></a>Benutzerdefinierte Fehlermeldungen für AD FS-Anmeldeseite  
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2
 
 Sie können benutzerdefinierte Fehlermeldungen konfigurieren, die auf Ihre Organisation zugeschnitten sind. In der folgenden Abbildung sind eine benutzerdefinierte Fehlerseitenbeschreibung und eine generische Fehlermeldung gezeigt. Verwenden Sie die folgenden Windows PowerShell-Cmdlets, um das Anpassen von Fehlermeldungen.  
   

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3f62208d6576890529be80b1c6cb3cc073a2b4e6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 579b0772e4642389b90aa370dad80a3eebea9d34
+ms.sourcegitcommit: 08eba714d3ceb5f2dfb5486d6b990da1aa4dcbdd
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853361"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65564719"
 ---
 # <a name="ksetupremoverealm"></a>ksetup:removerealm
 
@@ -46,7 +46,7 @@ Der Standardname der Bereich kann nicht vom Domänencontroller entfernt werden, 
 
 ## <a name="BKMK_Examples"></a>Beispiele für
 
-Legen Sie den Bereichsnamen versehentlich durch den Namen ". COM? Klicken Sie auf dem lokalen Computer CORP. CONTOSO. CON
+Versehentlich legen Sie den Bereichsnamen von Tippfehler ".COM" auf dem lokalen Computer CORP. CONTOSO. CON
 ```
 ksetup /setrealm CORP.CONTOSO.CON
 ```
@@ -60,4 +60,4 @@ Die Entfernung überprüfen, indem Sie Ausführung **Ksetup** und überprüfen S
 
 -   [Ksetup](ksetup.md)
 -   [Ksetup:setrealm](ksetup-setrealm.md)
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

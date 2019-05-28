@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.date: 01/18/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 21f99362205e0a6aa90ebd26cef8f3a779bdc1dc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d6641ba08323aeffa680e59c8e0bc5fcfa9757fd
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59836491"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222442"
 ---
 # <a name="configure-and-manage-quorum"></a>Konfigurieren und Verwalten des Quorums
 
@@ -31,57 +31,20 @@ Das Quorummodell in Windows Server ist flexibel. Wenn Sie die Quorumkonfiguratio
 
 In der folgenden Tabelle werden die drei Quorumkonfigurationsoptionen aufgelistet, die im Assistenten zum Konfigurieren des Clusterquorums verfügbar sind.
 
-<table>
-<thead>
-<tr class="header">
-<th>Option</th>
-<th>Beschreibung</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>„Typische Einstellungen verwenden“, und</td>
-<td>Der Cluster weist automatisch jedem Knoten eine Stimme zu und verwaltet die Knotenstimmen dynamisch. Sofern es für Ihren Cluster angemessen ist und freigegebener Clusterspeicher zur Verfügung steht, wählt der Cluster einen Datenträgerzeugen aus. Diese Option wird für die meisten Situationen empfohlen, da die Clustersoftware automatisch eine Quorum- und Zeugenkonfiguration auswählt, die die höchste Verfügbarkeit für den Cluster bietet.</td>
-</tr>
-<tr class="even">
-<td>„Quorumzeugen hinzufügen oder ändern“</td>
-<td>Sie können eine Zeugenressource hinzufügen, ändern oder entfernen. Sie können einen Dateifreigabe- oder Datenträgerzeugen konfigurieren. Der Cluster weist automatisch jedem Knoten eine Stimme zu und verwaltet die Knotenstimmen dynamisch.</td>
-</tr>
-<tr class="odd">
-<td>„Erweiterte Quorumkonfiguration und Zeugenauswahl“</td>
-<td>Wählen Sie diese Option nur aus, wenn für die Konfiguration des Quorums anwendungs- und standortspezifische Anforderungen gelten. Sie können den Quorumzeugen ändern, Knotenstimmen hinzufügen oder entfernen und auswählen, ob der Cluster die Knotenstimmen dynamisch verwalten soll. Standardmäßig werden zu allen Knoten Stimmen zugewiesen, und die Knotenstimmen werden dynamisch verwaltet.</td>
-</tr>
-</tbody>
-</table>
+|Option  |Beschreibung  |
+|---------|---------|
+|„Typische Einstellungen verwenden“, und     |  Der Cluster weist automatisch jedem Knoten eine Stimme zu und verwaltet die Knotenstimmen dynamisch. Sofern es für Ihren Cluster angemessen ist und freigegebener Clusterspeicher zur Verfügung steht, wählt der Cluster einen Datenträgerzeugen aus. Diese Option wird für die meisten Situationen empfohlen, da die Clustersoftware automatisch eine Quorum- und Zeugenkonfiguration auswählt, die die höchste Verfügbarkeit für den Cluster bietet.       |
+|„Quorumzeugen hinzufügen oder ändern“     |   Sie können eine Zeugenressource hinzufügen, ändern oder entfernen. Sie können einen Dateifreigabe- oder Datenträgerzeugen konfigurieren. Der Cluster weist automatisch jedem Knoten eine Stimme zu und verwaltet die Knotenstimmen dynamisch.      |
+|„Erweiterte Quorumkonfiguration und Zeugenauswahl“     | Wählen Sie diese Option nur aus, wenn für die Konfiguration des Quorums anwendungs- und standortspezifische Anforderungen gelten. Sie können den Quorumzeugen ändern, Knotenstimmen hinzufügen oder entfernen und auswählen, ob der Cluster die Knotenstimmen dynamisch verwalten soll. Standardmäßig werden zu allen Knoten Stimmen zugewiesen, und die Knotenstimmen werden dynamisch verwaltet.        |
 
 In Abhängigkeit von der gewählten Quorumkonfigurationsoption und Ihren spezifischen Einstellungen wird der Cluster in einem der folgenden Quorummodi konfiguriert:
 
-<table>
-<thead>
-<tr class="header">
-<th>Modus</th>
-<th>Beschreibung</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Knotenmehrheit (kein Zeuge)</td>
-<td>Nur Knoten haben Stimmen. Es wird kein Quorumzeuge konfiguriert. Das Clusterquorum entspricht der Mehrheit der abstimmenden Knoten in der aktiven Clustermitgliedschaft.</td>
-</tr>
-<tr class="even">
-<td>Keine Mehrheit mit Zeuge (Datenträger oder Dateifreigabe)</td>
-<td>Knoten haben Stimmen. Zusätzlich hat ein Quorumzeuge eine Stimme. Das Clusterquorum entspricht der Mehrheit der abstimmenden Knoten in der aktiven Clustermitgliedschaft plus einer Zeugenstimme.<br />
-<br />
-Ein Quorumzeuge kann ein festgelegter Datenträgerzeuge oder ein Dateifreigabezeuge sein.</td>
-</tr>
-<tr class="odd">
-<td>Keine Mehrheit (nur Datenträgerzeuge)</td>
-<td>Knoten haben keine Stimmen. Nur ein Datenträgerzeuge hat eine Stimme. Das Clusterquorum wird über den Status des Datenträgerzeugen bestimmt.<br />
-<br />
-Der Cluster verfügt über das Quorum, wenn ein Knoten verfügbar ist und mit einem bestimmten Datenträger im Clusterspeicher kommuniziert. Im Allgemeinen wird dieser Modus nicht empfohlen und er sollte nicht ausgewählt werden, da er für den Cluster einen einzelnen Fehlerpunkt erzeugt.</td>
-</tr>
-</tbody>
-</table>
+
+|Modus  |Beschreibung  |
+|---------|---------|
+|Knotenmehrheit (kein Zeuge)     |   Nur Knoten haben Stimmen. Es wird kein Quorumzeuge konfiguriert. Das Clusterquorum entspricht der Mehrheit der abstimmenden Knoten in der aktiven Clustermitgliedschaft.      |
+|Keine Mehrheit mit Zeuge (Datenträger oder Dateifreigabe)     |   Knoten haben Stimmen. Zusätzlich hat ein Quorumzeuge eine Stimme. Das Clusterquorum entspricht der Mehrheit der abstimmenden Knoten in der aktiven Clustermitgliedschaft plus einer Zeugenstimme. Ein Quorumzeuge kann ein festgelegter Datenträgerzeuge oder ein Dateifreigabezeuge sein. 
+|Keine Mehrheit (nur Datenträgerzeuge)     | Knoten haben keine Stimmen. Nur ein Datenträgerzeuge hat eine Stimme. <br>Das Clusterquorum wird über den Status des Datenträgerzeugen bestimmt. Im Allgemeinen wird dieser Modus nicht empfohlen und er sollte nicht ausgewählt werden, da er für den Cluster einen einzelnen Fehlerpunkt erzeugt.       |
 
 In den folgenden Unterabschnitten erhalten Sie weitere Informationen zu den erweiterten quorumkonfigurationseinstellungen.
 
@@ -89,63 +52,16 @@ In den folgenden Unterabschnitten erhalten Sie weitere Informationen zu den erwe
 
 Im Allgemeinen sollten die abstimmenden Elemente im Cluster beim Konfigurieren eines Quorums eine ungerade Anzahl ergeben. Wenn der Cluster daher eine gerade Anzahl von abstimmenden Knoten enthält, sollten Sie einen Datenträgerzeugen oder einen Dateifreigabezeugen konfigurieren. Der Cluster ist in der Lage, einen zusätzlichen Knoten inaktiv zu halten. Zudem kann der Cluster durch das Hinzufügen einer Zeugenstimme die Ausführung fortsetzen, wenn die Hälfte der Clusterknoten gleichzeitig ausfällt oder deren Verbindung unterbrochen bzw. getrennt wird.
 
-Ein Datenträgerzeuge wird in der Regel empfohlen, wenn der Datenträger für alle Knoten angezeigt wird. Ein Dateifreigabezeuge wird empfohlen, wenn Sie die Notfallwiederherstellung mit repliziertem Speicher für mehrere Standorte berücksichtigen müssen. Das Konfigurieren eines Datenträgerzeugen mit repliziertem Speicher ist nur möglich, wenn der Speicheranbieter den Lese-/Schreibzugriff auf den replizierten Speicher von allen Standorten aus unterstützt. <strong>*Ein Datenträgerzeuge wird nicht unterstützt, mit "direkte Speicherplätze"*</strong>.
+Ein Datenträgerzeuge wird in der Regel empfohlen, wenn der Datenträger für alle Knoten angezeigt wird. Ein Dateifreigabezeuge wird empfohlen, wenn Sie die Notfallwiederherstellung mit repliziertem Speicher für mehrere Standorte berücksichtigen müssen. Das Konfigurieren eines Datenträgerzeugen mit repliziertem Speicher ist nur möglich, wenn der Speicheranbieter den Lese-/Schreibzugriff auf den replizierten Speicher von allen Standorten aus unterstützt. <strong>*Ein Datenträgerzeuge wird nicht unterstützt, mit "direkte Speicherplätze"*</strong> .
 
 Die folgende Tabelle enthält zusätzliche Informationen und Überlegungen zu den Quorumzeugentypen.
 
-<table>
-<thead>
-<tr class="header">
-<th>Zeugentyp</th>
-<th>Beschreibung</th>
-<th>Anforderungen und Empfehlungen</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Datenträgerzeuge</td>
-<td>- Dedizierte LUN, die eine Kopie der Clusterdatenbank speichert<br />
-- Besonders hilfreich für Cluster mit freigegebenem (nicht repliziertem) Speicher</td>
-<td>- Die Größe der LUN muss mindestens 512 MB sein.<br />
-- Clusterverwendung dediziert sein muss und die Clusterrolle nicht zugewiesen werden kann<br />
-- Muss im gruppierten Speicher und übergeben Sie speichervalidierungstests enthalten sein<br />
-- Ein Datenträger nicht möglich, die ein freigegebenes Clustervolume (CSV)<br />
-- Basisdatenträger mit einzelnem volume<br />
-- Muss sich nicht um einen Laufwerkbuchstaben zu erhalten.<br />
-- Kann mit NTFS oder ReFS formatiert sein<br />
-- Kann optional mit Hardware-RAID für Fehlertoleranz konfiguriert werden<br />
-- Sollte von Sicherungen und antivirenscans ausgeschlossen werden<br />
-- Ein datenträgerzeuge wird mit "direkte Speicherplätze" nicht unterstützt.</td>
-</tr>
-<tr class="even">
-<td>Dateifreigabezeuge</td>
-<td>- SMB-Dateifreigabe, die auf einem Dateiserver unter Windows Server konfiguriert ist<br />
-- Eine Kopie der Clusterdatenbank werden nicht gespeichert werden.<br />
-- Verwaltet Clusterinformationen nur in eine Datei "witness.log"<br />
-- Besonders nützlich für multisite-Cluster mit repliziertem Speicher</td>
-<td>- Mindestens 5 MB freier Speicherplatz verfügbar sein müssen<br />
-- Speziell für die einzelnen Cluster und nicht zum Speichern von Benutzer-oder Anwendungsdaten verwendet werden muss<br />
-- Schreibberechtigungen müssen für das Computerobjekt für den Namen des Clusters aktiviert haben<br />
-<br />
-Nachfolgend sind weitere Überlegungen zu einem Dateiserver aufgeführt, der den Dateifreigabezeugen hostet:<br />
-<br />
-- Ein einzelner Dateiserver kann mit dateifreigabezeugen für mehrere Cluster konfiguriert werden.<br />
-- Der Dateiserver muss sich auf einer Website, die von der clusterarbeitsauslastung getrennt ist. Dadurch haben alle Clusterstandorte bei einer Unterbrechung der Netzwerkkommunikation zwischen den Standorten dieselbe Chance, diesen Zwischenfall zu überstehen. Wenn sich der Dateiserver am gleichen Standort befindet, wird der Standort zum primären Standort. Dies ist dann der einzige Standort, der auf die Dateifreigabe zugreifen kann.<br />
-- Der Dateiserver kann auf einem virtuellen Computer ausführen, wenn der virtuelle Computer nicht im selben Cluster gehostet wird, der den dateifreigabezeugen verwendet.<br />
-- Für hohe Verfügbarkeit kann der Dateiserver in einem separaten Failovercluster konfiguriert werden.</td>
-</tr>
 
-<tr class-"odd">
-<td>Cloudzeuge</td>
-<td>- Ein Zeuge-Datei, die in Azure Blob Storage gespeichert<br>
--Wird empfohlen, wenn alle Server im Cluster eine zuverlässige Internetverbindung verfügen.</td>
-<td>Finden Sie unter <a href="https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness">Bereitstellen eines cloudzeugen</a>.</td>
-<td>
-</td>
-</tr>
-
-</tbody>
-</table>
+|Zeugentyp  |Beschreibung  |Anforderungen und Empfehlungen  |
+|---------|---------|---------|
+|Datenträgerzeuge     |  <ul><li> Dedizierte LUN, die eine Kopie der Clusterdatenbank speichert</li><li> Besonders für Cluster mit freigegebenem (nicht repliziertem) Speicher geeignet</li>       |  <ul><li>Die Größe der LUN muss mindestens 512 MB betragen</li><li> Muss für die Clusterverwendung dediziert sein und darf keiner Clusterrolle zugewiesen werden</li><li> Muss in den Clusterspeicher einbezogen werden und die Speichervalidierungstests bestehen</li><li> Darf kein Datenträger sein, der ein freigegebenes Clustervolume (CSV) ist</li><li> Einfacher Datenträger mit einzelnem Volume</li><li> Laufwerksbuchstabe ist nicht erforderlich</li><li> Formatierung mit NTFS oder ReFS zulässig</li><li> Kann für die Fehlertoleranz optional mit Hardware-RAID konfiguriert werden</li><li> Sollte von Sicherungen und Antivirenscans ausgeschlossen werden</li><li> Ein datenträgerzeuge wird mit "direkte Speicherplätze" nicht unterstützt.</li>|
+|Dateifreigabezeuge     | <ul><li>SMB-Dateifreigabe, die auf einem Dateiserver konfiguriert ist, der Windows Server ausführt</li><li> Speichert keine Kopie der Clusterdatenbank</li><li> Verwaltet Clusterinformationen nur in der Datei "witness.log"</li><li> Besonders für Cluster mit repliziertem Speicher für mehrere Standorte geeignet </li>       |  <ul><li>Es sind mindestens 5 MB freier Speicherplatz erforderlich</li><li> Muss dem einzelnen Cluster zugeteilt und nicht zum Speichern von Benutzer- oder Anwendungsdaten verwendet werden</li><li> Schreibberechtigungen müssen für das Computerobjekt für den Clusternamen aktiviert sein</li></ul><br>Nachfolgend sind weitere Überlegungen zu einem Dateiserver aufgeführt, der den Dateifreigabezeugen hostet:<ul><li>Ein einzelner Dateiserver mit Dateifreigabezeugen kann für mehrere Cluster konfiguriert werden.</li><li> Der Dateiserver muss sich an einem Standort befinden, der von der Clusterarbeitsauslastung getrennt ist. Dadurch haben alle Clusterstandorte bei einer Unterbrechung der Netzwerkkommunikation zwischen den Standorten dieselbe Chance, diesen Zwischenfall zu überstehen. Wenn sich der Dateiserver am gleichen Standort befindet, wird der Standort zum primären Standort. Dies ist dann der einzige Standort, der auf die Dateifreigabe zugreifen kann.</li><li> Der Dateiserver kann auf einem virtuellen Computer ausgeführt werden, wenn der virtuelle Computer nicht auf demselben Cluster gehostet wird, der den Dateifreigabezeugen verwendet.</li><li> Der Dateiserver kann auf einem separaten Failovercluster konfiguriert werden, um eine hohe Verfügbarkeit zu bieten. </li>      |
+|Cloudzeuge     |  <ul><li>Ein Zeuge-Datei, die in Azure Blob Storage gespeichert</li><li> Empfohlen, wenn alle Server im Cluster eine zuverlässige Internetverbindung verfügen.</li>      |  Finden Sie unter [Bereitstellen eines cloudzeugen](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness).       |
 
 ### <a name="node-vote-assignment"></a>„Knotenvotumszuweisung“
 
@@ -212,7 +128,7 @@ Die erforderlichen Mindestberechtigungen zur Ausführung dieses Vorgangs ist die
 
 1. Wählen Sie im Failovercluster-Manager den zu ändernden Cluster aus, oder geben Sie ihn an.
 2. Mit dem Cluster ausgewählt haben, unter **Aktionen**Option **Weitere Aktionen**, und wählen Sie dann **Clusterquorumeinstellungen konfigurieren**. Der Assistent zum Konfigurieren des Clusterquorums wird angezeigt. Wählen Sie **Weiter** aus.
-3. Wählen Sie auf der Seite **Quorumkonfigurationsoption auswählen** eine der drei verfügbaren Konfigurationsoptionen aus, und führen Sie dann die Schritte für diese Option aus. Bevor Sie die Quorumeinstellungen konfigurieren, können Sie Ihre Auswahl überprüfen. Weitere Informationen zu den Optionen finden Sie unter [Übersicht über das Quorum in einem Failovercluster](#overview-of-the-quorum-in-a-failover-cluster)weiter oben in diesem Thema.
+3. Wählen Sie auf der Seite **Quorumkonfigurationsoption auswählen** eine der drei verfügbaren Konfigurationsoptionen aus, und führen Sie dann die Schritte für diese Option aus. Bevor Sie die Quorumeinstellungen konfigurieren, können Sie Ihre Auswahl überprüfen. Weitere Informationen zu den Optionen finden Sie unter [Understanding Quorum](#understanding-quorum)weiter oben in diesem Thema.
 
     - Wenn den Cluster die quorumeinstellungen automatisch zurückzusetzen wird, die für Ihre aktuelle Clusterkonfiguration optimal sind, wählen **typische Einstellungen verwenden** und schließen Sie den Assistenten.
     - Wählen Sie zum Hinzufügen oder ändern den quorumzeugen, **hinzufügen oder ändern Sie den quorumzeugen**, und schließen Sie dann die folgenden Schritte aus. Weitere Informationen und Überlegungen zum Konfigurieren eines Quorumzeugen finden Sie in diesem Thema unter [Zeugenkonfiguration](#witness-configuration).
@@ -366,36 +282,14 @@ In dieser Konfiguration besteht der Cluster aus zwei oder mehr Standorten, die C
 
 In der folgenden Tabelle sind die Überlegungen und Empfehlungen für diese Konfiguration zusammengefasst.
 
-<table>
-<thead>
-<tr class="header">
-<th>Element</th>
-<th>Beschreibung</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Anzahl von Knotenstimmen pro Standort</td>
-<td>Sollte gleich sein</td>
-</tr>
-<tr class="even">
-<td>„Knotenvotumszuweisung“</td>
-<td>Knotenstimmen sollten nicht entfernt werden, da alle Knoten gleich wichtig sind</td>
-</tr>
-<tr class="odd">
-<td>„Dynamische Quorumverwaltung“</td>
-<td>Sollte aktiviert sein</td>
-</tr>
-<tr class="even">
-<td>„Zeugenkonfiguration“</td>
-<td>Es wird ein Dateifreigabezeuge empfohlen, der an einem Standort konfiguriert ist, der sich von Clusterstandorten unterscheidet</td>
-</tr>
-<tr class="odd">
-<td>Arbeitsauslastungen</td>
-<td>Arbeitsauslastungen können an einem beliebigen Standort konfiguriert werden</td>
-</tr>
-</tbody>
-</table>
+
+|Element  |Beschreibung  |
+|---------|---------|
+|Anzahl von Knotenstimmen pro Standort     | Sollte gleich sein       |
+|„Knotenvotumszuweisung“     |  Knotenstimmen sollten nicht entfernt werden, da alle Knoten gleich wichtig sind       |
+|„Dynamische Quorumverwaltung“     |   Sollte aktiviert sein      |
+|„Zeugenkonfiguration“     |  Es wird ein Dateifreigabezeuge empfohlen, der an einem Standort konfiguriert ist, der sich von Clusterstandorten unterscheidet       |
+|Arbeitsauslastungen     |  Arbeitsauslastungen können an einem beliebigen Standort konfiguriert werden       |
 
 #### <a name="additional-considerations-for-automatic-failover"></a>Weitere Überlegungen für das automatische failover
 
@@ -407,39 +301,13 @@ In dieser Konfiguration besteht der Cluster aus einem primären Standort, *SiteA
 
 In der folgenden Tabelle sind die Überlegungen und Empfehlungen für diese Konfiguration zusammengefasst.
 
-<table>
-<thead>
-<tr class="header">
-<th>Element</th>
-<th>Beschreibung</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Anzahl von Knotenstimmen pro Standort</td>
-<td>Abweichung möglich</td>
-</tr>
-<tr class="even">
-<td>„Knotenvotumszuweisung“</td>
-<td>- Knotenstimmen sollten von Knoten am primären Standort nicht entfernt werden <em>SiteA</em><br />
-- Knotenstimmen sollten von Knoten am Sicherungsstandort, entfernt <em>SiteB</em><br />
-- Wenn ein langfristiger Ausfall eintritt <em>SiteA</em>, müssen die stimmen zu Knoten am <em>SiteB</em> im Rahmen der Wiederherstellung eine quorummehrheit an diesem Standort zu aktivieren</td>
-</tr>
-<tr class="odd">
-<td>„Dynamische Quorumverwaltung“</td>
-<td>Sollte aktiviert sein</td>
-</tr>
-<tr class="even">
-<td>„Zeugenkonfiguration“</td>
-<td>- Konfigurieren ein Zeugen bei eine gerade Anzahl von Knoten am <em>SiteA</em><br />
-- Wenn ein Zeuge erforderlich ist, konfigurieren Sie entweder einen dateifreigabezeugen oder einen datenträgerzeugen, der Zugriff ist nur auf Knoten im <em>SiteA</em> (gelegentlich als asymmetrischer datenträgerzeuge bezeichnet)</td>
-</tr>
-<tr class="odd">
-<td>Arbeitsauslastungen</td>
-<td>Verwenden bevorzugter Besitzer, damit Arbeitsauslastungen auf Knoten von Standort <em>SiteA</em> erhalten bleiben</td>
-</tr>
-</tbody>
-</table>
+
+|Element  |Beschreibung  |
+|---------|---------|
+|Anzahl von Knotenstimmen pro Standort     |  <ul><li> Knotenstimmen sollten nicht von Knoten am primären Standort, **SiteA**, entfernt werden.</li><li>Knotenstimmen sollten von Knoten am Sicherungsstandort, **SiteB**, entfernt werden.</li><li>Wenn am Standort **SiteA** ein langfristiger Ausfall eintritt, müssen die Stimmen zu Knoten am Standort **SiteB** zugewiesen werden, um im Rahmen der Wiederherstellung eine Quorummehrheit an diesem Standort zu aktivieren.</li>       |
+|„Dynamische Quorumverwaltung“     |  Sollte aktiviert sein       |
+|„Zeugenkonfiguration“     |  <ul><li>Konfigurieren eines Zeugen bei ungerader Anzahl der Knoten am Standort **SiteA**</li><li>Wenn ein Zeuge erforderlich ist, konfigurieren Sie entweder einen Dateifreigabezeugen oder einen Datenträgerzeugen, auf den nur Knoten am Standort **SiteA** zugreifen können (gelegentlich als asymmetrischer Datenträgerzeuge bezeichnet).</li>       |
+|Arbeitsauslastungen     |  Verwenden bevorzugter Besitzer, damit Arbeitsauslastungen auf Knoten von Standort **SiteA** erhalten bleiben       |
 
 #### <a name="additional-considerations-for-manual-failover"></a>Weitere Überlegungen für manuelles failover
 
@@ -448,6 +316,6 @@ In der folgenden Tabelle sind die Überlegungen und Empfehlungen für diese Konf
 
 ## <a name="more-information"></a>Weitere Informationen
 
-* [Failover-Clusterunterstützung](failover-clustering.md)
+* [Failoverclustering](failover-clustering.md)
 * [Failover-Cluster Windows PowerShell-cmdlets](https://docs.microsoft.com/powershell/module/failoverclusters/?view=win10-ps)
 * [Weitere Informationen zu und Poolquorum](../storage/storage-spaces/understand-quorum.md)

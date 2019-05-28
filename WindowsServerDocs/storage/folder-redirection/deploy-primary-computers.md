@@ -8,16 +8,16 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 09/10/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 7b3c87597e07102d00fc068b7ecd5744e4ba366f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 39b790f39a2bf9c6334eb2176aa2e5f2e0196c0c
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854011"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65475967"
 ---
 # <a name="deploy-primary-computers-for-folder-redirection-and-roaming-user-profiles"></a>Bereitstellen von hauptcomputern für Ordnerumleitung und Roamingbenutzerprofile
 
->Gilt für: Windows 10, Windows 8, Windows 8.1, WindowsServer 2012, Windows Server 2012 R2, WindowsServer 2016
+>Gilt für: Windows 10, Windows 8, Windows 8.1, WindowsServer 2019, WindowsServer 2016, WindowsServer 2012, Windows Server 2012 R2
 
 In diesem Thema wird beschrieben, wie die Unterstützung primärer Computer aktivieren und Festlegen von hauptcomputern für Benutzer. Auf diese Weise können Sie steuern, welchen Computern die Ordnerumleitung und servergespeicherte Benutzerprofile verwenden.
 
@@ -31,7 +31,7 @@ In diesem Thema wird beschrieben, wie die Unterstützung primärer Computer akti
 Die Unterstützung primärer Computer ist Folgendes erforderlich:
 
 - Das Schema der Active Directory Domain Services (AD DS) muss aktualisiert werden, um Windows Server 2012 schemaerweiterungen für enthält (einen Windows Server 2012-Domänencontroller automatisch installieren, aktualisiert das Schema). Informationen zum Aktualisieren des AD DS-Schemas finden Sie unter [Adprep.exe Integration](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh472161(v=ws.11)#adprepexe-integration>) und [Running Adprep.exe](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd464018(v=ws.10)>).
-- Clientcomputer müssen Windows 10, Windows 8.1, Windows 8, Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 ausführen.
+- Clientcomputer müssen Windows 10, Windows 8.1, Windows 8, Windows Server-2019, Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 ausführen.
 
 >[!TIP]
 >Obwohl die Unterstützung primärer Computer Ordnerumleitung und/oder servergespeicherte Benutzerprofile, erfordert, wenn Sie diese Technologien zum ersten Mal bereitstellen, empfiehlt sich, richten Sie die Unterstützung primärer Computer vor der Aktivierung die GPOs, die Ordnerumleitung zu konfigurieren und Roaming-Benutzerprofile Dadurch wird verhindert, dass Benutzerdaten auf nicht primäre Computer kopiert werden, bevor die Unterstützung primärer Computer aktiviert ist. Weitere Informationen zu Konfigurationen finden Sie unter [Bereitstellen der Ordnerumleitung](deploy-folder-redirection.md) und [Roamingbenutzerprofile bereitstellen](deploy-roaming-user-profiles.md).

@@ -9,16 +9,15 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: d67f4c252ad25a05f11b88771f12fd01d13137d4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 040caf6395b7c70313de900d522241f97699a999
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880391"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192502"
 ---
 # <a name="add-a-federation-server-to-a-federation-server-farm"></a>Hinzufügen eines Verbundservers zu einer Verbundserverfarm
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Nachdem Sie den Verbunddienst-Rollendienst installieren und konfigurieren die erforderlichen Zertifikate auf einem Computer, können Sie den Computer als Verbundserver konfigurieren. Mit der folgenden Prozedur fügen Sie einen Computer einer neuen Verbundserverfarm hinzu.  
   
@@ -54,6 +53,6 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
 6.  Überprüfen Sie die Ergebnisse auf der Seite **Konfigurationsergebnisse**. Wenn alle Konfigurationsschritte abgeschlossen sind, klicken Sie auf **schließen** um den Assistenten zu beenden.  
   
 ## <a name="additional-references"></a>Weitere Verweise  
-[Prüfliste: Das Einrichten eines Verbundservers](Checklist--Setting-Up-a-Federation-Server.md)  
+[Prüfliste: Einrichten eines Verbundservers](Checklist--Setting-Up-a-Federation-Server.md)  
   
 

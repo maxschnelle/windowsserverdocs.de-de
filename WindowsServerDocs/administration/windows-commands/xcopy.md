@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 01/05/2019
-ms.openlocfilehash: 54697b1c967d3e21583977418383d5a372e6f5d4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5001e070b63fe88da50a5219f129855606e7a2e5
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859401"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192709"
 ---
 # <a name="xcopy"></a>xcopy
 
@@ -57,12 +57,12 @@ Xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-
 |/k|Kopiert Dateien und behält den nur-Lese Attribut auf *Ziel* Dateien ggf. auf die *Quelle* Dateien. In der Standardeinstellung **Xcopy** das Schreibschutzattribut entfernt.|
 |/r|Kopiert nur-Lese Dateien.|
 |/h|Kopiert die Dateien mit ausgeblendet und Dateiattributen System. In der Standardeinstellung **Xcopy** wird nicht kopiert, die ausgeblendet oder Systemdateien|
-|/a|Kopiert nur *Quelle* Dateien mit der die Archiv-Datei Attribute festgelegt. **/ a** ändert sich nicht auf das Archiv Dateiattribut der Quelldatei. Informationen zum das Archivattribut für die Datei mit **Attrib**, finden Sie unter [zusätzliche Verweise](xcopy.md#BKMK_addref).|
-|/m|Kopien *Quelle* Dateien mit der die Archiv-Datei Attribute festgelegt. Im Gegensatz zu **/a**, **/m** deaktiviert die Attribute der Archiv-Datei in den Dateien, die in der Quelle angegeben werden. Informationen zum das Archivattribut für die Datei mit **Attrib**, finden Sie unter [zusätzliche Verweise](xcopy.md#BKMK_addref).|
+|/a|Kopiert nur *Quelle* Dateien mit der die Archiv-Datei Attribute festgelegt. **/ a** ändert sich nicht auf das Archiv Dateiattribut der Quelldatei. Informationen zum das Archivattribut für die Datei mit **Attrib**, finden Sie unter [zusätzliche Verweise](#additional-references).|
+|/m|Kopien *Quelle* Dateien mit der die Archiv-Datei Attribute festgelegt. Im Gegensatz zu **/a**, **/m** deaktiviert die Attribute der Archiv-Datei in den Dateien, die in der Quelle angegeben werden. Informationen zum das Archivattribut für die Datei mit **Attrib**, finden Sie unter [zusätzliche Verweise](#additional-references).|
 |/n|Erstellt Kopien mithilfe der NTFS-kurze Dateinamen oder einen Verzeichnisnamen an. **/ n** ist erforderlich, wenn beim Kopieren von Dateien oder Verzeichnisse aus einem NTFS-Volume auf einem FAT-Volume oder bei die FAT-Datei System Namenskonventionen (d. h. 8.3) ist erforderlich, auf die *Ziel* -Dateisystem. Die *Ziel* FAT- oder NTFS-Dateisystem möglich.|
 |/o|Kopien der Datei den Besitz und Informationen zur discretionary Access Control List (DACL).|
 |/x|Datei kopiert, überwachungseinstellungen und Informationen zur System Access Control List (SACL) (impliziert **/o**).|
-|/Exclude:FileName1 [+ [Dateiname2] [+ [Datei3] ( \)]|Gibt eine Liste der Dateien an. Mindestens eine Datei muss angegeben werden. Jede Datei wird Suchzeichenfolgen mit jeder Zeichenfolge in einer separaten Zeile in der Datei enthalten.</br>Wenn eine der Zeichenfolgen übereinstimmt, der einen beliebigen Teil der absolute Pfad der Datei, die kopiert werden, werden diese Datei Excuded kopiert werden. Z. B. die Angabe der Zeichenfolge **Obj** schließt alle Dateien unter dem Verzeichnis **Obj** oder alle Dateien mit der **obj** Erweiterung.|
+|/Exclude:FileName1 [+ [Dateiname2] [+ [Datei3] ( \)]|Gibt eine Liste der Dateien an. Mindestens eine Datei muss angegeben werden. Jede Datei wird Suchzeichenfolgen mit jeder Zeichenfolge in einer separaten Zeile in der Datei enthalten.</br>Wenn eine der Zeichenfolgen übereinstimmt, der einen beliebigen Teil der absolute Pfad der Datei, die kopiert werden, wird diese Datei kopiert werden ausgeschlossen. Z. B. die Angabe der Zeichenfolge **Obj** schließt alle Dateien unter dem Verzeichnis **Obj** oder alle Dateien mit der **obj** Erweiterung.|
 |/y|Unterdrückt die Aufforderung zum bestätigen, dass eine vorhandene Zieldatei überschrieben werden soll.|
 |/-y|Werden Sie aufgefordert um zu bestätigen, dass eine vorhandene Zieldatei überschrieben werden soll.|
 |/z|Wenn Sie Daten über ein Netzwerk im neustartbaren Modus kopiert.|
@@ -98,13 +98,13 @@ Xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-
     Sie können diese Meldung unterdrücken, indem Sie mit der **/i** Befehlszeilenoption, wodurch **Xcopy** davon ausgehen, dass das Ziel ein Verzeichnis ist, wenn die Quelle mehr als eine Datei oder ein Verzeichnis ist.
 -   Mithilfe der **Xcopy** Befehl zum Festlegen von Attribut "Archive" für *Ziel* Dateien
 
-    Die **Xcopy** Befehl werden Dateien mit der Archiv-Attributsatz, erstellt, unabhängig davon, ob dieses Attribut in der Quelldatei festgelegt wurde. Weitere Informationen zu Dateiattributen und **Attrib**, finden Sie unter [zusätzliche Verweise](xcopy.md#BKMK_addref).
+    Die **Xcopy** Befehl werden Dateien mit der Archiv-Attributsatz, erstellt, unabhängig davon, ob dieses Attribut in der Quelldatei festgelegt wurde. Weitere Informationen zu Dateiattributen und **Attrib**, finden Sie unter [zusätzliche Verweise](#additional-references).
 -   Vergleichen von **Xcopy** und **Diskcopy**
 
     Wenn Sie einen Datenträger, die Dateien in Unterverzeichnissen enthält und Sie es auf einen Datenträger kopieren möchten, der ein anderes Format hat, verwenden Sie die **Xcopy** Befehl anstelle von **Diskcopy**. Da die **Diskcopy** Befehl kopiert Datenträger Nachverfolgen von nachverfolgen, Ihre Quelle und Ziel-Datenträger müssen das gleiche Format aufweisen. Die **Xcopy** Befehl verfügt nicht über diese Anforderung. Verwendung **Xcopy** , wenn Sie eine Kopie des vollständigen Datenträger-Image benötigen.
 -   Exitcodes bei **mithilfe von Xcopy**
 
-    Zum Verarbeiten von zurückgegebene Exitcodes **Xcopy**, verwenden Sie die **ErrorLevel** Parameter in der **Wenn** Befehlszeile in einem Batchprogramm. Ein Beispiel für ein Batchprogramm, dass Beendigungscodes mit **Wenn**, finden Sie unter [zusätzliche Verweise](xcopy.md#BKMK_addref). Die folgende Tabelle enthält alle Exitcodes und eine Beschreibung an.  
+    Zum Verarbeiten von zurückgegebene Exitcodes **Xcopy**, verwenden Sie die **ErrorLevel** Parameter in der **Wenn** Befehlszeile in einem Batchprogramm. Ein Beispiel für ein Batchprogramm, dass Beendigungscodes mit **Wenn**, finden Sie unter [zusätzliche Verweise](#additional-references). Die folgende Tabelle enthält alle Exitcodes und eine Beschreibung an.  
     |Exitcode|Beschreibung|
     |---------|-----------|
     |0|Dateien wurden fehlerfrei kopiert.|
@@ -182,7 +182,7 @@ rem  3 File(s) copied
 ```
 Im vorherigen Beispiel, diese bestimmte Quelle Parameterwert **.\\ Inhaltsverzeichnis\*.yml** kopieren 3 Dateien auch dieselbe, wenn die zwei Pfadzeichen **.\\**  wurden entfernt. Allerdings keine Dateien kopiert werden, wenn der Sternchen-Platzhalter aus den Quellparameter, und es einfach entfernt wurde **.\\ TOC.yml**.
 
-#### <a name="BKMK_addref"></a>Zusätzliche Referenzen
+#### <a name="additional-references"></a>Weitere Verweise
 
 -   [Kopieren](copy.md)
 -   [Verschieben](move.md)
@@ -190,4 +190,4 @@ Im vorherigen Beispiel, diese bestimmte Quelle Parameterwert **.\\ Inhaltsverzei
 -   [Attrib](attrib.md)
 -   [Diskcopy](diskcopy.md)
 -   [If](if.md)
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

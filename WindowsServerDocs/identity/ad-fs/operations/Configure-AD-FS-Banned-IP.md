@@ -8,16 +8,15 @@ ms.date: 06/28/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: b8ff87a1043b589e83faa875467ddced536291b5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 01ef992554a1e0961d8d795e9baa7730a1a1d682
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867511"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189891"
 ---
 # <a name="ad-fs-and-banned-ip-addresses"></a>AD FS und gesperrten IP-Adressen
 
->Gilt für: Windows Server 2016
 
 Im Juni 2018 AD FS unter Windows Server 2016 eingeführt **gesperrte** Juni 2018 mit der AD FS zu aktualisieren.  Dieses Update können Sie einen Satz von IP-Adressen Global in AD FS zu konfigurieren, damit Anforderungen von diesen IP-Adressen, oder dass die IP-Adressen haben, in der **X-forwarded-for** oder **X-ms-forwarded-Client-IP-** -Header von AD FS blockiert werden.
 
@@ -63,4 +62,4 @@ BannedIpList                   : {1.2.3.4, ::3,1.2.3.4/16}
 
 [Set-AdfsProperties](https://technet.microsoft.com/itpro/powershell/windows/adfs/set-adfsproperties)
 
-[AD FS-Vorgänge](../../ad-fs/AD-FS-2016-Operations.md)
+[AD FS-Vorgänge](../../ad-fs/AD-FS-2016-Operations.md)

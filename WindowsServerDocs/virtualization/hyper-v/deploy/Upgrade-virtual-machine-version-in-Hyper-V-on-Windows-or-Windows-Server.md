@@ -8,19 +8,19 @@ ms.technology: compute-hyper-v
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 897f2454-5aee-445c-a63e-f386f514a0f6
-author: KBDAzure
-ms.author: kathydav
-ms.date: 10/03/2016
-ms.openlocfilehash: 8b277796492ca7d72b1a8713484c691cb9a8dca3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+author: jasongerend
+ms.author: jgerend
+ms.date: 05/22/2019
+ms.openlocfilehash: 1d19b3dc7000a4bf5558f351ce67ce7406b3d5d8
+ms.sourcegitcommit: b190fac4bfa5599751a60d3fc3b4c4a64dd9afd7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819441"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66009078"
 ---
 # <a name="upgrade-virtual-machine-version-in-hyper-v-on-windows-10-or-windows-server"></a>Aktualisieren Sie die Version von Virtual Machine in Hyper-V unter Windows 10 oder Windows Server
 
->Gilt für: Windows 10, WindowsServer 2016, WindowsServer 2019
+>Gilt für: Windows 10, WindowsServer 2019, WindowsServer 2016, WindowsServer (Halbjährlicher Kanal)
 
 Stellen Sie die neuesten Hyper-V-Features zur Verfügung auf Ihren virtuellen Computern durch ein Upgrade der Konfigurationsversion. Machen Sie das nicht bis:
 
@@ -74,30 +74,31 @@ New-VM -Name "WindowsCV5" -Version 5.0
 
 Die folgende Tabelle enthält die Versionen der VM-Konfiguration, die auf Hosts, die mit einer Long-term servicing-Version von Windows unterstützt werden.
 
-|Hyper-V-Host-Windows-version| 9.0 | 8.3 | 8.2 | 8.1 | 8.0 | 7.1 | 7.0 | 6.2 | 5.0 |
-|---|---|---|---|---|---|---|---|---|---|
-|Windows Server 2019|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|Windows 10 Enterprise LTSC 2019|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|Windows Server 2016|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|Windows 10 Enterprise 2016 LTSB|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|Windows 10 Enterprise 2015 LTSB|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|&#10004;|
-|Windows Server 2012 R2|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|
-|Windows 8.1|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|
+| Hyper-V-Host-Windows-version | 9.1 | 9.0 | 8.3 | 8.2 | 8.1 | 8.0 | 7.1 | 7.0 | 6.2 | 5.0 |
+| --- |---|---|---|---|---|---|---|---|---|---|
+|Windows Server 2019|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|Windows 10 Enterprise LTSC 2019|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|Windows Server 2016|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|Windows 10 Enterprise 2016 LTSB|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|Windows 10 Enterprise 2015 LTSB|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|&#10004;|
+|Windows Server 2012 R2|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|
+|Windows 8.1|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|
 
 ### <a name="supported-vm-configuration-versions-for-semi-annual-channel-hosts"></a>Unterstützte Versionen von VM-Konfiguration für halbjährlicher Kanalhosts
 
-Die folgende Tabelle enthält die Versionen der VM-Konfiguration für eine Version derzeit unterstützten halbjährlicher Kanal von Windows-Hosts an. Weitere Informationen zu halbjährlicher Kanal-Versionen von Windows finden Sie die folgenden Seiten [WindowsServer](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview) und [Windows 10](https://docs.microsoft.com/windows/deployment/update/waas-overview#servicing-channels)
+Die folgende Tabelle enthält die Versionen der VM-Konfiguration für eine Version derzeit unterstützten halbjährlicher Kanal von Windows-Hosts an. Weitere Informationen zu halbjährlicher Kanal-Versionen von Windows finden Sie die folgenden Seiten [WindowsServer](../../../get-started-19/servicing-channels-19.md) und [Windows 10](https://docs.microsoft.com/windows/deployment/update/waas-overview#servicing-channels)
 
-|Hyper-V-Host-Windows-version| 9.0 | 8.3 | 8.2 | 8.1 | 8.0 | 7.1 | 7.0 | 6.2 | 5.0 |
-|---|---|---|---|---|---|---|---|---|---|
-|Windows Server, Version 1809|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|Windows 10 Oktober 2018 Update (Version 1809)|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|Windows Server, Version 1803|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|Windows 10 April 2018 Update (Version 1803)|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|Windows 10 Fall Creators Update (Version 1709)|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|Windows Server, Version 1709|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|Windows 10 Creators Update (Version 1703)|&#10006;|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|Windows 10 Anniversary Update (Version 1607)|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+| Hyper-V-Host-Windows-version | 9.1 | 9.0 | 8.3 | 8.2 | 8.1 | 8.0 | 7.1 | 7.0 | 6.2 | 5.0 |
+| --- |---|---|---|---|---|---|---|---|---|---|
+| Windows 10 können 2019 (Version 1903) aktualisieren. |&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;| &#10004;|
+| Windows Server, version 1903 |&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;| &#10004;|
+|Windows Server, Version 1809|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|Windows 10 Oktober 2018 Update (Version 1809)|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|Windows Server, Version 1803|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|Windows 10 April 2018 Update (Version 1803)|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|Windows 10 Fall Creators Update (Version 1709)|&#10006;|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|Windows 10 Creators Update (Version 1703)|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|Windows 10 Anniversary Update (Version 1607)|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 
 ## <a name="why-should-i-upgrade-the-virtual-machine-configuration-version"></a>Warum sollte ich die Konfigurationsversion des virtuellen Computers aktualisieren?
 

@@ -1,33 +1,32 @@
 ---
 title: In Windows Server 2016 entfernte oder veraltete Features
-description: Features und Funktionen, die entfernt wurden bzw. deren Entfernung aus künftigen Versionen geplant ist.
-ms.custom: na
+description: Eine Liste der Features und Funktionen in Windows Server 2016, die entweder in der aktuellen Version aus dem Produkt entfernt wurden oder geplant sind, sollen in künftigen Versionen (veraltet). Sie ist für IT-Experten vorgesehen, die Betriebssysteme in einer kommerziellen Umgebung aktualisieren.
 ms.prod: windows-server-threshold
-ms.reviewer: na
-ms.suite: na
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 05/02/2017
+ms.date: 05/21/2019
 ms.assetid: 5d10c5f9-ebac-49a0-b808-c0b1702e0437
-author: jaimeo
-ms.author: jaimeo
+author: jasongerend
+ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: 20178a3be14c076623f647fa139e013528de9a69
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 83855cf7e4fa86a932298dd15735dc5bf7277dfb
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858161"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976606"
 ---
 # <a name="features-removed-or-deprecated-in--windows-server-2016"></a>In Windows Server 2016 entfernte oder veraltete Features
 
 >Gilt für: Windows Server 2016
 
-Es folgt eine Liste der Features und Funktionen in Windows Server 2016, die für die aktuelle Version aus dem Produkt entfernt wurden oder möglicherweise in künftigen Versionen entfernt werden sollen („veraltet“). Sie ist für IT-Experten vorgesehen, die Betriebssysteme in einer kommerziellen Umgebung aktualisieren. Für diese Liste sind Änderungen in zukünftigen Versionen vorbehalten. Zudem enthält sie möglicherweise nicht alle veralteten Features oder Funktionen. Weitere Details zu bestimmten Features oder Funktionen und ihrer jeweiligen Ersetzung finden Sie in der zugehörigen Dokumentation.  
+Es folgt eine Liste der Features und Funktionen in Windows Server 2016, die für die aktuelle Version aus dem Produkt entfernt wurden oder möglicherweise in künftigen Versionen entfernt werden sollen („veraltet“). Sie ist für IT-Experten vorgesehen, die Betriebssysteme in einer kommerziellen Umgebung aktualisieren. Für diese Liste sind Änderungen in zukünftigen Versionen vorbehalten. Zudem enthält sie möglicherweise nicht alle veralteten Features oder Funktionen. Weitere Details zu bestimmten Features oder Funktionen und ihrer jeweiligen Ersetzung finden Sie in der zugehörigen Dokumentation.
 
-## <a name="features-removed-from-windows-server-2016"></a>In Windows Server 2016 entfernte Features 
+Informationen zu was entfernt oder in neueren Versionen als veraltet markiert wurde, finden Sie unter [Funktionen entfernt oder ersetzt, die ab Windows Server-2019](../get-started-19/removed-features-19.md).
+
+## <a name="features-removed-from-windows-server-2016"></a>In Windows Server 2016 entfernte Features
+
 Die folgenden Features und Funktionen wurden aus dieser Version von Windows Server 2016 entfernt. Anwendungen, Code oder Nutzungsarten, die von diesen Features abhängen, funktionieren in dieser Version nur, wenn Sie eine alternative Methode verwenden.  
 
 > [!NOTE]  

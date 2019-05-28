@@ -1,6 +1,6 @@
 ---
 title: Erstellen eines Failoverclusters
-description: 'Vorgehensweise: erstellen ein Failoverclusters für Windows Server 2012 R2, Windows Server 2012 und Windows Server 2016.'
+description: 'Vorgehensweise: erstellen ein Failoverclusters für Windows Server 2012 R2, Windows Server 2012, Windows Server 2016 und Windows Server-2019.'
 ms.prod: windows-server-threshold
 ms.topic: article
 author: JasonGerend
@@ -8,16 +8,16 @@ ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.date: 11/05/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: f919e69488c4f2272ddd07e535ba4e2248ddf79c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4122375a48cae17e5f3ebcd7e9f3ce1fad28a105
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843291"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222490"
 ---
 # <a name="create-a-failover-cluster"></a>Erstellen eines Failoverclusters
 
->Gilt für: Windows Server 2012 R2, Windows Server 2012, Windows Server 2016
+>Gilt für: WindowsServer 2019, WindowsServer 2016, Windows Server 2012 R2 und WindowsServer 2012
 
 In diesem Thema wird gezeigt, wie ein Failovercluster mithilfe des Failovercluster-Manager-Snap-Ins oder mit Windows PowerShell erstellt wird. Das Thema behandelt eine typische Bereitstellung, bei der Computerobjekte für den Cluster und seine zugehörigen Clusterrollen in Active Directory-Domänendiensten (AD DS) erstellt werden. Wenn Sie einen "direkte Speicherplätze"-Cluster bereitstellen, finden Sie stattdessen unter [Bereitstellen von "direkte Speicherplätze"](../storage/storage-spaces/deploy-storage-spaces-direct.md).
 
@@ -89,7 +89,7 @@ Vor der Erstellung des Failovercluster wird dringend empfohlen, dass Sie die Kon
 2. In der **Failovercluster-Manager** Bereich unter **Management**Option **Konfiguration überprüfen**.
 3. Auf der **Vorbemerkungen** Seite **Weiter**.
 4. Auf der **Server auswählen oder in einem Cluster** auf der Seite die **Geben Sie den Namen** Feld Geben Sie den NetBIOS-Namen oder den vollqualifizierten Domänennamen eines Servers, den Sie als Failoverclusterknoten hinzufügen möchten, und wählen Sie dann auf **Hinzufügen**. Wiederholen Sie diesen Schritt für alle weiteren Server, die Sie hinzufügen möchten. Wenn Sie mehrere Server gleichzeitig hinzufügen möchten, trennen Sie die Namen durch ein Komma oder Semikolon. Geben Sie die Namen z. B. im Format *server1.contoso.com, server2.contoso.com* ein. Wenn Sie fertig sind, wählen Sie **Weiter**.
-5. Auf der **Testoptionen** Seite **alle Tests ausführen (empfohlen)**, und wählen Sie dann **Weiter**.
+5. Auf der **Testoptionen** Seite **alle Tests ausführen (empfohlen)** , und wählen Sie dann **Weiter**.
 6. Auf der **Bestätigung** Seite **Weiter**.
 
     Auf der Seite zur Ausführung der Überprüfung wird der Status der aktiven Tests angezeigt.
@@ -152,72 +152,24 @@ Hier wird eine Clusterrolle zu erstellen:
     
     In der folgenden Tabelle werden die Clusterrollen, die Sie im Assistenten für hohe Verfügbarkeit konfigurieren sowie die zugehörige Serverrolle oder das Feature angezeigt, die Sie als Voraussetzung installieren müssen.
     
-    <table>
-    <thead>
-    <tr class="header">
-    <th>Clusterrolle</th>
-    <th>Vorausgesetzte(s) Rolle oder Feature</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="odd">
-    <td>DFS-Namespaceserver</td>
-    <td>DFS-Namespaces (Teil der Dateiserverrolle)</td>
-    </tr>
-    <tr class="even">
-    <td>DHCP-Server</td>
-    <td>DHCP-Serverrolle</td>
-    </tr>
-    <tr class="odd">
-    <td>Distributed Transaction Coordinator (DTC)</td>
-    <td>Keine</td>
-    </tr>
-    <tr class="even">
-    <td>Dateiserver</td>
-    <td>Dateiserverrolle</td>
-    </tr>
-    <tr class="odd">
-    <td>Allgemeine Anwendung</td>
-    <td>Nicht verfügbar</td>
-    </tr>
-    <tr class="even">
-    <td>Allgemeines Skript</td>
-    <td>Nicht verfügbar</td>
-    </tr>
-    <tr class="odd">
-    <td>Allgemeiner Dienst</td>
-    <td>Nicht verfügbar</td>
-    </tr>
-    <tr class="even">
-    <td>Hyper-V-Replikatbroker</td>
-    <td>Hyper-V-Rolle</td>
-    </tr>
-    <tr class="odd">
-    <td>iSCSI-Zielserver</td>
-    <td>iSCSI-Zielserver (Teil der Dateiserverrolle)</td>
-    </tr>
-    <tr class="even">
-    <td>iSNS-Server</td>
-    <td>iSNS-Serverdienstfeature</td>
-    </tr>
-    <tr class="odd">
-    <td>Message Queuing</td>
-    <td>Message Queuing-Dienstfeature</td>
-    </tr>
-    <tr class="even">
-    <td>Anderer Server</td>
-    <td>Keine</td>
-    </tr>
-    <tr class="odd">
-    <td>Virtueller Computer</td>
-    <td>Hyper-V-Rolle</td>
-    </tr>
-    <tr class="even">
-    <td>WINS-Server</td>
-    <td>WINS-Server-Feature</td>
-    </tr>
-    </tbody>
-    </table>
+
+|Clusterrolle  |Vorausgesetzte(s) Rolle oder Feature  |
+|---------|---------|
+|Namespace-Server     |   Namespaces (Teil der Rolle "Dateiserver")       |
+|DFS-Namespaceserver     |  DHCP-Serverrolle       |
+|Distributed Transaction Coordinator (DTC)     | Keine        |
+|Dateiserver     |  Dateiserverrolle       |
+|Allgemeine Anwendung     |  Nicht verfügbar       |
+|Allgemeines Skript     |   Nicht verfügbar      |
+|Allgemeiner Dienst     |   Nicht verfügbar      |
+|Hyper-V-Replikatbroker     |   Hyper-V-Rolle      |
+|iSCSI-Zielserver     |    iSCSI-Zielserver (Teil der Dateiserverrolle)     |
+|iSNS-Server     |  iSNS-Serverdienstfeature       |
+|Message Queuing     |  Message Queuing-Dienstfeature       |
+|Anderer Server     |  Keine       |
+|Virtueller Computer     |  Hyper-V-Rolle       |
+|WINS-Server     |   WINS-Server-Feature      |
+
 2. Im Failovercluster-Manager, erweitern Sie den Clusternamen, mit der rechten Maustaste **Rollen**, und wählen Sie dann **Rolle konfigurieren**.
 3. Folgen Sie den Schritten im Assistenten für hohe Verfügbarkeit, um die Clusterrolle zu erstellen.
 4. Stellen Sie im Bereich **Rollen** sicher, dass die Rolle den Status **Wird ausgeführt**aufweist, um die Erstellung der Clusterrolle zu überprüfen. Im Bereich "Rollen" wird auch der Besitzerknoten angezeigt. Um einen Failovertest durchzuführen, mit der rechten Maustaste in der Rolle, zeigen Sie auf **verschieben**, und wählen Sie dann **Knoten auswählen**. In der **Clusterrolle verschieben** Dialogfeld Wählen Sie den gewünschten Clusterknoten, und wählen Sie dann **OK**. Überprüfen Sie in der Spalte **Besitzerknoten** , ob der Besitzerknoten geändert wurde.
@@ -266,11 +218,11 @@ Beispiele zum Hinzufügen von Clusterrollen finden Sie in Themen wie z. B. [Add-
 
 ## <a name="more-information"></a>Weitere Informationen
 
-  - [Failover-Clusterunterstützung](failover-clustering.md)
+  - [Failoverclustering](failover-clustering.md)
   - [Bereitstellen eines Hyper-V-Clusters](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj863389(v%3dws.11)>)
   - [Server der Dateiserver mit horizontaler Skalierung für Anwendungsdaten](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831349(v%3dws.11)>)
   - [Bereitstellen eines von Active Directory getrennten Clusters](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265970(v=ws.11))
   - [Verwenden von Gastclustering für hohe Verfügbarkeit](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn440540(v%3dws.11)>)
-  - [Clusterfähiges aktualisieren](cluster-aware-updating.md)
+  - [Clusterfähiges Aktualisieren](cluster-aware-updating.md)
   - [New-Cluster](https://docs.microsoft.com/powershell/module/failoverclusters/new-cluster?view=win10-ps)
   - [Test-Cluster](https://docs.microsoft.com/powershell/module/failoverclusters/test-cluster?view=win10-ps)

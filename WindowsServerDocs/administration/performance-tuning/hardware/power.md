@@ -7,22 +7,22 @@ ms.topic: article
 ms.author: Qizha;TristanB
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 5261c856a0a29f9f58526e4f9580a16bbed5be56
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 5fe91888188796c96d5da80e8f9bd3ed627b9d43
+ms.sourcegitcommit: 08eba714d3ceb5f2dfb5486d6b990da1aa4dcbdd
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874301"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65564741"
 ---
 # <a name="server-hardware-power-considerations"></a>Überlegungen zur Power von Server-Hardware
 
 Es ist wichtig, die zunehmende Bedeutung der Energieeffizienz in der Enterprise und Data Center-Umgebung zu erkennen. Hohe Leistung und Nutzung von energiesparendes sind häufig in Konflikt stehende Ziele, aber wenn Sie die Serverkomponenten sorgfältig auswählen, erreichen Sie das richtige Gleichgewicht zwischen ihnen. In den folgenden Abschnitten werden Richtlinien für die Power-Merkmalen und Funktionen von Server-Hardware-Komponenten aufgelistet.
 
-## <a name="processor-recommendations"></a>Prozessor-Empfehlungen
+## <a name="processor-recommendations"></a>Empfehlungen für den Prozessor
 
 Häufigkeit, Betrieb, Spannung, Cachegröße und Prozess-Technologie wirken sich auf den Energieverbrauch der Prozessoren. Prozessoren verfügen über einen temperaturüberwachung Entwurf (TDP) Bewertung zu verweisen, die einen grundlegenden Überblick über die Energieverbrauch relativ zu anderen Modellen zu erhalten.
 
-Deaktivieren Sie in der Regel für den niedrigsten TDP-Prozessor, der Ihre Leistungsziele erfüllt. Darüber hinaus neuere prozessorgenerationen sind in der Regel mehr Energie, die effizient und sie möglicherweise verfügbar machen mehrere Energiezustände für die Windows Power Management-Algorithmen, wodurch eine bessere energieverwaltung auf allen Ebenen der Leistung. Oder sie können einige der neuen "kooperativen? Power Management-Techniken, die Microsoft in Zusammenarbeit mit Hardwareherstellern entwickelt wurde.
+Deaktivieren Sie in der Regel für den niedrigsten TDP-Prozessor, der Ihre Leistungsziele erfüllt. Darüber hinaus neuere prozessorgenerationen sind in der Regel mehr Energie, die effizient und sie möglicherweise verfügbar machen mehrere Energiezustände für die Windows Power Management-Algorithmen, wodurch eine bessere energieverwaltung auf allen Ebenen der Leistung. Oder sie können einige der neuen "kooperative" Power Management Techniken, die Microsoft in Zusammenarbeit mit Hardwareherstellern entwickelt wurde.
 
 Weitere Informationen zur kooperativen Power Management-Techniken, finden Sie im Abschnitt mit dem Namen Zusammenarbeit Prozessor Leistung-Steuerelement in der [Advanced Configuration and Power Interface Specification](http://www.uefi.org/sites/default/files/resources/ACPI_5_1release.pdf).
 
@@ -36,7 +36,7 @@ Mit geringem Arbeitsspeicher ist jetzt verfügbar, aber Sie müssen die Kompromi
 ## <a name="disks-recommendations"></a>Datenträger-Empfehlungen
 Höhere u/Min bedeutet mehr Energie verbraucht. SSD-Laufwerke sind mehr Energie verbrauchen effizienter als rotierenden Festplatten. Außerdem erfordern 2,5-Zoll-Laufwerke in der Regel weniger Energie als 3,5-Zoll-Laufwerke.
 
-## <a name="network-and-storage-adapter-recommendations"></a>Netzwerk- und Empfehlungen für Speicher-Adapter
+## <a name="network-and-storage-adapter-recommendations"></a>Empfehlungen für Netzwerk- und Speicheradapter
 Einige Adapter verringern Stromverbrauch während Leerlaufzeiten. Dies ist ein wichtiger Aspekt für 10-Gb-Netzwerkadapter und hoher Bandbreite (4 und 8 Gb) Speicher Links. Solche Geräte können die Menge an Energie nutzen.
 
 
@@ -69,6 +69,6 @@ Prozessor-Terminologie in diesem Thema gibt die Hierarchie der Komponenten verf�
 
 ## <a name="see-also"></a>Siehe auch
 - [Überlegungen zur Leistung von Server-Hardware](index.md)
-- [Leistung und Leistungsoptimierung](power/power-performance-tuning.md)
-- [Processor Power Management-Optimierung](power/processor-power-management-tuning.md)
-- [Ausgeglichene Parametern empfohlen](power/recommended-balanced-plan-parameters.md)
+- [Power and Performance Tuning](power/power-performance-tuning.md) (Leistungs- und Energieoptimierung)
+- [Processor Power Management (PPM) Tuning for the Windows Server Balanced Power Plan](power/processor-power-management-tuning.md) (Optimieren der Prozessorenergieverwaltung (Processor Power Management (PPM)) für den ausgewogenen Energiesparplan von Windows Server)
+- [Recommended Balanced Power Plan Parameters for Workloads Requiring Quick Response Times](power/recommended-balanced-plan-parameters.md) (Empfohlene Parameter für den ausgewogenen Energiesparplan für Workloads, die kurze Antwortzeiten erfordern)

@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 8013764b88a1061cfcaa3a507466c111bfd59aad
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7e61c734780baa1482670af3f24697c10345b292
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864811"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190589"
 ---
 # <a name="when-to-create-a-federation-server"></a>Wann sollte ein Verbundserver erstellt werden?
-
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Wenn Sie einen Verbund Serversin Active Directory Federation Services erstellen \(AD FS\), Sie bieten eine Möglichkeit, die mit dem Ihre Organisation kann:  
   
@@ -79,5 +77,5 @@ Ausführlichere Informationen zur Funktionsweise der einzelnen Optionen finden S
 Weitere Informationen über das Einrichten der erforderlichen Komponenten zum Bereitstellen eines Verbundservers finden Sie unter [Prüfliste: Das Einrichten eines Verbundservers](../../ad-fs/deployment/Checklist--Setting-Up-a-Federation-Server.md).  
   
 ## <a name="see-also"></a>Siehe auch
-[AD FS-Entwurfshandbuch in WindowsServer 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
 

@@ -11,12 +11,12 @@ ms.assetid: 18eface5-7518-4c6b-9282-93e2e3e87492
 author: KBDAzure
 ms.author: kathyDav
 ms.date: 12/06/2016
-ms.openlocfilehash: 196a32d57877662ccd73647835e16af9348135c8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a7e465313c68ee793715aba045cc56a2ca5fd1de
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845291"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222840"
 ---
 # <a name="use-local-resources-on-hyper-v-virtual-machine-with-vmconnect"></a>Use local resources on Hyper-V virtual machine with VMConnect
 
@@ -24,11 +24,11 @@ ms.locfileid: "59845291"
 
 Verbindung mit virtuellen Computern (VMConnect) können Sie die lokalen Ressourcen eines Computers in einem virtuellen Computer verwenden, wie eine entfernbaren USB-Flashlaufwerk oder ein Drucker. "Erweiterte Sitzung" können Sie die Größe des VMConnect-Fensters. In diesem Artikel erfahren Sie, wie konfigurieren Sie den Host aus, und geben Sie den virtuellen Computerzugriff auf eine lokale Ressource.
 
-Erweiterten Sitzungsmodus und Text aus Zwischenablage eingeben stehen nur für virtuelle Computer, auf denen neuere Windows-Betriebssysteme ausgeführt werden. \(Finden Sie unter [Anforderungen für die Verwendung von lokaler Ressourcen](#BKMK_NEW)weiter unten.\) 
+Erweiterten Sitzungsmodus und Text aus Zwischenablage eingeben stehen nur für virtuelle Computer, auf denen neuere Windows-Betriebssysteme ausgeführt werden. \(Finden Sie unter [Anforderungen für die Verwendung von lokaler Ressourcen](#requirements-for-using-local-resources)weiter unten.\) 
 
 Für virtuelle Computer, auf denen Ubuntu ausgeführt wird, finden Sie unter [Ubuntu-Bildschirmauflösung auf einem virtuellen Hyper-V-Computer ändern](https://blogs.msdn.microsoft.com/virtual_pc_guy/2014/09/19/changing-ubuntu-screen-resolution-in-a-hyper-v-vm/). 
   
-## <a name="BKMK_OVER"></a>Erweiterten Sitzungsmodus auf Hyper-V-Host aktivieren  
+## <a name="turn-on-enhanced-session-mode-on-a-hyper-v-host"></a>Erweiterten Sitzungsmodus auf Hyper-V-Host aktivieren  
 Wenn Ihre Hyper-V-Hosts Windows 10 oder Windows 8.1 ausgeführt wird, ist "Erweiterte Sitzung" standardmäßig aktiviert, damit Sie diesen Schritt überspringen und mit dem nächsten Abschnitt fortfahren können. Aber wenn es sich bei dem Host Windows Server 2016 oder Windows Server 2012 R2 ausgeführt wird, als Erstes ausführen. 
   
 Aktivieren Sie im erweiterten Sitzungsmodus:
@@ -61,7 +61,7 @@ Aktivieren Sie im erweiterten Sitzungsmodus:
   
 ## <a name="choose-a-local-resource"></a>Wählen Sie eine lokale Ressource
 
-Lokale Ressourcen gehören Drucker, die Zwischenablage und einem lokalen Laufwerk auf dem Computer, in dem Sie VMConnect ausführen. Weitere Informationen finden Sie unter [Anforderungen für die Verwendung von lokaler Ressourcen](#BKMK_NEW)weiter unten.  
+Lokale Ressourcen gehören Drucker, die Zwischenablage und einem lokalen Laufwerk auf dem Computer, in dem Sie VMConnect ausführen. Weitere Informationen finden Sie unter [Anforderungen für die Verwendung von lokaler Ressourcen](#requirements-for-using-local-resources)weiter unten.  
   
 So wählen Sie eine lokale Ressource aus:
   
@@ -97,7 +97,7 @@ Zum Bearbeiten der Verbindungseinstellungen für VMConnect führen Sie den folge
   
 `VMConnect.exe <ServerName> <VMName> /edit`  
   
-## <a name="BKMK_NEW"></a>Anforderungen für die Verwendung von lokaler Ressourcen
+## <a name="requirements-for-using-local-resources"></a>Anforderungen für die Verwendung von lokaler Ressourcen
 
 Um die lokalen Ressourcen eines Computers auf einem virtuellen Computer verwenden können:  
   
@@ -125,7 +125,7 @@ Wenn der Computer mit VMConnect und den virtuellen Computer sowohl die Anforderu
   
 -   Unterstützte Plug &amp; Play-Geräte  
   
-## <a name="BKMK_APP"></a>Gründe für die Verwendung von lokalen Ressourcen eines Computers
+## <a name="why-use-a-computers-local-resources"></a>Gründe für die Verwendung von lokalen Ressourcen eines Computers
 Sie sollten die lokalen Ressourcen eines Computers zu verwenden:  
   
 -   Zur Fehlerbehebung eines virtuellen Computers ohne Netzwerkverbindung zum virtuellen Computer  

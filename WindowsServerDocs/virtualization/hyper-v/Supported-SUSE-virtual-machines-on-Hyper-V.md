@@ -11,12 +11,12 @@ ms.assetid: 7ec0e14c-4498-4bd9-8fe6-b94260198efc
 author: shirgall
 ms.author: kathydav
 ms.date: 10/03/2016
-ms.openlocfilehash: 3506c00651951aa2a62637cae6cc4989f9edf1fc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d7b6d3adb4841ea827c56309307549c911a439ea
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819001"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222809"
 ---
 # <a name="supported-suse-virtual-machines-on-hyper-v"></a>Unterstützte SUSE-Computer auf Hyper-V
 
@@ -39,9 +39,9 @@ SLES12 + ist 64-Bit-nur.
 |**Funktion**|**Windows Server-Betriebssystemversion**|**SLES 15**|**SLES 12 SP3/SP4**|**SLES 12 SP2**|**SLES 12 SP1**|**SLES 11 SP4**|**SLES 11 SP3**|
 |-|-|-|-|-|-|-|-|
 |**Verfügbarkeit**||Integrierte|Integrierte|Integrierte|Integrierte|Integrierte|Integrierte|
-|**[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_core)**|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|**[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#core)**|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Windows Server 2016 – genaue Uhrzeit|2019, 2016|&#10004;|&#10004;|&#10004;||||
-|**[Netzwerkfunktionen](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Networking)**||||||||
+|**[Netzwerkfunktionen](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#networking)**||||||||
 |Großrahmen|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |VLAN-Kennzeichnung und trunking|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Livemigration|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
@@ -49,28 +49,28 @@ SLES12 + ist 64-Bit-nur.
 |vRSS|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|||
 |Segmentierung von TCP und Prüfsumme Abladungen|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;||
 |SR-IOV|2019, 2016|&#10004;|&#10004;|&#10004;||||
-|**[Speicher](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Storage)**||||||||
+|**[Speicher](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**||||||||
 |VHDX resize|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Virtueller Fibre Channel|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |VM-Sicherung|2019, 2016, 2012 R2|&#10004;Beachten Sie, 2, 3, 8|&#10004;Beachten Sie, 2, 3, 8|&#10004;Beachten Sie, 2, 3, 8|&#10004;Beachten Sie, 2, 3, 8|&#10004;Beachten Sie, 2, 3, 8|&#10004;Beachten Sie, 2, 3, 8|
 |TRIM-Unterstützung|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;||
 |SCSI WWN|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;||||
-|**[Arbeitsspeicher](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Memory)**||||||||
+|**[Arbeitsspeicher](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#memory)**||||||||
 |Kernel-Unterstützung für PAE|2019, 2016, 2012 R2, 2012, 2008 R2|Nicht zutreffend|Nicht zutreffend|Nicht zutreffend|Nicht zutreffend|&#10004;|&#10004;|
 |Konfiguration der MMIO-Lücke|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Dynamischer Arbeitsspeicher - Hot-Add-|2019, 2016, 2012 R2, 2012|&#10004;Hinweis 5, 6|&#10004;Hinweis 5, 6|&#10004;Hinweis 5, 6|&#10004;Hinweis 5, 6|&#10004;Beachten Sie, 4, 5, 6|&#10004;Beachten Sie, 4, 5, 6|
 |Dynamische Speichererweiterungsfunktion-|2019, 2016, 2012 R2, 2012|&#10004;Hinweis 5, 6|&#10004;Hinweis 5, 6|&#10004;Hinweis 5, 6|&#10004;Hinweis 5, 6|&#10004;Beachten Sie, 4, 5, 6|&#10004;Beachten Sie, 4, 5, 6|
 |Laufzeitspeichers|2019, 2016|&#10004;Hinweis 5, 6|&#10004;Hinweis 5, 6|&#10004;Hinweis 5, 6||||
-|**[Video](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Video)**||||||||
+|**[Video](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#video)**||||||||
 |Hyper-V-spezifischer Videogerät|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|**[Sonstige](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Misc)**||||||||
+|**[Sonstige](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#miscellaneous)**||||||||
 |Schlüssel/Wert-Paar|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;Beachten Sie 7|&#10004;Beachten Sie 7|
 |Nicht maskierbarer Interrupt|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Kopieren von Dateien vom Host zum Gast|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;||
 |Lsvmbus-Befehl|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;||||
 |Hyper-V-Sockets|2019, 2016|&#10004;|&#10004;|||||
 |PCI-Pass-Through-/ DDA|2019, 2016|&#10004;|&#10004;|&#10004;|&#10004;|||
-|**[Virtuelle Computer der Generation 2](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_gen2)**||||||||
+|**[Virtuelle Computer der Generation 2](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#generation-2-virtual-machines)**||||||||
 |Mit UEFI Boot|2019, 2016, 2012 R2|&#10004;Hinweis 9|&#10004;Hinweis 9|&#10004;Hinweis 9|&#10004;Hinweis 9|&#10004;Hinweis 9||
 |Sicherer Start|2019, 2016|&#10004;|&#10004;|&#10004;|&#10004;|||
 
@@ -109,7 +109,7 @@ SLES12 + ist 64-Bit-nur.
 
 * [Unterstützt von CentOS und Red Hat Enterprise Linux-VMs auf Hyper-V](Supported-CentOS-and-Red-Hat-Enterprise-Linux-virtual-machines-on-Hyper-V.md)
 
-* [Virtuelle Debian-Computer unterstützt auf Hyper-V](Supported-Debian-virtual-machines-on-Hyper-V.md)
+* [Unterstützte virtuelle Debian-Computer in Hyper-V](Supported-Debian-virtual-machines-on-Hyper-V.md)
 
 * [Unterstützte Oracle Linux-VMs auf Hyper-V](Supported-Oracle-Linux-virtual-machines-on-Hyper-V.md)
 

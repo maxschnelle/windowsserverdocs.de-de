@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 1ae755b9c41d66ce5f907f600be17547398acc1a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c42cffec0ddc1ae480ae67982147e9f186f0e50a
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839581"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222863"
 ---
 # <a name="convert-a-gpt-disk-into-an-mbr-disk"></a>Konvertieren Sie einen GPT-Datenträger in einen MBR-Datenträger
 
@@ -29,8 +29,6 @@ Sie können eine Festplatte von einem GPT- in einen MBR-Partitionsstil ändern, 
 > [!NOTE]
 > Sie müssen mindestens ein Mitglied der Gruppe **Sicherungsoperatoren** or **Administratoren** sein, um diese Schritte durchzuführen.
 
-<a id="BKMK_WINUI"></a>
-
 ## <a name="converting-using-the-windows-interface"></a>Konvertieren mithilfe der Windows-Benutzeroberfläche
 
 1.  Sichern Sie oder verschieben Sie alle Volumes auf dem GPT-Basisdatenträger, die Sie in eine MBR-Festplatte konvertieren möchten.
@@ -38,8 +36,6 @@ Sie können eine Festplatte von einem GPT- in einen MBR-Partitionsstil ändern, 
 2.  Wenn die Festplatte Partitionen oder Volumes enthält, klicken Sie mit der rechten Maustaste auf jede und klicken Sie dann auf **Volume löschen**.
 
 3.  Klicken Sie mit der rechten Maustaste auf die GPT-Festplatte, die Sie in eine MBR-Festplatte konvertieren möchten, und klicken Sie dann auf **in MBR-Datenträger konvertieren**.
-
-<a id="BKMK_CMD"></a>
 
 ## <a name="converting-using-a-command-line"></a>Konvertieren mithilfe einer Befehlszeile
 

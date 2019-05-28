@@ -5,26 +5,27 @@ ms.prod: windows-server-threshold
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
+ms.manager: daveba
 ms.technology: storage-failover-clustering
-ms.date: 04/25/2018
+ms.date: 05/09/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 111969b074b33764dbbf72bfb24ad606f8314e41
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 151f02572d7595776539af163831b4a7a060c1c7
+ms.sourcegitcommit: 75f257d97d345da388cda972ccce0eb29e82d3bc
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869721"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65613167"
 ---
 # <a name="prestage-cluster-computer-objects-in-active-directory-domain-services"></a>Vorabbereitstellen von clustercomputerobjekten in Active Directory Domain Services
 
->Gilt für: Windows Server 2012 R2, Windows Server 2012, Windows Server 2016
+>Gilt für: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In diesem Thema wird gezeigt, wie Sie Clustercomputerobjekte in den Active Directory-Domänendiensten (Active Directory Domain Services, AD DS) vorab bereitstellen. Sie können mit diesem Verfahren Benutzern oder Gruppen, die nicht über Berechtigungen zum Erstellen von Computerobjekten in AD DS verfügen, das Erstellen eines Failoverclusters ermöglichen.
 
 Beim Erstellen eines Failoverclusters mit dem Clustererstellungs-Assistenten oder mit Windows PowerShell müssen Sie einen Namen für den Cluster angeben. Wenn Sie beim Erstellen des Clusters über ausreichende Berechtigungen verfügen, wird automatisch in AD DS ein Computerobjekt erstellt, das den gleichen Namen hat wie der Cluster. Dieses Objekt wird als *Clusternamenobjekt* oder CNO bezeichnet. Über das CNO werden automatisch virtuelle Computerobjekte (VCOs) erstellt, wenn Sie Clusterrollen konfigurieren, von denen Clientzugriffspunkte verwendet werden. Wenn Sie beispielsweise einen hoch verfügbaren Dateiserver mit einem Clientzugriffspunkt mit dem Namen *Dateiserver1*erstellen, wird vom CNO ein entsprechendes VCO in AD DS erstellt.
 
 >[!NOTE]
->In Windows Server 2012 R2 ist es die Möglichkeit, einen Active Directory getrennten Cluster erstellen, in denen keine CNOS oder VCOs in AD DS erstellt werden. Diese Möglichkeit ist für bestimmte Typen von Clusterbereitstellungen gedacht. Weitere Informationen finden Sie unter [Bereitstellen eines von Active Directory getrennten Clusters](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265970(v%3dws.11)>).
+>Es ist die Möglichkeit, einen Active Directory getrennten Cluster erstellen, in denen keine CNOS oder VCOs in AD DS erstellt werden. Diese Möglichkeit ist für bestimmte Typen von Clusterbereitstellungen gedacht. Weitere Informationen finden Sie unter [Bereitstellen eines von Active Directory getrennten Clusters](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265970(v%3dws.11)>).
 
 Für die automatische Erstellung des CNOs benötigt der Benutzer, der den Failovercluster erstellt, die Berechtigung **Computerobjekte erstellen** für die Organisationseinheit (Organizational Unit, OU) oder den Container, in dem sich die Server befinden, aus denen der Cluster gebildet werden soll. Ein Benutzer mit entsprechenden Berechtigungen in AD DS (normalerweise ein Domänenadministrator) kann das CNO vorab in AD DS bereitstellen, damit ein Benutzer oder eine Gruppe ohne diese Berechtigung einen Cluster erstellen kann. Dadurch hat der Domänenadministrator außerdem mehr Kontrolle über die für den Cluster verwendete Benennungskonvention sowie darüber, in welcher Organisationseinheit die Clusterobjekte erstellt werden.
 
@@ -95,7 +96,7 @@ Wenn Sie das CNO vorab in AD DS bereitgestellt haben, können Sie eine der folge
 >[!NOTE]
 >Sie müssen mindestens Mitglied der Gruppe **Domänen-Admins** oder einer entsprechenden Gruppe sein, um die Schritte für diese Option ausführen zu können.
 
-- Option 2: [Ein VCO für eine Clusterrolle vorab bereitstellen,](#prestage-a-vco-for-the-clustered-role). Verwenden Sie diese Option, wenn aufgrund von Anforderungen in der Organisation Konten für Clusterrollen vorab bereitgestellt werden müssen. Beispielsweise kann es sein, dass Sie die Benennungskonvention steuern möchten, oder steuern möchten, welche Clusterrollen erstellt werden.
+- Option 2: [Ein VCO für eine Clusterrolle vorab bereitstellen,](#prestage-a-vco-for-a-clustered-role). Verwenden Sie diese Option, wenn aufgrund von Anforderungen in der Organisation Konten für Clusterrollen vorab bereitgestellt werden müssen. Beispielsweise kann es sein, dass Sie die Benennungskonvention steuern möchten, oder steuern möchten, welche Clusterrollen erstellt werden.
 
 >[!NOTE]
 >Sie müssen mindestens Mitglied der Gruppe **Konten-Operatoren** oder einer entsprechenden Gruppe sein, um die Schritte für diese Option ausführen zu können.
@@ -103,7 +104,7 @@ Wenn Sie das CNO vorab in AD DS bereitgestellt haben, können Sie eine der folge
 ### <a name="grant-the-cno-permissions-to-the-ou"></a>Erteilen der CNO-Berechtigungen für der Organisationseinheit
 
 1. Stellen Sie in %%amp;quot;Active Directory-Benutzer und -Computer%%amp;quot; sicher, dass im Menü **Ansicht** die Option **Erweiterte Features** ausgewählt ist.
-2. Mit der rechten Maustaste in der Organisationseinheit, in dem Erstellung des CNOS in [Schritt 1: Vorabbereitstellen des CNOS in AD DS](#step-1:-prestage-the-CNO-in-ad-ds), und wählen Sie dann **Eigenschaften**.
+2. Mit der rechten Maustaste in der Organisationseinheit, in dem Erstellung des CNOS in [Schritt 1: Vorabbereitstellen des CNOS in AD DS](#step-1-prestage-the-cno-in-ad-ds), und wählen Sie dann **Eigenschaften**.
 3. Auf der **Sicherheit** Registerkarte **erweitert**.
 4. In der **Advanced Security Settings** wählen Sie im Dialogfeld **hinzufügen**.
 5. Neben **Principal**Option **Prinzipal auswählen**.
@@ -137,4 +138,5 @@ Ein Administrator des Failoverclusters kann jetzt die Clusterrolle mit einem Cli
 
 ## <a name="more-information"></a>Weitere Informationen
 
-- [Failover-Clusterunterstützung](failover-clustering.md)
+- [Failoverclustering](failover-clustering.md)
+- [Konfigurieren von Clusterkonten in Active Directory](configure-ad-accounts.md)

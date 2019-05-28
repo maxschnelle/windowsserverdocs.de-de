@@ -6,22 +6,22 @@ ms.author: nedpyle
 ms.technology: storage-replica
 ms.topic: get-started-article
 author: nedpyle
-ms.date: 12/19/2018
+ms.date: 04/26/2019
 ms.assetid: 12bc8e11-d63c-4aef-8129-f92324b2bf1b
-ms.openlocfilehash: 0e010f0319b46e04cf9aa15cde9552af1191ab22
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: e832dce3eed7d0e5103254fb48683726b82af2e6
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824711"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65475930"
 ---
 # <a name="frequently-asked-questions-about-storage-replica"></a>Häufig gestellte Fragen zu Speicherreplikaten
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: WindowsServer 2019, WindowsServer 2016, WindowsServer (Halbjährlicher Kanal)
 
 In diesem Thema erhalten Sie Antworten auf häufig gestellte Fragen (FAQs) zu Speicherreplikaten.
 
-## <a name="FAQ1"></a> Werden Funktion "Speicherreplikat" ist in Azure unterstützt?  
+## <a name="FAQ1"></a> Werden Funktion "Speicherreplikat" ist in Azure unterstützt?
 Ja. Sie können die folgenden Szenarien mit Azure verwenden:
 
 1. Server-zu-Server-Replikation in Azure (synchron oder asynchron zwischen IaaS-VMs in ein oder zwei Fehlerdomänen im Rechenzentrum oder asynchron zwischen zwei unterschiedlichen Regionen)
@@ -29,12 +29,12 @@ Ja. Sie können die folgenden Szenarien mit Azure verwenden:
 3. Cluster-zu-Cluster-Replikation in Azure (synchron oder asynchron zwischen IaaS-VMs in ein oder zwei Fehlerdomänen im Rechenzentrum oder asynchron zwischen zwei unterschiedlichen Regionen)
 4. Cluster-zu-Cluster, asynchrone Replikation zwischen Azure und lokal (mit VPN oder Azure ExpressRoute)
 
-Weitere Hinweise zur Gast-clustering in Azure finden Sie unter: [Bereitstellen von IaaS-VM-Gastclustern in Microsoft Azure](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/).
+Weitere Hinweise zur Gast-clustering in Azure finden Sie unter: [Bereitstellen von IaaS-VM-Gastclustern in Microsoft Azure](https://techcommunity.microsoft.com/t5/Failover-Clustering/Deploying-IaaS-VM-Guest-Clusters-in-Microsoft-Azure/ba-p/372126).
 
 Wichtige Hinweise:
 
 1. Azure unterstützt keine freigegebenen VHDX-Gast-clustering, damit Windows Failover Cluster-VMs iSCSI-Zielen für klassische freigegebenem Speicher persistenten Datenträger Reservierung Failoverclustering oder "direkte Speicherplätze" verwenden müssen.
-2. Es werden Azure Resource Manager-Vorlagen für "direkte Speicherplätze"-basierte Funktion "Speicherreplikat" clustering auf [erstellen Sie einen "direkte Speicherplätze" (S2D) SOFS-Clustern mit der Funktion "Speicherreplikat" für die Notfallwiederherstellung in Azure-Regionen](https://aka.ms/azure-storage-replica-cluster).  
+2. Es werden Azure Resource Manager-Vorlagen für "direkte Speicherplätze"-basierte Funktion "Speicherreplikat" clustering auf [erstellen Sie ein Storage Leerzeichen direkte SOFS-Clustern mit der Funktion "Speicherreplikat" für die Notfallwiederherstellung in Azure-Regionen](https://aka.ms/azure-storage-replica-cluster).  
 3. RPC-Kommunikation des Clusters in Azure (indem Sie die Cluster-APIs zum Gewähren von Zugriff zwischen Clustern erforderlich)-Cluster erfordert Zugriff auf das Netzwerk für das CNO konfigurieren. Sie müssen die TCP-Port 135 und den dynamischen Bereich über TCP-Port 49152 zulassen. Verweis [Erstellen von Windows Server-Failovercluster auf Azure IaaS-VM – Teil 2 Netzwerk- und Erstellung](https://blogs.technet.microsoft.com/askcore/2015/06/24/building-windows-server-failover-cluster-on-azure-iaas-vm-part-2-network-and-creation/).  
 4. Es ist möglich, zwei Knoten gastcluster zu verwenden, in dem jeder Knoten Loopback-iSCSI für einen asymmetrischen Cluster repliziert werden, indem die Funktion "Speicherreplikat" verwendet. Aber dies wird wahrscheinlich sehr schlechten Leistung aufweisen und sollte nur für sehr begrenzten Workloads oder Testzwecke verwendet werden.  
 
@@ -80,7 +80,7 @@ So konfigurieren Sie Netzwerkeinschränkungen auf einem Stretched Cluster:
     Set-SRNetworkConstraint -SourceComputerName sr-srv01 -SourceRGName group1 -SourceNWInterface "Cluster Network 1","Cluster Network 2" -DestinationComputerName sr-srv03 -DestinationRGName group2 -DestinationNWInterface "Cluster Network 1","Cluster Network 2"  
 
 ## <a name="FAQ4"></a> Kann ich 1: n Replikation oder Transitive (A, B, C)-Replikation konfigurieren?  
-Nicht in Windows Server 2016. Dieses Release unterstützt lediglich die 1:1-Replikation von Servern, Clustern oder Stretched Cluster-Knoten. In einem späteren Release kann sich dies ändern. Sie können natürlich eine Replikation zwischen verschiedenen Servern eines bestimmten Volume-Paars in beide Richtungen konfigurieren. Beispielsweise kann Server 1 sein D-Volume an Server 2, und sein E-Volume von Server 3 replizieren.
+Nein. Funktion "Speicherreplikat" unterstützt nur 1: 1-Replikation von einem Server, Cluster oder Stretched Cluster-Knoten. In einem späteren Release kann sich dies ändern. Sie können natürlich eine Replikation zwischen verschiedenen Servern eines bestimmten Volume-Paars in beide Richtungen konfigurieren. Beispielsweise kann Server 1 sein D-Volume an Server 2, und sein E-Volume von Server 3 replizieren.
 
 ## <a name="FAQ5"></a> Kann ich die vergrößert oder verkleinert werden replizierte Volumes, die durch das Speicherreplikatfeature repliziert?  
 Sie können Volumes vergrößern (erweitern), aber nicht verkleinern. Speicherreplikate verhindern standardmäßig, dass Administratoren replizierte Volumes erweitern. Verwenden Sie die Option `Set-SRGroup -AllowVolumeResize $TRUE` in der Quellgruppe vor dem Ändern der Größe. Zum Beispiel:
@@ -90,9 +90,9 @@ Sie können Volumes vergrößern (erweitern), aber nicht verkleinern. Speicherre
 3. Verwenden Sie auf dem Quellcomputer: `Set-SRGroup -Name YourRG -AllowVolumeResize $FALSE` 
 
 ## <a name="FAQ6"></a>Kann ich ein Zielvolume online für nur-Lese Zugriff verwenden?  
-Nicht in Windows Server 2016-RTM, d. h. oder der sogenannten "RS1"-Version. Das Speicherreplikat hebt das Zielvolumes bei Beginn der Replikation auf. 
+Nicht in Windows Server 2016. Das Speicherreplikat hebt das Zielvolumes bei Beginn der Replikation auf. 
 
-Allerdings ist jetzt in der Version 1709 von Windows Server die Option zum Bereitstellen des Zielspeichers möglich – dieses Feature wird "Test-Failover" genannt. Dazu benötigen Sie ein nicht verwendetes NTFS oder ReFS-formatiertes Volume, das derzeit nicht auf dem Zielserver repliziert wird. Sie können dann eine Momentaufnahme des replizierten Speichers vorübergehend zu Test- und Sicherungszwecken bereitstellen. 
+Allerdings wird in Windows Server-2019 und Windows Server Halbjährlicher Kanal ab Version, ein 1709 die Option zum Bereitstellen der Zielspeicher ist jetzt möglich – dieses Feature heißt "Test-Failover". Dazu benötigen Sie ein nicht verwendetes NTFS oder ReFS-formatiertes Volume, das derzeit nicht auf dem Zielserver repliziert wird. Sie können dann eine Momentaufnahme des replizierten Speichers vorübergehend zu Test- und Sicherungszwecken bereitstellen. 
 
 Geben Sie beispielsweise Folgendes ein, um ein Test-Failover zu erstellen, in dem Sie ein Volume "D:" in der Replikationsgruppe "RG2" auf dem Zielserver "SRV2" replizieren und das Laufwerk "T:" auf dem Computern SRV2 haben, das nicht repliziert wird:
 
@@ -107,7 +107,7 @@ So entfernen Sie den Test-Failover-Snapshot und Verwerfen die Änderungen:
 Sie sollten die Funktion zum Testen des Failovers nur für kurzfristige temporäre Vorgänge verwenden. Sie ist nicht für die langfristige Verwendung vorgesehen. Bei der Durchführung läuft die Replikation auf dem tatsächlichen Zielvolume. 
 
 ## <a name="FAQ7"></a> Kann ich die Skalierung (Scale-Out-Datei Server, SOFS) in einem Stretched Cluster konfigurieren?  
-Auch wenn es technisch möglich ist, ist dies keine empfohlene Konfiguration in Windows Server 2016. Der Grund dafür sind die nicht vorhandenen Standortinformationen in den Computeknoten, die SOFS kontaktieren. Bei Verwendung von campusnetzwerken, in denen Wartezeiten in der Regel im Bereich unter Millisekunden, liegen funktioniert diese Konfiguration in der Regel ohne Probleme.   
+Wenngleich es technisch möglich ist, ist dies keine empfohlene Konfiguration aufgrund des Mangels an Standortinformationen in den Compute-Knoten, der die SOFS kontaktieren. Bei Verwendung von campusnetzwerken, in denen Wartezeiten in der Regel im Bereich unter Millisekunden, liegen funktioniert diese Konfiguration in der Regel ohne Probleme.   
 
 Bei der Konfiguration einer Cluster-zu-Cluster-Replikation bietet das Speicherreplikatfeature bei der Replikation zwischen zwei Clustern volle Unterstützung für Dateiserver mit horizontaler Skalierung (einschließlich Verwendung von direkten Speicherplätzen).  
 
@@ -117,7 +117,7 @@ Nein. Sie können mit CSV- oder persistenten Datenträger Reservierung (Laos) im
 Bei der Konfiguration einer Cluster-zu-Cluster-Replikation bietet das Speicherreplikatfeature bei der Replikation zwischen zwei Clustern volle Unterstützung für Dateiserver mit horizontaler Skalierung (einschließlich Verwendung von direkten Speicherplätzen).  
 
 ## <a name="FAQ8"></a>Kann ich "direkte Speicherplätze" in einem Stretched Cluster mit Speicherreplikaten konfigurieren?  
-Diese Konfiguration wird in Windows Server 2016 nicht unterstützt.  In einem späteren Release kann sich dies ändern. Bei der Konfiguration einer Cluster-zu-Cluster-Replikation bietet das Speicherreplikatfeature volle Unterstützung für Dateiserver mit horizontaler Skalierung und Hyper-V-Server (einschließlich Verwendung von direkten Speicherplätzen).  
+Dies ist keine unterstützte Konfiguration in Windows Server. In einem späteren Release kann sich dies ändern. Bei der Konfiguration einer Cluster-zu-Cluster-Replikation bietet das Speicherreplikatfeature volle Unterstützung für Dateiserver mit horizontaler Skalierung und Hyper-V-Server (einschließlich Verwendung von direkten Speicherplätzen).  
 
 ## <a name="FAQ9"></a>Wie konfiguriere ich die asynchronen Replikation?  
 
@@ -126,10 +126,10 @@ Geben Sie `New-SRPartnership -ReplicationMode` und das Argument **Asynchronous**
 ## <a name="FAQ10"></a>Wie verhindere ich Automatisches Failover eines Stretched Clusters?  
 Um ein automatisches Failover zu verhindern, können Sie `Get-ClusterNode -Name "NodeName").NodeWeight=0` mithilfe von PowerShell konfigurieren. Dadurch wird die Abstimmung auf den einzelnen Knoten am Notfallwiederherstellungsstandort entfernt. Anschließend können Sie `Start-ClusterNode -PreventQuorum` auf Knoten am primären Standort und `Start-ClusterNode -ForceQuorum` auf Knoten am Notfallstandort verwenden, um ein Failover zu erzwingen. Es ist keine grafische Option verfügbar, um ein automatisches Failover zu verhindern, und das Verhindern des automatischen Failovers wird nicht empfohlen.  
 
-## <a name="FAQ11"></a>Wie deaktiviere ich VM-resilienz?  
+## <a name="FAQ11"></a>Wie deaktiviere ich VM-resilienz?
 Um zu verhindern, dass die neuen Hyper-V-VM-resilienzfeatures ausgeführt wird und daher virtuelle Computer anzuhalten anstatt ein Failover auf den Standort für die notfallwiederherstellung ausgeführt. `(Get-Cluster).ResiliencyDefaultPeriod=0`  
 
-## <a name="FAQ12"></a> Wie kann ich Zeit für die erste Synchronisierung verkürzen?  
+## <a name="FAQ12"></a> Wie kann ich Zeit für die erste Synchronisierung verkürzen?
 
 Eine Möglichkeit, die Dauer der ersten Synchronisierung zu verkürzen, bietet die schlanke Speicherzuweisung. Das Speicherreplikatfeature führt eine Abfrage nach Speicher mit schlanker Zuweisung durch und verwendet diesen Speicher automatisch (einschließlich nicht gruppierter Speicherplätze, dynamischer Hyper-V-Datenträger und SAN-LUNs).  
 
@@ -139,11 +139,9 @@ Sie können auch per Seeding hinzugefügte Daten-Volumes zu verwenden, um die ba
 2. Momentaufnahme wiederhergestellt oder Wiederherstellung der Momentaufnahme-basierte backup – durch das Wiederherstellen einer Momentaufnahme volumenbasierten auf das Zielvolume, dürfte das minimaler Unterschiede in das Blocklayout. Dies ist die nächste effektivste Methode, wie Blöcke entsprechend Dank Speichervolume-Momentaufnahmen Spiegelbilder wird wahrscheinlich sind.
 3. Kopieren Sie die kopierte Dateien - durch ein neues Volume auf dem Ziel, das nie vor dem verwendet wurde erstellen und Ausführen einer vollständigen Robocopy/mir-Struktur der Daten, gibt es wahrscheinlich Block entspricht. Mit dem Windows-Dateiexplorer, oder kopieren einen Teil der Struktur wird nicht viele Übereinstimmungen von Block erstellt. Manuelles Kopieren von Dateien ist die am wenigsten effektive Methode des Seedings.
 
-
-
 ## <a name="FAQ13"></a> Kann ich Benutzer für die replikationsverwaltung delegieren?  
 
-Sie können das Cmdlet `Grant-SRDelegation` in Windows Server 2016 verwenden. Mit diesem Cmdlet können Sie bestimmte Benutzer in Server-zu-Server-, Cluster-zu-Cluster- und Stretched Cluster-Replikationsszenarien festlegen, die über die Berechtigungen zum Erstellen, Ändern oder Entfernen der Replikation verfügen, ohne Mitglied der lokalen Administratorengruppe zu sein. Zum Beispiel:  
+Sie können die `Grant-SRDelegation` Cmdlet. Mit diesem Cmdlet können Sie bestimmte Benutzer in Server-zu-Server-, Cluster-zu-Cluster- und Stretched Cluster-Replikationsszenarien festlegen, die über die Berechtigungen zum Erstellen, Ändern oder Entfernen der Replikation verfügen, ohne Mitglied der lokalen Administratorengruppe zu sein. Zum Beispiel:  
 
     Grant-SRDelegation -UserName contso\tonywang  
 
@@ -158,7 +156,7 @@ Anschließend können Sie eine beliebige Momentaufnahme wiederherstellen, nachde
 
     vssadmin list shadows
      vssadmin revert shadow /shadow={shadown copy ID GUID listed previously}
-Mithilfe eines geplanten Tasks können Sie auch die regelmäßige Ausführung dieses Tools planen. Weitere Informationen zur Verwendung von VSS finden Sie unter [Vssadmin](https://technet.microsoft.com/library/cc754968.aspx). Das Sichern der Protokollvolumes ist nicht notwendig oder sinnvoll. Der Versuch, diesen Vorgang auszuführen, wird von VSS ignoriert.
+Mithilfe eines geplanten Tasks können Sie auch die regelmäßige Ausführung dieses Tools planen. Weitere Informationen zur Verwendung von VSS finden Sie unter [Vssadmin](../../administration/windows-commands/vssadmin.md). Das Sichern der Protokollvolumes ist nicht notwendig oder sinnvoll. Der Versuch, diesen Vorgang auszuführen, wird von VSS ignoriert.
 Das Speicherreplikatfeature unterstützt die Verwendung von Windows Server-Sicherung, Microsoft Azure Backup, Microsoft DPM oder anderen Momentaufnahme-, VSS-, VM- oder dateibasierten Technologien, sofern diese auf Volume-Ebene eingesetzt werden. Das Speicherreplikatfeature bietet keine Unterstützung für blockbasierte Sicherungen und Wiederherstellungen.
 
 ## <a name="FAQ14"></a> Kann ich die Replikation, um eine eingeschränkte bandbreitennutzung konfigurieren?
@@ -204,13 +202,13 @@ Log-größenempfehlungen erhalten Sie durch Ausführen des Test-SRTopology-Tools
 NUR auf der Datenträger aus dem quellcluster sollten gesichert werden. Die Replikat-Speicherprotokoll Datenträger sollten nicht gesichert werden, da eine Sicherung mit der Funktion "Speicherreplikat" Vorgänge in Konflikt stehen.
 
 ## <a name="FAQ16"></a> Warum entscheiden Sie sich im Vergleich zu Cluster-zu-Cluster im Vergleich zu Server-zu-Server-Topologie ein Stretched Clusters?  
-Das Speicherreplikat ist in drei wichtigen Konfigurationen verfügbar: Stretched Cluster , Cluster-zu-Cluster und Server-zu-Server. Jede bietet verschiedene Vorteile.
+Funktion "Speicherreplikat" ist in drei Haupt-Konfigurationen: Stretched Cluster, Cluster-zu-Cluster und Server-zu-Server. Jede bietet verschiedene Vorteile.
 
 Die Stretched Cluster-Topologie ist ideal für Auslastungen, die automatisches Failover mit Orchestrierung wie z. B. private Hyper-V-Cloud-Cluster und SQL Server-Failoverclusterinstanzen erfordern. Es verfügt außerdem über eine integrierte Benutzeroberfläche, die den Failovercluster-Manager verwendet. Sie verwendet die klassische asymmetrische gemeinsam genutzte Cluster Speicherarchitektur von Speicherplätzen, SAN, iSCSI und RAID-Reservierungssemantik. Sie können dies mit nur 2 Knoten ausführen.
 
 Die Cluster-zu-Cluster-Topologie verwendet zwei separate Cluster und eignet sich besonders für Administratoren, die manuelles Failover möchten, insbesondere, wenn der zweite Speicherort für die Notfallwiederherstellung und nicht die alltägliche Verwendung konfiguriert ist. Die Orchestrierung erfolgt manuell. Im Gegensatz zu Stretched Cluster kann "direkte Speicherplätze" in dieser Konfiguration (mit Einschränkungen - finden Sie unter der Funktion "Speicherreplikat" – häufig gestellte Fragen und -Cluster-zu-Cluster-Dokumentation) verwendet werden. Sie können dies mit nur 4 Knoten ausführen. 
 
-Die Server-zu-Server-Topologie ist ideal für Kunden mit Hardware, die nicht als Clustern gruppiert werden kann. Sie erfordert manuelles Failover und Orchestrierung. Sie ist ideal für kostengünstige Bereitstellungen zwischen Zweigstellen und zentralen Rechenzentren, insbesondere bei der Verwendung von asynchroner Replikation. Diese Konfiguration ersetzt häufig Instanzen von DFSR-geschützten Dateiservern, die für die Single Master Notfallwiederherstellungszenarien verwendet werden.
+Die Server-zu-Server-Topologie ist ideal für Kunden mit Hardware, die nicht als Clustern gruppiert werden kann. Sie erfordert manuelles Failover und Orchestrierung. Es ist ideal für kostengünstige Bereitstellungen zwischen Zweigstellen und zentralen Datencentern, insbesondere, wenn die asynchrone Replikation verwenden. Diese Konfiguration ersetzt häufig Instanzen von DFSR-geschützten Dateiservern, die für die Single Master Notfallwiederherstellungszenarien verwendet werden.
 
 In allen Fällen kann die Topologie sowohl auf physischer Hardware als auch auf virtuellen Computern ausgeführt werden. In virtuellen Computern erfordert der zugrunde liegenden Hypervisor nicht Hyper-V und kann anstatt VMware, KVM, Xen verwenden.
 
@@ -222,6 +220,12 @@ Ja, wird die Daten Deduplcation mit dem Speicherreplikat unterstützt. Aktiviere
 
 Zwar Sie sollten *installieren* der Datendeduplizierung auf dem Quell-und Ziel (finden Sie unter [installieren und Aktivieren der Datendeduplizierung](../data-deduplication/install-enable.md)), es ist wichtig, nicht zu *aktivieren*Der Datendeduplizierung auf dem Zielserver. Funktion "Speicherreplikat" kann Schreibvorgänge nur auf dem Quellserver. Da die Datendeduplizierung Schreibvorgänge auf dem Volume vornimmt, sollten sie nur auf dem Quellserver ausführen. 
 
+## <a name="FAQ19"></a> Kann ich zwischen 2019 für Windows Server und Windows Server 2016 replizieren?
+
+Leider können wir unterstützen keine, erstellen eine *neue* Partnerschaft zwischen 2019 für Windows Server und Windows Server 2016. Sie können problemlos aktualisieren, einen Server oder Cluster, die unter Windows Server 2016 für Windows Server-2019 sowie *vorhandenen* Partnerschaften sind weiterhin funktionsfähig.
+
+Allerdings rufen Sie die verbesserte replikationsleistung von Windows Server-2019 müssen alle Mitglieder der Partnerschaft 2019 für Windows Server ausführen und Sie müssen vorhandene Partnerschaften löschen verknüpften Replikationsgruppen und per Seeding hinzugefügten Daten (entweder neu erstellt Wenn Sie die Partnerschaft in Windows Admin Center oder mit dem Cmdlet New-SRPartnership erstellen).
+
 ## <a name="FAQ17"></a> Wie melde ich ein Problem mit Speicherreplikaten oder diesem Leitfaden?  
 Falls Sie technische Unterstützung für Speicherreplikate benötigen, können Sie Ihre Fragen in den [Microsoft TechNet-Foren](https://social.technet.microsoft.com/Forums/windowsserver/en-US/home?forum=WinServerPreview) stellen. Sie können uns auch eine E-Mail an srfeed@microsoft.com senden, wenn Sie Fragen zu Speicherreplikaten oder dieser Dokumentation haben. Die https://windowsserver.uservoice.com Standort wird für Design Change Requests, bevorzugt, da anderen Kunden Unterstützung und Feedback zu Ihren Ideen geben können.
 
@@ -232,8 +236,8 @@ Falls Sie technische Unterstützung für Speicherreplikate benötigen, können S
 - [Replikation eines Stretched Clusters mithilfe von freigegebenem Speicher](stretch-cluster-replication-using-shared-storage.md)  
 - [Server-zu-Server-Replikation](server-to-server-storage-replication.md)  
 - [Cluster-zu-Cluster-Speicherreplikation](cluster-to-cluster-storage-replication.md)  
-- [Funktion "Speicherreplikat": Bekannte Probleme](storage-replica-known-issues.md)  
+- [Speicherreplikat: Bekannte Probleme](storage-replica-known-issues.md)  
 
 ## <a name="see-also"></a>Siehe auch  
 - [Speicher – Übersicht](../storage.md)  
-- ["Direkte Speicherplätze" unter WindowsServer 2016](../storage-spaces/storage-spaces-direct-overview.md)  
+- [Direkte Speicherplätze](../storage-spaces/storage-spaces-direct-overview.md)  

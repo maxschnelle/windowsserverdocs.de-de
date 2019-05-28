@@ -11,12 +11,12 @@ ms.assetid: 3cc62c10-02a3-4633-960c-23bf91a45bd5
 author: shirgall
 ms.author: kathydav
 ms.date: 10/03/2016
-ms.openlocfilehash: 6ec089f501a0999a4460501dbc4d03428d36af40
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 129783dc980be6e471ecadb2cdbffee900e3396e
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863831"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222828"
 ---
 # <a name="supported-debian-virtual-machines-on-hyper-v"></a>Virtuelle Debian-Computer unterstützt auf Hyper-V
 
@@ -35,9 +35,9 @@ Die folgende Funktion Verteilung Karte gibt an, die Funktionen, die in den einze
 |**Funktion**|**Windows Server-Betriebssystemversion**|**9.0-9.6 (stretch)**|**8.0-8.11 (Jessie)**|**7.0-7.11 (wheezy)**|
 |-|-|-|-|-|
 |**Verfügbarkeit**||Erstellt|Erstellt|Integriert (Notiz 6)|
-|**[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_core)**|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|
+|**[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#core)**|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|
 |Windows Server 2016 – genaue Uhrzeit|2019, 2016|&#10004;Beachten Sie 8||
-|**[Netzwerkfunktionen](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Networking)**|
+|**[Netzwerkfunktionen](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#networking)**|
 |Großrahmen|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|
 |VLAN-Kennzeichnung und trunking|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|
 |Livemigration|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|
@@ -45,28 +45,28 @@ Die folgende Funktion Verteilung Karte gibt an, die Funktionen, die in den einze
 |vRSS|2019, 2016, 2012 R2|&#10004;Beachten Sie 8|||
 |Segmentierung von TCP und Prüfsumme Abladungen|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;Beachten Sie 8|||
 |SR-IOV|2019, 2016|&#10004;Beachten Sie 8||
-|**[Speicher](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Storage)**|
+|**[Speicher](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**|
 |VHDX resize|2019, 2016, 2012 R2|&#10004;Hinweis 1|&#10004;Hinweis 1|&#10004;Hinweis 1|
 |Virtueller Fibre Channel|2019, 2016, 2012 R2|||
 |VM-Sicherung|2019, 2016, 2012 R2|&#10004;Beachten Sie 4,5|&#10004;Beachten Sie 4,5|&#10004;Anhang 4|
 |TRIM-Unterstützung|2019, 2016, 2012 R2|&#10004;Beachten Sie 8|||
 |SCSI WWN|2019, 2016, 2012 R2|&#10004;Beachten Sie 8||
-|**[Arbeitsspeicher](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Memory)**|
+|**[Arbeitsspeicher](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#memory)**|
 |Kernel-Unterstützung für PAE|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|
 |Konfiguration der MMIO-Lücke|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|
 |Dynamischer Arbeitsspeicher - Hot-Add-|2019, 2016, 2012 R2, 2012|&#10004;Beachten Sie 8|||
 |Dynamische Speichererweiterungsfunktion-|2019, 2016, 2012 R2, 2012|&#10004;Beachten Sie 8|||
 |Laufzeitspeichers|2019, 2016|&#10004;Beachten Sie 8|||
-|**[Video](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Video)**|
+|**[Video](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#video)**|
 |Hyper-V-spezifischer Videogerät|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;||
-|**[Sonstige](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_Misc)**|
+|**[Sonstige](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#miscellaneous)**|
 |Schlüssel-Wert-Paar|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;Anhang 4|&#10004;Anhang 4||
 |Nicht maskierbarer Interrupt|2019, 2016, 2012 R2|&#10004;|&#10004;|
 |Kopieren von Dateien vom Host zum Gast|2019, 2016, 2012 R2|&#10004;Anhang 4|&#10004;Anhang 4||
 |Lsvmbus-Befehl|2019, 2016, 2012 R2, 2012, 2008 R2|||
 |Hyper-V-Sockets|2019, 2016|&#10004;Beachten Sie 8|||
 |PCI-Pass-Through-/ DDA|2019, 2016|&#10004;Beachten Sie 8|||
-|**[Virtuelle Computer der Generation 2](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#BKMK_gen2)**|
+|**[Virtuelle Computer der Generation 2](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#generation-2-virtual-machines)**|
 |Mit UEFI Boot|2019, 2016, 2012 R2|&#10004;Beachten Sie 7|&#10004;Beachten Sie 7||
 |Sicherer Start|2019, 2016|||
 

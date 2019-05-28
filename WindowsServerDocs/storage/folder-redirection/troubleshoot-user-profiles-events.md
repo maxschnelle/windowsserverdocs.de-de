@@ -8,16 +8,16 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 04/05/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 6099dac7d77e37b761785b4f58b6106472e5ba1e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f30bfcd531731e3a0d14350536ddf418c50f3ea0
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59827951"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65475949"
 ---
 # <a name="troubleshoot-user-profiles-with-events"></a>Problembehandlung bei Benutzerprofilen mit Ereignissen
 
->Gilt für: Windows 10, Windows 8, Windows 8.1, WindowsServer 2012, Windows Server 2012 R2 und WindowsServer 2016.
+>Gilt für: Windows 10, Windows 8, Windows 8.1, WindowsServer 2019, WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012 und WindowsServer (halbjährlicher Kanal).
 
 Dieses Thema beschreibt die Behandlung von Problemen beim Laden und Entladen von Benutzerprofilen, mithilfe von Ereignissen und Ablaufverfolgungsprotokolle. In den folgenden Abschnitten wird beschrieben, wie die drei Ereignisprotokolle zu verwenden, die Benutzerprofilinformationen zu zeichnen.
 
@@ -58,7 +58,7 @@ So wird zum Aktivieren und Anzeigen von analytische und Debugprotokolle:
 1. In der **Aktionen** Bereich der Ereignisanzeige, wählen Sie **Ansicht**, und wählen Sie dann **analytische und Debugprotokolle**.
 2. Navigieren Sie zu **Anwendungs- und Dienstprotokolle**, klicken Sie dann **Microsoft**, klicken Sie dann **Windows**, klicken Sie dann **Benutzerprofildienst**, und klicken Sie dann  **Diagnose**.
 3. Wählen Sie **Protokoll aktivieren** und wählen Sie dann **Ja**. Dies ermöglicht das Diagnoseprotokoll, das Protokollierung gestartet wird.
-4. Wenn Sie das noch ausführlichere Informationen benötigen, finden Sie unter [Schritt 4: Erstellen und beim Decodieren einer Ablaufverfolgungs](#step-4:-creating-and-decoding-a-trace) für Weitere Informationen dazu, wie Sie ein Ablaufverfolgungsprotokoll zu erstellen.
+4. Wenn Sie das noch ausführlichere Informationen benötigen, finden Sie unter [Schritt 4: Erstellen und beim Decodieren einer Ablaufverfolgungs](#step-4-creating-and-decoding-a-trace) für Weitere Informationen dazu, wie Sie ein Ablaufverfolgungsprotokoll zu erstellen.
 5. Wenn Sie das Problem behoben haben, navigieren Sie zu der **diagnostische** wählen **Protokoll deaktivieren**, wählen **Ansicht** und deaktivieren Sie dann die **anzeigen Analytische und Debugprotokolle** Kontrollkästchen, um analytische ausblenden und die Debugprotokollierung.
 
 ## <a name="step-4-creating-and-decoding-a-trace"></a>Schritt 4: Erstellen und beim Decodieren einer Ablaufverfolgungs

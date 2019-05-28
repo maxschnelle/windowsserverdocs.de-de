@@ -6,18 +6,18 @@ ms.author: nedpyle
 ms.technology: storage-replica
 ms.topic: get-started-article
 author: nedpyle
-ms.date: 3/29/2018
+ms.date: 4/26/2019
 ms.assetid: e9b18e14-e692-458a-a39f-d5b569ae76c5
-ms.openlocfilehash: a921701747c5e21a2c7f135826f7d754c8f7d773
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e8b437a1a4ba3e5c10d6709e23efb306a077a21b
+ms.sourcegitcommit: 4ff3d00df3148e4bea08056cea9f1c3b52086e5d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59866711"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64773536"
 ---
 # <a name="storage-replica-overview"></a>Übersicht über Speicherreplikate
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2019, WindowsServer 2016
+>Gilt für: WindowsServer 2019, WindowsServer 2016, WindowsServer (Halbjährlicher Kanal)
 
 Das Speicherreplikat ist eine Windows Server-Technologie, durch die die Replikation von Volumes zwischen Servern oder Clustern für die Notfallwiederherstellung möglich ist. Darüber hinaus ermöglicht sie Ihnen, Stretched Failovercluster zu erstellen, die sich über zwei Standorte erstrecken und bei denen alle Knoten synchron bleiben.
 
@@ -25,7 +25,6 @@ Das Speicherreplikat unterstützt sowohl die synchrone als auch die asynchrone R
 
 * Die **synchrone Replikation** spiegelt Daten an physischen Standorten mit ausfallsicheren Volumes wider, um auf Dateisystemebene sicherzustellen, dass während eines Ausfalls kein Datenverlust auftritt.
 * Die **asynchrone Replikation** spiegelt Daten zwischen Standorten über regionale Bereiche über Netzwerklinks mit höherer Latenzen wider, jedoch ohne die Garantie, dass beide Standorte über identische Kopien der Daten zur Zeit eines Ausfalls verfügen.
-
 
 ## <a name="why-use-storage-replica"></a>Gründe für die Verwendung von Speicherreplikaten
 
@@ -39,7 +38,7 @@ Für größere Bereiche und Netzwerke mit höherer Latenz unterstützt das Speic
 
 ## <a name="BKMK_SRSupportedScenarios"></a>Unterstützte Konfigurationen
 
-Anhand dieses Leitfadens können Sie bei Verwendung von Windows Server 2016 Datacenter Edition eine Speicherreplikation in einem Stretched Cluster sowie zwischen Cluster-zu-Cluster- und in Server-zu-Server-Konfigurationen implementieren (siehe Abbildungen 1–3).
+Sie können die Funktion "Speicherreplikat" in einem Stretched Cluster sowie zwischen Cluster-zu-Cluster, und klicken Sie im Server-zu-Server-Konfigurationen (Siehe Abbildungen 1-3) bereitstellen.
 
 Ein **Stretched Cluster** ermöglicht die Konfiguration von Computern und Speicher innerhalb eines einzigen Clusters, wobei einige Knoten asymmetrischen Speicher und andere Knoten sich gegenseitig gemeinsam verwenden. Die Replikation wird anschließend mit Standortinformationen synchron oder asynchron durchgeführt. In diesem Szenario können Speicherplätze mit freigegebenem SAS-Speicher, SAN und an iSCSI-LUNs verwendet werden. Die Verwaltung erfolgt über PowerShell und das grafische Tool Failovercluster-Manager. Außerdem ist ein automatisiertes Workloadfailover möglich.  
 
@@ -68,7 +67,7 @@ Eine **Server-zu-Server-Konfiguration** ermöglicht eine synchrone und asynchron
 
 * **Einfache Bereitstellung und Verwaltung**. Das Speicherreplikatfeature wurde von Grund auf für eine hohe Benutzerfreundlichkeit entwickelt. Die Windows Admin Center kann Erstellung eine Replikationspartnerschaft zwischen zwei Servern verwendet werden. Zur Bereitstellung von Stretched Clustern wird der intuitive Assistent des vertrauten Failovercluster-Managers verwendet.   
 
-* **Gast und Host**. Alle Funktionen des Speicherreplikatfeatures werden sowohl in virtualisierten Gast- als auch in hostbasierten Bereitstellungen offengelegt. Das heißt, dass Gäste ihre Datenvolumes selbst dann replizieren können, wenn sie auf Windows-fremden Virtualisierungsplattformen oder in öffentlichen Clouds ausgeführt werden. Einzige Voraussetzung: Auf dem Gast muss Windows Server 2016 Datacenter Edition verwendet werden.  
+* **Gast und Host**. Alle Funktionen des Speicherreplikatfeatures werden sowohl in virtualisierten Gast- als auch in hostbasierten Bereitstellungen offengelegt. Dies bedeutet, dass Gäste Datenmengen replizieren können, selbst wenn auf nicht-Windows-Virtualisierungsplattformen oder in öffentlichen Clouds, ausgeführt als Windows Server auf dem Gast zu verwenden.  
 
 * **SMB3-basiert**. Das Speicherreplikatfeature verwendet die bewährte und ausgereifte SMB3-Technologie, die in Windows Server 2012 eingeführt wurde. Das bedeutet, dass alle ausgereiften Merkmale von SMB (z. B. SMB Multichannel- und SMB Direct-Unterstützung für RoCE-, iWARP- und InfiniBand RDMA-Netzwerkkarten) für Speicherreplikate verfügbar sind.   
 
@@ -84,7 +83,7 @@ Eine **Server-zu-Server-Konfiguration** ermöglicht eine synchrone und asynchron
 
 * **Schlanke Speicherzuweisung**. Um in vielen Situationen eine praktisch unmittelbare erste Replikation zu ermöglichen, wird die schlanke Speicherzuweisung für Speicherplätze und SAN-Geräte unterstützt.  
 
-Windows Server 2016 implementiert in Speicherreplikaten die folgenden Features:  
+Funktion "Speicherreplikat" enthält die folgenden Features:  
 
 |Feature|Details|  
 |-----------|-----------|  
@@ -93,7 +92,7 @@ Windows Server 2016 implementiert in Speicherreplikaten die folgenden Features:
 |Asynchron|Ja|  
 |Speicherhardwareagnostisch|Ja|  
 |Replikationseinheit|Volume (Partition)|  
-|Erstellung eines Stretched Clusters mit Windows Server|Ja|  
+|Windows Server stretch-Clustererstellung|Ja|  
 |Server-zu-Server-Replikation|Ja|  
 |Cluster-zu Cluster-Replikation|Ja|  
 |Transport|SMB3|  
@@ -112,11 +111,16 @@ Windows Server 2016 implementiert in Speicherreplikaten die folgenden Features:
 
 ## <a name="BKMK_SR3"></a> Voraussetzungen für Speicherreplikate  
 
-* Active Directory Domain Services-Gesamtstruktur.  
-* Speicherplätze mit SAS JBODs, „Direkte Speicherplätze“, Fibre Channel-SAN, freigegebene VHDX, iSCSI-Ziel oder lokalem SAS/SCSI/SATA-Speicher. Für Replikationsprotokolllaufwerke werden mindestens SSDs empfohlen. Microsoft empfiehlt, dass die Protokollspeicherung schneller als die Datenspeicherung durchgeführt wird. Protokollvolumes dürfen niemals für andere Workloads verwendet werden. 
-* Mindestens eine Ethernet/TCP-Verbindung auf jedem Server für die synchrone Replikation (vorzugsweise RDMA).   
-* Mindestens 2GB RAM und zwei Kerne pro Server.  
-* Ein Netzwerk zwischen den Servern mit ausreichender Bandbreite für Ihre E/A-Schreibworkload sowie durchschnittlich 5 ms Roundtriplatenz oder niedriger für die synchrone Replikation. Für die asynchrone Replikation gilt keine Empfehlung bezüglich der Latenz.  
+* Active Directory Domain Services-Gesamtstruktur.
+* Speicherplätze mit SAS JBODs, „Direkte Speicherplätze“, Fibre Channel-SAN, freigegebene VHDX, iSCSI-Ziel oder lokalem SAS/SCSI/SATA-Speicher. Für Replikationsprotokolllaufwerke werden mindestens SSDs empfohlen. Microsoft empfiehlt, dass die Protokollspeicherung schneller als die Datenspeicherung durchgeführt wird. Protokollvolumes dürfen niemals für andere Workloads verwendet werden.
+* Mindestens eine Ethernet/TCP-Verbindung auf jedem Server für die synchrone Replikation (vorzugsweise RDMA).
+* Mindestens 2GB RAM und zwei Kerne pro Server.
+* Ein Netzwerk zwischen den Servern mit ausreichender Bandbreite für Ihre E/A-Schreibworkload sowie durchschnittlich 5 ms Roundtriplatenz oder niedriger für die synchrone Replikation. Für die asynchrone Replikation gilt keine Empfehlung bezüglich der Latenz.
+* WindowsServer, Datacenter Edition oder WindowsServer Standard Edition. Funktion "Speicherreplikat" auf Windows Server Standard Edition gelten die folgenden Einschränkungen:
+
+  * Sie müssen WindowsServer 2019 oder höher verwenden.
+  * Das Speicherreplikat repliziert ein einzelnes Volume, anstatt eine unbegrenzte Anzahl von Volumes.
+  * Volumes können eine Größe von bis zu 2 TB, anstatt eine unbegrenzte Größe aufweisen.
 
 ##  <a name="BKMK_SR4"> </a> Hintergrund  
 Dieser Abschnitt enthält Informationen zu allgemeinen Begriffen aus der Branche, synchroner und asynchroner Replikation und zu Schlüsselverhalten.
@@ -152,13 +156,13 @@ Da der RPO-Wert bei der asynchronen Replikation größer Null ist, ist dieser Re
 
 -   Auf das Zielvolume kann während der Replikation in Windows Server 2016 nicht zugegriffen werden. Bei der Konfiguration der Replikation wird die Bereitstellung des Zielvolumes aufgehoben, sodass Benutzer keine Daten auf diese Volumes schreiben oder lesen können. Die Laufwerkbuchstaben werden möglicherweise auf typischen Schnittstellen wie dem Datei-Explorer angezeigt, aber eine Anwendung kann nicht auf das Volume selbst zugreifen. Replikationstechnologien auf Blockebene lassen keinen Zugriff auf das bereitgestellte Dateisystem eines Volumes auf dem Ziel zu. NTFS und ReFS bieten keine Unterstützung für Benutzerschreibvorgänge auf dem Volume, während die zugrunde liegenden Blöcke geändert werden. 
 
-In Windows Server, Version 1709 der **Test-Failover** Cmdlet wurde hinzugefügt. Nun unterstützt vorübergehend einen Lese-/ Schreibzugriff-Snapshot des Zielvolumes für Sicherungen zu laden, testen, usw. an. Finden Sie unter https://aka.ms/srfaq für Weitere Informationen.
+In Windows Server-2019 (und Windows Server, Version 1709) die **Test-Failover** Cmdlet wurde hinzugefügt. Nun unterstützt vorübergehend einen Lese-/ Schreibzugriff-Snapshot des Zielvolumes für Sicherungen zu laden, testen, usw. an. Finden Sie unter https://aka.ms/srfaq für Weitere Informationen.
 
 -   Die Microsoft-Implementierung der asynchronen Replikation unterscheidet sich von den meisten anderen Implementierungen. Bei den meisten Implementierungen der asynchronen Repliktion, die innerhalb der Branche verfügbar sind, basiert die Replikation auf Momentaufnahmen. Dabei werden regelmäßig Differenzen an den anderen Knoten übertragen, auf denen die Daten zusammengeführt werden. Bei der asynchronen Replikation mithilfe des Speicherreplikatfeatures wird der Vorgang wie bei der synchronen Replikation ausgeführt. Die beiden Vorgänge unterscheiden sich einzig dadurch, dass die Notwendigkeit einer serialisierten synchronen Bestätigung durch das Ziel entfällt. Das bedeutet, dass für das Speicherreplikat theoretisch ein niedrigerer RPO-Wert gilt, da die Daten kontinuierlich repliziert werden. Es bedeutet jedoch auch, dass der Vorgang von einer internen Absicherung der Anwendungskonsistenz abhängt, da die Konsistenz der Anwendungsdateien nicht mithilfe von Momentaufnahmen sichergestellt wird. Das Speicherreplikat stellt bei einem Absturz in sämtlichen Replikationsmodi Konsistenz sicher  
 
 -   Viele Kunden verwenden die DFS-Replikation als Notfallwiederherstellungslösung, obwohl dies häufig nicht die ideale Lösung für dieses Szenario ist. Die DFS-Replikation kann keine geöffneten Dateien replizieren und wurde für eine minimierte Bandbreitennutzung entworfen. Dies hat jedoch eine beeinträchtigte Leistung und große Wiederherstellungspunktdeltas zur Folge. Das Speicherreplikat bietet Ihnen die Möglichkeit, die DFS-Replikation gegebenenfalls nicht länger für einige dieser Notfallwiederherstellungsvorgänge einzusetzen.  
 
--   Speicherreplikate sind keine Sicherungen. Da Replikationssysteme einen Datenverlust vollständig verhindern, werden sie in einigen IT-Umgebungen als Sicherungslösungen bereitgestellt und anstelle von täglichen Sicherungen genutzt. Das Speicherreplikat repliziert sämtliche Änderungen an allen Datenblöcken auf dem Volume (unabhängig von der Art der Änderung). Wenn ein Benutzer alle Daten von einem Volume löscht, repliziert Funktion "Speicherreplikat" den Löschvorgang umgehend auf das andere Volume, entfernen die Daten unwiderruflich von beiden Servern. Verwenden Sie das Speicherreplikat nicht als Ersatz für eine Zeitpunktsicherungslösung.  
+-   Funktion "Speicherreplikat" ist keiner backup-Lösung. Da Replikationssysteme einen Datenverlust vollständig verhindern, werden sie in einigen IT-Umgebungen als Sicherungslösungen bereitgestellt und anstelle von täglichen Sicherungen genutzt. Das Speicherreplikat repliziert sämtliche Änderungen an allen Datenblöcken auf dem Volume (unabhängig von der Art der Änderung). Wenn ein Benutzer alle Daten von einem Volume löscht, repliziert Funktion "Speicherreplikat" den Löschvorgang umgehend auf das andere Volume, entfernen die Daten unwiderruflich von beiden Servern. Verwenden Sie das Speicherreplikat nicht als Ersatz für eine Zeitpunktsicherungslösung.  
 
 -   Das Speicherreplikatfeature darf nicht mit Hyper-V-Replikaten oder Microsoft SQL AlwaysOn-Verfügbarkeitsgruppen verwechselt werden. Das Speicherreplikatfeature ist ein allgemeines speicheragnostisches Modul. Sein Verhalten kann nicht so optimal angepasst werden wie bei der Replikation auf Anwendungsebene. Dies kann bestimmte Featurelücken mit sich bringen, aufgrund derer Sie sich weiterhin für bestimmte Anwendungsreplikationstechnologien entscheiden.  
 
@@ -184,7 +188,7 @@ Eine Liste der neuen Funktionen in der Funktion "Speicherreplikat" in Windows Se
 - [Replikation eines Stretched Clusters mithilfe von freigegebenem Speicher](stretch-cluster-replication-using-shared-storage.md)  
 - [Server-zu-Server-Replikation](server-to-server-storage-replication.md)  
 - [Cluster-zu-Cluster-Speicherreplikation](cluster-to-cluster-storage-replication.md)  
-- [Funktion "Speicherreplikat": Bekannte Probleme](storage-replica-known-issues.md)  
-- [Funktion "Speicherreplikat": Häufig gestellte Fragen](storage-replica-frequently-asked-questions.md)  
+- [Speicherreplikat: Bekannte Probleme](storage-replica-known-issues.md)  
+- [Speicherreplikat: Häufig gestellte Fragen](storage-replica-frequently-asked-questions.md)  
 - ["Direkte Speicherplätze" unter WindowsServer 2016](../storage-spaces/storage-spaces-direct-overview.md)
 - [Windows IT Pro-Support](https://www.microsoft.com/itpro/windows/support)

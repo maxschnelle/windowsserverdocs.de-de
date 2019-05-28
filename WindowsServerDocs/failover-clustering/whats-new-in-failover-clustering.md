@@ -8,22 +8,22 @@ manager: dongill
 author: JasonGerend
 ms.author: jgerend
 ms.date: 10/18/2018
-ms.openlocfilehash: b4fa59aa62acba5c89f20c191da2c3c1b776b1ca
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3c0792347aaa70fe80d346cc51cbc44b73c42f39
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884751"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476019"
 ---
 # <a name="whats-new-in-failover-clustering"></a>What's new in Failover Clustering (Neues beim Failoverclustering)
 
-> Gilt für: WindowsServer 2019, WindowsServer 2016, WindowsServer (Halbjährlicher Kanal)
+> Gilt für: Windows Server 2019, Windows Server 2016
 
-In diesem Thema wird erläutert, die neue und geänderte Funktionen im Failover-Clusterunterstützung für Windows Server 2019, Windows Server 2016 und Windows Server Halbjährlicher Kanal frei.
+In diesem Thema wird erläutert, die neue und geänderte Funktionen im Failover-Clusterunterstützung für Windows Server 2019 und Windows Server 2016.
 
 ## <a name="whats-new-in-windows-server-2019"></a>Neuigkeiten in Windows Server 2019
 
-- **Clustersätze**
+- **Clustergruppen**
 
     Cluster-Sätze können Sie die Anzahl von Servern in einer einzelnen softwaredefinierten Rechenzentrums (SDDC)-Lösung über die aktuellen Grenzwerte eines Clusters hinaus erhöhen. Dies erfolgt durch die Gruppierung mehrerer Cluster in einem Clustersatz – eine lose verbundene Gruppierung mehrere Failovercluster: compute, Speicher, und hyper-konvergiert.
     Mit Cluster, können Sie online virtuellen Computer verschieben (Livemigration) zwischen Clustern innerhalb des Clusters festgelegt.

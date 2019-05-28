@@ -8,18 +8,18 @@ author: greg-lindsay
 ms.author: greg-lindsay
 ms.localizationpriority: high
 ms.date: 05/07/2018
-ms.openlocfilehash: c4f80b668b91e65b6c8bc528e14f52a1d117a3c9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a489d3f8958304d685116186f5db9e1c854114bf
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59823091"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976542"
 ---
 # <a name="whats-new-in-windows-server-version-1803"></a>Neues in IPAM unter Windows Server, Version 1803.
 
 >Gilt für: Windows Server (Semi-Annual Channel)
 
-<img src="../media/landing-icons/new.png" style='float:left; padding:.5em;' alt="Icon showing a newspaper">&nbsp;In diesem Abschnitt wird beschrieben, was in Windows Server, Version 1803, neu ist und was sich geändert hat. Die hier aufgeführten Neuerungen und Änderungen haben bei der Arbeit in dieser Version vermutlich die größte Auswirkung. Informationen finden Sie unter [Windows Server Semi-Annual Channel Update](https://cloudblogs.microsoft.com/windowsserver/2018/03/29/windows-server-semi-annual-channel-update/).
+<img src="../media/landing-icons/new.png" style='float:left; padding:.5em;' alt="Icon showing a newspaper">&nbsp;Weitere Informationen zu den neuesten Features in Windows finden Sie unter [Neuigkeiten in Windows Server](whats-new-in-windows-server.md). In diesem Abschnitt Informationen zu Neuheiten und Änderungen in Windows Server, Version 1803. Die hier aufgeführten Neuerungen und Änderungen haben bei der Arbeit in dieser Version vermutlich die größte Auswirkung. Informationen finden Sie unter [Windows Server Semi-Annual Channel Update](https://cloudblogs.microsoft.com/windowsserver/2018/03/29/windows-server-semi-annual-channel-update/).
 
 ## <a name="windows-admin-center"></a>Windows Admin Center
 
@@ -110,5 +110,5 @@ Install-WindowsFeature -Name WDS
 
 ## <a name="see-also"></a>Siehe auch
 
-[Informationen zu Windows Server-Version](https://docs.microsoft.com/windows-server/get-started/windows-server-release-info)<br>
+[Dateiinformationen für die Windows Server-Version](https://docs.microsoft.com/windows-server/get-started/windows-server-release-info)<br>
 [Was ist neu in Windows 10, Version 1803 IT Pro-Inhalt](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1803)

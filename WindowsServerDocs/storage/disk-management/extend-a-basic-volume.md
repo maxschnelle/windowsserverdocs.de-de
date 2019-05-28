@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 29b7b61f7edc20edda7bc18b82db17447badc0f2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c20e2da3e629743ab4d4d4cf1da16a6e69093ecf
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834251"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192585"
 ---
 # <a name="extend-a-basic-volume"></a>Erweitern eines Basisvolume
 
@@ -25,30 +25,26 @@ Für logische Laufwerke und Start- oder System-Volumes, können Sie das Volume n
 
 ## <a name="extending-a-basic-volume"></a>Erweitern eines Basisvolumes
 
--   [Mithilfe der Windows-Benutzeroberfläche](#BKMK_WINUI)
--   [Über die Befehlszeile](#BKMK_CMD)
+-   [Mithilfe der Windows-Benutzeroberfläche](#to-extend-a-basic-volume-using-the-windows-interface)
+-   [Über die Befehlszeile](#to-extend-a-basic-volume-using-a-command-line)
 
-<a href="" id="BKMK_WINUI"></a>
 #### <a name="to-extend-a-basic-volume-using-the-windows-interface"></a>So erweitern Sie ein Basisvolume mithilfe der Windows-Benutzeroberfläche
 
-1.  Klicken Sie mit der rechten Maustaste in der Datenträgerverwaltung auf das Basisvolume, das Sie erweitern möchten.
+1. Klicken Sie mit der rechten Maustaste in der Datenträgerverwaltung auf das Basisvolume, das Sie erweitern möchten.
 
-2.  Klicken Sie auf **Volume erweitern**.
+2. Klicken Sie auf **Volume erweitern**.
 
-3.  Befolgen Sie die Anweisungen auf dem Bildschirm.
+3. Befolgen Sie die Anweisungen auf dem Bildschirm.
 
-<a href="" id="BKMK_CMD"></a>
 #### <a name="to-extend-a-basic-volume-using-a-command-line"></a>So erweitern Sie ein Baisisvolume mithilfe einer Befehlszeile
 
-1.  Öffnen Sie eine Eingabeaufforderung, und geben Sie `diskpart` ein.
+1. Öffnen Sie eine Eingabeaufforderung, und geben Sie `diskpart` ein.
 
-2.  Geben Sie an der **DISKPART**-Eingabeaufforderung `list volume` ein. Notieren Sie das Basisvolume, das Sie erweitern möchten.
+2. Geben Sie an der **DISKPART**-Eingabeaufforderung `list volume` ein. Notieren Sie das Basisvolume, das Sie erweitern möchten.
 
-3.  Geben Sie an der **DISKPART**-Eingabeaufforderung `select volume <volumenumber>` ein. Dadurch wird das Basisvolume *volumenumber* ausgewählt, das Sie in zusammenhängenden, leeren Speicherplatz auf derselben Festplatte erweitern möchten.
+3. Geben Sie an der **DISKPART**-Eingabeaufforderung `select volume <volumenumber>` ein. Dadurch wird das Basisvolume *volumenumber* ausgewählt, das Sie in zusammenhängenden, leeren Speicherplatz auf derselben Festplatte erweitern möchten.
 
-4.  Geben Sie an der **DISKPART**-Eingabeaufforderung `extend [size=<size>]` ein. Dies erweitert das ausgewählte Volume in der *Größe* in Megabyte (MB).
-
-<br />
+4. Geben Sie an der **DISKPART**-Eingabeaufforderung `extend [size=<size>]` ein. Dies erweitert das ausgewählte Volume in der *Größe* in Megabyte (MB).
 
 | Wert | Beschreibung |
 | --- | --- |
@@ -64,5 +60,3 @@ Für logische Laufwerke und Start- oder System-Volumes, können Sie das Volume n
 ## <a name="see-also"></a>Siehe auch
 
 -   [Notation der Befehlszeilensyntax](https://technet.microsoft.com/library/cc742449(v=ws.11).aspx)
-
-

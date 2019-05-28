@@ -9,12 +9,12 @@ manager: dougkim
 ms.author: jgerend
 ms.date: 6/11/2017
 description: Eine Übersicht über die Arbeitsordner - eine Serverrolle in Windows Server, durch die Benutzer auf einheitliche Art und Weise über PCs und Geräte auf ihre Arbeitsdateien zugreifen können.
-ms.openlocfilehash: dd32b84e6442ec55414da27ea94ef16eeab769eb
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e3e3c86efb2f781dc88cac6851ea22f19c6ae812
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890481"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222857"
 ---
 # <a name="work-folders-overview"></a>Übersicht: Arbeitsordner
 
@@ -24,18 +24,18 @@ In diesem Thema werden Arbeitsordner behandelt, ein Rollendienst für Dateiserve
   
 Wenn Sie zum Herunterladen oder verwenden Sie Arbeitsordner auf Windows 10, Windows 7 oder einem Android- oder iOS-Gerät suchen, finden Sie hier:
 
--   [Arbeitsordner für Windows 10](https://support.microsoft.com/help/12370/windows-10-work-folders)
--   [Arbeitsordner für Windows 7 (64-Bit-Download)](https://www.microsoft.com/download/details.aspx?id=42558)
--   [Arbeitsordner für Windows 7 (32-Bit-Download)](https://www.microsoft.com/download/details.aspx?id=42559)
+- [Arbeitsordner für Windows 10](https://support.microsoft.com/help/12370/windows-10-work-folders)
+- [Arbeitsordner für Windows 7 (64-Bit-Download)](https://www.microsoft.com/download/details.aspx?id=42558)
+- [Arbeitsordner für Windows 7 (32-Bit-Download)](https://www.microsoft.com/download/details.aspx?id=42559)
 - [Arbeitsordner für iOS](https://itunes.apple.com/app/work-folders/id950878067)
 - [Arbeitsordner für Android](https://play.google.com/store/apps/details?id=com.microsoft.workfolders)
 
-##  <a name="BKMK_OVER"></a> Rollenbeschreibung  
+## <a name="role-description"></a>Rollenbeschreibung  
  Benutzer können nicht nur mit Firmen-PCs sondern auch mit ihren eigenen Computern und Geräten auf Arbeitsdaten zugreifen und mit ihnen arbeiten. Dies wird als BYOD (bring-your-own-device) bezeichnet. Benutzer erhalten einen komfortablen Ort, um Arbeitsdateien zu speichern und von beliebigem Ort aus darauf zuzugreifen. Organisationen behalten die Kontrolle über Unternehmensdaten durch Speichern der Dateien auf zentral verwalteten Dateiservern und optionale Festlegung von Benutzerrichtlinien für Geräte (z.B. Verschlüsselung und Sperrbildschirmkennwörter).  
   
  Die Arbeitsordner können mit der vorhandenen Bereitstellung von Ordnerumleitung, Offlinedateien und Stammordner bereitgestellt werden. Arbeitsordner speichern Benutzerdateien in einem Ordner auf dem Server mit dem Namen *sync share*. Sie können einen Ordner angeben, der bereits Benutzerdaten enthält. Dadurch können Sie Arbeitsordner übernehmen, ohne Server und Daten zu migrieren oder sofort eine vorhandene Lösung abzulösen.  
   
-##  <a name="BKMK_APP"></a> Praktische Anwendungen  
+## <a name="practical-applications"></a>Praktische Anwendungsfälle  
  Administratoren können Arbeitsordner verwenden, um Benutzern Zugriff auf ihre Dateien zu ermöglichen und gleichzeitig die zentrale Speicherung und Kontrolle über die Daten des Unternehmens beizubehalten. Spezifische Anwendungen für Arbeitsordner umfassen:  
   
 -   Eine zentrale Anlaufstelle für den Zugriff auf die Arbeitsdateien über private und geschäftliche PCs und Geräte des Benutzers bieten  
@@ -50,7 +50,8 @@ Wenn Sie zum Herunterladen oder verwenden Sie Arbeitsordner auf Windows 10, Wind
   
 -   Failoverclustering mit Arbeitsordner für eine Hochverfügbarkeitslösung verwenden  
   
-##  <a name="BKMK_NEW"></a> Wichtige Funktionen  
+## <a name="important-functionality"></a>Wichtige Funktionalität
+
  Arbeitsordner enthalten folgende Funktionen.  
   
 |Funktionalität|Verfügbarkeit|Beschreibung|  
@@ -60,7 +61,8 @@ Wenn Sie zum Herunterladen oder verwenden Sie Arbeitsordner auf Windows 10, Wind
 |Integration der Arbeitsordner mit Windows|Windows 10<br /><br /> Windows 8.1<br /><br /> Windows RT 8.1<br /><br /> Windows 7 (Download erforderlich)|Arbeitsordner bietet folgende Funktionen in Windows-Computern:<br /><br /> -   Ein Systemsteuerungselement, das Arbeitsordner einrichtet und überwacht<br />-   Datei-Explorer-Integration, die den einfachen Zugriff auf Dateien in den Arbeitsordnern ermöglicht<br />-   Ein Synchronisierungsmodul, das Dateien von und zu einem zentralen Dateiserver überträgt und gleichzeitig die Akkulaufzeit und Systemleistung maximiert|  
 |Arbeitsordner-App für Geräte|Android<br /><br /> Apple iPhone und iPad®|Eine App, die häufig verwendeten Geräten Zugriff auf Dateien in den Arbeitsordnern ermöglicht|  
   
-##  <a name="BKMK_New"></a> Neue und geänderte Funktionalität  
+## <a name="new-and-changed-functionality"></a>Neue und geänderte Funktionalität
+  
  In der folgenden Tabelle werden einige der wichtigen Änderungen für Arbeitsordner beschrieben.  
   
 |Feature/Funktionalität|Neu oder aktualisiert?|Beschreibung|  
@@ -70,7 +72,7 @@ Wenn Sie zum Herunterladen oder verwenden Sie Arbeitsordner auf Windows 10, Wind
 |WIP-Integration (Windows Information Protection)|Wurde Windows 10 Version 1607 hinzugefügt|Wenn ein Administrator WIP bereit stellt, können die Arbeitsordner Datenschutz erzwingen, indem sie Daten auf dem PC verschlüsseln. Die Verschlüsselung verwendet einen der Enterprise-ID zugeordneten Schlüssel, der remote mithilfe eines unterstützten Mobilgerät Management-Pakets wie Microsoft Intune zurückgesetzt werden kann.|  
 |Microsoft Office-Integration|Wurde Windows 10 Version 1511 hinzugefügt|Sie können in Windows 8.1 innerhalb der Office-Apps durch Anklicken oder Tippen auf „Dieser PC” zu den Arbeitsordnern auf den Speicherorten der Arbeitsordner auf Ihrem PC navigieren. In Windows 10 gelangen Sie noch einfacher zu den Arbeitsordnern, indem Sie diese der Liste der Speicherorte hinzufügen, die Office beim Speichern oder Öffnen von Dateien anzeigt. Weitere Informationen finden Sie unter [Arbeitsordner unter Windows 10](https://windows.microsoft.com/windows-10/work-folders-in-windows-10) und [Problembehandlung bei der Verwendung von Arbeitsordnern in Microsoft Office](https://social.technet.microsoft.com/wiki/contents/articles/32881.troubleshooting-using-work-folders-as-a-place-in-microsoft-office.aspx).|  
   
-##  <a name="BKMK_SOFT"></a> Softwareanforderungen  
+## <a name="software-requirements"></a>Softwareanforderungen
 
 Für Arbeitsordner gelten die folgenden Softwareanforderungen für Dateiserver und die Netzwerkinfrastruktur:  
   
@@ -126,7 +128,7 @@ Für Arbeitsordner gelten die folgenden Softwareanforderungen für Clientcompute
   
 -   Arbeitsordner unterstützen das Zurücksetzen des Status von virtuellen Clientcomputern nicht. Führen Sie Sicherungs- und Wiederherstellungsvorgänge stattdessen innerhalb des virtuellen Clientcomputers mithilfe der Systemabbildsicherung oder einer anderen Sicherungsanwendung durch.  
   
-##  <a name="BKMK_Comparison"></a> Arbeitsordner-Features im Vergleich zu anderen Technologien für die Synchronisierung  
+## <a name="work-folders-compared-to-other-sync-technologies"></a>Arbeitsordner im Vergleich zu anderen Synchronisierungstechniken  
 
 In der folgende Tabelle wird beschrieben, wie die verschiedenen Microsoft Synchronisierungstechnologien positioniert sind, und wann sie verwendet werden.  
   
@@ -141,7 +143,7 @@ In der folgende Tabelle wird beschrieben, wie die verschiedenen Microsoft Synchr
 > [!NOTE]
 >  Zusätzlich zu den in der vorherigen Tabelle aufgeführten Synchronisierungstechnologien bietet Microsoft andere Replikationstechnologien an, einschließlich DFS-Replikation, die für die Server-zu-Server-Replikation vorgesehen ist und BranchCache, die als WAN-Beschleunigungstechnologie für Zweigstellen vorgesehen ist. Weitere Informationen finden Sie unter [Übersicht über DFS-Namespaces und DFS-Replikation](https://technet.microsoft.com/library/jj127250(v=ws.11).aspx) und [Übersicht über BranchCache](https://technet.microsoft.com/library/hh831696(v=ws.11).aspx)  
   
-##  <a name="BKMK_INSTALL"></a> Informationen zur Server-Manager  
+## <a name="server-manager-information"></a>Informationen zum Server-Manager  
 
 Arbeitsordner sind Teil der Datei- und Speicherdienste-Rolle. Sie können Arbeitsordner mit dem Assistent zum Hinzufügen von Rollen und Features oder dem Cmdlet `Install-WindowsFeature` installieren. Beide Methoden erreichen Folgendes:  
   
@@ -151,12 +153,13 @@ Arbeitsordner sind Teil der Datei- und Speicherdienste-Rolle. Sie können Arbeit
   
 -   Installiert das Windows PowerShell-Synchronisierungsfreigabemodul zum Verwalten von Arbeitsordnern auf dem Server  
   
-##  <a name="BKMK_Azure"></a> Interoperabilität mit Windows Azure-Computern  
+## <a name="interoperability-with-windows-azure-virtual-machines"></a>Interoperabilität mit virtuellen Windows Azure-Computern
+
  Sie können diesen Windows Server-Rollendienst auf einem virtuellen Computer in Windows Azure ausführen. Dieses Szenario wurde für Windows Server 2012 R2 und Windows Server 2016 getestet.  
   
 Weitere Informationen zu den ersten Schritten mit virtuellen Windows Azure-Computern finden Sie auf der [Windows Azure-Website](http://www.windowsazure.com/documentation/services/virtual-machines).  
   
-##  <a name="BKMK_LINKS"></a> Siehe auch  
+## <a name="see-also"></a>Siehe auch  
  Weitere verwandte Informationen finden Sie in den folgenden Ressourcen:  
   
 |Inhaltstyp|Verweise|  

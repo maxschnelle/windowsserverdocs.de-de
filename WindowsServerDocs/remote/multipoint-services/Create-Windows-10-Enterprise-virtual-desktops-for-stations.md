@@ -13,12 +13,12 @@ ms.assetid: 63f08b5b-c735-41f4-b6c8-411eff85a4ab
 author: evaseydl
 ms.author: evas
 manager: scottman
-ms.openlocfilehash: befd784f4a2179c121992057e298d4ea9068c11b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0aa81ef3633adf27a25b45b3b7c00082d83bf0bb
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862081"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034626"
 ---
 # <a name="create-windows-10-enterprise-virtual-desktops-for-stations"></a>Erstellen virtueller Windows 10 Enterprise-Desktops für Stationen
 Diese optionale Konfiguration in MultiPoint Services wird in erster Linie für Situationen vorgesehen, in denen eine wichtige Anwendung eine eigene Instanz von einem Client-Betriebssystem für jeden Benutzer erfordert. Beispiele sind Anwendungen, die unter Windows Server installiert werden können und Anwendungen, die nicht mehrere Instanzen auf demselben Hostcomputer ausgeführt werden.  
@@ -44,13 +44,13 @@ Zum Vorbereiten der virtuellen Desktops Station zu erstellen, stellen Sie sicher
 ## <a name="procedures"></a>Verfahren  
 Verwenden Sie die folgenden Verfahren für Folgendes:  
   
--   [Erstellen Sie eine Vorlage für virtuelle desktops](#a-namebkmkcreateatemplateacreate-a-template-for-virtual-desktops)  
+-   [Erstellen Sie eine Vorlage für virtuelle desktops](#create-a-template-for-virtual-desktops)  
   
--   [Erstellen Sie virtuelle Desktops aus der Vorlage](#BKMK_CreateVirtualDesktopsfromTemplate)  
+-   [Erstellen Sie virtuelle Desktops aus der Vorlage](#create-virtual-machine-desktops-from-the-template)  
   
--   [Kopieren einer vorhandenen Vorlage für virtuellen Desktops](#BKMK_CopyExiistingVirtualDesktopTemplate)  
+-   [Kopieren einer vorhandenen Vorlage für virtuellen Desktops](#copy-an-existing-virtual-desktop-template)  
   
-### <a name="BKMK_CreateaTemplate"></a>Erstellen Sie eine Vorlage für virtuelle desktops  
+### <a name="create-a-template-for-virtual-desktops"></a>Erstellen Sie eine Vorlage für virtuelle desktops  
 Bevor Sie eine Vorlage für virtuelle Desktops erstellen können, müssen Sie den virtuellen Desktop-Funktion in MultiPoint-Server aktivieren.  
   
 ##### <a name="to-enable-the-virtual-desktop-feature"></a>So aktivieren Sie die virtuellen Desktop-Funktion  
@@ -98,7 +98,7 @@ Der nächste Schritt ist so konfigurieren Sie die Vorlage mit der Software und d
 4.  Wählen Sie die Vorlage, die Sie möchten, klicken Sie zum Anpassen von **anpassen Vorlage**, und klicken Sie dann auf **OK**.  
   
     > [!NOTE]  
-    > Es stehen nur die Vorlagen, die nicht zum Erstellen von virtueller desktopstationen verwendet wurden. Sollten Sie eine Vorlage zu aktualisieren, die bereits verwendet wird, müssen Sie eine Kopie der Vorlage vornehmen, mit der **Vorlage importieren** Aufgabe, die später beschrieben werden, in [kopieren eine vorhandene Vorlage für virtuelle Desktops](#BKMK_CopyExiistingVirtualDesktopTemplate).  
+    > Es stehen nur die Vorlagen, die nicht zum Erstellen von virtueller desktopstationen verwendet wurden. Sollten Sie eine Vorlage zu aktualisieren, die bereits verwendet wird, müssen Sie eine Kopie der Vorlage vornehmen, mit der **Vorlage importieren** Aufgabe, die später beschrieben werden, in [kopieren eine vorhandene Vorlage für virtuelle Desktops](#copy-an-existing-virtual-desktop-template).  
   
     Die Vorlage wird geöffnet, in einem Hyper-V **VM verbinden** angezeigt, und die automatische Anmeldung erfolgt über das integrierte Administratorkonto.  
   
@@ -111,7 +111,7 @@ Der nächste Schritt ist so konfigurieren Sie die Vorlage mit der Software und d
   
 6.  Nachdem Sie Ihr System konfiguriert haben, doppelklicken Sie auf die **CompleteCustomization** Verknüpfung auf den Desktop des Administrators, führen Sie Sysprep aus, und klicken Sie dann die Vorlage heruntergefahren. Während der Anpassung entfernt das Sysprep-Tool für alle eindeutigen Systeminformationen zur Vorbereitung der Installation des Windows Abbild erstellt werden soll.  
   
-### <a name="BKMK_CreateVirtualDesktopsfromTemplate"></a>Erstellen von VM-Desktops aus der Vorlage  
+### <a name="create-virtual-machine-desktops-from-the-template"></a>Erstellen von VM-Desktops aus der Vorlage  
 Ihre Vorlage für virtuelle Desktops konfiguriert die Möglichkeit, Sie möchten Ihre Desktops bis hin zu werden, können Sie beginnen, virtuelle Desktops zu erstellen. Für jede Station, die mit dem MultiPoint Server-Computer verbunden ist, wird ein virtueller Desktop erstellt werden. Das nächste Mal, das an eine Station, Anmelden eines Benutzers, wird den virtuellen Desktop anstelle der sitzungsbasierte Desktop angezeigt, die vor dem angezeigt wurde.  
   
 > [!NOTE]  
@@ -141,7 +141,7 @@ Wenn die Aufgabe abgeschlossen ist, wird jede lokale Station mit einem VM-basier
 > [!NOTE]  
 > Wenn ein Benutzerkonto auf eine lokale Stationen angemeldet ist, müssen Sie die-Sitzung mit die Station zur Verbindung mit einer der neu erstellten virtuellen desktopstationen erhalten abmelden.  
   
-### <a name="BKMK_CopyExiistingVirtualDesktopTemplate"></a>Kopieren einer vorhandenen Vorlage für virtuellen Desktops  
+### <a name="copy-an-existing-virtual-desktop-template"></a>Kopieren einer vorhandenen Vorlage für virtuellen Desktops  
 Verwenden Sie das folgende Verfahren, um eine Kopie einer vorhandenen Vorlage für virtuelle Desktops zu erstellen, die Sie anpassen und verwenden können. Dies kann in den folgenden Situationen nützlich sein:  
   
 -   Eine Mastervorlage von einer Netzwerkfreigabe auf einem MultiPoint Server-Host-Computer zu kopieren, sodass virtuelle desktopstationen aus der master-Vorlage erstellt werden können.  

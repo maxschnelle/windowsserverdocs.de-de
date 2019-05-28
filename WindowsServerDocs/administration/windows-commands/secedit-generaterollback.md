@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d7a55ddc3caea1002ab51ce4f992b36673ea312b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3229e6ccb07c925a900b298a8332c5e48cefefe7
+ms.sourcegitcommit: 08eba714d3ceb5f2dfb5486d6b990da1aa4dcbdd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59825641"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65564667"
 ---
 # <a name="seceditgeneraterollback"></a>secedit:generaterollback
 
@@ -40,15 +40,15 @@ Secedit /generaterollback /db <database file name> /cfg <configuration file name
 |cfg|Erforderlich.</br>Gibt an, der Pfad und Dateiname für die Sicherheitsvorlage, die in der Datenbank für die Analyse importiert werden.</br>Diese/cfg-Option ist nur gültig, wenn Sie mit der `/db \<database file name>` Parameter. Wenn dies nicht angegeben wird, erfolgt die Analyse für eine Konfiguration, die bereits in der Datenbank gespeichert.|
 |rbk|Erforderlich.</br>Gibt an, eine Sicherheitsvorlage, die in der die Rollbackinformationen geschrieben wird. Sicherheitsvorlagen werden mithilfe des MMC-Snap-Ins Sicherheitsvorlagen erstellt. Rollbackdateien können mit diesem Befehl erstellt werden.|
 |log|Optional.</br>Gibt den Pfad und Dateiname den Namen der Protokolldatei für den Prozess.|
-|Quiet|Dies ist optional.</br>Unterdrückt die Ausgabe von Bildschirm und Protokolldateien. Sie können dennoch Analyseergebnisse Ansicht mit der Sicherheitskonfiguration und-Analyse-Snap-in auf der Microsoft Management Console (MMC).|
+|Quiet|Optional.</br>Unterdrückt die Ausgabe von Bildschirm und Protokolldateien. Sie können dennoch Analyseergebnisse Ansicht mit der Sicherheitskonfiguration und-Analyse-Snap-in auf der Microsoft Management Console (MMC).|
 
 ## <a name="remarks"></a>Hinweise
 
-Wenn der Pfad für die Protokolldatei nicht, die Standardprotokolldatei, bereitgestellt wird (*Systemroot*\Users \*UserAccount*\My Documents\Security\Logs\*DatabaseName*.log) wird verwendet.
+Wenn der Pfad für die Protokolldatei nicht, die Standardprotokolldatei, bereitgestellt wird (*Systemroot*\Users \*UserAccount *\My Documents\Security\Logs\*DatabaseName*.log) wird verwendet.
 
 Ab Windows Server 2008, `Secedit /refreshpolicy` wurde durch ersetzt `gpupdate`. Informationen zum Aktualisieren von Sicherheitseinstellungen, finden Sie unter [Gpupdate](gpupdate.md).
 
-Die erfolgreiche Ausführung dieses Befehls wird Status "die Aufgabe wurde erfolgreich abgeschlossen.? und die Protokolle nur die Konflikte zwischen den angegebenen Sicherheitsvorlage und Konfiguration von Sicherheitsrichtlinien. Diese Konflikte in der scesrv.log aufgeführt.
+Die erfolgreiche Ausführung dieses Befehls wird Status "die Aufgabe erfolgreich abgeschlossen wurde." und die Protokolle nur die Konflikte zwischen den angegebenen Sicherheitsvorlage und Konfiguration von Sicherheitsrichtlinien. Diese Konflikte in der scesrv.log aufgeführt.
 
 Wenn eine vorhandenen Rollbackvorlage für das angegeben wird, wird mit diesem Befehl überschrieben. Sie können eine neue Rollbackvorlage für das mit diesem Befehl erstellen. Es sind keine zusätzlichen Parameter für die Bedingung erforderlich.
 
@@ -62,4 +62,4 @@ Secedit /generaterollback /db C:\Security\FY11\SecDbContoso.sdb /cfg sectmplcont
 #### <a name="additional-references"></a>Weitere Verweise
 
 -   [Secedit](secedit.md)
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

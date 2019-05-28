@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 07/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: fb31cff44cac6bd66f9aa5b7234ff3fd3b215ccf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9b0d339df588c784f8fe46f7dd0e6ce2975d0c48
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59876301"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034655"
 ---
 # <a name="network-file-system-overview"></a>Network File System (Übersicht)
 
@@ -51,7 +51,7 @@ Neue und geänderte Funktionen in Network File System enthält Unterstützung f�
 
 |Feature/Funktionalität|Neu oder aktualisiert|Beschreibung|
 |---|---|---|
-|[NFS-Version 4.1](#nfs-version-4.1)|Neu|Erhöhte Sicherheit, Leistung und Interoperabilität im Vergleich zu NFS V3.|
+|[NFS-Version 4.1](#nfs-version-41)|Neu|Erhöhte Sicherheit, Leistung und Interoperabilität im Vergleich zu NFS V3.|
 |[NFS-Infrastruktur](#nfs-infrastructure)|Aktualisiert|Bereitstellung und verwaltbarkeit verbessert und erhöht die Sicherheit.|
 |[Fortlaufende Verfügbarkeit von NFS V3](#nfs-version-3-continuous-availability)|Aktualisiert|Verbessert die fortlaufende Verfügbarkeit für Clients für NFS-Version 3.|
 |[Verbesserungen bei der Bereitstellung und verwaltbarkeit](#deployment-and-manageability-improvements)|Aktualisiert|Können Sie ganz einfach bereitstellen und Verwalten von NFS mit neuen Windows PowerShell-Cmdlets und ein neuer WMI-Anbieter.|
@@ -116,6 +116,6 @@ Die folgende Tabelle enthält zusätzliche Ressourcen für Ihre Evaluierung von 
 
 |Inhaltstyp|Verweise|
 |---|---|
-|Bereitstellung|[Bereitstellen von Network File System](deploy-nfs.md)|
+|Bereitstellung|[Network File System bereitstellen](deploy-nfs.md)|
 |Vorgänge|[NFS-Cmdlets in Windows PowerShell](https://docs.microsoft.com/powershell/module/nfs/?view=win10-ps)|
 |Verwandte Technologien|[Speicher in WindowsServer](../storage.md)|

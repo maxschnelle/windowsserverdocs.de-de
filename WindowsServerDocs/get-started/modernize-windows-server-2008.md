@@ -10,12 +10,12 @@ ms.date: 07/12/2018
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.localizationpriority: high
-ms.openlocfilehash: 4127eab613abb429a200f513a11b944e05da0f76
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9d8a8cae62a9be3384c09009dbad52e06623adb0
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59851341"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222910"
 ---
 # <a name="upgrade-windows-server-2008-and-windows-server-2008-r2"></a>Aktualisieren von Windows Server 2008 und Windows Server 2008 R2
 
@@ -42,12 +42,11 @@ Sie können Ihren lokalen Server mit Windows Server 2008 und Windows Server 20
 - Indem Sie SQL Server zu verwalteten Azure-Instanzen oder VMs migrieren, erhalten Sie kritische Sicherheitsupdates für Windows Server 2008 R2 oder 2008 für drei weitere Jahre, ohne zusätzliche Kosten. 
 - Nutzen Sie vorhandene SQL Server- und Windows Server-Lizenzen für Einsparungen durch die Cloud, die für Azure exklusiv sind.
 
-<a href="uploading-specialized-WS08-image-to-azure.md"><img src="media/WS08-image-banner-small.png"></a>
+[![Starten Sie die Migration zu Azure mit einem spezialisierten image](./media/WS08-image-banner-small.png)](uploading-specialized-WS08-image-to-azure.md)
 
 Informationen zu den ersten Schritte beim Migrieren finden Sie unter [Hochladen von spezialisierten Windows Server 2008/2008 R2-Images in Azure](uploading-specialized-WS08-image-to-azure.md).
 
 Informationen zum Analysieren von vorhandenen IT-Ressourcen, zum Auswerten von vorhandenem Material, zum Identifizieren der Vorteile einer Verlagerung spezifischer Dienste und Anwendungen in die Cloud oder des Beibehaltens von Workloads vor Ort und Aktualisierens auf die aktuelle Version von Windows Server finden Sie im [Migrationshandbuch für Windows Server](https://go.microsoft.com/fwlink/?linkid=872689).
-
 
 ## <a name="upgrade-sql-server-20082008-r2-in-parallel-with-your-windows-servers"></a>Aktualisieren von SQL Server 2008/2008 R2 parallel zu Ihren Windows-Servern
 

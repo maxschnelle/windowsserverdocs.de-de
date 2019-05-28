@@ -1,25 +1,22 @@
 ---
 title: Installieren von Server Core
 description: Informationen zum Abrufen und Installieren einer Server Core-Installations auf Windows Server-2019, Windows Server 2016 oder Windows Server (Halbjährlicher Kanal).
-ms.custom: na
 ms.prod: windows-server-threshold
-ms.reviewer: na
-ms.suite: na
-ms.date: 1/04/2019
+ms.date: 05/21/2019
 ms.technology: server-general
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2d22818c-fbb7-487a-bb82-81ef0a3f7ede
-author: jaimeo
-ms.author: jaimeo
+author: jasongerend
+ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: d99cd0b028d08d5c3247541ce3a868676b60693d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6f685ce29088b56bb243d21315787ab90e6863a4
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869021"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976722"
 ---
 # <a name="install-server-core"></a>Installieren von Server Core
 
@@ -35,7 +32,7 @@ Wenn Sie Windows Server zum ersten Mal installieren, müssen Sie die folgenden I
 -   Windows Server Datacenter
 -   Windows Server Datacenter mit Desktopdarstellung
 
-Bei der Installation von Windows Server (Halbjährlicher Kanal), einschließlich der Version 1709, 1803 und 1809, haben Sie die folgenden Installationsoptionen:
+Wenn Sie Windows Server (Halbjährlicher Kanal) installieren, müssen Sie die folgenden Installationsoptionen:
 
 -   Windows Server Standard 
 -   Windows Server Datacenter
@@ -74,10 +71,10 @@ Bei dieser Option wird die Standardbenutzeroberfläche (die Desktopdarstellung) 
 - Windows Server Update Services
 - Active Directory-Rechteverwaltungsserver
 - Routing- und RAS-Server und folgende Unterrollen:
-- Verbindungsbroker für Remotedesktopdienste
-- Lizenzierung
-- Virtualisierung
-- Volumenaktivierungsdienste
+   - Verbindungsbroker für Remotedesktopdienste
+   - Lizenzierung
+   - Virtualisierung
+   - Volumenaktivierungsdienste
 
 Rollen in Server Core nicht enthalten, finden Sie unter [Rollen, Rollendienste und Features nicht in Windows Server – Server Core](../administration/server-core/server-core-removed-roles.md).
 
@@ -88,13 +85,12 @@ Allgemeine Installationsschritte und Optionen für die Windows-Server (Long Term
 ## <a name="installing-on-windows-server-semi-annual-channel"></a>Installieren unter WindowsServer (Halbjährlicher Kanal)
 
 Installationsschritte für Windows Server (Halbjährlicher Kanal) sind identisch mit frühere Versionen von Windows Server installieren (von ein. ISO-Abbild) mit den folgenden Ausnahmen:
+
 - Keine unterstützten Upgrades von früheren Versionen von Windows Server auf Windows Server, Version 1709. Eine Neuinstallation ist immer erforderlich.
    Dies bedeutet, dass beim Ausführen von setup.exe auf dem Desktop eines Windows-Computers der Setupvorgang nicht die Option zulässig ist (er ist abgeblendet).
 - Es ist keine Auswertung-Version für Windows Server (Halbjährlicher Kanal)
 - Es gibt kein OEM oder Einzelhandel. Windows Server (Halbjährlicher Kanal) kann nur über Software Assurance oder Loyalität Programme lizenziert werden.
 
-Informationen zum Erwerb der Version 1709 von Windows Server finden Sie unter [Einführung in Windows Server, Version 1709](get-started-with-1709.md).
+Weitere Informationen über den halbjährlichen Kanal, finden Sie unter [Vergleich wartungskanälen](../get-started-19/servicing-channels-19.md).
 
-Windows Server-Version 1803 finden Sie unter [Einführung in Windows Server, Version 1803](get-started-with-1803.md).
-
-Neuigkeiten in Windows Server, Version 1809, finden Sie unter [Neuigkeiten in Windows Server-Version 1809](whats-new-in-windows-server-1809.md)
+Neuigkeiten in Windows Server Halbjährlicher Kanal finden Sie unter [Neuigkeiten in Windows Server](whats-new-in-windows-server.md)

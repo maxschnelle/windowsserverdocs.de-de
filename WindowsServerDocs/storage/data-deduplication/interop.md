@@ -8,18 +8,21 @@ author: wmgries
 manager: klaasl
 ms.author: wgries
 ms.date: 09/16/2016
-ms.openlocfilehash: 2a28be1bdd22915182cbdbb2726ab9d37422e889
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9453811b0f76b249c245990293ba82cf5a6e0867
+ms.sourcegitcommit: 29ad32b9dea298a7fe81dcc33d2a42d383018e82
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834431"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65624631"
 ---
 # <a name="data-deduplication-interoperability"></a>Interoperabilität der Datendeduplizierung
 
-> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, WindowsServer 2019
 
 ## <a id="supported"></a>Unterstützt
+
+### <a id="supported-ReFS"></a>ReFS
+Die Datendeduplizierung ist ab Windows Server-2019 unterstützt. 
 
 ### <a id="supported-clusters"></a>Failover-Clusterunterstützung
 
@@ -76,8 +79,6 @@ Die Windows Server-Sicherung kann ein optimiertes Volume in der vorliegenden For
     ```
 
 ## <a id="unsupported"></a>Nicht unterstützte
-### <a id="unsupported-refs"></a>ReFS
-Windows Server 2016 unterstützt keine Datendeduplizierung auf ReFS-formatierten Volumes. [Stimmen Sie für Windows Server vNext unter Windows Server Storage UserVoice für dieses Element](https://windowsserver.uservoice.com/forums/295056-storage/suggestions/7962813-support-deduplication-on-refs).
 
 ### <a id="unsupported-windows-client"></a>Windows 10 (Clientbetriebssystem)
 Die Datendeduplizierung wird unter Windows 10 nicht unterstützt. Es gibt verschiedene beliebte Blogbeiträge in der Windows-Community, die beschreiben, wie Sie die Binärdateien aus Windows Server 2016 entfernen und unter Windows 10 installieren. Dieses Szenario wurde aber nicht im Rahmen der Entwicklung der Datendeduplizierung bestätigt. [Stimmen Sie für Windows 10 vNext unter Windows Server Storage UserVoice für dieses Element](https://windowsserver.uservoice.com/forums/295056-storage/suggestions/9011008-add-deduplication-support-to-client-os).

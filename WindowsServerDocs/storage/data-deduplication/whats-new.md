@@ -7,21 +7,27 @@ ms.topic: article
 author: wmgries
 manager: klaasl
 ms.author: wgries
-ms.date: 09/15/2016
-ms.openlocfilehash: 4a69221548d9defff5a45413ccfe824f9788755a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.date: 04/17/2019
+ms.openlocfilehash: 44a08443312d4e48b8fa518755e2a9b7aa50643c
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59876451"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476074"
 ---
 # <a name="whats-new-in-data-deduplication"></a>Neuigkeiten bei der Datendeduplizierung
 
-> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+> Gilt für: WindowsServer 2019, WindowsServer 2016, WindowsServer (Halbjährlicher Kanal)
 
-Die [Datendeduplizierung](overview.md) in Windows Server 2016 wurde optimiert und bietet nun auch für private Clouds eine hohe Leistung und Flexibilität sowie erstklassige Verwaltbarkeit. Weitere Informationen zum softwaredefinierten Speicherstapel in Windows Server 2016 finden Sie unter [Neuerungen beim Speicher in Windows Server 2016](../whats-new-in-storage.md).
+[Die Datendeduplizierung](overview.md) in Windows Server wurde optimiert und hoch leistungsfähige, flexible und in der privaten Cloud verwaltet werden. Weitere Informationen zum softwaredefinierten Speicherstapel in Windows Server finden Sie unter [neuerungen beim Speicher in Windows Server](../whats-new-in-storage.md).
 
-Die Datendeduplizierung wurde in Windows Server 2016 wie folgt verbessert:
+Die Datendeduplizierung hat die folgenden Verbesserungen in Windows Server-2019:
+
+| Funktionalität | Neu oder aktualisiert | Beschreibung |
+|---------------|----------------|-------------|
+| ReFS-Unterstützung  | Neu            | Store bis zu 10 Mal mehr Daten auf dem gleichen Volume mit Deduplizierung und Komprimierung für das ReFS-Dateisystem. (sie hat [nur einem Klick](https://www.youtube.com/watch?v=PRibTacyKko&feature=youtu.be) mit Windows Admin Center aktivieren.) Variabler Größe Blockspeicher mit optionalen Komprimierung maximiert einsparungen abgerechnet, während die mit mehreren Threads Nachbearbeitung Architektur Auswirkungen auf die Leistung minimal bleibt. Volumes unterstützt bis zu 64 TB und werden die erste 4 TB der einzelnen Dateien dedupliziert.|
+
+Die Datendeduplizierung weist die folgenden Verbesserungen, die ab Windows Server 2016:
 
 | Funktionalität | Neu oder aktualisiert | Beschreibung |
 |---------------|----------------|-------------|

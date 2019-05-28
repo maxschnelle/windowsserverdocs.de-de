@@ -8,16 +8,16 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 09/10/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 98fd5d50645ad454204dcf9dabf58e97c246ab1a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7bdf30a4f721568add4e7902245da2a803b72db1
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853991"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65475871"
 ---
 # <a name="enable-optimized-moves-of-redirected-folders"></a>Optimierte Verschiebungen von umgeleiteten Ordnern aktivieren
 
->Gilt für: Windows 10, Windows 8, Windows 8.1, WindowsServer 2012, Windows Server 2012 R2, WindowsServer 2016
+>Gilt für: Windows 10, Windows 8, Windows 8.1, WindowsServer 2019, WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, WindowsServer (halbjährlicher Kanal)
 
 Dieses Thema beschreibt, wie eine optimierte Verschieben der umgeleitete Ordner (Ordner-Umleitung) in eine neue Dateifreigabe ausgeführt wird. Durch Aktivieren dieser richtlinieneinstellung wird festgelegt, wenn ein Administrator verschiebt die Dateifreigaben mit umgeleitete Ordnern und den Zielpfad der umgeleiteten Ordner in der Gruppenrichtlinie aktualisiert der zwischengespeicherte Inhalt einfach in den lokalen Offlinedateicache ohne keine Verzögerungen umbenannt oder möglichen Datenverlust für den Benutzer.
 
@@ -28,7 +28,7 @@ Zuvor konnten Administratoren ändern den Zielpfad der umgeleiteten Ordner in de
 Optimierte verschieben, hat die folgenden Anforderungen:
 
 - Ordnerumleitung muss eingerichtet werden. Weitere Informationen finden Sie unter [Bereitstellen von Ordnerumleitung mit Offlinedateien](deploy-folder-redirection.md).
-- Clientcomputer müssen Windows 10, Windows 8.1, Windows 8, Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 ausführen.
+- Clientcomputer müssen Windows 10, Windows 8.1, Windows 8, Windows Server-2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 oder Windows Server (halbjährlicher Kanal) ausführen.
 
 ## <a name="step-1-enable-optimized-move-in-group-policy"></a>Schritt 1: Optimierte verschieben in der Gruppenrichtlinie aktivieren
 

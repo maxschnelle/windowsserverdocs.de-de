@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 ms.date: 02/15/2019
-ms.openlocfilehash: f4fd9f69e75ed80bbdb345b4041c2337c65ec2e6
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: ff1f949c764473a63eafa25346949d710699dbd1
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63742549"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222718"
 ---
 # <a name="get-started-with-windows-admin-center"></a>Erste Schritte mit Windows Admin Center
 
@@ -114,7 +114,7 @@ Sie können die Anmeldeinformationen an alle Verbindungen anwenden, die sie für
 
 **Local Administrator Password Solution (LAPS)**
 
-Wenn in Ihrer Umgebung verwendet [LAPS](https://technet.microsoft.com/mt227395.aspx), können Sie LAPS-Anmeldeinformationen für die Authentifizierung mit den verwalteten Knoten. **Wenn Sie dieses Szenario verwenden, wenden Sie** [Feedback geben](http://aka.ms/WACFeedback).
+Wenn in Ihrer Umgebung verwendet [LAPS](https://technet.microsoft.com/mt227395.aspx), und Sie die Windows Admin Center auf Ihrem Windows 10-PC installiert haben, können Sie LAPS-Anmeldeinformationen für die Authentifizierung mit den verwalteten Knoten. **Wenn Sie dieses Szenario verwenden, wenden Sie** [Feedback geben](http://aka.ms/WACFeedback).
 
 ## <a name="using-tags-to-organize-your-connections"></a>Verwenden von Tags zum Organisieren von Verbindungen
 

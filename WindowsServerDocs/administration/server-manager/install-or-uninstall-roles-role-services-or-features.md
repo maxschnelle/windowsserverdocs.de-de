@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 32d356b3ae70b7b15f23a40247e73b4b8f61c3db
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 18ba3517f6533a85fe7cb24f24a7f4ffdfad6991
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822371"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222984"
 ---
 # <a name="install-or-uninstall-roles-role-services-or-features"></a>Installieren oder Deinstallieren von Rollen, Rollendiensten oder Features
 
@@ -35,19 +35,19 @@ Weitere Informationen dazu, welche Rollen, Rollendienste und Features sind, find
   
 Dieses Thema enthält die folgenden Abschnitte:  
   
--   [Installieren von Rollen, Rollendienste und Features mithilfe des Hinzufügen von Rollen und Features-Assistenten](#BKMK_installarfw)  
+-   [Installieren von Rollen, Rollendienste und Features mithilfe des Hinzufügen von Rollen und Features-Assistenten](#install-roles-role-services-and-features-by-using-the-add-roles-and-features-wizard)  
   
--   [Installieren von Rollen, Rollendiensten und Features mit Windows PowerShell-Cmdlets](#BKMK_installwps)  
+-   [Installieren von Rollen, Rollendiensten und Features mit Windows PowerShell-Cmdlets](#install-roles-role-services-and-features-by-using-windows-powershell-cmdlets)  
   
--   [Entfernen von Rollen, Rollendienste und Features mithilfe von Entfernen von Rollen und Features-Assistenten](#BKMK_removerrfw)  
+-   [Entfernen von Rollen, Rollendienste und Features mithilfe von Entfernen von Rollen und Features-Assistenten](#remove-roles-role-services-and-features-by-using-the-remove-roles-and-features-wizard)  
   
--   [Entfernen von Rollen, Rollendiensten und Features mit Windows PowerShell-Cmdlets](#BKMK_removewps)  
+-   [Entfernen von Rollen, Rollendiensten und Features mit Windows PowerShell-Cmdlets](#remove-roles-role-services-and-features-by-using-windows-powershell-cmdlets)  
   
--   [Installieren von Rollen und Features auf mehreren Servern per Ausführung eines Windows PowerShell-Skripts](#BKMK_batch)  
+-   [Installieren von Rollen und Features auf mehreren Servern per Ausführung eines Windows PowerShell-Skripts](#install-roles-and-features-on-multiple-servers-by-running-a-windows-powershell-script)  
   
--   [Installieren von .NET Framework 3.5 und anderen Features bei Bedarf](#BKMK_FoD)  
+-   [Installieren von .NET Framework 3.5 und anderen Features bei Bedarf](#install-net-framework-35-and-other-features-on-demand)  
   
-## <a name="BKMK_installarfw"></a>Installieren von Rollen, Rollendienste und Features mithilfe des Hinzufügen von Rollen und Features-Assistenten  
+## <a name="install-roles-role-services-and-features-by-using-the-add-roles-and-features-wizard"></a>Installieren von Rollen, Rollendienste und Features mithilfe des Hinzufügen von Rollen und Features-Assistenten  
 In einer einzelnen Sitzung im Hinzufügen von Rollen und Features-Assistenten können Sie Rollen, Rollendienste und Features auf dem lokalen Server, einem Remoteserver installieren, die Server-Manager oder einer offline-VHD hinzugefügt wurde. Weitere Informationen zum Hinzufügen eines Servers zu Server-Manager zum Verwalten, finden Sie unter [Hinzufügen von Servern zu Server-Manager](add-servers-to-server-manager.md).  
   
 > [!NOTE]  
@@ -67,12 +67,12 @@ In einer einzelnen Sitzung im Hinzufügen von Rollen und Features-Assistenten k�
   
 4.  Wählen Sie auf der Seite **Installationstyp auswählen** die Option **Rollenbasierte oder featurebasierte Installation** aus, um alle Teile von Rollen oder Features auf einem Server zu installieren. Wählen Sie alternativ **Installation von Remotedesktopdiensten** aus, um entweder eine Desktopinfrastruktur mit virtuellen Computern oder eine sitzungsbasierte Desktopinfrastruktur für die Remotedesktopdienste zu installieren. Bei Verwendung der Option **Szenariobasierte Installation von Remotedesktopdiensten** werden logische Teile der Remotedesktopdienste-Rolle von Administratoren je nach Bedarf auf verschiedene Server verteilt. Klicken Sie auf **Weiter**.  
   
-5.  Wählen Sie auf der Seite **Zielserver auswählen** einen Server aus dem Serverpool aus, oder wählen Sie eine Offline-VHD aus. Um eine Offline-VHD als Zielserver auszuwählen, müssen Sie zuerst den Server auswählen, auf dem die VHD eingebunden werden soll. Wählen Sie anschließend die VHD-Datei aus. Weitere Informationen zum Hinzufügen von Servern zum Serverpool finden Sie unter [Hinzufügen von Servern zu Server Manager](add-servers-to-server-manager.md). Klicken Sie nach dem Auswählen des Zielservers auf **Weiter**.  
+5.  Wählen Sie auf der Seite **Zielserver auswählen** einen Server aus dem Serverpool aus, oder wählen Sie eine Offline-VHD aus. Um eine Offline-VHD als Zielserver auszuwählen, müssen Sie zuerst den Server auswählen, auf dem die VHD eingebunden werden soll. Wählen Sie anschließend die VHD-Datei aus. Weitere Informationen zum Hinzufügen von Servern zum Serverpool finden Sie unter [Hinzufügen von Servern zu Server-Manager](add-servers-to-server-manager.md). Klicken Sie nach dem Auswählen des Zielservers auf **Weiter**.  
   
     > [!NOTE]  
     > Zum Installieren von Rollen und Features auf Offline-VHDs müssen Ziel-VHDs die folgenden Anforderungen erfüllen.  
     >   
-    > -   VHDs müssen die Version von Windows Server ausgeführt werden, die Version von Server-Manager entspricht, die Sie ausführen. Siehe Hinweis am Anfang des [Installieren von Rollen, Rollendienste und Features mithilfe des Hinzufügen von Rollen und Features Assistenten](#BKMK_installarfw).  
+    > -   VHDs müssen die Version von Windows Server ausgeführt werden, die Version von Server-Manager entspricht, die Sie ausführen. Siehe Hinweis am Anfang des [Installieren von Rollen, Rollendienste und Features mithilfe des Hinzufügen von Rollen und Features Assistenten](#install-roles-role-services-and-features-by-using-the-add-roles-and-features-wizard).  
     > -   VHDs dürfen nicht mehr als ein Systemvolume oder eine Partition aufweisen.  
     > -   Der freigegebene Netzwerkordner, in dem die VHD-Datei gespeichert ist, muss dem Computerkonto (bzw. lokalen System) des Servers, den Sie zum Einbinden der VHD ausgewählt haben, die folgenden Zugriffsrechte gewähren. Die Zugriffsberechtigungen des Benutzerkontos reichen nicht aus. Die Freigabe kann der Gruppe **Jeder** die Berechtigungen **Lesen** und **Schreiben** gewähren, um den Zugriff auf die VHD zu ermöglichen, dies wird aber aus Sicherheitsgründen nicht empfohlen.  
     >   
@@ -95,7 +95,7 @@ In einer einzelnen Sitzung im Hinzufügen von Rollen und Features-Assistenten k�
   
 8.  Nachdem Sie auf **installieren**, **Installationsstatus** Installationsstatus, Ergebnisse und Meldungen wie Warnungen, Fehlern oder nach der Installation auszuführenden Konfigurationsschritten, die wird angezeigt erforderlich für die Rollen oder Features, die Sie installiert. In Windows Server 2012 und späteren Versionen von Windows Server, Sie können schließen das Hinzufügen von Rollen und Features-Assistenten während der Installation noch läuft, und Installationsergebnisse anzeigen oder andere Meldungen im wird die **Benachrichtigungen** oben der Server-Manager-Konsole. Klicken Sie auf die **Benachrichtigungen** Flaggensymbol klicken, um weitere Details zu Installationen oder anderen Aufgaben, die Sie im Server-Manager ausführen anzuzeigen.  
   
-## <a name="BKMK_installwps"></a>Installieren von Rollen, Rollendienste und Features mithilfe von Windows PowerShell-cmdlets  
+## <a name="install-roles-role-services-and-features-by-using-windows-powershell-cmdlets"></a>Installieren von Rollen, Rollendiensten und Features mit Windows PowerShell-Cmdlets  
 Der Server-Manager-bereitstellungs-Cmdlets für Windows PowerShell funktionieren ähnlich wie der GUI-basierte Rollen und Features-Assistenten hinzufügen und Entfernen von Rollen und Features-Assistenten, jedoch einen wichtigen Unterschied. In Windows PowerShell sind im Gegensatz zum Hinzufügen von Rollen und Features-Assistenten, Verwaltungstools und Snap-Ins für eine Rolle nicht standardmäßig enthalten. Um Verwaltungstools in eine Rolleninstallation einzuschließen, fügen Sie dem Cmdlet den `IncludeManagementTools`-Parameter hinzu. Wenn Sie Rollen und Features auf einem Server installieren, auf denen die Server Core-Installationsoption von Windows Server 2012 oder höheren Versionen ausgeführt wird, Sie können einer Installation Verwaltungstools für eine Rolle hinzufügen, GUI-basierte Verwaltungstools und Snap-Ins können jedoch nicht installiert auf Servern, die die Server Core-Installationsoption von Windows Server ausgeführt werden. Nur Befehlszeilentools und Verwaltungstools für Windows PowerShell können auf Server Core-Installation installiert werden.  
   
 #### <a name="to-install-roles-and-features-by-using-the-install-windowsfeature-cmdlet"></a>So installieren Sie Rollen und Features mit dem Cmdlet %%amp;quot;Install-WindowsFeature%%amp;quot;  
@@ -109,7 +109,7 @@ Der Server-Manager-bereitstellungs-Cmdlets für Windows PowerShell funktionieren
   
     -   Klicken Sie auf der Windows **starten** Bildschirm rechten Maustaste auf die Kachel für Windows PowerShell, und klicken Sie auf der app-Leiste auf **als Administrator ausführen**.  
   
-2.  Geben Sie **Get-WindowsFeature** ein, und drücken Sie anschließend die **EINGABETASTE** , um eine Liste der auf dem lokalen Server verfügbaren und installierten Rollen und Features anzuzeigen. Wenn der lokale Computer kein Server ist oder wenn Sie Informationen zu einem Remoteserver soll, führen **Get-WindowsFeature-Computername <***Computer_name***>**, in dem  *Computer_name* stellt den Namen eines Remotecomputers, auf denen Windows Server 2016 ausgeführt wird. Die Ergebnisse des Cmdlets enthalten die Befehlsnamen von Rollen und Features, die Sie dem Cmdlet in Schritt 4 hinzufügen.  
+2.  Geben Sie **Get-WindowsFeature** ein, und drücken Sie anschließend die **EINGABETASTE** , um eine Liste der auf dem lokalen Server verfügbaren und installierten Rollen und Features anzuzeigen. Wenn der lokale Computer kein Server ist oder wenn Sie Informationen zu einem Remoteserver soll, führen **Get-WindowsFeature-Computername <***Computer_name***>** , in dem  *Computer_name* stellt den Namen eines Remotecomputers, auf denen Windows Server 2016 ausgeführt wird. Die Ergebnisse des Cmdlets enthalten die Befehlsnamen von Rollen und Features, die Sie dem Cmdlet in Schritt 4 hinzufügen.  
   
     > [!NOTE]  
     > In Windows PowerShell 3.0 und späteren Versionen von Windows PowerShell ist es nicht erforderlich, importieren das Server-Manager-Cmdlet-Modul in der Windows PowerShell-Sitzung, bevor die Ausführung von Cmdlets, die Teil des Moduls sind. Module werden automatisch importiert, wenn Sie ein zum Modul gehörendes Cmdlet zum ersten Mal ausführen. Darüber hinaus sind weder Windows PowerShell-Cmdlets noch den mit den Cmdlets verwendeten Featurenamen Groß-/Kleinschreibung beachtet.  
@@ -129,7 +129,7 @@ Der Server-Manager-bereitstellungs-Cmdlets für Windows PowerShell funktionieren
     >   
     > Zum Installieren von Rollen und Features auf Offline-VHDs müssen Ziel-VHDs die folgenden Anforderungen erfüllen.  
     >   
-    > -   VHDs müssen die Version von Windows Server ausgeführt werden, die Version von Server-Manager entspricht, die Sie ausführen. Siehe Hinweis am Anfang des [Installieren von Rollen, Rollendienste und Features mithilfe des Hinzufügen von Rollen und Features Assistenten](#BKMK_installarfw).  
+    > -   VHDs müssen die Version von Windows Server ausgeführt werden, die Version von Server-Manager entspricht, die Sie ausführen. Siehe Hinweis am Anfang des [Installieren von Rollen, Rollendienste und Features mithilfe des Hinzufügen von Rollen und Features Assistenten](#install-roles-role-services-and-features-by-using-the-add-roles-and-features-wizard).  
     > -   VHDs dürfen nicht mehr als ein Systemvolume oder eine Partition aufweisen.  
     > -   Der freigegebene Netzwerkordner, in dem die VHD-Datei gespeichert ist, muss dem Computerkonto (bzw. lokalen System) des Servers, den Sie zum Einbinden der VHD ausgewählt haben, die folgenden Zugriffsrechte gewähren. Die Zugriffsberechtigungen des Benutzerkontos reichen nicht aus. Die Freigabe kann der Gruppe **Jeder** die Berechtigungen **Lesen** und **Schreiben** gewähren, um den Zugriff auf die VHD zu ermöglichen, dies wird aber aus Sicherheitsgründen nicht empfohlen.  
     >   
@@ -148,7 +148,7 @@ Der Server-Manager-bereitstellungs-Cmdlets für Windows PowerShell funktionieren
   
 5.  Wenn die Installation abgeschlossen ist, Überprüfen der Installation durch Öffnen der **alle Server** Seite im Server-Manager, wählen einen Server, auf dem Sie Rollen und Features installiert, und zeigen die **Rollen und Features** die Kachel auf der Seite für den ausgewählten Server. Sie können auch ausführen, die `Get-WindowsFeature` Cmdlet für den ausgewählten Server (Get-WindowsFeature-Computername <*Computer_name*>) zum Anzeigen einer Liste von Rollen und Features, die auf dem Server installiert sind.  
   
-## <a name="BKMK_removerrfw"></a>Entfernen von Rollen, Rollendienste und Features mithilfe von Entfernen von Rollen und Features-Assistenten  
+## <a name="remove-roles-role-services-and-features-by-using-the-remove-roles-and-features-wizard"></a>Entfernen von Rollen, Rollendienste und Features mithilfe von Entfernen von Rollen und Features-Assistenten  
 Sie müssen auf einen Server als Administrator, um das Deinstallieren von Rollen, Rollendienste und Features angemeldet werden. Wenn Sie am lokalen Computer mit einem Konto angemeldet sind, das nicht über Administratorrechte auf dem Deinstallationszielserver verfügt, klicken Sie auf der Kachel **Server** mit der rechten Maustaste auf den Zielserver, und klicken Sie dann auf **Verwalten als** , um ein Konto mit Administratorrechten anzugeben. Der Server, auf dem eine Offline-VHD eingebunden werden soll, muss Server-Manager hinzugefügt werden. Zudem müssen Sie über Administratorrechte für diesen Server verfügen.  
   
 #### <a name="to-remove-roles-and-features-by-using-the-remove-roles-and-features-wizard"></a>Zum Entfernen von Rollen und Features mit Entfernen von Rollen und Features-Assistenten  
@@ -186,7 +186,7 @@ Sie müssen auf einen Server als Administrator, um das Deinstallieren von Rollen
   
 7.  Nachdem Sie auf **entfernen**, **Entfernungsstatus** Seite zeigt Entfernungsstatus, Ergebnisse und Meldungen zu Warnungen, Fehlern oder nach dem Entfernen auszuführenden Schritten erforderlich, z. B. Neustarten des Zielservers an. In Windows Server 2012 und höhere Versionen von Windows Server können Sie das Entfernen von Rollen und Features-Assistenten während des Entfernens noch im Status und anzeigen schließen die Entfernungsergebnisse oder andere Meldungen im der **Benachrichtigungen** Bereich am oberen Rand der Server-Manager-Konsole. Klicken Sie auf die **Benachrichtigungen** Flag finden weitere Details zu entfernungen oder anderen Aufgaben, die Sie im Server-Manager ausführen.  
   
-## <a name="BKMK_removewps"></a>Entfernen von Rollen, Rollendienste und Features mithilfe von Windows PowerShell-cmdlets  
+## <a name="remove-roles-role-services-and-features-by-using-windows-powershell-cmdlets"></a>Entfernen von Rollen, Rollendiensten und Features mit Windows PowerShell-Cmdlets  
 Der Server-Manager-bereitstellungs-Cmdlets für Windows PowerShell funktionieren ähnlich wie der GUI-basierte Entfernen von Rollen und Features-Assistenten, jedoch einen wichtigen Unterschied. In Windows PowerShell werden im Gegensatz zu entfernen Rollen und Features-Assistent, Verwaltungstools und Snap-Ins für eine Rolle nicht standardmäßig entfernt. Um Verwaltungstools im Rahmen einer Rollenentfernung zu entfernen, fügen Sie dem Cmdlet den `IncludeManagementTools`-Parameter hinzu. Wenn Sie Rollen und Features von einem Server deinstallieren wird, die die Server Core-Installationsoption von Windows Server 2012 oder einer späteren Version von Windows Server, diese Parameter entfernt, die Befehlszeile und die Windows PowerShell-Verwaltungstools für die angegebene ausgeführt Rollen und Features.  
   
 #### <a name="to-remove-roles-and-features-by-using-the-uninstall-windowsfeature-cmdlet"></a>So entfernen Sie Rollen und Features mit dem Cmdlet %%amp;quot;UnInstall-WindowsFeature%%amp;quot;  
@@ -200,7 +200,7 @@ Der Server-Manager-bereitstellungs-Cmdlets für Windows PowerShell funktionieren
   
     -   Klicken Sie auf der Windows **starten** Bildschirm rechten Maustaste auf die Kachel Windows PowerShell, und klicken Sie auf der app-Leiste auf **als Administrator ausführen**.  
   
-2.  Geben Sie **Get-WindowsFeature** ein, und drücken Sie anschließend die **EINGABETASTE** , um eine Liste der auf dem lokalen Server verfügbaren und installierten Rollen und Features anzuzeigen. Wenn der lokale Computer kein Server ist oder wenn Sie Informationen zu einem Remoteserver soll, führen **Get-WindowsFeature-Computername <***Computer_name***>**, in dem  *Computer_name* stellt den Namen eines Remotecomputers, auf denen Windows Server 2016 ausgeführt wird. Die Ergebnisse des Cmdlets enthalten die Befehlsnamen von Rollen und Features, die Sie dem Cmdlet in Schritt 4 hinzufügen.  
+2.  Geben Sie **Get-WindowsFeature** ein, und drücken Sie anschließend die **EINGABETASTE** , um eine Liste der auf dem lokalen Server verfügbaren und installierten Rollen und Features anzuzeigen. Wenn der lokale Computer kein Server ist oder wenn Sie Informationen zu einem Remoteserver soll, führen **Get-WindowsFeature-Computername <***Computer_name***>** , in dem  *Computer_name* stellt den Namen eines Remotecomputers, auf denen Windows Server 2016 ausgeführt wird. Die Ergebnisse des Cmdlets enthalten die Befehlsnamen von Rollen und Features, die Sie dem Cmdlet in Schritt 4 hinzufügen.  
   
     > [!NOTE]  
     > In Windows PowerShell 3.0 und späteren Versionen von Windows PowerShell ist es nicht erforderlich, importieren das Server-Manager-Cmdlet-Modul in der Windows PowerShell-Sitzung, bevor die Ausführung von Cmdlets, die Teil des Moduls sind. Module werden automatisch importiert, wenn Sie ein zum Modul gehörendes Cmdlet zum ersten Mal ausführen. Darüber hinaus sind weder Windows PowerShell-Cmdlets noch den mit den Cmdlets verwendeten Featurenamen Groß-/Kleinschreibung beachtet.  
@@ -235,7 +235,7 @@ Der Server-Manager-bereitstellungs-Cmdlets für Windows PowerShell funktionieren
   
 5.  Nach Abschluss der Entfernung, stellen Sie sicher, dass die Rollen und Features, durch Öffnen entfernt werden der **alle Server** Seite im Server-Manager, wählen den Server, von dem Sie Rollen und Features entfernt, und zeigen die **Rollen und Features** Kachel auf der Seite für den ausgewählten Server. Sie können auch ausführen, die `Get-WindowsFeature` Cmdlet für den ausgewählten Server (Get-WindowsFeature-Computername <*Computer_name*>) zum Anzeigen einer Liste von Rollen und Features, die auf dem Server installiert sind.  
   
-## <a name="BKMK_batch"></a>Installieren Sie Rollen und Features auf mehreren Servern, indem Sie ein Windows PowerShell-Skript ausführen  
+## <a name="install-roles-and-features-on-multiple-servers-by-running-a-windows-powershell-script"></a>Installieren von Rollen und Features auf mehreren Servern per Ausführung eines Windows PowerShell-Skripts  
 Obwohl Sie das Hinzufügen von Rollen und Features-Assistenten verwenden können, um Rollen, Rollendienste und Features auf mehr als einem Zielserver in einer einzelnen Assistenten-Sitzung zu installieren, können Sie ein Windows PowerShell-Skript verwenden, zum Installieren von Rollen, Rollendienste und Features auf mehreren Server, die Sie mithilfe des Server-Manager verwalten. Das Skript, das Sie zum Ausführen von batchbereitstellung verwenden, wie dieser Prozess aufgerufen wird, verweist auf eine XML-Konfigurationsdatei, die Sie ganz einfach erstellen können, indem Sie mithilfe des Hinzufügen von Rollen und Features-Assistenten und auf **Konfigurationseinstellungen exportieren** nach die batchbereitstellung auf die **Installationsauswahl bestätigen** auf der Seite des Hinzufügen von Rollen und Features-Assistenten.  
   
 > [!IMPORTANT]  
@@ -294,18 +294,18 @@ Obwohl Sie das Hinzufügen von Rollen und Features-Assistenten verwenden können
   
 5.  Wenn die Installation abgeschlossen ist, Überprüfen der Installation durch Öffnen der **alle Server** Seite im Server-Manager, wählen einen Server, auf dem Sie Rollen und Features installiert, und zeigen die **Rollen und Features** die Kachel auf der Seite für den ausgewählten Server. Sie können auch ausführen, die `Get-WindowsFeature` Cmdlet für einen bestimmten Server (`Get-WindowsFeature -computerName` <*Computer_name*>) zum Anzeigen einer Liste von Rollen und Features, die auf dem Server installiert sind.  
   
-## <a name="BKMK_FoD"></a>Installieren von .NET Framework 3.5 und anderen Features bei Bedarf  
+## <a name="install-net-framework-35-and-other-features-on-demand"></a>Installieren von .NET Framework 3.5 und anderen Features bei Bedarf  
 ab Windows Server 2012 und Windows 8, sind die featuredateien für .NET Framework 3.5 (enthält .NET Framework 2.0 und .NET Framework 3.0) nicht auf dem lokalen Computer standardmäßig verfügbar. Die Dateien wurden entfernt. Dateien für Features, die bei der Konfiguration von %%amp;quot;Features bei Bedarf%%amp;quot; entfernt wurden, und Featuredateien für .NET Framework 3.5 stehen über Windows Update zur Verfügung. Wenn featuredateien nicht auf dem Zielserver verfügbar sind, auf denen Windows Server 2012 oder höheren Versionen ausgeführt wird sucht standardmäßig während des Installationsvorgangs für den fehlenden Dateien durch das Verbinden mit Windows Update. Sie können das Standardverhalten überschreiben, indem Sie eine gruppenrichtlinieneinstellung konfigurieren oder einen alternativen Quellpfad angeben, während der Installation können, ob Sie mit der hinzufügen-Rollen und Features GUI-Assistenten oder eine Befehlszeile installieren.  
   
 Sie installieren .NET Framework 3.5 mit einer der folgenden Aktionen:  
   
--   Fügen Sie anhand von [So installieren Sie .NET Framework 3.5 durch Ausführen des Install-WindowsFeature-Cmdlets](#BKMK_dotnetcmdlet) den `Source` -Parameter hinzu, und geben Sie eine Quelle an, aus der .NET Framework 3.5-Featuredateien abgerufen werden sollen. Wenn Sie den `Source`-Parameter nicht hinzufügen, wird vom Installationsprozess zunächst ermittelt, ob von den Gruppenrichtlinieneinstellungen ein Pfad zu Featuredateien angegeben wurde. Wird kein solcher Pfad gefunden, wird mithilfe von Windows Update nach fehlenden Featuredateien gesucht.  
+-   Fügen Sie anhand von [So installieren Sie .NET Framework 3.5 durch Ausführen des Install-WindowsFeature-Cmdlets](#to-install-net-framework-35-by-running-the-install-windowsfeature-cmdlet) den `Source` -Parameter hinzu, und geben Sie eine Quelle an, aus der .NET Framework 3.5-Featuredateien abgerufen werden sollen. Wenn Sie den `Source`-Parameter nicht hinzufügen, wird vom Installationsprozess zunächst ermittelt, ob von den Gruppenrichtlinieneinstellungen ein Pfad zu Featuredateien angegeben wurde. Wird kein solcher Pfad gefunden, wird mithilfe von Windows Update nach fehlenden Featuredateien gesucht.  
   
--   Verwendung [So installieren Sie .NET Framework 3.5 mithilfe des Hinzufügen von Rollen und Features-Assistenten](#BKMK_arfw) auf einen alternativen quelldateispeicherort an die **Installationsoptionen bestätigen** auf der Seite des Hinzufügen von Rollen und Features-Assistenten.  
+-   Verwendung [So installieren Sie .NET Framework 3.5 mithilfe des Hinzufügen von Rollen und Features-Assistenten](#to-install-net-framework-35-by-using-the-add-roles-and-features-wizard) auf einen alternativen quelldateispeicherort an die **Installationsoptionen bestätigen** auf der Seite des Hinzufügen von Rollen und Features-Assistenten.  
   
--   Rufen Sie anhand von [So installieren Sie .NET Framework 3.5 mithilfe von DISM](#BKMK_dism) standardmäßig Dateien aus Windows Update oder durch Angabe eines Quellpfads zum Installationsmedium ab.  
+-   Rufen Sie anhand von [So installieren Sie .NET Framework 3.5 mithilfe von DISM](#to-install-net-framework-35-by-using-dism) standardmäßig Dateien aus Windows Update oder durch Angabe eines Quellpfads zum Installationsmedium ab.  
   
-[Konfigurieren alternativer Quellen für Featuredateien in der Gruppenrichtlinie](#BKMK_configgp) für .NET Framework 3.5 oder andere Features, falls auf dem lokalen Computer keine Featuredateien gefunden werden.  
+[Konfigurieren alternativer Quellen für Featuredateien in der Gruppenrichtlinie](#configure-alternate-sources-for-feature-files-in-group-policy) für .NET Framework 3.5 oder andere Features, falls auf dem lokalen Computer keine Featuredateien gefunden werden.  
   
 > [!IMPORTANT]  
 > Bei der Installation von Featuredateien aus einer Remotequelle muss der Quellpfad oder die Dateifreigabe entweder der Gruppe **Jeder** (nicht empfohlen aus Sicherheitsgründen) oder dem Computerkonto (lokales System) des Zielservers Berechtigungen zum **Lesen** gewähren. Das Gewähren des Benutzerkontozugriffs ist nicht ausreichend.  
@@ -314,7 +314,7 @@ Sie installieren .NET Framework 3.5 mit einer der folgenden Aktionen:
 >   
 > Sie können eine WIM-Datei als Quelle einer alternativen Funktion angeben, wenn Sie Rollen, Rollendienste und Features auf einem aktiven physischen Server installieren. Der Quellpfad für eine WIM-Datei muss in folgendem Format ein, wobei **WIM** als Präfix und der Index in der die featuredateien befinden als Suffix: **WIM:e:\Sources\Install.wim:4**. Jedoch kann keine WIM-Datei auch direkt als Quelle verwenden, für die Installation von Rollen, Rollendienste und Features auf einer offline-VHD. Sie müssen entweder die offline-VHD einbinden und zeigen Sie auf ihren Bereitstellungspfad für Quelldateien, oder Sie müssen auf einen Ordner mit einer Kopie des Inhalts der WIM-Datei verweisen.  
   
-### <a name="BKMK_dotnetcmdlet"></a>So installieren Sie .NET Framework 3.5 durch Ausführen des Install-WindowsFeature-Cmdlets  
+### <a name="to-install-net-framework-35-by-running-the-install-windowsfeature-cmdlet"></a>So installieren Sie .NET Framework 3.5 durch Ausführen des Install-WindowsFeature-Cmdlets  
   
 1.  Führen Sie einen der folgenden Schritte aus, um eine Windows PowerShell-Sitzung mit erhöhten Benutzerrechten zu öffnen.  
   
@@ -335,7 +335,7 @@ Sie installieren .NET Framework 3.5 mit einer der folgenden Aktionen:
   
     Falls der Befehl Windows Update als Quelle für fehlende Featuredateien verwenden soll oder bereits eine Standardquelle mithilfe der Gruppenrichtlinie konfiguriert wurde, muss der Parameter `Source` nur hinzugefügt werden, wenn Sie eine andere Quelle angeben möchten.  
   
-### <a name="BKMK_arfw"></a>So installieren Sie .NET Framework 3.5 mithilfe des Hinzufügen von Rollen und Features-Assistenten  
+### <a name="to-install-net-framework-35-by-using-the-add-roles-and-features-wizard"></a>So installieren Sie .NET Framework 3.5 mithilfe des Hinzufügen von Rollen und Features-Assistenten  
   
 1.  Auf der **verwalten** im Server-Manager, klicken Sie anschließend auf **Rollen und Features hinzufügen**.  
   
@@ -357,7 +357,7 @@ Sie installieren .NET Framework 3.5 mit einer der folgenden Aktionen:
   
 6.  Klicken Sie auf **OK**und dann auf **Installieren**.  
   
-### <a name="BKMK_dism"></a>So installieren Sie .NET Framework 3.5 mithilfe von DISM  
+### <a name="to-install-net-framework-35-by-using-dism"></a>So installieren Sie .NET Framework 3.5 mithilfe von DISM  
   
 1.  Führen Sie einen der folgenden Schritte aus, um eine Windows PowerShell-Sitzung mit erhöhten Benutzerrechten zu öffnen.  
   
@@ -387,7 +387,7 @@ Sie installieren .NET Framework 3.5 mit einer der folgenden Aktionen:
     > [!NOTE]  
     > Beim DISM-Befehl muss die Groß-/Kleinschreibung beachtet werden.  
   
-### <a name="BKMK_configgp"></a>Konfigurieren Sie alternativer Quellen für featuredateien in der Gruppenrichtlinie  
+### <a name="configure-alternate-sources-for-feature-files-in-group-policy"></a>Konfigurieren alternativer Quellen für Featuredateien in der Gruppenrichtlinie  
 Die in diesem Abschnitt beschriebene Gruppenrichtlinieneinstellung gibt autorisierte Quellspeicherorte für .NET Framework 3.5-Dateien und andere Featuredateien an, die im Rahmen der Konfiguration von %%amp;quot;Features bei Bedarf%%amp;quot; entfernt wurden. Die richtlinieneinstellung **Geben Sie Einstellungen für die Installation optionaler Komponenten und Reparatur von Komponenten** befindet sich in der **Computer Computerkonfiguration\Administrative Vorlagen\System** Ordner in der Gruppenrichtlinie -Verwaltungskonsole oder der lokalen Gruppenrichtlinien-Editor.  
   
 > [!NOTE]  
@@ -403,7 +403,7 @@ Die in diesem Abschnitt beschriebene Gruppenrichtlinieneinstellung gibt autorisi
   
 3.  Geben Sie im Textfeld **Alternativer Dateiquellpfad** im Bereich **Optionen** einen vollqualifizierten Pfad zu einem freigegebenen Ordner oder einer WIM-Datei an. Fügen Sie zum Angeben einer WIM-Datei als alternativer Quelldateispeicherort dem Pfad das Präfix **WIM:** und den Index des in der WIM-Datei zu verwendenden Images als Suffix hinzu. Die folgenden Beispiele enthalten Werte, die Sie angeben können.  
   
-    -   Pfad zu einem freigegebenen Ordner: **\\\\***Server_name***\share\\*** Ordnername*  
+    -   Pfad zu einem freigegebenen Ordner: * *\\\\***Server_name***\share\\*** Ordnername*  
   
     -   Pfad zu einer WIM-Datei, in dem **3** stellt den Index des Bilds in dem sich die featuredateien befinden:  **WIM:\\\\***Server_name***\share\install.wim:3**  
   

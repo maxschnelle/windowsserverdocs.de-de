@@ -8,16 +8,16 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 13323cd380c9df5185a7989721ec2574ea880d4f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d7ea1f6f5d99ef1b55e919af3b8ebe391486ed50
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814791"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65475897"
 ---
 # <a name="classification-management"></a>Klassifizierungsverwaltung
 
-> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
+> Gilt für: WindowsServer 2019, WindowsServer 2016, WindowsServer (Halbjährlicher Kanal), Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
 
 Klassifizierungseigenschaften dienen zum Kategorisieren von Dateien und können verwendet werden, um Dateien für geplante Dateiverwaltungsaufgaben auszuwählen.
 
@@ -26,7 +26,7 @@ Es gibt zahlreiche Methoden zum Klassifizieren einer Datei. Eine Möglichkeit is
 In diesem Abschnitt werden folgende Themen behandelt:
 
 -   [Erstellen einer Klassifizierungseigenschaft](create-classification-property.md)
--   [Erstellen Sie eine Regel für die automatische Klassifizierung](create-automatic-classification-rule.md)
+-   [Erstellen einer automatischen Klassifizierungsregel](create-automatic-classification-rule.md)
 
 
 > [!Note]
@@ -35,4 +35,4 @@ In diesem Abschnitt werden folgende Themen behandelt:
 
 ## <a name="see-also"></a>Siehe auch
 
-[Einstellung File Server Resource Manager-Optionen](setting-file-server-resource-manager-options.md)
+[Festlegen der Optionen des Ressourcen-Managers für Dateiserver](setting-file-server-resource-manager-options.md)

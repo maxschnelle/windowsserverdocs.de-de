@@ -12,18 +12,18 @@ ms.assetid: 12efe858-6b76-4e08-9f72-b9603aceb0fc
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.date: 06/22/2018
+ms.date: 05/20/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 79a6b264c38b4b843c2887c6a3eb6f236480243d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 0c10cf6c9355b5f7457a5f17babdfb44aaa679b2
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59828961"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976790"
 ---
 # <a name="compare-the-client-apps"></a>Vergleichen Sie die Client-apps
 
->Gilt für: Windows 10, Windows 8.1, Windows Server 2012 R2, WindowsServer 2016
+>Gilt für: Windows 10, Windows 8.1, WindowsServer 2019, WindowsServer 2016, Windows Server 2012 R2
 
 Wir häufig gefragt, wie die anderen Remotedesktop-Client-apps miteinander verglichen werden soll. Machen sie alle dasselbe? Hier sind die Antworten auf diese Fragen.
 
@@ -39,7 +39,7 @@ Wenn Sie eine Remoteverbindung mit Ihrem persönlichen Desktop, stehen zusätzli
 |-------------|-------------------------------|-----------|---------|-----|-------|------------|
 | Tastatur    | X                             | X         | X       | X   | X     | X          |
 | Maus       | X                             | X         | X       | X*    | X     | X          |
-| Touch       | X                             | X         | X       | X   |       |            |
+| Touch       | X                             | X         | X       | X   |       | X (Microsoft Edge und Internet Explorer nicht unterstützt) |
 | Andere       | Stift                           |           |         |     |       |            |
 * Anzeigen der [Liste von unterstützten Geräten für die Eingabe für den Remotedesktop-iOS-Beta-Client](remote-desktop-ios.md#supported-input-devices).
 
@@ -61,7 +61,7 @@ Wenn Sie USB-Anschluss-Umleitung aktivieren, werden alle USB-Geräte an den USB-
 | Kameras             | X                         |             |         |             |                                          |               |
 | Zwischenablage           | X                         | Text, image | Text    | Text, image | X                                        | Text          |
 | Lokales Laufwerk/Speicher | X                         |             | X       |             | x                                        |               |
-| Pfad            | X                         |             |         |             |                                          |               |
+| Speicherort            | X                         |             |         |             |                                          |               |
 | Mikrofonen         | X                         |X            |         |             | X                                        |               |
 | Drucker            | X                         |             |         |             | X (nur CUPS)                            | PDF-Datei drucken     |
 | Scanner            | X                         |             |         |             |                                          |               |

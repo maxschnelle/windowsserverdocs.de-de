@@ -12,12 +12,12 @@ ms.assetid: 2fe8e35c-69f9-40b3-a270-22e2402510d8
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 2716ffb7ce8f74d7c729565064de91e0598d0753
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: cb62a460c09fdb2874bcc051176a05e88cee19e7
+ms.sourcegitcommit: 7cb939320fa2613b7582163a19727d7b77debe4b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884681"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65621280"
 ---
 # <a name="create-a-bootable-usb-flash-drive"></a>Erstellen eines startfähigen USB-Speichersticks
 
@@ -31,9 +31,9 @@ Sie können einen startbaren USB-Speicherstick zum Bereitstellen von Windows Ser
   
  Zusätzliche Szenarien, in denen Sie möglicherweise einen bootfähigen USB-Speicherstick einrichten oder verwenden möchten, finden Sie in den folgenden Themen:  
   
--   [Wiederherstellen eines vollständigen Systems aus einer vorhandenen clientcomputersicherung](../manage/restore-a-full-system-from-an-existing-client-computer-backup.md)  
+-   [Wiederherstellen eines vollständigen Systems aus einer vorhandenen Clientcomputersicherung](../manage/restore-a-full-system-from-an-existing-client-computer-backup.md)  
   
--   [Wiederherstellen Sie oder reparieren Sie des Servers mit Windows Server Essentials](../manage/restore-or-repair-your-server-running-windows-server-essentials.md)  
+-   [Wiederherstellen oder Reparieren des Servers mit Windows Server Essentials](../manage/restore-or-repair-your-server-running-windows-server-essentials.md)  
 
   
 ### <a name="to-create-a-bootable-usb-flash-drive"></a>So erstellen Sie einen startfähigen USB-Speicherstick  
@@ -50,9 +50,9 @@ Sie können einen startbaren USB-Speicherstick zum Bereitstellen von Windows Ser
   
 6.  Geben Sie `clean`ein, und drücken Sie dann die EINGABETASTE. Mit diesem Befehl werden alle Daten vom USB-Speicherstick gelöscht.  
   
-7.  Um eine neue primäre Partition auf dem USB-Speicherstick zu erstellen, geben Sie `create part pri` ein, und drücken Sie dann die EINGABETASTE.  
+7.  Um eine neue primäre Partition auf dem USB-Speicherstick zu erstellen, geben Sie `create partition primary` ein, und drücken Sie dann die EINGABETASTE.  
   
-8.  Um die soeben erstellte Partition auszuwählen, geben Sie `select part 1`ein, und drücken Sie dann die EINGABETASTE.  
+8.  Um die soeben erstellte Partition auszuwählen, geben Sie `select partition 1`ein, und drücken Sie dann die EINGABETASTE.  
   
 9. Um die Partition zu formatieren, geben Sie `format fs=ntfs quick`ein, und drücken Sie dann die EINGABETASTE.  
   

@@ -9,16 +9,16 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.assetid: 08724d45-9be4-4c56-a5f1-2cf40864e136
 ms.technology: identity-adfs
-ms.openlocfilehash: 6d06c017601003e3b93df32f5fa50190ce54541d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 347b4783e82a6561334f8757029b1fddec6a85a3
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864801"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189082"
 ---
 # <a name="multi-factor-authentication-and-external-authentication-providers-customization"></a>Multi-Factor Authentication und externe Authentifizierung-Anbieter-Anpassung 
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2
+
 
 In AD FS ist die Unterstützung für die mehrstufige Authentifizierung bereitgestellt\-von\-der\-Feld. Sie können z. B. AD FS konfigurieren erstellt verwenden\-bei Zertifikatauthentifizierung als zweistufige Authentifizierung. Sie können auch externe Authentifizierungsanbieter verwenden. Dieser Ansatz kann AD FS für die Integration in zusätzliche Dienste wie Azure Multi-Factor Authentication, aktivieren, oder Sie können Ihren eigenen Anbieter entwickeln. Finden Sie unter [Lösungshandbuch: Verwalten von Risiken mit mehreren\-rechnen Sie Access Control](https://technet.microsoft.com/library/dn280937.aspx) für Weitere Informationen zur Verwendung externer Authentifizierungsanbieter zu registrieren, indem Sie mithilfe von AD FS.  
   

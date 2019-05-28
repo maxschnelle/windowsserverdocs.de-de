@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 83383d3e1c75c7a6e6c8b42c010a17ceebf51e88
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ec111954bbe39a3089072f41778990546b6287e5
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848111"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191293"
 ---
 # <a name="identifying-your-ad-fs-deployment-goals"></a>Identifizieren der AD FS-Bereitstellungsziele
-
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Ordnungsgemäße Identifizierung Ihrer Active Directory Federation Services \(AD FS\) -Bereitstellungsziele ist wichtig für den Erfolg Ihres AD FS-Entwurfs-Projekts. Je nach Größe Ihrer Organisation und die Ebene der gewünschten bereit, die Informationstechnologie \(IT\) IT-Mitarbeiter in jeder Partnerorganisation, bilden, die klar heraus kann Projektteams Real\-Welt Bereitstellungsproblemen in einer Zielsetzung. Stellen Sie sicher, dass die Mitglieder dieses Teams die Richtung verstehen, in der das Bereitstellungsprojekt bewegen muss, um die AD FS-Bereitstellungsziele zu erreichen.  
   
@@ -32,5 +30,5 @@ Die folgende Tabelle enthält die Aufgaben zum artikulieren, optimieren und Doku
 |Ordnen Sie ein Ziel oder eine Kombination der vordefinierten AD FS-Bereitstellungsziele zu einem vorhandenen AD FS-Entwurf|-   [Zuordnen der Bereitstellungsziele zu einem AD FS-Entwurf](Mapping-Your-Deployment-Goals-to-an-AD-FS-Design.md)|  
   
 ## <a name="see-also"></a>Siehe auch
-[AD FS-Entwurfshandbuch in WindowsServer 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
 

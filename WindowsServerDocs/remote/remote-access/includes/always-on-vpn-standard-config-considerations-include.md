@@ -2,7 +2,7 @@
 
 Always On-VPN-verfügt über viele Konfigurationsoptionen. Aber Sie Ihr VPN-Konfiguration auswählen, sind jedoch die folgende Informationen an:
 
--   **Verbindungstyp.** Verbindung Protokollauswahl ist wichtig und letztendlich geht hand in hand mit dem Typ der Authentifizierung, die Sie verwenden möchten. Weitere Informationen über die Tunneling-Protokolle verfügbar sind, finden Sie unter [VPN-Verbindungstypen](https://docs.microsoft.com/windows/access-protection/vpn/vpn-connection-type).
+-   **Verbindungstyp.** Verbindung Protokollauswahl ist wichtig und letztendlich geht hand in hand mit dem Typ der Authentifizierung, die Sie verwenden möchten. Weitere Informationen über die Tunneling-Protokolle verfügbar sind, finden Sie unter [VPN-Verbindungstypen](https://docs.microsoft.com/windows/security/identity-protection/vpn/vpn-connection-type/).
 
 -   **Routing.** In diesem Kontext bestimmen Routingregeln an, ob der Benutzer andere Netzwerkrouten während der Verbindung mit dem VPN verwenden können.
 
@@ -10,7 +10,7 @@ Always On-VPN-verfügt über viele Konfigurationsoptionen. Aber Sie Ihr VPN-Konf
 
     -   _Erzwingen von Tunneln_ muss der gesamte Datenverkehr an das VPN ausschließlich durchlaufen und lässt keine gleichzeitigen Zugriff auf andere Netzwerke.
 
--   **Auslösen.** _Auslösen von_ bestimmt, wie und wann eine VPN-Verbindung initiiert wird (z. B. wenn eine app öffnet, wenn das Gerät manuell, durch den Benutzer aktiviert ist). Zum Auslösen von Optionen, finden Sie unter den [VPN-Konnektivität](#vpn-connectivity).
+-   **Auslösen.** _Auslösen von_ bestimmt, wie und wann eine VPN-Verbindung initiiert wird (z. B. wenn eine app öffnet, wenn das Gerät manuell, durch den Benutzer aktiviert ist). Zum Auslösen von Optionen, finden Sie unter den [VPN-Profil automatisch ausgelöste Optionen](https://docs.microsoft.com/windows/security/identity-protection/vpn/vpn-auto-trigger-profile/).
 
 -   **Gerät oder die Benutzerauthentifizierung.** Always On-VPN-verwendet Zertifikate für Geräte und vom Gerät initiiert Verbindung über ein Feature namens [Gerät Tunnel](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/vpn-device-tunnel-config). Diese Verbindung kann automatisch initiiert werden und ist persistent, ähnlich wie eine tunnelverbindung des DirectAccess-Infrastruktur.
 

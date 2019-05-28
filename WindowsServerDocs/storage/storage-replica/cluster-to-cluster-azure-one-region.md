@@ -1,23 +1,26 @@
 ---
-title: Cluster-zu-Cluster Storage Replica innerhalb desselben Bereichs in Azure
-description: Cluster-zu-Cluster-Speicherreplikation innerhalb derselben Region in Azure
+title: Cluster-Funktion "Speicherreplikat" in der gleichen Region im Azure-Cluster
+description: Cluster-Speicherreplikation innerhalb derselben Region im Azure-Cluster
 keywords: Funktion "Speicherreplikat", Server-Manager, Windows Server, Azure, Cluster, der gleichen region
 author: arduppal
 ms.author: arduppal
-ms.date: 12/19/2017
+ms.date: 04/26/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage-replica
 manager: mchad
-ms.openlocfilehash: 8dbfab96404f5c98b9861476c0bc654af1bda775
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4371192d44878d3c953374b8d307b4d5612869f5
+ms.sourcegitcommit: 7e54a1bcd31cd2c6b18fd1f21b03f5cfb6165bf3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829141"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65461980"
 ---
-# <a name="cluster-to-cluster-storage-replica-within-the-same-region-in-azure"></a>Cluster-zu-Cluster Storage Replica innerhalb desselben Bereichs in Azure
-Sie können die Cluster-zu-Cluster von Speicherreplikaten in derselben Region in Azure konfigurieren. Klicken Sie in den folgenden Beispielen verwenden wir einen Cluster mit zwei Knoten, aber Cluster-zu-Cluster-Funktion "speicherreplikat" ist nicht auf einen Cluster mit zwei Knoten beschränkt. In der folgenden Abbildung ist ein Storage Space Direct Cluster mit zwei Knoten, die miteinander kommunizieren können sind Sie in der gleichen Domäne, und klicken Sie in der gleichen Region.
+# <a name="cluster-to-cluster-storage-replica-within-the-same-region-in-azure"></a>Cluster-Funktion "Speicherreplikat" in der gleichen Region im Azure-Cluster
+
+> Gilt für: WindowsServer 2019, WindowsServer 2016, WindowsServer (Halbjährlicher Kanal)
+
+Sie können die Cluster-zu-Cluster-Speicherreplikation innerhalb derselben Region in Azure konfigurieren. Klicken Sie in den folgenden Beispielen verwenden wir einen Cluster mit zwei Knoten, aber Cluster-zu-Cluster-Funktion "speicherreplikat" ist nicht auf einen Cluster mit zwei Knoten beschränkt. In der folgenden Abbildung ist ein Storage Space Direct Cluster mit zwei Knoten, die miteinander kommunizieren können sind Sie in der gleichen Domäne, und klicken Sie in der gleichen Region.
 
 Sehen Sie sich die Videos unten für eine vollständige Exemplarische Vorgehensweise des Prozesses.
 
@@ -57,10 +60,10 @@ Teil 2
     
 9. Erstellen Sie die Cluster (**SRAZC1**, **SRAZC2**). Im folgenden finden Sie in unserem Beispiel die PowerShell-Befehle
 ```PowerShell
-    New-Cluster -Name SRAZC1 -Node az2az1,az2az2 – StaticAddress 10.3.0.100
+    New-Cluster -Name SRAZC1 -Node az2az1,az2az2 –StaticAddress 10.3.0.100
 ```
 ```PowerShell
-    New-Cluster -Name SRAZC2 -Node az2az3,az2az4 – StaticAddress 10.3.0.101
+    New-Cluster -Name SRAZC2 -Node az2az3,az2az4 –StaticAddress 10.3.0.101
 ```
 10. Aktivieren von "direkte Speicherplätze"
 ```PowerShell

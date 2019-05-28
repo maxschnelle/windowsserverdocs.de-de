@@ -4,25 +4,30 @@ description: Eine Übersicht über neue Features in Windows Server 2019, einsch
 ms.prod: windows-server-threshold
 ms.technology: server-general
 ms.topic: article
-author: coreyp-at-msft
-ms.author: coreyp
+author: jasongerend
+ms.author: jgerend
 ms.localizationpriority: high
-ms.openlocfilehash: 4c454fc397b662e313d5cfb7ed02a83dc7059207
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.date: 05/21/2019
+ms.openlocfilehash: af887c0e1c66a017ee091fb2cab2dc61fa9ac1dc
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871841"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976552"
 ---
 # <a name="whats-new-in-windows-server-2019"></a>Neuigkeiten in Windows Server 2019
 
-Dieses Thema beschreibt einige der neuen Features in Windows Server 2019. Windows Server-2019 basiert auf der soliden Fundament von Windows Server 2016 und bietet zahlreiche Innovationen auf vier wichtigen Themen: Hybridcloud, Sicherheit, Plattform und Hyperkonvergenten Infrastruktur (HCL). Informationen zu den Neuigkeiten in Windows Server, Version 1809, finden Sie unter [Neuigkeiten in Windows Server, Version 1809](../get-started/whats-new-in-windows-server-1809.md).
+> Gilt für: Windows Server 2019
+
+Dieses Thema beschreibt einige der neuen Features in Windows Server 2019. Windows Server-2019 basiert auf der soliden Fundament von Windows Server 2016 und bietet zahlreiche Innovationen auf vier wichtigen Themen: Hybridcloud, Sicherheit, Plattform und Hyperkonvergenten Infrastruktur (HCL).
+
+Neuerungen in Windows Server Halbjährlicher Kanal-Versionen finden Sie unter [Neuigkeiten in Windows Server](../get-started/whats-new-in-windows-server.md). 
 
 ## <a name="general"></a>Allgemein
 
 ### <a name="desktop-experience"></a>Desktop Experience
 
-Da es sich bei Windows Server 2019 um eine Long-Term Servicing Channel (LTSC)-Version handelt, ist <b>Desktop Experience</b> enthalten. (Es ist nicht in Windows Server, Version 1709, Windows Server, Version 1803 oder Windows Server, Version 1809, enthalten, da Halbjährlicher Kanal \(SAC\) Releases enthalten die Desktopdarstellung nicht beabsichtigt, da sie unbedingt Server Core und Nano Server-Container-Image veröffentlicht.) Wie bei Windows Server 2016 während des Setups des Betriebssystems können Sie zwischen Server Core-Installationen oder Server mit Desktopdarstellung Installationen.
+Da es sich bei Windows Server 2019 um eine Long-Term Servicing Channel (LTSC)-Version handelt, ist <b>Desktop Experience</b> enthalten. (Halbjährlicher Kanal \(SAC\) Releases enthalten die Desktopdarstellung nicht beabsichtigt; sie dienen ausschließlich Server Core und Nano Server-containerimage frei.) Wie bei Windows Server 2016 während des Setups des Betriebssystems können Sie zwischen Server Core-Installationen oder Server mit Desktopdarstellung Installationen.
 
 ### <a name="system-insights"></a>Systemdaten
 
@@ -132,7 +137,7 @@ Neuigkeiten für Speicherreplikate Weitergehende Informationen finden Sie unter 
 
 Hier eine Liste der Neuigkeiten für das Failoverclustering. Weitergehende Informationen finden Sie unter [Neuigkeiten für Failovercluster](../failover-clustering/whats-new-in-failover-clustering.md).
 
-- **Clustersätze**
+- **Clustergruppen**
 - **Azure-fähigen Clustern**
 - **Domänenübergreifende-clustermigration**
 - **USB-Zeugen**
@@ -148,7 +153,7 @@ Hier eine Liste der Neuigkeiten für das Failoverclustering. Weitergehende Infor
 
 Es ist nun möglich, Windows- und Linux-basierte Container auf demselben Container-Host mit demselben Docker-Daemon auszuführen. Dies ermöglicht Ihnen eine heterogene Container-Host-Umgebung und bietet Anwendungsentwicklern zugleich Flexibilität.
 
-### <a name="building-support-for-kubernetes"></a>Entwicklungsunterstützung für Kubernetes
+### <a name="built-in-support-for-kubernetes"></a>Integrierte Unterstützung für Kubernetes
 
 Windows Server 2019 setzt die Verbesserungen in Bezug auf Computing, Netzwerk und Speicher fort, die in den Versionen des halbjährlichen Kanals zur Unterstützung von Kubernetes unter Windows erforderlich sind. Weitere Details sind in den kommenden Kubernetes-Versionen verfügbar.
 

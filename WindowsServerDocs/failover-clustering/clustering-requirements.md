@@ -8,21 +8,21 @@ ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.date: 04/26/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 4706372b06d0554196b692c3ddcda145dee5bae5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e6eb6f2acd420ae657a5c1b698e9733751378552
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848171"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476078"
 ---
 # <a name="failover-clustering-hardware-requirements-and-storage-options"></a>Failover-clustering hardwareanforderungen und Speicheroptionen
 
-Gilt für: Windows Server 2012 R2, Windows Server 2012, Windows Server 2016
+Gilt für: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Zum Erstellen eines Failoverclusters benötigen Sie die folgende Hardware. Die Unterstützung durch Microsoft setzt voraus, dass alle Hardware für die ausgeführte Version von Windows Server zertifiziert ist und die komplette Failoverclusterlösung alle Tests im Konfigurationsüberprüfungs-Assistenten besteht. Weitere Informationen zum Überprüfen eines Failoverclusters finden Sie unter [Überprüfen der Hardware für einen Failovercluster](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134244(v%3dws.11)>).
 
 - **Server**: Es wird empfohlen, eine Reihe übereinstimmender Computer mit identischen oder ähnlichen Komponenten zu verwenden.
-- **Netzwerkadapter und Kabel (für die Netzwerkkommunikation)**: Wenn Sie iSCSI verwenden, sollten alle Netzwerkadapter entweder für die Netzwerkkommunikation oder für iSCSI, nicht jedoch für beides verwendet werden.
+- **Netzwerkadapter und Kabel (für die Netzwerkkommunikation)** : Wenn Sie iSCSI verwenden, sollten alle Netzwerkadapter entweder für die Netzwerkkommunikation oder für iSCSI, nicht jedoch für beides verwendet werden.
 
     Vermeiden Sie in der Netzwerkinfrastruktur, über die die Clusterknoten verbunden sind, die Verwendung von Komponenten, deren Ausfall einen Ausfall des Gesamtsystems zur Folge hätte. Sie können die Clusterknoten z. B. durch mehrere unterschiedliche Netzwerke verbinden. Alternativ können Sie die Clusterknoten mit einem Netzwerk, das erstellt wird, verbinden, mit Netzwerkadapterteams, redundanten Switches, redundanten Routern oder ähnlicher Hardware besteht, der einzelne Fehlerpunkte beseitigt.
 
@@ -33,7 +33,7 @@ Zum Erstellen eines Failoverclusters benötigen Sie die folgende Hardware. Die U
 
   - **SAS (Serial Attached SCSI) oder Fibre Channel**: Wenn Sie SAS oder Fibre Channel verwenden, sollten alle Elemente des Speicherstapels aller geclusterten Server identisch sein. Er verlangt, dass das Multipfad e/a (MPIO)-Software identisch sein und die Software für Geräte bestimmten Modul (DSM) identisch sein. Es wird empfohlen, die Massenspeicher-Gerätecontroller: der Host bus Hostbusadapter (HBA), HBA-Treiber und HBA-Firmware, zugeordnet sind Clusterspeicher identisch sein. Wenn Sie unterschiedliche HBAs verwenden, sollten Sie gemeinsam mit dem Speicheranbieter überprüfen, ob die unterstützten oder empfohlenen Konfigurationen eingehalten werden.
   - **iSCSI**: Wenn Sie iSCSI verwenden, sollte jeder Clusterserver über mindestens einen Netzwerkadapter oder HBA verfügen, der dem Clusterspeicher zugewiesen ist. Das für iSCSI verwendete Netzwerk sollte nicht für die Netzwerkkommunikation verwendet werden. Die zum Herstellen von Verbindungen mit dem iSCSI-Speicherziel verwendeten Netzwerkadapter müssen für alle Clusterserver identisch sein, und es empfiehlt sich, Gigabit Ethernet oder höher zu verwenden.
-- **Speicher**: Verwenden Sie ["direkte Speicherplätze"](../storage/storage-spaces/storage-spaces-direct-overview.md) oder freigegebenen Speicher, die mit Windows Server 2012 R2 oder Windows Server 2012 kompatibel ist. Sie können angeschlossenen freigegebenen Speicher verwenden, und Sie können auch SMB 3.0-Dateifreigaben als freigegebener Speicher für Server, auf dem Hyper-V ausgeführt werden, die in einem Failovercluster konfiguriert sind. Weitere Informationen finden Sie unter [Bereitstellen von Hyper-V über SMB](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134187(v%3dws.11)>).
+- **Storage**: Verwenden Sie ["direkte Speicherplätze"](../storage/storage-spaces/storage-spaces-direct-overview.md) oder freigegebenen Speicher, die mit Windows Server 2012 R2 oder Windows Server 2012 kompatibel ist. Sie können angeschlossenen freigegebenen Speicher verwenden, und Sie können auch SMB 3.0-Dateifreigaben als freigegebener Speicher für Server, auf dem Hyper-V ausgeführt werden, die in einem Failovercluster konfiguriert sind. Weitere Informationen finden Sie unter [Bereitstellen von Hyper-V über SMB](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134187(v%3dws.11)>).
 
     In den meisten Fällen sollte der angeschlossene Speicher mehrere separate, auf Hardwareebene konfigurierte Datenträger (logische Gerätenummern bzw. LUNs) enthalten. In einigen Clustern fungiert ein Datenträger als Datenträgerzeuge (siehe Beschreibung am Ende dieses Unterabschnitts). Andere Datenträger enthalten die erforderlichen Dateien für die Clusterrollen (früher bezeichnet als Clusterdienste oder -anwendungen). Die Speicheranforderungen beinhalten Folgendes:
 
@@ -69,10 +69,10 @@ Befolgen Sie die folgenden Richtlinien, wenn Sie ein SAN mit einem Failoverclust
     >[!IMPORTANT]
     >Bei Hostbusadaptern und der MPIO-Software muss möglicherweise genau auf die Version geachtet werden. Wenn Sie für Ihren Cluster eine Multipfadlösung implementieren, sollten Sie die richtigen Adapter sowie die Firm- und Software für die von Ihnen ausgeführte Version von Windows Server in enger Zusammenarbeit mit dem Hardwarehersteller auswählen.
 
-- **Verwenden Sie ggf. "Speicherplätze"**: Wenn Sie planen, bereitzustellen, Serial angefügten Speicher SCSI (SAS) gruppiert, die mithilfe von Speicherplätzen konfiguriert ist, finden Sie unter [Bereitstellen von Clusterspeicherplätzen](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj822937(v%3dws.11)>) für die Anforderungen.
+- **Verwenden Sie ggf. "Speicherplätze"** : Wenn Sie planen, bereitzustellen, Serial angefügten Speicher SCSI (SAS) gruppiert, die mithilfe von Speicherplätzen konfiguriert ist, finden Sie unter [Bereitstellen von Clusterspeicherplätzen](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj822937(v%3dws.11)>) für die Anforderungen.
 
 ## <a name="more-information"></a>Weitere Informationen
 
-- [Failover-Clusterunterstützung](failover-clustering.md)
+- [Failoverclustering](failover-clustering.md)
 - [Speicherplätze](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831739(v%3dws.11)>)
 - [Verwenden von Gastclustering für hohe Verfügbarkeit](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn440540(v%3dws.11)>)

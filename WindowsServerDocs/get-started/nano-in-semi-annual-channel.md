@@ -4,29 +4,27 @@ description: Im neuen Windows Server-Wartungsmodell ist Nano Server nur ein Cont
 ms.prod: Windows Server
 ms.mktglfcycl: manage
 ms.sitesec: library
-author: jaimeo
+author: jasongerend
+ms.author: jgerend
 ms.localizationpriority: medium
-ms.date: 05/02/2018
+ms.date: 05/21/2019
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: a270334d-42a7-46ff-8eed-d8656a276544
-ms.openlocfilehash: 7e68d292c32ce58c786a3242203330fcae985913
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c9fede02b90e285803a8bcdbc983f264d65a4589
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847771"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976514"
 ---
 # <a name="changes-to-nano-server-in-windows-server-semi-annual-channel"></a>Änderungen bei Nano Server in Windows Server Semi-Annual Channel
 
 >Gilt für: WindowsServer Halbjährlicher Kanal
 
+Wenn Sie bereits einsetzen, Nano Server-Instanz, die [Fenster Server Halbjährlicher Kanal](..\get-started-19\servicing-channels-19.md) servicing-Modell vertraut sein, da es von der Current Branch for Business (CBB)-Modell zuvor verarbeitet wurde. Windows Server Halbjährlicher Kanal ist nur für einen neuen Namen für das gleiche Modell an. In diesem Modell sind Featureupdateversionen von Nano Server zwei- bis dreimal pro Jahr zu erwarten.
 
-Wie unter [Windows Server Semi-Annual Channel (Übersicht)](semi-annual-channel-overview.md) beschrieben, ist Windows Server Version 1803 die neueste Version des Semi-Annual Channel.
-
-Wenn Sie bereits Nano Server ausführen, ist dieses Dienstmodell vertraut, da es vorher vom Current Branch for Business (CBB)-Modell bedient wurde. Das neue Semi-Annual Channel von Windows Server ist nur ein neuer Name für das gleiche Modell. In diesem Modell sind Featureupdateversionen von Nano Server zwei- bis dreimal pro Jahr zu erwarten.
-
-In dieser Version von Windows Server, Version 1803, ist Nano Server nur als **Basisimage des Betriebssystems für den Container**verfügbar. Sie müssen es als Container in einem Containerhost ausführen, wie beispielsweise als eine Server Core-Installation von Windows Server. Das Ausführen eines Containers basierend auf Nano Server in dieser Version unterscheidet sich von früheren Versionen folgendermaßen:
+Ab Version 1803 Windows Server, Nano Server-Instanz steht jedoch nur als eine **Basis Containerbetriebssystem-Image**. Sie müssen es als Container in einem Containerhost ausführen, wie beispielsweise als eine Server Core-Installation von Windows Server. Das Ausführen eines Containers basierend auf Nano Server in dieser Version unterscheidet sich von früheren Versionen folgendermaßen:
 
 - Nano Server wurde für .NET Core-Anwendungen optimiert.
 - Nano Server ist noch kleiner als die Windows Server 2016-Version.
@@ -36,4 +34,6 @@ In dieser Version von Windows Server, Version 1803, ist Nano Server nur als **Ba
 - Sie können jetzt Nano-Container auf IoT Core ausführen.
 
 ## <a name="related-topics"></a>Verwandte Themen
-Wenn das Windows-Insider-Programm gestartet wird finden Sie weitere Informationen unter [Dokumentation zu Windows-Container](http://aka.ms/windowscontainers).
+
+- [Dokumentation zu Windows-Container](http://aka.ms/windowscontainers)
+- [Übersicht über die Fenster Server Halbjährlicher Kanal](..\get-started-19\servicing-channels-19.md)

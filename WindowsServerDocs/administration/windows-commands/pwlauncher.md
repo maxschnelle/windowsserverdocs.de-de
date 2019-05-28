@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1aa2e22f74323bb6cabfc644ca67e17a7fcbd3fc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 8ec9748056b296bb0c74250b36c762fb86fa90ad
+ms.sourcegitcommit: 08eba714d3ceb5f2dfb5486d6b990da1aa4dcbdd
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59851021"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65564656"
 ---
 # <a name="pwlauncher"></a>pwlauncher
 
@@ -44,7 +44,7 @@ Pwlauncher {/enable | /disable}
 
 ## <a name="remarks"></a>Hinweise
 
-Die größte Hürde für einen Benutzer mit Windows To Go arbeiten möchte, erhält ihre Computer über USB gestartet. Dies erfolgt normalerweise durch Eingabe von der Firmware, und versuchen verschiedene Konfigurationsoptionen aus, bis der Computer ordnungsgemäß konfiguriert ist. Dies ist nicht für die meisten Benutzer eine einfache Angelegenheit, und ist sehr gefährlich, da die Firmware Optionen enthält, die ein System unbrauchbar, wenn Sie nicht ordnungsgemäß verwendet werden können. Dieses Problem, das Windows-8and andauernde enthalten höher ein Feature, mit dem Namen "Windows zu Go-Startoptionen? in dem einen Benutzer so konfigurieren Sie ihre Computer Starten von USB-Geräten aus, in Windows, ohne jemals Eingabe der Firmware, solange die Firmware unterstützt von USB-Geräten zu starten. Aktivieren ein System immer über USB gestartet wirkt sich zunächst, die Sie berücksichtigen sollten. Z. B. ein USB-Gerät mit Schadsoftware kann versehentlich gestartet werden, um das System gefährden oder mehrere USB-Laufwerke können dynamisch geladen werden, um einen Start-Konflikt verursachen. Aus diesem Grund ist die Standardkonfiguration der Windows zu Go-Startoptionen in der Standardeinstellung deaktiviert. Darüber hinaus sind Administratorrechte erforderlich, um Windows zu Go-Startoptionen zu konfigurieren. Wenn Sie die Windows To Go-Startoptionen, die mit dem Befehlszeilentool Pwlauncher aktivieren oder die **ändern Windows zu Go-Startoptionen** app, die der Computer, von einem beliebigen USB-Gerät zu starten, die an den Computer angeschlossen ist, bevor es wird versucht gestartet.
+Die größte Hürde für einen Benutzer mit Windows To Go arbeiten möchte, erhält ihre Computer über USB gestartet. Dies erfolgt normalerweise durch Eingabe von der Firmware, und versuchen verschiedene Konfigurationsoptionen aus, bis der Computer ordnungsgemäß konfiguriert ist. Dies ist nicht für die meisten Benutzer eine einfache Angelegenheit, und ist sehr gefährlich, da die Firmware Optionen enthält, die ein System unbrauchbar, wenn Sie nicht ordnungsgemäß verwendet werden können. Auf dieses Problem, das Windows-8and andauernde enthalten höher eine Funktion, die mit dem Namen "Windows zu Go-Startoptionen", in dem einen Benutzer so konfigurieren Sie ihre Computer Starten von USB-Geräten aus, in der Windows-ohne je Eingabe der Firmware, solange ihre Firmware unterstützt über USB. Aktivieren ein System immer über USB gestartet wirkt sich zunächst, die Sie berücksichtigen sollten. Z. B. ein USB-Gerät mit Schadsoftware kann versehentlich gestartet werden, um das System gefährden oder mehrere USB-Laufwerke können dynamisch geladen werden, um einen Start-Konflikt verursachen. Aus diesem Grund ist die Standardkonfiguration der Windows zu Go-Startoptionen in der Standardeinstellung deaktiviert. Darüber hinaus sind Administratorrechte erforderlich, um Windows zu Go-Startoptionen zu konfigurieren. Wenn Sie die Windows To Go-Startoptionen, die mit dem Befehlszeilentool Pwlauncher aktivieren oder die **ändern Windows zu Go-Startoptionen** app, die der Computer, von einem beliebigen USB-Gerät zu starten, die an den Computer angeschlossen ist, bevor es wird versucht gestartet.
 
 ## <a name="BKMK_examples"></a>Beispiele für
 
@@ -55,4 +55,4 @@ Pwlauncher /enable
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

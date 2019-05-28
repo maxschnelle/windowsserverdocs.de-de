@@ -13,12 +13,12 @@ ms.assetid: 2448d381-55aa-4c14-997a-202c537c6727
 ms.author: pashort
 author: shortpatti
 ms.date: 08/23/2018
-ms.openlocfilehash: 31c1579dc840f6f4eb805ac4e10f51192a6b4c99
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d671d044896ae9e71edad8302f06f2a21fe50772
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816191"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034554"
 ---
 # <a name="deploy-network-controller-using-windows-powershell"></a>Bereitstellen des Netzwerkcontrollers mithilfe von Windows PowerShell
 
@@ -31,19 +31,19 @@ Dieses Thema enthält Anweisungen zur Verwendung von Windows PowerShell zur Bere
 
 Dieses Thema enthält die folgenden Abschnitte:
 
-- [Installieren Sie die Netzwerkcontroller-Serverrolle](#bkmk_role)
+- [Installieren Sie die Netzwerkcontroller-Serverrolle](#install-the-network-controller-server-role)
 
-- [Konfigurieren Sie den Netzwerkcontroller-cluster](#bkmk_configure)
+- [Konfigurieren Sie den Netzwerkcontroller-cluster](#configure-the-network-controller-cluster)
 
-- [Konfigurieren Sie die Netzwerkcontroller-Anwendung](#bkmk_app)
+- [Konfigurieren Sie die Netzwerkcontroller-Anwendung](#configure-the-network-controller-application)
 
-- [Network Controller bereitstellungsüberprüfung](#bkmk_validation)
+- [Network Controller bereitstellungsüberprüfung](#network-controller-deployment-validation)
 
-- [Zusätzliche Windows PowerShell-Befehle für den Netzwerkcontroller](#bkmk_ps)
+- [Zusätzliche Windows PowerShell-Befehle für den Netzwerkcontroller](#additional-windows-powershell-commands-for-network-controller)
 
-- [Beispielskript für den Netzwerkcontroller-Konfiguration](#bkmk_script)
+- [Beispielskript für den Netzwerkcontroller-Konfiguration](#sample-network-controller-configuration-script)
 
-- [Schritte nach der Bereitstellung für nicht-Kerberos-Bereitstellungen](#bkmk_nonkerb)
+- [Schritte nach der Bereitstellung für nicht-Kerberos-Bereitstellungen](#post-deployment-steps-for-non-kerberos-deployments)
 
 ## <a name="install-the-network-controller-server-role"></a>Installieren Sie die Netzwerkcontroller-Serverrolle
 

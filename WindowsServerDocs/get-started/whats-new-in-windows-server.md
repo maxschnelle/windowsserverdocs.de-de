@@ -2,36 +2,38 @@
 title: Neues in Windows Server
 description: Welche neuen Features sind für Compute, Identitäten, Verwaltung, Automatisierung, Netzwerk, Sicherheit und Speicher verfügbar?
 ms.prod: windows-server
-ms.date: 10/17/2017
+ms.date: 05/21/2019
 ms.technology: server-general
 ms.topic: article
-author: greg-lindsay
-ms.author: greg-lindsay
+author: jasongerend
+ms.author: jgerend
 ms.localizationpriority: medium
-ms.openlocfilehash: 98da95e8ee01e9f59b06a2b609727cb68ce9f386
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: c39336dfa02e798a609fd5b16f5f844442f32c89
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861941"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976671"
 ---
-# <a name="whats-new-in-windows-server"></a>Neues in Windows Server
+# <a name="whats-new-in-windows-server"></a>Was ist neu in Windows Server
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: WindowsServer 2019, WindowsServer 2016, WindowsServer (Halbjährlicher Kanal)
 
-Finden Sie die neuen Features für jede von dieser Windows Server 2016 und Windows Server (Halbjährlicher Kanal) frei.  
-   
-<br>
-<br>
-<br>
-<br>
-[Was ist neu in Windows Server, Version 1803](whats-new-in-windows-server-1803.md)
-<br>
-[Was ist neu in Windows Server, Version 1709](whats-new-in-windows-server-1709.md)<BR>
-[Was ist neu in WindowsServer 2016](whats-new-in-windows-server-2016.md)
+Sie finden die neuen Features für jede der folgenden Windows Server-Versionen.  
 
+Langfristiger Wartungskanal (LTSC)-Versionen:
 
+- [Was ist neu in WindowsServer 2019](../get-started-19/whats-new-19.md)
+- [Neuerungen in Windows Server 2016](whats-new-in-windows-server-2016.md)
 
-## <a name="see-also"></a>Siehe auch  
--   [Anmerkungen zu dieser Version: Wichtige Probleme in WindowsServer 2016](Windows-Server-2016-GA-Release-Notes.md)  
+Halbjährlicher Kanal-Versionen:
 
+- [Was ist neu in Windows Server, Version 1903 sein](../get-started-19/whats-new-in-windows-server-1903.md)
+- [Neuerungen in Windows Server, Version 1809](whats-new-in-windows-server-1809.md)
+- [Neuerungen in Windows Server, Version 1803](whats-new-in-windows-server-1803.md)
+- [Neuerungen in Windows Server, Version 1709](whats-new-in-windows-server-1709.md)
+
+## <a name="see-also"></a>Siehe auch
+
+- [Versionshinweise: Wichtige Probleme in Windows Server 2019](../get-started-19/rel-notes-19.md)
+- [Versionshinweise: Wichtige Probleme in Windows Server 2016](Windows-Server-2016-GA-Release-Notes.md)

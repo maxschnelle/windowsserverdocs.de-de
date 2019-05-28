@@ -13,16 +13,16 @@ author: haley-rowland
 ms.author: elizapo
 ms.date: 06/14/2017
 manager: dongill
-ms.openlocfilehash: 7d895b1098c4d8cdf162c77f35209b7308872d60
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 2d12062f302c28a8124e0aa49af7f441e77ffe33
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849961"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222793"
 ---
 # <a name="create-a-geo-redundant-multi-data-center-rds-deployment-for-disaster-recovery"></a>Erstellen einer Geo-redundant, mit mehreren Daten Center RDS-Bereitstellung für die notfallwiederherstellung
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2019, WindowsServer 2016
 
 Sie können die Wiederherstellung im Notfall für Ihre Remote Desktop Services-Bereitstellung aktivieren, durch die Nutzung von mehreren Rechenzentren in Azure. Im Gegensatz zu einer standard hoch verfügbaren RDS-Bereitstellung (wie in der [Remote Desktop Services-Architektur](desktop-hosting-logical-architecture.md)), die Rechenzentren in einer einzelnen Azure-Region (z.B. Europa, Westen) verwendet, eine Bereitstellung mit mehreren Data Center verwendet die Daten Rechenzentren an mehreren geografischen Standorten befinden, erhöhen die Verfügbarkeit Ihrer Bereitstellung – eine Azure-Rechenzentrum ist möglicherweise nicht verfügbar, aber es ist unwahrscheinlich, dass mehrere Regionen zur gleichen Zeit ausfallen würde. Durch die Bereitstellung eines geografisch redundanten RDS-Architektur, können Sie Failover im Fall von schwerwiegenden Fehler einer gesamten Region aktivieren.
 
@@ -44,7 +44,7 @@ Im Gegensatz dazu ist hier die Architektur für eine Bereitstellung mit mehreren
 
 ![Einer RDS-Bereitstellung, die mehrere Azure-Regionen verwendet.](media/rds-ha-multi-region.png)
 
-Die gesamte RDS-Bereitstellung wird in einer zweiten Azure-Region zum Erstellen einer geografisch redundanten Bereitstellung repliziert. Diese Architektur verwendet ein Aktiv / Passiv-Modell, dem nur eine RDS-Bereitstellung zu einem Zeitpunkt ausgeführt wird. Eine VNet-zu-VNet-Verbindung können die beiden Umgebungen, die miteinander kommunizieren. Die RDS-Bereitstellungen basieren auf einer einzelnen Active Directory-Gesamtstruktur/Domäne, und die AD-Server in die beiden Bereitstellungen replizieren, Bedeutung-Benutzer können sich anmelden, in keiner der Bereitstellungen mit denselben Anmeldeinformationen an. Benutzereinstellungen und im Benutzer-Benutzerprofil-Datenträger (UPD) gespeicherten Daten werden auf einem Dateiserver für Cluster mit zwei Knoten Storage Spaces Direct (S2D) mit horizontaler (Skalierung SOFS) gespeichert. Ein zweiter identischer S2D-Cluster in der zweiten (passiven) Region bereitgestellt wird, und die Funktion "Speicherreplikat" wird verwendet, um die Benutzerprofile aus dem aktiven replizieren, passiven Bereitstellung. Azure Traffic Manager wird verwendet, um automatisch weiterzuleiten, welche Bereitstellung Benutzer ist zurzeit eine aktive - aus der Perspektive des Endbenutzers, die sie Zugriff auf die Bereitstellung mithilfe einer einzelnen URL und nicht bewusst, welche Region sie enden mit.
+Die gesamte RDS-Bereitstellung wird in einer zweiten Azure-Region zum Erstellen einer geografisch redundanten Bereitstellung repliziert. Diese Architektur verwendet ein Aktiv / Passiv-Modell, dem nur eine RDS-Bereitstellung zu einem Zeitpunkt ausgeführt wird. Eine VNet-zu-VNet-Verbindung können die beiden Umgebungen, die miteinander kommunizieren. Die RDS-Bereitstellungen basieren auf einer einzelnen Active Directory-Gesamtstruktur/Domäne, und die AD-Server in die beiden Bereitstellungen replizieren, Bedeutung-Benutzer können sich anmelden, in keiner der Bereitstellungen mit denselben Anmeldeinformationen an. Benutzereinstellungen und im Benutzer-Benutzerprofil-Datenträger (UPD) gespeicherten Daten werden auf einem Cluster "direkte Speicherplätze" Horizontales Skalieren mit zwei Knoten-Dateiserver (SOFS) gespeichert. Ein zweiter Cluster auf identischer "direkte Speicherplätze" in der zweiten (passiven) Region bereitgestellt wird, und die Funktion "Speicherreplikat" wird verwendet, um die Benutzerprofile aus dem aktiven replizieren, passiven Bereitstellung. Azure Traffic Manager wird verwendet, um automatisch weiterzuleiten, welche Bereitstellung Benutzer ist zurzeit eine aktive - aus der Perspektive des Endbenutzers, die sie Zugriff auf die Bereitstellung mithilfe einer einzelnen URL und nicht bewusst, welche Region sie enden mit.
 
 
 Sie *konnte* erstellen Sie eine nicht hoch verfügbare RDS-Bereitstellung in jeder Region, aber auch ein einzelnen virtuellen Computer in einer Region gestartet wird, wird ein Failover auftreten, erhöhen die Wahrscheinlichkeit, dass bei Failovern Auswirkungen auf die Leistung verknüpft.
@@ -66,7 +66,7 @@ Erstellen Sie die folgenden Ressourcen in Azure zum Erstellen einer geografisch 
    
       2. Bearbeiten Sie die Computernamen, damit sie mit den Angaben in der Bereitstellung in der RG A. in Konflikt stehen keine
       
-         Suchen Sie die virtuellen Computer in der **Ressourcen** -Abschnitt der Vorlage. Ändern der **ComputerName** Feld **"osprofile"**. Beispielsweise kann "Gateway" werden "Gateway **-b**"; "[Concat ('Rdsh-", copyIndex())] "kann"[Concat ("Rdsh - b-", copyIndex())]"werden, und"Broker"Annehmen" Broker **-b**".
+         Suchen Sie die virtuellen Computer in der **Ressourcen** -Abschnitt der Vorlage. Ändern der **ComputerName** Feld **"osprofile"** . Beispielsweise kann "Gateway" werden "Gateway **-b**"; "[Concat ('Rdsh-", copyIndex())] "kann"[Concat ("Rdsh - b-", copyIndex())]"werden, und"Broker"Annehmen" Broker **-b**".
       
          (Sie können auch die Namen der virtuellen Computer manuell ändern, nachdem Sie die Vorlage ausführen.)
    2. Wie in Schritt 3 oben, verwenden Sie die Informationen im [Remote Desktop Services - hochverfügbarkeit](rds-plan-high-availability.md) so konfigurieren Sie die anderen RDS-Komponenten für hohe Verfügbarkeit.
@@ -74,8 +74,8 @@ Erstellen Sie die folgenden Ressourcen in Azure zum Erstellen einer geografisch 
 
    > [!NOTE]
    > Sie können den Speicher manuell (anstatt die PowerShell-Skript und die Vorlage) bereitstellen: 
-   >1. Bereitstellen einer [2 Knoten S2D SOFS](rds-storage-spaces-direct-deployment.md) RG A zum Speichern der Benutzerprofil-Datenträgern (UPDs).
-   >2. Bereitstellen eines zweiten, identische S2D SOFS in RG B – stellen Sie sicher, dass die gleiche Menge an Speicher in jedem Cluster verwenden.
+   >1. Bereitstellen einer [zwei Knoten Storage Spaces Direct SOFS](rds-storage-spaces-direct-deployment.md) RG A zum Speichern der Benutzerprofil-Datenträgern (UPDs).
+   >2. Bereitstellen eines zweiten, identische Speicher Leerzeichen direkte SOFS in RG B – stellen Sie sicher, dass die gleiche Menge an Speicher in jedem Cluster verwenden.
    >3. Richten Sie [Funktion "Speicherreplikat" bei der asynchronen Replikation](../../storage/storage-replica/cluster-to-cluster-storage-replication.md) zwischen den beiden.
 
 ### <a name="enable-upds"></a>Aktivieren von Benutzerprofil-Datenträger
@@ -85,7 +85,7 @@ Möchten Sie weitere Informationen zum Verwalten der Replikation? Sehen Sie sich
 
 Um die Benutzerprofil-Datenträger für beide Bereitstellungen zu aktivieren, führen Sie folgende Schritte aus:
 
-1. Führen Sie die [Cmdlet "Set-RDSessionCollectionConfiguration"](https://technet.microsoft.com/itpro/powershell/windows/remote-desktop/set-rdsessioncollectionconfiguration) So aktivieren Sie die Benutzerprofil-Datenträger für die Bereitstellung die primäre (aktive) – Geben Sie einen Pfad für die Dateifreigabe, auf dem Quellvolume (das Sie in Schritt 7 in den Schritten zur Bereitstellung erstellt haben).
+1. Führen Sie die [Cmdlet "Set-RDSessionCollectionConfiguration"](https://docs.microsoft.com/powershell/module/remotedesktop/set-rdsessioncollectionconfiguration) So aktivieren Sie die Benutzerprofil-Datenträger für die Bereitstellung die primäre (aktive) – Geben Sie einen Pfad für die Dateifreigabe, auf dem Quellvolume (das Sie in Schritt 7 in den Schritten zur Bereitstellung erstellt haben).
 2. Kehren Sie die Funktion "Speicherreplikat", damit das Zielvolume wird dem Quellvolume (dies einbinden des Volumes und ermöglicht es den von der sekundären Bereitstellung Zugriff auf). Sie können ausführen **Set-SRPartnership** Cmdlet, um diese auszuführen. Zum Beispiel:
 
    ```powershell
@@ -105,10 +105,10 @@ Erstellen einer [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-o
 
 Beachten Sie, dass Traffic Manager Endpunkte zurückzugebenden 200 OK als Reaktion auf eine GET-Anforderung, um als "fehlerfrei" markiert werden. Die öffentliche IP-Objekt, das aus den RDS-Vorlagen erstellten funktionieren, aber fügen Sie einen Nachtrag Pfad nicht. Stattdessen, Sie erhalten Benutzer die URL des Traffic Manager mit "/ RDWeb" angefügt, beispielsweise: ```http://deployment.trafficmanager.net/RDWeb```
 
-Durch die Bereitstellung von Azure Traffic Manager mit der prioritätsbasierten Routingmethode verhindern, dass Sie Endbenutzern den Zugriff auf die passiven Bereitstellung, während die aktive Bereitstellung funktionsfähig ist. Wenn Endbenutzer greifen auf den passiven Bereitstellung und die Richtung für die Funktion "Speicherreplikat" noch nicht für das Failover gewechselt wurde, hängt die Benutzeranmeldung, wie die Bereitstellung versucht, und ein Fehler auftritt, Zugriff auf die Dateifreigabe auf dem passiven S2D-Cluster - schließlich die Bereitstellung wird aufgeben, und geben Sie der Benutzer ein temporäres Profil.  
+Durch die Bereitstellung von Azure Traffic Manager mit der prioritätsbasierten Routingmethode verhindern, dass Sie Endbenutzern den Zugriff auf die passiven Bereitstellung, während die aktive Bereitstellung funktionsfähig ist. Wenn Endbenutzer greifen auf den passiven Bereitstellung und die Richtung für die Funktion "Speicherreplikat" noch nicht für das Failover gewechselt wurde, hängt die Benutzeranmeldung, wie die Bereitstellung versucht und Zugriff auf die Dateifreigabe auf dem passiven Cluster "direkte Speicherplätze" - schließlich die Bereitstellung schlägt fehl wird aufgeben und weisen Sie dem Benutzer ein temporäres Profil.  
 
 ### <a name="deallocate-vms-to-save-resources"></a>Zuordnung VMs zum Einsparen von Ressourcen 
-Nach der Konfiguration beider Bereitstellungen können Sie optional Herunterfahren und Aufheben der Zuordnung der sekundären RDS-Infrastruktur und RDSH-VMs, um Kosten einzusparen, auf diesen VMs. Der S2D SOFS und AD-Server VMs muss immer ausgeführt wird, in der sekundären/Passiv-Bereitstellung Benutzer Konto- und Profilinformationen Synchronisierung aktivieren.  
+Nach der Konfiguration beider Bereitstellungen können Sie optional Herunterfahren und Aufheben der Zuordnung der sekundären RDS-Infrastruktur und RDSH-VMs, um Kosten einzusparen, auf diesen VMs. Der Storage Spaces Direct SOFS und AD-Server VMs muss immer in der sekundären/Passiv-Bereitstellung zum Aktivieren der Synchronisierung für Benutzer Konto- und Profilinformationen ausgeführt wird.  
 
 Wenn ein Failover auftritt, müssen Sie die Aufhebung der Zuordnung virtuellen Computer gestartet. Diese Konfiguration hat es sich um den Vorteil, geringeren Kosten, aber auf Kosten der Failover-Zeit. Im Falle ein schwerwiegenden Fehlers in der aktiven Bereitstellung müssen Sie die passive Bereitstellung manuell starten, oder Sie benötigen ein Automatisierungsskript erkennt den Ausfall, und starten Sie die passive Bereitstellung automatisch. In beiden Fällen dauert mehrere Minuten in der passiven Bereitstellung ausgeführt wird und für Benutzer zur Anmeldung erhalten es einige Ausfallzeiten für den Dienst. Diese Ausfallzeit hängt die Zeitspanne, während es verwendet, um die RDS-Infrastruktur und RDSH-VMs (in der Regel 2 bis 4 Minuten, wenn der virtuelle Computer nacheinander, sondern parallel gestartet werden) und die Uhrzeit auf den passiven Cluster online schalten (das hängt von der Größe des Clusters zu starten in der Regel 2 bis 4 Minuten für einen 2-Knoten-Cluster mit 2 Datenträger pro Knoten). 
 
@@ -123,7 +123,7 @@ Wenn Sie Ihre RDSH-Images zum Bereitstellen von Softwareupdates oder neue Anwend
 
 ## <a name="failover"></a>Failover
 
-Bei der Aktiv / Passiv-Bereitstellung erfordert das Failover die virtuellen Computer eines der sekundären Bereitstellung zu starten. Sie können manuell oder mit einem Automatisierungsskript dazu. Im Fall eines schwerwiegenden Failovers des S2D SOFS ändern Sie die Funktion "Speicherreplikat" Partnerschaft Richtung, sodass das Zielvolume auf dem Quellvolume wird. Zum Beispiel:
+Bei der Aktiv / Passiv-Bereitstellung erfordert das Failover die virtuellen Computer eines der sekundären Bereitstellung zu starten. Sie können manuell oder mit einem Automatisierungsskript dazu. Im Fall eines schwerwiegenden Failovers des Storage Spaces Direct SOFS ändern Sie die Funktion "Speicherreplikat" Partnerschaft Richtung, sodass das Zielvolume auf dem Quellvolume wird. Zum Beispiel:
 
    ```powershell
    Set-SRPartnership -NewSourceComputerName "cluster-b-s2d-c" -SourceRGName "cluster-b-s2d-c" -DestinationComputerName "cluster-a-s2d-c" -DestinationRGName "cluster-a-s2d-c"

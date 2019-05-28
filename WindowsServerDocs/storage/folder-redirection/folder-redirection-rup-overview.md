@@ -8,16 +8,16 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 04/05/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 4e3cf32cd718b906f16fc09901284d8520177df8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ad44ba4bbe0b31f423a4ae4593e349571d838de2
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824281"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65475923"
 ---
 # <a name="folder-redirection-offline-files-and-roaming-user-profiles-overview"></a>Ordnerumleitung, Offlinedateien und Roamingbenutzerprofile – Übersicht
 
->Gilt für: Windows 10, Windows 8, Windows 8.1, WindowsServer 2012, Windows Server 2012 R2, WindowsServer 2016
+>Gilt für: Windows 10, Windows 8, Windows 8.1, WindowsServer 2019, WindowsServer 2016, WindowsServer 2012, Windows Server 2012 R2
 
 In diesem Thema wird erläutert, die Ordnerumleitung, Offlinedateien (clientseitige Zwischenspeicherung oder CSC) und Roamingbenutzerprofile (auch als RUP bezeichnet)-Technologien, einschließlich Neuigkeiten und, wo Sie weitere Informationen zu finden.
 
@@ -76,7 +76,7 @@ Weitere Informationen finden Sie unter [Enable the Always Offline Mode to Provid
 Bei der sparsamen Synchronisierung wird die Hintergrundsynchronisierung deaktiviert, wenn der Benutzer eine getaktete Netzwerkverbindung (z. B. ein 4G-Mobilfunknetz) verwendet und wenn der Computer in das Netzwerk eines anderen Anbieters wechselt oder das Bandbreitenlimit des Abonnenten fast erreicht oder überschritten ist.
 
 >[!NOTE]
->Getaktete Netzwerkverbindungen haben in der Regel Roundtrip-Netzwerkwartezeiten, die langsamer als der standardwartezeitwert von 35 Millisekunden für den Übergang in den Offlinemodus (langsame Verbindung)-Modus in Windows 8, Windows Server 2012 und Windows Server 2016. Daher wechseln diese Verbindungen in der Regel automatisch in den Offlinemodus (Modus für langsame Verbindungen).
+>Getaktete Netzwerkverbindungen weisen in der Regel Roundtrip-Netzwerkwartezeiten, die langsamer als der standardwartezeitwert von 35 Millisekunden für den Übergang in den Offline (langsame Verbindung)-Modus unter Windows 8, Windows Server-2019, Windows Server 2016 und Windows Server 2012. Daher wechseln diese Verbindungen in der Regel automatisch in den Offlinemodus (Modus für langsame Verbindungen).
 
 ### <a name="what-value-does-cost-aware-synchronization-add"></a>Welcher Wert hinzufügen die sparsame Synchronisierung?
 
@@ -123,7 +123,7 @@ Die Ordnerumleitung, Offlinedateien und Roamingbenutzerprofile erfordern einen x
 Zum Festlegen von Hauptcomputern muss Ihre Umgebung die folgenden Anforderungen erfüllen:
 
 - Das Schema der Active Directory Domain Services (AD DS) muss aktualisiert werden, um Windows Server 2012-Schema und Bedingungen (Automatisches Installieren von einem Windows Server 2012 oder höher Domänencontroller aktualisiert das Schema). Weitere Informationen zum Aktualisieren des AD DS-Schemas finden Sie unter [Aktualisieren von Domänencontrollern auf Windows Server 2016](../../identity/ad-ds/deploy/upgrade-domain-controllers.md).
-- Clientcomputer müssen Windows 10, Windows 8.1, Windows 8, Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 ausführen und verknüpft werden, mit der Active Directory-Domäne, die Sie verwalten.
+- Clientcomputer müssen Windows 10, Windows 8.1, Windows 8, Windows Server-2019, Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 ausführen und verknüpft werden, mit der Active Directory-Domäne, die Sie verwalten.
 
 ## <a name="more-information"></a>Weitere Informationen
 

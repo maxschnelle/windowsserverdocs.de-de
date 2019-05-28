@@ -8,16 +8,16 @@ ms.topic: article
 author: jasongerend
 ms.date: 5/14/2018
 description: Resource Manager für Dateiserver (FSRM) ist ein Tool, Ihnen ermöglicht das Verwalten und Klassifizieren von Daten auf einem Windows Server-Dateiserver.
-ms.openlocfilehash: 107d08f247fc56720ccc3d11a3db88c77377257c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8488c7418ac03be53db7164678fad353bc7c637d
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870721"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476127"
 ---
 # <a name="file-server-resource-manager-fsrm-overview"></a>Übersicht über Ressourcen-Manager für Dateiserver (File Server Resource Manager, FSRM)
 
-> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
+> Gilt für: WindowsServer 2019, WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2, WindowsServer (Halbjährlicher Kanal) 
 
 Der Ressourcen-Manager für Dateiserver (FSRM) ist ein Rollendienst unter Windows Server, der Ihnen das Verwalten und Klassifizieren von auf Dateiservern gespeicherten Daten ermöglicht. Sie können File Server Resource Manager verwenden, um automatisch Klassifizieren von Dateien, Aufgaben, die basierend auf folgenden Klassifizierungen, Festlegen von Kontingenten für Ordner und Erstellen von Berichten, die Überwachung der speicherauslastung.
 
@@ -72,7 +72,7 @@ Um zu verhindern, dass File Server Resource Manager erstellen ein Änderungsjour
 3. Öffnen Sie die Registrierungs-Editor, z. B. durch Eingabe `regedit` in der gleichen PowerShell-Sitzung.
 4. Navigieren Sie zum folgenden Schlüssel: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SrmSvc\Settings**
 5. Um optional überspringen ändern Journal-Erstellung für den gesamten Server (überspringen Sie diesen Schritt, wenn es sich nur auf bestimmten Volumes deaktivieren möchten):
-    1. Mit der rechten Maustaste die **Einstellungen** gedrückt, und wählen Sie dann **neu** > **DWORD-Wert (32-Bit)**. 
+    1. Mit der rechten Maustaste die **Einstellungen** gedrückt, und wählen Sie dann **neu** > **DWORD-Wert (32-Bit)** . 
     1. Nennen Sie den Wert `SkipUSNCreationForSystem`.
     1. Legen Sie den Wert **1** (in hexadezimal).
 6. Journal erstellen und Ändern eines bestimmten Volumes optional zu überspringen:

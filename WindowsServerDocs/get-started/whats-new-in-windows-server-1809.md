@@ -4,21 +4,22 @@ description: Neue Features in Windows Server, Version 1809
 ms.prod: windows-server-threshold
 ms.technology: server-general
 ms.topic: article
-author: coreyp-at-msft
-ms.author: coreyp
+author: jasongerend
+ms.author: jgerend
+ms.date: 05/21/2019
 ms.localizationpriority: high
-ms.openlocfilehash: 32868a4a5044360bf596e26d497138bccf6692bc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d268550112236daecbe3dc1a9d9da21bc8ec67fb
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834411"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976644"
 ---
 # <a name="whats-new-in-windows-server-version-1809"></a>Neues in Windows Server, Version 1809
 
 >Gilt für: Windows Server (Semi-Annual Channel)
 
-Dieses Thema beschreibt einige der neuen Features in Windows Server, Version 1809. Informationen zu den Neuigkeiten in Windows Server 2019 finden Sie unter [Neuigkeiten in Windows Server 2019](../get-started-19/whats-new-19.md).
+Weitere Informationen zu den neuesten Features in Windows finden Sie unter [Neuigkeiten in Windows Server](whats-new-in-windows-server.md). Dieses Thema beschreibt einige der neuen Features in Windows Server, Version 1809.
 
 ## <a name="container-networking-with-kubernetes"></a>Containernetzwerk mit Kubernetes
 
@@ -41,7 +42,7 @@ Zusätzlich zu neuen Features in Windows Server, Version 1809, gelten die folgen
 * Linux-Container unter Windows
 * [Mit geringer zusätzlichen Verzögerung Hintergrund Transport (LEDBAT)](https://blogs.technet.microsoft.com/networking/2018/07/25/ledbat/)
 * Verbesserungen der Netzwerkleistung für virtuelle Workloads
-* [Server Core-App-Kompatibilität-Funktion bei Bedarf (Feature-On) ](https://docs.microsoft.com/windows-server/get-started-19/install-fod-19)
+* [Server Core-App-Kompatibilität-Funktion bei Bedarf (Feature-On)](https://docs.microsoft.com/windows-server/get-started-19/install-fod-19)
 * [Storage-Migration-Dienst (SMS)](../storage/whats-new-in-storage.md#storage-spaces-direct)
 * Speicherreplikat
 * Systemdaten 

@@ -1,6 +1,6 @@
 ---
 title: Übersicht über Dateiserver mit horizontaler Skalierung für Anwendungsdaten
-description: Übersicht über das Feature Scale-Out File Server für Windows Server 201 R2, Windows Server 2012 und Windows Server 2016.
+description: Übersicht über das Feature Scale-Out File Server für Windows Server 201 R2 und Windows Server 2012.
 ms.prod: windows-server-threshold
 ms.topic: article
 author: JasonGerend
@@ -8,16 +8,16 @@ ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.date: 04/26/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 04e25e9c69062611d9d14c220614f148ac5de770
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3e6d67eee496d19b216a4366af51ab5736229cf0
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884771"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476150"
 ---
 # <a name="scale-out-file-server-for-application-data-overview"></a>Übersicht über Dateiserver mit horizontaler Skalierung für Anwendungsdaten
 
->Gilt für: Windows Server 2012 R2, Windows Server 2012, Windows Server 2016
+>Gilt für: Windows Server 2012 R2, Windows Server 2012
 
 Der Dateiserver mit horizontaler Skalierung soll Dateifreigaben mit horizontaler Skalierung bereitstellen, die fortlaufend als dateibasierter Serveranwendungsspeicher verfügbar sind. Dateifreigaben mit horizontaler Skalierung ermöglichen das Freigeben eines Ordners von mehreren Knoten des gleichen Clusters. Der Schwerpunkt dieses Szenarios ist die Planung und Bereitstellung eines Dateiservers mit horizontaler Skalierung.
 
@@ -255,7 +255,7 @@ In der folgenden Tabelle werden die Features dieses Szenarios und die Art der be
 </thead>
 <tbody>
 <tr class="odd">
-<td><a href="failover-clustering.md">Failover-Clusterunterstützung</a></td>
+<td><a href="failover-clustering.md">Failoverclustering</a></td>
 <td>Failovercluster werden die folgenden Features in Windows Server 2012, um die Unterstützung von Dateiservern mit horizontaler hinzugefügt: Verteilter Netzwerkname, den Ressourcentyp für den Scale-Out File Server, freigegebenen Clustervolumes (CSV) 2 und die Rolle für die horizontale Skalierung hohe Verfügbarkeit des Dateiservers. Weitere Informationen zu diesen Funktionen finden Sie unter <a href="https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265972(v%3dws.11)">neues beim Failoverclustering unter Windows Server 2012 [umgeleitet]</a>.</td>
 </tr>
 <tr class="even">

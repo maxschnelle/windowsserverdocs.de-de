@@ -11,19 +11,19 @@ ms.assetid: 02e31413-6140-4723-a8d6-46c7f667792d
 author: KBDAzure
 ms.author: kathydav
 ms.date: 12/05/2016
-ms.openlocfilehash: 48319e057da9c815a77349bba34996f89973d85a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e3c88ef5ee700bb3906746402bf6cc8916976800
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850501"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192769"
 ---
 # <a name="should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v"></a>Sollte ich virtuelle Computer der Generation 1 oder 2 in Hyper-V erstellen?
 
 >Gilt für: Windows 10, WindowsServer 2016, Microsoft Hyper-V Server 2016, WindowsServer 2019, Microsoft Hyper-V-Server 2019
 
-> [!WARNING]
-> Wenn Sie jemals einen Windows virtuellen Computer (VM) aus einer lokalen auf Microsoft Azure hochladen möchten **nur virtuelle Computer der Generation 1** , befinden sich in das VHD-Dateiformat und haben Sie einen Datenträger mit festen Größe verwendet werden. Weitere Informationen zum Hochladen einer Windows-VHD oder VHDX, finden Sie unter [Vorbereiten einer Windows-VHD oder -VHDX zum Hochladen in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
+> [!NOTE]
+> Wenn Sie jemals eine Windows-VMs (VMs) hochladen möchten aus dem lokalen Microsoft Azure, der Generationen 1 und der VMs der 2. Generation in die VHD-Dateiformat und ein Datenträger mit fester Größe unterstützt werden. Finden Sie unter [VMs der 2. Generation in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) Weitere Informationen zu Generation 2-Funktionen, die in Azure unterstützt. Weitere Informationen zum Hochladen einer Windows-VHD oder VHDX, finden Sie unter [Vorbereiten einer Windows-VHD oder -VHDX zum Hochladen in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
 
 Ihrer Wahl zum Erstellen einer Generation 1 oder eine virtuelle Maschine der Generation 2 abhängig ist, klicken Sie auf der Gast-Betriebssystem installieren und die Startmethode, die Sie verwenden, um die virtuelle Maschine bereitstellen möchten werden sollen. Es wird empfohlen, dass Sie einen virtuellen Computer der Generation 2 erstellen um Features wie der sichere Start nutzen, es sei denn, eine der folgenden Aussagen zutrifft:  
 
