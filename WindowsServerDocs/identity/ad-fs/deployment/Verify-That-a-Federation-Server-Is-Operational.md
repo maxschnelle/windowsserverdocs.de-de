@@ -9,16 +9,15 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 2034b4c35061879a64004486395d0887c59087b2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b9498451e8f6d7701e9ed4b3ac7d61f19d2dcdb4
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877711"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191890"
 ---
 # <a name="verify-that-a-federation-server-is-operational"></a>Überprüfen, ob ein Verbundserver betriebsbereit ist
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Mit den folgenden Prozeduren können Sie sicherstellen, dass ein Verbundserver funktionstüchtig ist, d. h., dass jeder Client in demselben Netzwerk einen neuen Verbundserver erreichen kann.  
   
@@ -49,6 +48,6 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
 4.  In der **Ereignis-ID** Spalte, suchen Sie nach Ereignis-ID 100. Wenn der Verbundserver ordnungsgemäß konfiguriert ist, sehen Sie ein neues Ereignis – im Anwendungsprotokoll der Ereignisanzeige, mit der Ereignis-ID 100. Dieses Ereignis bestätigt, dass der Verbundserver erfolgreich mit dem Verbunddienst kommunizieren konnte.  
   
 ## <a name="additional-references"></a>Weitere Verweise  
-[Prüfliste: Das Einrichten eines Verbundservers](Checklist--Setting-Up-a-Federation-Server.md)  
+[Prüfliste: Einrichten eines Verbundservers](Checklist--Setting-Up-a-Federation-Server.md)  
   
 

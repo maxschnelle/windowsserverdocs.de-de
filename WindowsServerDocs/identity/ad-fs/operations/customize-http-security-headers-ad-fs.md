@@ -9,15 +9,14 @@ ms.date: 02/19/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: cd3ad4e6547194a971d8a51ecb95ee56f5e4e8c2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 54b0e055d6cfde5e5c69540ac804a38cbceb1e59
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822721"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188769"
 ---
 # <a name="customize-http-security-response-headers-with-ad-fs-2019"></a>Anpassen des HTTP-Antwort-Sicherheitsheader mit AD FS-2019 
-Gilt für: Windows Server 2019 
  
 Zum Schutz vor allgemeinen Sicherheitsrisiken und bieten Administratoren die Möglichkeit, den neuesten Entwicklungen in browserbasierten Schutzmechanismen nutzen, hinzugefügt AD FS-2019 die Funktionalität zum Anpassen der HTTP-Antwort-Sicherheitsheader gesendet von AD FS. Dies erfolgt durch die Einführung von zwei neue Cmdlets: `Get-AdfsResponseHeaders` und `Set-AdfsResponseHeaders`.  
  
@@ -235,4 +234,4 @@ Verwenden Sie die folgende Tabelle und die folgenden Links, um zu bestimmen, wel
 ## <a name="next"></a>Nächste
 
 - [Verwenden Sie AD FS-Hilfe Troublehshooting Leitfäden](https://aka.ms/adfshelp/troubleshooting )
-- [AD FS-Problembehandlung](../../ad-fs/troubleshooting/ad-fs-tshoot-overview.md)
+- [Behandeln von AD FS-Problemen](../../ad-fs/troubleshooting/ad-fs-tshoot-overview.md)

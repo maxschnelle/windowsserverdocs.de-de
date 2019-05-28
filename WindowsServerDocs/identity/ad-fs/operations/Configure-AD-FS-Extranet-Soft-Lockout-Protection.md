@@ -9,16 +9,14 @@ ms.date: 02/01/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 37b8c4b9b07e3111fce1bfc0a9aae10c8754bb3a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6612c05e664b50c5a50b10b712b91715cc85d230
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884631"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189880"
 ---
 # <a name="configure-ad-fs-extranet-lockout-protection"></a>Konfigurieren von AD FS-Extranetsperrschutz
-
->Gilt für: Windows Server 2012 R2
 
 In AD FS unter Windows Server 2012 R2 vorgestellt eine Sicherheitsfunktion, die Extranet-Sperre aufgerufen.  Mit diesem Feature wird AD FS "stop" das Konto "böswilliger" Benutzer von außerhalb für eine bestimmte Zeitspanne authentifizieren.  Dadurch wird verhindert, dass Ihre Benutzerkonten in Active Directory gesperrt wird.  Zusätzlich zum Schutz von Benutzern aus einer AD-kontosperrungen, schützt AD FS extranet Lockout auch für Kennwortermittlung brute-Force-Angriffen
 
@@ -95,9 +93,9 @@ Es ist ein bekanntes Problem, der AD-Benutzerkonto mit AD FS authentifizieren ka
 
 ## <a name="additional-references"></a>Weitere Verweise  
 - [Bewährte Methoden zum Schützen von Active Directory Federation Services](../../ad-fs/deployment/best-practices-securing-ad-fs.md)
-- [Delegieren von AD FS Powershell-Cmdlet auf Benutzer ohne Administratorrechte](delegate-ad-fs-pshell-access.md)
+- [Delegieren des AD FS-PowerShell-Cmdlet-Zugriffs an Benutzer ohne Administratorrechte](delegate-ad-fs-pshell-access.md)
 - [Set-AdfsProperties](https://technet.microsoft.com/itpro/powershell/windows/adfs/set-adfsproperties)
 
-[AD FS-Vorgänge](../../ad-fs/AD-FS-2016-Operations.md)
+[AD FS-Vorgänge](../../ad-fs/AD-FS-2016-Operations.md)
 
     

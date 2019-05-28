@@ -5,29 +5,27 @@ description: ''
 author: billmath
 ms.author: billmath
 manager: daveba
-ms.date: 02/26/2019
+ms.date: 04/23/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: faa0590dc38921a56952aa54bf38243b6ff84d82
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fbb289c16d82da79aded49e3af4134ac7f6df325
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867711"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188698"
 ---
 # <a name="whats-new-in-active-directory-federation-services"></a>Neues in Active Directory-Verbunddienste (AD FS)
 
-
->Gilt für: Windows Server 2019, Windows Server 2016
 
 ## <a name="whats-new-in-active-directory-federation-services-for-windows-server-2019"></a>Neuerungen in Active Directory Federation Services für Windows Server 2019
 
 ### <a name="protected-logins"></a>Geschützte Anmeldungen
 Im folgenden finden eine kurze Zusammenfassung der Updates für geschützte Anmeldungen, die in AD FS-2019 verfügbar:
-- **Externe Authentifizierungsanbieter als primäre** -Kunden können jetzt 3. Produkte von Drittanbietern-Authentifizierung verwenden, als der erste Faktor und keine Kennwörter als der erste Faktor verfügbar. Es kann die MFA anfordern, in den Fällen, in denen ein Authentifizierungsanbieter wendung 2 Faktoren sein kann. 
+- **Externe Authentifizierungsanbieter als primäre** -Kunden können jetzt 3. Produkte von Drittanbietern-Authentifizierung verwenden, als der erste Faktor und keine Kennwörter als der erste Faktor verfügbar. Es kann die MFA anfordern, in den Fällen, in denen ein externen Authentifizierungsanbieters 2 Faktoren sein kann. 
 - **Kennwort-Authentifizierung als zusätzliche Authentifizierung** -Kunden haben eine vollständig unterstützte Posteingangsoption aus, um das Kennwort zu verwenden, nur für die zusätzliche nach der ein Kennwort weniger Option rechnen Sie als der erste Faktor verwendet wird. Dies verbessert die benutzerfreundlichkeit von AD FS 2016, in denen Kunden hatten, unterstützt wird, wie, einen Adapter Github herunterladen. 
-- **Austauschbare Threat Modul-Framework** -Kunden können jetzt ihre eigenen-Plug-in zu blockieren, bestimmte Arten von Anforderungen während der vorauthentifizierungsphase Module erstellen. Dies erleichtert es Kunden Cloudfunktionen wie z.B. Identitätsschutz zu verwenden, um Anmeldungen für riskante Benutzer oder riskante Transaktionen blockieren.
+- **Austauschbare Risk Assessment Modul** -Kunden können jetzt ihre eigenen-Plug-in zu blockieren, bestimmte Arten von Anforderungen während der vorauthentifizierungsphase Module erstellen. Dies erleichtert es Kunden Cloudfunktionen wie z.B. Identitätsschutz zu verwenden, um Anmeldungen für riskante Benutzer oder riskante Transaktionen blockieren.  Weitere Informationen finden Sie unter [ -Plug-ins mit AD FS 2019 Risk Assessment Modell erstellen](../../ad-fs/development/ad-fs-risk-assessment-model.md) 
 - **Zusammenfassender Meldung Verbesserungen** -verbessert das QFE zusammenfassender Meldung 2016 durch die folgenden Funktionen hinzufügen
     - Ermöglicht Kunden, die im Überwachungsmodus werden, während von "klassische" extranetsperre Funktionsumfang, da AD FS 2012 R2 geschützt wird. 2016-Kunden müssen derzeit kein Schutz im Modus "Audit". 
     - Ermöglicht die unabhängige Sperrschwellenwert für vertrauten Standorte. Dadurch kann für mehrere Instanzen von apps, die mit einem allgemeinen Dienstkonto Kennwörter mit den geringstmöglichen Auswirkungen Rollover ausgeführt. 
@@ -142,7 +140,7 @@ AD FS 2016 baut auf Multi-Factor Authentication (MFA)-Funktionen von AD FS unter
 * Azure MFA kann für das Intranet oder extranet oder als Teil des Access Control-Richtlinie konfiguriert werden.
 
 Weitere Informationen zu Azure MFA mit AD FS
-*  [Konfigurieren von AD FS 2016 und Azure MFA](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa)  
+*  [Konfigurieren von AD FS 2016 und Azure MFA](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa)  
 
 ### <a name="password-less-access-from-compliant-devices"></a>Kennwortlosen Zugriff über kompatible Geräte
 AD FS 2016 baut auf früheren Funktionen für die geräteregistrierung um anmelden zu aktivieren und Zugriffssteuerung basierend Kompatibilitätsstatus des Geräts. Benutzer können sich anmelden, auf die mit den Anmeldeinformationen des Geräts und Compliance wird erneut ausgewertet, wenn Geräteattribute ändern, damit Sie immer sicherstellen können, dass Richtlinien eingehalten werden.  Dies ermöglicht z. B. Richtlinien

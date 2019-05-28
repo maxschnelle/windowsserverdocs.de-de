@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 9b1fa833-4325-48a8-bf34-46265f40c001
 author: christianmontoya
 manager: scottman
-ms.openlocfilehash: 73beb1539420f4b4aad818ffe0b0bdaabe901748
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 63037dd7e32320b6e640396e20344e5678ed91dd
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870261"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034430"
 ---
 # <a name="migrate-your-remote-desktop-services-deployment-to-windows-server-2016"></a>Migrieren der Remotedesktopdienste-Bereitstellung auf Windows Server 2016
 
@@ -28,8 +28,8 @@ Migration für eine Remotedesktopdienste-Bereitstellung wird von Quellservern un
 
 Weitere Informationen zu den Upgradeprozess und die Anforderungen, finden Sie unter [Ihre Remote Desktop Services-Bereitstellungen auf Windows Server 2016 Upgrade](upgrade-to-rds-2016.md).
 
-Verwenden Sie die folgenden Schritte aus, um Ihre Remote Desktop Services-Bereitstellung zu migrieren: 
-- [Migrieren von RD-Verbindungsbrokerserver](#migrate-rd-connection-broker-servers) 
+Verwenden Sie die folgenden Schritte aus, um Ihre Remote Desktop Services-Bereitstellung zu migrieren:
+- [Migrieren von RD-Verbindungsbrokerserver](#migrate-rd-connection-broker-servers)
 - [Migrieren von sitzungssammlungen](#migrate-session-collections)
 - [Migrieren von Sammlungen virtueller Desktops](#migrate-virtual-desktop-collections)
 - [Migrieren von Servern mit Web Access für Remotedesktop](#migrate-rd-web-access-servers)
@@ -54,7 +54,7 @@ Dies ist der erste und wichtigste Schritt für die Migration: Migrieren Ihren Re
 
 Um einer sitzungssammlung in Windows Server 2012 R2 zu einer sitzungssammlung in Windows Server 2016 zu migrieren, gehen Sie wie folgt vor.
 > [!IMPORTANT] 
-> Migrieren von sitzungssammlungen erst nach Abschluss des vorhergehenden Schritts, [Migrieren von RD-Verbindungsbrokerserver](#Migrate-RD-Connection-Broker-servers).
+> Migrieren von sitzungssammlungen erst nach Abschluss des vorhergehenden Schritts, [Migrieren von RD-Verbindungsbrokerserver](#migrate-rd-connection-broker-servers).
 
 1. [Aktualisieren Sie die sitzungssammlung](Upgrade-to-RDSH-2016.md) von Windows Server 2012 R2 auf Windows Server 2016.
 2. Fügen Sie den neuen RD-Sitzungshost-Server, die mit Windows Server 2016 zur sitzungssammlung hinzu.
@@ -69,7 +69,7 @@ Um einer sitzungssammlung in Windows Server 2012 R2 zu einer sitzungssammlung in
 Um einer Sammlung virtueller Desktops von einem Quellserver unter Windows Server 2012 R2 zu einem Zielserver unter Windows Server 2016 zu migrieren, gehen Sie wie folgt vor.
 
 > [!IMPORTANT] 
-> Migrieren von Sammlungen virtueller Desktops erst nach Abschluss des vorhergehenden Schritts, [Migrieren von RD-Verbindungsbrokerserver](#Migrate-RD-Connection-Broker-servers).
+> Migrieren von Sammlungen virtueller Desktops erst nach Abschluss des vorhergehenden Schritts, [Migrieren von RD-Verbindungsbrokerserver](#migrate-rd-connection-broker-servers).
 
 1. [Aktualisieren den Sammlung virtuellen Desktops](Upgrade-to-RDVH-2016.md) vom Server ausgeführt wird in Windows Server 2012 R2 auf Windows Server 2016.
 2. Fügen Sie die neuen RD-Virtualisierungshost von Windows Server 2016-Server, auf der Sammlung virtueller Desktops.
@@ -85,14 +85,14 @@ Um einer Sammlung virtueller Desktops von einem Quellserver unter Windows Server
 Um das Migrieren der Server mit Web Access für Remotedesktop, gehen Sie wie folgt vor:
 - Einbinden Sie der Zielserver unter Windows Server 2016 mit der Remotedesktopdienste-Bereitstellung, und installieren Sie die RD-Web-Rolle
 - Verwendung [IIS Web Deploy-Tool](https://www.iis.net/) zum Migrieren von Einstellungen für die RD-Web-Website von der aktuellen Web Access für Remotedesktop-Server auf dem Zielserver unter Windows Server 2016.
-- [Migrieren von Zertifikaten](#Migrate-certificates) auf dem Zielserver Windows Server 2016 ausgeführt.
+- [Migrieren von Zertifikaten](#migrate-certificates) auf dem Zielserver Windows Server 2016 ausgeführt.
 - Entfernen Sie den Quellserver aus der Remote Desktop Services-Bereitstellung  
 
 ## <a name="migrate-rdgateway-servers"></a>Migrieren von Remotedesktop-Gatewayservern
 Um die Migration des Remotedesktop-Gatewayservern, gehen Sie wie folgt vor:
 - Einbinden Sie der Zielserver unter Windows Server 2016 mit der Remotedesktopdienste-Bereitstellung, und installieren Sie die RD-Gateway-Rolle
 - Verwendung [IIS Web Deploy-Tool](https://www.iis.net/) die endpunkteinstellungen des RD-Gateway aus der aktuellen RD-Gatewayserver auf dem Zielserver unter Windows Server 2016 zu migrieren.
-- [Migrieren von Zertifikaten](#Migrate-certificates) auf dem Zielserver Windows Server 2016 ausgeführt.
+- [Migrieren von Zertifikaten](#migrate-certificates) auf dem Zielserver Windows Server 2016 ausgeführt.
 - Entfernen Sie der Quellserver aus der Bereitstellung Remote Desktop Services  
 
 ## <a name="migrate-rdlicensing-servers"></a>Migrieren von Remotedesktop-Lizenzierungsservern

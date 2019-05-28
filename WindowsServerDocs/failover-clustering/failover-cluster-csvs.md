@@ -8,16 +8,16 @@ ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.date: 04/05/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: f5bd0ad05bdc2573a5ea0abbe165de2d3e7f5c8f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 00f29c70628f2869e9f3aeffd0d08032bce5aeda
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857701"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034180"
 ---
 # <a name="use-cluster-shared-volumes-in-a-failover-cluster"></a>Verwenden von freigegebenen Clustervolumes in einem Failovercluster
 
->Gilt für: Windows Server 2012 R2, Windows Server 2012, Windows Server 2016
+>Gilt für: Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2012 R2
 
 Mit freigegebenen Clustervolumes (Cluster Shared Volumes, CSVs) können mehrere Knoten in einem Failovercluster gleichzeitig über den Lese-/Schreibzugriff auf dieselbe LUN (Datenträger) verfügen, die als NTFS-Volume bereitgestellt wird. (In Windows Server 2012 R2, kann der Datenträger als NTFS- oder robustes Dateisystem (ReFS) bereitgestellt werden.) Mit freigegebenen Clustervolumes können Clusterrollen schnell ein Failover von einem Knoten zu einem anderen ausführen, ohne die Besitzrechte für das Laufwerk ändern zu müssen. Zudem müssen Volumes nicht erneut bereitgestellt bzw. ihre Bereitstellung nicht aufgehoben werden. Freigegebene Clustervolumes vereinfachen auch die Verwaltung einer möglicherweise großen Anzahl von LUNs in einem Failovercluster.
 
@@ -55,10 +55,10 @@ Berücksichtigen Sie Folgendes, wenn Sie die Netzwerke konfigurieren, die freige
     >Sind in Windows Server 2012 R2 gibt es mehrere serverdienstinstanzen pro Failoverclusterknoten. Es gibt eine Standardinstanz, die den eingehenden Datenverkehr von SMB-Clients bearbeitet, die auf normale Dateifreigaben zugreifen. Dann gibt es noch eine zweite CSV-Instanz, die ausschließlich den CSV-Datenverkehr zwischen den Knoten bearbeitet. Wenn der Serverdienst auf einem Knoten Fehler aufweist, wechselt das CSV-Besitzrecht automatisch zu einem anderen Knoten.
 
     SMB 3.0 umfasst die Features SMB Multichannel und SMB Direct, sodass CSV-Datenverkehr über mehrere Netzwerke im Cluster gestreamt und Netzwerkadapter genutzt werden können, die Remotezugriff auf den direkten Speicher (Remote Direct Memory Access, RDMA) unterstützen. SMB Multichannel wird standardmäßig für den CSV-Datenverkehr verwendet. Weitere Informationen finden Sie unter [Server Message Block – Übersicht](../storage/file-server/file-server-smb-overview.md)
-  - **Microsoft Failover Cluster Virtual Adapter Performance Filter**: Diese Einstellung verbessert die Möglichkeit von Knoten, eine E/A-Umleitung auszuführen, wenn diese erforderlich ist, um freigegebene Clustervolumes zu erreichen, z. B. wenn Verbindungsfehler einen Knoten daran hindern, eine direkte Verbindung zum CSV-Datenträger herzustellen. Weitere Informationen finden Sie unter [About i/o-Synchronisierung und e/a-Umleitung im CSV-Kommunikation](#about-i/o-synchronization-and-i/o-redirection-in-csv-communication) weiter unten in diesem Thema.
+  - **Microsoft Failover Cluster Virtual Adapter Performance Filter**: Diese Einstellung verbessert die Möglichkeit von Knoten, eine E/A-Umleitung auszuführen, wenn diese erforderlich ist, um freigegebene Clustervolumes zu erreichen, z. B. wenn Verbindungsfehler einen Knoten daran hindern, eine direkte Verbindung zum CSV-Datenträger herzustellen. Weitere Informationen finden Sie unter [About i/o-Synchronisierung und e/a-Umleitung im CSV-Kommunikation](#about-io-synchronization-and-io-redirection-in-csv-communication) weiter unten in diesem Thema.
 - **Clusternetzwerkpriorisierung**: Im Allgemeinen wird empfohlen, dass Sie die für den Cluster konfigurierten Voreinstellungen für die Netzwerke nicht ändern.
 - **IP-Subnetzkonfiguration**: Für Knoten in einem Netzwerk, in dem freigegebene Clustervolumes verwendet werden, ist keine bestimmte Subnetzkonfiguration erforderlich. Freigegebene Clustervolumes (CSV) können Cluster mit mehreren Subnetzen unterstützen.
-- **Richtlinienbasierter QoS (Quality of Service)**: Es wird empfohlen, dass Sie für jeden Knoten eine QoS-Prioritätenrichtlinie und eine Richtlinie für die Mindestbandbreite für den Netzwerkverkehr konfigurieren, wenn Sie CSV verwenden. Weitere Informationen finden Sie unter [Quality of Service (QoS)](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831679(v%3dws.11)>).
+- **Richtlinienbasierter QoS (Quality of Service)** : Es wird empfohlen, dass Sie für jeden Knoten eine QoS-Prioritätenrichtlinie und eine Richtlinie für die Mindestbandbreite für den Netzwerkverkehr konfigurieren, wenn Sie CSV verwenden. Weitere Informationen finden Sie unter [Quality of Service (QoS)](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831679(v%3dws.11)>).
 - **Speichernetzwerk**: Empfehlungen zum Speichernetzwerk finden Sie in den Anleitungen Ihres Speicheranbieters. Weitere Überlegungen zum Speicher für CSV finden Sie unter [Anforderungen an die Speicher- und Datenträgerkonfiguration](#storage-and-disk-configuration-requirements) weiter unten in diesem Thema.
 
 Eine Übersicht über die Hardware-, Netzwerk- und Speicheranforderungen für Failovercluster finden Sie unter [Failover Clustering Hardware Requirements and Storage Options](clustering-requirements.md).
@@ -144,7 +144,7 @@ Wenn Sie die Speicherkonfiguration für einen Failovercluster planen, der CSV ve
 
   - Eine Organisation stellt virtuelle Computer bereit, die eine virtuelle Desktopinfrastruktur (VDI) unterstützen, die eine relativ gemäßigte Arbeitsauslastung aufweist. Der Cluster verwendet leistungsstarken Speicher. Der Clusteradministrator entscheidet sich nach der Rückfrage beim Speicheranbieter dazu, eine relativ große Anzahl von virtuellen Computern auf den einzelnen CSV-Volumes zu platzieren.
   - Eine andere Organisation stellt eine große Anzahl von virtuellen Computern bereit, die eine stark beanspruchte Datenbankanwendung und somit eine stärkere Arbeitsauslastung unterstützen. Der Cluster verwendet weniger leistungsstarken Speicher. Der Clusteradministrator entscheidet sich nach der Rückfrage beim Speicheranbieter dazu, eine relativ kleine Anzahl von virtuellen Computern auf den einzelnen CSV-Volumes zu platzieren.
-- Wenn Sie die Speicherkonfiguration für einen bestimmten virtuellen Computer planen, berücksichtigen Sie die Datenträgeranforderungen des Diensts, der Anwendung oder der Rolle, die vom virtuellen Computer unterstützt werden. Sie können Datenträgerkonflikte besser vermeiden, die zu schlechten Leistungen führen können, wenn Sie diese Anforderungen verstehen. Die Speicherkonfiguration für den virtuellen Computer sollte stark der Speicherkonfiguration ähneln, die Sie für einen physischen Server verwenden würden, der denselben Dienst, dieselbe Anwendung oder dieselbe Rolle ausführt. Weitere Informationen finden Sie unter [Anordnung von LUNs, Volumes und VHD-Dateien](#arrangement-of-luns,-volumes,-and-vhd-files) weiter oben in diesem Thema.
+- Wenn Sie die Speicherkonfiguration für einen bestimmten virtuellen Computer planen, berücksichtigen Sie die Datenträgeranforderungen des Diensts, der Anwendung oder der Rolle, die vom virtuellen Computer unterstützt werden. Sie können Datenträgerkonflikte besser vermeiden, die zu schlechten Leistungen führen können, wenn Sie diese Anforderungen verstehen. Die Speicherkonfiguration für den virtuellen Computer sollte stark der Speicherkonfiguration ähneln, die Sie für einen physischen Server verwenden würden, der denselben Dienst, dieselbe Anwendung oder dieselbe Rolle ausführt. Weitere Informationen finden Sie unter [Anordnung von LUNs, Volumes und VHD-Dateien](#arrangement-of-luns-volumes-and-vhd-files) weiter oben in diesem Thema.
 
     Sie können Datenträgerkonflikte auch dadurch reduzieren, dass Sie Speicher mit einer großen Anzahl von unabhängigen physischen Festplatten verwenden. Wählen Sie Ihre Speicherhardware entsprechend aus, und wenden Sie sich an den Anbieter, um die Leistung des Speichers zu optimieren.
 - In Abhängigkeit von Ihrer Clusterarbeitsauslastung und dem entsprechenden Bedarf an E/A-Vorgängen können Sie erwägen, dass Sie nur einen Teil der virtuellen Computer für den Zugriff auf die einzelnen LUNs konfigurieren, während andere virtuelle Computer keine Verbindungen aufweisen und stattdessen zur Berechnung von Operationen vorgesehen sind.
@@ -274,5 +274,5 @@ Bei der Auswahl einer Sicherungsanwendung und eines Sicherungszeitplans für CSV
 
 ## <a name="more-information"></a>Weitere Informationen
 
-- [Failover-Clusterunterstützung](failover-clustering.md)
+- [Failoverclustering](failover-clustering.md)
 - [Bereitstellen von Clusterspeicherplätzen](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj822937(v%3dws.11)>)

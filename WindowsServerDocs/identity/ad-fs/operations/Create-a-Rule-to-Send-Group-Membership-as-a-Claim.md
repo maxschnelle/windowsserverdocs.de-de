@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 96ab653393fbc5f0a4306db53f84c2d9ba6c7f5f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c9c4cdb881d77fe902776551b4e99061e67660ea
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847451"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189379"
 ---
 # <a name="create-a-rule-to-send-group-membership-as-a-claim"></a>Erstellen einer Regel zum Senden der Gruppenmitgliedschaft als Anspruch
-
->Gilt für: Windows Server 2016, Windows Server 2012 R2
 
 Verwenden das Versenden der Gruppenmitgliedschaft als eine anspruchsregelvorlage in Active Directory-Verbunddienste \(AD FS\), Sie können eine Regel, die Sie auswählen, eine Active Directory-Sicherheitsgruppe als Anspruch senden erleichtern wird erstellen. Von dieser Regel, die auf Grundlage der Gruppe, die Sie auswählen, wird nur ein einzelner Anspruch ausgegeben werden. Beispielsweise können Sie diese Regelvorlage zum Erstellen einer Regel, die einen Gruppenanspruch mit dem Wert des Admin Center senden, wenn der Benutzer ein Mitglied der Sicherheitsgruppe "Domänen-Admins" ist. Diese Regel sollte nur für Benutzer in der lokalen Active Directory-Domäne verwendet werden.  
   
@@ -117,6 +115,6 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
   
 [Wenn Use an Authorization Claim Rule](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
 
-[Die Rolle von Ansprüchen](../../ad-fs/technical-reference/The-Role-of-Claims.md)  
+[Rolle von Ansprüchen](../../ad-fs/technical-reference/The-Role-of-Claims.md)  
   
-[Die Rolle von Anspruchsregeln](../../ad-fs/technical-reference/The-Role-of-Claim-Rules.md) 
+[Rolle von Anspruchsregeln](../../ad-fs/technical-reference/The-Role-of-Claim-Rules.md) 

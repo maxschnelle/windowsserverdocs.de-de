@@ -13,16 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: lizapo
 ms.date: 07/25/2018
-ms.openlocfilehash: c4218331f716dc530e01f28a295cebd83c0e6616
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a10b3d3877e9511164d298bcc1dab11540e6f596
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59818111"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188196"
 ---
 # <a name="robocopy"></a>robocopy
-
-
 
 Dateidaten werden kopiert.
 
@@ -38,7 +36,7 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 |---------|-----------|
 |\<Quelle >|Gibt den Pfad zum Quellverzeichnis.|
 |\<Ziel >|Gibt den Pfad zum Zielverzeichnis an.|
-|\<Datei >|Gibt an, die Datei oder Dateien kopiert werden soll. Sie können Platzhalterzeichen verwenden (**&#42;** oder **?**), wenn Sie möchten. Wenn die **Datei** Parameter nicht angegeben ist, **\*.\*** wird als Standardwert verwendet.|
+|\<Datei >|Gibt an, die Datei oder Dateien kopiert werden soll. Sie können Platzhalterzeichen verwenden (**&#42;** oder **?** ), wenn Sie möchten. Wenn die **Datei** Parameter nicht angegeben ist, **\*.\*** wird als Standardwert verwendet.|
 |\<Options>|Gibt Optionen, mit der **Robocopy** Befehl.|
 
 ### <a name="copy-options"></a>Kopieroptionen
@@ -46,7 +44,7 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 |Option|Beschreibung|
 |------|-----------|
 |/s|Kopien Unterverzeichnisse. Beachten Sie, dass diese Option leere Verzeichnisse ausschließt.|
-|/ e|Kopien Unterverzeichnisse. Beachten Sie, dass diese Option leere Verzeichnisse enthält. Weitere Informationen finden Sie unter ["Hinweise"](#BKMK_remarks).|
+|/ e|Kopien Unterverzeichnisse. Beachten Sie, dass diese Option leere Verzeichnisse enthält. Weitere Informationen finden Sie unter ["Hinweise"](#remarks).|
 |/Lev:\<N >|Kopiert nur die ersten *N* Ebenen der Quellstruktur Verzeichnis.|
 |/z|Kopiert die Dateien im neustartbaren Modus.|
 |/b|Kopiert die Dateien im Sicherungsmodus bei protokollversandaufgaben.|
@@ -59,8 +57,8 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 |/nocopy|Keine Dateiinformationen kopiert (nützlich bei **/löschen**).|
 |/secfix|Korrekturen der dateisicherheit für alle Dateien, die auch übersprungen solche.|
 |/timfix|Übersprungen, Fixes dateizeitangaben für alle Dateien, auch solche.|
-|/Purge|Löscht Zieldateien und-Verzeichnisse, die nicht mehr in der Quelle vorhanden sind. Weitere Informationen finden Sie unter ["Hinweise"](#BKMK_remarks).|
-|/mir|Entspricht eine Verzeichnisstruktur (Äquivalent zu **/e** plus **/löschen**). Weitere Informationen finden Sie unter ["Hinweise"](#BKMK_remarks).|
+|/Purge|Löscht Zieldateien und-Verzeichnisse, die nicht mehr in der Quelle vorhanden sind. Weitere Informationen finden Sie unter ["Hinweise"](#remarks).|
+|/mir|Entspricht eine Verzeichnisstruktur (Äquivalent zu **/e** plus **/löschen**). Weitere Informationen finden Sie unter ["Hinweise"](#remarks).|
 |/mov|Verschiebt Dateien, und löscht sie aus der Quelle, nachdem sie kopiert werden.|
 |/ Move|Verschiebt Dateien und Verzeichnisse, und löscht sie aus der Quelle, nachdem sie kopiert werden.|
 |/a+:[RASHCNET]|Fügt den angegebenen Attributen für kopierte Dateien hinzu.|
@@ -74,10 +72,15 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 |/rh:hhmm-hhmm|Gibt die Ausführungszeiten, wenn neue Kopien gestartet werden können.|
 |/pf|Überprüfungen ausgeführt wie oft pro Datei (nicht pro-übergeben).|
 |/IPG:n|Gibt an, die Lücke zwischen Paket, um Bandbreite in langsamen Zeilen freizugeben.|
-|/sl|Die symbolische Verknüpfung folgt, und das Ziel kopiert.|
+|/sl|Nicht folgen Sie symbolische Links, und erstellen Sie stattdessen eine Kopie des Links.|
 
 > [!IMPORTANT]
-> Bei Verwendung der **/secfix** Option kopieren, geben Sie den Typ der Sicherheitsinformationen, die zu kopierenden auch mit einer der folgenden Weitere Kopieroptionen zu erhalten:</br>> -   **/COPYALL**</br>&GT;- **/COPY:O**</br>&GT;- **/COPY:S**</br>&GT;- **/COPY:U**</br>&GT;-   **/SEK.**
+> Bei Verwendung der **/secfix** Option kopieren, geben Sie den Typ der Sicherheitsinformationen, die zu kopierenden auch mit einer der folgenden Weitere Kopieroptionen zu erhalten:
+>- **/COPYALL**
+>- **/COPY:O**
+>- **/COPY:S**
+>- **/COPY:U**
+>- **/SEC**
 
 ### <a name="file-selection-options"></a>Optionen für die merkmalsauswahl
 
@@ -87,7 +90,7 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 |/m|Kopiert nur die Dateien für die die **Archiv** Attribut festgelegt ist, und setzt die **Archiv** Attribut.|
 |Option/IA: [RASHCNETO]|Enthält nur die Dateien, die für die die angegebenen Attribute festgelegt werden.|
 |/xa:[RASHCNETO]|Schließt die Dateien, die für die die angegebenen Attribute festgelegt werden.|
-|/xf \<Dateiname > [...]|Schließt die Dateien, die den angegebenen Namen oder die Pfade zu entsprechen. Beachten Sie, dass *FileName* kann Platzhalterzeichen enthalten (**&#42;** und **?**).|
+|/xf \<Dateiname > [...]|Schließt die Dateien, die den angegebenen Namen oder die Pfade zu entsprechen. Beachten Sie, dass *FileName* kann Platzhalterzeichen enthalten (**&#42;** und **?** ).|
 |/ XD \<Directory > [...]|Schließt die Verzeichnisse, die dem angegebenen Namen und Pfade übereinstimmen.|
 |/xc|Schließt die geänderte Dateien.|
 |/xn|Schließt neuere Dateien.|
@@ -154,7 +157,7 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 |/if|Enthält die angegebenen Dateien.|
 
 ### <a name="exit-return-codes"></a>Exitcodes (Rückgabe)
-Wert | Beschreibung
+Wert | Description
 -- | --
 0 | Es wurden keine Dateien kopiert. Keine Fehler aufgetreten.  Es wurden keine Dateien stimmen nicht überein. Die Dateien, die bereits im Zielverzeichnis vorhanden sind; aus diesem Grund wurde beim Kopieren übersprungen.
 1 | Alle Dateien wurden erfolgreich kopiert.
@@ -168,7 +171,7 @@ Wert | Beschreibung
 > [!NOTE]
 > Ein beliebiger Wert, der größer als 8 gibt an, dass während des Kopiervorgangs mindestens ein Fehler aufgetreten ist.
 
-### <a name="BKMK_remarks"></a>"Hinweise"
+### <a name="remarks"></a>Hinweise
 
 -   Die **/mir** -Option ist gleichwertig mit der **/e** plus **/löschen** Optionen mit einem kleinen Unterschied im Verhalten:  
     -   Mit der **/e** plus **/löschen** Optionen, wenn das Zielverzeichnis vorhanden ist, die Ziel-Directory-Sicherheitseinstellungen sind nicht überschrieben.
@@ -176,4 +179,4 @@ Wert | Beschreibung
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

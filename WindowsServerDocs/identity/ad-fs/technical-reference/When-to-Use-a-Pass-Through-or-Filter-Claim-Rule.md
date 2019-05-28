@@ -9,15 +9,13 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: aa205c46bf67dc25a55232b799bdd39fee4ac3c6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 09f26e256793d30936496f7a936550acb7b20025
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812211"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188351"
 ---
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
-
 # <a name="when-to-use-a-pass-through-or-filter-claim-rule"></a>Verwenden einer Anspruchsregel vom Typ "Weiterleiten" oder "Filtern"
 Sie können diese Regel in Active Directory-Verbunddienste \(AD FS\) Wenn müssen Sie einen eingehenden Anspruchstyp und wenden Sie dann eine Aktion, die bestimmt, welche Ausgabe erfolgen soll basierend auf den Werten aus dem eingehenden Anspruch. Wenn Sie diese Regel verwenden, werden Ansprüche weitergeleitet bzw. gefiltert, die der Regellogik in der folgenden Tabelle entsprechen. Dies geschieht auf Grundlage der Optionen, die Sie in der Regel konfigurieren.  
   
