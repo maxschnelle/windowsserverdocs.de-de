@@ -9,16 +9,16 @@ ms.date: 12/05/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 0ee22afd6fdec96ab69d915e4730bb834d2ab8ad
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e9d6161666be89673cff6ef1a975d3205fa4b5c9
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855521"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189087"
 ---
 # <a name="join-to-workplace-from-any-device-for-sso-and-seamless-second-factor-authentication-across-company-applications"></a>Arbeitsplatzbeitritt von einem beliebigen Gerät für SSO und die nahtlose zweistufige Authentifizierung bei allen Unternehmensanwendungen
 
->Gilt für: Windows Server 2012 R2
+
 
 Der rasche Anstieg der Anzahl von Verbrauchergeräten und des universellen Informationszugriffs ändert die Art und Weise, in der wir Technologie wahrnehmen. Die ständige Verwendung von Informationstechnologie im Laufe des Tages und der einfache Zugriff auf Informationen lassen die herkömmlichen Grenzen zwischen Berufs- und Privatleben verschwimmen. Sich verschiebenden Grenzen werden von dem glauben begleitet, persönliche Technologie als auch benutzerdefinierte Benutzer persönlichkeiten, Aktivitäten und Zeitpläne anpassen – sollte auf den Arbeitsplatz ausgeweitet. Um die wachsende Anforderung einer Anbindung von persönlichen Verbrauchergeräten an Unternehmensnetzwerke zu erfüllen, werden die zwei folgenden Wertbeiträge eingeführt:
 

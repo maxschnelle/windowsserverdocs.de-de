@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: e26b7cac971f472bc8b5e48e3dc8cd2592dc22ce
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 585d0195b096056ba769f4e9a08d5c4d2156b96a
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814781"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191451"
 ---
 # <a name="federation-server-farm-using-sql-server"></a>Verbundserverfarm mit SQL Server
-
->Gilt für: Windows Server 2016, Windows Server 2012 R2
 
 Diese Topologie wird für Active Directory Federation Services \(AD FS\) unterscheidet sich von der Verbundserverfarm mit internen Windows-Datenbank \(WID\) Bereitstellungstopologie, werden sie nicht die Daten repliziert jedem Verbundserver in der Farm. Stattdessen können allen Verbundservern in der Farm lesen und Schreiben von Daten in einer allgemeinen Datenbank, die gespeichert werden, auf einem Server mit Microsoft SQL Server, die im Unternehmensnetzwerk befindet.  
   
@@ -162,7 +160,7 @@ Das folgende Diagramm zeigt eine geografisch redundant mit AD FS-SQL Server-Farm
 Ausführlichere Anweisungen zum Konfigurieren von AD FS zur Verwendung einer SQL Server-Mergereplikation finden Sie unter [Setup geografische Redundanz mit SQL Server-Replikation](https://technet.microsoft.com/library/dn632406.aspx).  
   
 ## <a name="see-also"></a>Siehe auch  
-[Planen der AD FS-Bereitstellungstopologie](Plan-Your-AD-FS-Deployment-Topology.md)  
-[AD FS-Entwurfshandbuch in Windows Server 2012 R2](AD-FS-Design-Guide-in-Windows-Server-2012-R2.md)  
+[Planen der AD FS-Bereitstellungstopologie](Plan-Your-AD-FS-Deployment-Topology.md)  
+[AD FS-Entwurfshandbuch in Windows Server 2012 R2](AD-FS-Design-Guide-in-Windows-Server-2012-R2.md)  
   
 

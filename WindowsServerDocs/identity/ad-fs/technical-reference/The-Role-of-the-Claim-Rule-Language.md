@@ -9,15 +9,13 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.assetid: dda9d148-d72f-4bff-aa2a-f2249fa47e4c
 ms.technology: identity-adfs
-ms.openlocfilehash: 05728f04f6fb924cf3793bc843df3832c7c383f7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: bf36f12803b8ba621f2249b53ad868fcd8f6c4a7
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855691"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188458"
 ---
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
-
 # <a name="the-role-of-the-claim-rule-language"></a>Rolle der Anspruchsregelsprache
 Die Active Directory-Verbunddienste (AD FS)-Anspruch fungiert als administrativer Baustein für das Verhalten von eingehenden und ausgehenden Ansprüchen, während das anspruchsmodul als Verarbeitungsmodul für die Logik der anspruchsregelsprache fungiert, definiert die benutzerdefinierte Regel. Weitere Informationen dazu, wie alle Regeln von der Anspruchs-Engine verarbeitet werden, finden Sie unter [die Rolle des Anspruchsmoduls](The-Role-of-the-Claims-Engine.md).  
   
@@ -160,6 +158,6 @@ exists([issuer == "MSFT"])
 Der Hauptteil der Regel kann nur eine einzelne Ausgabeanweisung enthalten. Wenn Bedingungen verwendet werden, ohne die Exists-Funktion zu nutzen, wird der Hauptteil der Regel jedes Mal ausgeführt, wenn der Bedingungsteil übereinstimmt.  
   
 ## <a name="additional-references"></a>Weitere Verweise  
-[Erstellen Sie eine Regel zum Senden von Ansprüchen mit benutzerdefinierter Regel](https://technet.microsoft.com/library/dd807049.aspx)  
+[Erstellen einer Regel zum Senden von Ansprüchen mithilfe einer benutzerdefinierten Regel](https://technet.microsoft.com/library/dd807049.aspx)  
   
 

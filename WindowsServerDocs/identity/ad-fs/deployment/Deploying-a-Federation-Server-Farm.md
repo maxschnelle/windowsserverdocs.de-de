@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 05f1ea6830237813e6fd2bd6a172f467e8d81065
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c0f8dca425f644952c36a289ec72651f6383e846
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839081"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192187"
 ---
 # <a name="deploying-a-federation-server-farm"></a>Bereitstellen einer Verbundserverfarm
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2
 
 Führen Sie die Aufgaben in dieser Prüfliste in der angegebenen Reihenfolge aus, um eine Verbundserverfarm bereitzustellen. Wenn ein Link auf ein grundlegendes Thema verweist, kehren Sie nach der Durchsicht des grundlegenden Themas zu dieser Prüfliste zurück, um die übrigen Aufgaben in dieser Prüfliste auszuführen.  
   
@@ -38,7 +37,7 @@ Führen Sie die Aufgaben in dieser Prüfliste in der angegebenen Reihenfolge aus
   
 
 ## <a name="see-also"></a>Siehe auch  
-[AD FS-Bereitstellung](../../ad-fs/AD-FS-Deployment.md)  
+[AD FS-Bereitstellung](../../ad-fs/AD-FS-Deployment.md)  
 
 [Windows Server 2012 R2 AD FS-Bereitstellung geführt.](../../ad-fs/deployment/Windows-Server-2012-R2-AD-FS-Deployment-Guide.md)  
   

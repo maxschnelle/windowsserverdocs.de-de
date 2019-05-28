@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 4bde30f694c6490962edaa0c3fe1543e74ba7fd7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9cc40920d366c973ace06a0b6d438a1c2d84b03e
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842981"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190509"
 ---
 # <a name="where-to-place-a-federation-server-proxy"></a>Platzieren eines Verbundserverproxys
-
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Sie können Active Directory Federation Services platzieren \(AD FS\)Verbundserverproxys in einem Umkreisnetzwerk, eine Schutzebene vor böswilligen Benutzern bereitzustellen, die über das Internet zugreifen könnten. Verbundserverproxys sind ideal für die Umkreisnetzwerkumgebung, da sie nicht über Zugriff auf die privaten Schlüssel verfügen, die zum Erstellen von Token verwendet werden. Allerdings können Verbundserverproxys effizient eingehende Anforderungen für Verbundserver weiterleiten, die autorisiert sind, um die Token zu erzeugen.  
   
@@ -53,4 +51,4 @@ Um sichere AD FS-Kommunikation zu ermöglichen, müssen Sie ISA Server zum Zulas
 > Die Verbundserver- oder Verbundserverproxy erfordert, dass die Verbindung durch SSL, um den Inhalt des Sicherheitstokens zu schützen gesichert wird.  
   
 ## <a name="see-also"></a>Siehe auch
-[AD FS-Entwurfshandbuch in WindowsServer 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

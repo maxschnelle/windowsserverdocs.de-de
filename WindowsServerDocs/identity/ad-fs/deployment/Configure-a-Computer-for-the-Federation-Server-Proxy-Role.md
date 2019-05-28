@@ -9,16 +9,14 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 2a89bab2fd1af1a1d7234da29f2025b4b12d6774
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b01e2ae567155cd3d53d6d7972bfd0b9ec0cf51b
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861801"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192277"
 ---
 # <a name="configure-a-computer-for-the-federation-server-proxy-role"></a>Konfigurieren eines Computers für die Verbundserverproxy-Rolle
-
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Nachdem Sie einen Computer mit den erforderlichen Zertifikaten konfiguriert und die Verbunddienstproxy-Rollendienst installiert haben, können Sie den Computer ein Verbundserverproxy konfigurieren. Sie können die folgende Prozedur verwenden, um den Computer für die Verbundserverproxy-Rolle einzurichten.  
   
@@ -102,6 +100,6 @@ Standardmäßig ist der Verbundserverproxy-Dienst konfiguriert, um TCP-Port 443 
     Die vorherigen Befehle müssen auf dem Verbundserver und die Verbundserverproxy-Computer ausgeführt werden.  
   
 ## <a name="additional-references"></a>Weitere Verweise  
-[Prüfliste: Das Einrichten eines Verbundserverproxys](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
+[Prüfliste: Einrichten eines Verbundserverproxys](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
   
 

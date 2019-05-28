@@ -1,5 +1,5 @@
 ---
-title: Erstellen einer einseitigen Web-App mithilfe von OAuth und ADAL. JS mit AD FS 2016
+title: Erstellen einer einseitigen Web-App mithilfe von OAuth und ADAL. Node.js mit AD FS 2016 oder höher
 description: Eine exemplarische Vorgehensweise bietet Anleitungen für die Authentifizierung bei AD FS mit ADAL für JavaScript Sichern einer AngularJS-basierten einseitigen Anwendung
 author: billmath
 ms.author: billmath
@@ -8,16 +8,14 @@ ms.date: 06/12/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: active-directory-federation-services
-ms.openlocfilehash: 78ab9f5d7c3e75650a4efb171d3b9281c56c63d3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1292c7e6cd1dec6926516880c34fe60fb97a9ec8
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865301"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190498"
 ---
-# <a name="build-a-single-page-web-application-using-oauth-and-adaljs-with-ad-fs-2016"></a>Erstellen einer einseitigen Web-App mithilfe von OAuth und ADAL. JS mit AD FS 2016
-
->Gilt für: Windows Server 2016
+# <a name="build-a-single-page-web-application-using-oauth-and-adaljs-with-ad-fs-2016-or-later"></a>Erstellen einer einseitigen Web-App mithilfe von OAuth und ADAL. Node.js mit AD FS 2016 oder höher
 
 Diese exemplarische Vorgehensweise enthält Anweisungen für die Authentifizierung bei AD FS mithilfe von ADAL für JavaScript Sichern einer AngularJS-basierten einseitige Anwendung, die mit einer ASP.NET Web-API-Back-End implementiert.
 
@@ -52,8 +50,8 @@ Sie können, wenn Sie möchten, nur zwei Computer verwenden. Eine für DC/AD FS 
 
 Einrichten der Domänencontroller und AD FS sprengen den Rahmen dieses Artikels aus. Zusätzliche bereitstellungs-Informationen finden Sie unter:
 
-- [AD DS-Bereitstellung](../../ad-ds/deploy/AD-DS-Deployment.md) 
-- [AD FS-Bereitstellung](../AD-FS-Deployment.md)
+- [AD DS-Bereitstellung](../../ad-ds/deploy/AD-DS-Deployment.md) 
+- [AD FS-Bereitstellung](../AD-FS-Deployment.md)
 
 
 
@@ -157,7 +155,7 @@ ein, und fügen Sie hinzu:
 ## <a name="running-the-solution"></a>Ausführen der Lösung
 Löschen Sie die Lösung, erstellen Sie die Projektmappe neu, und führen Sie ihn aus. Wenn ausführliche ablaufverfolgungen angezeigt werden sollen, starten Sie Fiddler, und aktivieren Sie der Entschlüsselung von HTTPS.
 
-Der Browser wird die SPA geladen, und der folgende Bildschirm angezeigt:
+Browser (verwenden Sie Chrome-Browser) wird die SPA geladen, und es wird der folgende Bildschirm angezeigt werden:
 
 ![Registrieren des client](media/Single-Page-Application-with-AD-FS/singleapp3.PNG)
 
@@ -174,4 +172,4 @@ Sie werden können nun das Back-End-API zum Hinzufügen von Elementen der ToDo-L
 ![Fiddler](media/Single-Page-Application-with-AD-FS/singleapp6.PNG)
 
 ## <a name="next-steps"></a>Nächste Schritte
-[AD FS-Entwicklung](../../ad-fs/AD-FS-Development.md)  
+[AD FS-Entwicklung](../../ad-fs/AD-FS-Development.md)  

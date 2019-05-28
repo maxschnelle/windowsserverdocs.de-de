@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: e372f066fc82b9857d438234b491732a177e24fa
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d49ae34d83d4a0b912bd92dbb9de16e18cc5b7ff
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59860391"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191338"
 ---
 # <a name="federation-server-farm-using-wid-and-proxies"></a>Verbundserverfarm mit WID und Proxys
-
->Gilt für: Windows Server 2016, Windows Server 2012 R2
 
 Dieser Bereitstellungstopologie für Active Directory Federation Services \(AD FS\) ist mit der Verbundserverfarm mit internen Windows-Datenbank \(WID\) Topologie, sondern fügt Proxycomputer, auf die Umkreisnetzwerk zur Unterstützung von externer Benutzern. Diese Proxys umleiten clientauthentifizierungsanforderungen, die von außerhalb des Unternehmensnetzwerks an die Verbundserverfarm stammen. In früheren Versionen von AD FS wurden diese Proxys Verbundserverproxys aufgerufen.  
   
@@ -66,7 +64,7 @@ Die folgende Abbildung zeigt die vorhandenen Verbundserverfarm mit WID-Topologie
 Weitere Informationen dazu, wie Sie Ihre Netzwerkumgebung für die Verwendung mit Verbundserver oder webanwendungsproxys konfigurieren zu können, finden Sie unter "Anforderungen für die namensauflösung" im Abschnitt [AD FS-Anforderungen](AD-FS-Requirements.md) und [planen Sie das Web Infrastruktur für Webanwendungsproxy (WAP)](https://technet.microsoft.com/library/dn383648.aspx).  
   
 ## <a name="see-also"></a>Siehe auch  
-[Planen der AD FS-Bereitstellungstopologie](Plan-Your-AD-FS-Deployment-Topology.md)  
-[AD FS-Entwurfshandbuch in Windows Server 2012 R2](AD-FS-Design-Guide-in-Windows-Server-2012-R2.md)  
+[Planen der AD FS-Bereitstellungstopologie](Plan-Your-AD-FS-Deployment-Topology.md)  
+[AD FS-Entwurfshandbuch in Windows Server 2012 R2](AD-FS-Design-Guide-in-Windows-Server-2012-R2.md)  
   
 

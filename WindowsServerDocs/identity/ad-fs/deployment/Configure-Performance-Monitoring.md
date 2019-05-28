@@ -9,16 +9,14 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 6a7602cddcaee274d42213cd9365f6d1722dab79
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5426ea929037e59d2105fb2b3b06d4ebfdb7a577
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852911"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192287"
 ---
 # <a name="configure-performance-monitoring"></a>Konfigurieren der Leistungsüberwachung
-
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
   
 ## <a name="bkmk_ConfigurePerfMon"></a>  
 AD FS umfasst eine eigene dedizierte Leistungsindikatoren, um die Leistung der Verbundserver und Verbundserverproxy-Computer zu überwachen. Um Systemmonitor zur Überwachung der Leistung von AD FS-Server zu verwenden, ist es nützlich, um einen neuen datensammlersatz erstellen und diese Ansicht die AD FS-Leistungsindikatoren hinzugefügt. Das folgende Verfahren beschreibt das Konfigurieren der Leistungsüberwachung für AD FS.  
@@ -31,7 +29,7 @@ AD FS umfasst eine eigene dedizierte Leistungsindikatoren, um die Leistung der V
   
     Die Assistenten Erstellen einer neuen Data Collector festgelegt wird.  
   
-3.  In **Erstellen neuer Data Collector Set**, für die **Namen** Geben Sie einen Namen für den neuen datensammlersatz \(wie z. B. "AD FS-Leistung"\), klicken Sie auf **manuell erstellen \( Erweiterte\)**, und klicken Sie dann auf **Weiter**.  
+3.  In **Erstellen neuer Data Collector Set**, für die **Namen** Geben Sie einen Namen für den neuen datensammlersatz \(wie z. B. "AD FS-Leistung"\), klicken Sie auf **manuell erstellen \( Erweiterte\)** , und klicken Sie dann auf **Weiter**.  
   
 4.  Überprüfen Sie für den Typ der Daten eingeschlossen werden sollen, ob **erstellen Datenprotokolle** ausgewählt ist, und klicken Sie dann auf die Kontrollkästchen für die folgenden Datentypen: **Leistungsindikator**, **Ereignisablaufverfolgungsdaten**, **Informationen zur Betriebssystemkonfiguration**.  
   
@@ -43,7 +41,7 @@ AD FS umfasst eine eigene dedizierte Leistungsindikatoren, um die Leistung der V
   
 7.  Wenn Sie gefragt werden zum Hinzufügen von Registrierungsschlüsseln, um zu überwachen, klicken Sie auf **Weiter**.  
   
-8.  Wenn Sie aufgefordert werden, um den Speicherort zum Speichern der Daten anzugeben, können Sie den Standardspeicherort übernehmen \( * *%SystemDrive%\\PerfLogs\\Admin\\*** < Daten\_Collector\_festgelegt >*, und klicken Sie dann auf **Weiter**.  
+8.  Wenn Sie aufgefordert werden, um den Speicherort zum Speichern der Daten anzugeben, können Sie den Standardspeicherort übernehmen \( * *%SystemDrive%\\PerfLogs\\Admin\\*** < Daten\_Collector\_festgelegt >* , und klicken Sie dann auf **Weiter**.  
   
 9. Wenn Sie aufgefordert werden, um den Sammlungssatz zu erstellen, wählen Sie **speichern und schließen Sie**, und klicken Sie dann auf **Fertig stellen**.  
   

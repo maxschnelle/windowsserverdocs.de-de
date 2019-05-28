@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: a0fff975b9cb278e59686323d2bd72e641597573
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 66c8bae2fbccca2bf618e46ffd3ccc05cb52f911
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863951"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191505"
 ---
 # <a name="federation-server-farm-using-sql-server"></a>Verbundserverfarm mit SQL Server
-
->Gilt für: Windows Server 2012
 
 Diese Topologie wird für Active Directory Federation Services \(AD FS\) unterscheidet sich von der Verbundserverfarm mit internen Windows-Datenbank \(WID\) Bereitstellungstopologie, werden sie nicht die Daten repliziert jedem Verbundserver in der Farm. Stattdessen können allen Verbundservern in der Farm lesen und Schreiben von Daten in einer allgemeinen Datenbank, die gespeichert werden, auf einem Server mit Microsoft SQL Server, die im Unternehmensnetzwerk befindet.  
   
@@ -65,4 +63,4 @@ Die folgende Abbildung zeigt, wie das fiktive Unternehmen Contoso Pharmaceutical
 Weitere Informationen dazu, wie Sie Ihre Netzwerkumgebung für die Verwendung mit Verbundserver oder Verbundserverproxys konfigurieren zu können, finden Sie unter [Namensauflösungsanforderungen für Verbundserver](Name-Resolution-Requirements-for-Federation-Servers.md) oder [Name Anforderungen für die namensauflösung für Verbundserverproxies](Name-Resolution-Requirements-for-Federation-Server-Proxies.md).  
   
 ## <a name="see-also"></a>Siehe auch
-[AD FS-Entwurfshandbuch in WindowsServer 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

@@ -9,16 +9,15 @@ ms.date: 01/18/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: d5c2d84c263517a4c81622ca02538796ccd9da71
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2d819ea036029fbe7cfde9ad5a445db6b2b42c96
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817501"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189696"
 ---
 # <a name="configuring-ad-fs-for-user-certificate-authentication"></a>Konfigurieren von AD FS für die Authentifizierung mit Benutzerzertifikat
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2
 
 AD FS kann konfiguriert werden, für die Authentifizierung mit Benutzerzertifikat mithilfe einer der Modi, die in beschriebenen X509 [in diesem Artikel](ad-fs-support-for-alternate-hostname-binding-for-certificate-authentication.md). Diese Funktion kann verwendet werden, [in Azure Active Directory](https://blogs.msdn.microsoft.com/samueld/2016/07/19/adfs-certauth-aad-o365/) oder allein, um Clients und Geräten ermöglichen mit bereitgestellt wurde von Benutzerzertifikaten für den Zugriff auf AD FS Ressourcen über das Intranet oder extranet.
 
@@ -43,7 +42,7 @@ Weitere Informationen zum Konfigurieren dieser für Chrome verwenden Sie Sie [Li
 
 
 ## <a name="troubleshooting"></a>Problembehandlung
-- Wenn zertifikatanforderungen für die Authentifizierung mit einem HTTP 204 fehl "kein Inhalt vom https://certauth.fs.contoso.com"-Antwort, stellen Sie sicher, dass der Stamm und alle Zwischenzertifizierungsstellen-Zertifikaten, bzw. auf den vertrauenswürdigen Stamm-CA und zwischen-ZS certificate Stores auf allen installiert sind Verbundserver.
+- Wenn Fehlschlagen von zertifikatanforderungen für die Authentifizierung mit einem HTTP 204 "kein Inhalt über Https:\//certauth.fs.contoso.com"-Antwort, stellen Sie sicher, dass die Stamm- und alle Zwischenzertifizierungsstellen-Zertifikate, auf die vertrauenswürdige Stammzertifizierungsstelle installiert sind, und Speichert den Zwischenzertifizierungsstellen-Zertifikat auf allen Verbundservern.
 - Wenn zertifikatanforderungen für die Authentifizierung aus unbekannten Gründen fehlschlagen, exportieren Sie des Clientzertifikats in eine CER-Datei, und führen Sie den Befehl 
 
 `certutil -f -urlfetch -verify certificatefilename.cer`

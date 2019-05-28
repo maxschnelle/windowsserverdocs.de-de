@@ -9,16 +9,15 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 4900d8621b94a514a07bba55b2f7f3df5dd36353
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 26b0ae4f331607d83c6b94a2655ddc9eded8a356
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814621"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191867"
 ---
 # <a name="verify-that-a-federation-server-proxy-is-operational"></a>Überprüfen der Betriebsbereitschaft eines Verbundserverproxys
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Sie können das folgende Verfahren stellen Sie sicher, dass der Verbundserverproxy mit dem Verbunddienst in Active Directory-Verbunddienste kommunizieren kann \(AD FS\). Sie führen dieses Verfahren, nach dem Ausführen der **Konfigurations-Assistenten von AD FS Federation Server Proxy** so konfigurieren Sie die Computer in der Verbundserverproxy-Rolle ausgeführt. Weitere Informationen zum Ausführen dieses Assistenten finden Sie unter [Konfigurieren eines Computers für die Verbundserverproxy-Rolle](Configure-a-Computer-for-the-Federation-Server-Proxy-Role.md).  
   
@@ -40,6 +39,6 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
     Wenn der Verbundserverproxy ordnungsgemäß konfiguriert ist, sehen Sie ein neues Ereignis im Anwendungsprotokoll der Ereignisanzeige mit der Ereignis-ID 198 angezeigt. Dieses Ereignis bestätigt, dass der Verbundserverproxy-Dienst erfolgreich gestartet wurde und nun online ist.  
   
 ## <a name="additional-references"></a>Weitere Verweise  
-[Prüfliste: Das Einrichten eines Verbundserverproxys](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
+[Prüfliste: Einrichten eines Verbundserverproxys](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
   
 

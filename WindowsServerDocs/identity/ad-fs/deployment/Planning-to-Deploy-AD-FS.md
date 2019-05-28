@@ -9,16 +9,14 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: ca9e53d7d98f3ae5e6b7b329e52d4979e8c10215
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1459cade5071374ca39d453b9915a68e4bcfe539
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831691"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192042"
 ---
 # <a name="planning-to-deploy-ad-fs"></a>Planen der Bereitstellung von AD FS
-
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 
 Nachdem Sie die Informationen zu Ihrer Umgebung gesammelt und eine Active Directory Federation Services erfordert \(AD FS\) Entwurf anhand der Anleitungen in den [AD FS-Entwurfshandbuch in Windows Server 2012](https://technet.microsoft.com/library/dd807036.aspx), Sie können beginnen, die Bereitstellung von AD FS-Entwurfs Ihrer Organisation zu planen. Mit dem fertigen Entwurf und die Informationen in diesem Thema können Sie die Aufgaben zum Bereitstellen von AD FS in Ihrer Organisation ermitteln.  
@@ -28,9 +26,9 @@ Wenn das Entwurfsteam, das der ursprünglichen AD FS erstellt Entwurf unterschei
   
 -   Die Strategie des Entwurfsteams zur Festlegung der besten Topologie für die Platzierung der Verbundserver in Ihrem Unternehmens- oder Umkreisnetzwerk. Das Bereitstellungsteam kann in der Dokumentation zu diesem Thema finden Sie durch den folgenden Themen in der AD FS-Entwurfshandbuch überprüfen:  
   
-    -   [Die Rolle der AD FS-Konfigurationsdatenbank](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)  
+    -   [Rolle der AD FS-Konfigurationsdatenbank](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)  
   
-    -   [Planen der Platzierung](https://technet.microsoft.com/library/dd807069.aspx)  
+    -   [Planen der Verbundserverplatzierung](https://technet.microsoft.com/library/dd807069.aspx)  
   
     -   [Planen der Verbundserverproxy-Platzierung](https://technet.microsoft.com/library/dd807130.aspx)  
   

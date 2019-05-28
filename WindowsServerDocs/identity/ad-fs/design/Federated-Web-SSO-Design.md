@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: b85f49ac0556bf9b3542a23514d7fcbf82d2d88e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f7454279f234f65136b9fe6649a6e96ea53e5d51
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865141"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191508"
 ---
 # <a name="federated-web-sso-design"></a>Federated-Web-SSO – Entwurf
-
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Federated Web Single\-anmelden\-auf \(SSO\) Entwurf in Active Directory Federation Services \(AD FS\) umfasst die sichere Kommunikation, die mehrere Firewalls, umfasst Umkreisnetzwerk Netzwerke und Namen\-Auflösung-Server – zusätzlich zu den gesamten Routinginfrastruktur im Internet.  
   
@@ -37,15 +35,15 @@ In diesem Verbundweb-SSO-Entwurf, zwei Verbundserver \(einer in Fabrikam und der
   
 In diesem Beispiel ist Fabrikam der Identitäts- bzw. Kontoanbieter. Der Teil "Fabrikam" Federated-Web-SSO-Entwurf verwendet das folgende Ziel des AD FS-Bereitstellung:  
   
--   [Geben Sie Ihre Active Directory-Benutzerzugriff auf die Anwendungen und Dienste anderer Organisationen](Provide-Your-Active-Directory-Users-Access-to-the-Applications-and-Services-of-Other-Organizations.md)  
+-   [Bereitstellen von Zugriff auf die Anwendungen und Dienste anderer Organisationen für Ihre Active Directory-Benutzer](Provide-Your-Active-Directory-Users-Access-to-the-Applications-and-Services-of-Other-Organizations.md)  
   
 Contoso ist der Ressourcenanbieter. Der Teil "Contoso" Federated-Web-SSO-Entwurf werden die folgenden AD FS-Bereitstellungsziele erreicht:  
   
--   [Geben Sie Benutzern in einer anderen Organisationszugriff auf Ihre Ansprüche unterstützenden Anwendungen und Dienste](Provide-Users-in-Another-Organization-Access-to-Your-Claims-Aware-Applications-and-Services.md)  
+-   [Bereitstellen von Zugriff auf Ihre Ansprüche unterstützenden Anwendungen und Dienste für die Benutzer anderer Organisationen](Provide-Users-in-Another-Organization-Access-to-Your-Claims-Aware-Applications-and-Services.md)  
   
--   [Geben Sie Ihre Active Directory-Benutzerzugriff auf Ihre Ansprüche unterstützenden Anwendungen und Dienste](Provide-Your-Active-Directory-Users-Access-to-Your-Claims-Aware-Applications-and-Services.md)  
+-   [Bereitstellen von Zugriff auf Ihre Ansprüche unterstützenden Anwendungen und Dienste für Active Directory-Benutzer](Provide-Your-Active-Directory-Users-Access-to-Your-Claims-Aware-Applications-and-Services.md)  
   
 Eine detaillierte Liste der Aufgaben, die Sie zum Planen und Bereitstellen der Verbundweb-SSO-Entwurfs verwenden können, finden Sie unter [Prüfliste: Implementieren eines Federated-Web-SSO-Entwurfs](../../ad-fs/deployment/Checklist--Implementing-a-Federated-Web-SSO-Design.md).  
   
 ## <a name="see-also"></a>Siehe auch
-[AD FS-Entwurfshandbuch in WindowsServer 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 2e57f34b173c10e9e753c7f3b8dcd88d7bf6742c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c3efbb4081336ebfdfe9d3ab8a2b91412aa82dee
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59888901"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191079"
 ---
 # <a name="planning-for-federation-server-proxy-capacity"></a>Planen der Verbundserverproxy-Kapazität
-
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Planen der Kapazität für Verbundserverproxys können Sie besser einschätzen:  
   
@@ -47,4 +45,4 @@ Tests, die vom AD FS-Produktteam ausgeführt wurde die gesamte CPU-Auslastung au
 Es wird jedoch empfohlen für Fehlertoleranz sollten mindestens zwei Verbundserverproxys für jede Verbundserverfarm, die Sie bereitstellen.  
   
 ## <a name="see-also"></a>Siehe auch
-[AD FS-Entwurfshandbuch in WindowsServer 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

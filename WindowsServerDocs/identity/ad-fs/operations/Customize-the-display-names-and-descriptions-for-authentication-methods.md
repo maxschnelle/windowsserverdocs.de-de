@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 699622a8a075dd6c78ab1b536dce2abfee642e9e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b9702873d42e0a72e510ac022d8d7fb04b45dab9
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855191"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189171"
 ---
 # <a name="customize-the-display-names-and-descriptions-for-authentication-methods"></a>Anpassen der Anzeigenamen und Beschreibungen für Authentifizierungsmethoden 
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2
 
 Sie können zum Anpassen der Anzeigenamen und Beschreibungen für die Authentifizierungsmethoden das PowerShell-Cmdlet `Set-AdfsAuthenticationProviderWebContent` verwenden.  Um dieses Cmdlet verwenden zu können, benötigen Sie zunächst den Namen der Authentifizierungsmethode, die Sie anpassen möchten.  Verwenden Sie hierzu `Get-AdfsGlobalAuthenticationPolicy`.  Im folgenden Beispiel sehen Sie, dass unsere anmelden\-auf der Seite wird Folgendes angezeigt:  „Sign in using an X.509 certificate.“  Wir möchten dies für die Benutzer vereinfachen.  
   

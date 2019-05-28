@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: cddc5d890114dec7e0053b16701db6f03c3cbbdf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c79524a011336d676fa2e80936e1254a8d2dd6b2
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889851"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189692"
 ---
 # <a name="configuring-intranet-forms-based-authentication-for-devices-that-do-not-support-wia"></a>Konfigurieren der formularbasierten Intranetauthentifizierung für Geräte, die ohne WIA-Unterstützung
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2
 
 Standardmäßig Windows integrierte Authentifizierung (WIA) aktiviert ist, in Active Directory Federation Services (AD FS) in Windows Server 2012 R2 für authentifizierungsanforderungen, die innerhalb der internen Unternehmensnetzwerk (Intranet) für jede Anwendung auftreten, die verwendet ein Browser für die Authentifizierung. Diese können beispielsweise sein, browserbasierte Anwendungen, die WS-Verbund verwenden oder SAML-Protokolle und Rich-Anwendungen, die das OAuth-Protokoll verwenden. WIA bietet Endbenutzern nahtlose Anmeldung auf die Anwendungen ohne Manuelles Eingeben ihrer Anmeldeinformationen. Allerdings einige Geräte und Browser nicht WIA unterstützen und daher Fehlschlagen von authentifizierungsanforderungen von diesen Geräten. Darüber hinaus ist die Oberfläche auf bestimmte Browser, die auf NTLM auszuhandeln nicht wünschenswert. Der empfohlene Ansatz ist auf die formularbasierte Authentifizierung für solche Geräte und Browser.
 

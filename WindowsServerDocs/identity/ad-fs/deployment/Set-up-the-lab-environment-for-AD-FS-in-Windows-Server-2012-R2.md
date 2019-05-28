@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 049a1a1b0a419b0194edfe56b356a9f1e8b4b058
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c08b5bc9917c0eee01342ce71106aae1cc00967d
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59832321"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191951"
 ---
 # <a name="set-up-the-lab-environment-for-ad-fs-in-windows-server-2012-r2"></a>Einrichten der Testumgebung für AD FS unter Windows Server 2012 R2
 
->Gilt für: Windows Server 2012 R2
 
 In diesem Thema sind die Schritte für die Konfiguration einer Testumgebung aufgeführt, die für das Abschließen der explemplarischen Vorgehensweisen in den folgenden Handbüchern mit exemplarischer Vorgehensweise verwendet werden können:
 
@@ -76,7 +75,7 @@ Das Gruppenkonto für Managed Service Account (GMSA) ist während der Installati
     ```
 
 ## <a name="BKMK_4"></a>Schritt 2: Konfigurieren des Verbundservers (ADFS1) mit dem Geräteregistrierungsdienst
-Um einen weiteren virtuellen Computer einzurichten, installieren Sie Windows Server 2012 R2, und verbinden es mit der Domäne **"contoso.com"**. Richten Sie den Computer, nachdem er der Domäne hinzugefügt haben, und klicken Sie dann zum Installieren und konfigurieren die AD FS-Serverrolle fortfahren.
+Um einen weiteren virtuellen Computer einzurichten, installieren Sie Windows Server 2012 R2, und verbinden es mit der Domäne **"contoso.com"** . Richten Sie den Computer, nachdem er der Domäne hinzugefügt haben, und klicken Sie dann zum Installieren und konfigurieren die AD FS-Serverrolle fortfahren.
 
 Ein Video hierzu finden Sie unter [Active Directory Federation Services Videoreihe mit exemplarischer Vorgehensweise: Installieren einer AD FS-Serverfarm](https://technet.microsoft.com/video/dn469436).
 
@@ -126,7 +125,7 @@ Der nächste Schritt ist die Konfiguration des Verbundservers.
 
     Der **Konfigurations-Assistent für Active Directory-Verbunddienste** wird geöffnet.
 
-2.  Wählen Sie auf der Seite **Willkommen****Erstellen des ersten Verbundservers in einer Verbundserverfarm**aus, und klicken Sie dann auf **Weiter**.
+2.  Wählen Sie auf der Seite **Willkommen** **Erstellen des ersten Verbundservers in einer Verbundserverfarm**aus, und klicken Sie dann auf **Weiter**.
 
 3.  Geben Sie auf der Seite **Verbinden mit AD DS** ein Konto mit Domänenadministratorrechten für die Active Directory-Domäne **contoso.com** an, der dieser Computer angehört, und klicken Sie dann auf **Weiter**.
 
@@ -188,15 +187,15 @@ Sie müssen mindestens Mitglied der Gruppe Administratoren oder einer entspreche
 
 1.  Klicken Sie auf DC1 im Server-Manager im Menü **Extrax** auf **DNS**, um das DNS-Snap-In zu öffnen.
 
-2.  Erweitern Sie in der Konsolenstruktur DC1 und **Forward-Lookupzonen**, klicken Sie mit der rechten Maustaste auf **contoso.com**, und klicken Sie dann auf **Neuer Host (A oder AAAA)**.
+2.  Erweitern Sie in der Konsolenstruktur DC1 und **Forward-Lookupzonen**, klicken Sie mit der rechten Maustaste auf **contoso.com**, und klicken Sie dann auf **Neuer Host (A oder AAAA)** .
 
 3.  Geben Sie unter **Name** den gewünschten Namen für Ihre AD FS-Farm ein. Geben Sie für diese exemplarische Vorgehensweise **adfs1**ein.
 
 4.  Geben Sie im Feld **IP-Adresse**die IP-Adresse des ADFS1-Servers ein. Klicken Sie auf **Host hinzufügen**.
 
-5.  Klicken Sie mit der rechten Maustaste auf **contoso.com**, und klicken Sie dann auf **Neuer Alias (CNAME)**.
+5.  Klicken Sie mit der rechten Maustaste auf **contoso.com**, und klicken Sie dann auf **Neuer Alias (CNAME)** .
 
-6.  Geben Sie im Dialogfeld **Neuer Ressourcendatensatz****enterpriseregistration** in das Feld **Aliasname** ein.
+6.  Geben Sie im Dialogfeld **Neuer Ressourcendatensatz** **enterpriseregistration** in das Feld **Aliasname** ein.
 
 7.  Geben Sie das Feld für den vollqualifizierten Domänennamen (FQDN) auf dem Zielhost **adfs1.contoso.com** ein, und klicken Sie dann auf **OK**.
 
@@ -204,7 +203,7 @@ Sie müssen mindestens Mitglied der Gruppe Administratoren oder einer entspreche
     > Wenn Ihr Unternehmen in einer realen Bereitstellung über mehrere Benutzerprinzipalnamen-Suffixe (User Principal Name, UPN) verfügt, müssen Sie mehrere CNAME-Datensätze erstellen, jeweils einen für die UPN-Suffixe in DNS.
 
 ## <a name="BKMK_5"></a>Schritt 3: Konfigurieren des Webservers (WebServ1) und einer ansprchsbasierten Beispielanwendung
-Richten Sie einen virtuellen Computer (WebServ1) ein, indem Sie die Installation des Betriebssystems Windows Server 2012 R2, und verbinden es mit der Domäne **"contoso.com"**. Nachdem der Computer der Domäne hinzugefügt ist, können Sie mit der Installation und Konfiguration der Webserverrolle fortfahren.
+Richten Sie einen virtuellen Computer (WebServ1) ein, indem Sie die Installation des Betriebssystems Windows Server 2012 R2, und verbinden es mit der Domäne **"contoso.com"** . Nachdem der Computer der Domäne hinzugefügt ist, können Sie mit der Installation und Konfiguration der Webserverrolle fortfahren.
 
 Zum Abschließen der zu Beginn dieses Themas aufgeführten exemplarischen Vorgehensweisen müssen Sie eine Beispielanwendung haben, die von Ihrem Verbundserver (ADFS1) gesichert wird.
 
@@ -238,13 +237,13 @@ Sie müssen die folgenden Schritte durchführen, um einen Webserver mit dieser a
 
 5.  Klicken Sie auf der Seite  **Zielserver auswählen** auf **Einen Server aus dem Serverpool auswählen**, überprüfen Sie, ob der Zielcomputer ausgewählt ist, und klicken Sie dann auf **Weiter**.
 
-6.  Aktivieren Sie auf der Seite **Serverrollen auswählen** das Kontrollkästchen neben **Webserver (IIS)**, und klicken Sie auf **Features hinzufügen**und dann auf **Weiter**.
+6.  Aktivieren Sie auf der Seite **Serverrollen auswählen** das Kontrollkästchen neben **Webserver (IIS)** , und klicken Sie auf **Features hinzufügen**und dann auf **Weiter**.
 
 7.  Wählen Sie auf der Seite **Features auswählen** die Option **Windows Identity Foundation 3.5** aus, und klicken Sie dann auf **Weiter**.
 
 8.  Klicken Sie auf der Seite **Webserverrolle (IIS)** auf **Weiter**.
 
-9. Wählen Sie auf der Seite **Rollendienste auswählen****Anwendungsentwicklung** aus, und erweitern Sie die Option. Wählen Sie **ASP.NET 3.5**aus, und klicken Sie auf **Features hinzufügen**und dann auf **Weiter**.
+9. Wählen Sie auf der Seite **Rollendienste auswählen** **Anwendungsentwicklung** aus, und erweitern Sie die Option. Wählen Sie **ASP.NET 3.5**aus, und klicken Sie auf **Features hinzufügen**und dann auf **Weiter**.
 
 10. Klicken Sie auf der Seite **Installationsauswahl bestätigen** auf **Alternativen Quellpfad angeben**. Geben Sie den Pfad zum Sxs-Verzeichnis, das in den Windows Server 2012 R2-Installationsmedien befindet. Beispiel: D:\Sources\Sxs. Klicken Sie auf **OK**und dann auf **Installieren**.
 
@@ -291,7 +290,7 @@ Sie müssen die folgenden Schritte durchführen, um einen Webserver mit dieser a
 
 4.  **Konfigurieren von IIS-Manager**
 
-    1.  Öffnen Sie **Internetinformationsdienste-Manager (IIS)**.
+    1.  Öffnen Sie **Internetinformationsdienste-Manager (IIS)** .
 
     2.  Navigieren Sie zu **Anwendungspools**, und klicken Sie mit der rechten Maustasge auf **DefaultAppPool**, um **Erweiterte Einstellungen** auszuwählen. Setzen Sie **Benutzerprofil laden** auf **True**, und klicken Sie dann auf **OK**.
 
@@ -309,7 +308,7 @@ Sie müssen die folgenden Schritte durchführen, um einen Webserver mit dieser a
 
     1.  Führen Sie FedUtil.exe aus, das Sie unter **C:\Program Files (x86)\Windows Identity Foundation SDK\v3.5** finden.
 
-    2.  Legen Sie den Speicherort der Anwendungskonfiguration auf **C:\inetput\claimapp\web.config** und legen Sie den Anwendungs-URI, an die URL für Ihre Website  **https://webserv1.contoso.com /claimapp /**. Klicken Sie auf **Weiter**.
+    2.  Legen Sie den Speicherort der Anwendungskonfiguration auf **C:\inetput\claimapp\web.config** und legen Sie den Anwendungs-URI, an die URL für Ihre Website  **https://webserv1.contoso.com /claimapp /** . Klicken Sie auf **Weiter**.
 
     3.  Wählen Sie **vorhandenen STS verwenden** , und navigieren Sie zur Metadaten-URL Ihres AD FS-Servers **https://adfs1.contoso.com/federationmetadata/2007-06/federationmetadata.xml**. Klicken Sie auf **Weiter**.
 
@@ -341,7 +340,7 @@ Sie müssen jetzt Ihre beispielanwendung sichern, die auf dem Webserver mit AD F
 
 8.  Wählen Sie auf der Seite **Auswählen eines Regeltyps** die Option **Senden von Ansprüchen mit benutzerdefinierter Regel**aus, und klicken Sie dann auf **Weiter**.
 
-9. Geben Sie auf der Seite **Konfigurieren einer Anspruchsregel** in das Feld **Name der Anspruchsregel****All Claims** ein. Geben Sie im Feld **Benutzerdefinierte Regel** die folgende Anspruchsregel ein.
+9. Geben Sie auf der Seite **Konfigurieren einer Anspruchsregel** in das Feld **Name der Anspruchsregel** **All Claims** ein. Geben Sie im Feld **Benutzerdefinierte Regel** die folgende Anspruchsregel ein.
 
     ```
     c:[ ]

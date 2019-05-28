@@ -8,16 +8,15 @@ ms.date: 09/19/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 68cd67dc14d3407985579a49e2f8603634fafdb7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b0d5754a4622df9ca26a80bd4e32c355dda0f684
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824431"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190063"
 ---
-# <a name="configure-3rd-party-authenticaiton-providers-as-primary-authentication-in-ad-fs-2019"></a>Konfigurieren von 3. Drittanbietern Authentifizierung als primäre Authentifizierung in AD FS-2019
+# <a name="configure-3rd-party-authentication-providers-as-primary-authentication-in-ad-fs-2019"></a>Konfigurieren Sie als primäre Authentifizierung in AD FS-2019 3rd Party-Authentifizierungsanbieter
 
->Gilt für: Windows Server 2019
 
 Organisationen treten Angriffe, die versuchen, Brute-Force-Angriff, gefährden oder andernfalls ausgesperrt Benutzerkonten durch Senden von Anforderungen für Kennwort-basierte Authentifizierung.  Um Unternehmen vor Angriffen zu schützen, wurde eingeführt, AD FS-Funktionen wie "smart" extranetsperre "und" IP-Adressen basierende blockiert.  
 

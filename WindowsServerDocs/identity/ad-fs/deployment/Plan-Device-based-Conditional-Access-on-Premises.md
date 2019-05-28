@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: d878134824ea14a511ad59520d8f6522a14693b3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ffd7131f7f3772ab47b62c9755008fe3b1c4b274
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854241"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192067"
 ---
 # <a name="plan-device-based-conditional-access-on-premises"></a>Planen des gerätebasierten bedingten lokalen Zugriffs
 
->Gilt für: Windows Server 2016
 
 Dieses Dokument beschreibt die Richtlinien für bedingten Zugriff, die basierend auf Geräten in einem hybridszenario, bei dem die lokalen Verzeichnisse in Azure AD mit Azure AD Connect verbunden sind.     
 
@@ -74,18 +73,18 @@ Weitere Informationen zum Konfigurieren von AD FS Zugriff auf Richtlinien für d
 #### <a name="authenticated-devices"></a>Authentifizierte Geräte  
 Authentifizierte Geräte werden registrierte Geräte, die in der Verwaltung mobiler Geräte (Intune und 3rd Party MDMs für Windows 10, Intune, nur für iOS und Android) nicht registriert werden.   
 
-Authentifizierte Geräte haben den **IsManaged** AD FS-Anspruch mit dem Wert **"false"**. (Während auf Geräten, die überhaupt nicht registriert werden dieser Anspruch verfügen werden.)  Authentifizierte Geräte (und alle registrierten Geräte) müssen die IsKnown AD FS-Anspruch mit dem Wert **"true"**.  
+Authentifizierte Geräte haben den **IsManaged** AD FS-Anspruch mit dem Wert **"false"** . (Während auf Geräten, die überhaupt nicht registriert werden dieser Anspruch verfügen werden.)  Authentifizierte Geräte (und alle registrierten Geräte) müssen die IsKnown AD FS-Anspruch mit dem Wert **"true"** .  
 
 #### <a name="managed-devices"></a>Verwaltete Geräte:   
 
 Verwaltete Geräte werden registrierte Geräte, die mit MDM registriert sind  
 
-Verwaltete Geräte haben den IsManaged AD FS-Anspruch mit dem Wert **"true"**.  
+Verwaltete Geräte haben den IsManaged AD FS-Anspruch mit dem Wert **"true"** .  
 
 #### <a name="devices-compliant-with-mdm-or-group-policies"></a>Geräte sind konform (mit MDM- oder Gruppenrichtlinien)  
 Konforme Geräte werden registrierte Geräte, die jedoch kompatibel mit den MDM-Richtlinien nicht nur bei MDM registriert sind. (Informationen zur Compliance stammt, mit der Verwaltung mobiler Geräte und mit Azure AD geschrieben.)  
 
-Kompatible Geräte müssen die **IsCompliant** AD FS-Anspruch mit dem Wert **"true"**.    
+Kompatible Geräte müssen die **IsCompliant** AD FS-Anspruch mit dem Wert **"true"** .    
 
 Vollständige Liste der AD FS 2016 und für den bedingten Zugriff Ansprüche Geräts, finden Sie unter [Verweis](#reference).  
 

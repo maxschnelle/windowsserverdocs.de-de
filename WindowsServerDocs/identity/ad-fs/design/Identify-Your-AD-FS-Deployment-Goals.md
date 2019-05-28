@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: f618add4c4803142b3bd7278908834a412f30999
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2b881553431be873ed9883da67a7989527d7d288
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862571"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191268"
 ---
 # <a name="identify-your-ad-fs-deployment-goals"></a>Identifizieren der AD FS-Bereitstellungsziele
-
->Gilt für: Windows Server 2016, Windows Server 2012 R2
 
 Ordnungsgemäße Identifizierung Ihrer Active Directory Federation Services \(AD FS\) -Bereitstellungsziele ist wichtig für den Erfolg Ihres AD FS-Entwurfs-Projekts. Priorisieren Sie und kombinieren Sie die Bereitstellungsziele, damit Sie entwerfen und Bereitstellen von AD FS mit einem iterativen Ansatz. Sie profitieren von vorhandenen, dokumentiert und vordefinierte AD FS-Bereitstellungsziele, die für die AD FS-Entwürfe relevant sind und eine funktionierende Lösung für Ihre Situation entwickeln.  
   
@@ -93,6 +91,6 @@ Im folgenden sind die neuen AD FS-Funktionen in Windows Server® 2012 R2, mit de
 -   Authentifizierungswahl durch den Benutzer, wenn mehrere Authentifizierungsanbieter verfügbar sind.  
   
 ## <a name="see-also"></a>Siehe auch  
-[AD FS-Entwurfshandbuch in Windows Server 2012 R2](../../ad-fs/design/AD-FS-Design-Guide-in-Windows-Server-2012-R2.md)  
+[AD FS-Entwurfshandbuch in Windows Server 2012 R2](../../ad-fs/design/AD-FS-Design-Guide-in-Windows-Server-2012-R2.md)  
   
 

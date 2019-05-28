@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: d5cfb5de77843eebfc152b9c79ac55bab1fa7727
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5e90df713f08dd387a2438b34839d16efe6e470f
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59818171"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191693"
 ---
 # <a name="appendix-a-reviewing-ad-fs-requirements"></a>Anhang A: Überprüfen der AD FS-Anforderungen
-
->Gilt für: Windows Server 2012
 
 Damit die organisationspartner in Ihrer Bereitstellung von Active Directory-Verbunddienste (AD FS) erfolgreich zusammenarbeiten können, müssen Sie zunächst sicherstellen Sie sicher, dass die Netzwerkinfrastruktur Ihres Unternehmens so konfiguriert, ist zur Unterstützung von AD FS-Anforderungen für Konten, Namen namensauflösung und Zertifikate. AD FS hat die folgenden Arten von Anforderungen:  
   
@@ -182,4 +180,4 @@ Smartcard-Authentifizierung verwendet das Kerberos-Protokoll einem Kontoverbunds
 Zur Unterstützung der Anforderungen an bestimmte Authentifizierungsstärken in einigen Szenarien können Sie AD FS auch für die Erstellung eines Anspruchs konfigurieren, der anzeigt, wie ein Benutzer authentifiziert wurde. Eine vertrauende Seite kann diesen Anspruch dann verwenden, um eine Autorisierungsentscheidung zu treffen.  
   
 ## <a name="see-also"></a>Siehe auch
-[AD FS-Entwurfshandbuch in WindowsServer 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

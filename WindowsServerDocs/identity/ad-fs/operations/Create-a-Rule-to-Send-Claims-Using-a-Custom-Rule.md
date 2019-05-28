@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: f0eef89e651585d48ba87d14bc782efa49087669
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ade2a8304288d102608c81a0c29155478e5a4b7b
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824831"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189432"
 ---
 # <a name="create-a-rule-to-send-claims-using-a-custom-rule"></a>Erstellen einer Regel zum Senden von Ansprüchen mithilfe einer benutzerdefinierten Regel
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2
 
 Mithilfe der **Ansprüche mit benutzerdefinierter Regel senden** Vorlage in Active Directory-Verbunddienste (AD FS), Sie können benutzerdefinierte Anspruchsregeln für die Situation, in dem eine standardregelvorlage nicht die Anforderungen des erfüllt, erstellen Ihre die Organisation. Benutzerdefinierte Anspruchsregeln in der anspruchsregelsprache geschrieben sind, und klicken Sie dann in kopiert werden müssen die **benutzerdefinierte Regel** Textfeld, bevor sie in einem Regelsatz verwendet werden können. Informationen über die Syntax für eine erweiterte Regel erstellen, finden Sie unter [The Role of the Claim Rule Language](../../ad-fs/technical-reference/The-Role-of-the-Claim-Rule-Language.md).  
   
@@ -131,6 +130,6 @@ Mitgliedschaft in **Administratoren**, oder einer entsprechenden, auf dem lokale
   
 [Wenn Use an Authorization Claim Rule](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
 
-[Die Rolle von Ansprüchen](../../ad-fs/technical-reference/The-Role-of-Claims.md)  
+[Rolle von Ansprüchen](../../ad-fs/technical-reference/The-Role-of-Claims.md)  
   
-[Die Rolle von Anspruchsregeln](../../ad-fs/technical-reference/The-Role-of-Claim-Rules.md) 
+[Rolle von Anspruchsregeln](../../ad-fs/technical-reference/The-Role-of-Claim-Rules.md) 

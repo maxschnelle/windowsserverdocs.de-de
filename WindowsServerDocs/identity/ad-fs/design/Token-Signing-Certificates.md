@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: a047b94906cf703bb934c93f517b8874af91e092
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9db69cfb2eb42af90b392433a6e05eaab9978160
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864061"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190806"
 ---
 # <a name="token-signing-certificates"></a>Tokensignaturzertifikate
-
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Verbundserver erfordern Token\-Signaturzertifikate zum hindert Angreifer daran, ändern oder zu fälschen Sicherheitstoken zu versuchen, Zugriff auf verbundene Ressourcen zu erlangen. Die Private\/öffentliche Schlüssel, die Kopplung, wird verwendet, mit Token\-Signieren von Zertifikaten ist der wichtigsten Überprüfungsmechanismus alle verbundenen Partnerschaft, da diese Schlüssel stellen Sie sicher, dass ein Sicherheitstoken von einem gültigen Partner ausgestellt wurde Verbundserver und, dass das Token während der Übertragung nicht geändert wurde.  
   
@@ -75,4 +73,4 @@ Informationen zum Installieren eines Zertifikats von einer öffentlichen Zertifi
 Informationen zum Installieren eines\-signierten Zertifikat, finden Sie unter [IIS 7.0: Erstellen Sie ein selbstsigniertes\-signierte Zertifikat des Servers in IIS 7.0](https://go.microsoft.com/fwlink/?LinkID=108271).  
   
 ## <a name="see-also"></a>Siehe auch
-[AD FS-Entwurfshandbuch in WindowsServer 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

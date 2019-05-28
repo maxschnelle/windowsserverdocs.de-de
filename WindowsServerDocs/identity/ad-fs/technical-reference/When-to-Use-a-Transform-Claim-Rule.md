@@ -9,15 +9,13 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: c7b7ea2c8d9a08a4cbf6c89c2de2482043efe25b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5ed8ee500582e0e687a2b52e83d99fc3cb8f147f
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59885561"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188340"
 ---
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
-
 # <a name="when-to-use-a-transform-claim-rule"></a>Wann sollten Sie eine Transformationsanspruchsregel verwenden?
 Sie können diese Regel in Active Directory-Verbunddienste \(AD FS\) Wenn müssen Sie einen eingehenden Anspruchstyp einem ausgehenden Anspruchstyp zugeordnet, und klicken Sie dann eine Aktion anwenden, die bestimmen, welche Ausgabe erfolgen soll, basierend auf den Werten, die stammt aus dem eingehenden Anspruch. Wenn Sie diese Regel verwenden, leiten Sie Ansprüche weiter bzw. transformieren Sie Ansprüche, die der folgenden Regellogik entsprechen. Dies geschieht auf Basis der Optionen, die Sie in der Regel konfigurieren, wie in der folgenden Tabelle beschrieben.  
   

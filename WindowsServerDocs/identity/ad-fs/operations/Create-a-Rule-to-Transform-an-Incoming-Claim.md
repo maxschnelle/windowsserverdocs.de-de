@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: e982b7608f7602268657ceae74f641bbaaaec939
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6bd107aca6c6f33cdf5f88e5b48a52fdea8d2086
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816681"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189341"
 ---
 # <a name="create-a-rule-to-transform-an-incoming-claim"></a>Erstellen einer Regel zum Transformieren eines eingehenden Anspruchs
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2
 
 Mithilfe der **Transformieren eines eingehenden Anspruchs** Regelvorlage in Active Directory-Verbunddienste \(AD FS\), können Sie einen eingehenden Anspruch auswählen, ändern Sie den Anspruchstyp und Ändern der Anspruchswert. Beispielsweise können Sie diese Regelvorlage zum Erstellen einer Regel, die einen Rollenanspruch mit dem gleichen Anspruchswert eines eingehenden Anspruchs für die Gruppe gesendet. Sie können auch mit dieser Regel verwenden, senden Sie die einen Gruppenanspruch mit einem Anspruchswert, der Käufer beim eingehenden Gruppenanspruch mit einem Wert von Administratoren vorhanden ist oder Sie können nur Benutzerprinzipalname senden \(UPN\) Ansprüche, die mit @fabrikam.  
   
@@ -144,6 +143,6 @@ Mitgliedschaft in **Administratoren**, oder einer entsprechenden, auf dem lokale
   
 [Wenn Use an Authorization Claim Rule](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
 
-[Die Rolle von Ansprüchen](../../ad-fs/technical-reference/The-Role-of-Claims.md)  
+[Rolle von Ansprüchen](../../ad-fs/technical-reference/The-Role-of-Claims.md)  
   
-[Die Rolle von Anspruchsregeln](../../ad-fs/technical-reference/The-Role-of-Claim-Rules.md) 
+[Rolle von Anspruchsregeln](../../ad-fs/technical-reference/The-Role-of-Claim-Rules.md) 

@@ -9,15 +9,13 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 930b6f8034f17d8902104419042f944b82e90b4f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b69277cdedd697605f57aa4cf7214f5b65bb2e81
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814931"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188466"
 ---
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
-
 # <a name="the-role-of-the-claims-engine"></a>Rolle des Anspruchsmoduls
 Auf der höchsten Ebene, die Anspruchs-engine in Active Directory-Verbunddienste \(AD FS\) ist eine Regel\-Basis-Engine, die für die Bereitstellung und Verarbeitung von anspruchsanforderungen für den Verbunddienst vorgesehen ist. Das Anspruchsmodul ist die einzige Komponente im Verbunddienst, die für die Ausführung der einzelnen Regelsätze für alle verbundenen Vertrauensstellungen, die Sie konfiguriert haben, und die Weitergabe des Ausgabeergebnisses an die Anspruchspipeline verantwortlich ist.  
   

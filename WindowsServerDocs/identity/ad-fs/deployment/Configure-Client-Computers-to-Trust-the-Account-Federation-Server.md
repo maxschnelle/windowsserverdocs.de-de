@@ -9,16 +9,14 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: bdfb086c8177e72c074ac5b5b1a38aac49c4082c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e28d050a9aa40c015af16a665e90535cb810b4ff
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59886751"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192331"
 ---
 # <a name="configure-client-computers-to-trust-the-account-federation-server"></a>Konfigurieren von Clientcomputern zum Vertrauen der Kontoverbundserver
-
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 So, dass Clientcomputer erfolgreich mithilfe von Active Directory Federation Services verbundanwendungen zugreifen können \(AD FS\), Sie müssen zuerst die Internet Explorer-Einstellungen auf jedem Clientcomputer konfigurieren, sodass der Browser vertraut der Kontoverbundserver. Sie können manuell oder über Gruppenrichtlinien, je nach Bedarf administrative, dazu eines der folgenden Verfahren ausführen.  
   
