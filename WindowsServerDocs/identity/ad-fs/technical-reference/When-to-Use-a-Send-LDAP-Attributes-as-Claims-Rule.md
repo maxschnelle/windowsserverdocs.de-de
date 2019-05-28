@@ -9,15 +9,13 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 05a2dd88057b64675bbc3bd30724d1eda0880c44
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5af00db05c572a45811eea49b832a054a9e0e492
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59860661"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188249"
 ---
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
-
 # <a name="when-to-use-a-send-ldap-attributes-as-claims-rule"></a>Verwenden einer Regel zum Senden von LDAP-Attributen als Ansprüche
 Verwenden Sie diese Regel in Active Directory-Verbunddienste \(AD FS\) sollen ausgehende Ansprüche ausgeben, die tatsächliche Lightweight Directory Access Protocol enthalten \(LDAP\) Attributwerte, die im vorhanden ein Attribut speichern, und klicken Sie dann den einzelnen LDAP-Attribute einen Anspruchstyp zuordnen. Weitere Informationen zu attributspeichern finden Sie unter [The Role of Attribute Stores](The-Role-of-Attribute-Stores.md).  
   
@@ -61,7 +59,7 @@ Sie können erstellen diese Regel entweder mithilfe der anspruchsregelsprache od
 Weitere Informationen zum Erstellen dieser Regel finden Sie unter [Erstellen einer Regel zum Senden von LDAP-Attributen als Ansprüche](https://technet.microsoft.com/library/dd807115.aspx).  
   
 ## <a name="using-the-claim-rule-language"></a>Verwenden der Anspruchsregelsprache  
-Wenn die Abfrage an Active Directory, AD DS und Active Directory Lightweight Directory Services \(AD LDS\) müssen Vergleich mit einem LDAP-Attribut als **"sAMAccountName"**, müssen Sie stattdessen eine benutzerdefinierte Regel verwenden. Enthält der Eingabesatz keinen Windows-Kontonamenanspruch, müssen Sie ebenfalls eine benutzerdefinierte Regel verwenden, um den Anspruch anzugeben, der für die Abfrage von AD DS oder AD LDS verwendet wird.  
+Wenn die Abfrage an Active Directory, AD DS und Active Directory Lightweight Directory Services \(AD LDS\) müssen Vergleich mit einem LDAP-Attribut als **"sAMAccountName"** , müssen Sie stattdessen eine benutzerdefinierte Regel verwenden. Enthält der Eingabesatz keinen Windows-Kontonamenanspruch, müssen Sie ebenfalls eine benutzerdefinierte Regel verwenden, um den Anspruch anzugeben, der für die Abfrage von AD DS oder AD LDS verwendet wird.  
   
 Die folgenden Beispielen sollen die verschiedenen Methoden zum Erstellen von benutzerdefinierten Regeln mithilfe der Anspruchsregelsprache für das Abfragen und Extrahieren von Daten in einem Attributspeicher veranschaulichen.  
   

@@ -9,16 +9,15 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 32b8e3cc133ce95872881115608bb8cfb17b2427
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7d046c720c5c6250b6efa03e068aa66e2a6bbe3d
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816011"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192303"
 ---
 # <a name="configure-name-resolution-for-a-federation-server-proxy-in-a-dns-zone-that-serves-only-the-perimeter-network"></a>Konfigurieren der Namensauflösung für einen Verbundserverproxy in einer DNS-Zone, die nur das Umkreisnetzwerk bedient
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Damit erfolgreich funktioniert die namensauflösung für Verbundserver in einer Active Directory Federation Services kann \(AD FS\) Szenario in der eine oder mehrere Domain Name System \(DNS\) Zonen dienen nur den Umkreis vernetzen, das die folgenden Aufgaben müssen abgeschlossen sein:  
   
@@ -58,7 +57,7 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
   
 1.  Öffnen Sie auf einen DNS-Server im Umkreisnetzwerk, die DNS-Snap\-in. Klicken Sie auf **starten**, zeigen Sie auf **Verwaltung**, und klicken Sie dann auf **DNS**.  
   
-2.  Direkt in der Konsolenstruktur\-klicken Sie auf die betreffende forward-Lookupzone, und klicken Sie dann auf **neuen Host \(A oder AAAA\)**.  
+2.  Direkt in der Konsolenstruktur\-klicken Sie auf die betreffende forward-Lookupzone, und klicken Sie dann auf **neuen Host \(A oder AAAA\)** .  
   
 3.  In **Namen**, geben Sie nur den Computernamen des Verbundservers. Beispielsweise für den vollständig qualifizierten Domänennamen \(FQDN\) "FS.Fabrikam.com", Typ **fs**.  
   
@@ -67,7 +66,7 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
 5.  Klicken Sie auf **Host hinzufügen**.  
   
 ## <a name="additional-references"></a>Weitere Verweise  
-[Prüfliste: Das Einrichten eines Verbundserverproxys](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
+[Prüfliste: Einrichten eines Verbundserverproxys](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
   
 [Namensauflösungsanforderungen für Verbundserverproxys](https://technet.microsoft.com/library/dd807055.aspx)  
   

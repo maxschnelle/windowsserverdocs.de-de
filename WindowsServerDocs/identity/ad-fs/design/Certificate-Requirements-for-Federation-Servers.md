@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 369c0e9e7ab1ef25baee1c35379cc66b886f20d8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ce301f6320ed3347b1ee802f57c2b2ebd4394970
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59827101"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191639"
 ---
 # <a name="certificate-requirements-for-federation-servers"></a>Zertifikatanforderungen für Verbundserver
-
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In jeder Active Directory Federation Services \(AD FS\) Design, verschiedene Zertifikate müssen zum Sichern der Kommunikation und erleichtern die Benutzerauthentifizierungen zwischen Internetclients und Verbundserver verwendet werden. Jeder Verbundserver benötigen ein dienstkommunikationszertifikat und ein Token\-Codesignaturzertifikat ein, bevor sie in AD FS-Kommunikation teilnehmen kann. Die folgende Tabelle beschreibt die Zertifikatstypen, die Verbundserver zugeordnet sind.  
   
@@ -55,4 +53,4 @@ Je nach Sicherheits- und Budgetanforderungen sollten Sie sorgfältig in Betracht
 Falls ein von Ihnen verwendetes Zertifikat über Zertifikatsperrlisten (Certificate Revocation Lists, CRLs) verfügt, muss der Server mit dem konfigurierten Zertifikat den Server kontaktieren können, von dem die CRLs verteilt werden.  
   
 ## <a name="see-also"></a>Siehe auch
-[AD FS-Entwurfshandbuch in WindowsServer 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

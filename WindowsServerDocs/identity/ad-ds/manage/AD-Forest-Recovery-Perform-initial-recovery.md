@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.assetid: 5a291f65-794e-4fc3-996e-094c5845a383
 ms.technology: identity-adds
-ms.openlocfilehash: fe113eb7fe5cb096ff1e94150b929682d137b24b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8e05043d029636ddeb3a24349897ac61a713b2a7
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871951"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034113"
 ---
 # <a name="perform-initial-recovery"></a>Erste Wiederherstellung ausführen  
 
@@ -22,9 +22,9 @@ ms.locfileid: "59871951"
 
 Dieser Abschnitt enthält die folgenden Schritte aus:  
 
-- [Wiederherstellen von den ersten beschreibbaren Domänencontroller in jeder Domäne](#Restore-the-first-writeable-domain-controller-in-each-domain)  
-- [Verbinden Sie jede wiederhergestellte beschreibbarer Domänencontroller mit dem Netzwerk](#Reconnect-each-restored-writeable-domain-controller-to-a-common-network)  
-- [Hinzufügen des globalen Katalogs zu einem Domänencontroller in der Gesamtstruktur-Stammdomäne](#Add-the-global-catalog-to-a-domain-controller-in-the-forest-root-domain)  
+- [Wiederherstellen von den ersten beschreibbaren Domänencontroller in jeder Domäne](#restore-the-first-writeable-domain-controller-in-each-domain)  
+- [Verbinden Sie jede wiederhergestellte beschreibbarer Domänencontroller mit dem Netzwerk](#reconnect-each-restored-writeable-domain-controller-to-a-common-network)  
+- [Hinzufügen des globalen Katalogs zu einem Domänencontroller in der Gesamtstruktur-Stammdomäne](#add-the-global-catalog-to-a-domain-controller-in-the-forest-root-domain)  
 
 ## <a name="restore-the-first-writeable-domain-controller-in-each-domain"></a>Wiederherstellen von den ersten beschreibbaren Domänencontroller in jeder Domäne  
 
@@ -151,12 +151,12 @@ In dieser Phase sollten Sie eine stabile Gesamtstruktur, mit einem Domänencontr
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Wiederherstellung der Gesamtstruktur der Active Directory - Voraussetzungen](AD-Forest-Recovery-Prerequisties.md)  
+- [Wiederherstellung der AD-Gesamtstruktur: Voraussetzungen](AD-Forest-Recovery-Prerequisties.md)  
 - [Wiederherstellung der Active Directory-Gesamtstruktur - Ausarbeiten eines Wiederherstellungsplans für die benutzerdefinierte Gesamtstruktur](AD-Forest-Recovery-Devising-a-Plan.md)  
 - [Wiederherstellung der Gesamtstruktur des Active Directory - Ermittlung des Problems](AD-Forest-Recovery-Identify-the-Problem.md)
 - [AD-Gesamtstruktur-Wiederherstellung: Bestimmen der Vorgehensweise beim Wiederherstellen](AD-Forest-Recovery-Determine-how-to-Recover.md)
 - [Wiederherstellung der Active Directory-Gesamtstruktur - erste Wiederherstellung ausführen](AD-Forest-Recovery-Perform-initial-recovery.md)  
-- [Wiederherstellung der Gesamtstruktur der Active Directory - Prozeduren](AD-Forest-Recovery-Procedures.md)  
+- [Wiederherstellung der AD-Gesamtstruktur: Verfahren](AD-Forest-Recovery-Procedures.md)  
 - [Wiederherstellung der Active Directory-Gesamtstruktur – häufig gestellte Fragen](AD-Forest-Recovery-FAQ.md)  
 - [AD-Gesamtstruktur-Wiederherstellung: Wiederherstellen einer einzelnen Domäne innerhalb einer Gesamtstruktur Multidomain](AD-Forest-Recovery-Single-Domain-in-Multidomain-Recovery.md)  
 - [Wiederherstellung der Active Directory-Gesamtstruktur - Wiederherstellung der Gesamtstruktur mit Windows Server 2003-Domänencontrollern](AD-Forest-Recovery-Windows-Server-2003.md)  

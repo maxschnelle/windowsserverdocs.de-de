@@ -9,15 +9,13 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 730411ed7efbb9cf0db3d7e94a486cec4c363849
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bec3ebf1bd12b260dbbb245a6a905277ff0d749f
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59860411"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188539"
 ---
- >Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
-
 # <a name="the-role-of-attribute-stores"></a>Rolle des Attributspeichers
 Active Directory Federation Services verwendet den Begriff "Attributspeicher" zum Verweisen auf Verzeichnisse und Datenbanken, in denen eine Organisation ihre Benutzerkonten und deren zugeordnete Attributwerte zu speichern. Sobald er in einer identitätsanbieterorganisation konfiguriert ist, wird AD FS diese Attributwerte aus dem Speicher abruft und erstellt basierend auf diesen Informationen, damit eine Webanwendung oder Dienst, der in der Organisation einer vertrauenden Seite gehostet wird die entsprechende kann Ansprüche Autorisierung Entscheidungen zu treffen, wenn ein Verbundbenutzer \(eines Benutzers, dessen Konto sich in der identitätsanbieterorganisation befindet\) versucht, auf die Anwendung oder den Dienst zuzugreifen.  
   

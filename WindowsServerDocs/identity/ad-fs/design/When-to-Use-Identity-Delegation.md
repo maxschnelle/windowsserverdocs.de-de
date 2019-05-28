@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: af227d9e87ddb73f194dd46c8ce45fcdf12a34cf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2544001b871a1eda2c03005c384a99d5209e7282
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59872551"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190552"
 ---
 # <a name="when-to-use-identity-delegation"></a>Anwendungsbereiche für Identitätsdelegierung
-
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
   
 ## <a name="what-is-identity-delegation"></a>Was ist Identitätsdelegierung?  
 Identitätsdelegierung ist ein Feature von Active Directory Federation Services \(AD FS\) , die Administrator kann\-angegebenen Konten, um die Identität von Benutzern anzunehmen. Das Konto, das die Identität des Benutzer annimmt, wird als *Delegat* bezeichnet. Diese Delegierungsmöglichkeit ist für viele verteilte Anwendungen entscheidend, bei denen mehrere Zugriffssteuerungsprüfungen nacheinander für jede Anwendung, Datenbank oder jeden Dienst in der Autorisierungskette für die ursprüngliche Anforderung durchgeführt werden müssen. Viele Real\-Szenarien vorhanden sind, in dem muss eine "Front-End"-Webanwendung Abrufen von Daten aus einer sichereren "Back-End", z. B. einen Webdienst, der mit einer Microsoft SQL Server-Datenbank verbunden ist.  
@@ -61,4 +59,4 @@ Sie können die identitätsdelegierung konfigurieren, durch das Hinzufügen der 
 Entwickler haben mehrere Möglichkeiten, mit denen sie entsprechend der Web-Front-Programm\-Anwendung oder ein Dienst zum Umleiten von Delegierungsanfragen an einen AD FS-Computer zu beenden. Weitere Informationen zum Anpassen von Webanwendungen an die Identitätsdelegierung finden Sie im [Windows Identity Foundation SDK](https://go.microsoft.com/fwlink/?LinkId=122266).  
   
 ## <a name="see-also"></a>Siehe auch
-[AD FS-Entwurfshandbuch in WindowsServer 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

@@ -8,16 +8,15 @@ ms.date: 09/19/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 2b11454427a65e37604b430a63b5ed745f4a2bb1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 946e99448d13bf6782c10bce5a0b8566da4deb17
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864451"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190378"
 ---
 # <a name="ad-fs-paginated-sign-in"></a>AD FS paginierten-Anmeldung
 
->Gilt für: Windows Server 2019
 
 Für AD FS-2019 haben wir die Anmeldeoberfläche neu entworfen.  Jetzt wird die AD FS-Anmeldung das gleiche Aussehen und Verhalten von Azure AD verfügen.  Dadurch erhalten Benutzer eine konsistentere-Anmeldung, zentriert und paginierten benutzerflow integrieren. 
 
@@ -60,4 +59,4 @@ Die Optionen für die Anpassung werden für AD FS-2019 weiterhin angewendet werd
 
 • Für diejenigen, die das neue Design möchten aber nicht möchten, aktualisieren Sie ihre Server mit AD FS-2019: [Verwenden ein Azure AD-UX-Web-Design in Active Directory-Verbunddienste](azure-ux-web-theme-in-ad-fs.md)
 
-• Einem zentralen Ort für die Anpassung: [AD FS-Anmeldung benutzeranpassung](ad-fs-user-sign-in-customization.md)
+• Einem zentralen Ort für die Anpassung: [AD FS: Anpassung der Benutzeranmeldung](ad-fs-user-sign-in-customization.md)

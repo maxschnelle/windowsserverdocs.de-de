@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 05f8b8991e664a84c3f2b3200de4068af8d1476a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bef2cac726b1c4ea9b30f9a2086e3a2670339228
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846611"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189832"
 ---
 # <a name="configure-ad-fs-to-authenticate-users-stored-in-ldap-directories"></a>Konfigurieren von AD FS zum Authentifizieren von Benutzern, die in LDAP-Verzeichnissen gespeichert sind
-
->Gilt für: Windows Server 2016
 
 Das folgende Thema beschreibt die Konfiguration erforderlich, damit Ihre AD FS-Infrastruktur zum Authentifizieren von Benutzern, deren Identitäten in v3-kompatiblen Verzeichnissen (LDAP = Lightweight Directory Access Protocol) gespeichert werden, kann.
 
@@ -99,6 +97,6 @@ Um AD FS-Farm zum Authentifizieren von Benutzern aus einem LDAP-Verzeichnis zu k
     Im obigen Beispiel erstellen Sie eine lokales Anspruchsanbieter-Vertrauensstellung "Anbieter" bezeichnet. Sie werden Verbindungsinformationen für AD FS zur Verbindung mit des LDAP-Verzeichnis diese lokalen Anspruchsanbieter-Vertrauensstellung darstellt, durch Zuweisen von `$vendorDirectory` auf die `-LdapServerConnection` Parameter. Beachten Sie, dass im ersten Schritt, Sie zugewiesen haben `$vendorDirectory` eine Verbindungszeichenfolge zum Herstellen der Verbindung mit bestimmten LDAP-Verzeichnis verwendet werden. Schließlich werden Sie an, die die `$GivenName`, `$Surname`, und `$CommonName` LDAP-Attribute (die Sie die AD FS-Ansprüche zugeordnet) sind für die bedingte Zugriffssteuerung, einschließlich Multi-Factor Authentication-Richtlinien und Ausstellung verwendet werden soll Autorisierung Regeln auch für die Ausstellung über Ansprüche in AD FS ausgestellten Sicherheitstoken. Um aktive Protokolle wie Ws-Trust mit AD FS verwenden zu können, müssen Sie den OrganizationalAccountSuffix-Parameter angeben, der AD FS, um zwischen lokalen Anspruchsanbieter-Vertrauensstellungen bei der Wartung einer aktiven autorisierungsanforderung zu unterscheiden zu können.
 
 ## <a name="see-also"></a>Siehe auch
-[AD FS-Vorgänge](../../ad-fs/AD-FS-2016-Operations.md)
+[AD FS-Vorgänge](../../ad-fs/AD-FS-2016-Operations.md)
 
 

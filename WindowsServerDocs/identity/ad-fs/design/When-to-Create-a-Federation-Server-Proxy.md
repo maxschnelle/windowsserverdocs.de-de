@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 1f0253dfb5a690371dae1a2bfcb6b7520077d473
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b41c2194940c85e39e5a3724f747dd12c2544259
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883201"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190643"
 ---
 # <a name="when-to-create-a-federation-server-proxy"></a>Wann sollte ein Verbundserverproxy erstellt werden?
-
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Erstellen einen Verbundserverproxy in Ihrer Organisation Ihre Active Directory Federation Services zusätzliche Sicherheitsstufen hinzugefügt \(AD FS\) Bereitstellung. Erwägen Sie einen Verbundserverproxy im Umkreisnetzwerk Ihrer Organisation bereitzustellen, wenn Sie möchten:  
   
@@ -38,4 +36,4 @@ Sie können einen Verbundserverproxy mithilfe des AD FS Federation Server Proxy-
 Allgemeine Informationen zum Einrichten der erforderlichen Komponenten zum Bereitstellen eines Verbundserverproxys erforderlich sind, finden Sie unter [Prüfliste: Das Einrichten eines Verbundserverproxys](../../ad-fs/deployment/Checklist--Setting-Up-a-Federation-Server-Proxy.md).  
   
 ## <a name="see-also"></a>Siehe auch
-[AD FS-Entwurfshandbuch in WindowsServer 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

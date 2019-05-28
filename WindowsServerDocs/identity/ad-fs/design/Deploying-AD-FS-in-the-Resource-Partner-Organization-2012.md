@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: a20fab1cca4c33485fd599de5525c7a718e9598e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 87849e1d7a5eb8fef24a551dfc681c65a202f027
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882321"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191539"
 ---
 # <a name="deploying-ad-fs-in-the-resource-partner-organization"></a>Konfigurieren von AD FS in der Ressourcenpartnerorganisation
-
->Gilt für: Windows Server 2012
 
 Die Ressourcenpartnerorganisation in Active Directory Federation Services \(AD FS\) stellt die Organisation, deren Webserver möglicherweise durch eine Ressource geschützt\-Verbundserver für die Seite. Der Verbundserver in der Ressourcenpartner verwendet die Sicherheitstoken, die erstellt werden, durch den Kontopartner Ansprüche an die Webserver bereitstellen, die beim Ressourcenpartner befinden.  
   
@@ -30,10 +28,10 @@ Weitere Informationen über das Einrichten und Konfigurieren der Ressourcenpartn
   
 -   [Überprüfen der Rolle des Verbundservers beim Ressourcenpartner](Review-the-Role-of-the-Federation-Server-in-the-Resource-Partner.md)  
   
--   [Überprüfen Sie die Rolle des Verbundserverproxys beim Ressourcenpartner](Review-the-Role-of-the-Federation-Server-Proxy-in-the-Resource-Partner.md)  
+-   [Überprüfen der Rolle des Verbundserverproxys beim Ressourcenpartner](Review-the-Role-of-the-Federation-Server-Proxy-in-the-Resource-Partner.md)  
   
--   [Bestimmen der Verbundanwendungsstrategie im Ressourcenpartner](Determine-Your-Federated-Application-Strategy-in-the-Resource-Partner.md)  
+-   [Bestimmen der Verbundanwendungsstrategie beim Ressourcenpartner](Determine-Your-Federated-Application-Strategy-in-the-Resource-Partner.md)  
   
 
 ## <a name="see-also"></a>Siehe auch
-[AD FS-Entwurfshandbuch in WindowsServer 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

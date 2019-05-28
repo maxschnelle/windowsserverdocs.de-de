@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.assetid: 5a291f65-794e-4fc3-996e-094c5845a383
 ms.technology: identity-adds
-ms.openlocfilehash: bd15df5360a50e417881d83319344dbdf48f35fa
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e2af1bfc295469d43e59593d69d4ba88f476e427
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829641"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034148"
 ---
 # <a name="ad-forest-recovery---windows-server-2003-recovery"></a>Wiederherstellung der AD-Gesamtstruktur - Wiederherstellung von Windows Server 2003
 
@@ -22,9 +22,9 @@ ms.locfileid: "59829641"
 
 Dieses Thema enthält Prozeduren für Domänencontroller (DCs), auf denen Windows Server 2003 ausgeführt wird. Der allgemeine Prozess für die Wiederherstellung der Gesamtstruktur unterscheidet sich nicht mit Windows Server 2003-Domänencontrollern, aber bestimmte Verfahren können sich aufgrund der verschiedenen Tools unterscheiden. Beispielsweise können Ntdsutil.exe verwendet werden, Sichern und Wiederherstellen von DCs, auf denen Windows Server 2003-Domänencontrollern ausgeführt, während Windows Server-Sicherung oder Wbadmin.exe ist, verwendet für Domänencontroller mit Windows Server 2008 oder höher.  
   
-- [Sicherung der Systemstatusdaten](#Backing-up-the-System-State-data)  
-- [Eine nicht autoritative Wiederherstellung ausführen](#Performing-a-nonauthoritative restore)  
-- [Installieren Sie und konfigurieren Sie den DNS-Serverdienst](#Install-and-configure-the-DNS-Server-service)  
+- [Sicherung der Systemstatusdaten](#backing-up-the-system-state-data)  
+- [Eine nicht autoritative Wiederherstellung ausführen](#performing-a-nonauthoritative-restore)  
+- [Installieren Sie und konfigurieren Sie den DNS-Serverdienst](#install-and-configure-the-dns-server-service)
 
 ## <a name="backing-up-the-system-state-data"></a>Sicherung der Systemstatusdaten
 Gehen Sie folgendermaßen vor, um die Daten für den Systemstatus zu sichern, wird zusammen mit anderen Daten, die Sie für die aktuelle Sicherung ausgewählt haben, von einem Domänencontroller, die Windows Server 2003 ausgeführt. Windows Server 2003 enthält die Tools "Ntbackup", die Sie verwenden können, um Daten von Systemstatus zu sichern.  
@@ -57,7 +57,7 @@ Um den Zeitaufwand für die Neuinstallation der Software zu speichern, zu bestim
 ### <a name="to-perform-a-nonauthoritative-restore"></a>Zum Ausführen einer nicht autoritativen Wiederherstellung
   
 1. Nachdem der Domänencontroller gestartet wurde, drücken Sie F8, um den Computer im Verzeichnis Verzeichnisdienst-Wiederherstellungsmodus (DSRM) neu starten.  
-2. Wählen Sie **Wiederherstellungsmodus für Verzeichnisdienste (nur für Windows-Domänencontroller)**.  
+2. Wählen Sie **Wiederherstellungsmodus für Verzeichnisdienste (nur für Windows-Domänencontroller)** .  
 3. Wählen Sie das Betriebssystem, das im Wiederherstellungsmodus gestartet werden soll.  
 4. Melden Sie sich als Administrator (Sie können nur verwenden, ein lokales Computerkonto und kein Anmeldeoption Domäne verfügbar ist).  
 5. Geben Sie an einer Eingabeaufforderung den Befehl **Ntbackup**, und drücken Sie dann die EINGABETASTE.  
@@ -119,12 +119,12 @@ Wenn der Domänencontroller, die Sie aus einer Sicherung wiederhergestellt, Wind
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Wiederherstellung der Gesamtstruktur der Active Directory - Voraussetzungen](AD-Forest-Recovery-Prerequisties.md)  
+- [Wiederherstellung der AD-Gesamtstruktur: Voraussetzungen](AD-Forest-Recovery-Prerequisties.md)  
 - [Wiederherstellung der Active Directory-Gesamtstruktur - Ausarbeiten eines Wiederherstellungsplans für die benutzerdefinierte Gesamtstruktur](AD-Forest-Recovery-Devising-a-Plan.md)  
 - [Wiederherstellung der Gesamtstruktur des Active Directory - Ermittlung des Problems](AD-Forest-Recovery-Identify-the-Problem.md)
 - [AD-Gesamtstruktur-Wiederherstellung: Bestimmen der Vorgehensweise beim Wiederherstellen](AD-Forest-Recovery-Determine-how-to-Recover.md)
 - [Wiederherstellung der Active Directory-Gesamtstruktur - erste Wiederherstellung ausführen](AD-Forest-Recovery-Perform-initial-recovery.md)  
-- [Wiederherstellung der Gesamtstruktur der Active Directory - Prozeduren](AD-Forest-Recovery-Procedures.md)  
+- [Wiederherstellung der AD-Gesamtstruktur: Verfahren](AD-Forest-Recovery-Procedures.md)  
 - [Wiederherstellung der Active Directory-Gesamtstruktur – häufig gestellte Fragen](AD-Forest-Recovery-FAQ.md)  
 - [AD-Gesamtstruktur-Wiederherstellung: Wiederherstellen einer einzelnen Domäne innerhalb einer Gesamtstruktur Multidomain](AD-Forest-Recovery-Single-Domain-in-Multidomain-Recovery.md)  
 - [Wiederherstellung der Active Directory-Gesamtstruktur - Wiederherstellung der Gesamtstruktur mit Windows Server 2003-Domänencontrollern](AD-Forest-Recovery-Windows-Server-2003.md) 

@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 13ce514dc5f3f70217a26c898cde6fe24d4967c6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d2f597994aa74f453903e09f7d3eefd83f26faba
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847381"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192271"
 ---
 # <a name="configure-a-federation-server"></a>Konfigurieren eines Verbundservers
-
->Gilt für: Windows Server 2016, Windows Server 2012 R2
 
 Nach der Installation der Active Directory-Verbunddienste \(AD FS\) -Rollendienst auf dem Computer, sind Sie bereit sind, diesen Computer als Verbundserver konfigurieren. Sie können eine der folgenden Aktionen ausführen:  
   
@@ -37,7 +35,7 @@ Nach der Installation der Active Directory-Verbunddienste \(AD FS\) -Rollendiens
   
     Der **Konfigurations-Assistent für Active Directory-Verbunddienste** wird geöffnet.  
   
-2.  Wählen Sie auf der Seite **Willkommen****Erstellen des ersten Verbundservers in einer Verbundserverfarm**aus, und klicken Sie dann auf **Weiter**.  
+2.  Wählen Sie auf der Seite **Willkommen** **Erstellen des ersten Verbundservers in einer Verbundserverfarm**aus, und klicken Sie dann auf **Weiter**.  
   
 3.  Auf der **mit AD DS verbinden** Seite, geben Sie ein Konto mit Domänenadministratorberechtigungen für die Active Directory \(AD\) Domäne, der diesen Computer hinzugefügt wird, und klicken Sie dann auf **Weiter**.  
   
@@ -45,7 +43,7 @@ Nach der Installation der Active Directory-Verbunddienste \(AD FS\) -Rollendiens
   
     -   Importieren der PFX-Datei, die das Secure Socket Layer enthält \(SSL\) Zertifikat und den Schlüssel, die Sie zuvor abgerufen haben. In [Schritt 2: Registrieren eines SSL-Zertifikats für AD FS](../../ad-fs/deployment/Enroll-an-SSL-Certificate-for-AD-FS.md), haben Sie dieses Zertifikat abgerufen und kopiert diese auf dem Computer, die Sie als Verbundserver konfigurieren möchten. Klicken Sie zum Importieren der PFX-Datei mithilfe des Assistenten auf **importieren**, und suchen Sie dann den Speicherort der Datei. Geben Sie das Kennwort für die PFX-Datei, wenn Sie aufgefordert werden.  
   
-    -   Geben Sie einen Namen für den Verbunddienst an. Z. B. **"FS.contoso.com"**. Dieser Name muss eine mit dem Antragstellernamen oder alternativen Antragstellernamen im Zertifikat übereinstimmen.  
+    -   Geben Sie einen Namen für den Verbunddienst an. Z. B. **"FS.contoso.com"** . Dieser Name muss eine mit dem Antragstellernamen oder alternativen Antragstellernamen im Zertifikat übereinstimmen.  
   
     -   Geben Sie einen Anzeigenamen für den Verbunddienst an. Z. B. **Contoso Corporation**. Benutzern wird dieser Name angezeigt, auf die Active Directory Federation Services \(AD FS\) anmelden\-auf.  
   
@@ -93,7 +91,7 @@ Sie können eine neue Verbundserverfarm erstellen, mit einer neuen oder vorhande
         > [!WARNING]  
         > Die `$` -Zeichen am Ende des vorherigen Befehls ist erforderlich.  
   
-        Zum Abrufen des Werts für `<certificate_thumbprint>`führen `dir Cert:\LocalMachine\My`, und wählen Sie dann den Fingerabdruck des SSL-Zertifikats. Der Wert des `<federation_service_name>` ist der Name Ihres Verbunddiensts beispielsweise **"FS.contoso.com"**.  
+        Zum Abrufen des Werts für `<certificate_thumbprint>`führen `dir Cert:\LocalMachine\My`, und wählen Sie dann den Fingerabdruck des SSL-Zertifikats. Der Wert des `<federation_service_name>` ist der Name Ihres Verbunddiensts beispielsweise **"FS.contoso.com"** .  
   
         > [!NOTE]  
         > Wenn dies nicht der ersten, die Sie mit diesem Befehl ausführen ist, fügen Sie der `OverwriteConfiguration` Parameter.  
@@ -221,7 +219,7 @@ Sie können einen Verbundserver zu einer vorhandenen Farm hinzufügen, mithilfe 
   
 ## <a name="see-also"></a>Siehe auch 
 
-[AD FS-Bereitstellung](../../ad-fs/AD-FS-Deployment.md)  
+[AD FS-Bereitstellung](../../ad-fs/AD-FS-Deployment.md)  
 
 [Windows Server 2012 R2 AD FS-Bereitstellung geführt.](../../ad-fs/deployment/Windows-Server-2012-R2-AD-FS-Deployment-Guide.md)  
  

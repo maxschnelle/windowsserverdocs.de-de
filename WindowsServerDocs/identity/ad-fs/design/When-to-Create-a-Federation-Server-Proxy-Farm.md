@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 8935760cad272d5b82edb675cda85caf0456565f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c33475d7420383448439e2b769562e55127c7b0e
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859441"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190630"
 ---
 # <a name="when-to-create-a-federation-server-proxy-farm"></a>Wann sollte eine Verbundserverproxy-Farm erstellt werden?
-
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Erwägen Sie die Installation zusätzliche Verbundserverproxys, wenn Sie eine große Active Directory Federation Services haben \(AD FS\) Bereitstellung und eine Fehlertoleranz bereitzustellen, laden möchten\-Lastenausgleich und Skalierbarkeit im Hinblick auf der Proxybereitstellung. Erstellen zwei oder mehr Verbund Verbundserverproxys im gleichen Umkreisnetzwerk und konfigurieren jeweils den gleichen AD FS-Verbunddienst schützen wird eine Verbundserverproxy-Farm erstellt.  
   
@@ -39,4 +37,4 @@ Die folgende Tabelle beschreibt die Aufgaben, die ausgeführt werden müssen, da
 Weitere Informationen zum Hinzufügen von neuen Verbundserverproxys, um eine Verbundserverproxy-Farm zu erstellen, finden Sie unter [Prüfliste: Das Einrichten eines Verbundserverproxys](../../ad-fs/deployment/Checklist--Setting-Up-a-Federation-Server-Proxy.md).  
   
 ## <a name="see-also"></a>Siehe auch
-[AD FS-Entwurfshandbuch in WindowsServer 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

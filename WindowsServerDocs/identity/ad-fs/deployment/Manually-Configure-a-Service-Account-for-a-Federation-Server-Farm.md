@@ -9,16 +9,14 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 7d215c80c03236df9479aff8046981741dfc83e2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b027bff4645203c44e228f11c651b767fa4502e0
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59838151"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192059"
 ---
 # <a name="manually-configure-a-service-account-for-a-federation-server-farm"></a>Manuelles Konfigurieren eines Dienstkontos für eine Verbundserverfarm
-
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Wenn Sie beabsichtigen, eine Verbundserverfarm-Umgebung in Active Directory Federation Services konfigurieren \(AD FS\), müssen Sie erstellen und konfigurieren Sie ein dediziertes Dienstkonto in Active Directory Domain Services \(AD DS\) , in dem die Farm befinden. Dann legen Sie in der Konfiguration jedes Verbundservers in der Farm fest, dass dieses Konto verwendet wird. Wenn Sie Clients im Unternehmensnetzwerk einen Verbundserver in einer AD FS-Farm mithilfe der integrierten Windows-Authentifizierung authentifizieren zulassen möchten, müssen Sie die folgenden Aufgaben in Ihrer Organisation ausführen.  
 

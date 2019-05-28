@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 14e1cc732ed60b7f05a9a4a9aac9037c48b702f2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 42df338ee5a5aecb3cf32f91a2b1aedae1210164
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879921"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189506"
 ---
 # <a name="create-a-relying-party-trust"></a>Erstellen einer Vertrauensstellung der vertrauenden Seite
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2
 
 Das folgende Dokument enthält Informationen für eine Vertrauensstellung der vertrauenden Seite manuell zu erstellen und mithilfe von Verbundmetadaten.
   
@@ -96,4 +95,4 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
 
 
 ## <a name="see-also"></a>Siehe auch  
-[AD FS-Vorgänge](../../ad-fs/AD-FS-2016-Operations.md) 
+[AD FS-Vorgänge](../../ad-fs/AD-FS-2016-Operations.md) 

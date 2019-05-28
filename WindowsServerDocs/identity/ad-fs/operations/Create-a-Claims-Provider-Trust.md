@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: fbc8bb63435211a92cb7fc6aa05b1413aef939c6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 1c47986cda3f091033274aa2c59a656ec861a98f
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854231"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189711"
 ---
 # <a name="create-a-claims-provider-trust"></a>Erstellen einer Anspruchsanbieter-Vertrauensstellung
-
->Gilt für: Windows Server 2016, Windows Server 2012 R2
 
 Zum Hinzufügen einer neuen Anspruchsanbieter-Vertrauensstellung mithilfe der AD FS-Verwaltungs-Snap\-in und manuell konfigurieren Sie die Einstellungen, führen Sie das folgende Verfahren auf einen Ressourcenverbundserver für Partner in der Ressourcenpartnerorganisation.  
   
@@ -87,5 +85,5 @@ Zum Hinzufügen einer neuen Anspruchsanbieter-Vertrauensstellung, verwenden das 
 [Prüfliste: Erstellen von Anspruchsregeln für eine Anspruchsanbieter-Vertrauensstellung](../../ad-fs/deployment/Checklist--Creating-Claim-Rules-for-a-Claims-Provider-Trust.md)  
   
 ## <a name="see-also"></a>Siehe auch  
-[AD FS-Vorgänge](../../ad-fs/AD-FS-2016-Operations.md) 
+[AD FS-Vorgänge](../../ad-fs/AD-FS-2016-Operations.md) 
   

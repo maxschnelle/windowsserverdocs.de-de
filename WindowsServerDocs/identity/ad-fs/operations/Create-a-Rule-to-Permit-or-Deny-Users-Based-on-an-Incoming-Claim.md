@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 167e43d49c08d0e39549bf46888118f985e3876d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 72fe425b040f83a217a144976265c7754830c91b
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863771"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189503"
 ---
 # <a name="create-a-rule-to-permit-or-deny-users-based-on-an-incoming-claim"></a>Erstellen einer Regel, mit der Benutzer anhand eines eingehenden Anspruchs zugelassen oder abgelehnt werden 
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2
 
 In Windows Server 2016 können Sie eine **Access Control-Richtlinie** zum Erstellen einer Regel, die zulassen oder verweigern Benutzer auf Grundlage eines eingehenden Anspruchs.  In Windows Server 2012 R2 mit der **zulassen oder verweigern Sie, dass sich Benutzer anhand eines eingehenden Anspruchs** Regelvorlage in Active Directory-Verbunddienste \(AD FS\), können Sie eine Autorisierungsregel, die gewähren erstellen oder Verweigern Sie den Benutzerzugriff auf die vertrauende Seite basierend auf dem Typ und Wert eines eingehenden Anspruchs. 
 
@@ -121,6 +120,6 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
   
 [Wenn Use an Authorization Claim Rule](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
 
-[Die Rolle von Ansprüchen](../../ad-fs/technical-reference/The-Role-of-Claims.md)  
+[Rolle von Ansprüchen](../../ad-fs/technical-reference/The-Role-of-Claims.md)  
   
-[Die Rolle von Anspruchsregeln](../../ad-fs/technical-reference/The-Role-of-Claim-Rules.md)  
+[Rolle von Anspruchsregeln](../../ad-fs/technical-reference/The-Role-of-Claim-Rules.md)  

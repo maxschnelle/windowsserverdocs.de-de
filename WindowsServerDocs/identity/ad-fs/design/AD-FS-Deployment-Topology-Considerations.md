@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: bbd3ec26e5fb0ce9857f2c9e5321300fb835b303
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c5a3c85d40baee137ecdf7a1a5507b25361cac6d
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834591"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191772"
 ---
 # <a name="ad-fs-deployment-topology-considerations"></a>Überlegungen zur AD FS-Bereitstellungstopologie
-
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In diesem Thema wird beschrieben, wichtige Überlegungen zum Planen und entwerfen die Active Directory Federation Services \(AD FS\) Bereitstellungstopologie für die Verwendung in der produktionsumgebung vornehmen. Dieses Thema ist ein Ausgangspunkt für die Prüfung und Bewertung von Überlegungen, die beeinflussen, welche Features oder Funktionen zur Verfügung gestellt werden, die Sie nach der Bereitstellung von AD FS. Z. B. abhängig von der Datenbank zum Speichern der AD FS-Konfigurationsdatenbank ausgewähltem letztendlich bestimmen, ob Sie bestimmte Security Assertion Markup Language implementieren können \(SAML\) Features, die SQL erfordern Server.  
   
@@ -31,16 +29,16 @@ AD FS-features
   
 |Feature|Unterstützt von WID?|Unterstützt von SQL Server?|Weitere Informationen zu diesem Feature|  
 |-----------|---------------------|----------------------------|---------------------------------------|  
-|Bereitstellung einer Verbundserverfarm|Ja, mit einem Grenzwert von 30 Verbundservern für jede farm|Ja. Es gibt keine erzwungene Begrenzung für die Anzahl der Verbundserver, die Sie in einer einzelnen Farm bereitstellen können.|[Bestimmen der AD FS-Bereitstellungstopologie](Determine-Your-AD-FS-Deployment-Topology.md)|  
-|SAML-artefaktauflösung **beachten:** Dieses Feature ist für Szenarien mit Microsoft Online Services, Microsoft Office 365, Microsoft Exchange oder Microsoft Office SharePoint nicht erforderlich.|Nein|Ja|[Die Rolle der AD FS-Konfigurationsdatenbank](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)<br /><br />[Bewährte Methoden für die sichere Planung und Bereitstellung von AD FS](Best-Practices-for-Secure-Planning-and-Deployment-of-AD-FS.md)|  
-|SAML\/WS\-Verbund Erkennung einer tokenmehrfachverwendung|Nein|Ja|[Die Rolle der AD FS-Konfigurationsdatenbank](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)<br /><br />[Bewährte Methoden für die sichere Planung und Bereitstellung von AD FS](Best-Practices-for-Secure-Planning-and-Deployment-of-AD-FS.md)|  
+|Bereitstellung einer Verbundserverfarm|Ja, mit einem Grenzwert von 30 Verbundservern für jede farm|Ja. Es gibt keine erzwungene Begrenzung für die Anzahl der Verbundserver, die Sie in einer einzelnen Farm bereitstellen können.|[Bestimmen der AD FS-Bereitstellungstopologie](Determine-Your-AD-FS-Deployment-Topology.md)|  
+|SAML-artefaktauflösung **beachten:** Dieses Feature ist für Szenarien mit Microsoft Online Services, Microsoft Office 365, Microsoft Exchange oder Microsoft Office SharePoint nicht erforderlich.|Nein|Ja|[Rolle der AD FS-Konfigurationsdatenbank](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)<br /><br />[Bewährte Methoden für die sichere Planung und Bereitstellung von AD FS](Best-Practices-for-Secure-Planning-and-Deployment-of-AD-FS.md)|  
+|SAML\/WS\-Verbund Erkennung einer tokenmehrfachverwendung|Nein|Ja|[Rolle der AD FS-Konfigurationsdatenbank](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)<br /><br />[Bewährte Methoden für die sichere Planung und Bereitstellung von AD FS](Best-Practices-for-Secure-Planning-and-Deployment-of-AD-FS.md)|  
   
 Datenbankfeatures  
   
 |Feature|Unterstützt von WID?|Unterstützt von SQL Server?|Weitere Informationen zu diesem Feature|  
 |-----------|---------------------|----------------------------|---------------------------------------|  
-|Basic-Datenbank mithilfe von Redundanz pull-Replikation, bei denen ein oder mehrere Server einen Lesevorgang\-Kopie der Datenbank-Request-Änderungen, die auf einem Quellserver vorgenommen werden, die einen Lesevorgang hostet\/Kopie der Datenbank schreiben|Ja|Nein|[Die Rolle der AD FS-Konfigurationsdatenbank](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)|  
-|Datenbankredundanz über eine hohe\-verfügbarkeitslösungen wie Failoverclustering oder Spiegelung \(auf der Datenbankschicht nur\) **beachten:** Alle ADFS-Bereitstellungstopologien unterstützen das clustering auf den AD FS-Dienstebene.|Nein|Ja|[Die Rolle der AD FS-Konfigurationsdatenbank](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)<br /><br />[Hochverfügbarkeitslösungen – Übersicht](https://go.microsoft.com/fwlink/?LinkId=179853)|  
+|Basic-Datenbank mithilfe von Redundanz pull-Replikation, bei denen ein oder mehrere Server einen Lesevorgang\-Kopie der Datenbank-Request-Änderungen, die auf einem Quellserver vorgenommen werden, die einen Lesevorgang hostet\/Kopie der Datenbank schreiben|Ja|Nein|[Rolle der AD FS-Konfigurationsdatenbank](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)|  
+|Datenbankredundanz über eine hohe\-verfügbarkeitslösungen wie Failoverclustering oder Spiegelung \(auf der Datenbankschicht nur\) **beachten:** Alle ADFS-Bereitstellungstopologien unterstützen das clustering auf den AD FS-Dienstebene.|Nein|Ja|[Rolle der AD FS-Konfigurationsdatenbank](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)<br /><br />[Hochverfügbarkeitslösungen – Übersicht](https://go.microsoft.com/fwlink/?LinkId=179853)|  
   
 ### <a name="sql-server-considerations"></a>Überlegungen zu SQL Server  
 Sie sollten die folgenden Bereitstellungsfakten in Betracht ziehen, wenn Sie SQL Server als Konfigurationsdatenbank für Ihre AD FS-Bereitstellung auswählen.  
@@ -66,4 +64,4 @@ Zusätzlich zu den Verbundservern, die Sie bereitstellen möchten, und abhängig
 -   Netzwerklastenausgleich \(NLB\)  
   
 ## <a name="see-also"></a>Siehe auch
-[AD FS-Entwurfshandbuch in WindowsServer 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

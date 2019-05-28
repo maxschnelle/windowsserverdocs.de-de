@@ -9,17 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 3745a0ab9d313223c611e58864dd6b4d747f0624
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c87b76224d1ac5dbe3befc837fad8879d0b9a1ef
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59881041"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189396"
 ---
 # <a name="create-a-rule-to-send-an-ad-fs-1x-compatible-claim"></a>Erstellen Sie eine Regel zum Senden eines-kompatibler Anspruchs von AD FS 1.x
-
->Gilt für: Windows Server 2016, Windows Server 2012 R2
-
 
 In Situationen, in dem Sie Active Directory-Verbunddienste verwenden \(AD FS\) für Ansprüche, die von Verbundservern unter AD FS 1.0 empfangen werden, Problem \(Windows Server 2003 R2\) oder AD FS 1.1 \(Windows Server 2008 oder Windows Server 2008 R2\), müssen Sie Folgendes tun:  
   
@@ -338,6 +335,6 @@ Je nach den Anforderungen Ihrer Organisation verwenden Sie eine der folgenden Ve
   
 [Wenn Use an Authorization Claim Rule](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
 
-[Die Rolle von Ansprüchen](../../ad-fs/technical-reference/The-Role-of-Claims.md)  
+[Rolle von Ansprüchen](../../ad-fs/technical-reference/The-Role-of-Claims.md)  
   
-[Die Rolle von Anspruchsregeln](../../ad-fs/technical-reference/The-Role-of-Claim-Rules.md) 
+[Rolle von Anspruchsregeln](../../ad-fs/technical-reference/The-Role-of-Claim-Rules.md) 

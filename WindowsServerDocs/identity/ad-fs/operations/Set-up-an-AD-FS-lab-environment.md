@@ -9,16 +9,14 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 53d0e24f7fcb9efc64406dc6ed01f5bb1deb2277
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 01db8ecc9f84123bbc3159c3cb2399d61d6344c2
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868081"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188958"
 ---
 # <a name="set-up-an-ad-fs-lab-environment"></a>Einrichten einer AD FS-Laborumgebung
-
->Gilt für: Windows Server 2012 R2
 
 In diesem Thema sind die Schritte für die Konfiguration einer Testumgebung aufgeführt, die für das Abschließen der explemplarischen Vorgehensweisen in den folgenden Handbüchern mit exemplarischer Vorgehensweise verwendet werden können:  
   
@@ -75,7 +73,7 @@ Das Gruppenkonto für Managed Service Account (GMSA) ist während der Installati
     ```  
   
 ## <a name="BKMK_4"></a>Schritt 2: Konfigurieren des Verbundservers (ADFS1) mit dem Geräteregistrierungsdienst  
-Um einen weiteren virtuellen Computer einzurichten, installieren Sie Windows Server 2012 R2, und verbinden es mit der Domäne **"contoso.com"**. Richten Sie den Computer, nachdem er der Domäne hinzugefügt haben, und klicken Sie dann zum Installieren und konfigurieren die AD FS-Serverrolle fortfahren.  
+Um einen weiteren virtuellen Computer einzurichten, installieren Sie Windows Server 2012 R2, und verbinden es mit der Domäne **"contoso.com"** . Richten Sie den Computer, nachdem er der Domäne hinzugefügt haben, und klicken Sie dann zum Installieren und konfigurieren die AD FS-Serverrolle fortfahren.  
   
 Ein Video hierzu finden Sie unter [Active Directory Federation Services Videoreihe mit exemplarischer Vorgehensweise: Installieren einer AD FS-Serverfarm](https://technet.microsoft.com/video/dn469436).  
   
@@ -161,7 +159,7 @@ Der nächste Schritt ist die Konfiguration des Geräteregistrierungsdiensts auf 
     Initialize-ADDeviceRegistration  
     ```  
   
-    Wenn Sie eines Dienstkontos aufgefordert werden, geben Sie **Contosofsgmsa$**.  
+    Wenn Sie eines Dienstkontos aufgefordert werden, geben Sie **Contosofsgmsa$** .  
   
     Führen Sie jetzt das Windows PowerShell-Cmdlet.  
   
@@ -187,13 +185,13 @@ Sie müssen mindestens Mitglied der Gruppe Administratoren oder einer entspreche
   
 1.  Klicken Sie auf DC1 im Server-Manager im Menü **Extrax** auf **DNS**, um das DNS-Snap-In zu öffnen.  
   
-2.  Erweitern Sie in der Konsolenstruktur DC1 und **Forward-Lookupzonen**, klicken Sie mit der rechten Maustaste auf **contoso.com**, und klicken Sie dann auf **Neuer Host (A oder AAAA)**.  
+2.  Erweitern Sie in der Konsolenstruktur DC1 und **Forward-Lookupzonen**, klicken Sie mit der rechten Maustaste auf **contoso.com**, und klicken Sie dann auf **Neuer Host (A oder AAAA)** .  
   
 3.  Geben Sie unter **Name** den gewünschten Namen für Ihre AD FS-Farm ein. Geben Sie für diese exemplarische Vorgehensweise **adfs1**ein.  
   
 4.  Geben Sie im Feld **IP-Adresse**die IP-Adresse des ADFS1-Servers ein. Klicken Sie auf **Host hinzufügen**.  
   
-5.  Klicken Sie mit der rechten Maustaste auf **contoso.com**, und klicken Sie dann auf **Neuer Alias (CNAME)**.  
+5.  Klicken Sie mit der rechten Maustaste auf **contoso.com**, und klicken Sie dann auf **Neuer Alias (CNAME)** .  
   
 6.  Geben Sie im Dialogfeld **Neuer Ressourcendatensatz** **enterpriseregistration** in das Feld **Aliasname** ein.  
   
@@ -203,7 +201,7 @@ Sie müssen mindestens Mitglied der Gruppe Administratoren oder einer entspreche
     > Wenn Ihr Unternehmen in einer realen Bereitstellung über mehrere Benutzerprinzipalnamen-Suffixe (User Principal Name, UPN) verfügt, müssen Sie mehrere CNAME-Datensätze erstellen, jeweils einen für die UPN-Suffixe in DNS.  
   
 ## <a name="BKMK_5"></a>Schritt 3: Konfigurieren des Webservers (WebServ1) und einer ansprchsbasierten Beispielanwendung  
-Richten Sie einen virtuellen Computer (WebServ1) ein, indem Sie die Installation des Betriebssystems Windows Server 2012 R2, und verbinden es mit der Domäne **"contoso.com"**. Nachdem der Computer der Domäne hinzugefügt ist, können Sie mit der Installation und Konfiguration der Webserverrolle fortfahren.  
+Richten Sie einen virtuellen Computer (WebServ1) ein, indem Sie die Installation des Betriebssystems Windows Server 2012 R2, und verbinden es mit der Domäne **"contoso.com"** . Nachdem der Computer der Domäne hinzugefügt ist, können Sie mit der Installation und Konfiguration der Webserverrolle fortfahren.  
   
 Zum Abschließen der zu Beginn dieses Themas aufgeführten exemplarischen Vorgehensweisen müssen Sie eine Beispielanwendung haben, die von Ihrem Verbundserver (ADFS1) gesichert wird.  
   
@@ -237,7 +235,7 @@ Sie müssen die folgenden Schritte durchführen, um einen Webserver mit dieser a
   
 5.  Klicken Sie auf der Seite  **Zielserver auswählen** auf **Einen Server aus dem Serverpool auswählen**, überprüfen Sie, ob der Zielcomputer ausgewählt ist, und klicken Sie dann auf **Weiter**.  
   
-6.  Aktivieren Sie auf der Seite **Serverrollen auswählen** das Kontrollkästchen neben **Webserver (IIS)**, und klicken Sie auf **Features hinzufügen**und dann auf **Weiter**.  
+6.  Aktivieren Sie auf der Seite **Serverrollen auswählen** das Kontrollkästchen neben **Webserver (IIS)** , und klicken Sie auf **Features hinzufügen**und dann auf **Weiter**.  
   
 7.  Wählen Sie auf der Seite **Features auswählen** die Option **Windows Identity Foundation 3.5** aus, und klicken Sie dann auf **Weiter**.  
   
@@ -290,7 +288,7 @@ Sie müssen die folgenden Schritte durchführen, um einen Webserver mit dieser a
   
 4.  **Konfigurieren von IIS-Manager**  
   
-    1.  Öffnen Sie **Internetinformationsdienste-Manager (IIS)**.  
+    1.  Öffnen Sie **Internetinformationsdienste-Manager (IIS)** .  
   
     2.  Navigieren Sie zu **Anwendungspools**, und klicken Sie mit der rechten Maustasge auf **DefaultAppPool**, um **Erweiterte Einstellungen** auszuwählen. Setzen Sie **Benutzerprofil laden** auf **True**, und klicken Sie dann auf **OK**.  
   
@@ -308,7 +306,7 @@ Sie müssen die folgenden Schritte durchführen, um einen Webserver mit dieser a
   
     1.  Führen Sie FedUtil.exe, die sich im befindet **c: Dateien (x86) Windows Identity Foundation SDKv3.5**.  
   
-    2.  Legen Sie den Speicherort der Anwendungskonfiguration auf **C:inetputclaimappweb.config** und legen Sie den Anwendungs-URI, an die URL für Ihre Website  **https://webserv1.contoso.com /claimapp /**. Klicken Sie auf **Weiter**.  
+    2.  Legen Sie den Speicherort der Anwendungskonfiguration auf **C:inetputclaimappweb.config** und legen Sie den Anwendungs-URI, an die URL für Ihre Website  **https://webserv1.contoso.com /claimapp /** . Klicken Sie auf **Weiter**.  
   
     3.  Wählen Sie **vorhandenen STS verwenden** , und navigieren Sie zur Metadaten-URL Ihres AD FS-Servers **https://adfs1.contoso.com/federationmetadata/2007-06/federationmetadata.xml**. Klicken Sie auf **Weiter**.  
   
@@ -327,7 +325,7 @@ Sie müssen jetzt Ihre beispielanwendung sichern, die auf dem Webserver mit AD F
 1.  Navigieren Sie auf Ihrem Verbundserver (ADFS1) in der **AD FS-Verwaltungskonsole** zu **Vertrauensstellungen der vertrauenden Seite**, und klicken Sie dann auf **Vertrauensstellung der vertrauenden Seite hinzufügen**.  
   
 2.  Wählen Sie auf der Seite **Auswählen einer Datenquelle** die Option **Online oder in einem lokalen Netzwerk veröffentlichte Daten über die vertrauende Seite importieren**aus, geben Sie die Metadaten-URL für **claimapp**ein, und klicken Sie dann auf **Weiter**. Bei der Ausführung von FedUtil.exe wurde eine Metadaten-XML-Datei erstellt. Sie befindet sich unter   
-    **https://webserv1.contoso.com/claimapp/federationmetadata/2007-06/federationmetadata.xml**.  
+    **https://webserv1.contoso.com/claimapp/federationmetadata/2007-06/federationmetadata.xml** .  
   
 3.  Geben Sie auf der Seite **Anzeigenamen angeben** den **Anzeigenamen** für Ihre Vertrauensstellung der vertrauenden Seite ( **claimapp**) an, und klicken Sie dann auf **Weiter**.  
   

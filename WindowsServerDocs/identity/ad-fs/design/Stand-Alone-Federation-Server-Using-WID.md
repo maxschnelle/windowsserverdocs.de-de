@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 9ec4150a7d3adfaac786219d253e1d0898c18204
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 31e2e1b04383adc8bec12e7290a7acec80e0402f
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59876521"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190788"
 ---
 # <a name="stand-alone-federation-server-using-wid"></a>Eigenständiger Verbundserver mit WID
-
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Ein eigenständiger\-allein Verbundserver in Active Directory Federation Services \(AD FS\) besteht aus einem einzelnen Server, der einen Verbunddienst für die Verwendung der internen Windows-Datenbank konfiguriert hostet \(WID\). Dieser AD FS-Topologie ist für Test-Labs. Nicht empfohlen es für produktionsumgebungen, da es ein Limit von nur einem Verbundserver hat, und er nicht verwendet werden, um weitere Server zentral hochskalieren.  
   
@@ -45,4 +43,4 @@ Dieser Abschnitt beschreibt verschiedene Überlegungen zu den Zielgruppe, Vortei
   
 
 ## <a name="see-also"></a>Siehe auch
-[AD FS-Entwurfshandbuch in WindowsServer 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

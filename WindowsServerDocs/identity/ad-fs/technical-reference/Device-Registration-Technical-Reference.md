@@ -9,15 +9,13 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: fac6437e9b6c3893064769a8279c2cf96cbc47d6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f2e373f45088105a7ac9ca5cb43fbebc6452ccb9
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833781"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188585"
 ---
->Gilt für: Windows Server 2016, Windows Server 2012 R2
-
 # <a name="device-registration-technical-reference"></a>Technische Referenz zur Geräteregistrierung
 Der Device Registration Service \(DRS\) ist ein neuer Windows-Dienst, der mit der Active Directory-Verbunddienstrolle unter Windows Server 2012 R2 enthalten ist.  Der DRS muss auf allen Verbundservern der AD FS-Farm installiert und konfiguriert sein.  Informationen zum Bereitstellen des DRS finden Sie unter [Konfigurieren eines Verbundservers mit dem Geräteregistrierungsdienst](https://technet.microsoft.com/library/dn486831.aspx).  
   
@@ -25,7 +23,7 @@ Der Device Registration Service \(DRS\) ist ein neuer Windows-Dienst, der mit de
 Die folgenden Active Directory-Objekte werden als Teil des Geräteregistrierungsdiensts erstellt.  
   
 ### <a name="device-registration-configuration"></a>Geräteregistrierungskonfiguration  
-Die Geräteregistrierungskonfiguration wird im Konfigurationsnamenskontext der Active Directory-Gesamtstruktur gespeichert. \(Z. B. **CN\=Device Registration Configuration, CN\=Services, < Konfiguration\-Benennung\-Kontext >**\). Dieses Objekt wird erstellt, wenn die Active Directory-Gesamtstruktur für die Geräteregistrierung initialisiert wird.  
+Die Geräteregistrierungskonfiguration wird im Konfigurationsnamenskontext der Active Directory-Gesamtstruktur gespeichert. \(Z. B. **CN\=Device Registration Configuration, CN\=Services, < Konfiguration\-Benennung\-Kontext >** \). Dieses Objekt wird erstellt, wenn die Active Directory-Gesamtstruktur für die Geräteregistrierung initialisiert wird.  
   
 Die Geräteregistrierungskonfiguration umfasst die folgenden Elemente:  
   
@@ -40,7 +38,7 @@ Die Geräteregistrierungskonfiguration umfasst die folgenden Elemente:
 ### <a name="registered-devices-container"></a>Container für registrierte Geräte  
 Der Geräte-Objektcontainer wird unter einer der Domänen in der Active Directory-Gesamtstruktur erstellt.  Dieser Objektcontainer enthält alle Geräteobjekte für die Active Directory-Gesamtstruktur.  
   
-Standardmäßig wird der Container in derselben Domäne wie AD FS erstellt.  \(Z. B. **CN\=RegisteredDevices, DC\=< Standard\-Benennung\-Kontext >**\). Dieses Objekt wird erstellt, wenn die Active Directory-Gesamtstruktur für die Geräteregistrierung initialisiert wird.  
+Standardmäßig wird der Container in derselben Domäne wie AD FS erstellt.  \(Z. B. **CN\=RegisteredDevices, DC\=< Standard\-Benennung\-Kontext >** \). Dieses Objekt wird erstellt, wenn die Active Directory-Gesamtstruktur für die Geräteregistrierung initialisiert wird.  
   
 ### <a name="registered-devices"></a>Registrierte Geräte  
 Geräteobjekte sind neue Lightweight-Objekte in Active Directory.  Sie werden verwendet, um die Beziehung zwischen einem Benutzer, einem Gerät und dem Unternehmen darzustellen.  Geräteobjekte verwenden ein von AD FS signiertes Zertifikat, um das physische Gerät am logischen Geräteobjekt in Active Directory zu verankern.  

@@ -9,16 +9,14 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 31c2e048c3c125d0ea60610b049501151d7aa823
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6150b52030734c57b345aea731302650bcbddbfd
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830781"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192130"
 ---
 # <a name="implementing-your-ad-fs-design-plan"></a>Implementieren des AD FS-Entwurfsplans
-
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Die folgenden umgebungsbedingungen und Anforderungen sind wichtige Faktoren für die Implementierung Ihrer Active Directory Federation Services \(AD FS\) Entwurfsplan:  
   

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 manager: dongill
-ms.openlocfilehash: 2f4fc63c6ff7c1254fda630a8f34188d8fedc8e5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: e20b4960faac0ef40ad68271fa907394344e9c47
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59825041"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034428"
 ---
 # <a name="add-the-rd-connection-broker-server-to-the-deployment-and-configure-high-availability"></a>Hinzufügen des Remotedesktop-Verbindungsbrokerservers zur Bereitstellung und Konfigurieren von hoher Verfügbarkeit
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2019, WindowsServer 2016
 
 Sie können einen Remotedesktop-Verbindungsbroker (RD-Verbindungsbroker)-Cluster zur Verbesserung der Verfügbarkeit und Skalierung der Infrastruktur Remote Desktop Services bereitstellen. 
 
@@ -37,7 +37,7 @@ Richten Sie eine Datenbank aus, für den Verbindungsbroker. Sie können [Azure S
     1. Klicken Sie im Azure-Portal auf **Durchsuchen > Ressourcengruppen** , und klicken Sie auf die Ressourcengruppe für die Bereitstellung.   
     2. Wählen Sie die SQL-Datenbank, die Sie gerade erstellt, (z. B. CB-DB1 haben).   
     3. Klicken Sie auf **Einstellungen > Eigenschaften > Datenbank-Verbindungszeichenfolgen anzeigen**.   
-    4. Kopieren Sie die Verbindungszeichenfolge für **ODBC (umfasst Node.js)**, die wie folgt aussehen sollte:   
+    4. Kopieren Sie die Verbindungszeichenfolge für **ODBC (umfasst Node.js)** , die wie folgt aussehen sollte:   
       
         Driver = {SQL Server Native Client 13.0}; Server = Tcp:cb-sqls1.database.windows.net,1433; Database = CB-DB1; UID =sqladmin@contoso; PWD = {Your_password_here}; Verschlüsseln = Yes; TrustServerCertificate = Nein; Verbindungstimeout = 30;   
   
@@ -62,7 +62,7 @@ Richten Sie eine Datenbank aus, für den Verbindungsbroker. Sie können [Azure S
 
 ## <a name="step-2-configure-load-balancing-on-the-rd-connection-brokers"></a>Schritt 2: Konfigurieren Sie den Lastenausgleich für den Remotedesktop-Verbindungsbroker 
 
-Wenn Sie Azure-Infrastruktur verwenden, können Sie erstellen eine [Azure-Lastenausgleich](#create-a-load-balancer); Wenn nicht festgelegt werden kann um oben [DNS-Roundrobin](#configure-dns-round--robin). 
+Wenn Sie Azure-Infrastruktur verwenden, können Sie erstellen eine [Azure-Lastenausgleich](#create-a-load-balancer); Wenn nicht festgelegt werden kann um oben [DNS-Roundrobin](#configure-dns-round-robin).
 
 ### <a name="create-a-load-balancer"></a>Erstellen eines Load Balancers  
 1. Erstellen Sie einen Azure Load Balancer   
@@ -88,9 +88,9 @@ Wenn Sie Azure-Infrastruktur verwenden, können Sie erstellen eine [Azure-Lasten
       1. Verbinden Sie mit dem RDMS Server-Computer (z. B. Contoso-CB1). Sehen Sie sich die [bereiten Sie die RD Connection Broker VM](Prepare-the-RD-Connection-Broker-VM-for-Remote-Desktop.md) Schritte auf, wie Sie eine Verbindung mit dem virtuellen Computer herstellen.   
       2. Klicken Sie im Server-Manager **Tools > DNS**.   
       3. Erweitern Sie im linken Bereich **DNS**, klicken Sie auf dem DNS-Computer, klicken Sie auf **Forward-Lookupzonen**, und klicken Sie dann auf Ihren Domänennamen ein (z.B. "contoso.com"). (Es kann einige Sekunden, die zum Verarbeiten der Abfrage an den DNS-Server Informationen dauern).  
-      4. Klicken Sie auf **Aktion > Neuer Host (A oder AAAA)**.   
+      4. Klicken Sie auf **Aktion > Neuer Host (A oder AAAA)** .   
       9. Geben Sie den Namen (z. B. Hacb) und die zuvor angegebenen IP-Adresse (z. B. 10.0.0.32).   
-  
+
 ### <a name="configure-dns-round-robin"></a>Konfigurieren von DNS-Roundrobin  
   
 Die folgenden Schritte sind eine Alternative zum Erstellen einer internen Azure Load Balancer.   
@@ -99,7 +99,7 @@ Die folgenden Schritte sind eine Alternative zum Erstellen einer internen Azure 
 2. Erstellen Sie DNS-Einträge:   
       1. Klicken Sie im Server-Manager **Tools > DNS**.   
       2. Erweitern Sie im linken Bereich **DNS**, klicken Sie auf dem DNS-Computer, klicken Sie auf **Forward-Lookupzonen**, und klicken Sie dann auf Ihren Domänennamen ein (z.B. "contoso.com"). (Es kann einige Sekunden, die zum Verarbeiten der Abfrage an den DNS-Server Informationen dauern).  
-      3. Klicken Sie auf **Aktion** und **neuer Host (A oder AAAA)**.   
+      3. Klicken Sie auf **Aktion** und **neuer Host (A oder AAAA)** .   
       4. Geben Sie die **DNS-Namen** für den Remotedesktop-Verbindungsbroker-cluster (z. B. Hacb), und geben Sie dann die **IP-Adresse** von der ersten RD Connection Broker.   
       5. Wiederholen Sie die Schritte 3 und 4 für jede zusätzliche RD Connection Broker, jede eindeutige IP-Adresse für jeden zusätzlichen Datensatz bereitstellen.
 

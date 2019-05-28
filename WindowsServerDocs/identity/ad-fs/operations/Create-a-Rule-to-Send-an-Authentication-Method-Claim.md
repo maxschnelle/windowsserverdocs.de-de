@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 4065a61e042f52298da656899289e718e010f932
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: be3a16bac9c146637117aa7b9720cb4aa76177e2
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819091"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189389"
 ---
 # <a name="create-a-rule-to-send-an-authentication-method-claim"></a>Erstellen einer Regel zum Senden eines Authentifizierungsmethodenanspruchs
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2
 
 Verwenden Sie entweder die **Send Group Membership als Ansprüche** Regelvorlage oder **Transformieren eines eingehenden Anspruchs** Regelvorlage zum Senden eines authentifizierungsanspruchs-Methode. Die abhängige Partei kann mithilfe ein authentifizierungsanspruchs-Methode bestimmen den Mechanismus für die Benutzeranmeldung, die der Benutzer verwendet wird, zu authentifizieren und Abrufen von Ansprüchen aus Active Directory Federation Services \(AD FS\). Sie können auch die Authentifizierungsmechanismuszusicherung-Funktion von Active Directory Federation Services \(AD FS\) in Windows Server 2012 R2 als Eingabe zum Generieren der Methode authentifizierungsansprüchen für Situationen, in dem die vertrauende Seite Sie möchte die Zugriffsebene zu ermitteln, die auf einer Smartcard-Anmeldungen basiert. Entwickler kann beispielsweise verschiedene Zugriffsebenen Verbundbenutzer, die von der Anwendung der vertrauenden Seite zuweisen. Die Ebenen des Zugriffs hängen davon ab, ob der Benutzer mit ihren Benutzer und Kennwort-Anmeldeinformationen, und ihre Smartcards nicht anmelden.  
   
@@ -291,6 +290,6 @@ Verwenden Sie je nach den Anforderungen Ihrer Organisation eine der folgenden Ve
   
 [Wenn Use an Authorization Claim Rule](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
 
-[Die Rolle von Ansprüchen](../../ad-fs/technical-reference/The-Role-of-Claims.md)  
+[Rolle von Ansprüchen](../../ad-fs/technical-reference/The-Role-of-Claims.md)  
   
-[Die Rolle von Anspruchsregeln](../../ad-fs/technical-reference/The-Role-of-Claim-Rules.md) 
+[Rolle von Anspruchsregeln](../../ad-fs/technical-reference/The-Role-of-Claim-Rules.md) 

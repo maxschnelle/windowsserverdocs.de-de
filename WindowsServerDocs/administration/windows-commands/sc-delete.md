@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b60127cf957a30d147c9992c74c01e37e5b8bf89
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 68af5f118b2cc9d7941abddccd2a1bc7fde4c6d0
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871921"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222934"
 ---
 # <a name="sc-delete"></a>SC delete
 
@@ -26,7 +26,7 @@ ms.locfileid: "59871921"
 
 Löscht einen Unterschlüssel Service aus der Registrierung. Wenn der Dienst ausgeführt wird, oder wenn ein anderer Prozess ein geöffnetes Handle an den Dienst verfügt, wird der Dienst zum Löschen markiert.
 
-Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
+Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#examples).
 
 ## <a name="syntax"></a>Syntax
 
@@ -46,7 +46,7 @@ sc [<ServerName>] delete [<ServiceName>]
 
 Verwendung **Software** auf **Systemsteuerung** DHCP, DNS oder andere Dienste integriertes Betriebssystem zu löschen. Beachten Sie, dass **Software** nicht nur der Unterschlüssel der Registrierung für den Dienst entfernt, aber es außerdem deinstallieren Sie den Dienst und löschen Sie alle Verknüpfungen.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="examples"></a>Beispiele
 
 So löschen Sie den Dienstunterschlüssel **NewServ** Geben Sie an der Registrierung auf dem lokalen Computer:
 ```
@@ -55,4 +55,4 @@ sc delete newserv
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

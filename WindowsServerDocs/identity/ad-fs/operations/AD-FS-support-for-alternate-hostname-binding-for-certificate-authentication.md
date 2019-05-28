@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 553ff059693c7b0c0e6f0364d82c1adbca661097
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3e3d1e5d86afbef2fdabd211047f513d31a40300
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887251"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190324"
 ---
 # <a name="ad-fs-support-for-alternate-hostname-binding-for-certificate-authentication"></a>AD FS-Unterstützung für alternative Hostnamenbindung für Zertifikatauthentifizierung
-
->Gilt für: Windows Server 2016
 
 In vielen Netzwerken können die lokale Firewall-Richtlinien kein Datenverkehr über nicht standardmäßige Ports, z. B. 49443 zulässig. Dies wurde ein Problem beim Versuch, eine zertifikatbasierte Authentifizierung mit AD FS vor der AD FS unter Windows Server 2016 zu erreichen. Dies ist, da Sie unterschiedliche Bindungen für die Geräteauthentifizierung und Authentifizierung mit Benutzerzertifikat nicht auf demselben Host haben. Der Standardport 443 gebunden ist, um Zertifikate für Geräte zu erhalten und kann nicht geändert werden, um mehrere Bindung in den gleichen Kanal zu unterstützen. Die Ergebnisse waren, dass die Smartcard-Authentifizierung funktioniert nicht, und Benutzer konnten keine Kenntnis von Was passiert, da es keinen Hinweis gibt von was tatsächlich passiert ist.  
   

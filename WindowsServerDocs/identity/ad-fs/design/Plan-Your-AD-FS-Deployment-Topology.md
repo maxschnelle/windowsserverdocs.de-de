@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 7e41f7728c42912ec6ce680e1ed0c6a906a33392
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 00c43a56d9b57a2ae2c8b9aeca56807fe1d1841f
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821711"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191179"
 ---
 # <a name="plan-your-ad-fs-deployment-topology"></a>Planen der AD FS-Bereitstellungstopologie
-
->Gilt für: Windows Server 2016, Windows Server 2012 R2
 
 Der erste Schritt bei der Planung einer Bereitstellung von Active Directory Federation Services \(AD FS\) besteht darin, auf die Anforderungen Ihrer Organisation die geeignete Bereitstellungstopologie festzulegen.  
   
@@ -75,9 +73,9 @@ Die folgenden Themen beschreiben die verschiedenen Bereitstellungstopologien, di
   
 -   [Verbundserverfarm mit WID und Proxys](Federation-Server-Farm-Using-WID-and-Proxies.md)  
   
--   [Verbundserverfarm mit SQLServer](Federation-Server-Farm-Using-SQL-Server.md)  
+-   [Verbundserverfarm mit SQL Server](Federation-Server-Farm-Using-SQL-Server.md)  
   
 ## <a name="see-also"></a>Siehe auch  
-[AD FS-Entwurfshandbuch in Windows Server 2012 R2](AD-FS-Design-Guide-in-Windows-Server-2012-R2.md)  
+[AD FS-Entwurfshandbuch in Windows Server 2012 R2](AD-FS-Design-Guide-in-Windows-Server-2012-R2.md)  
   
 

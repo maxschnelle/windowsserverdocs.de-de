@@ -9,16 +9,14 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 811f5296143637974cf82e59d57665f8a96f1c8c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 02df9659ee3a1121c0cee3f7c5fa21b91c36b87c
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884111"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192054"
 ---
 # <a name="join-a-computer-to-a-domain"></a>Hinzufügen eines Computers zu einer Domäne
-
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Für Active Directory-Verbunddienste \(AD FS\) funktioniert, jeden Computer, der während ein Verbundservers zu einer Domäne verknüpft werden muss. Verbundserverproxys können mit einer Domäne verknüpft werden, aber dies ist nicht erforderlich.  
   
@@ -41,8 +39,8 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
 6.  Klicken Sie auf **OK**, und starten Sie dann den Computer erneut.  
   
 ## <a name="additional-references"></a>Weitere Verweise  
-[Prüfliste: Das Einrichten eines Verbundservers](Checklist--Setting-Up-a-Federation-Server.md)  
+[Prüfliste: Einrichten eines Verbundservers](Checklist--Setting-Up-a-Federation-Server.md)  
   
-[Prüfliste: Das Einrichten eines Verbundserverproxys](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
+[Prüfliste: Einrichten eines Verbundserverproxys](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
   
 

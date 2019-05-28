@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 1b8344594c9fc477ed8424c716ec8d7f7fd91ef3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 29d50a4d1855e609b6ac9ee627256201074a5033
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852801"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190722"
 ---
 # <a name="web-sso-design"></a>Web-SSO-Entwurf
-
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In den einzelnen Web\-anmelden\-auf \(SSO\) Entwurf in Active Directory Federation Services \(AD FS\), Benutzer müssen nur einmal authentifizieren, für den Zugriff auf mehrere AD FS\- geschützte Anwendungen oder Dienste. Bei diesem Entwurf sind alle Benutzer extern, und es gibt keine Verbundvertrauensstellung, da keine Partnerorganisationen vorhanden sind. In der Regel stellen Sie dieses Design, wenn Sie einzelne Kunden einen Zugriff auf eine oder mehrere AD FS-gesicherte Dienste oder Anwendungen über das Internet bereitstellen, wie in der folgenden Abbildung dargestellt möchten.  
   
@@ -33,4 +31,4 @@ Dieser Entwurf stimmt mit dem Bereitstellungsziel in [Provide Your Active Direct
 Eine detaillierte Liste der Aufgaben, die Sie zum Planen und Bereitstellen Ihrer Web-SSO-Entwurfs verwenden können, finden Sie unter [Prüfliste: Implementieren eines Web-SSO-Entwurfs](../../ad-fs/deployment/Checklist--Implementing-a-Web-SSO-Design.md).  
   
 ## <a name="see-also"></a>Siehe auch
-[AD FS-Entwurfshandbuch in WindowsServer 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
