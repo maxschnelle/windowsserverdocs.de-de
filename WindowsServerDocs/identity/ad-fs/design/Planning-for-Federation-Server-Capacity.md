@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 618dc9419be965dedaaf7dc946da436a5001f121
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 569bea74fe7750eaf2b410a552876e0862b1e24b
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839631"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191093"
 ---
 # <a name="planning-for-federation-server-capacity"></a>Planen der Verbundserverkapazität
-
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Planen der Kapazität für Verbundserver können Sie besser einschätzen:  
   
@@ -56,7 +54,7 @@ Das AD FS-Produktteam entwickelt gerne den Planungsprozess für Verbundserver Ha
 > Die Anzahl der Verbundserver, die in dieser Tabelle wird empfohlen, wird basiert auf den Hardware- und Netzwerk-Spezifikationen, die das AD FS-Produktteam während der Tests verwendet. Aus diesem Grund muss die Anzahl der Verbundserver, die die Tabelle wird empfohlen, wird in diesem Kontext verstanden werden.  Weitere Informationen zu den Spezifikationen, die während der Tests verwendet, finden Sie unter dem Thema [Planen der AD FS-Serverkapazität](Planning-for-AD-FS-Server-Capacity.md).  
   
 ### <a name="using-the-ad-fs-capacity-planning-sizing-spreadsheet"></a>Verwenden die AD FS-Kapazitätsplanung  
-Wenn Sie diese Tabelle verwenden, müssen Sie einen Wert aus \(entweder **40 %**, **60 %**, oder **80 %** \) am besten den Prozentsatz der dar Gesamtanzahl der Benutzer, die Sie erwarten, dass authentifizierungsanforderungen auf Ihren Verbundserver während Spitzenzeiten gesendet wird.  
+Wenn Sie diese Tabelle verwenden, müssen Sie einen Wert aus \(entweder **40 %** , **60 %** , oder **80 %** \) am besten den Prozentsatz der dar Gesamtanzahl der Benutzer, die Sie erwarten, dass authentifizierungsanforderungen auf Ihren Verbundserver während Spitzenzeiten gesendet wird.  
   
 Anschließend müssen Sie einen Wert aus \(entweder **1 Minute**, **15 Minuten**, oder **1 Stunde** \) , dass am besten die Zeitspanne darstellt, erwarten Sie, dass, Der maximale Nutzung Zeitraum bis zum letzten. Sie können z. B. 40 % als Wert für die Gesamtzahl der Benutzer schätzen, werden, die die Anmeldung innerhalb eines Zeitraums von 15 Minuten oder 60 % der Benutzer wird innerhalb eines Zeitraums von einer Stunde anmelden. Zusammen definieren diese Werte die maximale Lastprofil, die mit dem Ihre Empfehlung Größe berechnet werden sollen.  
   
@@ -75,7 +73,7 @@ Sie können die folgenden Schritte für jede Verbund-Server-farmverwaltungsdaten
   
 1.  Herunterladen und öffnen Sie dann die [AD FS Capacity Planning dem Arbeitsblatt zur Dimensionierung für WindowsServer 2012 R2](https://adfsdocs.blob.core.windows.net/adfs/ADFSCapacityPlanning.xlsx) oder [AD FS Capacity Planning dem Arbeitsblatt zur Dimensionierung für WindowsServer 2016](https://adfsdocs.blob.core.windows.net/adfs/ADFSCapacity2016.xlsx).
   
-2.  In der Zelle rechts neben der **während der spitzenauslastungszeit System Nutzung, erwartet dieser Prozentsatz des für meine Benutzer authentifizieren** Zelle, auf die Zelle, und klicken Sie dann mithilfe der Dropdownliste\-nach-unten-Pfeile, um Ihre geschätzte Systemverwendung auswählen Ebene, entweder **40 %**, **60 %** oder **80 %** für die Bereitstellung.  
+2.  In der Zelle rechts neben der **während der spitzenauslastungszeit System Nutzung, erwartet dieser Prozentsatz des für meine Benutzer authentifizieren** Zelle, auf die Zelle, und klicken Sie dann mithilfe der Dropdownliste\-nach-unten-Pfeile, um Ihre geschätzte Systemverwendung auswählen Ebene, entweder **40 %** , **60 %** oder **80 %** für die Bereitstellung.  
   
 3.  In der Zelle rechts neben der **in den folgenden Zeitraum** Zelle, auf die Zelle, und klicken Sie dann mithilfe der Dropdownliste\-unten weisenden Pfeil, wählen Sie entweder **1 Minute**, **15 Minuten**, oder **1 Stunde** , wählen Sie die Dauer der Spitzenlast.  
   
@@ -95,4 +93,4 @@ Sie können die folgenden Schritte für jede Verbund-Server-farmverwaltungsdaten
 > Der Wert, der in der Zelle rechts neben der Zelle, die mit der Bezeichnung automatisch berechnet wird **Gesamtanzahl von Verbundservern, die empfohlen** am unteren Rand der Tabelle enthält eine Formel, die einen zusätzlicher Puffer von 20 % auf Hinzufügen, wird die die Gesamtsumme aller Werte in den einzelnen von den einzelnen Zeilen vorangeht. Der Formel hinzugefügt, die **Gesamtanzahl von Verbundservern empfohlen** Zelle erstellt, in diesen Puffer für Ihre gesamten empfohlene Anzahl von bereitgestellten Verbundserver soll sehr unwahrscheinlich, dass die Gesamtlast auf der Farm jemals erreicht wird die Sättigung-Punkt.  
   
 ## <a name="see-also"></a>Siehe auch
-[AD FS-Entwurfshandbuch in WindowsServer 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

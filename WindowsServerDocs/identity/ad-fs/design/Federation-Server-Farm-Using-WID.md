@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 41c2179cbd8bf2c6032f233335099b512c02f880
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 067461b90ed5ce03d9470a450917dcbb93cf653a
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59832501"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191310"
 ---
 # <a name="federation-server-farm-using-wid"></a>Verbundserverfarm mit WID
-
->Gilt für: Windows Server 2016, Windows Server 2012 R2
 
 Die Standardtopologie für Active Directory Federation Services \(AD FS\) eine Verbundserverfarm unter Verwendung der internen Windows-Datenbank ist \(WID\). In dieser Topologie verwendet die AD FS WID als Speicher für die AD FS-Konfigurationsdatenbank für alle Verbundserver, die mit der betreffenden Farm verbunden sind. Die Verbunddienstdaten in der Konfigurationsdatenbank werden von der Farm auf alle Server der Farm repliziert und dort verwaltet. AD FS unter Windows Server 2012 R2 ermöglicht Organisationen mit bis zu 100 Vertrauensstellungen der vertrauenden Seite Partei Verbund-Serverfarmen mit WID mit bis zu 30 Server konfigurieren.  
   
@@ -80,7 +78,7 @@ Der NLB-Host können die Einstellungen, die in diesem NLB-Cluster auf Clientanfo
 Weitere Informationen dazu, wie Sie Ihre Netzwerkumgebung für die Verwendung mit dem Verbundserver konfigurieren zu können, finden Sie im Abschnitt Anforderungen an die namensauflösung in [AD FS-Anforderungen](AD-FS-Requirements.md).  
   
 ## <a name="see-also"></a>Siehe auch  
-[Planen der AD FS-Bereitstellungstopologie](Plan-Your-AD-FS-Deployment-Topology.md)  
-[AD FS-Entwurfshandbuch in Windows Server 2012 R2](AD-FS-Design-Guide-in-Windows-Server-2012-R2.md)  
+[Planen der AD FS-Bereitstellungstopologie](Plan-Your-AD-FS-Deployment-Topology.md)  
+[AD FS-Entwurfshandbuch in Windows Server 2012 R2](AD-FS-Design-Guide-in-Windows-Server-2012-R2.md)  
   
 

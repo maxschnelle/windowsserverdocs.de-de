@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 8ee42bfe964bed4a0d52045e7a4add1efbfa1d51
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 154e6e986bd0e78936a985ce7b80ee533ea5c82a
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59836511"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191829"
 ---
-# <a name="windows-server-2016-and-2012-r2-ad-fs-deployment-guide"></a>Bereitstellungshandbuch für AD FS unter Windows Server 2016 und 2012 R2
+# <a name="windows-server-ad-fs-deployment-guide"></a>Windows Server AD FS-Bereitstellungshandbuch
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2
 
 Können Sie Active Directory Federation Services \(AD FS\) mit Windows Server 2016 und 2012 R2-Betriebssystem eines Identitätsverbunds verwaltungslösungen erstellen, die verteilte Identifikation der erweitern-Authentifizierung und Web-Autorisierungsdienste\--basierte Anwendungen über Unternehmens- und plattformübergreifend hinweg. Durch die Bereitstellung von AD FS können Sie die vorhandenen Identitätsverwaltungsfunktionen Ihrer Organisation auf das Internet erweitern.  
   
@@ -29,7 +28,7 @@ Können Sie Active Directory Federation Services \(AD FS\) mit Windows Server 20
 -   [Azure Active Directory Connect](Azure-Active-Directory-Connect.md)  
   
 ## <a name="see-also"></a>Siehe auch  
-[AD FS-Bereitstellung](../../ad-fs/AD-FS-Deployment.md)  
+[AD FS-Bereitstellung](../../ad-fs/AD-FS-Deployment.md)  
 
   
 

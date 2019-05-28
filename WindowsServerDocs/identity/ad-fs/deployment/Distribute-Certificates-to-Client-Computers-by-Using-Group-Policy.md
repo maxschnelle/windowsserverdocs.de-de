@@ -9,16 +9,14 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: d3a7e05e4d16565b17b69de254e353df749bbc3a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 11cdd9c75ca588ebeac9387e6512fee439621bf8
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839231"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192157"
 ---
 # <a name="distribute-certificates-to-client-computers-by-using-group-policy"></a>Verteilen Sie Zertifikate auf den Clientcomputern mithilfe einer Gruppenrichtlinie
-
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 
 Sie können das folgende Verfahren mithilfe von Push übertragen Sie die entsprechenden Secure Sockets Layer \(SSL\) Zertifikate \(oder die entsprechenden Zertifikate einer vertrauenswürdigen Stammzertifizierungsstelle\) für kontoverbundservern, Ressourcenverbundserver und Webservern auf jedem Clientcomputer in der Kontopartner-Gesamtstruktur mithilfe der Gruppenrichtlinie.  

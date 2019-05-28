@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 498b399818fb8c9e463f9990fa13c87648c0a33d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2d15f680f28c54da75100a03f7b85e880442d9be
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822151"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191740"
 ---
-# <a name="ad-fs-design-guide-in-windows-server-2012-r2"></a>AD FS-Entwurfshandbuch in Windows Server 2012 R2
-
->Gilt für: Windows Server 2016, Windows Server 2012 R2
+# <a name="ad-fs-design-guide-in-windows-server"></a>AD FS-Entwurfshandbuch in WindowsServer 
 
 Active Directory-Verbunddienste \(AD FS\) bietet vereinfachten und sicheren Identitätsverbund sowie Web-SSO\-auf \(SSO\) Funktionen für Endbenutzer, die auf Anwendungen zugreifen möchten in einem AD FS\-Unternehmen, in verbundpartnerorganisationen oder in der Cloud gesichert.  
   
@@ -31,14 +29,14 @@ Dieses Handbuch bietet Empfehlungen helfen Ihnen beim Planen einer neuen Bereits
   
 ## <a name="in-this-guide"></a>Inhalt dieser Anleitung  
   
--   [Identifizieren der AD FS-Bereitstellungsziele](Identify-Your-AD-FS-Deployment-Goals.md)  
+-   [Identifizieren der AD FS-Bereitstellungsziele](Identify-Your-AD-FS-Deployment-Goals.md)  
   
--   [Planen der AD FS-Bereitstellungstopologie](Plan-Your-AD-FS-Deployment-Topology.md)  
+-   [Planen der AD FS-Bereitstellungstopologie](Plan-Your-AD-FS-Deployment-Topology.md)  
   
--   [AD FS-Anforderungen](AD-FS-Requirements.md)  
+-   [AD FS-Anforderungen](AD-FS-Requirements.md)  
   
   
 ## <a name="see-also"></a>Siehe auch  
-[AD FS-Entwurf](../../ad-fs/AD-FS-Design.md)  
+[AD FS-Entwurf](../../ad-fs/AD-FS-Design.md)  
   
 

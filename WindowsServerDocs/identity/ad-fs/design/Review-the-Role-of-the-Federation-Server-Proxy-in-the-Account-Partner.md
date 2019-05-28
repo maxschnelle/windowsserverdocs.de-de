@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: d2b60ce593c2ca7eb902595ee6a42850cb7605d9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dbceb19d31738bdc5b628a9a2b069e5d3022d145
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870841"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190955"
 ---
 # <a name="review-the-role-of-the-federation-server-proxy-in-the-account-partner"></a>Überprüfen der Rolle des Verbundserverproxys beim Kontopartner
-
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Die primäre Rolle des des Verbundserverproxys im Umkreisnetzwerk der Kontopartnerorganisation in Active Directory-Verbunddienste \(AD FS\) besteht darin, Anmeldeinformationen für die Authentifizierung von einem Clientcomputer zu sammeln, die sich anmeldet über das Internet und die Anmeldeinformationen an den Verbundserver übergeben wird die im Unternehmensnetzwerk der Kontopartnerorganisation befindet. Das Konto für den Clientcomputer wird im Kontopartner-Attribut gespeichert.  
   
@@ -35,4 +33,4 @@ Zusammenfassend lässt sich sagen, fungiert ein Verbundserverproxys beim Kontopa
   
 
 ## <a name="see-also"></a>Siehe auch
-[AD FS-Entwurfshandbuch in WindowsServer 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

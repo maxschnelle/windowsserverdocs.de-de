@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: e9762e4bc50a1c2b862999af5269a0da376ec9a1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 00ea4f9f868b9c82c2a0859be971db26394251a3
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887611"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189352"
 ---
 # <a name="create-a-rule-to-send-ldap-attributes-as-claims"></a>Erstellen Sie eine Regel zum Senden von LDAP-Attributen als Ansprüche
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2
 
 Verwenden das Senden von LDAP-Attributen als Ansprüche Regelvorlage in Active Directory-Verbunddienste \(AD FS\), Sie können eine Regel, die Attribute aus einem Lightweight Directory Access Protocol auswählen erstellen \(LDAP\)-Attributspeicher wie Active Directory als Ansprüche an die vertrauende Seite gesendet. Angenommen, Sie können diese Regelvorlage um a Send LDAP Attributes zu erstellen, wie Ansprüche Regel extrahiert, die Attributwerte für authentifizierte Benutzer aus der **"DisplayName"** und **"telephoneNumber"** Active Directory Attribute, und klicken Sie dann diese Werte als zwei unterschiedliche ausgehende Ansprüche senden.  
   
@@ -114,6 +113,6 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
   
 [Wenn Use an Authorization Claim Rule](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
 
-[Die Rolle von Ansprüchen](../../ad-fs/technical-reference/The-Role-of-Claims.md)  
+[Rolle von Ansprüchen](../../ad-fs/technical-reference/The-Role-of-Claims.md)  
   
-[Die Rolle von Anspruchsregeln](../../ad-fs/technical-reference/The-Role-of-Claim-Rules.md)  
+[Rolle von Anspruchsregeln](../../ad-fs/technical-reference/The-Role-of-Claim-Rules.md)  

@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 11baba5bfdb699f120a506feb8361db21d26cff1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 103ee707c88f4e88b231a833f739cf75b6503e18
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837861"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190100"
 ---
 # <a name="add-an-attribute-store"></a>Attributspeicher hinzufügen
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2
 
 Benutzerkonten und Computerkonten, die Zugriff auf eine Ressource, die von Active Directory Federation Services geschützt ist, erfordern \(AD FS\) befinden sich in einem Attributspeicher, z. B. Active Directory Domain Services \(AD DS \). Die anspruchsausstellungs-Engine verwendet Attributspeicher zum Sammeln von Daten, die zum Ausstellen von Ansprüchen erforderlich ist. Daten aus dem Attributspeicher projiziert werden dann als Ansprüche.  
   
@@ -51,6 +50,6 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
   
 ## <a name="additional-references"></a>Weitere Verweise  
 
-[AD FS-Vorgänge](../../ad-fs/AD-FS-2016-Operations.md)
+[AD FS-Vorgänge](../../ad-fs/AD-FS-2016-Operations.md)
   
 [Die Rolle des Attributspeichers](../../ad-fs/technical-reference/The-Role-of-Attribute-Stores.md)  
