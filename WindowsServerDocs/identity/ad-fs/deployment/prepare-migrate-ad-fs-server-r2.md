@@ -8,18 +8,18 @@ ms.date: 07/10/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 4d0ff53b9118db1dd6ba5af94b3e627bf1597e0c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b5658676d08318d88ddee44a0589db5873b4660b
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889021"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034298"
 ---
 # <a name="prepare-to-migrate-the-ad-fs-20-federation-server-to-ad-fs-on-windows-server-2012-r2"></a>Vorbereiten der Migration des AD FS 2.0-Verbundservers mit AD FS unter Windows Server 2012 R2
 
 Dieses Dokument beschreibt, wie Sie eine AD FS 2.0 oder Windows Server 2012-Verbundserverfarm zu einer Windows Server 2012 R2 AD FS-Farm zu migrieren.  Die Schritte können mit AD FS-Farmen verwendet werden, die eine WID oder SQL Server als der zugrunde liegenden Datenbank zu verwenden.  
   
--   [Überblick über den Migrationsprozess](prepare-migrate-ad-fs-server-r2.md#migrate-process-outline)  
+-   [Überblick über den Migrationsprozess](prepare-migrate-ad-fs-server-r2.md#migration-process-outline)  
   
 -   [Neue AD FS-Funktionen in Windows Server 2012 R2](prepare-migrate-ad-fs-server-r2.md#new-ad-fs-functionality-in-windows-server-2012-r2)  
   
@@ -29,7 +29,8 @@ Dieses Dokument beschreibt, wie Sie eine AD FS 2.0 oder Windows Server 2012-Verb
   
 -   [Andere Migrationsaufgaben und Überlegungen](prepare-migrate-ad-fs-server-r2.md#other-migration-tasks-and-considerations)  
   
-##  <a name="migration-process-outline"></a>Überblick über den Migrationsprozess  
+##  <a name="migration-process-outline"></a>Überblick über den Migrationsprozess
+
  Führen Sie zum Abschließen der Migration der AD FS-Verbundserverfarm zu Windows Server 2012 R2 die folgenden Aufgaben aus:  
   
 1.  Exportieren, Aufzeichnen und Sichern der folgenden Konfigurationsdaten in der vorhandenen AD FS-Farm. Ausführliche Anweisungen zum Ausführen dieser Aufgaben finden Sie unter [Migrieren des AD FS-Verbundservers](migrate-ad-fs-fed-server-r2.md).  

@@ -1,21 +1,23 @@
 ---
 Title: Übersicht über Storage-Migration Service
-description: Kurze Beschreibung des Thema suchmaschinenergebnissen
+description: Storage-Migration-Dienst erleichtert es, für die Migration der Server auf eine neuere Version von Windows Server. Es bietet ein grafisches Tool, die inventarisiert, die Daten auf Servern und dann die Daten und die Konfiguration auf neueren Servern übertragen – alles ohne Anwendungen oder Benutzer Änderungen vornehmen müssen.
 author: jasongerend
 ms.author: jgerend
 manager: elizapo
-ms.date: 09/24/2018
+ms.date: 05/21/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: edc82c996f6877f770454fc6e27ccf5205a7d540
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: fd99058036a5b8041e4c65ca120c6a7e68b2df8d
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843861"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976649"
 ---
 # <a name="storage-migration-service-overview"></a>Übersicht über Storage-Migration Service
+
+>Gilt für: WindowsServer 2019, Windows Server 2016, Windows Server 2012 R2, WindowsServer (Halbjährlicher Kanal)
 
 Storage-Migration-Dienst erleichtert es, für die Migration der Server auf eine neuere Version von Windows Server. Es bietet ein grafisches Tool, die inventarisiert, die Daten auf Servern und dann die Daten und die Konfiguration auf neueren Servern übertragen – alles ohne Anwendungen oder Benutzer Änderungen vornehmen müssen.
 
@@ -52,12 +54,14 @@ Um Speicherung Datenbankmigrationsdienst verwenden zu können, benötigen Sie Fo
 - Ein **Quellserver** zum Migrieren von Dateien und Daten aus
 - Ein **Zielserver** unter Windows Server-2019 zu migrieren – Windows Server 2016 und Windows Server 2012 R2, gut geeignet, aber sind ca. 50 % langsamer
 - Ein **Orchestrator-Server** unter Windows Server-2019 zum Verwalten der Migrations  <br>Wenn Sie nur ein paar Server migrieren, und einen der Server die Windows Server-2019 ausgeführt wird, können Sie, die als Orchestrator. Wenn Sie weitere Server migrieren, wird empfohlen, mit einem separaten OrchestratorServer.
-- Ein **PC oder Server mit [Windows Admin Center](../../manage/windows-admin-center/understand/windows-admin-center.md)**  die Benutzeroberfläche für die Speicherung Datenbankmigrationsdienst, ausgeführt werden, es sei denn, Sie mithilfe von PowerShell zum Verwalten der Migrations möchten. Die Version des Windows Admin Center und Windows Server-2019 müssen mindestens Version 1809. 
+- Ein **PC oder Server mit [Windows Admin Center](../../manage/windows-admin-center/understand/windows-admin-center.md)**  die Benutzeroberfläche für die Speicherung Datenbankmigrationsdienst, ausgeführt werden, es sei denn, Sie mithilfe von PowerShell zum Verwalten der Migrations möchten. Die Version des Windows Admin Center und Windows Server-2019 müssen mindestens Version 1809.
+
+Es wird dringend empfohlen, die der Orchestrator und dem Ziel Computer verfügen über mindestens zwei Kerne oder zwei vCPUs und über mindestens 2 GB Arbeitsspeicher. Inventar und Übertragung sind wesentlich schneller mit mehr Prozessoren und Arbeitsspeicher.
 
 ### <a name="security-requirements"></a>Sicherheitsanforderungen
 
-- Eine Migrationskonto, das ein Administrator auf dem Quellcomputer ist.
-- Eine Migrationskonto, das ein Administrator auf den Zielcomputern ist.
+- Eine Migrationskonto, das ein Administrator auf dem Quellcomputer und dem Orchestrator-Computer ist.
+- Eine Migrationskonto, das ein Administrator auf dem Zielcomputer und dem Orchestrator-Computer ist.
 - Der Orchestrator-Computer müssen die Datei- und Druckerfreigabe (SMB eingehend) aktivierte Firewallregel *eingehende*.
 - Die Quelle und Ziel-Computer müssen die folgenden Firewallregeln aktiviert *eingehende* (auch wenn Sie bereits diese aktiviert haben können):
   - Datei- und Druckerfreigabe (SMB eingehend)
@@ -73,6 +77,7 @@ Um Speicherung Datenbankmigrationsdienst verwenden zu können, benötigen Sie Fo
 
 Der Quellserver muss es sich um eines der folgenden Betriebssysteme ausgeführt:
 
+- WindowsServer Halbjährlicher Kanal
 - Windows Server 2019
 - Windows Server 2016
 - Windows Server 2012 R2
@@ -82,16 +87,34 @@ Der Quellserver muss es sich um eines der folgenden Betriebssysteme ausgeführt:
 - Windows Server 2003 R2
 - Windows Server 2003
 
+Wenn der Orchestrator 1903 oder höher, Windows Server ausgeführt wird, können Sie die folgenden Typen von zusätzlichen Quell-migrieren:
+
+- Failovercluster
+- Linux-Server, die Samba verwenden. Wir haben die folgenden getestet:
+    - RedHat Enterprise Linux 7.6, CentOS 7, Debian 8, Ubuntu 16.04 and 12.04.5, SUSE Linux Enterprise Server (SLES) 11 SP4
+    - Samba 4.x, 3.6.x
+
 ### <a name="requirements-for-destination-servers"></a>Anforderungen für den Zielserver
 
 Der Zielserver muss es sich um eines der folgenden Betriebssysteme ausgeführt:
 
+- WindowsServer Halbjährlicher Kanal
 - Windows Server 2019
 - Windows Server 2016
 - Windows Server 2012 R2
 
 > [!TIP]
-> Zielservern unter Windows Server-2019 haben doppelte die übertragungsleistung früherer Versionen von Windows Server. Diese Leistungssteigerung wurde für den integrierten Speicherung Datenbankmigrationsdienst Proxydienst, der wird auch die erforderlichen Firewall geöffnet werden, die Ports, wenn sie nicht bereits sind öffnen.
+> Der Zielserver unter Windows Server-2019 oder Windows Server, haben Halbjährlicher Kanal 1809 oder höher doppelte die übertragungsleistung früherer Versionen von Windows Server. Diese Leistungssteigerung wurde für den integrierten Speicherung Datenbankmigrationsdienst Proxydienst, der wird auch die erforderlichen Firewall geöffnet werden, die Ports, wenn sie nicht bereits sind öffnen.
+
+## <a name="whats-new-in-storage-migration-service"></a>Neuerungen im Storage-Migration-Dienst
+
+Windows Server-Version 1903 fügt die folgenden neuen Features, die bei Ausführung auf dem Orchestrator-Server:
+
+- Migrieren Sie lokale Benutzer und Gruppen mit dem neuen server
+- Migrieren des Speichers von Failoverclustern
+- Migrieren des Speichers von einem Linux-Server, der Samba verwendet
+- Synchronisieren Sie leichter migrierte Dateifreigaben in Azure mithilfe von Azure File Sync
+- Migrieren Sie zu neuen wie z. B. Azure-Netzwerken
 
 ## <a name="see-also"></a>Siehe auch
 

@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 07/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 831ca8266c3ec18ffb83227dcb2d39b3f953ad1a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b1586c8c63e46452075b4106c944670395734142
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59838051"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034405"
 ---
 # <a name="smb-security-enhancements"></a>SMB-Sicherheitsfunktionen
 
@@ -73,7 +73,7 @@ Standardmäßig Wenn SMB-Verschlüsselung für eine Dateifreigabe oder Server ak
 Set-SmbServerConfiguration –RejectUnencryptedAccess $false
 ```
 
-Die sichere Dialekt Aushandlung-Funktion, die im nächsten Abschnitt beschrieben wird verhindert, dass einen Man-in-the-Middle-Angriff ein Downgrade von einer Verbindungs von SMB 3.0 mit SMB 2.0 (die unverschlüsselte Access verwenden würde). Allerdings verhindert keine Herabstufung auf SMB 1.0, sie dies auch unverschlüsselten Zugriff führen würde. Um zu gewährleisten, dass SMB 3.0-Clients immer SMB-Verschlüsselung verwenden, um die verschlüsselten Freigaben zugreifen, müssen Sie die SMB 1.0-Server deaktivieren. (Anweisungen hierzu finden Sie im Abschnitt [deaktivieren SMB 1.0](#disabling-smb-1.0).) Wenn die **– RejectUnencryptedAccess** Einstellung bleibt die Standardeinstellung von **$true**, nur verschlüsselungsfähiges SMB 3.0-Clients sind zulässig, die Zugriff auf Dateifreigaben (SMB 1.0-Clients werden auch abgelehnt werden).
+Die sichere Dialekt Aushandlung-Funktion, die im nächsten Abschnitt beschrieben wird verhindert, dass einen Man-in-the-Middle-Angriff ein Downgrade von einer Verbindungs von SMB 3.0 mit SMB 2.0 (die unverschlüsselte Access verwenden würde). Allerdings verhindert keine Herabstufung auf SMB 1.0, sie dies auch unverschlüsselten Zugriff führen würde. Um zu gewährleisten, dass SMB 3.0-Clients immer SMB-Verschlüsselung verwenden, um die verschlüsselten Freigaben zugreifen, müssen Sie die SMB 1.0-Server deaktivieren. (Anweisungen hierzu finden Sie im Abschnitt [deaktivieren SMB 1.0](#disabling-smb-10).) Wenn die **– RejectUnencryptedAccess** Einstellung bleibt die Standardeinstellung von **$true**, nur verschlüsselungsfähiges SMB 3.0-Clients sind zulässig, die Zugriff auf Dateifreigaben (SMB 1.0-Clients werden auch abgelehnt werden).
 
 >[!NOTE]
 >* SMB-Verschlüsselung verwendet den Advanced Encryption Standard (AES)-CCM-Algorithmus zum Verschlüsseln und Entschlüsseln der das. AES-CCM bietet auch die Überprüfung der Datenintegrität für verschlüsselten Dateifreigaben, unabhängig von den SMB-Signatur-Einstellungen zu ändern (Anmelden). Wenn Sie SMB-Signaturen ohne Verschlüsselung aktivieren möchten, können Sie weiterhin dazu. Weitere Informationen finden Sie unter [die Grundlagen der SMB-Signaturen](https://blogs.technet.microsoft.com/josebda/2010/12/01/the-basics-of-smb-signing-covering-both-smb1-and-smb2/).
@@ -84,7 +84,7 @@ Die sichere Dialekt Aushandlung-Funktion, die im nächsten Abschnitt beschrieben
 
 ## <a name="secure-dialect-negotiation"></a>Sichere Dialekt-Aushandlung
 
-SMB 3.0 ist zum Erkennen von Man-in-the-Middle-Angriffe, die versuchen, ein downgrade der SMB 2.0 oder SMB 3.0-Protokoll oder die Funktionen, die der Client und Server handeln kann. Wenn ein solcher Angriff vom Client oder dem Server erkannt wird, wird die Verbindung wird getrennt, und Ereignis-ID 1005 wird im Microsoft-Windows-SmbServer/Operational-Ereignisprotokoll protokolliert. Sichern der Dialekt Aushandlung nicht erkennen oder zu verhindern, dass Downgrades von SMB 2.0 oder 3.0 zu SMB 1.0. Aus diesem Grund und den vollständigen Funktionsumfang von SMB-Verschlüsselung zu nutzen wird dringend empfohlen, dass Sie die SMB 1.0-Server deaktivieren. Weitere Informationen finden Sie unter [deaktivieren SMB 1.0](#disabling-smb-1.0).
+SMB 3.0 ist zum Erkennen von Man-in-the-Middle-Angriffe, die versuchen, ein downgrade der SMB 2.0 oder SMB 3.0-Protokoll oder die Funktionen, die der Client und Server handeln kann. Wenn ein solcher Angriff vom Client oder dem Server erkannt wird, wird die Verbindung wird getrennt, und Ereignis-ID 1005 wird im Microsoft-Windows-SmbServer/Operational-Ereignisprotokoll protokolliert. Sichern der Dialekt Aushandlung nicht erkennen oder zu verhindern, dass Downgrades von SMB 2.0 oder 3.0 zu SMB 1.0. Aus diesem Grund und den vollständigen Funktionsumfang von SMB-Verschlüsselung zu nutzen wird dringend empfohlen, dass Sie die SMB 1.0-Server deaktivieren. Weitere Informationen finden Sie unter [deaktivieren SMB 1.0](#disabling-smb-10).
 
 Die Möglichkeit der sicheren Dialekt-Aushandlung, die im nächsten Abschnitt beschrieben wird verhindert, dass einen Man-in-the-Middle-Angriff ein Downgrade von einer Verbindungs zwischen smb3 und SMB-2 (die unverschlüsselte Access verwenden würde); Allerdings verhindert nicht Downgrades auf SMB-1, sie dies auch unverschlüsselten Zugriff führen würde. Weitere Informationen zu potenziellen Problemen mit zuvor nicht-Windows-Implementierungen von SMB finden Sie unter den [Microsoft Knowledge Base](http://support.microsoft.com/kb/2686098).
 

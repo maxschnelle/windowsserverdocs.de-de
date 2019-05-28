@@ -8,12 +8,12 @@ ms.date: 11/2/2018
 ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
-ms.openlocfilehash: 2cb819a7f91646c61b84c3ee70550af6033ba340
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bf10f7f7444967247e51065bc6138fc0afd5ed1a
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865971"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976779"
 ---
 # <a name="set-up-the-remote-desktop-web-client-for-your-users"></a>Einrichten des Remotedesktop-Webclients für Ihre Benutzer
 
@@ -248,7 +248,36 @@ Wenn der Remotedesktop-Sitzungshostserver den Remotedesktop-Verbindungsbrokerser
     > [!NOTE]
     > Wenn sowohl auf dem Remotedesktop-Sitzungshost als auch auf dem Remotedesktop-Verbindungsbrokerserver denselben Computer verwenden, legen Sie nur das RD-Broker-Serverzertifikat. Wenn der RD-Sitzungshost und RD-Broker-Server auf unterschiedliche Computern verwenden, müssen sowohl mit eindeutigen Zertifikaten konfiguriert werden.
 
-* Die **alternativen Antragstellernamen (SAN)** für jedes Zertifikat mit des Computers festgelegt werden muss **vollständig qualifizierten Domänennamen (FQDN)**. Die **allgemeiner Name (CN)** muss mit die SAN für jedes Zertifikat übereinstimmen.
+* Die **alternativen Antragstellernamen (SAN)** für jedes Zertifikat mit des Computers festgelegt werden muss **vollständig qualifizierten Domänennamen (FQDN)** . Die **allgemeiner Name (CN)** muss mit die SAN für jedes Zertifikat übereinstimmen.
+
+## <a name="how-to-pre-configure-settings-for-remote-desktop-web-client-users"></a>Konfigurieren Sie Einstellungen für Remote Desktop Web Client-Benutzer vorab
+In diesem Abschnitt erfahren Sie, wie Sie PowerShell verwenden, um Einstellungen für die Remote Desktop Web Client-Bereitstellung zu konfigurieren. Diese PowerShell-Cmdlets-Steuerelement, die Fähigkeit eines Benutzers so ändern Sie die Einstellungen basierend auf Ihrer Organisation die Sicherheitsrisiken oder Workflow vorgesehen. Die folgenden Einstellungen befinden sich im die **Einstellungen** Seitenleiste des Webclients. 
+
+### <a name="suppress-telemetry"></a>Unterdrücken von Telemetriedaten
+Standardmäßig können Benutzer aktivieren oder Deaktivieren der Erfassung von Telemetriedaten, die an Microsoft gesendet werden. Informationen zu Microsoft erfasst Telemetriedaten, finden Sie unsere datenschutzerklärung über den Link in der **zu** Seitenleiste.
+
+Als Administrator können Sie auswählen, um die Erfassung von Telemetriedaten für die Bereitstellung mit dem folgenden PowerShell-Cmdlet zu unterdrücken:
+
+   ```PowerShell
+    Set-RDWebClientDeploymentSetting -SuppressTelemetry $true
+   ```
+
+Standardmäßig kann der Benutzer auswählen, aktivieren oder Deaktivieren der Telemetrie. Ein boolescher Wert **$false** entspricht das Standardverhalten für den Client. Ein boolescher Wert **$true** -Telemetrie deaktiviert, und hindert, dass den Benutzer Aktivieren von Telemetriedaten.
+
+### <a name="remote-resource-launch-method"></a>Remoteressource Launch-Methode
+Standardmäßig können Benutzer wählen Sie zum Starten des remote-Ressourcen (1) im Browser oder (2) durch das Herunterladen einer RDP-Datei mit einem anderen Client auf ihrem Computer installieren. Als Administrator können Sie auswählen, um die Remoteressource Launch-Methode für die Bereitstellung mit dem folgenden Powershell-Befehl zu beschränken:
+
+   ```PowerShell
+    Set-RDWebClientDeploymentSetting -LaunchResourceInBrowser ($true|$false)
+   ```
+ Standardmäßig kann der Benutzer entweder Launch-Methode auswählen. Ein boolescher Wert **$true** erzwingt, dass den Benutzer auf Ressourcen im Browser zu starten. Ein boolescher Wert **$false** erzwingt, dass den Benutzer aus, um Ressourcen zu starten, indem Sie eine RDP-Datei mit einer lokal installierten RDP-Client herunterladen.
+
+### <a name="reset-rdwebclientdeploymentsetting-configurations-to-default"></a>Zurücksetzen Sie RDWebClientDeploymentSetting Konfigurationen auf Standard
+Führen Sie das folgende PowerShell-Cmdlet, um alle auf Web-Clienteinstellungen auf den Standardkonfigurationen zurückzusetzen:
+
+   ```PowerShell
+    Reset-RDWebClientDeploymentSetting 
+   ```
 
 ## <a name="troubleshooting"></a>Problembehandlung
 
@@ -281,7 +310,7 @@ Wenn Sie das Problem anhand der Anweisungen in diesem Artikel zur Problembehandl
 * Klicken Sie unter **Capture Supportinformationen** wählen Sie die **Aufzeichnung starten** Schaltfläche.
 * Führen Sie die Vorgänge in der Webclient, der das Problem, die, das Sie versuchen erzeugt, zu diagnostizieren.
 * Navigieren Sie zu der **zu** Seite und wählen Sie **Aufzeichnung beenden**.
-* Ihr Browser wird automatisch herunterladen, eine TXT-Datei mit dem Titel **RD-Konsole "Logs.txt"**. Diese Datei enthält die vollständige Console Log-Aktivität, die beim Reproduzieren des Problems Ziel generiert.
+* Ihr Browser wird automatisch herunterladen, eine TXT-Datei mit dem Titel **RD-Konsole "Logs.txt"** . Diese Datei enthält die vollständige Console Log-Aktivität, die beim Reproduzieren des Problems Ziel generiert.
 
 Die Konsole kann auch direkt über Ihren Browser zugegriffen werden. Die Konsole befindet sich im Allgemeinen unter der Entwicklertools. Sie können z. B. das Protokoll in Microsoft Edge zugreifen, durch Drücken der **F12** Taste, oder indem Sie auf die Auslassungspunkte, und dann weiter navigieren **mehr Tools** > **Entwicklertools**.
 

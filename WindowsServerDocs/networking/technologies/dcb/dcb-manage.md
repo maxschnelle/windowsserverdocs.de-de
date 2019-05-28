@@ -8,12 +8,12 @@ ms.assetid: 1575cc7c-62a7-4add-8f78-e5d93effe93f
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 3912bb6048a06a4656b5b27ccec8f8fb3f5b114b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: daed746fe798ae253956d0977827d0e205bb8b3e
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847411"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034579"
 ---
 # <a name="manage-data-center-bridging-dcb"></a>Verwalten von Data Center Bridging (DCB)
 
@@ -39,7 +39,7 @@ Die Konfigurationen der Zuweisung Datenverkehr-Klasse, die PCF und die Anwendung
 2. Aktivieren Sie DCB für die Netzwerkadapter an. Finden Sie unter [aktivieren und Anzeigen von DCB-Einstellungen auf den Netzwerkadaptern](#bkmk_enabledcb).
 
 >[!NOTE]
->Wenn Sie einen Switch über DCBX DCB konfigurieren möchten, finden Sie unter [DCBX-Einstellungen](#BKMK_DCBX_Settings)
+>Wenn Sie einen Switch über DCBX DCB konfigurieren möchten, finden Sie unter [DCBX Einstellungen](#dcb-configuration-on-network-adapters).
 
 Das DCBX bereit Bit ist in der DCB-Spezifikation beschrieben. Wenn das Bit bereit, auf einem Gerät festgelegt ist, auf "true", das Gerät ist bereit, die Konfigurationen von einem Remotegerät über DCBX zu übernehmen. Wenn Bits auf einem Gerät bereit, die auf "false" festgelegt ist, wird das Gerät alle Versuche der Konfiguration von Remotegeräten ablehnen und nur die lokalen Konfigurationen zu erzwingen.
 
