@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: f287261ce6cb56e40385ef4de922045153819a23
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7a1082b873f65a9f98b25425a392b2c62de8ca22
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877561"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191013"
 ---
 # <a name="planning-for-interoperability-with-ad-fs-1x"></a>Planen der Interoperabilität mit AD FS 1.x
-
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Active Directory-Verbunddienste \(AD FS\) -Verbundserver unter Windows Server® 2012 können mit beiden einen AD FS 1.0 zusammenarbeiten \(installiert mit Windows Server 2003 R2\) Verbunddienst und AD FS 1.1 \(installiert mit Windows Server 2008 oder Windows Server 2008 R2\) Verbunddienst. Eine der folgenden Interoperabilitätskombinationen werden unterstützt:  
   
@@ -49,4 +47,4 @@ Es muss nur ein Anspruch im entsprechenden Namensbezeichnerformat gesendet werde
 > Ein AD FS 1. *x* Verbunddienst kann nur eingehende Ansprüche interpretieren, die mit der Uniform Resource Identifier beginnen \(URI\) von http://schemas.xmlsoap.org/claims/.  
   
 ## <a name="see-also"></a>Siehe auch
-[AD FS-Entwurfshandbuch in WindowsServer 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
