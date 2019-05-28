@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: lizapo
 ms.date: 10/16/2017
-ms.openlocfilehash: 26aad48db4a5f0a593dfcb29160031a0c9f3dc75
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9c5272ba0a5ff7c0a30f61631bb6c8dac6552ef0
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59886861"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192610"
 ---
 # <a name="chkdsk"></a>chkdsk
 
@@ -35,7 +35,7 @@ ms.locfileid: "59886861"
 > [!IMPORTANT]
 > **Hinweis**: CHKDSK kann nur für lokale Datenträger verwendet werden. Der Befehl kann nicht mit einem lokalen Laufwerkbuchstaben verwendet werden, das über das Netzwerk umgeleitet wurde.
 
-Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
+Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#examples).
 
 ##<a name="syntax"></a>Syntax
 
@@ -60,7 +60,7 @@ chkdsk [<Volume>[[<Path>]<FileName>]] [/f] [/v] [/r] [/x] [/i] [/c] [/l[:<Size>]
 |/b|Nur NTFS: Löscht die Liste der fehlerhafte Cluster auf dem Volume und neu eingelesen, und alle zugeordneten und freien Cluster auf Fehler. **/ b** enthält die Funktionalität eines **/r**. Verwenden Sie diesen Parameter, nachdem ein Volume auf einer neuen Festplatte imaging.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-##<a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Hinweise
 
 -   Das Überspringen Volume-Überprüfungen
 
@@ -114,7 +114,7 @@ chkdsk [<Volume>[[<Path>]<FileName>]] [/f] [/v] [/r] [/x] [/i] [/c] [/l[:<Size>]
 -   Die **Chkdsk** -Befehl, mit verschiedenen Parametern finden Sie in der Wiederherstellungskonsole.
 -   Auf Servern, die nur selten neu gestartet werden, sollten Sie verwenden die **Chkntfs** oder **modifizierte Fsutil-Abfrage** Befehle aus, um zu bestimmen, ob das Volume geändert ist. ist bereits Bit, die vor dem Ausführen von Chkdsk festgelegt.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="examples"></a>Beispiele
 
 Wenn Sie möchten, überprüfen Sie die Diskette in Laufwerk D und Windows-Fehler zu beheben, geben Sie ein:
 ```
@@ -131,4 +131,4 @@ chkdsk *.*
 **CHKDSK** zeigt einen Statusbericht an und zeigt dann die Dateien, die die Dateispezifikationen zu entsprechen, die nicht zusammenhängende aufweisen.
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 52e4b215c406eeae11dbab41e367f6ce4cd83507
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b4df753a1635a0935e70a76278b097d2f9f70142
+ms.sourcegitcommit: b190fac4bfa5599751a60d3fc3b4c4a64dd9afd7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849251"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66009102"
 ---
 # <a name="ad-ds-installation-and-removal-wizard-page-descriptions"></a>Seitenbeschreibungen für den Assistenten zum Installieren und Entfernen von AD DS
 
@@ -61,7 +61,7 @@ Beim Erstellen einer neuen Gesamtstruktur werden die folgenden Optionen angezeig
   
 -   Beim Erstellen einer neuen Gesamtstruktur müssen Sie einen Namen für die Stammdomäne der Gesamtstruktur angeben. Die Gesamtstruktur-Stammdomänenname nicht einzelnen Bezeichnung bestehen (z. B. es muss ein "contoso.com" anstelle von "Contoso" sein). Es müssen zulässige DNS-Domänennamenskonventionen verwendet werden. Sie können einen internationalen Domänennamen (IDN) angeben. Weitere Informationen zu DNS-domänennamenskonventionen finden Sie unter [KB-Artikel 909264](https://support.microsoft.com/kb/909264).  
   
--   Erstellen Sie keine neuen Active Directory-Gesamtstrukturen, die denselben Namen haben wie Ihr externer DNS-Name. Wenn Ihre Internet-DNS-URL beispielsweise http://contoso.com, müssen Sie auswählen, einen anderen Namen für Ihre interne Gesamtstruktur aus, um künftige Kompatibilitätsprobleme zu vermeiden. Der Name sollte eindeutig und seine Verwendung für den Webdatenverkehr unwahrscheinlich sein, beispielsweise %%amp;quot;corp.contoso.com%%amp;quot;.  
+-   Erstellen Sie keine neuen Active Directory-Gesamtstrukturen, die denselben Namen haben wie Ihr externer DNS-Name. Wenn Ihre Internet-DNS-URL über http ist z. B.:\/"contoso.com", müssen Sie einen anderen Namen für Ihre interne Gesamtstruktur aus, um künftige Kompatibilitätsprobleme zu vermeiden auswählen. Der Name sollte eindeutig und seine Verwendung für den Webdatenverkehr unwahrscheinlich sein, beispielsweise %%amp;quot;corp.contoso.com%%amp;quot;.  
   
 -   Auf dem Server, auf dem Sie eine neue Gesamtstruktur erstellen möchten, müssen Sie Mitglied der Administratorgruppe sein.  
   

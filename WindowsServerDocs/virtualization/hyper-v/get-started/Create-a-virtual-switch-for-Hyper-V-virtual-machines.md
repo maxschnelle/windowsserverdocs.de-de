@@ -11,12 +11,12 @@ ms.assetid: fdc8063c-47ce-4448-b445-d7ff9894dc17
 author: KBDAzure
 ms.author: kathydav
 ms.date: 10/04/2016
-ms.openlocfilehash: e7c43a1b9173d347a3b6d6e1f8bd9127c62bd081
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2668f9fa21c8efbad455d82c7e110ff89b729187
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880221"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222869"
 ---
 # <a name="create-a-virtual-switch-for-hyper-v-virtual-machines"></a>Erstellen Sie einen virtuellen Switch für Hyper-V-Computer
 
@@ -24,9 +24,9 @@ ms.locfileid: "59880221"
   
 Ein virtueller Switch kann virtuelle Maschinen auf Hyper-V-Hosts, um die Kommunikation mit anderen Computern erstellt werden. Sie können einen virtuellen Switch erstellen, bei der Erstinstallation von Hyper-V-Rolle unter Windows Server. Um zusätzliche virtuelle Switches erstellen zu können, verwenden Sie die Hyper-V-Manager oder Windows PowerShell. Weitere Informationen zu virtuellen Switches finden Sie unter [virtuellen Hyper-V-Switch](../../hyper-v-virtual-switch/Hyper-V-Virtual-Switch.md).  
   
-Netzwerk für virtuelle Computer kann es sich um ein komplexes Thema sein. Und es gibt mehrere neue Features des virtuellen Switches, die möglicherweise Sie verwenden, z. B. möchten [Switch Embedded Teaming (SET)](../../hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md#bkmk_sswitchembedded). Aber grundlegende Netzwerke ist recht einfach. Dieses Thema enthält gerade ausreichend, damit Sie in Hyper-V virtuellen Computern im Netzwerk erstellen können. Um weitere Informationen dazu, wie Sie Ihre Netzwerkinfrastruktur einrichten können, überprüfen Sie die [Netzwerke](../../../networking/Networking.md) Dokumentation.   
+Netzwerk für virtuelle Computer kann es sich um ein komplexes Thema sein. Und es gibt mehrere neue Features des virtuellen Switches, die möglicherweise Sie verwenden, z. B. möchten [Switch Embedded Teaming (SET)](../../hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md#switch-embedded-teaming-set). Aber grundlegende Netzwerke ist recht einfach. Dieses Thema enthält gerade ausreichend, damit Sie in Hyper-V virtuellen Computern im Netzwerk erstellen können. Um weitere Informationen dazu, wie Sie Ihre Netzwerkinfrastruktur einrichten können, überprüfen Sie die [Netzwerke](../../../networking/Networking.md) Dokumentation.   
   
-## <a name="BKMK_HyperVMan"></a>Erstellen eines virtuellen Switches mit dem Hyper-V-Manager  
+## <a name="create-a-virtual-switch-by-using-hyper-v-manager"></a>Erstellen eines virtuellen Switches mit dem Hyper-V-Manager  
   
 1.  Öffnen Sie Hyper-V-Manager, wählen Sie den Computernamen des Hyper-V-Host.  
   
@@ -65,7 +65,7 @@ Netzwerk für virtuelle Computer kann es sich um ein komplexes Thema sein. Und e
   
     ![Screenshot mit der Meldung "Ausstehende Änderungen kann die Netzwerkkonnektivität unterbrochen"](../media/Hyper-V-NewVSwitch-DisruptNetwork.png)  
   
-## <a name="BKMK_WPS"></a>Erstellen eines virtuellen Switches mithilfe von Windows PowerShell  
+## <a name="create-a-virtual-switch-by-using-windows-powershell"></a>Erstellen eines virtuellen Switches mithilfe von Windows PowerShell  
   
 1.  Klicken Sie auf dem Windows-Desktop auf die Schaltfläche „Start“, und geben Sie einen beliebigen Teil des Namens **Windows PowerShell** ein.  
   

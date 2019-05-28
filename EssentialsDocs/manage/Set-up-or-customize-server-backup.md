@@ -12,12 +12,12 @@ ms.assetid: 441c2d6c-435a-42cb-90f2-6d680d279d34
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 727dd74e4bddc52f735969f216914b9d76d1f413
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4fb34e05b00c35156a8451ffb0d8b914fcc73cf5
+ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831931"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63720288"
 ---
 # <a name="set-up-or-customize-server-backup"></a>Einrichten oder Anpassen der Serversicherung
 
@@ -111,7 +111,7 @@ ms.locfileid: "59831931"
 >   
 >  1.  Öffnen Sie in der Systemsteuerung **System und Sicherheit**.  
 > 2.  Klicken Sie unter **Verwaltung**auf **Festplattenpartitionen erstellen und formatieren**.  
-> 3.  Klicken Sie mit der rechten Maustaste auf das Laufwerk, und klicken Sie auf **Laufwerkbuchstaben und -pfade ändern...**.  
+> 3.  Klicken Sie mit der rechten Maustaste auf das Laufwerk, und klicken Sie auf **Laufwerkbuchstaben und -pfade ändern...** .  
 > 4.  Klicken Sie auf **Hinzufügen**.  
 > 5.  Wählen Sie im Dialogfeld Laufwerkbuchstaben oder -pfad hinzufügen“ einen Laufwerkbuchstaben für die Zuweisung aus. (Sie können den gleichen Laufwerkbuchstaben erneut zuweisen.) Klicken Sie dann auf **OK**.  
 >   

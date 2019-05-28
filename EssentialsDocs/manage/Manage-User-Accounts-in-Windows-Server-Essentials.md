@@ -12,12 +12,12 @@ ms.assetid: 0d115697-532b-48c2-a659-9f889e235326
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 91175836e4453860b17d2655e6a5a831645de410
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 008e614ca7ae202d575d2c3e5976ed3d5544b6ea
+ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873451"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63720703"
 ---
 # <a name="manage-user-accounts-in-windows-server-essentials"></a>Verwalten von Benutzerkonten in Windows Server Essentials
 
@@ -420,7 +420,7 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
   
 3.  Um das DSRM-Kennwort auf einem Domänencontroller mit dem aktuellen netzwerkadministratorkonto s synchronisieren möchten, geben Sie Folgendes ein:  
   
-     **Synchronisierung von Domänenkonto** *< aktuelles_netzwerkadministratorkonto >*, und drücken Sie dann die EINGABETASTE.  
+     **Synchronisierung von Domänenkonto** *< aktuelles_netzwerkadministratorkonto >* , und drücken Sie dann die EINGABETASTE.  
   
  Da Sie das Kennwort für das Netzwerkadministratorkonto in regelmäßigen Abständen ändern, um sicherzustellen, dass das DSRM-Kennwort immer dem aktuellen Kennwort des Netzwerkadministrators entspricht, empfiehlt es sich, einen Zeitplantask zu planen, um das DSRM-Kennwort automatisch täglich mit dem Netzwerkadministratorkennwort zu synchronisieren.  
   

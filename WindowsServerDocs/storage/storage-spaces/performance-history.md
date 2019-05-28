@@ -8,12 +8,12 @@ author: cosmosdarwin
 ms.date: 09/07/2018
 Keywords: Direkte Speicherplätze
 ms.localizationpriority: medium
-ms.openlocfilehash: 828a3265c9770bab0158067c4f856866d03e3d42
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1916d2d5e4d1fc846bec19826437b200afe36f42
+ms.sourcegitcommit: 4ff3d00df3148e4bea08056cea9f1c3b52086e5d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870861"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64772212"
 ---
 # <a name="performance-history-for-storage-spaces-direct"></a>Leistungsverlauf für "direkte Speicherplätze"
 
@@ -153,7 +153,7 @@ Kurz nach dem "direkte Speicherplätze" aktiviert ist, ein ungefähr bei 10 GB-V
 
 Das Volume durch Speicherplätze unterstützt wird und entweder einfache, bidirektionale Spiegelung oder drei-Wege-Spiegelung resilienz, abhängig von der Anzahl von Knoten im Cluster verwendet. Es wurde repariert, nachdem Laufwerk- oder Serverausfälle wie alle anderen Volumes in "direkte Speicherplätze".
 
-Das Volume ReFS verwendet, aber es ist kein freigegebenes Clustervolume (CSV), sodass es nur auf dem Besitzerknoten der Clustergruppe angezeigt wird. Zusätzlich wird automatisch erstellt, es ist nichts Besonderes zu diesem Volume: Sie können sehen, durchsuchen, ändern Sie die Größe oder löschen Sie ihn (nicht empfohlen). Wenn ein Fehler auftritt, finden Sie unter [Problembehandlung](#troubleshooting). 
+Das Volume ReFS verwendet, aber es ist kein freigegebenes Clustervolume (CSV), sodass es nur auf dem Besitzerknoten der Clustergruppe angezeigt wird. Zusätzlich wird automatisch erstellt, es ist nichts Besonderes zu diesem Volume: Sie können sehen, durchsuchen, ändern Sie die Größe oder löschen Sie ihn (nicht empfohlen). Wenn ein Fehler auftritt, finden Sie unter [Problembehandlung](#troubleshooting).
 
 ### <a name="object-discovery-and-data-collection"></a>Objekt-Ermittlung und Sammlung
 
@@ -163,7 +163,7 @@ Auflistung erfolgt vom Integritätsdienst, die hoch verfügbar ist: Wenn der Kno
 
 ### <a name="handling-measurement-gaps"></a>Behandeln von Lücken für Messung
 
-Wenn Messungen zusammengeführt weniger präzise Reihe, die mehr Zeit umfassen, wie in beschrieben [Zeitrahmen](#Timeframes), fehlende Daten ausgeschlossen werden. Beispielsweise, wenn der Server für 30 Minuten gedrückt wurde, klicken Sie dann ausführen bei 50 % CPU für die nächsten 30 Minuten, die `ClusterNode.Cpu.Usage` durchschnittliche für die Stunde als 50 % (nicht 25 %) ordnungsgemäß aufgezeichnet werden.
+Wenn Messungen zusammengeführt weniger präzise Reihe, die mehr Zeit umfassen, wie in beschrieben [Zeitrahmen](#timeframes), fehlende Daten ausgeschlossen werden. Beispielsweise, wenn der Server für 30 Minuten gedrückt wurde, klicken Sie dann ausführen bei 50 % CPU für die nächsten 30 Minuten, die `ClusterNode.Cpu.Usage` durchschnittliche für die Stunde als 50 % (nicht 25 %) ordnungsgemäß aufgezeichnet werden.
 
 ### <a name="extensibility-and-customization"></a>Erweiterbarkeit und Anpassung
 

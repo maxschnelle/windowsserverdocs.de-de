@@ -9,16 +9,15 @@ ms.date: 11/14/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 615faf4153949aa4ad989f017068d1809fca26b1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 5bc43717f37fb3b14ac7f384a061ee64c734222d
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59820871"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189656"
 ---
 # <a name="configuring-alternate-login-id"></a>Konfigurieren von alternativen Anmelde-ID
 
->Gilt für: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2
 
 ## <a name="what-is-alternate-login-id"></a>Was ist eine alternative Anmelde-ID?
 In den meisten Fällen verwenden Benutzer ihren UPN (User Principal Names) für die Anmeldung bei ihren Konten. Allerdings können in einigen Umgebungen aufgrund von Unternehmensrichtlinien oder Abhängigkeiten von lokalen LOB-Anwendung, die Benutzer eine andere Art der Anmeldung verwenden. 
@@ -39,7 +38,7 @@ In den oben genannten Szenarien kann alternative ID mit AD FS Benutzer Azure AD 
 ## <a name="end-user-experience-with-alternate-login-id"></a>Endbenutzer-Erfahrung mit der alternativen Anmelde-ID
 Die benutzerfreundlichkeit hängt von der Authentifizierungsmethode, die mit der alternativen Anmelde-Id ab.  Derzeit es gibt drei Möglichkeiten, die in der Verwendung von alternativen Anmelde-Id erreicht werden kann.  Die Überladungen sind:
 
-- **Reguläre Authentifizierung (Legacy)**-Standardauthentifizierungsprotokoll verwendet.
+- **Reguläre Authentifizierung (Legacy)** -Standardauthentifizierungsprotokoll verwendet.
 - **Moderne Authentifizierung** -Active Directory-Authentifizierungsbibliothek ADAL-basierte Anmeldung für Anwendungen bietet. Dadurch werden Anmeldefunktionen wie Multi-Factor Authentication (MFA), SAML-basierte Drittanbieter-Identitätsanbieter mit Office-Clientanwendungen, Smartcard- und zertifikatbasierte Authentifizierung.
 - **Moderner hybrider Authentifizierung** : bietet alle Vorteile der modernen Authentifizierung und bietet Benutzern die Möglichkeit, den Zugriff auf lokale Anwendungen Autorisierungstoken abgerufen haben, aus der Cloud verwenden.
 
@@ -127,18 +126,19 @@ Konfigurieren Ihr Verzeichnis für SSO mit alternativen-Id mit alternativen-Id k
 
 Die folgende zusätzliche Konfiguration ist die benutzererfahrung erheblich verbessert, und erreichen Sie in der Nähe von 0 (null) Anweisungen für die Authentifizierung für Benutzer von alternativen-Id in Ihrer Organisation.
 
-##### <a name="step-1-update-to-required-office-version"></a>Schritt 1 Aktualisieren Sie auf die erforderlichen Office-version
+##### <a name="step-1-update-to-required-office-version"></a>Schritt 1 Aktualisieren Sie auf Office-Version erforderlich
 Office-Version 1712 (keine 8827.2148 build) und höher aktualisiert die Authentifizierungslogik aus, um das alternative-Id-Szenario zu behandeln. Um die Logik die neue nutzen zu können, müssen die Clientcomputer für Office-Version 1712 (keine 8827.2148 build) und höher aktualisiert werden.
 
-##### <a name="step-2-configure-registry-for-impacted-users-using-group-policy"></a>Schritt 2 Konfigurieren der Registrierung für die betroffenen Benutzer, die mithilfe der Gruppenrichtlinie
+##### <a name="step-2-update-to-required-windows-version"></a>Schritt 2 Aktualisieren Sie auf die erforderliche Version von Windows
+Windows-Version 1709 und höher aktualisiert die Authentifizierungslogik aus, um das alternative-Id-Szenario zu behandeln. Um die Logik die neue nutzen zu können, müssen die Clientcomputer für Windows-Version 1709 und höher aktualisiert werden.
+
+##### <a name="step-3-configure-registry-for-impacted-users-using-group-policy"></a>Schritt 3 Konfigurieren der Registrierung für die betroffenen Benutzer, die mithilfe der Gruppenrichtlinie
 Die Office-Anwendungen basieren auf Informationen, die von der Verzeichnisadministrator zum Identifizieren der Umgebung für die alternative-Id an. Die folgenden Registrierungsschlüssel konfiguriert werden, um Office-Anwendungen, die den Benutzer mit alternativen-Id zu authentifizieren, ohne dass weitere aufforderungen zu müssen
 
 |RegKey hinzufügen|RegKey Data source Name, Typ und Wert|Windows 7/8|Windows 10|Beschreibung|
 |-----|-----|-----|-----|-----|
 |HKEY_CURRENT_USER\Software\Microsoft\AuthN|DomainHint</br>REG_SZ</br>contoso.com|Erforderlich|Erforderlich|Der Wert von diesem Regkey ist einen Namen der überprüften benutzerdefinierten Domäne im Mandanten der Organisation. Contoso Corp. können beispielsweise einen Wert von "contoso.com" in diesem Regkey bereitstellen, wenn es sich bei "contoso.com" eine der überprüften benutzerdefinierten Domäne im Mandanten "contoso.onmicrosoft.com" lautet.|
 HKEY_CURRENT_USER\Software\Microsoft\Office\16.0\Common\Identity|EnableAlternateIdSupport</br>REG_DWORD</br>1|Erforderlich für Outlook 2016 ProPlus|Erforderlich für Outlook 2016 ProPlus|Der Wert von diesem Regkey kann zwischen 1 / 0 Outlook-Anwendung an, ob es die Authentifizierungslogik für verbesserte alternative-Id erfassen soll.|
-HKEY_CURRENT_USER\SOFTWARE\Microsoft\Office\16.0\Common\Identity|DisableADALatopWAMOverride</br>REG_DWORD</br>1|Nicht verfügbar|Erforderlich.|Dadurch wird sichergestellt, dass Office WAM nicht verwendet wird, wie Alt-Id von WAM unterstützt wird.|
-HKEY_CURRENT_USER\SOFTWARE\Microsoft\Office\16.0\Common\Identity|DisableAADWAM</br>REG_DWORD</br>1|Nicht verfügbar|Erforderlich.|Dadurch wird sichergestellt, dass Office WAM nicht verwendet wird, wie Alt-Id von WAM unterstützt wird.|
 HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\contoso.com\sts|&#42;</br>REG_DWORD</br>1|Erforderlich|Erforderlich|Diese Regkey kann verwendet werden, der STS als vertrauenswürdigen Zone in den Internet-Einstellungen festlegen. Standardmäßige AD FS-Bereitstellung empfiehlt Hinzufügen des AD FS-Namespaces der lokalen Intranetzone für Internet Explorer|
 
 ## <a name="new-authentication-flow-after-additional-configuration"></a>Neuen authentifizierungsfluss nach zusätzliche Konfiguration
@@ -219,6 +219,6 @@ Mehrere Benutzerobjekte befinden sich in einem Gesamtstrukturen|Fehler bei der A
 Mehrere Benutzerobjekte befinden sich in mehreren Gesamtstrukturen|Fehler bei der Anmeldung|Ereignis-ID 364 mit Ausnahmemeldung MSIS8014: Finden Sie mehrere Konten mit Identität '{0}"in Gesamtstrukturen: {1}|
 
 ## <a name="see-also"></a>Siehe auch
-[AD FS-Vorgänge](../../ad-fs/AD-FS-2016-Operations.md)
+[AD FS-Vorgänge](../../ad-fs/AD-FS-2016-Operations.md)
 
 
