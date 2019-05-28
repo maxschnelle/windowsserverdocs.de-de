@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 67b122353ca9dff3a4df6cbfac56b16bed52b539
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: df1afc77afffd9b737965215a5c9d96f278c8129
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848081"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66191669"
 ---
 # <a name="best-practices-for-secure-planning-and-deployment-of-ad-fs"></a>Bewährte Methoden für die sichere Planung und Bereitstellung von AD FS
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Dieses Thema enthält bewährte Methoden-Informationen zur Planung und Auswertung von Sicherheit beim Entwerfen Ihrer Bereitstellung von Active Directory-Verbunddienste (AD FS). Dieses Thema ist ein Ausgangspunkt für die Prüfung und Bewertung von Überlegungen, die die allgemeine Sicherheit bei der Verwendung von AD FS auswirken. Die Informationen in diesem Thema sollen Ihre vorhandene Sicherheitsplanung und andere bewährte Entwurfsmethoden ergänzen und erweitern.  
   
@@ -146,4 +145,4 @@ Die folgenden bewährten Sicherheitsmethoden sind spezifisch für die Verwendung
     Für eine bessere Dienst- und Datenisolierung können Sie gespeicherte Verfahren für alle Abrufbefehle für den Attributspeicher erstellen. Sie können eine Datenbankrolle erstellen, der Sie dann die Berechtigung erteilen, die gespeicherten Verfahren auszuführen. Weisen Sie dieser Datenbankrolle die Dienstidentität des AD FS-Windows-Diensts. Der AD FS-Windows-Dienst sollte nicht zu einer anderen SQL-Anweisung als die entsprechenden gespeicherten Prozeduren ausführen, die für die Attributsuche verwendet werden können. Wenn Sie den Zugriff auf die SQL Server-Datenbank auf diese Weise sperren, reduzieren Sie das Risiko von Rechteerweiterungsangriffen.  
   
 ## <a name="see-also"></a>Siehe auch
-[AD FS-Entwurfshandbuch in WindowsServer 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
+[AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

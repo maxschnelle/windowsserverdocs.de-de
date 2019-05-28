@@ -10,12 +10,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 05/24/2018
-ms.openlocfilehash: 73fd1d83d82da1694d90a2b3cf3f39717536606b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4e4da87e5a2a4cd80e748a05596da3f23b5ac85f
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822121"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222900"
 ---
 # <a name="plan-your-wsus-deployment"></a>Planen der WSUS-Bereitstellung
 
@@ -25,15 +25,15 @@ Der erste Schritt bei der Bereitstellung von Windows Server Update Services (WSU
 
 |Aufgabe|Beschreibung|
 |----|--------|
-|[1.1. Vorüberlegungen und Systemanforderungen](plan-your-wsus-deployment.md#BKMK_1.1)|Prüfen Sie die Liste der Bereitstellungshinweise und Systemanforderungen, um sicherzustellen, dass Sie über alle notwendige Hardware und Software für die Bereitstellung von WSUS verfügen.|
-|[1.2. Wählen Sie einen WSUS-Bereitstellungsszenarios](plan-your-wsus-deployment.md#BKMK_1.2)|Entscheiden Sie, welches WSUS-Bereitstellungsszenario verwendet werden soll.|
-|[1.3. Wählen Sie eine WSUS-Speicherstrategie](plan-your-wsus-deployment.md#BKMK_1.3.)|Entscheiden Sie, welche WSUS-Speicherstrategie am besten für Ihre Bereitstellung geeignet ist.|
-|[1.4. Wählen Sie die Sprachen für WSUS-Updates](plan-your-wsus-deployment.md#BKMK_1.4.)|Entscheiden Sie, welche WSUS-Updatesprachen installiert werden sollen.|
-|[1.5. Planen der WSUS-Computergruppen](plan-your-wsus-deployment.md#BKMK_1.5)|Planen Sie, wie WSUS-Computergruppen in Ihrer Bereitstellung verwendet werden sollen.|
-|[1.6. Planen der WSUS-Leistung: Background Intelligent Transfer Service](plan-your-wsus-deployment.md#BKMK_1.6.)|Erstellen Sie einen WSUS-Entwurf für optimierte Leistung.|
-|[1.7. Planen der Einstellungen für automatische Updates](plan-your-wsus-deployment.md#BKMK_1.7.)|Planen Sie, wie die Einstellungen für automatische Updates für Ihr Szenario konfiguriert werden sollen.|
+|[1.1. Vorüberlegungen und Systemanforderungen](#11-review-considerations-and-system-requirements)|Prüfen Sie die Liste der Bereitstellungshinweise und Systemanforderungen, um sicherzustellen, dass Sie über alle notwendige Hardware und Software für die Bereitstellung von WSUS verfügen.|
+|[1.2. Wählen Sie einen WSUS-Bereitstellungsszenarios](#12-choose-a-wsus-deployment-scenario)|Entscheiden Sie, welches WSUS-Bereitstellungsszenario verwendet werden soll.|
+|[1.3. Wählen Sie eine WSUS-Speicherstrategie](#13-choose-a-wsus-storage-strategy)|Entscheiden Sie, welche WSUS-Speicherstrategie am besten für Ihre Bereitstellung geeignet ist.|
+|[1.4. Wählen Sie die Sprachen für WSUS-Updates](#14-choose-wsus-update-languages)|Entscheiden Sie, welche WSUS-Updatesprachen installiert werden sollen.|
+|[1.5. Planen der WSUS-Computergruppen](#15-plan-wsus-computer-groups)|Planen Sie, wie WSUS-Computergruppen in Ihrer Bereitstellung verwendet werden sollen.|
+|[1.6. Planen der WSUS-Leistung: Background Intelligent Transfer Service](#16-plan-wsus-performance-considerations)|Erstellen Sie einen WSUS-Entwurf für optimierte Leistung.|
+|[1.7. Planen der Einstellungen für automatische Updates](#17-plan-automatic-updates-settings)|Planen Sie, wie die Einstellungen für automatische Updates für Ihr Szenario konfiguriert werden sollen.|
 
-## <a name="BKMK_1.1"></a>1.1. Vorüberlegungen und Systemanforderungen
+## <a name="11-review-considerations-and-system-requirements"></a>1.1. Vorüberlegungen und Systemanforderungen
 
 ### <a name="system-requirements"></a>Systemanforderungen
 
@@ -108,7 +108,7 @@ Beachten Sie, dass das Konfigurieren von Clientcomputern (einschließlich Server
 
     Feature einzeln abgerufen, nach Bedarf Paketen kann installiert werden, mithilfe von [DISM-Befehlszeilenoptionen](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-operating-system-package-servicing-command-line-options).
 
-### <a name="BKM_1.1.1."></a>WSUS-datenbankanforderungen
+### <a name="wsus-database-requirements"></a>WSUS-Datenbankanforderungen
 WSUS erfordert eine der folgenden Datenbanken:
 
 -   Interne Windows-Datenbank (WID)
@@ -144,7 +144,7 @@ Sie können die WSUS-Rolle auf einem anderen Computer als dem Datenbankservercom
 
 4.  Der WSUS-Server und dem Datenbankserver müssen in der gleichen Zeitzone oder mit der gleichen Quelle für die koordinierte Weltzeit (Greenwich Mean Time) synchronisiert werden.
 
-## <a name="BKMK_1.2"></a>1.2. Auswählen des WSUS-Bereitstellungsszenarios
+## <a name="12-choose-a-wsus-deployment-scenario"></a>1.2. Auswählen des WSUS-Bereitstellungsszenarios
 In diesem Abschnitt werden die grundlegenden Features aller WSUS-Bereitstellungen beschrieben. Sie finden hier Informationen zu einfachen Bereitstellungen mit nur einem WSUS-Server und komplexeren Szenarien, z. B. einer WSUS-Serverhierarchie oder einem WSUS-Server in einem isolierten Netzwerksegment.
 
 ### <a name="simple-wsus-deployment"></a>Einfache WSUS-Bereitstellung
@@ -209,7 +209,7 @@ Der Netzwerklastenausgleich (Network Load Balancing, NLB) verbessert die Zuverl�
 ### <a name="wsus-deployment-with-roaming-client-computers"></a>WSUS-Bereitstellung mit Roamingclientcomputern
 Wenn sich mobile Benutzer an unterschiedlichen Orten beim Netzwerk anmelden, können Sie WSUS so konfigurieren, dass Roamingbenutzer ihre Clientcomputern mit dem geografisch am nächsten gelegenen WSUS-Server aktualisieren können. Sie können z. B. bereitstellen ein WSUS-Server jede Region und verwenden ein anderes DNS-Subnetz für jede Region. Alle Clientcomputer konnte auf dem gleichen WSUS-Server, weitergeleitet werden, der in jedem Subnetz mit dem nächsten physischen WSUS-Server aufgelöst wird.
 
-## <a name="BKMK_1.3."></a>1.3. Auswählen der WSUS-Speicherstrategie
+## <a name="13-choose-a-wsus-storage-strategy"></a>1.3. Auswählen der WSUS-Speicherstrategie
 Windows Server Update Services (WSUS) verwendet zwei Arten von Speichersystemen: eine Datenbank zum Speichern der WSUS-Konfiguration und Updatemetadaten und ein optionales lokales Dateisystem zum Speichern von Updatedateien. Bevor Sie WSUS installieren, sollten Sie entscheiden, wie Sie den Speicher implementieren möchten.
 
 Updates bestehen aus zwei Teilen: Metadaten, die das Update beschreiben, und Dateien, die zum Installieren des Updates erforderlich sind. Updatemetadaten sind in der Regel sehr viel kleiner als das eigentliche Update und werden in der WSUS-Datenbank gespeichert. Updatedateien werden auf einem lokalen WSUS-Server oder einem Microsoft Update-Webserver gespeichert.
@@ -236,7 +236,7 @@ In einer Einzelserverkonfiguration, bei der sich die Datenbank und der WSUS-Dien
 Standardmäßig erstellt und verwendet der Installations-Assistent eine interne Windows-Datenbank mit dem Namen %%amp;quot;SUSDB.mdf%%amp;quot;. Diese Datenbank befindet sich im Ordner %%amp;quot;%windir%\wid\data\%%amp;quot;, wobei %%amp;quot;%windir%%%amp;quot; das lokale Laufwerk ist, auf dem die WSUS-Serversoftware installiert ist.
 
 > [!NOTE]
-> Windows Internal Database (WID) wurde in Windows Server 2012 eingeführt.
+> Windows Internal Database (WID) wurde in Windows Server 2008 eingeführt.
 
 WSUS unterstützt für die Datenbank nur die Windows-Authentifizierung. Die SQL Server-Authentifizierung kann nicht mit WSUS verwendet werden. Wenn Sie die interne Windows-Datenbank für die WSUS-Datenbank verwenden, erstellt das WSUS-Setup eine SQL Server-Instanz mit dem Namen %%amp;quot;Server\Microsoft##WID%%amp;quot;, wobei %%amp;quot;Server%%amp;quot; der Name des Computers ist. Bei beiden Datenbankoptionen erstellt das WSUS-Setup eine Datenbank namens %%amp;quot;SUSDB%%amp;quot;. Der Name dieser Datenbank ist nicht konfigurierbar.
 
@@ -278,7 +278,7 @@ Sie können Updates remote auf Microsoft Update-Servern speichern. Diese Option 
 
 In diesem Fall wird der WSUS-Stammserver mit Microsoft Update synchronisiert und empfängt die Updatemetadaten. Nachdem Sie die Updates genehmigt haben, laden die Clientcomputer die genehmigten Updates von Microsoft Update-Servern herunter.
 
-## <a name="BKMK_1.4."></a>1.4. Auswählen der WSUS-Updatesprachen
+## <a name="14-choose-wsus-update-languages"></a>1.4. Auswählen der WSUS-Updatesprachen
 Wenn Sie eine WSUS-Serverhierarchie bereitstellen, sollten Sie bestimmen, für welche Sprachen Updates in der Organisation erforderlich sind. Konfigurieren Sie den WSUS-Stammserver zum Herunterladen von Updates in allen Sprachen, die in der Organisation verwendet werden.
 
 Es kann z. B. vorkommen, dass die Hauptniederlassung Updates in Englisch und Französisch benötigt, für eine Filiale aber Updates in Englisch, Französisch und Deutsch und für eine weitere Filiale Updates in Englisch und Spanisch erforderlich sind. In dieser Situation konfigurieren Sie den WSUS-Stammserver zum Herunterladen von Updates in Englisch, Französisch, Deutsch und Spanisch. Anschließend konfigurieren Sie den WSUS-Server der ersten Filiale zum Herunterladen von Updates in Englisch, Französisch und Deutsch und den WSUS-Server der zweiten Filiale zum Herunterladen von Updates in Englisch und Spanisch.
@@ -326,7 +326,7 @@ Das Auswählen von Sprachen für einen Upstreamserver ist nicht dasselbe wie das
 >
 > Das Ändern der Sprachoptionen nur auf dem Upstreamserver könnte dazu führen, dass die Anzahl der Updates, die auf dem zentralen Server genehmigt sind, nicht mit der Anzahl der genehmigten Updates auf den Replikatservern übereinstimmt.
 
-## <a name="BKMK_1.5"></a>1.5. Planen der WSUS-Computergruppen
+## <a name="15-plan-wsus-computer-groups"></a>1.5. Planen der WSUS-Computergruppen
 WSUS bietet Ihnen die Möglichkeit, Updates gezielt auf Gruppen von Clientcomputern anzuwenden, sodass Sie sicherstellen können, dass bestimmte Computer immer zum geeigneten Zeitpunkt die richtigen Updates erhalten. Wenn z. B. für alle Computer in einer Abteilung (z. B. im Buchhaltungsteam) eine bestimmte Konfiguration verwendet wird, können Sie eine Gruppe für das Team erstellen, entscheiden, welche Updates für die Computer erforderlich sind und wann sie installiert werden sollen, und anschließend mithilfe von WSUS-Berichten die Updates für das Team auswerten.
 
 > [!NOTE]
@@ -353,7 +353,7 @@ Vom Server werden die folgenden Regeln zum Lösen von Konflikten und Ermitteln d
 
 3.  Stichtag
 
-#### <a name="BKMK_Priority"></a>Priorität
+#### <a name="priority"></a>Priority
 Die der Gruppe mit der höchsten Priorität zugewiesenen Aktionen setzen die Aktionen der anderen Gruppen außer Kraft. Je tiefer sich eine Gruppe in der Hierarchie befindet, desto höher ist ihre Priorität. Die Priorität wird nur basierend auf der Tiefe zugewiesen. Alle Verzweigungen besitzen die gleiche Priorität. Beispielsweise hat eine Gruppe, die sich zwei Ebenen unterhalb des Desktops befindet, eine höhere Priorität als eine Gruppe eine Ebene unterhalb des Serverzweigs.
 
 Im folgenden Textbeispiel der Hierarchiebereich der Update Services-Konsole, eine WSUS-Server mit dem Namen WSUS-01 die Computergruppen mit dem Namen Desktop-PCs und Server wurden hinzugefügt, um die Standardeinstellung **alle Computer** Gruppe. Der Desktop-PCs und Server-Gruppen sind auf der gleichen hierarchischen Ebene.
@@ -376,7 +376,7 @@ Im folgenden Textbeispiel der Hierarchiebereich der Update Services-Konsole, ein
 
                         -   **Desktops-L2**
 
-                -   **Server**
+                -   **Leistungsverlauf für Server**
 
                     -   **Servers-L1**
 
@@ -386,18 +386,18 @@ Im folgenden Textbeispiel der Hierarchiebereich der Update Services-Konsole, ein
 
         -   **Berichte**
 
-        -   **Optionen**
+        -   **Options**
 
 In diesem Beispiel ist die Gruppe zwei Ebenen unterhalb der Desktop-PCs (Desktops L2) verfügt über eine höhere Priorität als die Gruppe eine Ebene unterhalb des serverzweigs (L1-Servern). Dementsprechend haben bei einem Computer, der sowohl Mitglied der Gruppe %%amp;quot;Desktops-L2%%amp;quot; als auch der Gruppe %%amp;quot;Servers-L1%%amp;quot; ist, alle Aktionen für die Gruppe %%amp;quot;Desktops-L2%%amp;quot; Priorität gegenüber den für die Gruppe %%amp;quot;Servers-L1%%amp;quot; angegebenen Aktionen.
 
-#### <a name="BKMK_Install"></a>Priorität der Installation und Deinstallation
+#### <a name="priority-of-install-and-uninstall"></a>Priorität der Installation und Deinstallation
 Installationsaktionen setzen Deinstallationsaktionen außer Kraft. Erforderliche Installationen haben Vorrang vor optionalen Installationen. (Optionale Installationen sind nur über die API verfügbar, und durch das Ändern einer Genehmigung für ein Update mithilfe der WSUS-Verwaltungskonsole werden alle optionalen Genehmigungen gelöscht.)
 
-#### <a name="BKMK_Deadline"></a>Priorität von Terminen
+#### <a name="priority-of-deadlines"></a>Priorität von Terminen
 Aktionen, die über einen Stichtag (eine Frist) verfügen, setzen Aktionen ohne Stichtag außer Kraft.  Aktionen mit früheren Stichtagen setzen Aktionen mit späteren Stichtagen außer Kraft.
 
-## <a name="BKMK_1.6."></a>1.6. Planen der WSUS-Leistung
-Einige Bereiche müssen vor der Bereitstellung von WSUS sorgfältig geplant werden, um eine optimale Leistung zu erhalten. Die wichtigsten Bereiche sind:
+## <a name="16-plan-wsus-performance-considerations"></a>1.6. Planen der WSUS-Leistung
+Es gibt einige Bereiche, die Sie sorgfältig planen sollten vor der Bereitstellung von WSUS, sodass Sie optimale Leistung zu erhalten. Die wichtigsten Bereiche sind:
 
 -   Netzwerkeinrichtung
 
@@ -411,26 +411,26 @@ Einige Bereiche müssen vor der Bereitstellung von WSUS sorgfältig geplant werd
 
 -   BITS (Background Intelligent Transfer Service, Intelligenter Hintergrundübertragungsdienst)
 
-### <a name="BKMK_1.6.Network"></a>Netzwerkeinrichtung
+### <a name="network-setup"></a>Netzwerkeinrichtung
 Anhand der folgenden Methoden kann die Leistung in WSUS-Netzwerken optimiert werden:
 
 1.  Richten Sie WSUS-Netzwerke nicht in einer hierarchischen Topologie, sondern in einer Hub-Spoke-Topologie ein.
 
 2.  Verwenden Sie die DNS-Netzwerkmaskenanforderung für Roamingclientcomputer, und konfigurieren Sie Roamingclientcomputer zum Herunterladen von Updates vom lokalen WSUS-Server.
 
-### <a name="BKMK_1.6.Deferred"></a>Zurückgestellter download
+### <a name="deferred-download"></a>Zurückgestellter Download
 Sie können Updates genehmigen und die Updatemetadaten herunterladen, bevor Sie die Updatedateien herunterladen. Diese Methode wird als *zurückgestellter Download*bezeichnet. Wenn Sie Downloads zurückstellen, wird ein Update erst nach seiner Genehmigung heruntergeladen. Da bei dieser Methode die Netzwerkbandbreiten- und Speicherplatznutzung optimiert wird, wird empfohlen, Downloads zurückzustellen.
 
 In einer Hierarchie von WSUS-Servern wird für alle Downstreamserver automatisch die auf dem WSUS-Stammserver festgelegte Einstellung für zurückgestellten Download verwendet. Diese Standardeinstellung kann geändert werden. Sie können z. B. einen Upstreamserver für vollständige, sofortige Synchronisierungen und anschließend einen Downstreamserver zum Zurückstellen der Downloads konfigurieren.
 
 Es wird empfohlen, in einer Hierarchie verbundener WSUS-Server möglichst wenig Serverebenen zu verwenden. Wenn Sie zurückgestellte Downloads aktivieren und ein Downstreamserver ein Update, die auf dem Upstreamserver nicht genehmigt wird anfordert, erzwingt-Anforderung des Downstreamservers einen Download auf dem Upstreamserver. Der Downstreamserver lädt das Update dann bei einer nachfolgenden Synchronisierung herunter. In einer WSUS-Serverhierarchie mit vielen Ebenen, kann es zu Verzögerungen kommen, wenn Updates angefordert, heruntergeladen und dann durch die Serverhierarchie übertragen werden. Wenn Updates lokal gespeichert werden, sind zurückgestellte Downloads standardmäßig aktiviert. Sie können diese Option manuell ändern.
 
-### <a name="BKMK_1.6.Filters"></a>Filter
+### <a name="filters"></a>Filter
 WSUS bietet Ihnen die Möglichkeit, Updatesynchronisierungen nach Sprache, Produkt und Klassifizierung zu filtern. In einer Hierarchie von WSUS-Servern werden für alle Downstreamserver automatisch die auf dem WSUS-Stammserver ausgewählten Updatefilteroptionen verwendet. Sie können Downloadserver neu konfigurieren, sodass sie nur eine Teilmenge von Sprachen empfangen.
 
 Standardmäßig werden die Produkte Windows und Office aktualisiert, und die Standardklassifizierungen sind %%amp;quot;Wichtige Updates%%amp;quot;, %%amp;quot;Sicherheitsupdates%%amp;quot; und %%amp;quot;Definitionsupdates%%amp;quot;. Um die Bandbreiten- und Speicherplatznutzung zu reduzieren, sollten Sie nur die Sprachen auswählen, die Sie tatsächlich verwenden.
 
-### <a name="BKMK_1.6.Installation"></a>Installation
+### <a name="installation"></a>Installation
 Updates bestehen normalerweise aus neuen Versionen von Dateien, die bereits auf dem zu aktualisierenden Computer vorhanden sind. Auf binärer Ebene unterscheiden sich die vorhandenen Dateien möglicherweise nur wenig von den aktualisierten Versionen. Das Feature für Schnellinstallationsdateien ermittelt die genauen Byteunterschiede zwischen Versionen, erstellt und verteilt Updates nur für diese Unterschiede und führt die vorhandene Datei dann mit den aktualisierten Bytes zusammen.
 
 Dieses Feature wird manchmal "deltaübermittlung" bezeichnet, da es nur das Delta (die Differenz) zwischen zwei Versionen einer Datei herunterlädt. Schnellinstallationsdateien sind größer als die an Clientcomputer verteilten Updates, da sie alle möglichen Versionen jeder zu aktualisierenden Datei enthalten.
@@ -439,19 +439,19 @@ Schnellinstallationsdateien können zum Beschränken der Bandbreite im lokalen N
 
 Nicht alle Updates eignen sich für die Verteilung mittels Schnellinstallationsdateien. Wenn Sie diese Option aktivieren, erhalten Sie Schnellinstallationsdateien für alle Updates. Wenn Sie Updates nicht lokal speichern, entscheidet der Windows Update-Agent, ob die Dateien der Expressinstallation oder die Updatedistribution für das vollständige Update heruntergeladen werden.
 
-### <a name="BKMK_1.6.LargeUpdates"></a>Große updatebereitstellung
+### <a name="large-update-deployment"></a>Große Updatebereitstellung
 Mithilfe der folgenden Methoden können Sie beim Bereitstellen großer Updates (z. B. Service Packs) eine Überlastung des Netzwerks verhindern:
 
-1.  Verwenden Sie die Bandbreiteneinschränkung des intelligenten Hintergrundübertragungsdiensts (BITS). BITS-Bandbreiteneinschränkungen können nach Tageszeit gesteuert werden, sie gelten jedoch für alle Anwendungen, für die BITS verwendet wird. Informationen zur Steuerung der BITS-Drosselung finden Sie unter [Group Policies](https://msdn.microsoft.com/library/windows/desktop/aa362844(v=vs.85).aspx)
+1.  Verwenden Sie die Bandbreiteneinschränkung des intelligenten Hintergrundübertragungsdiensts (BITS). BITS-Bandbreiteneinschränkungen können nach Tageszeit gesteuert werden, sie gelten jedoch für alle Anwendungen, für die BITS verwendet wird. Informationen zur Steuerung der BITS-Drosselung finden Sie unter [Gruppenrichtlinien](https://msdn.microsoft.com/library/windows/desktop/aa362844(v=vs.85).aspx).
 
 2.  Verwenden Sie die Bandbreiteneinschränkung der Internetinformationsdienste (Internet Information Services, IIS), um die Einschränkung auf einen oder mehrere Webdienste zu beschränken.
 
 3.  Verwenden Sie Computergruppen, um das Rollout zu steuern. Ein Clientcomputer identifiziert sich selbst als Mitglied einer bestimmten Computergruppe, wenn er Informationen an den WSUS-Server sendet. Der WSUS-Server ermittelt anhand dieser Informationen, welche Updates auf dem Computer bereitgestellt werden müssen. Sie können mehrere Computergruppen einrichten und Downloads großer Service Packs nacheinander für eine Teilmenge dieser Gruppen genehmigen.
 
-### <a name="BKMK_1.6.BITS"></a>Background Intelligent Transfer Service
+### <a name="background-intelligent-transfer-service"></a>Intelligenter Hintergrundübertragungsdienst (Background Intelligent Transfer Service, BITS)
 WSUS verwendet das BITS-Protokoll für alle Dateiübertragungsaufgaben. Dies beinhaltet Downloads auf Clientcomputer und Serversynchronisierungen. Mithilfe von BITS können Programme Dateien mit wenig Bandbreite herunterladen. BITS verwaltet Dateiübertragungen durch Trennen von Netzwerkverbindungen und Computerneustarts. Weitere Informationen finden Sie in den folgenden Themen: [Background Intelligent Transfer Service](https://msdn.microsoft.com/library/bb968799.aspx).
 
-## <a name="BKMK_1.7."></a>1.7. Planen der Einstellungen für automatische Updates
+## <a name="17-plan-automatic-updates-settings"></a>1.7. Planen der Einstellungen für automatische Updates
 Sie können einen Stichtag für die Genehmigung von Updates auf dem WSUS-Server festlegen. Der Stichtag führt dazu, dass Clientcomputer das Update zu einem bestimmten Zeitpunkt installieren. Abhängig davon, ob der Stichtag abgelaufen ist, andere zu installierende Updates für den Computer in der Warteschlange vorhanden sind und das Update (oder ein anderes Update in der Warteschlange) einen Neustart erfordert, können jedoch unterschiedliche Situationen auftreten.
 
 Standardmäßig ruft das Feature %%amp;quot;Automatische Updates%%amp;quot; alle 22 Stunden (minus einer zufälligen Verschiebung) Updates vom WSUS-Server ab. Wenn neue Updates installiert werden müssen, werden sie heruntergeladen. Die Zeit zwischen den einzelnen Ermittlungszyklen kann auf einen Wert zwischen 1 und 22 Stunden festgelegt werden.

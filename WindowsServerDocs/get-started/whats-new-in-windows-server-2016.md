@@ -5,34 +5,30 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.date: 01/05/2017
+ms.date: 05/21/2019
 ms.technology: server-general
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2827f332-44d4-4785-8b13-98429087dcc7
-author: jaimeo
-ms.author: jaimeo
+author: jasongerend
+ms.author: jgerend
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: b504c3396200502a09467ae97a36f9de613e4820
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8d36961558066197a54f42d27a3560d653bd81f2
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830331"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976632"
 ---
 # <a name="whats-new-in-windows-server-2016"></a>Neuerungen in Windows Server 2016
 
 >Gilt für: Windows Server 2016
 
-<img src="media/whats-new.png" style='float:left; padding:.5em;' alt="Icon showing a newspaper">In diesem Abschnitt wird beschrieben, was in Windows Server&reg; 2016 neu ist und was sich geändert hat. Die hier aufgeführten Neuerungen und Änderungen haben bei der Arbeit in dieser Version vermutlich die größte Auswirkung.  
-   
-<br>
-<br>
-<br>
-<br>
-<br>
-## <a name="computevirtualizationvirtualizationmd"></a>[Compute](../virtualization/virtualization.md)  
+<img src="media/whats-new.png" style='float:left; padding:.5em;' alt="Icon showing a newspaper">Weitere Informationen zu den neuesten Features in Windows finden Sie unter [Neuigkeiten in Windows Server](whats-new-in-windows-server.md). In diesem Abschnitt wird beschrieben, was in Windows Server&reg; 2016 neu ist und was sich geändert hat. Die hier aufgeführten Neuerungen und Änderungen haben bei der Arbeit in dieser Version vermutlich die größte Auswirkung.  
+
+## <a name="computevirtualizationvirtualizationmd"></a>[Compute](../virtualization/virtualization.md)
+
 Der Bereich der Virtualisierung umfasst Virtualisierungsprodukte und -features, mit denen IT-Profis Windows Server entwerfen, bereitstellen und warten können.  
 
 ### <a name="general"></a>Allgemein  
@@ -67,7 +63,7 @@ Windows Server 2016 bietet eine neue Hyper-V-basierte abgeschirmte VM, um jeden 
 
 Weitere Einzelheiten und Anweisungen zur Arbeit mit abgeschirmten virtuellen Computern finden Sie unter [Shielded VMs and Guarded Fabric Validation Guide for Windows Server 2016 (TPM)](https://aka.ms/shieldedvms) (Validierungsleitfaden für abgeschirmte virtuelle Computer und geschützte Fabrics für Windows Server 2016 [TPM]).  
 
-## <a name="identity-and-accessidentityidentity-and-accessmd"></a>[Identitäts- und Zugriffsverwaltung](../identity/Identity-and-Access.md)  
+## <a name="identity-and-accessidentityidentity-and-accessmd"></a>[Identität und Zugriff](../identity/Identity-and-Access.md)  
 Mit den neuen Features für Identitäten wird die Möglichkeit verbessert, Active Directory-Umgebungen zu schützen. Außerdem können Unternehmen eine Migration zu reinen Cloudbereitstellungen oder Hybridbereitstellungen durchführen, bei denen einige Anwendungen und Dienste in der Cloud und andere Anwendungen und Dienste lokal gehostet werden.  
 
 ### <a name="active-directory-certificate-services"></a>Active Directory-Zertifikatdienste  
@@ -117,7 +113,7 @@ Das standardmäßige anfängliche Überlastungsfenster (Initial Congestion Windo
 
 Zur Verbesserung des TCP-Verhaltens bei der Wiederherstellung nach einem Paketverlust wurden TCP: Tail Loss Probe (TLP) und Recent ACKnowledgement (RACK) implementiert. TLP hilft bei der Konvertierung von RTOs (Retransmit TimeOuts) in schnelle Wiederherstellungen, und RACK reduziert die Zeit, die die schnelle Wiederherstellung benötigt, um ein verlorenes Paket erneut zu übertragen. 
 
-## <a name="security-and-assurancesecuritysecurity-and-assurancemd"></a>[Sicherheit und Zusicherungen](../security/Security-and-Assurance.md)  
+## <a name="security-and-assurancesecuritysecurity-and-assurancemd"></a>[Sicherheit und Zuverlässigkeit](../security/Security-and-Assurance.md)  
 Dieser Bereich umfasst Sicherheitslösungen und -features für Ihr Rechenzentrum und Ihre Cloudumgebung. Informationen zur allgemeinen Sicherheit in Windows Server 2016 finden Sie unter [Sicherheit und Zusicherungen](../security/Security-and-Assurance.md).  
 
 ### <a name="just-enough-administration"></a>Just Enough Administration  
@@ -162,7 +158,7 @@ Sie können Quality of Service (QoS) für Speicher jetzt nutzen, um die End-to-E
 
 Weitere Informationen finden Sie unter [Storage Quality of Service (QoS für Speicher)](../storage/storage-qos/storage-qos-overview.md).
 
-## <a name="failover-clusteringfailover-clusteringwhats-new-in-failover-clusteringmd"></a>[Failover-Clusterunterstützung](../failover-clustering/whats-new-in-failover-clustering.md)
+## <a name="failover-clusteringfailover-clusteringwhats-new-in-failover-clusteringmd"></a>[Failoverclustering](../failover-clustering/whats-new-in-failover-clustering.md)
 
 Windows Server 2016 umfasst eine Reihe neuer Funktionen und Verbesserungen für mehrere Server, die mithilfe der Failoverclustering-Funktion in einem einzelnen fehlertoleranten Cluster zusammengefasst sind. Einige der Erweiterungen sind nachfolgend aufgeführt; eine vollständige Auflistung finden Sie unter [What's New in Failover Clustering in Windows Server 2016 (Neues beim Failoverclustering in Windows Server 2016)](../failover-clustering/whats-new-in-failover-clustering.md).
 
@@ -208,5 +204,5 @@ In Microsoft Windows 10 und Windows Server 2016 werden drei neue Features hinz
 
 
 ## <a name="see-also"></a>Siehe auch  
--   [Anmerkungen zu dieser Version: Wichtige Probleme in WindowsServer 2016](Windows-Server-2016-GA-Release-Notes.md)  
+-   [Versionshinweise: Wichtige Probleme in Windows Server 2016](Windows-Server-2016-GA-Release-Notes.md)  
 

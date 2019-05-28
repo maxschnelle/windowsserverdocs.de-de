@@ -9,16 +9,15 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: a2a88608f3989522b1ec1c123f29bd679db7e318
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3a3156eefc4af52fb7daefb618c689b78fef5efc
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877941"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66188821"
 ---
 # <a name="ad-fs-scenarios-for-developers"></a>AD FS-Szenarien für Entwickler
 
->Gilt für: Windows Server 2016
 
 AD FS unter Windows Server 2016 [AD FS 2016] können Sie hinzufügen Industry standard OpenID Connect und OAuth 2.0-basierte Authentifizierung und Autorisierung für Anwendungen, die Sie entwickeln, und diese Anwendungen direkt in AD FS authentifizieren.    
   

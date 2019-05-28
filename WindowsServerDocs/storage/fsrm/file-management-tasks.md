@@ -8,20 +8,20 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: e83d0b79117144d42a0aff748f482f3c181cb300
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d8d798611a00e29337a5d45979947a51f03bcdee
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874051"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65475893"
 ---
 # <a name="file-management-tasks"></a>Dateiverwaltungsaufgaben
 
-> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
+> Gilt für: WindowsServer 2019, WindowsServer 2016, WindowsServer (Halbjährlicher Kanal), Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
 
 Dateiverwaltungsaufgaben automatisieren die Suche nach Teilmengen von Dateien auf einem Server und das Anwenden von einfachen Befehlen. Diese Aufgaben können so geplant werden, dass sie automatisch in regelmäßigen Abständen ausgeführt werden, um sich wiederholende Kosten zu senken. Dateien, die durch eine Dateiverwaltungsaufgabe verarbeitet werden, können über folgende Eigenschaften festgelegt werden:
 
--   Pfad
+-   Speicherort
 -   Klassifizierungseigenschaften
 -   Erstellungszeit
 -   Zeitpunkt der Änderung
@@ -43,6 +43,6 @@ In diesem Abschnitt werden folgende Themen behandelt:
 
 ## <a name="see-also"></a>Siehe auch
 
--   [Einstellung File Server Resource Manager-Optionen](setting-file-server-resource-manager-options.md)
+-   [Festlegen der Optionen des Ressourcen-Managers für Dateiserver](setting-file-server-resource-manager-options.md)
 
 

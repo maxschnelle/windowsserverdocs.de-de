@@ -9,16 +9,14 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: fd075c5b7d1bfce89cc27c4917a016e7e5037ce5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4b70b0b048f66f9a8ba19cd7990dde57e0655ae4
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59888291"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192232"
 ---
 # <a name="create-a-stand-alone-federation-server"></a>Erstellen eines eigenständigen Verbundservers
-
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Nachdem Sie den Verbunddienst-Rollendienst installieren und konfigurieren die erforderlichen Zertifikate auf einem Computer, können Sie den Computer als Verbundserver konfigurieren. Sie können das folgende Verfahren verwenden, auf den Computer einrichten, um einen eigenständigen werden\-allein Verbundserver. Erstellen Sie einen eigenständigen\-allein Verbundserver auch ein neuer Verbunddienst erstellt. Sie erstellen einen Verbundserver mit der AD FS Konfigurations-Assistenten.  
   
@@ -59,6 +57,6 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
 7.  Überprüfen Sie die Ergebnisse auf der Seite **Konfigurationsergebnisse**. Wenn alle Konfigurationsschritte abgeschlossen sind, klicken Sie auf **schließen** um den Assistenten zu beenden.  
   
 ## <a name="additional-references"></a>Weitere Verweise  
-[Prüfliste: Das Einrichten eines Verbundservers](Checklist--Setting-Up-a-Federation-Server.md)  
+[Prüfliste: Einrichten eines Verbundservers](Checklist--Setting-Up-a-Federation-Server.md)  
   
 

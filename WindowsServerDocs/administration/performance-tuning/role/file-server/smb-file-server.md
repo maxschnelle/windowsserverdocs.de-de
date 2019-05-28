@@ -7,12 +7,12 @@ ms.topic: article
 author: phstee
 ms.author: NedPyle; Danlo; DKruse
 ms.date: 4/14/2017
-ms.openlocfilehash: 93718cf13f28cde8f25b35b42ce20ca75c6fa13c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 337716792a4bb3cf730b723df3abe1029631426b
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59832061"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222505"
 ---
 # <a name="performance-tuning-for-smb-file-servers"></a>Für die leistungsoptimierung für SMB-Dateiserver
 
@@ -106,10 +106,8 @@ Die folgende REG\_DWORD-registrierungseinstellungen können die Leistung von SMB
     Die Standardwerte sind 512 und 8192. Mit diesen Parametern können den Server, Client-Vorgang Parallelität dynamisch innerhalb der angegebenen Grenzen eingeschränkt. Einige Clients möglicherweise erhöhten Durchsatz mit höheren parallelitätslimits, z. B. erreichen, Kopieren von Dateien über die Links von hoher Bandbreite, hoher Latenz.
     
     >[!TIP]
-    > Vor Windows 10 und Server 2016 anhand die Anzahl von Gutschriften, die an den Client dynamisch zwischen Smb2CreditsMin und basierend auf einen Algorithmus, der versucht wird, um zu bestimmen, die optimale Anzahl Guthaben gewähren Smb2CreditsMax verschiedene gewährt Netzwerklatenz und Guthaben die Nutzung. In Windows 10 und Server 2016 wurde der SMB-Server geändert, um bedingungslos Guthaben auf Anfrage, bis die konfigurierte maximale Anzahl Guthaben zu gewähren. Im Rahmen dieser Änderung wird wurde die Gutschrift Einschränkungsmechanismus, der die Größe des Fensters für jede Verbindung die Gutschrift reduziert, wenn der Server nicht genügend Arbeitsspeicher vorhanden ist, entfernt. Des Kernels-nicht genügend Arbeitsspeicher-Ereignis, das Einschränkung ausgelöst wird nur signalisiert, wenn der Server also nicht genügend Arbeitsspeicher ist (< wenige MB), unbrauchbar werden. Da der Server nicht mehr Kreditkarte Windows verkleinert wird die Einstellung Smb2CreditsMin ist nicht mehr erforderlich und wird jetzt ignoriert.
+    > Vor Windows 10 und Windows Server 2016 die Anzahl von Gutschriften, die an den Client gewährt dynamisch zwischen Smb2CreditsMin und basierend auf einen Algorithmus, der versucht wird, um zu bestimmen, dass die Netzwerklatenz die optimale Anzahl Guthaben gewährt anhand Smb2CreditsMax geändert und Guthaben Nutzung. In Windows 10 und Windows Server 2016 wurde die SMB-Server geändert um bedingungslos Guthaben auf Anfrage, bis die konfigurierte maximale Anzahl Guthaben zu gewähren. Im Rahmen dieser Änderung wird wurde die Gutschrift Einschränkungsmechanismus, der die Größe des Fensters für jede Verbindung die Gutschrift reduziert, wenn der Server nicht genügend Arbeitsspeicher vorhanden ist, entfernt. Des Kernels-nicht genügend Arbeitsspeicher-Ereignis, das Einschränkung ausgelöst wird nur signalisiert, wenn der Server also nicht genügend Arbeitsspeicher ist (< wenige MB), unbrauchbar werden. Da der Server nicht mehr Kreditkarte Windows verkleinert wird die Einstellung Smb2CreditsMin ist nicht mehr erforderlich und wird jetzt ignoriert.
 
-
-    >[!TIP]
     > Sie können überwachen, SMB-Client-Freigaben\\Guthaben stoppt cursorscans/s zu überprüfen, ob Probleme mit der Gutschrift.
 
 - **AdditionalCriticalWorkerThreads**
@@ -134,7 +132,8 @@ Die folgende REG\_DWORD-registrierungseinstellungen können die Leistung von SMB
     >[!TIP]
     > Ein Hinweis darauf, das der Wert ggf. erhöht werden wird, wenn die Warteschlangen SMB2 sehr groß sind (Leistungsindikator "Serverwarteschlangen arbeiten\\Warteschlangenlänge\\SMB2 nicht blockierenden \*' liegt permanent über ~ 100).
 
-     
+    >[!Note]
+    >In Windows 10 und Windows Server 2016 ist MaxThreadsPerQueue nicht verfügbar. Die Anzahl von Threads für einen Threadpool "20 * die Anzahl der Prozessoren in einem NUMA-Knoten".  
 
 -   **AsynchronousCredits**
 
@@ -146,9 +145,9 @@ Die folgende REG\_DWORD-registrierungseinstellungen können die Leistung von SMB
 
 ### <a name="smb-server-tuning-example"></a>Beispiel für SMB-Server-Optimierung
 
-Die folgenden Einstellungen können ein Computers für die Leistung des Dateiservers in vielen Fällen optimiert werden. Die Einstellungen sind nicht optimal oder auf allen Computern geeignet. Sie sollten die Auswirkungen der einzelnen Einstellungen bewerten, bevor Sie diese anwenden.
+Die folgenden Einstellungen können ein Computers für die Leistung des Dateiservers in vielen Fällen optimiert werden. Die Einstellungen sind nicht für alle Computer optimal bzw. geeignet. Sie sollten die Auswirkungen der einzelnen Einstellungen vor dem Anwenden überprüfen.
 
-| Parameter                       | Wert | Standard |
+| Parameter                       | Wert | Default |
 |---------------------------------|-------|---------|
 | AdditionalCriticalWorkerThreads | 64    | 0       |
 | MaxThreadsPerQueue              | 64    | 20      |

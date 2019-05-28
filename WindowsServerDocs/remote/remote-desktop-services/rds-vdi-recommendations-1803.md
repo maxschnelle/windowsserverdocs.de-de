@@ -1,0 +1,721 @@
+---
+title: Optimieren von Windows 10, Version 1803, für eine Rolle Virtual Desktop Infrastructure (VDI)
+description: Empfohlene Einstellungen und Konfiguration für Windows 10-Version 1803 Mehraufwand zu minimieren) Desktopcomputer als VDI-Abbilder verwendet
+ms.custom: na
+ms.prod: windows-server-threshold
+ms.reviewer: robsmi
+ms.suite: na
+ms.technology: remote-desktop-services
+ms.author: jaimeo, robsmi
+ms.tgt_pltfrm: na
+ms.topic: article
+author: jaimeo
+manager: dougkim
+ms.openlocfilehash: 2af0ea64ce88431bfb6a4922ae7a471862ed7f82
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
+ms.translationtype: MT
+ms.contentlocale: de-DE
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034634"
+---
+# <a name="optimizing-windows-10-version-1803-for-a-virtual-desktop-infrastructure-vdi-role"></a>Optimieren von Windows 10, Version 1803, für eine Rolle Virtual Desktop Infrastructure (VDI)
+
+Dieser Artikel hilft Ihnen bei der Auswahl der Einstellungen für Windows 10, Version 1803 (build 17134), die die beste Leistung in einer virtualisierten Desktopinfrastruktur (VDI)-Umgebung führen sollten. Alle Einstellungen in diesem Handbuch sind *Empfehlungen berücksichtigt werden* und keine Anforderungen an die Methode.
+
+Sind in einer VDI-Umgebung wichtigsten Strategien zum Optimieren der Leistung von Windows 10, minimieren die app-Grafik neuzeichnungen, Hintergrundaktivitäten, die keine wichtigen Vorzug der VDI-Umgebung verfügen und die ausgeführten Prozesse in der Regel auf das absolute Minimum zu reduzieren. Ein zweites Ziel werden Datenträger-Speicherplatz im Basisimage auf das absolute Minimum zu reduzieren. Mit VDI kann Implementierungen, die kleinste mögliche Base oder "gold" Imagegröße speicherauslastung auf dem Hypervisor als auch eine kleine Reduzierung insgesamt erforderlich, um das Desktopabbild an den Consumer zuzustellen Netzwerkvorgänge etwas reduzieren.
+
+> [!NOTE]  
+> Hier empfohlene Einstellungen können auf andere Installation von Windows 10, Version 1803, einschließlich im physischen oder andere virtuelle Geräte angewendet werden. Es wurden keine Empfehlungen in diesem Thema sollte zur Unterstützung von Windows 10, Version 1803 beeinträchtigen.
+
+> [!TIP]  
+> Ein Skript, das in diesem Thema an – die beschriebenen Optimierungen implementiert, sowie eine GPO-Export-Datei, die mit dem Sie importieren können **LGPO.exe**– finden Sie unter [TheVDIGuys](https://github.com//TheVDIGuys) auf GitHub.
+
+## <a name="vdi-optimization-principles"></a>Prinzipien der VDI-Optimierung
+
+Eine VDI-Umgebung stellt eine vollständige desktop-Sitzung, einschließlich Anwendungen von einem Computer Benutzer über ein Netzwerk. VDI-Umgebungen verwenden in der Regel eine Basisbetriebssystem-Image, klicken Sie dann die Grundlage für die Desktops, die für die Benutzer für die Arbeit anschließend präsentiert wird. Es gibt Variationen des VDI-Implementierungen, z. B. "dauerhaft", "nicht persistent", und "desktop Session". Der persistente Typ werden Änderungen, die VDI-desktop-Betriebssystem aus einer Sitzung zur nächsten beibehalten. Der Typ nicht persistenter beibehalten nicht Änderungen für das VDI-desktop-Betriebssystem aus einer Sitzung zur nächsten. Dieser Desktop ist für den Benutzer etwas anders als die anderen virtuellen oder physischen Gerät, außer es über ein Netzwerk zugegriffen wird.
+
+Die Einstellungen für die Optimierung werden auf einem Gerät Verweis stattfinden. Ein virtueller Computer ist ein idealer Ort, um das Image, zu erstellen, da können Sie den Status speichern, stellen Sie die Prüfpunkte und Sicherungen erstellt werden können, und andere nützliche Aufgaben. Starten Sie nach der Installation von Standard-Betriebssystem auf der Basis-VM, und dann optimieren Sie die base-VM für die Verwendung von VDI zu, indem nicht benötigte apps entfernen, Installieren von Windows-Updates, weitere Updates zu installieren, temporäre Dateien löschen, Anwenden von Einstellungen usw.
+
+Es gibt andere Arten von VDI, z. B. dauerhaft ist und Remote Desktop Services (RDS). Eine ausführliche Erläuterung in Bezug auf diese Technologien ist außerhalb des Bereichs dieses Themas, konzentriert sich auf die Windows-Image-Einstellungen mit Verweis auf andere Faktoren in der Umgebung wie Host basieren.
+
+### <a name="persistent-vdi"></a>Persistente VDI
+
+Persistente VDI ist, auf der Basisebene, eines virtuellen Computers, der Status des Betriebssystems zwischen Neustarts speichert. Andere Softwareebenen der VDI-Lösung bieten den Benutzerzugriff einfach und nahtlos mit ihren zugewiesenen VMs, häufig mit einer Lösung für einmaliges Anmelden.
+
+Es gibt mehrere verschiedene Implementierungen von permanenten VDI:
+
+-   Herkömmliche virtuelle Maschine, in dem der virtuelle Computer eine eigene virtuelle Datenträgerdatei verfügt, normal gestartet wird, speichert Änderungen aus einer Sitzung zur nächsten und ist im Wesentlichen nur einen normalen virtuellen Computer. Der Unterschied ist, wie der Benutzer auf diesem virtuellen Computer zugreift. Es gibt möglicherweise ein Benutzer sich anmeldet, automatisch leitet den Benutzer auf ihre Web-Portal oder mehr VDI virtuelle Computer zugewiesen wurde.
+
+-   Image-basierten persistenten virtuellen Computer, mit persönlichen virtuellen Laufwerken. In dieser Art der Implementierung ist ein Base/Gold-Image für einen oder mehrere Hostserver. Ein virtueller Computer erstellt wird, und eine oder mehrere virtuelle Datenträger erstellt und auf diesem Datenträger für die dauerhafte Speicherung zugewiesen.
+
+    -   Wenn der virtuelle Computer gestartet wird, wird eine Kopie des Basisimages in den Arbeitsspeicher des virtuellen Computers gelesen. Zur gleichen Zeit zusammengeführt, ein persistenten virtueller Datenträger, die an den virtuellen Computer, mit allen Änderungen der vorherigen Betriebssystems zugewiesen durch einen komplizierten Prozess.
+
+    -   Änderungen wie das Ereignisprotokoll schreibt, Protokollschreibvorgänge usw. werden umgeleitet, auf den virtuellen Lese-/Schreibzugriff-Datenträger an den virtuellen Computer zugewiesen.
+
+    -   In diesem Fall Betriebssystem und die Wartung der app in der Regel funktioniert möglicherweise mit herkömmlichen servicing Software wie Windows Server Update Services oder anderen Technologien.
+
+### <a name="non-persistent-vdi"></a>Nicht persistente VDI-
+
+Wenn eine nicht persistente VDI-Implementierung, die sich auf eine Basis oder "gold" Image basiert, werden die Optimierungen vor allem im Basisimage und anschließend über die lokalen Einstellungen und lokale Richtlinien ausgeführt.
+
+Mit nicht persistente VDI--Abbildern ist das Basisimage schreibgeschützt. Wenn eine nicht persistente VDI VM gestartet wird, wird eine Kopie des Basisimages mit dem virtuellen Computer gestreamt. Aktivität, die während des Starts und danach erst beim nächsten Neustart auftritt, wird in einen temporären Speicherort umgeleitet. In der Regel werden die Benutzer-Speicherorte zum Speichern ihrer Daten bereitgestellt. In einigen Fällen wird das Profil des Benutzers mit der standard-VM für die Benutzer ihre Einstellungen bereitstellen zusammengeführt.
+
+Ein wichtiger Aspekt von nicht-Persitent VDI, die auf ein einzelnes Abbild basiert bedient. Updates des Betriebssystems werden in der Regel einmal pro Monat übermittelt.
+Mit VDI-Abbildern gibt es eine Reihe von Prozessen durchführen, um Updates auf das Bild zu erhalten:
+
+-   Auf einen bestimmten Host alle virtuellen Computer auf diesem Host aus, das von abgeleitet sind das Basisimage muss heruntergefahren oder ausgeschaltet. Dies bedeutet, dass die Benutzer auf anderen virtuellen Computer weitergeleitet werden.
+
+-   Die base-Image wird anschließend geöffnet und gestartet. Alle Wartungsaktivitäten werden dann ausgeführt, z. B. für Betriebssystemupdates, Updates für .NET, app-Updates.
+
+-   Alle neuen Einstellungen, die angewendet werden müssen, werden zu diesem Zeitpunkt angewendet.
+
+-   Alle anderen Wartung wird zu diesem Zeitpunkt durchgeführt.
+
+-   Die base-Image wird anschließend heruntergefahren.
+
+-   Das Basisimage ist versiegelt und zurück in die Produktion starten.
+
+-   Benutzer dürfen sich wieder anmelden.
+
+> [!NOTE]  
+> Windows 10 führt es eine Reihe von Wartungstasks in regelmäßigen Abständen automatisch. Es ist eine geplante Aufgabe, die zur um 3:00 Uhr lokaler Zeit der täglichen Ausführung festgelegt ist, wird standardmäßig ein. Die geplante Aufgabe führt eine Liste von Aufgaben, einschließlich der Windows Update-Bereinigung. Sie können alle Kategorien der Wartung anzeigen, die automatisch mit dem folgenden PowerShell-Befehl ausgeführt werden:
+
+`Get-ScheduledTask | ? {$_.Settings.MaintenanceSettings}`
+
+
+
+Eine der Herausforderungen bei der nicht persistente VDI-ist, dass fast alle Betriebssystem-Aktivität, wenn ein Benutzer sich abmeldet verworfen wird. Oder des Benutzers Profil und Zustand gespeichert werden kann, aber der virtuelle Computer selbst verwirft nahezu alle Änderungen, die seit dem letzten Start vorgenommen wurden. Aus diesem Grund sind Optimierungen, die für ein Windows-Computer, der den Zustand aus einer Sitzung zur nächsten speichert vorgesehen, nicht verfügbar.
+
+Starten Sie Dinge wie Vorabruf und SuperFetch nicht ausgeführt werden soll aus einer Sitzung zum nächsten können wie alle Optimierungen auf der VM verworfen werden abhängig von der Architektur der VDI-VM neu. Indizierung möglicherweise eine partielle Verschwendung von Ressourcen, wie alle Optimierungen Datenträger, z. B. eine herkömmliche Defragmentierung.
+
+### <a name="to-sysprep-or-not-sysprep"></a>Um Sysprep oder nicht mit Sysprep
+
+Windows 10 verfügt über eine integrierte Funktion mit dem Namen der [Systemvorbereitungstool](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview), (häufig Abbreviiated "Sysprep"). Das Sysprep-Tool wird verwendet, um ein benutzerdefiniertes Image für Windows 10 für die Duplizierung vorzubereiten. Der Sysprep-Prozess wird sichergestellt, dass das resultierende Betriebssystem ordnungsgemäß für die Ausführung in der Produktion eindeutig ist.
+
+Es gibt Gründe für und gegen die Ausführung von Sysprep. Im Fall von VDI sollten Sie die Möglichkeit, das Standardprofil für Benutzer anzupassen, die als die Profilvorlage für nachfolgende Benutzer verwendet werden sollen, die mit diesem Abbild anmelden. Apps möglicherweise wirklich installiert, aber auch zur Steuerung von pro-app-Einstellungen können verwendet werden.
+
+Die Alternative ist die Verwendung der Standard. ISO-Datei zum Installieren von möglicherweise mit einer Antwortdatei für die unbeaufsichtigte Installation, und eine Tasksequenz Anwendungen installieren oder Entfernen von Anwendungen. Sie können auch eine Tasksequenz verwenden, um lokale Richtlinieneinstellungen in der Abbildung festzulegen z. B. mit der [lokale Gruppe Richtlinie Objekt Utility (LGPO –)](https://blogs.technet.microsoft.com/secguide/2016/01/21/lgpo-exe-local-group-policy-object-utility-v1-0/) Tool.
+
+#### <a name="vdi-optimization-categories"></a>Kategorien für VDI-Optimierung
+
+
+-   Globale Einstellungen
+
+    -   Cleanup für UWP-app
+
+    -   Cleanup für optionale Funktionen
+
+    -   Lokale Richtlinieneinstellungen
+
+    -   Systemdienste
+
+    -   Geplante Aufgaben
+
+    -   Anwenden von Windows-updates
+
+    -   Automatische Windows-ablaufverfolgungen
+
+    -   Datenträgerbereinigung vor dem Abschließen (versiegeln)-image
+
+-   Benutzereinstellungen
+
+-   Hypervisor / Hosteinstellungen
+
+##### <a name="global-vdi-operating-system-optimization"></a>Globale Optimierung der VDI-Betriebssystem
+
+Die folgenden: Globale Einstellungen für VDI
+
+-   [Universelle Windows-Plattform (UWP) app cleanup](#universal-windows-platform-app-cleanup)
+
+-   [Bereinigen Sie optionale features](#clean-up-optional-features)
+
+-   [Einstellungen lokaler Richtlinien](#local-policy-settings)
+
+-   [Systemdienste](#system-services)
+
+-   [Geplante Aufgaben](#scheduled-tasks)
+
+-   [Anwenden von Windows und andere updates](#apply-windows-and-other-updates)
+
+-   [Automatische Windows-ablaufverfolgungen](#automatic-windows-traces)
+
+-   [Windows Defender-Optimierung mit VDI](#windows-defender-optimization-with-vdi)
+
+-   [Optimieren der Leistung für Windows 10-Netzwerk mithilfe von registrierungseinstellungen](#tuning-windows-10-network-performance-by-using-registry-settings)
+
+-   Zusätzliche Einstellungen aus der [Windows beschränkt Datenverkehr eingeschränkte Funktionalität Baseline](https://go.microsoft.com/fwlink/?linkid=828887) Anleitungen.
+
+-   [Datenträgerbereinigung](#disk-cleanup-including-using-the-disk-cleanup-wizard)
+
+### <a name="universal-windows-platform-app-cleanup"></a>Universelle Windows Plattform-app-Bereinigung
+
+Eines der Ziele von einer VDI-Abbild ist so klein wie möglich sein. Eine Möglichkeit zum Verringern der Größe des Bilds ist auf die UWP-Anwendungen, die nicht verwendet werden, in der Umgebung entfernen. Mit UWP-apps stehen Ihnen die hauptanwendung-Dateien, auch bekannt als die Nutzlast. Es gibt eine kleine Menge von Daten, die im Profil der einzelnen Benutzer für die anwendungsspezifischen Einstellungen gespeichert. Es gibt auch eine kleine Menge von Daten im Profil für alle Benutzer.
+
+Konnektivität und zeitlichen Steuerung sind alles, was bei UWP-app-Bereinigung. Wenn Sie entweder ein Gerät ohne Netzwerkverbindung des Basis-Image bereitstellen, wird Windows 10 kann nicht verbinden mit dem Microsoft Store und apps herunterzuladen, und versuchen, diese zu installieren, während Sie versuchen, diese zu deinstallieren.
+
+Wenn Sie Ihre ändern. WIM-Datei, die Sie verwenden, um Windows 10 installieren und Entfernen von nicht benötigten UWP-apps aus dem. WIM-Datei, bevor Sie installieren, die apps zunächst nicht installiert werden und Ihr Profil Erstellungszeiten müssen kürzer sein. Weiter unten in diesem Abschnitt finden Sie Informationen zum Entfernen von UWP-apps aus Ihrer Installation. WIM-Datei.
+
+Eine gute Strategie für VDI ist die apps bereitstellen, die dann in das Basisabbild einschränken oder danach Blockieren des Zugriffs auf den Microsoft Store werden sollen. Store-apps werden im Hintergrund auf normale Computer in regelmäßigen Abständen aktualisiert. Die UWP-apps können während des Wartungsfensters aktualisiert werden, wenn andere Updates angewendet werden. 
+
+#### <a name="delete-the-payload-of-uwp-apps"></a>Löschen Sie die Nutzlast der UWP-apps
+
+UWP-apps, die nicht benötigt werden, sind weiterhin in das Dateisystem, eine kleine Menge an Speicherplatz zu nutzen. Für apps, die nicht benötigt werden, kann die Nutzlast von unerwünschten UWP-apps aus dem Basis-Image mit PowerShell-Befehlen entfernt werden.
+
+Denn wenn Sie diese aus der Installation zu entfernen. WIM-Datei, die über die Links finden Sie weiter unten in diesem Abschnitt Sie von vorn mit einer sehr Schlank Liste von UWP-apps beginnen können.
+
+Führen Sie den folgenden Befehl zum Auflisten der bereitgestellten UWP-apps aus einem ausgeführten Windows 10-Betriebssystem, wie in diesem abgeschnittene Beispielausgabe aus PowerShell:
+
+```powershell
+
+    Get-AppxProvisionedPackage -Online 
+    
+    DisplayName  : Microsoft.3DBuilder
+    Version      : 13.0.10349.0  
+    Architecture : neutral
+    ResourceId   : \~ 
+    PackageName  : Microsoft.3DBuilder_13.0.10349.0_neutral_\~_8wekyb3d8bbwe 
+    Regions      : 
+    ...
+```
+
+
+UWP-apps, die auf ein System bereitgestellt werden, während Betriebssysteminstallation als Teil einer Tasksequenz entfernt werden können, oder später, nachdem das Betriebssystem installiert ist. Dies kann die bevorzugte Methode sein, da des Gesamtprozesses der erstellen oder verwalten ein Bild modular aufgebaut ist. Nachdem Sie entwickeln, die Skripts, wenn bei einer nachfolgenden Build Sie Änderungen bearbeiten ein vorhandenes Skripts statt wiederholen Sie den Vorgang von Grund auf neu. Hier sind einige Links zu Informationen zu diesem Thema an:
+
+[Entfernen von Windows 10-in-Box-apps während einer Tasksequenz](https://blogs.technet.microsoft.com/mniehaus/2015/11/11/removing-windows-10-in-box-apps-during-a-task-sequence/)
+
+[Integrierte apps entfernt aus Windows 10-WIM-Datei mit Powershell - Version 1.3](https://gallery.technet.microsoft.com/Removing-Built-in-apps-65dc387b)
+
+[Windows 10 1607: Beibehalten von apps aus Feedback zurück, wenn Sie das featureupdate bereitstellen](https://blogs.technet.microsoft.com/mniehaus/2016/08/23/windows-10-1607-keeping-apps-from-coming-back-when-deploying-the-feature-update/)
+
+Führen Sie dann die [Remove-AppxProvisionedPackage](https://docs.microsoft.com/powershell/module/dism/remove-appxprovisionedpackage?view=win10-ps) PowerShell-Befehl, um Nutzlasten für UWP-app zu entfernen:
+
+`Remove-AppxProvisionedPackage -Online -PackageName MyAppxPackage`
+
+Jede UWP-app sollte darauf in jeder Umgebung eindeutige bewertet werden. Sie sollten Installieren einer Standardinstallation von Windows 10, Version 1803, und beachten Sie die apps ausgeführt werden, und Arbeitsspeicher belegen. Beispielsweise empfiehlt es sich, entfernen Sie apps, die automatisch gestartet oder automatisch, die Informationen im Startmenü, z. B. Wetter- und Nachrichten angezeigt, und die nicht der in Ihrer Umgebung sein.
+
+Weist einen Standardwert, die Einstellung auf eine der "Posteingang" UWP-apps wird aufgerufen, Fotos, **eine Benachrichtigung angezeigt, wenn neue Alben verfügbar sind**.  Die Fotos-app kann etwa 145 MB Arbeitsspeicher verwenden. insbesondere private Arbeitssatzwert, Arbeitsspeicher, auch wenn dies nicht der verwendet wird.  Ändern der **eine Benachrichtigung angezeigt, wenn neue Alben verfügbar sind** Einstellung für alle Benutzer ist nicht ratsam, auf dieser Zeit, daher die Empfehlung, die Fotos-app zu entfernen, wenn es nicht erforderlich oder gewünscht ist.
+
+### <a name="clean-up-optional-features"></a>Bereinigen Sie optionale features
+
+#### <a name="managing-optional-features-with-powershell"></a>Verwalten von optionalen Funktionen mit PowerShell
+
+ Führen Sie diesen PowerShell-Befehl zum Auflisten von installierten Windows-Features:
+
+`Get-WindowsOptionalFeature -Online`
+
+
+Sie können aktivieren oder deaktivieren eine bestimmte optionale Windows-Funktion wie im folgenden Beispiel:
+
+`Enable-WindowsOptionalFeature -Online -FeatureName "DirectPlay" -All`
+
+Weitere Informationen hierzu finden Sie unter [Windows 10: Verwalten von optionalen Funktionen mit PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/39386.windows-10-managing-optional-features-with-powershell.aspx).
+
+#### <a name="enable-or-disable-windows-features-by-using-dism"></a>Aktivieren oder Deaktivieren von Windows-Features mithilfe von DISM
+
+Verwenden Sie die integrierte **Dism.exe** Tool zum Auflisten und optionale Windows-Features steuern. Sie können ein Skript Dism.exe einrichten, während einer Tasksequenz ausgeführt wird, die das Betriebssystem installiert wird.
+
+### <a name="local-policy-settings"></a>Lokale Richtlinieneinstellungen
+
+Zahlreiche Optimierungen für Windows 10 in einer VDI-Umgebung können mit Windows-Gruppenrichtlinie vorgenommen werden. Die hier aufgeführten Einstellungen können lokal auf der Basis-Image angewendet werden. Wenn die entsprechenden Einstellungen nicht auf andere Weise wie z. B. durch eine Gruppenrichtlinie angegeben sind, würde die Einstellungen weiterhin gelten.
+
+Einige Entscheidungen basiert möglicherweise auf die Einzelheiten der Umgebung, z.B.:
+
+-   Ist die VDI-Umgebung für den Internetzugang zulässig?
+
+-   Ist Sie die VDI-Lösung, persistente oder nicht persistenter?
+
+Die folgenden Einstellungen speziell Indikator und nicht zu Konflikten mit jede Einstellung, die nichts mit Sicherheit zu tun hat. Diese Einstellungen wurden ausgewählt, um Einstellungen zu entfernen, die möglicherweise nicht für VDI-Umgebungen.
+
+> [!NOTE]  
+> In dieser Tabelle der gruppenrichtlinieneinstellungen für die Elemente, die mit einem Sternchen gekennzeichnet sind, aus der [Windows beschränkt Datenverkehr eingeschränkte Funktionalität Baseline](https://go.microsoft.com/fwlink/?linkid=828887).
+
+| Richtlinieneinstellung   | Element    | Untergeordnete Element     | Mögliche Einstellung und Kommentare   |
+|------------------|---------|--------------|--------|
+| **Lokale Computerrichtlinie \\ Computerkonfiguration \\ Windows-Einstellungen \\ Sicherheitseinstellungen**  | |  |        |
+| **Netzwerk-Manager-Richtlinien**                   | Alle Netzwerke-Eigenschaften                   | Netzwerkadresse     | Benutzer kann nicht Speicherort geändert werden.                                                                                                                                   |
+| **Lokale Computerrichtlinie \\ Computerkonfiguration \\ Administrative Vorlagen \\ Systemsteuerung**                    |                                           |                      |                                                                                                                                                                               |
+| \***Systemsteuerung**                                 | Online-Tipps zulassen                                         |                      | Deaktiviert (Einstellungen werden nicht erhalten Sie von Microsoft Content Services zum Abrufen von Tipps und hilfreiche Informationen)                                                                                                                                                             |
+| **\*Systemsteuerung** \\ Personalisierung                               | Sperrbildschirm nicht anzeigen                            |                      | Aktiviert (diese Richtlinie, die durch die Einstellung, ob im Sperrbildschirm für Benutzer angezeigt wird. Wenn Sie diese richtlinieneinstellung aktivieren, wird Benutzern, die nicht erforderlich sind, drücken STRG + ALT + ENTF, um die Anmeldung ihre ausgewählten Kachel angezeigt nach Sperren ihren PC.)                                                                                                                             |
+| **\*Systemsteuerung** \\ Personalisierung                               | Erzwingen Sie eine bestimmte Sperre Bildschirm- und Anmeldung Standardimage                      |[![Abbildung der Benutzeroberfläche zum Pfad zum Hintergrundbild für Sperrbildschirm festlegen](media/lock-screen-image-settings.png)](media/lock-screen-image-settings.png)             | Aktiviert (diese Einstellung ermöglicht die Angabe der Standard-Sperrbildschirm und Anmeldung Bild angezeigt, wenn kein Benutzer angemeldet ist, und außerdem legt das angegebene Bild als Standard für alle Benutzer –, die es ersetzt des Standardbilds.) Eine niedrige Auflösung, nicht-komplexe Bild würde weniger Daten über das Netzwerk übertragen, jedes Mal, wenn das Bild gerendert wird.                                                                                                       |
+| **\*Systemsteuerung** \\ Regions- und Sprachoptionen\\Handschrift-Personalisierung                    | Deaktivieren Sie automatische Ermittlung                               |                      | Aktiviert (Wenn Sie diese richtlinieneinstellung, automatische Ermittlung beendet wird, aktivieren und alle gespeicherten Daten gelöscht. Benutzer können diese Einstellung nicht in der Systemsteuerung konfigurieren)                                                                                                                                                   |
+| **Lokale Computerrichtlinie \\ Computerkonfiguration \\ Administrative Vorlagen \\ Netzwerk**          |                                           |                      |                                                                                                                                                                               |
+| **Background Intelligent Transfer Service (BITS)**                                  | Lassen Sie den BITS-Client mit Windows BranchCache nicht zu                                  |                      | Enabled                                                                                                                                                                                       |
+| **Background Intelligent Transfer Service (BITS)**                                  | Lassen Sie sich nicht auf den Computer fungieren als Client BITS-Peercaching                             |                      | Enabled                                                                                                                                                                                       |
+| **Background Intelligent Transfer Service (BITS)**                                  | Lassen Sie sich nicht auf den Computer als einen BITS-Peercaching server                             |                      | Enabled                                                                                                                                                                                       |
+| **Background Intelligent Transfer Service (BITS)**                                  | Zulassen von BITS-Peercaching                                    |                      | Disabled                                                                                                                                                                                      |
+| **BranchCache**                                     | BranchCache aktivieren                                       |                      | Disabled                                                                                                                                                                                      |
+| \***Schriftarten**                                         | Schriftart-Anbieter aktivieren                                     |                      | Deaktiviert (Windows keine Verbindung mit einem online-Schriftart-Anbieter her und listet nur lokal installierten Schriftarten auf.)                                                                                                                                                    |
+| **Hotspot-Authentifizierung**                          | Hotspot-Authentifizierung aktivieren                             |                      | Disabled                                                                                                                                                                                      |
+| **Microsoft-Peer-zu-Peer-Netzwerkdienste**                      | Deaktivieren Sie Netzwerkdienste von Microsoft-Peer-zu-Peer                       |                      | Enabled                                                                                                                                                                                       |
+| **Netzwerk-Netzwerkverbindungs-Statusanzeige** (Beachten Sie, dass andere Einstellungen in diesem Abschnitt aus, die in isolierten Netzwerken verwendet werden können)                           | Geben Sie die passiven abrufen                                   | Deaktivieren Sie passives Abrufintervall (Kontrollkästchen)                   | (Verwenden Sie diese Einstellung, wenn ein isoliertes Netzwerk,.) "auf" zurück, oder verwenden statische IP-Adressen aktiviert                                                                                                                                                            |
+| **Offlinedateien**                                   | Zulassen bzw. nicht zulassen von Offlinedateien-Funktion                        |                      | Disabled                                                                                                                                                                                      |
+| **\*TCPIP-Einstellungen** \\ IPv6-Übergangstechnologien                                 | Set Teredo-Status                                          | Zustand "deaktiviert"                       | Aktiviert (im nicht aktiven Zustand keine Teredo-Schnittstellen sind auf dem Host vorhanden.)                                                                                                                                                                       |
+| **\*WLAN-Dienst** \\ WLAN-Einstellungen                                  | Zulassen von Windows automatisch mit vorgeschlagenen öffnen Hotspots, Netzwerken, die von Kontakten gemeinsam genutzt und Hotspots anbieten von kostenpflichtigen Diensten eine Verbindung herstellen |                      | Deaktiviert (**Herstellen einer Verbindung mit der vorgeschlagenen öffnen Hotspots**, **Herstellen einer Verbindung mit Netzwerken, die von meiner Kontakte gemeinsam verwendet**, und **kostenpflichtige Dienste aktivieren** wird deaktiviert und Benutzer dieses Geräts werden sein verhindert, sodass sie.)                                                                                                                                |
+| **Lokale Computerrichtlinie \\ Computerkonfiguration \\ Administrative Vorlagen \\ Startmenü und Taskleiste**           |                                           |                      |                                                                                                                                                                               |
+| \***Benachrichtigungen**                                 | Deaktivieren Sie Benachrichtigungen Netzwerkverwendung                                      |                      | Aktiviert (Wenn Sie dieser richtlinieneinstellung wird festgelegt, Anwendungen aktivieren und Funktionen zum Empfangen von Benachrichtigungen über das Netzwerk von WNS oder mithilfe von Notification-Abruf-APIs nicht möglich.)                                                                                                                                               |
+| **Lokale Computerrichtlinie \\ Computerkonfiguration \\ Administrative Vorlagen \\ System**           |                                           |                      |                                                                                                                                                                               |
+| **Geräteinstallation**                             | Ein Windows-Fehlerbericht nicht gesendet, wenn ein generischer Treiber auf einem Gerät installiert ist                         |                      | Enabled                                                                                                                                                                                       |
+| **Geräteinstallation**                             | Verhindern der Erstellung eines Systemwiederherstellungspunkts während der Geräteaktivität, die normalerweise die Erstellung eines Wiederherstellungspunkts aufgefordert wird                  |                      | Enabled                                                                                                                                                                                       |
+| **Geräteinstallation**                             | Gerät Abrufen von Metadaten aus dem Internet zu verhindern, dass                       |                      | Enabled                                                                                                                                                                                       |
+| **Geräteinstallation**                             | Verhindern Sie, dass Windows Senden eines Fehlerberichts, wenn ein Gerätetreiber Anforderungen zusätzliche Software während der installation        |                      | Enabled                                                                                                                                                                                       |
+| **Geräteinstallation**                             | Deaktivieren Sie **finden Sie neue Hardware** Sprechblasen während der Geräteinstallation                         |                      | Enabled                                                                                                                                                                                       |
+| **FileSystem**\\NTFS                                | Optionen für die Erstellung von Kurznamen                               | Für alle Volumes deaktiviert              | Enabled                                                                                                                                                                                       |
+| \***Der Gruppenrichtlinie**                                  | Konfigurieren von Web-app-Verknüpfung mit app-URL-Handler                        |                      | Disabled (deaktiviert die Web-app-Verknüpfung und HTTP(s):// URIs werden geöffnet werden im Standardbrowser statt Starging die zugeordnete app.)                                                                                                                                                         |
+| \***Der Gruppenrichtlinie**                                  | Erfahrungen bei diesem Gerät fortsetzen                                       |                      | Deaktiviert (das Windows-Gerät ist nicht von anderen Geräten erkannt und kann kein Teil eines geräteübegreifende Nutzung).                                                                                                                                                         |
+| **Internetkommunikationsverwaltung** \\ internetkommunikationseinstellungen                             | Zugriff auf alle Windows Update-Features deaktivieren                            |                      | Aktiviert (Wenn Sie dieser richtlinieneinstellung wird festgelegt, alle Windows-Updates, die Features entfernt werden aktivieren. Dies schließt den Zugriff auf die Windows Update-Website unter blockiert http://windowsupdate.microsoft.com, über den Windows Update-Hyperlink im Startmenü sowie im Menü "Extras" in Internet Explorer. Automatische Aktualisierung von Windows ist auch deaktiviert; Sie weder über benachrichtigt werden, und erhalten Sie wichtige Updates von Windows Update. Diese richtlinieneinstellung verhindert auch Geräte-Manager automatisch Treiberupdates über die Windows Update-Website installieren.)                                                       |
+| **Internetkommunikationsverwaltung** \\ internetkommunikationseinstellungen                             | Automatisches Update von Stammzertifikaten deaktivieren                               |                      | Aktiviert (Wenn Sie diese richtlinieneinstellung aktivieren, bei Ihnen ein von einer nicht vertrauenswürdigen Stammzertifizierungsstelle ausgestelltes Zertifikat angezeigt werden, der Computer wird keine Verbindung hergestellt werden die Windows Update-Website, um festzustellen, ob Microsoft seine Liste der vertrauenswürdigen Zertifizierungsstellen die Zertifizierungsstelle hinzugefügt wurde.)    **HINWEIS:** Verwenden Sie diese Richtlinie nur, wenn Sie eine alternative Möglichkeit, um die aktuelle Zertifikatssperrliste verfügen.                                                                                                           |
+| **Internetkommunikationsverwaltung** \\ internetkommunikationseinstellungen                             | Deaktivieren Sie die Ereignisanzeige "Events.asp" links                                  |                      | Enabled                                                                                                                                                                                       |
+| **Internetkommunikationsverwaltung** \\ internetkommunikationseinstellungen                             | Daten mit handschriftanpassung deaktivieren                         |                      | Enabled                                                                                                                                                                                       |
+| **Internetkommunikationsverwaltung** \\ internetkommunikationseinstellungen                             | Handschrifterkennungs-Fehlerberichterstattung deaktivieren                          |                      | Enabled                                                                                                                                                                                       |
+| **Internetkommunikationsverwaltung** \\ internetkommunikationseinstellungen                             | Deaktivieren Sie Hilfe- und Supportcenter "Wussten Sie schon?" content                                  |                      | Enabled                                                                                                                                                                                       |
+| **Internetkommunikationsverwaltung** \\ internetkommunikationseinstellungen                             | Hilfe und Support Center Microsoft Knowledge Base-Suche deaktivieren                          |                      | Enabled                                                                                                                                                                                       |
+| **Internetkommunikationsverwaltung** \\ internetkommunikationseinstellungen                             | Internet Datenverbindungs-Assistenten deaktivieren Sie, wenn sich die URL-Verbindung auf Microsoft.com bezieht                       |                      | Enabled                                                                                                                                                                                       |
+| **Internetkommunikationsverwaltung** \\ internetkommunikationseinstellungen                             | Internet-Download für die Veröffentlichung und onlinebestellung von Abzügen deaktivieren                 |                      | Enabled                                                                                                                                                                                       |
+| **Internetkommunikationsverwaltung** \\ internetkommunikationseinstellungen                             | Internet-Dateizuordnungdienst deaktivieren                                |                      | Enabled                                                                                                                                                                                       |
+| **Internetkommunikationsverwaltung** \\ internetkommunikationseinstellungen                             | Registrierung deaktivieren Sie, wenn sich die URL-Verbindung auf Microsoft.com bezieht                     |                      | Enabled                                                                                                                                                                                       |
+| **Internetkommunikationsverwaltung** \\ internetkommunikationseinstellungen                             | Die Bild-Aufgabe "Abzüge online bestellen" deaktivieren                                  |                      | Enabled                                                                                                                                                                                       |
+| **Internetkommunikationsverwaltung** \\ internetkommunikationseinstellungen                             | Aufgabe "Web veröffentlichen" für Dateien und Ordner deaktivieren                                  |                      | Enabled                                                                                                                                                                                       |
+| **Internetkommunikationsverwaltung** \\ internetkommunikationseinstellungen                             | Deaktivieren der Windows Messenger Customer Experience Improvement Program                    |                      | Enabled                                                                                                                                                                                       |
+| **Internetkommunikationsverwaltung** \\ internetkommunikationseinstellungen                             | Deaktivieren Sie Windows Customer Experience Improvement Program                                  |                      | Enabled                                                                                                                                                                                       |
+| **\*Internetkommunikationsverwaltung** \\ internetkommunikationseinstellungen                           | Aktive Tests der Windows Network Connectivity Status Indicator deaktivieren                       |                      | Aktiviert (diese richtlinieneinstellung deaktiviert aktiven Tests von Windows Netzwerk Connectivity Status Indicator (NCSI) zu bestimmen, ob der Computer verbunden ist, mit dem Internet oder ein eingeschränkter Netzwerk als Teil der Bestimmung der Konnektivitätsebene ausgeführt NCSI führt eine der beiden aktiven Tests: eine Seite von einem dedizierten Webserver herunterzuladen oder eine DNS-Anforderung für eine dedizierte Adresse. Wenn Sie diese richtlinieneinstellung aktivieren, wird eine der beiden aktiven Tests nicht vom NCSI ausgeführt werden. Dies kann zu reduzieren, die Fähigkeit von NCSI und andere Komponenten, die NCSI, zu verwenden, um Zugriff auf das Internet zu ermitteln) Beachten Sie: Es gibt andere Richtlinien, mit denen Sie umleiten NCSI-Tests mit internen Ressourcen, wenn diese Funktion erwünscht ist. |
+| **Internetkommunikationsverwaltung** \\ internetkommunikationseinstellungen                             | Windows-Fehlerberichterstattung deaktivieren                          |                      | Enabled                                                                                                                                                                                       |
+| **Internetkommunikationsverwaltung** \\ internetkommunikationseinstellungen                             | Suche nach Gerätetreibern auf Windows Update deaktivieren                           |                      | Enabled                                                                                                                                                                                       |
+| **Logon**                                           | Bei der ersten Anmeldung Animation abspielen                              |                      | Disabled                                                                                                                                                                                      |
+| **Logon**                                           | Anwendungsbenachrichtigungen auf gesperrtem Bildschirm deaktivieren                             |                      | Enabled                                                                                                                                                                                       |
+| **Logon**                                           | Deaktivieren Sie Windows-Start sound                            |                      | Enabled                                                                                                                                                                                       |
+| **Energieverwaltung**                                | Wählen Sie einen aktiven Energiesparplan                               | Hohe Leistung                     | Enabled                                                                                                                                                                                       |
+| **Recovery**                                        | Ermöglichen der Wiederherstellung des Systems auf Standardstatus                                  |                      | Disabled                                                                                                                                                                                      |
+| \***Die Integrität des Netzwerkspeichers**                                | Zulassen des Vorhersagemodells für Datenträger-Fehler beim Download von updates                            |                      | Deaktiviert (Updates werden nicht für die Datenträger Fehler Vorhersagemodell Fehler heruntergeladen werden)                                                                                                                                                      |
+| \***Windows Time Services** \\ Zeit Anbieter                        | Aktivieren Sie Windows NTP-Client                                 |                      | Deaktiviert (Wenn Sie diese richtlinieneinstellung nicht konfigurieren oder deaktivieren, die lokalen Computeruhr führt keine Synchronisierung Zeit mit NTP-Server) **Hinweis**: *Betrachten Sie diese Einstellung, sehr sorgfältig*. Windows-Geräte, die einer Domäne angehören, sollen verwenden **NT5DS**. Domänencontroller die Erstellung der übergeordneten Domäne DC kann NTP verwenden. PDCe-Rolle kann NTP verwenden. Virtuelle Computer verwenden manchmal "Erweiterungen" oder "Integration Services".                                                                                       |
+| **Problembehandlung und Diagnose** \\ geplante Wartung                         | Konfigurieren Sie das Verhalten der geplanten Wartung                                  |                      | Disabled                                                                                                                                                                                      |
+| **Problembehandlung und Diagnose** \\ Windows Performance-Startdiagnose                          | Konfigurieren der Ebene des Netzwerkszenarios Ausführung                                        |                      | Disabled                                                                                                                                                                                      |
+| **Problembehandlung und Diagnose** \\ Speicherverlusten Windows-Speicherdiagnose               | Konfigurieren der Ebene des Netzwerkszenarios Ausführung                                        |                      | Disabled                                                                                                                                                                                      |
+| **Problembehandlung und Diagnose** \\ Windows die Ressourcenauslastungserkennung und-Auflösung          | Konfigurieren der Ebene des Netzwerkszenarios Ausführung                                        |                      | Disabled                                                                                                                                                                                      |
+| **Problembehandlung und Diagnose** \\ Windows Herunterfahr-Leistungsdiagnose                      | Konfigurieren der Ebene des Netzwerkszenarios Ausführung                                        |                      | Disabled                                                                                                                                                                                      |
+| **Problembehandlung und Diagnose** \\ Windows/Resume-Standby-Leistungsdiagnose                | Konfigurieren der Ebene des Netzwerkszenarios Ausführung                                        |                      | Disabled                                                                                                                                                                                      |
+| **Problembehandlung und Diagnose** \\ Leistungsdiagnose von Windows-System-Reaktionsfähigkeit                         | Konfigurieren der Ebene des Netzwerkszenarios Ausführung                                        |                      | Disabled                                                                                                                                                                                      |
+| \***Benutzerprofile**                                 | Werbe-ID deaktivieren                               |                      | Aktiviert (Wenn Sie mit dieser richtlinieneinstellung wird festgelegt, die Werbung, die ID deaktiviert ist aktivieren. Apps können nicht die ID für Benutzeroberflächen für apps verwenden.)                                                                                                                                              |
+| **Lokale Computerrichtlinie \\ Computerkonfiguration \\ Administrative Vorlagen \\ Windows-Komponenten**               |                                           |                      |                                                                                                                                                                               |
+| **Hinzufügen von Funktionen zu Windows 10**                                      | Verhindern, dass der Assistent ausgeführt wird                           |                      | Enabled                                                                                                                                                                                       |
+| \***App-Datenschutz**                                   | Let Windows apps access account information                               | Der Standardwert für alle apps: -Force-verweigern                     | Aktiviert (bei Auswahl der **Force Verweigern** Option Windows-apps sind nicht zulässig, um Kontoinformationen zuzugreifen und Mitarbeitern in Ihrer Organisation nicht ändern)                                                                                                                                               |
+| \***App-Datenschutz**                                   | So können Windows-apps Zugriff Anrufliste                                      | Der Standardwert für alle apps: -Force-verweigern                     | Aktiviert (bei Auswahl der **Force Verweigern** Option Windows-apps sind nicht zulässig, auf die Anrufliste zugreifen und Mitarbeitern in Ihrer Organisation nicht ändern.)                                                                                                                                                  |
+| \***App-Datenschutz**                                   | Let Windows apps access contacts                          | Der Standardwert für alle apps: -Force-verweigern                     | Aktiviert (bei Auswahl der **Force Verweigern** Option Windows-apps sind nicht zulässig, auf Kontakte zugreifen und Mitarbeitern in Ihrer Organisation nicht ändern.)                                                                                                                                         |
+| \***App-Datenschutz**                                   | Können Sie Windows-apps auf Diagnoseinformationen zu anderen apps zugreifen                           | Der Standardwert für alle apps: -Force-verweigern                     | Aktiviert (Wenn Sie diese richtlinieneinstellung nicht konfigurieren oder deaktivieren, können Mitarbeiter in Ihrer Organisation, ob Windows-apps auf Diagnoseinformationen zu anderen apps abrufen können, mit den Einstellungen \> Datenschutz auf dem Gerät)                                                                                                                                   |
+| \***App-Datenschutz**                                   | Lassen Sie die Windows-apps den Zugriff auf e-Mail                             | Der Standardwert für alle apps: -Force-verweigern                     | Aktiviert (Wenn Sie die Option "-Force-zulassen wählen", Windows-apps dürfen auf Ihre e-Mails zugreifen und Mitarbeitern in Ihrer Organisation nicht ändern)                                                                                                                                                |
+| \***App-Datenschutz**                                   | Let Windows apps access location                          | Der Standardwert für alle apps: -Force-verweigern                     | Aktiviert (bei Auswahl der **Force Verweigern** Option Windows-apps sind nicht zulässig, um den Zugriff auf Speicherort und Mitarbeitern in Ihrer Organisation nicht ändern.)                                                                                                                                         |
+| \***App-Datenschutz**                                   | Let Windows apps access messaging                         | Der Standardwert für alle apps: -Force-verweigern                     | Aktiviert (bei Auswahl der **Force Verweigern** Option Windows-apps sind nicht zulässig, um den Zugriff auf Speicherort und Mitarbeitern in Ihrer Organisation nicht ändern.)                                                                                                                                          |
+| \***App-Datenschutz**                                   | Lassen Sie die Windows-apps den Zugriff während der Übertragung                            | Der Standardwert für alle apps: -Force-verweigern                     | Aktiviert (bei Auswahl der **Force Verweigern** Option Windows-apps sind nicht zulässig, den Zugriff auf während der Übertragung von Daten und Mitarbeitern in Ihrer Organisation nicht ändern.)                                                                                                                                                      |
+| \***App-Datenschutz**                                   | Lassen Sie die Windows-apps auf Benachrichtigungen                                     | Der Standardwert für alle apps: -Force-verweigern                     | Aktiviert (bei Auswahl der **Force Verweigern** Option Windows-apps sind nicht zulässig, um auf Benachrichtigungen zugreifen und Mitarbeitern in Ihrer Organisation nicht ändern)                                                                                                                                                     |
+| \***App-Datenschutz**                                   | Lassen Sie die Windows-apps auf Tasks zugreifen.                             | Der Standardwert für alle apps: -Force-verweigern                     | Aktiviert (bei Auswahl der **Force Verweigern** Option Windows-apps sind nicht zulässig, auf Aufgaben und Mitarbeitern in Ihrer Organisation nicht ändern.)                                                                                                                                            |
+| \***App-Datenschutz**                                   | Let Windows apps access the calendar                                      | Der Standardwert für alle apps: -Force-verweigern                     | Aktiviert (bei Auswahl der **Force Verweigern** Option Windows-apps sind nicht zulässig, Zugriff auf den Kalender und Mitarbeitern in Ihrer Organisation nicht ändern.)                                                                                                                                                      |
+| \***App-Datenschutz**                                   | Let Windows apps access the camera                                        | Der Standardwert für alle apps: -Force-verweigern                     | Aktiviert (bei Auswahl der **Force Verweigern** Option Windows-apps sind nicht zulässig, um Zugriff auf die Kamera und Mitarbeitern in Ihrer Organisation nicht ändern.)                                                                                                                                        |
+| \***App-Datenschutz**                                   | Let Windows apps access the microphone                                    | Der Standardwert für alle apps: -Force-verweigern                     | Aktiviert (bei Auswahl der **Force Verweigern** Option Windows-apps sind nicht zulässig, auf das Mikrofon zuzugreifen und Mitarbeitern in Ihrer Organisation nicht ändern.)                                                                                                                                                    |
+| \***App-Datenschutz**                                   | Let Windows apps access trusted devices                                   | Der Standardwert für alle apps: -Force-verweigern                     | Aktiviert (bei Auswahl der **Force Verweigern** Option Windows-apps sind nicht zulässig, Zugriff auf vertrauenswürdige Geräte und Mitarbeitern in Ihrer Organisation nicht ändern.)                                                                                                                                                   |
+| \***App-Datenschutz**                                   | Können Sie Windows-apps mit nicht paarweise zugeordneten Geräten kommunizieren                        | Der Standardwert für alle apps: -Force-verweigern                     | Aktiviert (bei Auswahl der **Force Verweigern** Option Windows-apps sind nicht zulässig, für die Kommunikation mit nicht paarweise zugeordneten drahtlose Geräte und Mitarbeitern in Ihrer Organisation nicht ändern.)                                                                                                                                               |
+| \***App-Datenschutz**                                   | Lassen Sie die Windows-apps Zugriff radios                            | Der Standardwert für alle apps: -Force-verweigern                     | Aktiviert (bei Auswahl der **Force Verweigern** Option Windows-apps müssen nicht den Zugriff auf den Funkempfang steuern und Mitarbeitern in Ihrer Organisation nicht ändern.)                                                                                                                                                      |
+| **App-Datenschutz**                                     | Lassen Sie die Windows-apps, Telefonanrufe tätigen                         | Der Standardwert für alle apps: -Force-verweigern                     | Aktiviert (Windows-apps dürfen keine Telefonanrufe tätigen und Mitarbeitern in Ihrer Organisation nicht ändern.)                                                                                                                                                                |
+| \***App-Datenschutz**                                   | Lassen Sie die Windows-apps im Hintergrund ausgeführt werden.                                    | Der Standardwert für alle apps: -Force-verweigern                     | Aktiviert (bei Auswahl der **Force Verweigern** Option Windows-apps sind nicht zulässig, um im Hintergrund ausgeführt und Mitarbeitern in Ihrer Organisation nicht ändern.)                                                                                                                                                    |
+| **Richtlinien für die automatische Wiedergabe**                               | Legen Sie das Standardverhalten für AutoRun                                      | Führen Sie keine Autorun-Befehle                  | Enabled                                                                                                                                                                                       |
+| \***Richtlinien für die automatische Wiedergabe**                             | Automatische Wiedergabe deaktivieren                                         |                      | Aktiviert (Wenn Sie diese richtlinieneinstellung aktivieren, automatische Wiedergabe ist deaktiviert, die auf CD-ROM und austauschbaren Datenträger-Laufwerke oder Disabled auf allen Laufwerken.)                                                                                                                                             |
+| \***Cloud-Inhalten**                                 | Windows-Tipps nicht mehr anzeigen                                  |                      | Aktiviert (mit dieser richtlinieneinstellung wird verhindert, dass Windows-Tipps für Benutzer angezeigt wird.)                                                                                                                                                                 |
+| \***Cloud-Inhalten**                                 | Microsoft-Anwenderfeatures deaktivieren                                   |                      | Aktiviert (Wenn Sie diese richtlinieneinstellung aktivieren, Benutzer nicht mehr sehen personalisierte Empfehlungen von Microsoft und Benachrichtigungen über ihr Microsoft-Konto.)                                                                                                                                             |
+| \***Die Datensammlung und Vorschau-Builds**                            | Telemetrie zulassen                                           | 0 – Sicherheit [nur Enterprise]                       | Aktiviert (Einstellung, für die der Wert 0 für nur auf die Editionen Enterprise, Education, Windows Server oder IoT-Geräte gilt.)                                                                                                                                                         |
+| \***Die Datensammlung und Vorschau-Builds**                            | Feedbackbenachrichtigungen nicht mehr anzeigen                                        |                      | Enabled                                                                                                                                                                                       |
+| \***Die Datensammlung und Vorschau-Builds**                            | Benutzersteuerung für Insider-Builds umstellen                                   |                      | Disabled                                                                                                                                                                                      |
+| **Übermittlungsoptimierung**                           | Downloadmodus                                             | Laden Modus herunter: Einfach (99)           | 99 = einfacher Downloadmodus ohne Peering. Übermittlungsoptimierung ausschließlich über HTTP-downloads und versucht nicht, wenden Sie sich an die Übermittlungsoptimierung für die Cloud-Dienste.                                                                                                                                          |
+| **Desktopfenster-Manager**                          | Flip3D Aufruf nicht zulassen                            |                      | Enabled                                                                                                                                                                                       |
+| **Desktopfenster-Manager**                          | Fensteranimationen nicht zulassen                            |                      | Enabled                                                                                                                                                                                       |
+| **Desktopfenster-Manager**                          | Verwenden Sie die Volltonfarbe für Start-Hintergrund                                      |                      | Enabled                                                                                                                                                                                       |
+| **Edge-Benutzeroberfläche**                                         | Edge-Wischen zulassen                                          |                      | Deaktivieren                                                                                                                                                                                       |
+| **Edge-Benutzeroberfläche**                                         | Deaktivieren Sie die Hilfe-Tipps                                         |                      | Enabled                                                                                                                                                                                       |
+| \***Datei-Explorer**                                 | Windows Defender SmartScreen konfigurieren                                    |                      | Deaktiviert (SmartScreen ist jetzt deaktiviert für alle Benutzer. Benutzer werden nicht gewarnt, wenn sie versuchen, verdächtige apps aus dem Internet ausführen.)                                                                                                                                                        |
+|                                     |                                           |                      | **HINWEIS**: Wenn nicht mit dem Internet verbunden ist, wird dies verhindert, dass die Computer versuchen, wenden Sie sich an Microsoft SmartScreen-Informationen.                                                                                                                                            |
+| **Datei-Explorer**                                   | Nicht anzeigen. dem **neue Anwendung installiert** Benachrichtigung                                  |                      | Enabled                                                                                                                                                                                       |
+| \***Mein Gerät suchen**                                | Aktivieren Sie/Deaktivieren von Suchen mein Gerät                                |                      | Deaktiviert (wenn finden Sie Mein Gerät deaktiviert ist, das Gerät und der Speicherort nicht registriert sind und mein Gerät suchen-Funktion wird nicht funktionieren. Der Benutzer wird auch nicht den Speicherort der letzten Verwendung der ihre aktiven Digitizer auf ihrem Gerät anzeigen können.)                                                                                                                             |
+| **Spiel-Explorer**                                   | Download von Spiel deaktivieren                                  |                      | Enabled                                                                                                                                                                                       |
+| **Spiel-Explorer**                                   | Spiele-Updates deaktivieren                                     |                      | Enabled                                                                                                                                                                                       |
+| **Spiel-Explorer**                                   | Nachverfolgung der Zeitpunkt der letzten Play Spiele im Ordner "Spiele" deaktivieren                          |                      | Enabled                                                                                                                                                                                       |
+| **Homegroup**                                       | Beitritt des Computers zu einer Heimnetzgruppe verhindern                             |                      | Enabled                                                                                                                                                                                       |
+| \***InternetExplorer**                             | Für Microsoft-Dienste das Bereitstellen von erweiterten Vorschlägen zulassen, wenn Benutzer Text in die Adressleiste eingeben             |                      | Deaktiviert (Benutzer wird nicht erweiterte Vorschläge während der Eingabe in die Adressleiste erhalten. In Addition, Benutzern nicht möglich, ändern Sie die Vorschläge für die Einstellung.)                                                                                                                                       |
+| **InternetExplorer**                               | Periodische Überprüfungen auf Internet Explorer-Softwareupdates deaktivieren                             |                      | Enabled                                                                                                                                                                                       |
+| **InternetExplorer**                               | Deaktivieren der Anzeige des Begrüßungsbildschirms                         |                      | Enabled                                                                                                                                                                                       |
+| **InternetExplorer**                               | Automatisch neue Versionen von Internet Explorer installieren                                   |                      | Disabled                                                                                                                                                                                      |
+| **InternetExplorer**                               | Verhindern Sie die Teilnahme am Programm zur Verbesserung der Benutzerfreundlichkeit                      |                      | Enabled                                                                                                                                                                                       |
+| **InternetExplorer**                               | Ausführen des Anpassungs-Assistenten verhindern                          | Wechseln Sie direkt zur Homepage             | Enabled                                                                                                                                                                                       |
+| **InternetExplorer**                               | Legen Sie die Registerkarte Prozess Wachstum                                    | Niedrig                  | Enabled                                                                                                                                                                                       |
+| **InternetExplorer**                               | Geben Sie Standardverhalten für eine neue Registerkarte                                    | Neue Registerkarte                         | Enabled                                                                                                                                                                                       |
+| **InternetExplorer**                               | Benachrichtigungen zur Add-On-Leistung deaktivieren                                 |                      | Enabled                                                                                                                                                                                       |
+| \***InternetExplorer**                             | AutoVervollständigen für Webadressen deaktivieren                      |                      | Aktiviert (Wenn Sie diese richtlinieneinstellung aktivieren, Benutzer wird nicht vorgeschlagenen Übereinstimmungen bei der Eingabe von Webadressen. Der Benutzer kann nicht die automatische Vervollständigung für das Festlegen von Webadressen ändern.)                                                                                                                                                 |
+| \***InternetExplorer**                             | Browser-Geolocation deaktivieren                              |                      | Aktiviert (Wenn Sie diese richtlinieneinstellung aktivieren, Geolocation-Unterstützung für Browser ist deaktiviert.)                                                                                                                                                        |
+| **InternetExplorer**                               | Deaktivieren Sie letzte Browsersitzung erneut öffnen                                     |                      | Enabled                                                                                                                                                                                       |
+| \***InternetExplorer**                             | „Vorgeschlagene Sites“ aktivieren                                   |                      | Deaktiviert (Wenn Sie diese richtlinieneinstellung deaktivieren, sind die Einstiegspunkte und die Funktionen in Zusammenhang mit diesem Feature deaktiviert.)                                                                                                                                                |
+| **\*InternetExplorer** \\ -Kompatibilitätssicht                        | Kompatibilitätsansicht deaktivieren                               |                      | Aktiviert (Wenn Sie diese richtlinieneinstellung aktivieren, der Benutzer kann nicht mithilfe die Schaltfläche oder die kompatibilitätsansichtsliste Websites zu verwalten.)                                                                                                                                                    |
+| **InternetExplorer** \\ Internetsystemsteuerung**\\** Seite "Erweitert"                  | Wiedergeben von Animationen in Webseiten                              |                      | Disabled                                                                                                                                                                                      |
+| **InternetExplorer** \\ Internetsystemsteuerung\\ Seite "Erweitert"                      | Abspielen von Videos in Webseiten                                  |                      | Disabled                                                                                                                                                                                      |
+| **\*InternetExplorer** \\ Internetsystemsteuerung\\ Seite "Erweitert"                    | Deaktivieren Sie das kippen mit Seite Vorhersage features                     |                      | Aktiviert (Microsoft sammelt Ihren Browserverlauf zur Verbesserung der Funktionsweise von Vorblättern mit seitenvorhersage. Dieses Feature ist nicht verfügbar für Internet Explorer für den Desktop. Wenn Sie diese richtlinieneinstellung aktivieren, kippen mit seitenvorhersage ist deaktiviert und die nächste Webseite wurde nicht in den Hintergrund geladen.)                                                                                                           |
+| **InternetExplorer** \\ Interneteinstellungen\\ Erweiterte Einstellungen\\ durchsuchen                            | Finden von Telefonnummern deaktivieren                           |                      | Enabled                                                                                                                                                                                       |
+| **InternetExplorer** \\ Interneteinstellungen\\ Erweiterte Einstellungen\\ Multimedia                          | Erlauben Sie Internet Explorer zum Wiedergeben von Mediendateien, die andere Codecs verwenden                   |                      | Disabled                                                                                                                                                                                      |
+| \***Speicherort und Sensoren**                          | Deaktivieren Sie Speicherort                                         |                      | Aktiviert (f Sie diese richtlinieneinstellung aktivieren, die Speicherort-Funktion ist deaktiviert und Programme auf diesem Computer werden von der Verwendung von Standortinformationen vom Feature "Speicherort" verhindert.)                                                                                                                                     |
+| **Speicherort und Sensoren**                            | Deaktivieren von Sensoren                                          |                      | Enabled                                                                                                                                                                                       |
+| **Speicherorte und Sensoren /** Windows Location-Anbieters                               | Deaktivieren Sie Windows-Location-Anbieters                                        |                      | Enabled                                                                                                                                                                                       |
+| \***Zuordnungen**                                          | Turn off Automatic Download and Update of Map Data                        |                      | Aktiviert ist (sofern Sie diese Einstellung aktivieren den automatischen Download und die Aktualisierung der Sitemap-Daten ist deaktiviert.)                                                                                                                                                              |
+| \***Zuordnungen**                                          | Nicht angeforderten Netzwerk-Datenverkehr auf der Einstellungsseite „Offlinekarten“ deaktivieren                    |                      | Aktiviert ist (sofern Sie diese richtlinieneinstellung, Funktionen, die Netzwerkdatenverkehr für die Seite sind deaktiviert, Offline Maps-Einstellungen aktivieren. Hinweis: Dies kann die gesamte Einstellungsseite deaktivieren.)                                                                                                                                        |
+| \***Messaging**                                     | Message-Diensts Cloud-Synchronisierung                          |                      | Deaktiviert (mit dieser richtlinieneinstellung kann Sicherung und Wiederherstellung von cellular SMS-Nachrichten in der Microsoft Cloud Services.)                                                                                                                                                             |
+| \***Microsoft Edge**                                | Vorschläge in Dropdownliste der Adressleiste zulassen                              |                      | Disabled                                                                                                                                                                                      |
+| \***Microsoft Edge**                                | Konfigurationsupdates für die Bibliothek zulassen                         |                      | Disabled (deaktiviert die Kompatibilität von Listen in Microsoft Edge).                                                                                                                                                                    |
+| \***Microsoft Edge**                                | Microsoft-Kompatibilitätsliste zulassen                                        |                      | Deaktiviert (Wenn Sie diese Einstellung deaktivieren, ist nicht der Microsoft-Kompatibilitätsliste bei der Browsernavigation verwendet.)                                                                                                                                                                |
+| \***Microsoft Edge**                                | Webinhalte auf der Seite „Neuer Tab“ zulassen                         |                      | Deaktiviert (leitet Edge, um mit leerinhalt zu öffnen, wenn eine neue Registerkarte geöffnet wird.)                                                                                                                                                                   |
+| \***Microsoft Edge**                                | Configure Autofill                                        |                      | Deaktiviert (AutoAusfüllen Adressleiste deaktiviert).                                                                                                                                                                   |
+| \***Microsoft Edge**                                | DNT konfigurieren                                    |                      | Aktiviert ist (sofern Sie diese Einstellung, Do Not Track, die Anforderungen an Websites, die in der die Nachverfolgungsinformationen immer gesendet werden aktivieren.)                                                                                                                                                           |
+| \***Microsoft Edge**                                | Configure Password Manager                                |                      | Deaktiviert (Wenn Sie diese Einstellung deaktivieren, können nicht Mitarbeiter Kennwort-Manager verwenden, um ihre Kennwörter lokal zu speichern.)                                                                                                                                                  |
+| \***Microsoft Edge**                                | Suchvorschläge in Adressleiste konfigurieren                               |                      | Deaktiviert (Benutzer können nicht Siehe Suchvorschläge in der Adresse Leiste von Microsoft Edge).                                                                                                                                                            |
+| \***Microsoft Edge**                                | Startseiten konfigurieren                                     |                      | Aktiviert (Wenn Sie diese Einstellung aktivieren, Sie können konfigurieren eine oder mehrere Startseiten. Wenn diese Einstellung aktiviert ist, müssen Sie auch aufnehmen URLs zu den Seiten, trennen mehrere Seiten mit spitzen Klammern in folgendem Format: \<support.contoso.com\>\<support.microsoft.com\> Windows 10, Version 1703 oder höher: Wenn Sie nicht den Datenverkehr an Microsoft senden möchten, können Sie mithilfe der \<zu: leere\> -Wert, der für Geräte berücksichtigt wird, ob zu einer Domäne gehört oder nicht, wenn es das einzige ist so konfiguriert, URL.                                                                    |
+| \***Microsoft Edge**                                | Windows Defender SmartScreen konfigurieren                                    |                      | Deaktiviert (Windows Defender SmartScreen ist deaktiviert, und Mitarbeiter können nicht aktivieren.)                                                                                                                                                         |
+|                                     |                                           |                      | **HINWEIS**: Berücksichtigen Sie diese Einstellung in der Umgebung. Wenn nicht mit dem Internet verbunden ist, wird dies verhindert, dass die Computer versuchen, wenden Sie sich an Microsoft SmartScreen-Informationen.                                                                                                                                              |
+| \***Microsoft Edge**                                | Verhindern, dass die erste Ausführung Webseite geöffnet, in Microsoft Edge                              |                      | **Aktiviert** (Benutzer wird nicht finden Sie unter der Anpassungs-Seite beim Microsoft Edge zum ersten Mal öffnen.)                                                                                                                                                               |
+| **OneDrive**                                        | Verhindern Sie, dass OneDrive Netzwerkverkehr generiert, bis der Benutzer auf OneDrive anmeldet                      |                      | **Aktiviert** (Aktivieren Sie diese Einstellung verhindert, dass der OneDrive-Synchronisierungsclient (OneDrive.exe) des Netzwerkdatenverkehrs (Giro-für Updates usw.) generiert bis der Benutzer, OneDrive anmeldet oder gestartet wird, die Synchronisierung von Dateien auf dem lokalen Computer.)                                                                                                                           |
+| \***OneDrive**                                      | Verwendung von OneDrive zum Speichern von Daten verhindern                            |                      | **Aktiviert** (es sei denn, OneDrive oder off-lokal verwendet wird.)                                                                                                                                                                  |
+| **OneDrive**                                        | Speichern von Dokumenten auf OneDrive standardmäßig                                     |                      | **Deaktivierte** (es sei denn, OneDrive oder off-lokal verwendet wird.)                                                                                                                                                                 |
+| **RSS-Feeds**                                       | Verhindert die automatische Ermittlung von Feeds und Web Slices                       |                      | **Enabled**                                                                                                                                                                                   |
+| \***RSS-Feeds**                                     | Hintergrundsynchronisierung für Feeds und Web Slices deaktivieren                              |                      | **Aktiviert** (sofern durch dieser Richtlinie festlegen aktivieren, die Möglichkeit, Feeds zu synchronisieren, und Web Slices im Hintergrund ist deaktiviert.)                                                                                                                                              |
+| \***Suche**                                        | Cortana zulassen                                             |                      | **Deaktivierte** (wenn Cortana ist deaktiviert, Benutzer zum Verwenden der Suche zum Auffinden auf dem Gerät weiterhin möglich).                                                                                                                                                      |
+| **Suche**                                          | Cortana über Sperrbildschirm zulassen                           |                      | **Deaktiviert**                                                                                                                                                                                  |
+| \***Suche**                                        | Der Suche und Cortana die Nutzung von Positionsdaten erlauben                                  |                      | **Deaktiviert**                                                                                                                                                                                  |
+| **Suche**                                          | Websuche nicht zulassen                                   |                      | **Enabled**                                                                                                                                                                                   |
+| \***Suche**                                        | Nicht im Web suchen oder Webergebnisse in der Suche anzeigen                     |                      | **Aktiviert** (Wenn Sie diese richtlinieneinstellung aktiveren Abfragen wird nicht im Web ausgeführt und Webergebnisse nicht angezeigt werden, wenn ein Benutzer eine Abfrage in der Suche durchführt.)                                                                                                                                             |
+| **Suche**                                          | Hinzufügen von UNC zu verhindern, dass Standorte in der Systemsteuerung zu indizieren                                  |                      | **Enabled**                                                                                                                                                                                   |
+| **Suche**                                          | Zu verhindern, dass die Indizierung von Dateien im Cache für Offlinedateien                             |                      | **Enabled**                                                                                                                                                                                   |
+| \***Suche**                                        | Festlegen der in der Suche freizugebenden Informationen                                  | Anonymer Form Informationen                       | **Aktiviert** (Freigeben von Nutzungsinformationen, aber nicht freigeben von Suchverlauf, Microsoft-Kontoinformationen oder bestimmten Speicherort.)                                                                                                                                                              |
+| \***Softwareschutzplattform**                                  | Deaktivieren der KMS-Client AVC Onlineüberprüfung                                 |                      | **Aktiviert** (durch Aktivieren dieser Einstellung wird verhindert, dass dieser Computer vom Senden von Daten an Microsoft zu dessen Aktivierungszustand.)                                                                                                                                                      |
+| \***Spracherkennung**                                        | Automatische Aktualisierung von Sprachdaten zulassen                                     |                      | **Deaktivierte** (wird nicht in regelmäßigen Abständen nach aktualisierten Sprachmodelle suchen)                                                                                                                                                                          |
+| \***Speichern**                                         | Automatische Downloads und Installation von Updates deaktivieren                        |                      | **Aktiviert** (Wenn Sie diese Einstellung aktivieren, die Automatisches Herunterladen und Installieren von app-Updates ist deaktiviert.)                                                                                                                                                                |
+| \***Speichern**                                         | Deaktivieren Sie automatische Herunterladen von Updates auf Geräten mit Win8                                   |                      | **Aktiviert** (Wenn Sie diese Einstellung aktivieren, des automatischen Downloads von app-Updates ist deaktiviert.)                                                                                                                                                                 |
+| **Store**                                           | Deaktivieren Sie das Angebot auf die neueste Version von Windows aktualisieren                             |                      | **Enabled**                                                                                                                                                                                   |
+| \***Einstellungen synchronisieren**                            | Nicht synchronisieren                               | Gewähren des synchronisiert (nicht ausgewählt) aktivieren         | **Aktiviert** (Wenn Sie diese richtlinieneinstellung aktivieren, "Einstellungen synchronisieren" deaktiviert werden, und keine der Gruppen "die Einstellung sync" auf diesem Gerät synchronisiert werden wird.                                                                                                                                                |
+| **Texteingabe**                                      | Verbessern Sie Freihand- und Anerkennung eingeben                                     |                      | **Deaktiviert**                                                                                                                                                                                  |
+| **Windows Defender Antivirus** \\ ZUORDNUNGEN                               | Microsoft MAPS beitreten                                       |                      | **Deaktivierte** (Wenn Sie diese Einstellung nicht konfigurieren oder deaktivieren, Sie werden nicht Microsoft bei MAPS teilnehmen.)                                                                                                                                                             |
+| **Windows Defender Antivirus** \\ ZUORDNUNGEN                               | Beispieldateien senden, wenn weitere Analyse erforderlich ist                       | Nie senden                           | **Aktiviert** (nur, wenn nicht erfolgter Anmeldung für Diagnosedaten ZUORDNUNGEN)                                                                                                                                                                         |
+| **Windows Defender Antivirus** \\ Reporting                          | Ausschalten von erweiterten Benachrichtigungen                           |                      | **Aktiviert** (Wenn Sie diese Einstellung aktivieren, Windows Defender Antivirus, verbesserte Benachrichtigungen zeigt keine auf Clients.)                                                                                                                                                       |
+| **Windows Defender Antivirus** \\ Signaturupdates                                  | Definieren der Reihenfolge der Quellen für das Herunterladen von Definitionsupdates                            | FileShares                           | **Aktiviert** (Wenn Sie diese Einstellung aktivieren, definitionsupdatequellen werden kontaktiert werden in der angegebenen Reihenfolge. Nachdem die Definitionsupdates erfolgreich von einer angegebenen Quelle heruntergeladen wurden, werden die verbleibenden Quellen in der Liste nicht kontaktiert werden.)                                                                                                                    |
+| **Windows-Fehlerberichterstattung**                         | Senden Sie Speicherabbilder für Operating System generierte Fehlerberichte automatisch                            |                      | **Deaktiviert**                                                                                                                                                                                  |
+| **Windows-Fehlerberichterstattung**                         | Deaktivieren der Windows-Fehlerberichterstattung                           |                      | **Enabled**                                                                                                                                                                                   |
+| **Windows-Spiel aufzeichnen und senden**                         | Aktiviert oder deaktiviert die Windows-Spiel aufzeichnen und senden                               |                      | **Deaktiviert**                                                                                                                                                                                  |
+| **Windows Installer**                               | Steuerelement maximale Größe des Baseline-Datei-cache                               | 5                    | **Enabled**                                                                                                                                                                                   |
+| **Windows Installer**                               | Erstellung von Prüfpunkten Systemwiederherstellung deaktivieren                           |                      | **Enabled**                                                                                                                                                                                   |
+| **Windows Mail**                                    | Deaktivieren Sie die Communitys-Funktion                          |                      | **Enabled**                                                                                                                                                                                   |
+| **Windows Media Player**                            | Erste Verwenden von Dialogfeldern nicht mehr anzeigen                                        |                      | **Enabled**                                                                                                                                                                                   |
+| **Windows Media Player**                            | Verhindern Sie die Freigabe von Medien                                     |                      | **Enabled**                                                                                                                                                                                   |
+| **Windows Mobility Center**                         | Deaktivieren Sie Windows-Mobilitätscenter                          |                      | **Enabled**                                                                                                                                                                                   |
+| **Analyse der Windows-Zuverlässigkeit**                                    | Konfigurieren Sie die Zuverlässigkeit von WMI-Anbieter                                       |                      | **Deaktiviert**                                                                                                                                                                                  |
+| **Windows Update**                                  | Sofortige Installation von Automatische Updates zulassen                            |                      | **Enabled**                                                                                                                                                                                   |
+| **Windows Update**                                  | Keine Verbindungen mit Windows Update-Internetadressen herstellen                                   |                      | **Aktiviert** (durch Aktivieren dieser Richtlinie wird diese Funktion deaktiviert, und verursacht möglicherweise Verbindung öffentliche Dienste wie z. B. den Windows Store, nicht mehr funktioniert. **Hinweis**: Diese Richtlinie gilt nur bei diesem Gerät konfiguriert ist zur Verbindung mit eines Intranet-Update-Diensts mithilfe der Richtlinie "Geben Sie an Intranet-Speicherort für Microsoft Update".                                                                                                           |
+| **Windows Update**                                  | Entfernen Sie den Zugriff auf alle Windows Update-Funktionen                              |                      | **Enabled**                                                                                                                                                                                   |
+| **\*Windows Update** \\ Windows Update for Business                                  | Verwalten von Vorschau-builds                                     | Legen Sie das Verhalten für den Empfang von Vorschau-Builds:       | **Aktiviert** (Auswahl **deaktivieren Preview-builds** wird verhindert, dass Vorschau-Builds auf dem Gerät installieren. Dadurch wird verhindert, dass Benutzer in das Windows-Insider-Programm die Entscheidung über die Einstellungen -\> Update und Sicherheit.)                                                                                                                                    |
+|                                     |                                           | Deaktivieren Sie die Vorschau-builds               |                                                                                                                                                                               |
+| **\*Windows Update** \\ Windows Update for Business                                  | Wählen Sie bei der Preview-Builds und Feature-Updates empfangen werden                               | Semi-Annual Channel                 | **Aktiviert** (Aktivieren Sie diese Richtlinie zum Angeben der Ebene der Preview Build oder Feature-Updates erhalten möchten, und wann.)                                                                                                                                                                |
+|                                     |                                           | Aufschiebung: 365 Tage                 |                                                                                                                                                                               |
+|                                     |                                           | Start anhalten: jjjj-mm-tt              |                                                                                                                                                                               |
+| **Windows Update** \\ Windows Update for Business                    | Wählen Sie beim Empfang von Qualitätsupdates                                  | 1. 30-Tage-2. Qualitätsupdate anhalten aktualisiert jjjj-mm-tt ab              | **Enabled**                                                                                                                                                                                   |
+| **Windows beschränkt, die benutzerdefinierte Richtlinie für Datenverkehr**                               | Verhindern Sie, dass OneDrive Netzwerkverkehr generiert, bis der Benutzer auf OneDrive anmeldet                      |                      | **Aktiviert** (Aktivieren Sie diese Einstellung aus, wenn Sie möchten, um zu verhindern, dass der OneDrive-Synchronisierungsclient (OneDrive.exe) generieren von Netzwerkdatenverkehr (Giro-für Updates usw.) bis auf OneDrive des Benutzers anmelden oder gestartet wird, die Synchronisierung von Dateien auf dem lokalen Computer.)                                                                                                                         |
+| **Windows beschränkt, die benutzerdefinierte Richtlinie für Datenverkehr**                               | Windows Defender Benachrichtigungen deaktivieren                                   |                      | **Aktiviert** (Wenn Sie diese richtlinieneinstellung aktivieren, Windows Defender sendet keine Benachrichtigungen mit wichtigen Informationen über die Integrität und Sicherheit Ihres Geräts.)                                                                                                                                          |
+| **Lokale Computerrichtlinie \\ Benutzerkonfiguration \\ Administrative Vorlagen**                         |                                           |                      |                                                                                                                                                                               |
+| **Systemsteuerung** \\ Regions- und Sprachoptionen                                   | Angebot Text Vorhersagen deaktivieren Sie, während der Eingabe                                 |                      | **Enabled**                                                                                                                                                                                   |
+| **Desktop**                                         | Fügen Sie keine Freigaben der zuletzt geöffneten Dokumente zu Netzwerkspeicherorten                       |                      | **Enabled**                                                                                                                                                                                   |
+| **Desktop**                                         | Aero Shake-Mausbewegung zum Minimieren von Fenstern deaktivieren                       |                      | **Enabled**                                                                                                                                                                                   |
+| **Desktop** / Active Directory                                      | Maximale Größe der Active Directory-Suche                                 | 2500                 | **Enabled**                                                                                                                                                                                   |
+| **Menü "Start" und auf der Taskleiste**                          | Kein lassen Sie Anheften von Store-app an die Taskleiste zu                             |                      | **Enabled**                                                                                                                                                                                   |
+| **Menü "Start" und auf der Taskleiste**                          | Keine Elemente in Sprunglisten von Remotestandorten anzeigen oder nachverfolgen                         |                      | **Enabled**                                                                                                                                                                                   |
+| **Menü "Start" und auf der Taskleiste**                          | Verwenden Sie nicht die Suchbasis-Methode beim Auflösen von Shell-Tastenkombinationen                         |                      | **Aktiviert** (das System ist die umfassende Suche nicht durchführen. Es wird nur eine Meldung angezeigt, dass die Datei nicht gefunden wird.)                                                                                                                                            |
+| **Menü "Start" und auf der Taskleiste**                          | Entfernen Sie die Benutzer über die Taskleiste                                    |                      | **Aktiviert** (das Symbol "Benutzer" über die Taskleiste entfernt werden, die entsprechende Option für die Einstellungen aus der Taskleiste-Seite "Einstellungen" entfernt wird, und Benutzer werden nicht in der Lage, Pin Personen an die Taskleiste.)                                                                                                                                           |
+| **Menü "Start" und auf der Taskleiste**                          | Feature-Ankündigung via Sprechblasenbenachrichtigungen deaktivieren                      |                      | **Aktiviert** (Benutzer können nicht die Store-app an die Taskleiste anheften. Wenn die Store-app bereits an die Taskleiste angeheftet wurde, wird sie aus der Taskleiste auf der nächsten Anmeldung entfernt werden.)                                                                                                                                             |
+| **Menü "Start" und auf der Taskleiste**                          | Benutzer deaktivieren                                    |                      | **Enabled**                                                                                                                                                                                   |
+| **Startmenü und Taskleiste** / Benachrichtigungen                          | Popupbenachrichtigungen deaktivieren                              |                      | **Enabled**                                                                                                                                                                                   |
+| **Windows-Komponenten** / Cloud-Inhalt                              | Features von Windows-Blickpunkt deaktivieren                                   |                      | **Enabled**                                                                                                                                                                                   |
+| **Edge-Benutzeroberfläche**                                         | Deaktivieren der Überwachung von app-Nutzung                            |                      | **Enabled**                                                                                                                                                                                   |
+| **Datei-Explorer**                                   | Deaktivieren Sie die Zwischenspeicherung von Miniaturansichten von Bildern                                    |                      | **Enabled**                                                                                                                                                                                   |
+| **Datei-Explorer**                                   | Anzeige des zuletzt verwendete Suchbegriffe in der Datei-Explorer-Suchfeld deaktivieren                 |                      | **Enabled**                                                                                                                                                                                   |
+| **Datei-Explorer**                                   | Deaktivieren Sie das Zwischenspeichern von Miniaturansichten in ausgeblendeten thumbs.db-Datei                               |                      | **Enabled**                                                                                                                                                                                   |
+
+
+
+
+### <a name="notes-about-network-connectivity-status-indicator"></a>Hinweise zu den Status der Netzwerkverbindung Indikator
+
+Die oben genannten gruppenrichtlinieneinstellungen enthalten Einstellungen deaktivieren, es wird überprüft, ob das System mit dem Internet verbunden ist. Wenn Ihre Umgebung nicht mit dem Internet überhaupt oder indirekt verbunden, können Sie eine gruppenrichtlinieneinstellung auf das Netzwerksymbol aus der Taskleiste entfernen festlegen. Der Grund, die Sie entfernen das Netzwerk, das Symbol aus der Taskleiste ist, wenn Sie die Internetverbindung deaktivieren möchten, können überprüft, fallen in eine gelbe Flagge auf das Netzwerksymbol, auch wenn das Netzwerk ordnungsgemäß ausgeführt werden kann. Wenn Sie das Symbol "Netzwerk", eine richtlinieneinstellung der Gruppe entfernen möchten, finden Sie, die an diesem Speicherort:
+
+| Windows Update oder Windows-Update für Unternehmen                | Wählen Sie beim Empfang von Qualitätsupdates | 1. 30-Tage-2. Qualitätsupdate anhalten aktualisiert jjjj-mm-tt ab | Enabled                             |
+|-----------------------------------------------------------------------------|------------------------------------------|---------------------------------------------------------|-------------------------------------------------------------------------------------|
+| **Lokale Computerrichtlinie \\ Benutzerkonfiguration \\ Administrative Vorlagen** |          |                         |                     |
+| **Menü "Start" und auf der Taskleiste**                  | Entfernen Sie das Symbol "Netzwerke"               |                         | **Aktiviert** (das Symbol "Netzwerke" wird im Infobereich Systems nicht angezeigt.) |
+
+Weitere Informationen über das Netzwerk Verbindung Status Indicator (NCSI) finden Sie unter: [Das Symbol "Netzwerkverbindungsstatus"](https://blogs.technet.microsoft.com/networking/2012/12/20/the-network-connection-status-icon/)
+
+### <a name="system-services"></a>Systemdienste
+
+Wenn Sie erwägen, deaktivieren die Systemdienste, um Ressourcen zu sparen, achten Sie, die der Dienst berücksichtigt werden, nicht auf irgendeine Weise eine Komponente von einem anderen Dienst vorhanden ist.
+
+Die meisten dieser Empfehlungen spiegeln darüber hinaus Empfehlungen für Windows Server 2016 mit Desktopdarstellung; Weitere Informationen finden Sie unter [Anleitungen zur Deaktivierung der Systemdienste in Windows Server 2016 mit Desktopdarstellung](https://docs.microsoft.com/windows-server/security/windows-services/security-guidelines-for-disabling-system-services-in-windows-server).
+
+Beachten Sie, dass viele Dienste, die guten Kandidaten zum Deaktivieren zu sein scheint auf manuellen Start Diensttyp festgelegt sind. Dies bedeutet, dass der Dienst nicht automatisch gestartet wird und nicht gestartet werden, wird es sei denn, eine bestimmte Anwendung oder Dienst eine Anforderung löst an der Dienst wird für das Deaktivieren der berücksichtigen. Dienste, die bereits für Typ manuellen start konfiguriert sind werden in der Regel nicht hier aufgeführt.
+
+| Windows-Dienst                                                                                                                               | Element                                                                                     | Kommentar                                                                            |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| CDPUserService                                                                                                                                | Dieser Benutzerdienst wird für Connected Devices Platform-Szenarien verwendet werden.                                                                       | HINWEIS: Dies ist ein Dienst pro Benutzer und daher die *Vorlagendienst* muss deaktiviert sein.                                                          |
+| Verbundene Benutzererfahrung und Telemetrie                                                                                                                      | Aktiviert Funktionen, die in der Anwendung verbundenen Benutzerfunktionalität zu unterstützen. Dieser Dienst darüber hinaus verwaltet, die das ereignisgesteuerte Sammlung und Übermittlung von Diagnose- und Nutzungsdaten Informationen (zur Verbesserung der benutzerfreundlichkeit und Qualität der Windows-Plattform) bei der Diagnose und Nutzung von datenschutzeinstellungen für Option unter aktiviert sind Feedback und Diagnose. | Deaktivieren Sie ggf., wenn es sich um nicht verbundenen Netzwerks                                                                      |
+| Wenden Sie sich an Daten                                                                                                                                  | Indizes erhalten Sie Daten schnell Kontakt suchen. Wenn Sie beenden oder deaktivieren Sie diesen Dienst, aus den Suchergebnissen fehlen möglicherweise Kontakte.                                                                | (PimIndexMaintenanceSvc) HINWEIS: Dies ist ein Dienst pro Benutzer und daher die *Vorlagendienst* muss deaktiviert sein.              |
+| Diagnostic Policy-Dienst                                                                                                                     | Ermöglicht problemerkennung, Problembehandlung und Lösung für das Windows-Komponenten. Wenn dieser Dienst beendet wird, wird die Diagnose nicht mehr funktionieren.                                                       |                                                                                    |
+| Heruntergeladene Maps-Manager                                                                                                                       | Windows-Dienst für die Anwendung den Zugriff auf die heruntergeladene Zuordnungen. Dieser Dienst wird bei Bedarf gestartet von Anwendung den Zugriff auf Karten heruntergeladen. Das Deaktivieren dieses Diensts wird verhindert, dass apps den Zugriff auf Karten.                                                     |                                                                                    |
+| Geolocation-Dienst                                                                                                                           | Die aktuelle Position des Systems überwacht und verwaltet die geofences                                                                        |                                                                                    |
+| GameDVR und Broadcast-Benutzerdienst                                                                                                                            | Dieser Benutzerdienst wird für Aufzeichnungen des Spiels und überträgt Live verwendet.                                                                        | HINWEIS: Dies ist ein Dienst pro Benutzer, und daher die Vorlagendienst muss deaktiviert werden kann.                                                            |
+| MessagingService                                                                                                                              | Der Dienst SMS und verwandte Funktionen unterstützen.                                                                             | HINWEIS: Dies ist ein Dienst pro Benutzer und daher die *Vorlagendienst* muss deaktiviert sein.                                                          |
+| Optimieren von Laufwerken                                                                                                                               | Können den Computer, die durch das Optimieren von Dateien auf Speichergeräten effizienter ausgeführt.                                                                           | VDI-Lösungen profitieren normalerweise nicht von der Datenträger-Optimierung. Diese "Drives" sind nicht herkömmliche Laufwerke und meist nur eine temporäre Speicherung-Zuordnung.                                               |
+| SuperFetch                                                                                                                                    | Verwaltet und verbessert die Leistung des Systems im Laufe der Zeit.                                                                                     | In der Regel nicht zur Leistungssteigerung für VDI, insbesondere nicht persistent, angesichts der Tatsache, dass der Betriebssystem – Status verworfen wird jeder Neustart.                                         |
+| Touch, Tastatur und Handschrift-Bereich-Dienst                                                                                                                  | Ermöglicht das Handschrifterkennungs-Bereich und tippen Sie auf der Tastatur Stift- und Handschrifteingaben-Funktionen                                                                                   |                                                                                    |
+| Windows-Fehlerberichterstattung                                                                                                                       | Ermöglicht Fehler gemeldet werden, wenn Programme arbeiten oder reagiert nicht mehr und vorhandene Lösungen bereitgestellt werden. Ermöglicht auch die Protokolle für Diagnose generiert werden soll, und reparieren Sie die Dienste. Wenn dieser Dienst beendet wird, Fehlerberichterstattung funktionieren möglicherweise nicht korrekt und Diagnosedienste repariert und dessen Ergebnisse möglicherweise nicht angezeigt.                   | Mit VDI Diagnose häufig in einem Offlineszenario und nicht in der grundlegenden Produktion erfolgen. Und darüber hinaus einige Kunden deaktivieren, WER trotzdem. WER kommt es sich um eine kleine Menge von Ressourcen für viele verschiedene Dinge, einschließlich ein Geräts zu installieren, oder Fehler, ein Update installieren. |
+| Windows Media Player-Netzwerkfreigabedienst                                                                                                                  | Teilt Windows Media Player-Bibliotheken für andere vernetzte Spieler und Mediengeräte mit universellem Plug & Play                                                                         | Nicht erforderlich, es sei denn, Kunden WMP Bibliotheken im Netzwerk gemeinsam nutzen.                                                              |
+| Windows Mobile-Hotspot-Dienst                                                                                                                                | Bietet die Möglichkeit, eine Datenverbindung mit einem anderen Gerät freizugeben.                                                                            |                                                                                    |
+| Windows Search                                                                                                                                | Bietet inhaltsindizierung Zwischenspeichern von Eigenschaften und Suchergebnisse für Dateien, E-mail und andere Inhalte an.                                                                    | Vor allem bei nicht persistente VDI-erforderlich wahrscheinlich nicht.                                                             |
+
+#### <a name="per-user-services-in-windows"></a>Benutzerbezogene Dienste in Windows
+[Pro Benutzer Dienste](https://docs.microsoft.com/windows/application-management/per-user-services-in-windows) sind Dienste, die erstellt werden, wenn ein Benutzer, Windows oder Windows Server anmeldet und werden beendet und gelöscht, wenn dieser Benutzer meldet sich ab. Diese Dienste ausgeführt werden, im Sicherheitskontext des Benutzerkontos - bietet dies besseren Verwaltung von Ressourcen als der vorherige Ansatz, der diese Arten von Diensten im Zusammenhang mit einem vorkonfigurierten-Konto oder als Aufgaben-Explorer ausführen. 
+
+### <a name="scheduled-tasks"></a>Geplante Aufgaben
+
+Wie andere Elemente in Windows stellen Sie sicher, dass ein Element nicht erforderlich ist, bevor Sie in Betracht ziehen deaktivieren.
+
+Die folgende Liste von Aufgaben sind diejenigen, die Auflistungen von Optimierungen oder Daten auf Computern auszuführen, die ihren Zustand nach einem Neustart beibehalten. Optimierungen für physische Computer vorgesehen sind nicht hilfreich, wenn eine Aufgabe für die VDI-VM neu gestartet, und alle Änderungen seit dem letzten Start verwirft.
+
+Sie können alle aktuellen geplanten Aufgaben, einschließlich Beschreibungen, mit dem folgenden PowerShell-Code abrufen:
+
+`Get-ScheduledTask | Select-Object -Property TaskPath,TaskName,State,Description |Export-CSV -Path C:\Temp\W10_1803_SchTasks.csv -NoTypeInformation`
+
+Gültige **Aufgabennamen geplant** Werte sind:
+
+- OneDrive Standalone-Update Task v2
+- Microsoft Compatibility Appraiser
+- ProgramDataUpdater
+- StartupAppTask
+- CleanupTemporaryState
+- Proxy
+- UninstallDeviceTask
+- ProactiveScan
+- Consolidator
+- UsbCeip
+- Datenintegritätsüberprüfung
+- Datenintegritätsüberprüfung für die Wiederherstellung nach Systemabsturz
+- ScheduledDefrag
+- SilentCleanup
+- Microsoft-Windows-DiskDiagnosticDataCollector
+- Diagnose
+- StorageSense
+- DmClient
+- DmClientOnScenarioDownload
+- Dateiversionsverlauf (Wartungsmodus)
+- ScanForUpdates
+- ScanForUpdatesAsUser
+- SmartRetry
+- Benachrichtigungen
+- WindowsActionDialog
+- WinSAT Mobilfunknetz
+- MapsToastTask
+- ProcessMemoryDiagnosticEvents
+- RunFullMemoryDiagnostic
+- MNO Metadatenparser
+- LPRemove
+- GatherNetworkInfo
+- WiFiTask
+- Sqm-Tasks
+- AnalyzeSystem
+- MobilityManager
+- VerifyWinRE
+- RegIdleBackup
+- FamilySafetyMonitor
+- FamilySafetyRefreshTask
+- IndexerAutomaticMaintenance
+- SpaceAgentTask
+- SpaceManagerTask
+- HeadsetButtonPress
+- SpeechModelDownloadTask
+- ResPriStaticDbSync
+- WsSwapAssessmentTask
+- SR
+- SynchronizeTimeZone
+- USB-Benachrichtigungen
+- QueueReporting
+- UpdateLibrary
+- Geplanter Start
+- sih
+- XblGameSaveTask
+
+### <a name="apply-windows-and-other-updates"></a>Anwenden von Windows und andere updates
+
+Wenden Sie, ob von Microsoft Update oder von Ihren internen Ressourcen, verfügbaren Updates, einschließlich Windows Defender-Signaturen. Dies ist ein guter Zeitpunkt, Anwenden von anderen verfügbaren Updates, einschließlich der Objekte für Microsoft Office installiert.
+
+### <a name="automatic-windows-traces"></a>Automatische Windows-ablaufverfolgungen
+
+Windows wird standardmäßig zum Sammeln und speichern die eingeschränkte Diagnosedaten konfiguriert. Dient zum Aktivieren der Diagnose und ist erforderlich, um Daten aufzuzeichnen, wenn die Weitere Informationen zur Problembehandlung. Automatische systemprüfung ablaufverfolgungen finden Sie durch die Computer-Management-app starten und dann erweitern **Systemprogramme**, **Leistung**, **Data Collector Sets**, und klicken Sie dann Auswählen von **Ereignisablaufverfolgungssitzungen**.
+
+
+Einige der ablaufverfolgungen angezeigt **Ereignisablaufverfolgungssitzungen** und **Start Ereignisablaufverfolgungssitzungen** kann nicht aus, und nicht beendet werden soll. Andere, z. B. die **WiFiSession** Ablaufverfolgung beendet werden kann. Zum Beenden von einer zurzeit ausgeführten Ablaufverfolgungs unter **Ereignisablaufverfolgungssitzungen** mit der rechten Maustaste in der Ablaufverfolgungs, und wählen Sie dann **beenden**. Um zu verhindern, dass die ablaufverfolgungen automatisch beim Start gestartet wird, gehen Sie folgendermaßen vor:
+
+1.  Wählen Sie die **Start Ereignisablaufverfolgungssitzungen** Ordner
+
+2.  Suchen Sie die Ablaufverfolgung von Interesse sind, und doppelklicken Sie dann auf dieser Ablaufverfolgung.
+
+3.  Wählen Sie die **Ereignisablaufverfolgungs-Sitzung** Registerkarte.
+
+4.  Deaktivieren Sie das Kontrollkästchen mit der Bezeichnung **aktiviert**. 
+
+5.  Wählen Sie **OK**.
+
+Hier sind einige systemablaufverfolgungen deaktivieren, für die Verwendung von VDI:
+
+| Name                    | Kommentar                       |
+|-------------------------|-----------------------------------------------|
+| AppModel                | Eine Auflistung von ablaufverfolgungen, von denen Telefon ist |
+| CloudExperienceHostOOBE |               |
+| DiagLog                 |               |
+| NtfsLog                 |               |
+| TileStore               |               |
+| UBPM                    |               |
+| WiFiDriverIHVSession    | Wenn ein WiFi-Gerät nicht verwenden                    |
+| WiFiSession             |               |
+
+#### <a name="servicing-the-operating-system-and-apps"></a>Wartung des Betriebssystems und apps
+
+Irgendwann während des Optimierungsprozesses Image sollte verfügbaren Windows-Updates angewendet werden. Sie können Windows Update Updates für andere Microsoft-Produkte installieren sowie Windows festlegen. Um dies festzulegen, öffnen Sie **Windows-Einstellungen**, und wählen Sie dann **Update und Sicherheit**, und wählen Sie dann **erweiterte Optionen**. Wählen Sie **updates bereitstellen für andere Microsoft-Produkte beim Ausführen von Windows update** auf festgelegt ist, dass **auf**.
+
+Dies wäre eine gute Einstellung für den Fall, dass Sie beabsichtigen, Microsoft-Anwendungen wie Microsoft Office auf der Basis-Image zu installieren. Auf diese Weise ist Office auf dem neuesten Stand, wenn das Bild in Betrieb genommen wird. Es gibt auch Updates für .NET und bestimmte nicht-Microsoft-Komponenten wie z. B. Adobe, die Updates über Windows Update verfügbar sind.
+
+Ein sehr wichtiger Aspekt für VDI-VMs nicht persistent sind Sicherheitsupdates, einschließlich Sicherheit Software-Definitionsdateien. Diese Updates möglicherweise einmal oder sogar mehr als einmal pro Tag veröffentlicht werden. Es gibt möglicherweise eine Möglichkeit, dieser Updates, einschließlich Windows Defender und Microsoft-fremde Komponenten beibehalten werden sollen.
+
+Für Windows Defender kann es am besten, können die Updates aus, auch auf nicht persistente VDI-sein. Die Updates sind im Begriff, die nahezu jede Sitzung anwenden, aber die Updates sind klein und sollte sich nicht auf ein Problem aufgetreten. Darüber hinaus können der virtuellen Computer hinter für Updates nicht, da nur die neueste verfügbare angewendet wird. Dasselbe gilt für nicht-Microsoft-Definitionsdateien möglicherweise.
+
+> [!NOTE]  
+> Store-apps (UWP-apps)-Update über den Windows Store. Moderne Office, z. B. Office 365-Versionen aktualisieren über eigene Mechanismen, wenn mit dem Internet oder über verwaltungstechnologien, wenn nicht direkt verbunden.
+
+### <a name="windows-defender-optimization-with-vdi"></a>Windows Defender-Optimierung mit VDI
+
+Microsoft hat vor kurzem Dokumentation zu Windows Defender in einer VDI-Umgebung veröffentlicht. Finden Sie unter [Bereitstellungshandbuch für Windows Defender Antivirus in einer virtuellen Desktopinfrastruktur (VDI)-Umgebung](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/deployment-vdi-windows-defender-antivirus) Details.
+
+Die oben genannten Artikel enthält Verfahren zum Dienst der VDI-gold-Image und die VDI-Clients verwalten, wie sie ausgeführt werden. Staffeln Sie um Netzwerkbandbreite zu reduzieren, bei der VDI-Computer müssen die Windows Defender-Signaturen aktualisieren, Neustarts, und Zeitplan während der außerhalb der Geschäftszeiten startet, wenn möglich. Updates für die Windows Defender-Signatur können intern auf Dateifreigaben enthalten sein, und ggf. haben Sie die Dateifreigaben für die gleiche oder schließen networking-Segmente wie die virtuellen Computer von VDI.
+
+Finden Sie im Dokument, das am Anfang dieses Abschnitts viel mehr Informationen zum Optimieren von Windows Defender mit VDI aufgelistet werden soll.
+
+### <a name="tuning-windows-10-network-performance-by-using-registry-settings"></a>Optimieren der Leistung für Windows 10-Netzwerk mithilfe von registrierungseinstellungen
+
+Dies ist besonders wichtig in Umgebungen, in denen die VDI-arbeitsauslastungen oder physischen Computer eine arbeitsauslastung enthält, die in erster Linie netzwerkbasierte ist. Die Einstellungen in diesen Abschnitt Verzerrungen Leistung, Netzwerken, zu bevorzugen, indem Sie zusätzliche Puffern und Zwischenspeichern von Dinge einrichten wie Verzeichniseinträge und so weiter.
+
+Beachten Sie, dass einige Einstellungen in diesem Abschnitt *registrierungsbasierte nur* und sollte im Basisimage integriert werden, bevor das Image für die Produktion bereitgestellt wird.
+
+Die folgenden Einstellungen werden in dokumentiert die [Windows Server 2016 Performance Tuning Richtlinie](https://docs.microsoft.com/windows-server/administration/performance-tuning/) Informationen, auf "Microsoft.com", die von der Windows-Produktgruppe veröffentlicht werden.
+
+#### <a name="disablebandwidththrottling"></a>DisableBandwidthThrottling
+
+HKLM\\System\\CurrentControlSet\\Services\\LanmanWorkstation\\Parameters\\DisableBandwidthThrottling
+
+Gilt für Windows 10. Der Standardwert ist **0**. Standardmäßig drosselt der SMB-Redirector den Durchsatz für Netzwerkverbindungen mit hoher Latenz. In einigen Fällen besteht das Ziel hierbei darin, netzwerkbezogene Timeouts zu verhindern. Das Festlegen dieses Registrierungswerts auf **1** deaktiviert diese Drosselung, sodass der Durchsatz Übertragung Datei über Netzwerkverbindungen mit hoher Latenz, sodass Sie diese Einstellung berücksichtigen sollten.
+
+#### <a name="fileinfocacheentriesmax"></a>FileInfoCacheEntriesMax
+
+HKLM\\System\\CurrentControlSet\\Services\\LanmanWorkstation\\Parameters\\FileInfoCacheEntriesMax
+
+Gilt für Windows 10. Der Standardwert ist **64**, mit einem gültigen Bereich von 1 auf 65536. Dieser Wert wird verwendet, um die Menge an Dateimetadaten zu ermitteln, die vom Client zwischengespeichert werden können. Erhöhen Sie den Wert des Netzwerkdatenverkehrs reduziert und Leistung zu erhöhen, wenn viele Dateien zugegriffen werden. Erhöhen Sie diesen Wert auf **1024**.
+
+#### <a name="directorycacheentriesmax"></a>DirectoryCacheEntriesMax
+
+HKLM\\System\\CurrentControlSet\\Services\\LanmanWorkstation\\Parameters\\DirectoryCacheEntriesMax
+
+Gilt für Windows 10. Der Standardwert ist **16**, mit einem gültigen Bereich von 1 auf 4096. Dieser Wert wird verwendet, um die Menge von Verzeichnisinformationen zu ermitteln, die vom Client zwischengespeichert werden können. Durch das Erhöhen des Werts kann der Netzwerkdatenverkehr reduziert und die Leistung erhöht werden, wenn auf große Verzeichnisse zugegriffen wird. Erhöhen Sie diesen Wert auf **1024**.
+
+#### <a name="filenotfoundcacheentriesmax"></a>FileNotFoundCacheEntriesMax
+
+HKLM\\System\\CurrentControlSet\\Services\\LanmanWorkstation\\Parameters\\FileNotFoundCacheEntriesMax
+
+Gilt für Windows 10. Der Standardwert ist **128**, mit einem gültigen Bereich von 1 auf 65536. Dieser Wert wird verwendet, um die Menge von Dateinameninformationen zu ermitteln, die vom Client zwischengespeichert werden können. Erhöhen Sie den Wert des Netzwerkdatenverkehrs reduziert und die Leistung beim Zugriff auf viele Dateinamen zu erhöhen. Erhöhen Sie diesen Wert auf **2048**.
+
+#### <a name="dormantfilelimit"></a>DormantFileLimit
+
+HKLM\\System\\CurrentControlSet\\Services\\LanmanWorkstation\\Parameters\\DormantFileLimit
+
+Gilt für Windows 10. Der Standardwert ist **1023**. Mit diesem Parameter wird die maximale Anzahl von Dateien angegeben, die auf einer freigegebenen Ressource geöffnet bleiben soll, nachdem die Datei von der Anwendung geschlossen wurde. Bei Tausenden von Clients mit SMB-Server verbinden, reduzieren Sie diesen Wert auf **256**.
+
+Sie können viele dieser SMB-Einstellungen konfigurieren, mit der [Set-SmbClientConfiguration](https://docs.microsoft.com/powershell/module/smbshare/set-smbclientconfiguration) und [Set-SmbServerConfiguration](https://docs.microsoft.com/powershell/module/smbshare/set-smbserverconfiguration) Windows PowerShell-Cmdlets. Sie können die Registrierung nur Einstellungen konfigurieren, mithilfe von Windows PowerShell auch, wie im folgenden Beispiel:
+
+`Set-ItemProperty -Path "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\LanmanWorkstation\\Parameters" RequireSecuritySignature -Value 0 -Force`
+
+### <a name="additional-settings-from-the-windows-restricted-traffic-limited-functionality-baseline-guidance"></a>Zusätzliche Einstellungen in der Anleitung für Windows beschränkt Datenverkehr eingeschränkte Funktionalität Baseline
+
+Microsoft hat eine erstellt haben, mithilfe des gleichen Verfahrens als Baseline veröffentlicht die [Sicherheitsbaselines für Windows](https://docs.microsoft.com/windows/device-security/windows-security-baselines)für Umgebungen, die nicht direkt mit dem Internet verbunden oder an Microsoft gesendete und andere Daten reduzieren möchten Dienste.
+
+Die [Windows beschränkt Datenverkehr eingeschränkte Funktionalität Baseline](https://docs.microsoft.com/windows/privacy/manage-connections-from-windows-operating-system-components-to-microsoft-services) Einstellungen in der Gruppenrichtlinien-Tabelle mit einem Sternchen gekennzeichnet sind.
+
+### <a name="disk-cleanup-including-using-the-disk-cleanup-wizard"></a>Datenträgerbereinigung (einschließlich der mit der Datenträgerbereinigung-Assistent)
+
+Die Datenträgerbereinigung kann besonders hilfreich, mit dem Masterabbild VDI-Implementierungen sein. Nachdem das Masterabbild vorbereitet wird, aktualisiert und konfiguriert ist, ist eine der letzten Tasks zum Ausführen der Datenträgerbereinigung. Bereinigen Sie die meisten möglichen Bereiche des eingesparter Speicherplatz ist der Datenträgerbereinigung-Assistent in Windows integrierten können.
+
+> [!NOTE]  
+> Der Assistent die Datenträgerbereinigung ist nicht mehr entwickelt werden. Windows wird die andere Methoden verwenden, um Datenträger-Cleanup-Funktionen bereitzustellen.
+
+
+
+Hier erhalten Sie Vorschläge für verschiedene Bereinigungsaufgaben für Datenträger. Sie sollten diese vor der Implementierung einer von ihnen testen:
+
+1.  Führen Sie nach dem Anwenden aller Updates der Datenträgerbereinigung-Assistent (mit erhöhten Rechten). Die Kategorien umfassen **Übermittlungsoptimierung** und **Windows Update Cleanup**. Sie können diesen Prozess mit automatisieren **Cleanmgr.exe** mit der **/sageset: 11** Option. Diese Option wird die Registrierungswerte, die später zum Automatisieren der Datenträgerbereinigung, verwenden alle verfügbaren Optionen im Assistenten für die Datenträgerbereinigung verwendet werden können.
+
+    1.  Auf einen Test-VM aus einer sauberen Installation, Ausführung **Cleanmgr.exe/sageset: 11** wird deutlich, dass es nur zwei automatische Bereinigungsoptionen standardmäßig aktiviert gibt:
+
+    - Heruntergeladene Programmdateien
+
+    - Temporäre Internetdateien
+
+    2.  Wenn Sie alle Optionen bzw. Weitere Optionen festlegen, werden diese Optionen in der Registrierung nach dem Indexwert, der im vorherigen Befehl bereitgestellten aufgezeichnet (**Cleanmgr.exe/sageset: 11**). In diesem Beispiel verwenden wir den Wert *11* als unser Index für eine nachfolgende automatisierte Disk Cleanup-Prozedur.
+
+    3.  Nach der Ausführung **Cleanmgr.exe/sageset: 11** verschiedene Kategorien von Disk Cleanup-Optionen wird angezeigt. Sie können alle Optionen auswählen, und wählen Sie dann **OK**. Beachten Sie, dass der Datenträgerbereinigung-Assistent nur für den nicht mehr angezeigt wird. Allerdings die ausgewählten Einstellungen werden in der Registrierung gespeichert und kann aufgerufen werden, indem Sie Ausführung **Cleanmgr.exe /SAGERUN:11**.
+
+2.  Bereinigen Sie Volume Shadow Copy-Speicher, wenn eine verwendet wird. Zu diesem Zweck führen Sie die folgenden Befehle an einer Eingabeaufforderung mit erhöhten Rechten aus:
+
+    - **vssadmin list shadows**
+
+    - **Die Liste Shadowstorage vssadmin**
+
+        Wenn die Ausgabe dieser Befehle wird *keine Elemente gefunden, das erfüllen der Abfrage.* , und es kein VSS-Speicher verwendet wird.
+
+3.  Cleanup der temporären Dateien und Protokolle. Führen Sie eine Eingabeaufforderung mit erhöhten Rechten die folgenden Befehle aus:
+
+    - **Del C:\\\*.tmp /s**
+
+    - **Del C:\\Windows\\Temp\\.**
+
+    - **"% Temp%" del\\.**
+
+4.  Löschen Sie keine nicht verwendeten Profile auf dem System mit dem folgenden Befehl ein:
+
+    **wmic path win32_UserProfile where LocalPath="c:\\\\users\\\\\<user\>" Delete**
+
+### <a name="remove-onedrive"></a>Entfernen von OneDrive
+
+Entfernen von OneDrive umfasst das Entfernen des Pakets, deinstallieren und Entfernen von \*lnk-Dateien. Der folgende PowerShell-Beispielcode können Sie bei der OneDrive aus dem Abbild entfernen:
+
+```azurecli
+
+Taskkill.exe /F /IM "OneDrive.exe"
+Taskkill.exe /F /IM "Explorer.exe"` 
+    if (Test-Path "C:\\Windows\\System32\\OneDriveSetup.exe")`
+     { Start-Process "C:\\Windows\\System32\\OneDriveSetup.exe"`
+         -ArgumentList "/uninstall"`
+         -Wait }
+    if (Test-Path "C:\\Windows\\SysWOW64\\OneDriveSetup.exe")`
+     { Start-Process "C:\\Windows\\SysWOW64\\OneDriveSetup.exe"`
+         -ArgumentList "/uninstall"`
+         -Wait }
+Remove-Item -Path
+"C:\\Windows\\ServiceProfiles\\LocalService\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\OneDrive.lnk" -Force
+Remove-Item -Path "C:\\Windows\\ServiceProfiles\\NetworkService\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\OneDrive.lnk" -Force \# Remove the automatic start item for OneDrive from the default user profile registry hive
+Start-Process C:\\Windows\\System32\\Reg.exe -ArgumentList "Load HKLM\\Temp C:\\Users\\Default\\NTUSER.DAT" -Wait
+Start-Process C:\\Windows\\System32\\Reg.exe -ArgumentList "Delete HKLM\\Temp\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run /v OneDriveSetup /f" -Wait
+Start-Process C:\\Windows\\System32\\Reg.exe -ArgumentList "Unload HKLM\\Temp" -Wait Start-Process -FilePath C:\\Windows\\Explorer.exe -Wait
+```
+
+
+Wenden Sie für alle Fragen oder Bedenken in Bezug auf die Informationen in diesem Dokument sich an Ihr Microsoft-Kontoteam, überprüfen Sie die Microsoft VDI-Blog, Posten Sie eine Nachricht an den Microsoft-Foren oder wenden Sie sich an Microsoft bei Fragen oder Bedenken.

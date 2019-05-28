@@ -9,23 +9,25 @@ ms.topic: article
 author: kaushika-msft
 ms.date: 10/24/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: ecf3cb5703a90976dce15abbd0c9fdd1d4aa24ec
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 48099ad15465b885ccaf562bcf94b4bafdeff388
+ms.sourcegitcommit: 4ff3d00df3148e4bea08056cea9f1c3b52086e5d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812631"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64772624"
 ---
 # <a name="troubleshoot-storage-spaces-direct"></a>Problembehandlung für Speicherplätze direkt
+
+> Gilt für: Windows Server 2019, Windows Server 2016
 
 Verwenden Sie die folgende Informationen, um die "direkte Speicherplätze"-Bereitstellung zu beheben.
 
 Starten Sie in der Regel die folgenden Schritte aus:
 
-1. Vergewissern Sie sich, dass das Modell SSD für Windows Server 2016 mithilfe von Windows Server-Katalog zertifiziert ist. Vergewissern Sie sich beim Anbieter, dass die Laufwerke für "direkte Speicherplätze" unterstützt werden.
+1. Vergewissern Sie sich, dass das Modell SSD für Windows Server 2016 und Windows Server-Katalog mit Windows Server-2019 zertifiziert ist. Vergewissern Sie sich beim Anbieter, dass die Laufwerke für "direkte Speicherplätze" unterstützt werden.
 2. Überprüfen Sie den Speicher für alle fehlerhaften Laufwerke. Verwenden Sie Speicher-Management-Software zum Überprüfen des Status der Laufwerke an. Wenn die Laufwerke fehlerhaft, arbeiten Sie mit Ihrem Anbieter sind. 
 3. Aktualisieren Sie den Speicher und Laufwerksfirmware bei Bedarf.
-   Stellen Sie sicher, dass die neuesten Windows-Updates auf allen Knoten installiert sind. Sie erhalten die neuesten Updates für Windows Server 2016 von [ https://aka.ms/update2016 ](https://aka.ms/update2016).
+   Stellen Sie sicher, dass die neuesten Windows-Updates auf allen Knoten installiert sind. Sie erhalten die neuesten Updates für Windows Server 2016 aus [Windows 10- und Windows Server 2016-Updateverlauf](https://aka.ms/update2016) und für Windows Server-2019 aus [Windows 10- und Windows Server-2019 Updateverlauf](https://support.microsoft.com/help/4464619).
 4. Aktualisieren Sie Netzwerkadapter-Treiber und Firmware.
 5. Ausführen der clustervalidierung, lesen Sie den Storage Space-Direct-Abschnitt, und stellen Sie sicher, die Laufwerke, die verwendet werden, für den Cache ordnungsgemäß gemeldet werden und keine Fehler.
 
@@ -195,7 +197,8 @@ Weitere Informationen finden Sie unter [Problembehandlung von "direkte Speicherp
     
 ## <a name="event-5120-with-statusiotimeout-c00000b5"></a>Ereignis 5120 mit STATUS_IO_TIMEOUT c00000b5 
 
->[! Wichtige} um die Wahrscheinlichkeit, dass diese Symptome auftreten, beim Anwenden des Updates mit der Behebung zu reduzieren, ist es wird empfohlen, das folgende Verfahren für den Speicherwartungsmodus zu verwenden, um die Installation der [18. Oktober 2018, kumulatives Update für Windows Server 2016 ](https://support.microsoft.com/help/4462928) oder eine höhere Version, wenn die Knoten derzeit ein kumulatives Update für Windows Server 2016 installiert haben, die freigegeben wurde [8. Mai 2018](https://support.microsoft.com/help/4103723) zu [am 9. Oktober 2018](https://support.microsoft.com/help/KB4462917).
+> [!Important]
+> **Für WindowsServer 2016:** Um die Wahrscheinlichkeit, dass diese Symptome auftreten, beim Anwenden des Updates mit der Behebung zu reduzieren, ist es wird empfohlen, das folgende Verfahren für den Speicherwartungsmodus zu verwenden, um die Installation der [18. Oktober 2018, kumulatives Update für Windows Server 2016](https://support.microsoft.com/help/4462928)oder eine höhere Version, wenn die Knoten derzeit ein kumulatives Update für Windows Server 2016 installiert haben, die freigegeben wurde [8. Mai 2018](https://support.microsoft.com/help/4103723) zu [am 9. Oktober 2018](https://support.microsoft.com/help/KB4462917).
 
 Nach dem Neustart eines Knotens unter Windows Server 2016 mit dem kumulativen Update, die von veröffentlicht wurden, erhalten Sie möglicherweise Ereignis 5120 mit STATUS_IO_TIMEOUT c00000b5 [8. Mai 2018 KB 4103723](https://support.microsoft.com/help/4103723) zu [9. Oktober 2018 KB 4462917](https://support.microsoft.com/help/4462917)installiert.
 
@@ -217,11 +220,7 @@ Event ID: 1135
 Description: Cluster node 'NODENAME'was removed from the active failover cluster membership. The Cluster service on this node may have stopped. This could also be due to the node having lost communication with other active nodes in the failover cluster. Run the Validate a Configuration wizard to check your network configuration. If the condition persists, check for hardware or software errors related to the network adapters on this node. Also check for failures in any other network components to which the node is connected such as hubs, switches, or bridges.
 ```
 
-Das kumulative Update der 8. Mai 2018, SMB robuste behandelt, die für die SMB-Netzwerk-Sitzungen von "direkte Speicherplätze" innerhalb des Clusters hinzufügen wurde eine Änderung eingeführt. Dies erfolgte, um resilienz bei vorübergehenden Netzwerkfehlern verbessern und zu verbessern, wie RoCE Überlastung des Netzwerks behandelt.
-
-Diese Verbesserungen erhöht auch versehentlich Timeouts bei der SMB-Verbindungen versuchen, eine Verbindung herzustellen und wartet auf Timeout, wenn ein Knoten neu gestartet wird. Diese Probleme können es sich um ein System auswirken, der ausgelastet ist. Bei ungeplanten Ausfallzeiten haben e/a-Pausen von bis zu 60 Sekunden auch festgestellt wurde, während das System, Verbindungen mit Timeout wartet.
-
-Um dieses Problem zu beheben, installieren die [18. Oktober 2018, kumulatives Update für Windows Server 2016](https://support.microsoft.com/help/4462928) oder eine höhere Version.
+Eine Änderung eingeführt, in dem 8. Mai 2018 zu Windows Server 2016, sollte ein kumulatives Update SMB robuste behandelt, die für die SMB-Netzwerk-Sitzungen von "direkte Speicherplätze" innerhalb des Clusters hinzufügen. Dies erfolgte, um resilienz bei vorübergehenden Netzwerkfehlern verbessern und zu verbessern, wie RoCE Überlastung des Netzwerks behandelt. Diese Verbesserungen erhöht auch versehentlich Timeouts bei der SMB-Verbindungen versuchen, eine Verbindung herzustellen und wartet auf Timeout, wenn ein Knoten neu gestartet wird. Diese Probleme können es sich um ein System auswirken, der ausgelastet ist. Bei ungeplanten Ausfallzeiten haben e/a-Pausen von bis zu 60 Sekunden auch festgestellt wurde, während das System, Verbindungen mit Timeout wartet. Um dieses Problem zu beheben, installieren die [18. Oktober 2018, kumulatives Update für Windows Server 2016](https://support.microsoft.com/help/4462928) oder eine höhere Version.
 
 *Beachten Sie* dieses Update richtet die Timeouts CSV mit SMB-Verbindungstimeouts, um dieses Problem zu beheben. Es implementiert nicht die Änderungen live Dump-Generierung im Problemumgehungsabschnitt erwähnten zu deaktivieren.
     
@@ -455,4 +454,4 @@ Wir haben ein schwerwiegendes Problem identifiziert, die einige Benutzer mit "di
 >[!NOTE]
 > Einzelne OEMs möglicherweise Geräte, die auf der Intel P3x00-Familie NVMe-Geräte mit eindeutigen Firmware Versionszeichenfolgen basieren. Wenden Sie sich an Ihren OEM, Weitere Informationen, die neueste Version der Firmware.
 
-Wenn Sie Hardware in Ihrer Bereitstellung basierend auf der Intel P3x00-Produktfamilie NVMe-Geräte verwenden, es wird empfohlen, sofortiges Anwenden von der neuesten Firmware (mindestens Wartung Version 8). Dies [Microsoft Support-Artikel](https://support.microsoft.com/en-us/help/4052341/slow-performance-or-lost-communication-io-error-detached-or-no-redunda) enthält zusätzliche Informationen zu diesem Problem. 
+Wenn Sie Hardware in Ihrer Bereitstellung basierend auf der Intel P3x00-Produktfamilie NVMe-Geräte verwenden, es wird empfohlen, sofortiges Anwenden von der neuesten Firmware (mindestens Wartung Version 8). Dies [Microsoft Support-Artikel](https://support.microsoft.com/help/4052341/slow-performance-or-lost-communication-io-error-detached-or-no-redunda) enthält zusätzliche Informationen zu diesem Problem. 

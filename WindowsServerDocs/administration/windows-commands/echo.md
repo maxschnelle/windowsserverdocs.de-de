@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: afb4b10a0d347367780dbaf19b764f2cabd480d9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: eb5c9650b95703f1316e6f5f179b910d22574f68
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819541"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222964"
 ---
 # <a name="echo"></a>echo
 
@@ -26,7 +26,7 @@ ms.locfileid: "59819541"
 
 Zeigt an, oder aktiviert oder deaktiviert den Befehl wiederholen-Funktion. Wenn Sie ohne Angabe von Parametern **Echo** zeigt die aktuelle Einstellung für den Echo.
 
-Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
+Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#examples).
 
 ## <a name="syntax"></a>Syntax
 
@@ -49,9 +49,9 @@ echo [on | off]
 -   Wenn **Echo** deaktiviert ist, die Eingabeaufforderung wird im Eingabeaufforderungsfenster Befehl nicht angezeigt. Geben Sie zum Anzeigen der Eingabeaufforderung **echo auf.**
 -   Wenn in einer Batchdatei verwendet **auf echo** und **echo deaktiviert** wirken sich nicht auf die Einstellung an der Eingabeaufforderung.
 -   Um zu verhindern, einen bestimmten Befehl in einer Batchdatei ausgeben, fügen Sie ein at-Zeichen (@) vor dem Befehl. Um zu verhindern, dass alle Befehle in einer Batchdatei ausgeben, enthalten die **echo deaktiviert** Befehl am Anfang der Datei.
--   Zum Anzeigen einer Pipes (**|**) oder Umleitungszeichen (**<** oder **>**) bei Verwendung **Echo**, verwenden Sie ein Caretzeichen (^) unmittelbar vor dem Zeichen Pipe oder einer Umleitung (beispielsweise **^|**, **^>**, oder **^<**). Geben Sie zum Anzeigen einer Einfügemarke in Folge zwei Caretzeichen (**^^**).
+-   Zum Anzeigen einer Pipes ( **|** ) oder Umleitungszeichen (**<** oder **>**) bei Verwendung **Echo**, verwenden Sie ein Caretzeichen (^) unmittelbar vor dem Zeichen Pipe oder einer Umleitung (beispielsweise **^|**, **^>**, oder **^<**). Geben Sie zum Anzeigen einer Einfügemarke in Folge zwei Caretzeichen ( **^^** ).
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="examples"></a>Beispiele
 
 Zeigt das aktuelle **Echo** Einstellung:
 ```
@@ -106,4 +106,4 @@ File3.txt
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

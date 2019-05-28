@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 9b66bed99cbc2ac2cdf116579adaea282c45fabe
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: cd8febf9eff300b1a83d22828874b4a577b8af36
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59876391"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192316"
 ---
 # <a name="configure-corporate-dns-for-the-federation-service-and-drs"></a>Konfigurieren des Unternehmens-DNS für den Verbunddienst und DRS
-
->Gilt für: Windows Server 2016, Windows Server 2012 R2
   
 ## <a name="step-6-add-a-host-a-and-alias-cname-resource-record-to-corporate-dns-for-the-federation-service-and-drs"></a>Schritt 6: Hinzufügen eines Hosts \(ein\) und Alias \(CNAME\) -Ressourceneintrag auf Unternehmens-DNS für den Verbunddienst und DRS  
 Sie müssen die folgenden Ressourceneinträge Unternehmens Domain Name System hinzufügen \(DNS\) für Ihre Verbunddienst und Device Registration Service, die Sie in den vorherigen Schritten konfiguriert.  
@@ -36,13 +34,13 @@ Mitgliedschaft in **Administratoren**, oder entspricht, ist die Mindestanforderu
   
 1.  Auf Sie Domänencontroller im Server-Manager auf die **Tools** Menü klicken Sie auf **DNS** , öffnen Sie die DNS-Snap\-in.  
   
-2.  Erweitern Sie in der Konsolenstruktur der **Domäne\_Controller\_Namen** Knoten erweitern **Forward-Lookupzonen**mit der rechten Maustaste\-klicken Sie auf **Domäne\_Namen**, und klicken Sie dann auf **neuen Host \(A oder AAAA\)**.  
+2.  Erweitern Sie in der Konsolenstruktur der **Domäne\_Controller\_Namen** Knoten erweitern **Forward-Lookupzonen**mit der rechten Maustaste\-klicken Sie auf **Domäne\_Namen**, und klicken Sie dann auf **neuen Host \(A oder AAAA\)** .  
   
 3.  In der **Namen** geben den Namen, die für AD FS-Farm verwendet.  
   
 4.  Geben Sie in das Feld **IP-Adresse** die IP-Adresse des Verbundservers ein. Klicken Sie auf **Host hinzufügen**.  
   
-5.  Rechts\-klicken Sie auf die **Domäne\_Namen** Knoten, und klicken Sie dann auf **neuer Alias \(CNAME\)**.  
+5.  Rechts\-klicken Sie auf die **Domäne\_Namen** Knoten, und klicken Sie dann auf **neuer Alias \(CNAME\)** .  
   
 6.  Geben Sie im Dialogfeld **Neuer Ressourcendatensatz** **enterpriseregistration** in das Feld **Aliasname** ein.  
   
@@ -53,7 +51,7 @@ Mitgliedschaft in **Administratoren**, oder entspricht, ist die Mindestanforderu
   
 ## <a name="see-also"></a>Siehe auch 
 
-[AD FS-Bereitstellung](../../ad-fs/AD-FS-Deployment.md)  
+[AD FS-Bereitstellung](../../ad-fs/AD-FS-Deployment.md)  
 
 [Windows Server 2012 R2 AD FS-Bereitstellung geführt.](../../ad-fs/deployment/Windows-Server-2012-R2-AD-FS-Deployment-Guide.md)  
  

@@ -9,16 +9,14 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: af0aa61f0d16d4ca567b140c95d74445d09f1cf3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e16289142ea2e53adba52a4ed8f6c01a929a530d
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879301"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192218"
 ---
 # <a name="create-the-first-federation-server-in-a-federation-server-farm"></a>Erstellen des ersten Verbundservers in einer Verbundserverfarm
-
- >Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Nachdem Sie den Verbunddienst-Rollendienst installieren und konfigurieren die erforderlichen Zertifikate auf einem Computer, können Sie den Computer als Verbundserver konfigurieren. Sie können das folgende Verfahren verwenden, um den Computer einrichten, um den ersten Verbundserver in einer neuen Verbundserverfarm mithilfe der AD FS Konfigurations-Assistenten werden.  
   
@@ -66,6 +64,6 @@ Zum Ausführen dieses Verfahrens müssen Sie mindestens Mitglied in der Gruppe �
     > Für eine sichere Bereitstellung sind die Artefaktauflösung und Antworterkennung deaktiviert, wenn Sie den Assistenten für die Konfiguration eines AD FS-Verbundservers verwenden, um eine Verbundserverfarm zu konfigurieren. Dieser Assistent konfiguriert automatisch die interne Windows-Datenbank zum Speichern von Dienstkonfigurationsdaten. Sie können jedoch versehentlich rückgängig machen, diese Änderung durch Aktivieren des Artefaktauflösung-Endpunkts mithilfe der **Endpunkte** Knoten in der AD FS-Verwaltungs-Snap\-in oder aktivieren\-ADFSEndpoint-Cmdlets in Windows PowerShell. Achten Sie sorgfältig darauf, die Standardeinstellung nicht erneut zu konfiguieren, damit dieser Endpunkt deaktiviert bleibt, wenn Sie eine Verbundserverfarm und die interne Windows-Datenbank gemeinsam verwenden.  
   
 ## <a name="additional-references"></a>Weitere Verweise  
-[Prüfliste: Das Einrichten eines Verbundservers](Checklist--Setting-Up-a-Federation-Server.md)  
+[Prüfliste: Einrichten eines Verbundservers](Checklist--Setting-Up-a-Federation-Server.md)  
   
 

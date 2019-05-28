@@ -9,14 +9,17 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage-replica
 manager: mchad
-ms.openlocfilehash: 41f435c3d537cbfd204dfa869d750b22200deb33
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d9999f786639ff4aa303ed34ade14849cda8feec
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59891131"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65475921"
 ---
 # <a name="cluster-to-cluster-storage-replica-cross-region-in-azure"></a>Cluster-zu-Cluster Storage Replica cross-Bereich in Azure
+
+> Gilt für: WindowsServer 2019, WindowsServer 2016, WindowsServer (Halbjährlicher Kanal)
+
 Sie können die Cluster-zu-Cluster Speicherreplikate für regionsübergreifende Anwendungen in Azure konfigurieren. Klicken Sie in den folgenden Beispielen verwenden wir einen Cluster mit zwei Knoten, aber Cluster-zu-Cluster-Funktion "speicherreplikat" ist nicht auf einen Cluster mit zwei Knoten beschränkt. In der folgenden Abbildung ist ein Storage Space Direct Cluster mit zwei Knoten, der miteinander kommunizieren kann, befinden sich in derselben Domäne und regionsübergreifenden.
 
 Sehen Sie sich das Video unten für eine vollständige Exemplarische Vorgehensweise des Prozesses.
@@ -31,7 +34,7 @@ Sehen Sie sich das Video unten für eine vollständige Exemplarische Vorgehenswe
 
     Z. B. **SR-AZ2AZ** in **USA, Westen 2** und **SR-AZCROSS** in **USA, Westen Mitte**, wie oben gezeigt.
 
-2. Erstellen Sie zwei [Verfügbarkeitsgruppen](https://ms.portal.azure.com/#create/Microsoft.AvailabilitySet-ARM), eine in jeder Ressourcengruppe für jeden Cluster
+2. Erstellen Sie zwei [Verfügbarkeitsgruppen](https://ms.portal.azure.com/#create/Microsoft.AvailabilitySet-ARM), eine in jeder Ressourcengruppe für jeden Cluster.
     - Verfügbarkeitsgruppe (**az2azAS1**) in (**SR-AZ2AZ**)
     - Verfügbarkeitsgruppe (**Azcross-AS**) in (**SR-AZCROSS**)
 
@@ -41,7 +44,7 @@ Sehen Sie sich das Video unten für eine vollständige Exemplarische Vorgehenswe
 
 4. Erstellen Sie zwei netzwerksicherheitsgruppen
    - Erstellen der [Netzwerksicherheitsgruppe](https://ms.portal.azure.com/#create/Microsoft.NetworkSecurityGroup-ARM) (**az2az-NSG**) in der ersten Ressourcengruppe (**SR-AZ2AZ**).
-   - Erstellen der [Netzwerksicherheitsgruppe](https://ms.portal.azure.com/#create/Microsoft.NetworkSecurityGroup-ARM) (**Azcross-NSG**) in die zweite Ressourcengruppe (**SR-AZCROSS**). 
+   - Erstellen der [Netzwerksicherheitsgruppe](https://ms.portal.azure.com/#create/Microsoft.NetworkSecurityGroup-ARM) (**Azcross-NSG**) in die zweite Ressourcengruppe (**SR-AZCROSS**).
 
    Fügen Sie eine Sicherheitsregel für eingehenden Datenverkehr für RDP:3389 auf beiden Netzwerksicherheitsgruppen hinzu. Sie können diese Regel zu entfernen, wenn Sie das Setup abgeschlossen haben.
 
@@ -72,10 +75,10 @@ Sehen Sie sich das Video unten für eine vollständige Exemplarische Vorgehenswe
 
    Im folgenden finden Sie die PowerShell-Befehle für das Beispiel
    ```powershell
-      New-Cluster -Name SRAZC1 -Node az2az1,az2az2 – StaticAddress 10.3.0.100
+      New-Cluster -Name SRAZC1 -Node az2az1,az2az2 –StaticAddress 10.3.0.100
    ```
    ```powershell
-      New-Cluster -Name SRAZCross -Node azcross1,azcross2 – StaticAddress 10.0.0.10
+      New-Cluster -Name SRAZCross -Node azcross1,azcross2 –StaticAddress 10.0.0.10
    ```
 
 7. Aktivieren Sie "direkte Speicherplätze".
@@ -172,7 +175,7 @@ Gewähren des Zugriffs über einen Cluster mit einem anderen Cluster in beide Ri
    ```powershell
      Grant-SRAccess -ComputerName az2az1 -Cluster SRAZCross
    ```
-Wenn Sie diesen Befehl auch Ausführen von Windows Server 2016 verwenden:
+Führen Sie Wenn Sie Windows Server 2016 verwenden, klicken Sie dann diesen Befehl auch aus:
 
    ```powershell
      Grant-SRAccess -ComputerName azcross1 -Cluster SRAZC1

@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: d018b417aeba21e2b1303fd9e72b58b4e2fc334f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e7655ca78868d40d354b5260fa99fcfa3a21d0de
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59836051"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192748"
 ---
 # <a name="change-a-dynamic-disk-back-to-a-basic-disk"></a>Zurückkonvertieren eines dynamischen Datenträgers in einen Basisdatenträger
 
@@ -26,22 +26,20 @@ In diesem Thema wird beschrieben, wie Sie alle Daten auf einer dynamischen Festp
 
 ## <a name="changing-a-dynamic-disk-back-to-a-basic-disk"></a>Zurückkonvertieren einer dynamischen Festplatte in einen Basisdatenträger
 
--   [Mithilfe der Windows-Benutzeroberfläche](#BKMK_WINUI)
--   [Über die Befehlszeile](#BKMK_CMD)
+-   [Mithilfe der Windows-Benutzeroberfläche](#to-change-a-dynamic-disk-back-to-a-basic-disk-using-the-windows-interface)
+-   [Über die Befehlszeile](#to-change-a-dynamic-disk-back-to-a-basic-disk-using-a-command-line)
 
 > [!NOTE]
 > Sie müssen mindestens ein Mitglied der Gruppe **Sicherungsoperatoren** or **Administratoren** sein, um diese Schritte durchzuführen.
 
-<a href="" id="BKMK_WINUI"></a>
 #### <a name="to-change-a-dynamic-disk-back-to-a-basic-disk-using-the-windows-interface"></a>So konvertieren Sie mithilfe der Windows-Benutzeroberfläche einen dynamischen Datenträger wieder in einen Basisdatenträger
+
 1.  Sichern Sie alle Volumes auf der Festplatte, den Sie von einem dynamischen in einen Basisdatenträger konvertieren möchten.
 
 2.  Klicken Sie mit der rechten Maustaste in der Datenträgerverwaltung auf jedes Volume der dynamischen Festplatte, die Sie in einen Basisdatenträger konvertieren möchten, und klicken Sie dann auf **Volume löschen** für jedes Volume auf der Festplatte.
 
 3.  Wenn alle Volumes auf der Festplatte gelöscht wurden, klicken Sie mit der rechten Maustaste auf die Festplatte, und klicken Sie dann auf **Konvertieren in Basisdatenträger**.
 
-
-<a href="" id="BKMK_CMD"></a>
 #### <a name="to-change-a-dynamic-disk-back-to-a-basic-disk-using-a-command-line"></a>So konvertieren Sie mithilfe der Befehlszeile einen dynamischen Datenträger wieder in einen Basisdatenträger
 
 1.  Sichern Sie alle Volumes auf der Festplatte, den Sie von einem dynamischen in einen Basisdatenträger konvertieren möchten.

@@ -4,17 +4,17 @@ description: Schlüssel zur Aktivierung von Windows-Produkte durch einen KMS-Ser
 ms.prod: windows-server-threshold
 ms.mktglfcycl: manage
 ms.sitesec: library
-author: jaimeo
+author: jasongerend
+ms.author: jgerend
 ms.localizationpriority: medium
-ms.date: 10/02/2018
-ms.tgt_pltfrm: na
+ms.date: 05/21/2019
 ms.topic: get-started-article
-ms.openlocfilehash: 57ce4c4d7623c2a424efbdf0ff117ede8fad726b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e2aac6db7bb9e118d672190c95f0d73294474f75
+ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847031"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65976529"
 ---
 # <a name="kms-client-setup-keys"></a>KMS-Clientsetupschlüssel
 
@@ -29,9 +29,9 @@ Computer, auf denen Volumenlizenzeditionen von Windows Server, Windows 10, Windo
 
 Wenn Sie für einen Computer die Umstellung von einem KMS-Host, einer MAK-Version oder einer Einzelhandelsversion von Windows auf einen KMS-Client durchführen, müssen Sie den entsprechenden Setupschlüssel (GVLK) installieren. Verwenden Sie dazu die folgenden Tabellen. Um eine Client-Setup-Schlüssel installieren möchten, öffnen Sie eine administratoreingabeaufforderung, auf dem Client Typ **slmgr / IPK \<Setupschlüssel\>**  , und drücken Sie dann die **EINGABETASTE**.
 
-| Wenn Sie Folgendes erreichen möchten,…                                                                                                                                                                                          | …verwenden Sie diese Ressourcen                                                                                                         |
-|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
-| Beim Aktivieren von Windows ohne Volumeaktivierung (d. h., Sie versuchen, eine Einzelhandelsversion von Windows zu aktivieren) **funktionieren diese Schlüssel nicht**.                                                     | Verwenden Sie die folgenden Links für Einzelhandelsversionen von Windows:                                                                              |
+| Wenn Sie Folgendes erreichen möchten,…    | …verwenden Sie diese Ressourcen   |
+|--------------------|------------------------|
+| Beim Aktivieren von Windows ohne Volumeaktivierung (d. h., Sie versuchen, eine Einzelhandelsversion von Windows zu aktivieren) **funktionieren diese Schlüssel nicht**. | Verwenden Sie die folgenden Links für Einzelhandelsversionen von Windows: |
 | Beheben Sie diesen Fehler, die Sie erhalten, wenn Sie versuchen, eine Windows 8.1, Windows Server 2012 R2 oder höher System zu aktivieren: "Fehler: 0xC004F050 Vom Softwarelizenzierungsdienst wurde ein ungültiger Product Key gemeldet."… | [Installieren Sie dieses Update](https://support.microsoft.com/en-us/help/3172614/july-2016-update-rollup-for-windows-8-1-and-windows-server-2012-r2) auf dem KMS-Host, wenn er Windows 8.1, Windows Server 2012 R2, Windows 8 oder Windows Server 2012 ausführt. |
 
 -   [Windows 10 abrufen](https://www.microsoft.com/en-us/windows/get-windows-10)
@@ -43,15 +43,14 @@ Wenn Sie für einen Computer die Umstellung von einem KMS-Host, einer MAK-Versio
 
 >   Wenn Sie Windows Server 2008 R2 oder Windows 7 ausführen, achten Sie auf Updates, die diese Betriebssysteme als KMS-Hosts für Windows 10-Clients unterstützen.
 
-
 ## <a name="windows-server-semi-annual-channel-versions"></a>Versionen von Windows Server Halbjährlicher Kanal
 
-### <a name="windows-server-version-1809"></a>Windows Server, Version 1809
-| Betriebssystemedition       | KMS-Clientsetupschlüssel          |
-|--------------------------------|-------------------------------|
-| Windows Server Datacenter | 6NMRW-2C8FM-D24W7-TQWMY-CWH2D  | 
-| Windows Server Standard | N2KJX-J94YW-TQVFB-DG9YT-724CC  |
+### <a name="windows-server-version-1903-and-windows-server-version-1809"></a>Windows Server, Version 1903 und Windows Server, Version 1809
 
+| Betriebssystemedition  | KMS-Clientsetupschlüssel          |
+|---------------------------|-------------------------------|
+| Windows Server Datacenter | 6NMRW-2C8FM-D24W7-TQWMY-CWH2D |
+| Windows Server Standard   | N2KJX-J94YW-TQVFB-DG9YT-724CC |
 
 ### <a name="windows-server-version-1803"></a>Windows Server, Version 1803
 

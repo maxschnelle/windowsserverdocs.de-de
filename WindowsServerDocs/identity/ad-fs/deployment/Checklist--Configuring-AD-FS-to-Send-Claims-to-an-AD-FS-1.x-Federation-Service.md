@@ -9,16 +9,15 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: bdfd06a28f8ccaa04014024a235cd19512adb181
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bd4c436c806074f63bf51f497429532d7be32f75
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887031"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66192414"
 ---
 # <a name="checklist-configuring-ad-fs-to-send-claims-to-an-ad-fs-1x-federation-service"></a>Prüfliste: Konfigurieren von AD FS zum Senden von Ansprüchen zu einem Verbunddienst von AD FS 1.x
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
   
 ## <a name="checklist-configuring-ad-fs-to-send-claims-to-an-adfs1x-federation-service"></a>Prüfliste: Konfigurieren von AD FS zum Senden von Ansprüchen zu einem AD FS 1.x Federation Service  
 Diese Prüfliste enthält die Aufgaben, die erforderlich sind, für die Konfiguration Ihrer Active Directory Federation Services \(AD FS\) Verbunddienst in Windows Server 2012, um Ansprüche zu senden, die von einem AD FS 1. verstanden werden. *X* Verbunddienst.  

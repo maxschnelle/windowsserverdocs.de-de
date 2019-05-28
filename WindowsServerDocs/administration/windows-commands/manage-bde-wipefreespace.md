@@ -13,23 +13,23 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8750094e7357a3aefa307d24abd1470fbf8d2a71
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 7cf99a9124f78189de223018608d9864e51d7897
+ms.sourcegitcommit: 08eba714d3ceb5f2dfb5486d6b990da1aa4dcbdd
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867171"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65564689"
 ---
 # <a name="manage-bde-wipefreespace"></a>Verwalten von-Bde: WipeFreeSpace
 
 
 
-Zurücksetzen den freien Speicherplatz auf dem Volume Datenfragmente, die im Adressraum vorhanden sind, möglicherweise entfernt. Das Ausführen dieses Befehls auf einem Volume, die verschlüsselt wurde, mithilfe der "nur verwendeten Speicherplatzes? Verschlüsselungsmethode bietet das gleiche Maß an Schutz wie "Full Volume Encryption? die Verschlüsselungsmethode. Beispiele wie dieser Befehl verwendet werden kann, finden Sie unter [Beispiele](#BKMK_Examples).
+Zurücksetzen den freien Speicherplatz auf dem Volume Datenfragmente, die im Adressraum vorhanden sind, möglicherweise entfernt. Ausführen dieses Befehls auf einem Volume, das mit die Verschlüsselungsmethode für "Nur verwendeten Speicherplatz" verschlüsselt wurde, bietet das gleiche Maß an Schutz wie die Verschlüsselungsmethode "Full Volume Encryption". Beispiele wie dieser Befehl verwendet werden kann, finden Sie unter [Beispiele](#BKMK_Examples).
 
 ## <a name="syntax"></a>Syntax
 
 ```
-manage-bde –WipeFreeSpace|-w [<Drive>] [-Cancel] [-computername <Name>] [{-?|/?}] [{-help|-h}]
+manage-bde -WipeFreeSpace|-w [<Drive>] [-Cancel] [-computername <Name>] [{-?|/?}] [{-help|-h}]
 ```
 
 ### <a name="parameters"></a>Parameter
@@ -49,12 +49,12 @@ Das folgende Beispiel veranschaulicht die Verwendung der **-w** Befehl zum Erste
 ```
 manage-bde -w C:
 ```
-Das folgende Beispiel veranschaulicht die Verwendung der **-w** -Befehl mit der **– Abbrechen** Parameter, um die Bereinigung der freie Speicherplatz auf Laufwerk C. Abbrechen
+Das folgende Beispiel veranschaulicht die Verwendung der **-w** -Befehl mit der **-Abbrechen** Parameter, um die Bereinigung der freie Speicherplatz auf Laufwerk C. Abbrechen
 ```
 manage-bde -w -Cancel C:
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Verwalten von-bde](manage-bde.md)

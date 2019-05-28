@@ -4,16 +4,16 @@ description: Bekannte Probleme und Supportinformationen zur Problembehandlung f�
 author: nedpyle
 ms.author: nedpyle
 manager: siroy
-ms.date: 02/27/2019
+ms.date: 05/14/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: f5fefab2c1b7ba8b62ffd6734217eab9a13ae95e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: e1cfd2b0ea3bc4d7802cb4a6d2a8c1493d5511a1
+ms.sourcegitcommit: 0099873d69bd23495d275d7bcb464594de09ee3c
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59888871"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65699697"
 ---
 # <a name="storage-migration-service-known-issues"></a>Speicherung Datenbankmigrationsdienst bekannte Probleme
 
@@ -54,7 +54,7 @@ Dieses Problem wird durch einen Codefehler in Windows Server-2019 verursacht. Da
 
 Um dieses Problem zu umgehen, installieren Sie den Storage-Migration-Dienst auf einem 2019 für Windows Server-Computer, der nicht die gewünschten Migrationsziel ist dann eine Verbindung mit diesem Server mit Windows Admin Center herstellen Sie, und führen Sie die Migration.
 
-Wir möchten in einer späteren Version von Windows Server dieses Problem zu beheben. Öffnen Sie eine Supportanfrage über [Microsoft-Support](https://support.microsoft.com) zum Anfordern einer Backport von diesem Fix erstellt werden.
+Wir haben dies in einer späteren Version von Windows Server behoben. Öffnen Sie eine Supportanfrage über [Microsoft-Support](https://support.microsoft.com) zum Anfordern einer Backport von diesem Fix erstellt werden.
 
 ## <a name="storage-migration-service-isnt-included-in-windows-server-2019-evaluation-edition"></a>Storage-Migration-Dienst ist in der Evaluierungsversion von Windows Server 2019 nicht enthalten.
 
@@ -72,7 +72,7 @@ Wenn Windows Admin Center oder PowerShell verwenden die Übertragung Vorgänge a
 
  >   Übertragungsprotokoll – überprüfen Sie, ob die Freigabe von Dateien in Ihrer Firewall zulässig ist. : Dieser Anforderungsvorgang gesendet, um die NET. TCP://localhost: 28940/Sms/Service/1/Übertragung hat keine empfangen eine Antwort innerhalb des konfigurierten Timeouts (00: 01:00). Die Zeit, die für diesen Vorgang zugewiesene Zeitraum war möglicherweise ein Teil eines längeren Zeitlimits. Dies kann sein, da der Dienst den Vorgang noch verarbeitet oder der Dienst eine Antwortnachricht senden konnte. Erhöhen Sie das Timeout des Vorgangs (durch Umwandeln des Kanals/Proxys in IContextChannel und Festlegen der OperationTimeout-Eigenschaft), und stellen Sie sicher, dass der Dienst an den Client eine Verbindung herstellen können.
 
-Dieses Problem wird durch eine extrem hohe Anzahl von übertragenen Dateien verursacht, die in das Standardtimeout-einer Minute zulässig, die vom Speicherdienst für die MIgration nicht gefiltert werden können. 
+Dieses Problem wird durch eine extrem hohe Anzahl von übertragenen Dateien verursacht, die in das Standardtimeout-einer Minute zulässig, die vom Speicherdienst für die Migration nicht gefiltert werden können. 
 
 Um dieses Problem zu umgehen:
 
@@ -103,14 +103,82 @@ Um dieses Problem zu umgehen:
 
 ## <a name="cutover-fails-when-migrating-between-networks"></a>Umstellung schlägt fehl, wenn die Migration zwischen Netzwerken
 
-Bei der Migration zu einem virtuellen Zielcomputer kann nicht auf einem anderen Netzwerk als die Quelle, z. B. eine Azure-IaaS-Instanz, Umstellung abgeschlossen, wenn die Quelle eine statische IP-Adresse verwendet wurde. 
+Bei der Migration zu einem Zielcomputer ausgeführt wird, in einem anderen Netzwerk als die Quelle, z. B. einer Azure-IaaS-Instanz kann Umstellung abgeschlossen, wenn die Quelle eine statische IP-Adresse verwendet wurde. 
 
 Dieses Verhalten ist beabsichtigt, um Konnektivitätsprobleme nach der Migration von Benutzern, Anwendungen und Skripts, die eine Verbindung über IP-Adresse zu verhindern. Wenn die IP-Adresse aus dem alten Quellcomputer in das neue Ziel verschoben wird, wird nicht sie die neuen Netzwerk-Subnetz-Informationen und vielleicht DNS und WINS-übereinstimmen.
 
 Dieses Problem umgehen, führen Sie eine Migration auf einem Computer im selben Netzwerk. Klicken Sie dann diesen Computer zu einem neuen Netzwerk verschieben und seine IP-Informationen zuweisen. Z. B. bei der Migration zu Azure IaaS, zunächst zu einem lokalen virtuellen Computer migrieren und dann die Verwendung von Azure Migrate die VM nach Azure verschoben.  
 
-Wir haben dieses Problem in einer späteren Version von Windows Server-2019 behoben. Wir werden jetzt können Sie Migrationen an, die Netzwerkeinstellungen des Zielservers nicht ändern. Wir können ein Update der vorhandenen Version von Windows Server-2019 im Rahmen des normalen monatlichen Updatezyklus freigeben. 
+Wir haben dieses Problem behoben, in einer späteren Version von Windows Admin Center. Wir werden jetzt können Sie Migrationen an, die Netzwerkeinstellungen des Zielservers nicht ändern. Die aktualisierte Erweiterung werden hier aufgelistet, bei der Veröffentlichung. 
 
+## <a name="validation-warnings-for-destination-proxy-and-credential-administrative-privileges"></a>Warnungen für die Ziel-Proxy und Anmeldeinformationen über Administratorrechte
+
+Bei der Überprüfung eines Übertragungsauftrag des, sehen Sie die folgenden Warnungen:
+
+ > **Die Anmeldeinformationen über Administratorrechte verfügt.**
+ > Warnung: Aktion nicht remote verfügbar.
+ > **Der Zielproxy wird registriert.**
+ > Warnung: Der Zielproxy wurde nicht gefunden.
+
+Wenn Sie die Storage-Migration-Dienstproxy-Dienst nicht auf dem Zielcomputer Windows Server-2019 installiert haben oder der Ziel-Computer, Windows Server 2016 oder Windows Server 2012 R2 befindet, ist dieses Verhalten beabsichtigt. Wir empfehlen die Migration zu einem 2019 für Windows Server-Computer mit dem Proxy für die deutlich verbesserte übertragungsleistung installiert.  
+
+## <a name="certain-files-do-not-inventory-or-transfer-error-5-access-is-denied"></a>Bestimmte Dateien nicht inventarisiert oder übertragen, 5-Fehler "Zugriff verweigert"
+
+Bei der Inventur oder Übertragung der Dateien aus der Quelle an die Zielcomputer verwendet werden sollen, nicht Dateien, die aus denen ein Benutzer Berechtigungen für Administratoren-Gruppe entfernt wurde migriert. Untersuchen die Storage-Migration-Dienst-Proxy-Debug zeigt:
+
+  Protokollname:      Microsoft-Windows-StorageMigrationService-Proxy/Debug Source:        Microsoft-Windows-StorageMigrationService-Proxy Date:          2/26/2019 9:00:04 Uhr-Ereignis-ID:      10000 Aufgabenkategorie: Keine Ebene:         Fehlerschlüsselwörter:      
+  Benutzer:          Netzwerkcomputer-Dienst: srv1.contoso.com Beschreibung:
+
+  02/26/2019-09:00:04.860 [Aufgabenschema] Fehler beim Übertragen der für \\srv1.contoso.com\public\indy.png: (5) Zugriff wird verweigert.
+Stapelüberwachung: Am Microsoft.StorageMigration.Proxy.Service.Transfer.FileDirUtils.OpenFile (String FileName, DesiredAccess DesiredAccess, ShareMode ShareMode, CreationDisposition CreationDisposition, FlagsAndAttributes FlagsAndAttributes) an Microsoft.StorageMigration.Proxy.Service.Transfer.FileDirUtils.GetTargetFile (Zeichenfolgenpfad) am Microsoft.StorageMigration.Proxy.Service.Transfer.FileDirUtils.GetTargetFile ("FileInfo"-Datei) an Microsoft.StorageMigration.Proxy.Service.Transfer.FileTransfer.InitializeSourceFileInfo() am Microsoft.StorageMigration.Proxy.Service.Transfer.FileTransfer.Transfer() an Microsoft.StorageMigration.Proxy.Service.Transfer.FileTransfer.TryTransfer() [d:\os\src\base\dms\proxy\transfer\transferproxy\FileTransfer.cs::TryTransfer::55]
+
+
+Dieses Problem wird durch einen Codefehler im Storage-Migration-Dienst verursacht, in dem die Sicherung Berechtigung nicht aufgerufen wurde. 
+
+Um dieses Problem zu beheben, installieren [Windows Update 2 April 2019 – KB4490481 (OS Build 17763.404)](https://support.microsoft.com/help/4490481/windows-10-update-kb4490481) auf dem Orchestrator-Computer und dem Zielcomputer, wenn der Dienst gibt es installiert ist. Stellen Sie sicher, dass die Benutzer-Konto des Quellstandorts-Migration ein lokaler Administrator auf dem Quellcomputer und der Speicherung Datenbankmigrationsdienst Orchestrator ist. Stellen Sie sicher, dass das Benutzerkonto des Ziel-Migration ein lokaler Administrator auf dem Zielcomputer und der Speicherung Datenbankmigrationsdienst Orchestrator ist. 
+
+## <a name="dfsr-hashes-mismatch-when-using-storage-migration-service-to-preseed-data"></a>DFSR-Hashes Konflikt, wenn Storage-Migration-Dienst zum Seeding von Daten
+
+Wenn Sie den Storage-Migration-Dienst zum Übertragen von Dateien an ein neues Ziel verwenden, klicken Sie dann konfigurieren die DFS-Replikation (DFSR) zum Replizieren von Daten mit einem vorhandenen DFSR-Server über Presseded Replikation oder DFSR-Datenbank beim Klonen, alle Dateien Experiemce einen hash Konflikt und werden erneut repliziert werden. Die Datenströme, Sicherheitsdatenströme, Größen und Attribute, die alle perfekt abgeglichen wird, nach der Verwendung von SMS an sie übertragen werden. Examing zeigt die Dateien mit ICACLS oder das Debugprotokoll der DFSR-Datenbank zum Klonen:
+
+Quelldatei:
+
+  Icacls d:\test\Source:
+
+  icacls d:\test\thatcher.png /save out.txt /t thatcher.png D:AI(A;;FA;;;BA)(A;;0x1200a9;;;DD)(A;;0x1301bf;;;DU)(A;ID;FA;;;BA)(A;ID;FA;;;SY)(A;ID;0x1200a9;;;BU)
+
+Zieldatei:
+
+  icacls d:\test\thatcher.png /save out.txt /t thatcher.png D:AI(A;;FA;;;BA)(A;;0x1301bf;;;DU)(A;;0x1200a9;;;DD)(A;ID;FA;;;BA)(A;ID;FA;;;SY)(A;ID;0x1200a9;;;BU)**S:PAINO_ACCESS_CONTROL**
+
+DFSR-Debugprotokoll:
+
+  20190308 10:18:53.116 3948 DBCL 4045 [Warnung] stimmt nicht überein. DBClone::IDTableImportUpdate Datensatz wurde gefunden. 
+
+  Lokale ACL-Hash: 1BCDFE03-A18BCE01-D1AE9859-23A0A5F6 LastWriteTime:20190308 18:09:44.876 FileSizeLow:1131654 FileSizeHigh:0 Attribute: 32 
+
+  Klonen Sie ACL-Hash:**DDC4FCE4-DDF329C4-977CED6D-F4D72A5B** LastWriteTime:20190308 18:09:44.876 FileSizeLow:1131654 FileSizeHigh:0 Attribute: 32 
+
+Dieses Problem wird durch einen Codefehler in einer Bibliothek, die vom Speicherdienst Migration verwendet werden, um die sicherheitsüberwachung ACLs (SACL) festgelegt, verursacht. Eine SACL ungleich Null ist versehentlich festgelegt werden, wenn die SACL leer ist, wurde führende DFSR einen Hash-Konflikt ordnungsgemäß zu identifizieren. 
+
+Zur Umgehung dieses Problem, weiterhin mit Robocopy für [vorabseedings DFSR-als auch DFSR-Datenbank Klonvorgänge](../dfs-replication/preseed-dfsr-with-robocopy.md) anstelle von dem Storage-Migration-Dienst. Wir werden das Problem zu untersuchen und zum Beheben dieses Problems in einer späteren Version von Windows Server und möglicherweise einen Windows Update-bereitgestellt werden soll. 
+
+## <a name="error-404-when-downloading-csv-logs"></a>Fehler 404 beim Herunterladen der CSV-Protokolle
+
+Beim Versuch, die die Übertragung oder Fehler Protokolle am Ende der einem Übertragungsvorgang herunterzuladen, erhalten Sie Fehler auf:
+
+  $jobname: Übertragungsprotokoll: Ajax-Fehler 404
+
+Dieser Fehler wird erwartet, wenn Sie die Firewallregel "Datei- und Druckerfreigabe (SMB eingehend)" auf dem OrchestratorServer nicht aktiviert haben. Dateidownloads Windows Admin Center müssen Port TCP/445 (SMB) auf verbundenen Computern.  
+
+## <a name="error-couldnt-transfer-storage-on-any-of-the-endpoints-when-transfering-from-windows-server-2008-r2"></a>Fehler "konnte nicht transfer Speicher auf einem der Endpunkte" beim Übertragen von Windows Server 2008 R2
+
+Beim Versuch, Daten von einem Windows Server 2008 R2-Quellcomputer zu übertragen, erhalten keine Trasnfers Daten, und Sie zu einem Fehler:  
+
+  Speicherkonto konnte nicht auf einem der Endpunkte übertragen werden.
+0x9044
+
+Dieser Fehler wird erwartet, wenn es sich bei Ihrem Windows Server 2008 R2-Computer mit allen kritischen und wichtigen Updates über Windows Update ist nicht alle Patches installiert. Unabhängig von der Speicherung Datenbankmigrationsdienst empfehlen wir grundsätzlich die Patchen von eines Windows Server 2008 R2-Computers aus Sicherheitsgründen wie das Betriebssystem nicht zu die sicherheitsverbesserungen neuerer Versionen von Windows Server enthält.
 
 ## <a name="see-also"></a>Siehe auch
 

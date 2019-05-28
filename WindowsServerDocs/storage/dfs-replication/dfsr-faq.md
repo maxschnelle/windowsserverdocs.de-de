@@ -6,17 +6,17 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: f1d77b6640bc0d6a5832a5a19c80d9d0af5d2b00
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3782667e54f5e6b52c07645704b95fc9e7409a27
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59832661"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476070"
 ---
 # <a name="dfs-replication-frequently-asked-questions-faq"></a>DFS-Replikation: Häufig gestellte Fragen
 
 
-Aktualisiert: 9. Oktober 2013
+Aktualisiert: 30 April 2019
 
 Gilt für: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
@@ -631,7 +631,7 @@ Wenn Sie Windows Server 2008 oder Windows Server 2003 R2 verwenden, können Sie 
 
 ### <a name="is-there-a-way-to-force-a-complete-replication-of-all-files-including-unchanged-files"></a>Gibt es eine Möglichkeit, eine vollständige Replikation aller Dateien, einschließlich der unveränderte Dateien erzwingen?
 
-Nein. Wenn die DFS-Replikation die Dateien identisch berücksichtigt werden, wird es sie nicht repliziert. Wenn die geänderte Dateien nicht repliziert wurden, werden sie bei entsprechender Konfiguration automatisch vom DFS-Replikation repliziert werden. Um dem konfigurierten Zeitplan zu überschreiben, verwenden Sie die WMI-Methode **ForceReplicate()**. Dies ist jedoch nur ein Zeitplan zu überschreiben, und sie erzwingt nicht die Replikation unverändert oder identische Dateien.
+Nein. Wenn die DFS-Replikation die Dateien identisch berücksichtigt werden, wird es sie nicht repliziert. Wenn die geänderte Dateien nicht repliziert wurden, werden sie bei entsprechender Konfiguration automatisch vom DFS-Replikation repliziert werden. Um dem konfigurierten Zeitplan zu überschreiben, verwenden Sie die WMI-Methode **ForceReplicate()** . Dies ist jedoch nur ein Zeitplan zu überschreiben, und sie erzwingt nicht die Replikation unverändert oder identische Dateien.
 
 ### <a name="what-happens-if-the-primary-member-suffers-a-database-loss-during-initial-replication"></a>Was geschieht, wenn das primäre Mitglied leidet die Verlust Datenbank während der anfänglichen Replikation?
 
@@ -728,7 +728,7 @@ Einen beliebigen Teil der Datei bereits gesendet wird, wird die Übertragung von
 </colgroup>
 <thead>
 <tr class="header">
-<th>Datum</th>
+<th>date</th>
 <th>Beschreibung</th>
 <th>Grund</th>
 </tr>

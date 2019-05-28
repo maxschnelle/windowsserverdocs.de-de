@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 05/18/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: a7a14b1a1e0f91002b201869e4c68187ffaf3f8f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: eaec563157a77fd4e782842a81e5b59e49a5ea09
+ms.sourcegitcommit: 7cb939320fa2613b7582163a19727d7b77debe4b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865081"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65621298"
 ---
 # <a name="use-robocopy-to-preseed-files-for-dfs-replication"></a>Verwenden Sie Robocopy, um die Dateien für die DFS-Replikation Seeding
 
@@ -28,9 +28,9 @@ Das Befehlszeile-Hilfsprogramm von Robocopy (robuste Kopieren von Gastdateien), 
 
 So verwenden Robocopy, um Dateien für die DFS-Replikation Seeding, gehen Sie folgendermaßen vor:
 
-1. [Herunterladen Sie und installieren Sie die neueste Version von Robocopy.](#step-1:-download-and-install-the-latest-version-of-robocopy)
-2. [Stabilisieren Sie Dateien, die repliziert werden.](#step-2:-stabilize-files-that-will-be-replicated)
-3. [Kopieren Sie die replizierte Dateien auf den Zielserver an.](#step-3:-copy-the-replicated-files-to-the-destination-server)
+1. [Herunterladen Sie und installieren Sie die neueste Version von Robocopy.](#step-1-download-and-install-the-latest-version-of-robocopy)
+2. [Stabilisieren Sie Dateien, die repliziert werden.](#step-2-stabilize-files-that-will-be-replicated)
+3. [Kopieren Sie die replizierte Dateien auf den Zielserver an.](#step-3-copy-the-replicated-files-to-the-destination-server)
 
 ## <a name="prerequisites"></a>Vorraussetzungen
 
@@ -38,7 +38,7 @@ Da preseeding keine direkt DFS-Replikation, müssen Sie nur die Anforderungen f�
 
 - Sie benötigen ein Konto, das ein Mitglied der lokalen Administratorengruppe auf den Quell-und Ziel ist.
 
-- Installieren Sie die neueste Version von Robocopy, auf dem Server, die Sie zum Kopieren der Dateien verwenden – entweder auf dem Quellserver oder auf dem Zielserver; Sie benötigen, um die neueste Version für die Betriebssystemversion zu installieren. Anweisungen hierzu finden Sie unter [Schritt2: Stabilisieren Sie Dateien, die repliziert werden](#step-2:-stabilize-files-that-will-be-replicated). Wenn Sie Dateien von einem Server unter Windows Server 2003 R2 preseeding sind, können Sie Robocopy auf die Quelle oder das Ziel-Server ausführen. Der Zielserver, der in der Regel die aktuellere Version des Betriebssystems verfügt, erhalten Sie Zugriff auf die neueste Version von Robocopy an.
+- Installieren Sie die neueste Version von Robocopy, auf dem Server, die Sie zum Kopieren der Dateien verwenden – entweder auf dem Quellserver oder auf dem Zielserver; Sie benötigen, um die neueste Version für die Betriebssystemversion zu installieren. Anweisungen hierzu finden Sie unter [Schritt2: Stabilisieren Sie Dateien, die repliziert werden](#step-2-stabilize-files-that-will-be-replicated). Wenn Sie Dateien von einem Server unter Windows Server 2003 R2 preseeding sind, können Sie Robocopy auf die Quelle oder das Ziel-Server ausführen. Der Zielserver, der in der Regel die aktuellere Version des Betriebssystems verfügt, erhalten Sie Zugriff auf die neueste Version von Robocopy an.
 
 - Stellen Sie sicher, dass genügend Speicherplatz auf dem Ziellaufwerk verfügbar ist. Erstellen Sie einen Ordner nicht auf dem Weg, dem Sie zum kopieren möchten: Robocopy muss im Stammordner erstellen.
     
@@ -63,7 +63,7 @@ Alternativ können Sie suchen und installieren den neuesten Hotfix für ein Betr
     
     ```robocopy.exe kbqfe "<operating system version>"```
     
-    Geben Sie z. B. **robocopy.exe based "Windows Server 2008 R2-**.
+    Geben Sie z. B. **robocopy.exe based "Windows Server 2008 R2-** .
 
 3. Suchen Sie und Laden Sie den Hotfix an, mit der höchsten ID-Nummer (d. h. die neueste Version).
 
@@ -105,7 +105,7 @@ Nachdem Sie Sperren für die Dateien, die repliziert werden minimieren, können 
     |"\<Ziel repliziert Ordnerpfad\>"|Gibt den Pfad zu dem Ordner, in der die preseeded Dateien gespeichert werden.<br><br>Der Zielordner darf nicht bereits auf dem Zielserver vorhanden sein. Rufen Sie übereinstimmende Dateihashes muss Robocopy im Stammordner erstellen, wenn es sich um die Dateien preseeds.|
     |/ e|Kopiert, Unterverzeichnisse und ihre Dateien sowie die leeren Unterverzeichnisse.|
     |/b|Kopiert die Dateien im Sicherungsmodus bei protokollversandaufgaben.|
-    |/copyal|Kopiert alle Dateiinformationen, einschließlich Daten, Attribute, Zeitstempel, der NTFS-Zugriffssteuerungsliste (ACL), Informationen über den sperrbesitzer und Überwachungsinformationen.|
+    |/copyall|Kopiert alle Dateiinformationen, einschließlich Daten, Attribute, Zeitstempel, der NTFS-Zugriffssteuerungsliste (ACL), Informationen über den sperrbesitzer und Überwachungsinformationen.|
     |/r:6|Wiederholt den Vorgang bis zu sechs Mal, wenn ein Fehler auftritt.|
     |/w:5|Wartet fünf Sekunden zwischen den Wiederholungen.|
     |MT:64|64 Dateien kopiert gleichzeitig.|

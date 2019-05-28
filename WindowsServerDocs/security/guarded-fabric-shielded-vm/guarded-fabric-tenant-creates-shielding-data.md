@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 01/30/2019
-ms.openlocfilehash: 1245b88a42b80218b5557dc89f2b97b5d0059d44
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 25ed17d964f12c2f497ccde443dad9f8bc253b20
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852541"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034673"
 ---
 # <a name="shielded-vms-for-tenants---creating-shielding-data-to-define-a-shielded-vm"></a>Abgeschirmte virtuelle Computer für Mandanten - geschützte Daten erstellen, um eine geschützte VM zu definieren.
 
@@ -35,7 +35,7 @@ Zur Vorbereitung auf eine geschützte Datendatei zu erstellen, gehen Sie folgend
 
 Anschließend können Sie die schutzdatendatei erstellen:
 
-- [Erstellen Sie eine schutzdatendatei und Hinzufügen von Überwachungen](#create-a-shielding-data-file-and-add-guardians)
+- [Erstellen Sie eine schutzdatendatei und Hinzufügen von Überwachungen](#create-a-shielding-data-file-and-add-guardians-using-the-shielding-data-file-wizard)
 
 
 ## <a name="obtain-a-certificate-for-remote-desktop-connection"></a>Abrufen eines Zertifikats für die Remotedesktopverbindung
@@ -211,7 +211,7 @@ Dieser Befehl erstellt ein Paar von Signatur-und Verschlüsselungszertifikate im
 Sie benötigen, die besitzerzertifikate und ihre dazugehörigen privaten Schlüssel auf unshield eines virtuellen Computers stellen Sie daher sicher, diese Zertifikate gesichert und vor Diebstahl geschützt.
 Ein Angreifer Zugriff auf die besitzerzertifikate können sie Ihre geschützte virtuelle Maschine starten, oder ändern die Sicherheitskonfiguration.
 
-Falls also Überwachungsdienst-Informationen aus einem geschützten Fabric importieren, in dem Ihre VM (Ihre primären Datencenter, Sicherung Rechenzentren, usw.), führen den folgenden Befehl für jede ausgeführt werden soll [Metadatendatei abgerufen werden, von Ihr geschützten Fabrics ](#Select-trusted-fabrics).
+Falls also Überwachungsdienst-Informationen aus einem geschützten Fabric importieren, in dem Ihre VM (Ihre primären Datencenter, Sicherung Rechenzentren, usw.), führen den folgenden Befehl für jede ausgeführt werden soll [Metadatendatei abgerufen werden, von Ihr geschützten Fabrics ](#select-trusted-fabrics).
 
 ```powershell
 Import-HgsGuardian -Name 'EAST-US Datacenter' -Path '.\EastUSGuardian.xml'
@@ -220,7 +220,7 @@ Import-HgsGuardian -Name 'EAST-US Datacenter' -Path '.\EastUSGuardian.xml'
 > [!TIP]
 > Wenn Sie selbstsignierte Zertifikate oder Zertifikate registriert-Host-Überwachungsdienst abgelaufen sind, müssen Sie möglicherweise verwenden Sie die `-AllowUntrustedRoot` und/oder `-AllowExpired` Flags mit dem Befehl "Import-HgsGuardian", die sicherheitsüberprüfungen zu umgehen.
 
-Sie müssen auch [erhalten Sie ein Volume-signaturkatalogs](#Get-the-volume-signature-catalog-file) für jeden vorlagendatenträger, die Sie mit diesem schutzdatendatei verwenden möchten und eine [Antwort schutzdatendatei](#Create-an-answer-file) das Betriebssystem ausführen kann seine Spezialisierung Aufgaben automatisch.
+Sie müssen auch [erhalten Sie ein Volume-signaturkatalogs](#get-the-volume-signature-catalog-file) für jeden vorlagendatenträger, die Sie mit diesem schutzdatendatei verwenden möchten und eine [Antwort schutzdatendatei](#create-an-answer-file) das Betriebssystem ausführen kann seine Spezialisierung Aufgaben automatisch.
 Zum Schluss entscheiden Sie, ob Ihr virtueller Computer vollständig abgeschirmt "oder" nur vTPM-fähiger.
 Verwendung `-Policy Shielded` für eine vollständig geschützte VM oder `-Policy EncryptionSupported` für eine vTPM VM, die einfachen Konsolen-Verbindungen zulässt und PowerShell Direct aktiviert.
 

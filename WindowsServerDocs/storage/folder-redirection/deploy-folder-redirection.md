@@ -8,23 +8,23 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 07/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 33942db34314e0ff60b24d4b9c8e5e33b4ca92fd
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2bb15d5ae29da6c9dbcd6b58af280026d06febc8
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831571"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222747"
 ---
 # <a name="deploy-folder-redirection-with-offline-files"></a>Bereitstellen von Ordnerumleitung, Offlinedateien
 
->Gilt für: Windows 10, Windows 7, Windows 8, Windows 8.1, Windows Server 2008 R2, WindowsServer 2012, Windows Server 2012 R2, WindowsServer 2016, Windows Vista
+>Gilt für: Windows 10, Windows 7, Windows 8, Windows 8.1, Windows Vista, WindowsServer 2019, WindowsServer 2016, WindowsServer (halbjährlicher Kanal), WindowsServer 2012, Windows Server 2012 R2, Windows Server 2008 R2
 
 Dieses Thema beschreibt, wie Sie Windows Server, um die Umleitung des Ordners mit Offlinedateien für Windows-Clientcomputer bereitstellen.
 
 Eine Liste der zuletzt vorgenommenen Änderungen zu diesem Thema finden Sie [Änderungsverlauf](#change-history).
 
 >[!IMPORTANT]
->Aufgrund der sicherheitsänderungen in [MS16-072](https://support.microsoft.com/en-us/help/3163622/ms16-072-security-update-for-group-policy-june-14-2016), wir aktualisiert [Schritt 3: Erstellen Sie ein Gruppenrichtlinienobjekt für die Ordnerumleitung](#step-3:-create-a-gpo-for-folder-redirection) dieses Themas, Windows kann die Ordnerumleitung-Richtlinie ordnungsgemäß angewendet (und nicht zurückgesetzt werden umgeleitete Ordnern auf betroffenen Computern).
+>Aufgrund der sicherheitsänderungen in [MS16-072](https://support.microsoft.com/help/3163622/ms16-072-security-update-for-group-policy-june-14-2016), wir aktualisiert [Schritt 3: Erstellen Sie ein Gruppenrichtlinienobjekt für die Ordnerumleitung](#step-3-create-a-gpo-for-folder-redirection) dieses Themas, Windows kann die Ordnerumleitung-Richtlinie ordnungsgemäß angewendet (und nicht zurückgesetzt werden umgeleitete Ordnern auf betroffenen Computern).
 
 ## <a name="prerequisites"></a>Vorraussetzungen
 
@@ -37,7 +37,7 @@ Ordnerumleitung erfordert einen X64 oder X86-basierten Computer. Sie wird nicht 
 Ordnerumleitung hat die folgenden softwareanforderungen:
 
 - Um die Ordnerumleitung zu verwalten, müssen Sie als Mitglied der Sicherheitsgruppe "Domänenadministratoren", die Sicherheitsgruppe der Organisationsadministratoren oder der Sicherheitsgruppe der Gruppenrichtlinienersteller-Besitzer angemeldet sein.
-- Clientcomputer müssen Windows 10, Windows 8.1, Windows 8, Windows 7, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 oder Windows Server 2008 ausführen.
+- Clientcomputer müssen Windows 10, Windows 8.1, Windows 8, Windows 7, Windows Server-2019, Windows Server 2016, Windows Server (halbjährlicher Kanal), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 oder Windows Server 2008 ausführen.
 - Clientcomputer müssen zu den Active Directory-Domänendiensten (AD DS) hinzugefügt werden, die Sie verwalten.
 - Ein Computer müssen mit Gruppenrichtlinienverwaltung und installiertem Active Directory-Verwaltungscenter verfügbar sein.
 - Ein Dateiserver muss zum Hosten der umgeleitete Ordner verfügbar sein.
@@ -70,13 +70,13 @@ Wenn Sie nicht bereits über eine Dateifreigabe für umgeleitete Ordner verfüge
 >[!NOTE]
 >Einige Funktionen weichen möglicherweise voneinander ab oder sind nicht verfügbar, wenn Sie eine Dateifreigabe auf einem Server mit einer anderen Windows-Version erstellen.
 
-Hier wird eine Dateifreigabe unter Windows Server 2012 und Windows Server 2016 zu erstellen:
+Hier ist zum Erstellen eine Dateifreigabe auf Windows Server-2019, Windows Server 2016 und Windows Server 2012:
 
 1. Wählen Sie im Navigationsbereich des Server-Manager **Datei- und Speicherdienste**, und wählen Sie dann **Freigaben** auf der Seite "Freigaben" anzuzeigen.
 2. In der **Freigaben** Kachel wählen **Aufgaben**, und wählen Sie dann **neue Freigabe**. Der Assistent für neue Freigaben wird angezeigt.
 3. Auf der **Profil auswählen** Seite **SMB-Freigabe – schnell**. Wenn Sie Resource Manager für Dateiserver installiert haben und ordnerverwaltungseigenschaften verwenden, wählen Sie stattdessen **SMB-Freigabe - erweitert**.
 4. Wählen Sie auf der Seite **Freigabeort** den Server und das Volume aus, auf dem Sie die Freigabe erstellen möchten.
-5. Auf der **Freigabename** geben einen Namen für die Freigabe (z. B. **Benutzer$**) in der **Freigabename** Feld.
+5. Auf der **Freigabename** geben einen Namen für die Freigabe (z. B. **Benutzer$** ) in der **Freigabename** Feld.
     >[!TIP]
     >Wenn Sie die Freigabe zu erstellen, die Freigabe ausblenden, indem Sie platzieren einen ```$``` nach dem Freigabenamen. Dadurch wird die Freigabe bei informellen Browsern ausgeblendet.
 6. Auf der **Weitere Einstellungen** Seite das fortlaufende Verfügbarkeit aktivieren, deaktivieren, falls vorhanden, und wählen Sie optional die **zugriffsbasierte Aufzählung aktivieren** und **DatenzugriffVerschlüsseln** Kontrollkästchen.
@@ -93,50 +93,15 @@ Hier wird eine Dateifreigabe unter Windows Server 2012 und Windows Server 2016 z
 
 ### <a name="required-permissions-for-the-file-share-hosting-redirected-folders"></a>Erforderliche Berechtigungen für die Datei freigeben umgeleiteten Ordner hosten
 
-<table>
-<tbody>
-<tr class="odd">
-<td>Benutzerkonto</td>
-<td>Access</td>
-<td>Betrifft</td>
-</tr>
-<tr class="even">
-<td>System</td>
-<td>Vollzugriff</td>
-<td>Dieser Ordner, die Unterordner und Dateien</td>
-</tr>
-<tr class="odd">
-<td>Administratoren</td>
-<td>Vollzugriff</td>
-<td>Nur dieser Ordner</td>
-</tr>
-<tr class="even">
-<td>Ersteller/Besitzer</td>
-<td>Vollzugriff</td>
-<td>Nur Unterordner und Dateien</td>
-</tr>
-<tr class="odd">
-<td>Sicherheitsgruppe der Benutzer, die Daten in der Freigabe (Ordner-Umleitung-Benutzer) speichern</td>
-<td>Ordner auflisten / Daten lesen<sup>1</sup><br />
-<br />
-Ordner erstellen / Daten anhängen<sup>1</sup><br />
-<br />
-Attribute lesen<sup>1</sup><br />
-<br />
-Erweiterte Attribute lesen<sup>1</sup><br />
-<br />
-Berechtigungen zum Lesen von<sup>1</sup></td>
-<td>Nur dieser Ordner</td>
-</tr>
-<tr class="even">
-<td>Andere Gruppen und Konten</td>
-<td>Keine (entfernen)</td>
-<td></td>
-</tr>
-</tbody>
-</table>
 
-1 Erweiterte Berechtigungen
+|Benutzerkonto  |Zugriff  |Betrifft  |
+|---------|---------|---------|
+| Benutzerkonto | Zugriff | Betrifft |
+|System     | Vollzugriff        |    Dieser Ordner, die Unterordner und Dateien     |
+|Administratoren     | Vollzugriff       | Nur dieser Ordner        |
+|Ersteller/Besitzer     |   Vollzugriff      |   Nur Unterordner und Dateien      |
+|Sicherheitsgruppe der Benutzer, die Daten in der Freigabe (Ordner-Umleitung-Benutzer) speichern     |   Ordner auflisten / Daten lesen *(erweiterte Berechtigungen)* <br /><br />Ordner erstellen / Daten anhängen *(erweiterte Berechtigungen)* <br /><br />Attribute lesen *(erweiterte Berechtigungen)* <br /><br />Erweiterte Attribute lesen *(erweiterte Berechtigungen)* <br /><br />Berechtigungen zum Lesen von *(erweiterte Berechtigungen)*      |  Nur dieser Ordner       |
+|Andere Gruppen und Konten     |  Keine (entfernen)       |         |
 
 ## <a name="step-3-create-a-gpo-for-folder-redirection"></a>Schritt 3: Erstellen Sie ein Gruppenrichtlinienobjekt für die Ordnerumleitung
 
@@ -225,9 +190,9 @@ Hier ist zum Testen der Umleitung des Ordners ein:
 
 In der folgenden Tabelle sind die wichtigsten Änderungen zu diesem Thema zusammengefasst.
 
-|Datum|Beschreibung|Grund|
+|date|Beschreibung|Grund|
 |---|---|---|
-|18. Januar 2017|Einen Schritt hinzugefügt [Schritt 3: Erstellen Sie ein Gruppenrichtlinienobjekt für die Ordnerumleitung](#step-3:-create-a-gpo-for-folder-redirection) , delegieren Leseberechtigungen für authentifizierte Benutzer, das jetzt ist aufgrund der Aktualisierung der Gruppenrichtlinie Sicherheit erforderlich sind.|Kundenfeedback.|
+|18. Januar 2017|Einen Schritt hinzugefügt [Schritt 3: Erstellen Sie ein Gruppenrichtlinienobjekt für die Ordnerumleitung](#step-3-create-a-gpo-for-folder-redirection) , delegieren Leseberechtigungen für authentifizierte Benutzer, das jetzt ist aufgrund der Aktualisierung der Gruppenrichtlinie Sicherheit erforderlich sind.|Kundenfeedback.|
 
 ## <a name="more-information"></a>Weitere Informationen
 

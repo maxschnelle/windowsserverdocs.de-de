@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: e429c87a2194ecfaf02c3d6c579eda75293250d4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a280d540d09c6fdcb7846d1cf545856869be1152
+ms.sourcegitcommit: b190fac4bfa5599751a60d3fc3b4c4a64dd9afd7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59827511"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66008968"
 ---
 # <a name="replication-error-1753-there-are-no-more-endpoints-available-from-the-endpoint-mapper"></a>Replikationsfehler 1753: Die Endpunktzuordnung hat keine weiteren Endpunkte verfügbar
 
@@ -194,7 +194,6 @@ Für Windows Server 2008 oder Windows Server 2008 R2: Klicken Sie in der Konsole
           <code>c:&gt;nslookup -type=cname &lt;fully qualified cname of source DC&gt; &lt;destination DCs primary DNS Server IP &gt;
 c:&gt;nslookup -type=cname &lt;fully qualified cname of source DC&gt; &lt;destination DCs secondary DNS Server IP&gt;</code>
           <para>Stellen Sie sicher, dass die IP-Adresse, die zurückgegeben werden, indem NSLOOKUP den Namen des Hosts "besitzt" / Sicherheits-ID von der Quell-DC:</para>
-
           <code>C:&gt;NBTSTAT -A &lt;IP address returned by NSLOOKUP in the step above&gt;</code>
           <para>oder</para>
           <para>Melden Sie sich auf der Konsole des Quelldomänencontrollers führen Sie an der CMD-Eingabeaufforderung "IPCONFIG" und stellen Sie sicher, dass der Quell-DC die IP-Adresse, die vom oben genannten Befehls "NSLOOKUP" besitzt</para>

@@ -9,16 +9,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 4f55eaacec8ee0eb41e1980f1aa15c6256f8b979
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4148614ba35ce29f567edb08b94e115d3f9152e9
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59818731"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66189101"
 ---
 # <a name="improved-interoperability-with-saml-20"></a>Verbesserte Interoperabilität mit SAML 2.0
 
->Gilt für: Windows Server 2016
+
 
   
 AD FS unter Windows Server 2016 enthält zusätzliche SAML-Protokoll-Unterstützung, einschließlich Unterstützung für das Importieren von Vertrauensstellungen, die basierend auf Metadaten, die mehrere Entitäten enthält.  Dadurch können Sie zum Konfigurieren von AD FS für die Teilnahme an Gewerkschaftsbund wie z. B. InCommon Verbund und anderen Implementierungen, die eGov 2.0-Standards entsprechen.   

@@ -9,16 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 101cab68d7c79bb107f1d6ef73900d9a4475b6ea
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c690f81620f97622a2f068b07c36e0a6c59e90d4
+ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861301"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66190336"
 ---
 # <a name="access-control-policies-in-windows-server-2016-ad-fs"></a>Zugriffsrichtlinien in für Windows Server 2016 AD FS
-
->Gilt für: Windows Server 2016
 
   
 ## <a name="access-control-policy-templates-in-ad-fs"></a>Access Control-Richtlinienvorlagen in AD FS  
@@ -55,9 +53,9 @@ Wenn ein Administrator mehrere Bedingungen auswählt, werden sie von **und** Bez
 |**Richtlinie**|**Die Regeln**|
 | --- | --- |  
 |Extranet-Zugriff erfordert MFA<br /><br />Alle Benutzer sind zulässig.|**Regel #1**<br /><br />von **extranet**<br /><br />und mit der MFA<br /><br />Zulassen<br /><br />**Regel Nr. 2**<br /><br />von **Intranet**<br /><br />Zulassen|  
-|Externer Zugriff sind nicht zulässig, außer den nicht-FTE<br /><br />Intranetzugriff für FTE auf Gerät mit dem Arbeitsplatz beigetreten sind zulässig.|**Regel #1**<br /><br />Von **extranet**<br /><br />daraus **nicht: FTE** Gruppe<br /><br />Zulassen<br /><br />**Regel #2**<br /><br />von **Intranet**<br /><br />daraus **Arbeitsplatz** Gerät<br /><br />daraus **FTE** Gruppe<br /><br />Zulassen|  
+|Externer Zugriff sind nicht zulässig, außer den nicht-FTE<br /><br />Intranetzugriff für FTE auf Gerät mit dem Arbeitsplatz beigetreten sind zulässig.|**Regel #1**<br /><br />von **extranet**<br /><br />daraus **nicht: FTE** Gruppe<br /><br />Zulassen<br /><br />**Regel #2**<br /><br />von **Intranet**<br /><br />daraus **Arbeitsplatz** Gerät<br /><br />daraus **FTE** Gruppe<br /><br />Zulassen|  
 |Extranet-Zugriff ist MFA mit Ausnahme von "Dienstadministrator" erforderlich.<br /><br />Alle Benutzer zugreifen dürfen|**Regel #1**<br /><br />von **extranet**<br /><br />und mit der MFA<br /><br />Zulassen<br /><br />Mit Ausnahme von **Gruppe "Administratoren"**<br /><br />**Regel #2**<br /><br />Immer<br /><br />Zulassen|  
-|nicht arbeiten für ein direktes eingebundenes Gerät den Zugriff auf über extranet erfordert MFA<br /><br />AD-Fabrics für Intranet- und extranet-Zugriff zulassen|**Regel #1**<br /><br />von **Intranet**<br /><br />Daraus **AD-Fabrics** Gruppe<br /><br />Zulassen<br /><br />**Regel #2**<br /><br />von **extranet**<br /><br />daraus **nicht mit dem Arbeitsplatz beigetreten** Gerät<br /><br />daraus **AD-Fabrics** Gruppe<br /><br />und mit der MFA<br /><br />Zulassen<br /><br />**Regel #3**<br /><br />von **extranet**<br /><br />daraus **Arbeitsplatz** Gerät<br /><br />daraus **AD-Fabrics** Gruppe<br /><br />Zulassen|  
+|nicht arbeiten für ein direktes eingebundenes Gerät den Zugriff auf über extranet erfordert MFA<br /><br />AD-Fabrics für Intranet- und extranet-Zugriff zulassen|**Regel #1**<br /><br />von **Intranet**<br /><br />Daraus **AD-Fabrics** Gruppe<br /><br />Zulassen<br /><br />**Regel #2**<br /><br />von **extranet**<br /><br />daraus **nicht mit dem Arbeitsplatz beigetreten** Gerät<br /><br />Daraus **AD-Fabrics** Gruppe<br /><br />und mit der MFA<br /><br />Zulassen<br /><br />**Regel #3**<br /><br />von **extranet**<br /><br />daraus **Arbeitsplatz** Gerät<br /><br />Daraus **AD-Fabrics** Gruppe<br /><br />Zulassen|  
   
 ## <a name="parameterized-policy-template-vs-non-parameterized-policy-template"></a>Parametrisierte Richtlinie Vorlage Vs nicht parametrisierten Richtlinienvorlage  
 Access Control-Richtlinien werden können  
@@ -183,5 +181,5 @@ Von hier aus können Sie wählen Sie die Access-Control-Richtlinie und wenden es
 ![Access Control-Richtlinien](media/Access-Control-Policies-in-AD-FS/ADFSACP15.PNG)  
   
 ## <a name="see-also"></a>Siehe auch  
-[AD FS-Vorgänge](../../ad-fs/AD-FS-2016-Operations.md) 
+[AD FS-Vorgänge](../../ad-fs/AD-FS-2016-Operations.md) 
 

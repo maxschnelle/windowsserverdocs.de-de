@@ -8,16 +8,16 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: febcd6ab0744a7fddd024e1f0afdb93711e8939a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6effaf7c2d197c08b4930e09c3ada96462b17d6f
+ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829541"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476191"
 ---
 # <a name="quota-management"></a>Kontingentverwaltung
 
-> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2019, Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
+> Gilt für: WindowsServer 2019, WindowsServer 2016, WindowsServer (Halbjährlicher Kanal), Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2
 
 Sie können auf dem Knoten **Kontingentverwaltung** des Ressourcen-Manager für Dateiserver Microsoft<sup>®</sup> Management Console (MMC)-Snap-Ins folgende Aufgaben ausführen:
 
@@ -33,17 +33,17 @@ Sie haben u. a. folgende Möglichkeiten:
 
 In diesem Abschnitt werden folgende Themen behandelt:
 
--   [Erstellen Sie ein Kontingent](create-quota.md)
+-   [Erstellen eines Kontingents](create-quota.md)
 -   [Erstellen eines automatisch zugewiesenen Kontingents](create-auto-apply-quota.md)
 -   [Erstellen Sie eine Kontingentvorlage](create-quota-template.md)
--   [Kontingentvorlageneigenschaften bearbeiten](edit-quota-template-properties.md)
--   [Bearbeiten Sie die automatische Anwenden von Kontingenteigenschaften](edit-auto-apply-quota-properties.md)
+-   [Bearbeiten von Kontingentvorlageneigenschaften](edit-quota-template-properties.md)
+-   [Bearbeiten der Eigenschaften des automatisch zugewiesenen Kontingents](edit-auto-apply-quota-properties.md)
 
 > [!Note]
 > Zum Festlegen von E-Mail-Benachrichtigungen und Berichtsfunktionen müssen Sie zuerst die Optionen des Ressourcen-Manager für Dateiserverkonfigurieren konfigurieren.
 
 ## <a name="see-also"></a>Siehe auch
 
--   [Einstellung File Server Resource Manager-Optionen](setting-file-server-resource-manager-options.md)
+-   [Festlegen der Optionen des Ressourcen-Managers für Dateiserver](setting-file-server-resource-manager-options.md)
 
 

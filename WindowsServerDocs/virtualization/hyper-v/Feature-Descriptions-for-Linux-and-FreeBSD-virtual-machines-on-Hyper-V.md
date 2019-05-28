@@ -11,12 +11,12 @@ ms.assetid: a9ee931d-91fc-40cf-9a15-ed6fa6965cb6
 author: shirgall
 ms.author: kathydav
 ms.date: 10/03/2016
-ms.openlocfilehash: 944f8e9d902953ab4d6da0750603a2c40fa9e96d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a574275f6d3495a9cc9bff36fa785f28a7cd8d6f
+ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844891"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66222882"
 ---
 # <a name="feature-descriptions-for-linux-and-freebsd-virtual-machines-on-hyper-v"></a>Eine Beschreibung für Linux und FreeBSD-VMs auf Hyper-V-Funktion
 
@@ -24,7 +24,7 @@ ms.locfileid: "59844891"
 
 Dieser Artikel beschreibt Funktionen, die in Komponenten wie Core, Netzwerk, Speicher und Arbeitsspeicher verfügbar, bei Verwendung von Linux und FreeBSD auf einem virtuellen Computer.
 
-## <a name="BKMK_core"></a>Core
+## <a name="core"></a>Core
 
 |**Funktion**|**Beschreibung**|
 |-|-|
@@ -37,7 +37,7 @@ Dieser Artikel beschreibt Funktionen, die in Komponenten wie Core, Netzwerk, Spe
 |Bestimmte Hyper-V-Speichergerät|Dieses Feature gewährt High-Performance-Zugriff auf Speichergeräte, die an einen virtuellen Computer angefügt sind.|
 |Hyper-V-spezifischen Netzwerkgerät|Dieses Feature wird Hochleistungs-Zugriff gewährt, zu Netzwerkadaptern, die an einen virtuellen Computer angefügt sind.|
 
-## <a name="BKMK_Networking"></a>Netzwerkfunktionen
+## <a name="networking"></a>Netzwerk
 
 |**Funktion**|**Beschreibung**|
 |-|-|
@@ -50,7 +50,7 @@ Dieser Artikel beschreibt Funktionen, die in Komponenten wie Core, Netzwerk, Spe
 |Large Offload (LRO) empfangen|Erhöht die eingehende Durchsatz von Verbindungen von hoher Bandbreite durch das Zusammenfassen mehrerer Pakete in einem größeren Puffer, der CPU-Auslastung zu verringern.|
 |SR-IOV|Einzelne Root i/o-Geräte verwenden DDA Gäste Zugriff auf Teile des bestimmten Netzwerkkarten für reduzierte Latenz und Durchsatz steigern können. SR-IOV muss auf dem neuesten Stand physischen-Funktion (PF) auf dem Host und virtuellen Funktion (VF)-Treiber auf dem Gast.|
 
-## <a name="BKMK_Storage"></a>Speicher
+## <a name="storage"></a>Speicher
 
 |**Funktion**|**Beschreibung**|
 |-|-|
@@ -60,7 +60,7 @@ Dieser Artikel beschreibt Funktionen, die in Komponenten wie Core, Netzwerk, Spe
 |TRIM-Unterstützung|TRIM Hinweise benachrichtigen Sie das Laufwerk, das bestimmte Sektoren, die zuvor zugeordnet wurden, nicht mehr von der app erforderlich sind und gelöscht werden können. Dieser Prozess wird normalerweise verwendet, wenn eine app große speicherplatzzuordnungen, über eine Datei macht, und klicken Sie dann selbst die Zuordnungen in der Datei, z. B. auf Dateien der virtuellen Festplatte verwaltet.|
 |SCSI WWN|Der Treiber Storvsc World Wide Name (WWN) Informationen über den Port und die Knoten, der mit dem virtuellen Computer angeschlossenen Geräte extrahiert und erstellt die entsprechenden Sysfs-Dateien. |
 
-## <a name="BKMK_Memory"></a>Arbeitsspeicher
+## <a name="memory"></a>Arbeitsspeicher
 
 |**Funktion**|**Beschreibung**|
 |-|-|
@@ -70,13 +70,13 @@ Dieser Artikel beschreibt Funktionen, die in Komponenten wie Core, Netzwerk, Spe
 |Dynamische Speichererweiterungsfunktion-|Der Host kann dynamisch erhöhen oder verringern die Menge an Arbeitsspeicher zur Verfügung, mit einem virtuellen Computer aus, während es in Betrieb ist. Vor der Bereitstellung wird der Administrator aktiviert dynamischen Arbeitsspeicher in den Bereich der Einstellungen des virtuellen Computers, und geben den Startspeicher, mindestens Erforderlicher Arbeitsspeicher und Maximaler Arbeitsspeicher für den virtuellen Computer. Wenn der virtuelle Computer wird im Vorgang, den dynamischen Arbeitsspeicher nicht deaktiviert werden kann und nur die minimalen und maximalen Einstellungen kann geändert werden. (Es ist eine bewährte Methode, die Speichergrößen als ein Vielfaches von 128 MB angeben.)<br /><br />Speicher ist gleich, wenn die virtuelle Maschine zunächst verfügbaren gestartet wird die **Startspeicher**. Mit zunehmender Speicherbedarf aufgrund von arbeitsauslastungen von Anwendungen möglicherweise mehr Arbeitsspeicher auf dem virtuellen Computer über der Ebene "heiß"-Add-Mechanismus (oben) von Hyper-V dynamisch zuordnen. Wie wird der Speicherbedarf verringert möglicherweise Hyper-V automatisch Arbeitsspeicher aus dem virtuellen Computer über den Mechanismus für die Sprechblase außer Betrieb setzen. Hyper-V wird die Bereitstellung nicht aufgehoben Arbeitsspeicher unten die **mindestens Erforderlicher Arbeitsspeicher** Parameter.<br /><br />Die Registerkarte "Arbeitsspeicher" von Hyper-V-Manager zeigt die Menge an Arbeitsspeicher, die mit dem virtuellen Computer zugewiesen werden, aber speicherstatistiken innerhalb des virtuellen Computers die höchste zugewiesene Speichergröße.<br /><br />Weitere Informationen finden Sie unter [Hyper-V dynamischer Arbeitsspeicher – Übersicht](https://technet.microsoft.com/library/hh831766.aspx).<br /><br />|
 |Laufzeitspeichers|Ein Administrator kann festlegen die Menge des verfügbaren Arbeitsspeichers auf einen virtuellen Computer-Vorgang wird Arbeitsspeicher ("" Hot "hinzufügen") erhöhen oder verringern sie die ("" Hot "entfernen"). Arbeitsspeicher wird in Hyper-V über die Balloon-Treiber zurückgegeben (siehe "Dynamischer Arbeitsspeicher – steigenden"). Balloon-Treiber verwaltet, dass eine Mindestmenge des freien Speicherplatzes nach dem Erweiterung, die Namen "Floor", also Arbeitsspeicher zugewiesen unterhalb der derzeitigen Nachfrage sowie diese Menge Floor verkleinert werden kann. Die Registerkarte "Arbeitsspeicher" von Hyper-V-Manager zeigt die Menge an Arbeitsspeicher, die mit dem virtuellen Computer zugewiesen werden, aber speicherstatistiken innerhalb des virtuellen Computers die höchste zugewiesene Speichergröße. (Es ist eine bewährte Methode, die Arbeitsspeicherwerte als ein Vielfaches von 128 MB angeben.)|
 
-## <a name="BKMK_Video"></a>Video
+## <a name="video"></a>Video
 
 |**Funktion**|**Beschreibung**|
 |-|-|
 |Hyper-V-spezifischer Videogerät|Dieses Feature bietet Hochleistungsgrafik und bessere Lösung für virtuelle Computer. Dieses Gerät bietet keine erweiterter Sitzungsmodus bzw. von RemoteFX-Funktionen.|
 
-## <a name="BKMK_Misc"></a>Sonstige
+## <a name="miscellaneous"></a>Sonstiges
 
 |**Funktion**|**Beschreibung**|
 |-|-|
@@ -87,7 +87,7 @@ Dieser Artikel beschreibt Funktionen, die in Komponenten wie Core, Netzwerk, Spe
 |Hyper-V-Sockets|Dies ist eine zusätzliche Kommunikationskanal zwischen Host und Gast-Betriebssystem. Zum Laden und verwenden Sie das Kernelmodul Hyper-V-Sockets, finden Sie unter [stellen eigener Integrationsdienste](https://msdn.microsoft.com/virtualization/hyperv_on_windows/develop/make_mgmt_service).|
 |PCI-Pass-Through-/ DDA|Mit Windows Server 2016 können Administratoren über PCI Express-Geräte über die diskrete Gerätezuordnung Mechanismus übergeben. Allgemeine Geräte sind Netzwerkkarten, Grafikkarten und spezielle Speichergeräte. Der virtuelle Computer müssen die Treiber, die verfügbar gemachten Hardware verwenden. Die Hardware muss mit dem virtuellen Computer dafür zu verwendende zugewiesen werden.<br /><br />Weitere Informationen finden Sie unter [diskrete Gerätezuordnung - Beschreibung und Hintergrund](https://blogs.technet.microsoft.com/virtualization/2015/11/19/discrete-device-assignment-description-and-background/).<br /><br />DDA ist eine Voraussetzung für SR-IOV-Netzwerke. Virtuelle Ports müssen mit dem virtuellen Computer zugewiesen werden und den virtuellen Computer die richtigen Treiber für virtuelle Funktionen (VF) für Geräte multiplexing verwendet werden.|
 
-## <a name="BKMK_gen2"></a>Virtuelle Computer der Generation 2
+## <a name="generation-2-virtual-machines"></a>Virtuelle Computer der Generation 2
 
 |**Funktion**|**Beschreibung**|
 |-|-|
@@ -98,7 +98,7 @@ Dieser Artikel beschreibt Funktionen, die in Komponenten wie Core, Netzwerk, Spe
 
 * [Unterstützt von CentOS und Red Hat Enterprise Linux-VMs auf Hyper-V](Supported-CentOS-and-Red-Hat-Enterprise-Linux-virtual-machines-on-Hyper-V.md)
 
-* [Virtuelle Debian-Computer unterstützt auf Hyper-V](Supported-Debian-virtual-machines-on-Hyper-V.md)
+* [Unterstützte virtuelle Debian-Computer in Hyper-V](Supported-Debian-virtual-machines-on-Hyper-V.md)
 
 * [Unterstützte Oracle Linux-VMs auf Hyper-V](Supported-Oracle-Linux-virtual-machines-on-Hyper-V.md)
 

@@ -1,27 +1,42 @@
 ---
 title: Erweitern von Volumes in Direkte Speicherplätze
-ms.assetid: fa48f8f7-44e7-4a0b-b32d-d127eff470f0
+description: Informationen zum Ändern der Größe der Volumes in Storage Spaces Direct using Windows Admin Center und PowerShell.
 ms.prod: windows-server-threshold
-ms.author: cosmosdarwin
-ms.manager: eldenc
-ms.technology: storage-spaces
-ms.topic: article
+ms.reviewer: cosmosdarwin
 author: cosmosdarwin
-ms.date: 01/23/2017
-ms.localizationpriority: medium
-ms.openlocfilehash: 51f58ec23c55a6cb1664d800d6f4a75dae545899
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.author: cosdar
+manager: eldenc
+ms.technology: storage-spaces
+ms.date: 05/07/2019
+ms.openlocfilehash: 3be6a4cda20f4d7d7d881ad8a272dc38fd787bba
+ms.sourcegitcommit: 75f257d97d345da388cda972ccce0eb29e82d3bc
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824971"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65613228"
 ---
 # <a name="extending-volumes-in-storage-spaces-direct"></a>Erweitern von Volumes in Direkte Speicherplätze
 > Gilt für: Windows Server 2019, Windows Server 2016
 
-Dieses Thema enthält Anweisungen zum Anpassen der Volumegröße in [Direkte Speicherplätze](storage-spaces-direct-overview.md).
+Dieses Thema enthält Anweisungen für die Größenänderung von Volumes auf einem ["direkte Speicherplätze"](storage-spaces-direct-overview.md) -Clusters mit Windows Admin Center.
 
-## <a name="prerequisites"></a>Vorraussetzungen
+Sehen Sie sich ein kurzes Video zum Ändern der Größe eines Volumes.
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/hqyBzipBoTI]
+
+## <a name="extending-volumes-using-windows-admin-center"></a>Erweitern von Volumes, die mithilfe von Windows Admin Center
+
+1. Windows Admin Center, eine Verbindung mit einem "direkte Speicherplätze"-Cluster herstellen, und wählen Sie dann **Volumes** aus der **Tools** Bereich.
+2. Wählen Sie auf der Seite Volumes die **Inventur** Registerkarte, und wählen Sie das Volume, das Sie anpassen möchten.
+
+    Auf der Detailseite des Volumes wird die Speicherkapazität für das Volume angegeben. Sie können die Detailseite des Volumes auch direkt über das Dashboard öffnen. Klicken Sie auf dem Dashboard, klicken Sie im Bereich "Warnungen" Wählen Sie die Warnung, die Sie benachrichtigt, wenn ein Volume Speicherkapazität knapp wird, und wählen Sie dann **wechseln Sie zum Volume**.
+
+4. Wählen Sie am oberen Rand der Volumes, **Größe**.
+5. Geben Sie einen neuen Größe größeren werden soll, und wählen Sie dann **Größe**.
+
+    Klicken Sie auf der Detailseite des Volumes die größere Speicherkapazität für das Volume wird angegeben, und die Warnung auf dem Dashboard wird gelöscht.
+
+## <a name="extending-volumes-using-powershell"></a>Erweitern von Volumes, die mithilfe von PowerShell
 
 ### <a name="capacity-in-the-storage-pool"></a>Kapazität im Speicherpool
 
@@ -41,7 +56,7 @@ Zum Beispiel:
 Get-VirtualDisk
 ```
 
-Um die Zuordnungen zwischen Objekten im Stapel zu verfolgen, reichen Sie ein **Get-**-Cmdlet an das nächste weiter.
+Um die Zuordnungen zwischen Objekten im Stapel zu verfolgen, reichen Sie ein **Get-** -Cmdlet an das nächste weiter.
 
 Hier sehen Sie z. B., wie Sie von einem virtuellen Datenträger bis zum Volume gelangen:
 
@@ -49,7 +64,7 @@ Hier sehen Sie z. B., wie Sie von einem virtuellen Datenträger bis zum Volume 
 Get-VirtualDisk <FriendlyName> | Get-Disk | Get-Partition | Get-Volume 
 ```
 
-## <a name="step-1--resize-the-virtual-disk"></a>Schritt 1 – Ändern der Größe des virtuellen Datenträgers
+### <a name="step-1--resize-the-virtual-disk"></a>Schritt 1 – Ändern der Größe des virtuellen Datenträgers
 
 Der virtuelle Datenträger kann Speicherebenen verwenden oder nicht, je nachdem, wie sie erstellt wurde.
 
@@ -61,7 +76,7 @@ Get-VirtualDisk <FriendlyName> | Get-StorageTier
 
 Wenn das Cmdlet nichts zurückgibt, verwendet der virtuelle Datenträger keine Speicherebenen.
 
-### <a name="no-storage-tiers"></a>Keine Speicherebenen
+#### <a name="no-storage-tiers"></a>Keine Speicherebenen
 
 Verfügt der virtuelle Datenträger über keine Speicherkategorien, können Sie seine Größe direkt über das **Resize-VirtualDisk**-Cmdlet anpassen.
 
@@ -75,7 +90,7 @@ Wenn Sie die Größe von **VirtualDisk** anpassen, folgt **Disk** automatisch un
 
 ![Resize-VirtualDisk](media/resize-volumes/Resize-VirtualDisk.gif)
 
-### <a name="with-storage-tiers"></a>Mit Speicherebenen
+#### <a name="with-storage-tiers"></a>Mit Speicherebenen
 
 Wenn der virtuelle Datenträger Speicherebenen verwendet, können Sie die Größe jeder Ebene separat mit dem Cmdlet **Resize-StorageTier** anpassen.
 
@@ -98,7 +113,7 @@ Wenn Sie die Größe von **StorageTier**-Elementen ändern, folgen **VirtualDisk
 
 ![Resize-StorageTier](media/resize-volumes/Resize-StorageTier.gif)
 
-## <a name="step-2--resize-the-partition"></a>Schritt 2 – Ändern der Größe der Partition
+### <a name="step-2--resize-the-partition"></a>Schritt 2 – Ändern der Größe der Partition
 
 Passen Sie als Nächstes die Größe der Partition mit dem Cmdlet **Resize-Partition** an. Vom virtuellen Datenträger wird erwartet, dass er zwei Partitionen besitzt: die erste ist reserviert und sollte nicht geändert werden. Für den Datenträger, dessen Größe geändert werden muss, gilt Folgendes **PartitionNumber = 2** und **Type = Basic**.
 
@@ -129,3 +144,4 @@ Das ist alles!
 - ["Direkte Speicherplätze" unter WindowsServer 2016](storage-spaces-direct-overview.md)
 - [Planen von Volumes im "direkte Speicherplätze"](plan-volumes.md)
 - [Erstellen von Volumes in "direkte Speicherplätze"](create-volumes.md)
+- [Löschen von Volumes in "direkte Speicherplätze"](delete-volumes.md)
