@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3d3eba4f62842fa7f862cd4eaea6830e6a08397a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 848c57736c3530e296cffb970237149b4634de67
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868131"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266512"
 ---
 # <a name="bitsadmin-replaceremoteprefix"></a>bitsadmin replaceremoteprefix
 
@@ -40,13 +40,13 @@ bitsadmin /ReplaceRemotePrefix <Job> <OldPrefix> <NewPrefix
 |OldPrefix|Vorhandene URL-Präfix|
 |NewPrefix|Neue URL-Präfix|
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="examples"></a>Beispiele
 
-Im folgende Beispiel ändert sich alle Dateien im Auftrag mit dem Namen *MyDownloadJob* , deren remote-URL mit beginnt *http://stageserver* zu *http://prodserver*.
+Im folgende Beispiel ändert sich alle Dateien im Auftrag mit dem Namen *MyDownloadJob* , deren remote-URL mit beginnt *http://stageserver* zu *http://prodserver* .
 ```
 C:\>bitsadmin /ReplaceRemotePrefix myDownloadJob http://stageserver http://prodserver
 ```
 
 ## <a name="additional-information"></a>Weitere Informationen
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

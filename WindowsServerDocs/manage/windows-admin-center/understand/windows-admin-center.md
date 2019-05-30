@@ -8,12 +8,12 @@ ms.author: harowl
 ms.date: 04/12/2019
 ms.localizationpriority: high
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 618d9a51c0411fb2cbf4c51661a92eed9c9636a1
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: db69ad3021850552e92c4aa653dfd9bd9110c06d
+ms.sourcegitcommit: 39ab8041d166e6817a95417d6aa30bc7abeeef54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188233"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66260285"
 ---
 # <a name="hello-windows-admin-center"></a>Hallo, Windows Admin Center!
 
@@ -28,14 +28,11 @@ Windows Admin Center ist eine lokal bereitgestellte, browserbasierte App zum Ver
 
 - [Windows Admin Center Preview 1906](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewserver) - Includes the latest feature updates.
 -  -->
-[Windows Admin Center (version 1904)](https://aka.ms/WACDownload) <!--Broadly validated & generally available.-->
+[Windows Admin Center (Version 1904.1)](https://aka.ms/WACDownload) <!--Broadly validated & generally available.-->
 
 [Was ist neu?](../overview.md#release-history)
 
 Sie können mithilfe von Microsoft Update oder durch Manuelles Installieren von nicht-Preview-Versionen von Windows Admin Center aktualisieren. Jede nicht-Preview-Version von Windows Admin Center wird unterstützt, bis 30 Tage nach die nächste nicht-Preview-Version veröffentlicht wird. Finden Sie in unserem [Supportrichtlinie](../support/index.md) für Weitere Informationen.
-
-> [!IMPORTANT]
-> Lenovo XClarity Integrator-Benutzer, finden Sie in diesem [bekanntes Problem](../support/known-issues.md) vor der Installation von Windows Admin Center Version 1904.
 
 ********************
 

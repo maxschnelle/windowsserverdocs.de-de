@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: a9ee7a56-f062-474f-a61c-9387ff260929
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: b11064e6b3bd2590d5712afdb7afc69de1ed83f4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6869ee5f39f1719a3c71025207ef9ffe740492ff
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889701"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266786"
 ---
 # <a name="use-dns-policy-for-geo-location-based-traffic-management-with-primary-secondary-deployments"></a>Verwenden von DNS-Richtlinien für eine auf Geolocation basierende Datenverkehrsverwaltung mit primären und sekundären Bereitstellungen
 
@@ -28,7 +28,7 @@ Die sekundären Server verwenden die Übertragungsprotokolle Zone autorisierende
 >[!NOTE]
 >Weitere Informationen zu AXFR, finden Sie unter der Internet Engineering Task Force (IETF) [Request for Comments 5936](https://tools.ietf.org/rfc/rfc5936.txt). Weitere Informationen zu IXFR, finden Sie unter der Internet Engineering Task Force (IETF) [fordern Sie für Kommentare 1995](https://tools.ietf.org/html/rfc1995).  
   
-## <a name="bkmk_example"></a>Primären und sekundären geografischen Standort-basierten Management-Beispiel für Webverkehr  
+## <a name="primary-secondary-geo-location-based-traffic-management-example"></a>Primären und sekundären geografischen Standort-basierten Management-Beispiel für Webverkehr  
 Es folgt ein Beispiel für die Verwendung von DNS-Richtlinien in einer primär-/ Sekundär-Bereitstellung, um die Umleitung des Webdatenverkehrs basierend auf dem physischen Standort des Clients zu erreichen, die eine DNS-Abfrage ausführt.  
   
 Dieses Beispiel verwendet zwei fiktive Unternehmen – Contoso-Cloud-Dienste, die Web-Apps und Lösungen für die Hostdomäne bereitstellt. und Woodgrove Food-Services, die Übermittlung gastgewerbedienstleistungen in mehreren Städten weltweit bereitstellt, und das hat es sich um einer Websites mit dem Namen woodgrove.com.  
@@ -45,14 +45,14 @@ Die folgende Abbildung zeigt dieses Szenario.
   
 ![Primären und sekundären geografischen Standort-basierten Management-Beispiel für Webverkehr](../../media/Dns-Policy_PS1/dns_policy_primarysecondary1.jpg)  
    
-## <a name="bkmk_works"></a>Wie funktioniert die primären und sekundären DNS-System
+## <a name="how-the-dns-primary-secondary-system-works"></a>Wie funktioniert die primären und sekundären DNS-System
 
 Wenn Sie die GeoLocation-basierte Verwaltung des Datenverkehrs in einer primären und sekundären DNS-Bereitstellung bereitstellen, ist es wichtig zu verstehen, wie normale primären und sekundären Zone Übertragungen bevor Sie mehr über Servicelevel Bereich zonenübertragungen auftreten. Die folgenden Abschnitte enthalten Informationen, Zone und zonenübertragungen Bereich Ebene an.  
   
-- [In einer Bereitstellung für die primären und sekundären DNS-zonenübertragungen](#bkmk_zone)  
-- [Bereichsebene für die Zone übertragen, in einer Bereitstellung für die primären und sekundären DNS](#bkmk_scope)  
+- [In einer Bereitstellung für die primären und sekundären DNS-zonenübertragungen](#zone-transfers-in-a-dns-primary-secondary-deployment)  
+- [Bereichsebene für die Zone übertragen, in einer Bereitstellung für die primären und sekundären DNS](#zone-scope-level-transfers-in-a-dns-primary-secondary-deployment)  
   
-### <a name="bkmk_zone"></a>In einer Bereitstellung für die primären und sekundären DNS-zonenübertragungen
+### <a name="zone-transfers-in-a-dns-primary-secondary-deployment"></a>In einer Bereitstellung für die primären und sekundären DNS-zonenübertragungen
 
 Sie können die primären und sekundären DNS-Bereitstellung erstellen und synchronisieren Zonen mit den folgenden Schritten.  
 1. Wenn Sie DNS installieren, wird die primäre Zone auf dem primären DNS-Server erstellt.  
@@ -62,7 +62,7 @@ Sie können die primären und sekundären DNS-Bereitstellung erstellen und synch
 5. Gegebenenfalls können Sie senden die primären Server von Benachrichtigungen an den sekundären Servern über zonenaktualisierungen aktualisiert.  
 6. Sekundärer Server stellen eine Anforderung zur abonnementübertragung inkrementeller zonenübertragungen (IXFR). Aus diesem Grund sind die sekundären Server, mit dem primären Server synchronisiert bleiben.   
   
-### <a name="bkmk_scope"></a>Bereichsebene für die Zone übertragen, in einer Bereitstellung für die primären und sekundären DNS
+### <a name="zone-scope-level-transfers-in-a-dns-primary-secondary-deployment"></a>Bereichsebene für die Zone übertragen, in einer Bereitstellung für die primären und sekundären DNS
 
 Das Szenario der Datenverkehr erfordert zusätzliche Schritte, die Zonen in andere Zone Bereiche aufzuteilen. Aus diesem Grund sind zusätzliche Schritte erforderlich, um die Daten in die Bereiche der Zone auf den sekundären Servern zu übertragen und zu Richtlinien und Subnetzen für DNS-Clients auf den sekundären Servern zu übertragen.   
   
@@ -78,7 +78,7 @@ Nach diesem Prozess verwaltet der primäre Server eine Liste der vertrauenswürd
   
 Für weitere Updates in einem Bereich für die Zone wird eine IXFR-Benachrichtigung an den sekundären Server, mit der gleichen OPT-Ressourceneintrag gesendet. Der Gültigkeitsbereich der Zone Empfang dieser Benachrichtigung stellt der IXFR-Anforderung, enthält diese OPT RR aus, und der gleiche Prozess wie oben beschrieben folgt.  
   
-## <a name="bkmk_config"></a>Vorgehensweise: Konfigurieren von DNS-Richtlinien für die primären und sekundären geografischen Standort-basierten Datenverkehrsverwaltung
+## <a name="how-to-configure-dns-policy-for-primary-secondary-geo-location-based-traffic-management"></a>Vorgehensweise: Konfigurieren von DNS-Richtlinien für die primären und sekundären geografischen Standort-basierten Datenverkehrsverwaltung
 
 Bevor Sie beginnen, stellen Sie sicher, dass Sie alle Schritte im Thema abgeschlossen haben [verwenden DNS-Richtlinien für die GeoLocation-basierte Datenverkehrsverwaltung mit Primärservern](../../dns/deploy/Scenario--Use-DNS-Policy-for-Geo-Location-Based-Traffic-Management-with-Primary-Servers.md), und Ihre primäre DNS-Server mit Zonen, Zone Bereiche, DNS-Client konfiguriert ist Subnetze, und DNS-Richtlinie.  
   
@@ -87,11 +87,11 @@ Bevor Sie beginnen, stellen Sie sicher, dass Sie alle Schritte im Thema abgeschl
   
 Um DNS-Richtlinien für die primären und sekundären geografischen Standort basierend Abfrageantworten konfigurieren zu können, müssen Sie die folgenden Schritte ausführen.  
   
-- [Erstellen Sie die sekundäre Zonen](#bkmk_secondary)  
-- [Konfigurieren Sie die Zoneneinstellungen für die Übertragung für die primäre Zone](#bkmk_zonexfer)  
-- [Kopieren Sie die DNS-Client-Subnetze](#bkmk_client)  
-- [Erstellen Sie die Bereiche der Zone auf dem sekundären Server](#bkmk_zonescopes)  
-- [Konfigurieren von DNS-Richtlinien](#bkmk_dnspolicy)  
+- [Erstellen Sie die sekundäre Zonen](#create-the-secondary-zones)  
+- [Konfigurieren Sie die Zoneneinstellungen für die Übertragung für die primäre Zone](#configure-the-zone-transfer-settings-on-the-primary-zone)  
+- [Kopieren Sie die DNS-Client-Subnetze](#copy-the-dns-client-subnets)  
+- [Erstellen Sie die Bereiche der Zone auf dem sekundären Server](#create-the-zone-scopes-on-the-secondary-server)  
+- [Konfigurieren von DNS-Richtlinien](#configure-dns-policy)  
   
 Die folgenden Abschnitte enthalten ausführliche konfigurationsanweisungen.  
   
@@ -99,7 +99,7 @@ Die folgenden Abschnitte enthalten ausführliche konfigurationsanweisungen.
 >Die folgenden Abschnitte enthalten Windows PowerShell-Beispielbefehle, die Beispielwerte für viele Parameter enthalten. Stellen Sie sicher, dass Sie die Beispielwerte in diesen Befehlen durch Werte, die für die Bereitstellung sinnvoll sind ersetzen, bevor Sie diese Befehle ausführen.  
 ><br>Mitgliedschaft in **DnsAdmins**, oder die entsprechende ist erforderlich, um die folgenden Schritte ausführen.  
   
-### <a name="bkmk_secondary"></a>Erstellen Sie die sekundäre Zonen
+### <a name="create-the-secondary-zones"></a>Erstellen Sie die sekundäre Zonen
 
 Sie können die sekundäre Kopie der Zone SecondaryServer1 und SecondaryServer2 replizieren möchten erstellen (sofern die-Cmdlets sind ausgeführt wird Remote von einem einzelnen Management Client).   
   
@@ -115,7 +115,7 @@ Sie können folgende Windows PowerShell-Befehle verwenden, die sekundären Zonen
 
 Weitere Informationen finden Sie unter [hinzufügen-DnsServerSecondaryZone](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserversecondaryzone?view=win10-ps).  
   
-### <a name="bkmk_zonexfer"></a>Konfigurieren Sie die Zoneneinstellungen für die Übertragung für die primäre Zone
+### <a name="configure-the-zone-transfer-settings-on-the-primary-zone"></a>Konfigurieren Sie die Zoneneinstellungen für die Übertragung für die primäre Zone
 
 Sie müssen die Einstellungen für die primäre Zone konfigurieren, damit:
 
@@ -134,7 +134,7 @@ Sie können die folgenden Windows PowerShell-Befehle verwenden, so konfigurieren
 Weitere Informationen finden Sie unter [Set-DnsServerPrimaryZone](https://docs.microsoft.com/powershell/module/dnsserver/set-dnsserverprimaryzone?view=win10-ps).  
   
   
-### <a name="bkmk_client"></a>Kopieren Sie die DNS-Client-Subnetze
+### <a name="copy-the-dns-client-subnets"></a>Kopieren Sie die DNS-Client-Subnetze
 
 Sie müssen die DNS-Client-Subnetze auf dem primären Server an den sekundären Server kopieren.
   
@@ -148,7 +148,7 @@ Sie können die folgenden Windows PowerShell-Befehle verwenden, die Subnetze in 
 
 Weitere Informationen finden Sie unter [hinzufügen-DnsServerClientSubnet](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverclientsubnet?view=win10-ps).  
   
-### <a name="bkmk_zonescopes"></a>Erstellen Sie die Bereiche der Zone auf dem sekundären Server
+### <a name="create-the-zone-scopes-on-the-secondary-server"></a>Erstellen Sie die Bereiche der Zone auf dem sekundären Server
 
 Sie müssen die Bereiche der Zone auf den sekundären Servern erstellen. Im DNS starten Sie die Bereiche der Zone auch XFRs vom primären Server anfordern. Bei jeder Änderung auf die Bereiche der Zone auf dem primären Server wird eine Benachrichtigung, die die Zone Bereichsinformationen enthält an die sekundären Server gesendet. Die sekundären Server können dann ihre Bereiche der Zone mit inkrementellen Änderungen aktualisieren.  
   
@@ -165,7 +165,7 @@ Sie können folgende Windows PowerShell-Befehle verwenden, um die Bereiche der Z
   
 Weitere Informationen finden Sie unter [hinzufügen-DnsServerZoneScope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps).  
   
-### <a name="bkmk_dnspolicy"></a>Konfigurieren von DNS-Richtlinien
+### <a name="configure-dns-policy"></a>Konfigurieren von DNS-Richtlinien
 
 Nachdem Sie die Subnetze erstellt haben, die Partitionen (Zone-Bereiche), und Sie Datensätze hinzugefügt haben, müssen Sie Richtlinien, die die Subnetze und Partitionen, eine Verbindung herstellen erstellen, damit die Abfrageantwort von zurückgegeben wird, wenn eine Abfrage aus einer Quelle in einem der Subnetze DNS-Client geht, den richtigen Bereich der Zone. Keine Richtlinien sind für die Zuordnung des Standardbereich für die Zone erforderlich.  
   

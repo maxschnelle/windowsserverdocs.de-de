@@ -8,12 +8,12 @@ ms.date: 06/12/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: active-directory-federation-services
-ms.openlocfilehash: 1292c7e6cd1dec6926516880c34fe60fb97a9ec8
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 24a9caba7a2745973d7c69c3bd7bc42717e7a06c
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190498"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266684"
 ---
 # <a name="build-a-single-page-web-application-using-oauth-and-adaljs-with-ad-fs-2016-or-later"></a>Erstellen einer einseitigen Web-App mithilfe von OAuth und ADAL. Node.js mit AD FS 2016 oder höher
 
@@ -78,13 +78,19 @@ Wichtigsten Dateien, die Authentifizierungslogik lauten wie folgt:
 ## <a name="registering-the-public-client-in-ad-fs"></a>Registrieren den öffentlichen Client in AD FS
 Im Beispiel wird die Web-API ist so konfiguriert, dass Lauschen am https://localhost:44326/. Die Anwendungsgruppe **Webbrowser den Zugriff auf eine Webanwendung** implizite Gewährung Flow Anwendung konfigurieren, verwendet werden können.
 
-1. Öffnen Sie die AD FS-Verwaltungskonsole, und klicken Sie auf **Anwendungsgruppe hinzufügen**. In der **Assistenten zum Hinzufügen einer Anwendung** Geben Sie den Namen der Anwendung, Beschreibung und wählen Sie die **Webbrowser den Zugriff auf eine Webanwendung** Vorlage aus der **Client / Server Anwendungen** Abschnitt wie folgt  <br>![Neue Anwendungsgruppe erstellen](media/Single-Page-Application-with-AD-FS/appgroup_step1.png)
+1. Öffnen Sie die AD FS-Verwaltungskonsole, und klicken Sie auf **Anwendungsgruppe hinzufügen**. In der **Assistenten zum Hinzufügen einer Anwendung** Geben Sie den Namen der Anwendung, Beschreibung und wählen Sie die **Webbrowser den Zugriff auf eine Webanwendung** Vorlage aus der **Client / Server Anwendungen** Abschnitt wie folgt
 
-2. Auf der nächsten Seite **systemeigene Anwendung**, geben Sie die Anwendungs-Client-ID und umleitungs-URI wie unten dargestellt.  <br>![Neue Anwendungsgruppe erstellen](media/Single-Page-Application-with-AD-FS/appgroup_step2.png)
+    ![Neue Anwendungsgruppe erstellen](media/Single-Page-Application-with-AD-FS/appgroup_step1.png)
+
+2. Auf der nächsten Seite **systemeigene Anwendung**, geben Sie die Anwendungs-Client-ID und umleitungs-URI wie unten dargestellt.
+
+    ![Neue Anwendungsgruppe erstellen](media/Single-Page-Application-with-AD-FS/appgroup_step2.png)
 
 3. Auf der nächsten Seite **Access-Control-Richtlinie anwenden** lassen Sie die Berechtigungen wie *alle zulassen*
 
-4. Die Seite "Zusammenfassung" sollte sieht etwa folgendermaßen aussehen.  <br>![Neue Anwendungsgruppe erstellen](media/Single-Page-Application-with-AD-FS/appgroup_step3.png)
+4. Die Seite "Zusammenfassung" sollte sieht etwa folgendermaßen aussehen.
+
+    ![Neue Anwendungsgruppe erstellen](media/Single-Page-Application-with-AD-FS/appgroup_step3.png)
 
 5. Klicken Sie auf **Weiter** , schließen Sie das Hinzufügen der Anwendungsgruppe und den Assistenten zu schließen.
 

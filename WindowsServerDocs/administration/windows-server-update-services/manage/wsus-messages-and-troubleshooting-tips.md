@@ -12,12 +12,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cc24893b1a227501959002ea2d81c62813855d4a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 77a4702ddab987cb3adda7627badb790e3102952
+ms.sourcegitcommit: 8eea7aadbe94f5d4635c4ffedc6a831558733cc0
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883631"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66308546"
 ---
 # <a name="wsus-messages-and-troubleshooting-tips"></a>WSUS-Nachrichten und Tipps zur Problembehandlung
 
@@ -57,7 +57,7 @@ Wenn Sie versuchen, die Update Services auf dem WSUS-Server öffnen Fehlermeldun
 
 > Verbindung mit dem WSUS-Server ist ein Fehler aufgetreten. Dieser Fehler kann eine Reihe von Gründen auftreten. Wenden Sie sich an Ihren Netzwerkadministrator, wenn das Problem weiterhin besteht. Klicken Sie auf das Zurücksetzen des Server-Knoten, um erneut eine Verbindung mit dem Server herzustellen.
 
-Zusätzlich zu den oben genannten versucht, auf die URL für die WSUS-Verwaltungswebsite zugreifen (z. B. http://CM12CAS:8530) mit folgendem Fehler fehl:
+Zusätzlich zu den oben genannten versucht, auf die URL für die WSUS-Verwaltungswebsite zugreifen (z. B. `http://CM12CAS:8530`) mit folgendem Fehler fehl:
 
 > HTTP-Fehler 503. Der Dienst ist nicht verfügbar
 

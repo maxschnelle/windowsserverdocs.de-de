@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: a1ce7af5-f3fe-4fc9-82e8-926800e37bc1
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 7f008dbdb49692e4901ebd03310710b2fbf4bd71
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8fa5886d31ea9e8969b02551b49ae744415fca80
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844421"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266741"
 ---
 # <a name="step-1-plan-the-remote-access-infrastructure"></a>Schritt 1: Planen der Remotezugriffinfrastruktur
 
@@ -30,16 +30,16 @@ Dieses Thema beschreibt die Schritte zur Planung einer Infrastruktur, die Sie zu
   
 |Aufgabe|Beschreibung|  
 |----|--------|  
-|[Planen der Netzwerktopologie und Netzwerkeinstellungen](#BKMK_Network)|Entscheiden Sie, wo platzieren RAS-Servers (Edge oder hinter einem Network Address Translation (NAT)-Gerät oder eine Firewall), und Planen Sie IP-Adressenvergabe und routing.|  
-|[Planen der firewallanforderungen](#BKMK_Firewall)|Planen Sie, den Remotezugriff über Edge-Firewalls zuzulassen.|  
-|[Planen der zertifikatanforderungen](#bkmk_12CAsandcerts)|Entscheiden Sie, ob Sie Kerberos oder Zertifikate zur Clientauthentifizierung verwenden, und planen Websitezertifikate.<br /><br />IP-HTTPS ist ein Übergangsprotokoll, das von DirectAccess-Clients zum Tunneln von IPv6-Datenverkehr über IPv4-Netzwerke verwendet wird. Entscheiden Sie, ob zur Authentifizierung von IP-HTTPS für den Server mit einem Zertifikat, das ausgestellt wird, von einer Zertifizierungsstelle (CA) oder mithilfe eines selbstsignierten Zertifikats, das automatisch von RAS-Servers ausgestellt wird.|  
-|[Planen der DNS-Anforderungen](#BKMK_DNS)|Planen der Domain Name System (DNS)-Einstellungen für die RAS-Server, Infrastrukturserver, Optionen für die lokale namensauflösung und Clientkonnektivität an.| 
-|[Planen Sie die Konfiguration der Netzwerk-server](#BKMK_Location)|Entscheiden Sie, wo die Netzwerkadressenserver-Website in Ihrer Organisation (auf dem RAS-Server oder einen anderen Server) zu platzieren, und planen die zertifikatanforderungen, wenn der Netzwerkadressenserver auf dem RAS-Server gespeichert werden. **Hinweis**: Der Netzwerkadressenserver wird von DirectAccess-Clients verwendet, um festzustellen, ob sie sich im internen Netzwerk befinden.|  
-|[Planen der Management Server-Konfigurationen](#BKMK_Management)|Berücksichtigen Sie bei der Planung Verwaltungsserver (beispielsweise Updateserver), die für die Verwaltung von Remoteclients verwendet werden. **Hinweis**: Administratoren können DirectAccess-Clientcomputer, die sich außerhalb des Unternehmensnetzwerks befinden, remote über das Internet verwalten.|  
-|[Planen von Active Directory-Anforderungen](#BKMK_ActiveDirectory)|Planen Sie Ihre Domänencontroller, Ihre Active Directory-Anforderungen, Clientauthentifizierung und Struktur mit mehreren Domänen.|  
-|[Planen der Erstellung des Gruppenrichtlinienobjekts](#BKMK_GPOs)|Entscheiden, welche Gruppenrichtlinienobjekte erforderlich sind in Ihrer Organisation und das Erstellen und bearbeiten die Gruppenrichtlinienobjekte.|  
+|[Planen der Netzwerktopologie und Netzwerkeinstellungen](#plan-network-topology-and-settings)|Entscheiden Sie, wo platzieren RAS-Servers (Edge oder hinter einem Network Address Translation (NAT)-Gerät oder eine Firewall), und Planen Sie IP-Adressenvergabe und routing.|  
+|[Planen der firewallanforderungen](#plan-firewall-requirements)|Planen Sie, den Remotezugriff über Edge-Firewalls zuzulassen.|  
+|[Planen der zertifikatanforderungen](#plan-certificate-requirements)|Entscheiden Sie, ob Sie Kerberos oder Zertifikate zur Clientauthentifizierung verwenden, und planen Websitezertifikate.<br /><br />IP-HTTPS ist ein Übergangsprotokoll, das von DirectAccess-Clients zum Tunneln von IPv6-Datenverkehr über IPv4-Netzwerke verwendet wird. Entscheiden Sie, ob zur Authentifizierung von IP-HTTPS für den Server mit einem Zertifikat, das ausgestellt wird, von einer Zertifizierungsstelle (CA) oder mithilfe eines selbstsignierten Zertifikats, das automatisch von RAS-Servers ausgestellt wird.|  
+|[Planen der DNS-Anforderungen](#plan-dns-requirements)|Planen der Domain Name System (DNS)-Einstellungen für die RAS-Server, Infrastrukturserver, Optionen für die lokale namensauflösung und Clientkonnektivität an.| 
+|[Planen Sie die Konfiguration der Netzwerk-server](#plan-the-network-location-server-configuration)|Entscheiden Sie, wo die Netzwerkadressenserver-Website in Ihrer Organisation (auf dem RAS-Server oder einen anderen Server) zu platzieren, und planen die zertifikatanforderungen, wenn der Netzwerkadressenserver auf dem RAS-Server gespeichert werden. **Hinweis**: Der Netzwerkadressenserver wird von DirectAccess-Clients verwendet, um festzustellen, ob sie sich im internen Netzwerk befinden.|  
+|[Planen der Management Server-Konfigurationen](#plan-management-servers-configuration)|Berücksichtigen Sie bei der Planung Verwaltungsserver (beispielsweise Updateserver), die für die Verwaltung von Remoteclients verwendet werden. **Hinweis**: Administratoren können DirectAccess-Clientcomputer, die sich außerhalb des Unternehmensnetzwerks befinden, remote über das Internet verwalten.|  
+|[Planen von Active Directory-Anforderungen](#plan-active-directory-requirements)|Planen Sie Ihre Domänencontroller, Ihre Active Directory-Anforderungen, Clientauthentifizierung und Struktur mit mehreren Domänen.|  
+|[Planen der Erstellung des Gruppenrichtlinienobjekts](#plan-group-policy-object-creation)|Entscheiden, welche Gruppenrichtlinienobjekte erforderlich sind in Ihrer Organisation und das Erstellen und bearbeiten die Gruppenrichtlinienobjekte.|  
   
-## <a name="BKMK_Network"></a>Planen der Netzwerktopologie und-Einstellungen  
+## <a name="plan-network-topology-and-settings"></a>Planen der Netzwerktopologie und -einstellungen  
 Wenn Sie Ihr Netzwerk planen, müssen Sie die netzwerkadaptertopologie, Einstellungen für IP-Adressierung und serveranforderungen für ISATAP zu berücksichtigen.  
   
 ### <a name="plan-network-adapters-and-ip-addressing"></a>Planen von Netzwerkadaptern und IP-Adressierung  
@@ -86,7 +86,7 @@ ISATAP ist für die Remoteverwaltung von DirectAccessclients, erforderlich, soda
 > [!IMPORTANT]  
 > Stellen Sie sicher, dass Sie nicht über öffentliche IP-Adressen auf der internen Schnittstelle des DirectAccess-Servers verfügen. Wenn Sie die öffentliche IP-Adresse auf der internen Schnittstelle verfügen, kann die Konnektivität über ISATAP fehlschlagen.  
   
-### <a name="BKMK_Firewall"></a>Planen der firewallanforderungen  
+### <a name="plan-firewall-requirements"></a>Planen der Firewallanforderungen  
 Wenn sich der Remotezugriffsserver hinter einer Edge-Firewall befindet, sind folgende Ausnahmen für Remotezugriff-Datenverkehr erforderlich, wenn sich der Remotezugriffsserver auf dem IPv4-Internet befindet:  
   
 -   Für IP-HTTPS: Transmission Control Protocol (TCP)-Zielport 443 und TCP-Quellport 443 ausgehend.  
@@ -121,7 +121,7 @@ Wenn Sie zusätzliche Firewalls verwenden, gelten Sie die folgenden internen net
   
 -   Für Teredo: ICMP für den gesamten IPv4/IPv6-Datenverkehr  
   
-### <a name="bkmk_12CAsandcerts"></a>Planen der zertifikatanforderungen  
+### <a name="plan-certificate-requirements"></a>Planen der Zertifikatanforderungen  
 Es gibt drei Szenarien, die Zertifikate erfordern, bei der Bereitstellung eines einzelnen Remotezugriffsservers.  
   
 -   **IPsec-Authentifizierung**: Zertifikatanforderungen für IPsec sind ein Computerzertifikat, das von DirectAccess-Clientcomputern verwendet wird, wenn sie die IPsec-Verbindung mit dem RAS-Server herstellen und einem Computerzertifikat, das zum Herstellen von RAS-Server verwendet wird IPsec-Verbindungen mit DirectAccess-Clients.  
@@ -183,7 +183,7 @@ Beachten Sie Folgendes bei der Planung der Netzwerkadressenserver-Website:
 > [!NOTE]  
 > Stellen Sie sicher, dass die Zertifikate für IP-HTTPS und den Netzwerkadressenserver einen Antragstellernamen verfügen. Wenn das Zertifikat einen alternativen Name verwendet wird, wird es nicht von den Remotezugriffs-Assistenten akzeptiert.  
   
-#### <a name="BKMK_DNS"></a>Planen der DNS-Anforderungen  
+#### <a name="plan-dns-requirements"></a>Planen der DNS-Anforderungen  
 In diesem Abschnitt wird erläutert, die DNS-Anforderungen für Clients und Servern in einer remotezugriffsbereitstellung.  
   
 ##### <a name="directaccess-client-requests"></a>DirectAccess-Clientanfragen  
@@ -227,7 +227,7 @@ RAS erstellt einen Standard-Webtest, der von DirectAccess-Clientcomputern dazu v
   
 Mithilfe anderer Webadressen über HTTP oder PING können Sie zusätzliche verbindungsprüfer erstellen. Für jeden Verbindungsprüfer muss ein DNS-Eintrag vorhanden sein.  
   
-##### <a name="BKMK_DNSServer"></a>DNS-serveranforderungen  
+##### <a name="dns-server-requirements"></a>DNS-Serveranforderungen  
   
 -   Für DirectAccess-Clients müssen Sie einen DNS-Server Windows Server 2012, Windows Server 2008 R2, Windows Server 2008, Windows Server 2003 oder einen DNS-Server, der IPv6 unterstützt, verwenden.  
   
@@ -235,7 +235,7 @@ Mithilfe anderer Webadressen über HTTP oder PING können Sie zusätzliche verbi
   
 -   Der FQDN des Zertifikatsperrlisten-Verteilungspunkte muss mithilfe von Internet-DNS-Servern aufgelöst werden. Z. B. wenn URL https://crl.contoso.com/crld/corp-DC1-CA.crl befindet sich in der **Zertifikatsperrlisten-Verteilungspunkte** -Feld der IP-HTTPS-Zertifikat des RAS-Server, müssen Sie sicherstellen, dass der FQDN crld.contoso.com mit Internet-DNS-Servern aufgelöst werden kann.  
   
-#### <a name="BKMK_NameResolution"></a>Planen der lokalen namensauflösung  
+#### <a name="plan-for-local-name-resolution"></a>Planen der lokalen namensauflösung  
 Beachten Sie Folgendes, wenn Sie für die lokale namensauflösung planen:  
   
 ##### <a name="nrpt"></a>NRPT  
@@ -281,11 +281,11 @@ Wenn der DNS-Clientdienst führt die lokale namensauflösung für intranetserver
   
 -   **Lokale namensauflösung verwenden, wenn der Name nicht, im DNS vorhanden ist**: Diese Option ist die sicherste, da der DirectAccess-Client nur für die Servernamen eine lokale Namensauflösung ausführt, die nicht von den Intranet-DNS-Servern aufgelöst werden können. Wenn die Intranet-DNS-Server erreicht werden können, werden die Namen der Intranetserver aufgelöst. Wenn die Intranet-DNS-Server nicht erreicht werden können, oder wenn andere DNS-Fehler auftreten, werden die Intranetservernamen nicht über die lokale Namensauflösung ins Subnetz durchgelassen.  
   
--   **Lokale namensauflösung verwenden, wenn der Name nicht, im DNS vorhanden ist oder DNS-Server nicht erreichbar sind, wenn der Clientcomputer in einem privaten Netzwerk (empfohlen)**: Diese Option ist wird empfohlen, da sie die Verwendung der lokalen Namensauflösung in einem privaten Netzwerk gestattet, wenn die Intranet-DNS-Server nicht erreichbar sind.  
+-   **Lokale namensauflösung verwenden, wenn der Name nicht, im DNS vorhanden ist oder DNS-Server nicht erreichbar sind, wenn der Clientcomputer in einem privaten Netzwerk (empfohlen)** : Diese Option ist wird empfohlen, da sie die Verwendung der lokalen Namensauflösung in einem privaten Netzwerk gestattet, wenn die Intranet-DNS-Server nicht erreichbar sind.  
   
--   **Lokale namensauflösung verwenden, für jede Art von DNS--auflösungsfehlern (am wenigsten sicher)**: Dies ist die unsicherste Option, da die Namen von Intranet-Netzwerkservern über die lokale Namensauflösung zum lokalen Subnetz durchgelassen werden können.  
+-   **Lokale namensauflösung verwenden, für jede Art von DNS--auflösungsfehlern (am wenigsten sicher)** : Dies ist die unsicherste Option, da die Namen von Intranet-Netzwerkservern über die lokale Namensauflösung zum lokalen Subnetz durchgelassen werden können.  
   
-#### <a name="BKMK_Location"></a>Planen Sie die Konfiguration der Netzwerk-server  
+#### <a name="plan-the-network-location-server-configuration"></a>Planen Sie die Konfiguration der Netzwerk-server  
 Der Netzwerkadressenserver ist eine Website, die erkennt, ob sich DirectAccess-Clients im Unternehmensnetzwerk befinden. Clients im Unternehmensnetzwerk verwenden keine DirectAccess auf um interne Ressourcen zu erreichen. aber stattdessen, sie stellen eine direkte Verbindung.  
   
 Der Netzwerkadressenserver kann auf dem RAS-Server oder auf einem anderen Server in Ihrer Organisation gehostet werden. Wenn Sie den Netzwerkadressenserver auf dem RAS-Server hosten, wird die Website automatisch erstellt, beim Bereitstellen von Remotezugriff. Wenn Sie den Netzwerkadressenserver auf einem anderen Server mit Windows-Betriebssystem hosten, müssen Sie sicherstellen, dass Internet Information Services (IIS) auf diesem Server installiert ist und die Website erstellt wird. Remotezugriff konfiguriert Einstellungen nicht auf dem Netzwerkadressenserver.  
@@ -318,7 +318,7 @@ Wenn Sie das Websitezertifikat für den Netzwerkadressenserver verwenden erhalte
 ##### <a name="plan-dns-for-the-network-location-server"></a>Planen von DNS für den Netzwerkadressenserver  
 DirectAccess-Clients versuchen, den Netzwerkadressenserver zu erreichen, um zu bestimmen, ob sie sich auf dem internen Netzwerk befinden. Clients im internen Netzwerk müssen in der Lage sein, den Namen des Netzwerkadressenservers aufzulösen, befinden sie sich jedoch im Internet, dürfen sie den Namen nicht auflösen. Um dies zu gewährleisten, wird der FQDN des Netzwerkadressenservers standardmäßig als Ausnahmeregel zum NRPT hinzugefügt.  
   
-### <a name="BKMK_Management"></a>Planen der Management Server-Konfiguration  
+### <a name="plan-management-servers-configuration"></a>Planen der Management Server-Konfiguration  
 DirectAccess-Clients initiieren die Kommunikation mit Verwaltungsservern, die Dienste wie Windows Update und antivirus-Updates bereitstellen. DirectAccess-Clients verwenden auch das Kerberos-Protokoll Domänencontroller authentifizieren müssen, um das interne Netzwerk zugreifen. Während der Remoteverwaltung von DirectAccess-Clients kommunizieren Verwaltungsserver mit Clientcomputern, um Verwaltungsfunktionen wie zum Beispiel Software- oder Hardware-Bestandsbewertungen durchzuführen. Der Remotezugriff kann automatisch bestimmte Verwaltungsserver erkennen, zum Beispiel:  
   
 -   Domänencontroller: Automatische Ermittlung von Domänencontrollern wird ausgeführt, für die Domänen, die Clientcomputer enthalten und für alle Domänen in derselben Gesamtstruktur wie der RAS-Server.  
@@ -333,7 +333,7 @@ Domänencontroller und System Center Configuration Manager, die Server erstmalig
   
 -   Verwaltungsserver, die das Initiieren von Verbindungen zu DirectAccess-Clients müssen IPv6 vollständig unterstützen, durch eine systemeigene IPv6-Adresse oder mit einer, die durch ISATAP zugewiesenen Adresse.  
   
-### <a name="BKMK_ActiveDirectory"></a>Planen von Active Directory-Anforderungen  
+### <a name="plan-active-directory-requirements"></a>Planen von Active Directory-Anforderungen  
 Remotezugriff verwendet Active Directory wie folgt aus:  
   
 -   **Authentifizierung**: Der infrastrukturtunnel verwendet NTLMv2-Authentifizierung für das Computerkonto, das eine Verbindung mit dem RAS-Server herstellt, und das Konto muss in Active Directory-Domäne sein. Der intranettunnel Kerberos-Authentifizierung für den Benutzer auf um den intranettunnel zu erstellen.  
@@ -380,7 +380,7 @@ Diese Authentifizierung erfolgt automatisch, wenn die Domänen in der gleichen G
   
 Wenn möglich sollten allgemeine Domänennamensuffixe während der Bereitstellung des Remotezugriffs zur NRPT hinzugefügt werden. Wenn es zum Beispiel zwei Domänen gibt, domain1.corp.contoso.com und domain2.corp.contoso.com, können Sie, anstatt zwei Einträge zur NRPT hinzuzufügen, auch einen allgemeinen DNS-Suffix-Eintrag hinzufügen, bei dem das Domänennamensuffix corp.contoso.com ist. Dies geschieht automatisch für Domänen in demselben Stamm. Domänen, die nicht im selben Stamm befinden, müssen manuell hinzugefügt werden.  
   
-### <a name="BKMK_GPOs"></a>Planen der Erstellung des Gruppenrichtlinienobjekts  
+### <a name="plan-group-policy-object-creation"></a>Planen der Erstellung des Gruppenrichtlinienobjekts  
 Wenn Sie Remotezugriff konfigurieren, werden die DirectAccess-Einstellungen in Gruppenrichtlinienobjekten (GPOs) erfasst. Zwei Gruppenrichtlinienobjekte werden mit DirectAccess-Einstellungen aufgefüllt, und sie wie folgt verteilt:  
   
 -   **DirectAccess-Client-Gruppenrichtlinienobjekt**: Dieses Gruppenrichtlinienobjekt enthält die Client-Einstellungen, einschließlich der Einstellungen für IPv6-übergangstechnologie, der NRPT-Einträge und Verbindungssicherheitsregeln für die Windows-Firewall mit erweiterter Sicherheit. Das Gruppenrichtlinienobjekt wird auf die für die Clientcomputer angegebenen Sicherheitsgruppen angewendet.  

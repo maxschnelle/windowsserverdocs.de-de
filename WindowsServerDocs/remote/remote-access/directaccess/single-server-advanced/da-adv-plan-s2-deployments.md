@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 3bba28d4-23e2-449f-8319-7d2190f68d56
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 83dd3c737c616574750fecf51184996aba5703f4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 31209b3770fb910c843b6fd39d6e76b8672088a9
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845301"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266754"
 ---
 # <a name="step-2-plan-advanced-directaccess-deployments"></a>Schritt 2-Plan, die erweiterte DirectAccess-Bereitstellungen
 
@@ -28,13 +28,13 @@ Nach der Planung der DirectAccess-Infrastruktur besteht der nächste Schritt der
   
 |Aufgabe|Beschreibung|  
 |----|--------|  
-|[2.1 Planen der Clientbereitstellung](#bkmk_21client)|Planen Sie die Methode zum Verbinden der Clientcomputer mithilfe von DirectAccess. Entscheiden Sie, welche verwalteten Computer als DirectAccess-Clients konfiguriert werden, und planen Sie die Bereitstellung von NCA (Network Connectivity Assistant) oder DCA (DirectAccess Connectivity Assistant) auf den Clientcomputern.|  
-|[2.2 Planen der Directacess-serverbereitstellung](#bkmk_22server)|Planen Sie die Bereitstellung des DirectAccess-Servers.|  
-|[2.3 Planen der Infrastrukturserver](#bkmk_23Infservers)|Planen Sie die Infrastrukturserver für Ihre DirectAccess-Bereitstellung, dazu gehört der DirectAccess-Netzwerkadressenserver, die DNS-Server (Domain Name System) und die DirectAccess-Verwaltungsserver.|  
-|[2.4 Planen der Anwendungsserver](#bkmk_AppServers)|Planen Sie die IPv4- und IPv6-Anwendungsserver, und ziehen Sie die optionale Möglichkeit in Betracht, eine obligatorische End-to-End-Authentifizierung zwischen DirectAccess-Clientcomputern und internen Anwendungsservern einzurichten.|  
-|[2.5 Planen von DirectAccess und Drittanbieter-VPN-clients](#bkmk_DAandVPN)|Bei der Bereitstellung von DirectAccess mit VPN-Clients von Drittanbietern kann es erforderlich sein, die folgenden Registrierungswerte festzulegen, um die nahtlose gleichzeitige Verwendung der beiden Remotezugriffslösungen zu aktivieren.|  
+|[2.1 Planen der Clientbereitstellung](#21-plan-for-client-deployment)|Planen Sie die Methode zum Verbinden der Clientcomputer mithilfe von DirectAccess. Entscheiden Sie, welche verwalteten Computer als DirectAccess-Clients konfiguriert werden, und planen Sie die Bereitstellung von NCA (Network Connectivity Assistant) oder DCA (DirectAccess Connectivity Assistant) auf den Clientcomputern.|  
+|[2.2 Planen der Directacess-serverbereitstellung](#22-plan-for-directaccess-server-deployment)|Planen Sie die Bereitstellung des DirectAccess-Servers.|  
+|[2.3 Planen der Infrastrukturserver](#23-plan-infrastructure-servers)|Planen Sie die Infrastrukturserver für Ihre DirectAccess-Bereitstellung, dazu gehört der DirectAccess-Netzwerkadressenserver, die DNS-Server (Domain Name System) und die DirectAccess-Verwaltungsserver.|  
+|[2.4 Planen der Anwendungsserver](#24-plan-application-servers)|Planen Sie die IPv4- und IPv6-Anwendungsserver, und ziehen Sie die optionale Möglichkeit in Betracht, eine obligatorische End-to-End-Authentifizierung zwischen DirectAccess-Clientcomputern und internen Anwendungsservern einzurichten.|  
+|[2.5 Planen von DirectAccess und Drittanbieter-VPN-clients](#25-plan-directaccess-and-third-party-vpn-clients)|Bei der Bereitstellung von DirectAccess mit VPN-Clients von Drittanbietern kann es erforderlich sein, die folgenden Registrierungswerte festzulegen, um die nahtlose gleichzeitige Verwendung der beiden Remotezugriffslösungen zu aktivieren.|  
   
-## <a name="bkmk_21client"></a>2.1 Planen der Clientbereitstellung  
+## <a name="21-plan-for-client-deployment"></a>2.1 Planen der Clientbereitstellung  
 Bei der Planung Ihrer Clientbereitstellung müssen drei Entscheidungen getroffen werden:  
   
 1.  Soll DirectAcess für alle oder nur für mobile Computer verfügbar sein?  
@@ -43,7 +43,7 @@ Bei der Planung Ihrer Clientbereitstellung müssen drei Entscheidungen getroffen
   
 2.  In welchen Sicherheitsgruppen sollen die DirectAccess-Clientcomputer enthalten sein?  
   
-    Die DirectAccess-Clienteinstellungen befinden sich in dem Gruppenrichtlinienobjekt des DirectAccess-Clients. Das Gruppenrichtlinienobjekt wird auf Computer angewendet, die in den Sicherheitsgruppen enthalten sind, die Sie in dem DirectAccess-Client-Setup-Assistenten angegeben haben. Sie können angeben, dass Sicherheitsgruppen in einer beliebigen unterstützten Domäne enthalten sein sollen. Weitere Informationen finden Sie im Abschnitt [1.7 Planen der Active Directory Domain Services](da-adv-plan-s1-infrastructure.md#bkmk_16AD).  
+    Die DirectAccess-Clienteinstellungen befinden sich in dem Gruppenrichtlinienobjekt des DirectAccess-Clients. Das Gruppenrichtlinienobjekt wird auf Computer angewendet, die in den Sicherheitsgruppen enthalten sind, die Sie in dem DirectAccess-Client-Setup-Assistenten angegeben haben. Sie können angeben, dass Sicherheitsgruppen in einer beliebigen unterstützten Domäne enthalten sein sollen. Weitere Informationen finden Sie im Abschnitt [1.7 Planen der Active Directory Domain Services](da-adv-plan-s1-infrastructure.md#17-plan-active-directory-domain-services).  
   
     Bevor Sie DirectAccess konfigurieren, sollten Sie die Sicherheitsgruppen erstellen. Nach Abschluss der DirectAccess-Bereitstellung können Sie Computer zur Sicherheitsgruppe hinzufügen, wenn Sie jedoch Clientcomputer hinzufügen, die sich in einer anderen Domäne befinden wie die Sicherheitsgruppe, dann wird das Client-Gruppenrichtlinienobjekt nicht auf diese Clients angewendet. Wenn Sie beispielsweise SG1 in Domäne A für DirectAccess-Clients erstellen und später Clients von Domäne B zu dieser Gruppe hinzufügen, wird das Client-Gruppenrichtlinienobjekt nicht auf Clients von Domäne B angewendet. Sie können dieses Problem vermeiden, indem Sie eine neue Client-Sicherheitsgruppe für jede Domäne erstellen, die die DirectAccess-Clientcomputer enthält. Alternativ dazu können Sie auch das Windwows PowerShell-Cmdlet **Add-DAClient** mit dem Namen des neuen Gruppenrichtlinienobjekts für die neue Domäne ausführen, wenn Sie keine neue Sicherheitsgruppe erstellen möchten.  
   
@@ -71,7 +71,7 @@ Bei der Planung Ihrer Clientbereitstellung müssen drei Entscheidungen getroffen
   
         Clients benötigen eine Methode, um Namen lokal aufzulösen. Wenn Sie zulassen, dass DirectAccess-Clients die lokale Namensauflösung verwenden, können Endbenutzer zum Auflösen von Namen lokale DNS-Server verwenden. Wenn Endbenutzer die Verwendung lokaler DNS-Server zur Namensauflösung auswählen, sendet DirectAccess keine Anforderungen zum Auflösen einzelner Bezeichnungsnamen an den internen Unternehmens-DNS-Server. Stattdessen verwendet er die lokale Namensauflösung, indem er die Multicastnamenauflösung für lokale Verbindungen (Link-Local Multicast Name Resolution, LLMNR) und NetBIOS über TCP/IP-Protokolle verwendet.  
   
-## <a name="bkmk_22server"></a>2.2 Planen der Directacess-serverbereitstellung  
+## <a name="22-plan-for-directaccess-server-deployment"></a>2.2 Planen der DirectAcess-Serverbereitstellung  
 Berücksichtigen Sie folgende Entscheidungen bei der Bereitstellung Ihres DirectAccess-Servers:  
   
 -   **Netzwerktopologie**  
@@ -82,13 +82,13 @@ Berücksichtigen Sie folgende Entscheidungen bei der Bereitstellung Ihres Direct
   
     -   **Ein Netzwerkadapter**. In dieser Konfiguration ist der Server hinter einem Edgegerät wie z. B. einer Firewall oder einem Router installiert. Der Netzwerkadapter ist mit dem internen Netzwerk verbunden.  
   
-    Weitere Informationen zur Auswahl der Topologie für Ihre Bereitstellung finden Sie unter [1.1 Plan-Netzwerktopologie und-Einstellungen](da-adv-plan-s1-infrastructure.md#bkmk_11Networksvrtopsettings).  
+    Weitere Informationen zur Auswahl der Topologie für Ihre Bereitstellung finden Sie unter [1.1 Plan-Netzwerktopologie und-Einstellungen](da-adv-plan-s1-infrastructure.md#11-plan-network-topology-and-settings).  
   
 -   **ConnectTo-Adresse**  
   
     Clientcomputer verwenden die ConnectTo-Adresse, um eine Verbindung zum DirectAccess-Server herzustellen. Die von Ihnen gewählte Adresse muss mit dem Antragstellernamen des IP-HTTPS-Zertifikats übereinstimmen, das Sie für die IP-HTTPS-Verbindung bereitstellen. Außerdem muss sie im öffentlichen DNS verfügbar sein.  
   
--   **-Netzwerkadapter**  
+-   **Leistungsverlauf für Netzwerkadapter**  
   
     Der Setup-Assistent für den Remotezugriffsserver erkennt automatisch die Netzwerkadapter, die auf dem DirectAccess-Server konfiguriert sind. Vergewissern Sie sich, dass die richtigen Adapter ausgewählt sind.  
   
@@ -98,7 +98,7 @@ Berücksichtigen Sie folgende Entscheidungen bei der Bereitstellung Ihres Direct
   
 -   **IPv6-Präfixe**  
   
-    Wenn der Setup-Assistent für den Remotezugriffsserver erkennt, dass IPv6 auf den Netzwerkadaptern bereitgestellt wurde, füllt er automatisch IPv6-Präfixe für das interne Netzwerk auf. Ein IPv6-Präfix zum Zuweisen für die DirectAccess-Clientcomputer und ein IPv6-Präfix zum Zuweisen für die VPN-Clientcomputer. Wenn die automatisch generierten Präfixe nicht mit Ihrer systemeigenen IPv6-Infrastruktur übereinstimmen, müssen Sie sie manuell ändern. Weitere Informationen finden Sie unter [1.1 Plan-Netzwerktopologie und-Einstellungen](da-adv-plan-s1-infrastructure.md#bkmk_11Networksvrtopsettings).  
+    Wenn der Setup-Assistent für den Remotezugriffsserver erkennt, dass IPv6 auf den Netzwerkadaptern bereitgestellt wurde, füllt er automatisch IPv6-Präfixe für das interne Netzwerk auf. Ein IPv6-Präfix zum Zuweisen für die DirectAccess-Clientcomputer und ein IPv6-Präfix zum Zuweisen für die VPN-Clientcomputer. Wenn die automatisch generierten Präfixe nicht mit Ihrer systemeigenen IPv6-Infrastruktur übereinstimmen, müssen Sie sie manuell ändern. Weitere Informationen finden Sie unter [1.1 Plan-Netzwerktopologie und-Einstellungen](da-adv-plan-s1-infrastructure.md#11-plan-network-topology-and-settings).  
   
 -   **Authentifizierung**  
   
@@ -106,7 +106,7 @@ Berücksichtigen Sie folgende Entscheidungen bei der Bereitstellung Ihres Direct
   
     -   **Benutzerauthentifizierung**. Sie können für Benutzer die zweistufige oder die Authentifizierung mit Active Directory-Anmeldeinformationen aktivieren. Weitere Informationen zur zweistufigen Authentifizierung finden Sie unter [Bereitstellen des Remotezugriffs mit OTP-Authentifizierung](https://technet.microsoft.com/library/hh831379.aspx).  
   
-    -   **Computerauthentifizierung**. Sie können die Computerauthentifizierung so konfigurieren, dass sie im Auftrag des Clients Zertifikate oder den DirectAccess-Server als Kerberos-Proxy verwendet. Weitere Informationen finden Sie unter [1.3 Plan zertifikatanforderungen](da-adv-plan-s1-infrastructure.md#bkmk_12CAsandCerts).  
+    -   **Computerauthentifizierung**. Sie können die Computerauthentifizierung so konfigurieren, dass sie im Auftrag des Clients Zertifikate oder den DirectAccess-Server als Kerberos-Proxy verwendet. Weitere Informationen finden Sie unter [1.3 Plan zertifikatanforderungen](da-adv-plan-s1-infrastructure.md#13-plan-certificate-requirements).  
   
     -   **Windows 7-Clients**. Standardmäßig Verbindung keine Clientcomputer, auf denen Windows 7 ausführen, mit einer Windows Server 2012 R2 oder Windows Server 2012 DirectAccess-Bereitstellung. Wenn Sie Clients in Ihrer Organisation, die Windows 7 ausgeführt werden, und der Remotezugriff auf interne Ressourcen benötigen, können Sie eine Verbindung hergestellt. Clientcomputer, die auf interne Ressourcen zugreifen sollen, müssen Mitglied einer Sicherheitsgruppe sein, die Sie im DirectAccess-Client-Setup-Assistenten angeben.  
   
@@ -117,16 +117,16 @@ Berücksichtigen Sie folgende Entscheidungen bei der Bereitstellung Ihres Direct
   
     Entscheiden Sie, ob ein VPN-Zugriff auf nicht DirectAccess-fähige Remoteclients bereitgestellt werden soll, bevor Sie DirectAccess konfigurieren. Sie sollten einen VPN-Zugriff bereitstellen, wenn Sie in Ihrer Organisation über Clientcomputer verfügen, die die DirectAccess-Konnektivität nicht unterstützen (da sie nicht verwaltet werden oder ein Betriebssystem einsetzen, bei dem DirectAccess nicht unterstützt wird). Mit dem Setup-Assistent für den Remotezugriffsserver können Sie konfigurieren, wie IP-Adressen zugewiesen werden (über DHCP oder einen Pool statischer Adressen) und wie VPN-Clients authentifiziert werden - mithilfe des Active Directory oder eines RADIUS-Servers (Remote Authentication Dial-Up Service).  
   
-## <a name="bkmk_23Infservers"></a>2.3 Planen der Infrastrukturserver  
+## <a name="23-plan-infrastructure-servers"></a>2.3 Planen der Infrastrukturserver  
 Für DirectAccess sind drei Typen von Infrastrukturservern erforderlich:  
   
--   **DNS-Server**. Weitere Informationen finden Sie im Abschnitt [1.4 Planen von DNS-Anforderungen](da-adv-plan-s1-infrastructure.md#bkmk_14Dns).  
+-   **DNS-Server**. Weitere Informationen finden Sie im Abschnitt [1.4 Planen von DNS-Anforderungen](da-adv-plan-s1-infrastructure.md#14-plan-dns-requirements).  
   
--   **Netzwerkadressenserver**. Weitere Informationen finden Sie unter [1.5 Planen des Netzwerkadressenservers](da-adv-plan-s1-infrastructure.md#bkmk_14NLS).  
+-   **Netzwerkadressenserver**. Weitere Informationen finden Sie unter [1.5 Planen des Netzwerkadressenservers](da-adv-plan-s1-infrastructure.md#15-plan-the-network-location-server).  
   
--   **Verwaltungsserver**. Weitere Informationen finden Sie unter [1.6 Planen von Verwaltungsservern](da-adv-plan-s1-infrastructure.md#bkmk_15mgmtservers).  
+-   **Verwaltungsserver**. Weitere Informationen finden Sie unter [1.6 Planen von Verwaltungsservern](da-adv-plan-s1-infrastructure.md#16-plan-management-servers).  
   
-## <a name="bkmk_AppServers"></a>2.4 Planen der Anwendungsserver  
+## <a name="24-plan-application-servers"></a>2.4 Planen der Anwendungsserver  
 Anwendungsserver sind Server im Unternehmensnetzwerk, die von Clientcomputern über eine DirectAccess-Verbindung zugänglich sind. Anwendungsserver werden identifiziert, indem Sie in einer Sicherheitsgruppe hinzugefügt werden. Das Gruppenrichtlinienobjekt des Anwendungsservers wird dann auf die Server in der Gruppe angewendet.  
   
 > [!NOTE]  
@@ -136,7 +136,7 @@ Optional können Sie auch die End-to-End-Authentifizierung und -Verschlüsselung
   
 Standardmäßig wird bei der Erweiterung der Authentifizierung auf Anwendungsserver die Datennutzlast zwischen DirectAccess-Client und Anwendungsserver verschlüsselt. Sie können auch auswählen, den Datenverkehr nicht zu verschlüsseln und nur die Authentifizierung verwenden. Allerdings ist dies weniger sicher als die Verwendung von Authentifizierung und Verschlüsselung, und wird nur für Anwendungsserver, die Ausführung des Windows Server 2008 R2 oder Windows Server 2012-Betriebssystemen unterstützt.  
   
-## <a name="bkmk_DAandVPN"></a>2.5 Planen von DirectAccess und Drittanbieter-VPN-clients  
+## <a name="25-plan-directaccess-and-third-party-vpn-clients"></a>2.5 Planen von DirectAccess und VPN-Clients von Drittanbietern  
 Einige VPN-Clients von Drittanbietern erstellen im Ordner Netzwerkverbindungen keine Verbindungen. Dies kann dazu führen, dass DirectAccess keine Intranetkonnektivität erkennt, wenn die VPN-Verbindung hergestellt ist und eine Verbindung zum Intranet besteht. Diese Bedingung tritt auf, wenn VPN-Clients von Drittanbietern ihre Schnittstellen registrieren, indem sie diese als (NDIS) ENDPOINT-Typen (Network Device Interface Specification) definieren. Sie können die gleichzeitige Verwendung dieser VPN-Clienttypen aktivieren, indem Sie den folgenden Registrierungswert auf 1 festlegen.  
   
 **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\NlaSvc\Parameters\ShowDomainEndpointInterfaces (REG_DWORD)**  
@@ -149,7 +149,7 @@ Wenn die VPN-Verbindung das Standardgateway als leer oder nur Nullen (0.0.0.0) a
   
 **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\NlaSvc\Parameters\Internet\ EnableNoGatewayLocationDetection (REG_DWORD)**  
   
-## <a name="BKMK_Links"></a>Vorherigen Schritt  
+## <a name="previous-step"></a>Vorheriger Schritt  
   
 -   [Schritt 1: Planen der DirectAccess-Infrastruktur](da-adv-plan-s1-infrastructure.md)  
   

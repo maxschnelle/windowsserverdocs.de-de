@@ -7,22 +7,24 @@ ms.topic: article
 ms.author: HammadBu; VladmiS
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 7619d2e2ce394c7f06826d6ebe36bccfa43344ad
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 70b27d45acbfb046d52271a50ca7deffb226b8d0
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842571"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266727"
 ---
 # <a name="performance-tuning-remote-desktop-gateways"></a>Remote Desktop-Gateways die Optimierung der Leistung
 
-**Beachten Sie**    Remotedesktopgateway (RD-Gateway) In Windows 8 und höher und Windows Server 2012 R2 oder höher wird unterstützt, TCP, UDP und dem älteren RPC-Transport. Die meisten der folgenden Daten bezieht sich auf den alten RPC-Transport. Wenn Sie nicht der alte RPC-Transport verwendet wird, ist in diesem Abschnitt nicht anwendbar.
+> [!Note]
+> In Windows 8 und höher und Windows Server 2012 R2 oder höher unterstützt Remotedesktopgateway (RD-Gateway), TCP, UDP und dem älteren RPC-Transport. Die meisten der folgenden Daten bezieht sich auf den alten RPC-Transport. Wenn Sie nicht der alte RPC-Transport verwendet wird, ist in diesem Abschnitt nicht anwendbar.
 
 Dieses Thema beschreibt die Parameter, mit denen die Leistung einer Bereitstellung für Kunden zu verbessern und die Feinabstimmungen, die auf des Kunden Netzwerk von Verwendungsmustern basieren.
 
 Im Grunde führt RD-Gateway viele Pakete, die Weiterleitung zwischen Instanzen von Remotedesktopverbindung und der RD-Sitzungshost-Server-Instanzen im Netzwerk des Kunden.
 
-**Beachten Sie**    die folgenden Parameter gelten für nur RPC-Transport.
+> [!Note]
+> Die folgenden Parameter gelten für nur RPC-Transport.
 
 Exportieren die folgenden Registrierungsparameter zur Verbesserung der Systemleistung in das RD-Gateway, Internet Information Services (IIS) und RD-Gateway.
 

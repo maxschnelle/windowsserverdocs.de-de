@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: HammadBu; VladmiS
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 1893c0d2689657a5213b2d59e8d83cea0fc3a0db
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: 0aa359644f5e9bf85f4e013e6571276716ed0218
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63722723"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266615"
 ---
 # <a name="performance-tuning-remote-desktop-virtualization-hosts"></a>Remotedesktop-Virtualisierungshost-Hosts die Optimierung der Leistung
 
@@ -40,14 +40,14 @@ Bei Bedarf verwenden Sie die Festplattendeduplizierung und das Zwischenspeichern
 
 In Windows Server 2012 R2 eingeführt wurde, unterstützt die Datendeduplizierung die Optimierung von geöffneten Dateien an. Um virtuelle Maschinen auf einem deduplizierten Volume verwenden zu können, müssen Dateien der virtuellen Maschine auf einem separaten Host, auf dem Hyper-V-Host gespeichert werden. Wenn Hyper-V und Deduplizierung auf demselben Computer ausgeführt werden, werden die beiden Features für Ressourcen konkurrieren und sich negativ auf die gesamtleistung auswirken.
 
-Das Volume muss auch konfiguriert werden, um verwenden das "Virtual Desktop Infrastructure (VDI)? Deduplizierung optimierungstyp. Sie können dies mithilfe von Server-Manager konfigurieren (**Datei- und Speicherdienste**  - &gt; **Volumes**  - &gt; **Deduplizierungseinstellungen**) oder mithilfe des folgenden Windows PowerShell Befehl verwenden:
+Das Volume muss auch konfiguriert werden, um den optimierungstyp "Datendeduplizierung" Virtual Desktop Infrastructure (VDI) "" zu verwenden. Sie können dies mithilfe von Server-Manager konfigurieren (**Datei- und Speicherdienste**  - &gt; **Volumes**  - &gt; **Deduplizierungseinstellungen**) oder mithilfe des folgenden Windows PowerShell Befehl verwenden:
 
 ``` syntax
 Enable-DedupVolume <volume> -UsageType HyperV
 ```
 
-**Beachten Sie**    Daten deduplizierungsoptimierung von geöffneten Dateien wird nur für VDI-Szenarien mit Hyper-V mithilfe von Remotespeicher über SMB 3.0 unterstützt.
-
+> [!Note]
+> Daten deduplizierungsoptimierung von geöffneten Dateien wird nur für VDI-Szenarien mit Hyper-V mithilfe von Remotespeicher über SMB 3.0 unterstützt.
 
 ### <a name="memory"></a>Arbeitsspeicher
 

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 460837c79c0e0d2c48331ddaaffcd118fd16ebc1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 55dd38c966fea8448231b06cde9c1dd63b024197
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870611"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266770"
 ---
 # <a name="authentication-policies-and-authentication-policy-silos"></a>Authentifizierungsrichtlinien und Authentifizierungsrichtliniensilos
 
@@ -65,7 +65,7 @@ Authentifizierungsrichtlinien definieren die Lebensdauereigenschaften des Ticket
 
 Der Active Directory-Kontotyp bestimmt die Rolle des Aufrufers als eine der folgenden:
 
--   **User**
+-   **Benutzer**
 
     Benutzer sollten immer Mitglied der Sicherheitsgruppe "Geschützte Benutzer" sein, die Authentifizierungsversuche über NTLM standardmäßig nicht zulässt.
 
@@ -230,7 +230,7 @@ In der folgenden Tabelle werden die Ereignisse, die mit der Sicherheitsgruppe "G
 
 Die Ereignisse werden in den Anwendungs- und Dienstprotokollen unter **Microsoft\Windows\Authentication** verzeichnet.
 
-Informationen zu Problembehandlungsschritten mit diesen Ereignissen finden Sie unter [Problembehandlung von Authentifizierungsrichtlinien](how-to-configure-protected-accounts.md#BKMK_TroubleshootAuthnPolicies) und [Problembehandlungen von Ereignissen im Zusammenhang mit geschützten Benutzern](how-to-configure-protected-accounts.md#BKMK_TrubleshootingEvents).
+Informationen zu Problembehandlungsschritten mit diesen Ereignissen finden Sie unter [Problembehandlung von Authentifizierungsrichtlinien](how-to-configure-protected-accounts.md#troubleshoot-authentication-policies) und [Problembehandlungen von Ereignissen im Zusammenhang mit geschützten Benutzern](how-to-configure-protected-accounts.md#troubleshoot-events-related-to-protected-users).
 
 |Ereignis-ID und Protokoll|Beschreibung|
 |----------|--------|
@@ -245,6 +245,6 @@ Informationen zu Problembehandlungsschritten mit diesen Ereignissen finden Sie u
 
 [Schutz und Verwaltung von Anmeldeinformationen](credentials-protection-and-management.md)
 
-[Sicherheitsgruppe "geschützte Benutzer"](protected-users-security-group.md)
+[Sicherheitsgruppe „Geschützte Benutzer“](protected-users-security-group.md)
 
 

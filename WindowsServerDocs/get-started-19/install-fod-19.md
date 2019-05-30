@@ -9,13 +9,13 @@ author: jasongerend
 ms.author: jgerend
 manager: jasgroce
 ms.localizationpriority: medium
-ms.date: 05/24/2019
-ms.openlocfilehash: c9af38720df79918bed3404995e81a7f93a10744
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.date: 05/29/2019
+ms.openlocfilehash: e76b7862549814d5453717c40cec45e341141d7a
+ms.sourcegitcommit: 8eea7aadbe94f5d4635c4ffedc6a831558733cc0
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222895"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66308594"
 ---
 # <a name="server-core-app-compatibility-feature-on-demand-fod"></a>App-Kompatibilität von Server Core-Feature on Demand (FOD)
 
@@ -156,7 +156,7 @@ Die App-Kompatibilität Feature-On kann nur auf Server Core installiert werden. 
 1. Laden Sie die Windows Server und Server Feature-On-ISO-Dateien in einen lokalen Ordner auf einem Windows-Computer herunter.
 
    - Wenn Sie über eine Volumenlizenz verfügen können Sie die Windows Server und Server Feature-On-ISO-Image-Dateien aus dem [Volume Licensing Service Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx).
-   - Der Server Feature-On-ISO-Abbilddatei steht auch auf die [Microsoft Evaluation Center](https://www.microsoft.com/evalcenter/evaluate-windows-server) oder auf die [Visual Studio-Portal](https://visualstudio.microsoft.com) für Abonnenten.
+   - Der Server Feature-On-ISO-Abbilddatei finden Sie auch für langfristigen Wartungskanal auf Versionen der [Microsoft Evaluation Center](https://www.microsoft.com/evalcenter/evaluate-windows-server) oder auf die [Visual Studio-Portal](https://visualstudio.microsoft.com) für Abonnenten.
 
 2. Öffnen Sie eine PowerShell-Sitzung als Administrator aus, und klicken Sie dann verwenden Sie die folgenden Befehle, um die Bilddateien als Laufwerke einbinden:
 

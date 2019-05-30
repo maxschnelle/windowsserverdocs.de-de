@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 05/31/2018
-ms.openlocfilehash: 4b9deb4fc7fbfccf569250e965274009764054f7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a98e1a876c972b0f146ff37aff0a77399b684e99
+ms.sourcegitcommit: 8eea7aadbe94f5d4635c4ffedc6a831558733cc0
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849331"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66308561"
 ---
 # <a name="bitsadmin-examples"></a>Beispiele für die Bitsadmin
 
@@ -28,7 +28,7 @@ Die folgenden Beispiele zeigen, wie Sie mit der `bitsadmin` Tool, um die am häu
 
 Die **/Übertragung** Switch ist eine Abkürzung für die unten aufgeführten Aufgaben ausführen. Dieser Schalter wird der Auftrag erstellt, fügt die Dateien für den Auftrag, den Auftrag in der Übertragungswarteschlange aktiviert und wird der Auftrag abgeschlossen. BITSAdmin weiterhin Statusinformationen im MS-DOS-Fenster angezeigt, bis die Übertragung abgeschlossen ist, oder ein Fehler auftritt.
 
-**bitsadmin /transfer myDownloadJob /download /priority normal https://downloadsrv/10mb.zip c:\\10mb.zip**
+**Bitsadmin /transfer MyDownloadJob/Download Priority normal `https://downloadsrv/10mb.zip c:\\10mb.zip`**
 
 ## <a name="create-a-download-job"></a>Erstellen eines Auftrags herunterladen
 

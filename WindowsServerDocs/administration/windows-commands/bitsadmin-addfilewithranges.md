@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 69b402195f90977aa63299c1a2a550ba310a4513
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 081e5caeb7fb458b367f035b9995929de84a5528
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59832341"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266568"
 ---
 # <a name="bitsadmin-addfilewithranges"></a>bitsadmin addfilewithranges
 
@@ -41,14 +41,14 @@ bitsadmin /AddFileWithRanges <Job> <RemoteURL> <LocalName> <RangeList>
 
 ## <a name="more-information"></a>Weitere Informationen
 
--   Das Token **eof** ist ein gültige Länge-Wert in den Offset und Länge-Paaren, in der  *\<RangeList >*. Sie weist den Dienst bis zum Ende der angegebenen Datei gelesen.
+-   Das Token **eof** ist ein gültige Länge-Wert in den Offset und Länge-Paaren, in der  *\<RangeList >* . Sie weist den Dienst bis zum Ende der angegebenen Datei gelesen.
 -   Beachten Sie, dass mit dem Fehlercode 0x8020002c AddFileWithRanges ausgeführt wird, wenn z. B. ein Bereich mit der Länge Null zusammen mit einem anderen Bereich mit demselben Offset angegeben wird: C:\bits > Bitsadmin/ADDFILEWITHRANGES j2 http://bitsdc/dload/1k.zip c:\1k.zip 100:0, 100:5
 
     Fehlermeldung: -Auftrags – 0x8020002c Datei hinzu. Die Liste mit bytebereichen enthält einige sich überschneidender Bereiche, die nicht unterstützt werden.
 
     Problemumgehung: Führen Sie nicht zuerst Geben Sie an, der Bereich der Länge 0 (null). Zum Beispiel: Bitsadmin/ADDFILEWITHRANGES j2 http://bitsdc/dload/1k.zip c:\1k.zip 100:5, 100:0.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="examples"></a>Beispiele
 
 Im folgende Beispiel wird BITS auf 100 Bytes vom Offset 0, 100 Bytes vom Offset 2000 übertragen, und die restlichen Bytes vom offset 5000 an das Ende der Datei.
 ```
@@ -57,4 +57,4 @@ C:\>bitsadmin /addfilewithranges http://downloadsrv/10mb.zip c:\10mb.zip "0:100,
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

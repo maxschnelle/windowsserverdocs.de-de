@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 04/12/2019
 ms.localizationpriority: high
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 3208c20e8bf9f4cfab4340aa33b24175bbc72dda
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: ee3c4ba5d6c3dc911ab318ade9a46b279317496f
+ms.sourcegitcommit: 39ab8041d166e6817a95417d6aa30bc7abeeef54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188331"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66260258"
 ---
 # <a name="windows-admin-center"></a>Windows Admin Center
 
@@ -128,6 +128,7 @@ Sie können Windows Admin Center einrichten und von in Ihrer Umgebung in Minuten
 
 Lernen Sie unsere neuesten Funktionen kennen:
 
+- Version 1904.1 - Wartung aktualisieren, um die Stabilität des Gateway-Plug-Ins zu verbessern.
 - Version [1904](https://aka.ms/wac1904) wird von die neueste GA-Version, die das Tool Azure Hybrid Services führt, und bietet Features, die zuvor in der Vorschau an den Kanal allgemein verfügbar waren.
 - Version [1903](https://aka.ms/wac1903) bringt Sie e-Mail-Benachrichtigungen über Azure Monitor die Möglichkeit, Server oder PC-Verbindungen von Active Directory und neue Tools zum Verwalten von Active Directory, DHCP und DNS hinzuzufügen.
 - Version [1902](https://aka.ms/wac1902) softwaredefinierten Netzwerk (SDN) Verwaltung, einschließlich neuer SDN-Tools zum Verwalten von ACLs, Gateway-Verbindungen und logische Netzwerke eine Liste der gemeinsam genutzte Verbindungen und Verbesserungen hinzugefügt.

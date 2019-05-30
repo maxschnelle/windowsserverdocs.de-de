@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: cc9f02b9-8ddd-4cae-b397-a832996144dd
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 4ad399e62e1aa76b76b6109e28845b2615efa0fe
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fb940effaae7989dec397e539b64160c87828d5a
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882281"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266708"
 ---
 # <a name="step-2-plan-the-remote-access-deployment"></a>Schritt 2 Planen der Bereitstellung des Remotezugriffs
 
@@ -31,11 +31,11 @@ Nachdem Sie die Planung der Infrastruktur, die Sie zum Einrichten Ihrer einzelne
   
 |Aufgabe|Beschreibung|  
 |----|--------|  
-|[Planen einer Strategie für die Bereitstellung](#bkmk_21client)|Legen Sie fest, welche verwalteten Computer als DirectAccess-Clients konfiguriert werden sollen.|  
-|[Planen einer Strategie für RAS-Server-Bereitstellung](#bkmk_22server)|Planen Sie die Bereitstellung des Remotezugriffsservers.|  
-|[Planen der Infrastrukturserver-Konfigurationen](#bkmk_23Infservers)|Planen Sie die Infrastrukturserver in der Remotezugriffs-Bereitstellung, einschließlich der DirectAccess-Netzwerkadressenserver, DNS-Server und DirectAccess-Verwaltungsserver.|  
+|[Planen einer Strategie für die Bereitstellung](#plan-a-client-deployment-strategy)|Legen Sie fest, welche verwalteten Computer als DirectAccess-Clients konfiguriert werden sollen.|  
+|[Planen einer Strategie für RAS-Server-Bereitstellung](#plan-a-remote-access-server-deployment-strategy)|Planen Sie die Bereitstellung des Remotezugriffsservers.|  
+|[Planen der Infrastrukturserver-Konfigurationen](#plan-the-infrastructure-servers-configurations)|Planen Sie die Infrastrukturserver in der Remotezugriffs-Bereitstellung, einschließlich der DirectAccess-Netzwerkadressenserver, DNS-Server und DirectAccess-Verwaltungsserver.|  
   
-## <a name="bkmk_21client"></a>Planen einer Strategie für die Bereitstellung  
+## <a name="plan-a-client-deployment-strategy"></a>Planen einer Strategie für die Bereitstellung  
 Bei der Planung Ihrer Clientbereitstellung müssen drei Entscheidungen getroffen werden:  
   
 1.  Wird DirectAccess für mobile Computer verfügbar ist, oder für alle Computer in einer bestimmten Sicherheitsgruppe sein?  
@@ -70,7 +70,7 @@ Bei der Planung Ihrer Clientbereitstellung müssen drei Entscheidungen getroffen
   
         Clients benötigen eine Möglichkeit zum Auflösen von Namen lokal. Wenn Sie zulassen, dass DirectAccess-Clients die lokale Namensauflösung verwenden, können Endbenutzer zum Auflösen von Namen lokale DNS-Server verwenden. Wenn Benutzer entscheiden, die lokalen DNS-Server für die namensauflösung zu verwenden, sendet DirectAccess keine Anforderungen zum einteilige Namen auflösen an den internen Unternehmens-DNS-Server. Er verwendet lokale namensauflösung stattdessen (mithilfe der Gruppenrichtlinien-Verwaltungskonsole (Link-Local Multicast Name Resolution, LLMNR) und NetBios über TCP/IP-Protokolle).  
   
-## <a name="bkmk_22server"></a>Planen einer Strategie für RAS-Server-Bereitstellung  
+## <a name="plan-a-remote-access-server-deployment-strategy"></a>Planen einer Strategie für RAS-Server-Bereitstellung  
 Entscheidungen, die Sie vornehmen, wenn Sie beabsichtigen, einen RAS-Server bereitstellen müssen zählen:  
   
 -   **Netzwerktopologie**  
@@ -81,7 +81,7 @@ Entscheidungen, die Sie vornehmen, wenn Sie beabsichtigen, einen RAS-Server bere
   
     -   **Einzelner Netzwerkadapter**: In dieser Konfiguration der Remotezugriff wird der Server hinter einem edgegerät, z. B. eine Firewall oder einem Router installiert. Der Netzwerkadapter ist mit dem internen Netzwerk verbunden.  
 
--   **-Netzwerkadapter**  
+-   **Leistungsverlauf für Netzwerkadapter**  
   
     Der RAS-Server-Setup-Assistenten erkennt automatisch die Netzwerkadapter, die auf dem RAS-Server konfiguriert sind. Vergewissern Sie sich, dass die richtigen Adapter ausgewählt sind.  
   
@@ -110,7 +110,7 @@ Entscheidungen, die Sie vornehmen, wenn Sie beabsichtigen, einen RAS-Server bere
   
     Bevor Sie den Remotezugriff konfigurieren, entscheiden Sie, ob Sie beabsichtigen, VPN-Zugriff auf remote-Clients bereitstellen. Sie sollten die VPN-Zugriff bereitstellen, wenn Sie über Clientcomputer in Ihrer Organisation verfügen, die DirectAccess-Konnektivität nicht unterstützen (z. B. sie nicht verwaltet werden, oder führen Sie ein Betriebssystem für die DirectAccess wird nicht unterstützt). Der RAS-Server-Setup-Assistenten können Sie konfigurieren, wie die IP-Adressen (mithilfe von DHCP oder aus einem statischen Adresspool) zugewiesen werden und wie VPN-Clients (mithilfe von Active Directory oder einen RADIUS-Server) authentifiziert werden.  
   
-## <a name="bkmk_23Infservers"></a>Planen der Infrastrukturserver-Konfigurationen  
+## <a name="plan-the-infrastructure-servers-configurations"></a>Planen der Infrastrukturserver-Konfigurationen  
 Remotezugriff sind drei Typen von Infrastrukturservern erforderlich:  
   
 -   **Netzwerkadressenserver**  
@@ -119,9 +119,9 @@ Remotezugriff sind drei Typen von Infrastrukturservern erforderlich:
   
 -   **Verwaltungsserver** 
   
-## <a name="BKMK_Links"></a>Siehe auch  
+## <a name="see-also"></a>Siehe auch  
   
--   [Schritt 1: Planen der Remotezugriffinfrastruktur](Step-1-Plan-the-Remote-Access-Infrastructure.md)  
+-   [Schritt 1: Planen der Infrastruktur für den Remotezugriff](Step-1-Plan-the-Remote-Access-Infrastructure.md)  
   
 
 

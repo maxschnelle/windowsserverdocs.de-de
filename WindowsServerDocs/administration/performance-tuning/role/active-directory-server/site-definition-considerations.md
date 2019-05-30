@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: TimWi; ChrisRob; HerbertM; KenBrumf;  MLeary; ShawnRab
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 0e5c5f8b7cf5c028fbfa5d72c4bc1218565d4087
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e1652e45f51500ceeb0026b8892fbe9c54ff38f3
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814021"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266638"
 ---
 # <a name="proper-placement-of-domain-controllers-and-site-considerations"></a>Ordnungsgemäße Platzierung von Domänencontrollern und Website-Überlegungen
 
@@ -64,7 +64,7 @@ Domänenübergreifende Vertrauensstellung, dass die Szenarios eines Bereichs sin
 
     -   Verwenden Sie DnsAvoidRegisterRecords, um schlecht durchführen oder hoher Latenz Domänencontroller, z. B. in entlegenen Standorten, von Werbung auf die generische Locator zu beseitigen. Weitere Informationen finden Sie unter [Gewusst wie: Optimieren der Position von einem Domänencontroller oder globalen Katalog, die sich außerhalb der Standort des Clients befindet](https://support.microsoft.com/kb/306602).
 
-        **Beachten Sie**    besteht eine praktische Beschränkung von ca. 50 auf die Anzahl der Domänencontroller, die der Client nutzen kann. Sie sollten die meisten optimalen Standort und die höchste Kapazität sein Domänencontroller.
+        > [!Note]   Es ist eine praktische Beschränkung von ca. 50 auf die Anzahl der Domänencontroller, zu denen, die der Client nutzen kann. Sie sollten die meisten optimalen Standort und die höchste Kapazität sein Domänencontroller.
 
          
 
@@ -78,7 +78,7 @@ Alle vertrauenswürdigen Szenarios werden Anmeldeinformationen gemäß der Domä
 
 ## <a name="see-also"></a>Siehe auch
 - [Active Directory-Server die Optimierung der Leistung](index.md)
-- [Überlegungen zur Hardware](hardware-considerations.md)
-- [LDAP-Überlegungen](ldap-considerations.md)
-- [Problembehandlung für AD DS-Leistung](troubleshoot.md) 
-- [Kapazitätsplanung für Active Directory-Domänendienste](https://go.microsoft.com/fwlink/?LinkId=324566)
+- [Hardwareaspekte](hardware-considerations.md)
+- [Überlegungen zu LDAP](ldap-considerations.md)
+- [Problembehandlung bezüglich der ADDS-Leistung](troubleshoot.md) 
+- [Kapazitätsplanung für Active Directory Domain Services](https://go.microsoft.com/fwlink/?LinkId=324566)

@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: Asmahi; SandySp; JoPoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: d52c4fff6c7e06fb0a9f2b44ea51a0a790e6674d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6dd9d03cce71c42e2ecc1388519de049a5e4e8dd
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814361"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266715"
 ---
 # <a name="hyper-v-network-io-performance"></a>Hyper-V-Netzwerk-e/a-Leistung
 
@@ -22,7 +22,8 @@ Server 2016 enthält verschiedene Verbesserungen und neue Funktionen zum Optimie
 
 Live-Migration können Sie transparent verschieben aktiver virtueller Computer von einem Knoten eines Failoverclusters auf einen anderen Knoten im selben Cluster ohne eine Unterbrechung der Netzwerkverbindung oder wahrgenommene Ausfallzeit.
 
-**Beachten Sie**    Failover-Clusterunterstützung erfordert freigegebenen Speicher für die Clusterknoten.
+> [!Note]
+> Failover-Clusterunterstützung erfordert freigegebenen Speicher für die Clusterknoten.
 
 Der Prozess der Verschiebung eines ausgeführten virtuellen Computers kann in zwei Hauptphasen unterteilt werden. Die erste Phase kopiert Arbeitsspeicher des virtuellen Computers aus dem aktuellen Host auf den neuen Host. In der zweite Phase werden die Status des virtuellen Computers aus dem aktuellen Host auf den neuen Host übertragen. Die Dauer von beiden Phasen richtet sich erheblich durch die Geschwindigkeit, mit der Daten aus dem aktuellen Host auf den neuen Host übertragen werden können.
 
@@ -40,13 +41,13 @@ Windows Server 2012 R2 eingeführt eine Option zum Beschleunigen der Livemigrati
 
 -   [Hyper-V-Architektur](architecture.md)
 
--   [Hyper-V-Server-Konfiguration](configuration.md)
+-   [Hyper-V-Serverkonfiguration](configuration.md)
 
--   [Hyper-V, prozessorbezogene Leistungsdaten](processor-performance.md)
+-   [Hyper-V-Prozessorleistung](processor-performance.md)
 
--   [Hyper-V-Memory-Leistung](memory-performance.md)
+-   [Hyper-V-Arbeitsspeicherleistung](memory-performance.md)
 
--   [Hyper-V-Speicher-e/a-Leistung](storage-io-performance.md)
+-   [E/A-Leistung für Hyper-V-Speicher](storage-io-performance.md)
 
 -   [Erkennen von Engpässen in einer virtualisierten Umgebung](detecting-virtualized-environment-bottlenecks.md)
 

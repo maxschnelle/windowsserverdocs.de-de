@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 1c47986cda3f091033274aa2c59a656ec861a98f
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 909be9e4bbcd12b00fd60ff061b1f4e2ede34546
+ms.sourcegitcommit: 8eea7aadbe94f5d4635c4ffedc6a831558733cc0
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189711"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66308539"
 ---
 # <a name="create-a-claims-provider-trust"></a>Erstellen einer Anspruchsanbieter-Vertrauensstellung
 
@@ -57,7 +57,7 @@ Mitgliedschaft in **Administratoren**, oder einer entsprechenden, auf dem lokale
 Zum Hinzufügen einer neuen Anspruchsanbieter-Vertrauensstellung, verwenden das AD FS-Verwaltungs-Snap-in, automatisches Importieren von Konfigurationsdaten zum Partner aus Verbundmetadaten, die der Partner in einem lokalen Netzwerk oder im Internet veröffentlicht hat führen Sie das folgende Verfahren auf einem der Verbundserver in der Ressourcenpartnerorganisation.
 
 >[!NOTE]
->Wenn sie lange gängige Praxis, Zertifikate mit nicht qualifizierten Hostnamen verwenden, z. B. wurde https://myserver, diese Zertifikate haben keinen Sicherheitswert und können einem Angreifer ermöglichen, einen Verbunddienst zu imitieren, die Verbundmetadaten veröffentlicht. Aus diesem Grund beim Abfragen von Verbundmetadaten, Sie sollten nur verwenden einen vollständig qualifizierten Domänennamen wie z. B. https://myserver.contoso.com.
+>Wenn sie lange gängige Praxis, Zertifikate mit nicht qualifizierten Hostnamen wie Https verwendet wurde:\//myserver, diese Zertifikate haben keinen Sicherheitswert und können einem Angreifer ermöglichen, einen Verbunddienst zu imitieren, der Verbundmetadaten veröffentlicht die Metadaten. Aus diesem Grund beim Abfragen von Verbundmetadaten, Sie sollten nur verwenden einen vollständig qualifizierten Domänennamen wie z. B. `https://myserver.contoso.com`.
 
 1.  Klicken Sie im Server-Manager **Tools**, und wählen Sie dann **AD FS-Verwaltung**.  
   

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d4f6ab2e52284895d2e7918364c24bbb69f2b1c9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 81bb333e2bb776bc75789b52ab41d7ef64016f51
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853511"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266466"
 ---
 # <a name="bitsadmin-util-and-setieproxy"></a>Bitsadmin Util und setieproxy
 
@@ -47,7 +47,7 @@ Jeder nachfolgende Aufruf, der diesen Schalter verwenden, ersetzt die zuvor ange
 > [!IMPORTANT]
 > Sie müssen diesen Befehl ausführen, eine Eingabeaufforderung mit erhöhten Rechten, damit er erfolgreich abgeschlossen.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="examples"></a>Beispiele
 
 Im folgenden Beispiel wird die Proxyverwendung für das Netzwerkdienstkonto.
 
@@ -64,4 +64,4 @@ bitsadmin /util /setieproxy localsystem MANUAL_PROXY proxy1:80 ""
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

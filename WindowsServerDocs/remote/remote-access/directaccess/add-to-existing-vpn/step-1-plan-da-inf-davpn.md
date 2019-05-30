@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 4ca50ea8-6987-4081-acd5-5bf9ead62acd
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: d8568defaf0b282c264b2e6fa80c6eab4f9a3c39
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 34f6ec2b50e38042a7530e94915ed6d29d5f76a6
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865161"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266800"
 ---
 # <a name="step-1-plan-directaccess-infrastructure"></a>Schritt 1: Planen DirectAccess-Infrastruktur
 
@@ -37,7 +37,7 @@ Der erste Schritt bei der Planung einer einfachen Remotezugriffsbereitstellung a
   
 Diese Planungsaufgaben müssen nicht in einer bestimmten Reihenfolge durchgeführt werden.  
   
-## <a name="bkmk_1_1_Network_svr_top_settings"></a>Planen der Netzwerktopologie und-Einstellungen  
+## <a name="plan-network-topology-and-settings"></a>Planen der Netzwerktopologie und -einstellungen  
   
 ### <a name="plan-network-adapters-and-ip-addressing"></a>Planen von Netzwerkadaptern und IP-Adressierung  
   
@@ -57,7 +57,7 @@ Diese Planungsaufgaben müssen nicht in einer bestimmten Reihenfolge durchgefüh
   
 3.  Konfigurieren Sie erforderliche Adapter und Adressen entsprechend folgender Tabelle. Konfigurieren Sie bei Bereitstellungen hinter einem NAT-Gerät mit einem einzelnen Netzwerkadapter die IP-Adressen nur auf die Spalte "interner Netzwerkadapter" aus.  
   
-    ||Externer Netzwerkadapter|Interner Netzwerkadapter<sup>1</sup>|Routinganforderungen|  
+    ||Externer Netzwerkadapter|Interner Netzwerkadapter|Routinganforderungen|  
     |-|--------------|--------------------|------------|  
     |IPv4-Intranet und IPv4-Internet|Konfigurieren Sie Folgendes:<br /><br />– Eine statische öffentliche IPv4-Adresse mit den entsprechenden Subnetzmasken.<br />– Ein Standardgateway IPv4-Adresse Ihrer Internetfirewall oder lokalen Routers Ihres Internet Service Provider (ISP).|Konfigurieren Sie Folgendes:<br /><br />-Eine IPv4-Intranetadresse mit der entsprechenden Subnetzmaske.<br />– Ein verbindungsspezifisches DNS-Suffix des intranetnamespaces. Zudem sollte der DNS-Server auf der internen Schnittstelle konfiguriert werden.<br />– Konfigurieren Sie kein Standardgateway auf Intranetschnittstellen.|Gehen Sie wie folgt vor, um den Remotezugriffsserver so zu konfigurieren, dass er alle Subnetze auf dem internen IPv4-Netzwerk erreicht:<br /><br />1.  Listen Sie die IPv4-Adressbereiche für alle Speicherorte im Intranet auf.<br />2.  Verwenden Sie den Befehl **route add -p** oder**netsh interface ipv4 add route**, um der IPv4-Routingtabelle des Remotezugriffsservers die IPv4-Adressbereiche als statische Routen hinzuzufügen.|  
     |IPv6-Internet und IPv6-Intranet|Konfigurieren Sie Folgendes:<br /><br />– Verwenden der automatisch konfigurierte Adresskonfiguration Ihres ISP.<br />– Verwenden Sie die **weiterleiten Drucken** aus, um sicherzustellen, dass der IPv6-Routingtabelle eine IPv6-Standardroute, die auf den ISP-Router vorhanden ist.<br />– Bestimmen Sie, ob es sich bei den ISP und Intranetrouter in RFC 4191 beschriebenen standardroutervoreinstellung, und verwenden eine höhere Standardvoreinstellung als die lokalen Intranetrouter verwenden werden. Wenn beide Fälle zutreffen, ist keine weitere Konfiguration für die Standardroute erforderlich. Die höhere Präferenz für den ISP-Router stellt sicher, dass die aktive IPv6-Standardroute des Remotezugriffsservers auf das IPv6-Internet zeigt.<br /><br />Wenn Sie über eine systemeigene IPv6-Infrastruktur verfügen, kann die Internetschnittstelle außerdem auch die Domänencontroller im Intranet erreichen, da der DirectAccess-Server ein IPv6-Router ist. Fügen Sie in diesem Fall Paketfilter zum Domänencontroller im Umkreisnetzwerk hinzu, die Konnektivität zur IPv6-Adresse der Internetschnittstelle des DirectAccess-Servers verhindern.|Konfigurieren Sie Folgendes:<br /><br />– Wenn Sie nicht standardvoreinstellungsebenen verwenden, konfigurieren Sie Ihre Intranetschnittstellen mit dem **Netsh Interface ipv6 festgelegt InterfaceIndex Ignoredefaultroutes = aktiviert** Befehl. Dieser Befehl stellt sicher, dass der IPv6-Routingtabelle keine weiteren Standardrouten hinzugefügt werden, die auf Intranetrouter zeigen. Den Schnittstellenindex Ihrer Intranetschnittstellen können Sie mit dem Befehl "netsh interface show interface" anzeigen.|Wenn Sie ein IPv6-Intranet haben, führen Sie folgende Schritte aus, um den Remotezugriffsserver so zu konfigurieren, dass er alle IPv6-Speicherorte erreicht:<br /><br />1.  Listen Sie die IPv6-Adressbereiche für alle Speicherorte im Intranet auf.<br />2.  Verwenden Sie den Befehl **netsh interface ipv6 add route**, um die IPv6-Adressbereiche als statische Routen in der IPv6-Routingtabelle des Remotezugriffsservers hinzuzufügen.|  
@@ -90,7 +90,7 @@ Wenden Sie bei zusätzlichen Firewalls die folgenden internen Netzwerkfirewallau
   
 -   TCP/UDP für den gesamten IPv4/IPv6-Datenverkehr  
   
-### <a name="bkmk_1_2_CAs_and_certs"></a>Planen der zertifikatanforderungen  
+### <a name="plan-certificate-requirements"></a>Planen der Zertifikatanforderungen  
 Zertifikatanforderungen für IPsec beinhalten ein Computerzertifikat, das von DirectAccess-Clientcomputern verwendet wird, wenn diese die IPsec-Verbindung zwischen dem Client und dem Remotezugriffsserver herstellen, und einem Computerzertifikat, das von Remotezugriffsservern für das Herstellen von IPsec-Verbindungen mit DirectAccess-Clients verwendet wird. Für DirectAccess in Windows Server 2012 ist die Verwendung dieser IPsec-Zertifikate nicht erforderlich. Der Assistent für erste Schritte konfiguriert den Remotezugriffsserver als Kerberos-Proxy, damit die IPsec-Authentifizierung ohne erforderliche Zertifikate durchgeführt werden kann.  
   
 1.  **IP-HTTPS-Server** – Wenn Sie Remotezugriff konfigurieren, die RAS-Server wird automatisch konfiguriert als IP-HTTPS-Weblistener. Die IP-HTTPS-Website erfordert ein Websitezertifikat, und Clientcomputer müssen in der Lage sein, die CRL-Website (Certificate Revocation List, Zertifikatsperrlisten) für das Zertifikat zu kontaktieren. Der Assistent zum Aktivieren von DirectAccess versucht, das SSTP VPN-Zertifikat zu verwenden. Wenn SSTP nicht konfiguriert ist, prüft er, ob im persönlichen Speicher des Computers ein Zertifikat für IP-HTTPS vorhanden ist. Wenn kein Zertifikat verfügbar ist, erstellt er automatisch ein selbstsigniertes Zertifikat.  
@@ -105,7 +105,7 @@ Die einzelnen Zertifikatanforderungen werden in der folgenden Tabelle zusammenge
 ||Interne Zertifizierungsstelle – Sie können eine interne Zertifizierungsstelle zum Ausstellen des IP-HTTPS-Zertifikats; Sie müssen jedoch sicherstellen, dass der Sperrlisten-Verteilungspunkt extern verfügbar ist.|Selbstsignierte Zertifikat – Sie können ein selbstsigniertes Zertifikat verwenden, für die Netzwerkadressenserver-Website; Sie können ein selbstsigniertes Zertifikat jedoch können nicht in Bereitstellungen für mehrere Standorte verwenden.|  
 ||Selbstsigniertes Zertifikat – können Sie ein selbstsigniertes Zertifikat für den IP-HTTPS-Server; Sie müssen jedoch sicherstellen, dass der Sperrlisten-Verteilungspunkt extern verfügbar ist. Ein selbstsigniertes Zertifikat kann nicht in Bereitstellungen für mehrere Standorte verwendet werden.||  
   
-#### <a name="bkmk_website_cert_IPHTTPS"></a>Planen von Zertifikaten für IP-HTTPS  
+#### <a name="plan-certificates-for-ip-https"></a>Planen von Zertifikaten für IP-HTTPS  
 Der Remotezugriffsserver fungiert als IP-HTTPS-Listener, und Sie müssen manuell ein HTTPS-Websitezertifikat auf dem Server installieren. Beachten Sie Folgendes bei der Planung:  
   
 -   Die Verwendung einer öffentlichen Zertifizierungsstelle wird empfohlen, damit Zertifikatsperrlisten schneller verfügbar sind.  
@@ -174,7 +174,7 @@ In einer Remotezugriffbereitstellung ist DNS für Folgendes erforderlich:
   
 -   Für DirectAccess-Clients müssen Sie entweder einen DNS-Server Windows Server 2003, Windows Server 2008, Windows Server 2008 R2, Windows Server 2012 oder einen DNS-Server, der IPv6 unterstützt, verwenden.  
   
-### <a name="bkmk_1_6_AD"></a>Planen von Active Directory  
+### <a name="plan-active-directory"></a>Planen von Active Directory  
 Remotezugriff verwendet Active Directory und Active Directory-Gruppenrichtlinienobjekten wie folgt:  
   
 -   **Authentifizierung** -Active Directory zur Authentifizierung verwendet wird. Der Intranettunnel verwendet für den Benutzer die Kerberos-Authentifizierung, um auf interne Ressourcen zuzugreifen.  
@@ -207,7 +207,7 @@ Bei der Planung von Active Directory für eine Remotezugriffbereitstellung ist F
 > -   Der Remotezugriffsserver kann nicht als Domänencontroller verwendet werden.  
 > -   Der für den Remotezugriff verwendete Active Directory-Domänencontroller darf nicht von einem externen Internetadapter des Remotezugrifffservers aus erreichbar sein (der Adapter darf sich nicht im Domänenprofil der Windows-Firewall befinden).  
   
-### <a name="bkmk_1_7_GPOs"></a>Planen von Gruppenrichtlinienobjekten  
+### <a name="plan-group-policy-objects"></a>Planen von Gruppenrichtlinienobjekten  
 Die bei der Konfiguration des Remotezugriffs konfigurierten DirectAccess-Einstellungen werden in gpos (GPO) erfasst. Die drei Gruppenrichtlinienobjekte werden mit DirectAccess-Einstellungen aufgefüllt und wie folgt verteilt:  
   
 -   **DirectAccess-Client-Gruppenrichtlinienobjekt** – dieses Gruppenrichtlinienobjekt enthält die Client-Einstellungen, einschließlich der Einstellungen für IPv6-übergangstechnologie, der NRPT-Einträge und Windows-Firewall mit erweiterter Sicherheit-Verbindungssicherheitsregeln. Das Gruppenrichtlinienobjekt wird auf die für die Clientcomputer angegebenen Sicherheitsgruppen angewendet.  

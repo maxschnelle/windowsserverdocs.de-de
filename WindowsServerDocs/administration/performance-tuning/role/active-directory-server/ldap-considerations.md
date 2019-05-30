@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: TimWi; ChrisRob; HerbertM; KenBrumf;  MLeary; ShawnRab
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 9032988c65581ea602451d224f40719b932ab7f5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 79f95c88c49d384f8a13b8808c63a0dc00de53cb
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821691"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266629"
 ---
 # <a name="ldap-considerations-in-adds-performance-tuning"></a>LDAP-Überlegungen in AD DS zur leistungsoptimierung
 
@@ -49,7 +49,7 @@ Die Indizierung von Attributen ist nützlich, bei der Suche nach Objekten, die d
 
     -   **NTDS\\Anforderungswartezeit** – Dies ist unterliegen, wie lange die Anforderung den Prozess durchführt. Active Directory nach tritt ein Timeout Anforderungen 120 Sekunden (Standardwert), jedoch die meisten sollten viel schneller ausgeführt und sehr lang andauernde Abfragen in den allgemeinen Zahlen ausgeblendet erhalten soll. Suchen Sie nach Änderungen an dieser Grundlinie, anstatt absoluten Schwellenwerte.
 
-        **Beachten Sie**    hohe Werte Hier können auch sein, Indikatoren, die Verzögerungen bei der "Proxyfunktion? Anforderungen an andere Domänen und die CRL-Überprüfung.
+        > [!Note]   Hohe Werte Hier können auch Indikatoren, die Verzögerungen bei der "Proxyanforderungen" mit anderen Domänen und die Zertifikatsperrliste überprüft werden.
 
 
     -   **NTDS\\Warteschlangenverzögerung geschätzte** – Dies sollte im Idealfall sein, in der Nähe von 0 für eine optimale Leistung, da dies bedeutet, dass Anforderungen keine Zeit, die auf Bearbeitung warten verbringen.
@@ -64,7 +64,7 @@ Diese Szenarien können mithilfe einer oder mehrerer der folgenden Ansätze erka
 
 -   [Microsoft Server Performance Advisor](../../../server-performance-advisor/microsoft-server-performance-advisor.md) Advisor-Pack für Active Directory
 
--   Sucht mit jedem Filter neben "(ObjectClass =\*)? die den übergeordneten Elementen Index verwenden.
+-   -Suchvorgängen mithilfe von allen filtern neben "(ObjectClass =\*)", die den übergeordneten Elementen Index verwenden.
 
 ### <a name="other-index-considerations"></a>Weitere Überlegungen für index
 
@@ -101,7 +101,7 @@ Weitere Informationen finden Sie in der folgenden:
 
 ## <a name="see-also"></a>Siehe auch
 - [Active Directory-Server die Optimierung der Leistung](index.md)
-- [Überlegungen zur Hardware](hardware-considerations.md)
-- [Ordnungsgemäße Platzierung von Domänencontrollern und Website-Überlegungen](site-definition-considerations.md)
-- [Problembehandlung für AD DS-Leistung](troubleshoot.md) 
-- [Kapazitätsplanung für Active Directory-Domänendienste](https://go.microsoft.com/fwlink/?LinkId=324566)
+- [Hardwareaspekte](hardware-considerations.md)
+- [Ordnungsgemäße Platzierung von Domänencontrollern und Überlegungen zum Standort](site-definition-considerations.md)
+- [Problembehandlung bezüglich der ADDS-Leistung](troubleshoot.md) 
+- [Kapazitätsplanung für Active Directory Domain Services](https://go.microsoft.com/fwlink/?LinkId=324566)

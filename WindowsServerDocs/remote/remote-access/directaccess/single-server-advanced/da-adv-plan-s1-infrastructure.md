@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: aa3174f3-42af-4511-ac2d-d8968b66da87
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: cd94c1a05ba52a590d6f84122f81764f52b1ae47
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 01005b5d69a48b01a1735e690a4a97c46094da23
+ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880961"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266775"
 ---
 # <a name="step-1-plan-the-advanced-directaccess-infrastructure"></a>Schritt 1 Plan der erweiterten DirectAccess-Infrastruktur
 
@@ -26,27 +26,27 @@ ms.locfileid: "59880961"
 
 Der erste Schritt bei der Planung einer erweiterten DirectAccess-Bereitstellung auf einem einzelnen Server ist die Planung der Infrastruktur, welche für diese Bereitstellung erforderlich ist. In diesem Thema werden die Schritte zur Planung der Infrastruktur beschrieben. Diese Planungsaufgaben müssen nicht in einer bestimmten Reihenfolge durchgeführt werden.  
   
-|Aufgabe|Beschreibung|  
+|Aufgabe|Beschreibung| 
 |----|--------|  
-|[1.1 Planen der Netzwerktopologie und-Einstellungen](#bkmk_11Networksvrtopsettings)|Entscheiden Sie über den Standort des DirectAccess-Servers (Edge oder hinter einem NAT-Gerät oder einer Firewall), und planen Sie IP-Adressenvergabe, Routing und Tunnelerzwingung.|  
-|[1.2 Planen der firewallanforderungen](#bkmk_ConfigFirewalls)|Planen Sie, wie DirectAccess-Verkehr über Edge-Firewalls zugelassen wird.|  
-|[1.3 Planen der zertifikatanforderungen](#bkmk_12CAsandCerts)|Entscheiden Sie, ob Sie Kerberos oder Zertifikate für die Clientauthentifizierung verwenden möchten, und planen Sie Websitezertifikate. IP-HTTPS ist ein Übergangsprotokoll, das von DirectAccess-Clients zum Tunneln von IPv6-Datenverkehr über IPv4-Netzwerke verwendet wird. Entscheiden Sie, ob die Authentifizierung zum IP-HTTPS-Server über ein Zertifikat erfolgen soll, das durch eine Zertifizierungsstelle (CA) ausgegeben wird, oder durch ein selbstsigniertes Zertifikat, das automatisch durch den DirectAccess-Server ausgestellt wird.|  
-|[1.4 Planen der DNS-Anforderungen](#bkmk_14Dns)|Planen Sie DNS-Einstellungen (Domain Name System) für die DirectAccess-Server, die Infrastrukturserver, die Optionen für die lokale Namensauflösung und die Clientkonnektivität.|  
-|[1.5 Planen des Netzwerkadressenservers](#bkmk_14NLS)|Der Netzwerkadressenserver wird von DirectAccess-Clients verwendet, um festzustellen, ob sie sich im internen Netzwerk befinden. Entscheiden Sie, ob die Netzwerkadressenserver-Website in Ihrer Organisation platziert werden soll (auf dem DirectAccess-Server oder einem anderen Server), und planen Sie die Zertifikatanforderungen, wenn sich der Netzwerkadressenserver auf dem DirectAccess-Server befindet.|  
-|[1.6 Planen der Verwaltungsserver](#bkmk_15mgmtservers)|Sie können DirectAccess-Clientcomputer, die sich außerhalb des Unternehmensnetzwerk befinden, remote im Internet verwalten. Berücksichtigen Sie bei der Planung Verwaltungsserver (beispielsweise Updateserver), die für die Verwaltung von Remoteclients verwendet werden.|  
-|[1.7 Planen von Active Directory-Domänendienste](#bkmk_16AD)|Planen Sie Ihre Domänencontroller, Ihre Active Directory-Anforderungen, Clientauthentifizierung und mehrere Domänen.|  
-|[1.8 Planen von Gruppenrichtlinienobjekten](#bkmk_17GPOs)|Entscheiden Sie, welche Gruppenrichtlinienobjekte in Ihrer Organisation erforderlich sind und wie diese erstellt oder bearbeitet werden.|  
+|[1.1 Planen der Netzwerktopologie und-Einstellungen](#11-plan-network-topology-and-settings)|Entscheiden Sie über den Standort des DirectAccess-Servers (Edge oder hinter einem NAT-Gerät oder einer Firewall), und planen Sie IP-Adressenvergabe, Routing und Tunnelerzwingung.|  
+|[1.2 Planen der firewallanforderungen](#12-plan-firewall-requirements)|Planen Sie, wie DirectAccess-Verkehr über Edge-Firewalls zugelassen wird.|  
+|[1.3 Planen der zertifikatanforderungen](#13-plan-certificate-requirements)|Entscheiden Sie, ob Sie Kerberos oder Zertifikate für die Clientauthentifizierung verwenden möchten, und planen Sie Websitezertifikate. IP-HTTPS ist ein Übergangsprotokoll, das von DirectAccess-Clients zum Tunneln von IPv6-Datenverkehr über IPv4-Netzwerke verwendet wird. Entscheiden Sie, ob die Authentifizierung zum IP-HTTPS-Server über ein Zertifikat erfolgen soll, das durch eine Zertifizierungsstelle (CA) ausgegeben wird, oder durch ein selbstsigniertes Zertifikat, das automatisch durch den DirectAccess-Server ausgestellt wird.|  
+|[1.4 Planen der DNS-Anforderungen](#14-plan-dns-requirements)|Planen Sie DNS-Einstellungen (Domain Name System) für die DirectAccess-Server, die Infrastrukturserver, die Optionen für die lokale Namensauflösung und die Clientkonnektivität.|  
+|[1.5 Planen des Netzwerkadressenservers](#15-plan-the-network-location-server)|Der Netzwerkadressenserver wird von DirectAccess-Clients verwendet, um festzustellen, ob sie sich im internen Netzwerk befinden. Entscheiden Sie, ob die Netzwerkadressenserver-Website in Ihrer Organisation platziert werden soll (auf dem DirectAccess-Server oder einem anderen Server), und planen Sie die Zertifikatanforderungen, wenn sich der Netzwerkadressenserver auf dem DirectAccess-Server befindet.|  
+|[1.6 Planen der Verwaltungsserver](#16-plan-management-servers)|Sie können DirectAccess-Clientcomputer, die sich außerhalb des Unternehmensnetzwerk befinden, remote im Internet verwalten. Berücksichtigen Sie bei der Planung Verwaltungsserver (beispielsweise Updateserver), die für die Verwaltung von Remoteclients verwendet werden.|  
+|[1.7 Planen von Active Directory-Domänendienste](#17-plan-active-directory-domain-services)|Planen Sie Ihre Domänencontroller, Ihre Active Directory-Anforderungen, Clientauthentifizierung und mehrere Domänen.|  
+|[1.8 Planen von Gruppenrichtlinienobjekten](#18-plan-group-policy-objects)|Entscheiden Sie, welche Gruppenrichtlinienobjekte in Ihrer Organisation erforderlich sind und wie diese erstellt oder bearbeitet werden.|  
   
-## <a name="bkmk_11Networksvrtopsettings"></a>1.1 Planen der Netzwerktopologie und-Einstellungen  
+## <a name="11-plan-network-topology-and-settings"></a>1.1 Planen der Netzwerktopologie und -einstellungen  
 In diesem Abschnitt wird erklärt, wie Sie Ihr Netzwerk planen, einschließlich:  
   
--   [1.1.1 Planen von Netzwerkadaptern und IP-Adressierung](#BKMK_NA)  
+-   [1.1.1 Planen von Netzwerkadaptern und IP-Adressierung](#111-plan-network-adapters-and-ip-addressing)  
   
--   [1.1.2 Planen von IPv6-Intranetkonnektivität](#bkmk_intranet)  
+-   [1.1.2 Planen von IPv6-Intranetkonnektivität](#112-plan-ipv6-intranet-connectivity)  
   
--   [1.1.3 Planen des Erzwingens von Tunneln](#bkmk_force)  
+-   [1.1.3 Planen des Erzwingens von Tunneln](#113-plan-for-force-tunneling)  
   
-### <a name="BKMK_NA"></a>1.1.1 Planen von Netzwerkadaptern und IP-Adressierung  
+### <a name="111-plan-network-adapters-and-ip-addressing"></a>1.1.1 Planen von Netzwerkadaptern und IP-Adressierung  
   
 1.  Identifizieren Sie die Netzwerkadaptertopologie, die Sie verwenden möchten. DirectAccess kann mit einer der folgenden Topologien eingerichtet werden:  
   
@@ -76,7 +76,7 @@ In diesem Abschnitt wird erklärt, wie Sie Ihr Netzwerk planen, einschließlich:
     > -   Sie können Teredo nicht verwenden, wenn der DirectAccess-Server nur einen Netzwerkadapter hat.  
     > -   Systemeigene IPv6-Clientcomputer können über eine systemeigene IPv6 eine Verbindung zum DirectAccess-Server herstellen, und es ist keine Übergangstechnologie erforderlich.  
   
-### <a name="bkmk_intranet"></a>1.1.2 Planen von IPv6-Intranetkonnektivität  
+### <a name="112-plan-ipv6-intranet-connectivity"></a>1.1.2 Planen von IPv6-Intranetkonnektivität  
 Für die Verwaltung von Remote-DirectAccess-Clients ist IPv6 erforderlich. IPv6 ermöglicht DirectAccess-Verwaltungsservern, für die Remote-Verwaltung eine Verbindung zu DirectAccess-Clients, die sich im Internet befinden, herzustellen.  
   
 > [!NOTE]  
@@ -85,7 +85,7 @@ Für die Verwaltung von Remote-DirectAccess-Clients ist IPv6 erforderlich. IPv6 
 > -   ISATAP (Intra-Site Automatic Tunnel Addressing Protocol) wird in DirectAccess-Bereitstellungen nicht unterstützt.  
 > -   Wenn Sie IPv6 verwenden, können Sie IPv6-Host-(AAAA)-Ressourceneintragsabfragen für DNS64 aktivieren, indem Sie folgenden Windows PowerShell-Befehl verwenden:   **Set-NetDnsTransitionConfiguration -OnlySendAQuery $false**.  
   
-### <a name="bkmk_force"></a>1.1.3 Planen des Erzwingens von Tunneln  
+### <a name="113-plan-for-force-tunneling"></a>1.1.3 Planen der Tunnelerzwingung  
 Mit IPv6 und der Richtlinientabelle für die Namensauflösung (Name Resolution Policy Table, NRPT) trennen DirectAccess-Clients ihren Intranet- und Internetdatenverkehr wie folgt:  
   
 -   DNS-Namensabfragen nach vollqualifizierten Domänennamen (FQDNs) im Intranet und der gesamte Intranetdatenverkehr werden über die Tunnel zum DirectAccess-Server oder direkt mit den Intranetservern ausgetauscht. Der Intranetdatenverkehr von DirectAccess-Clients ist IPv6-Datenverkehr.  
@@ -113,7 +113,7 @@ Das Aktivieren des Erzwingens von Tunneln hat folgende Auswirkungen:
 > 1.  Fügen Sie einen NRPT-Eintrag für ipv6.msftncsi.com hinzu, und lösen Sie Ihn anhand von DNS64 zu einer internen Website auf (dies kann eine IPv4-Website sein).  
 > 2.  Fügen Sie einen NRPT-Eintrag für dns.msftncsi.com hinzu, und lösen Sie Ihn anhand eines Unternehmens-DNS-Servers auf, um den IPv6-Host-(AAAA)-Ressourceneintrag fd3e:4f5a:5b81::1 zurückzugeben. (Die Verwendung von DNS64, um nur Host-(A)-Ressourceneintragsabfragen für diesen FQDN zu senden, funktioniert möglicherweise nicht, da dies in Nur-IPv4-Bereitstellungen konfiguriert ist. Es sollte also so konfiguriert werden, dass direkt anhand von Unternehmens-DNS aufgelöst wird.)  
   
-## <a name="bkmk_ConfigFirewalls"></a>1.2 Planen der firewallanforderungen  
+## <a name="12-plan-firewall-requirements"></a>1.2 Planen der Firewallanforderungen  
 Wenn sich der DirectAccess-Server hinter einer Edge-Firewall befindet, sind folgende Ausnahmen für RAS-Datenverkehr erforderlich, wenn sich der DirectAccess-Server auf dem IPv4-Internet befindet:  
   
 -   Teredo-Datenverkehr-User Datagram-Protokoll (UDP)-Zielport 3544 eingehend und UDP-Quellport 3544 ausgehend.  
@@ -145,20 +145,20 @@ Wenden Sie bei zusätzlichen Firewalls die folgenden internen Netzwerkfirewallau
   
 -   ICMP für den gesamten IPv4- und IPv6 Datenverkehr (nur wenn Teredo verwendet wird)  
   
-## <a name="bkmk_12CAsandCerts"></a>1.3 Planen der zertifikatanforderungen  
+## <a name="13-plan-certificate-requirements"></a>1.3 Planen der Zertifikatanforderungen  
 Es gibt drei Szenarien, die Zertifikate erfordern, wenn Sie einen einzigen DirectAccess-Server bereitstellen:  
   
--   [1.3.1 Planen von Computerzertifikaten für IPsec-Authentifizierung](#BKMK_compcert)  
+-   [1.3.1 Planen von Computerzertifikaten für IPsec-Authentifizierung](#131-plan-computer-certificates-for-ipsec-authentication)  
   
     Zertifikatanforderungen für IPsec beinhalten ein Computerzertifikat, das von DirectAccess-Clientcomputern verwendet wird, wenn diese die IPsec-Verbindung zwischen dem Client und dem DirectAccess-Server herstellen, und einem Computerzertifikat, das von DirectAccess-Servern für das Einrichten von IPsec-Verbindungen mit DirectAccess-Clients verwendet wird.  
   
     Für DirectAccess in Windows Server 2012 ist die Verwendung dieser IPsec-Zertifikate nicht erforderlich. Als Alternative kann der DirectAccess-Server als Kerberos-Proxy fungieren, damit die IPsec-Authentifizierung ohne erforderliche Zertifikate durchgeführt werden kann. Wenn das Kerberos-Protokoll verwendet wird, funktioniert dies über SSL, und der Kerberos-Proxy verwendet das Zertifikat, das für IP-HTTPS zu diesem Zwecke konfiguriert wurde. Einige Unternehmensszenarien (einschließlich Bereitstellung für mehrere Standorte und Einmalkennwort-Clientauthentifizierung) erfordern die Verwendung der Zertifikatauthentifizierung, und nicht das Kerberos-Protokoll.  
   
--   [1.3.2 Planen von Zertifikaten für IP-HTTPS](#bkmk_iph)  
+-   [1.3.2 Planen von Zertifikaten für IP-HTTPS](#132-plan-certificates-for-ip-https)  
   
     Wenn Sie Remotezugriff konfigurieren, wird der DirectAccess-Server automatisch für das Handeln als IP-HTTPS-Listener konfiguriert. Die IP-HTTPS-Website erfordert ein Websitezertifikat, und Clientcomputer müssen in der Lage sein, die CRL-Website (Certificate Revocation List, Zertifikatsperrlisten) für das Zertifikat zu kontaktieren.  
   
--   [1.3.3 Planen von Websitezertifikaten für den Netzwerkadressenserver](#bkmk_webnlc)  
+-   [1.3.3 Planen von Websitezertifikaten für den Netzwerkadressenserver](#133-plan-website-certificates-for-the-network-location-server)  
   
     Der Netzwerkadressenserver ist eine Website, die erkennt, ob sich Clientcomputer im Unternehmensnetzwerk befinden. Der Netzwerkadressenserver erfordert ein Websitezertifikat. DirectAccess-Clients müssen die CRL-Website für das Zertifikat kontaktieren können.  
   
@@ -170,7 +170,7 @@ In der folgenden Tabelle werden die Zertifizierungsstellenanforderungen für jed
 ||Selbstsigniertes Zertifikat:<br /><br />Sie können ein selbstsigniertes Zertifikat für den IP-HTTPS-Server verwenden; Sie müssen jedoch sicherstellen, dass der Sperrlisten-Verteilungspunkt extern verfügbar ist.<br /><br />Ein selbstsigniertes Zertifikat kann nicht in Bereitstellungen für mehrere Standorte verwendet werden.|Selbstsigniertes Zertifikat:<br /><br />Sie können ein selbstsigniertes Zertifikat für die Netzwerkadressenserver-Website verwenden.<br /><br />Ein selbstsigniertes Zertifikat kann nicht in Bereitstellungen für mehrere Standorte verwendet werden.|  
 ||**Empfohlen**<br /><br />Öffentliche Zertifizierungsstelle:<br /><br />Es wird empfohlen, eine öffentliche Zertifizierungsstelle für die Ausgabe des IP-HTTPS-Zertifikats zu verwenden. Dadurch wird sichergestellt, dass der Sperrlisten-Verteilungspunkt extern verfügbar ist.|  
   
-### <a name="BKMK_compcert"></a>1.3.1 Planen von Computerzertifikaten für IPsec-Authentifizierung  
+### <a name="131-plan-computer-certificates-for-ipsec-authentication"></a>1.3.1 Planen von Computerzertifikaten für IPsec-Authentifizierung  
 Wenn Sie zertifikatbasierte IPsec-Authentifizierung verwenden, müssen der DirectAccess-Server und die Clients ein Computerzertifikat erhalten können. Die einfachste Möglichkeit für die Installation der Zertifikate ist die Konfiguration der gruppenrichtlinienbasierten automatischen Registrierung für Computerzertifikate. Dadurch wird sichergestellt, dass alle Domänenmitglieder ein Zertifikat von einer Unternehmenszertifizierungsstelle erhalten. Wenn Sie keine Unternehmenszertifizierungsstelle in Ihrer Organisation eingerichtet haben, finden Sie unter [Active Directory Certificate Services](https://technet.microsoft.com/library/cc770357.aspx).  
   
 Für dieses Zertifikat gelten die folgenden Anforderungen:  
@@ -179,7 +179,7 @@ Für dieses Zertifikat gelten die folgenden Anforderungen:
   
 -   Das Clientzertifikat und das Serverzertifikat sollten zum selben Stammzertifikat gebunden sein. Das Stammzertifikat muss in den DirectAccess-Konfigurationseinstellungen ausgewählt sein.  
   
-### <a name="bkmk_iph"></a>1.3.2 Planen von Zertifikaten für IP-HTTPS  
+### <a name="132-plan-certificates-for-ip-https"></a>1.3.2 Planen von Zertifikaten für IP-HTTPS  
 Der DirectAccess-Server fungiert als IP-HTTPS-Listener, und Sie müssen manuell ein HTTPS-Websitezertifikat auf dem Server installieren. Beachten Sie Folgendes bei der Planung:  
   
 -   Die Verwendung einer öffentlichen Zertifizierungsstelle ist empfohlen, sodass Zertifikatsperrlisten bereits verfügbar sind.  
@@ -284,7 +284,7 @@ Falls Sie IP-HTTPS nicht auf einem Standardport verwenden werden, müssen Sie fo
   
 Führen Sie **gpupdate /force** auf den Clientcomputern und dem DirectAccess-Server aus, um den manuellen Prozess für die Verwendung eines IP-HTTPS-Nicht-Standardports abzuschließen.  
   
-### <a name="bkmk_webnlc"></a>1.3.3 Planen von Websitezertifikaten für den Netzwerkadressenserver  
+### <a name="133-plan-website-certificates-for-the-network-location-server"></a>1.3.3 Planen von Websitezertifikaten für den Netzwerkadressenserver  
 Beachten Sie Folgendes bei der Planung der Netzwerkadressenserver-Website:  
   
 -   Im Feld **Antragsteller** muss die IP-Adresse der Intranetschnittstelle des Netzwerkadressenservers oder der FQDN der Netzwerkadressen-URL angegeben sein.  
@@ -298,12 +298,12 @@ Beachten Sie Folgendes bei der Planung der Netzwerkadressenserver-Website:
     > [!NOTE]  
     > Stellen Sie sicher, dass die Zertifikate für IP-HTTPS und den Netzwerkadressenserver einen **Antragstellername** haben. Wenn das Zertifikat keinen **Antragstellername**, aber einen **Alternativen Antragstellernamen** hat, wird es nicht vom RAS-Assistenten akzeptiert.  
   
-## <a name="bkmk_14Dns"></a>1.4 Planen der DNS-Anforderungen  
+## <a name="14-plan-dns-requirements"></a>1.4 Planen der DNS-Anforderungen  
 In diesem Abschnitt werden die DNS-Anforderungen für DirectAcces-Clientanfragen und Infrastrukturserver in einer RAS-Bereitstellung erklärt. Der Abschnitt hat die folgenden Unterabschnitte:  
   
--   [1.4.1 Planen der DNS-serveranforderungen](#bkmk_dnsserverrequirements)  
+-   [1.4.1 Planen der DNS-serveranforderungen](#141-plan-for-dns-server-requirements)  
   
--   [1.4.2 Planen der lokalen namensauflösung](#bkmk_dnslocalname)  
+-   [1.4.2 Planen der lokalen namensauflösung](#142-plan-for-local-name-resolution)  
   
 **DirectAccess-Clientanforderungen**  
   
@@ -361,7 +361,7 @@ Die automatische Erkennung funktioniert wie folgt:
   
     Mithilfe anderer Webadressen über HTTP oder **ping** können Sie zusätzliche Verbindungsprüfer erstellen. Für jeden Verbindungsprüfer muss ein DNS-Eintrag vorhanden sein.  
   
-### <a name="bkmk_dnsserverrequirements"></a>1.4.1 Planen der DNS-serveranforderungen  
+### <a name="141-plan-for-dns-server-requirements"></a>1.4.1 Planen der DNS-Serveranforderungen  
 Nachfolgend sind die DNS-Anforderungen für eine DirectAccess-Bereitstellung aufgeführt.  
   
 -   Für DirectAccess-Clients müssen Sie einen DNS-Server verwenden, der ausgeführt wird, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008 oder einem anderen DNS-Server, der IPv6 unterstützt.  
@@ -373,7 +373,7 @@ Nachfolgend sind die DNS-Anforderungen für eine DirectAccess-Bereitstellung auf
   
 -   Der FQDN für die über das Internet erreichbaren Sperrlisten-Verteilungspunkte müssen über Internet-DNS-Server auflösbar sein. Z. B. wenn URL https://crl.contoso.com/crld/corp-DC1-CA.crl befindet sich in der **Zertifikatsperrlisten-Verteilungspunkte** -Feld der IP-HTTPS-Zertifikat des DirectAccess-Servers müssen Sie sicherstellen, dass der FQDN crld.contoso.com mit Internet-DNS-Servern aufgelöst werden kann.  
   
-### <a name="bkmk_dnslocalname"></a>1.4.2 Planen der lokalen namensauflösung  
+### <a name="142-plan-for-local-name-resolution"></a>1.4.2 Planen der lokalen Namensauflösung  
 Beachten Sie folgende Punkte, wenn Sie eine lokale Namensauflösung planen:  
   
 **NRPT**  
@@ -421,11 +421,11 @@ Die lokale Namensauflösung ist in der Regel für Peer-zu-Peer-Verbindungen erfo
   
 -   **Verwenden der lokalen Namensauflösung, wenn der Name nicht im DNS vorhanden ist**. Diese Option ist die sicherste, da der DirectAccess-Client nur für die Servernamen eine lokale Namensauflösung ausführt, die nicht von den Intranet-DNS-Servern aufgelöst werden können. Wenn die Intranet-DNS-Server erreicht werden können, werden die Namen der Intranetserver aufgelöst. Wenn die Intranet-DNS-Server nicht erreicht werden können, oder wenn andere DNS-Fehler auftreten, werden die Intranetservernamen nicht über die lokale Namensauflösung ins Subnetz durchgelassen.  
   
--   **Verwenden der lokalen Namensauflösung, wenn der Name nicht im DNS vorhanden ist oder DNS-Server nicht erreichbar sind, wenn der Clientcomputer sich auf einem privaten Netzwerk befindet (empfohlen)**. Diese Option ist wird empfohlen, da sie die Verwendung der lokalen Namensauflösung in einem privaten Netzwerk gestattet, wenn die Intranet-DNS-Server nicht erreichbar sind.  
+-   **Verwenden der lokalen Namensauflösung, wenn der Name nicht im DNS vorhanden ist oder DNS-Server nicht erreichbar sind, wenn der Clientcomputer sich auf einem privaten Netzwerk befindet (empfohlen)** . Diese Option ist wird empfohlen, da sie die Verwendung der lokalen Namensauflösung in einem privaten Netzwerk gestattet, wenn die Intranet-DNS-Server nicht erreichbar sind.  
   
--   **Verwenden der lokalen Namensauflösung für alle Arten von DNS-Auflösungsfehlern (am wenigsten sicher)**. Dies ist die unsicherste Option, da die Namen von Intranet-Netzwerkservern über die lokale Namensauflösung zum lokalen Subnetz durchgelassen werden können.  
+-   **Verwenden der lokalen Namensauflösung für alle Arten von DNS-Auflösungsfehlern (am wenigsten sicher)** . Dies ist die unsicherste Option, da die Namen von Intranet-Netzwerkservern über die lokale Namensauflösung zum lokalen Subnetz durchgelassen werden können.  
   
-## <a name="bkmk_14NLS"></a>1.5 Planen des Netzwerkadressenservers  
+## <a name="15-plan-the-network-location-server"></a>1.5 Planen des Netzwerkadressenservers  
 Der Netzwerkadressenserver ist eine Website, die erkennt, ob sich DirectAccess-Clients im Unternehmensnetzwerk befinden. Clients im Unternehmensnetzwerk verwenden kein DirectAccess, um interne Ressourcen zu erreichen, stattdessen stellen Sie direkt eine Verbindung her.  
   
 Der Netzwerkadressenserver kann auf dem DirectAccess-Server oder auf einem anderen Server in der Organisation installiert werden. Wenn Sie den Netzwerkadressenserver auf dem DirectAccess-Server hosten, wird die Website automatisch erstellt, wenn Sie die RAS-Serverrolle installieren. Wenn Sie den Netzwerkadressenserver auf einem anderen Server in Ihrer Organisation hosten, auf dem ein Windows-Betriebssystem läuft, müssen Sie sicherstellen, dass Internet Information Services (IIS) auf diesem Server installiert ist und dass die Website erstellt wird. DirectAccess konfiguriert keine Einstellungen auf einem Remote-Netzwerkadressenserver.  
@@ -456,7 +456,7 @@ Beachten Sie Folgendes, wenn Sie das Websitezertifikat für den Netzwerkadressen
 ### <a name="152-plan-dns-for-the-network-location-server"></a>1.5.2 Planen von DNS für den Netzwerkadressenserver  
 DirectAccess-Clients versuchen, den Netzwerkadressenserver zu erreichen, um zu bestimmen, ob sie sich auf dem internen Netzwerk befinden. Clients im internen Netzwerk müssen in der Lage sein, den Namen des Netzwerkadressenservers aufzulösen, befinden sie sich jedoch im Internet, dürfen sie den Namen nicht auflösen. Um dies zu gewährleisten, wird der FQDN des Netzwerkadressenservers standardmäßig als Ausnahmeregel zum NRPT hinzugefügt.  
   
-## <a name="bkmk_15mgmtservers"></a>1.6 Planen der Verwaltungsserver  
+## <a name="16-plan-management-servers"></a>1.6 Planen der Verwaltungsserver  
 DirectAccess-Clients initiieren die Kommunikation mit Verwaltungsservern, welche Dienste wie Windows Update und Antivirus-Updates zur Verfügung stellen. DirectAccess-Clients verwenden zudem das Kerberos-Protokoll für den Kontakt zu Domänencontroller, um diese zu authentifizieren, bevor sie auf das interne Netzwerk zugreifen. Während der Remoteverwaltung von DirectAccess-Clients kommunizieren Verwaltungsserver mit Clientcomputern, um Verwaltungsfunktionen wie zum Beispiel Software- oder Hardware-Bestandsbewertungen durchzuführen. Der Remotezugriff kann automatisch bestimmte Verwaltungsserver erkennen, zum Beispiel:  
   
 -   Domain-Controller-automatische Erkennung von Domänencontrollern wird für alle Domänen in derselben Gesamtstruktur wie der DirectAccess-Server und Client-Computern ausgeführt.  
@@ -471,12 +471,12 @@ Domänencontroller und System Center Configuration Manager-Server werden automat
   
 -   Verwaltungsserver, die Verbindungen zu DirectAccess-Clients initiieren, müssen IPv6 vollständig unterstützen, durch eine systemeigene IPv6-Adresse oder die Verwendung einer durch ISATAP zugewiesenen Adresse.  
   
-## <a name="bkmk_16AD"></a>1.7 Planen von Active Directory-Domänendienste  
+## <a name="17-plan-active-directory-domain-services"></a>1.7 Planen der Active Directory-Domänendienste  
 In diesem Abschnitt wird erklärt, wie DirectAccess Active Directory-Domänendienste (AD DS) verwendet. Er ist in folgende Unterabschnitte gegliedert:  
   
--   [1.7.1 Planen der Clientauthentifizierung](#bkmk_clientauth)  
+-   [1.7.1 Planen der Clientauthentifizierung](#171-plan-client-authentication)  
   
--   [1.7.2 Planen Sie mehrerer Domänen](#bkmk_multiple)  
+-   [1.7.2 Planen Sie mehrerer Domänen](#172-plan-multiple-domains)  
   
 DirectAccess verwendet AD DS und Active Directory-Gruppe Gruppenrichtlinienobjekte (GPOs) wie folgt aus:  
   
@@ -518,7 +518,7 @@ Wenn Sie AD DS für eine DirectAccess-Bereitstellung planen, müssen Sie folgend
 > -   Der DirectAccess-Server kann nicht als Domänencontroller verwendet werden.  
 > -   Der für DirectAccess verwendete Active Directory-Domänencontroller darf nicht von einem externen Internetadapter des DirectAccess-Servers aus erreichbar sein (der Adapter darf sich nicht im Domänenprofil der Windows-Firewall befinden).  
   
-### <a name="bkmk_clientauth"></a>1.7.1 Planen der Clientauthentifizierung  
+### <a name="171-plan-client-authentication"></a>1.7.1 Planen der Clientauthentifizierung  
 Mit DirectAccess können Sie für die IPsec-Computerauthentifizierung zwischen der Verwendung von Zertifikaten oder eines integrierten Kerberos-Proxy, der die Computer über Benutzernamen und Kennwörter authentifiziert, wählen.  
   
 Wenn Sie sich entscheiden, AD DS-Anmeldedaten für die Authentifizierung zu verwenden, nutzt DirectAccess einen Sicherheitstunnel, der Computer (Kerberos) als erste Authentifizierung und Benutzer (Kerberos) als zweite Authentifizierung verwendet. Wenn Sie diesen Authentifizierungsmodus verwenden, nutzt DirectAccess einen einzigen Sicherheitstunnel, der Zugriff auf den DNS-Server, den Domänencontroller, und zu anderen Servern auf dem internen Netzwerk bietet.  
@@ -535,7 +535,7 @@ Wenn DirectAccess ausgewählt werden, um Zugriff auf Clients, auf denen Windows 
   
 -   Für den Intranettunnel erfolgt die erste Authentifizierung über die Anmeldeinformationen Computerzertifikat und die zweite über Benutzer (Kerberos).  
   
-### <a name="bkmk_multiple"></a>1.7.2 Planen Sie mehrerer Domänen  
+### <a name="172-plan-multiple-domains"></a>1.7.2 Planen mehrerer Domänen  
 Die Liste der Verwaltungsserver sollte die Domänencontroller von allen Domänen umfassen, welche Sicherheitsgruppen enthalten, die DirectAccess-Clientcomputer beinhalten. Es sollten alle Domänen enthalten sein, die Benutzerkonten umfassen, welche möglicherweise Computer nutzen, die als DirectAccess-Clients konfiguriert sind. Dadurch wird sichergestellt, dass Benutzer, die sich nicht in derselben Domäne wie der von ihnen genutzte Clientcomputer befinden, mit einem Domänencontroller in der Benutzerdomäne authentifiziert werden. Dies erfolgt automatisch, wenn sich Domänen in derselben Struktur befinden.  
   
 > [!NOTE]  
@@ -543,20 +543,20 @@ Die Liste der Verwaltungsserver sollte die Domänencontroller von allen Domänen
   
 Wenn möglich sollten allgemeine Domänennamensuffixe während der Remotezugriffs-Bereitstellung zur Richtlinientabelle für die Namensauflösung (Name Resolution Policy Table, NRPT) hinzugefügt werden. Wenn es zum Beispiel zwei Domänen gibt, domain1.corp.contoso.com und domain2.corp.contoso.com, können Sie, anstatt zwei Einträge zur NRPT hinzuzufügen, auch einen allgemeinen DNS-Suffix-Eintrag hinzufügen, bei dem das Domänennamensuffix corp.contoso.com ist. Dies geschieht automatisch für Domänen in demselben Stamm. Domänen, die sich nicht im selben Stamm befinden, müssen manuell hinzugefügt werden.  
   
-Wenn Windows Internet Name Service (WINS) in einer Umgebung mit mehreren Domänen bereitgestellt wird, müssen Sie eine WINS-Forward-Lookupzone in DNS bereitstellen. Weitere Informationen finden Sie unter **einmaliges Bezeichnungsnamen** in die [1.4.2 Planen der lokalen namensauflösung](#bkmk_dnslocalname) weiter oben in diesem Dokument.  
+Wenn Windows Internet Name Service (WINS) in einer Umgebung mit mehreren Domänen bereitgestellt wird, müssen Sie eine WINS-Forward-Lookupzone in DNS bereitstellen. Weitere Informationen finden Sie unter **einmaliges Bezeichnungsnamen** in die [1.4.2 Planen der lokalen namensauflösung](#142-plan-for-local-name-resolution) weiter oben in diesem Dokument.  
   
-## <a name="bkmk_17GPOs"></a>1.8 Planen von Gruppenrichtlinienobjekten  
+## <a name="18-plan-group-policy-objects"></a>1.8 Planen von Gruppenrichtlinienobjekten  
 In diesem Abschnitt wird die Rolle der Gruppenrichtlinienobjekte (GPOs) in der Remotezugriffsinfrastruktur erklärt. Der Abschnitt ist in folgende Unterabschnitte gegliedert:  
   
--   [1.8.1 konfigurieren automatisch erstellter Gruppenrichtlinienobjekte](#bkmk_autoGPO)  
+-   [1.8.1 konfigurieren automatisch erstellter Gruppenrichtlinienobjekte](#181-configure-automatically-created-gpos)  
   
--   [1.8.2 Konfigurieren manuell erstellter Gruppenrichtlinienobjekte](#bkmk_manualGPO)  
+-   [1.8.2 Konfigurieren manuell erstellter Gruppenrichtlinienobjekte](#182-configure-manually-created-gpos)  
   
--   [1.8.3 Verwalten von Gruppenrichtlinienobjekten in einer Umgebung mit mehreren Domänencontrollern](#bkmk_multiDC)  
+-   [1.8.3 Verwalten von Gruppenrichtlinienobjekten in einer Umgebung mit mehreren Domänencontrollern](#183-manage-gpos-in-a-multi-domain-controller-environment)  
   
--   [1.8.4 Verwalten der Remotezugriffs-Gruppenrichtlinienobjekten mit eingeschränkten Berechtigungen](#bkmk_manageGPO)  
+-   [1.8.4 Verwalten der Remotezugriffs-Gruppenrichtlinienobjekten mit eingeschränkten Berechtigungen](#184-manage-remote-access-gpos-with-limited-permissions)  
   
--   [1.8.5 Wiederherstellen eines gelöschten Gruppenrichtlinienobjekts](#bkmk_delGPO)  
+-   [1.8.5 Wiederherstellen eines gelöschten Gruppenrichtlinienobjekts](#185-recover-from-a-deleted-gpo)  
   
 DirectAccess-Einstellungen, die bei der Konfiguration des Remotezugriffs konfiguriert werden, werden in GPOs gesammelt. Die folgenden Arten von Gruppenrichtlinienobjekten werden mit DirectAccess-Einstellungen aufgefüllt und wie folgt verteilt:  
   
@@ -588,7 +588,7 @@ Unabhängig davon, ob Sie automatisch oder manuell konfigurierte Gruppenrichtlin
   
 Wenn die korrekten Berechtigungen für das Verknüpfen von Gruppenrichtlinienobjekten, die in den folgenden Abschnitten aufgeführt sind, fehlen, wird eine Warnung angezeigt. Der Remotezugriffsvorgang wird fortgesetzt, Verknüpfungen werden jedoch nicht erstellt. Wenn diese Warnung ausgegeben wird, werden Verknüpfungen nicht automatisch erstellt, selbst wenn die Berechtigungen zu einem späteren Zeitpunkt hinzugefügt werden. Stattdessen muss der Administrator die Links manuell erstellen.  
   
-### <a name="bkmk_autoGPO"></a>1.8.1 konfigurieren automatisch erstellter Gruppenrichtlinienobjekte  
+### <a name="181-configure-automatically-created-gpos"></a>1.8.1 Konfigurieren automatisch erstellter Gruppenrichtlinienobjekte  
 Beachten Sie beim Verwenden automatisch erstellter Gruppenrichtlinienobjekte Folgendes:  
   
 Automatisch erstellte Gruppenrichtlinienobjekte werden entsprechend des Speicherorts und Verknüpfungszielparameters wie folgt angewendet:  
@@ -611,7 +611,7 @@ Außerdem werden noch die folgenden Berechtigungen benötigt:
   
 -   Es wird empfohlen, dass der Remotezugriffsadministrator über Leserechte für Gruppenrichtlinienobjekte für jede Domäne verfügt. So kann der Remotezugriff prüfen, dass beim Erstellen von Gruppenrichtlinienobjekten keine Gruppenrichtlinienobjekte mit doppelten Namen vorhanden sind.  
   
-### <a name="bkmk_manualGPO"></a>1.8.2 Konfigurieren manuell erstellter Gruppenrichtlinienobjekte  
+### <a name="182-configure-manually-created-gpos"></a>1.8.2 Konfigurieren manuell erstellter Gruppenrichtlinienobjekte  
 Beachten Sie beim Verwenden manuell erstellter Gruppenrichtlinienobjekte Folgendes:  
   
 -   Die Gruppenrichtlinienobjekte sollten vorhanden sein, bevor Sie den Remotezugriffs-Setup-Assistenten ausführen.  
@@ -620,7 +620,7 @@ Beachten Sie beim Verwenden manuell erstellter Gruppenrichtlinienobjekte Folgend
   
 -   In der gesamten Domäne erfolgt eine Suche nach einer Verknüpfung zum Gruppenrichtlinienobjekt. Wenn das Gruppenrichtlinienobjekt in der Domäne nicht verknüpft ist, wird im Domänenstamm automatisch eine Verknüpfung erstellt. Wenn die zum Erstellen der Verknüpfung erforderlichen Berechtigungen nicht verfügbar sind, wird eine Warnung ausgegeben.  
   
-### <a name="bkmk_multiDC"></a>1.8.3 Verwalten von Gruppenrichtlinienobjekten in einer Umgebung mit mehreren Domänencontrollern  
+### <a name="183-manage-gpos-in-a-multi-domain-controller-environment"></a>1.8.3 Verwalten von Gruppenrichtlinienobjekten in einer Umgebung mit mehreren Domänencontrollern  
 Jedes Gruppenrichtlinienobjekt wird von einem bestimmten Domänencontroller wie folgt verwaltet:  
   
 -   Das Server-Gruppenrichtlinienobjekt wird von einem der Domänencontroller im Active Directory-Standort verwaltet, der dem Server zugeordnet ist. Wenn die Domänencontroller an diesem Standort schreibgeschützt sind, wird das Server-Gruppenrichtlinienobjekt vom Domänencontroller mit Schreibzugriff verwaltet, der am nächsten beim DirectAccess-Server liegt.  
@@ -651,7 +651,7 @@ Alternativ können Sie die Standardeinstellung auch über das Dialogfeld **Domä
     Save-NetGPO -GpoSession $gpoSession  
     ```  
   
-### <a name="bkmk_manageGPO"></a>1.8.4 Verwalten der Remotezugriffs-Gruppenrichtlinienobjekten mit eingeschränkten Berechtigungen  
+### <a name="184-manage-remote-access-gpos-with-limited-permissions"></a>1.8.4 Verwalten der Gruppenrichtlinienobjekte für den Remotezugriff mit eingeschränkten Berechtigungen  
 Um eine Remotezugriffsbereitstellung zu verwalten, benötigt der Remotezugriffsadministrator uneingeschränkte Berechtigungen für die Gruppenrichtlinienobjekte (Lesen, Bearbeiten, Löschen, Ändern der Sicherheit) für die in dieser Bereitstellung verwendeten Gruppenrichtlinienobjekte. Dies liegt daran, dass die Remotezugriffs-Verwaltungskonsole und die PowerShell-Module für den Remotezugriff die Konfiguration von den Remotezugriffs-Gruppenrichtlinienobjekten lesen und darauf schreiben (dies gilt für Client-, Server- und Anwendungsserver-Gruppenrichtlinienobjekte).  
   
 In vielen Organisationen ist der Domänenadministrator, der sich um Gruppenrichtlinienobjekt-Vorgänge kümmert, nicht identisch mit dem Remotezugriffsadministrator, der für die Remotezugriffskonfiguration verantwortlich ist. Diese Organisationen haben möglicherweise Richtlinien, die verhindern, dass der Remotezugriffsadministrator uneingeschränkte Berechtigungen für die Gruppenrichtlinienobjekte in der Domäne hat. Der Domänenadministrator muss möglicherweise auch die Richtlinienkonfiguration überprüfen, bevor diese auf einen Computer in der Domäne angewendet wird.  
@@ -668,7 +668,7 @@ Im folgenden Diagramm wird diese Konfiguration gezeigt.
   
 ![Verwalten von Remotezugriffs-Gruppenrichtlinienobjekten](../../../media/Step-1-Plan-the-DirectAccess-Infrastructure/DA_Plan_Advanced_Step1_GPOS.png)  
   
-### <a name="bkmk_delGPO"></a>1.8.5 Wiederherstellen eines gelöschten Gruppenrichtlinienobjekts  
+### <a name="185-recover-from-a-deleted-gpo"></a>1.8.5 Wiederherstellen eines gelöschten Gruppenrichtlinienobjekts  
 Wenn ein Gruppenrichtlinienobjekt eines Clients, eines DirectAccess-Servers, oder eines Anwendungsservers versehentlich gelöscht wurde und keine Sicherung verfügbar ist, müssen Sie die Konfigurationseinstellungen entfernen und sie neu konfigurieren. Wenn eine Sicherung verfügbar ist, können Sie das Gruppenrichtlinienobjekt aus der Sicherung wiederherstellen.  
   
 Die Remotezugriffs-Verwaltungskonsole zeigt folgende Fehlermeldung an: **Gruppenrichtlinienobjekt <GPO name> kann nicht gefunden werden**. Führen Sie folgende Schritte aus, um die Konfigurationseinstellungen zu entfernen:  
@@ -679,7 +679,7 @@ Die Remotezugriffs-Verwaltungskonsole zeigt folgende Fehlermeldung an: **Gruppen
   
 3.  In der angezeigten Fehlermeldung werden Sie darauf hingewiesen, dass das Gruppenrichtlinienobjekt nicht gefunden werden konnte. Klicken Sie auf **Konfigurationseinstellungen entfernen**. Nach Abschluss des Vorgangs wird der Server in einem nicht konfigurierten Zustand wiederhergestellt.  
   
-## <a name="BKMK_Links"></a>Als Nächstes  
+## <a name="next-step"></a>Nächster Schritt  
   
 -   [Schritt 2: Planen der DirectAccess-Bereitstellungen](da-adv-plan-s2-deployments.md)  
   
