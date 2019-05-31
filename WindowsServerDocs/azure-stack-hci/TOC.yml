@@ -1,0 +1,21 @@
+- name: Azure Stack HCI
+  items:
+    - name: 'Azure Stack HCI: Inhalt'
+      expanded: true
+      items:
+        - name: 'Azure Stack HCI: Übersicht'
+          href: index.md
+        - name: Hyper-V
+          href: ../virtualization/hyper-v/index.md
+        - name: Direkte Speicherplätze
+          href: ../storage/storage-spaces/storage-spaces-direct-overview.md
+        - name: Failoverclustering
+          href: ../failover-clustering/failover-clustering-overview.md
+        - name: Software-Defined Networking
+          href: 'https://docs.microsoft.com/windows-server/networking/sdn/'
+        - name: Windows Server-Software-Defined Datacenter
+          href: 'https://docs.microsoft.com/windows-server/sddc/'
+        - name: Windows Admin Center
+          href: ../manage/windows-admin-center/overview.md
+        - name: Herstellen einer Verbindung mit Azure
+          href: ../azure-hybrid-services/index.md

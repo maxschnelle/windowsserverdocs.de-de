@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: grcusanz; AnPaul
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: dfb8d997c6e04381e5be0ba2c3a7ca27a851df50
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0e173039c45faa100a434b69a9faa736ff7c9b53
+ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59891321"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65034136"
 ---
 # <a name="performance-tuning-software-defined-networks"></a>Leistungsoptimierung für Software-Defined Networking (SDN)
 
@@ -30,7 +30,7 @@ Um sicherzustellen, dass der VM-Datenverkehr effektiv und fair priorisiert wird,
 
 ## <a name="hyper-v-host-networking"></a>Hyper-V-Hostnetzwerk
 
-Die Anleitung im Abschnitt zur [Hyper-V-Netzwerk-E/A-Leistung](#netio) unter [Leistungsoptimierung für Hyper-V-Server](../../role/remote-desktop/session-hosts.md) gilt, wenn SDN verwendet wird. In diesem Abschnitt werden aber auch weitere Richtlinien beschrieben, die eingehalten werden müssen, um bei Verwendung von SDN die bestmögliche Leistung sicherzustellen.
+Die Anleitung im Abschnitt zur Hyper-V-Netzwerk-E/A-Leistung unter [Leistungsoptimierung für Hyper-V-Server](../../role/remote-desktop/session-hosts.md) gilt, wenn SDN verwendet wird. In diesem Abschnitt werden aber auch weitere Richtlinien beschrieben, die eingehalten werden müssen, um bei Verwendung von SDN die bestmögliche Leistung sicherzustellen.
 
 ### <a name="physical-network-adapter-nic-teaming"></a>NIC-Teamvorgang (Physischer Netzwerkadapter)
 

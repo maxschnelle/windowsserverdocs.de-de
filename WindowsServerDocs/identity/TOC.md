@@ -38,6 +38,7 @@
 ##### [Technische Referenz für virtualisierte Domänencontroller (Stufe 300)](ad-ds/deploy/virtual-dc/Virtualized-Domain-Controller-Technical-Reference--Level-300-.md)
 ###### [Architektur virtualisierter Domänencontroller](ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Architecture.md)
 ###### [Bereitstellung und Konfiguration virtualisierter Domänencontroller](ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Deployment-and-Configuration.md)
+###### [Ausführen von Active Directory auf virtuellen Azure-Computern](ad-ds/deploy/virtual-dc/adds-on-azure-vm.md)
 ###### [Virtualisierte Domänencontroller mit Hyper-V](ad-ds/get-started/virtual-dc/virtualized-domain-controllers-hyper-v.md)
 ###### [Problembehandlung für virtualisierte Domänencontroller](ad-ds/manage/virtual-dc/Virtualized-Domain-Controller-Troubleshooting.md)
 ###### [Anhang zur technischen Referenz für virtualisierte Domänencontroller](ad-ds/reference/virtual-dc/Virtualized-Domain-Controller-Technical-Reference-appendix.md)
@@ -365,6 +366,9 @@
 
 
 ### [AD FS-Entwicklung](ad-fs/AD-FS-Development.md)
+
+#### [Erstellen einer benutzerdefinierten Authentifizierungsmethode für AD FS](ad-fs/development/ad-fs-build-custom-auth-method.md)
+#### [Erstellen von Plug-Ins mit dem Risikobewertungsmodell von AD FS 2019](ad-fs/development/ad-fs-risk-assessment-model.md)
 #### [Benutzerdefinierte ID-Token in AD FS](ad-fs/development/Custom-Id-Tokens-in-AD-FS.md)
 #### [AD FS: Authentifizierung im Auftrag einer anderen Person unter Windows Server 2016](ad-fs/development/AD-FS-On-behalf-of-Authentication-in-Windows-Server.md)
 #### [Aktivieren von OpenID Connect mit AD FS 2016](ad-fs/development/Enabling-OpenId-Connect-with-AD-FS.md)

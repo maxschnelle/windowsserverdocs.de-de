@@ -1,5 +1,6 @@
 # [Erste Schritte mit Windows Server 2019](get-started-19.md) 
 ## [Neuerungen in Windows Server 2019](whats-new-19.md)
+## [Neuerungen in Windows Server, Version 1903](whats-new-in-windows-server-1903.md)
 ## [Vergleich von Servicing Channels](servicing-channels-19.md)
 ## [Installieren | Upgraden | Migrieren](install-upgrade-migrate-19.md)
 ## [Versionshinweise: Wichtige Probleme in Windows Server 2019](rel-notes-19.md)
@@ -10,15 +11,5 @@
 ## [App-Kompatibilität von Server Core-Feature on Demand (FOD)](install-fod-19.md)
 ## [Vergleich von Standard- und Datacenter-Editionen](editions-comparison-19.md)
 ## [Entfernte Features oder solche, die ab Windows Server 2019 ersetzt werden sollen](removed-features-19.md)
-
-
-
-
-
-
-
-
-
-
-
-
+## [Entfernte Features oder solche, die ab Windows Server-Version 1903 ersetzt werden sollen](removed-features-1903.md)
+## [Dateiinformationen für die Windows Server-Version](../get-started/windows-server-release-info.md)

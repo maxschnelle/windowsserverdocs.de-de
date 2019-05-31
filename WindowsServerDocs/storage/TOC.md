@@ -136,13 +136,7 @@
 #### [Entfernen von Servern in „Direkte Speicherplätze“](storage-spaces/remove-servers.md)
 #### [Aktualisieren der Laufwerkfirmware](update-firmware.md)
 #### [Erweitern von Volumes](storage-spaces/resize-volumes.md)
-### Problembehandlung
-#### [Problembehandlungsszenarien](storage-spaces/troubleshooting-storage-spaces.md)
-#### [Integrität- und Betriebsstatus](storage-spaces/storage-spaces-states.md)
-#### [Sammeln von Daten](storage-spaces/data-collection.md)
-#### [Häufig gestellte Fragen](storage-spaces/storage-spaces-direct-faq.md)
-### Insider-Vorschau
-#### [Clustergruppen](storage-spaces/cluster-sets.md)
+#### [Löschen von Volumes](storage-spaces/delete-volumes.md)
 #### [Leistungsverlauf](storage-spaces/performance-history.md)
 ##### [Leistungsverlauf für Laufwerke](storage-spaces/performance-history-for-drives.md)
 ##### [Leistungsverlauf für Netzwerkadapter](storage-spaces/performance-history-for-network-adapters.md)
@@ -153,6 +147,12 @@
 ##### [Leistungsverlauf für Cluster](storage-spaces/performance-history-for-clusters.md)
 ##### [Scripting-Beispiele](storage-spaces/performance-history-scripting.md)
 #### [Einschränken der Zuweisung von Volumes](storage-spaces/delimit-volume-allocation.md)
+#### [Verwenden von Azure Monitor zum Senden von E-Mails für Integritätsdienstfehler](storage-spaces/configure-azure-monitor.md)
+### Problembehandlung
+#### [Problembehandlungsszenarien](storage-spaces/troubleshooting-storage-spaces.md)
+#### [Integrität- und Betriebsstatus](storage-spaces/storage-spaces-states.md)
+#### [Sammeln von Daten](storage-spaces/data-collection.md)
+#### [Häufig gestellte Fragen](storage-spaces/storage-spaces-direct-faq.md)
 ## [Arbeitsordner](work-folders/work-folders-overview.md)
 ### [Entwerfen einer Arbeitsordnerimplementierung](work-folders/plan-work-folders.md)
 ### [Bereitstellen von Arbeitsordnern](work-folders/deploy-work-folders.md)
