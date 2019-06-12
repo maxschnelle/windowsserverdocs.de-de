@@ -1,25 +1,25 @@
 ---
 title: Verkleinern eines Basisvolumes
 description: Dieser Artikel beschreibt das Verkleinern eines Basisvolumes
-ms.date: 10/12/2017
+ms.date: 06/07/2019
 ms.prod: windows-server-threshold
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: e54632b78fd67a65b51147323565130881d8d81b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9073632a656f512bdb49ebe4eeefd4cd5f4eaadf
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59885331"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812528"
 ---
 # <a name="shrink-a-basic-volume"></a>Verkleinern eines Basisvolumes
 
-> **Gilt für:** Windows 10, Windows 8.1, WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012
+> **Gilt für:** Windows 10, Windows 8.1, WindowsServer (Halbjährlicher Kanal), WindowsServer 2019, WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012
 
-Sie können den von primären Partitionen und logischen Laufwerken verwendeten Speicherplatz reduzieren, indem Sie sie auf angrenzenden, zusammenhängenden Speicherplatz auf derselben Festplatte verkleinern. Wenn Sie beispielsweise feststellen, dass Sie eine weitere Partition benötigen, jedoch nicht über weitere Datenträger verfügen, können Sie die vorhandene Partition vom Ende des Volumes verkleinern, um neuen, verfügbaren Speicherplatz für eine neue Partition zu erstellen. Der Verkleinerungsvorgang kann durch das Vorhandensein bestimmter Dateitypen blockiert werden. Weitere Informationen finden Sie unter [Weitere Überlegungen](#addcon). 
+Sie können den von primären Partitionen und logischen Laufwerken verwendeten Speicherplatz reduzieren, indem Sie sie auf angrenzenden, zusammenhängenden Speicherplatz auf derselben Festplatte verkleinern. Wenn Sie beispielsweise feststellen, dass Sie eine weitere Partition benötigen, jedoch nicht über weitere Datenträger verfügen, können Sie die vorhandene Partition vom Ende des Volumes verkleinern, um neuen, verfügbaren Speicherplatz für eine neue Partition zu erstellen. Der Verkleinerungsvorgang kann durch das Vorhandensein bestimmter Dateitypen blockiert werden. Weitere Informationen finden Sie unter [Weitere Überlegungen](#additional-considerations) 
 
 Wenn Sie eine Partition verkleinern, werden alle normalen Dateien automatisch auf den Datenträger verschoben, um neue, verfügbare Speicherplätze zu erstellen. Es ist nicht erforderlich, die Festplatte zu verkleinern, um die Partition neu zu formatieren.
 
@@ -28,13 +28,9 @@ Wenn Sie eine Partition verkleinern, werden alle normalen Dateien automatisch au
 
 ## <a name="shrinking-a-basic-volume"></a>Verkleinern eines Basisvolumes
 
--   [Mithilfe der Windows-Benutzeroberfläche](#BKMK_WINUI)
--   [Über die Befehlszeile](#BKMK_CMD)
-
 > [!NOTE]
 > Sie müssen mindestens ein Mitglied der Gruppe **Sicherungsoperatoren** or **Administratoren** sein, um diese Schritte durchzuführen.
 
-<a id="BKMK_WINUI"></a>
 #### <a name="to-shrink-a-basic-volume-using-the-windows-interface"></a>So verkleinern Sie ein Basisvolume mithilfe der Windows-Benutzeroberfläche
 
 1.  Klicken Sie mit der rechten Maustaste in der Datenträgerverwaltung auf das Basisvolume, das Sie verkleinern möchten.
@@ -43,12 +39,10 @@ Wenn Sie eine Partition verkleinern, werden alle normalen Dateien automatisch au
 
 3.  Befolgen Sie die Anweisungen auf dem Bildschirm.
 
-<br />
 
 > [!NOTE]
 > Sie können nur Basisvolumes verkleinern, auf denen kein Dateisystem vorhanden ist oder die ein NTFS-Dateisystem verwenden.
 
-<a id="BKMK_CMD"></a>
 #### <a name="to-shrink-a-basic-volume-using-a-command-line"></a>So verkleinern Sie ein Baisisvolume mithilfe einer Befehlszeile
 
 1.  Öffnen Sie eine Eingabeaufforderung, und geben Sie `diskpart` ein.
@@ -59,17 +53,13 @@ Wenn Sie eine Partition verkleinern, werden alle normalen Dateien automatisch au
 
 4.  Geben Sie an der **DISKPART**-Eingabeaufforderung `shrink [desired=<desiredsize>] [minimum=<minimumsize>]` ein. Verkleinert das ausgewählte Volume auf *desiredsize* in Megabyte (MB), wenn möglich oder zu *Minimumsize*, wenn *desiredsize* zu groß ist.
 
-<br />
-
-| Wert | Beschreibung|
-|---|---|
-| <p>**Liste volume**</p> | <p>Zeigt eine Liste der Basis- und dynamischen Volumes auf allen Festplatten an.</p>|
-| <p>**Wählen Sie volume**</p> | <p>Wählt das angegebene Volume aus, wobei <em>volumenumber</em> die Anzahl der Volumes ist, und legt den Fokus fest. Wenn kein Volume angegeben ist, zeigt der Befehl **Auswählen** die Liste des aktuellen Volumes mit Fokus an. Das Volume kann durch die Anzahl, den Laufwerkbuchstaben oder den Bereitstellungspunkt angegeben werden. Bei einer Basisfestplatte erhält durch das Auswählen einer Festplatte auch die entsprechende Partition den Fokus.</p> |
-| <p>**shrink**</p> | <p>Verkleinert das Volume mit dem Fokus, verfügbaren Speicherplatz zu erstellen. Es tritt kein Datenverlust auf. Wenn die Partition nicht verschiebbare Dateien enthält (z. B. die Auslagerungsdatei oder den Schattenkopiespeicherbereich), wird das Volume bis zu dem Punkt verkleinert, wo sich die Systemdateien befinden. |
-| <p>**desired=** <em>desiredsize</em></p> | <p>Der Speicherplatz in Megabyte, um die aktuelle Partition wiederherzustellen.</p> |
-| <p>**minimale =** <em>Minimumsize</em></p> | <p>Der minimale Speicherplatz in Megabyte, um die aktuelle Partition wiederherzustellen. Wenn Sie keine gewünschte oder minimale Größe angeben, wird der Befehl die maximale Menge an Speicherplatz freigeben.</p> 
-
-<a id="addcon"></a>
+| Wert             | Beschreibung |
+| ---               | ----------- |
+| **Liste volume** | Zeigt eine Liste der Basis- und dynamischen Volumes auf allen Festplatten an. |
+| **Wählen Sie volume** | Wählt das angegebene Volume aus, wobei <em>volumenumber</em> die Anzahl der Volumes ist, und legt den Fokus fest. Wenn kein Volume angegeben ist, zeigt der Befehl **Auswählen** die Liste des aktuellen Volumes mit Fokus an. Das Volume kann durch die Anzahl, den Laufwerkbuchstaben oder den Bereitstellungspunkt angegeben werden. Bei einer Basisfestplatte erhält durch das Auswählen einer Festplatte auch die entsprechende Partition den Fokus. |
+| **shrink** | Verkleinert das Volume mit dem Fokus, verfügbaren Speicherplatz zu erstellen. Es tritt kein Datenverlust auf. Wenn die Partition nicht verschiebbare Dateien enthält (z. B. die Auslagerungsdatei oder den Schattenkopiespeicherbereich), wird das Volume bis zu dem Punkt verkleinert, wo sich die Systemdateien befinden. |
+| **desired=** <em>desiredsize</em> | Der Speicherplatz in Megabyte, um die aktuelle Partition wiederherzustellen. |
+| **minimale =** <em>Minimumsize</em> | Der minimale Speicherplatz in Megabyte, um die aktuelle Partition wiederherzustellen. Wenn Sie keine gewünschte oder minimale Größe angeben, wird der Befehl die maximale Menge an Speicherplatz freigeben. |
 
 ## <a name="additional-considerations"></a>Weitere Aspekte
 

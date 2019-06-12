@@ -12,12 +12,12 @@ ms.assetid: c6985518-b42d-4cfb-9761-eaa75306b6d7
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: d003c6a45159548f7e34d86ca242f74868659d2f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ba5c0de9d8689c63c95ea3410a74fc9a7289aeab
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877991"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435990"
 ---
 # <a name="use-the-windows-server-essentials-log-collector"></a>Verwenden des Windows Server Essentials-Protokollsammlers
 
@@ -28,9 +28,9 @@ Wenn Sie Probleme mit dem behandeln möchten, unter Umständen einem Vertreter d
  Log Collector kopiert Programmprotokolle, Event-Reviewer-Protokolle und zugehörige Umgebungsinformationen in eine einzelne ZIP-Datei an einem angegebenen Speicherort. Sie können Log Collector direkt vom Server oder einem beliebigen Computer im Netzwerk oder mithilfe einer Remoteverbindung zu den Computern ausführen.  
   
 > [!NOTE]
->  -   Log Collector analysiert Netzwerkprobleme nicht und nimmt auch keine Änderungen an einem Server oder Computer im Netzwerk vor. Informationen zur Behandlung von Netzwerkproblemen finden Sie in der Hilfedokumentation für das Serverprodukt.  
-> -   In diesem Handbuch werden die Computer in Ihrem Netzwerk, anders als Ihr Server, Netzwerkcomputer aufgerufen.  
-> -   [Herunterladen des Windows Server Essentials Log Collector-Installationspakets](https://go.microsoft.com/fwlink/?LinkID=266341).  
+> - Log Collector analysiert Netzwerkprobleme nicht und nimmt auch keine Änderungen an einem Server oder Computer im Netzwerk vor. Informationen zur Behandlung von Netzwerkproblemen finden Sie in der Hilfedokumentation für das Serverprodukt.  
+>   -   In diesem Handbuch werden die Computer in Ihrem Netzwerk, anders als Ihr Server, Netzwerkcomputer aufgerufen.  
+>   -   [Herunterladen des Windows Server Essentials Log Collector-Installationspakets](https://go.microsoft.com/fwlink/?LinkID=266341).  
   
  Zum Installieren und Ausführen von Log Collector führen Sie die Schritte in den folgenden Themen aus:  
   

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5a5aef930689e809b9b697e5f428177610ff723b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: df1f999499154366304d59e0573ba921ab1af83d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862401"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66434241"
 ---
 # <a name="convert-basic"></a>Basisdatenträger konvertieren
 
@@ -44,7 +44,7 @@ convert basic [noerr]
 
 > [!IMPORTANT]
 > Der Datenträger muss für die Konvertierung in einen Basisdatenträger leer sein. Sichern Sie Ihre Daten, und klicken Sie dann löschen Sie alle Partitionen oder Volumes, bevor der Datenträger konvertieren.
--   Ein dynamischer Datenträger muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt werden. Verwenden der **select Disk** Befehl aus, wählen Sie einen dynamischen Datenträger und verschiebt den Fokus auf sie.
+> -   Ein dynamischer Datenträger muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt werden. Verwenden der **select Disk** Befehl aus, wählen Sie einen dynamischen Datenträger und verschiebt den Fokus auf sie.
 
 ## <a name="BKMK_examples"></a>Beispiele für
 
@@ -55,5 +55,5 @@ convert basic
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

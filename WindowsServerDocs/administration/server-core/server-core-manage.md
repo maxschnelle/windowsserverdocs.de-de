@@ -7,12 +7,12 @@ ms.sitesec: library
 author: lizap
 ms.localizationpriority: medium
 ms.date: 10/17/2017
-ms.openlocfilehash: 6836e5db36727294d215f7f98e0faeede55a612a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 761bfc681d7e39059884977cd99997ea9996268b
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869301"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811354"
 ---
 # <a name="manage-a-server-core-server"></a>Verwalten eines Server Core-Servers
  
@@ -35,7 +35,7 @@ Es gibt einige wichtige Einschränkungen und Tipps zu bedenken, bei der Arbeit m
 - Es gibt keine Unterstützung für HTML-Rendering oder HTML-Hilfe im Server Core.
 - Server Core unterstützt Windows Installer im stillen Modus, sodass Sie Tools und Dienstprogramme von Windows Installer-Dateien installieren können. Wenn Sie Windows Installer-Pakete auf Server Core installieren möchten, verwenden die **/qb** Option, um die Standardbenutzeroberfläche anzuzeigen.
 - Führen Sie zum Ändern der Zeitzone **Set-Date**.
-- Um die gebietsschemaeinstellungen zu ändern, führen **steuern "Intl.cpl"**.
+- Um die gebietsschemaeinstellungen zu ändern, führen **steuern "Intl.cpl"** .
 - **Control.exe** wird nicht eigenständig ausgeführt. Sie müssen diese ausführen, entweder mit **"timedate.cpl"** oder **Intl.cpl**.
 - **Winver.exe** ist in Server Core nicht verfügbar. Zum Abrufen von Informationen verwenden von Version **Systeminfo.exe**.
 
@@ -61,15 +61,17 @@ So verwenden einen Server Core-Server zu verwalten, der Mitglied einer Domäne i
 Ein MMC-Snap-in verwenden, um eine Server Core-Server zu verwalten, ist *nicht* Mitglied einer Domäne: 
 
 1. Richten Sie alternative Anmeldeinformationen zur verbindungsherstellung mit dem Server Core-Computer den folgenden Befehl an einer Eingabeaufforderung auf dem Remotecomputer eingeben:
+1. 
    ```
    cmdkey /add:<ServerName> /user:<UserName> /pass:<password>
    ```
+
    Wenn Sie nach einem Kennwort gefragt werden möchten, lassen Sie die **/pass** Option.
 
 2. Geben Sie bei entsprechender Aufforderung das Kennwort für den Benutzernamen ein, die, den Sie angegeben haben.
    Wenn die Firewall auf dem Server Core-Server zum MMC-Snap-ins eine Verbindung herstellen dürfen nicht bereits konfiguriert ist, führen Sie die folgenden Schritte zum Konfigurieren der Windows-Firewall, damit MMC-Snap-in. Fahren Sie mit Schritt 3.
 3. Auf einem anderen Computer, starten Sie ein MMC-Snap-in, z. B. **Computerverwaltung**.
-4. Klicken Sie im linken Bereich mit der rechten Maustaste das Snap-in, und klicken Sie dann auf **Herstellen einer Verbindung mit einem anderen Computer**. (Z. B. in der Computerverwaltung beispielsweise Sie würde mit der rechten Maustaste **Computerverwaltung (lokal)**.)
+4. Klicken Sie im linken Bereich mit der rechten Maustaste das Snap-in, und klicken Sie dann auf **Herstellen einer Verbindung mit einem anderen Computer**. (Z. B. in der Computerverwaltung beispielsweise Sie würde mit der rechten Maustaste **Computerverwaltung (lokal)** .)
 5. In **einem anderen Computer**, geben Sie den Namen des Server Core-Server, und klicken Sie dann auf **OK**. Sie können nun mit dem MMC-Snap-In den Server im Server-Core-Server wie jeden anderen Computer mit einem Windows-Betriebssystem verwalten.
 
 ### <a name="to-configure-windows-firewall-to-allow-mmc-snap-ins-to-connect"></a>So konfigurieren Sie die Windows-Firewall so, dass MMC-Snap-Ins eine Verbindung herstellen dürfen
@@ -120,14 +122,17 @@ Dadurch wird der Remotedesktop für den Verwaltungsmodus zum Akzeptieren von Ver
 Um die Hardware mit einem Server Core-Server hinzuzufügen, befolgen Sie die Anweisungen, die vom Hardwarehersteller zur Installation neuer Hardware aus. 
 
 Wenn die Hardware nicht Plug & Play ist, müssen Sie die Treiber manuell installieren. Hierzu kopieren Sie die Treiberdateien in einen temporären Speicherort auf dem Server, und führen Sie dann den folgenden Befehl aus:
+
 ```
 pnputil –i –a <driverinf>
 ```
+
 Wo *Driverinf* ist der Dateiname der INF-Datei für den Treiber.
 
 Starten Sie den Computer bei entsprechender Aufforderung neu.
 
 Um anzuzeigen, welche Treiber installiert sind, führen Sie den folgenden Befehl aus: 
+
 ```
 sc query type= driver
 ```
@@ -135,7 +140,8 @@ sc query type= driver
 > [!NOTE] 
 > Sie müssen hinter dem Gleichheitszeichen ein Leerzeichen einfügen, damit der Befehl erfolgreich ausgeführt werden kann.
 
-Um einen Gerätetreiber zu deaktivieren, führen Sie die folgenden Schritte aus: 
+Um einen Gerätetreiber zu deaktivieren, führen Sie die folgenden Schritte aus:
+
 ```
 sc delete <service_name>
 ```

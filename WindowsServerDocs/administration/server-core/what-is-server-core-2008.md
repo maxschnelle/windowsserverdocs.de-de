@@ -6,14 +6,14 @@ ms.author: helohr
 ms.date: 11/01/2017
 ms.topic: article
 author: Heidilohr
-ms.openlocfilehash: c1ef71dbc589cfdeac63b46d720c4bdd0a44dbaa
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8d1aaf8b61142155ea7b2a5391367cc677596ebe
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59815401"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435601"
 ---
-#<a name="what-is-server-core-2008"></a>Was ist Server Core 2008?
+# <a name="what-is-server-core-2008"></a>Was ist Server Core 2008?
 >Gilt für: WindowsServer 2008
 
 >[!NOTE]
@@ -24,6 +24,7 @@ Die Server Core-Option wird eine neue Minimalinstallation-Option, die verfügbar
 Bevor wir fortfahren, muss der Ausdruck "Installationsoption" erläutert. Wenn Sie eine Kopie von Windows Server 2008 erwerben, kaufen Sie normalerweise eine Lizenz zur Nutzung von bestimmten Editionen oder die Stock Keeping-Einheiten (SKUs). Tabelle 1: 1 listet die verschiedenen Editionen von Windows Server 2008, die verfügbar sind. Die Tabelle gibt auch an, welche Installationsoptionen (vollständig, Server Core oder beides) für jede Edition verfügbar sind.
 
 **Tabelle 1: 1** Windows Server 2008-Editionen und deren Unterstützung für die Installationsoptionen
+
 | Edition       | Vollständig          | Server Core  |
 | ------------- | :-------------: | :------------: |
 | Windows Server 2008 Standard (X86- und X64)       | X | X        |
@@ -44,14 +45,14 @@ Um zu verstehen, was eine "Installationsoption ist", nehmen wir an, dass Sie ein
 
 In Abbildung 1 – 1, Ihre Volumenlizenzen (oder Product Key für Einzelhandelsmedien) bietet Ihnen zwei Installationsoptionen, Sie zwischen können: die zweite Option (eine vollständige Installation von Windows Server 2008 Enterprise) und die fünfte Option (eine Server Core-Installation von Windows Server 2008 Enterprise), der zweiten Option ausgewählt, die in diesem Beispiel. 
 
-##<a name="full-vs-server-core"></a>Vollständige Visual Studio. Server Core 
+## <a name="full-vs-server-core"></a>Vollständige Visual Studio. Server Core 
 Seit den Anfängen der Microsoft Windows-Plattform, Windows Server wurden im Prinzip "Alles" Servern, die alle Arten von Funktionen enthalten, von denen einige möglicherweise nie in Ihrer Netzwerkumgebung Verwendung. Z. B. bei der Installation von Windows Server 2003 auf einem System wurden die Binärdateien für den Routing- und RAS-Dienst (RRAS) auf dem Server installiert, auch wenn Sie keine Notwendigkeit für diesen Dienst mussten (auch wenn immer noch mussten Sie konfigurieren und Aktivieren von RRAS, bevor sie funktionieren würde). Windows Server 2008 verbessert die frühere Versionen durch Installieren der Binärdateien, die von einer Serverrolle nur erforderlich, wenn Sie dieser spezifischen Rolle auf dem Server installieren möchten. Die vollständige Installationsoption von Windows Server 2008 installiert jedoch noch viele Dienste und andere Komponenten, die für ein bestimmtes Einsatzszenario zugängig häufig nicht erforderlich sind. 
 
 Dies ist der Grund, die Microsoft-erstellt eine zweite Installationsoption – Server Core – für Windows Server 2008: um zu vermeiden, alle Dienste und andere Funktionen, die nicht wichtig sind, für die Unterstützung bestimmter Serverrollen häufig verwendet wird. Beispielsweise kein Domain Name System (DNS)-Server nicht unbedingt darauf installiert werden, da Sie aus einem DNS-Server aus Sicherheitsgründen das Web durchsuchen möchten, wäre nicht von Windows Internet Explorer. Und ein DNS-Server nicht einmal eine grafische Benutzeroberfläche (GUI), da Sie fast alle Aspekte von DNS verwalten können entweder über die Befehlszeile mit dem leistungsfähigen Dnscmd.exe-Befehl aus, oder Remote mithilfe der DNS-Microsoft Management Console (MMC)-Snap-in.
 
 Um dies zu vermeiden, Microsoft entschieden, um alles von Windows Server 2008 zu entfernen, die nicht unbedingt für die Ausführung von Core-Netzwerkdienste wie Active Directory Domain Services (AD DS), DNS, Dynamic Host Configuration-Protokoll (DHCP), Datei, und drucken, war und ein Einige andere Serverrollen. Das Ergebnis ist der neue Server Core-Installationsoption, die verwendet werden kann, um einen Server zu erstellen, der nur eine begrenzte Anzahl von Rollen und Features unterstützt. 
 
-##<a name="the-server-core-gui"></a>Der Server Core-GUI
+## <a name="the-server-core-gui"></a>Der Server Core-GUI
 Wenn Sie fertig sind, installieren Server Core zum ersten Mal auf einem System und anmelden, haben Sie für etwas überrascht. Abbildung 1-2 zeigt die Server Core-Benutzeroberfläche nach der ersten Anmeldung an.
 
 ![Server Core-Benutzeroberfläche](../media/what-is-server-core-2008/Fig1-2.png)
@@ -69,6 +70,7 @@ Sie erfahren mehr zum Konfigurieren und Verwalten von Server Core-Installationen
 Tabelle 1 – 2 listet die wichtigsten GUI-Anwendungen, zusammen mit ihrer ausführbaren Dateien, die in einer Server Core-Installation verfügbar sind.
 
 **Tabelle 1 – 2** GUI-Anwendungen, die in einer Server Core-Installation verfügbar
+
 | GUI-Anwendung | Ausführbare Datei mit dem Pfad |
 | -------------   | -------------       | 
 | Eingabeaufforderung | %WINDIR%\System32\Cmd.exe |
@@ -93,10 +95,11 @@ Das ist eine sehr kurze Liste! Hier ist jetzt eine Liste der Elemente der Benutz
 >[!NOTE]
 >Da Windows PowerShell auf .NET Framework erforderlich ist, wird Sie nicht Windows PowerShell auf Server Core installieren. Sie können jedoch verwalten eine Server Core-Installation Remote mithilfe von Windows PowerShell, sofern Sie nur die PowerShell-WMI-Befehle verwenden.
 
-##<a name="supported-server-roles"></a>Unterstützte Serverrollen 
+## <a name="supported-server-roles"></a>Unterstützte Serverrollen 
 Server Core-Installation umfasst nur eine begrenzte Anzahl von Serverrollen, die im Vergleich zu einer vollständigen Installation von Windows Server 2008. Tabelle 1 bis 3 vergleicht die Rollen für vollständige Installation und Server Core-Installationen von Windows Server 2008 Enterprise Edition verfügbar sind. 
 
 **Tabelle 1 bis 3** Vergleich von Serverrollen für vollständige Installation und Server Core-Installationen von Windows Server 2008 Enterprise Edition
+
 | Serverrolle  | In der Vollversion verfügbar  | In Server Core verfügbar  |
 | ------------- | :-------------: | :------------: |
 | Active Directory-Zertifikatdienste (AD CS)  | X |  |
@@ -124,7 +127,7 @@ Zwar die Rollen für Server Core verfügbar sind in der Regel unabhängig von de
 * Bevor Sie die Streaming-Media Services-Rolle auf Server Core installieren können, müssen Sie aus dem Microsoft Download Center herunterladen und installieren das entsprechende Microsoft eigenständige Updatepaket (MSU-Datei) für Ihr Server Architektur (X86 oder X64).
 * Die Rolle Webserver (IIS) wird ASP.NET nicht unterstützt. Dies ist, da .NET Framework unter Server Core, wodurch eingeschränkt, was Sie tun können, mit einem Server Core-Web-Server, nicht unterstützt wird. 
 
-##<a name="supported-optional-features"></a>Unterstützt optionalen features
+## <a name="supported-optional-features"></a>Unterstützt optionalen features
 Server Core-Installation unterstützt auch nur eine begrenzte Teilmenge der verfügbaren Funktionen auf einer vollständigen Installation von Windows Server 2008. Tabelle 1 – 4 vergleicht die Funktionen, die für die vollständige Installation und Server Core-Installationen von Windows Server 2008 Enterprise Edition verfügbar.
 
 **Tabelle 1 – 4** Vergleich der Funktionen für vollständige Installation und Server Core-Installationen von Windows Server 2008 Enterprise Edition
@@ -171,7 +174,7 @@ In diesem Fall sind einige Punkte müssen Sie wissen, zu die Funktionen, die auf
 * Einige Features erfordern möglicherweise besondere Hardware funktionieren ordnungsgemäß (oder überhaupt) auf Server Core. Zu diesen Funktionen gehören die BitLocker-Laufwerkverschlüsselung, Failover-Clusterunterstützung, Multipfad-e/a, Netzwerklastenausgleich und Wechselmedien. 
 * Es ist nicht verfügbar in Standard Edition, Failover-Clusterunterstützung.
 
-##<a name="server-core-architecture"></a>Server Core-Architektur
+## <a name="server-core-architecture"></a>Server Core-Architektur
 Genauerer Blick auf Server Core, kurz betrachten wir die Architektur von Server Core-Installationen von Windows Server 2008 durch einen Vergleich mit der eine vollständige Installation. Zuerst Denken Sie daran, dass Server Core keine andere Version von Windows Server 2008 jedoch einfach eine Installationsoption, die Sie auswählen können, bei der Installation von Windows Server 2008 auf einem System ist. Dies impliziert Folgendes:
 * Der Kernel auf einer Server Core-Installation ist der gleiche finden Sie auf eine vollständige Installation von der gleichen Hardware-Architektur (X86 oder X64) und die Edition. 
 * Wenn eine Binärdatei auf einer Server Core-Installation vorhanden ist, hat eine vollständige Installation von die gleiche Hardware-Architektur (X86 oder X64) und die Edition die gleiche Version von dieser bestimmten Binärdatei (mit zwei Ausnahmen, die weiter unten erläutert). 
@@ -185,7 +188,7 @@ Das Diagramm veranschaulicht die modulare Architektur von Windows Server 2008 mi
 
 **Abbildung 1 – 3** die Architekturen von Server Core und die vollständige Installation
 
-##<a name="driver-support"></a>Treiberunterstützung
+## <a name="driver-support"></a>Treiberunterstützung
 Architekturdiagramm von Server Core, dargestellt in Abbildung 1 – 3 ist natürlich vereinfacht. eine Sache, die es nicht angezeigt, ist der Unterschied bei der treiberunterstützung Gerät zwischen Server Core und vollständige Installationen. Eine vollständige Installation von Windows Server 2008 enthält Tausende von in-Box-Treiber für verschiedene Arten von Geräten, die Ihnen ermöglichen, installieren Sie Produkte auf einer Vielzahl von verschiedenen Hardwarekonfigurationen. (Client-Betriebssystemen wie Windows Vista enthalten noch mehr Treiber zur Unterstützung von Geräten, z. B. Digitalkameras und Scanner, die normalerweise nicht mit Servern verwendet werden.) 
 
 Wenn ein neues Gerät verbunden ist (oder im installiert) eine vollständige Installation von Windows Server 2008, das Subsystem Plug & Play (PnP) überprüft zuerst, ob ein in-Box-Treiber für das Gerät vorhanden ist. Wenn ein kompatibler mitgelieferten Treiber gefunden wird, an das Plug & Play-Subsystem automatisch installiert, der Treiber und das Gerät und arbeitet. Auf einer vollständigen Installation von Windows Server 2008 kann eine Popup-Sprechblase angezeigt werden, der angibt, dass der Treiber installiert wurde und das Gerät für die Verwendung bereit ist. 
@@ -201,7 +204,7 @@ Auch bei den PnP-Subsystem ein Treibers für ein neues Gerät automatisch instal
 
 Was also können Sie tun, wenn Sie eine Server Core-Installation der Rolle "Druckdienste" hinzu, und Sie einen Drucker installieren möchten? Sie fügen den Druckertreiber manuell hinzu, auf dem Server, Serverkern hat keine in-Box-Druckertreiber.
 
-##<a name="service-footprint"></a>Dienst-Speicherbedarf
+## <a name="service-footprint"></a>Dienst-Speicherbedarf
 Da es sich bei Server Core über eine minimale Installation handelt, hat er einen Geringerer Speicherbedarf Dienst als eine entsprechende vollständige Installation von der gleichen Hardware-Architektur und die Edition. Ungefähr 75 Systemdienste werden z. B. auf einer vollständigen Installation von Windows Server 2008 standardmäßig installiert der ungefähr 50 für den automatischen Start konfiguriert sind. Server Core weist im Gegensatz dazu nur etwa 70 Dienste, die automatisch installiert, standardmäßig und weniger als 40 diese Start auf. 
 
 Tabelle 1 bis 5 werden die Dienste aufgeführt, die auf einer Server Core-Installation mit den Startmodus für standardmäßig installiert sind und Konto, die vom jeweiligen Dienst verwendet.
@@ -211,12 +214,12 @@ Tabelle 1 bis 5 werden die Dienste aufgeführt, die auf einer Server Core-Instal
 | Dienstname  | Anzeigename  | Startmodus  | Konto  |
 | ------------- | ------------- | ------------ | ------------ |
 | AeLookupSvc  | Anwendungskomfort  | Auto | LocalSystem |
-| AppMgmt  | Anwendungsverwaltung  | Manual | LocalSystem |
+| AppMgmt  | Anwendungsverwaltung  | Manuell | LocalSystem |
 | BFE | Basis-Engine-Filterung  | Auto | LocalService |
 | BITS | Intelligenter Hintergrundübertragungsdienst (Background Intelligent Transfer Service, BITS)  | Auto | LocalSystem |
-| Browser | Computer-Browser  | Manual | LocalSystem |
-| CertPropSvc | Zertifikat-Verteilung  | Manual | LocalSystem |
-| COMSysApp  | COM+-Anwendung  | Manual | LocalSystem |
+| Browser | Computer-Browser  | Manuell | LocalSystem |
+| CertPropSvc | Zertifikat-Verteilung  | Manuell | LocalSystem |
+| COMSysApp  | COM+-Anwendung  | Manuell | LocalSystem |
 | CryptSvc  | Kryptografische Dienste  | Auto | Netzwerk-Dienst |
 | DcomLaunch  | DCOM-Prozess-Startprogramm  | Auto | LocalSystem |
 | Dhcp  | DHCP-Client  | Auto | LocalService |
@@ -224,59 +227,59 @@ Tabelle 1 bis 5 werden die Dienste aufgeführt, die auf einer Server Core-Instal
 | DPS  | Diagnostic Policy-Dienst  | Auto | LocalService |
 | Ereignisprotokoll | Windows-Ereignisprotokoll  | Auto | LocalService |
 | EventSystem  | COM+-Ereignissystem  | Auto | LocalService |
-| FCRegSvc  | Microsoft Fibre Channel-Plattform-Geräteregistrierungsdienst  | Manual | LocalService |
+| FCRegSvc  | Microsoft Fibre Channel-Plattform-Geräteregistrierungsdienst  | Manuell | LocalService |
 | gpsvc  | Gruppenrichtlinienclient  | Auto | LocalSystem |
-| hidserv | Zugriff auf Eingabegeräte  | Manual | LocalSystem |
-| hkmsvc  | Integritätsdienst-Schlüssel und Zertifikate verwalten  | Manual | LocalSystem |
+| hidserv | Zugriff auf Eingabegeräte  | Manuell | LocalSystem |
+| hkmsvc  | Integritätsdienst-Schlüssel und Zertifikate verwalten  | Manuell | LocalSystem |
 | IKEEXT  | IKE- und AuthIP IPsec-Schlüsselerstellungsmodule  | Auto | LocalSystem |
 | iphlpsvc  | IP-Hilfsprogramm  | Auto | LocalSystem |
-| KeyIso | CNG-Schlüssel-Isolation  | Manual | LocalSystem |
+| KeyIso | CNG-Schlüssel-Isolation  | Manuell | LocalSystem |
 | KtmRm  | KtmRm für Distributed Transaction Coordinator  | Auto | Netzwerk-Dienst |
 | LanmanServer  | Server  | Auto | LocalSystem |
 | LanmanWorkstation  | Workstatione  | Auto | LocalService |
-| lltdsvc  | Zuordnung für Verbindungsschicht-Topologie  | Manual | LocalService |
+| lltdsvc  | Zuordnung für Verbindungsschicht-Topologie  | Manuell | LocalService |
 | lmhosts  | TCP/IP-NetBIOS-Hilfsprogramm  | Auto | LocalService |
 | MpsSvc  | Windows-Firewall  | Auto | LocalService |
 | MSDTC  | Distributed Transaction Coordinator  | Auto | Netzwerk-Dienst |
-| MSiSCSI  | Microsoft iSCSI-Initiator-Dienst  | Manual | LocalSystem |
-| MSIServer  | Windows Installer  | Manual | LocalSystem |
-| napagent  | Netzwerkzugriffsschutz-Agent  | Manual | Netzwerk-Dienst |
-| Netlogon  | Netlogon  | Manual | LocalSystem |
+| MSiSCSI  | Microsoft iSCSI-Initiator-Dienst  | Manuell | LocalSystem |
+| MSIServer  | Windows Installer  | Manuell | LocalSystem |
+| napagent  | Netzwerkzugriffsschutz-Agent  | Manuell | Netzwerk-Dienst |
+| Netlogon  | Netlogon  | Manuell | LocalSystem |
 | netprofm  | Netzwerklistendienst  | Auto | LocalService |
 | NlaSvc  | Network Location Awareness  | Auto | Netzwerk-Dienst |
 | nsi  | Network Store Interface-Dienst  | Auto | LocalService |
-| PLA  | Leistungsprotokolle und Warnungen  | Manual | LocalService |
+| PLA  | Leistungsprotokolle und Warnungen  | Manuell | LocalService |
 | PlugPlay  | Plug & Play  | Auto | LocalSystem |
 | PolicyAgent  | IPsec-Richtlinien-Agent  | Auto | Netzwerk-Dienst |
 | ProfSvc  | Benutzerprofildienst  | Auto | LocalSystem |
-| ProtectedStorage  | Geschützten Speicher  | Manual | LocalSystem |
+| ProtectedStorage  | Geschützten Speicher  | Manuell | LocalSystem |
 | RemoteRegistry  | Remoteregistrierung  | Auto | LocalService |
 | RpcSs  | Remoteprozeduraufruf (RPC)  | Auto | Netzwerk-Dienst |
-| RSoPProv | Richtlinienergebnissatz-Richtlinienanbieter  | Manual | LocalSystem |
-| Sacsvr  | Hilfsprogramm für spezielle Verwaltungskonsole  | Manual | LocalSystem |
+| RSoPProv | Richtlinienergebnissatz-Richtlinienanbieter  | Manuell | LocalSystem |
+| Sacsvr  | Hilfsprogramm für spezielle Verwaltungskonsole  | Manuell | LocalSystem |
 | SamSs  | Sicherheitskonten-Manager  | Auto | LocalSystem |
-| SCardSvr | Smartcard  | Manual | LocalService |
+| SCardSvr | Smartcard  | Manuell | LocalService |
 | Zeitplan | Aufgabenplanung  | Auto | LocalSystem |
-| SCPolicySvc | Entfernen des Smartcard-Richtlinie  | Manual | LocalSystem |
+| SCPolicySvc | Entfernen des Smartcard-Richtlinie  | Manuell | LocalSystem |
 | Seclogon | Sekundäre Anmeldung  | Auto | LocalSystem |
 | SENS | Benachrichtigungsdienst für Systemereignisse  | Auto | LocalSystem |
-| SessionEnv | Terminaldienstekonfiguration  | Manual | LocalSystem |
+| SessionEnv | Terminaldienstekonfiguration  | Manuell | LocalSystem |
 | slsvc  | Softwarelizenzierung | Auto | Netzwerk-Dienst |
-| SNMPTRAP  | SNMP-Trap  | Manual | LocalService |
-| swprv  | Microsoft Software Schattenkopieanbieter | Manual | LocalSystem |
-| TBS | TPM-Basisdienste  | Manual | LocalService |
+| SNMPTRAP  | SNMP-Trap  | Manuell | LocalService |
+| swprv  | Microsoft Software Schattenkopieanbieter | Manuell | LocalSystem |
+| TBS | TPM-Basisdienste  | Manuell | LocalService |
 | TermService  | Terminaldienste | Auto | Netzwerk-Dienst |
 | TrustedInstaller | Windows-Modulinstallation  | Auto | LocalSystem |
-| UmRdpService | Anschlussumleitung für Terminaldienst-Redirector  | Manual | LocalSystem |
-| vds | Virtuelles Laufwerk  | Manual | LocalSystem |
-| VSS | Volumeschattenkopie-Dienst  | Manual | LocalSystem |
+| UmRdpService | Anschlussumleitung für Terminaldienst-Redirector  | Manuell | LocalSystem |
+| vds | Virtuelles Laufwerk  | Manuell | LocalSystem |
+| VSS | Volumeschattenkopie-Dienst  | Manuell | LocalSystem |
 | W32Time | Windows-Zeitdienst  | Auto | LocalService |
-| WcsPlugInService  | Windows-Farbsystem  | Manual | LocalService |
-| WdiServiceHost  | Diagnose-Diensthost  | Manual | LocalService |
-| WdiSystemHost  | Diagnosesystem-Host  | Manual | LocalSystem |
-| Wecsvc | Windows-Ereignissammlung  | Manual | Netzwerk-Dienst |
+| WcsPlugInService  | Windows-Farbsystem  | Manuell | LocalService |
+| WdiServiceHost  | Diagnose-Diensthost  | Manuell | LocalService |
+| WdiSystemHost  | Diagnosesystem-Host  | Manuell | LocalSystem |
+| Wecsvc | Windows-Ereignissammlung  | Manuell | Netzwerk-Dienst |
 | WinHttpAuto-ProxySvc  | WinHTTP-Web Proxy Auto-Discovery-Dienst  | Auto | LocalService |
 | Winmgmt | Windows-Verwaltungsinstrumentation | Auto | LocalSystem |
 | WinRM  | Windows-Remoteverwaltung (WS-Management) | Auto | Netzwerk-Dienst |
-| wmiApSrv  | WMI-Leistungsadapter  | Manual | LocalSystem |
+| wmiApSrv  | WMI-Leistungsadapter  | Manuell | LocalSystem |
 | wuauserv | Windows Update | Auto | LocalSystem |

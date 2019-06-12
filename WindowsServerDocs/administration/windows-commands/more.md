@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d4957f9455c6caed027331a939db0c2fefbe1961
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 93ba6c696c509ea20ffe8f680d4416d24d202b89
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857571"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66437315"
 ---
 # <a name="more"></a>more
 
@@ -38,17 +38,17 @@ more [/c] [/p] [/s] [/t<N>] [+<N>] [<Files>]
 
 ## <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|\<Befehl >|Gibt einen Befehl für den in der Ausgabe angezeigt werden sollen.|
-|/c|Löscht den Bildschirm vor der Anzeige einer Seite an.|
-|/p|Wird erweitert, Zeichen.|
-|/s|Zeigt mehrere leere Zeilen als einzelne Zeile leer.|
-|/t\<N>|Werden Registerkarten angezeigt wird, als die angegebene Anzahl von Leerzeichen durch *N*.|
-|+\<N>|Zeigt den Anfang der ersten Datei in der Zeile, die anhand des *N*.|
-|[\<Drive>:] [<Path>]<FileName>|Gibt den Speicherort und Namen einer Datei angezeigt.|
-|\<Dateien >|Gibt eine Liste der Dateien angezeigt. Trennen Sie Namen durch ein Leerzeichen ein.|
-|/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
+|           Parameter            |                               Beschreibung                               |
+|--------------------------------|-------------------------------------------------------------------------|
+|           \<Befehl >           |      Gibt einen Befehl für den in der Ausgabe angezeigt werden sollen.      |
+|               /c               |               Löscht den Bildschirm vor der Anzeige einer Seite an.               |
+|               /p               |                      Wird erweitert, Zeichen.                      |
+|               /s               |          Zeigt mehrere leere Zeilen als einzelne Zeile leer.          |
+|             /t\<N>             |         Werden Registerkarten angezeigt wird, als die angegebene Anzahl von Leerzeichen durch *N*.         |
+|             +\<N>              |     Zeigt den Anfang der ersten Datei in der Zeile, die anhand des *N*.     |
+| [\<Drive>:] [<Path>]<FileName> |          Gibt den Speicherort und Namen einer Datei angezeigt.          |
+|            \<Dateien >            | Gibt eine Liste der Dateien angezeigt. Trennen Sie Namen durch ein Leerzeichen ein. |
+|               /?               |                  Zeigt die Hilfe an der Eingabeaufforderung an.                   |
 
 ## <a name="remarks"></a>Hinweise
 
@@ -63,7 +63,7 @@ more [/c] [/p] [/s] [/t<N>] [+<N>] [<Files>]
     |p \<N>|Zeigt die nächste *N* Zeilen.|
     |s \<N>|Überspringt die nächste *N* Zeilen.|
     |?|Zeigt die Befehle, die unter der **weitere** Eingabeaufforderung.|
-– Wenn Sie das Umleitungszeichen verwenden (**<**), müssen Sie einen Dateinamen als Quelle angeben. Wenn Sie die Pipe zu verwenden (**|*), können Sie diese Befehle als **Dir**, **Sortierreihenfolge**, und **Typ**.
+– Wenn Sie das Umleitungszeichen verwenden ( **<** ), müssen Sie einen Dateinamen als Quelle angeben. Wenn Sie die Pipe zu verwenden (**|*), können Sie diese Befehle als **Dir**, **Sortierreihenfolge**, und **Typ**.
 -   Die **weitere** -Befehl, mit verschiedenen Parametern finden Sie in der Wiederherstellungskonsole.
 
 ## <a name="BKMK_examples"></a>Beispiele für
@@ -92,26 +92,26 @@ Die **weitere** Befehl zeigt den ersten Bildschirm von Informationen aus dem Kun
 ### <a name="using-more-subcommands"></a>Verwenden mehrere Unterbefehle
 
 In den folgenden Beispielen können verwendet werden, auf die **weitere** Eingabeaufforderung (`-- More --`).
--   Um die Datei eine Zeile zu einem Zeitpunkt anzuzeigen, drücken Sie die EINGABETASTE auf der **weitere** Eingabeaufforderung.
--   Drücken Sie die LEERTASTE an, um dem nächsten Bildschirm anzuzeigen, die **weitere** Eingabeaufforderung.
--   Geben Sie zum Anzeigen der nächsten Datei aufgeführt, die in der Befehlszeile **f** an die **weitere** Eingabeaufforderung.
--   Geben Sie zum Anzeigen der verfügbaren Befehle **?** auf der **weitere** Eingabeaufforderung.
--   Um den Vorgang abzubrechen **weitere**, Typ **q** an die **weitere** Eingabeaufforderung.
--   Um die aktuelle Zeilennummer anzuzeigen, geben **=** an die **weitere** Eingabeaufforderung. Die aktuelle Zeilennummer wird hinzugefügt, um die **weitere** Eingabeaufforderung wie folgt:  
-    ```
-    -- More [Line: 24] --
-    ```  
--   Geben Sie zum Anzeigen einer bestimmten Anzahl von Zeilen **p** an die **weitere** Eingabeaufforderung. **Weitere** aufgefordert, für die Anzahl der Zeilen, die wie folgt angezeigt:  
-    ```
-    -- More -- Lines:
-    ```  
-    Geben Sie die Anzahl der anzuzeigenden Zeilen an, und drücken Sie dann die EINGABETASTE. **Weitere** zeigt die angegebene Anzahl von Zeilen.
--   Um eine bestimmte Anzahl von Zeilen zu überspringen, geben Sie **s** an die **weitere** Eingabeaufforderung. **Weitere** aufgefordert, für die Anzahl der Zeilen, die wie folgt überspringen:  
-    ```
-    -- More -- Lines:
-    ```  
-    Geben Sie die Anzahl der zu überspringenden Zeilen an, und drücken Sie dann die EINGABETASTE. **Weitere** überspringt die angegebene Anzahl von Zeilen und den nächsten Bildschirm des Informationen angezeigt.
+- Um die Datei eine Zeile zu einem Zeitpunkt anzuzeigen, drücken Sie die EINGABETASTE auf der **weitere** Eingabeaufforderung.
+- Drücken Sie die LEERTASTE an, um dem nächsten Bildschirm anzuzeigen, die **weitere** Eingabeaufforderung.
+- Geben Sie zum Anzeigen der nächsten Datei aufgeführt, die in der Befehlszeile **f** an die **weitere** Eingabeaufforderung.
+- Geben Sie zum Anzeigen der verfügbaren Befehle **?** auf der **weitere** Eingabeaufforderung.
+- Um den Vorgang abzubrechen **weitere**, Typ **q** an die **weitere** Eingabeaufforderung.
+- Um die aktuelle Zeilennummer anzuzeigen, geben **=** an die **weitere** Eingabeaufforderung. Die aktuelle Zeilennummer wird hinzugefügt, um die **weitere** Eingabeaufforderung wie folgt:  
+  ```
+  -- More [Line: 24] --
+  ```  
+- Geben Sie zum Anzeigen einer bestimmten Anzahl von Zeilen **p** an die **weitere** Eingabeaufforderung. **Weitere** aufgefordert, für die Anzahl der Zeilen, die wie folgt angezeigt:  
+  ```
+  -- More -- Lines:
+  ```  
+  Geben Sie die Anzahl der anzuzeigenden Zeilen an, und drücken Sie dann die EINGABETASTE. **Weitere** zeigt die angegebene Anzahl von Zeilen.
+- Um eine bestimmte Anzahl von Zeilen zu überspringen, geben Sie **s** an die **weitere** Eingabeaufforderung. **Weitere** aufgefordert, für die Anzahl der Zeilen, die wie folgt überspringen:  
+  ```
+  -- More -- Lines:
+  ```  
+  Geben Sie die Anzahl der zu überspringenden Zeilen an, und drücken Sie dann die EINGABETASTE. **Weitere** überspringt die angegebene Anzahl von Zeilen und den nächsten Bildschirm des Informationen angezeigt.
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

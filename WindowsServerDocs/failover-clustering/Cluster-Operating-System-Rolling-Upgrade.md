@@ -7,16 +7,16 @@ ms.assetid: 6e102c1f-df26-4eaa-bc7a-d0d55d3b82d5
 author: jasongerend
 ms.author: jgerend
 ms.date: 03/27/2018
-ms.openlocfilehash: 60dacf63f1a355b961f84169060dbd7122a6fd32
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f56c036768de7c1afcf3327135a7ff7d7a690a8b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842731"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440143"
 ---
 # <a name="cluster-operating-system-rolling-upgrade"></a>Cluster Upgrades des clusterbetriebssystems
 
-> Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+> Gilt für: Windows Server 2019, Windows Server 2016
 
 Cluster OS Rolling Upgrade kann ein Administrator das Betriebssystem der Clusterknoten zu aktualisieren, ohne Unterbrechung von Hyper-V oder Workloads des Dateiservers für horizontales Skalieren. Mit diesem Feature können die Downtimesanktionen laut Vereinbarungen zum Servicelevel (Service Level Agreements, SLA) vermieden werden.
 
@@ -226,12 +226,12 @@ Cluster OS Rolling Upgrade umfasst die folgenden Schritte aus:
         ![Abbildung mit der Ausgabe des Cmdlets Get-VMHostSupportedVersion](media/Cluster-Operating-System-Rolling-Upgrade/Clustering_GetVMHostSupportVersion.png)  
         **Abbildung 21: Anzeigen der Hyper-V-VM-Konfiguration-Versionen, die vom Host unterstützt werden**  
 
-   3.  Auf jedem Hyper-V-Host-Knoten im Cluster, Hyper-V-VM-Konfiguration-Version aktualisiert werden können, indem Planung eines Wartungsfensters für kurze mit Benutzern, sichern, deaktivieren virtuelle Computer und Ausführen der [ `Update-VMVersion` ](https://docs.microsoft.com/powershell/module/hyper-v/Update-VMVersion?view=win10-ps) Cmdlet (Siehe (Abbildung 22). Dadurch werden die VM-Version aktualisieren und neue Hyper-V-Funktionen, die beseitigt die Notwendigkeit von zukünftigen Updates von Hyper-V-Integration-Komponente (IC) aktivieren. Dieses Cmdlet kann über die Hyper-V-Knoten, der den virtuellen Computer hostet ausgeführt werden oder die `-ComputerName` Parameter kann verwendet werden, um die VM-Version zu aktualisieren, per Remotezugriff. In diesem Beispiel aktualisieren Sie hier wir die Version der Konfiguration von VM1 5.0 auf 7.0 profitieren von vielen neuen Hyper-V-Features, die mit dieser Version des VM-Konfiguration wie z. B. Produktionsprüfpunkte (anwendungskonsistente Sicherungen) und binäre VM verknüpft ist die Konfigurationsdatei.  
+   3. Auf jedem Hyper-V-Host-Knoten im Cluster, Hyper-V-VM-Konfiguration-Version aktualisiert werden können, indem Planung eines Wartungsfensters für kurze mit Benutzern, sichern, deaktivieren virtuelle Computer und Ausführen der [ `Update-VMVersion` ](https://docs.microsoft.com/powershell/module/hyper-v/Update-VMVersion?view=win10-ps) Cmdlet (Siehe (Abbildung 22). Dadurch werden die VM-Version aktualisieren und neue Hyper-V-Funktionen, die beseitigt die Notwendigkeit von zukünftigen Updates von Hyper-V-Integration-Komponente (IC) aktivieren. Dieses Cmdlet kann über die Hyper-V-Knoten, der den virtuellen Computer hostet ausgeführt werden oder die `-ComputerName` Parameter kann verwendet werden, um die VM-Version zu aktualisieren, per Remotezugriff. In diesem Beispiel aktualisieren Sie hier wir die Version der Konfiguration von VM1 5.0 auf 7.0 profitieren von vielen neuen Hyper-V-Features, die mit dieser Version des VM-Konfiguration wie z. B. Produktionsprüfpunkte (anwendungskonsistente Sicherungen) und binäre VM verknüpft ist die Konfigurationsdatei.  
 
-        ![Abbildung zeigt das Cmdlet Update-VMVersion in Aktion](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_StopVM.png)  
-        **Abbildung 22: Aktualisieren Sie eine VM-Version, die mithilfe der Update-VMVersion-PowerShell-Cmdlets**  
+       ![Abbildung zeigt das Cmdlet Update-VMVersion in Aktion](media/Cluster-Operating-System-Rolling-Upgrade/Cluster_RollingUpgrade_StopVM.png)  
+       **Abbildung 22: Aktualisieren Sie eine VM-Version, die mithilfe der Update-VMVersion-PowerShell-Cmdlets**  
 
-4.  Speicherpools können aktualisiert werden, mithilfe der [Update-StoragePool](https://docs.microsoft.com/powershell/module/storage/Update-StoragePool?view=win10-ps) PowerShell-Cmdlets – Dies ist ein Onlinevorgang.  
+6. Speicherpools können aktualisiert werden, mithilfe der [Update-StoragePool](https://docs.microsoft.com/powershell/module/storage/Update-StoragePool?view=win10-ps) PowerShell-Cmdlets – Dies ist ein Onlinevorgang.  
 
 Obwohl wir Private Cloud-Szenarien, insbesondere Hyper-V als Ziel dient, und Scale-Out File Server-Cluster, die ohne Ausfallzeiten, den Prozess Cluster OS Rolling Upgrade aktualisiert werden können, die für eine Clusterrolle verwendet werden können.  
 
@@ -278,6 +278,6 @@ Obwohl wir Private Cloud-Szenarien, insbesondere Hyper-V als Ziel dient, und Sca
     Ja, können Sie die Verwendung von VMM in System Center 2016 Cluster OS Rolling Upgrade-Prozess automatisieren.  
 
 ## <a name="see-also"></a>Siehe auch  
--   [Anmerkungen zu dieser Version: Wichtige Probleme in WindowsServer 2016](../get-started/Release-Notes--Important-Issues-in-Windows-Server-2016-Technical-Preview.md)  
--   [Was ist neu in WindowsServer 2016](../get-started/What-s-New-in-windows-server-2016.md)  
+-   [Versionshinweise: Wichtige Probleme in Windows Server 2016](../get-started/Release-Notes--Important-Issues-in-Windows-Server-2016-Technical-Preview.md)  
+-   [Neuerungen in Windows Server 2016](../get-started/What-s-New-in-windows-server-2016.md)  
 -   [Neues beim Failoverclustering in WindowsServer](whats-new-in-failover-clustering.md)  

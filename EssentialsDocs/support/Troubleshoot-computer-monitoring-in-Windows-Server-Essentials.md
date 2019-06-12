@@ -12,12 +12,12 @@ ms.assetid: f1e6b377-4a24-4d28-9b25-05910914826b
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 72fe309e0e7ce6d7227cce8b7f2c5dbf018eb4a1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1adf8ae2dd8763d0bc5a514609bb2470de6acde4
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813091"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436071"
 ---
 # <a name="troubleshoot-computer-monitoring-in-windows-server-essentials"></a>Problembehandlung für das Überwachen der Computer in Windows Server Essentials
 
@@ -36,13 +36,13 @@ Dieses Thema enthält die Problembehandlung für Probleme beim Überwachen des I
   
  **Ursache** Dieser Fehler kann aufgrund eines der folgenden Probleme in den Einstellungen für Benachrichtigungen auftreten:  
   
--   Ein falscher SMTP-Server-Name oder eine falsche Portnummer.  
+- Ein falscher SMTP-Server-Name oder eine falsche Portnummer.  
   
--   Es wurde fälschlicherweise angegeben, dass für den SMTP-Server eine einzelne Sockets Layer (SSL)-Verbindung erforderlich ist.  
+- Es wurde fälschlicherweise angegeben, dass für den SMTP-Server eine einzelne Sockets Layer (SSL)-Verbindung erforderlich ist.  
   
--   Für den SMTP-Server ist eine Authentifizierung erforderlich und es wurden falsche Anmeldeinformationen eingegeben .  
+- Für den SMTP-Server ist eine Authentifizierung erforderlich und es wurden falsche Anmeldeinformationen eingegeben .  
   
- **Lösungen** Korrigieren Sie alle Fehler in den Einstellungen der E-Mail-Benachrichtigung.  
+  **Lösungen** Korrigieren Sie alle Fehler in den Einstellungen der E-Mail-Benachrichtigung.  
   
 ##### <a name="to-identify-issues-in-your-email-notification-settings"></a>Ermitteln von Problemen in den Einstellungen der E-Mail-Benachrichtigung  
   
@@ -53,7 +53,7 @@ Dieses Thema enthält die Problembehandlung für Probleme beim Überwachen des I
      %ProgramData%\Microsoft\Windows Server\Logs\SharedServiceHost-AlertServiceConfig.log  
   
     > [!TIP]
-    >  Um den ProgramData-Ordner anzuzeigen, müssen Sie ausgeblendeten Elemente angezeigt werden. Wenn Sie Ich möchte den ProgramData-Ordner auf dem Menüband s angezeigt **Ansicht** Registerkarte die **ein-/ausblenden** Gruppe, und wählen die **ausgeblendete Elemente** Textfeld.  
+    >  Um den ProgramData-Ordner anzuzeigen, müssen Sie ausgeblendeten Elemente angezeigt werden. Wenn den ProgramData-Ordner nicht auf dem Menüband der angezeigt wird **Ansicht** Registerkarte die **ein-/ausblenden** Gruppe, und wählen die **ausgeblendete Elemente** Textfeld.  
   
 ##### <a name="to-update-your-email-notification-setup-for-alerts"></a>Aktualisieren Ihres E-Mail-Benachrichtigungssetups für Warnungen  
   

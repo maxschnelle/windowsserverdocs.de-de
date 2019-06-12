@@ -12,12 +12,12 @@ ms.assetid: d9f18b29-8e03-439e-bdf0-1dac5e4f70c5
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 1545189732194ad5c0aba401f834b0102799e016
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e5bcdd58f4d88f7a555151d755bf427ecc9b5108
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890191"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432998"
 ---
 # <a name="demote-and-remove-the-source-server-from-the-new-windows-server-essentials-network1"></a>Tieferstufen Sie und entfernen Sie den Quellserver aus der neuen Windows Server Essentials-network1
 
@@ -50,32 +50,32 @@ Nach Abschluss der Installation von Windows Server Essentials aus, und Sie die A
 ###  <a name="BKMK_UninstallExchangeServer2003"></a> Deinstallieren von Exchange Server 2003  
   
 > [!IMPORTANT]
->  Wenn Sie nach dem Verschieben von Postfächern auf den Zielserver und vor der Deinstallation von Exchange Server 2003 vom Quellserver Benutzerkonten hinzufügen, werden die Postfächer auf dem Quellserver hinzugefügt. Dies ist entwurfsbedingt. Sie müssen  die Postfächer auf den Zielserver für alle Benutzerkonten, die während dieser Zeit hinzugefügt werden, verschieben. Wiederholen Sie die Anweisungen im Exchange Server Postfächer verschieben und die Einstellungen für die Windows Server Essentials-Migration, vor der Deinstallation von Exchange Server 2003.  
+>  Wenn Sie nach dem Verschieben von Postfächern auf den Zielserver und vor der Deinstallation von Exchange Server 2003 vom Quellserver Benutzerkonten hinzufügen, werden die Postfächer auf dem Quellserver hinzugefügt. Dies ist beabsichtigt. Sie müssen  die Postfächer auf den Zielserver für alle Benutzerkonten, die während dieser Zeit hinzugefügt werden, verschieben. Wiederholen Sie die Anweisungen im Exchange Server Postfächer verschieben und die Einstellungen für die Windows Server Essentials-Migration, vor der Deinstallation von Exchange Server 2003.  
   
  Sie müssen Exchange Server 2003 vom Quellserver deinstallieren, bevor Sie ihn tiefer stufen. Dies entfernt alle Verweise in Active Directory Domain Services (AD DS) mit Exchange-Server, auf dem Quellserver. Sie benötigen die Windows Small Business Server 2003-Medien, um Exchange Server 2003 entfernen.  
   
 ##### <a name="to-uninstall-exchange-server-2003-from-the-source-server"></a>So deinstallieren Sie Exchange Server 2003 vom Quellserver  
   
-1.  Melden Sie sich am zweiten Server als Administrator an.  
+1. Melden Sie sich am zweiten Server als Administrator an.  
   
-2.  Klicken Sie auf **Start**, klicken Sie auf **Systemsteuerung**, und klicken Sie dann auf **Programme hinzufügen oder entfernen**.  
+2. Klicken Sie auf **Start**, klicken Sie auf **Systemsteuerung**, und klicken Sie dann auf **Programme hinzufügen oder entfernen**.  
   
-3.  Wählen Sie in der Liste der Programme, **Windows Small Business Server 2003**, und klicken Sie dann auf **Ändern/Entfernen**.  
+3. Wählen Sie in der Liste der Programme, **Windows Small Business Server 2003**, und klicken Sie dann auf **Ändern/Entfernen**.  
   
-4.  Klicken Sie im Setup-Assistenten auf **Weiter**, bis die Seite **Auswahl der Komponenten** angezeigt wird.  
+4. Klicken Sie im Setup-Assistenten auf **Weiter**, bis die Seite **Auswahl der Komponenten** angezeigt wird.  
   
-5.  Erweitern Sie auf der Seite Auswahl der Komponenten **Exchange Server** und wählen Sie dann **Entfernen**.  
+5. Erweitern Sie auf der Seite Auswahl der Komponenten **Exchange Server** und wählen Sie dann **Entfernen**.  
   
-    > [!NOTE]
+   > [!NOTE]
+   > 
+   >  Exchange-Server überprüft, um sicherzustellen, dass keine Postfächer oder Öffentlichen Ordner auf dem Server vorhanden sind. Wenn irgendwelche Daten verbleiben, wird eine Fehlermeldung angezeigt, wenn Sie auf **Entfernen** klicken. Um dieses Problem zu vermeiden, stellen Sie sicher, dass Sie alle Verfahren im Thema abgeschlossen haben [Verschieben von SBS 2003-Einstellungen und Daten auf den Zielserver](Move-Windows-SBS-2003-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md).  
+   > 
+   >  Exchange-Server überprüft, um sicherzustellen, dass keine Postfächer oder Öffentlichen Ordner auf dem Server vorhanden sind. Wenn irgendwelche Daten verbleiben, wird eine Fehlermeldung angezeigt, wenn Sie auf **Entfernen** klicken. Um dieses Problem zu vermeiden, stellen Sie sicher, dass Sie alle Verfahren im Thema abgeschlossen haben [Verschieben von SBS 2003-Einstellungen und Daten auf den Zielserver](../migrate/Move-Windows-SBS-2003-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md).  
 
-    >  Exchange-Server überprüft, um sicherzustellen, dass keine Postfächer oder Öffentlichen Ordner auf dem Server vorhanden sind. Wenn irgendwelche Daten verbleiben, wird eine Fehlermeldung angezeigt, wenn Sie auf **Entfernen** klicken. Um dieses Problem zu vermeiden, stellen Sie sicher, dass Sie alle Verfahren im Thema abgeschlossen haben [Verschieben von SBS 2003-Einstellungen und Daten auf den Zielserver](Move-Windows-SBS-2003-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md).  
-
-    >  Exchange-Server überprüft, um sicherzustellen, dass keine Postfächer oder Öffentlichen Ordner auf dem Server vorhanden sind. Wenn irgendwelche Daten verbleiben, wird eine Fehlermeldung angezeigt, wenn Sie auf **Entfernen** klicken. Um dieses Problem zu vermeiden, stellen Sie sicher, dass Sie alle Verfahren im Thema abgeschlossen haben [Verschieben von SBS 2003-Einstellungen und Daten auf den Zielserver](../migrate/Move-Windows-SBS-2003-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md).  
-
   
-6.  Klicken Sie auf **Weiter**.  
+6. Klicken Sie auf **Weiter**.  
   
-7.  Wenn Sie aufgefordert werden, Windows Small Business Server 2003-CD #3 eingefügt, und führen Sie die Anweisungen auf dem Bildschirm.  
+7. Wenn Sie aufgefordert werden, Windows Small Business Server 2003-CD #3 eingefügt, und führen Sie die Anweisungen auf dem Bildschirm.  
   
 ###  <a name="BKMK_PhysicallyDisconnect"></a> Trennen Sie die Verbindung, die direkt auf dem Quellserver verbunden sind  
  Bevor Sie den Quellserver tiefer stufen, trennen Sie physisch alle Drucker, die direkt mit dem Quellserver verbunden sind und über den Quellserver freigegeben werden. Stellen Sie sicher, dass keine Active Directory-Objekte für den Drucker, die direkt mit dem Quellserver verbunden waren, verbleiben. Die Drucker können direkt auf dem Zielserver verbunden und werden freigegeben, die von Windows Server Essentials.  
@@ -98,22 +98,22 @@ Nach Abschluss der Installation von Windows Server Essentials aus, und Sie die A
   
 ##### <a name="to-demote-the-source-server"></a>Den Quellserver tiefer stufen  
   
-1.  Klicken Sie auf dem Quellserver auf **Start**, klicken Sie auf **Ausführen**, geben Sie **dcpromo** ein und klicken Sie dann auf **OK**.  
+1. Klicken Sie auf dem Quellserver auf **Start**, klicken Sie auf **Ausführen**, geben Sie **dcpromo** ein und klicken Sie dann auf **OK**.  
   
-2.  Klicken Sie zweimal auf **Weiter** .  
+2. Klicken Sie zweimal auf **Weiter** .  
   
-    > [!NOTE]
-    >  Wählen Sie **Dieser Server ist der letzte Domänencontroller in der Domäne** nicht aus.  
+   > [!NOTE]
+   >  Wählen Sie **Dieser Server ist der letzte Domänencontroller in der Domäne** nicht aus.  
   
-3.  Geben Sie ein Kennwort für das neue Administratorkonto auf dem Server ein und klicken Sie dann auf **Weiter**.  
+3. Geben Sie ein Kennwort für das neue Administratorkonto auf dem Server ein und klicken Sie dann auf **Weiter**.  
   
-4.  In der **Zusammenfassung** im Dialogfeld werden Sie darüber informiert, dass AD DS vom Computer entfernt wird und der Server ein Mitglied der Domäne werden soll. Klicken Sie auf **Weiter**.  
+4. In der **Zusammenfassung** im Dialogfeld werden Sie darüber informiert, dass AD DS vom Computer entfernt wird und der Server ein Mitglied der Domäne werden soll. Klicken Sie auf **Weiter**.  
   
-5.  Klicken Sie auf **Fertig stellen**. Der Quellserver wird neu gestartet.  
+5. Klicken Sie auf **Fertig stellen**. Der Quellserver wird neu gestartet.  
   
-6.  Fügen Sie nach dem Neustart des Quellservers den Quellserver als Mitglied einer Arbeitsgruppe hinzu, bevor Sie seine Verbindung vom Netzwerk trennen.  
+6. Fügen Sie nach dem Neustart des Quellservers den Quellserver als Mitglied einer Arbeitsgruppe hinzu, bevor Sie seine Verbindung vom Netzwerk trennen.  
   
- Nachdem Sie den Quellserver als Mitglied einer Arbeitsgruppe hinzufügen und ihn vom Netzwerk trennen, müssen Sie es aus dem AD DS auf dem Zielserver entfernen.  
+   Nachdem Sie den Quellserver als Mitglied einer Arbeitsgruppe hinzufügen und ihn vom Netzwerk trennen, müssen Sie es aus dem AD DS auf dem Zielserver entfernen.  
   
 ##### <a name="to-remove-the-source-server-from-active-directory"></a>So entfernen den Quellserver aus Active Directory  
   
@@ -128,9 +128,9 @@ Nach Abschluss der Installation von Windows Server Essentials aus, und Sie die A
 ###  <a name="BKMK_MoveTheDHCPRole"></a> Verschieben Sie die DHCP-Serverrolle vom Quellserver auf den router  
   
 > [!NOTE]
-
+> 
 >  Wenn Sie diese Aufgabe bereits vor Beginn des Migrationsprozesses durchgeführt haben, fahren Sie mit Abschnitt [Entfernen und Wiederverwenden des Quellservers](Demote-and-remove-the-Source-Server-from-the-new-Windows-Server-Essentials-network.md#BKMK_RemoveTheSourceServer) fort.  
-
+> 
 >  Wenn Sie diese Aufgabe bereits vor Beginn des Migrationsprozesses durchgeführt haben, fahren Sie mit Abschnitt [Entfernen und Wiederverwenden des Quellservers](../migrate/Demote-and-remove-the-Source-Server-from-the-new-Windows-Server-Essentials-network.md#BKMK_RemoveTheSourceServer) fort.  
 
   

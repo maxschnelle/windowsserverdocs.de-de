@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e715b36f8d9d8b416311567c2455920243dfc7a2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fb33d040ce0b2a7a9d06951a7e80251a0d0da614
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59885611"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435221"
 ---
 # <a name="attach-vdisk"></a>attach vdisk
 
@@ -33,26 +33,28 @@ Fügt an (manchmal als Mounts oder Flächen) eine virtuelle Festplatte (VHD), da
 attach vdisk [readonly] { [sd=<SDDL>] | [usefilesd] } [noerr]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
-|-------|--------|
-|ReadOnly|Fügt an die virtuelle Festplatte im schreibgeschützten Modus. Alle Schreibvorgänge Vorgang gibt einen Fehler.|
-|sd=<SDDL string>|Legt den Benutzerfilter für die virtuelle Festplatte fest. Die Filterzeichenfolge muss im Format Security Descriptor Definition Language (SDDL) sein. Standardmäßig ermöglicht der Benutzerfilter zugreifen wie auf einem physischen Datenträger an.<br /><br />SDDL-Zeichenfolgen können komplex sein, aber in seiner einfachsten Form wird eine Sicherheitsbeschreibung, die Zugriff geschützt als eine besitzerverwaltete Zugriffssteuerungsliste (DACL) bezeichnet. Er hat folgendes Format: D: < Dacl_flags >< string_ace1 >< string_ace2 >... < String_acen ><br /><br />Allgemeine DACL-Flags sind:<br /><br />-   **Ein** Zugriff zulassen<br />-   **D** Verweigern des Zugriffs<br /><br />Allgemeine Rechte sind:<br /><br />-   **Bei allgemeiner Verfügbarkeit** Vollzugriff<br />-   **GR** Lesezugriff<br />-   **GW** Schreibzugriff<br /><br />Gewöhnliche Benutzerkonten sind:<br /><br />-   **BA** integrierte Administratoren<br />-   **AU** authentifizierte Benutzer<br />-   **CO** Ersteller-Besitzer<br />-   **WD** – alle Benutzer<br /><br />Beispiele:<br /><br />**D:P:(A;; GR;; AU** erhalten Sie Lesezugriff auf alle authentifizierten Benutzer<br /><br />**D:P:(A;; ALLGEMEIN VERFÜGBAR;; WD** ermöglicht allen Mitarbeitern volle rufen|
-|usefilesd|Gibt an, die die Sicherheitsbeschreibung für die VHD-Datei für die virtuelle Festplatte verwendet werden soll. Wenn die **Usefilesd** Parameter nicht angegeben wird, die virtuelle Festplatte hat keine explizite Sicherheitsbeschreibung, wenn es angegeben wird, mit der **Sd** Parameter.|
-|Diskpart|Nur für Skripting verwendet. Wenn ein Fehler gefunden wird, weiterhin DiskPart Befehle zu verarbeiten, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter wird ein Fehler DiskPart mit dem Fehlercode zu beenden.|
-## <a name="remarks"></a>Hinweise
--   Eine virtuelle Festplatte muss ausgewählt und getrennt werden, damit dieser Vorgang erfolgreich ausgeführt werden. Verwenden der **wählen Vdisk** Befehl aus, um die virtuelle Festplatte auswählen, und verschiebt den Fokus auf sie.
-## <a name="BKMK_Examples"></a>Beispiele für
-Um die ausgewählte virtuelle Festplatte im schreibgeschützten Modus anzufügen, geben Sie Folgendes ein:
-```
-attach vdisk readonly
-```
-## <a name="additional-references"></a>Zusätzliche Referenzen
--   [Befehlszeilensyntax](command-line-syntax-key.md)
--   [compact vdisk](compact-vdisk.md)
 
--   [detail vdisk](detail-vdisk.md)
--   [Trennen Sie die virtuellen Datenträger](detach-vdisk.md)
--   [Erweitern Sie die virtuellen Datenträger](expand-vdisk.md)
--   [Zusammenführen von virtuellen Datenträger](merge-vdisk.md)
--   [select vdisk](select-vdisk.md)
--   [list_1](list_1.md)
+|    Parameter     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|     ReadOnly     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                             Fügt an die virtuelle Festplatte im schreibgeschützten Modus. Alle Schreibvorgänge Vorgang gibt einen Fehler.                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| sd=<SDDL string> | Legt den Benutzerfilter für die virtuelle Festplatte fest. Die Filterzeichenfolge muss im Format Security Descriptor Definition Language (SDDL) sein. Standardmäßig ermöglicht der Benutzerfilter zugreifen wie auf einem physischen Datenträger an.<br /><br />SDDL-Zeichenfolgen können komplex sein, aber in seiner einfachsten Form wird eine Sicherheitsbeschreibung, die Zugriff geschützt als eine besitzerverwaltete Zugriffssteuerungsliste (DACL) bezeichnet. Er hat folgendes Format: D: < Dacl_flags >< string_ace1 >< string_ace2 >... < String_acen ><br /><br />Allgemeine DACL-Flags sind:<br /><br />-   **Ein** Zugriff zulassen<br />-   **D** Verweigern des Zugriffs<br /><br />Allgemeine Rechte sind:<br /><br />-   **Bei allgemeiner Verfügbarkeit** Vollzugriff<br />-   **GR** Lesezugriff<br />-   **GW** Schreibzugriff<br /><br />Gewöhnliche Benutzerkonten sind:<br /><br />-   **BA** integrierte Administratoren<br />-   **AU** authentifizierte Benutzer<br />-   **CO** Ersteller-Besitzer<br />-   **WD** – alle Benutzer<br /><br />Beispiele:<br /><br />**D:P:(A;; GR;; AU** erhalten Sie Lesezugriff auf alle authentifizierten Benutzer<br /><br />**D:P:(A;; ALLGEMEIN VERFÜGBAR;; WD** ermöglicht allen Mitarbeitern volle rufen |
+|    usefilesd     |                                                                                                                                                                                                                                                                                                                                                                                          Gibt an, die die Sicherheitsbeschreibung für die VHD-Datei für die virtuelle Festplatte verwendet werden soll. Wenn die **Usefilesd** Parameter nicht angegeben wird, die virtuelle Festplatte hat keine explizite Sicherheitsbeschreibung, wenn es angegeben wird, mit der **Sd** Parameter.                                                                                                                                                                                                                                                                                                                                                                                          |
+|      Diskpart       |                                                                                                                                                                                                                                                                                                                                                                                                           Nur für Skripting verwendet. Wenn ein Fehler gefunden wird, weiterhin DiskPart Befehle zu verarbeiten, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter wird ein Fehler DiskPart mit dem Fehlercode zu beenden.                                                                                                                                                                                                                                                                                                                                                                                                           |
+
+## <a name="remarks"></a>Hinweise
+- Eine virtuelle Festplatte muss ausgewählt und getrennt werden, damit dieser Vorgang erfolgreich ausgeführt werden. Verwenden der **wählen Vdisk** Befehl aus, um die virtuelle Festplatte auswählen, und verschiebt den Fokus auf sie.
+  ## <a name="BKMK_Examples"></a>Beispiele für
+  Um die ausgewählte virtuelle Festplatte im schreibgeschützten Modus anzufügen, geben Sie Folgendes ein:
+  ```
+  attach vdisk readonly
+  ```
+  ## <a name="additional-references"></a>Zusätzliche Referenzen
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [compact vdisk](compact-vdisk.md)
+
+- [detail vdisk](detail-vdisk.md)
+- [Trennen Sie die virtuellen Datenträger](detach-vdisk.md)
+- [Erweitern Sie die virtuellen Datenträger](expand-vdisk.md)
+- [Zusammenführen von virtuellen Datenträger](merge-vdisk.md)
+- [select vdisk](select-vdisk.md)
+- [list_1](list_1.md)

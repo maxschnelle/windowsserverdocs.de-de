@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 7cf1dcec1bc8e187b6db789c5402ca8119ca8b6c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: da3850b75a0e069f9153d3c66baef9f00b67d61c
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850761"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66452587"
 ---
 # <a name="add-an-iframe-to-a-tool-extension"></a>Hinzufügen eines iFrames zu einer Tool-Erweiterung
 
@@ -23,7 +23,7 @@ In diesem Artikel werden wir einen iFrame zu einer neuen, leeren Tools-Erweiteru
 
 ## <a name="prepare-your-environment"></a>Vorbereiten der Umgebung ##
 
-Wenn Sie nicht bereits getan haben, befolgen Sie die Anweisungen [Entwickeln einer toolerweiterung](..\develop-tool.md) zum Vorbereiten der Umgebung, und erstellen Sie eine neue, leere toolerweiterung.
+Wenn Sie nicht bereits getan haben, befolgen Sie die Anweisungen [Entwickeln einer toolerweiterung](../develop-tool.md) zum Vorbereiten der Umgebung, und erstellen Sie eine neue, leere toolerweiterung.
 
 ## <a name="add-a-module-to-your-project"></a>Fügen Sie ein Modul zu Ihrem Projekt ##
 
@@ -47,7 +47,7 @@ Fügen Sie der HTML-Datei den folgenden Inhalt hinzu:
 </div>
 ```
 
-Das war alles, Sie haben die Erweiterung ein IFRAMES hinzugefügt.  Als Nächstes können Sie [erstellen und die Seite laden](..\develop-tool.md#build-and-side-load-your-extension) Ihre Erweiterung in Windows Admin Center, um die Ergebnisse anzuzeigen.
+Das war alles, Sie haben die Erweiterung ein IFRAMES hinzugefügt.  Als Nächstes können Sie [erstellen und die Seite laden](../develop-tool.md#build-and-side-load-your-extension) Ihre Erweiterung in Windows Admin Center, um die Ergebnisse anzuzeigen.
 
 > [!Note]
 > Inhaltseinstellungen für den (Security Policy, CSP) konnten einige Standorte Rendern in einen iFrame auf Windows Admin Center zu verhindern, dass. Erfahren Sie mehr über den [hier](https://content-security-policy.com/). 

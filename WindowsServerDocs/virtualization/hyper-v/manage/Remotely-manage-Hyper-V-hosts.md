@@ -11,12 +11,12 @@ ms.assetid: 2d34e98c-6134-479b-8000-3eb360b8b8a3
 author: KBDAzure
 ms.author: kathydav
 ms.date: 12/06/2016
-ms.openlocfilehash: df66f308ee7999f97fe7e57a8b52256f2561faa2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d4d9f2dd3727e196bb6893fd5041fa3f08c30796
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870231"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453178"
 ---
 # <a name="remotely-manage-hyper-v-hosts-with-hyper-v-manager"></a>Remoteverwaltung von Hyper-V-Hosts mit Hyper-V-Manager
 
@@ -24,7 +24,7 @@ ms.locfileid: "59870231"
 
 Dieser Artikel listet die unterstützten Kombinationen von Hyper-V-Hosts und Hyper-V-Manager-Versionen und beschreibt, wie Sie Remote- und lokale Hyper-V-Hosts herstellen, damit Sie diese verwalten können. 
 
-Hyper-V-Manager können Sie eine kleine Anzahl von lokalen und remote Hyper-V-Hosts zu verwalten. Es wird installiert, wenn Sie die Hyper-V-Verwaltungstools installieren, können entweder über eine vollständige Hyper-V-Installation oder einer Installation nur die Tools. Dies bedeutet, dass eine nur-Tools-Installation können Sie die Tools auf Computern verwenden, die die hardwareanforderungen für Hyper-V-Host nicht erfüllen. Weitere Informationen zu den hardwareanforderungen für Hyper-V-Hosts finden Sie unter [Systemanforderungen](..\System-requirements-for-Hyper-V-on-Windows.md).
+Hyper-V-Manager können Sie eine kleine Anzahl von lokalen und remote Hyper-V-Hosts zu verwalten. Es wird installiert, wenn Sie die Hyper-V-Verwaltungstools installieren, können entweder über eine vollständige Hyper-V-Installation oder einer Installation nur die Tools. Dies bedeutet, dass eine nur-Tools-Installation können Sie die Tools auf Computern verwenden, die die hardwareanforderungen für Hyper-V-Host nicht erfüllen. Weitere Informationen zu den hardwareanforderungen für Hyper-V-Hosts finden Sie unter [Systemanforderungen](../System-requirements-for-Hyper-V-on-Windows.md).
 
 Wenn Hyper-V-Manager nicht installiert ist, finden Sie unter den [Anweisungen](#install-hyper-v-manager) unten.
 
@@ -59,8 +59,8 @@ Hyper-V-Manager keine Computer aufgeführt, die Hyper-V-host erst, wenn Sie den 
 
 Wenn Sie keine Verbindung herstellen können:
 
-* Es ist möglich, dass nur die Hyper-V-Verwaltungstools installiert sind. Suchen Sie nach dem Virtual Machine Management-Dienst, um zu überprüfen, dass Hyper-V-Plattform installiert ist. \(Öffnen Sie die Dienste-desktop-app: Klicken Sie auf **starten**, klicken Sie auf die **Suche starten** geben **"Services.msc"**, und drücken Sie dann die **EINGABETASTE**. Wenn der Virtual Machine Management-Dienst nicht aufgeführt ist, installieren Sie das Hyper-V-Plattform mithilfe der Anweisungen in [Installieren von Hyper-V](..\get-started\Install-the-Hyper-V-role-on-Windows-Server.md).\)
-* Überprüfen Sie, dass die Hardware die Anforderungen erfüllt. Finden Sie unter [Systemanforderungen](..\System-requirements-for-Hyper-V-on-Windows.md).
+* Es ist möglich, dass nur die Hyper-V-Verwaltungstools installiert sind. Suchen Sie nach dem Virtual Machine Management-Dienst, um zu überprüfen, dass Hyper-V-Plattform installiert ist. / (Öffnen Sie die Dienste-desktop-app: Klicken Sie auf **Start**, klicken Sie auf die **Suche starten** geben **"Services.msc"** , und drücken Sie dann die **EINGABETASTE**. Wenn der Virtual Machine Management-Dienst nicht aufgeführt ist, installieren Sie das Hyper-V-Plattform mithilfe der Anweisungen in [Installieren von Hyper-V](../get-started/Install-the-Hyper-V-role-on-Windows-Server.md).
+* Überprüfen Sie, dass die Hardware die Anforderungen erfüllt. Finden Sie unter [Systemanforderungen](../System-requirements-for-Hyper-V-on-Windows.md).
 * Überprüfen Sie, dass Ihr Benutzerkonto der Gruppe "Administratoren" oder die Gruppe "Hyper-V-Administratoren" angehört.
 
 ## <a name="manage-hyper-v-hosts-remotely"></a>Remoteverwaltung von Hyper-V-hosts  
@@ -171,5 +171,5 @@ add-windowsfeature rsat-hyper-v-tools
 
 ## <a name="see-also"></a>Siehe auch  
  
-[Installieren von Hyper-V](..\get-started\Install-the-Hyper-V-role-on-Windows-Server.md) 
+[Installieren von Hyper-V](../get-started/Install-the-Hyper-V-role-on-Windows-Server.md) 
 

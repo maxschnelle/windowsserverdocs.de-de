@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 13c89b78ba177362cb9bf1d6a1e601eefb4f4ce3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: edf27852c13566ba8c7ca8c16d789d586e749160
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882121"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436208"
 ---
 # <a name="prndrvr"></a>prndrvr
 
@@ -34,6 +34,7 @@ cscript prndrvr {-a | -d | -l | -x | -?} [-m <model>] [-v {0|1|2|3}]
 ```
 
 ## <a name="parameters"></a>Parameter
+
 |Parameter|Beschreibung|
 |-------|--------|
 |-a|Wird ein Treiber installiert.|
@@ -42,7 +43,7 @@ cscript prndrvr {-a | -d | -l | -x | -?} [-m <model>] [-v {0|1|2|3}]
 |-x|Löscht alle Druckertreiber und zusätzliche Druckertreiber nicht in Gebrauch von einem logischen Drucker auf dem Server, die gemäß der **-s** Parameter. Wenn Sie einen Server aus der Liste zu entfernenden nicht angeben, löscht Windows alle nicht verwendeten Treiber auf dem lokalen Computer.|
 |-m \<DrivermodelName\>|Gibt an (nach Namen) der Treiber, die, den Sie installieren möchten. Treiber werden häufig für das Modell des Druckers mit dem Namen, die sie unterstützen. Finden Sie auf Drucker, Weitere Informationen.|
 |-v {0 &#124; 1 &#124; 2 &#124; 3}|Gibt die Version des Treibers, die Sie installieren möchten. Siehe dazu die Beschreibung der **-e**Parameter für die Versionen für die Umgebung verfügbar sind. Wenn Sie keine Version angeben, wird die Version des Treibers für die Version von Windows auf dem Computer, auf dem Sie den Treiber installieren werden, installiert.<br /><br />– Version **0** Windows 95, Windows 98 und Windows Millennium Edition unterstützt.<br />– Version **1** Windows NT 3.51 unterstützt.<br />– Version **2** Windows NT 4.0 unterstützt.<br />– Version **3** unterstützt Windows Vista, Windows XP, Windows 2000 und die Windows Server 2003-Betriebssysteme. Beachten Sie, dass dies die einzige Printer Driver-Version, die von Windows Vista unterstützt.|
-|-e: \<Umgebung >|Gibt die Umgebung für den Treiber, die, den Sie installieren möchten. Wenn Sie eine Umgebung nicht angeben, wird die Umgebung des Computers, auf dem Sie den Treiber installieren, verwendet. Die unterstützten Umgebung-Parameter sind:<br /><br />-   **"Windows NT x86"**<br />-   **"Windows x64"**<br />-   **"Windows IA64"**|
+|-e: \<Umgebung >|Gibt die Umgebung für den Treiber, die, den Sie installieren möchten. Wenn Sie eine Umgebung nicht angeben, wird die Umgebung des Computers, auf dem Sie den Treiber installieren, verwendet. Die unterstützten Umgebung-Parameter sind:<br /><br />-    **"Windows NT x86"**<br />-    **"Windows x64"**<br />-    **"Windows IA64"**|
 |-s \<ServerName >|Gibt den Namen des Remotecomputers, der den Drucker hostet, den Sie verwalten möchten. Wenn Sie einen Computer nicht angeben, wird der lokale Computer verwendet.|
 |-u \<UserName > -w \<Kennwort >|Gibt ein Konto mit Berechtigungen zum Verbinden mit dem Computer, der den Drucker hostet, den Sie verwalten möchten. Alle Mitglieder der lokalen Gruppe Administratoren des Zielcomputers über diese Berechtigungen verfügen, aber die Berechtigungen können auch für andere Benutzer erteilt werden. Wenn Sie ein Konto nicht angeben, müssen Sie über ein Konto mit Berechtigungen für der Befehl funktioniert angemeldet sein.|
 |-h \<Pfad >|Gibt den Pfad zur Treiberdatei. Wenn Sie keinen Pfad angeben, wird der Pfad zum Speicherort, auf dem Windows installiert wurde, verwendet.|
@@ -50,15 +51,15 @@ cscript prndrvr {-a | -d | -l | -x | -?} [-m <model>] [-v {0|1|2|3}]
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
--   Die **Prndrvr** Befehl ist eine Visual Basic-Skript befindet sich in der %WINdir%\System32\printing_Admin_Scripts\\ <language> Verzeichnis. Um diesen Befehl an einer Eingabeaufforderung verwenden möchten, geben **Cscript** gefolgt von den vollständigen Pfad und die Prndrvr-Datei, oder wechseln in den entsprechenden Ordner.
-   
-   Zum Beispiel:
-    ```
-    cscript %WINdir%\System32\printing_Admin_Scripts\en-US\prndrvr
-    ```
--   Wenn die Informationen, die Sie angeben, die Leerzeichen enthält, verwenden Sie den Text in Anführungszeichen (z. B. `"computer Name"`).
--   Die X - Option löscht alle zusätzliche Druckertreiber (Treiber für die Verwendung auf Clients installiert ausgeführt alternative Versionen von Windows), auch wenn der primäre Grund verwendet wird. Wenn die Faxkomponente installiert ist, wird diese Option auch Faxtreiber gelöscht. Der primäre Faxtreiber wird gelöscht, wenn es nicht (d.h., wenn es keine Warteschlange verwendet wird ist) verwendet wird. Wenn der primäre Faxtreiber gelöscht wird, ist die einzige Möglichkeit, das Fax erneut zu aktivieren, auf die Faxkomponente neu installieren.
--   Ohne Parameter verwendet **Prndrvr** zeigt die Befehlszeilenhilfe für die **Prndrvr** Befehl.
+- Die **Prndrvr** Befehl ist eine Visual Basic-Skript befindet sich in der %WINdir%\System32\printing_Admin_Scripts\\ <language> Verzeichnis. Um diesen Befehl an einer Eingabeaufforderung verwenden möchten, geben **Cscript** gefolgt von den vollständigen Pfad und die Prndrvr-Datei, oder wechseln in den entsprechenden Ordner.
+
+  Zum Beispiel:
+  ```
+  cscript %WINdir%\System32\printing_Admin_Scripts\en-US\prndrvr
+  ```
+- Wenn die Informationen, die Sie angeben, die Leerzeichen enthält, verwenden Sie den Text in Anführungszeichen (z. B. `"computer Name"`).
+- Die X - Option löscht alle zusätzliche Druckertreiber (Treiber für die Verwendung auf Clients installiert ausgeführt alternative Versionen von Windows), auch wenn der primäre Grund verwendet wird. Wenn die Faxkomponente installiert ist, wird diese Option auch Faxtreiber gelöscht. Der primäre Faxtreiber wird gelöscht, wenn es nicht (d.h., wenn es keine Warteschlange verwendet wird ist) verwendet wird. Wenn der primäre Faxtreiber gelöscht wird, ist die einzige Möglichkeit, das Fax erneut zu aktivieren, auf die Faxkomponente neu installieren.
+- Ohne Parameter verwendet **Prndrvr** zeigt die Befehlszeilenhilfe für die **Prndrvr** Befehl.
 
 ## <a name="BKMK_examples"></a>Beispiele für
 

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e838f68162b6faabf2ecbc7dea2ce840235890c0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 433e30efeecec4e4ec51d67c40c14cacf986d12e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859111"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66434225"
 ---
 # <a name="convert-gpt"></a>convert gpt
 
@@ -44,8 +44,8 @@ convert gpt [noerr]
 
 > [!IMPORTANT]
 > Der Datenträger muss für die Konvertierung in einen GPT-Datenträger leer sein. Sichern Sie Ihre Daten, und klicken Sie dann löschen Sie alle Partitionen oder Volumes, bevor der Datenträger konvertieren.
--   Die erforderliche Mindestgröße des Datenträgers für die Konvertierung in GPT beträgt 128 MB.
--   Ein grundlegende MBR-Datenträger muss ausgewählt werden, für diesen Vorgang erfolgreich ausgeführt werden kann. Verwenden der **select Disk** Befehl aus, wählen Sie einen Basisdatenträger und verschiebt den Fokus auf sie.
+> -   Die erforderliche Mindestgröße des Datenträgers für die Konvertierung in GPT beträgt 128 MB.
+> -   Ein grundlegende MBR-Datenträger muss ausgewählt werden, für diesen Vorgang erfolgreich ausgeführt werden kann. Verwenden der **select Disk** Befehl aus, wählen Sie einen Basisdatenträger und verschiebt den Fokus auf sie.
 
 ## <a name="BKMK_examples"></a>Beispiele für
 
@@ -56,5 +56,5 @@ convert gpt
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

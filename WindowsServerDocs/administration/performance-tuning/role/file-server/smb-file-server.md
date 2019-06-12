@@ -7,12 +7,12 @@ ms.topic: article
 author: phstee
 ms.author: NedPyle; Danlo; DKruse
 ms.date: 4/14/2017
-ms.openlocfilehash: 337716792a4bb3cf730b723df3abe1029631426b
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: 87ad8058f7353c938087b1211e0f17820f0bd2ae
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222505"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435651"
 ---
 # <a name="performance-tuning-for-smb-file-servers"></a>Für die leistungsoptimierung für SMB-Dateiserver
 
@@ -93,22 +93,22 @@ Die folgenden SMB-Leistungsindikatoren in Windows Server 2012 eingeführt wurden
 
 Die folgende REG\_DWORD-registrierungseinstellungen können die Leistung von SMB-Dateiservern beeinflussen:
 
--   **Smb2CreditsMin** und **Smb2CreditsMax**
+- **Smb2CreditsMin** und **Smb2CreditsMax**
 
-    ```
-    HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters\Smb2CreditsMin
-    ```
+  ```
+  HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters\Smb2CreditsMin
+  ```
 
-    ```
-    HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters\Smb2CreditsMax
-    ```
+  ```
+  HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters\Smb2CreditsMax
+  ```
 
-    Die Standardwerte sind 512 und 8192. Mit diesen Parametern können den Server, Client-Vorgang Parallelität dynamisch innerhalb der angegebenen Grenzen eingeschränkt. Einige Clients möglicherweise erhöhten Durchsatz mit höheren parallelitätslimits, z. B. erreichen, Kopieren von Dateien über die Links von hoher Bandbreite, hoher Latenz.
+  Die Standardwerte sind 512 und 8192. Mit diesen Parametern können den Server, Client-Vorgang Parallelität dynamisch innerhalb der angegebenen Grenzen eingeschränkt. Einige Clients möglicherweise erhöhten Durchsatz mit höheren parallelitätslimits, z. B. erreichen, Kopieren von Dateien über die Links von hoher Bandbreite, hoher Latenz.
     
-    >[!TIP]
-    > Vor Windows 10 und Windows Server 2016 die Anzahl von Gutschriften, die an den Client gewährt dynamisch zwischen Smb2CreditsMin und basierend auf einen Algorithmus, der versucht wird, um zu bestimmen, dass die Netzwerklatenz die optimale Anzahl Guthaben gewährt anhand Smb2CreditsMax geändert und Guthaben Nutzung. In Windows 10 und Windows Server 2016 wurde die SMB-Server geändert um bedingungslos Guthaben auf Anfrage, bis die konfigurierte maximale Anzahl Guthaben zu gewähren. Im Rahmen dieser Änderung wird wurde die Gutschrift Einschränkungsmechanismus, der die Größe des Fensters für jede Verbindung die Gutschrift reduziert, wenn der Server nicht genügend Arbeitsspeicher vorhanden ist, entfernt. Des Kernels-nicht genügend Arbeitsspeicher-Ereignis, das Einschränkung ausgelöst wird nur signalisiert, wenn der Server also nicht genügend Arbeitsspeicher ist (< wenige MB), unbrauchbar werden. Da der Server nicht mehr Kreditkarte Windows verkleinert wird die Einstellung Smb2CreditsMin ist nicht mehr erforderlich und wird jetzt ignoriert.
-
-    > Sie können überwachen, SMB-Client-Freigaben\\Guthaben stoppt cursorscans/s zu überprüfen, ob Probleme mit der Gutschrift.
+  > [!TIP]
+  > Vor Windows 10 und Windows Server 2016 die Anzahl von Gutschriften, die an den Client gewährt dynamisch zwischen Smb2CreditsMin und basierend auf einen Algorithmus, der versucht wird, um zu bestimmen, dass die Netzwerklatenz die optimale Anzahl Guthaben gewährt anhand Smb2CreditsMax geändert und Guthaben Nutzung. In Windows 10 und Windows Server 2016 wurde die SMB-Server geändert um bedingungslos Guthaben auf Anfrage, bis die konfigurierte maximale Anzahl Guthaben zu gewähren. Im Rahmen dieser Änderung wird wurde die Gutschrift Einschränkungsmechanismus, der die Größe des Fensters für jede Verbindung die Gutschrift reduziert, wenn der Server nicht genügend Arbeitsspeicher vorhanden ist, entfernt. Des Kernels-nicht genügend Arbeitsspeicher-Ereignis, das Einschränkung ausgelöst wird nur signalisiert, wenn der Server also nicht genügend Arbeitsspeicher ist (< wenige MB), unbrauchbar werden. Da der Server nicht mehr Kreditkarte Windows verkleinert wird die Einstellung Smb2CreditsMin ist nicht mehr erforderlich und wird jetzt ignoriert.
+  > 
+  > Sie können überwachen, SMB-Client-Freigaben\\Guthaben stoppt cursorscans/s zu überprüfen, ob Probleme mit der Gutschrift.
 
 - **AdditionalCriticalWorkerThreads**
 
@@ -121,27 +121,28 @@ Die folgende REG\_DWORD-registrierungseinstellungen können die Leistung von SMB
     >[!TIP]
     > Der Wert möglicherweise erhöht werden, wenn die Menge des Cache-Manager Daten geändert (Leistungsindikator Cache\\modifizierte Seiten) wächst, nutzen Sie einen großen Teil (mehr als ca. 25 %) der Arbeitsspeicher Lesevorgänge, oder wenn das System viele synchron ausführt.
 
--   **MaxThreadsPerQueue**
+- **MaxThreadsPerQueue**
 
-    ```
-    HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters\MaxThreadsPerQueue
-    ```
+  ```
+  HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters\MaxThreadsPerQueue
+  ```
 
-    Der Standardwert ist 20. Durch Erhöhen dieses Wertes erhöht die Anzahl der Threads, die der Server zur Verarbeitung gleichzeitiger Anforderungen verwenden können. Wenn eine große Anzahl von aktiven Verbindungen, die gewartet werden muss und Hardwareressourcen wie Speicherbandbreite, ausreichend sind, kann Erhöhen des Werts die Skalierbarkeit, Leistung und Antwortzeiten verbessern.
+  Der Standardwert ist 20. Durch Erhöhen dieses Wertes erhöht die Anzahl der Threads, die der Server zur Verarbeitung gleichzeitiger Anforderungen verwenden können. Wenn eine große Anzahl von aktiven Verbindungen, die gewartet werden muss und Hardwareressourcen wie Speicherbandbreite, ausreichend sind, kann Erhöhen des Werts die Skalierbarkeit, Leistung und Antwortzeiten verbessern.
 
-    >[!TIP]
-    > Ein Hinweis darauf, das der Wert ggf. erhöht werden wird, wenn die Warteschlangen SMB2 sehr groß sind (Leistungsindikator "Serverwarteschlangen arbeiten\\Warteschlangenlänge\\SMB2 nicht blockierenden \*' liegt permanent über ~ 100).
+  >[!TIP]
+  > Ein Hinweis darauf, das der Wert ggf. erhöht werden wird, wenn die Warteschlangen SMB2 sehr groß sind (Leistungsindikator "Serverwarteschlangen arbeiten\\Warteschlangenlänge\\SMB2 nicht blockierenden \*' liegt permanent über ~ 100).
 
-    >[!Note]
-    >In Windows 10 und Windows Server 2016 ist MaxThreadsPerQueue nicht verfügbar. Die Anzahl von Threads für einen Threadpool "20 * die Anzahl der Prozessoren in einem NUMA-Knoten".  
+  >[!Note]
+  >In Windows 10 und Windows Server 2016 ist MaxThreadsPerQueue nicht verfügbar. Die Anzahl von Threads für einen Threadpool "20 * die Anzahl der Prozessoren in einem NUMA-Knoten".
+     
 
--   **AsynchronousCredits**
+- **AsynchronousCredits**
 
-    ``` 
-    HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters\AsynchronousCredits
-    ```
+  ``` 
+  HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters\AsynchronousCredits
+  ```
 
-    Der Standardwert ist 512. Dieser Parameter schränkt die Anzahl von gleichzeitigen asynchronen SMB-Befehle, die über eine einzelne Verbindung zulässig sind. Einigen Fällen (z. B. wenn ein Front-End-Server mit einem Back-End-IIS-Server vorhanden ist) anzufordern, eine große Menge an Parallelität (dateiänderung benachrichtigungsanforderungen, insbesondere). Der Wert dieses Eintrags kann erhöht werden, um diese Fälle zu unterstützen.
+  Der Standardwert ist 512. Dieser Parameter schränkt die Anzahl von gleichzeitigen asynchronen SMB-Befehle, die über eine einzelne Verbindung zulässig sind. Einigen Fällen (z. B. wenn ein Front-End-Server mit einem Back-End-IIS-Server vorhanden ist) anzufordern, eine große Menge an Parallelität (dateiänderung benachrichtigungsanforderungen, insbesondere). Der Wert dieses Eintrags kann erhöht werden, um diese Fälle zu unterstützen.
 
 ### <a name="smb-server-tuning-example"></a>Beispiel für SMB-Server-Optimierung
 

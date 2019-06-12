@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fdbe9873cc15866037c4688aaac89095e4a85dec
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: efb30e243d9c165fdcf13943225eb90d38235070
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889421"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438210"
 ---
 # <a name="gpfixup"></a>gpfixup
 
@@ -38,18 +38,18 @@ Gpfixup [/v]
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|/v|Zeigt detaillierte statusmeldungen an.</br>Wenn dieser Parameter nicht verwendet wird, nur Fehlermeldungen oder eine Statusübersicht Nachricht **Erfolg** oder **Fehler** angezeigt wird.|
-|/olddns:\<OLDDNSNAME>|Gibt an, der alte DNS-Name der Domäne umbenannt als  *\<OLDDNSNAME >* die domänenumbenennung Änderungen bei der DNS-Name einer Domäne. Sie können diesen Parameter nur, wenn Sie auch verwenden, verwenden die **/newdns** Parameter, um einen neuen DNS-Domänennamen anzugeben.|
-|/newdns:\<NEWDNSNAME>|Gibt den neuen DNS-Namen der Domäne umbenannt als  *\<NEWDNSNAME >* die domänenumbenennung Änderungen bei der DNS-Name einer Domäne. Sie können diesen Parameter nur, wenn Sie auch verwenden, verwenden die **/olddns** Parameter, um den alten DNS-Domänennamen anzugeben.|
-|/oldnb:\<OLDFLATNAME>|Gibt den alten NetBIOS-Namen der Domäne umbenannt als  *\<OLDFLATNAME >* Wenn sich die domänenumbenennung ändert den NetBIOS-Namen einer Domäne. Verwenden Sie diesen Parameter nur, wenn Sie verwenden die **/newnb** Parameter, um einen neuen NetBIOS-Domänennamen anzugeben.|
-|/newnb:\<NEWFLATNAME>|Gibt den neuen NetBIOS-Namen der Domäne umbenannt als  *\<NEWFLATNAME >* Wenn sich die domänenumbenennung ändert den NetBIOS-Namen einer Domäne. Verwenden Sie diesen Parameter nur, wenn Sie verwenden die **/oldnb** Parameter, um den alten NetBIOS-Domänennamen anzugeben.|
-|/dc:\<DCNAME>|Herstellen einer Verbindung mit dem Namen der Domänencontroller mit  *\<DCNAME >* (einen DNS-Namen oder einen NetBIOS-Namen). *\<DCNAME >* muss ein beschreibbares Replikat der Domänenverzeichnispartition hosten, wie durch eine der folgenden angezeigt:</br>– Der DNS-Name  *\<NEWDNSNAME >* mit **/newdns**</br>– Der NetBIOS-Namen  *\<NEWFLATNAME >* mit **/newnb**</br>Wenn dieser Parameter nicht verwendet wird, Herstellen einer Verbindung mit einem beliebigen Domänencontroller in der umbenannten Domäne erkennbar  *\<NEWDNSNAME >* oder  *\<NEWFLATNAME >*.|
-|/sionly|Führt nur die Gruppenrichtlinien-Lösung, die mit verwalteter Softwareinstallation (Installation der Clientsoftware Erweiterung der Gruppenrichtlinie) verknüpft. Überspringen Sie die Aktionen, die Gruppenrichtlinien-Verknüpfungen und der SYSVOL-Pfade in Gruppenrichtlinienobjekten beheben.|
-|/ User:\<Benutzername >|Führt diesen Befehl im Sicherheitskontext des Benutzers  *\<Benutzername >*, wobei  *\<Benutzername >* befindet sich in dem Format "Domäne\Benutzer".</br>Wenn dieser Parameter nicht verwendet wird, wird dieser Befehl wie dem angemeldeten Benutzer ausgeführt.|
-|/pwd:{\<PASSWORD>|*}|Gibt das Kennwort für den anderen Sicherheitskontext angegeben werden, mithilfe von **/User**. Wenn **&#42;** angegeben anstelle eines Kennworts, werden Sie aufgefordert, ein Kennwort.|
-|/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
+|       Parameter       |                                                                                                                                                                                                                               Beschreibung                                                                                                                                                                                                                               |
+|-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|          /v           |                                                                                                                                                      Zeigt detaillierte statusmeldungen an.</br>Wenn dieser Parameter nicht verwendet wird, nur Fehlermeldungen oder eine Statusübersicht Nachricht **Erfolg** oder **Fehler** angezeigt wird.                                                                                                                                                       |
+| /olddns:\<OLDDNSNAME> |                                                                                                           Gibt an, der alte DNS-Name der Domäne umbenannt als  *\<OLDDNSNAME >* die domänenumbenennung Änderungen bei der DNS-Name einer Domäne. Sie können diesen Parameter nur, wenn Sie auch verwenden, verwenden die **/newdns** Parameter, um einen neuen DNS-Domänennamen anzugeben.                                                                                                            |
+| /newdns:\<NEWDNSNAME> |                                                                                                          Gibt den neuen DNS-Namen der Domäne umbenannt als  *\<NEWDNSNAME >* die domänenumbenennung Änderungen bei der DNS-Name einer Domäne. Sie können diesen Parameter nur, wenn Sie auch verwenden, verwenden die **/olddns** Parameter, um den alten DNS-Domänennamen anzugeben.                                                                                                           |
+| /oldnb:\<OLDFLATNAME> |                                                                                                        Gibt den alten NetBIOS-Namen der Domäne umbenannt als  *\<OLDFLATNAME >* Wenn sich die domänenumbenennung ändert den NetBIOS-Namen einer Domäne. Verwenden Sie diesen Parameter nur, wenn Sie verwenden die **/newnb** Parameter, um einen neuen NetBIOS-Domänennamen anzugeben.                                                                                                        |
+| /newnb:\<NEWFLATNAME> |                                                                                                       Gibt den neuen NetBIOS-Namen der Domäne umbenannt als  *\<NEWFLATNAME >* Wenn sich die domänenumbenennung ändert den NetBIOS-Namen einer Domäne. Verwenden Sie diesen Parameter nur, wenn Sie verwenden die **/oldnb** Parameter, um den alten NetBIOS-Domänennamen anzugeben.                                                                                                       |
+|     /dc:\<DCNAME>     | Herstellen einer Verbindung mit dem Namen der Domänencontroller mit  *\<DCNAME >* (einen DNS-Namen oder einen NetBIOS-Namen). *\<DCNAME >* muss ein beschreibbares Replikat der Domänenverzeichnispartition hosten, wie durch eine der folgenden angezeigt:</br>– Der DNS-Name  *\<NEWDNSNAME >* mit **/newdns**</br>– Der NetBIOS-Namen  *\<NEWFLATNAME >* mit **/newnb**</br>Wenn dieser Parameter nicht verwendet wird, Herstellen einer Verbindung mit einem beliebigen Domänencontroller in der umbenannten Domäne erkennbar  *\<NEWDNSNAME >* oder  *\<NEWFLATNAME >* . |
+|        /sionly        |                                                                                                                           Führt nur die Gruppenrichtlinien-Lösung, die mit verwalteter Softwareinstallation (Installation der Clientsoftware Erweiterung der Gruppenrichtlinie) verknüpft. Überspringen Sie die Aktionen, die Gruppenrichtlinien-Verknüpfungen und der SYSVOL-Pfade in Gruppenrichtlinienobjekten beheben.                                                                                                                           |
+|   / User:\<Benutzername >   |                                                                                                                                   Führt diesen Befehl im Sicherheitskontext des Benutzers  *\<Benutzername >* , wobei  *\<Benutzername >* befindet sich in dem Format "Domäne\Benutzer".</br>Wenn dieser Parameter nicht verwendet wird, wird dieser Befehl wie dem angemeldeten Benutzer ausgeführt.                                                                                                                                    |
+|   /pwd:{\<PASSWORD>   |                                                                                                                                                                                                                                   \*}                                                                                                                                                                                                                                   |
+|          /?           |                                                                                                                                                                                                                  Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                                                                                                   |
 
 ## <a name="remarks"></a>Hinweise
 
@@ -71,4 +71,4 @@ gpfixup /olddns: MyOldDnsName /newdns:MyNewDnsName /dc:MyDcDnsName 2>&1 >gpfixup
 
 -   [Umbenennen der Verwaltung von Active Directory-Domänen](https://go.microsoft.com/fwlink/?LinkId=198385)
 -   [Gruppenrichtlinien-TechCenter](https://go.microsoft.com/fwlink/?LinkID=145531)
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

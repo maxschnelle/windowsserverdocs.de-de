@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cde0e9786f72823f446202f1c87ad8e9e181d29c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0b76d16bdc9099d78e35d8714397d61b9af0f389
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848201"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66437312"
 ---
 # <a name="mode"></a>mode
 
@@ -44,21 +44,21 @@ mode com<M>[:] [baud=<B>] [parity=<P>] [data=<D>] [stop=<S>] [to={on|off}] [xon=
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|Com\<M > [::]|Gibt die Anzahl der asynchronen Prncnfg.vbshronous Kommunikationsport.|
-|baud=\<B>|Gibt die Übertragungsrate in Bits pro Sekunde an. Die folgende Tabelle enthält die zulässigen Werte für *B* und deren zugehörigen Gebühren.</br>-   **11** = 110 baud</br>-   **15** = 150 baud</br>-   **30** = 300 baud</br>-   **60** = 600 baud</br>-   **12** = 1200 baud</br>-   **24** = 2400 baud</br>-   **48** = 4800 baud</br>-   **96** = 9600 baud</br>-   **19** = 19.200 Baudrate|
-|parity=\<P>|Gibt an, wie das System das Paritätsbit Übertragung fehlerüberprüfung verwendet. Die folgende Tabelle enthält die gültigen Werte für *P*. Der Standardwert ist **e**. Nicht alle Computer unterstützen die Werte **m** und **s**.</br>-   **n** = keine</br>-   **e** = even</br>-   **o** = odd</br>-   **m** = markieren</br>-   **s** = Leerzeichen|
-|data=\<D>|Gibt die Anzahl der Datenbits in ein Zeichen an. Gültige Werte für **d** liegen im Bereich von 5 bis 8. Der Standardwert ist 7. Nicht alle Computer unterstützen die Werte, 5 und 6.|
-|stop=\<S>|Gibt die Anzahl von Stoppbits an, die das Ende eines Zeichens zu definieren: 1, 1.5, oder 2. Wenn die Baudrate 110 ist, ist der Standardwert 2 auf. Andernfalls ist der Standardwert 1. Nicht alle Computer unterstützen den Wert von 1,5.|
-|Um = {on | {Off}|Gibt an, ob ein unendliches Timeout-Verarbeitung aktiviert oder deaktiviert ist. Der Standardwert ist off.|
-|xon={on | {Off}|Gibt an, ob das Xon oder Xoff-Protokoll für die Data-flusssteuerung aktiviert oder deaktiviert ist.|
-|odsr={on | {Off}|Gibt an, ob die Ausgabehandshake, der die Verbindung Data Set Ready (DSR) verwendet, aktiviert oder deaktiviert ist.|
-|ÜLG = {on | {Off}|Gibt an, ob die Ausgabehandshake, der die Verbindung zum Senden von CTS (Clear) verwendet, aktiviert oder deaktiviert ist.|
-|dtr={on | Ortung erlauben | hs}|Gibt an, ob die Verbindung Data Terminal Ready (DTR) aktiviert deaktiviert oder ist, oder legen Sie auf Handshake.|
-|RTS = {on | Ortung erlauben | hs | tg}|Gibt an, ob die Request To Send (RTS)-Verbindung auf on, off festgelegt ist, Handshake oder ein-/ausschalten.|
-|idsr={on | {Off}|Gibt an, ob die Verbindung DSR-Empfindlichkeit aktiviert oder deaktiviert ist.|
-|/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
+|  Parameter  |                                                                                                                                                                                     Beschreibung                                                                                                                                                                                     |
+|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Com\<M > [::]  |                                                                                                                                                      Gibt die Anzahl der asynchronen Prncnfg.vbshronous Kommunikationsport.                                                                                                                                                      |
+|  baud=\<B>  | Gibt die Übertragungsrate in Bits pro Sekunde an. Die folgende Tabelle enthält die zulässigen Werte für *B* und deren zugehörigen Gebühren.</br>-   **11** = 110 baud</br>-   **15** = 150 baud</br>-   **30** = 300 baud</br>-   **60** = 600 baud</br>-   **12** = 1200 baud</br>-   **24** = 2400 baud</br>-   **48** = 4800 baud</br>-   **96** = 9600 baud</br>-   **19** = 19.200 Baudrate |
+| parity=\<P> |                              Gibt an, wie das System das Paritätsbit Übertragung fehlerüberprüfung verwendet. Die folgende Tabelle enthält die gültigen Werte für *P*. Der Standardwert ist **e**. Nicht alle Computer unterstützen die Werte **m** und **s**.</br>-   **n** = keine</br>-   **e** = even</br>-   **o** = odd</br>-   **m** = markieren</br>-   **s** = Leerzeichen                              |
+|  data=\<D>  |                                                                                                    Gibt die Anzahl der Datenbits in ein Zeichen an. Gültige Werte für **d** liegen im Bereich von 5 bis 8. Der Standardwert ist 7. Nicht alle Computer unterstützen die Werte, 5 und 6.                                                                                                     |
+|  stop=\<S>  |                                                                                  Gibt die Anzahl von Stoppbits an, die das Ende eines Zeichens zu definieren: 1, 1.5, oder 2. Wenn die Baudrate 110 ist, ist der Standardwert 2 auf. Andernfalls ist der Standardwert 1. Nicht alle Computer unterstützen den Wert von 1,5.                                                                                   |
+|   Um = {on    |                                                                                                                                                                                        {Off}                                                                                                                                                                                         |
+|   xon={on   |                                                                                                                                                                                        {Off}                                                                                                                                                                                         |
+|  odsr={on   |                                                                                                                                                                                        {Off}                                                                                                                                                                                         |
+|  ÜLG = {on   |                                                                                                                                                                                        {Off}                                                                                                                                                                                         |
+|   dtr={on   |                                                                                                                                                                                         off                                                                                                                                                                                         |
+|   RTS = {on   |                                                                                                                                                                                         off                                                                                                                                                                                         |
+|  idsr={on   |                                                                                                                                                                                        {Off}                                                                                                                                                                                         |
+|     /?      |                                                                                                                                                                        Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                                                         |
 
 ## <a name="BKMK_2"></a>Zum Anzeigen des Status aller Geräte oder eines einzelnen Geräts
 
@@ -171,14 +171,14 @@ mode con[:] [rate=<R> delay=<D>]
 
 ### <a name="remarks"></a>Hinweise
 
--   Die Wiederholrate ist die Rate, mit der ein Zeichen wiederholt wird, wenn Sie die Taste für das Zeichen gedrückt halten. Die Wiederholrate verfügt über zwei Komponenten, die Geschwindigkeit und die Verzögerung. Einige Tastaturen erkannt mit diesem Befehl nicht.
--   Mithilfe von **Rate = *** R*
+- Die Wiederholrate ist die Rate, mit der ein Zeichen wiederholt wird, wenn Sie die Taste für das Zeichen gedrückt halten. Die Wiederholrate verfügt über zwei Komponenten, die Geschwindigkeit und die Verzögerung. Einige Tastaturen erkannt mit diesem Befehl nicht.
+- Mithilfe von **Rate =** <em>R</em>
 
-    Gültige Werte liegen im Bereich von 1 bis 32. Diese Werte entsprechen ungefähr 2 bis 30 Zeichen pro Sekunde. Der Standardwert ist 20 für IBM-AT-kompatiblen Tastaturen und 21 für Tastaturen mit IBM PS/2-kompatibel. Wenn Sie die Rate festlegen, müssen Sie auch die Verzögerung festlegen.
--   Mithilfe von **Verzögerung**=*D*
+  Gültige Werte liegen im Bereich von 1 bis 32. Diese Werte entsprechen ungefähr 2 bis 30 Zeichen pro Sekunde. Der Standardwert ist 20 für IBM-AT-kompatiblen Tastaturen und 21 für Tastaturen mit IBM PS/2-kompatibel. Wenn Sie die Rate festlegen, müssen Sie auch die Verzögerung festlegen.
+- Mithilfe von **Verzögerung**=*D*
 
-    Gültige Werte für *D* sind 1, 2, 3 und 4 (0,25, 0,50, 0,75 und darstellt 1 Sekunde). Der Standardwert ist 2. Wenn Sie die Verzögerung festlegen, müssen Sie auch die Rate festlegen.
+  Gültige Werte für *D* sind 1, 2, 3 und 4 (0,25, 0,50, 0,75 und darstellt 1 Sekunde). Der Standardwert ist 2. Wenn Sie die Verzögerung festlegen, müssen Sie auch die Rate festlegen.
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

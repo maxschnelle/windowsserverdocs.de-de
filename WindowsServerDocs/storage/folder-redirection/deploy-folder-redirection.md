@@ -6,25 +6,25 @@ ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 ms.technology: storage
-ms.date: 07/09/2018
+ms.date: 06/06/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 2bb15d5ae29da6c9dbcd6b58af280026d06febc8
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: 4b6c58f0f33b45052e038a9af941297a294d17b2
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222747"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812507"
 ---
 # <a name="deploy-folder-redirection-with-offline-files"></a>Bereitstellen von Ordnerumleitung, Offlinedateien
 
->Gilt für: Windows 10, Windows 7, Windows 8, Windows 8.1, Windows Vista, WindowsServer 2019, WindowsServer 2016, WindowsServer (halbjährlicher Kanal), WindowsServer 2012, Windows Server 2012 R2, Windows Server 2008 R2
+>Gilt für: Windows 10, Windows 7, Windows 8, Windows 8.1, Windows Vista, WindowsServer 2019, WindowsServer 2016, WindowsServer 2012, Windows Server 2012 R2, Windows Server 2008 R2, WindowsServer (halbjährlicher Kanal)
 
 Dieses Thema beschreibt, wie Sie Windows Server, um die Umleitung des Ordners mit Offlinedateien für Windows-Clientcomputer bereitstellen.
 
 Eine Liste der zuletzt vorgenommenen Änderungen zu diesem Thema finden Sie [Änderungsverlauf](#change-history).
 
->[!IMPORTANT]
->Aufgrund der sicherheitsänderungen in [MS16-072](https://support.microsoft.com/help/3163622/ms16-072-security-update-for-group-policy-june-14-2016), wir aktualisiert [Schritt 3: Erstellen Sie ein Gruppenrichtlinienobjekt für die Ordnerumleitung](#step-3-create-a-gpo-for-folder-redirection) dieses Themas, Windows kann die Ordnerumleitung-Richtlinie ordnungsgemäß angewendet (und nicht zurückgesetzt werden umgeleitete Ordnern auf betroffenen Computern).
+> [!IMPORTANT]
+> Aufgrund der sicherheitsänderungen in [MS16-072](https://support.microsoft.com/help/3163622/ms16-072-security-update-for-group-policy-june-14-2016), wir aktualisiert [Schritt 3: Erstellen Sie ein Gruppenrichtlinienobjekt für die Ordnerumleitung](#step-3-create-a-gpo-for-folder-redirection) dieses Themas, Windows kann die Ordnerumleitung-Richtlinie ordnungsgemäß angewendet (und nicht zurückgesetzt werden umgeleitete Ordnern auf betroffenen Computern).
 
 ## <a name="prerequisites"></a>Vorraussetzungen
 
@@ -45,8 +45,8 @@ Ordnerumleitung hat die folgenden softwareanforderungen:
     - Wenn die Dateifreigabe die DFS-Replikation zum Replizieren der Inhalte mit einem anderen Server verwendet, dürfen Benutzer nur in der Lage sein, auf den Quellserver zuzugreifen, damit Benutzer keine in Konflikt stehenden Änderungen auf unterschiedlichen Servern vornehmen können.
     - Bei eine gruppierten Dateifreigabe verwenden möchten, deaktivieren Sie fortlaufende Verfügbarkeit für die Dateifreigabe, um Leistungsprobleme mit Ordnerumleitung und Offlinedateien zu vermeiden. Offlinedateien kann darüber hinaus nicht in den Offlinemodus wechseln, 3 bis 6 Minuten, nachdem ein Benutzer den Zugriff auf eine fortlaufend verfügbare Dateifreigabe, verliert, was Benutzer stören kann, die noch nicht von Offlinedateien immer Offlinemodus verwenden.
 
->[!NOTE]
->Einige neuere Funktionen in Sachen Ordnerumleitung müssen zusätzliche Clientcomputer- und Active Directory-Schema-Anforderungen. Weitere Informationen finden Sie unter [Bereitstellen von primären Computern](deploy-primary-computers.md), [deaktivieren Offlinedateien auf Ordner](disable-offline-files-on-folders.md), [aktivieren immer Offline-Modus](enable-always-offline.md), und [aktivieren optimiert Ordner verschieben ](enable-optimized-moving.md).
+> [!NOTE]
+> Einige neuere Funktionen in Sachen Ordnerumleitung müssen zusätzliche Clientcomputer- und Active Directory-Schema-Anforderungen. Weitere Informationen finden Sie unter [Bereitstellen von primären Computern](deploy-primary-computers.md), [deaktivieren Offlinedateien auf Ordner](disable-offline-files-on-folders.md), [aktivieren immer Offline-Modus](enable-always-offline.md), und [aktivieren optimiert Ordner verschieben ](enable-optimized-moving.md).
 
 ## <a name="step-1-create-a-folder-redirection-security-group"></a>Schritt 1: Erstellen einer Sicherheitsgruppe für Ordner-Umleitung
 
@@ -67,8 +67,8 @@ Hier wird eine Sicherheitsgruppe für die Ordnerumleitung zu erstellen:
 
 Wenn Sie nicht bereits über eine Dateifreigabe für umgeleitete Ordner verfügen, verwenden Sie das folgende Verfahren zum Erstellen einer Dateifreigabe auf einem Server mit Windows Server 2012.
 
->[!NOTE]
->Einige Funktionen weichen möglicherweise voneinander ab oder sind nicht verfügbar, wenn Sie eine Dateifreigabe auf einem Server mit einer anderen Windows-Version erstellen.
+> [!NOTE]
+> Einige Funktionen weichen möglicherweise voneinander ab oder sind nicht verfügbar, wenn Sie eine Dateifreigabe auf einem Server mit einer anderen Windows-Version erstellen.
 
 Hier ist zum Erstellen eine Dateifreigabe auf Windows Server-2019, Windows Server 2016 und Windows Server 2012:
 
@@ -93,15 +93,14 @@ Hier ist zum Erstellen eine Dateifreigabe auf Windows Server-2019, Windows Serve
 
 ### <a name="required-permissions-for-the-file-share-hosting-redirected-folders"></a>Erforderliche Berechtigungen für die Datei freigeben umgeleiteten Ordner hosten
 
-
-|Benutzerkonto  |Zugriff  |Betrifft  |
-|---------|---------|---------|
+| Benutzerkonto  | Zugriff  | Betrifft  |
+| --------- | --------- | --------- |
 | Benutzerkonto | Zugriff | Betrifft |
-|System     | Vollzugriff        |    Dieser Ordner, die Unterordner und Dateien     |
-|Administratoren     | Vollzugriff       | Nur dieser Ordner        |
-|Ersteller/Besitzer     |   Vollzugriff      |   Nur Unterordner und Dateien      |
-|Sicherheitsgruppe der Benutzer, die Daten in der Freigabe (Ordner-Umleitung-Benutzer) speichern     |   Ordner auflisten / Daten lesen *(erweiterte Berechtigungen)* <br /><br />Ordner erstellen / Daten anhängen *(erweiterte Berechtigungen)* <br /><br />Attribute lesen *(erweiterte Berechtigungen)* <br /><br />Erweiterte Attribute lesen *(erweiterte Berechtigungen)* <br /><br />Berechtigungen zum Lesen von *(erweiterte Berechtigungen)*      |  Nur dieser Ordner       |
-|Andere Gruppen und Konten     |  Keine (entfernen)       |         |
+| System     | Vollzugriff        |    Dieser Ordner, die Unterordner und Dateien     |
+| Administratoren     | Vollzugriff       | Nur dieser Ordner        |
+| Ersteller/Besitzer     |   Vollzugriff      |   Nur Unterordner und Dateien      |
+| Sicherheitsgruppe der Benutzer, die Daten in der Freigabe (Ordner-Umleitung-Benutzer) speichern     |   Ordner auflisten / Daten lesen *(erweiterte Berechtigungen)* <br /><br />Ordner erstellen / Daten anhängen *(erweiterte Berechtigungen)* <br /><br />Attribute lesen *(erweiterte Berechtigungen)* <br /><br />Erweiterte Attribute lesen *(erweiterte Berechtigungen)* <br /><br />Berechtigungen zum Lesen von *(erweiterte Berechtigungen)*      |  Nur dieser Ordner       |
+| Andere Gruppen und Konten     |  Keine (entfernen)       |         |
 
 ## <a name="step-3-create-a-gpo-for-folder-redirection"></a>Schritt 3: Erstellen Sie ein Gruppenrichtlinienobjekt für die Ordnerumleitung
 
@@ -121,15 +120,15 @@ Hier wird ein Gruppenrichtlinienobjekt für die Ordnerumleitung zu erstellen:
     
     Dieser Schritt ist notwendig, da Änderungen der Sicherheit in vorgenommenen [MS16-072](https://support.microsoft.com/help/3163622/ms16-072-security-update-for-group-policy-june-14-2016).
 
->[!IMPORTANT]
->Aufgrund der sicherheitsänderungen in [MS16-072](https://support.microsoft.com/help/3163622/ms16-072-security-update-for-group-policy-june-14-2016), Sie müssen nun die Leseberechtigungen für authentifizierte Benutzer delegiert Gruppe auf das Gruppenrichtlinienobjekt für die Ordnerumleitung gewähren – andernfalls das Gruppenrichtlinienobjekt auf Benutzer angewendet wird nicht oder wenn es bereits angewendet wird, wird das Gruppenrichtlinienobjekt Entfernt das Umleiten von Ordnern auf dem lokalen Computer zurück. Weitere Informationen finden Sie unter [bereitstellen Group Policy Security Update MS16-072](https://blogs.technet.microsoft.com/askds/2016/06/22/deploying-group-policy-security-update-ms16-072-kb3163622/).
+> [!IMPORTANT]
+> Aufgrund der sicherheitsänderungen in [MS16-072](https://support.microsoft.com/help/3163622/ms16-072-security-update-for-group-policy-june-14-2016), Sie müssen nun die Leseberechtigungen für authentifizierte Benutzer delegiert Gruppe auf das Gruppenrichtlinienobjekt für die Ordnerumleitung gewähren – andernfalls das Gruppenrichtlinienobjekt auf Benutzer angewendet wird nicht oder wenn es bereits angewendet wird, wird das Gruppenrichtlinienobjekt Entfernt das Umleiten von Ordnern auf dem lokalen Computer zurück. Weitere Informationen finden Sie unter [bereitstellen Group Policy Security Update MS16-072](https://blogs.technet.microsoft.com/askds/2016/06/22/deploying-group-policy-security-update-ms16-072-kb3163622/).
 
 ## <a name="step-4-configure-folder-redirection-with-offline-files"></a>Schritt 4: Konfigurieren der ordnerumleitung mit Offlinedateien
 
 Bearbeiten Sie nach der Erstellung des Gruppenrichtlinienobjekts für für die Ordnerumleitung die gruppenrichtlinieneinstellungen zum Aktivieren und Konfigurieren der Ordnerumleitung, wie im folgenden Verfahren beschrieben.
 
->[!NOTE]
->Offlinedateien ist für den umgeleiteten Ordnern auf Windows-Clientcomputern standardmäßig aktiviert und deaktiviert auf Computern unter Windows Server, es sei denn, vom Benutzer geändert. Verwenden Sie zum Verwenden der Gruppenrichtlinie zu steuern, ob Offlinedateien aktiviert ist, die **zulassen oder verbieten die Verwendung der Funktion für Offlinedateien** richtlinieneinstellung.
+> [!NOTE]
+> Offlinedateien ist für den umgeleiteten Ordnern auf Windows-Clientcomputern standardmäßig aktiviert und deaktiviert auf Computern unter Windows Server, es sei denn, vom Benutzer geändert. Verwenden Sie zum Verwenden der Gruppenrichtlinie zu steuern, ob Offlinedateien aktiviert ist, die **zulassen oder verbieten die Verwendung der Funktion für Offlinedateien** richtlinieneinstellung.
 > Weitere Informationen zu einigen der anderen Offline Dateien gruppenrichtlinieneinstellungen, finden Sie unter [Aktivieren erweiterter Offline Funktion](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn270369(v%3dws.11)>), und [Konfigurieren der Gruppenrichtlinie für Offlinedateien](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc759721(v%3dws.10)>).
 
 Hier ist Ordnerumleitung in Gruppenrichtlinien konfigurieren:
@@ -141,6 +140,7 @@ Hier ist Ordnerumleitung in Gruppenrichtlinien konfigurieren:
 
     > [!NOTE]
     > Wählen Sie zum Anwenden von Umleitung des Ordners auf Clientcomputern mit Windows XP oder Windows Server 2003 die **Einstellungen** Registerkarte, und wählen Sie die **Umleitungsrichtlinie auch auf Windows 2000, Windows 2000 Server, Windows XP, anwenden und Windows Server 2003-Betriebssysteme** Kontrollkästchen.
+
 5. In der **Zielspeicherort für die Ordner** wählen Sie im Abschnitt **erstellen Sie einen Ordner für jeden Benutzer im Stammpfad** , und klicken Sie dann in der **Stammpfad** geben den Pfad zu der Datei-Freigabe speichern Ordner, z. B. umgeleitet:  **\\ \\fs1.corp.contoso.com\\Benutzer$**
 6. Wählen Sie die **Einstellungen** Registerkarte, und klicken Sie in der **Entfernung der Richtlinie** optional wählen Sie im Abschnitt **zurück an den Speicherort des lokalen Benutzerprofils Ordner umleiten, wenn die Richtlinie entfernt wird** (diese Einstellung können Sie machen Ordnerumleitung Adminisitrators und Benutzern besser vorhersagbares Verhalten).
 7. Wählen Sie **OK**, und wählen Sie dann **Ja** im Dialogfeld "Warnung".
@@ -149,8 +149,8 @@ Hier ist Ordnerumleitung in Gruppenrichtlinien konfigurieren:
 
 Nachdem Sie die Gruppenrichtlinie zur Ordnerumleitung-Einstellungen konfiguriert haben, werden im nächste Schritt aktivieren Sie das Gruppenrichtlinienobjekt, sodass es auf den betroffenen Benutzer angewendet werden.
 
->[!TIP]
->Wenn Sie die Unterstützung primärer Computer oder weiterer Richtlinieneinstellungen implementieren möchten, sollten Sie das jetzt vornehmen, bevor Sie das Gruppenrichtlinienobjekt aktivieren. Dadurch wird verhindert, dass Benutzerdaten auf nicht primäre Computer kopiert werden, bevor die Unterstützung primärer Computer aktiviert ist.
+> [!TIP]
+> Wenn Sie die Unterstützung primärer Computer oder weiterer Richtlinieneinstellungen implementieren möchten, sollten Sie das jetzt vornehmen, bevor Sie das Gruppenrichtlinienobjekt aktivieren. Dadurch wird verhindert, dass Benutzerdaten auf nicht primäre Computer kopiert werden, bevor die Unterstützung primärer Computer aktiviert ist.
 
 Hier ist das Gruppenrichtlinienobjekt für die Ordnerumleitung zu aktivieren:
 
@@ -175,24 +175,24 @@ Hier ist zum Testen der Umleitung des Ordners ein:
 
 ## <a name="appendix-a-checklist-for-deploying-folder-redirection"></a>Anhang A: Prüfliste für die Bereitstellung der Ordnerumleitung
 
-|Status|Aktion|
-|:---:|---|
-|☐<br>☐<br>☐|1. Bereiten Sie die Domäne vor<br>-Beitritts von Computern zur Domäne<br>– Erstellen von Benutzerkonten|
-|☐<br><br><br>|2. Erstellen Sie die Sicherheitsgruppe für die Ordnerumleitung<br>-Group-Name:<br>-Mitglieder:|
-|☐<br><br>|3. Erstellen einer Dateifreigabe für umgeleitete Ordner<br>-Dateifreigabename:|
-|☐<br><br>|4. Erstellen Sie ein Gruppenrichtlinienobjekt für die Ordnerumleitung<br>-GPO-Name:|
-|☐<br><br>☐<br>☐<br>☐<br>☐<br>☐|5. Konfigurieren von Einstellungen für Ordnerumleitung und Offlinedateien<br>-Die umgeleiteten Ordner:<br>-Windows 2000, Windows XP und Windows Server 2003-Unterstützung aktiviert?<br>-Offlinedateien aktiviert? (auf Windows-Clientcomputern standardmäßig aktiviert)<br>– Always Offline-Modus aktiviert?<br>-Hintergrundsynchronisierung aktiviert?<br>– Optimierte Verschieben der umgeleitete Ordner aktiviert?|
-|☐<br><br>☐<br><br>☐<br>☐|6. (Optional) Aktivieren Sie die Unterstützung primärer computer<br>-Computer-basierte oder nutzerbasiert?<br>– Festlegen von hauptcomputern für Benutzer<br>-Speicherort der Benutzer- und primären computerzuordnungen:<br>– (Optional) aktivieren die Unterstützung primärer Computer für die Ordnerumleitung<br>– (Optional) aktivieren die Unterstützung primärer Computer für Roamingbenutzerprofile|
-|☐|7. Aktivieren der Ordnerumleitung GPO|
-|☐|8. Testen Sie die Ordnerumleitung|
+| Status           | Aktion |
+| ---              | ---    |
+| ☐<br>☐<br>☐    | 1. Bereiten Sie die Domäne vor<br>-Beitritts von Computern zur Domäne<br>– Erstellen von Benutzerkonten |
+| ☐<br><br><br>   | 2. Erstellen Sie die Sicherheitsgruppe für die Ordnerumleitung<br>-Group-Name:<br>-Mitglieder: |
+| ☐<br><br>       | 3. Erstellen einer Dateifreigabe für umgeleitete Ordner<br>-Dateifreigabename: |
+| ☐<br><br>       | 4. Erstellen Sie ein Gruppenrichtlinienobjekt für die Ordnerumleitung<br>-GPO-Name: |
+| ☐<br><br>☐<br>☐<br>☐<br>☐<br>☐ | 5. Konfigurieren von Einstellungen für Ordnerumleitung und Offlinedateien<br>-Die umgeleiteten Ordner:<br>-Windows 2000, Windows XP und Windows Server 2003-Unterstützung aktiviert?<br>-Offlinedateien aktiviert? (auf Windows-Clientcomputern standardmäßig aktiviert)<br>– Always Offline-Modus aktiviert?<br>-Hintergrundsynchronisierung aktiviert?<br>– Optimierte Verschieben der umgeleitete Ordner aktiviert? |
+| ☐<br><br>☐<br><br>☐<br>☐ | 6. (Optional) Aktivieren Sie die Unterstützung primärer computer<br>-Computer-basierte oder nutzerbasiert?<br>– Festlegen von hauptcomputern für Benutzer<br>-Speicherort der Benutzer- und primären computerzuordnungen:<br>– (Optional) aktivieren die Unterstützung primärer Computer für die Ordnerumleitung<br>– (Optional) aktivieren die Unterstützung primärer Computer für Roamingbenutzerprofile |
+| ☐         | 7. Aktivieren der Ordnerumleitung GPO |
+| ☐         | 8. Testen Sie die Ordnerumleitung |
 
 ## <a name="change-history"></a>Änderungsverlauf
 
 In der folgenden Tabelle sind die wichtigsten Änderungen zu diesem Thema zusammengefasst.
 
-|date|Beschreibung|Grund|
-|---|---|---|
-|18. Januar 2017|Einen Schritt hinzugefügt [Schritt 3: Erstellen Sie ein Gruppenrichtlinienobjekt für die Ordnerumleitung](#step-3-create-a-gpo-for-folder-redirection) , delegieren Leseberechtigungen für authentifizierte Benutzer, das jetzt ist aufgrund der Aktualisierung der Gruppenrichtlinie Sicherheit erforderlich sind.|Kundenfeedback.|
+| date | Beschreibung | Grund|
+| --- | --- | --- |
+| 18. Januar 2017 | Einen Schritt hinzugefügt [Schritt 3: Erstellen Sie ein Gruppenrichtlinienobjekt für die Ordnerumleitung](#step-3-create-a-gpo-for-folder-redirection) , delegieren Leseberechtigungen für authentifizierte Benutzer, das jetzt ist aufgrund der Aktualisierung der Gruppenrichtlinie Sicherheit erforderlich sind. | Kundenfeedback |
 
 ## <a name="more-information"></a>Weitere Informationen
 

@@ -14,12 +14,12 @@ ms.assetid: abded6f3-5708-4e35-9a9e-890e81924fec
 ms.author: pashort
 author: shortpatti
 ms.date: 09/10/2018
-ms.openlocfilehash: 367de10e8c77490ff27be81ddc05239f931ad1f4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: cf58956ead8e8a47b8ec6d189bf23e5c576d5f15
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59860471"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812184"
 ---
 # <a name="nic-teaming"></a>NIC-Teamvorgang
 
@@ -27,8 +27,8 @@ ms.locfileid: "59860471"
 
 In diesem Thema stellen wir Ihnen in Windows Server 2016 einen Überblick über die Windows-Verwaltungsinstrumentation (Network Interface Card, NIC)-Teamvorgang. NIC-Teamvorgang ermöglicht Ihnen, zwischen 1 und 32 gruppieren, physische Ethernet-Netzwerkadapter in ein oder mehrere softwarebasierte virtuelle Netzwerkadapter. Diese virtuellen Netzwerkadapter bieten schnelle Leistung und Fehlertoleranz bei Ausfall eines Netzwerkadapters.  
   
->[!IMPORTANT]
->Sie müssen den NIC-Team Member-Netzwerkadapter in demselben physischen Hostcomputer installieren. 
+> [!IMPORTANT]
+> Sie müssen den NIC-Team Member-Netzwerkadapter in demselben physischen Hostcomputer installieren. 
 
 > [!TIP]  
 > Ein NIC-Team, das nur einen Netzwerkadapter enthält, kann keine beim Lastenausgleich und Failover bereitstellen. Allerdings mit einem Netzwerkadapter können Sie NIC-Teamvorgang für die Trennung des Netzwerkdatenverkehrs, wenn Sie auch virtuelle lokale Netzwerke (VLANs) verwenden.  
@@ -63,9 +63,9 @@ Sie können die folgenden NICs nicht in einem NIC-Team platzieren:
 ## <a name="compatibility"></a>Kompatibilität  
 NIC-Teamvorgang ist kompatibel mit allen netzwerktechnologien in Windows Server 2016 mit den folgenden Ausnahmen.  
   
--   **Single-Root i/o-Virtualisierung (SR-IOV)**. Bei SR-IOV werden Daten direkt an die NIC übermittelt, ohne Umweg über den Netzwerkstapel (im Betriebssystem Hosts, bei der Virtualisierung). Aus diesem Grund ist es nicht möglich, für das NIC-Team, um zu überprüfen oder die Daten an einen anderen Pfad im Team umleiten.  
+-   **Single-Root i/o-Virtualisierung (SR-IOV)** . Bei SR-IOV werden Daten direkt an die NIC übermittelt, ohne Umweg über den Netzwerkstapel (im Betriebssystem Hosts, bei der Virtualisierung). Aus diesem Grund ist es nicht möglich, für das NIC-Team, um zu überprüfen oder die Daten an einen anderen Pfad im Team umleiten.  
   
--   **Nativer Host Quality of Service (QoS)**. Wenn Sie QoS-Richtlinien auf ein systemeigenes oder Host-System, und diese Richtlinien aufrufen Mindestbandbreite Einschränkungen, müssen der Gesamtdurchsatz für eine NIC-Team ist kleiner als die ohne den Bandbreitenrichtlinien vorhanden wäre.  
+-   **Nativer Host Quality of Service (QoS)** . Wenn Sie QoS-Richtlinien auf ein systemeigenes oder Host-System, und diese Richtlinien aufrufen Mindestbandbreite Einschränkungen, müssen der Gesamtdurchsatz für eine NIC-Team ist kleiner als die ohne den Bandbreitenrichtlinien vorhanden wäre.  
   
 -   **TCP Chimney**. TCP-Chimney wird nicht unterstützt, mit NIC-Teamvorgang, da TCP-Chimney entlasten Sie den gesamten Netzwerkstapel direkt auf die NIC.  
   

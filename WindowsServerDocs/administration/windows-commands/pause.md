@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 109d162e8d5c4bdd59871a21f16b6f568df4fbd6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e5805fcc14d6874d95ba90537d72b560229ba99b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861661"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436311"
 ---
 # <a name="pause"></a>pause
 
@@ -44,16 +44,16 @@ pause
 
 ## <a name="remarks"></a>Hinweise
 
--   Beim Ausführen der **anhalten** Befehl die folgende Meldung angezeigt:  
-    ```
-    Press any key to continue . . .
-    ```  
--   Wenn Sie zum Beenden eines Batchprogramms STRG + C drücken, wird die folgende Meldung angezeigt:  
-    ```
-    Terminate batch job (Y/N)?
-    ```  
-    Wenn Sie Y (für Ja) als Reaktion auf diese Meldung klicken, gibt der Batch beendet und die Steuerung an das Betriebssystem.
--   Sie können zum Einfügen der **anhalten** Befehl, bevor Sie einen Abschnitt der Batch-Datei, die Sie möglicherweise nicht verarbeiten möchten. Wenn **anhalten** hält die Verarbeitung des Batchprogramms, können Sie STRG + C drücken und drücken Sie Y, um die Batchprogramm zu beenden.
+- Beim Ausführen der **anhalten** Befehl die folgende Meldung angezeigt:  
+  ```
+  Press any key to continue . . .
+  ```  
+- Wenn Sie zum Beenden eines Batchprogramms STRG + C drücken, wird die folgende Meldung angezeigt:  
+  ```
+  Terminate batch job (Y/N)?
+  ```  
+  Wenn Sie Y (für Ja) als Reaktion auf diese Meldung klicken, gibt der Batch beendet und die Steuerung an das Betriebssystem.
+- Sie können zum Einfügen der **anhalten** Befehl, bevor Sie einen Abschnitt der Batch-Datei, die Sie möglicherweise nicht verarbeiten möchten. Wenn **anhalten** hält die Verarbeitung des Batchprogramms, können Sie STRG + C drücken und drücken Sie Y, um die Batchprogramm zu beenden.
 
 ## <a name="BKMK_examples"></a>Beispiele für
 
@@ -70,4 +70,4 @@ In diesem Beispiel werden alle Dateien auf dem Datenträger im Laufwerk einer im
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

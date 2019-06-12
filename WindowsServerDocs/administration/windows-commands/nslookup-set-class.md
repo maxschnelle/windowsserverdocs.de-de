@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5e02a6f473a7c2dc6d6b66eb5b23fded930bc817
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7953f450c17afdee849515f8d8945631a30f4b98
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856351"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436841"
 ---
 # <a name="nslookup-set-class"></a>nslookup set class
 
@@ -34,11 +34,11 @@ set class=<Class>
 
 ## <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|\<Class>|Die Standardklasse ist in. Die folgende Liste enthält die gültigen Werte für diesen Befehl aus.</br>-IN: Gibt die Internet-Klasse.</br>-CHAOS: Gibt die Chaos-Klasse.</br>-HESIOD: Gibt an, die Athena Hesiod-Klasse.</br>-DER JEDEN: Gibt eines der zuvor aufgeführten Platzhalterzeichen an.|
-|{Hilfe | ?}|Zeigt eine kurze Zusammenfassung der **Nslookup** Unterbefehle.|
+| Parameter |                                                                                                                                    Beschreibung                                                                                                                                    |
+|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| \<Class>  | Die Standardklasse ist in. Die folgende Liste enthält die gültigen Werte für diesen Befehl aus.</br>-IN: Gibt die Internet-Klasse.</br>-CHAOS: Gibt die Chaos-Klasse.</br>-HESIOD: Gibt an, die Athena Hesiod-Klasse.</br>-DER JEDEN: Gibt eines der zuvor aufgeführten Platzhalterzeichen an. |
+|   {Hilfe   |                                                                                                                                        ?}                                                                                                                                         |
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

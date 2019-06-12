@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: dc675ac202f87703074f78c45b1f264f6105c324
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 38d6c032f347f9945701f17b9289f3e3ff474031
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843741"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440620"
 ---
 # <a name="using-the-add-imagedriverpackage-command"></a>Mithilfe des Befehls Add-ImageDriverPackage
 
@@ -33,15 +33,17 @@ wdsutil /add-ImageDriverPackage [/Server:<Server name>media:<Image namemediatype
 [/Filename:<File name>] {/DriverPackage:<Package Name> | /PackageId:<ID>}
 ```
 ## <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
-|-------|--------|
-|[/ Server:<Server name>|Gibt den Namen des Servers an. Dies kann den NetBIOS-Namen oder den vollqualifizierten Domänennamen sein. Wenn kein Servername angegeben wird, wird der lokale Server verwendet.|
-Medien:<Image name>|Gibt den Namen des Bildes, das die Treiber hinzufügen.|
-mediatype:Boot|Gibt den Typ des Bilds, das die Treiber hinzufügen. Treiberpakete können nur um zu Startabbildern hinzugefügt werden.|
-|/Architecture:{x86 &#124; ia64 &#124; x64}|Gibt die Architektur des Startabbilds. Da es möglich, dass der gleiche ImageName für Startabbilder in verschiedenen Architekturen handelt, sollten Sie angeben, die Architektur, um sicherzustellen, dass das richtige Image verwendet wird.|
-|/ Filename:<File name>]|Gibt den Namen der Datei. Wenn das Bild nach Namen eindeutig identifiziert werden kann, muss der Dateiname angegeben werden.|
-|[/ DriverPackage /:<Name>|Gibt den Namen des Treiberpakets auf das Bild hinzufügen.|
-|[/PackageId:<ID>]|Gibt die Windows Deployment Services-ID des Treiberpakets an. Sie müssen diese Option angeben, wenn das Treiberpaket eindeutig anhand des Namens identifiziert werden kann. Um die Paket-ID zu suchen, klicken Sie auf die Treibergruppe gewährt wird, der das Paket wird (oder die **alle Pakete** Knoten) mit der rechten Maustaste auf das Paket, und klicken Sie dann auf **Eigenschaften**. Die Paket-ID finden Sie auf die **allgemeine** Registerkarte. Zum Beispiel: {DD098D20-1850-4fc8-8E35-EA24A1BEFF5E}.|
+
+|                 Parameter                  |                                                                                                                                                                                                            Beschreibung                                                                                                                                                                                                             |
+|--------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|           [/ Server:<Server name>           |                                                                                                                                               Gibt den Namen des Servers an. Dies kann den NetBIOS-Namen oder den vollqualifizierten Domänennamen sein. Wenn kein Servername angegeben wird, wird der lokale Server verwendet.                                                                                                                                                |
+|             Medien:<Image name>             |                                                                                                                                                                                       Gibt den Namen des Bildes, das die Treiber hinzufügen.                                                                                                                                                                                        |
+|               mediatype:Boot               |                                                                                                                                                                Gibt den Typ des Bilds, das die Treiber hinzufügen. Treiberpakete können nur um zu Startabbildern hinzugefügt werden.                                                                                                                                                                 |
+| /Architecture:{x86 &#124; ia64 &#124; x64} |                                                                                                       Gibt die Architektur des Startabbilds. Da es möglich, dass der gleiche ImageName für Startabbilder in verschiedenen Architekturen handelt, sollten Sie angeben, die Architektur, um sicherzustellen, dass das richtige Image verwendet wird.                                                                                                        |
+|           / Filename:<File name>]           |                                                                                                                                                        Gibt den Namen der Datei. Wenn das Bild nach Namen eindeutig identifiziert werden kann, muss der Dateiname angegeben werden.                                                                                                                                                        |
+|           [/ DriverPackage /:<Name>           |                                                                                                                                                                                   Gibt den Namen des Treiberpakets auf das Bild hinzufügen.                                                                                                                                                                                    |
+|             [/PackageId:<ID>]              | Gibt die Windows Deployment Services-ID des Treiberpakets an. Sie müssen diese Option angeben, wenn das Treiberpaket eindeutig anhand des Namens identifiziert werden kann. Um die Paket-ID zu suchen, klicken Sie auf die Treibergruppe gewährt wird, der das Paket wird (oder die **alle Pakete** Knoten) mit der rechten Maustaste auf das Paket, und klicken Sie dann auf **Eigenschaften**. Die Paket-ID finden Sie auf die **allgemeine** Registerkarte. Zum Beispiel: {DD098D20-1850-4fc8-8E35-EA24A1BEFF5E}. |
+
 ## <a name="BKMK_examples"></a>Beispiele für
 Geben Sie einen der folgenden Schritte aus, zum Hinzufügen eines Treiberpakets zu einem Startabbild:
 ```

@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: Asmahi; SandySp; JoPoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: e5e55ad492439fcb7150469d9a35b639f5ff9a2f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: baea091482818c581414ba1d9c1c01db2a52e3d7
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830511"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435663"
 ---
 # <a name="hyper-v-configuration"></a>Hyper-V – Konfiguration
 
@@ -76,15 +76,15 @@ Hyper-V veröffentlicht, Leistungsindikatoren, um das Verhalten des virtualisier
 
 Sie sollten immer die CPU-Auslastung des physischen Systems messen, mithilfe der Hyper-V Hypervisor Logical Processor-Leistungsindikatoren. Die CPU-Auslastung, Leistungsindikatoren, Task-Manager und Performance Monitor-Bericht in den Stamm und untergeordneten Partitionen spiegeln nicht die tatsächliche physische CPU-Auslastung. Verwenden Sie die folgenden Leistungsindikatoren zum Überwachen der Leistung:
 
--   **Hyper-V Hypervisor Logical Processor (\*)\\% Gesamtzeit ausführen** die nicht im Leerlauf befindlichen Gesamtzeit der logischen Prozessoren
+- **Hyper-V Hypervisor Logical Processor (\*)\\% Gesamtzeit ausführen** die nicht im Leerlauf befindlichen Gesamtzeit der logischen Prozessoren
 
--   **Hyper-V Hypervisor Logical Processor (\*)\\% Gast-Laufzeit** verbrachte Zeit ausgeführte Zyklen in einem Gast oder innerhalb des Hosts
+- **Hyper-V Hypervisor Logical Processor (\*)\\% Gast-Laufzeit** verbrachte Zeit ausgeführte Zyklen in einem Gast oder innerhalb des Hosts
 
--   **Hyper-V Hypervisor Logical Processor (\*)\\% Hypervisor-Laufzeit** ausgeführt innerhalb der Hypervisor verbrachte Zeit
+- **Hyper-V Hypervisor Logical Processor (\*)\\% Hypervisor-Laufzeit** ausgeführt innerhalb der Hypervisor verbrachte Zeit
 
--   **Hyper-V-Hypervisor Stamm virtuellen Prozessor (\*)\\ \***  misst die CPU-Auslastung der Stammpartition
+- **Hyper-V-Hypervisor Stamm virtuellen Prozessor (\*)\\\\** * misst die CPU-Auslastung der Stammpartition
 
--   **Virtueller Hyper-V-Hypervisor-Prozessor (\*)\\ \***  misst die CPU-Auslastung der Gast-Partitionen
+- **Virtueller Hyper-V-Hypervisor-Prozessor (\*)\\\\** * misst die CPU-Auslastung der Gast-Partitionen
 
 
 ## <a name="see-also"></a>Siehe auch
@@ -93,13 +93,13 @@ Sie sollten immer die CPU-Auslastung des physischen Systems messen, mithilfe der
 
 -   [Hyper-V-Architektur](architecture.md)
 
--   [Hyper-V, prozessorbezogene Leistungsdaten](processor-performance.md)
+-   [Hyper-V-Prozessorleistung](processor-performance.md)
 
--   [Hyper-V-Memory-Leistung](memory-performance.md)
+-   [Hyper-V-Arbeitsspeicherleistung](memory-performance.md)
 
--   [Hyper-V-Speicher-e/a-Leistung](storage-io-performance.md)
+-   [E/A-Leistung für Hyper-V-Speicher](storage-io-performance.md)
 
--   [Hyper-V-Netzwerk-e/a-Leistung](network-io-performance.md)
+-   [E/A-Leistung für Hyper-V-Netzwerk](network-io-performance.md)
 
 -   [Erkennen von Engpässen in einer virtualisierten Umgebung](detecting-virtualized-environment-bottlenecks.md)
 

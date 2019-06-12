@@ -7,15 +7,15 @@ ms.technology: storage-spaces
 ms.topic: get-started-article
 ms.assetid: 20fee213-8ba5-4cd3-87a6-e77359e82bc0
 author: stevenek
-ms.date: 8/16/2018
+ms.date: 06/07/2019
 description: Schrittweise Anleitungen zum Bereitstellen von Software-definiertem Speicher mit Storage Spaces Direct in Windows Server als hyperkonvergenten Infrastruktur oder konvergierte (auch bekannt als disaggregierten)-Infrastruktur.
 ms.localizationpriority: medium
-ms.openlocfilehash: 55cfa0e066506d7174f9e5b1e61cc0aa290706d7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a4159c85be23025ef57084b47dcc77d4f749888f
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865411"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812355"
 ---
 # <a name="deploy-storage-spaces-direct"></a>Bereitstellen von direkte Speicherplätze
 
@@ -24,7 +24,7 @@ ms.locfileid: "59865411"
 Dieses Thema enthält schrittweise Anweisungen zum Bereitstellen von ["direkte Speicherplätze"](storage-spaces-direct-overview.md).
 
 > [!Tip]
-> Suche nach Hyper-Converged Infrastruktur? Microsoft empfiehlt diese [Windows Server-Software-Defined](https://microsoft.com/wssd) Lösungen unserer Partner. Sie werden entworfen, zusammengesetzt und für unsere Referenzarchitektur, um sicherzustellen, dass Kompatibilität und Zuverlässigkeit, damit Sie Sie nutzen und schnell überprüft.
+> Suche nach Hyper-Converged Infrastruktur? Microsoft empfiehlt, erwerben eine überprüfte Hardware/Software-Lösung von unseren Partnern, die von Bereitstellungstools und Verfahren enthalten. Diese Lösungen werden entworfen, zusammengesetzt und für unsere Referenzarchitektur, um sicherzustellen, dass Kompatibilität und Zuverlässigkeit, damit Sie Sie nutzen und schnell überprüft. 2019 für Windows Server-Lösungen finden Sie auf die [Solutions-Website für Azure Stack HCI](https://azure.microsoft.com/overview/azure-stack/hci). Für Windows Server 2016-Lösungen, erfahren Sie mehr unter [Windows Server-Software-Defined](https://microsoft.com/wssd).
 
 > [!Tip]
 > Sie können Hyper-V-VMs, einschließlich der in Microsoft Azure zu verwenden, ["direkte Speicherplätze" auswerten, ohne Hardware](storage-spaces-direct-in-vm.md). Sie sollten auch die praktische überprüfen [Bereitstellungsskripts für Windows Server-schnelle Lab](https://aka.ms/wslab), der für trainingszwecke verwendet.
@@ -51,7 +51,7 @@ Erfassen Sie die folgende Informationen an:
 
 Der erste Schritt ist zum Installieren von Windows Server auf jedem Server, die im Cluster. "Direkte Speicherplätze" ist Windows Server 2016 Datacenter Edition erforderlich. Sie können die Server Core-Installationsoption oder den Server mit Desktopdarstellung verwenden.
 
-Wenn Sie Windows-Server mithilfe des Setup-Assistenten installieren, können Sie zwischen *WindowsServer* (in Bezug auf Server Core) und *Windows Server (Server mit Desktopdarstellung)*, entspricht von der *vollständige* Installationsoption in Windows Server 2012 R2 verfügbar. Wenn Sie nicht auswählen, erhalten Sie die Server Core-Installationsoption. Weitere Informationen finden Sie unter [Installation Optionen für Windows Server 2016](../../get-started/Windows-Server-2016.md).
+Wenn Sie Windows-Server mithilfe des Setup-Assistenten installieren, können Sie zwischen *WindowsServer* (in Bezug auf Server Core) und *Windows Server (Server mit Desktopdarstellung)* , entspricht von der *vollständige* Installationsoption in Windows Server 2012 R2 verfügbar. Wenn Sie nicht auswählen, erhalten Sie die Server Core-Installationsoption. Weitere Informationen finden Sie unter [Installation Optionen für Windows Server 2016](../../get-started/Windows-Server-2016.md).
 
 ### <a name="step-12-connect-to-the-servers"></a>Schritt 1.2: Eine Verbindung mit Server herstellen
 
@@ -229,7 +229,7 @@ Es wird empfohlen, dass Sie einen Zeugen für den Cluster konfigurieren, damit d
 
 Weitere Informationen finden Sie unter den folgenden Themen:
 
-- [Konfigurieren und Verwalten von quorum](../../failover-clustering/manage-cluster-quorum.md)
+- [Konfigurieren und Verwalten des Quorums](../../failover-clustering/manage-cluster-quorum.md)
 - [Bereitstellen eines Cloudzeugen für einen Failovercluster](../../failover-clustering/deploy-cloud-witness.md)
 
 ### <a name="step-35-enable-storage-spaces-direct"></a>Schritt 3.5: Aktivieren von „Direkte Speicherplätze“
@@ -297,15 +297,15 @@ Der nächste Schritt bei der Einrichtung der Clusterdienste für Ihren Dateiserv
 
 #### <a name="to-create-a-scale-out-file-server-role-by-using-server-manager"></a>So erstellen Sie eine Scale-Out File Server-Rolle mithilfe von Server-Manager
 
-1.  Im Failovercluster-Manager, wählen Sie den Cluster, wechseln Sie zur **Rollen**, und klicken Sie dann auf **Rolle konfigurieren...** .<br>Assistenten für hohe Verfügbarkeit wird angezeigt.
-2.  Auf der **Select Role** auf **Dateiserver**.
-3.  Auf der **Dateiservertyp** auf **Scale-Out File Server für Anwendungsdaten**.
-4.  Auf der **Clientzugriffspunkt** geben einen Namen für den Dateiserver für horizontales Skalieren.
-5.  Stellen Sie sicher, dass die Rolle erfolgreich eingerichtet wurde, indem Sie auf **Rollen** und bestätigt, dass die **Status** zeigt Spalte **ausführen** neben der gruppierten Dateiserverrolle, die Sie erstellt haben, wie in Abbildung 1 dargestellt.
+1. Im Failovercluster-Manager, wählen Sie den Cluster, wechseln Sie zur **Rollen**, und klicken Sie dann auf **Rolle konfigurieren...** .<br>Assistenten für hohe Verfügbarkeit wird angezeigt.
+2. Auf der **Select Role** auf **Dateiserver**.
+3. Auf der **Dateiservertyp** auf **Scale-Out File Server für Anwendungsdaten**.
+4. Auf der **Clientzugriffspunkt** geben einen Namen für den Dateiserver für horizontales Skalieren.
+5. Stellen Sie sicher, dass die Rolle erfolgreich eingerichtet wurde, indem Sie auf **Rollen** und bestätigt, dass die **Status** zeigt Spalte **ausführen** neben der gruppierten Dateiserverrolle, die Sie erstellt haben, wie in Abbildung 1 dargestellt.
 
-    ![Screenshot des Failovercluster-Managers mit dem Dateiserver für horizontales Skalieren](media\Hyper-converged-solution-using-Storage-Spaces-Direct-in-Windows-Server-2016\SOFS_in_FCM.png "Failovercluster-Manager mit dem Dateiserver für horizontales Skalieren")
+   ![Screenshot des Failovercluster-Managers mit dem Dateiserver für horizontales Skalieren](media/Hyper-converged-solution-using-Storage-Spaces-Direct-in-Windows-Server-2016/SOFS_in_FCM.png "Failovercluster-Manager mit dem Dateiserver für horizontales Skalieren")
 
-     **Abbildung 1** Failovercluster-Manager zeigt die Scale-Out File Server, mit dem Status wird ausgeführt
+    **Abbildung 1** Failovercluster-Manager zeigt die Scale-Out File Server, mit dem Status wird ausgeführt
 
 > [!NOTE]
 >  Nach dem Erstellen der Clusterrolle "", gibt es möglicherweise einige Netzwerk Verzögerungen bei der Verteilung, die Erstellung von Dateifreigaben auf einige Minuten oder möglicherweise längere verhindern könnten.  

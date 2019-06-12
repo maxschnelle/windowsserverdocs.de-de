@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 91fceb429ca00b1b3d9d36d01f5e97cfd464ccb9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 179d540371870075906bbcbf8ff912e1b883915d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59825161"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433932"
 ---
 # <a name="dcgpofix"></a>dcgpofix
 
@@ -34,11 +34,11 @@ DCGPOFix [/ignoreschema] [/target: {Domain | DC | Both}] [/?]
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|/ignoreschema|Die Version des Active Schema Mc ignoriert</br>Wenn Sie diesen Befehl ausführen. Andernfalls funktioniert der Befehl nur auf die gleiche Schemaversion wie die Windows-Version, in der der Befehl ausgeliefert wurde.|
-|/ target {domain | DC | Both}|Gibt an, welches GPO Sie wiederherstellen. Sie können das Gruppenrichtlinienobjekt, das Gruppenrichtlinienobjekt Default Domain Controller oder beides wiederherstellen.|
-|/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
+|    Parameter    |                                                                                                 Beschreibung                                                                                                 |
+|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  /ignoreschema  | Die Version des Active Schema Mc ignoriert</br>Wenn Sie diesen Befehl ausführen. Andernfalls funktioniert der Befehl nur auf die gleiche Schemaversion wie die Windows-Version, in der der Befehl ausgeliefert wurde. |
+| / target {domain |                                                                                                     DC                                                                                                      |
+|       /?        |                                                                                    Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                     |
 
 ## <a name="remarks"></a>Hinweise
 
@@ -59,4 +59,4 @@ dcgpofix /ignoreschema /target:DC
 #### <a name="additional-references"></a>Weitere Verweise
 
 -   [Gruppenrichtlinien-TechCenter](https://go.microsoft.com/fwlink/?LinkID=145531)
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

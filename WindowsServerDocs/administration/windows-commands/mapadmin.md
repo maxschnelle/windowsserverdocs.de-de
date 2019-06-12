@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 007256fffde11899d930c9197cade6d3bf9be42c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3ad9f55ba130014227326f4abe8540c78755f6c5
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868781"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66437375"
 ---
 # <a name="mapadmin"></a>mapadmin
 
@@ -52,7 +52,7 @@ Zusätzlich zu den spezifischen Befehlszeilenargumenten **Mapadmin** akzeptiert 
 
 &lt;Computer&gt; gibt an, dem Remotecomputer mit den User Name Mapping-Dienst, den Sie verwalten möchten. Sie können den Computer mithilfe der Name einer Windows Internet Name Service (WINS) oder ein Domain Name System (DNS) angeben oder von IP (Internet Protocol) zu beheben.
 
--u &lt;Benutzer&gt; gibt den Benutzernamen des Benutzers, dessen Anmeldeinformationen sind, verwendet werden soll. Es kann erforderlich sein, den Domänennamen hinzufügen, um den Benutzernamen im Format *Domäne***\\***Benutzernamen*.
+-u &lt;Benutzer&gt; gibt den Benutzernamen des Benutzers, dessen Anmeldeinformationen sind, verwendet werden soll. Es kann erforderlich sein, den Domänennamen hinzufügen, um den Benutzernamen im Format <em>Domäne</em> **\\** <em>Benutzernamen</em>.
 
 -p &lt;Kennwort&gt; gibt das Kennwort des Benutzers. Bei Angabe der **-u** option jedoch weglassen der **-p** -Option verwenden, werden Sie aufgefordert, für das Kennwort des Benutzers.
 Die jeweilige Aktion, die **Mapadmin** ausführt, hängt das Befehlsargument, die Sie angeben:
@@ -90,7 +90,7 @@ Gibt allgemeine Einstellungen für die User Name Mapping. Die folgenden Optionen
 
 |Option|Definition|
 |-----|-------|
-|-wu &lt;user&gt;|Der Windows-Benutzer, die für die die Zuordnung gelöscht werden, angegeben als &lt; *WindowsDomain&gt;\\&lt;Benutzernamen&gt;*. Geben Sie die **- Wu** oder **- Uu** Option oder beides. Wenn Sie beide Optionen angeben, werden diese spezielle Zuordnung, die durch die beiden Optionen identifiziert wird gelöscht. Wenn Sie nur angeben, die **- Wu** -Option verwenden, alle Zuordnungen für der angegebene Benutzer werden gelöscht.|
+|-wu &lt;user&gt;|Der Windows-Benutzer, die für die die Zuordnung gelöscht werden, angegeben als &lt; *WindowsDomain&gt;\\&lt;Benutzernamen&gt;* . Geben Sie die **- Wu** oder **- Uu** Option oder beides. Wenn Sie beide Optionen angeben, werden diese spezielle Zuordnung, die durch die beiden Optionen identifiziert wird gelöscht. Wenn Sie nur angeben, die **- Wu** -Option verwenden, alle Zuordnungen für der angegebene Benutzer werden gelöscht.|
 |-Wg &lt;Gruppe&gt;|Die Windows-Gruppe, die für die die Zuordnung gelöscht werden, angegeben als &lt;WindowsDomain&gt;\\&lt;Groupname&gt;. Geben Sie die **- Wg** oder **Ug -** Option oder beides. Wenn Sie beide Optionen angeben, werden diese spezielle Zuordnung, die durch die beiden Optionen identifiziert wird gelöscht. Wenn Sie nur angeben, die **- Wg** -Option verwenden, alle Zuordnungen für die angegebene Gruppe gelöscht werden.|
 |-Uu &lt;Benutzer&gt;|Der UNIX-Benutzer, die für den die Zuordnung gelöscht werden, angegeben als &lt;Benutzernamen&gt;. Geben Sie die **- Wu** oder **- Uu** Option oder beides. Wenn Sie beide Optionen angeben, werden diese spezielle Zuordnung, die durch die beiden Optionen identifiziert wird gelöscht. Wenn Sie nur angeben, die **- Uu** -Option verwenden, alle Zuordnungen für der angegebene Benutzer werden gelöscht.|
 |Ug - &lt;Gruppe&gt;|Der UNIX-Gruppe, die für die die Zuordnung gelöscht werden, angegeben als &lt;Groupname&gt;. Geben Sie die **- Wg** oder **Ug -** Option oder beides. Wenn Sie beide Optionen angeben, werden diese spezielle Zuordnung, die durch die beiden Optionen identifiziert wird gelöscht. Wenn Sie nur angeben, die **Ug -** -Option verwenden, alle Zuordnungen für die angegebene Gruppe gelöscht werden.|
@@ -114,7 +114,7 @@ Gibt allgemeine Einstellungen für die User Name Mapping. Die folgenden Optionen
 |Option|Definition|
 |-----|-------|
 |-d &lt;WindowsDomain&gt;|Gibt die Windows-Domäne zugeordnet werden soll.|
-|-y &lt;NISdomain&gt;|Gibt die NIS-Domäne zugeordnet werden soll. &lt;Br /&gt;&lt;Br /&gt;**- n** &lt;NisServer&gt; gibt an, die NIS-Server für NIS-Domäne angegeben, mit der **- y**Option.|
+|-y &lt;NISdomain&gt;|Gibt die NIS-Domäne zugeordnet werden soll. &lt;Br /&gt;&lt;Br /&gt; **- n** &lt;NisServer&gt; gibt an, die NIS-Server für NIS-Domäne angegeben, mit der **- y**Option.|
 |-f &lt;Pfad&gt;|Gibt den vollqualifizierten Pfad des Verzeichnisses mit den Dateien von Kennwörtern und Gruppen zugeordnet werden soll. Die Dateien müssen auf dem zu verwaltenden Computer befinden, und können keine **Mapadmin** zum Verwalten von eines Remotecomputer befindet, um Zuordnungen auf Grundlage von Kennwort- und Gruppendateien einzurichten.|
 
 **Removedomainmap** – eine einfache Zuordnung zwischen einer Windows-Domäne und einer NIS-Domäne entfernt. Die folgenden Optionen und Argument stehen für dieses Befehlsargument:
@@ -136,4 +136,4 @@ Gibt allgemeine Einstellungen für die User Name Mapping. Die folgenden Optionen
 -   für UNIX-Gruppen, verwenden Sie das Formular &lt;NamenRegistrierungNISDomain&gt;\\&lt;Groupname&gt;, &lt;Groupname&gt;@&lt;NamenRegistrierungNISDomain&gt;, &lt;Groupname&gt;@PCNFS, oder PCNFS\\&lt;Groupname&gt;
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 432d661d8c0ce4cae6fe08a2671e8f9d613ce351
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ca75dd9af441446081cb10743329eb8e42166c0c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846781"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66434073"
 ---
 # <a name="create-volume-raid"></a>Erstellen von Volume-raid
 
@@ -39,12 +39,12 @@ create volume raid [size=<n>] disk=<n>,<n>,<n>[,<n>,...] [align=<n>] [noerr]
   
 ## <a name="parameters"></a>Parameter  
   
-|Parameter|Beschreibung|  
-|-------|--------|  
-|Größe\=<n>|Die Menge des Speicherplatzes in Megabyte \(MB\), die das Volume auf jedem Datenträger belegen wird. Wenn keine Größe angegeben wird, wird der größte mögliche RAID\-5-Volumes erstellt werden. Der Datenträger mit den kleinsten verfügbaren freien Speicherplatz bestimmt die Größe für RAID\-5-Volume und die gleiche Menge an Speicherplatz auf jedem Datenträger reserviert ist. Die tatsächliche Menge verwendbaren Speicherplatz in das RAID\-5-Volume ist kleiner als die Gesamtmenge des Speicherplatzes, da der Speicherplatz ist erforderlich, für die Parität.|  
-|Datenträger\=<n>,<n>,<n>\[,<n>,...\]|Die dynamischen Datenträgern auf die Erstellung von RAID\-5-Volumes. Sie benötigen mindestens drei dynamische Datenträger aus, um erstellen Sie ein RAID\-5-Volumes. Der Platz gleich **Größe\= <n>**  auf jedem Datenträger zugeordnet ist.|  
-|align\=<n>|Richtet alle Volume-Blöcke auf der nächsten. In der Regel verwendet, mit der Hardware-RAID Logical Unit Number \(LUN\) Arrays zur Verbesserung der Leistung. *n* ist die Anzahl der Kilobytes \(KB\) vom Anfang des Datenträgers an, die am nächsten Ausrichtungsgrenze.|  
-|Diskpart|nur für Skripts. Wenn ein Fehler gefunden wird, weiterhin DiskPart Befehle zu verarbeiten, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter wird ein Fehler DiskPart mit dem Fehlercode zu beenden.|  
+|           Parameter           |                                                                                                                                                                                                                                              Beschreibung                                                                                                                                                                                                                                              |
+|-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|           Größe\=<n>           | Die Menge des Speicherplatzes in Megabyte \(MB\), die das Volume auf jedem Datenträger belegen wird. Wenn keine Größe angegeben wird, wird der größte mögliche RAID\-5-Volumes erstellt werden. Der Datenträger mit den kleinsten verfügbaren freien Speicherplatz bestimmt die Größe für RAID\-5-Volume und die gleiche Menge an Speicherplatz auf jedem Datenträger reserviert ist. Die tatsächliche Menge verwendbaren Speicherplatz in das RAID\-5-Volume ist kleiner als die Gesamtmenge des Speicherplatzes, da der Speicherplatz ist erforderlich, für die Parität. |
+| Datenträger\=<n>,<n>,<n>\[,<n>,...\] |                                                                                                                                               Die dynamischen Datenträgern auf die Erstellung von RAID\-5-Volumes. Sie benötigen mindestens drei dynamische Datenträger aus, um erstellen Sie ein RAID\-5-Volumes. Der Platz gleich **Größe\= <n>**  auf jedem Datenträger zugeordnet ist.                                                                                                                                                |
+|          align\=<n>           |                                                                                                                   Richtet alle Volume-Blöcke auf der nächsten. In der Regel verwendet, mit der Hardware-RAID Logical Unit Number \(LUN\) Arrays zur Verbesserung der Leistung. *n* ist die Anzahl der Kilobytes \(KB\) vom Anfang des Datenträgers an, die am nächsten Ausrichtungsgrenze.                                                                                                                   |
+|             Diskpart             |                                                                                                                                                 nur für Skripts. Wenn ein Fehler gefunden wird, weiterhin DiskPart Befehle zu verarbeiten, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter wird ein Fehler DiskPart mit dem Fehlercode zu beenden.                                                                                                                                                  |
   
 ## <a name="remarks"></a>Hinweise  
   
@@ -58,7 +58,7 @@ create volume raid size=1000 disk=1,2,3
 ```  
   
 #### <a name="additional-references"></a>Zusätzliche Referenzen  
-[Befehlszeilensyntax](command-line-syntax-key.md)  
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
   
 
   

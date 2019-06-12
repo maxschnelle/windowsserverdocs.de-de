@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 manager: dongill
-ms.openlocfilehash: e20b4960faac0ef40ad68271fa907394344e9c47
-ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
+ms.openlocfilehash: b1e5726e3976527278b11f105007a32548da0bc4
+ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65034428"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66805150"
 ---
 # <a name="add-the-rd-connection-broker-server-to-the-deployment-and-configure-high-availability"></a>Hinzufügen des Remotedesktop-Verbindungsbrokerservers zur Bereitstellung und Konfigurieren von hoher Verfügbarkeit
 
@@ -27,7 +27,7 @@ Sie können einen Remotedesktop-Verbindungsbroker (RD-Verbindungsbroker)-Cluster
 
 ## <a name="pre-requisites"></a>Voraussetzungen
 
-Einrichten eines Servers als einen zweiten Remotedesktop-Verbindungsbroker - fungieren kann dies entweder auf einem physischen Server oder auf einem virtuellen Computer sein.
+Einrichten eines Servers als einen zweiten Remotedesktop-Verbindungsbroker fungieren – Dies kann entweder auf einem physischen Server oder auf einem virtuellen Computer sein.
 
 Richten Sie eine Datenbank aus, für den Verbindungsbroker. Sie können [Azure SQL-Datenbank](https://azure.microsoft.com/documentation/articles/sql-database-get-started/#create-a-new-aure-sql-database) -Instanz oder SQL Server in Ihrer lokalen Umgebung. Wir sprechen über die Verwendung von Azure SQL-unten, aber die Schritte gelten weiterhin für SQL Server. Sie müssen die Verbindungszeichenfolge für die Datenbank zu finden, und stellen Sie sicher, dass Sie den richtigen ODBC-Treiber verfügen.
 
@@ -36,21 +36,23 @@ Richten Sie eine Datenbank aus, für den Verbindungsbroker. Sie können [Azure S
 1. Suchen die Verbindungszeichenfolge für die Datenbank, die Sie erstellt haben – Sie benötigen sie sowohl die Version des ODBC-Treiber zu identifizieren, Sie benötigen, und später beim Konfigurieren des Verbindungsbrokers selbst (Schritt 3), so speichern Sie die Zeichenfolge Stelle, wo Sie problemlos darauf verweisen können. Hier ist, wie Sie die Verbindungszeichenfolge für Azure SQL suchen:  
     1. Klicken Sie im Azure-Portal auf **Durchsuchen > Ressourcengruppen** , und klicken Sie auf die Ressourcengruppe für die Bereitstellung.   
     2. Wählen Sie die SQL-Datenbank, die Sie gerade erstellt, (z. B. CB-DB1 haben).   
-    3. Klicken Sie auf **Einstellungen > Eigenschaften > Datenbank-Verbindungszeichenfolgen anzeigen**.   
+    3. Klicken Sie auf **Einstellungen** > **Eigenschaften** > **Datenbankverbindungszeichenfolgen anzeigen**.   
     4. Kopieren Sie die Verbindungszeichenfolge für **ODBC (umfasst Node.js)** , die wie folgt aussehen sollte:   
       
-        Driver = {SQL Server Native Client 13.0}; Server = Tcp:cb-sqls1.database.windows.net,1433; Database = CB-DB1; UID =sqladmin@contoso; PWD = {Your_password_here}; Verschlüsseln = Yes; TrustServerCertificate = Nein; Verbindungstimeout = 30;   
+        ```
+        Driver={SQL Server Native Client 13.0};Server=tcp:cb-sqls1.database.windows.net,1433;Database=CB-DB1;Uid=sqladmin@contoso;Pwd={your_password_here};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
+        ```
   
     5. Ersetzen Sie "Your_password_here" durch das eigentliche Kennwort ein. Sie müssen diese gesamte Zeichenfolge, mit Ihrem Kennwort enthalten verwenden, beim Verbinden mit der Datenbank. 
 2. Installieren Sie den ODBC-Treiber auf der neuen Verbindungsbroker an: 
    1. Wenn Sie einen virtuellen Computer für den Verbindungsbroker verwenden, erstellen Sie eine öffentliche IP-Adresse für den ersten RD Connection Broker. (Sie müssen nur dies tun, wenn die VM RDMS nicht bereits über eine öffentliche IP-Adresse, um die RDP-Verbindungen zulassen verfügt.)
-       1. Klicken Sie im Azure-Portal auf **Durchsuchen > Ressourcengruppen**, klicken Sie auf die Ressourcengruppe für die Bereitstellung aus, und klicken Sie dann auf den ersten RD Connection Broker virtuellen Computer (z. B. Contoso-Cb1).
+       1. Klicken Sie im Azure-Portal auf **Durchsuchen** > **Ressourcengruppen**, klicken Sie auf die Ressourcengruppe für die Bereitstellung, und klicken Sie auf dem ersten virtuellen Computer für Remotedesktop-Verbindungsbroker (z. b. Contoso-Cb1).
        2. Klicken Sie auf **Einstellungen > Netzwerkschnittstellen**, und klicken Sie dann auf die entsprechende Netzwerkschnittstelle.
        3. Klicken Sie auf **Einstellungen > IP-Adresse**.
        4. Für **öffentliche IP-Adresse**Option **aktiviert**, und klicken Sie dann auf **IP-Adresse**.
        5. Wenn Sie eine vorhandene öffentliche IP-Adresse, die Sie verwenden möchten verfügen, wählen Sie sie aus der Liste aus. Klicken Sie anderenfalls auf **neu erstellen**, geben Sie einen Namen ein, und klicken Sie dann auf **OK** und dann **speichern**.
    2. Verbinden Sie mit dem ersten Remotedesktop-Verbindungsbroker:
-       1. Klicken Sie im Azure-Portal auf **Durchsuchen > Ressourcengruppen**, klicken Sie auf die Ressourcengruppe für die Bereitstellung aus, und klicken Sie dann auf den ersten RD Connection Broker virtuellen Computer (z. B. Contoso-Cb1).
+       1. Klicken Sie im Azure-Portal auf **Durchsuchen** > **Ressourcengruppen**, klicken Sie auf die Ressourcengruppe für die Bereitstellung, und klicken Sie auf dem ersten virtuellen Computer für Remotedesktop-Verbindungsbroker (z. b. Contoso-Cb1).
        2. Klicken Sie auf **verbinden > Öffnen** den Remotedesktopclient zu öffnen.
        3. Klicken Sie auf dem Client auf **Connect**, und klicken Sie dann auf **verwenden ein anderes Benutzerkonto**. Geben Sie den Benutzernamen und das Kennwort für ein Domänenkonto für Administrator ein.
        4. Klicken Sie auf **Ja** beim des Zertifikats gewarnt.

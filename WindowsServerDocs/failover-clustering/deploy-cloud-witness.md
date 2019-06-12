@@ -9,16 +9,16 @@ ms.topic: article
 author: JasonGerend
 ms.date: 01/18/2019
 description: 'Gewusst wie: Verwenden Sie Microsoft Azure zum Hosten der Zeuge für eine Windows Server Failover Cluster in der Cloud - auch zum Bereitstellen eines Cloudzeugen.'
-ms.openlocfilehash: f7e1c84e54f08044a772f06e591588c1add33026
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 64fd39a37c63d24f8fc0eb4f45c8a7e9f6089013
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857981"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439783"
 ---
 # <a name="deploy-a-cloud-witness-for-a-failover-cluster"></a>Bereitstellen eines Cloudzeugen für einen Failovercluster
 
-> Gilt für: WindowsServer 2019, WindowsServer 2016, WindowsServer (Halbjährlicher Kanal)
+> Gilt für: Windows Server 2019, Windows Server 2016
 
 Cloudzeuge ist ein Typ von failoverclusterquorum-Zeuge, die Microsoft Azure verwendet wird, um eine Abstimmung auf Quorum eines dateiserverclusters bereitzustellen. Dieses Thema enthält eine Übersicht über die Cloudzeugen-Funktion, die Szenarien, die es unterstützt und Anweisungen zum Konfigurieren eines cloudzeugen für einen Failovercluster.
 
@@ -134,14 +134,14 @@ Cloud-zeugenkonfiguration ist gut integrierten in den vorhandenen Quorum-Konfigu
     **Abbildung 8. Quorumzeugen auswählen**  
 
 5. Auf der **Cloudzeugen konfigurieren** geben die folgende Informationen:  
-    1. (Erforderliche Parameter) Azure-Speicherkontos ein.  
-    2. (Erforderliche Parameter) Der Zugriffsschlüssel für das Speicherkonto an.  
-        1. Wenn Sie zum ersten Mal erstellen, verwenden Sie die Primary Access Key (siehe Abbildung 5)  
-        2. Verwenden Sie beim Rotieren von den primären Zugriffsschlüssel sekundären Zugriffsschlüssel (siehe Abbildung 5)  
-    3. (Optionaler Parameter) Wenn Sie einen anderen Azure-Dienst-Endpunkt (z. B. die Microsoft Azure-Dienst in China) verwenden möchten, aktualisieren Sie dann den Servernamen für den Endpunkt.  
+   1. (Erforderliche Parameter) Azure-Speicherkontos ein.  
+   2. (Erforderliche Parameter) Der Zugriffsschlüssel für das Speicherkonto an.  
+       1. Wenn Sie zum ersten Mal erstellen, verwenden Sie die Primary Access Key (siehe Abbildung 5)  
+       2. Verwenden Sie beim Rotieren von den primären Zugriffsschlüssel sekundären Zugriffsschlüssel (siehe Abbildung 5)  
+   3. (Optionaler Parameter) Wenn Sie einen anderen Azure-Dienst-Endpunkt (z. B. die Microsoft Azure-Dienst in China) verwenden möchten, aktualisieren Sie dann den Servernamen für den Endpunkt.  
 
-    ![Überblick über Cloudzeuge Konfigurationsbereich in der Cluster-Quorum-Assistent](media/Deploy-a-Cloud-Witness-for-a-Failover-Cluster/CloudWitness_10.png)  
-    **Abbildung 9: Konfigurieren Sie Ihre Cloudzeugen**
+      ![Überblick über Cloudzeuge Konfigurationsbereich in der Cluster-Quorum-Assistent](media/Deploy-a-Cloud-Witness-for-a-Failover-Cluster/CloudWitness_10.png)  
+      **Abbildung 9: Konfigurieren Sie Ihre Cloudzeugen**
 
 6. Nach einer erfolgreichen Konfiguration des Cloudzeugen, sehen Sie die neu erstellte Zeugenressource im Failovercluster-Manager-Snap-in (siehe Abbildung 10).
 

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a565a1d5fa1bc3ff57d1578fb54cfa4553e3bb26
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7ebd65fb56114bff9e6ae4b6a76376561c686dfa
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59818871"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439563"
 ---
 # <a name="diskraid"></a>diskraid
 
@@ -95,7 +95,7 @@ Gibt an, die LUN-Nummer, der derzeit ausgewählten LUN als eine plexer hinzufüg
 > [!CAUTION]
 > Alle Daten auf die LUN, die als eine plexer hinzugefügt wird, werden gelöscht werden.
 
-**TPGROUP Tportal = *** n*
+**TPGROUP Tportal =** <em>n</em>
 
 Gibt die iSCSI-Ziel Portal an, der aktuell ausgewählten iSCSI-Ziel-Portal-Gruppe hinzufügen.
 
@@ -742,7 +742,7 @@ Gibt den Typ des Anmeldenamens ausführen: **manuelle**, **persistente**, oder *
 
 **persistente** : automatisch die gleiche Anmeldung verwenden, wenn der Computer neu gestartet wird.
 
-**Start** -(diese Option ist für die künftige Entwicklung und wird derzeit nicht verwendet *.*)
+**Start** -(diese Option ist für die künftige Entwicklung und wird derzeit nicht verwendet<em>.</em>)
 
 **chap**
 

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 805f63e95bcb72416cdacea4ba792af8c9a96c06
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d6b9b5544394bfc69a2dc9f7be26ed8355a3f690
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813101"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441962"
 ---
 # <a name="recover"></a>recover
 
@@ -36,17 +36,17 @@ recover [<Drive>:][<Path>]<FileName>
 
 ## <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|[\<Drive>:][<Path>]<FileName>|Gibt den Speicherort und Namen der Datei, die Sie wiederherstellen möchten. *FileName* ist erforderlich.|
-|/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
+|           Parameter           |                                          Beschreibung                                          |
+|-------------------------------|-----------------------------------------------------------------------------------------------|
+| [\<Drive>:][<Path>]<FileName> | Gibt den Speicherort und Namen der Datei, die Sie wiederherstellen möchten. *FileName* ist erforderlich. |
+|              /?               |                             Zeigt die Hilfe an der Eingabeaufforderung an.                              |
 
 ## <a name="remarks"></a>Hinweise
 
 -   Die **wiederherstellen** Befehl liest eine Datei, Sektor für Sektor, und stellt Sie Daten aus der guten Sektoren wieder her. Daten in fehlerhaften Sektoren sind verloren gegangen.
 -   Fehlerhafte Bereiche von gemeldeten **Chkdsk** wurden als "fehlerhaft" markiert, wenn Ihr Datenträger für den Betrieb vorbereitet wurde. Sie stellen keine Gefahr, dar und **wiederherstellen** wirkt sich diese nicht.
 -   Da alle Daten in fehlerhaften Sektoren geht verloren, wenn Sie eine Datei wiederherstellen, sollten Sie nur eine Datei zu einem Zeitpunkt wiederherstellen.
--   Sie können keine Platzhalterzeichen (**&#42;** und **?**) mit der **wiederherstellen** Befehl. Sie müssen angeben, eine Datei (und den Speicherort der Datei, sofern es nicht im aktuellen Verzeichnis vorhanden ist).
+-   Sie können keine Platzhalterzeichen ( **&#42;** und **?** ) mit der **wiederherstellen** Befehl. Sie müssen angeben, eine Datei (und den Speicherort der Datei, sofern es nicht im aktuellen Verzeichnis vorhanden ist).
 
 ## <a name="BKMK_examples"></a>Beispiele für
 
@@ -57,4 +57,4 @@ recover d:\fiction\story.txt
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

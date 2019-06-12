@@ -9,12 +9,12 @@ ms.date: 10/02/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 9bae831da9d247c423c2874a5928b7f811ef65dc
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 9acdbe2be56b990876fe365c1f535aaa411009c5
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188711"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501627"
 ---
 # <a name="managing-ssl-certificates-in-ad-fs-and-wap-in-windows-server-2016"></a>Verwalten von SSL-Zertifikaten in AD FS und WAP in Windows Server 2016
 
@@ -109,7 +109,7 @@ Zum Konfigurieren der standardbindung für Zertifikat-Authentifizierung oder die
 Ersetzen Sie die Web Application Proxy-SSL-Zertifikat auf **jedes** Webanwendungs-Proxyserver verwenden das folgende Cmdlet, um das neue SSL-Zertifikat zu installieren:
 
 ```powershell
-Set-WebApplicationProxySslCertificate '<thumbprint of new cert>'
+Set-WebApplicationProxySslCertificate -Thumbprint '<thumbprint of new cert>'
 ```
 
 Wenn das oben aufgeführte Cmdlet schlägt fehl, da das alte Zertifikat bereits abgelaufen ist, Konfigurieren des Proxys mit den folgenden Cmdlets neu:

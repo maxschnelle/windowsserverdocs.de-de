@@ -5,12 +5,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c647e8a335aac924067d92dcb41ab4d17e0cceef
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c27dd0602c5993fd84e6956c2f50f6e2bfec8691
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884861"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435474"
 ---
 # <a name="server-performance-advisor-pack-development-guide"></a>Server Performance Advisor Pack-Entwicklungsleitfaden
 
@@ -276,6 +276,7 @@ KeytypeId | Smallint nicht NULL | Interner Typ-Id
 Wert | Nvarchar(4000) nicht NULL | Alle Werte
 
 Die **KeytypeID** Spalte kann einen der folgenden Typen aufweisen:
+
 ID | Typ
 --- | ---
 1 | Zeichenfolge
@@ -363,9 +364,9 @@ Die **Intervall** -Attribut ist eine erforderliche globale Einstellung für alle
 
 Im vorherigen Beispiel Leistungsindikator \\PhysicalDisk (\*)\\durchschn. Sek./Übertragung wird jede Sekunde abgefragt werden.
 
-Es können zwei Instanzen vorhanden sein: **\_Insgesamt** und **0 "c:" D:**, und die Ausgabe könnte wie folgt:
+Es können zwei Instanzen vorhanden sein: **\_Insgesamt** und **0 "c:" D:** , und die Ausgabe könnte wie folgt:
 
-Zeitstempel | "CategoryName" | CounterName | Instanzwert _Total | Instanzwert von 0 "c:" D:
+timestamp | "CategoryName" | CounterName | Instanzwert _Total | Instanzwert von 0 "c:" D:
 ---- | ---- | ---- | ---- | ----
 13:45:52.630 | PhysicalDisk | Durchschnittl. Sek./Übertragung | 0.00100008362473995 |0.00100008362473995
 13:45:53.629 | PhysicalDisk | Durchschnittl. Sek./Übertragung | 0.00280023414927187 | 0.00280023414927187
@@ -391,7 +392,7 @@ PhysicalDisk | 0 C: D: | Durchschnittl. Sek./Übertragung | 0.000933297607934224
 
 Spaltenname | SQL-Datentyp | Beschreibung
 ---- | ---- | ---- | ----
-Zeitstempel | datetime2(3) nicht NULL | Die erfassten Datum-Zeit in UNC
+timestamp | datetime2(3) nicht NULL | Die erfassten Datum-Zeit in UNC
 "CategoryName" | Nvarchar(200)-Datentyp gepackt ist nicht NULL | Kategoriename
 CategoryDisplayName | Nvarchar(200)-Datentyp gepackt ist nicht NULL | Lokalisierte Kategoriename
 InstanceName | Nvarchar(200)-Datentyp gepackt ist NULL | Instanzenname
@@ -413,7 +414,7 @@ Hier s ein Beispiel, das Abfragen der **"applicationHost.config"** Datei:
 
 Die Ergebnisse finden Sie in eine Tabelle namens  **\#Dateien**, z.B.:
 
-querypath | Vollständiger Pfad | Parentpath | Dateiname | Content
+querypath | Vollständiger Pfad | Parentpath | FileName | Inhalt
 ----- | ----- | ----- | ----- | -----
 %windir%\...\applicationHost.config |C:\Windows<br>\...\applicationHost.config | C:\Windows<br>\...\config | applicationHost.confi | 0x3C3F78
 
@@ -424,8 +425,8 @@ Spaltenname | SQL-Datentyp | Beschreibung
 querypath | Nvarchar(300) nicht NULL | Ursprüngliche abfrageanweisung
 Vollständiger Pfad | Nvarchar(300) nicht NULL | Absoluter Dateipfad und Dateinamen
 Parentpath | Nvarchar(300) nicht NULL | Dateipfad
-Dateiname | Nvarchar(300) nicht NULL | Dateiname
-Content | Varbinary(MAX) NULL | In den binären Inhalt der Datei
+FileName | Nvarchar(300) nicht NULL | Dateiname
+Inhalt | Varbinary(MAX) NULL | In den binären Inhalt der Datei
 
 ### <a name="defining-rules"></a>Definieren von Regeln
 
@@ -449,7 +450,7 @@ Hier ist s ein Beispiel für eine einfache Regel:
 
 ``` syntax
 <advisorPack>
-   
+
   <reportDefinition>
     <thresholds>
       <threshold  />
@@ -589,7 +590,7 @@ Die folgende Gruppe von Single-Wert ist ein Attribut **Abschnitt**, und sie kön
 
 Eine Gruppe einzelner Wert und eine Liste-Wert-Tabelle enthalten andere Datentypen, wie z. B. String, Int und "float". Da diese Werte in der SQL Server-Datenbank gespeichert werden, können Sie einen SQL-Datentyp für jede Data-Eigenschaft definieren. Definieren einen SQL-Datentyp ist jedoch ziemlich kompliziert. Sie müssen angeben, die Länge oder Genauigkeit, die möglicherweise anfällig für ändern.
 
-Um logische-Datentypen zu definieren, können Sie das erste untergeordnete Element des  **&lt;ReportDefinition /&gt;**, d.h., in dem Sie eine Zuordnung von der SQL-Datentyp und den logischen Typ definieren können.
+Um logische-Datentypen zu definieren, können Sie das erste untergeordnete Element des  **&lt;ReportDefinition /&gt;** , d.h., in dem Sie eine Zuordnung von der SQL-Datentyp und den logischen Typ definieren können.
 
 Das folgende Beispiel definiert zwei Typen von Daten. Eine **Zeichenfolge** und der andere **Unternehmenscode**.
 
@@ -600,17 +601,17 @@ Das folgende Beispiel definiert zwei Typen von Daten. Eine **Zeichenfolge** und 
 
 Ein Datentypnamen kann eine beliebige gültige Zeichenfolge sein. Hier ist eine Liste der zulässigen SQL-Datentypen:
 
-* bigint
+* BIGINT
 
 * Binärdatei
 
-* Bit
+* bit
 
 * Char
 
 * date
 
-* datetime
+* DATETIME
 
 * datetime2
 
@@ -620,7 +621,7 @@ Ein Datentypnamen kann eine beliebige gültige Zeichenfolge sein. Hier ist eine 
 
 * float
 
-* int
+* ssNoversion
 
 * Verdienst
 
@@ -662,13 +663,13 @@ Eine Gruppe einzelner Wert gruppiert mehrerer einzelner Werte zusammen, um in ei
 </singleValue>
 ```
 
-Im vorherigen Beispiel definierten wir eine Gruppe einzelner Wert. Es ist ein untergeordneter Knoten des Abschnitts **SystemoverviewSection**. Diese Gruppe verfügt über die sind einzelne Werte **OsName**, **"osversion"**, und **OsLocation**.
+Im vorherigen Beispiel definierten wir eine Gruppe einzelner Wert. Es ist ein untergeordneter Knoten des Abschnitts **SystemoverviewSection**. Diese Gruppe verfügt über die sind einzelne Werte **OsName**, **"osversion"** , und **OsLocation**.
 
 Ein einzelner Wert muss es sich um ein global eindeutiger Name-Attribut aufweisen. In diesem Beispiel wird das Attribut global eindeutigen Namen **Systemoverview**. Der eindeutige Name wird verwendet werden, um eine entsprechende Ansicht für benutzerdefinierten Berichts zu generieren. Jede Ansicht enthält das Präfix **Vw**, z. B. VwSystemoverview.
 
 Auch wenn Sie mehrere Einzelwert Gruppen definieren können, können keine zwei Einzelwert Namen identisch, auch wenn sie sich in unterschiedlichen Gruppen sind. Der Namen des einzelnen Werts wird durch der Bericht zum SQL-Skript verwendet, den Wert entsprechend festlegen.
 
-Sie können einen Datentyp für jeden einzelnen Wert definieren. Die zulässigen Eingabe für **Typ** ist definiert  **&lt;Datatype /&gt;**. Der endgültige Bericht könnte folgendermaßen aussehen:
+Sie können einen Datentyp für jeden einzelnen Wert definieren. Die zulässigen Eingabe für **Typ** ist definiert  **&lt;Datatype /&gt;** . Der endgültige Bericht könnte folgendermaßen aussehen:
 
 **Fakten**
 
@@ -749,7 +750,7 @@ z. B. wenn wir Diagramme für die durchschnittliche CPU-Auslastung von verschied
 </listValue>
 ```
 
-Ein weiteres Attribut **"ColumnType"**, kann **Schlüssel**, **Wert**, oder **Information**. Der Datentyp der **Schlüssel** Spalte muss doppelte oder double konvertiert werden kann. In einem **Schlüssel** Spalte, Sie können nicht die gleichen Schlüssel in eine Tabelle einfügen. **Wert** oder **Information** Spalten müssen sich nicht auf diese Einschränkung.
+Ein weiteres Attribut **"ColumnType"** , kann **Schlüssel**, **Wert**, oder **Information**. Der Datentyp der **Schlüssel** Spalte muss doppelte oder double konvertiert werden kann. In einem **Schlüssel** Spalte, Sie können nicht die gleichen Schlüssel in eine Tabelle einfügen. **Wert** oder **Information** Spalten müssen sich nicht auf diese Einschränkung.
 
 Die Statistikwerte werden gespeichert, **Wert** Spalten.
 
@@ -941,7 +942,7 @@ DECLARE @freediskSize FLOat
 exec dbo.GetThreshold N freediskSize , @freediskSize output
 
 if (@freediskSizeInGB < @freediskSize)
- 
+
 ```
 
 ### <a name="set-or-remove-the-single-value"></a>Festlegen oder Entfernen von den einmaligen Wert
@@ -1033,7 +1034,7 @@ INSERT INTO #NetworkAdapterInformation (
   MACaddress
 )
 VALUES (
-   
+
 )
 ```
 
@@ -1091,7 +1092,7 @@ Die SPA-Konsole ausführen kann, in zwei Modi Debug oder Release. Release-Modus 
 
     **Beachten Sie** drücken Sie F11, um Sie zu Schritt in der vorherigen Anweisung, und Debuggen.
 
-     
+
 
 Ausführung \[Dbo\].\[ DebugReportScript\] mehrere Resultsets, einschließlich zurückgibt:
 
@@ -1109,9 +1110,9 @@ Ausführung \[Dbo\].\[ DebugReportScript\] mehrere Resultsets, einschließlich z
 
 ### <a name="naming-convention-and-styles"></a>Benennungskonvention und Stile
 
-Pascal-Schreibweise zur Groß-und Kleinschreibung | Kamel-Schreibweise | Großbuchstaben
---- | ---- | ---
-<ul><li>Namen in ProvisionMetadata.xml</li><li>Gespeicherte Prozeduren</li><li>Funktionen</li><li>Die Namen von Sichten</li><li>Temporäre Tabellennamen</li></ul> | <ul><li>Parameternamen</li><li>Lokale Variablen</li></ul> | Verwendung für alle SQL-Schlüsselwörter
+|                                                                 Pascal-Schreibweise zur Groß-und Kleinschreibung                                                                 |                       Kamel-Schreibweise                        |             Großbuchstaben             |
+|-----------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------|-----------------------------------|
+| <ul><li>Namen in ProvisionMetadata.xml</li><li>Gespeicherte Prozeduren</li><li>Funktionen</li><li>Die Namen von Sichten</li><li>Temporäre Tabellennamen</li></ul> | <ul><li>Parameternamen</li><li>Lokale Variablen</li></ul> | Verwendung für alle SQL-Schlüsselwörter |
 
 ### <a name="other-recommendations"></a>Weitere Empfehlungen
 
@@ -1143,13 +1144,13 @@ Das folgende Beispiel zeigt den Workflow für die Ausführung von zwei Packs fü
 
 Fusion Data Collector Set ist nur für das Sammeln von Leistungsindikator und ETW-Datenquellen. Die folgenden Mergeregeln gelten:
 
-1.  SPA nimmt die größte Dauer als die neue Dauer.
+1. SPA nimmt die größte Dauer als die neue Dauer.
 
-2.  Wenn Mergekonflikte vorhanden sind, werden die folgenden Regeln befolgt:
+2. Wenn Mergekonflikte vorhanden sind, werden die folgenden Regeln befolgt:
 
-    1.  Nehmen Sie das kleinste Intervall, als das neue Intervall.
+   1. Nehmen Sie das kleinste Intervall, als das neue Intervall.
 
-    2.  Nehmen Sie die Obermenge der Leistungsindikatoren. Z. B. mit **Prozess (\*)\\Prozessorzeit (%)** und **Prozess (\*)\\\*,\\Prozess (\*)\\ \***  weitere Daten zurückgegeben, sodass **Prozess (\*)\\Prozessorzeit (%)** und **Prozess (\*)\\ \***  aus den zusammengeführten datensammlersatz entfernt wird.
+   2. Nehmen Sie die Obermenge der Leistungsindikatoren. Z. B. mit **Prozess (\*)\\Prozessorzeit (%)** und **Prozess (\*)\\\*,\\Prozess (\*)\\ \\** * weitere Daten zurückgegeben, sodass **Prozess (\*)\\Prozessorzeit (%)** und **Prozess (\*)\\ \\** * aus den zusammengeführten datensammlersatz entfernt wird.
 
 ### <a name="collect-dynamic-data"></a>Dynamische Daten sammeln
 
@@ -1169,7 +1170,7 @@ Es gibt eine Liste der netzwerkadapterobjekten zurück. Jedes Objekt verfügt ü
 ROOT\*ISatAP\0001
 PCI\VEN_8086&DEV_4238&SUBSYS_11118086&REV_35\4&372A6B86&0&00E4
 ROOT\*IPHTTPS\0000
- 
+
 ```
 
 Finden der **FriendlyName** Wert, Registrierungs-Editor und navigieren Sie zu registrierungseinstellung durch Kombinieren von **HKEY\_lokalen\_Computer\\SYSTEM\\ CurrentControlSet\\Enum\\**  mit jeder Zeile aus dem vorherigen Beispiel. Zum Beispiel: **HKEY\_lokalen\_Computer\\SYSTEM\\CurrentControlSet\\Enum\\ Stamm\\\*IPHTTPS\\0000**.
@@ -1188,7 +1189,7 @@ Um den vorherigen Schritten SPA-bereitstellen-Metadaten zu übersetzen, fügen S
 </managementpaths>
 ```
 
-In diesem Beispiel zunächst fügen Sie eine WMI-Abfrage unter Managementpaths und definieren den Namen des Schlüssels **Netzwerkadapter**. Sie fügen Sie einen Registrierungsschlüssel hinzu, und finden Sie unter **Netzwerkadapter** mithilfe der Syntax, **$(NetworkAdapter.PNPDeviceID)**.
+In diesem Beispiel zunächst fügen Sie eine WMI-Abfrage unter Managementpaths und definieren den Namen des Schlüssels **Netzwerkadapter**. Sie fügen Sie einen Registrierungsschlüssel hinzu, und finden Sie unter **Netzwerkadapter** mithilfe der Syntax, **$(NetworkAdapter.PNPDeviceID)** .
 
 In der folgende Tabelle definiert, wenn ein Datensammler in die SPA unterstützt dynamische Daten und gibt an, ob es von anderen Datensammlern verwiesen werden kann:
 
@@ -1216,7 +1217,7 @@ Und ein Beispiel für WMI:
 <path name="wmi">Root\Cimv2:select PNPDeviceID FROM Win32_NetworkAdapter</path>
 ```
 
-Um einen abhängigen Datensammler zu definieren, wird die folgende Syntax verwendet: $(*{Name}*.*{}-Attribut*).
+Um einen abhängigen Datensammler zu definieren, wird die folgende Syntax verwendet: $( *{Name}* . *{}-Attribut*).
 
 *{Name}*  und *{-Attribut}* sind Platzhalter.
 
@@ -1334,7 +1335,7 @@ SequenceID | Int nicht NULL | Korrelations-Sequenz-ID
 EventtypeId | Int nicht NULL | Ereignis-Typ-ID (finden Sie unter [Dbo]. [ EventTypes])
 ProcessId | BigInt, die nicht NULL | Prozess-ID
 ThreadId | BigInt, die nicht NULL | Thread-ID
-Zeitstempel | datetime2 nicht NULL | Zeitstempel
+timestamp | datetime2 nicht NULL | timestamp
 Kerneltime | BigInt, die nicht NULL | Kernelzeit
 Usertime | BigInt, die nicht NULL | Benutzerzeit
 

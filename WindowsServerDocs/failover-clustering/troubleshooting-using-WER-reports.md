@@ -9,16 +9,16 @@ ms.topic: article
 author: vpetter
 ms.date: 03/27/2018
 ms.localizationpriority: ''
-ms.openlocfilehash: 55167d0f4c838af5f6f79432ede2dd45eac848a5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6e301b8c46041f107739bbcdb09c2eb0c8252ebb
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853861"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66452902"
 ---
 # <a name="troubleshooting-a-failover-cluster-using-windows-error-reporting"></a>Problembehandlung bei einem Failovercluster mithilfe der Windows-Fehlerberichterstattung 
 
-> Gilt für: WindowsServer 2016, WindowsServer
+> Gilt für: WindowsServer 2019, WindowsServer 2016, WindowsServer
 
 Windows-Fehlerberichterstattung (WER) ist eine flexible ereignisbasierten Feedback-Infrastruktur, die entwickelt, um Hilfe bei der erfahrene Administratoren oder Ebene-3-Unterstützung, die Informationen über die Hardware- und Probleme zu erfassen, die von Windows erkannt werden können, die Informationen an Microsoft melden und geben Sie Benutzern keine verfügbaren Lösungen. Dies [Verweis](https://docs.microsoft.com/powershell/module/windowserrorreporting/) enthält Beschreibungen und Syntax für alle WindowsErrorReporting-Cmdlets.
 
@@ -317,15 +317,15 @@ Hier ist ein Beispiel für die Ausgabe angegeben:
 
 Message Analyzer ermöglicht Ihnen zu erfassen, anzeigen und Analysieren des Datenverkehrs messaging Protocol. Außerdem können Sie die Ablaufverfolgung und Systemereignisse und anderen Meldungen von Windows-Komponenten zu bewerten. Sie können [Microsoft Message Analyzer von hier aus](https://www.microsoft.com/download/details.aspx?id=44226). Wenn Sie die Protokolle in Message Analyzer laden, sehen Sie die folgenden Anbieter und Nachrichten über protokollkanäle.
 
-![Laden Protokolle in Message Analyzer](media\troubleshooting-using-WER-reports\loading-logs-into-message-analyzer.png)
+![Laden Protokolle in Message Analyzer](media/troubleshooting-using-WER-reports/loading-logs-into-message-analyzer.png)
 
 Sie können auch von Anbietern zum Abrufen der folgenden Ansicht gruppieren:
 
-![Protokolle, gruppiert nach Anbieter](media\troubleshooting-using-WER-reports\logs-grouped-by-providers.png)
+![Protokolle, gruppiert nach Anbieter](media/troubleshooting-using-WER-reports/logs-grouped-by-providers.png)
 
-Um zu ermitteln, warum der Datenträger ausgefallen, navigieren Sie auf die Ereignisse unter **FailoverClustering bzw. Diagnose** und **FailoverClustering/DiagnosticVerbose**. Führen Sie dann die folgende Abfrage aus: **EventLog.EventData["LogString"] contains "Cluster Disk 10"**.  Auf diese Weise erhalten Sie bieten Ihnen die folgende Ausgabe:
+Um zu ermitteln, warum der Datenträger ausgefallen, navigieren Sie auf die Ereignisse unter **FailoverClustering bzw. Diagnose** und **FailoverClustering/DiagnosticVerbose**. Führen Sie dann die folgende Abfrage aus: **EventLog.EventData["LogString"] contains "Cluster Disk 10"** .  Auf diese Weise erhalten Sie bieten Ihnen die folgende Ausgabe:
 
-![Ausgabe der ausgeführten Abfrage des Protokolls](media\troubleshooting-using-WER-reports\output-of-running-log-query.png)
+![Ausgabe der ausgeführten Abfrage des Protokolls](media/troubleshooting-using-WER-reports/output-of-running-log-query.png)
 
 
 ### <a name="physical-disk-timed-out"></a>Timeout bei der physischer Datenträger.
@@ -423,7 +423,7 @@ Die Liste der Dienste und Prozesse, die wir in Dumps erfassen, wird durch die fo
 
 Um zu ermitteln, warum der Absturz aufgetreten ist, öffnen Sie die Dum-Dateien. Führen Sie dann die folgende Abfrage aus: **EventLog.EventData["LogString"] enthält "Clusterdatenträger 10"** auf diese Weise erhalten Sie bieten Ihnen die folgende Ausgabe:
 
-![Ausgabe des ausgeführten Protokollabfrage 2](media\troubleshooting-using-WER-reports\output-of-running-log-query-2.png)
+![Ausgabe des ausgeführten Protokollabfrage 2](media/troubleshooting-using-WER-reports/output-of-running-log-query-2.png)
 
 Wir können dies mit dem Thread aus cross-examine der **memory.hdmp** Datei:
 
