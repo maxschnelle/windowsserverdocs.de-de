@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: cc9f02b9-8ddd-4cae-b397-a832996144dd
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: fb940effaae7989dec397e539b64160c87828d5a
-ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
+ms.openlocfilehash: 7aec08a19759c98150cf7518643f634947c5133d
+ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266708"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66805005"
 ---
 # <a name="step-2-plan-the-remote-access-deployment"></a>Schritt 2 Planen der Bereitstellung des Remotezugriffs
 
@@ -56,7 +56,7 @@ Bei der Planung Ihrer Clientbereitstellung müssen drei Entscheidungen getroffen
   
     -   **Verbindungsprüfer**  
   
-        Ein Standardwebtest wird erstellt, den Clients verwenden, um die Verbindung zum internen Netzwerk zu prüfen. Der Standardname lautet https://directaccess-WebProbeHost.<domain_name>. Der Name sollte manuell im DNS registriert werden. Sie können weitere verbindungsprüfer erstellen, mit denen anderer Webadressen über HTTP oder PING. Für jeden Verbindungsprüfer muss ein DNS-Eintrag vorhanden sein.  
+        Ein Standardwebtest wird erstellt, den Clients verwenden, um die Verbindung zum internen Netzwerk zu prüfen. Der Standardname lautet `https://directaccess-WebProbeHost.<domain_name>`. Der Name sollte manuell im DNS registriert werden. Sie können weitere verbindungsprüfer erstellen, mit denen anderer Webadressen über HTTP oder PING. Für jeden Verbindungsprüfer muss ein DNS-Eintrag vorhanden sein.  
   
     -   **Help Desk-e-Mail-Adresse**  
   

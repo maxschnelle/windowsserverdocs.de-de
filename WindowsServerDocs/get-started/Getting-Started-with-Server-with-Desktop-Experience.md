@@ -14,12 +14,12 @@ author: jaimeo
 ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: eb2e5be2ed19fe7cd64f6c6bd64ca9afafd93bff
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: cf67a1c9675191936a6150bb950c59e6f99b54ad
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812311"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810693"
 ---
 # <a name="install-server-with-desktop-experience"></a>Installieren des Servers mit Desktopdarstellung
 > Gilt für: Windows Server 2016
@@ -29,9 +29,9 @@ Bei der Installation von Windows Server 2016 mithilfe des Setup-Assistenten kön
 
 Die Option „Server mit Desktopdarstellung“ installiert die Standardbenutzeroberfläche und alle Tools, einschließlich Kundenerfahrungsfeatures, die in Windows Server 2012 R2 eine separate Installation erforderten. Serverrollen und Features werden mit dem Server-Manager oder anderen Methoden installiert. Im Vergleich zur Option „Server Core“ erfordert diese Option mehr Speicherplatz auf dem Datenträger, und hat höhere Wartungsanforderungen. Daher empfiehlt es sich, die Server Core-Installation auszuwählen, sofern Sie die zusätzlichen Benutzeroberflächenelemente oder grafischen Verwaltungstools nicht unbedingt benötigen, die in der Option „Server mit Desktopdarstellung“ enthalten sind. Wenn Sie den Eindruck haben, dass Sie ohne die zusätzlichen Elemente arbeiten können, rufen Sie [Installieren von Server Core](Getting-Started-with-Server-Core.md) auf. Eine noch einfachere Option finden Sie unter [Installieren von Nano Server](Getting-Started-with-Nano-Server.md).
 
->[!NOTE]
+> [!NOTE]
 >
->Im Gegensatz zu einigen früheren Versionen von Windows Server ist eine Konvertierung zwischen Server Core und Servern mit Desktopdarstellung nach der Installation nicht möglich. Wenn Sie Server mit Desktopdarstellung installieren und später Server Core verwenden möchten, sollten Sie eine Neuinstallation durchführen.
+> Im Gegensatz zu einigen früheren Versionen von Windows Server ist eine Konvertierung zwischen Server Core und Servern mit Desktopdarstellung nach der Installation nicht möglich. Wenn Sie Server mit Desktopdarstellung installieren und später Server Core verwenden möchten, sollten Sie eine Neuinstallation durchführen.
 
 **Benutzeroberfläche:** standardmäßige grafische Benutzeroberfläche („Servergrafikshell“). Die Servergrafikshell enthält die neue Windows 10-Shell. Die standardmäßig mit dieser Option installierten spezifischen Windows-Features sind User-Interfaces-Infra, Server-GUI-Shell, Server-GUI-Mgmt-Infra, InkAndHandwritingServices, ServerMediaFoundation und Desktopdarstellung. Diese Features werden zwar im Server-Manager in dieser Version angezeigt, doch ihre Deinstallierung wird nicht unterstützt, und sie werden in zukünftigen Versionen nicht verfügbar sein.
 

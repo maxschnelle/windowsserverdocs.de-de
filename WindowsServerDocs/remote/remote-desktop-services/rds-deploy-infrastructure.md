@@ -13,16 +13,16 @@ ms.topic: article
 author: lizap
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: acfdd99fa67e218f58fe650de5607f2a5ba97bf8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 5b9ce1bb87a7a2ad8819235edc412fd095bc2985
+ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833831"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66805131"
 ---
 # <a name="deploy-your-remote-desktop-environment"></a>Bereitstellen einer Remotedesktop-Umgebung
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2019, WindowsServer 2016
 
 Verwenden Sie die folgenden Schritte aus, um die Remotedesktop-Server in Ihrer Umgebung bereitstellen. Sie können die Serverrollen auf physischen oder virtuellen Computern, je nachdem, ob Sie einer lokalen, cloudbasierten erstellen oder Hybrid-Umgebung installieren. 
 
@@ -30,11 +30,11 @@ Wenn Sie virtuelle Computer für einen beliebigen Server Remote Desktop Services
   
   
 1.  Fügen Sie allen Servern, die Sie verwenden, für die Remote Desktop Services Server-Manager möchten:  
-    1.  Klicken Sie in Server-Manager auf **verwalten > Hinzufügen von Servern**.  
+    1.  Klicken Sie im Server-Manager **verwalten** > **Hinzufügen von Servern**.  
     2.  Klicken Sie auf **Jetzt suchen**.  
     3.  Klicken Sie auf jedem Server in der Bereitstellung (z. B. Contoso-Cb1, Contoso-WebGw1 und Contoso-Sh1), und klicken Sie auf **OK**.  
 2.  Erstellen Sie eine sitzungsbasierte Bereitstellung zum Bereitstellen von Remote Desktop Services-Komponenten:  
-    1.  Klicken Sie im Server-Manager **verwalten > Rollen und Features hinzufügen**.  
+    1.  Klicken Sie im Server-Manager **verwalten** > **Hinzufügen von Rollen und Features**.  
     2.  Klicken Sie auf **Remote Desktop Services-Installation**, **Standardbereitstellung**, und **sitzungsbasierte desktopbereitstellung**.  
     3.  Wählen Sie die entsprechenden Server für den Remotedesktop-Verbindungsbrokerserver, Web Access für Remotedesktop-Server und Remotedesktop-Sitzungshostserver (z. B. Contoso-Cb1, Contoso-WebGw1, und Contoso-SH1, bzw.).  
     4.  Wählen Sie **automatisch neu starten die Zielserver bei Bedarf**, und klicken Sie dann auf **bereitstellen**.  

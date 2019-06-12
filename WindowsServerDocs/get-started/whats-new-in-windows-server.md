@@ -2,18 +2,18 @@
 title: Neues in Windows Server
 description: Welche neuen Features sind für Compute, Identitäten, Verwaltung, Automatisierung, Netzwerk, Sicherheit und Speicher verfügbar?
 ms.prod: windows-server
-ms.date: 05/21/2019
+ms.date: 06/03/2019
 ms.technology: server-general
 ms.topic: article
 author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: medium
-ms.openlocfilehash: c39336dfa02e798a609fd5b16f5f844442f32c89
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.openlocfilehash: 8e19c7a51ef1f50f974dc380e00315f9980da560
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65976671"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501356"
 ---
 # <a name="whats-new-in-windows-server"></a>Was ist neu in Windows Server
 
@@ -23,7 +23,7 @@ Sie finden die neuen Features für jede der folgenden Windows Server-Versionen.
 
 Langfristiger Wartungskanal (LTSC)-Versionen:
 
-- [Was ist neu in WindowsServer 2019](../get-started-19/whats-new-19.md)
+- [Neues in Windows Server 2019](../get-started-19/whats-new-19.md)
 - [Neuerungen in Windows Server 2016](whats-new-in-windows-server-2016.md)
 
 Halbjährlicher Kanal-Versionen:
@@ -31,7 +31,9 @@ Halbjährlicher Kanal-Versionen:
 - [Was ist neu in Windows Server, Version 1903 sein](../get-started-19/whats-new-in-windows-server-1903.md)
 - [Neuerungen in Windows Server, Version 1809](whats-new-in-windows-server-1809.md)
 - [Neuerungen in Windows Server, Version 1803](whats-new-in-windows-server-1803.md)
-- [Neuerungen in Windows Server, Version 1709](whats-new-in-windows-server-1709.md)
+- [Neuigkeiten in Windows Server, Version 1709](whats-new-in-windows-server-1709.md) (Out-of-Unterstützung ab dem 9. April 2019.)
+
+Versionen von Windows Server Halbjährlicher Kanal bieten neue Betriebssystem-Funktionen in kürzerem. Eine neue Version veröffentlicht wird alle sechs Monate, und es wird 18 Monate lang unterstützt. Überprüfen Sie [Informationen zu Windows Server-Version](windows-server-release-info.md) und [Lifecycle Support-Seite](https://support.microsoft.com/lifecycle) für Datumsangaben zu unterstützen, und verwenden Sie möglichst immer die neueste Version.
 
 ## <a name="see-also"></a>Siehe auch
 

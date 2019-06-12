@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 6804c25af04907edc8180b6a37be7efcc470f259
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 51b01f80259a7b83e1999b47164108dbe174b887
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869361"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441903"
 ---
 # <a name="relog"></a>relog
 
@@ -33,31 +33,31 @@ relog [<FileName> [<FileName> ...]] [/a] [/c <path> [<path> ...]] [/cf <FileName
 
 ### <a name="parameters"></a>Parameter  
 
-|Parameter|Beschreibung|
-|--|--|
-|*FileName* [*Dateiname...* ]|Gibt den Pfadnamen des vorhandenen Leistungsindikator an. Sie können mehrere Eingabedateien angeben.|
-|-a |Fügt der Ausgabedatei anstatt zu überschreiben. Diese Option gilt nicht für SQL-Format, wobei der Standardwert immer ist, angefügt werden soll.  |
-|-C *Pfad* [*Pfad...* ]|Gibt den Leistungsindikatorpfad, melden Sie sich an. Um mehrere Pfade angeben, trennen Sie diese durch ein Leerzeichen, und schließen Sie die Pfade in Anführungszeichen ein (z. B. **"*** Indikatorpfad1* * Indikatorpfad2 ***"**)|  
-|-Cf *Dateiname*|Gibt den Pfadnamen der Textdatei, die die Leistungsindikatoren in einer Datei erneut aufzuzeichnen einzuschließenden aufgeführt sind. Verwenden Sie diese Option, um die Liste der Indikatorpfade in einer Eingabedatei, die jeweils eine pro Zeile ein. Standardeinstellung ist, dass alle Leistungsindikatoren in der ursprünglichen Protokolldatei neu protokolliert werden.|  
-|-f {Bin\| Csv\|Tsv\|SQL}|Gibt den Pfadnamen der das Format der Ausgabedatei an. Das Standardformat **Bin**. Für eine SQL-Datenbank, gibt die Ausgabedatei der *DSN! Leistungsindikatorenprotokoll*. Sie können den Speicherort der Datenbank angeben, mit dem ODBC-Manager zum Konfigurieren des DSN (Datenbankname System).  |
-|-t *Wert*|Gibt an, Beispiel-Intervalle in "*N*" Datensätze. Schließt jeden n-ten Datenpunkt in der Datei erneut aufzuzeichnen. Standardmäßig ist jeder Datenpunkt.|  
-|-o {*OutputFile* \| *"SQL:DSN! Datenbankformaten*}, in dem DSN ist ein ODMC DSN definiert.|Gibt den Pfadnamen der Datei oder SQL-Datenbank, in dem die Leistungsindikatoren geschrieben werden. <br>Hinweis: Für die 64-Bit und 32-Bit-Versionen der Relog.exe, müssen Sie einen DSN in der ODBC-Datenquelle definieren (64-Bit und 32-Bit-bzw.)|
-|-b \<*M*/*D*/*YYYY*> [[*HH*:]*MM*:]*SS*|Gibt an, die Startzeit für das Kopieren der ersten Datensatz aus der Eingabedatei. Datum und die Uhrzeit muss exakt in diesem Format *M***/*** D***/*** JJJJHH ***:*** MM ***:*** SS*.|  
-|-e: \< *M*/*D*/*JJJJ*> [[*HH*:]*MM*:]*SS* |Gibt die Endzeit für das Kopieren des letzten Eintrags aus der Eingabedatei an. Datum und die Uhrzeit muss exakt in diesem Format *M***/*** D***/*** JJJJHH ***:*** MM ***:*** SS*.|  
-|-config {*FileName* \| *i*}|Gibt den Pfadnamen der Datei, die Befehlszeilenparameter enthält. Verwendung *-i* in der Konfigurationsdatei als Platzhalter für eine Liste der Eingabedateien, die in der Befehlszeile angegeben werden sollen. In der Befehlszeile, aber Sie nicht müssen verwenden *ich*. Sie können auch Platzhalter wie z. B. *.blg verwenden, viele Eingabedateinamen angeben.|  
-|-q|Zeigt an, die Leistungsindikatoren und Zeitbereiche der Protokolldateien in der Eingabedatei angegeben.|  
-|-y|Umgehungen aufgefordert wird, indem Sie "Ja" auf alle Fragen beantworten.|  
-|/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
+|                                         Parameter                                          |                                                                                                                                                                  Beschreibung                                                                                                                                                                   |
+|--------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|                                *FileName* [*Dateiname...* ]                                 |                                                                                                                      Gibt den Pfadnamen des vorhandenen Leistungsindikator an. Sie können mehrere Eingabedateien angeben.                                                                                                                      |
+|                                             -a                                             |                                                                                                          Fügt der Ausgabedatei anstatt zu überschreiben. Diese Option gilt nicht für SQL-Format, wobei der Standardwert immer ist, angefügt werden soll.                                                                                                           |
+|                                   -C *Pfad* [*Pfad...* ]                                   |                                                       Gibt den Leistungsindikatorpfad, melden Sie sich an. Um mehrere Pfade angeben, trennen Sie diese durch ein Leerzeichen, und schließen Sie die Pfade in Anführungszeichen ein (z. B. **"** <em>Indikatorpfad1</em> <em>Indikatorpfad2</em> **"** )                                                       |
+|                                       -Cf *Dateiname*                                       |                                            Gibt den Pfadnamen der Textdatei, die die Leistungsindikatoren in einer Datei erneut aufzuzeichnen einzuschließenden aufgeführt sind. Verwenden Sie diese Option, um die Liste der Indikatorpfade in einer Eingabedatei, die jeweils eine pro Zeile ein. Standardeinstellung ist, dass alle Leistungsindikatoren in der ursprünglichen Protokolldatei neu protokolliert werden.                                            |
+|                                  -f {Bin\| Csv\|Tsv\|SQL}                                  |                                       Gibt den Pfadnamen der das Format der Ausgabedatei an. Das Standardformat **Bin**. Für eine SQL-Datenbank, gibt die Ausgabedatei der *DSN! Leistungsindikatorenprotokoll*. Sie können den Speicherort der Datenbank angeben, mit dem ODBC-Manager zum Konfigurieren des DSN (Datenbankname System).                                        |
+|                                         -t *Wert*                                         |                                                                                                           Gibt an, Beispiel-Intervalle in "*N*" Datensätze. Schließt jeden n-ten Datenpunkt in der Datei erneut aufzuzeichnen. Standardmäßig ist jeder Datenpunkt.                                                                                                           |
+| -o {*OutputFile* \| *"SQL:DSN! Datenbankformaten*}, in dem DSN ist ein ODMC DSN definiert. |                                                   Gibt den Pfadnamen der Datei oder SQL-Datenbank, in dem die Leistungsindikatoren geschrieben werden. <br>Hinweis: Für die 64-Bit und 32-Bit-Versionen der Relog.exe, müssen Sie einen DSN in der ODBC-Datenquelle definieren (64-Bit und 32-Bit-bzw.)                                                   |
+|                          -b \<*M*/*D*/*YYYY*> [[*HH*:]*MM*:]*SS*                           |                                                                          Gibt an, die Startzeit für das Kopieren der ersten Datensatz aus der Eingabedatei. Datum und die Uhrzeit muss exakt in diesem Format <em>M</em> **/** <em>D</em> **/** <em>JJJJHH</em> **:** <em>MM</em> **:** <em>SS</em>.                                                                          |
+|                          -e: \< *M*/*D*/*JJJJ*> [[*HH*:]*MM*:]*SS*                           |                                                                           Gibt die Endzeit für das Kopieren des letzten Eintrags aus der Eingabedatei an. Datum und die Uhrzeit muss exakt in diesem Format <em>M</em> **/** <em>D</em> **/** <em>JJJJHH</em> **:** <em>MM</em> **:** <em>SS</em>.                                                                            |
+|                                -config {*FileName* \| *i*}                                 | Gibt den Pfadnamen der Datei, die Befehlszeilenparameter enthält. Verwendung *-i* in der Konfigurationsdatei als Platzhalter für eine Liste der Eingabedateien, die in der Befehlszeile angegeben werden sollen. In der Befehlszeile, aber Sie nicht müssen verwenden *ich*. Sie können auch Platzhalter verwenden, z. B. \*blg an viele Dateinamen eingeben. |
+|                                             -q                                             |                                                                                                                          Zeigt an, die Leistungsindikatoren und Zeitbereiche der Protokolldateien in der Eingabedatei angegeben.                                                                                                                           |
+|                                             -y                                             |                                                                                                                                            Umgehungen aufgefordert wird, indem Sie "Ja" auf alle Fragen beantworten.                                                                                                                                             |
+|                                             /?                                             |                                                                                                                                                      Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                                      |
 
 ## <a name="remarks"></a>Hinweise  
 -Indikatorpfadformat:  
--   Das allgemeine Format für die Indikatorpfade lautet wie folgt: [\\\<Computer >] \\ \<Objekt > [\<übergeordneten >\\< Instanz-#Index >] \\ \< Leistungsindikator >], in denen die übergeordnete Instanz, Index und Leistungsindikator-Komponenten, der das Format können enthalten entweder einen gültigen Namen oder ein Platzhalterzeichen. Der Computer, übergeordneten, Instanz und Index-Komponenten sind nicht für alle Leistungsindikatoren erforderlich.  
--   Sie bestimmen die Indikatorpfade verwenden, basierend auf der Zähler selbst. Das LogicalDisk-Objekt hat beispielsweise eine Instanz <Index>, daher müssen Sie die < #index > oder einen Platzhalter angeben. Aus diesem Grund können Sie das folgende Format: **\LogicalDisk (\*/\*#\*)\\\***  
--   Im Gegensatz dazu das Prozessobjekt nicht erfordert eine Instanz \<Index >. Aus diesem Grund können Sie das folgende Format: **\Process (\*) \ID Prozess**  
--   Wenn ein Platzhalterzeichen in den Namen der übergeordneten angegeben ist, werden alle Instanzen des angegebenen Objekts, die die angegebene Instanz und der Leistungsindikator-Felder entsprechen zurückgegeben.  
--   Wenn ein Platzhalterzeichen im Instanznamen angegeben wird, werden alle Instanzen der dem angegebenen Objekt und das übergeordnete Objekt zurückgegeben, wenn es sich bei alle Instanznamen, die dem angegebenen Index entspricht das Platzhalterzeichen übereinstimmen.  
--   Wenn ein Platzhalterzeichen in den Namen des Leistungsindikators angegeben ist, werden alle Indikatoren des angegebenen Objekts zurückgegeben.  
--   Zeichenfolgenübereinstimmungen teilweise Leistungsindikator-Pfad (z. B. Pro *) werden nicht unterstützt.  
+- Das allgemeine Format für die Indikatorpfade lautet wie folgt: [\\\<Computer >] \\ \<Objekt > [\<übergeordneten >\\< Instanz-#Index >] \\ \< Leistungsindikator >], in denen die übergeordnete Instanz, Index und Leistungsindikator-Komponenten, der das Format können enthalten entweder einen gültigen Namen oder ein Platzhalterzeichen. Der Computer, übergeordneten, Instanz und Index-Komponenten sind nicht für alle Leistungsindikatoren erforderlich.  
+- Sie bestimmen die Indikatorpfade verwenden, basierend auf der Zähler selbst. Das LogicalDisk-Objekt hat beispielsweise eine Instanz <Index>, daher müssen Sie die < #index > oder einen Platzhalter angeben. Aus diesem Grund können Sie das folgende Format: **\LogicalDisk (\*/\*#\*)\\\\** *  
+- Im Gegensatz dazu das Prozessobjekt nicht erfordert eine Instanz \<Index >. Aus diesem Grund können Sie das folgende Format: **\Process (\*) \ID Prozess**  
+- Wenn ein Platzhalterzeichen in den Namen der übergeordneten angegeben ist, werden alle Instanzen des angegebenen Objekts, die die angegebene Instanz und der Leistungsindikator-Felder entsprechen zurückgegeben.  
+- Wenn ein Platzhalterzeichen im Instanznamen angegeben wird, werden alle Instanzen der dem angegebenen Objekt und das übergeordnete Objekt zurückgegeben, wenn es sich bei alle Instanznamen, die dem angegebenen Index entspricht das Platzhalterzeichen übereinstimmen.  
+- Wenn ein Platzhalterzeichen in den Namen des Leistungsindikators angegeben ist, werden alle Indikatoren des angegebenen Objekts zurückgegeben.  
+- Zeichenfolgenübereinstimmungen teilweise Leistungsindikator-Pfad (z. B. Pro *) werden nicht unterstützt.  
 
 Leistungsindikatordateien:  
 -   Zähler sind Textdateien, in denen eine oder mehrere der Leistungsindikatoren in das bestehende Protokoll aufgeführt. Kopieren Sie den vollständigen Leistungsindikatornamen aus dem Protokoll oder die **/q /** Ausgabe im \<Computer >\\\<Objekt >\\\<Instanz >\\ \< Leistungsindikator > Format. Listet eine Leistungsindikatorpfad in jeder Zeile.  
@@ -89,7 +89,7 @@ relog "c:\perflogs\daily_trace_log.blg" -f sql -o "SQL:sql2016x64odbc!counter_lo
 ```
 
 ## <a name="additional-references"></a>Weitere Verweise  
--   [Befehlszeilensyntax](command-line-syntax-key.md)  
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
   
 <!---
 -   The following is a list of the possible formats:  

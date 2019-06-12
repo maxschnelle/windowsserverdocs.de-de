@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c59fa78f6485f21a048c6a4f37a00b4a49e9adab
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e3f3abeec3d4ecbe5e80d08a99a00b43a408c4ac
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831671"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811285"
 ---
 # <a name="server-manager"></a>Server-Manager
 
@@ -30,23 +30,23 @@ Bei unseren Tests kann Server-Manager in Windows Server 2016, Windows Server 201
 
 In diesem Thema und seine Unterthemen enthalten Informationen zur Verwendung von Features in Server-Manager-Konsole verwenden. Dieses Thema enthält die folgenden Abschnitte:
 
--   [Vorüberlegungen und Systemanforderungen](#BKMK_1.1)
+-   [Vorüberlegungen und Systemanforderungen](#review-initial-considerations-and-system-requirements)
 
--   [Aufgaben, die Sie im Server-Manager ausführen können](#BKMK_tasks)
+-   [Aufgaben, die Sie im Server-Manager ausführen können](#tasks-that-you-can-perform-in-server-manager)
 
--   [Starten Sie den Server-Manager](#BKMK_start)
+-   [Starten Sie den Server-Manager](#start-server-manager)
 
--   [Neustarten von Remoteservern](#BKMK_restart)
+-   [Neustarten von Remoteservern](#restart-remote-servers)
 
--   [Server-Manager-Einstellungen auf andere Computer exportieren](#BKMK_export)
+-   [Server-Manager-Einstellungen auf andere Computer exportieren](#export-server-manager-settings-to-other-computers)
 
-## <a name="BKMK_1.1"></a>Vorüberlegungen und Systemanforderungen
+## <a name="review-initial-considerations-and-system-requirements"></a>Vorüberlegungen und Systemanforderungen
 Den folgenden Abschnitten werden einige anfänglichen Überlegungen, die Sie benötigen, sowie die Hardware- und softwareanforderungen für Server-Manager zu überprüfen.
 
 ### <a name="hardware-requirements"></a>Hardwareanforderungen
 Server-Manager wird standardmäßig in allen Editionen von Windows Server 2016 installiert. Es bestehen keine zusätzlichen hardwareanforderungen sind für Server-Manager vorhanden.
 
-### <a name="BKMK_softconfig"></a>Software- und konfigurationsanforderungen
+### <a name="software-and-configuration-requirements"></a>Software- und Konfigurationsanforderungen
 Server-Manager wird standardmäßig in allen Editionen von Windows Server 2016 installiert. Sie können Server-Manager in Windows Server 2016 verwenden, zum Verwalten von [Server Core-Installationsoptionen](https://go.microsoft.com/fwlink/p/?LinkID=241573) von Windows Server 2016, Windows Server 2012 und Windows Server 2008 R2, die auf Remotecomputern ausgeführt werden. Server-Manager wird auf die Server Core-Installationsoption von Windows Server 2016 ausgeführt.
 
 Server-Manager wird in die minimale Grafische Serverschnittstelle. d. h., wenn die Grafische Shell für Server-Feature nicht installiert ist. Die Grafische Shell für Server-Funktion ist nicht standardmäßig unter Windows Server 2016 installiert. Wenn Sie nicht Grafische Shell für Server, den Server-Manager-Konsole zwar ausgeführt ausführen, aber einige Anwendungen oder Tools, die von der Konsole nicht verfügbar sind. Internetbrowser können nicht ohne Grafische Shell für Server, Webseiten und Anwendungen ausgeführt werden, wie z. B. HTML-Hilfe (z. B. das Mmc-F1-Hilfe) nicht geöffnet werden kann. Sie können nicht geöffnet werden Dialogfelder zum Konfigurieren von Windows automatische Aktualisierung und Feedback, wenn die Servergrafikshell nicht installiert ist; Befehle zum Öffnen dieser Dialogfelder in Server-Manager-Konsole werden umgeleitet, sodass die Ausführung **sconfig.cmd**.
@@ -64,9 +64,9 @@ Die Server-Manager-Konsole ist im Lieferumfang [Remoteserver-Verwaltungstools](h
 
 |Server-Manager-Source-Betriebssystem|Windows Server 2016 als Ziel|Ziel unter Windows Server 2012 R2 |Auf WindowsServer 2012 ausgerichtet sind |Auf Windows Server 2008 R2 oder WindowsServer 2008 ausgerichtet sind |Für Windows Server 2003|
 |-------------------------------|--------------------------------------------|---------------------------------------|------------------------------------|-----------------------------------------------------------------------|------------------|
-|Windows 10 oder WindowsServer 2016|Vollständige Unterstützung|Vollständige Unterstützung|Vollständige Unterstützung|Sobald die [Software- und Konfigurationsanforderungen](#BKMK_softconfig) erfüllt sind, können die meisten Verwaltungsaufgaben, jedoch keine Installation oder Deinstallation von Rollen oder Features ausgeführt werden.|Nicht unterstützt.|
-|Windows 8.1 oder Windows Server 2012 R2 |Nicht unterstützt.|Vollständige Unterstützung|Vollständige Unterstützung|Sobald die [Software- und Konfigurationsanforderungen](#BKMK_softconfig) erfüllt sind, können die meisten Verwaltungsaufgaben, jedoch keine Installation oder Deinstallation von Rollen oder Features ausgeführt werden.|Eingeschränkte Unterstützung, nur Online- und Offlinestatus|
-|Windows 8 oder WindowsServer 2012 |Nicht unterstützt.|Nicht unterstützt.|Vollständige Unterstützung|Sobald die [Software- und Konfigurationsanforderungen](#BKMK_softconfig) erfüllt sind, können die meisten Verwaltungsaufgaben, jedoch keine Installation oder Deinstallation von Rollen oder Features ausgeführt werden.|Eingeschränkte Unterstützung, nur Online- und Offlinestatus|
+|Windows 10 oder WindowsServer 2016|Vollständige Unterstützung|Vollständige Unterstützung|Vollständige Unterstützung|Sobald die [Software- und Konfigurationsanforderungen](#software-and-configuration-requirements) erfüllt sind, können die meisten Verwaltungsaufgaben, jedoch keine Installation oder Deinstallation von Rollen oder Features ausgeführt werden.|Nicht unterstützt.|
+|Windows 8.1 oder Windows Server 2012 R2 |Nicht unterstützt.|Vollständige Unterstützung|Vollständige Unterstützung|Sobald die [Software- und Konfigurationsanforderungen](#software-and-configuration-requirements) erfüllt sind, können die meisten Verwaltungsaufgaben, jedoch keine Installation oder Deinstallation von Rollen oder Features ausgeführt werden.|Eingeschränkte Unterstützung, nur Online- und Offlinestatus|
+|Windows 8 oder WindowsServer 2012 |Nicht unterstützt.|Nicht unterstützt.|Vollständige Unterstützung|Sobald die [Software- und Konfigurationsanforderungen](#software-and-configuration-requirements) erfüllt sind, können die meisten Verwaltungsaufgaben, jedoch keine Installation oder Deinstallation von Rollen oder Features ausgeführt werden.|Eingeschränkte Unterstützung, nur Online- und Offlinestatus|
 
 ###### <a name="to-start-server-manager-on-a-client-computer"></a>So starten Sie den Server-Manager auf einem Clientcomputer
 
@@ -85,7 +85,7 @@ Weitere Informationen zum Ausführen Remote Server Administration Tools für Win
 
 Um Verwaltungsaufgaben auf Remoteservern mithilfe des Server-Manager ausführen möchten, müssen Remoteserver, die Sie verwalten möchten für die um Remoteverwaltung zu ermöglichen, mithilfe von Server-Manager und Windows PowerShell konfiguriert werden. Wenn remote-Verwaltung auf Windows Server 2012 R2 oder Windows Server 2012 deaktiviert wurde, und Sie ihn wieder aktivieren möchten, führen Sie die folgenden Schritte aus.
 
-##### <a name="BKMK_windows"></a>So konfigurieren Server-Manager-Remoteverwaltung unter Windows Server 2012 R2 oder Windows Server 2012 mithilfe der Windows-Benutzeroberfläche
+##### <a name="to-configure-server-manager-remote-management-on--windows-server-2012-r2--or--windows-server-2012--by-using-the-windows-interface"></a>So konfigurieren Server-Manager-Remoteverwaltung unter Windows Server 2012 R2 oder Windows Server 2012 mithilfe der Windows-Benutzeroberfläche
 
 1.  > [!NOTE]
     > Die Einstellungen, die von gesteuert werden die **Konfigurieren der Remoteverwaltung** Dialogfeld wirken sich nicht auf die Teile des Server-Managers, die DCOM für die Remotekommunikation verwenden.
@@ -104,7 +104,7 @@ Um Verwaltungsaufgaben auf Remoteservern mithilfe des Server-Manager ausführen 
 
     -   Damit dieser Computer Remote mithilfe von Server-Manager oder Windows PowerShell verwaltet werden können, wählen Sie **Remoteverwaltung dieses Servers von anderen Computern aktivieren**.
 
-##### <a name="BKMK_ps"></a>So aktivieren Server-Manager-Remoteverwaltung unter Windows Server 2012 R2 oder Windows Server 2012 mithilfe von Windows PowerShell
+##### <a name="to-enable-server-manager-remote-management-on--windows-server-2012-r2--or--windows-server-2012--by-using-windows-powershell"></a>So aktivieren Server-Manager-Remoteverwaltung unter Windows Server 2012 R2 oder Windows Server 2012 mithilfe von Windows PowerShell
 
 1.  Führen Sie eine der folgenden Aktionen aus.
 
@@ -129,7 +129,7 @@ Um Verwaltungsaufgaben auf Remoteservern mithilfe des Server-Manager ausführen 
 
     -   Um die Remoteverwaltung auf Servern zu aktivieren, auf denen Windows Server 2008 ausgeführt werden, finden Sie unter [aktivieren und Verwenden von Remotebefehlen in Windows PowerShell](https://go.microsoft.com/fwlink/p/?LinkId=242565).
 
-## <a name="BKMK_tasks"></a>Aufgaben, die Sie im Server-Manager ausführen können
+## <a name="tasks-that-you-can-perform-in-server-manager"></a>Im Server-Manager ausführbare Aufgaben
 Server-Manager-serververwaltung effizienter, da Administratoren Aufgaben in der folgenden Tabelle mithilfe eines einzigen Tools. In Windows Server 2012 R2 und Windows Server 2012 können sowohl Standardbenutzer eines Servers auch Mitglieder der Gruppe "Administratoren" Verwaltungsaufgaben im Server-Manager, in der Standardeinstellung Standardbenutzer werden jedoch gehindert Durchführung bestimmter Aufgaben, wie gezeigt in der in der folgenden Tabelle.
 
 Administratoren können zwei Windows PowerShell-Cmdlets verwenden, im Server-Manager-Cmdlet-Modul, [Enable-ServerManagerStandardUserremoting](https://technet.microsoft.com/library/jj205470.aspx) und [Disable-ServerManagerStandardUserremoting](https://technet.microsoft.com/library/jj205468.aspx)zu Weitere standardbenutzerzugriff auf einige zusätzlichen Daten zu steuern. Die **Enable-ServerManagerStandardUserremoting** Cmdlet kann einem oder mehreren standardmäßigen, nicht-Administrator-Benutzerzugriff für Ereignis "," Dienst "," Leistungsindikator "und" Rollen- und featuredateien Inventurdaten bieten.
@@ -155,7 +155,7 @@ Administratoren können zwei Windows PowerShell-Cmdlets verwenden, im Server-Man
 > [!NOTE]
 > Server-Manager kann nicht verwendet werden, Hinzufügen von Rollen und Features auf Servern unter Windows Server 2008 R2 oder Windows Server 2008.
 
-## <a name="BKMK_start"></a>Starten Sie den Server-Manager
+## <a name="start-server-manager"></a>Starten Sie den Server-Manager
 Server-Manager wird standardmäßig auf Servern unter Windows Server 2016, wenn ein Mitglied der Administratorengruppe anmeldet eines Servers automatisch gestartet. Wenn Sie Server-Manager schließen, starten Sie ihn in einem der folgenden Methoden neu. Dieser Abschnitt enthält auch Schritte zum Ändern des Standardverhaltens und zu verhindern, dass die Server-Manager automatisch gestartet wird.
 
 #### <a name="to-start-server-manager-from-the-start-screen"></a>So starten Sie Server-Manager über den Startbildschirm
@@ -174,7 +174,7 @@ Server-Manager wird standardmäßig auf Servern unter Windows Server 2016, wenn 
 
 3.  Alternativ Sie können verhindern, dass Server-Manager automatisch gestartet, durch Aktivieren der gruppenrichtlinieneinstellung **Server-Manager beim Anmelden nicht automatisch starten**. Der Pfad zu dieser richtlinieneinstellung in der lokalen Gruppenrichtlinien-Editor-Konsole ist Computer Configuration\Administrative Templates\System\Server-Manager.
 
-## <a name="BKMK_restart"></a>Neustarten von Remoteservern
+## <a name="restart-remote-servers"></a>Neustarten von Remoteservern
 Sie können neu starten, einen Remoteserver über die **Server** Kachel eine Rollen- oder Gruppenseite im Server-Manager.
 
 > [!IMPORTANT]
@@ -190,7 +190,7 @@ Sie können neu starten, einen Remoteserver über die **Server** Kachel eine Rol
 
 3.  Klicken Sie mit der rechten Maustaste auf die ausgewählten Server, und klicken Sie anschließend auf **Server neu starten**.
 
-## <a name="BKMK_export"></a>Server-Manager-Einstellungen auf andere Computer exportieren
+## <a name="export-server-manager-settings-to-other-computers"></a>Exportieren von Server-Manager-Einstellungen auf andere Computer
 Im Server-Manager die Liste mit den verwalteten Servern zu Server-Manager-Konsole-Einstellungen geändert, und benutzerdefinierte Gruppen, die Sie erstellt haben, werden in den folgenden zwei Dateien gespeichert. Sie können diese Einstellungen auf anderen Computern wiederverwenden, die die gleiche Version von Server-Manager (oder Windows 10 mit Remoteserver-Verwaltungstools installiert) ausgeführt werden. Remoteserver-Verwaltungstools müssen auf Windows-Clientcomputer so exportieren Sie Server-Manager-Einstellungen auf den entsprechenden Computern ausgeführt werden.
 
 -   %*appdata*%\Microsoft\Windows\ServerManager\Serverlist.xml

@@ -8,12 +8,12 @@ ms.date: 06/28/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 0c1fd2bc1026d9aee25c591cf5c91a1c59f66ee0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4d2b8a9c35b106a237b47d1bd062026469af59a0
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834491"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444482"
 ---
 #  <a name="prepare-to-migrate-a-stand-alone-ad-fs-federation-server-or-a-single-node-ad-fs-farm"></a>Vorbereiten der Migration eines eigenständigen AD FS-Verbundservers oder einer AD FS-Farm mit einzelnem Knoten  
  
@@ -43,14 +43,14 @@ Führen Sie zum Exportieren der AD FS-Konfigurationsdaten die folgenden Schritte
 >   
 >  Das Exportieren des SSL-Zertifikats ist optional, da dieses Zertifikat auf dem lokalen Computer im privaten Zertifikatspeicher gespeichert wird und beim Upgrade des Betriebssystems erhalten bleibt.  
   
-2.  Notieren Sie sich die Konfiguration der Zertifikate für die AD FS-Dienstkommunikation, Tokenverschlüsselung und Tokensignatur.  Um alle Zertifikate anzuzeigen, die verwendet werden, öffnen Sie Windows PowerShell, und führen Sie den folgenden Befehl zum Hinzufügen der AD FS-Cmdlets zur Windows PowerShell-Sitzung: `PSH:>add-pssnapin “Microsoft.adfs.powershell”`. Führen Sie dann den folgenden Befehl zum Erstellen einer Liste aller Zertifikate in in einer Datei `PSH:>Get-ADFSCertificate | Out-File “.\certificates.txt”`  
+2. Notieren Sie sich die Konfiguration der Zertifikate für die AD FS-Dienstkommunikation, Tokenverschlüsselung und Tokensignatur.  Um alle Zertifikate anzuzeigen, die verwendet werden, öffnen Sie Windows PowerShell, und führen Sie den folgenden Befehl zum Hinzufügen der AD FS-Cmdlets zur Windows PowerShell-Sitzung: `PSH:>add-pssnapin “Microsoft.adfs.powershell”`. Führen Sie dann den folgenden Befehl zum Erstellen einer Liste aller Zertifikate in in einer Datei `PSH:>Get-ADFSCertificate | Out-File “.\certificates.txt”`  
   
 > [!NOTE]
 >  Sie können optional auch zusätzlich zu allen selbstsignierten Zertifikaten alle Zertifikate und Schlüssel für die Tokensignatur, Tokenverschlüsselung oder Dienstkommunikation exportieren, die nicht intern generiert werden. Sie können alle auf Ihrem Server verwendeten Zertifikate mithilfe von Windows PowerShell anzeigen. Öffnen Sie Windows PowerShell, und führen Sie den folgenden Befehl zum Hinzufügen der AD FS-Cmdlets zur Windows PowerShell-Sitzung aus: `PSH:>add-pssnapin “Microsoft.adfs.powershell`. Führen Sie dann den folgenden Befehl aus, um alle Zertifikate anzuzeigen, die auf Ihrem Server werden `PSH:>Get-ADFSCertificate`. Die Ausgabe dieses Befehls umfasst StoreLocation- und StoreName-Werte, die den Speicherort für die einzelnen Zertifikate angeben. Sie können dann die Anleitung in [Exportieren des Bereichs mit dem privaten Schlüssel eines Serverauthentifizierungszertifikats](Export-the-Private-Key-Portion-of-a-Server-Authentication-Certificate.md) verwenden, um die einzelnen Zertifikate und den entsprechenden privaten Schlüssel in eine PFX-Datei zu exportieren.  
 >   
 >  Das Exportieren dieser Zertifikate ist optional, da alle externen Zertifikate während des Betriebssystemupgrades erhalten bleiben.  
   
-3.  Exportieren Sie AD FS 2.0-verbunddiensteigenschaften wie den verbunddienstnamen, Anzeigename des Verbunddiensts und Bezeichner des Verbunddiensts in eine Datei.  
+3. Exportieren Sie AD FS 2.0-verbunddiensteigenschaften wie den verbunddienstnamen, Anzeigename des Verbunddiensts und Bezeichner des Verbunddiensts in eine Datei.  
   
 Um die verbunddiensteigenschaften zu exportieren, öffnen Sie Windows PowerShell, und führen Sie den folgenden Befehl zum Hinzufügen der AD FS-Cmdlets zur Windows PowerShell-Sitzung: `PSH:>add-pssnapin “Microsoft.adfs.powershell”`. Führen Sie dann den folgenden Befehl zum Exportieren der verbunddiensteigenschaften: `PSH:> Get-ADFSProperties | Out-File “.\properties.txt”`.  
   
@@ -63,7 +63,7 @@ Die Ausgabedatei enthält die folgenden wichtigen Konfigurationswerte:
 |Bezeichner|Bezeichner des Verbunddiensts|  
 |DisplayName|Anzeigename des Verbunddiensts|  
   
-4.  Sichern Sie die Anwendungskonfigurationsdatei. Neben anderen Einstellungen enthält diese Datei die Verbindungszeichenfolge der Richtliniendatenbank.  
+4. Sichern Sie die Anwendungskonfigurationsdatei. Neben anderen Einstellungen enthält diese Datei die Verbindungszeichenfolge der Richtliniendatenbank.  
   
 Zum Sichern der Anwendungskonfigurationsdatei muss die Datei `%programfiles%\Active Directory Federation Services 2.0\Microsoft.IdentityServer.Servicehost.exe.config` manuell an einen sicheren Speicherort auf einem Sicherungsserver kopiert werden.  
   
@@ -72,18 +72,18 @@ Zum Sichern der Anwendungskonfigurationsdatei muss die Datei `%programfiles%\Act
 >   
 >  Im Folgenden sehen Sie ein Beispiel für eine WID-Verbindungszeichenfolge: `“Data Source=\\.\pipe\mssql$microsoft##ssee\sql\query;Initial Catalog=AdfsConfiguration;Integrated Security=True"`. Im Folgenden sehen Sie ein Beispiel für eine SQL Server-Verbindungszeichenfolge: `"Data Source=databasehostname;Integrated Security=True"`.  
   
-5.  Notieren Sie die Identität des AD FS 2.0-Verbunddienstkontos und das Kennwort dieses Kontos.  
+5. Notieren Sie die Identität des AD FS 2.0-Verbunddienstkontos und das Kennwort dieses Kontos.  
   
 Der Identitätswert befindet sich in der Konsole **Dienste** in der Spalte **Anmelden als** unter **AD FS 2.0-Windows-Dienst** . Zeichnen Sie diesen Wert manuell auf.  
   
 > [!NOTE]
 >  Für einen eigenständigen Verbunddienst wird das integrierte Konto NETZWERKDIENST verwendet.  In diesem Fall benötigen Sie kein Kennwort.  
   
-6.  Exportieren Sie die Liste aktivierter AD FS-Endpunkte in eine Datei.  
+6. Exportieren Sie die Liste aktivierter AD FS-Endpunkte in eine Datei.  
   
 Zu diesem Zweck öffnen Sie Windows PowerShell, und führen Sie den folgenden Befehl zum Hinzufügen der AD FS-Cmdlets zur Windows PowerShell-Sitzung: `PSH:>add-pssnapin “Microsoft.adfs.powershell”`. Führen Sie dann den folgenden Befehl aus, um die Liste der aktivierten AD FS-Endpunkte in eine Datei zu exportieren: `PSH:> Get-ADFSEndpoint | Out-File “.\endpoints.txt”`.  
   
-7.  Exportieren Sie alle benutzerdefinierten Anspruchbeschreibungen in eine Datei.  
+7. Exportieren Sie alle benutzerdefinierten Anspruchbeschreibungen in eine Datei.  
   
 Zu diesem Zweck öffnen Sie Windows PowerShell, und führen Sie den folgenden Befehl zum Hinzufügen der AD FS-Cmdlets zur Windows PowerShell-Sitzung: `PSH:>add-pssnapin “Microsoft.adfs.powershell”`. Führen Sie dann den folgenden Befehl aus, um alle benutzerdefinierten anspruchsbeschreibungen in eine Datei zu exportieren: `Get-ADFSClaimDescription | Out-File “.\claimtypes.txt”`.  
   
@@ -112,4 +112,4 @@ Zu diesem Zweck öffnen Sie Windows PowerShell, und führen Sie den folgenden Be
  [Vorbereiten der Migration von AD FS 2.0-Verbundserver-Server-Proxy](prepare-to-migrate-ad-fs-fed-proxy.md)   
  [Migrieren des AD FS 2.0-Verbundservers](migrate-the-ad-fs-fed-server.md)   
  [Migrieren der AD FS 2.0-Verbundserver-Server-Proxy](migrate-the-ad-fs-2-fed-server-proxy.md)   
- [Migrieren der AD FS 1.1-Web-Agents](migrate-the-ad-fs-web-agent.md)
+ [Migrieren der AD FS 1.1-Web-Agents](migrate-the-ad-fs-web-agent.md)

@@ -8,12 +8,12 @@ ms.prod: windows-server-threshold
 ms.technology: networking
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 84e4b2fe0b59820b9e51229335f3539bcbeeec90
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1774d235703bd75d810f2649cb8ed3f2f92622d5
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59860741"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811596"
 ---
 # <a name="install-the-certification-authority"></a>Installieren der Zertifizierungsstelle
 
@@ -38,8 +38,8 @@ Für dieses Verfahren sind mindestens die Mitgliedschaften in den Gruppen **Orga
   
 ### <a name="to-install-active-directory-certificate-services"></a>So installieren Sie Active Directory-Zertifikatsdienste  
 
->[!TIP]
->Wenn Sie Windows PowerShell zum Installieren von Active Directory-Zertifikatdienste finden verwenden möchten [Install-AdcsCertificationAuthority](https://docs.microsoft.com/powershell/module/adcsdeployment/install-adcscertificationauthority?view=win10-ps) für Cmdlets und optionale Parameter.
+> [!TIP]
+> Wenn Sie Windows PowerShell zum Installieren von Active Directory-Zertifikatdienste finden verwenden möchten [Install-AdcsCertificationAuthority](https://docs.microsoft.com/powershell/module/adcsdeployment/install-adcscertificationauthority?view=win10-ps) für Cmdlets und optionale Parameter.
   
 1.  Melden Sie sich als Mitglied der GruppeOrganisations-Admins und der GruppeDomänen-Admins der Stammdomäne an.  
   

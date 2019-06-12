@@ -9,12 +9,12 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.date: 08/30/2018
-ms.openlocfilehash: 194a418fe6b33e312a3f2529e82d50d76cd15f4c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8ac4f8e7cd0aed5a81e89672354622dd81afce2a
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842481"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446183"
 ---
 # <a name="netsh-interface-portproxy-commands"></a>Netsh Interface Portproxy-Befehle
 
@@ -84,13 +84,13 @@ add v4tov4 listenport= {Integer | ServiceName} [[connectaddress=] {IPv4Address |
 ### <a name="parameters"></a>Parameter
 
 
-| | |
-|-----|--------|----------|
-| **listenport**     | Gibt an, der IPv4-Port, Portnummer oder den Dienst anzugeben, auf den gelauscht.                                                                                                                      | Erforderlich |
-| **connectaddress** | Gibt die IPv4-Adresse für die Verbindung an. Zulässige Werte sind die IP-Adresse, NetBIOS-Computernamen oder DNS-Computernamen. Wenn eine Adresse nicht angegeben wird, ist der Standardwert der lokale Computer. |          |
-| **connectport**    | Gibt an, der IPv4-Port, Portnummer oder den Dienst anzugeben, für die Verbindung. Wenn **Connectport** nicht angegeben ist, wird der Standardwert ist der Wert des **Listenport** auf dem lokalen Computer.              |          |
-| **listenaddress**  | Gibt die IPv4-Adresse für das Lauschen an. Zulässige Werte sind die IP-Adresse, NetBIOS-Computernamen oder DNS-Computernamen. Wenn eine Adresse nicht angegeben wird, ist der Standardwert der lokale Computer. |          |
-| **protocol**       | Gibt das zu verwendende Protokoll an.                                                                                                                                                                    |          |
+|                    |                                                                                                                                                                                                   |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   **listenport**   |                                                           Gibt an, der IPv4-Port, Portnummer oder den Dienst anzugeben, auf den gelauscht.                                                            |
+| **connectaddress** | Gibt die IPv4-Adresse für die Verbindung an. Zulässige Werte sind die IP-Adresse, NetBIOS-Computernamen oder DNS-Computernamen. Wenn eine Adresse nicht angegeben wird, ist der Standardwert der lokale Computer. |
+|  **connectport**   |       Gibt an, der IPv4-Port, Portnummer oder den Dienst anzugeben, für die Verbindung. Wenn **Connectport** nicht angegeben ist, wird der Standardwert ist der Wert des **Listenport** auf dem lokalen Computer.        |
+| **listenaddress**  | Gibt die IPv4-Adresse für das Lauschen an. Zulässige Werte sind die IP-Adresse, NetBIOS-Computernamen oder DNS-Computernamen. Wenn eine Adresse nicht angegeben wird, ist der Standardwert der lokale Computer. |
+|    **protocol**    |                                                                                  Gibt das zu verwendende Protokoll an.                                                                                   |
 
 ## <a name="add-v4tov6"></a>Hinzufügen von v4tov6
 
@@ -104,13 +104,13 @@ add v4tov6 listenport= {Integer | ServiceName} [[connectaddress=] {IPv6Address |
 
 ### <a name="parameters"></a>Parameter
 
-|   |   |
-|-----------|-------------|----------|
-| **listenport**     | Gibt an, der IPv4-Port, Portnummer oder den Dienst anzugeben, auf den gelauscht.       | Erforderlich |
-| **connectaddress** | Gibt die IPv6-Adresse für die Verbindung an. Zulässige Werte sind die IP-Adresse, NetBIOS-Computernamen oder DNS-Computernamen. Wenn eine Adresse nicht angegeben wird, ist der Standardwert der lokale Computer. |          |
-| **connectport**    | Gibt an, der IPv6-Port, Portnummer oder den Dienst anzugeben, für die Verbindung. Wenn **Connectport** nicht angegeben ist, wird der Standardwert ist der Wert des **Listenport** auf dem lokalen Computer.              |          |
-| **listenaddress**  | Gibt die IPv4-Adresse auf den gelauscht. Zulässige Werte sind die IP-Adresse, NetBIOS-Computernamen oder DNS-Computernamen. Wenn eine Adresse nicht angegeben wird, ist der Standardwert der lokale Computer.  |          |
-| **protocol**       | Gibt das zu verwendende Protokoll an.                                                                                                                                                                    |          |
+|                    |                                                                                                                                                                                                   |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   **listenport**   |                                                           Gibt an, der IPv4-Port, Portnummer oder den Dienst anzugeben, auf den gelauscht.                                                            |
+| **connectaddress** | Gibt die IPv6-Adresse für die Verbindung an. Zulässige Werte sind die IP-Adresse, NetBIOS-Computernamen oder DNS-Computernamen. Wenn eine Adresse nicht angegeben wird, ist der Standardwert der lokale Computer. |
+|  **connectport**   |       Gibt an, der IPv6-Port, Portnummer oder den Dienst anzugeben, für die Verbindung. Wenn **Connectport** nicht angegeben ist, wird der Standardwert ist der Wert des **Listenport** auf dem lokalen Computer.        |
+| **listenaddress**  | Gibt die IPv4-Adresse auf den gelauscht. Zulässige Werte sind die IP-Adresse, NetBIOS-Computernamen oder DNS-Computernamen. Wenn eine Adresse nicht angegeben wird, ist der Standardwert der lokale Computer.  |
+|    **protocol**    |                                                                                  Gibt das zu verwendende Protokoll an.                                                                                   |
 
 ## <a name="add-v6tov4"></a>add v6tov4
 
@@ -124,13 +124,13 @@ add v6tov4 listenport= {Integer | ServiceName} [[connectaddress=] {IPv4Address |
 
 ### <a name="parameters"></a>Parameter
 
-|   |   |
-|------------|-------------|----------|
-| **listenport**     | Gibt an, der IPv6-Port, Portnummer oder den Dienst anzugeben, auf den gelauscht.              | Erforderlich |
-| **connectaddress** | Gibt die IPv4-Adresse für die Verbindung an. Zulässige Werte sind die IP-Adresse, NetBIOS-Computernamen oder DNS-Computernamen. Wenn eine Adresse nicht angegeben wird, ist der Standardwert der lokale Computer. |          |
-| **connectport**    | Gibt an, der IPv4-Port, Portnummer oder den Dienst anzugeben, für die Verbindung. Wenn **Connectport** nicht angegeben ist, wird der Standardwert ist der Wert des **Listenport** auf dem lokalen Computer.              |          |
-| **listenaddress**  | Gibt die IPv6-Adresse auf den gelauscht. Zulässige Werte sind die IP-Adresse, NetBIOS-Computernamen oder DNS-Computernamen. Wenn eine Adresse nicht angegeben wird, ist der Standardwert der lokale Computer.  |          |
-| **protocol**       | Gibt das zu verwendende Protokoll an.      |          |
+|                    |                                                                                                                                                                                                   |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   **listenport**   |                                                           Gibt an, der IPv6-Port, Portnummer oder den Dienst anzugeben, auf den gelauscht.                                                            |
+| **connectaddress** | Gibt die IPv4-Adresse für die Verbindung an. Zulässige Werte sind die IP-Adresse, NetBIOS-Computernamen oder DNS-Computernamen. Wenn eine Adresse nicht angegeben wird, ist der Standardwert der lokale Computer. |
+|  **connectport**   |       Gibt an, der IPv4-Port, Portnummer oder den Dienst anzugeben, für die Verbindung. Wenn **Connectport** nicht angegeben ist, wird der Standardwert ist der Wert des **Listenport** auf dem lokalen Computer.        |
+| **listenaddress**  | Gibt die IPv6-Adresse auf den gelauscht. Zulässige Werte sind die IP-Adresse, NetBIOS-Computernamen oder DNS-Computernamen. Wenn eine Adresse nicht angegeben wird, ist der Standardwert der lokale Computer.  |
+|    **protocol**    |                                                                                  Gibt das zu verwendende Protokoll an.                                                                                   |
 
 ## <a name="add-v6tov6"></a>Hinzufügen von v6tov6
 
@@ -144,13 +144,13 @@ add v6tov6 listenport= {Integer | ServiceName} [[connectaddress=] {IPv6Address |
 
 ### <a name="parameters"></a>Parameter
 
-|   |   |
-|-------------|------------------|----------|
-| **listenport**     | Gibt an, der IPv6-Port, Portnummer oder den Dienst anzugeben, auf den gelauscht.       | Erforderlich |
-| **connectaddress** | Gibt die IPv6-Adresse für die Verbindung an. Zulässige Werte sind die IP-Adresse, NetBIOS-Computernamen oder DNS-Computernamen. Wenn eine Adresse nicht angegeben wird, ist der Standardwert der lokale Computer. |          |
-| **connectport**    | Gibt an, der IPv6-Port, Portnummer oder den Dienst anzugeben, für die Verbindung. Wenn **Connectport** nicht angegeben ist, wird der Standardwert ist der Wert des **Listenport** auf dem lokalen Computer.              |          |
-| **listenaddress**  | Gibt die IPv6-Adresse auf den gelauscht. Zulässige Werte sind die IP-Adresse, NetBIOS-Computernamen oder DNS-Computernamen. Wenn eine Adresse nicht angegeben wird, ist der Standardwert der lokale Computer.  |          |
-| **protocol**       | Gibt das zu verwendende Protokoll an.                                                                                                                                                                    |          |
+|                    |                                                                                                                                                                                                   |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   **listenport**   |                                                           Gibt an, der IPv6-Port, Portnummer oder den Dienst anzugeben, auf den gelauscht.                                                            |
+| **connectaddress** | Gibt die IPv6-Adresse für die Verbindung an. Zulässige Werte sind die IP-Adresse, NetBIOS-Computernamen oder DNS-Computernamen. Wenn eine Adresse nicht angegeben wird, ist der Standardwert der lokale Computer. |
+|  **connectport**   |       Gibt an, der IPv6-Port, Portnummer oder den Dienst anzugeben, für die Verbindung. Wenn **Connectport** nicht angegeben ist, wird der Standardwert ist der Wert des **Listenport** auf dem lokalen Computer.        |
+| **listenaddress**  | Gibt die IPv6-Adresse auf den gelauscht. Zulässige Werte sind die IP-Adresse, NetBIOS-Computernamen oder DNS-Computernamen. Wenn eine Adresse nicht angegeben wird, ist der Standardwert der lokale Computer.  |
+|    **protocol**    |                                                                                  Gibt das zu verwendende Protokoll an.                                                                                   |
 
 ## <a name="delete-v4tov4"></a>v4tov4 löschen
 
@@ -164,11 +164,11 @@ delete v4tov4 listenport= {Integer | ServiceName} [[listenaddress=] {IPv4Address
 
 ### <a name="parameters"></a>Parameter
 
-|   |   |
-|-------------------|----------------------------------------------------------------------------------------------------------|----------|
-| **listenport**    | Gibt den IPv4-Port zu löschen.                                                                       | Erforderlich |
-| **listenaddress** | Gibt die IPv4-Adresse zu löschen. Wenn eine Adresse nicht angegeben wird, ist der Standardwert der lokale Computer. |          |
-| **protocol**      | Gibt das zu verwendende Protokoll an.                                                                           |          |
+|                   |                                                                                                          |
+|-------------------|----------------------------------------------------------------------------------------------------------|
+|  **listenport**   |                                    Gibt den IPv4-Port zu löschen.                                    |
+| **listenaddress** | Gibt die IPv4-Adresse zu löschen. Wenn eine Adresse nicht angegeben wird, ist der Standardwert der lokale Computer. |
+|   **protocol**    |                                      Gibt das zu verwendende Protokoll an.                                      |
 
 ## <a name="delete-v4tov6"></a>v4tov6 löschen
 
@@ -182,11 +182,11 @@ delete v4tov6 listenport= {Integer | ServiceName} [[listenaddress=] {IPv4Address
 
 ### <a name="parameters"></a>Parameter
 
-|   |   |
-|-------------------|----------------------------------------------------------------------------------------------------------|----------|
-| **listenport**    | Gibt den IPv4-Port zu löschen.                                                                       | Erforderlich |
-| **listenaddress** | Gibt die IPv4-Adresse zu löschen. Wenn eine Adresse nicht angegeben wird, ist der Standardwert der lokale Computer. |          |
-| **protocol**      | Gibt das zu verwendende Protokoll an.                                                                           |          |
+|                   |                                                                                                          |
+|-------------------|----------------------------------------------------------------------------------------------------------|
+|  **listenport**   |                                    Gibt den IPv4-Port zu löschen.                                    |
+| **listenaddress** | Gibt die IPv4-Adresse zu löschen. Wenn eine Adresse nicht angegeben wird, ist der Standardwert der lokale Computer. |
+|   **protocol**    |                                      Gibt das zu verwendende Protokoll an.                                      |
 
 ## <a name="delete-v6tov4"></a>v6tov4 löschen
 
@@ -200,11 +200,11 @@ delete v6tov4 listenport= {Integer | ServiceName} [[listenaddress=] {IPv6Address
 
 ### <a name="parameters"></a>Parameter
 
-|   |   |
-|-------------------|----------------------------------------------------------------------------------------------------------|----------|
-| **listenport**    | Gibt den IPv6-Port zu löschen.                                                                       | Erforderlich |
-| **listenaddress** | Gibt an, die IPv6-Adresse zu löschen. Wenn eine Adresse nicht angegeben wird, ist der Standardwert der lokale Computer. |          |
-| **protocol**      | Gibt das zu verwendende Protokoll an.                                                                           |          |
+|                   |                                                                                                          |
+|-------------------|----------------------------------------------------------------------------------------------------------|
+|  **listenport**   |                                    Gibt den IPv6-Port zu löschen.                                    |
+| **listenaddress** | Gibt an, die IPv6-Adresse zu löschen. Wenn eine Adresse nicht angegeben wird, ist der Standardwert der lokale Computer. |
+|   **protocol**    |                                      Gibt das zu verwendende Protokoll an.                                      |
 
 ## <a name="delete-v6tov6"></a>v6tov6 löschen
 
@@ -218,11 +218,11 @@ delete v6tov6 listenport= {Integer | ServiceName} [[listenaddress=] {IPv6Address
 
 ### <a name="parameters"></a>Parameter
 
-|   |   |
-|-------------------|----------------------------------------------------------------------------------------------------------|----------|
-| **listenport**    | Gibt den IPv6-Port zu löschen.                                                                       | Erforderlich |
-| **listenaddress** | Gibt an, die IPv6-Adresse zu löschen. Wenn eine Adresse nicht angegeben wird, ist der Standardwert der lokale Computer. |          |
-| **protocol**      | Gibt das zu verwendende Protokoll an.                                                                           |          |
+|                   |                                                                                                          |
+|-------------------|----------------------------------------------------------------------------------------------------------|
+|  **listenport**   |                                    Gibt den IPv6-Port zu löschen.                                    |
+| **listenaddress** | Gibt an, die IPv6-Adresse zu löschen. Wenn eine Adresse nicht angegeben wird, ist der Standardwert der lokale Computer. |
+|   **protocol**    |                                      Gibt das zu verwendende Protokoll an.                                      |
 
 ## <a name="reset"></a>Zurücksetzen
 
@@ -244,13 +244,13 @@ set v4tov4 listenport= {Integer | ServiceName} [[connectaddress=] {IPv4Address |
 
 ### <a name="parameters"></a>Parameter
 
-|   |   |
-|--------------------|---------------------------|----------|
-| **listenport**     | Gibt an, der IPv4-Port, Portnummer oder den Dienst anzugeben, auf den gelauscht.     | Erforderlich |
-| **connectaddress** | Gibt die IPv4-Adresse für die Verbindung an. Zulässige Werte sind die IP-Adresse, NetBIOS-Computernamen oder DNS-Computernamen. Wenn eine Adresse nicht angegeben wird, ist der Standardwert der lokale Computer. |          |
-| **connectport**    | Gibt an, der IPv4-Port, Portnummer oder den Dienst anzugeben, für die Verbindung. Wenn **Connectport** nicht angegeben ist, wird der Standardwert ist der Wert des **Listenport** auf dem lokalen Computer.              |          |
-| **listenaddress**  | Gibt die IPv4-Adresse für das Lauschen an. Zulässige Werte sind die IP-Adresse, NetBIOS-Computernamen oder DNS-Computernamen. Wenn eine Adresse nicht angegeben wird, ist der Standardwert der lokale Computer. |          |
-| **protocol**       | Gibt das zu verwendende Protokoll an.                                                                                                                                                                    |          |
+|                    |                                                                                                                                                                                                   |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   **listenport**   |                                                           Gibt an, der IPv4-Port, Portnummer oder den Dienst anzugeben, auf den gelauscht.                                                            |
+| **connectaddress** | Gibt die IPv4-Adresse für die Verbindung an. Zulässige Werte sind die IP-Adresse, NetBIOS-Computernamen oder DNS-Computernamen. Wenn eine Adresse nicht angegeben wird, ist der Standardwert der lokale Computer. |
+|  **connectport**   |       Gibt an, der IPv4-Port, Portnummer oder den Dienst anzugeben, für die Verbindung. Wenn **Connectport** nicht angegeben ist, wird der Standardwert ist der Wert des **Listenport** auf dem lokalen Computer.        |
+| **listenaddress**  | Gibt die IPv4-Adresse für das Lauschen an. Zulässige Werte sind die IP-Adresse, NetBIOS-Computernamen oder DNS-Computernamen. Wenn eine Adresse nicht angegeben wird, ist der Standardwert der lokale Computer. |
+|    **protocol**    |                                                                                  Gibt das zu verwendende Protokoll an.                                                                                   |
 
 ## <a name="set-v4tov6"></a>Set-v4tov6
 
@@ -264,13 +264,13 @@ set v4tov6 listenport= {Integer | ServiceName} [[connectaddress=] {IPv6Address |
 
 ### <a name="parameters"></a>Parameter
 
-|   |   |
-|--------------------|---------------------|----------|
-| **listenport**     | Gibt an, der IPv4-Port, Portnummer oder den Dienst anzugeben, auf den gelauscht.     | Erforderlich |
-| **connectaddress** | Gibt die IPv6-Adresse für die Verbindung an. Zulässige Werte sind die IP-Adresse, NetBIOS-Computernamen oder DNS-Computernamen. Wenn eine Adresse nicht angegeben wird, ist der Standardwert der lokale Computer. |          |
-| **connectport**    | Gibt an, der IPv6-Port, Portnummer oder den Dienst anzugeben, für die Verbindung. Wenn **Connectport** nicht angegeben ist, wird der Standardwert ist der Wert des **Listenport** auf dem lokalen Computer.              |          |
-| **listenaddress**  | Gibt die IPv4-Adresse auf den gelauscht. Zulässige Werte sind die IP-Adresse, NetBIOS-Computernamen oder DNS-Computernamen. Wenn eine Adresse nicht angegeben wird, ist der Standardwert der lokale Computer.  |          |
-| **protocol**       | Gibt das zu verwendende Protokoll an.                                                                                                                                                                    |          |
+|                    |                                                                                                                                                                                                   |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   **listenport**   |                                                           Gibt an, der IPv4-Port, Portnummer oder den Dienst anzugeben, auf den gelauscht.                                                            |
+| **connectaddress** | Gibt die IPv6-Adresse für die Verbindung an. Zulässige Werte sind die IP-Adresse, NetBIOS-Computernamen oder DNS-Computernamen. Wenn eine Adresse nicht angegeben wird, ist der Standardwert der lokale Computer. |
+|  **connectport**   |       Gibt an, der IPv6-Port, Portnummer oder den Dienst anzugeben, für die Verbindung. Wenn **Connectport** nicht angegeben ist, wird der Standardwert ist der Wert des **Listenport** auf dem lokalen Computer.        |
+| **listenaddress**  | Gibt die IPv4-Adresse auf den gelauscht. Zulässige Werte sind die IP-Adresse, NetBIOS-Computernamen oder DNS-Computernamen. Wenn eine Adresse nicht angegeben wird, ist der Standardwert der lokale Computer.  |
+|    **protocol**    |                                                                                  Gibt das zu verwendende Protokoll an.                                                                                   |
 
 ## <a name="set-v6tov4"></a>Set-v6tov4
 
@@ -284,13 +284,13 @@ set v6tov4 listenport= {Integer | ServiceName} [[connectaddress=] {IPv4Address |
 
 ### <a name="parameters"></a>Parameter
 
-|   |   |
-|--------------------|----------------------|----------|
-| **listenport**     | Gibt an, der IPv6-Port, Portnummer oder den Dienst anzugeben, auf den gelauscht.      | Erforderlich |
-| **connectaddress** | Gibt die IPv4-Adresse für die Verbindung an. Zulässige Werte sind die IP-Adresse, NetBIOS-Computernamen oder DNS-Computernamen. Wenn eine Adresse nicht angegeben wird, ist der Standardwert der lokale Computer. |          |
-| **connectport**    | Gibt an, der IPv4-Port, Portnummer oder den Dienst anzugeben, für die Verbindung. Wenn **Connectport** nicht angegeben ist, wird der Standardwert ist der Wert des **Listenport** auf dem lokalen Computer.              |          |
-| **listenaddress**  | Gibt die IPv6-Adresse auf den gelauscht. Zulässige Werte sind die IP-Adresse, NetBIOS-Computernamen oder DNS-Computernamen. Wenn eine Adresse nicht angegeben wird, ist der Standardwert der lokale Computer.  |          |
-| **protocol**       | Gibt das zu verwendende Protokoll an.                                                                                                                                                                    |          |
+|                    |                                                                                                                                                                                                   |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   **listenport**   |                                                           Gibt an, der IPv6-Port, Portnummer oder den Dienst anzugeben, auf den gelauscht.                                                            |
+| **connectaddress** | Gibt die IPv4-Adresse für die Verbindung an. Zulässige Werte sind die IP-Adresse, NetBIOS-Computernamen oder DNS-Computernamen. Wenn eine Adresse nicht angegeben wird, ist der Standardwert der lokale Computer. |
+|  **connectport**   |       Gibt an, der IPv4-Port, Portnummer oder den Dienst anzugeben, für die Verbindung. Wenn **Connectport** nicht angegeben ist, wird der Standardwert ist der Wert des **Listenport** auf dem lokalen Computer.        |
+| **listenaddress**  | Gibt die IPv6-Adresse auf den gelauscht. Zulässige Werte sind die IP-Adresse, NetBIOS-Computernamen oder DNS-Computernamen. Wenn eine Adresse nicht angegeben wird, ist der Standardwert der lokale Computer.  |
+|    **protocol**    |                                                                                  Gibt das zu verwendende Protokoll an.                                                                                   |
 
 ## <a name="set-v6tov6"></a>Set-v6tov6
 
@@ -304,13 +304,13 @@ set v6tov6 listenport= {Integer | ServiceName} [[connectaddress=] {IPv6Address |
 
 ### <a name="parameters"></a>Parameter
 
-|   |   |
-|--------------------|-------------------------|----------|
-| **listenport**     | Gibt an, der IPv6-Port, Portnummer oder den Dienst anzugeben, auf den gelauscht.   | Erforderlich |
-| **connectaddress** | Gibt die IPv6-Adresse für die Verbindung an. Zulässige Werte sind die IP-Adresse, NetBIOS-Computernamen oder DNS-Computernamen. Wenn eine Adresse nicht angegeben wird, ist der Standardwert der lokale Computer.  |          |
-| **connectport**    | Gibt an, der IPv6-Port, Portnummer oder den Dienst anzugeben, für die Verbindung. Wenn **Connectport** nicht angegeben ist, wird der Standardwert ist der Wert des **Listenport** auf dem lokalen Computer.               |          |
-| **listenaddress**  | Gibt die IPv6-Adresse auf den gelauscht. Zulässige Werte sind die IP-Adresse, NetBIOS-Computernamen oder DNS-Computernamen. Wenn Sie keine Adresse angeben, ist der Standardwert der lokale Computer. |          |
-| **protocol**       | Gibt das zu verwendende Protokoll an.                                                                                                                                                                     |          |
+|                    |                                                                                                                                                                                                    |
+|--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   **listenport**   |                                                            Gibt an, der IPv6-Port, Portnummer oder den Dienst anzugeben, auf den gelauscht.                                                            |
+| **connectaddress** | Gibt die IPv6-Adresse für die Verbindung an. Zulässige Werte sind die IP-Adresse, NetBIOS-Computernamen oder DNS-Computernamen. Wenn eine Adresse nicht angegeben wird, ist der Standardwert der lokale Computer.  |
+|  **connectport**   |        Gibt an, der IPv6-Port, Portnummer oder den Dienst anzugeben, für die Verbindung. Wenn **Connectport** nicht angegeben ist, wird der Standardwert ist der Wert des **Listenport** auf dem lokalen Computer.        |
+| **listenaddress**  | Gibt die IPv6-Adresse auf den gelauscht. Zulässige Werte sind die IP-Adresse, NetBIOS-Computernamen oder DNS-Computernamen. Wenn Sie keine Adresse angeben, ist der Standardwert der lokale Computer. |
+|    **protocol**    |                                                                                   Gibt das zu verwendende Protokoll an.                                                                                   |
 
 ## <a name="show-all"></a>Anzeigen aller Wiederherstellungspunkte
 

@@ -12,12 +12,12 @@ ms.assetid: 8a7b3cc1-21bb-4344-8110-f5d5959b370d
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: f8f99a2051e114b3c890f1cdac23aebf58689980
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5d7dac41ba6d6f73b0d3d65d3481fe45ff99a6bc
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884651"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433613"
 ---
 # <a name="create-the-oobexml-file-including-logo-and-eula"></a>Erstellen der Datei "Oobe.xml" mit Logo und EULA
 
@@ -29,41 +29,41 @@ Mithilfe der Datei "Oobe.xml" können Sie der Erstkonfiguration Ihre eigenen End
   
 #### <a name="to-add-your-company-eula-and-logo"></a>So fügen Sie die Endbenutzer-Lizenzbestimmungen und das Logo Ihres Unternehmens hinzu  
   
-1.  Öffnen Sie die Datei "Oobe.xml" in einem Text-Editor, z. B. in Editor.  
+1. Öffnen Sie die Datei "Oobe.xml" in einem Text-Editor, z. B. in Editor.  
   
-2.  In den < Logopath\>< / Logopath\> Tags, geben Sie den absoluten Pfad zur Logodatei. Die Datei sollte eine 32-Bit-PNG-Datei (Portable Network Graphics) mit 240 x 100 Pixeln enthalten.  
+2. In den < Logopath\>< / Logopath\> Tags, geben Sie den absoluten Pfad zur Logodatei. Die Datei sollte eine 32-Bit-PNG-Datei (Portable Network Graphics) mit 240 x 100 Pixeln enthalten.  
   
-3.  In den < Eulafilename\>< / Eulafilename\> Tags, geben Sie den absoluten Pfad zur EULA-Datei. Bei der EULA-Datei muss es sich um eine RTF-Datei handeln.  
+3. In den < Eulafilename\>< / Eulafilename\> Tags, geben Sie den absoluten Pfad zur EULA-Datei. Bei der EULA-Datei muss es sich um eine RTF-Datei handeln.  
   
-4.  In den < Name\>< / name\> Tags, geben Sie den Namen Ihres Unternehmens.  
+4. In den < Name\>< / name\> Tags, geben Sie den Namen Ihres Unternehmens.  
   
-     Im folgenden Beispiel werden die Tags in einer Datei vom Typ "Oobe.xml" veranschaulicht:  
+    Im folgenden Beispiel werden die Tags in einer Datei vom Typ "Oobe.xml" veranschaulicht:  
   
-    ```  
+   ```  
   
-    <FirstExperience>  
-       <oobe>  
-          <oem>  
-             <name>Fabrikam</name>  
-             <logopath>c:\fabrikam\fabrikam.png</logopath>  
-             <eulafilename>c:\fabrikam\fabrikam_eula.rtf</eulafilename>  
-          </oem>  
-       </oobe>  
-    </FirstExperience>  
+   <FirstExperience>  
+      <oobe>  
+         <oem>  
+            <name>Fabrikam</name>  
+            <logopath>c:\fabrikam\fabrikam.png</logopath>  
+            <eulafilename>c:\fabrikam\fabrikam_eula.rtf</eulafilename>  
+         </oem>  
+      </oobe>  
+   </FirstExperience>  
   
-    ```  
+   ```  
   
-5.  Speichern Sie die Datei.  
+5. Speichern Sie die Datei.  
   
-6.  Legen Sie die Datei "Oobe.xml" unter einem der folgenden Pfade ab:  
+6. Legen Sie die Datei "Oobe.xml" unter einem der folgenden Pfade ab:  
   
-    |Pfad zur Datei "Oobe.xml"|Bedingung zum Festlegen des Pfads|  
-    |-----------------------|----------------------------------------|  
-    |%WINDIR%\System32\Oobe\Info\|der Server in einem Land/einer Region und einem ausgeliefert wird.|  
-    |%windir%\system32\oobe\info\default\\< Sprache\>|Der Server wurde für den Vertrieb in einem Land/einer Region und mehreren Sprachsystemen konzipiert.|  
-    |%WINDIR%\System32\Oobe\Info\\< Land/Region > \ und %windir%\system32\oobe\info\\< Land/Region >\\< Sprache\>\|Server ausgeliefert wird, um mehr als einem Land / müssen Anpassungen auf einer pro Land/Region jeweils in einer einzigen Sprache, Region und die Einstellungen. < Land/Region > ist die Dezimalversion der geografische Standort-Bezeichner (GeoID) des Landes oder der Region, in dem der Server bereitgestellt wird, und < Sprache\> ist die Dezimalversion der Gebietsschema-ID (LCID).|  
+   |Pfad zur Datei "Oobe.xml"|Bedingung zum Festlegen des Pfads|  
+   |-----------------------|----------------------------------------|  
+   |%WINDIR%\System32\Oobe\Info\|der Server in einem Land/einer Region und einem ausgeliefert wird.|  
+   |%windir%\system32\oobe\info\default\\< Sprache\>|Der Server wurde für den Vertrieb in einem Land/einer Region und mehreren Sprachsystemen konzipiert.|  
+   |%WINDIR%\System32\Oobe\Info\\< Land/Region > \ und %windir%\system32\oobe\info\\< Land/Region >\\< Sprache\>\|Server ausgeliefert wird, um mehr als einem Land / müssen Anpassungen auf einer pro Land/Region jeweils in einer einzigen Sprache, Region und die Einstellungen. < Land/Region > ist die Dezimalversion der geografische Standort-Bezeichner (GeoID) des Landes oder der Region, in dem der Server bereitgestellt wird, und < Sprache\> ist die Dezimalversion der Gebietsschema-ID (LCID).|  
   
- Wenn Sie über ein anderes Unternehmenslogo mit weißem Text verfügen, wirkt dieses aufgrund des dunklen Hintergrunds im Setupablauf möglicherweise besser.  Sie können dieses Logo optional angeben, indem Sie einen Registrierungsschlüssel mit zugehörigem Wert angeben.  
+   Wenn Sie über ein anderes Unternehmenslogo mit weißem Text verfügen, wirkt dieses aufgrund des dunklen Hintergrunds im Setupablauf möglicherweise besser.  Sie können dieses Logo optional angeben, indem Sie einen Registrierungsschlüssel mit zugehörigem Wert angeben.  
   
 #### <a name="to-specify-a-company-logo-by-setting-the-oem-registry-key"></a>So geben Sie ein Unternehmenslogo durch Festlegen des Registrierungsschlüssels "OEM" an  
   

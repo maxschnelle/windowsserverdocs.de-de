@@ -12,12 +12,12 @@ ms.assetid: 32fc90d8-31c5-4c7e-9fe3-483cf3c35f78
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 5d65429e31e43aa15d1631878ae7e1486e9fd60f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8f41efde192ea039a6ee9c7f9f3a4b49bedf4f48
+ms.sourcegitcommit: 9a4ab3a0d00b06ff16173aed616624c857589459
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835151"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66826991"
 ---
 # <a name="migrate-windows-small-business-server-2011-essentials-to-windows-server-essentials"></a>Migration von Windows Small Business Server 2011 Essentials zu Windows Server Essentials
 
@@ -27,11 +27,11 @@ Dieses Handbuch beschreibt die Migration von einer vorhandenen Windows Small Bus
   
 > [!NOTE]
 >  Zur Vermeidung von Problemen bei der Migration empfiehlt das Windows Server Essentials-Produktentwicklungsteam dringend, dass das Dokument zu lesen, bevor Sie mit die Migration beginnen.  
-  
+> 
 > [!NOTE]
-
+> 
 >  Zum Migrieren Ihrer Serverdaten auf die neueste Version von Windows Server Essentials finden Sie unter [Migrieren zu Windows Server Essentials](Migrate-from-Previous-Versions-to-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md).  
-
+> 
 >  Zum Migrieren Ihrer Serverdaten auf die neueste Version von Windows Server Essentials finden Sie unter [Migrieren zu Windows Server Essentials](../migrate/Migrate-from-Previous-Versions-to-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md).  
 
   
@@ -53,7 +53,7 @@ Dieses Handbuch beschreibt die Migration von einer vorhandenen Windows Small Bus
   
 3.  [Hinzufügen von Computern zum neuen Windows Server Essentials-Server](Join-computers-to-the-new-Windows-Server-Essentials-server.md).  Dieser Abschnitt enthält, Hinzufügen von Clientcomputern zum neuen Windows Server Essentials-Server und gruppenrichtlinieneinstellungen aktualisiert wird.  
   
-4.  [Verschieben von SBS 2011 Essentials-Einstellungen und Daten auf den Zielserver](Move-Windows-SBS-2011-Essentials-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md).  Dieser Abschnitt enthält Informationen zum Migrieren von Daten und Einstellungen vom Quellserver.  
+4.  [Verschieben von SBS 2011 Essentials-Einstellungen und Daten auf den Zielserver](Move-Windows-SBS-2011-Essentials-to-the-Destination-Server-for-migration.md).  Dieser Abschnitt enthält Informationen zum Migrieren von Daten und Einstellungen vom Quellserver.  
   
 5.  [Aktivieren der ordnerumleitung auf dem Windows Server Essentials-Zielserver](Enable-folder-redirection-on-the-Windows-Server-Essentials-Destination-Server.md).  Wenn die Ordnerumleitung auf dem Quellserver installiert ist, können Sie sie auch auf dem Zielserver aktivieren und anschließend die alte Gruppenrichtlinieneinstellung %%amp;quot;Ordnerumleitung%%amp;quot; löschen.  
   
@@ -69,7 +69,7 @@ Dieses Handbuch beschreibt die Migration von einer vorhandenen Windows Small Bus
   
 3.  [Hinzufügen von Computern zum neuen Windows Server Essentials-Server](../migrate/Join-computers-to-the-new-Windows-Server-Essentials-server.md).  Dieser Abschnitt enthält, Hinzufügen von Clientcomputern zum neuen Windows Server Essentials-Server und gruppenrichtlinieneinstellungen aktualisiert wird.  
   
-4.  [Verschieben von SBS 2011 Essentials-Einstellungen und Daten auf den Zielserver](../migrate/Move-Windows-SBS-2011-Essentials-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md).  Dieser Abschnitt enthält Informationen zum Migrieren von Daten und Einstellungen vom Quellserver.  
+4.  [Verschieben von SBS 2011 Essentials-Einstellungen und Daten auf den Zielserver](../migrate/Move-Windows-SBS-2011-Essentials-to-the-Destination-Server-for-migration.md).  Dieser Abschnitt enthält Informationen zum Migrieren von Daten und Einstellungen vom Quellserver.  
   
 5.  [Aktivieren der ordnerumleitung auf dem Windows Server Essentials-Zielserver](../migrate/Enable-folder-redirection-on-the-Windows-Server-Essentials-Destination-Server.md).  Wenn die Ordnerumleitung auf dem Quellserver installiert ist, können Sie sie auch auf dem Zielserver aktivieren und anschließend die alte Gruppenrichtlinieneinstellung %%amp;quot;Ordnerumleitung%%amp;quot; löschen.  
   

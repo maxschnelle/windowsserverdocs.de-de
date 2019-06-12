@@ -8,16 +8,16 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 93da32a204c42b3f4fb503349ff732c9c050db31
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: b972ab05c192dca9a9a0a2bda4f083d2906acadb
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192629"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812479"
 ---
 # <a name="change-a-drive-letter"></a>Ändern Sie einen bestimmten Laufwerkbuchstaben
 
-> **Gilt für:** Windows 10, Windows 8.1, Windows 7, WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012
+> **Gilt für:** Windows 10, Windows 8.1, Windows 7, WindowsServer (Halbjährlicher Kanal), WindowsServer 2019, WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012
 
 Wenn Ihnen nicht den Laufwerkbuchstaben, der auf einem Laufwerk gefällt, oder wenn Sie ein Laufwerk haben, die noch keinen Laufwerkbuchstaben, können Sie Datenträgerverwaltung, um ihn zu ändern.
 

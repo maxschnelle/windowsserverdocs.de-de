@@ -6,14 +6,14 @@ ms.topic: article
 manager: klaasl
 ms.author: jeffpatt
 author: JeffPatt24
-ms.date: 4/5/2017
+ms.date: 06/06/2019
 ms.assetid: 0a48852e-48cc-4047-ae58-99f11c273942
-ms.openlocfilehash: 87fdcf06c601d3362488eaf6a83e4f88ad191305
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 5497651f57a0276daced614687e89f8047af9116
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59828231"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812678"
 ---
 # <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-2-ad-fs-post-configuration-work"></a>Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 2, und AD FS-Konfiguration nach der Arbeit
 
@@ -32,11 +32,12 @@ In diesem Thema wird der zweite Schritt bei der Bereitstellung von Arbeitsordner
 -   [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 5, richten Sie Clients](deploy-work-folders-adfs-step5.md)  
   
 > [!NOTE]
->   Die in diesem Abschnitt enthaltenen Anweisungen gelten für eine Server 2016-Umgebung. Wenn Sie Windows Server 2012 R2 verwenden, folgen Sie den [Anweisungen für Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
+> Die Anweisungen in diesem Abschnitt behandelten sind für eine Windows Server-2019 oder Windows Server 2016-Umgebung. Wenn Sie Windows Server 2012 R2 verwenden, folgen Sie den [Anweisungen für Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
 
 In Schritt 1 wurde AD FS installiert und konfiguriert. Jetzt müssen Sie folgende Schritte nach der Konfiguration für AD FS durchführen.  
   
-## <a name="configure-dns-entries"></a>Konfigurieren von DNS-Einträgen  
+## <a name="configure-dns-entries"></a>Konfigurieren von DNS-Einträgen
+
 Sie müssen zwei DNS-Einträge für AD FS erstellen. Hierbei handelt es sich um die gleichen zwei Einträge, die in den Schritten vor der Installation bei der Erstellung des Zertifikats der alternativen Antragstellernamen (SAN) erstellt wurden.  
   
 DNS-Einträge haben folgende Form:  
@@ -53,7 +54,8 @@ Im Testbeispiel sind diese Werte wie folgt:
   
 -   **enterpriseregistration.contoso.com**  
   
-## <a name="create-the-a-and-cname-records-for-ad-fs"></a>Erstellen Sie die A und CNAME-Einträge für AD FS  
+## <a name="create-the-a-and-cname-records-for-ad-fs"></a>Erstellen Sie die A und CNAME-Einträge für AD FS
+
 Zum Erstellen von A und CNAME-Einträgen für AD FS, gehen Sie folgendermaßen vor:  
   
 1.  Öffnen Sie auf dem Domänencontroller den DNS-Manager.  
@@ -66,10 +68,10 @@ Zum Erstellen von A und CNAME-Einträgen für AD FS, gehen Sie folgendermaßen v
   
     > [!IMPORTANT]  
     > Wenn Sie AD FS mithilfe der Windows Server-Benutzeroberfläche (UI) anstelle von Windows PowerShell einrichten, müssen Sie den Eintrag A anstelle des Eintrags CNAME für AD FS erstellen. Der Grund hierfür ist, dass der Dienstprinzipalname (SPN), der über die Benutzeroberfläche erstellt wird nur den Alias enthält, der zum Einrichten des AD FS-Diensts als Host verwendet wird.  
-    >   
+
 4.  Geben Sie unter **IP-Adresse** die IP-Adresse für den AD FS-Server ein. Im Testbeispiel ist dies **192.168.0.160**. Klicken Sie auf **Host hinzufügen**.  
   
-5.  Klicken Sie im Forward-Lookupzonen-Ordner mit der rechten Maustaste erneut auf die Domäne und wählen Sie **Neuer Alias (CNAME)**.  
+5.  Klicken Sie im Forward-Lookupzonen-Ordner mit der rechten Maustaste erneut auf die Domäne und wählen Sie **Neuer Alias (CNAME)** .  
   
 6.  Fügen Sie im Fenster **Neuer Ressourcendatensatz** den Aliasnamen **enterpriseregistration** ein und geben Sie den vollqualifizierten Domänennamen für den AD FS-Server. Dieser Alias dient zum Verknüpfen von Geräten und muss **enterpriseregistration** heißen.
   
@@ -77,12 +79,13 @@ Zum Erstellen von A und CNAME-Einträgen für AD FS, gehen Sie folgendermaßen v
   
 Verwenden Sie den folgenden Befehl, um die entsprechenden Schritte mit Windows PowerShell durchzuführen. Der Befehl muss auf dem Domänencontroller ausgeführt werden.  
   
-```powershell  
+```Powershell  
 Add-DnsServerResourceRecord  -ZoneName "contoso.com" -Name blueadfs -A -IPv4Address 192.168.0.160   
-Add-DnsServerResourceRecord  -ZoneName "contoso.com" -Name enterpriseregistration -CName  -HostNameAlias 2016-ADFS.contoso.com   
+Add-DnsServerResourceRecord  -ZoneName "contoso.com" -Name enterpriseregistration -CName  -HostNameAlias 2016-ADFS.contoso.com
 ```  
   
-## <a name="set-up-the-ad-fs-relying-party-trust-for-work-folders"></a>Die AD FS-Vertrauensstellung der vertrauenden Seite für Arbeitsordner einrichten  
+## <a name="set-up-the-ad-fs-relying-party-trust-for-work-folders"></a>Die AD FS-Vertrauensstellung der vertrauenden Seite für Arbeitsordner einrichten
+
 Sie können die Vertrauensstellung der vertrauenden Seite für Arbeitsordner einrichten und konfigurieren, auch wenn Arbeitsordner noch nicht eingerichtet wurden. Zur Verwendung von AD FS muss die Vertrauensstellung der vertrauenden Seite für Arbeitsordner eingerichtet sein. Da Sie die erforderlichen Schritte zum Einrichten von AD FS gerade durchführen, ist jetzt ein guter Zeitpunkt dafür.  
   
 So richten Sie die Vertrauensstellung der vertrauenden Seite ein:  
@@ -101,7 +104,7 @@ So richten Sie die Vertrauensstellung der vertrauenden Seite ein:
   
 7.  Klicken Sie auf der Seite **URL konfigurieren** auf **Weiter**.  
   
-8. Auf der **Konfigurieren von Bezeichnern** Seite fügen Sie die folgenden Bezeichner: **https://windows-server-work-folders/V1**. Dieser Bezeichner ist eine hartcodierter Wert, der von den Arbeitsordnern verwendet wird und wird durch den Arbeitsordnerdienst gesendet wird, wenn er mit AD FS kommuniziert. Klicken Sie auf **Weiter**.  
+8. Auf der **Konfigurieren von Bezeichnern** Seite fügen Sie die folgenden Bezeichner: `https://windows-server-work-folders/V1`. Dieser Bezeichner ist eine hartcodierter Wert, der von den Arbeitsordnern verwendet wird und wird durch den Arbeitsordnerdienst gesendet wird, wenn er mit AD FS kommuniziert. Klicken Sie auf **Weiter**.  
   
 9. Wählen Sie auf der Seite „Zugriffssteuerungsrichtlinie” **Jeder** und klicken Sie dann auf **Weiter**.  
   
@@ -111,7 +114,7 @@ So richten Sie die Vertrauensstellung der vertrauenden Seite ein:
   
 12. Wählen Sie in der AD FS-Snap-In die Vertrauensstellung der vertrauenden Seite für den **Arbeitsordner** aus und klicken Sie unter Aktionen auf **Anspruch auf Ausstellungsrichtlinie bearbeiten**.
 
-13. Das Fenster **Anspruch auf Ausstellungsrichtlinie für WorkFolders bearbeiten** wird geöffnet. Klicken Sie auf **Regel hinzufügen...**.  
+13. Das Fenster **Anspruch auf Ausstellungsrichtlinie für WorkFolders bearbeiten** wird geöffnet. Klicken Sie auf **Regel hinzufügen...** .  
   
 14. Wählen Sie aus der Dropdown-Liste **Anspruchsvorlage** **LDAP-Attribute als Ansprüche senden** und klicken Sie auf **Weiter**.  
   
@@ -131,7 +134,8 @@ So richten Sie die Vertrauensstellung der vertrauenden Seite ein:
   
 18. Klicken Sie auf **Fertig stellen**. In der Registerkarte für Ausstellungstransformationsregeln sehen Sie die Regel der Arbeitsordner. Klicken Sie auf **OK**.  
   
-### <a name="set-relying-part-trust-options"></a>Optionen der Vertrauensstellung der vertrauenden Seite festlegen  
+### <a name="set-relying-part-trust-options"></a>Optionen der Vertrauensstellung der vertrauenden Seite festlegen
+
 Nachdem die Vertrauensstellung der vertrauenden Seite für AD FS eingerichtet wurde, müssen Sie die Konfiguration abschließen, indem Sie fünf Befehle in Windows PowerShell ausführen. Diese Befehle legen Optionen fest, die für die erfolgreiche Kommunikation Arbeitsordner mit AD FS erforderlich sind und können nicht über die Benutzeroberfläche festgelegt werden. Die Optionen sind:  
   
 -   Verwendung von JSON Web Token (JWT) aktivieren  
@@ -154,7 +158,8 @@ Set-ADFSRelyingPartyTrust -TargetIdentifier "https://windows-server-work-folders
 Grant-AdfsApplicationPermission -ServerRoleIdentifier "https://windows-server-work-folders/V1" -AllowAllRegisteredClients -ScopeNames openid,profile  
 ```  
   
-## <a name="enable-workplace-join"></a>Aktivieren Sie Workplace Join  
+## <a name="enable-workplace-join"></a>Aktivieren Sie Workplace Join
+
 Das Aktivieren von Workplace Join ist optional, es kann jedoch hilfreich sein, wenn Sie möchten, dass Benutzer mit ihren persönlichen Geräten auf Arbeitsplatzressourcen zugreifen können.  
   
 Zum Aktivieren der Geräteregistrierung für Workplace Join führen Sie folgende Windows PowerShell-Befehle aus, die die Geräteregistrierung konfigurieren und die globalen Authentifizierungsrichtlinien festlegen:  
@@ -165,7 +170,8 @@ Initialize-ADDeviceRegistration -ServiceAccountName <your AD FS service account>
 Set-ADFSGlobalAuthenticationPolicy -DeviceAuthenticationEnabled $true   
 ```  
   
-## <a name="export-the-ad-fs-certificate"></a>Exportieren Sie das AD FS-Zertifikat.  
+## <a name="export-the-ad-fs-certificate"></a>Exportieren Sie das AD FS-Zertifikat.
+
 Exportieren Sie anschließend das selbst\-signierte AD FS-Zertifikat, damit es auf den folgenden Computern in der Testumgebung installiert werden kann:  
   
 -   Der Server, der für Arbeitsordner verwendet wird  
@@ -194,7 +200,7 @@ Gehen Sie folgendermaßen vor, um das Zertifikat zu exportieren:
   
 8.  Erweitern Sie den Ordner **Console Root\Certificates\(Local Computer)\Personal\Certificates**.  
   
-9.  Klicken Sie mit der rechten Maustaste auf das **AD FS-Zertifikat**, und klicken Sie dann auf **Alle Aufgaben** und **Exportieren...**.  
+9.  Klicken Sie mit der rechten Maustaste auf das **AD FS-Zertifikat**, und klicken Sie dann auf **Alle Aufgaben** und **Exportieren...** .  
   
 10. Der Zertifikatexport-Assistent wird geöffnet. Wählen Sie **Ja, privaten Schlüssel exportieren**aus.  
   
@@ -206,7 +212,8 @@ Gehen Sie folgendermaßen vor, um das Zertifikat zu exportieren:
   
 Die Installation des Zertifikats wird später im Bereitstellungsverfahren behandelt.  
   
-## <a name="manage-the-private-key-setting"></a>Die Einstellung des private Schlüssels verwalten  
+## <a name="manage-the-private-key-setting"></a>Die Einstellung des private Schlüssels verwalten
+
 Sie müssen dem AD FS-Dienstkonto Zugriff auf den privaten Schlüssel des neuen Zertifikats erteilen. Sie müssen diese Berechtigung erneut gewähren, wenn Sie das Kommunikationszertifikat ersetzen, nachdem es abgelaufen ist. Um die Berechtigung zu erteilen, gehen Sie folgendermaßen vor:  
   
 1.  Klicken Sie auf **Start** und dann auf **Ausführen**.  
@@ -237,14 +244,13 @@ Sie müssen dem AD FS-Dienstkonto Zugriff auf den privaten Schlüssel des neuen 
   
 Wenn Sie nicht die Option zum Verwalten von privaten Schlüssel haben, müssen Sie möglicherweise den folgenden Befehl ausführen: `certutil -repairstore my *`  
   
-## <a name="verify-that-ad-fs-is-operational"></a>Stellen Sie sicher, dass AD FS betriebsbereit ist  
-Um sicherzustellen, dass AD FS funktioniert, öffnen Sie ein Browserfenster, und wechseln Sie zu https://blueadfs.contoso.com/federationmetadata/2007-06/federationmetadata.xml 
+## <a name="verify-that-ad-fs-is-operational"></a>Stellen Sie sicher, dass AD FS betriebsbereit ist
+
+Um sicherzustellen, dass AD FS funktioniert, öffnen Sie ein Browserfenster, und wechseln Sie zu `https://blueadfs.contoso.com/federationmetadata/2007-06/federationmetadata.xml`, ändern die URL entsprechend Ihrer Umgebung.
   
 Im Browser-Fenster werden die Verbundservermetadaten ohne Formatierung angezeigt. Wenn die Daten ohne SSL-Fehler oder -Warnungen angezeigt wird, ist Ihr Verbundserver betriebsbereit.  
   
 Nächster Schritt: [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 3, Einrichten von Arbeitsordnern](deploy-work-folders-adfs-step3.md)  
   
 ## <a name="see-also"></a>Siehe auch  
-[Übersicht: Arbeitsordner](Work-Folders-Overview.md)  
-  
-
+[Übersicht: Arbeitsordner](Work-Folders-Overview.md)

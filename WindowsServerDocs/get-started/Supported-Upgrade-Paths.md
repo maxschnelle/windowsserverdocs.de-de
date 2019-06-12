@@ -14,12 +14,12 @@ author: jaimeo
 ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 796ee001e20cff5587c5409f7571d223ff7900a8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 299cf420b44e4a15985d00489edf84784316540d
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857941"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810577"
 ---
 # <a name="upgrade-and-conversion-options-for-windows-server-2016"></a>Upgrade- und Konvertierungsoptionen für Windows Server 2016
 
@@ -99,7 +99,7 @@ Wurde Windows bereits aktiviert, wird auf dem Desktop die verbleibende Evaluieru
 
 Wenn auf dem Server eine Verkaufsversion anstelle einer Evaluierungsversion ausgeführt wird, finden Sie in diesem Thema im Abschnitt "Aktualisieren älterer Verkaufsversionen von Windows Server auf Windows Server 2016" Anweisungen zum Aktualisieren auf Windows Server 2016.
 
-Für **Windows Server 2016 Essentials**: Sie können in der vollständigen Verkaufsversion konvertieren, hierzu eine im Einzelhandel, Volumenlizenzierung oder OEM-Product Key im Befehl **%% amp;quot;slmgr.vbs%%amp;quot;**.
+Für **Windows Server 2016 Essentials**: Sie können in der vollständigen Verkaufsversion konvertieren, hierzu eine im Einzelhandel, Volumenlizenzierung oder OEM-Product Key im Befehl **%% amp;quot;slmgr.vbs%%amp;quot;** .
 
 Wird auf dem Server eine Evaluierungsversion von Windows Server 2016 Standard oder Windows Server 2016 Datacenter ausgeführt, können Sie diese wie folgt in eine Verkaufsversion konvertieren:
 
@@ -109,7 +109,8 @@ Wird auf dem Server eine Evaluierungsversion von Windows Server 2016 Standard od
 
 Für die Evaluierungsversion von Windows Server 2016 Standard kann ebenfalls in einem einzelnen Schritt eine Umwandlung in die Verkaufsversion von Windows Server 2016 Datacenter ausgeführt werden. Verwenden Sie hierzu den gleichen Befehl und den passenden Product Key.
 
-> Weitere Informationen zu DISM finden Sie unter [DISM-Befehlszeilenoptionen](https://go.microsoft.com/fwlink/?LinkId=192466).
+> [!TIP] 
+> Weitere Informationen zu Dism.exe finden Sie unter [DISM-Befehlszeilenoptionen](https://go.microsoft.com/fwlink/?LinkId=192466).
 
 ## <a name="converting-a-current-retail-edition-to-a-different-current-retail-edition"></a>Konvertieren einer aktuellen Verkaufsedition in eine andere aktuelle Verkaufsedition
 
@@ -125,7 +126,3 @@ Nach der Installation von Windows Server 2016 können Sie beliebig zwischen eine
 Führen Sie dazu an einer Eingabeaufforderung mit erhöhten Rechten den folgenden Befehl aus: **slmgr /ipk \<key\>**
 
 Dabei entspricht \<key\> dem entsprechenden Volumenlizenz-Product Key, Product Key einer Verkaufsversion oder Product Key einer OEM-Version.
-
-
- 
-

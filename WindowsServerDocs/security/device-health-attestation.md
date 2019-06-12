@@ -11,12 +11,12 @@ ms.topic: article
 ms.assetid: 8e7b77a4-1c6a-4c21-8844-0df89b63f68d
 author: brianlic-msft
 ms.date: 10/12/2016
-ms.openlocfilehash: d304ee3456f8db1e5b202c1d9221d1374a5251be
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7c2d7113847cc44f18c5234502b58becde1dcb9f
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831011"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446509"
 ---
 # <a name="device-health-attestation"></a>Integritätsnachweis für Geräte
 
@@ -58,15 +58,15 @@ Der DHA-Dienst ist in MDM-Lösungen integriert und bietet Folgendes:
 Hier ist ein Beispiel, das zeigt, wie Sie DHA nutzen können, um das Sicherheitsniveau für die Ressourcen Ihrer Organisation anzuheben.
 
 1. Sie erstellen eine Richtlinie, die die folgende(n) Startkonfiguration/-attribute überprüft:
-  - Sicherer Start
-  - BitLocker
-  - ELAM
+   - Sicherer Start
+   - BitLocker
+   - ELAM
 2. Die MDM-Lösung erzwingt diese Richtlinie und löst eine auf den DHA-Berichtsdaten basierende Korrekturmaßnahme aus.  Beispielsweise könnte sie Folgendes überprüfen:
-  - Der sichere Start wurde aktiviert, das Gerät lud vertrauenswürdigen, authentischen Code, und das Windows-Startladeprogramm wurde nicht manipuliert.
-  - Vertrauenswürdiger Start überprüfte erfolgreich die digitale Signatur des Windows-Kernels und die Komponenten, die geladen wurden, während das Gerät startete.
-  - Kontrollierter Start erstellte einen TPM-geschützten Audit-Trail, der remote überprüft werden konnte.
-  - BitLocker wurde aktiviert und schützte die Daten, als das Gerät ausgeschaltet wurde.
-  - ELAM wurde in frühen Startphasen aktiviert und überwacht die Laufzeit.
+   - Der sichere Start wurde aktiviert, das Gerät lud vertrauenswürdigen, authentischen Code, und das Windows-Startladeprogramm wurde nicht manipuliert.
+   - Vertrauenswürdiger Start überprüfte erfolgreich die digitale Signatur des Windows-Kernels und die Komponenten, die geladen wurden, während das Gerät startete.
+   - Kontrollierter Start erstellte einen TPM-geschützten Audit-Trail, der remote überprüft werden konnte.
+   - BitLocker wurde aktiviert und schützte die Daten, als das Gerät ausgeschaltet wurde.
+   - ELAM wurde in frühen Startphasen aktiviert und überwacht die Laufzeit.
   
 #### <a name="dha-cloud-service"></a>DHA-Clouddienst
 

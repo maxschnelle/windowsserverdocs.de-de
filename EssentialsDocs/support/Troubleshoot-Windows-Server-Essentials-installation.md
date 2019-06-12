@@ -12,12 +12,12 @@ ms.assetid: ecf19216-7aac-4aca-839a-342ac28f5329
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 293b392203269a65efffcefb3744bedc659f71c9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4756d3735fd710930e0eb124b7b5c58c50078d9e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862021"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432423"
 ---
 # <a name="troubleshoot-windows-server-essentials-installation"></a>Problembehandlung bei der Windows Server Essentials-Installation
 
@@ -79,26 +79,26 @@ Dieses Thema enthält die Behandlung von Problemen, die auftreten, wenn Sie Wind
   
 ##### <a name="to-manually-install-a-storage-controller-driver"></a>So installieren Sie einen Treiber für den Speichercontroller manuell  
   
-1.  Besorgen Sie sich die Treiber für Ihren Speichercontroller. Diese werden vom Hardwarehersteller bereitgestellt und können auch auf der Website des Herstellers verfügbar sein.  
+1. Besorgen Sie sich die Treiber für Ihren Speichercontroller. Diese werden vom Hardwarehersteller bereitgestellt und können auch auf der Website des Herstellers verfügbar sein.  
   
-2.  Erstellen Sie einen Ordner namens TREIBER auf einer Diskette oder einem USB-Stick, und kopieren Sie die Treiber in den Ordner.  
+2. Erstellen Sie einen Ordner namens TREIBER auf einer Diskette oder einem USB-Stick, und kopieren Sie die Treiber in den Ordner.  
   
-3.  Schließen Sie das Diskettenlaufwerk bzw. den USB-Stick mit dem Treiber an den Computer an.  
+3. Schließen Sie das Diskettenlaufwerk bzw. den USB-Stick mit dem Treiber an den Computer an.  
   
-4.  Starten Sie den Computer auf der DVD für Windows Server Essentials.  
+4. Starten Sie den Computer auf der DVD für Windows Server Essentials.  
   
-     Wenn Speichercontrollertreiber fehlen, wird das Dialogfeld "Windows Server Essentials-Setup-Fehler" angezeigt.  
+    Wenn Speichercontrollertreiber fehlen, wird das Dialogfeld "Windows Server Essentials-Setup-Fehler" angezeigt.  
   
-5.  Klicken Sie in das Dialogfeld Windows Server Essentials-Setup-Fehler auf **Ja** um zusätzliche Speichertreiber zu laden.  
+5. Klicken Sie in das Dialogfeld Windows Server Essentials-Setup-Fehler auf **Ja** um zusätzliche Speichertreiber zu laden.  
   
-6.  Bei der Aufforderung **Wählen Sie die INF-Datei des Treibers aus** navigieren Sie zur INF-Datei im Ordner TREIBER auf der Diskette oder dem USB-Stick, wählen die Datei aus, klicken mit der rechten Maustaste auf den Dateinamen und klicken dann auf **Öffnen**. Dadurch wird der Treiber geladen.  
+6. Bei der Aufforderung **Wählen Sie die INF-Datei des Treibers aus** navigieren Sie zur INF-Datei im Ordner TREIBER auf der Diskette oder dem USB-Stick, wählen die Datei aus, klicken mit der rechten Maustaste auf den Dateinamen und klicken dann auf **Öffnen**. Dadurch wird der Treiber geladen.  
   
-    > [!NOTE]
-    >  Bevor Sie versuchen, die Datei zu laden, vergewissern Sie sich, dass Sie die Dateinamenweiterung (.inf) aus Kleinbuchstaben besteht. Bei diesem Vorgang wird Groß-/Kleinschreibung beachtet, sodass die Treiberdatei nicht geladen wird, wenn die Dateinamenweiterung Großbuchstaben enthält.  
+   > [!NOTE]
+   >  Bevor Sie versuchen, die Datei zu laden, vergewissern Sie sich, dass Sie die Dateinamenweiterung (.inf) aus Kleinbuchstaben besteht. Bei diesem Vorgang wird Groß-/Kleinschreibung beachtet, sodass die Treiberdatei nicht geladen wird, wenn die Dateinamenweiterung Großbuchstaben enthält.  
   
-7.  Klicken Sie an der Eingabeaufforderung auf **Ja**, um den Treiber während der Textmodusphase des Setups zur Verfügung zu stellen.  
+7. Klicken Sie an der Eingabeaufforderung auf **Ja**, um den Treiber während der Textmodusphase des Setups zur Verfügung zu stellen.  
   
- Das Setup sollte nun normal fortgesetzt werden.  
+   Das Setup sollte nun normal fortgesetzt werden.  
   
 ###  <a name="BKMK_AddingNICdrivers"></a> Hinzufügen von Treibern für Netzwerkadapter  
  Wenn ein Netzwerkadapter auf dem Computer nicht von Windows Server Essentials unterstützt wird, wird Ihr Server keine Netzwerkverbindung nachdem Setup abgeschlossen ist, und Sie werden nicht in der Computer mit Ihrem Server herstellen können.  

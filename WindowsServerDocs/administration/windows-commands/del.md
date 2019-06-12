@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a1c2756e53d9f047160ddd037b3868e47d6e3181
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b10da1a6035155d525a516f35f83a25209e90075
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822991"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433890"
 ---
 # <a name="del"></a>del
 
@@ -51,29 +51,29 @@ erase [/p] [/f] [/s] [/q] [/a[:]<Attributes>] <Names>
 
 > [!CAUTION]
 > Bei Verwendung von **del** um eine Datei vom Datenträger zu löschen, Sie können nicht abrufen.
--   Bei Verwendung von **/p**, **del** zeigt den Namen einer Datei, und sendet Sie die folgende Meldung:
+> -   Bei Verwendung von **/p**, **del** zeigt den Namen einer Datei, und sendet Sie die folgende Meldung:
 
     `FileName, Delete (Y/N)?`
 
-    Drücken Sie Y, um den Löschvorgang zu bestätigen. Zum Abbrechen der Löschung und der Anzeige der nächsten Dateinamen (d.h., wenn Sie eine Gruppe von Dateien angegeben), drücken Sie N. Zum Beenden der **del** Befehl ist, drücken Sie STRG + C.
--   Wenn Sie befehlserweiterungen deaktivieren **/s** zeigt die Namen von Dateien, die nicht gefunden wurden, anstatt die Namen der Dateien, die gelöscht werden (d. h. das Verhalten wird umgekehrt).
--   Wenn Sie einen Ordner im angeben *Namen*, alle Dateien im Ordner werden gelöscht. Der folgende Befehl löscht beispielsweise alle Dateien im Ordner "\Work":  
-    ```
-    del \work
-    ```  
--   Sie können Platzhalter verwenden (**&#42;** und **?**) auf mehrere Dateien gleichzeitig löschen. Um zu vermeiden, versehentlich Dateien gelöscht, Sie sollten jedoch verwenden Platzhalter mit Vorsicht bei der **del** Befehl. Angenommen, wenn Sie den folgenden Befehl eingeben:  
-    ```
-    del *.*
-    ```  
-    Die **del** Befehl wird die folgende Eingabeaufforderung angezeigt:
+    To confirm the deletion, press Y. To cancel the deletion and display the next file name (that is, if you specified a group of files), press N. To stop the **del** command, press CTRL+C.
+- Wenn Sie befehlserweiterungen deaktivieren **/s** zeigt die Namen von Dateien, die nicht gefunden wurden, anstatt die Namen der Dateien, die gelöscht werden (d. h. das Verhalten wird umgekehrt).
+- Wenn Sie einen Ordner im angeben *Namen*, alle Dateien im Ordner werden gelöscht. Der folgende Befehl löscht beispielsweise alle Dateien im Ordner "\Work":  
+  ```
+  del \work
+  ```  
+- Sie können Platzhalter verwenden ( **&#42;** und **?** ) auf mehrere Dateien gleichzeitig löschen. Um zu vermeiden, versehentlich Dateien gelöscht, Sie sollten jedoch verwenden Platzhalter mit Vorsicht bei der **del** Befehl. Angenommen, wenn Sie den folgenden Befehl eingeben:  
+  ```
+  del *.*
+  ```  
+  Die **del** Befehl wird die folgende Eingabeaufforderung angezeigt:
 
-    `Are you sure (Y/N)?`
+  `Are you sure (Y/N)?`
 
-    Um alle Dateien im aktuellen Verzeichnis zu löschen, drücken Sie Y, und drücken Sie dann die EINGABETASTE. Geben Sie um den Löschvorgang abzubrechen, drücken Sie N, und drücken Sie dann aus.
+  Um alle Dateien im aktuellen Verzeichnis zu löschen, drücken Sie Y, und drücken Sie dann die EINGABETASTE. Geben Sie um den Löschvorgang abzubrechen, drücken Sie N, und drücken Sie dann aus.
 
 > [!NOTE]
 > Vor der Verwendung von Platzhalterzeichen mit dem **del** Befehl können Sie die gleichen Platzhalterzeichen mit der **Dir** Befehl, um alle Dateien aufzulisten, die gelöscht werden.
--   Die **del** -Befehl, mit verschiedenen Parametern finden Sie in der Wiederherstellungskonsole.
+> -   Die **del** -Befehl, mit verschiedenen Parametern finden Sie in der Wiederherstellungskonsole.
 
 ## <a name="BKMK_examples"></a>Beispiele für
 
@@ -84,7 +84,7 @@ del c:\test\*.*
 ```
 Um alle Dateien mit der Erweiterung .bat aus dem aktuellen Verzeichnis zu löschen, geben Sie Folgendes ein:
 ```
-del *.bak
+del *.bat
 ```
 Um alle schreibgeschützten Dateien im aktuellen Verzeichnis zu löschen, geben Sie Folgendes ein:
 ```
@@ -93,4 +93,4 @@ del /a:r *.*
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

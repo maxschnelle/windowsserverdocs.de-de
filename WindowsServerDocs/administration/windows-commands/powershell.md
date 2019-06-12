@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: c8070268fdf58fbbb71c159a7360b488222ef740
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1e2ccf6187e4480f94b30632b6f8f9f092052541
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852181"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811074"
 ---
 # <a name="powershell"></a>PowerShell
 
@@ -31,22 +31,31 @@ Die **PowerShell.exe** Befehlszeilentool startet eine Windows PowerShell-Sitzung
 Sie können die **PowerShell.exe** Befehlszeilentool, mit eine Windows PowerShell-Sitzung in einem Eingabeaufforderungsfenster starten.
 
 - Geben Sie zum Starten einer Windows PowerShell-Sitzungs in einem Eingabeaufforderungsfenster `PowerShell`. Ein **PS** Präfix wird an der Eingabeaufforderung aus, um anzugeben, dass Sie in einer Windows PowerShell-Sitzung hinzugefügt.
-- Verwenden Sie zum Starten einer Sitzungs mit einer bestimmten Ausführung der **ExecutionPolicy** Parameter.  
+
+- Verwenden Sie zum Starten einer Sitzungs mit einer bestimmten Ausführung der **ExecutionPolicy** Parameter.
+
     ```
     PowerShell.exe -ExecutionPolicy Restricted
-    ```  
-- Verwenden Sie zum Starten einer Windows PowerShell-Sitzungs, ohne Ihre Windows PowerShell-Profile die **NoProfile** Parameter.  
+    ```
+
+- Verwenden Sie zum Starten einer Windows PowerShell-Sitzungs, ohne Ihre Windows PowerShell-Profile die **NoProfile** Parameter.
+
     ```
     PowerShell.exe -NoProfile
-    ```  
-- Verwenden Sie zum Starten einer Sitzungs die **ExecutionPolicy** Parameter.  
+    ```
+  
+- Verwenden Sie zum Starten einer Sitzungs die **ExecutionPolicy** Parameter.
+
     ```
     PowerShell.exe -ExecutionPolicy Restricted
-    ```  
+    ```
+  
 - Um die Hilfedatei PowerShell.exe anzuzeigen, verwenden Sie das folgende Befehlsformat.  
+    
     ```
     PowerShell.exe -help, -?, /?
-    ```  
+    ```
+
 - Geben Sie zum Beenden einer Windows PowerShell-Sitzungs in einem Eingabeaufforderungsfenster `exit`. Die typische Eingabeaufforderung kehrt zurück.
 
 Eine vollständige Liste der **PowerShell.exe** Befehlszeilenparameter, finden Sie unter [about_PowerShell.Exe](https://go.microsoft.com/fwlink/?LinkID=113439).

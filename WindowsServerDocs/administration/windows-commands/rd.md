@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a9190a77369c0a4631db87ab5a5c112b13b37e6f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 94231e3ec032280beb91a14db7949a1296c2d811
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840041"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442028"
 ---
 # <a name="rd"></a>rd
 
@@ -37,12 +37,12 @@ rmdir [<Drive>:]<Path> [/s [/q]]
 
 ## <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|[\<Drive>:]<Path>|Gibt den Speicherort und den Namen des Verzeichnisses, das Sie löschen möchten. *Pfad* ist erforderlich.|
-|/s|Löscht eine Verzeichnisstruktur (das angegebene Verzeichnis und allen seinen Unterverzeichnisse, einschließlich aller Dateien).|
-|/q|Gibt den stillen Modus. Wird nicht zur Bestätigung aufgefordert werden, wenn Sie eine Verzeichnisstruktur zu löschen. (Beachten Sie, dass **/q /** funktioniert nur, wenn **/s** angegeben ist.)|
-|/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
+|     Parameter     |                                                                 Beschreibung                                                                  |
+|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| [\<Drive>:]<Path> |                      Gibt den Speicherort und den Namen des Verzeichnisses, das Sie löschen möchten. *Pfad* ist erforderlich.                       |
+|        /s         |                     Löscht eine Verzeichnisstruktur (das angegebene Verzeichnis und allen seinen Unterverzeichnisse, einschließlich aller Dateien).                      |
+|        /q         | Gibt den stillen Modus. Wird nicht zur Bestätigung aufgefordert werden, wenn Sie eine Verzeichnisstruktur zu löschen. (Beachten Sie, dass **/q /** funktioniert nur, wenn **/s** angegeben ist.) |
+|        /?         |                                                     Zeigt die Hilfe an der Eingabeaufforderung an.                                                     |
 
 ## <a name="remarks"></a>Hinweise
 
@@ -81,4 +81,4 @@ rd /s /q test
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

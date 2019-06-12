@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: e5ea9d22-a503-4ed4-96b3-0ee2ccf4fd17
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 6024b118504a233e9e7483711df4e0a05b632d5a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 29d52e57a18bf956d135179b503255efd256b35e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869441"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446850"
 ---
 # <a name="step-3-plan-the-multisite-deployment"></a>Schritt 3-Plan der Bereitstellung für mehrere Standorte
 
@@ -151,39 +151,39 @@ Wenn Sie VPN auf dem einzelnen RAS-Server bereitgestellt haben, beachten Sie Fol
 ### <a name="routing"></a>Routing  
 In einer Bereitstellung für mehrere Standorte ist die Option symmetrisches routing erzwungen mit Teredo und IP-HTTPS. Beachten Sie Folgendes, wenn IPv6 im Unternehmensnetzwerk bereitgestellt wird:  
   
-1.  Die Teredo und IP-HTTPS-Präfixe von jeden Einstiegspunkt muss für ihre zugehörigen RAS-Server im Unternehmensnetzwerk geroutet.  
+1. Die Teredo und IP-HTTPS-Präfixe von jeden Einstiegspunkt muss für ihre zugehörigen RAS-Server im Unternehmensnetzwerk geroutet.  
   
-2.  Die Routen müssen in der Routinginfrastruktur Unternehmensnetzwerk konfiguriert werden.  
+2. Die Routen müssen in der Routinginfrastruktur Unternehmensnetzwerk konfiguriert werden.  
   
-3.  Für jeden Einstiegspunkt sollte bis zu drei Routen im internen Netzwerk vorhanden sein:  
+3. Für jeden Einstiegspunkt sollte bis zu drei Routen im internen Netzwerk vorhanden sein:  
   
-    1.  IP-HTTPS-Präfix-dieses Präfix wird vom Administrator hinzufügen einen Einstiegspunkt-Assistenten ausgewählt.  
+   1. IP-HTTPS-Präfix-dieses Präfix wird vom Administrator hinzufügen einen Einstiegspunkt-Assistenten ausgewählt.  
   
-    2.  VPN-IPv6-Präfix (optional). Dieses Präfix kann ausgewählt werden, nach dem Aktivieren von VPN als Einstiegspunkt  
+   2. VPN-IPv6-Präfix (optional). Dieses Präfix kann ausgewählt werden, nach dem Aktivieren von VPN als Einstiegspunkt  
   
-    3.  Teredo-Präfix (optional). Dieses Präfix ist nur relevant, wenn der RAS-Server mit zwei aufeinander folgende öffentliche IPv4-Adressen für den externen Adapter konfiguriert ist. Das Präfix basiert auf der ersten öffentlichen IPv4-Adresse des Paares Adresse. Wenn die externen Adressen sind z. B.:  
+   3. Teredo-Präfix (optional). Dieses Präfix ist nur relevant, wenn der RAS-Server mit zwei aufeinander folgende öffentliche IPv4-Adressen für den externen Adapter konfiguriert ist. Das Präfix basiert auf der ersten öffentlichen IPv4-Adresse des Paares Adresse. Wenn die externen Adressen sind z. B.:  
   
-        1.  www.xxx.yyy.zzz  
+      1. www.xxx.yyy.zzz  
   
-        2.  www.xxx.yyy.zzz+1  
+      2. www.xxx.yyy.zzz+1  
   
-        Dann ist das Teredo-Präfix konfigurieren 2001:0:WWXX:YYZZ:: / 64, wobei WWXX: YYZZ die hexadezimale Darstellung der IPv4-Adresse www.xxx.yyy.zzz.  
+      Dann ist das Teredo-Präfix konfigurieren 2001:0:WWXX:YYZZ:: / 64, wobei WWXX: YYZZ die hexadezimale Darstellung der IPv4-Adresse www.xxx.yyy.zzz.  
   
-        Beachten Sie, dass Sie das folgende Skript verwenden können, um das Teredo-Präfix zu berechnen:  
+      Beachten Sie, dass Sie das folgende Skript verwenden können, um das Teredo-Präfix zu berechnen:  
   
-        ```  
-        $TeredoIPv4 = (Get-NetTeredoConfiguration).ServerName # Use for a Remote Access server that is already configured  
-        $TeredoIPv4 = "20.0.0.1" # Use for an IPv4 address  
+      ```  
+      $TeredoIPv4 = (Get-NetTeredoConfiguration).ServerName # Use for a Remote Access server that is already configured  
+      $TeredoIPv4 = "20.0.0.1" # Use for an IPv4 address  
   
-            [Byte[]] $TeredoServerAddressBytes = `  
-            [System.Net.IPAddress]::Parse("2001::").GetAddressBytes()[0..3] + `  
-            [System.Net.IPAddress]::Parse($TeredoIPv4).GetAddressBytes() + `  
-            [System.Net.IPAddress]::Parse("::").GetAddressBytes()[0..7]  
+          [Byte[]] $TeredoServerAddressBytes = `  
+          [System.Net.IPAddress]::Parse("2001::").GetAddressBytes()[0..3] + `  
+          [System.Net.IPAddress]::Parse($TeredoIPv4).GetAddressBytes() + `  
+          [System.Net.IPAddress]::Parse("::").GetAddressBytes()[0..7]  
   
-        Write-Host "The server's Teredo prefix is $([System.Net.IPAddress]$TeredoServerAddressBytes)/64"  
-        ```  
+      Write-Host "The server's Teredo prefix is $([System.Net.IPAddress]$TeredoServerAddressBytes)/64"  
+      ```  
   
-    4.  Alle oben genannten Routen weitergeleitet werden muss, um die IPv6-Adresse für den internen Adapter des RAS-Servers (oder auf die interne virtuelle IP-Adresse (VIP) Adresse für einen Load balanced Einstiegspunkt).  
+   4. Alle oben genannten Routen weitergeleitet werden muss, um die IPv6-Adresse für den internen Adapter des RAS-Servers (oder auf die interne virtuelle IP-Adresse (VIP) Adresse für einen Load balanced Einstiegspunkt).  
   
 > [!NOTE]  
 > Remote über DirectAccess, Routen für die Teredo erfolgt bei IPv6 im Unternehmensnetzwerk und RAS-Server-Verwaltung bereitgestellt wird und IP-HTTPS-Präfixe von allen anderen Einstiegspunkten müssen auf jedem RAS-Server hinzugefügt werden, so, dass der Datenverkehr mit dem internen Netzwerk weitergeleitet.  

@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: TimWi; ChrisRob; HerbertM; KenBrumf;  MLeary; ShawnRab
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: e1652e45f51500ceeb0026b8892fbe9c54ff38f3
-ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
+ms.openlocfilehash: 9861703e5ae88dcaec5e76d9fab426b928d0cb9a
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266638"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811491"
 ---
 # <a name="proper-placement-of-domain-controllers-and-site-considerations"></a>Ordnungsgemäße Platzierung von Domänencontrollern und Website-Überlegungen
 
@@ -64,11 +64,11 @@ Domänenübergreifende Vertrauensstellung, dass die Szenarios eines Bereichs sin
 
     -   Verwenden Sie DnsAvoidRegisterRecords, um schlecht durchführen oder hoher Latenz Domänencontroller, z. B. in entlegenen Standorten, von Werbung auf die generische Locator zu beseitigen. Weitere Informationen finden Sie unter [Gewusst wie: Optimieren der Position von einem Domänencontroller oder globalen Katalog, die sich außerhalb der Standort des Clients befindet](https://support.microsoft.com/kb/306602).
 
-        > [!Note]   Es ist eine praktische Beschränkung von ca. 50 auf die Anzahl der Domänencontroller, zu denen, die der Client nutzen kann. Sie sollten die meisten optimalen Standort und die höchste Kapazität sein Domänencontroller.
+        > [!NOTE]
+        > Es ist eine praktische Beschränkung von ca. 50 auf die Anzahl der Domänencontroller, zu denen, die der Client nutzen kann. Sie sollten die meisten optimalen Standort und die höchste Kapazität sein Domänencontroller.
 
-         
-
-    -   Erwägen Sie die Platzierung von Domänencontrollern von vertrauenswürdigen und vertrauenden Domänen in demselben physischen Standort.
+    
+    -  Erwägen Sie die Platzierung von Domänencontrollern von vertrauenswürdigen und vertrauenden Domänen in demselben physischen Standort.
 
 Alle vertrauenswürdigen Szenarios werden Anmeldeinformationen gemäß der Domäne, die in den authentifizierungsanforderungen angegebene weitergeleitet. Dies gilt auch für Abfragen auf die LookupAccountName und LsaLookupNames (sowie andere, diese werden nur die am häufigsten verwendet) APIs. Wenn die Domänenparameter für diese APIs einen NULL-Wert übergeben werden, versucht der Domänencontroller, finden den Kontonamen, angegeben in jedem vertrauenswürdigen Domäne zur Verfügung.
 

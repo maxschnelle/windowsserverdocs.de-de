@@ -14,16 +14,16 @@ manager: dongill
 ms.author: elizapo
 ms.date: 07/24/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 41f8b511453143bb6239de6cdb369ebe8a307aec
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: b4b188eb8148b2f4e5c6672b07884af8fdcd0c60
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59885851"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446739"
 ---
 # <a name="get-started-with-remote-desktop-on-android"></a>Erste Schritte mit Remotedesktop unter Android
 
->Gilt für: Windows 10, Windows 8.1, Windows Server 2012 R2, WindowsServer 2016
+>Gilt für: Windows 10, Windows 8.1, WindowsServer 2019, WindowsServer 2016, Windows Server 2012 R2
 
 Sie können den Remotedesktopclient für Android verwenden, zum Arbeiten mit Windows-apps und Desktops direkt über Ihr Android-Gerät.
 
@@ -49,24 +49,24 @@ Um mit Remotedesktop auf Ihrem Android-Gerät zu beginnen, gehen Sie wie folgt v
 
 So erstellen Sie eine Remotedesktopverbindung hergestellt:
 
-1. In das Connection Center Tap **+**, und tippen Sie dann auf **Desktop**.
+1. In das Connection Center Tap **+** , und tippen Sie dann auf **Desktop**.
 2. Geben Sie die folgende Informationen für den Computer herstellen möchten:
-  - **PC-Namen** – der Name des Computers. Dies kann es sich um einen Windows-Computernamen, einen Internet-Domänennamen oder eine IP-Adresse sein. Sie können auch die Portinformationen anfügen, auf den PC-Namen (z. B. **MyDesktop:3389** oder **10.0.0.1:3389**).
-  - **Benutzername** – den Benutzernamen ein, die auf einem Remotecomputer verwenden. Sie können die folgenden Formate verwenden: *User_name*, *Domäne\Benutzername*, oder *user_name@domain.com*. Sie können auch angeben, ob Benutzername und Kennwort aufgefordert.
+   - **PC-Namen** – der Name des Computers. Dies kann es sich um einen Windows-Computernamen, einen Internet-Domänennamen oder eine IP-Adresse sein. Sie können auch die Portinformationen anfügen, auf den PC-Namen (z. B. **MyDesktop:3389** oder **10.0.0.1:3389**).
+   - **Benutzername** – den Benutzernamen ein, die auf einem Remotecomputer verwenden. Sie können die folgenden Formate verwenden: *User_name*, *Domäne\Benutzername*, oder <em>user_name@domain.com</em>. Sie können auch angeben, ob Benutzername und Kennwort aufgefordert.
 3. Sie können auch die folgenden zusätzlichen Optionen festlegen:
-  - **Anzeigename des** – ein leicht zu merkenden Namen für den PC mit dem Sie eine Verbindung mit. Sie können eine beliebige Zeichenfolge verwenden, aber der PC-Name wird angezeigt, wenn Sie einen Anzeigenamen nicht angeben, aus.
-  - **Gateway** – die Remotedesktop-Gateway, das Sie Verbindung mit virtuellen Desktops, RemoteApp-Programmen und sitzungsbasierten Desktops in einem internen Unternehmensnetzwerk herstellen möchten. Rufen Sie Informationen über das Gateway von Ihrem Systemadministrator an.
+   - **Anzeigename des** – ein leicht zu merkenden Namen für den PC mit dem Sie eine Verbindung mit. Sie können eine beliebige Zeichenfolge verwenden, aber der PC-Name wird angezeigt, wenn Sie einen Anzeigenamen nicht angeben, aus.
+   - **Gateway** – die Remotedesktop-Gateway, das Sie Verbindung mit virtuellen Desktops, RemoteApp-Programmen und sitzungsbasierten Desktops in einem internen Unternehmensnetzwerk herstellen möchten. Rufen Sie Informationen über das Gateway von Ihrem Systemadministrator an.
     Möchten Sie ein Remotedesktop-Gateway konfigurieren?
-  - **Sound** – wählen Sie das Gerät für Audio während der Remotesitzung verwenden. Sie können auswählen, um auf den lokalen Geräten, dem Remotegerät oder überhaupt nicht Systemsound wiederzugeben.
-  - **Anpassen der Bildschirmauflösung** -legen Sie eine benutzerdefinierte Lösung für eine Verbindung durch die Aktivierung dieser Einstellung. Wenn aus der Lösung angewendet wird die Sie in den globalen Einstellungen der app definiert haben.
-  - **Austauschen der Maustasten** – mit dieser Option können Sie die linke Maustaste Tauschen der Schaltflächenfunktionen für die rechte Maustaste gedrückt. (Dies ist besonders nützlich, wenn der remote-PC für einen Benutzer für Linkshänder konfiguriert ist, aber Sie eine rechtshändige Maus verwenden.)
-  - **Herstellen einer Verbindung administratorensitzung mit** -mit dieser Option können Sie die Verbindung mit einer konsolensitzung, um einen Windows-Server zu verwalten.
-  - **In den lokalen Speicher umleiten** – hängt von Ihren lokalen Speicher als remote-Dateisystem auf dem remote-PC.
+   - **Sound** – wählen Sie das Gerät für Audio während der Remotesitzung verwenden. Sie können auswählen, um auf den lokalen Geräten, dem Remotegerät oder überhaupt nicht Systemsound wiederzugeben.
+   - **Anpassen der Bildschirmauflösung** -legen Sie eine benutzerdefinierte Lösung für eine Verbindung durch die Aktivierung dieser Einstellung. Wenn aus der Lösung angewendet wird die Sie in den globalen Einstellungen der app definiert haben.
+   - **Austauschen der Maustasten** – mit dieser Option können Sie die linke Maustaste Tauschen der Schaltflächenfunktionen für die rechte Maustaste gedrückt. (Dies ist besonders nützlich, wenn der remote-PC für einen Benutzer für Linkshänder konfiguriert ist, aber Sie eine rechtshändige Maus verwenden.)
+   - **Herstellen einer Verbindung administratorensitzung mit** -mit dieser Option können Sie die Verbindung mit einer konsolensitzung, um einen Windows-Server zu verwalten.
+   - **In den lokalen Speicher umleiten** – hängt von Ihren lokalen Speicher als remote-Dateisystem auf dem remote-PC.
 4. Tippen Sie auf **speichern**.
 
-Möchten Sie diese Einstellungen zu bearbeiten? Tippen Sie auf das Menü "Überlauf" (**...** ) neben dem Namen der Desktop, und tippen Sie anschließend auf **bearbeiten**.
+Möchten Sie diese Einstellungen zu bearbeiten? Tippen Sie auf das Menü "Überlauf" ( **...** ) neben dem Namen der Desktop, und tippen Sie anschließend auf **bearbeiten**.
 
-Möchten Sie die Verbindung löschen? Tippen Sie in diesem Fall auf das Menü "Überlauf" (**...** ), und tippen Sie dann auf **entfernen**.
+Möchten Sie die Verbindung löschen? Tippen Sie in diesem Fall auf das Menü "Überlauf" ( **...** ), und tippen Sie dann auf **entfernen**.
 
 >[!TIP]
 > Wenn Sie 0xf07 Fehlermeldung zu ein falschen Kennworts ("Wir konnten nicht auf einem Remotecomputer Verbinden mit dem Benutzerkonto das Kennwort ist abgelaufen"), Ändern des Kennworts, und versuchen Sie es erneut.
@@ -76,7 +76,7 @@ Remote-Ressourcen sind die RemoteApp-Programme, sitzungsbasierte Desktops und vi
 
 So fügen Sie eine Remoteressource hinzu:
 
-1. Tippen Sie auf dem Bildschirm "Connection Center" auf **+**, und tippen Sie dann auf **Remote Ressourcen Feed**. 
+1. Tippen Sie auf dem Bildschirm "Connection Center" auf **+** , und tippen Sie dann auf **Remote Ressourcen Feed**. 
 2. Geben Sie Informationen für die Remoteressource:
    - **E-Mail-Adresse oder URL** -die URL der Web Access für Remotedesktop-Server. Ihr Unternehmens-e-Mail-Konto auch in dieses Feld eingegeben werden können, weist diese den Client, suchen Sie für den RD-Web-Server Ihre e-Mail-Adresse zugeordnet.
    - **Benutzername** -den Benutzernamen ein, für den Web Access für Remotedesktop-Server verwenden Sie eine Verbindung herstellen.
@@ -88,7 +88,7 @@ Der remote-Ressourcen werden im Connection Center angezeigt.
 
 So löschen Sie die remote-Ressourcen:
 
-1. Tippen Sie in das Connection Center, auf das Überlaufmenü (**...** ) neben der Remoteressource.
+1. Tippen Sie in das Connection Center, auf das Überlaufmenü ( **...** ) neben der Remoteressource.
 2. Tippen Sie auf **entfernen**.
 3. Bestätigen Sie den Vorgang.
 
@@ -115,8 +115,8 @@ So richten ein neues Gateway:
 
 1. Tippen Sie in das Connection Center, auf **Einstellungen > Gateways**. Tippen Sie auf **+** zum Hinzufügen eines neuen Gateways.
 2. Geben Sie die folgende Informationen ein:
-  - **Servername** – der Name des Computers als Gateway verwenden möchten. Dies kann es sich um einen Windows-Computernamen, einen Internet-Domänennamen oder eine IP-Adresse sein. Sie können auch Informationen hinzufügen, um den Namen des Servers (z. B.: **RDGateway:443** oder **10.0.0.1:443**).
-  - **Benutzername** -den Benutzernamen und Kennwort ein, das für das Remotedesktopgateway hergestellt. Sie können auch auswählen, **Remotedesktop-Benutzerkonto verwenden** auf die gleichen Anmeldeinformationen wie für die Remotedesktopverbindung verwenden.
+   - **Servername** – der Name des Computers als Gateway verwenden möchten. Dies kann es sich um einen Windows-Computernamen, einen Internet-Domänennamen oder eine IP-Adresse sein. Sie können auch Informationen hinzufügen, um den Namen des Servers (z. B.: **RDGateway:443** oder **10.0.0.1:443**).
+   - **Benutzername** -den Benutzernamen und Kennwort ein, das für das Remotedesktopgateway hergestellt. Sie können auch auswählen, **Remotedesktop-Benutzerkonto verwenden** auf die gleichen Anmeldeinformationen wie für die Remotedesktopverbindung verwenden.
 
 ## <a name="manage-your-user-accounts"></a>Verwalten Sie Ihre Benutzerkonten
 
@@ -153,13 +153,13 @@ Sie können die folgenden globalen Einstellungen in Ihrer Android-Client festleg
 - **Zum Zoomen zusammendrücken** -können Sie die Pinch-Finger-Zoom-Gesten verwenden. Diese Einstellung aktivieren, wenn die app, die Sie über Remotedesktop verwenden Multitouch (eingeführt in Windows 8) unterstützt, **aus**.
 - **Hilfe zur Verbesserung der Remotedesktop** -anonyme Daten an Microsoft gesendet. Wir verwenden diese Daten, um den Client zu verbessern. Sie können weitere Informationen dazu, wie wir diese anonyme, privaten Daten behandeln, finden Sie unter den [Remote Desktop-Client-Datenschutzbestimmungen](https://www.microsoft.com/privacystatement/RemoteApp/Default.aspx). Diese Einstellung ist standardmäßig **auf**.
 - **Anzeige** – es gibt zwei globale Einstellungen für die Anzeige:
-   - **Ausrichtung** -legt die bevorzugte Ausrichtung (Querformat oder Hochformat) für die Sitzung fest. 
-   >[!NOTE]
-   > Wenn Sie mit einem mit Windows 8 oder eine ältere Version von Windows-PC verbinden, wird die Sitzung wird nicht ordnungsgemäß skaliert. Die beste Lösung ist der PC trennen, und klicken Sie dann erneut eine Verbindung herzustellen, in die Ausrichtung, die Sie verwenden möchten. Eine noch bessere Möglichkeit ist auf den PC über mindestens ein upgrade von Windows 8.1.
+  - **Ausrichtung** -legt die bevorzugte Ausrichtung (Querformat oder Hochformat) für die Sitzung fest. 
+    >[!NOTE]
+    > Wenn Sie mit einem mit Windows 8 oder eine ältere Version von Windows-PC verbinden, wird die Sitzung wird nicht ordnungsgemäß skaliert. Die beste Lösung ist der PC trennen, und klicken Sie dann erneut eine Verbindung herzustellen, in die Ausrichtung, die Sie verwenden möchten. Eine noch bessere Möglichkeit ist auf den PC über mindestens ein upgrade von Windows 8.1.
 
-   - **Auflösung** -bestimmt die Auflösung, die global für desktop-Verbindungen verwenden möchten. Wenn Sie eine benutzerdefinierte Lösung für eine einzelne app oder die Verbindung bereits eingerichtet haben, wird nicht mit dieser Einstellung, die nicht ändern.
-   >[!NOTE]
-   >Wenn Sie eine der Anzeigeeinstellungen ändern, gelten nur für neue Verbindungen von diesem Zeitpunkt auf. Damit die Änderung in einer Sitzung angezeigt, die Sie bereits verbunden sind, um zu trennen, und klicken Sie dann erneut eine Verbindung her.
+  - **Auflösung** -bestimmt die Auflösung, die global für desktop-Verbindungen verwenden möchten. Wenn Sie eine benutzerdefinierte Lösung für eine einzelne app oder die Verbindung bereits eingerichtet haben, wird nicht mit dieser Einstellung, die nicht ändern.
+    >[!NOTE]
+    >Wenn Sie eine der Anzeigeeinstellungen ändern, gelten nur für neue Verbindungen von diesem Zeitpunkt auf. Damit die Änderung in einer Sitzung angezeigt, die Sie bereits verbunden sind, um zu trennen, und klicken Sie dann erneut eine Verbindung her.
 
 ### <a name="connection-bar"></a>Verbindungsleiste
 

@@ -13,14 +13,14 @@ ms.topic: article
 ms.assetid: ''
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: b86726fd6e9ee37dbfd43357d8040b43b8dfb200
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7fb7b5f7ae6e10d1007317949a42c48b4765f35c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853341"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446062"
 ---
-#<a name="step-1-plan-the-basic-directaccess-infrastructure"></a>Schritt 1: Planen der grundlegenden DirectAccess-Infrastruktur
+# <a name="step-1-plan-the-basic-directaccess-infrastructure"></a>Schritt 1: Planen der grundlegenden DirectAccess-Infrastruktur
 Der erste Schritt für eine grundlegende DirectAccess-Bereitstellung auf einem einzelnen Server ist die Planung für die Infrastruktur für die Bereitstellung erforderlich sind. In diesem Thema werden die Schritte zur Planung der Infrastruktur beschrieben:  
   
 |Aufgabe|Beschreibung|  
@@ -253,5 +253,5 @@ Die **DirectAccess-Verwaltung** zeigt folgende Fehlermeldung an: **Gruppenrichtl
   
 ### <a name="BKMK_Links"></a>Als Nächstes  
   
--   [Schritt 2: Planen der grundlegenden DirectAccess-Bereitstellung](da-basic-plan-s2-deployment.md)  
+-   [Schritt 2: Planen der allgemeinen DirectAccess-Bereitstellung](da-basic-plan-s2-deployment.md)  
   

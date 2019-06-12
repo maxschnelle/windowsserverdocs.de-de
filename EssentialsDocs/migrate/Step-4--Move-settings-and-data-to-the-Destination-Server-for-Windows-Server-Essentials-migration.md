@@ -12,12 +12,12 @@ ms.assetid: e143df43-e227-4629-a4ab-9f70d9bf6e84
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: e5a8db44f80c333d589e0c1664174c394701f90d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fa6ab8e2108e569b7cef6bfbf0d20af4fa31016d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835681"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432568"
 ---
 # <a name="step-4-move-settings-and-data-to-the-destination-server-for-windows-server-essentials-migration"></a>Schritt 4: Verschieben von Einstellungen und Daten auf den Zielserver für die Migration zu Windows Server Essentials
 
@@ -46,41 +46,41 @@ Dieser Abschnitt enthält Informationen zum Migrieren von Daten und Einstellunge
   
 #### <a name="to-copy-data-from-the-source-server-to-the-destination-server"></a>Kopieren von Daten vom Quellserver auf den Zielserver.  
   
-1.  Melden Sie sich bei dem Zielserver als Domänenadministrator an, und öffnen Sie ein Eingabeaufforderungsfenster oder eine Windows PowerShell-Eingabeaufforderung.  
+1. Melden Sie sich bei dem Zielserver als Domänenadministrator an, und öffnen Sie ein Eingabeaufforderungsfenster oder eine Windows PowerShell-Eingabeaufforderung.  
   
-2.  Wenn Sie das Eingabeaufforderungsfenster verwenden, geben Sie den folgenden Befehl ein, und drücken Sie dann die EINGABETASTE:  
+2. Wenn Sie das Eingabeaufforderungsfenster verwenden, geben Sie den folgenden Befehl ein, und drücken Sie dann die EINGABETASTE:  
   
-    `robocopy \\<SourceServerName>\<SharedSourceFolderName> "<PathOfTheDestination>\<SharedDestinationFolderName>" /E /B /COPY:DATSOU /LOG:C:\Copyresults.txt`
+   `robocopy \\<SourceServerName>\<SharedSourceFolderName> "<PathOfTheDestination>\<SharedDestinationFolderName>" /E /B /COPY:DATSOU /LOG:C:\Copyresults.txt`
   
-     Dabei gilt:  
+    Erläuterungen:  
   
-    -   \<Quellservername\> ist der Name des Quellservers  
+   - \<Quellservername\> ist der Name des Quellservers  
   
-    -   \<Namedesfreigegebenenquellordners\> ist der Name des freigegebenen Ordners auf dem Quellserver  
+   - \<Namedesfreigegebenenquellordners\> ist der Name des freigegebenen Ordners auf dem Quellserver  
   
-    -   \<PathOfTheDestination\> ist der absolute Pfad, in dem Sie den Ordner verschieben möchten,  
+   - \<PathOfTheDestination\> ist der absolute Pfad, in dem Sie den Ordner verschieben möchten,  
   
-    -   \<Namedesfreigegebenenzielordners\> ist der Ordner auf dem Zielserver, auf denen die Daten kopiert werden,  
+   - \<Namedesfreigegebenenzielordners\> ist der Ordner auf dem Zielserver, auf denen die Daten kopiert werden,  
   
      Beispiel:  `robocopy \\sourceserver\MyData "d:\ServerFolders\MyData" /E /B /COPY:DATSOU /LOG:C:\Copyresults.txt`.  
   
-3.  Wenn Sie Windows PowerShell verwenden, geben Sie den folgenden Befehl ein, und drücken Sie dann die EINGABETASTE.  
+3. Wenn Sie Windows PowerShell verwenden, geben Sie den folgenden Befehl ein, und drücken Sie dann die EINGABETASTE.  
   
-     `Add-Wssfolder  Path \ -Name  -KeepPermission`  
+    `Add-Wssfolder  Path \ -Name  -KeepPermission`  
   
-4.  Wiederholen Sie diesen Vorgang für jeden freigegebenen Ordner, den Sie vom Quellserver migrieren.  
+4. Wiederholen Sie diesen Vorgang für jeden freigegebenen Ordner, den Sie vom Quellserver migrieren.  
   
 ##  <a name="BKMK_Network"></a> Konfigurieren des Netzwerks  
   
 #### <a name="to-configure-the-network"></a>So konfigurieren Sie das Netzwerk  
   
-1.  Öffnen Sie auf dem Zielserver das Dashboard.  
+1. Öffnen Sie auf dem Zielserver das Dashboard.  
   
-2.  Klicken Sie auf der Dashboardseite **Home** auf **Setup**, klicken Sie auf **Zugriff überall einrichten**, und wählen Sie dann die Option**Hier klicken, um Zugriff überall zu konfigurieren**.  
+2. Klicken Sie auf der Dashboardseite **Home** auf **Setup**, klicken Sie auf **Zugriff überall einrichten**, und wählen Sie dann die Option**Hier klicken, um Zugriff überall zu konfigurieren**.  
   
-3.  Der Assistent zum Einrichten von Zugriff überall wird gestartet. Vervollständigen Sie die Anweisungen im Assistenten, um Ihren Router und Domänennamen zu konfigurieren.  
+3. Der Assistent zum Einrichten von Zugriff überall wird gestartet. Vervollständigen Sie die Anweisungen im Assistenten, um Ihren Router und Domänennamen zu konfigurieren.  
   
- Wenn Ihr Router das UPnP-Framework nicht unterstützt, oder wenn das UPnP-Framework deaktiviert ist, wird möglicherweise ein gelbes Warnsymbol neben dem Namen des Routers angezeigt. Stellen Sie sicher, dass folgende Ports geöffnet sind, und dass sie an die IP-Adresse des Zielservers weitergeleitet werden:  
+   Wenn Ihr Router das UPnP-Framework nicht unterstützt, oder wenn das UPnP-Framework deaktiviert ist, wird möglicherweise ein gelbes Warnsymbol neben dem Namen des Routers angezeigt. Stellen Sie sicher, dass folgende Ports geöffnet sind, und dass sie an die IP-Adresse des Zielservers weitergeleitet werden:  
   
 -   Port 80: HTTP-Webdatenverkehr  
   

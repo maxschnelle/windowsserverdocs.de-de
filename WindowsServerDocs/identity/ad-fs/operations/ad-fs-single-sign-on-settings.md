@@ -9,12 +9,12 @@ ms.date: 08/17/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: f3719277c80eae2bf2a4d923146920d17546601d
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 97e1fa441c5fe4fb7d23743387392732663326de
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188727"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501587"
 ---
 # <a name="ad-fs-single-sign-on-settings"></a>AD FS-einzelnen SSO-Einstellungen
 
@@ -56,7 +56,7 @@ Beständiges einmaliges Anmelden aktivieren/deaktivieren | ```` Set-AdfsProperti
 
 
 ## <a name="ad-fs-2016---single-sign-on-and-authenticated-devices"></a>AD FS 2016 - Single-Sign-On und authentifizierte Geräte
-AD FS 2016 ändert die PSSO aus, wenn der anforderer von einem registrierten Gerät, auf maximal 90 Tage zu erhöhen, jedoch erfordern eine Authenticvation innerhalb von 14 Tagen (Gerätefenster Nutzung) authentifiziert wird.
+AD FS 2016 ändert die PSSO aus, wenn der anforderer von einem registrierten Gerät, auf maximal 90 Tage zu erhöhen, jedoch erfordern eine Authentifizierung innerhalb von 14 Tagen (Gerätefenster Nutzung) authentifiziert wird.
 Nach der Eingabe von Anmeldeinformationen zum ersten Mal erhalten standardmäßig Benutzer mit registrierten Geräten einmaliges Anmelden für einen Zeitraum von 90 Tagen, sofern sie das Gerät verwenden, AD FS Zugriff auf Ressourcen in mindestens einmal alle 14 Tage.  Wenn sie 15 Tage nach der Bereitstellung von Anmeldeinformationen warten, werden Benutzer erneut zur Eingabe von Anmeldeinformationen aufgefordert werden.  
 
 Beständiges einmaliges Anmelden ist standardmäßig aktiviert. Wenn er deaktiviert ist, wird kein Cookie PSSO geschrieben werden. |  
@@ -103,23 +103,23 @@ Es ist wichtig zu beachten, dass gleichzeitig relativ lange Zeiträume hinweg Ei
 ## <a name="psso-revocation"></a>PSSO Sperrung  
  Um Sicherheit zu schützen, lehnt die AD FS permanentes SSO-Cookie, das zuvor ausgegeben, wenn die folgenden Bedingungen erfüllt sind. Dies erfordert, dass Benutzer ihre Anmeldeinformationen angeben, um die erneute Authentifizierung mit AD FS. 
   
--   Änderung des Kennworts durch Benutzer  
+- Änderung des Kennworts durch Benutzer  
   
--   Persistente SSO-Einstellung ist in AD FS deaktiviert.  
+- Persistente SSO-Einstellung ist in AD FS deaktiviert.  
   
--   Gerät wurde vom Administrator bei der verloren gegangenen oder gestohlenen deaktiviert.  
+- Gerät wurde vom Administrator bei der verloren gegangenen oder gestohlenen deaktiviert.  
   
--   AD FS empfängt ein permanentes SSO-Cookie für einen registrierten Benutzer jedoch vom Benutzer ausgegeben wird, oder das Gerät ist nicht mehr registriert  
+- AD FS empfängt ein permanentes SSO-Cookie für einen registrierten Benutzer jedoch vom Benutzer ausgegeben wird, oder das Gerät ist nicht mehr registriert  
   
--   AD FS empfängt ein permanentes SSO-Cookie für einen registrierten Benutzer, aber der Benutzer erneut registriert.  
+- AD FS empfängt ein permanentes SSO-Cookie für einen registrierten Benutzer, aber der Benutzer erneut registriert.  
   
--   AD FS empfängt ein permanentes SSO-Cookie die als Ergebnis "angemeldet bleiben" jedoch "angemeldet bleiben" ausgegeben wird Einstellung ist in AD FS deaktiviert  
+- AD FS empfängt ein permanentes SSO-Cookie die als Ergebnis "angemeldet bleiben" jedoch "angemeldet bleiben" ausgegeben wird Einstellung ist in AD FS deaktiviert  
   
--   AD FS empfängt ein persistentes SSO-Cookie für einen registrierten Benutzer ausgegeben wird, aber Gerätezertifikat ist nicht vorhanden oder geändert, während der Authentifizierung  
+- AD FS empfängt ein persistentes SSO-Cookie für einen registrierten Benutzer ausgegeben wird, aber Gerätezertifikat ist nicht vorhanden oder geändert, während der Authentifizierung  
   
--   AD FS-Administrator verfügt über einen Zeitraum Umstellungsjahr für Angaben mit für beständiges einmaliges Anmelden festgelegt werden. Wenn dies konfiguriert ist, wird AD FS alle permanentes SSO-Cookie ausgegeben, die vor diesem Zeitpunkt ablehnen.  
+- AD FS-Administrator verfügt über einen Zeitraum Umstellungsjahr für Angaben mit für beständiges einmaliges Anmelden festgelegt werden. Wenn dies konfiguriert ist, wird AD FS alle permanentes SSO-Cookie ausgegeben, die vor diesem Zeitpunkt ablehnen.  
   
- Führen Sie zum Festlegen der Zeit Umstellungsjahr für Angaben mit das folgende PowerShell-Cmdlet ein:  
+  Führen Sie zum Festlegen der Zeit Umstellungsjahr für Angaben mit das folgende PowerShell-Cmdlet ein:  
   
 
 ``` powershell
@@ -163,7 +163,7 @@ Zusammenfassung:
     <th>JA</th>
   </tr>
  <tr align="center">
-    <td>SSO = > Festlegen von Aktualisierungstoken = ></td>
+    <td>SSO =&gt;festgelegt Aktualisierungstoken =&gt;</td>
     <td>8 Stunden</td>
     <td>Nicht zutreffend</td>
     <td>Nicht zutreffend</td>
@@ -174,7 +174,7 @@ Zusammenfassung:
   </tr>
 
  <tr align="center">
-    <td>PSSO = > Festlegen von Aktualisierungstoken = ></td>
+    <td>PSSO =&gt;festgelegt Aktualisierungstoken =&gt;</td>
     <td>Nicht zutreffend</td>
     <td>24 Stunden</td>
     <td>7 Tage</td>

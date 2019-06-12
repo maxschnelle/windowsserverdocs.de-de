@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1f9d6268777d0791dbc0cdca2d4318399378698b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 398d2fa47f2418aec910569c2eb85aec408ad482
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813491"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441590"
 ---
 # <a name="seceditexport"></a>secedit:export
 
@@ -30,7 +30,6 @@ Exportiert die Sicherheitseinstellungen, die in einer Datenbank mit Sicherheitsv
 
 ```
 Secedit /export /db <database file name> [/mergedpolicy] /cfg <configuration file name> [/areas [securitypolicy | group_mgmt | user_rights | regkeys | filestore | services]] [/log <log file name>] [/quiet]
-
 ```
 
 ### <a name="parameters"></a>Parameter
@@ -40,15 +39,15 @@ Secedit /export /db <database file name> [/mergedpolicy] /cfg <configuration fil
 |db|Erforderlich.</br>Gibt den Pfad und Dateinamen Namen einer Datenbank, die die gespeicherte Konfiguration enthält, für die Analyse ausgeführt wird.</br>Wenn Dateiname, eine Datenbank, die nicht über eine Sicherheitsvorlage angibt (dargestellt durch die Konfigurationsdatei) zugeordnet, wurde die `/cfg \<configuration file name>` Befehlszeilenoption muss auch angegeben werden.|
 |mergedpolicy|Optional.</br>Zusammengeführt, und exportiert, Domäne und zu den lokalen Gruppenrichtlinien-Sicherheitseinstellungen.|
 |cfg|Erforderlich.</br>Gibt an, der Pfad und Dateiname für die Sicherheitsvorlage, die in der Datenbank für die Analyse importiert werden.</br>Diese/cfg-Option ist nur gültig, wenn Sie mit der `/db \<database file name>` Parameter. Wenn dies nicht angegeben wird, erfolgt die Analyse für eine Konfiguration, die bereits in der Datenbank gespeichert.|
-|Bereiche|Dies ist optional.</br>Gibt an, die Sicherheitsbereiche, die auf das System angewendet werden. Wenn dieser Parameter nicht angegeben ist, werden alle in der Datenbank definierten Sicherheitseinstellungen auf das System angewendet. Um mehrere Bereiche konfigurieren möchten, trennen Sie diese durch ein Leerzeichen. Die folgenden Sicherheitsbereiche werden unterstützt:</br>-SecurityPolicy</br>    Überwachen lokale Richtlinien und Domänenrichtlinien für das System, einschließlich der Kontorichtlinien, Richtlinien, Sicherheitsoptionen und So weiter.</br>-Group_Mgmt</br>    Eingeschränkte Gruppe von Einstellungen für alle Gruppen, die in der Sicherheitsvorlage angegeben.</br>-User_Rights</br>    Benutzerrechte für die Anmeldung und gewähren von Berechtigungen.</br>-   RegKeys</br>    Sicherheit für lokale Registrierungsschlüssel.</br>-Dateispeicher</br>    Sicherheit auf lokalen Speicherplatz.</br>-Dienste</br>    Sicherheit für alle definierten Dienste.|
-|log|Optional.</br>Gibt den Pfad und Dateiname den Namen der Protokolldatei für den Prozess.|
-|Quiet|Dies ist optional.</br>Unterdrückt die Ausgabe von Bildschirm und Protokolldateien. Sie können dennoch Analyseergebnisse Ansicht mit der Sicherheitskonfiguration und-Analyse-Snap-in auf der Microsoft Management Console (MMC).|
+|Bereiche|Optional.</br>Gibt an, die Sicherheitsbereiche, die auf das System angewendet werden. Wenn dieser Parameter nicht angegeben ist, werden alle in der Datenbank definierten Sicherheitseinstellungen auf das System angewendet. Um mehrere Bereiche konfigurieren möchten, trennen Sie diese durch ein Leerzeichen. Die folgenden Sicherheitsbereiche werden unterstützt:</br>-SecurityPolicy</br>    Überwachen lokale Richtlinien und Domänenrichtlinien für das System, einschließlich der Kontorichtlinien, Richtlinien, Sicherheitsoptionen und So weiter.</br>-Group_Mgmt</br>    Eingeschränkte Gruppe von Einstellungen für alle Gruppen, die in der Sicherheitsvorlage angegeben.</br>-User_Rights</br>    Benutzerrechte für die Anmeldung und gewähren von Berechtigungen.</br>-   RegKeys</br>    Sicherheit für lokale Registrierungsschlüssel.</br>-Dateispeicher</br>    Sicherheit auf lokalen Speicherplatz.</br>-Dienste</br>    Sicherheit für alle definierten Dienste.|
+|log|Dies ist optional.</br>Gibt den Pfad und Dateiname den Namen der Protokolldatei für den Prozess.|
+|Quiet|Optional.</br>Unterdrückt die Ausgabe von Bildschirm und Protokolldateien. Sie können dennoch Analyseergebnisse Ansicht mit der Sicherheitskonfiguration und-Analyse-Snap-in auf der Microsoft Management Console (MMC).|
 
 ## <a name="remarks"></a>Hinweise
 
 Sie können diesen Befehl verwenden, um Ihre Sicherheitsrichtlinien auf einem lokalen Computer zusätzlich zum Importieren der Einstellungen auf einem anderen Computer zu sichern.
 
-Wenn der Pfad für die Protokolldatei nicht, die Standardprotokolldatei, bereitgestellt wird (*Systemroot*\Documents and Settings\*UserAccount*\My Documents\Security\Logs\*DatabaseName*. Protokoll) wird verwendet.
+Wenn der Pfad für die Protokolldatei nicht, die Standardprotokolldatei, bereitgestellt wird (*Systemroot*\Documents and Settings\*UserAccount<em>\My Documents\Security\Logs\*DatabaseName</em>. Protokoll) wird verwendet.
 
 In Windows Server 2008 `Secedit /refreshpolicy` wurde durch ersetzt `gpupdate`. Informationen zum Aktualisieren von Sicherheitseinstellungen, finden Sie unter [Gpupdate](gpupdate.md).
 
@@ -67,4 +66,4 @@ Secedit /import /db C:\Security\FY12\SecDbContoso.sdb /cfg SecContoso.inf /log C
 
 -   [Secedit:import](secedit-import.md)
 -   [Secedit](secedit.md)
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: bc22d29c-678c-462d-88b3-1c737dceca75
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: a985df9fea31e5ee180caef4e69899ae8468ff71
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f51bfb1c767c0eee3aed64df9879dd0a97f2f7b1
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865261"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446165"
 ---
 # <a name="use-regular-expressions-in-nps"></a>Verwenden regulärer Ausdrücke in NPS
 
@@ -25,37 +25,38 @@ Dieses Thema erläutert die Verwendung von regulären Ausdrücken für Musterver
 
 Sie können in der folgende Tabelle als Referenz-Quelle verwenden, beim Erstellen von regulärer Ausdrücken mit mustervergleichssyntax.
 
-|Zeichen|Beschreibung|Beispiel|
-|---------|-----------|-------|
-|`\`  |Markiert das nächste Zeichen als ein Zeichen übereinstimmen. |`/n/ matches the character "n". The sequence /\n/ matches a line feed or newline character.`  |
-|`^`  |Mit dem Anfang der Eingabe oder Zeile übereinstimmt. | &nbsp; |
-|`$`  |Entspricht das Ende der Eingabe oder Zeile an. | &nbsp; |
-|`*`  |Entspricht das vorangehenden Zeichen NULL oder mehr Vorkommen. |`/zo*/ matches either "z" or "zoo."` |
-|`+`  |Entspricht das vorangehenden Zeichen einmal oder mehrmals. |`/zo+/ matches "zoo" but not "z."` |
-|`?`  |Steht für den vorherigen Zeichen NULL oder ein Vorkommen. |`/a?ve?/ matches the "ve" in "never."` |
-|`.`  |Entspricht jedem beliebigen einzelnes Zeichen außer einem Zeilenumbruchzeichen.  | &nbsp; |
-|`(pattern)`  |Entspricht "Muster", und speichert die Übereinstimmung.<br />Entsprechend die Literalzeichen `(` und `)` (Klammern), verwenden Sie `\(` oder `\)`.   | &nbsp;  |
-|`x|y `  |Entspricht x oder y.  |`/z|food?/ matches "zoo" or "food."` |
-|`{n} `  |Entspricht genau n Vorkommen \(n ist ein nicht\-negative ganze Zahl\).  |`/o{2}/ does not match the "o" in "Bob," but matches the first two instances of the letter o in "foooood."`  |
-|`{n,}`  |Entspricht mindestens n Vorkommen \(n ist ein nicht\-negative ganze Zahl\).  |`/o{2,}/ does not match the "o" in "Bob" but matches all of the instances of the letter o in "foooood." /o{1,}/ is equivalent to /o+/.`  |
-|`{n,m}`  |Entspricht mindestens n und höchstens Mio. Mal \(m und n sind nicht\-negative ganze Zahlen\).  |`/o{1,3}/ matches the first three instances of the letter o in "fooooood."`  |
-|`[xyz]`  |Entspricht einem beliebigen die eingeschlossenen Zeichen \(einen Zeichensatz\).  |`/[abc]/ matches the "a" in "plain."`  |
-|`[^xyz]`  |Stimmt mit jedem Zeichen, die nicht eingeschlossen sind \(einen negativen Zeichensatz\).  |`/[^abc]/ matches the "p" in "plain."`  |
-|`\b`  |Entspricht einer Wortgrenze \(z. B. ein Leerzeichen\).  |`/ea*r\b/ matches the "er" in "never early."`  |
-|`\B`  |Entspricht einer Wortgrenze.  |`/ea*r\B/ matches the "ear" in "never early."`  |
-|`\d`  |Entspricht einem numerischen Zeichen \(entspricht Ziffern von 0 bis 9\).  | &nbsp; |
-|`\D`  |Entspricht einem Zeichen keine Ziffer ist \(entspricht `[^0-9]` \).  | &nbsp; |
-|`\f`  |Entspricht einem Seitenvorschubzeichen Zeichen.  | &nbsp; |
-|`\n`  |Entspricht einem Zeilenvorschub.  | &nbsp; |
-|`\r`  |Entspricht einem Wagenrücklaufzeichen.  | &nbsp; |
-|`\s`  |Entspricht einer beliebigen Leerstelle, Leerzeichen, Tabstopp und Seitenvorschubzeichen \(entspricht `[ \f\n\r\t\v]` \).  | &nbsp; |
-|`\S`  |Entspricht jedem beliebigen Zeichen ohne Leerraum \(entspricht `[^ \f\n\r\t\v]` \).  | &nbsp; |
-|`\t`  |Entspricht einem Tabstoppzeichen.  | &nbsp; |
-|`\v`  |Entspricht einem vertikalen Tabulator-Zeichen.  | &nbsp; |
-|`\w`  |Entspricht einem beliebigen Wortzeichen, einschließlich des Unterstrichs \(entspricht `[A-Za-z0-9_]` \).  | &nbsp; |
-|`\W`  |Entspricht nicht\-Wortzeichen, mit Ausnahme der Unterstrich \(entspricht `[^A-Za-z0-9_]` \).  | &nbsp; |
-|`\num`  |Bezieht sich auf gespeicherte Übereinstimmungen \( `?num`, wobei die Anzahl eine positive ganze Zahl ist\).  Diese Option kann verwendet werden, nur in der **ersetzen** Textfeld beim Konfigurieren der Bearbeitung des Attributs.| `\1` ersetzt, was in der ersten gespeicherten Übereinstimmung gespeichert ist.  |
-|`/n/ `  |Ermöglicht das Einfügen von ASCII-Codes in regulären Ausdrücken \( `?n`, wobei n eine Oktal-, Hexadezimal- oder Dezimalformat Escapewert ist\).  | &nbsp; |
+
+|  Zeichen  |                                                                                 Beschreibung                                                                                  |                                                                 Beispiel                                                                 |
+|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
+|     `\`     |                                                              Markiert das nächste Zeichen als ein Zeichen übereinstimmen.                                                               |                      `/n/ matches the character "n". The sequence /\n/ matches a line feed or newline character.`                       |
+|     `^`     |                                                                 Mit dem Anfang der Eingabe oder Zeile übereinstimmt.                                                                  |                                                                 &nbsp;                                                                  |
+|     `$`     |                                                                    Entspricht das Ende der Eingabe oder Zeile an.                                                                     |                                                                 &nbsp;                                                                  |
+|     `*`     |                                                             Entspricht das vorangehenden Zeichen NULL oder mehr Vorkommen.                                                              |                                                  `/zo*/ matches either "z" or "zoo."`                                                   |
+|     `+`     |                                                              Entspricht das vorangehenden Zeichen einmal oder mehrmals.                                                              |                                                   `/zo+/ matches "zoo" but not "z."`                                                    |
+|     `?`     |                                                              Steht für den vorherigen Zeichen NULL oder ein Vorkommen.                                                              |                                                 `/a?ve?/ matches the "ve" in "never."`                                                  |
+|     `.`     |                                                           Entspricht jedem beliebigen einzelnes Zeichen außer einem Zeilenumbruchzeichen.                                                           |                                                                 &nbsp;                                                                  |
+| `(pattern)` |                         Entspricht "Muster", und speichert die Übereinstimmung.<br />Entsprechend die Literalzeichen `(` und `)` (Klammern), verwenden Sie `\(` oder `\)`.                         |                                                                 &nbsp;                                                                  |
+|     \`x     |                                                                                     y \`                                                                                     |                                                         Entspricht x oder y.                                                          |
+|   `{n} `    |                                                          Entspricht genau n Vorkommen \(n ist ein nicht\-negative ganze Zahl\).                                                           |               `/o{2}/ does not match the "o" in "Bob," but matches the first two instances of the letter o in "foooood."`               |
+|   `{n,}`    |                                                          Entspricht mindestens n Vorkommen \(n ist ein nicht\-negative ganze Zahl\).                                                          | `/o{2,}/ does not match the "o" in "Bob" but matches all of the instances of the letter o in "foooood." /o{1,}/ is equivalent to /o+/.` |
+|   `{n,m}`   |                                                Entspricht mindestens n und höchstens Mio. Mal \(m und n sind nicht\-negative ganze Zahlen\).                                                |                               `/o{1,3}/ matches the first three instances of the letter o in "fooooood."`                               |
+|   `[xyz]`   |                                                       Entspricht einem beliebigen die eingeschlossenen Zeichen \(einen Zeichensatz\).                                                        |                                                  `/[abc]/ matches the "a" in "plain."`                                                  |
+|  `[^xyz]`   |                                                  Stimmt mit jedem Zeichen, die nicht eingeschlossen sind \(einen negativen Zeichensatz\).                                                  |                                                 `/[^abc]/ matches the "p" in "plain."`                                                  |
+|    `\b`     |                                                              Entspricht einer Wortgrenze \(z. B. ein Leerzeichen\).                                                               |                                              `/ea*r\b/ matches the "er" in "never early."`                                              |
+|    `\B`     |                                                                         Entspricht einer Wortgrenze.                                                                          |                                             `/ea*r\B/ matches the "ear" in "never early."`                                              |
+|    `\d`     |                                                       Entspricht einem numerischen Zeichen \(entspricht Ziffern von 0 bis 9\).                                                        |                                                                 &nbsp;                                                                  |
+|    `\D`     |                                                           Entspricht einem Zeichen keine Ziffer ist \(entspricht `[^0-9]` \).                                                           |                                                                 &nbsp;                                                                  |
+|    `\f`     |                                                                        Entspricht einem Seitenvorschubzeichen Zeichen.                                                                        |                                                                 &nbsp;                                                                  |
+|    `\n`     |                                                                        Entspricht einem Zeilenvorschub.                                                                        |                                                                 &nbsp;                                                                  |
+|    `\r`     |                                                                     Entspricht einem Wagenrücklaufzeichen.                                                                     |                                                                 &nbsp;                                                                  |
+|    `\s`     |                                   Entspricht einer beliebigen Leerstelle, Leerzeichen, Tabstopp und Seitenvorschubzeichen \(entspricht `[ \f\n\r\t\v]` \).                                   |                                                                 &nbsp;                                                                  |
+|    `\S`     |                                                  Entspricht jedem beliebigen Zeichen ohne Leerraum \(entspricht `[^ \f\n\r\t\v]` \).                                                   |                                                                 &nbsp;                                                                  |
+|    `\t`     |                                                                           Entspricht einem Tabstoppzeichen.                                                                           |                                                                 &nbsp;                                                                  |
+|    `\v`     |                                                                      Entspricht einem vertikalen Tabulator-Zeichen.                                                                       |                                                                 &nbsp;                                                                  |
+|    `\w`     |                                              Entspricht einem beliebigen Wortzeichen, einschließlich des Unterstrichs \(entspricht `[A-Za-z0-9_]` \).                                              |                                                                 &nbsp;                                                                  |
+|    `\W`     |                                           Entspricht nicht\-Wortzeichen, mit Ausnahme der Unterstrich \(entspricht `[^A-Za-z0-9_]` \).                                           |                                                                 &nbsp;                                                                  |
+|   `\num`    | Bezieht sich auf gespeicherte Übereinstimmungen \( `?num`, wobei die Anzahl eine positive ganze Zahl ist\).  Diese Option kann verwendet werden, nur in der **ersetzen** Textfeld beim Konfigurieren der Bearbeitung des Attributs. |                                       `\1` ersetzt, was in der ersten gespeicherten Übereinstimmung gespeichert ist.                                       |
+|   `/n/ `    |                      Ermöglicht das Einfügen von ASCII-Codes in regulären Ausdrücken \( `?n`, wobei n eine Oktal-, Hexadezimal- oder Dezimalformat Escapewert ist\).                       |                                                                 &nbsp;                                                                  |
 
 ## <a name="examples-for-network-policy-attributes"></a>Beispiele für die Netzwerk-Richtlinienattribute
 
@@ -81,7 +82,7 @@ In einem Szenario mit externes DFÜ-Verbindung in der Internet-service-Anbieter 
 
 - Ersetzen Sie:
 
-**Ersetzen *user@example.microsoft.com* mit *example.microsoft.com\user***
+**Ersetzen <em>user@example.microsoft.com</em> mit *example.microsoft.com\user***
 
 - Suchen Sie nach:`(.*)@(.*)`
 
@@ -97,7 +98,7 @@ In einem Szenario mit externes DFÜ-Verbindung in der Internet-service-Anbieter 
 
 
 
-**Ersetzen *Benutzer* mit *user@specific_domain***
+<strong>Ersetzen *Benutzer* mit *user@specific_domain</strong>*
 
 - Suchen Sie nach:`$`
 

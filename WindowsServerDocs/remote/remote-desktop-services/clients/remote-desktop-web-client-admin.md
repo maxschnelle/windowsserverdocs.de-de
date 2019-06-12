@@ -8,12 +8,12 @@ ms.date: 11/2/2018
 ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
-ms.openlocfilehash: bf10f7f7444967247e51065bc6138fc0afd5ed1a
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.openlocfilehash: 45164e9eca0873c82148aa3b7baa179a3f626dd7
+ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65976779"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66804974"
 ---
 # <a name="set-up-the-remote-desktop-web-client-for-your-users"></a>Einrichten des Remotedesktop-Webclients für Ihre Benutzer
 
@@ -216,7 +216,7 @@ Dieser Abschnitt beschreibt, wie Sie eine Verbindung zu einem Remotedesktop-Brok
     >
     > In der Liste der SSL-zertifikatbindungen stellen Sie sicher, dass das richtige Zertifikat an Port 3392 gebunden ist.
 
-3. Öffnen Sie die Windows-Registrierung (Regedit) und Nagivate zu ```HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp``` und suchen Sie den Registrierungsschlüssel **WebSocketURI**. Der Wert muss festgelegt werden, um **https://+:3392/rdp/**.
+3. Öffnen Sie die Windows-Registrierung (Regedit) und Nagivate zu ```HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp``` und suchen Sie den Registrierungsschlüssel **WebSocketURI**. Der Wert muss festgelegt werden, um <strong>https://+:3392/rdp/</strong>.
 
 ### <a name="setting-up-the-rd-session-host"></a>Einrichten der Remotedesktop-Sitzungshost
 Wenn der Remotedesktop-Sitzungshostserver den Remotedesktop-Verbindungsbrokerserver unterscheidet, gehen Sie folgendermaßen vor:
@@ -238,7 +238,7 @@ Wenn der Remotedesktop-Sitzungshostserver den Remotedesktop-Verbindungsbrokerser
     >
     > In der Liste der SSL-zertifikatbindungen stellen Sie sicher, dass das richtige Zertifikat an Port 3392 gebunden ist.
 
-3. Öffnen Sie die Windows-Registrierung (Regedit) und Nagivate zu ```HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp``` und suchen Sie den Registrierungsschlüssel **WebSocketURI**. Der Wert muss festgelegt werden, um **https://+:3392/rdp/**.
+3. Öffnen Sie die Windows-Registrierung (Regedit) und Nagivate zu ```HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp``` und suchen Sie den Registrierungsschlüssel **WebSocketURI**. Der Wert muss festgelegt werden, um <https://+:3392/rdp/>.
 
 ### <a name="general-observations"></a>Allgemeine Beobachtungen
 

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 324da8de153a5487c9d71872cd154928cc24c285
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9122c5c0fa8c42b0ccfc77ceb3f2d337b44ee5dc
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848821"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441559"
 ---
 # <a name="seceditanalyze"></a>Secedit: Analysieren
 
@@ -46,7 +46,7 @@ Secedit /analyze /db <database file name> [/cfg <configuration file name>] [/ove
 
 Die Analyseergebnisse werden in einem separaten Bereich der Datenbank gespeichert und können in der Sicherheitskonfiguration und des Analysis-Snap-Ins zur MMC angezeigt werden.
 
-Wenn der Pfad für die Protokolldatei nicht, die Standardprotokolldatei, bereitgestellt wird (*Systemroot*\Documents and Settings\*UserAccount*\My Documents\Security\Logs\*DatabaseName*. Protokoll) wird verwendet.
+Wenn der Pfad für die Protokolldatei nicht, die Standardprotokolldatei, bereitgestellt wird (*Systemroot*\Documents and Settings\*UserAccount<em>\My Documents\Security\Logs\*DatabaseName</em>. Protokoll) wird verwendet.
 
 In Windows Server 2008 `Secedit /refreshpolicy` wurde durch ersetzt `gpupdate`. Informationen zum Aktualisieren von Sicherheitseinstellungen, finden Sie unter [Gpupdate](gpupdate.md).
 
@@ -64,4 +64,4 @@ Secedit /analyze /db C:\Security\FY11\SecDbContoso.sdb /cfg SecContoso.inf /over
 #### <a name="additional-references"></a>Weitere Verweise
 
 -   [Secedit](secedit.md)
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

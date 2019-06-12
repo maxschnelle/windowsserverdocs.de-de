@@ -9,16 +9,16 @@ ms.topic: article
 author: cosmosdarwin
 ms.date: 10/08/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 227906685d77c31587c66d1c292f20ca94775058
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d16a9ddea96760b41c6cd2e4239b9bb51c8b3b38
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59881051"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501642"
 ---
 # <a name="choosing-drives-for-storage-spaces-direct"></a>Auswählen von Laufwerken für Direkte Speicherplätze
 
->Gilt für: Windows Server 2016
+>Gilt für: 2019 für Windows, WindowsServer 2016
 
 Dieses Thema enthält Informationen zum Auswählen von Laufwerken für [Direkte Speicherplätze](storage-spaces-direct-overview.md), um Ihre Leistungs- und Kapazitätsanforderungen zu erfüllen.
 
@@ -116,7 +116,7 @@ Der Cache sollte Größe angepasst werden, die zur Aufnahme der Arbeitssatz Ihre
 
 Es wird empfohlen, die gesamte Speicherkapazität pro Server auf etwa 100 Terabytes (TB) zu beschränken. Je mehr Speicherkapazität pro Server existiert, desto länger dauert die Neusynchronisierung der Daten nach dem Herunterfahren des Systems oder nach einem Neustart wie z. B. beim Aktualisieren von Software.
 
-Die aktuelle maximale Größe pro Speicherpool beträgt 1 Petabyte (PB) oder 1000 TB.
+Die aktuelle maximale Größe pro Speicherpool ist 4 im petabytebereich (PB) (4.000 TB) für Windows Server-2019 oder 1 Petabyte für für Windows Server 2016.
 
 ## <a name="see-also"></a>Siehe auch
 
@@ -124,4 +124,4 @@ Die aktuelle maximale Größe pro Speicherpool beträgt 1 Petabyte (PB) oder 100
 - [Verstehen des Caches in "direkte Speicherplätze"](understand-the-cache.md)
 - [Storage Spaces Direct-hardwareanforderungen](storage-spaces-direct-hardware-requirements.md)
 - [Planen von Volumes im "direkte Speicherplätze"](plan-volumes.md)
-- [Fault Tolerance und Speicher Effizienz](storage-spaces-fault-tolerance.md)
+- [Fehlertoleranz und Speichereffizienz](storage-spaces-fault-tolerance.md)

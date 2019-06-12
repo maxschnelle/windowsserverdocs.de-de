@@ -6,14 +6,14 @@ ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 ms.technology: storage-failover-clustering
-ms.date: 04/05/2018
+ms.date: 06/07/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 00f29c70628f2869e9f3aeffd0d08032bce5aeda
-ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
+ms.openlocfilehash: b41ebd0bb822875a3114de4a849ea3ec5decee11
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65034180"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810886"
 ---
 # <a name="use-cluster-shared-volumes-in-a-failover-cluster"></a>Verwenden von freigegebenen Clustervolumes in einem Failovercluster
 
@@ -26,15 +26,15 @@ Freigegebene Clustervolumes stellen ein allgemeines Dateisystem, das über NTFS 
 - VHD-Clusterdateien für virtuelle Hyper-V-Clustercomputer
 - Dateifreigaben mit horizontaler Skalierung zum Speichern von Anwendungsdaten für die Clusterrolle „Dateiserver mit horizontaler Skalierung“. Beispiele für die Anwendungsdaten dieser Rolle umfassen Dateien von virtuellen Hyper-V-Computern und Microsoft SQL Server-Daten. (Beachten Sie, dass ReFS für einen Dateiserver mit horizontaler Skalierung nicht unterstützt wird.) Weitere Informationen zu den Scale-Out File Server, finden Sie unter [Scale-Out File Server für Anwendungsdaten](sofs-overview.md).
 
->[!NOTE]
->Freigegebene Clustervolumes unterstützen die Microsoft SQL Server-Clusterarbeitsauslastung in SQL Server 2012 und früheren Versionen von SQL Server nicht.
+> [!NOTE]
+> Freigegebene Clustervolumes unterstützen nicht die Microsoft SQL Server-clusterarbeitsauslastung in SQL Server 2012 und früheren Versionen von SQL Server.
 
 In Windows Server 2012 wurde die CSV-Funktionalität erheblich erweitert. Abhängigkeiten von Active Directory-Domänendiensten wurden z. B. entfernt. Für die funktionalen Verbesserungen in **chkdsk**, für die Interoperabilität mit Antiviren- und Sicherungsanwendungen sowie für die Integration mit allgemeinen Speicherfeatures wie BitLocker-verschlüsselte Volumes und Speicherplätzen wurde die entsprechende Unterstützung hinzugefügt. Einen Überblick über die CSV-Funktionen, die in Windows Server 2012 eingeführt wurde, finden Sie unter [neues beim Failoverclustering unter Windows Server 2012 \[umgeleitet\]](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265972(v%3dws.11)>).
 
 Windows Server 2012 R2 wurden weitere Funktionen, z. B. der verteilte CSV-Besitz, eine erhöhte resilienz durch die Verfügbarkeit des Serverdiensts, größere Flexibilität hinsichtlich der Menge des physischen Speichers, der Sie CSV-Cache, besser zuteilen können eingeführt. diagnosemöglichkeiten und verbesserte Interoperabilität, Unterstützung für ReFS und die Deduplizierung umfasst. Weitere Informationen finden Sie unter [neues beim Failoverclustering](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265972(v%3dws.11)>).
 
->[!NOTE]
->Informationen zur Verwendung der Datendeduplizierung auf freigegebenen Clustervolumes für VDI-Szenarien (Virtual Desktop Infrastructure) finden Sie in den Blogbeiträgen [Deploying Data Deduplication for VDI storage in Windows Server 2012 R2](https://blogs.technet.com/b/filecab/archive/2013/07/31/deploying-data-deduplication-for-vdi-storage-in-windows-server-2012-r2.aspx) und [Extending Data Deduplication to new workloads in Windows Server 2012 R2](https://blogs.technet.com/b/filecab/archive/2013/07/31/extending-data-deduplication-to-new-workloads-in-windows-server-2012-r2.aspx)(beide in englischer Sprache).
+> [!NOTE]
+> Informationen zur Verwendung der Datendeduplizierung auf freigegebenen Clustervolumes für VDI-Szenarien (Virtual Desktop Infrastructure) finden Sie in den Blogbeiträgen [Deploying Data Deduplication for VDI storage in Windows Server 2012 R2](https://blogs.technet.com/b/filecab/archive/2013/07/31/deploying-data-deduplication-for-vdi-storage-in-windows-server-2012-r2.aspx) und [Extending Data Deduplication to new workloads in Windows Server 2012 R2](https://blogs.technet.com/b/filecab/archive/2013/07/31/extending-data-deduplication-to-new-workloads-in-windows-server-2012-r2.aspx)(beide in englischer Sprache).
 
 ## <a name="review-requirements-and-considerations-for-using-csv-in-a-failover-cluster"></a>Überprüfen der Anforderungen und Überlegungen zur Verwendung von CSV in einem Failovercluster
 
@@ -81,7 +81,7 @@ Der Server verwendet in Abhängigkeit von der Situation einen der folgenden E/A-
 
 In Windows Server 2012 R2 können Sie den Status eines CSV-Volumes auf Knotenbasis anzeigen. Sie können z. B. erkennen, ob die E/A-Vorgänge direkt oder umgeleitet erfolgen, oder ob das CSV-Volume möglicherweise nicht verfügbar ist. Wenn sich ein CSV-Volume im E/A-Umleitungsmodus befindet, wird auch der Grund hierfür angezeigt. Verwenden Sie das Windows PowerShell-Cmdlet **Get-ClusterSharedVolumeState**, um diese Informationen anzuzeigen.
 
->[!NOTE]
+> [!NOTE]
 > * In Windows Server 2012 aufgrund des optimierten CSV-Designs, führen freigegebene Clustervolumes mehr Vorgänge im direkten e/a-Modus als in Windows Server 2008 R2 aufgetreten ist.
 > * Aufgrund der Integration von CSV mit SMB 3.0-Features wie SMB Multichannel und SMB Direct kann der umgeleitete E/A-Datenverkehr über mehrere Clusternetzwerke geleitet werden.
 > * Sie sollten für Ihre Clusternetzwerke während der E/A-Umleitung eine mögliche Zunahme des Netzwerkdatenverkehrs zum Koordinatorknoten berücksichtigen.
@@ -116,8 +116,8 @@ Die Knoten müssen zur Verwendung von CSV die folgenden Anforderungen erfüllen:
 
 Dieser Abschnitt enthält Überlegungen und Empfehlungen für die Verwendung von CSV in einem Failovercluster unter Windows Server 2012 R2 oder Windows Server 2012 Planung.
 
->[!IMPORTANT]
->Fragen Sie Ihren Speicheranbieter, um Empfehlungen zur Konfiguration Ihrer Speichereinheit für CSV zu erhalten. Wenn die Empfehlungen des Speicheranbieters von den Informationen in diesem Thema abweichen, richten Sie sich nach den Empfehlungen des Speicheranbieters.
+> [!IMPORTANT]
+> Fragen Sie Ihren Speicheranbieter, um Empfehlungen zur Konfiguration Ihrer Speichereinheit für CSV zu erhalten. Wenn die Empfehlungen des Speicheranbieters von den Informationen in diesem Thema abweichen, richten Sie sich nach den Empfehlungen des Speicheranbieters.
 
 ### <a name="arrangement-of-luns-volumes-and-vhd-files"></a>Anordnung von LUNs, Volumes und VHD-Dateien
 
@@ -198,31 +198,14 @@ Der CSV-Cache ermöglicht das Zwischenspeichern von ungepufferten E/A-Vorgängen
 >[!NOTE]
 >Es wird empfohlen, dass Sie den CSV-Cache für alle geclusterten Hyper-V- und Dateiserverbereitstellungen mit horizontaler Skalierung aktivieren.
 
-Standardmäßig in Windows Server 2012 ist der CSV-Cache deaktiviert. In Windows Server 2012 R2 ist der CSV-Cache standardmäßig aktiviert. Sie müssen jedoch weiterhin die Größe des zu reservierenden Blockcache zuweisen.
+Standardmäßig in Windows Server 2012 ist der CSV-Cache deaktiviert. In Windows Server 2012 R2 und höher ist der CSV-Cache standardmäßig aktiviert. Sie müssen jedoch weiterhin die Größe des zu reservierenden Blockcache zuweisen.
 
 In der folgenden Tabelle werden die beiden Konfigurationseinstellungen beschrieben, die den CSV-Cache steuern.
 
-<table>
-<thead>
-<tr class="header">
-<th>Eigenschaftenname in Windows Server 2012 R2</th>
-<th>Eigenschaftenname in WindowsServer 2012</th>
-<th>Beschreibung</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>BlockCacheSize</strong></td>
-<td><strong>SharedVolumeBlockCacheSizeInMB</strong></td>
-<td>Dies ist eine allgemeine Clustereigenschaft, mit der Sie festlegen können, wie viel Systemspeicher (in Megabytes) für den CSV-Cache auf den einzelnen Knoten im Cluster reserviert wird. Wenn Sie z. B. den Wert „512“ festlegen, werden 512 MB des Systemspeichers auf jedem Knoten reserviert. (Bei vielen Clustern ist 512 MB der empfohlene.) Die Standardeinstellung ist 0 (deaktiviert).</td>
-</tr>
-<tr class="even">
-<td><strong>EnableBlockCache</strong></td>
-<td><strong>CsvEnableBlockCache</strong></td>
-<td>Dies ist eine private Eigenschaft der physischen Datenträgerressource des Clusters. Mit dieser Eigenschaft können Sie den CSV-Cache auf einem einzelnen Datenträger aktivieren, der zum CSV hinzugefügt wird. In Windows Server 2012 wird die Standardeinstellung 0 (deaktiviert). Legen Sie den Wert 1 fest, um den CSV-Cache auf einem Datenträger zu aktivieren. Diese Einstellung ist standardmäßig in Windows Server 2012 R2 aktiviert.</td>
-</tr>
-</tbody>
-</table>
+| Windows Server 2012 R2 und höher |  Windows Server 2012                 | Beschreibung |
+| -------------------------------- | ------------------------------------ | ----------- |
+| BlockCacheSize                   | SharedVolumeBlockCacheSizeInMB       | Dies ist eine allgemeine Clustereigenschaft, mit der Sie festlegen können, wie viel Systemspeicher (in Megabytes) für den CSV-Cache auf den einzelnen Knoten im Cluster reserviert wird. Wenn Sie z. B. den Wert „512“ festlegen, werden 512 MB des Systemspeichers auf jedem Knoten reserviert. (Bei vielen Clustern ist 512 MB der empfohlene.) Die Standardeinstellung ist 0 (deaktiviert). |
+| EnableBlockCache                 | CsvEnableBlockCache                  | Dies ist eine private Eigenschaft der physischen Datenträgerressource des Clusters. Mit dieser Eigenschaft können Sie den CSV-Cache auf einem einzelnen Datenträger aktivieren, der zum CSV hinzugefügt wird. In Windows Server 2012 wird die Standardeinstellung 0 (deaktiviert). Legen Sie den Wert 1 fest, um den CSV-Cache auf einem Datenträger zu aktivieren. Diese Einstellung ist standardmäßig in Windows Server 2012 R2 aktiviert. |
 
 Sie können den CSV-Cache über den Systemmonitor überwachen, indem Sie die Indikatoren unter **Cache für freigegebene Clustervolumes**hinzufügen.
 
@@ -231,7 +214,7 @@ Sie können den CSV-Cache über den Systemmonitor überwachen, indem Sie die Ind
 1. Starten Sie Windows PowerShell als Administrator an.
 2. Geben Sie Folgendes ein, um einen Cache von *512* MB auf den einzelnen Knoten zu reservieren:
 
-    - Für Windows Server 2012 R2:
+    - Für Windows Server 2012 R2 und höher:
 
         ```PowerShell
         (Get-Cluster).BlockCacheSize = 512  
@@ -249,14 +232,14 @@ Sie können den CSV-Cache über den Systemmonitor überwachen, indem Sie die Ind
     ```
 
 >[!NOTE]
-> * In Windows Server 2012 können Sie nur 20 % des gesamten physischen RAM auf dem CSV-Cache zuweisen. In Windows Server 2012 R2 können Sie bis zu 80 % zuweisen. Da Dateiserver mit horizontaler Skalierung in der Regel keine Speichereinschränkungen aufweisen, können Sie die Leistung erheblich steigern, indem Sie den zusätzlichen Arbeitsspeicher für den CSV-Cache verwenden.
-> * Um Ressourcenkonflikte zu vermeiden, sollten Sie jeden Knoten im Cluster neu starten, nachdem der Speicher geändert wurde, der die den CSV-Cache zugewiesen ist. In Windows Server 2012 R2 ist ein Neustart nicht mehr erforderlich.
-> * Nachdem Sie den CSV-Cache auf einem einzelnen Datenträger aktiviert oder deaktiviert haben, müssen Sie die physische Datenträgerressource offline und anschließend wieder online schalten, damit die Einstellung wirksam wird. (Standardmäßig unter Windows Server 2012 R2, ist der CSV-Cache aktiviert.) 
+> * In Windows Server 2012 können Sie nur 20 % des gesamten physischen RAM auf dem CSV-Cache zuweisen. In Windows Server 2012 R2 und höher können Sie bis zu 80 % zuweisen. Da Dateiserver mit horizontaler Skalierung in der Regel keine Speichereinschränkungen aufweisen, können Sie die Leistung erheblich steigern, indem Sie den zusätzlichen Arbeitsspeicher für den CSV-Cache verwenden.
+> * Um Ressourcenkonflikte zu vermeiden, sollten Sie jeden Knoten im Cluster neu starten, nachdem der Speicher geändert wurde, der die den CSV-Cache zugewiesen ist. In Windows Server 2012 R2 und höher, ist ein Neustart nicht mehr erforderlich.
+> * Nachdem Sie den CSV-Cache auf einem einzelnen Datenträger aktiviert oder deaktiviert haben, müssen Sie die physische Datenträgerressource offline und anschließend wieder online schalten, damit die Einstellung wirksam wird. (Standardmäßig in Windows Server 2012 R2 und höher ist der CSV-Cache aktiviert.) 
 > * Weitere Informationen zum CSV-Cache, einschließlich Informationen zu Leistungsindikatoren, finden Sie im Blogbeitrag [How to Enable CSV Cache](https://blogs.msdn.microsoft.com/clustering/2013/07/19/how-to-enable-csv-cache/)(in englischer Sprache).
 
-## <a name="back-up-csv"></a>Sichern von freigegebenen Clustervolumes
+## <a name="backing-up-csvs"></a>Sichern von CSVs
 
-Es gibt mehrere Methoden, um Informationen zu sichern, die in einem Failovercluster auf freigegebenen Clustervolumes gespeichert werden. Sie können eine Microsoft-Sicherungsanwendung oder eine nicht von Microsoft stammende Anwendung verwenden. Im Allgemeinen erfordern freigegebene Clustervolumes (CSV) keine besonderen Sicherungsanforderungen. Lediglich der Clusterspeicher muss mit NTFS oder ReFS formatiert werden. Zudem unterbrechen CSV-Sicherungen keine anderen CSV-Speichervorgänge.
+Es gibt mehrere Methoden zum Sichern von Informationen, die in einem Failovercluster auf freigegebenen Clustervolumes gespeichert sind. Sie können eine Microsoft-Sicherungsanwendung oder eine nicht von Microsoft stammende Anwendung verwenden. Im Allgemeinen erfordern freigegebene Clustervolumes (CSV) keine besonderen Sicherungsanforderungen. Lediglich der Clusterspeicher muss mit NTFS oder ReFS formatiert werden. Zudem unterbrechen CSV-Sicherungen keine anderen CSV-Speichervorgänge.
 
 Bei der Auswahl einer Sicherungsanwendung und eines Sicherungszeitplans für CSV sollten Sie die folgenden Faktoren berücksichtigen:
 
@@ -266,11 +249,11 @@ Bei der Auswahl einer Sicherungsanwendung und eines Sicherungszeitplans für CSV
 - Freigegebene Clustervolumes unterstützen sicherungsanforderer, auf denen Windows Server 2012 R2-Sicherung "," Windows Server 2012-Sicherung "oder" Windows Server 2008 R2-Sicherung ausgeführt werden. Die Windows Server-Sicherung bietet im Allgemeinen jedoch nur eine einfache Sicherungslösung, die möglicherweise nicht für Organisation mit großen Clustern geeignet ist. Die Windows Server-Sicherung unterstützt keine anwendungskonsistente Sicherung virtueller Computer auf freigegebenen Clustervolumes. Sie unterstützt ausschließlich die absturzkonsistente Sicherung auf Volumeebene. (Wenn Sie eine absturzkonsistente Sicherung wiederherstellen, befindet sich der virtuelle Computer in demselben Zustand, in dem er sich bei der Erstellung der Sicherung befunden hat.) Die Sicherung eines virtuellen Computers auf einem CSV-Volume wird erfolgreich ausgeführt, aber es wird ein Fehlerereignis aufgezeichnet, das auf die fehlende Unterstützung hinweist.
 - Zum Sichern eines Failoverclusters sind möglicherweise Administratoranmeldeinformationen erforderlich.
 
->[!IMPORTANT]
+> [!IMPORTANT]
 >Überprüfen Sie sorgfältig, welche Daten von der Sicherungsanwendung gesichert und wiederhergestellt werden, welche CSV-Features unterstützt werden und welche Ressourcenanforderungen für die Anwendung auf den einzelnen Clusterknoten erforderlich sind.
 
->[!WARNING]
->Wenn Sie die Sicherungsdaten auf einem CSV-Volume wiederherstellen müssen, beachten Sie die Möglichkeiten und Einschränkungen der Sicherungsanwendung hinsichtlich der Verwaltung und Wiederherstellung anwendungskonsistenter Daten auf den verschiedenen Clusterknoten. Wenn das freigegebene Clustervolume z. B. bei einigen Anwendungen auf einem anderen Knoten als bei der Sicherung wiederherstellt wird, können Sie auf dem Knoten, auf dem die Wiederherstellung erfolgt, versehentlich wichtige Daten zum Anwendungsstatus überschreiben.
+> [!WARNING]
+> Wenn Sie die Sicherungsdaten auf einem CSV-Volume wiederherstellen müssen, beachten Sie die Möglichkeiten und Einschränkungen der Sicherungsanwendung hinsichtlich der Verwaltung und Wiederherstellung anwendungskonsistenter Daten auf den verschiedenen Clusterknoten. Wenn das freigegebene Clustervolume z. B. bei einigen Anwendungen auf einem anderen Knoten als bei der Sicherung wiederherstellt wird, können Sie auf dem Knoten, auf dem die Wiederherstellung erfolgt, versehentlich wichtige Daten zum Anwendungsstatus überschreiben.
 
 ## <a name="more-information"></a>Weitere Informationen
 

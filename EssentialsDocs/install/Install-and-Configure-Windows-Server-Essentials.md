@@ -12,12 +12,12 @@ ms.assetid: e95cf219-46a4-4041-bd81-0c4c2a0622cf
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: cdad118c30fbf303b55ec7ea25bbe3e209c016db
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 48fa18d5baf7d4b48b14cbda5a513c487920d70a
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870161"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433476"
 ---
 # <a name="install-and-configure-windows-server-essentials"></a>Installieren und Konfigurieren von Windows Server Essentials
 
@@ -53,32 +53,32 @@ ms.locfileid: "59870161"
   
 ##### <a name="to-install-the-operating-system"></a>So installieren Sie das Betriebssystem  
   
-1.  Verbinden Sie den Computer über ein Netzwerkkabel mit dem Netzwerk.  
+1. Verbinden Sie den Computer über ein Netzwerkkabel mit dem Netzwerk.  
   
-    > [!IMPORTANT]
-    >  Trennen Sie den Computer während der Installation nicht vom Netzwerk. Dies kann zu einem Fehler bei der Installation führen.  
+   > [!IMPORTANT]
+   >  Trennen Sie den Computer während der Installation nicht vom Netzwerk. Dies kann zu einem Fehler bei der Installation führen.  
   
-2.  Aktivieren Sie auf Ihrem Computer, und klicken Sie dann die Windows Server Essentials-DVD in das DVD-Laufwerk eingefügt.  
+2. Aktivieren Sie auf Ihrem Computer, und klicken Sie dann die Windows Server Essentials-DVD in das DVD-Laufwerk eingefügt.  
   
-     Wenn Sie eine unbeaufsichtigte Installation ausführen, stellen Sie eine Verbindung mit dem Wechselmedium (z. B. einer Diskette oder einem USB-Speicherstick) her, auf dem sich die Antwortdateien befinden. Je nach Inhalt der Antwortdateien sind einige oder alle der folgenden Installationsbildschirme für Sie nicht sichtbar.  
+    Wenn Sie eine unbeaufsichtigte Installation ausführen, stellen Sie eine Verbindung mit dem Wechselmedium (z. B. einer Diskette oder einem USB-Speicherstick) her, auf dem sich die Antwortdateien befinden. Je nach Inhalt der Antwortdateien sind einige oder alle der folgenden Installationsbildschirme für Sie nicht sichtbar.  
   
-3.  Starten Sie den Computer neu. Drücken Sie eine Taste, wenn Sie aufgefordert werden, **zum Starten von CD oder DVD** eine beliebige Taste zu drücken.  
+3. Starten Sie den Computer neu. Drücken Sie eine Taste, wenn Sie aufgefordert werden, **zum Starten von CD oder DVD** eine beliebige Taste zu drücken.  
   
-    > [!NOTE]
-    >  Wenn der Computer nicht über das DVD-Laufwerk startet, stellen Sie sicher, dass das CD-ROM-Laufwerk in der BIOS-Startreihenfolge an oberster Stelle steht. Weitere Informationen zur BIOS-Startreihenfolge finden Sie in der Dokumentation des Computerherstellers.  
+   > [!NOTE]
+   >  Wenn der Computer nicht über das DVD-Laufwerk startet, stellen Sie sicher, dass das CD-ROM-Laufwerk in der BIOS-Startreihenfolge an oberster Stelle steht. Weitere Informationen zur BIOS-Startreihenfolge finden Sie in der Dokumentation des Computerherstellers.  
   
-4.  Wählen Sie die **Sprache** aus, die Sie installieren möchten, das **Zeit- und Währungsformat** und die **Tastatur oder Eingabemethode**, und klicken Sie dann auf **Weiter**.  
+4. Wählen Sie die **Sprache** aus, die Sie installieren möchten, das **Zeit- und Währungsformat** und die **Tastatur oder Eingabemethode**, und klicken Sie dann auf **Weiter**.  
   
-5.  Klicken Sie auf **Jetzt installieren**.  
+5. Klicken Sie auf **Jetzt installieren**.  
   
-6.  Geben Sie in **Product Key eingeben** den Product Key ein.  
+6. Geben Sie in **Product Key eingeben** den Product Key ein.  
   
-7.  Lesen Sie die **Lizenzbedingungen**. Wenn Sie sie akzeptieren, aktivieren Sie das Kontrollkästchen **Ich akzeptiere die Lizenzbestimmungen** , und klicken Sie auf **Weiter**.  
+7. Lesen Sie die **Lizenzbedingungen**. Wenn Sie sie akzeptieren, aktivieren Sie das Kontrollkästchen **Ich akzeptiere die Lizenzbestimmungen** , und klicken Sie auf **Weiter**.  
   
-    > [!NOTE]
-    >  Wenn Sie die Lizenzbestimmungen nicht akzeptieren, wird die Installation nicht fortgesetzt.  
+   > [!NOTE]
+   >  Wenn Sie die Lizenzbestimmungen nicht akzeptieren, wird die Installation nicht fortgesetzt.  
   
-8.  In **Installationsart soll?**, klicken Sie auf **benutzerdefinierte: Nur Windows zu installieren (Erweitert)**  
+8. In **Installationsart soll?** , klicken Sie auf **benutzerdefinierte: Nur Windows zu installieren (Erweitert)**  
   
 9. Wählen Sie in **Wo möchten Sie Windows installieren?** die Festplatte aus, auf der Sie das Windows-Betriebssystem installieren möchten. Stellen Sie sicher, dass die internen Festplatten für die Installation verfügbar sind.  
   
@@ -102,15 +102,15 @@ ms.locfileid: "59870161"
         > [!IMPORTANT]
         >  Sie können das Betriebssystem nicht in eine andere Partition verschieben, nachdem Sie diesen Schritt ausgeführt haben.  
   
- Während der Installation werden temporäre Dateien in einen Installationsordner auf dem Computer kopiert. Dieser Vorgang dauert ungefähr 30 Minuten. Nach der Installation des Betriebssystems Windows Server Essentials startet den Computer neu. Jetzt können Sie das Betriebssystem Windows Server Essentials konfigurieren.  
+   Während der Installation werden temporäre Dateien in einen Installationsordner auf dem Computer kopiert. Dieser Vorgang dauert ungefähr 30 Minuten. Nach der Installation des Betriebssystems Windows Server Essentials startet den Computer neu. Jetzt können Sie das Betriebssystem Windows Server Essentials konfigurieren.  
   
 ###  <a name="BKMK_Step2Configure"></a> Schritt 2: Konfigurieren des Betriebssystems Windows Server Essentials  
   
 > [!IMPORTANT]
 >  Wenn Sie mit Windows Server Essentials von einer früheren Version von Windows Small Business Server migrieren, müssen Sie einen anderen Prozess ausführen. Informationen zu Migrationsinstallationen finden Sie unter folgenden Themen:  
->   
->  -   [Migrieren von Windows SBS 2003](../migrate/Migrate-Windows-Small-Business-Server-2003-to-Windows-Server-Essentials.md)  
-> -   [Migrieren von Windows SBS 2008](../migrate/Migrate-Windows-Small-Business-Server-2008-to-Windows-Server-Essentials.md)  
+> 
+> - [Migrieren von Windows SBS 2003](../migrate/Migrate-Windows-Small-Business-Server-2003-to-Windows-Server-Essentials.md)  
+>   -   [Migrieren von Windows SBS 2008](../migrate/Migrate-Windows-Small-Business-Server-2008-to-Windows-Server-Essentials.md)  
   
  In dieser Phase der Installation werden Sie aufgefordert, einige Fragen zu Ihrer Organisation zu beantworten. Diese Informationen werden zum Konfigurieren des Betriebssystems verwendet.  
   

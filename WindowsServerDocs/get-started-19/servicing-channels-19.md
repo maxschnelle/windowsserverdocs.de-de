@@ -8,12 +8,12 @@ author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: high
 ms.date: 05/21/2019
-ms.openlocfilehash: 625d71edd00ce404cee9525e06a2237d8be4cfcb
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.openlocfilehash: dee19cd5a30b7d913a7faeeaa38368cee8a91895
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65976459"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442293"
 ---
 # <a name="windows-server-servicing-channels-ltsc-and-sac"></a>Windows Server wartungskanälen: LTSC und SAC
 
@@ -52,14 +52,15 @@ Diese wichtigen Unterschiede sind zu berücksichtigen:
 
 In der folgenden Tabelle sind die wichtigsten Unterschiede zwischen den Kanälen zusammengefasst:
 
-|  | Long-Term Servicing Channel (Windows Server 2019) |Semi-Annual Channel (Windows Server) |
-| ------------------- | ------------------------------------ | ------------------------------------------------- |
-|Empfohlene Szenarien | Dateiserver für allgemeine Zwecke, Microsoft und nicht von Microsoft stammende Arbeitslasten, herkömmliche Apps, Infrastruktur-Rollen, Software-definierte Datacenter und hyperkonvergente Infrastruktur | Containerisierte Anwendungen, Container-Hosts und Anwendungsszenarien profitieren von schneller Innovation |
-| Neu erschienen | Alle 2 – 3 Jahre |Alle sechs Monate |
-| Support |5 Jahre grundlegender Support und 5 Jahre erweiterter Support | 18 Monate |
-| Editionen | Alle verfügbaren Editionen von Windows Server | Standard Edition und Datacenter Edition |
-| Wer kann es verwenden | Alle Kunden über alle Kanäle | Software Assurance und Cloud nur für Kunden |
-| Installationsoptions | Server Core und Server mit Desktop-Version | Server Core für Container Host und Image und Nano Server-Containerimage |                |
+
+|                       |                                                              Long-Term Servicing Channel (Windows Server 2019)                                                               |                                   Semi-Annual Channel (Windows Server)                                   |
+|-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
+| Empfohlene Szenarien | Dateiserver für allgemeine Zwecke, Microsoft und nicht von Microsoft stammende Arbeitslasten, herkömmliche Apps, Infrastruktur-Rollen, Software-definierte Datacenter und hyperkonvergente Infrastruktur | Containerisierte Anwendungen, Container-Hosts und Anwendungsszenarien profitieren von schneller Innovation |
+|     Neu erschienen      |                                                                               Alle 2 – 3 Jahre                                                                                |                                              Alle sechs Monate                                              |
+|        Support        |                                                       5 Jahre grundlegender Support und 5 Jahre erweiterter Support                                                        |                                                18 Monate                                                 |
+|       Editionen        |                                                                    Alle verfügbaren Editionen von Windows Server                                                                     |                                     Standard Edition und Datacenter Edition                                     |
+|      Wer kann es verwenden      |                                                                      Alle Kunden über alle Kanäle                                                                      |                               Software Assurance und Cloud nur für Kunden                                |
+| Installationsoptions  |                                                                Server Core und Server mit Desktop-Version                                                                |                 Server Core für Container Host und Image und Nano Server-Containerimage                 |
 
 ## <a name="device-compatibility"></a>Gerätekompatibilität
 

@@ -7,14 +7,14 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.date: 03/25/2019
+ms.date: 06/04/2019
 description: Neue und aktualisierte Themen in der lokalen Speicher für Windows Server für IT-Experten.
-ms.openlocfilehash: fa3da6e14c36fecfa48c3688a36518babb257920
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 3245e6bc5320cc0ffae01817a8f7b9caeaa6c685
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192679"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501487"
 ---
 # <a name="change-history-for-storage-topics-in-windows-server"></a>Änderungsverlauf für Speicher-Themen in Windows Server
 
@@ -22,13 +22,19 @@ ms.locfileid: "66192679"
 
 Dieses Thema listet neue und aktualisierte Themen in der [Storage](storage.md) Dokumentation zu Windows Server.
 
-> Wenn Sie für Windows Server für die Update-Verlauf suchen, finden Sie unter [Windows 10- und Windows Server 2016-Updateverlauf](https://support.microsoft.com/help/4000825/windows-10-and-windows-server-2016-update-history).
+> Wenn Sie für Windows Server für die Update-Verlauf suchen, finden Sie unter [Windows 10- und Windows Server-2019 Updateverlauf](https://support.microsoft.com/help/4464619) oder [Windows Server 2016-Update-Verlauf](https://support.microsoft.com/help/4000825/windows-10-and-windows-server-2016-update-history).
+
+## <a name="june-2019"></a>Juni 2019
+
+| Neues oder geändertes Thema                                        | Beschreibung|
+| ---                                                         | ---           |
+| [Storage Migration Service – häufig gestellte Fragen](storage-migration-service/faq.md#consolidate-servers) | Informationen zum Leistung Optimierung. |
 
 ## <a name="may-2019"></a>Mai 2019
 
 |Neues oder geändertes Thema                                        |Beschreibung|
 |---                                                         |---           |
-|[Löschen von volumes](storage-spaces/delete-volumes.md)| Neu        |
+|[Löschen von Volumes](storage-spaces/delete-volumes.md)| Neu        |
 |[Erstellen von Volumes](storage-spaces/create-volumes.md)| Wurden Schritte hinzugefügt und Videos zum Erstellen eines Volumes in Windows Admin Center.|
 |[Erweitern von Volumes](storage-spaces/resize-volumes.md)| Wurden Schritte hinzugefügt und zum Ändern der Größe eines Volumes in Windows Admin Center-Videos.|
 
@@ -36,7 +42,7 @@ Dieses Thema listet neue und aktualisierte Themen in der [Storage](storage.md) D
 
 |Neues oder geändertes Thema                                        |Beschreibung|
 |---                                                         |---           |
-|[Überwachen mit Azure Monitor](storage-spaces/configure-azure-monitor.md)| Neu|
+|[Verwenden von Azure Monitor zum Senden von E-Mails für Integritätsdienstfehler](storage-spaces/configure-azure-monitor.md)| Neu|
 |[Upgrade eines „Direkte Speicherplätze“-Clusters auf Windows Server 2019](storage-spaces/upgrade-storage-spaces-direct-to-windows-server-2019.md)| Neu        |
 |[DFS-Replikation](dfs-replication/dfsr-overview.md)        | Migriert die [Vorgängerversionen](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770278(v%3dws.11)) Bibliothek|
 
@@ -105,7 +111,7 @@ Dieses Thema listet neue und aktualisierte Themen in der [Storage](storage.md) D
 |[Bereitstellen von Speicherplätzen auf einem eigenständigen Server](storage-spaces/deploy-standalone-storage-spaces.md)|Migriert die [Vorgängerversionen](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) Bibliothek.|
 |[Übersicht über NTFS](file-server/ntfs-overview.md)|Migriert die [Vorgängerversionen](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) Bibliothek.|
 |[Verwenden Sie Robocopy Seeding-Dateien für die DFS-Replikation](dfs-replication/preseed-dfsr-with-robocopy.md)|Migriert die [Vorgängerversionen](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) Bibliothek.|
-|[Vssadmin – frühere Versionen-Befehlszeilentool](..\administration\windows-commands\vssadmin.md)|Migriert die [Vorgängerversionen](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) Bibliothek.|
+|[Vssadmin – frühere Versionen-Befehlszeilentool](../administration/windows-commands/vssadmin.md)|Migriert die [Vorgängerversionen](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) Bibliothek.|
 |[Übersicht über die Ressourcen-Manager](fsrm/fsrm-overview.md)| Zusätzliche Informationen zu einer neuen registrierungseinstellung in Windows Server 2016 Version 1803.|
 |[Server-zu-Server-Speicherreplikation](storage-replica/server-to-server-storage-replication.md)|Hinzugefügte Informationen zur Verwendung von Windows Admin Center.|
 |[Funktion "Speicherreplikat" Bekannte Probleme](storage-replica/storage-replica-known-issues.md)|Es wurden neue Informationen hinzugefügt.|
@@ -195,13 +201,13 @@ Dieses Thema listet neue und aktualisierte Themen in der [Storage](storage.md) D
 
 ## <a name="may-2017"></a>Mai 2017
 
-|Neues oder geändertes Thema|Beschreibung|
-|---|---|
-|[Datendeduplizierung (Übersicht)](data-deduplication/overview.md) und <br>[Installieren der Datendeduplizierung](data-deduplication/install-enable.md)|Aktualisiert die Systemanforderungen, um ein neueres Softwareupdate zu enthalten. |
-|[Bereitstellen von Arbeitsordnern](work-folders/deploy-work-folders.md)|Es wurden zusätzliche Informationen über die notwendigen Schritte für Support- und Aktualisierung von Azure AD-Anwendungsproxy hinzugefügt.|
-|[Bereitstellen von "direkte Speicherplätze"](storage-spaces/deploy-storage-spaces-direct.md)|Schritt 1.3 wurde mit erforderlichen Features hinzugefügt und ein veralteter Parameter in Enable-NetAdapterQos wurde repariert.||[Übersicht über Speicherreplikate](storage-replica/storage-replica-overview.md) (und anderen Speicherreplikat-Themen)|Es wurden Empfehlungen hinzugefügt, um schnelle und exklusive Speicher für die Speicherreplikatprotokolle zu verwenden.|
-|[Häufig gestellte Fragen zu Speicherreplikaten](storage-replica/storage-replica-frequently-asked-questions.md)|Es wurden Informationen über die Auswahl zwischen verschiedenen Replikationstopologien hinzugefügt.|
-|[Storage Spaces Direct-hardwareanforderungen](storage-spaces/storage-spaces-direct-hardware-requirements.md)|Die Belastbarkeitsanforderungen für Cachegeräte wurde geändert.|
+|                                                           Neues oder geändertes Thema                                                           |                                          Beschreibung                                           |
+|------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|
+| [Datendeduplizierung (Übersicht)](data-deduplication/overview.md) und <br>[Installieren der Datendeduplizierung](data-deduplication/install-enable.md) |              Aktualisiert die Systemanforderungen, um ein neueres Softwareupdate zu enthalten.               |
+|                                      [Bereitstellen von Arbeitsordnern](work-folders/deploy-work-folders.md)                                       |         Es wurden zusätzliche Informationen über die notwendigen Schritte für Support- und Aktualisierung von Azure AD-Anwendungsproxy hinzugefügt.          |
+|                            [Bereitstellen von "direkte Speicherplätze"](storage-spaces/deploy-storage-spaces-direct.md)                             | Schritt 1.3 wurde mit erforderlichen Features hinzugefügt und ein veralteter Parameter in Enable-NetAdapterQos wurde repariert. |
+|               [Häufig gestellte Fragen zu Speicherreplikaten](storage-replica/storage-replica-frequently-asked-questions.md)                |             Es wurden Informationen über die Auswahl zwischen verschiedenen Replikationstopologien hinzugefügt.              |
+|               [Storage Spaces Direct-hardwareanforderungen](storage-spaces/storage-spaces-direct-hardware-requirements.md)               |                    Die Belastbarkeitsanforderungen für Cachegeräte wurde geändert.                     |
 
 ## <a name="april-2017"></a>April 2017
 

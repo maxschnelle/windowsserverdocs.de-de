@@ -9,12 +9,12 @@ ms.prod: windows-server-hyper-v
 ms.technology: virtualization
 ms.localizationpriority: low
 ms.assetid: 6cb13f84-cb50-4e60-a685-54f67c9146be
-ms.openlocfilehash: 7af6d68b02367d349580eacb27405c6f37e97ff8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c0c2f85fbbeca9e8ac5d40bbcb71f286fabfb65c
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871991"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501674"
 ---
 # <a name="managing-hyper-v-hypervisor-scheduler-types"></a>Verwalten von Hyper-V-Hypervisor-Scheduler-Typen
 
@@ -141,7 +141,7 @@ Windows Server 2016 Hyper-V wird das Modell der klassischen Hypervisor-Scheduler
 
 ## <a name="windows-server-2019-hyper-v-defaults-to-using-the-core-scheduler"></a>Windows Server 2019 Hyper-V verwendet standardmäßig den Core-Planer
 
-Um sicherzustellen, dass Hyper-V-Hosts in die optimale Sicherheit Configuaration bereitgestellt werden, wird Windows Server 2019 Hyper-V jetzt die Core-hypervisormodell Scheduler wird standardmäßig verwendet. Der hostadministrator kann optional den Host, um die ältere klassische Scheduler verwenden konfigurieren. Administratoren sollten sorgfältig lesen, verstehen und berücksichtigen Sie die Auswirkungen, die jedes Zeitplanungsmodul-Typ für die Sicherheit und Leistung von Virtualisierungshosts vor dem Überschreiben der Einstellungen für den Scheduler Standard verfügt.  Finden Sie unter [Grundlegendes zu Hyper-V-Scheduler-Typauswahl](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/understanding-hyper-v-scheduler-type-selection) für Weitere Informationen.
+Um sicherzustellen, dass Hyper-V-Hosts in der Konfiguration für optimale Sicherheit bereitgestellt werden, wird Windows Server 2019 Hyper-V jetzt die Core-hypervisormodell Scheduler wird standardmäßig verwendet. Der hostadministrator kann optional den Host, um die ältere klassische Scheduler verwenden konfigurieren. Administratoren sollten sorgfältig lesen, verstehen und berücksichtigen Sie die Auswirkungen, die jedes Zeitplanungsmodul-Typ für die Sicherheit und Leistung von Virtualisierungshosts vor dem Überschreiben der Einstellungen für den Scheduler Standard verfügt.  Finden Sie unter [Grundlegendes zu Hyper-V-Scheduler-Typauswahl](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/understanding-hyper-v-scheduler-type-selection) für Weitere Informationen.
 
 ### <a name="required-updates"></a>Erforderliche Updates
 
@@ -169,6 +169,7 @@ Wo `type` ist einer der:
 
 * Klassisch
 * Core
+* Stamm
 
 Das System muss neu gestartet werden, für alle Änderungen an den Scheduler hypervisortyp wirksam wird.
 
@@ -177,7 +178,7 @@ Das System muss neu gestartet werden, für alle Änderungen an den Scheduler hyp
 
 ## <a name="determining-the-current-scheduler-type"></a>Bestimmen den aktuellen Scheduler-Typ
 
-Sie können den aktuellen Hypervisor-Scheduler-Typ verwendet, anhand der im Protokoll Sysem in der Ereignisanzeige das neueste Hypervisor-Start-Ereignis-ID 2, bestimmen, die den Hypervisor-Scheduler-Typ beim Start der Hypervisor konfiguriert meldet. Hypervisor-Launch-Events können aus der Windows-Ereignisanzeige oder über PowerShell abgerufen werden.
+Sie können den aktuellen Hypervisor-Scheduler-Typ verwendet, die durch untersuchen das Systemprotokoll in der Ereignisanzeige das neueste Hypervisor-Start-Ereignis-ID 2, bestimmen, die den Hypervisor-Scheduler-Typ beim Start der Hypervisor konfiguriert meldet. Hypervisor-Launch-Events können aus der Windows-Ereignisanzeige oder über PowerShell abgerufen werden.
 
 Hypervisor-Start-Ereignis-ID 2 Gibt an, der Hypervisor-Scheduler-Typ, in denen:
 

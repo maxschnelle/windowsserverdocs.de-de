@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: f3e0553b1919a7f9129d47616d0ffb66b6ff48f8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fe27b61abe196a2148ced18806be904ebd555fcc
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874441"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442889"
 ---
 # <a name="directory-services-component-updates"></a>Directory Services-Komponentenupdates
 
@@ -161,12 +161,12 @@ Können Sie den Domänenmodus - Parameter mit dem Install-ADDSForest oder Instal
 ### <a name="overview"></a>Übersicht  
 Der LDAP-Abfrage-Optimierer-Algorithmus wurde neu ausgewertet und weiter optimiert.  Das Ergebnis ist die Verbesserung der Leistung in LDAP-Suche und LDAP-Suchdauer komplexer Abfragen.  
   
-> [!NOTE]  
-> **Seitens des Entwicklers:** Verbesserungen in Bezug auf die Leistung Suchvorgänge in Verbesserungen in der Zuordnung von LDAP-Abfragen auf das ESE-Abfrage.  LDAP-Filter über ein gewisses Maß an Komplexität zu verhindern, dass optimierter Index-Auswahl, drastisch verringert die Leistung beeinträchtigt (1000 X oder mehr). Diese Änderung ändert die Weise, in der Bereich wir die Indizes für die LDAP-Abfragen wählen, um dieses Problem zu vermeiden.  
-  
-> [!NOTE]  
+> [!NOTE]
+> <strong>Seitens des Entwicklers:</strong>Verbesserungen in Bezug auf die Leistung Suchvorgänge in Verbesserungen in der Zuordnung von LDAP-Abfragen auf das ESE-Abfrage.  LDAP-Filter über ein gewisses Maß an Komplexität zu verhindern, dass optimierter Index-Auswahl, drastisch verringert die Leistung beeinträchtigt (1000 X oder mehr). Diese Änderung ändert die Weise, in der Bereich wir die Indizes für die LDAP-Abfragen wählen, um dieses Problem zu vermeiden.  
+> 
+> [!NOTE]
 > Vollständige Überarbeitung des LDAP-Abfrage-Optimierer-Algorithmus, was zu:  
->   
+> 
 > -   Schnellere Suche  
 > -   Effizienz können DCs mehr zu erreichen  
 > -   Weniger Supportanrufe Probleme in Bezug auf AD-Leistung  

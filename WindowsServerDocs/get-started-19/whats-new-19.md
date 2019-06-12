@@ -7,13 +7,13 @@ ms.topic: article
 author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: high
-ms.date: 05/21/2019
-ms.openlocfilehash: af887c0e1c66a017ee091fb2cab2dc61fa9ac1dc
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.date: 06/04/2019
+ms.openlocfilehash: 7110fe78982fec616174a93514d86fb2e1cf9fa5
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65976552"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810766"
 ---
 # <a name="whats-new-in-windows-server-2019"></a>Neuigkeiten in Windows Server 2019
 
@@ -21,9 +21,17 @@ ms.locfileid: "65976552"
 
 Dieses Thema beschreibt einige der neuen Features in Windows Server 2019. Windows Server-2019 basiert auf der soliden Fundament von Windows Server 2016 und bietet zahlreiche Innovationen auf vier wichtigen Themen: Hybridcloud, Sicherheit, Plattform und Hyperkonvergenten Infrastruktur (HCL).
 
-Neuerungen in Windows Server Halbjährlicher Kanal-Versionen finden Sie unter [Neuigkeiten in Windows Server](../get-started/whats-new-in-windows-server.md). 
+Neuerungen in Windows Server Halbjährlicher Kanal-Versionen finden Sie unter [Neuigkeiten in Windows Server](../get-started/whats-new-in-windows-server.md).
 
 ## <a name="general"></a>Allgemein
+
+### <a name="windows-admin-center"></a>Windows Admin Center
+
+Windows Admin Center ist eine lokal bereitgestellte, browserbasierte App zum Verwalten von Servern, Cluster, hyperkonvergenter Infrastruktur und Windows 10-PCs. Sie können es ohne zusätzliche Kosten neben Windows verwenden – es ist produktionsbereit.
+
+Sie können Windows Admin Center auf Windows Server-2019 sowie Windows 10 und früheren Versionen von Windows und Windows Server installiert und zum Verwalten von Servern und Clustern unter Windows Server 2008 R2 verwenden und höher.
+
+Weitere Informationen finden Sie unter [Windows Admin Center](../manage/windows-admin-center/understand/windows-admin-center.md).
 
 ### <a name="desktop-experience"></a>Desktop Experience
 
@@ -60,8 +68,6 @@ Die umfassenden Plattformsensoren und Reaktionsaktionen von ATP decken Angriffe 
 -   [Kontrollierter Ordnerzugriff](https://cloudblogs.microsoft.com/microsoftsecure/2017/10/23/stopping-ransomware-where-it-counts-protecting-your-data-with-controlled-folder-access/?ocid=cx-blog-mmpc?source=mmpc) schützt sensible Daten vor Ransomware, indem es verhindert, dass nicht vertrauenswürdige Prozesse auf Ihre geschützten Ordner zugreifen.
 
 -   [Exploit-Schutz](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-exploit-guard/exploit-protection-exploit-guard) ist eine Reihe von Maßnahmen zur Minderung von Schwachstellen (ersetzt EMET), die einfach konfiguriert werden können, um Ihr System und Ihre Anwendungen zu schützen.
-
-
 
 [Windows Defender-Anwendungssteuerung](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control) (auch bekannt als Code Codeintegrität (CI)-Richtlinie) wurde in Windows Server 2016 veröffentlicht.
 Das Feedback von Kunden hat gezeigt, dass dies ein großartiges Konzept ist, das aber nur schwer bereitgestellt werden kann.
@@ -111,7 +117,7 @@ Der Speichermigrationsdienst ist eine neue Technologie, mit der Server leichter 
 
 ### <a name="storage-spaces-direct"></a>Direkte Speicherplätze
 
-Hier eine Liste der Neuigkeiten in Storage Spaces Direct Weitergehende Informationen finden Sie unter [Neuigkeiten in Storage Spaces Direct](../storage/whats-new-in-storage.md#storage-spaces-direct).
+Hier eine Liste der Neuigkeiten in Storage Spaces Direct Weitergehende Informationen finden Sie unter [Neuigkeiten in Storage Spaces Direct](../storage/whats-new-in-storage.md#storage-spaces-direct). Siehe auch [Azure Stack HCI](https://docs.microsoft.com/azure-stack/operator/azure-stack-hci-overview) für Informationen zum Abrufen von "direkte Speicherplätze" Systeme überprüft.
 
 - **Deduplizierung und Komprimierung für ReFS-volumes**
 - **Systemeigene Unterstützung für den persistenten Speicher**

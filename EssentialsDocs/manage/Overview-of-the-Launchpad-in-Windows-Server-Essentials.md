@@ -12,12 +12,12 @@ ms.assetid: 198d16cb-3d07-4706-be89-ad14a5f7dc47
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 9c240320d990652a4669499d99c1fc3eba9e06fa
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4dd32d57f6f36bdbf94c763fe0cbd1f37ff990b8
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883591"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433111"
 ---
 # <a name="overview-of-the-launchpad-in-windows-server-essentials"></a>Übersicht über das Launchpad in Windows Server Essentials
 
@@ -29,20 +29,20 @@ Beim Windows Server Essentials-Launchpad handelt es sich um eine kleine Anwendun
   
  Die folgenden Windows-Betriebssysteme unterstützen die Verwendung des Windows Server Essentials-Launchpads:  
   
--   **Windows 8**: Alle Editionen.  
+- **Windows 8**: Alle Editionen.  
   
--   **Windows 7**: Alle Editionen.  
--   **Windows 10**: Alle Editionen. 
+- **Windows 7**: Alle Editionen.  
+- **Windows 10**: Alle Editionen. 
   
- Die folgenden Betriebssysteme unterstützen die Verwendung des Windows Server Essentials-Launchpads nicht:  
+  Die folgenden Betriebssysteme unterstützen die Verwendung des Windows Server Essentials-Launchpads nicht:  
   
--   **Zusätzliche Server**: Das Windows Server Essentials-Launchpad kann nicht auf zusätzlichen Computern ausgeführt werden, auf denen das Windows Server-Betriebssystem läuft.  
+- **Zusätzliche Server**: Das Windows Server Essentials-Launchpad kann nicht auf zusätzlichen Computern ausgeführt werden, auf denen das Windows Server-Betriebssystem läuft.  
   
- In diesem Thema:  
+  In diesem Thema:  
   
--   [Verwenden des LaunchPads](Overview-of-the-Launchpad-in-Windows-Server-Essentials.md#BKMK_Launchpad)  
+- [Verwenden des LaunchPads](Overview-of-the-Launchpad-in-Windows-Server-Essentials.md#BKMK_Launchpad)  
   
--   [Verwenden des LaunchPads mit einem Macintosh-computer](Overview-of-the-Launchpad-in-Windows-Server-Essentials.md#BKMK_Mac)  
+- [Verwenden des LaunchPads mit einem Macintosh-computer](Overview-of-the-Launchpad-in-Windows-Server-Essentials.md#BKMK_Mac)  
   
 ##  <a name="BKMK_Launchpad"></a> Verwenden des LaunchPads  
  Die folgenden Links und Informationen sind auf dem Windows Server Essentials-Launchpad verfügbar.  
@@ -50,13 +50,13 @@ Beim Windows Server Essentials-Launchpad handelt es sich um eine kleine Anwendun
 ### <a name="backup"></a>Sicherung  
  Klicken Sie auf **Sicherung** , um die **Eigenschaften der Sicherung** für den Computer aufzurufen. Auf der Seite **Eigenschaften der Sicherung** können Sie Folgendes durchführen:  
   
--   Starten oder Beenden einer Sicherung  
+- Starten oder Beenden einer Sicherung  
   
--   Anzeigen des Status und der Details für die aktuelle Sicherung  
+- Anzeigen des Status und der Details für die aktuelle Sicherung  
   
--   Festlegen, wie die Rechenleistung verwaltet wird, wenn die Sicherung ausgeführt wird  
+- Festlegen, wie die Rechenleistung verwaltet wird, wenn die Sicherung ausgeführt wird  
   
- Weitere Informationen zum Verwenden des LaunchPads für die Sicherung Ihres Computers zu erhalten, finden Sie unter [Verwalten der Clientsicherung](Manage-Client-Computer-Backup-in-Windows-Server-Essentials.md).  
+  Weitere Informationen zum Verwenden des LaunchPads für die Sicherung Ihres Computers zu erhalten, finden Sie unter [Verwalten der Clientsicherung](Manage-Client-Computer-Backup-in-Windows-Server-Essentials.md).  
   
 ### <a name="remote-web-access"></a>Remotewebzugriff  
  Klicken Sie auf **Remotewebzugriff**, um den Webbrowser für die Remotewebzugriffssite zu öffnen. Mithilfe der Website für den Remotewebzugriff können Sie eine Verbindung mit anderen Computern herstellen und auf einige der Netzwerkressourcen innerhalb des Büros oder von einem beliebigen Remotestandort aus mit einem internetfähigen Computer zugreifen. Weitere Informationen zum Remotewebzugriff finden Sie unter [Manage Remote Web Access](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md).  

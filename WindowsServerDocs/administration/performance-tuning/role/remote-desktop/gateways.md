@@ -7,23 +7,23 @@ ms.topic: article
 ms.author: HammadBu; VladmiS
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 70b27d45acbfb046d52271a50ca7deffb226b8d0
-ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
+ms.openlocfilehash: f3ac020b3137621f6b2535c973ab7759443e1535
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266727"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811425"
 ---
 # <a name="performance-tuning-remote-desktop-gateways"></a>Remote Desktop-Gateways die Optimierung der Leistung
 
-> [!Note]
+> [!NOTE]
 > In Windows 8 und höher und Windows Server 2012 R2 oder höher unterstützt Remotedesktopgateway (RD-Gateway), TCP, UDP und dem älteren RPC-Transport. Die meisten der folgenden Daten bezieht sich auf den alten RPC-Transport. Wenn Sie nicht der alte RPC-Transport verwendet wird, ist in diesem Abschnitt nicht anwendbar.
 
 Dieses Thema beschreibt die Parameter, mit denen die Leistung einer Bereitstellung für Kunden zu verbessern und die Feinabstimmungen, die auf des Kunden Netzwerk von Verwendungsmustern basieren.
 
 Im Grunde führt RD-Gateway viele Pakete, die Weiterleitung zwischen Instanzen von Remotedesktopverbindung und der RD-Sitzungshost-Server-Instanzen im Netzwerk des Kunden.
 
-> [!Note]
+> [!NOTE]
 > Die folgenden Parameter gelten für nur RPC-Transport.
 
 Exportieren die folgenden Registrierungsparameter zur Verbesserung der Systemleistung in das RD-Gateway, Internet Information Services (IIS) und RD-Gateway.
@@ -68,7 +68,6 @@ Die folgenden Parameter können die Remoteprozeduraufrufe (RPC) zu optimieren, d
 
 ## <a name="monitoring-and-data-collection"></a>Überwachung und Datensammlung
 
-
 Die folgende Liste von Leistungsindikatoren gilt einen Basissatz von Leistungsindikatoren, wenn Sie die Ressourcenverwendung auf dem RD-Gateway überwachen:
 
 -   \\Terminal Service Gateway\\\*
@@ -107,6 +106,6 @@ Die folgenden Leistungsindikatoren gelten nur für ältere RPC-Transport:
 
 -   \\W3SVC\_W3WP\\\* RPC
 
-**Beachten Sie**    fügen Sie ggf. die \\IPv6\\ \* und \\TCPv6\\ \* Objekte. ### ReplaceThisText
+> [!NOTE]
+> Fügen Sie ggf. die \\IPv6\\ \* und \\TCPv6\\ \* Objekte. ### ReplaceThisText
 
- 

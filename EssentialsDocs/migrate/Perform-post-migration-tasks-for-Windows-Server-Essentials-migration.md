@@ -12,12 +12,12 @@ ms.assetid: f2d236a4-0d62-4961-9d1f-332054e06f6d
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 535a547ded55cb4afc0942259eadf5222a815274
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 93d07938435ab1ce7686b1960974696582a2924c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821021"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432663"
 ---
 # <a name="perform-post-migration-tasks-for-windows-server-essentials-migration1"></a>Ausführen von Aufgaben nach der Migration für Windows Server Essentials migration1
 
@@ -84,7 +84,7 @@ Die folgenden Aufgaben helfen Ihnen bei der Einrichtung der Zielserver mit einig
   
 2.  Klicken Sie auf der Registerkarte **Verbindungen** auf **LAN-Einstellungen**, und führen Sie eine der folgenden Optionen aus:  
   
-    -   Wenn Sie keinen Proxyserver im Netzwerk verwenden, deaktivieren Sie alle Kontrollkästchen im Dialogfeld **Einstellungen für lokales Netzwerk (LAN)**.  
+    -   Wenn Sie keinen Proxyserver im Netzwerk verwenden, deaktivieren Sie alle Kontrollkästchen im Dialogfeld **Einstellungen für lokales Netzwerk (LAN)** .  
   
     -   Wenn Sie einen neuen Proxyserver im Netzwerk verwenden möchten:  
   
@@ -94,7 +94,7 @@ Die folgenden Aufgaben helfen Ihnen bei der Einrichtung der Zielserver mit einig
   
         3.  Geben Sie im Feld **Adresse** den vollqualifizierten Domänennamen (FQDN) des Proxyservers ein.  
   
-        4.  Geben Sie im Feld **Port****80** ein.  
+        4.  Geben Sie im Feld **Port** **80** ein.  
   
 3.  Klicken Sie zweimal auf **OK** .  
   
@@ -105,25 +105,25 @@ Die folgenden Aufgaben helfen Ihnen bei der Einrichtung der Zielserver mit einig
   
 #### <a name="to-give-the-built-in-administrators-group-the-right-to-log-on-as-a-batch-job"></a>So erteilen Sie der integrierten Administratorengruppe das Recht zum Anmelden als Stapelverarbeitungsauftrag  
   
-1.  Öffnen Sie auf dem Zielserver das Verwaltungstool **Gruppenrichtlinienverwaltung**.  
+1. Öffnen Sie auf dem Zielserver das Verwaltungstool **Gruppenrichtlinienverwaltung**.  
   
-2.  In der **Gruppenrichtlinienverwaltung** in der Konsolenstruktur, erweitern Sie **Gesamtstruktur:** *< ServerName\>*, erweitern Sie Domänen und erweitern Sie dann auf Ihrem Server.  
+2. In der **Gruppenrichtlinienverwaltung** in der Konsolenstruktur, erweitern Sie **Gesamtstruktur:** *< ServerName\>* , erweitern Sie Domänen und erweitern Sie dann auf Ihrem Server.  
   
-3.  Erweitern Sie **Domänencontroller**, klicken Sie mit der rechten Maustaste auf **Standard-Domänencontrollerrichtlinie**, und klicken Sie dann auf **Bearbeiten**.  
+3. Erweitern Sie **Domänencontroller**, klicken Sie mit der rechten Maustaste auf **Standard-Domänencontrollerrichtlinie**, und klicken Sie dann auf **Bearbeiten**.  
   
-4.  In **Gruppenrichtlinienverwaltungs-Editor**, klicken Sie auf **Standarddomänencontroller-Richtlinie ***< ServerName\>*** Richtlinie**, und erweitern Sie dann  **Computerkonfiguration**.  
+4. In **Gruppenrichtlinienverwaltungs-Editor**, klicken Sie auf **Standarddomänencontroller-Richtlinie**<em>< ServerName\></em>**Richtlinie**, und schließlich **Computerkonfiguration**.  
   
-5.  Erweitern Sie **Richtlinien**, erweitern Sie **Windows-Einstellungen** und erweitern Sie dann **Sicherheitseinstellungen**.  
+5. Erweitern Sie **Richtlinien**, erweitern Sie **Windows-Einstellungen** und erweitern Sie dann **Sicherheitseinstellungen**.  
   
-6.  Erweitern Sie in der Konsolenstruktur **Sicherheitseinstellungen**, **lokale Richtlinien**, und klicken Sie dann auf **Zuweisen von Benutzerrechten**.  
+6. Erweitern Sie in der Konsolenstruktur **Sicherheitseinstellungen**, **lokale Richtlinien**, und klicken Sie dann auf **Zuweisen von Benutzerrechten**.  
   
-7.  Klicken Sie im Ergebnisbereich mit der rechten Maustaste auf **Anmelden als Stapelverarbeitungsauftrag**, und klicken Sie dann auf Eigenschaften.  
+7. Klicken Sie im Ergebnisbereich mit der rechten Maustaste auf **Anmelden als Stapelverarbeitungsauftrag**, und klicken Sie dann auf Eigenschaften.  
   
-8.  Klicken Sie auf der Seite **Anmelden als Stapelverarbeitungsauftrag** auf **Benutzer oder Gruppe hinzufügen**.  
+8. Klicken Sie auf der Seite **Anmelden als Stapelverarbeitungsauftrag** auf **Benutzer oder Gruppe hinzufügen**.  
   
 9. Klicken Sie im Dialogfeld auf **Benutzer oder Gruppe hinzufügen** auf **Durchsuchen**.  
   
-10. Geben Sie im Dialogfeld **Benutzer, Computer oder Gruppen auswählen****Administrators** ein.  
+10. Geben Sie im Dialogfeld **Benutzer, Computer oder Gruppen auswählen** **Administrators** ein.  
   
 11. Klicken Sie auf **Namen überprüfen**, um zu überprüfen, ob die integrierten Administratorengruppe angezeigt wird, und klicken Sie dann dreimal auf **OK**, um die Einstellung zu speichern.  
   

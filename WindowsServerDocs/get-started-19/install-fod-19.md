@@ -9,13 +9,13 @@ author: jasongerend
 ms.author: jgerend
 manager: jasgroce
 ms.localizationpriority: medium
-ms.date: 05/29/2019
-ms.openlocfilehash: e76b7862549814d5453717c40cec45e341141d7a
-ms.sourcegitcommit: 8eea7aadbe94f5d4635c4ffedc6a831558733cc0
+ms.date: 06/07/2019
+ms.openlocfilehash: 747258601aa05885d209aacde6947eb7b05e8121
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66308594"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810794"
 ---
 # <a name="server-core-app-compatibility-feature-on-demand-fod"></a>App-Kompatibilität von Server Core-Feature on Demand (FOD)
 
@@ -64,7 +64,7 @@ Komponenten des Betriebssystems, die verfügbar sind, als Teil der Server Core-A
 
         -   Geben Sie zum Failovercluster-Manager ausführen **Cluadmin** an der Eingabeaufforderung.
 
-Server unter Windows Server, Version 1903 und höher auch unterstützen die folgenden Komponenten:
+Server unter Windows Server, Version 1903 und höher auch unterstützen die folgenden Komponenten (wenn die gleiche Version von der App-Kompatibilität Feature-on verwendet):
 
 - Hyper-V-Manager (virtmgmt.msc)
 - Aufgabenplanung (taskschd.msc)
@@ -104,7 +104,7 @@ Die App-Kompatibilität Feature-On kann nur auf Server Core installiert werden. 
 
 8. Sobald der Statusbalken vollständig ist, starten Sie das Betriebssystem neu.
 
- Weitere Informationen zu DISM-Befehlen finden Sie unter [Verwenden von DISM in Windows PowerShell](https://docs.microsoft.com/windows-hardware/manufacture/desktop/use-dism-in-windows-powershell-s14)
+   Weitere Informationen zu DISM-Befehlen finden Sie unter [Verwenden von DISM in Windows PowerShell](https://docs.microsoft.com/windows-hardware/manufacture/desktop/use-dism-in-windows-powershell-s14)
 
 ## <a name="to-optionally-add-internet-explorer-11-to-server-core-after-adding-the-server-core-app-compatibility-fod"></a>Internet Explorer 11 zu Server Core optional hinzugefügt werden soll, (nach dem Hinzufügen der Server Core-App-Kompatibilität Feature-On.)
 
@@ -148,8 +148,8 @@ Die App-Kompatibilität Feature-On kann nur auf Server Core installiert werden. 
 
 - Wie Sie ein allgemeinen Punkt Anleitungen, die beim Installieren von apps auf Server (mit oder ohne diese optionale Pakete) es Core manchmal erforderlich, Installation im Hintergrund und Anweisungen zu verwenden ist. 
     
- - Beispielsweise SQL Server Management Studio für SQL Server 2016 und SQL Server 2017 kann auf Server Core installiert werden und ist voll funktionsfähig, wenn die App-Kompatibilität Feature-On vorhanden ist.  Angezeigt wird, [Installieren von SQLServer über die Eingabeaufforderung](https://docs.microsoft.com/sql/database-engine/install-windows/install-sql-server-from-the-command-prompt?view=sql-server-2017).
- - Wenn SQL Server Management Studio nicht gewünscht ist, ist es nicht erforderlich ist, installieren Sie die Server Core-App-Kompatibilität Feature-On.  Angezeigt wird, [Installieren von SQLServer unter Server Core](https://docs.microsoft.com/sql/database-engine/install-windows/install-sql-server-on-server-core?view=sql-server-2017).
+  - Beispielsweise SQL Server Management Studio für SQL Server 2016 und SQL Server 2017 kann auf Server Core installiert werden und ist voll funktionsfähig, wenn die App-Kompatibilität Feature-On vorhanden ist.  Angezeigt wird, [Installieren von SQLServer über die Eingabeaufforderung](https://docs.microsoft.com/sql/database-engine/install-windows/install-sql-server-from-the-command-prompt?view=sql-server-2017).
+  - Wenn SQL Server Management Studio nicht gewünscht ist, ist es nicht erforderlich ist, installieren Sie die Server Core-App-Kompatibilität Feature-On.  Angezeigt wird, [Installieren von SQLServer unter Server Core](https://docs.microsoft.com/sql/database-engine/install-windows/install-sql-server-on-server-core?view=sql-server-2017).
 
 ## <a name="a-idadd-capabilities-adding-capabilities-and-optional-packages-to-an-offline-wim-server-core-image"></a><a id="add-capabilities"> Hinzufügen von Funktionen und optionale Pakete zu einem Server Core von WIM-Offlineabbild
 

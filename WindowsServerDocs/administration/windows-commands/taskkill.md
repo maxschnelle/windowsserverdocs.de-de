@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c31098a7dc151b29def2f3615da1e969ff8c5664
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: 13366307bbf685d1e4af8c0a58d5b9d6643111dc
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222943"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811050"
 ---
 # <a name="taskkill"></a>taskkill
 
@@ -28,60 +28,74 @@ Beendet eine oder mehrere Aufgaben oder Prozesse. Prozesse können nach Prozess-
 Beispiele für diesen Befehl verwenden, finden Sie unter [Beispiele](#examples).
 
 ## <a name="syntax"></a>Syntax
+
 ```
 taskkill [/s <computer> [/u [<Domain>\]<UserName> [/p [<Password>]]]] {[/fi <Filter>] [...] [/pid <ProcessID> | /im <ImageName>]} [/f] [/t]
 ```
+
 ## <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
-|-------|--------|
-|/s \<computer>|Gibt den Namen oder die IP-Adresse eines Remotecomputers (umgekehrte Schrägstriche nicht verwenden). Der Standardwert ist der lokale Computer.|
-|/ u \<Domäne >\\\<Benutzername >|Führt den Befehl mit den Berechtigungen des Benutzers, der angegebenen *Benutzername* oder *Domäne*\\*Benutzername*. **/ u** können angegeben werden, wenn **/s** angegeben ist. Der Standardwert ist die Berechtigungen des Benutzers, der derzeit auf dem Computer angemeldet ist, die den Befehl ausgegeben wird.|
-|/ p \<Kennwort >|Gibt das Kennwort des Benutzerkontos ein, die im angegebenen die **/u** Parameter.|
-|/fi \<Filter>|Wendet einen Filter, um eine Reihe von Aufgaben auszuwählen. Sie können mehr als ein Filter oder verwenden Sie das Platzhalterzeichen ( **\*** ) Geben Sie alle Aufgaben oder Namen von Images. Finden Sie in der folgenden [Tabelle gültiger Filternamen](#filter-names-operators-and-values), Operatoren und Werten.|
-|"/ PID" \<Prozess-ID >|Gibt die Prozess-ID des Prozesses beendet werden soll.|
-|/im \<ImageName >|Gibt den imagenamen des Prozesses beendet werden soll. Verwenden Sie das Platzhalterzeichen ( **\*** ) an alle Namen von Images.|
-|/f|Gibt an, dass Prozesse beendet werden. Dieser Parameter wird bei ignoriert; Alle remote-Prozesse werden beendet.|
-|/t|Beendet den angegebenen Prozess und alle untergeordneten Prozesse werden gestartet.|
+
+|         Parameter         |                                                                                                                                        Beschreibung                                                                                                                                        |
+|---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|      /s \<computer>       |                                                                                    Gibt den Namen oder die IP-Adresse eines Remotecomputers (umgekehrte Schrägstriche nicht verwenden). Der Standardwert ist der lokale Computer.                                                                                     |
+| / u \<Domäne >\\\<Benutzername > | Führt den Befehl mit den Berechtigungen des Benutzers, der angegebenen *Benutzername* oder *Domäne*\\*Benutzername*. **/ u** können angegeben werden, wenn **/s** angegeben ist. Der Standardwert ist die Berechtigungen des Benutzers, der derzeit auf dem Computer angemeldet ist, die den Befehl ausgegeben wird. |
+|      / p \<Kennwort >       |                                                                                                   Gibt das Kennwort des Benutzerkontos ein, die im angegebenen die **/u** Parameter.                                                                                                   |
+|       /fi \<Filter>       |          Wendet einen Filter, um eine Reihe von Aufgaben auszuwählen. Sie können mehr als ein Filter oder verwenden Sie das Platzhalterzeichen ( **\\** \*) Geben Sie alle Aufgaben oder Namen von Images. Finden Sie in der folgenden [Tabelle gültiger Filternamen](#filter-names-operators-and-values), Operatoren und Werten.           |
+|     "/ PID" \<Prozess-ID >     |                                                                                                                 Gibt die Prozess-ID des Prozesses beendet werden soll.                                                                                                                 |
+|     /im \<ImageName >      |                                                                                Gibt den imagenamen des Prozesses beendet werden soll. Verwenden Sie das Platzhalterzeichen ( **\\** \*) an alle Namen von Images.                                                                                |
+|            /f             |                                                                    Gibt an, dass Prozesse beendet werden. Dieser Parameter wird bei ignoriert; Alle remote-Prozesse werden beendet.                                                                     |
+|            /t             |                                                                                                          Beendet den angegebenen Prozess und alle untergeordneten Prozesse werden gestartet.                                                                                                          |
 
 #### <a name="filter-names-operators-and-values"></a>Filternamen, Operatoren und Werte
-|Filtername|Gültige Operatoren|Gültige Werte|
-|--------|----------|----------|
-|STatUS|eq, ne|AUSFÜHRUNG &AMP;#124; REAGIERT NICHT &AMP;#124; UNBEKANNT|
-|IMAGENAME|eq, ne|Name des Images|
-|PID|eq, ne, gt, lt, ge, le|PID-Wert|
-|SITZUNG|eq, ne, gt, lt, ge, le|Sitzungsnummer|
-|CPUtime|eq, ne, gt, lt, ge, le|CPU-Zeit im Format *HH ***:*** MM ***:*** SS*, wobei *MM* und *SS* liegen zwischen 0 und 59 und *HH* ist ein vorzeichenloser Anzahl|
-|MEMUSAGE|eq, ne, gt, lt, ge, le|Speicherverwendung in KB|
-|BENUTZERNAME|eq, ne|Beliebiger gültiger Benutzername (*Benutzer* oder *Domäne*\\*Benutzer*)|
-|DIENSTE|eq, ne|Dienstname|
-|WINDOWTITLE|eq, ne|Fenstertitel|
-|MODULE|eq, ne|DLL-Name|
+
+| Filtername |    Gültige Operatoren     |                                                                Gültige Werte                                                                |
+|-------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
+|   STatUS    |         eq, ne         |                                                 AUSFÜHRUNG &AMP;#124; REAGIERT NICHT &AMP;#124; UNBEKANNT                                                 |
+|  IMAGENAME  |         eq, ne         |                                                                  Name des Images                                                                  |
+|     PID     | eq, ne, gt, lt, ge, le |                                                                  PID-Wert                                                                   |
+|   SITZUNG   | eq, ne, gt, lt, ge, le |                                                                Sitzungsnummer                                                                |
+|   CPUtime   | eq, ne, gt, lt, ge, le | CPU-Zeit im Format <em>HH</em> **:** <em>MM</em> **:** <em>SS</em>, wobei *MM* und *SS* liegen zwischen 0 und 59 und *HH* ist ein vorzeichenloser Anzahl |
+|  MEMUSAGE   | eq, ne, gt, lt, ge, le |                                                              Speicherverwendung in KB                                                              |
+|  BENUTZERNAME   |         eq, ne         |                                               Beliebiger gültiger Benutzername (*Benutzer* oder *Domäne*\\*Benutzer*)                                               |
+|  DIENSTE   |         eq, ne         |                                                                 Dienstname                                                                 |
+| WINDOWTITLE |         eq, ne         |                                                                 Fenstertitel                                                                 |
+|   MODULE   |         eq, ne         |                                                                   DLL-Name                                                                   |
 
 ## <a name="remarks"></a>Hinweise
 * Die Filter WINDOWTITLE und STatUS werden nicht unterstützt, wenn einem Remotesystem angegeben wird.
-* Das Platzhalterzeichen ( **\*** ) wird akzeptiert, die **/im** option nur, wenn ein Filter angewendet wird.
+* Das Platzhalterzeichen ( **\\** <em>) wird angenommen, für die * */im</em>*  option nur, wenn ein Filter angewendet wird.
 * Beenden von Remoteprozessen immer durchgeführt wird erzwungen, unabhängig davon, ob die **/f** angegeben wird.
 * Bereitstellen eines Computernamens zu dem hostnamensfilter führt dazu, dass das Herunterfahren und alle Prozesse beendet werden.
 * Sie können **Tasklist** um zu bestimmen, den Prozess-ID (PID) für den Prozess beendet wird.
 
 ## <a name="examples"></a>Beispiele
+
 Geben zum Beenden der Prozesse mit dem Prozess-IDs 1230 1241 und 1253, ein:
+
 ```
 taskkill /pid 1230 /pid 1241 /pid 1253
 ```
+
 Geben Sie Folgendes ein, um das Beenden des Prozesses "Notepad.exe". wenn er vom System gestartet wurde:
+
 ```
 taskkill /f /fi "USERNAME eq NT AUTHORITY\SYSTEM" /im notepad.exe
 ```
+
 Geben Sie Folgendes ein, um alle Prozesse auf dem Remotecomputer "Srvmain" mit einem Image Name mit "Note" beginnt und mit den Anmeldeinformationen für das Benutzerkonto, das Hiropln zu beenden:
+
 ```
 taskkill /s srvmain /u maindom\hiropln /p p@ssW23 /fi "IMAGENAME eq note*" /im *
 ```
+
 Beendet den Prozess mit der Prozess-ID 2134 sowie vorhandene untergeordnete verarbeitet, die gestartet, sondern nur, wenn die Prozesse gestartet wurden, durch das Administratorkonto, geben Sie folgende Aktionen ausführen:
+
 ```
 taskkill /pid 2134 /t /fi "username eq administrator"
 ```
+
 Um alle Prozesse zu beenden, die Prozess-ID größer als oder gleich 1000, unabhängig von deren imagenamen aus, geben Sie Folgendes ein:
+
 ```
 taskkill /f /fi "PID ge 1000" /im *
 ```

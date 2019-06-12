@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e381316372e68d2a43203b8fc90a243af5f40b02
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5fdfaaf1af2b74fe15530095700005a422b64986
+ms.sourcegitcommit: a3958dba4c2318eaf2e89c7532e36c78b1a76644
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869211"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66719627"
 ---
 # <a name="setting-up-update-synchronizations"></a>Einrichten von Updatesynchronisierungen
 
@@ -60,18 +60,6 @@ Ihr WSUS-Server lädt die Updates, die auf Basis der Sprachen, die Sie angeben. 
 
 ### <a name="synchronizing-updates-from-the-microsoft-update-catalog"></a>Synchronisieren von Updates von Microsoft Update-Katalog
 Weitere Informationen zum Synchronisieren von Updates auf der Website von Microsoft Update-Katalog finden Sie unter: [WSUS und Katalog-Website](wsus-and-the-catalog-site.md).
-
-### <a name="synchronizing-device-updates-by-inventory-inventory-based-synchronization"></a>Synchronisieren von Updates für das Gerät von Inventory (Inventar-basierte Synchronisierung)
-Bestimmte Produktkategorien und Klassifizierungen (z. B.-Treiber) enthalten eine sehr große Anzahl von Updates aus, und es wird nicht empfohlen, diesen gesamten Kategorien mit Ihrem WSUS-Server zu synchronisieren. Auf diese Weise kann fortlaufende Wartung Herausforderungen zu Leistungsproblemen führen. Das Bestandssystem WSUS erfasst nicht identifizierenden Informationen von den Clientgeräten und verwendet die Inventurdaten gerade ausreicht, Softwareupdate-Metadaten von Microsoft Update abgerufen. Dieser Mechanismus ist weitgehend mit dem WSUS automatisch, suchen Sie Microsoft Update-Katalog importieren nur die Updates für Geräte, die erkannt werden verwaltete Geräte.
-
-Durch Aktivieren dieses inventurfeatures ist die einzige unterstützte Methode zum Abrufen bestimmter Gerätefirmware und modellbasierten servicing legt fest, welche nicht in den Microsoft Update-Katalog veröffentlicht werden.
-
-Auf diese Weise synchronisierte Updates werden überprüft und genehmigt werden, genau wie alle anderen Updates, und außerdem gelten die gleichen Regeln für automatische Genehmigungen, Ablösung und Ablauf und Sonstiges Verhalten zugeordnet sind herkömmliche Updates.
-
-WSUS führt eine serverseitige Filterung, wenn Clients anfordern, bestimmte Treiber und Firmware-Updates, einschließlich Updates, bei denen von der Inventurdatei importiert wurden. Daher erhalten einen Clientcomputer oder ein Gerät Metadaten und Detectoids für Treiber und Treiberupdates nur für tatsächlich auf diesem Gerät angeschlossenen Geräte. Dies minimiert die Überprüfung des Clients und zwischen dem Client und dem WSUS-Server übertragenen Daten reduziert.
-
-> [!NOTE]
-> Bei der Hardwareinventur-basierte Synchronisierung aktiviert ist, behält WSUS den Gerätebestand auf einer pro-Gerät-Basis; nur ein summary-Rollup (dedupliziert Liste mit IDs) wird immer mit dem WSUS-Upstreamserver gesendet. WSUS-Upstreamserver erhalten keine Informationen über welche Geräte welchen Computern zugeordnet sind, und wie viele Instanzen eines bestimmten Geräts in der WSUS-Hierarchie vorhanden sein. Diese zusammengefassten rollupmonitor kann nicht in der Regel verwendet werden, zu identifizieren oder die Anzahl von Geräten in einem Netzwerk WSUS verwaltet.
 
 ## <a name="configuring-proxy-server-settings"></a>Konfigurieren von Proxyservereinstellungen
 Sie können Ihr WSUS-Server um einen Proxyserver verwenden, während der Synchronisierung mit einem Upstreamserver oder Microsoft Update konfigurieren. Diese Einstellung gilt nur, wenn Ihr WSUS-Server Synchronisierungen ausgeführt wird. Standardmäßig versucht der WSUS-Server, die direkt mit dem Upstreamserver oder Microsoft Update herstellen.

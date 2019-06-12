@@ -12,12 +12,12 @@ ms.assetid: fd7196ac-cfa6-46a5-ba77-6962b47a825e
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 808a4b1e120fa559d603b34ad006b18de6b94378
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 74c40cc0f06d73a922a3d7fb819f7e71b47ac088
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847691"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432962"
 ---
 # <a name="install-windows-server-essentials-in-migration-mode1"></a>Installieren von Windows Server Essentials in Migration Modus 1
 
@@ -47,25 +47,25 @@ Sie können veranlassen, dass nur ein Server in Ihrem Netzwerk, auf denen Window
   
 #### <a name="to-install-windows-server-essentials-on-the-destination-server"></a>So installieren Sie Windows Server Essentials auf dem Zielserver  
   
-1.  Aktivieren Sie auf dem Zielserver aus, und fügen Sie Windows Server Essentials-DVD1 in das DVD-Laufwerk. Wenn eine Meldung angezeigt wird, in der Sie gefragt werden, ob von einer CD oder DVD gestartet werden soll, drücken Sie dazu eine beliebige Taste.  
+1. Aktivieren Sie auf dem Zielserver aus, und fügen Sie Windows Server Essentials-DVD1 in das DVD-Laufwerk. Wenn eine Meldung angezeigt wird, in der Sie gefragt werden, ob von einer CD oder DVD gestartet werden soll, drücken Sie dazu eine beliebige Taste.  
   
-    > [!NOTE]
-    >  Wenn der Zielserver das Starten von einem USB-Flashlaufwerk unterstützt, können Sie die **Windows 7 USB/DVD Download Tool** um einen startbaren USB-Speicherstick aus der Windows Server Essentials-ISO-Datei zu erstellen. Mit einem USB-Speicherstick können Sie den Installationsvorgang deutlich beschleunigen, da Speichersticks Daten sehr viel schneller als DVD-ROM-Laufwerke lesen. Nach dem Erstellen eines startbaren USB-Speichersticks können Sie eine Antwortdatei zum Speicherstick hinzufügen. Sie können [Herunterladen der Windows 7 USB/DVD Download Tool](https://go.microsoft.com/fwlink/p/?LinkId=248282) kostenlos von Microsoft Store-Website.  
+   > [!NOTE]
+   >  Wenn der Zielserver das Starten von einem USB-Flashlaufwerk unterstützt, können Sie die **Windows 7 USB/DVD Download Tool** um einen startbaren USB-Speicherstick aus der Windows Server Essentials-ISO-Datei zu erstellen. Mit einem USB-Speicherstick können Sie den Installationsvorgang deutlich beschleunigen, da Speichersticks Daten sehr viel schneller als DVD-ROM-Laufwerke lesen. Nach dem Erstellen eines startbaren USB-Speichersticks können Sie eine Antwortdatei zum Speicherstick hinzufügen. Sie können [Herunterladen der Windows 7 USB/DVD Download Tool](https://go.microsoft.com/fwlink/p/?LinkId=248282) kostenlos von Microsoft Store-Website.  
   
-    > [!NOTE]
-    >  Wenn der Zielserver nicht von der DVD startet, starten Sie den Computer neu, und überprüfen Sie das BIOS-Setup, um sicherzustellen, dass **DVD-ROM** an erster Stelle in der Startreihenfolge aufgeführt ist. Weitere Informationen zum Ändern der Startreihenfolge im BIOS-Setup finden Sie in der Dokumentation des Hardwareherstellers.  
+   > [!NOTE]
+   >  Wenn der Zielserver nicht von der DVD startet, starten Sie den Computer neu, und überprüfen Sie das BIOS-Setup, um sicherzustellen, dass **DVD-ROM** an erster Stelle in der Startreihenfolge aufgeführt ist. Weitere Informationen zum Ändern der Startreihenfolge im BIOS-Setup finden Sie in der Dokumentation des Hardwareherstellers.  
   
-2.  Klicken Sie auf **Neue Installation**.  
+2. Klicken Sie auf **Neue Installation**.  
   
-3.  Wenn Sie eine interne Festplatte haben, die nicht in der Liste angezeigt wird, klicken Sie auf **Treiber laden**, und installieren Sie den erforderlichen Treiber, bevor Sie fortfahren.  
+3. Wenn Sie eine interne Festplatte haben, die nicht in der Liste angezeigt wird, klicken Sie auf **Treiber laden**, und installieren Sie den erforderlichen Treiber, bevor Sie fortfahren.  
   
-4.  Aktivieren Sie das Kontrollkästchen, das überprüft, dass alle Dateien und Ordner auf Ihrer primären Festplatte gelöscht werden, und klicken Sie dann auf **Installieren**.  
+4. Aktivieren Sie das Kontrollkästchen, das überprüft, dass alle Dateien und Ordner auf Ihrer primären Festplatte gelöscht werden, und klicken Sie dann auf **Installieren**.  
   
-5.  Auf der Seite **Installationsmodus auswählen** klicken Sie auf **Servermigration**, und geben dann die erforderlichen Migrationsinformationen ein.  
+5. Auf der Seite **Installationsmodus auswählen** klicken Sie auf **Servermigration**, und geben dann die erforderlichen Migrationsinformationen ein.  
   
-6.  Sobald die Meldung **Der Server wurde erfolgreich migriert** angezeigt wird, klicken Sie auf **Schließen**.  
+6. Sobald die Meldung **Der Server wurde erfolgreich migriert** angezeigt wird, klicken Sie auf **Schließen**.  
   
- Nach Abschluss der Installation werden Sie automatisch mit dem Benutzerkonto und Kennwort des Administrators angemeldet, die Sie in der Antwortdatei für die Migration bereitgestellt haben.  
+   Nach Abschluss der Installation werden Sie automatisch mit dem Benutzerkonto und Kennwort des Administrators angemeldet, die Sie in der Antwortdatei für die Migration bereitgestellt haben.  
   
 > [!NOTE]
 >  Um den Desktop entsperren, während Windows Server Essentials installiert wird, verwenden Sie das integrierte Administratorkonto aus, und lassen Sie das Kennwort leer.  

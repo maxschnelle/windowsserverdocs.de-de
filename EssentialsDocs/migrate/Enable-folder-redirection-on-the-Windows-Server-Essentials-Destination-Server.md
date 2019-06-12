@@ -13,12 +13,12 @@ ms.assetid: f67d195e-36f6-495a-8361-6d5faa889441
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: f93d7b28177f96725f2e62c40f9c81cbf186ee6d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 50995f0d03b400d6e44d16389afc69e5f25465ac
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819381"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432973"
 ---
 # <a name="enable-folder-redirection-on-the-windows-server-essentials-destination-server1"></a>Aktivieren der Ordnerumleitung auf dem Windows Server Essentials-Zielserver1
 
@@ -42,14 +42,14 @@ Sie können diese Aufgabe ausführen, wenn die Ordnerumleitung auf dem Quellserv
   
 ### <a name="to-delete-the-old-folder-redirection-group-policy-setting"></a>Löschen der alten Gruppenrichtlinieneinstellung zur Ordnerumleitung.  
   
-1.  Öffnen Sie auf dem Zielserver das Verwaltungstool **Gruppenrichtlinienverwaltung**.  
+1. Öffnen Sie auf dem Zielserver das Verwaltungstool **Gruppenrichtlinienverwaltung**.  
   
-2.  In **Gruppenrichtlinienverwaltung**, erweitern Sie **Gesamtstruktur: *** Ihrnetzwerkdomänenname*, erweitern Sie **Domänen**, erweitern Sie *Ihrnetzwerkdomänenname* , und erweitern Sie dann **Group Policy Objects**.  
+2. Erweitern Sie in **Gruppenrichtlinienverwaltung**den Eintrag **Gesamtstruktur:** <em>IhrNetzwerkDomänenname</em>den Eintrag **Domänen**den Eintrag *IhrNetzwerkDomänenname*und erweitern Sie dann **Gruppenrichtlinienobjekte**.  
   
-3.  Klicken Sie mit der rechten Maustaste auf **W7PVP Ordnerumleitung**und klicken Sie dann auf **Löschen**.  
+3. Klicken Sie mit der rechten Maustaste auf **W7PVP Ordnerumleitung**und klicken Sie dann auf **Löschen**.  
   
-4.  Lesen Sie die Warnung und klicken Sie dann auf **Ja**.  
+4. Lesen Sie die Warnung und klicken Sie dann auf **Ja**.  
   
-5.  Schließen Sie **Gruppenrichtlinienverwaltung**.  
+5. Schließen Sie **Gruppenrichtlinienverwaltung**.  
   
- Um die Änderung an der Ordnerumleitung zu übernehmen, müssen Netzwerkbenutzer zuerst ihren Computer abmelden und dann wieder anmelden. Dadurch wird die Übertragung von allen umgeleiteten Ordnern auf den Zielserver sichergestellt .
+   Um die Änderung an der Ordnerumleitung zu übernehmen, müssen Netzwerkbenutzer zuerst ihren Computer abmelden und dann wieder anmelden. Dadurch wird die Übertragung von allen umgeleiteten Ordnern auf den Zielserver sichergestellt .

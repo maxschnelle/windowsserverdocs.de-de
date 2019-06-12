@@ -12,18 +12,18 @@ ms.assetid: c959b6fc-c67e-46cd-a9cb-cee71a42fa4c
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: cc336dcd2a5418aa79254108c941a02147112e8f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 2081473500a08776a1dc81a4fa443696b6fde0d6
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59860681"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433467"
 ---
 # <a name="configure-directaccess-in-windows-server-essentials"></a>Konfigurieren von DirectAccess in Windows Server Essentials
 
 >Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Dieses Thema enthält schrittweise Anweisungen zum Konfigurieren von DirectAccess in Windows Server Essentials zum Aktivieren Ihrer mobilen Mitarbeiter eine nahtlose Ihres Organisationsnetzwerks s von einem beliebigen Remotestandort mit Internetanschluss ohne Verbindung ein Virtuelles privates Netzwerk (VPN)-Verbindung. DirectAccess können mobile Mitarbeiter, die gleiche netzwerkanbindung wie innerhalb und außerhalb des Büros auf ihren Computern Windows 8.1, Windows 8 und Windows 7 bieten.  
+Dieses Thema enthält schrittweise Anweisungen zum Konfigurieren von DirectAccess in Windows Server Essentials zum Aktivieren von mobilen Mitarbeiter zu nahtlos mit dem Unternehmensnetzwerk von einem beliebigen Remotestandort mit Internetanschluss ohne Verbinden einer Virtuelles privates Netzwerk (VPN)-Verbindung. DirectAccess können mobile Mitarbeiter, die gleiche netzwerkanbindung wie innerhalb und außerhalb des Büros auf ihren Computern Windows 8.1, Windows 8 und Windows 7 bieten.  
   
  In Windows Server Essentials auf Wenn eine Domäne mehr als einen Windows Server Essentials-Server muss DirectAccess auf dem Domänencontroller konfiguriert werden.  
   
@@ -42,7 +42,7 @@ Dieses Thema enthält schrittweise Anweisungen zum Konfigurieren von DirectAcces
   
 -   [Schritt 3: Vorbereiten eines Zertifikats und DNS-Eintrags für den Netzwerkadressenserver](Configure-DirectAccess-in-Windows-Server-Essentials.md#BKMK_DNS)  
   
-    -   [Schritt 3a: Erteilen Sie vollen Zugriff auf authentifizierte Benutzer für den Webserver s-Zertifikatvorlage](#BKMK_GrantFullPermissions)  
+    -   [Schritt 3a: Gewähren Sie Vollzugriff für die Webserver Zertifikatvorlage zu authentifizierten Benutzern](#BKMK_GrantFullPermissions)  
   
     -   [Schritt 3b: Registrieren Sie ein Zertifikat für den Netzwerkadressenserver mit einem allgemeinen Namen, die aus dem externen Netzwerk nicht aufgelöst werden](#BKMK_EnrollaCertificate)  
   
@@ -93,7 +93,7 @@ Dieses Thema enthält schrittweise Anweisungen zum Konfigurieren von DirectAcces
   
     2.  Auf der **Serverauswahl** (oder die **Zielserver auswählen** Seite in Windows Server Essentials), klicken Sie auf **wählen Sie einen Server aus dem Serverpool**.  
   
-    3.  Auf der Seite **Features** erweitern Sie **Remoteserver-Verwaltungstools (installiert)**, erweitern Sie **Tools für die Remotezugriffsverwaltung (installiert)**, erweitern Sie **Rollenverwaltungstools (installiert)**, erweitern Sie **Tools für die Remotezugriffsverwaltung**, und wählen Sie dann **Remotezugriffs-GUI und Befehlszeilentools**.  
+    3.  Auf der Seite **Features** erweitern Sie **Remoteserver-Verwaltungstools (installiert)** , erweitern Sie **Tools für die Remotezugriffsverwaltung (installiert)** , erweitern Sie **Rollenverwaltungstools (installiert)** , erweitern Sie **Tools für die Remotezugriffsverwaltung**, und wählen Sie dann **Remotezugriffs-GUI und Befehlszeilentools**.  
   
     4.  Folgen Sie den Anweisungen, um den Assistenten fertigzustellen.  
   
@@ -110,7 +110,7 @@ Dieses Thema enthält schrittweise Anweisungen zum Konfigurieren von DirectAcces
   
 4.  Klicken Sie mit der rechten Maustaste auf den lokalen Netzwerkadapter, und klicken Sie dann auf **Eigenschaften**.  
   
-5.  Klicken Sie auf der Registerkarte **Netzwerk** auf **Internetprotokoll Version 4 (TCP/IPv4)**, und klicken Sie dann auf **Eigenschaften**.  
+5.  Klicken Sie auf der Registerkarte **Netzwerk** auf **Internetprotokoll Version 4 (TCP/IPv4)** , und klicken Sie dann auf **Eigenschaften**.  
   
 6.  Klicken Sie auf der Registerkarte **Allgemein** auf **Folgende IP-Adresse verwenden**, und geben Sie dann die zu verwendende IP-Adresse ein.  
   
@@ -133,20 +133,20 @@ Dieses Thema enthält schrittweise Anweisungen zum Konfigurieren von DirectAcces
 ##  <a name="BKMK_DNS"></a> Schritt 3: Vorbereiten eines Zertifikats und eines DNS-Eintrags für den Netzwerkadressenserver  
  Um ein Zertifikat und den DNS-Eintrag für den Netzwerkadressenserver vorzubereiten, führen Sie die folgenden Aufgaben aus:  
   
--   [Schritt 3a: Erteilen Sie vollen Zugriff auf authentifizierte Benutzer für den Webserver s-Zertifikatvorlage](#BKMK_GrantFullPermissions)  
+-   [Schritt 3a: Gewähren Sie Vollzugriff für die Webserver Zertifikatvorlage zu authentifizierten Benutzern](#BKMK_GrantFullPermissions)  
   
 -   [Schritt 3b: Registrieren Sie ein Zertifikat für den Netzwerkadressenserver mit einem allgemeinen Namen, die aus dem externen Netzwerk nicht aufgelöst werden](#BKMK_EnrollaCertificate)  
   
 -   [Schritt 3c: Hinzufügen eines neuen Hosts auf dem DNS-Server, und ordnen Sie sie zur Windows Server Essentials-Serveradresse.](#BKMK_MapNewHosttoServerAddress)  
   
-###  <a name="BKMK_GrantFullPermissions"></a> Schritt 3a: Erteilen Sie vollen Zugriff auf authentifizierte Benutzer für den Webserver s-Zertifikatvorlage  
- Ihre erste Aufgabe besteht darin, vollständige Berechtigungen zum Authentifizieren von Benutzern für die s Zertifikatvorlage für Webserver in der Zertifizierungsstelle zu gewähren.  
+###  <a name="BKMK_GrantFullPermissions"></a> Schritt 3a: Gewähren Sie Vollzugriff für die Webserver Zertifikatvorlage zu authentifizierten Benutzern  
+ Die erste Aufgabe besteht Vollzugriff zum Authentifizieren von Benutzern für die Webserver Zertifikatvorlage in der Zertifizierungsstelle zu gewähren.  
   
-####  <a name="BKMK_ToGrantFullPermissions"></a> Vollzugriff auf authentifizierte Benutzer für den Webserver-Zertifikatvorlage s gewähren  
+####  <a name="BKMK_ToGrantFullPermissions"></a> Gewähren Sie uneingeschränkte Berechtigungen für authentifizierte Benutzer für die Webserver Zertifikatvorlage  
   
 1.  Auf der Seite **Start** öffnen Sie **Zertifizierungsstelle**.  
   
-2.  In der Konsolenstruktur unter **Zertifizierungsstelle (lokal)**, erweitern Sie **< Servername\>-CA**, mit der rechten Maustaste **Zertifikatvorlagen**, und klicken Sie dann auf **Verwalten**.  
+2.  In der Konsolenstruktur unter **Zertifizierungsstelle (lokal)** , erweitern Sie **< Servername\>-CA**, mit der rechten Maustaste **Zertifikatvorlagen**, und klicken Sie dann auf **Verwalten**.  
   
 3.  In **Zertifizierungsstelle (lokal)** klicken Sie mit der rechten Maustaste auf **Webserver**, und klicken Sie dann auf **Eigenschaften**.  
   
@@ -173,7 +173,7 @@ Dieses Thema enthält schrittweise Anweisungen zum Konfigurieren von DirectAcces
   
 6.  Klicken Sie auf der Seite **Computer auswählen** auf **Lokaler Computer**, auf **Fertig stellen**und dann auf **OK**.  
   
-7.  Erweitern Sie in der Konsolenstruktur **Zertifikate (Lokaler Computer)**, erweitern Sie **Persönlich**, klicken Sie mit der rechten Maustaste auf **Zertifikate**, und klicken Sie dann in **Alle Aufgaben**auf **Neues Zertifikat anfordern**.  
+7.  Erweitern Sie in der Konsolenstruktur **Zertifikate (Lokaler Computer)** , erweitern Sie **Persönlich**, klicken Sie mit der rechten Maustaste auf **Zertifikate**, und klicken Sie dann in **Alle Aufgaben**auf **Neues Zertifikat anfordern**.  
   
 8.  Wenn der Zertifikatregistrierungs-Assistent angezeigt wird, klicken Sie auf **Weiter**.  
   
@@ -198,7 +198,7 @@ Dieses Thema enthält schrittweise Anweisungen zum Konfigurieren von DirectAcces
   
 1.  Öffnen Sie auf der Startseite den DNS-Manager. Suchen Sie zum Öffnen des DNS-Managers nach **dnsmgmt.msc**, und klicken Sie dann auf **dnsmgmt.msc** in den Ergebnissen.  
   
-2.  In der Konsolenstruktur des DNS-Manager, erweitern Sie in den lokalen Server, erweitern Sie **Forward-Lookupzonen**mit der rechten Maustaste auf die Zone mit dem Domänensuffix des Servers s, und klicken Sie dann auf **neuer Host (A oder AAAA)**.  
+2.  In der Konsolenstruktur des DNS-Manager, erweitern Sie in den lokalen Server, erweitern Sie **Forward-Lookupzonen**mit der rechten Maustaste auf die Zone mit dem Domänensuffix des Servers, und klicken Sie dann auf **neuer Host (A oder AAAA)** .  
   
 3.  Geben Sie den Namen und die IP-Adresse des Servers (z. B. %%amp;quot;DirectAccess-NLS.contoso.local%%amp;quot;) und die entsprechende Serveradresse ein (z. B. 192.168.x.x).  
   
@@ -209,16 +209,16 @@ Dieses Thema enthält schrittweise Anweisungen zum Konfigurieren von DirectAcces
   
 #### <a name="to-add-a-security-group-for-client-computers-that-use-directaccess"></a>So fügen Sie eine Sicherheitsgruppe für Clientcomputer hinzu, die DirectAccess verwenden  
   
-1.  Klicken Sie auf dem Server-Manager-Dashboard auf **Tools**, und klicken Sie dann auf **Active Directory-Benutzer und -Computer**.  
+1. Klicken Sie auf dem Server-Manager-Dashboard auf **Tools**, und klicken Sie dann auf **Active Directory-Benutzer und -Computer**.  
   
-    > [!NOTE]
-    >  Wenn **Active Directory-Benutzer und -Computer** nicht im Menü **Tools** angezeigt wird, müssen Sie das Feature installieren. Um Active Directory-Benutzer und -Gruppen zu installieren, führen Sie das folgende Windows PowerShell-Cmdlet als Administrator aus: `Install-WindowsFeature RSAT-ADDS-Tools`. Weitere Informationen finden Sie unter [Installieren oder Entfernen der Remoteserver-Verwaltungstools](https://technet.microsoft.com/library/cc730825.aspx).  
+   > [!NOTE]
+   >  Wenn **Active Directory-Benutzer und -Computer** nicht im Menü **Tools** angezeigt wird, müssen Sie das Feature installieren. Um Active Directory-Benutzer und -Gruppen zu installieren, führen Sie das folgende Windows PowerShell-Cmdlet als Administrator aus: `Install-WindowsFeature RSAT-ADDS-Tools`. Weitere Informationen finden Sie unter [Installieren oder Entfernen der Remoteserver-Verwaltungstools](https://technet.microsoft.com/library/cc730825.aspx).  
   
-2.  Erweitern Sie in der Konsolenstruktur den Server, klicken Sie mit der rechten Maustaste auf **Benutzer**, klicken Sie auf **Neu**, und klicken Sie dann auf **Gruppe**.  
+2. Erweitern Sie in der Konsolenstruktur den Server, klicken Sie mit der rechten Maustaste auf **Benutzer**, klicken Sie auf **Neu**, und klicken Sie dann auf **Gruppe**.  
   
-3.  Geben Sie einen Gruppennamen, den Gruppenbereich und den Gruppentyp (Erstellen einer Sicherheitsgruppe) ein, und klicken Sie dann auf **OK**.  
+3. Geben Sie einen Gruppennamen, den Gruppenbereich und den Gruppentyp (Erstellen einer Sicherheitsgruppe) ein, und klicken Sie dann auf **OK**.  
   
- Die neue Sicherheitsgruppe wird dem Ordner **Benutzer** hinzugefügt.  
+   Die neue Sicherheitsgruppe wird dem Ordner **Benutzer** hinzugefügt.  
   
 #### <a name="to-add-computer-accounts-to-the-security-group"></a>So fügen Sie Computerkonten zur Sicherheitsgruppe hinzu  
   
@@ -299,7 +299,7 @@ gpupdate
   
 ##### <a name="to-enable--windows-7-enterprise-computers-to-use-directaccess"></a>So aktivieren Sie Windows 7 Enterprise-Computer für DirectAccess  
   
-1.  Öffnen Sie auf der Startseite Server s **Remotezugriffsverwaltung**.  
+1.  Öffnen Sie auf der Startseite des Servers **Remotezugriffsverwaltung**.  
   
 2.  Klicken Sie in der Remotezugriffs-Verwaltungskonsole auf **Konfiguration**. Klicken Sie dann im Bereich **Einstellungsdetails** unter **Schritt 2** auf **Bearbeiten**.  
   
@@ -311,11 +311,11 @@ gpupdate
   
 > [!IMPORTANT]
 >  Es gibt ein bekanntes Problem für Windows 7 Enterprise-Computer, die eine Verbindung über DirectAccess herstellen, wenn der Windows Server Essentials-Server nicht mit UR1 vorinstalliert stammt. Um DirectAccess-Verbindungen in dieser Umgebung zu ermöglichen, müssen Sie die folgenden zusätzlichen Schritte ausführen:  
->   
->  1.  Installieren Sie den beschriebenen Hotfix [Microsoft Knowledge Base (KB)-Artikel 2796394](https://support.microsoft.com/kb/2796394) auf dem Windows Server Essentials-Server. Starten Sie dann den Server neu.  
-> 2.  Installieren Sie dann den beschriebenen Hotfix [Microsoft Knowledge Base (KB)-Artikel 2615847](https://support.microsoft.com/kb/2615847) auf jedem Computer Windows 7.  
->   
->      Dieses Problem wurde in Windows Server Essentials gelöst.  
+> 
+> 1. Installieren Sie den beschriebenen Hotfix [Microsoft Knowledge Base (KB)-Artikel 2796394](https://support.microsoft.com/kb/2796394) auf dem Windows Server Essentials-Server. Starten Sie dann den Server neu.  
+>    2. Installieren Sie dann den beschriebenen Hotfix [Microsoft Knowledge Base (KB)-Artikel 2615847](https://support.microsoft.com/kb/2615847) auf jedem Computer Windows 7.  
+> 
+>    Dieses Problem wurde in Windows Server Essentials gelöst.  
   
 ###  <a name="BKMK_NLS"></a> Schritt 5D: Konfigurieren des Netzwerkadressenservers  
  Dieser Abschnitt enthält schrittweise Anweisungen zum Konfigurieren der Einstellungen des Netzwerkadressenservers.  
@@ -342,7 +342,7 @@ gpupdate
   
 2.  Erweitern Sie im Registrierungs-Editor **HKEY_LOCAL_MACHINE**, erweitern Sie **System**, erweitern Sie **CurrentControlSet**, erweitern Sie **Services**, und erweitern Sie **IKEEXT**.  
   
-3.  Klicken Sie unter **IKEEXT** mit der rechten Maustaste auf **Parameter**, klicken Sie auf **Neu**, und klicken Sie dann auf **DWORD-Wert (32 Bit)**.  
+3.  Klicken Sie unter **IKEEXT** mit der rechten Maustaste auf **Parameter**, klicken Sie auf **Neu**, und klicken Sie dann auf **DWORD-Wert (32 Bit)** .  
   
 4.  Geben Sie dem neu hinzugefügten Wert den Namen **ikeflags**.  
   
@@ -380,24 +380,24 @@ gpupdate
   
 2.  Klicken Sie in der Gruppenrichtlinien-Verwaltungskonsole auf die standardmäßige Gesamtstruktur und Domäne, klicken Sie mit der rechten Maustaste auf **DirectAccess-Servereinstellungen**, und klicken Sie dann auf **Bearbeiten**.  
   
-3.  Klicken Sie auf **Computerkonfiguration**, klicken Sie auf **Richtlinien**, klicken Sie auf **Windows-Einstellungen**, klicken Sie auf **Sicherheitseinstellungen**, klicken Sie auf **Windows-Firewall mit erweiterter Sicherheit**, klicken Sie auf die nächste Ebene **Windows-Firewall mit erweiterter Sicherheit**, und klicken Sie dann auf **Eingehende Regeln**. Klicken Sie mit der rechten Maustaste auf **Domänennamenserver (TCP eingehend)**, und klicken Sie dann auf **Eigenschaften**.  
+3.  Klicken Sie auf **Computerkonfiguration**, klicken Sie auf **Richtlinien**, klicken Sie auf **Windows-Einstellungen**, klicken Sie auf **Sicherheitseinstellungen**, klicken Sie auf **Windows-Firewall mit erweiterter Sicherheit**, klicken Sie auf die nächste Ebene **Windows-Firewall mit erweiterter Sicherheit**, und klicken Sie dann auf **Eingehende Regeln**. Klicken Sie mit der rechten Maustaste auf **Domänennamenserver (TCP eingehend)** , und klicken Sie dann auf **Eigenschaften**.  
   
 4.  Klicken Sie auf die Registerkarte **Bereich** , und fügen Sie in der Liste **Lokale IP-Adresse** die IPv6-Adresse der IP-HTTPS-Schnittstelle hinzu.  
   
-5.  Wiederholen Sie dieses Verfahren für **Domänennamenserver (UDP eingehend)**.  
+5.  Wiederholen Sie dieses Verfahren für **Domänennamenserver (UDP eingehend)** .  
   
 ##  <a name="BKMK_DNS64"></a> Schritt 8: Ändern der DNS64-Konfiguration zum Abhören der IP-HTTPS-Schnittstelle  
  Sie müssen die DNS64-Konfiguration mithilfe des folgenden Windows PowerShell so ändern, dass die IP-HTTPS-Schnittstelle abgehört wird:  
   
 ```powershell  
-Set-NetDnsTransitionConfiguration  �AcceptInterface IPHTTPSInterface  
+Set-NetDnsTransitionConfiguration -AcceptInterface IPHTTPSInterface  
 ```  
   
 ##  <a name="BKMK_ExemptPort"></a> Schritt 9: Reservieren von Ports für den WinNat-Dienst  
  Verwenden Sie den folgenden Windows PowerShell-Befehl, um Ports für des WinNat-Diensts zu reservieren. Ersetzen Sie "192.168.1.100" durch die tatsächliche IPv4-Adresse Ihres Windows Server Essentials-Servers ein.  
   
 ```powershell  
-Set-NetNatTransitionConfiguration  �IPv4AddressPortPool @("192.168.1.100, 10000-47000")  
+Set-NetNatTransitionConfiguration -IPv4AddressPortPool @("192.168.1.100, 10000-47000")  
 ```  
   
 > [!IMPORTANT]
@@ -471,8 +471,8 @@ gpupdate
 # Enable client computers running Windows 7 to use DirectAccess  
 $allcertsinroot = dir cert:\LocalMachine\root  
 $rootcert = $allcertsinroot | Where-Object{$_.Subject -like "*-CAA*"}  
-Set-DAServer  �IPSecRootCertificate $rootcert[0]  
-Set  �DAClient  �OnlyRemoteComputers Disabled -Downlevel Enabled  
+Set-DAServer -IPSecRootCertificate $rootcert[0]  
+Set -DAClient -OnlyRemoteComputers Disabled -Downlevel Enabled  
   
 #Set the appropriate security group used for DA client computers. Replace the group name below with the one you created for DA clients  
 Add-DAClient -SecurityGroupNameList $DaSecurityGroup   
@@ -501,7 +501,7 @@ XCOPY 'C:\inetpub\wwwroot' 'C:\Program Files\Windows Server\Bin\WebApps\Site\ins
 XCOPY 'C:\Program Files\Windows Server\Bin\WebApps\Site\Default.aspx' 'C:\Program Files\Windows Server\Bin\WebApps\Site\insideoutside' /Y  
   
 # Reserve ports for the WinNat service  
-Set-NetNatTransitionConfiguration  �IPv4AddressPortPool @("192.168.1.100, 10000-47000")  
+Set-NetNatTransitionConfiguration -IPv4AddressPortPool @("192.168.1.100, 10000-47000")  
   
 # Restart the WinNat service  
 Restart-Service winnat  

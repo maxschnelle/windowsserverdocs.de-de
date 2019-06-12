@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 292dfe5755a10a91f2b8bcffaa6412ccda6c6f8a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e3f8454572b662c9327aeb4783c5e9651ad2022b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867631"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441897"
 ---
 # <a name="regini"></a>regini
 
@@ -35,6 +35,7 @@ regini [-m \\machinename | -h hivefile hiveroot][-i n] [-o outputWidth][-b] text
 ### <a name="parameters"></a>Parameter
 
 | Parameter | Beschreibung |
+
 |-m \< \\ \\ComputerName >|Gibt Namen des Remotecomputers mit einer Registrierung, die geändert werden soll. Verwenden Sie das Format  **\\ \\ComputerName**.|
 |---------------------|-|
 |-h \<Hivefile Hiveroot >|Gibt die lokale Registrierung-Struktur ändern. Sie müssen den Namen der Hive-Datei und den Stamm der Struktur angeben, im Format **Hivefile Hiveroot**.|
@@ -52,4 +53,4 @@ Die folgenden Richtlinien gelten in erster Linie auf den Inhalt der Textdateien,
 
 #### <a name="additional-references"></a>Weitere Verweise
 
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

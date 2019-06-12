@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 320e12fd30deda30ccc0da1ad6e5bea6f9a19d8a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5ef487ce9799c1f09660cdfcd6fba71336fc4d9a
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59818441"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442146"
 ---
 # <a name="prompt"></a>prompt
 
 
 
-Ändert die Cmd.exe-Eingabeaufforderung. Wenn Sie ohne Angabe von Parametern **Eingabeaufforderung** setzt die Eingabeaufforderung auf die Standardeinstellung, die den aktuellen Laufwerkbuchstaben und das Verzeichnis, das größer-als-Zeichen gefolgt wird (**>**).
+Ändert die Cmd.exe-Eingabeaufforderung. Wenn Sie ohne Angabe von Parametern **Eingabeaufforderung** setzt die Eingabeaufforderung auf die Standardeinstellung, die den aktuellen Laufwerkbuchstaben und das Verzeichnis, das größer-als-Zeichen gefolgt wird ( **>** ).
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -46,31 +46,32 @@ prompt [<Text>]
 Sie können anpassen, dass die Eingabeaufforderung Text nicht angezeigt, die Sie verwenden, einschließlich Informationen wie den Namen der im aktuellen Verzeichnis, die Uhrzeit und Datum und die Microsoft Windows-Versionsnummer möchten.
 
 Die folgende Tabelle enthält die Zeichenkombinationen, die Sie, anstelle von oder zusätzlich einen oder mehrere Zeichenfolgen in einschließen können die *Text* Parameter. Die Liste enthält eine kurze Beschreibung des Textes oder Informationen, die jede Zeichenkombination an der Eingabeaufforderung hinzufügt.  
-|Zeichen|Beschreibung|
-|---------|-----------|
-|$q|= (Gleichheitszeichen)|
-|$$|$ (Dollarzeichen)|
-|$t|Aktuelle Zeit|
-|$d|Aktuelles Datum|
-|$p|Aktuelle Laufwerk und Pfad|
-|$v|Windows-Versionsnummer|
-|$n|Aktuelles Laufwerk|
-|$g|> (größer als-Zeichen)|
-|$l|< (kleiner-als-Zeichen)|
-|$b|| (senkrechter Strich)|
-|$_|GEBEN SIE ZEILENVORSCHUB|
-|$e|ANSI-Escape-Code (Code 27)|
-|$h|Mit der RÜCKTASTE (löschen ein Zeichen, das in der Befehlszeile geschrieben wurden)|
-|$ein|& (kaufmännisches und-Zeichen)|
-|$c|((Klammer)|
-|$f|) (Klammer)|
-|$s|Speicherplatz|
+
+| Zeichen |                                 Beschreibung                                 |
+|-----------|-----------------------------------------------------------------------------|
+|    $q     |                               = (Gleichheitszeichen)                                |
+|    $$     |                               $ (Dollarzeichen)                               |
+|    $t     |                                Aktuelle Zeit                                 |
+|    $d     |                                Aktuelles Datum                                 |
+|    $p     |                           Aktuelle Laufwerk und Pfad                            |
+|    $v     |                           Windows-Versionsnummer                            |
+|    $n     |                                Aktuelles Laufwerk                                |
+|    $g     |                            > (größer als-Zeichen)                            |
+|    $l     |                             < (kleiner-als-Zeichen)                              |
+|    $b     |                                                                             |
+|    $_     |                               GEBEN SIE ZEILENVORSCHUB                                |
+|    $e     |                         ANSI-Escape-Code (Code 27)                          |
+|    $h     | Mit der RÜCKTASTE (löschen ein Zeichen, das in der Befehlszeile geschrieben wurden) |
+|    $ein     |                                & (kaufmännisches und-Zeichen)                                |
+|    $c     |                            ((Klammer)                             |
+|    $f     |                            ) (Klammer)                            |
+|    $s     |                                    Speicherplatz                                    |
 
 Befehlserweiterungen sind aktiviert, wenn (d. h. Standard) die **Eingabeaufforderung** -Befehl unterstützt die folgenden Formatierungszeichen:  
 
 |Zeichen|Beschreibung|
 |---------|-----------|
-|$+|NULL oder mehr Pluszeichen (+) (**+**) Zeichen, abhängig von die Tiefe der **Pushd** Directory Stack (ein Zeichen für jede Ebene mithilfe von Push übertragen).|
+|$+|NULL oder mehr Pluszeichen (+) ( **+** ) Zeichen, abhängig von die Tiefe der **Pushd** Directory Stack (ein Zeichen für jede Ebene mithilfe von Push übertragen).|
 |$m|Der Remotename der aktuellen Laufwerkbuchstabe oder eine leere Zeichenfolge zugeordnet, wenn aktuelle Laufwerk nicht auf einem Netzlaufwerk ist.|
 
 Wenn Sie enthalten die **$p** Zeichen im Textparameter wird der Datenträger nach der Eingabe jedes Befehls (um zu bestimmen, das aktuelle Laufwerk und Pfad) gelesen. Dies kann zusätzliche Zeit, insbesondere für Diskettenlaufwerke dauern.
@@ -97,4 +98,4 @@ prompt $p$g
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

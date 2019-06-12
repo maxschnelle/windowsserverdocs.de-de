@@ -5,23 +5,23 @@ ms.technology: manage
 ms.topic: article
 author: haley-rowland
 ms.author: harowl
-ms.date: 03/19/2019
+ms.date: 06/07/2019
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: b19657f4ce1a1a2cfb94f7234f07805ba0abd42c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 96d09b25ddb2f473fb4fe22c0cf716bfcf8becaa
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850571"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811926"
 ---
 # <a name="configure-user-access-control-and-permissions"></a>Konfigurieren der Zugriffssteuerung für Benutzer und Berechtigungen
 
->Gilt für: Windows Admin Center, Windows Admin Center Preview
+> Gilt für: Windows Admin Center, Windows Admin Center Preview
 
 Wenn Sie nicht bereits getan haben, informieren Sie sich über die [Benutzeroptionen Access-Steuerelement in Windows Admin Center](../plan/user-access-options.md)
 
->[!NOTE]
+> [!NOTE]
 > Gruppe basierend auf Windows Admin Center wird nicht in arbeitsgruppenumgebungen oder in nicht vertrauenswürdigen Domänen unterstützt.
 
 ## <a name="gateway-access-role-definitions"></a>Rollendefinitionen für Gateway-Zugriff
@@ -41,7 +41,7 @@ Standardmäßig sind Active Directory oder lokale Benutzergruppen verwendet, um 
 
 Auf der **Benutzer** Registerkarte können Sie steuern, wer Windows Admin Center als Gateway Benutzer zugreifen kann. In der Standardeinstellung und wenn Sie eine Sicherheitsgruppe nicht angeben, hat jeder Benutzer, der die Gateway-URL zugreift Zugriff. Nachdem Sie der Liste der Benutzer eine oder mehrere Sicherheitsgruppen hinzugefügt haben, ist der Zugriff auf die Mitglieder dieser Gruppen beschränkt.
 
-Wenn Sie nicht Active Directory-Domäne in Ihrer Umgebung verwenden, der Zugriff wird gesteuert durch die ```Users``` und ```Administrators``` lokalen Gruppen auf dem Gatewaycomputer Windows Admin Center.
+Wenn Sie nicht Active Directory-Domäne in Ihrer Umgebung verwenden, der Zugriff wird gesteuert durch die `Users` und `Administrators` lokalen Gruppen auf dem Gatewaycomputer Windows Admin Center.
 
 ### <a name="smartcard-authentication"></a>Smartcard-Authentifizierung
 
@@ -143,6 +143,7 @@ Einrichten von RBAC umfasst 2 Schritte aus: Aktivieren der Unterstützung für a
 
 Das Bereitstellungsmodell für die einzelnen Computer ist ideal für einfache Umgebungen mit nur wenigen Computern verwalten.
 Konfigurieren eines virtuellen Computers mit Unterstützung für die rollenbasierte Zugriffssteuerung führt die folgenden Änderungen:
+
 -   PowerShell-Modulen mit Funktionen, die erforderlichen Windows Admin Center installiert werden auf dem Systemlaufwerk unter `C:\Program Files\WindowsPowerShell\Modules`. Alle Module beginnt mit **Microsoft.Sme**
 -   Desired State Configuration, führt eine einmalige Konfiguration zum Konfigurieren von eines Just Enough Administration-Endpunkts auf dem Computer, mit dem Namen **Microsoft.Sme.PowerShell**. Dieser Endpunkt definiert die 3-Rollen, die von Windows Admin Center verwendet und wird als temporärer lokaler Administrator ausgeführt, wenn ein Benutzer, eine Verbindung herstellt.
 -   3 neue lokale Gruppen werden an Steuerelement erstellt werden, welche Benutzer Zugriff auf welche Rollen zugewiesen werden:
@@ -153,7 +154,7 @@ Konfigurieren eines virtuellen Computers mit Unterstützung für die rollenbasie
 Um die Unterstützung für die rollenbasierte Zugriffssteuerung auf einem einzelnen Computer zu aktivieren, gehen Sie folgendermaßen vor:
 
 1.  Öffnen Sie Windows Admin Center, und Verbinden mit dem Computer, die, den Sie mit der rollenbasierten Zugriffssteuerung, die mit einem Konto mit lokalen Administratorrechten auf dem Zielcomputer konfigurieren möchten.
-2.  Auf der **Übersicht** tool, klicken Sie auf **Einstellungen** > **Role-based Access Control,**.
+2.  Auf der **Übersicht** tool, klicken Sie auf **Einstellungen** > **Role-based Access Control,** .
 3.  Klicken Sie auf **übernehmen** am unteren Rand der Seite, um Unterstützung für die rollenbasierte Zugriffssteuerung auf dem Zielcomputer aktivieren. Der Anwendungsprozess umfasst PowerShell-Skripts kopieren und das Aufrufen von einer Konfigurations (mithilfe von PowerShell Desired State Configuration) auf dem Zielcomputer an. Es dauert bis zu 10 Minuten in Anspruch und führt zu WinRM neu zu starten. Dadurch wird Windows Admin Center, PowerShell und WMI-Benutzer vorübergehend getrennt.
 4.  Aktualisieren Sie die Seite zum Überprüfen des Status der rollenbasierten Zugriffssteuerung. Wenn es zur Verwendung bereit ist, der Status wird nun **angewendet**.
 
@@ -191,6 +192,7 @@ Invoke-RestMethod -Uri "https://localhost:6516/api/nodes/all/features/jea/endpoi
 ```
 
 Wenn Sie das Zip-Archiv erweitern, sehen Sie die folgende Ordnerstruktur:
+
 - InstallJeaFeatures.ps1
 - JustEnoughAdministration (Verzeichnis)
 - Module (Verzeichnis)
@@ -198,6 +200,7 @@ Wenn Sie das Zip-Archiv erweitern, sehen Sie die folgende Ordnerstruktur:
     - WindowsAdminCenter.Jea (directory)
 
 Um Unterstützung für die rollenbasierte Zugriffssteuerung auf einem Knoten zu konfigurieren, müssen Sie die folgenden Aktionen ausführen:
+
 1.  Kopieren Sie die JustEnoughAdministration, Microsoft.SME. \*, und WindowsAdminCenter.Jea Module in das Verzeichnis des PowerShell-Modul auf dem Zielcomputer. Dies ist in der Regel unter `C:\Program Files\WindowsPowerShell\Modules`.
 2.  Update **InstallJeaFeature.ps1** Datei entsprechen die gewünschte Konfiguration für die RBAC-Endpunkt.
 3.  Führen Sie InstallJeaFeature.ps1 zum Kompilieren der DSC-Ressource.

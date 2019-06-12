@@ -9,12 +9,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: mas
-ms.openlocfilehash: 75474bd37f425388f01986ca32073107ee4fed99
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bcc06a3ccc4e95fa43a7f8f0ef7d110fd427f5a0
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830691"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501652"
 ---
 # <a name="active-directory-administrative-tier-model"></a>Active Directory-Verwaltungsebenenmodell
 
@@ -330,11 +330,11 @@ Administratoren, die Support für Remotesysteme und -benutzer bieten, müssen di
 Stellen Sie sicher, dass für dieses Szenario die folgenden Verfahren verwendet werden:
 
 - **Remoteserversupport**: Beim Remotezugriff auf einen Server müssen Administratoren der Ebene 0 die folgenden Richtlinien befolgen:
-   - **Primär (Tool)**: Remotetools, die Netzwerkanmeldungen verwenden (Typ 3). Weitere Informationen finden Sie unter [Verwaltungstools und Anmeldetypen](http://aka.ms/admintoolsecurity).
-   - **Primär (interaktiv)**: Verwenden Sie den RDP-Modus RestrictedAdmin oder eine RDP-Standardsitzung auf einer Administratorarbeitsstation mit Domänenkonto
+  - **Primär (Tool)** : Remotetools, die Netzwerkanmeldungen verwenden (Typ 3). Weitere Informationen finden Sie unter [Verwaltungstools und Anmeldetypen](http://aka.ms/admintoolsecurity).
+  - **Primär (interaktiv)** : Verwenden Sie den RDP-Modus RestrictedAdmin oder eine RDP-Standardsitzung auf einer Administratorarbeitsstation mit Domänenkonto
 
-   > [!NOTE]
-   > Wenn Sie über eine Rechteverwaltungslösung der Ebene 0 verfügen, fügen Sie Folgendes hinzu: Verwendung von Just-in-Time-Berechtigungen von einer Privileged Access Management-Lösung.
+    > [!NOTE]
+    > Wenn Sie über eine Rechteverwaltungslösung der Ebene 0 verfügen, fügen Sie Folgendes hinzu: Verwendung von Just-in-Time-Berechtigungen von einer Privileged Access Management-Lösung.
 
 - **Physischer Serversupport**: Bei physischer Präsenz an einer Server- oder VM-Konsole (Hyper-V oder VMware Tools) gelten für diese Konten keine bestimmten Einschränkungen bezüglich der Nutzung von Verwaltungstools. Es gelten lediglich die allgemeinen Einschränkungen für standardmäßige Benutzeraufgaben wie der Zugriff auf E-Mails und das Durchsuchen des Internets.
 
@@ -346,8 +346,8 @@ Stellen Sie sicher, dass für dieses Szenario die folgenden Verfahren verwendet 
 Stellen Sie sicher, dass für dieses Szenario die folgenden Verfahren verwendet werden:
 
 - **Remoteserversupport**: Beim Remotezugriff auf einen Server müssen Administratoren der Ebene 1 die folgenden Richtlinien befolgen:
-   - **Primär (Tool)**: Remotetools, die Netzwerkanmeldungen verwenden (Typ 3). Weitere Informationen finden Sie auf Seite 42-47 unter [Mitigating Pass-the-Hash and Other Credential Theft](https://www.microsoft.com/pth) v1 (Verhindern von Pass-the-Hash-Angriffen und anderen Angriffen zum Diebstahl von Anmeldeinformationen).
-   - **Primär (interaktiv)**: Verwenden Sie den RDP-Modus RestrictedAdmin auf einer Administratorarbeitsstation mit Domänenkonto, das Just-in-Time-Berechtigungen von einer Privileged Access Management-Lösung erhalten hat.
+   - **Primär (Tool)** : Remotetools, die Netzwerkanmeldungen verwenden (Typ 3). Weitere Informationen finden Sie auf Seite 42-47 unter [Mitigating Pass-the-Hash and Other Credential Theft](https://www.microsoft.com/pth) v1 (Verhindern von Pass-the-Hash-Angriffen und anderen Angriffen zum Diebstahl von Anmeldeinformationen).
+   - **Primär (interaktiv)** : Verwenden Sie den RDP-Modus RestrictedAdmin auf einer Administratorarbeitsstation mit Domänenkonto, das Just-in-Time-Berechtigungen von einer Privileged Access Management-Lösung erhalten hat.
    - **Sekundär**: Melden Sie sich unter Verwendung eines lokalen Kontokennworts beim Server an, das von LAPS auf einer Administratorarbeitsstation festgelegt wird.
    - **Nicht zulässig**: Standard-RDP darf nicht mit einem Domänenkonto verwendet werden.
    - **Nicht zulässig**: Verwenden der Anmeldeinformationen des Domänenkontos während der Sitzung (z. B. die Verwendung von *RunAs* oder die Authentifizierung gegenüber einer Freigabe). Dabei besteht das Risiko eines Diebstahls der Anmeldeinformationen.
@@ -436,10 +436,10 @@ Für jede Verwendung von Notfallzugriffskonten gilt Folgendes:
 - Nur autorisierte Domänenadministratoren können auf die Notfallzugriffskonten mit Domänenadministratorberechtigungen zugreifen.
 - Die Notfallzugriffskonten können nur auf Domänencontrollern und anderen Hosts der Ebene 0 verwendet werden.
 - Dieses Konto sollte ausschließlich für folgende Zwecke verwendet werden:
-   - Problembehandlung und Behebung technischer Probleme, die eine Verwendung der richtigen Administratorkonten verhindern.
-   - Durchführen seltener Aufgaben, wie z. B.:
-      - Schemaverwaltung
-      - Gesamtstrukturweite Aufgaben, die Enterprise-Administratorrechte erfordern.
+  - Problembehandlung und Behebung technischer Probleme, die eine Verwendung der richtigen Administratorkonten verhindern.
+  - Durchführen seltener Aufgaben, wie z. B.:
+    - Schemaverwaltung
+    - Gesamtstrukturweite Aufgaben, die Enterprise-Administratorrechte erfordern.
 
       > [!NOTE]
       > Topologieverwaltung, einschließlich der Verwaltung von Active Directory-Standort und das Subnetz wird delegiert, um die Nutzung dieser Rechte einzuschränken.
@@ -555,7 +555,7 @@ Organisationen sollten die Mitgliedschaft in allen Gruppen der Ebene 0 (einschl
 - Server-Operatoren
 - Domänencontroller
 - Read-only-Domänencontroller
-- Richtlinien-Ersteller-Besitzer
+- Gruppenrichtlinienersteller-Besitzer
 - Kryptografie-Operatoren
 - Distributed COM-Benutzer
 - Andere delegierte Gruppen – benutzerdefinierte Gruppen, die von Ihrer Organisation zu verwalten, die müssen unter Umständen auch der effektive Zugriff auf Ebene 0 erstellt werden können.
@@ -568,7 +568,7 @@ In einem Remoteverwaltungsszenario werden die Anmeldeinformationen auf dem Quell
 
 Diese Tabelle umfasst Informationen zu den meisten gängigen Verwaltungstools und Verbindungsmethoden:
 
-|Verbindungsmethode|Anmeldetyp|Wiederverwendbare Anmeldeinformationen auf dem Ziel|Anmerkungen|
+|Verbindungsmethode|Anmeldetyp|Wiederverwendbare Anmeldeinformationen auf dem Ziel|Kommentare|
 |-----------|-------|--------------------|------|
 |Anmeldung bei der Konsole|Interactive (Interaktiv)|v|Umfasst Remotehardwarezugriff/Lights-out-Karten und Netzwerk-KVMs.|
 |RUNAS|Interactive (Interaktiv)|v||
@@ -590,7 +590,7 @@ Diese Tabelle umfasst Informationen zu den meisten gängigen Verwaltungstools un
 
 Informationen zur Webauthentifizierung finden Sie in der Tabelle unten:
 
-|Verbindungsmethode|Anmeldetyp|Wiederverwendbare Anmeldeinformationen auf dem Ziel|Anmerkungen|
+|Verbindungsmethode|Anmeldetyp|Wiederverwendbare Anmeldeinformationen auf dem Ziel|Kommentare|
 |-----------|-------|--------------------|------|
 |IIS-Standardauthentifizierung|NetworkCleartext<br />(IIS 6.0 und höher)<br /><br />Interactive (Interaktiv)<br />(vor IIS 6.0)|v||
 |Integrierte Windows-Authentifizierung (IIS)|Network|-|NTLM- und Kerberos-Anbieter.|

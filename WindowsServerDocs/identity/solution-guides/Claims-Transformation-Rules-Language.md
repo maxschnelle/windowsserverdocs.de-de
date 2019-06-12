@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 4a6b378bc4aef180ebedd260008febaa2f2a76ae
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a1f5c724d041a9f64c3b2697a8b5acd17a2a7bd9
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856211"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445810"
 ---
 # <a name="claims-transformation-rules-language"></a>Sprache zum Schreiben von Regeln für die Transformation von Ansprüchen
 
@@ -225,75 +225,75 @@ Transformationsregeln für Ansprüche werden durch einen benutzerdefinierten Par
   
 In diesem Abschnitt sind einige Beispiele für Regeln, die Fehler mit falscher Syntax und die entsprechende Syntax geschrieben werden, die vom Parser generiert werden.  
   
-1.  Beispiel:  
+1. Beispiel:  
   
-    ```  
-    c1;[]=>Issue(claim=c1);  
-    ```  
+   ```  
+   c1;[]=>Issue(claim=c1);  
+   ```  
   
-    In diesem Beispiel hat ein falsch verwendeter Semikolon anstelle von einem Doppelpunkt.   
-    **Fehlermeldung:**  
-    *POLICY0002: Richtliniendaten konnte nicht analysiert werden.*  
-    *Zeilennummer: 1, Spaltennummer: 2, fehlertoken:;. Line: 'c1;[]=>Issue(claim=c1);'.*  
-    *Fehler im Parser: "POLICY0030: Syntaxfehler: Unerwartetes ';', erwartet eine der folgenden: ":". "*  
+   In diesem Beispiel hat ein falsch verwendeter Semikolon anstelle von einem Doppelpunkt.   
+   **Fehlermeldung:**  
+   *POLICY0002: Richtliniendaten konnte nicht analysiert werden.*  
+   *Zeilennummer: 1, Spaltennummer: 2, fehlertoken:;. Line: 'c1;[]=>Issue(claim=c1);'.*  
+   *Fehler im Parser: "POLICY0030: Syntaxfehler: Unerwartetes ';', erwartet eine der folgenden: ":". "*  
   
-2.  Beispiel:  
+2. Beispiel:  
   
-    ```  
-    c1:[]=>Issue(claim=c2);  
-    ```  
+   ```  
+   c1:[]=>Issue(claim=c2);  
+   ```  
   
-    In diesem Beispiel ist das Tag "Bezeichner" in der ausstellungsanweisung kopieren nicht definiert.   
-    **Fehlermeldung**:   
-    *POLICY0011: Keine Bedingungen in der Anspruchsregel mit dem die Bedingungstag, die in der CopyIssuanceStatement angegeben: "c2".*  
+   In diesem Beispiel ist das Tag "Bezeichner" in der ausstellungsanweisung kopieren nicht definiert.   
+   **Fehlermeldung**:   
+   *POLICY0011: Keine Bedingungen in der Anspruchsregel mit dem die Bedingungstag, die in der CopyIssuanceStatement angegeben: "c2".*  
   
-3.  Beispiel:  
+3. Beispiel:  
   
-    ```  
-    c1:[type=="x1", value=="1", valuetype=="bool"]=>Issue(claim=c1)  
-    ```  
+   ```  
+   c1:[type=="x1", value=="1", valuetype=="bool"]=>Issue(claim=c1)  
+   ```  
   
-    "Bool" ist nicht mit einem Terminal aus, in der Sprache, und es ist dabei nicht um eine gültige ValueType. Gültige Terminals werden in der folgenden Fehlermeldung aufgeführt.   
-    **Fehlermeldung:**  
-    *POLICY0002: Richtliniendaten konnte nicht analysiert werden.*  
-    Zeilennummer: 1, Spaltennummer: 39, fehlertoken: "Bool". Line: 'c1:[type=="x1", value=="1",valuetype=="bool"]=>Issue(claim=c1);'.   
-    *Fehler im Parser: "POLICY0030: Syntaxfehler: Unerwartetes 'STRING', erwartet eine der folgenden: 'INT64_TYPE' 'UINT64_TYPE' 'STRING_TYPE' 'BOOLEAN_TYPE' 'IDENTIFIER'*  
+   "Bool" ist nicht mit einem Terminal aus, in der Sprache, und es ist dabei nicht um eine gültige ValueType. Gültige Terminals werden in der folgenden Fehlermeldung aufgeführt.   
+   **Fehlermeldung:**  
+   *POLICY0002: Richtliniendaten konnte nicht analysiert werden.*  
+   Zeilennummer: 1, Spaltennummer: 39, fehlertoken: "Bool". Line: 'c1:[type=="x1", value=="1",valuetype=="bool"]=>Issue(claim=c1);'.   
+   *Fehler im Parser: "POLICY0030: Syntaxfehler: Unerwartetes 'STRING', erwartet eine der folgenden: 'INT64_TYPE' 'UINT64_TYPE' 'STRING_TYPE' 'BOOLEAN_TYPE' 'IDENTIFIER'*  
   
-4.  Beispiel:  
+4. Beispiel:  
   
-    ```  
-    c1:[type=="x1", value==1, valuetype=="boolean"]=>Issue(claim=c1);  
-    ```  
+   ```  
+   c1:[type=="x1", value==1, valuetype=="boolean"]=>Issue(claim=c1);  
+   ```  
   
-    Die Zahl **1** in diesem Beispiel ist kein gültiges Token in der Sprache, und die Nutzung ist in einer übereinstimmungsbedingung nicht zulässig. Er muss in doppelte Anführungszeichen ein, um es zu eine Zeichenfolge machen eingeschlossen werden.   
-    **Fehlermeldung:**  
-    *POLICY0002: Richtliniendaten konnte nicht analysiert werden.*  
-    *Zeilennummer: 1, Spaltennummer: 23 fehlertoken: 1. Line: 'c1:[type=="x1", value==1, valuetype=="bool"]=>Issue(claim=c1);'.**Parser error: "POLICY0029: Unerwartete Eingabe.*  
+   Die Zahl **1** in diesem Beispiel ist kein gültiges Token in der Sprache, und die Nutzung ist in einer übereinstimmungsbedingung nicht zulässig. Er muss in doppelte Anführungszeichen ein, um es zu eine Zeichenfolge machen eingeschlossen werden.   
+   **Fehlermeldung:**  
+   *POLICY0002: Richtliniendaten konnte nicht analysiert werden.*  
+   *Zeilennummer: 1, Spaltennummer: 23 fehlertoken: 1. Line: 'c1:[type=="x1", value==1, valuetype=="bool"]=>Issue(claim=c1);'.* <em>Parser error: "POLICY0029: Unerwartete Eingabe.</em>  
   
-5.  Beispiel:  
+5. Beispiel:  
   
-    ```  
-    c1:[type == "x1", value == "1", valuetype == "boolean"] =>   
+   ```  
+   c1:[type == "x1", value == "1", valuetype == "boolean"] =>   
   
-         Issue(type = c1.type, value="0", valuetype == "boolean");  
-    ```  
+        Issue(type = c1.type, value="0", valuetype == "boolean");  
+   ```  
   
-    Dieses Beispiel verwendet ein doppeltes Gleichheitszeichen (==), anstatt ein einzelnes Gleichheitszeichen (=).   
-    **Fehlermeldung:**  
-    *POLICY0002: Richtliniendaten konnte nicht analysiert werden.*  
-    *Zeilennummer: 1, Spaltennummer: 91, fehlertoken: ==. Line: 'c1:[type=="x1", value=="1",*  
-    *valuetype=="boolean"]=>Issue(type=c1.type, value="0", valuetype=="boolean");'.*  
-    *Fehler im Parser: "POLICY0030: Syntaxfehler, unerwartetes "==", eine der folgenden erwartet: '='*  
+   Dieses Beispiel verwendet ein doppeltes Gleichheitszeichen (==), anstatt ein einzelnes Gleichheitszeichen (=).   
+   **Fehlermeldung:**  
+   *POLICY0002: Richtliniendaten konnte nicht analysiert werden.*  
+   *Zeilennummer: 1, Spaltennummer: 91, fehlertoken: ==. Line: 'c1:[type=="x1", value=="1",*  
+   *valuetype=="boolean"]=>Issue(type=c1.type, value="0", valuetype=="boolean");'.*  
+   *Fehler im Parser: "POLICY0030: Syntaxfehler, unerwartetes "==", eine der folgenden erwartet: '='*  
   
-6.  Beispiel:  
+6. Beispiel:  
   
-    ```  
-    c1:[type=="x1", value=="boolean", valuetype=="string"] =>   
+   ```  
+   c1:[type=="x1", value=="boolean", valuetype=="string"] =>   
   
-          Issue(type=c1.type, value=c1.value, valuetype = "string");  
-    ```  
+         Issue(type=c1.type, value=c1.value, valuetype = "string");  
+   ```  
   
-    In diesem Beispiel ist syntaktisch und semantisch richtig. Verwenden jedoch "Boolean" auf, wie Sie ein Zeichenfolgenwert an für Verwirrung sorgen, gebunden ist, und sollte vermieden werden. Wie bereits erwähnt, mithilfe der Sprache Terminals wie Ansprüche Werte sollten möglichst vermieden werden.  
+   In diesem Beispiel ist syntaktisch und semantisch richtig. Verwenden jedoch "Boolean" auf, wie Sie ein Zeichenfolgenwert an für Verwirrung sorgen, gebunden ist, und sollte vermieden werden. Wie bereits erwähnt, mithilfe der Sprache Terminals wie Ansprüche Werte sollten möglichst vermieden werden.  
   
 ## <a name="BKMK_LT"></a>Language-terminals  
 Die folgende Tabelle enthält den vollständigen Satz von Terminaldienste-Zeichenfolgen und die zugeordnete Sprache-Terminals, die in der Ansprüche Transformation Regeln Sprache verwendet werden. Diese Definitionen werden Groß-/Kleinschreibung UTF-16-Zeichenfolgen verwenden.  

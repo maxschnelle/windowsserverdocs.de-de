@@ -8,16 +8,16 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: c42cffec0ddc1ae480ae67982147e9f186f0e50a
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: 5cd345230ce5c0fc556bfd8b421d866bd827507b
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222863"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812445"
 ---
 # <a name="convert-a-gpt-disk-into-an-mbr-disk"></a>Konvertieren Sie einen GPT-Datenträger in einen MBR-Datenträger
 
-> **Gilt für:** Windows 10, Windows 8.1, WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012
+> **Gilt für:** Windows 10, Windows 8.1, WindowsServer (Halbjährlicher Kanal), WindowsServer 2019, WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012
 
 Master Boot Record (MBR)-Festplatten verwenden die Standard-BIOS-Partitionstabelle. GUID-Partitionstabelle (GPT)-Festplatten verwenden Unified Extensible Firmware Interface (UEFI). MBR-Festplatten unterstützen nicht mehr als vier Partitionen auf jeder Festplatte. Die Methode der MBR-Partition wird nicht für Festplatten mit mehr als zwei Terabyte (TB) empfohlen.
 
@@ -56,16 +56,12 @@ Sie können eine Festplatte von einem GPT- in einen MBR-Partitionsstil ändern, 
 
 7.  Geben Sie an der **DISKPART**-Eingabeaufforderung `convert mbr` ein.
 
-<br />
-
-| Wert | Beschreibung |
-| --- | --- |
-| <p>**Liste Datenträger**</p> | <p>Zeigt eine Liste der Festplatten und deren Informationen an wie z. B. ihre Größe, die Menge an Speicherplatz, ob es sich um eine Basis- oder einen dynamischen Datenträger handelt und ob die Festplatte den Partitionsstil Master Boot Record (MBR) oder GUID-Partitionstabelle (GPT) verwendet. Die Festplatte mit einem Sternchen (*) hat den Fokus.</p> |
-| <p>**Wählen Sie Datenträger**</p> | <p>Wählt die angegebene Festplatte aus, wobei <em>disknumber</em> die Nummer der Festplatte ist, und legt den Fokus fest.</p> | <p>**clean**</p> | <p>Entfernt alle Partitionen oder Volumes vom Datenträger mit dem Fokus.</p> |
-| <p>**Konvertieren von mbr**</p> | <p>Konvertiert einen leeren Basisdatenträger mit dem GUID-Partitionstabelle (GPT)-Partitionsstil zu einem Basisdatenträger mit Master Boot Record (MBR)-Partitionsstil.</p>
+|                Wert                  |      Beschreibung   |
+| ------------------------------------- | -----------------  |
+|  <strong>Liste Datenträger</strong>  | Zeigt eine Liste der Festplatten und deren Informationen an wie z. B. ihre Größe, die Menge an Speicherplatz, ob es sich um eine Basis- oder einen dynamischen Datenträger handelt und ob die Festplatte den Partitionsstil Master Boot Record (MBR) oder GUID-Partitionstabelle (GPT) verwendet. Der Datenträger mit einem Sternchen gekennzeichnet (\*) den Fokus besitzt. |
+| <strong>Wählen Sie Datenträger</strong> |                                                                                                          Wählt die angegebene Festplatte aus, wobei <em>disknumber</em> die Nummer der Festplatte ist, und legt den Fokus fest.                                                                                                           |
+| <strong>Konvertieren von mbr</strong> |                                                                               Konvertiert einen leeren Basisdatenträger mit dem GUID-Partitionstabelle (GPT)-Partitionsstil zu einem Basisdatenträger mit Master Boot Record (MBR)-Partitionsstil.                                                                                |
 
 ## <a name="see-also"></a>Siehe auch
 
 -   [Notation der Befehlszeilensyntax](https://technet.microsoft.com/library/cc742449(v=ws.11).aspx)
-
-

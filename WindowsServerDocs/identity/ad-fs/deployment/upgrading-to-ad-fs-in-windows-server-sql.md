@@ -9,15 +9,18 @@ ms.prod: windows-server-threshold
 ms.assetid: 70f279bf-aea1-4f4f-9ab3-e9157233e267
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 8ada2ae5c9fcdb77f35200581848041f222ed7f3
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 0a3db2a095d1a31f55bd1c8bfc5bf3c9f6bb65b8
+ms.sourcegitcommit: ccc802338b163abdad2e53b55f39addcfea04603
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191962"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66687398"
 ---
 # <a name="upgrading-to-ad-fs-in-windows-server-2016-with-sql-server"></a>Upgrade von AD FS unter WindowsServer 2016 mit SQLServer
 
+
+> [!NOTE]  
+> Beginnen Sie ein Upgrade nur mit eine definitive Zeitrahmen für den Abschluss geplant. Es wird nicht empfohlen, AD FS für einen längeren Zeitraum, in einem gemischten Zustand zu halten, wie Sie mit der Farm verlassen AD FS in einem gemischten Zustand zu Problemen führen kann.
 
 
 ## <a name="moving-from-a-windows-server-2012-r2-ad-fs-farm-to-a-windows-server-2016-ad-fs-farm"></a>Verschieben von einer Windows Server 2012 R2 AD FS-Farm zu einer Windows Server 2016 AD FS-farm  
@@ -112,4 +115,3 @@ Vor diesem Schritt müssen Sie sicherstellen, dass in Ihrer Active Directory-Umg
     Set-WebApplicationProxyConfiguration -UpgradeConfigurationVersion
     ```
 5. Stellen Sie sicher, dass die ConfigurationVersion mit dem Get-WebApplicationProxyConfiguration-Powershell-Befehl aktualisiert wurde.
-    

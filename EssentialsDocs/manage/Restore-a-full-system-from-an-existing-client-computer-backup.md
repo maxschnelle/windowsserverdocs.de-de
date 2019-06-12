@@ -12,12 +12,12 @@ ms.assetid: 47e498a6-1b71-47de-88f6-8c13c221d108
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: cfc4d1ce461e1e1cbb9b99970355c4dc7241911b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: c78a2a2d950c8542bcf56005eb340ec78619acdb
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869691"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433092"
 ---
 # <a name="restore-a-full-system-from-an-existing-client-computer-backup"></a>Wiederherstellen eines vollständigen Systems aus einer vorhandenen Clientcomputersicherung
 
@@ -128,11 +128,11 @@ ms.locfileid: "59869691"
   
 > [!NOTE]
 >   Windows Server Essentials unterstützt die folgenden Wiederherstellungsszenarien nicht:  
->   
->  -   Wiederherstellen eines Datenträgers Master Boot Record (MBR) zu einer Unified Extensible Firmware Interface (UEFI) basierten Computer.  
-> -   Wiederherstellen einer UEFI-/GPT-Sicherung in einem BIOS-System  
->   
->  Wenn Sie Daten in einem dieser Szenarien wiederherstellen, können Sie das System nicht starten. Außerdem können Sie möglicherweise keine Festplatten verwenden, die größer als zwei Terabyte sind.  
+> 
+> - Wiederherstellen eines Datenträgers Master Boot Record (MBR) zu einem Unified Extensible Firmware Interface-UEFI-basierten Computer.  
+>   -   Wiederherstellen einer UEFI-/GPT-Sicherung in einem BIOS-System  
+> 
+>   Wenn Sie Daten in einem dieser Szenarien wiederherstellen, können Sie das System nicht starten. Außerdem können Sie möglicherweise keine Festplatten verwenden, die größer als zwei Terabyte sind.  
   
  **Voraussetzungen:**  
   
@@ -149,46 +149,46 @@ ms.locfileid: "59869691"
   
 #### <a name="to-use-the-full-system-restore-wizard"></a>So verwenden Sie den Assistenten für die vollständige Systemwiederherstellung  
   
-1.  Führen Sie eine der folgenden Aktionen aus:  
+1. Führen Sie eines der folgenden Verfahren aus:  
   
-    -   Windows Server Essentials: Schalten Sie den wiederherzustellenden Clientcomputer ein, legen Sie das Wiederherstellungsmedium ein, und schalten Sie den Computer wieder aus.  
+   -   Windows Server Essentials: Schalten Sie den wiederherzustellenden Clientcomputer ein, legen Sie das Wiederherstellungsmedium ein, und schalten Sie den Computer wieder aus.  
   
-         Schalten Sie den Computer erneut ein, und drücken Sie während des Selbsttests (POST) die entsprechende Funktionstaste (F-Taste), um das Startgerätemenü aufzurufen. Wählen Sie dann das CD-/DVD-Laufwerk aus. Der Windows-Start-Manager wird gestartet.  
+        Schalten Sie den Computer erneut ein, und drücken Sie während des Selbsttests (POST) die entsprechende Funktionstaste (F-Taste), um das Startgerätemenü aufzurufen. Wählen Sie dann das CD-/DVD-Laufwerk aus. Der Windows-Start-Manager wird gestartet.  
   
-    -   Windows Server Essentials: Wenn Sie den Clientwiederherstellungsdienst verwenden, starten Sie den Computer mit der Option **Boot from network** neu. Andernfalls starten Sie den Computer mithilfe des USB-Sticks.  
+   -   Windows Server Essentials: Wenn Sie den Clientwiederherstellungsdienst verwenden, starten Sie den Computer mit der Option **Boot from network** neu. Andernfalls starten Sie den Computer mithilfe des USB-Sticks.  
   
-         Schalten Sie den Computer erneut ein, und drücken Sie während des Selbsttests (Power On Self Test, POST), die entsprechende Funktionstaste (F-Taste), um das Gerätestartmenü aufzurufen, und wählen Sie **Boot from network** (oder die Möglichkeit, über den USB-Stick zu starten). Der Windows-Start-Manager wird gestartet.  
+        Schalten Sie den Computer erneut ein, und drücken Sie während des Selbsttests (Power On Self Test, POST), die entsprechende Funktionstaste (F-Taste), um das Gerätestartmenü aufzurufen, und wählen Sie **Boot from network** (oder die Möglichkeit, über den USB-Stick zu starten). Der Windows-Start-Manager wird gestartet.  
   
-    > [!NOTE]
-    >  Lesen Sie in der Dokumentation des Computerherstellers nach, welche Funktionstaste Sie drücken müssen, um das Startgerätemenü aufzurufen.  
+   > [!NOTE]
+   >  Lesen Sie in der Dokumentation des Computerherstellers nach, welche Funktionstaste Sie drücken müssen, um das Startgerätemenü aufzurufen.  
   
-2.  Das Wiederherstellungsmedium für den Computer enthält die Startoptionen für 32-Bit (x86) und 64-Bit (x64). Wählen Sie im Windows-Start-Manager die Option **Vollständige Systemwiederherstellung (x86)** oder **Vollständige Systemwiederherstellung (x64)** aus. Wenn die Treiber für die Computerhardware in 32-Bit vorliegen, wählen Sie x86 aus. Liegen sie in 64-Bit vor, wählen Sie x64 aus. Die Windows-Dateien werden geladen, und der Assistent für die vollständige Systemwiederherstellung prüft, ob alle Hardwaretreiber verfügbar sind.  
+2. Das Wiederherstellungsmedium für den Computer enthält die Startoptionen für 32-Bit (x86) und 64-Bit (x64). Wählen Sie im Windows-Start-Manager die Option **Vollständige Systemwiederherstellung (x86)** oder **Vollständige Systemwiederherstellung (x64)** aus. Wenn die Treiber für die Computerhardware in 32-Bit vorliegen, wählen Sie x86 aus. Liegen sie in 64-Bit vor, wählen Sie x64 aus. Die Windows-Dateien werden geladen, und der Assistent für die vollständige Systemwiederherstellung prüft, ob alle Hardwaretreiber verfügbar sind.  
   
-3.  Wählen Sie im Fenster **Assistent für die vollständige Systemwiederherstellung** die gewünschte Sprache aus, und klicken Sie dann auf den Pfeil.  
+3. Wählen Sie im Fenster **Assistent für die vollständige Systemwiederherstellung** die gewünschte Sprache aus, und klicken Sie dann auf den Pfeil.  
   
-4.  Wählen Sie für den Computer die gewünschten Optionen für **Zeit- und Währungsformat** und **Tastatur oder Eingabemethode** aus. Klicken Sie auf **Weiter**.  
+4. Wählen Sie für den Computer die gewünschten Optionen für **Zeit- und Währungsformat** und **Tastatur oder Eingabemethode** aus. Klicken Sie auf **Weiter**.  
   
-5.  Wenn Treiber fehlen, wird die Meldung, dass der Wiederherstellungsvorgang wird die Treiber kann nicht überprüft. Klicken Sie auf **Schließen**, und klicken Sie dann im Dialogfeld "Willkommen" auf **Treiber laden**.  
+5. Wenn Treiber fehlen, wird die Meldung, dass der Wiederherstellungsvorgang wird die Treiber kann nicht überprüft. Klicken Sie auf **Schließen**, und klicken Sie dann im Dialogfeld "Willkommen" auf **Treiber laden**.  
   
-    1.  Klicken Sie im Dialogfenster **Hardware ermitteln** auf **Treiber installieren**.  
+   1.  Klicken Sie im Dialogfenster **Hardware ermitteln** auf **Treiber installieren**.  
   
-    2.  Verbinden Sie den USB-Speicherstick, der die Hardwaretreiber enthält, mit dem Computer, und klicken Sie dann im Dialogfeld **Treiber installieren** auf **Suchen**.  
+   2.  Verbinden Sie den USB-Speicherstick, der die Hardwaretreiber enthält, mit dem Computer, und klicken Sie dann im Dialogfeld **Treiber installieren** auf **Suchen**.  
   
-    3.  Wenn die Treiber gefunden wurden, klicken Sie im Dialogfeld **Treiber installieren** auf **OK**.  
+   3.  Wenn die Treiber gefunden wurden, klicken Sie im Dialogfeld **Treiber installieren** auf **OK**.  
   
-    4.  Klicken Sie im Dialogfeld **Hardware ermitteln** auf **Weiter**.  
+   4.  Klicken Sie im Dialogfeld **Hardware ermitteln** auf **Weiter**.  
   
-6.  Wenn bei der ersten Prüfung alle Treiber gefunden wurden oder alle wichtigen Treiber installiert worden sind, klicken Sie im Dialogfeld **Vollständige Systemwiederherstellung** auf **Weiter**.  
+6. Wenn bei der ersten Prüfung alle Treiber gefunden wurden oder alle wichtigen Treiber installiert worden sind, klicken Sie im Dialogfeld **Vollständige Systemwiederherstellung** auf **Weiter**.  
   
-7.  Klicken Sie auf der Seite **Willkommen** auf **Weiter**.  
+7. Klicken Sie auf der Seite **Willkommen** auf **Weiter**.  
   
-8.  Es wird nach dem Server gesucht.  
+8. Es wird nach dem Server gesucht.  
   
-    1.  Wenn der Server nicht gefunden werden kann, haben Sie die Möglichkeit, erneut zu suchen oder die IP-Adresse des Servers einzugeben.  
+   1.  Wenn der Server nicht gefunden werden kann, haben Sie die Möglichkeit, erneut zu suchen oder die IP-Adresse des Servers einzugeben.  
   
-    2.  Wenn mehrere Server ermittelt wurden, werden Sie aufgefordert, einen auszuwählen.  
+   2.  Wenn mehrere Server ermittelt wurden, werden Sie aufgefordert, einen auszuwählen.  
   
-    3.  Wenn der Server gefunden, wird die **melden Sie sich beim < IhrServername\>**  angezeigt wird.  
+   3.  Wenn der Server gefunden, wird die **melden Sie sich beim < IhrServername\>**  angezeigt wird.  
   
 9. Auf der **melden Sie sich beim < IhrServername\>**  geben *< AdministratorKontoName\>*  in die **Benutzernamen** Textfeld und die Kennwort für das Administratorkonto in der **Kennwort** Textfeld, und klicken Sie dann auf **Weiter**.  
   
@@ -214,55 +214,55 @@ ms.locfileid: "59869691"
     > [!NOTE]
     >  Diese Seite wird nicht angezeigt, wenn die automatische Partitionierung nicht unterstützt wird.  
   
-    1.  **Assistent stellt den Computer vollständig wieder her (empfohlen)**. Mit dieser Option können Sie sicherstellen, dass der Computer in dem Zustand wiederhergestellt wird, in dem er sich unmittelbar vor dem Zeitpunkt der Erstellung der ausgewählten Sicherung befand. Fahren Sie mit Schritt 15 fort, wenn Sie diese Option auswählen.  
+    1.  **Assistent stellt den Computer vollständig wieder her (empfohlen)** . Mit dieser Option können Sie sicherstellen, dass der Computer in dem Zustand wiederhergestellt wird, in dem er sich unmittelbar vor dem Zeitpunkt der Erstellung der ausgewählten Sicherung befand. Fahren Sie mit Schritt 15 fort, wenn Sie diese Option auswählen.  
   
-    2.  **Wiederherzustellende Volumes auswählen (erweitert)**. Mit dieser Option können Sie die Volumes auswählen, die wiederhergestellt werden sollen, und angeben, wo sie wiederhergestellt werden sollen. Sie können auch Partitionen auf der Festplatte erstellen.  
+    2.  **Wiederherzustellende Volumes auswählen (erweitert)** . Mit dieser Option können Sie die Volumes auswählen, die wiederhergestellt werden sollen, und angeben, wo sie wiederhergestellt werden sollen. Sie können auch Partitionen auf der Festplatte erstellen.  
   
 15. Auf der Seite **Wiederherzustellende Volumes auswählen** können Sie die wiederherzustellenden Volumes auswählen.  
   
     > [!NOTE]
     >  Diese Seite wird angezeigt, wenn der Sicherungsquellcomputer mehrere Festplatten aufweist oder auf dem Ziellaufwerk für die Wiederherstellung weniger Speicherplatz verfügbar ist als auf dem Sicherungsquelllaufwerk.  
   
-    1.  Der Assistent versucht, die Quellvolumes den Zielvolumes zuzuordnen. Überprüfen Sie, ob die Standardzuordnung korrekt ist.  
+    1. Der Assistent versucht, die Quellvolumes den Zielvolumes zuzuordnen. Überprüfen Sie, ob die Standardzuordnung korrekt ist.  
   
-        1.  Zum Aufheben der Auswahl eines Volumes klicken Sie auf den Pfeil im Listenmenü für das betreffende Volume, und klicken Sie dann auf **Keine**.  
+       1.  Zum Aufheben der Auswahl eines Volumes klicken Sie auf den Pfeil im Listenmenü für das betreffende Volume, und klicken Sie dann auf **Keine**.  
   
-        2.  Klicken Sie auf **Weiter**, wenn Sie die Volumes ausgewählt haben.  
+       2.  Klicken Sie auf **Weiter**, wenn Sie die Volumes ausgewählt haben.  
   
-    2.  Wenn das Quellvolume und das Zielvolume dieselbe Größe aufweisen oder das Quellvolume kleiner als das Zielvolume ist, wird zwischen beiden ein grüner Pfeil angezeigt. Wenn die Volumegrößen nicht übereinstimmen (das Quellvolume größer als das Zielvolume ist), wird zwischen dem Quellvolume und dem Zielvolume ein rotes X angezeigt.  
+    2. Wenn das Quellvolume und das Zielvolume dieselbe Größe aufweisen oder das Quellvolume kleiner als das Zielvolume ist, wird zwischen beiden ein grüner Pfeil angezeigt. Wenn die Volumegrößen nicht übereinstimmen (das Quellvolume größer als das Zielvolume ist), wird zwischen dem Quellvolume und dem Zielvolume ein rotes X angezeigt.  
   
-        > [!NOTE]
-        >  Ein rotes X wird möglicherweise auch in folgenden Situationen angezeigt:  
-        >   
-        >  -   Die Datenträgersektorgröße des Quellvolumes stimmt nicht mit der Datenträgersektorgröße des Zielvolumes überein. Ein möglicher Grund hierfür ist, dass der physische Datenträger durch einen Datenträger mit einer abweichenden Sektorgröße ersetzt wurde oder der Speicherplatz konfiguriert wurde (dessen Sektorgröße möglicherweise von der Sektorgröße des physischen Datenträgers abweicht).  
-        > -   Sie haben die Beschränkung für die Clusteranzahl erreicht. Sie müssen das Zielvolume mit der gleichen Clustergröße wie das Quellvolume formatieren, um das Quellvolume im Zielvolume wiederherzustellen. Wenn das Zielvolume zu groß und die Clustergröße zu klein ist, erreichen Sie möglicherweise die Beschränkung für die Clusteranzahl.  
+       > [!NOTE]
+       >  Ein rotes X wird möglicherweise auch in folgenden Situationen angezeigt:  
+       > 
+       > - Die Datenträgersektorgröße des Quellvolumes stimmt nicht mit der Datenträgersektorgröße des Zielvolumes überein. Ein möglicher Grund hierfür ist, dass der physische Datenträger durch einen Datenträger mit einer abweichenden Sektorgröße ersetzt wurde oder der Speicherplatz konfiguriert wurde (dessen Sektorgröße möglicherweise von der Sektorgröße des physischen Datenträgers abweicht).  
+       >   -   Sie haben die Beschränkung für die Clusteranzahl erreicht. Sie müssen das Zielvolume mit der gleichen Clustergröße wie das Quellvolume formatieren, um das Quellvolume im Zielvolume wiederherzustellen. Wenn das Zielvolume zu groß und die Clustergröße zu klein ist, erreichen Sie möglicherweise die Beschränkung für die Clusteranzahl.  
   
-        1.  Klicken Sie auf **Datenträgerverwaltung ausführen (erweitert)**, und erstellen Sie ein neues Volume, das dieselbe Größe wie das vom System reservierte Volume aufweist.  
+       1. Klicken Sie auf **Datenträgerverwaltung ausführen (erweitert)** , und erstellen Sie ein neues Volume, das dieselbe Größe wie das vom System reservierte Volume aufweist.  
   
-            > [!NOTE]
-            >  Wenn ein Clientcomputer über Unified Extensible Firmware Interface (UEFI) basierten ist, müssen Sie verwenden die **Diskpart** Tool, um den Systemdatenträger initialisieren. Öffnen Sie dazu ein Befehlsfenster (drücken Sie unter Windows PE 5 Sekunden lang STRG+ALT+UMSCHALT), führen Sie **diskpart.exe** aus, und führen Sie dann die folgenden diskpart-Befehle aus:  
-            >   
-            >  1.  **DISKPART > Liste Datenträger**  
-            > 2.  **DISKPART > Select disk #** *< Datenträger\>*  
-            > 3.  **DISKPART > bereinigen**  
-            > 4.  **DISKPART > Gpt konvertieren**  
-            > 5.  **DISKPART > Erstellen der Partition Efi Size =** *100* (wobei *100* ist eine Beispiel-Partitionsgröße in MB, muss identisch mit der ursprünglichen Partition)  
-            > 6.  **DISKPART > Erstellen der Partition Msr Size =** *128* (wobei *128* ist eine Beispiel-Partitionsgröße in MB, muss identisch mit der ursprünglichen Partition)  
-            > 7.  **DISKPART > Beenden**  
+          > [!NOTE]
+          >  Wenn ein Clientcomputer Unified Extensible Firmware Interface-UEFI-basiert ist, müssen Sie verwenden die **Diskpart** Tool, um den Systemdatenträger initialisieren. Öffnen Sie dazu ein Befehlsfenster (drücken Sie unter Windows PE 5 Sekunden lang STRG+ALT+UMSCHALT), führen Sie **diskpart.exe** aus, und führen Sie dann die folgenden diskpart-Befehle aus:  
+          > 
+          > 1. **DISKPART > Liste Datenträger**  
+          >    2. **DISKPART > Select disk #** *< Datenträger\>*  
+          >    3. **DISKPART > bereinigen**  
+          >    4. **DISKPART > Gpt konvertieren**  
+          >    5. **DISKPART > Erstellen der Partition Efi Size =** *100* (wobei *100* ist eine Beispiel-Partitionsgröße in MB, muss identisch mit der ursprünglichen Partition)  
+          >    6. **DISKPART > Erstellen der Partition Msr Size =** *128* (wobei *128* ist eine Beispiel-Partitionsgröße in MB, muss identisch mit der ursprünglichen Partition)  
+          >    7. **DISKPART > Beenden**  
   
-        2.  *(Optional)* Wählen Sie die Option **Keinen Laufwerkbuchstaben oder -pfad zuweisen** aus.  
+       2. *(Optional)* Wählen Sie die Option **Keinen Laufwerkbuchstaben oder -pfad zuweisen** aus.  
   
-        3.  Wählen Sie für das Volume das Format **NTFS**aus.  
+       3. Wählen Sie für das Volume das Format **NTFS**aus.  
   
-        4.  Klicken Sie nach Abschluss der Formatierung mit der rechten Maustaste auf das neue Systemvolume, und klicken Sie dann auf **Partition als aktiv markieren**.  
+       4. Klicken Sie nach Abschluss der Formatierung mit der rechten Maustaste auf das neue Systemvolume, und klicken Sie dann auf **Partition als aktiv markieren**.  
   
-        5.  Wenn Sie weitere Volumes benötigen, die anderen Volumes in der Sicherung entsprechen, wiederholen Sie die Schritte *ii* bis *iv* , um die Volumes zu erstellen und zu aktivieren, und schließen Sie dann **die Datenträgerverwaltung**.  
+       5. Wenn Sie weitere Volumes benötigen, die anderen Volumes in der Sicherung entsprechen, wiederholen Sie die Schritte *ii* bis *iv* , um die Volumes zu erstellen und zu aktivieren, und schließen Sie dann **die Datenträgerverwaltung**.  
   
-        6.  Ordnen Sie auf der Seite **Wiederherzustellende Volumes auswählen** das vom System reservierte Volume der Sicherungsquelle dem Volume mit derselben Größe zu, das Sie in Schritt *v* erstellt haben.  
+       6. Ordnen Sie auf der Seite **Wiederherzustellende Volumes auswählen** das vom System reservierte Volume der Sicherungsquelle dem Volume mit derselben Größe zu, das Sie in Schritt *v* erstellt haben.  
   
-        7.  Ordnen Sie alle anderen Quellvolumes den entsprechenden Zielvolumes zu.  
+       7. Ordnen Sie alle anderen Quellvolumes den entsprechenden Zielvolumes zu.  
   
-        8.  Klicken Sie auf **Weiter**, um die Wiederherstellung fortzusetzen.  
+       8. Klicken Sie auf **Weiter**, um die Wiederherstellung fortzusetzen.  
   
 16. Überprüfen Sie die Zuordnung auf der Seite **Wiederherzustellende Volumes bestätigen** , und klicken Sie dann auf **Weiter**. Klicken Sie auf **Zurück**, und wiederholen Sie Schritt 14, wenn Sie Änderungen vornehmen müssen.  
   
@@ -274,30 +274,30 @@ ms.locfileid: "59869691"
     >  Wenn vor der Wiederherstellung auf dem Computer BitLocker-Laufwerkverschlüsselung aktiviert war, müssen Sie BitLocker nach dem Neustart des Computers manuell aktivieren.  
   
 ##  <a name="BKMK_FindDrivers"></a> Wo finde ich die Treiber für die Hardware?  
- Je nach der Hardware des neuen bzw. wiederhergestellten Computers enthält das Wiederherstellungsmedium möglicherweise nicht alle Treiber für die Speicher- und Netzwerkadapter, die erforderlich sind, wenn Sie den wiederhergestellten Computer neu starten. Sie müssen bestimmen, welche Treiber fehlen, suchen Sie nach auf vorhandene Medien oder auf der Website des Herstellers s, kopieren Sie sie auf einen Speicherstick, und klicken Sie dann kopieren Sie sie aus der Speicherstick mit dem neuen oder wiederhergestellten Computer aus, wenn Sie den Assistenten für vollständige Systemwiederherstellung ausführen.  
+ Je nach der Hardware des neuen bzw. wiederhergestellten Computers enthält das Wiederherstellungsmedium möglicherweise nicht alle Treiber für die Speicher- und Netzwerkadapter, die erforderlich sind, wenn Sie den wiederhergestellten Computer neu starten. Sie müssen bestimmen, welche Treiber fehlen, suchen Sie nach auf vorhandene Medien oder auf der Website des Herstellers, kopieren Sie sie auf einen Speicherstick, und klicken Sie dann kopieren Sie sie aus der Speicherstick mit dem neuen oder wiederhergestellten Computer aus, wenn Sie den Assistenten für vollständige Systemwiederherstellung ausführen.  
   
  Wenn ein Computer gesichert wird, werden die Treiber für den Computer in der Sicherung gespeichert. Wenn das Wiederherstellungsmedium nicht alle benötigten Treiber enthält, können Sie eine Sicherung für den Computer öffnen und die Treiber dann auf einen USB-Speicherstick kopieren.  
   
 #### <a name="to-copy-drivers-from-a-backup-to-a-usb-flash-drive"></a>So kopieren Sie Treiber aus einer Sicherung auf einen USB-Speicherstick  
   
-1.  Öffnen Sie auf einem anderen Computer das Dashboard.  
+1. Öffnen Sie auf einem anderen Computer das Dashboard.  
   
-2.  Klicken Sie auf **Geräte**, und klicken Sie dann auf den Computer, für den Treiber erforderlich sind.  
+2. Klicken Sie auf **Geräte**, und klicken Sie dann auf den Computer, für den Treiber erforderlich sind.  
   
-3.  Klicken Sie auf **Dateien oder Ordner für den Computer wiederherstellen**. Der Assistent zum Wiederherstellen von Dateien oder Ordnern wird geöffnet.  
+3. Klicken Sie auf **Dateien oder Ordner für den Computer wiederherstellen**. Der Assistent zum Wiederherstellen von Dateien oder Ordnern wird geöffnet.  
   
-4.  Klicken Sie auf die letzte erfolgreiche Datensicherung, und klicken Sie anschließend auf **Weiter**.  
+4. Klicken Sie auf die letzte erfolgreiche Datensicherung, und klicken Sie anschließend auf **Weiter**.  
   
-5.  Klicken Sie auf ein Volume, um es zu öffnen, und klicken Sie anschließend auf **Weiter**. Daraufhin wird ein Fenster mit den Dateien und Ordnern in der Sicherung geöffnet.  
+5. Klicken Sie auf ein Volume, um es zu öffnen, und klicken Sie anschließend auf **Weiter**. Daraufhin wird ein Fenster mit den Dateien und Ordnern in der Sicherung geöffnet.  
   
-6.  Verbinden Sie den USB-Speicherstick mit einem USB-Anschluss des Computers, und kopieren Sie dann den Ordner "Treiber für die vollständige Systemwiederherstellung" auf den USB-Speicherstick.  
+6. Verbinden Sie den USB-Speicherstick mit einem USB-Anschluss des Computers, und kopieren Sie dann den Ordner "Treiber für die vollständige Systemwiederherstellung" auf den USB-Speicherstick.  
   
-    > [!NOTE]
-    >  Möglicherweise müssen Sie auf **Eine Ebene nach oben** klicken, bis Sie zum Stamm des Systemvolumes gelangen.  
+   > [!NOTE]
+   >  Möglicherweise müssen Sie auf **Eine Ebene nach oben** klicken, bis Sie zum Stamm des Systemvolumes gelangen.  
   
-7.  Entfernen Sie den Speicherstick, und verbinden Sie ihn dann mit dem Computer, der wiederhergestellt wird.  
+7. Entfernen Sie den Speicherstick, und verbinden Sie ihn dann mit dem Computer, der wiederhergestellt wird.  
   
- Sie können den USB-Speicherstick verwenden, um die Treiber für den Computer zu installieren, wenn Sie diesen wiederherstellen. Der Assistent für die Wiederherstellung von Dateien oder Ordnern sucht nach weiteren Treibern auf diesem USB-Speicherstick, während der Assistent für die vollständige Systemwiederherstellung ausgeführt wird. Sie werden auf jeden Fall den Treiber für den Netzwerkadapter und die Treiber für die Speichergeräte benötigen.  
+   Sie können den USB-Speicherstick verwenden, um die Treiber für den Computer zu installieren, wenn Sie diesen wiederherstellen. Der Assistent für die Wiederherstellung von Dateien oder Ordnern sucht nach weiteren Treibern auf diesem USB-Speicherstick, während der Assistent für die vollständige Systemwiederherstellung ausgeführt wird. Sie werden auf jeden Fall den Treiber für den Netzwerkadapter und die Treiber für die Speichergeräte benötigen.  
   
 ## <a name="see-also"></a>Siehe auch  
   

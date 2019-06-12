@@ -12,12 +12,12 @@ ms.assetid: cdfa9504-9881-4265-b308-c7ee8721bfaa
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 1a67cda9e4b04e8d861232b48f45915fb2b460d1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0240abfff58baedd79ab038af93b107dbb898eb2
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59836411"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432939"
 ---
 # <a name="join-computers-to-the-new-windows-server-essentials-server1"></a>Hinzufügen von Computern mit der neuen Windows Server Essentials-server1
 
@@ -31,7 +31,7 @@ ms.locfileid: "59836411"
   
  Der Prozess zum Verbinden eines Clientcomputers mit dem Server ist bei Computern, die einer Domäne angehören, der gleiche wie bei Computern, die keiner Domäne angehören.  
   
--   Navigieren Sie zu **http://***Destination-Servername***/ connect** und installieren Sie die Windows Server-Connector-Software wie bei einem neuen Computer.  
+- Navigieren Sie zu **http://** <em>Ziel-Servername</em> **/ connect** und installieren Sie die Windows Server-Connector-Software, wie bei einem neuen Computer.  
   
 > [!NOTE]
 >  Computer, auf denen Windows XP oder Windows Vista ausgeführt werden, werden von der Windows Server-Connector-Software nicht unterstützt. Wenn Sie Computer mit Windows XP oder Windows Vista haben, die bereits mit der Domäne verbunden sind, können Sie diesen Schritt überspringen.  

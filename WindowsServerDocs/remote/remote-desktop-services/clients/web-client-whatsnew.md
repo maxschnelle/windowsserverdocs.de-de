@@ -13,19 +13,19 @@ manager: dongill
 ms.author: elizapo
 ms.date: 05/20/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 15218af2f084e9c998d89250aace1d763d03b42a
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.openlocfilehash: 5be9b05da1e78cc54e12254f43d0f44f7ff65c5d
+ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65976329"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66804880"
 ---
 # <a name="whats-new-for-the-remote-desktop-web-client"></a>Neuigkeiten für den Remotedesktop-Webclient
 
 Wir aktualisieren regelmäßig die [Remote Desktop WebClient](remote-desktop-web-client.md), neue Features hinzugefügt wurden, und Beheben von Problemen. Sehen Sie sich die neuesten Updates, die weiter unten.
 
-   >[!NOTE]
-    >Wir haben das System zur zeilenversionsverwaltung für den WebClient geändert. Ab Version 1.0.18.0 werden alle Releaseversionen der Web-Client (im Format "W.X.Y.Z") enthalten. Releasenummer für den Remotedesktop-Webclient endet immer mit 0 (z. B. W.X.Y.0). Jeder virtuelle Windows-Desktop Web Client-Version wird die letzte Ziffer bis zur nächsten Remote Desktop Web Client Veröffentlichung (z. B. 1.0.18.1) geändert.
+> [!NOTE]
+> Wir haben das System zur zeilenversionsverwaltung für den WebClient geändert. Ab Version 1.0.18.0 werden alle Releaseversionen der Web-Client (im Format "W.X.Y.Z") enthalten. Releasenummer für den Remotedesktop-Webclient endet immer mit 0 (z. B. W.X.Y.0). Jeder virtuelle Windows-Desktop Web Client-Version wird die letzte Ziffer bis zur nächsten Remote Desktop Web Client Veröffentlichung (z. B. 1.0.18.1) geändert.
 
 ## <a name="updates-for-version-10180"></a>Updates für Version 1.0.18.0
 *Veröffentlichungsdatum: 5/14/2019*
@@ -38,7 +38,7 @@ Wir aktualisieren regelmäßig die [Remote Desktop WebClient](remote-desktop-web
 - Aktualisierte Fehlermeldung für Benutzer, die für die Authentifizierung mit einem abgelaufenen Kennwort.
 - Feed aktualisiert Benutzeroberfläche auf der Seite "alle Ressourcen".
 - Verbinden aufgelöst überlappende Dialoge, die während der Sitzung aufgetreten sind.
-- Größenanpassung der Remoteressource-Symbol behoben in der Taskleiste Ressource. 
+- Größenanpassung der Remoteressource-Symbol behoben in der Taskleiste Ressource.
 
 ## <a name="updates-for-version-1011"></a>Updates für Version 1.0.11
 *Veröffentlichungsdatum: 2/22/2019*
@@ -58,7 +58,7 @@ Wir aktualisieren regelmäßig die [Remote Desktop WebClient](remote-desktop-web
 - Feste Eingabehilfen-Fehler, aktivieren die Benutzer mit sehbehinderung den Webclient verwenden.
 - Verbesserte Fehlermeldungen, die dem Benutzer für den feed Fehler angezeigt.
 - Hinzugefügt Strg + Alt + Ende (Windows) und fn + Steuerelement + Option + löschen (Mac)-Tastenkombinationen STRG + Alt + ENTF auf remote-Computer aufrufen.
-- Verbesserte Telemetrie für absturzereignissen. 
+- Verbesserte Telemetrie für absturzereignissen.
 - Verbesserte unsere Buildpipeline und Buildtools.
 - Verschiedene Fehlerbehebungen.
 
@@ -86,7 +86,7 @@ Wir aktualisieren regelmäßig die [Remote Desktop WebClient](remote-desktop-web
 
 - Neue Anmeldeoberfläche WebClient heraus.
 - Nicht mehr zur Eingabe von Anmeldeinformationen aufgefordert, beim Starten von einer Desktop- oder app-Verbindungs (einmaliges Anmelden).
-- Den WebClient verschoben in eine neue URL: **https://server_FQDN/RDWeb/webclient/index.html**
+- Den WebClient verschoben in eine neue URL: <https://server_FQDN/RDWeb/webclient/index.html>
 - Hinzugefügte Zeitzone Umleitung.
 - Verschiedene Fehlerbehebungen.
 

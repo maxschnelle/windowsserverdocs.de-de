@@ -5,19 +5,19 @@ ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
-ms.date: 09/19/2018
+ms.date: 06/07/2019
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 598eeae64925d24ec6d97b59da9cae1e2d10585d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d018ea65ce61cab67fe2041b9ef885d32de51b17
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864971"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811914"
 ---
 # <a name="prepare-your-environment-for-windows-admin-center"></a>Vorbereiten der Umgebung für die Windows Admin Center
 
->Gilt für: Windows Admin Center, Windows Admin Center Preview
+> Gilt für: Windows Admin Center, Windows Admin Center Preview
 
 Es gibt einige Serverversionen, die zusätzliche Vorbereitung benötigen, bevor sie mit Windows Admin Center verwalten können:
 
@@ -82,7 +82,7 @@ So aktivieren die Dateiserverrolle für einfache Datei Dateifreigabe und remote 
 1. Klicken Sie im Menü **Extras** auf **Rollen und Funktionen** .
 2. **Rollen und Features**, suchen Sie nach **Datei und Speicherdienste**, und überprüfen **-Datei und iSCSI-Services** und **Dateiserver**:
 
-![](../media/prepare-environment/c6c30b812d96afcc1edcdb6f52f0e13c.png)
+![Bildschirmabbildung von Rollen und Features, die mit der Datei- und iSCSI-Dienste-Rolle ausgewählt](../media/prepare-environment/c6c30b812d96afcc1edcdb6f52f0e13c.png)
 
 ### <a name="step-3-enable-hyper-v-module-for-powershell"></a>**Schritt 3:** Aktivieren Sie Hyper-V-Modul für PowerShell
 
@@ -91,7 +91,7 @@ So aktivieren Hyper-V-Modul für PowerShell-Features:
 1. Klicken Sie im Menü **Extras** auf **Rollen und Funktionen** .
 2. Finden Sie in **-Rollen und-Features**die **Remoteserver-Verwaltungstools**, und überprüfen Sie **Rollenverwaltungstools** und **Hyper-V-Modul für PowerShell**:
 
-![](../media/prepare-environment/7ab0999602b7083733525bd0c1ba2747.png)
+![Screenshot von Rollen und Features, die mit der ausgewählten Hyper-V-Rollen](../media/prepare-environment/7ab0999602b7083733525bd0c1ba2747.png)
 
 Microsoft Hyper-V Server 2016 ist jetzt für die Verwaltung mit Windows Admin Center bereit.
 
@@ -106,7 +106,7 @@ Zum Verwalten von Microsoft Hyper-V Server 2012 R2 mit Windows Admin Center sind
 3. Aktivieren Sie die Datei-Serverrolle
 4. Aktivieren Sie Hyper-V-Modul für PowerShell
 
-### <a name="step-1-install-windows-management-framework-51"></a>**Schritt 1:** Installieren Sie Windows Management Framework 5.1
+### <a name="step-1-install-windows-management-framework-51"></a>Schritt 1: Installieren Sie Windows Management Framework 5.1
 
 Windows Admin Center erfordert PowerShell-Features, die nicht in Microsoft Hyper-V Server 2012 R2 standardmäßig enthalten sind. Zum Verwalten von Microsoft Hyper-V Server 2012 R2 mit Windows Admin Center müssen Sie WMF Version 5.1 oder höher zu installieren.
 
@@ -114,7 +114,7 @@ Geben Sie `$PSVersiontable` in PowerShell ein, um zu prüfen, ob WMF 5.1 oder ei
 
 Bei Bedarf können Sie [WMF 5.1 herunterladen](https://docs.microsoft.com/powershell/wmf/5.1/install-configure).
 
-### <a name="step-2-enable-remote-management"></a>**Schritt 2:** Remoteverwaltung aktivieren 
+### <a name="step-2-enable-remote-management"></a>Schritt 2: Remoteverwaltung aktivieren
 
 So aktivieren Sie Hyper-V Server remote Management:
 
@@ -130,16 +130,16 @@ So aktivieren die Dateiserverrolle für einfache Datei Dateifreigabe und remote 
 1. Klicken Sie im Menü **Extras** auf **Rollen und Funktionen** .
 2. **Datei und Speicherdienste** suchen Sie im **Rollen und Features**, und überprüfen Sie **Datei und iSCSI-Services** und **Dateiserver**:
 
-![](../media/prepare-environment/c6c30b812d96afcc1edcdb6f52f0e13c.png)
+![Bildschirmabbildung von Rollen und Features, die mit der Datei- und iSCSI-Dienste-Rolle ausgewählt](../media/prepare-environment/c6c30b812d96afcc1edcdb6f52f0e13c.png)
 
-### <a name="step-4-enable-hyper-v-module-for-powershell"></a>Schritt 4: Aktivieren Sie Hyper-V-Modul für PowerShell ##
+### <a name="step-4-enable-hyper-v-module-for-powershell"></a>Schritt 4: Aktivieren Sie Hyper-V-Modul für PowerShell
 
 So aktivieren Hyper-V-Modul für PowerShell-Features:
 
 1. Klicken Sie im Menü **Extras** auf **Rollen und Funktionen** .
 2. Finden Sie in **-Rollen und-Features**die **Remoteserver-Verwaltungstools**, und überprüfen Sie **Rollenverwaltungstools** und **Hyper-V-Modul für PowerShell**:
 
-![](../media/prepare-environment/7ab0999602b7083733525bd0c1ba2747.png)
+![Bildschirmabbildung von Rollen und Features, die mit Hyper-V-Remoteserver-Verwaltungstools ausgewählt](../media/prepare-environment/7ab0999602b7083733525bd0c1ba2747.png)
 
 Microsoft Hyper-V Server 2012 R2 ist jetzt für die Verwaltung mit Windows Admin Center bereit.
 

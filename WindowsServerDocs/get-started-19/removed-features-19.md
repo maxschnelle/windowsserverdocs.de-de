@@ -13,12 +13,12 @@ ms.author: jgerend
 manager: jasgro
 ms.date: 05/21/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 820dfed8a0a58d3ccc64023325c373b761461ba8
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: 597da91aa40d9af4526b5358a88128b52d040645
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65976524"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501441"
 ---
 # <a name="features-removed-or-planned-for-replacement-starting-windows-server-2019"></a>Funktionen, die entfernt oder ersetzt, die ab Windows Server-2019
 
@@ -54,5 +54,5 @@ Wenn Sie Feedback zu der vorgeschlagenen Austausch diese Features haben, können
 | Vertrauenswürdige Platform Module (TPM)-Verwaltungskonsole|Die Informationen, die zuvor in der TPM-Verwaltungskonsole zur Verfügung steht jetzt auf die [ **gerätesicherheit** ](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-security-center/wdsc-device-security) auf der Seite die [Windows Defender Security Center](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-security-center/windows-defender-security-center). |
 | Host Guardian Service Active Directory-nachweismodus|Wir nicht mehr Host Guardian Service, Active Directory-nachweismodus entwickeln: Wir haben stattdessen eine neue nachweismodus, hinzugefügt [hosten den schlüsselnachweis](../security/guarded-fabric-shielded-vm/guarded-fabric-create-host-key.md), ist wesentlich einfacher und ebenso als kompatibel ist, als Active Directory-Basis einen Nachweis an.  Dieser neue Modus stellt die entsprechenden Funktionalität mit einer Setupfunktionalität, einfachere Verwaltung und weniger infrastrukturabhängigkeiten als den Nachweis der Active Directory bereit. Host-schlüsselnachweis hat bestehen keine zusätzlichen hardwareanforderungen, über welche Active Directory-Nachweis erforderlich, damit alle vorhandenen Systeme mit den neuen Modus kompatibel bleiben. Finden Sie unter [Bereitstellen von überwachten Hosts](../security/guarded-fabric-shielded-vm/guarded-fabric-configure-hgs-with-authorized-hyper-v-hosts.md) für Weitere Informationen zu den Nachweis-Optionen. |
 | OneSync-Dienst|Der Dienst OneSync synchronisiert die Daten für die E-Mail, Kalender und Benutzer-apps. Wir haben die Outlook-app eine Synchronisierungs-Engine hinzugefügt, die die gleiche Synchronisierung bereitstellt. |
-| Remote Differential Compression-API-Unterstützung|Remote Differential Compression-API-Unterstützung aktiviert die Synchronisierung von Daten mit einer Remotequelle mit komprimierungstechnologien, die die über das Netzwerk übertragene Datenmenge minimiert. Diese Unterstützung ist nicht aktuell von Microsoft-Produkten verwendet werden. |
+| Remote Differential Compression-API-Unterstützung|Remote Differential Compression-API-Unterstützung aktiviert die Synchronisierung von Daten mit einer Remotequelle mit komprimierungstechnologien, die die über das Netzwerk übertragene Datenmenge minimiert. |
 | WFP-Erweiterung für einfachen Filter-Switches|Die WFP-Erweiterung für die einfache Filter Switches ermöglicht Entwicklern das Erstellen von [einfaches Netzwerk paketfilterung-Erweiterungen für den virtuellen Hyper-V-Switch](https://docs.microsoft.com/en-us/windows-hardware/drivers/network/using-virtual-switch-filtering). Sie können die gleiche Funktionalität erreichen, durch das Erstellen einer vollständigen filternden-Erweiterungs. Daher müssen wir diese Erweiterung in der Zukunft entfernt. |

@@ -12,12 +12,12 @@ ms.assetid: f5861ae9-77cb-4d37-b4c5-8f0757213385
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 929c7506c78667646e429c4f28df7e5642c575ab
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 93f5bdb615adf56b81a1c4c93f802f6da4e48c1b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59841151"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432611"
 ---
 # <a name="prepare-your-source-server-for-windows-server-essentials-migration1"></a>Vorbereiten des Quellservers für Windows Server Essentials migration1
 
@@ -89,20 +89,20 @@ Führen Sie vorab folgende Schritte aus, um sicherzustellen, dass eine erfolgrei
   
 ###### <a name="to-use-the-windows-server-solutions-bpa-to-analyze-your-source-server"></a>So analysieren Sie den Quellserver mithilfe des BPA für Windows Server Solutions  
   
-1.  Herunterladen und Installieren der [Windows Server Solutions Best Practices Analyzer](https://www.microsoft.com/en-us/download/details.aspx?id=15556) im Microsoft Download Center.  
+1. Herunterladen und Installieren der [Windows Server Solutions Best Practices Analyzer](https://www.microsoft.com/en-us/download/details.aspx?id=15556) im Microsoft Download Center.  
   
-2.  Gehen Sie nach dem Abschluss des Downloads auf **Start**, **Alle Programme** und dann auf **SBS Best Practices Analyzer Tool**.  
+2. Gehen Sie nach dem Abschluss des Downloads auf **Start**, **Alle Programme** und dann auf **SBS Best Practices Analyzer Tool**.  
   
-    > [!NOTE]
-    >  Suchen Sie vor dem Überprüfen des Servers nach Updates.  
+   > [!NOTE]
+   >  Suchen Sie vor dem Überprüfen des Servers nach Updates.  
   
-3.  Klicken Sie im Navigationsbereich auf **Überprüfung starten**.  
+3. Klicken Sie im Navigationsbereich auf **Überprüfung starten**.  
   
-4.  Geben Sie im Detailbereich die Überprüfungsbezeichnung ein und klicken Sie dann auf **Überprüfung starten**. Die Überprüfungsbezeichnung ist der Name des Überprüfungsberichts, z. B. **SBS BPA Scan 1Jul2012**.  
+4. Geben Sie im Detailbereich die Überprüfungsbezeichnung ein und klicken Sie dann auf **Überprüfung starten**. Die Überprüfungsbezeichnung ist der Name des Überprüfungsberichts, z. B. **SBS BPA Scan 1Jul2012**.  
   
-5.  Nachdem die Überprüfung abgeschlossen ist, klicken Sie auf **Bericht für diese Bewährte Methoden-Überprüfung anzeigen**.  
+5. Nachdem die Überprüfung abgeschlossen ist, klicken Sie auf **Bericht für diese Bewährte Methoden-Überprüfung anzeigen**.  
   
- Nach dem Sammeln von Informationen zur Server-Konfiguration überprüft der Windows Server Solutions BPA, ob die Informationen korrekt sind und wird dann Administratoren eine Liste von Informationen und Problemen nach Schweregrad sortiert anzeigen. Die Liste beschreibt jedes Problem und bietet eine Empfehlung oder eine mögliche Lösung. Folgende drei Berichtstypen sind verfügbar:  
+   Nach dem Sammeln von Informationen zur Server-Konfiguration überprüft der Windows Server Solutions BPA, ob die Informationen korrekt sind und wird dann Administratoren eine Liste von Informationen und Problemen nach Schweregrad sortiert anzeigen. Die Liste beschreibt jedes Problem und bietet eine Empfehlung oder eine mögliche Lösung. Folgende drei Berichtstypen sind verfügbar:  
   
 |Berichttyp|Beschreibung|  
 |-----------------|-----------------|  
@@ -140,25 +140,25 @@ Führen Sie vorab folgende Schritte aus, um sicherzustellen, dass eine erfolgrei
   
 ##### <a name="to-verify-that-you-have-the-appropriate-permissions-to-run-the-tool-on-the-source-server"></a>So überprüfen Sie, ob Sie über die geeigneten Berechtigungen zum Ausführen des Tools auf dem Quellserver verfügen  
   
-1.  Klicken Sie auf dem Quellserver auf **Start**, klicken Sie auf **Verwaltung**, und klicken Sie dann auf **Active Directory-Benutzer und -Computer**.  
+1. Klicken Sie auf dem Quellserver auf **Start**, klicken Sie auf **Verwaltung**, und klicken Sie dann auf **Active Directory-Benutzer und -Computer**.  
   
-2.  Klicken Sie In der Konsolenstruktur zum Erweitern der Domäne und klicken Sie dann auf **Benutzer**.  
+2. Klicken Sie In der Konsolenstruktur zum Erweitern der Domäne und klicken Sie dann auf **Benutzer**.  
   
-3.  Klicken Sie mit der rechten Maustaste auf das Administratorkonto, das Sie für die Migration verwenden, und klicken Sie dann auf **Eigenschaften**.  
+3. Klicken Sie mit der rechten Maustaste auf das Administratorkonto, das Sie für die Migration verwenden, und klicken Sie dann auf **Eigenschaften**.  
   
-4.  Klicken Sie auf die Registerkarte **Mitglied von**, und vergewissern Sie sich dann, dass die Gruppen "Organisations-Admins", "Schema-Admins" und "Domänen-Admins" im Textfeld **Mitglied von** aufgelistet werden.  
+4. Klicken Sie auf die Registerkarte **Mitglied von**, und vergewissern Sie sich dann, dass die Gruppen "Organisations-Admins", "Schema-Admins" und "Domänen-Admins" im Textfeld **Mitglied von** aufgelistet werden.  
   
-5.  Wenn diese Gruppen nicht aufgelistet werden, klicken Sie auf **Hinzufügen** und fügen dann jede Gruppe hinzu, die nicht aufgelistet wird.  
+5. Wenn diese Gruppen nicht aufgelistet werden, klicken Sie auf **Hinzufügen** und fügen dann jede Gruppe hinzu, die nicht aufgelistet wird.  
   
-    > [!NOTE]
-    >  -   Möglicherweise wird ein Berechtigungsfehler angezeigt, wenn der Anmeldedienst nicht gestartet wurde.  
-    > -   Sie müssen sich vom Server abmelden und sich dann erneut anmelden, damit die Änderungen wirksam werden.  
+   > [!NOTE]
+   > - Möglicherweise wird ein Berechtigungsfehler angezeigt, wenn der Anmeldedienst nicht gestartet wurde.  
+   >   -   Sie müssen sich vom Server abmelden und sich dann erneut anmelden, damit die Änderungen wirksam werden.  
   
-     Mithilfe der neuesten Version des Windows Update-Agents können Sie sicherstellen, dass das Serverupdate ordnungsgemäß ausgeführt wird.  
+    Mithilfe der neuesten Version des Windows Update-Agents können Sie sicherstellen, dass das Serverupdate ordnungsgemäß ausgeführt wird.  
   
- Mithilfe der neuesten Version des Windows Update-Agents können Sie sicherstellen, dass das Serverupdate ordnungsgemäß ausgeführt wird.  
+   Mithilfe der neuesten Version des Windows Update-Agents können Sie sicherstellen, dass das Serverupdate ordnungsgemäß ausgeführt wird.  
   
- Bevor Sie Windows Update-Agent auf dem Quellserver installieren können, müssen Sie zuerst Windows PowerShell 2.0 und Microsoft Baseline Configuration Analyzer 2.0 installieren.  
+   Bevor Sie Windows Update-Agent auf dem Quellserver installieren können, müssen Sie zuerst Windows PowerShell 2.0 und Microsoft Baseline Configuration Analyzer 2.0 installieren.  
   
 -   Zum Herunterladen und installieren Sie Windows PowerShell 2.0, finden Sie unter [Artikel 968929](https://go.microsoft.com/fwlink/p/?LinkId=241483) in der Microsoft Knowledge Base.  
   
@@ -168,34 +168,34 @@ Führen Sie vorab folgende Schritte aus, um sicherzustellen, dass eine erfolgrei
   
 ##### <a name="to-install-and-run-the-migration-preparation-tool-on-the-source-server"></a>So installieren Sie das Tool zum Vorbereiten der Migration auf dem Quellserver und führen es aus  
   
-1.  Fügen Sie Windows Server Essentials-DVD1 in das DVD-Laufwerk auf dem Quellserver an.  
+1. Fügen Sie Windows Server Essentials-DVD1 in das DVD-Laufwerk auf dem Quellserver an.  
   
-2.  Öffnen Sie den Windows-Explorer, navigieren Sie auf der DVD zum Ordner **\support\tools**, und doppelklicken Sie auf die Datei **sourcetool.msi**.  
+2. Öffnen Sie den Windows-Explorer, navigieren Sie auf der DVD zum Ordner **\support\tools**, und doppelklicken Sie auf die Datei **sourcetool.msi**.  
   
-    > [!NOTE]
-    >  -   Wenn das Tool zum Vorbereiten der Migration bereits auf dem Server installiert ist, führen Sie es über das **Start**-Menü aus.  
-    > -   Für eine reibungslose Migration wird empfohlen, immer das aktuellste Update zu installieren.  
+   > [!NOTE]
+   > - Wenn das Tool zum Vorbereiten der Migration bereits auf dem Server installiert ist, führen Sie es über das **Start**-Menü aus.  
+   >   -   Für eine reibungslose Migration wird empfohlen, immer das aktuellste Update zu installieren.  
   
-     Der Assistent installiert das Tool zum Vorbereiten der Migration auf dem Quellserver. Nachdem die Installation abgeschlossen ist, wird das Tool zum Vorbereiten der Migration automatisch ausgeführt, und es installiert die neuesten Updates.  
+    Der Assistent installiert das Tool zum Vorbereiten der Migration auf dem Quellserver. Nachdem die Installation abgeschlossen ist, wird das Tool zum Vorbereiten der Migration automatisch ausgeführt, und es installiert die neuesten Updates.  
   
-3.  Wählen Sie im Tool zum Vorbereiten der Migration die Option **Ich verfüge über eine Datensicherung und bin bereit, den Vorgang fortzusetzen** aus, und klicken Sie dann auf **Weiter**.  
+3. Wählen Sie im Tool zum Vorbereiten der Migration die Option **Ich verfüge über eine Datensicherung und bin bereit, den Vorgang fortzusetzen** aus, und klicken Sie dann auf **Weiter**.  
   
-    > [!WARNING]
-    >  Wenn Sie eine Fehlermeldung bezüglich einer Hotfixinstallation angezeigt wird, finden Sie unter Methode 2: Umbenennen des Ordners "Catroot2" im [Artikel 822798](https://go.microsoft.com/FWLink/p/?LinkID=118672) in der Microsoft Knowledge Base.  
+   > [!WARNING]
+   >  Wenn Sie eine Fehlermeldung bezüglich einer Hotfixinstallation angezeigt wird, finden Sie unter Methode 2: Umbenennen des Ordners "Catroot2" im [Artikel 822798](https://go.microsoft.com/FWLink/p/?LinkID=118672) in der Microsoft Knowledge Base.  
   
-     Die Quelldomäne wird durch Erweitern des Active Directory-Schemas für die Migration vorbereitet. Klicken Sie nach Abschluss des Vorgangs auf **Weiter**, um fortzufahren.  
+    Die Quelldomäne wird durch Erweitern des Active Directory-Schemas für die Migration vorbereitet. Klicken Sie nach Abschluss des Vorgangs auf **Weiter**, um fortzufahren.  
   
-4.  Nach dem Vorbereiten der Quelldomäne überprüft das Tool zum Vorbereiten der Migration den Quellserver auf zwei Typen potenzieller Probleme.  
+4. Nach dem Vorbereiten der Quelldomäne überprüft das Tool zum Vorbereiten der Migration den Quellserver auf zwei Typen potenzieller Probleme.  
   
-    -   **Fehler** Probleme gefunden werden, auf dem Quellserver, die die Migration blockiert oder dazu führen, dass die Migration zu können. Befolgen Sie die Anweisungen in der Fehlermeldung, um die Probleme zu beheben, und klicken Sie dann auf **Erneut überprüfen**.  
+   - **Fehler** Probleme gefunden werden, auf dem Quellserver, die die Migration blockiert oder dazu führen, dass die Migration zu können. Befolgen Sie die Anweisungen in der Fehlermeldung, um die Probleme zu beheben, und klicken Sie dann auf **Erneut überprüfen**.  
   
-    -   **Warnungen** Probleme gefunden werden, auf dem Quellserver, die zu Funktionsproblemen während der Migration führen können. Es wird dringend empfohlen, die Probleme vor dem Fortsetzen der Migration anhand der Anweisungen in der Fehlermeldung zu beheben.  
+   - **Warnungen** Probleme gefunden werden, auf dem Quellserver, die zu Funktionsproblemen während der Migration führen können. Es wird dringend empfohlen, die Probleme vor dem Fortsetzen der Migration anhand der Anweisungen in der Fehlermeldung zu beheben.  
   
      Nachdem Sie alle Fehler behoben oder bestätigt haben, klicken Sie auf **Weiter**.  
   
-5.  Klicken Sie im Tool zum Vorbereiten der Migration auf **Fertig stellen**.  
+5. Klicken Sie im Tool zum Vorbereiten der Migration auf **Fertig stellen**.  
   
-6.  Wenn das Tool zum Vorbereiten der Migration abgeschlossen ist, werden Sie möglicherweise aufgefordert, den Quellserver neu zu starten, bevor Sie die Migration zu Windows Server Essentials beginnen können.  
+6. Wenn das Tool zum Vorbereiten der Migration abgeschlossen ist, werden Sie möglicherweise aufgefordert, den Quellserver neu zu starten, bevor Sie die Migration zu Windows Server Essentials beginnen können.  
   
 > [!NOTE]
 >  Sie müssen bei einer erfolgreiche Ausführung von Tool zum Vorbereiten der Migration auf dem Quellserver innerhalb von zwei Wochen nach der Installation von Windows Server Essentials auf dem Zielserver ausführen. Andernfalls wird die Installation von Windows Server Essentials auf dem Zielserver blockiert. In diesem Fall müssen Sie das Tool zum Vorbereiten der Migration erneut auf dem Quellserver ausführen.  

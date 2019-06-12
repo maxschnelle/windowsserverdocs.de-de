@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: Qizha;TristanB
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 91bc02e5edbdfbbbf3ccf600f3536a783e49eb79
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 4ad58e9b477f61844dedd9f6638efb12f1a96500
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814911"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811565"
 ---
 # <a name="power-and-performance-tuning"></a>Leistung und leistungsoptimierung
 
@@ -60,7 +60,7 @@ Sie müssen die Anforderungen für die Workload auf eine optimale Konfiguration 
 
 **PowerCfg.exe** unterstützt eine Befehlszeilenoption, die Sie verwenden können, um die im Leerlauf Energieeffizienz des Servers zu analysieren. Beim Ausführen von PowerCfg.exe mit dem **/energy** -Option, das Tool führt einen Test 60 Sekunden, um Probleme mit der Effizienz von möglichen energieeinsparungen zu erkennen. Das Tool generiert einen einfachen HTML-Bericht im aktuellen Verzeichnis.
 
->[!Important]
+> [!Important]
 > Um eine präzise Analyse zu gewährleisten, stellen Sie sicher, dass alle lokalen apps geschlossen werden, vor dem Ausführen **PowerCfg.exe**. 
 
 Timer Tick abgerechnet, Treiber, die fehlende Unterstützung für die energieverwaltung und übermäßiger CPU-Auslastung der verhaltensbasierten Probleme sind, die vom erkannt werden verkürzt die **Powercfg /energy** Befehl. Dieses Tool bietet eine einfache Möglichkeit zum Identifizieren und beheben Sie Probleme Power, was ggf. zu erheblichen kosteneinsparungen in einem großen Rechenzentrum.
@@ -71,10 +71,10 @@ Weitere Informationen zu PowerCfg.exe, finden Sie unter [mithilfe von PowerCfg z
 
 Windows Server 2016 verfügt über drei integrierte Energiesparpläne, die unterschiedliche geschäftsanforderungen zu erfüllen. Diese Pläne bieten eine einfache Möglichkeit, einen Server anzupassen, Leistung oder Energieverbrauch Ziele zu erreichen. In der folgende Tabelle wird beschrieben, die Pläne, enthält die allgemeinen Szenarien, in denen Sie jeden Plan zu verwenden und bietet einige Implementierungsdetails für jeden Plan.
 
-| **Plan** | **Beschreibung** | **Allgemeine anwendbare Szenarios** | **Implementierungshighlights** |
+| **Planen** | **Beschreibung** | **Allgemeine anwendbare Szenarios** | **Implementierungshighlights** |
 |------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Mit Lastenausgleich (empfohlen) | Die Standardeinstellung. Ziele gute Energieeffizienz bei minimalen Leistungseinbußen. | Allgemeine computing | Entspricht die Kapazität auf den Bedarf an. Energie sparen Features abwägen Leistungsfähigkeit. |
-| Hohe Leistung | Erhöht die Leistung auf Kosten der hohen Energieverbrauch. Power temperaturüberwachung, Betrieb, Ausgaben und Zuverlässigkeit Überlegungen gelten. | Mit geringer Latenz-apps und app-Code, die anfällig für den Prozessor leistungsänderungen | Prozessoren sind immer mit dem höchsten Leistungszustand (einschließlich "Turbo? beschränkt. Frequenzen). Es werden alle Kerne unparked. Temperaturüberwachung Ausgabe kann erheblich sein. |
+| Hohe Leistung | Erhöht die Leistung auf Kosten der hohen Energieverbrauch. Power temperaturüberwachung, Betrieb, Ausgaben und Zuverlässigkeit Überlegungen gelten. | Mit geringer Latenz-apps und app-Code, die anfällig für den Prozessor leistungsänderungen | Prozessoren sind immer mit dem höchsten Leistungszustand (einschließlich "Turbo" Frequenzen) beschränkt. Es werden alle Kerne unparked. Temperaturüberwachung Ausgabe kann erheblich sein. |
 | Energiesparmodus | Schränkt die Leistung, Energie gespart, und Reduzieren der Betriebskosten. Nicht empfohlen wird, ohne gründliche Tests stellen Sie sicher, dass Leistung geeignet ist. | Bereitstellungen mit begrenzten Power Budgets und temperaturüberwachung Einschränkungen | Initialen der Prozessorfrequenz auf einen Prozentsatz der Höchstwert (sofern unterstützt) und andere Funktionen energiesparende ermöglicht. |
 
 
@@ -82,7 +82,7 @@ Von diesen Energiesparplänen in Windows für Wechselstrom (AC) vorhanden sein u
 
 Weitere Informationen zur Energiesparpläne "und" Power-Konfigurationen für Gruppenrichtlinien, finden Sie unter [Energierichtlinienkonfiguration und Bereitstellung in Windows](https://msdn.microsoft.com/windows/hardware/gg463243.aspx).
 
->[!Note]
+> [!Note]
 > Einige Herstellern Server haben ihre eigenen Energieverwaltungsoptionen über die BIOS-Einstellungen zur Verfügung. Wenn das Betriebssystem keine Kontrolle über die energieverwaltung, wirkt ändern die Energiesparpläne in Windows Stromnetz und Leistung sich nicht.
 
 ## <a name="tuning-processor-power-management-parameters"></a>Processor Power Management Optimierungsparameter
@@ -97,7 +97,7 @@ Intel Turbo Boost und Turbo-CORE AMD-Technologien sind Funktionen, mit denen Pro
 
 Turbo für hohe Leistung Energiesparpläne auf allen Intel- und AMD-Prozessoren aktiviert ist, und für den Energiesparmodus Energiesparpläne deaktiviert. Für ausgewogene Energiesparpläne auf Systemen, die auf herkömmlichen P-Status-basierte Häufigkeit Management basieren, ist Turbo standardmäßig aktiviert, nur dann, wenn die Plattform das Register EPB unterstützt.
 
->[!Note]
+> [!Note]
 > Das EPB Register ist nur in Intel Westmere und höher Prozessoren unterstützt.
 
 Für Nehalem von Intel und AMD-Prozessoren ist Turbo auf P-Status-basierten Plattformen standardmäßig deaktiviert. Aber wenn ein System Zusammenarbeit Prozessor Leistung Control (CPPC), einen neuen alternativen Modus Leistung-Kommunikation zwischen dem Betriebssystem und die Hardware unterstützt (definiert in ACPI 5.0) handelt, Turbo kann möglicherweise belegt sein wenn die Windows-Betriebssystem System fordert dynamisch an die Hardware die höchste Leistung zu liefern.
@@ -106,19 +106,19 @@ Zum Aktivieren oder Deaktivieren der Turbo Boost-Funktion, muss der Prozessor Le
 
 Die Optionen für P-Status-basierte-Steuerelement sind deaktiviert, aktiviert (Turbo ist die Hardware zur Verfügung, wenn geringe Leistung angefordert wird), und effiziente (Turbo ist nur verfügbar, wenn das Register EPB implementiert wird).
 
-Für CPPC basierenden Steuerelements, die Optionen deaktiviert sind, effizient aktiviert (Windows gibt die genaue Menge der Turbo bereitstellen), und aggressives (Windows fordert für "maximale Leistung? zum Aktivieren der turbomodus aktiviert.)
+Für CPPC basierenden Steuerelements, die Optionen deaktiviert sind, effizient aktiviert (Windows gibt die genaue Menge der Turbo bereitstellen), und aggressives (Windows fordert, "Höchstleistung" Turbo aktivieren).
 
 In Windows Server 2016 ist der Standardwert für den Boost-Modus 3.
 
 | **Name** | **P-Status-basierte Verhalten** | **CPPC-Verhalten** |
 |--------------------------|------------------------|-------------------|
-| 0 (deaktiviert) | Deaktiviert | Deaktiviert |
+| 0 (deaktiviert) | Disabled | Disabled |
 | 1 (aktiviert) | Enabled | Effiziente aktiviert |
 | 2 (aggressives) | Enabled | Aggressive |
 | 3 (effiziente aktiviert) | Effizienz | Effiziente aktiviert |
 | 4 (effiziente Aggressive) | Effizienz | Aggressive |
 
- 
+ 
 Die folgenden Befehle Prozessor Leistung Boost-Modus auf der aktuelle Energiesparplan aktivieren (die Richtlinie mit einem GUID-Alias angeben):
 
 ``` syntax
@@ -126,9 +126,10 @@ Powercfg -setacvalueindex scheme_current sub_processor PERFBOOSTMODE 1
 Powercfg -setactive scheme_current
 ```
 
->[!Important]  Führen Sie die **Powercfg - Setactive** Befehl aus, um die neuen Einstellungen zu aktivieren. Sie müssen nicht den Server neu starten.
+> [!Important]
+> Führen Sie die **Powercfg - Setactive** Befehl aus, um die neuen Einstellungen zu aktivieren. Sie müssen nicht den Server neu starten.
 
-Zum Festlegen dieses Werts für Energiesparpläne als den derzeit ausgewählten Plan können Sie Aliase wie z. B. Schema\_MAX (Energiesparmodus), SCHEME\_MIN (hohe Leistungsfähigkeit), und das Schema\_AUSGEGLICHEN (ausgeglichen) anstelle von Schema\_Aktuelle. Ersetzen Sie "Scheme aktuell? in den Befehlen von Powercfg - Setactive zuvor gezeigten mit den gewünschten Alias, Energiesparplan von Computern zu aktivieren.
+Zum Festlegen dieses Werts für Energiesparpläne als den derzeit ausgewählten Plan können Sie Aliase wie z. B. Schema\_MAX (Energiesparmodus), SCHEME\_MIN (hohe Leistungsfähigkeit), und das Schema\_AUSGEGLICHEN (ausgeglichen) anstelle von Schema\_Aktuelle. Ersetzen Sie "Schema aktuellen" in den Befehlen der Powercfg - Setactive zuvor gezeigten mit den gewünschten Alias, Energiesparplan von Computern zu aktivieren.
 
 Beispielsweise ist zum Anpassen der Boost-Modus in den Energiesparplan, und stellen diese Energiesparmodus den aktuellen Plan können die folgenden Befehle ausführen:
 
@@ -157,7 +158,7 @@ Powercfg -setacvalueindex scheme_current sub_processor PROCTHROTTLEMAX 75
 Powercfg -setactive scheme_current
 ```
 
->[!Note]
+> [!Note]
 > Taskausführungsanforderungen begrenzt wird, prozessorbezogene Leistungsdaten auf einen Prozentsatz der Höchstwert muss Prozessor unterstützt werden. Überprüfen Sie die Prozessor-Dokumentation, um zu bestimmen, ob diese Unterstützung vorhanden ist, oder zeigen Sie den Leistungsindikator des Systemmonitors **% der maximalen Frequenz** in die **Prozessor** Gruppe, um festzustellen, ob alle Häufigkeit Caps wurden angewendet.
 
 ## <a name="processor-performance-increase-and-decrease-of-thresholds-and-policies"></a>Prozessor-Leistungssteigerung und Verringerung von Schwellenwerten und Richtlinien
@@ -168,9 +169,9 @@ Die Geschwindigkeit an, an der einen Prozessor Leistungsstatus erhöht oder verr
 
 -   **Prozessor-Leistungsschwellenwert verringern** definiert der Wert für die Auslastung unten die Leistungsstatus des Prozessors verringert wird. Größere Werte vergrößern die Rate der Verringerung der für den Leistungsstatus während der Leerlaufzeiten.
 
--   **Prozessor-Leistungsrichtlinie erhöhen und Prozessor zu Leistungseinbußen führen** Richtlinie zu bestimmen, welche Leistungsstatus festgelegt werden soll, wenn eine Änderung erfolgt. "Einfach? Richtlinie bedeutet, dass den nächsten Zustand ausgewählt. "Rocket? bedeutet, dass maximale oder minimale Zustand die Leistung. "Ideal? versucht, ein Gleichgewicht zwischen Leistung und die Leistung zu finden.
+-   **Prozessor-Leistungsrichtlinie erhöhen und Prozessor zu Leistungseinbußen führen** Richtlinie zu bestimmen, welche Leistungsstatus festgelegt werden soll, wenn eine Änderung erfolgt. Richtlinie für "Einfach" bedeutet, dass es sich bei wählt den nächsten Zustand. "Rocket" bedeutet, dass maximale oder minimale Zustand die Leistung. "Ideale" versucht, ein Gleichgewicht zwischen Leistung und die Leistung zu finden.
 
-Wenn der Server mit extrem geringer Latenz erfordert, während Sie weiterhin mit niedriger Leistung während der Leerlaufzeiten profitieren möchten, können Sie z. B. beschleunigen die Leistungssteigerung der Status für alle Anstieg der Last und die Verringerung der verlangsamen, Last ausfällt. Die folgenden Befehle die Erhöhung Richtlinie festlegen so "Rocket? Klicken Sie für einen schnelleren Status zu erhöhen, und legen Sie die Verringerung der Richtlinie auf "einzelne?. Die Erhöhung und Verringerung Schwellenwerte werden auf 10 und 8 festgelegt.
+Wenn der Server mit extrem geringer Latenz erfordert, während Sie weiterhin mit niedriger Leistung während der Leerlaufzeiten profitieren möchten, können Sie z. B. beschleunigen die Leistungssteigerung der Status für alle Anstieg der Last und die Verringerung der verlangsamen, Last ausfällt. Die folgenden Befehle die Erhöhung Richtlinie so festlegen "Rocket" für eine schnellere Erhöhung des Status, und legen Sie die Verringerung der Richtlinie auf "Single". Die Erhöhung und Verringerung Schwellenwerte werden auf 10 und 8 festgelegt.
 
 ``` syntax
 Powercfg.exe -setacvalueindex scheme_current sub_processor PERFINCPOL 2
@@ -221,6 +222,6 @@ Powercfg -setactive scheme_current
 
 ## <a name="see-also"></a>Siehe auch
 - [Überlegungen zur Leistung von Server-Hardware](../index.md)
-- [Überlegungen zur Power von Server-Hardware](../power.md)
-- [Processor Power Management-Optimierung](processor-power-management-tuning.md)
-- [Ausgeglichene Parametern empfohlen](recommended-balanced-plan-parameters.md)
+- [Server Hardware Power Considerations](../power.md) (Überlegungen zum Energiebedarf von Serverhardware)
+- [Processor Power Management (PPM) Tuning for the Windows Server Balanced Power Plan](processor-power-management-tuning.md) (Optimieren der Prozessorenergieverwaltung (Processor Power Management (PPM)) für den ausgewogenen Energiesparplan von Windows Server)
+- [Recommended Balanced Power Plan Parameters for Workloads Requiring Quick Response Times](recommended-balanced-plan-parameters.md) (Empfohlene Parameter für den ausgewogenen Energiesparplan für Workloads, die kurze Antwortzeiten erfordern)

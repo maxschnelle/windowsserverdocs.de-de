@@ -13,20 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 01/05/2019
-ms.openlocfilehash: 5001e070b63fe88da50a5219f129855606e7a2e5
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 6448c4c5940d286931f6d64ad51970bf577a28fd
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192709"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811028"
 ---
 # <a name="xcopy"></a>xcopy
 
+Kopiert Dateien und Verzeichnisse, z. B. Unterverzeichnissen.
 
-
-Kopiert Dateien und Verzeichnisse, z. B. Unterverzeichnissen
-
-Beispiele für diesen Befehl verwenden, finden Sie unter [Beispiele](xcopy.md#BKMK_examples)
+Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#examples).
 
 ## <a name="syntax"></a>Syntax
 
@@ -72,80 +70,105 @@ Xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-
 
 ## <a name="remarks"></a>Hinweise
 
--   Mithilfe von **Neustartmodus anzugeben**
+- Mithilfe von **Neustartmodus anzugeben**
 
-    Wenn Sie verlieren die Verbindung während der Kopierphase "(z. B., wenn der Server offline geschaltet, um die Verbindung trennt), nimmt ihn wieder, nachdem Sie die Verbindung wiederherzustellen. **/ z** auch zeigt den Prozentsatz der der Kopiervorgang abgeschlossen wurde, für jede Datei.
--   Mithilfe von **/y** in-y.
+  Wenn Sie verlieren die Verbindung während der Kopierphase "(z. B., wenn der Server offline geschaltet, um die Verbindung trennt), nimmt ihn wieder, nachdem Sie die Verbindung wiederherzustellen. **/ z** auch zeigt den Prozentsatz der der Kopiervorgang abgeschlossen wurde, für jede Datei.
 
-    Sie können **/y** in-y. Sie können mit diesem Befehl überschreiben, indem **/-y** in der Befehlszeile. Standardmäßig werden Sie aufgefordert, um zu überschreiben.
--   Kopieren von verschlüsselten Dateien
+- Mithilfe von **/y** in-y.
 
-    Das Kopieren verschlüsselter Dateien auf einem Volume, die nicht, EFS führt zu einem Fehler unterstützt. Entschlüsseln Sie zunächst die Dateien oder kopieren Sie die Dateien in ein Volume, das EFS unterstützt.
--   Anfügen von Dateien
+  Sie können **/y** in-y. Sie können mit diesem Befehl überschreiben, indem **/-y** in der Befehlszeile. Standardmäßig werden Sie aufgefordert, um zu überschreiben.
 
-    Geben Sie Dateien an eine einzelne Datei für das Ziel, aber mehrere Dateien für die Quelle (d. h. durch die Verwendung Formatieren von Platzhaltern oder Inhalte von Datei1 + Datei2 + Datei3).
--   Standardwert für *Ziel*
+- Kopieren von verschlüsselten Dateien
 
-    Wenn Sie weglassen *Ziel*, **Xcopy** Befehl kopiert die Dateien im aktuellen Verzeichnis.
--   Angabe, ob *Ziel* ist eine Datei oder Verzeichnis
+  Das Kopieren verschlüsselter Dateien auf einem Volume, die nicht, EFS führt zu einem Fehler unterstützt. Entschlüsseln Sie zunächst die Dateien oder kopieren Sie die Dateien in ein Volume, das EFS unterstützt.
 
-    Wenn *Ziel* enthält kein vorhandenes Verzeichnis, und endet nicht mit einem umgekehrten Schrägstrich (\), die folgende Meldung angezeigt:  
-    ```
-    Does <Destination> specify a file name or directory name on the target(F = file, D = directory)?
-    ```  
-    Drücken Sie F, wenn die Datei oder Dateien, die in eine Datei kopiert werden soll. Drücken Sie die D, wenn Dateien in ein Verzeichnis kopiert werden sollen.
+- Anfügen von Dateien
 
-    Sie können diese Meldung unterdrücken, indem Sie mit der **/i** Befehlszeilenoption, wodurch **Xcopy** davon ausgehen, dass das Ziel ein Verzeichnis ist, wenn die Quelle mehr als eine Datei oder ein Verzeichnis ist.
--   Mithilfe der **Xcopy** Befehl zum Festlegen von Attribut "Archive" für *Ziel* Dateien
+  Geben Sie Dateien an eine einzelne Datei für das Ziel, aber mehrere Dateien für die Quelle (d. h. durch die Verwendung Formatieren von Platzhaltern oder Inhalte von Datei1 + Datei2 + Datei3).
 
-    Die **Xcopy** Befehl werden Dateien mit der Archiv-Attributsatz, erstellt, unabhängig davon, ob dieses Attribut in der Quelldatei festgelegt wurde. Weitere Informationen zu Dateiattributen und **Attrib**, finden Sie unter [zusätzliche Verweise](#additional-references).
--   Vergleichen von **Xcopy** und **Diskcopy**
+- Standardwert für *Ziel*
 
-    Wenn Sie einen Datenträger, die Dateien in Unterverzeichnissen enthält und Sie es auf einen Datenträger kopieren möchten, der ein anderes Format hat, verwenden Sie die **Xcopy** Befehl anstelle von **Diskcopy**. Da die **Diskcopy** Befehl kopiert Datenträger Nachverfolgen von nachverfolgen, Ihre Quelle und Ziel-Datenträger müssen das gleiche Format aufweisen. Die **Xcopy** Befehl verfügt nicht über diese Anforderung. Verwendung **Xcopy** , wenn Sie eine Kopie des vollständigen Datenträger-Image benötigen.
--   Exitcodes bei **mithilfe von Xcopy**
+  Wenn Sie weglassen *Ziel*, **Xcopy** Befehl kopiert die Dateien im aktuellen Verzeichnis.
 
-    Zum Verarbeiten von zurückgegebene Exitcodes **Xcopy**, verwenden Sie die **ErrorLevel** Parameter in der **Wenn** Befehlszeile in einem Batchprogramm. Ein Beispiel für ein Batchprogramm, dass Beendigungscodes mit **Wenn**, finden Sie unter [zusätzliche Verweise](#additional-references). Die folgende Tabelle enthält alle Exitcodes und eine Beschreibung an.  
-    |Exitcode|Beschreibung|
-    |---------|-----------|
-    |0|Dateien wurden fehlerfrei kopiert.|
-    |1|Es wurden keine Dateien gefunden, um zu kopieren.|
-    |2|Der Benutzer geklickt hat, zum Beenden Strg + C **Xcopy**.|
-    |4|Fehler bei der Initialisierung. Es ist nicht genügend Arbeitsspeicher oder Speicherplatz, oder Sie ein ungültiges Laufwerk-Name oder eine ungültige Syntax in der Befehlszeile eingegeben.|
-    |5|Fehler beim Schreiben der Datenträger ist aufgetreten.|
+- Angabe, ob *Ziel* ist eine Datei oder Verzeichnis
 
-## <a name="BKMK_examples"></a>Beispiele für
+  Wenn *Ziel* enthält kein vorhandenes Verzeichnis, und endet nicht mit einem umgekehrten Schrägstrich (\), die folgende Meldung angezeigt:
+  
+  ```
+  Does <Destination> specify a file name or directory name on the target(F = file, D = directory)?
+  ```  
+  
+Drücken Sie F, wenn die Datei oder Dateien, die in eine Datei kopiert werden soll. Drücken Sie die D, wenn Dateien in ein Verzeichnis kopiert werden sollen.
+
+  Sie können diese Meldung unterdrücken, indem Sie mit der **/i** Befehlszeilenoption, wodurch **Xcopy** davon ausgehen, dass das Ziel ein Verzeichnis ist, wenn die Quelle mehr als eine Datei oder ein Verzeichnis ist.
+- Mithilfe der **Xcopy** Befehl zum Festlegen von Attribut "Archive" für *Ziel* Dateien
+
+  Die **Xcopy** Befehl werden Dateien mit der Archiv-Attributsatz, erstellt, unabhängig davon, ob dieses Attribut in der Quelldatei festgelegt wurde. Weitere Informationen zu Dateiattributen und **Attrib**, finden Sie unter [zusätzliche Verweise](#additional-references).
+
+- Vergleichen von **Xcopy** und **Diskcopy**
+
+  Wenn Sie einen Datenträger, die Dateien in Unterverzeichnissen enthält und Sie es auf einen Datenträger kopieren möchten, der ein anderes Format hat, verwenden Sie die **Xcopy** Befehl anstelle von **Diskcopy**. Da die **Diskcopy** Befehl kopiert Datenträger Nachverfolgen von nachverfolgen, Ihre Quelle und Ziel-Datenträger müssen das gleiche Format aufweisen. Die **Xcopy** Befehl verfügt nicht über diese Anforderung. Verwendung **Xcopy** , wenn Sie eine Kopie des vollständigen Datenträger-Image benötigen.
+
+- Exitcodes bei **mithilfe von Xcopy**
+
+  Zum Verarbeiten von zurückgegebene Exitcodes **Xcopy**, verwenden Sie die **ErrorLevel** Parameter in der **Wenn** Befehlszeile in einem Batchprogramm. Ein Beispiel für ein Batchprogramm, dass Beendigungscodes mit **Wenn**, finden Sie unter [zusätzliche Verweise](#additional-references). Die folgende Tabelle enthält alle Exitcodes und eine Beschreibung an.  
+
+  |Exitcode|Beschreibung|
+  |---------|-----------|
+  |0|Dateien wurden fehlerfrei kopiert.|
+  |1|Es wurden keine Dateien gefunden, um zu kopieren.|
+  |2|Der Benutzer geklickt hat, zum Beenden Strg + C **Xcopy**.|
+  |4|Fehler bei der Initialisierung. Es ist nicht genügend Arbeitsspeicher oder Speicherplatz, oder Sie ein ungültiges Laufwerk-Name oder eine ungültige Syntax in der Befehlszeile eingegeben.|
+  |5|Fehler beim Schreiben der Datenträger ist aufgetreten.|
+
+## <a name="examples"></a>Beispiele
 
 **1.** Um alle Dateien und Unterverzeichnisse (einschließlich aller leeren Unterverzeichnisse) von Laufwerk A auf Laufwerk B zu kopieren, geben Sie Folgendes ein:
+
 ```
 xcopy a: b: /s /e 
 ```
-**2.** Um einem System- oder versteckte Dateien im vorherigen Beispiel einzuschließen, fügen die **/h** Befehlszeilenoption wie folgt:
+
+**2.** Um einem System- oder versteckte Dateien im vorherigen Beispiel einzuschließen, fügen die<strong>/h</strong> Befehlszeilenoption wie folgt:
+
 ```
 xcopy a: b: /s /e /h
 ```
+
 **3.** Geben Sie Folgendes ein, um Dateien im Verzeichnis \Reports mit den Dateien im Verzeichnis \Rawdata zu aktualisieren, die seit dem 29. Dezember 1993 geändert haben:
+
 ```
 xcopy \rawdata \reports /d:12-29-1993
 ```
+
 **4.** Geben Sie Folgendes ein, um alle Dateien zu aktualisieren, die in \Reports im vorherigen Beispiel, unabhängig davon, Datum vorhanden sind:
+
 ```
 xcopy \rawdata \reports /u
 ```
+
 **5.** Zum Abrufen einer Liste der Dateien mit dem vorherigen Befehl kopiert werden soll (d. h., ohne Sie tatsächlich das Kopieren der Dateien), Typ:
+
 ```
 xcopy \rawdata \reports /d:12-29-1993 /l > xcopy.out
 ```
+
 Die Datei xcopy.out jede Datei aufgeführt, die kopiert werden soll.
 
 **6.** Das \Customer-Verzeichnis und alle Unterverzeichnisse in das Verzeichnis kopieren \\ \\Public\Address Netzwerk Laufwerk h: Beibehalten der nur-Lese Attribut und werden dazu aufgefordert werden, wenn eine neue Datei, auf H:, Typ erstellt wird:
+
 ```
 xcopy \customer h:\public\address /s /e /k /p
 ```
+
 **7.** Zum Ausführen des vorherigen Befehls sicher, dass **Xcopy** \Address Verzeichnis erstellt, wenn er nicht vorhanden ist und die Meldung zu, die angezeigt wird unterdrücken, wenn Sie ein neues Verzeichnis erstellen Hinzufügen der **/i** Befehlszeilen Option wie folgt:
+
 ```
 xcopy \customer h:\public\address /s /e /k /p /i
 ```
+
 **8.** Können Sie ein Batchprogramm ausführen erstellen **Xcopy** Vorgänge und die Verwendung der Batch **Wenn** Befehl aus, um den Exitcode zu verarbeiten, wenn ein Fehler auftritt. Die folgenden Batch-Anwendung verwendet z. B. ersetzbare Parameter für die **Xcopy** Quell- und Zielparametern:
+
 ```
 @echo off
 rem COPYIT.BAT transfers all files in all subdirectories of
@@ -164,13 +187,17 @@ echo You pressed CTRL+C to end the copy operation.
 goto exit
 :exit 
 ```
+
 Um die vorherigen Batch-Anwendung zu verwenden, kopieren alle Dateien in das C:\Prgmcode-Verzeichnis und seinen Unterverzeichnissen auf Laufwerk B, geben Sie Folgendes ein:
+
 ```
 copyit c:\prgmcode b:
 ```
+
 Der Befehl-Interpreter ersetzt **C:\Prgmcode** für *%1* und **B:** für *%2*, verwendet dann **Xcopy**mit der **/e** und **/s** Befehlszeilenoptionen. Wenn **Xcopy** einen Fehler erkennt, die Batch-Anwendung liest den Exitcode und wird an die Bezeichnung, die in den entsprechenden angegebenen **IF ERRORLEVEL** -Anweisung, dann wird die entsprechende Meldung angezeigt, und beendet die Batch-Anwendung.
 
 **9.** In diesem Beispiel alle nicht-leere Verzeichnisse und Dateien, deren Name entspricht dem Muster, die mit dem Sternchensymbol angegeben.
+
 ```
 xcopy .\toc*.yml ..\..\Copy-To\ /S /Y
 
@@ -180,6 +207,7 @@ rem  .\d1\d12\toc.yml
 rem  .\d2\toc.yml
 rem  3 File(s) copied
 ```
+
 Im vorherigen Beispiel, diese bestimmte Quelle Parameterwert **.\\ Inhaltsverzeichnis\*.yml** kopieren 3 Dateien auch dieselbe, wenn die zwei Pfadzeichen **.\\**  wurden entfernt. Allerdings keine Dateien kopiert werden, wenn der Sternchen-Platzhalter aus den Quellparameter, und es einfach entfernt wurde **.\\ TOC.yml**.
 
 #### <a name="additional-references"></a>Weitere Verweise

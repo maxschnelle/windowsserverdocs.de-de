@@ -12,12 +12,12 @@ ms.assetid: 99e258bc-0695-48c9-b694-a7f3cbe2a2d0
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: f5042204cd189e3101f5e0126fd98e786a49032d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e15cb8591fc701094dde884d0a55e08d2cf422bb
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844121"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433598"
 ---
 # <a name="create-the-posticcmd-file-for-running-post-initial-configuration-tasks"></a>Erstellen der Datei "PostIC.cmd" zum Ausführen von Aufgaben nach der Erstkonfiguration
 
@@ -25,13 +25,13 @@ ms.locfileid: "59844121"
 
 Sie können Anpassungen nach der Erstkonfiguration hinzufügen, indem Sie Ihren eigenen Code schreiben und anschließend diesen Code über eine Skriptdatei mit der Bezeichnung "PostIC.cmd" aufrufen. Bei der Verwendung der Datei "PostIC.cmd" müssen Sie die folgenden Richtlinien befolgen:  
   
--   Der Anpassungscode muss im Hintergrund ausgeführt werden (Anzeige einer Benutzeroberfläche ist nicht möglich).  
+- Der Anpassungscode muss im Hintergrund ausgeführt werden (Anzeige einer Benutzeroberfläche ist nicht möglich).  
   
--   Durch den Anpassungscode kann kein Neustart des Servers initiiert werden. Die Erstkonfiguration startet den Server im letzten Task neu.  
+- Durch den Anpassungscode kann kein Neustart des Servers initiiert werden. Die Erstkonfiguration startet den Server im letzten Task neu.  
   
--   Die Ausführung des Anpassungscodes darf höchstens drei Minuten dauern.  
+- Die Ausführung des Anpassungscodes darf höchstens drei Minuten dauern.  
   
- Definieren Sie die Datei "PostIC.cmd" so, dass "0" zurückgegeben wird, wenn der Code erfolgreich ausgeführt wurde. Wenn ein anderer Wert zurückgegeben wird, sucht das Betriebssystem nach einer Datei namens [SetupFailure.cmd](Create-the-PostIC.cmd-File-for-Running-Post-Initial-Configuration-Tasks.md#BKMK_SetupFailure), in der Code enthalten ist, der auszuführen ist, wenn der Code in der Datei „PostIC.cmd“ nicht erfolgreich ausgeführt wurde. Die Datei "PostIC.cmd" und die Datei "SetupFailure.cmd" müssen sich unter folgendem Pfad befinden: "C:\Windows\Setup\Scripts".  
+  Definieren Sie die Datei "PostIC.cmd" so, dass "0" zurückgegeben wird, wenn der Code erfolgreich ausgeführt wurde. Wenn ein anderer Wert zurückgegeben wird, sucht das Betriebssystem nach einer Datei namens [SetupFailure.cmd](Create-the-PostIC.cmd-File-for-Running-Post-Initial-Configuration-Tasks.md#BKMK_SetupFailure), in der Code enthalten ist, der auszuführen ist, wenn der Code in der Datei „PostIC.cmd“ nicht erfolgreich ausgeführt wurde. Die Datei "PostIC.cmd" und die Datei "SetupFailure.cmd" müssen sich unter folgendem Pfad befinden: "C:\Windows\Setup\Scripts".  
   
 #### <a name="to-define-post-initial-configuration-customizations"></a>So definieren Sie Anpassungen nach der Erstkonfiguration  
   

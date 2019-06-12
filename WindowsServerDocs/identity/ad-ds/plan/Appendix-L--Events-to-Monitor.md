@@ -9,12 +9,12 @@ ms.date: 07/30/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 0b937debf2d9156c50f3c0ae51fdab8bd2a2bf2d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c245c5a6b2165385096f32713a92916236cdddfb
+ms.sourcegitcommit: a3958dba4c2318eaf2e89c7532e36c78b1a76644
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863481"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66719695"
 ---
 # <a name="appendix-l-events-to-monitor"></a>Anhang L: Zu überwachende Ereignisse
 
@@ -174,7 +174,7 @@ Potenzielle Gefährlichkeit hohe bedeutet, dass eine Eintreten des Ereignisses u
 |4707|611|Niedrig|Eine Vertrauensstellung zu einer Domäne wurde entfernt.|  
 |4709|Nicht zutreffend|Niedrig|Die IPsec-Dienste wurden gestartet.|  
 |4710|Nicht zutreffend|Niedrig|Die IPsec-Dienste wurden deaktiviert.|  
-|4711|Nicht zutreffend|Niedrig|Kann eines der folgenden Elemente enthalten: PAStore werden lokal zwischengespeicherte Kopie der Active Directory-Speicherung IPsec-Richtlinie auf dem Computer angewendet. PAStore werden Active Directory-Speicherung IPsec-Richtlinie auf dem Computer angewendet. PAStore werden IPSec-Richtlinie der lokalen Registrierung-Speichers auf dem Computer angewendet. PAStore-Engine-Fehler beim lokal zwischengespeicherte Kopie der Active Directory-Speicherung IPsec-Richtlinie auf dem Computer zu übernehmen. PAStore-Engine-Fehler beim Active Directory-Speicherung IPsec-Richtlinie auf dem Computer zu übernehmen. PAStore-Engine-Fehler beim lokalen Registrierungsspeicher IPsec-Richtlinie auf dem Computer zu übernehmen. PAStore-Engine konnte einige Regeln für die aktive IPsec-Richtlinie auf dem Computer angewendet. PAStore-Engine-Fehler beim Laden der Verzeichnisspeicher IPsec-Richtlinie auf dem Computer. PAStore-Modul geladen Verzeichnisspeicher IPsec-Richtlinie auf dem Computer. PAStore-Engine-Fehler beim lokalen Speicher IPsec-Richtlinie auf dem Computer zu laden. PAStore-Modul geladen, lokalen Speicher IPsec-Richtlinie auf dem Computer. PAStore-Modul für Änderungen an die aktive IPsec-Richtlinie abgerufen und keine Änderungen erkannt.|  
+|4711|Nicht zutreffend|Niedrig|Kann eines der folgenden Elemente enthalten: Das PAStore-Modul hat eine lokal zwischengespeicherte Kopie der Active Directory-Speicher-IPsec-Richtlinie auf dem Computer angewendet. Das PAStore-Modul hat eine Active Directory-Speicher-IPsec-Richtlinie auf dem Computer angewendet. Das PAStore-Modul hat eine Speicher-IPsec-Richtlinie der lokalen Registrierung auf dem Computer angewendet. Das PAStore-Modul konnte die lokal zwischengespeicherte Kopie der Active Directory-Speicher-IPsec-Richtlinie nicht auf dem Computer anwenden. Das PAStore-Modul konnte die Active Directory-Speicher-IPsec-Richtlinie nicht auf dem Computer anwenden. Das PAStore-Modul konnte die Speicher-IPsec-Richtlinie der lokalen Registrierung nicht auf dem Computer anwenden. Das PAStore-Modul konnte einige Regeln der aktiven IPsec-Richtlinie nicht auf dem Computer anwenden. Das PAStore-Modul konnte die Verzeichnisspeicher-IPsec-Richtlinie nicht auf dem Computer laden. Das PAStore-Modul hat die Verzeichnisspeicher-IPsec-Richtlinie auf dem Computer geladen. Das PAStore-Modul konnte die lokale Speicher-IPsec-Richtlinie nicht auf dem Computer laden. PAStore-Modul geladen, lokalen Speicher IPsec-Richtlinie auf dem Computer. PAStore-Modul für Änderungen an die aktive IPsec-Richtlinie abgerufen und keine Änderungen erkannt. |  
 |4712|Nicht zutreffend|Niedrig|Schwerwiegender Fehler beim IPsec-Dienst.|  
 |4717|621|Niedrig|Einem Konto wurde der Zugriff auf die Systemsicherheit gewährt.|  
 |4718|622|Niedrig|Der Zugriff auf die Systemsicherheit wurde von einem Konto entfernt.|  

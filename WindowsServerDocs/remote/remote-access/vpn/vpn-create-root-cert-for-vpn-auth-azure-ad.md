@@ -15,25 +15,25 @@ ms.author: pashort
 author: shortpatti
 ms.localizationpriority: medium
 ms.reviewer: deverette
-ms.openlocfilehash: 14ef17ab403cc4e7c9891f4ede48e41c25e8522d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dc24f0275e8639ffd972ae24550d0ada38eff4f1
+ms.sourcegitcommit: 0948a1abff1c1be506216eeb51ffc6f752a9fe7e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59851561"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66749636"
 ---
 # <a name="step-72-create-conditional-access-root-certificates-for-vpn-authentication-with-azure-ad"></a>Schritt 7.2. Erstellen Sie für den bedingten Zugriff Stammzertifikate für die VPN-Authentifizierung mit Azure AD
 
 >Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-&#171;  [**Vorherige:** Schritt 7.1. Konfigurieren von EAP-TLS, um die Prüfung (Certificate Revocation List, CRL) ignorieren](vpn-config-eap-tls-to-ignore-crl-checking.md)<br>
-&#187; [ **Next:** Schritt 7.3. Konfigurieren Sie die Richtlinie für bedingten Zugriff](vpn-config-conditional-access-policy.md)
+- [**Vorherige:** Schritt 7.1. Konfigurieren von EAP-TLS für das Ignorieren der Zertifikatssperrlisten-Überprüfung](vpn-config-eap-tls-to-ignore-crl-checking.md)
+- [**nächster:** Schritt 7.3. Konfigurieren der Richtlinie für bedingten Zugriff](vpn-config-conditional-access-policy.md)
 
 In diesem Schritt konfigurieren Sie die Stammzertifikate für den bedingten Zugriff für VPN-Authentifizierung mit Azure AD, die automatisch eine Cloud-app-VPN-Server bezeichnet, im Mandanten erstellt. Zum Konfigurieren des bedingten Zugriffs für VPN-Verbindungen müssen Sie:
 
 1. Erstellen Sie ein VPN-Zertifikat im Azure-Portal (Sie können mehr als ein Zertifikat erstellen).
 2. Herunterladen des VPN-Zertifikats an.
-2. Stellen Sie das Zertifikat für Ihre VPN- und NPS-Server bereit.
+3. Stellen Sie das Zertifikat für Ihre VPN- und NPS-Server bereit.
 
 Wenn ein Benutzer eine VPN-Verbindung versucht wird, ruft der VPN-Client in die Web Account Manager (WAM) auf dem Windows 10-Client. WAM ruft in der Cloud-app-VPN-Server. Wenn die Bedingungen und Steuerelemente in der Richtlinie für bedingten Zugriff erfüllt sind, stellt Azure AD ein Token in Form eines kurzlebigen (1 Stunde)-Zertifikats die WAM. Die WAM platziert das Zertifikat im Zertifikatspeicher des Benutzers und Steuerung dem VPN-Client übergibt.  
 
@@ -53,7 +53,7 @@ Im Azure-Portal erstellen Sie zwei Zertifikate, um den Übergang zu gewährleist
 
     ![Wählen Sie für den bedingten Zugriff](../../media/Always-On-Vpn/02.png)
 
-4. Auf der **für den bedingten Zugriff** auf der Seite die **verwalten** auf **VPN-Konnektivität (Vorschau)**.
+4. Auf der **für den bedingten Zugriff** auf der Seite die **verwalten** auf **VPN-Konnektivität (Vorschau)** .
 
     ![Wählen Sie die VPN-Konnektivität](../../media/Always-On-Vpn/03.png)
 
@@ -69,9 +69,8 @@ Im Azure-Portal erstellen Sie zwei Zertifikate, um den Übergang zu gewährleist
 
     b. Für **primären**Option **Ja**.
 
-    c. Klicken Sie auf **Erstellen**.
+    c. Wählen Sie **Erstellen** aus.
 
-## <a name="next-step"></a>Nächster Schritt
-[Dies ist Schritt 7.3. Konfigurieren Sie die Richtlinie für bedingten Zugriff](vpn-config-conditional-access-policy.md): In diesem Schritt konfigurieren Sie die Richtlinie für bedingten Zugriff für VPN-Verbindungen. 
+## <a name="next-steps"></a>Nächste Schritte
 
----
+[Schritt 7.3: Konfigurieren Sie die Richtlinie für bedingten Zugriff](vpn-config-conditional-access-policy.md): In diesem Schritt konfigurieren Sie die Richtlinie für bedingten Zugriff für VPN-Verbindungen. 

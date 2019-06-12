@@ -1,23 +1,23 @@
 ---
 title: 'Datenträgerverwaltung: Übersicht'
 description: Die Datenträgerverwaltung ist ein Systemprogramm in Windows, die Ihnen ermöglicht, erweiterte Storage-Aufgaben, z. B. ein neues Laufwerk zu initialisieren, Erweitern von Volumes, Verkleinern von Partitionen und Ändern von Laufwerkbuchstaben auszuführen.
-ms.date: 4/2/2018
+ms.date: 06/07/2019
 ms.prod: windows-server-threshold
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 2a467c64a3e0ff38b5165b9e001fc2deb2d92148
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a3885ae6b09ad431fd1ea5e4c593e02c7bb274d9
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819281"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812548"
 ---
 # <a name="overview-of-disk-management"></a>Datenträgerverwaltung: Übersicht
 
-> **Gilt für:** Windows 10, Windows 8.1, Windows 7, WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012
+> **Gilt für:** Windows 10, Windows 8.1, Windows 7, WindowsServer (Halbjährlicher Kanal), WindowsServer 2019, WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012
 
 Die Datenträgerverwaltung ist ein Systemprogramm in Windows, die Sie erweiterte Aufgaben ausführen können. Hier sind einige Dinge, die die Datenträgerverwaltung für geeignet ist:
 

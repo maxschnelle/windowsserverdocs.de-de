@@ -12,12 +12,12 @@ ms.assetid: 090cf1b8-7b9b-48b9-ae85-b98477b8d7cc
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: e1f3640f21b95acafa850b2204cd52f9c0f324e5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0c46d19f4f172786e0ffe7f3b9dd7ac1d8f4fcf0
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859331"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433203"
 ---
 # <a name="manage-server-folders-in-windows-server-essentials"></a>Verwalten der Serverordner in Windows Server Essentials
 
@@ -42,23 +42,23 @@ ms.locfileid: "59859331"
 ##  <a name="BKMK_2"></a> Verwalten von Serverordnern über das Dashboard  
  Windows Server Essentials ermöglicht die Ausführung allgemeiner administrativer Aufgaben über das Dashboard. Die Seite **Serverordner** des Dashboards bietet Folgendes:  
   
--   Eine Liste der Serverordner, in der Folgendes angezeigt wird:  
+- Eine Liste der Serverordner, in der Folgendes angezeigt wird:  
   
-    -   Der Name des Ordners.  
+  -   Der Name des Ordners.  
   
-    -   Eine Beschreibung des Ordners.  
+  -   Eine Beschreibung des Ordners.  
   
-    -   Der Speicherort des Ordners.  
+  -   Der Speicherort des Ordners.  
   
-    -   Die Menge des freien Speicherplatzes, die am Speicherort des Ordners verfügbar ist.  
+  -   Die Menge des freien Speicherplatzes, die am Speicherort des Ordners verfügbar ist.  
   
-    -   Kurze Statusinformationen zu allen Aufgaben, die für den Ordner ausgeführt werden. Das Feld **Status** ist leer, wenn der Ordner fehlerfrei ist und keine Aufgaben ausgeführt werden.  
+  -   Kurze Statusinformationen zu allen Aufgaben, die für den Ordner ausgeführt werden. Das Feld **Status** ist leer, wenn der Ordner fehlerfrei ist und keine Aufgaben ausgeführt werden.  
   
--   Ein Detailbereich, der möglicherweise zusätzliche Informationen zu einem ausgewählten Ordner bietet.  
+- Ein Detailbereich, der möglicherweise zusätzliche Informationen zu einem ausgewählten Ordner bietet.  
   
--   Ein Aufgabenbereich, der eine Reihe von auf den Ordner bezogenen administrativen Aufgaben enthält.  
+- Ein Aufgabenbereich, der eine Reihe von auf den Ordner bezogenen administrativen Aufgaben enthält.  
   
- Die folgende Tabelle beschreibt die verschiedenen Ordneraufgaben, die auf dem Windows Server Essentials-Dashboard verfügbar sind. Die meisten Aufgaben sind ordnerabhängig und sie werden nur angezeigt, wenn Sie einen Ordner in der Liste auswählen.  
+  Die folgende Tabelle beschreibt die verschiedenen Ordneraufgaben, die auf dem Windows Server Essentials-Dashboard verfügbar sind. Die meisten Aufgaben sind ordnerabhängig und sie werden nur angezeigt, wenn Sie einen Ordner in der Liste auswählen.  
   
 ### <a name="server-folder-tasks-on-the-dashboard"></a>Serverordneraufgaben auf dem Dashboard  
   
@@ -77,13 +77,13 @@ ms.locfileid: "59859331"
   
  Die Verwendung von Serverordnern zum Speichern von Dateien bietet folgende Möglichkeiten:  
   
--   Serverordner mithilfe der Serversicherung und -wiederherstellung sichern, um vor totalen Serverausfällen zu schützen.  
+- Serverordner mithilfe der Serversicherung und -wiederherstellung sichern, um vor totalen Serverausfällen zu schützen.  
   
--   Zugriff auf Dateien, die im Serverordner gespeichert werden, von beliebigen Standorten aus mit Internetbrowser und Remotewebzugriff, oder über die App für eigene Server für Windows Phone und Windows 8.  
+- Zugriff auf Dateien, die im Serverordner gespeichert werden, von beliebigen Standorten aus mit Internetbrowser und Remotewebzugriff, oder über die App für eigene Server für Windows Phone und Windows 8.  
   
--   Zugriff auf den neuen Serverordner von beliebigen Clientcomputern aus.  
+- Zugriff auf den neuen Serverordner von beliebigen Clientcomputern aus.  
   
- Sie können den Zugriff auf Serverordner auf dem Server mithilfe der Tasks auf der Registerkarte **Serverordner** des Dashboards verwalten. Die folgende Tabelle enthält die Serverordner, die standardmäßig bei der Installation von Windows Server Essentials oder bei der Aktivierung des Medienstreamings auf dem Server erstellt werden.  
+  Sie können den Zugriff auf Serverordner auf dem Server mithilfe der Tasks auf der Registerkarte **Serverordner** des Dashboards verwalten. Die folgende Tabelle enthält die Serverordner, die standardmäßig bei der Installation von Windows Server Essentials oder bei der Aktivierung des Medienstreamings auf dem Server erstellt werden.  
   
 |Serverordnername|Beschreibung|  
 |------------------------|-----------------|  
@@ -188,43 +188,43 @@ ms.locfileid: "59859331"
   
  Sie können einen **Serverordner**, der sich auf dem primären Server befindet, auf dem Windows Server Essentials ausgeführt wird, und auf der Registerkarte **Serverordner** des Dashboards angezeigt wird, bei Bedarf mithilfe des Assistenten zum Verschieben von Ordnern auf eine andere Festplatte verschieben. Unter den folgenden Bedingungen können Sie einen Serverordner an eine andere Speicheradresse auf der Festplatte verschieben:  
   
--   Die Datenfestplatte verfügt nicht mehr über ausreichend Speicherplatz zum Speichern der Daten.  
+- Die Datenfestplatte verfügt nicht mehr über ausreichend Speicherplatz zum Speichern der Daten.  
   
--   Sie möchten den Standardspeicherort ändern. Erwägen Sie, den Serverordner zu verschieben, wenn dieser keine Daten enthält, um den Vorgang zu beschleunigen.  
+- Sie möchten den Standardspeicherort ändern. Erwägen Sie, den Serverordner zu verschieben, wenn dieser keine Daten enthält, um den Vorgang zu beschleunigen.  
   
--   Sie möchten die vorhandene Festplatte entfernen, ohne die Serverordner zu verlieren, die sich darauf befinden.  
+- Sie möchten die vorhandene Festplatte entfernen, ohne die Serverordner zu verlieren, die sich darauf befinden.  
   
- Stellen Sie Folgendes sicher, bevor Sie den Ordner verschieben:  
+  Stellen Sie Folgendes sicher, bevor Sie den Ordner verschieben:  
   
--   Stellen Sie sicher, dass Sie den Server gesichert haben.  
+- Stellen Sie sicher, dass Sie den Server gesichert haben.  
   
--   Stellen Sie sicher, dass alle Clientsicherungen beendet werden und nicht aktiv sind, wenn Sie den Ordner für die Clientcomputersicherung verschieben möchten. Beim Verschieben des Ordners für die Clientcomputersicherung kann der Server keine Clientcomputer sichern, bis der Ordner vollständig verschoben wurde.  
+- Stellen Sie sicher, dass alle Clientsicherungen beendet werden und nicht aktiv sind, wenn Sie den Ordner für die Clientcomputersicherung verschieben möchten. Beim Verschieben des Ordners für die Clientcomputersicherung kann der Server keine Clientcomputer sichern, bis der Ordner vollständig verschoben wurde.  
   
--   Stellen Sie sicher, dass der Server keine kritischen Systemvorgänge ausführt. Es wird empfohlen, alle aktiven Updates oder Sicherungen abzuschließen, bevor Sie eine Ordnerverschiebung starten. Andernfalls kann es länger dauern, bis der Vorgang abgeschlossen ist.  
+- Stellen Sie sicher, dass der Server keine kritischen Systemvorgänge ausführt. Es wird empfohlen, alle aktiven Updates oder Sicherungen abzuschließen, bevor Sie eine Ordnerverschiebung starten. Andernfalls kann es länger dauern, bis der Vorgang abgeschlossen ist.  
   
--   Keine der Dateien im zu verschiebenden Ordner wird verwendet. Sie können nicht auf den Serverordner zugreifen, während dieser verschoben wird.  
+- Keine der Dateien im zu verschiebenden Ordner wird verwendet. Sie können nicht auf den Serverordner zugreifen, während dieser verschoben wird.  
   
- Das Verschieben von Ordnern von NTFS zu ReFS wird nicht unterstützt, wenn die Dateien in den Serverordnern die folgenden Technologien implementieren:  
+  Das Verschieben von Ordnern von NTFS zu ReFS wird nicht unterstützt, wenn die Dateien in den Serverordnern die folgenden Technologien implementieren:  
   
--   Alternative Datenströme  
+- Alternative Datenströme  
   
--   Objekt-IDs  
+- Objekt-IDs  
   
--   Kurznamen (8.3-Namensformat)  
+- Kurznamen (8.3-Namensformat)  
   
--   Komprimierung  
+- Komprimierung  
   
--   EFS-Verschlüsselung  
+- EFS-Verschlüsselung  
   
--   Transaktionales NTFS, TxF (wurde mit Windows Vista eingeführt)  
+- Transaktionales NTFS, TxF (wurde mit Windows Vista eingeführt)  
   
--   Dateien mit geringer Datendichte  
+- Dateien mit geringer Datendichte  
   
--   Feste Links  
+- Feste Links  
   
--   Erweiterte Attribute  
+- Erweiterte Attribute  
   
--   Kontingente  
+- Kontingente  
   
 ###  <a name="BKMK_6"></a> Wo hinzufügen oder Verschieben von Serverordnern  
  In der Regel sollten Sie Serverordner auf Festplatten hinzufügen oder verschieben, die über die maximale Größe an freiem Speicherplatz verfügen. Vermeiden Sie nach Möglichkeit das Hinzufügen oder Verschieben eines freigegebenen Ordners zum Systemlaufwerk (z. B. "C:"), da dadurch dann möglicherweise der erforderliche Speicherplatz fehlt, der für das Betriebssystem und seine Updates erforderlich ist. Vermeiden Sie außerdem das Hinzufügen oder Verschieben von Serverordnern auf externe Festplatten, da die Verbindung zu ihnen ganz einfach getrennt werden kann. In diesem Fall können Sie dann nicht mehr auf Ihre Dateien zugreifen. Stattdessen wird empfohlen, den Ordner auf einem internen Laufwerk zu erstellen.  
@@ -254,17 +254,17 @@ ms.locfileid: "59859331"
   
 ##### <a name="to-add-a-server-folder"></a>So fügen Sie einen Serverordner hinzu  
   
-1.  Öffnen Sie das Dashboard.  
+1. Öffnen Sie das Dashboard.  
   
-2.  Klicken Sie auf **SPEICHER** und anschließend auf **Serverordner**.  
+2. Klicken Sie auf **SPEICHER** und anschließend auf **Serverordner**.  
   
-3.  Klicken Sie in **Tasks für Serverordner** auf **Ordner hinzufügen**. Dadurch wird das Assistent zum Hinzufügen von Ordnern gestartet.  
+3. Klicken Sie in **Tasks für Serverordner** auf **Ordner hinzufügen**. Dadurch wird das Assistent zum Hinzufügen von Ordnern gestartet.  
   
-4.  Folgen Sie den Anweisungen, um den Assistenten fertigzustellen.  
+4. Folgen Sie den Anweisungen, um den Assistenten fertigzustellen.  
   
-    > [!NOTE]
-    >  -   Wenn Sie mithilfe der Schaltfläche "Durchsuchen" zum Angeben des Speicherorts des Serverordners zu einem bestimmten Ordner navigieren, wird der Ordner, zu dem Sie navigiert sind, als Serverordner hinzugefügt.  
-    > -   Sie können festlegen, auf welche Serverordner über Remotewebzugriff zugegriffen werden kann. Weitere Informationen finden Sie unter [Manage access to server folders](Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_1).  
+   > [!NOTE]
+   > - Wenn Sie mithilfe der Schaltfläche "Durchsuchen" zum Angeben des Speicherorts des Serverordners zu einem bestimmten Ordner navigieren, wird der Ordner, zu dem Sie navigiert sind, als Serverordner hinzugefügt.  
+   >   -   Sie können festlegen, auf welche Serverordner über Remotewebzugriff zugegriffen werden kann. Weitere Informationen finden Sie unter [Manage access to server folders](Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_1).  
   
 ##### <a name="to-move-a-server-folder"></a>So verschieben Sie einen Serverordner  
   
@@ -294,13 +294,13 @@ ms.locfileid: "59859331"
 ##  <a name="BKMK_Shadow"></a> Grundlagen zu Schattenkopien  
  Mit Schattenkopien von Servern können Benutzer freigegebene Dateien und Ordner anzeigen, wie sie zu einem bestimmten Zeitpunkt in der Vergangenheit vorhanden waren. Der Zugriff auf frühere Versionen von Dateien oder Schattenkopien sind hilfreich, da Benutzer die folgenden Möglichkeiten haben:  
   
-1.  **Wiederherstellen von versehentlich gelöschten Dateien**. Wenn Sie eine Datei versehentlich löschen, können Sie eine frühere Version öffnen und diese an einen sicheren Speicherort kopieren.  
+1. **Wiederherstellen von versehentlich gelöschten Dateien**. Wenn Sie eine Datei versehentlich löschen, können Sie eine frühere Version öffnen und diese an einen sicheren Speicherort kopieren.  
   
-2.  **Wiederherstellen von versehentlich überschriebenen Dateien**. Wenn Sie eine Datei versehentlich überschreiben, können Sie eine frühere Version der Datei wiederherstellen. (Die Anzahl der Versionen hängt davon ab, wie viele Momentaufnahmen Sie erstellt haben.)  
+2. **Wiederherstellen von versehentlich überschriebenen Dateien**. Wenn Sie eine Datei versehentlich überschreiben, können Sie eine frühere Version der Datei wiederherstellen. (Die Anzahl der Versionen hängt davon ab, wie viele Momentaufnahmen Sie erstellt haben.)  
   
-3.  **Vergleichen der Versionen einer Datei während der Arbeit**. Sie können früheren Versionen verwenden, wenn Sie überprüfen möchten, welche Änderungen sich zwischen verschiedenen Versionen einer Datei ergeben haben.  
+3. **Vergleichen der Versionen einer Datei während der Arbeit**. Sie können früheren Versionen verwenden, wenn Sie überprüfen möchten, welche Änderungen sich zwischen verschiedenen Versionen einer Datei ergeben haben.  
   
- Um Schattenkopien zu verwenden, klicken Sie über einen Clientcomputer mit der rechten Maustaste auf einen freigegebenen Serverordner und wählen **Vorherige Version wiederherstellen**.  
+   Um Schattenkopien zu verwenden, klicken Sie über einen Clientcomputer mit der rechten Maustaste auf einen freigegebenen Serverordner und wählen **Vorherige Version wiederherstellen**.  
   
 ## <a name="see-also"></a>Siehe auch  
   

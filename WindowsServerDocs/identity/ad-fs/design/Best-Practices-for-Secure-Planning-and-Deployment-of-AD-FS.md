@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: df1afc77afffd9b737965215a5c9d96f278c8129
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 4a2fb188bd0a46ebd54ae068e8e4eeb63788aaa0
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191669"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501579"
 ---
 # <a name="best-practices-for-secure-planning-and-deployment-of-ad-fs"></a>Bewährte Methoden für die sichere Planung und Bereitstellung von AD FS
 
@@ -23,7 +23,12 @@ Dieses Thema enthält bewährte Methoden-Informationen zur Planung und Auswertun
   
 ## <a name="core-security-best-practices-for-ad-fs"></a>Wichtige bewährte Sicherheitsmethoden für AD FS  
 Die folgenden wichtigen bewährten Sicherheitsmethoden gelten für alle AD FS-Installationen, wo Sie möchten verbessern oder erweitern die Sicherheit des Entwurfs oder der Bereitstellung werden:  
-  
+
+-   **Schützen von AD FS als "Ebene 0"-system** 
+
+    AD FS ist im Grunde ein Authentifizierungssystem.  Sie sollten daher als "Ebene 0" System wie andere Identitätssystem in Ihrem Netzwerk behandelt werden.  [Microsoft-Docs](https://docs.microsoft.com/en-us/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) enthält weitere Informationen zur Active Directory-verwaltungsebenenmodell. 
+
+
 -   **Verwenden des Sicherheitskonfigurations-Assistenten AD FS-spezifischen bewährten Sicherheitsmethoden für Verbundserver- und Verbundserverproxy-Computer anwenden**  
   
     (Security Configuration Wizard, SCW) ist ein Tool, das auf alle Windows Server 2008, Windows Server 2008 R2 und Windows Server 2012-Computer vorinstalliert ist. Sie können mit dem Assistenten bewährte Sicherheitsmethoden anwenden, die dazu beitragen, die Angriffsfläche für einen Server auf der Basis der von Ihnen installierten Serverrollen zu reduzieren.  

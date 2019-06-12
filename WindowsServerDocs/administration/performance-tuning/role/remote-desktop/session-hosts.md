@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: HammadBu; VladmiS
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: e45d1abb545ad46e654c811a0347c589bd12adf0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e95671718616fc7c81977434e83a227c858fca17
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863241"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811419"
 ---
 # <a name="performance-tuning-remote-desktop-session-hosts"></a>Remotedesktop-Sitzungshosts die Optimierung der Leistung
 
@@ -21,13 +21,13 @@ In diesem Thema wird erläutert, wie Remote Desktop Session Host (RD-Sitzungshos
 
 **In diesem Thema:**
 
--   [Wählen die richtige Hardware für Leistung](#hw)
+-   [Wählen die richtige Hardware für Leistung](#selecting-the-proper-hardware-for-performance)
 
--   [Optimieren von Anwendungen für Remote Desktop Session Host](#apps)
+-   [Optimieren von Anwendungen für Remote Desktop Session Host](#tuning-applications-for-remote-desktop-session-host)
 
--   [Remotedesktop-Sitzungshost Optimierungsparameter](#host)
+-   [Remotedesktop-Sitzungshost Optimierungsparameter](#remote-desktop-session-host-tuning-parameters)
 
-## <a href="" id="hw"></a>Wählen die richtige Hardware für Leistung
+## <a name="selecting-the-proper-hardware-for-performance"></a>Auswählen der richtigen Hardware für die Leistung
 
 
 Für einen Remotedesktop-Sitzungshost-serverbereitstellung die Auswahl der Hardware unterliegt den Satz der Anwendung und wie Benutzer sie verwenden. Die Schlüsselfaktoren, die die Anzahl von Benutzern und benutzerfreundlichkeit beeinflussen werden CPU, Arbeitsspeicher, Datenträger und Grafiken. Dieser Abschnitt enthält zusätzliche Richtlinien, die auf RD-Sitzungshostservern beziehen und bezieht sich hauptsächlich auf die Umgebungen im Mehrbenutzermodus des Remotedesktop-Sitzungshostserver.
@@ -72,7 +72,7 @@ Netzwerkauslastung eines Remotedesktop-Sitzungshostservers umfasst zwei Hauptkat
 
     Die Datenträger und das Profil des Netzwerkdatenverkehrs bezieht sich auf jede Bereitstellung.
 
-## <a href="" id="apps"></a>Optimieren von Anwendungen für Remote Desktop Session Host
+## <a name="tuning-applications-for-remote-desktop-session-host"></a>Optimieren von Anwendungen für Remote Desktop Session Host
 
 
 Die meisten der CPU-Auslastung auf einem Remotedesktop-Sitzungshostserver wird gesteuert, von apps. Desktop-apps sind in der Regel in Richtung der Reaktionsfähigkeit, mit dem Ziel der Minimierung von einer Anwendung, reagieren auf eine benutzeranforderung Dauer optimiert. In einer serverumgebung ist es jedoch genauso wichtig ist, die die Gesamtmenge der CPU-Auslastung zu minimieren, die zum Abschließen einer Aktion, um zu vermeiden, beeinträchtigt die anderen Sitzungen erforderlich ist.
@@ -111,7 +111,7 @@ Für die arbeitsspeichernutzung sollten Sie Folgendes berücksichtigen:
 
     Wenn möglich, gelten Sie ähnliche Verfahren für andere ähnliche ausführungsmodule aus.
 
-## <a href="" id="host"></a>Remotedesktop-Sitzungshost Optimierungsparameter
+## <a name="remote-desktop-session-host-tuning-parameters"></a>Remotedesktop-Sitzungshost Optimierungsparameter
 
 
 ### <a name="page-file"></a>Auslagerungsdatei

@@ -12,12 +12,12 @@ ms.assetid: d94de050-3300-4323-a5ea-c824cb9cecc9
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: c6abc11ba2ce8a9f1d32c6a884db6332586de78b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 62f31f859ed3fd0f77baf37d3467d4702b24ad95
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822641"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432916"
 ---
 # <a name="join-computers-to-the-new-windows-server-essentials-network1"></a>Hinzufügen von Computern, die neue Windows Server Essentials-network1
 
@@ -27,13 +27,13 @@ ms.locfileid: "59822641"
  Der nächste Schritt des Migrationsvorgangs ist zum Verknüpfen von Clientcomputern zum neuen Windows Server Essentials-Netzwerk und Aktualisieren von gruppenrichtlinieneinstellungen.  
   
 ### <a name="domain-joined-client-computers"></a>Domänenverbundene Clientcomputer  
- Navigieren Sie zu **http://***Destination-Servername***/ connect** und installieren Sie die Windows Server-Connector-Software wie bei einem neuen Computer. Der Installationsvorgang wird für Clientcomputer, die Domäne mit der Domäne verknüpft sind oder nicht, derselbe.  
+ Navigieren Sie zu **http://** <em>Ziel-Servername</em> **/ connect** und installieren Sie die Windows Server-Connector-Software, wie bei einem neuen Computer. Der Installationsvorgang wird für Clientcomputer, die Domäne mit der Domäne verknüpft sind oder nicht, derselbe.  
   
 > [!NOTE]
 >  Computer, auf denen Windows XP oder Windows Vista ausgeführt werden, werden von der Windows Server-Connector-Software nicht unterstützt. Wenn Sie Computer mit Windows XP oder Windows Vista haben, die bereits mit der Domäne verbunden sind, können Sie diesen Schritt überspringen.  
   
 ### <a name="non-domain-joined-client-computers"></a>Nicht-Domänenverbundene Clientcomputer  
- Navigieren Sie zu **http://***Destination-Servername***/ connect** und installieren Sie die Windows Server-Connector-Software wie bei einem neuen Computer. Der Installationsvorgang ist dür domänenverbundene und nicht-Domänenverbundene Clientcomputer identisch.  
+ Navigieren Sie zu **http://** <em>Ziel-Servername</em> **/ connect** und installieren Sie die Windows Server-Connector-Software, wie bei einem neuen Computer. Der Installationsvorgang ist dür domänenverbundene und nicht-Domänenverbundene Clientcomputer identisch.  
   
 > [!NOTE]
 >  Computer, auf denen Windows XP oder Windows Vista ausgeführt werden, werden von der Windows Server-Connector-Software nicht unterstützt. Wenn Sie Computer mit Windows XP oder Windows Vista haben, die bereits mit der Domäne verbunden sind, können Sie diesen Schritt überspringen.  

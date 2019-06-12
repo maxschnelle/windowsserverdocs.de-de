@@ -5,15 +5,15 @@ ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
-ms.date: 09/18/2018
+ms.date: 06/06/2019
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 883fba96fcb71cb1c6e8162c1564d66924c4e24d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b79e832ee45990d18baf4c211ab68b907134ceb7
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59885651"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811833"
 ---
 # <a name="create-a-connection-provider-for-a-solution-extension"></a>Erstellen Sie einen Verbindungsanbieter für eine projektmappenerweiterung
 
@@ -76,26 +76,24 @@ Einstiegspunkt vom Typ "ConnnectionProvider" zeigt die Shell Windows Admin Cente
 | Eigenschaft | Beschreibung |
 | -------- | ----------- |
 | entryPointType | Dies ist eine erforderliche Eigenschaft. Es gibt drei gültigen Werte: "Tool", "Projektmappe" und "ConnectionProvider-". | 
-| name | Identifiziert die Verbindungsanbieter innerhalb des Bereichs einer Lösung. Dieser Wert muss innerhalb einer vollständigen Windows Admin Center-Instanz (nicht nur eine Projektmappe) eindeutig sein. |
+| NAME | Identifiziert die Verbindungsanbieter innerhalb des Bereichs einer Lösung. Dieser Wert muss innerhalb einer vollständigen Windows Admin Center-Instanz (nicht nur eine Projektmappe) eindeutig sein. |
 | path | Stellt den URL-Pfad für die "Verbindung hinzufügen"-Benutzeroberfläche dar, wenn es von der Lösung konfiguriert wird. Dieser Wert muss eine Route zuordnen, die in-app-routing.module.ts-Datei konfiguriert ist. Wenn der Einstiegspunkt für die Lösung mit den Verbindungen RootNavigationBehavior konfiguriert ist, wird diese Route das Modul geladen, das von der Shell zum Anzeigen der Benutzeroberfläche der hinzufügen-Verbindung verwendet wird. Weitere Informationen finden Sie im Abschnitt für RootNavigationBehavior. |
 | displayName | Der hier eingegebene Wert wird angezeigt, auf der rechten Seite der Shell, unter der schwarze Windows Admin Center angezeigt, wenn ein Benutzer eine Lösung auf der Seite "Verbindungen" geladen. |
 | Symbol | Stellt das Symbol in der Lösungen Dropdown-Menü verwendet, um die Lösung darstellen. |
 | description | Geben Sie eine kurze Beschreibung des Einstiegspunkts. |
 | connectionType | Stellt den Verbindungstyp, den der Anbieter geladen werden. Der hier eingegebene Wert wird auch der Einstiegspunkt der Lösung verwendet werden, um anzugeben, dass diese Verbindungen von die Projektmappe geladen werden kann. Der hier eingegebene Wert wird auch im Tool Eintrag Datenpunkt(en) verwendet werden, um anzugeben, dass das Tool mit diesem Typ kompatibel ist. Dieser Wert, der hier eingegebene wird auch in das Verbindungsobjekt, das an die RPC übermittelt wird verwendet "Add im Fenster" im Application Layer Implementierung Schritt aufrufen. |
 | connectionTypeName | In der Verbindungstabelle verwendet, um eine Verbindung darzustellen, die Anbieter Ihre Verbindung verwendet. Dies wird erwartet, zum der Pluralname des Typs sein. |
-| connectionTypeUrlName | Zum Erstellen der URL die geladene Projektmappe darstellen, nachdem Windows Admin Center eine Verbindung mit einer Instanz hergestellt hat. Dieser Eintrag ist nach Verbindungen, und bevor das Ziel verwendet. In diesem Beispiel ist die "Connectionexample", wo dieser Wert in der URL angezeigt wird: http://localhost:6516/solutionexample/connections/connectionexample/con-fake1.corp.contoso.com |
-| connectionTypeDefaultSolution | Stellt die Standardkomponente, die vom Verbindungsanbieter geladen werden soll. Dieser Wert ist eine Kombination aus: [a] der Name des Erweiterungspakets definiert, die am oberen Rand des Manifests; [b] Ausrufezeichen (!); [c] der Lösungsname des Einstiegspunkts.    Für ein Projekt mit dem Namen "msft.sme.mySample-Extension", und eine Lösung-Einstiegspunkt mit dem Namen "Example", wäre dieser Wert "msft.sme.solutionExample-Erweiterung Beispiel". |
-| connectionTypeDefaultTool | Stellt das Tool, das bei einer erfolgreichen Verbindung geladen werden soll. Dieser Eigenschaftswert besteht aus zwei Teilen, die die ConnectionTypeDefaultSolution ähnelt. Dieser Wert ist eine Kombination aus: [a] der Name des Erweiterungspakets definiert, die am oberen Rand des Manifests; [b] Ausrufezeichen (!); [c] Toolname des Einstiegspunkts für das Tool, das anfänglich geladen werden soll. Für ein Projekt mit dem Namen "msft.sme.solutionExample-Extension", und eine Lösung-Einstiegspunkt mit dem Namen "Example", wäre dieser Wert "msft.sme.solutionExample-Erweiterung Beispiel". |
+| connectionTypeUrlName | Zum Erstellen der URL die geladene Projektmappe darstellen, nachdem Windows Admin Center eine Verbindung mit einer Instanz hergestellt hat. Dieser Eintrag ist nach Verbindungen, und bevor das Ziel verwendet. In diesem Beispiel ist die "Connectionexample", wo dieser Wert in der URL angezeigt wird: `http://localhost:6516/solutionexample/connections/connectionexample/con-fake1.corp.contoso.com` |
+| connectionTypeDefaultSolution | Stellt die Standardkomponente, die vom Verbindungsanbieter geladen werden soll. Dieser Wert ist eine Kombination aus: <br>[a] der Name des Erweiterungspakets definiert, die am oberen Rand des Manifests; <br>[b] Ausrufezeichen (!); <br>[c] der Lösungsname des Einstiegspunkts.    <br>Für ein Projekt mit dem Namen "msft.sme.mySample-Extension", und eine Lösung-Einstiegspunkt mit dem Namen "Example", wäre dieser Wert "msft.sme.solutionExample-Erweiterung Beispiel". |
+| connectionTypeDefaultTool | Stellt das Tool, das bei einer erfolgreichen Verbindung geladen werden soll. Dieser Eigenschaftswert besteht aus zwei Teilen, die die ConnectionTypeDefaultSolution ähnelt. Dieser Wert ist eine Kombination aus: <br>[a] der Name des Erweiterungspakets definiert, die am oberen Rand des Manifests; <br>[b] Ausrufezeichen (!); <br>[c] Toolname des Einstiegspunkts für das Tool, das anfänglich geladen werden soll. <br>Für ein Projekt mit dem Namen "msft.sme.solutionExample-Extension", und eine Lösung-Einstiegspunkt mit dem Namen "Example", wäre dieser Wert "msft.sme.solutionExample-Erweiterung Beispiel". |
 | connectionStatusProvider | Informieren Sie sich im Abschnitt "Definieren Status Verbindungsanbieter" |
 
 ## <a name="define-connection-status-provider"></a>Definieren von Verbindungsanbieter-Status
 
 Statusprovider für die Verbindung ist ein Mechanismus mit dem Ziel überprüft wird, um online und verfügbar sein, sicherzustellen, dass es sich bei der verbindenden Benutzer die Zugriffsberechtigung für das Ziel hat. Es gibt derzeit zwei Arten von Verbindungsanbieter-Status:  PowerShell und RelativeGatewayUrl.
 
-*   Statusprovider für PowerShell-Verbindung
-    *   Bestimmt, ob ein Ziel online und mit einem Powershellskript zugänglich ist. Das Ergebnis muss in einem Objekt mit einer einzelnen Eigenschaft "Status", die unten definierte zurückgegeben werden.
-*   Statusprovider für RelativeGatewayUrl-Verbindung
-    *   Bestimmt, ob ein Ziel, online und zugänglich ist, mit einem Rest-Aufruf ist. Das Ergebnis muss in einem Objekt mit einer einzelnen Eigenschaft "Status", die unten definierte zurückgegeben werden.
+*   <strong>PowerShell-Status Verbindungsanbieter</strong> -bestimmt, ob ein Ziel online und mit einem Powershellskript zugänglich ist. Das Ergebnis muss in einem Objekt mit einer einzelnen Eigenschaft "Status", die unten definierte zurückgegeben werden.
+*   <strong>Status-Verbindungsanbieter RelativeGatewayUrl</strong> -bestimmt, ob ein Ziel, online und zugänglich ist, mit einem Rest-Aufruf ist. Das Ergebnis muss in einem Objekt mit einer einzelnen Eigenschaft "Status", die unten definierte zurückgegeben werden.
 
 ### <a name="define-status"></a>Definieren von status
 
@@ -113,25 +111,22 @@ Status Verbindungsanbieter sind erforderlich, um ein Objekt mit einer einzelnen 
 
 Eigenschaften von Standortsystemstatus
 
-* Bezeichnung
-    * Eine Bezeichnung, die den Status beschreibende Rückgabetyp. Beachten Sie, dass Werte für die Bezeichnung in der Common Language Runtime zugeordnet werden können. Finden Sie unter Eintrag für die Werte in Common Language Runtime.
+* <strong>Bezeichnung</strong> – eine Bezeichnung, die den Rückgabetyp Status beschreibt. Beachten Sie, dass Werte für die Bezeichnung in der Common Language Runtime zugeordnet werden können. Finden Sie unter Eintrag für die Werte in Common Language Runtime.
 
-* Typ
-    * Der Rückgabetyp des Status. Typ verfügt über die folgenden Enumerationswerte. Für jeden Wert 2 oder höher ist wird die Plattform wird nicht auf das verbundene Objekt navigieren, und eine Fehlermeldung angezeigt, die in der Benutzeroberfläche.
+* <strong>Typ</strong> -Typ für der Status zurück. Typ verfügt über die folgenden Enumerationswerte. Für jeden Wert 2 oder höher ist wird die Plattform wird nicht auf das verbundene Objekt navigieren, und eine Fehlermeldung angezeigt, die in der Benutzeroberfläche.
 
-Typen:
+   Typen:
 
-| Wert | Beschreibung |
-| ----- | ----------- |
-| 0 | Online |
-| 1 | Warnung |
-| 2 | Nicht autorisiert |
-| 3 | Fehler |
-| 4 | Schwerwiegender |
-| 5 | Unbekannt |
+  | Wert | Description |
+  | ----- | ----------- |
+  | 0 | Online |
+  | 1 | Warnung |
+  | 2 | Nicht autorisiert |
+  | 3 | Fehler |
+  | 4 | Schwerwiegender |
+  | 5 | Unbekannt |
 
-* Details
-    * Weitere Informationen, die den Status beschreibende Rückgabetyp.
+* <strong>Details</strong> – Weitere Informationen, die den Rückgabetyp Status beschreibt.
 
 ### <a name="powershell-connection-status-provider-script"></a>Status-Verbindungsanbieter PowerShell-Skript
 
@@ -139,7 +134,7 @@ Das Verbindung-Status-Anbieter-PowerShell-Skript wird bestimmt, ob ein Ziel onli
 
 Beispiel-PowerShell-Skript:
 
-``` ts
+```PowerShell
 ## Get-My-Status ##
 
 function Get-Status()

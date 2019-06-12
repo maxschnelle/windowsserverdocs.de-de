@@ -9,12 +9,12 @@ ms.date: 02/22/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 220b0b72734d1456e3cf877ebc2ff267a7dd56ad
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 167f74522172790d8f5b3fc1dea46d0b7059cd20
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190646"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501681"
 ---
 # <a name="build-a-server-side-application-using-oauth-confidential-clients-with-ad-fs-2016-or-later"></a>Erstellen Sie eine serverseitige Anwendung Verwendung vertraulicher OAuth-Clients mit AD FS 2016 oder höher
 
@@ -83,7 +83,7 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi
 
 #### <a name="to-upgrade-the-database-file"></a>So aktualisieren die Datenbankdatei  
 
-1.  Öffnen das Projekt in Visual Studio, wird ein Popup mit der Sie informiert, dass der app mit SQL Server 2102 Express erforderlich sind, oder Sie müssen die Datenbank zu aktualisieren.  Klicken Sie auf Ok.  
+1.  Das Projekt in Visual Studio öffnen, wird ein Popup mit der Sie informiert, dass die app SQL Server 2012 Express erfordert, oder Sie müssen die Datenbank zu aktualisieren.  Klicken Sie auf Ok.  
 
     ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_12.PNG)  
 
@@ -226,25 +226,25 @@ In diesem Abschnitt werden wir die Lösung vertraulicher Client testen.  Verwend
 
 #### <a name="testing-the-confidential-client-solution"></a>Testen der Lösung vertraulicher client  
 
-1.  Klicken Sie am oberen Rand der Visual Studio stellen Sie sicher, dass Internet Explorer ausgewählt ist, und klicken Sie auf den grünen Pfeil.  
+1. Klicken Sie am oberen Rand der Visual Studio stellen Sie sicher, dass Internet Explorer ausgewählt ist, und klicken Sie auf den grünen Pfeil.  
 
-    ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_36.png)  
+   ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_36.png)  
 
-2.  Sobald die ASP.NET-Seite wird, klicken Sie auf **registrieren** auf oben rechts auf der Seite.  Geben Sie einen Benutzernamen und ein Kennwort ein, und klicken Sie dann auf **registrieren** Schaltfläche.  Dadurch wird ein lokales Konto in der SQL-Datenbank erstellt.  
+2. Sobald die ASP.NET-Seite wird, klicken Sie auf **registrieren** auf oben rechts auf der Seite.  Geben Sie einen Benutzernamen und ein Kennwort ein, und klicken Sie dann auf **registrieren** Schaltfläche.  Dadurch wird ein lokales Konto in der SQL-Datenbank erstellt.  
 
-    ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_31.PNG)  
+   ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_31.PNG)  
 
-4.  Beachten Sie, dass jetzt die ASP.NET-Website, sagt Hello abby@contoso.com!.  Klicken Sie auf **Profil**.  
+3. Beachten Sie, dass jetzt die ASP.NET-Website, sagt Hello abby@contoso.com!.  Klicken Sie auf **Profil**.  
 
-    ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_32.PNG)  
+   ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_32.PNG)  
 
-5.  Dadurch wird eine Seite ohne Informationen und besagt, dass wir hier klicken müssen, um die Anmeldung.  Klicken Sie auf **hier**.  
+4. Dadurch wird eine Seite ohne Informationen und besagt, dass wir hier klicken müssen, um die Anmeldung.  Klicken Sie auf **hier**.  
 
-    ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_33.PNG)  
+   ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_33.PNG)  
 
-6.  Sie werden nun aufgefordert werden, Anmelden mit AD FS.  
+5. Sie werden nun aufgefordert werden, Anmelden mit AD FS.  
 
-    ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_35.PNG)  
+   ![AD FS Oauth](media/Enabling-Oauth-Confidential-Clients-with-AD-FS-2016/AD_FS_Confidential_35.PNG)  
 
 ## <a name="next-steps"></a>Nächste Schritte
 [AD FS-Entwicklung](../../ad-fs/AD-FS-Development.md)  

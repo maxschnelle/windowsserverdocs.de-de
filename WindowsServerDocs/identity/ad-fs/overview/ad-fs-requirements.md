@@ -9,12 +9,12 @@ ms.date: 03/06/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 235030ea913f2fe1860efaa00bdb4641ac56750d
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: e62032533b15ec3d93896d242273612faafdca58
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188682"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444102"
 ---
 # <a name="ad-fs-requirements"></a>AD FS-Anforderungen
 
@@ -191,16 +191,16 @@ Die folgende Tabelle enthält einen Überblick darüber, wie viele AD FS-Server 
 ## <a name="BKMK_6"></a>Browseranforderungen  
 Wenn AD FS-Authentifizierung über einen Browser bzw. ein Webbrowser-Steuerelement ausgeführt wird, muss Ihr Browser die folgenden Anforderungen erfüllt werden:  
   
--   JavaScript muss aktiviert sein  
+- JavaScript muss aktiviert sein  
   
--   Für einmaliges Anmelden muss der Clientbrowser konfiguriert werden Cookies zulassen  
+- Für einmaliges Anmelden muss der Clientbrowser konfiguriert werden Cookies zulassen  
   
--   Server Name Indication \(SNI\) unterstützt werden müssen  
+- Server Name Indication \(SNI\) unterstützt werden müssen  
   
--   Für die Benutzer-Zertifikat & ät Zertifikatauthentifizierung muss der Browser unterstützt SSL-Clientzertifikatauthentifizierung  
+- Für die Benutzer-Zertifikat & ät Zertifikatauthentifizierung muss der Browser unterstützt SSL-Clientzertifikatauthentifizierung  
 
--   Für die nahtlose Anmeldung mithilfe der integrierten Windows-Authentifizierung, dem Namen des Verbunddiensts (z. B. Https:\/\/"FS.contoso.com") muss in der lokalen Intranetzone oder der Zone vertrauenswürdiger Sites konfiguriert sein.
-## <a name="BKMK_7"></a>Netzwerkanforderungen  
+- Für die nahtlose Anmeldung mithilfe der integrierten Windows-Authentifizierung, dem Namen des Verbunddiensts (z. B. Https:\/\/"FS.contoso.com") muss in der lokalen Intranetzone oder der Zone vertrauenswürdiger Sites konfiguriert sein.
+  ## <a name="BKMK_7"></a>Netzwerkanforderungen  
  
 **Firewallanforderungen**  
   
@@ -210,7 +210,7 @@ Darüber hinaus, wenn der Clientbenutzer-Zertifikatauthentifizierung \(ClientTLS
 
 Weitere Informationen zur Hybrid-Ports finden Sie unter [Hybrid Identity Ports und Protokolle](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-ports). 
 
-Weitere Informationen finden Sie [bewährte Methoden zum Schützen von Active Directory Federation Services](..\deployment\Best-Practices-Securing-AD-FS.md)
+Weitere Informationen finden Sie [bewährte Methoden zum Schützen von Active Directory Federation Services](../deployment/Best-Practices-Securing-AD-FS.md)
   
 **DNS-Anforderungen**  
   

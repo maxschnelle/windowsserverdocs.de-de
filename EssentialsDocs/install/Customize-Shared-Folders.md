@@ -12,12 +12,12 @@ ms.assetid: 47bc4986-14eb-4a29-9930-83a25704a3a0
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 552a76ba9c2ff385f1ff09d4869eaeb6613027a7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d8f52cbe76204bb00cb15c3093f69daf3d8abb6e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59823471"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433536"
 ---
 # <a name="customize-shared-folders"></a>Anpassen freigegebener Ordner
 
@@ -25,33 +25,33 @@ ms.locfileid: "59823471"
 
 Standardmäßig werden Serverordner auf der größten Datenpartition auf Datenträger 0 erstellt. Partner können mit den folgenden Schritten den Ort anpassen und weitere Serverordner erstellen:  
   
-1.  Erstellen Sie mit einer benutzerdefinierten Partitionskonfiguration das Originalabbild, und erstellen Sie dann einen neuen Registrierungsschlüssel "Storage", bevor Sie sysprep verwenden. Während der Erstkonfiguration wird bei der Speichererstkonfiguration dieser Registrierungsschlüssel überprüft. Ist er vorhanden, werden die standardmäßigen Serverordner im Verzeichnis "C:\ServerFolders" erstellt.  
+1. Erstellen Sie mit einer benutzerdefinierten Partitionskonfiguration das Originalabbild, und erstellen Sie dann einen neuen Registrierungsschlüssel "Storage", bevor Sie sysprep verwenden. Während der Erstkonfiguration wird bei der Speichererstkonfiguration dieser Registrierungsschlüssel überprüft. Ist er vorhanden, werden die standardmäßigen Serverordner im Verzeichnis "C:\ServerFolders" erstellt.  
   
-    #### <a name="to-create-a-new-storage-registry-key"></a>So erstellen Sie einen neuen Registrierungsschlüssel "Storage"  
+   #### <a name="to-create-a-new-storage-registry-key"></a>So erstellen Sie einen neuen Registrierungsschlüssel "Storage"  
   
-    1.  Bewegen Sie Ihre Maus auf dem Server in die obere rechte Ecke des Bildschirms, und klicken Sie auf **Suchen**.  
+   1.  Bewegen Sie Ihre Maus auf dem Server in die obere rechte Ecke des Bildschirms, und klicken Sie auf **Suchen**.  
   
-    2.  Geben Sie im Suchfeld **regedit**ein, und klicken Sie dann auf die Anwendung **Regedit** .  
+   2.  Geben Sie im Suchfeld **regedit**ein, und klicken Sie dann auf die Anwendung **Regedit** .  
   
-    3.  Erweitern Sie im Navigationsbereich **HKEY_LOCAL_MACHINE**, **SOFTWARE** und dann **Microsoft**.  
+   3.  Erweitern Sie im Navigationsbereich **HKEY_LOCAL_MACHINE**, **SOFTWARE** und dann **Microsoft**.  
   
-    4.  Klicken Sie mit der rechten Maustaste auf **Windows Server**, klicken Sie auf **Neu**, und klicken Sie dann auf **Schlüssel**.  
+   4.  Klicken Sie mit der rechten Maustaste auf **Windows Server**, klicken Sie auf **Neu**, und klicken Sie dann auf **Schlüssel**.  
   
-    5.  Nennen Sie den Schlüssel **Storage**.  
+   5.  Nennen Sie den Schlüssel **Storage**.  
   
-    6.  Klicken Sie im Navigationsbereich mit der rechten Maustaste auf den neuen Registrierungsschlüssel "Storage", klicken Sie auf **Neu**, und klicken Sie dann auf **DWORD-Wert (32-Bit)**.  
+   6.  Klicken Sie im Navigationsbereich mit der rechten Maustaste auf den neuen Registrierungsschlüssel "Storage", klicken Sie auf **Neu**, und klicken Sie dann auf **DWORD-Wert (32-Bit)** .  
   
-    7.  Geben Sie als Namen der Zeichenfolge **CreateFoldersOnSystem**ein.  
+   7.  Geben Sie als Namen der Zeichenfolge **CreateFoldersOnSystem**ein.  
   
-    8.  Klicken Sie mit der rechten Maustaste auf **CreateFoldersOnSystem**, und klicken Sie dann auf **Ändern**. Das Dialogfeld **Zeichenfolge bearbeiten** wird angezeigt.  
+   8.  Klicken Sie mit der rechten Maustaste auf **CreateFoldersOnSystem**, und klicken Sie dann auf **Ändern**. Das Dialogfeld **Zeichenfolge bearbeiten** wird angezeigt.  
   
-    9. Legen Sie den Wert dieses neuen Schlüssels auf **1**fest, und klicken Sie dann auf **OK**.  
+   9. Legen Sie den Wert dieses neuen Schlüssels auf **1**fest, und klicken Sie dann auf **OK**.  
   
-2.  Verwenden Sie das Skript "PostIC.cmd", um die Ordner an einen anderen Ort zu verschieben oder um weitere Ordner zu erstellen. Siehe das folgende Beispiel: [Beispiel 1: Erstellen eines benutzerdefinierten Ordners und Verschieben der Standardordner von "postic.cmd" an einen neuen Ort mithilfe von Windows PowerShell](Customize-Shared-Folders.md#BKMK_Example1).  
+2. Verwenden Sie das Skript "PostIC.cmd", um die Ordner an einen anderen Ort zu verschieben oder um weitere Ordner zu erstellen. Siehe das folgende Beispiel: [Beispiel 1: Erstellen eines benutzerdefinierten Ordners und Verschieben der Standardordner von "postic.cmd" an einen neuen Ort mithilfe von Windows PowerShell](Customize-Shared-Folders.md#BKMK_Example1).  
   
-3.  Verwenden Sie das SDK für Windows Server-Lösungen, um die Ordner an einen anderen Ort zu verschieben oder um weitere Ordner zu erstellen. Siehe das folgende Beispiel: [Beispiel 2: Erstellen eines benutzerdefinierten Ordners und Verschieben eines vorhandenen Ordners mit dem Windows Server Solutions SDK](Customize-Shared-Folders.md#BKMK_Example2).  
+3. Verwenden Sie das SDK für Windows Server-Lösungen, um die Ordner an einen anderen Ort zu verschieben oder um weitere Ordner zu erstellen. Siehe das folgende Beispiel: [Beispiel 2: Erstellen eines benutzerdefinierten Ordners und Verschieben eines vorhandenen Ordners mit dem Windows Server Solutions SDK](Customize-Shared-Folders.md#BKMK_Example2).  
   
- Optional können Partner die Datenordner auf dem Laufwerk "C" belassen. So kann der Endbenutzer oder der Handelspartner das Layout der Datenordner auf den Datenlaufwerken bestimmen.  
+   Optional können Partner die Datenordner auf dem Laufwerk "C" belassen. So kann der Endbenutzer oder der Handelspartner das Layout der Datenordner auf den Datenlaufwerken bestimmen.  
   
 ###  <a name="BKMK_Example1"></a> Beispiel 1: Erstellen eines benutzerdefinierten Ordners und Verschieben der Standardordner von "PostIC.cmd" an einen neuen Ort mithilfe von Windows PowerShell.  
   

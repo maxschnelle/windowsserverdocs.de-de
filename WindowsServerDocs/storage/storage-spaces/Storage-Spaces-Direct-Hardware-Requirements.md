@@ -7,22 +7,22 @@ ms.manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: eldenchristensen
-ms.date: 04/12/2018
+ms.date: 06/04/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 84d10ab3e25500720dd13e2ba057dc3c5bf05a6f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f2031afada302c0f73621a75f572c8547620db16
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849321"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501661"
 ---
 # <a name="storage-spaces-direct-hardware-requirements"></a>Hardwareanforderungen für „Direkte Speicherplätze“
 
-> Gilt für: WindowsServer 2016, Windows Server Insider Preview
+> Gilt für: Windows Server 2019, Windows Server 2016
 
 Dieses Thema beschreibt die minimalen hardwareanforderungen für "direkte Speicherplätze".
 
-Microsoft empfiehlt für die Produktion diese [Windows Server-Software-Defined](https://microsoft.com/wssd) Hardware/Software bietet die von unseren Partnern, die von Bereitstellungstools und Verfahren enthalten. Sie werden entworfen, zusammengesetzt und für unsere Referenzarchitektur, um sicherzustellen, dass Kompatibilität und Zuverlässigkeit, damit Sie Sie nutzen und schnell überprüft. Weitere Informationen zu [ https://microsoft.com/wssd ](https://microsoft.com/wssd).
+Für die Produktion, Microsoft empfiehlt, die eine überprüfte Hardware/Software-Lösung von unseren Partnern kaufen, umfassen, die die von Bereitstellungstools und Verfahren. Diese Lösungen werden entworfen, zusammengesetzt und für unsere Referenzarchitektur, um sicherzustellen, dass Kompatibilität und Zuverlässigkeit, damit Sie Sie nutzen und schnell überprüft. 2019 für Windows Server-Lösungen finden Sie auf die [Solutions-Website für Azure Stack HCI](https://azure.microsoft.com/overview/azure-stack/hci). Für Windows Server 2016-Lösungen, erfahren Sie mehr unter [Windows Server-Software-Defined](https://microsoft.com/wssd).
 
 ![Logos unserer Windows Server-Software-Defined-Partner](media/hardware-requirements/wssd-partners.png)
 
@@ -79,25 +79,27 @@ Empfohlen (für hohe Leistung, Skalierung oder Bereitstellungen von Knoten 4 +)
 - 512n, 512e und systemeigenen 4-KB-Laufwerke werden alle unterstützt.
 - Solid State Drives müssen bereitstellen [Stromausfall Schutz](https://blogs.technet.microsoft.com/filecab/2016/11/18/dont-do-it-consumer-ssd/)
 - Dieselbe Anzahl und Arten von Laufwerken in jedem Server – finden Sie unter [Laufwerk Symmetrie Überlegungen](drive-symmetry-considerations.md)
+- Cachegeräte muss 32 GB oder größer
+- Bei persistenten Speichergeräte als cachegeräte verwenden zu können, müssen Sie NVMe oder SSD-Kapazität-Geräte verwenden (Sie können keine HDDs verwenden)
 - NVMe-Treiber ist Microsofts integrierte oder NVMe-Treiber aktualisiert.
 - Empfohlen: Anzahl der Laufwerke, die Kapazität ist ein ganzes Vielfaches der Anzahl von Cachelaufwerken
 - Empfohlen: Cachelaufwerken müssen hohem Endurance: mindestens 3 Laufwerk schreibt – pro Tag (DWPD) oder über mindestens 4 Terabyte (TBW) pro Tag – geschriebene finden Sie unter [Verständnis Laufwerk schreibt pro Tag (DWPD), Terabyte geschrieben (TBW) und das Minimum für Speicher empfohlen "Direkte Speicherplätze"](https://blogs.technet.microsoft.com/filecab/2017/08/11/understanding-dwpd-tbw/)
 
 Hier ist, wie die Laufwerke für "direkte Speicherplätze" verbunden werden können:
 
-1. Direkt angeschlossener SATA-Laufwerke
-2. Direkt angeschlossener NVMe-Laufwerke
-3. SAS-Hostbusadapter (HBA) mit SAS-Laufwerke
-4. SAS-Hostbusadapter (HBA) mit SATA-Laufwerke
-5. **NICHT UNTERSTÜTZT:** RAID-Controller-Karten oder SAN (Fibre Channel, iSCSI, FCoE) Speicher. Hostbus-Hostbusadapter (HBA) Karten müssen einfache Pass-Through-Modus implementieren.
+- Direkt angeschlossener SATA-Laufwerke
+- Direkt angeschlossener NVMe-Laufwerke
+- SAS-Hostbusadapter (HBA) mit SAS-Laufwerke
+- SAS-Hostbusadapter (HBA) mit SATA-Laufwerke
+- **NICHT UNTERSTÜTZT:** RAID-Controller-Karten oder SAN (Fibre Channel, iSCSI, FCoE) Speicher. Hostbus-Hostbusadapter (HBA) Karten müssen einfache Pass-Through-Modus implementieren.
 
 ![Diagramm der unterstützten Laufwerk miteinander verbindet.](media/hardware-requirements/drive-interconnect-support-1.png)
 
 Laufwerke auf dem Server intern sein können, oder in externe Gehäuse ist mit nur einem Server. SCSI Enclosure Services (SES) ist für die Zuordnung und Identifikation erforderlich. Jedes externe Gehäuse muss einen eindeutigen Bezeichner (eindeutige ID) darstellen.
 
-1. Laufwerke, die in den server
-2. Laufwerke, die in einem externen Gehäuse ("JBOD"), die mit einem Server verbunden
-3. **NICHT UNTERSTÜTZT:** Freigegebener SAS-Gehäuse mit mehreren Servern oder jede andere Form von Multipfad e/a (MPIO), in denen Laufwerke zugegriffen werden kann, indem Sie mehrere Pfade sind, verbunden ist.
+- Laufwerke, die in den server
+- Laufwerke, die in einem externen Gehäuse ("JBOD"), die mit einem Server verbunden
+- **NICHT UNTERSTÜTZT:** Freigegebener SAS-Gehäuse mit mehreren Servern oder jede andere Form von Multipfad e/a (MPIO), in denen Laufwerke zugegriffen werden kann, indem Sie mehrere Pfade sind, verbunden ist.
 
 ![Diagramm der unterstützten Laufwerk miteinander verbindet.](media/hardware-requirements/drive-interconnect-support-2.png)
 
@@ -108,8 +110,10 @@ Laufwerke auf dem Server intern sein können, oder in externe Gehäuse ist mit n
 
 | Vorhandene Laufwerktypen   | Erforderliche Mindestanzahl |
 |-----------------------|-------------------------|
+| Alle persistenten Speicher (demselben Modell) | 4 persistenten Speicher |
 | Alle NVMe (gleiches Modell) | 4x NVMe                  |
 | Alle SSD (gleiches Modell)  | 4x SSD                   |
+| Persistenten Speicher + NVMe oder SSD | 2 persistenten Speicher + 4 NVMe oder SSD |
 | NVMe und SSD            | 2x NVMe und 4x SSD          |
 | NVMe und HDD            | 2x NVMe und 4x HDD          |
 | SSD und HDD             | 2x SSD und 4x HDD           |
@@ -120,5 +124,7 @@ Laufwerke auf dem Server intern sein können, oder in externe Gehäuse ist mit n
 
 ### <a name="maximum-capacity"></a>Maximale Kapazität
 
-- Empfohlen: Maximale Kapazität von 100 Terabyte (TB) unformatierten Speicher pro server
-- Maximale 1 Petabyte (1.000 TB) raw-Kapazität im Speicherpool
+| Maximalwerte                | Windows Server 2019  | Windows Server 2016  |
+| ---                     | ---------            | ---------            |
+| Raw-Kapazität pro server | 100 TB               | 100 TB               |
+| Pool-Kapazität           | 4 PB (4.000 TB)      | 1 PB                 |

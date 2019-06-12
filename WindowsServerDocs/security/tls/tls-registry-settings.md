@@ -12,12 +12,12 @@ author: justinha
 ms.author: justinha
 manager: brianlic-msft
 ms.date: 02/28/2019
-ms.openlocfilehash: 0d618d465ee45245e98fbc6aa58b32b974be08e8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 32068319aae7545675e126eed6e1ab4c914bcbcf
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880881"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812633"
 ---
 # <a name="transport-layer-security-tls-registry-settings"></a>Transport Layer Security (TLS)-registrierungseinstellungen
 
@@ -25,9 +25,13 @@ ms.locfileid: "59880881"
 
 In diesem Referenzthema für IT-Spezialisten enthält unterstützte Einstellung Registrierungsinformationen für die Windows-Implementierung des Protokolls Transport Layer Security (TLS) und das Protokoll Secure Sockets Layer (SSL) über den Schannel Security Support Provider (SSP). Der Registrierungsunterschlüssel und-Einträge, die in der dieses Thema Hilfe, die Sie verwalten und Problembehandlung des Schannel-SSP behandelt insbesondere die Protokolle TLS und SSL. 
 
->[!Caution]
->Diese Informationen dienen als Referenz, die Sie nutzen, wenn Sie eine Problembehandlung durchführen oder prüfen, ob die erforderlichen Einstellungen vorhanden sind. Es wird empfohlen, die Registrierung nur dann direkt zu bearbeiten, wenn es keine andere Alternative gibt.
->Änderungen an der Registrierung werden weder vom Registrierungs-Editor noch vom Windows-Betriebssystem überprüft, bevor sie angewendet werden. Daher können falsche Werte gespeichert werden, was zu nicht behebbaren Fehlern im System führen kann. Anstatt die Registrierung direkt zu bearbeiten, verwenden Sie nach Möglichkeit Gruppenrichtlinien oder andere Windows-Tools wie die Microsoft Management Console (MMC) zum Ausführen von Aufgaben. Wenn Sie die Registrierung bearbeiten müssen, gehen Sie äußerst umsichtig vor. 
+> [!CAUTION]
+> Diese Informationen dienen als Referenz, die Sie nutzen, wenn Sie eine Problembehandlung durchführen oder prüfen, ob die erforderlichen Einstellungen vorhanden sind.
+> Es wird empfohlen, die Registrierung nur dann direkt zu bearbeiten, wenn es keine andere Alternative gibt.
+> Änderungen an der Registrierung werden weder vom Registrierungs-Editor noch vom Windows-Betriebssystem überprüft, bevor sie angewendet werden.
+> Daher können falsche Werte gespeichert werden, was zu nicht behebbaren Fehlern im System führen kann.
+> Anstatt die Registrierung direkt zu bearbeiten, verwenden Sie nach Möglichkeit Gruppenrichtlinien oder andere Windows-Tools wie die Microsoft Management Console (MMC) zum Ausführen von Aufgaben.
+> Wenn Sie die Registrierung bearbeiten müssen, gehen Sie äußerst umsichtig vor.
 
 ## <a name="certificatemappingmethods"></a>CertificateMappingMethods 
 
@@ -57,7 +61,7 @@ TLS/SSL-Verschlüsselungen sollte kontrolliert werden, indem Sie die Reihenfolge
 
 Weitere Informationen zu standardmäßigen Cipher Suites Reihenfolge an, die vom Schannel SSP verwendet werden, finden Sie unter [Verschlüsselungssammlungen in TLS/SSL (Schannel SSP)](https://msdn.microsoft.com/library/windows/desktop/aa374757.aspx). 
 
-##<a name="ciphersuites"></a>CipherSuites
+## <a name="ciphersuites"></a>CipherSuites
 
 Konfigurieren von TLS/SSL-Verschlüsselungssammlungen erledigt werden mithilfe von Gruppenrichtlinien, die Verwaltung mobiler Geräte oder PowerShell, finden Sie unter [Konfigurieren von TLS Reihenfolge der Verschlüsselungssammlungen](manage-tls.md#configuring-tls-cipher-suite-order) Details.
 
@@ -100,12 +104,12 @@ Um deaktivieren, legen den DWORD-Wert auf 0 fest:
 
 "EnableOcspStaplingForSni"=dword:00000000
 
->[!NOTE] 
->Aktivieren dieses Registrierungsschlüssels hat eine potenzielle Auswirkungen auf die Leistung.
+> [!NOTE] 
+> Aktivieren dieses Registrierungsschlüssels hat eine potenzielle Auswirkungen auf die Leistung.
 
 ## <a name="fipsalgorithmpolicy"></a>FIPSAlgorithmPolicy
 
-Dieser Eintrag steuert die FIPS-Einhaltung (Federal Information Processing Standard). Der Standardwert ist 0.
+Dieser Eintrag steuert die FIPS-Einhaltung (Federal Information Processing Standard). Die Standardeinstellung ist 0.
 
 Zutreffende Versionen: Alle Versionen ab Windows Server 2012 und Windows 8. 
 
@@ -207,7 +211,7 @@ Dieser Eintrag ist nicht standardmäßig in der Registrierung vorhanden.
 
 Standardverhalten für die Liste der vertrauenswürdigen Aussteller senden
 
-| Windows-Version | Zeit |
+| Windows-Version | Uhrzeit |
 |-----------------|------|
 | Windows Server 2012 und Windows 8 und höher | FALSE |
 | Windows Server 2008 R2 und Windows 7 und früher | TRUE |

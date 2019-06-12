@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 6510f8b21186b856eb489c1add0674b8984b0e56
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5a0991c76ba890bb94b0dcf258df6207ed228e72
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857091"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441795"
 ---
 # <a name="reset-session"></a>reset session
 
@@ -36,6 +36,7 @@ reset session {<SessionName> | <SessionID>} [/server:<ServerName>] [/v]
 ```  
 
 ## <a name="parameters"></a>Parameter  
+
 |Parameter|Beschreibung|  
 |-------|--------|  
 |\<SessionName>|Gibt den Namen der Sitzung, die Sie zurücksetzen möchten. Verwenden Sie den Namen der Sitzung zu ermitteln, die **Abfragen Sitzung** Befehl.|  
@@ -51,15 +52,15 @@ reset session {<SessionName> | <SessionID>} [/server:<ServerName>] [/v]
 -   Die **/Server** Parameter ist erforderlich, nur bei Verwendung von **-Sitzung zurücksetzen** von einem Remoteserver.  
 
 ## <a name="BKMK_examples"></a>Beispiele für  
--   Geben Sie zum Zurücksetzen der Sitzungs, die Rdp-TCP-Nr. 6 festgelegt:  
-    ```  
-    reset session rdp-tcp#6  
-    ```  
--   Um die Sitzung zurücksetzen, die Sitzungs-ID 3 verwendet, geben Sie Folgendes ein:  
-    ```  
-    reset session 3  
-    ```  
+- Geben Sie zum Zurücksetzen der Sitzungs, die Rdp-TCP-Nr. 6 festgelegt:  
+  ```  
+  reset session rdp-tcp#6  
+  ```  
+- Um die Sitzung zurücksetzen, die Sitzungs-ID 3 verwendet, geben Sie Folgendes ein:  
+  ```  
+  reset session 3  
+  ```  
 
 #### <a name="additional-references"></a>Weitere Verweise  
-[Befehlszeilensyntax](command-line-syntax-key.md)  
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
 [Remotedesktopdienste &#40;Terminaldienste&#41; -Befehlsreferenz](remote-desktop-services-terminal-services-command-reference.md)  

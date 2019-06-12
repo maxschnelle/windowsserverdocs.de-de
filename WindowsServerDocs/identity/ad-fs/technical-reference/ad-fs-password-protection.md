@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: de1af9712b54c977c591953c68eec506c80d3cdd
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5666943138070cfa8cfe62f1ba932c2793daa003
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822001"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501602"
 ---
 # <a name="ad-fs-password-attack-protection"></a>AD FS Kennwort Angriffsschutz
 
@@ -29,23 +29,22 @@ Es gibt 2 Typen von häufigen Kennwortangriffen. Kennwort Sprühende Angriffen u
 ### <a name="password-spray-attack"></a>Sprühende Kennwortangriff
 Bei einem Angriff Kennwort Sprühende versucht diese risikoteilnehmer die am häufigsten verwendeten Kennwörter über viele verschiedene Konten und Dienste für den Zugriff auf alle Ressourcen ein Kennwort geschützt, die sie finden können. In der Regel umfassen diese viele Organisationen und Identitätsanbieter. Beispielsweise verwendet ein Angreifer eine gängiger Toolkit zum Auflisten aller Benutzer in mehreren Organisationen aus, und wiederholen dann "P@$$w0rd" und "Password1" für all diese Konten. Um Ihnen die Idee erteilen, kann ein Angriff aussehen:
 
-|Zielbenutzer|Zielkennwort|
-|-----|-----|-----|
-|User1@org1.com|Password1|
-|User2@org1.com|Password1|
-|User1@org2.com|Password1|
-|User2@org2.com|Password1|
-|…|…|
-|User1@org1.com|P@$$w0rd|
-|User2@org1.com|P@$$w0rd|
-|User1@org2.com|P@$$w0rd|
-|User2@org2.com|P@$$w0rd|
+
+|  Zielbenutzer   | Zielkennwort |
+|----------------|-----------------|
+| User1@org1.com |    Password1    |
+| User2@org1.com |    Password1    |
+| User1@org2.com |    Password1    |
+| User2@org2.com |    Password1    |
+|       …        |        …        |
+| User1@org1.com |    P@$$w0rd     |
+| User2@org1.com |    P@$$w0rd     |
+| User1@org2.com |    P@$$w0rd     |
+| User2@org2.com |    P@$$w0rd     |
 
 Dieser Angriff QuarantŠneprozesse Erkennungstechniken für die meisten umgangen, da von der Aussichtspunkt der ein einzelner Benutzer oder Unternehmen, der Angriff nur einen isolierten Anmeldefehler aussieht.
 
 Angreifer verwenden, ist es ein Spiel Zahlen: sie wissen, dass es einige Kennwörter ein, die häufig verwendeten vorhanden sind.  Der Angreifer erhält einige Erfolge für alle tausend Konten, die angegriffen, und dies genügt, um effektiv zu sein. Sie verwenden die Konten, zum Abrufen von Daten aus e-Mails, Sammeln von Kontaktinformationen, und Senden von Phishing-Links oder nur Kennwort Sprühende Zielgruppe zu erweitern. Die Angreifer nicht weniger wichtig, die die ursprünglichen Ziele werden, sondern nur, dass sie mit einigem Erfolg haben, die sie nutzen können.
-
-Sie verwenden die Konten, zum Abrufen von Daten aus e-Mails, Sammeln von Kontaktinformationen, und Senden von Phishing-Links oder nur Kennwort Sprühende Zielgruppe zu erweitern. Die Angreifer nicht weniger wichtig, die die ursprünglichen Ziele werden, sondern nur, dass sie mit einigem Erfolg haben, die sie nutzen können.
 
 Aber mit wenigen Schritten konfigurieren die AD FS und ordnungsgemäß AD FS-Endpunkte für diese Art von Angriffen geschützt werden können. Dieser Artikel behandelt die 3 Bereiche, die für den Schutz vor diesen Angriffen ordnungsgemäß konfiguriert werden müssen.
 
@@ -55,7 +54,7 @@ Bei dieser Form von Angriff versucht ein Angreifer mehrere Kennwortversuche für
 Diese Art von Angriff könnte auch DOS-Muster führen. Dies könnte auf Dienstebene, in dem AD FS eine große Anzahl von Anforderungen aufgrund von unzureichenden Anzahl von Servern verarbeiten kann, oder möglicherweise auf einer Benutzerebene, in denen ein Benutzer aus ihrem Konto gesperrt wird.  
 
 ## <a name="securing-ad-fs-against-password-attacks"></a>Sichern von AD FS gegen Angriffe auf Kennwörter 
- 
+
 Aber mit wenigen Schritten konfigurieren die AD FS und ordnungsgemäß AD FS-Endpunkte für diese Arten von Angriffen geschützt werden können. Dieser Artikel behandelt die 3 Bereiche, die für den Schutz vor diesen Angriffen ordnungsgemäß konfiguriert werden müssen. 
 
 
@@ -70,11 +69,11 @@ Aber mit wenigen Schritten konfigurieren die AD FS und ordnungsgemäß AD FS-End
 
 2. Monitor & blockieren verdächtiger IP-Adressen 
     - Wenn Sie Azure AD Premium verfügen, implementieren Sie Connect Health für AD FS und der [riskante IP-Adresse Bericht](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-adfs#risky-ip-report-public-preview) Benachrichtigungen, die er bereitstellt.
-        
+
         a. Lizenzierung ist nicht für alle Benutzer und erfordert 25 Lizenzen/AD FS/WAP-Server, der möglicherweise für einen Kunden einfach.
-    
+
         b. Sie können jetzt IP-Adressen untersuchen, die große Anzahl von fehlgeschlagenen Anmeldungen generieren
-    
+
         c. Dies müssen Sie zum Aktivieren der Überwachung für Ihre AD FS-Server.
 
 3.  Hiermit blockieren Sie verdächtige IP-Adressen.  Dadurch wird möglicherweise DOS-Angriffe verhindert.
@@ -97,20 +96,20 @@ Aber mit wenigen Schritten konfigurieren die AD FS und ordnungsgemäß AD FS-End
 
     b. Sie benötigen, Outlook 2013 (mit der neuesten CU-Patches) oder Outlook 2016 zu verwenden.
 
-6.  Aktivieren der MFA für alle extranet-Zugriff. Dadurch erhalten Sie den Schutz für alle extranet-Zugriff hinzugefügt.
+6. Aktivieren der MFA für alle extranet-Zugriff. Dadurch erhalten Sie den Schutz für alle extranet-Zugriff hinzugefügt.
 
-    a.  Wenn Sie Azure AD Premium verfügen, verwenden Sie [bedingtem Azure AD-Richtlinien](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) steuern.  Dies ist besser als die Implementierung von der Regeln in AD FS.  Dies ist da moderne Clientanwendungen für häufigere erzwungen werden.  In diesem Fall auf Azure AD bei der Anforderung eines neues Zugriffstokens (in der Regel einmal pro Stunde) mithilfe eines aktualisierungstokens abzurufen.  
+   a.  Wenn Sie Azure AD Premium verfügen, verwenden Sie [bedingtem Azure AD-Richtlinien](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) steuern.  Dies ist besser als die Implementierung von der Regeln in AD FS.  Dies ist da moderne Clientanwendungen für häufigere erzwungen werden.  In diesem Fall auf Azure AD bei der Anforderung eines neues Zugriffstokens (in der Regel einmal pro Stunde) mithilfe eines aktualisierungstokens abzurufen.  
 
-    b.  Wenn Sie keine Azure AD Premium oder zusätzliche apps in AD FS, mit denen Sie Internet Access basierend, implementieren Sie MFA (möglicherweise Azure MFA und AD FS 2016) und führen Sie eine [globale MFA-Richtlinie](../../ad-fs/operations/configure-authentication-policies.md#to-configure-multi-factor-authentication-globally) für alle extranet-Zugriff.
- 
+   b.  Wenn Sie keine Azure AD Premium oder zusätzliche apps in AD FS, mit denen Sie Internet Access basierend, implementieren Sie MFA (möglicherweise Azure MFA und AD FS 2016) und führen Sie eine [globale MFA-Richtlinie](../../ad-fs/operations/configure-authentication-policies.md#to-configure-multi-factor-authentication-globally) für alle extranet-Zugriff.
+
 ## <a name="level-3-move-to-password-less-for-extranet-access"></a>Ebene 3: Wechsel zu Kennwort weniger für extranet-Zugriff
 
 7. Verschieben Sie in Windows 10, und verwenden [Hello For Business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification).
 
 8. Für andere Geräte, wenn es sich um AD FS 2016 können Sie [Azure MFA-OTP](../../ad-fs/operations/configure-ad-fs-and-azure-mfa.md) als der erste Faktor und das Kennwort als die 2. Stufe. 
 
-9.  Für mobile Geräte, wenn Sie nur die MDM-verwalteten Geräten zulassen können [Zertifikate](../../ad-fs/operations/configure-user-certificate-authentication.md) , die der Benutzer nicht anmelden. 
- 
+9. Für mobile Geräte, wenn Sie nur die MDM-verwalteten Geräten zulassen können [Zertifikate](../../ad-fs/operations/configure-user-certificate-authentication.md) , die der Benutzer nicht anmelden. 
+
 ## <a name="urgent-handling"></a>Dringende Behandlung
 
 Wenn die AD FS-Umgebung angegriffen aktiv ist, sollte die folgenden Schritte aus wie möglich implementiert werden:

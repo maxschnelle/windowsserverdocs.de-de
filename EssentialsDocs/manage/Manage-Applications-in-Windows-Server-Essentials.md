@@ -12,12 +12,12 @@ ms.assetid: ae89c46a-0afd-4858-9150-ec97650f45a4
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: e98d661ac71697bc0e38b6a25fe2f9d2b0b7254f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1a60a9e7fd958d447b4770431a69546f0ad6f229
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59860171"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433350"
 ---
 # <a name="manage-applications-in-windows-server-essentials"></a>Verwalten von Anwendungen in Windows Server 2012 Essentials
 
@@ -32,21 +32,21 @@ ms.locfileid: "59860171"
 ##  <a name="BKMK_1"></a> Anwendungsverwaltungsaufgaben im Dashboard  
  Die Verwaltungsseite **Anwendungen** im Dashboard bietet Folgendes:  
   
--   Eine Liste der installierten Add-Ins, wobei Folgendes angezeigt wird:  
+- Eine Liste der installierten Add-Ins, wobei Folgendes angezeigt wird:  
   
-    -   Der Name des Onlinedienstes oder des Add-Ins  
+  -   Der Name des Onlinedienstes oder des Add-Ins  
   
-    -   Der Aktualisierungsstatus des Add-Ins  
+  -   Der Aktualisierungsstatus des Add-Ins  
   
-    -   Der Abonnementstatus des Add-Ins  
+  -   Der Abonnementstatus des Add-Ins  
   
-    -   Der Name des Unternehmens oder des Herausgebers, der das Add-In zur Verfügung stellt  
+  -   Der Name des Unternehmens oder des Herausgebers, der das Add-In zur Verfügung stellt  
   
--   Ein Aufgabenbereich, der eine Reihe von Aufgaben für die Verwaltung eines ausgewählten Add-Ins enthält  
+- Ein Aufgabenbereich, der eine Reihe von Aufgaben für die Verwaltung eines ausgewählten Add-Ins enthält  
   
--   Eine Liste von Add-Ins, die zum Herunterladen und Installieren von Microsoft Pinpoint verfügbar sind  
+- Eine Liste von Add-Ins, die zum Herunterladen und Installieren von Microsoft Pinpoint verfügbar sind  
   
- Die folgende Tabelle beschreibt die verschiedenen Add-In-Verwaltungsaufgaben, die im Server-Dashboard verfügbar sind. Einige Aufgaben sind Add-In-spezifisch, sodass sie nur angezeigt werden, wenn Sie ein Add-In in der Liste auswählen.  
+  Die folgende Tabelle beschreibt die verschiedenen Add-In-Verwaltungsaufgaben, die im Server-Dashboard verfügbar sind. Einige Aufgaben sind Add-In-spezifisch, sodass sie nur angezeigt werden, wenn Sie ein Add-In in der Liste auswählen.  
   
 |Aufgabenname|Beschreibung|  
 |---------------|-----------------|  

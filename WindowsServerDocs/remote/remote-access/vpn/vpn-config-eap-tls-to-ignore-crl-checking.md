@@ -15,19 +15,19 @@ ms.author: pashort
 author: shortpatti
 ms.localizationpriority: medium
 ms.reviewer: deverette
-ms.openlocfilehash: ac59c554c69a6138a106a648c3fab3ed4fe05b7b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 781239f45b9b260b7d374c2a6972cdb8faad2879
+ms.sourcegitcommit: 0948a1abff1c1be506216eeb51ffc6f752a9fe7e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59836421"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66749595"
 ---
 # <a name="step-71-configure-eap-tls-to-ignore-certificate-revocation-list-crl-checking"></a>Schritt 7.1. Konfigurieren von EAP-TLS, um ignorieren (Certificate Revocation List, CRL) überprüfen
 
 >Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-&#171;  [**Vorherige:** Schritt 7 (Optional) Bedingter Zugriff für VPN-Verbindungen mithilfe von Azure AD](ad-ca-vpn-connectivity-windows10.md)<br>
-&#187; [ **Next:** Schritt 7.2. Stammzertifikate für die VPN-Authentifizierung mit Azure AD zu erstellen.](vpn-create-root-cert-for-vpn-auth-azure-ad.md)
+- [**Vorherige:** Schritt 7 (Optional) Bedingter Zugriff für VPN-Verbindungen mithilfe von Azure AD](ad-ca-vpn-connectivity-windows10.md)
+- [**nächster:** Schritt 7.2. Erstellen von Stammzertifikaten für die VPN-Authentifizierung mit Azure AD](vpn-create-root-cert-for-vpn-auth-azure-ad.md)
 
 >[!IMPORTANT]
 >Fehler beim Implementieren Sie diese registrierungsänderung führt dazu, dass IKEv2-Verbindungen mithilfe von Cloud-Zertifikaten mit PEAP fehlschlägt, aber die IKEv2-Verbindungen, die von der lokalen-Zertifizierungsstelle ausgestellten Zertifikate für Client-Authentifizierung verwenden würde auch weiterhin funktionieren.
@@ -47,11 +47,11 @@ Da die Authentifizierungsmethode EAP-TLS ist, ist dieser Wert nur unter EAP\13 e
 
 2. Navigieren Sie zu **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\PPP\EAP\13**.
 
-3. Klicken Sie auf **Bearbeiten > New** , und wählen Sie **DWORD-Wert (32-Bit)** und **IgnoreNoRevocationCheck**.
+3. Wählen Sie **Bearbeiten > New** , und wählen Sie **DWORD-Wert (32-Bit)** , und geben Sie **IgnoreNoRevocationCheck**.
 
 4. Doppelklicken Sie auf **IgnoreNoRevocationCheck** und legen Sie die Wertdaten auf **1**.
 
-5. Klicken Sie auf **OK** und starten Sie den Server. Es reicht nicht aus, das RRAS und NPS-Dienste neu zu starten.
+5. Wählen Sie **OK** und starten Sie den Server. Es reicht nicht aus, das RRAS und NPS-Dienste neu zu starten.
 
 Weitere Informationen finden Sie unter [aktivieren oder Deaktivieren von Zertifikat-Sperrung überprüfen (CRL) auf Clients](https://technet.microsoft.com/library/bb680540.aspx).
 
@@ -62,8 +62,6 @@ Weitere Informationen finden Sie unter [aktivieren oder Deaktivieren von Zertifi
 |HKLM\SYSTEM\CurrentControlSet\Services\RasMan\PPP\EAP\25     |PEAP         |
 |HKLM\SYSTEM\CurrentControlSet\Services\RasMan\PPP\EAP\26     |EAP-MSCHAP v2         |
 
-## <a name="next-step"></a>Nächster Schritt
+## <a name="next-steps"></a>Nächste Schritte
 
-[Dies ist Schritt 7.2. Stammzertifikate für die VPN-Authentifizierung mit Azure AD erstellen](vpn-create-root-cert-for-vpn-auth-azure-ad.md): In diesem Schritt konfigurieren Sie die Stammzertifikate für den bedingten Zugriff für VPN-Authentifizierung mit Azure AD, die automatisch eine VPN-Server-Cloud-app im Mandanten erstellt. 
-
----
+[Schritt 7.2: Stammzertifikate für die VPN-Authentifizierung mit Azure AD erstellen](vpn-create-root-cert-for-vpn-auth-azure-ad.md): In diesem Schritt konfigurieren Sie die Stammzertifikate für den bedingten Zugriff für VPN-Authentifizierung mit Azure AD, die automatisch eine VPN-Server-Cloud-app im Mandanten erstellt.

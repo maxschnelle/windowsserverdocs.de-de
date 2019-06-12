@@ -14,20 +14,20 @@ manager: dongill
 ms.author: elizapo
 ms.date: 07/16/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: ec1b0a17c578f2d8ac55d1704af6b267b6bb8e5c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: e6f91aa02cd0f19d480c24309be5797c273b0f2e
+ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865931"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66804948"
 ---
 # <a name="frequently-asked-questions-about-the-remote-desktop-clients"></a>Häufig gestellte Fragen zu den Remotedesktopclients
 
->Gilt für: Windows 10, Windows 8.1, Windows Server 2012 R2, WindowsServer 2016
+>Gilt für: Windows 10, Windows 8.1, WindowsServer 2019, WindowsServer 2016, Windows Server 2012 R2
 
 Nun, da Sie den Remotedesktopclient auf Ihrem Gerät (Android, Mac, iOS oder Windows) eingerichtet haben, können Sie Fragen haben. Hier erhalten Sie Antworten auf die am häufigsten gestellten Fragen zu den Remotedesktop-Clients an. 
 
-- [Einrichten](#Setting-up)
+- [Einrichten](#setting-up)
 - [Verbindungen, Gateways und Netzwerke](#connection-gateway-and-networks)
 - [WebClient](#web-client)
 - [Überwacht, Audio und Maus](#monitors-audio-and-mouse)
@@ -81,18 +81,20 @@ Hier sind einige möglichen Lösungen für häufiger auftretende Probleme, die a
 - **Es liegt ein Problem mit dem Netzwerk.** Stellen Sie sicher, dass Sie über Internetzugang verfügen. 
 - **Der Remotedesktop-Port möglicherweise durch eine Firewall blockiert werden.** Wenn Sie Windows-Firewall verwenden, gehen Sie wie folgt vor:
 
-   1. Öffnen Sie Windows-Firewall. 
-   2. Klicken Sie auf **können Sie eine app oder ein Feature durch die Windows-Firewall**. 
-   3. Klicken Sie auf **Ändern der Einstellungen**. Sie können für ein Administratorkennwort oder zur Bestätigung Ihrer Auswahl aufgefordert werden.
-   4. Unter **zugelassene apps und Features**Option **Remotedesktop**, und klicken oder tippen Sie anschließend **OK**.
+  1. Öffnen Sie Windows-Firewall. 
+  2. Klicken Sie auf **können Sie eine app oder ein Feature durch die Windows-Firewall**. 
+  3. Klicken Sie auf **Ändern der Einstellungen**. Sie können für ein Administratorkennwort oder zur Bestätigung Ihrer Auswahl aufgefordert werden.
+  4. Unter **zugelassene apps und Features**Option **Remotedesktop**, und klicken oder tippen Sie anschließend **OK**.
 
-   Wenn Sie eine andere Firewall verwenden, stellen Sie sicher, dass der Port für Remote Desktop (in der Regel 3389) geöffnet ist.
+     Wenn Sie eine andere Firewall verwenden, stellen Sie sicher, dass der Port für Remote Desktop (in der Regel 3389) geöffnet ist.
 - **Remoteverbindungen können nicht auf dem Remotecomputer eingerichtet werden.** Um dieses Problem zu beheben, scrollen Sie zurück zum [wie richte ich ein PC für Remotedesktop?](#how-do-i-set-up-a-pc-for-remote-desktop) Frage in diesem Thema.
 - **Remote-PC kann nur PCs eine Verbindung herstellen können, die Authentifizierung auf Netzwerkebene eingerichtet haben.** 
 - **Der remote-PC kann deaktiviert werden.** Sie können nicht auf einem PC, der ausgeschaltet, im Energiesparmodus ist verbunden oder Ruhezustand befindet, achten Sie also die Einstellungen für Standbymodus und Ruhezustand auf dem Remotecomputer, um festgelegt werden **nie** (Ruhezustand nicht auf allen PCs verfügbar.).
 
 ### <a name="why-cant-i-find-or-connect-to-my-pc"></a>Warum kann ich nicht finden oder eine Verbindung mit meinem PC herstellen?
+
 Überprüfen Sie Folgendes:
+
 - Ist der PC auf und aktiv?
 - Haben Sie den richtigen Namen oder die IP-Adresse eingegeben?
 
@@ -105,9 +107,11 @@ Hier sind einige möglichen Lösungen für häufiger auftretende Probleme, die a
    > Windows XP Home, Windows Media Center Edition, Windows Vista Home und Windows 7 Home oder Starter werden ohne 3rd Party Software nicht unterstützt.
 
 ### <a name="why-cant-i-sign-in-to-a-remote-pc"></a>Warum anmelden kann nicht ich auf einem remote-PC?
+
 Wenn Sie den Anmeldebildschirm des remote-PC sehen, aber Sie nicht anmelden, können Sie nicht auf eine beliebige Gruppe mit Administratorrechten auf einem Remotecomputer oder der Gruppe "Remotedesktopbenutzer" hinzugefügt wurden. Bitten Sie den Systemadministrator dies für Sie tun.
 
 ### <a name="which-connection-methods-are-supported-for-company-networks"></a>Welche Verbindungsmethoden für Unternehmensnetzwerken unterstützt werden?
+
 Wenn Sie Ihre Office-Desktop aus außerhalb des Firmennetzwerks zugreifen möchten, müssen Sie Ihr Unternehmen eine Möglichkeit des Remotezugriffs angeben. Der Remotedesktop-Client unterstützt derzeit Folgendes:
 
 - Terminal Server-Gateway oder Remotedesktopgateway
@@ -124,9 +128,11 @@ A. überprüfen:
 - **VPN ist falsch konfiguriert.** Falsch konfigurierte VPN-Server kann die Ursache sein, warum gearbeitet VPN-Verbindungen nicht oder nicht mehr nach einiger Zeit. Stellen Sie sicher, Testen mit dem Webbrowser des Geräts oder einem PC oder Mac iOS im selben Netzwerk, wenn dies der Fall.
 
 ### <a name="how-can-i-test-if-vpn-is-working-properly"></a>Wie kann ich testen, ob VPN ordnungsgemäß funktioniert?
+
 Stellen Sie sicher, dass das VPN auf Ihrem Gerät aktiviert ist. Sie können Ihre VPN-Verbindung testen, indem Sie soll eine Webseite in Ihrem internen Netzwerk oder mithilfe eines Webdiensts, das nur über das VPN verfügbar ist.
 
 ### <a name="how-do-i-configure-l2tp-or-pptp-vpn-connections"></a>Wie konfiguriere ich die L2TP oder PPTP-VPN-Verbindungen?
+
 Wenn Sie L2TP und PPTP in Ihr VPN verwenden, stellen Sie sicher, dass **senden sämtlicher Datenverkehr** zu **ON** in der VPN-Konfiguration.
 
 ## <a name="web-client"></a>WebClient

@@ -9,16 +9,18 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: c8e72f1075b984506f9f992cd45cf853b50bddeb
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 6f3cdc34ee03fab1a8fb1d42ebed2d2f76e2618d
+ms.sourcegitcommit: ccc802338b163abdad2e53b55f39addcfea04603
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191922"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66687412"
 ---
 # <a name="upgrading-to-ad-fs-in-windows-server-2016-using-a-wid-database"></a>Upgrade auf AD FS in Windows Server 2016 unter Verwendung einer WID-Datenbank
 
 
+> [!NOTE]  
+> Beginnen Sie ein Upgrade nur mit eine definitive Zeitrahmen für den Abschluss geplant. Es wird nicht empfohlen, AD FS für einen längeren Zeitraum, in einem gemischten Zustand zu halten, wie Sie mit der Farm verlassen AD FS in einem gemischten Zustand zu Problemen führen kann.
 
 ## <a name="upgrading-a-windows-server-2012-r2-or-2016-ad-fs-farm-to-windows-server-2019"></a>Upgrade von einem Windows Server 2012 R2 oder 2016-AD FS-Farm auf Windows Server-2019
 Das folgende Dokument beschreibt, wie AD FS-Farm mit AD FS in Windows Server-2019 aktualisieren, bei Verwendung eine WID-Datenbank.  
@@ -27,6 +29,7 @@ Das folgende Dokument beschreibt, wie AD FS-Farm mit AD FS in Windows Server-201
 In AD FS für WindowsServer 2016 bietet erstmals die Farmen mit verhaltensebene (FBL). Dies ist die Einstellung für die gesamte Farm, die bestimmt, dass die Funktionen der AD FS-Farm verwenden kann.
 
 Die folgende Tabelle enthält die FBL Werte von Windows Server-Version:
+
 | Windows Server-Version  | FBL | Datenbankname für AD FS-Konfiguration |
 | ------------- | ------------- | ------------- |
 | 2012 R2  | 1  | AdfsConfiguration |

@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: ffd7131f7f3772ab47b62c9755008fe3b1c4b274
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 3a78334f64d9e51515757b01f2d788bf87f67a35
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192067"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501608"
 ---
 # <a name="plan-device-based-conditional-access-on-premises"></a>Planen des gerätebasierten bedingten lokalen Zugriffs
 
@@ -30,7 +30,7 @@ AD FS verfügt, die auf lokale-Komponente der Richtlinien für bedingten Zugriff
 ### <a name="types-of-registered-devices"></a>Arten von registrierten Geräten  
 Es gibt drei Arten von registrierten Geräte, die als Geräteobjekte in Azure AD dargestellt werden, und für den bedingten Zugriff mit AD FS auch lokal verwendet werden können.  
 
-| |Arbeit hinzufügen Schul- oder Unikonto  |Azure AD-Beitritt  |Windows 10 Domian Join    
+| |Arbeit hinzufügen Schul- oder Unikonto  |Azure AD-Beitritt  |Windows 10-Domäne beitreten    
 | --- | --- |--- | --- |
 |Beschreibung    |  Benutzer fügen ihre Arbeit Schul- oder unikonto auf ihre BYOD-Geräte interaktiv.  **Hinweis**: Hinzufügen von Geschäfts-, Schul- oder Unikonto ist der Ersatz für den Arbeitsplatzbeitritt in Windows 8/8.1       | Benutzer einbinden ihre Windows 10-Gerät für Arbeit in Azure AD.|Windows 10-Domäne eingebundene Geräte werden automatisch in Azure AD registriert.|           
 |Wie Benutzer auf dem Gerät anmelden     |  Keine Anmeldung bei Windows als Geschäfts-, Schul- oder UNI-Konto.  Melden Sie sich mit einem Microsoft-Konto.       |   Melden Sie sich Windows als Konto (Geschäfts-, Schul- oder unikonto), das das Gerät registriert.      |     Melden Sie sich mit der AD-Konto.|      

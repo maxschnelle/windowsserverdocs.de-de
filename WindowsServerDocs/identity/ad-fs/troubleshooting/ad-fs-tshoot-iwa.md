@@ -8,12 +8,12 @@ ms.date: 02/21/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 91f252f5b0eca0f4c44e0b1a4564037298bf023c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9703a8652b0e0bbafe48858cbfbcc8aa9aa31ef8
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814061"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812048"
 ---
 # <a name="ad-fs-troubleshooting---integrated-windows-authentication"></a>AD FS-Problembehandlung – integrierte Windows-Authentifizierung
 Integrierte Windows-Authentifizierung kann Benutzer sich mit ihren Windows-Anmeldeinformationen und die benutzerfreundlichkeit-einmaliges Anmelden (SSO) mit Kerberos oder NTLM anzumelden.
@@ -24,7 +24,7 @@ Es gibt drei Hauptgründe dafür, warum die integrierte Windows-Authentifizierun
     - Kanalbindungstoken
     - Internet Explorer-Konfiguration
 
-## <a name="spn-misonfiguration"></a>SPN-misonfiguration
+## <a name="spn-misconfiguration"></a>SPN-Fehlkonfiguration
 Ein Dienstprinzipalname (SPN) ist ein eindeutiger Bezeichner einer Dienstinstanz. SPNs werden durch die Kerberos-Authentifizierung verwendet, ein Dienstkonto für die Anmeldung eine Dienstinstanz zugeordnet. Dadurch wird eine Client-Anwendung, um anzufordern, dass der Dienst ein Konto zu authentifizieren, auch wenn der Client keinen den Kontonamen.
 
 Ein Beispiel einer ein SPN wird verwendet, mit AD FS ist wie folgt:
@@ -67,13 +67,14 @@ Standardmäßig werden InternetExplorer müssen wie folgt:
 
 Es gibt 2 Dinge, die dies Happeing verhindern können.
    - Integrierte Windows-Authentifizierung aktivieren, wird in den Eigenschaften von IE nicht überprüft.  Diese finden Sie unter "Internetoptionen" -> Erweitert -> Sicherheit.
-![integrated](media/ad-fs-tshoot-iwa/iwa4.png)
+   
+   ![integriert](media/ad-fs-tshoot-iwa/iwa4.png)
    
    - Sicherheitszonen sind nicht ordnungsgemäß konfiguriert.
        - Bei FQDNs wird nicht in der Intranetzone
        - AD FS-URL ist nicht in der Intranetzone.
 
-![integriert](media/ad-fs-tshoot-iwa/iwa5.png)
+      ![integriert](media/ad-fs-tshoot-iwa/iwa5.png)
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [AD FS-Problembehandlung](ad-fs-tshoot-overview.md)
+- [Behandeln von AD FS-Problemen](ad-fs-tshoot-overview.md)

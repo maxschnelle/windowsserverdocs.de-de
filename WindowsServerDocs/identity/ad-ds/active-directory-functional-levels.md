@@ -11,12 +11,12 @@ ms.prod: windows-server-threshold
 ms.custom: it-pro
 ms.reviewer: maheshu
 ms.technology: identity-adds
-ms.openlocfilehash: ea56c718394d145a36145d32e5769661a62efd56
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: cb9b5b9448f364760c3d2a7e43edd01a5a9f7f9d
+ms.sourcegitcommit: a3958dba4c2318eaf2e89c7532e36c78b1a76644
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59841001"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66719665"
 ---
 # <a name="forest-and-domain-functional-levels"></a>Funktionsebenen Gesamtstruktur und Domäne
 
@@ -34,7 +34,7 @@ Auf dem Windows Server 2008 und höher Domänenfunktionsebenen werden Replikatio
 
 Es gibt keine neue Gesamtstruktur oder die Funktionsebenen in dieser Version hinzugefügt.
 
-Die Mindestanforderungen für das Hinzufügen eines Domänencontrollers von Windows Server 2019 ist eine Windows Server 2008 R2-Funktionsebene.
+Die Mindestanforderungen für das Hinzufügen eines Domänencontrollers von Windows Server 2019 ist eine Windows Server 2008-Funktionsebene. Die Domäne muss auch DFS-R zum Replizieren von SYSVOL als Engine zu verwenden.
 
 ## <a name="windows-server-2016"></a>Windows Server 2016
 
@@ -139,25 +139,27 @@ Unterstützte Domänencontroller-Betriebssystems:
 ### <a name="windows-server-2008-domain-functional-level-features"></a>Windows Server 2008 funktionale Funktionen der Domänenebene
 
 * Alle der standardmäßigen AD DS-features, alle Features der Windows Server 2003-Domänenfunktionsebene und die folgenden Funktionen sind verfügbar:
-   * Replikationsunterstützung für Distributed File System (DFS) für Windows Server 2003 das Systemvolume (SYSVOL)
-      * Unterstützung der DFS-Replikation bietet eine stabilere und genauer abgestimmte Replikation von SYSVOL-Inhalten.
-        [!NOTE]>
-        >Ab Windows Server 2012 R2, ist (File Replication Service, FRS) veraltet. Eine neue Domäne, die auf einem Domänencontroller erstellt wird, die mindestens muss Windows Server 2012 R2 auf die Domänenfunktionsebene Windows Server 2008 oder höher festgelegt werden.
+  * Replikationsunterstützung für Distributed File System (DFS) für Windows Server 2003 das Systemvolume (SYSVOL)
+    * Unterstützung der DFS-Replikation bietet eine stabilere und genauer abgestimmte Replikation von SYSVOL-Inhalten.
 
-   * Domänenbasierte DFS-Namespaces, der unter Windows Server 2008-Modus, einschließlich Unterstützung für zugriffsbasierte Aufzählung und erhöhte Skalierbarkeit. Domänenbasierte Namespaces in Windows Server 2008-Modus muss auch die Gesamtstruktur die Funktionsebene der Windows Server 2003-Gesamtstruktur verwenden. Weitere Informationen finden Sie unter [wählen Sie einen Namespace-Typ](https://go.microsoft.com/fwlink/?LinkId=180400).
-   * Advanced Encryption Standard (AES-128 und AES-256) Unterstützung für das Kerberos-Protokoll. Klicken Sie in der Reihenfolge für TGTs ausgestellt werden mithilfe von AES die Domänenfunktionsebene muss WindowsServer 2008 oder höher sein, und das Kennwort muss geändert werden. 
-      * Weitere Informationen finden Sie unter [Kerberos-Erweiterungen](https://technet.microsoft.com/library/cc749438(ws.10).aspx).
-        [!NOTE]>
-        >Authentifizierungsfehler können auf einem Domänencontroller auftreten, nachdem die Domänenfunktionsebene auf Windows Server 2008 oder höher ausgelöst wird, wenn der Domänencontroller wurde bereits die Domänenfunktionsebene Änderung repliziert, aber das Krbtgt-Kennwort wurde noch nicht aktualisiert. In diesem Fall wird ein Neustart des KDC-Diensts auf dem Domänencontroller eine in-Memory-Aktualisierung, der das neue Kennwort des Krbtgt auslösen und zugehörige Authentifizierungs-Fehler zu beheben.
+      > [!NOTE]
+      > Ab Windows Server 2012 R2, ist (File Replication Service, FRS) veraltet. Eine neue Domäne, die auf einem Domänencontroller erstellt wird, die mindestens muss Windows Server 2012 R2 auf die Domänenfunktionsebene Windows Server 2008 oder höher festgelegt werden.
 
-   * [Letzte interaktive Anmeldung](https://go.microsoft.com/fwlink/?LinkId=180387) Informationen die folgenden Informationen angezeigt:
-      * Die Gesamtanzahl der fehlgeschlagenen Anmeldeversuche auf einem Server für die Domäne eingebundenen Windows Server 2008 oder einer Windows Vista-Arbeitsstation
-      * Die Gesamtanzahl fehlgeschlagener Anmeldeversuche nach einer erfolgreichen Anmeldung auf einem Windows Server 2008-Server oder einer Windows Vista-Arbeitsstation
-      * Zeitpunkt des letzten fehlgeschlagenen Anmeldeversuchs auf einem Windows Server 2008 oder einer Windows Vista-Arbeitsstation
-      * Zeitpunkt der letzten erfolgreichen Anmeldung versucht, auf einem Windows Server 2008-Server oder einer Windows Vista-Arbeitsstation
-   * Fein abgestimmte Kennwortrichtlinien ermöglichen es Ihnen die Angabe von Kennwort- und Kontosperrungsrichtlinien für Benutzer und globale Sicherheitsgruppen in einer Domäne. Weitere Informationen finden Sie unter [schrittweisen Anleitung für die Konfiguration abgestimmter Kennwort- und Account Lockout Richtlinienkonfiguration](https://go.microsoft.com/fwlink/?LinkID=91477).
-   * Persönliche virtuelle Desktops
-      * Um die neue Funktion von der persönlichen virtuellen Desktop-Registerkarte im Dialogfeld Eigenschaften von Benutzerkonten in Active Directory-Benutzer und-Computer zu verwenden, muss das AD DS-Schema erweitert werden für Windows Server 2008 R2 (Objekt-Schemaversion = 47). Weitere Informationen finden Sie unter [bereitstellen persönlicher virtueller Desktops mithilfe der RemoteApp-und Desktop schrittweisen Anleitung zum](https://go.microsoft.com/fwlink/?LinkId=183552).
+  * Domänenbasierte DFS-Namespaces, der unter Windows Server 2008-Modus, einschließlich Unterstützung für zugriffsbasierte Aufzählung und erhöhte Skalierbarkeit. Domänenbasierte Namespaces in Windows Server 2008-Modus muss auch die Gesamtstruktur die Funktionsebene der Windows Server 2003-Gesamtstruktur verwenden. Weitere Informationen finden Sie unter [wählen Sie einen Namespace-Typ](https://go.microsoft.com/fwlink/?LinkId=180400).
+  * Advanced Encryption Standard (AES-128 und AES-256) Unterstützung für das Kerberos-Protokoll. Klicken Sie in der Reihenfolge für TGTs ausgestellt werden mithilfe von AES die Domänenfunktionsebene muss WindowsServer 2008 oder höher sein, und das Kennwort muss geändert werden. 
+    * Weitere Informationen finden Sie unter [Kerberos-Erweiterungen](https://technet.microsoft.com/library/cc749438(ws.10).aspx).
+
+      > [!NOTE]
+      >Authentifizierungsfehler können auf einem Domänencontroller auftreten, nachdem die Domänenfunktionsebene auf Windows Server 2008 oder höher ausgelöst wird, wenn der Domänencontroller wurde bereits die Domänenfunktionsebene Änderung repliziert, aber das Krbtgt-Kennwort wurde noch nicht aktualisiert. In diesem Fall wird ein Neustart des KDC-Diensts auf dem Domänencontroller eine in-Memory-Aktualisierung, der das neue Kennwort des Krbtgt auslösen und zugehörige Authentifizierungs-Fehler zu beheben.
+
+  * [Letzte interaktive Anmeldung](https://go.microsoft.com/fwlink/?LinkId=180387) Informationen die folgenden Informationen angezeigt:
+     * Die Gesamtanzahl der fehlgeschlagenen Anmeldeversuche auf einem Server für die Domäne eingebundenen Windows Server 2008 oder einer Windows Vista-Arbeitsstation
+     * Die Gesamtanzahl fehlgeschlagener Anmeldeversuche nach einer erfolgreichen Anmeldung auf einem Windows Server 2008-Server oder einer Windows Vista-Arbeitsstation
+     * Zeitpunkt des letzten fehlgeschlagenen Anmeldeversuchs auf einem Windows Server 2008 oder einer Windows Vista-Arbeitsstation
+     * Zeitpunkt der letzten erfolgreichen Anmeldung versucht, auf einem Windows Server 2008-Server oder einer Windows Vista-Arbeitsstation
+  * Fein abgestimmte Kennwortrichtlinien ermöglichen es Ihnen die Angabe von Kennwort- und Kontosperrungsrichtlinien für Benutzer und globale Sicherheitsgruppen in einer Domäne. Weitere Informationen finden Sie unter [schrittweisen Anleitung für die Konfiguration abgestimmter Kennwort- und Account Lockout Richtlinienkonfiguration](https://go.microsoft.com/fwlink/?LinkID=91477).
+  * Persönliche virtuelle Desktops
+     * Um die neue Funktion von der persönlichen virtuellen Desktop-Registerkarte im Dialogfeld Eigenschaften von Benutzerkonten in Active Directory-Benutzer und-Computer zu verwenden, muss das AD DS-Schema erweitert werden für Windows Server 2008 R2 (Objekt-Schemaversion = 47). Weitere Informationen finden Sie unter [bereitstellen persönlicher virtueller Desktops mithilfe der RemoteApp-und Desktop schrittweisen Anleitung zum](https://go.microsoft.com/fwlink/?LinkId=183552).
 
 ## <a name="windows-server-2003"></a>Windows Server 2003
 

@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: ac2b1643ed151e94c3815abca9a57eb3706c845a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b14ded98c4f1a340349119bd9f5f42e3a1bf9434
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871131"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445747"
 ---
 # <a name="deploy-security-auditing-with-central-audit-policies-demonstration-steps"></a>Bereitstellen der Sicherheitsüberwachung mit zentralen Überwachungsrichtlinien (Demonstrationsschritte)
 
@@ -34,21 +34,21 @@ In diesem Schritt konfigurieren Sie die globale Objektzugriffsrichtlinie auf dem
   
 #### <a name="to-configure-a-global-object-access-policy"></a>So konfigurieren Sie eine globale Objektzugriffsrichtlinie  
   
-1.  Melden Sie sich bei dem Domänencontroller DC1 als %% amp;quot;Contoso\Administrator%%amp;quot; mit dem Kennwort **pass@word1**.  
+1. Melden Sie sich bei dem Domänencontroller DC1 als %% amp;quot;Contoso\Administrator%%amp;quot; mit dem Kennwort <strong>pass@word1</strong>.  
   
-2.  Zeigen Sie in Server-Manager auf **Extras**, und klicken Sie dann auf **Gruppenrichtlinienverwaltung**.  
+2. Zeigen Sie in Server-Manager auf **Extras**, und klicken Sie dann auf **Gruppenrichtlinienverwaltung**.  
   
-3.  Doppelklicken Sie in der Konsolenstruktur auf **Domänen**, doppelklicken Sie auf **contoso.com**, klicken Sie auf **Contoso**, und doppelklicken Sie dann auf **Dateiserver**.  
+3. Doppelklicken Sie in der Konsolenstruktur auf **Domänen**, doppelklicken Sie auf **contoso.com**, klicken Sie auf **Contoso**, und doppelklicken Sie dann auf **Dateiserver**.  
   
-4.  Klicken Sie mit der rechten Maustaste auf **FlexibleAccessGPO**, und klicken Sie dann auf **Bearbeiten**.  
+4. Klicken Sie mit der rechten Maustaste auf **FlexibleAccessGPO**, und klicken Sie dann auf **Bearbeiten**.  
   
-5.  Doppelklicken Sie auf **Computerkonfiguration**, doppelklicken Sie auf **Richtlinien**, und doppelklicken Sie dann auf **Windows-Einstellungen**.  
+5. Doppelklicken Sie auf **Computerkonfiguration**, doppelklicken Sie auf **Richtlinien**, und doppelklicken Sie dann auf **Windows-Einstellungen**.  
   
-6.  Doppelklicken Sie auf **Sicherheitseinstellungen**, doppelklicken Sie auf **Erweiterte Überwachungsrichtlinienkonfiguration**, und doppelklicken Sie dann auf **Überwachungsrichtlinien**.  
+6. Doppelklicken Sie auf **Sicherheitseinstellungen**, doppelklicken Sie auf **Erweiterte Überwachungsrichtlinienkonfiguration**, und doppelklicken Sie dann auf **Überwachungsrichtlinien**.  
   
-7.  Doppelklicken Sie auf **Objektzugriff**, und doppelklicken Sie dann auf **Dateisystem überwachen**.  
+7. Doppelklicken Sie auf **Objektzugriff**, und doppelklicken Sie dann auf **Dateisystem überwachen**.  
   
-8.  Aktivieren Sie das Kontrollkästchen **Folgende Überwachungsereignisse konfigurieren**, aktivieren Sie die Kontrollkästchen **Erfolgreich** und **Fehler**, und klicken Sie auf **OK**.  
+8. Aktivieren Sie das Kontrollkästchen **Folgende Überwachungsereignisse konfigurieren**, aktivieren Sie die Kontrollkästchen **Erfolgreich** und **Fehler**, und klicken Sie auf **OK**.  
   
 9. Doppelklicken Sie im Navigationsbereich auf **Globale Objektzugriffsüberwachung**, und doppelklicken Sie dann auf **Dateisystem**.  
   
@@ -70,14 +70,14 @@ In diesem Schritt aktualisieren Sie die Gruppenrichtlinieneinstellungen, nachdem
   
 #### <a name="to-update-group-policy-settings"></a>So aktualisieren Sie die Gruppenrichtlinieneinstellungen  
   
-1.  Melden Sie sich am Dateiserver FILE1 als "Contoso\Administrator" mit dem Kennwort bei **pass@word1**.  
+1. Melden Sie sich am Dateiserver FILE1 als "Contoso\Administrator" mit dem Kennwort bei <strong>pass@word1</strong>.  
   
-2.  Drücken Sie die Windows-Taste+R, und geben Sie **cmd** ein, um ein Befehlseingabefenster zu öffnen.  
+2. Drücken Sie die Windows-Taste+R, und geben Sie **cmd** ein, um ein Befehlseingabefenster zu öffnen.  
   
-    > [!NOTE]  
-    > Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
+   > [!NOTE]  
+   > Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
   
-3.  Geben Sie **gpupdate /force** ein, und drücken Sie dann die EINGABETASTE.  
+3. Geben Sie **gpupdate /force** ein, und drücken Sie dann die EINGABETASTE.  
   
 ## <a name="BKMK_3"></a>Stellen Sie sicher, dass die globale objektzugriffsrichtlinie angewendet wurde.  
 Nachdem die Gruppenrichtlinieneinstellungen angewendet wurden, können Sie überprüfen, ob die Überwachungsrichtlinieneinstellungen richtig angewendet wurden.  
@@ -95,8 +95,8 @@ Nachdem die Gruppenrichtlinieneinstellungen angewendet wurden, können Sie über
   
 -   [Szenario: Dateizugriffsüberwachung](Scenario--File-Access-Auditing.md)  
   
--   [Datei Planen der Dateizugriffsüberwachung](Plan-for-File-Access-Auditing.md)  
+-   [Planen der Dateizugriffsüberwachung](Plan-for-File-Access-Auditing.md)  
   
--   [Dynamische Zugriffssteuerung: Übersicht über das Szenario](Dynamic-Access-Control--Scenario-Overview.md)  
+-   [Dynamische Zugriffsteuerung: Szenarioübersicht](Dynamic-Access-Control--Scenario-Overview.md)  
   
 

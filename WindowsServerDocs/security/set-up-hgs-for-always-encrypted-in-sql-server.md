@@ -7,12 +7,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 11/03/2018
-ms.openlocfilehash: 2f800dfa01077287f8200dd8abea0be899776683
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 70f6f8c2db742361deecaa216b053d8b1d057a3d
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59866691"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812604"
 ---
 # <a name="setting-up-the-host-guardian-service-for-always-encrypted-with-secure-enclaves-in-sql-server"></a>Einrichten von Host-Überwachungsdienst für Always Encrypted mit sicheren Enclaves in SQL Server 
 
@@ -39,8 +39,8 @@ Dieser Abschnitt behandelt die Voraussetzungen für die Host-Überwachungsdienst
 
 - 1 bis 3-Server-Host-Überwachungsdiensts ausführen. 
 
-  >[!NOTE]
-  >Nur 1 HGS-Server ist für eine Test- oder präproduktionsumgebung-Umgebung erforderlich.
+  > [!NOTE]
+  > Nur 1 HGS-Server ist für eine Test- oder präproduktionsumgebung-Umgebung erforderlich.
 
   Diese Server sollten sorgfältig geschützt werden, da sie steuern, welche Computer von Always Encrypted mit sicheren Enclaves SQL Server-Instanzen ausgeführt werden können. 
   Es wird empfohlen, dass verschiedene Administratoren den Host-Überwachungsdienst-Cluster zu verwalten und der Host-Überwachungsdienst auf physischer Hardware isoliert vom Rest der Infrastruktur oder in separaten virtualisierungsfabrics oder Azure-Abonnements ausführen.
@@ -110,11 +110,13 @@ Führen Sie die folgenden Befehle in einer PowerShell-Sitzung mit erhöhten Rech
    Geben Sie für die HgsServiceName das DNN, das Sie ausgewählt haben.
 
    Für TPM-Modus:
+
    ```powershell
    Initialize-HgsAttestation -HgsServiceName 'hgs' -TrustTpm
    ```
 
    Für den Host-Schlüssel-Modus:
+
    ```powershell
    Initialize-HgsAttestation -HgsServiceName 'hgs' -TrustHostKey 
    ```
@@ -148,13 +150,13 @@ Um Knoten zum Cluster hinzuzufügen, führen Sie die folgenden Befehle in einer 
 
 In der Standardeinstellung beim Initialisieren des HGS-Servers wird die IIS-Websites für die nur für HTTP-Kommunikation konfiguriert.
 
->[!NOTE]
->Konfigurieren von HTTPS mit einem bekannten und vertrauenswürdigen HGS-Serverzertifikat ist erforderlich, um Man-in-the-Middle-Angriffe zu verhindern, und es wird daher für produktionsbereitstellungen empfohlen.
+> [!NOTE]
+> Konfigurieren von HTTPS mit einem bekannten und vertrauenswürdigen HGS-Serverzertifikat ist erforderlich, um Man-in-the-Middle-Angriffe zu verhindern, und es wird daher für produktionsbereitstellungen empfohlen.
 
 [!INCLUDE [Configure HTTPS](../../includes/configure-hgs-for-https.md)] 
 
->[!NOTE]
->Für Always Encrypted mit sicheren Enclaves das SSL-Zertifikat muss auf beiden Hostcomputern vertrauenswürdig sein, auf denen SQL Server ausgeführt und Computer, die Datenbank-Clientanwendungen ausgeführt kontaktieren müssen, Host-Überwachungsdienst. 
+> [!NOTE]
+> Für Always Encrypted mit sicheren Enclaves das SSL-Zertifikat muss auf beiden Hostcomputern vertrauenswürdig sein, auf denen SQL Server ausgeführt und Computer, die Datenbank-Clientanwendungen ausgeführt kontaktieren müssen, Host-Überwachungsdienst. 
 
 ## <a name="collect-attestation-info-from-the-host-machines"></a>Erfassen Sie Nachweis Informationen von den Hostcomputern
 
@@ -197,6 +199,7 @@ Wenn Sie TPM-Modus verwenden, führen Sie die folgenden Befehle in einer PowerSh
    ```powershell
    Get-ComputerInfo -Property DeviceGuard* 
    ```
+
 5. Sammeln Sie die TPM-ID und der Baseline an:
 
    ```powershell 
@@ -216,6 +219,7 @@ Wenn Sie TPM-Modus verwenden, führen Sie die folgenden Befehle in einer PowerSh
    Add-HgsAttestationTpmPolicy -Name ServerA-Baseline -Path C:\temp\TpmBaseline-ServerA.tcglog 
    Add-HgsAttestationCiPolicy -Name AllowMicrosoft-Audit -Path C:\temp\AllowMicrosoft-Audit.bin 
    ```
+
 9. Ihren erste Server kann jetzt bestätigen! 
    Führen Sie den folgenden Befehl mitteilen, wo Sie bestätigen (Änderung der DNS-Name, der von Ihrem Host-Überwachungsdienst-Cluster, in der Regel den Namen des Host-Überwachungsdienst-Diensts mit dem Host-Überwachungsdienst-Domänennamen kombiniert verwendet wird) ist, auf dem Hostcomputer. 
    Wenn Sie eine HostUnreachable-Fehlermeldung erhalten, stellen Sie sicher, können Sie beheben und die DNS-Namen der HGS-Server zu pingen. 
@@ -231,8 +235,8 @@ Wenn Sie TPM-Modus verwenden, führen Sie die folgenden Befehle in einer PowerSh
 
 ### <a name="collecting-host-keys"></a>Sammeln von Host-Schlüssel 
 
->[!NOTE] 
->Host-schlüsselnachweis wird nur für die Verwendung in testumgebungen empfohlen. TPM-Nachweis gewährleistet die stärksten VBS Enclaves verarbeiten Ihre sensiblen Daten in SQL Server vertrauenswürdigen Code ausgeführt werden, und die Computer mit den empfohlenen Einstellungen konfiguriert werden. 
+> [!NOTE] 
+> Host-schlüsselnachweis wird nur für die Verwendung in testumgebungen empfohlen. TPM-Nachweis gewährleistet die stärksten VBS Enclaves verarbeiten Ihre sensiblen Daten in SQL Server vertrauenswürdigen Code ausgeführt werden, und die Computer mit den empfohlenen Einstellungen konfiguriert werden. 
 
 Wenn Sie Host-Überwachungsdienst in den schlüsselnachweis Hostmodus einrichten möchten, müssen Sie generieren und Schlüssel von jedem Hostcomputer erfassen, und registrieren Sie ihn beim Host-Überwachungsdienst. 
 

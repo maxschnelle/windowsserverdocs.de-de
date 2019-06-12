@@ -8,12 +8,12 @@ ms.date: 03/01/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 6f85c447ac0816c46e07145dbe9a491a29e17c0f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 228ef34ab25276c1cf98f9b2b64e997390023c87
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846471"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444011"
 ---
 # <a name="ad-fs-troubleshooting---azure-ad"></a>AD FS-Problembehandlung – Azure AD
 Mit dem Wachstum der Cloud wurden viele Unternehmen über Azure AD für ihre verschiedenen apps und Dienste verschieben.  Den Verbund mit Azure AD ist ein Standardverfahren für viele Organisationen geworden.  In diesem Dokument behandelt einige der Aspekte der Behandlung von Problemen, die mit diesen Verbund auftreten.  Einige der in den Themen in des Dokuments die allgemeine Problembehandlung noch beziehen sich auf den Verbund mit Azure, damit in diesem Dokument auf nur Besonderheiten in Azure AD Fokus wird und AD FS-Interaktion.
@@ -31,11 +31,11 @@ Wenn die Umleitung nicht ausgeführt wird, dass es einige Dinge, das Sie überpr
 
 ![](media/ad-fs-tshoot-azure/azure2.png)
 
-   2.  Stellen Sie sicher, dass Ihre benutzerdefinierte Domäne überprüft wurde, indem Sie in der Domäne neben Verbund im Azure-Portal auf.
-![](media/ad-fs-tshoot-azure/azure3.png)
+1. Stellen Sie sicher, dass Ihre benutzerdefinierte Domäne überprüft wurde, indem Sie in der Domäne neben Verbund im Azure-Portal auf.
+   ![](media/ad-fs-tshoot-azure/azure3.png)
 
-   3. Zum Schluss Sie überprüfen möchten [DNS](ad-fs-tshoot-dns.md) und stellen Sie sicher, dass Ihre AD FS-Server oder die WAP-Server über das Internet aufgelöst werden.  Stellen Sie sicher, dass dies aufgelöst wird und Sie dorthin navigieren können.
-   4. Sie können auch das PowerShell-Cmdlet `Get-AzureADDomain` auf diese Informationen auch abrufen.
+2. Zum Schluss Sie überprüfen möchten [DNS](ad-fs-tshoot-dns.md) und stellen Sie sicher, dass Ihre AD FS-Server oder die WAP-Server über das Internet aufgelöst werden.  Stellen Sie sicher, dass dies aufgelöst wird und Sie dorthin navigieren können.
+3. Sie können auch das PowerShell-Cmdlet `Get-AzureADDomain` auf diese Informationen auch abrufen.
 
 ![](media/ad-fs-tshoot-azure/azure6.png)
 
@@ -48,14 +48,14 @@ Um eine Authentifizierungsmethode zu erzwingen, verwenden Sie eine der folgenden
 - Verwenden Sie für die WS-Verbund eine WAUTH-Abfragezeichenfolge, um eine bevorzugte Authentifizierungsmethode zu erzwingen.
 
 - Verwenden Sie für SAML2.0 die folgenden Schritte aus:
-```
-<saml:AuthnContext>
-<saml:AuthnContextClassRef>
-urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport
-</saml:AuthnContextClassRef>
-</saml:AuthnContext>
-```
-Wenn die erzwungene Authentifizierungsmethode mit einem falschen Wert gesendet wird oder wenn diese Authentifizierungsmethode für AD FS oder STS nicht unterstützt wird, erhalten Sie eine Fehlermeldung angezeigt, bevor Sie authentifiziert sind.
+  ```
+  <saml:AuthnContext>
+  <saml:AuthnContextClassRef>
+  urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport
+  </saml:AuthnContextClassRef>
+  </saml:AuthnContext>
+  ```
+  Wenn die erzwungene Authentifizierungsmethode mit einem falschen Wert gesendet wird oder wenn diese Authentifizierungsmethode für AD FS oder STS nicht unterstützt wird, erhalten Sie eine Fehlermeldung angezeigt, bevor Sie authentifiziert sind.
 
 |Authentifizierungsmethode möchten|Wauth-URI|
 |-----|-----|
@@ -145,4 +145,4 @@ Folgendes ist eine Liste der Dinge zu überprüfen, ob Sie mit AD FS und Azure A
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [AD FS-Problembehandlung](ad-fs-tshoot-overview.md)
+- [Behandeln von AD FS-Problemen](ad-fs-tshoot-overview.md)

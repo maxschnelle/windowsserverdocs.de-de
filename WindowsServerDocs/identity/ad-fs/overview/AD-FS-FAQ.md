@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: it-pro
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: fdd31a8b7c2c6ef87d1d22d901b5c6ca69b5c70d
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: f3f84a5c18589d38606825ee064cfb729003a05d
+ms.sourcegitcommit: a3958dba4c2318eaf2e89c7532e36c78b1a76644
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188719"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66719687"
 ---
 # <a name="ad-fs-frequently-asked-questions-faq"></a>AD FS-häufig gestellte Fragen (FAQ)
 
@@ -120,7 +120,7 @@ Die Lebensdauer der Aktualisierungstoken werden die Lebensdauer des Tokens, die 
 Sie können benutzerdefinierte ID-Token verwenden, relevante Informationen in das ID-Token hinzufügen. Weitere Informationen finden Sie im Artikel [Anpassen von Ansprüchen in ID-Token an](../development/Custom-Id-Tokens-in-AD-FS.md).
 
 ### <a name="how-to-issue-json-blobs-inside-jwt-tokens"></a>Wie Sie Json-Blobs im JWT-Token zu stellen?
-Eine spezielle ValueType ("http://www.w3.org/2001/XMLSchema#json") und character(\x22) Escapezeichen zu versehen, dies in AD FS 2016 hinzugefügt wurde. Führen Sie im folgenden Beispiel für die Regel für die Ausstellung und auch die endgültige Ausgabe aus dem Zugriffstoken aus.
+Eine spezielle ValueType ("<http://www.w3.org/2001/XMLSchema#json>") und character(\x22) Escapezeichen zu versehen, dies in AD FS 2016 hinzugefügt wurde. Führen Sie im folgenden Beispiel für die Regel für die Ausstellung und auch die endgültige Ausgabe aus dem Zugriffstoken aus.
 
 Beispielregel für Ausstellung:
 
@@ -171,13 +171,13 @@ Verwenden Sie die folgende Anleitungen in Bezug auf die SSL-Zertifikat und das A
 Informationen zum Konfigurieren der Eingabeaufforderung = Anmeldung finden Sie unter [Active Directory Federation Services auffordern = der Anmeldename die parameterunterstützung](../operations/AD-FS-Prompt-Login.md).
 
 ### <a name="how-can-i-change-the-ad-fs-service-account"></a>Wie kann ich das AD FS-Dienstkonto ändern?
-Führen Sie die Anweisungen, die mit der AD FS-Toolbox, um die AD FS-Dienstkonto zu ändern, [Powershell-Modul für Service-Konto](https://github.com/Microsoft/adfsToolbox/tree/master/serviceAccountModule). 
+Führen Sie die Anweisungen, die mit der AD FS-Toolbox, um die AD FS-Dienstkonto zu ändern, [Powershell-Modul für Service-Konto](https://github.com/Microsoft/adfsToolbox/tree/master/serviceAccountModule).
 
 ### <a name="how-can-i-configure-browsers-to-use-windows-integrated-authentication-wia-with-ad-fs"></a>Wie kann ich Windows integrierte Authentifizierung (WIA) mit AD FS Verwendung durch Browser konfigurieren?
 
 Informationen zum Konfigurieren von Browsern finden Sie unter [Browser, um die Verwendung von Windows integrierte Authentifizierung (WIA) mit AD FS konfigurieren](../operations/Configure-AD-FS-Browser-WIA.md).
 
-### <a name="can-i-trun-off-browserssoenabled"></a>Kann ich schalten Sie BrowserSsoEnabled?
+### <a name="can-i-turn-off-browserssoenabled"></a>Kann ich BrowserSsoEnabled deaktivieren?
 Wenn Sie nicht über Richtlinien für die Zugriffssteuerung basierend auf dem Gerät auf die AD FS oder Windows Hello für Business-zertifikatregistrierung mithilfe von ADFS verfügen; Sie können die BrowserSsoEnabled deaktivieren. BrowserSsoEnabled kann AD FS eine PRT (Primary Refresh Token) vom Client zu sammeln der Geräteinformationen enthält. Ohne das Gerät funktioniert nicht auf Windows 10-Geräten Authentifizierung von AD FS.
 
 ### <a name="how-long-are-ad-fs-tokens-valid"></a>Wie lange werden die AD FS-Token ist gültig?
@@ -295,3 +295,8 @@ Führen Sie das Update auf dem Rest der AD FS und WAP-Server, auf ähnliche Weis
 
 ### <a name="is-adfs-supported-when-web-application-proxy-wap-servers-are-behind-azure-web-application-firewallwaf"></a>Werden AD FS wird unterstützt, wenn der Web Application Proxy (WAP)-Server hinter dem Azure-Web-Anwendung Firewall(WAF) sind?
 AD FS und Web Application-Server unterstützt Firewall, die keine SSL-Tunnelabschluss für den Endpunkt durchführt. Darüber hinaus AD FS/WAP-Servern über eine integrierte Mechanismen, um zu verhindern, dass allgemeinen Webangriffen wie z. B. Cross-Site scripting, AD FS-Proxy und erfüllen alle Anforderungen von definiert die [MS-ADFSPIP Protokoll](https://msdn.microsoft.com/library/dn392811.aspx).
+
+### <a name="i-am-seeing-an-event-441-a-token-with-a-bad-token-binding-key-was-found-what-should-i-do-to-resolve-this"></a>Ich erhalte eine "Ereignis 441: Ein Token mit einem ungültigen tokenbindung-Schlüssel wurde gefunden." Was soll ich tun, um dies zu beheben?
+In AD FS 2016 tokenbindung wird automatisch aktiviert, und bewirkt, dass mehrere bekannte Probleme mit Proxy und die Federation-Szenarien die Ergebnis zu diesem Fehler. Um dies zu beheben, führen Sie den folgenden Powershell-Befehl aus, und entfernen Sie bindungsunterstützung für das token.
+
+`Set-AdfsProperties -IgnoreTokenBinding $true`

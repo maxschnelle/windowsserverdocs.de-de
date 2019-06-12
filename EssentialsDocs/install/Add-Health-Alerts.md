@@ -12,12 +12,12 @@ ms.assetid: 270e0aac-dc42-46f3-a20b-a68ffbded06d
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: cf0c062b92c687f5f7b33b419eafdca2dd3bbbfc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8c3ba4746211690ad52f775b8bdc1ccf9b6c74b7
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59828511"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433726"
 ---
 # <a name="add-health-alerts"></a>Hinzufügen von Integritätswarnungen
 
@@ -32,13 +32,13 @@ Ein Integritäts-Add-In bietet Definitionen für Warnungen, Integritätsprüfung
   
 #### <a name="to-install-the-xml-files-on-the-server"></a>So installieren Sie die XML-Dateien auf dem Server  
   
-1.  Erstellen Sie einen neuen Ordner mit dem Namen **MyHealthAddIn** im Ordner **%ProgramFiles%\Windows Server\Bin\Feature Definitions**. Sie können diesem Ordner einen beliebigen Namen geben. Es ist von Vorteil, wenn der Ordnernamen und der Funktionsname identisch sind.  
+1. Erstellen Sie einen neuen Ordner mit dem Namen **MyHealthAddIn** im Ordner **%ProgramFiles%\Windows Server\Bin\Feature Definitions**. Sie können diesem Ordner einen beliebigen Namen geben. Es ist von Vorteil, wenn der Ordnernamen und der Funktionsname identisch sind.  
   
-2.  Kopieren Sie die Dateien "Definition.xml" und "Definition.xml.config" in den neuen Ordner.  
+2. Kopieren Sie die Dateien "Definition.xml" und "Definition.xml.config" in den neuen Ordner.  
   
-3.  Wenn Sie Binärdateien für Bedingungen oder Aktionen erstellt haben, sollten Sie diese Dateien auch nach **%ProgramFiles%\Windows Server\Bin** kopieren.  
+3. Wenn Sie Binärdateien für Bedingungen oder Aktionen erstellt haben, sollten Sie diese Dateien auch nach **%ProgramFiles%\Windows Server\Bin** kopieren.  
   
- Clientcomputer führen alle 6 Stunden eine geplante Aufgabe aus, mit der die XML-Dateien an den entsprechenden Speicherort kopiert werden. Sie können die Synchronisierung zwischen dem Clientcomputer und dem Server erzwingen, indem Sie die Aufgabe manuell ausführen.  
+   Clientcomputer führen alle 6 Stunden eine geplante Aufgabe aus, mit der die XML-Dateien an den entsprechenden Speicherort kopiert werden. Sie können die Synchronisierung zwischen dem Clientcomputer und dem Server erzwingen, indem Sie die Aufgabe manuell ausführen.  
   
 #### <a name="to-install-the-xml-files-on-the-client-computer"></a>So installieren Sie die XML-Dateien auf dem Clientcomputer  
   

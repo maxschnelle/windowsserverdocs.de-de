@@ -12,12 +12,12 @@ ms.assetid: c0a8f10d-fd85-4c8d-b9bb-176cb1db1f46
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 6d3303f2c6d84932ad9d5dee8a547cd478447732
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f0a66d0d36a3012369a9bc26c513dad069235ad8
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864391"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433793"
 ---
 # <a name="add-entries-to-setup-add-ins-quick-status-and-help-links"></a>Hinzufügen von Einträgen zu SETUP, ADD-INS und KURZE STATUSINFOS sowie von Links zu HILFE
 
@@ -33,111 +33,111 @@ Sie können den Aufgabenlisten **SETUP**, **ADD-INS**und **KURZE STATUSINFOS** A
   
 ##### <a name="to-define-the-tasks-and-links"></a>So definieren Sie die Aufgaben und Links  
   
-1.  Öffnen Sie Visual Studio 2010 oder höher als Administrator, indem Sie im Menü "Start" auf das Programm klicken und **Als Administrator ausführen** auswählen.  
+1. Öffnen Sie Visual Studio 2010 oder höher als Administrator, indem Sie im Menü "Start" auf das Programm klicken und **Als Administrator ausführen** auswählen.  
   
-2.  Klicken Sie auf **Datei**, auf **Neu**und anschließend auf **Projekt**.  
+2. Klicken Sie auf **Datei**, auf **Neu**und anschließend auf **Projekt**.  
   
-3.  Klicken Sie im Bereich **Vorlagen** auf **Klassenbibliothek**, geben Sie **OEMHomePageContent** in das Feld **Name** ein, und klicken Sie dann auf **OK**.  
+3. Klicken Sie im Bereich **Vorlagen** auf **Klassenbibliothek**, geben Sie **OEMHomePageContent** in das Feld **Name** ein, und klicken Sie dann auf **OK**.  
   
-4.  Löschen Sie die Datei "Class1.cs".  
+4. Löschen Sie die Datei "Class1.cs".  
   
-5.  Klicken Sie mit der rechten Maustaste auf das neue Projekt, klicken Sie auf **Hinzufügen**, und klicken Sie anschließend auf **Neues Element**.  
+5. Klicken Sie mit der rechten Maustaste auf das neue Projekt, klicken Sie auf **Hinzufügen**, und klicken Sie anschließend auf **Neues Element**.  
   
-6.  Klicken Sie im Bereich **Vorlagen** auf **XML-Datei**, geben Sie **OEMHomePageContent.home** in das Feld **Name** ein, und klicken Sie dann auf **Hinzufügen**.  
+6. Klicken Sie im Bereich **Vorlagen** auf **XML-Datei**, geben Sie **OEMHomePageContent.home** in das Feld **Name** ein, und klicken Sie dann auf **Hinzufügen**.  
   
-    > [!NOTE]
-    >  Wenn die XML-Datei ohne eine Ressourcendatei installiert wird, muss sie in "OEMHomePageContent.home" umbenannt werden. Wenn sie in eine Assembly aufgenommen wird, kann sie einen beliebigen Namen bekommen, die Erweiterung muss aber HOME sein.  
+   > [!NOTE]
+   >  Wenn die XML-Datei ohne eine Ressourcendatei installiert wird, muss sie in "OEMHomePageContent.home" umbenannt werden. Wenn sie in eine Assembly aufgenommen wird, kann sie einen beliebigen Namen bekommen, die Erweiterung muss aber HOME sein.  
   
-7.  Fügen Sie den folgenden XML-Code in die Datei "OEMHomePageContent.home" ein:  
+7. Fügen Sie den folgenden XML-Code in die Datei "OEMHomePageContent.home" ein:  
   
-    ```  
+   ```  
   
-    <Tasks version=?2.0? xmlns=?https://schemas.microsoft.com/WindowsServerSolutions/2010/01/Dashboard>  
-       <SetupMyServerTasks>  
-          <Task name="MyTask"  
-             description="MyTaskDescription"  
-             id="GUID">  
-                  <Action   
-                  name=?MyAction1Name?   
-                  image=?IconForAction1?  
-                  type=?TaskType?  
-                  exelocation=?ActionExeLocation? />  
-                  <Action   
-                  name=?MyAction2Name?   
-                  image=?IconForAction2?  
-                  type=?TaskType?  
-                  exelocation=?ActionExeLocation? />  
-                   ¦  
-           </Task>  
-                   ¦  
-        </SetupMyServerTasks>  
-    <MailServiceTasks>  
-         <!-- Same schema as in œSetupMyServerTasks? but the tasks are shown in œConnect to Email Service? category. -->  
-    </MailServiceTasks>  
-    <LineOfBusinessTasks>  
-         <!-- Same schema as in œSetupMyServerTasks? but the tasks are shown in œAdd-ins? category. -->  
+   <Tasks version=?2.0? xmlns=?https://schemas.microsoft.com/WindowsServerSolutions/2010/01/Dashboard>  
+      <SetupMyServerTasks>  
+         <Task name="MyTask"  
+            description="MyTaskDescription"  
+            id="GUID">  
+                 <Action   
+                 name=?MyAction1Name?   
+                 image=?IconForAction1?  
+                 type=?TaskType?  
+                 exelocation=?ActionExeLocation? />  
+                 <Action   
+                 name=?MyAction2Name?   
+                 image=?IconForAction2?  
+                 type=?TaskType?  
+                 exelocation=?ActionExeLocation? />  
+                  ¦  
+          </Task>  
+                  ¦  
+       </SetupMyServerTasks>  
+   <MailServiceTasks>  
+        <!-- Same schema as in œSetupMyServerTasks? but the tasks are shown in œConnect to Email Service? category. -->  
+   </MailServiceTasks>  
+   <LineOfBusinessTasks>  
+        <!-- Same schema as in œSetupMyServerTasks? but the tasks are shown in œAdd-ins? category. -->  
   
-    <GetQuickStatusTasks>  
-          <Task name="MyQuickStatusTask1"  
-             description="MyQuickStatusTask1Desc   "  
-             id="GUID"  
-             assembly="AssemblyName of quick status query implementation"  
-             class="ClassName of quick status query implementation"           
-             replaceid="GUID"/>  
-               <!--  Same schema as Actions in œSetupMyServerTasks? -->   
-             </Task>  
-    </GetQuickStatusTasks>  
-       <Links>  
-          <Link  
-             ID=?GUID?  
-             Title="Displayed text of the link"  
-             Description="A very short description"  
-             ShellExecPath="Path to the application or URL"/>  
-       </Links>  
-    </Tasks>  
-    ```  
+   <GetQuickStatusTasks>  
+         <Task name="MyQuickStatusTask1"  
+            description="MyQuickStatusTask1Desc   "  
+            id="GUID"  
+            assembly="AssemblyName of quick status query implementation"  
+            class="ClassName of quick status query implementation"           
+            replaceid="GUID"/>  
+              <!--  Same schema as Actions in œSetupMyServerTasks? -->   
+            </Task>  
+   </GetQuickStatusTasks>  
+      <Links>  
+         <Link  
+            ID=?GUID?  
+            Title="Displayed text of the link"  
+            Description="A very short description"  
+            ShellExecPath="Path to the application or URL"/>  
+      </Links>  
+   </Tasks>  
+   ```  
   
-     Dabei gilt:  
+    Erläuterungen:  
   
-    |Attribut|Beschreibung|  
-    |---------------|-----------------|  
-    |Name (Aufgabe)|Der Name, der für die Aufgabe in der Liste angezeigt wird. Wenn Sie eine eingebettete Ressourcendatei erstellen, ist der Wert dieses Attributs eine Zeichenfolgenressource.|  
-    |Beschreibung (Aufgabe)|Die Beschreibung der Aufgabe. Wenn Sie eine eingebettete Ressourcendatei erstellen, ist der Wert dieses Attributs eine Zeichenfolgenressource.|  
-    |ID (Aufgabe)|Der Bezeichner der Aufgabe. Dieser Bezeichner muss eine GUID sein. Sie erstellen eine neue GUID für eine Aufgabe vom Typ **exe**. Für eine Aufgabe vom Typ **global** verwenden Sie jedoch die GUID, die Sie beim Definieren der Aufgabe für den Aufgabenbereich der Unterregisterkarte erstellt haben. Weitere Informationen zum Erstellen einer GUID finden Sie unter [GUID erstellen (guidgen.exe)](https://go.microsoft.com/fwlink/?LinkId=116098).|  
-    |image|Dieses Feld wird ignoriert.|  
-    |Name (Aktion)|Gibt den Namen der Aufgabe an.|  
-    |Typ (Aktion)|Beschreibt den Typ der Aufgabe. Die Aufgabe kann eine der folgenden sein: - **globale** Aufgabe, **exe** oder eine URL-Aufgabe. Eine Aufgabe vom Typ **global** ist die gleiche globale Aufgabe, die Sie beim Definieren der Aufgaben für den Aufgabenbereich der Unterregisterkarte erstellt haben. Weitere Informationen zum Erstellen einer globalen Aufgabe, die verwendet werden kann, im Aufgabenbereich der Unterregisterkarte und die Listen erste Schritte und allgemeine Aufgaben der Homepage œCreating finden Sie unter der Unterstützungsklassen? in der verwalten: Erstellen einer Unterregisterkarte? von der [Windows Server Solutions SDK](https://go.microsoft.com/fwlink/?LinkID=248648). Mit einer Aufgabe vom Typ **exe** können Anwendungen in den Listen mit Aufgaben unter "Erste Schritte" und mit allgemeinen Aufgaben ausgeführt werden.|  
-    |exelocation|Der Pfad der Anwendung, die der Aufgabe zugeordnet ist. Dieses Attribut wird nur für Aufgaben vom Typ **exe** verwendet.|  
-    |replaceid|Der Bezeichner der Aufgabe, die mit dieser Aufgabe ersetzt wird.|  
-    |Assembly|Der Assemblyname der Assembly, die die Klasse zum Implementieren der Abfrage des kurzen Status angibt. Die Assembly muss im Programm < Windows Server\bin befinden\\.|  
-    |Klasse|Der Name der Abfrage der kurzen Statusinfos der Klassenimplementierungen. Die Klasse muss die Schnittstelle **ITaskStatusQuery** implementieren.|  
-    |Titel (Link)|Der Text, der für den Link angezeigt wird. Wenn Sie eine eingebettete Ressourcendatei erstellen, ist der Wert dieses Attributs eine Zeichenfolgenressource.|  
-    |Beschreibung (Link)|Die Beschreibung des Linkziels. Wenn Sie eine eingebettete Ressourcendatei erstellen, ist der Wert dieses Attributs eine Zeichenfolgenressource.|  
-    |ShellExecPath|Der Pfad der Anwendung oder die URL.<br /><br /> **Hinweis**: Umgebungsvariablen werden im ShellExecPath-Attribut unterstützt.|  
+   |Attribut|Beschreibung|  
+   |---------------|-----------------|  
+   |Name (Aufgabe)|Der Name, der für die Aufgabe in der Liste angezeigt wird. Wenn Sie eine eingebettete Ressourcendatei erstellen, ist der Wert dieses Attributs eine Zeichenfolgenressource.|  
+   |Beschreibung (Aufgabe)|Die Beschreibung der Aufgabe. Wenn Sie eine eingebettete Ressourcendatei erstellen, ist der Wert dieses Attributs eine Zeichenfolgenressource.|  
+   |ID (Aufgabe)|Der Bezeichner der Aufgabe. Dieser Bezeichner muss eine GUID sein. Sie erstellen eine neue GUID für eine Aufgabe vom Typ **exe**. Für eine Aufgabe vom Typ **global** verwenden Sie jedoch die GUID, die Sie beim Definieren der Aufgabe für den Aufgabenbereich der Unterregisterkarte erstellt haben. Weitere Informationen zum Erstellen einer GUID finden Sie unter [GUID erstellen (guidgen.exe)](https://go.microsoft.com/fwlink/?LinkId=116098).|  
+   |image|Dieses Feld wird ignoriert.|  
+   |Name (Aktion)|Gibt den Namen der Aufgabe an.|  
+   |Typ (Aktion)|Beschreibt den Typ der Aufgabe. Die Aufgabe kann eine der folgenden sein: - **globale** Aufgabe, **exe** oder eine URL-Aufgabe. Eine Aufgabe vom Typ **global** ist die gleiche globale Aufgabe, die Sie beim Definieren der Aufgaben für den Aufgabenbereich der Unterregisterkarte erstellt haben. Weitere Informationen zum Erstellen einer globalen Aufgabe, die verwendet werden kann, im Aufgabenbereich der Unterregisterkarte und die Listen erste Schritte und allgemeine Aufgaben der Homepage œCreating finden Sie unter der Unterstützungsklassen? in der verwalten: Erstellen einer Unterregisterkarte? von der [Windows Server Solutions SDK](https://go.microsoft.com/fwlink/?LinkID=248648). Mit einer Aufgabe vom Typ **exe** können Anwendungen in den Listen mit Aufgaben unter "Erste Schritte" und mit allgemeinen Aufgaben ausgeführt werden.|  
+   |exelocation|Der Pfad der Anwendung, die der Aufgabe zugeordnet ist. Dieses Attribut wird nur für Aufgaben vom Typ **exe** verwendet.|  
+   |replaceid|Der Bezeichner der Aufgabe, die mit dieser Aufgabe ersetzt wird.|  
+   |Assembly|Der Assemblyname der Assembly, die die Klasse zum Implementieren der Abfrage des kurzen Status angibt. Die Assembly muss im Programm < Windows Server\bin befinden\\.|  
+   |Klasse|Der Name der Abfrage der kurzen Statusinfos der Klassenimplementierungen. Die Klasse muss die Schnittstelle **ITaskStatusQuery** implementieren.|  
+   |Titel (Link)|Der Text, der für den Link angezeigt wird. Wenn Sie eine eingebettete Ressourcendatei erstellen, ist der Wert dieses Attributs eine Zeichenfolgenressource.|  
+   |Beschreibung (Link)|Die Beschreibung des Linkziels. Wenn Sie eine eingebettete Ressourcendatei erstellen, ist der Wert dieses Attributs eine Zeichenfolgenressource.|  
+   |ShellExecPath|Der Pfad der Anwendung oder die URL.<br /><br /> **Hinweis**: Umgebungsvariablen werden im ShellExecPath-Attribut unterstützt.|  
   
-     Im folgenden Codebeispiel wird die Definition eines Links zu einer Anwendung veranschaulicht:  
+    Im folgenden Codebeispiel wird die Definition eines Links zu einer Anwendung veranschaulicht:  
   
-    ```  
-    <Links>  
-       <Link Title="Calc" Description="Launches Calc" ShellExecPath="%windir%\system32\calc.exe" />  
-    </Links>  
-    ```  
+   ```  
+   <Links>  
+      <Link Title="Calc" Description="Launches Calc" ShellExecPath="%windir%\system32\calc.exe" />  
+   </Links>  
+   ```  
   
-     Im folgenden Codebeispiel wird die Definition eines Links zu einer Webseite veranschaulicht:  
+    Im folgenden Codebeispiel wird die Definition eines Links zu einer Webseite veranschaulicht:  
   
-    ```  
-    <Links>  
-       <Link Title="Browser" Description="Open browser" ShellExecPath="http://www.adventureworks.com/" />  
-    </Links>  
-    ```  
+   ```  
+   <Links>  
+      <Link Title="Browser" Description="Open browser" ShellExecPath="http://www.adventureworks.com/" />  
+   </Links>  
+   ```  
   
-8.  Ändern Sie die Attributwerte, um die Aufgabe oder den Link darzustellen.  
+8. Ändern Sie die Attributwerte, um die Aufgabe oder den Link darzustellen.  
   
 9. Klicken Sie im **Projektmappen-Explorer**mit der rechten Maustaste auf **OEMHomePageContent.home**und anschließend auf **Eigenschaften**.  Wählen Sie im Bereich **Eigenschaften** (unter **Buildvorgang**) die Option **Eingebettete Ressource** aus.  
   
 10. Speichern Sie die Datei "OEMHomePageContent.home".  
   
- Informationen dazu, wie Sie eine Abfrage des Kurzstatus implementieren, finden Sie in den Dokumenten und Beispielen des [SDK für Windows Server-Lösungen](https://go.microsoft.com/fwlink/?LinkID=248648).  
+    Informationen dazu, wie Sie eine Abfrage des Kurzstatus implementieren, finden Sie in den Dokumenten und Beispielen des [SDK für Windows Server-Lösungen](https://go.microsoft.com/fwlink/?LinkID=248648).  
   
 #### <a name="change-the-status-of-a-setupadd-ins-task"></a>Ändern des Status einer Aufgabe unter SETUP/ADD-INS  
  Die Aufgaben unter SETUP und ADD-INS können zwischen den Statusangaben "Abgeschlossen" (konfiguriert für Add-Ins) und "Nicht abgeschlossen" (nicht konfiguriert für Add-Ins) umgeschaltet werden.  

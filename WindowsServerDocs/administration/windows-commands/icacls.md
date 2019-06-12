@@ -13,16 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 08/21/2018
-ms.openlocfilehash: 2639b8bb913bcd604a7c79015545006a23e1d0f2
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: b1aaa329c8925d7fa4245555ed51b08f7366299d
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222949"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811108"
 ---
 # <a name="icacls"></a>icacls
-
-
 
 Zeigt oder ändert DACLs (Discretionary Access Control Lists) für bestimmte Dateien an, und wendet gespeicherte DACLs auf Dateien in angegebenen Verzeichnissen an.
 
@@ -132,18 +130,25 @@ icacls <Directory> [/substitute <SidOld> <SidNew> [...]] [/restore <ACLfile> [/c
 ## <a name="examples"></a>Beispiele
 
 Um die DACLs für alle Dateien in das Verzeichnis von C:\Windows und seinen Unterverzeichnissen der ACLFile-Datei zu speichern, geben Sie Folgendes ein:
+
 ```
 icacls c:\windows\* /save aclfile /t
 ```
+
 Um die DACLs für jede Datei innerhalb der ACLFile wiederherzustellen, die in das Verzeichnis von C:\Windows und seinen Unterverzeichnissen vorhanden ist, geben Sie Folgendes ein:
+
 ```
 icacls c:\windows\ /restore aclfile
 ```
+
 Geben Sie den Benutzer "user1" zu löschen und Schreiben von DAC in eine Datei namens "Test1" zu gewähren:
+
 ```
 icacls test1 /grant User1:(d,wdac)
 ```
+
 Geben Sie Folgendes ein, um die benutzerdefinierte SID S-1-1-0 löschen und Schreiben von DAC-Berechtigungen in eine Datei, die mit dem Namen "Test2", zu gewähren:
+
 ```
 icacls test2 /grant *S-1-1-0:(d,wdac)
 ```

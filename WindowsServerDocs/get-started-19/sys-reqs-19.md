@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: jasgroce
 ms.localizationpriority: medium
-ms.openlocfilehash: 82a42cd219e41330fe4215124c21e799a41e412c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d97ec0efee86165f82bdf99a316d24d9c39ec958
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853141"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810716"
 ---
 # <a name="system-requirements"></a>Systemanforderungen
 
@@ -27,6 +27,7 @@ ms.locfileid: "59853141"
 In diesem Thema werden die mindestsystemanforderungen zum Ausführen von Windows Server&reg; 2019.
 
 ## <a name="review-system-requirements"></a>Überprüfen der Systemanforderungen  
+
 Im folgenden sind die geschätzten Systemanforderungen für Windows Server-2019. Erfüllt der Computer diese Mindestanforderungen nicht, kann das Produkt nicht ordnungsgemäß installiert werden. Die tatsächlichen Anforderungen sind von der Systemkonfiguration und den installierten Anwendungen und Features abhängig.
 
 Sofern nicht anders angegeben gelten diese Mindestanforderungen für alle Installationsoptionen (Server Core, Server mit Desktopdarstellung und Nano Server) auf jeweils der Standard- und der Datacenter Edition.  
@@ -34,8 +35,8 @@ Sofern nicht anders angegeben gelten diese Mindestanforderungen für alle Instal
 > [!IMPORTANT]  
 > Aufgrund des beachtlichen Ausmaßes an potenziellen Bereitstellungen ist es unrealistisch, „empfohlene“ Systemanforderungen anzugeben, die allgemein gültig sind. Ziehen Sie für jede Serverrolle, die Sie bereitstellen möchten, die Dokumentation zu Rate, um weitere Informationen über die Ressourcenanforderungen bestimmter Serverrollen zu erhalten. Die besten Ergebnisse erzielen Sie, indem Sie Testbereitstellungen durchführen, um die entsprechenden Systemanforderungen für bestimme Bereitstellungsszenarien zu ermitteln.  
 
-
 ## <a name="processor"></a>Prozessor  
+
 Die Prozessorleistung ist nicht nur von der Taktfrequenz des Prozessors abhängig, sondern auch von der Anzahl der Prozessorkerne und der Größe des Prozessorcache. Nachfolgend sind die Prozessoranforderungen für dieses Produkt aufgeführt:  
 
 **Minimum**:  
@@ -69,13 +70,13 @@ Nachfolgend sind die geschätzten **minimalen** Speicherplatzanforderungen für 
 
 **Minimum**: 32 GB  
 
-   > [!NOTE]  
-    > Beachten Sie, dass der *absolute Mindestwert* für eine erfolgreiche Installation 32 GB beträgt. Dieser Mindestwert ermöglicht Windows Server-2019 in Server Core-Modus mit der Serverrolle für Webdienste (IIS) installiert. Ein Server im Server Core-Modus ist ca. 4 GB kleiner als der gleiche Server im Modus %%amp;quot;Server mit grafischer Benutzeroberfläche%%amp;quot;. 
-    >   
-    > In den folgenden Fällen ist zusätzlicher Speicherplatz für die Systempartition erforderlich:  
-    >   
-    > -   Wenn Sie das System über ein Netzwerk installieren.  
-    > -   Computer mit mehr als 16 GB RAM erfordern einen größeren Speicherplatz für Auslagerungen, Ruhezustand und Sicherungsdateien.  
+> [!NOTE]
+> Beachten Sie, dass der *absolute Mindestwert* für eine erfolgreiche Installation 32 GB beträgt. Dieser Mindestwert ermöglicht Windows Server-2019 in Server Core-Modus mit der Serverrolle für Webdienste (IIS) installiert. Ein Server im Server Core-Modus ist ca. 4 GB kleiner als der gleiche Server im Modus %%amp;quot;Server mit grafischer Benutzeroberfläche%%amp;quot;. 
+> 
+> In den folgenden Fällen ist zusätzlicher Speicherplatz für die Systempartition erforderlich:  
+> 
+> -   Wenn Sie das System über ein Netzwerk installieren.  
+> -   Computer mit mehr als 16 GB RAM erfordern einen größeren Speicherplatz für Auslagerungen, Ruhezustand und Sicherungsdateien.  
 
 ## <a name="network-adapter-requirements"></a>Netzwerkkartenanforderungen  
 
@@ -88,8 +89,6 @@ Netzwerkkarten, die mit diesem Release verwendet werden, sollten folgende Featur
 Eine Netzwerkkarte, die das Netzwerkdebugging (KDNet) unterstützt, ist sinnvoll, jedoch keine Mindestanforderung.   
 
 Eine Netzwerkkarte, unterstützt das Pre-Boot Execution Environment (PXE) nützlich ist, jedoch keine Mindestanforderung.
-
-
 
 ## <a name="other-requirements"></a>Sonstige Anforderungen  
 Computer, auf denen dieses Release ausgeführt wird, müssen außerdem über folgende Elemente verfügen:  
@@ -107,10 +106,10 @@ Die folgenden Elemente sind nicht unbedingt erforderlich, werden jedoch für bes
 
 -   Internetzugang (möglicherweise kostenpflichtig)  
 
->[!NOTE]  
+> [!NOTE]  
 > Ein TPM-Chip (Trusted Platform Module) ist nicht unbedingt für die Installation dieses Release erforderlich. Für die Verwendung bestimmter Features wie z.B. der BitLocker-Laufwerkverschlüsselung wird jedoch ein solcher Chip benötigt. Wenn Ihr Computer TPM verwendet, müssen die folgenden Anforderungen erfüllt sein:  
 >  
->- Bei hardwarebasierten TPMs muss Version 2.0 der TPM-Spezifikation implementiert sein.  
->- TPMs, die Version 2.0 implementieren, müssen über ein EK-Zertifikat verfügen, das entweder vorab vom Hardwarehersteller für das TPM bereitgestellt wird, oder beim ersten Start vom Gerät abgerufen werden kann.  
->- TPMs, die Version 2.0 implementieren, müssen über SHA-256 PCR-Bänke verfügen und PCRs 0 bis 23 für SHA-256 implementieren. Es ist akzeptabel, TPMs mit einer einzigen wechselbaren PCR-Bank auszuliefern, die sowohl für SHA-1 als auch für SHA-256 verwendet werden kann.  
->- Eine UEFI-Option zum Deaktivieren des TPMs ist nicht erforderlich.  
+> - Bei hardwarebasierten TPMs muss Version 2.0 der TPM-Spezifikation implementiert sein.  
+> - TPMs, die Version 2.0 implementieren, müssen über ein EK-Zertifikat verfügen, das entweder vorab vom Hardwarehersteller für das TPM bereitgestellt wird, oder beim ersten Start vom Gerät abgerufen werden kann.  
+> - TPMs, die Version 2.0 implementieren, müssen über SHA-256 PCR-Bänke verfügen und PCRs 0 bis 23 für SHA-256 implementieren. Es ist akzeptabel, TPMs mit einer einzigen wechselbaren PCR-Bank auszuliefern, die sowohl für SHA-1 als auch für SHA-256 verwendet werden kann.  
+> - Eine UEFI-Option zum Deaktivieren des TPMs ist nicht erforderlich.  

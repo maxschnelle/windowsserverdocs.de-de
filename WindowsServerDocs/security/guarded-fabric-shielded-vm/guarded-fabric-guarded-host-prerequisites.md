@@ -7,12 +7,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 5f2c3ec4b2c434ea945d86c4b1593e2e416a5123
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 40c0f6df31061268b1e1ef8c15b0a02b0f50b0de
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819231"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447476"
 ---
 # <a name="prerequisites-for-guarded-hosts"></a>Voraussetzungen für überwachte hosts
 
@@ -45,15 +45,15 @@ Geschützte Hosts, die mithilfe von TPM-Modus müssen die folgenden Voraussetzun
 > Das Feature Hyper-V-Unterstützung für Host-Überwachungsdiensts ermöglicht die Virtualisierung basierende Schutz der Integrität des Codes, die möglicherweise bei einigen Geräten nicht kompatibel sind. Es wird dringend empfohlen, diese Konfiguration in Ihrem Lab testen, bevor Sie dieses Feature aktivieren. Andernfalls kann es zu unerwarteten Fehlern und sogar zu Datenverlusten oder zu einem Bluescreen (STOP-Fehler) kommen. Weitere Informationen finden Sie unter [kompatible Hardware mit Windows Server-Virtualisierung mit dem Schutz der Codeintegrität](guarded-fabric-compatible-hardware-with-virtualization-based-protection-of-code-integrity.md).
 
 **Nächster Schritt:** 
->[!div class="nextstepaction"]
-[Erfassen von TPM-Informationen](guarded-fabric-tpm-trusted-attestation-capturing-hardware.md)
+> [!div class="nextstepaction"]
+> [Erfassen von TPM-Informationen](guarded-fabric-tpm-trusted-attestation-capturing-hardware.md)
 
 ## <a name="host-key-attestation"></a>Host-schlüsselnachweis
 
 Geschützte Hosts, die mit den schlüsselnachweis Host müssen die folgenden Voraussetzungen erfüllen:
 
 - **Hardware**: Alle Server, die auf Hyper-V beginnt mit Windows Server-2019 ausgeführt werden kann
-- **Betriebssystem**: Windows Server 2019 Datacenter edition
+- **Betriebssystem**: Windows Server 2019 Datacenter Edition
 - **Rollen und Features**: Hyper-V-Rolle und die Hyper-V-Unterstützung für Host-Überwachungsdiensts-Funktion 
 
 Der Host kann entweder eine Domäne oder einer Arbeitsgruppe hinzugefügt werden. 
@@ -61,8 +61,8 @@ Der Host kann entweder eine Domäne oder einer Arbeitsgruppe hinzugefügt werden
 Für den schlüsselnachweis hosten muss die Host-Überwachungsdienst sein 2019 für Windows Server ausgeführt und Arbeiten mit v2-Nachweis werden. Weitere Informationen finden Sie unter [HGS-Voraussetzungen](guarded-fabric-prepare-for-hgs.md#prerequisites). 
 
 **Nächster Schritt:** 
->[!div class="nextstepaction"]
-[Erstellen eines Schlüsselpaars](guarded-fabric-create-host-key.md)
+> [!div class="nextstepaction"]
+> [Erstellen eines Schlüsselpaars](guarded-fabric-create-host-key.md)
 
 ## <a name="admin-trusted-attestation"></a>Admin-vertrauenswürdiger Nachweis
 
@@ -84,5 +84,5 @@ Hyper-V-Hosts müssen das AD-Modus die folgenden Voraussetzungen erfüllen:
 > Das Feature Hyper-V-Unterstützung für Host-Überwachungsdiensts ermöglicht die Virtualisierung basierende Schutz der Integrität des Codes, die möglicherweise bei einigen Geräten nicht kompatibel sind. Es wird dringend empfohlen, diese Konfiguration in Ihrem Lab testen, bevor Sie dieses Feature aktivieren. Andernfalls kann es zu unerwarteten Fehlern und sogar zu Datenverlusten oder zu einem Bluescreen (STOP-Fehler) kommen. Weitere Informationen finden Sie unter [kompatible Hardware mit Windows Server 2016-Virtualisierung mit dem Schutz der Codeintegrität](guarded-fabric-compatible-hardware-with-virtualization-based-protection-of-code-integrity.md).
 
 **Nächster Schritt:** 
->[!div class="nextstepaction"]
-[Speichern Sie überwachte Hosts in einer Sicherheitsgruppe](guarded-fabric-admin-trusted-attestation-creating-a-security-group.md)
+> [!div class="nextstepaction"]
+> [Speichern Sie überwachte Hosts in einer Sicherheitsgruppe](guarded-fabric-admin-trusted-attestation-creating-a-security-group.md)

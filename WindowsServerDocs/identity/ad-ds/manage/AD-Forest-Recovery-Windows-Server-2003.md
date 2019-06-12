@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.assetid: 5a291f65-794e-4fc3-996e-094c5845a383
 ms.technology: identity-adds
-ms.openlocfilehash: e2af1bfc295469d43e59593d69d4ba88f476e427
-ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
+ms.openlocfilehash: 1a9db8b4cdfbb4cc7d7edc2a17a3e747943fb073
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65034148"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442803"
 ---
 # <a name="ad-forest-recovery---windows-server-2003-recovery"></a>Wiederherstellung der AD-Gesamtstruktur - Wiederherstellung von Windows Server 2003
 
@@ -112,10 +112,10 @@ Wenn der Domänencontroller, die Sie aus einer Sicherung wiederhergestellt, Wind
 
 10. Geben Sie den folgenden Befehl ein, und drücken Sie dann die EINGABETASTE:  
 
-   **Net Start netlogon**
+    **Net Start netlogon**
 
-   > [!NOTE]
-   > Der Anmeldedienst wird die Domänencontrollerlocator-Ressourceneinträge in DNS für diesen Domänencontroller registriert. Wenn Sie den DNS-Serverdienst auf einem Server in die untergeordnete Domäne installieren, werden diesem DC nicht sofort der Datensätze zu registrieren. Dies ist, da er derzeit isoliert ist als Bestandteil der Wiederherstellung, und den primären DNS-Server den Gesamtstruktur-Stamm-DNS-Server. Konfigurieren Sie ihn mit der gleichen IP-Adresse wie vor dem Notfall um DC-Dienst Fehler bei der kontosuche zu vermeiden.
+    > [!NOTE]
+    > Der Anmeldedienst wird die Domänencontrollerlocator-Ressourceneinträge in DNS für diesen Domänencontroller registriert. Wenn Sie den DNS-Serverdienst auf einem Server in die untergeordnete Domäne installieren, werden diesem DC nicht sofort der Datensätze zu registrieren. Dies ist, da er derzeit isoliert ist als Bestandteil der Wiederherstellung, und den primären DNS-Server den Gesamtstruktur-Stamm-DNS-Server. Konfigurieren Sie ihn mit der gleichen IP-Adresse wie vor dem Notfall um DC-Dienst Fehler bei der kontosuche zu vermeiden.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

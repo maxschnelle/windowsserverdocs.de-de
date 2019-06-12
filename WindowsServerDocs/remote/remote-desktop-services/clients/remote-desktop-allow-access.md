@@ -14,16 +14,16 @@ manager: dongill
 ms.author: elizapo
 ms.date: 06/05/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: af41304e08f19ca155f6fd13c9258e9a8f20c163
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d03dcd307696aea55ab6a1569ab907635994772a
+ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817011"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66804988"
 ---
 # <a name="remote-desktop---allow-access-to-your-pc"></a>Remotedesktop - Zugriff auf Ihren PC zulassen
 
->Gilt für: Windows 10, Windows 8.1, Windows Server 2012 R2, WindowsServer 2016
+>Gilt für: Windows 10, Windows 8.1, WindowsServer 2019, WindowsServer 2016, Windows Server 2012 R2
 
 Sie können Remotedesktop verwenden, eine Verbindung herstellen und Ihr PC von einem Remotegerät zu steuern, indem eine [Microsoft-Remotedesktopclient](remote-desktop-clients.md) (für Windows, iOS, MacOS und Android verfügbar). Wenn Sie Remoteverbindungen auf Ihren PC gewähren, können Sie ein anderes Gerät verwenden, um eine Verbindung mit Ihrem PC herstellen und haben Zugriff auf alle Ihre apps, Dateien und Netzwerkressourcen, als säßen Sie am Schreibtisch.  
 
@@ -64,7 +64,7 @@ Denken Sie daran, dass wenn Sie den Zugriff auf Remotedesktop, aktivieren Sie al
 Sie sollten sicherstellen, dass jedes Konto mit Zugriff auf Ihren PC mit einem sicheren Kennwort konfiguriert ist.
 
 ## <a name="why-allow-connections-only-with-network-level-authentication"></a>Warum zulassen, dass nur Verbindungen mit Authentifizierung auf Netzwerkebene? 
- 
-Sie können zum Einschränken des Zugriffs auf Ihren PC wählen Sie aus, den Zugriff nur mit den Network Level Authentication (NLA). Wenn Sie diese Option aktivieren, müssen Benutzer authentifizieren sich mit dem Netzwerk, bevor sie eine Verbindung mit Ihrem PC herstellen können. Zulassen von Verbindungen nur von Computern, auf denen Remotedesktop mit Authentifizierung auf Netzwerkebene ausgeführt wird, ist eine sicherere Methode zur Authentifizierung, die helfen können, Ihren Computer vor böswilligen Benutzern und Software zu schützen. Weitere Informationen zu NLA und Remotedesktop, sehen Sie sich [NLA-Feature konfigurieren, für die RDS-Verbindungen](https://technet.microsoft.com/library/cc732713(v=ws.11).aspx). 
+
+Sie können zum Einschränken des Zugriffs auf Ihren PC wählen Sie aus, den Zugriff nur mit den Network Level Authentication (NLA). Wenn Sie diese Option aktivieren, müssen Benutzer authentifizieren sich mit dem Netzwerk, bevor sie eine Verbindung mit Ihrem PC herstellen können. Zulassen von Verbindungen nur von Computern, auf denen Remotedesktop mit Authentifizierung auf Netzwerkebene ausgeführt wird, ist eine sicherere Methode zur Authentifizierung, die helfen können, Ihren Computer vor böswilligen Benutzern und Software zu schützen. Weitere Informationen zu NLA und Remotedesktop, sehen Sie sich [NLA-Feature konfigurieren, für die RDS-Verbindungen](https://technet.microsoft.com/library/cc732713(v=ws.11).aspx).
 
 Wenn Sie Remote auf einem PC in Ihrem privaten Netzwerk von außerhalb von diesem Netzwerk eine Verbindung herstellen, sollten wählen Sie diese Option nicht aus.

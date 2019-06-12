@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 648b179f5b2feb8a7585c815aee47804e3bf1532
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9e35d3a3e85ed046fb658bbf5a97ab5fc5eec6d3
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882271"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442014"
 ---
 # <a name="rdpsign"></a>rdpsign
 
@@ -36,6 +36,7 @@ rdpsign /sha1 <hash> [/q | /v |] [/l] <file_name.rdp>
 ```
 
 ## <a name="parameters"></a>Parameter
+
 |Parameter|Beschreibung|
 |-------|--------|
 |/sha1 \<hash>|Gibt den Fingerabdruck, den Secure Hash Algorithm 1 (SHA1)-Hash des Signaturzertifikats handelt, die im Zertifikatspeicher enthalten ist.|
@@ -55,20 +56,20 @@ rdpsign /sha1 <hash> [/q | /v |] [/l] <file_name.rdp>
 -   Wenn Sie die RDP-Dateien können nicht gelesen oder geschrieben werden, wird das Tool zur nächsten Datei fortgesetzt, wenn mehrere Dateien angegeben werden.
 
 ## <a name="BKMK_examples"></a>Beispiele für
--   Um eine RDP-Datei signieren mit dem Namen File1.rdp, navigieren Sie zu dem Ordner, in dem Sie die RDP-Datei gespeichert, und klicken Sie dann Folgendes ein:
-    ```
-    rdpsign /sha1 hash file1.rdp
-    ```
-    > [!NOTE]
-    > Die *Hash* Wert darstellt, den SHA1-Zertifikatfingerabdruck ohne Leerzeichen.
--   Um zu testen, ob die digitale Signatur für eine RDP-Datei erfolgreich ist, ohne tatsächlich Signieren der Datei, geben Sie Folgendes ein:
-    ```
-    rdpsign /sha1 hash /l file1.rdp
-    ```
--   Um mehrere RDP-Dateien zu signieren, werden die Dateinamen durch Leerzeichen getrennt. Um mehrere RDP-Dateien zu signieren, die File1.rdp File2.rdp und File3.rdp benannt sind, geben Sie beispielsweise Folgendes ein:
-    ```
-    rdpsign /sha1 hash file1.rdp file2.rdp file3.rdp
-    ```
-## <a name="see-also"></a>Siehe auch
-[Befehlszeilen-Syntaxschlüssel](command-line-syntax-key.md)
-[Remotedesktopdienste &#40;Terminaldienste&#41; -Befehlsreferenz](remote-desktop-services-terminal-services-command-reference.md)
+- Um eine RDP-Datei signieren mit dem Namen File1.rdp, navigieren Sie zu dem Ordner, in dem Sie die RDP-Datei gespeichert, und klicken Sie dann Folgendes ein:
+  ```
+  rdpsign /sha1 hash file1.rdp
+  ```
+  > [!NOTE]
+  > Die *Hash* Wert darstellt, den SHA1-Zertifikatfingerabdruck ohne Leerzeichen.
+- Um zu testen, ob die digitale Signatur für eine RDP-Datei erfolgreich ist, ohne tatsächlich Signieren der Datei, geben Sie Folgendes ein:
+  ```
+  rdpsign /sha1 hash /l file1.rdp
+  ```
+- Um mehrere RDP-Dateien zu signieren, werden die Dateinamen durch Leerzeichen getrennt. Um mehrere RDP-Dateien zu signieren, die File1.rdp File2.rdp und File3.rdp benannt sind, geben Sie beispielsweise Folgendes ein:
+  ```
+  rdpsign /sha1 hash file1.rdp file2.rdp file3.rdp
+  ```
+  ## <a name="see-also"></a>Siehe auch
+  [Befehlszeilen-Syntaxschlüssel](command-line-syntax-key.md)
+  [Remotedesktopdienste &#40;Terminaldienste&#41; -Befehlsreferenz](remote-desktop-services-terminal-services-command-reference.md)

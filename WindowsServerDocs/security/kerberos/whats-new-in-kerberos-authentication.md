@@ -8,12 +8,12 @@ manager: alanth
 author: justinha
 ms.technology: security-authentication
 ms.date: 11/09/2016
-ms.openlocfilehash: 7b046490c606cdf9e1436f503bf46a9cd4280ea9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 90107bd49268f232fd6d532c304c2fdd050bcbf5
+ms.sourcegitcommit: c6acac3622e5d34714ca5c569805931681f98779
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831091"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66391505"
 ---
 # <a name="whats-new-in-kerberos-authentication"></a>What's New in Kerberos Authentication
 
@@ -50,6 +50,8 @@ HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Kerberos\Paramete
 Erstellen Sie einen TryIPSPN-Eintrag, um Unterstützung für IP-Adresse Hostnamen in SPNs zu konfigurieren. Dieser Eintrag ist nicht standardmäßig in der Registrierung vorhanden. Nachdem Sie den Eintrag erstellt haben, ändern Sie den DWORD-Wert auf 1 fest. Nicht konfiguriert, werden IP-Adresse Hostnamen nicht versucht.
 
 Wenn der SPN in Active Directory registriert ist, ist die Authentifizierung mit Kerberos erfolgreich. 
+
+Weitere Informationen finden Sie das Dokument [Konfigurieren von Kerberos für IP-Adressen](configuring-kerberos-over-ip.md).
 
 ## <a name="kdc-support-for-key-trust-account-mapping"></a>KDC-Unterstützung für Schlüsselbasierte Vertrauensstellung kontozuordnung
 

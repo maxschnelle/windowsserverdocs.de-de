@@ -8,12 +8,12 @@ ms.author: jeffpatt
 author: JeffPatt24
 ms.date: 6/242017
 ms.assetid: 4a11ede0-b000-4188-8190-790971504e17
-ms.openlocfilehash: 1f452fd1e2f054c449660eb0ee12642fefe4da8f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 4cbf85f8413353801f048f253859c9f3ef9c7691
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865051"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812561"
 ---
 # <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-4-set-up-web-application-proxy"></a>Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 4, der Einrichtung des Webanwendungsproxys
 
@@ -32,7 +32,7 @@ In diesem Thema wird der vierte Schritt bei der Bereitstellung von Arbeitsordner
 -   [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 5, richten Sie Clients](deploy-work-folders-adfs-step5.md)  
 
 > [!NOTE]
->   Die in diesem Abschnitt enthaltenen Anweisungen gelten für eine Server 2016-Umgebung. Wenn Sie Windows Server 2012 R2 verwenden, folgen Sie den [Anweisungen für Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
+>   Die Anweisungen in diesem Abschnitt behandelten sind für eine Windows Server-2019 oder Windows Server 2016-Umgebung. Wenn Sie Windows Server 2012 R2 verwenden, folgen Sie den [Anweisungen für Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
 
 Gehen Sie folgendermaßen vor, um Webanwendungsproxy für die Verwendung mit Arbeitsordner einzurichten.  
   
@@ -108,47 +108,47 @@ Gehen Sie folgendermaßen vor, um Webanwendungsproxys zu konfigurieren:
 ## <a name="publish-the-work-folders-web-application"></a>Veröffentlichen Sie die Arbeitsordner-Webanwendung  
 Im nächste Schritt wird gezeigt, wie eine Anwendung veröffentlicht wird, die Arbeitsordner für Clients verfügbar machen. Um die Arbeitsordner-Webanwendung zu veröffentlichen, gehen Sie folgendermaßen vor:  
   
-1.  Öffnen Sie **Server Manager** und klicken Sie auf das Menü **Tools** Menü, klicken Sie auf **Remotezugriffsverwaltung**, um die in der Remotezugriffs-Verwaltungskonsole.  
+1. Öffnen Sie **Server Manager** und klicken Sie auf das Menü **Tools** Menü, klicken Sie auf **Remotezugriffsverwaltung**, um die in der Remotezugriffs-Verwaltungskonsole.  
   
-2.  Klicken Sie unter **Konfiguration** auf **Webanwendungsproxy**.  
+2. Klicken Sie unter **Konfiguration** auf **Webanwendungsproxy**.  
   
-3.  Klicken Sie unter **Aufgaben** auf **Veröffentlichen**. Der Assistenten zum Veröffentlichen neuer Anwendungen wird geöffnet.  
+3. Klicken Sie unter **Aufgaben** auf **Veröffentlichen**. Der Assistenten zum Veröffentlichen neuer Anwendungen wird geöffnet.  
   
-4.  Klicken Sie auf der Seite "Willkommen" auf **Weiter**.  
+4. Klicken Sie auf der Seite "Willkommen" auf **Weiter**.  
   
-5.  Klicken Sie auf der Seite **Vorauthentifizierung** auf **Active Directory-Verbunddienste (AD FS)** und klicken Sie dann auf **Weiter**.  
+5. Klicken Sie auf der Seite **Vorauthentifizierung** auf **Active Directory-Verbunddienste (AD FS)** und klicken Sie dann auf **Weiter**.  
   
-6.  Wählen Sie auf der Seite **Clients unterstützen** **OAuth2** aus und klicken Sie auf **Weiter**.
+6. Wählen Sie auf der Seite **Clients unterstützen** **OAuth2** aus und klicken Sie auf **Weiter**.
 
-7.  Wählen Sie auf der Seite **Vertrauensstellung der vertrauenden Seite** **Arbeitsordner** aus und klicken Sie dann auf **Weiter**. Diese Liste wird von AD FS auf der Webanwendungsproxy veröffentlicht.  
+7. Wählen Sie auf der Seite **Vertrauensstellung der vertrauenden Seite** **Arbeitsordner** aus und klicken Sie dann auf **Weiter**. Diese Liste wird von AD FS auf der Webanwendungsproxy veröffentlicht.  
   
-8.  Geben Sie auf der Seite **Veröffentlichungseinstellungen** folgende Informationen ein und klicken Sie dann auf **Weiter**:  
+8. Geben Sie auf der Seite **Veröffentlichungseinstellungen** folgende Informationen ein und klicken Sie dann auf **Weiter**:  
   
-    -   Der Name, den Sie für die Webanwendung verwenden möchten.  
+   -   Der Name, den Sie für die Webanwendung verwenden möchten.  
   
-    -   Die externe URL für Arbeitsordner  
+   -   Die externe URL für Arbeitsordner  
   
-    -   Der Name des Arbeitsordner-Zertifikats  
+   -   Der Name des Arbeitsordner-Zertifikats  
   
-    -   Die Back-End-URL für Arbeitsordner  
+   -   Die Back-End-URL für Arbeitsordner  
   
-    Standardmäßig benennt der Assistent die Back-End-URL genauso wie die externe URL.  
+   Standardmäßig benennt der Assistent die Back-End-URL genauso wie die externe URL.  
   
-    Verwenden Sie für das Testbeispiel diese Werte:  
+   Verwenden Sie für das Testbeispiel diese Werte:  
   
-    Name: **WorkFolders**  
+   Name: **WorkFolders**  
   
-    Externe URL: **https://workfolders.contoso.com**  
+   Externe URL: **https://workfolders.contoso.com**  
   
-    Externes Zertifikat: **Das Arbeitsordner-Zertifikat, das Sie zuvor installiert haben.**  
+   Externes Zertifikat: **Das Arbeitsordner-Zertifikat, das Sie zuvor installiert haben.**  
   
-    URL des Back-End-Server: **https://workfolders.contoso.com**  
+   URL des Back-End-Server: **https://workfolders.contoso.com**  
   
-9.  Auf der Seite „Bestätigung” wird der Windows PowerShell-Befehl angezeigt, der ausgeführt wird, um die Anwendung zu veröffentlichen. Klicken Sie auf **Veröffentlichen**.  
+9. Auf der Seite „Bestätigung” wird der Windows PowerShell-Befehl angezeigt, der ausgeführt wird, um die Anwendung zu veröffentlichen. Klicken Sie auf **Veröffentlichen**.  
   
 10. Auf der Seite **Ergebnisse** wird angezeigt, ob die Anwendung erfolgreich veröffentlicht wurde.
-   >[!NOTE]
-   > Wenn Sie über mehrere Arbeitsordner-Server verfügen, müssen Sie eine Arbeitsordner-Webanwendung für die einzelnen Arbeitsordner-Server veröffentlichen (Wiederholen Sie die Schritte 1 bis 10).  
+    >[!NOTE]
+    > Wenn Sie über mehrere Arbeitsordner-Server verfügen, müssen Sie eine Arbeitsordner-Webanwendung für die einzelnen Arbeitsordner-Server veröffentlichen (Wiederholen Sie die Schritte 1 bis 10).  
   
 Nächster Schritt: [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 5, richten Sie Clients](deploy-work-folders-adfs-step5.md)  
   

@@ -8,12 +8,12 @@ ms.topic: get-started-article
 author: nedpyle
 ms.date: 4/26/2019
 ms.assetid: e9b18e14-e692-458a-a39f-d5b569ae76c5
-ms.openlocfilehash: e8b437a1a4ba3e5c10d6709e23efb306a077a21b
-ms.sourcegitcommit: 4ff3d00df3148e4bea08056cea9f1c3b52086e5d
+ms.openlocfilehash: 1897b57e1f4cf05d222732278835483791f1109b
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64773536"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812645"
 ---
 # <a name="storage-replica-overview"></a>Übersicht über Speicherreplikate
 
@@ -85,31 +85,31 @@ Eine **Server-zu-Server-Konfiguration** ermöglicht eine synchrone und asynchron
 
 Funktion "Speicherreplikat" enthält die folgenden Features:  
 
-|Feature|Details|  
-|-----------|-----------|  
-|Typ|Hostbasiert|  
-|Synchron|Ja|  
-|Asynchron|Ja|  
-|Speicherhardwareagnostisch|Ja|  
-|Replikationseinheit|Volume (Partition)|  
-|Windows Server stretch-Clustererstellung|Ja|  
-|Server-zu-Server-Replikation|Ja|  
-|Cluster-zu Cluster-Replikation|Ja|  
-|Transport|SMB3|  
-|Network|TCP/IP oder RDMA|
-|Unterstützung für die Netzwerkeinschränkung|Ja|  
-|RDMA*|iWARP, InfiniBand, RoCE v2|  
-|Netzwerkport-Firewallanforderungen für die Replikation|Einzelner IANA-Port (TCP 445 oder 5445)|  
-|Multipath/Multichannel|Ja (SMB3)|  
-|Kerberos-Unterstützung|Ja (SMB3)|  
-|Verschlüsselung und Signatur über das Netzwerk|Ja (SMB3)|  
-|Volumebasiertes Failover zulässig|Ja|
-|Unterstützung für die schlanke Speicherzuweisung|Ja|
-|Integrierte Verwaltungsbenutzeroberfläche|PowerShell, Failovercluster-Manager|  
+| Feature | Details |
+| ----------- | ----------- |  
+| Typ | Hostbasiert |
+| Synchron | Ja |
+| Asynchron | Ja |
+| Speicherhardwareagnostisch | Ja |
+| Replikationseinheit | Volume (Partition) |
+| Windows Server stretch-Clustererstellung | Ja |
+| Server-zu-Server-Replikation | Ja |
+| Cluster-zu Cluster-Replikation | Ja |
+| Transport | SMB3 |
+| Network | TCP/IP oder RDMA |
+| Unterstützung für die Netzwerkeinschränkung | Ja |
+| RDMA* | iWARP, InfiniBand, RoCE v2 |
+| Netzwerkport-Firewallanforderungen für die Replikation | Einzelner IANA-Port (TCP 445 oder 5445) |
+| Multipath/Multichannel | Ja (SMB3) |
+| Kerberos-Unterstützung | Ja (SMB3) |
+| Verschlüsselung und Signatur über das Netzwerk|Ja (SMB3) |
+| Volumebasiertes Failover zulässig | Ja |
+| Unterstützung für die schlanke Speicherzuweisung | Ja |
+| Integrierte Verwaltungsbenutzeroberfläche | PowerShell, Failovercluster-Manager |
 
 *Möglicherweise sind Geräte und Kabel für große Entfernungen erforderlich.  
 
-## <a name="BKMK_SR3"></a> Voraussetzungen für Speicherreplikate  
+## <a name="BKMK_SR3"></a> Voraussetzungen für Speicherreplikate
 
 * Active Directory Domain Services-Gesamtstruktur.
 * Speicherplätze mit SAS JBODs, „Direkte Speicherplätze“, Fibre Channel-SAN, freigegebene VHDX, iSCSI-Ziel oder lokalem SAS/SCSI/SATA-Speicher. Für Replikationsprotokolllaufwerke werden mindestens SSDs empfohlen. Microsoft empfiehlt, dass die Protokollspeicherung schneller als die Datenspeicherung durchgeführt wird. Protokollvolumes dürfen niemals für andere Workloads verwendet werden.
@@ -122,33 +122,37 @@ Funktion "Speicherreplikat" enthält die folgenden Features:
   * Das Speicherreplikat repliziert ein einzelnes Volume, anstatt eine unbegrenzte Anzahl von Volumes.
   * Volumes können eine Größe von bis zu 2 TB, anstatt eine unbegrenzte Größe aufweisen.
 
-##  <a name="BKMK_SR4"> </a> Hintergrund  
+##  <a name="BKMK_SR4"> </a> Hintergrund
+
 Dieser Abschnitt enthält Informationen zu allgemeinen Begriffen aus der Branche, synchroner und asynchroner Replikation und zu Schlüsselverhalten.
 
-### <a name="high-level-industry-terms"></a>Allgemeine branchenübliche Begriffe  
+### <a name="high-level-industry-terms"></a>Allgemeine branchenübliche Begriffe
+
 Der Begriff Notfallwiederherstellung bezieht sich auf einen Notfallplan für die Wiederherstellung nach einem Katastrophenfall an einem Standort, damit die Geschäftsvorgänge weiter ausgeführt werden können. Zur Notfallwiederherstellung von Daten werden mehrere Kopien von Produktionsdaten an einem separaten physischen Standort erstellt. Ein Beispiel ist ein Stretched Cluster, bei dem sich die Hälfte der Knoten an einem Standort und die andere Hälfte der Knoten an einem anderen Standort befindet. Der Begriff Notfallbereitschaft bezieht sich auf einen Notfallplan, um Workloads präventiv an einen anderen Standort zu verschieben, bevor eine bevorstehende Notallsituation eintritt (z. B. ein Orkan).  
 
 Vereinbarungen zum Servicelevel (Service Level Agreement, SLA) definieren die Verfügbarkeit der Anwendungen eines Unternehmens sowie die jeweilige Toleranz von Downtime und Datenverlust während geplanten und ungeplanten Ausfällen. Der RTO-Wert (Recovery Time Objective) definiert den maximalen Zeitraum ohne Datenzugriff, der für ein Unternehmen tolerierbar ist. Der RPO-Wert (Recovery Point Objective) definiert die maximale Menge an Daten, die ein Unternehmen verlieren kann.  
 
-### <a name="synchronous-replication"></a>Synchrone Replikation  
+### <a name="synchronous-replication"></a>Synchrone Replikation
+
 Bei der synchronen Replikation wird sichergestellt, dass die Anwendung Daten gleichzeitig an zwei Standorten schreibt, bevor der E/A-Vorgang abgeschlossen wird. Diese Art der Replikation ist für geschäftskritische Daten geeignet, da sowohl Netzwerk- als auch Speicherinvestitionen erforderlich sind. Außerdem geht die synchrone Replikation mit dem Risiko einer eingeschränkten Anwendungsleistung einher.  
 
 Wenn Anwendungsschreibvorgänge für die Quelldatenkopie ausgeführt werden, bestätigt der Ursprungsspeicher die E/A nicht umgehend. Stattdessen werden diese Datenänderungen in die Remotezielkopie repliziert, und es wird eine Bestätigung zurückgegeben. Erst dann empfängt die Anwendung die E/A-Bestätigung. Dadurch wird eine konstante Synchronisierung des Remote- und des Quellstandorts sichergestellt, und Speicher-E/A-Vorgänge werden auf das Netzwerk ausgeweitet. Bei einem Ausfall des Quellstandorts kann ein Anwendungsfailover auf den Remotestandort durchgeführt werden, sodass die Anwendungen ohne Datenverlust weiter ausgeführt werden können.  
 
-|Modus|Diagramm|Schritte|  
-|--------|-----------|---------|  
-|**Synchrone**<br /><br />Kein Datenverlust<br /><br />RPO|![Diagramm das zeigt, wie das Speicherreplikat Daten in die synchrone Replikation schreibt](./media/Storage-Replica-Overview/Storage_SR_SynchronousV2.png)|1.  Anwendung schreibt Daten<br />2.  Protokolldaten werden geschrieben, und die Daten werden am Remotestandort repliziert<br />3.  Protokolldaten werden am Remotestandort geschrieben<br />4.  Bestätigung durch den Remotestandort<br />5.  Anwendungsschreibvorgang wird bestätigt<br /><br />t & t1: Daten, die auf das Volume geleert Protokolle werden immer geschrieben|  
+| Modus | Diagramm | Schritte |
+| -------- | ----------- | --------- |
+| **Synchrone**<br /><br />Kein Datenverlust<br /><br />RPO | ![Diagramm das zeigt, wie das Speicherreplikat Daten in die synchrone Replikation schreibt](./media/Storage-Replica-Overview/Storage_SR_SynchronousV2.png) | 1.  Anwendung schreibt Daten<br />2.  Protokolldaten werden geschrieben, und die Daten werden am Remotestandort repliziert<br />3.  Protokolldaten werden am Remotestandort geschrieben<br />4.  Bestätigung durch den Remotestandort<br />5.  Anwendungsschreibvorgang wird bestätigt<br /><br />t & t1: Daten, die auf das Volume geleert Protokolle werden immer geschrieben |
 
-### <a name="asynchronous-replication"></a>Asynchrone Replikation  
+### <a name="asynchronous-replication"></a>Asynchrone Replikation
+
 Im Gegensatz zur synchronen Replikation werden die von einer Anwendung geschriebenen Daten bei der asynchronen Replikation ohne umgehende Bestätigung an den Remotestandort repliziert. Dieser Modus ermöglicht kürzere Antwortzeiten für die Anwendung und bietet eine geografisch einsetzbare Notfallwiederherstellungslösung.  
 
 Wenn die Anwendung Daten schreibt, erfasst das Replikationsmodul den Schreibvorgang und bestätigt diesen umgehend gegenüber der Anwendung. Die erfassten Daten werden dann am Remotestandort repliziert. Der Remoteknoten verarbeitet die Kopie der Daten und bestätigt den Vorgang mit einer gewissen Verzögerung gegenüber der Quellkopie. Da der Anwendungs-E/A-Pfad nicht länger für die Replikationsleistung ausschlaggebend ist, sind die Reaktionsfähigkeit und Entfernung des Remotestandorts weniger wichtige Faktoren. Es gibt jedoch ein Risiko von Datenverlust, wenn die Quelldaten nicht mehr verfügbar sind und sich die Zielkopie der Daten noch im Puffer befindet.  
 
 Da der RPO-Wert bei der asynchronen Replikation größer Null ist, ist dieser Replikationstyp für Hochverfügbarkeitslösungen wie Failovercluster weniger gut geeignet. Bei diesen Lösungen sind ein unterbrechungsfreier Betrieb, Redundanz und keinerlei Datenverlust entscheidend.  
 
-|Modus|Diagramm|Schritte|  
-|--------|-----------|---------|  
-|**Asynchrone**<br /><br />Praktisch keinerlei Datenverlust<br /><br />(von verschiedenen Faktoren abhängig)<br /><br />RPO|![Diagramm das zeigt, wie das Speicherreplikat Daten in die asynchrone Replikation schreibt](./media/Storage-Replica-Overview/Storage_SR_AsynchronousV2.png)|1.  Anwendung schreibt Daten<br />2.  Protokolldaten werden geschrieben<br />3.  Anwendungsschreibvorgang wird bestätigt<br />4.  Daten werden am Remotestandort repliziert<br />5.  Protokolldaten werden am Remotestandort geschrieben<br />6.  Bestätigung durch den Remotestandort<br /><br />t & t1: Daten, die auf das Volume geleert Protokolle werden immer geschrieben|  
+| Modus | Diagramm | Schritte |
+| -------- | ----------- | --------- |
+| **Asynchrone**<br /><br />Praktisch keinerlei Datenverlust<br /><br />(von verschiedenen Faktoren abhängig)<br /><br />RPO | ![Diagramm das zeigt, wie das Speicherreplikat Daten in die asynchrone Replikation schreibt](./media/Storage-Replica-Overview/Storage_SR_AsynchronousV2.png)|1.  Anwendung schreibt Daten<br />2.  Protokolldaten werden geschrieben<br />3.  Anwendungsschreibvorgang wird bestätigt<br />4.  Daten werden am Remotestandort repliziert<br />5.  Protokolldaten werden am Remotestandort geschrieben<br />6.  Bestätigung durch den Remotestandort<br /><br />t & t1: Daten, die auf das Volume geleert Protokolle werden immer geschrieben |
 
 ### <a name="key-evaluation-points-and-behaviors"></a>Wichtige evaluierungsaspekte und Verhaltensweisen  
 
@@ -156,7 +160,7 @@ Da der RPO-Wert bei der asynchronen Replikation größer Null ist, ist dieser Re
 
 -   Auf das Zielvolume kann während der Replikation in Windows Server 2016 nicht zugegriffen werden. Bei der Konfiguration der Replikation wird die Bereitstellung des Zielvolumes aufgehoben, sodass Benutzer keine Daten auf diese Volumes schreiben oder lesen können. Die Laufwerkbuchstaben werden möglicherweise auf typischen Schnittstellen wie dem Datei-Explorer angezeigt, aber eine Anwendung kann nicht auf das Volume selbst zugreifen. Replikationstechnologien auf Blockebene lassen keinen Zugriff auf das bereitgestellte Dateisystem eines Volumes auf dem Ziel zu. NTFS und ReFS bieten keine Unterstützung für Benutzerschreibvorgänge auf dem Volume, während die zugrunde liegenden Blöcke geändert werden. 
 
-In Windows Server-2019 (und Windows Server, Version 1709) die **Test-Failover** Cmdlet wurde hinzugefügt. Nun unterstützt vorübergehend einen Lese-/ Schreibzugriff-Snapshot des Zielvolumes für Sicherungen zu laden, testen, usw. an. Finden Sie unter https://aka.ms/srfaq für Weitere Informationen.
+Die **Test-Failover** Cmdlet nun die neuen in Windows Server, Version 1709, und auch in Windows Server-2019 enthalten war. Nun unterstützt vorübergehend einen Lese-/ Schreibzugriff-Snapshot des Zielvolumes für Sicherungen zu laden, testen, usw. an. Finden Sie unter https://aka.ms/srfaq für Weitere Informationen.
 
 -   Die Microsoft-Implementierung der asynchronen Replikation unterscheidet sich von den meisten anderen Implementierungen. Bei den meisten Implementierungen der asynchronen Repliktion, die innerhalb der Branche verfügbar sind, basiert die Replikation auf Momentaufnahmen. Dabei werden regelmäßig Differenzen an den anderen Knoten übertragen, auf denen die Daten zusammengeführt werden. Bei der asynchronen Replikation mithilfe des Speicherreplikatfeatures wird der Vorgang wie bei der synchronen Replikation ausgeführt. Die beiden Vorgänge unterscheiden sich einzig dadurch, dass die Notwendigkeit einer serialisierten synchronen Bestätigung durch das Ziel entfällt. Das bedeutet, dass für das Speicherreplikat theoretisch ein niedrigerer RPO-Wert gilt, da die Daten kontinuierlich repliziert werden. Es bedeutet jedoch auch, dass der Vorgang von einer internen Absicherung der Anwendungskonsistenz abhängt, da die Konsistenz der Anwendungsdateien nicht mithilfe von Momentaufnahmen sichergestellt wird. Das Speicherreplikat stellt bei einem Absturz in sämtlichen Replikationsmodi Konsistenz sicher  
 
@@ -185,6 +189,7 @@ In diesem Leitfaden werden folgende Begriffe häufig verwendet:
 Eine Liste der neuen Funktionen in der Funktion "Speicherreplikat" in Windows Server-2019, finden Sie unter [Neuigkeiten im Speicher](../whats-new-in-storage.md#storage-replica2019)
 
 ## <a name="see-also"></a>Siehe auch
+
 - [Replikation eines Stretched Clusters mithilfe von freigegebenem Speicher](stretch-cluster-replication-using-shared-storage.md)  
 - [Server-zu-Server-Replikation](server-to-server-storage-replication.md)  
 - [Cluster-zu-Cluster-Speicherreplikation](cluster-to-cluster-storage-replication.md)  

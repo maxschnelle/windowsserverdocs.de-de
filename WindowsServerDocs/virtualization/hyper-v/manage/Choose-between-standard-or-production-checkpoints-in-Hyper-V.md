@@ -11,12 +11,12 @@ ms.assetid: 92bb573b-03b7-470e-b72e-e35edf52b349
 author: KBDAzure
 ms.author: kathydav
 ms.date: 10/04/2016
-ms.openlocfilehash: 239cce3c9f1acb2d45935e0f60fb1875b004485b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3591e17c9485fc8f9e365f6322c4f48e783db8ce
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880951"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442221"
 ---
 # <a name="choose-between-standard-or-production-checkpoints-in-hyper-v"></a>Wählen Sie zwischen Standard- und produktionsprüfpunkten im Hyper-V
 
@@ -29,7 +29,7 @@ Ab Windows Server 2016 und Windows 10, können Sie zwischen Standard- und produk
   
 - Standardprüfpunkte die Zustand, Daten und Hardware-Konfiguration eines ausgeführten virtuellen Computers zu erfassen und sind für die Verwendung in Entwicklungs- und Testszenarien vorgesehen. Standardprüfpunkte ist hilfreich, wenn müssen Sie einen bestimmten Status oder Bedingung für einen ausgeführten virtuellen Computer neu erstellen, damit Sie ein Problem beheben können.  
  
- ## <a name="change-checkpoints-to-production-or-standard-checkpoints"></a>Ändern Sie die Prüfpunkte in Produktions- oder standardprüfpunkte  
+  ## <a name="change-checkpoints-to-production-or-standard-checkpoints"></a>Ändern Sie die Prüfpunkte in Produktions- oder standardprüfpunkte  
   
 1.  In **Hyper-V-Manager**mit der rechten Maustaste auf den virtuellen Computer, und klicken Sie auf **Einstellungen**.  
   

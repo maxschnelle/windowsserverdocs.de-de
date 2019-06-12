@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: ba4de2a4-f237-4b14-a8a7-0b06bfcd89ad
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 75a47b6a6cb0a345d1d6e46ac8807bba6a895ace
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fd4b691a4b2bf6cc66a3b833eef8eca9f93dccc5
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59820941"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446104"
 ---
 # <a name="step-1-configure-the-basic-directaccess-infrastructure"></a>Schritt 1 Konfigurieren der grundlegenden DirectAccess-Infrastruktur
 
@@ -114,7 +114,7 @@ Sie müssen einen DNS-Eintrag für die Netzwerkadressenserver-Website für das i
   
 1.  Führen Sie auf dem internen Netzwerk DNS-Server **dnsmgmt.msc** und drücken Sie dann die EINGABETASTE.  
   
-2.  Erweitern Sie im linken Bereich der **DNS-Manager**-Konsole die Forward-Lookupzone für Ihre Domäne. Klicken Sie mit der rechten Maustaste auf die Domäne, und anschließend auf **Neuer Host (A oder AAAA)**.  
+2.  Erweitern Sie im linken Bereich der **DNS-Manager**-Konsole die Forward-Lookupzone für Ihre Domäne. Klicken Sie mit der rechten Maustaste auf die Domäne, und anschließend auf **Neuer Host (A oder AAAA)** .  
   
 3.  Geben Sie im Dialogfeld **Neuer Host** in das Feld **Name (bei Nichtangabe wird übergeordnete Domäne verwendet)** den DNS-Namen für die Netzwerkadressenserver-Website (mit diesem Namen verbinden sich die DirectAccess-Clients mit dem Netzwerkadressenserver) ein. Geben Sie in das Feld **IP-Adresse** die IPv4-Adresse des Netzwerkadressenservers ein und klicken Sie dann auf **Host hinzufügen**. Klicken Sie im Dialogfeld **DNS** auf **OK**.  
   
@@ -122,7 +122,7 @@ Sie müssen einen DNS-Eintrag für die Netzwerkadressenserver-Website für das i
   
 5.  Klicken Sie auf **Fertig**.  
   
-![Windows PowerShell](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***  
+![Windows PowerShell](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
 
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -184,7 +184,7 @@ Der Remotezugriffsserver und alle DirectAccess-Clientcomputer müssen zu einer A
   
 9. Klicken Sie im Dialogfeld **Systemeigenschaften** auf „Schließen“. Klicken Sie bei Aufforderung auf **Jetzt neu starten**.  
   
-![Windows PowerShell](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***  
+![Windows PowerShell](../../../media/Step-1-Configure-the-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -239,7 +239,7 @@ Add-ADGroupMember -Identity DirectAccess_clients_group_name -Members <computer_n
   
 ## <a name="BKMK_Links"></a>Als Nächstes  
   
--   [Schritt 2: Konfigurieren der grundlegenden DirectAccess-Servers](da-basic-configure-s2-server.md)  
+-   [Schritt 2: Konfigurieren des allgemeinen DirectAccess-Servers](da-basic-configure-s2-server.md)  
   
 
 

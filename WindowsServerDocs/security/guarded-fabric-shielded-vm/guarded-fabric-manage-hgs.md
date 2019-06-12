@@ -7,12 +7,12 @@ ms.assetid: eecb002e-6ae5-4075-9a83-2bbcee2a891c
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
-ms.openlocfilehash: ed3a3d4c5d0e55126f4dae8ecaf0ba1f32e46317
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dab27e71e42970507f321271edda90f6d161c691
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59820221"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447393"
 ---
 # <a name="managing-the-host-guardian-service"></a>Verwalten von Host-Überwachungsdienst
 
@@ -221,7 +221,7 @@ Die gesicherte HGS-Serverstatus umfasst nicht den Namen Ihres Clusters HGS-Infor
 Diese Einstellungen sind wichtig für Konsistenz jedoch nicht kritisch ist, um nach einem Notfall Ihren HGS-Cluster wieder online zu erhalten.
 
 Führen Sie zum Erfassen der Namen des Host-Überwachungsdienst-Diensts `Get-HgsServer` und notieren Sie den flachen Namen in den Nachweis- und Schlüsselschutz-URLs für Schlüssel.
-Wenn die Nachweis-URL ist beispielsweise "http://hgs.contoso.com/Attestation", "Host-Überwachungsdienst" ist der Host-Überwachungsdienst-Dienstname.
+Wenn die Nachweis-URL ist beispielsweise "<http://hgs.contoso.com/Attestation>", "Host-Überwachungsdienst" ist der Host-Überwachungsdienst-Dienstname.
 
 Active Directory-Domäne ein, die Host-Überwachungsdienst muss wie alle anderen Active Directory-Domäne verwaltet werden.
 Wenn Sie Host-Überwachungsdienst nach einem Notfall wiederherstellen zu können, müssen nicht unbedingt Sie der exakt die Objekte neu erstellen, die in der aktuellen Domäne vorhanden sind.
@@ -702,10 +702,10 @@ Führen Sie für jeden geschützten virtuellen Computer die folgenden Schritte a
 10. Kopieren Sie die aktualisierte KP zurück zum Host-fabric
 11. Der ursprüngliche virtuelle Computer gelten Sie der-KP:
 
-    ```powershell
-    $updatedKP = Get-Content -Path .\updatedVM001.kp
-    Set-VMKeyProtector -VMName VM001 -KeyProtector $updatedKP
-    ```
+   ```powershell
+   $updatedKP = Get-Content -Path .\updatedVM001.kp
+   Set-VMKeyProtector -VMName VM001 -KeyProtector $updatedKP
+   ```
 12. Abschließend starten Sie den virtuellen Computer aus, und stellen Sie sicher, dass es erfolgreich ausgeführt wird.
 
 > [!NOTE]
@@ -718,10 +718,10 @@ Nachdem alle virtuellen Computer zum Autorisieren der neuen Schlüssel für den 
 
 14. Deaktivieren Sie jedes Zertifikat, indem Sie die folgenden Befehle ausführen:  
 
-    ```powershell
-    Set-HgsKeyProtectionCertificate -CertificateType Signing -Thumbprint <Thumbprint> -IsEnabled $false
-    Set-HgsKeyProtectionCertificate -CertificateType Encryption -Thumbprint <Thumbprint> -IsEnabled $false
-    ```
+   ```powershell
+   Set-HgsKeyProtectionCertificate -CertificateType Signing -Thumbprint <Thumbprint> -IsEnabled $false
+   Set-HgsKeyProtectionCertificate -CertificateType Encryption -Thumbprint <Thumbprint> -IsEnabled $false
+   ```
 
 15. Nachdem Sie sichergestellt haben, dass die virtuellen Computer weiterhin für den Einstieg können entfernen die Zertifikate, die deaktiviert ist, Sie die Zertifikate von Host-Überwachungsdienst durch die folgenden Befehle ausführen:
 

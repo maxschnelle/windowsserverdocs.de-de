@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: c3a39f9d51ed8243118522ae37bc7d205a7ea416
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 1a7e59dd83ebc9a9eabd5bda1dc598d320f5028d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192139"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442501"
 ---
 # <a name="export-the-private-key-portion-of-a-server-authentication-certificate"></a>Exportieren des Teils eines privaten Schlüssels aus einem Serverauthentifizierungszertifikat
 
@@ -31,24 +31,24 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
   
 ### <a name="to-export-the-private-key-portion-of-a-server-authentication-certificate"></a>So exportieren Sie den Bereich mit dem privaten Schlüssel eines Serverauthentifizierungszertifikats  
   
-1.  Auf der **starten** geben**Internet Information Services \(IIS\) Manager**, und drücken Sie dann die EINGABETASTE.  
+1. Auf der **starten** geben**Internet Information Services \(IIS\) Manager**, und drücken Sie dann die EINGABETASTE.  
   
-2.  Klicken Sie in der Konsolenstruktur auf **ComputerName**.  
+2. Klicken Sie in der Konsolenstruktur auf **ComputerName**.  
   
-3.  Doppelklicken Sie im mittleren Bereich\-klicken Sie auf **Serverzertifikate**.  
+3. Doppelklicken Sie im mittleren Bereich\-klicken Sie auf **Serverzertifikate**.  
   
-4.  Klicken Sie im mittleren Bereich der rechten Maustaste\-klicken Sie auf das Zertifikat, das Sie exportieren möchten, und klicken Sie dann auf **exportieren**.  
+4. Klicken Sie im mittleren Bereich der rechten Maustaste\-klicken Sie auf das Zertifikat, das Sie exportieren möchten, und klicken Sie dann auf **exportieren**.  
   
-5.  In der **Zertifikat exportieren** Dialogfeld klicken Sie auf die **...** .  
+5. In der **Zertifikat exportieren** Dialogfeld klicken Sie auf die **...** .  
   
-6.  In **Dateiname**, Type **C:\\*** Name des Zerttifikats*, und klicken Sie dann auf **öffnen**.  
+6. In **Dateiname**, Typ **C:\\** <em>Name des Zerttifikats</em>, und klicken Sie dann auf **öffnen**.  
   
-7.  Geben Sie das Kennwort für das Zertifikat ein, bestätigen Sie das Kennwort, und klicken Sie dann auf **OK**.  
+7. Geben Sie das Kennwort für das Zertifikat ein, bestätigen Sie das Kennwort, und klicken Sie dann auf **OK**.  
   
-8.  Überprüfen Sie den Erfolg Ihres Exportvorgangs, indem Sie bestätigen, dass die von Ihnen angegebene Daten am angegebenen Standort erstellt wird.  
+8. Überprüfen Sie den Erfolg Ihres Exportvorgangs, indem Sie bestätigen, dass die von Ihnen angegebene Daten am angegebenen Standort erstellt wird.  
   
-    > [!IMPORTANT]  
-    > Damit dieses Zertifikat in den lokalen Zertifikatspeicher auf dem neuen Server importiert werden, müssen Sie die Datei auf ein physisches Speichermedium übertragen und ihre Sicherheit während des Transports auf den neuen Server sichern. Es ist äußerst wichtig, die Sicherheit des privaten Schlüssels zu gewähren. Wenn dieser Schlüssel gefährdet ist, die Sicherheit der gesamten AD FS-Bereitstellung \(das Einschließen von Ressourcen in Ihrer Organisation und in ressourcenpartnerorganisationen\) gefährdet ist.  
+   > [!IMPORTANT]  
+   > Damit dieses Zertifikat in den lokalen Zertifikatspeicher auf dem neuen Server importiert werden, müssen Sie die Datei auf ein physisches Speichermedium übertragen und ihre Sicherheit während des Transports auf den neuen Server sichern. Es ist äußerst wichtig, die Sicherheit des privaten Schlüssels zu gewähren. Wenn dieser Schlüssel gefährdet ist, die Sicherheit der gesamten AD FS-Bereitstellung \(das Einschließen von Ressourcen in Ihrer Organisation und in ressourcenpartnerorganisationen\) gefährdet ist.  
   
 9. Importieren Sie das exportierte Serverauthentifizierungszertifikat in den Zertifikatspeicher auf dem neuen Server, bevor Sie den Verbunddienst installieren. Informationen dazu, wie Sie das Zertifikat zu importieren, finden Sie unter Importieren eines Serverzertifikats \( [http:\/\/"go.Microsoft.com"\/Fwlink\/? LinkId\=108283](https://go.microsoft.com/fwlink/?LinkId=108283)\).  
   

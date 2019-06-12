@@ -6,14 +6,14 @@ ms.manager: daveba
 ms.technology: storage
 ms.topic: article
 author: jasongerend
-ms.date: 05/09/2019
+ms.date: 06/07/2019
 description: In diesem Thema wird beschrieben, wie Sie mithilfe des Rollendiensts für DFS-Namespaces in Windows Server freigegebene Ordner, die sich auf verschiedenen Servern befinden, in logisch strukturierten Namespaces gruppieren.
-ms.openlocfilehash: 33b5a36c9f13179286a95735621272f79983231c
-ms.sourcegitcommit: 75f257d97d345da388cda972ccce0eb29e82d3bc
+ms.openlocfilehash: b16d8145d766cbb9b12feaaa2e5e9443813a69f2
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65613184"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812579"
 ---
 # <a name="dfs-namespaces-overview"></a>Übersicht über DFS-Namespaces
 
@@ -55,11 +55,11 @@ Server, auf denen die folgenden Betriebssysteme ausgeführt werden, können eine
 
 Die folgende Tabelle enthält zusätzliche zu berücksichtigende Faktoren, wenn Sie Server zum Hosten eines Namespaces auswählen.
 
-|Server, auf dem sich eigenständige Namespaces befinden|Server, auf dem sich domänenbasierte Namespaces befinden|
-|---|---|
-|Muss ein NTFS-Volume zum Hosten des Namespaces enthalten.|Muss ein NTFS-Volume zum Hosten des Namespaces enthalten.|
-|Hierbei kann es sich um einen Mitgliedsserver oder Domänencontroller handeln.|Muss ein Mitgliedsserver oder Domänencontroller in der Domäne sein, in der der Namespace konfiguriert ist. (Diese Anforderung gilt für jeden Namespaceserver, der einen domänenbasierten Namespace hostet.)|
-|Kann von einem Failovercluster zum Erhöhen der Verfügbarkeit der Namespace gehostet werden.|Der Namespace kann nicht eine geclusterte Ressource in einem Failovercluster sein. Allerdings können Sie den Namespace auf einem Server suchen, der auch als Knoten in einem Failovercluster fungiert, wenn Sie den Namespace konfigurieren, der nur lokale Ressourcen auf diesem Server verwendet.|
+| Server, auf dem sich eigenständige Namespaces befinden | Server, auf dem sich domänenbasierte Namespaces befinden |
+| ---                                   |        ---                                |
+| Muss ein NTFS-Volume zum Hosten des Namespaces enthalten.|Muss ein NTFS-Volume zum Hosten des Namespaces enthalten. |
+| Hierbei kann es sich um einen Mitgliedsserver oder Domänencontroller handeln.|Muss ein Mitgliedsserver oder Domänencontroller in der Domäne sein, in der der Namespace konfiguriert ist. (Diese Anforderung gilt für jeden Namespaceserver, der einen domänenbasierten Namespace hostet.) |
+| Kann von einem Failovercluster zum Erhöhen der Verfügbarkeit der Namespace gehostet werden.|Der Namespace kann nicht eine geclusterte Ressource in einem Failovercluster sein. Allerdings können Sie den Namespace auf einem Server suchen, der auch als Knoten in einem Failovercluster fungiert, wenn Sie den Namespace konfigurieren, der nur lokale Ressourcen auf diesem Server verwendet. |
 
 ## <a name="installing-dfs-namespaces"></a>Installieren von DFS-Namespaces
 
@@ -89,10 +89,10 @@ Installieren Sie DFS-Namespaces mit [Windows Admin Center](../../manage/windows-
 Install-WindowsFeature <name>
 ```
 
-|Rollendienst oder Feature|Name|
-|---|---|
-|DFS-Namespaces|`FS-DFS-Namespace`|
-|DFS-Verwaltungstools|`RSAT-DFS-Mgmt-Con`|
+| Rollendienst oder Feature | Name |
+| ----------------------- | ---- |
+| DFS-Namespaces          | `FS-DFS-Namespace` |
+| DFS-Verwaltungstools    | `RSAT-DFS-Mgmt-Con` |
 
 Geben Sie beispielsweise Folgendes ein, um die DFS-Tools zu installieren, die Teil der Remoteserver-Verwaltungstools sind:
 
@@ -120,12 +120,12 @@ Weitere Informationen zu den ersten Schritten mit virtuellen Azure-Computern fin
 
 Weitere verwandte Informationen finden Sie in den folgenden Ressourcen:
 
-|Inhaltstyp|Verweise|
-|------------------|----------------|
-|**Produktbewertung**|[Neues bei DFS-Namespaces und DFS-Replikation unter WindowsServer](https://technet.microsoft.com/library/dn281957(v=ws.11).aspx)|
-|**Bereitstellung**|[Überlegungen zur Skalierbarkeit von DFS-Namespace](http://blogs.technet.com/b/filecab/archive/2012/08/26/dfs-namespace-scalability-considerations.aspx)|
-|**Betrieb**|[DFS-Namespaces: Häufig gestellte Fragen](https://technet.microsoft.com/library/ee404780.aspx)|
-|**Communityressourcen**|[Zu Dateidiensten und Speicher-TechNet-Forum](https://social.technet.microsoft.com/forums/winserverfiles/threads/)|
-|**Protokolle**|[Protokolle in WindowsServer für Dateidienste](https://msdn.microsoft.com/en-us/library/cc239318.aspx) (veraltet)|
-|**Verwandte Technologien**| [Failoverclustering](../../failover-clustering/failover-clustering-overview.md)|
-|**Support**|[Windows IT Pro-Support](https://www.microsoft.com/itpro/windows/support)|
+| Inhaltstyp        | Verweise |
+| ------------------  | ----------------|
+| **Produktbewertung** | [Neues bei DFS-Namespaces und DFS-Replikation unter WindowsServer](https://technet.microsoft.com/library/dn281957(v=ws.11).aspx) |
+| **Bereitstellung**    | [Überlegungen zur Skalierbarkeit von DFS-Namespace](http://blogs.technet.com/b/filecab/archive/2012/08/26/dfs-namespace-scalability-considerations.aspx) |
+| **Betrieb**    | [DFS-Namespaces: Häufig gestellte Fragen](https://technet.microsoft.com/library/ee404780.aspx) |
+| **Communityressourcen** | [Zu Dateidiensten und Speicher-TechNet-Forum](https://social.technet.microsoft.com/forums/winserverfiles/threads/) |
+| **Protokolle**        | [Protokolle in WindowsServer für Dateidienste](https://msdn.microsoft.com/en-us/library/cc239318.aspx) (veraltet) |
+| **Verwandte Technologien** | [Failoverclustering](../../failover-clustering/failover-clustering-overview.md)|
+| **Support** | [Windows IT Pro-Support](https://www.microsoft.com/itpro/windows/support)|

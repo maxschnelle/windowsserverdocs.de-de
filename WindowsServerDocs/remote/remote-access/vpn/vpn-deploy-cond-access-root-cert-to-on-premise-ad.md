@@ -15,12 +15,12 @@ ms.author: pashort
 author: shortpatti
 ms.localizationpriority: medium
 ms.reviewer: deverette
-ms.openlocfilehash: 210540846f5d62dfc74a2e629a6b7675ccf9894d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4aaad98cd04c9b07bdea848294e10d9bcb602064
+ms.sourcegitcommit: 0948a1abff1c1be506216eeb51ffc6f752a9fe7e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837371"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66749548"
 ---
 # <a name="step-74-deploy-conditional-access-root-certificates-to-on-premises-ad"></a>Schritt 7.4. Stammzertifikate für den bedingten Zugriff bereitstellen, auf das lokale Active Directory
 
@@ -28,10 +28,10 @@ ms.locfileid: "59837371"
 
 In diesem Schritt, Sie stellen das Stammzertifikat für den bedingten Zugriff als vertrauenswürdiges Stammzertifikat für die VPN-Authentifizierung auf Ihrem lokalen AD.
 
-&#171;  [**Vorherige:** Schritt 7.3. Konfigurieren Sie die Richtlinie für bedingten Zugriff](vpn-config-conditional-access-policy.md)<br>
-&#187; [ **Next:** Schritt 7.5. Erstellen Sie OMA-DM-basierte VPNv2-Profile für Windows 10-Geräte](vpn-create-oma-dm-based-vpnv2-profiles.md)
+- [**Vorherige:** Schritt 7.3. Konfigurieren der Richtlinie für bedingten Zugriff](vpn-config-conditional-access-policy.md)
+- [**nächster:** Schritt 7.5. Erstellen von OMA-DM-basierten VPNv2-Profilen für Windows 10-Geräte](vpn-create-oma-dm-based-vpnv2-profiles.md)
 
-1. Auf der **VPN-Konnektivität** auf **Zertifikat herunterladen**. 
+1. Auf der **VPN-Konnektivität** Seite **Zertifikat herunterladen**. 
    
     ![Herunterladen des Zertifikats für den bedingten Zugriff](../../media/Always-On-Vpn/06.png)
 
@@ -62,10 +62,11 @@ In diesem Schritt, Sie stellen das Stammzertifikat für den bedingten Zugriff al
 
     d.  Mit der rechten Maustaste **Unternehmens-PKI** , und wählen Sie **Verwalten von AD-Container**.
 
-    d.  Stellen Sie sicher, dass jedes Microsoft VPN-Stamm-CA-Gen 1-Zertifikat unter vorhanden ist:<ul><li>NTAuthCertificates</li><li>AIA-Container</li><li>Certificate Authorities Container</li></ul>
+    d.  Stellen Sie sicher, dass jedes Microsoft VPN-Stamm-CA-Gen 1-Zertifikat unter vorhanden ist:
+      - NTAuthCertificates
+      - AIA-Container
+      - Certificate Authorities Container
 
-    
-## <a name="next-step"></a>Nächster Schritt
-[Dies ist Schritt 7.5. Erstellen Sie OMA-DM-basierte VPNv2-Profile auf Windows 10-Geräten](vpn-create-oma-dm-based-vpnv2-profiles.md): In diesem Schritt erstellen Sie können OMA-DM-basierte VPNv2-Profile, die mithilfe von Intune zum Bereitstellen einer Konfigurationsrichtlinie für VPN-Gerät. PowerShell-Skript zu SCCM VPNv2 Profile erstellen, finden Sie unter [VPNv2 CSP-Einstellungen](https://docs.microsoft.com/windows/client-management/mdm/vpnv2-csp) Weitere Details.
+## <a name="next-steps"></a>Nächste Schritte
 
----
+[Schritt 7.5: Erstellen Sie OMA-DM-basierte VPNv2-Profile auf Windows 10-Geräten](vpn-create-oma-dm-based-vpnv2-profiles.md): In diesem Schritt erstellen Sie können OMA-DM-basierte VPNv2-Profile, die mithilfe von Intune zum Bereitstellen einer Konfigurationsrichtlinie für VPN-Gerät. PowerShell-Skript zu SCCM VPNv2 Profile erstellen, finden Sie unter [VPNv2 CSP-Einstellungen](https://docs.microsoft.com/windows/client-management/mdm/vpnv2-csp) Weitere Details.

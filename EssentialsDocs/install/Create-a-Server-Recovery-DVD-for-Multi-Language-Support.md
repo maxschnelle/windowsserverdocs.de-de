@@ -12,12 +12,12 @@ ms.assetid: c7da0f6c-9732-4784-9c28-7dad72c4071d
 4author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: ac547f97b48e4cd0ebf87e0935cadc2c539b4d0b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e2bbc7bf7af71c671153bf7ba3356ddc08dcc38b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855001"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433630"
 ---
 # <a name="create-a-server-recovery-dvd-for-multi-language-support"></a>Erstellen einer Serverwiederherstellungs-DVD für die Unterstützung mehrerer Sprachen
 
@@ -30,20 +30,20 @@ ms.locfileid: "59855001"
   
  Es gibt zwei Konfigurationsphasen: die Konfiguration von Windows Preinstallation Environment (Windows PE) und die Erstkonfiguration. Standardmäßig wird bei der Erstkonfiguration die Sprachauswahlseite nicht angezeigt.  
   
--   Bei einem remote verwalteten OEM-Installations- oder einem OEM-Vorinstallationsszenario müssen Sie mithilfe des folgenden Befehls einen Registrierungsschlüssel hinzufügen, um die Sprachauswahlseite bei der Erstkonfiguration anzuzeigen.  
+- Bei einem remote verwalteten OEM-Installations- oder einem OEM-Vorinstallationsszenario müssen Sie mithilfe des folgenden Befehls einen Registrierungsschlüssel hinzufügen, um die Sprachauswahlseite bei der Erstkonfiguration anzuzeigen.  
   
-    ```  
-    %systemroot%\system32\reg.exe add "HKLM\Software\microsoft\windows server\setup" /v ShowPreinstallPages /t REG_SZ /d true /f  
-    ```  
+  ```  
+  %systemroot%\system32\reg.exe add "HKLM\Software\microsoft\windows server\setup" /v ShowPreinstallPages /t REG_SZ /d true /f  
+  ```  
   
-    > [!IMPORTANT]
-    >  Wenn OEMs im Labor ein Abbild erstellen, müssen sie während der Windows PE-Phase des Setups als Sprache **Englisch** auswählen.  
+  > [!IMPORTANT]
+  >  Wenn OEMs im Labor ein Abbild erstellen, müssen sie während der Windows PE-Phase des Setups als Sprache **Englisch** auswählen.  
   
--   In einem ROK-Szenario (Reseller Option Kit) erhält der Kunde eine DVD und ggf. Hardware. Der Kunde sollte die Sprache bei der Konfiguration von Windows PE auswählen können, und die Sprachauswahlseite wird bei der Erstkonfiguration nicht mehr angezeigt.  
+- In einem ROK-Szenario (Reseller Option Kit) erhält der Kunde eine DVD und ggf. Hardware. Der Kunde sollte die Sprache bei der Konfiguration von Windows PE auswählen können, und die Sprachauswahlseite wird bei der Erstkonfiguration nicht mehr angezeigt.  
   
- Sie können eine doppelschichtige DVD ausliefern, die mehrere Sprachen enthält.  
+  Sie können eine doppelschichtige DVD ausliefern, die mehrere Sprachen enthält.  
   
- In diesem Abschnitt wird beschrieben, wie Sie Windows Setup Sprachunterstützung hinzufügen. Das wichtigste Tool für die Anpassung von Windows PE 3.0 ist die Abbildverwaltung für die Bereitstellung (Deployment Image Servicing and Management, DISM), ein Befehlszeilentool. Diese Lösung ermöglicht die folgenden Szenarien:  
+  In diesem Abschnitt wird beschrieben, wie Sie Windows Setup Sprachunterstützung hinzufügen. Das wichtigste Tool für die Anpassung von Windows PE 3.0 ist die Abbildverwaltung für die Bereitstellung (Deployment Image Servicing and Management, DISM), ein Befehlszeilentool. Diese Lösung ermöglicht die folgenden Szenarien:  
   
 1.  Erstellen mehrsprachiger Installationen  
   

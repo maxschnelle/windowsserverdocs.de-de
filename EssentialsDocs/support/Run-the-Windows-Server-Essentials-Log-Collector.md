@@ -12,12 +12,12 @@ ms.assetid: 0d340223-fa24-4c75-ba8e-b654feb120ab
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 6b49fee7ca4a19d5a501cf96c1ce356f8242c81f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5654f28aeda3c231376ed888a8aa04bc0cf3d000
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830921"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432491"
 ---
 # <a name="run-the-windows-server-essentials-log-collector"></a>Ausführen des Windows Server Essentials-Protokollsammlers
 Sie können die Windows Server Essentials Log Collector vom Server oder von einem Computer im Netzwerk ausführen. Wenn Sie den Log Collector vom Server ausführen, können nur Protokolle vom Server erfasst werden. Wenn Sie den Log Collector von einem Computer im Netzwerk ausführen, können Sie auswählen, ob Protokolle von dem Server, zusätzlich zu den Protokollen für diesen Computer, erfasst werden sollen.  
@@ -26,20 +26,20 @@ Sie können die Windows Server Essentials Log Collector vom Server oder von eine
   
 #### <a name="to-run-the-log-collector-on-the-server-by-using-the-wizard"></a>So führen Sie den Log Collector auf dem Server mithilfe des Assistenten aus  
   
-1.  Auf der **starten** Seite des Servers, klicken Sie auf **Windows Server Essentials Log Collector**.  
+1. Auf der **starten** Seite des Servers, klicken Sie auf **Windows Server Essentials Log Collector**.  
   
-    > [!NOTE]
-    >  -   Wenn das Log Collector-Programm nicht angezeigt wird, auf die **starten** Seite, wechseln Sie zu **%system%\Program Files (x86) \Windows Server Essentials Log Collector**, und doppelklicken Sie dann auf **LogCollector** .  
-    > -   Wenn Sie nicht auf dem Server mit Administratorrechten angemeldet sind, werden Sie vom Log Collector zur Eingabe Ihrer Anmeldeinformationen aufgefordert.  
+   > [!NOTE]
+   > - Wenn das Log Collector-Programm nicht angezeigt wird, auf die **starten** Seite, wechseln Sie zu **%system%\Program Files (x86) \Windows Server Essentials Log Collector**, und doppelklicken Sie dann auf **LogCollector** .  
+   >   -   Wenn Sie nicht auf dem Server mit Administratorrechten angemeldet sind, werden Sie vom Log Collector zur Eingabe Ihrer Anmeldeinformationen aufgefordert.  
   
-2.  Wenn Sie einen Speicherort für die erfassten Protokolldateien speichern aufgefordert werden, können Sie den Standardspeicherort  **\\ \\< ServerName\>\logs**, oder geben Sie einen anderen Speicherort. Um den Standardspeicherort zu übernehmen, klicken Sie auf **Weiter**. Zum Ändern des Speicherorts klicken Sie auf **Durchsuchen**, navigieren Sie zu dem Ordner, in dem Protokolldateien gespeichert werden sollen, und klicken Sie dann auf **Speichern**.  
+2. Wenn Sie einen Speicherort für die erfassten Protokolldateien speichern aufgefordert werden, können Sie den Standardspeicherort  **\\ \\< ServerName\>\logs**, oder geben Sie einen anderen Speicherort. Um den Standardspeicherort zu übernehmen, klicken Sie auf **Weiter**. Zum Ändern des Speicherorts klicken Sie auf **Durchsuchen**, navigieren Sie zu dem Ordner, in dem Protokolldateien gespeichert werden sollen, und klicken Sie dann auf **Speichern**.  
   
-    > [!NOTE]
-    >  Sie brauchen keine Dateinamen für die Protokolldateien anzugeben. Der Log Collector benennt die Auflistung der Zip-Dateien durch Verkettung der Namen des Computers und den Zeitstempel der Datei.  
+   > [!NOTE]
+   >  Sie brauchen keine Dateinamen für die Protokolldateien anzugeben. Der Log Collector benennt die Auflistung der Zip-Dateien durch Verkettung der Namen des Computers und den Zeitstempel der Datei.  
   
-3.  Eine Statusleiste wird angezeigt, während die Protokolle erfasst werden.  
+3. Eine Statusleiste wird angezeigt, während die Protokolle erfasst werden.  
   
-4.  Um den Inhalt der Protokollerfassungsdatei anzuzeigen, wählen Sie das Kontrollkästchen **Speicherort der Protokolldateien öffnen** aus, und klicken Sie auf **Schließen** , um den Assistenten zu schließen und die Protokollerfassungsdatei zu öffnen.  
+4. Um den Inhalt der Protokollerfassungsdatei anzuzeigen, wählen Sie das Kontrollkästchen **Speicherort der Protokolldateien öffnen** aus, und klicken Sie auf **Schließen** , um den Assistenten zu schließen und die Protokollerfassungsdatei zu öffnen.  
   
 #### <a name="to-run-the-log-collector-on-a-network-computer-by-using-the-wizard"></a>So führen Sie den Log Collector auf einem Netzwerkcomputer mithilfe des Assistenten aus  
   

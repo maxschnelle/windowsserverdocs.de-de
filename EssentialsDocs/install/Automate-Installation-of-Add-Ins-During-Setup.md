@@ -12,12 +12,12 @@ ms.assetid: 2e6ff6e4-8d68-4d49-9e38-8088bc8bf95e
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: d4c547c2fec8e2b11e5c1d9bde46e55e91c9d6fa
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c2345726a17a074fc7022c8c4dc9b2443e9ad384
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884621"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433644"
 ---
 # <a name="automate-installation-of-add-ins-during-setup"></a>Automatisches Installieren von Add-Ins während des Setups
 
@@ -69,13 +69,13 @@ C:\Program Files\Windows Server\bin\Installaddin.exe <full path to wssx file> -q
   
  Ein angepasster Schritt zur Deinstallation kann für die folgenden Zwecke verwendet werden:  
   
--   Ersetzen des integrierten Bestätigungsdialogfeldes  
+- Ersetzen des integrierten Bestätigungsdialogfeldes  
   
--   Ausfüllen von angepassten Dialogfeldern vor der Deinstallation  
+- Ausfüllen von angepassten Dialogfeldern vor der Deinstallation  
   
--   Ausführen von bestimmten Aufgaben vor der Deinstallation  
+- Ausführen von bestimmten Aufgaben vor der Deinstallation  
   
- Wenn Sie einen Schritt zur Deinstallation implementieren möchten, fügen Sie der Datei "addin.xml" die folgenden Inhalte hinzu (direkt unterhalb von "Package"):  
+  Wenn Sie einen Schritt zur Deinstallation implementieren möchten, fügen Sie der Datei "addin.xml" die folgenden Inhalte hinzu (direkt unterhalb von "Package"):  
   
 ```  
 <Package xmlns="https://schemas.microsoft.com/WindowsServerSolutions/2010/03/Addins" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">  
@@ -103,19 +103,19 @@ C:\Program Files\Windows Server\bin\Installaddin.exe <full path to wssx file> -q
   
  In dieser Phase können die folgenden Tasks durch exefile ausgeführt werden:  
   
--   Einblenden bestimmter Dialogfelder für Benutzereingriffe  
+- Einblenden bestimmter Dialogfelder für Benutzereingriffe  
   
--   Ausführen bestimmter Hintergrundaufgaben  
+- Ausführen bestimmter Hintergrundaufgaben  
   
- Durch den Beendigungscode dieser ausführbaren Datei wird der weitere Deinstallationsprozess festgelegt:  
+  Durch den Beendigungscode dieser ausführbaren Datei wird der weitere Deinstallationsprozess festgelegt:  
   
--   0: Der Deinstallationsprozess wird ohne Ausfüllen des integrierten Bestätigungsdialogfeldes so fortgesetzt, als ob der Benutzer bereits bestätigt hätte. (Dieser Ansatz kann zum Ersetzen des integrierten Bestätigungsdialogfeldes verwendet werden.)  
+- 0: Der Deinstallationsprozess wird ohne Ausfüllen des integrierten Bestätigungsdialogfeldes so fortgesetzt, als ob der Benutzer bereits bestätigt hätte. (Dieser Ansatz kann zum Ersetzen des integrierten Bestätigungsdialogfeldes verwendet werden.)  
   
--   1: Der Deinstallationsprozess wird abgebrochen, und dem Benutzer wird zum Abschluss eine Abbruchnachricht angezeigt. Es werden keine Änderungen durchgeführt.  
+- 1: Der Deinstallationsprozess wird abgebrochen, und dem Benutzer wird zum Abschluss eine Abbruchnachricht angezeigt. Es werden keine Änderungen durchgeführt.  
   
--   Weitere: Der Deinstallationsprozess wird mit dem integrierten Bestätigungsdialogfeld so fortgesetzt, als ob der angepasste Schritt zur Deinstallation nicht vorhanden wäre.  
+- Weitere: Der Deinstallationsprozess wird mit dem integrierten Bestätigungsdialogfeld so fortgesetzt, als ob der angepasste Schritt zur Deinstallation nicht vorhanden wäre.  
   
- Alle Fehler, bei denen die exefile aufgerufen wird, führen zu demselben Verhalten wie bei der Rückgabe eines anderen Codes als "0" oder "1" der exefile.  
+  Alle Fehler, bei denen die exefile aufgerufen wird, führen zu demselben Verhalten wie bei der Rückgabe eines anderen Codes als "0" oder "1" der exefile.  
   
 ## <a name="see-also"></a>Siehe auch  
  [Erstellen und Anpassen des Abbilds](Creating-and-Customizing-the-Image.md)   

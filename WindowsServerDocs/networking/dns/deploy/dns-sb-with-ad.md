@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: f9533204-ad7e-4e49-81c1-559324a16aeb
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 7a5761cafff0a4bf148958a7f14aeaf311075b2e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 66931d2196b741e469cb726929f7b58985b8d0cd
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839781"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812149"
 ---
 # <a name="use-dns-policy-for-split-brain-dns-in-active-directory"></a>Verwenden von DNS-Richtlinien für Split Brain-DNS in Active Directory
 
@@ -25,7 +25,7 @@ In Windows Server 2016-Unterstützung für DNS-Richtlinien wird erweitert, mit A
 
 Zuvor mussten dafür, zwei unterschiedliche DNS-Server, jede Bereitstellung Dienste auf jede Gruppe von Benutzern, internen und externen DNS-Administratoren zu verwalten. Wenn nur wenige Datensätze in der Zone geteilt wurden\-brained oder beide Instanzen der Zone (intern und extern) delegiert wurden die gleichen übergeordneten Domäne, an wurde ein Problem Management.
 
->[!NOTE]
+> [!NOTE]
 > - DNS-Bereitstellungen werden aufgeteilt\-Brain-Problem bei der es gibt zwei Versionen einer einzelnen Zone und eine Version für interne Benutzer auf das Intranet der Organisation eine Version für externe Benutzer –, die in der Regel Benutzer im Internet sind.
 > - Das Thema [verwenden DNS-Richtlinien für die DNS-Bereitstellung Split-Brain](split-brain-DNS-deployment.md) wird erläutert, wie Sie DNS-Richtlinien und Bereiche der Zone verwenden können, um eine Teilung bereitzustellen\-Brain-DNS-System auf einem einzelnen Windows Server 2016-DNS-Server.
 
@@ -124,8 +124,8 @@ Der Befehl im folgenden Beispiel können die Bereiche der Zone auf dem DNS-Serve
     
     Add-DnsServerResourceRecord -ZoneName "contoso.com" -A -Name "www.career" -IPv4Address "10.0.0.39”
 
->[!NOTE]
->Die **– ZoneScope** Parameter ist nicht enthalten, wenn der Standardbereich für die Zone der Datensatz hinzugefügt wird. Diese Aktion ist identisch mit dem Hinzufügen von Datensätzen mit einer normalen Zone.
+> [!NOTE]
+> Die **– ZoneScope** Parameter ist nicht enthalten, wenn der Standardbereich für die Zone der Datensatz hinzugefügt wird. Diese Aktion ist identisch mit dem Hinzufügen von Datensätzen mit einer normalen Zone.
 
 Weitere Informationen finden Sie unter [hinzufügen-DnsServerResourceRecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).
 
@@ -133,18 +133,18 @@ Weitere Informationen finden Sie unter [hinzufügen-DnsServerResourceRecord](htt
 
 Nachdem Sie die Serverschnittstellen für das externe Netzwerk und dem internen Netzwerk bestimmt haben, und die Bereiche der Zone erstellt haben, müssen Sie DNS-Richtlinien erstellen, die die Bereiche für die interne und externe Zone zu verbinden.
 
->[!NOTE]
->Dieses Beispiel verwendet die Serverschnittstelle \(der ServerInterface - Parameter im folgenden Beispielbefehl\) als Kriterium, zwischen den internen und externen Clients zu unterscheiden. Eine andere Methode zum unterscheiden zwischen externen und internen Clients wird mithilfe von clientsubnetzen als Kriterium. Wenn Sie die Subnetze identifizieren können, zu denen die internen Clients gehören, können Sie die DNS-Richtlinien basierend auf Client-Subnetz zur konfigurieren. Informationen zum Konfigurieren der Verwaltung des Datenverkehrs Client Subnetz Kriterien verwenden, finden Sie unter [verwenden DNS-Richtlinien für die GeoLocation-basierte Datenverkehrsverwaltung mit Primärservern](primary-geo-location.md).
+> [!NOTE]
+> Dieses Beispiel verwendet die Serverschnittstelle \(der ServerInterface - Parameter im folgenden Beispielbefehl\) als Kriterium, zwischen den internen und externen Clients zu unterscheiden. Eine andere Methode zum unterscheiden zwischen externen und internen Clients wird mithilfe von clientsubnetzen als Kriterium. Wenn Sie die Subnetze identifizieren können, zu denen die internen Clients gehören, können Sie die DNS-Richtlinien basierend auf Client-Subnetz zur konfigurieren. Informationen zum Konfigurieren der Verwaltung des Datenverkehrs Client Subnetz Kriterien verwenden, finden Sie unter [verwenden DNS-Richtlinien für die GeoLocation-basierte Datenverkehrsverwaltung mit Primärservern](primary-geo-location.md).
 
 Nachdem Sie die Richtlinien zu konfigurieren, wenn eine DNS-Abfrage für die öffentliche Schnittstelle empfangen wird, wird die Antwort aus dem externen Bereich der Zone zurückgegeben. 
 
->[!NOTE]
->Keine Richtlinien sind für die Zuordnung des Standardbereich für die internen Zone erforderlich. 
+> [!NOTE]
+> Keine Richtlinien sind für die Zuordnung des Standardbereich für die internen Zone erforderlich. 
 
     Add-DnsServerQueryResolutionPolicy -Name "SplitBrainZonePolicy" -Action ALLOW -ServerInterface "eq,208.84.0.53" -ZoneScope "external,1" -ZoneName contoso.com
 
->[!NOTE]
->208.84.0.53 ist die IP-Adresse der öffentlichen Schnittstelle.
+> [!NOTE]
+> 208.84.0.53 ist die IP-Adresse der öffentlichen Schnittstelle.
 
 Weitere Informationen finden Sie unter [hinzufügen-DnsServerQueryResolutionPolicy](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps).
 

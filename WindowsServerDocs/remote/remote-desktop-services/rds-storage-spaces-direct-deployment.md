@@ -13,16 +13,16 @@ author: haley-rowland
 ms.author: harowl
 ms.date: 07/17/2018
 manager: scottman
-ms.openlocfilehash: 8af3a389ec726bbb5ebd62db57d9b3a9861ac63f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 792c9320f6976a4fc7f2ccd235f66daa0cb19b19
+ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890961"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66805187"
 ---
 # <a name="deploy-a-two-node-storage-spaces-direct-scale-out-file-server-for-upd-storage-in-azure"></a>Bereitstellen eines "direkte Speicherplätze" Dateiserver mit horizontaler Skalierung-Servers von zwei Knoten für UPD-Speicherung in Azure
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2019, WindowsServer 2016
 
 Remote Desktop Services (RDS) erfordert einen Domäne eingebundenen Dateiserver für Benutzerprofil-Datenträgern (UPDs). Um einen Server mit hoher Verfügbarkeit mit domänenverknüpfung horizontal skalierten Dateiserver (SOFS) in Azure bereitstellen möchten, verwenden Sie "direkte Speicherplätze" mit Windows Server 2016 aus. Wenn Sie nicht mit dem Benutzerprofil-Datenträger oder Remote Desktop Services vertraut sind, sehen Sie sich [Willkommen bei Remotedesktopdienste](welcome-to-rds.md).
 
@@ -66,7 +66,7 @@ Verwenden Sie die folgenden Schritte aus, erstellen Sie einen Domänencontroller
       - Verwenden Sie ein automatisch generiertes VNet.
       - Führen Sie die Schritte zum Installieren von AD DS.
 5. Richten Sie den Dateiserver-Clusterknoten aus. Sie erreichen dies durch die Bereitstellung der [Windows Server 2016 Storage Spaces Direct SOFS-Cluster Azure-Vorlage](https://azure.microsoft.com/resources/templates/301-storage-spaces-direct/) oder indem Sie die folgenden Schritte 6 bis 11, manuell bereitstellen.
-5. Der Dateiserver-Clusterknoten manuell einrichten möchten:
+6. Der Dateiserver-Clusterknoten manuell einrichten möchten:
    1. Den ersten Knoten zu erstellen: 
       1. Erstellen Sie einen neuen virtuellen Computer mit dem Windows Server 2016-Image. (Klicken Sie auf **neu > virtuelle Computer > WindowsServer 2016.** SELECT **Resource Manager**, und klicken Sie dann auf **erstellen**.)
       2. Legen Sie die grundlegende Konfiguration wie folgt:
@@ -80,59 +80,59 @@ Verwenden Sie die folgenden Schritte aus, erstellen Sie einen Domänencontroller
    2. Erstellen Sie den zweiten Knoten. Wiederholen Sie den obigen Schritt, um sich mit den folgenden Änderungen:
       - Name: my-fsn2
       - Hochverfügbarkeit – wählen Sie die verfügbarkeitsgruppe oben erstellten.  
-6. [Fügen Sie Datenträger](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-attach-disk-portal/) auf den Clusterknoten-VMs nach der Benutzer muss (wie in der Tabelle oben dargestellt). Nachdem die Daten Datenträger erstellt und an den virtuellen Computer angefügten **hostzwischenspeicherung** zu **keine**.
-7. Festlegen von IP-Adressen für alle virtuellen Computer zu **statische**. 
+7. [Fügen Sie Datenträger](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-attach-disk-portal/) auf den Clusterknoten-VMs nach der Benutzer muss (wie in der Tabelle oben dargestellt). Nachdem die Daten Datenträger erstellt und an den virtuellen Computer angefügten **hostzwischenspeicherung** zu **keine**.
+8. Festlegen von IP-Adressen für alle virtuellen Computer zu **statische**. 
    1. In der Ressourcengruppe, wählen Sie eine VM, und klicken Sie dann auf **Netzwerkschnittstellen** (unter **Einstellungen**). Wählen Sie die aufgeführten Netzwerkschnittstelle aus, und klicken Sie dann auf **IP-Konfigurationen**. Wählen Sie die aufgelistete IP-Konfiguration, **statische**, und klicken Sie dann auf **speichern**.
    2. Beachten Sie die Domain Controller (Meine dc in unserem Beispiel) private IP-Adresse (10.x.x.x).
-8. Legen Sie primäre DNS-Serveradresse auf NICs, die von den Clusterknoten-VMs, auf den my-dc-Server. Wählen Sie den virtuellen Computer aus, und klicken Sie dann auf **Netzwerkschnittstellen > DNS-Server > benutzerdefiniertes DNS**. Geben Sie die private IP-Adresse, die Sie oben notiert haben, und klicken Sie dann auf **speichern**.
-9. Erstellen Sie eine [Azure Storage-Konto werden Ihre cloudzeugen](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness). (Wenn Sie die verknüpften Anweisungen verwenden, beendet, wenn man an "Konfigurieren von Cloud Witness mit Failover Cluster-Manager-GUI" – wir diesen Schritt unten machen.)
-10. Richten Sie den "direkte Speicherplätze"-Dateiserver ein. Verbinden mit einem VM-Knoten, und führen Sie die folgenden Windows PowerShell-Cmdlets.
-   1. Installieren Sie Failoverclustering-Features und Dateiserver, auf die zwei Server-Clusterknoten-VMs:
+9. Legen Sie primäre DNS-Serveradresse auf NICs, die von den Clusterknoten-VMs, auf den my-dc-Server. Wählen Sie den virtuellen Computer aus, und klicken Sie dann auf **Netzwerkschnittstellen > DNS-Server > benutzerdefiniertes DNS**. Geben Sie die private IP-Adresse, die Sie oben notiert haben, und klicken Sie dann auf **speichern**.
+10. Erstellen Sie eine [Azure Storage-Konto werden Ihre cloudzeugen](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness). (Wenn Sie die verknüpften Anweisungen verwenden, beendet, wenn man an "Konfigurieren von Cloud Witness mit Failover Cluster-Manager-GUI" – wir diesen Schritt unten machen.)
+11. Richten Sie den "direkte Speicherplätze"-Dateiserver ein. Verbinden mit einem VM-Knoten, und führen Sie die folgenden Windows PowerShell-Cmdlets.
+    1. Installieren Sie Failoverclustering-Features und Dateiserver, auf die zwei Server-Clusterknoten-VMs:
 
-      ```powershell
-      $nodes = ("my-fsn1", "my-fsn2")
-      icm $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools} 
-      icm $nodes {Install-WindowsFeature FS-FileServer} 
-      ```
-   2. Überprüfen Sie die Clusterknoten-VMs aus, und Erstellen von SOFS-Cluster mit 2 Knoten:
+       ```powershell
+       $nodes = ("my-fsn1", "my-fsn2")
+       icm $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools} 
+       icm $nodes {Install-WindowsFeature FS-FileServer} 
+       ```
+    2. Überprüfen Sie die Clusterknoten-VMs aus, und Erstellen von SOFS-Cluster mit 2 Knoten:
 
-      ```powershell
-      Test-Cluster -node $nodes
-      New-Cluster -Name MY-CL1 -Node $nodes –NoStorage –StaticAddress [new address within your addr space]
-      ``` 
-   3. Konfigurieren des cloudzeugen. Verwenden Sie Ihren Cloud Zeuge und den speicherkontoschlüssel.
+       ```powershell
+       Test-Cluster -node $nodes
+       New-Cluster -Name MY-CL1 -Node $nodes –NoStorage –StaticAddress [new address within your addr space]
+       ``` 
+    3. Konfigurieren des cloudzeugen. Verwenden Sie Ihren Cloud Zeuge und den speicherkontoschlüssel.
 
-      ```powershell
-      Set-ClusterQuorum –CloudWitness –AccountName <StorageAccountName> -AccessKey <StorageAccountAccessKey> 
-      ```
-   4. Aktivieren Sie direkte Speicherplätze.
+       ```powershell
+       Set-ClusterQuorum –CloudWitness –AccountName <StorageAccountName> -AccessKey <StorageAccountAccessKey> 
+       ```
+    4. Aktivieren Sie direkte Speicherplätze.
 
-      ```powershell
-      Enable-ClusterS2D 
-      ```
+       ```powershell
+       Enable-ClusterS2D 
+       ```
       
-   5. Erstellen Sie ein Volume des virtuellen Datenträgers an.
+    5. Erstellen Sie ein Volume des virtuellen Datenträgers an.
 
-      ```powershell
-      New-Volume -StoragePoolFriendlyName S2D* -FriendlyName VDisk01 -FileSystem CSVFS_REFS -Size 120GB 
-      ```
-      Um Informationen zu dem freigegebenen Clustervolume im SOFS-Cluster anzuzeigen, führen Sie das folgende Cmdlet aus:
+       ```powershell
+       New-Volume -StoragePoolFriendlyName S2D* -FriendlyName VDisk01 -FileSystem CSVFS_REFS -Size 120GB 
+       ```
+       Um Informationen zu dem freigegebenen Clustervolume im SOFS-Cluster anzuzeigen, führen Sie das folgende Cmdlet aus:
 
-      ```powershell
-      Get-ClusterSharedVolume
-      ```
+       ```powershell
+       Get-ClusterSharedVolume
+       ```
    
-   6. Erstellen Sie den Dateiserver mit horizontaler Skalierung (Server, SOFS):
+    6. Erstellen Sie den Dateiserver mit horizontaler Skalierung (Server, SOFS):
 
-      ```powershell
-      Add-ClusterScaleOutFileServerRole -Name my-sofs1 -Cluster MY-CL1
-      ```
+       ```powershell
+       Add-ClusterScaleOutFileServerRole -Name my-sofs1 -Cluster MY-CL1
+       ```
 
-   7. Erstellen Sie eine neue SMB-Dateifreigabe im SOFS-Cluster.
+    7. Erstellen Sie eine neue SMB-Dateifreigabe im SOFS-Cluster.
 
-      ```powershell
-      New-Item -Path C:\ClusterStorage\Volume1\Data -ItemType Directory
-      New-SmbShare -Name UpdStorage -Path C:\ClusterStorage\Volume1\Data
-      ```
+       ```powershell
+       New-Item -Path C:\ClusterStorage\Volume1\Data -ItemType Directory
+       New-SmbShare -Name UpdStorage -Path C:\ClusterStorage\Volume1\Data
+       ```
 
-Sie verfügen nun über eine Dateifreigabe unter &#92;\my-sofs1\UpdStorage, die Sie für die Speicherung von Benutzerprofil-Datenträger verwenden, können bei der Sie [Benutzerprofil-Datenträger aktivieren](https://social.technet.microsoft.com/wiki/contents/articles/15304.installing-and-configuring-user-profile-disks-upd-in-windows-server-2012.aspx) für Ihre Benutzer. 
+Sie verfügen nun über eine Dateifreigabe unter `\\my-sofs1\UpdStorage`, die Sie für die Speicherung von Benutzerprofil-Datenträger verwenden, können bei der Sie [Benutzerprofil-Datenträger aktivieren](https://social.technet.microsoft.com/wiki/contents/articles/15304.installing-and-configuring-user-profile-disks-upd-in-windows-server-2012.aspx) für Ihre Benutzer. 

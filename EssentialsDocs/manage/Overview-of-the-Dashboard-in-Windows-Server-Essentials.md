@@ -12,12 +12,12 @@ ms.assetid: f70a79de-9c56-4496-89b5-20a1bff2293e
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: c2cc603f5e0303ada245956a524151393c538b27
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 2322fa3f4617e8a8450aaf7fd5ead702574bf759
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59881571"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433133"
 ---
 # <a name="overview-of-the-dashboard-in-windows-server-essentials"></a>Übersicht über das Dashboard in Windows Server Essentials
 
@@ -25,39 +25,39 @@ ms.locfileid: "59881571"
  
  Windows Server Essentials und Windows Server 2012 R2 Standard mit aktivierter Windows Server Essentials Experience-Rolle enthalten ein Administrations-Dashboard, um die Aufgaben zu vereinfachen, die Sie bei der Verwaltung von Windows Server Essentials-Netzwerk und -Server ausführen. Mithilfe des Windows Server Essentials-Dashboards können Sie folgende Aktionen ausführen:  
   
--   Einrichtung des Servers fertigstellen  
+- Einrichtung des Servers fertigstellen  
   
--   Auf allgemeine Verwaltungsaufgaben zugreifen und diese ausführen  
+- Auf allgemeine Verwaltungsaufgaben zugreifen und diese ausführen  
   
--   Serverwarnungen anzeigen und entsprechende Maßnahmen ergreifen  
+- Serverwarnungen anzeigen und entsprechende Maßnahmen ergreifen  
   
--   Servereinstellungen einrichten und ändern  
+- Servereinstellungen einrichten und ändern  
   
--   Nach Hilfethemen im Internet suchen oder darauf zugreifen  
+- Nach Hilfethemen im Internet suchen oder darauf zugreifen  
   
--   Auf Community-Ressourcen im Internet zugreifen  
+- Auf Community-Ressourcen im Internet zugreifen  
   
--   Benutzerkonten verwalten  
+- Benutzerkonten verwalten  
   
--   Geräte und Sicherungen verwalten  
+- Geräte und Sicherungen verwalten  
   
--   Zugriff und Einstellungen für Serverordner und Festplatten verwalten  
+- Zugriff und Einstellungen für Serverordner und Festplatten verwalten  
   
--   Add-In-Anwendungen anzeigen und verwalten  
+- Add-In-Anwendungen anzeigen und verwalten  
   
--   Mit Microsoft-Onlinediensten integrieren  
+- Mit Microsoft-Onlinediensten integrieren  
   
- Dieses Thema enthält:  
+  Dieses Thema enthält:  
   
--   [Grundlegende Features des Dashboards](#BKMK_Design)  
+- [Grundlegende Features des Dashboards](#BKMK_Design)  
   
--   [Features der Dashboard-Startseite](#BKMK_Home)  
+- [Features der Dashboard-Startseite](#BKMK_Home)  
   
--   [Administrationsabschnitte des Dashboards](#BKMK_Features)  
+- [Administrationsabschnitte des Dashboards](#BKMK_Features)  
   
--   [Zugriff auf Windows Server Essentials-Dashboard](#BKMK_AccessDb)  
+- [Zugriff auf Windows Server Essentials-Dashboard](#BKMK_AccessDb)  
   
--   [Verwenden des abgesicherten Modus](#BKMK_UseSafeMode)  
+- [Verwenden des abgesicherten Modus](#BKMK_UseSafeMode)  
   
 ##  <a name="BKMK_Design"></a> Grundlegende Features des Dashboards  
  Das Windows Server Essentials-Dashboard hilft Ihnen, rasch auf wichtige Informationen und Verwaltungs-Features des Servers zuzugreifen. Das Dashboard umfasst mehrere Abschnitte. Die folgende Tabelle werden die Abschnitte beschrieben.  

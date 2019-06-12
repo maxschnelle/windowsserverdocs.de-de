@@ -13,15 +13,15 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 744c2d7ff2965474b90686f88c21f7e6d87deced
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f5f78d3d2387d3b95177a6a8a40fb9b16d8ed8e2
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813661"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446118"
 ---
 # <a name="manage-client-access-licenses"></a>Verwalten der Clientzugriffslizenzen
-Jede Station, die eine Verbindung mit einem MultiPoint Services-System, einschließlich des Computers mit MultiPoint-Dienste, die als Station verwendet wird, müssen einen gültigen benutzerspezifische Remotedesktop *-Clientzugriffslizenz (CAL)*.
+Jede Station, die eine Verbindung mit einem MultiPoint Services-System, einschließlich des Computers mit MultiPoint-Dienste, die als Station verwendet wird, müssen einen gültigen benutzerspezifische Remotedesktop *-Clientzugriffslizenz (CAL)* .
 
 Wenn Sie virtuelle desktopstationen anstelle von physischen Stationen verwenden, müssen Sie eine Clientzugriffslizenz für jede Station virtuellen Desktop installieren.  
   
@@ -36,18 +36,18 @@ Wenn nicht ordnungsgemäß konfiguriert das MultiPoint Services-Setup eine Benac
 
 1. Starten Sie **Editor für lokale Gruppenrichtlinien** (gpedit.msc).
 
-2. Navigieren Sie im linken Bereich zu **Richtlinien für Lokaler Computer -> Computerkonfiguration-> Administrative Vorlagen -> Windows-Komponenten -> Remote Desktop Services - > Remote Desktop Session Host-Lizenzierung >**.
+2. Navigieren Sie im linken Bereich zu **Richtlinien für Lokaler Computer -> Computerkonfiguration-> Administrative Vorlagen -> Windows-Komponenten -> Remote Desktop Services - > Remote Desktop Session Host-Lizenzierung >** .
 
 3. Klicken Sie im rechten Bereich mit der rechten Maustaste **verwenden Sie die angegebenen Remotedesktop-Lizenzserver** , und wählen Sie **bearbeiten**:
-  - Wählen Sie im Editor-Dialogfeld **aktiviert**
-  - Geben Sie den Namen des lokalen Computers in die **zu verwendende Lizenzserver** Feld.
-  - Wählen Sie **OK**
+   - Wählen Sie im Editor-Dialogfeld **aktiviert**
+   - Geben Sie den Namen des lokalen Computers in die **zu verwendende Lizenzserver** Feld.
+   - Wählen Sie **OK**
   
 4. Klicken Sie im rechten Bereich mit der rechten Maustaste **legen Sie den Remotedesktop-Lizenzierungsmodus** , und wählen Sie **bearbeiten**
- - Wählen Sie im Editor-Dialogfeld **aktiviert**
- - Legen Sie die **Lizenzierungsmodus** um pro Gerät / pro Benutzer
- - Wählen Sie **OK** 
+   - Wählen Sie im Editor-Dialogfeld **aktiviert**
+   - Legen Sie die **Lizenzierungsmodus** um pro Gerät / pro Benutzer
+   - Wählen Sie **OK** 
 
-  
+  
 ## <a name="see-also"></a>Siehe auch  
-[Verwalten von Systemaufgaben mit MultiPoint-Manager](Manage-System-Tasks-Using-MultiPoint-Manager.md)
+[Verwalten von Systemaufgaben mithilfe des MultiPoint-Managers](Manage-System-Tasks-Using-MultiPoint-Manager.md)

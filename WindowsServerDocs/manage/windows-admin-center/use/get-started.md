@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 ms.date: 02/15/2019
-ms.openlocfilehash: ff1f949c764473a63eafa25346949d710699dbd1
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: bd35e439ee3c76af1306bbbd712d754dd79f555f
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222718"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446089"
 ---
 # <a name="get-started-with-windows-admin-center"></a>Erste Schritte mit Windows Admin Center
 
@@ -52,17 +52,17 @@ Nachdem Sie die Installation von Windows Admin Center abgeschlossen haben, könn
 
  **Fügen Sie einem einzelnen Server oder Cluster als verwalteten Knoten hinzu.**
 
- 1. Klicken Sie auf **+ hinzufügen** unter **alle Verbindungen**.
+1. Klicken Sie auf **+ hinzufügen** unter **alle Verbindungen**.
 
-    ![](../media/launch/addserver0.png)
+   ![](../media/launch/addserver0.png)
 
- 2. Wählen Sie eine Verbindung zum Server, Failovercluster oder Hyper-Converged Cluster hinzufügen:
+2. Wählen Sie eine Verbindung zum Server, Failovercluster oder Hyper-Converged Cluster hinzufügen:
     
-    ![](../media/launch/addserver1.png)
+   ![](../media/launch/addserver1.png)
 
- 3. Geben Sie den Namen des Servers oder -Cluster zu verwalten, und klicken Sie auf **senden**. Der Server oder Cluster werden Ihre Liste der auf der Seite "Übersicht" hinzugefügt werden.
+3. Geben Sie den Namen des Servers oder -Cluster zu verwalten, und klicken Sie auf **senden**. Der Server oder Cluster werden Ihre Liste der auf der Seite "Übersicht" hinzugefügt werden.
 
-    ![](../media/launch/addserver2.png)
+   ![](../media/launch/addserver2.png)
 
    **-- OR --**
 
@@ -96,7 +96,7 @@ Sie können Ihre aktuellen Windows-Anmeldeinformationen verwenden, für die Auth
 
 **Einmaliges Anmelden bei der Bereitstellung als Dienst unter Windows Server**
 
-Wenn Sie Windows Admin Center unter Windows Server installiert haben, ist zusätzliche Konfiguration für einmaliges Anmelden erforderlich.  [Konfigurieren Sie Ihre Umgebung für die Delegierung](..\configure\user-access-control.md)
+Wenn Sie Windows Admin Center unter Windows Server installiert haben, ist zusätzliche Konfiguration für einmaliges Anmelden erforderlich.  [Konfigurieren Sie Ihre Umgebung für die Delegierung](../configure/user-access-control.md)
 
 **-- OR --**
 

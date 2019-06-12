@@ -8,12 +8,12 @@ author: JasonGerend
 manager: dougkim
 ms.author: jgerend
 ms.date: 09/11/2018
-ms.openlocfilehash: 9514392da133911c900f68fc8f1be260b6c91138
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d912047ab0e3136c6dc05064f3a28aaaafd36c79
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873031"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447727"
 ---
 # <a name="iscsi-target-server-scalability-limits"></a>iSCSI Target Server Skalierbarkeitsgrenzen
 
@@ -73,7 +73,7 @@ Dieses Thema enthält getestet und unterstützt Microsoft iSCSI Target Server Gr
 <td><p>Lokal bereitgestellte virtuelle Datenträger oder Momentaufnahmen pro Speichergerät</p></td>
 <td><p>32</p></td>
 <td><p>Ja</p></td>
-<td><p>Lokal bereitgestellten virtuellen Datenträger keine iSCSI-spezifischen Funktionen und sind als veraltet markiert: Weitere Informationen bieten, finden Sie unter <a href="https://technet.microsoft.com/library/dn303411.aspx">Features Removed or Deprecated in Windows Server 2012 R2</a>.</p></td>
+<td><p>Lokal bereitgestellt haben, virtuelle Datenträger Don&#39;t-Angebot, die alle iSCSI-spezifischen Funktionen und sind als veraltet markiert: Weitere Informationen finden Sie unter <a href="https://technet.microsoft.com/library/dn303411.aspx">Features Removed or Deprecated in Windows Server 2012 R2</a>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -105,7 +105,7 @@ Dieses Thema enthält getestet und unterstützt Microsoft iSCSI Target Server Gr
 <tr class="even">
 <td><p>Mehrere aktive Clusterknoten</p></td>
 <td><p>Unterstützt</p></td>
-<td> 
+<td> 
 <p>Nicht zutreffend</p></td>
 <td><p>Jeden aktiven Knoten im Failovercluster besitzt eine gruppierte Instanz für andere iSCSI-Zielservers mit anderen Knoten, der als möglicher Besitzerknoten fungiert.</p></td>
 </tr>
@@ -205,8 +205,7 @@ Dieses Thema enthält getestet und unterstützt Microsoft iSCSI Target Server Gr
 <tr class="odd">
 <td><p>iSCSI-Auslagerung</p></td>
 <td><p>Nicht unterstützt.</p></td>
-<td>              
-<p>Nicht zutreffend</p></td>
+<td><br/><p>Nicht zutreffend</p></td>
 <td></td>
 </tr>
 <tr class="even">
@@ -249,7 +248,7 @@ Dieses Thema enthält getestet und unterstützt Microsoft iSCSI Target Server Gr
 </thead>
 <tbody>
 <tr class="odd">
-<td><p>Über einen iSCSI-Initiator des virtuellen Datenträgers von einem Basisdatenträger in einen dynamischen Datenträger zu konvertieren </p></td>
+<td><p>Über einen iSCSI-Initiator des virtuellen Datenträgers von einem Basisdatenträger in einen dynamischen Datenträger zu konvertieren </p></td>
 <td><p>Ja</p></td>
 <td><p>Nein</p></td>
 <td></td>
@@ -264,7 +263,7 @@ Dieses Thema enthält getestet und unterstützt Microsoft iSCSI Target Server Gr
 <tr class="odd">
 <td><p>Minimale Format VHD-Größe</p></td>
 <td><p>.vhdx: 3 MB</p>
-<p>VHD-Datei: 8 MB</p></td>
+<p>VHD-Datei: 8 MB</p></td>
 <td><p>Ja</p></td>
 <td><p>Gilt für alle unterstützten VHD-Dateitypen: übergeordneten, differenzierende und behoben.</p></td>
 </tr>
@@ -312,7 +311,7 @@ Dieses Thema enthält getestet und unterstützt Microsoft iSCSI Target Server Gr
 <td><p>.vhdx: Ja</p>
 <p>VHD-Datei: Ja (Nein unter WindowsServer 2012)</p></td>
 <td><p>Ja</p></td>
-<td><p>Die Zuordnung aufheben wird nicht unterstützt.</p></td>
+<td><p>Ist die Zuordnung aufheben&#39;t unterstützt.</p></td>
 </tr>
 <tr class="odd">
 <td><p>ExFAT/FAT/FAT32 (hosting Volume der virtuellen Festplatte)</p></td>
@@ -348,7 +347,7 @@ Dieses Thema enthält getestet und unterstützt Microsoft iSCSI Target Server Gr
 <td><p>Schlanke Speicherzuweisung</p></td>
 <td><p>Nein</p></td>
 <td><p>Nicht zutreffend</p></td>
-<td><p>Dynamische virtuelle Festplatten werden unterstützt, aber Unmap wird nicht unterstützt.</p></td>
+<td><p>Dynamische virtuelle Festplatten werden unterstützt, jedoch ist die Zuordnung aufheben&#39;t unterstützt.</p></td>
 </tr>
 <tr class="odd">
 <td><p>Logische Einheit verkleinern</p></td>
@@ -435,7 +434,7 @@ Wenn Sie Volume Schattenkopien (VSS-Momentaufnahmen von Open-Datei) von Daten au
 
 Der iSCSI-Zielspeicheranbieter ist ein Rollendienst in Windows Server 2016, Windows Server 2012 R2 und Windows Server 2012. Sie können auch herunterladen und installieren Sie [iSCSI-Ziel-Speicheranbieter / (VDS, VSS) für kompatible Anwendungsserver](http://www.microsoft.com/download/details.aspx?id=34759) von den folgenden Betriebssystemen unterstützt, solange der iSCSI-Zielserver unter Windows Server 2012 ausgeführt wird:
 
-  - Windows Storage Server 2008 R2
+  - Windows Storage Server 2008 R2
 
   - Windows Server 2008 R2
 
@@ -463,7 +462,7 @@ Wir haben die iSCSI-Zielserver-Software mit den folgenden iSCSI-Initiatoren gete
 <td><p>Initiator</p></td>
 <td><p>Windows Server 2012 R2</p></td>
 <td><p>Windows Server 2012</p></td>
-<td><p>Anmerkungen</p></td>
+<td><p>Kommentare</p></td>
 </tr>
 <tr class="even">
 <td><p>Windows Server 2012 R2</p></td>
@@ -542,9 +541,9 @@ Wir haben auch die folgenden iSCSI-Initiatoren, die einen Start ohne Datenträge
 
 Die folgende Liste enthält zusätzliche Ressourcen zum iSCSI-Zielserver und zu verwandten Technologien.
 
-  - [iSCSI-Zielblockspeicher: Übersicht Ziel](iscsi-target-server.md)
+- [iSCSI-Zielblockspeicher: Übersicht Ziel](iscsi-target-server.md)
 
-  - [iSCSI-Ziel-Zielstart (Übersicht)](iscsi-boot-overview.md)
+- [iSCSI-Ziel-Zielstart (Übersicht)](iscsi-boot-overview.md)
 
-  - [Speicher in WindowsServer](..\storage.md)
+- [Speicher in WindowsServer](../storage.md)
 

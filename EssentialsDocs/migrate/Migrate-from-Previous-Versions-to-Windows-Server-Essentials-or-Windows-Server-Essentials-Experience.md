@@ -12,12 +12,12 @@ ms.assetid: 2974fb3a-5150-43fd-a73f-3e5074eb5d03
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 213ee4304d9d4ebdb7580f7f78fdaca78aa454c9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 107a20cae83072ee0066ba0a335eb5078341e59b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883871"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432850"
 ---
 # <a name="migrate-from-previous-versions-to-windows-server-essentials-or-windows-server-essentials-experience"></a>Migrieren von früheren Versionen nach Windows Server Essentials oder Windows Server Essentials Experience
 
@@ -40,23 +40,23 @@ Dieses Handbuch beschreibt die Migration von früheren Versionen von Windows Sma
 ## <a name="migration-process-summary"></a>Zusammenfassung des Migrationsprozesses  
  Dieses Migrationshandbuch umfasst die folgenden Schritte:  
   
-1.  [Schritt 1: Vorbereiten des Quelle für Windows Server Essentials-Migration](Step-1--Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md).  Sie müssen sicherstellen, dass der Quellserver und das Netzwerk für die Migration bereit sind. Mit den Schritten in diesem Abschnitt können Sie den Quellserver sichern, die Systemintegrität des Quellservers prüfen, die aktuellen Service Packs und Fixes installieren und die Netzwerkkonfiguration überprüfen.  
+1. [Schritt 1: Vorbereiten des Quelle für Windows Server Essentials-Migration](Step-1--Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md).  Sie müssen sicherstellen, dass der Quellserver und das Netzwerk für die Migration bereit sind. Mit den Schritten in diesem Abschnitt können Sie den Quellserver sichern, die Systemintegrität des Quellservers prüfen, die aktuellen Service Packs und Fixes installieren und die Netzwerkkonfiguration überprüfen.  
   
-2.  [Schritt 2: Installieren von Windows Server Essentials als ein neuer replikatsdomänencontroller](Step-2--Install-Windows-Server-Essentials-as-a-new-replica-domain-controller.md). Dieser Abschnitt beschreibt, wie zum Installieren von Windows Server Essentials oder Windows Server 2012 R2 Standard (mit aktivierter Windows Server Essentials Experience-Rolle) als Domänencontroller.  
+2. [Schritt 2: Installieren von Windows Server Essentials als ein neuer replikatsdomänencontroller](Step-2--Install-Windows-Server-Essentials-as-a-new-replica-domain-controller.md). Dieser Abschnitt beschreibt, wie zum Installieren von Windows Server Essentials oder Windows Server 2012 R2 Standard (mit aktivierter Windows Server Essentials Experience-Rolle) als Domänencontroller.  
   
-3.  [Schritt 3: Hinzufügen von Computern zum neuen Windows Server Essentials-Server](Step-3--Join-computers-to-the-new-Windows-Server-Essentials-server.md).  In diesem Abschnitt wird das Hinzufügen von Clientcomputern mit dem neuen Server, Windows Server Essentials ausgeführt wird, und Aktualisieren von gruppenrichtlinieneinstellungen erläutert.  
+3. [Schritt 3: Hinzufügen von Computern zum neuen Windows Server Essentials-Server](Step-3--Join-computers-to-the-new-Windows-Server-Essentials-server.md).  In diesem Abschnitt wird das Hinzufügen von Clientcomputern mit dem neuen Server, Windows Server Essentials ausgeführt wird, und Aktualisieren von gruppenrichtlinieneinstellungen erläutert.  
   
-4.  [Schritt 4: Verschieben von Einstellungen und Daten auf den Zielserver für Windows Server Essentials-Migration](Step-4--Move-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md).  Dieser Abschnitt enthält Informationen zum Migrieren von Daten und Einstellungen vom Quellserver.  
+4. [Schritt 4: Verschieben von Einstellungen und Daten auf den Zielserver für Windows Server Essentials-Migration](Step-4--Move-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md).  Dieser Abschnitt enthält Informationen zum Migrieren von Daten und Einstellungen vom Quellserver.  
   
-5.  [Schritt 5: Aktivieren der ordnerumleitung auf dem Zielserver für Windows Server Essentials-Migration](Step-5--Enable-folder-redirection-on-the-Destination-Server-for-Windows-Server-Essentials-migration.md).  Wenn die Ordnerumleitung auf dem Quellserver installiert ist, können Sie sie auch auf dem Zielserver aktivieren und anschließend die alte Gruppenrichtlinieneinstellung %%amp;quot;Ordnerumleitung%%amp;quot; löschen.  
+5. [Schritt 5: Aktivieren der ordnerumleitung auf dem Zielserver für Windows Server Essentials-Migration](Step-5--Enable-folder-redirection-on-the-Destination-Server-for-Windows-Server-Essentials-migration.md).  Wenn die Ordnerumleitung auf dem Quellserver installiert ist, können Sie sie auch auf dem Zielserver aktivieren und anschließend die alte Gruppenrichtlinieneinstellung %%amp;quot;Ordnerumleitung%%amp;quot; löschen.  
   
-6.  [Schritt 6: Tieferstufen und Entfernen des Quellservers aus dem neuen Windows Server Essentials-Netzwerk](Step-6--Demote-and-remove-the-Source-Server-from-the-new-Windows-Server-Essentials-network.md).  Vor dem Entfernen des Quellservers müssen Sie eine Gruppenrichtlinienaktualisierung erzwingen und den Quellserver tiefer stufen.  
+6. [Schritt 6: Tieferstufen und Entfernen des Quellservers aus dem neuen Windows Server Essentials-Netzwerk](Step-6--Demote-and-remove-the-Source-Server-from-the-new-Windows-Server-Essentials-network.md).  Vor dem Entfernen des Quellservers müssen Sie eine Gruppenrichtlinienaktualisierung erzwingen und den Quellserver tiefer stufen.  
   
-7.  [Schritt 7: Ausführen von Aufgaben nach der Migration für die Windows Server Essentials-Migration](Step-7--Perform-post-migration-tasks-for-the-Windows-Server-Essentials-migration.md).  Nach Abschluss der Migration aller Einstellungen und Daten zu Windows Server Essentials, können Sie Benutzerkonten zugelassene Computer zuordnen möchten.  
+7. [Schritt 7: Ausführen von Aufgaben nach der Migration für die Windows Server Essentials-Migration](Step-7--Perform-post-migration-tasks-for-the-Windows-Server-Essentials-migration.md).  Nach Abschluss der Migration aller Einstellungen und Daten zu Windows Server Essentials, können Sie Benutzerkonten zugelassene Computer zuordnen möchten.  
   
-8.  [Schritt 8: Ausführen der Windows Server Essentials Best Practices Analyzer](Step-8--Run-the-Windows-Server-Essentials-Best-Practices-Analyzer.md).  Nach Abschluss der Migration der Einstellungen und Daten zu Windows Server Essentials sollten Sie die Windows Server Essentials Best Practices Analyzer (BPA) ausführen.  
+8. [Schritt 8: Ausführen der Windows Server Essentials Best Practices Analyzer](Step-8--Run-the-Windows-Server-Essentials-Best-Practices-Analyzer.md).  Nach Abschluss der Migration der Einstellungen und Daten zu Windows Server Essentials sollten Sie die Windows Server Essentials Best Practices Analyzer (BPA) ausführen.  
   
- Mehrere der Migrationsverfahren erfordern das Öffnen einer Eingabeaufforderung als Administrator. In den folgenden Verfahren wird erläutert, wie hierbei vorzugehen ist.  
+   Mehrere der Migrationsverfahren erfordern das Öffnen einer Eingabeaufforderung als Administrator. In den folgenden Verfahren wird erläutert, wie hierbei vorzugehen ist.  
   
 ###  <a name="BKMK_OpenACommandPromptAsAdmin"></a> So öffnen Sie ein Eingabeaufforderungsfenster auf dem Quellserver als administrator  
   

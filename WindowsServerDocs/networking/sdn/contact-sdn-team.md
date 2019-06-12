@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: f9945c55-c2d0-448f-86dd-8c734e1b2987
 ms.author: pashort
 author: kallie-b
-ms.openlocfilehash: ff102fc02208bc12b99b50c3b16e3dc51f397d76
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dd67fe27c048a15903d18dca43cf331a025933b3
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59884491"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446382"
 ---
 # <a name="contact-the-datacenter-and-cloud-networking-team"></a>Kontaktieren des Datencenter- und Cloud Networking-Teams
 
@@ -37,8 +37,8 @@ Wechseln Sie [hier](https://github.com/Microsoft/SDN/issues) Probleme, die das T
 Unsere [Container Netzwerkdokumentation](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/container-networking) befinden sich [Microsoft-Docs (docs.microsoft.com)](https://docs.microsoft.com/), die **integrierte Kommentarfunktion**. Lassen oder einen Kommentar in Microsoft Docs nur Anmeldungen, führen Sie einen Bildlauf zum unteren Rand der Seite "Microsoft-Docs" beantworten, die Sie verweisen möchten, stellen Sie, und übermitteln Sie Ihren Kommentar vorhanden.
 
 > [Microsoft-Docs](https://docs.microsoft.com/) ist die neue einheitliche Dokumentationswebsite von Microsoft. Wenngleich die meisten unseres Teams [SDN-Dokumentation](https://technet.microsoft.com/windows-server-docs/networking/sdn/software-defined-networking) weiterhin auf TechNet, unsere [Container Netzwerkdokumentation](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/container-networking) ist jetzt in Microsoft Docs.
-
->*Im Allgemeinen, wenn Sie an ein Thema auf der Microsoft-Docs, die eine Frage Funken oder das Unternehmen verlässt, Sie möchten weitere ausführen, lassen Sie einen Kommentar auf dieser Seite, um Ihr Feedback mit der Microsoft-Team zu teilen, die helfen können.*
+> 
+> *Im Allgemeinen, wenn Sie an ein Thema auf der Microsoft-Docs, die eine Frage Funken oder das Unternehmen verlässt, Sie möchten weitere ausführen, lassen Sie einen Kommentar auf dieser Seite, um Ihr Feedback mit der Microsoft-Team zu teilen, die helfen können.*
 
 ## <a name="container-specific-forums"></a>Container-spezifische-Foren
 Können Sie Möglichkeit zum Bereitstellen von Feedback im Zusammenhang mit Containern und containernetzwerk auf dieser Seite zu verwenden. Aber wenn Sie für die primären von Microsoft-Foren für die Container-Community insbesondere suchen, finden Sie im folgenden:

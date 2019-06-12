@@ -9,12 +9,12 @@ ms.assetid: 378213f5-2d59-4c9b-9607-1fc83f8072f1
 ms.author: pashort
 author: shortpatti
 ms.date: 08/08/2018
-ms.openlocfilehash: 90fb33eb4c4b63fdd5c84bf3ffc2447fd52a809b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: d2c09c83a227c5a75ff5b1b39b2ef6d1286bbfc8
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845491"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501564"
 ---
 # <a name="configure-encryption-for-a-virtual-subnet"></a>Konfigurieren der Verschlüsselung für ein virtuelles Subnetz
 
@@ -107,75 +107,94 @@ Nachdem das Skript ausgeführt, ein neues Zertifikat angezeigt wird, der My-Zert
     84857CBBE7A1C851A80AE22391EB2C39BF820CE7  CN=MyNetwork
     5EFF2CE51EACA82408572A56AE1A9BCC7E0843C6  CN=EncryptedVirtualNetworks
 
-2.  Exportieren des Zertifikats in eine Datei an.<p>Sie benötigen zwei Kopien des Zertifikats, mit dem privaten Schlüssel und eine ohne.
+2. Exportieren des Zertifikats in eine Datei an.<p>Sie benötigen zwei Kopien des Zertifikats, mit dem privaten Schlüssel und eine ohne.
 
-    $subjectName = "EncryptedVirtualNetworks" $cert = Get-ChildItem cert:\localmachine\my | ? {$_.Subject -eq "CN=$subjectName"} [System.io.file]::WriteAllBytes("c:\$subjectName.pfx", $cert.Export("PFX", "secret")) Export-Certificate -Type CERT -FilePath "c:\$subjectName.cer" -cert $cert
+```
+   $subjectName = "EncryptedVirtualNetworks"
+   $cert = Get-ChildItem cert:\localmachine\my | ? {$_.Subject -eq "CN=$subjectName"}
+   [System.io.file]::WriteAllBytes("c:\$subjectName.pfx", $cert.Export("PFX", "secret"))
+   Export-Certificate -Type CERT -FilePath "c:\$subjectName.cer" -cert $cert
+```
 
-3.  Installieren Sie die Zertifikate auf jedem hyper-V-Hosts 
+3. Installieren Sie die Zertifikate auf jedem hyper-V-Hosts 
 
-    PS: C:\> Dir c:\$subjectname.*
-
-
-        Directory: C:\
-
-
-    "LastWriteTime" Länge der Modusname
-    ----                -------------         ------ ----
-    -a----        9/22/2017   4:54 PM            543 EncryptedVirtualNetworks.cer -a----        9/22/2017   4:54 PM           1706 EncryptedVirtualNetworks.pfx
-
-4.  Installieren auf einem Hyper-V-host
-
-    $server = "Server01"
-
-    $subjectname = "EncryptedVirtualNetworks" Kopieren "c:"\$SubjectName.* \\$Server\c$ invoke-Command - Computername $server - ArgumentList $subjectname, "geheimer Schlüssel" {Param ([String] $SubjectName, [String] $Secret) $certFullPath = "c: \$SubjectName.cer "
-
-        # create a representation of the certificate file
-        $certificate = new-object System.Security.Cryptography.X509Certificates.X509Certificate2
-        $certificate.import($certFullPath)
-
-        # import into the store
-        $store = new-object System.Security.Cryptography.X509Certificates.X509Store("Root", "LocalMachine")
-        $store.open("MaxAllowed")
-        $store.add($certificate)
-        $store.close()
-
-        $certFullPath = "c:\$SubjectName.pfx"
-        $certificate = new-object System.Security.Cryptography.X509Certificates.X509Certificate2
-        $certificate.import($certFullPath, $Secret, "MachineKeySet,PersistKeySet")
-
-        # import into the store
-        $store = new-object System.Security.Cryptography.X509Certificates.X509Store("My", "LocalMachine")
-        $store.open("MaxAllowed")
-        $store.add($certificate)
-        $store.close()
-
-        # Important: Remove the certificate files when finished
-        remove-item C:\$SubjectName.cer
-        remove-item C:\$SubjectName.pfx
-    }    
-
-5.  Wiederholen Sie für jeden Server in Ihrer Umgebung.<p>Nach dem für jeden Server wiederholen, benötigen Sie ein Zertifikat in den Stammseiten und my-Zertifikatspeicher der einzelnen Hyper-V-Hosts installiert. 
-
-6.  Überprüfen Sie die Installation des Zertifikats ein.<p>Überprüfen Sie die Zertifikate den Inhalt der meine und die Stamm-Zertifikatsspeicher:
-
-    PS C:\> Geben Sie-Pssession-Server1
-
-    [Server1]: PS C:\> Get-Childitem Cert://localmachine/my, Cert://localmachine/root |? {$_.Subject -eq "CN=EncryptedVirtualNetworks"}
-
-    PSParentPath: Microsoft.PowerShell.Security\Certificate::localmachine\my
-
-    Fingerabdruck-Betreff
-    ----------                                -------
-    5EFF2CE51EACA82408572A56AE1A9BCC7E0843C6  CN=EncryptedVirtualNetworks
+   PS: C:\> Dir c:\$subjectname.*
 
 
-    PSParentPath: Microsoft.PowerShell.Security\Certificate::localmachine\root
+~~~
+    Directory: C:\
 
-    Fingerabdruck-Betreff
-    ----------                                -------
-    5EFF2CE51EACA82408572A56AE1A9BCC7E0843C6  CN=EncryptedVirtualNetworks
 
-7.  Notieren Sie den Fingerabdruck.<p>Sie müssen sich den Fingerabdruck, Sie brauchen ihn zum Erstellen des Zertifikat-Credential-Objekts im Netzwerkcontroller.
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        9/22/2017   4:54 PM            543 EncryptedVirtualNetworks.cer
+-a----        9/22/2017   4:54 PM           1706 EncryptedVirtualNetworks.pfx
+~~~
+
+4. Installieren auf einem Hyper-V-host
+
+```
+   $server = "Server01"
+
+   $subjectname = "EncryptedVirtualNetworks"
+   copy c:\$SubjectName.* \\$server\c$
+   invoke-command -computername $server -ArgumentList $subjectname,"secret" {
+       param (
+           [string] $SubjectName,
+           [string] $Secret
+       )
+       $certFullPath = "c:\$SubjectName.cer"
+
+       # create a representation of the certificate file
+       $certificate = new-object System.Security.Cryptography.X509Certificates.X509Certificate2
+       $certificate.import($certFullPath)
+
+       # import into the store
+       $store = new-object System.Security.Cryptography.X509Certificates.X509Store("Root", "LocalMachine")
+       $store.open("MaxAllowed")
+       $store.add($certificate)
+       $store.close()
+
+       $certFullPath = "c:\$SubjectName.pfx"
+       $certificate = new-object System.Security.Cryptography.X509Certificates.X509Certificate2
+       $certificate.import($certFullPath, $Secret, "MachineKeySet,PersistKeySet")
+
+       # import into the store
+       $store = new-object System.Security.Cryptography.X509Certificates.X509Store("My", "LocalMachine")
+       $store.open("MaxAllowed")
+       $store.add($certificate)
+       $store.close()
+
+       # Important: Remove the certificate files when finished
+       remove-item C:\$SubjectName.cer
+       remove-item C:\$SubjectName.pfx
+   }
+```
+
+5. Wiederholen Sie für jeden Server in Ihrer Umgebung.<p>Nach dem für jeden Server wiederholen, benötigen Sie ein Zertifikat in den Stammseiten und my-Zertifikatspeicher der einzelnen Hyper-V-Hosts installiert. 
+
+6. Überprüfen Sie die Installation des Zertifikats ein.<p>Überprüfen Sie die Zertifikate den Inhalt der meine und die Stamm-Zertifikatsspeicher:
+
+   PS C:\> Geben Sie-Pssession-Server1
+
+~~~
+[Server1]: PS C:\> get-childitem cert://localmachine/my,cert://localmachine/root | ? {$_.Subject -eq "CN=EncryptedVirtualNetworks"}
+
+PSParentPath: Microsoft.PowerShell.Security\Certificate::localmachine\my
+
+Thumbprint                                Subject
+----------                                -------
+5EFF2CE51EACA82408572A56AE1A9BCC7E0843C6  CN=EncryptedVirtualNetworks
+
+
+PSParentPath: Microsoft.PowerShell.Security\Certificate::localmachine\root
+
+Thumbprint                                Subject
+----------                                -------
+5EFF2CE51EACA82408572A56AE1A9BCC7E0843C6  CN=EncryptedVirtualNetworks
+~~~
+
+7. Notieren Sie den Fingerabdruck.<p>Sie müssen sich den Fingerabdruck, Sie brauchen ihn zum Erstellen des Zertifikat-Credential-Objekts im Netzwerkcontroller.
 
 ## <a name="step-2-create-the-certificate-credential"></a>Schritt 2 Erstellen Sie die Zertifikatanmeldeinformationen
 
@@ -184,12 +203,12 @@ Nach der Installation des Zertifikats auf jedem Hyper-V-Host mit Netzwerkcontrol
 
     # Replace with thumbprint from your certificate
     $thumbprint = "5EFF2CE51EACA82408572A56AE1A9BCC7E0843C6"  
-    
+
     # Replace with your Network Controller URI
     $uri = "https://nc.contoso.com"
 
     Import-module networkcontroller
-    
+
     $credproperties = new-object Microsoft.Windows.NetworkController.CredentialProperties
     $credproperties.Type = "X509Certificate"
     $credproperties.Value = $thumbprint
@@ -223,7 +242,7 @@ Dieser Schritt setzt voraus, Sie haben bereits einen virtuellen Netzwerknamen "M
     New-NetworkControllerVirtualNetwork -ConnectionUri $uri -ResourceId $vnet.ResourceId -Properties $vnet.Properties -force
 
 
-_**Herzlichen Glückwunsch!**_ Sie sind fertig, nachdem Sie diese Schritte abgeschlossen haben. 
+_**Herzlichen Glückwunsch!** _ Sie sind fertig, nachdem Sie diese Schritte abgeschlossen haben. 
 
 
 ## <a name="next-steps"></a>Nächste Schritte

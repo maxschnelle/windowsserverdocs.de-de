@@ -9,12 +9,12 @@ ms.topic: article
 author: chrishuybregts
 ms.author: chrihu
 ms.assetid: 67a01889-fa36-4bc6-841d-363d76df6a66
-ms.openlocfilehash: 9e9a36df39c7bd7a96cc8c5681e83bf263ee5f8e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6c528535fd34f57957a37992843933d4cd9f8824
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833871"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447869"
 ---
 # <a name="deploy-graphics-devices-using-discrete-device-assignment"></a>Bereitstellung von Grafiken-Geräten verwenden diskrete Gerätezuordnung
 
@@ -42,19 +42,19 @@ Set-VM -Name VMName -AutomaticStopAction TurnOff
 
 Hardware bietet eine bessere Leistung auf, wenn der virtuellen Computer in eine bestimmte Weise konfiguriert.  Informationen darüber, ob Sie die folgenden Konfigurationen für Ihre Hardware benötigen wenden Sie sich an den Hardwarehersteller. Weitere Informationen finden Sie auf [Planen der Bereitstellung von Geräten verwenden diskrete Gerätezuordnung](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md) und in diesem [Blogbeitrag.](https://blogs.technet.microsoft.com/virtualization/2015/11/23/discrete-device-assignment-gpus/)
 
-1.  Aktivieren des Write-Kombination von auf der CPU
-```
-Set-VM -GuestControlledCacheTypes $true -VMName VMName
-```
-2.  Konfigurieren der 32-Bit-MMIO-Speicher
-```
-Set-VM -LowMemoryMappedIoSpace 3Gb -VMName VMName
-```
-3.  Konfigurieren von mehr als 32-Bit-MMIO-Speicher
-```
-Set-VM -HighMemoryMappedIoSpace 33280Mb -VMName VMName
-```
-Beachten Sie, dass MMIO Werte für den oben genannten angemessenen Werte für das Experimentieren mit einer einzigen GPU festgelegt sind.  Wenn nach dem Starten des virtuellen Computers an, das Gerät einen Fehler im Zusammenhang mit nicht genügend Ressourcen gemeldet werden, müssen Sie wahrscheinlich diese Werte zu ändern.  Wenn Sie mehrere GPUs zuweisen möchten, müssen Sie darüber hinaus auch diese Werte zu erhöhen.
+1. Aktivieren des Write-Kombination von auf der CPU
+   ```
+   Set-VM -GuestControlledCacheTypes $true -VMName VMName
+   ```
+2. Konfigurieren der 32-Bit-MMIO-Speicher
+   ```
+   Set-VM -LowMemoryMappedIoSpace 3Gb -VMName VMName
+   ```
+3. Konfigurieren von mehr als 32-Bit-MMIO-Speicher
+   ```
+   Set-VM -HighMemoryMappedIoSpace 33280Mb -VMName VMName
+   ```
+   Beachten Sie, dass MMIO Werte für den oben genannten angemessenen Werte für das Experimentieren mit einer einzigen GPU festgelegt sind.  Wenn nach dem Starten des virtuellen Computers an, das Gerät einen Fehler im Zusammenhang mit nicht genügend Ressourcen gemeldet werden, müssen Sie wahrscheinlich diese Werte zu ändern.  Wenn Sie mehrere GPUs zuweisen möchten, müssen Sie darüber hinaus auch diese Werte zu erhöhen.
 
 ## <a name="dismount-the-device-from-the-host-partition"></a>Aufheben der Bereitstellung des Geräts aus der Hostpartition
 ### <a name="optional---install-the-partitioning-driver"></a>Optional: Installieren Sie den Treiber Partitionierung
@@ -69,14 +69,14 @@ Geräte-Manager oder PowerShell vergewissern, dass das Gerät "deaktiviert."
 
 ### <a name="dismount-the-device"></a>Aufheben der Bereitstellung des Geräts
 Je sofern der Anbieter einen Entschärfung-Treiber müssen mit der "-force" option oder nicht.
--   Wenn eine Entschärfung Treiber installiert wurde
-```
-Dismount-VMHostAssignableDevice -LocationPath $locationPath
-```
--   Wenn eine Entschärfung-Treiber nicht installiert wurde
-```
-Dismount-VMHostAssignableDevice -force -LocationPath $locationPath
-```
+- Wenn eine Entschärfung Treiber installiert wurde
+  ```
+  Dismount-VMHostAssignableDevice -LocationPath $locationPath
+  ```
+- Wenn eine Entschärfung-Treiber nicht installiert wurde
+  ```
+  Dismount-VMHostAssignableDevice -force -LocationPath $locationPath
+  ```
 
 ## <a name="assigning-the-device-to-the-guest-vm"></a>Der Gast-VM mit das Gerät zuweisen
 Der letzte Schritt ist Hyper-V zu informieren, dass es sich bei ein virtuellen Computer auf dem Gerät zugreifen sollte.  Zusätzlich zu den Location-Path oben ermittelte müssen Sie den Namen des virtuellen Computers kennen.

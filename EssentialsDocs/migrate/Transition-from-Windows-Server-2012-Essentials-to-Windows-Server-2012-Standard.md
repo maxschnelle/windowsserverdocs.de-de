@@ -12,12 +12,12 @@ ms.assetid: 51bcf124-c215-4e9d-9fa8-a90fa2c2fa22
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: d2005b72adede72b718fa5b49b93435f5fbac1bd
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 445472822de09263b84821e552c931ca19f14b2b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882501"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432534"
 ---
 # <a name="transition-from-windows-server-essentials-to-windows-server-2012-standard"></a>Umstellung von Windows Server Essentials auf Windows Server 2012 Standard
 
@@ -53,28 +53,28 @@ ms.locfileid: "59882501"
 ## <a name="transition-to--windows-server-2012-standard"></a>Übergang zu Windows Server 2012 Standard  
  Nachdem Sie entschieden haben, die von Windows Server Essentials auf Windows Server 2012 Standard, vollständig durch diese beiden Schritte übergehen:  
   
-1.  Erwerben einer Lizenz für Windows Server 2012 Standard und die entsprechende Anzahl an Benutzer- und/oder Geräte-Clientzugriffslizenzen für Ihre Umgebung an.  
+1. Erwerben einer Lizenz für Windows Server 2012 Standard und die entsprechende Anzahl an Benutzer- und/oder Geräte-Clientzugriffslizenzen für Ihre Umgebung an.  
   
-     Sie können eine Lizenz für Windows Server 2012 Standard erwerben, über einen Vertragshändler, einen Verteiler oder mit Hilfe von einem [Microsoft-Partner](https://pinpoint.microsoft.com/SelectCulture.aspx).  
+    Sie können eine Lizenz für Windows Server 2012 Standard erwerben, über einen Vertragshändler, einen Verteiler oder mit Hilfe von einem [Microsoft-Partner](https://pinpoint.microsoft.com/SelectCulture.aspx).  
   
-    > [!NOTE]
-    >  Wenn Sie Windows Server 2012 Standard ursprünglich erworben und Ihre Herabstufungsrechte eine Ihrer beiden virtuellen Instanzen als Windows Server Essentials installieren, müssen Sie nicht keine zusätzlichen Lizenzen erwerben.  
-    >   
-    >  Wenn Sie Windows Server 2012 Standard über den volumenlizenzkanal erwerben, können Sie ein ISO-Abbild und einen Product Key für Windows Server 2012 Standard vom Volume Licensing Service Center (VLSC) herunterladen.  
-    >   
-    >  Wenn Sie Windows Server 2012 Standard über einen anderen Kanal erwerben können ein ISO-Abbild und einen evaluierungs-Product Key für Windows Server Essential aus dem [TechNet Evaluation Center](https://technet.microsoft.com/evalcenter/jj659306.aspx). Durch das Ausführen der Umstellung gemäß der Beschreibung im folgenden Schritt wird das Evaluierungsprodukt in ein vollständig lizenziertes und unterstütztes Produkt umgewandelt.  
+   > [!NOTE]
+   >  Wenn Sie Windows Server 2012 Standard ursprünglich erworben und Ihre Herabstufungsrechte eine Ihrer beiden virtuellen Instanzen als Windows Server Essentials installieren, müssen Sie nicht keine zusätzlichen Lizenzen erwerben.  
+   >   
+   >  Wenn Sie Windows Server 2012 Standard über den volumenlizenzkanal erwerben, können Sie ein ISO-Abbild und einen Product Key für Windows Server 2012 Standard vom Volume Licensing Service Center (VLSC) herunterladen.  
+   >   
+   >  Wenn Sie Windows Server 2012 Standard über einen anderen Kanal erwerben können ein ISO-Abbild und einen evaluierungs-Product Key für Windows Server Essential aus dem [TechNet Evaluation Center](https://technet.microsoft.com/evalcenter/jj659306.aspx). Durch das Ausführen der Umstellung gemäß der Beschreibung im folgenden Schritt wird das Evaluierungsprodukt in ein vollständig lizenziertes und unterstütztes Produkt umgewandelt.  
   
-2.  Öffnen Sie Windows PowerShell als Administrator, und führen Sie dann den folgenden Befehl aus.  
+2. Öffnen Sie Windows PowerShell als Administrator, und führen Sie dann den folgenden Befehl aus.  
   
-     **dism /online /set-edition:ServerStandard /accepteula /productkey:** *Product Key*  
+    **dism /online /set-edition:ServerStandard /accepteula /productkey:** *Product Key*  
   
-     Wo *Product Key* ist der Product Key für Ihre Kopie von Windows Server 2012 Standard.  
+    Wo *Product Key* ist der Product Key für Ihre Kopie von Windows Server 2012 Standard.  
   
-     Der Server wird neu gestartet, um den Umstellungsprozess fertigzustellen.  
+    Der Server wird neu gestartet, um den Umstellungsprozess fertigzustellen.  
   
- Nach der Umstellung sind die Windows Server Essentials-Funktionen weiterhin auf dem Server und werden für bis zu 75 Benutzer und 75 Geräte unterstützt. Wenn Sie eine dieser Begrenzungen überschreiten, sollten Sie die Windows Server 2012 Standard systemeigenen Tools zum Verwalten von Benutzerkonten und Geräten verwenden.  
+   Nach der Umstellung sind die Windows Server Essentials-Funktionen weiterhin auf dem Server und werden für bis zu 75 Benutzer und 75 Geräte unterstützt. Wenn Sie eine dieser Begrenzungen überschreiten, sollten Sie die Windows Server 2012 Standard systemeigenen Tools zum Verwalten von Benutzerkonten und Geräten verwenden.  
   
- Nach dem Wechsel zu Windows Server 2012 Standard sind der Medienfunktionen von Windows Server Essentials darüber hinaus nicht mehr verfügbar. Dazu zählen die Medienfunktionen des Remotewebzugriffs sowie die Medieneinstellungen auf dem Dashboard.  
+   Nach dem Wechsel zu Windows Server 2012 Standard sind der Medienfunktionen von Windows Server Essentials darüber hinaus nicht mehr verfügbar. Dazu zählen die Medienfunktionen des Remotewebzugriffs sowie die Medieneinstellungen auf dem Dashboard.  
   
 ## <a name="turn-off--windows-server-essentials-features"></a>Deaktivieren Sie Windows Server Essentials-Funktionen  
  Wenn Sie Windows Server Essentials-Dashboard oder andere Zusatzfunktionen zum Verwalten des Servers nicht mehr benötigen, können Sie die Funktionen deaktivieren und entfernen sie von Ihrem Server.  
@@ -97,13 +97,13 @@ ms.locfileid: "59882501"
   
 #### <a name="from-the-get-help-and-support-pane"></a>Im Bereich %%amp;quot;Hilfe und Support%%amp;quot;  
   
-1.  Klicken Sie auf der Startseite auf %%amp;quot;Hilfe und Support%%amp;quot;.  
+1. Klicken Sie auf der Startseite auf %%amp;quot;Hilfe und Support%%amp;quot;.  
   
-2.  Klicken Sie auf **Assistent für Windows Server Essentials-Funktionen deaktivieren**.  
+2. Klicken Sie auf **Assistent für Windows Server Essentials-Funktionen deaktivieren**.  
   
- Es ist möglich, dass einige Aufgaben, indem ausgeführt die **Assistent für Windows Server Essentials-Funktionen deaktivieren** nicht erfolgreich abgeschlossen. In einigen Fällen wird dadurch die Ausführung des Dashboards verhindert. In diesem Fall können Sie den Assistenten manuell starten, indem Sie folgende Datei ausführen:  
+   Es ist möglich, dass einige Aufgaben, indem ausgeführt die **Assistent für Windows Server Essentials-Funktionen deaktivieren** nicht erfolgreich abgeschlossen. In einigen Fällen wird dadurch die Ausführung des Dashboards verhindert. In diesem Fall können Sie den Assistenten manuell starten, indem Sie folgende Datei ausführen:  
   
- **%SystemDrive%\Programme\Microsoft c:\Programme\Windows Server\Bin\TurnOffFeaturesWizard.exe**  
+   **%SystemDrive%\Programme\Microsoft c:\Programme\Windows Server\Bin\TurnOffFeaturesWizard.exe**  
   
 ## <a name="see-also"></a>Siehe auch  
   

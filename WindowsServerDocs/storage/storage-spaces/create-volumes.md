@@ -7,22 +7,22 @@ author: cosmosdarwin
 ms.author: cosdar
 manager: eldenc
 ms.technology: storage-spaces
-ms.date: 05/09/2019
-ms.openlocfilehash: d7c842a9b393f67c482dadeaa4090627887a67a3
-ms.sourcegitcommit: 75f257d97d345da388cda972ccce0eb29e82d3bc
+ms.date: 06/06/2019
+ms.openlocfilehash: 85eca06a5d8c103851596055099876cb53a902ad
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65613214"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810557"
 ---
 # <a name="creating-volumes-in-storage-spaces-direct"></a>Erstellen von Volumes in Direkte Speicherplätze
 
->Gilt für: Windows Server 2019, Windows Server 2016
+> Gilt für: Windows Server 2019, Windows Server 2016
 
 In diesem Thema wird beschrieben, wie zum Erstellen von Volumes auf einem Cluster "direkte Speicherplätze" mithilfe des Failovercluster-Manager, PowerShell oder Windows Admin Center wird.
 
-   >[!TIP]
-   >  Lesen Sie zunächst [Planen von Volumes in Direkte Speicherplätze](plan-volumes.md), falls noch nicht geschehen.
+> [!TIP]
+> Lesen Sie zunächst [Planen von Volumes in Direkte Speicherplätze](plan-volumes.md), falls noch nicht geschehen.
 
 ## <a name="create-a-three-way-mirror-volume"></a>Erstellen Sie ein Volume für die drei-Wege-Spiegelung
 
@@ -105,14 +105,14 @@ Das Cmdlet **New-Volume** hat vier Parameter, die Sie immer angeben müssen:
 - **StoragePoolFriendlyName:** Den Namen Ihres Speicherkontos pool, z. B. *"S2D auf ClusterName"*
 - **Größe:** Die Größe des Volumes, z. B. *"10 TB"*
 
-   >[!NOTE]
-   >  Windows, einschließlich PowerShell, zählt mithilfe von binären Zahlen (Basis 2), während Laufwerke häufig mithilfe von Dezimalzahlen (Basis 10) bezeichnet werden. Dies erklärt, warum ein "Ein Terabyte"-Laufwerk, das als 1,000,000,000,000 Bytes definiert ist, in Windows mit etwa "909 GB" angezeigt wird. Dies ist das erwartungsgemäße Verhalten. Beim Erstellen von Volumes mithilfe von **New-Volume**, müssen Sie den Parameter **Größe** in binären (Basis 2) Zahlen angeben. Beispiel: Bei Angaben von "909 GB" oder "0,909495 TB" wird ein Volume von ungefähr 1,000,000,000,000 Bytes erstellt.
+   > [!NOTE]
+   > Windows, einschließlich PowerShell, zählt mithilfe von binären Zahlen (Basis 2), während Laufwerke häufig mithilfe von Dezimalzahlen (Basis 10) bezeichnet werden. Dies erklärt, warum ein "Ein Terabyte"-Laufwerk, das als 1,000,000,000,000 Bytes definiert ist, in Windows mit etwa "909 GB" angezeigt wird. Dies ist das erwartungsgemäße Verhalten. Beim Erstellen von Volumes mithilfe von **New-Volume**, müssen Sie den Parameter **Größe** in binären (Basis 2) Zahlen angeben. Beispiel: Bei Angaben von "909 GB" oder "0,909495 TB" wird ein Volume von ungefähr 1,000,000,000,000 Bytes erstellt.
 
 ### <a name="example-with-2-or-3-servers"></a>Beispiel: Mit 2 oder 3-Servern
 
 Wenn Ihre Bereitstellung nur zwei Server hat, verwendet Direkte Speicherplätze zur Vereinfachung automatisch die Zweiwegespiegelung, um Robustheit zu erzielen. Wenn Ihre Bereitstellung nur drei Server hat, wird automatisch die Dreiwegespiegelung verwendet.
 
-```
+```PowerShell
 New-Volume -FriendlyName "Volume1" -FileSystem CSVFS_ReFS -StoragePoolFriendlyName S2D* -Size 1TB
 ```
 
@@ -124,7 +124,7 @@ Wenn Sie vier oder mehr Server haben, können Sie mithilfe des optionalen Parame
 
 Im folgenden Beispiel verwendet *"Volume2"* die Dreiwegespiegelung und *"Volume3"* die duale Parität (häufig als "Erasure Coding" bezeichnet).
 
-```
+```PowerShell
 New-Volume -FriendlyName "Volume2" -FileSystem CSVFS_ReFS -StoragePoolFriendlyName S2D* -Size 1TB -ResiliencySettingName Mirror
 New-Volume -FriendlyName "Volume3" -FileSystem CSVFS_ReFS -StoragePoolFriendlyName S2D* -Size 1TB -ResiliencySettingName Parity
 ```
@@ -137,7 +137,7 @@ Damit Sie solche Volumes erstellen können, bietet Direkte Speicherplätze Stand
 
 Sie können diese anzeigen, indem Sie das Cmdlet **Get-StorageTier** ausführen.
 
-```
+```PowerShell
 Get-StorageTier | Select FriendlyName, ResiliencySettingName, PhysicalDiskRedundancy
 ```
 
@@ -145,7 +145,7 @@ Get-StorageTier | Select FriendlyName, ResiliencySettingName, PhysicalDiskRedund
 
 Zum Erstellen von Volumes mit mehreren Ebenen verweisen Sie mithilfe der Parameter **StorageTierFriendlyNames** und **StorageTierSizes** des Cmdlets **New-Volume** auf diese Ebenenvorlagen. Beispiel: Das folgende Cmdlet erstellt ein Volume, das die Dreiwegespiegelung und duale Parität im Verhältnis 30:70 mischt.
 
-```
+```PowerShell
 New-Volume -FriendlyName "Volume4" -FileSystem CSVFS_ReFS -StoragePoolFriendlyName S2D* -StorageTierFriendlyNames Performance, Capacity -StorageTierSizes 300GB, 700GB
 ```
 

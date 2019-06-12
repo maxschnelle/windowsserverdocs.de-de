@@ -8,12 +8,12 @@ ms.prod: windows-server-threshold
 ms.technology: networking
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 80c7155224502379e2e9618ceb38709c5051a6b7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 19a87df7c4f165d3b0e6c5add4bc40ff97cc87cb
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857841"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446460"
 ---
 # <a name="capolicyinf-syntax"></a>CAPolicy.inf-Syntax
 >   Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
@@ -206,53 +206,53 @@ Bevor Sie AD CS installieren, konfigurieren Sie die CAPolicy.inf-Datei mit spezi
 
 **Voraussetzung:** Sie müssen Mitglied der Gruppe "Administratoren" sein.
 
-1.  Geben Sie auf dem Computer, in dem Sie planen, installieren Sie AD CS, öffnen Sie Windows PowerShell, **Editor c:\CAPolicy.inf** und drücken Sie EINGABETASTE.
+1. Geben Sie auf dem Computer, in dem Sie planen, installieren Sie AD CS, öffnen Sie Windows PowerShell, **Editor c:\CAPolicy.inf** und drücken Sie EINGABETASTE.
 
-2.  Klicken Sie auf **Ja**, wenn Sie zum Erstellen einer neuen Datei aufgefordert werden.
+2. Klicken Sie auf **Ja**, wenn Sie zum Erstellen einer neuen Datei aufgefordert werden.
 
-3.  Geben Sie folgenden Dateiinhalt an:
+3. Geben Sie folgenden Dateiinhalt an:
    ```
    [Version]  
-    Signature="$Windows NT$"  
-    [PolicyStatementExtension]  
-    Policies=InternalPolicy  
-    [InternalPolicy]  
-    OID=1.2.3.4.1455.67.89.5  
-    Notice="Legal Policy Statement"  
-    URL=https://pki.corp.contoso.com/pki/cps.txt  
-    [Certsrv_Server]  
-    RenewalKeyLength=2048  
-    RenewalValidityPeriod=Years  
-    RenewalValidityPeriodUnits=5  
-    CRLPeriod=weeks  
-    CRLPeriodUnits=1  
-    LoadDefaultTemplates=0  
-    AlternateSignatureAlgorithm=1  
-    [CRLDistributionPoint]  
-    [AuthorityInformationAccess]
+   Signature="$Windows NT$"  
+   [PolicyStatementExtension]  
+   Policies=InternalPolicy  
+   [InternalPolicy]  
+   OID=1.2.3.4.1455.67.89.5  
+   Notice="Legal Policy Statement"  
+   URL=https://pki.corp.contoso.com/pki/cps.txt  
+   [Certsrv_Server]  
+   RenewalKeyLength=2048  
+   RenewalValidityPeriod=Years  
+   RenewalValidityPeriodUnits=5  
+   CRLPeriod=weeks  
+   CRLPeriodUnits=1  
+   LoadDefaultTemplates=0  
+   AlternateSignatureAlgorithm=1  
+   [CRLDistributionPoint]  
+   [AuthorityInformationAccess]
    ```
-1.  Klicken Sie auf **Datei**, und klicken Sie dann auf **speichern**.
+4. Klicken Sie auf **Datei**, und klicken Sie dann auf **speichern**.
 
-2.  Navigieren Sie zum Ordner "% SystemRoot%".
+5. Navigieren Sie zum Ordner "% SystemRoot%".
 
-3.  Vergewissern Sie sich, dass folgende Bedingungen erfüllt sind:
+6. Vergewissern Sie sich, dass folgende Bedingungen erfüllt sind:
 
-    -   **Dateiname** ist auf **CAPolicy.inf**
+   -   **Dateiname** ist auf **CAPolicy.inf**
 
-    -   **Dateityp** ist auf **Alle Dateien** gesetzt.
+   -   **Dateityp** ist auf **Alle Dateien** gesetzt.
 
-    -   Die **Codierung** ist **ANSI**.
+   -   Die **Codierung** ist **ANSI**.
 
-4.  Klicken Sie auf **Speichern**.
+7. Klicken Sie auf **Speichern**.
 
-5.  Klicken Sie auf **Ja**, wenn Sie zum Überschreiben der Datei aufgefordert werden.
+8. Klicken Sie auf **Ja**, wenn Sie zum Überschreiben der Datei aufgefordert werden.
 
-    ![Speichern Sie als Speicherort für die Datei "CAPolicy.inf"](../../../media/Prepare-the-CAPolicy-inf-File/001-SaveCAPolicyORCA1.gif)
+   ![Speichern Sie als Speicherort für die Datei "CAPolicy.inf"](../../../media/Prepare-the-CAPolicy-inf-File/001-SaveCAPolicyORCA1.gif)
 
-    >   [!CAUTION]  
-    >   Vergewissern Sie sich, dass die Datei %%amp;quot;CAPolicy.inf%%amp;quot; mit der Dateierweiterung INF gespeichert wurde. Wenn Sie am Ende des Dateinamens nicht ausdrücklich **.inf** eingeben und die beschriebenen Optionen auswählen, wird die Datei als Textdatei gespeichert und nicht während der Zertifizierungsstelleninstallation verwendet.
+   > [!CAUTION]
+   >   Vergewissern Sie sich, dass die Datei %%amp;quot;CAPolicy.inf%%amp;quot; mit der Dateierweiterung INF gespeichert wurde. Wenn Sie am Ende des Dateinamens nicht ausdrücklich **.inf** eingeben und die beschriebenen Optionen auswählen, wird die Datei als Textdatei gespeichert und nicht während der Zertifizierungsstelleninstallation verwendet.
 
-6.  Schließen Sie Editor.
+9. Schließen Sie Editor.
 
->   [!IMPORTANT]  
+> [!IMPORTANT]
 >   In der Datei "CAPolicy.inf", können Sie sehen, es gibt eine Zeile, in der URL https://pki.corp.contoso.com/pki/cps.txt. Der Abschnitt der Datei %%amp;quot;CAPolicy.inf%%amp;quot; zu den internen Richtlinien dient lediglich als Beispiel dafür, wie Sie den Speicherort einer Zertifikatverwendungserklärung (Certificate Practice Statement, CPS) angeben können. In diesem Handbuch werden Sie nicht angewiesen, um die praktischen Certificate-Anweisung (CPS) zu erstellen.

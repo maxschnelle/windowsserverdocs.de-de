@@ -12,12 +12,12 @@ ms.assetid: 0302d070-c58a-40f2-b56d-7e7842813d02
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 2b0cd926b15d65e5cd4c784681c40df29b18a48f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7e40a4675cf77d55a3047b41e0ab852fd7cd9de9
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890141"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433212"
 ---
 # <a name="manage-server-backup-in-windows-server-essentials"></a>Verwalten der Serversicherung in Windows Server Essentials
 
@@ -27,7 +27,7 @@ ms.locfileid: "59890141"
   
 -   [Welche Sicherung soll ausgewählt?](Manage-Server-Backup-in-Windows-Server-Essentials.md#BKMK_WhichBackup)  
   
--   [Einrichten oder Anpassen der serversicherung](Manage-Server-Backup-in-Windows-Server-Essentials.md#BKMK_1)  
+-   [Einrichten oder Anpassen der Serversicherung](Manage-Server-Backup-in-Windows-Server-Essentials.md#BKMK_1)  
   
 -   [Beenden der aktiven serversicherung](Manage-Server-Backup-in-Windows-Server-Essentials.md#BKMK_2)  
   
@@ -48,7 +48,7 @@ ms.locfileid: "59890141"
   
 1.  Fragen Sie beim Besitzer der Dateien oder Ordner nach, und notieren Sie Datum und Uhrzeit des Zeitpunkts, zu dem diese hinzugefügt oder bearbeitet wurden. Wählen Sie eine Sicherung ausgehend von diesen Datums- und Uhrzeitangaben aus.  
   
-2.  Klicken Sie im Assistenten zum Wiederherstellen von Dateien und Ordnern auf der Seite **Wiederherstellungsoption auswählen** auf **Aus einer ausgewählten Sicherung wiederherstellen (erweitert)**.  
+2.  Klicken Sie im Assistenten zum Wiederherstellen von Dateien und Ordnern auf der Seite **Wiederherstellungsoption auswählen** auf **Aus einer ausgewählten Sicherung wiederherstellen (erweitert)** .  
   
 3.  Je nachdem, ob eine ältere oder neuere Version der Dateien oder Ordner wiederhergestellt werden soll, wählen Sie die Sicherung aus, die am ehesten den Datums- und Uhrzeitangaben entspricht, die Sie in Schritt 1 notiert haben.  
   
@@ -75,17 +75,17 @@ ms.locfileid: "59890141"
   
 #### <a name="to-use-remote-web-access-to-manage-your-server"></a>So verwalten Sie den Server mithilfe des Remotewebzugriffs  
   
-1.  Öffnen Sie einen Webbrowser.  
+1. Öffnen Sie einen Webbrowser.  
   
-2.  Geben Sie im Adressfeld den Namen der Windows Server Essentials-Domäne ein.  
+2. Geben Sie im Adressfeld den Namen der Windows Server Essentials-Domäne ein.  
   
-3.  Wenn Sie aufgefordert werden, geben Sie Ihren Benutzernamen und das Kennwort ein.  
+3. Wenn Sie aufgefordert werden, geben Sie Ihren Benutzernamen und das Kennwort ein.  
   
-4.  Wenn Sie den Namen des Servers in Remote Web Access klicken, wird die Anmeldeseite für das Dashboard angezeigt.  
+4. Wenn Sie den Namen des Servers in Remote Web Access klicken, wird die Anmeldeseite für das Dashboard angezeigt.  
   
-5.  Melden Sie sich auf dem Dashboard als Administrator an, und klicken Sie dann auf **Geräte**.  
+5. Melden Sie sich auf dem Dashboard als Administrator an, und klicken Sie dann auf **Geräte**.  
   
- Weitere Informationen zum Remotewebzugriff finden Sie unter [Übersicht über Remotewebzugriff](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_Overview).  
+   Weitere Informationen zum Remotewebzugriff finden Sie unter [Übersicht über Remotewebzugriff](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_Overview).  
   
 ##  <a name="BKMK_4"></a> Deaktivieren der serversicherung  
  Sie sollten den Server und dessen Daten automatisch schützen, indem Sie tägliche Sicherungen planen. Es wird empfohlen, einen täglichen Sicherungsplan zu verwalten, da die meisten Organisationen es sich nicht leisten können, die im Verlauf von mehreren Tagen erstellten Daten zu verlieren.  
@@ -138,12 +138,12 @@ ms.locfileid: "59890141"
   
 > [!NOTE]
 >  In der Standardinstallation von Windows Server Essentials ist der Server für die wöchentliche automatische Defragmentierung konfiguriert. Dadurch können die Sicherungen größer als üblich ausfallen, wenn Sie nicht von Microsoft stammende Imaging-Software verwenden. Wenn die regelmäßige Defragmentierung des Servers nicht erforderlich ist, führen Sie die folgenden Schritte aus, um den Defragmentierungszeitplan zu deaktivieren:  
->   
->  1.  Drücken Sie WINDOWS+W, um die **Suche** zu öffnen.  
-> 2.  Geben Sie im Suchfeld **Defragment**ein.  
-> 3.  Klicken Sie im Ergebnisbereich auf **Laufwerke defragmentieren und optimieren**.  
-> 4.  Wählen Sie auf der Seite **Laufwerke optimieren** ein Laufwerk aus, und klicken Sie dann auf **Einstellungen ändern**.  
-> 5.  Deaktivieren Sie im Fenster **Optimierungszeitplan** das Kontrollkästchen **Nach Zeitplan ausführen (empfohlen)** , und klicken Sie dann auf **OK** , um die Änderung zu speichern.  
+> 
+> 1. Drücken Sie WINDOWS+W, um die **Suche** zu öffnen.  
+>    2. Geben Sie im Suchfeld **Defragment**ein.  
+>    3. Klicken Sie im Ergebnisbereich auf **Laufwerke defragmentieren und optimieren**.  
+>    4. Wählen Sie auf der Seite **Laufwerke optimieren** ein Laufwerk aus, und klicken Sie dann auf **Einstellungen ändern**.  
+>    5. Deaktivieren Sie im Fenster **Optimierungszeitplan** das Kontrollkästchen **Nach Zeitplan ausführen (empfohlen)** , und klicken Sie dann auf **OK** , um die Änderung zu speichern.  
   
 ### <a name="items-to-be-backed-up"></a>Zu sichernde Elemente  
  Standardmäßig werden alle Betriebssystemdateien und -ordner für die Sicherung ausgewählt. Sie können auch alle Festplatten, Dateien und Ordner auf dem Server sichern oder nur einzelne Festplatten, Dateien oder Ordner für die Sicherung auswählen. Führen Sie einen der folgenden Schritte aus, um Elemente für die Sicherung hinzuzufügen oder zu entfernen:  

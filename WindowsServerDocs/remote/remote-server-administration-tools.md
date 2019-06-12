@@ -12,12 +12,12 @@ ms.assetid: d54a1f5e-af68-497e-99be-97775769a7a7
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dansimp
-ms.openlocfilehash: 748010e80cf2b54926ca226a7af8c49f1aa16800
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 30ca0a1e8a2f17f54a8f05d7270bf9512be7a8dc
+ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192645"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66805183"
 ---
 # <a name="remote-server-administration-tools"></a>Remoteserver-Verwaltungstools
 
@@ -97,30 +97,30 @@ Wenn Sie eine Version von Windows 10 vor dem Oktober 2018 (1809) aktualisiert ha
 
 ##### <a name="to-uninstall-remote-server-administration-tools-for-windows-10-after-rsat-package-install"></a>So deinstallieren Sie Remoteserver-Verwaltungstools für Windows 10 (nach der Installation der RSAT-Paket)
 
-1.  Klicken Sie auf dem Desktop auf **Start**, **Alle Apps**, **Windows System** und **Systemsteuerung**.
+1. Klicken Sie auf dem Desktop auf **Start**, **Alle Apps**, **Windows System** und **Systemsteuerung**.
 
-2.  Klicken Sie unter **Programme** auf **Programm deinstallieren**.
+2. Klicken Sie unter **Programme** auf **Programm deinstallieren**.
 
-3.  Klicken Sie auf **Installierte Updates anzeigen**.
+3. Klicken Sie auf **Installierte Updates anzeigen**.
 
-4.  Klicken Sie mit der rechten Maustaste auf **Update für Microsoft Windows (KB2693643)** , und klicken Sie dann auf **Deinstallieren**.
+4. Klicken Sie mit der rechten Maustaste auf **Update für Microsoft Windows (KB2693643)** , und klicken Sie dann auf **Deinstallieren**.
 
-5.  Wenn Sie gefragt werden, ob Sie das Update wirklich deinstallieren möchten, klicken Sie auf **Ja**.
-S
-##### <a name="to-turn-off-specific-tools-after-rsat-package-install"></a>So deaktivieren Sie bestimmte Tools (nach dem RSAT-Paket installieren)
+5. Wenn Sie gefragt werden, ob Sie das Update wirklich deinstallieren möchten, klicken Sie auf **Ja**.
+   S
+   ##### <a name="to-turn-off-specific-tools-after-rsat-package-install"></a>So deaktivieren Sie bestimmte Tools (nach dem RSAT-Paket installieren)
 
-1.  Klicken Sie auf dem Desktop auf **Start**, **Alle Apps**, **Windows System** und **Systemsteuerung**.
+6. Klicken Sie auf dem Desktop auf **Start**, **Alle Apps**, **Windows System** und **Systemsteuerung**.
 
-2.  Klicken Sie auf **Programme**und dann unter **Programme und Features** auf **Windows-Features ein- oder ausschalten**.
+7. Klicken Sie auf **Programme**und dann unter **Programme und Features** auf **Windows-Features ein- oder ausschalten**.
 
-3.  Erweitern Sie im Dialogfeld **Windows-Features** die Option **Remoteserver-Verwaltungstools**und dann entweder den Unterpunkt **Rollenverwaltungstools** oder **Featureverwaltungstools**.
+8. Erweitern Sie im Dialogfeld **Windows-Features** die Option **Remoteserver-Verwaltungstools**und dann entweder den Unterpunkt **Rollenverwaltungstools** oder **Featureverwaltungstools**.
 
-4.  Deaktivieren Sie die Kontrollkästchen für alle Tools, die Sie deaktivieren möchten.
+9. Deaktivieren Sie die Kontrollkästchen für alle Tools, die Sie deaktivieren möchten.
 
-    > [!NOTE]
-    > Wenn Sie aus Server-Manager aktivieren, muss der Computer neu gestartet werden und Tools, die zwar über die **Tools** im Menü von Server-Manager muss geöffnet sein, aus der **Verwaltung** Ordner.
+   > [!NOTE]
+   > Wenn Sie aus Server-Manager aktivieren, muss der Computer neu gestartet werden und Tools, die zwar über die **Tools** im Menü von Server-Manager muss geöffnet sein, aus der **Verwaltung** Ordner.
 
-5.  Klicken Sie auf **OK**, wenn Sie alle Tools deaktiviert haben, die Sie nicht verwenden möchten.
+10. Klicken Sie auf **OK**, wenn Sie alle Tools deaktiviert haben, die Sie nicht verwenden möchten.
 
 ### <a name="run-remote-server-administration-tools"></a>Ausführen der Remoteserver-Verwaltungstools
 
@@ -158,7 +158,7 @@ Obwohl sie in Server-Manager-Konsole nicht aufgeführt sind **Tools** Menü, Win
 ### <a name="issue-rsat-fod-installation-fails-with-error-code-0x800f0954"></a>**Problem**: RSAT FOD-Installation schlägt fehl, mit dem Fehlercode 0x800f0954
 
 > **Auswirkungen**: Remoteserver-Verwaltungstools FODs unter Windows 10-1809 (Oktober 2018 Update) in Umgebungen mit WSUS/SCCM
-
+> 
 > **Auflösung**: Zum Installieren der Updates über WSUS oder SCCM empfängt FODs auf eine Domäne eingebundenen PC müssen Sie eine gruppenrichtlinieneinstellung herunterladen FODs direkt über Windows Update oder eine lokale Freigabe zu ändern. Weitere Informationen und Anweisungen zum Ändern dieser Einstellung finden Sie unter [wie Funktionen auf Nachfrage und Language Packs zur Verfügung stellen bei der Verwendung von WSUS/SCCM](https://docs.microsoft.com/windows/deployment/update/fod-and-lang-packs).
 
 ---
@@ -166,7 +166,7 @@ Obwohl sie in Server-Manager-Konsole nicht aufgeführt sind **Tools** Menü, Win
 ### <a name="issue-rsat-fod-installation-via-settings-app-does-not-show-statusprogress"></a>**Problem**: Status/Bearbeitung von RSAT FOD-Installation über die app "Einstellungen" nicht angezeigt.
 
 > **Auswirkungen**: Remoteserver-Verwaltungstools FODs unter Windows 10-1809 (Oktober 2018 Update)
-
+> 
 > **Auflösung**: Um den Installationsstatus anzuzeigen, klicken Sie auf die **wieder** Schaltfläche, um den Status Anzeigen der **optionale Features verwalten** Seite.
 
 ---
@@ -174,7 +174,7 @@ Obwohl sie in Server-Manager-Konsole nicht aufgeführt sind **Tools** Menü, Win
 ### <a name="issue-rsat-fod-uninstallation-via-settings-app-may-fail"></a>**Problem**: RSAT FOD Deinstallation über die app "Einstellungen" kann fehlschlagen.
 
 > **Auswirkungen**: Remoteserver-Verwaltungstools FODs unter Windows 10-1809 (Oktober 2018 Update)
-
+> 
 > **Auflösung**: In einigen Fällen sind Deinstallation Fehler aufgrund von müssen Sie Abhängigkeiten manuell zu deinstallieren. Insbesondere wenn RSAT-Tools ein RSAT-Tools B benötigt wird, fehl wählen Sie dann So deinstallieren Sie RSAT-Tools ein, wenn RSAT-Tools B noch installiert ist. In diesem Fall zuerst deinstallieren Sie RSAT-Tools B, und deinstallieren Sie RSAT-Tools A. Finden Sie in der Liste der Remoteserver-Verwaltungstools FODs, einschließlich der Abhängigkeiten.
 
 ---
@@ -182,7 +182,7 @@ Obwohl sie in Server-Manager-Konsole nicht aufgeführt sind **Tools** Menü, Win
 ### <a name="issue-rsat-fod-uninstallation-appears-to-succeed-but-the-tool-is-still-installed"></a>**Problem**: RSAT FOD Deinstallation angezeigt wird, erfolgreich ausgeführt werden kann, aber das Tool ist weiterhin installiert.
 
 > **Auswirkungen**: Remoteserver-Verwaltungstools FODs unter Windows 10-1809 (Oktober 2018 Update)
-
+> 
 > **Auflösung**: Neustarten des PCs wird das Entfernen des Tools abgeschlossen.
 
 ---
@@ -190,7 +190,7 @@ Obwohl sie in Server-Manager-Konsole nicht aufgeführt sind **Tools** Menü, Win
 ### <a name="issue-rsat-missing-after-windows-10-upgrade"></a>**Problem**: Remoteserver-Verwaltungstools fehlt, nach dem upgrade von Windows 10
 
 > **Auswirkungen**: Alle Remoteserver-Verwaltungstools. MSU-Paket-Installation (vor der Remoteserver-Verwaltungstools FODs) nicht automatisch neu installiert
-
+> 
 > **Auflösung**: Eine Installation der Remoteserver-Verwaltungstools kann nicht bei Betriebssystemupgrades aufgrund der Remoteserver-Verwaltungstools nicht beibehalten werden. MSU, die als ein Windows Update-Paket bereitgestellt werden. Installieren Sie Remoteserver-Verwaltungstools, später ein Upgrade von Windows 10. Beachten Sie, dass diese Einschränkung einen der Gründe warum wir, beginnend mit Windows 10-1809 FODs verschoben haben. RSAT FODs die installiert werden, wird über zukünftige Upgrades von Windows 10-Version beibehalten.
 
 ## <a name="see-also"></a>Siehe auch

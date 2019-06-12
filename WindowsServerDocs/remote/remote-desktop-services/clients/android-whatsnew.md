@@ -11,18 +11,27 @@ ms.topic: article
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.date: 05/06/2019
+ms.date: 06/05/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: e2b79a1f914bdbc971299493ca00680e2504fbd3
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: 7730790495babf4a70fb5a70ce93464faa86f1e3
+ms.sourcegitcommit: 1102e91571c88c7a1a2e021a6c53af1def7bb0a4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65476032"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66736531"
 ---
 # <a name="whats-new-for-the-remote-desktop-client-on-android"></a>Neuerungen bei den für den Remotedesktop-Client unter Android
 
 Wir aktualisieren regelmäßig die [Remotedesktopclient für Android](remote-desktop-android.md), neue Features hinzugefügt wurden, und Beheben von Problemen. Sehen Sie sich die neuesten Updates, die weiter unten.
+
+## <a name="updates-for-version-8171"></a>Updates für Version 8.1.71
+
+*Veröffentlichungsdatum: 06/05/2019*
+
+- Unterstützung für Android-Versionen 4.0.3 und 4.0.4 wurde entfernt.
+- Ein Problem behoben, in denen nicht remote-Ressourcen mit dem gleichen Namen ordnungsgemäß anzuzeigen.
+- Aktualisiert das app-Symbol.
+- Kleinere Fehlerbehebungen und Verbesserungen.
 
 ## <a name="updates-for-version-8170"></a>Updates für Version 8.1.70
 

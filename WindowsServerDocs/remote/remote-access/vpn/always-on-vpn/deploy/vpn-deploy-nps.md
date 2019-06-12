@@ -9,21 +9,19 @@ ms.localizationpriority: medium
 ms.author: pashort
 author: shortpatti
 ms.date: 08/30/2018
-ms.openlocfilehash: ca53ef28497a78f264c60ac1132f721fb6e01c15
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ca52aeeed8c4872e4d9a433c55bddc65a74d9dc0
+ms.sourcegitcommit: 0948a1abff1c1be506216eeb51ffc6f752a9fe7e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890311"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66749620"
 ---
 # <a name="step-4-install-and-configure-the-network-policy-server-nps"></a>Schritt 4 Installieren Sie und konfigurieren Sie (Network Policy Server, NPS)
 
->   Gilt für: WindowsServer 2019, WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, Windows 10
+> Gilt für: WindowsServer 2019, WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, Windows 10
 
-
-&#171;  [**nächster:** Schritt 3 Konfigurieren der RAS-Server für Always On-VPN](vpn-deploy-ras.md)<br>
-&#187;  [**Next:** Schritt 5 Konfigurieren von DNS und Firewall-Einstellungen](vpn-deploy-dns-firewall.md)
-
+- [**nächster:** Schritt 3 Konfigurieren des RAS-Servers für Always On VPN](vpn-deploy-ras.md)
+- [**nächster:** Schritt 5 Konfigurieren von DNS und Firewalleinstellungen](vpn-deploy-dns-firewall.md)
 
 In diesem Schritt installieren Sie Windows-Verwaltungsinstrumentation (Network Policy Server, NPS) für die Verarbeitung von Anforderungen von Verbindungen, die von der VPN-Server gesendet werden:
 
@@ -33,59 +31,64 @@ In diesem Schritt installieren Sie Windows-Verwaltungsinstrumentation (Network P
 
 Die Schritte in diesem Abschnitt ermöglichen Sie Folgendes ausführen:
 
-1.  Auf dem Computer oder virtuellen Computer, der für den NPS-Server geplant und auf Ihre Organisation oder Ihr Unternehmensnetzwerk installiert wird, können Sie NPS installieren.
+1. Auf dem Computer oder virtuellen Computer, der für den NPS-Server geplant und auf Ihre Organisation oder Ihr Unternehmensnetzwerk installiert wird, können Sie NPS installieren.
 
-   >[!TIP] 
+   >[!TIP]
    >Wenn Sie bereits über einen oder mehrere NPS-Server in Ihrem Netzwerk verfügen, Sie müssen sich nicht um NPS-Server-Installation durchzuführen – stattdessen können Sie in diesem Thema verwenden, beim Aktualisieren der Konfiguration eines vorhandenen NPS-Servers.
 
->[!NOTE]  
-Sie können die NPS-Dienst nicht unter Windows Server Core installieren.
+> [!NOTE]
+> Sie können die NPS-Dienst nicht unter Windows Server Core installieren.
 
-2.  Auf der Organisation/Unternehmenskonten NPS-Server können Sie NPS als RADIUS-Server ausführen, die von der VPN-Server empfangen verbindungsanforderungen verarbeitet konfigurieren.
+2. Auf der Organisation/Unternehmenskonten NPS-Server können Sie NPS als RADIUS-Server ausführen, die von der VPN-Server empfangen verbindungsanforderungen verarbeitet konfigurieren.
 
 ## <a name="install-network-policy-server"></a>Installieren des Netzwerkrichtlinienservers
 
 In diesem Verfahren installieren Sie NPS mit Windows PowerShell oder die Rollen von Server-Manager hinzufügen und Features-Assistenten aus. NPS ist ein Rollendienst der Serverrolle Netzwerkrichtlinien- und Zugriffsdienste.
 
->[!TIP] 
+>[!TIP]
 >Standardmäßig überwacht NPS RADIUS-Datenverkehr auf den Ports 1812, 1813, 1645 und 1646 für alle installierten Netzwerkadapter. Bei der Installation von NPS, und die Windows-Firewall mit erweiterter Sicherheit aktivieren, für IPv4 und IPv6-Verkehr automatisch Firewallausnahmen für diese Ports erstellt. Wenn Ihre Netzwerkzugriffsserver für das Senden von RADIUS-Verkehr über andere diese Standardwerte Ports konfiguriert sind, entfernen Sie die Ausnahmen, die in der Windows-Firewall mit erweiterter Sicherheit während der NPS-Installation erstellt, und erstellen Sie Ausnahmen für die Ports, denen Sie verwenden RADIUS-Verkehr.
 
 **Verfahren für Windows PowerShell:**
 
-Geben Sie den folgenden Befehl zum Ausführen dieses Verfahrens mithilfe von Windows PowerShell, Windows PowerShell als Administrator ausführen, und drücken Sie dann die EINGABETASTE.
+Führen Sie dieses Verfahren mithilfe von Windows PowerShell, Windows PowerShell als Administrator ausführen, geben das folgende Cmdlet aus:
 
-`Install-WindowsFeature NPAS -IncludeManagementTools`
+```powershell
+Install-WindowsFeature NPAS -IncludeManagementTools
+```
 
 **Verfahren für Server-Manager:**
 
-1.  Klicken Sie im Server-Manager **verwalten**, und klicken Sie auf **Hinzufügen von Rollen und Features**. <p>Der Assistent zum Hinzufügen von Rollen und Features wird geöffnet.
+1.  Wählen Sie im Server-Manager **verwalten**, und wählen Sie dann **Hinzufügen von Rollen und Features**.
+        Der Assistent zum Hinzufügen von Rollen und Features wird geöffnet.
 
-2.  Bevor Sie beginnen, klicken Sie auf **Weiter**.
+2.  Bevor Sie beginnen, wählen Sie **Weiter**.
 
     >[!NOTE] 
     >Die **Vorbemerkungen** des Hinzufügen von Rollen und Features-Assistenten nicht angezeigt wird, wenn Sie zuvor ausgewählt haben **auf dieser Seite standardmäßig überspringen** beim Hinzufügen von Rollen und Features-Assistenten ausgeführt haben.
 
-1.  Installationstyp auswählen, stellen sicher, dass **rollenbasierte oder featurebasierte Installation** ausgewählt ist, und klicken Sie auf **Weiter**.
+3.  Installationstyp auswählen, stellen sicher, dass **rollenbasierte oder featurebasierte Installation** ausgewählt ist, und wählen **Weiter**.
 
-2.  Zielserver auswählen, stellen sicher, dass **wählen Sie einen Server aus dem Serverpool** ausgewählt ist.
+4.  Zielserver auswählen, stellen sicher, dass **wählen Sie einen Server aus dem Serverpool** ausgewählt ist.
 
-3.  Server befinden, stellen Sie sicher, dass der lokale Computer ausgewählt ist, und klicken Sie auf **Weiter**.
+5.  Server befinden, stellen Sie sicher, dass der lokale Computer auswählen und Option ist **Weiter**.
 
-4.  Wählen Sie in Server-Rollen in **Rollen**Option **Netzwerkrichtlinien- und Zugriffsdienste**. Ein Dialogfeld wird geöffnet, gefragt, ob es für Netzwerkrichtlinien- und Zugriffsdienste erforderlichen Features hinzufügen sollten.
+6.  Wählen Sie in Server-Rollen in **Rollen**Option **Netzwerkrichtlinien- und Zugriffsdienste**. Ein Dialogfeld wird geöffnet, gefragt, ob es für Netzwerkrichtlinien- und Zugriffsdienste erforderlichen Features hinzufügen sollten.
 
-5.  Klicken Sie auf **Features hinzufügen**, und klicken Sie auf **weiter**
+7.  Wählen Sie **Features hinzufügen**, und wählen Sie dann **weiter**
 
-6.  Features auswählen, klicken Sie auf **Weiter**, und klicken Sie in die Netzwerkrichtlinien- und Zugriffsdienste, lesen Sie die Informationen, und klicken Sie auf **Weiter**.
+8.  Wählen Sie in Funktionen auswählen **Weiter**, in die Netzwerkrichtlinien- und Zugriffsdienste, lesen Sie die Informationen, und wählen Sie **Weiter**.
 
-7.  Dienste für Rolle auswählen, klicken Sie auf **Netzwerkrichtlinienserver**.
+9.  Wählen Sie in der Option Rollendienste **Netzwerkrichtlinienserver**.
 
-8.  Für Funktionen, die für den Network Policy Server erforderlich sind, klicken Sie auf **Features hinzufügen** und klicken Sie auf **Weiter**.
+10. Wählen Sie für den Network Policy Server erforderlichen Features, **Features hinzufügen**, und wählen Sie dann **Weiter**.
 
-9.  Installationsauswahl bestätigen, klicken Sie auf **automatisch neu starten die Zielserver bei Bedarf**.
+11. Wählen Sie in der Installationsauswahl, **automatisch neu starten die Zielserver bei Bedarf**.
 
-10. Klicken Sie auf **Ja** , bestätigen Sie den ausgewählten, und klicken Sie dann auf **installieren**. <p>Seite für den Installationsfortschritt zeigt den Status während des Installationsvorgangs an. Wenn der Prozess abgeschlossen ist, die Meldung "Installation erfolgreich auf *ComputerName*" angezeigt wird, wobei *ComputerName* ist der Name des Computers, auf dem Netzwerkrichtlinienserver installiert.
+12. Wählen Sie **Ja** ausgewählten zu bestätigen, und wählen Sie dann **installieren**.
+    
+    Seite für den Installationsfortschritt zeigt den Status während des Installationsvorgangs an. Wenn der Prozess abgeschlossen ist, die Meldung "Installation erfolgreich auf *ComputerName*" angezeigt wird, wobei *ComputerName* ist der Name des Computers, auf dem Netzwerkrichtlinienserver installiert.
 
-11. Klicken Sie auf **Schließen**.
+13. Wählen Sie **Schließen**.
 
 ## <a name="configure-nps"></a>Konfigurieren von NPS
 
@@ -97,11 +100,13 @@ In diesem Verfahren registrieren Sie den Server in Active Directory, damit sie d
 
 **Vorgehensweise:**
 
-1.  Klicken Sie im Server-Manager **Tools**, und klicken Sie dann auf **Netzwerkrichtlinienserver**. Die NPS-Konsole wird geöffnet.
+1.  Wählen Sie im Server-Manager **Tools**, und wählen Sie dann **Netzwerkrichtlinienserver**. Die NPS-Konsole wird geöffnet.
 
-2.  In der NPS-Konsole mit der Maustaste **NPS (lokal)**, und klicken Sie auf **Server in Active Directory registrieren** um es auszuwählen.<p>Der Netzwerkrichtlinienserver-Dialogfeld wird geöffnet.
+2.  In der NPS-Konsole mit der Maustaste **NPS (lokal)** , und wählen Sie dann **Server in Active Directory registrieren**.
+   
+     Der Netzwerkrichtlinienserver-Dialogfeld wird geöffnet.
 
-3.  Klicken Sie in das Dialogfeld Network Policy Server, auf **OK** zweimal.
+3.  Wählen Sie in das Dialogfeld des Netzwerkrichtlinienservers **OK** zweimal.
 
 Alternative Methoden zur Registrierung von NPS, finden Sie unter [registrieren Sie einen NPS-Server in einer Active Directory-Domäne](../../../../../networking/technologies/nps/nps-manage-register.md).
 
@@ -109,17 +114,17 @@ Alternative Methoden zur Registrierung von NPS, finden Sie unter [registrieren S
 
 Konfigurieren Sie in diesem Verfahren Netzwerk-Richtlinie Server Kontoführung mithilfe einer der folgenden Typen für die Protokollierung aus:
 
--   **Protokollierung von Komponentenereignissen**. Verwendet in erster Linie für die Überwachung und Problembehandlung von Verbindungsversuchen. Sie können NPS-ereignisprotokollierung durch Abrufen der Eigenschaften des NPS-Server in der NPS-Konsole konfigurieren.
+- **Protokollierung von Komponentenereignissen**. Verwendet in erster Linie für die Überwachung und Problembehandlung von Verbindungsversuchen. Sie können NPS-ereignisprotokollierung durch Abrufen der Eigenschaften des NPS-Server in der NPS-Konsole konfigurieren.
 
--   **Protokollierung von Benutzerauthentifizierung und kontoführungsanforderungen in einer lokalen Datei**. In erster Linie für verbindungszwecke für Analyse und die Abrechnung verwendet. Auch verwendet als ein Sicherheitstool für die Untersuchung, da er eine Methode zum Nachverfolgen der Aktivität von einem böswilligen Benutzer nach einem Angriff enthält. Sie können lokale dateiprotokollierung mithilfe des Assistenten Ressourcenerfassung konfigurieren.
+- **Protokollierung von Benutzerauthentifizierung und kontoführungsanforderungen in einer lokalen Datei**. In erster Linie für verbindungszwecke für Analyse und die Abrechnung verwendet. Auch verwendet als ein Sicherheitstool für die Untersuchung, da er eine Methode zum Nachverfolgen der Aktivität von einem böswilligen Benutzer nach einem Angriff enthält. Sie können lokale dateiprotokollierung mithilfe des Assistenten Ressourcenerfassung konfigurieren.
 
--   **Protokollierung von Benutzerauthentifizierung und kontoführungsanforderungen in eine Microsoft SQL Server-XML-kompatiblen Datenbank**. Wird verwendet, um mehrere Server mit NPS, damit eine Datenquelle zu ermöglichen. Bietet außerdem die Vorteile der Verwendung einer relationalen Datenbank. Sie können SQL Server-Protokollierung konfigurieren, mit der Buchhaltung Konfigurations-Assistent.
+- **Protokollierung von Benutzerauthentifizierung und kontoführungsanforderungen in eine Microsoft SQL Server-XML-kompatiblen Datenbank**. Wird verwendet, um mehrere Server mit NPS, damit eine Datenquelle zu ermöglichen. Bietet außerdem die Vorteile der Verwendung einer relationalen Datenbank. Sie können SQL Server-Protokollierung konfigurieren, mit der Buchhaltung Konfigurations-Assistent.
 
 Um Network Policy Server Ressourcenerfassung zu konfigurieren, finden Sie unter [konfigurieren Network Policy Server Accounting](../../../../../networking/technologies/nps/nps-accounting-configure.md).
 
 ### <a name="add-the-vpn-server-as-a-radius-client"></a>Fügen Sie dem VPN-Server als RADIUS-Client hinzu.
 
-In der [Konfigurieren der RAS-Server für Always On-VPN-](vpn-deploy-ras.md) Abschnitt Sie installiert und den VPN-Server konfiguriert. Während der Konfiguration des VPN-Server haben Sie einen RADIUS-gemeinsamen geheimen Schlüssel auf dem VPN-Server hinzugefügt. 
+In der [Konfigurieren der RAS-Server für Always On-VPN-](vpn-deploy-ras.md) Abschnitt Sie installiert und den VPN-Server konfiguriert. Während der Konfiguration des VPN-Server haben Sie einen RADIUS-gemeinsamen geheimen Schlüssel auf dem VPN-Server hinzugefügt.
 
 In diesem Verfahren verwenden Sie die gleiche freigegebene geheime Textzeichenfolge so konfigurieren Sie den VPN-Server als RADIUS-Client auf dem Netzwerkrichtlinienserver. Verwenden Sie die gleiche Textzeichenfolge, die Sie auf dem VPN-Server verwendet haben, oder die Kommunikation zwischen dem NPS-Server und VPN-Server ein Fehler auftritt.
 
@@ -128,25 +133,27 @@ In diesem Verfahren verwenden Sie die gleiche freigegebene geheime Textzeichenfo
 
 **Vorgehensweise:**
 
-1.  Doppelklicken Sie auf dem NPS-Server in der NPS-Konsole auf **RADIUS-Clients und Servern**.
+1. Doppelklicken Sie auf dem NPS-Server in der NPS-Konsole auf **RADIUS-Clients und Servern**.
 
-2.  Mit der rechten Maustaste **RADIUS-Clients** , und klicken Sie auf **neu**. Das Dialogfeld Neuer RADIUS-Client wird geöffnet.
+2. Mit der rechten Maustaste **RADIUS-Clients** , und wählen Sie **neu**. Das Dialogfeld Neuer RADIUS-Client wird geöffnet.
 
-3.  Überprüfen Sie, ob die **aktivieren Sie dieses RADIUS-Clients** das Kontrollkästchen aktiviert ist.
+3. Überprüfen Sie, ob die **aktivieren Sie dieses RADIUS-Clients** das Kontrollkästchen aktiviert ist.
 
-4.  In **Anzeigenamen**, geben Sie einen Anzeigenamen für die VPN-Server.
+4. In **Anzeigenamen**, geben Sie einen Anzeigenamen für die VPN-Server.
 
-5.  In **Adresse (IP oder DNS)**, geben Sie den NAS IP-Adresse oder FQDN.<p>Wenn Sie den FQDN eingegeben haben, klicken Sie auf **überprüfen** sollten Sie überprüfen, ob der Name richtig ist und eine gültige IP-Adresse zugeordnet.
+5. In **Adresse (IP oder DNS)** , geben Sie den NAS IP-Adresse oder FQDN.
+     
+     Wenn Sie den FQDN eingegeben haben, wählen Sie **überprüfen** sollten Sie überprüfen, ob der Name richtig ist und eine gültige IP-Adresse zugeordnet.
 
-6.  In **gemeinsamer geheimer Schlüssel**, sind:
+6. In **gemeinsamer geheimer Schlüssel**, sind:
 
-    1.  Sicherstellen, dass **manuelle** ausgewählt ist.
+    1. Sicherstellen, dass **manuelle** ausgewählt ist.
 
-    2.  Geben Sie die fett formatierter Text-Zeichenfolge, die Sie auch auf dem VPN-Server eingegeben haben.
+    2. Geben Sie die fett formatierter Text-Zeichenfolge, die Sie auch auf dem VPN-Server eingegeben haben.
 
-    3.  Geben Sie den gemeinsamen geheimen Schlüssel in den gemeinsamen geheimen Schlüssel bestätigen ein.
+    3. Geben Sie den gemeinsamen geheimen Schlüssel in den gemeinsamen geheimen Schlüssel bestätigen.
 
-7.  Klicken Sie auf **OK**. Der VPN-Server wird angezeigt, in der Liste der RADIUS-Clients, die auf dem NPS-Server konfiguriert.
+7. Wählen Sie **OK**. Der VPN-Server wird angezeigt, in der Liste der RADIUS-Clients, die auf dem NPS-Server konfiguriert.
 
 ## <a name="configure-nps-as-a-radius-for-vpn-connections"></a>Konfigurieren von NPS als einen RADIUS für VPN-Verbindungen
 
@@ -154,49 +161,55 @@ In diesem Verfahren konfigurieren Sie NPS als RADIUS-Server im Netzwerk Ihrer Or
 
 **Vorgehensweise:**
 
-1.  Stellen Sie sicher, die in der Konsole "NPS" unter Standardkonfiguration **RADIUS-Server für DFÜ- oder VPN-Verbindungen** ausgewählt ist.
+1. Stellen Sie sicher, die in der Konsole "NPS" unter Standardkonfiguration **RADIUS-Server für DFÜ- oder VPN-Verbindungen** ausgewählt ist.
 
-2.  Klicken Sie auf **konfigurieren VPN- oder DFÜ-**.<p>Das Konfigurieren von VPN- oder DFÜ-Assistent wird geöffnet.
+2. Wählen Sie **konfigurieren VPN- oder DFÜ-** .
+        
+    Das Konfigurieren von VPN- oder DFÜ-Assistent wird geöffnet.
 
-3.  Klicken Sie auf **virtuelles privates Netzwerk (VPN) Verbindungen**, und klicken Sie auf **Weiter**.
+3. Wählen Sie **virtuelles privates Netzwerk (VPN) Verbindungen**, und wählen Sie **Weiter**.
 
-4.  Wählen Sie im geben DFÜ- oder VPN-Server in der RADIUS-Clients den Namen des VPN-Server, die Sie im vorherigen Schritt hinzugefügt.<p>Beispielsweise wenn Ihre VPN-Server-NetBIOS-Namen RAS1 ist, klicken Sie auf **RAS1**.
+4. Wählen Sie im geben DFÜ- oder VPN-Server in der RADIUS-Clients den Namen des VPN-Server, die Sie im vorherigen Schritt hinzugefügt. Wählen Sie beispielsweise, wenn Ihre VPN-Server-NetBIOS-Namen RAS1 ist, **RAS1**.
 
-5.  Klicken Sie auf **Weiter**.
+5. Wählen Sie **Weiter** aus.
 
-6.  Führen Sie in den Authentifizierungsmethoden zu konfigurieren die folgenden Schritte aus:
+6. Führen Sie in den Authentifizierungsmethoden zu konfigurieren die folgenden Schritte aus:
 
-    1.  Deaktivieren der **Microsoft-verschlüsselte Authentifizierung, Version 2 (MS-CHAPv2)** Kontrollkästchen.
+    1. Deaktivieren der **Microsoft-verschlüsselte Authentifizierung, Version 2 (MS-CHAPv2)** Kontrollkästchen.
 
-    2.  Klicken Sie auf die **Extensible Authentication Protocol** Kontrollkästchen, um es auszuwählen.
+    2. Wählen Sie die **Extensible Authentication Protocol** Kontrollkästchen, um es auszuwählen.
 
-    3.  Typ (basierend auf die Methode von Zugriff und Netzwerkkonfiguration), klicken Sie auf **Microsoft: Geschütztes EAP (PEAP)**, und klicken Sie auf **konfigurieren**.<p>Das Dialogfeld Eigenschaften für geschütztes EAP bearbeiten wird geöffnet.
+    3. Wählen Sie unter Typ (basierend auf die Methode von Zugriff und Netzwerkkonfiguration) **Microsoft: Geschütztes EAP (PEAP)** , und wählen Sie dann **konfigurieren**.
+      
+        Das Dialogfeld Eigenschaften für geschütztes EAP bearbeiten wird geöffnet.
 
-    4.  Klicken Sie auf **entfernen** sicheres Kennwort (EAP-MSCHAP v2) EAP-Typ entfernen.
+    4. Wählen Sie **entfernen** sicheres Kennwort (EAP-MSCHAP v2) EAP-Typ entfernen.
 
-    5.  Klicken Sie auf **Hinzufügen**. Das Dialogfeld "EAP hinzufügen" wird geöffnet.
+    5. Wählen Sie **hinzufügen**. Das Dialogfeld "EAP hinzufügen" wird geöffnet.
 
-    6.  Klicken Sie auf **Smartcard- oder anderes Zertifikat**, und klicken Sie auf **OK**.
+    6. Wählen Sie **Smartcard- oder anderes Zertifikat**, und wählen Sie dann **OK**.
 
-    7.  Klicken Sie auf **OK** um Eigenschaften für geschütztes EAP bearbeiten zu schließen.
+    7. Wählen Sie **OK** um Eigenschaften für geschütztes EAP bearbeiten zu schließen.
 
-7.  Klicken Sie auf **Weiter**.
+7. Wählen Sie **Weiter** aus.
 
-8.  Führen Sie in den Benutzergruppen angeben die folgenden Schritte aus:
+8. Führen Sie in den Benutzergruppen angeben die folgenden Schritte aus:
 
-    1.  Klicken Sie auf **Hinzufügen**. Das Dialogfeld zur Auswahl von Benutzern, Computern, Dienstkonten oder Gruppen wird geöffnet.
+    1. Wählen Sie **hinzufügen**. Das Dialogfeld zur Auswahl von Benutzern, Computern, Dienstkonten oder Gruppen wird geöffnet.
 
-    2.  Typ **VPN-Benutzer** , und klicken Sie auf **OK**.
+    2. Geben Sie **VPN-Benutzer**, und wählen Sie dann **OK**.
 
-    3.  Klicken Sie auf **Weiter**.
+    3. Wählen Sie **Weiter** aus.
 
-9.  Geben Sie IP-Filter, klicken Sie auf **Weiter**.
+9. Wählen Sie in der IP-Filter angeben, **Weiter**.
 
-10. Angeben von Verschlüsselungseinstellungen, klicken Sie auf **Weiter**. Nehmen Sie keine Änderungen.<p>Diese Einstellungen gelten nur für Microsoft Point-Encryption (MPPE)-Verbindungen, die in diesem Szenario nicht unterstützt.
+10. Wählen Sie in das Angeben von Verschlüsselungseinstellungen **Weiter**. Nehmen Sie keine Änderungen.
 
-11. Geben Sie einen Bereich an, klicken Sie auf **Weiter**.
+    Diese Einstellungen gelten nur für Microsoft Point-Encryption (MPPE)-Verbindungen, die in diesem Szenario nicht unterstützt.
 
-12. Klicken Sie auf **Fertig stellen**, und beenden Sie den Assistenten.
+11. Wählen Sie in der Bereichsname angeben, **Weiter**.
+
+12. Wählen Sie **Fertig stellen** um den Assistenten zu schließen.
 
 ## <a name="autoenroll-the-nps-server-certificate"></a>Zertifikat nicht der NPS-Server registrieren
 
@@ -209,14 +222,10 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
 
 **Vorgehensweise:**
 
-1.  Öffnen Sie auf den NPS Windows PowerShell ein.
+1. Öffnen Sie auf den NPS Windows PowerShell ein.
 
-2.  Geben Sie an der Windows PowerShell-Eingabeaufforderung **Gpupdate**, und drücken Sie dann die EINGABETASTE.
+2. Geben Sie an der Windows PowerShell-Eingabeaufforderung **Gpupdate**, und drücken Sie dann die EINGABETASTE.
 
-## <a name="next-step"></a>Nächster Schritt
-[Schritt 5. Konfigurieren von DNS und Firewall-Einstellungen für Always On-VPN-](vpn-deploy-dns-firewall.md): In diesem Schritt installieren Sie Windows-Verwaltungsinstrumentation (Network Policy Server, NPS) mit Windows PowerShell oder die Rollen von Server-Manager hinzufügen und Features-Assistenten. Sie auch konfigurieren, NPS, um alle Authentifizierung, Autorisierung und Kontoführung von Aufgaben für die Verbindung verarbeitet Anforderungen, die von der VPN-Server empfangen.
+## <a name="next-steps"></a>Nächste Schritte
 
-
-
----
-
+[Schritt 5: Konfigurieren von DNS und Firewall-Einstellungen für Always On-VPN-](vpn-deploy-dns-firewall.md): In diesem Schritt installieren Sie Windows-Verwaltungsinstrumentation (Network Policy Server, NPS) mit Windows PowerShell oder die Rollen von Server-Manager hinzufügen und Features-Assistenten. Sie auch konfigurieren, NPS, um alle Authentifizierung, Autorisierung und Kontoführung von Aufgaben für die Verbindung verarbeitet Anforderungen, die von der VPN-Server empfangen.

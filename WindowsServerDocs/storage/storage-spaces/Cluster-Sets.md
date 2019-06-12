@@ -8,24 +8,24 @@ author: johnmarlin-msft
 ms.date: 01/30/2019
 description: In diesem Artikel wird das Cluster-Sets-Szenario beschrieben.
 ms.localizationpriority: medium
-ms.openlocfilehash: 2deeb6968f910e80bacb2354ad2e575060a7797a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 349b69835ae68c626e886cad30f4d5a89d358372
+ms.sourcegitcommit: a3958dba4c2318eaf2e89c7532e36c78b1a76644
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833951"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66719705"
 ---
 # <a name="cluster-sets"></a>Cluster-Gruppen
 
-> Gilt für: Windows Server Insider Preview Build 17650 und höher
+> Gilt für: Windows Server 2019
 
-Cluster-Gruppen ist die neue Cloud-Scale-Out-Technologie, die in dieser Preview-Version, die die Anzahl Clusterknoten in einer einzelnen Softwareupdates definiert Data Center (SDDC) Cloud um ein Vielfaches erhöht wird. Ein Clustersatz ist eine lose verbundene Gruppierung mehrere Failovercluster: compute, Speicher oder hyper-konvergiert. Cluster wird Technologie ermöglicht VM Fluidität für Element-Cluster in einen Clustersatz und ein Namespace für ein einheitliches über eine Gruppe zur Unterstützung von VM-Fluidität festgelegt. 
+Legt der Cluster ist die neue Cloud-Scale-Out-Technologie, die in der 2019 für Windows Server-Version, die die Anzahl Clusterknoten in einer einzelnen Softwareupdates definiert Data Center (SDDC) Cloud um ein Vielfaches erhöht wird. Ein Clustersatz ist eine lose verbundene Gruppierung mehrere Failovercluster: compute, Speicher oder hyper-konvergiert. Cluster wird Technologie ermöglicht VM Fluidität für Element-Cluster in einen Clustersatz und ein Namespace für ein einheitliches über eine Gruppe zur Unterstützung von VM-Fluidität festgelegt.
 
-Beim Beibehalten der vorhandenen Failovercluster-Verwaltung auf Member Clustern auftreten, bietet eine Set-Clusterinstanz darüber wichtigsten Anwendungsfälle für die lebenszyklusverwaltung auf das Aggregat. In diesem Evaluierungshandbuch für Windows Server Preview-Szenario bietet die erforderlichen Hintergrundinformationen und schrittweise Anleitungen zum Auswerten von Clustertechnologie-Sets mithilfe von PowerShell. 
+Beim Beibehalten der vorhandenen Failovercluster-Verwaltung auf Member Clustern auftreten, bietet eine Set-Clusterinstanz darüber wichtigsten Anwendungsfälle für die lebenszyklusverwaltung auf das Aggregat. In diesem Evaluierungshandbuch für Windows Server 2019-Szenario bietet die erforderlichen Hintergrundinformationen und schrittweise Anleitungen zum Auswerten von Clustertechnologie-Sets mithilfe von PowerShell.
 
 ## <a name="technology-introduction"></a>Einführung in die Technologie
 
-Legt Clustertechnologie wurde entwickelt, um bestimmte kundenanforderungen betreiben (Software definiert Datacenter, SDDC)-Clouds nach Maß zu erfüllen. Cluster legt Wertbeitrag in dieser Vorschauversion kann wie folgt zusammengefasst werden:  
+Legt Clustertechnologie wurde entwickelt, um bestimmte kundenanforderungen betreiben (Software definiert Datacenter, SDDC)-Clouds nach Maß zu erfüllen. Wertbeitrag für Cluster legt möglicherweise wie folgt zusammengefasst werden:  
 
 - Erhöhen Sie die unterstützten SDDC-Cloud-Skalierung für die Ausführung von hoch verfügbaren virtuellen Maschinen durch die Kombination von mehreren kleinerer Clusters in einem einzigen großen Fabric, gleichzeitig auch die Grenze der Software-Fehler in einem einzigen Cluster erheblich
 - Verwalten der gesamten Failovercluster-Lebenszyklus, einschließlich der Integration und zum abkoppeln von Clustern, ohne Beeinträchtigung der Mandanten-VM-Verfügbarkeit, über die Migration auch virtuelle Computer für diese großen Fabric
@@ -35,7 +35,7 @@ Legt Clustertechnologie wurde entwickelt, um bestimmte kundenanforderungen betre
 
 Von einem auf hoher Ebene ist dies welcher Cluster legt aussehen können.
 
-![Cluster legt Lösung anzeigen](media\Cluster-sets-Overview\Cluster-sets-solution-View.png)
+![Cluster legt Lösung anzeigen](media/Cluster-sets-Overview/Cluster-sets-solution-View.png)
 
 Im folgenden finden Sie eine kurze Zusammenfassung der einzelnen Elemente in der Abbildung oben:
 
@@ -49,7 +49,7 @@ Ein Member-Cluster in einem Clustersatz ist in der Regel einen herkömmlichen hy
 
 **Cluster eingerichtet, Namespace-Verweis SOFS**
 
-Ein Cluster Satz Namespace-Verweis (Cluster festlegen Namespace) SOFS handelt es sich um einen Scale-Out File Server, die bei dem jede SMB-Freigabe auf dem Cluster festlegen Namespace SOFS eine Verweis-Freigabe – vom Typ "SimpleReferral" in dieser Preview-Version neu eingeführt wird.  Diese Referenz ermöglicht Server Message Block (SMB)-Clients Zugriff auf das Ziel, SMB-Freigabe, auf dem Cluster Member SOFS gehostet. Namespace-Verweis SOFS ist ein Lightweight-Weiterleitungsmechanismus und ist daher nicht Teil festlegen in der e/a-Pfad. Die SMB-Verweise werden Anreiz für jede der Client-Knoten zwischengespeichert und der Cluster legt Namespace dynamisch aktualisiert automatisch diese Verweise nach Bedarf.
+Ein Cluster Satz Namespace-Verweis (Cluster festlegen Namespace) SOFS handelt es sich um einen Scale-Out File Server, die bei dem jede SMB-Freigabe auf dem Cluster festlegen Namespace SOFS eine Verweis-Freigabe – vom Typ "SimpleReferral" in Windows Server-2019 neu eingeführt wird. Diese Referenz ermöglicht Server Message Block (SMB)-Clients Zugriff auf das Ziel, SMB-Freigabe, auf dem Cluster Member SOFS gehostet. Namespace-Verweis SOFS ist ein Lightweight-Weiterleitungsmechanismus und ist daher nicht Teil festlegen in der e/a-Pfad. Die SMB-Verweise werden Anreiz für jede der Client-Knoten zwischengespeichert und der Cluster legt Namespace dynamisch aktualisiert automatisch diese Verweise nach Bedarf.
 
 **Master Clustersatz**
 
@@ -100,7 +100,7 @@ In Windows Server-2019 besteht eine neue Serverrolle für Dateiserver mit horizo
 
 Die folgenden Überlegungen gelten für eine Infrastruktur SOFS-Rolle:
 
-1.  Es kann jeweils nur ein Infrastruktur SOFS-Clusterrolle auf einem Failovercluster vorhanden sein. Infrastruktur-SOFS-Rolle wird erstellt, indem die "**-Infrastruktur**" switch-Parameter, um die **hinzufügen-ClusterScaleOutFileServerRole** Cmdlet.  Zum Beispiel:
+1.  Es kann jeweils nur ein Infrastruktur SOFS-Clusterrolle auf einem Failovercluster vorhanden sein. Infrastruktur-SOFS-Rolle wird erstellt, indem die " **-Infrastruktur**" switch-Parameter, um die **hinzufügen-ClusterScaleOutFileServerRole** Cmdlet.  Zum Beispiel:
 
         Add-ClusterScaleoutFileServerRole -Name "my_infra_sofs_name" -Infrastructure
 
@@ -112,7 +112,7 @@ Nachdem ein Clustersatz erstellt wurde, verwendet der Cluster-Set-Namespace eine
 
 Zum Zeitpunkt wird ein Clusters Element hinzugefügt, ein Clustersatz der Administrator den Namen eines SOFS-Infrastruktur auf diesem Cluster gibt an, ob bereits eine vorhanden ist. Wenn es sich bei den SOFS-Infrastruktur nicht vorhanden ist, wird eine neue Infrastruktur SOFS-Rolle auf dem neuen Element Cluster durch diesen Vorgang erstellt. Wenn eine Infrastruktur SOFS-Rolle bereits auf dem Cluster Member vorhanden ist, benennt der Vorgang zum Hinzufügen implizit es mit dem angegebenen Namen nach Bedarf. Alle vorhandenen Singleton-SMB-Server, oder nicht - Infrastruktur SOFS-Rollen auf dem Element das Cluster verlassen, sind sehr von dem Clustersatz. 
 
-Zum Zeitpunkt der Erstellung der Clustersatz ist, kann der Administrator die Möglichkeit, einen bereits vorhandenen AD-Computer-Objekt als Namespacestamm auf dem verwaltungscluster verwenden. Cluster Satz Vorgänge zur Erstellung die Infrastruktur SOFS-Clusterrolle auf dem verwaltungscluster erstellen oder benennt die vorhandene Infrastruktur SOFS-Rolle für Member Cluster einfach wie zuvor beschrieben. Die SOFS-Infrastruktur, auf dem verwaltungscluster wird verwendet, wie Namespace-Verweis (Cluster festlegen Namespace) SOFS festlegen. Es bedeutet lediglich, dass jede SMB-Freigabe auf dem Cluster Namespace, für SOFS eine Verweis-Freigabe – vom Typ "SimpleReferral festgelegt" – in dieser Preview-Version neu eingeführt wurde.  Diese Referenz ermöglicht, dass SMB-Clients den Zugriff auf das Ziel, die SMB-Freigabe auf dem Cluster Member SOFS gehostet. Namespace-Verweis SOFS ist ein Lightweight-Weiterleitungsmechanismus und ist daher nicht Teil festlegen in der e/a-Pfad. Die SMB-Verweise Anreiz für jede der Client-Knoten zwischengespeichert und der Cluster legt Namespace dynamisch aktualisiert automatisch diese Verweise nach Bedarf
+Zum Zeitpunkt der Erstellung der Clustersatz ist, kann der Administrator die Möglichkeit, einen bereits vorhandenen AD-Computer-Objekt als Namespacestamm auf dem verwaltungscluster verwenden. Cluster Satz Vorgänge zur Erstellung die Infrastruktur SOFS-Clusterrolle auf dem verwaltungscluster erstellen oder benennt die vorhandene Infrastruktur SOFS-Rolle für Member Cluster einfach wie zuvor beschrieben. Die SOFS-Infrastruktur, auf dem verwaltungscluster wird verwendet, wie Namespace-Verweis (Cluster festlegen Namespace) SOFS festlegen. Es bedeutet lediglich, dass jede SMB-Freigabe auf dem Cluster Namespace, die SOFS eine Verweis-Freigabe – vom Typ "SimpleReferral" festgelegt – neu in Windows Server-2019 eingeführt wird.  Diese Referenz ermöglicht, dass SMB-Clients den Zugriff auf das Ziel, die SMB-Freigabe auf dem Cluster Member SOFS gehostet. Namespace-Verweis SOFS ist ein Lightweight-Weiterleitungsmechanismus und ist daher nicht Teil festlegen in der e/a-Pfad. Die SMB-Verweise Anreiz für jede der Client-Knoten zwischengespeichert und der Cluster legt Namespace dynamisch aktualisiert automatisch diese Verweise nach Bedarf
 
 ## <a name="creating-a-cluster-set"></a>Erstellen eines Cluster-Satzes
 
@@ -120,7 +120,7 @@ Zum Zeitpunkt der Erstellung der Clustersatz ist, kann der Administrator die Mö
 
 Beim Erstellen eines Clusters festgelegt werden, sollten Sie folgende Voraussetzungen:
 
-1. Konfigurieren Sie einen Verwaltungsclient, der die neueste Version von Windows Server Insider ausgeführt.
+1. Konfigurieren Sie einen Verwaltungsclient, der unter Windows Server-2019.
 2. Installieren Sie den Failovercluster-Tools auf diesem Verwaltungsserver ein.
 3. Erstellen der Clustermitglieder (mindestens zwei Cluster mit mindestens zwei freigegebenen Clustervolumes auf jedem Cluster)
 4. Erstellen eines Management-Clusters (physisch oder Gast), das die Member-Cluster überspannt.  Dieser Ansatz wird sichergestellt, dass die Cluster-Sätze, die Verwaltungsebene weiterhin trotz Clusterfehler möglich Member zur Verfügung.
@@ -258,7 +258,11 @@ Live Migration einer virtuellen Maschine zwischen anderen-Cluster-Set-Clustern i
 2. die Livemigration der virtuellen Computer auf einen Elementknoten eines anderen Clusters.
 3. Fügen Sie den virtuellen Computer im Cluster als eine neue VM-Rolle hinzu.
 
-Mit Cluster diese Schritte sind nicht erforderlich, und nur ein Befehl ist erforderlich.  Beispielsweise möchte ich eine VM-Clusters auf CLUSTER3 von CLUSTER1 in NODE2-CL3 zu verschieben.  Die einzelne Befehl wäre:
+Mit Cluster diese Schritte sind nicht erforderlich, und nur ein Befehl ist erforderlich.  Zunächst sollten Sie alle Netzwerke für die Migration mit dem Befehl festlegen:
+
+    Set-VMHost -UseAnyNetworkMigration $true
+
+Beispielsweise möchte ich eine VM-Clusters auf CLUSTER3 von CLUSTER1 in NODE2-CL3 zu verschieben.  Die einzelne Befehl wäre:
 
         Move-ClusterSetVM -CimSession CSMASTER -VMName CSVM1 -Node NODE2-CL3
 
@@ -327,7 +331,7 @@ Beispielsweise wäre der Befehl zum Cluster legt den Cluster CLUSTER1 aufheben:
 **Frage:** Kann ich meinen Cluster eingerichtet über System Center Virtual Machine Manager verwalten? <br>
 **Antwort:** System Center Virtual Machine Manager unterstützt derzeit keine Cluster legt <br><br> **Frage:** Können Windows Server 2012 R2 oder 2016-Cluster in demselben Cluster gleichzeitig vorhanden sein? <br>
 **Frage:** Kann ich migrieren Sie Workloads aus Windows Server 2012 R2 oder beitreten 2016-Cluster, indem Sie einfach diese Cluster, die demselben Cluster eingerichtet? <br>
-**Antwort:** Cluster-Gruppen ist eine neue Technologie eingeführt wird, in Windows Server Preview-Builds, also beispielsweise ist nicht vorhanden in früheren Versionen. Kompatible OS-basierten Clustern können ein Clustersatz nicht beitreten. Clusterbetriebssystem parallele Upgrades Technologie sollten jedoch die Migrationsfunktion bereitstellen, die Sie suchen ein Upgrade dieser Cluster auf Windows Server-2019.
+**Antwort:** Cluster-Gruppen ist eine neue Technologie in Windows Server-2019, also als solches eingeführt, in früheren Versionen nicht vorhanden. Kompatible OS-basierten Clustern können ein Clustersatz nicht beitreten. Clusterbetriebssystem parallele Upgrades Technologie sollten jedoch die Migrationsfunktion bereitstellen, die Sie suchen ein Upgrade dieser Cluster auf Windows Server-2019.
 
 **Frage:** Können Cluster legt lassen Sie mich skalieren Sie Speicher oder (eigenständig) berechnen? <br>
 **Antwort:** Ja, einfach einen Storage Space Direct "oder" traditionellen Hyper-V-Cluster hinzufügen. Cluster-Sets ist es eine unkomplizierte Änderung Compute-Storage-Verhältnisses sogar in einem hyperkonvergenten Cluster-Satz.
@@ -360,7 +364,7 @@ Beispielsweise wäre der Befehl zum Cluster legt den Cluster CLUSTER1 aufheben:
 **Antwort:** Alle Member-Cluster muss sich in derselben AD-Gesamtstruktur.
 
 **Frage:** Wie viele Cluster oder Knoten kann Teil eines einzelnen Clusters werden festgelegt? <br>
-**Antwort:** In der Vorschau clustersätze getestet und unterstützt bis zu 64 insgesamt Clusterknoten. Allerdings Cluster Architektur, die sich auf viel größeren Einschränkungen festgelegt und ist nicht hartcodiert für einen Grenzwert ist. Informieren Sie Microsoft, die wissen, ob es sich bei größerem Umfang ist wichtig für Sie und wie Sie sie verwenden möchten.
+**Antwort:** In Windows Server-2019, clustersätze getestet und unterstützt bis zu 64 insgesamt Clusterknoten. Allerdings Cluster Architektur, die sich auf viel größeren Einschränkungen festgelegt und ist nicht hartcodiert für einen Grenzwert ist. Informieren Sie Microsoft, die wissen, ob es sich bei größerem Umfang ist wichtig für Sie und wie Sie sie verwenden möchten.
 
 **Frage:** Werden alle "direkte Speicherplätze"-Cluster in einem Clustersatz mit einen einzelnen Speicherpool bilden? <br>
 **Antwort:** Nein. Storage Spaces Direct-Technologie arbeitet immer noch in einem einzigen Cluster, und nicht für alle Member-Clustern in einem Clustersatz.
@@ -372,4 +376,4 @@ Beispielsweise wäre der Befehl zum Cluster legt den Cluster CLUSTER1 aufheben:
 **Antwort:** Nein. Cluster-Set-Namespace bietet einen Overlay-Verweis-Namespace in einer Cluster-Gruppe – vom Konzept her wie Distributed Datei System Namespaces (DFSN). Und im Gegensatz zu DFSN, alle Cluster Satz Namespace Verweis Metadaten automatisch aufgefüllt und automatisch aktualisiert werden, auf allen Knoten ohne jegliches Eingreifen des Administrators, gibt es also praktisch keinen zusätzlichen Verwaltungsaufwand im Storage-Zugriffspfad. 
 
 **Frage:** Wie kann ich die Cluster-Metadaten sichern? <br>
-**Antwort:** Diese Anleitung ist identisch mit der Failover-Cluster. Die Systemstatussicherung wird auch der Clusterstatus sichern.  Über Windows Server-Sicherung möglich, Wiederherstellungen von nur einem Knoten des Cluster-Datenbank (die nie aufgrund von Selbstheilende Programmlogik, die wir haben etliche notwendig sein sollte) oder eine autorisierende Wiederherstellung aus, um ein Rollback die gesamten Cluster-Datenbank auf allen Knoten. Im Fall von Cluster-Sets empfiehlt Microsoft, zuerst tun von solchen eine autorisierende Wiederherstellung auf den Member-Cluster und dann auf dem verwaltungscluster, bei Bedarf. 
+**Antwort:** Diese Anleitung ist identisch mit der Failover-Cluster. Die Systemstatussicherung wird auch der Clusterstatus sichern.  Über Windows Server-Sicherung möglich, Wiederherstellungen von nur einem Knoten des Cluster-Datenbank (die nie aufgrund von Selbstheilende Programmlogik, die wir haben etliche notwendig sein sollte) oder eine autorisierende Wiederherstellung aus, um ein Rollback die gesamten Cluster-Datenbank auf allen Knoten. Im Fall von Cluster-Sets empfiehlt Microsoft, zuerst tun von solchen eine autorisierende Wiederherstellung auf den Member-Cluster und dann auf dem verwaltungscluster, bei Bedarf.

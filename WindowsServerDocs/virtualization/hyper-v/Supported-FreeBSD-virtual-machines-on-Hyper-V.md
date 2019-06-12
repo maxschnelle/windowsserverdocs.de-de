@@ -11,12 +11,12 @@ ms.assetid: 930e758f-bd50-46b4-a3a4-9857110f17b4
 author: shirgall
 ms.author: kathydav
 ms.date: 08/30/2017
-ms.openlocfilehash: a398334700f7c292732207919b73a33145a6aae9
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: f11ef246ce4ac4f8773f046a25badd83cff106d0
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222692"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447732"
 ---
 # <a name="supported-freebsd-virtual-machines-on-hyper-v"></a>Unterstützte FreeBSD-Maschinen in Hyper-V
 
@@ -94,7 +94,7 @@ Die folgende Funktion Verteilung Karte gibt an, die Funktionen in der jeweiligen
     # dd if=/dev/da1 of=/dev/da1 count=0
     # gpart recover da1
     ```
-**Zusätzliche Hinweise**: Die featurematrix aus 10 stabile und 11 stabile ist identisch mit FreeBSD 11.1-Version. Zusätzlich, FreeBSD 10.2 und früheren Versionen (10.1, 10.0, 9.x, 8.x) sind Ende ihrer Lebensdauer. Finden Sie unter [hier](https://security.freebsd.org/) für eine aktuelle Liste der unterstützten Versionen und die neuesten sicherheitsempfehlungen.
+   **Zusätzliche Hinweise**: Die featurematrix aus 10 stabile und 11 stabile ist identisch mit FreeBSD 11.1-Version. Zusätzlich, FreeBSD 10.2 und früheren Versionen (10.1, 10.0, 9.x, 8.x) sind Ende ihrer Lebensdauer. Finden Sie unter [hier](https://security.freebsd.org/) für eine aktuelle Liste der unterstützten Versionen und die neuesten sicherheitsempfehlungen.
 
 **Zusätzliche Hinweise**: Die featurematrix aus 10 stabile und 11 stabile ist identisch mit FreeBSD 11.1-Version. Zusätzlich, FreeBSD 10.2 und früheren Versionen (10.1, 10.0, 9.x, 8.x) sind Ende ihrer Lebensdauer. Finden Sie unter [hier](https://security.freebsd.org/) für eine aktuelle Liste der unterstützten Versionen und die neuesten sicherheitsempfehlungen.
 

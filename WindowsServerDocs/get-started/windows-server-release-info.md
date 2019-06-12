@@ -9,18 +9,18 @@ ms.date: 05/21/2019
 author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: high
-ms.openlocfilehash: f13690056a13a751b5ef4770c2aac11cecc2d4ae
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.openlocfilehash: 6133e30b7f3db460cf6174a103c4ce1040e791b6
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65976623"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810638"
 ---
 # <a name="windows-server-release-information"></a>Dateiinformationen für die Windows Server-Version
 
 Microsoft hat das Servicemodell aktualisiert. Beim halbjährigen Kanal wird zweimal im Jahr ein Funktionsupdate veröffentlicht und für jede Veröffentlichung gilt eine 18-monatige Servicefrist. Auf dieser Seite wird erläutert, wie Sie das Ende des Supports von den Veröffentlichungen des halbjährigen Kanals bestimmen.
 
-Den halbjährlichen Kanal bietet die Möglichkeit für Kunden, die Innovationen schnell zum neuen Betriebssystem-Funktionen in kürzerem, beide in Anwendungen – insbesondere basiert auf Container und Microservices nutzen werden. Weitere Informationen finden Sie unter den [Vergleich wartungskanälen](..\get-started-19\servicing-channels-19.md). Kunden können auch weiterhin die Veröffentlichungskanäle „Long-Term Servicing”-Versionen nutzen, die alle 2 bis 3 Jahre veröffentlicht werden. Jede Long-Term Servicing Channel-Version (LTSC) erhält 5 Jahre grundlegenden Support und 5 Jahre erweiterten Support.
+Den halbjährlichen Kanal bietet die Möglichkeit für Kunden, die Innovationen schnell zum neuen Betriebssystem-Funktionen in kürzerem, beide in Anwendungen – insbesondere basiert auf Container und Microservices nutzen werden. Weitere Informationen finden Sie unter den [Vergleich wartungskanälen](../get-started-19/servicing-channels-19.md). Kunden können auch weiterhin die Veröffentlichungskanäle „Long-Term Servicing”-Versionen nutzen, die alle 2 bis 3 Jahre veröffentlicht werden. Jede Long-Term Servicing Channel-Version (LTSC) erhält 5 Jahre grundlegenden Support und 5 Jahre erweiterten Support.
 
 ## <a name="windows-server-current-versions-by-servicing-option"></a>Aktuelle Versionen von Windows Server nach Wartungsoptionen
 
@@ -32,5 +32,5 @@ Den halbjährlichen Kanal bietet die Möglichkeit für Kunden, die Innovationen 
 | Windows Server, Version 1803 (Semi-Annual Channel) (Datacenter, Standard)| 1803 |17134.1.180410-1804 |30.04.2018| 12.11.2019|Anmerkungen zu dieser Version|
 | Windows Server 2016 (Long-Term Servicing Channel)| 1607 | 14393.0 | 15.10.2016 |11.01.2022| 11.01.2027|
 
->[!NOTE]
-> Windows Server, Version 1803 und höher werden, unterliegen der [Modern Lifecycle-Richtlinie](https://support.microsoft.com/help/30881). Finden Sie unter der [Windows-Lebenszyklus – häufig gestellte Fragen](https://support.microsoft.com/help/18581/lifecycle-faq-windows-products) und [Vergleich wartungskanälen](..\get-started-19\servicing-channels-19.md) Einzelheiten in Bezug auf Wartung, Anforderungen und andere wichtige Informationen.
+> [!NOTE]
+> Windows Server, Version 1803 und höher werden, unterliegen der [Modern Lifecycle-Richtlinie](https://support.microsoft.com/help/30881). Finden Sie unter der [Windows-Lebenszyklus – häufig gestellte Fragen](https://support.microsoft.com/help/18581/lifecycle-faq-windows-products) und [Vergleich wartungskanälen](../get-started-19/servicing-channels-19.md) Einzelheiten in Bezug auf Wartung, Anforderungen und andere wichtige Informationen.

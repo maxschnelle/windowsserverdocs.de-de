@@ -8,12 +8,12 @@ ms.date: 07/10/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 18ce084ec7d1b602dfca913372d6a0e279671a6e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a2eb6c670e704564bed49486b8950dab96da8a80
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867411"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444568"
 ---
 # <a name="migrate-the-active-directory-federation-services-proxy-server-to-windows-server-2012-r2"></a>Migrieren von Active Directory Federation Services-Proxy-Server zu Windows Server 2012 R2
 
@@ -26,15 +26,15 @@ Wenn Sie AD FS in einer migrierten Windows Server 2012 R2-Farm für den Extranet
   
 Wenn Sie die Bereitstellung eines Webanwendungsproxys planen, lesen Sie die Informationen in den folgenden Themen:  
   
--   [Planen der Infrastruktur für den Webanwendungsproxy](https://technet.microsoft.com/library/dn383648.aspx)  
+- [Planen der Infrastruktur für den Webanwendungsproxy](https://technet.microsoft.com/library/dn383648.aspx)  
   
--   [Planen Sie die Webanwendungsproxy-Servers](https://technet.microsoft.com/library/dn383647.aspx)  
+- [Planen Sie die Webanwendungsproxy-Servers](https://technet.microsoft.com/library/dn383647.aspx)  
   
- Sie können zum Bereitstellen eines Webanwendungsproxys die Schritte in den folgenden Themen ausführen:  
+  Sie können zum Bereitstellen eines Webanwendungsproxys die Schritte in den folgenden Themen ausführen:  
   
--   [Konfigurieren der Infrastruktur für den Webanwendungsproxy](https://technet.microsoft.com/library/dn383644.aspx)  
+- [Konfigurieren der Infrastruktur für den Webanwendungsproxy](https://technet.microsoft.com/library/dn383644.aspx)  
   
--   [Installieren Sie und konfigurieren Sie die Webanwendungsproxy-Servers](https://technet.microsoft.com/library/dn383662.aspx)  
+- [Installieren Sie und konfigurieren Sie die Webanwendungsproxy-Servers](https://technet.microsoft.com/library/dn383662.aspx)  
   
 ## <a name="next-steps"></a>Nächste Schritte
  [Migrieren der Rollendienste für Active Directory Federation Services für Windows Server 2012 R2](migrate-ad-fs-service-role-to-windows-server-r2.md)   

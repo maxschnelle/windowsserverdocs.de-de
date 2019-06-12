@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 5454f91394dbdc659db85a675d1c8bfac18b2a86
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d56bc89189c3b17367549aeb076633a6ea0e1007
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853921"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442743"
 ---
 # <a name="advanced-active-directory-replication-and-topology-management-using-windows-powershell-level-200"></a>Erweiterte Active Directory-Replikation und Topologieverwaltung mithilfe von Windows PowerShell (Level 200)
 
@@ -228,7 +228,7 @@ Repadmin.exe ist zwar praktisch zum Abrufen von Daten über Replikationstopologi
   
 Nach einer schnellen Erweiterung neuer Filialen und der Konsolidierung anderer Filialen kann es passieren, dass Sie Hunderte von Standortänderungen aufgrund von physischen Standorten, Netzwerkänderungen und neuen Kapazitätsanforderungen vornehmen müssen. Anstatt Dssites.msc und Adsiedit.msc für diese Änderungen zu verwenden, können Sie den Vorgang automatisieren. Dies ist besonders überzeugend, wenn Sie mit einer Datentabelle arbeiten, die Sie von Ihren Netzwerk- und Einrichtungsteams erhalten haben.  
   
-Die **Get-Adreplication\***  Cmdlets geben Informationen über die Replikationstopologie zurück und sind hilfreich in den **Set-Adreplication\***  Cmdlets in einer Massenoperation. **Erste** Cmdlets ändern keine Daten, sie zeigt nur Daten oder zum Erstellen von Windows PowerShell Sitzungsobjekten, kann über Pipelines an **Set-Adreplication\***  Cmdlets. Die **New**- und **Remove**-Cmdlets sind hilfreich zum Erstellen und Entfernen von Active Directory-Topologieobjekten.  
+Die **Get-Adreplication\\** *-Cmdlets geben Informationen über die Replikationstopologie zurück und sind hilfreich in den **Set-Adreplication\\** * Cmdlets in einer Massenoperation. **Erste** Cmdlets ändern keine Daten, sie zeigt nur Daten oder zum Erstellen von Windows PowerShell Sitzungsobjekten, kann über Pipelines an **Set-Adreplication\\** * Cmdlets. Die **New**- und **Remove**-Cmdlets sind hilfreich zum Erstellen und Entfernen von Active Directory-Topologieobjekten.  
   
 Sie können z. B. neue Standorte mit einer CSV-Datei erstellen:  
   
