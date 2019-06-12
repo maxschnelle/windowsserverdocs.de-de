@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: c9a769fdd9fb7d13c47da465b25bc59e7f55237f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 13259f7f12a37c4ceb8bdd2e35ae2fe131ec35cf
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856741"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442817"
 ---
 # <a name="spn-and-upn-uniqueness"></a>SPN- und UPN-Eindeutigkeit
 
@@ -81,7 +81,7 @@ Der Versuch, einen neuen Benutzer in Active Directory Administrative Center, mit
   
 **Figure SEQ Abbildung \\ \* Arabisch 2-Ereignis-ID 2974 Fehler 8648**  
   
-Das Ereignis 2974 – Listet den Wert, der blockiert wurde und eine Liste von ein oder mehrere Objekte (bis zu 10), die bereits auf diesen Wert enthalten.  In der folgenden Abbildung sehen Sie, UPN-Attributwert ***dhunt@blue.contoso.com*** ist auf vier weitere Objekte bereits vorhanden.  Da dies ein neues Feature in Windows Server 2012 R2 ist, werden versehentliche Erstellung der doppelten UPN und SPNs in einer gemischten Umgebung weiterhin auftreten, wenn es sich bei älteren DCs der versuchte Schreibvorgang verarbeiten.  
+Das Ereignis 2974 – Listet den Wert, der blockiert wurde und eine Liste von ein oder mehrere Objekte (bis zu 10), die bereits auf diesen Wert enthalten.  In der folgenden Abbildung sehen Sie, UPN-Attributwert **<em>dhunt@blue.contoso.com</em>** ist auf vier weitere Objekte bereits vorhanden.  Da dies ein neues Feature in Windows Server 2012 R2 ist, werden versehentliche Erstellung der doppelten UPN und SPNs in einer gemischten Umgebung weiterhin auftreten, wenn es sich bei älteren DCs der versuchte Schreibvorgang verarbeiten.  
   
 ![SPN- und UPN-Eindeutigkeit](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig05_Event2974ShowAllDups.gif)  
   
@@ -234,7 +234,7 @@ servicePrincipalName Value=<SPN>
   
     -   ***UPN Groß-/Kleinschreibung***  
   
-        -   Lokale Gesamtstruktur UPN abfragenindex für den angegebenen UPN (*"userPrincipalName"; einen globalen Index*)  
+        -   Lokale Gesamtstruktur UPN abfragenindex für den angegebenen UPN ( *"userPrincipalName"; einen globalen Index*)  
   
             -   Wenn Einträge zurückgegeben == 0 -> Schreibvorgang durchgeführt wird  
   
@@ -250,7 +250,7 @@ servicePrincipalName Value=<SPN>
   
     -   ***SPN Groß-/Kleinschreibung***  
   
-        -   Lokale Gesamtstruktur SPN abfragenindex für angegebene SPN (*%ServicePrincipalName; einen globalen Index*)  
+        -   Lokale Gesamtstruktur SPN abfragenindex für angegebene SPN ( *%ServicePrincipalName; einen globalen Index*)  
   
             -   Wenn Einträge zurückgegeben == 0 -> Schreibvorgang durchgeführt wird  
   
@@ -274,7 +274,7 @@ servicePrincipalName Value=<SPN>
   
     -   ***UPN Groß-/Kleinschreibung***  
   
-        -   Senden von LDAP-Abfrage an den nächstgelegenen GC? der GC-Abfrage eine gesamtstrukturweite UPN-Index für den angegebenen UPN (*"userPrincipalName"; einen globalen Index*)  
+        -   Senden von LDAP-Abfrage an den nächstgelegenen GC? der GC-Abfrage eine gesamtstrukturweite UPN-Index für den angegebenen UPN ( *"userPrincipalName"; einen globalen Index*)  
   
             -   Wenn Einträge zurückgegeben == 0 -> Schreibvorgang durchgeführt wird  
   
@@ -290,7 +290,7 @@ servicePrincipalName Value=<SPN>
   
     -   ***SPN Groß-/Kleinschreibung***  
   
-        -   Senden von LDAP-Abfrage an den nächstgelegenen GC? der GC-Abfrage eine gesamtstrukturweite SPN-Index für die angegebene SPN (*%ServicePrincipalName; einen globalen Index*)  
+        -   Senden von LDAP-Abfrage an den nächstgelegenen GC? der GC-Abfrage eine gesamtstrukturweite SPN-Index für die angegebene SPN ( *%ServicePrincipalName; einen globalen Index*)  
   
             -   Wenn Einträge zurückgegeben == 0 -> Schreibvorgang durchgeführt wird  
   

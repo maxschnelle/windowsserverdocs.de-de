@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 35afec8e-39a4-463b-839a-3c300ab01174
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 0d51ac71fa2fbe4d0bb7121a9ef511524c47f4f4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: adcd13bda942b756a122e9642da795dd9c847bad
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826611"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446963"
 ---
 # <a name="step-2-configure-advanced-directaccess-servers"></a>Schritt 2 Konfigurieren der erweiterten DirectAccess-Server
 
@@ -57,7 +57,7 @@ Um den Remotezugriff bereitzustellen, müssen Sie die Remotezugriffsrolle auf ei
   
 6.  Überprüfen Sie im Dialogfeld **Installationsstatus**, ob die Installation erfolgreich war, und klicken Sie dann auf **Schließen**.  
   
-![Die Bearbeitung erfolgreicher Installation.](../../../media/Step-2-Configuring-DirectAccess-Servers/PowerShellLogoSmall.gif)****Windows PowerShell entsprechende Befehle****  
+![Fortschritt Installationserfolg](../../../media/Step-2-Configuring-DirectAccess-Servers/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -244,7 +244,7 @@ Set-DAClientExperienceConfiguration -FriendlyName 'Contoso DirectAccess Connecti
   
 ## <a name="BKMK_Links"></a>Vorherigen Schritt  
   
--   [Schritt 1: Konfigurieren des erweiterten DirectAccess-Infrastruktur](da-adv-configure-s1-infrastructure.md)  
+-   [Schritt 1: Konfigurieren der erweiterten DirectAccess-Infrastruktur](da-adv-configure-s1-infrastructure.md)  
   
 ## <a name="next-step"></a>Nächster Schritt  
   

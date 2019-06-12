@@ -9,12 +9,12 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.date: 09/17/2018
-ms.openlocfilehash: 5f99600e24c62da9bdf674897dbadde9246b7bb7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 58c4483c092c30a892ea6bdde20794270340fa8e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821031"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447024"
 ---
 # <a name="converged-nic-in-a-teamed-nic-configuration-datacenter"></a>Zusammengeführte NIC Teaming-fähigen NIC-Konfiguration (Datencenter)
 
@@ -35,31 +35,35 @@ Stellen Sie sicher, dass die physischen NIC auf dem Zielhost verbinden kann.  Di
    ```PowerShell
    Get-NetAdapter -Name "Test-40G-1" | ft -AutoSize
    ```
-  
-   _**Ergebnisse:**_
 
-   |Name|InterfaceDescription|ifIndex|Status|MacAddress|LinkSpeed|
-   |-----|--------------------|-------|-----|----------|---------|
-   |Test-40G-1|Mellanox ConnectX-3 Pro-Ethernet-Adapter|11|Nach oben|E4-1D-2D-07-43-D0|40 Gbit/s|
+   _**Ergebnisse:** _
+
+
+   |    Name    |           InterfaceDescription           | ifIndex | Status |    MacAddress     | LinkSpeed |
+   |------------|------------------------------------------|---------|--------|-------------------|-----------|
+   | Test-40G-1 | Mellanox ConnectX-3 Pro-Ethernet-Adapter |   11    |   Nach oben   | E4-1D-2D-07-43-D0 |  40 Gbit/s  |
+
    ---
-   
+
 2. Zeigen Sie zusätzliche Eigenschaften für die erste Adapter, einschließlich der IP-Adresse. 
 
    ```PowerShell
    Get-NetIPAddress -InterfaceAlias "Test-40G-1"
    Get-NetIPAddress -InterfaceAlias "TEST-40G-1" | Where-Object {$_.AddressFamily -eq "IPv4"} | fl InterfaceAlias,IPAddress
    ```
-   
-   _**Ergebnisse:**_
 
-   |Parameter|Wert|
-   |---------|-----|
-   |IPAddress| 192.168.1.3|
-   |InterfaceIndex|11|
-   |InterfaceAlias|Test-40G-1|
-   |"AddressFamily"|IPv4|
-   |Typ| Unicast|
-   |PrefixLength|24|
+   _**Ergebnisse:** _
+
+
+   |   Parameter    |    Wert    |
+   |----------------|-------------|
+   |   IPAddress    | 192.168.1.3 |
+   | InterfaceIndex |     11      |
+   | InterfaceAlias | Test-40G-1  |
+   | "AddressFamily"  |    IPv4     |
+   |      Typ      |   Unicast   |
+   |  PrefixLength  |     24      |
+
    ---
 
 3. Anzeigen der Eigenschaften der zweiten des Netzwerkadapters an.
@@ -67,31 +71,35 @@ Stellen Sie sicher, dass die physischen NIC auf dem Zielhost verbinden kann.  Di
    ```PowerShell
    Get-NetAdapter -Name "Test-40G-2" | ft -AutoSize
    ```
-   
-   _**Ergebnisse:**_
 
-   |Name |InterfaceDescription |ifIndex |Status |MacAddress |LinkSpeed|
-   |----|--------------------|-------|------|----------|---------|
-   |TEST-40G-2 |Mellanox ConnectX-3 Pro Ethernet A... #2 |13 |Nach oben |E4-1D-2D-07-40-70 |40 Gbit/s|
+   _**Ergebnisse:** _
+
+
+   |    Name    |          InterfaceDescription           | ifIndex | Status |    MacAddress     | LinkSpeed |
+   |------------|-----------------------------------------|---------|--------|-------------------|-----------|
+   | TEST-40G-2 | Mellanox ConnectX-3 Pro Ethernet A... #2 |   13    |   Nach oben   | E4-1D-2D-07-40-70 |  40 Gbit/s  |
+
    ---
-   
+
 4. Zeigen Sie zusätzliche Eigenschaften für die zweite Netzwerkkarte, einschließlich der IP-Adresse.
 
    ```PowerShell
    Get-NetIPAddress -InterfaceAlias "Test-40G-2"
    Get-NetIPAddress -InterfaceAlias "Test-40G-2" | Where-Object {$_.AddressFamily -eq "IPv4"} | fl InterfaceAlias,IPAddress
    ```
-   
-   _**Ergebnisse:**_
 
-   |Parameter|Wert|
-   |---------|-----|
-   |IPAddress|192.168.2.3|
-   |InterfaceIndex|13|
-   |InterfaceAlias|TEST-40G-2|
-   |"AddressFamily"|IPv4|
-   |Typ|Unicast|
-   |PrefixLength|24|
+   _**Ergebnisse:** _
+
+
+   |   Parameter    |    Wert    |
+   |----------------|-------------|
+   |   IPAddress    | 192.168.2.3 |
+   | InterfaceIndex |     13      |
+   | InterfaceAlias | TEST-40G-2  |
+   | "AddressFamily"  |    IPv4     |
+   |      Typ      |   Unicast   |
+   |  PrefixLength  |     24      |
+
    ---
 
 5. Stellen Sie sicher, dass diese anderen NIC-Team oder eine Gruppe Mitglied pNICs eine gültige IP-Adresse verfügt.<p>Verwenden von einem separaten Subnetz \(xxx.xxx. **2**.xxx Vs xxx.xxx. **1**.xxx\), um zu ermöglichen, von diesem Adapter an das Ziel gesendet. Andernfalls, wenn Sie beide pNICs im gleichen Subnetz finden, der Windows TCP/IP-Stapel Lastenausgleich zwischen den Schnittstellen und einfache Überprüfungen jedoch komplizierter.
@@ -106,19 +114,21 @@ In diesem Schritt verwenden wir die **Test-NetConnection** Windows PowerShell-Be
    ```PowerShell
    Test-NetConnection 192.168.1.5
    ```
-   
-   _**Ergebnisse:**_
 
-   |Parameter|Wert|
-   |---------|-----|
-   |ComputerName|192.168.1.5|
-   |RemoteAddress|192.168.1.5|
-   |InterfaceAlias|Test-40G-1|
-   |SourceAddress|192.168.1.3|
-   |PingSucceeded|False|
-   |PingReplyDetails \(RTT\)|0 ms|
+   _**Ergebnisse:** _
+
+
+   |        Parameter         |    Wert    |
+   |--------------------------|-------------|
+   |       ComputerName       | 192.168.1.5 |
+   |      RemoteAddress       | 192.168.1.5 |
+   |      InterfaceAlias      | Test-40G-1  |
+   |      SourceAddress       | 192.168.1.3 |
+   |      PingSucceeded       |    False    |
+   | PingReplyDetails \(RTT\) |    0 ms     |
+
    ---
-   
+
    In einigen Fällen müssen Sie möglicherweise Windows-Firewall mit erweiterter Sicherheit dieser Test erfolgreich ausführen zu deaktivieren. Wenn Sie die Firewall deaktivieren, Bedenken Sie Sicherheit, und stellen Sie sicher, dass Ihre Konfiguration sicherheitsanforderungen Ihres Unternehmens erfüllt.
 
 2. Deaktivieren Sie sämtliche Firewallprofile.
@@ -128,40 +138,44 @@ In diesem Schritt verwenden wir die **Test-NetConnection** Windows PowerShell-Be
    ```
 
 3. Testen Sie nach der Deaktivierung der Firewall-Profilen die Verbindung erneut aus. 
-   
+
    ```PowerShell
    Test-NetConnection 192.168.1.5
    ```
-   
-   _**Ergebnisse:**_
 
-   |Parameter|Wert|
-   |---------|-----|
-   |ComputerName|192.168.1.5|
-   |RemoteAddress|192.168.1.5|
-   |InterfaceAlias|Test-40G-1|
-   |SourceAddress|192.168.1.3|
-   |PingSucceeded|False|
-   |PingReplyDetails \(RTT\)|0 ms|
+   _**Ergebnisse:** _
+
+
+   |        Parameter         |    Wert    |
+   |--------------------------|-------------|
+   |       ComputerName       | 192.168.1.5 |
+   |      RemoteAddress       | 192.168.1.5 |
+   |      InterfaceAlias      | Test-40G-1  |
+   |      SourceAddress       | 192.168.1.3 |
+   |      PingSucceeded       |    False    |
+   | PingReplyDetails \(RTT\) |    0 ms     |
+
    ---
-   
-   
+
+
 4. Überprüfen Sie die Verbindung für weitere NICs. Wiederholen Sie die vorherigen Schritte für alle nachfolgenden pNICs im Team NIC oder eine Gruppe enthalten.
 
    ```PowerShell    
    Test-NetConnection 192.168.2.5
    ```
-   
-   _**Ergebnisse:**_
 
-   |Parameter|Wert|
-   |---------|-----|
-   |ComputerName|192.168.2.5|
-   |RemoteAddress|192.168.2.5|
-   |InterfaceAlias|Test-40G-2|
-   |SourceAddress|192.168.2.3|
-   |PingSucceeded|False|
-   |PingReplyDetails \(RTT\)|0 ms|
+   _**Ergebnisse:** _
+
+
+   |        Parameter         |    Wert    |
+   |--------------------------|-------------|
+   |       ComputerName       | 192.168.2.5 |
+   |      RemoteAddress       | 192.168.2.5 |
+   |      InterfaceAlias      | Test-40G-2  |
+   |      SourceAddress       | 192.168.2.3 |
+   |      PingSucceeded       |    False    |
+   | PingReplyDetails \(RTT\) |    0 ms     |
+
    ---
 
 ## <a name="step-3-configure-the-vlan-ids-for-nics-installed-in-your-hyper-v-hosts"></a>Schritt 3 Konfigurieren Sie die VLAN-IDs für Netzwerkadapter, die in Hyper-V-Hosts installiert
@@ -190,11 +204,13 @@ Die folgende Abbildung zeigt zwei Hyper-V-Hosts mit zwei Netzwerkadaptern, die V
    Get-NetAdapterAdvancedProperty -Name "Test-40G-1" | Where-Object {$_.RegistryKeyword -eq "VlanID"} | ft -AutoSize
    ```
 
-   _**Ergebnisse:**_   
+   _**Ergebnisse:** _   
 
-   |Name |DisplayName| DisplayValue| RegistryKeyword |RegistryValue|
-   |----|-----------|------------|---------------|-------------|
-   |TEST-40G-1|VLAN-ID|101|VlanID|{101}|
+
+   |    Name    | DisplayName | DisplayValue | RegistryKeyword | RegistryValue |
+   |------------|-------------|--------------|-----------------|---------------|
+   | TEST-40G-1 |   VLAN-ID   |     101      |     VlanID      |     {101}     |
+
    ---
 
 2. Starten Sie den Netzwerkadapter die VLAN ID. anwenden
@@ -202,20 +218,22 @@ Die folgende Abbildung zeigt zwei Hyper-V-Hosts mit zwei Netzwerkadaptern, die V
    ```PowerShell
    Restart-NetAdapter -Name "Test-40G-1"
    ```
-   
+
 3. Sicherstellen, dass der Status ist **einrichten**.
 
    ```PowerShell
    Get-NetAdapter -Name "Test-40G-1" | ft -AutoSize
    ```
-   
-   _**Ergebnisse:**_
 
-   |Name|InterfaceDescription|ifIndex| Status|MacAddress|LinkSpeed|
-   |----|--------------------|-------|------|----------| ---------|
-   |Test-40G-1|Mellanox ConnectX-3 Pro-Ethernet-Ada...|11|Nach oben|E4-1D-2D-07-43-D0|40 Gbit/s|
+   _**Ergebnisse:** _
+
+
+   |    Name    |          InterfaceDescription           | ifIndex | Status |    MacAddress     | LinkSpeed |
+   |------------|-----------------------------------------|---------|--------|-------------------|-----------|
+   | Test-40G-1 | Mellanox ConnectX-3 Pro-Ethernet-Ada... |   11    |   Nach oben   | E4-1D-2D-07-43-D0 |  40 Gbit/s  |
+
    ---
-    
+
 4. Konfigurieren Sie die VLAN-ID, auf die zweite NIC und Test-40G-2.
 
    ```PowerShell    
@@ -223,82 +241,90 @@ Die folgende Abbildung zeigt zwei Hyper-V-Hosts mit zwei Netzwerkadaptern, die V
    Get-NetAdapterAdvancedProperty -Name "Test-40G-2" | Where-Object {$_.RegistryKeyword -eq "VlanID"} | ft -AutoSize
    ``` 
 
-   _**Ergebnisse:**_
+   _**Ergebnisse:** _
 
-   |Name |DisplayName| DisplayValue| RegistryKeyword |RegistryValue|
-   |----|-----------|------------|---------------|-------------|
-   |TEST-40G-2|VLAN-ID|102|VlanID|{102}|
+
+   |    Name    | DisplayName | DisplayValue | RegistryKeyword | RegistryValue |
+   |------------|-------------|--------------|-----------------|---------------|
+   | TEST-40G-2 |   VLAN-ID   |     102      |     VlanID      |     {102}     |
+
    ---
-   
+
 5. Starten Sie den Netzwerkadapter die VLAN ID. anwenden
 
    ```PowerShell
    Restart-NetAdapter -Name "Test-40G-2" 
    ```
-   
+
 6. Sicherstellen, dass der Status ist **einrichten**.
 
    ```PowerShell
    Get-NetAdapter -Name "Test-40G-1" | ft -AutoSize
    ```
-   
-   _**Ergebnisse:**_
 
-   |Name|InterfaceDescription|ifIndex| Status|MacAddress|LinkSpeed|
-   |----|--------------------|-------|------|----------| ---------|
-   |Test-40G-2 |Mellanox ConnectX-3 Pro-Ethernet-Ada... |11 |Nach oben |E4-1D-2D-07-43-D1 |40 Gbit/s|
+   _**Ergebnisse:** _
+
+
+   |    Name    |          InterfaceDescription           | ifIndex | Status |    MacAddress     | LinkSpeed |
+   |------------|-----------------------------------------|---------|--------|-------------------|-----------|
+   | Test-40G-2 | Mellanox ConnectX-3 Pro-Ethernet-Ada... |   11    |   Nach oben   | E4-1D-2D-07-43-D1 |  40 Gbit/s  |
+
    ---
 
    >[!IMPORTANT]
    >Es kann einige Sekunden für das Gerät neu starten und im Netzwerk verfügbar sind, dauern. 
-   
+
 7. Überprüfen Sie die Verbindung für die erste NIC, Test-40G-1.<p>Bei einem Verbindungsfehler, überprüfen Sie den Switch VLAN-Konfiguration oder das Ziel Teilnahme im gleichen VLAN. 
 
    ```PowerShell
    Test-NetConnection 192.168.1.5
    ```
 
-   _**Ergebnisse:**_   
+   _**Ergebnisse:** _   
 
-   |Parameter|Wert|
-   |---------|-----|
-   |ComputerName|192.168.1.5|
-   |RemoteAddress|192.168.1.5|
-   |InterfaceAlias|Test-40G-1|
-   |SourceAddress|192.168.1.5|
-   |PingSucceeded|True|
-   |PingReplyDetails \(RTT\)|0 ms|
+
+   |        Parameter         |    Wert    |
+   |--------------------------|-------------|
+   |       ComputerName       | 192.168.1.5 |
+   |      RemoteAddress       | 192.168.1.5 |
+   |      InterfaceAlias      | Test-40G-1  |
+   |      SourceAddress       | 192.168.1.5 |
+   |      PingSucceeded       |    True     |
+   | PingReplyDetails \(RTT\) |    0 ms     |
+
    ---
-   
+
 8. Überprüfen Sie die Verbindung für die erste NIC, Test-40G-2.<p>Bei einem Verbindungsfehler, überprüfen Sie den Switch VLAN-Konfiguration oder das Ziel Teilnahme im gleichen VLAN.
 
    ```PowerShell    
    Test-NetConnection 192.168.2.5
    ```
 
-   _**Ergebnisse:**_    
+   _**Ergebnisse:** _    
 
-   |Parameter|Wert|
-   |---------|-----|
-   |ComputerName|192.168.2.5|
-   |RemoteAddress|192.168.2.5|
-   |InterfaceAlias|Test-40G-2|
-   |SourceAddress|192.168.2.3|
-   |PingSucceeded|True|
-   |PingReplyDetails \(RTT\)|0 ms|
+
+   |        Parameter         |    Wert    |
+   |--------------------------|-------------|
+   |       ComputerName       | 192.168.2.5 |
+   |      RemoteAddress       | 192.168.2.5 |
+   |      InterfaceAlias      | Test-40G-2  |
+   |      SourceAddress       | 192.168.2.3 |
+   |      PingSucceeded       |    True     |
+   | PingReplyDetails \(RTT\) |    0 ms     |
+
    ---
-   
+
    >[!IMPORTANT]
    >Es ist nicht ungewöhnlich, dass eine **Test-NetConnection** oder Pingfehler auftreten, sofort nach dem Ausführen **Neustart-NetAdapter**.  Warten Sie den Netzwerkadapter vollständig initialisiert und versuchen Sie es dann erneut.
    >
    >Wenn die VLAN-101-Verbindungen funktionieren, aber nicht die VLAN-102-Verbindungen, das Problem möglicherweise, dass der Switch werden, um die Port-Datenverkehr auf die gewünschte VLAN zu ermöglichen konfiguriert muss. Sie können für diese überprüfen, indem vorübergehend die fehlerhaften-Adapter auf VLAN 101 festlegen, und wiederholen den Test der Netzwerkverbindung.
 
-   
+
    Die folgende Abbildung zeigt die Hyper-V-Hosts nach dem Konfigurieren der VLANs erfolgreich.
 
    ![Konfigurieren von Quality of Service](../../media/Converged-NIC/3-datacenter-configure-qos.jpg)
-   
-   
+
+
 ## <a name="step-4-configure-quality-of-service-qos"></a>Schritt 4 Konfigurieren von Quality of Service \(QoS\)
 
 >[!NOTE]
@@ -313,35 +339,39 @@ Die folgende Abbildung zeigt zwei Hyper-V-Hosts mit zwei Netzwerkadaptern, die V
    Install-WindowsFeature Data-Center-Bridging
    ```
 
-   _**Ergebnisse:**_
+   _**Ergebnisse:** _
 
-   |Erfolgreich |Neustart erforderlich |Exitcode|Ergebnis der Funktion|
-   |------- |-------------- |--------- |-------------- |
-   |True |Nein |Erfolgreich| {Data Center Bridging}|
+
+   | Erfolgreich | Neustart erforderlich | Exitcode |     Ergebnis der Funktion     |
+   |---------|----------------|-----------|------------------------|
+   |  True   |       Nein       |  Erfolgreich  | {Data Center Bridging} |
+
    ---
-   
+
 2. Legen Sie die QoS-Richtlinien für SMB Direct an:
 
    - **Optionale** für Netzwerkkonfigurationen, iWarp zu verwenden.
    - **Erforderliche** für Netzwerkkonfigurationen, mit denen RoCE \(eine beliebige Version\) für RDMA-Dienste.
-   
+
    Im unten stehenden Beispielbefehl ist der Wert "3" willkürlich. Sie können einen beliebigen Wert zwischen 1 und 7 verwenden, solange Sie konsistent den gleichen Wert in der Konfiguration von QoS-Richtlinien verwenden.
 
    ```PowerShell
    New-NetQosPolicy "SMB" -NetDirectPortMatchCondition 445 -PriorityValue8021Action 3
    ```
-   
-   _**Ergebnisse:**_
 
-   |Parameter|Wert|
-   |---------|-----|
-   |Name |SMB|
-   |Besitzer|Eine Gruppenrichtlinie \(Computer\)|
-   |NetworkProfile|Alle|
-   |Rangfolge|127|
-   |JobObject|&nbsp;| 
-   |NetDirectPort|445
-   |PriorityValue|3
+   _**Ergebnisse:** _
+
+
+   |   Parameter    |          Wert           |
+   |----------------|--------------------------|
+   |      Name      |           SMB            |
+   |     Besitzer      | Eine Gruppenrichtlinie \(Computer\) |
+   | NetworkProfile |           All            |
+   |   Rangfolge   |           127            |
+   |   JobObject    |          &nbsp;          |
+   | NetDirectPort  |           445            |
+   | PriorityValue  |            3             |
+
    ---
 
 3. Legen Sie zusätzliche QoS-Richtlinien für den übrigen Datenverkehr für die Schnittstelle an.   
@@ -350,40 +380,44 @@ Die folgende Abbildung zeigt zwei Hyper-V-Hosts mit zwei Netzwerkadaptern, die V
    New-NetQosPolicy "DEFAULT" -Default -PriorityValue8021Action 0
    ```
 
-   _**Ergebnisse:**_   
+   _**Ergebnisse:** _   
 
-   |Parameter|Wert|
-   |---------|-----|
-   |Name | DEFAULT|
-   |Besitzer|Eine Gruppenrichtlinie \(Computer\)|
-   |NetworkProfile|Alle|
-   |Rangfolge|127|
-   |Vorlage| Standard|
-   |JobObject| &nbsp;|
-   |PriorityValue|0|
+
+   |   Parameter    |          Wert           |
+   |----------------|--------------------------|
+   |      Name      |         DEFAULT          |
+   |     Besitzer      | Eine Gruppenrichtlinie \(Computer\) |
+   | NetworkProfile |           All            |
+   |   Rangfolge   |           127            |
+   |    Vorlage    |         Default          |
+   |   JobObject    |          &nbsp;          |
+   | PriorityValue  |            0             |
+
    ---
-   
+
 4. Aktivieren Sie **Priorität flusssteuerung** für SMB-Datenverkehr ist der nicht für iWarp erforderlich.
 
    ```PowerShell
    Enable-NetQosFlowControl -priority 3
    Get-NetQosFlowControl
    ```
-   
-   _**Ergebnisse:**_
-   
-   |Priority|Enabled|PolicySet|IfIndex|IfAlias|
-   |---------|-----|--------- |-------| -------|
-   |0 |False |Global|&nbsp;|&nbsp;|
-   |1 |False |Global|&nbsp;|&nbsp;|
-   |2 |False |Global|&nbsp;|&nbsp;|
-   |3 |True |Global|&nbsp;|&nbsp;|
-   |4 |False |Global|&nbsp;|&nbsp;|
-   |5 |False |Global|&nbsp;|&nbsp;|
-   |6 |False |Global|&nbsp;|&nbsp;|
-   |7 |False |Global|&nbsp;|&nbsp;|
+
+   _**Ergebnisse:** _
+
+
+   | Priority | Enabled | PolicySet | IfIndex | IfAlias |
+   |----------|---------|-----------|---------|---------|
+   |    0     |  False  |  Global   | &nbsp;  | &nbsp;  |
+   |    1     |  False  |  Global   | &nbsp;  | &nbsp;  |
+   |    2     |  False  |  Global   | &nbsp;  | &nbsp;  |
+   |    3     |  True   |  Global   | &nbsp;  | &nbsp;  |
+   |    4     |  False  |  Global   | &nbsp;  | &nbsp;  |
+   |    5     |  False  |  Global   | &nbsp;  | &nbsp;  |
+   |    6     |  False  |  Global   | &nbsp;  | &nbsp;  |
+   |    7     |  False  |  Global   | &nbsp;  | &nbsp;  |
+
    ---
-   
+
    >**WICHTIGE** , wenn die Ergebnisse dieser Ergebnisse nicht überein stimmen, da Elemente außer 3 einen Wert "true" aktiviert haben, müssen Sie deaktivieren **FlowControl** für diese Klassen.
    >
    >```PowerShell
@@ -404,18 +438,22 @@ Die folgende Abbildung zeigt zwei Hyper-V-Hosts mit zwei Netzwerkadaptern, die V
    ```
    _**Funktionen**:_   
 
-   |Parameter|Hardware|Aktuelle|
-   |---------|--------|-------|
-   |MacSecBypass|NotSupported|NotSupported|
-   |DcbxSupport|Keine|Keine|
-   |NumTCs(Max/ETS/PFC)|8/8/8|8/8/8|
+
+   |      Parameter      |   Hardware   |   Aktuelle    |
+   |---------------------|--------------|--------------|
+   |    MacSecBypass     | NotSupported | NotSupported |
+   |     DcbxSupport     |     Keine     |     Keine     |
+   | NumTCs(Max/ETS/PFC) |    8/8/8     |    8/8/8     |
+
    ---
- 
+
    _**OperationalTrafficClasses**:_    
 
-   |TC|TSA|Bandbreite|Prioritäten|
-   |----|-----|--------|-------|
-   |0| Strict|&nbsp;|0-7|
+
+   | TC |  TSA   | Bandbreite | Prioritäten |
+   |----|--------|-----------|------------|
+   | 0  | Strict |  &nbsp;   |    0-7     |
+
    ---
 
    _**OperationalFlowControl**:_  
@@ -424,12 +462,14 @@ Die folgende Abbildung zeigt zwei Hyper-V-Hosts mit zwei Netzwerkadaptern, die V
 
    _**OperationalClassifications**:_  
 
-   |Protokoll|Porttyp /|Priority|
-   |--------|---------|--------|
-   |Standard|&nbsp;|0|
-   |NetDirect| 445|3|
+
+   | Protokoll  | Porttyp / | Priority |
+   |-----------|-----------|----------|
+   |  Default  |  &nbsp;   |    0     |
+   | NetDirect |    445    |    3     |
+
    ---
-   
+
 6. Aktivieren von QoS für die zweite NIC und Test-40G-2.
 
    ```PowerShell
@@ -442,44 +482,52 @@ Die folgende Abbildung zeigt zwei Hyper-V-Hosts mit zwei Netzwerkadaptern, die V
 
    _**Funktionen**:_ 
 
-   |Parameter|Hardware|Aktuelle|
-   |---------|--------|-------|
-   |MacSecBypass|NotSupported|NotSupported|
-   |DcbxSupport|Keine|Keine|
-   |NumTCs(Max/ETS/PFC)|8/8/8|8/8/8|
+
+   |      Parameter      |   Hardware   |   Aktuelle    |
+   |---------------------|--------------|--------------|
+   |    MacSecBypass     | NotSupported | NotSupported |
+   |     DcbxSupport     |     Keine     |     Keine     |
+   | NumTCs(Max/ETS/PFC) |    8/8/8     |    8/8/8     |
+
    ---
 
    _**OperationalTrafficClasses**:_  
 
-   |TC|TSA|Bandbreite|Prioritäten|
-   |----|-----|--------|-------|
-   |0| Strict|&nbsp;|0-7|
+
+   | TC |  TSA   | Bandbreite | Prioritäten |
+   |----|--------|-----------|------------|
+   | 0  | Strict |  &nbsp;   |    0-7     |
+
    ---
-   
+
     _**OperationalFlowControl**:_  
 
     Priorität 3 aktiviert  
-   
+
    _**OperationalClassifications**:_  
 
-   |Protokoll|Porttyp /|Priority|
-   |--------|---------|--------|
-   |Standard|&nbsp;|0|
-   |NetDirect| 445|3|
+
+   | Protokoll  | Porttyp / | Priority |
+   |-----------|-----------|----------|
+   |  Default  |  &nbsp;   |    0     |
+   | NetDirect |    445    |    3     |
+
    ---
 
-   
+
 7. Reservieren der Hälfte der Bandbreite für SMB Direct \(RDMA\)
 
    ```PowerShell
    New-NetQosTrafficClass "SMB" -priority 3 -bandwidthpercentage 50 -algorithm ETS
    ```
-   
-   _**Ergebnisse:**_  
-   
-   |Name|Algorithmus |Bandwidth(%)| Priority |PolicySet |IfIndex |IfAlias |
-   |----|---------| ------------ |--------| ---------|------- |------- |
-   |SMB | ETS     | 50 |3 |Global |&nbsp;|&nbsp;|   
+
+   _**Ergebnisse:** _  
+
+
+   | Name | Algorithmus | Bandwidth(%) | Priority | PolicySet | IfIndex | IfAlias |
+   |------|-----------|--------------|----------|-----------|---------|---------|
+   | SMB  |    ETS    |      50      |    3     |  Global   | &nbsp;  | &nbsp;  |
+
    ---
 
 8. Zeigen Sie die Reservierung bandbreiteneinstellungen an:   
@@ -487,15 +535,17 @@ Die folgende Abbildung zeigt zwei Hyper-V-Hosts mit zwei Netzwerkadaptern, die V
    ```PowerShell
    Get-NetQosTrafficClass | ft -AutoSize
    ```
-   
-   _**Ergebnisse:**_  
 
-   |Name|Algorithmus |Bandwidth(%)| Priority |PolicySet |IfIndex |IfAlias |
-   |----|---------| ------------ |--------| ---------|------- |------- |
-   |[Standard]| ETS|50 |0-2,4-7|  Global|&nbsp;|&nbsp;| 
-   |SMB |ETS|50 |3 |Global|&nbsp;|&nbsp;| 
+   _**Ergebnisse:** _  
+
+
+   |   Name    | Algorithmus | Bandwidth(%) | Priority | PolicySet | IfIndex | IfAlias |
+   |-----------|-----------|--------------|----------|-----------|---------|---------|
+   | [Standard] |    ETS    |      50      | 0-2,4-7  |  Global   | &nbsp;  | &nbsp;  |
+   |    SMB    |    ETS    |      50      |    3     |  Global   | &nbsp;  | &nbsp;  |
+
    ---
-   
+
 9. (Optional) Erstellen Sie zwei zusätzliche Klassen für den Mandanten IP-Datenverkehr. 
 
    >[!TIP]
@@ -504,41 +554,47 @@ Die folgende Abbildung zeigt zwei Hyper-V-Hosts mit zwei Netzwerkadaptern, die V
    ```PowerShell
    New-NetQosTrafficClass "IP1" -Priority 1 -bandwidthpercentage 10 -algorithm ETS
    ```
-   
-   _**Ergebnisse:**_
-   
-   |Name|Algorithmus |Bandwidth(%)| Priority |PolicySet |IfIndex |IfAlias |
-   |----|---------| ------------ |--------| ---------|------- |------- |
-   |IP1 |ETS |10 |1 |Global|&nbsp;|&nbsp;|
+
+   _**Ergebnisse:** _
+
+
+   | Name | Algorithmus | Bandwidth(%) | Priority | PolicySet | IfIndex | IfAlias |
+   |------|-----------|--------------|----------|-----------|---------|---------|
+   | IP1  |    ETS    |      10      |    1     |  Global   | &nbsp;  | &nbsp;  |
+
    ---
-   
+
    ```PowerShell
    New-NetQosTrafficClass "IP2" -Priority 2 -bandwidthpercentage 10 -algorithm ETS
    ```
-   
-   _**Ergebnisse:**_
 
-   |Name|Algorithmus |Bandwidth(%)| Priority |PolicySet |IfIndex |IfAlias |
-   |----|---------| ------------ |--------| ---------|------- |------- |
-   |IP2 |ETS |10 |2 |Global|&nbsp;|&nbsp;|
+   _**Ergebnisse:** _
+
+
+   | Name | Algorithmus | Bandwidth(%) | Priority | PolicySet | IfIndex | IfAlias |
+   |------|-----------|--------------|----------|-----------|---------|---------|
+   | IP2  |    ETS    |      10      |    2     |  Global   | &nbsp;  | &nbsp;  |
+
    ---
-   
+
 10. Zeigen Sie die QoS-Klassen.
 
     ```PowerShell
     Get-NetQosTrafficClass | ft -AutoSize
     ```
-    
-    _**Ergebnisse:**_
 
-    |Name|Algorithmus |Bandwidth(%)| Priority |PolicySet |IfIndex |IfAlias |
-    |----|---------| ------------ |--------| ---------|------- |------- |
-    |[Standard] |ETS |30 |0,4-7 |Global|&nbsp;|&nbsp;|
-    |SMB |ETS |50 |3 |Global|&nbsp;|&nbsp;|
-    |IP1 |ETS |10 |1 |Global|&nbsp;|&nbsp;|
-    |IP2 |ETS |10 |2 |Global|&nbsp;|&nbsp;|
+    _**Ergebnisse:** _
+
+
+    |   Name    | Algorithmus | Bandwidth(%) | Priority | PolicySet | IfIndex | IfAlias |
+    |-----------|-----------|--------------|----------|-----------|---------|---------|
+    | [Standard] |    ETS    |      30      |  0,4-7   |  Global   | &nbsp;  | &nbsp;  |
+    |    SMB    |    ETS    |      50      |    3     |  Global   | &nbsp;  | &nbsp;  |
+    |    IP1    |    ETS    |      10      |    1     |  Global   | &nbsp;  | &nbsp;  |
+    |    IP2    |    ETS    |      10      |    2     |  Global   | &nbsp;  | &nbsp;  |
+
     ---
-   
+
 11. (Optional) Überschreiben Sie den Debugger an.<p>Standardmäßig wird für der angefügte Debugger NetQos blockiert. 
 
     ```PowerShell
@@ -546,7 +602,7 @@ Die folgende Abbildung zeigt zwei Hyper-V-Hosts mit zwei Netzwerkadaptern, die V
     Get-ItemProperty HKLM:"\SYSTEM\CurrentControlSet\Services\NDIS\Parameters" | ft AllowFlowControlUnderDebugger
     ```
 
-    _**Ergebnisse:**_  
+    _**Ergebnisse:** _  
 
     ```
     AllowFlowControlUnderDebugger
@@ -568,13 +624,15 @@ Die folgende Abbildung zeigt den aktuellen Zustand des Hyper-V-Hosts.
    ```PowerShell
    Get-NetAdapterRdma | ft -AutoSize
    ```
-   
-   _**Ergebnisse:**_
 
-   |Name |InterfaceDescription |Enabled|
-   |----|--------------------|-------|
-   |TEST-40G-1| Mellanox ConnectX-4-VPI Adapter #2 |True|
-   |TEST-40G-2| Mellanox ConnectX-4-VPI-Adapter |True|
+   _**Ergebnisse:** _
+
+
+   |    Name    |        InterfaceDescription        | Enabled |
+   |------------|------------------------------------|---------|
+   | TEST-40G-1 | Mellanox ConnectX-4-VPI Adapter #2 |  True   |
+   | TEST-40G-2 |  Mellanox ConnectX-4-VPI-Adapter   |  True   |
+
    ---
 
 2. Bestimmen der **IfIndex** Wert Ihrer Zieladapter.<p>Sie verwenden diesen Wert in den nachfolgenden Schritten aus, wenn Sie das Skript ausführen, die, das Sie herunterladen.   
@@ -582,27 +640,29 @@ Die folgende Abbildung zeigt den aktuellen Zustand des Hyper-V-Hosts.
    ```PowerShell
    Get-NetIPConfiguration -InterfaceAlias "TEST*" | ft InterfaceAlias,InterfaceIndex,IPv4Address
    ```
-   
-   _**Ergebnisse:**_
 
-   |InterfaceAlias |InterfaceIndex |IPv4-Adresse|
-   |-------------- |-------------- |-----------|
-   |TEST-40G-1 |14 |{192.168.1.3}|
-   |TEST-40G-2 | 13 |{192.168.2.3}|
+   _**Ergebnisse:** _
+
+
+   | InterfaceAlias | InterfaceIndex |  IPv4-Adresse  |
+   |----------------|----------------|---------------|
+   |   TEST-40G-1   |       14       | {192.168.1.3} |
+   |   TEST-40G-2   |       13       | {192.168.2.3} |
+
    ---
-   
+
 3. Herunterladen der [DiskSpd.exe Hilfsprogramm](https://aka.ms/diskspd) und extrahieren Sie es in C:\TEST\.
 
 4. Herunterladen der [Test-RDMA-PowerShell-Skript](https://github.com/Microsoft/SDN/blob/master/Diagnostics/Test-Rdma.ps1) in einem Testordner auf dem lokalen Laufwerk, z. B. C:\TEST\.
 
 5. Führen Sie die **Test-Rdma.ps1** PowerShell-Skript für den IfIndex-Wert an das Skript, mit der IP-Adresse des ersten remote-Adapters in demselben VLAN zu übergeben.<p>In diesem Beispiel leitet das Skript die **IfIndex** Wert 14 Remotenetzwerk Adapter IP-Adresse 192.168.1.5 erstellt.
-   
+
    ```PowerShell
    C:\TEST\Test-RDMA.PS1 -IfIndex 14 -IsRoCE $true -RemoteIpAddress 192.168.1.5 -PathToDiskspd C:\TEST\Diskspd-v2.0.17\amd64fre\
    ```
 
-   _**Ergebnisse:**_ 
-   
+   _**Ergebnisse:** _ 
+
    ```   
    VERBOSE: Diskspd.exe found at C:\TEST\Diskspd-v2.0.17\amd64fre\diskspd.exe
    VERBOSE: The adapter M2 is a physical adapter
@@ -632,8 +692,8 @@ Die folgende Abbildung zeigt den aktuellen Zustand des Hyper-V-Hosts.
    C:\TEST\Test-RDMA.PS1 -IfIndex 13 -IsRoCE $true -RemoteIpAddress 192.168.2.5 -PathToDiskspd C:\TEST\Diskspd-v2.0.17\amd64fre\
    ```
 
-   _**Ergebnisse:**_ 
-   
+   _**Ergebnisse:** _ 
+
    ```   
    VERBOSE: Diskspd.exe found at C:\TEST\Diskspd-v2.0.17\amd64fre\diskspd.exe
    VERBOSE: The adapter TEST-40G-2 is a physical adapter
@@ -666,22 +726,24 @@ Die folgende Abbildung zeigt die Hyper-V Host 1 mit einem vSwitch.
    ```PowerShell
    New-VMSwitch –Name "VMSTEST" –NetAdapterName "TEST-40G-1","TEST-40G-2" -EnableEmbeddedTeaming $true -AllowManagementOS $true
    ```
-   
-   _**Ergebnis:**_
 
-   |Name |SwitchType |NetAdapterInterfaceDescription|
-   |---- |---------- |------------------------------|
-   |VMSTEST |Extern |Team-Schnittstelle|
+   _**Ergebnis:** _
+
+
+   |  Name   | SwitchType | NetAdapterInterfaceDescription |
+   |---------|------------|--------------------------------|
+   | VMSTEST |  Extern  |        Team-Schnittstelle        |
+
    ---
-   
+
 2. Zeigen Sie den physischen Adapter-Teams im Satz ein.
 
    ```PowerShell
    Get-VMSwitchTeam -Name "VMSTEST" | fl
    ```
-   
-   _**Ergebnisse:**_  
-   
+
+   _**Ergebnisse:** _  
+
    ```
    Name: VMSTEST  
    Id: ad9bb542-dda2-4450-a00e-f96d44bdfbec  
@@ -689,45 +751,49 @@ Die folgende Abbildung zeigt die Hyper-V Host 1 mit einem vSwitch.
    TeamingMode: SwitchIndependent  
    LoadBalancingAlgorithm: Dynamic   
    ```
-   
+
 3. Anzeigen von zwei Ansichten der Host-vNIC
 
    ```PowerShell
     Get-NetAdapter
    ```
-   
-   _**Ergebnisse:**_
 
-   |Name |InterfaceDescription |ifIndex |Status |MacAddress |LinkSpeed|
-   |---- |--------------------|-------|------|----------|---------|
-   |vEthernet (VMSTEST)|Virtuelle Hyper-V-Ethernet-Adapter #2 |28 |Nach oben|E4-1D-2D-07-40-71|80 Gbit/s|
+   _**Ergebnisse:** _
+
+
+   |        Name         |        InterfaceDescription         | ifIndex | Status |    MacAddress     | LinkSpeed |
+   |---------------------|-------------------------------------|---------|--------|-------------------|-----------|
+   | vEthernet (VMSTEST) | Virtuelle Hyper-V-Ethernet-Adapter #2 |   28    |   Nach oben   | E4-1D-2D-07-40-71 |  80 Gbit/s  |
+
    ---
-   
+
 4. Zeigen Sie zusätzliche Eigenschaften für die Host-vNIC. 
 
    ```PowerShell
    Get-VMNetworkAdapter -ManagementOS
    ```
-   
-   _**Ergebnisse:**_
 
-   |Name |IsManagementOs |VMName |SwitchName |MacAddress |Status |IP-Adressen|
-   |----|--------------|------|----------|----------|------|-----------|
-   |VMSTEST|True |VMSTEST |E41D2D074071| {Ok}|&nbsp;|
+   _**Ergebnisse:** _
+
+
+   |  Name   | IsManagementOs | VMName  |  SwitchName  | MacAddress | Status | IP-Adressen |
+   |---------|----------------|---------|--------------|------------|--------|-------------|
+   | VMSTEST |      True      | VMSTEST | E41D2D074071 |    {Ok}    | &nbsp; |             |
+
    ---
-   
+
 
 5. Testen Sie die Netzwerkverbindung mit dem remote-VLAN-101-Adapter.
 
    ```PowerShell
    Test-NetConnection 192.168.1.5 
    ```
-   
-   _**Ergebnisse:**_  
-   
+
+   _**Ergebnisse:** _  
+
    ```
    WARNING: Ping to 192.168.1.5 failed -- Status: DestinationHostUnreachable
-    
+
    ComputerName   : 192.168.1.5
    RemoteAddress  : 192.168.1.5
    InterfaceAlias : vEthernet (CORP-External-Switch)
@@ -735,7 +801,7 @@ Die folgende Abbildung zeigt die Hyper-V Host 1 mit einem vSwitch.
    PingSucceeded  : False
    PingReplyDetails (RTT) : 0 ms
    ```
-   
+
 ## <a name="step-7-remove-the-access-vlan-setting"></a>Schritt 7 Entfernen Sie die Access-VLAN-Einstellung
 
 In diesem Schritt entfernen Sie die ACCESS-VLAN-Einstellung, die physische NIC und die VLAN-ID mithilfe der vSwitch festlegen.
@@ -743,7 +809,7 @@ In diesem Schritt entfernen Sie die ACCESS-VLAN-Einstellung, die physische NIC u
 Sie müssen die ACCESS-VLAN-Einstellung, um zu verhindern, dass beide automatische Kennzeichnung des ausgehende Datenverkehrs durch die falsche VLAN-ID entfernen und Filtern der eingehenden Datenverkehr, die nicht mit der ZUGRIFFS-VLAN-ID übereinstimmen
 
 1. Entfernen Sie die Einstellung ein.
-    
+
    ```PowerShell
    Set-NetAdapterAdvancedProperty -Name "Test-40G-1" -RegistryKeyword VlanID -RegistryValue "0"
    Set-NetAdapterAdvancedProperty -Name "Test-40G-2" -RegistryKeyword VlanID -RegistryValue "0"
@@ -755,24 +821,24 @@ Sie müssen die ACCESS-VLAN-Einstellung, um zu verhindern, dass beide automatisc
    Set-VMNetworkAdapterVlan -VMNetworkAdapterName "VMSTEST" -VlanId "101" -Access -ManagementOS
    Get-VMNetworkAdapterVlan -ManagementOS -VMNetworkAdapterName "VMSTEST"
    ```
-   
-   _**Ergebnisse:**_  
-   
+
+   _**Ergebnisse:** _  
+
    ```
    VMName VMNetworkAdapterName Mode   VlanList
    ------ -------------------- ----   --------
           VMSTEST              Access 101     
    ```
-   
-   
+
+
 3. Testen Sie die Netzwerkverbindung.
 
    ```PowerShell
    Test-NetConnection 192.168.1.5
    ```
-   
-   _**Ergebnisse:**_   
-   
+
+   _**Ergebnisse:** _   
+
    ```
    ComputerName   : 192.168.1.5
    RemoteAddress  : 192.168.1.5
@@ -807,7 +873,7 @@ Sie müssen die ACCESS-VLAN-Einstellung, um zu verhindern, dass beide automatisc
    >SkipAsSource  : False
    >PolicyStore   : ActiveStore
    >```  
-   
+
 
 4. Benennen Sie die Verwaltungs-NIC
 
@@ -815,28 +881,32 @@ Sie müssen die ACCESS-VLAN-Einstellung, um zu verhindern, dass beide automatisc
    Rename-VMNetworkAdapter -ManagementOS -Name “VMSTEST” -NewName “MGT”
    Get-VMNetworkAdapter -ManagementOS
    ```
-   
-   _**Ergebnisse:**_ 
-   
-   |Name |IsManagementOs |VMName |SwitchName |MacAddress |Status |IP-Adressen
-   |----|--------------|------|----------|----------|------|-----------|
-   |CORP-External-Switch |True |&nbsp;|CORP-External-Switch |001B785768AA |{Ok}|&nbsp;|
-   |MGT |True |&nbsp;|VMSTEST |E41D2D074071 |{Ok}|&nbsp;|
+
+   _**Ergebnisse:** _ 
+
+
+   |         Name         | IsManagementOs | VMName |      SwitchName      |  MacAddress  | Status | IP-Adressen |
+   |----------------------|----------------|--------|----------------------|--------------|--------|-------------|
+   | CORP-External-Switch |      True      | &nbsp; | CORP-External-Switch | 001B785768AA |  {Ok}  |   &nbsp;    |
+   |         MGT          |      True      | &nbsp; |       VMSTEST        | E41D2D074071 |  {Ok}  |   &nbsp;    |
+
    ---
-   
+
 5. Zeigt zusätzliche NIC-Eigenschaften.
 
    ```PowerShell
    Get-NetAdapter
    ```
-   
-   _**Ergebnisse:**_
 
-   |Name |InterfaceDescription |ifIndex |Status |MacAddress |LinkSpeed|
-   |----|--------------------|------|----------|---------|------|
-   |vEthernet (MGT) |Virtuelle Hyper-V-Ethernet-Adapter #2 |28 |Nach oben | E4-1D-2D-07-40-71 |80 Gbit/s|
+   _**Ergebnisse:** _
+
+
+   |      Name       |        InterfaceDescription         | ifIndex | Status |    MacAddress     | LinkSpeed |
+   |-----------------|-------------------------------------|---------|--------|-------------------|-----------|
+   | vEthernet (MGT) | Virtuelle Hyper-V-Ethernet-Adapter #2 |   28    |   Nach oben   | E4-1D-2D-07-40-71 |  80 Gbit/s  |
+
    ---
-   
+
 ## <a name="step-8-test-hyper-v-vswitch-rdma"></a>Schritt 8. Testen von Hyper-V-Switchs RDMA
 
 Die folgende Abbildung zeigt den aktuellen Zustand des Hyper-V-Hosts, einschließlich der vSwitch auf dem Hyper-V Host 1.
@@ -849,35 +919,37 @@ Die folgende Abbildung zeigt den aktuellen Zustand des Hyper-V-Hosts, einschlie�
    Set-VMNetworkAdapter -ManagementOS -Name "MGT" -IeeePriorityTag on
    Get-VMNetworkAdapter -ManagementOS -Name "MGT" | fl Name,IeeePriorityTag
    ```
-   
-   _**Ergebnisse:**_  
-      
+
+   _**Ergebnisse:** _  
+
    Name: MGT  
-   IeeePriorityTag:  Ein  
-    
+   IeeePriorityTag:  On  
+
 2. Erstellen Sie zwei Host-vNICs für RDMA und verbinden Sie sie mit der vSwitch VMSTEST.
 
    ```PowerShell    
    Add-VMNetworkAdapter –SwitchName "VMSTEST" –Name SMB1 –ManagementOS
    Add-VMNetworkAdapter –SwitchName "VMSTEST" –Name SMB2 –ManagementOS
    ```
-   
+
 3. Anzeigen der Verwaltungs-NIC-Eigenschaften.
 
    ```PowerShell    
    Get-VMNetworkAdapter -ManagementOS
    ```
-   
-   _**Ergebnisse:**_ 
 
-   |Name |IsManagementOs |VMName |SwitchName |MacAddress |Status |IP-Adressen|
-   |----|--------------|------|----------|----------|------|-----------|
-   |CORP-External-Switch |True |CORP-External-Switch |001B785768AA|{Ok} |&nbsp;| 
-   |Mgt |True |VMSTEST |E41D2D074071 |{Ok} |&nbsp;|
-   |SMB1 |True |VMSTEST |00155D30AA00 |{Ok} |&nbsp;|
-   |SMB2 |True |VMSTEST |00155D30AA01 |{Ok} |&nbsp;|
+   _**Ergebnisse:** _ 
+
+
+   |         Name         | IsManagementOs |        VMName        |  SwitchName  | MacAddress | Status | IP-Adressen |
+   |----------------------|----------------|----------------------|--------------|------------|--------|-------------|
+   | CORP-External-Switch |      True      | CORP-External-Switch | 001B785768AA |    {Ok}    | &nbsp; |             |
+   |         Mgt          |      True      |       VMSTEST        | E41D2D074071 |    {Ok}    | &nbsp; |             |
+   |         SMB1         |      True      |       VMSTEST        | 00155D30AA00 |    {Ok}    | &nbsp; |             |
+   |         SMB2         |      True      |       VMSTEST        | 00155D30AA01 |    {Ok}    | &nbsp; |             |
+
    ---
-   
+
 ## <a name="step-9-assign-an-ip-address-to-the-smb-host-vnics-vethernet-smb1-and-vethernet-smb2"></a>Schritt 9: Zuweisen eine IP-Adresse, die SMB-Host-vNICs vEthernet \(SMB1\) und vEthernet \(SMB2\)
 
 Der TEST-40G-1 und TEST-40G-2 physischen Adaptern haben immer noch ein VLAN Zugriff von 101 und 102 konfiguriert. Aus diesem Grund die Adapter Markieren des Datenverkehrs - Angestellte und Ping erfolgreich ist. Zuvor Sie beide pNIC VLAN-IDs 0 (null) konfiguriert und dann die VMSTEST vSwitch auf VLAN 101 festgelegt. Anschließend konnten Sie trotzdem den remote-VLAN-101-Adapter mithilfe der vNIC MGT pingen, aber derzeit keine VLAN-102-Elemente vorhanden sind.
@@ -890,7 +962,7 @@ Der TEST-40G-1 und TEST-40G-2 physischen Adaptern haben immer noch ein VLAN Zugr
    New-NetIPAddress -InterfaceAlias "vEthernet (SMB1)" -IPAddress 192.168.2.111 -PrefixLength 24
    ```
 
-   _**Ergebnisse:**_  
+   _**Ergebnisse:** _  
 
    ```   
    IPAddress : 192.168.2.111
@@ -909,13 +981,13 @@ Der TEST-40G-1 und TEST-40G-2 physischen Adaptern haben immer noch ein VLAN Zugr
    ```
 
 2. Testen Sie den remote-VLAN-102-Adapter.
-    
+
    ```PowerShell
    Test-NetConnection 192.168.2.5 
    ```
-   
-   _**Ergebnisse:**_  
-   
+
+   _**Ergebnisse:** _  
+
    ```
    ComputerName   : 192.168.2.5
    RemoteAddress  : 192.168.2.5
@@ -924,15 +996,15 @@ Der TEST-40G-1 und TEST-40G-2 physischen Adaptern haben immer noch ein VLAN Zugr
    PingSucceeded  : True
    PingReplyDetails (RTT) : 0 ms
    ```
-    
+
 3. Hinzufügen einer neuen IP-Adresse für die Schnittstelle vEthernet \(SMB2\).
 
    ```PowerShell
    New-NetIPAddress -InterfaceAlias "vEthernet (SMB2)" -IPAddress 192.168.2.222 -PrefixLength 24 
    ```
-   
-   _**Ergebnisse:**_ 
-   
+
+   _**Ergebnisse:** _ 
+
    ```
    IPAddress : 192.168.2.222
    InterfaceIndex: 44
@@ -948,7 +1020,7 @@ Der TEST-40G-1 und TEST-40G-2 physischen Adaptern haben immer noch ein VLAN Zugr
    SkipAsSource  : False
    PolicyStore   : PersistentStore
    ```
-   
+
 4. Testen Sie die Verbindung erneut.    
 
 
@@ -957,11 +1029,11 @@ Der TEST-40G-1 und TEST-40G-2 physischen Adaptern haben immer noch ein VLAN Zugr
    ```PowerShell
    Set-VMNetworkAdapterVlan -VMNetworkAdapterName "SMB1" -VlanId "102" -Access -ManagementOS
    Set-VMNetworkAdapterVlan -VMNetworkAdapterName "SMB2" -VlanId "102" -Access -ManagementOS
-    
+
    Get-VMNetworkAdapterVlan -ManagementOS
    ```
 
-   _**Ergebnisse:**_ 
+   _**Ergebnisse:** _ 
 
    ```   
    VMName VMNetworkAdapterName Mode VlanList
@@ -971,17 +1043,17 @@ Der TEST-40G-1 und TEST-40G-2 physischen Adaptern haben immer noch ein VLAN Zugr
       SMB2 Access   102 
       CORP-External-Switch Untagged
    ```
-   
+
 6. Überprüfen Sie die Zuordnung der SMB1 und SMB2 an die zugrunde liegenden physischen NICs unter vSwitches Team festlegen.<p>Die Zuordnung des Host-vNIC auf physische NICs ist zufällig und unterliegen den Ausgleich während der Erstellung und Zerstörung. In diesem Fall können Sie eine indirekte Methode zum Überprüfen der aktuellen Zuordnung. Die MAC-Adressen der SMB1 und SMB2 werden der NIC-Team-Member-TEST-40G-2 zugeordnet. Dies ist nicht ideal, da der Test-40G-1 verfügt nicht über eine zugeordnete SMB-Host-vNIC, und lässt nicht für die Auslastung des Datenverkehrs von RDMA über den Link erst eine SMB-Host-vNIC, die dieser zugeordnet ist.
 
    ```PowerShell    
    Get-NetAdapterVPort (Preferred)
-    
+
    Get-NetAdapterVmqQueue
    ```
-   
-   _**Ergebnisse:**_ 
-   
+
+   _**Ergebnisse:** _ 
+
    ```
    Name   QueueID MacAddressVlanID Processor VmFriendlyName
    ----   ------- ---------------- --------- --------------
@@ -995,9 +1067,9 @@ Der TEST-40G-1 und TEST-40G-2 physischen Adaptern haben immer noch ein VLAN Zugr
    ```PowerShell
    Get-VMNetworkAdapter -ManagementOS
    ```
-   
-   _**Ergebnisse:**_ 
-   
+
+   _**Ergebnisse:** _ 
+
    ```
    Name IsManagementOs VMName SwitchName   MacAddress   Status IPAddresses
    ---- -------------- ------ ----------   ----------   ------ -----------
@@ -1008,27 +1080,27 @@ Der TEST-40G-1 und TEST-40G-2 physischen Adaptern haben immer noch ein VLAN Zugr
    ```
 
 8. Zeigen Sie die Netzwerkzuordnung des Adapter-Team.<p>Die Ergebnisse sollten keine Informationen zurück, da Sie noch keine Zuordnung ausgeführt haben.
-    
+
    ```PowerShell
    Get-VMNetworkAdapterTeamMapping -ManagementOS -SwitchName VMSTEST -VMNetworkAdapterName SMB1
    Get-VMNetworkAdapterTeamMapping -ManagementOS -SwitchName VMSTEST -VMNetworkAdapterName SMB2
    ```
-   
-   
+
+
 9. Ordnen Sie SMB1 und SMB2, um die Mitglieder der physischen NIC-Teams zu trennen, und klicken Sie zum Anzeigen der Ergebnisse Ihrer Aktionen.
 
    >[!IMPORTANT]
    >Stellen Sie sicher, dass bei dieses Schritts, bevor Sie fortfahren Abschluss, oder die Implementierung ein Fehler auftritt.
-    
+
    ```PowerShell
    Set-VMNetworkAdapterTeamMapping -ManagementOS -SwitchName VMSTEST -VMNetworkAdapterName "SMB1" -PhysicalNetAdapterName "Test-40G-1"
    Set-VMNetworkAdapterTeamMapping -ManagementOS -SwitchName VMSTEST -VMNetworkAdapterName "SMB2" -PhysicalNetAdapterName "Test-40G-2"
-    
+
    Get-VMNetworkAdapterTeamMapping -ManagementOS -SwitchName VMSTEST
    ```
 
-   _**Ergebnisse:**_ 
-   
+   _**Ergebnisse:** _ 
+
    ```   
    NetAdapterName : Test-40G-1
    NetAdapterDeviceId : {BAA9A00F-A844-4740-AA93-6BD838F8CFBA}
@@ -1037,7 +1109,7 @@ Der TEST-40G-1 und TEST-40G-2 physischen Adaptern haben immer noch ein VLAN Zugr
    CimSession : CimSession: .
    ComputerName   : 27-3145G0803
    IsDeleted  : False
-    
+
    NetAdapterName : Test-40G-2
    NetAdapterDeviceId : {B7AB5BB3-8ACB-444B-8B7E-BC882935EBC8}
    ParentAdapter  : VMInternalNetworkAdapter, Name = 'SMB2'
@@ -1046,15 +1118,15 @@ Der TEST-40G-1 und TEST-40G-2 physischen Adaptern haben immer noch ein VLAN Zugr
    ComputerName   : 27-3145G0803
    IsDeleted  : False
    ```
-   
+
 10. Vergewissern Sie sich die MAC-Zuordnungen, die zuvor erstellt haben.
 
     ```PowerShell    
     Get-NetAdapterVmqQueue
     ```
 
-    _**Ergebnisse:**_ 
-   
+    _**Ergebnisse:** _ 
+
     ```   
     Name   QueueID MacAddressVlanID Processor VmFriendlyName
     ----   ------- ---------------- --------- --------------
@@ -1070,7 +1142,7 @@ Der TEST-40G-1 und TEST-40G-2 physischen Adaptern haben immer noch ein VLAN Zugr
     Test-NetConnection 192.168.2.111
     ```
 
-    _**Ergebnisse:**_   
+    _**Ergebnisse:** _   
 
     ```
     ComputerName   : 192.168.2.111
@@ -1080,12 +1152,12 @@ Der TEST-40G-1 und TEST-40G-2 physischen Adaptern haben immer noch ein VLAN Zugr
     PingSucceeded  : True
     PingReplyDetails (RTT) : 0 ms
     ```
-    
+
     ```PowerShell   
     Test-NetConnection 192.168.2.222
     ```
 
-    _**Ergebnisse:**_   
+    _**Ergebnisse:** _   
 
     ```
     ComputerName   : 192.168.2.222
@@ -1103,14 +1175,14 @@ Der TEST-40G-1 und TEST-40G-2 physischen Adaptern haben immer noch ein VLAN Zugr
     Get-VMNetworkAdapter -ManagementOS -Name "SMB*" | fl Name,SwitchName,IeeePriorityTag,Status
     ```
 
-    _**Ergebnisse:**_   
-    
+    _**Ergebnisse:** _   
+
     ```
     Name: SMB1
     SwitchName  : VMSTEST
     IeeePriorityTag : On 
     Status  : {Ok}
-   
+
     Name: SMB2
     SwitchName  : VMSTEST
     IeeePriorityTag : On
@@ -1118,12 +1190,12 @@ Der TEST-40G-1 und TEST-40G-2 physischen Adaptern haben immer noch ein VLAN Zugr
     ```
 
 13. Zeigen Sie die vEthernet-Eigenschaften des Netzwerkadapters an.
-    
+
     ```PowerShell
     Get-NetAdapterRdma -Name "vEthernet*" | sort Name | ft -AutoSize
     ```
 
-    _**Ergebnisse:**_   
+    _**Ergebnisse:** _   
 
     ```
     Name  InterfaceDescription Enabled
@@ -1134,15 +1206,15 @@ Der TEST-40G-1 und TEST-40G-2 physischen Adaptern haben immer noch ein VLAN Zugr
     ```
 
 14. Aktivieren Sie die vEthernet-Netzwerkadaptern.  
-    
+
     ```PowerShell
     Enable-NetAdapterRdma -Name "vEthernet (SMB1)"
     Enable-NetAdapterRdma -Name "vEthernet (SMB2)"
     Get-NetAdapterRdma -Name "vEthernet*" | sort Name | fl *
     ```
 
-    _**Ergebnisse:**_   
-    
+    _**Ergebnisse:** _   
+
     ```
     Name  InterfaceDescription Enabled
     ----  -------------------- -------
@@ -1164,7 +1236,7 @@ Möchten Sie die RDMA-Funktionalität vom Remotesystem auf dem lokalen System zu
 >Get-NetAdapterAdvancedProperty -Name "Test-40G-2"
 >```
 >
->_**Ergebnisse:**_ 
+>_**Ergebnisse:** _ 
 >   
 >```
 >Name  DisplayNameDisplayValue   RegistryKeyword RegistryValue  
@@ -1173,29 +1245,29 @@ Möchten Sie die RDMA-Funktionalität vom Remotesystem auf dem lokalen System zu
 > .
 >Test-40G-2VLAN ID102VlanID  {102} 
 >```
-    
+
 1. Anzeigen von den Eigenschaften des Netzwerkadapters.
 
    ```PowerShell
    Get-NetAdapter
    ```
-    
-   _**Ergebnisse:**_ 
-    
+
+   _**Ergebnisse:** _ 
+
    ```
    Name  InterfaceDescriptionifIndex Status   MacAddress LinkSpeed
    ----  --------------------------- ------   ---------- ---------
    Test-40G-2Mellanox ConnectX-3 Pro Ethernet A...#3   3 Up   E4-1D-2D-07-43-D140 Gbps
    ```
-   
+
 2. Zeigen Sie den Netzwerkadapter RDMA-Informationen.
 
    ```PowerShell
    Get-NetAdapterRdma
    ```
-    
-   _**Ergebnisse:**_  
-    
+
+   _**Ergebnisse:** _  
+
    ```
    Name  InterfaceDescription Enabled
    ----  -------------------- -------
@@ -1207,9 +1279,9 @@ Möchten Sie die RDMA-Funktionalität vom Remotesystem auf dem lokalen System zu
    ```PowerShell 
    C:\TEST\Test-RDMA.PS1 -IfIndex 3 -IsRoCE $true -RemoteIpAddress 192.168.2.111 -PathToDiskspd C:\TEST\Diskspd-v2.0.17\amd64fre\
    ```
-    
-   _**Ergebnisse:**_ 
-    
+
+   _**Ergebnisse:** _ 
+
    ```
    VERBOSE: Diskspd.exe found at C:\TEST\Diskspd-v2.0.17\amd64fre\diskspd.exe
    VERBOSE: The adapter Test-40G-2 is a physical adapter
@@ -1233,9 +1305,9 @@ Möchten Sie die RDMA-Funktionalität vom Remotesystem auf dem lokalen System zu
    ```PowerShell
    C:\TEST\Test-RDMA.PS1 -IfIndex 3 -IsRoCE $true -RemoteIpAddress 192.168.2.222 -PathToDiskspd C:\TEST\Diskspd-v2.0.17\amd64fre\
    ```
-    
-   _**Ergebnisse:**_ 
-    
+
+   _**Ergebnisse:** _ 
+
    ```
    VERBOSE: Diskspd.exe found at C:\TEST\Diskspd-v2.0.17\amd64fre\diskspd.exe
    VERBOSE: The adapter Test-40G-2 is a physical adapter
@@ -1255,15 +1327,15 @@ Möchten Sie die RDMA-Funktionalität vom Remotesystem auf dem lokalen System zu
    VERBOSE: Enabling RDMA on adapters that are not part of this test. RDMA was disabled on them prior to sending RDMA traffic.
    VERBOSE: RDMA traffic test SUCCESSFUL: RDMA traffic was sent to 192.168.2.222
    ```
-    
+
 5. Test für RDMA-Datenverkehr vom lokalen an den Remotecomputer.
 
     ```PowerShell
     Get-NetAdapter | ft –AutoSize
     ```
-    
-    _**Ergebnisse:**_ 
-    
+
+    _**Ergebnisse:** _ 
+
     ```
     Name  InterfaceDescriptionifIndex Status   MacAddress LinkSpeed
     ----  --------------------------- ------   ---------- ---------
@@ -1272,13 +1344,13 @@ Möchten Sie die RDMA-Funktionalität vom Remotesystem auf dem lokalen System zu
     ```
 
 6. Führen Sie den Test der RDMA-Datenverkehr auf dem ersten virtuellen Adapter.    
-    
+
    ```
    C:\TEST\Test-RDMA.PS1 -IfIndex 41 -IsRoCE $true -RemoteIpAddress 192.168.2.5 -PathToDiskspd C:\TEST\Diskspd-v2.0.17\amd64fre\
    ```
-    
-   _**Ergebnisse:**_ 
-    
+
+   _**Ergebnisse:** _ 
+
    ```
    VERBOSE: Diskspd.exe found at C:\TEST\Diskspd-v2.0.17\amd64fre\diskspd.exe
    VERBOSE: The adapter vEthernet (SMB1) is a virtual adapter
@@ -1309,9 +1381,9 @@ Möchten Sie die RDMA-Funktionalität vom Remotesystem auf dem lokalen System zu
    ```PowerShell
    C:\TEST\Test-RDMA.PS1 -IfIndex 45 -IsRoCE $true -RemoteIpAddress 192.168.2.5 -PathToDiskspd C:\TEST\Diskspd-v2.0.17\amd64fre\
    ```
-    
-   _**Ergebnisse:**_ 
-    
+
+   _**Ergebnisse:** _ 
+
    ```
    VERBOSE: Diskspd.exe found at C:\TEST\Diskspd-v2.0.17\amd64fre\diskspd.exe
    VERBOSE: The adapter vEthernet (SMB2) is a virtual adapter
@@ -1334,7 +1406,7 @@ Möchten Sie die RDMA-Funktionalität vom Remotesystem auf dem lokalen System zu
    VERBOSE: Enabling RDMA on adapters that are not part of this test. RDMA was disabled on them prior to sending RDMA traffic.
    VERBOSE: RDMA traffic test SUCCESSFUL: RDMA traffic was sent to 192.168.2.5
    ```
-    
+
 Die letzte Zeile in dieser Ausgabe ist "RDMA-Datenverkehr Test erfolgreich: RDMA-Datenverkehr wurde an 192.168.2.5, gesendet"zeigt, dass Sie erfolgreich Converged NIC auf dem Adapter konfiguriert haben.
 
 ## <a name="related-topics"></a>Verwandte Themen 

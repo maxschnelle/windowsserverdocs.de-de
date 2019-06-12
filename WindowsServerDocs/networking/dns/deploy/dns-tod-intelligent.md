@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: 161446ff-a072-4cc4-b339-00a04857ff3a
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 33fd9447a79346127714a5e5e73977611eba483c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c36475dacb8664352f4ab270878357118d281c60
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829471"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446418"
 ---
 # <a name="use-dns-policy-for-intelligent-dns-responses-based-on-the-time-of-day"></a>Verwenden von DNS-Richtlinien für intelligente DNS-Antworten basierend auf der Tageszeit
 
@@ -107,7 +107,7 @@ Weitere Informationen finden Sie unter [hinzufügen-DnsServerZoneScope](https://
 #### <a name="bkmk_records"></a>Hinzufügen von Datensätzen, die Bereiche der Zone  
 Jetzt müssen Sie die Datensätze, die der Web-Server-Host darstellt, in der Zone mit zwei Bereichen hinzufügen.  
   
-Z. B. in **SeattleZoneScope**, den Datensatz **www.contosogiftservices.com** wird hinzugefügt, mit der IP-Adresse 192.0.0.1, die sich in einem Datencenter Seattle befindet. Auf ähnliche Weise in **DublinZoneScope**, den Datensatz **www.contosogiftservices.com** mit IP-Adresse 141.1.0.3 im Datencenter Dublin hinzugefügt wird  
+Z. B. in **SeattleZoneScope**, den Datensatz <strong>www.contosogiftservices.com</strong> wird hinzugefügt, mit der IP-Adresse 192.0.0.1, die sich in einem Datencenter Seattle befindet. Auf ähnliche Weise in **DublinZoneScope**, den Datensatz <strong>www.contosogiftservices.com</strong> mit IP-Adresse 141.1.0.3 im Datencenter Dublin hinzugefügt wird  
   
 Sie können die folgenden Windows PowerShell-Befehle verwenden, Datensätze die Bereiche der Zone hinzufügen.  
   

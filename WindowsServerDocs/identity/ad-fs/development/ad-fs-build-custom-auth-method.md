@@ -8,12 +8,12 @@ ms.date: 05/23/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: a5cff8ea1a7792906e5fd74981772e4760a2808c
-ms.sourcegitcommit: 8eea7aadbe94f5d4635c4ffedc6a831558733cc0
+ms.openlocfilehash: f28458ed9e781df6eca2478b02fb667d9240ca48
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66314712"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445304"
 ---
 # <a name="build-a-custom-authentication-method-for-ad-fs-in-windows-server"></a>Erstellen Sie eine benutzerdefinierte Authentifizierungsmethode für AD FS unter WindowsServer
 
@@ -28,7 +28,7 @@ Diese exemplarische Vorgehensweise enthält Anweisungen zum Implementieren einer
 
 ## <a name="setting-up-the-development-box"></a>Das Feld für die Entwicklung einrichten
 
-In dieser exemplarischen Vorgehensweise wird Visual Studio 2012 verwendet.  Das Projekt kann erstellt werden, mit jeder Entwicklungsumgebung, die eine Klasse von .NET für Windows erstellen kann. Das Projekt muss auf .NET 4.5 ausgerichtet, da die **BeginAuthentication** und **TryEndAuthentication** Methoden verwenden Sie den Typ **System.Security.Claims.Claim**, die Bestandteil von .NET Framework-Version 4.5.There ist ein Verweis für das Projekt erforderlich sind:
+In dieser exemplarischen Vorgehensweise wird Visual Studio 2012 verwendet.  Das Projekt kann erstellt werden, mit jeder Entwicklungsumgebung, die eine Klasse von .NET für Windows erstellen kann. Das Projekt muss auf .NET 4.5 ausgerichtet, da die **BeginAuthentication** und **TryEndAuthentication** Methoden verwenden Sie den Typ **System.Security.Claims.Claim**, die Bestandteil von .NET Framework-Version 4.5.There ist ein Verweis für das Projekt erforderlich sind:
 
 
 <table>
@@ -59,7 +59,7 @@ In dieser exemplarischen Vorgehensweise wird Visual Studio 2012 verwendet.  Das
 1.  In Visual Studio 2012: Wählen Sie Datei -\>New-\>Projekt...
 
 2.  Wählen Sie die Klassenbibliothek, und achten Sie darauf, dass Sie .NET 4.5 ausgerichtet sind.
-    
+
     ![Erstellen des Anbieters](media/ad-fs-build-custom-auth-method/Dn783423.71a57ae1-d53d-462b-a846-5b3c02c7d3f2(MSDN.10).jpg "Erstellen des Anbieters")
 
 3.  Erstellen Sie eine Kopie der **Microsoft.IdentityServer.Web.dll** % windir%\\AD FS auf dem Windows Server 2012 R2-Server, in dem AD FS installiert wurde, und fügen Sie ihn in Ihrem Projektordner auf dem Entwicklungscomputer.
@@ -69,17 +69,17 @@ In dieser exemplarischen Vorgehensweise wird Visual Studio 2012 verwendet.  Das
 5.  Navigieren Sie zu Ihrer lokalen Kopie des **Microsoft.IdentityServer.Web.dll** und **hinzufügen...**
 
 6.  Klicken Sie auf **OK** , den neuen Verweis zu bestätigen:
-    
+
     ![Erstellen des Anbieters](media/ad-fs-build-custom-auth-method/Dn783423.f18df353-9259-4744-b4b6-dd780ce90951(MSDN.10).jpg "Erstellen des Anbieters")
-    
-    Sie sollten jetzt eingerichtet werden, beheben alle Typen, die für den Anbieter erforderlich. 
+
+    Sie sollten jetzt eingerichtet werden, beheben alle Typen, die für den Anbieter erforderlich. 
 
 7.  Fügen Sie eine neue Klasse zu Ihrem Projekt (klicken Sie mit der rechten Maustaste auf Ihr Projekt **hinzufügen... Klasse...** ), und geben sie einen Namen wie **MyAdapter**, wie unten gezeigt:
-    
+
     ![Erstellen des Anbieters](media/ad-fs-build-custom-auth-method/Dn783423.6b6a7a8b-9d66-40c7-8a86-a2e3b9e14d09(MSDN.10).jpg "Erstellen des Anbieters")
 
 8.  Ersetzen Sie in der neuen Datei MyAdapter.cs den vorhandenen Code durch Folgendes:
-    
+
         using System;
          using System.Collections.Generic;
          using System.Linq;
@@ -91,21 +91,21 @@ In dieser exemplarischen Vorgehensweise wird Visual Studio 2012 verwendet.  Das
          using System.Xml.Serialization;
          using Microsoft.IdentityServer.Web.Authentication.External;
          using Claim = System.Security.Claims.Claim;
-         
+
          namespace MFAadapter
          {
          class MyAdapter : IAuthenticationAdapter
          {
-         
+
          }
          }
-    
-    Nachdem Sie F12 können (Rechtsklick: Gehe zu Definition) auf IAuthenticationAdapter, um die erforderliche Schnittstellenmember anzuzeigen. 
-    
+
+    Nachdem Sie F12 können (Rechtsklick: Gehe zu Definition) auf IAuthenticationAdapter, um die erforderliche Schnittstellenmember anzuzeigen. 
+
     Als Nächstes können Sie eine einfache Implementierung dieser durchführen.
 
 9.  Ersetzen Sie den gesamten Inhalt der Klasse, durch Folgendes:
-    
+
         namespace MFAadapter
          {
          class MyAdapter : IAuthenticationAdapter
@@ -114,61 +114,61 @@ In dieser exemplarischen Vorgehensweise wird Visual Studio 2012 verwendet.  Das
          {
          //get { return new <instance of IAuthenticationAdapterMetadata derived class>; }
          }
-         
+
          public IAdapterPresentation BeginAuthentication(Claim identityClaim, HttpListenerRequest request, IAuthenticationContext authContext)
          {
          //return new instance of IAdapterPresentationForm derived class
-         
+
          }
-         
+
          public bool IsAvailableForUser(Claim identityClaim, IAuthenticationContext authContext)
          {
          return true; //its all available for now
-         
+
          }
-         
+
          public void OnAuthenticationPipelineLoad(IAuthenticationMethodConfigData configData)
          {
          //this is where AD FS passes us the config data, if such data was supplied at registration of the adapter
-         
+
          }
-         
+
          public void OnAuthenticationPipelineUnload()
          {
-         
+
          }
-         
+
          public IAdapterPresentation OnError(HttpListenerRequest request, ExternalAuthenticationException ex)
          {
          //return new instance of IAdapterPresentationForm derived class
-         
+
          }
-         
+
          public IAdapterPresentation TryEndAuthentication(IAuthenticationContext authContext, IProofData proofData, HttpListenerRequest request, out Claim[] outgoingClaims)
          {
          //return new instance of IAdapterPresentationForm derived class
-         
+
          }
-         
+
          }
          }
 
 10. Wir sind nicht bereit für die noch erstellen... Es gibt zwei weitere Schnittstellen zu.
-    
-    Fügen Sie zwei weitere Klassen zu Ihrem Projekt: einer ist für die Metadaten und die andere für das Formular für die Präsentation.  Sie können diese in derselben Datei wie die oben gezeigte Klasse hinzufügen.
-    
+
+    Fügen Sie zwei weitere Klassen zu Ihrem Projekt: einer ist für die Metadaten und die andere für das Formular für die Präsentation.  Sie können diese in derselben Datei wie die oben gezeigte Klasse hinzufügen.
+
         class MyMetadata : IAuthenticationAdapterMetadata
          {
-         
+
          }
-         
+
          class MyPresentationForm : IAdapterPresentationForm
          {
-         
+
          }
 
 11. Als Nächstes können Sie die erforderlichen Member für die einzelnen hinzufügen. Erstens werden die Metadaten (mit Kommentaren der hilfreich Inline)
-    
+
         class MyMetadata : IAuthenticationAdapterMetadata
          {
          //Returns the name of the provider that will be shown in the AD FS management UI (not visible to end users)
@@ -176,7 +176,7 @@ In dieser exemplarischen Vorgehensweise wird Visual Studio 2012 verwendet.  Das
          {
          get { return "My Example MFA Adapter"; }
          }
-         
+
          //Returns an array of strings containing URIs indicating the set of authentication methods implemented by the adapter 
          /// AD FS requires that, if authentication is successful, the method actually employed will be returned by the
          /// final call to TryEndAuthentication(). If no authentication method is returned, or the method returned is not
@@ -185,7 +185,7 @@ In dieser exemplarischen Vorgehensweise wird Visual Studio 2012 verwendet.  Das
          {
          get { return new[] { "http://example.com/myauthenticationmethod1", "http://example.com/myauthenticationmethod2" }; }
          }
-         
+
          /// Returns an array indicating which languages are supported by the provider. AD FS uses this information
          /// to determine the best language\locale to display to the user.
          public int[] AvailableLcids
@@ -195,7 +195,7 @@ In dieser exemplarischen Vorgehensweise wird Visual Studio 2012 verwendet.  Das
          return new[] { new CultureInfo("en-us").LCID, new CultureInfo("fr").LCID};
          }
          }
-         
+
          /// Returns a Dictionary containing the set of localized friendly names of the provider, indexed by lcid. 
          /// These Friendly Names are displayed in the "choice page" offered to the user when there is more than 
          /// one secondary authentication provider available.
@@ -209,7 +209,7 @@ In dieser exemplarischen Vorgehensweise wird Visual Studio 2012 verwendet.  Das
          return _friendlyNames;
          }
          }
-         
+
          /// Returns a Dictionary containing the set of localized descriptions (hover over help) of the provider, indexed by lcid. 
          /// These descriptions are displayed in the "choice page" offered to the user when there is more than one 
          /// secondary authentication provider available.
@@ -223,7 +223,7 @@ In dieser exemplarischen Vorgehensweise wird Visual Studio 2012 verwendet.  Das
          return _descriptions; 
          }
          }
-         
+
          /// Returns an array indicating the type of claim that that the adapter uses to identify the user being authenticated.
          /// Note that although the property is an array, only the first element is currently used.
          /// MUST BE ONE OF THE FOLLOWING
@@ -235,16 +235,16 @@ In dieser exemplarischen Vorgehensweise wird Visual Studio 2012 verwendet.  Das
          {
          get { return new[] { "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn" }; }
          }
-         
+
          //All external providers must return a value of "true" for this property.
          public bool RequiresIdentity
          {
          get { return true; }
          }
         }
-    
+
     Als Nächstes das Presentation-Formular:
-    
+
         class MyPresentationForm : IAdapterPresentationForm
          {
          /// Returns the HTML Form fragment that contains the adapter user interface. This data will be included in the web page that is presented
@@ -254,128 +254,120 @@ In dieser exemplarischen Vorgehensweise wird Visual Studio 2012 verwendet.  Das
          string htmlTemplate = Resources.FormPageHtml; //todo we will implement this
          return htmlTemplate;
          }
-         
+
          /// Return any external resources, ie references to libraries etc., that should be included in 
          /// the HEAD section of the presentation form html. 
          public string GetFormPreRenderHtml(int lcid)
          {
          return null;
          }
-         
+
          //returns the title string for the web page which presents the HTML form content to the end user
          public string GetPageTitle(int lcid)
          {
          return "MFA Adapter";
          }
-         
-         
-         }
 
-12. Beachten Sie den "Todo" für die **Resources.FormPageHtml** Element oben. 
-    
-    Sie können dies beheben, in einer Minute, aber zunächst sehen wir die letzten erforderlichen return-Anweisungen, basierend auf die neu implementierten Typen, auf die erste MyAdapter-Klasse hinzufügen.  Zu diesem Zweck fügen Sie die Elemente in *Kursiv* unter Ihrer vorhandenen IAuthenticationAdapter-Implementierung:
-    
-        class MyAdapter : IAuthenticationAdapter
-         {
-         public IAuthenticationAdapterMetadata Metadata
-         {
-         //get { return new <instance of IAuthenticationAdapterMetadata derived class>; }
-         get { return new MyMetadata(); }
-         }
-         
-         public IAdapterPresentation BeginAuthentication(Claim identityClaim, HttpListenerRequest request, IAuthenticationContext authContext)
-         {
-         //return new instance of IAdapterPresentationForm derived class
-         return new MyPresentationForm();
-         }
-         
-         public bool IsAvailableForUser(Claim identityClaim, IAuthenticationContext authContext)
-         {
-         return true; //its all available for now
-         }
-         
-         public void OnAuthenticationPipelineLoad(IAuthenticationMethodConfigData configData)
-         {
-         //this is where AD FS passes us the config data, if such data was supplied at registration of the adapter
-         
-         }
-         
-         public void OnAuthenticationPipelineUnload()
-         {
-         
-         }
-         
-         public IAdapterPresentation OnError(HttpListenerRequest request, ExternalAuthenticationException ex)
-         {
-         //return new instance of IAdapterPresentationForm derived class
-         return new MyPresentationForm();
-         }
-         
-         public IAdapterPresentation TryEndAuthentication(IAuthenticationContext authContext, IProofData proofData, HttpListenerRequest request, out Claim[] outgoingClaims)
-         {
-         //return new instance of IAdapterPresentationForm derived class
-         outgoingClaims = new Claim[0];
-         return new MyPresentationForm();
-         }
-         
-         }
 
-13. Für die Ressourcendatei, enthält jetzt das HTML-Fragment. Erstellen Sie eine neue Textdatei in Ihrem Projektordner mit dem folgenden Inhalt:
-    
-        <div id="loginArea">
-         <form method="post" id="loginForm" >
-         <!-- These inputs are required by the presentation framework. Do not modify or remove -->
-         <input id="authMethod" type="hidden" name="AuthMethod" value="%AuthMethod%"/>
-         <input id="context" type="hidden" name="Context" value="%Context%"/>
-         <!-- End inputs are required by the presentation framework. -->
-         <p id="pageIntroductionText">This content is provided by the MFA sample adapter. Challenge inputs should be presented below.</p>
-         <label for="challengeQuestionInput" class="block">Question text</label>
-         <input id="challengeQuestionInput" name="ChallengeQuestionAnswer" type="text" value="" class="text" placeholder="Answer placeholder" />
-         <div id="submissionArea" class="submitMargin">
-         <input id="submitButton" type="submit" name="Submit" value="Submit" onclick="return AuthPage.submitAnswer()"/>
-         </div>
-         </form>
-         <div id="intro" class="groupMargin">
-         <p id="supportEmail">Support information</p>
-         </div>
-         <script type="text/javascript" language="JavaScript">
-         //<![CDATA[
-         function AuthPage() { }
-         AuthPage.submitAnswer = function () { return true; };
-         //]]>
-         </script></div>
+~~~
+     }
+~~~
+
+12. Beachten Sie den "Todo" für die **Resources.FormPageHtml** Element oben. 
+
+   Sie können dies beheben, in einer Minute, aber zunächst sehen wir die letzten erforderlichen return-Anweisungen, basierend auf die neu implementierten Typen, auf die erste MyAdapter-Klasse hinzufügen.  Zu diesem Zweck fügen Sie die Elemente in *Kursiv* unter Ihrer vorhandenen IAuthenticationAdapter-Implementierung:
+
+       MyAdapter-Klasse: IAuthenticationAdapter     {     public IAuthenticationAdapterMetadata Metadata     {     //get { return new <instance of IAuthenticationAdapterMetadata derived class>; }     get { return new MyMetadata(); }     }
+
+        public IAdapterPresentation BeginAuthentication(Claim identityClaim, HttpListenerRequest request, IAuthenticationContext authContext)
+        {
+        //return new instance of IAdapterPresentationForm derived class
+        return new MyPresentationForm();
+        }
+
+        public bool IsAvailableForUser(Claim identityClaim, IAuthenticationContext authContext)
+        {
+        return true; //its all available for now
+        }
+
+        public void OnAuthenticationPipelineLoad(IAuthenticationMethodConfigData configData)
+        {
+        //this is where AD FS passes us the config data, if such data was supplied at registration of the adapter
+
+        }
+
+        public void OnAuthenticationPipelineUnload()
+        {
+
+        }
+
+        public IAdapterPresentation OnError(HttpListenerRequest request, ExternalAuthenticationException ex)
+        {
+        //return new instance of IAdapterPresentationForm derived class
+        return new MyPresentationForm();
+        }
+
+        public IAdapterPresentation TryEndAuthentication(IAuthenticationContext authContext, IProofData proofData, HttpListenerRequest request, out Claim[] outgoingClaims)
+        {
+        //return new instance of IAdapterPresentationForm derived class
+        outgoingClaims = new Claim[0];
+        return new MyPresentationForm();
+        }
+
+        }
+
+13. Für die Ressourcendatei, enthält jetzt das HTML-Fragment. Erstellen Sie eine neue Textdatei in Ihrem Projektordner mit dem folgenden Inhalt:
+
+       <div id="loginArea">
+        <form method="post" id="loginForm" >
+        <!-- These inputs are required by the presentation framework. Do not modify or remove -->
+        <input id="authMethod" type="hidden" name="AuthMethod" value="%AuthMethod%"/>
+        <input id="context" type="hidden" name="Context" value="%Context%"/>
+        <!-- End inputs are required by the presentation framework. -->
+        <p id="pageIntroductionText">Dieser Inhalt wird vom beispieladapter MFA bereitgestellt. Herausforderung Eingaben sollte unten angezeigt werden.</p>
+        <label for="challengeQuestionInput" class="block">Fragetext</label>
+        <input id="challengeQuestionInput" name="ChallengeQuestionAnswer" type="text" value="" class="text" placeholder="Answer placeholder" />
+        <div id="submissionArea" class="submitMargin">
+        <input id="submitButton" type="submit" name="Submit" value="Submit" onclick="return AuthPage.submitAnswer()"/>
+        </div>
+        </form>
+        <div id="intro" class="groupMargin">
+        <p id="supportEmail">Supportinformationen</p>
+        </div>
+        <script type="text/javascript" language="JavaScript">
+        //<![CDATA[
+        function AuthPage() { }
+        AuthPage.submitAnswer = function () { return true; };
+        //]]>
+        </script></div>
 
 14. Wählen Sie dann **Projekt -\>Komponente hinzufügen... Ressourcen** Datei, und nennen Sie die Datei **Ressourcen**, und klicken Sie auf **hinzufügen:**
-    
-    ![Erstellen des Anbieters](media/ad-fs-build-custom-auth-method/Dn783423.3369ad8f-f65f-4f36-a6d5-6a3edbc1911a(MSDN.10).jpg "Erstellen des Anbieters")
 
-15. Klicken Sie dann in der **"Resources.resx"** Datei, wählen Sie **Ressource hinzufügen... Vorhandene Datei hinzufügen**.  Navigieren Sie zu der Textdatei (mit der html-Fragment), die Sie über gespeichert.
-    
-    Stellen Sie sicher, dass Ihr Code GetFormHtml-der Name der neuen Ressource ordnungsgemäß durch das Namenspräfix der Ressourcen-Datei (.resx) gefolgt vom Namen der Ressource selbst aufgelöst wird:
-    
-        public string GetFormHtml(int lcid)
-        {
-         string htmlTemplate = Resources.MfaFormHtml; //Resxfilename.resourcename
-         return htmlTemplate;
-        }
-    
-    Sie sollten jetzt erstellen können.
+   ![Erstellen des Anbieters](media/ad-fs-build-custom-auth-method/Dn783423.3369ad8f-f65f-4f36-a6d5-6a3edbc1911a(MSDN.10).jpg "Erstellen des Anbieters")
+
+15. Klicken Sie dann in der **"Resources.resx"** Datei, wählen Sie **Ressource hinzufügen... Vorhandene Datei hinzufügen**.  Navigieren Sie zu der Textdatei (mit der html-Fragment), die Sie über gespeichert.
+
+   Stellen Sie sicher, dass Ihr Code GetFormHtml-der Name der neuen Ressource ordnungsgemäß durch das Namenspräfix der Ressourcen-Datei (.resx) gefolgt vom Namen der Ressource selbst aufgelöst wird:
+
+       public string GetFormHtml(int lcid)    {     string htmlTemplate = Resources.MfaFormHtml; //Resxfilename.resourcename     return htmlTemplate;    }
+
+   Sie sollten jetzt erstellen können.
 
 ## <a name="build-the-adapter"></a>Entwickeln Sie den adapter
 
-Der Adapter sollte in einer Assembly mit starkem Namen .NET erstellt werden, die im globalen Assemblycache in Windows installiert werden kann.  Führen Sie hierzu in Visual Studio-Projekt die folgenden Schritte aus:
+Der Adapter sollte in einer Assembly mit starkem Namen .NET erstellt werden, die im globalen Assemblycache in Windows installiert werden kann.  Führen Sie hierzu in Visual Studio-Projekt die folgenden Schritte aus:
 
 1.  Klicken Sie mit der rechten Maustaste auf den Projektnamen im Projektmappen-Explorer, und klicken Sie auf **Eigenschaften**.
 
-2.  Auf der **Signierung** Registerkarte **Assembly signieren** , und wählen Sie **\<neu... \>** unter **Schlüsseldatei mit starkem Namen auswählen:**   Geben Sie einen Schlüsseldateinamen und ein Kennwort ein, und klicken Sie auf **OK**.  Stellen Sie sicher **Assembly signieren** aktiviert ist und **nur verzögerte Signierung** deaktiviert ist.  Die Eigenschaften **Signierung** Seite sollte wie folgt aussehen:
-    
+2.  Auf der **Signierung** Registerkarte **Assembly signieren** , und wählen Sie **\<neu... \>** unter **Schlüsseldatei mit starkem Namen auswählen:**  Geben Sie einen Schlüsseldateinamen und ein Kennwort ein, und klicken Sie auf **OK**.  Stellen Sie sicher **Assembly signieren** aktiviert ist und **nur verzögerte Signierung** deaktiviert ist.  Die Eigenschaften **Signierung** Seite sollte wie folgt aussehen:
+
     ![Erstellen des Anbieters](media/ad-fs-build-custom-auth-method/Dn783423.0b1a1db2-d64e-4bb8-8c01-ef34296a2668(MSDN.10).jpg "Erstellen des Anbieters")
 
 3.  Erstellen Sie die Projektmappe.
 
 ## <a name="deploy-the-adapter-to-your-ad-fs-test-machine"></a>Bereitstellen Sie den Adapter auf der AD FS-Test-Computer
 
-Bevor Sie ein externer Anbieter von AD FS aufgerufen werden kann, muss es im System registriert werden.  Adapter-Anbieter müssen ein Installationsprogramm die erforderlichen Installationsaktionen einschließlich der Installation im GAC ausführt, sowie vom Installer muss Registrierung in AD FS unterstützt.  Wenn dies nicht erfolgt ist, muss der Administrator die folgenden Windows PowerShell-Schritte ausführen.  Diese Schritte können im Lab verwendet werden, um zu testen und Debuggen zu aktivieren.
+Bevor Sie ein externer Anbieter von AD FS aufgerufen werden kann, muss es im System registriert werden.  Adapter-Anbieter müssen ein Installationsprogramm die erforderlichen Installationsaktionen einschließlich der Installation im GAC ausführt, sowie vom Installer muss Registrierung in AD FS unterstützt.  Wenn dies nicht erfolgt ist, muss der Administrator die folgenden Windows PowerShell-Schritte ausführen.  Diese Schritte können im Lab verwendet werden, um zu testen und Debuggen zu aktivieren.
 
 ### <a name="prepare-the-test-ad-fs-machine"></a>Vorbereiten der AD FS-Test-VM
 
@@ -384,19 +376,19 @@ Kopieren von Dateien und fügen Sie im GAC.
 1.  Stellen Sie sicher, dass Sie einen Windows Server 2012 R2-Computer oder virtuellen Computer verfügen.
 
 2.  Installieren Sie des AD FS-Rollendiensts und konfigurieren Sie eine Farm mit mindestens einem Knoten.
-    
+
     Ausführliche Schritte zum Einrichten eines Verbundservers in einer Lab-Umgebung finden Sie unter den [Windows Server 2012 R2 AD FS-Bereitstellungshandbuch](https://msdn.microsoft.com/en-us/library/dn486820\(v=msdn.10\)).
 
 3.  Kopieren Sie die Gacutil.exe-Tools, mit dem Server.
-    
-    Gacutil.exe finden Sie im **%HOMEDRIVE%\\Programmdateien (x86)\\Microsoft SDKs\\Windows\\v8.0A\\Bin\\NETFX 4.0 Tools\\** auf einem Windows 8-Computer.  Müssen Sie die **gacutil.exe** Datei selbst als auch die **1033**, **En-US**, und die andere lokalisierte Ressourcen-Ordner aus der **NETFX4.0-Tools** Speicherort.
+
+    Gacutil.exe finden Sie im **%HOMEDRIVE%\\Programmdateien (x86)\\Microsoft SDKs\\Windows\\v8.0A\\Bin\\NETFX 4.0 Tools\\** auf einem Windows 8-Computer.  Müssen Sie die **gacutil.exe** Datei selbst als auch die **1033**, **En-US**, und die andere lokalisierte Ressourcen-Ordner aus der **NETFX4.0-Tools** Speicherort.
 
 4.  Kopieren Sie Ihre Anbieter-Dateien (ein oder mehrere starken Namen signiert DLL-Dateien) in den gleichen Ordner wie **gacutil.exe** (der Speicherort ist nur zur Vereinfachung)
 
 5.  Fügen Sie Ihre DLL-Dateien im globalen Assemblycache auf jedem AD FS-Verbundserver in der Farm hinzu:
-    
-    Beispiel: Verwenden von Befehlszeilentools GACutil.exe eine Dll im globalen Assemblycache hinzufügen: `C:\>.\gacutil.exe /if .\<yourdllname>.dll`
-    
+
+    Beispiel: Verwenden von Befehlszeilentools GACutil.exe eine Dll im globalen Assemblycache hinzufügen: `C:\>.\gacutil.exe /if .\<yourdllname>.dll`
+
     So zeigen Sie die resultierende Eintrag im globalen Assemblycache an:`C:\>.\gacutil.exe /l <yourassemblyname>`
 
 6.  
@@ -406,28 +398,28 @@ Kopieren von Dateien und fügen Sie im GAC.
 Wenn die oben genannten Voraussetzungen erfüllt sind, öffnen Sie auf Ihrem Verbundserver ein Windows PowerShell-Befehlsfenster, und geben Sie die folgenden Befehle aus (Beachten Sie, dass wenn Sie Verbundserverfarm, die Windows Internal Database verwendet verwenden, müssen Sie diese Befehle für Ausführen der Primärer Verbundserver der Farm):
 
 1.  `Register-AdfsAuthenticationProvider –TypeName YourTypeName –Name “AnyNameYouWish” [–ConfigurationFilePath (optional)]`
-    
+
     YourTypeName ist, in denen Ihre .NET Typ mit starkem Namen: "YourDefaultNamespace.YourIAuthenticationAdapterImplementationClassName, YourAssemblyName, Version = YourAssemblyVersion, Culture = Neutral, PublicKeyToken = YourPublicKeyTokenValue, ProcessorArchitecture = MSIL"
-    
+
     Dadurch wird Ihren externen Anbieter in AD FS mit dem Namen registriert, die Sie als AnyNameYouWish oben bereitgestellt.
 
 2.  Starten Sie den AD FS-Dienst (z. B. die Windows-Dienste-Snap-in mit) neu.
 
 3.  Führen Sie den folgenden Befehl: `Get-AdfsAuthenticationProvider`.
-    
+
     Zeigt den Anbieter als einen der Anbieter im System.
-    
+
     Beispiel:
-    
+
         PS C:\>$typeName = "MFAadapter.MyAdapter, MFAadapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e675eb33c62805a0, processorArchitecture=MSIL”
         PS C:\>Register-AdfsAuthenticationProvider -TypeName $typeName -Name “MyMFAAdapter”
         PS C:\>net stop adfssrv
         PS C:\>net start adfssrv
-    
-    Wenn Sie den geräteregistrierungsdienst in Ihrer AD FS-Umgebung aktiviert haben, führen Sie außerdem Folgendes:  `PS C:\>net start drs`
-    
+
+    Wenn Sie den geräteregistrierungsdienst in Ihrer AD FS-Umgebung aktiviert haben, führen Sie außerdem Folgendes:  `PS C:\>net start drs`
+
     Um die registrierten Anbieter überprüfen möchten, verwenden Sie den folgenden Befehl:`PS C:\>Get-AdfsAuthenticationProvider`.
-    
+
     Zeigt den Anbieter als einen der Anbieter im System.
 
 ### <a name="create-the-ad-fs-authentication-policy-that-invokes-your-adapter"></a>Erstellen Sie die AD FS-Authentifizierungsrichtlinie, die den Adapter aufruft.
@@ -445,65 +437,67 @@ Wenn die oben genannten Voraussetzungen erfüllt sind, öffnen Sie auf Ihrem Ver
 5.  Eine "Trigger" zum Aufrufen von MFA unter Verwendung von des Adapters zu **Speicherorte** aktivieren Sie beide **Extranet** und **Intranet**, z. B. Klicken Sie auf **OK**. (So konfigurieren Sie Trigger pro vertrauender Seite Partei, finden Sie unten unter "Erstellen die Authentifizierungsrichtlinie, die mithilfe von Windows PowerShell".)
 
 6.  Überprüfen Sie die Ergebnisse mithilfe der folgenden Befehle ein:
-    
+
     Verwenden Sie zunächst `Get-AdfsGlobalAuthenticationPolicy`. Ihr Anbieter Name sollte als einer der Werte AdditionalAuthenticationProvider angezeigt werden.
-    
+
     Verwenden Sie dann `Get-AdfsAdditionalAuthenticationRule`. Die Regeln sollte für das Extranet und Intranet konfiguriert, durch die Richtlinienauswahl in der Benutzeroberfläche für Administratoren angezeigt werden.
 
 #### <a name="create-the-authentication-policy-using-windows-powershell"></a>Erstellen der Authentifizierungsrichtlinie, die mithilfe von Windows PowerShell
 
 1.  Aktivieren Sie zunächst den Anbieter in der globalen Richtlinie:
-    
+
     `PS C:\>Set-AdfsGlobalAuthenticationPolicy -AdditionalAuthenticationProvider “YourAuthProviderName”`
-    
 
-    > [!NOTE]
-    > Beachten Sie, dass der für den AdditionalAuthenticationProvider-Parameter angegebene Wert entspricht, auf den Wert für den Parameter "Name" in das Cmdlet "Register-AdfsAuthenticationProvider" oben eingegebene und die Eigenschaft "Name" aus Ausgabe des Cmdlets Get-AdfsAuthenticationProvider. 
-    > <P></P>
 
-    
-    Beispiel:`PS C:\>Set-AdfsGlobalAuthenticationPolicy –AdditionalAuthenticationProvider “MyMFAAdapter”`
+~~~
+> [!NOTE]
+> Note that the value provided for the AdditionalAuthenticationProvider parameter corresponds to the value you provided for the “Name” parameter in the Register-AdfsAuthenticationProvider cmdlet above and to the “Name” property from Get-AdfsAuthenticationProvider cmdlet output. 
+> <P></P>
 
-2.  Als Nächstes konfigurieren Sie globale oder der vertrauenden Seite für Partei die spezifischen Regeln an MFA-Trigger:
-    
-    Beispiel 1: Erstellen Sie globale Regel, um MFA anzufordern, für externe Anforderungen:`PS C:\>Set-AdfsAdditionalAuthenticationRule –AdditionalAuthenticationRules 'c:[type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", value == "false"] => issue(type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod", value = "http://schemas.microsoft.com/claims/multipleauthn" );'`
-    
-    Beispiel 2: Klicken Sie zum Erstellen von MFA Partei Regeln, um MFA für externe Anforderungen an eine bestimmte der vertrauenden Seite erforderlich ist.  (Beachten Sie, dass die einzelnen Anbieter die einzelne vertrauende Seite in AD FS unter Windows Server 2012 R2 verbunden werden können.)
-    
-        PS C:\>$rp = Get-AdfsRelyingPartyTrust –Name <Relying Party Name>
-        PS C:\>Set-AdfsRelyingPartyTrust –TargetRelyingParty $rp –AdditionalAuthenticationRules 'c:[type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", value == "false"] => issue(type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod", value = "http://schemas.microsoft.com/claims/multipleauthn" );'
+
+Example:`PS C:\>Set-AdfsGlobalAuthenticationPolicy –AdditionalAuthenticationProvider “MyMFAAdapter”`
+~~~
+
+2. Als Nächstes konfigurieren Sie globale oder der vertrauenden Seite für Partei die spezifischen Regeln an MFA-Trigger:
+
+   Beispiel 1: Erstellen Sie globale Regel, um MFA anzufordern, für externe Anforderungen:`PS C:\>Set-AdfsAdditionalAuthenticationRule –AdditionalAuthenticationRules 'c:[type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", value == "false"] => issue(type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod", value = "http://schemas.microsoft.com/claims/multipleauthn" );'`
+
+   Beispiel 2: Klicken Sie zum Erstellen von MFA Partei Regeln, um MFA für externe Anforderungen an eine bestimmte der vertrauenden Seite erforderlich ist.  (Beachten Sie, dass die einzelnen Anbieter die einzelne vertrauende Seite in AD FS unter Windows Server 2012 R2 verbunden werden können.)
+
+       PS C:\>$rp = Get-AdfsRelyingPartyTrust –Name <Relying Party Name>
+       PS C:\>Set-AdfsRelyingPartyTrust –TargetRelyingParty $rp –AdditionalAuthenticationRules 'c:[type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", value == "false"] => issue(type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod", value = "http://schemas.microsoft.com/claims/multipleauthn" );'
 
 ### <a name="authenticate-with-mfa-using-your-adapter"></a>Authentifizierung mit MFA mit Ihren adapter
 
 Abschließend führen Sie die Schritte unten aus, um den Adapter zu testen:
 
 1.  Stellen Sie sicher, der Typ der AD FS-globale primäre Authentifizierung als die Formularauthentifizierung konfiguriert ist, für Extranet und Intranet (Dies erleichtert die Demo als ein bestimmter Benutzer zu authentifizieren.)
-    
+
     1.  In der AD FS-Snap-in unter **Authentifizierungsrichtlinien**in die **primäre Authentifizierung** Bereich, klicken Sie auf **bearbeiten** neben **globale Einstellungen**.
-        
+
         1.  Oder klicken Sie einfach auf die **primären** Registerkarte die **Mehrstufen-Richtlinie** Benutzeroberfläche.
 
-2.  Stellen Sie sicher **Formularauthentifizierung** ist die einzige Option für das Extranet und Intranet-Authentifizierungsmethode aktiviert.  Klicken Sie auf **OK**.
+2.  Stellen Sie sicher **Formularauthentifizierung** ist die einzige Option für das Extranet und Intranet-Authentifizierungsmethode aktiviert.  Klicken Sie auf **OK**.
 
 3.  Öffnen der IDP-initiierten anmelden html-Seite (https://\<Fsname\>/adfs/ls/idpinitiatedsignon.htm), und melden Sie sich als ein gültiger AD-Benutzer in Ihrer testumgebung.
 
 4.  Geben Sie Anmeldeinformationen zur primären Authentifizierung ein.
 
-5.  Sie sollten sehen, dass die MFA-Formulare, die Seite mit Beispiel Herausforderung Fragen angezeigt. 
-    
+5.  Sie sollten sehen, dass die MFA-Formulare, die Seite mit Beispiel Herausforderung Fragen angezeigt. 
+
     Wenn Sie mehrere Adapter konfiguriert haben, sehen Sie die MFA-Auswahl-Seite mit Ihrem Anzeigenamen von oben.
-    
+
     ![mit Adapter authentifizieren](media/ad-fs-build-custom-auth-method/Dn783423.c98d2712-cbd3-4cb9-ac03-2838b81c4f63(MSDN.10).jpg "mit Adapter authentifizieren")
-    
+
     ![mit Adapter authentifizieren](media/ad-fs-build-custom-auth-method/Dn783423.fd3aefc0-ef6c-4a8c-a737-4914c78ff2d2(MSDN.10).jpg "mit Adapter authentifizieren")
 
-Sie verfügen nun über eine funktionsfähige Implementierung der Schnittstelle, und Sie verfügen über die Kenntnisse der Funktionsweise des Modells. Sie können Trym als zusätzliches Beispiel zum Festlegen von Breakpoints in den BeginAuthentication als auch die TryEndAuthentication.  Beachten Sie, wie BeginAuthentication ausgeführt wird, wenn der Benutzer zuerst im Formular MFA eingibt während TryEndAuthentication an jeden Senden des Formulars ausgelöst wird.
+Sie verfügen nun über eine funktionsfähige Implementierung der Schnittstelle, und Sie verfügen über die Kenntnisse der Funktionsweise des Modells. Sie können Trym als zusätzliches Beispiel zum Festlegen von Breakpoints in den BeginAuthentication als auch die TryEndAuthentication.  Beachten Sie, wie BeginAuthentication ausgeführt wird, wenn der Benutzer zuerst im Formular MFA eingibt während TryEndAuthentication an jeden Senden des Formulars ausgelöst wird.
 
 ## <a name="update-the-adapter-for-successful-authentication"></a>Aktualisieren Sie den Adapter für eine erfolgreiche Authentifizierung
 
-Aber warten – der Beispiel-Adapter wird nie erfolgreich authentifiziert.\!  Dies ist, da es sich bei "nothing" in Ihrem Code für TryEndAuthentication gibt null zurück.
+Aber warten – der Beispiel-Adapter wird nie erfolgreich authentifiziert.\!  Dies ist, da es sich bei "nothing" in Ihrem Code für TryEndAuthentication gibt null zurück.
 
-Indem Sie die oben beschriebenen Schritte abschließen, müssen Sie eine grundlegende adapterimplementierung erstellt und AD FS-Server hinzugefügt.  Erhalten Sie die MFA-Forms-Seite, aber Sie können nicht noch authentifiziert werden, da Sie noch nicht die richtige Logik in Ihrer Implementierung der TryEndAuthentication gespeichert haben.  Lassen Sie uns hinzufügen, die aus.
+Indem Sie die oben beschriebenen Schritte abschließen, müssen Sie eine grundlegende adapterimplementierung erstellt und AD FS-Server hinzugefügt.  Erhalten Sie die MFA-Forms-Seite, aber Sie können nicht noch authentifiziert werden, da Sie noch nicht die richtige Logik in Ihrer Implementierung der TryEndAuthentication gespeichert haben.  Lassen Sie uns hinzufügen, die aus.
 
 Beachten Sie die TryEndAuthentication-Implementierung:
 
@@ -512,10 +506,10 @@ Beachten Sie die TryEndAuthentication-Implementierung:
      //return new instance of IAdapterPresentationForm derived class
      outgoingClaims = new Claim[0];
      return new MyPresentationForm();
-     
+
      }
 
-Wir aktualisieren sie daher immer MyPresentationForm() zurückgegeben wird nicht.  Hierfür können Sie eine einfache Hilfsmethode in Ihrer Klasse erstellen:
+Wir aktualisieren sie daher immer MyPresentationForm() zurückgegeben wird nicht.  Hierfür können Sie eine einfache Hilfsmethode in Ihrer Klasse erstellen:
 
     static bool ValidateProofData(IProofData proofData, IAuthenticationContext authContext)
      {
@@ -523,7 +517,7 @@ Wir aktualisieren sie daher immer MyPresentationForm() zurückgegeben wird nicht
      {
      throw new ExternalAuthenticationException("Error - no answer found", authContext);
      }
-     
+
      if ((string)proofData.Properties["ChallengeQuestionAnswer"] == "adfabric")
      {
      return true;
@@ -557,7 +551,7 @@ Aktualisieren Sie dann TryEndAuthentication wie unten gezeigt ein:
      }
      }
 
-Jetzt müssen Sie den Adapter auf das Testfeld zu aktualisieren.  Sie müssen zunächst rückgängig machen die AD FS-Richtlinie, klicken Sie dann die Registrierung von AD FS und Neustart der AD FS und dann entfernen die DLL-Datei aus dem GAC, und klicken Sie dann die neue DLL-Datei im globalen Assemblycache hinzufügen und dann in AD FS registrieren, Neustarten AD FS und rekonfigurieren Sie die AD FS-Richtlinie.
+Jetzt müssen Sie den Adapter auf das Testfeld zu aktualisieren.  Sie müssen zunächst rückgängig machen die AD FS-Richtlinie, klicken Sie dann die Registrierung von AD FS und Neustart der AD FS und dann entfernen die DLL-Datei aus dem GAC, und klicken Sie dann die neue DLL-Datei im globalen Assemblycache hinzufügen und dann in AD FS registrieren, Neustarten AD FS und rekonfigurieren Sie die AD FS-Richtlinie.
 
 ## <a name="deploy-and-configure-the-updated-adapter-on-your-test-ad-fs-machine"></a>Bereitstellen Sie und konfigurieren Sie die aktualisierten Adapters auf den Test AD FS-Computer
 
@@ -573,7 +567,7 @@ Löschen aller MFA bezogenen Kontrollkästchen in den MFA-UI, wie unten beschrie
 
 Beispiel:`PS C:\> Unregister-AdfsAuthenticationProvider –Name “MyMFAAdapter”`
 
-Beachten Sie, dass der Wert, den für "Name" den gleichen Wert wie "Name" ist, übergeben Sie Sie an das Cmdlet "Register-AdfsAuthenticationProvider" angegeben.  Es ist auch die Eigenschaft "Name", die von Get-AdfsAuthenticationProvider ausgegeben wird.
+Beachten Sie, dass der Wert, den für "Name" den gleichen Wert wie "Name" ist, übergeben Sie Sie an das Cmdlet "Register-AdfsAuthenticationProvider" angegeben.  Es ist auch die Eigenschaft "Name", die von Get-AdfsAuthenticationProvider ausgegeben wird.
 
 Beachten Sie, dass vor der Registrierung ein Anbieters aufgehoben wurde, Sie entfernen müssen den Anbieter aus der AdfsGlobalAuthenticationPolicy (entweder durch das entsprechende Kontrollkästchen, die Sie im AD FS-Snap-in aktiviert. deaktivieren oder mithilfe von Windows PowerShell.)
 
@@ -582,11 +576,11 @@ Beachten Sie, dass der AD FS-Dienst nach diesem Vorgang neu gestartet werden mus
 ### <a name="remove-assembly-from-gac"></a>Entfernen Sie die Assembly aus dem GAC
 
 1.  Verwenden Sie zunächst den folgenden Befehl aus, um den vollqualifizierten starken Namen des Eintrags zu suchen:`C:\>.\gacutil.exe /l <yourAdapterAssemblyName>`
-    
+
     Beispiel:`C:\>.\gacutil.exe /l mfaadapter`
 
 2.  Klicken Sie dann verwenden Sie den folgenden Befehl aus, um es aus dem GAC entfernen:`.\gacutil /u “<output from the above command>”`
-    
+
     Beispiel:`C:\>.\gacutil /u “mfaadapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e675eb33c62805a0, processorArchitecture=MSIL”`
 
 ### <a name="add-the-updated-assembly-to-gac"></a>Fügen Sie die aktualisierte Assembly im GAC
@@ -622,19 +616,19 @@ Stellen Sie sicher, dass Sie zuerst die aktualisierten DLL-Datei lokal einfügen
 Abschließend führen Sie die Schritte unten aus, um den Adapter zu testen:
 
 1.  Stellen Sie sicher, der Typ der AD FS-globale primäre Authentifizierung als konfiguriert ist, **Formularauthentifizierung** für Extranet und Intranet (Dadurch wird es einfacher, als ein bestimmter Benutzer authentifiziert).
-    
+
     1.  Im AD FS-Verwaltungs-Snap-in unter **Authentifizierungsrichtlinien**in die **primäre Authentifizierung** Bereich, klicken Sie auf **bearbeiten** neben **globale Einstellungen**.
-        
+
         1.  Oder klicken Sie einfach auf die **primären** Registerkarte aus der Benutzeroberfläche des Multi-Factor-Richtlinie.
 
-2.  Stellen Sie sicher **Formularauthentifizierung** ist die einzige Möglichkeit, die für beide überprüft die **Extranet** und **Intranet** Authentifizierungsmethode.  Klicken Sie auf **OK**.
+2.  Stellen Sie sicher **Formularauthentifizierung** ist die einzige Möglichkeit, die für beide überprüft die **Extranet** und **Intranet** Authentifizierungsmethode.  Klicken Sie auf **OK**.
 
 3.  Öffnen der IDP-initiierten anmelden html-Seite (https://\<Fsname\>/adfs/ls/idpinitiatedsignon.htm), und melden Sie sich als ein gültiger AD-Benutzer in Ihrer testumgebung.
 
 4.  Geben Sie die Anmeldeinformationen zur primären Authentifizierung ein.
 
 5.  Daraufhin sollte die MFA-Formulare, die Seite mit einem Probetext Beispiel angezeigt.
-    
+
     1.  Wenn Sie mehrere Adapter konfiguriert haben, sehen Sie die MFA-Auswahl-Seite mit Ihrem Anzeigenamen.
 
 Eine erfolgreiche Anmeldung sollte bei der Eingabe von "Adfabric" auf der Seite des MFA-Authentifizierung.

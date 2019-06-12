@@ -9,12 +9,12 @@ ms.date: 08/09/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: e3b44dbc1c869680db91f5e9732a50504d80e7b8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 6dda30bd15bedab8ea5ca8ca2e9597e1cc196e43
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877501"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443053"
 ---
 # <a name="upgrade-domain-controllers-to-windows-server-2012-r2-and-windows-server-2012"></a>Aktualisieren von Domänencontrollern auf Windows Server 2012 R2 und Windows Server 2012
 
@@ -76,7 +76,7 @@ In der folgenden Tabelle sind die neuen Features für AD DS in Windows Server 20
 |-----------|---------------|  
 |[Workplace Join](https://technet.microsoft.com/library/dn280945.aspx)|Mit diesem Feature können Information-Worker ihre persönlichen Geräte mit der Firma verknüpfen, um Zugang zu Ressourcen und Diensten zu erhalten.|  
 |[Webanwendungsproxy](https://technet.microsoft.com/library/dn280942.aspx)|Bietet Zugang zu Webanwendungen mit einem neuen Remotezugriffsrollendienst.|  
-|[Active Directory-Verbunddienste](https://technet.microsoft.com/library/hh831502.aspx)|AD FS hat die Bereitstellung vereinfacht, erlaubt Benutzern den Zugriff auf Ressourcen mit persönlichen Geräten und unterstützt IT-Abteilungen bei der Verwaltung der Zugriffssteuerung.|  
+|[Active Directory-Verbunddienste (AD FS)](https://technet.microsoft.com/library/hh831502.aspx)|AD FS hat die Bereitstellung vereinfacht, erlaubt Benutzern den Zugriff auf Ressourcen mit persönlichen Geräten und unterstützt IT-Abteilungen bei der Verwaltung der Zugriffssteuerung.|  
 |[SPN- und UPN-Eindeutigkeit](https://technet.microsoft.com/library/dn535779.aspx)|Domänencontroller unter Windows Server 2012 R2 blockieren die Erstellung doppelter Dienstprinzipalnamen (SPNs) und Benutzerprinzipalnamen (UPNs).|  
 |[Winlogon Automatic Restart Sign-On (ARSO)](https://technet.microsoft.com/library/dn535772.aspx)|Ermöglicht Neustart und Verfügbarkeit von Sperrbildschirm-Anwendungen auf Windows 8.1-Geräten.|  
 |[TPM-Schlüsselnachweis](https://technet.microsoft.com/library/dn581921.aspx)|Mit diesem Feature können CAs in ausgestellten Zertifikaten auf kryptografische Weise nachweisen, dass der private Schlüssel der Zertifikatanforderung durch ein Trusted Platform Module (TPM) geschützt ist.|  
@@ -150,18 +150,18 @@ Für AD DS wurden einige Änderungen vorgenommen:
    - Es ist nur eine Version von Adprep.exe vorhanden. Sie kann bei Bedarf auf 64-Bit-Servern mit Windows Server 2008 oder höher ausgeführt werden. Außerdem ist die Remoteausführung der Version möglich. Dies ist auch zwingend erforderlich, wenn die Ziel-Betriebsmasterrolle auf einem 32-Bit-Betriebssystem oder unter Windows Server 2003 gehostet wird.  
 - **Veraltung von Dcpromo.exe**
    - Dcpromo ist mittlerweile veraltet in Windows Server 2012 nur noch mit einer Antwortdatei oder Befehlszeilenparametern, damit Organisationen Zeit für die Umstellung der vorhandenen Automatisierung auf die neuen Windows PowerShell-Installationsoptionen haben ausgeführt werden kann.  
--   **LMHash für Benutzerkonten deaktiviert**
-   - Mit sicheren Standardeinstellungen in Sicherheitsvorlagen unter Windows Server 2008, Windows Server 2008 R2 und Windows Server 2012 wird die NoLMHash-Richtlinie aktiviert, die in den Sicherheitsvorlagen von Windows 2000- und Windows Server 2003-Domänencontrollern deaktiviert ist. Deaktivieren Sie je nach Bedarf die NoLMHash-Richtlinie für LMHash-abhängige Clients, indem Sie die Schritte im KB-Artikel [946405](https://support.microsoft.com/kb/946405)verwenden.  
+- **LMHash für Benutzerkonten deaktiviert**
+  - Mit sicheren Standardeinstellungen in Sicherheitsvorlagen unter Windows Server 2008, Windows Server 2008 R2 und Windows Server 2012 wird die NoLMHash-Richtlinie aktiviert, die in den Sicherheitsvorlagen von Windows 2000- und Windows Server 2003-Domänencontrollern deaktiviert ist. Deaktivieren Sie je nach Bedarf die NoLMHash-Richtlinie für LMHash-abhängige Clients, indem Sie die Schritte im KB-Artikel [946405](https://support.microsoft.com/kb/946405)verwenden.  
 
 Ab Windows Server 2008 haben-Domänencontroller auch die folgenden sicheren Standardeinstellungen, gegenüber den Domänencontrollern, auf denen Windows Server 2003 oder Windows 2000 ausgeführt.
 
 |||||  
 |-|-|-|-|  
 |Verschlüsselungstyp oder -richtlinie|Windows Server 2008-Standardeinstellung|Windows Server 2012- und Windows Server 2008 R2-Standardeinstellung|Kommentar|  
-|AllowNT4Crypto|Deaktiviert|Deaktiviert|SMB-Clients (Server Message Block) von Drittanbietern sind möglicherweise nicht mit den sicheren Standardeinstellungen auf Domänencontrollern kompatibel. Um Interoperabilität zu erreichen, können diese Einstellungen jeweils auch gelockert werden, jedoch nur auf Kosten der Sicherheit. Weitere Informationen finden Sie unter [Artikel 942564](https://go.microsoft.com/fwlink/?LinkId=164558) in der Microsoft Knowledge Base (https://go.microsoft.com/fwlink/?LinkId=164558).|  
-|DES|Enabled|Deaktiviert|[Artikel 977321](https://go.microsoft.com/fwlink/?LinkId=177717) in der Microsoft Knowledge Base ()https://go.microsoft.com/fwlink/?LinkId=177717)|  
+|AllowNT4Crypto|Disabled|Disabled|SMB-Clients (Server Message Block) von Drittanbietern sind möglicherweise nicht mit den sicheren Standardeinstellungen auf Domänencontrollern kompatibel. Um Interoperabilität zu erreichen, können diese Einstellungen jeweils auch gelockert werden, jedoch nur auf Kosten der Sicherheit. Weitere Informationen finden Sie unter [Artikel 942564](https://go.microsoft.com/fwlink/?LinkId=164558) in der Microsoft Knowledge Base (https://go.microsoft.com/fwlink/?LinkId=164558).|  
+|DES|Enabled|Disabled|[Artikel 977321](https://go.microsoft.com/fwlink/?LinkId=177717) in der Microsoft Knowledge Base ()https://go.microsoft.com/fwlink/?LinkId=177717)|  
 |CBT/Erweiterter Schutz für integrierte Authentifizierung|Nicht zutreffend|Enabled|Finden Sie unter [Microsoft Security Advisory (937811)](https://go.microsoft.com/fwlink/?LinkId=164559) (https://go.microsoft.com/fwlink/?LinkId=164559) und [Artikel 976918](https://go.microsoft.com/fwlink/?LinkId=178251) in der Microsoft Knowledge Base (https://go.microsoft.com/fwlink/?LinkId=178251).<br /><br />Überprüfen und installieren Sie den Hotfix [Artikel 977073](https://go.microsoft.com/fwlink/?LinkId=186394) (https://go.microsoft.com/fwlink/?LinkId=186394) in der Microsoft Knowledge Base nach Bedarf.|  
-|LMv2|Enabled|Deaktiviert|[Artikel 976918](https://go.microsoft.com/fwlink/?LinkId=178251) in der Microsoft Knowledge Base ()https://go.microsoft.com/fwlink/?LinkId=178251)|  
+|LMv2|Enabled|Disabled|[Artikel 976918](https://go.microsoft.com/fwlink/?LinkId=178251) in der Microsoft Knowledge Base ()https://go.microsoft.com/fwlink/?LinkId=178251)|  
 
 ## <a name="BKMK_SysReqs"></a>Betriebssystemanforderungen
 
@@ -206,10 +206,10 @@ Domänencontroller, auf denen 64-Bit-Versionen von Windows Server 2008 oder Wind
 
 |Ausgeführte Editionen|Mögliches Upgrade auf Editionen|  
 |-------------------------------------|-------------------------------------|  
-|Windows Server 2008 Standard mit SP2<br /><br />ODER<br /><br />Windows Server 2008 Enterprise mit SP2|Windows Server2012 Standard<br /><br />ODER<br /><br />Windows Server2012 Datacenter|  
+|Windows Server 2008 Standard mit SP2<br /><br />oder<br /><br />Windows Server 2008 Enterprise mit SP2|Windows Server2012 Standard<br /><br />oder<br /><br />Windows Server2012 Datacenter|  
 |Windows Server 2008 Datacenter mit SP2|Windows Server2012 Datacenter|  
 |Windows Web Server 2008|Windows Server2012 Standard|  
-|Windows Server 2008 R2 Standard mit SP1<br /><br />ODER<br /><br />Windows Server 2008 R2 Enterprise mit SP1|Windows Server2012 Standard<br /><br />ODER<br /><br />Windows Server2012 Datacenter|  
+|Windows Server 2008 R2 Standard mit SP1<br /><br />oder<br /><br />Windows Server 2008 R2 Enterprise mit SP1|Windows Server2012 Standard<br /><br />oder<br /><br />Windows Server2012 Datacenter|  
 |Windows Server 2008 R2 Datacenter mit SP1|Windows Server2012 Datacenter|  
 |Windows Web Server 2008 R2|Windows Server2012 Standard|  
   

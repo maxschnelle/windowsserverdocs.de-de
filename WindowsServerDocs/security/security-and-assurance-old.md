@@ -11,19 +11,19 @@ ms.assetid: b886b2fd-3567-4f0a-8aa3-4ba7923d2d21
 author: coreyp-at-msft
 ms.author: coreyp
 ms.localizationpriority: medium
-ms.openlocfilehash: b32b4879ad454d1154c3d65dbf690cdaae73d76c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fed0587b74873005f14a216bac22f952bcc65a4f
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59827221"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447296"
 ---
 # <a name="security-and-assurance-in-windows-server"></a>Sicherheit und Zuverlässigkeit in Windows Server 
 
 >Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
 
 >[!TIP]
-> Suchen Sie nach Informationen zu älteren Versionen von Windows? Sehen Sie sich unsere [Windows Server-Bibliotheken](/previous-versions/windows/) auf docs.microsoft.com an. Sie können auch nach bestimmten Informationen [auf dieser Website suchen](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions).
+> Suchen Sie nach Informationen zu älteren Versionen von Windows? Sehen Sie sich unsere [Windows Server-Bibliotheken](/previous-versions/windows/) auf „docs.microsoft.com“ an. Sie können auch nach bestimmten Informationen [auf dieser Website suchen](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions).
 
 <img src="../media/landing-icons/security.png" style='float:left; padding:.5em;' alt="Icon representing a lock"> Sie können auf neue Schutzebenen vertrauen, die in das Betriebssystem integriert wurden, um weiterhin Schutz gegen Sicherheitsverletzungen zu bieten. Unterstützen Sie die Blockierung böswilliger Angriffe und die Verbesserung der Sicherheit Ihrer virtuellen Computer, Anwendungen und Daten.
 
@@ -71,7 +71,7 @@ In diesem Leitfaden finden Sie Informationen zur Behandlung von Problemen, die i
 In diesem Whitepaper können Sie sich einen Überblick darüber verschaffen, wie sich die Sicherheit mit abgeschirmten VMs verbessern lässt und wie Sie Manipulationen mithilfe dieser VMs verhindern können.                                         
 
 ## <a name="privileged-access-management"></a>Privileged Access Management (Schützen von Windows und Microsoft Azure Active Directory mit Privileged Access Management)
-### <a name="securing-privileged-accesshttpstechnetmicrosoftcomwindows-server-docssecuritysecuring-privileged-accesssecuring-privileged-access"></a>[Sichern des privilegierten Zugriffs](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/securing-privileged-access)
+### <a name="securing-privileged-accesshttpstechnetmicrosoftcomwindows-server-docssecuritysecuring-privileged-accesssecuring-privileged-access"></a>[Schützen des privilegierten Zugriffs](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/securing-privileged-access)
 Ein Wegweiser, der Ihnen zeigt, wie Sie Ihren privilegierten Zugriff schützen können. Dieser Wegweiser basiert auf dem geballten Fachwissens des Teams für die Sicherheit von Servern, der Microsoft-IT, des Azure-Teams und Microsoft Consulting Services.                           
 
 ### <a name="just-in-time-administration-with-microsoft-identity-managerhttpstechnetmicrosoftcomlibrarymt150258aspx"></a>[Just-in-Time-Verwaltung mit Microsoft Identity Manager](https://technet.microsoft.com/library/mt150258.aspx)
@@ -87,7 +87,7 @@ In diesem Dokument werden die Vision und technische Details von Just Enough Admi
 Just Enough Administration – exemplarische Vorgehensweise.                                                                                                                  
 ## <a name="credential-protection"></a>Schutz von Anmeldeinformationen
 
-### <a name="protect-derived-domain-credentials-with-credential-guardhttpsdocsmicrosoftcomwindowssecurityidentity-protectioncredential-guardcredential-guard"></a>[Schützen Sie abgeleiteter Domänenanmeldeinformationen mit Credential Guard](https://docs.microsoft.com/windows/security/identity-protection/credential-guard/credential-guard)
+### <a name="protect-derived-domain-credentials-with-credential-guardhttpsdocsmicrosoftcomwindowssecurityidentity-protectioncredential-guardcredential-guard"></a>[Schützen abgeleiteter Domänenanmeldeinformationen mit Credential Guard](https://docs.microsoft.com/windows/security/identity-protection/credential-guard/credential-guard)
 Credential Guard nutzt auf Virtualisierung basierende Sicherheitsverfahren, um geheime Daten zu isolieren, damit nur durch privilegierte Systemsoftware auf diese Daten zugegriffen werden kann. Ein nicht autorisierter Zugriff auf diese geheimen Schlüssel kann zu Angriffen mit dem Ziel des Diebstahls von Anmeldeinformationen, z. B. Pass-the-Hash oder Pass-The-Ticket, führen. Credential Guard verhindert diese Angriffe durch den Schutz von NTLM-Kennworthashes und Kerberos-TGTs.
 
 ### <a name="protect-remote-desktop-credentials-with-remote-credential-guardhttpsdocsmicrosoftcomwindowssecurityidentity-protectionremote-credential-guard"></a>[Schützen von Remotedesktop-Anmeldeinformationen mit Remote Credential Guard](https://docs.microsoft.com/windows/security/identity-protection/remote-credential-guard)
@@ -111,7 +111,7 @@ Der Ablaufsteuerungsschutz bietet integrierten Schutz gegen einige Fälle von Sp
 ### <a name="windows-defenderhttpstechnetmicrosoftcomwindows-server-docssecuritywindows-defenderwindows-defender-overview-windows-server"></a>[Windows Defender](https://technet.microsoft.com/windows-server-docs/security/windows-defender/windows-defender-overview-windows-server)
 Windows Defender bietet Funktionen zum aktiven Schutz, um bekannte Schadsoftware zu blockieren. Windows Defender ist standardmäßig aktiviert und für die Unterstützung der verschiedenen Serverrollen in Windows Server optimiert.
 
-##<a name="detecting-and-responding-to-threats"></a>Ermitteln von und Reagieren auf Bedrohungen
+## <a name="detecting-and-responding-to-threats"></a>Ermitteln von und Reagieren auf Bedrohungen
 ### <a name="security-threat-analysis-using-microsoft-operations-management-suitehttpschannel9msdncomeventsignite2015brk3464"></a>[Analyse von Sicherheitsbedrohungen mit Microsoft Operations Management Suite](https://channel9.msdn.com/events/ignite/2015/brk3464)
 In dieser Ignite-Präsentation wird erläutert, wie Sie Operational Insights für eine Analyse von Sicherheitsbedrohungen nutzen können.
 

@@ -8,12 +8,12 @@ ms.topic: get-started-article
 author: nedpyle
 ms.date: 04/26/2019
 ms.assetid: 6c5b9431-ede3-4438-8cf5-a0091a8633b0
-ms.openlocfilehash: fc49674d518756424acc02bd5b830c361c7400df
-ms.sourcegitcommit: 4ff3d00df3148e4bea08056cea9f1c3b52086e5d
+ms.openlocfilehash: 9cfe587983ccce2c9f8ae0f029cf18ade7451465
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64772430"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447641"
 ---
 # <a name="stretch-cluster-replication-using-shared-storage"></a>Replikation eines Stretched Clusters mithilfe von freigegebenem Speicher
 
@@ -143,80 +143,80 @@ Im Folgenden erstellen Sie einen normalen Failovercluster. Nach der Konfiguratio
 
 #### <a name="graphical-method"></a>Grafische Methode  
 
-1.  Führen Sie **cluadmin.msc** aus.  
+1. Führen Sie **cluadmin.msc** aus.  
 
-2.  Überprüfen Sie den geplanten Cluster, und analysieren Sie die Ergebnisse, um sicherzustellen, dass Sie den Vorgang fortsetzen können.  
+2. Überprüfen Sie den geplanten Cluster, und analysieren Sie die Ergebnisse, um sicherzustellen, dass Sie den Vorgang fortsetzen können.  
 
-    > [!NOTE]  
-    > Bei der Clusterüberprüfung sind Fehler zu erwarten, weil asymmetrischer Speicher verwendet wird.  
+   > [!NOTE]  
+   > Bei der Clusterüberprüfung sind Fehler zu erwarten, weil asymmetrischer Speicher verwendet wird.  
 
-3.  Erstellen Sie den Hyper-V-Computecluster. Stellen Sie sicher, dass der Clustername maximal 15 Zeichen lang ist. Im folgenden Beispiel wird der Name „SR-SRVCLUS“ verwendet. Wenn die Knoten in unterschiedlichen Subnetzen befinden sollen, müssen Sie eine IP-Adresse für den Clusternamen für jedes Subnetz zu erstellen und verwenden die Abhängigkeit "Oder".  Weitere Informationen finden Sie unter [Konfigurieren von IP-Adressen und Abhängigkeiten für Multisubnetz-Clustern – Teil III](https://techcommunity.microsoft.com/t5/Failover-Clustering/Configuring-IP-Addresses-and-Dependencies-for-Multi-Subnet/ba-p/371698).  
+3. Erstellen Sie den Hyper-V-Computecluster. Stellen Sie sicher, dass der Clustername maximal 15 Zeichen lang ist. Im folgenden Beispiel wird der Name „SR-SRVCLUS“ verwendet. Wenn die Knoten in unterschiedlichen Subnetzen befinden sollen, müssen Sie eine IP-Adresse für den Clusternamen für jedes Subnetz zu erstellen und verwenden die Abhängigkeit "Oder".  Weitere Informationen finden Sie unter [Konfigurieren von IP-Adressen und Abhängigkeiten für Multisubnetz-Clustern – Teil III](https://techcommunity.microsoft.com/t5/Failover-Clustering/Configuring-IP-Addresses-and-Dependencies-for-Multi-Subnet/ba-p/371698).  
 
-4.  Konfigurieren Sie einen Dateifreigabezeugen oder einen Cloudzeugen, um ein Quorum für den Fall eines Standortausfalls bereitzustellen.  
+4. Konfigurieren Sie einen Dateifreigabezeugen oder einen Cloudzeugen, um ein Quorum für den Fall eines Standortausfalls bereitzustellen.  
 
-    > [!NOTE]  
-    > WIndows Server enthält nun eine Option für die Cloud (Azure)-basierte Zeugen. Sie können diese Quorumoption anstelle des Dateifreigabezeugen auswählen.  
+   > [!NOTE]  
+   > WIndows Server enthält nun eine Option für die Cloud (Azure)-basierte Zeugen. Sie können diese Quorumoption anstelle des Dateifreigabezeugen auswählen.  
 
-    > [!WARNING]  
-    > Weitere Informationen zur Quorumkonfiguration finden Sie unter [Konfigurieren und Verwalten des Quorums in einem Windows Server2012-Failovercluster in der Anleitung zur Zeugenkonfiguration](https://technet.microsoft.com/library/jj612870.aspx). Weitere Informationen zum Cmdlet `Set-ClusterQuorum` finden Sie unter [Set-ClusterQuorum](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterquorum).  
+   > [!WARNING]  
+   > Weitere Informationen zur Quorumkonfiguration finden Sie unter [Konfigurieren und Verwalten des Quorums in einem Windows Server2012-Failovercluster in der Anleitung zur Zeugenkonfiguration](https://technet.microsoft.com/library/jj612870.aspx). Weitere Informationen zum Cmdlet `Set-ClusterQuorum` finden Sie unter [Set-ClusterQuorum](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterquorum).  
 
-5.  Lesen Sie die [Netzwerkempfehlungen für einen Hyper-V-Cluster in Windows Server 2012](https://technet.microsoft.com/library/dn550728.aspx) und stellen Sie sicher, dass das Clusternetzwerk optimal konfiguriert ist.  
+5. Lesen Sie die [Netzwerkempfehlungen für einen Hyper-V-Cluster in Windows Server 2012](https://technet.microsoft.com/library/dn550728.aspx) und stellen Sie sicher, dass das Clusternetzwerk optimal konfiguriert ist.  
 
-6.  Fügen Sie am Standort Redmond den freigegebenen Clustervolumes des Clusters einen Datenträger hinzu. Zu diesem Zweck klicken Sie im Bereich **Speicher** mit der rechten Maustaste auf den Knoten **Datenträger** und klicken dann auf **Zu freigegebenen Clustervolumes hinzufügen**.  
+6. Fügen Sie am Standort Redmond den freigegebenen Clustervolumes des Clusters einen Datenträger hinzu. Zu diesem Zweck klicken Sie im Bereich **Speicher** mit der rechten Maustaste auf den Knoten **Datenträger** und klicken dann auf **Zu freigegebenen Clustervolumes hinzufügen**.  
 
-7.  Führen Sie in der Anleitung [Bereitstellen eines Hyper-V-Clusters](https://technet.microsoft.com/library/jj863389.aspx) die Schritte 7–10 am Standort **Redmond** aus, um einen virtuellen Testcomputer zu erstellen. Mit diesem überprüfen Sie nur, ob der Cluster mit den zwei Knoten und dem gemeinsam genutzten (bzw. freigegebenen) Speicher am ersten Teststandort ordnungsgemäß funktioniert.  
+7. Führen Sie in der Anleitung [Bereitstellen eines Hyper-V-Clusters](https://technet.microsoft.com/library/jj863389.aspx) die Schritte 7–10 am Standort **Redmond** aus, um einen virtuellen Testcomputer zu erstellen. Mit diesem überprüfen Sie nur, ob der Cluster mit den zwei Knoten und dem gemeinsam genutzten (bzw. freigegebenen) Speicher am ersten Teststandort ordnungsgemäß funktioniert.  
 
-8.  Wenn Sie einen Stretched Cluster mit zwei Knoten erstellen, müssen Sie den gesamten Speicher hinzufügen, bevor Sie fortfahren. Zu diesem Zweck öffnen Sie auf dem Clusterknoten eine PowerShell-Sitzung mit Administratorrechten, und führen Sie den folgenden Befehl aus: `Get-ClusterAvailableDisk -All | Add-ClusterDisk`.
+8. Wenn Sie einen Stretched Cluster mit zwei Knoten erstellen, müssen Sie den gesamten Speicher hinzufügen, bevor Sie fortfahren. Zu diesem Zweck öffnen Sie auf dem Clusterknoten eine PowerShell-Sitzung mit Administratorrechten, und führen Sie den folgenden Befehl aus: `Get-ClusterAvailableDisk -All | Add-ClusterDisk`.
 
-    Dies ist beabsichtigtes Verhalten in Windows Server 2016.
+   Dies ist beabsichtigtes Verhalten in Windows Server 2016.
 
 9. Starten Sie Windows PowerShell, und überprüfen Sie mithilfe des Cmdlets `Test-SRTopology`, ob alle Anforderungen für das Speicherreplikatfeature erfüllt sind.  
 
     Um z. B. zwei Knoten eines geplanten Stretched Clusters zu überprüfen, die jeweils über ein Volume **D:** und **E:** verfügen, führen Sie den folgenden 30-minütigen Test aus:
-    1. Verschieben Sie den gesamten verfügbaren Speicher zu **SR-SRV01**.
-    2. Klicken Sie im Failovercluster-Manager im Abschnitt **Rollen** auf **Leere Rolle erstellen**.
-    3. Fügen Sie der leeren Rolle mit dem Namen **Neue Rolle** den Onlinespeicher hinzu.
-    4. Verschieben Sie den gesamten verfügbaren Speicher zu **SR-SRV03**.
-    5. Klicken Sie im Failovercluster-Manager im Abschnitt **Rollen** auf **Leere Rolle erstellen**.
-    6. Verschieben Sie **Neue Rolle (2)** im leeren Zustand zu **SR-SRV03**.
-    7. Fügen Sie der leeren Rolle mit dem Namen **Neue Rolle (2)** den Onlinespeicher hinzu.
-    8. Nachdem Sie nun den gesamten Speicher mit Laufwerksbuchstaben eingebunden haben, können Sie den Cluster mit `Test-SRTopology` überprüfen.
+   1. Verschieben Sie den gesamten verfügbaren Speicher zu **SR-SRV01**.
+   2. Klicken Sie im Failovercluster-Manager im Abschnitt **Rollen** auf **Leere Rolle erstellen**.
+   3. Fügen Sie der leeren Rolle mit dem Namen **Neue Rolle** den Onlinespeicher hinzu.
+   4. Verschieben Sie den gesamten verfügbaren Speicher zu **SR-SRV03**.
+   5. Klicken Sie im Failovercluster-Manager im Abschnitt **Rollen** auf **Leere Rolle erstellen**.
+   6. Verschieben Sie **Neue Rolle (2)** im leeren Zustand zu **SR-SRV03**.
+   7. Fügen Sie der leeren Rolle mit dem Namen **Neue Rolle (2)** den Onlinespeicher hinzu.
+   8. Nachdem Sie nun den gesamten Speicher mit Laufwerksbuchstaben eingebunden haben, können Sie den Cluster mit `Test-SRTopology` überprüfen.
 
-        Zum Beispiel:
+       Zum Beispiel:
 
-            MD c:\temp  
+           MD c:\temp  
 
-            Test-SRTopology -SourceComputerName SR-SRV01 -SourceVolumeName D: -SourceLogVolumeName E: -DestinationComputerName SR-SRV03 -DestinationVolumeName D: -DestinationLogVolumeName E: -DurationInMinutes 30 -ResultPath c:\temp        
+           Test-SRTopology -SourceComputerName SR-SRV01 -SourceVolumeName D: -SourceLogVolumeName E: -DestinationComputerName SR-SRV03 -DestinationVolumeName D: -DestinationLogVolumeName E: -DurationInMinutes 30 -ResultPath c:\temp        
 
       > [!IMPORTANT]
       > Bei Verwendung eines Testservers ohne Schreib-E/A-Last auf dem angegebenen Quellvolume während des Auswertungszeitraums sollten Sie am besten eine Workload hinzufügen. Andernfalls generiert Test-SRTopology keinen nützlichen Bericht. Um reale Zahlen und empfohlene Protokollgrößen zu erhalten, sollte der Test mit produktionsähnlichen Workloads ausgeführt werden. Alternativ können Sie ganz einfach während des Tests Dateien auf das Quellvolume kopieren oder DISKSPD herunterladen und ausführen, um Schreib-E/A zu generieren. Beispiel mit geringer E/A-Workload innerhalb eines Zeitraums von 5 Minuten auf dem Volume D:   
-        `Diskspd.exe -c1g -d600 -W5 -C5 -b4k -t2 -o2 -r -w5 -i100 d:\test.dat`  
+       `Diskspd.exe -c1g -d600 -W5 -C5 -b4k -t2 -o2 -r -w5 -i100 d:\test.dat`  
 
 10. Vergewissern Sie sich anhand des Berichts **TestSrTopologyReport-< Datum >.html**, dass die Anforderungen für das Speicherreplikatfeature erfüllt sind, und beachten Sie die Prognosen für die Erstsynchronisierungszeit sowie die Protokollempfehlungen.  
 
       ![Bildschirm mit dem Replikationsbericht](./media/Stretch-Cluster-Replication-Using-Shared-Storage/SRTestSRTopologyReport.png)
 
-11.    Führen Sie die Datenträger wieder zum verfügbaren Speicher zurück, und entfernen Sie die temporären leeren Rollen.
+11. Führen Sie die Datenträger wieder zum verfügbaren Speicher zurück, und entfernen Sie die temporären leeren Rollen.
 
-12.  Wenn Sie mit der Überprüfung zufrieden sind, entfernen Sie den virtuellen Testcomputer wieder. Fügen Sie einem geplanten Quellknoten beliebige echte virtuelle Testcomputer hinzu, um gegebenenfalls weitere Überprüfungen durchzuführen.  
+12. Wenn Sie mit der Überprüfung zufrieden sind, entfernen Sie den virtuellen Testcomputer wieder. Fügen Sie einem geplanten Quellknoten beliebige echte virtuelle Testcomputer hinzu, um gegebenenfalls weitere Überprüfungen durchzuführen.  
 
 13. Konfigurieren Sie die Standortinformationen für den Stretched Cluster so, dass sich die Server **SR-SRV01** und **SR-SRV02** am Standort **Redmond** befinden, die Server **SR-SRV03** und **SR-SRV04** dem Standort **Bellevue** zugeordnet sind und **Redmond** als bevorzugter Standort für den Knotenbesitz des Quellspeichers und der virtuellen Computer festgelegt ist:  
 
-   ```PowerShell
-   New-ClusterFaultDomain -Name Seattle -Type Site -Description "Primary" -Location "Seattle Datacenter"  
+    ```PowerShell
+    New-ClusterFaultDomain -Name Seattle -Type Site -Description "Primary" -Location "Seattle Datacenter"  
    
-   New-ClusterFaultDomain -Name Bellevue -Type Site -Description "Secondary" -Location "Bellevue Datacenter"  
+    New-ClusterFaultDomain -Name Bellevue -Type Site -Description "Secondary" -Location "Bellevue Datacenter"  
    
-   Set-ClusterFaultDomain -Name sr-srv01 -Parent Seattle  
-   Set-ClusterFaultDomain -Name sr-srv02 -Parent Seattle  
-   Set-ClusterFaultDomain -Name sr-srv03 -Parent Bellevue  
-   Set-ClusterFaultDomain -Name sr-srv04 -Parent Bellevue  
+    Set-ClusterFaultDomain -Name sr-srv01 -Parent Seattle  
+    Set-ClusterFaultDomain -Name sr-srv02 -Parent Seattle  
+    Set-ClusterFaultDomain -Name sr-srv03 -Parent Bellevue  
+    Set-ClusterFaultDomain -Name sr-srv04 -Parent Bellevue  
 
-   (Get-Cluster).PreferredSite="Seattle"
-   ```
+    (Get-Cluster).PreferredSite="Seattle"
+    ```
 
-   > [!NOTE]
-   > Im Failovercluster-Manager von Windows Server 2016 ist keine Option zum Konfigurieren von Standortinformationen vorhanden.  
+    > [!NOTE]
+    > Im Failovercluster-Manager von Windows Server 2016 ist keine Option zum Konfigurieren von Standortinformationen vorhanden.  
 
 14. **(Optional)** Konfigurieren Sie das Clusternetzwerk und Active Directory, um ein schnelleres DNS-Standortfailover zu ermöglichen. Sie können Software-Defined Networking mit Hyper-V, Stretched VLANs, Netzwerkabstraktionsgeräte, verringerte DNS-TTL und andere übliche Techniken verwenden.
 
@@ -233,61 +233,61 @@ Im Folgenden erstellen Sie einen normalen Failovercluster. Nach der Konfiguratio
 
 #### <a name="windows-powershell-method"></a>Windows PowerShell-Methode  
 
-1.  Testen Sie den geplanten Cluster, und analysieren Sie die Ergebnisse, um sicherzustellen, dass Sie den Vorgang fortsetzen können:  
+1. Testen Sie den geplanten Cluster, und analysieren Sie die Ergebnisse, um sicherzustellen, dass Sie den Vorgang fortsetzen können:  
 
-    ```PowerShell  
-    Test-Cluster SR-SRV01, SR-SRV02, SR-SRV03, SR-SRV04  
-    ```  
+   ```PowerShell  
+   Test-Cluster SR-SRV01, SR-SRV02, SR-SRV03, SR-SRV04  
+   ```  
 
-    > [!NOTE]
-    >  Bei der Clusterüberprüfung sind Fehler zu erwarten, weil asymmetrischer Speicher verwendet wird.  
+   > [!NOTE]
+   >  Bei der Clusterüberprüfung sind Fehler zu erwarten, weil asymmetrischer Speicher verwendet wird.  
 
-2.  Erstellen Sie den Hyper-V-Computecluster (Sie müssen die eigene statische IP-Adresse angeben, die der Cluster verwenden soll). Stellen Sie sicher, dass der Clustername maximal 15 Zeichen lang ist.  Wenn die Knoten in unterschiedlichen Subnetzen befinden, muss als eine IP-Adresse für die zusätzliche Website, die Abhängigkeit "OR" verwenden, erstellt werden. Weitere Informationen finden Sie unter [Konfigurieren von IP-Adressen und Abhängigkeiten für Multisubnetz-Clustern – Teil III](https://techcommunity.microsoft.com/t5/Failover-Clustering/Configuring-IP-Addresses-and-Dependencies-for-Multi-Subnet/ba-p/371698).
-```PowerShell  
-New-Cluster -Name SR-SRVCLUS -Node SR-SRV01, SR-SRV02, SR-SRV03, SR-SRV04 -StaticAddress <your IP here>  
-Add-ClusterResource -Name NewIPAddress -ResourceType “IP Address” -Group “Cluster Group”
-Set-ClusterResourceDependency -Resource “Cluster Name” -Dependency “[Cluster IP Address] or [NewIPAddress]”
-```  
+2. Erstellen Sie den Hyper-V-Computecluster (Sie müssen die eigene statische IP-Adresse angeben, die der Cluster verwenden soll). Stellen Sie sicher, dass der Clustername maximal 15 Zeichen lang ist.  Wenn die Knoten in unterschiedlichen Subnetzen befinden, muss als eine IP-Adresse für die zusätzliche Website, die Abhängigkeit "OR" verwenden, erstellt werden. Weitere Informationen finden Sie unter [Konfigurieren von IP-Adressen und Abhängigkeiten für Multisubnetz-Clustern – Teil III](https://techcommunity.microsoft.com/t5/Failover-Clustering/Configuring-IP-Addresses-and-Dependencies-for-Multi-Subnet/ba-p/371698).
+   ```PowerShell  
+   New-Cluster -Name SR-SRVCLUS -Node SR-SRV01, SR-SRV02, SR-SRV03, SR-SRV04 -StaticAddress <your IP here>  
+   Add-ClusterResource -Name NewIPAddress -ResourceType “IP Address” -Group “Cluster Group”
+   Set-ClusterResourceDependency -Resource “Cluster Name” -Dependency “[Cluster IP Address] or [NewIPAddress]”
+   ```  
 
-3.  Konfigurieren Sie im Cluster einen Dateifreigabezeugen oder einen Cloudzeugen (Azure-Zeugen), der auf eine Freigabe verweist, die auf dem Domänencontroller oder auf einem anderen unabhängigen Server gehostet ist. Zum Beispiel:  
+3. Konfigurieren Sie im Cluster einen Dateifreigabezeugen oder einen Cloudzeugen (Azure-Zeugen), der auf eine Freigabe verweist, die auf dem Domänencontroller oder auf einem anderen unabhängigen Server gehostet ist. Zum Beispiel:  
 
-    ```PowerShell  
-    Set-ClusterQuorum -FileShareWitness \\someserver\someshare  
-    ```  
+   ```PowerShell  
+   Set-ClusterQuorum -FileShareWitness \\someserver\someshare  
+   ```  
 
-    > [!NOTE]
-    > WIndows Server enthält nun eine Option für die Cloud (Azure)-basierte Zeugen. Sie können diese Quorumoption anstelle des Dateifreigabezeugen auswählen.  
+   > [!NOTE]
+   > WIndows Server enthält nun eine Option für die Cloud (Azure)-basierte Zeugen. Sie können diese Quorumoption anstelle des Dateifreigabezeugen auswählen.  
     
-    Weitere Informationen zur Quorumkonfiguration finden Sie unter [Konfigurieren und Verwalten des Quorums in einem Windows Server2012-Failovercluster in der Anleitung zur Zeugenkonfiguration](https://technet.microsoft.com/library/jj612870.aspx). Weitere Informationen zum Cmdlet `Set-ClusterQuorum` finden Sie unter [Set-ClusterQuorum](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterquorum).  
+   Weitere Informationen zur Quorumkonfiguration finden Sie unter [Konfigurieren und Verwalten des Quorums in einem Windows Server2012-Failovercluster in der Anleitung zur Zeugenkonfiguration](https://technet.microsoft.com/library/jj612870.aspx). Weitere Informationen zum Cmdlet `Set-ClusterQuorum` finden Sie unter [Set-ClusterQuorum](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterquorum).  
 
-4.  Lesen Sie die [Netzwerkempfehlungen für einen Hyper-V-Cluster in Windows Server 2012](https://technet.microsoft.com/library/dn550728.aspx) und stellen Sie sicher, dass das Clusternetzwerk optimal konfiguriert ist.  
+4. Lesen Sie die [Netzwerkempfehlungen für einen Hyper-V-Cluster in Windows Server 2012](https://technet.microsoft.com/library/dn550728.aspx) und stellen Sie sicher, dass das Clusternetzwerk optimal konfiguriert ist.  
 
-5.  Wenn Sie einen Stretched Cluster mit zwei Knoten erstellen, müssen Sie den gesamten Speicher hinzufügen, bevor Sie fortfahren. Zu diesem Zweck öffnen Sie auf dem Clusterknoten eine PowerShell-Sitzung mit Administratorrechten, und führen Sie den folgenden Befehl aus: `Get-ClusterAvailableDisk -All | Add-ClusterDisk`.
+5. Wenn Sie einen Stretched Cluster mit zwei Knoten erstellen, müssen Sie den gesamten Speicher hinzufügen, bevor Sie fortfahren. Zu diesem Zweck öffnen Sie auf dem Clusterknoten eine PowerShell-Sitzung mit Administratorrechten, und führen Sie den folgenden Befehl aus: `Get-ClusterAvailableDisk -All | Add-ClusterDisk`.
 
-    Dies ist beabsichtigtes Verhalten in Windows Server 2016.
+   Dies ist beabsichtigtes Verhalten in Windows Server 2016.
 
-6.  Führen Sie in der Anleitung [Bereitstellen eines Hyper-V-Clusters](https://technet.microsoft.com/library/jj863389.aspx) die Schritte 7–10 am Standort **Redmond** aus, um einen virtuellen Testcomputer zu erstellen. Mit diesem überprüfen Sie nur, ob der Cluster mit den zwei Knoten und dem gemeinsam genutzten (bzw. freigegebenen) Speicher am ersten Teststandort ordnungsgemäß funktioniert.  
+6. Führen Sie in der Anleitung [Bereitstellen eines Hyper-V-Clusters](https://technet.microsoft.com/library/jj863389.aspx) die Schritte 7–10 am Standort **Redmond** aus, um einen virtuellen Testcomputer zu erstellen. Mit diesem überprüfen Sie nur, ob der Cluster mit den zwei Knoten und dem gemeinsam genutzten (bzw. freigegebenen) Speicher am ersten Teststandort ordnungsgemäß funktioniert.  
 
-7.  Wenn Sie mit der Überprüfung zufrieden sind, entfernen Sie den virtuellen Testcomputer wieder. Fügen Sie einem geplanten Quellknoten beliebige echte virtuelle Testcomputer hinzu, um gegebenenfalls weitere Überprüfungen durchzuführen.  
+7. Wenn Sie mit der Überprüfung zufrieden sind, entfernen Sie den virtuellen Testcomputer wieder. Fügen Sie einem geplanten Quellknoten beliebige echte virtuelle Testcomputer hinzu, um gegebenenfalls weitere Überprüfungen durchzuführen.  
 
-8.  Konfigurieren Sie die Standortinformationen für den Stretched Cluster so, dass sich die Server **SR-SRV01** und **SR-SRV02** am Standort **Redmond** befinden, die Server **SR-SRV03** und **SR-SRV04** dem Standort **Bellevue** zugeordnet sind und **Redmond** als bevorzugter Standort für den Knotenbesitz des Quellspeichers und der virtuellen Computer festgelegt ist:  
+8. Konfigurieren Sie die Standortinformationen für den Stretched Cluster so, dass sich die Server **SR-SRV01** und **SR-SRV02** am Standort **Redmond** befinden, die Server **SR-SRV03** und **SR-SRV04** dem Standort **Bellevue** zugeordnet sind und **Redmond** als bevorzugter Standort für den Knotenbesitz des Quellspeichers und der virtuellen Computer festgelegt ist:  
 
-    ```PowerShell  
-    New-ClusterFaultDomain -Name Seattle -Type Site -Description "Primary" -Location "Seattle Datacenter"  
+   ```PowerShell  
+   New-ClusterFaultDomain -Name Seattle -Type Site -Description "Primary" -Location "Seattle Datacenter"  
 
-    New-ClusterFaultDomain -Name Bellevue -Type Site -Description "Secondary" -Location "Bellevue Datacenter"  
+   New-ClusterFaultDomain -Name Bellevue -Type Site -Description "Secondary" -Location "Bellevue Datacenter"  
 
-    Set-ClusterFaultDomain -Name sr-srv01 -Parent Seattle  
-    Set-ClusterFaultDomain -Name sr-srv02 -Parent Seattle  
-    Set-ClusterFaultDomain -Name sr-srv03 -Parent Bellevue  
-    Set-ClusterFaultDomain -Name sr-srv04 -Parent Bellevue  
+   Set-ClusterFaultDomain -Name sr-srv01 -Parent Seattle  
+   Set-ClusterFaultDomain -Name sr-srv02 -Parent Seattle  
+   Set-ClusterFaultDomain -Name sr-srv03 -Parent Bellevue  
+   Set-ClusterFaultDomain -Name sr-srv04 -Parent Bellevue  
 
-    (Get-Cluster).PreferredSite="Seattle"  
-    ```  
+   (Get-Cluster).PreferredSite="Seattle"  
+   ```  
 
-9.  **(Optional)** Konfigurieren Sie das Clusternetzwerk und Active Directory, um ein schnelleres DNS-Standortfailover zu ermöglichen. Sie können Software-Defined Networking mit Hyper-V, Stretched VLANs, Netzwerkabstraktionsgeräte, verringerte DNS-TTL und andere übliche Techniken verwenden.  
+9. **(Optional)** Konfigurieren Sie das Clusternetzwerk und Active Directory, um ein schnelleres DNS-Standortfailover zu ermöglichen. Sie können Software-Defined Networking mit Hyper-V, Stretched VLANs, Netzwerkabstraktionsgeräte, verringerte DNS-TTL und andere übliche Techniken verwenden.  
 
-    Weitere Informationen finden Sie in der Microsoft Ignite-Sitzungs: [Stretching Failover Clusters and Using Storage Replica in Windows Server vNext](http://channel9.msdn.com/Events/Ignite/2015/BRK3487) und [Change Notifications between Sites - aktivieren, wie und warum](http://blogs.technet.com/b/qzaidi/archive/2010/09/23/enable-change-notifications-between-sites-how-and-why.aspx).  
+   Weitere Informationen finden Sie in der Microsoft Ignite-Sitzungs: [Stretching Failover Clusters and Using Storage Replica in Windows Server vNext](http://channel9.msdn.com/Events/Ignite/2015/BRK3487) und [Change Notifications between Sites - aktivieren, wie und warum](http://blogs.technet.com/b/qzaidi/archive/2010/09/23/enable-change-notifications-between-sites-how-and-why.aspx).  
 
 10. **(Optional)** Konfigurieren Sie die VM-Resilienz so, dass Gäste bei Knotenausfällen nicht für einen längeren Zeitraum angehalten werden. Anstelle dessen soll innerhalb von 10Sekunden ein Failover auf den neuen Quellspeicher für die Replikation ausgeführt werden.  
 
@@ -309,44 +309,44 @@ Im Folgenden erstellen Sie einen normalen Failovercluster. Nach der Konfiguratio
 
 #### <a name="graphical-method"></a>Grafische Methode  
 
-1.  Führen Sie „cluadmin.msc“ aus.  
+1. Führen Sie „cluadmin.msc“ aus.  
 
-2.  Überprüfen Sie den geplanten Cluster, und analysieren Sie die Ergebnisse, um sicherzustellen, dass Sie den Vorgang fortsetzen können.  
-    >[!NOTE]
-    >Bei der Clusterüberprüfung sind Fehler zu erwarten, weil asymmetrischer Speicher verwendet wird.   
+2. Überprüfen Sie den geplanten Cluster, und analysieren Sie die Ergebnisse, um sicherzustellen, dass Sie den Vorgang fortsetzen können.  
+   >[!NOTE]
+   >Bei der Clusterüberprüfung sind Fehler zu erwarten, weil asymmetrischer Speicher verwendet wird.   
 3. Erstellen Sie den Dateiserver für einen zur allgemeinen Verwendung bestimmten Speichercluster. Stellen Sie sicher, dass der Clustername maximal 15 Zeichen lang ist. Im folgenden Beispiel wird der Name „SR-SRVCLUS“ verwendet.  Wenn die Knoten in unterschiedlichen Subnetzen befinden sollen, müssen Sie eine IP-Adresse für den Clusternamen für jedes Subnetz zu erstellen und verwenden die Abhängigkeit "Oder".  Weitere Informationen finden Sie unter [Konfigurieren von IP-Adressen und Abhängigkeiten für Multisubnetz-Clustern – Teil III](https://techcommunity.microsoft.com/t5/Failover-Clustering/Configuring-IP-Addresses-and-Dependencies-for-Multi-Subnet/ba-p/371698).  
 
-4.  Konfigurieren Sie einen Dateifreigabezeugen oder einen Cloudzeugen, um ein Quorum für den Fall eines Standortausfalls bereitzustellen.  
-    >[!NOTE]
-    > WIndows Server enthält nun eine Option für die Cloud (Azure)-basierte Zeugen. Sie können diese Quorumoption anstelle des Dateifreigabezeugen auswählen.                                                                                                                                                                             
-    >[!NOTE]
-    >  Weitere Informationen zur Quorumkonfiguration finden Sie unter [Konfigurieren und Verwalten des Quorums in einem Windows Server2012-Failovercluster in der Anleitung zur Zeugenkonfiguration](https://technet.microsoft.com/library/jj612870.aspx). Weitere Informationen zum Cmdlet „Set-ClusterQuorum“ finden Sie unter [Set-ClusterQuorum](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterquorum). 
+4. Konfigurieren Sie einen Dateifreigabezeugen oder einen Cloudzeugen, um ein Quorum für den Fall eines Standortausfalls bereitzustellen.  
+   >[!NOTE]
+   > WIndows Server enthält nun eine Option für die Cloud (Azure)-basierte Zeugen. Sie können diese Quorumoption anstelle des Dateifreigabezeugen auswählen.                                                                                                                                                                             
+   >[!NOTE]
+   >  Weitere Informationen zur Quorumkonfiguration finden Sie unter [Konfigurieren und Verwalten des Quorums in einem Windows Server2012-Failovercluster in der Anleitung zur Zeugenkonfiguration](https://technet.microsoft.com/library/jj612870.aspx). Weitere Informationen zum Cmdlet „Set-ClusterQuorum“ finden Sie unter [Set-ClusterQuorum](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterquorum). 
 
-5.  Wenn Sie einen Stretched Cluster mit zwei Knoten erstellen, müssen Sie den gesamten Speicher hinzufügen, bevor Sie fortfahren. Zu diesem Zweck öffnen Sie auf dem Clusterknoten eine PowerShell-Sitzung mit Administratorrechten, und führen Sie den folgenden Befehl aus: `Get-ClusterAvailableDisk -All | Add-ClusterDisk`.
+5. Wenn Sie einen Stretched Cluster mit zwei Knoten erstellen, müssen Sie den gesamten Speicher hinzufügen, bevor Sie fortfahren. Zu diesem Zweck öffnen Sie auf dem Clusterknoten eine PowerShell-Sitzung mit Administratorrechten, und führen Sie den folgenden Befehl aus: `Get-ClusterAvailableDisk -All | Add-ClusterDisk`.
 
-    Dies ist beabsichtigtes Verhalten in Windows Server 2016.
+   Dies ist beabsichtigtes Verhalten in Windows Server 2016.
 
 6. Stellen Sie sicher, dass das Clusternetzwerk optimal konfiguriert ist.  
     >[!NOTE]
     > Die Rolle „Dateiserver“ muss auf allen Knoten installiert werden, bevor Sie mit dem nächsten Schritt fortfahren.   |  
 
-7.  Klicken Sie unter **Rollen** auf **Rolle konfigurieren**. Lesen Sie die **Vorbemerkungen**, und klicken Sie auf **Weiter**.  
+7. Klicken Sie unter **Rollen** auf **Rolle konfigurieren**. Lesen Sie die **Vorbemerkungen**, und klicken Sie auf **Weiter**.  
 
-8.  Wählen Sie **Dateiserver** aus, und klicken Sie auf **Weiter**.  
+8. Wählen Sie **Dateiserver** aus, und klicken Sie auf **Weiter**.  
 
-9.  Lassen Sie **Dateiserver zur allgemeinen Verwendung** ausgewählt, und klicken Sie auf **Weiter**.  
+9. Lassen Sie **Dateiserver zur allgemeinen Verwendung** ausgewählt, und klicken Sie auf **Weiter**.  
 
-10.  Geben Sie einen Namen für den **Clientzugriffspunkt** ein (maximal 15 Zeichen), und klicken Sie auf **Weiter**.  
+10. Geben Sie einen Namen für den **Clientzugriffspunkt** ein (maximal 15 Zeichen), und klicken Sie auf **Weiter**.  
 
-11.  Wählen Sie einen Datenträger aus, der als Datenvolume verwendet werden soll, und klicken Sie auf **Weiter**.  
+11. Wählen Sie einen Datenträger aus, der als Datenvolume verwendet werden soll, und klicken Sie auf **Weiter**.  
 
-12.  Überprüfen Sie Ihre Einstellungen, und klicken Sie auf **Weiter**. Klicken Sie auf **Fertig stellen**.  
+12. Überprüfen Sie Ihre Einstellungen, und klicken Sie auf **Weiter**. Klicken Sie auf **Fertig stellen**.  
 
-13.  Klicken Sie mit der rechten Maustaste auf die neue Dateiserverrolle, und klicken Sie auf **Dateifreigabe hinzufügen**. Führen Sie im Assistenten die Schritte zum Konfigurieren von Freigaben aus.  
+13. Klicken Sie mit der rechten Maustaste auf die neue Dateiserverrolle, und klicken Sie auf **Dateifreigabe hinzufügen**. Führen Sie im Assistenten die Schritte zum Konfigurieren von Freigaben aus.  
 
-14.  Optional: Fügen Sie eine andere Rolle "Dateiserver", die den anderen Speicher an diesem Standort verwendet.  
+14. Optional: Fügen Sie eine andere Rolle "Dateiserver", die den anderen Speicher an diesem Standort verwendet.  
 
-15.  Konfigurieren Sie die Standortinformationen für den Stretched Cluster so, dass sich die Server SR-SRV01 und SR-SRV02 am Standort Redmond befinden, die Server SR-SRV03 und SR-SRV04 dem Standort Bellevue zugeordnet sind und Redmond als bevorzugter Standort für den Knotenbesitz des Quellspeichers und der virtuellen Computer festgelegt ist:  
+15. Konfigurieren Sie die Standortinformationen für den Stretched Cluster so, dass sich die Server SR-SRV01 und SR-SRV02 am Standort Redmond befinden, die Server SR-SRV03 und SR-SRV04 dem Standort Bellevue zugeordnet sind und Redmond als bevorzugter Standort für den Knotenbesitz des Quellspeichers und der virtuellen Computer festgelegt ist:  
 
     ```PowerShell  
     New-ClusterFaultDomain -Name Seattle -Type Site -Description "Primary" -Location "Seattle Datacenter"  
@@ -361,10 +361,10 @@ Im Folgenden erstellen Sie einen normalen Failovercluster. Nach der Konfiguratio
     (Get-Cluster).PreferredSite="Seattle"  
     ```  
 
-       >[!NOTE]
-       > Im Failovercluster-Manager von Windows Server 2016 ist keine Option zum Konfigurieren von Standortinformationen vorhanden.  
+      >[!NOTE]
+      > Im Failovercluster-Manager von Windows Server 2016 ist keine Option zum Konfigurieren von Standortinformationen vorhanden.  
 
-16.  (Optional) Konfigurieren Sie das Clusternetzwerk und Active Directory, um ein schnelleres DNS-Standortfailover zu ermöglichen. Sie können Stretched VLANs, Netzwerkabstraktionsgeräte, verringerte DNS-TTL und andere übliche Techniken verwenden.  
+16. (Optional) Konfigurieren Sie das Clusternetzwerk und Active Directory, um ein schnelleres DNS-Standortfailover zu ermöglichen. Sie können Stretched VLANs, Netzwerkabstraktionsgeräte, verringerte DNS-TTL und andere übliche Techniken verwenden.  
 
 Weitere Informationen finden Sie in der Microsoft Ignite-Sitzung: [Stretching Failover Clusters and Using Storage Replica in Windows Server vNext](http://channel9.msdn.com/events/ignite/2015/brk3487) und dem Blogbeitrag [Enable Change Notifications between Sites - How and Why?](http://blogs.technet.com/b/qzaidi/archive/2010/09/23/enable-change-notifications-between-sites-how-and-why.aspx)    
 

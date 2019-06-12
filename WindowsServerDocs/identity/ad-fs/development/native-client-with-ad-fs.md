@@ -9,12 +9,12 @@ ms.date: 07/17/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: active-directory-federation-services
-ms.openlocfilehash: e85a97fa08e4c77588b17aee08ee03e0b897a74c
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.openlocfilehash: 15bb6f1e39f64ff19ebb5515188ee944e277d3b7
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65976836"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445478"
 ---
 # <a name="build-a-native-client-application-using-oauth-public-clients-with-ad-fs-2016-or-later"></a>Erstellen Sie einen nativen Client-Anwendung mithilfe von öffentlichen OAuth-Clients mit AD FS 2016 oder höher
 
@@ -163,7 +163,7 @@ Ausführen der Anwendung
 
 In diesem Schritt die systemeigene Anwendung mit AD FS umgeleitet werden soll, und haben Sie ein ID-Token und Zugriffstoken für die Web-API
 
-3.  Geben Sie ein Element in das Textfeld ein und klicken auf das Element hinzufügen. In diesem Schritt wendet die Anwendung sich an die Web-API hinzufügen das Element, und klicken Sie hierfür, übergibt das Zugriffstoken, um die Web-API von AD FS abgerufen. Die Web-API entspricht den Audience-Wert, um sicherzustellen, dass das Token ist dafür vorgesehen, und überprüft die Signatur des Tokens anhand der Informationen aus den Metadaten des Verbunds.
+3. Geben Sie ein Element in das Textfeld ein und klicken auf das Element hinzufügen. In diesem Schritt wendet die Anwendung sich an die Web-API hinzufügen das Element, und klicken Sie hierfür, übergibt das Zugriffstoken, um die Web-API von AD FS abgerufen. Die Web-API entspricht den Audience-Wert, um sicherzustellen, dass das Token ist dafür vorgesehen, und überprüft die Signatur des Tokens anhand der Informationen aus den Metadaten des Verbunds.
 
 ![Anmelden](media/native-client-with-ad-fs-2016/clienttodoadd.png)
 

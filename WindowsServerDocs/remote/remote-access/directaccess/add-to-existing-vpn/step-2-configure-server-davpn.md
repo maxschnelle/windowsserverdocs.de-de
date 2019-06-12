@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: fe221fc9-c7d9-4508-b8a1-000d2515283c
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 31a5310ddb59831650f6b46108d071c120116dc1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f8a6448661861fdc9f97c66fb130bfc03d0ce72c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830931"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446974"
 ---
 #  <a name="step-2-configure-the-directaccess-vpn-server"></a>Schritt 2 konfigurieren den DirectAccess-VPN-Server
 
@@ -83,10 +83,10 @@ Wenn der Suffixsuchliste Liste ist nicht leer und verfügt über mindestens ein 
 
 Wenn die Abfragen für alle durch das Anfügen und Versuchen der Suffixe in der Liste gebildeten FQDNs nicht aufgelöst werden können, schlägt der Abfragevorgang fehl und als Ergebnis wird "Name nicht gefunden" ausgegeben. 
 
->[!WARNING]
->Wenn die Domänensuffixliste verwendet wird, senden die Clients weiterhin zusätzliche auf den verschiedenen DNS-Domänennamen basierende alternative Abfragen, wenn eine Abfrage nicht beantwortet oder aufgelöst wird. Nachdem ein Name mit einem Eintrag in der Suffixliste aufgelöst wurde, werden die nicht verwendeten Listeneinträge nicht versucht. Aus diesem Grund ist es am effizientesten, die Liste zunächst nach den am meisten verwendeten Domänensuffixen zu sortieren.
-
->Suchen nach Domänennamensuffixen werden nur verwendet, wenn ein DNS-Name nicht vollqualifiziert ist. Um einen DNS-Namen voll zu qualifizieren, müssen Sie am Ende des Namens einen nachstehenden Punkt (.) eingeben.
+> [!WARNING]
+> Wenn die Domänensuffixliste verwendet wird, senden die Clients weiterhin zusätzliche auf den verschiedenen DNS-Domänennamen basierende alternative Abfragen, wenn eine Abfrage nicht beantwortet oder aufgelöst wird. Nachdem ein Name mit einem Eintrag in der Suffixliste aufgelöst wurde, werden die nicht verwendeten Listeneinträge nicht versucht. Aus diesem Grund ist es am effizientesten, die Liste zunächst nach den am meisten verwendeten Domänensuffixen zu sortieren.
+> 
+> Suchen nach Domänennamensuffixen werden nur verwendet, wenn ein DNS-Name nicht vollqualifiziert ist. Um einen DNS-Namen voll zu qualifizieren, müssen Sie am Ende des Namens einen nachstehenden Punkt (.) eingeben.
 
 ## <a name="gpo-configuration"></a>Konfiguration der Gruppenrichtlinienobjekte
 

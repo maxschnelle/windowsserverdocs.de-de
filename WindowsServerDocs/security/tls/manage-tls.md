@@ -12,12 +12,12 @@ author: justinha
 ms.author: justinha
 manager: brianlic-msft
 ms.date: 05/16/2018
-ms.openlocfilehash: 8053a14a74797cccce4c441d41f1f1623ba0ad6e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 872647f09898bf8ae08ee69f28b717d28abf7c78
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879441"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447304"
 ---
 # <a name="manage-transport-layer-security-tls"></a>Verwalten von Transport Layer Security (TLS)
 
@@ -39,22 +39,22 @@ Verschiedene Windows-Versionen unterstützen verschiedene TLS-Verschlüsselungss
 
 Sie können die SSL Cipher Suite Order-gruppenrichtlinieneinstellungen verwenden, so konfigurieren Sie die Standardreihenfolge TLS Cipher Suite.
 
-1.  Die Gruppenrichtlinien-Verwaltungskonsole, navigieren Sie zu **Computerkonfiguration** > **Administrative Vorlagen** > **Netzwerke**  >  **SSL-Konfigurationseinstellungen**.
-2.  Doppelklicken Sie auf **Reihenfolge der SSL-Verschlüsselungssammlungen**, und klicken Sie dann auf die **aktiviert** Option.
-3.  Mit der rechten Maustaste **SSL-Verschlüsselungssammlungen** und wählen Sie **wählen Sie alle** aus dem Popupmenü.
+1. Die Gruppenrichtlinien-Verwaltungskonsole, navigieren Sie zu **Computerkonfiguration** > **Administrative Vorlagen** > **Netzwerke**  >  **SSL-Konfigurationseinstellungen**.
+2. Doppelklicken Sie auf **Reihenfolge der SSL-Verschlüsselungssammlungen**, und klicken Sie dann auf die **aktiviert** Option.
+3. Mit der rechten Maustaste **SSL-Verschlüsselungssammlungen** und wählen Sie **wählen Sie alle** aus dem Popupmenü.
 
-    ![Gruppenrichtlinieneinstellung](../media/Transport-Layer-Security-protocol/ssl-cipher-suite-order-gp-setting.png)
+   ![Gruppenrichtlinieneinstellung](../media/Transport-Layer-Security-protocol/ssl-cipher-suite-order-gp-setting.png)
 
-4.  Mit der rechten Maustaste in des ausgewählten Texts, und wählen **Kopie** aus dem Popupmenü.
-5.  Fügen Sie den Text in einem Text-Editor wie notepad.exe und Update mit der neuen Cipher Suite Liste aus.
+4. Mit der rechten Maustaste in des ausgewählten Texts, und wählen **Kopie** aus dem Popupmenü.
+5. Fügen Sie den Text in einem Text-Editor wie notepad.exe und Update mit der neuen Cipher Suite Liste aus.
 
-    > [!NOTE]
-    > Der TLS-Verschlüsselungsverfahren Suite Bestellliste muss strenge durch Trennzeichen getrennten Format aufweisen. Jede Cipher Suite Zeichenfolge endet mit einem Komma (,), auf die rechte Seite des Zertifikats. 
+   > [!NOTE]
+   > Der TLS-Verschlüsselungsverfahren Suite Bestellliste muss strenge durch Trennzeichen getrennten Format aufweisen. Jede Cipher Suite Zeichenfolge endet mit einem Komma (,), auf die rechte Seite des Zertifikats. 
+   > 
+   > Darüber hinaus ist die Liste der Verschlüsselungssammlungen maximal 1.023 Zeichen.
 
-    > Darüber hinaus ist die Liste der Verschlüsselungssammlungen maximal 1.023 Zeichen.
-
-6.  Ersetzen Sie die Liste in der **SSL-Verschlüsselungssammlungen** mit der aktualisierten sortierten Liste.
-7.  Klicken Sie auf **OK** oder **Übernehmen**.
+6. Ersetzen Sie die Liste in der **SSL-Verschlüsselungssammlungen** mit der aktualisierten sortierten Liste.
+7. Klicken Sie auf **OK** oder **Übernehmen**.
 
 ### <a name="configuring-tls-cipher-suite-order-by-using-mdm"></a>Konfigurieren der Reihenfolge der TLS-Verschlüsselungssammlungen mithilfe von MDM
 
@@ -124,7 +124,7 @@ Der Prozess für die Verteilung der Kurve ist:
 1.  Verwenden Sie auf Windows 10 und Windows Server 2016, **certutil.exe** Windows eine neue registrierten benannte Kurve hinzu.
 2.  Öffnen Sie von demselben Computer die Gruppe Gruppenrichtlinien-Verwaltungskonsole (GPMC), erstellen Sie ein neues Gruppenrichtlinienobjekt und bearbeiten.
 3.  Navigieren Sie zu **Computerkonfiguration | Einstellungen | Windows-Einstellungen | Registrierung**.  Mit der rechten Maustaste **Registrierung**. Zeigen Sie auf **neu** , und wählen Sie **Sammelelement**. Benennen Sie das sammelelement entsprechend den Namen der Kurve. Erstellen Sie eine Registrierung sammelelement für jeden Registrierungsschlüssel unter *HKEY_LOCAL_MACHINE\CurrentControlSet\Control\Cryptography\ECCParameters*.
-4.  Konfigurieren Sie die neu erstellte Einstellung Registrierung Erfassung von Gruppenrichtlinien durch Hinzufügen eines neuen **Registrierungselement** für jeden Registrierungswert unter aufgeführten *HKEY_LOCAL_MACHINE\CurrentControlSet\Control\Cryptography\ ECCParameters\[partiell]*.
+4.  Konfigurieren Sie die neu erstellte Einstellung Registrierung Erfassung von Gruppenrichtlinien durch Hinzufügen eines neuen **Registrierungselement** für jeden Registrierungswert unter aufgeführten *HKEY_LOCAL_MACHINE\CurrentControlSet\Control\Cryptography\ ECCParameters\[partiell]* .
 5.  Stellen Sie das Gruppenrichtlinienobjekt mit Registrierung Erfassung von Gruppenrichtlinien-Element für Windows 10 und Windows Server 2016-Computer, die die neuen benannten Kurven erhalten soll.
 
     ![GPP Verteilen von Kurven](../media/Transport-Layer-Security-protocol/gpp-distribute-curves.png)

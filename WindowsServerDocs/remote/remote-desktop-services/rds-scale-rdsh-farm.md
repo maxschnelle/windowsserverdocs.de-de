@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 manager: dongill
-ms.openlocfilehash: d243994a68c0bf4f0584f68475a185acb9cb73d5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 0e3852b4ea5f1080a3798c0806e5c87ca808c3be
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865491"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446523"
 ---
 # <a name="scale-out-your-remote-desktop-services-deployment-by-adding-an-rd-session-host-farm"></a>Skalieren Sie Ihre Remote Desktop Services-Bereitstellung durch das Hinzufügen einer Remotedesktop-Sitzungshost-Serverfarm
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2019, WindowsServer 2016
 
 Sie können die Verfügbarkeit und Skalierung Ihrer RDS-Bereitstellung verbessern, durch das Hinzufügen einer Farm Remote Desktop Session Host (RDSH).   
   
@@ -30,7 +30,7 @@ Verwenden Sie die folgenden Schritte aus, um einen anderen Host von RD-Sitzung z
   
 1. Erstellen Sie einen Server aus, um den zweiten Remotedesktop-Sitzungshost zu hosten. Wenn Sie virtuelle Azure-Computer verwenden, stellen Sie sicher, dass den neuen virtuelle Computer in derselben verfügbarkeitsgruppe enthalten, die Ihre erste RD Session Host enthält.
 2. Aktivieren der Remoteverwaltung auf dem neuen Server oder virtuellen Computer:
-   1. Klicken Sie im Server-Manager **lokalen Server > aktuellen remoteverwaltungseinstellung (deaktiviert)**. 
+   1. Klicken Sie im Server-Manager **lokalen Server > aktuellen remoteverwaltungseinstellung (deaktiviert)** . 
    2. Wählen Sie **Aktivieren der Remoteverwaltung für diesen Server**, und klicken Sie dann auf **OK**. 
    3. Optional: Sie können vorübergehend festlegen, dass Windows Update nicht automatisch herunterladen und Installieren von Updates. Verhindert Änderungen und Systemneustarts während der Bereitstellung des RDSH-Servers. Klicken Sie im Server-Manager **lokalen Server > aktuellen Windows Update-Einstellung**. Klicken Sie auf **erweiterte Optionen > Upgrades zurückstellen**. 
 3. Fügen Sie dem Server oder virtuellen Computer zur Domäne hinzu:
@@ -39,8 +39,8 @@ Verwenden Sie die folgenden Schritte aus, um einen anderen Host von RD-Sitzung z
    3. Geben Sie die Anmeldeinformationen des Domänenadministrators ein. 
    4. Starten Sie Server oder virtuellen Computer neu.
 4. Fügen Sie die neuen RD-Sitzungshost zur Farm hinzu:
->[!NOTE] 
-> Schritt 1: erstellen eine öffentliche IP-Adresse für den virtuellen Computer von RDMS, ist nur erforderlich, wenn Sie einen virtuellen Computer für die RDMS verwenden und verfügt es nicht bereits eine IP-Adresse zugewiesen.
+   >[!NOTE] 
+   > Schritt 1: erstellen eine öffentliche IP-Adresse für den virtuellen Computer von RDMS, ist nur erforderlich, wenn Sie einen virtuellen Computer für die RDMS verwenden und verfügt es nicht bereits eine IP-Adresse zugewiesen.
    
    1. Erstellen Sie eine öffentliche IP-Adresse für den virtuellen Computer Remote Desktop Management Services (RDMS). Der RDMS virtuelle Computer werden in der Regel der virtuelle Computer mit die erste Instanz der Rolle "Remotedesktop-Verbindungsbroker".  
        1. Klicken Sie im Azure-Portal auf **Durchsuchen > Ressourcengruppen**, klicken Sie auf die Ressourcengruppe für die Bereitstellung, und klicken Sie dann auf die RDMS virtuelle Maschine (z. B. Contoso-Cb1).  

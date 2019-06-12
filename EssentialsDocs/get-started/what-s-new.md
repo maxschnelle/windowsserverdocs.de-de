@@ -12,20 +12,20 @@ ms.assetid: affff774-5fa6-4944-887a-9bfde05f6a3f
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 7fed7e71f7ac163437fe5d32da7c867f93fbcf00
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bc83686f76c49773203d63a88894841f65ffd1d9
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869971"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433762"
 ---
-#<a name="whats-new-in-windows-server-2016-essentials"></a>Neues in Windows Server 2016 Essentials
+# <a name="whats-new-in-windows-server-2016-essentials"></a>Neues in Windows Server 2016 Essentials
 
 > Gilt für: Windows Server 2016 Essentials
 
 Es folgen neue und verbesserte Funktionen in Windows Server 2016 Essentials.
 
-##<a name="integration-with-azure-site-recovery-servicesazure-site-recovery-services-integrationmd"></a>[Integration mit Azure Site Recovery-Dienste](azure-site-recovery-services-integration.md)
+## <a name="integration-with-azure-site-recovery-servicesazure-site-recovery-services-integrationmd"></a>[Integration mit Azure Site Recovery-Dienste](azure-site-recovery-services-integration.md)
 
 **Funktionsweise** – Wenn eine virtuelle Maschine, ein Fehler auftritt geschützt oder der Hostserver, der den geschützten virtuellen Computer auf einen Fehler verursacht, Failover mit Azure Site Recovery Services ausgeführt wird Geschäftskontinuität, bis die auf lokalen virtuellen Computer verwaltet oder Hostserver ist reparierten und verfügbar. 
 
@@ -40,7 +40,7 @@ Es folgen neue und verbesserte Funktionen in Windows Server 2016 Essentials.
 
 
 
-##<a name="support-for-larger-deploymentssupport-for-larger-deploymentsmd"></a>[Unterstützung für größere Bereitstellungen](support-for-larger-deployments.md) 
+## <a name="support-for-larger-deploymentssupport-for-larger-deploymentsmd"></a>[Unterstützung für größere Bereitstellungen](support-for-larger-deployments.md) 
 
 Einige größere Kleinunternehmen benötigen mehr Funktionalität und Kapazität für Windows Server Essentials effizient einzusetzen. Windows Server 2016 Essentials bietet verbesserte Verwaltbarkeit von Domänen, Benutzern und Geräten durch Hinzufügen von Unterstützung für größere Bereitstellungen mit:                                                                                                                                                                                                 
 
@@ -52,4 +52,4 @@ Einige größere Kleinunternehmen benötigen mehr Funktionalität und Kapazität
 <a name="see-also"></a>Siehe auch
 --------
 
-[Erste Schritte mit Windows Server Essentials](get-started.md)
+[Erste Schritte in Windows Server Essentials](get-started.md)

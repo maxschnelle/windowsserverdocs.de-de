@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 38582706dfa5db2b5069415b81dafc533c8a89b9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a5ed2ef8b1d0238a3608dabdd165a255855a304d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822101"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440874"
 ---
 # <a name="tsecimp"></a>tsecimp
 
@@ -68,102 +68,101 @@ tsecimp /d
         Für jede **Zeile** -Element, Sie können festlegen, die **entfernen** Attribut. Wenn Sie dieses Attribut festlegen, erhält der Benutzer das Gerät für die Zeile nicht mehr. Wenn dieses Attribut nicht festgelegt ist, erhält der Benutzer den Zugriff auf das Gerät für die Zeile an. Wenn das Gerät nicht verfügbar, die dem Benutzer ist kein Fehler ausgegeben.
 
 ## <a name="examples"></a>Beispiele
--   Das folgende Beispiel XML-Code-Segmente veranschaulichen die korrekte Verwendung der oben definierten Elemente.  
-    -   Der folgende Code entfernt alle "user1" zugewiesen.  
-        ```
-        <UserList>
-          <User NoMerge="1">
-            <DomainUser>domain1\user1</DomainUser>
-          </User>
-        </UserList>
-        ```  
-    -   Der folgende Code entfernt alle "user1" zugewiesen sind, bevor Sie eine Zeile mit der Adresse 99999 zuweisen. "User1" müssen keine weiteren Zeilen Geräte zugewiesen, unabhängig davon, ob alle Geräte Zeile zuvor zugewiesen wurden.  
-        ```
-        <UserList>
-          <User NoMerge="1">
-            <DomainUser>domain1\user1</DomainUser>
-            <FriendlyName>User1</FriendlyName>
-            <LineList>
-              <Line>
-                <Address>99999</Address>
-              </Line>
-            </LineList>
-          </User>
-        </UserList>
-        
-        ```  
-    -   Der folgende Code Fügt eine Zeile Gerät für "user1" ohne alle zuvor zugewiesenen Zeile Geräte zu löschen.  
-        ```
-        <UserList>
-          <User>
-            <DomainUser>domain1\user1</DomainUser>
-            <FriendlyName>User1</FriendlyName>
-            <LineList>
-              <Line>
-                <Address>99999</Address>
-              </Line>
-            </LineList>
-          </User>
-        </UserList>
-        
-        ```  
-    -   Der folgende Code fügt der Zeile Adresse 99999 und Anschlussadresse 88888 "user1"s Zugriff entfernt.  
-        ```
-        <UserList>
-          <User>
-            <DomainUser>domain1\user1</DomainUser>
-            <FriendlyName>User1</FriendlyName>
-            <LineList>
-              <Line>
-                <Address>99999</Address>
-              </Line>
-              <Line Remove="1">
-                <Address>88888</Address>
-              </Line>
-            </LineList>
-          </User>
-        </UserList>
-        
-        ```  
-    -   Der folgende Code fügt permanenten Medien 1000 und 88888 "user1"s Zugriff entfernt werden.  
-        ```
-        <UserList>
-          <User>
-            <DomainUser>domain1\user1</DomainUser>
-            <FriendlyName>User1</FriendlyName>
-            <LineList>
-              <Line>
-                <PermanentID>1000</PermanentID>
-              </Line>
-              <Line Remove="1">
-                <Address>88888</Address>
-              </Line>
-            </LineList>
-          </User>
-        </UserList>
-        
-        
-        ```  
--   Die folgende Beispielausgabe angezeigt wird, nachdem die **/d** Befehlszeilenoption wird angegeben, um die aktuellen TAPI-Konfiguration anzuzeigen. Für jeden Telefonieanbieter werden die dazugehörigen Linie Geräte aufgeführt, sowie die Adressen und die Benutzer und jedes Gerät Zeile zugeordnet sind.  
+- Das folgende Beispiel XML-Code-Segmente veranschaulichen die korrekte Verwendung der oben definierten Elemente.  
+  - Der folgende Code entfernt alle "user1" zugewiesen.  
+    ```
+    <UserList>
+      <User NoMerge="1">
+        <DomainUser>domain1\user1</DomainUser>
+      </User>
+    </UserList>
+    ```  
+  - Der folgende Code entfernt alle "user1" zugewiesen sind, bevor Sie eine Zeile mit der Adresse 99999 zuweisen. "User1" müssen keine weiteren Zeilen Geräte zugewiesen, unabhängig davon, ob alle Geräte Zeile zuvor zugewiesen wurden.  
+    ```
+    <UserList>
+      <User NoMerge="1">
+        <DomainUser>domain1\user1</DomainUser>
+        <FriendlyName>User1</FriendlyName>
+        <LineList>
+          <Line>
+            <Address>99999</Address>
+          </Line>
+        </LineList>
+      </User>
+    </UserList>
+    ```  
+  - Der folgende Code Fügt eine Zeile Gerät für "user1" ohne alle zuvor zugewiesenen Zeile Geräte zu löschen.  
+    ```
+    <UserList>
+      <User>
+        <DomainUser>domain1\user1</DomainUser>
+        <FriendlyName>User1</FriendlyName>
+        <LineList>
+          <Line>
+            <Address>99999</Address>
+          </Line>
+        </LineList>
+      </User>
+    </UserList>
+    ```  
+  - Der folgende Code fügt der Zeile Adresse 99999 und Anschlussadresse 88888 "user1"s Zugriff entfernt.  
+    ```
+    <UserList>
+      <User>
+        <DomainUser>domain1\user1</DomainUser>
+        <FriendlyName>User1</FriendlyName>
+        <LineList>
+          <Line>
+            <Address>99999</Address>
+          </Line>
+          <Line Remove="1">
+            <Address>88888</Address>
+          </Line>
+        </LineList>
+      </User>
+    </UserList>
+    ```  
+  - Der folgende Code fügt permanenten Medien 1000 und 88888 "user1"s Zugriff entfernt werden.  
+    ```
+    <UserList>
+      <User>
+        <DomainUser>domain1\user1</DomainUser>
+        <FriendlyName>User1</FriendlyName>
+        <LineList>
+          <Line>
+            <PermanentID>1000</PermanentID>
+          </Line>
+          <Line Remove="1">
+            <Address>88888</Address>
+          </Line>
+        </LineList>
+      </User>
+    </UserList>
+
+
+~~~
+    ```  
+~~~
+-   The following sample output appears after the **/d** command-line option is specified to display the current TAPI configuration. For each telephony provider, the associated line devices are listed, as well as the addresses and users associated with each line device.  
     ```
     NDIS Proxy TAPI Service Provider
             Line: "WAN Miniport (L2TP)"
                     Permanent ID: 12345678910
-    
+
     NDIS Proxy TAPI Service Provider
             Line: "LPT1DOMAIN1\User1"
                     Permanent ID: 12345678910
-    
+
     Microsoft H.323 Telephony Service Provider
             Line: "H323 Line"
                     Permanent ID: 123456
                     Addresses:
                             BLDG1-TAPI32
-    
+
     ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+#### Additional references
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Command-Line Syntax Key](command-line-syntax-key.md)
 
-[Übersicht über die Befehlsshell](https://technet.microsoft.com/library/cc737438(v=ws.10).aspx)
+[Command shell overview](https://technet.microsoft.com/library/cc737438(v=ws.10).aspx)

@@ -9,12 +9,12 @@ author: justinha
 ms.author: justinha
 ms.technology: security-guarded-fabric
 ms.date: 01/30/2019
-ms.openlocfilehash: d63726e7046896c9ef7aa0c3b3d85237bc3f788d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8e1ef34370b1459cd55705bc0069b49a572de303
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879061"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447529"
 ---
 # <a name="quick-start-for-guarded-fabric-deployment"></a>Schnellstart für die Bereitstellung eines geschützten Fabrics
 
@@ -107,7 +107,7 @@ Für den TPM-Modus sind drei Schritte erforderlich:
 
 1.  Ein _öffentlichen Endorsement Key_ (oder _EKpub_) aus der TPM 2.0 auf jeder einzelnen Hyper-V-Host. Verwenden Sie zum Erfassen der EKpub `Get-PlatformIdentifier`. 
 2.  Ein _Hardware Baseline_. Wenn Hyper-V-Hosts identisch sind, ist eine einzelne Baseline alles, was, die Sie benötigen. Ist dies nicht der Fall ist, müssen Sie eine für jede Klasse von Hardware dafür. Die Baseline ist in Form einer Protokolldatei Trustworthy Computing Group und TCGlog. Die TCGlog enthält alle Daten, die der Host aus der UEFI-Firmware über den Kernel, bis, in dem der Host vollständig gestartet wurde. Um die Hardware-Baseline zu erfassen, installieren Sie die Hyper-V-Rolle und das Feature Hyper-V-Unterstützung für Host-Überwachungsdiensts, und verwenden Sie `Get-HgsAttestationBaselinePolicy`. 
-3.  Ein _codeintegritätsrichtlinie_. Wenn Ihre Hyper-V-Hosts identisch sind, ist eine einzelne codeintegritätsrichtlinie alles, was, die Sie benötigen. Ist dies nicht der Fall ist, müssen Sie eine für jede Klasse von Hardware dafür. Windows Server 2016 und Windows 10 verfügen jeweils über eine neue Art der Erzwingung für CI-Richtlinien, die Namen _(Hypervisor enforced Code Integrity, HVCI)_. HVCI bietet sicheres Erzwingung und stellt sicher, dass ein Host darf nur Binärdateien ausgeführt werden, die ein vertrauenswürdiger Administrator Ausführung zulässig ist. Diese Anweisungen werden in einer codeintegritätsrichtlinie eingeschlossen, die Host-Überwachungsdienst hinzugefügt wird. Host-Überwachungsdienst misst die codeintegritätsrichtlinie des Hosts, bevor sie zum Ausführen geschützter VMs zulässig sind. Verwenden Sie zum Erfassen einer codeintegritätsrichtlinie `New-CIPolicy`. Anschließend muss die Richtlinie mit seiner binären Form konvertiert `ConvertFrom-CIPolicy`.
+3.  Ein _codeintegritätsrichtlinie_. Wenn Ihre Hyper-V-Hosts identisch sind, ist eine einzelne codeintegritätsrichtlinie alles, was, die Sie benötigen. Ist dies nicht der Fall ist, müssen Sie eine für jede Klasse von Hardware dafür. Windows Server 2016 und Windows 10 verfügen jeweils über eine neue Art der Erzwingung für CI-Richtlinien, die Namen _(Hypervisor enforced Code Integrity, HVCI)_ . HVCI bietet sicheres Erzwingung und stellt sicher, dass ein Host darf nur Binärdateien ausgeführt werden, die ein vertrauenswürdiger Administrator Ausführung zulässig ist. Diese Anweisungen werden in einer codeintegritätsrichtlinie eingeschlossen, die Host-Überwachungsdienst hinzugefügt wird. Host-Überwachungsdienst misst die codeintegritätsrichtlinie des Hosts, bevor sie zum Ausführen geschützter VMs zulässig sind. Verwenden Sie zum Erfassen einer codeintegritätsrichtlinie `New-CIPolicy`. Anschließend muss die Richtlinie mit seiner binären Form konvertiert `ConvertFrom-CIPolicy`.
 
 ![Extrahieren von Identitäten, Baseline und codeintegritätsrichtlinie](../media/Guarded-Fabric-Shielded-VM/guarded-fabric-deployment-step-three-extract-identity-baseline-ci-policy.png)
 
@@ -165,5 +165,5 @@ Erstellen von geschützten virtuellen Maschinen unterscheidet sich geringfügig 
 
 ## <a name="next-step"></a>Nächster Schritt
 
->[!div class="nextstepaction"]
-[Host-Überwachungsdienst-Voraussetzungen](guarded-fabric-prepare-for-hgs.md)
+> [!div class="nextstepaction"]
+> [Host-Überwachungsdienst-Voraussetzungen](guarded-fabric-prepare-for-hgs.md)

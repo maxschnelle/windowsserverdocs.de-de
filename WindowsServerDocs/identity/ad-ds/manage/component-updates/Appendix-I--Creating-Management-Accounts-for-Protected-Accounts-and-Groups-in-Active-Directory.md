@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: c71b96f6c44cfc2b14b4c5d203f876e55cc728ec
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e90c2c075ba2dc2b63e9a18c9eba192116265b90
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855631"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443522"
 ---
 # <a name="appendix-i-creating-management-accounts-for-protected-accounts-and-groups-in-active-directory"></a>Anhang I: Erstellen von Verwaltungskonten für geschützte Konten und Gruppen in Active Directory
 
@@ -150,35 +150,35 @@ Um die Management-Konten zu erstellen, führen Sie die folgenden Schritte aus:
   
 10. Auf der **Objekt** Registerkarte **schützen Objekt vor zufälligem Löschen**. Dies wird nicht nur verhindert, dass das Objekt (sogar von autorisierten Benutzern) gelöscht wird, aber es wird verhindert, dass es verschoben wird, in eine andere Organisationseinheit in Ihrer AD DS-Hierarchie, es sei denn, die von einem Benutzer mit Berechtigung zum Ändern des Attributs zuerst das Kontrollkästchen deaktiviert ist.  
 
-   ![Erstellen von Management-Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_125.png)  
+    ![Erstellen von Management-Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_125.png)  
 
 11. Klicken Sie auf die **Remotesteuerung** Registerkarte.  
 
 12. Deaktivieren der **Aktivieren der Remotesteuerung** Flag. Es sollte nie für die Supportmitarbeiter für die Verbindung an dieses Konto-Sitzungen zum Implementieren von Fehlerbehebungen erforderlich sein.  
 
-   ![Erstellen von Management-Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_126.png)  
+    ![Erstellen von Management-Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_126.png)  
 
-   > [!NOTE]  
-   > Jedes Objekt in Active Directory müssen einen bestimmten IT-Besitzer und einer entsprechenden zuständigen-Besitzer, siehe [Planen der Gefährdung](../../../ad-ds/plan/security-best-practices/Planning-for-Compromise.md). Wenn Sie den Besitz von AD DS-Objekte in Active Directory (im Gegensatz zu einer externen Datenbank) verfolgen, sollten Sie geeignete ownershipinformationen in die Eigenschaften dieses Objekts eingeben.  
-   >
-   > In diesem Fall der Geschäftseigentümer ist sehr wahrscheinlich ein IT-Abteilung, Andthere ist keine Ablehnung von Geschäftsinhaber wird auch IT-Besitzer. Der Punkt der Einrichtung des Besitzes von Objekten ist es Ihnen ermöglichen, die Kontakte zu identifizieren, wenn Änderungen an den Objekten, z. B. Jahre nach ihrer anfänglichen Erstellung vorgenommen werden müssen.  
+    > [!NOTE]  
+    > Jedes Objekt in Active Directory müssen einen bestimmten IT-Besitzer und einer entsprechenden zuständigen-Besitzer, siehe [Planen der Gefährdung](../../../ad-ds/plan/security-best-practices/Planning-for-Compromise.md). Wenn Sie den Besitz von AD DS-Objekte in Active Directory (im Gegensatz zu einer externen Datenbank) verfolgen, sollten Sie geeignete ownershipinformationen in die Eigenschaften dieses Objekts eingeben.  
+    >
+    > In diesem Fall der Geschäftseigentümer ist sehr wahrscheinlich ein IT-Abteilung, Andthere ist keine Ablehnung von Geschäftsinhaber wird auch IT-Besitzer. Der Punkt der Einrichtung des Besitzes von Objekten ist es Ihnen ermöglichen, die Kontakte zu identifizieren, wenn Änderungen an den Objekten, z. B. Jahre nach ihrer anfänglichen Erstellung vorgenommen werden müssen.  
 
 13. Klicken Sie auf die **Organisation** Registerkarte.  
 
 14. Geben Sie alle erforderlichen Informationen in Ihren AD DS-Objekt-Standards ein.  
 
-   ![Erstellen von Management-Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_127.png)  
+    ![Erstellen von Management-Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_127.png)  
 
 15. Klicken Sie auf die **einwählen** Registerkarte.  
 
 16. In der **Netzwerk Zugriffsberechtigung** die Option **Verweigern des Zugriffs**. Dieses Konto sollte nie über eine Remoteverbindung eine Verbindung herstellen müssen.  
 
-   ![Erstellen von Management-Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_128.png)  
+    ![Erstellen von Management-Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_128.png)  
 
-   > [!NOTE]  
-   > Es ist unwahrscheinlich, dass dieses Konto zur Anmeldung beim schreibgeschützten Domänencontrollern (RODCs in Ihrer Umgebung) verwendet werden. Sollte Situation je erfordern jedoch das Konto aus, melden Sie sich bei einem RODC, Sie sollten dieses Konto hinzufügen verweigert RODC-Kennwortreplikationsgruppe, damit das Kennwort nicht auf dem RODC zwischengespeichert werden.  
-   >
-   > Obwohl das Kennwort des Kontos nach jeder Verwendung zurückgesetzt werden soll, und das Konto deaktiviert werden sollte, implementieren diese Einstellung keine zeitliche für das Konto, und es vielleicht hilfreich in Situationen, in denen ein Administrator, zum Zurücksetzen des Kontos vergisst das Kennwort, und deaktivieren.  
+    > [!NOTE]  
+    > Es ist unwahrscheinlich, dass dieses Konto zur Anmeldung beim schreibgeschützten Domänencontrollern (RODCs in Ihrer Umgebung) verwendet werden. Sollte Situation je erfordern jedoch das Konto aus, melden Sie sich bei einem RODC, Sie sollten dieses Konto hinzufügen verweigert RODC-Kennwortreplikationsgruppe, damit das Kennwort nicht auf dem RODC zwischengespeichert werden.  
+    >
+    > Obwohl das Kennwort des Kontos nach jeder Verwendung zurückgesetzt werden soll, und das Konto deaktiviert werden sollte, implementieren diese Einstellung keine zeitliche für das Konto, und es vielleicht hilfreich in Situationen, in denen ein Administrator, zum Zurücksetzen des Kontos vergisst das Kennwort, und deaktivieren.  
 
 17. Klicken Sie auf die Registerkarte **Mitglied von**.  
 
@@ -188,42 +188,42 @@ Um die Management-Konten zu erstellen, führen Sie die folgenden Schritte aus:
 
 20. Klicken Sie auf **OK**.  
 
-   ![Erstellen von Management-Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_129.png)  
+    ![Erstellen von Management-Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_129.png)  
 
 21. Klicken Sie auf die **Sicherheit** Registerkarte, und klicken Sie auf **erweitert**.  
 
 22. In der **Advanced Security Settings** Dialogfeld klicken Sie auf **Vererbung deaktivieren** und kopieren Sie die geerbten Berechtigungen als explizite Berechtigungen, und klicken Sie auf **hinzufügen**.  
 
-   ![Erstellen von Management-Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_130.png)  
+    ![Erstellen von Management-Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_130.png)  
 
 23. In der **Berechtigungseintrag für [Konto]** Dialogfeld klicken Sie auf **Prinzipal auswählen** und fügen Sie die Gruppe, die Sie im vorherigen Verfahren erstellt haben. Scrollen Sie zum unteren Rand des Dialogfelds, und klicken Sie auf **deaktivieren Sie alle** alle Standardberechtigungen entfernen.  
 
-   ![Erstellen von Management-Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_131.png)  
+    ![Erstellen von Management-Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_131.png)  
 
 24. Führen Sie einen Bildlauf an den Anfang der **Berechtigungseintrag** Dialogfeld. Sicherstellen, dass die **Typ** Dropdown-Listenfeld nastaven NA hodnotu **zulassen**, und klicken Sie in der **gilt für** Dropdown-Liste **nur dieses Objekt**.  
 
 25. In der **Berechtigungen** die Option **alle Eigenschaften lesen**, **Leseberechtigungen**, und **Zurücksetzen des Kennworts**.  
 
-   ![Erstellen von Management-Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_132.png)  
+    ![Erstellen von Management-Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_132.png)  
 
-26. In der **Eigenschaften** die Option **lesen "UserAccountControl"** und **schreiben "UserAccountControl"**.  
+26. In der **Eigenschaften** die Option **lesen "UserAccountControl"** und **schreiben "UserAccountControl"** .  
 
 27. Klicken Sie auf **OK**, **OK** erneut in die **Advanced Security Settings** Dialogfeld.  
 
-   ![Erstellen von Management-Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_133.png)  
+    ![Erstellen von Management-Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_133.png)  
 
-   > [!NOTE]  
-   > Die **"UserAccountControl"** Attribut steuert die Optionen für die Konfiguration mehrerer Konten. Sie können keine Berechtigung, um nur einige der Konfigurationsoptionen ändern, wenn Sie über die Schreibberechtigung für das Attribut gewähren, gewähren.  
+    > [!NOTE]  
+    > Die **"UserAccountControl"** Attribut steuert die Optionen für die Konfiguration mehrerer Konten. Sie können keine Berechtigung, um nur einige der Konfigurationsoptionen ändern, wenn Sie über die Schreibberechtigung für das Attribut gewähren, gewähren.  
 
 28. In der **Gruppen-oder Benutzernamen** Feld der **Sicherheit** Registerkarte, entfernen Sie alle Gruppen, die zum Abrufen oder verwalten das Konto keinen Zugriff haben sollte. Entfernen Sie alle Gruppen, die mit Verweigern-ACEs konfiguriert wurden nicht auf, wie z. B. die Gruppe "Jeder" und der eigenen Konto berechnet (ACE wurde festgelegt, wenn die **Benutzer kann Kennwort nicht ändern** Kennzeichen für den während der Erstellung des Kontos aktiviert wurde. Entfernen Sie auch nicht die Gruppe, die Sie gerade hinzugefügt haben, die SYSTEM-Konto oder Gruppen wie z. B. Enterprise Agreement, DA, BA oder der Windows-Autorisierungszugriffsgruppe.  
 
-   ![Erstellen von Management-Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_134.png)  
+    ![Erstellen von Management-Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_134.png)  
 
 29. Klicken Sie auf **erweitert** und stellen Sie sicher, dass das Dialogfeld "Erweiterte Sicherheitseinstellungen" ähnlich wie im folgenden Screenshot aussieht.  
 
 30. Klicken Sie auf **OK**, und **OK** erneut aus, um die im Eigenschaftendialogfeld des Kontos zu schließen.  
 
-   ![Erstellen von Management-Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_135.png)  
+    ![Erstellen von Management-Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_135.png)  
 
 31. Einrichten des Kontos für die erste ist nun abgeschlossen. Testen Sie das Konto in einer späteren Prozedur.  
 
@@ -251,56 +251,56 @@ Siehe [Anhang C: Geschützte Konten und Gruppen in Active Directory](../../../ad
   
 In diesem Fall werden Sie gewähren der neu erstellte Management-Konten, damit sie lesen und schreiben, die die Member-Attribut für Gruppenobjekte. Allerdings das AdminSDHolder-Objekt ist kein Group-Objekt, und Gruppieren von Attributen werden nicht in der grafischen ACL-Editor verfügbar gemacht. Es ist deshalb, dass Sie die berechtigungsänderungen über das Dsacls-Befehlszeilen-Hilfsprogramm implementieren. Um die Verwaltung (deaktiviert) Berechtigungen zum Ändern der Mitgliedschaft einer geschützten Gruppe gewähren, führen Sie die folgenden Schritte aus:  
   
-1.  Melden Sie sich auf einen Domänencontroller, vorzugsweise für den Domänencontroller, die mit der Rolle PDC-Emulator (PDCE) mit den Anmeldeinformationen eines Benutzerkontos an, die ein Mitglied der Gruppe "Daten" in der Domäne vorgenommen wurde.  
+1. Melden Sie sich auf einen Domänencontroller, vorzugsweise für den Domänencontroller, die mit der Rolle PDC-Emulator (PDCE) mit den Anmeldeinformationen eines Benutzerkontos an, die ein Mitglied der Gruppe "Daten" in der Domäne vorgenommen wurde.  
   
-    ![Erstellen von Management-Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_136.png)  
+   ![Erstellen von Management-Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_136.png)  
   
-2.  Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten, indem Sie mit der rechten Maustaste **Eingabeaufforderung** , und klicken Sie auf **als Administrator ausführen**.  
+2. Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten, indem Sie mit der rechten Maustaste **Eingabeaufforderung** , und klicken Sie auf **als Administrator ausführen**.  
   
-    ![Erstellen von Management-Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_137.gif)  
+   ![Erstellen von Management-Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_137.gif)  
   
-3.  Wenn Sie dazu aufgefordert werden, die Erhöhung zustimmen, klicken Sie auf **Ja**.  
+3. Wenn Sie dazu aufgefordert werden, die Erhöhung zustimmen, klicken Sie auf **Ja**.  
   
-    ![Erstellen von Management-Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_138.gif)  
+   ![Erstellen von Management-Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_138.gif)  
   
-    > [!NOTE]  
-    > Weitere Informationen zur Erhöhung der Rechte und Benutzer Benutzerkontensteuerung (UAC) in Windows finden Sie unter [UAC-Prozesse und-Interaktionen](https://technet.microsoft.com/library/dd835561(v=WS.10).aspx) auf der TechNet-Website.  
+   > [!NOTE]  
+   > Weitere Informationen zur Erhöhung der Rechte und Benutzer Benutzerkontensteuerung (UAC) in Windows finden Sie unter [UAC-Prozesse und-Interaktionen](https://technet.microsoft.com/library/dd835561(v=WS.10).aspx) auf der TechNet-Website.  
   
-4.  An der Eingabeaufforderung den Befehl (ersetzen Ihre Informationen mit Domänenspezifischer) **Dsacls [distinguished Name der das Objekt "AdminSDHolder" in Ihrer Domäne] / g [Verwaltungskonto UPN]: RPWP; Member**.  
+4. An der Eingabeaufforderung den Befehl (ersetzen Ihre Informationen mit Domänenspezifischer) **Dsacls [distinguished Name der das Objekt "AdminSDHolder" in Ihrer Domäne] / g [Verwaltungskonto UPN]: RPWP; Member**.  
   
-    ![Erstellen von Management-Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_139.gif)  
+   ![Erstellen von Management-Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_139.gif)  
   
-    Der vorherige Befehl (bei dem Groß-und Kleinschreibung nicht beachtet) funktioniert wie folgt aus:  
+   Der vorherige Befehl (bei dem Groß-und Kleinschreibung nicht beachtet) funktioniert wie folgt aus:  
   
-    -   DSACLS legt fest oder zeigt ACEs für Verzeichnisobjekte  
+   - DSACLS legt fest oder zeigt ACEs für Verzeichnisobjekte  
   
-    -   CN = AdminSDHolder, CN = System, DC = TailSpinToys, DC = Msft identifiziert das Objekt geändert werden  
+   - CN = AdminSDHolder, CN = System, DC = TailSpinToys, DC = Msft identifiziert das Objekt geändert werden  
   
-    -   / G gibt an, dass eine Zuweisung ACE konfiguriert wird  
+   - / G gibt an, dass eine Zuweisung ACE konfiguriert wird  
   
-    -   PIM001@tailspintoys.msft wird der Benutzer Benutzerprinzipalname (UPN) des Sicherheitsprinzipals, der die ACEs gewährt wird  
+   - PIM001@tailspintoys.msft wird der Benutzer Benutzerprinzipalname (UPN) des Sicherheitsprinzipals, der die ACEs gewährt wird  
   
-    -   Diese Berechtigung gewährt RPWP-Eigenschaft lesen und Schreibberechtigungen für die Eigenschaft  
+   - Diese Berechtigung gewährt RPWP-Eigenschaft lesen und Schreibberechtigungen für die Eigenschaft  
   
-    -   Member ist der Name der Eigenschaft (Attribut) auf dem die Berechtigungen festgelegt wird  
+   - Member ist der Name der Eigenschaft (Attribut) auf dem die Berechtigungen festgelegt wird  
   
-    Weitere Informationen zur Verwendung von **Dsacls**, Dsacls ohne Parameter an einer Eingabeaufforderung eingeben.  
+   Weitere Informationen zur Verwendung von **Dsacls**, Dsacls ohne Parameter an einer Eingabeaufforderung eingeben.  
   
-    Wenn Sie mehrere Verwaltungskonten für die Domäne erstellt haben, sollten Sie auf den der Befehl für jedes Konto ausführen. Wenn Sie die ACL-Konfiguration für das AdminSDHolder-Objekt abgeschlossen haben, sollten Sie SDProp ausführen, oder warten Sie bis zum Abschluss der geplanten Ausführung erzwingen. Weitere Informationen zum Erzwingen von SDProp ausführen, finden Sie unter "Manually SDProp ausführen" in [Anhang C: Geschützte Konten und Gruppen in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory.md).  
+   Wenn Sie mehrere Verwaltungskonten für die Domäne erstellt haben, sollten Sie auf den der Befehl für jedes Konto ausführen. Wenn Sie die ACL-Konfiguration für das AdminSDHolder-Objekt abgeschlossen haben, sollten Sie SDProp ausführen, oder warten Sie bis zum Abschluss der geplanten Ausführung erzwingen. Weitere Informationen zum Erzwingen von SDProp ausführen, finden Sie unter "Manually SDProp ausführen" in [Anhang C: Geschützte Konten und Gruppen in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory.md).  
   
-    Wenn SDProp ausgeführt wurde, können Sie überprüfen, die an das AdminSDHolder-Objekt vorgenommenen Änderungen zu geschützten Gruppen, die in der Domäne angewendet wurden. Sie können nicht dies überprüfen, indem Sie die ACL für das AdminSDHolder-Objekt anzeigen, die zuvor beschriebenen Gründen, aber zu überprüfen, ob die Berechtigungen angewendet wurden, indem Sie die ACLs in geschützten Gruppen, die anzeigen.  
+   Wenn SDProp ausgeführt wurde, können Sie überprüfen, die an das AdminSDHolder-Objekt vorgenommenen Änderungen zu geschützten Gruppen, die in der Domäne angewendet wurden. Sie können nicht dies überprüfen, indem Sie die ACL für das AdminSDHolder-Objekt anzeigen, die zuvor beschriebenen Gründen, aber zu überprüfen, ob die Berechtigungen angewendet wurden, indem Sie die ACLs in geschützten Gruppen, die anzeigen.  
   
-5.  In **Active Directory-Benutzer und-Computer**, stellen Sie sicher, dass Sie aktiviert haben **erweiterte Features**. Zu diesem Zweck klicken Sie auf **Ansicht**, suchen Sie die **Domänen-Admins** gruppieren, mit der rechten Maustaste in der Gruppe aus, und klicken Sie auf **Eigenschaften**.  
+5. In **Active Directory-Benutzer und-Computer**, stellen Sie sicher, dass Sie aktiviert haben **erweiterte Features**. Zu diesem Zweck klicken Sie auf **Ansicht**, suchen Sie die **Domänen-Admins** gruppieren, mit der rechten Maustaste in der Gruppe aus, und klicken Sie auf **Eigenschaften**.  
   
-6.  Klicken Sie auf die **Sicherheit** Registerkarte, und klicken Sie auf **erweitert** zum Öffnen der **erweiterte Sicherheitseinstellungen für Domänen-Admins** Dialogfeld.  
+6. Klicken Sie auf die **Sicherheit** Registerkarte, und klicken Sie auf **erweitert** zum Öffnen der **erweiterte Sicherheitseinstellungen für Domänen-Admins** Dialogfeld.  
   
-    ![Erstellen von Management-Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_140.gif)  
+   ![Erstellen von Management-Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_140.gif)  
   
-7.  Wählen Sie **ermöglichen ACE für das Verwaltungskonto** , und klicken Sie auf **bearbeiten**. Stellen Sie sicher, dass das Konto nur erteilt wurde **Lesemitglieder** und **Mitglieder schreiben** Berechtigungen für die Gruppe von Daten, und klicken Sie auf **OK**.  
+7. Wählen Sie **ermöglichen ACE für das Verwaltungskonto** , und klicken Sie auf **bearbeiten**. Stellen Sie sicher, dass das Konto nur erteilt wurde **Lesemitglieder** und **Mitglieder schreiben** Berechtigungen für die Gruppe von Daten, und klicken Sie auf **OK**.  
   
-8.  Klicken Sie auf **OK** in die **Advanced Security Settings** (Dialogfeld), und klicken Sie auf **OK** erneut aus, um das Eigenschaftendialogfeld für die Gruppe von Daten zu schließen.  
+8. Klicken Sie auf **OK** in die **Advanced Security Settings** (Dialogfeld), und klicken Sie auf **OK** erneut aus, um das Eigenschaftendialogfeld für die Gruppe von Daten zu schließen.  
   
-    ![Erstellen von Management-Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_141.gif)  
+   ![Erstellen von Management-Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_141.gif)  
   
 9. Sie können die vorherigen Schritte für andere geschützte Gruppen in der Domäne wiederholen; die Berechtigungen sollten für alle geschützten Gruppen, die identisch sein. Sie haben jetzt die Erstellung und Konfiguration von der Management-Konten für die geschützten Gruppen, die in dieser Domäne abgeschlossen.  
   
@@ -368,7 +368,7 @@ Nun, dass Sie ein oder mehrere Konten aktiviert haben, die die Mitgliedschaft ei
   
     ![Erstellen von Management-Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_151.gif)  
   
-2.  Starten Sie **Active Directory-Benutzer und-Computer** und suchen Sie nach der **Gruppe "Domänenadministratoren"**.  
+2.  Starten Sie **Active Directory-Benutzer und-Computer** und suchen Sie nach der **Gruppe "Domänenadministratoren"** .  
   
 3.  Mit der rechten Maustaste die **Domänen-Admins** gruppieren, und klicken Sie auf **Eigenschaften**.  
   

@@ -14,12 +14,12 @@ ms.assetid: fdee02ec-3a7e-473e-9784-2889dc1b6dbb
 ms.author: pashort
 author: shortpatti
 ms.date: 09/13/2018
-ms.openlocfilehash: d39dc6a4dcf5dca8186b0599fb479ed5ae684e0f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a6af3cbd038e97d889269b83d72c77c50680e513
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856251"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446169"
 ---
 # <a name="troubleshooting-nic-teaming"></a>Problembehandlung beim NIC-Teamvorgang
 
@@ -44,7 +44,7 @@ Je nach der Konfiguration möglicherweise NIC-Teamvorgang Pakete die gleiche IP-
 
 Eine häufige Ursache für das Fehlschlagen eines NIC-Teams ist, dass die teamschnittstelle deaktiviert ist, und in vielen Fällen verhindern, wenn eine Sequenz von Befehlen ausgeführt.  Diese bestimmte Sequenz von Befehlen ermöglicht nicht aller der NetAdapters deaktiviert, da die NIC-Team-Schnittstelle deaktivieren alle zugrunde liegenden physischen Mitglieder von NICs entfernt werden. 
 
-In diesem Fall die NIC-Team-Schnittstelle nicht mehr angezeigt wird, in der Get-NetAdapter und aus diesem Grund **aktivieren-NetAdapter \***  ermöglicht nicht das NIC-Team. Die **aktivieren-NetAdapter \***  Befehl der Fall ist, jedoch aktivieren, das Element Netzwerkkarten, die (nach kurzer Zeit) klicken Sie dann die teamschnittstelle erstellt. Die teamschnittstelle bleibt im Zustand "deaktiviert" erst wieder aktiviert, Netzwerk-Datenverkehr fließen beginnen. 
+In diesem Fall die NIC-Team-Schnittstelle nicht mehr angezeigt wird, in der Get-NetAdapter und aus diesem Grund **aktivieren-NetAdapter \\** * ermöglicht nicht das NIC-Team. Die **aktivieren-NetAdapter \\** * Befehl der Fall ist, jedoch aktivieren, das Element Netzwerkkarten, die (nach kurzer Zeit) klicken Sie dann die teamschnittstelle erstellt. Die teamschnittstelle bleibt im Zustand "deaktiviert" erst wieder aktiviert, Netzwerk-Datenverkehr fließen beginnen. 
 
 Die folgende Windows PowerShell Befehlsfolge kann die teamschnittstelle versehentlich deaktivieren:  
   

@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 09/10/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 8684926beb0f0c911ac384970d15ba7d25f84079
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: ddf6a816e417c2eddff090df8dba841a894a3255
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65475936"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447671"
 ---
 # <a name="enable-always-offline-mode-for-faster-access-to-files"></a>Aktivieren Sie für einen schnelleren Zugriff auf Dateien immer Offline-Modus
 
@@ -44,7 +44,7 @@ Um immer Offline-Modus zu aktivieren, mithilfe von Gruppenrichtlinien zum Aktivi
 6. Wählen Sie **Aktiviert** aus.
 7. In der **Optionen** Kontrollkästchen **anzeigen**. Die **Inhalt anzeigen Fenster** wird angezeigt.
 8. In der **Wertnamen** geben die Dateifreigabe, die für die Sie aktivieren, immer Offline-Modus möchten.
-9. Um auf alle freigegebenen Ordner immer Offline-Modus zu aktivieren, geben Sie **\***.
+9. Um auf alle freigegebenen Ordner immer Offline-Modus zu aktivieren, geben Sie **\\***.
 10. In der **Wert** geben **Latenz = 1** Schwellenwert für die Latenzzeit auf 1 Millisekunde festgelegt, und wählen Sie dann **OK**.
 
 >[!NOTE]

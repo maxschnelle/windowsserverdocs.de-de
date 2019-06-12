@@ -4,23 +4,23 @@ description: Wie kann PAW Sicherheitsstatus Ihrer Organisation steigern
 ms.prod: windows-server-threshold
 ms.topic: article
 ms.assetid: 93589778-3907-4410-8ed5-e7b6db406513
-ms.date: 02/14/2019
+ms.date: 03/13/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: mas
-ms.openlocfilehash: fd87ef674fcfefa8e2dc1d7122de64ed8f5510a0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 846307e19324ab18f8bbfd84971108871b677aeb
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59891261"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445878"
 ---
 # <a name="privileged-access-workstations"></a>Arbeitsstationen mit privilegiertem Zugriff
 
 >Gilt für: Windows Server
 
-Arbeitsstationen mit privilegiertem Zugriff (Privileged Access Workstations, PAWs) stellen ein dediziertes Betriebssystem für sensible Aufgaben bereit, das vor Angriffen aus dem Internet und der Übertragung von Bedrohungen geschützt ist. Die Trennung dieser sensiblen Aufgaben und Konten von den Arbeitsstationen und Geräten für den täglichen Gebrauch bietet ein sehr hohes Maß an Schutz vor Phishingangriffen, Sicherheitsrisiken bei Anwendungen und Betriebssystemen, Angriffen durch Identitätsvortäuschung und Diebstahl von Anmeldeinformationen, beispielsweise durch Aufzeichnung von Tastaturanschlägen sowie [Pass-the-Hash](https://www.microsoft.com/en-us/download/details.aspx?id=36036)- und [Pass-the-Ticket](https://download.microsoft.com/download/7/7/A/77ABC5BD-8320-41AF-863C-6ECFB10CB4B9/Mitigating%20Pass-the-Hash%20(PtH)%20Attacks%20and%20Other%20Credential%20Theft%20Techniques_English.pdf)-Mechanismen.
+Arbeitsstationen mit privilegiertem Zugriff (Privileged Access Workstations, PAWs) stellen ein dediziertes Betriebssystem für sensible Aufgaben bereit, das vor Angriffen aus dem Internet und der Übertragung von Bedrohungen geschützt ist. Trennen dieser sensiblen Aufgaben und Konten aus der täglichen Arbeitsstationen sowie Geräte können sehr starken Schutz vor Phishing-Angriffe, Anwendung und Betriebssystem Sicherheitsrisiken, Angriffen durch identitätsvortäuschung und Angriffen mit gestohlenen Anmeldeinformationen wie z. B. Tastatureingabe Protokollierung [Pass-the-Hash](https://aka.ms/pth), und Pass-The-Ticket.
 
 ## <a name="what-is-a-privileged-access-workstation"></a>Was ist eine Arbeitsstation mit privilegiertem Zugriff?
 
@@ -29,42 +29,42 @@ Einfach gesagt ist eine Arbeitsstation mit privilegiertem Zugriff (Privileged Ac
 > [!NOTE]
 > Die PAW-Architektur erfordert keine 1:1-Zuordnung von Konten zu Arbeitsstation, obwohl dies eine häufige Konfiguration ist. Mit einer PAW wird eine vertrauenswürdige Arbeitsstationsumgebung erstellt, die von einem oder mehreren Konten verwendet werden kann.
 
-Um die größtmögliche Sicherheit zu gewährleisten, sollten PAWs immer die aktuellste und sichere Betriebssysteme ausführen: Microsoft empfiehlt dringend, Windows 10 Enterprise, enthält eine Anzahl von zusätzliche Sicherheitsfeatures, die in anderen Editionen nicht verfügbar (insbesondere [Credential Guard](https://technet.microsoft.com/library/mt483740%28v=vs.85%29.aspx) und [Device Guard](https://technet.microsoft.com/library/dn986865(v=vs.85).aspx)).
+Um die größtmögliche Sicherheit zu gewährleisten, sollten PAWs immer die aktuellste und sichere Betriebssysteme ausführen: Microsoft empfiehlt dringend, Windows 10 Enterprise, enthält mehrere zusätzliche Sicherheitsfeatures in anderen Editionen nicht verfügbar (insbesondere [Credential Guard](https://technet.microsoft.com/library/mt483740%28v=vs.85%29.aspx) und [Device Guard](https://technet.microsoft.com/library/dn986865(v=vs.85).aspx)).
 
 > [!NOTE]
 > Organisationen, in denen Windows 10 nicht zur Verfügung steht, können Windows 10 Pro verwenden. Diese Edition enthält viele der wichtigen grundlegenden Technologien für PAWs, wie z.B. vertrauenswürdiger Start, BitLocker und Remotedesktop.  Kunden im Bildungswesen können Windows 10 Education verwenden.  Windows 10 Home sollte für eine PAW nicht verwendet werden.
 >
 > Eine Vergleichsmatrix der verschiedenen Editionen von Windows 10 finden Sie [in diesem Artikel](https://www.microsoft.com/en-us/WindowsForBusiness/Compare).
 
-Die Sicherheitsmechanismen auf PAWs wurden dazu konzipiert, die wahrscheinlichsten Gefährdungsrisiken mit den größten Auswirkungen zu minimieren. Hierzu gehört die Minimierung von Angriffen auf die Umgebung und die Minimierung des Risikos, dass die Kontrollmechanismen auf den PAWs im Lauf der Zeit weniger greifen:
+Die PAW-Sicherheit-Steuerelemente werden daran, große Auswirkungen und Risiken mit hoher Wahrscheinlichkeit der Gefährdung konzentriert. Dazu gehören die Minimierung von Angriffen auf die Umgebung und die Risiken, die die Effektivität der PAW-Steuerelemente im Laufe der Zeit verringert werden können:
 
 * **Angriffe aus dem Internet**: Die meisten Angriffe stammen direkt oder indirekt aus Internetquellen und nutzen das Internet zum Datendiebstahl und für C2-Angriffe (Command and Control). Die Isolierung der PAW vom Internet ist ein wesentliches Element, um sicherzustellen, dass die PAW nicht gefährdet wird.
-* **Einsatzfähigkeit**: Wenn eine PAW zu kompliziert und schwierig zu verwenden ist, sind Administratoren wahrscheinlich geneigt, sich Problemumgehungen auszudenken, um ihre Arbeit zu erleichtern. Solche Problemumgehungen führen häufig dazu, dass die Arbeitsstationen für Administratoren und die Administratorkonten erheblichen Sicherheitsrisiken ausgesetzt werden. Daher ist es von entscheidender Bedeutung, die PAW-Benutzer einzubeziehen und zu schulen, um solche Probleme bei der Verwendung sicher zu minimieren. Oft genügt es schon, das Feedback der Benutzer zu beachten, die Tools und Skripts zu installieren, die sie für ihre Aufgaben benötigen, und sicherzustellen, dass allen Administratoren bewusst ist, was eine PAW ist, warum sie eine PAW verwenden müssen und wie sie diese richtig und erfolgreich verwenden.
-* **Risiken durch die Umgebung**: Da viele andere Computer und Konten in einer Umgebung direkt oder indirekt Risiken durch das Internet ausgesetzt sind, muss eine PAW vor Angriffen von kompromittierte Assets in der Produktionsumgebung geschützt werden. Daher müssen die Verwaltungstools und -konten, die auf PAWs zugreifen können, auf das absolute Minimum reduziert werden, das für zum Sichern und Überwachen dieser speziellen Arbeitsstationen erforderlich ist.
-* **Manipulationen aus der Lieferkette**: Es ist unmöglich, sämtliche möglichen Manipulationsrisiken aus der Lieferkette für Hardware und Software zu entfernen. Allerdings lassen sich kritische Angriffsvektoren, die potenziellen Angreifern problemlos zur Verfügung stehen, mit einigen entscheidenden Aktionen erheblich minimieren. Hierzu gehört die Überprüfung sämtlicher Installationsmedien ([Prinzip der vertrauenswürdigen Quelle](http://aka.ms/cleansource)) und die Zusammenarbeit mit einem vertrauenswürdigen und seriösen Lieferanten für Hardware und Software.
+* **Einsatzfähigkeit**: Wenn eine PAW zu kompliziert und schwierig zu verwenden ist, sind Administratoren wahrscheinlich geneigt, sich Problemumgehungen auszudenken, um ihre Arbeit zu erleichtern. Solche Problemumgehungen führen häufig dazu, dass die Arbeitsstationen für Administratoren und die Administratorkonten erheblichen Sicherheitsrisiken ausgesetzt werden. Daher ist es von entscheidender Bedeutung, die PAW-Benutzer einzubeziehen und zu schulen, um solche Probleme bei der Verwendung sicher zu minimieren. Dies kann erreicht werden, durch Lauschen auf ihr Feedback, und Installieren von Tools und Skripts, die erforderlich sind, führen Sie ihre Arbeit und die zuverlässige Beantwortung von allen Administratoren kennen die warum sie eine PAW, was eine PAW zu verwenden müssen ist, und wie Sie es richtig und erfolgreich verwenden.
+* **Risiken durch die Umgebung**: Da viele andere Computer und Konten in einer Umgebung direkt oder indirekt Risiken durch das Internet ausgesetzt sind, muss eine PAW vor Angriffen von kompromittierte Assets in der Produktionsumgebung geschützt werden. Dies erfordert die Verwendung von Verwaltungstools und Konten mit Zugriff auf den PAWs zum Sichern und Überwachen dieser speziellen Arbeitsstationen zu minimieren.
+* **Manipulationen aus der Lieferkette**: Es ist unmöglich, sämtliche möglichen Manipulationsrisiken aus der Lieferkette für Hardware und Software zu entfernen. Allerdings lassen sich kritische Angriffsvektoren, die potenziellen Angreifern problemlos zur Verfügung stehen, mit einigen entscheidenden Aktionen erheblich minimieren. Hierzu gehört die Überprüfung sämtlicher Installationsmedien ([Prinzip der vertrauenswürdigen Quelle](https://aka.ms/cleansource)) und die Zusammenarbeit mit einem vertrauenswürdigen und seriösen Lieferanten für Hardware und Software.
 * **Physische Angriffe**: Das PAWs mobil sein und außerhalb der physisch gesicherten Umgebung verwendet werden können, müssen sie vor Angriffen geschützt werden, die sich einen nicht autorisierten physischen Zugriff auf den Computer zunutze machen.
 
 > [!NOTE]
 > Eine PAW kann eine Umgebung nicht vor einem Angreifer schützen, der bereits administrativen Zugriff über eine Active Directory-Gesamtstruktur erhalten hat.
 > Da viele vorhandene Implementierungen der Active Directory Domain Services seit Jahren mit dem Risiko des Diebstahls von Anmeldeinformationen betrieben werden, müssen Organisationen von einer Sicherheitslücke ausgehen und die Möglichkeit in Betracht ziehen, dass die eine bisher unerkannte Gefährdung der Anmeldeinformationen eines Domänen- oder Unternehmensadministrators besteht. Eine Organisation, die eine Gefährdung ihrer Domäne vermutet, sollte den Einsatz von Expertendiensten zur Behebung von Incidents erwägen.
 >
-> Weitere Informationen zur Reaktion auf und Wiederherstellung nach Incidents finden Sie im Whitepaper [Mitigating Pass-the-Hash and Other Credential Theft](https://www.microsoft.com/pth), Version 2 (Minimieren von Pass-the-Hash-Vorfällen und anderen Methoden des Anmeldeinformationsdiebstahls), in den Abschnitten zur Reaktion auf verdächtige Aktivitäten und zur Wiederherstellung nach einem Sicherheitsvorfall.
+> Weitere Informationen zur Reaktion auf und Wiederherstellung nach Incidents finden Sie im Whitepaper [Mitigating Pass-the-Hash and Other Credential Theft](https://aka.ms/pth), Version 2 (Minimieren von Pass-the-Hash-Vorfällen und anderen Methoden des Anmeldeinformationsdiebstahls), in den Abschnitten zur Reaktion auf verdächtige Aktivitäten und zur Wiederherstellung nach einem Sicherheitsvorfall.
 >
 > Weitere Informationen finden Sie auf der [Microsoft-Seite zur Reaktion auf und Wiederherstellung nach Incidents](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx).
 
 ### <a name="paw-hardware-profiles"></a>PAW-Hardwareprofile
 
-Administratoren sind auch Standardbenutzer – sie benötigen also nicht nur eine PAW, sondern auch eine standardmäßige Benutzerarbeitsstation, um E-Mails zu lesen, im Internet zu suchen und auf Branchenanwendungen zuzugreifen.  Für den Erfolg einer PAW-Bereitstellung ist es entscheidend, dass Administratoren sowohl sicher als auch produktiv arbeiten können.  Eine sichere Lösung, die die Produktivität massiv einschränkt, wird von den Benutzern abgelehnt. Stattdessen werden die Benutzer eine Lösung nutzen, die ihre Produktivität erweitert – auch wenn dies auf Kosten der Sicherheit geht.
+Mitarbeiter mit administrative Berechtigungen sind Standardbenutzer zu – sie benötigen eine PAW als auch eine standardmäßige Benutzerarbeitsstation, e-Mail-Adresse zu überprüfen, das Web durchsuchen und corporate LOB-Anwendungen zugreifen.  Für den Erfolg einer PAW-Bereitstellung ist es entscheidend, dass Administratoren sowohl sicher als auch produktiv arbeiten können.  Eine sichere Lösung, die die Produktivität massiv einschränkt, wird von den Benutzern abgelehnt. Stattdessen werden die Benutzer eine Lösung nutzen, die ihre Produktivität erweitert – auch wenn dies auf Kosten der Sicherheit geht.
 
 Um für ein optimales Verhältnis zwischen Sicherheit und Produktivität zu sorgen, empfiehlt Microsoft die Verwendung eines der folgenden PAW-Hardwareprofile:
 
-* **Dedizierte Hardware**: Separate, dedizierte Geräte für Benutzeraufgaben und Verwaltungsaufgaben.
+* **Dedizierte Hardware** -Separate, dedizierte Geräte für Benutzeraufgaben und Verwaltungsaufgaben.
 * **Gleichzeitige Verwendung**: Ein einziges Gerät, auf dem mithilfe der Virtualisierung per Betriebssystem oder per Präsentation Benutzer- und Verwaltungsaufgaben gleichzeitig ausgeführt werden können.
 
 Organisationen können nur eines der Profile oder beide verwenden. Es bestehen keine Interoperabilitätsprobleme zwischen den Hardwareprofilen, und Organisationen können ein Hardwareprofil flexibel an die besonderen Anforderungen eines bestimmten Administrators anpassen.
 
 > [!NOTE]
-> In all diesen Szenarien ist es von entscheidender Bedeutung, dass Administratoren auch ein Standardbenutzerkonto erhalten, das von den designierten Administratorkonten getrennt ist. Ein Administratorkonto sollte nur unter dem administrativen Betriebssystem der PAW verwendet werden.
+> Es ist wichtig, dass in allen diesen Szenarios Mitarbeiter mit administrative Berechtigungen, die getrennt von designierten Administratorkonten ein Standardbenutzerkonto ausgegeben werden. Ein Administratorkonto sollte nur unter dem administrativen Betriebssystem der PAW verwendet werden.
 
 Die folgende Tabelle bietet eine Übersicht über die jeweiligen Vor- und Nachteile der Hardwareprofile hinsichtlich der operativen Benutzerfreundlichkeit sowie der Produktivität und Sicherheit.  Beide Ansätze bieten eine hohe Sicherheit und schützen Administratorkonten vor Diebstahl und Wiederverwendung von Anmeldeinformationen.
 
@@ -96,7 +96,7 @@ In dieser Konfiguration werden tägliche Aufgaben, für die keine Administratorr
 
 Um dieses Setup zu konfigurieren, führen Sie die Schritte in dieser Anleitung für den PAW-Host aus, fügen Sie Hyper-V-Funktionen für Clients hinzu, erstellen Sie einen virtuellen Benutzercomputer, und installieren Sie dann ein Windows 10-Unternehmensimage auf dem virtuellen Benutzercomputer.
 
-Lesen Sie den Artikel [Hyper-V für Clients](https://technet.microsoft.com/library/hh857623.aspx), um weitere Informationen zu dieser Funktion zu erhalten. Beachten Sie, dass das Betriebssystem auf virtuellen Gastcomputern gemäß der [Microsoft-Produktlizenzierung](https://www.microsoft.com/en-us/Licensing/product-licensing/products.aspx) lizenziert werden muss, die auch [hier](https://www.microsoft.com/en-us/Licensing/learn-more/brief-windows-virtual-machine.aspx) beschrieben wird.
+Lesen Sie den Artikel [Hyper-V für Clients](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/index), um weitere Informationen zu dieser Funktion zu erhalten. Beachten Sie, dass das Betriebssystem auf virtuellen Gastcomputern gemäß der [Microsoft-Produktlizenzierung](https://www.microsoft.com/en-us/Licensing/product-licensing/products.aspx) lizenziert werden muss, die auch [hier](https://download.microsoft.com/download/9/8/D/98D6A56C-4D79-40F4-8462-DA3ECBA2DC2C/Licensing_Windows_Desktop_OS_for_Virtual_Machines.pdf) beschrieben wird.
 
 #### <a name="simultaneous-use---adding-remoteapp-rdp-or-a-vdi"></a>Gleichzeitige Verwendung: Hinzufügen von RemoteApp, RDP oder einer VDI
 
@@ -118,11 +118,11 @@ Weitere Informationen zu Azure RemoteApp finden Sie [auf dieser Seite](https://w
 
 ## <a name="how-microsoft-is-using-administrative-workstations"></a>Wie Microsoft verwendet Arbeitsstationen für Administratoren
 
-Microsoft verwendet PAW-Architekturen sowohl für die eigenen internen Systeme als auch für Kundensysteme. Microsoft verwendet Arbeitsstationen für Administratoren intern für eine Reihe von Funktionen, beispielsweise für die Verwaltung der Microsoft-IT-Infrastruktur, für die Entwicklung und den Betrieb der Microsoft-Cloudfabricinfrastruktur sowie für weitere wertvolle Assets.
+Microsoft verwendet PAW-Architekturen sowohl für die eigenen internen Systeme als auch für Kundensysteme. Microsoft verwendet Arbeitsstationen für Administratoren intern in mehrere Kapazitäten, die beispielsweise für die Verwaltung von Microsoft IT-Infrastruktur, Entwicklung Microsoft Cloud-Vorgänge und weitere wertvolle Assets.
 
 Dieser Leitfaden basiert direkt auf der PAW-Referenzarchitektur, die von unseren Expertenteams für Cybersicherheit bereitgestellt wurde, um Kunden vor Cyberangriffen zu schützen. Die Arbeitsstationen für Administratoren sind auch ein wichtiges Element der stärksten Schutzfunktion für Aufgaben der Domänenverwaltung: der ESAE-Referenzarchitektur für Verwaltungsgesamtstrukturen (Enhanced Security Administrative Environment).
 
-Informationen zur ESAE-Verwaltungsgesamtstruktur finden Sie unter [Schützen des privilegierten Zugriffs – Referenzmaterial](../securing-privileged-access/securing-privileged-access-reference-material.md) im Abschnitt [ESAE-basierter Ansatz für den Entwurf einer administrativen Gesamtstruktur](http://aka.ms/ESAE).
+Weitere Informationen auf der ESAE-verwaltungsgesamtstruktur finden Sie unter den *Administrative ESAE-Gesamtstruktur-Entwurfsansatz* im Abschnitt [Schützen des privilegierten Zugriffs – Referenzmaterial](../securing-privileged-access/securing-privileged-access-reference-material.md#esae-administrative-forest-design-approach).
 
 ## <a name="architecture-overview"></a>Übersicht über die Architektur
 
@@ -152,7 +152,7 @@ Dieses Dokument beschreibt zudem genau, wie verschiedene PAW-Konfigurationen imp
 
 In der heutigen Zeit sehen sich Organisationen immer mehr Bedrohungen durch ausgefeilte Phishingmethoden und andere Internetangriffe gegenüber, die ein kontinuierliches Sicherheitsrisiko für Konten und Arbeitsstationen mit Internetzugriff darstellen.
 
-Aufgrund dieser Bedrohungen müssen Unternehmen Sicherheitsverletzungen sozusagen als „festen Bestandteil“ in ihre Überlegungen einbeziehen, wenn sie Schutzmaßnahmen für wertvolle Assets wie Administratorkonten und sensible Unternehmensressourcen einrichten. Diese wertvollen Assets müssen sowohl vor Bedrohungen aus dem Internet als auch vor Angriffen geschützt werden, die über andere Arbeitsstationen, Server und Geräte in der Umgebung erfolgen.
+Diese Bedrohung-Umgebung muss Organisationen eine Sicherheitsstatus "assume Breach" beim Entwurf von Schutzmaßnahmen für wertvolle Assets wie Administratorkonten und sensible Unternehmensressourcen zu übernehmen. Diese wertvollen Assets müssen sowohl vor Bedrohungen aus dem Internet als auch vor Angriffen geschützt werden, die über andere Arbeitsstationen, Server und Geräte in der Umgebung erfolgen.
 
 ![Diese Abbildung zeigt das Risiko für verwaltete Assets, wenn ein Angreifer die Kontrolle über eine Benutzerarbeitsstation erhält, auf der vertrauliche Anmeldeinformationen verwendet werden](../media/privileged-access-workstations/PAWFig2.JPG)
 
@@ -171,11 +171,11 @@ Indem Sie sicherstellen, dass sensible Konten ausschließlich auf gesicherten PA
 
 ### <a name="alternate-approaches"></a>Alternative Ansätze
 
-Dieser Abschnitt enthält Informationen zur Sicherheit alternativer Ansätze im Vergleich zu PAWs und beschreibt, wie solche Ansätze richtig in eine PAW-Architektur integriert werden. All diese Ansätze stellen ein erhebliches Risiko dar, wenn sie isoliert implementiert werden, können in einigen Szenarien aber einen wertvollen Beitrag zu einer PAW-Implementierung leisten.
+Dieser Abschnitt enthält Informationen zur Sicherheit alternativer Ansätze im Vergleich zu PAWs und beschreibt, wie solche Ansätze richtig in eine PAW-Architektur integriert werden. Alle diese Ansätze führen beim Implementieren in Isolation ist ein erhebliches Risiko dar, wobei eine PAW-Implementierung in einigen Szenarien können Wert hinzugefügt.
 
 #### <a name="credential-guard-and-windows-hello-for-business"></a>Credential Guard und Windows Hello for Business
 
-[Credential Guard](https://technet.microsoft.com/library/mt483740%28v=vs.85%29.aspx) wurde in Windows 10 eingeführt und verwendet hardware- und virtualisierungsbasierte Sicherheitsmechanismen, um häufige Methoden des Anmeldeinformationsdiebstahls, wie Pass-the-Hash, durch Schützen der abgeleiteten Anmeldeinformationen zu minimieren. Der private Schlüssel für die Anmeldeinformationen ein, die [Windows Hello for Business](http://aka.ms/passport) kann auch von Hardware, die Trusted Platform Module (TPM) geschützt werden.
+[Credential Guard](https://technet.microsoft.com/library/mt483740%28v=vs.85%29.aspx) wurde in Windows 10 eingeführt und verwendet hardware- und virtualisierungsbasierte Sicherheitsmechanismen, um häufige Methoden des Anmeldeinformationsdiebstahls, wie Pass-the-Hash, durch Schützen der abgeleiteten Anmeldeinformationen zu minimieren. Der private Schlüssel für die Anmeldeinformationen ein, die [Windows Hello for Business](https://aka.ms/passport) kann auch von Hardware, die Trusted Platform Module (TPM) geschützt werden.
 
 Dies sind leistungsstarke Schutzmaßnahmen, aber Arbeitsstationen können immer noch anfällig für bestimmte Angriffe sein, auch wenn die Anmeldeinformationen durch Credential Guard oder Windows Hello for Business geschützt werden. Missbraucht, Berechtigungen und die Verwendung von Anmeldeinformationen direkt über ein kompromittiertes Gerät, zuvor gestohlene Anmeldeinformationen vor der Aktivierung von Credential Guard und den Missbrauch von Verwaltungstools und schwachen Anwendungskonfigurationen auf der Arbeitsstation Angriffen gehört.
 
@@ -191,11 +191,23 @@ Die PAW-Architektur sind nicht zulässig für das Hosten einer Admin-VM auf eine
 
 ![Diagramm der PAW-Architektur](../media/privileged-access-workstations/PAWFig9.JPG)
 
+#### <a name="shielded-vm-based-paws"></a>Abgeschirmte VM-basierten PAWs
+
+Eine sichere Variante von der VM-Verwaltungsmodell ist die Verwendung [geschützten virtuellen Maschinen](../../security/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms.md) zum Hosten einer oder mehreren Admin-VMs zusammen mit einer Benutzer-VM.
+Abgeschirmte VMs dienen zum Ausführen von sicheren arbeitsauslastungen in einer Umgebung, in denen möglicherweise potenziell nicht vertrauenswürdige Benutzer oder der Code auf die standard-Benutzerdesktop des physischen Computers ausgeführt.
+Eine abgeschirmte VM verfügt über einen virtuellen TPM, der eigenen Daten im Ruhezustand verschlüsselt werden kann, und mehrere administrative Steuerelemente wie z. B. Zugriff auf die grundlegende Konsole, PowerShell Direct und die Möglichkeit, den virtuellen Computer zu debuggen sind deaktiviert, um den virtuellen Computer über die standard-Benutzerdesktop weiter zu isolieren und andere virtuelle Computer.
+Auf einem vertrauenswürdigen Key Management-Server, müssen Sie das physische Gerät seine Identität und die Integrität bestätigen vor dem Freigeben eines Schlüssels für den virtuellen Computer starten, werden die Schlüssel für eine abgeschirmte VM gespeichert.
+Dadurch wird sichergestellt, dass geschützte VMs nur auf den vorgesehenen Geräten gestartet werden können und bekannte und vertrauenswürdige Software-Konfigurationen auf diesen Geräten ausgeführt werden.
+
+Da die abgeschirmten VMs von miteinander und mit der standard-Benutzerdesktop isoliert sind, ist es akzeptabel, mehrere geschützte VMs der PAW auf einem einzelnen Host ausgeführt wird, selbst wenn der diesen Admin-VMs auf verschiedene Ebenen verwalten.
+
+Finden Sie unter den [Bereitstellen von PAWs mit einem geschützten Fabric](#deploy-paws-using-a-guarded-fabric) Informationen weiter unten im Abschnitt.
+
 #### <a name="jump-server"></a>Sprungbrettserver
 
 In Verwaltungsarchitekturen mit Sprungbrettserver wird eine geringe Anzahl von Verwaltungskonsolenservern eingerichtet, die nur von bestimmten Mitarbeitern für Verwaltungsaufgaben verwendet werden dürfen. Eine solche Architektur basiert üblicherweise auf Remotedesktopdiensten, einer Drittanbieterlösung zur Virtualisierung per Präsentation oder einer VDI-Technologie (Virtual Desktop Infrastructure).
 
-Dieser Ansatz wird häufig zur Minimierung von Verwaltungsrisiken vorgeschlagen und bietet einige Sicherheitsfunktionen. Allerdings ist das Sprungbrettserverkonzept selbst anfällig für bestimmte Angriffe, da es das [Prinzip der „vertrauenswürdigen Quelle“](http://aka.ms/cleansource) verletzt. Beim Prinzip der vertrauenswürdigen Quelle müssen alle Sicherheitsabhängigkeiten genauso vertrauenswürdig sein wie das zu sichernde Objekt.
+Dieser Ansatz wird häufig zur Minimierung von Verwaltungsrisiken vorgeschlagen und bietet einige Sicherheitsfunktionen. Allerdings ist das Sprungbrettserverkonzept selbst anfällig für bestimmte Angriffe, da es das [Prinzip der „vertrauenswürdigen Quelle“](../securing-privileged-access/securing-privileged-access-reference-material.md#clean-source-principle) verletzt. Beim Prinzip der vertrauenswürdigen Quelle müssen alle Sicherheitsabhängigkeiten genauso vertrauenswürdig sein wie das zu sichernde Objekt.
 
 ![Abbildung, die eine einfache Kontrollbeziehung zeigt](../media/privileged-access-workstations/PAWFig3.JPG)
 
@@ -227,7 +239,7 @@ Lösungen für die Berechtigungsverwaltung sind Anwendungen, die bei Bedarf temp
 
 Diese Lösungen nutzen üblicherweise einen flexiblen Workflow zum Gewähren des Zugriffs und verfügen über zahlreiche weitere Sicherheitsfeatures und -methoden, wie z.B. die Kennwortverwaltung für Dienstkonten und die Integration mit administrativen Sprungbrettservern. Der Markt bietet eine Vielzahl solcher Lösungen mit Funktionen für die Berechtigungsverwaltung – z.B. die PAM-Lösung (Privileged Access Management) in Microsoft Identity Manager (MIM).
 
-Microsoft empfiehlt die Verwendung einer PAW für den Zugriff auf Lösungen für die Berechtigungsverwaltung. Der Zugriff auf solche Lösungen sollte ausschließlich PAWs gewährt werden. Microsoft rät davon ab, diese Lösungen als Ersatz für eine PAW zu verwenden, da in diesem Fall der Zugriff auf Berechtigungen von einem potenziell gefährdeten Benutzerdesktop aus das Prinzip der [vertrauenswürdigen Quelle](http://aka.ms/cleansource) verletzt, wie im Diagramm unten gezeigt:
+Microsoft empfiehlt die Verwendung einer PAW für den Zugriff auf Lösungen für die Berechtigungsverwaltung. Der Zugriff auf solche Lösungen sollte ausschließlich PAWs gewährt werden. Microsoft rät davon ab, diese Lösungen als Ersatz für eine PAW zu verwenden, da in diesem Fall der Zugriff auf Berechtigungen von einem potenziell gefährdeten Benutzerdesktop aus das Prinzip der [vertrauenswürdigen Quelle](https://aka.ms/cleansource) verletzt, wie im Diagramm unten gezeigt:
 
 ![Diagramm, das zeigt, wie Microsoft davon abrät, diese Lösungen als Ersatz für eine PAW zu verwenden, da in diesem Fall der Zugriff auf Berechtigungen von einem potenziell gefährdeten Benutzerdesktop aus das Prinzip der vertrauenswürdigen Quelle verletzt](../media/privileged-access-workstations/PAWFig7.JPG)
 
@@ -237,9 +249,9 @@ Durch Bereitstellen einer PAW für den Zugriff auf diese Lösungen können Sie v
 
 > [!NOTE]
 > Diese Systeme sollten auf die höchste Ebene der Berechtigung eingestuft werden, die sie verwalten, und mindestens auf dieser Ebene geschützt werden. Die Systeme werden im Allgemeinen für die Verwaltung von Lösungen und Assets auf Ebene 0 konfiguriert und sollten daher auf Ebene 0 eingestuft werden.
-> Weitere Informationen zum Ebenenmodell, finden Sie unter [ http://aka.ms/tiermodel ](http://aka.ms/tiermodel) Weitere Informationen zu Gruppen auf Ebene 0, finden Sie unter "Äquivalenz in Ebene 0" [Schützen des privilegierten Zugriffs – Referenzmaterial](../securing-privileged-access/securing-privileged-access-reference-material.md).
+> Weitere Informationen zum Ebenenmodell, finden Sie unter [ https://aka.ms/tiermodel ](https://aka.ms/tiermodel) Weitere Informationen zu Gruppen auf Ebene 0, finden Sie unter "Äquivalenz in Ebene 0" [Schützen des privilegierten Zugriffs – Referenzmaterial](../securing-privileged-access/securing-privileged-access-reference-material.md).
 
-Weitere Informationen zum Bereitstellen von Microsoft Identity Manager (MIM) privileged Access Management (PAM) finden Sie unter [http://aka.ms/mimpamdeploy](http://aka.ms/mimpamdeploy)
+Weitere Informationen zum Bereitstellen von Microsoft Identity Manager (MIM) privileged Access Management (PAM) finden Sie unter [https://aka.ms/mimpamdeploy](https://aka.ms/mimpamdeploy)
 
 ## <a name="paw-scenarios"></a>PAW-Szenarien
 
@@ -250,18 +262,18 @@ In allen Szenarien können in späteren Phasen zusätzliche Sicherheitsmaßnahme
 > [!NOTE]
 > Diese Anleitung unterscheidet explizit zwischen dem erforderlichen Zugriff auf bestimmte Dienste im Internet (z.B. Azure und Office 365-Verwaltungsportale) und dem "offenen Internet" für alle Hosts und -Dienste.
 
-Weitere Informationen über die Ebenenbezeichnungen finden Sie im [Ebenenmodell](http://aka.ms/tiermodel).
+Weitere Informationen über die Ebenenbezeichnungen finden Sie im [Ebenenmodell](https://aka.ms/tiermodel).
 
 |**Szenarien**|**Verwenden PAW?**|**Bereich und Überlegungen zur Sicherheit**|
 |---------|--------|---------------------|
-|Active Directory-Administratoren – Ebene 0|Ja|Eine gemäß der Anleitung für Phase 1 erstellte PAW ist für diese Rolle ausreichend.<br /><br />– Eine Verwaltungsgesamtstruktur kann hinzugefügt werden, um in diesem Szenario höchstmöglichen Schutz zu bieten. Weitere Informationen zur ESAE-Verwaltungsgesamtstruktur finden Sie unter [ESAE-basierter Ansatz für den Entwurf einer administrativen Gesamtstruktur](http://aka.ms/esae).<br />– Eine PAW kann zur Verwaltung von mehreren Domänen oder mehreren Gesamtstrukturen verwendet werden.<br />– Wenn Domänencontroller in einer Infrastruktur als Service (IaaS) oder lokalen Virtualisierungslösung gehostet werden, sollten Sie die Implementierung der PAWs für die Administratoren dieser Lösungen priorisieren.|
+|Active Directory-Administratoren – Ebene 0|Ja|Eine gemäß der Anleitung für Phase 1 erstellte PAW ist für diese Rolle ausreichend.<br /><br />– Eine Verwaltungsgesamtstruktur kann hinzugefügt werden, um in diesem Szenario höchstmöglichen Schutz zu bieten. Weitere Informationen zur ESAE-Verwaltungsgesamtstruktur finden Sie unter [ESAE-basierter Ansatz für den Entwurf einer administrativen Gesamtstruktur](../securing-privileged-access/securing-privileged-access-reference-material.md#esae-administrative-forest-design-approach).<br />– Eine PAW kann zur Verwaltung von mehreren Domänen oder mehreren Gesamtstrukturen verwendet werden.<br />– Wenn Domänencontroller in einer Infrastruktur als Service (IaaS) oder lokalen Virtualisierungslösung gehostet werden, sollten Sie die Implementierung der PAWs für die Administratoren dieser Lösungen priorisieren.|
 |Verwalten von Azure IaaS- und PaaS-Diensten (Infrastructure-as-a-Service bzw. Platform-as-a-Service) – Ebene 0 oder Ebene 1 (siehe Überlegungen zu Einsatzbereich und Entwurf)|Ja|Eine gemäß der Anleitung für Phase 2 erstellte PAW ist für diese Rolle ausreichend.<br /><br />– PAWs sollten zumindest für den globalen Administrator und für den für die Abonnementabrechnung zuständigen Administrator verwendet werden. Für delegierte Administratoren kritischer oder vertraulicher Server sollten Sie ebenfalls PAWs verwenden.<br />– PAWs sollten für die Verwaltung des Betriebssystems verwendet werden, und Anwendungen, Bereitstellen von Verzeichnissynchronisierung und den Identitätsverbund für, cloud-Dienste wie z. B. [Azure AD Connect](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect/) und Active Directory Federation Services (ADFS).<br />– Einschränkungen für den ausgehenden Netzwerkdatenverkehr dürfen Verbindungen nur mit autorisierten Clouddiensten zulassen, gemäß Anleitung für Phase 2. Auf PAWs darf kein offener Internetzugang zulässig sein.<br />– Windows Defender Exploit Guard müssen konfiguriert werden, auf der Arbeitsstation **beachten:**     Ein Abonnement gilt als Ebene 0 für eine Gesamtstruktur sein, wenn sich Domänencontroller oder andere Hosts auf Ebene 0 im Abonnement enthalten sind. Ein Abonnement befindet sich auf Ebene 1, wenn keine Server der Ebene 0 in Azure gehostet werden.|
 |Verwalten von Office 365-Mandanten <br />– Ebene 1|Ja|Eine gemäß der Anleitung für Phase 2 erstellte PAW ist für diese Rolle ausreichend.<br /><br />– PAWs sollten zumindest für den für die Abonnementabrechnung zuständigen Administrator, den globalen Administrator, den Exchange-Administrator, den SharePoint-Administrator und den Benutzerverwaltungsadministrator verwendet werden. Sie sollten auch unbedingt die Verwendung von PAWs für delegierte Administratoren höchst kritischer oder sensibler Daten erwägen.<br />– Windows Defender Exploit Guard sollte auf der Arbeitsstation konfiguriert werden.<br />– Einschränkungen für den ausgehenden Netzwerkdatenverkehr dürfen Verbindungen nur mit Microsoft-Diensten zulassen, gemäß Anleitung für Phase 2. Auf PAWs darf kein offener Internetzugang zulässig sein.|
-|Verwalten anderer IaaS- der PaaS-Clouddienste<br />– Ebene 0 oder Ebene 1 (siehe Überlegungen zu Einsatzbereich und Entwurf)||Eine gemäß der Anleitung für Phase 2 erstellte PAW ist für diese Rolle ausreichend.<br /><br />– PAWs sollten für alle Rollen verwendet werden, die über Administratorrechte für in der Cloud gehostete virtuelle Computer verfügen. Zu den Aufgaben dieser Rollen gehören die Installation von Agents, der Export von Festplattendateien oder der Zugriff auf Speichersysteme, die Festplattenlaufwerke mit Betriebssystemen, sensiblen Daten oder geschäftskritischen Daten enthalten.<br />– Einschränkungen für den ausgehenden Netzwerkdatenverkehr dürfen Verbindungen nur mit Microsoft-Diensten zulassen, gemäß Anleitung für Phase 2. Auf PAWs darf kein offener Internetzugang zulässig sein.<br />– Windows Defender Exploit Guard sollte auf der Arbeitsstation konfiguriert werden. **Hinweis**: Ein Abonnement ist Ebene 0 für eine Gesamtstruktur aus, wenn sich Domänencontroller oder andere Hosts auf Ebene 0 im Abonnement enthalten sind. Ein Abonnement befindet sich auf Ebene 1, wenn keine Server der Ebene 0 in Azure gehostet werden.|
+|Verwalten anderer IaaS- der PaaS-Clouddienste<br />– Ebene 0 oder Ebene 1 (siehe Überlegungen zu Einsatzbereich und Entwurf)|Ja|Eine gemäß der Anleitung für Phase 2 erstellte PAW ist für diese Rolle ausreichend.<br /><br />– PAWs sollten für alle Rollen verwendet werden, die über Administratorrechte für in der Cloud gehostete virtuelle Computer verfügen. Zu den Aufgaben dieser Rollen gehören die Installation von Agents, der Export von Festplattendateien oder der Zugriff auf Speichersysteme, die Festplattenlaufwerke mit Betriebssystemen, sensiblen Daten oder geschäftskritischen Daten enthalten.<br />– Einschränkungen für den ausgehenden Netzwerkdatenverkehr dürfen Verbindungen nur mit Microsoft-Diensten zulassen, gemäß Anleitung für Phase 2. Auf PAWs darf kein offener Internetzugang zulässig sein.<br />– Windows Defender Exploit Guard sollte auf der Arbeitsstation konfiguriert werden. **Hinweis**: Ein Abonnement ist Ebene 0 für eine Gesamtstruktur aus, wenn sich Domänencontroller oder andere Hosts auf Ebene 0 im Abonnement enthalten sind. Ein Abonnement befindet sich auf Ebene 1, wenn keine Server der Ebene 0 in Azure gehostet werden.|
 |Virtualisierungsadministratoren<br />– Ebene 0 oder Ebene 1 (siehe Überlegungen zu Einsatzbereich und Entwurf)|Ja|Eine gemäß der Anleitung für Phase 2 erstellte PAW ist für diese Rolle ausreichend.<br /><br />– PAWs sollten für alle Rollen verwendet werden, die über Administratorrechte für virtuelle Computer verfügen. Zu den Aufgaben dieser Rollen gehören die Installation von Agents, der Export von virtuellen Festplattendateien oder der Zugriff auf Speichersysteme, die Festplattenlaufwerke mit Informationen zu Gastbetriebssystemen, sensiblen Daten oder geschäftskritischen Daten enthalten. **Hinweis**: Ein Virtualisierungssystem (und die zugehörigen Administratoren) gelten Ebene 0 für eine Gesamtstruktur, wenn sich Domänencontroller oder andere Hosts auf Ebene 0 im Abonnement enthalten sind. Ein Abonnement befindet sich auf Ebene 1, wenn keine Server der Ebene 0 im Virtualisierungssystem gehostet werden.|
 |Administratoren für die Serverwartung<br />– Ebene 1|Ja|Eine gemäß der Anleitung für Phase 2 erstellte PAW ist für diese Rolle ausreichend.<br /><br />– Eine PAW sollte für Administratoren verwendet werden, die für Aktualisierung, Patching und Problembehandlung von Unternehmensservern und -Apps unter Windows Server, Linux und anderen Betriebssystemen zuständig sind.<br />– Möglicherweise müssen dedizierte Verwaltungstools auf den PAWs installiert werden, um den größeren Aufgabenbereich dieser Administratoren abzudecken.|
 |Administratoren für Benutzerarbeitsstationen <br />– Ebene 2|Ja|Eine gemäß der Anleitung für Phase 2 erstellte PAW ist für Rollen ausreichend, die über Administratorrechte für Endbenutzergeräte verfügen (z.B. für Rollen im Helpdesk- und Vor-Ort-Support).<br /><br />– Möglicherweise müssen auf den PAWs zusätzliche Anwendungen installiert werden, um das Ticketmanagement und andere Supportfunktionen zu ermöglichen.<br />– Windows Defender Exploit Guard sollte auf der Arbeitsstation konfiguriert werden.<br />    Möglicherweise müssen dedizierte Verwaltungstools auf den PAWs installiert werden, um den größeren Aufgabenbereich dieser Administratoren abzudecken.|
-|SQL-, SharePoint- oder LoB-Administrator (Line of Business)<br />– Ebene 1||Eine gemäß der Anleitung für Phase 2 erstellte PAW ist für diese Rolle ausreichend.<br /><br />– Möglicherweise müssen auf den PAWs zusätzliche Verwaltungstools installiert werden, damit Administratoren Anwendungen verwalten können, ohne über Remotedesktop eine Verbindung zu einem Server herstellen zu müssen.|
+|SQL-, SharePoint- oder LoB-Administrator (Line of Business)<br />– Ebene 1|Ja|Eine gemäß der Anleitung für Phase 2 erstellte PAW ist für diese Rolle ausreichend.<br /><br />– Möglicherweise müssen auf den PAWs zusätzliche Verwaltungstools installiert werden, damit Administratoren Anwendungen verwalten können, ohne über Remotedesktop eine Verbindung zu einem Server herstellen zu müssen.|
 |Benutzer, die die Präsenz in sozialen Medien pflegen|Teilweise|Eine gemäß der Anleitung für Phase 2 erstellte PAW kann als Ausgangspunkt zur Bereitstellung von Sicherheit für diese Rollen verwendet werden.<br /><br />– Schützen und verwalten Sie Konten in sozialen Medien, und verwenden Sie Azure Active Directory (AAD), um den Zugriff auf diese Konten freigeben, schützen und nachverfolgen zu können.<br />    Weitere Informationen zu dieser Funktionalität finden Sie in [diesem Blogbeitrag](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx).<br />– Die Einschränkungen für ausgehenden Netzwerkdatenverkehr müssen die Verbindung mit diesen Diensten zulassen. Hierzu können Sie offene Internetverbindungen zulassen (sehr viel höheres Sicherheitsrisiko, das viele Sicherheitsmechanismen auf PAWs aushebelt) oder nur die für den Dienst erforderlichen DNS-Adressen zulassen (es kann schwierig sein, diese DNS-Adressen abzurufen).|
 |Standardbenutzer|Nein|Viele der Sicherheitsschritte können auch für Standardbenutzer verwendet werden. Eine PAW dagegen ist speziell zur Isolierung von Konten vom offenen Internetzugriff entworfen, den viele Benutzer für ihre täglichen Aufgaben benötigen.|
 |Gast-VDI/Kiosk|Nein|Während viele Sicherheitsschritte für ein Kiosksystem für Gäste verwendet werden können, wurde die PAW-Architektur speziell dafür konzipiert, hochsensiblen Konten ein höheres Maß an Sicherheit zu bieten, und nicht dafür, mehr Sicherheit für weniger vertrauliche Konten bereitzustellen.|
@@ -271,7 +283,7 @@ Weitere Informationen über die Ebenenbezeichnungen finden Sie im [Ebenenmodell]
 
 > [!NOTE]
 > **Kombinierte Szenarien**: Einige Mitarbeiter sind möglicherweise für Verwaltungsaufgaben verantwortlich, die mehrere Szenarien umfassen.
-> In diesen Fällen gilt als oberste Regel, dass jederzeit die Regeln des Ebenenmodells befolgt werden müssen. Weitere Informationen finden Sie im Ebenenmodell.
+> In diesen Fällen sind die wichtigsten Regeln zu beachten, dass die Regeln immer beachtet werden müssen. Weitere Informationen finden Sie im Ebenenmodell.
 
 > [!NOTE]
 > **Skalieren des PAW-Programms**: Wenn Ihr PAW-Programm skaliert werden muss, um weitere Administratoren und Rollen abzudecken, müssen Sie weiterhin sicherstellen, dass die Sicherheits- und Nutzbarkeitsstandards eingehalten werden. Dazu müssen Sie möglicherweise Ihre IT-Supportstrukturen aktualisieren oder neue einrichten, um PAW-spezifische Herausforderungen wie etwa den Onboardingprozess, das Incidentmanagement oder die Konfigurationsverwaltung zu bewältigen. Zudem müssen Sie das Feedback der Benutzer berücksichtigen, um eventuelle Probleme mit der Nutzbarkeit zu beheben.  Ein Beispiel: Ihre Organisation beschließt, Administratoren das Arbeiten von zu Hause aus zu ermöglichen. Daher müssen statt Desktop-PAWs jetzt Laptop-PAWs eingesetzt werden – eine Änderung, bei der zusätzliche Sicherheitsaspekte zu bedenken sind.  Ein weiteres häufiges Szenario ist die Erstellung oder Aktualisierung von Schulungen für neue Administratoren. Solche Schulungen müssen jetzt Inhalte zur ordnungsgemäßen Verwendung einer PAW enthalten (und darüber informieren, was eine PAW ist, was sie nicht ist und warum ihr Einsatz so wichtig ist).  Weitere Aspekte, die beim Skalieren Ihres PAW-Programms berücksichtigt werden müssen, finden Sie in Phase 2 der Anweisungen.
@@ -300,16 +312,16 @@ Umfang: Administratoren der Ebene 0, einschließlich Unternehmensadministratoren
 
 Phase 1 konzentriert sich auf die Administratoren, die Ihre lokale Active Directory-Domäne verwalten. Dies sind extrem wichtige Rollen, die häufig Ziel von Angreifern sind. Diese Identitätssysteme schützen diese Administratoren effektiv, unabhängig davon, ob Ihre Active Directory-Domänencontroller in lokalen Rechenzentren, in Azure IaaS oder von einem anderen IaaS-Anbieter gehostet werden.
 
-Während dieser Phase erstellen Sie die sichere Verwaltungsstruktur für die Active Directory-Organisationseinheit (OE), um Ihre PAWs zu hosten. Des Weiteren stellen Sie die PAWs selbst bereit.  Diese Struktur umfasst auch die Gruppenrichtlinien und Gruppen, die für die Unterstützung der PAWs erforderlich sind.  Sie erstellen den größten Teil der Struktur mithilfe von PowerShell-Skripts, die in der [TechNet-Galerie](http://aka.ms/pawmedia) verfügbar sind.
+Während dieser Phase erstellen Sie die sichere Verwaltungsstruktur für die Active Directory-Organisationseinheit (OE), um Ihre PAWs zu hosten. Des Weiteren stellen Sie die PAWs selbst bereit.  Diese Struktur umfasst auch die Gruppenrichtlinien und Gruppen, die für die Unterstützung der PAWs erforderlich sind.  Sie erstellen den größten Teil der Struktur mithilfe von PowerShell-Skripts, die in der [TechNet-Galerie](https://aka.ms/pawmedia) verfügbar sind.
 
 Diese Skripts erstellen die folgenden Organisationseinheiten und Sicherheitsgruppen:
 
 * Organisationseinheiten
-   * Sechs neue Organisationseinheiten auf oberster Ebene:  Admin; Gruppen Server der Schicht 1; Arbeitsstationen; Benutzerkonten und -Computer unter Quarantäne gestellt.  Jede OE auf oberster Ebene enthält mehrere untergeordnete Organisationseinheiten.
+   * Sechs neue Organisationseinheiten auf oberster Ebene:  Admin; Gruppen Server der Schicht 1; Arbeitsstationen; Benutzerkonten und -Computer unter Quarantäne gestellt.  Jede Organisationseinheit auf oberster Ebene enthält mehrere untergeordnete Organisationseinheiten.
 * Gruppen
    * Sechs neue mit aktivierter Sicherheit globale Gruppen:  Tier 0 Replication Maintenance; Ebene 1 Server Maintenance; Service Desk Operators; Arbeitsstation-Wartung; PAW-Benutzer; PAW Maintenance.
 
-Sie werden auch eine Reihe von Group Policy Objects erstellen: PAW-Konfiguration – Computer; PAW-Konfiguration – Benutzer; RestrictedAdmin erforderlich – Computer; PAW Outbound Restrictions; Beschränken Sie die Anmeldung an der Arbeitsstation. Beschränken Sie die Server-Anmeldung.
+Sie werden auch mehrere Gruppenrichtlinienobjekte erstellen: PAW-Konfiguration – Computer; PAW-Konfiguration – Benutzer; RestrictedAdmin erforderlich – Computer; PAW Outbound Restrictions; Beschränken Sie die Anmeldung an der Arbeitsstation. Beschränken Sie die Server-Anmeldung.
 
 Phase 1 umfasst die folgenden Schritte:
 
@@ -330,14 +342,14 @@ Phase 1 umfasst die folgenden Schritte:
    >
    > Hintergrundinformationen zur Bedeutung der Sicherheit in der Lieferkette finden Sie [auf dieser Website](https://www.microsoft.com/security/cybersecurity/).
 
-4. **Abrufen und überprüfen Sie die erforderlichen Windows 10 Enterprise Edition und die Anwendungssoftware**. Beziehen Sie die für die PAWs erforderliche Software, und überprüfen Sie sie anhand der Anleitung unter [Vertrauenswürdige Quelle für Installationsmedien](http://aka.ms/cleansource).
+4. **Abrufen und überprüfen Sie die erforderlichen Windows 10 Enterprise Edition und die Anwendungssoftware**. Beziehen Sie die für die PAWs erforderliche Software, und überprüfen Sie sie anhand der Anleitung unter [Vertrauenswürdige Quelle für Installationsmedien](https://aka.ms/cleansource).
 
    * Windows 10 Enterprise Edition
-   * [Remoteserver-Verwaltungstools](https://www.microsoft.com/en-us/download/details.aspx?id=45520.) für Windows 10
-   * [Windows 10-Sicherheitsbaselines](http://aka.ms/win10baselines)
+   * [Remoteserver-Verwaltungstools](https://www.microsoft.com/en-us/download/details.aspx?id=45520) für Windows 10
+   * [Windows 10-Sicherheitsbaselines](https://aka.ms/win10baselines)
 
       > [!NOTE]
-      > Microsoft veröffentlicht MD5-Hashes für alle Betriebssysteme und Anwendungen auf MSDN, allerdings bieten nicht alle Softwarehersteller eine ähnliche Dokumentation.  In solchen Fällen sind andere Strategien erforderlich.  Weitere Informationen zur Überprüfung von Software finden Sie unter [Vertrauenswürdige Quelle für Installationsmedien](http://aka.ms/cleansource).
+      > Microsoft veröffentlicht MD5-Hashes für alle Betriebssysteme und Anwendungen auf MSDN, allerdings bieten nicht alle Softwarehersteller eine ähnliche Dokumentation.  In solchen Fällen sind andere Strategien erforderlich.  Weitere Informationen zur Überprüfung von Software finden Sie unter [Vertrauenswürdige Quelle für Installationsmedien](https://aka.ms/cleansource).
 
 5. **Stellen Sie sicher, dass im Intranet ein WSUS-Server verfügbar ist**. Sie benötigen einen WSUS-Server im Intranet, um Updates für PAWs herunterzuladen und zu installieren. Dieser WSUS-Server sollte so konfiguriert sein, dass alle Sicherheitsupdates für Windows 10 automatisch genehmigt werden, oder verantwortungsvolle Verwaltungsmitarbeiter müssen Softwareupdates schnell und zuverlässig genehmigen.
 
@@ -346,10 +358,10 @@ Phase 1 umfasst die folgenden Schritte:
 
 #### <a name="deploy-the-admin-ou-framework-to-host-the-paws"></a>Bereitstellen des Administrator-OE-Frameworks zum Hosten der PAWs
 
-1. Laden Sie die PAW-Skriptbibliothek aus der [TechNet-Galerie](http://aka.ms/PAWmedia) herunter.
+1. Laden Sie die PAW-Skriptbibliothek aus der [TechNet-Galerie](https://aka.ms/PAWmedia) herunter.
 
    > [!NOTE]
-   > Laden Sie alle Dateien herunter, speichern Sie sie im gleichen Verzeichnis, und führen Sie sie in der unten angegebenen Reihenfolge aus.  Create-PAWGroups hängt von der von Create-PAWOUs erstellten OE-Struktur ab, und Set-PAWOUDelegation hängt von den von Create-PAWGroups erstellten Gruppen ab.
+   > Herunterladen Sie aller Dateien und speichern Sie sie in dasselbe Verzeichnis, und führen Sie sie in der unten angegebenen Reihenfolge.  Create-PAWGroups hängt von der von Create-PAWOUs erstellten OE-Struktur ab, und Set-PAWOUDelegation hängt von den von Create-PAWGroups erstellten Gruppen ab.
    > Ändern Sie weder eines der Skripts noch die CSV-Datei.
 
 2. **Führen Sie das Skript Create-PAWOUs.ps1 aus**.  Dieses Skript erstellt die neue OE-Struktur in Active Directory und blockiert nach Bedarf die GPO-Vererbung in den neuen Organisationseinheiten.
@@ -423,7 +435,7 @@ In diesem Abschnitt erstellen Sie eine neue "PAW-Konfiguration – Computer" Gru
 
             > [!NOTE]
             > An dieser Stelle können Sie Adressen oder Subnetze hinzufügen, deren Datenverkehr zur PAW auch unangefordert zugelassen wird (z.B. Sicherheitsüberprüfungs- oder Verwaltungssoftware).
-            > Die Einstellungen in der WFW-Datei aktivieren die Firewall im Modus „Blockieren (Standard)“ für alle Firewallprofile, deaktivieren die Regelzusammenführung und aktivieren die Protokollierung sowohl für gelöschte als auch für erfolgreiche Pakete. Diese Einstellungen blockieren unangeforderten Datenverkehr, lassen aber bidirektionale Kommunikation in Verbindungen zu, die von der PAW initiiert wurden. Sie verhindern zudem, dass Benutzer mit lokalem Administratorzugriff lokale Firewallregeln erstellen, die die GPO-Einstellungen überschreiben würden, und sie stellen sicher, dass Datenverkehr zur und aus der PAW protokolliert wird.
+            > Die Einstellungen in der WFW-Datei aktivieren die Firewall im Modus „Blockieren (Standard)“ für alle Firewallprofile, deaktivieren die Regelzusammenführung und aktivieren die Protokollierung sowohl für gelöschte als auch für erfolgreiche Pakete. Diese Einstellungen werden nicht angeforderten Datenverkehr blockieren, ohne jedoch die bidirektionale Kommunikation in Verbindungen, die von der PAW initiiert, verhindern, dass Benutzer mit lokalem Administratorzugriff lokale Firewallregeln, die die GPO-Einstellungen überschreiben würden erstellen und Stellen Sie sicher, dass Netzwerkdatenverkehr zur und von der PAW protokolliert wird.
             > **Durch Öffnen dieser Firewall wird die Angriffsfläche für die PAW vergrößert, und das Sicherheitsrisiko steigt. Bevor Sie Adressen hinzufügen, lesen Sie den Abschnitt zu Verwaltung und Betrieb einer PAW in diesem Leitfaden**.
 
    5. **Konfigurieren von Windows Update für WSUS**: Führen Sie die unten stehenden Schritte durch, um die Einstellungen zur Konfiguration von Windows Update für die PAWs zu ändern:
@@ -572,7 +584,7 @@ In diesem Abschnitt konfigurieren Sie Gruppenrichtlinien, um zu verhindern, dass
    >
    > Wenn Sie die Bereitstellung der PAW automatisieren, müssen Sie Folgendes ausführen:
    >
-   > * Erstellen Sie das System über Installationsmedien, die mithilfe der in [Vertrauenswürdige Quelle für Installationsmedien](http://aka.ms/cleansource) beschriebenen Verfahren überprüft wurden.
+   > * Erstellen Sie das System über Installationsmedien, die mithilfe der in [Vertrauenswürdige Quelle für Installationsmedien](https://aka.ms/cleansource) beschriebenen Verfahren überprüft wurden.
    > * Stellen Sie sicher, dass die Verbindung zwischen dem automatisierten Bereitstellungssystem und dem Netzwerk während des Buildprozesses des Betriebssystems getrennt ist.
 
 2. Legen Sie ein eindeutiges komplexes Kennwort für das lokale Administratorkonto fest.  Verwenden Sie kein Kennwort, das bereits für ein anderes Konto in der Umgebung verwendet wurde.
@@ -594,50 +606,50 @@ In diesem Abschnitt konfigurieren Sie Gruppenrichtlinien, um zu verhindern, dass
    Ersetzen Sie die Verweise auf *Fabrikam* durch Ihren Domänennamen.  Wenn Ihr Domänenname mehrere Ebenen umfasst (z.B. child.fabrikam.com), fügen Sie die zusätzlichen Namen mit dem Bezeichner „DC=“ in der Reihenfolge hinzu, in der sie im vollqualifizierten Domänennamen der Domäne angezeigt werden.
 
    > [!NOTE]
-   > Wenn Sie eine [Administrative ESAE-Gesamtstruktur](http://aka.ms/esae) (für Administratoren auf Ebene 0 in Phase 1) oder eine [PAM-Lösung (Privileged Access Management) in Microsoft Identity Manager (MIM)](http://aka.ms/mimpamdeploy) (für Administratoren der Ebenen 1 und 2 in Phase 2) bereitgestellt haben, fügen Sie die PAW zur Domäne in dieser Umgebung anstatt zur Produktionsdomäne hinzu.
+   > Wenn Sie eine [Administrative ESAE-Gesamtstruktur](https://aka.ms/esae) (für Administratoren auf Ebene 0 in Phase 1) oder eine [PAM-Lösung (Privileged Access Management) in Microsoft Identity Manager (MIM)](https://aka.ms/mimpamdeploy) (für Administratoren der Ebenen 1 und 2 in Phase 2) bereitgestellt haben, fügen Sie die PAW zur Domäne in dieser Umgebung anstatt zur Produktionsdomäne hinzu.
 
 7. Wenden Sie alle kritischen und wichtigen Windows-Updates an, bevor Sie andere Softwareanwendungen (z.B. Verwaltungstools, Agents usw.) installieren.
 8. Erzwingen Sie die Anwendung der Gruppenrichtlinie.
    1. Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten aus, und geben Sie den folgenden Befehl aus: `Gpupdate /force /sync`
    2. Starten Sie den Computer neu.
 
-9. (Optional) Installieren Sie weitere erforderliche Tools für Active Directory-Administratoren. Installieren Sie weitere Tools oder Skripts, die zur Ausführung von beruflichen Aufgaben benötigt werden. Stellen Sie sicher, dass Sie das Risiko bewerten, das mit dem Verfügbarmachen von Anmeldeinformationen auf den Zielcomputern mit einem beliebigen Tool einhergeht, bevor Sie das Tool auf einer PAW installieren. Auf [dieser Seite](http://aka.ms/logontypes) erhalten Sie weitere Informationen zur Bewertung des Risikos für Anmeldeinformationen durch Verwaltungstools und Verbindungsmethoden. Stellen Sie sicher, dass beim Beziehen sämtlicher Installationsmedien die in [Vertrauenswürdige Quelle für Installationsmedien](http://aka.ms/cleansource) beschriebenen Verfahren angewendet werden.
+9. (Optional) Installieren Sie weitere erforderliche Tools für Active Directory-Administratoren. Installieren Sie weitere Tools oder Skripts, die zur Ausführung von beruflichen Aufgaben benötigt werden. Stellen Sie sicher, dass Sie das Risiko bewerten, das mit dem Verfügbarmachen von Anmeldeinformationen auf den Zielcomputern mit einem beliebigen Tool einhergeht, bevor Sie das Tool auf einer PAW installieren. Auf [dieser Seite](https://aka.ms/logontypes) erhalten Sie weitere Informationen zur Bewertung des Risikos für Anmeldeinformationen durch Verwaltungstools und Verbindungsmethoden. Stellen Sie sicher, dass beim Beziehen sämtlicher Installationsmedien die in [Vertrauenswürdige Quelle für Installationsmedien](https://aka.ms/cleansource) beschriebenen Verfahren angewendet werden.
 
    > [!NOTE]
    > Die Verwendung eines Sprungbrettservers als zentralen Speicherort für diese Tools kann die Komplexität reduzieren, auch wenn der Server nicht als Sicherheitsgrenze dient.
 
 10. (Optional) Herunterladen Sie und installieren Sie erforderliche Remotezugriffssoftware. Wenn Administratoren die PAW zur Remoteverwaltung verwenden, installieren Sie die Remotezugriffssoftware, und beachten Sie die entsprechenden Sicherheitsinformationen Ihres Anbieters der Remotezugriffssoftware. Stellen Sie sicher, dass beim Beziehen sämtlicher Installationsmedien die in „Vertrauenswürdige Quelle für Installationsmedien“ beschriebenen Verfahren angewendet werden.
 
-   > [!NOTE]
-   > Wägen Sie sorgfältig alle Risiken ab, die mit dem Gewähren des Remotezugriffs über eine PAW einhergehen.  Eine mobile PAW ermöglicht zwar viele wichtige Szenarien, beispielsweise das Arbeiten von zu Hause, allerdings ist Remotezugriffssoftware potenziell anfällig für Angriffe und kann eine PAW gefährden.
+    > [!NOTE]
+    > Gewähren des Remotezugriffs über eine PAW sorgfältig alle Risiken.  Eine mobile PAW ermöglicht zwar viele wichtige Szenarien, beispielsweise das Arbeiten von zu Hause, allerdings ist Remotezugriffssoftware potenziell anfällig für Angriffe und kann eine PAW gefährden.
 
 11. Überprüfen Sie die Integrität des PAW-Systems, indem Sie folgende Schritte durchführen, um die Einstellungen zu prüfen und zu bestätigen, dass alle Einstellungen ordnungsgemäß eingerichtet sind:
-   1. Vergewissern Sie sich, dass nur die PAW-spezifischen Gruppenrichtlinien auf die PAW angewendet wurden.
-      1. Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten aus, und geben Sie den folgenden Befehl aus: `Gpresult /scope computer /r`
-      2. Überprüfen Sie die ausgegebene Liste, und stellen Sie sicher, dass nur diejenigen Gruppenrichtlinien angezeigt werden, die Sie weiter oben selbst erstellt haben.
-   2. Vergewissern Sie sich mithilfe der folgenden Schritte, dass keine anderen Benutzerkonten Mitglied von privilegierten Gruppen auf der PAW sind:
-      1. Öffnen Sie **Lokale Benutzer und Gruppen bearbeiten** (lusrmgr.msc), wählen Sie **Gruppen** aus, und vergewissern Sie sich, dass das lokale Administratorkonto und die globale Sicherheitsgruppe „PAW Maintenance“ die einzigen Mitglieder der lokalen Administratorengruppe sind.
+    1. Vergewissern Sie sich, dass nur die PAW-spezifischen Gruppenrichtlinien auf die PAW angewendet wurden.
+       1. Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten aus, und geben Sie den folgenden Befehl aus: `Gpresult /scope computer /r`
+       2. Überprüfen Sie die ausgegebene Liste, und stellen Sie sicher, dass nur diejenigen Gruppenrichtlinien angezeigt werden, die Sie weiter oben selbst erstellt haben.
+    2. Vergewissern Sie sich mithilfe der folgenden Schritte, dass keine anderen Benutzerkonten Mitglied von privilegierten Gruppen auf der PAW sind:
+       1. Öffnen Sie **Lokale Benutzer und Gruppen bearbeiten** (lusrmgr.msc), wählen Sie **Gruppen** aus, und vergewissern Sie sich, dass das lokale Administratorkonto und die globale Sicherheitsgruppe „PAW Maintenance“ die einzigen Mitglieder der lokalen Administratorengruppe sind.
 
-         > [!NOTE]
-         > Die Gruppe „PAW Users“ darf kein Mitglied der lokalen Administratorengruppe sein.  Als einzige Mitglieder zulässig sind das lokale Administratorkonto und die globale Sicherheitsgruppe „PAW Maintenance“ (und die Gruppe „PAW Users“ darf auch kein Mitglied dieser globalen Gruppe sein).
+          > [!NOTE]
+          > Die Gruppe „PAW Users“ darf kein Mitglied der lokalen Administratorengruppe sein.  Als einzige Mitglieder zulässig sind das lokale Administratorkonto und die globale Sicherheitsgruppe „PAW Maintenance“ (und die Gruppe „PAW Users“ darf auch kein Mitglied dieser globalen Gruppe sein).
 
-      2. Stellen Sie, ebenfalls mithilfe von **Lokale Benutzer und Gruppen bearbeiten**, sicher, dass die folgenden Gruppen keine Mitglieder enthalten: Sicherungs-Operatoren-Kryptografie-Operatoren-Hyper-V-Administratoren Network Configuration Operatoren Power Benutzer Remotedesktopbenutzer Replikatoren
+       2. Stellen Sie, ebenfalls mithilfe von **Lokale Benutzer und Gruppen bearbeiten**, sicher, dass die folgenden Gruppen keine Mitglieder enthalten: Sicherungs-Operatoren-Kryptografie-Operatoren-Hyper-V-Administratoren Network Configuration Operatoren Power Benutzer Remotedesktopbenutzer Replikatoren
 
 12. (Optional) Wenn Ihre Organisation eine Sicherheitsinformationen und Ereignis-verwaltungslösung (SIEM) verwendet, stellen Sie sicher, dass die PAW [so konfiguriert, dass Ereignisse an das System über (Windows Event Forwarding, WEF) weiterleiten](http://blogs.technet.com/b/jepayne/archive/2015/11/24/monitoring-what-matters-windows-event-forwarding-for-everyone-even-if-you-already-have-a-siem.aspx) oder andernfalls registriert ist, mit der Lösung, damit dem SIEM-Server aktiv Ereignisse und Informationen von der PAW empfängt.  Die Details dieses Vorgangs variieren basierend auf Ihrer SIEM-Lösung.
 
-   > [!NOTE]
-   > Wenn Ihre SIEM-Lösung einen Agent erfordert, der auf den PAWs mit einem Systemadministratorkonto oder einem lokalen Administratorkonto ausgeführt wird, stellen Sie sicher, dass die SIEM-Lösung auf der gleichen Vertrauensebene verwaltet wird wie Ihre Domänencontroller und Identitätssysteme.
+    > [!NOTE]
+    > Wenn Ihre SIEM-Lösung einen Agent erfordert, der auf den PAWs mit einem Systemadministratorkonto oder einem lokalen Administratorkonto ausgeführt wird, stellen Sie sicher, dass die SIEM-Lösung auf der gleichen Vertrauensebene verwaltet wird wie Ihre Domänencontroller und Identitätssysteme.
 
 13. (Optional) Wenn Sie LAPS zur Verwaltung des Kennworts für das lokale Administratorkonto auf Ihrer PAW bereitstellen möchten, stellen Sie sicher, dass das Kennwort erfolgreich registriert wurde.
 
-   * Verwenden Sie ein Konto, das über Berechtigungen zum Lesen von über LAPS verwalteten Kennwörtern verfügt, und öffnen Sie **Active Directory-Benutzer und -Computer** (dsa.msc).  Stellen Sie sicher, dass die erweiterten Funktionen aktiviert sind, und klicken Sie mit der rechten Maustaste auf das entsprechende Computerobjekt.  Wählen Sie die Registerkarte „Attribut-Editor“ aus, und vergewissern Sie sich, dass der Wert für msSVSadmPwd mit einem gültigen Kennwort aufgefüllt ist.
+    * Verwenden Sie ein Konto, das über Berechtigungen zum Lesen von über LAPS verwalteten Kennwörtern verfügt, und öffnen Sie **Active Directory-Benutzer und -Computer** (dsa.msc).  Stellen Sie sicher, dass die erweiterten Funktionen aktiviert sind, und klicken Sie mit der rechten Maustaste auf das entsprechende Computerobjekt.  Wählen Sie die Registerkarte „Attribut-Editor“ aus, und vergewissern Sie sich, dass der Wert für msSVSadmPwd mit einem gültigen Kennwort aufgefüllt ist.
 
 ### <a name="phase-2-extend-paw-to-all-administrators"></a>Phase 2: Erweitern der PAW auf alle Administratoren
 
 Umfang: Alle Benutzer mit administrativen Rechten für unternehmenskritische Anwendungen und Abhängigkeiten.  Hierzu sollten mindestens die Administratoren von Anwendungsservern, Lösungen zur Überwachung der betrieblichen Stabilität und Sicherheit, Virtualisierungslösungen, Speichersystemen und Netzwerkgeräten gehören.
 
 > [!NOTE]
-> Bei den Anweisungen in dieser Phase wird vorausgesetzt, dass Phase 1 vollständig abgeschlossen ist.  Beginnen Sie nicht mit Phase 2, wenn noch nicht alle Schritte in Phase 1 abgeschlossen sind.
+> Bei den Anweisungen in dieser Phase wird vorausgesetzt, dass Phase 1 vollständig abgeschlossen ist.  Beginnen Sie Phase 2 nicht, bis Sie alle Schritte in Phase 1 abgeschlossen haben.
 
 Sobald Sie sich vergewissert haben, dass alle Schritte vollständig abgeschlossen wurden, führen Sie die unten stehenden Schritte für Phase 2 durch:
 
@@ -645,7 +657,7 @@ Sobald Sie sich vergewissert haben, dass alle Schritte vollständig abgeschlosse
 
 Aktivieren Sie dieses Feature auf Ihren vorhandenen Servern und Arbeitsstationen, und erzwingen Sie die Verwendung dieses Features zu. Diese Funktion muss auf die Zielservern Windows Server 2008 R2 ausgeführt werden oder höher und auf den Zielarbeitsstationen Windows 7 oder höher ausgeführt werden.
 
-1. Aktivieren Sie den Modus **RestrictedAdmin** auf Ihren Servern und Arbeitsstationen, indem Sie die Anweisungen auf [dieser Seite](http://aka.ms/rdpra) befolgen.
+1. Aktivieren Sie den Modus **RestrictedAdmin** auf Ihren Servern und Arbeitsstationen, indem Sie die Anweisungen auf [dieser Seite](https://aka.ms/rdpra) befolgen.
 
    > [!NOTE]
    > Bevor Sie diese Funktion für Server mit Internetzugang aktivieren, erwägen Sie das Risiko, dass Angreifer sich mit einem zuvor gestohlenen Kennworthash auf diesen Servern authentifizieren können.
@@ -671,7 +683,7 @@ Aktivieren Sie dieses Feature auf Ihren vorhandenen Servern und Arbeitsstationen
       * Administratorzugriff auf Unternehmensanwendungen
 2. Verschieben Sie Konten auf Ebene 1 in die OE „Admin\Tier 1\Accounts“. Verschieben Sie jedes Konto, das Mitglied dieser Gruppen auf Ebene 1 ist (einschließlich geschachtelter Mitgliedschaften), in diese OE.
 3. Hinzufügen der geeigneten Mitglieder zu den jeweiligen Gruppen
-   * **Tier 1 Admins**: Diese Gruppe enthält die Administratoren auf Ebene 1, die sich nicht bei Hosts auf Ebene 2 anmelden dürfen. Fügen Sie all Ihre Verwaltungsgruppen auf Ebene 1 hinzu, die über Administratorrechte für Server oder Internetdienste verfügen.
+   * **Tier 1 Admins**: Diese Gruppe enthält die Administratoren auf Ebene 1, die sich nicht bei Hosts auf Ebene 2 anmelden dürfen. Fügen Sie alle Ihre Verwaltungsgruppen auf Ebene 1, die über Administratorrechte für Server oder Internetdienste verfügen.
 
       > [!NOTE]
       > Wenn es zu den Aufgaben eines Verwaltungsmitarbeiters gehört, Assets auf mehreren Ebenen zu verwalten, müssen Sie für jede Ebene ein separates Administratorkonto erstellen.
@@ -691,8 +703,8 @@ Aktivieren Sie dieses Feature auf Ihren vorhandenen Servern und Arbeitsstationen
 
    1. Konfigurieren Sie die PAW so, dass nur autorisierte Internetziele zugelassen werden.  Wenn Sie Ihre PAW-Bereitstellung auf die Verwaltung in der Cloud erweitern, müssen Sie den Zugang zu autorisierten Diensten zulassen und gleichzeitig den Zugriff aus dem offenen Internet unterbinden, da ein solcher Zugriff potenzielle Angriffe auf Ihre Administratorkonten vereinfacht.
 
-      1. Erstellen Sie die Gruppe **Clouddienstadministratoren**, und fügen Sie der Gruppe alle Konten hinzu, die Zugriff auf Clouddienste im Internet benötigen.
-      2. Laden Sie die PAW-Datei *proxy.pac* aus der [TechNet-Galerie](http://aka.ms/pawmedia) herunter, und veröffentlichen Sie sie auf einer internen Website.
+      1. Erstellen Sie **Cloud Services-Administratoren** gruppieren, und fügen Sie alle Konten hinzu, die Zugriff auf Cloud-Dienste im Internet erforderlich ist.
+      2. Laden Sie die PAW-Datei *proxy.pac* aus der [TechNet-Galerie](https://aka.ms/pawmedia) herunter, und veröffentlichen Sie sie auf einer internen Website.
 
          > [!NOTE]
          > Sie müssen die Datei *proxy.pac* nach dem Herunterladen aktualisieren, um sicherzustellen, dass sie aktuell und vollständig ist.  
@@ -770,7 +782,7 @@ Aktivieren Sie dieses Feature auf Ihren vorhandenen Servern und Arbeitsstationen
          > [!NOTE]
          > Das Gruppenrichtlinienobjekt „CM Windows 10 – Domänensicherheit“ kann unabhängig von der PAW mit der Domäne verknüpft werden, wirkt sich jedoch auf die gesamte Domäne aus.
 
-6. (Optional) Installieren Sie weitere erforderliche Tools für Administratoren auf Ebene 1 an. Installieren Sie weitere Tools oder Skripts, die zur Ausführung von beruflichen Aufgaben benötigt werden. Stellen Sie sicher, dass Sie das Risiko bewerten, das mit dem Verfügbarmachen von Anmeldeinformationen auf den Zielcomputern mit einem beliebigen Tool einhergeht, bevor Sie das Tool auf einer PAW installieren. Auf [dieser Seite](http://aka.ms/logontypes) erhalten Sie weitere Informationen zur Bewertung des Risikos für Anmeldeinformationen durch Verwaltungstools und Verbindungsmethoden. Stellen Sie sicher, dass beim Beziehen sämtlicher Installationsmedien die in „Vertrauenswürdige Quelle für Installationsmedien“ beschriebenen Verfahren angewendet werden.
+6. (Optional) Installieren Sie weitere erforderliche Tools für Administratoren auf Ebene 1 an. Installieren Sie weitere Tools oder Skripts, die zur Ausführung von beruflichen Aufgaben benötigt werden. Stellen Sie sicher, dass Sie das Risiko bewerten, das mit dem Verfügbarmachen von Anmeldeinformationen auf den Zielcomputern mit einem beliebigen Tool einhergeht, bevor Sie das Tool auf einer PAW installieren. Auf [dieser Seite](https://aka.ms/logontypes) erhalten Sie weitere Informationen zur Bewertung des Risikos für Anmeldeinformationen durch Verwaltungstools und Verbindungsmethoden. Stellen Sie sicher, dass beim Beziehen sämtlicher Installationsmedien die in „Vertrauenswürdige Quelle für Installationsmedien“ beschriebenen Verfahren angewendet werden.
 7. Identifizieren Sie die Software und Anwendungen, die für die Verwaltung benötigt werden, und beziehen Sie diese auf sichere Weise.  Dieser Schritt ähnelt den entsprechenden Aufgaben in Phase 1, deckt aber einen umfassenderen Bereich ab, da mehr Anwendungen, Dienste und Systeme gesichert werden müssen.
 
    > [!NOTE]
@@ -808,8 +820,8 @@ Aktivieren Sie dieses Feature auf Ihren vorhandenen Servern und Arbeitsstationen
 
 10. Entwickeln Sie eine Anforderungs- und Verteilungsmethode zur Bereitstellung von PAWs in großem Umfang in Ihrer Organisation.  Je nachdem, wie viele PAWs Sie in Phase 2 bereitstellen möchten, müssen Sie den Prozess möglicherweise automatisieren.
 
-   * Ziehen Sie in Betracht, einen formellen Anforderungs- und Genehmigungsprozess für Administratoren zu entwickeln, den diese zum Erhalten einer PAW durchlaufen müssen.  Mit einem solchen Prozess können Sie den Bereitstellungsprozess standardisieren, die Verantwortlichkeit für PAW-Geräte sicherstellen und Lücken bei der PAW-Bereitstellung identifizieren.
-   * Wie bereits erläutert, sollte diese Bereitstellungslösung von vorhandenen Automatisierungsmethoden (die möglicherweise bereits gefährdet sind) getrennt werden und den in Phase 1 beschriebenen Prinzipien folgen.
+    * Ziehen Sie in Betracht, einen formellen Anforderungs- und Genehmigungsprozess für Administratoren zu entwickeln, den diese zum Erhalten einer PAW durchlaufen müssen.  Mit einem solchen Prozess können Sie den Bereitstellungsprozess standardisieren, die Verantwortlichkeit für PAW-Geräte sicherstellen und Lücken bei der PAW-Bereitstellung identifizieren.
+    * Wie bereits erläutert, sollte diese Bereitstellungslösung von vorhandenen Automatisierungsmethoden (die möglicherweise bereits gefährdet sind) getrennt werden und den in Phase 1 beschriebenen Prinzipien folgen.
 
         > [!NOTE]
         > Jedes System, das zur Verwaltung von Ressourcen verwendet wird, sollte selbst auf der gleichen oder einer höheren Vertrauensebene verwaltet werden.
@@ -817,13 +829,13 @@ Aktivieren Sie dieses Feature auf Ihren vorhandenen Servern und Arbeitsstationen
 11. Überprüfen Sie die vorhandenen PAW-Hardwareprofile, und stellen Sie bei Bedarf zusätzliche bereit.  Ein Hardwareprofil, das Sie für Phase 1 ausgewählt haben, eignet sich möglicherweise nicht für alle Administratoren.  Überprüfen Sie die Hardwareprofile, und wählen Sie ggf. zusätzliche Profile aus, um die Anforderungen der Administratoren zu erfüllen.  Das Profil „Dedizierte Hardware“ (Trennung von PAWs und Arbeitsstationen für tägliche Aufgaben) eignet sich möglicherweise nicht für einen Administrator, der viel unterwegs ist. In diesem Fall sollten Sie für diesen Administrator das Profil „Gleichzeitige Verwendung“ bereitstellen (PAW mit Benutzer-VM).
 12. Berücksichtigen Sie die Anforderungen hinsichtlich Kultur, Betrieb, Kommunikation und Schulungsbedarf, die mit einer erweiterten PAW-Bereitstellung einhergehen.   Eine so wesentliche Änderung an einem Verwaltungsmodell erfordert naturgemäß auch ein gewisses Maß an Change Management, und es ist wichtig, dieses in das Bereitstellungsprojekt selbst zu integrieren.  Beziehen Sie mindestens die folgenden Punkte in Ihre Planung ein:
 
-   * Wie kommunizieren Sie die Änderungen an die Führungsebene, um sich deren Unterstützung zu sichern?  Ein Projekt, das nicht von den Führungskräften unterstützt wird, wird wahrscheinlich scheitern bzw. es wird zumindest schwierig, die notwendige Finanzierung und allgemeine Akzeptanz zu erhalten.
-   * Wie dokumentieren Sie den neuen Prozess für Administratoren?  Diese Änderungen müssen dokumentiert und mitgeteilt werden, und zwar nicht nur den vorhandenen Administratoren (die ihre Gewohnheiten ändern und Ressource auf andere Weise verwalten müssen), sondern auch neuen Administratoren (die innerhalb der Organisation befördert oder neu eingestellt wurden).  Die Dokumentation muss klar verständlich sein und die Bedeutung von Bedrohungen, die Rolle von PAWs für den Schutz der Administratoren und die richtige Verwendung der PAWs vollständig und ausführlich erläutern.
+    * Wie kommunizieren Sie die Änderungen an die Führungsebene, um sich deren Unterstützung zu sichern?  Ein Projekt, das nicht von den Führungskräften unterstützt wird, wird wahrscheinlich scheitern bzw. es wird zumindest schwierig, die notwendige Finanzierung und allgemeine Akzeptanz zu erhalten.
+    * Wie dokumentieren Sie den neuen Prozess für Administratoren?  Diese Änderungen müssen dokumentiert und mitgeteilt werden, und zwar nicht nur den vorhandenen Administratoren (die ihre Gewohnheiten ändern und Ressource auf andere Weise verwalten müssen), sondern auch neuen Administratoren (die innerhalb der Organisation befördert oder neu eingestellt wurden).  Die Dokumentation muss klar verständlich sein und die Bedeutung von Bedrohungen, die Rolle von PAWs für den Schutz der Administratoren und die richtige Verwendung der PAWs vollständig und ausführlich erläutern.
 
       > [!NOTE]
       > Dies ist insbesondere bei Rollen mit hoher Fluktuation sehr wichtig, z.B. bei Helpdeskmitarbeitern.
 
-   * Wie stellen Sie die Kompatibilität mit dem neuen Prozess sicher?  Das PAW-Modell bietet zwar eine Reihe von technischen Kontrollmechanismen, um die Offenlegung privilegierter Anmeldeinformationen zu verhindern, allerdings ist es unmöglich, alle möglichen Gefährdungen allein mit technischen Mitteln zu vermeiden.  Ein Beispiel: Es lässt sich zwar verhindern, dass ein Administrator sich erfolgreich mit privilegierten Anmeldeinformationen an einem Benutzerdesktop anmeldet, aber schon der einfache Versuch einer solchen Anmeldung kann die Anmeldeinformationen für eine Schadsoftware verfügbar machen, die sich auf diesem Computer befindet.  Von daher ist es von essenzieller Bedeutung, dass Sie nicht nur die Vorteile des PAW-Modells aufzeigen, sondern auch die Risiken klar herausstellen, die durch Nichteinhaltung von Regeln und Anweisungen entstehen können.  Ergänzen Sie dieses Konzept durch Überwachungs- und Warnungsfunktionen, sodass eine Offenlegung von Anmeldeinformationen schnell erkannt und behoben werden kann.
+    * Wie stellen Sie die Kompatibilität mit dem neuen Prozess sicher?  Während das PAW-Modell über mehrere technische Kontrollen, um zu verhindern, dass die Offenlegung privilegierter Anmeldeinformationen enthält, ist es unmöglich, alle möglichen gefährdungen allein mit technischen Mitteln vollständig zu verhindern.  Ein Beispiel: Es lässt sich zwar verhindern, dass ein Administrator sich erfolgreich mit privilegierten Anmeldeinformationen an einem Benutzerdesktop anmeldet, aber schon der einfache Versuch einer solchen Anmeldung kann die Anmeldeinformationen für eine Schadsoftware verfügbar machen, die sich auf diesem Computer befindet.  Von daher ist es von essenzieller Bedeutung, dass Sie nicht nur die Vorteile des PAW-Modells aufzeigen, sondern auch die Risiken klar herausstellen, die durch Nichteinhaltung von Regeln und Anweisungen entstehen können.  Ergänzen Sie dieses Konzept durch Überwachungs- und Warnungsfunktionen, sodass eine Offenlegung von Anmeldeinformationen schnell erkannt und behoben werden kann.
 
 ### <a name="phase-3-extend-and-enhance-protection"></a>Phase 3: Erweitern und Verbessern des Schutzes
 
@@ -856,7 +868,7 @@ Führen Sie die folgenden Schritte aus, um diese Phase zu konfigurieren:
 
 PAWs müssen über Funktionen zum Schutz vor Schadsoftware verfügen, und Softwareupdates müssen schnell aufgespielt werden, um die Integrität dieser Arbeitsstationen zu erhalten.
 
-Auf den PAWs können zusätzliche Tools für Konfigurationsverwaltung, Betriebsüberwachung und Sicherheitsverwaltung verwendet werden. Die Integration dieser Tools muss jedoch sorgfältig erwogen werden, da jede Verwaltungsfunktion das Risiko einer Gefährdung der PAW durch das verwendete Tool birgt. Ob es sinnvoll ist, erweiterte Verwaltungsfunktionen einzuführen, hängt von verschiedenen Faktoren wie z.B. den folgenden ab:
+Auf den PAWs können zusätzliche Tools für Konfigurationsverwaltung, Betriebsüberwachung und Sicherheitsverwaltung verwendet werden. Die Integration dieser Tools muss jedoch sorgfältig erwogen werden, da jede Verwaltungsfunktion das Risiko einer Gefährdung der PAW durch das verwendete Tool birgt. Ob es sinnvoll, erweiterte Verwaltungsfunktionen einzuführen, hängt von verschiedenen Faktoren ab:
 
 * Sicherheitsstatus und -verfahren des Verwaltungstools (z.B. Softwareupdateverfahren für das Tool, Administratorrollen und Konten in diesen Rollen, Betriebssysteme, unter denen das Tool gehostet oder verwaltet wird, sowie weitere Hardware- und Softwareabhängigkeiten des Tools)
 * Häufigkeit und Umfang von Softwarebereitstellungen und -updates auf den PAWs
@@ -873,14 +885,118 @@ Diese Tabelle erläutert die verschiedenen Vorgehensweisen, die zum Verwalten un
 |Standardmäßig in PAW<br /><br />– Windows Server Update Services<br />– Windows Defender|– Keine Zusatzkosten<br />– Führt erforderliche grundlegende Sicherheitsfunktionen aus<br />– Anweisungen in diesem Leitfaden enthalten|
 |Verwalten mit [Intune](https://technet.microsoft.com/library/jj676587.aspx)|<ul><li>Bietet cloudbasierte Transparenz und Kontrolle<br /><br /><ul><li>Softwarebereitstellung</li><li>Verwaltung von Softwareupdates</li><li>Verwaltung von Windows-Firewall-Richtlinien</li><li>Malwareschutz</li><li>Remoteunterstützung</li><li>Softwarelizenzverwaltung.</li></ul></li><li>Keine Serverinfrastruktur erforderlich</li><li>Erfordert das Ausführen der Schritte zum Aktivieren von Verbindungen mit Clouddiensten in Phase 2</li><li>Wenn der PAW-Computer keiner Domäne beigetreten ist, müssen mithilfe der im Download der Sicherheitsbaseline bereitgestellten Tools die SCM-Baselines auf die lokalen Images angewendet werden.</li></ul>|
 |Neue System Center-Instanz(en) zum Verwalten der PAWs|– Bietet Transparenz und Kontrolle für Konfiguration, Softwarebereitstellung und Sicherheitsupdates<br />– Erfordert eine separate Serverinfrastruktur, die auf Ebene der PAWs gesichert werden muss, sowie die notwendigen Qualifikationen der Mitarbeiter mit diesen weit reichenden Berechtigungen|
-|Verwalten von PAWs mit vorhandenen Verwaltungstools|: Erhöht das Risiko einer Gefährdung der PAWs, sofern die vorhandene Verwaltungsinfrastruktur auf Sicherheitsebene der PAWs hochgefahren wird, wird erstellt **beachten:**     Microsoft würde in der Regel dadurch davon abhalten, es sei denn, Ihre Organisation kein zwingender Grund es verwenden. Nach unserer Erfahrung ist es in der Regel sehr kostspielig, all diese Tools (und ihre Sicherheitsabhängigkeiten) auf die gleiche Sicherheitsebene heraufzustufen wie die PAWs.<br />– Die meisten dieser Tools bieten Transparenz und Kontrolle für Konfiguration, Softwarebereitstellung und Sicherheitsupdates|
+|Verwalten von PAWs mit vorhandenen Verwaltungstools|: Erhöht das Risiko einer Gefährdung der PAWs, sofern die vorhandene Verwaltungsinfrastruktur auf Sicherheitsebene der PAWs hochgefahren wird, wird erstellt **beachten:**     Microsoft würde in der Regel dadurch davon abhalten, es sei denn, Ihre Organisation kein zwingender Grund es verwenden. In unserer Erfahrung besteht in der Regel sehr hohen Kosten für den Einsatz von all diese Tools (und ihre sicherheitsabhängigkeiten) bis auf die gleiche Sicherheitsebene der PAWs zu.<br />– Die meisten dieser Tools bieten Transparenz und Kontrolle für Konfiguration, Softwarebereitstellung und Sicherheitsupdates|
 |Tools für Sicherheitsüberprüfung und -überwachung, die Administratorzugriff erfordern|Hierzu gehören alle Tools, die einen Agent installieren oder ein Konto mit lokalem Administratorzugriff erfordern.<br /><br />– Tools müssen die gleiche Sicherheitsebene aufweisen wie die PAWs<br />– Möglicherweise muss die Sicherheitsebene der PAWs heruntergestuft werden, um die Funktionsweise der Tools zu unterstützen (Öffnen von Ports, Installieren von Java oder anderer Middleware usw.), wodurch über einen Kompromiss hinsichtlich der Sicherheit entschieden werden muss|
 |SIEM-Lösung (Security Information and Event Management)|<ul><li>Wenn die SIEM-Lösung keinen Agent erfordert:<br /><br /><ul><li>Zugriff auf Ereignisse auf PAWs ist durch Verwenden eines Kontos in der Gruppe **Ereignisprotokollleser** auch ohne Administratorrechte möglich</li><li>Erfordert das Öffnen von Netzwerkports zum Zulassen von eingehendem Datenverkehr von den SIEM-Servern</li></ul></li><li>Wenn SIEM einen Agent erfordert: **Security Scanning or monitoring tools requiring admin access**</li></ul>|
 |Windows-Ereignisweiterleitung|– Stellt eine Methode ohne Agents zum Weiterleiten von Sicherheitsereignissen von den PAWs an einen externen Datensammler oder eine SIEM-Lösung bereit<br />– Zugriff auf Ereignisse auf den PAWs auch ohne Administratorrechte möglich<br />– Öffnen von Netzwerkports zum Zulassen von eingehendem Datenverkehr von den SIEM-Servern nicht erforderlich|
 
 ## <a name="operating-paws"></a>Betrieb der PAWs
 
-Die PAW-Lösung sollte gemäß den Standards unter [Prinzip der vertrauenswürdigen Quelle für betriebliche Standards](http://aka.ms/securitystandards) betrieben werden.
+Die PAW-Lösung sollte gemäß den Standards unter [Prinzip der vertrauenswürdigen Quelle für betriebliche Standards](https://aka.ms/securitystandards) betrieben werden.
+
+## <a name="deploy-paws-using-a-guarded-fabric"></a>Bereitstellen von PAWs mit einem geschützten Fabric
+
+Ein [überwachten Fabric](https://aka.ms/shieldedvms) können verwendet werden, um die PAW-Workloads in eine geschützte virtuelle Maschine ausführen, auf einem Laptop oder Server zu wechseln.
+Diese Vorgehensweise erfordert zusätzliche Infrastruktur und Verfahrensschritte, jedoch können sie leichter PAW-Images in regelmäßigen Abständen erneut bereitgestellt und ermöglicht es Ihnen, konsolidieren mehrere verschiedene PAWs für mehrstufige (oder Klassifizierungen) in virtuellen Computern ausgeführt werden Seite-an-Seite auf einem einzelnen Gerät.
+Eine vollständige Erläuterung der Topologie und Sicherheit Versprechen eines geschützten Fabrics, wenden Sie sich an den [Dokumentation zu geschützten Fabrics](https://aka.ms/shieldedvms).
+
+### <a name="changes-to-the-paw-gpos"></a>Änderungen an den PAW-Gruppenrichtlinienobjekten
+
+Wenn VM-basierten PAWs mit geschützt werden. die [empfohlenen GPO-Einstellungen](#create-paw-configuration---computer-group-policy-object-gpo) definierten höher müssen geändert werden, um die Verwendung von virtuellen Computern unterstützt.
+
+1. Erstellen Sie eine neue Organisationseinheit, für den physischen PAW-Hosts. Physische und virtuelle PAWs unterschiedliche sicherheitsanforderungen haben, und sollten in Active Directory entsprechend getrennt werden.
+2. Das Gruppenrichtlinienobjekt für die PAW-Computer sollten mit sowohl den physischen und virtuellen PAW Organisationseinheiten verknüpft werden.
+3. Erstellen eines neuen Gruppenrichtlinienobjekts für die physischen PAW die PAW-Benutzer der Gruppe "Hyper-V-Administratoren" hinzu. Dies ist erforderlich, können Sie die Administratoren eine Verbindung mit der Admin-VMs, und ein-und nach Bedarf aktivieren. Es ist wichtig, dass der Benutzer, der sich in der physischen PAW keine Administratorrechte benötigen, den Zugriff auf das Internet oder die Möglichkeit zum Kopieren von Daten von böswilligen virtuellen Maschinen von Netzwerkfreigaben oder externe Speichergeräte auf dem physischen PAW.
+4. Erstellen Sie ein neues Gruppenrichtlinienobjekt für die Admin-VMs in der Gruppe "Remotedesktopbenutzer" PAW-Benutzer hinzu. Dies ermöglicht den Benutzern die Verwendung von Hyper-V erweiterte Konsolensitzungen, die eine bessere benutzererfahrung zu bieten und Smartcard Pass-Through-mit dem virtuellen Computer.
+
+### <a name="set-up-the-host-guardian-service"></a>Richten Sie Host-Überwachungsdienst
+
+Host-Überwachungsdienst ist für die Identität und die Integrität eines physischen Geräts für die PAW Nachweise verantwortlich.
+Nur die Computer die Host-Überwachungsdienst bekannt sind und Ausführen von einer vertrauenswürdigen [codeintegritätsrichtlinie](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control) sind zulässig, um abgeschirmte VMs zu starten.
+Dies schützt die abgeschirmten VMs, die vertrauenswürdige arbeitsauslastungen zum Verwalten von Ihrer mehrstufigen-Ressourcen vor Bedrohungen für Benutzer-desktop-Umgebung ausgeführt werden.
+
+Da die Host-Überwachungsdienst ist verantwortlich für die Bestimmung, welche Geräte die PAW-VMs ausführen können, wird dies eine Ebene-0-Ressource betrachtet.
+Es sollte zusammen mit anderen Ebene-0-Ressourcen bereitgestellt und vor nicht autorisierten physischen und logischen Zugriff geschützt werden.
+Host-Überwachungsdienst ist eine Clusterrolle zum horizontalen hochskalieren für jede Größe-Bereitstellung zu vereinfachen.
+Als allgemeine Regel gilt 1 HGS-Server für je 1.000 Geräten zu planen, die Sie mit mindestens 3 Knoten haben.
+
+1. Um Ihren ersten HGS-Server zu installieren, beginnen Sie mit der [installieren HGS - geschützten Gesamtstruktur](../../security/guarded-fabric-shielded-vm/guarded-fabric-install-hgs-in-a-bastion-forest.md) Artikel und verknüpfen Sie Host-Überwachungsdienst, mit der Domäne der Ebene 0.
+
+2. Klicken Sie dann [Erstellen von Zertifikaten für die Host-Überwachungsdienst](../../security/guarded-fabric-shielded-vm/guarded-fabric-obtain-certs.md) mithilfe von Ihrer Unternehmenszertifizierungsstelle.
+Jeder Benutzer im Besitz der HGS-Verschlüsselung und Signaturzertifikate eine geschützte VM entschlüsseln kann, wenn Sie den Zugriff auf ein Hardwaresicherheitsmodul zum Schützen privater Schlüssel verfügen, es empfiehlt, dass Sie diese Zertifikate mit dem Einsatz eines HSM generieren.
+Wählen Sie für erhöhte Sicherheit eine Schlüsselgröße, die größer als oder gleich 4096 Bit beschränkt.
+
+3. Abschließend führen Sie die Schritte zum [initialisieren Sie Ihr HGS-Server](../../security/guarded-fabric-shielded-vm/guarded-fabric-initialize-hgs-tpm-mode-bastion.md) in **TPM Modus**.
+Initialisierung richtet die Nachweis- und Schlüsselschutz-Webdienste, die von den PAWs verwendet ein.
+Host-Überwachungsdienst muss [mit einem TLS-Zertifikat konfiguriert](../../security/guarded-fabric-shielded-vm/guarded-fabric-configure-hgs-https.md) zum Schutz dieser Kommunikation und nur port 443 sollte geöffnet werden von nicht vertrauenswürdigen Netzwerken auf dem Host-Überwachungsdienst.
+
+4. Führen Sie die Schritte zum [weitere Knoten hinzufügen](../../security/guarded-fabric-shielded-vm/guarded-fabric-configure-additional-hgs-nodes.md) für Ihre zweite, dritte und zusätzliche HGS-Knoten.
+
+5. Wenn Ihr HGS-Server Windows Server-2019 ausgeführt wird, oder höher können Sie eine optionale Funktion, die Schlüssel für abgeschirmte VMs auf den PAWs zwischenzuspeichern, damit sie offline verwendet werden können. Die Schlüssel sind auf die aktuelle Sicherheitskonfiguration des Systems, um zu verhindern, dass eine Person mit zwischengespeicherten Schlüsseln auf einem anderen Computer oder dem gleichen Computer in einem unsicheren Computerzustand versiegelt. Dies kann eine nützliche Lösung sein, wenn Ihre PAW-Benutzer ohne Zugriff auf das Internet übertragen, aber trotzdem virtuelle Maschinen PAW anmelden können müssen. Um dieses Feature verwenden zu können, führen Sie den folgenden Befehl auf jedem Host-Überwachungsdienst-Server:
+
+      ```powershell
+      Set-HgsKeyProtectionConfiguration -AllowKeyMaterialCaching:$true
+      ```
+
+### <a name="set-up-the-physical-paw-device"></a>Einrichten des physischen PAW-Geräts
+
+Das physische PAW-Gerät gilt als nicht vertrauenswürdig eingestuft werden standardmäßig in der geschützten Fabric-Lösung.
+Es kann nachweisen, dass sie bei den nachweisprozess trustworthy wird nach dem erhalten ihn bei der die Schlüssel erforderlich, um ein abgeschirmte VM-Administrator zu starten.
+Das Gerät muss in der Lage, Hyper-V ausführen und der sichere Start und ein TPM 2.0 aktiviert werden, erfüllen die [Voraussetzungen für überwachte Hosts](../../security/guarded-fabric-shielded-vm/guarded-fabric-guarded-host-prerequisites.md).
+Ist die mindestens erforderliche Betriebssystemversion zur Unterstützung von Funktionen für alle PAW **Windows 10, Version 1803**.
+
+Die physische PAW sollte wie jede andere, mit der Ausnahme eingerichtet werden, die Hyper-V-Administratoren in der Lage, zu den VM-Administrator aktivieren und eine Verbindung herstellen, werden alle PAW-Benutzer müssen.
+In Ihrer Cleanroom-Umgebung müssen Sie eine goldene Konfiguration für jede eindeutige Hardware-/Software-Kombination zu erstellen, die Sie als geschützte Hosts für virtuelle Computer-Administrator bereitstellen.
+Führen Sie für jede Konfiguration auf Gold-Version die folgenden Aufgaben aus:
+
+1. Installieren Sie die neuesten Updates für Windows, Treiber und Firmware auf dem Computer als auch eine Verwaltung von Drittanbietern oder überwachungs-Agents an.
+2. [Die erforderliche Baseline-Informationen erfassen](../../security/guarded-fabric-shielded-vm/guarded-fabric-tpm-trusted-attestation-capturing-hardware.md), starten Sie den eindeutigen TPM-Bezeichner (Endorsement Key), einschließlich der Messungen (TCG-Protokoll) und codeintegritätsrichtlinie für den Computer.
+3. Kopieren Sie diese Artefakte in ein HGS-Server, und führen Sie die Host-Überwachungsdienst-Nachweis-Befehle im vorherigen Artikel zum Registrieren des Hosts. Wenn alle Ihre Hosts die gleichen codeintegritätsrichtlinie verwenden und/oder die gleiche Hardwarekonfiguration verwenden, müssen Sie nur einmal Code Integrity Richtlinie/TCG-Protokoll zu registrieren.
+
+### <a name="create-the-signed-template-disk"></a>Erstellen Sie den signierten vorlagendatenträger
+
+Abgeschirmte VMs werden mit der signierte vorlagendatenträger erstellt.
+Die Signatur wird zum Zeitpunkt der Bereitstellung Datenträger Integritäts- und authentizitätsprüfung überprüfen Sie vor dem Freigeben von Geheimnissen wie z. B. das Kennwort des Administrators auf dem virtuellen Computer überprüft.
+
+Um einen signierten vorlagendatenträger erstellen zu können, führen Sie die Schritten zur Bereitstellung von Phase 1 auf reguläre, virtuelle Computer der Generation 2 ein.
+Diese Computer werden dem goldenen Image für ein VM-Administrator.
+Sie können mehrere vorlagendatenträger, um spezielle Tools zur Verfügung, in unterschiedlichen Kontexten erstellen.
+
+Wenn der virtuelle Computer konfiguriert ist, als gewünscht, führen Sie `C:\Windows\System32\sysprep\sysprep.exe` und **verallgemeinern** des Datenträgers. **Herunterfahren** das Betriebssystem nach Abschluss der Generalisierung.
+
+Führen Sie abschließend die [Vorlagendatenträger-Assistenten](../../security/guarded-fabric-shielded-vm/guarded-fabric-create-a-shielded-vm-template.md) auf die VHDX-Datei des virtuellen Computers, installieren die BitLocker-Komponenten und die Datenträgersignatur zu generieren.
+
+#### <a name="create-the-shielding-data-file"></a>Erstellen Sie die geschützte Datendatei
+
+Der generalisierten vorlagendatenträger ist kombiniert mit der eine geschützte Datendatei enthält die geheimen Schlüssel zum Bereitstellen eines abgeschirmten virtuellen Computers erforderlich.
+Die geschützte Datendatei enthält:
+   - Eine Liste von Überwachungen, die die Fabrics definieren, in dem der virtuelle Computer ausgeführt werden darf. Jeder Host-Überwachungsdienst-Cluster ist ein Wächter für die PAW-Geräte, die es schützt.
+   - Eine Liste der für die Bereitstellung vertrauenswürdigen Datenträgersignaturen. Schutzdatendateien wird nur ihre Geheimnisse zu virtuellen Computern erstellt, indem Sie Quellmedien für autorisierte frei.
+   - Eine Sicherheitsrichtlinie, die bestimmt, ob zusätzliche Schutzmaßnahmen zum Schutz des virtuellen Computers vom Host platziert werden soll, und gibt an, ob der virtuelle Computer in einem anderen Computer verschieben zulässig ist. PAW-Admin-VMs sollten immer vollständig geschützt werden.
+   - Die Datei "Unattend.xml" Spezialisierung-Datei, die ermöglicht Windows automatisch Installationsschritte aus, und schließt geheime Daten wie das lokale Administratorkennwort ein.
+   - Weitere Dateien, z. B. RDP oder VPN-Zertifikate.
+
+Finden Sie unter den [geschützte Datei Artikel](../../security/guarded-fabric-shielded-vm/guarded-fabric-tenant-creates-shielding-data.md) für die Schritte zum Erstellen Sie einer geschützte Datendatei.
+
+Die Besitzer-Schlüssel für abgeschirmte VMs sollte extrem sensibel und in einem HSM gespeichert oder offline an einem sicheren Ort gespeichert werden.
+Sie können in einem Notfall Break Glass-Szenario verwendet werden, um ohne das Vorhandensein des Host-Überwachungsdienst eine abgeschirmte VM zu starten.
+
+Es wird dringend empfohlen, dass geschützte Daten für die PAW-Administrator umfassen virtuelle Computer die Einstellung, ein virtuellen Computers beim ersten physischen Host zu sperren, wo es hochgefahren wurde.
+Dadurch wird verhindert, dass jemand wechselt einen VM-Administrator über eine paw erfolgt auf einem anderen PAW in der gleichen Umgebung.
+Um dieses Feature verwenden zu können, erstellen Sie die schutzdatendatei mit PowerShell, und enthalten die **BindToHostTpm** Parameter:
+
+```powershell
+New-ShieldingDataFile -Policy Shielded -BindToHostTpm [...]
+```
+
+#### <a name="deploy-an-admin-vm"></a>Bereitstellen von virtuellen
+
+Sobald die vorlagendatenträger und eine geschützte Datendatei bereit sind, können Sie einen VM auf alle PAW-Administrator bereitstellen, die bei HGS registriert wurde.
+
+1. Kopieren Sie den vorlagendatenträger (vhdx) und die geschützte Datendatei (PDK), um ein vertrauenswürdiges Gerät für die PAW.
+2. Führen Sie die Anweisungen, um [Bereitstellen einer neue abgeschirmten VM mithilfe von PowerShell](../../security/guarded-fabric-shielded-vm/guarded-fabric-create-a-shielded-vm-using-powershell.md)
+3. Führen Sie die verbleibenden Schritte in Phase 1 der Bereitstellungsprozess So sichern Betriebssystem des virtuellen Computers und für die vorgesehene Rolle entsprechend konfiguriert.
+
 
 ## <a name="related-topics"></a>Verwandte Themen
 
@@ -888,9 +1004,9 @@ Die PAW-Lösung sollte gemäß den Standards unter [Prinzip der vertrauenswürdi
 
 [Premier Vorgeschmack: Gewusst wie: Pass-the-Hash und anderen Formen der Diebstahl von Anmeldeinformationen zu verringern](https://channel9.msdn.com/Blogs/Taste-of-Premier/Taste-of-Premier-How-to-Mitigate-Pass-the-Hash-and-Other-Forms-of-Credential-Theft)
 
-[Microsoft Advanced Threat Analytics](http://aka.ms/ata)
+[Microsoft Advanced Threat Analytics](https://aka.ms/ata)
 
-[Schützen Sie abgeleiteter Domänenanmeldeinformationen mit Credential Guard](https://technet.microsoft.com/library/mt483740%28v=vs.85%29.aspx)
+[Schützen abgeleiteter Domänenanmeldeinformationen mit Credential Guard](https://technet.microsoft.com/library/mt483740%28v=vs.85%29.aspx)
 
 [Device Guard – Überblick](https://technet.microsoft.com/library/dn986865(v=vs.85).aspx)
 
@@ -910,4 +1026,4 @@ Die PAW-Lösung sollte gemäß den Standards unter [Prinzip der vertrauenswürdi
 
 [Authentifizierungssicherung für AD DS in schrittweise Anleitung für Windows Server 2008 R2](https://technet.microsoft.com/library/dd378897(v=ws.10).aspx)
 
-[Trusted Platform Module](C:\sd\docs\p_ent_keep_secure\p_ent_keep_secure\trusted_platform_module_technology_overview.xml)
+[Trusted Platform Module](C:/sd/docs/p_ent_keep_secure/p_ent_keep_secure/trusted_platform_module_technology_overview.xml)

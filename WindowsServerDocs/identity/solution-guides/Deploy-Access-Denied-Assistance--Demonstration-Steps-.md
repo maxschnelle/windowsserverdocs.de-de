@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 5201441ba884fe4658b917919e60c7d20530341b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 441dad92611e1a4a1135bd15bbcdfd05f38c1be3
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835581"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445825"
 ---
 # <a name="deploy-access-denied-assistance-demonstration-steps"></a>Bereitstellen der Unterstützung nach %%amp;quot;Zugriff verweigert%%amp;quot; (Schritte zur Veranschaulichung)
 
@@ -46,7 +46,7 @@ Sie können die Unterstützung nach "Zugriff verweigert" für die Domäne mithil
   
 2.  Klicken Sie mit der rechten Maustaste auf die entsprechende Gruppenrichtlinie, und klicken Sie dann auf **Bearbeiten**.  
   
-3.  Klicken Sie auf **Computerkonfiguration**. Klicken Sie auf **Richtlinien**, auf **Administrative Vorlagen**, auf **System** und dann auf **Unterstützung nach "Zugriff verweigert"**.  
+3.  Klicken Sie auf **Computerkonfiguration**. Klicken Sie auf **Richtlinien**, auf **Administrative Vorlagen**, auf **System** und dann auf **Unterstützung nach "Zugriff verweigert"** .  
   
 4.  Klicken Sie mit der rechten Maustaste auf **Meldung für Zugriffsverweigerungsfehler anpassen**, und klicken Sie dann auf **Bearbeiten**.  
   
@@ -70,7 +70,7 @@ Sie können die Unterstützung nach "Zugriff verweigert" für die Domäne mithil
   
     3.  Übernehmen Sie die restlichen Standardeinstellungen.  
   
-![Lösungshandbücher](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***  
+![Lösungshandbücher](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -94,7 +94,7 @@ Alternativ können Sie die Unterstützung nach "Zugriff verweigert" auch über d
   
 1.  Öffnen Sie den Ressourcen-Manager für Dateiserver. Klicken Sie in Server-Manager auf **Extras** und dann auf **Ressourcen-Manager für Dateiserver**.  
   
-2.  Klicken Sie mit der rechten Maustaste auf **Ressourcen-Manager für Dateiserver (lokal)**, und klicken Sie dann auf **Optionen konfigurieren**.  
+2.  Klicken Sie mit der rechten Maustaste auf **Ressourcen-Manager für Dateiserver (lokal)** , und klicken Sie dann auf **Optionen konfigurieren**.  
   
 3.  Klicken Sie auf die Registerkarte **Unterstützung nach "Zugriff verweigert"** .  
   
@@ -118,7 +118,7 @@ Alternativ können Sie die Unterstützung nach "Zugriff verweigert" auch über d
   
 8.  Klicken Sie auf **OK**.  
   
-![Lösungshandbücher](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***  
+![Lösungshandbücher](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.
   
@@ -136,13 +136,13 @@ Nachdem Sie die Unterstützung nach "Zugriff verweigert" konfiguriert haben, mü
   
 2.  Klicken Sie mit der rechten Maustaste auf die entsprechende Gruppenrichtlinie, und klicken Sie dann auf **Bearbeiten**.  
   
-3.  Klicken Sie auf **Computerkonfiguration**. Klicken Sie auf **Richtlinien**, auf **Administrative Vorlagen**, auf **System** und dann auf **Unterstützung nach "Zugriff verweigert"**.  
+3.  Klicken Sie auf **Computerkonfiguration**. Klicken Sie auf **Richtlinien**, auf **Administrative Vorlagen**, auf **System** und dann auf **Unterstützung nach "Zugriff verweigert"** .  
   
 4.  Klicken Sie mit der rechten Maustaste auf **Unterstützung nach "Zugriff verweigert" für alle Dateitypen auf dem Client aktivieren**, und klicken Sie dann auf **Bearbeiten**.  
   
 5.  Klicken Sie auf **Aktiviert**und dann auf **OK**.  
   
-![Lösungshandbücher](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***  
+![Lösungshandbücher](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind. 
   
@@ -159,7 +159,7 @@ Mithilfe der Konsole des Ressourcen-Managers für Dateiserver können Sie auch e
   
 1.  Öffnen Sie den Ressourcen-Manager für Dateiserver. Klicken Sie in Server-Manager auf **Extras** und dann auf **Ressourcen-Manager für Dateiserver**.  
   
-2.  Erweitern Sie **Ressourcen-Manager für Dateiserver (lokal)**, und klicken Sie dann auf **Klassifizierungsverwaltung**.  
+2.  Erweitern Sie **Ressourcen-Manager für Dateiserver (lokal)** , und klicken Sie dann auf **Klassifizierungsverwaltung**.  
   
 3.  Klicken Sie mit der rechten Maustaste auf **Klassifizierungseigenschaften**, und klicken Sie dann auf **Ordnerverwaltungseigenschaften festlegen**.  
   
@@ -181,7 +181,7 @@ Mithilfe der Konsole des Ressourcen-Managers für Dateiserver können Sie auch e
   
 7.  Klicken Sie auf **OK** und dann auf **Schließen**.  
   
-![Lösungshandbücher](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***  
+![Lösungshandbücher](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind. 
   
@@ -196,7 +196,7 @@ Sie müssen die E-Mail-Benachrichtigungseinstellungen auf jedem Dateiserver konf
   
 1.  Öffnen Sie den Ressourcen-Manager für Dateiserver. Klicken Sie in Server-Manager auf **Extras** und dann auf **Ressourcen-Manager für Dateiserver**.  
   
-2.  Klicken Sie mit der rechten Maustaste auf **Ressourcen-Manager für Dateiserver (lokal)**, und klicken Sie dann auf **Optionen konfigurieren**.  
+2.  Klicken Sie mit der rechten Maustaste auf **Ressourcen-Manager für Dateiserver (lokal)** , und klicken Sie dann auf **Optionen konfigurieren**.  
   
 3.  Klicken Sie auf die Registerkarte **E-Mail-Benachrichtigungen**.  
   
@@ -210,7 +210,7 @@ Sie müssen die E-Mail-Benachrichtigungseinstellungen auf jedem Dateiserver konf
   
 6.  Klicken Sie auf **OK**.  
   
-![Lösungshandbücher](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***  
+![Lösungshandbücher](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.
   
@@ -226,10 +226,10 @@ Sie können überprüfen, ob die Zugriff verweigert-Unterstützung durch einen B
   
 ## <a name="BKMK_Links"></a>Siehe auch  
   
--   [Szenario: Zugriff](Scenario--Access-Denied-Assistance.md)  
+-   [Szenario: Unterstützung nach „Zugriff verweigert“](Scenario--Access-Denied-Assistance.md)  
   
 -   [Planen der Unterstützung nach den Zugriff verweigert](assetId:///b169f0a4-8b97-4da8-ae4a-c8f1986d19e1)  
   
--   [Dynamische Zugriffssteuerung: Übersicht über das Szenario](Dynamic-Access-Control--Scenario-Overview.md)  
+-   [Dynamische Zugriffsteuerung: Szenarioübersicht](Dynamic-Access-Control--Scenario-Overview.md)  
   
 

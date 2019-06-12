@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b4639ff780687ad7a69ddba5374a722a15b06542
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4b13a2fe573ffc81fa5c85d8fd28e9ab13ca4342
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848261"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439341"
 ---
 # <a name="find"></a>find
 
@@ -36,16 +36,16 @@ find [/v] [/c] [/n] [/i] [/off[line]] "<String>" [[<Drive>:][<Path>]<FileName>[.
 
 ## <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|/v|Zeigt alle Zeilen, die nicht dem angegebenen enthalten \<Zeichenfolge >.|
-|/c|Zählt die Zeilen, die den angegebenen enthalten \<Zeichenfolge >, und zeigt die Summe.|
-|/n|Vor jede Zeile mit dem die Nummer der Zeile der Datei steht.|
-|/i|Gibt an, dass es sich bei der Suche nicht beachtet werden.|
-|[/off[line]]|Dateien, die das Attribut "offline" festgelegt ist, werden nicht übersprungen werden.|
-|"\<String>"|Erforderlich. Gibt die Gruppe von Zeichen (in Anführungszeichen eingeschlossen), denen Sie suchen möchten.|
-|[\<Drive>:][<Path>]<FileName>|Gibt den Speicherort und Namen der Datei, in dem für die angegebene Zeichenfolge gesucht werden soll.|
-|/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
+|           Parameter           |                                              Beschreibung                                               |
+|-------------------------------|--------------------------------------------------------------------------------------------------------|
+|              /v               |                    Zeigt alle Zeilen, die nicht dem angegebenen enthalten \<Zeichenfolge >.                     |
+|              /c               |              Zählt die Zeilen, die den angegebenen enthalten \<Zeichenfolge >, und zeigt die Summe.              |
+|              /n               |                            Vor jede Zeile mit dem die Nummer der Zeile der Datei steht.                             |
+|              /i               |                            Gibt an, dass es sich bei der Suche nicht beachtet werden.                            |
+|         [/off[line]]          |                        Dateien, die das Attribut "offline" festgelegt ist, werden nicht übersprungen werden.                        |
+|          "\<String>"          | Erforderlich. Gibt die Gruppe von Zeichen (in Anführungszeichen eingeschlossen), denen Sie suchen möchten. |
+| [\<Drive>:][<Path>]<FileName> |        Gibt den Speicherort und Namen der Datei, in dem für die angegebene Zeichenfolge gesucht werden soll.        |
+|              /?               |                                  Zeigt die Hilfe an der Eingabeaufforderung an.                                  |
 
 ## <a name="remarks"></a>Hinweise
 
@@ -62,7 +62,7 @@ find [/v] [/c] [/n] [/i] [/off[line]] "<String>" [[<Drive>:][<Path>]<FileName>[.
     Können Sie eingeben, Parameter und den Befehlszeilenoptionen für die **finden** Befehl in beliebiger Reihenfolge.
 -   Verwenden von Platzhaltern
 
-    Können keine Platzhalter (**&#42;** und **?**) im Dateinamen oder Erweiterungen, die Sie angeben, mit der **finden** Befehl. Um nach einer Zeichenfolge in einen Satz von Dateien zu suchen, die Sie mit Platzhaltern angeben, können Sie die **finden** Befehl innerhalb einer **für** Befehl.
+    Können keine Platzhalter ( **&#42;** und **?** ) im Dateinamen oder Erweiterungen, die Sie angeben, mit der **finden** Befehl. Um nach einer Zeichenfolge in einen Satz von Dateien zu suchen, die Sie mit Platzhaltern angeben, können Sie die **finden** Befehl innerhalb einer **für** Befehl.
 -   Mithilfe von **/v** oder **/n** mit   **/c**
 
     Bei Verwendung von **/c** und **/v** in der gleichen Befehlszeile **finden** zeigt die Anzahl der Zeilen, die nicht die angegebene Zeichenfolge enthalten. Bei Angabe von **/c** und **/n** in der gleichen Befehlszeile **finden** ignoriert **/n**.
@@ -92,4 +92,4 @@ Da **finden** Groß-/Kleinschreibung und **Dir** Ausgabe Großbuchstaben verwend
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

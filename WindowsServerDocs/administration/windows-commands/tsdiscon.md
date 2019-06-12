@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2033cbc9b3d9127249656c3e0dcf95d872229797
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a1b5fca329864ebed9eab66671a17493f0fc3ca8
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842541"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440910"
 ---
 # <a name="tsdiscon"></a>tsdiscon
 
@@ -36,6 +36,7 @@ tsdiscon [<SessionID> | <SessionName>] [/server:<ServerName>] [/v]
 ```
 
 ## <a name="parameters"></a>Parameter
+
 |Parameter|Beschreibung|
 |-------|--------|
 |\<SessionId>|Gibt die ID der Sitzung zu trennen.|
@@ -52,18 +53,18 @@ tsdiscon [<SessionID> | <SessionName>] [/server:<ServerName>] [/v]
 -   Die konsolensitzung kann nicht getrennt werden.
 
 ## <a name="BKMK_examples"></a>Beispiele für
--   Wenn die aktuelle Sitzung trennen möchten, geben Sie Folgendes ein:
-    ```
-    tsdiscon
-    ```
--   Wenn Sitzung 10 trennen möchten, geben Sie Folgendes ein:
-    ```
-    tsdiscon 10
-    ```
--   Wenn die Sitzung mit dem Namen TERM04 trennen möchten, geben Sie Folgendes ein:
-    ```
-    tsdiscon TERM04
-    ```
-#### <a name="additional-references"></a>Weitere Verweise
-[Befehlszeilen-Syntaxschlüssel](command-line-syntax-key.md)
-[Remotedesktopdienste &#40;Terminaldienste&#41; -Befehlsreferenz](remote-desktop-services-terminal-services-command-reference.md)
+- Wenn die aktuelle Sitzung trennen möchten, geben Sie Folgendes ein:
+  ```
+  tsdiscon
+  ```
+- Wenn Sitzung 10 trennen möchten, geben Sie Folgendes ein:
+  ```
+  tsdiscon 10
+  ```
+- Wenn die Sitzung mit dem Namen TERM04 trennen möchten, geben Sie Folgendes ein:
+  ```
+  tsdiscon TERM04
+  ```
+  #### <a name="additional-references"></a>Weitere Verweise
+  [Befehlszeilen-Syntaxschlüssel](command-line-syntax-key.md)
+  [Remotedesktopdienste &#40;Terminaldienste&#41; -Befehlsreferenz](remote-desktop-services-terminal-services-command-reference.md)

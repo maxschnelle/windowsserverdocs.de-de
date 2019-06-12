@@ -9,12 +9,12 @@ ms.date: 01/16/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 73ff3fc6df872edd29735ee96c0918144250d5f1
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: ee7bef2afe61500fe75b2d3c61b92b902f9757fa
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190041"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444259"
 ---
 # <a name="advanced-customization-of-ad-fs-sign-in-pages"></a>Erweiterte Anpassung von AD FS-Anmeldeseiten
 
@@ -104,33 +104,33 @@ if (loginMessage)
 ```  
   
 ### <a name="example-2-accept-sam-account-name-as-a-login-format-on-an-ad-fs-form-based-sign-in-page"></a>Beispiel 2: akzeptieren SAM\-Kontoname als Anmeldung Format in eine AD FS-Formular\-basierend anmelden\-auf Seite  
-Das Standard-AD FS-Form\-basierend anmelden\-Seite unterstützt Anmeldung Format Benutzerprinzipalnamen \(UPNs\) \(z. B. **johndoe@contoso.com** \) oder Domäne qualifiziert Sam\-Kontonamen \( **Contoso\\Johndoe** oder **"contoso.com"\\Johndoe**\). Falls alle Benutzer aus derselben Domäne stammen, und sie nur zu den Sam Informationen\-Kontonamen, Sie möchten das Szenario, in denen die Benutzer können sich anmelden, zu unterstützen, bei der Nutzung Sam\-Konto nur Namen. Sie können den folgenden Code hinzufügen, um onload.js unterstützen dieses Szenario, ersetzen Sie die Domäne "contoso.com" im Beispiel unten einfach mit der Domäne, die Sie verwenden möchten.  
+Das Standard-AD FS-Form\-basierend anmelden\-Seite unterstützt Anmeldung Format Benutzerprinzipalnamen \(UPNs\) \(z. B. <strong>johndoe@contoso.com</strong> \) oder Domäne qualifiziert Sam\-Kontonamen \( **Contoso\\Johndoe** oder **"contoso.com"\\Johndoe**\). Falls alle Benutzer aus derselben Domäne stammen, und sie nur zu den Sam Informationen\-Kontonamen, Sie möchten das Szenario, in denen die Benutzer können sich anmelden, zu unterstützen, bei der Nutzung Sam\-Konto nur Namen. Sie können den folgenden Code hinzufügen, um onload.js unterstützen dieses Szenario, ersetzen Sie die Domäne "contoso.com" im Beispiel unten einfach mit der Domäne, die Sie verwenden möchten.  
   
 ```  
 if (typeof Login != 'undefined'){  
-    Login.submitLoginRequest = function () {   
-    var u = new InputUtil();  
-    var e = new LoginErrors();  
-    var userName = document.getElementById(Login.userNameInput);  
-    var password = document.getElementById(Login.passwordInput);  
-    if (userName.value && !userName.value.match('[@\\\\]'))   
-    {  
-        var userNameValue = 'contoso.com\\' + userName.value;  
-        document.forms['loginForm'].UserName.value = userNameValue;  
-    }  
+    Login.submitLoginRequest = function () {   
+    var u = new InputUtil();  
+    var e = new LoginErrors();  
+    var userName = document.getElementById(Login.userNameInput);  
+    var password = document.getElementById(Login.passwordInput);  
+    if (userName.value && !userName.value.match('[@\\\\]'))   
+    {  
+        var userNameValue = 'contoso.com\\' + userName.value;  
+        document.forms['loginForm'].UserName.value = userNameValue;  
+    }  
   
-    if (!userName.value) {  
-       u.setError(userName, e.userNameFormatError);  
-       return false;  
-    }  
+    if (!userName.value) {  
+       u.setError(userName, e.userNameFormatError);  
+       return false;  
+    }  
   
-    if (!password.value)   
-    {  
-        u.setError(password, e.passwordEmpty);  
-        return false;  
-    }  
-    document.forms['loginForm'].submit();  
-    return false;  
+    if (!password.value)   
+    {  
+        u.setError(password, e.passwordEmpty);  
+        return false;  
+    }  
+    document.forms['loginForm'].submit();  
+    return false;  
 };  
 }  
   

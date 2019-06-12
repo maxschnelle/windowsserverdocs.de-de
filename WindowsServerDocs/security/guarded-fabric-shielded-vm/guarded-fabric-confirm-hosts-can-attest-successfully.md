@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 02/05/2019
-ms.openlocfilehash: 6b67208176b426f52d3c5106f8de09ad334d3b01
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 87878eba785c0e1cc50454a74b2af4a159e88e12
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59829531"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443663"
 ---
 # <a name="confirm-guarded-hosts-can-attest"></a>Vergewissern Sie sich, überwachte Hosts nachweisen können 
 
@@ -47,18 +47,18 @@ Ein fabricadministrator muss, um sicherzustellen, dass die Hyper-V-Hosts als üb
 
         Get-HgsClientConfiguration
 
-    Die Ausgabe des Befehls gibt an, ob der Host Nachweis übergeben und ist jetzt geschützt. Wenn `IsHostGuarded` keinen zurückgibt **"true"**, Sie können das Host-Überwachungsdienst-Diagnosetool ausführen [Get-HgsTrace](https://technet.microsoft.com/library/mt718831.aspx), um zu untersuchen. Geben Sie den folgenden Befehl in einer Windows PowerShell-Eingabeaufforderung mit erhöhten Rechten auf dem Host, um die Diagnose:
+    Die Ausgabe des Befehls gibt an, ob der Host Nachweis übergeben und ist jetzt geschützt. Wenn `IsHostGuarded` keinen zurückgibt **"true"** , Sie können das Host-Überwachungsdienst-Diagnosetool ausführen [Get-HgsTrace](https://technet.microsoft.com/library/mt718831.aspx), um zu untersuchen. Geben Sie den folgenden Befehl in einer Windows PowerShell-Eingabeaufforderung mit erhöhten Rechten auf dem Host, um die Diagnose:
 
         Get-HgsTrace -RunDiagnostics -Detailed
 
     > [!IMPORTANT]
-    > Wenn Sie Windows Server-2019 oder Windows 10, Version 1809 verwenden und die anwendungssteuerungscode-Integritätsrichtlinien, verwenden `Get-HgsTrace` möglicherweise einen Fehler für zurück der **Code Integrity Richtlinie aktiv** Diagnose.
+    > Wenn Sie Windows Server-2019 oder Windows 10, Version 1809 verwenden und die anwendungssteuerungscode-Integritätsrichtlinien, verwenden `Get-HgsTrace` zurückgeben ein Fehlers für die **Code Integrity Richtlinie aktiv** Diagnose.
     > Sie können dieses Ergebnis gefahrlos ignorieren, bei dem nur fehlgeschlagene Diagnose.
 
 ## <a name="next-step"></a>Nächster Schritt
 
->[!div class="nextstepaction"]
-[Bereitstellen von abgeschirmten VMs](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
+> [!div class="nextstepaction"]
+> [Bereitstellen von abgeschirmten VMs](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 
 ## <a name="see-also"></a>Siehe auch
 

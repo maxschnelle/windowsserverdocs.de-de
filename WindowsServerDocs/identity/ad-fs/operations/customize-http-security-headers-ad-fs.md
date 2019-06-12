@@ -9,12 +9,12 @@ ms.date: 02/19/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 54b0e055d6cfde5e5c69540ac804a38cbceb1e59
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 231c8783032f51f607565922d90ea7f7eb877cfd
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188769"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444691"
 ---
 # <a name="customize-http-security-response-headers-with-ad-fs-2019"></a>Anpassen des HTTP-Antwort-Sicherheitsheader mit AD FS-2019 
  
@@ -39,7 +39,7 @@ Bevor wir Header erläutern, wir sehen uns nun einige Szenarien notwendig für A
 ## <a name="http-security-response-headers"></a>HTTP-Antwort-Sicherheitsheader 
 Die Header der Antwort sind in der ausgehenden HTTP-Antwort, die von AD FS gesendet wird, auf einen Webbrowser enthalten. Die Header können aufgeführt werden, mit der `Get-AdfsResponseHeaders` Cmdlet wie unten dargestellt.  
 
-![Headerantwort](media\customize-http-security-headers-ad-fs\header1.png)
+![Headerantwort](media/customize-http-security-headers-ad-fs/header1.png)
 
 Die `ResponseHeaders` -Attribut im obigen Screenshot identifiziert den Security-Header, die von AD FS in jeder HTTP-Antwort enthalten sind. Die Header der Antwort gesendet wird, nur wenn `ResponseHeadersEnabled` nastaven NA hodnotu `True` (Standardwert). Der Wert kann festgelegt werden, um `False` um AD FS, einschließlich der Security-Header in der HTTP-Antwort zu verhindern. Dies ist jedoch nicht empfohlen.  Verwenden Sie hierzu Folgendes:
 
@@ -218,7 +218,7 @@ Set-AdfsResponseHeaders -SetHeaderName "TestHeader" -SetHeaderValue "TestHeaderV
 
 Nach dem festlegen, wird der neue Kopf in der AD FS-Antwort (Fiddler Codeausschnitt unten) gesendet.  
  
-![Fiddler](media\customize-http-security-headers-ad-fs\header2.png)
+![Fiddler](media/customize-http-security-headers-ad-fs/header2.png)
 
 ## <a name="web-browswer-compatibility"></a>Web Browswer-Kompatibilität
 Verwenden Sie die folgende Tabelle und die folgenden Links, um zu bestimmen, welche Webbrowser mit jedem der Antwortheader Sicherheit kompatibel sind.

@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: cdd0b32b50f676007a6cc922bc15b95bb61323be
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: e94b07d7fa654732526d0b43daadc9ad0ad4f3a8
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189673"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444929"
 ---
 # <a name="create-a-non-claims-aware-relying-party-trust"></a>Erstellen einer Vertrauensstellung nicht Ansprüche unterstützende der vertrauenden Seite
 
@@ -27,7 +27,7 @@ Zum Hinzufügen einer neuen nicht\-Ansprüche\-bewusst Vertrauensstellung der ve
   
 Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe auf dem lokalen Computer sein, um dieses Verfahren ausführen zu können.  Weitere Informationen zur Verwendung der geeigneten Konten und Gruppenmitgliedschaften unter [lokale und Domänenstandardgruppen](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
-##<a name="to-create-a-non-claims-aware-relying-party-trust-manually"></a>Eine Ansprüche nicht beachten der vertrauenden Seite Vertrauensstellung manuell erstellen. 
+## <a name="to-create-a-non-claims-aware-relying-party-trust-manually"></a>Eine Ansprüche nicht beachten der vertrauenden Seite Vertrauensstellung manuell erstellen. 
 1. Klicken Sie im Server-Manager **Tools**, und wählen Sie dann **AD FS-Verwaltung**.  
   
 2.  Klicken Sie unter **Aktionen**, klicken Sie auf **Partei Vertrauensstellung der vertrauenden Seite hinzufügen**.  

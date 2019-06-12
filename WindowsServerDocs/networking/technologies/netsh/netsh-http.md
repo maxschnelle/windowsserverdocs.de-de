@@ -8,12 +8,12 @@ ms.assetid: ''
 manager: dougkim
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: daecc6a385d7aa2c02d1bea02eb0a585a9b33185
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3c5f3927abf1a2394c2dd5b8ea664c7de8d5f614
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59881791"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446193"
 ---
 # <a name="netsh-http-commands"></a>Netsh http-Befehle
 
@@ -55,9 +55,11 @@ add iplisten [ ipaddress= ] IPAddress
 ```
 
 **Parameter**
-| | | |
-|---|---|---|
+
+|               |                                                                                                                                                                                                                          |          |
+|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
 | **ipaddress** | Abhörliste für die IPv4- oder IPv6-Adresse die IP-Adresse hinzugefügt werden. Die IP-Abhörliste wird verwendet, um die Liste der Adressen zu begrenzen, an den der HTTP-Dienst gebunden. "0.0.0.0" bedeutet, dass jede IPv4-Adresse und "::" bedeutet, dass IPv6-Adresse. | Erforderlich |
+
 ---
 
 **Beispiele für**
@@ -83,21 +85,23 @@ add sslcert [ ipport= ] IPAddress:port [ certhash= ] CertHash [ appid= ] GUID [ 
 
 **Parameter**
 
-| | | |
-|---|---|---|
-| **ipport**                                   | Gibt die IP-Adresse und Port für die Bindung. Einen Doppelpunkt (:) Dient als Trennzeichen zwischen der IP-Adresse und die Portnummer an.                                              | Erforderlich |
-| **certhash**                                 | Gibt den SHA-Hash des Zertifikats an. Dieser Hash 20 Byte lang ist und als hexadezimale Zeichenfolge angegeben ist.                                                                          | Erforderlich |
-| **appid**                                    | Gibt die GUID, um die besitzende Anwendung zu identifizieren.                                                                                                                                   | Erforderlich |
-| **certstorename**                            | Gibt den Speichernamen für das Zertifikat an. Der Standardwert ist MY. Zertifikat muss im Kontext lokalen Computers gespeichert werden.                                                                   | Optional |
-| **verifyclientcertrevocation**               | Gibt an, die aktiviert bzw. deaktiviert die Überprüfung der Zertifikatsperrlisten von Clientzertifikaten.                                                                                                            | Optional |
-| **verifyrevocationwithcachedclientcertonly** | Gibt an, ob die Verwendung von nur zwischengespeicherte Clientzertifikat für die Überprüfung der Zertifikatsperrlisten aktiviert oder deaktiviert ist.                                                                            | Optional |
-| **usagecheck**                               | Gibt an, ob die Prüfung der Datennutzung aktiviert oder deaktiviert ist. Standardmäßig ist aktiviert.                                                                                                            | Optional |
-| **revocationfreshnesstime**                  | Gibt das Zeitintervall in Sekunden, um für eine aktualisierte Zertifikatssperrliste (CRL) zu überprüfen. Wenn dieser Wert 0 (null) ist, klicken Sie dann die neue Zertifikatsperrliste nur aktualisiert, wenn dem Ablauf. | Optional |
-| **urlretrievaltimeout**                      | Gibt das Timeout-Intervall (in Millisekunden) nach dem Versuch zum Abrufen der Sperrliste für die remote-URL an.                                                       | Optional |
-| **sslctlidentifier**                         | Gibt die Liste der Zertifikataussteller, die vertrauenswürdig sind. Diese Liste kann es sich um eine Teilmenge der Zertifikataussteller sein, die vom Computer als vertrauenswürdig eingestuft werden.                                | Optional |
-| **sslctlstorename**                          | Gibt den Namen des Zertifikatspeichers unter LOCAL_MACHINE, wo SslCtlIdentifier gespeichert werden.                                                                                               | Optional |
-| **dsmapperusage**                            | Gibt an, ob der DS-Zuordnungen aktiviert oder deaktiviert ist. Standardmäßig ist deaktiviert.                                                                                                                | Optional |
-| **clientcertnegotiation**                    | Gibt an, ob die Aushandlung des Zertifikats aktiviert oder deaktiviert ist. Standardmäßig ist deaktiviert.                                                                                            | Optional |
+
+|                                              |                                                                                                                                                                                          |          |
+|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
+|                  **ipport**                  |                       Gibt die IP-Adresse und Port für die Bindung. Einen Doppelpunkt (:) Dient als Trennzeichen zwischen der IP-Adresse und die Portnummer an.                        | Erforderlich |
+|                 **certhash**                 |                                     Gibt den SHA-Hash des Zertifikats an. Dieser Hash 20 Byte lang ist und als hexadezimale Zeichenfolge angegeben ist.                                      | Erforderlich |
+|                  **appid**                   |                                                                  Gibt die GUID, um die besitzende Anwendung zu identifizieren.                                                                  | Erforderlich |
+|              **certstorename**               |                                  Gibt den Speichernamen für das Zertifikat an. Der Standardwert ist MY. Zertifikat muss im Kontext lokalen Computers gespeichert werden.                                  | Optional |
+|        **verifyclientcertrevocation**        |                                                      Gibt an, die aktiviert bzw. deaktiviert die Überprüfung der Zertifikatsperrlisten von Clientzertifikaten.                                                       | Optional |
+| **verifyrevocationwithcachedclientcertonly** |                                      Gibt an, ob die Verwendung von nur zwischengespeicherte Clientzertifikat für die Überprüfung der Zertifikatsperrlisten aktiviert oder deaktiviert ist.                                       | Optional |
+|                **usagecheck**                |                                                      Gibt an, ob die Prüfung der Datennutzung aktiviert oder deaktiviert ist. Standardmäßig ist aktiviert.                                                       | Optional |
+|         **revocationfreshnesstime**          | Gibt das Zeitintervall in Sekunden, um für eine aktualisierte Zertifikatssperrliste (CRL) zu überprüfen. Wenn dieser Wert 0 (null) ist, klicken Sie dann die neue Zertifikatsperrliste nur aktualisiert, wenn dem Ablauf. | Optional |
+|           **urlretrievaltimeout**            |                            Gibt das Timeout-Intervall (in Millisekunden) nach dem Versuch zum Abrufen der Sperrliste für die remote-URL an.                            | Optional |
+|             **sslctlidentifier**             |                Gibt die Liste der Zertifikataussteller, die vertrauenswürdig sind. Diese Liste kann es sich um eine Teilmenge der Zertifikataussteller sein, die vom Computer als vertrauenswürdig eingestuft werden.                 | Optional |
+|             **sslctlstorename**              |                                                Gibt den Namen des Zertifikatspeichers unter LOCAL_MACHINE, wo SslCtlIdentifier gespeichert werden.                                                | Optional |
+|              **dsmapperusage**               |                                                        Gibt an, ob der DS-Zuordnungen aktiviert oder deaktiviert ist. Standardmäßig ist deaktiviert.                                                         | Optional |
+|          **clientcertnegotiation**           |                                              Gibt an, ob die Aushandlung des Zertifikats aktiviert oder deaktiviert ist. Standardmäßig ist deaktiviert.                                               | Optional |
+
 ---
 
 **Beispiele für**
@@ -119,10 +123,12 @@ add timeout [ timeouttype= ] IdleConnectionTimeout | HeaderWaitTimeout [ value=]
 ```
 
 **Parameter**
-| | |
-|---|---|
-| **timeouttype** | Der Typ des Timeout für die Einstellung.                                                                        |
-| **value**       | Wert für das Timeout (in Sekunden). Wenn der Wert in der Hexadezimalnotation, klicken Sie dann, fügen Sie das Präfix 0 X. |
+
+|                 |                                                                                                     |
+|-----------------|-----------------------------------------------------------------------------------------------------|
+| **timeouttype** |                                    Der Typ des Timeout für die Einstellung.                                     |
+|    **value**    | Wert für das Timeout (in Sekunden). Wenn der Wert in der Hexadezimalnotation, klicken Sie dann, fügen Sie das Präfix 0 X. |
+
 ---
 
 **Beispiele für**
@@ -145,23 +151,25 @@ add urlacl [ url= ] URL [ [user=] User [ [ listen= ] yes | no [ delegate= ] yes 
 ```
 
 **Parameter**
-| | | |
-|---|---|---|
-| **url**       | Gibt an, die den vollqualifizierten Uniform Resource Locator (URL).                                                                                    | Erforderlich |
-| **user**      | Gibt den Namen für Benutzer oder eine Benutzergruppe                                                                                                            | Erforderlich |
-| **listen**    | Gibt einen der folgenden Werte: Ja: Ermöglicht dem Benutzer um URLs zu registrieren. Dies ist der Standardwert. Nein: Den Benutzer beim Registrieren von URLs zu verweigern. | Optional |
-| **delegate**  | Gibt einen der folgenden Werte: Ja: Erlauben Sie dem Benutzer nicht Delegieren von URLs ein: Verweigern Sie den Benutzer aus URLs zu delegieren. Dies ist der Standardwert.   | Optional |
-| **sddl**      | Gibt eine SDDL-Zeichenfolge, die beschreibt, die DACL an.                                                                                                | Optional |
+
+|              |                                                                                                                                                  |          |
+|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------|----------|
+|   **url**    |                                          Gibt an, die den vollqualifizierten Uniform Resource Locator (URL).                                           | Erforderlich |
+|   **user**   |                                                      Gibt den Namen für Benutzer oder eine Benutzergruppe                                                       | Erforderlich |
+|  **listen**  | Gibt einen der folgenden Werte: Ja: Ermöglicht dem Benutzer um URLs zu registrieren. Dies ist der Standardwert. Nein: Den Benutzer beim Registrieren von URLs zu verweigern. | Optional |
+| **delegate** |  Gibt einen der folgenden Werte: Ja: Erlauben Sie dem Benutzer nicht Delegieren von URLs ein: Verweigern Sie den Benutzer aus URLs zu delegieren. Dies ist der Standardwert.  | Optional |
+|   **sddl**   |                                                Gibt eine SDDL-Zeichenfolge, die beschreibt, die DACL an.                                                 | Optional |
+
 ---
 
 **Beispiele für**
 
 Es folgen vier Beispiele für die **hinzufügen Urlacl** Befehl.
 
--   Hinzufügen von Urlacl Url =https://+:80/MyUri Benutzer = DOMAIN\\Benutzer
--   Hinzufügen von Urlacl Url =https://www.contoso.com:80/MyUri Benutzer = DOMAIN\\Benutzer warten = Ja
--   Hinzufügen von Urlacl Url =https://www.contoso.com:80/MyUri Benutzer = DOMAIN\\Benutzerdelegaten = Nein
--   Hinzufügen von Urlacl Url =https://+:80/MyUri Sddl =...
+- Hinzufügen von Urlacl Url =https://+:80/MyUri Benutzer = DOMAIN\\Benutzer
+- Hinzufügen von Urlacl Url =<https://www.contoso.com:80/MyUri> Benutzer = DOMAIN\\Benutzer warten = Ja
+- Hinzufügen von Urlacl Url =<https://www.contoso.com:80/MyUri> Benutzer = DOMAIN\\Benutzerdelegaten = Nein
+- Hinzufügen von Urlacl Url =https://+:80/MyUri Sddl =...
 
 ---
 
@@ -176,18 +184,20 @@ delete cache [ [ url= ] URL [ [recursive= ] yes | no ]
 ```
 
 **Parameter**
-| | | |
-|---|---|---|
-| **url**       | Gibt an, die den vollqualifizierten Locator URL (Uniform Resource), die Sie löschen möchten.                                        | Optional |
+
+|               |                                                                                                                              |          |
+|---------------|------------------------------------------------------------------------------------------------------------------------------|----------|
+|    **url**    |                    Gibt an, die den vollqualifizierten Locator URL (Uniform Resource), die Sie löschen möchten.                     | Optional |
 | **recursive** | Gibt an, ob alle Einträge unter der Url-Cache entfernt werden. **Ja**: Entfernen Sie alle Einträge **keine**: nicht alle Einträge entfernt | Optional |
+
 ---
 
 **Beispiele für**
 
 Es folgen zwei Beispiele für die **Cache löschen** Befehl.
 
--   Löschen des Cache-Url =https://www.contoso.com:80/myresource/ rekursive = Ja
--   Cache löschen
+- Löschen des Cache-Url =<https://www.contoso.com:80/myresource/> rekursive = Ja
+- Cache löschen
 
 ---
 
@@ -202,9 +212,11 @@ delete iplisten [ ipaddress= ] IPAddress
 ```
 
 **Parameter**
-| | | |
-|---|---|---|
+
+|               |                                                                                                                                                                                                                                                                     |          |
+|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
 | **ipaddress** | Abhörliste für die IPv4- oder IPv6-Adresse aus der IP-Adresse gelöscht werden. Die IP-Abhörliste wird verwendet, um die Liste der Adressen zu begrenzen, an den der HTTP-Dienst gebunden. "0.0.0.0" bedeutet, dass jede IPv4-Adresse und "::" bedeutet, dass IPv6-Adresse. Dies schließt nicht die Nummer des Ports. | Erforderlich |
+
 ---
 
 
@@ -231,9 +243,11 @@ delete sslcert [ ipport= ] IPAddress:port
 ```
 
 **Parameter**
-| | | |
-|---|---|---|
+
+|            |                                                                                                                                                                                          |          |
+|------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
 | **ipport** | Gibt die IPv4- oder IPv6-Adresse und Port für die SSL-zertifikatbindungen gelöscht werden. Einen Doppelpunkt (:) Dient als Trennzeichen zwischen der IP-Adresse und die Portnummer an. | Erforderlich |
+
 ---
 
 
@@ -258,9 +272,11 @@ delete timeout [ timeouttype= ] idleconnectiontimeout | headerwaittimeout
 ```
 
 **Parameter**
-| | | |
-|---|---|---|
+
+|                 |                                        |          |
+|-----------------|----------------------------------------|----------|
 | **timeouttype** | Gibt den Typ der Timeouteinstellung festgelegt. | Erforderlich |
+
 ---
 
 
@@ -284,9 +300,11 @@ delete urlacl [ url= ] URL
 ```
 
 **Parameter**
-| | | |
-|---|---|---|
+
+|         |                                                                                       |          |
+|---------|---------------------------------------------------------------------------------------|----------|
 | **url** | Gibt an, die den vollqualifizierten Locator URL (Uniform Resource), die Sie löschen möchten. | Erforderlich |
+
 ---
 
 
@@ -294,8 +312,8 @@ delete urlacl [ url= ] URL
 
 Es folgen zwei Beispiele für die **delete Urlacl** Befehl.
 
--   Delete Urlacl Url =https://+:80/MyUri
--   Delete Urlacl Url =https://www.contoso.com:80/MyUri
+- Delete Urlacl Url =https://+:80/MyUri
+- Delete Urlacl Url =<https://www.contoso.com:80/MyUri>
 
 ---
 
@@ -322,9 +340,11 @@ show cachestate [ [url= ] URL]
 ```
 
 **Parameter**
-| | | |
-|---|---|---|
+
+|         |                                                                                                                                                    |          |
+|---------|----------------------------------------------------------------------------------------------------------------------------------------------------|----------|
 | **url** | Gibt die vollqualifizierte URL, die Sie anzeigen möchten. Wenn nicht angegeben ist, zeigen Sie alle URLs. Die URL kann auch ein Präfix für die registrierten URLs sein. | Optional |
+
 ---
 
 
@@ -332,8 +352,8 @@ show cachestate [ [url= ] URL]
 
 Es folgen zwei Beispiele für die **anzeigen Cachestate** Befehl:
 
--   Anzeigen von Cachestate Url =https://www.contoso.com:80/myresource
--   Cachestate anzeigen
+- Anzeigen von Cachestate Url =<https://www.contoso.com:80/myresource>
+- Cachestate anzeigen
 
 ---
 
@@ -359,10 +379,12 @@ show servicestate [ [ view= ] session | requestq ] [ [ verbose= ] yes | no ]
 ```
 
 **Parameter**
-| | | |
-|---|---|---|
-| **Ansicht**    | Gibt an, ob eine Momentaufnahme des Status des HTTP-Dienstes basierend auf den Server-Sitzung oder die Anforderungswarteschlangen anzuzeigen. | Optional |
-| **Verbose** | Gibt an, ob ausführliche Informationen anzuzeigen, die auch die Eigenschafteninformationen zeigt.                               | Optional |
+
+|             |                                                                                                                      |          |
+|-------------|----------------------------------------------------------------------------------------------------------------------|----------|
+|  **Ansicht**   | Gibt an, ob eine Momentaufnahme des Status des HTTP-Dienstes basierend auf den Server-Sitzung oder die Anforderungswarteschlangen anzuzeigen. | Optional |
+| **Verbose** |                Gibt an, ob ausführliche Informationen anzuzeigen, die auch die Eigenschafteninformationen zeigt.                | Optional |
+
 ---
 
 **Beispiele für**
@@ -385,9 +407,11 @@ show sslcert [ ipport= ] IPAddress:port
 ```
 
 **Parameter**
-| | | |
-|---|---|---|
+
+|            |                                                                                                                                                                                                                                                |          |
+|------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
 | **ipport** | Gibt die IPv4- oder IPv6-Adresse und Port für den das SSL-Zertifikat Bindungen anzeigen. Einen Doppelpunkt (:) Dient als Trennzeichen zwischen der IP-Adresse und die Portnummer an. Wenn Sie Ipport keinen angeben, werden alle Bindungen angezeigt. | Erforderlich |
+
 ---
 
 
@@ -426,9 +450,11 @@ show urlacl [ [url= ] URL]
 ```
 
 **Parameter**
-| | | |
-|---|---|---|
+
+|         |                                                                                                |          |
+|---------|------------------------------------------------------------------------------------------------|----------|
 | **url** | Gibt die vollqualifizierte URL, die Sie anzeigen möchten. Wenn wurde nicht angegeben, zeigen Sie alle URLs. | Optional |
+
 ---
 
 
@@ -436,8 +462,8 @@ show urlacl [ [url= ] URL]
 
 Drei Beispiele für die **anzeigen Urlacl** Befehl.
 
--   Anzeigen von Urlacl Url =https://+:80/MyUri
--   Anzeigen von Urlacl Url =https://www.contoso.com:80/MyUri
--   Urlacl anzeigen
+- Anzeigen von Urlacl Url =https://+:80/MyUri
+- Anzeigen von Urlacl Url =<https://www.contoso.com:80/MyUri>
+- Urlacl anzeigen
 
 ---

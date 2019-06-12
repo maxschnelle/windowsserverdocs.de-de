@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 91bdedce-6145-469f-b72e-7e113c4391e9
 author: christianmontoya
 manager: scottman
-ms.openlocfilehash: 3b809d4d624f21eaeae5a66277db683c95c79bdd
-ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
+ms.openlocfilehash: c947375b58c0ad88781335b799055e101bd2a193
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65034441"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447100"
 ---
 # <a name="migrate-your-remote-desktop-services-client-access-licenses-rds-cals"></a>Migrieren von Remotedesktopdienste-Clientzugriffslizenzen (RDS-CALs)
 
@@ -70,19 +70,19 @@ Es gibt drei Mechanismen Lizenzen auf den Ziel-Lizenzserver zu migrieren. die Sc
 
 ### <a name="using-a-web-browser"></a>Mithilfe eines Webbrowsers
 1. Auf der **Clientlizenz Schlüssel anfordern** auf den Link, um die Verbindung mit der Remote Desktop Services Licensing-Website.
-Wenn Sie Remotedesktoplizenzierungs-Manager auf einem Computer, die nicht über Internetkonnektivität verfügt ausführen, beachten Sie die Adresse für die Remote Desktop Services Licensing-Website, und verbinden Sie dann auf der Website von einem Computer, der dem Internet verbunden ist. 
+   Wenn Sie Remotedesktoplizenzierungs-Manager auf einem Computer, die nicht über Internetkonnektivität verfügt ausführen, beachten Sie die Adresse für die Remote Desktop Services Licensing-Website, und verbinden Sie dann auf der Website von einem Computer, der dem Internet verbunden ist. 
 2. Auf der Seite Remote Desktop Services Licensing Web unter **auswählen**Option **CALs verwalten**, und klicken Sie dann auf **Weiter**.
 3. Geben Sie die folgende erforderliche Informationen ein, und klicken Sie auf **Weiter**:
     - **Lizenzserver-ID als Ziel**: Eine Nummer 35 Ziffern in Gruppen von 5 Zahlen, die auf angezeigt wird der **Clientlizenz Schlüssel anfordern** Seite im Assistenten für die Verwaltung von RDS-CALs.
     - **Grund für die Wiederherstellung**: Wählen Sie den Grund für die Migration der RDS-CALs.
     - **Lizenz Programm**: Wählen Sie das Programm, das über das Sie Ihre RDS-CALs erworben haben.
 4. Geben Sie die folgende erforderliche Informationen ein, und klicken Sie auf **Weiter**:
-    - Nachname
-    - Vorname oder Vorname
-    - Firmenname
-    - Land/Region
+   - Nachname
+   - Vorname oder Vorname
+   - Firmenname
+   - Land/Region
 
-    Sie können auch optionale Informationen angefordert werden, z. B. Unternehmensadresse, e-Mail-Adresse und Telefonnummer angeben. Im Feld Organisationseinheit können Sie die Einheit in Ihrer Organisation beschreiben, die dieser Lizenzserver verwendet.
+     Sie können auch optionale Informationen angefordert werden, z. B. Unternehmensadresse, e-Mail-Adresse und Telefonnummer angeben. Im Feld Organisationseinheit können Sie die Einheit in Ihrer Organisation beschreiben, die dieser Lizenzserver verwendet.
 
 5. Die License-Programm, das Sie auf der vorherigen Seite ausgewählt bestimmt, welche Informationen Sie benötigen, geben Sie auf der nächsten Seite. In den meisten Fällen müssen Sie entweder einen Lizenzcode oder eine Vertragsnummer angeben. Finden Sie in der Dokumentation bereitgestellt, wenn Sie Ihre RDS-CALs erworben haben. Darüber hinaus müssen Sie angeben, welche Art von RDS-CAL und die Menge, die Sie auf den Lizenzserver migrieren möchten.
 6. Klicken Sie, nachdem Sie die erforderlichen Informationen eingegeben haben, auf **Weiter**.

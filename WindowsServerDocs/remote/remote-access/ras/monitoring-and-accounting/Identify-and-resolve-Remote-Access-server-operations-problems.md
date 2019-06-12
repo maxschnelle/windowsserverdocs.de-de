@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 7ce84c9f-fd1f-4463-8fc7-d2f33344a2c9
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: c58ff97e286f91610a321801d177a2977349fa78
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1a289700efc35b8a515084c738746333cb0c9838
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840461"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446881"
 ---
 # <a name="identify-and-resolve-remote-access-server-operations-problems"></a>Identifizieren und Beheben von Betriebsproblemen auf dem Remotezugriffsserver
 
@@ -92,7 +92,7 @@ Um die IP-Hilfsdienst auf dem RAS-Server wiederherzustellen, können Sie die Sch
   
 2.  In der Liste der **Services**, scrollen Sie nach unten, und mit der rechten Maustaste **IP Helper**, und klicken Sie dann auf **starten**.  
   
-![Windows PowerShell](../../../media/Identify-and-resolve-Remote-Access-server-operations-problems/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***  
+![Windows PowerShell](../../../media/Identify-and-resolve-Remote-Access-server-operations-problems/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   

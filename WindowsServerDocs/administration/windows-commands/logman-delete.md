@@ -13,32 +13,34 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 00473b5178eca93e9644888fbaa4c4c96c0dd683
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e396d79dc936f56a69fac9469c020348640f1094
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842061"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66437780"
 ---
 # <a name="logman-delete"></a>logman delete
 
 >Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
 
 Löschen Sie die vorhandenen Sammlungen.  
-  
+
 ## <a name="syntax"></a>Syntax  
 ```  
 logman delete <[-n] <name>> [options]  
 ```  
 ## <a name="parameters"></a>Parameter  
-|Parameter|Beschreibung|  
-|-------|--------|  
-|/?|Zeigt, die kontextbezogene Hilfe an.|  
-|-s <computer name>|Führen Sie den Befehl auf dem angegebenen Remotecomputer.|  
-|-config <value>|Gibt an, die Befehlsoptionen enthält Datei mit den Einstellungen.|  
-|[-n] <name>|Der Name des Datensammlers Ziel.|  
-|-ets|Senden von Befehlen an Ereignisablaufverfolgungssitzungen direkt ohne Speichern oder zu planen.|  
-|-[-] u < Benutzer [Kennwort] >|Gibt die Ausführung als Benutzer an. Eingeben einer * für das Kennwort eine Aufforderung zur Kennworteingabe erzeugt. Das Kennwort wird nicht angezeigt, wenn Sie es an der kennworteingabeaufforderung eingeben.|  
+
+|        Parameter        |                                                                               Beschreibung                                                                               |
+|-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|           /?            |                                                                    Zeigt, die kontextbezogene Hilfe an.                                                                     |
+|   -s <computer name>    |                                                          Führen Sie den Befehl auf dem angegebenen Remotecomputer.                                                          |
+|     -config <value>     |                                                         Gibt an, die Befehlsoptionen enthält Datei mit den Einstellungen.                                                         |
+|       [-n] <name>       |                                                                   Der Name des Datensammlers Ziel.                                                                    |
+|          -ets           |                                              Senden von Befehlen an Ereignisablaufverfolgungssitzungen direkt ohne Speichern oder zu planen.                                               |
+| -[-] u < Benutzer [Kennwort] > | Gibt die Ausführung als Benutzer an. Eingeben einer \* für das Kennwort eine Aufforderung zur Kennworteingabe erzeugt. Das Kennwort wird nicht angezeigt, wenn Sie es an der kennworteingabeaufforderung eingeben. |
+
 ## <a name="BKMK_examples"></a>Beispiele für  
 Der folgende Befehl löscht die Data Collector Perf_log.  
 ```  

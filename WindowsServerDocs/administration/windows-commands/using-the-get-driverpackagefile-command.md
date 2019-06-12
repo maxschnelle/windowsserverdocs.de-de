@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ed9518fae07745502d01dc0084b7443a1332db83
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 264bdb6d51622e6323be00b44014b86cd9662e61
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859801"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440499"
 ---
 # <a name="using-the-get-driverpackagefile-command"></a>Mithilfe des Befehls Get-DriverPackageFile
 
@@ -34,11 +34,11 @@ WDSUTIL /Get-DriverPackageFile /InfFile:<Inf File path> [/Architecture:{x86 | ia
 
 ## <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|/ INF:\<Pfad der Inf-Datei >|Gibt den vollständigen Pfad und Dateiname den Namen des Pakets INF-Treiberdatei an.|
-|[/ Architecture: {X86 | ia64 | x64}]|Gibt die Architektur des Treiberpakets.|
-|[/Show: {Drivers | Dateien | All}]|Gibt an, die Paketinformationen angezeigt. Wenn **/anzeigen** nicht angegeben ist, wird standardmäßig nur den Treiber Paketmetadaten zurückgegeben werden. **Treiber** zeigt die Liste der Treiber in das Paket. **Dateien** zeigt die Liste der Dateien im Paket. **Alle** zeigt Dateien und Treiber.|
+|         Parameter         |                              Beschreibung                               |
+|---------------------------|------------------------------------------------------------------------|
+| / INF:\<Pfad der Inf-Datei > | Gibt den vollständigen Pfad und Dateiname den Namen des Pakets INF-Treiberdatei an. |
+|    [/ Architecture: {X86    |                                  ia64                                  |
+|     [/Show: {Drivers      |                                 Dateien                                  |
 
 ## <a name="BKMK_examples"></a>Beispiele für
 
@@ -49,4 +49,4 @@ WDSUTIL /Get-DriverPackageFile /InfFile:"C:\temp\1394.inf" /Architecture:x86
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

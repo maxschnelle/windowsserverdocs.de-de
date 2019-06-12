@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: aded2881-99ed-4f18-868b-b765ab926597
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: a48bb9b012a81e91fbbe0ad914637dacac5a8a5f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d61bf2ec9abb6d54617f624f26680263d761e5b6
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883001"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446081"
 ---
 # <a name="step-6-test-directaccess-client-connectivity-from-behind-a-nat-device"></a>Schritt 6 Test DirectAccess-Clientkonnektivität hinter einem NAT-Gerät
 
@@ -47,48 +47,48 @@ Starten Sie EDGE1 und EDGE2, sofern diese nicht bereits ausgeführt werden.
   
 ## <a name="test-teredo-connectivity"></a>Testen der Teredo-Konnektivität  
   
-1.  Öffnen Sie auf CLIENT1 ein Windows PowerShell-Fenster mit erhöhten Rechten, geben **Ipconfig/all** und drücken Sie EINGABETASTE.  
+1. Öffnen Sie auf CLIENT1 ein Windows PowerShell-Fenster mit erhöhten Rechten, geben **Ipconfig/all** und drücken Sie EINGABETASTE.  
   
-2.  Prüfen Sie die Ausgabe des Befehls "ipconfig".  
+2. Prüfen Sie die Ausgabe des Befehls "ipconfig".  
   
-    CLIENT1 ist jetzt hinter einem NAT-Gerät mit dem Internet verbunden und hat eine private IPv4-Adresse erhalten. Wenn sich der DirectAccess-Client hinter einem NAT-Gerät befindet und eine private IPv4-Adresse zugeordnet wurde, wird Teredo als IPv6-Übergangstechnologie bevorzugt. Wenn Sie sich die Ausgabe des Befehls Ipconfig ansehen, sollten Sie sehen, dass einen Abschnitt für Tunneladapter Teredo Tunneling Pseudo-Interface, und klicken Sie dann eine Beschreibung Microsoft Teredo-Tunneling-Adapter, mit einer IP-Adresse, die mit 2001 beginnt: entsprechend einer Teredo Adresse. Wenn der Teredo-Abschnitt nicht angezeigt wird, aktivieren Sie Teredo mit dem Befehl **netsh interface Teredo set state enterpriseclient**, und wiederholen Sie anschließend den Befehl "ipconfig". Für den Teredo-Tunneladapter wird kein Standardgateway aufgeführt.  
+   CLIENT1 ist jetzt hinter einem NAT-Gerät mit dem Internet verbunden und hat eine private IPv4-Adresse erhalten. Wenn sich der DirectAccess-Client hinter einem NAT-Gerät befindet und eine private IPv4-Adresse zugeordnet wurde, wird Teredo als IPv6-Übergangstechnologie bevorzugt. Wenn Sie sich die Ausgabe des Befehls Ipconfig ansehen, sollten Sie sehen, dass einen Abschnitt für Tunneladapter Teredo Tunneling Pseudo-Interface, und klicken Sie dann eine Beschreibung Microsoft Teredo-Tunneling-Adapter, mit einer IP-Adresse, die mit 2001 beginnt: entsprechend einer Teredo Adresse. Wenn der Teredo-Abschnitt nicht angezeigt wird, aktivieren Sie Teredo mit dem Befehl **netsh interface Teredo set state enterpriseclient**, und wiederholen Sie anschließend den Befehl "ipconfig". Für den Teredo-Tunneladapter wird kein Standardgateway aufgeführt.  
   
-3.  Geben Sie in Windows PowerShell-Fenster **Ipconfig/flushdns** und drücken Sie EINGABETASTE.  
+3. Geben Sie in Windows PowerShell-Fenster **Ipconfig/flushdns** und drücken Sie EINGABETASTE.  
   
-    Dadurch werden Namensauflösungseinträge geleert, die eventuell noch im Client-DNS-Cache vorhanden sind, seitdem der Clientcomputer mit dem Internet verbunden wurde.  
+   Dadurch werden Namensauflösungseinträge geleert, die eventuell noch im Client-DNS-Cache vorhanden sind, seitdem der Clientcomputer mit dem Internet verbunden wurde.  
   
-4.  Geben Sie in Windows PowerShell-Fenster **Get-DnsClientNrptPolicy** und drücken Sie EINGABETASTE.  
+4. Geben Sie in Windows PowerShell-Fenster **Get-DnsClientNrptPolicy** und drücken Sie EINGABETASTE.  
   
-    In der Ausgabe werden die aktuellen Einstellungen der Richtlinientabelle für die Namensauflösung (Name Resolution Policy Table, NRPT) angezeigt. Diese Einstellungen weisen darauf hin, dass alle Verbindungen zu .corp.contoso.com vom Remote-Access-DNS-Server mit der IPv6-Adresse "2001:db8:1::2" aufgelöst werden sollen. Beachten Sie außerdem den NRPT-Eintrag, dass eine Ausnahme für den Namen "nls.corp.contoso.com" vorhanden ist; Namen in der Ausnahmeliste werden vom Remote-Access-DNS-Server nicht beantwortet. Sie können einen Ping-Befehl an die IP-Adresse des Remote-Access-DNS-Servers senden, um die Konnektivität zum RAS-Server zu bestätigen. In diesem Beispiel können Sie einen Ping-Befehl an "2001:db8:1::2" senden.  
+   In der Ausgabe werden die aktuellen Einstellungen der Richtlinientabelle für die Namensauflösung (Name Resolution Policy Table, NRPT) angezeigt. Diese Einstellungen weisen darauf hin, dass alle Verbindungen zu .corp.contoso.com vom Remote-Access-DNS-Server mit der IPv6-Adresse "2001:db8:1::2" aufgelöst werden sollen. Beachten Sie außerdem den NRPT-Eintrag, dass eine Ausnahme für den Namen "nls.corp.contoso.com" vorhanden ist; Namen in der Ausnahmeliste werden vom Remote-Access-DNS-Server nicht beantwortet. Sie können einen Ping-Befehl an die IP-Adresse des Remote-Access-DNS-Servers senden, um die Konnektivität zum RAS-Server zu bestätigen. In diesem Beispiel können Sie einen Ping-Befehl an "2001:db8:1::2" senden.  
   
-5.  Geben Sie in Windows PowerShell-Fenster **ping app1** und drücken Sie EINGABETASTE. Es sollten Antworten von der IPv6-Adresse von APP1 "2001:db8:1::3" angezeigt werden.  
+5. Geben Sie in Windows PowerShell-Fenster **ping app1** und drücken Sie EINGABETASTE. Es sollten Antworten von der IPv6-Adresse von APP1 "2001:db8:1::3" angezeigt werden.  
   
-6.  Geben Sie in Windows PowerShell-Fenster **ping app2** und drücken Sie EINGABETASTE. Sie sollten Antworten von der NAT64-Adresse erhalten, die von EDGE1 zu APP2 zugeordnet wurde (in diesem Fall "fdc9:9f4e:eb1b:7777::a00:4").  
+6. Geben Sie in Windows PowerShell-Fenster **ping app2** und drücken Sie EINGABETASTE. Sie sollten Antworten von der NAT64-Adresse erhalten, die von EDGE1 zu APP2 zugeordnet wurde (in diesem Fall "fdc9:9f4e:eb1b:7777::a00:4").  
   
-7.  Lassen Sie das Windows PowerShell-Fenster für den nächsten Vorgang geöffnet.  
+7. Lassen Sie das Windows PowerShell-Fenster für den nächsten Vorgang geöffnet.  
   
-8.  Öffnen Sie Internet Explorer, in der Adressleiste von Internet Explorer, geben Sie **https://app1/** und drücken Sie EINGABETASTE. Die Standard-IIS-Website auf APP1 wird angezeigt.  
+8. Öffnen Sie Internet Explorer, in der Adressleiste von Internet Explorer, geben Sie **https://app1/** und drücken Sie EINGABETASTE. Die Standard-IIS-Website auf APP1 wird angezeigt.  
   
 9. Geben Sie in der Internet Explorer-Adressleiste **https://app2/** und drücken Sie EINGABETASTE. Die Standardwebsite auf APP2 wird angezeigt.  
   
-10. Auf der **starten** geben**\\\App2\Files**, und drücken Sie dann die EINGABETASTE. Doppelklicken Sie auf die neue Textdokumentdatei. Dadurch wird bewiesen, dass Sie eine Verbindung zu einem reinen IPv4-Server herstellen konnten, indem Sie mit SMB eine Ressource auf einem reinen IPv4-Host abgerufen haben.  
+10. Auf der **starten** geben<strong>\\\App2\Files</strong>, und drücken Sie dann die EINGABETASTE. Doppelklicken Sie auf die neue Textdokumentdatei. Dadurch wird bewiesen, dass Sie eine Verbindung zu einem reinen IPv4-Server herstellen konnten, indem Sie mit SMB eine Ressource auf einem reinen IPv4-Host abgerufen haben.  
   
 ## <a name="test-ip-https-connectivity"></a>IP-HTTPS-Konnektivität testen  
   
-1.  Öffnen Sie ein Windows PowerShell-Fenster mit erhöhten Rechten, geben **Netsh Interface Teredo festgelegt Zustand deaktiviert** und drücken Sie EINGABETASTE. Dadurch wird Teredo auf dem Clientcomputer deaktiviert. Der Clientcomputer kann sich nun selbst für IP-HTTPS konfigurieren. Nach Ausführung des Befehls wird die Antwort **OK** angezeigt.  
+1. Öffnen Sie ein Windows PowerShell-Fenster mit erhöhten Rechten, geben **Netsh Interface Teredo festgelegt Zustand deaktiviert** und drücken Sie EINGABETASTE. Dadurch wird Teredo auf dem Clientcomputer deaktiviert. Der Clientcomputer kann sich nun selbst für IP-HTTPS konfigurieren. Nach Ausführung des Befehls wird die Antwort **OK** angezeigt.  
   
-2.  Geben Sie in Windows PowerShell-Fenster **Ipconfig/all** und drücken Sie EINGABETASTE.  
+2. Geben Sie in Windows PowerShell-Fenster **Ipconfig/all** und drücken Sie EINGABETASTE.  
   
-3.  Prüfen Sie die Ausgabe des Befehls "ipconfig". Dieser Computer ist jetzt hinter einem NAT-Gerät mit dem Internet verbunden und hat eine private IPv4-Adresse erhalten. Teredo ist deaktiviert, und der DirectAccess-Client fällt auf IP-HTTPS zurück. Wenn Sie die Ausgabe des Befehls Ipconfig betrachten, sehen Sie einen Abschnitt für Tunneladapter Iphttpsinterface mit einer IP-Adresse, die mit 2001:db8:1:100 dabei wird eine IP-HTTPS-Adresse, die basierend auf dem Präfix, das konfiguriert wurde, beim Einrichten, konsistent beginnt DirectAccess. Für den IP-HTTPS-Tunneladapter wird kein Standardgateway aufgeführt.  
+3. Prüfen Sie die Ausgabe des Befehls "ipconfig". Dieser Computer ist jetzt hinter einem NAT-Gerät mit dem Internet verbunden und hat eine private IPv4-Adresse erhalten. Teredo ist deaktiviert, und der DirectAccess-Client fällt auf IP-HTTPS zurück. Wenn Sie die Ausgabe des Befehls Ipconfig betrachten, sehen Sie einen Abschnitt für Tunneladapter Iphttpsinterface mit einer IP-Adresse, die mit 2001:db8:1:100 dabei wird eine IP-HTTPS-Adresse, die basierend auf dem Präfix, das konfiguriert wurde, beim Einrichten, konsistent beginnt DirectAccess. Für den IP-HTTPS-Tunneladapter wird kein Standardgateway aufgeführt.  
   
-4.  Geben Sie in Windows PowerShell-Fenster **Ipconfig/flushdns** und drücken Sie EINGABETASTE. Dadurch werden Namensauflösungseinträge geleert, die eventuell noch im Client-DNS-Cache vorhanden sind, seitdem der Clientcomputer mit dem Unternehmensnetzwerk verbunden war.  
+4. Geben Sie in Windows PowerShell-Fenster **Ipconfig/flushdns** und drücken Sie EINGABETASTE. Dadurch werden Namensauflösungseinträge geleert, die eventuell noch im Client-DNS-Cache vorhanden sind, seitdem der Clientcomputer mit dem Unternehmensnetzwerk verbunden war.  
   
-5.  Geben Sie in Windows PowerShell-Fenster **ping app1** und drücken Sie EINGABETASTE. Es sollten Antworten von der IPv6-Adresse von APP1 "2001:db8:1::3" angezeigt werden.  
+5. Geben Sie in Windows PowerShell-Fenster **ping app1** und drücken Sie EINGABETASTE. Es sollten Antworten von der IPv6-Adresse von APP1 "2001:db8:1::3" angezeigt werden.  
   
-6.  Geben Sie in Windows PowerShell-Fenster **ping app2** und drücken Sie EINGABETASTE. Sie sollten Antworten von der NAT64-Adresse erhalten, die von EDGE1 zu APP2 zugeordnet wurde (in diesem Fall "fdc9:9f4e:eb1b:7777::a00:4").  
+6. Geben Sie in Windows PowerShell-Fenster **ping app2** und drücken Sie EINGABETASTE. Sie sollten Antworten von der NAT64-Adresse erhalten, die von EDGE1 zu APP2 zugeordnet wurde (in diesem Fall "fdc9:9f4e:eb1b:7777::a00:4").  
   
-7.  Öffnen Sie Internet Explorer, in der Adressleiste von Internet Explorer, geben Sie **https://app1/** und drücken Sie EINGABETASTE. Die Standard-IIS-Site auf APP1 wird angezeigt.  
+7. Öffnen Sie Internet Explorer, in der Adressleiste von Internet Explorer, geben Sie **https://app1/** und drücken Sie EINGABETASTE. Die Standard-IIS-Site auf APP1 wird angezeigt.  
   
-8.  Geben Sie in der Internet Explorer-Adressleiste **https://app2/** und drücken Sie EINGABETASTE. Die Standardwebsite auf APP2 wird angezeigt.  
+8. Geben Sie in der Internet Explorer-Adressleiste **https://app2/** und drücken Sie EINGABETASTE. Die Standardwebsite auf APP2 wird angezeigt.  
   
-9. Auf der **starten** geben**\\\App2\Files**, und drücken Sie dann die EINGABETASTE. Doppelklicken Sie auf die neue Textdokumentdatei. Dadurch wird bewiesen, dass Sie eine Verbindung zu einem reinen IPv4-Server herstellen konnten, indem Sie mit SMB eine Ressource auf einem reinen IPv4-Host abgerufen haben.
+9. Auf der **starten** geben<strong>\\\App2\Files</strong>, und drücken Sie dann die EINGABETASTE. Doppelklicken Sie auf die neue Textdokumentdatei. Dadurch wird bewiesen, dass Sie eine Verbindung zu einem reinen IPv4-Server herstellen konnten, indem Sie mit SMB eine Ressource auf einem reinen IPv4-Host abgerufen haben.

@@ -14,12 +14,12 @@ author: lizap
 ms.author: elizapo
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 8d14ccf734d5242301030bbb6e3c2489e1a0266a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f9a4e4e0dde0c2c6178629f0dee744448edc72dd
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59876351"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812602"
 ---
 # <a name="windows-server---it-administrator-content-for-current-and-previous-releases"></a>Windows Server – IT-Administrator-Inhalt für aktuelle und frühere Versionen
 
@@ -29,7 +29,7 @@ Verwenden Sie die unten angegebenen Links zum Anzeigen von technischen Inhalten 
 
 > [!IMPORTANT]
 > Wird Windows auf Ihrem PC ausgeführt? Windows 10, Windows 8 oder 8.1? Windows 7? Sie haben ein Problem? Wechseln Sie zu [Microsoft-Support](https://support.microsoft.com) – geben Sie einfach Ihr Problem in der Suchleiste an. Dort erhalten Sie Informationen zu Windows, Office, Skype und mehr. 
-
+> 
 > Die nachfolgenden Informationen gelten *nur* für Windows **Server**.
 
 ## <a name="windows-server-2016"></a>Windows Server 2016
@@ -54,18 +54,14 @@ Verwenden Sie die unten angegebenen Links zum Anzeigen von technischen Inhalten 
 
 [Entwicklerbibliothek zu Windows Server 2003 auf MSDN](https://msdn.microsoft.com/library/dn792549.aspx)
 
-
 ## <a name="product-evaluations"></a>Produktbewertung
 
 [Download von Windows Server 2016 Evaluation](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016?i=1) 
 
 [Windows Server 2012 R2-Testversion herunterladen](https://www.microsoft.com/evalcenter/evaluate-windows-server-2012-r2) 
 
-
 ## <a name="related-links"></a>Verwandte Links
 [Windows Server 2016-Produktinformationen](https://www.microsoft.com/cloud-platform/windows-server) 
-
-<br>
 
 > [!TIP]
 > Welche Probleme sind aufgetreten? Beginnen Sie mit [Microsoft-Support](https://support.microsoft.com) – geben Sie einfach Ihr Problem in der Suchleiste an. Erhalten Sie Hilfe mit Windows, Office, Skype und mehr. 

@@ -12,12 +12,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dougkim
 ms.date: 07/25/2018
-ms.openlocfilehash: ed6f695947fc17d2e96b5282b3a67a221bb0140d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9015bbc54a4c4bda0f691b79dbb7d3ba8ddbc4a1
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858031"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439891"
 ---
 >Gilt für: Windows Server 2012, Windows Server 2012 R2, Windows Server 2016
 
@@ -55,8 +55,8 @@ Führen Sie in PowerShell (mit erhöhten Rechten):
 
 > [!IMPORTANT]
 > Diese Schritte zeigen, wie Sie die WSUS-Datenbank (SUSDB) zu trennen von der internen Windows-Datenbank-Instanz mithilfe der **Sqlcmd** Hilfsprogramm. Weitere Informationen zu den **Sqlcmd** Hilfsprogramm finden Sie unter [Hilfsprogramms "Sqlcmd"](https://go.microsoft.com/fwlink/?LinkId=81183).
-1. Öffnen Sie eine Eingabeaufforderung mit erhöhten rechten
-2. Führen den folgenden SQL-Befehl zum Trennen der WSUS-Datenbank (SUSDB) aus der internen Windows-Datenbank-Instanz, indem die **Sqlcmd** Hilfsprogramm:
+> 1. Öffnen Sie eine Eingabeaufforderung mit erhöhten rechten
+> 2. Führen den folgenden SQL-Befehl zum Trennen der WSUS-Datenbank (SUSDB) aus der internen Windows-Datenbank-Instanz, indem die **Sqlcmd** Hilfsprogramm:
 
 ```batchfile
         sqlcmd -S \\.\pipe\Microsoft##WID\tsql\query
@@ -70,7 +70,7 @@ Führen Sie in PowerShell (mit erhöhten Rechten):
 
 ### <a name="copy-the-susdb-files-to-the-sql-server"></a>Kopieren Sie die SUSDB-Dateien mit der SQL Server
 
-1. Kopie **"susdb.mdf"** und **SUSDB\_log.ldf** aus dem Ordner WID-Daten (**%SystemDrive%**\** Windows\WID\Data **) auf die Daten der SQL-Instanz Ordner.
+1. Kopie **"susdb.mdf"** und **SUSDB\_log.ldf** aus dem Ordner WID-Daten ( **%SystemDrive%** \** Windows\WID\Data **) auf die Daten der SQL-Instanz Ordner.
 
 > [!TIP]
 > Wenn der SQL-Instanz-Ordner ist z. B. **c:\Programme\Microsoft c:\Programme\Microsoft SQL Server\MSSQL12. MSSQLSERVER\MSSQL**, und die WID-Datenordner **C:\Windows\WID\Data,** kopieren Sie die SUSDB-Dateien aus **C:\Windows\WID\Data** zu **c:\Programme\Microsoft SQL Server \MSSQL12. MSSQLSERVER\MSSQL\Data**
@@ -111,7 +111,7 @@ Stellen Sie sicher, die nach dem Anfügen der SUSDB **NT AUTHORITY\NETWORK SERVI
 Die **NT AUTHORITY\NETWORK SERVICE** Konto sollte aufgeführt sein. Wenn sie nicht der Fall ist, müssen Sie sie durch das Hinzufügen von neuen Anmeldenamen hinzuzufügen.
 
 > [!IMPORTANT]
-> Wenn die SQL-Instanz auf einem anderen Computer aus WSUS ist, sollte der WSUS-Server-Computerkonto im Format aufgelistet werden **[FQDN]\\[WSUSComputerName] $**.  Wenn nicht, die folgenden Schritte verwendet werden können, um sie hinzuzufügen, und Ersetzen Sie dabei **NT AUTHORITY\NETWORK SERVICE** mit dem WSUS-Server-Computerkonto (**[FQDN]\\[WSUSComputerName] $**) wäre dies ***zusätzlich zu*** Rechte für **NT AUTHORITY\NETWORK SERVICE**
+> Wenn die SQL-Instanz auf einem anderen Computer aus WSUS ist, sollte der WSUS-Server-Computerkonto im Format aufgelistet werden **[FQDN]\\[WSUSComputerName] $** .  Wenn nicht, die folgenden Schritte verwendet werden können, um sie hinzuzufügen, und Ersetzen Sie dabei **NT AUTHORITY\NETWORK SERVICE** mit dem WSUS-Server-Computerkonto ( **[FQDN]\\[WSUSComputerName] $** ) wäre dies ***zusätzlich zu*** Rechte für **NT AUTHORITY\NETWORK SERVICE**
 
 ##### <a name="adding-nt-authoritynetwork-service-and-granting-it-rights"></a>Hinzufügen von NT AUTHORITY\NETWORK SERVICE, und erteilen der Rechte
 
@@ -150,7 +150,7 @@ Die **NT AUTHORITY\NETWORK SERVICE** Konto sollte aufgeführt sein.
     > ![Image11](images/image11.png)
 
 4. Auf der **Benutzerzuordnung** Seite die **SUSDB** -Datenbank unter **"Von Benutzer, die dieser Anmeldung zugeordnet"**
-5. Überprüfen Sie **Webservice** unter der **"Mitgliedschaft in Datenbankrolle für: SUSDB"**: ![image12](images/image12.png)
+5. Überprüfen Sie **Webservice** unter der **"Mitgliedschaft in Datenbankrolle für: SUSDB"** : ![image12](images/image12.png)
 6. Klicken Sie auf **OK** um Einstellungen zu speichern.
     > [!NOTE]
     > Sie müssen den SQL-Dienst für die Änderungen wirksam werden neu.
@@ -162,7 +162,7 @@ Die **NT AUTHORITY\NETWORK SERVICE** Konto sollte aufgeführt sein.
 
 1. Klicken Sie auf **Start** und **Ausführen**, geben Sie **regedit** ein, und klicken Sie dann auf **OK**.
 2. Suchen Sie nach den folgenden Schlüssel: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\UpdateServices\Server\Setup\SqlServerName**
-3. In der **Wert** Textfeld **[ServerName]\\[Instanzname]**, und klicken Sie dann auf **OK**. Wenn Sie den Namen der Instanz die Standardinstanz ist, geben Sie **[ServerName]**.
+3. In der **Wert** Textfeld **[ServerName]\\[Instanzname]** , und klicken Sie dann auf **OK**. Wenn Sie den Namen der Instanz die Standardinstanz ist, geben Sie **[ServerName]** .
 4. Suchen Sie nach den folgenden Schlüssel: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Update Services\Server\Setup\Installed Rolle Services\UpdateServices-WidDatabase** ![image13](images/image13.png)
 5. Benennen Sie die Taste, um **UpdateServices-Database** ![image41](images/image14.png)
 
@@ -184,7 +184,7 @@ Führen Sie in PowerShell (mit erhöhten Rechten):
 ## <a name="uninstalling-the-wid-role-not-recommended"></a>Deinstallieren die WID-Rolle (nicht empfohlen)
 
 > [!WARNING]
-> Entfernen der Rolle WID auch einen Datenbankordner entfernt (**%SystemDrive%\Programme\Microsoft c:\Programme\Update Services\Database**), der WSUSUtil.exe für Aufgaben nach der Installation erforderlichen Skripts enthält. Wenn Sie zum Deinstallieren der Rolle WID, achten Sie darauf Sie sichern die **%SystemDrive%\Programme\Microsoft c:\Programme\Update Services\Database** Ordner im voraus.
+> Entfernen der Rolle WID auch einen Datenbankordner entfernt ( **%SystemDrive%\Programme\Microsoft c:\Programme\Update Services\Database**), der WSUSUtil.exe für Aufgaben nach der Installation erforderlichen Skripts enthält. Wenn Sie zum Deinstallieren der Rolle WID, achten Sie darauf Sie sichern die **%SystemDrive%\Programme\Microsoft c:\Programme\Update Services\Database** Ordner im voraus.
 
 Mithilfe von PowerShell:
 

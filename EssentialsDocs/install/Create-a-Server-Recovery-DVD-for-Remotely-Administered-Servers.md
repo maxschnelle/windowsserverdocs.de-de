@@ -12,12 +12,12 @@ ms.assetid: 6141fa69-5952-4e3c-a868-40ef3f4badd2
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 7bfe1686ac84962cdb4ab1cde8d6ca5226cb9d44
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 999887f09c27c1df481cb5e46579942424a2847b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844351"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433621"
 ---
 # <a name="create-a-server-recovery-dvd-for-remotely-administered-servers"></a>Erstellen einer Serverwiederherstellungs-DVD für remote verwaltete Server
 
@@ -83,11 +83,11 @@ ms.locfileid: "59844351"
 ####  <a name="BKMK_Collecting"></a> Schritt 2: Erfassen von Abbildern und XML-Dateien für die Wiederherstellung der Herstellerstandards  
  Die folgenden beiden Abbilder müssen aufgezeichnet werden, um einen Server auf die Herstellerstandards zurückzusetzen:  
   
--   Das Abbild des Systemlaufwerks  
+- Das Abbild des Systemlaufwerks  
   
--   Die für das System reservierte Partition  
+- Die für das System reservierte Partition  
   
- Zur Aufzeichnung dieser Abbilder wird das Tool "GenDiskXML.exe" bereitgestellt. Mit "GenDiskXML.exe" wird auch die Datei "disk.xml" erfasst, mit der während der Wiederherstellung die Datenträgerkonfiguration neu erstellt wird.  
+  Zur Aufzeichnung dieser Abbilder wird das Tool "GenDiskXML.exe" bereitgestellt. Mit "GenDiskXML.exe" wird auch die Datei "disk.xml" erfasst, mit der während der Wiederherstellung die Datenträgerkonfiguration neu erstellt wird.  
   
 1.  Starten Sie nach Sysprep das System mit einer 64-Bit-Version von Windows PE neu.  
   
@@ -117,29 +117,29 @@ ms.locfileid: "59844351"
 > [!NOTE]
 >  Die aufgeführten Dateinamen müssen genau übereinstimmen.  
   
-1.  Auf der Seite des Assistenten ist ein Link für zusätzliche Hilfe angegeben. Wenn diese CHM-Datei vorhanden ist, wird der FWLink für die Webhilfe überschrieben. Die Hilfedatei befindet sich unter:  
+1. Auf der Seite des Assistenten ist ein Link für zusätzliche Hilfe angegeben. Wenn diese CHM-Datei vorhanden ist, wird der FWLink für die Webhilfe überschrieben. Die Hilfedatei befindet sich unter:  
   
-     < DVD-Stamm\>\\$OEM$ \Customization\\< Kulturname\>\RestartHelp.chm  
+    < DVD-Stamm\>\\$OEM$ \Customization\\< Kulturname\>\RestartHelp.chm  
   
-2.  Diese Datei enthält den Text, der dem Kunden auf der Seite des Assistenten angezeigt wird. Der Text sollte erklären, wie der Server im Wiederherstellungsmodus gestartet wird. Für das Steuerelement sind Bildläufe möglich. Beim Umfang des hinzugefügten Texts bestehen also praktische Grenzen.  
+2. Diese Datei enthält den Text, der dem Kunden auf der Seite des Assistenten angezeigt wird. Der Text sollte erklären, wie der Server im Wiederherstellungsmodus gestartet wird. Für das Steuerelement sind Bildläufe möglich. Beim Umfang des hinzugefügten Texts bestehen also praktische Grenzen.  
   
-     Mit dieser Datei wird das Beispielbild im Assistenten ersetzt, sie dient vorwiegend dem Branding. Es muss eine PNG-Datei sein. Die Dateigröße muss 256 Pixel x 256 Pixel betragen, andernfalls wird das Bild bei der Anzeige im Assistenten abgeschnitten.  
+    Mit dieser Datei wird das Beispielbild im Assistenten ersetzt, sie dient vorwiegend dem Branding. Es muss eine PNG-Datei sein. Die Dateigröße muss 256 Pixel x 256 Pixel betragen, andernfalls wird das Bild bei der Anzeige im Assistenten abgeschnitten.  
   
-     < DVD-Stamm\>\\$OEM$ \Customization\\< Kulturname\>\RestartInstructions.rtf  
+    < DVD-Stamm\>\\$OEM$ \Customization\\< Kulturname\>\RestartInstructions.rtf  
   
-3.  < DVD-Stamm\>\\$OEM$ \Customization\\< Kulturname\>\ServerImage.png  
+3. < DVD-Stamm\>\\$OEM$ \Customization\\< Kulturname\>\ServerImage.png  
   
- Beachten Sie unbedingt Folgendes, wenn Sie Ihre Serverwiederherstellungs-DVD für die Unterstützung mehrerer Sprachen konvertieren:  
+   Beachten Sie unbedingt Folgendes, wenn Sie Ihre Serverwiederherstellungs-DVD für die Unterstützung mehrerer Sprachen konvertieren:  
   
-1.  Der Ordner "en-us" muss immer vorhanden sein. Wenn die Anwendung für die Serverwiederherstellung die kulturspezifischen Dateien, die zu dem Clientcomputer passen, auf dem sie ausgeführt wird, nicht findet, wird "en-us" verwendet.  
+4. Der Ordner "en-us" muss immer vorhanden sein. Wenn die Anwendung für die Serverwiederherstellung die kulturspezifischen Dateien, die zu dem Clientcomputer passen, auf dem sie ausgeführt wird, nicht findet, wird "en-us" verwendet.  
   
-2.  Fügen Sie in jedem Kulturordner, den Sie erstellen, die drei Anpassungsdateien (PNG, CHM und RTF) hinzu.  
+5. Fügen Sie in jedem Kulturordner, den Sie erstellen, die drei Anpassungsdateien (PNG, CHM und RTF) hinzu.  
   
-3.  Kopieren Sie beide Kulturordner aus Language Packs\\< CultureName\>\Server Recovery auf den Stamm der serverwiederherstellungs-DVD. Zum Beispiel: Die Ordner ES und ES-ES würden beide in das Stammverzeichnis der DVD zur Unterstützung der spanischen Sprache kopiert.  
+6. Kopieren Sie beide Kulturordner aus Language Packs\\< CultureName\>\Server Recovery auf den Stamm der serverwiederherstellungs-DVD. Zum Beispiel: Die Ordner ES und ES-ES würden beide in das Stammverzeichnis der DVD zur Unterstützung der spanischen Sprache kopiert.  
   
-4.  Schließen Sie die ISO-Datei ab.  
+7. Schließen Sie die ISO-Datei ab.  
   
- Unterstützte Kulturnamen:  
+   Unterstützte Kulturnamen:  
 
 |-|-|  
 |- cs-CZ<br /><br /> - de-DE<br /><br /> -En-US<br /><br /> - es-ES<br /><br /> - fr-FR<br /><br /> - hu-HU<br /><br /> -It-IT<br /><br /> - ja-JP<br /><br /> - ko-KR<br /><br /> -nl-NL |-pl-PL<br /><br /> - pt-BR<br /><br /> - pt-PT<br /><br /> - ru-RU<br /><br /> - sv-SE<br /><br /> - tr-TR<br /><br /> - zh-CN<br /><br /> - zh-HK<br /><br /> - zh-TW

@@ -7,12 +7,12 @@ author: daniellee-msft
 ms.author: jol
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: c775dd5a3011115bbb031c0b9e4e24a8911d378e
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: 9038fd480ed105aed3949b0c48dffc7eab94f970
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63748405"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445897"
 ---
 # <a name="install-and-manage-extensions"></a>Installieren und Verwalten von Erweiterungen
 
@@ -58,7 +58,7 @@ Wenn Windows Admin Center auf einem Computer, die nicht mit dem Internet verbund
 
 1. Klicken Sie auf einem anderen Computer, die dem Internet verbunden ist, öffnen Sie einen Webbrowser, und navigieren Sie zu folgender URL: [https://msft-sme.myget.org/gallery/windows-admin-center-feed](https://msft-sme.myget.org/gallery/windows-admin-center-feed) 
 
-  * Sie müssen ein Konto auf Msft-sme.myget.org und melden Sie sich an die Erweiterungspakete erstellen.
+   * Sie müssen ein Konto auf Msft-sme.myget.org und melden Sie sich an die Erweiterungspakete erstellen.
 
 2. Klicken Sie auf den Namen des Pakets, die Sie installieren, um die Detailseite des Pakets anzeigen möchten.
 3. Klicken Sie auf die **herunterladen** verknüpfen Sie im rechten Bereich der Detailseite des Pakets und Laden Sie die NUPKG-Datei für die Erweiterung.

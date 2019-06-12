@@ -11,14 +11,14 @@ author: sakitong
 ms.author: coreyp
 manager: lizapo
 ms.date: 10/16/2017
-ms.openlocfilehash: b891f61ff2c930591c33805d0e3bc595ebf196f7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 7331418c1926958da07c94bca9ff9f871134f3fa
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850491"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439871"
 ---
-#<a name="express-update-delivery-isv-support"></a>ISV-Unterstützung für Express-Updatebereitstellung
+# <a name="express-update-delivery-isv-support"></a>ISV-Unterstützung für Express-Updatebereitstellung
 
 >Gilt für: Windows 10, WindowsServer 2016
 
@@ -38,7 +38,7 @@ Version 7, Windows seit verringern, die Größe des Windows Update-Downloads dur
 
 -  **Enterprise-Geräte, die mit [Windows Update for Business](https://technet.microsoft.com/itpro/windows/manage/waas-manage-updates-wufb)** verwendet werden, profitieren ebenfalls von der Unterstützung der Express-Updatebereitstellung ohne Änderung der Konfiguration.
 
-##<a name="how-isvs-can-take-advantage-of-express"></a>Wie können ISVs Express nutzen
+## <a name="how-isvs-can-take-advantage-of-express"></a>Wie können ISVs Express nutzen
 
 ISVs können WSUS und WU-Clients zur Unterstützung von Express-Update-Bereitstellung verwenden. Microsoft empfiehlt die folgenden drei Schritte, die in den folgenden Abschnitten ausführlicher erläutert:
 
@@ -64,7 +64,7 @@ WSUS dient als Schnittstelle zu Windows Update und verwaltet alle Metadaten, die
 
 ### <a name="BKMK_2"></a>Schritt 2: Geben Sie ein, und füllen Sie den ISV-Dateicache 
 
-####<a name="specify-the-isv-file-cache"></a>Geben Sie den ISV-Dateicache
+#### <a name="specify-the-isv-file-cache"></a>Geben Sie den ISV-Dateicache
 
 Neue clientseitige Gruppenrichtlinien und Internet-Informationsdienste (Mobile Device Management, MDM) Einstellungen finden Sie unter den [ **Konfigurationsdienstanbieter-Referenz** ](https://msdn.microsoft.com/en-us/windows/hardware/commercialize/customize/mdm/configuration-service-provider-reference) definieren Sie den Speicherort des Dateicaches ISV.
 
@@ -82,10 +82,10 @@ Es gibt zwei Optionen beim Einrichten der alternativen Downloadspeicherort für 
  
     Dieser Ansatz konfiguriert die WU-Clients, um Anforderungen auf "localhost" herunterladen zu machen. Dadurch wird den ISV-Client-Agent, um diese Anforderungen und die Route nach Bedarf zur Verarbeitung der downloadanforderung zu verarbeiten.
 
->[!IMPORTANT]
->Der ISV-Datei-Cache ist Folgendes erforderlich:                                                          
-                                                                                                                                   >- Der Server muss über HTTP 1.1-gemäß der RFC kompatibel sein: <http://www.w3.org/Protocols/rfc2616/rfc2616.html>                                                                                                                                                                
-                                                                                                                                   >Insbesondere benötigt, um der Webserver zu unterstützen                                                                                                                                                                                                                                       [ **HEAD** ](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) und [ **erhalten** ](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.htm) Anforderungen<br>                                                                                                                                                                                                                                                                                                  -Teilweise Anforderungen<br>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   Keep-alive-<br>                                                                                                                                                                                                                                                                                                                                                                                                                            -Verwenden Sie nicht "Transfer-Encoding: chunked?                                                                                                 
+> [!IMPORTANT]
+> Der ISV-Datei-Cache ist Folgendes erforderlich:                                                          
+> - Der Server muss über HTTP 1.1-gemäß der RFC kompatibel sein: <http://www.w3.org/Protocols/rfc2616/rfc2616.html>                                                                                                                                                                
+> Insbesondere benötigt, um der Webserver zu unterstützen                                                                                                                                                                                                                                       [ **HEAD** ](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) und [ **erhalten** ](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.htm) Anforderungen<br>                                                                                                                                                                                                                                                                                                  -Teilweise Anforderungen<br>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   Keep-alive-<br>                                                                                                                                                                                                                                                                                                                                                                                                                            -Verwenden Sie nicht "Transfer-Encoding: chunked"                                                                                                 
 
 #### <a name="populate-the-isv-file-cache"></a>Füllen Sie den ISV-Datei-Cache
 
@@ -95,15 +95,15 @@ Der ISV-Datei-Cache muss aktualisiert werden, mit Dateien im Zusammenhang mit de
 
 1. Verwendung [WSUS-APIs](https://msdn.microsoft.com/en-us/library/windows/desktop/microsoft.updateservices.administration.updatefile(v=vs.85).aspx) den Zugriff auf des Updates Dateipfad und Dateinamen für den MU-Dienst.
 
-    Die Metadaten für die einzelnen Updates auf WSUS-Server enthält des Updates Pfad und Dateinamen auf Microsoft Update wie folgt (Microsoft Update-Hostnamen in fettformatierung, gefolgt vom Pfad und Dateiname): **http://download.windowsupdate.com** /c/Msdownload/Update / Software/UPDT/2016/09/windows10.0-kb3195781-x64_0c06079bccc35cba35a48bd2b1ec46f818bd2e74.msu
+    Die Metadaten für die einzelnen Updates auf WSUS-Server enthält des Updates Pfad und Dateinamen auf Microsoft Update wie folgt (Microsoft Update-Hostnamen in fettformatierung, gefolgt vom Pfad und Dateiname): **<http://download.windowsupdate.com>** /c/Msdownload/Update / Software/UPDT/2016/09/windows10.0-kb3195781-x64_0c06079bccc35cba35a48bd2b1ec46f818bd2e74.msu
 
 2. Herunterladen von Dateien von Microsoft Update, und speichern Sie sie in der ISV-Datei-Cache mit einer dieser beiden Methoden: 
 
- - Store-Dateien, die mithilfe der **gleichen Ordnerpfad als für den Dienst MU**
+   - Store-Dateien, die mithilfe der **gleichen Ordnerpfad als für den Dienst MU**
 
- - Store-Dateien, die mit einem **ISV definierten Ordnerpfad**
+   - Store-Dateien, die mit einem **ISV definierten Ordnerpfad**
 
-    HTTP-Umleitung für Server (oder "localhost") haben **HTTP GET** -Anforderungen, die den MU Ordnernamen Pfad und Dateinamen ein, um den Speicherort der ISV zu verweisen.
+     HTTP-Umleitung für Server (oder "localhost") haben **HTTP GET** -Anforderungen, die den MU Ordnernamen Pfad und Dateinamen ein, um den Speicherort der ISV zu verweisen.
 
 ### <a name="BKMK_3"></a>Schritt 3: Richten Sie einen ISV-Client-Agent so Vorgängen des WU-Clients
 
@@ -132,15 +132,15 @@ Es folgen zwei Abbildungen von Optionen zum Herunterladen von Workflow von einem
 
 - Für Betriebssystemupdates, die Express unterstützen, sind zwei Versionen der Dateinutzlast im Dienst gespeichert:
 
- - **Vollversion** – im Wesentlichen und Ersetzen Sie dabei die lokalen Versionen von die Updatebinärdateien
+  - **Vollversion** – im Wesentlichen und Ersetzen Sie dabei die lokalen Versionen von die Updatebinärdateien
 
- - **Express-Version** – zum Patchen der vorhandenen Binärdateien auf dem Gerät benötigt, die die Deltas enthält. 
+  - **Express-Version** – zum Patchen der vorhandenen Binärdateien auf dem Gerät benötigt, die die Deltas enthält. 
 
-   Sowohl die vollständige Version und der Express-Version werden in den Updatemetadaten verwiesen, die als Teil der Phase der Überprüfung an den Client heruntergeladen wurde. 
+    Sowohl die vollständige Version und der Express-Version werden in den Updatemetadaten verwiesen, die als Teil der Phase der Überprüfung an den Client heruntergeladen wurde. 
 
-   **Express-Download funktioniert wie folgt aus:**
+    **Express-Download funktioniert wie folgt aus:**
 
-   Der WU-Client versucht Express zuerst in bestimmten Situationen Herbst zurück zum vollständigen Dateien herunterladen und bei Bedarf (z. B. wenn über einen Proxy, der Anforderungen für Bytebereiche unterstützt).
+    Der WU-Client versucht Express zuerst in bestimmten Situationen Herbst zurück zum vollständigen Dateien herunterladen und bei Bedarf (z. B. wenn über einen Proxy, der Anforderungen für Bytebereiche unterstützt).
 
   1. Wenn die WU-Clients einen Express-Download initiiert **des WU-Clients zuerst lädt einen Stub**, diese ist Teil des Express-Pakets.
 

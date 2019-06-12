@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: faec70ac-88c0-4b0a-85c7-f0fe21e28257
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: beecef692b2ac01e6cb6c36892fec16e55b08209
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f3b2eb55c11348c3abcb1ef9e234cd19ba727758
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835171"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446593"
 ---
 # <a name="step-2-configure-the-multisite-infrastructure"></a>Schritt 2 Konfigurieren der Infrastruktur für mehrere Standorte
 
@@ -61,7 +61,7 @@ Weitere Informationen finden Sie unter [Hinzufügen eines Standorts zur Gesamtst
   
 8.  Schließen Sie die Active Directory-Standorte und Dienste.  
   
-![Windows PowerShell](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***  
+![Windows PowerShell](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -129,9 +129,9 @@ Weitere Informationen finden Sie unter [Installieren eines zusätzlichen Domäne
             > [!NOTE]  
             > Wenn Sie die Option zum Installieren von DNS-Server auswählen, erhalten Sie möglicherweise eine Meldung, die angibt, dass eine DNS-Delegierung für den DNS-Server konnte nicht erstellt werden und Sie eine DNS-Delegierung auf dem DNS-Server, um sicherzustellen, dass zuverlässige namensauflösung manuell erstellen sollen. Wenn Sie einen zusätzlichen Domänencontroller in der Stammdomäne der Gesamtstruktur oder einer Strukturstammdomäne installieren, müssen Sie keinen der DNS-Delegierung erstellen. Klicken Sie in diesem Fall auf **Ja** und die Nachricht ignorieren.  
   
-        -   **Globaler Katalog (GC)**"Diese Option ist standardmäßig aktiviert. Damit werden dem Domänencontroller die schreibgeschützten Verzeichnispartitionen des globalen Katalogs hinzugefügt. Außerdem wird die Suchfunktion für den globalen Katalog aktiviert.  
+        -   **Globaler Katalog (GC)** "Diese Option ist standardmäßig aktiviert. Damit werden dem Domänencontroller die schreibgeschützten Verzeichnispartitionen des globalen Katalogs hinzugefügt. Außerdem wird die Suchfunktion für den globalen Katalog aktiviert.  
   
-        -   **Read-only-Domänencontroller (RODC)**"Diese Option ist standardmäßig nicht aktiviert. Es ist den zusätzliche Domänencontroller schreibgeschützt; Dabei handelt es sich sie dem Domänencontroller einen RODC.  
+        -   **Read-only-Domänencontroller (RODC)** "Diese Option ist standardmäßig nicht aktiviert. Es ist den zusätzliche Domänencontroller schreibgeschützt; Dabei handelt es sich sie dem Domänencontroller einen RODC.  
   
     2.  In **Standortname**, wählen Sie einen Standort aus der Liste.  
   
@@ -170,7 +170,7 @@ Eine Bereitstellung für mehrere Standorte erfordert eine weitere Sicherheitsgru
   
 8.  Wiederholen Sie dieses Verfahren, um eine Sicherheitsgruppe für jeden Einstiegspunkt nach Bedarf erstellen.  
   
-![Windows PowerShell](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***  
+![Windows PowerShell](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -301,7 +301,7 @@ Informationen zur Zuordnung von Domain Controller ist sowohl in der Registrierun
     ![Windows PowerShell](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/DCAssocFinal.png)  
   
 ### <a name="ConfigDistOptimization"></a>Optimierung der konfigurationsverteilung  
-Wenn Sie Änderungen an der Konfiguration vornehmen, werden die Änderungen übernommen, nur nach dem Server-GPOs werden an den RAS-Server weitergegeben. Um die Konfigurationszeit für die Verteilung zu reduzieren, wählt Remotezugriff automatisch einen beschreibbaren Domänencontroller der Link ist "https://technet.microsoft.com/library/cc978016.aspx" am nächsten an den RAS-Server beim die Server-Gruppenrichtlinienobjekt zu erstellen.  
+Wenn Sie Änderungen an der Konfiguration vornehmen, werden die Änderungen übernommen, nur nach dem Server-GPOs werden an den RAS-Server weitergegeben. Um die Konfigurationszeit für die Verteilung zu reduzieren, wählt Remotezugriff automatisch einen beschreibbaren Domänencontroller der Link ist "<https://technet.microsoft.com/library/cc978016.aspx>" am nächsten an den RAS-Server beim die Server-Gruppenrichtlinienobjekt zu erstellen.  
   
 In einigen Szenarien kann es erforderlich, auf den Domänencontroller manuell zu ändern, der einen Server-Gruppenrichtlinienobjekt verwaltet wird, um die Konfigurationszeit für die Verteilung zu optimieren:  
   

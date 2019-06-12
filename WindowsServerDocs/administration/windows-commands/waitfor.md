@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1c4a91dd3822cf4d8dd904f473f146a2f0ee54c0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 21ced4a9ef0dd7dac5f6c4fc6f171d99fa516c07
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840161"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440309"
 ---
 # <a name="waitfor"></a>waitfor
 
@@ -37,15 +37,15 @@ waitfor [/t <Timeout>] <SignalName>
 
 ## <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|/ s \<Computer >|Gibt den Namen oder die IP-Adresse eines Remotecomputers (umgekehrte Schrägstriche nicht verwenden). Der Standardwert ist der lokale Computer. Dieser Parameter gilt für alle Dateien und Ordner im Befehl angegeben.|
-|/u [\<Domain>\]<User>|Führt das Skript mit den Anmeldeinformationen des angegebenen Benutzerkontos. In der Standardeinstellung **Waitfor** verwendet die Anmeldeinformationen des aktuellen Benutzers.|
-|/ p [\<Kennwort >]|Gibt das Kennwort des Benutzerkontos ein, die im angegebenen die **/u** Parameter.|
-|/si|Das angegebene Signal über das Netzwerk gesendet.|
-|/ t / \<Timeout >|Gibt die Anzahl der Sekunden für ein Signal. In der Standardeinstellung **Waitfor** wartet unbegrenzt.|
-|\<SignalName>|Gibt an, das Signal, **Waitfor** wartet oder sendet. *SignalName* wird nicht beachtet.|
-|/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
+|       Parameter       |                                                                                         Beschreibung                                                                                          |
+|-----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|    / s \<Computer >     | Gibt den Namen oder die IP-Adresse eines Remotecomputers (umgekehrte Schrägstriche nicht verwenden). Der Standardwert ist der lokale Computer. Dieser Parameter gilt für alle Dateien und Ordner im Befehl angegeben. |
+| /u [\<Domain>\]<User> |                              Führt das Skript mit den Anmeldeinformationen des angegebenen Benutzerkontos. In der Standardeinstellung **Waitfor** verwendet die Anmeldeinformationen des aktuellen Benutzers.                               |
+|   / p [\<Kennwort >]    |                                                    Gibt das Kennwort des Benutzerkontos ein, die im angegebenen die **/u** Parameter.                                                     |
+|          /si          |                                                                        Das angegebene Signal über das Netzwerk gesendet.                                                                        |
+|     / t / \<Timeout >     |                                              Gibt die Anzahl der Sekunden für ein Signal. In der Standardeinstellung **Waitfor** wartet unbegrenzt.                                               |
+|     \<SignalName>     |                                                Gibt an, das Signal, **Waitfor** wartet oder sendet. *SignalName* wird nicht beachtet.                                                 |
+|          /?           |                                                                             Zeigt die Hilfe an der Eingabeaufforderung an.                                                                             |
 
 ## <a name="remarks"></a>Hinweise
 
@@ -76,4 +76,4 @@ waitfor /si espresso\build007
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

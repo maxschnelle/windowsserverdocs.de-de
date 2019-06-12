@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 735377e809b51a9b69962b4233d4c748eb8cf30a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9ef14c647534c92a97abdcc9ee8df50c64a72e5f
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856861"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438792"
 ---
 # <a name="ftp-cd"></a>ftp: cd
 
@@ -30,9 +30,11 @@ ms.locfileid: "59856861"
 cd <remotedirectory>  
 ```  
 ### <a name="parameters"></a>Parameter  
-|Parameter|Beschreibung|  
-|-------|--------|  
-|<remotedirectory>|Gibt das Verzeichnis auf dem Remotecomputer, auf dem Sie ändern möchten.|  
+
+|     Parameter     |                                 Beschreibung                                 |
+|-------------------|-----------------------------------------------------------------------------|
+| <remotedirectory> | Gibt das Verzeichnis auf dem Remotecomputer, auf dem Sie ändern möchten. |
+
 ## <a name="BKMK_Examples"></a>Beispiele für  
 Ändern Sie das Verzeichnis auf dem Remotecomputer zu **Docs**.  
 ```  
@@ -43,4 +45,4 @@ cd Docs
 cd  May Videos  
 ```  
 ## <a name="additional-references"></a>Zusätzliche Referenzen  
--   [Befehlszeilensyntax](command-line-syntax-key.md)  
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  

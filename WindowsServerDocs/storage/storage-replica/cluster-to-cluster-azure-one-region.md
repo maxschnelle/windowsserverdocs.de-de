@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage-replica
 manager: mchad
-ms.openlocfilehash: 4371192d44878d3c953374b8d307b4d5612869f5
-ms.sourcegitcommit: 7e54a1bcd31cd2c6b18fd1f21b03f5cfb6165bf3
+ms.openlocfilehash: 9cf998087e23f45fe5981aef6d1ff5b7b4e85b9b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65461980"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447611"
 ---
 # <a name="cluster-to-cluster-storage-replica-within-the-same-region-in-azure"></a>Cluster-Funktion "Speicherreplikat" in der gleichen Region im Azure-Cluster
 
@@ -30,7 +30,7 @@ Teil 1
 Teil 2
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE269Pq]
 
-![Das Architekturdiagramm mit der Funktion "Speicherreplikat" Cluster-zu-Cluster in Azure innerhalb derselben Region.](media\Cluster-to-cluster-azure-one-region\architecture.png)
+![Das Architekturdiagramm mit der Funktion "Speicherreplikat" Cluster-zu-Cluster in Azure innerhalb derselben Region.](media/Cluster-to-cluster-azure-one-region/architecture.png)
 > [!IMPORTANT]
 > Alle referenzierten Beispiele sind spezifisch für die obige Abbildung.
 
@@ -58,41 +58,43 @@ Teil 2
 8. In unserem Beispiel der Domänencontroller **az2azDC** verfügt über private IP-Adresse (10.3.0.8). Im Virtuellenetzwerk (**az2az-Vnet**) ändern Sie die DNS-Server 10.3.0.8 verwiesen. Verbinden Sie alle Knoten auf "Contoso.com", und geben Sie Administratorrechte besitzen, um "Contosoadmin".
    - Melden Sie sich als Contosoadmin von allen Knoten. 
     
-9. Erstellen Sie die Cluster (**SRAZC1**, **SRAZC2**). Im folgenden finden Sie in unserem Beispiel die PowerShell-Befehle
-```PowerShell
+9. Erstellen Sie die Cluster (**SRAZC1**, **SRAZC2**). 
+   Im folgenden finden Sie in unserem Beispiel die PowerShell-Befehle
+   ```PowerShell
     New-Cluster -Name SRAZC1 -Node az2az1,az2az2 –StaticAddress 10.3.0.100
-```
-```PowerShell
+   ```
+   ```PowerShell
     New-Cluster -Name SRAZC2 -Node az2az3,az2az4 –StaticAddress 10.3.0.101
-```
+   ```
 10. Aktivieren von "direkte Speicherplätze"
-```PowerShell
+    ```PowerShell
     Enable-clusterS2D
-```   
+    ```   
    
-   Erstellen Sie für jeden Cluster die virtuellen Datenträger und Volumes. Eine für die Daten und eine für das Protokoll. 
+    Erstellen Sie für jeden Cluster die virtuellen Datenträger und Volumes. Eine für die Daten und eine für das Protokoll. 
    
 11. Erstellen Sie eine interne Standard-SKU [Load Balancer](https://ms.portal.azure.com/#create/Microsoft.LoadBalancer-ARM) für jeden Cluster (**azlbr1**,**azlbr2**). 
    
-   Geben Sie die Cluster-IP-Adresse als statische private IP-Adresse an, für den Load Balancer.
-   - azlbr1 = > Front-End-IP: 10.3.0.100 (Wählen Sie eine nicht verwendete IP-Adresse aus dem virtuellen Netzwerk (**az2az-Vnet**) Subnetz)
-   - Erstellen Sie für jeden Load Balancer-Back-End-Pool ein. Fügen Sie den zugehörigen Clusterknoten hinzu.
-   - Erstellen eines Integritätstests: Port 59999
-   - Erstellen Sie Load Balance-Regel: Ermöglichen Sie hochverfügbarkeitsports mit aktivierter Floating-IP ein. 
+    Geben Sie die Cluster-IP-Adresse als statische private IP-Adresse an, für den Load Balancer.
+    - azlbr1 = > Front-End-IP: 10.3.0.100 (Wählen Sie eine nicht verwendete IP-Adresse aus dem virtuellen Netzwerk (**az2az-Vnet**) Subnetz)
+    - Erstellen Sie für jeden Load Balancer-Back-End-Pool ein. Fügen Sie den zugehörigen Clusterknoten hinzu.
+    - Erstellen eines Integritätstests: Port 59999
+    - Erstellen Sie Load Balance-Regel: Ermöglichen Sie hochverfügbarkeitsports mit aktivierter Floating-IP ein. 
    
-   Geben Sie die Cluster-IP-Adresse als statische private IP-Adresse an, für den Load Balancer.
-   - azlbr2 = > Front-End-IP: 10.3.0.101 (Wählen Sie eine nicht verwendete IP-Adresse aus dem virtuellen Netzwerk (**az2az-Vnet**) Subnetz)
-   - Erstellen Sie für jeden Load Balancer-Back-End-Pool ein. Fügen Sie den zugehörigen Clusterknoten hinzu.
-   - Erstellen eines Integritätstests: Port 59999
-   - Erstellen Sie Load Balance-Regel: Ermöglichen Sie hochverfügbarkeitsports mit aktivierter Floating-IP ein. 
+    Geben Sie die Cluster-IP-Adresse als statische private IP-Adresse an, für den Load Balancer.
+    - azlbr2 = > Front-End-IP: 10.3.0.101 (Wählen Sie eine nicht verwendete IP-Adresse aus dem virtuellen Netzwerk (**az2az-Vnet**) Subnetz)
+    - Erstellen Sie für jeden Load Balancer-Back-End-Pool ein. Fügen Sie den zugehörigen Clusterknoten hinzu.
+    - Erstellen eines Integritätstests: Port 59999
+    - Erstellen Sie Load Balance-Regel: Ermöglichen Sie hochverfügbarkeitsports mit aktivierter Floating-IP ein. 
    
 12. Öffnen Sie auf jedem Clusterknoten Port 59999 (Integritätstest) aus. 
    
     Führen Sie den folgenden Befehl auf jedem Knoten aus:
-```PowerShell
-netsh advfirewall firewall add rule name=PROBEPORT dir=in protocol=tcp action=allow localport=59999 remoteip=any profile=any 
-```   
-13. Weisen Sie den Cluster für Integritätstest auf Port 59999-Nachrichten zu Lauschen und reagieren, die über den Knoten, der derzeit diese Ressource besitzt. Führen Sie es einmal, von jedem Knoten des Clusters für jeden Cluster. 
+    ```PowerShell
+    netsh advfirewall firewall add rule name=PROBEPORT dir=in protocol=tcp action=allow localport=59999 remoteip=any profile=any 
+    ```   
+13. Weisen Sie den Cluster für Integritätstest auf Port 59999-Nachrichten zu Lauschen und reagieren, die über den Knoten, der derzeit diese Ressource besitzt. 
+    Führen Sie es einmal, von jedem Knoten des Clusters für jeden Cluster. 
     
     Stellen Sie in unserem Beispiel "ILBIP" gemäß Ihrer Konfigurationswerte zu ändern. Führen den folgenden Befehl aus einem Knoten **az2az1**/**az2az2**:
 
@@ -113,16 +115,16 @@ netsh advfirewall firewall add rule name=PROBEPORT dir=in protocol=tcp action=al
     [int]$ProbePort = 59999
     Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";”ProbeFailureThreshold”=5;"EnableDhcp"=0}  
     ```   
-   Stellen Sie sicher, dass beide Cluster eine Verbindung herstellen / miteinander kommunizieren können. 
+    Stellen Sie sicher, dass beide Cluster eine Verbindung herstellen / miteinander kommunizieren können. 
 
-   Entweder "Verbindung zum Cluster"-Funktion im Failovercluster-Manager verwenden, um eine Verbindung herstellen, auf die anderen Cluster, oder Überprüfen Sie, dass die anderen Cluster aus einem der Knoten des aktuellen Clusters reagiert.  
+    Entweder "Verbindung zum Cluster"-Funktion im Failovercluster-Manager verwenden, um eine Verbindung herstellen, auf die anderen Cluster, oder Überprüfen Sie, dass die anderen Cluster aus einem der Knoten des aktuellen Clusters reagiert.  
    
-   ```PowerShell
+    ```PowerShell
      Get-Cluster -Name SRAZC1 (ran from az2az3)
-   ```
-   ```PowerShell
+    ```
+    ```PowerShell
      Get-Cluster -Name SRAZC2 (ran from az2az1)
-   ```   
+    ```   
 
 15. Cloud-Zeugen für beide Cluster zu erstellen. Erstellen Sie zwei [Speicherkonten](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) (**az2azcw**, **az2azcw2**) in Azure zu für jeden Cluster in derselben Ressourcengruppe befinden (**SR-AZ2AZ**).
 
@@ -135,25 +137,25 @@ netsh advfirewall firewall add rule name=PROBEPORT dir=in protocol=tcp action=al
 
 18. Konfigurieren Sie die Funktion "Speicherreplikat" Cluster-zu-Cluster.
    
-   Gewähren des Zugriffs über einen Cluster mit einem anderen Cluster in beide Richtungen:
+    Gewähren des Zugriffs über einen Cluster mit einem anderen Cluster in beide Richtungen:
 
-   In unserem Beispiel:
+    In unserem Beispiel:
 
-   ```PowerShell
+    ```PowerShell
       Grant-SRAccess -ComputerName az2az1 -Cluster SRAZC2
-   ```
-Wenn Sie diesen Befehl auch Ausführen von Windows Server 2016 verwenden:
+    ```
+    Wenn Sie diesen Befehl auch Ausführen von Windows Server 2016 verwenden:
 
-   ```PowerShell
+    ```PowerShell
       Grant-SRAccess -ComputerName az2az3 -Cluster SRAZC1
-   ```   
+    ```   
    
 19. SRPartnership für den Cluster zu erstellen:</ol>
 
- - Für Cluster **SRAZC1**.
-   - Volume-Speicherort:-c:\ClusterStorage\DataDisk1
-   - Protokollspeicherort:-g:
- - Für Cluster **SRAZC2**
+    - Für Cluster **SRAZC1**.
+    - Volume-Speicherort:-c:\ClusterStorage\DataDisk1
+    - Protokollspeicherort:-g:
+    - Für Cluster **SRAZC2**
     - Volume-Speicherort:-c:\ClusterStorage\DataDisk2
     - Protokollspeicherort:-g:
 

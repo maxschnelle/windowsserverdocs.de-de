@@ -8,12 +8,12 @@ author: wmgries
 manager: klaasl
 ms.author: wgries
 ms.date: 09/15/2016
-ms.openlocfilehash: 0421faaa910a1d679d809b88c0b4d2c94ba694b3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2e2e4975c4ab9ebb7ec68834f380255292426393
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852471"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447224"
 ---
 # <a name="running-data-deduplication"></a>Ausführen der Datendeduplizierung
 
@@ -49,10 +49,10 @@ Da die Datendeduplizierung ein Nachbearbeitungsmodell verwendet, ist es wichtig,
 
 Ein Indikator für einen Fehler beim [Optimierungsauftrag](understand.md#job-info-optimization) ist eine Optimierungsrate mit Abwärtstrend, die möglicherweise darauf hindeutet, dass die Optimierungsaufträge nicht mit der Änderungsrate mithalten. Sie können die Optimierungsrate mithilfe des [`Get-DedupStatus`](https://technet.microsoft.com/library/hh848437.aspx)-PowerShell-Cmdlets überprüfen.
 
-> [!Important]  
+> [!Important]
 > `Get-DedupStatus` enthält zwei Felder, die für die optimierungsrate relevant sind: `OptimizedFilesSavingsRate` und `SavingsRate`. Die Verfolgung beider Werte ist wichtig, sie haben jedoch unterschiedliche Bedeutungen.
-- `OptimizedFilesSavingsRate` gilt nur für die Dateien, die "Richtlinien" sind für die Optimierung (`space used by optimized files after optimization / logical size of optimized files`).
-- `SavingsRate` gilt für das gesamte Volume (`space used by optimized files after optimization / total logical size of the optimization`).
+> - `OptimizedFilesSavingsRate` gilt nur für die Dateien, die "Richtlinien" sind für die Optimierung (`space used by optimized files after optimization / logical size of optimized files`).
+> - `SavingsRate` gilt für das gesamte Volume (`space used by optimized files after optimization / total logical size of the optimization`).
 
 ## <a id="disabling-dedup"></a>Deaktivieren der Datendeduplizierung
 Führen Sie zum Deaktivieren der Datendeduplizierung den [Deoptimierungsauftrag](understand.md#job-info-unoptimization) aus. Um die Volumeoptimierung rückgängig zu machen, führen Sie den folgenden Befehl aus:

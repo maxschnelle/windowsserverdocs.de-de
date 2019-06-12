@@ -10,12 +10,12 @@ ms.topic: article
 author: lizap
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: 241b2b776a68cf5aec68a4d331201a07f0e5ea53
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f9aafaa34d5c16e45681e88b1ce60e99a9ad2842
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844651"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447092"
 ---
 # <a name="use-performance-counters-to-diagnose-app-performance-problems-on-remote-desktop-session-hosts"></a>Verwenden von Leistungsindikatoren zur diagnose von app-Leistungsprobleme für Remote Desktop Session Hosts
 
@@ -25,11 +25,11 @@ Der Zähler für die Eingabe Benutzerverzögerung können Sie die Hauptursache f
 
 Die folgende Abbildung zeigt eine grobe Darstellung der Eingabe benutzerflow vom Client, Anwendung.
 
-![Remotedesktop - Benutzereingaben fließen über den Remotedesktopclient für Benutzer der Anwendung](.\media\rds-user-input.png)
+![Remotedesktop - Benutzereingaben fließen über den Remotedesktopclient für Benutzer der Anwendung](./media/rds-user-input.png)
 
 Der Eingabe Benutzerverzögerung-Indikator misst das maximale Delta (innerhalb einer bestimmten Zeitspanne) zwischen der Eingabe, die in die Warteschlange gestellt und wenn sie in von der app übernommen wird eine [herkömmliche Nachrichtenschleife](https://msdn.microsoft.com/library/windows/desktop/ms644927.aspx#loop), wie im folgenden Flussdiagramm dargestellt:
 
-![Remotedesktop - Eingabe Benutzer Verzögerung Performance Counter-flow](.\media\rds-user-input-delay.png)
+![Remotedesktop - Eingabe Benutzer Verzögerung Performance Counter-flow](./media/rds-user-input-delay.png)
 
 Ein wichtiges Detail in dieses Indikators ist, dass die maximale Verzögerung Eingabe innerhalb eines konfigurierbaren Zeitraums gemeldet. Dies ist die am längsten dauert es für eine Eingabe für die Anwendung erreicht ist, die die Geschwindigkeit von wichtig und sichtbar Aktionen wie die Eingabe auswirken kann.
 
@@ -52,13 +52,13 @@ reg add "HKLM\System\CurrentControlSet\Control\Terminal Server" /v "EnableLagCou
 
 Als Nächstes starten Sie den Server neu. Klicken Sie dann öffnen Sie den Systemmonitor, und wählen Sie das Pluszeichen (+) aus, wie im folgenden Screenshot gezeigt.
 
-![Remote Desktop – dieser Screenshot zeigt die Vorgehensweise beim Hinzufügen des Benutzers Eingabe-Leistungsindikator "Verzögerung"](.\media\rds-add-user-input-counter-screen.png)
+![Remote Desktop – dieser Screenshot zeigt die Vorgehensweise beim Hinzufügen des Benutzers Eingabe-Leistungsindikator "Verzögerung"](./media/rds-add-user-input-counter-screen.png)
 
 Danach sollte das Dialogfeld "Leistungsindikatoren hinzufügen", in dem Sie auswählen können **Eingabe Benutzerverzögerung pro Prozess** oder **Eingabe Benutzerverzögerung pro Sitzung**.
 
-![Remote Desktop – dieser Screenshot zeigt die Eingabe Benutzerverzögerung pro Sitzung hinzufügen](.\media\rds-user-delay-per-session.png)
+![Remote Desktop – dieser Screenshot zeigt die Eingabe Benutzerverzögerung pro Sitzung hinzufügen](./media/rds-user-delay-per-session.png)
 
-![Remote Desktop – dieser Screenshot zeigt die Eingabe Benutzerverzögerung pro Prozess hinzufügen](.\media\rds-user-delay-per-process.png)
+![Remote Desktop – dieser Screenshot zeigt die Eingabe Benutzerverzögerung pro Prozess hinzufügen](./media/rds-user-delay-per-process.png)
 
 Bei Auswahl von **Eingabe Benutzerverzögerung pro Prozess**, sehen Sie die **Instanzen des ausgewählten Objekts** (das heißt, die Prozesse) in ```SessionID:ProcessID <Process Image>``` Format.
 
@@ -69,7 +69,7 @@ Angenommen, die Rechner-Anwendung ausgeführt wird, einem [Sitzungs-ID 1](https:
 
 Der Indikator wird gestartet, Eingabe benutzerverzögerung reporting, sobald Sie ihn hinzufügen. Beachten Sie, dass die maximale Dezimalstellen standardmäßig auf 100 (ms) festgelegt ist. 
 
-![Remote Desktop – ein Beispiel der Aktivität für die Eingabe Benutzerverzögerung pro Prozess im Systemmonitor](.\media\rds-sample-user-input-delay-perfmon.png)
+![Remote Desktop – ein Beispiel der Aktivität für die Eingabe Benutzerverzögerung pro Prozess im Systemmonitor](./media/rds-sample-user-input-delay-perfmon.png)
 
 Als Nächstes sehen wir uns die **Eingabe Benutzerverzögerung pro Sitzung**. Instanzen für jede Sitzungs-ID vorhanden sind, und die Indikatoren des Prozesses der Eingabe benutzerverzögerung innerhalb der angegebenen Sitzungs angezeigt. Darüber hinaus stehen zwei Instanzen, die als "Max" (der maximale Eingabe Verzögerung in alle Sitzungen) und "Average" (alle Sitzungen über die durchschnittliche Acorss) bezeichnet.
 
@@ -89,7 +89,7 @@ Diese Tabelle zeigt ein Beispiel dieser Instanzen. (Sie können die gleiche Info
 
 Jetzt sehen wir uns im Bericht angezeigt, wenn die Leistung für eine app beeinträchtigt wird. Das folgende Diagramm zeigt die Messwerte für die Remote-Benutzer in Microsoft Word. In diesem Fall nimmt die Leistung des RDSH-Servers im Laufe der Zeit ab, wie weitere Benutzer angemeldet haben.
 
-![Remote Desktop – eine Beispiel-Leistungsdiagramm für die Ausführung von Microsoft Word RDSH-Servers](.\media\rds-user-input-perf-graph.png)
+![Remote Desktop – eine Beispiel-Leistungsdiagramm für die Ausführung von Microsoft Word RDSH-Servers](./media/rds-user-input-perf-graph.png)
 
 Hier ist das Diagramm Zeilen lesen:
 
@@ -104,7 +104,7 @@ Sie werden feststellen, dass eine Korrelation zwischen der CPU-Spitzen und Einga
 
 Ein wichtig zu beachten, wenn Sie diesen Leistungsindikator zu verwenden ist, dass die Eingabe benutzerverzögerung standardmäßig in einem Intervall von 1000 ms gemeldet. Wenn Sie die Performance Counter-Beispiel Interval-Eigenschaft (wie im folgenden Screenshot gezeigt), etwas anderes festlegen, wird bei dem gemeldete Wert falsch sein.
 
-![Remote Desktop – die Eigenschaften für Ihre Leistung überwachen](.\media\rds-user-input-perfmon-properties.png)
+![Remote Desktop – die Eigenschaften für Ihre Leistung überwachen](./media/rds-user-input-perfmon-properties.png)
 
 Um dieses Problem zu beheben, können Sie festlegen, den folgenden Registrierungsschlüssel mit das Intervall (in Millisekunden) übereinstimmen, das Sie verwenden möchten. Wenn wir Beispiel alle X Sekunden in 5 Sekunden ändern, müssen wir z. B. diesen Schlüssel auf 5000 ms festlegen.
 
@@ -125,7 +125,7 @@ Wir haben außerdem eine Reihe von Schlüsseln hinzugefügt, die unter dem gleic
 
 Dies ist, wie es Wenn Sie beide Schlüssel einschalten aussieht:
 
-![Remotedesktop - Systemmonitor mit den beiden Schlüsseln auf](.\media\rds-user-input-delay-with-two-counters.png)
+![Remotedesktop - Systemmonitor mit den beiden Schlüsseln auf](./media/rds-user-input-delay-with-two-counters.png)
 
 ## <a name="using-the-new-counters-with-non-microsoft-tools"></a>Verwenden die neuen Indikatoren mit nicht-Microsoft-tools
 

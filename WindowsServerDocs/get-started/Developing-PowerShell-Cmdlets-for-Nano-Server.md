@@ -12,12 +12,12 @@ author: jaimeo
 ms.author: jaimeo
 ms.date: 09/06/2017
 ms.localizationpriority: medium
-ms.openlocfilehash: 4c669db414c4f12b6145a26a75b83449f43e8918
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c3376d03a2e9f02b20aba608de0228efd7dfddea
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887681"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443619"
 ---
 # <a name="developing-powershell-cmdlets-for-nano-server"></a>Entwickeln von PowerShell-Cmdlets für Nano Server
 
@@ -127,9 +127,9 @@ Wenn Sie nicht sicher sind, welche Implementierung Sie für vorhandene Cmdlets v
 * %UserProfile%\Documents\WindowsPowerShell\Modules   
 * \<Speicherort Ihrer Produktinstallation >   
     
- Überprüfen Sie diese Speicherorte auf die folgenden Details:  
- * CIM-Cmdlets haben .cdxml-Dateierweiterungen.  
- * .NET-Cmdlets haben .dll-Dateierweiterungen bzw. haben Assemblys, die in dem GAC installiert werden, der in der PSD1-Datei unter den Feldern „RootModule“, „ModuleToProcess“ oder „NestedModules“ aufgelistet ist.  
+  Überprüfen Sie diese Speicherorte auf die folgenden Details:  
+  * CIM-Cmdlets haben .cdxml-Dateierweiterungen.  
+  * .NET-Cmdlets haben .dll-Dateierweiterungen bzw. haben Assemblys, die in dem GAC installiert werden, der in der PSD1-Datei unter den Feldern „RootModule“, „ModuleToProcess“ oder „NestedModules“ aufgelistet ist.  
 * PowerShell-Skript-Cmdlets haben .psm1- oder .ps1-Datei-Erweiterungen.   
   
 ## <a name="porting-cim-cmdlets"></a>Portieren von CIM-Cmdlets  

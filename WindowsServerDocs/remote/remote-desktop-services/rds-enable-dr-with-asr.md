@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 manager: dongill
-ms.openlocfilehash: e3f9db4afb37452b4fd5d0229b385492b915fe45
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 7aa25602c71e5d114be7ae59c5e3ce168844d700
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859011"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446550"
 ---
 # <a name="enable-disaster-recovery-of-rds-using-azure-site-recovery"></a>Aktivieren der notfallwiederherstellung von RDS mit Azure Site Recovery
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2019, WindowsServer 2016
 
 Um sicherzustellen, dass Ihre RDS-Bereitstellung für die notfallwiederherstellung ordnungsgemäß konfiguriert ist, müssen Sie alle Komponenten, aus denen Ihre RDS-Bereitstellung zu schützen:
 
@@ -29,7 +29,7 @@ Um sicherzustellen, dass Ihre RDS-Bereitstellung für die notfallwiederherstellu
 - SQL Server-Ebene
 - RDS-Komponenten
 - Netzwerkkomponenten
- 
+
 ## <a name="configure-active-directory-and-dns-replication"></a>Konfigurieren der Active Directory und DNS-Replikation
 
 Sie benötigen eine Active Directory am Standort notfallwiederherstellung für Ihre RDS-Bereitstellung funktioniert. Sie haben zwei Möglichkeiten, die basierend auf der Komplexität die RDS-Bereitstellung ist:
@@ -47,9 +47,10 @@ Finden Sie unter [Schützen von SQL Server mit SQL Server-Wiederherstellung und 
 
 Je nach den Typ der RDS-Bereitstellung können Sie Schutz für die andere Komponente-VMs (wie in der folgenden Tabelle aufgeführt) in Azure Site Recovery aktivieren. Konfigurieren Sie die relevante Azure Site Recovery-Elemente, die basierend auf dem, ob Ihre virtuellen Computer auf Hyper-V oder VMWare bereitgestellt werden.
 
-| Bereitstellungstyp                              | Schutz-Schritte                                                                                                                                                                                      |
-|----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Persönlicher virtueller Desktop (nicht verwaltet)         |  1. Stellen Sie sicher, dass alle Virtualisierungshosts über den RDVH-Rolle installiert sind.    </br>2. Verbindungsbroker.  </br>3. Persönliche Desktops. </br>4. Gold-Vorlagen-VM. </br>5. Webzugriff, Lizenzserver und Gatewayserver |
-| In einem Pool zusammengefassten virtuellen Desktops, die (mit kein Benutzerprofil-Datenträger verwaltet) |  1. Alle Virtualisierungshosts sind über den RDVH-Rolle installiert.  </br>2. Verbindungsbroker.  </br>3. Gold-Vorlagen-VM. </br>4. Webzugriff, Lizenzserver und Gatewayserver.                                  |
-| RemoteApps und Remotedesktopsitzungen (ohne UPD)     |  1. Sitzung hostet.  </br>2. Verbindungsbroker. </br>3. Webzugriff, Lizenzserver und Gatewayserver.                                                                                                          |                                                                                                                                      |
+
+|               Bereitstellungstyp                |                                                                                                     Schutz-Schritte                                                                                                     |
+|----------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|     Persönlicher virtueller Desktop (nicht verwaltet)     | 1. Stellen Sie sicher, dass alle Virtualisierungshosts über den RDVH-Rolle installiert sind.    </br>2. Verbindungsbroker.  </br>3. Persönliche Desktops. </br>4. Gold-Vorlagen-VM. </br>5. Webzugriff, Lizenzserver und Gatewayserver |
+| In einem Pool zusammengefassten virtuellen Desktops, die (mit kein Benutzerprofil-Datenträger verwaltet) |                    1. Alle Virtualisierungshosts sind über den RDVH-Rolle installiert.  </br>2. Verbindungsbroker.  </br>3. Gold-Vorlagen-VM. </br>4. Webzugriff, Lizenzserver und Gatewayserver.                    |
+|   RemoteApps und Remotedesktopsitzungen (ohne UPD)   |                                                          1. Sitzung hostet.  </br>2. Verbindungsbroker. </br>3. Webzugriff, Lizenzserver und Gatewayserver.                                                           |
 

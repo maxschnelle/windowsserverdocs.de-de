@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 43abc30a-300d-4752-b845-10a6b9f32244
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: edd59208237f9b1042427dfecba0a407a34b30a8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9d19ac813280981341019330470cc5d53ee00778
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835811"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446109"
 ---
 # <a name="step-1-configure-advanced-directaccess-infrastructure"></a>Schritt 1 Konfigurieren der erweiterten DirectAccess-Infrastruktur
 
@@ -233,7 +233,7 @@ Stellen Sie sicher, dass das für die IP-HTTPS-Authentifizierung verwendete Webs
   
 12. Auf der Registerkarte **Allgemein** unter **Anzeigename** können Sie einen Namen für das Zertifikat eingeben, sodass Sie es schneller identifizieren können.  
   
-13. Klicken Sie auf der Registerkarte **Erweiterungen** auf den Pfeil neben dem Feld **Erweiterte Schlüsselverwendung** und vergewissern Sie sich, dass in der Liste **Ausgewählte Optionen****Serverauthentifizierung** angezeigt wird.  
+13. Klicken Sie auf der Registerkarte **Erweiterungen** auf den Pfeil neben dem Feld **Erweiterte Schlüsselverwendung** und vergewissern Sie sich, dass in der Liste **Ausgewählte Optionen** **Serverauthentifizierung** angezeigt wird.  
   
 14. Klicken Sie auf **OK**, **Registrieren** und dann auf **Fertig stellen**.  
   
@@ -246,7 +246,7 @@ Sie müssen einen DNS-Eintrag für die Netzwerkadressenserver-Website für das i
   
 1.  Vorgehensweise auf dem internen Netzwerk-DNS-Server: Auf der **starten** geben**dnsmgmt.msc**, und drücken Sie dann die EINGABETASTE.  
   
-2.  Erweitern Sie im linken Bereich der **DNS-Manager**-Konsole die Forward-Lookupzone für Ihre Domäne. Klicken Sie mit der rechten Maustaste auf die Domäne, und anschließend auf **Neuer Host (A oder AAAA)**.  
+2.  Erweitern Sie im linken Bereich der **DNS-Manager**-Konsole die Forward-Lookupzone für Ihre Domäne. Klicken Sie mit der rechten Maustaste auf die Domäne, und anschließend auf **Neuer Host (A oder AAAA)** .  
   
 3.  Gehen Sie im Dialogfeld **Neuer Host** im Feld **IP-Adresse** wie folgt vor:  
   
@@ -264,7 +264,7 @@ Sie müssen einen DNS-Eintrag für die Netzwerkadressenserver-Website für das i
   
 5.  Klicken Sie im Dialogfeld **DNS** auf **OK** und dann auf **Fertig**.  
   
-![Windows PowerShell](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***  
+![Windows PowerShell](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -336,7 +336,7 @@ Der DirectAccess-Server und alle DirectAccess-Clientcomputer müssen zu einer Ac
   
 10. Klicken Sie auf **Jetzt neu starten**, wenn Sie aufgefordert werden, den Computer neu zu starten.  
   
-![Windows PowerShell](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***  
+![Windows PowerShell](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -425,7 +425,7 @@ Nachdem Remotezugriffsadministrator die Änderungen an der Remotezugriffskonfigu
   
     10. Klicken Sie auf der Seite **Sicherung wird überprüft** auf **Weiter** und anschließend auf **Fertig stellen**.  
   
-![Windows PowerShell](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***  
+![Windows PowerShell](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -556,7 +556,7 @@ Folgendes ist für alle Zertifikattypen erforderlich, falls noch nicht vorhanden
   
 ## <a name="BKMK_Links"></a>Als Nächstes  
   
--   [Schritt 2: Konfigurieren von erweiterten DirectAccess-Servern](da-adv-configure-s2-servers.md)  
+-   [Schritt 2: Konfigurieren erweiterter DirectAccess-Server](da-adv-configure-s2-servers.md)  
   
 
 

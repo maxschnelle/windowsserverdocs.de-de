@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 52b3012a39409f9d48ae8aa7608e7bd0af5787d8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e72b4be1b265d682d489cf372cdfe5ef54bb444d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858821"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441243"
 ---
 # <a name="shift"></a>shift
 
@@ -43,11 +43,11 @@ shift [/n <N>]
 
 ## <a name="remarks"></a>Hinweise
 
--   Die **UMSCHALT** Befehl ändert die Werte der Parameter **%0** über **%9** jeden Parameter in dem vorherigen Beispiel kopieren, den Wert der **%1** in kopiert **%0**, den Wert der **%2** in kopiert **%1**und so weiter. Dies ist nützlich für das Schreiben von einer Batchdatei, die den gleichen Vorgang auf einer beliebigen Anzahl von Parametern ausführt.
--   Wenn der befehlserweiterungen aktiviert sind, die **UMSCHALT** Befehl unterstützt die **/n** Befehlszeilenoption. Die **/n** Option zum Starten der Verschiebung auf der n-te Argument gibt an, in denen **N** ein Wert zwischen 0 und 8 ist. Z. B. **UMSCHALT /2** verschoben würde **%3** zu **%2**, **%4** zu **%3**, und so weiter, und lassen Sie **%0** und **%1** nicht betroffen. Befehlserweiterungen sind standardmäßig aktiviert.
--   Können Sie die **UMSCHALT** Befehl aus, um eine Batchdatei erstellen, die mehr als 10 Batchparameter akzeptieren kann. Wenn Sie mehr als 10 Parameter in der Befehlszeile angeben, die, die angezeigt werden nach der zehnten (**%9**) werden die verschobenen einzeln nacheinander in **%9**.
--   Die **UMSCHALT** Befehl hat keine Auswirkungen auf die **% \*** batch-Parameter.
--   Es ist nicht abwärtskompatibel **UMSCHALT** Befehl. Nach dem Implementieren der **UMSCHALT** Befehl, den Batchparameter kann nicht wiederhergestellt werden (**%0**), die vorhanden waren, bevor Sie die UMSCHALTTASTE.
+- Die **UMSCHALT** Befehl ändert die Werte der Parameter **%0** über **%9** jeden Parameter in dem vorherigen Beispiel kopieren, den Wert der **%1** in kopiert **%0**, den Wert der **%2** in kopiert **%1**und so weiter. Dies ist nützlich für das Schreiben von einer Batchdatei, die den gleichen Vorgang auf einer beliebigen Anzahl von Parametern ausführt.
+- Wenn der befehlserweiterungen aktiviert sind, die **UMSCHALT** Befehl unterstützt die **/n** Befehlszeilenoption. Die **/n** Option zum Starten der Verschiebung auf der n-te Argument gibt an, in denen **N** ein Wert zwischen 0 und 8 ist. Z. B. **UMSCHALT /2** verschoben würde **%3** zu **%2**, **%4** zu **%3**, und so weiter, und lassen Sie **%0** und **%1** nicht betroffen. Befehlserweiterungen sind standardmäßig aktiviert.
+- Können Sie die **UMSCHALT** Befehl aus, um eine Batchdatei erstellen, die mehr als 10 Batchparameter akzeptieren kann. Wenn Sie mehr als 10 Parameter in der Befehlszeile angeben, die, die angezeigt werden nach der zehnten ( **%9**) werden die verschobenen einzeln nacheinander in **%9**.
+- Die **UMSCHALT** Befehl hat keine Auswirkungen auf die **% \\** * batch-Parameter.
+- Es ist nicht abwärtskompatibel **UMSCHALT** Befehl. Nach dem Implementieren der **UMSCHALT** Befehl, den Batchparameter kann nicht wiederhergestellt werden ( **%0**), die vorhanden waren, bevor Sie die UMSCHALTTASTE.
 
 ## <a name="BKMK_examples"></a>Beispiele für
 
@@ -71,4 +71,4 @@ echo All done
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 59927015f63243f16ba6e9674bc74adbd3c4f96a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ab7388633681120442544adf4ee0e337d8599854
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852631"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441224"
 ---
 # <a name="start"></a>start
 
@@ -41,8 +41,8 @@ start ["<Title>"] [/d <Path>] [/i] [{/min | /max}] [{/separate | /shared}] [{/lo
 |"\<Title>"|Gibt den Titel in der Titelleiste der Eingabeaufforderung-Fensters angezeigt.|
 |/ d \<Pfad >|Gibt das Startverzeichnis an.|
 |/i|Übergibt die Cmd.exe-Startumgebung, an der neuen Eingabeaufforderungsfenster. Wenn **/i** nicht angegeben ist, wird die aktuelle Umgebung verwendet wird.|
-|/ Min  \| /max|Gibt an, dass zu minimieren (**/min**) oder Maximieren (**/Max.**) der neuen Eingabeaufforderungsfenster.|
-|/ separate \| / shared|16-Bit-Programme in einem separaten Speicher beginnt (**/separate**) oder shared Memory-Speicher (**/ shared**). Diese Optionen werden auf 64-Bit-Plattformen nicht unterstützt.|
+|/ Min  \| /max|Gibt an, dass zu minimieren ( **/min**) oder Maximieren ( **/Max.** ) der neuen Eingabeaufforderungsfenster.|
+|/ separate \| / shared|16-Bit-Programme in einem separaten Speicher beginnt ( **/separate**) oder shared Memory-Speicher ( **/ shared**). Diese Optionen werden auf 64-Bit-Plattformen nicht unterstützt.|
 |/ niedrige \| /normal \| /hoch \| /realtime \| /abovenormal \| /belownormal|Startet eine Anwendung in der angegebenen Priorität-Klasse. Gültige Priorität Klasse Werte **/niedrige**, **/normal**, **/hoch**, **/realtime**, **/abovenormal**, und **/belownormal**.|
 |/affinity \<HexAffinity>|Wendet die angegebenen Prozessor-Affinitätsmaske (ausgedrückt als eine hexadezimale Zahl) für die neue Anwendung an.|
 |/ Wait|Startet eine Anwendung und wartet darauf, um zu beenden.|
@@ -53,15 +53,15 @@ start ["<Title>"] [/d <Path>] [/i] [{/min | /max}] [{/separate | /shared}] [{/lo
 
 ## <a name="remarks"></a>Hinweise
 
--   Sie können nicht ausführbare Dateien über ihre dateizuordnung ausführen, indem Sie den Namen der Datei als Befehl eingeben.
--   Beim Ausführen eines Befehls, das die Zeichenfolge "CMD" enthält als das erste Token ohne einen Qualifizierer Erweiterung oder Pfad ist "CMD" durch den Wert für die PATHEXT ersetzt. Dadurch wird verhindert, dass Benutzer aufnahm **Cmd** aus dem aktuellen Verzeichnis.
--   Wenn Sie eine 32-Bit-GUI-Benutzeroberfläche (GUI)-Anwendung ausführen **Cmd** wartet nicht für die Anwendung aus, um vor der Rückgabe an der Eingabeaufforderung zu beenden. Dieses Verhalten tritt nicht auf, wenn Sie die Anwendung aus einem Befehlsskript ausführen.
--   Wenn Sie einen Befehl, der ein erstes Token verwendet, das keine Erweiterung enthält ausführen, verwendet Cmd.exe den Wert der Umgebungsvariablen PATHEXT, um zu bestimmen, welche Erweiterungen für und in welcher Reihenfolge suchen. Der Standardwert für die Path-Variable ist:  
-    ```
-    .COM;.EXE;.BAT;.CMD 
-    ```  
-    Beachten Sie, dass die Syntax der PATH-Variablen werden durch Semikolon getrennt jede Erweiterung identisch ist.
--   Bei der Suche nach einer ausführbaren Datei, wenn es keine Übereinstimmung für alle Erweiterungen, **starten** überprüft, wenn der Name den Namen eines Verzeichnisses übereinstimmt. Wenn dies der Fall, **starten** Explorer.exe unter diesem Pfad geöffnet.
+- Sie können nicht ausführbare Dateien über ihre dateizuordnung ausführen, indem Sie den Namen der Datei als Befehl eingeben.
+- Beim Ausführen eines Befehls, das die Zeichenfolge "CMD" enthält als das erste Token ohne einen Qualifizierer Erweiterung oder Pfad ist "CMD" durch den Wert für die PATHEXT ersetzt. Dadurch wird verhindert, dass Benutzer aufnahm **Cmd** aus dem aktuellen Verzeichnis.
+- Wenn Sie eine 32-Bit-GUI-Benutzeroberfläche (GUI)-Anwendung ausführen **Cmd** wartet nicht für die Anwendung aus, um vor der Rückgabe an der Eingabeaufforderung zu beenden. Dieses Verhalten tritt nicht auf, wenn Sie die Anwendung aus einem Befehlsskript ausführen.
+- Wenn Sie einen Befehl, der ein erstes Token verwendet, das keine Erweiterung enthält ausführen, verwendet Cmd.exe den Wert der Umgebungsvariablen PATHEXT, um zu bestimmen, welche Erweiterungen für und in welcher Reihenfolge suchen. Der Standardwert für die Path-Variable ist:  
+  ```
+  .COM;.EXE;.BAT;.CMD 
+  ```  
+  Beachten Sie, dass die Syntax der PATH-Variablen werden durch Semikolon getrennt jede Erweiterung identisch ist.
+- Bei der Suche nach einer ausführbaren Datei, wenn es keine Übereinstimmung für alle Erweiterungen, **starten** überprüft, wenn der Name den Namen eines Verzeichnisses übereinstimmt. Wenn dies der Fall, **starten** Explorer.exe unter diesem Pfad geöffnet.
 
 ## <a name="BKMK_examples"></a>Beispiele für
 
@@ -76,4 +76,4 @@ start /max start /?
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

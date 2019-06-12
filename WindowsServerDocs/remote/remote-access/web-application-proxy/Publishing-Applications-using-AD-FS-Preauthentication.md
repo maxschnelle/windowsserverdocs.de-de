@@ -8,12 +8,12 @@ ms.date: 07/13/2016
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: web-app-proxy
-ms.openlocfilehash: c7dab1dbf97d2dcbda1fe0375e61300f2a1cc373
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ca4d8661f8f0252334bdecbde85603d8af5e2d2a
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862241"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446811"
 ---
 # <a name="publishing-applications-using-ad-fs-preauthentication"></a>Veröffentlichen von Anwendungen mit ADFS-Vorauthentifizierung
 
@@ -103,7 +103,7 @@ In diesem Verfahren wird beschrieben, wie Sie eine anspruchsbasierte Anwendung v
   
 2.  Klicken Sie auf der Seite **Willkommen** des **Assistenten zum Veröffentlichen neuer Anwendungen** auf **Weiter**.  
   
-3.  Auf der **Vorauthentifizierung** auf **Active Directory-Verbunddienste (AD FS)**, und klicken Sie dann auf **Weiter**.  
+3.  Auf der **Vorauthentifizierung** auf **Active Directory-Verbunddienste (AD FS)** , und klicken Sie dann auf **Weiter**.  
   
 4.  Wählen Sie auf der Seite **Unterstützte Clients** die Option **Web und MSOFBA**aus, und klicken Sie dann auf **Weiter**.  
   
@@ -128,7 +128,7 @@ In diesem Verfahren wird beschrieben, wie Sie eine anspruchsbasierte Anwendung v
   
 8.  Überprüfen Sie auf der Seite **Ergebnisse**, ob die Anwendung veröffentlicht wurde, und klicken Sie dann auf **Schließen**.  
   
-![](../../media/Publishing-Applications-using-AD-FS-Preauthentication/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***  
+![](../../media/Publishing-Applications-using-AD-FS-Preauthentication/PowerShellLogoSmall.gif)***<em>Gleichwertige Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -183,7 +183,7 @@ In diesem Verfahren wird beschrieben, wie Sie eine Anwendung mit integrierter Wi
   
 2.  Klicken Sie auf der Seite **Willkommen** des **Assistenten zum Veröffentlichen neuer Anwendungen** auf **Weiter**.  
   
-3.  Auf der **Vorauthentifizierung** auf **Active Directory-Verbunddienste (AD FS)**, und klicken Sie dann auf **Weiter**.  
+3.  Auf der **Vorauthentifizierung** auf **Active Directory-Verbunddienste (AD FS)** , und klicken Sie dann auf **Weiter**.  
   
 4.  Wählen Sie auf der Seite **Unterstützte Clients** die Option **Web und MSOFBA**aus, und klicken Sie dann auf **Weiter**.  
   
@@ -210,7 +210,7 @@ In diesem Verfahren wird beschrieben, wie Sie eine Anwendung mit integrierter Wi
   
 8.  Überprüfen Sie auf der Seite **Ergebnisse**, ob die Anwendung veröffentlicht wurde, und klicken Sie dann auf **Schließen**.  
   
-![](../../media/Publishing-Applications-using-AD-FS-Preauthentication/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***  
+![](../../media/Publishing-Applications-using-AD-FS-Preauthentication/PowerShellLogoSmall.gif)***<em>Gleichwertige Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -286,7 +286,7 @@ Das folgende Verfahren wird erläutert, wie grundlegende HTTP-Anwendungen zu ver
   
 2.  Klicken Sie auf der Seite **Willkommen** des **Assistenten zum Veröffentlichen neuer Anwendungen** auf **Weiter**.  
   
-3.  Auf der **Vorauthentifizierung** auf **Active Directory-Verbunddienste (AD FS)**, und klicken Sie dann auf **Weiter**.  
+3.  Auf der **Vorauthentifizierung** auf **Active Directory-Verbunddienste (AD FS)** , und klicken Sie dann auf **Weiter**.  
   
 4.  Auf der **unterstützte Clients** Seite **HTTP-Standardauthentifizierung** , und klicken Sie dann auf **Weiter**.  
   
@@ -310,7 +310,7 @@ Das folgende Verfahren wird erläutert, wie grundlegende HTTP-Anwendungen zu ver
   
 8.  Überprüfen Sie auf der Seite **Ergebnisse**, ob die Anwendung veröffentlicht wurde, und klicken Sie dann auf **Schließen**.  
   
-![](../../media/Publishing-Applications-using-AD-FS-Preauthentication/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***  
+![](../../media/Publishing-Applications-using-AD-FS-Preauthentication/PowerShellLogoSmall.gif)***<em>Gleichwertige Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -391,7 +391,7 @@ Hier wird beschrieben, wie Sie eine Anwendung für OAuth2 veröffentlichen. Dies
   
 2.  Klicken Sie auf der Seite **Willkommen** des **Assistenten zum Veröffentlichen neuer Anwendungen** auf **Weiter**.  
   
-3.  Auf der **Vorauthentifizierung** auf **Active Directory-Verbunddienste (AD FS)**, und klicken Sie dann auf **Weiter**.  
+3.  Auf der **Vorauthentifizierung** auf **Active Directory-Verbunddienste (AD FS)** , und klicken Sie dann auf **Weiter**.  
   
 4.  Auf der **unterstützte Clients** Seite **OAuth2** , und klicken Sie dann auf **Weiter**.  
   
@@ -441,7 +441,7 @@ Add-WebApplicationProxyApplication
   
 ## <a name="BKMK_Links"></a>Siehe auch  
   
--   [Problembehandlung des Webanwendungsproxys](https://technet.microsoft.com/library/dn770156.aspx)  
+-   [Problembehandlung: Webanwendungsproxy](https://technet.microsoft.com/library/dn770156.aspx)  
   
 -   [Veröffentlichen von Anwendungen per Webanwendungsproxy](https://technet.microsoft.com/library/dn383659.aspx)  
   

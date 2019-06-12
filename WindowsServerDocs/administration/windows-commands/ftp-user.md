@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ef3b943491a90078dab453aaf3a037bd4ccf1825
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1c9406af0868421fa54fe757742cf2a120561b9c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887491"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438347"
 ---
 # <a name="ftp-user"></a>FTP: Benutzer
 
@@ -30,15 +30,17 @@ Gibt ein Benutzer mit dem Remotecomputer an.
 user <UserName> [<Password>] [<Account>]  
 ```  
 ### <a name="parameters"></a>Parameter  
-|Parameter|Beschreibung|  
-|-------|--------|  
-|<UserName>|Gibt einen Benutzernamen mit dem Melden Sie sich an den Remotecomputer.|  
-|[<Password>]|Gibt das Kennwort für *Benutzername*. Wenn ein Kennwort nicht angegeben ist, jedoch erforderlich ist, **ftp** fordert das Kennwort.|  
-|[<Account>]|Gibt ein Konto mit dem Melden Sie sich an den Remotecomputer. Wenn ein *Konto* wird nicht angegeben, aber es ist erforderlich, **ftp** für das Konto aufgefordert.|  
+
+|  Parameter   |                                                                      Beschreibung                                                                      |
+|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  <UserName>  |                                          Gibt einen Benutzernamen mit dem Melden Sie sich an den Remotecomputer.                                           |
+| [<Password>] |               Gibt das Kennwort für *Benutzername*. Wenn ein Kennwort nicht angegeben ist, jedoch erforderlich ist, **ftp** fordert das Kennwort.               |
+| [<Account>]  | Gibt ein Konto mit dem Melden Sie sich an den Remotecomputer. Wenn ein *Konto* wird nicht angegeben, aber es ist erforderlich, **ftp** für das Konto aufgefordert. |
+
 ## <a name="BKMK_Examples"></a>Beispiele für  
 Geben Sie mit dem Kennwort Password1 "user1" ein.  
 ```  
 user User1 Password1  
 ```  
 ## <a name="additional-references"></a>Zusätzliche Referenzen  
--   [Befehlszeilensyntax](command-line-syntax-key.md)  
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  

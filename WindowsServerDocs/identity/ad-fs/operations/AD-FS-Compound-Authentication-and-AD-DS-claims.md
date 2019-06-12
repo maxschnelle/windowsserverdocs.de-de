@@ -8,12 +8,12 @@ ms.date: 09/07/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 270fb6efd63e6355c410ee45d09e6fd16b14222b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2380060894ff2f365451bbabfd41b8aa7e6792a0
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867991"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445294"
 ---
 # <a name="compound-authentication-and-ad-ds-claims-in-ad-fs"></a>Zusammengesetzte Authentifizierung und AD DS-Ansprüchen in AD FS
 Windows Server 2012 erweitert die Kerberos-Authentifizierung durch die Einführung von Verbundauthentifizierung.  Verbundauthentifizierung kann es sich um ein Kerberos Ticket-Granting Service (TGS) Anforderung zwei Identitäten gehören: 
@@ -87,21 +87,21 @@ Set-AdfsGlobalAuthenticationPolicy -PrimaryIntranetAuthenticationProvider 'Windo
 >In einer SQL-basierte-Farm kann der PowerShell-Befehl auf jedem AD FS-Server ausgeführt werden, die ein Mitglied der Farm ist.
 
 ### <a name="step-5--add-the-claim-description-to-ad-fs"></a>Schritt 5:  Fügen Sie die anspruchsbeschreibung für AD FS
-1.  Fügen Sie die folgenden Anspruchsbeschreibung zur Farm hinzu. Diese Anspruchsbeschreibung ist nicht standardmäßig im AD FS 2012 R2 vorhanden und muss manuell hinzugefügt werden.
-2.  In AD FS-Verwaltung unter **Service**, mit der rechten Maustaste **Beschreibung der Forderung** , und wählen Sie **Beschreibung der Forderung hinzufügen**
-3.  Geben Sie die folgende Informationen in der anspruchsbeschreibung
-    - Anzeigename: "Windows-Gerät-Group" 
-    - Anspruchsbeschreibung: "https://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdevicegroup" "
+1. Fügen Sie die folgenden Anspruchsbeschreibung zur Farm hinzu. Diese Anspruchsbeschreibung ist nicht standardmäßig im AD FS 2012 R2 vorhanden und muss manuell hinzugefügt werden.
+2. In AD FS-Verwaltung unter **Service**, mit der rechten Maustaste **Beschreibung der Forderung** , und wählen Sie **Beschreibung der Forderung hinzufügen**
+3. Geben Sie die folgende Informationen in der anspruchsbeschreibung
+   - Anzeigename: "Windows-Gerät-Group" 
+   - Anspruchsbeschreibung: "<https://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdevicegroup>" "
 4. Setzen Sie ein Häkchen in beide Felder ein.
 5. Klicken Sie auf **OK**.
 
 ![Anspruchsbeschreibung](media/AD-FS-Compound-Authentication-and-AD-DS-claims/gpmc6.png)
 
 6. Mithilfe von PowerShell Sie können die **hinzufügen-AdfsClaimDescription** Cmdlet.
-``` powershell
-Add-AdfsClaimDescription -Name 'Windows device group' -ClaimType 'https://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdevicegroup' `
--ShortName 'windowsdevicegroup' -IsAccepted $true -IsOffered $true -IsRequired $false -Notes 'The windows group SID of the device' 
-```
+   ``` powershell
+   Add-AdfsClaimDescription -Name 'Windows device group' -ClaimType 'https://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdevicegroup' `
+   -ShortName 'windowsdevicegroup' -IsAccepted $true -IsOffered $true -IsRequired $false -Notes 'The windows group SID of the device' 
+   ```
 
 
 >[!NOTE]
@@ -118,7 +118,7 @@ Add-AdfsClaimDescription -Name 'Windows device group' -ClaimType 'https://schema
 ``` powershell
 Set-ADServiceAccount -Identity “ADFS Service Account” -CompoundIdentitySupported:$true 
 ```
-2.  Starten Sie den AD FS-Dienst neu.
+2. Starten Sie den AD FS-Dienst neu.
 
 >[!NOTE]
 >Nach dem Festlegen auf "true" Installation von dasselbe gMSA auf neuen Servern (2012 R2/2016) nicht mit etwa folgendem Wortlaut: "CompoundIdentitySupported" **Install-ADServiceAccount: Dienstkonto kann nicht installiert werden. Fehlermeldung: "Des bereitgestellten Kontexts entsprach nicht das Ziel."** .
@@ -137,15 +137,15 @@ CompoundIdentitySupported deaktivieren, und klicken Sie dann ein erneutes Aktivi
 ![Anspruchsbeschreibung](media/AD-FS-Compound-Authentication-and-AD-DS-claims/gpmc7.png)
 
 ### <a name="step-8-on-the-relying-party-where-the-windowsdevicegroup-claims-are-expected-add-a-similar-pass-through-or-transform-claim-rule"></a>Schritt 8: Fügen Sie auf die abhängige Seite, in dem die Ansprüche 'WindowsDeviceGroup' erwartet werden, ähnlich wie "Pass-Through-" oder "Transformieren" Anspruchsregel hinzu.
-2.  In **AD FS-Verwaltung**, klicken Sie auf **Vertrauensstellungen für vertrauende Seiten** und im rechten Bereich mit der rechten Maustaste auf Ihre RP, und wählen **Edit Claim Rules**.
-3.  Auf der **Ausstellungstransformationsregeln** klicken Sie auf **Regel hinzufügen**.
-4.  Auf der **transformieren Anspruch Assistenten zum Hinzufügen von** wählen **Pass-Through oder Filtern eines eingehenden Anspruchs** , und klicken Sie auf **Weiter**.
-5.  Fügen Sie einen Anzeigenamen ein, und wählen **Windows Gerätegruppe** aus der **eingehender Anspruchstyp** Dropdownliste aus.
-6.  Klicken Sie auf **Fertig stellen**.  Klicken Sie auf **anwenden** und **Ok**.
-![Anspruchsbeschreibung](media/AD-FS-Compound-Authentication-and-AD-DS-claims/gpmc8.png)
+2. In **AD FS-Verwaltung**, klicken Sie auf **Vertrauensstellungen für vertrauende Seiten** und im rechten Bereich mit der rechten Maustaste auf Ihre RP, und wählen **Edit Claim Rules**.
+3. Auf der **Ausstellungstransformationsregeln** klicken Sie auf **Regel hinzufügen**.
+4. Auf der **transformieren Anspruch Assistenten zum Hinzufügen von** wählen **Pass-Through oder Filtern eines eingehenden Anspruchs** , und klicken Sie auf **Weiter**.
+5. Fügen Sie einen Anzeigenamen ein, und wählen **Windows Gerätegruppe** aus der **eingehender Anspruchstyp** Dropdownliste aus.
+6. Klicken Sie auf **Fertig stellen**.  Klicken Sie auf **anwenden** und **Ok**.
+   ![Anspruchsbeschreibung](media/AD-FS-Compound-Authentication-and-AD-DS-claims/gpmc8.png)
 
 
-##<a name="steps-for-configuring-ad-fs-in-windows-server-2016"></a>Schritte zum Konfigurieren von AD FS in Windows Server 2016
+## <a name="steps-for-configuring-ad-fs-in-windows-server-2016"></a>Schritte zum Konfigurieren von AD FS in Windows Server 2016
 Im folgenden werden die Schritte zum Konfigurieren von Verbundauthentifizierung in AD FS für WindowsServer 2016 beschrieben.
 
 ### <a name="step-1--enable-kdc-support-for-claims-compound-authentication-and-kerberos-armoring-on-the-default-domain-controller-policy"></a>Schritt 1:  Aktivieren der Kerberos-Clientunterstützung für Ansprüche, Verbundauthentifizierung und Kerberos-hochrüstung auf die Standard-Domänencontrollerrichtlinie
@@ -189,7 +189,7 @@ Set-AdfsGlobalAuthenticationPolicy -PrimaryIntranetAuthenticationProvider 'Windo
 ``` powershell
 Set-ADServiceAccount -Identity “ADFS Service Account” -CompoundIdentitySupported:$true 
 ```
-2.  Starten Sie den AD FS-Dienst neu.
+2. Starten Sie den AD FS-Dienst neu.
 
 >[!NOTE]
 >Nach dem Festlegen auf "true" Installation von dasselbe gMSA auf neuen Servern (2012 R2/2016) nicht mit etwa folgendem Wortlaut: "CompoundIdentitySupported" **Install-ADServiceAccount: Dienstkonto kann nicht installiert werden. Fehlermeldung: "Des bereitgestellten Kontexts entsprach nicht das Ziel."** .
@@ -208,11 +208,11 @@ CompoundIdentitySupported deaktivieren, und klicken Sie dann ein erneutes Aktivi
 
 
 ### <a name="step-6-on-the-relying-party-where-the-windowsdevicegroup-claims-are-expected-add-a-similar-pass-through-or-transform-claim-rule"></a>Schritt 6: Fügen Sie auf die abhängige Seite, in dem die Ansprüche 'WindowsDeviceGroup' erwartet werden, ähnlich wie "Pass-Through-" oder "Transformieren" Anspruchsregel hinzu.
-2.  In **AD FS-Verwaltung**, klicken Sie auf **Vertrauensstellungen für vertrauende Seiten** und im rechten Bereich mit der rechten Maustaste auf Ihre RP, und wählen **Edit Claim Rules**.
-3.  Auf der **Ausstellungstransformationsregeln** klicken Sie auf **Regel hinzufügen**.
-4.  Auf der **transformieren Anspruch Assistenten zum Hinzufügen von** wählen **Pass-Through oder Filtern eines eingehenden Anspruchs** , und klicken Sie auf **Weiter**.
-5.  Fügen Sie einen Anzeigenamen ein, und wählen **Windows Gerätegruppe** aus der **eingehender Anspruchstyp** Dropdownliste aus.
-6.  Klicken Sie auf **Fertig stellen**.  Klicken Sie auf **anwenden** und **Ok**.
+2. In **AD FS-Verwaltung**, klicken Sie auf **Vertrauensstellungen für vertrauende Seiten** und im rechten Bereich mit der rechten Maustaste auf Ihre RP, und wählen **Edit Claim Rules**.
+3. Auf der **Ausstellungstransformationsregeln** klicken Sie auf **Regel hinzufügen**.
+4. Auf der **transformieren Anspruch Assistenten zum Hinzufügen von** wählen **Pass-Through oder Filtern eines eingehenden Anspruchs** , und klicken Sie auf **Weiter**.
+5. Fügen Sie einen Anzeigenamen ein, und wählen **Windows Gerätegruppe** aus der **eingehender Anspruchstyp** Dropdownliste aus.
+6. Klicken Sie auf **Fertig stellen**.  Klicken Sie auf **anwenden** und **Ok**.
 
 ## <a name="validation"></a>Überprüfung
 Die Version von "WindowsDeviceGroup" Ansprüche zu überprüfen, erstellen Sie einen Test-Ansprüche unterstützende Anwendung, die mithilfe von .net 4.6. Mit WIF SDK 4.0.

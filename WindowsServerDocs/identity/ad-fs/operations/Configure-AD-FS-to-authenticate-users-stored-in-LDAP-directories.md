@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: bef2cac726b1c4ea9b30f9a2086e3a2670339228
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 2053f0a93f33cdfdd85eec8cdbb6eca4ebad1ff0
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189832"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444925"
 ---
 # <a name="configure-ad-fs-to-authenticate-users-stored-in-ldap-directories"></a>Konfigurieren von AD FS zum Authentifizieren von Benutzern, die in LDAP-Verzeichnissen gespeichert sind
 
@@ -40,61 +40,60 @@ Die WS-Trust-active-Authorization-Protokoll wird für Identitäten, die in LDAP-
 ## <a name="configure-ad-fs-to-authenticate-users-stored-in-an-ldap-directory"></a>Konfigurieren von AD FS zum Authentifizieren von Benutzern, die in einem LDAP-Verzeichnis gespeichert
 Um AD FS-Farm zum Authentifizieren von Benutzern aus einem LDAP-Verzeichnis zu konfigurieren, können Sie die folgenden Schritte ausführen:
 
-1.  Konfigurieren Sie zunächst eine Verbindung mit Ihrem LDAP-Verzeichnis mithilfe der **New-AdfsLdapServerConnection** Cmdlet:
+1. Konfigurieren Sie zunächst eine Verbindung mit Ihrem LDAP-Verzeichnis mithilfe der **New-AdfsLdapServerConnection** Cmdlet:
 
-    ```
-    $DirectoryCred = Get-Credential
-    $vendorDirectory = New-AdfsLdapServerConnection -HostName dirserver -Port 50000 -SslMode None -AuthenticationMethod Basic -Credential $DirectoryCred
-    ```
+   ```
+   $DirectoryCred = Get-Credential
+   $vendorDirectory = New-AdfsLdapServerConnection -HostName dirserver -Port 50000 -SslMode None -AuthenticationMethod Basic -Credential $DirectoryCred
+   ```
 
-    > [!NOTE]
-    > Es wird empfohlen, dass Sie ein neues Verbindungsobjekt für jeden LDAP-Server erstellen, die Sie herstellen möchten. AD FS kann mehrere Replikatserver LDAP-Verbindung und automatisch ein Failover für den Fall, dass ein bestimmter LDAP-Server ausgefallen ist. Solch einem Fall können Sie eine AdfsLdapServerConnection für jeden dieser Replikat LDAP-Server erstellen und fügen Sie dann auf das Array von Verbindungsobjekten, die mit dem -**LdapServerConnection** Parameter der  **Hinzufügen AdfsLocalClaimsProviderTrust** Cmdlet.
+   > [!NOTE]
+   > Es wird empfohlen, dass Sie ein neues Verbindungsobjekt für jeden LDAP-Server erstellen, die Sie herstellen möchten. AD FS kann mehrere Replikatserver LDAP-Verbindung und automatisch ein Failover für den Fall, dass ein bestimmter LDAP-Server ausgefallen ist. Solch einem Fall können Sie eine AdfsLdapServerConnection für jeden dieser Replikat LDAP-Server erstellen und fügen Sie dann auf das Array von Verbindungsobjekten, die mit dem -**LdapServerConnection** Parameter der  **Hinzufügen AdfsLocalClaimsProviderTrust** Cmdlet.
 
-    **HINWEIS:** Der Versuch, Get-Credential "und" Geben Sie einen DN und ein Kennwort verwenden, um mit einer Instanz des LDAP-Bindung verwendet werden, kann zu einem Fehler führen, da die der Benutzer-Schnittstelle Anforderungen für bestimmte Eingabeformate, z.B. "Domäne\Benutzername" oder user@domain.tld. Sie können stattdessen das ConvertTo-SecureString-Cmdlet verwenden, wie folgt (im folgenden Beispiel wird angenommen, Benutzer-ID = Admin, Ou = System als DN der Anmeldeinformationen verwendet werden, zum Binden an das LDAP-Instanz):
+   **HINWEIS:** Der Versuch, Get-Credential "und" Geben Sie einen DN und ein Kennwort verwenden, um mit einer Instanz des LDAP-Bindung verwendet werden, kann zu einem Fehler führen, da die der Benutzer-Schnittstelle Anforderungen für bestimmte Eingabeformate, z.B. "Domäne\Benutzername" oder user@domain.tld. Sie können stattdessen das ConvertTo-SecureString-Cmdlet verwenden, wie folgt (im folgenden Beispiel wird angenommen, Benutzer-ID = Admin, Ou = System als DN der Anmeldeinformationen verwendet werden, zum Binden an das LDAP-Instanz):
 
-    ```
-    $ldapuser = ConvertTo-SecureString -string "uid=admin,ou=system" -asplaintext -force
-    $DirectoryCred = Get-Credential -username $ldapuser -Message "Enter the credentials to bind to the LDAP instance:"
-    ```
+   ```
+   $ldapuser = ConvertTo-SecureString -string "uid=admin,ou=system" -asplaintext -force
+   $DirectoryCred = Get-Credential -username $ldapuser -Message "Enter the credentials to bind to the LDAP instance:"
+   ```
 
-    Geben Sie dann das Kennwort für die Uid = Admin, und schließen Sie die Schritte aus.
+   Geben Sie dann das Kennwort für die Uid = Admin, und schließen Sie die Schritte aus.
 
-2.  Als Nächstes können Sie ausführen, den optionalen Schritt der Zuordnung der LDAP-Attribute, die vorhandenen AD FS-Ansprüche, die mit der **New-AdfsLdapAttributeToClaimMapping** Cmdlet. Im folgenden Beispiel wird Sie "givenName", "Surname zuordnen, und CommonName LDAP-Attribute, die AD FS-Ansprüche:
+2. Als Nächstes können Sie ausführen, den optionalen Schritt der Zuordnung der LDAP-Attribute, die vorhandenen AD FS-Ansprüche, die mit der **New-AdfsLdapAttributeToClaimMapping** Cmdlet. Im folgenden Beispiel wird Sie "givenName", "Surname zuordnen, und CommonName LDAP-Attribute, die AD FS-Ansprüche:
 
-    ```
-    #Map given name claim
-    $GivenName = New-AdfsLdapAttributeToClaimMapping -LdapAttribute givenName -ClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"
-    # Map surname claim
-    $Surname = New-AdfsLdapAttributeToClaimMapping -LdapAttribute sn -ClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname"
-    # Map common name claim
-    $CommonName = New-AdfsLdapAttributeToClaimMapping -LdapAttribute cn -ClaimType "http://schemas.xmlsoap.org/claims/CommonName"
-    ```
+   ```
+   #Map given name claim
+   $GivenName = New-AdfsLdapAttributeToClaimMapping -LdapAttribute givenName -ClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"
+   # Map surname claim
+   $Surname = New-AdfsLdapAttributeToClaimMapping -LdapAttribute sn -ClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname"
+   # Map common name claim
+   $CommonName = New-AdfsLdapAttributeToClaimMapping -LdapAttribute cn -ClaimType "http://schemas.xmlsoap.org/claims/CommonName"
+   ```
 
-    Diese Zuordnung wird vorgenommen, um Attribute aus dem LDAP-Speicher als Ansprüche in AD FS zum Erstellen von Steuerelement-Regeln für bedingten Zugriff in AD FS zur Verfügung zu stellen. Darüber hinaus können AD FS für die Arbeit durch die Bereitstellung einer einfachen Möglichkeit zum Zuordnen von LDAP-Attributen für Ansprüche, die benutzerdefinierte Schemas in LDAP-Stores.
+   Diese Zuordnung wird vorgenommen, um Attribute aus dem LDAP-Speicher als Ansprüche in AD FS zum Erstellen von Steuerelement-Regeln für bedingten Zugriff in AD FS zur Verfügung zu stellen. Darüber hinaus können AD FS für die Arbeit durch die Bereitstellung einer einfachen Möglichkeit zum Zuordnen von LDAP-Attributen für Ansprüche, die benutzerdefinierte Schemas in LDAP-Stores.
 
-3.  Abschließend müssen Sie die LDAP-Speicher bei registrieren AD FS wie ein lokales Anspruchsanbieter Anbieter Vertrauensstellung mit der **hinzufügen-AdfsLocalClaimsProviderTrust** Cmdlet:
+3. Abschließend müssen Sie die LDAP-Speicher bei registrieren AD FS wie ein lokales Anspruchsanbieter Anbieter Vertrauensstellung mit der **hinzufügen-AdfsLocalClaimsProviderTrust** Cmdlet:
 
-    ```
-    Add-AdfsLocalClaimsProviderTrust -Name "Vendors" -Identifier "urn:vendors" -Type Ldap
+   ```
+   Add-AdfsLocalClaimsProviderTrust -Name "Vendors" -Identifier "urn:vendors" -Type Ldap
 
-    # Connection info
-    -LdapServerConnection $vendorDirectory 
+   # Connection info
+   -LdapServerConnection $vendorDirectory 
 
-    # How to locate user objects in directory
-    -UserObjectClass inetOrgPerson -UserContainer "CN=VendorsContainer,CN=VendorsPartition" -LdapAuthenticationMethod Basic 
+   # How to locate user objects in directory
+   -UserObjectClass inetOrgPerson -UserContainer "CN=VendorsContainer,CN=VendorsPartition" -LdapAuthenticationMethod Basic 
 
-    # Claims for authenticated users
-    -AnchorClaimLdapAttribute mail -AnchorClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn" -LdapAttributeToClaimMapping @($GivenName, $Surname, $CommonName) 
+   # Claims for authenticated users
+   -AnchorClaimLdapAttribute mail -AnchorClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn" -LdapAttributeToClaimMapping @($GivenName, $Surname, $CommonName) 
 
-    # General claims provider properties
-    -AcceptanceTransformRules "c:[Type != ''] => issue(claim=c);" -Enabled $true 
+   # General claims provider properties
+   -AcceptanceTransformRules "c:[Type != ''] => issue(claim=c);" -Enabled $true 
 
-    # Optional - supply user name suffix if you want to use Ws-Trust
-    -OrganizationalAccountSuffix "vendors.contoso.com"
+   # Optional - supply user name suffix if you want to use Ws-Trust
+   -OrganizationalAccountSuffix "vendors.contoso.com"
+   ```
 
-    ```
-
-    Im obigen Beispiel erstellen Sie eine lokales Anspruchsanbieter-Vertrauensstellung "Anbieter" bezeichnet. Sie werden Verbindungsinformationen für AD FS zur Verbindung mit des LDAP-Verzeichnis diese lokalen Anspruchsanbieter-Vertrauensstellung darstellt, durch Zuweisen von `$vendorDirectory` auf die `-LdapServerConnection` Parameter. Beachten Sie, dass im ersten Schritt, Sie zugewiesen haben `$vendorDirectory` eine Verbindungszeichenfolge zum Herstellen der Verbindung mit bestimmten LDAP-Verzeichnis verwendet werden. Schließlich werden Sie an, die die `$GivenName`, `$Surname`, und `$CommonName` LDAP-Attribute (die Sie die AD FS-Ansprüche zugeordnet) sind für die bedingte Zugriffssteuerung, einschließlich Multi-Factor Authentication-Richtlinien und Ausstellung verwendet werden soll Autorisierung Regeln auch für die Ausstellung über Ansprüche in AD FS ausgestellten Sicherheitstoken. Um aktive Protokolle wie Ws-Trust mit AD FS verwenden zu können, müssen Sie den OrganizationalAccountSuffix-Parameter angeben, der AD FS, um zwischen lokalen Anspruchsanbieter-Vertrauensstellungen bei der Wartung einer aktiven autorisierungsanforderung zu unterscheiden zu können.
+   Im obigen Beispiel erstellen Sie eine lokales Anspruchsanbieter-Vertrauensstellung "Anbieter" bezeichnet. Sie werden Verbindungsinformationen für AD FS zur Verbindung mit des LDAP-Verzeichnis diese lokalen Anspruchsanbieter-Vertrauensstellung darstellt, durch Zuweisen von `$vendorDirectory` auf die `-LdapServerConnection` Parameter. Beachten Sie, dass im ersten Schritt, Sie zugewiesen haben `$vendorDirectory` eine Verbindungszeichenfolge zum Herstellen der Verbindung mit bestimmten LDAP-Verzeichnis verwendet werden. Schließlich werden Sie an, die die `$GivenName`, `$Surname`, und `$CommonName` LDAP-Attribute (die Sie die AD FS-Ansprüche zugeordnet) sind für die bedingte Zugriffssteuerung, einschließlich Multi-Factor Authentication-Richtlinien und Ausstellung verwendet werden soll Autorisierung Regeln auch für die Ausstellung über Ansprüche in AD FS ausgestellten Sicherheitstoken. Um aktive Protokolle wie Ws-Trust mit AD FS verwenden zu können, müssen Sie den OrganizationalAccountSuffix-Parameter angeben, der AD FS, um zwischen lokalen Anspruchsanbieter-Vertrauensstellungen bei der Wartung einer aktiven autorisierungsanforderung zu unterscheiden zu können.
 
 ## <a name="see-also"></a>Siehe auch
 [AD FS-Vorgänge](../../ad-fs/AD-FS-2016-Operations.md)

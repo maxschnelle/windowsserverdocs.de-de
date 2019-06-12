@@ -6,12 +6,12 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 7b61a0494b8a63168b40bfaed42dedf0fff40c35
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d67f15d65feb28fb05fc056fd3c34c04cee80d09
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887261"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447765"
 ---
 # <a name="volume-shadow-copy-service"></a>Volumeschattenkopie-Dienst
 
@@ -97,7 +97,7 @@ Um eine Schattenkopie zu erstellen, Ausführen die anfordernde Person, Schreiber
 > Die Erstellung von Schattenkopien abgebrochen werden kann, wenn der Writer beibehalten werden, in den Fixierungszustand länger als 60 Sekunden oder länger als 10 Sekunden die Schattenkopie commit für die Anbieter erhöht werden. 
 <br>
 
-9.  Die anfordernde Person kann den Prozess (Wechseln Sie zurück zu Schritt 1) wiederholen oder den Administrator benachrichtigen, um zu einem späteren Zeitpunkt zu wiederholen.  
+9. Die anfordernde Person kann den Prozess (Wechseln Sie zurück zu Schritt 1) wiederholen oder den Administrator benachrichtigen, um zu einem späteren Zeitpunkt zu wiederholen.  
       
 10. Wenn die Schattenkopie wurde erfolgreich erstellt wurde, gibt der Volumeschattenkopie-Dienst die Informationen zum Speicherort für die Schattenkopie an die anfordernde Person zurück. In einigen Fällen kann die Schattenkopie vorübergehend zur Verfügung gestellt als Datenträger für Lese-/ Schreibzugriff, sodass diese VSS und eine oder mehrere Anwendungen können den Inhalt ändern der Schattenkopie, bevor die Schattenkopie abgeschlossen ist. Nachdem die abweichungen zu VSS und den Anwendungen machen, ist die Schattenkopie schreibgeschützt festgelegt. In dieser Phase wird die automatische Wiederherstellung aufgerufen, und es wird verwendet, um alle Transaktionen für das Dateisystem oder eine Anwendung auf dem Schattenkopievolume rückgängig zu machen, die nicht abgeschlossen wurden, bevor die Schattenkopie erstellt wurde.  
       
@@ -136,7 +136,7 @@ In der Kopie-bei-Schreibvorgang-Methode bei einer auf das ursprüngliche Volume 
 </colgroup>
 <thead>
 <tr class="header">
-<th>Zeit</th>
+<th>Uhrzeit</th>
 <th>Quelldaten (Status und Daten)</th>
 <th>Schattenkopie (Status und Daten)</th>
 </tr>
@@ -177,7 +177,7 @@ Wenn das ursprüngliche Volume (e/a-Anforderung), Änderungen empfängt, wird in
 </colgroup>
 <thead>
 <tr class="header">
-<th>Zeit</th>
+<th>Uhrzeit</th>
 <th>Quelldaten (Status und Daten)</th>
 <th>Schattenkopie (Status und Daten)</th>
 </tr>
@@ -376,12 +376,12 @@ Um bestimmte Dateien von Schattenkopien auszuschließen, verwenden Sie den folge
 
 > [!NOTE]
 > Die <STRONG>FilesNotToSnapshot</STRONG> Registrierungsschlüssel nur von Anwendungen verwendet werden soll. Benutzer, die versuchen, ihn zu verwenden, treten Einschränkungen wie z. B. Folgendes:
-<br>
-<UL>
-<LI>Es kann nicht aus einer Schattenkopie Dateien gelöscht werden, die auf einem Windows Server erstellt wurde, mithilfe der Funktion für die früheren Versionen.<BR><BR>
-<LI>Es kann keine Dateien von Schattenkopien für freigegebene Ordner löschen.<BR><BR>
-<LI>Können sie Dateien löschen, aus einer Schattenkopie, das erstellt wurde die [Diskshadow](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/diskshadow) Dienstprogramm, aber es kann nicht löschen Sie Dateien aus einer Schattenkopie, das erstellt wurde die [Vssadmin](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/vssadmin) Hilfsprogramm.<BR><BR>
-<LI>Dateien werden aus einer Schattenkopie Best-Effort-Basis gelöscht. Dies bedeutet, dass sie nicht garantiert werden, gelöscht werden soll.<BR><BR></LI></UL>
+> <br>
+> <UL>
+> <LI>Es kann nicht aus einer Schattenkopie Dateien gelöscht werden, die auf einem Windows Server erstellt wurde, mithilfe der Funktion für die früheren Versionen.<BR><BR>
+> <LI>Es kann keine Dateien von Schattenkopien für freigegebene Ordner löschen.<BR><BR>
+> <LI>Können sie Dateien löschen, aus einer Schattenkopie, das erstellt wurde die <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/diskshadow" data-raw-source="[Diskshadow](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/diskshadow)">Diskshadow</a> Dienstprogramm, aber es kann nicht löschen Sie Dateien aus einer Schattenkopie, das erstellt wurde die <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/vssadmin" data-raw-source="[Vssadmin](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/vssadmin)">Vssadmin</a> Hilfsprogramm.<BR><BR>
+> <LI>Dateien werden aus einer Schattenkopie Best-Effort-Basis gelöscht. Dies bedeutet, dass sie nicht garantiert werden, gelöscht werden soll.<BR><BR></LI></UL>
 
 
 Weitere Informationen finden Sie unter [Ausschließen von Dateien aus Schattenkopien](http://go.microsoft.com/fwlink/?linkid=180904) (http://go.microsoft.com/fwlink/?LinkId=180904) auf MSDN.

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 647389aaac06d1eb109052548c1b24f7579bde2f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a832e8f3d21681f67a4486df33c387e5a8456718
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59851241"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66434874"
 ---
 # <a name="bitsadmin-setvalidationstate"></a>Bitsadmin setvalidationstate
 
@@ -34,11 +34,11 @@ bitsadmin /SetValidationState <Job> <file index> <true|false>
 
 ## <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|Auftrag|Anzeigenamen oder die GUID des Auftrags|
-|Datei-index|Beginnt bei 0|
-|True|False|Auf TRUE festlegen, festgelegt Wenn der Inhalt der Datei gültig ist, andernfalls auf FALSE|
+| Parameter  |          Beschreibung           |
+|------------|--------------------------------|
+|    Auftrag     | Anzeigenamen oder die GUID des Auftrags |
+| Datei-index |         Beginnt bei 0          |
+|    True    |             False              |
 
 ## <a name="BKMK_examples"></a>Beispiele für
 
@@ -49,4 +49,4 @@ C:\>bitsadmin /SetValidationState myJob 2 TRUE
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

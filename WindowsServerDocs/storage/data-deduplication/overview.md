@@ -8,12 +8,12 @@ author: wmgries
 manager: klaasl
 ms.author: wgries
 ms.date: 05/09/2017
-ms.openlocfilehash: 4376dbb2c172a82c4ab64dc63acefbc37457110f
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: bf346844337740f7585070ff78de4e7f61f25624
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65476043"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447258"
 ---
 # <a name="data-deduplication-overview"></a>Datendeduplizierung (Übersicht)
 
@@ -69,7 +69,7 @@ VDI-Server, wie z. B. <a href="https://technet.microsoft.com/library/cc725560.a
                     <li><b>Remotezugriff</b>: Benutzer können Unternehmens-Apps auf Geräten wie Heimcomputern, Kioske, Hardware mit geringer Leistung und anderen Betriebssystemen als Windows zugreifen.</li>
                     <li><b>Zugriff in Filialen</b>: VDI-Bereitstellungen können eine bessere Anwendungsleistung für Branch Office-Worker bereitstellen, die Zugriff auf zentrale Datenspeicher benötigen. Datenintensive Anwendungen haben mitunter keine Client/Server-Protokolle, die für langsame Verbindungen optimiert sind.</li>
                 </ul>
-VDI-Bereitstellungen eignen sich gut für die Datendeduplizierung, da die virtuellen Festplatten auf den Remotedesktops der Benutzer im Wesentlichen identisch sind. Darüber hinaus kann die Datendeduplizierung einen Beitrag gegen die *VDI-Startverzögerung* leisten, was den Abfall der Speicherleistung bezeichnet, wenn sich viele Benutzer gleichzeitig am Morgen an ihren Desktop-PCs anmelden.
+VDI-Bereitstellungen eignen sich gut für die Datendeduplizierung, da die virtuellen Festplatten auf den Remotedesktops der Benutzer im Wesentlichen identisch sind. Darüber hinaus kann die Datendeduplizierung einen Beitrag gegen die <em>VDI-Startverzögerung</em> leisten, was den Abfall der Speicherleistung bezeichnet, wenn sich viele Benutzer gleichzeitig am Morgen an ihren Desktop-PCs anmelden.
             </td>
         </tr>
         <tr>
@@ -83,7 +83,7 @@ Sicherungsprogramme, wie z.B. <a href="https://technet.microsoft.com/library/hh7
             <td style="text-align:center;min-width:150px;vertical-align:center;"><img src="media/overview-other.png" alt="Illustration of other workloads" /></td>
             <td style="vertical-align:top">
                 <b>Andere workloads</b><br />
-                [Andere Workloads eignen sich möglicherweise auch hervorragend für die Datendeduplizierung](install-enable.md#enable-dedup-candidate-workloads).
+                <a href="install-enable.md#enable-dedup-candidate-workloads" data-raw-source="[Other workloads may also be excellent candidates for Data Deduplication](install-enable.md#enable-dedup-candidate-workloads)">Andere Workloads eignen sich möglicherweise auch hervorragend für die Datendeduplizierung</a>.
             </td>
         </tr>
     </tbody>

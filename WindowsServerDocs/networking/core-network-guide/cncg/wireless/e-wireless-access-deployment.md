@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: 4b66f517-b17d-408c-828f-a3793086bc1f
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 7042a501e69a69b613979229ce2e4a9d2c3e0915
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b2e237cee6eac6be809add37a2ac29fdf1c92118
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889681"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446493"
 ---
 # <a name="wireless-access-deployment"></a>Bereitstellung des Funkzugriffs
 
@@ -64,7 +64,7 @@ Diese Prozedur Listet Elemente, die häufig auf einem drahtlosen Zugriffspunkt k
 
 - **Verschlüsselung**. Geben Sie WPA2\-Enterprise \(bevorzugte\) oder WPA\-Enterprise und entweder AES \(bevorzugte\) oder TKIP-Verschlüsselungsverfahren, je nachdem, welche Versionen werden unterstützt Ihre Netzwerkkarten für den drahtlosen Client-Computers.
 
-- **Wireless-Zugriffspunkt IP-Adresse \(statische\)**. Konfigurieren Sie für jeden Zugriffspunkt und eine eindeutige statische IP-Adresse, die innerhalb des Ausschlussbereichs ein, von dem DHCP-Bereich des Subnetzes liegt. Mit einer Adresse, die Zuweisung von DHCP ausgeschlossen wird verhindert, dass den DHCP-Server einen Computer oder einem anderen Gerät die gleiche IP-Adresse zuweisen.
+- **Wireless-Zugriffspunkt IP-Adresse \(statische\)** . Konfigurieren Sie für jeden Zugriffspunkt und eine eindeutige statische IP-Adresse, die innerhalb des Ausschlussbereichs ein, von dem DHCP-Bereich des Subnetzes liegt. Mit einer Adresse, die Zuweisung von DHCP ausgeschlossen wird verhindert, dass den DHCP-Server einen Computer oder einem anderen Gerät die gleiche IP-Adresse zuweisen.
 
 - **Die Netzwerksubnetz-Maske**. Konfigurieren Sie diese entsprechend die Maske subnetzeinstellungen des LANS, mit dem Sie der Drahtloszugriffspunkt verbunden haben.  
 
@@ -79,7 +79,7 @@ Diese Prozedur Listet Elemente, die häufig auf einem drahtlosen Zugriffspunkt k
 
 - **IP-Adresse des RADIUS-Servers**. Geben Sie die IP-Adresse des Servers, auf dem NPS ausgeführt wird.
 
-- **UDP-Port\(s\)**. Standardmäßig verwendet NPS UDP-Ports 1812 und 1645 für die Authentifizierung von Nachrichten und UDP-Ports 1813 und 1646 für Kontoführungsnachrichten an. Es wird empfohlen, dass Sie die gleichen UDP-Ports für Ihre Zugriffspunkte, aber einen berechtigter Grund für unterschiedliche Ports verwenden, achten Sie darauf, dass Sie nicht nur die APs mit den neuen Portnummern konfigurieren aber auch alle Ihre NPSs verwenden dieselben Portnummern als APs neu konfiguriert werden. Wenn die Zugriffspunkten und dem NPSs nicht mit den gleichen UDP-Ports konfiguriert sind, NPS nicht empfangen oder verarbeitet verbindungsanforderungen von APs und allen drahtlosen Verbindung im Netzwerk nicht möglich.
+- **UDP-Port\(s\)** . Standardmäßig verwendet NPS UDP-Ports 1812 und 1645 für die Authentifizierung von Nachrichten und UDP-Ports 1813 und 1646 für Kontoführungsnachrichten an. Es wird empfohlen, dass Sie die gleichen UDP-Ports für Ihre Zugriffspunkte, aber einen berechtigter Grund für unterschiedliche Ports verwenden, achten Sie darauf, dass Sie nicht nur die APs mit den neuen Portnummern konfigurieren aber auch alle Ihre NPSs verwenden dieselben Portnummern als APs neu konfiguriert werden. Wenn die Zugriffspunkten und dem NPSs nicht mit den gleichen UDP-Ports konfiguriert sind, NPS nicht empfangen oder verarbeitet verbindungsanforderungen von APs und allen drahtlosen Verbindung im Netzwerk nicht möglich.
 
 - **Herstellerspezifische Attribute**. Einige drahtlose Zugriffspunkte müssen Hersteller\-bestimmte Attribute \(VSAs\) vollständige drahtlosen AP-Funktionalität bereitstellen. Herstellerspezifische Attribute werden in der Netzwerkrichtlinie für NPS hinzugefügt.
 
@@ -175,11 +175,11 @@ Sie müssen mindestens Mitglied der Gruppe **Domänen-Admins** oder einer entspr
 
 1. Klicken Sie auf dem Domänencontroller auf **starten**, klicken Sie auf **Windows-Verwaltung**, und klicken Sie dann auf **Gruppenrichtlinienverwaltung**. Die Gruppenrichtlinien-Verwaltungskonsole wird geöffnet.  
 
-2. Doppelklicken Sie im linken Bereich\-klicken Sie auf die Gesamtstruktur. Doppelklicken Sie z. B.\-klicken Sie auf **Gesamtstruktur: "example.com"**.  
+2. Doppelklicken Sie im linken Bereich\-klicken Sie auf die Gesamtstruktur. Doppelklicken Sie z. B.\-klicken Sie auf **Gesamtstruktur: "example.com"** .  
 
-3. Doppelklicken Sie im linken Bereich\-klicken Sie auf **Domänen**, und doppelklicken dann\-klicken Sie auf die Domäne, die für die Sie ein Gruppenrichtlinienobjekt verwalten möchten. Doppelklicken Sie z. B.\-klicken Sie auf **"example.com"**.  
+3. Doppelklicken Sie im linken Bereich\-klicken Sie auf **Domänen**, und doppelklicken dann\-klicken Sie auf die Domäne, die für die Sie ein Gruppenrichtlinienobjekt verwalten möchten. Doppelklicken Sie z. B.\-klicken Sie auf **"example.com"** .  
 
-4. Führen Sie eine der folgenden Aktionen aus:
+4. Führen Sie eines der folgenden Verfahren aus:
 
     -   **Zum Öffnen einer vorhandenen Domäne\-Ebene Gruppenrichtlinienobjekt zur Bearbeitung**, doppelklicken klicken Sie auf die Domäne, die das Gruppenrichtlinienobjekt enthält, die Sie direkt verwalten möchten\-klicken Sie auf die Domänenrichtlinie, z. B. die Standarddomänenrichtlinie verwalten möchten, und klicken Sie dann auf **bearbeiten**. **Gruppenrichtlinienverwaltungs-Editor** wird geöffnet.
 
@@ -246,7 +246,7 @@ Grundvoraussetzung für die Ausführung dieses Vorgangs ist die Mitgliedschaft i
 
 4. In der**neue Profileigenschaften** Dialogfeld auf die **Verbindung** Registerkarte die **Profilname** Feld, und geben Sie einen neuen Namen für das Profil. Geben Sie z. B. **"example.com" WLAN-Profil für Windows 10**.
 
-5. In **Netzwerknamen\(s\) \(SSID\)**, geben Sie die SSID, die die für Ihre drahtlosen Zugriffspunkte konfigurierten SSID entspricht, und klicken Sie dann auf **hinzufügen**.
+5. In **Netzwerknamen\(s\) \(SSID\)** , geben Sie die SSID, die die für Ihre drahtlosen Zugriffspunkte konfigurierten SSID entspricht, und klicken Sie dann auf **hinzufügen**.
 
     Wenn Ihre Bereitstellung mehrere SSIDs verwendet und jeder drahtlose Zugriffspunkt dieselben Drahtlos-Sicherheitseinstellungen nutzt, wiederholen Sie diesen Schritt, um den SSID für jeden drahtlosen Zugriffspunkt hinzuzufügen, für den dieses Profil angewendet werden soll.
 
@@ -280,7 +280,7 @@ Grundvoraussetzung für die Ausführung dieses Vorgangs ist die Mitgliedschaft i
     > [!NOTE]  
     > Die Einstellungen für **Authentifizierung** und **Verschlüsselung** für Ihre drahtlosen Zugriffspunkte konfigurierten Einstellungen übereinstimmen. Die Standardeinstellungen für **Authentifizierungsmodus**, **Max. Authentifizierungsfehler**, und **Benutzerinformationen für zukünftige Verbindungen mit diesem Netzwerk zwischenspeichern** sind für typische drahtlosbereitstellungen ausreichend.  
 
-12. In **Netzwerkauthentifizierungsmethode auswählen**Option **Protected EAP \(PEAP\)**, und klicken Sie dann auf **Eigenschaften**. Die **Eigenschaften für geschütztes EAP** Dialogfeld wird geöffnet.
+12. In **Netzwerkauthentifizierungsmethode auswählen**Option **Protected EAP \(PEAP\)** , und klicken Sie dann auf **Eigenschaften**. Die **Eigenschaften für geschütztes EAP** Dialogfeld wird geöffnet.
 
 13. In **Eigenschaften für geschütztes EAP**, überprüfen Sie, ob **die Identität des Servers mittels zertifikatprüfung überprüfen** ausgewählt ist.
 
@@ -289,7 +289,7 @@ Grundvoraussetzung für die Ausführung dieses Vorgangs ist die Mitgliedschaft i
     > [!NOTE]  
     > Diese Einstellung beschränkt die Stamm-CAs, denen Clients vertrauen, auf die ausgewählten CAs. Wenn keine vertrauenswürdigen Stammzertifizierungsstellen ausgewählt sind, klicken Sie dann vertrauen die Clients allen Stamm-CAs, die in ihrem Zertifikatspeicher vertrauenswürdige Stammzertifizierungsstellen aufgeführt.  
 
-15. In der **Authentifizierungsmethode auswählen** wählen **gesichertes Kennwort \(EAP\-MS\-CHAP-v2\)**.
+15. In der **Authentifizierungsmethode auswählen** wählen **gesichertes Kennwort \(EAP\-MS\-CHAP-v2\)** .
 
 16. Klicken Sie auf **Konfigurieren**. In der **EAP-MSCHAPv2-Eigenschaften** Dialogfeld überprüfen Sie, ob **verwenden automatisch eigenen Windows-Anmeldenamen und Kennwort \(und Domäne, falls vorhanden\)**  ausgewählt ist, und klicken Sie auf  **OK**.
 
@@ -299,9 +299,9 @@ Grundvoraussetzung für die Ausführung dieses Vorgangs ist die Mitgliedschaft i
 
 19. Um anzugeben, dass die Identität des Benutzers in Phase 1 der Authentifizierung maskiert sind, wählen Sie **Identitätsschutz aktivieren**, und klicken Sie im Textfeld Geben Sie einen Namen für die anonyme Identität, oder lassen Sie das Textfeld leer.
 
-    >[!NOTES]
-    >- Die NPS-Richtlinie für 802.1 X (verkabelt) muss erstellt werden, mit dem Netzwerkrichtlinienserver **Verbindungsanforderungsrichtlinie**. Wenn die NPS-Richtlinie erstellt wurde, mit dem Netzwerkrichtlinienserver **Netzwerkrichtlinie**, Identitätsschutz nicht funktioniert.
-    >- EAP-Identitätsschutz erfolgt über bestimmte EAP-Methoden, wenn eine leere oder eine anonyme Identität \(unterscheidet die tatsächliche Identität\) als Antwort auf die EAP-identitätsanforderung gesendet wird. PEAP sendet die Identität während der Authentifizierung zweimal an. In der ersten Phase werden die Identität wird als Klartext gesendet, und diese Identität für Routingzwecke, nicht für die Clientauthentifizierung verwendet wird. Die tatsächliche Identität – für die Authentifizierung verwendet, erhält jedes Mal in der zweiten Phase der Authentifizierung, in der sichere Tunnel, die in der ersten Phase hergestellt wird. Wenn **Identitätsschutz aktivieren** aktiviert ist, wird der Benutzername mit dem Eintrag im Textfeld für die angegebene ersetzt. Nehmen wir beispielsweise an **Identitätsschutz aktivieren** ausgewählt ist und der Datenschutz-Identitätsalias **anonyme** angegeben ist, in das Textfeld ein. Für einen Benutzer mit einem echten Identitätsalias **jdoe@example.com**, die Identität, die in der ersten Phase der Authentifizierung gesendet wird geändert werden **anonymous@example.com**. Der Realm-Abschnitt, der Identität des 1. Phase wird nicht geändert werden, da sie für das routing verwendet wird.  
+    > [!HINWEISE]
+    > - Die NPS-Richtlinie für 802.1 X (verkabelt) muss erstellt werden, mit dem Netzwerkrichtlinienserver **Verbindungsanforderungsrichtlinie**. Wenn die NPS-Richtlinie erstellt wurde, mit dem Netzwerkrichtlinienserver **Netzwerkrichtlinie**, Identitätsschutz nicht funktioniert.
+    > - EAP-Identitätsschutz erfolgt über bestimmte EAP-Methoden, wenn eine leere oder eine anonyme Identität \(unterscheidet die tatsächliche Identität\) als Antwort auf die EAP-identitätsanforderung gesendet wird. PEAP sendet die Identität während der Authentifizierung zweimal an. In der ersten Phase werden die Identität wird als Klartext gesendet, und diese Identität für Routingzwecke, nicht für die Clientauthentifizierung verwendet wird. Die tatsächliche Identität – für die Authentifizierung verwendet, erhält jedes Mal in der zweiten Phase der Authentifizierung, in der sichere Tunnel, die in der ersten Phase hergestellt wird. Wenn **Identitätsschutz aktivieren** aktiviert ist, wird der Benutzername mit dem Eintrag im Textfeld für die angegebene ersetzt. Nehmen wir beispielsweise an **Identitätsschutz aktivieren** ausgewählt ist und der Datenschutz-Identitätsalias **anonyme** angegeben ist, in das Textfeld ein. Für einen Benutzer mit einem echten Identitätsalias <strong>jdoe@example.com</strong>, die Identität, die in der ersten Phase der Authentifizierung gesendet wird geändert werden <strong>anonymous@example.com</strong>. Der Realm-Abschnitt, der Identität des 1. Phase wird nicht geändert werden, da sie für das routing verwendet wird.  
 
 20. Klicken Sie auf **OK** schließen die **Eigenschaften für geschütztes EAP** Dialogfeld.
 21. Klicken Sie auf **OK** schließen die **Sicherheit** Registerkarte.
@@ -359,7 +359,7 @@ Mitgliedschaft in **Domänen-Admins**, oder einer entsprechenden Gruppe sein, um
 
 3. In der **Neuer Berechtigungseintrag** Dialogfeld die **Netzwerknamen \(SSID\)**  Feld Geben Sie die Netzwerk-SSID des Netzwerks für die Sie, um Berechtigungen zu definieren möchten.
 
-4.  In **Netzwerktyp**Option **Infrastruktur** oder **Ad-hoc-**.
+4.  In **Netzwerktyp**Option **Infrastruktur** oder **Ad-hoc-** .
 
     > [!NOTE]  
     > Wenn Sie unsicher sind, ob das Netzwerk für die Übertragung einer Infrastruktur oder die ad-hoc-Netzwerk ist, können Sie zwei Netzwerk Berechtigung einen Eintrag für jeden Netzwerk konfigurieren.
@@ -405,12 +405,12 @@ Grundvoraussetzung für die Ausführung dieses Vorgangs ist die Mitgliedschaft i
 
 1. Auf Ihrem NPS in **Server-Manager**, klicken Sie auf **Tools**, und klicken Sie dann auf **Netzwerkrichtlinienserver**. Der NPS-snap\-in wird geöffnet.
 
-2. Rechts\-klicken Sie auf **NPS \(lokalen\)**, und klicken Sie dann auf **Server in Active Directory registrieren**. Das Dialogfeld **Netzwerkrichtlinienserver** wird geöffnet.
+2. Rechts\-klicken Sie auf **NPS \(lokalen\)** , und klicken Sie dann auf **Server in Active Directory registrieren**. Das Dialogfeld **Netzwerkrichtlinienserver** wird geöffnet.
 
 3. Klicken Sie im Dialogfeld **Netzwerkrichtlinienserver** auf **OK**, und klicken Sie erneut auf **OK**.
 
 ### <a name="bkmk_radiusclient"></a>Konfigurieren von einem Drahtloszugriffspunkt als NPS RADIUS-Client
-Sie können dieses Verfahren verwenden, konfigurieren Sie eine App, auch bekannt als eine *Netzwerkzugriffsservers \(NAS\)*, wie ein Remote Authentication Dial\-In User Service \(RADIUS\) Client mithilfe der NPS-Snap\-in. 
+Sie können dieses Verfahren verwenden, konfigurieren Sie eine App, auch bekannt als eine *Netzwerkzugriffsservers \(NAS\)* , wie ein Remote Authentication Dial\-In User Service \(RADIUS\) Client mithilfe der NPS-Snap\-in. 
 
 >[!IMPORTANT]
 >Clientcomputer, z. B. tragbare Computer und andere Computer, auf denen Clientbetriebssysteme ausgeführt werden, sind keine RADIUS-Clients. RADIUS-Clients sind Netzwerkzugriffsserver – z. B. Drahtloszugriffspunkte, 802.1 X\-fähigen Switches, virtuelles privates Netzwerk \(-VPN-\) -Server, und wählen\-Server einrichten, da sie das RADIUS-Protokoll zu verwenden die Kommunikation mit RADIUS-Servern, z. B. NPSs.
@@ -429,7 +429,7 @@ Grundvoraussetzung für die Ausführung dieses Vorgangs ist die Mitgliedschaft i
 
     Angenommen, Sie einen drahtlosen Zugriffspunkt hinzufügen möchten \(AP\) mit dem Namen AP\-01, Typ **AP\-01**.
 
-5. In **Adresse \(IP-Adresse oder DNS-\)**, geben Sie den IP-Adresse oder den vollständig qualifizierten Domänennamen \(FQDN\) des Netzwerkzugriffsservers.
+5. In **Adresse \(IP-Adresse oder DNS-\)** , geben Sie den IP-Adresse oder den vollständig qualifizierten Domänennamen \(FQDN\) des Netzwerkzugriffsservers.
 
     Um sicherzustellen, dass der Name richtig ist und ordnet eine gültige IP-Adresse ein, wenn Sie den vollqualifizierten Domänennamen eingeben, klicken Sie auf **überprüfen**, und klicken Sie dann im **Adresse überprüfen**in die **Adresse** auf  **Beheben**. Wenn der FQDN-Name in eine gültige IP-Adresse zugeordnet ist, wird die IP-Adresse, NAS automatisch in angezeigt **IP-Adresse**. Wenn der FQDN nicht zu einer IP-Adresse aufgelöst werden kann, dass Sie erhalten eine Meldung gibt an, dass der angegebene Host ist unbekannt. In diesem Fall stellen Sie sicher, dass Sie den richtigen AP-Namen verwenden und der Zugriffspunkt eingeschaltet und mit dem Netzwerk verbunden ist.  
 
@@ -465,7 +465,7 @@ Grundvoraussetzung für die Ausführung dieses Vorgangs ist die Mitgliedschaft i
 
 #### <a name="create-policies-for-8021x-authenticated-wireless-by-using-a-wizard"></a>Erstellen von Richtlinien für 802.1 X authentifizierte drahtlose mithilfe ein Assistenten
 
-1. Öffnen der NPS-snap\-in. Wenn sie nicht bereits ausgewählt ist, klicken Sie auf **NPS \(lokalen\)**. Wenn Sie die NPS-MMC-Snap ausführen\-in und Erstellen von Richtlinien auf einem Remoteserver NPS, wählen Sie den Server.
+1. Öffnen der NPS-snap\-in. Wenn sie nicht bereits ausgewählt ist, klicken Sie auf **NPS \(lokalen\)** . Wenn Sie die NPS-MMC-Snap ausführen\-in und Erstellen von Richtlinien auf einem Remoteserver NPS, wählen Sie den Server.
 
 2. In **Einstieg**im **Standardkonfiguration**Option **RADIUS-Server für 802.1 X drahtlose oder verkabelte 802.1X-Verbindungen**. Der Text und Links unter den Text ändern sich entsprechend Ihrer Auswahl.
 
@@ -475,7 +475,7 @@ Grundvoraussetzung für die Ausführung dieses Vorgangs ist die Mitgliedschaft i
 
 5.  Auf der **802.1 X-Schalter angeben** Assistentenseite **RADIUS-Clients**, alle 802.1 X-Switches und funkzugriffspunkte, die Sie als RADIUS-Clients, in der NPS-Snap hinzugefügt haben\-in werden angezeigt. Führen Sie eine der folgenden Aktionen durch:
 
-    -   Hinzufügen von weiteren Netzwerkzugriffsservern \(NAS\), z. B. Drahtloszugriffspunkte, in **RADIUS-Clients**, klicken Sie auf **hinzufügen**, und klicken Sie dann im **Neuer RADIUS-Client**, geben Sie die Informationen für: **Anzeigename des**, **Adresse \(IP-Adresse oder DNS-\)**, und **gemeinsamer geheimer Schlüssel**.
+    -   Hinzufügen von weiteren Netzwerkzugriffsservern \(NAS\), z. B. Drahtloszugriffspunkte, in **RADIUS-Clients**, klicken Sie auf **hinzufügen**, und klicken Sie dann im **Neuer RADIUS-Client**, geben Sie die Informationen für: **Anzeigename des**, **Adresse \(IP-Adresse oder DNS-\)** , und **gemeinsamer geheimer Schlüssel**.
 
     -   So ändern Sie die Einstellungen für alle NAS in **RADIUS-Clients**, wählen Sie den Zugriffspunkt für die Sie ändern die Einstellungen, und klicken Sie dann auf möchten **bearbeiten**. Ändern Sie die Einstellungen nach Bedarf.
 
@@ -484,7 +484,7 @@ Grundvoraussetzung für die Ausführung dieses Vorgangs ist die Mitgliedschaft i
         >[!WARNING]
         >Entfernen einen RADIUS-Client innerhalb der **konfigurieren 802.1 X** Assistent löscht den Client aus der NPS-Konfiguration. Alle Hinzufügungen, Änderungen und löschungen, die Sie, in vornehmen der **konfigurieren 802.1 X** Assistenten, um RADIUS-Clients in NPS widergespiegelt, Snap\-in, in der **RADIUS-Clients** Knoten unter  **NPS** \/ **RADIUS-Clients und Servern**. Z. B. Wenn Sie den Assistenten verwenden, um eine 802.1X-Switch zu entfernen, der Schalter ist ebenfalls entfernt von der NPS Snap\-in.
 
-6. Klicken Sie auf **Weiter**. Auf der **Konfigurieren einer Authentifizierungsmethode** Assistentenseite **Typ \(basierend auf Zugriffs- und Netzwerkfehlern Konfigurationsmethode\)** Option **Microsoft: Geschütztes EAP \(PEAP\)**, und klicken Sie dann auf **konfigurieren**.
+6. Klicken Sie auf **Weiter**. Auf der **Konfigurieren einer Authentifizierungsmethode** Assistentenseite **Typ \(basierend auf Zugriffs- und Netzwerkfehlern Konfigurationsmethode\)** Option **Microsoft: Geschütztes EAP \(PEAP\)** , und klicken Sie dann auf **konfigurieren**.
 
     >[!TIP]
     >Wenn Sie eine Fehlermeldung, der angibt, dass ein Zertifikat wurde nicht für die Verwendung mit der Authentifizierungsmethode gefunden, und Sie die Active Directory Certificate Services, um automatisch RAS- und IAS-Server in Ihrem Netzwerk zuerst Zertifikate konfiguriert haben Stellen Sie sicher, dass Sie die Schritte zum Registrieren von NPS in Active Directory-Domänendienste ausgeführt haben, und verwenden die folgenden Schritte aus, um die Gruppenrichtlinien aktualisieren: Klicken Sie auf **starten**, klicken Sie auf **Windows System**, klicken Sie auf **ausführen**, und klicken Sie in **öffnen**, Typ **Gpupdate**, und klicken Sie dann Drücken Sie die EINGABETASTE. Wenn der Befehl gibt an, dass sowohl die Benutzer-als auch die Gruppenrichtlinie des Computers erfolgreich aktualisiert wurden Ergebnisse zurückgegeben wird, wählen Sie **Microsoft: Geschütztes EAP \(PEAP\)**  erneut, und klicken Sie dann auf **konfigurieren**.
@@ -608,7 +608,7 @@ Mit dieser Methode können Sie die Schritte im Abschnitt allgemeine Schritte, un
 
 9. Klicken Sie auf **Ändern der Verbindungseinstellungen**. Die *der Netzwerk-SSID* Wireless Network-Eigenschaft (Dialogfeld) wird geöffnet.
 
-10. Klicken Sie auf der **Sicherheit** Registerkarte, und klicken Sie dann im **Netzwerkauthentifizierungsmethode auswählen**Option **Protected EAP \(PEAP\)**.
+10. Klicken Sie auf der **Sicherheit** Registerkarte, und klicken Sie dann im **Netzwerkauthentifizierungsmethode auswählen**Option **Protected EAP \(PEAP\)** .
 
 11. Klicken Sie auf **Einstellungen**. Die **Protected EAP \(PEAP\) Eigenschaften** -Seite wird geöffnet.
 

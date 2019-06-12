@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0193152674dc934aa4f2d3be4dec54afc3066951
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4e670b1490f1c4c54b8cf377d48755849faa16f8
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867701"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66437119"
 ---
 # <a name="nbtstat"></a>nbtstat
 
@@ -34,19 +34,19 @@ nbtstat [/a <remoteName>] [/A <IPaddress>] [/c] [/n] [/r] [/R] [/RR] [/s] [/S] [
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|-------|--------|
-|/a <remoteName>|Zeigt die NetBIOS-Namentabelle eines Remotecomputers an, wobei *RemoteName* ist der NetBIOS-Computername des Remotecomputers. Die NetBIOS-Namentabelle ist die Liste der NetBIOS-Namen, die NetBIOS-Anwendungen auf diesem Computer entspricht.|
-|/A <IPaddress>|Zeigt die NetBIOS-Namentabelle eines Remotecomputers an, durch die IP-Adresse (in punktierter Dezimalschreibweise) des Remotecomputers angegeben.|
-|/c|Zeigt den Inhalt des NetBIOS-Namen, Cache, der Tabelle der NetBIOS-Namen und die aufgelösten IP-Adressen.|
-|/n|Zeigt die NetBIOS-Namentabelle des lokalen Computers. Der Status des **registriert** gibt an, dass der Name von Broadcast oder einem WINS-Server registriert ist.|
-|/r|Zeigt Statistiken für NetBIOS-Namen auflösen. Auf einem Computer unter Windows XP oder Windows Server 2003, die Verwendung von WINS konfiguriert ist, gibt dieser Parameter die Anzahl der Namen, die behoben wurden, und broadcast und WINS registrierten verwenden.|
-|/R|Löscht den Inhalt, der den NetBIOS-Namencache und lädt dann erneut die Anzahl vorab tagged Einträge aus der **Lmhosts** Datei.|
-|/RR|Gibt an, und anschließend aktualisiert NetBIOS-Namen für den lokalen Computer, der mit WINS-Servern registriert ist.|
-|/s|Zeigt die NetBIOS-Client und Server Sitzungen, bei dem Versuch, die Ziel-IP-Adresse in einen Namen zu konvertieren.|
-|/S|Zeigt die NetBIOS-Client und Server Sitzungen, den remote-PCs durch die Ziel-IP-Adresse nur auflisten.|
-|<Interval>|Zeigt die gewählte Statistik der angegebenen Anzahl von Sekunden *Intervall* an. Drücken Sie STRG + C, Sitzungstabelle Statistiken. Wenn dieser Parameter ausgelassen wird, **Nbtstat** druckt die aktuelle Konfigurationsinformationen nur einmal.|
-|/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
+|    Parameter    |                                                                                                                         Beschreibung                                                                                                                         |
+|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| /a <remoteName> |    Zeigt die NetBIOS-Namentabelle eines Remotecomputers an, wobei *RemoteName* ist der NetBIOS-Computername des Remotecomputers. Die NetBIOS-Namentabelle ist die Liste der NetBIOS-Namen, die NetBIOS-Anwendungen auf diesem Computer entspricht.     |
+| /A <IPaddress>  |                                                           Zeigt die NetBIOS-Namentabelle eines Remotecomputers an, durch die IP-Adresse (in punktierter Dezimalschreibweise) des Remotecomputers angegeben.                                                            |
+|       /c        |                                                                        Zeigt den Inhalt des NetBIOS-Namen, Cache, der Tabelle der NetBIOS-Namen und die aufgelösten IP-Adressen.                                                                         |
+|       /n        |                                            Zeigt die NetBIOS-Namentabelle des lokalen Computers. Der Status des **registriert** gibt an, dass der Name von Broadcast oder einem WINS-Server registriert ist.                                             |
+|       /r        |      Zeigt Statistiken für NetBIOS-Namen auflösen. Auf einem Computer unter Windows XP oder Windows Server 2003, die Verwendung von WINS konfiguriert ist, gibt dieser Parameter die Anzahl der Namen, die behoben wurden, und broadcast und WINS registrierten verwenden.       |
+|       /R        |                                                                      Löscht den Inhalt, der den NetBIOS-Namencache und lädt dann erneut die Anzahl vorab tagged Einträge aus der **Lmhosts** Datei.                                                                      |
+|       /RR       |                                                                           Gibt an, und anschließend aktualisiert NetBIOS-Namen für den lokalen Computer, der mit WINS-Servern registriert ist.                                                                            |
+|       /s        |                                                                          Zeigt die NetBIOS-Client und Server Sitzungen, bei dem Versuch, die Ziel-IP-Adresse in einen Namen zu konvertieren.                                                                           |
+|       /S        |                                                                          Zeigt die NetBIOS-Client und Server Sitzungen, den remote-PCs durch die Ziel-IP-Adresse nur auflisten.                                                                          |
+|   <Interval>    | Zeigt die gewählte Statistik der angegebenen Anzahl von Sekunden *Intervall* an. Drücken Sie STRG + C, Sitzungstabelle Statistiken. Wenn dieser Parameter ausgelassen wird, **Nbtstat** druckt die aktuelle Konfigurationsinformationen nur einmal. |
+|       /?        |                                                                                                            Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                             |
 
 ## <a name="remarks"></a>Hinweise
 
@@ -130,6 +130,6 @@ nbtstat /S 5
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
 

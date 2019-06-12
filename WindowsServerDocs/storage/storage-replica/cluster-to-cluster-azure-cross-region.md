@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage-replica
 manager: mchad
-ms.openlocfilehash: d9999f786639ff4aa303ed34ade14849cda8feec
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: 95f3e9e929d6a28279f526eec6dbdf0427bd74c0
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65475921"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447587"
 ---
 # <a name="cluster-to-cluster-storage-replica-cross-region-in-azure"></a>Cluster-zu-Cluster Storage Replica cross-Bereich in Azure
 
@@ -25,7 +25,7 @@ Sie können die Cluster-zu-Cluster Speicherreplikate für regionsübergreifende 
 Sehen Sie sich das Video unten für eine vollständige Exemplarische Vorgehensweise des Prozesses.
 > [!video https://www.microsoft.com/en-us/videoplayer/embed/RE26xeW]
 
-![Die Architektur in einem Diagramm mit C2C SR in Azure innerhalb derselben Region.](media\Cluster-to-cluster-azure-cross-region\architecture.png)
+![Die Architektur in einem Diagramm mit C2C SR in Azure innerhalb derselben Region.](media/Cluster-to-cluster-azure-cross-region/architecture.png)
 > [!IMPORTANT]
 > Alle referenzierten Beispiele sind spezifisch für die obige Abbildung.
 
@@ -68,7 +68,7 @@ Sehen Sie sich das Video unten für eine vollständige Exemplarische Vorgehenswe
    Ändern Sie den DNS-Server im virtuellen Netzwerk, in der privaten IP-Adresse des Domänencontrollers.
    - Im Beispiel ist der Domänencontroller **az2azDC** verfügt über private IP-Adresse (10.3.0.8). Im Virtuellenetzwerk (**az2az-Vnet** und **Azcross-VNET**) ändern Sie die DNS-Server 10.3.0.8 verwiesen. 
 
-    Klicken Sie im Beispiel verbinden Sie alle Knoten auf "contoso.com", und geben Sie Administratorrechte besitzen, um "Contosoadmin".
+     Klicken Sie im Beispiel verbinden Sie alle Knoten auf "contoso.com", und geben Sie Administratorrechte besitzen, um "Contosoadmin".
    - Melden Sie sich als Contosoadmin von allen Knoten. 
  
 6. Erstellen Sie die Cluster (**SRAZC1**, **SRAZCross**).
@@ -106,87 +106,87 @@ Sehen Sie sich das Video unten für eine vollständige Exemplarische Vorgehenswe
 
 9. Erstellen Sie [Gateway des virtuellen Netzwerks](https://ms.portal.azure.com/#create/Microsoft.VirtualNetworkGateway-ARM) für Vnet-zu-Vnet-Verbindungen.
 
- - Erstellen Sie das Gateway des ersten virtuellen Netzwerks (**az2az-VNetGateway**) in der ersten Ressourcengruppe (**SR-AZ2AZ**)
- - Gatewaytyp = VPN- und VPN-Typ = routenbasiert
+   - Erstellen Sie das Gateway des ersten virtuellen Netzwerks (**az2az-VNetGateway**) in der ersten Ressourcengruppe (**SR-AZ2AZ**)
+   - Gatewaytyp = VPN- und VPN-Typ = routenbasiert
 
- - Erstellen der zweite Gateway des virtuellen Netzwerks (**Azcross-VNetGateway**) in die zweite Ressourcengruppe (**SR-AZCROSS**)
- - Gatewaytyp = VPN- und VPN-Typ = routenbasiert
+   - Erstellen der zweite Gateway des virtuellen Netzwerks (**Azcross-VNetGateway**) in die zweite Ressourcengruppe (**SR-AZCROSS**)
+   - Gatewaytyp = VPN- und VPN-Typ = routenbasiert
 
- - Erstellen Sie eine Vnet-zu-Vnet-Verbindung vom ersten Gateway für virtuelle Netzwerke, die zweite Gateway des virtuellen Netzwerks. Geben Sie einen gemeinsam verwendeten Schlüssel
+   - Erstellen Sie eine Vnet-zu-Vnet-Verbindung vom ersten Gateway für virtuelle Netzwerke, die zweite Gateway des virtuellen Netzwerks. Geben Sie einen gemeinsam verwendeten Schlüssel
 
- - Erstellen Sie eine Vnet-zu-Vnet-Verbindung aus der zweiten Gateway für virtuelle Netzwerke auf dem ersten Gateway für virtuelle Netzwerke. Geben Sie den gleichen gemeinsam verwendeten Schlüssel an, wie im vorherigen Schritt angegeben. 
+   - Erstellen Sie eine Vnet-zu-Vnet-Verbindung aus der zweiten Gateway für virtuelle Netzwerke auf dem ersten Gateway für virtuelle Netzwerke. Geben Sie den gleichen gemeinsam verwendeten Schlüssel an, wie im vorherigen Schritt angegeben. 
 
 10. Öffnen Sie auf jedem Clusterknoten Port 59999 (Integritätstest) aus.
 
-   Führen Sie den folgenden Befehl auf jedem Knoten aus:
+    Führen Sie den folgenden Befehl auf jedem Knoten aus:
 
-   ```powershell
+    ```powershell
       netsh advfirewall firewall add rule name=PROBEPORT dir=in protocol=tcp action=allow localport=59999 remoteip=any profile=any 
-   ```
+    ```
 
 11. Weisen Sie den Cluster für Integritätstest auf Port 59999-Nachrichten zu Lauschen und reagieren, die über den Knoten, der derzeit diese Ressource besitzt.
 
-   Führen Sie es einmal, von jedem Knoten des Clusters für jeden Cluster. 
+    Führen Sie es einmal, von jedem Knoten des Clusters für jeden Cluster. 
     
-   Stellen Sie in unserem Beispiel "ILBIP" gemäß Ihrer Konfigurationswerte zu ändern. Führen den folgenden Befehl aus einem Knoten **az2az1**/**az2az2**
+    Stellen Sie in unserem Beispiel "ILBIP" gemäß Ihrer Konfigurationswerte zu ändern. Führen den folgenden Befehl aus einem Knoten **az2az1**/**az2az2**
 
-   ```PowerShell
+    ```PowerShell
      $ClusterNetworkName = "Cluster Network 1" # Cluster network name (Use Get-ClusterNetwork on Windows Server 2012 or higher to find the name. And use Get-ClusterResource to find the IPResourceName).
      $IPResourceName = "Cluster IP Address" # IP Address cluster resource name.
      $ILBIP = "10.3.0.100" # IP Address in Internal Load Balancer (ILB) - The static IP address for the load balancer configured in the Azure portal.
      [int]$ProbePort = 59999
      Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";”ProbeFailureThreshold”=5;"EnableDhcp"=0}  
-   ```
+    ```
 
 12. Führen den folgenden Befehl aus einem Knoten **azcross1**/**azcross2**
-   ```PowerShell
+    ```PowerShell
      $ClusterNetworkName = "Cluster Network 1" # Cluster network name (Use Get-ClusterNetwork on Windows Server 2012 or higher to find the name. And use Get-ClusterResource to find the IPResourceName).
      $IPResourceName = "Cluster IP Address" # IP Address cluster resource name.
      $ILBIP = "10.0.0.10" # IP Address in Internal Load Balancer (ILB) - The static IP address for the load balancer configured in the Azure portal.
      [int]$ProbePort = 59999
      Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";”ProbeFailureThreshold”=5;"EnableDhcp"=0}  
-   ```
+    ```
 
-   Stellen Sie sicher, dass beide Cluster eine Verbindung herstellen / miteinander kommunizieren können.
+    Stellen Sie sicher, dass beide Cluster eine Verbindung herstellen / miteinander kommunizieren können.
 
-   Entweder "Verbindung zum Cluster"-Funktion im Failovercluster-Manager verwenden, um eine Verbindung herstellen, auf die anderen Cluster, oder Überprüfen Sie, dass die anderen Cluster aus einem der Knoten des aktuellen Clusters reagiert.
+    Entweder "Verbindung zum Cluster"-Funktion im Failovercluster-Manager verwenden, um eine Verbindung herstellen, auf die anderen Cluster, oder Überprüfen Sie, dass die anderen Cluster aus einem der Knoten des aktuellen Clusters reagiert.
 
-   Im Beispiel haben wir verwendet:
-   ```powershell
+    Im Beispiel haben wir verwendet:
+    ```powershell
       Get-Cluster -Name SRAZC1 (ran from azcross1)
-   ```
-   ```powershell
+    ```
+    ```powershell
       Get-Cluster -Name SRAZCross (ran from az2az1) 
-   ```
+    ```
 
 13. Cloudzeugen für beide Cluster zu erstellen. Erstellen Sie zwei [Speicherkonten](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) (**az2azcw**,**Azcrosssa**) in Azure, eine für jeden Cluster in jeder Ressourcengruppe (**SR-AZ2AZ**,  **SR-AZCROSS**).
    
-   - Kopieren Sie den speicherkontonamen und Schlüssel aus "Zugriffsschlüssel"
-   - Erstellen Sie des cloudzeugen über "Failovercluster-Manager", und verwenden Sie die oben genannten Namen und den Schlüssel um zu erstellen. 
+    - Kopieren Sie den speicherkontonamen und Schlüssel aus "Zugriffsschlüssel"
+    - Erstellen Sie des cloudzeugen über "Failovercluster-Manager", und verwenden Sie die oben genannten Namen und den Schlüssel um zu erstellen. 
 
 14. Führen Sie [Clustervalidierungstests](../../failover-clustering/create-failover-cluster.md#validate-the-configuration) bevor Sie mit dem nächsten Schritt fortfahren
 
 15. Starten Sie Windows PowerShell, und überprüfen Sie mithilfe des Cmdlets [Test-SRTopology](https://docs.microsoft.com/powershell/module/storagereplica/test-srtopology?view=win10-ps), ob alle Anforderungen für das Speicherreplikatfeature erfüllt sind. Für einen schnellen Test können Sie das Cmdlet in einem Modus zur ausschließlichen Überprüfung der Anforderungen ausführen, oder Sie wählen einen Modus mit langer Ausführungsdauer, um die Leistung auszuwerten.
  
 16. Konfigurieren Sie die Cluster-zu-Cluster-Funktion "speicherreplikat".
-Gewähren des Zugriffs über einen Cluster mit einem anderen Cluster in beide Richtungen:
+    Gewähren des Zugriffs über einen Cluster mit einem anderen Cluster in beide Richtungen:
 
-   Aus unserem Beispiel:
-   ```powershell
+    Aus unserem Beispiel:
+    ```powershell
      Grant-SRAccess -ComputerName az2az1 -Cluster SRAZCross
-   ```
-Führen Sie Wenn Sie Windows Server 2016 verwenden, klicken Sie dann diesen Befehl auch aus:
+    ```
+    Führen Sie Wenn Sie Windows Server 2016 verwenden, klicken Sie dann diesen Befehl auch aus:
 
-   ```powershell
+    ```powershell
      Grant-SRAccess -ComputerName azcross1 -Cluster SRAZC1
-   ```
+    ```
 
 17. Erstellen Sie SR-Partnerschaft für die zwei Cluster:</ol>
 
-   - Für Cluster **SRAZC1**
+    - Für Cluster **SRAZC1**
       - Volume-Speicherort:-c:\ClusterStorage\DataDisk1
       - Protokollspeicherort:-g:
-   - Für Cluster **SRAZCross**
+    - Für Cluster **SRAZCross**
       - Volume-Speicherort:-c:\ClusterStorage\DataDiskCross
       - Protokollspeicherort:-g:
 

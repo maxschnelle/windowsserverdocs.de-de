@@ -12,12 +12,12 @@ ms.assetid: a455c6b4-b29f-4f76-8c6b-1578b6537717
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: b44b395a39a53194b73a0d503c2310edcbe53a2c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 94d4040b65a63fe64e5d49d55f82c4deead5a121
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59876071"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433584"
 ---
 # <a name="deploy-windows-server-essentials-experience-as-a-hosted-server"></a>Bereitstellen von Windows Server Essentials Experience als einen gehosteten Server
 
@@ -116,35 +116,35 @@ Dieses Dokument enthält spezifische Informationen für Hostinganbieter, die Mic
   
  Nachfolgend sind zwei typische serverseitige Netzwerktopologien und die Konfiguration des VPN und Remotewebzugriffs beschrieben:  
   
--   **Topologie 1** (Dies ist die bevorzugte Topologie, bei der sich alle Server und der VPN IP-Adressbereich im gleichen Subnetz befinden.):  
+- **Topologie 1** (Dies ist die bevorzugte Topologie, bei der sich alle Server und der VPN IP-Adressbereich im gleichen Subnetz befinden.):  
   
-    -   Richten Sie den Server in einem separaten virtuellen Netzwerk unter einem NAT-Gerät (Network Address Translation) ein.  
+  -   Richten Sie den Server in einem separaten virtuellen Netzwerk unter einem NAT-Gerät (Network Address Translation) ein.  
   
-    -   Aktivieren Sie den DHCP-Dienst im virtuellen Netzwerk, oder weisen Sie eine statische IP-Adresse für den Server zu.  
+  -   Aktivieren Sie den DHCP-Dienst im virtuellen Netzwerk, oder weisen Sie eine statische IP-Adresse für den Server zu.  
   
-    -   Leiten Sie den öffentlichen IP-Port 443 auf dem Router an die LAN-Adresse des Servers weiter.  
+  -   Leiten Sie den öffentlichen IP-Port 443 auf dem Router an die LAN-Adresse des Servers weiter.  
   
-    -   Lassen Sie das VPN-Passthrough für Port 443 zu.  
+  -   Lassen Sie das VPN-Passthrough für Port 443 zu.  
   
-    -   Legen Sie den VPN-IPv4-Adresspool in demselben Subnetzbereich wie die Serveradresse fest.  
+  -   Legen Sie den VPN-IPv4-Adresspool in demselben Subnetzbereich wie die Serveradresse fest.  
   
-    -   Weisen Sie sekundären Servern eine statische IP-Adresse in demselben Subnetz zu, aber außerhalb des VPN-Adresspools.  
+  -   Weisen Sie sekundären Servern eine statische IP-Adresse in demselben Subnetz zu, aber außerhalb des VPN-Adresspools.  
   
--   **Topologie 2**:  
+- **Topologie 2**:  
   
-    -   Weisen Sie dem Server eine private IP-Adresse zu.  
+  -   Weisen Sie dem Server eine private IP-Adresse zu.  
   
-    -   Ermöglichen Sie es dem Port 443 auf dem Server, eine öffentliche Port-443-IP-Adresse zu erreichen.  
+  -   Ermöglichen Sie es dem Port 443 auf dem Server, eine öffentliche Port-443-IP-Adresse zu erreichen.  
   
-    -   Lassen Sie das VPN-Passthrough für Port 443 zu.  
+  -   Lassen Sie das VPN-Passthrough für Port 443 zu.  
   
-    -   Weisen Sie dem VPN-IPv4-Adresspool und der Serveradresse verschiedene Bereiche zu.  
+  -   Weisen Sie dem VPN-IPv4-Adresspool und der Serveradresse verschiedene Bereiche zu.  
   
- Bei Topologie 2 werden Szenarien für sekundäre Server nicht unterstützt, da Sie der gleichen Domäne keinen weiteren Server hinzufügen können.  
+  Bei Topologie 2 werden Szenarien für sekundäre Server nicht unterstützt, da Sie der gleichen Domäne keinen weiteren Server hinzufügen können.  
   
- Sie können das VPN während einer unbeaufsichtigten Bereitstellung mit dem Windows PowerShell-Skript aktivieren oder mit dem Assistenten nach der Erstkonfiguration konfigurieren.  
+  Sie können das VPN während einer unbeaufsichtigten Bereitstellung mit dem Windows PowerShell-Skript aktivieren oder mit dem Assistenten nach der Erstkonfiguration konfigurieren.  
   
- Wenn Sie das VPN mithilfe von Windows PowerShell aktivieren, führen Sie den folgenden Befehl mit Administratorberechtigungen auf dem Server mit Windows Server Essentials aus und geben Sie alle erforderlichen Informationen an.  
+  Wenn Sie das VPN mithilfe von Windows PowerShell aktivieren, führen Sie den folgenden Befehl mit Administratorberechtigungen auf dem Server mit Windows Server Essentials aus und geben Sie alle erforderlichen Informationen an.  
   
 ```  
 ##  
@@ -177,19 +177,19 @@ Install-WssVpnServer -IPv4AddressRange ('192.168.0.160','192.168.0.240') -ApplyT
   
  Wenn dieser Schlüssel auf 0x1 festgelegt ist, ändern einige der lokalen Funktionen ihr Verhalten. Unter anderem ändern sich die folgenden Funktionen:  
   
--   **Clientsicherung** Die Clientsicherung ist jetzt für neu verbundene Clientcomputer standardmäßig deaktiviert.  
+- **Clientsicherung** Die Clientsicherung ist jetzt für neu verbundene Clientcomputer standardmäßig deaktiviert.  
   
--   **Clientwiederherstellungsdienst** Clientwiederherstellungsdienst will be disabled, and the UI will be hidden from the Dashboard.  
+- **Clientwiederherstellungsdienst** Clientwiederherstellungsdienst will be disabled, and the UI will be hidden from the Dashboard.  
   
--   **Dateiversionsverlauf** Die Dateiversionsverlaufseinstellungen für neu erstellte Benutzerkonten werden nicht automatisch vom Server verwaltet.  
+- **Dateiversionsverlauf** Die Dateiversionsverlaufseinstellungen für neu erstellte Benutzerkonten werden nicht automatisch vom Server verwaltet.  
   
--   **Serversicherung** Der Serversicherungsdienst wird deaktiviert, und die Serversicherungsbenutzeroberfläche wird nicht mehr im Dashboard angezeigt.  
+- **Serversicherung** Der Serversicherungsdienst wird deaktiviert, und die Serversicherungsbenutzeroberfläche wird nicht mehr im Dashboard angezeigt.  
   
--   **Speicherplätze** Die Benutzeroberfläche für das Erstellen oder Verwalten von Speicherplätzen wird nicht mehr im Dashboard angezeigt.  
+- **Speicherplätze** Die Benutzeroberfläche für das Erstellen oder Verwalten von Speicherplätzen wird nicht mehr im Dashboard angezeigt.  
   
--   **Zugriff überall** Die Router- und VPN-Konfiguration wird standardmäßig übersprungen, wenn Sie den Assistenten zum Einrichten von "Zugriff überall" ausführen.  
+- **Zugriff überall** Die Router- und VPN-Konfiguration wird standardmäßig übersprungen, wenn Sie den Assistenten zum Einrichten von "Zugriff überall" ausführen.  
   
- Wenn Sie das Verhalten der einzelnen aufgeführten Funktionen steuern möchten, können Sie den entsprechenden Registrierungsschlüssel für jede festlegen. Informationen dazu, wie Sie den Registrierungsschlüssel festlegen, finden Sie unter [Anpassen und Bereitstellen von Windows Server Essentials unter Windows Server 2012 R2](https://technet.microsoft.com/library/dn293241.aspx).  
+  Wenn Sie das Verhalten der einzelnen aufgeführten Funktionen steuern möchten, können Sie den entsprechenden Registrierungsschlüssel für jede festlegen. Informationen dazu, wie Sie den Registrierungsschlüssel festlegen, finden Sie unter [Anpassen und Bereitstellen von Windows Server Essentials unter Windows Server 2012 R2](https://technet.microsoft.com/library/dn293241.aspx).  
   
 ##  <a name="BKMK_AutomateDeployment"></a> Automatisieren der Bereitstellung von Windows Server Essentials Experience  
  Zum Automatisieren der Bereitstellung müssen Sie zunächst das Betriebssystem bereitstellen und installieren Sie dann auf die Windows Server Essentials Experience-Rolle.  
@@ -217,9 +217,9 @@ New-ItemProperty "HKLM:\Software\Microsoft\Windows Server\Setup"Ã‚Â  -Name 
   
 > [!NOTE]
 >  Platzieren Sie den Quellserver und den Zielserver am besten im gleichen Subnetz. Falls dies nicht möglich ist, stellen Sie Folgendes sicher:  
->   
->  -   Der Quellserver und Zielserver können aufeinander zugreifen "des s interne DNS-Namen.  
-> -   Alle erforderlichen Ports sind geöffnet.  
+> 
+> - Der Quellserver und Zielserver können aufeinander zugreifen "des s interne DNS-Namen.  
+>   -   Alle erforderlichen Ports sind geöffnet.  
   
  Nach der Migration können Sie Ihre Lizenzen aktualisieren, um die Sperren und Beschränkungen zu entfernen. Weitere Informationen finden Sie unter [Übergang von Windows Server Essentials in Windows Server 2012 Standard](https://technet.microsoft.com/library/jj247582.aspx).  
   
@@ -408,4 +408,4 @@ New-ItemProperty "HKLM:\Software\Microsoft\Windows Server\Setup"Ã‚Â  -Name 
 
 -   [Installieren von Windows Server Essentials](Install-Windows-Server-Essentials.md)  
 
--   [Erste Schritte mit Windows Server Essentials](../get-started/get-started.md)
+-   [Erste Schritte in Windows Server Essentials](../get-started/get-started.md)

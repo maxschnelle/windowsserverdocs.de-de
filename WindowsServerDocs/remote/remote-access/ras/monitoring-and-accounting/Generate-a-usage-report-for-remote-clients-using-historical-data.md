@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 0305467b-ce39-4532-a05a-2cc5ff946f55
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: bb122990c1baf1db8a2edbbbecba8b8cdf8a264d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fa82ba8e2fc3fe19b9e73f602605d3ef76f4b9a5
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833761"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446901"
 ---
 # <a name="generate-a-usage-report-for-remote-clients-using-historical-data"></a>Erstellen eines Nutzungsberichts für Remoteclients mithilfe von Verlaufsdaten
 
@@ -49,7 +49,7 @@ Die-Verwaltungskonsole auf dem RAS-Server kann verwendet werden, um einen Berich
   
 2.  Klicken Sie auf **REPORTING** , zu dem navigiert **Remoteberichte Zugriff** in die **Remotezugriffs-Verwaltungskonsole**.  
   
-3.  Klicken Sie im mittleren Bereich auf Datumsangaben im Kalender auswählen die Berichtsdauer **Startdatum:** und **Enddatum:**, und klicken Sie dann auf **Bericht generieren**.  
+3.  Klicken Sie im mittleren Bereich auf Datumsangaben im Kalender auswählen die Berichtsdauer **Startdatum:** und **Enddatum:** , und klicken Sie dann auf **Bericht generieren**.  
   
 4.  Sie sehen die Liste der Benutzer, die in den ausgewählten Zeitraum und detaillierte Statistiken zu diesen an den RAS-Server verbunden haben. Klicken Sie auf der ersten Zeile in der Liste. Wenn Sie eine Zeile auswählen, wird die Remotebenutzer-Aktivität im Vorschaufenster angezeigt. Wählen Sie jetzt die **Serverstatistiken laden** Registerkarte im Vorschaubereich auf das Laden historischer Daten auf dem Server finden Sie unter.  
   
@@ -60,7 +60,7 @@ Die-Verwaltungskonsole auf dem RAS-Server kann verwendet werden, um einen Berich
 >   
 > Remote Access Buchhaltung basiert auf dem Konzept von **Sitzungen**. Im Gegensatz zu einem **Verbindung**, **Sitzung** wird durch eine Kombination von remote-Client-IP-Adresse und ein beispielbenutzername eindeutig identifiziert. Z. B. wenn ein computertunnel vom Remoteclient, mit dem Namen Client1, formatiert ist wird eine Sitzung erstellt und gespeichert werden in der Datenbank berücksichtigt. Beim Übergeben von eines Benutzers benannten "user1" von diesem Client nach einiger Zeit eine Verbindung herstellt (aber der computertunnel noch aktiv ist), wird die Sitzung einer separaten Sitzung aufgezeichnet. Die Unterscheidung von Sitzungen ist den Unterschied zwischen computertunnel und Benutzer Tunnel beibehalten werden sollen.  
   
-![Windows PowerShell](../../../media/Generate-a-usage-report-for-remote-clients-using-historical-data/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***  
+![Windows PowerShell](../../../media/Generate-a-usage-report-for-remote-clients-using-historical-data/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   

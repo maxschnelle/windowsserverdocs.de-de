@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 42df338ee5a5aecb3cf32f91a2b1aedae1210164
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: b000d4cfd4ded7ad37dbb235a9d33c83d8951707
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189506"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444362"
 ---
 # <a name="create-a-relying-party-trust"></a>Erstellen einer Vertrauensstellung der vertrauenden Seite
 
@@ -74,22 +74,22 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
 
 1. Klicken Sie im Server-Manager **Tools**, und wählen Sie dann **AD FS-Verwaltung**.  
   
-2.  Klicken Sie unter **Aktionen**, klicken Sie auf **Partei Vertrauensstellung der vertrauenden Seite hinzufügen**.  
-![vertrauende Seite](media/Create-a-Relying-Party-Trust/addtrust1.PNG)   
+2. Klicken Sie unter **Aktionen**, klicken Sie auf **Partei Vertrauensstellung der vertrauenden Seite hinzufügen**.  
+   ![vertrauende Seite](media/Create-a-Relying-Party-Trust/addtrust1.PNG)   
 
-3.  Auf der **Willkommen** Seite **als eine Ansprüche unterstützende** , und klicken Sie auf **starten**.  
-![vertrauende Seite](media/Create-a-Relying-Party-Trust/addtrust2.PNG) 
+3. Auf der **Willkommen** Seite **als eine Ansprüche unterstützende** , und klicken Sie auf **starten**.  
+   ![vertrauende Seite](media/Create-a-Relying-Party-Trust/addtrust2.PNG) 
   
-4.  Auf der **Auswählen einer Datenquelle** auf **online oder in einem lokalen Netzwerk veröffentlichte Daten importieren, über die abhängige Partei*. Geben Sie im Feld **Verbundmetadaten-Adresse (Hostname oder URL):** die Verbundmetadaten-URL oder den Hostnamen für den Partner ein, und klicken Sie dann auf **Weiter**.  
-![vertrauende Seite](media/Create-a-Relying-Party-Trust/addtrust12.PNG) 
+4. Auf der **Auswählen einer Datenquelle** auf <strong>veröffentlichte Daten über die vertrauende Seite importieren, online oder in einem lokalen Netzwerk *. In ** Verbundmetadaten-Adresse (Hostname oder URL)</strong>, geben Sie den Verbund-Metadaten URL oder den Hostnamen der Namen für den Partner aus, und klicken Sie dann auf **Weiter**.  
+   ![vertrauende Seite](media/Create-a-Relying-Party-Trust/addtrust12.PNG) 
 
-5.  Geben Sie auf der Seite Anzeigename angeben einen Namen in **Anzeigenamen**, klicken Sie unter Hinweise geben Sie eine Beschreibung für diese Vertrauensstellung der vertrauenden Seite, und klicken Sie dann auf **Weiter**.
+5. Geben Sie auf der Seite Anzeigename angeben einen Namen in **Anzeigenamen**, klicken Sie unter Hinweise geben Sie eine Beschreibung für diese Vertrauensstellung der vertrauenden Seite, und klicken Sie dann auf **Weiter**.
 
-6.  Wählen Sie auf der Seite auswählen von Ausstellungsautorisierungsregeln entweder **allen Benutzern Zugriff auf diese vertrauende** oder **allen Benutzern Zugriff auf diese vertrauende Seite Verweigern**, und klicken Sie dann auf **Weiter**.
+6. Wählen Sie auf der Seite auswählen von Ausstellungsautorisierungsregeln entweder **allen Benutzern Zugriff auf diese vertrauende** oder **allen Benutzern Zugriff auf diese vertrauende Seite Verweigern**, und klicken Sie dann auf **Weiter**.
 
-7.  Klicken Sie auf der Seite bereit zum Hinzufügen der Vertrauensstellung, überprüfen Sie die Einstellungen, und klicken Sie dann auf **Weiter** Ihre vertrauende Seite speichern Informationen zu vertrauen.
+7. Klicken Sie auf der Seite bereit zum Hinzufügen der Vertrauensstellung, überprüfen Sie die Einstellungen, und klicken Sie dann auf **Weiter** Ihre vertrauende Seite speichern Informationen zu vertrauen.
 
-8.  Klicken Sie auf der Seite zum Fertigstellen auf **schließen**. Diese Aktion zeigt automatisch das Dialogfeld "Anspruchsregeln bearbeiten". Weitere Informationen zum Hinzufügen von Anspruchsregeln für diese Vertrauensstellung für die vertrauende Seite finden Sie unter „Weitere Referenzen“.
+8. Klicken Sie auf der Seite zum Fertigstellen auf **schließen**. Diese Aktion zeigt automatisch das Dialogfeld "Anspruchsregeln bearbeiten". Weitere Informationen zum Hinzufügen von Anspruchsregeln für diese Vertrauensstellung für die vertrauende Seite finden Sie unter „Weitere Referenzen“.
 
 
 

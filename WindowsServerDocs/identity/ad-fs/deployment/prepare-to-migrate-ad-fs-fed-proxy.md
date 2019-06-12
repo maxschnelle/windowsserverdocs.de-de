@@ -8,12 +8,12 @@ ms.date: 06/28/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: f207993580e6fd06c9ff185e58e5b7e81af60252
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2b2275af0934413fa2de02de720d609feda7392c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847831"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444451"
 ---
 # <a name="prepare-to-migrate-the-ad-fs-20-federation-server-proxy"></a>Vorbereiten der Migration des AD FS 2.0-Verbundserverproxys
 
@@ -35,13 +35,13 @@ Zum Vorbereiten der Migration eines AD FS 2.0-Verbundserverproxys zu Windows Ser
 > [!NOTE]
 >  Dieser Schritt ist optional, da dieses Zertifikat während des Betriebssystemupgrades erhalten bleibt.  
   
-2.  Exportieren Sie die AD FS 2.0-Verbundserver-Proxyeigenschaften in eine Datei. Sie können dies über Windows PowerShell durchführen.  
+2. Exportieren Sie die AD FS 2.0-Verbundserver-Proxyeigenschaften in eine Datei. Sie können dies über Windows PowerShell durchführen.  
   
 Öffnen Sie Windows PowerShell, und führen Sie den folgenden Befehl zum Hinzufügen der AD FS-Cmdlets zur Windows PowerShell-Sitzung aus: `PSH:>add-pssnapin “Microsoft.adfs.powershell”`. Führen Sie dann den folgenden Befehl zum Exportieren der Verbundserver-Proxyeigenschaften in eine Datei aus: `PSH:> Get-ADFSProxyProperties | out-file “.\proxyproperties.txt”`.  
   
-3.  Vergewissern Sie sich, dass Sie die Anmeldeinformationen für ein Konto kennen, das entweder ein Administrator des AD FS-Verbundservers oder das Dienstkonto ist, unter dem der AD FS-Verbunddienst ausgeführt wird.  Diese Informationen sind für die Einrichtung der Proxyvertrauensstellung erforderlich.  
+3. Vergewissern Sie sich, dass Sie die Anmeldeinformationen für ein Konto kennen, das entweder ein Administrator des AD FS-Verbundservers oder das Dienstkonto ist, unter dem der AD FS-Verbunddienst ausgeführt wird.  Diese Informationen sind für die Einrichtung der Proxyvertrauensstellung erforderlich.  
   
- Durch den Abschluss dieses Schritts werden die folgenden Informationen gesammelt, die zur Konfiguration des AD FS-Verbundserverproxys erforderlich sind:  
+   Durch den Abschluss dieses Schritts werden die folgenden Informationen gesammelt, die zur Konfiguration des AD FS-Verbundserverproxys erforderlich sind:  
   
 -   AD FS-Verbunddienstname  
   
@@ -57,4 +57,4 @@ Zum Vorbereiten der Migration eines AD FS 2.0-Verbundserverproxys zu Windows Ser
  [Vorbereiten der Migration von AD FS 2.0-Verbundserver-Server-Proxy](prepare-to-migrate-ad-fs-fed-proxy.md)   
  [Migrieren des AD FS 2.0-Verbundservers](migrate-the-ad-fs-fed-server.md)   
  [Migrieren der AD FS 2.0-Verbundserver-Server-Proxy](migrate-the-ad-fs-2-fed-server-proxy.md)   
- [Migrieren der AD FS 1.1-Web-Agents](migrate-the-ad-fs-web-agent.md)
+ [Migrieren der AD FS 1.1-Web-Agents](migrate-the-ad-fs-web-agent.md)

@@ -9,12 +9,12 @@ manager: dongill
 ms.author: jgerend
 ms.date: 4/5/2017
 description: So Planen Sie eine Arbeitsordnerbereitstellung, einschließlich Systemanforderungen und Vorbereitung der Netzwerkumgebung.
-ms.openlocfilehash: 2ac52b15f266fce7202df4c9c76e774fca4098cc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 06d56df7ce9ddb8c9822f62de383ccad0394b4f3
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824641"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447847"
 ---
 # <a name="planning-a-work-folders-deployment"></a>Arbeitsordnerbereitstellung planen
 
@@ -22,17 +22,17 @@ ms.locfileid: "59824641"
 
 In diesem Thema wird der Entwurfsprozess für eine Arbeitsordnerimplementierung erläutert. Folgendes Hintergrundwissen wird vorausgesetzt:  
   
--   Grundlegende Kenntnisse von Arbeitsordnern (siehe [Arbeitsordner](work-folders-overview.md))  
+- Grundlegende Kenntnisse von Arbeitsordnern (siehe [Arbeitsordner](work-folders-overview.md))  
   
--   Grundlegende Kenntnisse der Konzepte der Active Directory Domain Services (AD DS)  
+- Grundlegende Kenntnisse der Konzepte der Active Directory Domain Services (AD DS)  
   
--   Grundlegende Kenntnisse der Windows-Dateifreigabe und damit zusammenhängender Technologien  
+- Grundlegende Kenntnisse der Windows-Dateifreigabe und damit zusammenhängender Technologien  
   
--   Grundlegende Kenntnisse der Verwendung von SSL-Zertifikaten  
+- Grundlegende Kenntnisse der Verwendung von SSL-Zertifikaten  
   
--   Grundlegende Kenntnisse der Aktivierung des Webzugriffs auf interne Ressourcen über einen Webreverseproxy  
+- Grundlegende Kenntnisse der Aktivierung des Webzugriffs auf interne Ressourcen über einen Webreverseproxy  
   
- In den folgenden Abschnitten wird die Vorgehensweise zum Entwerfen der Arbeitsordnerimplementierung beschrieben. Die Bereitstellung von Arbeitsordnern wird im nächsten Thema, [Bereitstellen von Arbeitsordnern](deploy-work-folders.md), behandelt.  
+  In den folgenden Abschnitten wird die Vorgehensweise zum Entwerfen der Arbeitsordnerimplementierung beschrieben. Die Bereitstellung von Arbeitsordnern wird im nächsten Thema, [Bereitstellen von Arbeitsordnern](deploy-work-folders.md), behandelt.  
   
 ##  <a name="BKMK_SOFT"></a> Softwareanforderungen  
 
@@ -119,16 +119,16 @@ Für Arbeitsordner gelten die folgenden Softwareanforderungen für Clientcompute
 ###  <a name="GroupPolicy"></a> Der Gruppenrichtlinie  
  Wenn sich in Ihrer Umgebung Computer mit Windows 7 befinden, wird Folgendes empfohlen:  
   
--   Verwenden Sie die Gruppenrichtlinie, um Kennwortrichtlinien für alle zur Domäne hinzugefügten Computer zu steuern, die Arbeitsordner verwenden.  
+- Verwenden Sie die Gruppenrichtlinie, um Kennwortrichtlinien für alle zur Domäne hinzugefügten Computer zu steuern, die Arbeitsordner verwenden.  
   
--   Verwenden Sie die Richtlinie **Bildschirm automatisch sperren und ein Kennwort anfordern** für Arbeitsordner auf den Computern, die Ihrer Domäne nicht hinzugefügt wurden.  
+- Verwenden Sie die Richtlinie **Bildschirm automatisch sperren und ein Kennwort anfordern** für Arbeitsordner auf den Computern, die Ihrer Domäne nicht hinzugefügt wurden.  
   
- Mit Gruppenrichtlinien können Sie auch einen Arbeitsordnerserver für Computer angeben, die einer Domäne angehören. Dies vereinfacht die Einrichtung von Arbeitsordnern ein wenig. Benutzer müssten andernfalls ihre geschäftliche E-Mail-Adresse eingeben, um nach den Einstellungen zu suchen (dies setzt voraus, dass Arbeitsordner korrekt eingerichtet sind), oder die Arbeitsordner-URL, die Sie ihnen explizit per E-Mail oder auf anderem Wege mitgeteilt haben.  
+  Mit Gruppenrichtlinien können Sie auch einen Arbeitsordnerserver für Computer angeben, die einer Domäne angehören. Dies vereinfacht die Einrichtung von Arbeitsordnern ein wenig. Benutzer müssten andernfalls ihre geschäftliche E-Mail-Adresse eingeben, um nach den Einstellungen zu suchen (dies setzt voraus, dass Arbeitsordner korrekt eingerichtet sind), oder die Arbeitsordner-URL, die Sie ihnen explizit per E-Mail oder auf anderem Wege mitgeteilt haben.  
   
- Sie können Gruppenrichtlinien auch verwenden, um die Einrichtung von Arbeitsordnern pro Benutzer oder pro Computer zu erzwingen. Dies führt jedoch dazu, dass Arbeitsordner auf jedem Computer synchronisiert werden, auf dem sich ein Benutzer anmeldet (bei der %%amp;quot;Pro Benutzer%%amp;quot;-Richtlinieneinstellung), und Benutzer keinen alternativen Speicherort für Arbeitsordner auf ihrem Computer angeben können (z. B. eine microSD-Karte, um Speicherplatz auf dem primären Laufwerk zu sparen). Wir empfehlen, die Anforderungen der Benutzer sorgfältig zu prüfen, bevor Sie eine automatische Einrichtung erzwingen.  
+  Sie können Gruppenrichtlinien auch verwenden, um die Einrichtung von Arbeitsordnern pro Benutzer oder pro Computer zu erzwingen. Dies führt jedoch dazu, dass Arbeitsordner auf jedem Computer synchronisiert werden, auf dem sich ein Benutzer anmeldet (bei der %%amp;quot;Pro Benutzer%%amp;quot;-Richtlinieneinstellung), und Benutzer keinen alternativen Speicherort für Arbeitsordner auf ihrem Computer angeben können (z. B. eine microSD-Karte, um Speicherplatz auf dem primären Laufwerk zu sparen). Wir empfehlen, die Anforderungen der Benutzer sorgfältig zu prüfen, bevor Sie eine automatische Einrichtung erzwingen.  
   
 ### <a name="windows-intune"></a>Windows Intune  
- Windows Intune stellt eine Sicherheitsschicht bereit und ermöglicht die Verwaltung von Geräten, die keiner Domäne angehören und andernfalls nicht verwaltet werden könnten. Sie können Windows Intune zum Konfigurieren und Verwalten der persönlichen Geräte von Benutzern verwenden, z. B. Tablets, die über das Internet auf Arbeitsordner zugreifen. Windows Intune können Geräte die Synchronisierungsserver-URL mit bereitstellen – Andernfalls müssen Benutzer ihre geschäftliche e-Mail-Adresse, um die Einstellungen zu suchen eingeben (Wenn Sie eine öffentliche Arbeitsordner-URL in Form von veröffentlichen https://workfolders. *"contoso.com"*), oder die Synchronisierungsserver-URL direkt eingeben.  
+ Windows Intune stellt eine Sicherheitsschicht bereit und ermöglicht die Verwaltung von Geräten, die keiner Domäne angehören und andernfalls nicht verwaltet werden könnten. Sie können Windows Intune zum Konfigurieren und Verwalten der persönlichen Geräte von Benutzern verwenden, z. B. Tablets, die über das Internet auf Arbeitsordner zugreifen. Windows Intune können Geräte die Synchronisierungsserver-URL mit bereitstellen – Andernfalls müssen Benutzer ihre geschäftliche e-Mail-Adresse, um die Einstellungen zu suchen eingeben (Wenn Sie eine öffentliche Arbeitsordner-URL in Form von veröffentlichen https://workfolders. <em>"contoso.com"</em>), oder die Synchronisierungsserver-URL direkt eingeben.  
   
  Ohne eine Windows Intune-Bereitstellung müssen Benutzer externe Geräte manuell konfigurieren, was zu einer erhöhten Anzahl von Anfragen beim Helpdesk des Kunden führen kann.  
   
@@ -149,16 +149,16 @@ Arbeitsordner unterstützen die Verwendung von Web Application Proxy, Azure AD-A
 ### <a name="number-of-sync-servers"></a>Anzahl von Synchronisierungsservern  
  Ein Kunde kann mehrere Synchronisierungsserver in einer Umgebung ausführen. Eine solche Konfiguration kann aus mehreren Gründen wünschenswert sein:  
   
--   Geografische Verteilung von Benutzern – z. B. Dateiserver in Filialen oder regionale Rechenzentren.  
+- Geografische Verteilung von Benutzern – z. B. Dateiserver in Filialen oder regionale Rechenzentren.  
   
--   Anforderungen an die Datenspeicherung – für bestimmte Unternehmensabteilungen können spezifische Anforderungen bezüglich der Datenspeicherung und -verarbeitung gelten, die sich mit einem dedizierten Server leichter erfüllen lassen.  
+- Anforderungen an die Datenspeicherung – für bestimmte Unternehmensabteilungen können spezifische Anforderungen bezüglich der Datenspeicherung und -verarbeitung gelten, die sich mit einem dedizierten Server leichter erfüllen lassen.  
   
--   Lastenausgleich – in großen Umgebungen, in denen Benutzerdaten auf mehreren Servern gespeichert werden, kann der Lastenausgleich die Serverleistung und -betriebszeit verbessern.  
+- Lastenausgleich – in großen Umgebungen, in denen Benutzerdaten auf mehreren Servern gespeichert werden, kann der Lastenausgleich die Serverleistung und -betriebszeit verbessern.  
   
- Informationen zur Skalierung und Leistung von Arbeitsordnerservern finden Sie unter [Überlegungen zur Leistung von Arbeitsordnerbereitstellungen](http://blogs.technet.com/b/filecab/archive/2013/11/01/performance-considerations-for-large-scale-work-folders-deployments.aspx).  
+  Informationen zur Skalierung und Leistung von Arbeitsordnerservern finden Sie unter [Überlegungen zur Leistung von Arbeitsordnerbereitstellungen](http://blogs.technet.com/b/filecab/archive/2013/11/01/performance-considerations-for-large-scale-work-folders-deployments.aspx).  
   
 > [!NOTE]
->  Bei der Verwendung mehrerer Synchronisierungsserver wird empfohlen, die automatische Serverermittlung für Benutzer einzurichten. Dieser Prozess beruht auf der Konfiguration eines Attributs in jedem Benutzerkonto in AD DS. Dieses Attribut mit dem Namen **msDS-SyncServerURL** wird in Benutzerkonten verfügbar, nachdem der Domäne ein Windows Server 2012 R2-Domänencontroller hinzugefügt wurde oder die Active Directory-Schemaupdates installiert wurden. Das Attribut sollte für alle Benutzer festgelegt werden, um sicherzustellen, dass sie eine Verbindung mit dem korrekten Synchronisierungsserver herstellen. Mithilfe der automatischen serverermittlung können Organisationen können Veröffentlichen von Arbeitsordnern hinter einer "einfachen" URL wie z. B. *https://workfolders.contoso.com*, unabhängig von der Anzahl der Synchronisierungsserver.  
+>  Bei der Verwendung mehrerer Synchronisierungsserver wird empfohlen, die automatische Serverermittlung für Benutzer einzurichten. Dieser Prozess beruht auf der Konfiguration eines Attributs in jedem Benutzerkonto in AD DS. Dieses Attribut mit dem Namen **msDS-SyncServerURL** wird in Benutzerkonten verfügbar, nachdem der Domäne ein Windows Server 2012 R2-Domänencontroller hinzugefügt wurde oder die Active Directory-Schemaupdates installiert wurden. Das Attribut sollte für alle Benutzer festgelegt werden, um sicherzustellen, dass sie eine Verbindung mit dem korrekten Synchronisierungsserver herstellen. Mithilfe der automatischen serverermittlung können Organisationen können Veröffentlichen von Arbeitsordnern hinter einer "einfachen" URL wie z. B. *https://workfolders.contoso.com* , unabhängig von der Anzahl der Synchronisierungsserver.  
   
 ### <a name="number-of-sync-shares"></a>Anzahl von Synchronisierungsfreigaben  
  Einzelne Synchronisierungsserver können mehrere Synchronisierungsfreigaben hosten. Dies kann aus folgenden Gründen nützlich sein:  
@@ -235,7 +235,7 @@ Die folgenden Fragen zum Entwurf sollen Kunden dabei helfen, die am besten geeig
   
 -   Gerätezugriff  
   
-    -   Welche URL wird verwendet, um internetbasierten Geräten den Zugriff zu ermöglichen (*die für die E-Mail-basierte automatische Serverermittlung erforderliche Standard-URL ist %%amp;quot;workfolders.domänenname%%amp;quot;*)?  
+    -   Welche URL wird verwendet, um internetbasierten Geräten den Zugriff zu ermöglichen (*die für die E-Mail-basierte automatische Serverermittlung erforderliche Standard-URL ist %%amp;quot;workfolders.domänenname%%amp;quot;* )?  
   
     -   Wie wird die URL im Internet veröffentlicht?  
   

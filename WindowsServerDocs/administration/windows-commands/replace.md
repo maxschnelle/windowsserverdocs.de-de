@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: bce4622983271bde06614ebc04418871490cff91
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 293534a2287fe0219643dacc88926018c37dbdcc
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59818891"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441776"
 ---
 # <a name="replace"></a>replace
 
@@ -39,7 +39,7 @@ replace [<Drive1>:][<Path1>]<FileName> [<Drive2>:][<Path2>] [/p] [/r] [/s] [/w] 
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|[\<Laufwerk1 >:] [\<Path1 >]\<Dateiname >|Gibt den Speicherort und Namen der Quelldatei oder Satz von Dateien. *FileName* ist erforderlich und kann Platzhalterzeichen enthalten (**&#42;** und **?**).|
+|[\<Laufwerk1 >:] [\<Path1 >]\<Dateiname >|Gibt den Speicherort und Namen der Quelldatei oder Satz von Dateien. *FileName* ist erforderlich und kann Platzhalterzeichen enthalten ( **&#42;** und **?** ).|
 |[\<Laufwerk2 >:] [\<Path2 >]|Gibt den Speicherort der Zieldatei. Sie können keinen Dateinamen für die Dateien angeben, die Sie ersetzen. Wenn Sie kein Laufwerk oder einen Pfad angeben **ersetzen** verwendet das aktuelle Laufwerk und Verzeichnis als Ziel.|
 |/a|Fügt neue Dateien in das Zielverzeichnis, anstatt zu vorhandene Dateien zu ersetzen. Sie können keine diese Befehlszeilenoption mit der **/s** oder **/u** Befehlszeilenoption.|
 |/p|Fordert Sie zur Bestätigung vor dem Ersetzen einer Zieldatei oder das Hinzufügen einer Quelldatei.|
@@ -51,25 +51,25 @@ replace [<Drive1>:][<Path1>]<FileName> [<Drive2>:][<Path2>] [/p] [/r] [/s] [/w] 
 
 ## <a name="remarks"></a>Hinweise
 
--   Als **ersetzen** fügt hinzu oder ersetzt Sie Dateien, die Datei mit dem Namen auf dem Bildschirm angezeigt werden. Nach dem **ersetzen** fertig gestellt wurde, wird eine Zusammenfassungszeile angezeigt, in einem der folgenden Formate:  
-    ```
-    nnn files added
-    nnn files replaced
-    no file added
-    no file replaced
-    ```  
--   Wenn Sie Disketten verwenden, und Sie zum Wechseln der Datenträger während müssen der **ersetzen** -Vorgang können Sie angeben der **/w** Befehlszeilenoption, damit **ersetzen** wartet Sie Wechseln Sie die Datenträger.
--   Sie können keine **ersetzen** , ausgeblendete Dateien oder Systemdateien zu aktualisieren.
--   Die folgende Tabelle zeigt alle Exitcodes und eine Kurzbeschreibung ihrer Bedeutung:  
-    |Exitcode|Beschreibung|
-    |---------|-----------|
-    |0|Die **ersetzen** Befehl wurde erfolgreich ersetzt, oder die Dateien hinzugefügt.|
-    |1|Die **ersetzen** Befehl hat eine falsche Version von MS-DOS-festgestellt.|
-    |2|Die **ersetzen** Befehl die Quelldateien nicht gefunden.|
-    |3|Die **ersetzen** Befehl den Quelle oder Ziel-Pfad nicht gefunden.|
-    |5|Der Benutzer ist nicht auf die Dateien zugreifen, die Sie ersetzen möchten.|
-    |8|Es ist nicht genügend Systemarbeitsspeicher zum Ausführen des Befehls.|
-    |11|Der Benutzer verwendet die falsche Syntax in der Befehlszeile an.|
+- Als **ersetzen** fügt hinzu oder ersetzt Sie Dateien, die Datei mit dem Namen auf dem Bildschirm angezeigt werden. Nach dem **ersetzen** fertig gestellt wurde, wird eine Zusammenfassungszeile angezeigt, in einem der folgenden Formate:  
+  ```
+  nnn files added
+  nnn files replaced
+  no file added
+  no file replaced
+  ```  
+- Wenn Sie Disketten verwenden, und Sie zum Wechseln der Datenträger während müssen der **ersetzen** -Vorgang können Sie angeben der **/w** Befehlszeilenoption, damit **ersetzen** wartet Sie Wechseln Sie die Datenträger.
+- Sie können keine **ersetzen** , ausgeblendete Dateien oder Systemdateien zu aktualisieren.
+- Die folgende Tabelle zeigt alle Exitcodes und eine Kurzbeschreibung ihrer Bedeutung:  
+  |Exitcode|Beschreibung|
+  |---------|-----------|
+  |0|Die **ersetzen** Befehl wurde erfolgreich ersetzt, oder die Dateien hinzugefügt.|
+  |1|Die **ersetzen** Befehl hat eine falsche Version von MS-DOS-festgestellt.|
+  |2|Die **ersetzen** Befehl die Quelldateien nicht gefunden.|
+  |3|Die **ersetzen** Befehl den Quelle oder Ziel-Pfad nicht gefunden.|
+  |5|Der Benutzer ist nicht auf die Dateien zugreifen, die Sie ersetzen möchten.|
+  |8|Es ist nicht genügend Systemarbeitsspeicher zum Ausführen des Befehls.|
+  |11|Der Benutzer verwendet die falsche Syntax in der Befehlszeile an.|
 
 > [!NOTE]
 > Sie können die ERRORLEVEL-Parameter verwenden, auf die **Wenn** Befehlszeile in einem Batchprogramm zum Verarbeiten von Exitcodes, die von zurückgegeben werden **ersetzen**.
@@ -82,4 +82,4 @@ Geben Sie Folgendes ein, um alle Versionen einer Datei mit dem Namen Telefon.kun
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

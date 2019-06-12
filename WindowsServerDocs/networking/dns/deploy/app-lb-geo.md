@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: b6e679c6-4398-496c-88bc-115099f3a819
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 806c0cdeedb44db44fc0ec5218124f516a6f70e5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9f76163e6b064ac3225ab4d755afd548e1cb720b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852551"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446409"
 ---
 # <a name="use-dns-policy-for-application-load-balancing-with-geo-location-awareness"></a>Verwenden der DNS-Richtlinie für den Anwendungslastenausgleich mit Geolocation-Informationen
 
@@ -45,7 +45,7 @@ Die folgenden Abschnitte zeigen Sie die DNS-Richtlinien für den Anwendungslaste
 >[!IMPORTANT]
 >Die folgenden Abschnitte enthalten Windows PowerShell-Beispielbefehle, die Beispielwerte für viele Parameter enthalten. Stellen Sie sicher, dass Sie die Beispielwerte in diesen Befehlen durch Werte, die für die Bereitstellung sinnvoll sind ersetzen, bevor Sie diese Befehle ausführen.
 
-###<a name="bkmk_clientsubnets"></a>Erstellen Sie die DNS-Client-Subnetze
+### <a name="bkmk_clientsubnets"></a>Erstellen Sie die DNS-Client-Subnetze
 
 Sie müssen zunächst die Subnetze oder die IP-Adressbereich, der in den Regionen Nordamerika und Europa identifizieren.
 
@@ -61,7 +61,7 @@ Sie können die folgenden Windows PowerShell-Befehle zum Erstellen von DNS-Clien
     
 Weitere Informationen finden Sie unter [hinzufügen-DnsServerClientSubnet](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverclientsubnet?view=win10-ps).
 
-###<a name="bkmk_zscopes2"></a>Erstellen Sie die Bereiche der Zone
+### <a name="bkmk_zscopes2"></a>Erstellen Sie die Bereiche der Zone
 
 Nachdem Sie die Client-Subnetze vorhanden sind, müssen Sie die Zone contosogiftservices.com in andere Zone Bereiche, für ein Rechenzentrum partitionieren.
 
@@ -85,7 +85,7 @@ Sie können folgende Windows PowerShell-Befehle verwenden, um Bereiche der Zone 
 
 Weitere Informationen finden Sie unter [hinzufügen-DnsServerZoneScope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps)
 
-###<a name="bkmk_records2"></a>Hinzufügen von Datensätzen, die Bereiche der Zone
+### <a name="bkmk_records2"></a>Hinzufügen von Datensätzen, die Bereiche der Zone
 
 Jetzt müssen Sie die Datensätze, die die Web-Server-Host darstellt, in die Bereiche der Zone hinzufügen.
 
@@ -98,7 +98,7 @@ Die Einträge für die Datencenter America wurden im vorherigen Szenario hinzuge
 
 Weitere Informationen finden Sie unter [hinzufügen-DnsServerResourceRecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).
 
-###<a name="bkmk_policies2"></a>Erstellen Sie die DNS-Richtlinien
+### <a name="bkmk_policies2"></a>Erstellen Sie die DNS-Richtlinien
 
 Nachdem Sie die Partitionen (Zone-Bereiche) erstellt haben, und Sie die Datensätze hinzugefügt haben, müssen Sie DNS-Richtlinien erstellen, die die eingehenden Abfragen auf diese Bereiche zu verteilen.
 

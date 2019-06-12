@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: f51c9e38-98bb-49c1-9d39-427d07021499
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: ef4f10a6ac1998850758f2c9db86bfd950c1ad70
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 15da16094a47a2492dc9054e0671c3709fe23362
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833281"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446457"
 ---
 # <a name="install-the-web-server-web1"></a>Installieren des Webservers WEB1
 
@@ -40,8 +40,8 @@ Sie müssen Mitglied der Gruppe **Administratoren** sein, um diesen Vorgang ausz
 **Hinweis**   
 Die **Vorbemerkungen** des Hinzufügen von Rollen und Features-Assistenten nicht angezeigt wird, wenn Sie, zuvor Hinzufügen von Rollen und Features-Assistenten ausgeführt haben, und Sie ausgewählt **auf dieser Seite standardmäßig überspringen** zu diesem Zeitpunkt.  
 
-3.  Klicken Sie auf der Seite **Installationstyp** auf **Weiter**.  
-4.  Auf der **Serverauswahl** auf **Weiter**.  
-5.  Auf der **Serverrollen** Seite **Webserver (IIS)**, und klicken Sie dann auf **Weiter**.  
-6.  Klicken Sie auf **Weiter**, bis Sie alle Standardeinstellungen für Webserver akzeptiert haben, und klicken Sie dann auf **Installieren**.  
-7.  Stellen Sie sicher, dass alle Installationen erfolgreich waren, und klicken Sie dann auf **Schließen**.
+3. Klicken Sie auf der Seite **Installationstyp** auf **Weiter**.  
+4. Auf der **Serverauswahl** auf **Weiter**.  
+5. Auf der **Serverrollen** Seite **Webserver (IIS)** , und klicken Sie dann auf **Weiter**.  
+6. Klicken Sie auf **Weiter**, bis Sie alle Standardeinstellungen für Webserver akzeptiert haben, und klicken Sie dann auf **Installieren**.  
+7. Stellen Sie sicher, dass alle Installationen erfolgreich waren, und klicken Sie dann auf **Schließen**.

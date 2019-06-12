@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 591ff7caa554a892bda0bc0e888bd89a87d8b0ef
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d98ba295b2a76baf98e85a01a02677d57922877d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863551"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440264"
 ---
 # <a name="wbadmin-start-systemstatebackup"></a>Wbadmin Start systemstatebackup
 
@@ -43,10 +43,10 @@ wbadmin start systemstatebackup
 
 ## <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|-backupTarget|Gibt den Speicherort zum Speichern der Sicherung werden sollen. Der Speicherort ist erforderlich, einen Laufwerkbuchstaben oder einen GUID-basierte Volume das Format: \\ \\? \Volume {*GUID*}.</br>Eine Sicherung des Systemstatus auf einem freigegebenen Netzwerkordner wird auf einem Computer unter Windows Server 2008 nicht unterstützt. Wenn es sich bei Ihrem Server Windows Server 2008 R2 ausgeführt wird, oder höher können Sie den Befehl **- Backuptarget:\\\\Servername\sharedFolder\**  zum Speichern von Sicherungen des Systemstatus.|
-|-quiet|Wird keine aufforderungen den Unterbefehl für dem Benutzer ausgeführt.|
+|   Parameter   |                                                                                                                                                                                                                      Beschreibung                                                                                                                                                                                                                      |
+|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| -backupTarget | Gibt den Speicherort zum Speichern der Sicherung werden sollen. Der Speicherort ist erforderlich, einen Laufwerkbuchstaben oder einen GUID-basierte Volume das Format: \\ \\? \Volume {*GUID*}.</br>Eine Sicherung des Systemstatus auf einem freigegebenen Netzwerkordner wird auf einem Computer unter Windows Server 2008 nicht unterstützt. Wenn es sich bei Ihrem Server Windows Server 2008 R2 ausgeführt wird, oder höher können Sie den Befehl **- Backuptarget:\\\\Servername\sharedFolder\\**  zum Speichern von Sicherungen des Systemstatus. |
+|    -quiet     |                                                                                                                                                                                                   Wird keine aufforderungen den Unterbefehl für dem Benutzer ausgeführt.                                                                                                                                                                                                    |
 
 ## <a name="remarks"></a>Hinweise
 
@@ -61,6 +61,6 @@ wbadmin start systemstatebackup -backupTarget:f:
 
 #### <a name="additional-references"></a>Weitere Verweise
 
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)
 -   [Start-WBBackup](https://technet.microsoft.com/library/jj902459.aspx) cmdlet

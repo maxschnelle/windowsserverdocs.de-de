@@ -8,12 +8,12 @@ ms.date: 06/28/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 4985a8d16614bd12bce991e196d105464d37634d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a0e4bb77003ab24e0e31268509fb8667a671bea6
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845061"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445536"
 ---
 # <a name="prepare-to-migrate-an-ad-fs-20-wid-farm"></a>Vorbereiten der Migration einer AD FS 2.0-WID-farm  
  Zum Vorbereiten der Migration von AD FS 2.0-Verbundservern, die zu einer Farm Windows Internal Database (WID) für Windows Server 2012 gehören, müssen Sie exportieren und Sichern der AD FS-Konfigurationsdaten von diesen Servern.  
@@ -38,14 +38,14 @@ ms.locfileid: "59845061"
 >   
 >  Dieser Schritt ist optional, da dieses Zertifikat auf dem lokalen Computer im privaten Zertifikatspeicher gespeichert wird und beim Upgrade des Betriebssystems erhalten bleibt.  
   
-2.  Exportieren Sie zusätzlich zu den selbstsignierten Zertifikaten alle Zertifikate und Schlüssel für die Tokensignatur, Tokenverschlüsselung oder Dienstkommunikation, die nicht intern generiert werden.  
+2. Exportieren Sie zusätzlich zu den selbstsignierten Zertifikaten alle Zertifikate und Schlüssel für die Tokensignatur, Tokenverschlüsselung oder Dienstkommunikation, die nicht intern generiert werden.  
   
 Sie können alle auf Ihrem Server verwendeten Zertifikate mithilfe von Windows PowerShell anzeigen. Öffnen Sie Windows PowerShell, und führen Sie den folgenden Befehl zum Hinzufügen der AD FS-Cmdlets zur Windows PowerShell-Sitzung aus: `PSH:>add-pssnapin “Microsoft.adfs.powershell”`. Führen Sie dann den folgenden Befehl aus, um alle Zertifikate anzuzeigen, die auf Ihrem Server werden `PSH:>Get-ADFSCertificate`. Die Ausgabe dieses Befehls umfasst StoreLocation- und StoreName-Werte, die den Speicherort für die einzelnen Zertifikate angeben.  Sie können dann die Anleitung in [Exportieren des Bereichs mit dem privaten Schlüssel eines Serverauthentifizierungszertifikats](Export-the-Private-Key-Portion-of-a-Server-Authentication-Certificate.md) verwenden, um die einzelnen Zertifikate und den entsprechenden privaten Schlüssel in eine PFX-Datei zu exportieren.  
   
 > [!NOTE]
 >  Dieser Schritt ist optional, da alle externen Zertifikate während des Betriebssystemupgrades erhalten bleiben.  
   
-3.  Notieren Sie die Identität des AD FS 2.0-Verbunddienstkontos und das Kennwort dieses Kontos.  
+3. Notieren Sie die Identität des AD FS 2.0-Verbunddienstkontos und das Kennwort dieses Kontos.  
   
 Um den Identitätswert zu finden, prüfen die **Anmelden als** Spalte **AD FS 2.0-Windows-Dienst** in die **Services** Konsole, und notieren Sie den Wert manuell.  
   
@@ -60,4 +60,4 @@ Um den Identitätswert zu finden, prüfen die **Anmelden als** Spalte **AD FS 2.
  [Vorbereiten der Migration von AD FS 2.0-Verbundserver-Server-Proxy](prepare-to-migrate-ad-fs-fed-proxy.md)   
  [Migrieren des AD FS 2.0-Verbundservers](migrate-the-ad-fs-fed-server.md)   
  [Migrieren der AD FS 2.0-Verbundserver-Server-Proxy](migrate-the-ad-fs-2-fed-server-proxy.md)   
- [Migrieren der AD FS 1.1-Web-Agents](migrate-the-ad-fs-web-agent.md)
+ [Migrieren der AD FS 1.1-Web-Agents](migrate-the-ad-fs-web-agent.md)

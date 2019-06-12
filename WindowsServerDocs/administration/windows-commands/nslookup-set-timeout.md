@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5b7a35a4a8e9e9cc10ea5548875f710fb5a86036
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1f6c8863d0a9330fd3a8499b0e6dbc802bd95022
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837811"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436508"
 ---
 # <a name="nslookup-set-timeout"></a>nslookup set timeout
 
@@ -30,17 +30,19 @@ ms.locfileid: "59837811"
 set timeout=<Number>
 ```
 ## <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
-|-------|--------|
-|<Number>|Gibt die Anzahl von Sekunden auf eine Antwort warten. Die Standardanzahl von Sekunden ist 5.|
-|{help &#124; ?}|Zeigt eine kurze Zusammenfassung der **Nslookup** Unterbefehle.|
+
+|    Parameter    |                                           Beschreibung                                            |
+|-----------------|--------------------------------------------------------------------------------------------------|
+|    <Number>     | Gibt die Anzahl von Sekunden auf eine Antwort warten. Die Standardanzahl von Sekunden ist 5. |
+| {help &#124; ?} |                      Zeigt eine kurze Zusammenfassung der **Nslookup** Unterbefehle.                       |
+
 ## <a name="remarks"></a>Hinweise
--   Wenn eine Antwort auf eine Anforderung nicht innerhalb des angegebenen Zeitraums empfangen wird, wird das Timeout verdoppelt, und die Anforderung erneut gesendet wird. Können Sie die **Satz Wiederholung** Befehl aus, um die Anzahl von Wiederholungen zu steuern.
-## <a name="BKMK_examples"></a>Beispiele für
-Im folgenden Beispiel wird das Timeout für das Empfangen einer Antwort auf 2 Sekunden:
-```
-set timeout=2
-```
-## <a name="additional-references"></a>Zusätzliche Referenzen
-[Befehlszeilen-Syntaxschlüssel](command-line-syntax-key.md)
-[Nslookup legen Sie "Wiederholen"](nslookup-set-retry.md)
+- Wenn eine Antwort auf eine Anforderung nicht innerhalb des angegebenen Zeitraums empfangen wird, wird das Timeout verdoppelt, und die Anforderung erneut gesendet wird. Können Sie die **Satz Wiederholung** Befehl aus, um die Anzahl von Wiederholungen zu steuern.
+  ## <a name="BKMK_examples"></a>Beispiele für
+  Im folgenden Beispiel wird das Timeout für das Empfangen einer Antwort auf 2 Sekunden:
+  ```
+  set timeout=2
+  ```
+  ## <a name="additional-references"></a>Zusätzliche Referenzen
+  [Befehlszeilen-Syntaxschlüssel](command-line-syntax-key.md)
+  [Nslookup legen Sie "Wiederholen"](nslookup-set-retry.md)

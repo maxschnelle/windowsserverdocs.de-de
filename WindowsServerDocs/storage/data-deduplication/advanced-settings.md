@@ -8,12 +8,12 @@ author: wmgries
 manager: klaasl
 ms.author: wgries
 ms.date: 09/15/2016
-ms.openlocfilehash: 15cfc054810a2cab85aae9a04d6195c3ae6fe0b9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: af977519b5e77eb768fdf8de1e6a34f7c8274666
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861211"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447243"
 ---
 # <a name="advanced-data-deduplication-settings"></a>Erweiterte Einstellungen für die Datendeduplizierung
 
@@ -97,7 +97,7 @@ Sie können die folgenden Einstellungen für neue oder geplante Datendeduplizier
                     <li>Niedrig</li>
                 </ul>
             </td>
-            <td>Dieser Wert hilft dem System beim Zuordnen von CPU-Zeit. *High* benötigt mehr CPU-Zeit, *low* weniger.</td>
+            <td>Dieser Wert hilft dem System beim Zuordnen von CPU-Zeit. <em>High</em> benötigt mehr CPU-Zeit, <em>low</em> weniger.</td>
         </tr>
         <tr>
             <td>Days</td>
@@ -123,7 +123,7 @@ Sie können die folgenden Einstellungen für neue oder geplante Datendeduplizier
             <td>DurationHours</td>
             <td>Die maximale Anzahl von Stunden, die ein Auftrag ausgeführt werden darf</td>
             <td>Positive ganze Zahlen</td>
-            <td>Dient zum Verhindern, dass die Ausführung einer Workload den vorgegebenen Zeitrahmen überschreitet</td>
+            <td>Um zu verhindern, dass einen Auftrag für die Ausführung in einer arbeitsauslastung&#39;nichtleerlauf-Stunden</td>
         </tr>
         <tr>
             <td>Enabled</td>
@@ -141,7 +141,7 @@ Sie können die folgenden Einstellungen für neue oder geplante Datendeduplizier
             <td>InputOutputThrottle</td>
             <td>Gibt den Umfang der Eingabe-/Ausgabedrosselung an, die auf den Auftrag angewendet wird</td>
             <td>Ganze Zahlen von 0 bis 100 (Prozentsatz)</td>
-            <td>Durch die Drosselung wird sichergestellt, dass Aufträge andere E/A-intensive Prozesse nicht beeinträchtigen.</td>
+            <td>Die Drosselung wird diese Aufträge Don sichergestellt&#39;t mit anderen Prozessen, e/A-Intensive beeinträchtigen.</td>
         </tr>
         <tr>
             <td>Arbeitsspeicher</td>
@@ -164,8 +164,8 @@ Sie können die folgenden Einstellungen für neue oder geplante Datendeduplizier
         <tr>
             <td>Beginn</td>
             <td>Gibt die Startzeit des Auftrags an</td>
-            <td>`System.DateTime`</td>
-            <td>Der *date*-Teil von `System.Datetime`, der für *Start* angegeben ist, ist irrelevant (solange die Angabe in der Vergangenheit liegt), doch der *time*-Teil gibt an, wann der Auftrag gestartet werden soll.</td>
+            <td><code>System.DateTime</code></td>
+            <td>Die <em>Datum</em> Teil der <code>System.Datetime</code> bereitgestellt, um <em>starten</em> ist irrelevant (solange&#39;s in der Vergangenheit), aber die <em>Zeit</em> -Teil gibt an, wann der Auftrag gestartet werden soll .</td>
         </tr>
         <tr>
             <td>StopWhenSystemBusy</td>
@@ -208,9 +208,9 @@ Die Hauptgründe für das Ändern der Volumeeinstellungen für den ausgewählten
     <tbody>
         <tr>
             <td>ChunkRedundancyThreshold</td>
-            <td>Gibt an, wie häufig ein Block referenziert wird, bevor ein Block in den Abschnitt „Hotspot“ des Blockspeichers dupliziert wird. Der Nutzen des Abschnitts „Hotspot“ ist, dass diese sehr aktiven (engl. hot) Blöcke, die häufig referenziert werden, mehrere Zugriffspfade haben, um die Zugriffszeit zu verbessern.</td>
+            <td>Gibt an, wie häufig ein Block referenziert wird, bevor ein Block in den Abschnitt „Hotspot“ des Blockspeichers dupliziert wird. Der Wert der Abschnitt "Hotspot" ist das so genannte &quot;"Hot"&quot; Blöcke, die häufig referenziert werden müssen, mehrere Zugriffspfade zur Zugriffszeit zu verbessern.</td>
             <td>Positive ganze Zahlen</td>
-            <td>Der Hauptgrund zum Ändern dieses Werts ist das Erhöhen der Einsparungsrate für Volumes mit hoher Duplizierung. Im Allgemeinen ist der Standardwert (100) die empfohlene Einstellung, die Sie nicht ändern sollten.</td>
+            <td>Der Hauptgrund zum Ändern dieses Werts ist das Erhöhen der Einsparungsrate für Volumes mit hoher Duplizierung. Im Allgemeinen der Standardwert (100) ist die empfohlene Einstellung, und treten normalerweise&#39;müssen Sie diese Option zu ändern.</td>
         </tr>
         <tr>
             <td>ExcludeFileType</td>
@@ -228,13 +228,13 @@ Die Hauptgründe für das Ändern der Volumeeinstellungen für den ausgewählten
             <td>InputOutputScale</td>
             <td>Gibt die Ebene der E/A-Parallelisierung (E/A-Warteschlangen) für die Datendeduplizierung an, die während eines Nachbearbeitungsauftrags auf einem Volume verwendet werden soll</td>
             <td>Positive ganze Zahlen von 1 bis 36</td>
-            <td>Der Hauptgrund zum Ändern dieses Werts ist das Verringern der Auswirkung auf die Leistung einer hohen E/A-Workload, indem die Anzahl der E/A-Warteschlangen eingeschränkt wird, die für die Datendeduplizierung auf einem Volume verwendet werden darf. Beachten Sie, dass eine vom Standard abweichende Änderung dieser Einstellung dafür sorgen kann, dass Nachbearbeitungsaufträge für die Datendeduplizierung langsam erfolgen.</td>
+            <td>Der Hauptgrund zum Ändern dieses Werts ist das Verringern der Auswirkung auf die Leistung einer hohen E/A-Workload, indem die Anzahl der E/A-Warteschlangen eingeschränkt wird, die für die Datendeduplizierung auf einem Volume verwendet werden darf. Beachten Sie, dass die Änderung dieser Einstellung von der Standardeinstellung die Datendeduplizierung verursachen&#39;s nachträgliche Verarbeitung von Aufträgen, die langsam ausgeführt.</td>
         </tr>
         <tr>
             <td>MinimumFileAgeDays</td>
             <td>Anzahl der Tage nach Erstellung der Datei, ehe die Datei für die Optimierungsrichtlinie berücksichtigt wird.</td>
             <td>Positive ganze Zahlen (einschließlich null)</td>
-            <td>Bei den Verwendungstypen **Standard** und **HyperV** wird dieser Wert auf 3 festgelegt, um die Leistung für sehr aktive oder zuletzt erstellte Dateien zu maximieren. Möglicherweise möchten Sie dies ändern, wenn die Datendeduplizierung aggressiver erfolgen soll oder Sie die zusätzliche Latenz aufgrund der Deduplizierung in Kauf nehmen.</td>
+            <td>Bei den Verwendungstypen <strong>Standard</strong> und <strong>HyperV</strong> wird dieser Wert auf 3 festgelegt, um die Leistung für sehr aktive oder zuletzt erstellte Dateien zu maximieren. Möglicherweise möchten Sie dies ändern, wenn die Datendeduplizierung aggressiver erfolgen soll oder Sie die zusätzliche Latenz aufgrund der Deduplizierung in Kauf nehmen.</td>
         </tr>
         <tr>
             <td>MinimumFileSize</td>
@@ -258,7 +258,7 @@ Die Hauptgründe für das Ändern der Volumeeinstellungen für den ausgewählten
             <td>OptimizeInUseFiles</td>
             <td>Falls aktiviert, werden Dateien mit aktiven Handles von der Optimierungsrichtlinie berücksichtigt.</td>
             <td>True/false</td>
-            <td>Aktivieren Sie diese Einstellung, wenn Ihre Workload Dateien für längere Zeit geöffnet hält. Wenn diese Einstellung nicht aktiviert ist, würde eine Datei nie optimiert werden, wenn die Workload einen offenen Handle dafür hat, auch wenn nur gelegentlich Daten am Ende angefügt werden.</td>
+            <td>Aktivieren Sie diese Einstellung, wenn Ihre Workload Dateien für längere Zeit geöffnet hält. Wenn diese Einstellung nicht aktiviert ist, eine Datei würde nie werden optimiert, verfügt die Workload ein offenen Handle dafür, auch wenn es&#39;s, die nur gelegentlich Anfügen von Daten am Ende.</td>
         </tr>
         <tr>
             <td>OptimizePartialFiles</td>
@@ -310,9 +310,9 @@ Angenommen, Sie möchten die vollständige Garbage Collection deaktivieren. Weit
         </tr>
         <tr>
             <td>DeepGCInterval</td>
-            <td>Diese Einstellung konfiguriert das Intervall, in dem herkömmliche Garbage Collection-Aufträge [vollständige Garbage Collection-Aufträge](advanced-settings.md#faq-full-v-regular-gc) werden. Die Einstellung „n“ bedeutet, dass jeder n<sup>te</sup> Auftrag ein vollständiger Garbage Collection-Auftrag ist. Beachten Sie, dass die vollständige automatische Speicherbereinigung (unabhängig vom Registrierungswert) für Volumes mit dem [Verwendungstyp Sicherung](understand.md#usage-type-backup) immer deaktiviert ist. `Start-DedupJob -Type GarbageCollection -Full` kann verwendet werden, wenn vollständige Garbage Collection auf einem Volume Sicherung gewünscht ist.</td>
+            <td>Diese Einstellung konfiguriert das Intervall, in dem herkömmliche Garbage Collection-Aufträge <a href="advanced-settings.md#faq-full-v-regular-gc" data-raw-source="[full Garbage Collection jobs](advanced-settings.md#faq-full-v-regular-gc)">vollständige Garbage Collection-Aufträge</a> werden. Die Einstellung „n“ bedeutet, dass jeder n<sup>te</sup> Auftrag ein vollständiger Garbage Collection-Auftrag ist. Beachten Sie, dass die vollständige automatische Speicherbereinigung (unabhängig vom Registrierungswert) für Volumes mit dem <a href="understand.md#usage-type-backup" data-raw-source="[Backup Usage Type](understand.md#usage-type-backup)">Verwendungstyp Sicherung</a> immer deaktiviert ist. <code>Start-DedupJob -Type GarbageCollection -Full</code> kann verwendet werden, wenn vollständige Garbage Collection auf einem Volume Sicherung gewünscht ist.</td>
             <td>Ganze Zahlen (-1 bedeutet deaktiviert)</td>
-            <td>Siehe [diese häufig gestellte](advanced-settings.md#faq-why-disable-full-gc) Frage</td>
+            <td>Siehe <a href="advanced-settings.md#faq-why-disable-full-gc" data-raw-source="[this frequently asked question](advanced-settings.md#faq-why-disable-full-gc)">diese häufig gestellte</a> Frage</td>
         </tr>
     </tbody>
 </table>

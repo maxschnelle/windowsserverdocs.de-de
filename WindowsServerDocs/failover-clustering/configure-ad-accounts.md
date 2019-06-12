@@ -6,12 +6,12 @@ ms.technology: storage-failover-clustering
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 454783a13b834ef705bd896155195750de2b183c
-ms.sourcegitcommit: 4ff3d00df3148e4bea08056cea9f1c3b52086e5d
+ms.openlocfilehash: c15c33e31bf0bf7261097fbea110f2a0a788dab2
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64772712"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439755"
 ---
 # <a name="configuring-cluster-accounts-in-active-directory"></a>Konfigurieren von Clusterkonten in Active Directory
 
@@ -60,12 +60,12 @@ In der folgenden Tabelle werden die erforderlichen Berechtigungen für diese Kon
 <tr class="even">
 <td><p>Clusternamenkonto (Computerkonto des Clusters)</p></td>
 <td><p>Wenn der Clustererstellungs-Assistent ausgeführt wird, erstellt er das Clusternamenkonto in dem Standardcontainer, der in der Domäne für Computerkonten verwendet wird. Standardmäßig kann das Clusternamenkonto (wie andere Computerkonten) bis zu zehn Computerkonten in der Domäne erstellen.</p>
-<p>Wenn Sie das Clusternamenkonto (Clusternamenobjekt) erstellen, bevor Sie den Cluster erstellen, das Konto also vorab bereitstellen, müssen Sie diesem die Berechtigungen zum <strong>Erstellen von Computerobjekten</strong> und zum <strong>Lesen aller Eigenschaften</strong> in dem Container erteilen, der in der Domäne für Computerkonten verwendet wird. Sie müssen das Konto außerdem deaktivieren und dem Konto <strong>Vollzugriff</strong> erteilen, das von dem Administrator verwendet wird, der den Cluster installiert. Weitere Informationen finden Sie weiter unten in dieser Anleitung unter [Schritte für die Vorabbereitstellung des Clusternamenkontos](#steps-for-prestaging-the-cluster-name-account).</p></td>
+<p>Wenn Sie das Clusternamenkonto (Clusternamenobjekt) erstellen, bevor Sie den Cluster erstellen, das Konto also vorab bereitstellen, müssen Sie diesem die Berechtigungen zum <strong>Erstellen von Computerobjekten</strong> und zum <strong>Lesen aller Eigenschaften</strong> in dem Container erteilen, der in der Domäne für Computerkonten verwendet wird. Sie müssen das Konto außerdem deaktivieren und dem Konto <strong>Vollzugriff</strong> erteilen, das von dem Administrator verwendet wird, der den Cluster installiert. Weitere Informationen finden Sie weiter unten in dieser Anleitung unter <a href="#steps-for-prestaging-the-cluster-name-account" data-raw-source="[Steps for prestaging the cluster name account](#steps-for-prestaging-the-cluster-name-account)">Schritte für die Vorabbereitstellung des Clusternamenkontos</a>.</p></td>
 </tr>
 <tr class="odd">
 <td><p>Computerkonto eines geclusterten Diensts oder einer geclusterten Anwendung</p></td>
 <td><p>Beim Assistenten für hohe Verfügbarkeit wird ausgeführt (um einen neuen geclusterten Dienst oder Anwendung zu erstellen), in den meisten Fällen ist ein Computerkonto für den geclusterten Dienst oder Anwendung in Active Directory erstellt wird. Das clusternamenkonto wird über die erforderlichen Berechtigungen zum Steuern dieses Kontos gewährt. Die Ausnahme ist ein gruppierter Hyper-V-VM: für diesen wird kein Computerkonto erstellt.</p>
-<p>Wenn Sie das Computerkonto für einen geclusterten Dienst oder Anwendung vorab bereitstellen, müssen Sie es mit den erforderlichen Berechtigungen konfigurieren. Weitere Informationen finden Sie weiter unten in dieser Anleitung unter [Schritte für die Vorabbereitstellung eines Kontos für einen geclusterten Dienst oder eine geclusterte Anwendung](#steps-for-prestaging-an-account-for-a-clustered-service-or-application).</p></td>
+<p>Wenn Sie das Computerkonto für einen geclusterten Dienst oder Anwendung vorab bereitstellen, müssen Sie es mit den erforderlichen Berechtigungen konfigurieren. Weitere Informationen finden Sie weiter unten in dieser Anleitung unter <a href="#steps-for-prestaging-an-account-for-a-clustered-service-or-application" data-raw-source="[Steps for prestaging an account for a clustered service or application](#steps-for-prestaging-an-account-for-a-clustered-service-or-application)">Schritte für die Vorabbereitstellung eines Kontos für einen geclusterten Dienst oder eine geclusterte Anwendung</a>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -144,23 +144,23 @@ Die zum Ausführen des folgenden Verfahrens minimal erforderliche Gruppenmitglie
 <br>
 
 
-3.  Wenn das in Schritt 1 erstellte oder abgerufene Konto ein Domänenadministratorkonto ist, überspringen Sie den Rest dieses Verfahrens. Erteilen Sie andernfalls dem Konto die Berechtigungen zum **Erstellen von Computerobjekten** und zum **Lesen aller Eigenschaften** in dem Container, der in der Domäne für Computerkonten verwendet wird:
+3. Wenn das in Schritt 1 erstellte oder abgerufene Konto ein Domänenadministratorkonto ist, überspringen Sie den Rest dieses Verfahrens. Erteilen Sie andernfalls dem Konto die Berechtigungen zum **Erstellen von Computerobjekten** und zum **Lesen aller Eigenschaften** in dem Container, der in der Domäne für Computerkonten verwendet wird:
     
-    1.  Klicken Sie auf einem Domänencontroller auf **Start**, auf **Verwaltung** und dann auf **Active Directory-Benutzer und -Computer**. Wenn das Dialogfeld **Benutzerkontensteuerung** eingeblendet wird, bestätigen Sie die angegebene Aktion und klicken dann auf **Weiter**.  
+   1.  Klicken Sie auf einem Domänencontroller auf **Start**, auf **Verwaltung** und dann auf **Active Directory-Benutzer und -Computer**. Wenn das Dialogfeld **Benutzerkontensteuerung** eingeblendet wird, bestätigen Sie die angegebene Aktion und klicken dann auf **Weiter**.  
           
-    2.  Stellen Sie sicher, dass im Menü **Ansicht** die Option **Erweiterte Funktionen** ausgewählt ist.  
+   2.  Stellen Sie sicher, dass im Menü **Ansicht** die Option **Erweiterte Funktionen** ausgewählt ist.  
           
-        Wenn **Erweiterte Funktionen** ausgewählt ist, wird die Registerkarte **Sicherheit** in den Eigenschaften der Konten (Objekte) in **Active Directory-Benutzer und -Computer** angezeigt.  
+       Wenn **Erweiterte Funktionen** ausgewählt ist, wird die Registerkarte **Sicherheit** in den Eigenschaften der Konten (Objekte) in **Active Directory-Benutzer und -Computer** angezeigt.  
           
-    3.  Klicken Sie mit der rechten Maustaste auf den Standardcontainer **Computer** oder den Standardcontainer, in dem Computerkonten in der Domäne erstellt werden, und klicken Sie dann auf **Eigenschaften**. **Computer** befindet sich im <b>Active Directory-Benutzer und-Computer /</b><i>Domänenknoten</i><b>Locations</b>.  
+   3.  Klicken Sie mit der rechten Maustaste auf den Standardcontainer **Computer** oder den Standardcontainer, in dem Computerkonten in der Domäne erstellt werden, und klicken Sie dann auf **Eigenschaften**. **Computer** befindet sich im <b>Active Directory-Benutzer und-Computer /</b><i>Domänenknoten</i><b>Locations</b>.  
           
-    4.  Klicken Sie auf der Registerkarte **Sicherheit** auf **Erweitert**.  
+   4.  Klicken Sie auf der Registerkarte **Sicherheit** auf **Erweitert**.  
           
-    5.  Klicken Sie auf **Hinzufügen**, geben Sie den Namen des in Schritt 1 erstellten oder abgerufenen Kontos ein, und klicken Sie dann auf **OK**.  
+   5.  Klicken Sie auf **Hinzufügen**, geben Sie den Namen des in Schritt 1 erstellten oder abgerufenen Kontos ein, und klicken Sie dann auf **OK**.  
           
-    6.  In der **Berechtigungseintrag für *** Container* Dialogfeld Suchen der **Erstellen von Computerobjekten** und **Lesen aller Eigenschaften** Berechtigungen, und stellen Sie sicher, dass die **Zulassen** jeweils das Kontrollkästchen aktiviert ist.  
+   6.  In der **Berechtigungseintrag für *** Container* Dialogfeld Suchen der **Erstellen von Computerobjekten** und **Lesen aller Eigenschaften** Berechtigungen, und stellen Sie sicher, dass die **Zulassen** jeweils das Kontrollkästchen aktiviert ist.  
           
-        ![](media/configure-ad-accounts/Cc731002.0a863ac5-2024-4f9f-8a4d-a419aff32fa0(WS.10).gif)
+       ![](media/configure-ad-accounts/Cc731002.0a863ac5-2024-4f9f-8a4d-a419aff32fa0(WS.10).gif)
 
 ## <a name="steps-for-prestaging-the-cluster-name-account"></a>Schritte für die Vorabbereitstellung des Clusternamenkontos
 
@@ -309,9 +309,9 @@ Sie müssen mindestens Mitglied der Gruppe **Domänen-Admins** oder einer entspr
 <br>
 
 
-9.  Für das clusternamenkonto (auch bekannt als Clusternamenobjekt oder CNO bezeichnet), stellen Sie sicher, dass **zulassen** ausgewählt ist, für die **Erstellen von Computerobjekten** und **Lesen aller Eigenschaften** Berechtigungen.
+9. Für das clusternamenkonto (auch bekannt als Clusternamenobjekt oder CNO bezeichnet), stellen Sie sicher, dass **zulassen** ausgewählt ist, für die **Erstellen von Computerobjekten** und **Lesen aller Eigenschaften** Berechtigungen.
     
-    ![](media/configure-ad-accounts/Cc731002.f5977c4d-a62e-4b17-81e3-8c19ddca2078(WS.10).gif)
+   ![](media/configure-ad-accounts/Cc731002.f5977c4d-a62e-4b17-81e3-8c19ddca2078(WS.10).gif)
 
 10. Klicken Sie auf **OK**, bis Sie zum Snap-In **Active Directory-Benutzer und -Computer** zurückgekehrt sind.
 
@@ -323,17 +323,17 @@ Sie müssen mindestens Mitglied der Gruppe **Domänen-Admins** oder einer entspr
 
 14. Vergewissern Sie sich, dass auf der Registerkarte **Sicherheit** das Clusternamenkonto unter den Konten aufgeführt wird, die über Berechtigungen verfügen, und wählen Sie es aus. Vergewissern Sie sich, dass das Clusternamenkonto über die Berechtigung **Vollzugriff** verfügt (das Kontrollkästchen **Zulassen** ist aktiviert). Wenn dies nicht der Fall ist, fügen Sie der Liste das Clusternamenkonto hinzu, und erteilen Sie dem Konto die Berechtigung **Vollzugriff**.
     
-    ![](media/configure-ad-accounts/Cc731002.2e614376-87a6-453a-81ba-90ff7ebc3fa2(WS.10).gif)
+   ![](media/configure-ad-accounts/Cc731002.2e614376-87a6-453a-81ba-90ff7ebc3fa2(WS.10).gif)
 
 15. Wiederholen Sie die Schritte 13 und 14 für jeden geclusterten Dienst und jede geclusterte Anwendung, die im Cluster konfiguriert sind.
 
 16. Überprüfen Sie, ob das domänenweite Kontingent für das Erstellen von Computerobjekten (standardmäßig 10) erreicht wurde (gegebenenfalls, indem Sie sich an einen Domänenadministrator wenden). Wenn alle vorstehenden Elemente in diesem Verfahren überprüft und korrigiert wurden und das Kontingent ausgeschöpft wurde, erwägen Sie, das Kontingent zu vergrößern. So ändern Sie das Kontingent
     
-    1.  Öffnen Sie eine Eingabeaufforderung als Administrator, und führen Sie **ADSIEdit.msc** aus.  
+   1.  Öffnen Sie eine Eingabeaufforderung als Administrator, und führen Sie **ADSIEdit.msc** aus.  
           
-    2.  Klicken Sie mit der rechten Maustaste auf **ADSI-Editor**, klicken Sie auf **Verbinden mit** und dann auf **OK**. Der Knoten **Standardmäßiger Namenskontext** wird der Konsolenstruktur hinzugefügt.  
+   2.  Klicken Sie mit der rechten Maustaste auf **ADSI-Editor**, klicken Sie auf **Verbinden mit** und dann auf **OK**. Der Knoten **Standardmäßiger Namenskontext** wird der Konsolenstruktur hinzugefügt.  
           
-    3.  Doppelklicken Sie auf **Standardmäßiger Namenskontext**, klicken Sie mit der rechten Maustaste auf das Domänenobjekt darunter, und klicken Sie dann auf **Eigenschaften**.  
+   3.  Doppelklicken Sie auf **Standardmäßiger Namenskontext**, klicken Sie mit der rechten Maustaste auf das Domänenobjekt darunter, und klicken Sie dann auf **Eigenschaften**.  
           
-    4.  Führen Sie einen Bildlauf zu **ms-DS-MachineAccountQuota** durch und wählen Sie das Element aus. Klicken Sie auf **Bearbeiten**, ändern Sie den Wert, und klicken Sie dann auf **OK**.
+   4.  Führen Sie einen Bildlauf zu **ms-DS-MachineAccountQuota** durch und wählen Sie das Element aus. Klicken Sie auf **Bearbeiten**, ändern Sie den Wert, und klicken Sie dann auf **OK**.
 

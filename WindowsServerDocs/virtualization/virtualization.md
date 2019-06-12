@@ -10,17 +10,17 @@ ms.topic: landing-page
 author: shortpatti
 ms.author: pashort
 ms.localizationpriority: high
-ms.openlocfilehash: 1ae36a2e1be1559094dd55dba41fa9a468118260
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 53c927f89fd3ccaa212c998f7102d0fdb9f41bde
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840061"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447938"
 ---
 # <a name="virtualization"></a>Virtualisierung
 
 >[!TIP]
-> Suchen Sie nach Informationen zu älteren Versionen von Windows? Sehen Sie sich unsere [Windows Server-Bibliotheken](/previous-versions/windows/) auf docs.microsoft.com an. Sie können auch nach bestimmten Informationen [auf dieser Website suchen](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions).
+> Suchen Sie nach Informationen zu älteren Versionen von Windows? Sehen Sie sich unsere [Windows Server-Bibliotheken](/previous-versions/windows/) auf „docs.microsoft.com“ an. Sie können auch nach bestimmten Informationen [auf dieser Website suchen](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions).
 
 <HR />
 
@@ -41,7 +41,7 @@ Virtualisierung in Windows Server ist eine der grundlegenden Technologien, die z
                     <div class="cardText">
                         <h3>Geschütztes Fabric und abgeschirmte VMs</h3>
 <HR />
-                        <p>Als Cloud-Dienstanbieter oder privater Cloud-Administrator in Unternehmen können Sie eine geschützte Fabric verwenden, um eine sicherere Umgebung für VMs bereitzustellen. Ein geschütztes Fabric besteht aus einem Host-Überwachungsdienst \(Host-Überwachungsdienst\) – in der Regel ein Cluster mit drei Knoten – sowie einem oder mehreren überwachten Hosts und einen Satz von abgeschirmten VMs.</p>
+                        <p>Als Cloud-Dienstanbieter oder privater Cloud-Administrator in Unternehmen können Sie eine geschützte Fabric verwenden, um eine sicherere Umgebung für VMs bereitzustellen. Ein geschütztes Fabric besteht aus einem Host Guardian Service (HGS) – in der Regel ein Cluster mit drei Knoten – plus eins oder mehrere von überwachten Hosts und einen Satz von abgeschirmten VMs.</p>
                      </div>
                   </div>
               </div>

@@ -12,12 +12,12 @@ ms.topic: get-started-article
 ms.assetid: fc239aec-e719-47ea-92fc-d82a7247b3f8
 author: jaimeo
 ms.author: jaimeo
-ms.openlocfilehash: 781ed17fb07d2aecd4bb0b7bc672056096ab8060
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e94659c62db574dc8779c8246d471ab401414ddb
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837061"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435804"
 ---
 # <a name="get-started-with-setup-and-boot-event-collection"></a>Erste Schritte mit der Ereignissammlung für Setup und Start
 
@@ -335,23 +335,23 @@ Auf der Debugebene kann es hilfreich sein, eine Datei zu protokollieren, anstatt
       
  **Ein vorgeschlagener Ansatz für die Problembehandlung des Collectors:**  
    
- 1. Zunächst stellen Sie sicher, dass die Sammlung die Verbindung vom Zielcomputer empfängt (es wird die Datei nur dann erstellt, wenn der Zielcomputer die Nachrichten sendet) mit   
-```  
-Get-SbecForwarding  
-```  
-Wenn er zurückgibt, dass eine Verbindung von diesem Ziel besteht, liegt das Problem möglicherweise in den Einstellungen des Autologgers. Wenn nichts zurückgegeben wird, ist das Problem die KDNET-Verbindung. Versuchen Sie zur Diagnose von Problemen mit KDNET die Verbindung an beiden Enden zu überprüfen (d. h., von der Sammlung und dem Ziel).  
+1. Zunächst stellen Sie sicher, dass die Sammlung die Verbindung vom Zielcomputer empfängt (es wird die Datei nur dann erstellt, wenn der Zielcomputer die Nachrichten sendet) mit   
+   ```  
+   Get-SbecForwarding  
+   ```  
+   Wenn er zurückgibt, dass eine Verbindung von diesem Ziel besteht, liegt das Problem möglicherweise in den Einstellungen des Autologgers. Wenn nichts zurückgegeben wird, ist das Problem die KDNET-Verbindung. Versuchen Sie zur Diagnose von Problemen mit KDNET die Verbindung an beiden Enden zu überprüfen (d. h., von der Sammlung und dem Ziel).  
   
 2. Um erweiterte Diagnose von der Sammlung zu veranschaulichen, fügen Sie diese Option, um die \<Collector >-Element der Konfigurationsdatei:  
-\<collector ... minlog="verbose">  
-Dadurch werden Nachrichten über jedes empfangene Paket aktiviert.  
+   \<collector ... minlog="verbose">  
+   Dadurch werden Nachrichten über jedes empfangene Paket aktiviert.  
 3. Überprüfen Sie, ob alle Pakete empfangen werden. Sie können optional das Protokoll im ausführlichen Modus über ETW statt direkt in eine Datei schreiben. Zu diesem Zweck fügen Sie diese Option, um die \<Collector >-Element der Konfigurationsdatei:  
-\<collector ... minlog="verbose" log="c:\ProgramData\Microsoft\BootEventCollector\Logs\log.txt">  
+   \<collector ... minlog="verbose" log="c:\ProgramData\Microsoft\BootEventCollector\Logs\log.txt">  
       
 4. Überprüfen Sie die Ereignisprotokolle für Nachrichten über die empfangenen Pakete. Überprüfen Sie, ob alle Pakete empfangen werden. Wenn die Pakete empfangen, aber falsch sind, überprüfen Sie Ereignisnachrichten für Details.  
 5. Von der Zielseite gibt KDNET Diagnoseinformationen an die Registrierung. Suchen in   
-**HKLM\SYSTEM\CurrentControlSet\Services\kdnet** nach Nachrichten.  
-  KdInitStatus (DWORD) gibt = 0 bei Erfolg und einen Fehlercode bei Fehlern zurück.  
-  KdInitErrorString = Beschreibung des Fehlers (enthält informative Nachrichten, wenn kein Fehler)  
+   **HKLM\SYSTEM\CurrentControlSet\Services\kdnet** nach Nachrichten.  
+   KdInitStatus (DWORD) gibt = 0 bei Erfolg und einen Fehlercode bei Fehlern zurück.  
+   KdInitErrorString = Beschreibung des Fehlers (enthält informative Nachrichten, wenn kein Fehler)  
   
 6. Führen Sie Ipconfig.exe auf dem Ziel aus und überprüfen Sie den Gerätenamen. Wenn KDNET ordnungsgemäß geladen wird, sollte der Name des Aufnahmegeräts etwa "Kdnic" anstelle des ursprünglichen Hersteller Kartennamens sein.  
 7. Überprüfen Sie, ob DHCP für das Ziel konfiguriert ist. DHCP ist für KDNET absolut erforderlich.  

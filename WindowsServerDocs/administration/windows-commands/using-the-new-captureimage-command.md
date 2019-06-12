@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7d9f402acb9904624bdb4193a4306d57b104eda8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 00f15ae7ee1a7ab1ac1f71599d2cae9bb51d921e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59888611"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440417"
 ---
 # <a name="using-the-new-captureimage-command"></a>Mithilfe des neuen CaptureImage-Befehls
 
@@ -43,20 +43,19 @@ WDSUTIL [Options] /New-CaptureImage [/Server:<Server name>]
 
 ## <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|[/ Server:\<Servername >]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben wird, wird der lokale Server verwendet werden.|
-|/ Image:\<Image-Name >|Gibt den Namen des Startabbilds Quelle.|
-|/ Architektur: {x 86 | ia64 | x64}|Gibt die Architektur der zu verwendenden Images hinzu. Da Sie den imagenamen für verschiedene Startabbilder in verschiedenen Architekturen verfügen können, wird die angeben, dass dadurch das richtige Bild verwendet.|
-|[/ Filename: \<Dateiname >]|Wenn das Bild kann nicht eindeutig anhand des Namens identifiziert werden, müssen Sie diese Option verwenden, um den Dateinamen angeben.|
-|/DestinationImage|Gibt die Einstellungen für das Zielabbild. Sie geben Sie die Einstellungen, die mithilfe der folgenden Optionen:</br>-   /FilePath: \<Dateipfad und > legt den vollständigen Pfad für das neue Capture-Image.</br>-[/ Name: \<Name >]-legt den Anzeigenamen des Images fest. Wenn kein Anzeigename angegeben wird, wird der Anzeigename des Quellbilds verwendet werden.</br>-[/ Description: \<Beschreibung >]-legt die Beschreibung des Images fest.</br>-[/ Overwrite: {Yes | Nein | Append}] – bestimmt, ob die Datei im angegebenen **/DestinationImage** überschrieben werden sollen, wenn auf die destinationimage/FilePath bereits eine andere Datei mit diesem Namen vorhanden ist. **Ja** überschreibt die vorhandene Datei. **Keine** (Standard) führt dazu, dass einen Fehler auftreten, wenn eine andere Datei mit dem gleichen Namen ist bereits vorhanden. **Fügen Sie** das generierte Bild als ein neues Image innerhalb der vorhandenen WIM-Datei angefügt.</br>-[/ UnattendFilePath: \<Dateipfad >]-legt den vollständigen Pfad und Namen für die unbeaufsichtigte Image-Capture-Datei.|
+|        Parameter         |                                                                                                                                                                                                                         Beschreibung                                                                                                                                                                                                                          |
+|--------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [/ Server:\<Servername >] |                                                                                                                                       Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben wird, wird der lokale Server verwendet werden.                                                                                                                                        |
+|   / Image:\<Image-Name >   |                                                                                                                                                                                                         Gibt den Namen des Startabbilds Quelle.                                                                                                                                                                                                         |
+|   / Architektur: {x 86    |                                                                                                                                                                                                                             ia64                                                                                                                                                                                                                             |
+| [/ Filename: \<Dateiname >] |                                                                                                                                                                            Wenn das Bild kann nicht eindeutig anhand des Namens identifiziert werden, müssen Sie diese Option verwenden, um den Dateinamen angeben.                                                                                                                                                                            |
+|    /DestinationImage     | Gibt die Einstellungen für das Zielabbild. Sie geben Sie die Einstellungen, die mithilfe der folgenden Optionen:</br>-   /FilePath: \<Dateipfad und > legt den vollständigen Pfad für das neue Capture-Image.</br>-[/ Name: \<Name >]-legt den Anzeigenamen des Images fest. Wenn kein Anzeigename angegeben wird, wird der Anzeigename des Quellbilds verwendet werden.</br>-[/ Description: \<Beschreibung >]-legt die Beschreibung des Images fest.</br>-[/ Overwrite: {Yes |
 
 ## <a name="BKMK_examples"></a>Beispiele für
 
 Erstellen ein Aufzeichnungsabbild, und nennen Sie sie WinPECapture.wim, geben Sie Folgendes ein:
 ```
 WDSUTIL /New-CaptureImage /Image:"WinPE boot image" /Architecture:x86 /DestinationImage /FilePath:"C:\Temp\WinPECapture.wim"
-
 ```
 Um ein Aufzeichnungsabbild erstellen und die angegebenen Einstellungen anzuwenden, geben Sie Folgendes ein:
 ```
@@ -66,4 +65,4 @@ WDSUTIL /Verbose /Progress /New-CaptureImage /Server:MyWDSServer /Image:"WinPE b
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

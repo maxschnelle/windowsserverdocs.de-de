@@ -8,12 +8,12 @@ ms.date: 06/28/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 98e28c9be808f63ed39a3ac24dd95014b388d001
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: eddb0d3432c69ecff4542ff1b8f2204b96ce0820
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59881021"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445662"
 ---
 # <a name="migrate-the-ad-fs-20-federation-server-proxy"></a>Migrieren des AD FS 2.0-Verbundserverproxys
 Dieses Dokument enthält ausführliche Informationen zur Migration von AD FS 2.0-Verbundserver-Proxy-Server zu Windows Server 2012.
@@ -31,7 +31,7 @@ Um einen AD FS 2.0-Verbundserverproxy zu Windows Server 2012 zu migrieren, führ
 > [!IMPORTANT]
 >  Durch das Upgrade des Betriebssystems geht die AD FS-Proxykonfiguration auf diesem Server verloren und die AD FS 2.0-Serverrolle wird entfernt. Wird stattdessen die Windows Server 2012 AD FS-Serverrolle installiert, aber nicht konfiguriert ist. Sie müssen die ursprüngliche AD FS-Proxykonfiguration manuell erstellen und die verbleibenden AD FS-Proxyeinstellungen wiederherstellen, um die Verbundserverproxymigration abzuschließen.  
   
-4.  Erstellen Sie die ursprüngliche AD FS-Proxykonfiguration mithilfe des **Assistenten für die Konfiguration eines AD FS-Verbundserverproxys**. Weitere Informationen finden Sie unter [Configure a Computer for the Federation Server Proxy Role](configure-a-computer-for-the-federation-server-proxy-role.md). Wenn Sie den Assistenten ausführen, verwenden Sie die Informationen, die Sie in Vorbereitung auf die Migration des AD FS 2.0-Verbundserverproxys gesammelt haben, wie folgt:  
+4. Erstellen Sie die ursprüngliche AD FS-Proxykonfiguration mithilfe des **Assistenten für die Konfiguration eines AD FS-Verbundserverproxys**. Weitere Informationen finden Sie unter [Configure a Computer for the Federation Server Proxy Role](configure-a-computer-for-the-federation-server-proxy-role.md). Wenn Sie den Assistenten ausführen, verwenden Sie die Informationen, die Sie in Vorbereitung auf die Migration des AD FS 2.0-Verbundserverproxys gesammelt haben, wie folgt:  
   
  
 |**Eingabeoption für den Assistenten für Verbundserverproxys**|**Verwenden Sie den folgenden Wert**|
@@ -41,11 +41,11 @@ Um einen AD FS 2.0-Verbundserverproxy zu Windows Server 2012 zu migrieren, führ
 |**HTTP-Proxyserveradresse**|Geben Sie den Wert "ForwardProxyUrl" aus der Datei proxyproperties.txt ein.|  
 |Anmeldeaufforderung|Geben Sie die Anmeldeinformationen für ein Konto ein, das entweder ein Administrator des AD FS-Verbundservers ist, oder das Dienstkonto, unter dem der AD FS-Verbunddienst ausgeführt wird.|  
   
-5.  Aktualisieren Sie Ihre AD FS-Webseiten auf diesem Server. Wenn Sie Ihre angepassten AD FS-proxywebseiten während der Vorbereitung des Verbundserverproxys für die Migration gesichert, verwenden Sie Ihre gesicherten Daten, um die AD FS-Standardwebseiten zu überschreiben, die standardmäßig erstellt wurden die **%systemdrive%\inetpub\adfs\ls** Verzeichnis aufgrund der Konfiguration des AD FS-Proxy unter Windows Server 2012.  
+5. Aktualisieren Sie Ihre AD FS-Webseiten auf diesem Server. Wenn Sie Ihre angepassten AD FS-proxywebseiten während der Vorbereitung des Verbundserverproxys für die Migration gesichert, verwenden Sie Ihre gesicherten Daten, um die AD FS-Standardwebseiten zu überschreiben, die standardmäßig erstellt wurden die **%systemdrive%\inetpub\adfs\ls** Verzeichnis aufgrund der Konfiguration des AD FS-Proxy unter Windows Server 2012.  
   
-6.  Fügen Sie diesen Server wieder dem Lastenausgleich hinzu.  
+6. Fügen Sie diesen Server wieder dem Lastenausgleich hinzu.  
   
-7.  Wenn Sie andere AD FS 2.0-Verbundserverproxys migriert haben, wiederholen Sie die Schritte 2 bis 6 für die verbleibenden Verbundserverproxycomputer.  
+7. Wenn Sie andere AD FS 2.0-Verbundserverproxys migriert haben, wiederholen Sie die Schritte 2 bis 6 für die verbleibenden Verbundserverproxycomputer.  
   
   
 ## <a name="next-steps"></a>Nächste Schritte
@@ -53,4 +53,4 @@ Um einen AD FS 2.0-Verbundserverproxy zu Windows Server 2012 zu migrieren, führ
  [Vorbereiten der Migration von AD FS 2.0-Verbundserver-Server-Proxy](prepare-to-migrate-ad-fs-fed-proxy.md)   
  [Migrieren des AD FS 2.0-Verbundservers](migrate-the-ad-fs-fed-server.md)   
  [Migrieren der AD FS 2.0-Verbundserver-Server-Proxy](migrate-the-ad-fs-2-fed-server-proxy.md)   
- [Migrieren der AD FS 1.1-Web-Agents](migrate-the-ad-fs-web-agent.md)
+ [Migrieren der AD FS 1.1-Web-Agents](migrate-the-ad-fs-web-agent.md)

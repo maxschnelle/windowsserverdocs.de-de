@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: ea7ecd52-4c12-4a49-92fd-b8c08cec42a9
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 5c74a9277af3853d709a8ecd58c1e53e1bccc719
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 009ded50b156162ad1f3397fc0708ef8075c6a6f
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812511"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446837"
 ---
 # <a name="step-3-configure-the-multisite-deployment"></a>Schritt 3 Konfigurieren der Bereitstellung für mehrere Standorte
 
@@ -67,7 +67,7 @@ Nach dem Konfigurieren der Infrastruktur für mehrere Standorte gehen Sie folgen
 11.  Überprüfen Sie im Dialogfeld **Installationsstatus**, ob die Installation erfolgreich war, und klicken Sie dann auf **Schließen**.  
   
   
-![Windows PowerShell](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***  
+![Windows PowerShell](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
 
   
 Schritte 1 bis 3 müssen manuell durchgeführt werden, und verwenden dieses Windows PowerShell-Cmdlet werden nicht erreicht.  
@@ -183,7 +183,7 @@ Wenn Sie ausgewählt haben, richten Sie die Netzwerkadressenserver-Website auf d
   
 1.  Auf dem DNS-Server: Auf der **starten** geben **dnsmgmt.msc**, und drücken Sie dann die EINGABETASTE.  
   
-2.  Im linken Bereich die **DNS-Manager** -Konsole, öffnen Sie die forward-Lookupzone für das interne Netzwerk. Klicken Sie mit der rechten Maustaste auf die entsprechende Zone, und klicken Sie auf **neuer Host (A oder AAAA)**.  
+2.  Im linken Bereich die **DNS-Manager** -Konsole, öffnen Sie die forward-Lookupzone für das interne Netzwerk. Klicken Sie mit der rechten Maustaste auf die entsprechende Zone, und klicken Sie auf **neuer Host (A oder AAAA)** .  
   
 3.  Auf der **neuen Host** Dialogfeld die **Name (wird übergeordneter Domänenname bei Nichtangabe)** Geben Sie den Namen, die für den Netzwerkadressenserver für den ersten RAS-Server verwendet wurde. In der **IP-Adresse** Feld, geben Sie die Intranetverbindung IPv4-Adresse des RAS-Servers, und klicken Sie dann auf **Host hinzufügen**. Klicken Sie im Dialogfeld **DNS** auf **OK**.  
   
@@ -261,7 +261,7 @@ Um eine Bereitstellung für mehrere Standorte zu konfigurieren, aktivieren Sie d
   
 10. Auf der **Multisite-Bereitstellung aktivieren** Dialogfeld klicken Sie auf **schließen** und Aktivieren von Multisite-Bereitstellungs-Assistenten klicken Sie dann auf **schließen**.  
   
-![Windows PowerShell](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***  
+![Windows PowerShell](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -343,7 +343,7 @@ Nach der Aktivierung in Ihrer Bereitstellung für mehrere Standorte, können Sie
   
 16. Wiederholen Sie dieses Verfahren aus Schritt 2 für jeden Einstiegspunkt, der Sie Ihre Bereitstellung für mehrere Standorte hinzufügen möchten.  
   
-![Windows PowerShell](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***  
+![Windows PowerShell](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cf5fffdedbc25ad97e9e96a84d3ff1bbdaf87b2a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9b41b6dcc52c3e6700d1d18c61eceea8b990ecdf
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835051"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440579"
 ---
 # <a name="using-the-convert-riprepimage-command"></a>Mithilfe des Convert-RiprepImage-Befehls
 
@@ -40,10 +40,10 @@ WDSUTIL [Options] /Convert-RIPrepImage /FilePath:<File path and name>
 
 ## <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|/ %FilePath:\<Dateipfad und >|Gibt den vollständigen Pfad und Namen der .sif-Datei, die das RIPrep-Abbild entspricht. Diese Datei wird in der Regel Riprep.sif aufgerufen und befindet sich im \Templates Unterordner des Ordners, der die RIPrep-Abbild enthält.|
-|/DestinationImage|Gibt die Einstellungen für das Zielabbild mithilfe der folgenden Optionen.</br>-Destinationimage/FilePath:\<Dateipfad und >: Legt den vollständigen Pfad für die neue Datei. Zum Beispiel: **C:\Temp\convert.wim**</br>-[/ Name:\<Name >]-legt den Anzeigenamen des Images fest. Wenn kein Anzeigename angegeben wird, wird der Anzeigename des Quellbilds verwendet werden.</br>-[/ Description: \<Beschreibung >]-legt die Beschreibung des Images fest.</br>-[/InPlace]: Gibt an, dass die Konvertierung ausgeführt werden soll, auf das ursprüngliche RIPrep-Abbild und nicht auf eine Kopie des ursprünglichen Bilds, die das Standardverhalten ist.</br>-[/ Overwrite: {Yes | Nein | Append}] – bestimmt, ob die angegebene Datei in die **/DestinationImage** Option überschrieben werden sollen, wenn eine vorhandene Datei mit diesem Namen bereits am destinationimage/FilePath vorhanden ist. **Ja** überschreibt die vorhandene Datei. **Keine** (Standard) führt dazu, dass einen Fehler auftreten, wenn eine andere Datei mit dem gleichen Namen ist bereits vorhanden. **Fügen Sie** das generierte Bild als ein neues Image innerhalb der vorhandenen WIM-Datei angefügt.|
+|            Parameter            |                                                                                                                                                                                                                                                                                                               Beschreibung                                                                                                                                                                                                                                                                                                                |
+|---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| / %FilePath:\<Dateipfad und > |                                                                                                                                                                                                       Gibt den vollständigen Pfad und Namen der .sif-Datei, die das RIPrep-Abbild entspricht. Diese Datei wird in der Regel Riprep.sif aufgerufen und befindet sich im \Templates Unterordner des Ordners, der die RIPrep-Abbild enthält.                                                                                                                                                                                                       |
+|        /DestinationImage        | Gibt die Einstellungen für das Zielabbild mithilfe der folgenden Optionen.</br>-Destinationimage/FilePath:\<Dateipfad und >: Legt den vollständigen Pfad für die neue Datei. Zum Beispiel: **C:\Temp\convert.wim**</br>-[/ Name:\<Name >]-legt den Anzeigenamen des Images fest. Wenn kein Anzeigename angegeben wird, wird der Anzeigename des Quellbilds verwendet werden.</br>-[/ Description: \<Beschreibung >]-legt die Beschreibung des Images fest.</br>-[/InPlace]: Gibt an, dass die Konvertierung ausgeführt werden soll, auf das ursprüngliche RIPrep-Abbild und nicht auf eine Kopie des ursprünglichen Bilds, die das Standardverhalten ist.</br>-[/ Overwrite: {Yes |
 
 ## <a name="BKMK_examples"></a>Beispiele für
 
@@ -64,4 +64,4 @@ WDSUTIL /Verbose /Progress /Convert-RiPrepImage /FilePath:"\\Server
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

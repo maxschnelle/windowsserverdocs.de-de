@@ -9,12 +9,12 @@ ms.assetid: e9a8f2fd-48fe-4a90-9250-f6b32488b7a4
 ms.author: grcusanz
 author: shortpatti
 ms.date: 08/27/2018
-ms.openlocfilehash: 3374d1b79b84edd78dca3b61c73ea2db1dff9561
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7916377f58261d0ccaa3fa24f135fccca3d5e79b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854461"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446330"
 ---
 # <a name="upgrade-backup-and-restore-sdn-infrastructure"></a>Upgrade, Sicherung und Wiederherstellung von SDN-Infrastruktur
 
@@ -131,18 +131,18 @@ Regelmäßige Sicherungen der Netzwerkcontroller-Datenbank wird sichergestellt, 
 
 **Vorgehensweise:**
 
-1.  Verwenden Sie die VM-backup-Methode Ihrer Wahl oder verwenden Sie Hyper-V, um eine Kopie jeder Controller-VM-Netzwerk zu exportieren.<p>Sichern die Controller-VM-Netzwerk wird sichergestellt, dass die erforderlichen Zertifikate für die Entschlüsselung der Datenbank vorhanden sind.  
+1. Verwenden Sie die VM-backup-Methode Ihrer Wahl oder verwenden Sie Hyper-V, um eine Kopie jeder Controller-VM-Netzwerk zu exportieren.<p>Sichern die Controller-VM-Netzwerk wird sichergestellt, dass die erforderlichen Zertifikate für die Entschlüsselung der Datenbank vorhanden sind.  
 
-2.  Wenn Sie System Center Virtual Machine Manager (SCVMM) verwenden möchten, beenden Sie den SCVMM-Dienst, und über SQL Server sichern.<p>Das Ziel besteht hier wird sichergestellt, dass keine Updates zu SCVMM während dieser Zeit durchgeführten was eine Inkonsistenz zwischen dem Netzwerkcontroller-Sicherung und SCVMM kann.  
+2. Wenn Sie System Center Virtual Machine Manager (SCVMM) verwenden möchten, beenden Sie den SCVMM-Dienst, und über SQL Server sichern.<p>Das Ziel besteht hier wird sichergestellt, dass keine Updates zu SCVMM während dieser Zeit durchgeführten was eine Inkonsistenz zwischen dem Netzwerkcontroller-Sicherung und SCVMM kann.  
 
    >[!IMPORTANT]
    >Starten Sie den SCVMM-Dienst nicht neu, bis die Netzwerkcontroller-Sicherung abgeschlossen ist.
 
-3.  Sichern Sie die Netzwerkcontroller-Datenbank mit der `new-networkcontrollerbackup` Cmdlet.
+3. Sichern Sie die Netzwerkcontroller-Datenbank mit der `new-networkcontrollerbackup` Cmdlet.
 
-4.  Überprüfen Sie den Abschluss und Erfolg der Sicherung mit der `get-networkcontrollerbackup` Cmdlet.
+4. Überprüfen Sie den Abschluss und Erfolg der Sicherung mit der `get-networkcontrollerbackup` Cmdlet.
 
-5.  Wenn SCVMM zu verwenden, starten Sie die SCVMM-Dienst.
+5. Wenn SCVMM zu verwenden, starten Sie die SCVMM-Dienst.
 
 
 

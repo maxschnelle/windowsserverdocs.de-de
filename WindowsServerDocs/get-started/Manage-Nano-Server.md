@@ -12,12 +12,12 @@ ms.assetid: 599d6438-a506-4d57-a0ea-1eb7ec19f46e
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: 8973302fc8a0c6bdb5b19f9296e711dcc6465589
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: cc535934705878c7f2b7fdc4e655ab5c853e4f96
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826801"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443528"
 ---
 # <a name="manage-nano-server"></a>Verwalten von Nano Server
 
@@ -39,8 +39,8 @@ Um Remoteverwaltungstools verwenden zu können, müssen Sie wahrscheinlich die I
 ## <a name="using-windows-powershell-remoting"></a>Verwenden von Windows PowerShell-Remoting  
 Um Nano Server mit Windows PowerShell-Remoting zu verwalten, müssen Sie zuerst die IP-Adresse des Nano Servers der Liste vertrauenswürdiger Hosts hinzufügen, die Ihr Verwaltungscomputer besitzt, dann das Konto, das Sie verwenden, zu den Nano Server-Administratoren hinzufügen und schließlich CredSSP aktivieren, wenn Sie dieses Feature verwenden möchten.  
 
- >[!NOTE]  
-    > Wenn die Ziel-Nano Server und Ihr Verwaltungscomputer in derselben AD DS-Gesamtstruktur (oder in Gesamtstrukturen mit einer Vertrauensstellung) sind, sollten Sie nicht der Nano Server-hinzufügen, die Liste der vertrauenswürdigen Hosts können Sie mit dem Nano Server verbinden, mit dessen vollständig qualifizierten Domänennamen Zum Beispiel: PS C:\> Geben Sie-PSSession – ComputerName nanoserver.contoso.com-Credential (Get-Credential)
+> [!NOTE]
+> Wenn die Ziel-Nano Server und Ihr Verwaltungscomputer in derselben AD DS-Gesamtstruktur (oder in Gesamtstrukturen mit einer Vertrauensstellung) sind, sollten Sie nicht der Nano Server-hinzufügen, die Liste der vertrauenswürdigen Hosts können Sie mit dem Nano Server verbinden, mit dessen vollständig qualifizierten Domänennamen Zum Beispiel: PS C:\> Geben Sie-PSSession – ComputerName nanoserver.contoso.com-Credential (Get-Credential)
   
   
 Um den Nano Server zu der Liste der vertrauenswürdigen Hosts hinzuzufügen, führen Sie diesen Befehl über eine Windows PowerShell-Eingabeaufforderung mit erhöhten Rechten aus:  
@@ -51,7 +51,7 @@ Um die Windows PowerShell-Remotesitzung zu starten, initiieren Sie eine lokale W
   
   
 ```  
-$ip = "\<IP address of Nano Server>"  
+$ip = "<IP address of Nano Server>"  
 $user = "$ip\Administrator"  
 Enter-PSSession -ComputerName $ip -Credential $user  
 ```  
@@ -72,7 +72,7 @@ Starten Sie die CIM-Sitzung, indem Sie an einer Windows PowerShell-Eingabeauffor
   
 ```  
 $ip = "<IP address of the Nano Server\>"  
-$ip\Administrator  
+$user = $ip\Administrator  
 $cim = New-CimSession -Credential $user -ComputerName $ip  
 ```  
   
@@ -89,15 +89,17 @@ Get-CimInstance -CimSession $Cim -Query "SELECT * from Win32_Process WHERE name 
 ## <a name="windows-remote-management"></a>Windows-Remoteverwaltung  
 Sie können Programme auf dem Nano Server mit der Windows-Remoteverwaltung (WinRM) remote ausführen. Konfigurieren Sie zum Verwenden von WinRM zuerst den Dienst, und richten Sie die Codepage mit den folgenden Befehlen über eine Eingabeaufforderung mit erhöhten Rechten ein:  
   
-**winrm quickconfig**  
-  
-**winrm set winrm/config/client @{TrustedHosts="<ip address of Nano Server"}**  
-  
-**chcp 65001**  
+```
+winrm quickconfig
+winrm set winrm/config/client @{TrustedHosts="<ip address of Nano Server>"}
+chcp 65001
+```
   
 Sie können die Befehle jetzt auf dem Nano Server remote ausführen. Zum Beispiel:  
-  
-**Winrs-r:\<IP-Adresse des Nano Servers > - u: Administrator-p:\<Nano Server-Administratorkennwort > Ipconfig**  
+
+```
+winrs -r:<IP address of Nano Server> -u:Administrator -p:<Nano Server administrator password> ipconfig
+```
   
 Weitere Informationen zur Windows-Remoteverwaltung finden Sie unter [Übersicht über die Windows-Remoteverwaltung (Windows Remote Management, WinRM)](https://technet.microsoft.com/library/dn265971.aspx).  
    
@@ -115,7 +117,7 @@ Stop-NetEventSession [-Name]
 ```  
 Diese Cmdlets finden Sie unter [Network Event Packet Capture Cmdlets in Windows PowerShell (Windows PowerShell-Cmdlets zum Erfassen von Netzwerkereignispaketen)](https://technet.microsoft.com/library/dn268520(v=wps.630).aspx) detailliert dokumentiert.  
 
-##<a name="installing-servicing-packages"></a>Installieren von Wartungspaketen  
+## <a name="installing-servicing-packages"></a>Installieren von Wartungspaketen  
 Wenn Sie ein Wartungspaket installieren möchten, verwenden Sie den Parameter „-ServicingPackagePath“ (Sie können ein Array von Pfaden an CAB-Dateien übergeben):  
   
 `New-NanoServerImage -DeploymentType Guest -Edition Standard -MediaPath \\Path\To\Media\en_us -BasePath .\Base -TargetPath .\NanoServer.wim -ServicingPackagePath \\path\to\kb123456.cab`  
@@ -134,7 +136,7 @@ Volume Serial Number is B05B-CC3D
       Directory of C:\KB3157663_expanded  
    
       04/19/2016  01:17 PM    \<DIR>          .  
-      04/19/2016  01:17 PM    \<DIR>          ..  
+      04/19/2016  01:17 PM    \<DIR&gt;          .  
         04/17/2016  12:31 AM               517 Windows10.0-KB3157663-x64-pkgProperties.txt  
 04/17/2016  12:30 AM        93,886,347 Windows10.0-KB3157663-x64.cab  
 04/17/2016  12:31 AM               454 Windows10.0-KB3157663-x64.xml  

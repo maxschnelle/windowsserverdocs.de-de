@@ -9,12 +9,12 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.date: 09/12/2018
-ms.openlocfilehash: a58d1e14dc8f543f25ef241f2a65054599136031
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 98857a5a6d665728c1aab2a6a2df64997d4166b0
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817391"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446225"
 ---
 # <a name="software-and-hardware-sh-integrated-features-and-technologies"></a>Integration von Software und Hardware (SH)-Features und -Technologien
 
@@ -51,11 +51,12 @@ Weitere Informationen finden Sie unter [Data Center Bridging (DCB)](https://docs
 
 ## <a name="hyper-v-network-virtualization"></a>Hyper-V-Netzwerkvirtualisierung
 
-| | |
-|---|---|
-| **v1 (HNVv1)**             | In Windows Server 2012 eingeführt wurde, können die Hyper-V-Netzwerkvirtualisierung (HNV) Virtualisierung von Kundennetzwerken auf der Basis einer gemeinsam genutzten, physischen Netzwerkinfrastruktur. Mit nur minimale Änderungen erforderlich, auf dem physischen Netzwerk-Fabric, bietet HNV-Dienstanbieter die Agilität, bereitstellen und Migrieren von mandantenworkloads an einer beliebigen Stelle in der drei Clouds: der Service Provider-Cloud, die private Cloud oder der öffentlichen Cloud von Microsoft Azure.                                         |
+|                            |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+|----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|       **v1 (HNVv1)**       |                     In Windows Server 2012 eingeführt wurde, können die Hyper-V-Netzwerkvirtualisierung (HNV) Virtualisierung von Kundennetzwerken auf der Basis einer gemeinsam genutzten, physischen Netzwerkinfrastruktur. Mit nur minimale Änderungen erforderlich, auf dem physischen Netzwerk-Fabric, bietet HNV-Dienstanbieter die Agilität, bereitstellen und Migrieren von mandantenworkloads an einer beliebigen Stelle in der drei Clouds: der Service Provider-Cloud, die private Cloud oder der öffentlichen Cloud von Microsoft Azure.                     |
 | **v2 NVGRE (HNVv2 NVGRE)** | In Windows Server 2016 und System Center Virtual Machine Manager bietet Microsoft eine End-to-End-Lösung für die Netzwerkvirtualisierung, die RAS-Gateway, den Softwarelastenausgleich, dem Netzwerkcontroller und mehr enthält. Weitere Informationen finden Sie unter [Hyper-V-Netzwerkvirtualisierung – Übersicht in Windows Server 2016](https://technet.microsoft.com/windows-server-docs/networking/sdn/technologies/hyper-v-network-virtualization/hyperv-network-virtualization-overview-windows-server). |
-| **v2 VxLAN (HNVv2 VxLAN)** | In Windows Server 2016 ist Teil der SDN-Erweiterung, die über den Netzwerkcontroller verwaltet.    |
+| **v2 VxLAN (HNVv2 VxLAN)** |                                                                                                                                                                                        In Windows Server 2016 ist Teil der SDN-Erweiterung, die über den Netzwerkcontroller verwaltet.                                                                                                                                                                                        |
+
 ---
 
 ## <a name="ipsec-task-offload-ipsecto"></a>IPsec-Aufgabenverlagerung (IPsecTO) 

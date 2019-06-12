@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5a650fae246d71d8c1f9822dfa9ff8e96d855b4b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0b2caceed6962bef22e7d546fa3b4469c9682b39
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59886571"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441257"
 ---
 # <a name="setx"></a>setx
 
@@ -38,21 +38,21 @@ setx [/s <Computer> [/u [<Domain>\]<User name> [/p [<Password>]]]] /f <FileName>
 
 ## <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|/ s \<Computer >|Gibt den Namen oder die IP-Adresse eines Remotecomputers. Verwenden Sie keine umgekehrte Schrägstriche. Der Standardwert ist der Name des lokalen Computers.|
-|/u [\<Domain>\]<User name>|Führt das Skript mit den Anmeldeinformationen des angegebenen Benutzerkontos. Der Standardwert ist die Systemberechtigungen.|
-|/ p [\<Kennwort >]|Gibt das Kennwort des Benutzerkontos ein, die im angegebenen die **/u** Parameter.|
-|\<Variable>|Gibt den Namen der Umgebungsvariablen, die Sie festlegen möchten.|
-|\<Wert >|Gibt den Wert, den um die Umgebungsvariable festgelegt werden soll.|
-|/ k \<Pfad >|Gibt an, dass die Variable basierend auf Informationen aus einem Registrierungsschlüssel festgelegt ist. Das p*fehlerprotokollpf* verwendet die folgende Syntax:</br>`\\<HIVE>\<KEY>\...\<Value>`</br>Beispielsweise können Sie den folgenden Pfad angeben:</br>`HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation\StandardName`|
-|/ f \<Dateiname >|Gibt die Datei, die Sie verwenden möchten.|
-|/ a \<X >,<Y>|Gibt an, absolute Koordinaten und Offset als Suchparameter.|
-|/ r \<X >,<Y> "<String>"|Gibt an, relative Koordinaten und den Offset vom **Zeichenfolge** als Suchparameter.|
-|/m|Gibt an, um die Variable in der Umgebung. Die Standardeinstellung ist der lokalen Umgebung.|
-|/x|Zeigt Datei vorliegen, wird ignoriert, die **/a**, **/r**, und **/d** Befehlszeilenoptionen.|
-|/d \<Delimiters>|Gibt an, Trennzeichen wie z. B. "**,**" oder "**\**", zusätzlich zu den vier integrierte Trennzeichen verwendet werden soll – Speicherplatz, Registerkarte, Zeilenvorschub und EINGABETASTE. Gültige Trennzeichen enthalten jedes ASCII-Zeichen. Die maximale Anzahl von Trennzeichen ist, 15, einschließlich integrierten Trennzeichen.|
-|/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
+|         Parameter          |                                                                                                                                              Beschreibung                                                                                                                                              |
+|----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|       / s \<Computer >       |                                                                                  Gibt den Namen oder die IP-Adresse eines Remotecomputers. Verwenden Sie keine umgekehrte Schrägstriche. Der Standardwert ist der Name des lokalen Computers.                                                                                  |
+| /u [\<Domain>\]<User name> |                                                                                           Führt das Skript mit den Anmeldeinformationen des angegebenen Benutzerkontos. Der Standardwert ist die Systemberechtigungen.                                                                                            |
+|      / p [\<Kennwort >]      |                                                                                                         Gibt das Kennwort des Benutzerkontos ein, die im angegebenen die **/u** Parameter.                                                                                                         |
+|        \<Variable>         |                                                                                                                 Gibt den Namen der Umgebungsvariablen, die Sie festlegen möchten.                                                                                                                  |
+|          \<Wert >          |                                                                                                                Gibt den Wert, den um die Umgebungsvariable festgelegt werden soll.                                                                                                                 |
+|         / k \<Pfad >         | Gibt an, dass die Variable basierend auf Informationen aus einem Registrierungsschlüssel festgelegt ist. Das p*fehlerprotokollpf* verwendet die folgende Syntax:</br>`\\<HIVE>\<KEY>\...\<Value>`</br>Beispielsweise können Sie den folgenden Pfad angeben:</br>`HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation\StandardName` |
+|      / f \<Dateiname >       |                                                                                                                               Gibt die Datei, die Sie verwenden möchten.                                                                                                                                |
+|        / a \<X >,<Y>         |                                                                                                                    Gibt an, absolute Koordinaten und Offset als Suchparameter.                                                                                                                    |
+|   / r \<X >,<Y> "<String>"   |                                                                                                            Gibt an, relative Koordinaten und den Offset vom **Zeichenfolge** als Suchparameter.                                                                                                            |
+|             /m             |                                                                                                Gibt an, um die Variable in der Umgebung. Die Standardeinstellung ist der lokalen Umgebung.                                                                                                 |
+|             /x             |                                                                                                       Zeigt Datei vorliegen, wird ignoriert, die **/a**, **/r**, und **/d** Befehlszeilenoptionen.                                                                                                        |
+|      /d \<Delimiters>      |                    Gibt an, Trennzeichen wie z. B. " **,** "oder" **\\** ", zusätzlich zu den vier integrierte Trennzeichen verwendet werden soll – Speicherplatz, Registerkarte, Zeilenvorschub und EINGABETASTE. Gültige Trennzeichen enthalten jedes ASCII-Zeichen. Die maximale Anzahl von Trennzeichen ist, 15, einschließlich integrierten Trennzeichen.                    |
+|             /?             |                                                                                                                                 Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                  |
 
 ## <a name="remarks"></a>Hinweise
 
@@ -80,7 +80,7 @@ Um die Umgebungsvariable "myPath" in der lokalen Umgebung verwenden Sie den Such
 ```
 setx MYPATH %PATH%
 ```
-Festlegen der Umgebungsvariablen "myPath" in der lokalen Umgebung verwenden Sie den Suchpfad, die in der PATH-Umgebungsvariable definiert ist, nach dem Ersetzen **~** mit **%**, Typ:
+Festlegen der Umgebungsvariablen "myPath" in der lokalen Umgebung verwenden Sie den Suchpfad, die in der PATH-Umgebungsvariable definiert ist, nach dem Ersetzen **~** mit **%** , Typ:
 ```
 setx MYPATH ~PATH~ 
 ```
@@ -131,4 +131,4 @@ setx /s computer1 /u maindom\hiropln /p p@ssW23 /f ipconfig.out /x
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

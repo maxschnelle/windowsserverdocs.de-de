@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: a255a4a5-c1a0-4edc-b41a-211bae397e3c
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 4ec4bc8e77e8411101b9a2b83a85ad5e1a0765b2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c74bb2ee2f1647716c8c38e392434a5b7f01805f
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873501"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446394"
 ---
 # <a name="use-dns-policy-for-split-brain-dns-deployment"></a>Verwenden Sie die DNS-Richtlinien für Split\-Brain-DNS-Bereitstellung
 
@@ -33,7 +33,7 @@ Dieses Thema enthält die folgenden Abschnitte:
 - [Beispiel für Split-Brain-DNS--Bereitstellung](#bkmk_sbexample)
 - [Beispiel für DNS-selektive Rekursion-Steuerelement](#bkmk_recursion)
 
-##<a name="bkmk_sbexample"></a>Beispiel für Split-Brain-DNS--Bereitstellung
+## <a name="bkmk_sbexample"></a>Beispiel für Split-Brain-DNS--Bereitstellung
 Es folgt ein Beispiel, wie Sie DNS-Richtlinien verwenden können, zum Ausführen der zuvor beschriebenen Szenarios der Split-Brain-DNS.
 
 In diesem Abschnitt werden die folgenden Themen behandelt:
@@ -57,7 +57,7 @@ Die folgende Abbildung zeigt dieses Szenario.
 ![Split-Brain-DNS-Bereitstellung](../../media/DNS-Split-Brain/Dns-Split-Brain-01.jpg)  
 
 
-##<a name="bkmk_sbhow"></a>Funktionsweise der Split-Brain-DNS-Bereitstellung
+## <a name="bkmk_sbhow"></a>Funktionsweise der Split-Brain-DNS-Bereitstellung
 
 Wenn der DNS-Server mit den erforderlichen DNS-Richtlinien konfiguriert ist, wird jede Anforderung zur Auflösung anhand der Richtlinien auf dem DNS-Server ausgewertet.
 
@@ -67,7 +67,7 @@ Wenn die Server-Netzwerkschnittstelle auf der die Abfrage empfangen wird die Ric
 
 In unserem Beispiel erhalten, die auf die Private IP-Adresse (10.0.0.56) empfangen werden DNS-Abfragen für www.career.contoso.com also eine DNS-Antwort, die eine interne IP-Adresse enthält; und die DNS-Abfragen, die an der öffentlichen Schnittstelle empfangen wurden, erhalten eine DNS-Antwort, die die öffentliche IP-Adresse der Standardbereich für die Zone enthält (Dies ist identisch mit normalen abfrageauflösung).  
 
-##<a name="bkmk_sbconfigure"></a>Vorgehensweise: Konfigurieren von DNS-Split-Brain-Bereitstellung
+## <a name="bkmk_sbconfigure"></a>Vorgehensweise: Konfigurieren von DNS-Split-Brain-Bereitstellung
 Um die DNS-Split-Brain Bereitstellung mithilfe von DNS-Richtlinien zu konfigurieren, müssen Sie die folgenden Schritte verwenden.
 
 - [Erstellen Sie die Bereiche der Zone](#bkmk_zscopes)  
@@ -79,12 +79,12 @@ Die folgenden Abschnitte enthalten ausführliche konfigurationsanweisungen.
 >[!IMPORTANT]
 >Die folgenden Abschnitte enthalten Windows PowerShell-Beispielbefehle, die Beispielwerte für viele Parameter enthalten. Stellen Sie sicher, dass Sie die Beispielwerte in diesen Befehlen durch Werte, die für die Bereitstellung sinnvoll sind ersetzen, bevor Sie diese Befehle ausführen. 
 
-###<a name="bkmk_zscopes"></a>Erstellen Sie die Bereiche der Zone
+### <a name="bkmk_zscopes"></a>Erstellen Sie die Bereiche der Zone
 
 Ein Bereich für die Zone ist eine eindeutige Instanz der Zone. Eine DNS-Zone kann mehrere Zone Bereiche, mit jeder Zone Bereich enthält einen eigenen Satz von DNS-Einträge haben. Der gleiche Datensatz kann in mehrere Bereiche, die mit unterschiedlichen IP-Adressen oder die gleiche IP-Adressen vorhanden sein. 
 
->[!NOTE]
->Standardmäßig befindet sich ein Bereich für die Zone auf DNS-Zonen. Dieser Bereich Zone hat den gleichen Namen wie die Zone, und ältere DNS-Vorgängen arbeiten, der für diesen Bereich. Diese Standardbereich für die Zone hosten wird der externe Version www.career.contoso.com.
+> [!NOTE]
+> Standardmäßig befindet sich ein Bereich für die Zone auf DNS-Zonen. Dieser Bereich Zone hat den gleichen Namen wie die Zone, und ältere DNS-Vorgängen arbeiten, der für diesen Bereich. Diese Standardbereich für die Zone hosten wird der externe Version www.career.contoso.com.
 
 Der Befehl im folgenden Beispiel können zum Partitionieren der Zone Bereich contoso.com, um einen Bereich von internen Zone zu erstellen. Gültigkeitsbereich der internen Zone wird verwendet, die interne Version des www.career.contoso.com zu halten.
 
@@ -92,11 +92,11 @@ Der Befehl im folgenden Beispiel können zum Partitionieren der Zone Bereich con
 
 Weitere Informationen finden Sie unter [hinzufügen-DnsServerZoneScope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps)
 
-###<a name="bkmk_records"></a>Hinzufügen von Datensätzen, die Bereiche der Zone
+### <a name="bkmk_records"></a>Hinzufügen von Datensätzen, die Bereiche der Zone
 
 Der nächste Schritt ist zum Hinzufügen der Datensätze, die die Web-Server-Host in der Zone mit zwei Bereichen - internen und Standard (für externe Clients) darstellt. 
 
-In der internen Zone-Bereich, den Datensatz **www.career.contoso.com** hinzugefügt wird mit der IP-Adresse 10.0.0.39, die eine private IP-Adresse; ist und in den Standardbereich für die Zone den gleichen Datensatz, **www.career.contoso.com**, ist mit der IP-Adresse 65.55.39.10 hinzugefügt.
+In der internen Zone-Bereich, den Datensatz <strong>www.career.contoso.com</strong> hinzugefügt wird mit der IP-Adresse 10.0.0.39, die eine private IP-Adresse; ist und in den Standardbereich für die Zone den gleichen Datensatz, <strong>www.career.contoso.com</strong>, ist mit der IP-Adresse 65.55.39.10 hinzugefügt.
 
 Keine **– ZoneScope** Parameter wird in den folgenden Beispielbefehlen bereitgestellt, wenn der Standardbereich für die Zone der Datensatz hinzugefügt wird. Dies ist vergleichbar mit dem Hinzufügen von Datensätzen mit einer einfachen Zone.
 
@@ -109,7 +109,7 @@ Add-DnsServerResourceRecord -ZoneName "contoso.com" -A -Name "www.career" -IPv4A
 
 Weitere Informationen finden Sie unter [hinzufügen-DnsServerResourceRecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).
 
-###<a name="bkmk_policies"></a>Erstellen Sie die DNS-Richtlinien
+### <a name="bkmk_policies"></a>Erstellen Sie die DNS-Richtlinien
 
 Nachdem Sie die Serverschnittstellen für das externe Netzwerk und dem internen Netzwerk bestimmt haben, und die Bereiche der Zone erstellt haben, müssen Sie DNS-Richtlinien erstellen, die die Bereiche für die interne und externe Zone zu verbinden.
 

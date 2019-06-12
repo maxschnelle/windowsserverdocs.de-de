@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: lizapo
 ms.date: 07/25/2018
-ms.openlocfilehash: a10b3d3877e9511164d298bcc1dab11540e6f596
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 7ab2eff32b105916d979a954275e9c9122a06903
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188196"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441723"
 ---
 # <a name="robocopy"></a>robocopy
 
@@ -32,12 +32,12 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 
 ## <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|\<Quelle >|Gibt den Pfad zum Quellverzeichnis.|
-|\<Ziel >|Gibt den Pfad zum Zielverzeichnis an.|
-|\<Datei >|Gibt an, die Datei oder Dateien kopiert werden soll. Sie können Platzhalterzeichen verwenden (**&#42;** oder **?** ), wenn Sie möchten. Wenn die **Datei** Parameter nicht angegeben ist, **\*.\*** wird als Standardwert verwendet.|
-|\<Options>|Gibt Optionen, mit der **Robocopy** Befehl.|
+|   Parameter    |                                                                                            Beschreibung                                                                                             |
+|----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   \<Quelle >    |                                                                            Gibt den Pfad zum Quellverzeichnis.                                                                             |
+| \<Ziel > |                                                                          Gibt den Pfad zum Zielverzeichnis an.                                                                          |
+|    \<Datei >     | Gibt an, die Datei oder Dateien kopiert werden soll. Sie können Platzhalterzeichen verwenden ( **&#42;** oder **?** ), wenn Sie möchten. Wenn die **Datei** Parameter nicht angegeben ist, **\*.\\** \* wird als Standardwert verwendet. |
+|   \<Options>   |                                                                    Gibt Optionen, mit der **Robocopy** Befehl.                                                                     |
 
 ### <a name="copy-options"></a>Kopieroptionen
 
@@ -90,7 +90,7 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 |/m|Kopiert nur die Dateien für die die **Archiv** Attribut festgelegt ist, und setzt die **Archiv** Attribut.|
 |Option/IA: [RASHCNETO]|Enthält nur die Dateien, die für die die angegebenen Attribute festgelegt werden.|
 |/xa:[RASHCNETO]|Schließt die Dateien, die für die die angegebenen Attribute festgelegt werden.|
-|/xf \<Dateiname > [...]|Schließt die Dateien, die den angegebenen Namen oder die Pfade zu entsprechen. Beachten Sie, dass *FileName* kann Platzhalterzeichen enthalten (**&#42;** und **?** ).|
+|/xf \<Dateiname > [...]|Schließt die Dateien, die den angegebenen Namen oder die Pfade zu entsprechen. Beachten Sie, dass *FileName* kann Platzhalterzeichen enthalten ( **&#42;** und **?** ).|
 |/ XD \<Directory > [...]|Schließt die Verzeichnisse, die dem angegebenen Namen und Pfade übereinstimmen.|
 |/xc|Schließt die geänderte Dateien.|
 |/xn|Schließt neuere Dateien.|
@@ -157,6 +157,7 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 |/if|Enthält die angegebenen Dateien.|
 
 ### <a name="exit-return-codes"></a>Exitcodes (Rückgabe)
+
 Wert | Description
 -- | --
 0 | Es wurden keine Dateien kopiert. Keine Fehler aufgetreten.  Es wurden keine Dateien stimmen nicht überein. Die Dateien, die bereits im Zielverzeichnis vorhanden sind; aus diesem Grund wurde beim Kopieren übersprungen.

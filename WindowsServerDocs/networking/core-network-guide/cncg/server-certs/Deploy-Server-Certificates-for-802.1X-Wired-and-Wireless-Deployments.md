@@ -8,12 +8,12 @@ ms.prod: windows-server-threshold
 ms.technology: networking
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 769a4165cfd82056a904c79c41e96fb666d05e43
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2d4cdcd11e0eb334064ddefec0eda775ffccff2c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842271"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446472"
 ---
 # <a name="deploy-server-certificates-for-8021x-wired-and-wireless-deployments"></a>Bereitstellen von Serverzertifikaten für drahtgebundene und drahtlose 802.1X-Bereitstellungen
 
@@ -66,8 +66,8 @@ Automatische Registrierung von Serverzertifikaten, auch als automatische Registr
 Dieses Handbuch enthält Anweisungen zum Bereitstellen von Serverzertifikaten mithilfe von AD CS und die Webserver (IIS)-Serverrolle in Windows Server 2016. Es folgen die Voraussetzungen für die Durchführung der Verfahren in diesem Handbuch.  
 
 - Müssen Sie ein Hauptnetzwerk mithilfe der Windows Server 2016 Core Network Guide bereitstellen, oder Sie müssen bereits die Technologien, die in das Handbuch zum Hauptnetzwerk installiert und ordnungsgemäß funktioniert, in Ihrem Netzwerk bereitgestellt haben. Zu diesen Technologien zählen TCP/IP-v4, DHCP, Active Directory Domain Services (AD DS), DNS- und NPS.  
->[!NOTE]
->Windows Server 2016 Core Network Guide ist in der technischen Bibliothek zu Windows Server 2016 verfügbar. Weitere Informationen finden Sie unter [Core Network Guide](../../../core-network-guide/Core-Network-Guide.md).
+  >[!NOTE]
+  >Windows Server 2016 Core Network Guide ist in der technischen Bibliothek zu Windows Server 2016 verfügbar. Weitere Informationen finden Sie unter [Core Network Guide](../../../core-network-guide/Core-Network-Guide.md).
 
 - Sie müssen im Planungsabschnitt dieses Handbuchs, um sicherzustellen, dass Sie für diese Bereitstellung vorbereitet sind, vor der Durchführung der bereitstellungs lesen.  
 - Sie müssen die Schritte in diesem Handbuch in der Reihenfolge ausführen, in denen sie angezeigt werden. Gehen Sie nicht, und Bereitstellen Sie Ihrer Zertifizierungsstelle, ohne den Schritten, die für die Bereitstellung von dem Server oder der Bereitstellung führen fehl.  

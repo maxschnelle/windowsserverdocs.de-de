@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.reviewer: anandy
 ms.technology: identity-adfs
-ms.openlocfilehash: c4f9a2880aa91b7a600cdb40238bead7d565e6bc
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.openlocfilehash: 04573aa13689a0e6744b01a0fbf8b11b622b2706
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65977051"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445468"
 ---
 # <a name="customize-claims-to-be-emitted-in-idtoken-when-using-openid-connect-or-oauth-with-ad-fs-2016-or-later"></a>Anpassen von Ansprüchen ausgegebenen im ID-Token bei Verwendung von OpenID Connect oder OAuth mit AD FS 2016 oder höher sein.
 
@@ -57,29 +57,29 @@ Die unten angegebenen Schritte zum Erstellen und die Anwendung für den Empfang 
 
 2. Geben Sie auf den Assistenten-Anwendung, für den Namen **ADFSSSO** , und wählen Sie Client / Server-Anwendungen die **systemeigene Anwendung, die Zugriff auf eine Webanwendung** Vorlage. Klicken Sie auf **Weiter**.
 
-  ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap1.png)
+   ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap1.png)
 
 3. Kopieren der **Clientbezeichner** Wert.  Es wird später als Wert für Ida: Client-ID in der web.config-Datei der Anwendung verwendet werden.
 
 4. Geben Sie Folgendes für **Umleitungs-URI:**  -  **https://localhost:44320/** .  Klicken Sie auf **Hinzufügen**. Klicken Sie auf **Weiter**.
 
-  ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap2.png)
+   ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap2.png)
 
 5. Auf der **Konfigurieren von Web-API-** Bildschirm, geben Sie Folgendes für **Bezeichner** -  **https://contoso.com/WebApp** .  Klicken Sie auf **Hinzufügen**. Klicken Sie auf **Weiter**.  Dieser Wert wird später verwendet werden, für die **Ida: ResourceID** in der web.config-Datei der Anwendung.
 
-  ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap3.png)
+   ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap3.png)
 
 6. Auf der **Zugriffssteuerungsrichtlinien wählen** auf **alle zulassen** , und klicken Sie auf **Weiter**.
 
-  ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap4.png)
+   ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap4.png)
 
 7. Auf der **Anwendungsberechtigungen konfigurieren** Bildschirm, stellen Sie sicher, dass **Openid** und **Allatclaims** ausgewählt sind, und klicken Sie auf **Weiter**.
 
-  ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap5.png)
+   ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap5.png)
 
 8. Auf der **Zusammenfassung** auf **Weiter**.  
 
-  ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap6.png)
+   ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap6.png)
 
 9. Auf der **abschließen** auf **schließen**.
 
@@ -89,20 +89,20 @@ Die unten angegebenen Schritte zum Erstellen und die Anwendung für den Empfang 
 
 11. Auf **ADFSSSO - Web-API-Eigenschaften** auf **Ausstellungstransformationsregeln** Registerkarte, und klicken Sie auf **Regel hinzufügen...**
 
-  ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap8.png)
+    ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap8.png)
 
 12. Auf **transformieren Anspruch Assistenten zum Hinzufügen von** auf **Ansprüche mit benutzerdefinierter Regel senden** aus der Dropdownliste aus, und klicken Sie auf **weiter**
 
-  ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap9.png)
+    ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap9.png)
 
 13. Auf **transformieren Anspruch Assistenten zum Hinzufügen von** Bildschirm, geben Sie **ForCustomIDToken** in **anspruchsregelname** und die folgende Anspruchsregel in **benutzerdefinierte Regel**. Klicken Sie auf **Fertig stellen**
 
-  ```  
-  x:[]
-  => issue(claim=x);  
-  ```
+    ```  
+    x:[]
+    => issue(claim=x);  
+    ```
 
-  ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap10.png)
+    ![Client](media/Custom-Id-Tokens-in-AD-FS/clientsnap10.png)
 
 ```
 

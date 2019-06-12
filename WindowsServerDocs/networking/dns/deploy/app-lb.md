@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: f9c313ac-bb86-4e48-b9b9-de5004393e06
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 1bb3e6695a7ec8fc7d950873403df023b4def3d8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dca60fc0e216b1b873bd4f94dd1b01174d80fc14
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59881611"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446441"
 ---
 # <a name="use-dns-policy-for-application-load-balancing"></a>Verwenden der DNS-Richtlinie für den Anwendungslastenausgleich
 
@@ -79,7 +79,7 @@ Sie können folgende Windows PowerShell-Befehle verwenden, um Bereiche der Zone 
 
 Weitere Informationen finden Sie unter [hinzufügen-DnsServerZoneScope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps)
 
-####<a name="bkmk_records"></a>Hinzufügen von Datensätzen, die Bereiche der Zone
+#### <a name="bkmk_records"></a>Hinzufügen von Datensätzen, die Bereiche der Zone
 
 Jetzt müssen Sie die Datensätze, die die Web-Server-Host darstellt, in die Bereiche der Zone hinzufügen.
 
@@ -100,7 +100,7 @@ Sie können die folgenden Windows PowerShell-Befehle verwenden, Datensätze die 
 
 Weitere Informationen finden Sie unter [hinzufügen-DnsServerResourceRecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).
 
-####<a name="bkmk_policies"></a>Erstellen Sie die DNS-Richtlinien
+#### <a name="bkmk_policies"></a>Erstellen Sie die DNS-Richtlinien
 
 Nachdem Sie die Partitionen (Zone-Bereiche) erstellt haben, und Sie die Datensätze hinzugefügt haben, müssen Sie DNS-Richtlinien erstellen, die die eingehenden Abfragen bereichsübergreifend zu verteilen, sodass 50 % von Abfragen für contosogiftservices.com für das Web, mit der IP-Adresse reagiert wird Server in das Datencenter Seattle und den Rest werden gleichmäßig verteilt zwischen den Rechenzentren Chicago und Dallas.
 

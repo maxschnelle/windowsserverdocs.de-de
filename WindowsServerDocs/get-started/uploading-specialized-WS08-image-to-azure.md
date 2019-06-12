@@ -10,12 +10,12 @@ ms.date: 07/11/2018
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.localizationpriority: high
-ms.openlocfilehash: af98a219a4a5aa708df9c648f1b245a21e95f016
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 425197d3462762c60a7371fc6ca529ad1b70e7ef
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59827811"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443370"
 ---
 # <a name="upload-a-windows-server-20082008-r2-specialized-image-to-azure"></a>Hochladen eines spezialisierten Windows Server 2008/2008 R2-Images in Azure 
 
@@ -29,17 +29,17 @@ Bevor Sie ein Image hochladen können, nehmen Sie die folgenden Änderungen vor:
 - Laden Sie Windows Server 2008 Service Pack 2 (SP2) herunter und installieren Sie es, sofern es nicht bereits in Ihrem Image installiert ist.
 
 - Konfigurieren Sie die Einstellungen für das Remotedesktop (RDP).
-   1. Klicken Sie auf **Systemsteuerung** > **Systemeinstellungen**.   
-   2. Wählen Sie im linken Menü **Remote-Einstellungen** aus.
+  1. Klicken Sie auf **Systemsteuerung** > **Systemeinstellungen**.   
+  2. Wählen Sie im linken Menü **Remote-Einstellungen** aus.
 
-   ![Screenshot der Systemeinstellungen, mit Hervorhebung von "Remote-Einstellungen".](media/1a_remote_settings.png)
+     ![Screenshot der Systemeinstellungen, mit Hervorhebung von "Remote-Einstellungen".](media/1a_remote_settings.png)
 
-   3. Wählen Sie in den Systemeigenschaften die Registerkarte **Remote** aus.   
+  3. Wählen Sie in den Systemeigenschaften die Registerkarte **Remote** aus.   
 
-   ![Screenshot der Registerkarte "Remote" in den Systemeigenschaften.](media/2c_sysprops.png)
+     ![Screenshot der Registerkarte "Remote" in den Systemeigenschaften.](media/2c_sysprops.png)
 
-   4. Wählen Sie "Verbindungen von Computern zulassen, auf denen eine beliebige Version von Remotedesktop ausgeführt wird (weniger Sicherheit)" aus.   
-   5. Klicken Sie auf **Anwenden** und auf **OK**.
+  4. Wählen Sie "Verbindungen von Computern zulassen, auf denen eine beliebige Version von Remotedesktop ausgeführt wird (weniger Sicherheit)" aus.   
+  5. Klicken Sie auf **Anwenden** und auf **OK**.
 - Konfigurieren Sie die Windows-Firewall-Einstellungen.   
    1. Geben Sie an der Eingabeaufforderung im Administratormodus "**wf.msc**" für Windows-Firewall und erweiterte Sicherheitseinstellungen ein.   
    2. Sortieren Sie die Ergebnisse nach **Ports**, und wählen Sie **Port 3389** aus.   

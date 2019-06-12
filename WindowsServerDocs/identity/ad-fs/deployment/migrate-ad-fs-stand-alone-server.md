@@ -8,12 +8,12 @@ ms.date: 06/28/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 10371349fe19be92fb997c9c28f19def0ecad7e9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5526afa758a142e30b9a238b4c7204cacebb1812
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59851931"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444557"
 ---
 # <a name="migrate-a-stand-alone-ad-fs-federation-server-or-a-single-node-ad-fs-farm"></a>Migrieren eines eigenständigen AD FS-Verbundservers oder einer AD FS-Farm mit einzelnem Knoten  
 Dieses Dokument enthält ausführliche Informationen zur Migration von AD FS 2.0 eigenständigen allein-Servers zu Windows Server 2012.
@@ -29,7 +29,7 @@ Verwenden Sie das folgende Verfahren zum Migrieren von AD FS 2.0-Server Windows 
 > [!IMPORTANT]
 >  Als Ergebnis der Aktualisierung des Betriebssystems die AD FS-Konfiguration auf diesem Server verloren und die AD FS 2.0-Serverrolle wird entfernt. Wird stattdessen die Windows Server 2012 AD FS-Serverrolle installiert, aber nicht konfiguriert ist. Sie müssen manuell die ursprüngliche AD FS-Konfiguration erstellen und Wiederherstellen der verbleibenden AD FS-Einstellungen, um die verbundservermigration abzuschließen.  
   
-3.  Erstellen Sie die ursprüngliche AD FS-Konfiguration. Sie können die ursprüngliche AD FS-Konfiguration erstellen, mit einem der folgenden Methoden:  
+3. Erstellen Sie die ursprüngliche AD FS-Konfiguration. Sie können die ursprüngliche AD FS-Konfiguration erstellen, mit einem der folgenden Methoden:  
   
 -   Verwenden der **AD FS-Verbundserverkonfigurations-Assistenten** um einen neuen Verbundserver zu erstellen. Weitere Informationen finden Sie unter [Erstellen des ersten Verbundservers in einer Verbundserverfarm](Create-the-First-Federation-Server-in-a-Federation-Server-Farm.md).  
   
@@ -52,20 +52,20 @@ Verwenden Sie die beim Vorbereiten der Migration des AD FS-Verbundservers erfas
   
 Folgendes ist ein Beispiel für die Windows PowerShell verwenden, um die ursprüngliche AD FS-Konfiguration auf einem Verbundserver in einer SQL Server-Farm mit einzelnem Knoten zu erstellen.  Öffnen Sie das Windows PowerShell-Modul, und führen Sie den folgenden Befehl: `$fscredential = Get-Credential`. Geben Sie den Namen und das Kennwort des Dienstkontos ein, die Sie beim Vorbereiten der SQL Server-Farm auf die Migration notiert haben. Führen Sie den folgenden Befehl: `C:\PS> Add-AdfsFarmNode -ServiceAccountCredential $fscredential -SQLConnectionString "Data Source=<Data Source>;Integrated Security=True"` , in denen `Data Source` der Datenquellenwert in der Richtlinie für Store-Verbindungszeichenfolgenwert in der folgenden Datei: `%programfiles%\Active Directory Federation Services 2.0\Microsoft.IdentityServer.Servicehost.exe.config`.  
   
-4.  Stellen Sie die verbleibenden AD FS-Diensteinstellungen und Vertrauensstellungen wieder her. Dies ist ein manueller Schritt, für den Sie die beim Vorbereiten der Migration exportierten Dateien sowie die dabei gesammelten Werte verwenden können. Ausführliche Anweisungen finden Sie unter "Wiederherstellen der verbleibenden AD FS-Farmkonfiguration".  
+4. Stellen Sie die verbleibenden AD FS-Diensteinstellungen und Vertrauensstellungen wieder her. Dies ist ein manueller Schritt, für den Sie die beim Vorbereiten der Migration exportierten Dateien sowie die dabei gesammelten Werte verwenden können. Ausführliche Anweisungen finden Sie unter "Wiederherstellen der verbleibenden AD FS-Farmkonfiguration".  
   
 > [!NOTE]
 >  Dieser Schritt ist nur erforderlich, wenn Sie einen eigenständigen Verbundserver oder eine interne Windows-Datenbankfarm mit einzelnem Knoten migrieren.  Wenn der Verbundserver eine SQL Server-Datenbank als Konfigurationsspeicher verwendet, bleiben die Diensteinstellungen und die Vertrauensstellungen in der Datenbank erhalten.  
   
-5.  Aktualisieren Sie Ihre AD FS-Webseiten. Dies ist ein manueller Schritt. Wenn Sie Ihre angepassten AD FS-Webseiten während der Vorbereitung der Migration gesichert, verwenden Sie Ihre gesicherten Daten, um die AD FS-Standardwebseiten zu überschreiben, die standardmäßig erstellt wurden die **%systemdrive%\inetpub\adfs\ls** Verzeichnis als Ergebnis des die AD FS-Konfiguration unter Windows Server 2012.  
+5. Aktualisieren Sie Ihre AD FS-Webseiten. Dies ist ein manueller Schritt. Wenn Sie Ihre angepassten AD FS-Webseiten während der Vorbereitung der Migration gesichert, verwenden Sie Ihre gesicherten Daten, um die AD FS-Standardwebseiten zu überschreiben, die standardmäßig erstellt wurden die **%systemdrive%\inetpub\adfs\ls** Verzeichnis als Ergebnis des die AD FS-Konfiguration unter Windows Server 2012.  
   
-6.  Stellen Sie alle verbleibenden AD FS-Anpassungen wieder her, z. B. benutzerdefinierte Attributspeicher.  
+6. Stellen Sie alle verbleibenden AD FS-Anpassungen wieder her, z. B. benutzerdefinierte Attributspeicher.  
   
 ## <a name="restoring-the-remaining-ad-fs-farm-configuration"></a>Wiederherstellen der verbleibenden AD FS-Farm-Konfigurations  
   
 -   Stellen Sie die folgenden AD FS-Diensteinstellungen wie folgt auf einer internen Windows-Datenbankfarm mit einzelnem Knoten oder für einen eigenständigen Verbunddienst wieder her:  
   
-    -   Wählen Sie in der AD FS-Verwaltungskonsole **Dienst** aus, und klicken Sie auf **Verbunddienst bearbeiten…**. Überprüfen Sie die Verbunddiensteinstellungen, indem Sie jeden der Werte mit den Werten vergleichen, die Sie beim Vorbereiten der Migration in die Datei "properties.txt" exportiert haben:  
+    -   Wählen Sie in der AD FS-Verwaltungskonsole **Dienst** aus, und klicken Sie auf **Verbunddienst bearbeiten…** . Überprüfen Sie die Verbunddiensteinstellungen, indem Sie jeden der Werte mit den Werten vergleichen, die Sie beim Vorbereiten der Migration in die Datei "properties.txt" exportiert haben:  
   
     
 |**Den Namen der verbunddiensteigenschaft von Get-ADFSProperties gemeldeten**|**Den Namen der verbunddiensteigenschaft in AD FS-Verwaltungskonsole**|  
@@ -91,7 +91,7 @@ Wenn Sie die Tokenverschlüsselungs- oder Tokensignaturzertifikate von den stand
  [Vorbereiten der Migration von AD FS 2.0-Verbundserver-Server-Proxy](prepare-to-migrate-ad-fs-fed-proxy.md)   
  [Migrieren des AD FS 2.0-Verbundservers](migrate-the-ad-fs-fed-server.md)   
  [Migrieren der AD FS 2.0-Verbundserver-Server-Proxy](migrate-the-ad-fs-2-fed-server-proxy.md)   
- [Migrieren der AD FS 1.1-Web-Agents](migrate-the-ad-fs-web-agent.md)
+ [Migrieren der AD FS 1.1-Web-Agents](migrate-the-ad-fs-web-agent.md)
 
 
 

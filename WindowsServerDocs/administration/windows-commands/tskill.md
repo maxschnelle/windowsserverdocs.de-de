@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 59958481a7c832aca7bc25d7d4d3ebbf4e8ef80c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b582334d7b79b2badbb86818be1093b6a5f55080
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835041"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440814"
 ---
 # <a name="tskill"></a>tskill
 
@@ -36,6 +36,7 @@ tskill {<ProcessID> | <ProcessName>} [/server:<ServerName>] [/id:<SessionID> | /
 ```
 
 ## <a name="parameters"></a>Parameter
+
 |Parameter|Beschreibung|
 |-------|--------|
 |\<Prozess-ID >|Gibt die ID des Prozesses, die Sie beenden möchten.|
@@ -47,19 +48,19 @@ tskill {<ProcessID> | <ProcessName>} [/server:<ServerName>] [/id:<SessionID> | /
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
--   Sie können **Tskill** beendet nur die Prozesse, die zu Ihnen gehören, es sei denn, Sie Administrator sind. Administratoren haben vollen Zugriff auf alle **Tskill** Funktionen und können end-Prozesse, die in anderen benutzersitzungen ausgeführt werden.
--   Wenn alle Prozesse, die in einer Sitzung ausgeführt werden zu beenden, wird auch die Sitzung beendet.
--   Bei Verwendung der *ProcessName* und die **/Server: *** ServerName* Parameter auch Geben Sie die **/ID: *** SessionID* oder   **/a** Parameter.
+- Sie können **Tskill** beendet nur die Prozesse, die zu Ihnen gehören, es sei denn, Sie Administrator sind. Administratoren haben vollen Zugriff auf alle **Tskill** Funktionen und können end-Prozesse, die in anderen benutzersitzungen ausgeführt werden.
+- Wenn alle Prozesse, die in einer Sitzung ausgeführt werden zu beenden, wird auch die Sitzung beendet.
+- Bei Verwendung der *ProcessName* und **/Server:** <em>ServerName</em> Parameter auch Geben Sie die **/ID:**  <em>SessionID</em> oder **/a** Parameter.
 
 ## <a name="BKMK_examples"></a>Beispiele für
--   Um den Prozess 6543 zu beenden, geben Sie Folgendes ein:
-    ```
-    tskill 6543
-    ```
--   Um den Prozess "Explorer" auf 5-Sitzung zu beenden, geben Sie Folgendes ein:
-    ```
-    tskill explorer /id:5
-    ```
-#### <a name="additional-references"></a>Weitere Verweise
-[Befehlszeilen-Syntaxschlüssel](command-line-syntax-key.md)
-[Remotedesktopdienste &#40;Terminaldienste&#41; -Befehlsreferenz](remote-desktop-services-terminal-services-command-reference.md)
+- Um den Prozess 6543 zu beenden, geben Sie Folgendes ein:
+  ```
+  tskill 6543
+  ```
+- Um den Prozess "Explorer" auf 5-Sitzung zu beenden, geben Sie Folgendes ein:
+  ```
+  tskill explorer /id:5
+  ```
+  #### <a name="additional-references"></a>Weitere Verweise
+  [Befehlszeilen-Syntaxschlüssel](command-line-syntax-key.md)
+  [Remotedesktopdienste &#40;Terminaldienste&#41; -Befehlsreferenz](remote-desktop-services-terminal-services-command-reference.md)

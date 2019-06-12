@@ -9,18 +9,18 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 1e37aded450555d293806d1ed8903a51e3df9424
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0ffa4273a2c776a16f3ea0ce77d1b3a528481468
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839141"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445160"
 ---
-#<a name="client-access-policy-claim-types-in-ad-fs"></a>Clientzugriffsrichtlinie Anspruchstypen in AD FS
+# <a name="client-access-policy-claim-types-in-ad-fs"></a>Clientzugriffsrichtlinie Anspruchstypen in AD FS
 
 Um Informationen zu zusätzlichen Kontext bereitzustellen, verwenden Sie Clientzugriffsrichtlinien die folgenden Anspruchstypen, die AD FS aus Anforderungsheaderinformationen für die Verarbeitung generiert.  Weitere Informationen finden Sie unter [die Rolle des anspruchsmoduls](../technical-reference/the-role-of-the-claims-engine.md).
 
-##<a name="x-ms-forwarded-client-ip"></a>X-MS-Forwarded-Client-IP
+## <a name="x-ms-forwarded-client-ip"></a>X-MS-Forwarded-Client-IP
 
 Anspruchstyp: `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip`
 
@@ -32,8 +32,8 @@ Dieser AD FS-Anspruch stellt eine "versucht," Feststellung der IP-Adresse des Be
     >! [Hinweis] Die IP-Adresse eines Clients im Unternehmensnetzwerk wird als der externe IP-Adresse des Proxys für ausgehenden Datenverkehr der Organisation oder Gateways angezeigt.
 
 - Eine oder mehrere IP-Adressen
-    - Wenn Exchange Online die IP-Adresse der verbindende Client nicht ermitteln kann, wird der Wert, der basierend auf dem Wert der X-forwarded-for-Header, eine nicht standardmäßige Headerdateien, die in der HTTP-basierten aufgenommen werden kann, fordert und wird von vielen Clients, Load balancer unterstützt festgelegt und Proxys auf dem Markt.
-    - Mehrere IP-Adressen, der angibt, die Client-IP-Adresse und die Adresse für jeden Proxy, der die Anforderung zu übergeben, werden durch ein Komma getrennt werden.
+  - Wenn Exchange Online die IP-Adresse der verbindende Client nicht ermitteln kann, wird der Wert, der basierend auf dem Wert der X-forwarded-for-Header, eine nicht standardmäßige Headerdateien, die in der HTTP-basierten aufgenommen werden kann, fordert und wird von vielen Clients, Load balancer unterstützt festgelegt und Proxys auf dem Markt.
+  - Mehrere IP-Adressen, der angibt, die Client-IP-Adresse und die Adresse für jeden Proxy, der die Anforderung zu übergeben, werden durch ein Komma getrennt werden.
 
     >! [Hinweis] IP-Adressen, die im Zusammenhang mit Exchange Online-Infrastruktur werden nicht in der Liste vorhanden.
 

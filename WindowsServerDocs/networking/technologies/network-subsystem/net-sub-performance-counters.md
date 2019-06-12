@@ -8,12 +8,12 @@ ms.assetid: 7ebaa271-2557-4c24-a679-c3d863e6bf9e
 manager: brianlic
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: e5e8abbc19482bcd0dd5670065cde59d5be3169a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bcb0c1c5a08a306fbd9b419d0c458c3bc54e1786
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824351"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446204"
 ---
 # <a name="network-related-performance-counters"></a>Netzwerkbezogene Leistungsindikatoren
 
@@ -31,43 +31,43 @@ Dieses Thema enthält die Leistungsindikatoren, die für das Verwalten der Leist
 
 Die folgenden Leistungsindikatoren sind für netzwerkressourcenauslastung relevant.  
   
--   IPv4, IPv6  
+- IPv4, IPv6  
   
-    -   Empfangene Datagramme/Sek.  
+  -   Empfangene Datagramme/Sek.  
   
-    -   Gesendete Datagramme/Sek.  
+  -   Gesendete Datagramme/Sek.  
   
--   TCPv4, TCPv6  
+- TCPv4, TCPv6  
   
-    -   Segmente empfangen/s  
+  -   Segmente empfangen/s  
   
-    -   Segmente gesendet/s  
+  -   Segmente gesendet/s  
   
-    -   Segmente übertragen/Sekunde  
+  -   Segmente übertragen/Sekunde  
   
--   Netzwerkschnittstelle(*), Netzwerkadapter (\*)  
+- Netzwerkschnittstelle(*), Netzwerkadapter (\*)  
   
-    -   Empfangene Bytes/Sekunde  
+  - Empfangene Bytes/Sekunde  
   
-    -   Gesendete Bytes/Sek.  
+  - Gesendete Bytes/Sek.  
   
-    -   Empfangene Pakete/Sek.  
+  - Empfangene Pakete/Sek.  
   
-    -   Gesendete Pakete/Sek.  
+  - Gesendete Pakete/Sek.  
   
-    -   Ausgabewarteschlangenlänge  
+  - Ausgabewarteschlangenlänge  
   
-     Dieser Leistungsindikator ist die Länge der Ausgabepaketwarteschlange \(in Paketen\). Wenn dies länger als 2 ist, treten Verzögerungen. Sie finden den Engpass, und vermeiden sie wenn möglich. Da NDIS-Anforderungen Warteschlangen, sollte diese Länge immer 0 sein.  
+    Dieser Leistungsindikator ist die Länge der Ausgabepaketwarteschlange \(in Paketen\). Wenn dies länger als 2 ist, treten Verzögerungen. Sie finden den Engpass, und vermeiden sie wenn möglich. Da NDIS-Anforderungen Warteschlangen, sollte diese Länge immer 0 sein.  
   
--   Prozessorinformationen  
+- Prozessorinformationen  
   
-    -   % Processor Time  
+  - % Processor Time  
   
-    -   Interrupts/Sekunde  
+  - Interrupts/Sekunde  
   
-    -   DPCs in Warteschlange/Sekunde  
+  - DPCs in Warteschlange/Sekunde  
   
-     Dieser Leistungsindikator ist einer durchschnittlichen Rate, mit der DPCs der logische Prozessor-DPC-Warteschlange hinzugefügt wurden. Jeden logischer Prozessor verfügt über eine eigene DPC-Warteschlange. Dieser Leistungsindikator misst die Rate, mit der DPCs an die Warteschlange für nicht die Anzahl der DPCs in der Warteschlange hinzugefügt werden. Es zeigt den Unterschied zwischen den Werten, die in den letzten zwei Beispielen geteilt durch die Dauer des Messintervalls beobachtet wurden.  
+    Dieser Leistungsindikator ist einer durchschnittlichen Rate, mit der DPCs der logische Prozessor-DPC-Warteschlange hinzugefügt wurden. Jeden logischer Prozessor verfügt über eine eigene DPC-Warteschlange. Dieser Leistungsindikator misst die Rate, mit der DPCs an die Warteschlange für nicht die Anzahl der DPCs in der Warteschlange hinzugefügt werden. Es zeigt den Unterschied zwischen den Werten, die in den letzten zwei Beispielen geteilt durch die Dauer des Messintervalls beobachtet wurden.  
   
 ##  <a name="bkmk_np"></a> Potenzielle Netzwerkprobleme  
 

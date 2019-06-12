@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 159e307912cb06bc3ea5e452f735e786c0cf9965
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bc20fcaf6e511bb25156996bddc3357f99195875
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847011"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66437410"
 ---
 # <a name="merge-vdisk"></a>Zusammenführen von virtuellen Datenträger
 
@@ -27,26 +27,28 @@ ms.locfileid: "59847011"
 Führt eine differenzierende virtuelle Festplatte (VHD) mit dem entsprechenden übergeordneten virtuellen Festplatte zusammen. Die übergeordnete virtuelle Festplatte wird geändert werden, sollen die Änderungen aus der differenzierenden VHD.
 > [!NOTE]
 > Dieser Befehl gilt nur für Windows 7 und Windows Server 2008 R2 zur Verfügung.
-## <a name="syntax"></a>Syntax
-```
-merge vdisk depth=<n>
-```
-### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
-|-------|--------|
-|depth=<n>|Gibt die Anzahl der übergeordneten VHD-Dateien zusammenführen. Z. B. **Depth = 1** gibt an, dass die differenzierende VHD mit einer Ebene der differenzierungskette zusammengeführt werden.|
-## <a name="remarks"></a>Hinweise
--   Eine virtuelle Festplatte muss ausgewählt und getrennt werden, damit dieser Vorgang erfolgreich ausgeführt werden. Verwenden der **wählen Vdisk** Befehl aus, um die virtuelle Festplatte auswählen, und verschiebt den Fokus auf sie.
--   Dieser Parameter wird die übergeordnete virtuelle Festplatte geändert. Daher werden die andere differenzierenden virtuelle Festplatten, die vom übergeordneten Element abhängig sind nicht mehr gültig sein.
-## <a name="BKMK_Examples"></a>Beispiele für
-Wenn eine differenzierende virtuelle Festplatte mit dem übergeordneten virtuellen Festplatte zusammenführen möchten, geben Sie Folgendes ein:
-```
-merge vdisk depth=1
-```
-## <a name="additional-references"></a>Zusätzliche Referenzen
--   [Befehlszeilensyntax](command-line-syntax-key.md)
--   [attach vdisk](attach-vdisk.md)
--   [compact vdisk](compact-vdisk.md)
+> ## <a name="syntax"></a>Syntax
+> ```
+> merge vdisk depth=<n>
+> ```
+> ### <a name="parameters"></a>Parameter
+> 
+> | Parameter |                                                                                    Beschreibung                                                                                    |
+> |-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+> | depth=<n> | Gibt die Anzahl der übergeordneten VHD-Dateien zusammenführen. Z. B. **Depth = 1** gibt an, dass die differenzierende VHD mit einer Ebene der differenzierungskette zusammengeführt werden. |
+> 
+> ## <a name="remarks"></a>Hinweise
+> - Eine virtuelle Festplatte muss ausgewählt und getrennt werden, damit dieser Vorgang erfolgreich ausgeführt werden. Verwenden der **wählen Vdisk** Befehl aus, um die virtuelle Festplatte auswählen, und verschiebt den Fokus auf sie.
+> - Dieser Parameter wird die übergeordnete virtuelle Festplatte geändert. Daher werden die andere differenzierenden virtuelle Festplatten, die vom übergeordneten Element abhängig sind nicht mehr gültig sein.
+>   ## <a name="BKMK_Examples"></a>Beispiele für
+>   Wenn eine differenzierende virtuelle Festplatte mit dem übergeordneten virtuellen Festplatte zusammenführen möchten, geben Sie Folgendes ein:
+>   ```
+>   merge vdisk depth=1
+>   ```
+>   ## <a name="additional-references"></a>Zusätzliche Referenzen
+> - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+> - [attach vdisk](attach-vdisk.md)
+> - [compact vdisk](compact-vdisk.md)
 
 -   [detail vdisk](detail-vdisk.md)
 -   [Trennen Sie die virtuellen Datenträger](detach-vdisk.md)

@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 93cee5b8e3611a264119947103d22d9aa3b9a56b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 66e36a349fc6bd38a77ccf4f00d380788ea4b422
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834391"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445957"
 ---
 # <a name="develop-a-gateway-plugin"></a>Entwickeln eines Gateway-Plug-Ins
 
@@ -69,7 +69,7 @@ Nachdem die Windows-Admin-Prozess neu gestartet wird, Sie werden so führen Sie 
 
 ### <a name="optional-attach-to-plugin-for-debugging"></a>Optional: Fügen Sie-Plug-In für das Debuggen
 
-Wählen Sie in Visual Studio 2017 klicken Sie im Menü "Debuggen" "An den Prozess anhängen" ein. Im nächsten Fenster einen Bildlauf durch die Liste Verfügbare Prozesse SMEDesktop.exe auswählen, und klicken Sie auf "Anfügen". Einmal können der Debugger gestartet wird, Sie einen Haltepunkt im Code der Funktion und dann Übung über die obige URL-Format platzieren. Für unser Beispielprojekt (Name des Features: "Beispiel Uno") die URL lautet: "http://localhost:6516/api/nodes/fake-server.my.domain.com/features/Sample%20Uno"
+Wählen Sie in Visual Studio 2017 klicken Sie im Menü "Debuggen" "An den Prozess anhängen" ein. Im nächsten Fenster einen Bildlauf durch die Liste Verfügbare Prozesse SMEDesktop.exe auswählen, und klicken Sie auf "Anfügen". Einmal können der Debugger gestartet wird, Sie einen Haltepunkt im Code der Funktion und dann Übung über die obige URL-Format platzieren. Für unser Beispielprojekt (Name des Features: "Beispiel Uno") die URL lautet: "<http://localhost:6516/api/nodes/fake-server.my.domain.com/features/Sample%20Uno>"
 
 ## <a name="create-a-tool-extension-with-the-windows-admin-center-cli"></a>Erstellen Sie eine toolerweiterung, mit der Windows Admin Center-CLI ##
 
@@ -104,8 +104,8 @@ Sobald dies abgeschlossen ist, haben Sie alles, was einrichten, die Sie die neue
 
 Nun, dass Sie eine Erweiterung mit der Windows Admin Center-CLI erstellt haben, können Sie Ihre toolerweiterung zu Ihrem Plug-in benutzerdefiniertes Gateway verbinden, mit folgenden Schritten:
 
-- Hinzufügen einer [leere-Modul](guides\add-module.md)
-- Verwenden Ihrer [benutzerdefiniertes Gateway-Plug-Ins](guides\use-custom-gateway-plugin.md) in Ihrer Tools-Erweiterung
+- Hinzufügen einer [leere-Modul](guides/add-module.md)
+- Verwenden Ihrer [benutzerdefiniertes Gateway-Plug-Ins](guides/use-custom-gateway-plugin.md) in Ihrer Tools-Erweiterung
  
 ## <a name="build-and-side-load-your-extension"></a>Erstellen und die Seite laden die Erweiterung
 

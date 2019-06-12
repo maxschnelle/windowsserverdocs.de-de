@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 245f8fb2e6419d22da3e2e76eebd9f801ab90664
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 45545b4e12d31c293ead5b18b83efd50d7bc37bb
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821481"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439652"
 ---
 # <a name="dfsutil"></a>dfsutil
 
@@ -53,13 +53,13 @@ command </parameter> </param2>
 Wenn Sie angeben, dass ein Objekt \(wie z. B. einen Namespaceserver\) am Ende eines Befehls, werden die meisten Befehle Informationen über das Objekt ohne weitere Parameter oder Befehle angezeigt. Z. B. Wenn Sie die Dfsutil Root-Befehl verwenden zu können, können Sie einen Namespacestamm an den Befehl zum Anzeigen von Informationen über das Stammverzeichnis anfügen.
 
 ## <a name="BKMK_Examples"></a>Beispiele für
-<Here is where you put a detailed description of your example.>
+&lt;Hier ist, fügen Sie eine ausführliche Beschreibung der Ihres Beispiels hinzu.&gt;
 
 ```
 This /is /the /example /of /calling /command /with /parameters
 ```
 
-<Here is where you put a detailed description of another example.>
+&lt;Hier ist, fügen Sie eine ausführliche Beschreibung der ein weiteres Beispiel hinzu.&gt;
 
 ```
 This /is /a:different /example
@@ -67,6 +67,6 @@ This /is /a:different /example
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
 

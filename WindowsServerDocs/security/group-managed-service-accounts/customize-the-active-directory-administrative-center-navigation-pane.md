@@ -11,12 +11,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: e7b1128d93912f724225905bedd38131f8aab0b2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a4cab0246226cf22a1b7212b832a902783952407
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854841"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446504"
 ---
 # <a name="customize-the-active-directory-administrative-center-navigation-pane"></a>Anpassen des Navigationsbereichs des Active Directory-Verwaltungscenter
 
@@ -33,21 +33,21 @@ ms.locfileid: "59854841"
 
 ### <a name="to-customize-the-active-directory-administrative-center-navigation-pane"></a>Um die Anpassung des Navigationsbereichs des Active Directory-Verwaltungscenter
 
-1.  Direkt in den Navigationsbereich des Active Directory Administrative Center,\-klicken Sie auf den Knoten, die Sie ändern möchten. Sie können die Position oder den Namen des Knotens ändern oder den Knoten duplizieren.
+1. Direkt in den Navigationsbereich des Active Directory Administrative Center,\-klicken Sie auf den Knoten, die Sie ändern möchten. Sie können die Position oder den Namen des Knotens ändern oder den Knoten duplizieren.
 
-2.  Klicken Sie auf die folgenden Befehle aus:
+2. Klicken Sie auf die folgenden Befehle aus:
 
-    -   **Umbenennen**
+   -   **Rename**
 
-    -   **Doppelten Knoten erstellen**
+   -   **Doppelten Knoten erstellen**
 
-    -   **Entfernen**
+   -   **Entfernen**
 
-    -   **Nach oben**
+   -   **Nach oben**
 
-    -   **Nach unten verschieben**
+   -   **Nach unten verschieben**
 
- Mithilfe der Listenansicht können Sie profitieren von der zuletzt verwendeten \(MRU\) Liste. Die MRU-Liste wird automatisch unter einem Navigationsknoten angezeigt, wenn Sie mindestens einen Container in dieses Navigationsknotens besuchen. Sie können auch die aktuelle MRU-Liste anzeigen, erweitern Sie die Breadcrumb-Leiste am oberen Rand des Fensters für die Active Directory Administrative Center. Die MRU-Liste enthält immer die letzten drei Container, die Sie in einem bestimmten Navigationsknoten besucht haben. Jedes Mal, wenn Sie einen bestimmten Container auswählen, wird dieser Container am Anfang der Liste der zuletzt besuchten Objekte hinzugefügt, und der letzte Container in der Liste der zuletzt besuchten Objekte wird entfernt.
+   Mithilfe der Listenansicht können Sie profitieren von der zuletzt verwendeten \(MRU\) Liste. Die MRU-Liste wird automatisch unter einem Navigationsknoten angezeigt, wenn Sie mindestens einen Container in dieses Navigationsknotens besuchen. Sie können auch die aktuelle MRU-Liste anzeigen, erweitern Sie die Breadcrumb-Leiste am oberen Rand des Fensters für die Active Directory Administrative Center. Die MRU-Liste enthält immer die letzten drei Container, die Sie in einem bestimmten Navigationsknoten besucht haben. Jedes Mal, wenn Sie einen bestimmten Container auswählen, wird dieser Container am Anfang der Liste der zuletzt besuchten Objekte hinzugefügt, und der letzte Container in der Liste der zuletzt besuchten Objekte wird entfernt.
 
   
 

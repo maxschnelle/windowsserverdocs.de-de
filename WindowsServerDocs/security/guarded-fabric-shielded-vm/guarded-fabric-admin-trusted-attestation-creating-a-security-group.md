@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: ba547dff862a283b68ff105a14b14ed367891745
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fb84720b94746a3c5757037ceb5c9bc8c965ff7f
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816341"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447164"
 ---
 # <a name="create-a-security-group-for-guarded-hosts-and-register-the-group-with-hgs"></a>Erstellen Sie eine Sicherheitsgruppe für überwachte Hosts und die Gruppe bei HGS registriert
 
@@ -53,8 +53,8 @@ Dieses Thema beschreibt die fortgeschrittene Schritte zur Vorbereitung von Hyper
 
 ## <a name="next-step"></a>Nächster Schritt
 
->[!div class="nextstepaction"]
-[Nachweis bestätigen](guarded-fabric-confirm-hosts-can-attest-successfully.md)
+> [!div class="nextstepaction"]
+> [Bestätigen des Nachweises](guarded-fabric-confirm-hosts-can-attest-successfully.md)
 
 
 ## <a name="see-also"></a>Siehe auch

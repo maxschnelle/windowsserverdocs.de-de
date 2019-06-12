@@ -12,12 +12,12 @@ ms.assetid: 1b4776e8-9504-4b98-ae80-11da797d9819
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: d184c97e47f04b9d7434aaeb0d328761bcfac1c0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 4249273c42e07fea980af3e97ae59b31db243e56
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839271"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433342"
 ---
 # <a name="manage-client-computer-backup-in-windows-server-essentials"></a>Verwalten der Clientcomputersicherung in Windows Server Essentials
 
@@ -78,7 +78,7 @@ ms.locfileid: "59839271"
   
  Standardwerte:  
   
-|Sicherungseinstellung|Standard|Beschreibung|  
+|Sicherungseinstellung|Default|Beschreibung|  
 |--------------------|-------------|-----------------|  
 |Startzeit|18:00|Gibt die Uhrzeit an, zu der die tägliche Sicherung beginnt. Es wird empfohlen, eine Zeit festzulegen, zu der kein Benutzer seinen Computer verwendet.|  
 |Endzeit|9:00 Uhr|Gibt die Zeit an, zu der die Sicherung abgeschlossen sein muss. Wenn für die Sicherung keine Dauer angegeben werden muss, wird nur die Zeit verwendet, die zum erfolgreichen Erstellen einer Sicherungskopie des Computers erforderlich ist.|  
@@ -109,7 +109,7 @@ ms.locfileid: "59839271"
 4.  Klicken Sie auf **Schließen** , wenn die Sicherung für den Computer eingerichtet ist.  
   
 ### <a name="critical-system-files"></a>Wichtige Systemdateien  
- Wenn Sie das Windows-Betriebssystem installieren, erstellt das Setupprogramm Ordner auf dem Systemlaufwerk, in dem Dateien gespeichert werden, die das System zum Starten und Ausführen benötigt. Zu den wichtigen Systemdateien gehören Dateien mit der Dateierweiterung .dll, .exe, .ocx und .sys. Einige dieser Dateien sind True Type-Schriftarten. Darüber hinaus sind Systemstatusdateien, z. B. der Registrierung des Systems s erforderlich ist, für das Betriebssystem ordnungsgemäß ausgeführt.  
+ Wenn Sie das Windows-Betriebssystem installieren, erstellt das Setupprogramm Ordner auf dem Systemlaufwerk, in dem Dateien gespeichert werden, die das System zum Starten und Ausführen benötigt. Zu den wichtigen Systemdateien gehören Dateien mit der Dateierweiterung .dll, .exe, .ocx und .sys. Einige dieser Dateien sind True Type-Schriftarten. Darüber hinaus sind Systemstatusdateien, z. B. die systemregistrierung, für das Betriebssystem zur ordnungsgemäßen Ausführung erforderlich.  
   
 ### <a name="find-the-file-you-are-looking-for"></a>Suchen der gewünschten Datei  
  Sie können alle Ordner für einen Computer, mehrere Dateien und Ordner oder eine einzelne Datei oder einen einzelnen Ordner aus einer vorhandenen Sicherung wiederherstellen.  
@@ -119,17 +119,17 @@ ms.locfileid: "59839271"
 ### <a name="why-am-i-unable-to-select-some-items"></a>Warum kann ich einige Elemente nicht auswählen?  
  Das Kontrollkästchen im Auswahlmenü auf der Seite **Zu sichernde Elemente auswählen** kann verschiedene Status für jeden Ordner angeben. Status des Kontrollkästchens:  
   
--   **Aktiviert**– Die zugehörigen Ordner und Ordnerinhalte werden für die Sicherung ausgewählt.  
+- **Aktiviert**– Die zugehörigen Ordner und Ordnerinhalte werden für die Sicherung ausgewählt.  
   
--   **Deaktiviert**– Die zugehörigen Ordner und Ordnerinhalte werden von der Sicherung ausgeschlossen.  
+- **Deaktiviert**– Die zugehörigen Ordner und Ordnerinhalte werden von der Sicherung ausgeschlossen.  
   
--   **Einfarbig**– Der zugehörige Ordner wird für die Sicherung ausgewählt, aber ein oder mehrere Elemente in diesem Ordner werden von der Sicherung ausgeschlossen.  
+- **Einfarbig**– Der zugehörige Ordner wird für die Sicherung ausgewählt, aber ein oder mehrere Elemente in diesem Ordner werden von der Sicherung ausgeschlossen.  
   
- Die Auswahl eines bestimmten Ordners ist nicht möglich:  
+  Die Auswahl eines bestimmten Ordners ist nicht möglich:  
   
--   Das Volume kann für eine Sicherung konfiguriert sein, ist aber möglicherweise offline. Dies tritt häufig bei USB-Wechseldatenträgern auf. Volumes, die offline sind, werden mit grauem Text angezeigt.  
+- Das Volume kann für eine Sicherung konfiguriert sein, ist aber möglicherweise offline. Dies tritt häufig bei USB-Wechseldatenträgern auf. Volumes, die offline sind, werden mit grauem Text angezeigt.  
   
--   Sie können nur Daten von einem lokalen Laufwerk sichern, das als NTFS-Dateisystem formatiert ist. Laufwerke, die als FAT- (und FAT32-) oder ReFS-Dateisystem formatiert sind, werden in der Liste der zu sichernden Laufwerke nicht angezeigt.  
+- Sie können nur Daten von einem lokalen Laufwerk sichern, das als NTFS-Dateisystem formatiert ist. Laufwerke, die als FAT- (und FAT32-) oder ReFS-Dateisystem formatiert sind, werden in der Liste der zu sichernden Laufwerke nicht angezeigt.  
   
 > [!IMPORTANT]
 >  Der Volumeschattenkopie-Dienst (Volume Shadow Copy Service, VSS) unterstützt nicht das Erstellen einer Schattenkopie eines virtuellen Volumes und des Hostvolumes in demselben Snapshotsatz. VSS unterstützt das Erstellen von Snapshots von Volumes auf einer virtuellen Festplatte (VHD), wenn eine Sicherung des virtuellen Volumes erforderlich ist. Weitere Informationen finden Sie unter [Warten und Sichern virtueller Festplatten](https://go.microsoft.com/fwlink/p/?LinkId=256577).  
@@ -265,30 +265,30 @@ ms.locfileid: "59839271"
   
 #### <a name="to-disable-backup-for-a-computer"></a>So deaktivieren Sie die Sicherung für einen Computer  
   
-1.  Öffnen Sie das **Dashboard**.  
+1. Öffnen Sie das **Dashboard**.  
   
-2.  Klicken Sie auf die Registerkarte **Geräte**.  
+2. Klicken Sie auf die Registerkarte **Geräte**.  
   
-3.  Klicken Sie auf den Namen des Computers an, für den Sie Sicherungen deaktivieren möchten.  
+3. Klicken Sie auf den Namen des Computers an, für den Sie Sicherungen deaktivieren möchten.  
   
-4.  Klicken Sie im Bereich "Aufgaben" auf **Sicherung für den Computer anpassen**. Der Assistent zum Anpassen der Sicherung wird angezeigt.  
+4. Klicken Sie im Bereich "Aufgaben" auf **Sicherung für den Computer anpassen**. Der Assistent zum Anpassen der Sicherung wird angezeigt.  
   
-5.  Klicken Sie auf **Sicherung für den Computer deaktivieren**, und wählen Sie dann, ob die vorhandenen Sicherungsdateien aufbewahrt oder gelöscht werden sollen.  
+5. Klicken Sie auf **Sicherung für den Computer deaktivieren**, und wählen Sie dann, ob die vorhandenen Sicherungsdateien aufbewahrt oder gelöscht werden sollen.  
   
-6.  Klicken Sie auf **Änderungen speichern** und dann auf **Schließen**.  
+6. Klicken Sie auf **Änderungen speichern** und dann auf **Schließen**.  
   
- Weitere Informationen dazu, wie Sie eine Sicherung für einen Computer aktivieren, nachdem die Sicherung deaktiviert wurde, finden Sie unter [Set up backup for a client computer](Manage-Client-Computer-Backup-in-Windows-Server-Essentials.md#BKMK_3).  
+   Weitere Informationen dazu, wie Sie eine Sicherung für einen Computer aktivieren, nachdem die Sicherung deaktiviert wurde, finden Sie unter [Set up backup for a client computer](Manage-Client-Computer-Backup-in-Windows-Server-Essentials.md#BKMK_3).  
   
 ##  <a name="BKMK_10"></a> Ausführen der sicherungsbereinigungsaufgabe  
  Die Bereinigungsaufgabe der Clientcomputersicherung ist für 11:59 Uhr jeden Samstag geplant, nachdem alle Sicherungen durchgeführt wurden. Die Bereinigungsaufgabe löscht Sicherungen aus der Datenbank mit Clientcomputersicherungen gemäß der Sicherungsaufbewahrungsrichtlinie. Standardeinstellungen für die Sicherungsaufbewahrungsrichtlinie:  
   
--   Anzahl an Tagen, die tägliche Sicherungen aufbewahrt werden: 5 Tage  
+- Anzahl an Tagen, die tägliche Sicherungen aufbewahrt werden: 5 Tage  
   
--   Anzahl an Wochen, die die letzte Sicherung der Woche aufbewahrt wird: 4 Wochen  
+- Anzahl an Wochen, die die letzte Sicherung der Woche aufbewahrt wird: 4 Wochen  
   
--   Anzahl an Monaten, die die letzte Sicherung des Monats aufbewahrt wird: 6 Monate  
+- Anzahl an Monaten, die die letzte Sicherung des Monats aufbewahrt wird: 6 Monate  
   
- Informationen zum Ändern der Sicherungsaufbewahrungsrichtlinie finden Sie unter [Ändern der Aufbewahrungsrichtlinie für die Computersicherung](Manage-Client-Computer-Backup-in-Windows-Server-Essentials.md#BKMK_5).  
+  Informationen zum Ändern der Sicherungsaufbewahrungsrichtlinie finden Sie unter [Ändern der Aufbewahrungsrichtlinie für die Computersicherung](Manage-Client-Computer-Backup-in-Windows-Server-Essentials.md#BKMK_5).  
   
 #### <a name="to-run-the-client-backup-database-cleanup-task"></a>So führen Sie die Bereinigungsaufgabe der Clientsicherungsdatenbank aus  
   
@@ -450,9 +450,9 @@ ms.locfileid: "59839271"
   
  Die Seite "Dateiversionsverlauf" bietet die folgenden Optionen:  
   
-|Sicherungseinstellung|Standard|Beschreibung|  
+|Sicherungseinstellung|Default|Beschreibung|  
 |--------------------|-------------|-----------------|  
-|Einschalten/Ausschalten|Ein|Der Dateiversionsverlauf ist bei der Installation von Windows Server Essentials standardmäßig aktiviert.|  
+|Einschalten/Ausschalten|On|Der Dateiversionsverlauf ist bei der Installation von Windows Server Essentials standardmäßig aktiviert.|  
 |Sicherungsdaten|Dokumente und Desktop|Es gibt drei vorkonfigurierte Einstellungen, mit denen Sie eine Vielzahl von Sicherungslösungen festlegen können. Sie können eine der folgenden Optionen auswählen:<br /><br /> -Dokumente und Desktop<br /><br /> – Alle Bibliotheken, Desktop, Kontakte und Favoriten<br /><br /> -Alle Daten in Bibliotheken, Desktop, Kontakte und Favoriten mit Ausnahme der Daten in die Musik, Videos und Bilder Bibliotheken|  
 |Sicherungshäufigkeit|Jede Stunde|Gibt an, wie oft der Dateiversionsverlauf eine Sicherung der ausgewählten Daten erstellt. Sie können aus verschiedenen Optionen wählen, von "Jede 10 Minuten" bis hin zu "Täglich".|  
 |Aufbewahrungsdauer der Kopien|1 Jahr|Gibt die Dauer an, die eine Sicherungskopie im Dateiversionsverlauf aufbewahrt wird.|  

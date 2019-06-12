@@ -13,19 +13,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c45e26f6578510837f190ae20e3140e619dc59cb
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6abf8466f90ac29846f2e1ee7d305e7e4280231e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59841761"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438631"
 ---
 # <a name="ftp-ls1"></a>ftp: ls_1
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
-
-
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+> Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+> 
+> 
+> Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
 
 Zeigt eine verkürzte Liste der Dateien und Unterverzeichnisse des Remotecomputers an.   
 ## <a name="syntax"></a>Syntax  
@@ -33,10 +33,12 @@ Zeigt eine verkürzte Liste der Dateien und Unterverzeichnisse des Remotecompute
 ls [<remotedirectory>] [<LocalFile>]  
 ```  
 ### <a name="parameters"></a>Parameter  
-|Parameter|Beschreibung|  
-|-------|--------|  
-|[<remotedirectory>]|Gibt das Verzeichnis für das eine Liste angezeigt werden sollen. Wenn kein Verzeichnis angegeben ist, wird das aktuelle Arbeitsverzeichnis auf dem Remotecomputer verwendet.|  
-|[<LocalFile>]|Gibt eine lokale Datei in dem die Auflistung gespeichert. Wenn eine lokale Datei nicht angegeben ist, werden die Ergebnisse auf dem Bildschirm angezeigt.|  
+
+|      Parameter      |                                                                       Beschreibung                                                                        |
+|---------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [<remotedirectory>] | Gibt das Verzeichnis für das eine Liste angezeigt werden sollen. Wenn kein Verzeichnis angegeben ist, wird das aktuelle Arbeitsverzeichnis auf dem Remotecomputer verwendet. |
+|    [<LocalFile>]    |               Gibt eine lokale Datei in dem die Auflistung gespeichert. Wenn eine lokale Datei nicht angegeben ist, werden die Ergebnisse auf dem Bildschirm angezeigt.               |
+
 ## <a name="BKMK_Examples"></a>Beispiele für  
 Anzeigen einer verkürzten Liste der Dateien und Unterverzeichnisse des Remotecomputers an.  
 ```  
@@ -47,4 +49,4 @@ Erhalten Sie eine abgekürzte Verzeichnisliste mit **dir1** wird aufgerufen, auf
 ls dir1 dirlist.txt   
 ```  
 ## <a name="additional-references"></a>Zusätzliche Referenzen  
--   [Befehlszeilensyntax](command-line-syntax-key.md)  
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  

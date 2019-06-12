@@ -13,12 +13,12 @@ ms.assetid: 73bff8ba-939d-40d8-b1e5-3ba3ed5439c3
 ms.author: pashort
 author: shortpatti
 ms.date: 08/23/2018
-ms.openlocfilehash: 55847bfbc0362887497514009f6efe1312d79906
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4d53c4bcbe1f37f532f2861d5669201959a9f091
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819351"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446668"
 ---
 # <a name="configure-the-software-load-balancer-for-load-balancing-and-network-address-translation-nat"></a>Konfigurieren des Software Load Balancers für den Lastenausgleich und Netzwerkadressenübersetzung
 
@@ -109,22 +109,22 @@ In diesem Beispiel erstellen Sie einen Load Balancer-Objekt mit einer öffentlic
     $LoadBalancerProperties.Probes += $Probe
    ```
 
-5.  Definieren Sie eine lastenausgleichsregel zum Senden von Datenverkehr, die auf die Back-End-IP-Adresse der Front-End-IP-Adresse empfängt.  In diesem Beispiel erhält der Back-End-Adresspool TCP-Datenverkehr an Port 80.<p>Verwenden Sie das folgende Beispiel, um eine lastenausgleichsregel zu definieren:
+5. Definieren Sie eine lastenausgleichsregel zum Senden von Datenverkehr, die auf die Back-End-IP-Adresse der Front-End-IP-Adresse empfängt.  In diesem Beispiel erhält der Back-End-Adresspool TCP-Datenverkehr an Port 80.<p>Verwenden Sie das folgende Beispiel, um eine lastenausgleichsregel zu definieren:
 
    ```PowerShell
-    $Rule = new-object Microsoft.Windows.NetworkController.LoadBalancingRule
-    $Rule.ResourceId = "webserver1"
+   $Rule = new-object Microsoft.Windows.NetworkController.LoadBalancingRule
+   $Rule.ResourceId = "webserver1"
 
-    $Rule.Properties = new-object Microsoft.Windows.NetworkController.LoadBalancingRuleProperties
-    $Rule.Properties.FrontEndIPConfigurations += $FrontEndIPConfig
-    $Rule.Properties.backendaddresspool = $BackEndAddressPool 
-    $Rule.Properties.protocol = "TCP"
-    $Rule.Properties.FrontEndPort = 80
-    $Rule.Properties.BackEndPort = 80
-    $Rule.Properties.IdleTimeoutInMinutes = 4
-    $Rule.Properties.Probe = $Probe
+   $Rule.Properties = new-object Microsoft.Windows.NetworkController.LoadBalancingRuleProperties
+   $Rule.Properties.FrontEndIPConfigurations += $FrontEndIPConfig
+   $Rule.Properties.backendaddresspool = $BackEndAddressPool 
+   $Rule.Properties.protocol = "TCP"
+   $Rule.Properties.FrontEndPort = 80
+   $Rule.Properties.BackEndPort = 80
+   $Rule.Properties.IdleTimeoutInMinutes = 4
+   $Rule.Properties.Probe = $Probe
 
-    $LoadBalancerProperties.loadbalancingRules += $Rule
+   $LoadBalancerProperties.loadbalancingRules += $Rule
    ```
 
 6. Fügen Sie die Lastenausgleichsmodul-Konfiguration für den Netzwerkcontroller hinzu.<p>Verwenden Sie das folgende Beispiel, um die Lastenausgleichsmodul-Konfiguration für den Netzwerkcontroller hinzufügen:
@@ -205,7 +205,7 @@ Sie können diesen Prozess auf eine einzelne Netzwerkschnittstelle für die hinz
    ```PowerShell
    $lbresourceid = "LB2"
    $lb = get-networkcontrollerloadbalancer -connectionuri $uri -resourceID $LBResourceId -PassInnerException
-  ```
+   ```
 
 2. Erhalten Sie die Netzwerkschnittstelle aus, und fügen Sie in das Array Loadbalancerbackendaddresspools Backendaddress Pool hinzu.
 
@@ -280,17 +280,17 @@ In diesem Beispiel wird dieselbe Aktion wie im vorherigen Beispiel wiederholt, a
     PreviousIpConfiguration  :
    ```
  
-1. Weisen Sie die öffentliche IP-Adresse einer Netzwerkschnittstelle an.
+3. Weisen Sie die öffentliche IP-Adresse einer Netzwerkschnittstelle an.
 
    ```PowerShell
    $nic = get-networkcontrollernetworkinterface  -connectionuri $uri -resourceid 6daca142-7d94-0000-1111-c38c0141be06
    $nic.properties.IpConfigurations[0].Properties.PublicIPAddress = $publicIP
    New-NetworkControllerNetworkInterface -ConnectionUri $uri -ResourceId $nic.ResourceId -Properties $nic.properties -PassInnerException
    ```
-## <a name="example-remove-a-publicip-address-that-is-being-used-for-forwarding-traffic-and-return-it-to-the-vip-pool"></a>Beispiel: Entfernen Sie eine öffentliche IP-Adresse, die für das Weiterleiten von Datenverkehr verwendet wird und an die VIP-Adresspool zurückgeben
-Dieses Beispiel entfernt die öffentliche IP-Adressressource, die von den vorherigen Beispielen erstellt wurde.  Nachdem die öffentliche IP-Adresse entfernt wurde, wird der Verweis auf die öffentliche IP-Adresse automatisch aus der Netzwerkschnittstelle entfernt werden, der Datenverkehr weitergeleitet wird beendet und die IP-Adresse an den öffentlichen VIP-Pool für die erneute Verwendung zurückgegeben.  
+   ## <a name="example-remove-a-publicip-address-that-is-being-used-for-forwarding-traffic-and-return-it-to-the-vip-pool"></a>Beispiel: Entfernen Sie eine öffentliche IP-Adresse, die für das Weiterleiten von Datenverkehr verwendet wird und an die VIP-Adresspool zurückgeben
+   Dieses Beispiel entfernt die öffentliche IP-Adressressource, die von den vorherigen Beispielen erstellt wurde.  Nachdem die öffentliche IP-Adresse entfernt wurde, wird der Verweis auf die öffentliche IP-Adresse automatisch aus der Netzwerkschnittstelle entfernt werden, der Datenverkehr weitergeleitet wird beendet und die IP-Adresse an den öffentlichen VIP-Pool für die erneute Verwendung zurückgegeben.  
 
-1. Entfernen Sie die öffentliche IP
+4. Entfernen Sie die öffentliche IP
 
    ```PowerShell
    Remove-NetworkControllerPublicIPAddress -ConnectionURI $uri -ResourceId "MyPIP"

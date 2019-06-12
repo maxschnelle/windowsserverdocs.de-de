@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: e9a2b2162fcf11385a5a866372e57338df87c541
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7e9a5b397127e9eb88352fb4d7bc28955023d4b7
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850591"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447216"
 ---
 # <a name="enable-access-based-enumeration-on-a-namespace"></a>Aktivieren Sie die zugriffsbasierte Aufzählungen für einen Namespace
 
@@ -78,15 +78,15 @@ Sie können steuern, welche Benutzer und Gruppen einzelne DFS-Ordner mithilfe de
 
 ## <a name="to-control-folder-visibility-by-using-a-command-line"></a>So steuern Sie die Sichtbarkeit der Ordner über eine Befehlszeile
 
-1.  Öffnen Sie ein Eingabeaufforderungsfenster auf einem Server, auf dem der Rollendienst **Verteiltes Dateisystem** oder die Funktion **DFS-Tools** installiert ist.
+1. Öffnen Sie ein Eingabeaufforderungsfenster auf einem Server, auf dem der Rollendienst **Verteiltes Dateisystem** oder die Funktion **DFS-Tools** installiert ist.
 
-2.  Geben Sie den folgenden Befehl, in denen *&lt;DFSPath&gt;* ist der Pfad des DFS-Ordners (Link), *< Domäne\\Konto >* ist der Name des Kontos Gruppen- oder Benutzernamen und *(...)*  durch zusätzliche Zugriffssteuerungseinträge (ACEs) ersetzt wird:
+2. Geben Sie den folgenden Befehl, in denen *&lt;DFSPath&gt;* ist der Pfad des DFS-Ordners (Link), *< Domäne\\Konto >* ist der Name des Kontos Gruppen- oder Benutzernamen und *(...)*  durch zusätzliche Zugriffssteuerungseinträge (ACEs) ersetzt wird:
 
-    ```
-    dfsutil property sd grant <DFSPath> DOMAIN\Account:R (...) Protect Replace
-    ```
+   ```
+   dfsutil property sd grant <DFSPath> DOMAIN\Account:R (...) Protect Replace
+   ```
 
-    Ersetzen von vorhandenen Berechtigungen mit den Berechtigungen, die ermöglicht beispielsweise der Domänen-Admins und CONTOSO\\Trainer für Gruppen Read (R) Zugriff auf die \\contoso.office\public\training-Ordner, geben Sie den folgenden Befehl aus:
+   Ersetzen von vorhandenen Berechtigungen mit den Berechtigungen, die ermöglicht beispielsweise der Domänen-Admins und CONTOSO\\Trainer für Gruppen Read (R) Zugriff auf die \\contoso.office\public\training-Ordner, geben Sie den folgenden Befehl aus:
 
    ```
    dfsutil property sd grant \\contoso.office\public\training "CONTOSO\Domain Admins":R CONTOSO\Trainers:R Protect Replace 
@@ -103,7 +103,7 @@ Sie können steuern, welche Benutzer und Gruppen einzelne DFS-Ordner mithilfe de
 
 ## <a name="see-also"></a>Siehe auch
 
--   [Erstellen Sie eine DFS-Namespace](create-a-dfs-namespace.md)
+-   [Erstellen eines DFS-Namespaces](create-a-dfs-namespace.md)
 -   [Delegieren von Verwaltungsberechtigungen für DFS-Namespaces](delegate-management-permissions-for-dfs-namespaces.md)
 -   [Installieren von DFS](https://technet.microsoft.com/library/cc731089(v=ws.11).aspx)
 -   [Verwenden geerbte Berechtigungen mit der zugriffsbasierten Aufzählung](using-inherited-permissions-with-access-based-enumeration.md)

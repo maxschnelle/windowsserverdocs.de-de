@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: 4235231c-4732-4ea9-9330-2a8c8a616d39
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: dc2cb29f0f00c04c4208bd83d70bc4d966bbad00
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 54991b343623b934118bb62af1bd91871a726996
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839351"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446482"
 ---
 # <a name="deploy-branchcache-hosted-cache-mode"></a>Bereitstellen des BranchCache-Modus „Gehosteter Cache“
 
@@ -42,7 +42,7 @@ Dieses Handbuch enthält die folgenden Abschnitte:
 
 - [BranchCache-gehosteten Cache-Modus-Bereitstellung](4-Bc-Hcm-Deployment.md)
 
-- [Zusätzliche Ressourcen](11-Bc-Hcm-additional-resources.md)
+- [Weitere Ressourcen](11-Bc-Hcm-additional-resources.md)
 
 ## <a name="bkmk_pre"></a>Voraussetzungen für die Verwendung dieses Handbuchs
 
@@ -63,8 +63,8 @@ Dies ist ein Begleithandbuch zum Windows Server 2016 Core Network Guide. Zum Ber
     - Windows 8.1 Enterprise
     - Windows 8 Enterprise
 
->[!NOTE]
->In den folgenden Betriebssystemen BranchCache ist HTTP und SMB-Funktionalität nicht unterstützt, aber BITS des BranchCache-Funktionalität unterstützt.
+> [!NOTE]
+> In den folgenden Betriebssystemen BranchCache ist HTTP und SMB-Funktionalität nicht unterstützt, aber BITS des BranchCache-Funktionalität unterstützt.
 >     - Windows 10 Pro, unterstützen BITS nur
 >     - Windows 8.1 Pro unterstützen BITS nur
 >     - Windows 8 Pro, unterstützen BITS nur

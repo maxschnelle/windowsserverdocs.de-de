@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 187db7e201e98ae97268b96c2e4faa202a9a5372
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 40471354af5434e77a300303572ccce639ba2489
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874831"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443786"
 ---
 # <a name="install-a-new-windows-server-2012-active-directory-forest-level-200"></a>Installieren einer neuen Active Directory-Gesamtstrukturdomäne in Windows Server 2012 (Stufe 200)
 
@@ -88,15 +88,15 @@ Diese neuen Features sind nicht abwärtskompatibel mit Windows Server 2008 R2 od
   
 ![Neue Gesamtstruktur installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_PSInstallADDSForest.png)  
   
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Dcpromo.exe enthält nun keinen grafischen Assistenten und installiert keine Binärdateien für Rollen oder Feature. Beim Ausführen von Dcpromo.exe aus der Explorer-Shell wird Folgendes zurückgegeben:  
->   
-> "Mit dem Assistenten zum Installieren von Active Directory-Domäne wird im Server-Manager verschoben. Weitere Informationen finden Sie unter https://go.microsoft.com/fwlink/?LinkId=220921. "  
->   
+> 
+> "Mit dem Assistenten zum Installieren von Active Directory-Domäne wird im Server-Manager verschoben. Weitere Informationen finden Sie unter <https://go.microsoft.com/fwlink/?LinkId=220921>. "  
+> 
 > Bei der Ausführung von Dcpromo.exe /unattend werden die Binärdateien wie in älteren Betriebssystemen weiterhin installiert, allerdings wird eine Warnung ausgegeben:  
->   
-> "Das DCPROMO-Dienstprogramm für die unbeaufsichtigte Vorgang wird durch das ADDSDeployment-Modul für Windows PowerShell ersetzt. Weitere Informationen finden Sie unter https://go.microsoft.com/fwlink/?LinkId=220924. "  
->   
+> 
+> "Das DCPROMO-Dienstprogramm für die unbeaufsichtigte Vorgang wird durch das ADDSDeployment-Modul für Windows PowerShell ersetzt. Weitere Informationen finden Sie unter <https://go.microsoft.com/fwlink/?LinkId=220924>. "  
+> 
 > dcpromo.exe ist in Windows Server 2012 veraltet und wird in zukünftigen Windows-Versionen nicht enthalten sein und in diesem Betriebssystem auch nicht mehr erweitert werden. Administratoren sollten dessen Verwendung einstellen und stattdessen die unterstützten Windows PowerShell-Module verwenden, wenn sie Domänencontroller per Befehlszeile erstellen möchten.  
   
 #### <a name="prerequisite-checking"></a>Voraussetzungsprüfung  

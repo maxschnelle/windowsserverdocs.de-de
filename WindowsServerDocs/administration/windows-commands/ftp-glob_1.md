@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 249e9546bec467f92991b15a3d65df173036e464
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8824fab77c3cc10828b31abbe2f9034778c39c47
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857371"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438742"
 ---
 # <a name="ftp-glob1"></a>FTP: glob_1
 
@@ -32,12 +32,12 @@ glob
 ### <a name="parameters"></a>Parameter  
 none  
 ## <a name="remarks"></a>Hinweise  
--   Standardmäßig ist die Verwendung von Platzhaltern auf.  
--   Verwendung von Platzhaltern ermöglicht die Verwendung des Sternchens (*) und Fragezeichen (?) als Platzhalter in lokalen Datei oder Pfad.  
-## <a name="BKMK_Examples"></a>Beispiele für  
-Platzhaltererweiterung von lokalen Dateinamen zu wechseln.  
-```  
-glob  
-```  
-## <a name="additional-references"></a>Zusätzliche Referenzen  
--   [Befehlszeilensyntax](command-line-syntax-key.md)  
+- Standardmäßig ist die Verwendung von Platzhaltern auf.  
+- Verwendung von Platzhaltern ermöglicht die Verwendung des Sternchens (*) und Fragezeichen (?) als Platzhalter in lokalen Datei oder Pfad.  
+  ## <a name="BKMK_Examples"></a>Beispiele für  
+  Platzhaltererweiterung von lokalen Dateinamen zu wechseln.  
+  ```  
+  glob  
+  ```  
+  ## <a name="additional-references"></a>Zusätzliche Referenzen  
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  

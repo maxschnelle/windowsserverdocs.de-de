@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 05/07/2018
-ms.openlocfilehash: 5b9343dc2f6b4c74da5a9d89a2ea804b702248cc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: aadb3a77cda7f1403cd2f04ced12c17617f046df
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59841171"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439570"
 ---
 # <a name="diskcopy"></a>diskcopy
 
@@ -84,9 +84,9 @@ diskcopy [<Drive1>: [<Drive2>:]] [/v]
 
 > [!NOTE]
 > Sie können keine **Xcopy** ein Startdatenträger zu kopieren.
--   Grundlegendes zu **Diskcopy** Exitcodes
+> -   Grundlegendes zu **Diskcopy** Exitcodes
 
-    In der folgende Tabelle wird erläutert, jede Exitcode.  
+    The following table explains each exit code.  
     |Exitcode|Beschreibung|
     |---------|-----------|
     |0|Copy-Vorgang war erfolgreich.|
@@ -94,7 +94,7 @@ diskcopy [<Drive1>: [<Drive2>:]] [/v]
     |3|Schwerwiegender Fehler aufgetreten ist.|
     |4|Fehler bei der Initialisierung aufgetreten ist.|
 
-    Die Exitcodes zu verarbeiten, die von zurückgegeben werden **Diskcomp**, können Sie die *ERRORLEVEL* Umgebungsvariable auf den **Wenn** Befehlszeile in einem Batchprogramm.
+    To process the exit codes that are returned by **diskcomp**, you can use the *ERRORLEVEL* environment variable on the **if** command line in a batch program.
 
 ## <a name="BKMK_examples"></a>Beispiele für
 
@@ -108,4 +108,4 @@ Diskcopy a: a:
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

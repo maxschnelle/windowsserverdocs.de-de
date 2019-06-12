@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.date: 10/17/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: ab5bee55975b803a77db0b6cdb179b76590e1d83
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: be41267d6584002ebf87e5fe828a41575d305e1b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826051"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445908"
 ---
 # <a name="windows-admin-center-ui-text-and-design-style-guide"></a>Windows Admin Center Text- und Designformatanleitung
 
@@ -33,7 +33,7 @@ Windows Admin Center und andere Erweiterungen sollten [Microsofts VoIP-Prinzipie
 
 Wir folgen der Microsoft-Formatvorlage für die [Großschreibung](https://docs.microsoft.com/style-guide/capitalization) - der Verwendung der Satz-Groß-/Kleinschreibung für ziemlich alles.
 
-| UI-Element              |Großschreibung|Anmerkungen|
+| UI-Element              |Großschreibung|Kommentare|
 |-------------------------|--------------|--------|
 |Badges (beispielsweise PREVIEW) |Großbuchstaben      ||
 |Alle anderen          |Satzstil|Es gibt jedoch einige Ausnahmen, bei denen Objekteigenschaften von WMI oder PowerShell in Betracht ziehen, die außerhalb unserer Steuerelement sind.|
@@ -199,12 +199,12 @@ Nullzustand tritt auf, wenn Kundendaten oder Inhalt nicht vorhanden ist aus eine
 
 ### <a name="guidelines"></a>Richtlinien
 
- - Wenn möglich, als Gelegenheit verwenden Sie Nullzustand Situationen, informieren Sie Benutzer zur Verwendung die Funktion (z. B. wie Musik, hinzugefügt werden, suchen, Bilder usw.)  
-- Wenn Sie einen Titel auf der Benutzeroberfläche haben, erklären Sie die Aktion "beheben" den Status null (z. B. "Musik hinzufügen") 
-- Spaß mit dem Text. Dieser Speicherplatz kann die Gelegenheit, begeistern zu bieten, da es wahrscheinlich nicht mehrmals angezeigt werden, wird sein. 
-- Vermeiden Sie "Es ist sehr einsam hier." Dies ist eine traurige Sache, und ist übermäßig beansprucht wurde. 
-- Vermeiden Sie Fragen wie "Ihr Drucker noch nicht verbunden werden?" Okay, um einmal zu verwenden, aber dieses Format ist übermäßig beansprucht zu erhalten, und Fragen stellen zusätzliche Belastung/Druck auf den Kunden. Sie können auch ein herablassender können. 
-- Verschiedene Status null-Text ist eine gute Sache. 
+- Wenn möglich, als Gelegenheit verwenden Sie Nullzustand Situationen, informieren Sie Benutzer zur Verwendung die Funktion (z. B. wie Musik, hinzugefügt werden, suchen, Bilder usw.)  
+  - Wenn Sie einen Titel auf der Benutzeroberfläche haben, erklären Sie die Aktion "beheben" den Status null (z. B. "Musik hinzufügen") 
+  - Spaß mit dem Text. Dieser Speicherplatz kann die Gelegenheit, begeistern zu bieten, da es wahrscheinlich nicht mehrmals angezeigt werden, wird sein. 
+  - Vermeiden Sie "Es ist sehr einsam hier." Dies ist eine traurige Sache, und ist übermäßig beansprucht wurde. 
+  - Vermeiden Sie Fragen wie "Ihr Drucker noch nicht verbunden werden?" Okay, um einmal zu verwenden, aber dieses Format ist übermäßig beansprucht zu erhalten, und Fragen stellen zusätzliche Belastung/Druck auf den Kunden. Sie können auch ein herablassender können. 
+  - Verschiedene Status null-Text ist eine gute Sache. 
 
 ### <a name="examples"></a>Beispiele
 

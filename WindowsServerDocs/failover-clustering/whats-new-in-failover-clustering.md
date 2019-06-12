@@ -8,12 +8,12 @@ manager: dongill
 author: JasonGerend
 ms.author: jgerend
 ms.date: 10/18/2018
-ms.openlocfilehash: 3c0792347aaa70fe80d346cc51cbc44b73c42f39
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: 330f65721fca1908ac54ddfd194f96ffe540f1b5
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65476019"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442361"
 ---
 # <a name="whats-new-in-failover-clustering"></a>What's new in Failover Clustering (Neues beim Failoverclustering)
 
@@ -50,10 +50,10 @@ In diesem Thema wird erläutert, die neue und geänderte Funktionen im Failover-
     Cluster Aware Updating (CAU) ist nun integriert und berücksichtigt Storage Spaces Direct, wodurch die Datensynchronisierung auf jedem Knoten überprüft und sichergestellt wird. Clusterfähiges aktualisieren untersucht Updates nur bei Bedarf auf intelligente Weise neu starten. Dies ermöglicht die Orchestrierung Neustarts für alle Server im Cluster für eine geplante Wartung.
 
 - **File Share Witness Verbesserungen** wir aktiviert die Verwendung von File Share Witness in den folgenden Szenarien: 
-    - Fehlt oder ist sehr schlechte Zugriff auf das Internet aufgrund von einem Remotestandort befindet, verhindert, dass einen cloudzeugen. 
-    - Fehlende der freigegebenen Laufwerke für einen datenträgerzeugen. Dies ist möglicherweise ein "direkte Speicherplätze" hyperkonvergenten Konfiguration einer SQL Server Always On Availability Gruppen (-Verfügbarkeitsgruppen), oder * Exchange Database Availability Group (DAG), verwenden Sie keines der freigegebene Datenträger. 
-    - Mangel an einer domänencontrollerverbindung aufgrund der Cluster wird hinter einer DMZ. 
-    - Ein Arbeitsgruppe oder Cross-Domain-Cluster für die es ist keine Active Directory-Clusternamenobjekt (CNO). Erfahren Sie mehr über diese Erweiterungen in den folgenden Beitrag im Server und Management-Blogs: Failover-Cluster-Dateifreigabenzeugen und DFS.
+  - Fehlt oder ist sehr schlechte Zugriff auf das Internet aufgrund von einem Remotestandort befindet, verhindert, dass einen cloudzeugen. 
+  - Fehlende der freigegebenen Laufwerke für einen datenträgerzeugen. Dies ist möglicherweise ein "direkte Speicherplätze" hyperkonvergenten Konfiguration einer SQL Server Always On Availability Gruppen (-Verfügbarkeitsgruppen), oder * Exchange Database Availability Group (DAG), verwenden Sie keines der freigegebene Datenträger. 
+  - Mangel an einer domänencontrollerverbindung aufgrund der Cluster wird hinter einer DMZ. 
+  - Ein Arbeitsgruppe oder Cross-Domain-Cluster für die es ist keine Active Directory-Clusternamenobjekt (CNO). Erfahren Sie mehr über diese Erweiterungen in den folgenden Beitrag im Server und Management-Blogs: Failover-Cluster-Dateifreigabenzeugen und DFS.
     
     Wir jetzt auch explizit blockiert die Verwendung einer DFS-Namespaces-Dateifreigabe als Speicherort. Hinzufügen ein dateifreigabezeugen Freigabe kann eine DFS-Verknüpfung Stabilitätsprobleme für Ihren Cluster, und diese Konfiguration nicht unterstützt. Wir haben die Logik zum erkennen, wenn eine Freigabe verwendet die DFS-Namespaces und DFS-Namespaces erkannt wird, Failovercluster-Manager blockiert die Erstellung des Zeugen, und zeigt eine Fehlermeldung zur fehlenden Unterstützung hinzugefügt.
 - **Cluster-Härtung**

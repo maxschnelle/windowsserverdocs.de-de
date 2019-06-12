@@ -11,12 +11,12 @@ ms.assetid: f8f8c569-8b74-4c19-876e-1c7d00cce308
 author: larsiwer
 ms.author: kathydav
 ms.date: 10/04/2016
-ms.openlocfilehash: 923216142a45071bc3623e3f37b37cc6a2361f26
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 73cc2e45367d448aa736644e4a3bc02d3670fc6c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812141"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447913"
 ---
 # <a name="generation-1-virtual-machine-security-settings"></a>Generation 1 VM-Sicherheitseinstellungen
 
@@ -45,7 +45,7 @@ Weitere Informationen zu geschützten Fabrics finden Sie im Abschnitt Einführun
 
 Sie können ein Laufwerk Speichern von Schlüsseln an einem leeren Steckplatz eines der VM IDE-Controller hinzufügen. Zu diesem Zweck klicken Sie auf **hinzufügen Schlüssel Speicherlaufwerk** ein Schlüsselspeicher-Laufwerk mit dem ersten kostenlose IDE-Controller-Steckplatz dieses virtuellen Computers hinzufügen.
 
-##<a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Siehe auch
 
 - [Generation 2 VM-Sicherheitseinstellungen in Hyper-V-manager](Generation-2-virtual-machine-security-settings-for-hyper-v.md)
-- [Sicherheit und Zusicherungen](../../../security/Security-and-Assurance.md)
+- [Sicherheit und Zuverlässigkeit](../../../security/Security-and-Assurance.md)

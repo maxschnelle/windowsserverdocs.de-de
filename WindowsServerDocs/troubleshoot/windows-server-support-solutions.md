@@ -10,17 +10,17 @@ ms.date: 03/16/2018
 ms.topic: landing-page
 author: kaushika-msft
 ms.author: elizapo
-ms.openlocfilehash: 1a4d28e168e7ce328ac125d12a07cb0c133e2d0e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fc87bf87a79f5f7e13069ad1a58be0dc940a558e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852121"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447780"
 ---
 # <a name="top-support-solutions-for-windows-server"></a>Die wichtigsten Supportlösungen für Windows Server
 
 >[!TIP]
-> Suchen Sie nach Informationen zu älteren Versionen von Windows? Sehen Sie sich unsere [Windows Server-Bibliotheken](/previous-versions/windows/) auf docs.microsoft.com an. Sie können auch nach bestimmten Informationen [auf dieser Website suchen](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions).
+> Suchen Sie nach Informationen zu älteren Versionen von Windows? Sehen Sie sich unsere [Windows Server-Bibliotheken](/previous-versions/windows/) auf „docs.microsoft.com“ an. Sie können auch nach bestimmten Informationen [auf dieser Website suchen](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions).
 
 Microsoft veröffentlicht regelmäßig Updates und Lösungen für Windows Server. Um sicherzustellen, dass Ihre Server zukünftige Updates einschließlich der Sicherheitsupdates erhalten können, ist es wichtig, sie auf dem neuesten Stand zu halten. Eine komplette Liste der veröffentlichten Updates finden Sie unter [Updateverlauf für Windows 10 und Windows Server 2016](https://support.microsoft.com/en-us/help/4000825/windows-10-windows-server-2016-update-history).
 
@@ -55,7 +55,7 @@ Hierbei handelt es sich um die wichtigsten Microsoft-Support-Lösungen für häu
 <hr>
                        <p><a href="..\get-started\installation-and-upgrade.md">Windows Server-Installation und Upgrade)</a></p>
 <hr>
-                       <p><a href="..\get-started\windows-server-2016-ga-release-notes.md">Anmerkungen zu dieser Version: Wichtige Probleme in WindowsServer 2016)</a></p>
+                       <p><a href="..\get-started\windows-server-2016-ga-release-notes.md">Versionshinweise: Wichtige Probleme in WindowsServer 2016)</a></p>
 <hr>
                        <p><a href="..\get-started\recommendations-moving-to-server2016.md">Empfehlungen für die Umstellung auf Windows Server 2016)</a></p>
                     </div>
@@ -84,10 +84,9 @@ Hierbei handelt es sich um die wichtigsten Microsoft-Support-Lösungen für häu
                         <p><a href="https://technet.microsoft.com/library/ee939272.aspx">So beheben Sie den Schlüsselverwaltungsdienst (KMS)</a></p>
 <hr>
                         <p><a href="https://technet.microsoft.com/library/ff793439.aspx">Problembehandlung für Volume Activation</a></p>
-<hr>                       
-                        <p><a href="https://technet.microsoft.com/library/ff793399.aspx">Aktivierungsfehlercodes</a></p>
+<hr><br/>                        <p><a href="https://technet.microsoft.com/library/ff793399.aspx">Aktivierungsfehlercodes</a></p>
 <hr>
-                        <p><a href="https://support.microsoft.com/help/2796988/windows-8-or-windows-server-2012-installation-may-fail-with-error-mess">Windows-Installation möglicherweise mit Fehler "der eingegebene Product Key nicht Windows-Images verfügbar, für die Installation eines entspricht. Geben Sie einen anderen Product Key"</a></p>
+                        <p><a href="https://support.microsoft.com/help/2796988/windows-8-or-windows-server-2012-installation-may-fail-with-error-mess">Windows-Installation schlägt möglicherweise fehl mit Fehler &quot;der eingegebene Product Key entspricht keinem der Windows-Images für die Installation verfügbar. Geben Sie einen anderen Product key&quot;</a></p>
                     </div>
                 </div>
             </div>
@@ -113,7 +112,7 @@ Hierbei handelt es sich um die wichtigsten Microsoft-Support-Lösungen für häu
 <hr>
                         <p><a href="https://support.microsoft.com/kb/255504">Verwenden von Ntdsutil.exe zum übertragen oder FSMO-Funktionen auf einem Domänencontroller</a></p>
 <hr>
-                        <p><a href="../identity/ad-ds/deploy/troubleshooting-domain-controller-deployment.md">Problembehandlung der Domänencontrollerbereitstellung</a></p>
+                        <p><a href="../identity/ad-ds/deploy/troubleshooting-domain-controller-deployment.md">Behandeln von Problemen bei der Domänencontrollerbereitstellung</a></p>
 <hr>
                         <p><a href="https://msdn.microsoft.com/library/bb727058.aspx">Problembehandlung bei Problemen mit Active Directory Installations-Assistenten</a></p>
 <hr>
@@ -138,10 +137,9 @@ Hierbei handelt es sich um die wichtigsten Microsoft-Support-Lösungen für häu
                         <a href="/azure/active-directory/active-directory-conditional-access-automatic-device-registration-setup">Gewusst wie: Konfigurieren der automatischen Registrierung von Windows-Domäne eingebundenen Geräten mit Azure Active Directory</a>
 <hr>
                         <p><a href="/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup#step-2-setup-issuance-of-claims">Einrichten der Ausstellung von Ansprüchen</a></p>
-<hr>  
-                        <p><a href="../identity/ad-fs/operations/configure-ad-fs-to-authenticate-users-stored-in-ldap-directories.md">Konfigurieren von AD FS zum Authentifizieren von Benutzern in LDAP-Verzeichnissen gespeichert</a></p>
+<hr><br/>                        <p><a href="../identity/ad-fs/operations/configure-ad-fs-to-authenticate-users-stored-in-ldap-directories.md">Konfigurieren von AD FS zum Authentifizieren von Benutzern, die in LDAP-Verzeichnissen gespeichert sind</a></p>
 <hr>
-                        <p><a href="../identity/ad-fs/operations/ad-fs-support-for-alternate-hostname-binding-for-certificate-authentication.md">AD FS-Unterstützung für alternative hostnamenbindung für zertifikatbasierte Authentifizierung</a></p>
+                        <p><a href="../identity/ad-fs/operations/ad-fs-support-for-alternate-hostname-binding-for-certificate-authentication.md">AD FS: Unterstützung der alternativen Hostnamenbindung für die Zertifikatauthentifizierung</a></p>
 <hr>
                         <p><a href="https://blogs.technet.microsoft.com/tspring/2017/01/20/federated-to-microsoft-cloud-and-account-lockouts/">Schutz gegen Angriffe auf Kennwörter</a>
                         <a href="../identity/ad-fs/deployment/upgrading-to-ad-fs-in-windows-server-2016.md">Upgrade von AD FS in Windows Server 2016 mithilfe einer WID-Datenbank</a></p>

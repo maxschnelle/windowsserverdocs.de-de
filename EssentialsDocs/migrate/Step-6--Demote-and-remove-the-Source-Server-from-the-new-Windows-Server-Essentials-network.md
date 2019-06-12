@@ -12,12 +12,12 @@ ms.assetid: 86244c66-2c5e-488d-adb8-112e1ca3e2e1
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 24a1f2da2333c7e6854e9efd9d996391d0fcb3b9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6842137dd498b11bccc2216023d648d61edbb87e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59872361"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432547"
 ---
 # <a name="step-6-demote-and-remove-the-source-server-from-the-new-windows-server-essentials-network"></a>Schritt 6: Tieferstufen und Entfernen des Quellservers aus dem neuen Windows Server Essentials-Netzwerk
 
@@ -76,17 +76,17 @@ Nach Abschluss der Installation von Windows Server Essentials aus, und Sie die M
   
 #### <a name="to-force-a-group-policy-update-on-a-client-computer"></a>Aktualisierung der Gruppenrichtlinie auf einem Clientcomputer erzwingen  
   
-1.  Melden Sie sich als Administrator beim Clientcomputer an.  
+1. Melden Sie sich als Administrator beim Clientcomputer an.  
   
-2.  Öffnen Sie ein Eingabeaufforderungsfenster als Administrator.  
+2. Öffnen Sie ein Eingabeaufforderungsfenster als Administrator.  
   
-3.  Geben Sie an der Eingabeaufforderung **gpupdate /force**, und drücken Sie dann die EINGABETASTE.  
+3. Geben Sie an der Eingabeaufforderung **gpupdate /force**, und drücken Sie dann die EINGABETASTE.  
   
-4.  Dafür müssen Sie sich möglicherweise ab-und wieder anmelden, um den Vorgang abzuschließen. Klicken Sie zur Bestätigung auf **Ja** .  
+4. Dafür müssen Sie sich möglicherweise ab-und wieder anmelden, um den Vorgang abzuschließen. Klicken Sie zur Bestätigung auf **Ja** .  
   
- Zum Tieferstufen des Servers, wenn Sie von Windows Server Essentials oder Vorgängerversionen migrieren, finden Sie unter [Entfernen von Active Directory Domain Services](https://technet.microsoft.com/library/hh472163.aspx). Nachdem Sie den Quellserver als Mitglied einer Arbeitsgruppe hinzufügen und ihn vom Netzwerk trennen, müssen Sie es aus dem AD DS auf dem Zielserver entfernen.  
+   Zum Tieferstufen des Servers, wenn Sie von Windows Server Essentials oder Vorgängerversionen migrieren, finden Sie unter [Entfernen von Active Directory Domain Services](https://technet.microsoft.com/library/hh472163.aspx). Nachdem Sie den Quellserver als Mitglied einer Arbeitsgruppe hinzufügen und ihn vom Netzwerk trennen, müssen Sie es aus dem AD DS auf dem Zielserver entfernen.  
   
- Wenn Sie von Windows Server Essentials migrieren, verwenden Sie Server-Manager, um die Active Directory Domain Services-Rolle, die zum Tieferstufen des Domänencontrollers auf dem Quellserver mithilfe des folgenden Verfahrens zu entfernen:  
+   Wenn Sie von Windows Server Essentials migrieren, verwenden Sie Server-Manager, um die Active Directory Domain Services-Rolle, die zum Tieferstufen des Domänencontrollers auf dem Quellserver mithilfe des folgenden Verfahrens zu entfernen:  
   
 #### <a name="to-remove-the-source-server-from-active-directory"></a>So entfernen den Quellserver aus Active Directory  
   
