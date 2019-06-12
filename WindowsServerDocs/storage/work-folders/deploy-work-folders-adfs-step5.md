@@ -8,12 +8,12 @@ ms.author: jeffpatt
 author: JeffPatt24
 ms.date: 4/5/2017
 ms.assetid: f168292b-0dbc-44b9-965f-d480e5134a0c
-ms.openlocfilehash: 4b2c771a83824318f889c955f6194bcb062761f3
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.openlocfilehash: 44e3ab06ac29d770ad47b43db5eba06f0eb08a60
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65976796"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447794"
 ---
 # <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-5-set-up-clients"></a>Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 5: Einrichten von Clients
 
@@ -75,21 +75,21 @@ Gehen Sie folgendermaßen vor, um die Zertifikate zu installieren:
 ### <a name="configure-work-folders-on-the-client"></a>Arbeitsordner auf dem Client konfigurieren  
 Gehen Sie folgendermaßen vor, um Arbeitsordner auf dem Clientcomputer zu konfigurieren:  
   
-1.  Öffnen Sie auf dem Clientcomputer **Systemsteuerung** und klicken Sie auf **Arbeitsordner**.  
+1. Öffnen Sie auf dem Clientcomputer **Systemsteuerung** und klicken Sie auf **Arbeitsordner**.  
   
-2.  Klicken Sie auf **Arbeitsordner einrichten**.  
+2. Klicken Sie auf **Arbeitsordner einrichten**.  
   
-3.  Auf der **Geben Sie Ihre geschäftliche e-Mail-Adresse** Seite, die der Benutzer e-Mail-Adresse eingeben (z. B. user@contoso.com) oder die Arbeitsordner-URL (im Testbeispiel Https:\//workfolders.contoso.com), und klicken Sie dann auf  **Nächste**.  
+3. Auf der **Geben Sie Ihre geschäftliche e-Mail-Adresse** Seite, die der Benutzer e-Mail-Adresse eingeben (z. B. user@contoso.com) oder die Arbeitsordner-URL (im Testbeispiel Https:\//workfolders.contoso.com), und klicken Sie dann auf  **Nächste**.  
   
-4.  Wenn der Benutzer mit dem Unternehmensnetzwerk verbunden ist, erfolgt die Authentifizierung durch die integrierte Windows-Authentifizierung. Wenn der Benutzer nicht mit dem Unternehmensnetzwerk verbunden ist, erfolgt die Authentifizierung durch AD FS (OAuth) und der Benutzer wird zur Eingabe der Anmeldeinformationen aufgefordert. Geben Sie Ihre Anmeldeinformationen ein, und klicken Sie auf **OK**.  
+4. Wenn der Benutzer mit dem Unternehmensnetzwerk verbunden ist, erfolgt die Authentifizierung durch die integrierte Windows-Authentifizierung. Wenn der Benutzer nicht mit dem Unternehmensnetzwerk verbunden ist, erfolgt die Authentifizierung durch AD FS (OAuth) und der Benutzer wird zur Eingabe der Anmeldeinformationen aufgefordert. Geben Sie Ihre Anmeldeinformationen ein, und klicken Sie auf **OK**.  
   
-5.  Nach der Authentifizierung wird die Seite **Einführung in Arbeitsordner** angezeigt, auf der Sie optional das Verzeichnis der Arbeitsordner ändern können. Klicken Sie auf **Weiter**.  
+5. Nach der Authentifizierung wird die Seite **Einführung in Arbeitsordner** angezeigt, auf der Sie optional das Verzeichnis der Arbeitsordner ändern können. Klicken Sie auf **Weiter**.  
   
-6.  Die Seite mit den **Sicherheitsrichtlinien** enthält die Sicherheitsrichtlinien, die Sie für Arbeitsordner eingerichtet haben. Klicken Sie auf **Weiter**.  
+6. Die Seite mit den **Sicherheitsrichtlinien** enthält die Sicherheitsrichtlinien, die Sie für Arbeitsordner eingerichtet haben. Klicken Sie auf **Weiter**.  
   
-7.  Es wird eine Meldung angezeigt, dass die Synchronisierung der Arbeitsordner mit Ihrem PC beginnt. Klicken Sie auf **Schließen**.  
+7. Es wird eine Meldung angezeigt, dass die Synchronisierung der Arbeitsordner mit Ihrem PC beginnt. Klicken Sie auf **Schließen**.  
   
-8.  Auf der Seite **Arbeitsordner verwalten** wird der verfügbare Speicherplatz auf dem Server, der Synchronisierungsstatus und so weiter angezeigt. Falls erforderlich, können Sie hier Ihre Anmeldeinformationen erneut eingeben. Schließen Sie das Fenster.  
+8. Auf der Seite **Arbeitsordner verwalten** wird der verfügbare Speicherplatz auf dem Server, der Synchronisierungsstatus und so weiter angezeigt. Falls erforderlich, können Sie hier Ihre Anmeldeinformationen erneut eingeben. Schließen Sie das Fenster.  
   
 9. Der Ordner „Arbeitsordner” wird automatisch geöffnet. Sie können diesem Ordner Inhalte hinzufügen, die zwischen Ihren Geräten synchronisiert werden sollen.  
   

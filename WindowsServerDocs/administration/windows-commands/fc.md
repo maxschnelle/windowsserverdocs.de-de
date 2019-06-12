@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 98fd96c73b962a13c0e715420ebbe6f3cd19a42b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f7ccc3d268b58bfa5e848f2336f4315baae8b4e1
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59888681"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439311"
 ---
 # <a name="fc"></a>fc
 
@@ -37,22 +37,22 @@ fc /b [<Drive1:>][<Path1>]<FileName1> [<Drive2:>][<Path2>]<FileName2>
 
 ## <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|/a|Kürzt die Ausgabe des einen ASCII-Vergleich. Anstatt alle Zeilen, die unterschiedlich sind, **fc** zeigt nur die erste und letzte Zeile für jeden Satz von unterschieden.|
-|/b|Vergleicht die beiden Dateien im binären Modus byteweise und versucht nicht, die Dateien zu synchronisieren, nach einer fehlenden Übereinstimmung suchen. Dies ist der Standardmodus für das Vergleichen von Dateien, die die folgenden Dateierweiterungen aufweisen: .exe, .com, .sys, .obj, .lib oder bin.|
-|/c|Die Groß-/Kleinschreibung wird ignoriert.|
-|/l|Vergleicht die Dateien im ASCII-Modus, Zeile für Zeile und versucht, die Dateien zu synchronisieren, nach einer fehlenden Übereinstimmung suchen. Dies ist der Standardmodus für das Vergleichen von Dateien, mit Ausnahme der Dateien mit folgenden Erweiterungen: .exe, .com, .sys, .obj, .lib oder bin.|
-|/lb\<N>|Legt die Anzahl der Zeilen für die interne Branchen-Puffer zu *N*. Die standardmäßige Länge des Puffers Zeile beträgt 100 Zeilen. Wenn die Dateien, die Sie vergleichen, mehr als 100 aufeinander folgende unterschiedliche Zeilen haben **fc** bricht den Vergleich ab.|
-|/n|Zeigt die Zeilennummern während eines ASCII-Vergleichs an.|
-|/off[line]|Dateien, die das Attribut "offline" festgelegt ist, werden nicht übersprungen werden.|
-|/t|Verhindert, dass **fc** von Tabstopps in Leerzeichen konvertiert. Das Standardverhalten ist, Registerkarten als Leerzeichen, mit beendet wird, an jede achte Zeichenposition zu behandeln.|
-|/u|Dateien werden als Unicode-Textdateien verglichen.|
-|/w|Komprimiert Leerzeichen (d. h. Registerkarten und Leerzeichen) während des Vergleichs an. Enthält eine Zeile viele aufeinander folgende Leerzeichen oder Tabstopps, **/w** behandelt diese Zeichen als ein einzelnes Leerzeichen. Bei Verwendung mit **/w**, **fc** Leerraum am Anfang und Ende einer Zeile ignoriert.|
-|/\<NNNN>|Gibt die Anzahl der aufeinander folgenden Zeilen, die folgenden keine Übereinstimmung gefunden,, bevor übereinstimmen muss **fc** neu synchronisiert werden die Dateien als identisch betrachtet. Wenn die Anzahl der übereinstimmenden Zeilen in den Dateien ist kleiner als *NNNN*, **fc** zeigt die übereinstimmenden Zeilen als Unterschiede. Der Standardwert ist 2.|
-|[\<Drive1>:][<Path1>]<FileName1>|Gibt den Speicherort und Namen der ersten Datei oder den Satz von Dateien, verglichen werden soll. *Dateiname1* ist erforderlich.|
-|[\<Drive2>:][<Path2>]<FileName2>|Gibt den Speicherort und Namen der zweiten Datei oder den Satz von Dateien, verglichen werden soll. *Dateiname2* ist erforderlich.|
-|/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
+|            Parameter             |                                                                                                                                     Beschreibung                                                                                                                                      |
+|----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|                /a                |                                                 Kürzt die Ausgabe des einen ASCII-Vergleich. Anstatt alle Zeilen, die unterschiedlich sind, **fc** zeigt nur die erste und letzte Zeile für jeden Satz von unterschieden.                                                  |
+|                /b                |             Vergleicht die beiden Dateien im binären Modus byteweise und versucht nicht, die Dateien zu synchronisieren, nach einer fehlenden Übereinstimmung suchen. Dies ist der Standardmodus für das Vergleichen von Dateien, die die folgenden Dateierweiterungen aufweisen: .exe, .com, .sys, .obj, .lib oder bin.              |
+|                /c                |                                                                                                                               Die Groß-/Kleinschreibung wird ignoriert.                                                                                                                               |
+|                /l                |               Vergleicht die Dateien im ASCII-Modus, Zeile für Zeile und versucht, die Dateien zu synchronisieren, nach einer fehlenden Übereinstimmung suchen. Dies ist der Standardmodus für das Vergleichen von Dateien, mit Ausnahme der Dateien mit folgenden Erweiterungen: .exe, .com, .sys, .obj, .lib oder bin.                |
+|             /lb\<N>              |                         Legt die Anzahl der Zeilen für die interne Branchen-Puffer zu *N*. Die standardmäßige Länge des Puffers Zeile beträgt 100 Zeilen. Wenn die Dateien, die Sie vergleichen, mehr als 100 aufeinander folgende unterschiedliche Zeilen haben **fc** bricht den Vergleich ab.                         |
+|                /n                |                                                                                                                Zeigt die Zeilennummern während eines ASCII-Vergleichs an.                                                                                                                 |
+|            /off[line]            |                                                                                                               Dateien, die das Attribut "offline" festgelegt ist, werden nicht übersprungen werden.                                                                                                               |
+|                /t                |                                                                    Verhindert, dass **fc** von Tabstopps in Leerzeichen konvertiert. Das Standardverhalten ist, Registerkarten als Leerzeichen, mit beendet wird, an jede achte Zeichenposition zu behandeln.                                                                    |
+|                /u                |                                                                                                                        Dateien werden als Unicode-Textdateien verglichen.                                                                                                                         |
+|                /w                |         Komprimiert Leerzeichen (d. h. Registerkarten und Leerzeichen) während des Vergleichs an. Enthält eine Zeile viele aufeinander folgende Leerzeichen oder Tabstopps, **/w** behandelt diese Zeichen als ein einzelnes Leerzeichen. Bei Verwendung mit **/w**, **fc** Leerraum am Anfang und Ende einer Zeile ignoriert.         |
+|             /\<NNNN>             | Gibt die Anzahl der aufeinander folgenden Zeilen, die folgenden keine Übereinstimmung gefunden,, bevor übereinstimmen muss **fc** neu synchronisiert werden die Dateien als identisch betrachtet. Wenn die Anzahl der übereinstimmenden Zeilen in den Dateien ist kleiner als *NNNN*, **fc** zeigt die übereinstimmenden Zeilen als Unterschiede. Der Standardwert ist 2. |
+| [\<Drive1>:][<Path1>]<FileName1> |                                                                                        Gibt den Speicherort und Namen der ersten Datei oder den Satz von Dateien, verglichen werden soll. *Dateiname1* ist erforderlich.                                                                                        |
+| [\<Drive2>:][<Path2>]<FileName2> |                                                                                       Gibt den Speicherort und Namen der zweiten Datei oder den Satz von Dateien, verglichen werden soll. *Dateiname2* ist erforderlich.                                                                                        |
+|                /?                |                                                                                                                         Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                         |
 
 ## <a name="remarks"></a>Hinweise
 
@@ -76,7 +76,7 @@ fc /b [<Drive1:>][<Path1>]<FileName1> [<Drive2:>][<Path2>]<FileName2>
     Der Wert des *XXXXXXXX* gibt an, die hexadezimale relative Adresse für das Paar von Bytes, gemessen ab dem Anfang der Datei. Adressen beginnen bei "00000000" fest. Die Hexadezimalwerte für *YY* und *ZZ* darstellen der nicht übereinstimmenden Bytes von *Dateiname1* und *Dateiname2*bzw.
 -   Verwenden von Platzhalterzeichen
 
-    Sie können Platzhalterzeichen verwenden (**&#42;** und **?**) in *Dateiname1* und *Dateiname2*. Bei Verwendung ein Platzhalters in *Dateiname1*, **fc** vergleicht die angegebenen Dateien in die Datei oder einen Satz von Dateien, die anhand des *Dateiname2*. Bei Verwendung ein Platzhalters in *Dateiname2*, **fc** verwendet den entsprechenden Wert von *Dateiname1*.
+    Sie können Platzhalterzeichen verwenden ( **&#42;** und **?** ) in *Dateiname1* und *Dateiname2*. Bei Verwendung ein Platzhalters in *Dateiname1*, **fc** vergleicht die angegebenen Dateien in die Datei oder einen Satz von Dateien, die anhand des *Dateiname2*. Bei Verwendung ein Platzhalters in *Dateiname2*, **fc** verwendet den entsprechenden Wert von *Dateiname1*.
 -   Arbeiten mit dem Arbeitsspeicher
 
     Beim Vergleichen von ASCII-Dateien, **fc** verwendet einen internen Puffer (groß genug für 100 Zeilen) als Speicher. Wenn die Dateien größer als der Puffer, sind **fc** vergleicht, was in den Puffer geladen werden kann. Wenn **fc** findet keine Übereinstimmung in der geladenen Teile der Dateien, beendet und wird die folgende Meldung angezeigt:
@@ -126,4 +126,4 @@ fc c:*.bat d:*.bat
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 197864c6908645af0c0fa47ac811186207c2f247
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 55ed731df4613e215fb4d0954a5b8424035b1166
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853881"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66434005"
 ---
 # <a name="create-volume-stripe"></a>Erstellen von Volume stripe
 
@@ -39,12 +39,12 @@ create volume stripe [size=<n>] disk=<n>,<n>[,<n>,...] [align=<n>] [noerr]
   
 ## <a name="parameters"></a>Parameter  
   
-|Parameter|Beschreibung|  
-|-------|--------|  
-|Größe\=<n>|Die Menge des Speicherplatzes in Megabyte \(MB\), die das Volume auf jedem Datenträger belegen wird. Wenn keine Größe angegeben wird, beansprucht das neue Volume der verbleibende freie Speicherplatz auf der kleinste Datenträger und gleich viel Speicherplatz auf jedem nachfolgenden Datenträger ab.|  
-|Datenträger\=<n>,<n>\[,<n>,...\]|Die dynamischen Datenträger, auf denen Stripesetvolume erstellt wird. Sie benötigen mindestens zwei dynamische Datenträger ein Stripesetvolume erstellen. Der Platz gleich **Größe\= <n>**  auf jedem Datenträger zugeordnet ist.|  
-|align\=<n>|Richtet alle Volume-Blöcke auf der nächsten. In der Regel verwendet, mit der Hardware-RAID Logical Unit Number \(LUN\) Arrays zur Verbesserung der Leistung. *n* ist die Anzahl der Kilobytes \(KB\) vom Anfang des Datenträgers an, die am nächsten Ausrichtungsgrenze.|  
-|Diskpart|nur für Skripts. Wenn ein Fehler gefunden wird, weiterhin DiskPart Befehle zu verarbeiten, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter wird ein Fehler DiskPart mit dem Fehlercode zu beenden.|  
+|         Parameter         |                                                                                                                            Beschreibung                                                                                                                            |
+|---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|         Größe\=<n>         |             Die Menge des Speicherplatzes in Megabyte \(MB\), die das Volume auf jedem Datenträger belegen wird. Wenn keine Größe angegeben wird, beansprucht das neue Volume der verbleibende freie Speicherplatz auf der kleinste Datenträger und gleich viel Speicherplatz auf jedem nachfolgenden Datenträger ab.             |
+| Datenträger\=<n>,<n>\[,<n>,...\] |                                  Die dynamischen Datenträger, auf denen Stripesetvolume erstellt wird. Sie benötigen mindestens zwei dynamische Datenträger ein Stripesetvolume erstellen. Der Platz gleich **Größe\= <n>**  auf jedem Datenträger zugeordnet ist.                                   |
+|        align\=<n>         | Richtet alle Volume-Blöcke auf der nächsten. In der Regel verwendet, mit der Hardware-RAID Logical Unit Number \(LUN\) Arrays zur Verbesserung der Leistung. *n* ist die Anzahl der Kilobytes \(KB\) vom Anfang des Datenträgers an, die am nächsten Ausrichtungsgrenze. |
+|           Diskpart           |                               nur für Skripts. Wenn ein Fehler gefunden wird, weiterhin DiskPart Befehle zu verarbeiten, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter wird ein Fehler DiskPart mit dem Fehlercode zu beenden.                                |
   
 ## <a name="remarks"></a>Hinweise  
   
@@ -58,7 +58,7 @@ create volume stripe size=1000 disk=1,2
 ```  
   
 #### <a name="additional-references"></a>Zusätzliche Referenzen  
-[Befehlszeilensyntax](command-line-syntax-key.md)  
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
   
 
   

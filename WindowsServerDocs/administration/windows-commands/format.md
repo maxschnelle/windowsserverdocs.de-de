@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: 51ec7423-9a01-4219-868a-25d69cdcc832
 author: JasonGerend
 ms.date: 10/16/2017
-ms.openlocfilehash: 10c0dd97ddd7384673573c1354105314af5d5e04
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1af340f4612015ede3fee659c9662955df9aa578
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59818981"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439274"
 ---
 # <a name="format"></a>Format
 > Gilt für: Windows 10, WindowsServer 2016
@@ -34,20 +34,20 @@ format <Volume> [/q]
 
 ## <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|\<Volume >|Gibt an, den Bereitstellungspunkt, Volumenamen oder Laufwerkbuchstaben (gefolgt von einem Doppelpunkt), der das Laufwerk, das Sie formatieren möchten. Wenn Sie nicht von den folgenden Befehlszeilenoptionen angeben **Format** verwendet Sie den Volumetyp, um das Standardformat für den Datenträger zu bestimmen.|
-|/fs:{FAT|FAT32|NTFS|UDF}|Gibt den Typ des Dateisystems an: FAT, FAT32, NTFS- oder UDFs. Auf Disketten wird nur das Dateisystem FAT unterstützt.|
-|/ v:\<Bezeichnung >|Gibt die Volumebezeichnung an. Wenn Sie weglassen der **/v** Befehlszeilen oder verwenden Sie es ohne Angabe einer Volumebezeichnung **Format** aufgefordert, die Volumebezeichnung nach Abschluss der Formatierung. Verwenden Sie die Syntax **/v:**, um die Aufforderung zur Eingabe einer Volumebezeichnung zu verhindern. Wenn Sie mit einem einzelnen **format**-Befehl mehrere Datenträger formatieren, erhalten alle Datenträger dieselbe Volumebezeichnung.|
-|/a:\<UnitSize>|Gibt die Größe der Zuordnungseinheit auf FAT-, FAT32 oder NTFS-Volumes zu verwenden. Wenn Sie *UnitSize* nicht angeben, wird die Größe basierend auf der Volumegröße ausgewählt. Für die allgemeine Verwendung werden Standardeinstellungen unbedingt empfohlen. Die folgende Liste enthält gültige *UnitSize*-Werte für NTFS, FAT und FAT32:</br>512</br>1024</br>2.048</br>4.096</br>8.192</br>16 KB</br>32 KB</br>64 KB</br>FAT und FAT32 unterstützen auch 128 KB und 256 KB für eine Sektorgröße, die 512 Byte überschreitet.|
-|/q|Führt eine Schnellformatierung durch. Löscht die Dateitabelle und das Stammverzeichnis eines bereits formatierten Volumes, jedoch führt keine Überprüfung Sektor für Sektor auf fehlerhafte Bereiche. Verwenden Sie die **/q /** Befehlszeilenoption nur formatiert bereits formatierte Volumes, die Sie kennen in gutem Zustand sind. Beachten Sie, dass **/p** von **/q** überschrieben wird.|
-|/f:\<Size>|Gibt die Größe der zu formatierenden Diskette an. Verwenden Sie nach Möglichkeit diese Befehlszeilenoption anstelle der **/t /** und **/n** Befehlszeilenoptionen. Windows akzeptiert die folgenden Werte für die Größe:</br>–   1440 oder 1440k oder 1440kb</br>–   1,44 oder 1,44m oder 1,44mb</br>– 1,44 MB, beidseitiges, Quadrupel Dichte, 3,5-Zoll-Diskette|
-|/ t:\<verfolgt >|Gibt die Anzahl der Spuren auf dem Datenträger an. Verwenden Sie nach Möglichkeit die **/f** Befehlszeilen option. Bei Verwendung der Option **/t** müssen Sie auch die Option **/n** verwenden. Diese Optionen bieten zusammen eine alternative Methode zum Angeben der Größe des Datenträgers, der formatiert wird. Diese Option ist mit der Option **/f** nicht gültig.|
-|/ n:\<Sektoren >|Gibt die Anzahl der Sektoren pro Spur an. Verwenden Sie nach Möglichkeit die **/f** Befehlszeilenoption anstelle von **/n**. Bei Verwendung von **/n** müssen Sie auch **/t** verwenden. Diese beiden Optionen bieten zusammen eine alternative Methode zum Angeben der Größe des Datenträgers, der formatiert wird. Diese Option ist mit der Option **/f** nicht gültig.|
-|/ p:\<übergibt >|Setzt jeden Sektor auf dem Volume für die Anzahl der angegeben Durchgänge auf 0. Diese Option ist mit der Option **/q** nicht gültig.|
-|/c|Nur NTFS. Auf dem neuen Volume erstellte Dateien werden standardmäßig komprimiert.|
-|/x|Bewirkt, dass die Bereitstellung des Volumes vor seiner Formatierung bei Bedarf aufgehoben wird. Alle geöffneten Handles zum Volume sind nicht mehr gültig.|
-|/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
+|   Parameter    |                                                                                                                                                                                                                    Beschreibung                                                                                                                                                                                                                     |
+|----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   \<Volume >    |                                                                                         Gibt an, den Bereitstellungspunkt, Volumenamen oder Laufwerkbuchstaben (gefolgt von einem Doppelpunkt), der das Laufwerk, das Sie formatieren möchten. Wenn Sie nicht von den folgenden Befehlszeilenoptionen angeben **Format** verwendet Sie den Volumetyp, um das Standardformat für den Datenträger zu bestimmen.                                                                                         |
+|    /fs:{FAT    |                                                                                                                                                                                                                       FAT32                                                                                                                                                                                                                        |
+|  / v:\<Bezeichnung >   |                           Gibt die Volumebezeichnung an. Wenn Sie weglassen der **/v** Befehlszeilen oder verwenden Sie es ohne Angabe einer Volumebezeichnung **Format** aufgefordert, die Volumebezeichnung nach Abschluss der Formatierung. Verwenden Sie die Syntax **/v:** , um die Aufforderung zur Eingabe einer Volumebezeichnung zu verhindern. Wenn Sie mit einem einzelnen **format**-Befehl mehrere Datenträger formatieren, erhalten alle Datenträger dieselbe Volumebezeichnung.                            |
+| /a:\<UnitSize> | Gibt die Größe der Zuordnungseinheit auf FAT-, FAT32 oder NTFS-Volumes zu verwenden. Wenn Sie *UnitSize* nicht angeben, wird die Größe basierend auf der Volumegröße ausgewählt. Für die allgemeine Verwendung werden Standardeinstellungen unbedingt empfohlen. Die folgende Liste enthält gültige *UnitSize*-Werte für NTFS, FAT und FAT32:</br>512</br>1024</br>2.048</br>4.096</br>8.192</br>16 KB</br>32 KB</br>64 KB</br>FAT und FAT32 unterstützen auch 128 KB und 256 KB für eine Sektorgröße, die 512 Byte überschreitet. |
+|       /q       |                                                       Führt eine Schnellformatierung durch. Löscht die Dateitabelle und das Stammverzeichnis eines bereits formatierten Volumes, jedoch führt keine Überprüfung Sektor für Sektor auf fehlerhafte Bereiche. Verwenden Sie die **/q /** Befehlszeilenoption nur formatiert bereits formatierte Volumes, die Sie kennen in gutem Zustand sind. Beachten Sie, dass **/p** von **/q** überschrieben wird.                                                       |
+|   /f:\<Size>   |                                                         Gibt die Größe der zu formatierenden Diskette an. Verwenden Sie nach Möglichkeit diese Befehlszeilenoption anstelle der **/t /** und **/n** Befehlszeilenoptionen. Windows akzeptiert die folgenden Werte für die Größe:</br>–   1440 oder 1440k oder 1440kb</br>–   1,44 oder 1,44m oder 1,44mb</br>– 1,44 MB, beidseitiges, Quadrupel Dichte, 3,5-Zoll-Diskette                                                         |
+|  / t:\<verfolgt >  |                                                    Gibt die Anzahl der Spuren auf dem Datenträger an. Verwenden Sie nach Möglichkeit die **/f** Befehlszeilen option. Bei Verwendung der Option **/t** müssen Sie auch die Option **/n** verwenden. Diese Optionen bieten zusammen eine alternative Methode zum Angeben der Größe des Datenträgers, der formatiert wird. Diese Option ist mit der Option **/f** nicht gültig.                                                     |
+| / n:\<Sektoren >  |                                                         Gibt die Anzahl der Sektoren pro Spur an. Verwenden Sie nach Möglichkeit die **/f** Befehlszeilenoption anstelle von **/n**. Bei Verwendung von **/n** müssen Sie auch **/t** verwenden. Diese beiden Optionen bieten zusammen eine alternative Methode zum Angeben der Größe des Datenträgers, der formatiert wird. Diese Option ist mit der Option **/f** nicht gültig.                                                         |
+|  / p:\<übergibt >  |                                                                                                                                                               Setzt jeden Sektor auf dem Volume für die Anzahl der angegeben Durchgänge auf 0. Diese Option ist mit der Option **/q** nicht gültig.                                                                                                                                                                |
+|       /c       |                                                                                                                                                                                     Nur NTFS. Auf dem neuen Volume erstellte Dateien werden standardmäßig komprimiert.                                                                                                                                                                                      |
+|       /x       |                                                                                                                                                            Bewirkt, dass die Bereitstellung des Volumes vor seiner Formatierung bei Bedarf aufgehoben wird. Alle geöffneten Handles zum Volume sind nicht mehr gültig.                                                                                                                                                            |
+|       /?       |                                                                                                                                                                                                        Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                                                                                        |
 
 ## <a name="remarks"></a>Hinweise
 
@@ -84,29 +84,30 @@ Um die Festplatte zu formatieren, drücken Sie Y aus; Wenn Sie nicht den Datentr
 
 > [!NOTE]
 > **Format** sofort beendet die Verarbeitung, wenn er feststellt, dass die obigen Anforderungen mithilfe der angegebenen Clustergröße nicht erfüllt werden können.
--   **Format** Nachrichten
+> -   **Format** Nachrichten
 
-    Nach Abschluss der Formatierung wird **Format** zeigt an, die den gesamten Speicherplatz, die Leerzeichen als fehlerhaft gekennzeichnet und den verfügbaren Speicherplatz für die Dateien angezeigt werden.
--   Schnellformatierung
+    When formatting is complete, **format** displays messages that show the total disk space, the spaces marked as defective, and the space available for your files.
+- Schnellformatierung
 
-    Sie können die Formatierung zu beschleunigen, mit der **/q /** Befehlszeilenoption. Verwenden Sie diese Option nur, wenn es keine fehlerhaften Sektoren auf der Festplatte gibt.
--   Verwenden von **format** mit einem neu zugewiesenen Laufwerk oder Netzlaufwerk
+  Sie können die Formatierung zu beschleunigen, mit der **/q /** Befehlszeilenoption. Verwenden Sie diese Option nur, wenn es keine fehlerhaften Sektoren auf der Festplatte gibt.
+- Verwenden von **format** mit einem neu zugewiesenen Laufwerk oder Netzlaufwerk
 
-    Sie dürfen den Befehl **format** nicht auf einem Laufwerk verwenden, das mit dem Befehl **subst** vorbereitet wurde. Datenträger können nicht über ein Netzwerk formatiert werden.
--   Exitcodes für **format**
+  Sie dürfen den Befehl **format** nicht auf einem Laufwerk verwenden, das mit dem Befehl **subst** vorbereitet wurde. Datenträger können nicht über ein Netzwerk formatiert werden.
+- Exitcodes für **format**
 
-    In der folgenden Tabelle sind alle Exitcodes und eine Kurzbeschreibung ihrer Bedeutung aufgeführt.  
-    |Exitcode|Beschreibung|
-    |---------|-----------|
-    |0|Der Formatierungsvorgang war erfolgreich.|
-    |1|Es wurden falsche Parameter angegeben.|
-    |4|Ein schwerwiegender Fehler aufgetreten ist (die alle Fehler außer 0, 1 oder 5).|
-    |5|Vom Benutzer gedrückten N als Antwort auf die Frage "Formatierung durchführen (J/N)?" um den Vorgang zu beenden.|
+  In der folgenden Tabelle sind alle Exitcodes und eine Kurzbeschreibung ihrer Bedeutung aufgeführt.  
 
-    Sie können diese Exitcodes mithilfe der Umgebungsvariablen ERRORLEVEL und des Batchbefehls **if** überprüfen.
--   Verwenden von **format** in der Wiederherstellungskonsole
+  |Exitcode|Beschreibung|
+  |---------|-----------|
+  |0|Der Formatierungsvorgang war erfolgreich.|
+  |1|Es wurden falsche Parameter angegeben.|
+  |4|Ein schwerwiegender Fehler aufgetreten ist (die alle Fehler außer 0, 1 oder 5).|
+  |5|Vom Benutzer gedrückten N als Antwort auf die Frage "Formatierung durchführen (J/N)?" um den Vorgang zu beenden.|
 
-    Der Befehl **format** steht in der Wiederherstellungskonsole mit verschiedenen Parametern zur Verfügung.
+  Sie können diese Exitcodes mithilfe der Umgebungsvariablen ERRORLEVEL und des Batchbefehls **if** überprüfen.
+- Verwenden von **format** in der Wiederherstellungskonsole
+
+  Der Befehl **format** steht in der Wiederherstellungskonsole mit verschiedenen Parametern zur Verfügung.
 
 ## <a name="BKMK_examples"></a>Beispiele für
 
@@ -125,4 +126,4 @@ format a: /v:DATA
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](https://technet.microsoft.com/library/cc771080.aspx)
+[Erläuterung zur Befehlszeilensyntax](https://technet.microsoft.com/library/cc771080.aspx)

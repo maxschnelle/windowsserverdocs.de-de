@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: f000066e-7cf8-4085-82a3-4f4fe1cb3c5c
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: e075569f6ce5983838edde26f928d41606ac44bb
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f835e27a80e661ff1f066af4779bd7c033cddc99
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824131"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446622"
 ---
 # <a name="step-3-configure-a-load-balanced-cluster"></a>Schritt 3 Konfigurieren Sie einen Cluster mit Lastenausgleich
 
@@ -70,7 +70,7 @@ Nach dem Vorbereiten der Server für den Cluster, den Lastenausgleich auf die ei
   
 4.  Je nachdem was Sie ausgewählt haben, bei der Planung der Schritte aus:  
   
-    1.  Windows NLB: Auf der **Load Balancing-Methode** auf **verwenden Windows Network Load Balancing (NLB)**, und klicken Sie dann auf **Weiter**.  
+    1.  Windows NLB: Auf der **Load Balancing-Methode** auf **verwenden Windows Network Load Balancing (NLB)** , und klicken Sie dann auf **Weiter**.  
   
     2.  Externer Load Balancer: Auf der **Load Balancing-Methode** auf **Verwenden eines externen Lastenausgleichs**, und klicken Sie dann auf **Weiter**.  
   
@@ -101,7 +101,7 @@ Nach dem Vorbereiten der Server für den Cluster, den Lastenausgleich auf die ei
     > [!NOTE]  
     > Wenn der externe Lastenausgleich verwendet wird, beachten Sie die virtuelle IP-Adressen, und geben Sie sie auf die externen Load balancer.  
   
-![Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***  
+![Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -137,7 +137,7 @@ Grundvoraussetzung zur Ausführung dieses Vorgangs ist die Mitgliedschaft in der
   
 6.  Klicken Sie auf der Seite **Privaten Schlüssel exportieren** auf **Ja, privaten Schlüssel exportieren**, und klicken Sie dann auf **Weiter**.  
   
-7.  Auf der **Exportdateiformat** auf **privater Informationsaustausch – PKCS #12 (. PFX)**, und klicken Sie dann auf **Weiter**.  
+7.  Auf der **Exportdateiformat** auf **privater Informationsaustausch – PKCS #12 (. PFX)** , und klicken Sie dann auf **Weiter**.  
   
 8.  Auf der **Sicherheit** Seite die **Kennwort** Kontrollkästchen, geben Sie ein Kennwort in die **Kennwort** und bestätigen Sie das Kennwort, und klicken Sie dann auf **Weiter**.  
   
@@ -248,7 +248,7 @@ Grundvoraussetzung zur Ausführung dieses Vorgangs ist die Mitgliedschaft in der
   
 12. Auf der **hinzufügen und Entfernen von Servern** Dialogfeld klicken Sie auf **schließen**.  
   
-![Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***  
+![Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -278,7 +278,7 @@ Add-RemoteAccessLoadBalancerNode -RemoteAccessServer <server name>
   
 7.  Auf der **hinzufügen und Entfernen von Servern** Dialogfeld klicken Sie auf **schließen**.  
   
-![Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***  
+![Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -299,7 +299,7 @@ Remove-RemoteAccessLoadBalancerNode -RemoteAccessServer <server name>
   
 4.  Auf der **Lastenausgleich deaktivieren** Dialogfeld klicken Sie auf **schließen**.  
   
-![Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***  
+![Windows PowerShell](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   

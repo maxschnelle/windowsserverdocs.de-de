@@ -7,12 +7,12 @@ ms.assetid: 07691d5b-046c-45ea-8570-a0a85c3f2d22
 manager: dongill
 author: huu
 ms.technology: security-guarded-fabric
-ms.openlocfilehash: c102fa0503e6aac279235e1243b55e0e3cf81e1d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0fb257f693cc27c0bc6dd18fc89e8dc6328ee638
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812411"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447340"
 ---
 # <a name="troubleshooting-using-the-guarded-fabric-diagnostic-tool"></a>Problembehandlung mithilfe der geschützten Fabric-Diagnosetool
 
@@ -156,9 +156,9 @@ Schritte zum Ausführen einer manuellen Diagnose sind wie folgt aus:
 
 1. Anforderung, die jeder hostadministrator ausgeführt `Get-HgsTrace` Angabe einen bekannten `-Path` und die Liste der Diagnose für die resultierenden ablaufverfolgungen ausgeführt werden sollen.  Zum Beispiel:
 
- ```PowerShell
- Get-HgsTrace -Path C:\Traces -Diagnostic Networking,BestPractices
- ```
+   ```PowerShell
+   Get-HgsTrace -Path C:\Traces -Diagnostic Networking,BestPractices
+   ```
 2. Fordern Sie an, dass jeder hostadministrator Paket resultierende Traces des Ordners und an Sie senden.  Dieser Prozess kann per E-mail, über Dateifreigaben, oder eine andere Methode, die basierend auf den Betrieb personalsicherheitsrichtlinien und-Verfahren von Ihrer Organisation gesteuert werden.
 
 3. Alle empfangene ablaufverfolgungen in einem einzigen Ordner, ohne andere Inhalte oder Ordner zusammenführen.
@@ -181,9 +181,9 @@ Schritte zum Ausführen einer manuellen Diagnose sind wie folgt aus:
 
 4. Führen Sie die Diagnose, die den Pfad zu dem ablaufverfolgungsordner assemblierten zur Bereitstellung der `-Path` Parameter und Angeben der `-RunDiagnostics` sowie die Diagnose, der Sie, Ihre Administratoren zum Sammeln von ablaufverfolgungen aufgefordert, zu wechseln.  Diagnose geht davon aus, es kann nicht zugegriffen werden die Hosts innerhalb des Pfads gefunden und aus diesem Grund versucht, die nur die bereits gesammelten ablaufverfolgungen zu verwenden.  Wenn keine ablaufverfolgungen vorhanden oder beschädigt sind, wird die Diagnose nur die betroffenen Tests fehlschlagen und normal fortgesetzt.  Zum Beispiel:
 
- ```PowerShell
- Get-HgsTrace -RunDiagnostics -Diagnostic Networking,BestPractices -Path ".\FabricTraces"
- ```
+   ```PowerShell
+   Get-HgsTrace -RunDiagnostics -Diagnostic Networking,BestPractices -Path ".\FabricTraces"
+   ```
 
 ### <a name="mixing-saved-traces-with-additional-targets"></a>Das Kombinieren von Ablaufverfolgungen durch zusätzliche Ziele gespeichert
 

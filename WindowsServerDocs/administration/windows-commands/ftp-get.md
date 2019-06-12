@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 798317f3921cd0e5ff12b69b972e2ea423fa6b3f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 28961ccf0ae04b52586728f9c68a9b2ca3e69b1d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816731"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438776"
 ---
 # <a name="ftp-get"></a>FTP: Abrufen
 
@@ -30,10 +30,12 @@ Kopiert eine Remotedatei auf dem lokalen Computer, die mit den aktuellen Dateiü
 get <remoteFile> [<LocalFile>]  
 ```  
 ### <a name="parameters"></a>Parameter  
-|Parameter|Beschreibung|  
-|-------|--------|  
-|<remoteFile>|Gibt an, der remote-Datei zu kopieren.|  
-|[<LocalFile>]|Gibt den Namen der Datei, die auf dem lokalen Computer verwenden. Wenn *LocalFile* nicht angegeben ist, wird die Datei erhält den *Remotedatei* Name.|  
+
+|   Parameter   |                                                              Beschreibung                                                               |
+|---------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| <remoteFile>  |                                                   Gibt an, der remote-Datei zu kopieren.                                                   |
+| [<LocalFile>] | Gibt den Namen der Datei, die auf dem lokalen Computer verwenden. Wenn *LocalFile* nicht angegeben ist, wird die Datei erhält den *Remotedatei* Name. |
+
 ## <a name="remarks"></a>Hinweise  
 Die **erhalten** Befehl ist identisch mit der **empfangener** Befehl.  
 ## <a name="BKMK_Examples"></a>Beispiele für  
@@ -48,4 +50,4 @@ Get test.txt test1.txt
 ## <a name="additional-references"></a>Zusätzliche Referenzen  
 -   [ftp: ascii](ftp-ascii.md)  
 -   [FTP: binär](ftp-binary.md)  
--   [Befehlszeilensyntax](command-line-syntax-key.md)  
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  

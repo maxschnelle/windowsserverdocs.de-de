@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 03c765b276a2e61247661e132dd49434b444530c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a5619396e29b446dbc6804ece7444f355dae4c0a
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817281"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436300"
 ---
 # <a name="powershellise"></a>PowerShell_ise
 
@@ -33,27 +33,27 @@ Die **PowerShell_ISE.exe** Tool startet eine Windows PowerShell ISE-Sitzung. Bei
 ## <a name="using-powershelliseexe"></a>Verwenden von PowerShell_ISE.exe
 
 Sie können **PowerShell_ISE.exe** zum Starten und beenden eine Windows PowerShell-Sitzung wie folgt:
--   Geben Sie Folgendes ein, um eine Windows PowerShell ISE-Sitzung, in ein Eingabeaufforderungsfenster geöffnet, in Windows PowerShell oder im Menü Start zu starten:  
-    ```
-    PowerShell_Ise
-    ```  
--   Verwenden zum Öffnen eines Skripts (ps1) das Skriptmodul (psm1), das modulmanifest (psd1), XML-Datei oder eine beliebige andere unterstützte Datei in Windows PowerShell ISE das folgende Befehlsformat:  
-    ```
-    PowerShell_Ise <FilePath>
-    ```  
-    In Windows PowerShell 3.0 können Sie mithilfe des optionalen **Datei** Parameter wie folgt:  
-    ```
-    PowerShell_Ise -File <FilePath>
-    ```  
--   Verwenden Sie zum Starten einer Windows PowerShell ISE-Sitzungs, ohne Ihre Windows PowerShell-Profile die **NoProfile** Parameter. (Die **NoProfile** Parameter wird in Windows PowerShell 3.0 eingeführt.)  
-    ```
-    PowerShell_Ise -NoProfile
-    ```  
--   Anzeigen der **PowerShell_ISE.exe** helfen bei der Datei in ein Eingabeaufforderungsfenster, verwenden Sie das folgende Befehlsformat:  
-    ```
-    PowerShell_Ise -help, -?, /?
-    ```  
-Eine vollständige Liste der **PowerShell_ISE.exe** Befehlszeilenparameter, finden Sie unter [about_PowerShell_Ise.exe](https://go.microsoft.com/fwlink/?LinkId=256512).
+- Geben Sie Folgendes ein, um eine Windows PowerShell ISE-Sitzung, in ein Eingabeaufforderungsfenster geöffnet, in Windows PowerShell oder im Menü Start zu starten:  
+  ```
+  PowerShell_Ise
+  ```  
+- Verwenden zum Öffnen eines Skripts (ps1) das Skriptmodul (psm1), das modulmanifest (psd1), XML-Datei oder eine beliebige andere unterstützte Datei in Windows PowerShell ISE das folgende Befehlsformat:  
+  ```
+  PowerShell_Ise <FilePath>
+  ```  
+  In Windows PowerShell 3.0 können Sie mithilfe des optionalen **Datei** Parameter wie folgt:  
+  ```
+  PowerShell_Ise -File <FilePath>
+  ```  
+- Verwenden Sie zum Starten einer Windows PowerShell ISE-Sitzungs, ohne Ihre Windows PowerShell-Profile die **NoProfile** Parameter. (Die **NoProfile** Parameter wird in Windows PowerShell 3.0 eingeführt.)  
+  ```
+  PowerShell_Ise -NoProfile
+  ```  
+- Anzeigen der **PowerShell_ISE.exe** helfen bei der Datei in ein Eingabeaufforderungsfenster, verwenden Sie das folgende Befehlsformat:  
+  ```
+  PowerShell_Ise -help, -?, /?
+  ```  
+  Eine vollständige Liste der **PowerShell_ISE.exe** Befehlszeilenparameter, finden Sie unter [about_PowerShell_Ise.exe](https://go.microsoft.com/fwlink/?LinkId=256512).
 
 ## <a name="start-windows-powershell-ise-in-other-ways"></a>Starten Sie Windows PowerShell ISE auf andere Weise
 

@@ -9,12 +9,12 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 940131a02a5cd3a6122022cf9b0dff3281d1dabf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f66f09fa608fec10d7126e516f9cf2dd8a19bbfb
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59847941"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438997"
 ---
 # <a name="fsutil-reparsepoint"></a>Fsutil reparsepoint
 >Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, WindowsServer 2012, Windows 8, Windows Server 2008 R2, Windows 7, Windows 2008, Windows Vista
@@ -32,11 +32,11 @@ fsutil reparsepoint [delete] <FileName>
 
 ## <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|-------------|---------------|
-|query|Ruft ab, die Punkt-Analysedaten, die Datei oder des Verzeichnisses identifiziert, die durch das angegebene Handle zugeordnet ist.|
-|löschen|Löscht einen Analysepunkt aus der Datei bzw. das Verzeichnis, das wird durch das angegebene Handle identifiziert, jedoch werden nicht gelöscht werden, die Datei oder das Verzeichnis an.|
-|<FileName>|Gibt den vollständigen Pfad zur Datei einschließlich der Namen und die Erweiterung, z. B. C:\documents\filename.txt an.|
+| Parameter  |                                                                Beschreibung                                                                |
+|------------|-------------------------------------------------------------------------------------------------------------------------------------------|
+|   query    |            Ruft ab, die Punkt-Analysedaten, die Datei oder des Verzeichnisses identifiziert, die durch das angegebene Handle zugeordnet ist.             |
+|   löschen   | Löscht einen Analysepunkt aus der Datei bzw. das Verzeichnis, das wird durch das angegebene Handle identifiziert, jedoch werden nicht gelöscht werden, die Datei oder das Verzeichnis an. |
+| <FileName> |             Gibt den vollständigen Pfad zur Datei einschließlich der Namen und die Erweiterung, z. B. C:\documents\filename.txt an.             |
 
 ## <a name="remarks"></a>Hinweise
 
@@ -60,7 +60,7 @@ fsutil reparsepoint delete c:\server
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
-[Befehlszeilensyntax](Command-Line-Syntax-Key.md)
+[Erläuterung zur Befehlszeilensyntax](Command-Line-Syntax-Key.md)
 
 [Fsutil](Fsutil.md)
 

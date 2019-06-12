@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 06e7aa1309b453da649537d5ae9b22acce830530
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 52568944a98bed7960b37335b2e3cbbde61479ca
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816861"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447200"
 ---
 # <a name="set-the-ordering-method-for-targets-in-referrals"></a>Festlegen der Sortiermethode für Ziele in Verweisen
 
@@ -36,9 +36,9 @@ Verwenden Sie das folgende Verfahren, um die Sortiermethode für den Namespacest
 
 > [!NOTE]
 > Um Windows PowerShell für die Sortiermethode für Ziele in Namespacestammverweisen festzulegen, verwenden Sie das Cmdlet [Set-DfsnRoot](https://technet.microsoft.com/library/jj884281.aspx) mit einem der folgenden Parameter:
-   -   **EnableSiteCosting** gibt die Methode für die **kostengünstigste Reihenfolge** an
-   -   **EnableInsiteReferrals** gibt die Sortiermethode für **Ziele außerhalb des Standorts des Clients ausschließen**
-   -   Das Auslassen beider Parameter legt die **zufällige Reihenfolge** der Sortiermethode fest. 
+>    -   **EnableSiteCosting** gibt die Methode für die **kostengünstigste Reihenfolge** an
+>    -   **EnableInsiteReferrals** gibt die Sortiermethode für **Ziele außerhalb des Standorts des Clients ausschließen**
+>    -   Das Auslassen beider Parameter legt die **zufällige Reihenfolge** der Sortiermethode fest. 
 
 Das DFSN Windows PowerShell-Modul wurde in Windows Server 2012 eingeführt.
    

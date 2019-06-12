@@ -8,12 +8,12 @@ ms.date: 07/10/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: b5658676d08318d88ddee44a0589db5873b4660b
-ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
+ms.openlocfilehash: cb301d0d68f00625ccea8c11d315b9defffe40f3
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65034298"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444534"
 ---
 # <a name="prepare-to-migrate-the-ad-fs-20-federation-server-to-ad-fs-on-windows-server-2012-r2"></a>Vorbereiten der Migration des AD FS 2.0-Verbundservers mit AD FS unter Windows Server 2012 R2
 
@@ -45,17 +45,17 @@ Die folgenden Einstellungen werden mit den Skripts im Ordner \support\adfs auf d
   
 Die folgenden benutzerdefinierten Einstellungen müssen manuell migriert werden:  
   
- -   Diensteinstellungen:  
+- Diensteinstellungen:  
   
-     -   Nicht standardmäßige Tokensignatur- und Tokenentschlüsselungszertifikate, die von einem Unternehmen oder einer öffentlichen Zertifizierungsstelle ausgestellt wurden  
+  - Nicht standardmäßige Tokensignatur- und Tokenentschlüsselungszertifikate, die von einem Unternehmen oder einer öffentlichen Zertifizierungsstelle ausgestellt wurden  
   
-     -   Das von AD FS verwendete SSL-Serverauthentifizierungszertifikat  
+  - Das von AD FS verwendete SSL-Serverauthentifizierungszertifikat  
   
-     -   Das von AD FS verwendete Dienstkommunikationszertifikat (standardmäßig dasselbe Zertifikat wie das SSL-Zertifikat)  
+  - Das von AD FS verwendete Dienstkommunikationszertifikat (standardmäßig dasselbe Zertifikat wie das SSL-Zertifikat)  
   
-      -   Nicht standardmäßige Werte für mögliche Verbunddiensteigenschaften wie %%amp;quot;AutoCertificateRollover%%amp;quot; oder SSO-Lebensdauer  
+    -   Nicht standardmäßige Werte für mögliche Verbunddiensteigenschaften wie %%amp;quot;AutoCertificateRollover%%amp;quot; oder SSO-Lebensdauer  
   
-      -   Nicht standardmäßige AD FS-endpunkteinstellungen und anspruchbeschreibungen  
+    -   Nicht standardmäßige AD FS-endpunkteinstellungen und anspruchbeschreibungen  
   
 -   Benutzerdefinierte Anspruchregeln für die Active Directory-Anspruchsanbieter-Vertrauensstellung  
   
@@ -63,11 +63,11 @@ Die folgenden benutzerdefinierten Einstellungen müssen manuell migriert werden:
   
 Weitere Informationen finden Sie unter [Migrieren des AD FS-Verbundservers](migrate-ad-fs-fed-server-r2.md).  
   
-2.  Erstellen einer Windows Server 2012 R2-Verbundserverfarm  
+2. Erstellen einer Windows Server 2012 R2-Verbundserverfarm  
   
-3.  Importieren der ursprünglichen Konfigurationsdaten in diese neue AD FS-Farm mit Windows Server 2012 R2  
+3. Importieren der ursprünglichen Konfigurationsdaten in diese neue AD FS-Farm mit Windows Server 2012 R2  
   
-4.  Konfigurieren und Anpassen der AD FS-Anmeldeseiten  
+4. Konfigurieren und Anpassen der AD FS-Anmeldeseiten  
   
 ##  <a name="new-ad-fs-functionality-in-windows-server-2012-r2"></a>Neue AD FS-Funktionen unter Windows Server 2012 R2  
  Die folgende AD FS-Funktionen ändert sich in Windows Server 2012 R2-Auswirkungen eine Migration von AD FS 2.0 oder AD FS unter Windows Server 2012:  
@@ -109,27 +109,27 @@ Wenn Sie Webseite Anpassung in Ihrer vorhandenen AD FS-Farm, die Sie für Window
   
  Für AD FS unter Windows Server 2012 R2-Funktion muss Active Directory-Domäne eines der folgenden führen:  
   
--   Windows Server 2012 R2  
+- Windows Server 2012 R2  
   
--   Windows Server 2012  
+- Windows Server 2012  
   
--   Windows Server 2008 R2  
+- Windows Server 2008 R2  
   
--   WindowsServer 2008  
+- WindowsServer 2008  
   
- Wenn Sie ein gruppenverwalteten Dienstkontos (gMSA) als Dienstkonto für AD FS verwenden möchten, müssen Sie mindestens ein Domänencontroller in Ihrer Umgebung verfügen, die auf Windows Server 2012 oder Windows Server 2012 R2-Betriebssystem ausgeführt wird.  
+  Wenn Sie ein gruppenverwalteten Dienstkontos (gMSA) als Dienstkonto für AD FS verwenden möchten, müssen Sie mindestens ein Domänencontroller in Ihrer Umgebung verfügen, die auf Windows Server 2012 oder Windows Server 2012 R2-Betriebssystem ausgeführt wird.  
   
- Wenn Sie Device Registration Service (DRS) für den AD-Arbeitsplatzbeitritt im Rahmen der AD FS-Bereitstellung bereitstellen möchten, muss das AD DS-Schema auf der Ebene des Windows Server 2012 R2 aktualisiert werden. Es gibt drei Möglichkeiten zum Aktualisieren des Schemas:  
+  Wenn Sie Device Registration Service (DRS) für den AD-Arbeitsplatzbeitritt im Rahmen der AD FS-Bereitstellung bereitstellen möchten, muss das AD DS-Schema auf der Ebene des Windows Server 2012 R2 aktualisiert werden. Es gibt drei Möglichkeiten zum Aktualisieren des Schemas:  
   
 1.  Führen Sie Adprep/forestprep in einer vorhandenen Active Directory-Gesamtstruktur aus dem Ordner "\support\adprep" des Betriebssystems Windows Server 2012 R2 DVD aus, auf einem 64-Bit-Server, die WindowsServer 2008 oder höher ausgeführt wird. Hierzu muss kein zusätzlicher Domänencontroller installiert und kein Upgrade für vorhandene Domänencontroller durchgeführt werden.  
   
 Zum Ausführen von adprep/forestprep müssen Sie Mitglied der Gruppen Schema-Admins, Organsisations-Admins und Domänen-Admins der Domäne sein, die den Schemamaster hostet.  
   
-2.  Installieren Sie in einer vorhandenen Active Directory-Gesamtstruktur einen Domänencontroller, der Windows Server 2012 R2 ausgeführt wird. In diesem Fall wird %%amp;quot;adprep /forestprep%%amp;quot; automatisch im Rahmen der Installation des Domänencontrollers ausgeführt.  
+2. Installieren Sie in einer vorhandenen Active Directory-Gesamtstruktur einen Domänencontroller, der Windows Server 2012 R2 ausgeführt wird. In diesem Fall wird %%amp;quot;adprep /forestprep%%amp;quot; automatisch im Rahmen der Installation des Domänencontrollers ausgeführt.  
   
 Während der Installation des Domänencontrollers müssen Sie zusätzliche Anmeldeinformationen angeben, um %%amp;quot;adprep /forestprep%%amp;quot; auszuführen.  
   
-3.  Erstellen Sie eine neue Active Directory-Gesamtstruktur, indem Sie AD DS auf einem Server mit Windows Server 2012 R2 installieren. In diesem Fall muss Adprep/forestprep nicht ausgeführt werden, da das Schema mit allen erforderlichen Containern und Objekten zur Unterstützung von DRS ursprünglich erstellt wird.  
+3. Erstellen Sie eine neue Active Directory-Gesamtstruktur, indem Sie AD DS auf einem Server mit Windows Server 2012 R2 installieren. In diesem Fall muss Adprep/forestprep nicht ausgeführt werden, da das Schema mit allen erforderlichen Containern und Objekten zur Unterstützung von DRS ursprünglich erstellt wird.  
   
 ### <a name="sql-server-support-for-ad-fs-in-windows-server-2012-r2"></a>SQL Server-Unterstützung für AD FS unter Windows Server 2012 R2  
  Wenn Sie eine AD FS-Farm erstellen und Ihre Konfigurationsdaten mithilfe von SQL Server speichern möchten, können Sie SQL Server 2008 und höhere Versionen, einschließlich SQL Server 2012, verwenden.  

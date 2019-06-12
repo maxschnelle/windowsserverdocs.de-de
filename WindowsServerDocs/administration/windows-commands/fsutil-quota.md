@@ -9,12 +9,12 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 2daa2f6253a406ccad68677e1877215a1c610328
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1e844d73348ee31f309f44895831ded9a2e6365c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835291"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439058"
 ---
 # <a name="fsutil-quota"></a>Fsutil quota
 >Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, WindowsServer 2012, Windows 8, Windows Server 2008 R2, Windows 7
@@ -36,18 +36,18 @@ fsutil quota [violations]
 
 ## <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|-------------|---------------|
-|Deaktivieren|Deaktiviert die Kontingente, die nachverfolgung und Erzwingung auf dem angegebenen Volume.|
-|erzwingen|Erzwingt die Speicherverwendung auf dem angegebenen Volume.|
-|ändern|Ändert ein vorhandenes Datenträgerkontingent aus, oder erstellt ein neues Kontingent.|
-|query|Listet vorhandene Datenträgerkontingente.|
-|Nachverfolgen|Verfolgt die Datenträgerverwendung auf dem angegebenen Volume.|
-|Leistungsverletzungen|Sucht die System- und Anwendungsprotokolle, und zeigt eine Meldung, um anzugeben, dass es sich bei kontingentverletzungen erkannt wurden oder dass ein Benutzer eine Kontingentgrenze Schwellenwert oder das Kontingent erreicht hat.|
-|\<VolumePath>|Erforderlich. Gibt den Namen des Laufwerks, gefolgt von einem Doppelpunkt oder die GUID im Format **Volume {***GUID***}**.|
-|\<Threshold>|Legt das Limit (in Byte), an dem Warnungen ausgegeben werden. Dieser Parameter ist erforderlich, damit die **Fsutil Kontingent ändern** Befehl.|
-|\<Limit>|Legt die maximale zulässige Datenträgerverwendung (in Bytes) fest. Dieser Parameter ist erforderlich, damit die **Fsutil Kontingent ändern** Befehl.|
-|\<Benutzername >|Gibt die Namen der Domäne oder Benutzer an. Dieser Parameter ist erforderlich, damit die **Fsutil Kontingent ändern** Befehl.|
+|   Parameter   |                                                                                    Beschreibung                                                                                    |
+|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|    Deaktivieren    |                                                         Deaktiviert die Kontingente, die nachverfolgung und Erzwingung auf dem angegebenen Volume.                                                          |
+|    erzwingen    |                                                                   Erzwingt die Speicherverwendung auf dem angegebenen Volume.                                                                   |
+|    ändern     |                                                              Ändert ein vorhandenes Datenträgerkontingent aus, oder erstellt ein neues Kontingent.                                                              |
+|     query     |                                                                            Listet vorhandene Datenträgerkontingente.                                                                            |
+|     Nachverfolgen     |                                                                    Verfolgt die Datenträgerverwendung auf dem angegebenen Volume.                                                                     |
+|  Leistungsverletzungen   | Sucht die System- und Anwendungsprotokolle, und zeigt eine Meldung, um anzugeben, dass es sich bei kontingentverletzungen erkannt wurden oder dass ein Benutzer eine Kontingentgrenze Schwellenwert oder das Kontingent erreicht hat. |
+| \<VolumePath> |                                  Erforderlich. Gibt den Namen des Laufwerks, gefolgt von einem Doppelpunkt oder die GUID im Format **Volume {** <em>GUID</em> **}** .                                  |
+| \<Threshold>  |                            Legt das Limit (in Byte), an dem Warnungen ausgegeben werden. Dieser Parameter ist erforderlich, damit die **Fsutil Kontingent ändern** Befehl.                            |
+|   \<Limit>    |                                Legt die maximale zulässige Datenträgerverwendung (in Bytes) fest. Dieser Parameter ist erforderlich, damit die **Fsutil Kontingent ändern** Befehl.                                |
+|  \<Benutzername >  |                                      Gibt die Namen der Domäne oder Benutzer an. Dieser Parameter ist erforderlich, damit die **Fsutil Kontingent ändern** Befehl.                                       |
 
 ## <a name="remarks"></a>Hinweise
 
@@ -62,14 +62,14 @@ Geben Sie zum Auflisten der vorhandenen Datenträgers Kontingente für Volumes, 
 fsutil quota query Volume{928842df-5a01-11de-a85c-806e6f6e6963}
 ```
 
-Vorhandenen Datenträgerkontingente für ein Datenträgervolume aufgelistet, die mit dem Laufwerkbuchstaben angegeben wird **C:**, Typ:
+Vorhandenen Datenträgerkontingente für ein Datenträgervolume aufgelistet, die mit dem Laufwerkbuchstaben angegeben wird **C:** , Typ:
 
 ```
 Fsutil quota query C:
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
-[Befehlszeilensyntax](Command-Line-Syntax-Key.md)
+[Erläuterung zur Befehlszeilensyntax](Command-Line-Syntax-Key.md)
 
 [Fsutil](Fsutil.md)
 

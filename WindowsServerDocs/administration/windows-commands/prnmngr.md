@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 2c0aa44cc6f27e553bf8c1b57356b884bc0cd632
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f0e3af7b05b77400d3d8a04d048b34b8c553438d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887201"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436234"
 ---
 # <a name="prnmngr"></a>prnmngr
 
@@ -34,21 +34,22 @@ cscript Prnmngr {-a | -d | -x | -g | -t | -l | -?}[c] [-s <ServerName>]
 ```
 
 ## <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
-|-------|--------|
-|-a|Fügt eine lokalen Drucker-Verbindung.|
-|-d|Löscht eine Druckerverbindung an.|
-|-x|Löscht alle Drucker auf dem Server angegeben wird, mit der **-s** Parameter. Wenn Sie keinen Server angeben, löscht Windows alle Drucker auf dem lokalen Computer.|
-|-g|Zeigt den Standarddrucker.|
-|-t|Legt den Standarddrucker an den Drucker, die gemäß der **-p** Parameter.|
-|-l|Listet alle Drucker auf dem vom angegebenen Server installiert die **-s** Parameter. Wenn Sie keinen Server angeben, führt Windows die auf dem lokalen Computer installierten Drucker.|
-|c|Gibt an, dass der Parameter für druckerverbindungen gilt. Kann verwendet werden, mit der **– ein** und **- X** Parameter.|
-|-s <ServerName>|Gibt den Namen des Remotecomputers, der den Drucker hostet, den Sie verwalten möchten. Wenn Sie einen Computer nicht angeben, wird der lokale Computer verwendet.|
-|-p \<Druckername >|Gibt den Namen des Druckers, den Sie verwalten möchten.|
-|-m \<DrivermodelName >|Gibt an (nach Namen) der Treiber, die, den Sie installieren möchten. Treiber werden häufig für das Modell des Druckers mit dem Namen, die sie unterstützen. Finden Sie auf Drucker, Weitere Informationen.|
-|-R \<PortName >|Gibt den Port, den Drucker verbunden ist. Ist dies einer parallelen oder seriellen Anschluss, verwenden Sie die ID des Ports (z. B. LPT1: oder COM1:). Ist dies ein TCP/IP-Port, verwenden Sie den Portnamen, der beim Hinzufügen des Ports angegeben wurde.|
-|-u \<UserName > -w \<Kennwort >|Gibt ein Konto mit Berechtigungen zum Verbinden mit dem Computer, der den Drucker hostet, den Sie verwalten möchten. Alle Mitglieder der lokalen Gruppe Administratoren des Zielcomputers über diese Berechtigungen verfügen, aber die Berechtigungen können auch für andere Benutzer erteilt werden. Wenn Sie ein Konto nicht angeben, müssen Sie über ein Konto mit Berechtigungen für der Befehl funktioniert angemeldet sein.|
-|/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
+
+|           Parameter           |                                                                                                                                                                                        Beschreibung                                                                                                                                                                                        |
+|-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|              -a               |                                                                                                                                                                             Fügt eine lokalen Drucker-Verbindung.                                                                                                                                                                              |
+|              -d               |                                                                                                                                                                               Löscht eine Druckerverbindung an.                                                                                                                                                                               |
+|              -x               |                                                                                                               Löscht alle Drucker auf dem Server angegeben wird, mit der **-s** Parameter. Wenn Sie keinen Server angeben, löscht Windows alle Drucker auf dem lokalen Computer.                                                                                                               |
+|              -g               |                                                                                                                                                                               Zeigt den Standarddrucker.                                                                                                                                                                               |
+|              -t               |                                                                                                                                                        Legt den Standarddrucker an den Drucker, die gemäß der **-p** Parameter.                                                                                                                                                         |
+|              -l               |                                                                                                         Listet alle Drucker auf dem vom angegebenen Server installiert die **-s** Parameter. Wenn Sie keinen Server angeben, führt Windows die auf dem lokalen Computer installierten Drucker.                                                                                                         |
+|               c               |                                                                                                                                      Gibt an, dass der Parameter für druckerverbindungen gilt. Kann verwendet werden, mit der **– ein** und **- X** Parameter.                                                                                                                                      |
+|        -s <ServerName>        |                                                                                                                  Gibt den Namen des Remotecomputers, der den Drucker hostet, den Sie verwalten möchten. Wenn Sie einen Computer nicht angeben, wird der lokale Computer verwendet.                                                                                                                  |
+|       -p \<Druckername >       |                                                                                                                                                                Gibt den Namen des Druckers, den Sie verwalten möchten.                                                                                                                                                                 |
+|     -m \<DrivermodelName >     |                                                                                                          Gibt an (nach Namen) der Treiber, die, den Sie installieren möchten. Treiber werden häufig für das Modell des Druckers mit dem Namen, die sie unterstützen. Finden Sie auf Drucker, Weitere Informationen.                                                                                                           |
+|        -R \<PortName >         |                                                                         Gibt den Port, den Drucker verbunden ist. Ist dies einer parallelen oder seriellen Anschluss, verwenden Sie die ID des Ports (z. B. LPT1: oder COM1:). Ist dies ein TCP/IP-Port, verwenden Sie den Portnamen, der beim Hinzufügen des Ports angegeben wurde.                                                                          |
+| -u \<UserName > -w \<Kennwort > | Gibt ein Konto mit Berechtigungen zum Verbinden mit dem Computer, der den Drucker hostet, den Sie verwalten möchten. Alle Mitglieder der lokalen Gruppe Administratoren des Zielcomputers über diese Berechtigungen verfügen, aber die Berechtigungen können auch für andere Benutzer erteilt werden. Wenn Sie ein Konto nicht angeben, müssen Sie über ein Konto mit Berechtigungen für der Befehl funktioniert angemeldet sein. |
+|              /?               |                                                                                                                                                                           Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                                                            |
 
 ## <a name="remarks"></a>Hinweise
 -   Die **Prndrvr** Befehl ist eine Visual Basic-Skript befindet sich in der %WINdir%\System32\printing_Admin_Scripts\\ <language> Verzeichnis. Um diesen Befehl an einer Eingabeaufforderung verwenden möchten, geben **Cscript** gefolgt von den vollständigen Pfad zu der **Prnmngr** -Datei ein, oder wechseln Sie in den entsprechenden Ordner. Zum Beispiel:

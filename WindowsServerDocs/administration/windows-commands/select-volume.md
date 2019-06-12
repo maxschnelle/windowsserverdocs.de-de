@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b0ebf9896621268c384ea8129d32c985028054d9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 98f42324dbd4c6b3add3333cf4687d1613b1f700
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890731"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441427"
 ---
 # <a name="select-volume"></a>Volume auswählen
 
@@ -36,10 +36,10 @@ select volume={<n>|<d>}
   
 ## <a name="parameters"></a>Parameter  
   
-|Parameter|Beschreibung|  
-|-------|--------|  
-|<n>|Die Anzahl der dem Volume, das den Fokus erhalten. Sehen Sie die Zahlen für alle Volumes auf dem Datenträger, die derzeit ausgewählt wird, mithilfe der **Liste Volume** in DiskPart den Befehl.|  
-|<d>|Der Laufwerkbuchstabe oder Bereitstellungspunkt Punkt Laufwerkpfad des Volumes, das den Fokus erhalten.|  
+| Parameter |                                                                               Beschreibung                                                                                |
+|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|    <n>    | Die Anzahl der dem Volume, das den Fokus erhalten. Sehen Sie die Zahlen für alle Volumes auf dem Datenträger, die derzeit ausgewählt wird, mithilfe der **Liste Volume** in DiskPart den Befehl. |
+|    <d>    |                                                 Der Laufwerkbuchstabe oder Bereitstellungspunkt Punkt Laufwerkpfad des Volumes, das den Fokus erhalten.                                                 |
   
 ## <a name="remarks"></a>Hinweise  
   
@@ -77,7 +77,7 @@ select volume
 ```  
   
 #### <a name="additional-references"></a>Zusätzliche Referenzen  
-[Befehlszeilensyntax](command-line-syntax-key.md)  
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
   
 
   

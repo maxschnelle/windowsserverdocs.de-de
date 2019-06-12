@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: d6ff5b22-7695-4fee-b1bd-6c9dce5bd0e8
 author: lizap
 manager: scottman
-ms.openlocfilehash: 7cf7fdf3510fcaaa955bd0031fb3564fe4372472
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: af5d5ce89561c89d8468627e20dfdb6f35eca5ef
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59875801"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447108"
 ---
 # <a name="which-graphics-virtualization-technology-is-right-for-you"></a>Die Grafik-Virtualisierungstechnologie für Sie geeignet ist?
 
@@ -43,12 +43,12 @@ Finden Sie weitere Informationen zu DDA, [Planen für die Bereitstellung von dis
 ## <a name="remotefx-vgpu"></a>RemoteFX vGPU 
 RemoteFX vGPU ist eine Technologie zur Registrierungsvirtualisierung Grafiken, die die verarbeitungsgeschwindigkeit GPU auf verschiedene Gastbetriebssysteme aus, um Szenarios zu aktivieren (Siehe obigen ersten Grafik) aufgeteilt werden kann. Verbesserungen in Windows Server 2016 können weitere Verbesserungen für GPU-Burst-Szenarien, z. B. für die Designer-Anwendungen und datenvisualisierung. Andere Verbesserungen von Features umfassen:
 
--   Unterstützung für die Generation 2-Gast-VMs, Windows Server 2016-Gast-VMs und Windows Client Hyper-V-Host.
-   >[!NOTE] 
-   > Remotedesktop-Sitzungshost wird auf einem Windows Server 2016-Gast-VM nicht unterstützt. nur 1-Sitzung kann pro Windows Server 2016-Gast-VM gehostet werden.
+- Unterstützung für die Generation 2-Gast-VMs, Windows Server 2016-Gast-VMs und Windows Client Hyper-V-Host.
+  >[!NOTE] 
+  > Remotedesktop-Sitzungshost wird auf einem Windows Server 2016-Gast-VM nicht unterstützt. nur 1-Sitzung kann pro Windows Server 2016-Gast-VM gehostet werden.
 
--   Verbesserte Anwendungskompatibilität und Stabilität.
--   VM verbinden erweiterter Sitzungsmodus, sodass USB- und die Zwischenablage, um umleitungen VM verbinden zu einem virtuellen Computer, die für RemoteFX vGPU aktiviert ist.
+- Verbesserte Anwendungskompatibilität und Stabilität.
+- VM verbinden erweiterter Sitzungsmodus, sodass USB- und die Zwischenablage, um umleitungen VM verbinden zu einem virtuellen Computer, die für RemoteFX vGPU aktiviert ist.
 
 Weitere Informationen finden Sie in [festgelegt einrichten und Konfigurieren von RemoteFX vGPU für Remote Desktop Services](rds-remotefx-vgpu.md).
 

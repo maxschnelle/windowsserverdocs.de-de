@@ -13,12 +13,12 @@ author: justinha
 ms.author: justinha
 manager: brianlic-msft
 ms.date: 05/16/2018
-ms.openlocfilehash: 48dabb5ad83b82f0a93992ad8c24456a8a8e7ef5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b1af556200c9dd497bac835f1480479cca075dab
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873091"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447281"
 ---
 # <a name="overview-of-tls---ssl-schannel-ssp"></a>Übersicht über TLS – SSL (Schannel SSP)
 
@@ -31,7 +31,7 @@ Schannel ist ein Security Support Provider (SSP), der die standardmäßigen Inte
 Weitere Informationen zur Microsoft Implementierung von TLS und SSL im Schannel SSP finden Sie unter den [technische Referenz zu TLS/SSL (2003)](https://technet.microsoft.com/library/cc784149(v=ws.10).aspx).
 
 
-##<a name="tlsssl-schannel-ssp-features"></a>TLS/SSL (Schannel SSP)-Funktionen
+## <a name="tlsssl-schannel-ssp-features"></a>TLS/SSL (Schannel SSP)-Funktionen
 Im folgenden werden die Funktionen von TLS im Schannel SSP. beschrieben.
 
 ### <a name="tls-session-resumption"></a>Wiederaufnahme der TLS-Sitzung

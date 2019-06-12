@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c7d5675aa6c33ddbe1e5e873e1a7cf7a2e8f8017
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 79449bc74dd09246b380b3f892acc1b338650d20
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824961"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441500"
 ---
 # <a name="select-partition"></a>Wählen Sie die partition
 
@@ -36,9 +36,9 @@ select partition=<n>
   
 ## <a name="parameters"></a>Parameter  
   
-|Parameter|Beschreibung|  
-|-------|--------|  
-|partition\=<n>|Die Anzahl der Partition, die den Fokus erhalten. Sie können die Zahlen für alle Partitionen anzeigen, auf dem Datenträger, die derzeit ausgewählt wird, mithilfe der **Liste Partition** in DiskPart den Befehl.|  
+|   Parameter    |                                                                                    Beschreibung                                                                                    |
+|----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| partition\=<n> | Die Anzahl der Partition, die den Fokus erhalten. Sie können die Zahlen für alle Partitionen anzeigen, auf dem Datenträger, die derzeit ausgewählt wird, mithilfe der **Liste Partition** in DiskPart den Befehl. |
   
 ## <a name="remarks"></a>Hinweise  
   
@@ -64,7 +64,7 @@ select partition
 ```  
   
 #### <a name="additional-references"></a>Zusätzliche Referenzen  
-[Befehlszeilensyntax](command-line-syntax-key.md)  
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
   
 
   

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 023bd81b93106a091fb9f26d97cf7eda75f0f633
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e6c26d42410e5466950ede4f9aa059e315030588
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59888461"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435037"
 ---
 # <a name="autochk"></a>autochk
 
@@ -35,12 +35,12 @@ Wird ausgeführt, wenn der Computer gestartet wird und vor Windows Server® 2008
 
 > -   [!WARNING]
 >     Die **Autochk** Befehlszeilentool kann nicht direkt über die Befehlszeile ausgeführt werden. Verwenden Sie stattdessen die **Chkntfs** Befehlszeilentool, mit der gewünscht konfigurieren sollen **Autochk** beim Start ausgeführt.
--   Sie können **Chkntfs** mit der **/x** Parameter, um zu verhindern, dass **Autochk** ausgeführt wird, ein bestimmtes Volume oder mehrere Volumes.
--   Verwenden der **Chkntfs.exe** Befehlszeilentool mit der **/t /** Parameter, um die Autochk Verzögerung von 0 Sekunden auf bis zu 3 Tage (259.200 Sekunden) zu ändern. Eine lange Verzögerung bedeutet jedoch, dass der Computer nicht gestartet wird, bis die Zeit abgelaufen ist oder Sie eine Abbrechen-Taste auf **Autochk**.
+> -   Sie können **Chkntfs** mit der **/x** Parameter, um zu verhindern, dass **Autochk** ausgeführt wird, ein bestimmtes Volume oder mehrere Volumes.
+> -   Verwenden der **Chkntfs.exe** Befehlszeilentool mit der **/t /** Parameter, um die Autochk Verzögerung von 0 Sekunden auf bis zu 3 Tage (259.200 Sekunden) zu ändern. Eine lange Verzögerung bedeutet jedoch, dass der Computer nicht gestartet wird, bis die Zeit abgelaufen ist oder Sie eine Abbrechen-Taste auf **Autochk**.
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
 [Chkdsk](chkdsk.md)
 

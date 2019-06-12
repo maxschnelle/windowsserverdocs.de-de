@@ -9,12 +9,12 @@ ms.topic: get-started-article
 author: nedpyle
 ms.date: 04/26/2019
 ms.assetid: 61881b52-ee6a-4c8e-85d3-702ab8a2bd8c
-ms.openlocfilehash: dd0a160213e69e59194e1f775040c12769f1eb5e
-ms.sourcegitcommit: 4ff3d00df3148e4bea08056cea9f1c3b52086e5d
+ms.openlocfilehash: 844c9d1b0fef9fc49a699bbe09bcb28657d31b2a
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64772489"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447620"
 ---
 # <a name="server-to-server-storage-replication-with-storage-replica"></a>Server-zu-Server-Speicherreplikation mit Speicherreplikaten
 
@@ -201,7 +201,7 @@ Wenn Sie Windows Admin Center zum Verwalten der Funktion "Speicherreplikat" verw
 3. Wählen Sie **Funktion "Speicherreplikat"** aus dem Bereich "Tools".
 4. Wählen Sie **neu** um eine neue Partnerschaft zu erstellen.
 5. Geben Sie die Details der Partnerschaft, und wählen Sie dann **erstellen**. <br>
-![Der neue Partnerschaft-Bildschirm mit Details der Partnerschaft, z. B. eine Protokollgröße von 8 GB.](media\Storage-Replica-UI\Honolulu_SR_Create_Partnership.png)
+   ![Der neue Partnerschaft-Bildschirm mit Details der Partnerschaft, z. B. eine Protokollgröße von 8 GB.](media/Storage-Replica-UI/Honolulu_SR_Create_Partnership.png)
 
     **Abbildung 3: Erstellen eine neue Partnerschaft**
 
@@ -410,23 +410,23 @@ Bei Speicherreplikaten gelten keine dieser Einschränkungen. Allerdings müssen 
 Wenn diese Faktoren nicht entscheidend sind, kann das Speicherreplikatfeature eingesetzt werden, um DFS-Replikatserver durch diese neuere Technologie zu ersetzen.   
 Nachfolgend finden Sie einen groben Überblick über die erforderlichen Schritte:  
 
-1.  Installieren von Windows Server auf zwei Servern, und konfigurieren Sie Ihren Speicher. Sie können entweder zwei vorhandene Server upgraden oder eine Neuinstallation durchführen.  
-2.  Stellen Sie sicher, dass die Daten, die repliziert werden sollen, sich auf mindestens einem Datenvolume und nicht Laufwerk C: befinden.   
-a.  Sie können auch ein Seeding für die Daten auf dem anderen Server durchführen, um den Zeitaufwand zu reduzieren. Dabei werden eine Sicherung oder Dateikopien verwendet. Außerdem ist eine schlanke Speicherzuweisung möglich. Im Gegensatz zu DFS-Replikation ist eine exakte Übereinstimmung mit der metadatenähnlichen Sicherheit nicht erforderlich.  
-3.  Teilen Sie die Daten auf dem Quellserver, und legen Sie sie über einen DFS-Namespace zugegriffen werden. Dies ist wichtig, um sicherzustellen, dass Benutzer weiterhin auf die Daten zugreifen können, wenn der Servername in einen Namen an einem Notfallstandort geändert wird.  
-a.  Sie können übereinstimmende Freigaben auf dem Zielserver erstellen, die im normalen Betrieb nicht verfügbar sind   
-b.  Nicht dem DFS-Namespace mit den Zielserver hinzugefügt, oder wenn Sie dies tun, stellen Sie sicher, dass sämtliche Ordnerziele deaktiviert sind.  
-4.  Aktivieren Sie die Speicherreplikatreplikation, und führen Sie die erste Synchronisierung durch. Die Replikation kann synchron oder asynchron durchgeführt werden.   
-a.  Um E/A-Datenkonsistenz auf dem Zielserver sicherzustellen, wird jedoch eine synchrone Replikation empfohlen.   
-b.  Es wird dringend empfohlen, Volumeschattenkopien zu aktivieren und regelmäßig Momentaufnahmen mit VSSADMIN oder einem anderen Tool Ihrer Wahl zu erstellen. Dadurch wird sichergestellt, dass Anwendungen ihre Daten konsistent auf den Datenträgern speichern. Bei einem Notfall können Sie Dateien anhand von Momentaufnahmen auf dem Zielserver wiederherstellen, die möglicherweise teilweise asynchron repliziert wurden. Momentaufnahmen werden gemeinsam mit den Dateien repliziert.  
-5.  Nehmen Sie den normalen Betrieb auf, bis eine Notfallsituation eintritt.  
-6.  Ändern Sie den Zielserver in den neuen Quellserver, sodass die replizierten Volumes für die Benutzer angezeigt werden.  
-7.  Bei Verwendung der synchronen Replikation ist nur dann eine Datenwiederherstellung erforderlich, wenn der Benutzer eine Anwendung verwendet hat, die beim Ausfall des Quellservers Daten ohne Transaktionsschutz (unabhängig von der Replikation) geschrieben hat. Bei Verwendung der asynchronen Replikation sollte eine VSS-Momentaufnahmenbereitstellung verwendet werden. Sie sollten die Verwendung von VSS jedoch in allen Situationen in Betracht ziehen, um anwendungskonsistente Momentaufnahmen bereitzustellen.  
-8.  Fügen Sie den Server und seine Freigaben als DFS-Namespaces Ordnerziel hinzu.   
-9.  Die Benutzer können anschließend auf ihre Daten zugreifen.  
+1. Installieren von Windows Server auf zwei Servern, und konfigurieren Sie Ihren Speicher. Sie können entweder zwei vorhandene Server upgraden oder eine Neuinstallation durchführen.  
+2. Stellen Sie sicher, dass die Daten, die repliziert werden sollen, sich auf mindestens einem Datenvolume und nicht Laufwerk C: befinden.   
+   a.  Sie können auch ein Seeding für die Daten auf dem anderen Server durchführen, um den Zeitaufwand zu reduzieren. Dabei werden eine Sicherung oder Dateikopien verwendet. Außerdem ist eine schlanke Speicherzuweisung möglich. Im Gegensatz zu DFS-Replikation ist eine exakte Übereinstimmung mit der metadatenähnlichen Sicherheit nicht erforderlich.  
+3. Teilen Sie die Daten auf dem Quellserver, und legen Sie sie über einen DFS-Namespace zugegriffen werden. Dies ist wichtig, um sicherzustellen, dass Benutzer weiterhin auf die Daten zugreifen können, wenn der Servername in einen Namen an einem Notfallstandort geändert wird.  
+   a.  Sie können übereinstimmende Freigaben auf dem Zielserver erstellen, die im normalen Betrieb nicht verfügbar sind   
+   b.  Nicht dem DFS-Namespace mit den Zielserver hinzugefügt, oder wenn Sie dies tun, stellen Sie sicher, dass sämtliche Ordnerziele deaktiviert sind.  
+4. Aktivieren Sie die Speicherreplikatreplikation, und führen Sie die erste Synchronisierung durch. Die Replikation kann synchron oder asynchron durchgeführt werden.   
+   a.  Um E/A-Datenkonsistenz auf dem Zielserver sicherzustellen, wird jedoch eine synchrone Replikation empfohlen.   
+   b.  Es wird dringend empfohlen, Volumeschattenkopien zu aktivieren und regelmäßig Momentaufnahmen mit VSSADMIN oder einem anderen Tool Ihrer Wahl zu erstellen. Dadurch wird sichergestellt, dass Anwendungen ihre Daten konsistent auf den Datenträgern speichern. Bei einem Notfall können Sie Dateien anhand von Momentaufnahmen auf dem Zielserver wiederherstellen, die möglicherweise teilweise asynchron repliziert wurden. Momentaufnahmen werden gemeinsam mit den Dateien repliziert.  
+5. Nehmen Sie den normalen Betrieb auf, bis eine Notfallsituation eintritt.  
+6. Ändern Sie den Zielserver in den neuen Quellserver, sodass die replizierten Volumes für die Benutzer angezeigt werden.  
+7. Bei Verwendung der synchronen Replikation ist nur dann eine Datenwiederherstellung erforderlich, wenn der Benutzer eine Anwendung verwendet hat, die beim Ausfall des Quellservers Daten ohne Transaktionsschutz (unabhängig von der Replikation) geschrieben hat. Bei Verwendung der asynchronen Replikation sollte eine VSS-Momentaufnahmenbereitstellung verwendet werden. Sie sollten die Verwendung von VSS jedoch in allen Situationen in Betracht ziehen, um anwendungskonsistente Momentaufnahmen bereitzustellen.  
+8. Fügen Sie den Server und seine Freigaben als DFS-Namespaces Ordnerziel hinzu.   
+9. Die Benutzer können anschließend auf ihre Daten zugreifen.  
 
- > [!NOTE]
- > Die Notfallwiederherstellungsplanung ist ein komplexes Thema, das mit größter Sorgfalt behandelt werden muss. Es wird dringend empfohlen, Runbooks zu erstellen und jährliche Livefailoverdrills durchzuführen. Wenn tatsächlich eine Notfallsituation eintritt, können die Abläufe chaotisch sein, und erfahrene Mitarbeiter sind möglicherweise nicht verfügbar.  
+   > [!NOTE]
+   > Die Notfallwiederherstellungsplanung ist ein komplexes Thema, das mit größter Sorgfalt behandelt werden muss. Es wird dringend empfohlen, Runbooks zu erstellen und jährliche Livefailoverdrills durchzuführen. Wenn tatsächlich eine Notfallsituation eintritt, können die Abläufe chaotisch sein, und erfahrene Mitarbeiter sind möglicherweise nicht verfügbar.  
 
 ## <a name="add-azure-vm-expressroute"></a>Hinzufügen einer Azure-VM mit Ihrem Netzwerk über ExpressRoute verbunden
 

@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: fa6da3f4a98686f83fff3937c2dc44fd4d623fe3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9badbfcb709c29451425aaecc56b46ac98837e18
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871011"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443804"
 ---
 # <a name="deploy-shielded-vms"></a>Bereitstellen von abgeschirmten VMs
 
@@ -36,12 +36,12 @@ Die folgenden Themen wird beschrieben, wie ein Mandant mit abgeschirmten virtuel
  
     - Mithilfe von **Windows Azure Pack**: [Bereitstellen einer abgeschirmten VM mithilfe von Windows Azure Pack](guarded-fabric-shielded-vm-windows-azure-pack.md)
 
-    - Mithilfe von **Virtual Machine Manager-**: [Bereitstellen einer abgeschirmten VM mithilfe von Virtual Machine Manager](guarded-fabric-tenant-deploys-shielded-vm-using-vmm.md)
+    - Mithilfe von **Virtual Machine Manager-** : [Bereitstellen einer abgeschirmten VM mithilfe von Virtual Machine Manager](guarded-fabric-tenant-deploys-shielded-vm-using-vmm.md)
 
 ## <a name="next-step"></a>Nächster Schritt
 
->[!div class="nextstepaction"]
-[Erstellen einer abgeschirmten VM-Vorlage](guarded-fabric-create-a-shielded-vm-template.md)
+> [!div class="nextstepaction"]
+> [Erstellen einer abgeschirmten VM-Vorlage](guarded-fabric-create-a-shielded-vm-template.md)
 
 ## <a name="see-also"></a>Siehe auch
 

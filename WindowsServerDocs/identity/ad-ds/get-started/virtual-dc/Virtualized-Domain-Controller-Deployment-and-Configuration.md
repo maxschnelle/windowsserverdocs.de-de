@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: d692e58d616376149e62fbce611fe2a9ac80c743
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 4af0f96b0af3a547ab7d509d031a9e23cce8b654
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863251"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443212"
 ---
 # <a name="virtualized-domain-controller-deployment-and-configuration"></a>Bereitstellung und Konfiguration virtualisierter Domänencontroller
 
@@ -268,7 +268,7 @@ Sie führen das Cmdlet auf dem vorgeschlagenen Quelldomänencontroller aus, den 
   
 ||||  
 |-|-|-|  
-|**ActiveDirectory**<br /><br />**Cmdlet**|**Arguments**|**Erläuterung**|  
+|**ActiveDirectory**<br /><br />**Cmdlet**|**Argumente**|**Erläuterung**|  
 |**New-ADDCCloneConfigFile**|*<no argument specified>*|Erstellt eine leere „DcCloneConfig.xml“-Datei im DSA-Arbeitsverzeichnis (Standard: %systemroot%\ntds)|  
 ||-CloneComputerName|Gibt den Computernamen des geklonten Domänencontrollers an. Zeichenfolgendatentyp.|  
 ||-Path|Gibt den Ordner für die Erstellung der DcCloneConfig.xml-Datei an. Falls nicht angegeben, wird die Datei in das DSA-Arbeitsverzeichnis (Standard: %systemroot%\ntds) geschrieben. Zeichenfolgendatentyp.|  
@@ -280,7 +280,7 @@ Sie führen das Cmdlet auf dem vorgeschlagenen Quelldomänencontroller aus, den 
 ||-PreferredWINSServer|Gibt die statische IPv4-Adresse des primären WINS-Computers an. Zeichenfolgendatentyp.|  
 ||-AlternateWINSServer|Gibt die statische IPv4-Adresse des sekundären WINS-Computers an. Zeichenfolgendatentyp.|  
 ||-IPv6DNSResolver|Gibt die statischen IPv6-DNS-Einträge des geklonten Computers in einer durch Trennzeichen getrennten Liste an. Es gibt keine Möglichkeit, um statische IPv6-Informationen beim Klonen von virtualisierten Domänencontrollern festzulegen. Arraydatentyp.|  
-||-Offline|Führt keine Validierungstests durch und überschreibt jede vorhandene dccloneconfig.xml-Datei. Hat keine Parameter. Weitere Informationen finden Sie unter [Ausführen von %%amp;quot;New-ADDCCloneConfigFile%%amp;quot; im Offlinemodus](../../../ad-ds/Introduction-to-Active-Directory-Domain-Services-AD-DS-Virtualization-Level-100.md#BKMK_OfflineMode).|  
+||-Offline|Führt keine Validierungstests durch und überschreibt jede vorhandene dccloneconfig.xml-Datei. Hat keine Parameter.|  
 ||*-Static*|Erforderlich, wenn die statischen IP-Argumente IPv4SubnetMask, IPv4SubnetMask oder IPv4DefaultGateway angegeben werden. Hat keine Parameter.|  
   
 Bei Ausführung im Onlinemodus durchgeführte Tests:  
@@ -604,7 +604,7 @@ So importieren Sie mit dem Hyper-V-Manager-Snap-In:
   
 3.  Klicken Sie auf der Seite **Virtuellen Computer auswählen** auf den Quellcomputer.  
   
-4.  Klicken Sie auf der Seite **Importtyp auswählen** auf **Virtuellen Computer kopieren (neue eindeutige ID erstellen)**, und klicken Sie dann auf **Fertig stellen**.  
+4.  Klicken Sie auf der Seite **Importtyp auswählen** auf **Virtuellen Computer kopieren (neue eindeutige ID erstellen)** , und klicken Sie dann auf **Fertig stellen**.  
   
 5.  Benennen Sie den importierten virtuellen Computer um, wenn Sie auf demselben Hyper-V-Host importieren, da er denselben Namen hat wie der exportierte Quelldomänencontroller.  
   
@@ -644,11 +644,11 @@ Zum Beispiel:
   
 ![Bereitstellung von virtualisierten Domänencontrollers](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSGetVMSnap.png)  
   
-> [!WARNING]  
+> [!WARNING]
 > Stellen Sie sicher, dass dem Quelldomänencontroller beim Importieren des Computers keine statischen MAC-Adressen zugewiesen wurden. Wenn ein Quellcomputer mit einer statischen MAC-Adresse geklont wird, können diese kopierten Computer Netzwerkdatenverkehr nicht ordnungsgemäß senden oder empfangen. Legen Sie in diesem Fall eine neue eindeutige statische oder dynamische MAC-Adresse fest. Sie können mit dem folgenden Befehl anzeigen, ob ein virtueller Computer eine statische MAC-Adresse verwendet:  
->   
+> 
 > **Get-VM - VMName**   
->  ***test-vm* | Get-VMNetworkAdapter | fl \***  
+>  ***Test-Vm* | Get-VMNetworkAdapter | fl \\** *  
   
 ### <a name="step-9---clone-the-new-virtual-machine"></a>Schritt 9: Klonen des neuen virtuellen Computers  
 Starten Sie optional vor Beginn des Klonprozesses den geklonten Offline-Quelldomänencontroller neu. Stellen Sie sicher, dass der PDC-Emulator unabhängig davon online ist.  

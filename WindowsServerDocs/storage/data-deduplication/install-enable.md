@@ -9,12 +9,12 @@ manager: klaasl
 ms.author: wgries
 ms.date: 05/09/2017
 description: Wie die Datendeduplizierung auf Windows Server installiert ist, bestimmt, ob eine Arbeitsauslastung gut für die Deduplizierung eignet die Deduplizierung auf Volumes ermöglicht.
-ms.openlocfilehash: 153b064b158028c696bad4eeb00764d3e10822e1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e9ea3a144ae68ba9a51cdad66d493a7b962d3838
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814901"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447271"
 ---
 # <a name="install-and-enable-data-deduplication"></a>Installieren und Aktivieren der Datenduplizierung
 > Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
@@ -46,7 +46,7 @@ So installieren Sie die Datendeduplizierung in einer Nano Server-Installation
     Install-WindowsFeature -ComputerName <MyNanoServer> -Name FS-Data-Deduplication
     ```  
     <br />
-    **-- OR --**
+    <strong>-- OR --</strong>
     <br />
     Stellen Sie mithilfe von PowerShell-Remoting eine Remoteverbindung mit der Nano Server-Instanz her, und installieren Sie die Datendeduplizierung, indem Sie DISM verwenden:  
     

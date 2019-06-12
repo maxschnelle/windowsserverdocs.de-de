@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 09708c239b5399f3284c42877970443cc2605cbe
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: bcbbbf80f25f77d1feb83f358401e4d14da3d354
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817151"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439218"
 ---
 # <a name="fondue"></a>fondue
 
@@ -30,11 +30,13 @@ Können optionale Features von Windows durch Herunterladen der erforderlichen Da
 fondue.exe /enable-feature:<feature_name> [/caller-name:<program_name>] [/hide-ux:{all | rebootRequest}]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
-|-------|--------|
-|/ Enable-Feature: <*Featurename*>|Gibt den Namen des optionalen Windows-Features, die Sie aktivieren möchten. Sie können nur eine Funktion pro über die Befehlszeile aktivieren. Verwenden Sie fondue.exe für jede Funktion, um mehrere Funktionen zu aktivieren.|
-|/caller-Name: <*Program_name*>|Gibt den Namen Programm oder Prozess aus, wenn Sie aus einem Skript oder Batch fondue.exe aufrufen. Sie können diese Option verwenden, um den Namen des Programms für die SQM-Bericht hinzufügen, wenn ein Fehler auftritt.|
-|/hide-ux:{all &#124; rebootRequest}|Verwendung **alle** So blenden Sie alle Nachrichten, die dem Benutzer, einschließlich Status und die Berechtigung zugriffsanforderungen für Windows Update aus. Wenn die Berechtigung erforderlich ist, schlägt der Vorgang fehl.<br /><br />Verwendung **RebootRequest** benutzermeldungen in der die Berechtigung zum Neustart des Computers nur ausblenden. Verwenden Sie diese Option, wenn Sie ein Skript verfügen, Steuerelemente Anforderungen einen Neustart.|
+
+|              Parameter              |                                                                                                                                                                     Beschreibung                                                                                                                                                                     |
+|-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  / Enable-Feature: <*Featurename*>   |                                                                               Gibt den Namen des optionalen Windows-Features, die Sie aktivieren möchten. Sie können nur eine Funktion pro über die Befehlszeile aktivieren. Verwenden Sie fondue.exe für jede Funktion, um mehrere Funktionen zu aktivieren.                                                                                |
+|    /caller-Name: <*Program_name*>    |                                                                                 Gibt den Namen Programm oder Prozess aus, wenn Sie aus einem Skript oder Batch fondue.exe aufrufen. Sie können diese Option verwenden, um den Namen des Programms für die SQM-Bericht hinzufügen, wenn ein Fehler auftritt.                                                                                 |
+| /hide-ux:{all &#124; rebootRequest} | Verwendung **alle** So blenden Sie alle Nachrichten, die dem Benutzer, einschließlich Status und die Berechtigung zugriffsanforderungen für Windows Update aus. Wenn die Berechtigung erforderlich ist, schlägt der Vorgang fehl.<br /><br />Verwendung **RebootRequest** benutzermeldungen in der die Berechtigung zum Neustart des Computers nur ausblenden. Verwenden Sie diese Option, wenn Sie ein Skript verfügen, Steuerelemente Anforderungen einen Neustart. |
+
 ## <a name="BKMK_Examples"></a>Beispiele für
 Um Microsoft .NET Framework 3.5 zu aktivieren, geben Sie Folgendes ein:
 ```
@@ -45,6 +47,6 @@ Um Microsoft .NET Framework 3.5 zu aktivieren, fügen Sie den Namen des Programm
 fondue.exe /enable-feature:NETFX3 /caller-name:Admin.bat /hide-ux:all
 ```
 ## <a name="additional-references"></a>Zusätzliche Referenzen
--   [Befehlszeilensyntax](command-line-syntax-key.md)
-## <a name="see-also"></a>Siehe auch
-[Überlegungen zur Bereitstellung von Microsoft .NET Framework 3.5](https://go.microsoft.com/fwlink/?LinkId=248869)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+  ## <a name="see-also"></a>Siehe auch
+  [Überlegungen zur Bereitstellung von Microsoft .NET Framework 3.5](https://go.microsoft.com/fwlink/?LinkId=248869)

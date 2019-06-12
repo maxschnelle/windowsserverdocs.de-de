@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: faaf936e4c23579e908e12543c07d0764a2cdcc1
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 7a602472d30f19cb2d4a802423635e5788e78a43
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192621"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66434554"
 ---
 # <a name="certutil"></a>certutil
 
@@ -145,14 +145,15 @@ Wechseln Sie zurück zur [Menü](#menu)
 
 Die folgende Tabelle beschreibt die Notation verwendet, um die Syntax der Befehlszeile anzugeben.
 
-|Notation|Beschreibung|
-|--------|-----------|
-|Text ohne eckigen oder geschweiften Klammern|Elemente, die Sie eingeben müssen, siehe|
-|\<Text in spitzen Klammern >|Platzhalter für die Sie einen Wert angeben muss|
-|[Text innerhalb der eckigen Klammern]|Optionale Elemente|
-|{Text in geschweiften Klammern}|Der Satz von erforderlichen Elemente; Wählen Sie eine|
-|Senkrechter Strich ()|)|Trennzeichen für sich gegenseitig ausschließende Elemente Wählen Sie eine|
-|Auslassungspunkte (…)|Elemente, die wiederholt werden kann|
+
+|            Notation             |                  Beschreibung                  |
+|---------------------------------|-----------------------------------------------|
+| Text ohne eckigen oder geschweiften Klammern |         Elemente, die Sie eingeben müssen, siehe          |
+|  \<Text in spitzen Klammern >  | Platzhalter für die Sie einen Wert angeben muss |
+|  [Text innerhalb der eckigen Klammern]  |                Optionale Elemente                 |
+|      {Text in geschweiften Klammern}       |       Der Satz von erforderlichen Elemente; Wählen Sie eine       |
+|         Senkrechter Strich ()          |                       )                       |
+|          Auslassungspunkte (…)           |          Elemente, die wiederholt werden kann           |
 
 Wechseln Sie zurück zur [Menü](#menu)
 

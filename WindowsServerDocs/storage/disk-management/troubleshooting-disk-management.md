@@ -1,23 +1,23 @@
 ---
 title: 'Datenträgerverwaltung: Problembehandlung'
 description: In diesem Artikel wird die Problembehandlung bei der Datenträgerverwaltung beschrieben
-ms.date: 12/22/2017
+ms.date: 06/07/2019
 ms.prod: windows-server-threshold
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: c234828706d999fe049626a2fd98db70e612766f
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 4d9448cc642ef522fa129dcfe97e2286f16bad1b
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192738"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812541"
 ---
 # <a name="troubleshooting-disk-management"></a>Datenträgerverwaltung: Problembehandlung
 
-> **Gilt für:** Windows 10, Windows 8.1, Windows 7, WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012
+> **Gilt für:** Windows 10, Windows 8.1, Windows 7, WindowsServer (Halbjährlicher Kanal), WindowsServer 2019, WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012
 
 In diesem Thema werden einige allgemeine Probleme behandelt, die bei der Datenträgerverwaltung auftreten können.
 
@@ -26,7 +26,7 @@ In diesem Thema werden einige allgemeine Probleme behandelt, die bei der Datentr
 
 ## <a name="a-disks-status-is-not-initialized-or-the-disk-is-missing"></a>Der Status eines Datenträgers ist nicht initialisiert oder der Datenträger ist nicht vorhanden
 
-![Datenträgerverwaltung, die mit einer unbekannten Datenträger, der initialisiert werden muss.](media\uninitialized-disk.PNG)
+![Datenträgerverwaltung, die mit einer unbekannten Datenträger, der initialisiert werden muss.](media/uninitialized-disk.PNG)
 
 **Ursache:** Wenn Sie einen Datenträger verfügen, die nicht im Datei-Explorer angezeigt, und finden Sie in der Datenträgerverwaltung als *nicht initialisiert*, möglicherweise weil der Datenträger nicht über eine gültige Datenträger-Signatur verfügt. Im Grunde bedeutet dies, dass der Datenträger nicht initialisiert und formatiert wurde, oder die Formatierung des Laufwerks irgendwie beschädigt wurde. 
 
@@ -39,24 +39,25 @@ Es gibt eine Reihe von Gründen, die ein Datenträger fehlt oder nicht initialis
 1. Betrachten Sie den Datenträger in der Datenträgerverwaltung aus. Wenn anscheinend *Offline* wie hier gezeigt, versuchen Sie es rechtsklickt und **Online**.
 
     ![Datenträger, die als offline angezeigt](media/offline-disk.png)
-1. Wenn der Datenträger wird, in der Datenträgerverwaltung als angezeigt *Online*, und verfügt über eine primäre Partition, die als aufgeführt ist *fehlerfrei*, wie dargestellt, das ist hier ein gutes Zeichen.
+2. Wenn der Datenträger wird, in der Datenträgerverwaltung als angezeigt *Online*, und verfügt über eine primäre Partition, die als aufgeführt ist *fehlerfrei*, wie dargestellt, das ist hier ein gutes Zeichen.
 
     ![Dargestellt als online über einen fehlerfreien Datenträger](media/healthy-volume.png)
     - Wenn die Partition ein Dateisystem, aber kein Laufwerkbuchstabe (z. B. "e:") verfügt, finden Sie unter [ändern Sie einen Laufwerkbuchstaben](change-a-drive-letter.md) einen Laufwerkbuchstaben manuell hinzufügen.
     - Wenn kein Dateisystem (NTFS, ReFS, FAT32 oder ExFAT) und Sie wissen, der Datenträger ist leer, mit der rechten Maustaste in der Partitions, und wählen **Format**. Formatieren eines Datenträgers löscht alle Daten auf, sodass dies nicht tun, wenn Sie versuchen, zum Wiederherstellen von Dateien vom Datenträger - stattdessen mit dem nächsten Schritt fortfahren.
-1. Wenn Sie über eine externe Festplatte, und trennen Sie den Datenträger verfügen, schließen Sie ihn, und wählen Sie dann **Aktion** > **Datenträger neu einlesen**. 
-2. Herunterfahren auf Ihrem PC, deaktivieren Sie die externe Festplatte (sofern es sich um einen externen Datenträger mit einer Netzkabel ist), und klicken Sie dann Ihren PC und der Datenträger wieder aktivieren.
+3. Wenn Sie über eine externe Festplatte, und trennen Sie den Datenträger verfügen, schließen Sie ihn, und wählen Sie dann **Aktion** > **Datenträger neu einlesen**. 
+4. Herunterfahren auf Ihrem PC, deaktivieren Sie die externe Festplatte (sofern es sich um einen externen Datenträger mit einer Netzkabel ist), und klicken Sie dann Ihren PC und der Datenträger wieder aktivieren.
     Um Ihren PC unter Windows 10 zu deaktivieren, wählen Sie die Schaltfläche "Start", wählen Sie den Netzschalter betätigen, und wählen Sie dann **Herunterfahren**.
-1. Schließen Sie den Datenträger an einen anderen USB-Anschluss, der direkt auf Ihrem PC (nicht auf einen Hub) ist.
+5. Schließen Sie den Datenträger an einen anderen USB-Anschluss, der direkt auf Ihrem PC (nicht auf einen Hub) ist.
     Manchmal USB-Datenträger nicht genügend Leistung erhalten, von einigen Ports oder andere Probleme mit bestimmten Ports. Dies ist besonders häufig bei USB-Hubs, aber manchmal bestehen die Unterschiede zwischen Ports auf einem PC, also ein paar unterschiedliche Ports versuchen, sie haben.
-1. Versuchen Sie es ein anderes Kabel.
+6. Versuchen Sie es ein anderes Kabel.
     Es klingt vielleicht verrückte, aber das Kabel viel fehl, so dass Sie möglicherweise mit einem anderen Kabel, geben Sie den Datenträger. Wenn Sie einen internen Datenträger in einem desktop-PC haben, müssen Sie wahrscheinlich Ihre PCs vor dem Wechseln der Kabel heruntergefahren: finden in der Dokumentation Ihres Computers für.
-1. Überprüfen Sie Geräte-Manager Probleme.
+7. Überprüfen Sie Geräte-Manager Probleme.
     Drücken Sie und halten Sie die Schaltfläche "Start", und wählen Sie dann im Kontextmenü der Geräte-Manager (oder mit der rechten Maustaste). Suchen Sie nach Geräten mit einem Ausrufezeichen neben sie oder andere Probleme, doppelklicken Sie auf dem Gerät, und klicken Sie dann lesen Sie den Status zu.
 
     Es folgt eine Liste der [Fehlercodes im Geräte-Manager](https://support.microsoft.com/help/310123/error-codes-in-device-manager-in-windows), aber wählen Sie einen Ansatz, der manchmal funktioniert mit der rechten Maustaste das Gerät problematische **deinstallieren Gerät**, und klicken Sie dann **Aktion**  >  **Nach geänderter Hardware suchen**.
-    ![Geräte-Manager ein unbekanntes USB-Gerät anzeigt](media\device-manager.PNG)
-1. Schließen Sie den Datenträger in einem anderen PC aus.
+
+    ![Geräte-Manager ein unbekanntes USB-Gerät anzeigt](media/device-manager.PNG)
+8. Schließen Sie den Datenträger in einem anderen PC aus.
     
     Wenn der Datenträger auf einem anderen PC nicht funktioniert, ist es ein guten Zeichen dafür, die es ist ein Fehler mit dem Datenträger und nicht auf Ihrem PC passiert. Absolut keinen Spaß, wissen wir. Es gibt einige weitere Schritte Sie, in versuchen können [externe USB-Laufwerk Fehler "Sie müssen den Datenträger initialisieren, bevor Logical Disk Manager darauf zugreifen können"](https://social.technet.microsoft.com/Forums/windows/en-US/2b069948-82e9-49ef-bbb7-e44ec7bfebdb/forum-faq-external-usb-drive-error-you-must-initialize-the-disk-before-logical-disk-manager-can?forum=w7itprohardware), kann es sein, Zeit zu suchen, und bitten Sie um Hilfe bei der [fürMicrosoft-Community](https://answers.microsoft.com/en-us/windows) -Website oder wenden Sie sich an den Datenträgerhersteller Ihres.
 
@@ -64,9 +65,9 @@ Es gibt eine Reihe von Gründen, die ein Datenträger fehlt oder nicht initialis
 
 > [!IMPORTANT]
 > Datenträger ein recht häufig Fehler auf, daher es wichtig ist, alle Dateien regelmäßig zu sichern, die, denen Sie interessieren. Wenn Sie einen Datenträger, der manchmal nicht angezeigt wird, oder Fehler meldet verfügen, berücksichtigen Sie dies auf eine Erinnerung, überprüfen Sie Ihre backup-Methoden. Es ist in Ordnung, wenn Sie ein wenig hinter sind – alle vorhanden schon. Die beste Lösung für die Sicherung ist, die Sie verwenden, damit wir Ihnen empfehlen, die für Sie gefunden, die funktioniert und bleiben Sie dabei.
-
+> 
 > [!TIP]
-Informationen dazu, wie Sie apps, die in Windows integriert sind, zum Sichern von Dateien auf einem externen Laufwerk wie z. B. ein USB-Laufwerk verwenden, finden Sie unter [sichern und Wiederherstellen von Dateien](https://support.microsoft.com/help/17143/windows-10-back-up-your-files). Sie können auch Dateien in Microsoft OneDrive speichern, die Dateien von Ihrem PC in die Cloud synchronisiert. Wenn es sich bei einem Festplattenausfall, bleibe Sie erhalten alle Dateien, die Sie in OneDrive aus OneDrive.com speichern können. Weitere Informationen finden Sie unter [OneDrive auf Ihrem PC](https://support.microsoft.com/help/17184/windows-10-onedrive).
+> Informationen dazu, wie Sie apps, die in Windows integriert sind, zum Sichern von Dateien auf einem externen Laufwerk wie z. B. ein USB-Laufwerk verwenden, finden Sie unter [sichern und Wiederherstellen von Dateien](https://support.microsoft.com/help/17143/windows-10-back-up-your-files). Sie können auch Dateien in Microsoft OneDrive speichern, die Dateien von Ihrem PC in die Cloud synchronisiert. Wenn es sich bei einem Festplattenausfall, bleibe Sie erhalten alle Dateien, die Sie in OneDrive aus OneDrive.com speichern können. Weitere Informationen finden Sie unter [OneDrive auf Ihrem PC](https://support.microsoft.com/help/17184/windows-10-onedrive).
 
 ## <a name="a-basic-or-dynamic-disks-status-is-unreadable"></a>Status eines dynamischen Datenträgers lautet nicht lesbar
 
@@ -177,10 +178,8 @@ Wenn der Status des Volumes **Fehlerfrei (Risiko)** ist, ist der zugrunde liegen
 2. Zum Verwalten von Datenträgern auf Remotecomputern, die VDS unterstützen, müssen Sie die Windows Defender Firewall auf dem lokalen Computer (auf dem der Datenträger ausgeführt wird) und dem Remotecomputer konfigurieren.
 3. Konfigurieren Sie auf dem lokalen Computer Windows Defender Firewall und aktivieren Sie die Remotevolumeverwaltungsausnahme.
 
-
 > [!NOTE]
 > Die Remotevolumeverwaltungsausnahme enthält Ausnahmen für Vds.exe, Vdsldr.exe und TCP-Port 135.
 
-
- > [!NOTE]
- > Remoteverbindungen in Arbeitsgruppen werden nicht unterstützt. Sowohl der lokale Computer als auch der Remotecomputer müssen Domänenmitglieder sein.
+> [!NOTE]
+> Remoteverbindungen in Arbeitsgruppen werden nicht unterstützt. Sowohl der lokale Computer als auch der Remotecomputer müssen Domänenmitglieder sein.

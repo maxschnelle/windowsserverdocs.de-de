@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3b3d0591f9feb12782d0c77b6c786cfe17656ab2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d0b77aed5970c74181ba03da5e57e9b230313a15
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831161"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438110"
 ---
 # <a name="klist"></a>klist
 
@@ -120,53 +120,52 @@ Die Parameter werden die folgenden Informationen an:
 
 ## <a name="BKMK_Examples"></a>Beispiele für
 
-1.  Wenn Sie eine Ereignis-ID 27 während der Verarbeitung diagnostizieren ein Ticket-granting Service (TGS) Anforderung für den Zielserver, das Konto nicht über die passenden Schlüssel zum Generieren eines Kerberos-Tickets verfügt. Klist können zum Abfragen der Kerberos-Ticket-Cache zu bestimmen, ob Tickets fehlen, sind, wenn die Ziel-Server oder das Konto fehlerhaft ist oder wenn der Verschlüsselungstyp nicht unterstützt wird.  
-    ```
-    klist 
-    ```  
-    ```
-    klist –li 0x3e7
-    ```  
-2.  Beim Diagnostizieren von Fehlern und Sie wissen möchten, die Einzelheiten der einzelnen-Ticket-granting-Ticket, die auf dem Computer, die für eine anmeldesitzung zwischengespeichert werden, können Sie Klist verwenden, um die TGT-Informationen anzuzeigen.  
-    ```
-    klist tgt
-    ```  
-3.  Wenn Sie zum Herstellen einer Verbindung und Diagnose zu lange dauern könnte, können Sie den Kerberos-Ticket-Cache zu löschen, melden Sie sich ab und dann wieder anmelden.  
-    ```
-    klist purge
-    ```  
-    ```
-    klist purge –li 0x3e7
-    ```  
-4.  Wenn Sie eine anmeldesitzung für einen Benutzer oder ein Dienst diagnostizieren möchten, können Sie den folgenden Befehl verwenden, finden Sie in anderen Klist-Befehlen die LogonID, das verwendet wird.  
-    ```
-    klist sessions
-    ```  
-5.  Wenn Sie die eingeschränkte Kerberos-Delegierungsfehler diagnostizieren möchten, können Sie den folgenden Befehl aus, um den letzten Fehler zu finden, der aufgetreten ist.  
-    ```
-    klist kcd_cache
-    ```  
-6.  Wenn Sie eine diagnose, wenn ein Benutzer oder ein Dienst kann ein Ticket an einem Server abrufen, können Sie mit diesem Befehl, um ein Ticket für einen bestimmten SPN anzufordern.  
-    ```
-    klist get host/%computername%
-    ```  
-7.  Wenn Probleme bei der Replikation auf Domänencontrollern diagnostizieren zu können, benötigen Sie in der Regel dem Clientcomputer verfügen, die einen bestimmten Domänencontroller als Ziel. In diesen Fällen können Sie den folgenden Befehl auf dem Clientcomputer verfügen, die diesen bestimmten Domänencontroller als Ziel verwenden.  
-    ```
-    klist add_bind CONTOSO KDC.CONTOSO.COM
-    
-    ```  
-    ```
-    klist add_bind CONTOSO.COM KDC.CONTOSO.COM
-    ```  
-8.  Um welche Domänencontroller dieser Computer zuletzt kontaktiert abzufragen, können Sie den folgenden Befehl verwenden.  
-    ```
-    klist query_bind
-    ```  
-9.  Bei der Kerberos-Domänencontroller ermittlungsaktionen ermittelt werden sollen, können Sie den folgenden Befehl verwenden. Mit diesem Befehl kann auch verwendet werden, um den Cache zu leeren, bevor Sie neue Domäne-Controller-Bindungen mit Klist Add_bind erstellen.  
-    ```
-    klist purge_bind
-    ```
+1. Wenn Sie eine Ereignis-ID 27 während der Verarbeitung diagnostizieren ein Ticket-granting Service (TGS) Anforderung für den Zielserver, das Konto nicht über die passenden Schlüssel zum Generieren eines Kerberos-Tickets verfügt. Klist können zum Abfragen der Kerberos-Ticket-Cache zu bestimmen, ob Tickets fehlen, sind, wenn die Ziel-Server oder das Konto fehlerhaft ist oder wenn der Verschlüsselungstyp nicht unterstützt wird.  
+   ```
+   klist 
+   ```  
+   ```
+   klist –li 0x3e7
+   ```  
+2. Beim Diagnostizieren von Fehlern und Sie wissen möchten, die Einzelheiten der einzelnen-Ticket-granting-Ticket, die auf dem Computer, die für eine anmeldesitzung zwischengespeichert werden, können Sie Klist verwenden, um die TGT-Informationen anzuzeigen.  
+   ```
+   klist tgt
+   ```  
+3. Wenn Sie zum Herstellen einer Verbindung und Diagnose zu lange dauern könnte, können Sie den Kerberos-Ticket-Cache zu löschen, melden Sie sich ab und dann wieder anmelden.  
+   ```
+   klist purge
+   ```  
+   ```
+   klist purge –li 0x3e7
+   ```  
+4. Wenn Sie eine anmeldesitzung für einen Benutzer oder ein Dienst diagnostizieren möchten, können Sie den folgenden Befehl verwenden, finden Sie in anderen Klist-Befehlen die LogonID, das verwendet wird.  
+   ```
+   klist sessions
+   ```  
+5. Wenn Sie die eingeschränkte Kerberos-Delegierungsfehler diagnostizieren möchten, können Sie den folgenden Befehl aus, um den letzten Fehler zu finden, der aufgetreten ist.  
+   ```
+   klist kcd_cache
+   ```  
+6. Wenn Sie eine diagnose, wenn ein Benutzer oder ein Dienst kann ein Ticket an einem Server abrufen, können Sie mit diesem Befehl, um ein Ticket für einen bestimmten SPN anzufordern.  
+   ```
+   klist get host/%computername%
+   ```  
+7. Wenn Probleme bei der Replikation auf Domänencontrollern diagnostizieren zu können, benötigen Sie in der Regel dem Clientcomputer verfügen, die einen bestimmten Domänencontroller als Ziel. In diesen Fällen können Sie den folgenden Befehl auf dem Clientcomputer verfügen, die diesen bestimmten Domänencontroller als Ziel verwenden.  
+   ```
+   klist add_bind CONTOSO KDC.CONTOSO.COM
+   ```  
+   ```
+   klist add_bind CONTOSO.COM KDC.CONTOSO.COM
+   ```  
+8. Um welche Domänencontroller dieser Computer zuletzt kontaktiert abzufragen, können Sie den folgenden Befehl verwenden.  
+   ```
+   klist query_bind
+   ```  
+9. Bei der Kerberos-Domänencontroller ermittlungsaktionen ermittelt werden sollen, können Sie den folgenden Befehl verwenden. Mit diesem Befehl kann auch verwendet werden, um den Cache zu leeren, bevor Sie neue Domäne-Controller-Bindungen mit Klist Add_bind erstellen.  
+   ```
+   klist purge_bind
+   ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

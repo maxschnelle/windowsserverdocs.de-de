@@ -13,19 +13,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 002af67ab721d308cfc6421b37a089536ab61862
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 217ff23b8724464670520d0b2d5b196df5a4af47
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837211"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440302"
 ---
 # <a name="using-the-remove-driverpackage-command"></a>Verwenden den Befehl Remove-DriverPackage /
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
-
-
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+> Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+> 
+> 
+> Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
 
 Entfernt ein Treiberpaket von einem Server an.
 ## <a name="syntax"></a>Syntax
@@ -33,11 +33,13 @@ Entfernt ein Treiberpaket von einem Server an.
 wdsutil /remove-DriverPackage [/Server:<Server name>] {/DriverPackage:<Package Name> | /PackageId:<ID>}
 ```
 ## <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
-|-------|--------|
-|[/Server:<Server name>]|Gibt den Namen des Servers an. Dies kann den NetBIOS-Namen oder den vollqualifizierten Domänennamen sein. Wenn ein Servername nicht angegeben ist, wird der lokale Server verwendet.|
-|[/DriverPackage:<Name>]|Gibt den Namen des Treiberpakets zu entfernen.|
-|[/PackageId:<ID>]|Gibt an, die Windows Deployment Services-ID des Treiberpakets zu entfernen. Sie müssen die ID angeben, wenn das Treiberpaket eindeutig anhand des Namens identifiziert werden kann.|
+
+|        Parameter        |                                                                            Beschreibung                                                                             |
+|-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [/Server:<Server name>] |              Gibt den Namen des Servers an. Dies kann den NetBIOS-Namen oder den vollqualifizierten Domänennamen sein. Wenn ein Servername nicht angegeben ist, wird der lokale Server verwendet.              |
+| [/DriverPackage:<Name>] |                                                        Gibt den Namen des Treiberpakets zu entfernen.                                                         |
+|    [/PackageId:<ID>]    | Gibt an, die Windows Deployment Services-ID des Treiberpakets zu entfernen. Sie müssen die ID angeben, wenn das Treiberpaket eindeutig anhand des Namens identifiziert werden kann. |
+
 ## <a name="BKMK_examples"></a>Beispiele für
 Geben Sie einen der folgenden Schritte aus, zum Anzeigen von Informationen zu den Images:
 ```

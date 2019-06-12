@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 42622fdf19cdd50b76d32989769874cbd05e9f4a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 526363db3ecff4a9138c9cf13cbf330196e14ced
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826941"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439251"
 ---
 # <a name="finger"></a>finger
 
@@ -30,12 +30,14 @@ Zeigt Informationen zu einem Benutzer oder Benutzern auf einem angegebenen Remot
 finger [-l] [<User>] [@<Host>] [...]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
-|-------|--------|
-|-l|Werden die Benutzerinformationen in Form einer langen Liste angezeigt.|
-|<User>|Gibt den Benutzer darüber, den welche Informationen angezeigt werden soll. Wenn Sie weglassen der *Benutzer* Parameter **Finger** zeigt Informationen zu allen Benutzern auf dem angegebenen Computer.|
-|@<Host>|Gibt dem Remotecomputer mit dem Fingerdienst, in dem nach Benutzerinformationen möchten Sie an. Sie können einen Computernamen oder IP-Adresse angeben.|
-|/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
+
+| Parameter |                                                                            Beschreibung                                                                            |
+|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|    -l     |                                                          Werden die Benutzerinformationen in Form einer langen Liste angezeigt.                                                           |
+|  <User>   | Gibt den Benutzer darüber, den welche Informationen angezeigt werden soll. Wenn Sie weglassen der *Benutzer* Parameter **Finger** zeigt Informationen zu allen Benutzern auf dem angegebenen Computer. |
+|  @<Host>  |        Gibt dem Remotecomputer mit dem Fingerdienst, in dem nach Benutzerinformationen möchten Sie an. Sie können einen Computernamen oder IP-Adresse angeben.        |
+|    /?     |                                                               Zeigt die Hilfe an der Eingabeaufforderung an.                                                                |
+
 ## <a name="remarks"></a>Hinweise
 Mehrere User@Host Parameter können angegeben werden.
 Sie müssen das Präfix **Finger** Parameter mit einem Bindestrich (-) statt mit einem Schrägstrich (/).
@@ -51,4 +53,4 @@ Um Informationen für alle Benutzer auf dem Computer users.microsoft.com anzuzei
 finger @users.microsoft.com
 ```
 ## <a name="additional-references"></a>Zusätzliche Referenzen
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

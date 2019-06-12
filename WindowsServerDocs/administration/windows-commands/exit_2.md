@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b3490c6bc95a762bf2cb1da70f389fb8f583344f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4e599f84389b23e527e3718a620d5fdfefe24edb
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59819491"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439461"
 ---
 # <a name="exit"></a>exit
 
@@ -31,16 +31,18 @@ Beispiele für diesen Befehl verwenden, finden Sie unter [Beispiele](#BKMK_examp
 exit [/b] [<exitCode>]  
 ```  
 ## <a name="parameters"></a>Parameter  
-|Parameter|Beschreibung|  
-|-------|--------|  
-|/b|beendet das aktuelle Batchskript anstelle von Cmd.exe beendet wird. Wenn Sie von außerhalb einer Batchdatei ausgeführt wird, wird die Cmd.exe beendet.|  
-|<exitCode>|Gibt einen numerischen Wert an. Wenn **/b** angegeben wird, um die Anzahl der Umgebungsvariablen ERRORLEVEL festgelegt ist. Wenn Sie beenden werden **Cmd.exe**, Exitcode des Prozesses mit dieser Zahl festgelegt ist.|  
-|/?|Zeigt die Hilfe an der Eingabeaufforderung an.|  
+
+| Parameter  |                                                                                         Beschreibung                                                                                          |
+|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|     /b     |                                      beendet das aktuelle Batchskript anstelle von Cmd.exe beendet wird. Wenn Sie von außerhalb einer Batchdatei ausgeführt wird, wird die Cmd.exe beendet.                                      |
+| <exitCode> | Gibt einen numerischen Wert an. Wenn **/b** angegeben wird, um die Anzahl der Umgebungsvariablen ERRORLEVEL festgelegt ist. Wenn Sie beenden werden **Cmd.exe**, Exitcode des Prozesses mit dieser Zahl festgelegt ist. |
+|     /?     |                                                                             Zeigt die Hilfe an der Eingabeaufforderung an.                                                                             |
+
 ## <a name="BKMK_examples"></a>Beispiele für  
 Geben Sie Folgendes ein, um den Befehlsinterpreter, Cmd.exe zu schließen:  
 ```  
 exit  
 ```  
 ## <a name="additional-references"></a>Zusätzliche Referenzen  
--   [Befehlszeilensyntax](command-line-syntax-key.md)  
-  
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
+

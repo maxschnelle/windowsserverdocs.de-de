@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 8b3b2934e7aa177e873e19d77530b2d796ccd521
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 83dab73230737b8303660b32683a6d05322ac754
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188896"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444769"
 ---
 # <a name="walkthrough-workplace-join-with-a-windows-device"></a>Exemplarische Vorgehensweise: Arbeitsplatzbeitritt mit einem Windows-Gerät
 
@@ -25,19 +25,19 @@ In dieser exemplarischen Vorgehensweise greifen Sie auf eine Unternehmenswebanwe
 
 #### <a name="to-access-the-web-application-before-you-use-workplace-join-on-your-device"></a>So greifen Sie auf die Webanwendung zu, bevor Sie den Arbeitsplatzbeitritt auf Ihrem Gerät verwenden
 
-1.  Melden Sie sich mit Ihrem Microsoft-Konto bei Client1 an.
+1. Melden Sie sich mit Ihrem Microsoft-Konto bei Client1 an.
 
-2.  Öffnen Sie Internet Explorer und navigieren zu Ihrer generischen anspruchsanwendung **https://webserv1.contoso.com/claimapp**.
+2. Öffnen Sie Internet Explorer und navigieren zu Ihrer generischen anspruchsanwendung **https://webserv1.contoso.com/claimapp** .
 
-3.  Melden Sie sich bei der Website mit einem unternehmensdomänenkonto an: **roberth@contoso.com**, Kennwort: **P@ssword**.
+3. Melden Sie sich bei der Website mit einem unternehmensdomänenkonto an: <strong>roberth@contoso.com</strong>, Kennwort: <strong>P@ssword</strong>.
 
-4.  Auf der Webseite werden alle Ansprüche in Ihrem Sicherheitstoken aufgelistet. In Ihrem Sicherheitstoken sind nur Benutzeransprüche vorhanden.
+4. Auf der Webseite werden alle Ansprüche in Ihrem Sicherheitstoken aufgelistet. In Ihrem Sicherheitstoken sind nur Benutzeransprüche vorhanden.
 
-5.  Schließen Sie Internet Explorer.
+5. Schließen Sie Internet Explorer.
 
-6.  Öffnen Sie Internet Explorer, und navigieren Sie zu derselben anspruchsanwendung **https://webserv1.contoso.com/claimapp**.
+6. Öffnen Sie Internet Explorer, und navigieren Sie zu derselben anspruchsanwendung **https://webserv1.contoso.com/claimapp** .
 
-7.  Beachten Sie, dass Sie aufgefordert werden, Ihre Anmeldeinformationen erneut einzugeben. Sie werden nicht mit dem Arbeitsplatz von einem Gerät mit dem Arbeitsplatzbeitritt verbunden und verfügen deshalb nicht über ein einmaliges Anmelden.
+7. Beachten Sie, dass Sie aufgefordert werden, Ihre Anmeldeinformationen erneut einzugeben. Sie werden nicht mit dem Arbeitsplatz von einem Gerät mit dem Arbeitsplatzbeitritt verbunden und verfügen deshalb nicht über ein einmaliges Anmelden.
 
 ## <a name="join-your-device-with-workplace-join"></a>Hinzufügen Ihres Geräts mit dem Arbeitsplatzbeitritt
 
@@ -48,36 +48,36 @@ In dieser exemplarischen Vorgehensweise greifen Sie auf eine Unternehmenswebanwe
 
 #### <a name="to-join-your-device-with-workplace-join"></a>So fügen Sie Ihr Gerät mit dem Arbeitsplatzbeitritt hinzu
 
-1.  Melden Sie sich mit Ihrem Microsoft-Konto bei Client1 an.
+1. Melden Sie sich mit Ihrem Microsoft-Konto bei Client1 an.
 
-2.  Öffnen Sie auf dem Bildschirm **Start** die **Charmleiste** , und wählen Sie dann den Charm **Einstellungen** aus. Wählen Sie **PC-Einstellungen ändern** aus.
+2. Öffnen Sie auf dem Bildschirm **Start** die **Charmleiste** , und wählen Sie dann den Charm **Einstellungen** aus. Wählen Sie **PC-Einstellungen ändern** aus.
 
-3.  Wählen Sie auf der Seite **PC-Einstellungen** die Option **Netzwerk**aus, und klicken Sie dann auf **Arbeitsplatz**.
+3. Wählen Sie auf der Seite **PC-Einstellungen** die Option **Netzwerk**aus, und klicken Sie dann auf **Arbeitsplatz**.
 
-4.  In der **Geben Sie Ihre Benutzer-ID zum Zugriff auf den Arbeitsplatz zu erhalten oder die geräteverwaltung aktivieren** geben **roberth@contoso.com**, und klicken Sie dann auf **Join**.
+4. In der **Geben Sie Ihre Benutzer-ID zum Zugriff auf den Arbeitsplatz zu erhalten oder die geräteverwaltung aktivieren** geben <strong>roberth@contoso.com</strong>, und klicken Sie dann auf **Join**.
 
-5.  Wenn Sie zur Eingabe von Anmeldeinformationen aufgefordert werden, geben Sie **roberth@contoso.com**, und das Kennwort: **P@ssword**. Klicken Sie auf **OK**.
+5. Wenn Sie zur Eingabe von Anmeldeinformationen aufgefordert werden, geben Sie <strong>roberth@contoso.com</strong>, und das Kennwort: <strong>P@ssword</strong>. Klicken Sie auf **OK**.
 
-6.  Jetzt sollte die Meldung „Dieses Gerät wurde Ihrem Arbeitsplatznetzwerk hinzugefügt.“ angezeigt werden.
+6. Jetzt sollte die Meldung „Dieses Gerät wurde Ihrem Arbeitsplatznetzwerk hinzugefügt.“ angezeigt werden.
 
 ### <a name="access-the-web-application-after-joining-the-workplace"></a>Zugriff auf die Webanwendung nach dem Arbeitsplatzbeitritt
 In diesem Teil der Demo greifen Sie von Ihrem Gerät, das mit dem Arbeitsblattbeitritt verbunden ist, auf diene Unternehmenswebanwendung zu. Auf der Webseite werden die Ansprüche angezeigt, die in Ihrem Sicherheitstoken enthalten sind. Beachten Sie, dass die Liste der Ansprüch sowohl Geräte- als auch Benutzerinformationen enthält. Möglicherweise bemerken Sie auch, dass Ihnen jetzt das einmalige Anmelden zur Verfügung steht.
 
 ##### <a name="to-access-the-web-application-after-joining-the-workplace"></a>So greifen Sie nach dem Arbeitsplatzbeitritt auf die Webanwendung zu
 
-1.  Melden Sie sich mit Ihrem Microsoft-Konto bei **Client1** an.
+1. Melden Sie sich mit Ihrem Microsoft-Konto bei **Client1** an.
 
-2.  Öffnen Sie Internet Explorer und navigieren zu Ihrer generischen anspruchsanwendung **https://webserv1.contoso.com/claimapp**.
+2. Öffnen Sie Internet Explorer und navigieren zu Ihrer generischen anspruchsanwendung **https://webserv1.contoso.com/claimapp** .
 
-3.  Melden Sie sich bei der Website mit einem unternehmensdomänenkonto an: **roberth@contoso.com**, Kennwort: **P@ssword**.
+3. Melden Sie sich bei der Website mit einem unternehmensdomänenkonto an: <strong>roberth@contoso.com</strong>, Kennwort: <strong>P@ssword</strong>.
 
-4.  Auf der Webseite werden die Ansprüche in Ihrem Sicherheitstoken aufgelistet. Das Token enthält sowohl Benutzer- als auch Geräteansprüche.
+4. Auf der Webseite werden die Ansprüche in Ihrem Sicherheitstoken aufgelistet. Das Token enthält sowohl Benutzer- als auch Geräteansprüche.
 
-5.  Schließen Sie Internet Explorer.
+5. Schließen Sie Internet Explorer.
 
-6.  Öffnen Sie Internet Explorer, und navigieren Sie zu derselben anspruchsanwendung **https://webserv1.contoso.com/claimapp**.
+6. Öffnen Sie Internet Explorer, und navigieren Sie zu derselben anspruchsanwendung **https://webserv1.contoso.com/claimapp** .
 
-7.  Beachten Sie, dass Sie **nicht** aufgefordert werden, Ihre Anmeldeinformationen erneut einzugeben. Sie sind von einem Gerät mit Arbeitsplatzbeitritt verbunden und verfügen deshalb über das einmalige Anmelden.
+7. Beachten Sie, dass Sie **nicht** aufgefordert werden, Ihre Anmeldeinformationen erneut einzugeben. Sie sind von einem Gerät mit Arbeitsplatzbeitritt verbunden und verfügen deshalb über das einmalige Anmelden.
 
 ## <a name="see-also"></a>Siehe auch
 [Verbinden mit einem Arbeitsplatz von einem beliebigen Gerät für SSO und nahtlose Second Factor Authentication Across Company Applications](Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md)

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 18ba3517f6533a85fe7cb24f24a7f4ffdfad6991
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: 526acaadc257d5e8b1dea342756cdeeec240c1dd
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222984"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435465"
 ---
 # <a name="install-or-uninstall-roles-role-services-or-features"></a>Installieren oder Deinstallieren von Rollen, Rollendiensten oder Features
 
@@ -100,53 +100,53 @@ Der Server-Manager-bereitstellungs-Cmdlets für Windows PowerShell funktionieren
   
 #### <a name="to-install-roles-and-features-by-using-the-install-windowsfeature-cmdlet"></a>So installieren Sie Rollen und Features mit dem Cmdlet %%amp;quot;Install-WindowsFeature%%amp;quot;  
   
-1.  Führen Sie einen der folgenden Schritte aus, um eine Windows PowerShell-Sitzung mit erhöhten Benutzerrechten zu öffnen.  
+1. Führen Sie einen der folgenden Schritte aus, um eine Windows PowerShell-Sitzung mit erhöhten Benutzerrechten zu öffnen.  
   
-    > [!NOTE]  
-    > Wenn Sie Rollen und Features auf einem Remoteserver installieren, müssen Sie keine Windows PowerShell mit erhöhten Benutzerrechten ausführen.  
+   > [!NOTE]  
+   > Wenn Sie Rollen und Features auf einem Remoteserver installieren, müssen Sie keine Windows PowerShell mit erhöhten Benutzerrechten ausführen.  
   
-    -   Klicken Sie auf dem Windows-Desktop auf der Taskleiste mit der rechten Maustaste auf **Windows PowerShell**, und klicken Sie dann auf **Als Administrator ausführen**.  
+   -   Klicken Sie auf dem Windows-Desktop auf der Taskleiste mit der rechten Maustaste auf **Windows PowerShell**, und klicken Sie dann auf **Als Administrator ausführen**.  
   
-    -   Klicken Sie auf der Windows **starten** Bildschirm rechten Maustaste auf die Kachel für Windows PowerShell, und klicken Sie auf der app-Leiste auf **als Administrator ausführen**.  
+   -   Klicken Sie auf der Windows **starten** Bildschirm rechten Maustaste auf die Kachel für Windows PowerShell, und klicken Sie auf der app-Leiste auf **als Administrator ausführen**.  
   
-2.  Geben Sie **Get-WindowsFeature** ein, und drücken Sie anschließend die **EINGABETASTE** , um eine Liste der auf dem lokalen Server verfügbaren und installierten Rollen und Features anzuzeigen. Wenn der lokale Computer kein Server ist oder wenn Sie Informationen zu einem Remoteserver soll, führen **Get-WindowsFeature-Computername <***Computer_name***>** , in dem  *Computer_name* stellt den Namen eines Remotecomputers, auf denen Windows Server 2016 ausgeführt wird. Die Ergebnisse des Cmdlets enthalten die Befehlsnamen von Rollen und Features, die Sie dem Cmdlet in Schritt 4 hinzufügen.  
+2. Geben Sie **Get-WindowsFeature** ein, und drücken Sie anschließend die **EINGABETASTE** , um eine Liste der auf dem lokalen Server verfügbaren und installierten Rollen und Features anzuzeigen. Wenn der lokale Computer kein Server ist oder wenn Sie Informationen zu einem Remoteserver soll, führen **Get-WindowsFeature-Computername <** <em>Computer_name</em> **>** , in dem *Computer_name* stellt den Namen eines Remotecomputers, auf denen Windows Server 2016 ausgeführt wird. Die Ergebnisse des Cmdlets enthalten die Befehlsnamen von Rollen und Features, die Sie dem Cmdlet in Schritt 4 hinzufügen.  
   
-    > [!NOTE]  
-    > In Windows PowerShell 3.0 und späteren Versionen von Windows PowerShell ist es nicht erforderlich, importieren das Server-Manager-Cmdlet-Modul in der Windows PowerShell-Sitzung, bevor die Ausführung von Cmdlets, die Teil des Moduls sind. Module werden automatisch importiert, wenn Sie ein zum Modul gehörendes Cmdlet zum ersten Mal ausführen. Darüber hinaus sind weder Windows PowerShell-Cmdlets noch den mit den Cmdlets verwendeten Featurenamen Groß-/Kleinschreibung beachtet.  
+   > [!NOTE]  
+   > In Windows PowerShell 3.0 und späteren Versionen von Windows PowerShell ist es nicht erforderlich, importieren das Server-Manager-Cmdlet-Modul in der Windows PowerShell-Sitzung, bevor die Ausführung von Cmdlets, die Teil des Moduls sind. Module werden automatisch importiert, wenn Sie ein zum Modul gehörendes Cmdlet zum ersten Mal ausführen. Darüber hinaus sind weder Windows PowerShell-Cmdlets noch den mit den Cmdlets verwendeten Featurenamen Groß-/Kleinschreibung beachtet.  
   
-3.  Typ **Get-Help Install-WindowsFeature**, und drücken Sie dann die **EINGABETASTE** an die Syntax und zugelassene Parameter für die `Install-WindowsFeature` Cmdlet.  
+3. Typ **Get-Help Install-WindowsFeature**, und drücken Sie dann die **EINGABETASTE** an die Syntax und zugelassene Parameter für die `Install-WindowsFeature` Cmdlet.  
   
-4.  Geben Sie Folgendes ein, und drücken Sie dann die **EINGABETASTE**, wobei *Feature_name* stellt den Befehlsnamen einer Rolle oder Feature, das Sie installieren möchten, (abgerufen in Schritt 2), und *Computer_name* einen Remotecomputer, auf dem Sie Rollen und Features installieren möchten. Trennen Sie mehrere Werte für *feature_name* durch Kommas. Der `Restart`-Parameter startet den Zielserver automatisch neu, wenn die Installation der Rolle bzw. des Features dies erfordert.  
+4. Geben Sie Folgendes ein, und drücken Sie dann die **EINGABETASTE**, wobei *Feature_name* stellt den Befehlsnamen einer Rolle oder Feature, das Sie installieren möchten, (abgerufen in Schritt 2), und *Computer_name* einen Remotecomputer, auf dem Sie Rollen und Features installieren möchten. Trennen Sie mehrere Werte für *feature_name* durch Kommas. Der `Restart`-Parameter startet den Zielserver automatisch neu, wenn die Installation der Rolle bzw. des Features dies erfordert.  
   
-    ```  
-    Install-WindowsFeature -Name <feature_name> -computerName <computer_name> -Restart  
-    ```  
+   ```  
+   Install-WindowsFeature -Name <feature_name> -computerName <computer_name> -Restart  
+   ```  
   
-    Fügen Sie zum Installieren von Rollen oder Features auf einer Offline-VHD die Parameter `computerName` und `VHD` hinzu. Wird der `computerName`-Parameter nicht hinzugefügt, geht das Cmdlet davon aus, dass der lokale Computer zum Zugreifen auf die VHD eingebunden wird. Der Parameter `computerName` enthält den Namen des Servers, auf dem die VHD eingebunden werden soll, und der Parameter `VHD` enthält den Pfad zur VHD-Datei auf dem angegebenen Server.  
+   Fügen Sie zum Installieren von Rollen oder Features auf einer Offline-VHD die Parameter `computerName` und `VHD` hinzu. Wird der `computerName`-Parameter nicht hinzugefügt, geht das Cmdlet davon aus, dass der lokale Computer zum Zugreifen auf die VHD eingebunden wird. Der Parameter `computerName` enthält den Namen des Servers, auf dem die VHD eingebunden werden soll, und der Parameter `VHD` enthält den Pfad zur VHD-Datei auf dem angegebenen Server.  
   
-    > [!NOTE]  
-    > Sie müssen hinzufügen, die `computerName` -Parameters, wenn Sie dem Cmdlet auf einem Computer, die ausgeführt werden, ein Windows-Clientbetriebssystem ausgeführt wird.  
-    >   
-    > Zum Installieren von Rollen und Features auf Offline-VHDs müssen Ziel-VHDs die folgenden Anforderungen erfüllen.  
-    >   
-    > -   VHDs müssen die Version von Windows Server ausgeführt werden, die Version von Server-Manager entspricht, die Sie ausführen. Siehe Hinweis am Anfang des [Installieren von Rollen, Rollendienste und Features mithilfe des Hinzufügen von Rollen und Features Assistenten](#install-roles-role-services-and-features-by-using-the-add-roles-and-features-wizard).  
-    > -   VHDs dürfen nicht mehr als ein Systemvolume oder eine Partition aufweisen.  
-    > -   Der freigegebene Netzwerkordner, in dem die VHD-Datei gespeichert ist, muss dem Computerkonto (bzw. lokalen System) des Servers, den Sie zum Einbinden der VHD ausgewählt haben, die folgenden Zugriffsrechte gewähren. Die Zugriffsberechtigungen des Benutzerkontos reichen nicht aus. Die Freigabe kann der Gruppe **Jeder** die Berechtigungen **Lesen** und **Schreiben** gewähren, um den Zugriff auf die VHD zu ermöglichen, dies wird aber aus Sicherheitsgründen nicht empfohlen.  
-    >   
-    >     -   Zugriffsrecht **Lesen/Schreiben** im Dialogfeld **Dateifreigabe**  
-    >     -   **Vollzugriff** Zugriff auf die **Sicherheit** Registerkarte Datei- oder Ordnerdialogfeld **Eigenschaften** Dialogfeld.  
+   > [!NOTE]  
+   > Sie müssen hinzufügen, die `computerName` -Parameters, wenn Sie dem Cmdlet auf einem Computer, die ausgeführt werden, ein Windows-Clientbetriebssystem ausgeführt wird.  
+   >   
+   > Zum Installieren von Rollen und Features auf Offline-VHDs müssen Ziel-VHDs die folgenden Anforderungen erfüllen.  
+   >   
+   > -   VHDs müssen die Version von Windows Server ausgeführt werden, die Version von Server-Manager entspricht, die Sie ausführen. Siehe Hinweis am Anfang des [Installieren von Rollen, Rollendienste und Features mithilfe des Hinzufügen von Rollen und Features Assistenten](#install-roles-role-services-and-features-by-using-the-add-roles-and-features-wizard).  
+   > -   VHDs dürfen nicht mehr als ein Systemvolume oder eine Partition aufweisen.  
+   > -   Der freigegebene Netzwerkordner, in dem die VHD-Datei gespeichert ist, muss dem Computerkonto (bzw. lokalen System) des Servers, den Sie zum Einbinden der VHD ausgewählt haben, die folgenden Zugriffsrechte gewähren. Die Zugriffsberechtigungen des Benutzerkontos reichen nicht aus. Die Freigabe kann der Gruppe **Jeder** die Berechtigungen **Lesen** und **Schreiben** gewähren, um den Zugriff auf die VHD zu ermöglichen, dies wird aber aus Sicherheitsgründen nicht empfohlen.  
+   >   
+   >     -   Zugriffsrecht **Lesen/Schreiben** im Dialogfeld **Dateifreigabe**  
+   >     -   **Vollzugriff** Zugriff auf die **Sicherheit** Registerkarte Datei- oder Ordnerdialogfeld **Eigenschaften** Dialogfeld.  
   
-    ```  
-    Install-WindowsFeature -Name <feature_name> -VHD <path> -computerName <computer_name> -Restart  
-    ```  
+   ```  
+   Install-WindowsFeature -Name <feature_name> -VHD <path> -computerName <computer_name> -Restart  
+   ```  
   
-    **Beispiel:** Das folgende Cmdlet installiert die active Directory-Domänendienste-Rolle und das Feature "Gruppenrichtlinienverwaltung" auf einem Remoteserver ContosoDC1. Die Verwaltungstools und Snap-Ins werden mit dem Parameter `IncludeManagementTools` hinzugefügt, und der Zielserver wird automatisch neu gestartet, falls dies für die Installation erforderlich ist.  
+   **Beispiel:** Das folgende Cmdlet installiert die active Directory-Domänendienste-Rolle und das Feature "Gruppenrichtlinienverwaltung" auf einem Remoteserver ContosoDC1. Die Verwaltungstools und Snap-Ins werden mit dem Parameter `IncludeManagementTools` hinzugefügt, und der Zielserver wird automatisch neu gestartet, falls dies für die Installation erforderlich ist.  
   
-    ```  
-    Install-WindowsFeature -Name AD-Domain-Services,GPMC -computerName ContosoDC1 -IncludeManagementTools -Restart  
-    ```  
+   ```  
+   Install-WindowsFeature -Name AD-Domain-Services,GPMC -computerName ContosoDC1 -IncludeManagementTools -Restart  
+   ```  
   
-5.  Wenn die Installation abgeschlossen ist, Überprüfen der Installation durch Öffnen der **alle Server** Seite im Server-Manager, wählen einen Server, auf dem Sie Rollen und Features installiert, und zeigen die **Rollen und Features** die Kachel auf der Seite für den ausgewählten Server. Sie können auch ausführen, die `Get-WindowsFeature` Cmdlet für den ausgewählten Server (Get-WindowsFeature-Computername <*Computer_name*>) zum Anzeigen einer Liste von Rollen und Features, die auf dem Server installiert sind.  
+5. Wenn die Installation abgeschlossen ist, Überprüfen der Installation durch Öffnen der **alle Server** Seite im Server-Manager, wählen einen Server, auf dem Sie Rollen und Features installiert, und zeigen die **Rollen und Features** die Kachel auf der Seite für den ausgewählten Server. Sie können auch ausführen, die `Get-WindowsFeature` Cmdlet für den ausgewählten Server (Get-WindowsFeature-Computername <*Computer_name*>) zum Anzeigen einer Liste von Rollen und Features, die auf dem Server installiert sind.  
   
 ## <a name="remove-roles-role-services-and-features-by-using-the-remove-roles-and-features-wizard"></a>Entfernen von Rollen, Rollendienste und Features mithilfe von Entfernen von Rollen und Features-Assistenten  
 Sie müssen auf einen Server als Administrator, um das Deinstallieren von Rollen, Rollendienste und Features angemeldet werden. Wenn Sie am lokalen Computer mit einem Konto angemeldet sind, das nicht über Administratorrechte auf dem Deinstallationszielserver verfügt, klicken Sie auf der Kachel **Server** mit der rechten Maustaste auf den Zielserver, und klicken Sie dann auf **Verwalten als** , um ein Konto mit Administratorrechten anzugeben. Der Server, auf dem eine Offline-VHD eingebunden werden soll, muss Server-Manager hinzugefügt werden. Zudem müssen Sie über Administratorrechte für diesen Server verfügen.  
@@ -191,49 +191,49 @@ Der Server-Manager-bereitstellungs-Cmdlets für Windows PowerShell funktionieren
   
 #### <a name="to-remove-roles-and-features-by-using-the-uninstall-windowsfeature-cmdlet"></a>So entfernen Sie Rollen und Features mit dem Cmdlet %%amp;quot;UnInstall-WindowsFeature%%amp;quot;  
   
-1.  Führen Sie einen der folgenden Schritte aus, um eine Windows PowerShell-Sitzung mit erhöhten Benutzerrechten zu öffnen.  
+1. Führen Sie einen der folgenden Schritte aus, um eine Windows PowerShell-Sitzung mit erhöhten Benutzerrechten zu öffnen.  
   
-    > [!NOTE]  
-    > Wenn Sie Rollen und Features von einem Remoteserver aus deinstallieren möchten, müssen Sie nicht zum Ausführen von Windows PowerShell mit erhöhten Benutzerrechten.  
+   > [!NOTE]  
+   > Wenn Sie Rollen und Features von einem Remoteserver aus deinstallieren möchten, müssen Sie nicht zum Ausführen von Windows PowerShell mit erhöhten Benutzerrechten.  
   
-    -   Klicken Sie auf dem Windows-Desktop auf der Taskleiste mit der rechten Maustaste auf **Windows PowerShell**, und klicken Sie dann auf **Als Administrator ausführen**.  
+   -   Klicken Sie auf dem Windows-Desktop auf der Taskleiste mit der rechten Maustaste auf **Windows PowerShell**, und klicken Sie dann auf **Als Administrator ausführen**.  
   
-    -   Klicken Sie auf der Windows **starten** Bildschirm rechten Maustaste auf die Kachel Windows PowerShell, und klicken Sie auf der app-Leiste auf **als Administrator ausführen**.  
+   -   Klicken Sie auf der Windows **starten** Bildschirm rechten Maustaste auf die Kachel Windows PowerShell, und klicken Sie auf der app-Leiste auf **als Administrator ausführen**.  
   
-2.  Geben Sie **Get-WindowsFeature** ein, und drücken Sie anschließend die **EINGABETASTE** , um eine Liste der auf dem lokalen Server verfügbaren und installierten Rollen und Features anzuzeigen. Wenn der lokale Computer kein Server ist oder wenn Sie Informationen zu einem Remoteserver soll, führen **Get-WindowsFeature-Computername <***Computer_name***>** , in dem  *Computer_name* stellt den Namen eines Remotecomputers, auf denen Windows Server 2016 ausgeführt wird. Die Ergebnisse des Cmdlets enthalten die Befehlsnamen von Rollen und Features, die Sie dem Cmdlet in Schritt 4 hinzufügen.  
+2. Geben Sie **Get-WindowsFeature** ein, und drücken Sie anschließend die **EINGABETASTE** , um eine Liste der auf dem lokalen Server verfügbaren und installierten Rollen und Features anzuzeigen. Wenn der lokale Computer kein Server ist oder wenn Sie Informationen zu einem Remoteserver soll, führen **Get-WindowsFeature-Computername <** <em>Computer_name</em> **>** , in dem *Computer_name* stellt den Namen eines Remotecomputers, auf denen Windows Server 2016 ausgeführt wird. Die Ergebnisse des Cmdlets enthalten die Befehlsnamen von Rollen und Features, die Sie dem Cmdlet in Schritt 4 hinzufügen.  
   
-    > [!NOTE]  
-    > In Windows PowerShell 3.0 und späteren Versionen von Windows PowerShell ist es nicht erforderlich, importieren das Server-Manager-Cmdlet-Modul in der Windows PowerShell-Sitzung, bevor die Ausführung von Cmdlets, die Teil des Moduls sind. Module werden automatisch importiert, wenn Sie ein zum Modul gehörendes Cmdlet zum ersten Mal ausführen. Darüber hinaus sind weder Windows PowerShell-Cmdlets noch den mit den Cmdlets verwendeten Featurenamen Groß-/Kleinschreibung beachtet.  
+   > [!NOTE]  
+   > In Windows PowerShell 3.0 und späteren Versionen von Windows PowerShell ist es nicht erforderlich, importieren das Server-Manager-Cmdlet-Modul in der Windows PowerShell-Sitzung, bevor die Ausführung von Cmdlets, die Teil des Moduls sind. Module werden automatisch importiert, wenn Sie ein zum Modul gehörendes Cmdlet zum ersten Mal ausführen. Darüber hinaus sind weder Windows PowerShell-Cmdlets noch den mit den Cmdlets verwendeten Featurenamen Groß-/Kleinschreibung beachtet.  
   
-3.  Typ **Get-Help Uninstall-WindowsFeature**, und drücken Sie dann die **EINGABETASTE** an die Syntax und zugelassene Parameter für die `Uninstall-WindowsFeature` Cmdlet.  
+3. Typ **Get-Help Uninstall-WindowsFeature**, und drücken Sie dann die **EINGABETASTE** an die Syntax und zugelassene Parameter für die `Uninstall-WindowsFeature` Cmdlet.  
   
-4.  Geben Sie Folgendes ein, und drücken Sie dann die **EINGABETASTE**. Dabei steht *Featurename* für den Befehlsnamen einer Rolle oder eines Features, die bzw. das entfernt werden soll (abgerufen in Schritt 2), und *computer_name* für einen Remotecomputer, von dem Rollen und Features entfernt werden sollen. Trennen Sie mehrere Werte für *feature_name* durch Kommas. Der `Restart`-Parameter startet Zielserver automatisch neu, wenn die Entfernung der Rolle bzw. des Features dies erfordert.  
+4. Geben Sie Folgendes ein, und drücken Sie dann die **EINGABETASTE**. Dabei steht *Featurename* für den Befehlsnamen einer Rolle oder eines Features, die bzw. das entfernt werden soll (abgerufen in Schritt 2), und *computer_name* für einen Remotecomputer, von dem Rollen und Features entfernt werden sollen. Trennen Sie mehrere Werte für *feature_name* durch Kommas. Der `Restart`-Parameter startet Zielserver automatisch neu, wenn die Entfernung der Rolle bzw. des Features dies erfordert.  
   
-    ```  
-    Uninstall-WindowsFeature -Name <feature_name> -computerName <computer_name> -Restart  
-    ```  
+   ```  
+   Uninstall-WindowsFeature -Name <feature_name> -computerName <computer_name> -Restart  
+   ```  
   
-    Fügen Sie zum Deinstallieren von Rollen oder Features auf einer Offline-VHD die Parameter `computerName` und `VHD` hinzu. Wird der `computerName`-Parameter nicht hinzugefügt, geht das Cmdlet davon aus, dass der lokale Computer zum Zugreifen auf die VHD eingebunden wird. Der Parameter `computerName` enthält den Namen des Servers, auf dem die VHD eingebunden werden soll, und der Parameter `VHD` enthält den Pfad zur VHD-Datei auf dem angegebenen Server.  
+   Fügen Sie zum Deinstallieren von Rollen oder Features auf einer Offline-VHD die Parameter `computerName` und `VHD` hinzu. Wird der `computerName`-Parameter nicht hinzugefügt, geht das Cmdlet davon aus, dass der lokale Computer zum Zugreifen auf die VHD eingebunden wird. Der Parameter `computerName` enthält den Namen des Servers, auf dem die VHD eingebunden werden soll, und der Parameter `VHD` enthält den Pfad zur VHD-Datei auf dem angegebenen Server.  
   
-    > [!NOTE]  
-    > Sie müssen hinzufügen, die `computerName` -Parameters, wenn Sie dem Cmdlet auf einem Computer, die ausgeführt werden, ein Windows-Clientbetriebssystem ausgeführt wird.  
-    >   
-    > Der freigegebene Netzwerkordner, in dem die VHD-Datei gespeichert ist, muss dem Computerkonto (bzw. lokalen System) des Servers, den Sie zum Einbinden der VHD ausgewählt haben, die folgenden Zugriffsrechte gewähren. Die Zugriffsberechtigungen des Benutzerkontos reichen nicht aus. Die Freigabe kann der Gruppe **Jeder** die Berechtigungen **Lesen** und **Schreiben** gewähren, um den Zugriff auf die VHD zu ermöglichen, dies wird aber aus Sicherheitsgründen nicht empfohlen.  
-    >   
-    > -   Zugriffsrecht **Lesen/Schreiben** im Dialogfeld **Dateifreigabe**  
-    > -   **Vollzugriff** Zugriff auf die **Sicherheit** Registerkarte Datei- oder Ordnerdialogfeld **Eigenschaften** Dialogfeld.  
+   > [!NOTE]  
+   > Sie müssen hinzufügen, die `computerName` -Parameters, wenn Sie dem Cmdlet auf einem Computer, die ausgeführt werden, ein Windows-Clientbetriebssystem ausgeführt wird.  
+   >   
+   > Der freigegebene Netzwerkordner, in dem die VHD-Datei gespeichert ist, muss dem Computerkonto (bzw. lokalen System) des Servers, den Sie zum Einbinden der VHD ausgewählt haben, die folgenden Zugriffsrechte gewähren. Die Zugriffsberechtigungen des Benutzerkontos reichen nicht aus. Die Freigabe kann der Gruppe **Jeder** die Berechtigungen **Lesen** und **Schreiben** gewähren, um den Zugriff auf die VHD zu ermöglichen, dies wird aber aus Sicherheitsgründen nicht empfohlen.  
+   >   
+   > -   Zugriffsrecht **Lesen/Schreiben** im Dialogfeld **Dateifreigabe**  
+   > -   **Vollzugriff** Zugriff auf die **Sicherheit** Registerkarte Datei- oder Ordnerdialogfeld **Eigenschaften** Dialogfeld.  
   
-    ```  
-    Uninstall-WindowsFeature -Name <feature_name> -VHD <path> -computerName <computer_name> -Restart  
-    ```  
+   ```  
+   Uninstall-WindowsFeature -Name <feature_name> -VHD <path> -computerName <computer_name> -Restart  
+   ```  
   
-    **Beispiel:** Das folgende Cmdlet entfernt die active Directory-Domänendienste-Rolle und das Feature "Gruppenrichtlinienverwaltung" von einem Remoteserver ContosoDC1. Die Verwaltungstools und Snap-Ins werden ebenfalls entfernt, und der Zielserver wird automatisch neu gestartet, falls dies für das Entfernen erforderlich ist.  
+   **Beispiel:** Das folgende Cmdlet entfernt die active Directory-Domänendienste-Rolle und das Feature "Gruppenrichtlinienverwaltung" von einem Remoteserver ContosoDC1. Die Verwaltungstools und Snap-Ins werden ebenfalls entfernt, und der Zielserver wird automatisch neu gestartet, falls dies für das Entfernen erforderlich ist.  
   
-    ```  
-    Uninstall-WindowsFeature -Name AD-Domain-Services,GPMC -computerName ContosoDC1 -IncludeManagementTools -Restart  
-    ```  
+   ```  
+   Uninstall-WindowsFeature -Name AD-Domain-Services,GPMC -computerName ContosoDC1 -IncludeManagementTools -Restart  
+   ```  
   
-5.  Nach Abschluss der Entfernung, stellen Sie sicher, dass die Rollen und Features, durch Öffnen entfernt werden der **alle Server** Seite im Server-Manager, wählen den Server, von dem Sie Rollen und Features entfernt, und zeigen die **Rollen und Features** Kachel auf der Seite für den ausgewählten Server. Sie können auch ausführen, die `Get-WindowsFeature` Cmdlet für den ausgewählten Server (Get-WindowsFeature-Computername <*Computer_name*>) zum Anzeigen einer Liste von Rollen und Features, die auf dem Server installiert sind.  
+5. Nach Abschluss der Entfernung, stellen Sie sicher, dass die Rollen und Features, durch Öffnen entfernt werden der **alle Server** Seite im Server-Manager, wählen den Server, von dem Sie Rollen und Features entfernt, und zeigen die **Rollen und Features** Kachel auf der Seite für den ausgewählten Server. Sie können auch ausführen, die `Get-WindowsFeature` Cmdlet für den ausgewählten Server (Get-WindowsFeature-Computername <*Computer_name*>) zum Anzeigen einer Liste von Rollen und Features, die auf dem Server installiert sind.  
   
 ## <a name="install-roles-and-features-on-multiple-servers-by-running-a-windows-powershell-script"></a>Installieren von Rollen und Features auf mehreren Servern per Ausführung eines Windows PowerShell-Skripts  
 Obwohl Sie das Hinzufügen von Rollen und Features-Assistenten verwenden können, um Rollen, Rollendienste und Features auf mehr als einem Zielserver in einer einzelnen Assistenten-Sitzung zu installieren, können Sie ein Windows PowerShell-Skript verwenden, zum Installieren von Rollen, Rollendienste und Features auf mehreren Server, die Sie mithilfe des Server-Manager verwalten. Das Skript, das Sie zum Ausführen von batchbereitstellung verwenden, wie dieser Prozess aufgerufen wird, verweist auf eine XML-Konfigurationsdatei, die Sie ganz einfach erstellen können, indem Sie mithilfe des Hinzufügen von Rollen und Features-Assistenten und auf **Konfigurationseinstellungen exportieren** nach die batchbereitstellung auf die **Installationsauswahl bestätigen** auf der Seite des Hinzufügen von Rollen und Features-Assistenten.  
@@ -337,25 +337,25 @@ Sie installieren .NET Framework 3.5 mit einer der folgenden Aktionen:
   
 ### <a name="to-install-net-framework-35-by-using-the-add-roles-and-features-wizard"></a>So installieren Sie .NET Framework 3.5 mithilfe des Hinzufügen von Rollen und Features-Assistenten  
   
-1.  Auf der **verwalten** im Server-Manager, klicken Sie anschließend auf **Rollen und Features hinzufügen**.  
+1. Auf der **verwalten** im Server-Manager, klicken Sie anschließend auf **Rollen und Features hinzufügen**.  
   
-2.  Wählen Sie einen Zielserver, auf der Windows Server 2016 ausgeführt wird.  
+2. Wählen Sie einen Zielserver, auf der Windows Server 2016 ausgeführt wird.  
   
-3.  Auf der **Funktionen auswählen** Seite des Hinzufügen von Rollen und Features-Assistenten die Option **.NET Framework 3.5**.  
+3. Auf der **Funktionen auswählen** Seite des Hinzufügen von Rollen und Features-Assistenten die Option **.NET Framework 3.5**.  
   
-4.  Ist dies durch die Gruppenrichtlinieneinstellungen für den lokalen Computer zugelassen, wird beim Installationsprozess versucht, die fehlenden Featuredateien mithilfe von Windows Update abzurufen. Klicken Sie auf **Installieren**. Sie müssen nicht mit dem nächsten Schritt fortfahren.  
+4. Ist dies durch die Gruppenrichtlinieneinstellungen für den lokalen Computer zugelassen, wird beim Installationsprozess versucht, die fehlenden Featuredateien mithilfe von Windows Update abzurufen. Klicken Sie auf **Installieren**. Sie müssen nicht mit dem nächsten Schritt fortfahren.  
   
-    Wenn die gruppenrichtlinieneinstellungen diese Vorgehensweise nicht zulassen, oder Sie eine andere Quelle für die .NET Framework 3.5-featuredateien auf verwenden möchten die **Installationsauswahl bestätigen** Seite des Assistenten klicken Sie auf **alternativen Quellpfad angeben** .  
+   Wenn die gruppenrichtlinieneinstellungen diese Vorgehensweise nicht zulassen, oder Sie eine andere Quelle für die .NET Framework 3.5-featuredateien auf verwenden möchten die **Installationsauswahl bestätigen** Seite des Assistenten klicken Sie auf **alternativen Quellpfad angeben** .  
   
-5.  Geben Sie einen Pfad zu einem Seite-an-Seite-Speicher (als **SxS**bezeichnet) auf einem Installationsmedium oder zu einer WIM-Datei an. Im folgenden Beispiel befindet sich das Installationsmedium in Laufwerk D.  
+5. Geben Sie einen Pfad zu einem Seite-an-Seite-Speicher (als **SxS**bezeichnet) auf einem Installationsmedium oder zu einer WIM-Datei an. Im folgenden Beispiel befindet sich das Installationsmedium in Laufwerk D.  
   
-    **D:\Sources\SxS\\**  
+   **D:\Sources\SxS\\**  
   
-    Fügen Sie zum Angeben einer WIM-Datei ein **WIM:** -Präfix und den Index des in der WIM-Datei zu verwendenden Images als Suffix hinzu. Dies wird im folgenden Beispiel dargestellt:  
+   Fügen Sie zum Angeben einer WIM-Datei ein **WIM:** -Präfix und den Index des in der WIM-Datei zu verwendenden Images als Suffix hinzu. Dies wird im folgenden Beispiel dargestellt:  
   
-    **WIM:\\\\***Server_name***\share\install.wim:3**  
+   **WIM:\\\\** <em>Server_name</em> **\share\install.wim:3**  
   
-6.  Klicken Sie auf **OK**und dann auf **Installieren**.  
+6. Klicken Sie auf **OK**und dann auf **Installieren**.  
   
 ### <a name="to-install-net-framework-35-by-using-dism"></a>So installieren Sie .NET Framework 3.5 mithilfe von DISM  
   
@@ -395,23 +395,23 @@ Die in diesem Abschnitt beschriebene Gruppenrichtlinieneinstellung gibt autorisi
   
 ##### <a name="to-configure-a-default-alternate-source-path-in-group-policy"></a>So konfigurieren Sie einen alternativen Standardquellpfad in der Gruppenrichtlinie  
   
-1.  Öffnen Sie in lokalen Gruppenrichtlinien-Editor oder Gruppenrichtlinien-Verwaltungskonsole die folgende richtlinieneinstellung.  
+1. Öffnen Sie in lokalen Gruppenrichtlinien-Editor oder Gruppenrichtlinien-Verwaltungskonsole die folgende richtlinieneinstellung.  
   
-    **Computerkonfiguration\Administrative vorlagen\system\einstellungen für die Installation optionaler Komponenten und Reparatur von Komponenten**  
+   **Computerkonfiguration\Administrative vorlagen\system\einstellungen für die Installation optionaler Komponenten und Reparatur von Komponenten**  
   
 2. Swählen **aktiviert** die richtlinieneinstellung ggf. zu aktivieren, wenn sie nicht bereits aktiviert ist.  
   
-3.  Geben Sie im Textfeld **Alternativer Dateiquellpfad** im Bereich **Optionen** einen vollqualifizierten Pfad zu einem freigegebenen Ordner oder einer WIM-Datei an. Fügen Sie zum Angeben einer WIM-Datei als alternativer Quelldateispeicherort dem Pfad das Präfix **WIM:** und den Index des in der WIM-Datei zu verwendenden Images als Suffix hinzu. Die folgenden Beispiele enthalten Werte, die Sie angeben können.  
+3. Geben Sie im Textfeld **Alternativer Dateiquellpfad** im Bereich **Optionen** einen vollqualifizierten Pfad zu einem freigegebenen Ordner oder einer WIM-Datei an. Fügen Sie zum Angeben einer WIM-Datei als alternativer Quelldateispeicherort dem Pfad das Präfix **WIM:** und den Index des in der WIM-Datei zu verwendenden Images als Suffix hinzu. Die folgenden Beispiele enthalten Werte, die Sie angeben können.  
   
-    -   Pfad zu einem freigegebenen Ordner: * *\\\\***Server_name***\share\\*** Ordnername*  
+   - Pfad zu einem freigegebenen Ordner: **\\ \\** <em>Server_name</em> **\share\\** <em>Ordnername</em>  
   
-    -   Pfad zu einer WIM-Datei, in dem **3** stellt den Index des Bilds in dem sich die featuredateien befinden:  **WIM:\\\\***Server_name***\share\install.wim:3**  
+   - Pfad zu einer WIM-Datei, in dem **3** stellt den Index des Bilds in dem sich die featuredateien befinden:  **WIM:\\\\** <em>server_name</em> **\share\install.wim:3**  
   
-4.  Wenn Sie Computer nicht möchten, die von dieser richtlinieneinstellung zum Suchen nach fehlenden featuredateien in Windows Update auswählen gesteuert werden **nie versuchen, nutzlastdateien über Windows Update herunterzuladen**.  
+4. Wenn Sie Computer nicht möchten, die von dieser richtlinieneinstellung zum Suchen nach fehlenden featuredateien in Windows Update auswählen gesteuert werden **nie versuchen, nutzlastdateien über Windows Update herunterzuladen**.  
   
-5.  Falls die von dieser Richtlinieneinstellung gesteuerten Richtlinieneinstellung in der Regel Updates über WSUS erhalten, Sie jedoch fehlende Featuredateien lieber über Windows Update und nicht über WSUS suchen möchten, aktivieren Sie **Stellen Sie direkt eine Verbindung mit Windows Update her, um Inhalte für das Reparieren herunterzuladen, anstatt WSUS (Windows Server Update Services) zu verwenden.**  
+5. Falls die von dieser Richtlinieneinstellung gesteuerten Richtlinieneinstellung in der Regel Updates über WSUS erhalten, Sie jedoch fehlende Featuredateien lieber über Windows Update und nicht über WSUS suchen möchten, aktivieren Sie **Stellen Sie direkt eine Verbindung mit Windows Update her, um Inhalte für das Reparieren herunterzuladen, anstatt WSUS (Windows Server Update Services) zu verwenden.**  
   
-6.  Klicken Sie auf **OK**, wenn Sie diese Richtlinieneinstellung geändert haben. Schließend Sie dann den Gruppenrichtlinien-Editor.  
+6. Klicken Sie auf **OK**, wenn Sie diese Richtlinieneinstellung geändert haben. Schließend Sie dann den Gruppenrichtlinien-Editor.  
   
 ## <a name="see-also"></a>Siehe auch  
 [Windows Server-Installationsoptionen](https://go.microsoft.com/fwlink/p/?LinkId=241573)  

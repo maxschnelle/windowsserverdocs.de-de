@@ -8,12 +8,12 @@ ms.topic: article
 author: gawatu
 ms.date: 10/17/2018
 ms.assetid: ''
-ms.openlocfilehash: ba7454f58255ba7a66624a5c59b062da9f871063
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0f4fb73941c5d6667d3c13356b6f29178d73788f
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865941"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447684"
 ---
 # <a name="mirror-accelerated-parity"></a>Durch Spiegelung beschleunigte Parität
 
@@ -100,12 +100,12 @@ Die ReFS-Komprimierung behandelt diese Leistungsprobleme durch das Freigeben von
 ### <a name="performance-counters"></a>Leistungsindikatoren
 
 ReFS behält Leistungsindikatoren, um die Leistung der durch Spiegelung beschleunigten Parität zu bewerten. 
--   Wie oben im Abschnitt „Schreibvorgänge auf die Parität” beschrieben, schreibt ReFS direkt in die Parität, wenn es keinen freien Speicherplatz in der Spiegelung finden kann. Das tritt in der Regel dann auf, wenn die gespiegelte Ebene schneller gefüllt wird, als die ReFS Daten auf die Parität drehen kann. Anders ausgedrückt, kann die ReFS-Drehung nicht mit der Aufnahme der Änderungsrate mithalten. Die folgenden Leistungsindikatoren ermitteln, wann ReFS direkt auf die Parität schreibt:
-```
-ReFS\Data allocations slow tier/sec
-ReFS\Metadata allocations slow tier/sec
-```
--   Wenn diese Indikatoren ungleich NULL sind, bedeutet die, dass ReFS die Daten nicht schnell genug aus der Spiegelung dreht. Damit dies vermieden wird, kann die Aggressivität der Drehung geändert oder die Größe der gespiegelten Ebene erhöht werden.
+- Wie oben im Abschnitt „Schreibvorgänge auf die Parität” beschrieben, schreibt ReFS direkt in die Parität, wenn es keinen freien Speicherplatz in der Spiegelung finden kann. Das tritt in der Regel dann auf, wenn die gespiegelte Ebene schneller gefüllt wird, als die ReFS Daten auf die Parität drehen kann. Anders ausgedrückt, kann die ReFS-Drehung nicht mit der Aufnahme der Änderungsrate mithalten. Die folgenden Leistungsindikatoren ermitteln, wann ReFS direkt auf die Parität schreibt:
+  ```
+  ReFS\Data allocations slow tier/sec
+  ReFS\Metadata allocations slow tier/sec
+  ```
+- Wenn diese Indikatoren ungleich NULL sind, bedeutet die, dass ReFS die Daten nicht schnell genug aus der Spiegelung dreht. Damit dies vermieden wird, kann die Aggressivität der Drehung geändert oder die Größe der gespiegelten Ebene erhöht werden.
 
 ### <a name="rotation-aggressiveness"></a>Drehung Aggressivität
 

@@ -9,12 +9,12 @@ ms.manager: daveba
 ms.technology: storage-failover-clustering
 ms.date: 05/09/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 151f02572d7595776539af163831b4a7a060c1c7
-ms.sourcegitcommit: 75f257d97d345da388cda972ccce0eb29e82d3bc
+ms.openlocfilehash: fa240ba5fedd98f16639dd19fb8f22c10bfdd9ac
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65613167"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442460"
 ---
 # <a name="prestage-cluster-computer-objects-in-active-directory-domain-services"></a>Vorabbereitstellen von clustercomputerobjekten in Active Directory Domain Services
 
@@ -48,14 +48,14 @@ Als bewährte Methode wird empfohlen, eine Organisationseinheit für die Cluster
 3. In der Konsolenstruktur mit der Maustaste der Organisationseinheit, in dem Sie das CNO erstellen möchten zeigen Sie **neu**, und wählen Sie dann **Computer**.
 4. In der **Computername** Geben Sie den Namen für den Failovercluster verwendet werden, und wählen Sie dann **OK**.
 
-  >[!NOTE]
-  >Diesen Clusternamen gibt der Benutzer, der den Cluster erstellt, auf der Seite **Zugriffspunkt für die Clusterverwaltung** im Clustererstellungs-Assistenten oder als Wert des *–Name* -Parameters für das Windows PowerShell-Cmdlet **New-Cluster** an.
+   >[!NOTE]
+   >Diesen Clusternamen gibt der Benutzer, der den Cluster erstellt, auf der Seite **Zugriffspunkt für die Clusterverwaltung** im Clustererstellungs-Assistenten oder als Wert des *–Name* -Parameters für das Windows PowerShell-Cmdlet **New-Cluster** an.
 
 5. Als bewährte Methode, die Maustaste Computerkontos ein, das Sie gerade erstellt haben, wählen **Eigenschaften**, und wählen Sie dann die **Objekt** Registerkarte. Auf der **Objekt** Registerkarte die **schützen Objekt vor zufälligem Löschen** aus, und wählen Sie dann **OK**.
 6. Maustaste auf das Computerkonto, die Sie gerade ein erstellt, und wählen Sie dann **Disable Account**. Wählen Sie **Ja** zu bestätigen, und wählen Sie dann **OK**.
 
-  >[!NOTE]
-  >Sie müssen das Konto deaktivieren, damit bei der Clustererstellung überprüft werden kann, ob das Konto zurzeit von einem vorhandenen Computer oder Cluster in der Domäne verwendet wird.
+   >[!NOTE]
+   >Sie müssen das Konto deaktivieren, damit bei der Clustererstellung überprüft werden kann, ob das Konto zurzeit von einem vorhandenen Computer oder Cluster in der Domäne verwendet wird.
 
 ![Deaktiviertes CNO in der Beispielorganisationseinheit %%amp;quot;Cluster%%amp;quot;](media/prestage-cluster-adds/disabled-cno-in-the-example-clusters-ou.png)
 
@@ -75,9 +75,9 @@ So wird die Benutzerberechtigungen zum Erstellen des Clusters zu gewähren:
 4. In der **Auswahl von Benutzern, Computern oder Gruppen** Dialogfeld geben die Benutzer- oder Gruppenkonto, das Sie verwenden möchten, Erteilen von Berechtigungen für, und wählen Sie dann **OK**.
 5. Wählen Sie das gerade hinzugefügte Benutzerkonto bzw. die gerade hinzugefügte Gruppe aus, und aktivieren Sie dann neben **Vollzugriff**das Kontrollkästchen **Zulassen** .
   
-  ![Erteilen der Benutzer- oder Gruppenberechtigungen zum Erstellen des Clusters](media/prestage-cluster-adds/granting-full-control-to-the-user-create-the-cluster.png)
+   ![Erteilen der Benutzer- oder Gruppenberechtigungen zum Erstellen des Clusters](media/prestage-cluster-adds/granting-full-control-to-the-user-create-the-cluster.png)
   
-  **Abbildung 2. Gewähren Sie volle Kontrolle für den Benutzer oder Gruppe, die den Cluster erstellen**
+   **Abbildung 2. Gewähren Sie volle Kontrolle für den Benutzer oder Gruppe, die den Cluster erstellen**
 6. Wählen Sie **OK**.
 
 Nach Abschluss dieses Schritts kann der Benutzer, dem Sie Berechtigungen erteilt haben, den Failovercluster erstellen. Wenn sich das CNO jedoch in einer Organisationseinheit befindet, kann der Benutzer erst dann Clusterrollen erstellen, für die ein Clientzugriffspunkt erforderlich ist, wenn Sie Schritt 3 abgeschlossen haben.
@@ -113,9 +113,9 @@ Wenn Sie das CNO vorab in AD DS bereitgestellt haben, können Sie eine der folge
 8. Stellen Sie im Dialogfeld **Berechtigungseintrag** sicher, dass die Liste **Typ** auf **Zulassen** und die Liste **Anwenden auf** auf **Dieses und alle untergeordneten Objekte** festgelegt ist.
 9. Aktivieren Sie unter **Berechtigungen** das Kontrollkästchen **Computerobjekte erstellen**.
 
-  ![Erteilen der Berechtigung zum Erstellen von Computerobjekten für das CNO](media/prestage-cluster-adds/granting-create-computer-objects-permission-to-the-cno.png)
+   ![Erteilen der Berechtigung zum Erstellen von Computerobjekten für das CNO](media/prestage-cluster-adds/granting-create-computer-objects-permission-to-the-cno.png)
 
-  **Abbildung 3. Erteilen der Berechtigung zum Erstellen von Computerobjekten, dem Clusternamenobjekt**
+   **Abbildung 3. Erteilen der Berechtigung zum Erstellen von Computerobjekten, dem Clusternamenobjekt**
 10. Wählen Sie **OK** bis Sie die Active Directory-Benutzer und Computer-Snap-in.
 
 Ein Administrator des Failoverclusters kann jetzt Clusterrollen mit Clientzugriffspunkten erstellen und die Ressourcen online schalten.

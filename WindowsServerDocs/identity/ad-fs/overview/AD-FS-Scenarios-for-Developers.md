@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 3a3156eefc4af52fb7daefb618c689b78fef5efc
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: fb1bc5776ea4d24f274c79563d9e346b104de6d9
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66188821"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444221"
 ---
 # <a name="ad-fs-scenarios-for-developers"></a>AD FS-Szenarien für Entwickler
 
@@ -115,7 +115,7 @@ Dieses Szenario ermöglicht es, dem Benutzer von einer nativen Clientanwendung z
 1.  Die systemeigene Clientanwendung initiiert den Flow mit einem Aufruf der ADAL-Bibliothek.  Dies löst eine browserbasierte HTTP GET, um die AD FS authorize-Endpunkt:  
   
 **Genehmigungsanfrage:**  
-ERHALTEN https://fs.contoso.com/adfs/oauth2/authorize?  
+ERHALTEN <https://fs.contoso.com/adfs/oauth2/authorize?>  
   
 Parameter|Wert  
 ---------|---------  
@@ -126,9 +126,9 @@ redirect_uri|Umleitungs-URI der nativen Anwendung in der Anwendungsgruppe
   
 **Anforderung-autorisierungsantwort:**  
 Wenn sich der Benutzer nicht angemeldet hat, bevor der Benutzer zur Eingabe von Anmeldeinformationen aufgefordert wird.    
-AD FS reagiert, indem Sie einen Autorisierungscode als Parameter "Code" in der Abfragekomponente von der umleitungs-URI zurückgeben.  Zum Beispiel: Speicherort der HTTP/1.1 302 gefunden:  **http://redirect_uri:80/?code=&lt; Code&gt;.**  
+AD FS reagiert, indem Sie einen Autorisierungscode als Parameter "Code" in der Abfragekomponente von der umleitungs-URI zurückgeben.  Zum Beispiel: HTTP/1.1 302 gefunden, Position:  **<http://redirect_uri:80/?code=&lt;code&gt>;.**  
   
-2.  Der native Client sendet dann den Code, zusammen mit den folgenden Parametern an die AD FS-token-Endpunkt:  
+2. Der native Client sendet dann den Code, zusammen mit den folgenden Parametern an die AD FS-token-Endpunkt:  
   
 **Token anfordern:**  
 POST https://fs.contoso.com/adfs/oauth2/token  
@@ -144,7 +144,7 @@ redirect_uri|Umleitungs-URI der nativen Anwendung in der Anwendungsgruppe
 **Token-Anforderung-Antwort:**  
 AD FS reagiert mit HTTP 200 mit dem Zugriffstoken, Aktualisierungstoken und ID-Token im Text.  
   
-3.  Klicken Sie dann die systemeigene Anwendung sendet den Access_token-Teil der obigen Antwort als dem Autorisierungsheader in der HTTP-Anforderung an die Web-API.  
+3. Klicken Sie dann die systemeigene Anwendung sendet den Access_token-Teil der obigen Antwort als dem Autorisierungsheader in der HTTP-Anforderung an die Web-API.  
   
 ### <a name="single-sign-on-behavior"></a>SSO-Verhalten  
 Nachfolgende Client fordert innerhalb 1 Stunde (standardmäßig) das Zugriffstoken weiterhin gültige im Cache, und eine neue Anforderung wird kein Datenverkehr an AD FS ausgelöst.  Das Zugriffstoken wird automatisch aus dem Cache von ADAL abgerufen werden.  
@@ -177,9 +177,9 @@ Dieses Szenario ist ähnlich wie das oben, dass eine autorisierungsanforderung, 
   
 ![Beschreibung des protokollflusses](media/ADFS_DEV_4.png)  
   
-1.  Die Web-App initiiert eine autorisierungsanforderung, über den Browser, der eine HTTP GET-Anforderung für den AD FS sendet authorize-Endpunkt  
-**Autorisierungsanforderung**:  
-ERHALTEN https://fs.contoso.com/adfs/oauth2/authorize?  
+1. Die Web-App initiiert eine autorisierungsanforderung, über den Browser, der eine HTTP GET-Anforderung für den AD FS sendet authorize-Endpunkt  
+   **Autorisierungsanforderung**:  
+   ERHALTEN <https://fs.contoso.com/adfs/oauth2/authorize?>  
   
 Parameter|Wert  
 ---------|---------  
@@ -190,13 +190,13 @@ redirect_uri|Umleitungs-URI der Web-app (Server-Anwendung) in der Anwendungsgrup
   
 Anforderung-autorisierungsantwort:  
 Wenn sich der Benutzer nicht angemeldet hat, bevor der Benutzer zur Eingabe von Anmeldeinformationen aufgefordert wird.  
-AD FS reagiert, indem Sie einen Autorisierungscode z. B. als Parameter "Code" in der Abfragekomponente von der umleitungs-URI zurückgibt: Speicherort der HTTP/1.1 302 gefunden: https://webapp.contoso.com/?code=&lt; Code&gt;.  
+AD FS reagiert, indem Sie einen Autorisierungscode z. B. als Parameter "Code" in der Abfragekomponente von der umleitungs-URI zurückgibt: HTTP/1.1 302 gefunden, Position: <https://webapp.contoso.com/?code=&lt;code&gt>;.  
   
-2.  Aufgrund der oben genannten 302 initiiert der Browser HTTP GET für die Web-app, z. B.: ERSTE http://redirect_uri:80/?code=&lt; Code&gt;.   
+2. Aufgrund der oben genannten 302 initiiert der Browser HTTP GET für die Web-app, z. B.: ERSTE <http://redirect_uri:80/?code=&lt;code&gt>;.   
   
-3.  An diesem Punkt initiiert die Web-app erhalten haben den Code, eine Anforderung an den AD FS-token-Endpunkt, senden die folgenden  
-**Token anfordern:**  
-POST https://fs.contoso.com/adfs/oauth2/token  
+3. An diesem Punkt initiiert die Web-app erhalten haben den Code, eine Anforderung an den AD FS-token-Endpunkt, senden die folgenden  
+   **Token anfordern:**  
+   POST https://fs.contoso.com/adfs/oauth2/token  
   
 Parameter|Wert  
 ---------|---------  
@@ -210,7 +210,7 @@ client_secret|Geheime Schlüssel der Web-app (Server-Anwendung) in der Anwendung
 **Token-Anforderung-Antwort:**  
 AD FS reagiert mit HTTP 200 mit dem Zugriffstoken, Aktualisierungstoken und ID-Token im Text.  
 Ansprüche  
-4.  Die Web-Anwendung, und klicken Sie dann entweder nutzt den Access_token-Teil der obigen Antwort (in dem Fall, in dem die Web-app selbst die Ressource hostet) oder auf andere sendet sie als den Authorization-Header in der HTTP-Anforderung an, an die Web-API.  
+4. Die Web-Anwendung, und klicken Sie dann entweder nutzt den Access_token-Teil der obigen Antwort (in dem Fall, in dem die Web-app selbst die Ressource hostet) oder auf andere sendet sie als den Authorization-Header in der HTTP-Anforderung an, an die Web-API.  
   
 #### <a name="single-sign-on-behavior"></a>SSO-Verhalten  
 Während das Zugriffstoken weiterhin gültig für eine Stunde (standardmäßig) in den Cache des Clients befinden, Sie denken möglicherweise, dass die zweite Anforderung funktioniert wie im obigen - native Clientszenario, dass eine neue Anforderung Datenverkehr an AD FS nicht ausgelöst wird, wie das Zugriffstoken automatisch abgerufen Sie aus dem Cache werden, von ADAL.  Allerdings ist es möglich, dass die Web-app unterschiedliche Autorisierungs- und tokenanforderungen; der erste Wert über unterschiedliche URL-Link, wie in unserem Beispiel senden kann.  
@@ -245,7 +245,7 @@ Dieses Szenario ist ähnlich wie oben, gibt es eine autorisierungsanforderung du
 1.  Die Web-App initiiert eine autorisierungsanforderung, über den Browser, der eine HTTP GET-Anforderung für den AD FS sendet authorize-Endpunkt  
   
 **Genehmigungsanfrage:**  
-ERHALTEN https://fs.contoso.com/adfs/oauth2/authorize?  
+ERHALTEN <https://fs.contoso.com/adfs/oauth2/authorize?>  
   
 Parameter|Wert  
 ---------|---------  
@@ -260,9 +260,9 @@ Wenn sich der Benutzer nicht angemeldet hat, bevor der Benutzer zur Eingabe von 
 AD FS antwortet mit einer HTTP 200 und das Formular mit den unten als ausgeblendete Elemente:  
 * Code: des Autorisierungscodes  
 * "id_token": ein JWT-Token mit Ansprüchen, beschreibt die Benutzerauthentifizierung  
-2.  Das Formular sendet automatisch auf der umleitungs-URI der Web-app, den Code und das ID-Token an die Web-app senden.  
+* Das Formular sendet automatisch auf der umleitungs-URI der Web-app, den Code und das ID-Token an die Web-app senden.  
   
-3.  An diesem Punkt initiiert die Web-app erhalten haben den Code, eine Anforderung an den AD FS-token-Endpunkt, senden die folgenden  
+3. An diesem Punkt initiiert die Web-app erhalten haben den Code, eine Anforderung an den AD FS-token-Endpunkt, senden die folgenden  
   
 **Token anfordern:**  
 POST https://fs.contoso.com/adfs/oauth2/token
@@ -281,7 +281,7 @@ client_secret|Geheimen Schlüssel der Web-app (Server-Anwendung) in der Anwendun
 **Token-Anforderung-Antwort:**  
 AD FS reagiert mit HTTP 200 mit dem Zugriffstoken, Aktualisierungstoken und ID-Token im Text.  
   
-4.  Die Web-Anwendung, und klicken Sie dann entweder nutzt den Access_token-Teil der obigen Antwort (in dem Fall, in dem die Web-app selbst die Ressource hostet) oder auf andere sendet sie als den Authorization-Header in der HTTP-Anforderung an, an die Web-API.  
+4. Die Web-Anwendung, und klicken Sie dann entweder nutzt den Access_token-Teil der obigen Antwort (in dem Fall, in dem die Web-app selbst die Ressource hostet) oder auf andere sendet sie als den Authorization-Header in der HTTP-Anforderung an, an die Web-API.  
   
 #### <a name="single-sign-on-behavior"></a>SSO-Verhalten  
 Der SSO-Verhalten entspricht derjenigen der obige Ablauf der Oauth 2.0 vertraulicher Client.  

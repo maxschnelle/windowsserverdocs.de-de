@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 9ca9f41770c977b6e7c4900b090471dbfe11a450
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 156832087bc7af0c95a92cab9a0c1501264d47a5
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855721"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447504"
 ---
 # <a name="shielded-vms---hosting-service-provider-sets-up-windows-azure-pack"></a>Abgeschirmte VMs: Hosting-Anbieter richtet Windows Azure Pack ein
 
@@ -52,7 +52,7 @@ Installieren und Konfigurieren von Windows Azure Pack (WAP) auf dem Computer, in
 
 3.  Öffnen Sie den Webplattform-Installer, und suchen **Windows Azure Pack: Portal und API Express** unter der **Produkte** Registerkarte. Klicken Sie auf **hinzufügen**, klicken Sie dann **installieren** am unteren Rand des Fensters.
 
-4.  Führen Sie die weiteren Schritte der Installation aus. Nach Abschluss der Installation, die die Konfigurationswebsite (*https://&lt;Wapserver&gt;: 30101 /*) in Ihrem Webbrowser wird geöffnet. Auf dieser Website Informationen zu Ihrer SQLServer und abzuschließen Sie WAP Konfiguration.
+4.  Führen Sie die weiteren Schritte der Installation aus. Nach Abschluss der Installation, die die Konfigurationswebsite (*https://&lt;Wapserver&gt;: 30101 /* ) in Ihrem Webbrowser wird geöffnet. Auf dieser Website Informationen zu Ihrer SQLServer und abzuschließen Sie WAP Konfiguration.
 
 Hilfe zu Windows Azure Pack einrichten, finden Sie unter [Installieren einer expressbereitstellung von Windows Azure Pack](https://technet.microsoft.com/dn296439.aspx).
 
@@ -77,37 +77,37 @@ Bevor Sie Windows Azure Pack verwenden, sollten Sie es installiert und konfiguri
 
 Zum Erstellen von VMs in WAP-Mandanten zu ermöglichen, müssen Sie zuerst einen hostingplan erstellen, den Mandanten abonnieren können. Pläne werden die zulässigen VM-Clouds, Vorlagen, Netzwerke und abrechnungseinheiten für Ihre Mandanten definieren.
 
-1.  Klicken Sie auf den unteren Bereich des Portals auf **+ neu** &gt; **planen** &gt; **erstellen planen**.
+1. Klicken Sie auf den unteren Bereich des Portals auf **+ neu** &gt; **planen** &gt; **erstellen planen**.
 
-2.  Wählen Sie im ersten Schritt des Assistenten einen Namen für Ihren Plan aus. Dies ist der Name, die Ihren Mandanten beim Abonnieren angezeigt werden.
+2. Wählen Sie im ersten Schritt des Assistenten einen Namen für Ihren Plan aus. Dies ist der Name, die Ihren Mandanten beim Abonnieren angezeigt werden.
 
-3.  Wählen Sie im zweiten Schritt **CLOUDS für virtuelle Computer** als einer der Dienste im Plan anbieten.
+3. Wählen Sie im zweiten Schritt **CLOUDS für virtuelle Computer** als einer der Dienste im Plan anbieten.
 
-4.  Überspringen Sie den Schritt zum Auswählen von Add-ons für den Plan an.
+4. Überspringen Sie den Schritt zum Auswählen von Add-ons für den Plan an.
 
-5.  Klicken Sie auf **OK** (Häkchen) aus, um den Plan zu erstellen. Obwohl dies den Plan erstellt haben, ist es nicht bereits in einem konfigurierten Zustand.
+5. Klicken Sie auf **OK** (Häkchen) aus, um den Plan zu erstellen. Obwohl dies den Plan erstellt haben, ist es nicht bereits in einem konfigurierten Zustand.
 
-    ![Pläne in Windows Azure Pack](../media/Guarded-Fabric-Shielded-VM/guarded-host-azure-pack-02-create-plan.png)
+   ![Pläne in Windows Azure Pack](../media/Guarded-Fabric-Shielded-VM/guarded-host-azure-pack-02-create-plan.png)
 
-6.  Um zu beginnen, konfigurieren den Plan, klicken Sie auf seinen Namen.
+6. Um zu beginnen, konfigurieren den Plan, klicken Sie auf seinen Namen.
 
-7.  Klicken Sie auf der nächsten Seite unter **plandienste**, klicken Sie auf **Clouds für virtuelle Computer**. Daraufhin wird die Seite, in denen Sie Kontingente für diesen Plan konfigurieren können.
+7. Klicken Sie auf der nächsten Seite unter **plandienste**, klicken Sie auf **Clouds für virtuelle Computer**. Daraufhin wird die Seite, in denen Sie Kontingente für diesen Plan konfigurieren können.
 
-8.  Klicken Sie unter **grundlegende**, wählen Sie die VMM-Verwaltungsserver und die VM-Cloud, die Sie für Ihre Mandanten anbieten möchten. Clouds, die abgeschirmte VMs bieten können mit angezeigt werden **(Abschirmung unterstützt)** neben ihrem Namen.
+8. Klicken Sie unter **grundlegende**, wählen Sie die VMM-Verwaltungsserver und die VM-Cloud, die Sie für Ihre Mandanten anbieten möchten. Clouds, die abgeschirmte VMs bieten können mit angezeigt werden **(Abschirmung unterstützt)** neben ihrem Namen.
 
-9.  Wählen Sie die Kontingente, die Sie in diesem Plan anwenden möchten. (Z. B. Grenzwerte für CPU-Kern und RAM-Auslastung). Stellen Sie sicher, dass die **können virtuelle Computer werden von geschützten** Kontrollkästchen.
+9. Wählen Sie die Kontingente, die Sie in diesem Plan anwenden möchten. (Z. B. Grenzwerte für CPU-Kern und RAM-Auslastung). Stellen Sie sicher, dass die **können virtuelle Computer werden von geschützten** Kontrollkästchen.
 
-    ![Einstellungen für Clouds für virtuelle Computer in Windows Azure Pack](../media/Guarded-Fabric-Shielded-VM/guarded-host-azure-pack-03-virtual-machine-clouds.png)
+   ![Einstellungen für Clouds für virtuelle Computer in Windows Azure Pack](../media/Guarded-Fabric-Shielded-VM/guarded-host-azure-pack-03-virtual-machine-clouds.png)
     
-10.  Suchen Sie im Abschnitt **Vorlagen**, und wählen Sie dann eine oder mehrere Vorlagen für Ihren Mandanten anbieten. Sie bieten sowohl abgeschirmte und nicht abgeschirmten Vorlagen für Mandanten, aber einer geschützten Vorlage muss Mandanten über End-to-End-zusicherungen über die Integrität der VM und ihre Geheimnisse gewähren angeboten werden.
+10. Suchen Sie im Abschnitt **Vorlagen**, und wählen Sie dann eine oder mehrere Vorlagen für Ihren Mandanten anbieten. Sie bieten sowohl abgeschirmte und nicht abgeschirmten Vorlagen für Mandanten, aber einer geschützten Vorlage muss Mandanten über End-to-End-zusicherungen über die Integrität der VM und ihre Geheimnisse gewähren angeboten werden.
 
-11.  In der **Netzwerke** Abschnitt fügen Sie ein oder mehrere Netzwerke für Ihre Mandanten hinzu.
+11. In der **Netzwerke** Abschnitt fügen Sie ein oder mehrere Netzwerke für Ihre Mandanten hinzu.
 
-12.  Nach dem Festlegen einer anderen Einstellungen oder Kontingente für den Plan an, klicken Sie auf **speichern** am unteren Rand.
+12. Nach dem Festlegen einer anderen Einstellungen oder Kontingente für den Plan an, klicken Sie auf **speichern** am unteren Rand.
 
-13.  AT oben links auf dem Bildschirm, klicken Sie auf den Pfeil, um Sie nutzen zurück an die **planen** Seite.
+13. AT oben links auf dem Bildschirm, klicken Sie auf den Pfeil, um Sie nutzen zurück an die **planen** Seite.
 
-14.  Ändern Sie am unteren Rand des Bildschirms, den Plan wird **Private** zu **öffentliche** , damit Mandanten den Plan abonnieren können.
+14. Ändern Sie am unteren Rand des Bildschirms, den Plan wird **Private** zu **öffentliche** , damit Mandanten den Plan abonnieren können.
 
     ![Ändern des Zugriffs für einen Plan in Windows Azure Pack](../media/Guarded-Fabric-Shielded-VM/guarded-host-azure-pack-04-change-access.png)
 

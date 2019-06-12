@@ -9,12 +9,12 @@ ms.assetid: 9be83ed2-9e62-49e8-88e7-f52d3449aac5
 ms.author: pashort
 author: JMesser81
 ms.date: 08/14/2018
-ms.openlocfilehash: b6d4ff37186e66bec54794f8d6c9fd8a83e23e7d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: eeb0c335e4afd3c6835a04421a15073aeab6cdc6
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845391"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446238"
 ---
 # <a name="troubleshoot-the-windows-server-software-defined-networking-stack"></a>Problembehandlung für die Windows Server-Software Defined Networking-Stapel
 
@@ -34,17 +34,17 @@ Die meisten Fehler können in eine kleine Gruppe von Klassen unterteilt werden:
 * **Fehler bei der richtlinienanwendung**  
      Richtlinie für vom Netzwerkcontroller wurde nicht auf einem Hyper-V-Host erheblich verzögert und / oder nicht auf dem neuesten Stand auf allen Hyper-V-Hosts (z. B. nach einer Livemigration) übermittelt.  
 * **Konfiguration der letzten datenbankregistrierung bzw. Software-Fehler**  
- Datenpfad-Probleme, die verworfenen Pakete zu.  
+  Datenpfad-Probleme, die verworfenen Pakete zu.  
 
 * **Externer Fehler im Zusammenhang mit der NIC-Hardware / Treiber oder der dabei Netzwerk-Fabric**  
- Fehlerhaften Aufgabe abladungen (z. B. VMQ) oder falsch konfiguriert (z. B. MTU) dabei Netzwerk-fabric   
+  Fehlerhaften Aufgabe abladungen (z. B. VMQ) oder falsch konfiguriert (z. B. MTU) dabei Netzwerk-fabric   
 
- Dieses Handbuch zur Problembehandlung untersucht jede der folgenden Fehlerkategorien und empfiehlt bewährte Methoden und Diagnosetools zur Verfügung, um zu identifizieren und beheben Sie den Fehler.  
+  Dieses Handbuch zur Problembehandlung untersucht jede der folgenden Fehlerkategorien und empfiehlt bewährte Methoden und Diagnosetools zur Verfügung, um zu identifizieren und beheben Sie den Fehler.  
 
 ## <a name="diagnostic-tools"></a>Diagnosetools  
 
 Ehe wir näher auf die Workflows bei der Problembehandlung für jede dieser Art von Fehlern, betrachten wir die Diagnosetools zur Verfügung.   
-  
+
 Um die Diagnosetools für den Netzwerkcontroller (Steuerelement-Path) zu verwenden, müssen Sie zuerst die RSAT-NetworkController-Funktion installieren und Importieren der ``NetworkControllerDiagnostics`` Modul:  
 
 ```  
@@ -53,7 +53,7 @@ Import-Module NetworkControllerDiagnostics
 ```  
 
 Um die Diagnose der hnv-(Data-Path)-Diagnose-Tools verwenden zu können, müssen Sie importieren die ``HNVDiagnostics`` Modul:
-  
+
 ```  
 # Assumes RSAT-NetworkController feature has already been installed
 Import-Module hnvdiagnostics   
@@ -63,12 +63,12 @@ Import-Module hnvdiagnostics
 Diese Cmdlets sind auf TechNet im dokumentiert die [Network Controller-Diagnose-Cmdlet Thema](https://docs.microsoft.com/powershell/module/networkcontrollerdiagnostics/). Sie helfen, Probleme mit Netzwerk-Richtlinie Konsistenz im Steuerelement-Pfad zwischen dem Netzwerkcontroller-Knoten und zwischen dem Netzwerkcontroller und die NC-Host-Agents auf den Hyper-V-Hosts ausgeführt.
 
  Die _Debug-ServiceFabricNodeStatus_ und _Get-NetworkControllerReplica_ Cmdlets müssen von einem der virtuellen Maschinen des Netzwerkcontrollers Knoten ausgeführt werden. Alle anderen NC-Diagnose-Cmdlets können von jedem Host ausgeführt werden, verfügt eine Verbindung mit dem Netzwerkcontroller und entweder in der Sicherheitsgruppe für die Verwaltung von Netzwerkcontrollern (Kerberos) oder hat Zugriff auf das x. 509-Zertifikat für die Verwaltung des Netzwerkcontrollers. 
-   
+
 ### <a name="hyper-v-host-diagnostics"></a>Hyper-V-Host-Diagnose  
 Diese Cmdlets sind auf TechNet im dokumentiert die [Hyper-V-Netzwerkvirtualisierung (HNV)-Diagnose-Cmdlet Thema](https://docs.microsoft.com/powershell/module/hnvdiagnostics/). Sie bei der Fehlersuche im Daten-Pfad zwischen Mandanten-VMs (OST-West) und die eingehenden Datenverkehr durch eine SLB-VIP (Nord/Süd). 
 
 Die _Debug-VirtualMachineQueueOperation_, _Get-CustomerRoute_, _Get-PACAMapping_, _Get-ProviderAddress_, _Get-VMNetworkAdapterPortId_, _Get-VMSwitchExternalPortId_, und _Test-EncapOverheadSettings_ sind alle lokalen Tests, die von jedem Hyper-V-Host ausgeführt werden können. Die andere Cmdlets aufrufen Datenpfad-Tests über den Netzwerkcontroller und aus diesem Grund benötigen Zugriff auf der Netzwerkcontroller als descried oben.
- 
+
 ### <a name="github"></a>GitHub
 Die [Microsoft-SDN GitHub-Repository](https://github.com/microsoft/sdn) verfügt über eine Reihe von Beispielskripts und Workflows, die zusätzlich zu diesen integrierten-Cmdlets erstellen. Insbesondere-Diagnose-Skripts finden Sie in der [Diagnose](https://github.com/Microsoft/sdn/diagnostics) Ordner. Helfen Sie uns diese Skripts beitragen, indem Pull-Anforderungen senden.
 
@@ -98,7 +98,6 @@ Fetching ResourceType:     networkInterfaces
 Fetching ResourceType:     virtualGateways
 Fetching ResourceType:     loadbalancerMuxes
 Fetching ResourceType:     Gateways
-
 ```
 
 Eine beispielmeldung für Konfigurationsstatus ist unten dargestellt:
@@ -121,7 +120,7 @@ Message:          Host is not Connected.
 
 Die folgende Tabelle zeigt die Liste der Fehlercodes, Nachrichten und Aktionen basierend auf den Konfigurationszustand beobachtet werden.
 
-  
+
 | **Code**| **Nachricht**| **Aktion**|  
 |--------|-----------|----------|  
 | Unbekannt| Unbekannter Fehler| |  
@@ -215,7 +214,7 @@ ReplicaStatus : Ready
 
 ```
 Überprüfen Sie, dass der Status des Replikats bereit ist für jeden Dienst.
- 
+
 #### <a name="check-for-corresponding-hostids-and-certificates-between-network-controller-and-each-hyper-v-host"></a>Überprüfen Sie für die entsprechende Eigenschaft sowie Zertifikate zwischen Netzwerkcontroller und jedem Hyper-V-Host 
 Führen Sie auf einem Hyper-V-Host die folgenden Befehle aus, um zu überprüfen, dass die "HostID", die Instanz-Id von einer Server-Ressource, auf dem Netzwerkcontroller entspricht
 
@@ -238,7 +237,7 @@ Properties       : Microsoft.Windows.NetworkController.ServerProperties
 *Wiederherstellung* Wenn SDNExpress mit Skripts oder manuelle Bereitstellung, den Schlüssel "HostID" in der Registrierung der Instanz-Id, der die Server-Ressource entsprechend aktualisieren. Starten Sie der Netzwerk-Controller-Host-Agent auf dem Hyper-V-Host (physische Server) neu, wenn Sie mithilfe von VMM, löschen Sie den Hyper-V-Server aus VMM, und entfernen Sie den Registrierungsschlüssel "HostID". Anschließend fügen Sie den Server über VMM neu.
 
 
-Überprüfen Sie, dass die Fingerabdrücke der x. 509-Zertifikate (SouthBound) die Kommunikation zwischen den Hyper-V-Host (NC-Host-Agent-Dienst) und den Netzwerkcontroller-Knoten zum durch den Hyper-V-Host (die Hostnamen werden Antragstellername des Zertifikats des) identisch sind. Überprüfen Sie auch, dass der Netzwerkcontroller-REST-Zertifikat Name des Antragstellers ist *CN =<FQDN or IP>*.
+Überprüfen Sie, dass die Fingerabdrücke der x. 509-Zertifikate (SouthBound) die Kommunikation zwischen den Hyper-V-Host (NC-Host-Agent-Dienst) und den Netzwerkcontroller-Knoten zum durch den Hyper-V-Host (die Hostnamen werden Antragstellername des Zertifikats des) identisch sind. Überprüfen Sie auch, dass der Netzwerkcontroller-REST-Zertifikat Name des Antragstellers ist *CN =<FQDN or IP>* .
 
 ```  
 # On Hyper-V Host
@@ -272,7 +271,7 @@ Sie können auch überprüfen, die folgenden Parameter, der jedes Zertifikat, um
 - Von der Stammzertifizierungsstelle vertraut  
 
 *Wiederherstellung* Falls mehrere Zertifikate den gleichen Antragstellernamen auf dem Hyper-V-Host verfügen, der Netzwerk-Controller-Host-Agent wird nach dem Zufallsprinzip wählen Sie eine bieten, die dem Netzwerkcontroller. Dies entspricht möglicherweise nicht über den Fingerabdruck des der Server-Ressource, die dem Netzwerkcontroller bekannt. In diesem Fall löschen Sie eines der Zertifikate mit dem gleichen Antragstellernamen auf dem Hyper-V-Host aus, und starten Sie den Netzwerk-Controller-Host-Agent-Dienst neu. Wenn weiterhin keine Verbindung hergestellt werden kann, löschen Sie das andere Zertifikat mit dem gleichen Antragstellernamen auf dem Hyper-V-Host, und löschen Sie die entsprechenden Serverressource in VMM. Anschließend erstellen Sie die Server-Ressource in VMM ein neues x. 509-Zertifikat zu generieren und installieren Sie es auf dem Hyper-V-Host neu.
-  
+
 
 #### <a name="check-the-slb-configuration-state"></a>Überprüfen Sie die SLB-Konfigurationsstatus
 Der Konfigurationsstatus des SLB kann als Teil der Ausgabe an das Debug-NetworkController-Cmdlet ermittelt werden. Dieses Cmdlet gibt auch den aktuellen Satz von Netzwerkcontroller-Ressourcen in JSON-Dateien, die alle IP-Konfigurationen von jedem Hyper-V-Host (Server) und lokale Netzwerkrichtlinie von Host-Agent-Datenbanktabellen. 
@@ -305,7 +304,7 @@ Diese JSON-Datei kann in folgende Abschnitte unterteilt werden:
    * MUX Routen – werden in diesem Abschnitt, einen Wert für jede SLB MUX-Instanz bereitgestellt, das alle von der Routenankündigungen für diese bestimmte MUX-Instanz aufgeführt.
  * Mandant
    * VipConsolidatedState – in diesem Abschnitt werden der Status der Verbindung für jeden Mandanten VIP einschließlich angekündigte Routenpräfix, Hyper-V-Host und der DIP-Endpunkte aufgelistet.
-    
+
 > [!NOTE]
 > SLB-Zustand ermittelt werden können, direkt unter Verwendung der [DumpSlbRestState](https://github.com/Microsoft/SDN/blob/master/Diagnostics/DumpSlbRestState.ps1) Skript zur Verfügung, auf die [Microsoft SDN GitHub-Repository](https://github.com/microsoft/sdn). 
 
@@ -486,9 +485,8 @@ ComputerName         : SA18N30-2
 IsDeleted            : False
 
 <snip> ...
-
 ```
- 
+
 #### <a name="check-mtu-and-jumbo-frame-support-on-hnv-provider-logical-network"></a>Überprüfen Sie die MTU und Jumbo Frame-Unterstützung für logische Hnv-Anbieternetzwerk
 
 Ein häufiges Problem in das logische hnv-anbieternetzwerk ist, dass die physischen Ports und/oder Ethernet-Karte keine große genug ist, MTU so konfiguriert, dass um den Mehraufwand durch VXLAN (oder NVGRE)-Kapselung zu behandeln. 
@@ -527,7 +525,6 @@ Physical Nic  <NIC> Ethernet Adapter #2 can support SDN traffic. Encapoverhead v
 Cannot send jumbo packets to the destination. Physical switch ports may not be configured to support jumbo packets.
 
 # TODO: Success Results aftering updating MTU on physical switch ports
-
 ```
 
 *Wiederherstellung*
@@ -550,7 +547,6 @@ CA IP Address CA MAC Address    Virtual Subnet ID PA IP Address
 10.254.254.1  40-1D-D8-B7-1C-06              4115 10.10.182.66
 192.168.1.1   40-1D-D8-B7-1C-06              4114 10.10.182.66
 192.168.1.4   00-1D-D8-B7-1C-05              4114 10.10.182.66
-
 ```
 >[!NOTE]
 > Wenn die CA-PA-Zuordnungen, die Sie erwarten, dass für einen bestimmten Mandanten-VM nicht ausgegeben werden, überprüfen Sie die VM-NIC und die IP-Konfiguration die Ressourcen auf dem Netzwerkcontroller unter Verwendung der _Get-NetworkControllerNetworkInterface_ Cmdlet. Überprüfen Sie außerdem die hergestellte Verbindungen zwischen den NC-Host-Agent und dem Netzwerkcontroller.
@@ -600,10 +596,10 @@ PA-Routing-Informationen:
 
     Local PA IP: 10.10.182.66
     Remote PA IP: 10.10.182.65
- 
+
  <snip> ...
 
-4.  [Mandant] Überprüfen Sie, dass keine verteilten Firewall-Richtlinien für die virtuelle Subnetz oder einer VM-Netzwerkschnittstellen, die Datenverkehr blockieren würde angegebenen vorhanden ist.    
+4. [Mandant] Überprüfen Sie, dass keine verteilten Firewall-Richtlinien für die virtuelle Subnetz oder einer VM-Netzwerkschnittstellen, die Datenverkehr blockieren würde angegebenen vorhanden ist.    
 
 Fragen Sie die REST-API von Netzwerkcontroller finden Sie in der Demo-Umgebung auf sa18n30nc in der Domäne sa18.nttest.microsoft.com.
 
@@ -624,7 +620,7 @@ Fragen Sie die REST-API von Netzwerkcontroller finden Sie in der Demo-Umgebung a
 Die folgenden Abschnitte enthalten Informationen für erweiterte Diagnose, Protokollierung und Ablaufverfolgung an.
 
 ### <a name="network-controller-centralized-logging"></a>Netzwerkcontroller zentralisierte Protokollierung 
- 
+
 Der Netzwerkcontroller kann automatisch Debugger-Protokolle erfassen und an einem zentralen Ort speichern. Sammlung von Protokollen kann aktiviert werden, bei der Bereitstellung des Netzwerkcontrollers für erstmalig verwenden oder jederzeit später noch mal. Die Protokolle werden über den Netzwerkcontroller erfasst, und Elemente, die vom Netzwerkcontroller verwalteten Netzwerk: Computer, der Software Load balancer (SLB) und der Gatewaycomputer zu hosten. 
 
 Diese Protokolle enthalten die Debugprotokolle für den Netzwerkcontroller-Cluster, die Netzwerkcontroller-Anwendung, Gateway-Protokolle, SLB, virtuelle Netzwerke und die verteilte Firewall. Wenn ein neues Host/SLB/Gateway und den Netzwerkcontroller hinzugefügt wird, wird die Protokollierung auf diesen Computern gestartet. Auf ähnliche Weise, wenn ein Host/SLB/Gateway aus dem Netzwerkcontroller entfernt wird, wird auf diesen Computern Protokollierung beendet.

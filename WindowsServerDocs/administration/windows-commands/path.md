@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 65ccaf23b0e19319383952f3a1ca436aaf4d06fd
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a637abc91dd3342afb3a2723d1b3a835be149122
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856461"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436320"
 ---
 # <a name="path"></a>path
 
@@ -37,12 +37,12 @@ path ;
 
 ## <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|[\<Drive>:]<Path>|Gibt an, das Laufwerk und Verzeichnis, in der Befehlspfad festgelegt.|
-|;|Trennt die Verzeichnisse im Befehlspfad. Ohne Angabe von anderen Parametern **;** löscht die vorhandenen Befehl Pfade von der PATH-Umgebungsvariable und leitet Cmd.exe nur im aktuellen Verzeichnis zu suchen.|
-|% PATH%|Fügt den Befehlspfad der vorhandenen Satz von Verzeichnissen, die in der PATH-Umgebungsvariablen aufgelistet.|
-|/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
+|     Parameter     |                                                                                                     Beschreibung                                                                                                      |
+|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [\<Drive>:]<Path> |                                                                            Gibt an, das Laufwerk und Verzeichnis, in der Befehlspfad festgelegt.                                                                             |
+|         ;         | Trennt die Verzeichnisse im Befehlspfad. Ohne Angabe von anderen Parametern **;** löscht die vorhandenen Befehl Pfade von der PATH-Umgebungsvariable und leitet Cmd.exe nur im aktuellen Verzeichnis zu suchen. |
+|      % PATH%       |                                                         Fügt den Befehlspfad der vorhandenen Satz von Verzeichnissen, die in der PATH-Umgebungsvariablen aufgelistet.                                                         |
+|        /?         |                                                                                         Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                         |
 
 ## <a name="remarks"></a>Hinweise
 
@@ -62,4 +62,4 @@ Um die Pfade C:\User\Taxes B:\User\Invest und B:\Bin für externe Befehle zu suc
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

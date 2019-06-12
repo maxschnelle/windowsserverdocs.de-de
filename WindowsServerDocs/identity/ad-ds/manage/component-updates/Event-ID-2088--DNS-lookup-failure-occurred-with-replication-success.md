@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: cc090fa749a601e53b4347cce43245f22badc8ae
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e0c5e838290a8ebf33f0f7891dc10f8b00e5bcba
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840711"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442648"
 ---
 # <a name="event-id-2088-dns-lookup-failure-occurred-with-replication-success"></a>Ereignis-ID 2088: Fehler bei der DNS-Lookups bei erfolgreicher Replikation aufgetreten
 
@@ -58,7 +58,7 @@ Benutzeraktion:
 
 2) Vergewissern Sie sich, dass der Quelldomänencontroller Active Directory ausgeführt wird und im Netzwerk verfügbar, indem Sie eingeben ist "net View \\ &lt;Quell-DC-Namen&gt;" oder "Ping &lt;Quell-DC-Namen&gt;". 
 
-3) Stellen Sie sicher, dass der Quelldomänencontroller auf einen gültigen DNS-Server verwendet wird, für die DNS-Dienste und Aufzeichnen der Quelldomänencontroller Hosteintrag und CNAME sind ordnungsgemäß registriert ist, die verbesserte DNS-Version von DCDIAG. EXE-Datei verfügbar https://www.microsoft.com/dns 
+3) Stellen Sie sicher, dass der Quelldomänencontroller auf einen gültigen DNS-Server verwendet wird, für die DNS-Dienste und Aufzeichnen der Quelldomänencontroller Hosteintrag und CNAME sind ordnungsgemäß registriert ist, die verbesserte DNS-Version von DCDIAG. EXE-Datei verfügbar <https://www.microsoft.com/dns> 
 
 Dcdiag/Test: DNS 
 
@@ -66,7 +66,7 @@ Dcdiag/Test: DNS
 
 Dcdiag/Test: DNS 
 
-5) Zur weiteren Analyse von DNS-Fehler Fehlern finden Sie in der KB 824449: https://support.microsoft.com/?kbid=824449 
+5) Zur weiteren Analyse von DNS-Fehler Fehlern finden Sie in der KB 824449: <https://support.microsoft.com/?kbid=824449> 
 
 Zusätzliche Daten Fehlerwert: 11004 der angeforderte Name ist gültig, aber keine Daten vom angeforderten Typ gefunden</code> </introduction>
   <section>
@@ -78,7 +78,7 @@ Zusätzliche Daten Fehlerwert: 11004 der angeforderte Name ist gültig, aber kei
   <section>
     <title>Auflösung</title>
     <content>
-      <para>Mit dem DNS-testen, wie in beschrieben fortfahren "<link xlink:href="85b1d179-f53e-4f95-b0b8-5b1c096a8076">Ereignis-ID 2087: DNS-Lookup-Problem verursacht Replikationsfehler</link>. "</para>
+      <para>Mit dem DNS-testen, wie in beschrieben fortfahren &quot; <link xlink:href="85b1d179-f53e-4f95-b0b8-5b1c096a8076">Ereignis-ID 2087: DNS-Lookup-Problem verursacht Replikationsfehler</link>.&quot;</para>
     </content>
   </section>
   <relatedTopics />

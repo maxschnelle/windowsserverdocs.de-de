@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6dea364b1afe385d03b0519538ff7bbd6bb9df28
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d0c68fbbf3ea776bbf6cd49fc4fa446d5dd46542
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883251"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66437913"
 ---
 # <a name="label"></a>label
 
@@ -45,19 +45,19 @@ label [/mp] [<Volume>] [<Label>]
 
 ## <a name="remarks"></a>Hinweise
 
--   Windows zeigt die Bezeichnung und Seriennummer (sofern vorhanden) als Teil der verzeichnisauflistung.
--   Eine NTFS-Volume-Bezeichnung kann bis zu 32 Zeichen lang sein, einschließlich Leerzeichen sein. NTFS-Volumebezeichnungen beibehalten werden sollen, und zeigen den Fall, der verwendet wurde, als Sie Bezeichnung erstellt wurde.
--   Wenn Sie einen Wert für nicht angeben der **Bezeichnung** -Parameter der **Bezeichnung** Befehl zeigt eine Ausgabe im folgenden Format:  
-    ```
-    Volume in drive C: xxxxxxxxxxx 
-    Volume Serial Number is xxxx-xxxx 
-    Volume label (32 characters, ENTER for none)?
-    ```  
-    Sie können eine neue Bezeichnung eingeben oder EINGABETASTE drücken, um die aktuelle Bezeichnung beibehalten. Wenn Sie die EINGABETASTE drücken und das Volume verfügt derzeit über eine Bezeichnung, die **Bezeichnung** Befehl werden Sie aufgefordert, mit der folgenden Meldung:  
-    ```
-    Delete current volume label (Y/N)?
-    ```  
-    Drücken Sie Y zum Löschen der Bezeichnung, oder drücken Sie N, um die Bezeichnung beibehalten.
+- Windows zeigt die Bezeichnung und Seriennummer (sofern vorhanden) als Teil der verzeichnisauflistung.
+- Eine NTFS-Volume-Bezeichnung kann bis zu 32 Zeichen lang sein, einschließlich Leerzeichen sein. NTFS-Volumebezeichnungen beibehalten werden sollen, und zeigen den Fall, der verwendet wurde, als Sie Bezeichnung erstellt wurde.
+- Wenn Sie einen Wert für nicht angeben der **Bezeichnung** -Parameter der **Bezeichnung** Befehl zeigt eine Ausgabe im folgenden Format:  
+  ```
+  Volume in drive C: xxxxxxxxxxx 
+  Volume Serial Number is xxxx-xxxx 
+  Volume label (32 characters, ENTER for none)?
+  ```  
+  Sie können eine neue Bezeichnung eingeben oder EINGABETASTE drücken, um die aktuelle Bezeichnung beibehalten. Wenn Sie die EINGABETASTE drücken und das Volume verfügt derzeit über eine Bezeichnung, die **Bezeichnung** Befehl werden Sie aufgefordert, mit der folgenden Meldung:  
+  ```
+  Delete current volume label (Y/N)?
+  ```  
+  Drücken Sie Y zum Löschen der Bezeichnung, oder drücken Sie N, um die Bezeichnung beibehalten.
 
 ## <a name="BKMK_examples"></a>Beispiele für
 
@@ -66,22 +66,22 @@ Um eine Diskette in Laufwerk A zu bezeichnen, die Verkaufsinformationen für Jul
 label a:sales-july
 ```
 Um die aktuelle Bezeichnung für Laufwerk C: zu löschen, gehen Sie folgendermaßen vor:
-1.  Geben Sie an einer Eingabeaufforderung Folgendes ein:  
-    ```
-    Label
-    ```  
-    Eine Ausgabe ähnlich der folgenden sollte angezeigt werden:  
-    ```
-    Volume in drive C: is Main Disk
-    Volume Serial Number is 6789-ABCD
-    Volume label (32 characters, ENTER for none)?
-    ```  
-2.  Drücken Sie die EINGABETASTE. Die folgende Meldung sollte angezeigt werden:  
-    ```
-    Delete current volume label (Y/N)?
-    ```  
-3.  Drücken Sie Y, um die aktuelle Bezeichnung zu löschen.
+1. Geben Sie an einer Eingabeaufforderung Folgendes ein:  
+   ```
+   Label
+   ```  
+   Eine Ausgabe ähnlich der folgenden sollte angezeigt werden:  
+   ```
+   Volume in drive C: is Main Disk
+   Volume Serial Number is 6789-ABCD
+   Volume label (32 characters, ENTER for none)?
+   ```  
+2. Drücken Sie die EINGABETASTE. Die folgende Meldung sollte angezeigt werden:  
+   ```
+   Delete current volume label (Y/N)?
+   ```  
+3. Drücken Sie Y, um die aktuelle Bezeichnung zu löschen.
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

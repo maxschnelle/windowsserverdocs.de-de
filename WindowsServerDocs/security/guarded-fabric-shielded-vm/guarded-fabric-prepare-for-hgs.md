@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: dddf694aaceab93bd102456dbe86df17a001cb01
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9a668a39990b79862b99c2c7d9aeaf6540fa376d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879881"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447374"
 ---
 # <a name="review-prerequisites-for-the-host-guardian-service"></a>Überprüfen der Voraussetzungen für die Host-Überwachungsdienst
 
@@ -40,5 +40,5 @@ Wenn Sie Host-Überwachungsdienst bereits bereitgestellt haben und das Betriebss
 
 ## <a name="next-step"></a>Nächster Schritt
 
->[!div class="nextstepaction"]
-[Abrufen von Zertifikaten für die Host-Überwachungsdienst](guarded-fabric-obtain-certs.md)
+> [!div class="nextstepaction"]
+> [Abrufen von Zertifikaten für die Host-Überwachungsdienst](guarded-fabric-obtain-certs.md)

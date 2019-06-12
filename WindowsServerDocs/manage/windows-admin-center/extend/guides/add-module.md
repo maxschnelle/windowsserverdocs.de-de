@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: e6978ce20a7c6da8addb217de8d30f733b40d261
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d8d901097eb280679a388ff66161e3514befcd13
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834401"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66452651"
 ---
 # <a name="add-a-module-to-a-tool-extension"></a>Hinzufügen eines Moduls zu einer Tool-Erweiterung
 
@@ -23,7 +23,7 @@ In diesem Artikel werden wir eine leere Modul zu einer Tools-Erweiterung hinzuf�
 
 ## <a name="prepare-your-environment"></a>Vorbereiten der Umgebung
 
-Wenn Sie nicht bereits getan haben, befolgen Sie die Anweisungen in Entwickeln einer [Tool](..\develop-tool.md) (oder [Lösung](..\develop-solution.md)) Erweiterung für die Vorbereitung Ihrer Umgebung und erstellen Sie eine neue, leere Tools-Erweiterung.
+Wenn Sie nicht bereits getan haben, befolgen Sie die Anweisungen in Entwickeln einer [Tool](../develop-tool.md) (oder [Lösung](../develop-solution.md)) Erweiterung für die Vorbereitung Ihrer Umgebung und erstellen Sie eine neue, leere Tools-Erweiterung.
 
 ## <a name="use-the-angular-cli-to-create-a-module-and-component"></a>Verwenden der Angular-Befehlszeilenschnittstelle zum Erstellen eines Moduls (und die Komponente)
 
@@ -181,4 +181,4 @@ Hier ist ein Beispiel für einen Standardpfad für die aktualisierte:
 
 ## <a name="build-and-side-load-your-extension"></a>Erstellen und die Seite laden die Erweiterung
 
-Sie haben nun ein Modul zu Ihrer Erweiterung hinzugefügt.  Als Nächstes können Sie [erstellen und die Seite laden](..\develop-tool.md#build-and-side-load-your-extension) Ihre Erweiterung in Windows Admin Center, um die Ergebnisse anzuzeigen.
+Sie haben nun ein Modul zu Ihrer Erweiterung hinzugefügt.  Als Nächstes können Sie [erstellen und die Seite laden](../develop-tool.md#build-and-side-load-your-extension) Ihre Erweiterung in Windows Admin Center, um die Ergebnisse anzuzeigen.

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: affb3c879275228fa0ec17f77ad77db6fc44d6ab
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 922b78b87f3bb66765b87348a3bf136e14c9e837
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814771"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436133"
 ---
 # <a name="dfsdiag-testdfsconfig"></a>Dfsdiag TestDFSConfig
 
@@ -48,9 +48,9 @@ dfsdiag /TestDFSConfig /DFSRoot:<namespace>
   
 ### <a name="parameters"></a>Parameter  
   
-|Parameter|Beschreibung|  
-|-------|--------|  
-|\/DFSRoot:<namespace>|Der Namespace \(DFS-Stamms\) zu diagnostizieren.|  
+|       Parameter       |               Beschreibung               |
+|-----------------------|-----------------------------------------|
+| \/DFSRoot:<namespace> | Der Namespace \(DFS-Stamms\) zu diagnostizieren. |
   
 ## <a name="BKMK_Examples"></a>Beispiele für  
 Geben Sie um noch festzulegen ein:  
@@ -61,7 +61,7 @@ dfsdiag /TestDFSConfig /DFSRoot:\\Contoso.com\MyNamespace
   
 ## <a name="additional-references"></a>Zusätzliche Referenzen  
   
--   [Befehlszeilensyntax](command-line-syntax-key.md)  
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
   
 -   [dfsdiag](dfsdiag.md)  
   

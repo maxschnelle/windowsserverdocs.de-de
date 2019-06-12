@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e31a167d98203b684917aceee2603a29dd478a3e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 03e7cefc7c7a00338972fc365b7c25d9c795c83e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846321"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66437280"
 ---
 # <a name="mountvol"></a>mountvol
 
@@ -42,18 +42,18 @@ mountvol <Drive>: /s
 
 ## <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|[\<Drive>:]<Path>|Gibt an, der vorhandenen NTFS-Verzeichnis, in dem der Bereitstellungspunkt gespeichert wird.|
-|\<VolumeName>|Gibt an, die Volumename, die das Ziel des Bereitstellungspunkts ist. Die Volumename verwendet die folgende Syntax, wobei *GUID* ist ein global eindeutiger Bezeichner:</br>`\\\\?\Volume\{GUID}\`</br>Die Klammern {} sind erforderlich.|
-|/d|Entfernt den Volumebereitstellungspunkt aus dem angegebenen Ordner.|
-|/l|Listet den Namen des bereitgestellten Volumes, für den angegebenen Ordner.|
-|/p|Entfernt den Volumebereitstellungspunkt im angegebenen Verzeichnis, hebt die Bereitstellung der Basisvolumes und nimmt das einfache Volume offline, somit unmountable. Wenn das Volume von anderen Prozessen verwendet werden **Mountvol** schließt alle offenen Handles vor der Bereitstellung des Volumes aufgehoben.|
-|/r|Entfernt Volume Punkt Bereitstellungsverzeichnisse und registrierungseinstellungen für Volumes, die nicht mehr im System verhindert, dass sie automatisch bereitgestellt werden und ihre erste Volumebereitstellungspunkt erhalten, wenn das System wieder hinzugefügt.|
-|/n|Deaktiviert die automatische Bereitstellung von neuen Basisvolumes. Neue Volumes werden nicht automatisch bereitgestellt werden, wenn dem System hinzugefügt.|
-|/ e|Wird die automatische Bereitstellung von neuen Basisvolumes erneut aktiviert.|
-|/s|Bindet die EFI-Systempartition auf dem angegebenen Laufwerk. Nur Itanium-basierten Computern verfügbar.|
-|/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
+|     Parameter     |                                                                                                                           Beschreibung                                                                                                                            |
+|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [\<Drive>:]<Path> |                                                                                             Gibt an, der vorhandenen NTFS-Verzeichnis, in dem der Bereitstellungspunkt gespeichert wird.                                                                                             |
+|   \<VolumeName>   |                     Gibt an, die Volumename, die das Ziel des Bereitstellungspunkts ist. Die Volumename verwendet die folgende Syntax, wobei *GUID* ist ein global eindeutiger Bezeichner:</br>`\\\\?\Volume\{GUID}\`</br>Die Klammern {} sind erforderlich.                      |
+|        /d         |                                                                                                    Entfernt den Volumebereitstellungspunkt aus dem angegebenen Ordner.                                                                                                     |
+|        /l         |                                                                                                     Listet den Namen des bereitgestellten Volumes, für den angegebenen Ordner.                                                                                                      |
+|        /p         | Entfernt den Volumebereitstellungspunkt im angegebenen Verzeichnis, hebt die Bereitstellung der Basisvolumes und nimmt das einfache Volume offline, somit unmountable. Wenn das Volume von anderen Prozessen verwendet werden **Mountvol** schließt alle offenen Handles vor der Bereitstellung des Volumes aufgehoben. |
+|        /r         |             Entfernt Volume Punkt Bereitstellungsverzeichnisse und registrierungseinstellungen für Volumes, die nicht mehr im System verhindert, dass sie automatisch bereitgestellt werden und ihre erste Volumebereitstellungspunkt erhalten, wenn das System wieder hinzugefügt.              |
+|        /n         |                                                                      Deaktiviert die automatische Bereitstellung von neuen Basisvolumes. Neue Volumes werden nicht automatisch bereitgestellt werden, wenn dem System hinzugefügt.                                                                       |
+|        / e         |                                                                                                       Wird die automatische Bereitstellung von neuen Basisvolumes erneut aktiviert.                                                                                                        |
+|        /s         |                                                                                Bindet die EFI-Systempartition auf dem angegebenen Laufwerk. Nur Itanium-basierten Computern verfügbar.                                                                                |
+|        /?         |                                                                                                               Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                               |
 
 ## <a name="remarks"></a>Hinweise
 
@@ -70,4 +70,4 @@ mountvol \sysmount \\?\Volume\{2eca078d-5cbc-43d3-aff8-7e8511f60d0e}\
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

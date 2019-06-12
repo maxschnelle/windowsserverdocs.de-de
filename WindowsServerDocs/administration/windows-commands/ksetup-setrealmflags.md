@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 018d94e08cc15780cf0aa861b06b915538c21122
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 249eb82bb40890e071bd7d1eca3a0201064fa01e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865861"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66437938"
 ---
 # <a name="ksetupsetrealmflags"></a>ksetup:setrealmflags
 
@@ -45,7 +45,7 @@ Die Bereichs-Flags Geben Sie zusätzliche Funktionen, die von einem Kerberos-Ber
 
 |Wert|Realm-flag|Beschreibung|
 |-----|----------|-----------|
-|0xF|Alle|Alle Realm-Flags sind festgelegt.|
+|0xF|All|Alle Realm-Flags sind festgelegt.|
 |0x00|Keine|Sind keine Flags Bereich festgelegt, und es sind keine zusätzlichen Features aktiviert.|
 |0x01|SendAddress|Die IP-Adresse wird in den Ticket-granting Tickets enthalten sein.|
 |0x02|TcpSupported|In diesem Bereich werden sowohl das Protokoll TCP (Transmission Control) und User Datagram-Protokoll (UDP) unterstützt.|
@@ -53,7 +53,7 @@ Die Bereichs-Flags Geben Sie zusätzliche Funktionen, die von einem Kerberos-Ber
 |0x08|NcSupported|Dieser Bereich unterstützt Namen Kanonisierung, DNS und Bereich Benennungsstandards ermöglicht.|
 |0x80|RC4|Dieser Bereich unterstützt bereichsübergreifende Vertrauensstellung, sodass für die Verwendung von TLS ermöglicht die RC4-Verschlüsselung.|
 
-Bereich Flags werden gespeichert, in der Registrierung unter **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Domains\*** RealmName *. Dieser Eintrag ist nicht standardmäßig in der Registrierung vorhanden. Sie können die [Ksetup:addrealmflags](ksetup-addrealmflags.md) Befehl aus, um die Registrierung zu füllen.
+Bereich Flags werden gespeichert, in der Registrierung unter **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Domains\\** <em>RealmName</em>. Dieser Eintrag ist nicht standardmäßig in der Registrierung vorhanden. Sie können die [Ksetup:addrealmflags](ksetup-addrealmflags.md) Befehl aus, um die Registrierung zu füllen.
 
 Sie können sehen, welche Flags Bereich verfügbar sind und festgelegt werden, indem Sie die Ausgabe des **Ksetup**.
 
@@ -67,11 +67,11 @@ Legen Sie zwei Flags, die zurzeit nicht festgelegt werden:
 ```
 ksetup /setrealmflags CONTOSO ncsupported delegate
 ```
-Führen Sie die **Ksetup** Befehl aus, um sicherzustellen, dass das Realm-Flag festgelegt ist, indem die Ausgabe anzeigen und nach **Bereich Flags =**.
+Führen Sie die **Ksetup** Befehl aus, um sicherzustellen, dass das Realm-Flag festgelegt ist, indem die Ausgabe anzeigen und nach **Bereich Flags =** .
 
 #### <a name="additional-references"></a>Weitere Verweise
 
 -   [Ksetup:listrealmflags](ksetup-listrealmflags.md)
 -   [Ksetup:addrealmflags](ksetup-addrealmflags.md)
 -   [Ksetup:delrealmflags](ksetup-delrealmflags.md)
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

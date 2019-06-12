@@ -8,12 +8,12 @@ author: johnmarlin-msft
 ms.date: 01/18/2019
 description: Dieser Artikel beschreibt das Verschieben eines 2019 für Windows Server-Clusters von einer Domäne in eine andere
 ms.localizationpriority: medium
-ms.openlocfilehash: bcfd458c94d33820f434cde3313dc069fc42ffd9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1054de942e807f00586903683faeaf695ec2f033
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59875941"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66452931"
 ---
 # <a name="failover-cluster-domain-migration"></a>Migration von Failover-Cluster
 
@@ -46,7 +46,7 @@ Um eine solche Verschiebung zu tun, gibt es zwei Optionen zur Verfügung.
 
 Die erste Option umfasst den Cluster löschen und ihn in der neuen Domäne neu zu erstellen.
 
-![Löschen und neu erstellen](media\Cross-Domain-Cluster-Migration\Cross-Cluster-Domain-Migration-1.gif)
+![Löschen und neu erstellen](media/Cross-Domain-Cluster-Migration/Cross-Cluster-Domain-Migration-1.gif)
 
 Diese Option ist destruktive mit den Schritten, wie die Animation wird gezeigt, wird:
 
@@ -56,7 +56,7 @@ Diese Option ist destruktive mit den Schritten, wie die Animation wird gezeigt, 
 
 Die zweite Option ist weniger destruktiv jedoch zusätzliche Hardware erforderlich ist, wie Sie ein neuer Cluster in der neuen Domäne erstellt werden müssten.  Sobald der Cluster in der neuen Domäne ist, führen Sie der Cluster-Assistent zum Migrieren von Ressourcen. Beachten Sie, dass dies nicht von Daten migrieren – Sie ein anderes Tool verwenden, z. B. Datenmigration müssen [Speicherung Datenbankmigrationsdienst](../storage/storage-migration-service/overview.md)(sobald der Cluster-Unterstützung hinzugefügt wurde).
 
-![Erstellen und migrieren](media\Cross-Domain-Cluster-Migration\Cross-Cluster-Domain-Migration-2.gif)
+![Erstellen und migrieren](media/Cross-Domain-Cluster-Migration/Cross-Cluster-Domain-Migration-2.gif)
 
 Wie die Animation wird gezeigt, wird diese Option ist nicht zerstörerische jedoch erfordert entweder auf anderer Hardware oder auf einen Knoten aus dem vorhandenen Cluster als entfernt wurde.
 
@@ -76,7 +76,7 @@ Verschieben eines Clusters von einer Domäne ist ein Prozess einfach. Um dies zu
 
 Der Prozess hierfür ist so ändern Sie den Cluster aus einer Domäne mit einer Arbeitsgruppe und zurück in die neue Domäne.  Die Notwendigkeit, einen Cluster entfernen, erstellen Sie einen Cluster neu installieren, Anwendungen usw. ist nicht erforderlich. Beispielsweise würde es folgendermaßen aussehen:
 
-![Migrieren](media\Cross-Domain-Cluster-Migration\Cross-Cluster-Domain-Migration-3.gif)
+![Migrieren](media/Cross-Domain-Cluster-Migration/Cross-Cluster-Domain-Migration-3.gif)
 
 ## <a name="migrating-a-cluster-to-a-new-domain"></a>Die Migration eines Clusters in eine neue Domäne
 

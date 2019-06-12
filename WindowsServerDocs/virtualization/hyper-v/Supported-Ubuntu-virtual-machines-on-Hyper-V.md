@@ -11,12 +11,12 @@ ms.assetid: 95ea5f7c-25c6-494b-8ffd-2a77f631ee94
 author: shirgall
 ms.author: shirgall
 ms.date: 11/19/2018
-ms.openlocfilehash: b58193ec570cf0d94b6c95018b8c00c813331986
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: 662541658fe6e7b99e66fe31344450e0a1cbd201
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222641"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447830"
 ---
 # <a name="supported-ubuntu-virtual-machines-on-hyper-v"></a>Unterstützte Ubuntu-VMs auf Hyper-V
 
@@ -91,7 +91,6 @@ Die folgende Funktion Verteilung Karte gibt an, die Funktionen in der jeweiligen
    ```bash
    # apt-get update
    # apt-get install linux-azure
-
    ```
 
    12.04 muss sich nicht auf einen separaten virtuellen Kernel aus. Führen Sie die folgenden Befehle als Stamm (oder "sudo"), um den generischen HWE-Kernel auf 12.04 zu installieren:
@@ -99,7 +98,6 @@ Die folgende Funktion Verteilung Karte gibt an, die Funktionen in der jeweiligen
    ```bash
    # apt-get update
    # apt-get install linux-generic-lts-trusty
-
    ```
 
    Sind die folgenden Hyper-V-Daemons auf Ubuntu 12.04 in einem getrennt installierten Paket:
@@ -112,7 +110,6 @@ Die folgende Funktion Verteilung Karte gibt an, die Funktionen in der jeweiligen
 
    ```bash
    # apt-get install hv-kvp-daemon-init linux-tools-lts-trusty linux-cloud-tools-generic-lts-trusty
-
    ```
 
    Sobald der Kernel aktualisiert wird, muss der virtuelle Computer neu gestartet werden, um es zu verwenden.
@@ -124,7 +121,6 @@ Die folgende Funktion Verteilung Karte gibt an, die Funktionen in der jeweiligen
    ```bash
    # apt-get update
    # apt-get install linux-azure
-
    ```
 
    Sobald der Kernel aktualisiert wird, muss der virtuelle Computer neu gestartet werden, um es zu verwenden.
@@ -143,42 +139,37 @@ Die folgende Funktion Verteilung Karte gibt an, die Funktionen in der jeweiligen
 
 11. Unter Windows Server 2012 R2 müssen virtuelle Computer der Generation 2 sicheren Start, die standardmäßig aktiviert und einige Linux, virtuelle Computer nicht gestartet werden, es sei denn, die Option für den sicheren Start deaktiviert ist. Sie können den sicheren Start im Deaktivieren der **Firmware** Abschnitt der Einstellungen für den virtuellen Computer in **Hyper-V-Manager** oder Sie können mithilfe von Powershell deaktivieren:
 
-   ```Powershell
-   Set-VMFirmware -VMName "VMname" -EnableSecureBoot Off
-
-   ```
+    ```Powershell
+    Set-VMFirmware -VMName "VMname" -EnableSecureBoot Off
+    ```
 
 12. Gehen Sie bevor Sie versuchen, kopieren Sie die virtuelle Festplatte von einem vorhandenen virtuellen Computer von Generation 2-VHD, um neue VMs der Generation 2 zu erstellen folgendermaßen vor:
 
-   1. Melden Sie sich die vorhandenen virtuellen Computer der Generation 2.
+    1. Melden Sie sich die vorhandenen virtuellen Computer der Generation 2.
 
-   2. Wechseln Sie in der Start-EFI-Verzeichnis:
+    2. Wechseln Sie in der Start-EFI-Verzeichnis:
 
-      ```bash
-      # cd /boot/efi/EFI
+       ```bash
+       # cd /boot/efi/EFI
+       ```
 
-      ```
+    3. Kopieren Sie das Ubuntu-Verzeichnis, in, um ein neues Verzeichnis mit dem Namen Boot:
 
-   3. Kopieren Sie das Ubuntu-Verzeichnis, in, um ein neues Verzeichnis mit dem Namen Boot:
+       ```bash
+       # sudo cp -r ubuntu/ boot
+       ```
 
-      ```bash
-      # sudo cp -r ubuntu/ boot
+    4. Ändern Sie das Verzeichnis, das neu erstellte Startverzeichnis:
 
-      ```
+       ```bash
+       # cd boot
+       ```
 
-   4. Ändern Sie das Verzeichnis, das neu erstellte Startverzeichnis:
+    5. Benennen Sie die shimx64.efi-Datei:
 
-      ```bash
-      # cd boot
-
-      ```
-
-   5. Benennen Sie die shimx64.efi-Datei:
-
-      ```bash
-      # sudo mv shimx64.efi bootx64.efi
-
-      ```
+       ```bash
+       # sudo mv shimx64.efi bootx64.efi
+       ```
 
 ## <a name="see-also"></a>Siehe auch
 

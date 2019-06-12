@@ -10,12 +10,12 @@ author: jasongerend
 ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: f859253188c46d3e34e7a6ae504bf3eeafbae75c
-ms.sourcegitcommit: 75f257d97d345da388cda972ccce0eb29e82d3bc
+ms.openlocfilehash: 140f67a9dab5cf1f10cdb0c5c51a031a0dfb9dd3
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65613181"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443554"
 ---
 # <a name="windows-server-installation-and-upgrade"></a>Windows Server-Installation und upgrade
 
@@ -46,10 +46,10 @@ Bei manchen Betriebssystemversionen können Sie eine bestimmte Edition der Versi
 
 ## <a name="upgrade"></a>Upgrade/Aktualisieren
 Wenn Sie die gleiche Hardware und alle eingerichteten Serverrollen beibehalten möchten, ohne den Server vollständig zu löschen, ist die Durchführung eines **Upgrades** eine Option. Hierfür gibt es viele Möglichkeiten. Beim klassischen Upgrade wechseln Sie von einem älteren Betriebssystem zu einem neueren und behalten Ihre Einstellungen, Serverrollen und Daten bei. Wenn auf einem Server beispielsweise Windows Server 2012 R2 ausgeführt wird, können Sie auf Windows Server 2016 aktualisieren. Nicht für alle älteren Betriebssysteme gibt es aber einen Pfad zu einem neueren Betriebssystem.
- 
+ 
 >[!NOTE]
 >Das Upgrade funktioniert am Besten auf virtuellen Computern, auf denen keine spezifischen OEM Hardwaretreiber für ein erfolgreiches Upgrade benötigt werden.
- 
+ 
 Sie können von einer Evaluierungsversion des Betriebssystems auf eine Verkaufsversion, von einer älteren Verkaufsversion auf eine neuere Version oder in manchen Fällen von einer Volumenlizenzedition des Betriebssystems auf eine normale Verkaufsedition aktualisieren.
 
 Sehen Sie sich vor Beginn der Durchführung eines Upgrades die Tabellen auf dieser Seite an, um den für Sie passenden Pfad zu ermitteln.
@@ -58,14 +58,14 @@ Informationen zu den Unterschieden zwischen den für Windows Server 2016 Technic
 
 >[!NOTE]
 >Bei jeder Migration und jedem Upgrade auf eine Version von Windows Server sollten Sie sich mit der [Microsoft Lifecycle-Richtlinie zum Support](https://support.microsoft.com/lifecycle) und dem Zeitrahmen für die jeweilige Version vertraut machen und entsprechend planen. Sie können [nach den Lebenszyklusinformationen](https://support.microsoft.com/lifecycle) für die jeweils gewünschte Windows Server-Version suchen.
- 
- 
+ 
+ 
 ## <a name="upgrading-to-windows-server-2016"></a>Aktualisieren auf Windows Server 2016
 Ausführliche Informationen, z. B. wichtige Hinweise und Einschränkungen für Upgrades, Lizenzkonvertierung zwischen Editionen von Windows Server 2016 und Konvertierung von Evaluierungseditionen in Verkaufsversionen, finden Sie unter [Upgrade- und Konvertierungsoptionen für Windows Server 2016](https://go.microsoft.com/fwlink/?LinkId=828602).
- 
+ 
 >[!NOTE]
 >Hinweis: Upgrades, bei denen von einer Server Core-Installation zu einem Server mit grafischer Benutzeroberfläche (oder umgekehrt) gewechselt wird, werden nicht unterstützt. Wenn es sich bei dem älteren Betriebssystem, für das Sie ein Upgrade oder eine Konvertierung durchführen, um eine Server Core-Installation handelt, ist das Ergebnis für das neuere Betriebssystem ebenfalls eine Server Core-Installation.
- 
+ 
 Kurzübersicht in Tabellenform über unterstützte Pfade für das Upgrade von älteren Windows Server-Verkaufseditionen auf Windows Server 2016-Verkaufseditionen:
 
 
@@ -81,7 +81,7 @@ Kurzübersicht in Tabellenform über unterstützte Pfade für das Upgrade von ä
 |Windows Storage Server2012 Workgroup|Windows Storage Server 2016 Workgroup|
 |Windows Storage Server 2012 R2 Standard|Windows Storage Server 2016 Standard|
 |Arbeitsgruppe unter Windows Storage Server 2012 R2|Windows Storage Server 2016 Workgroup|
- 
+ 
 ### <a name="license-conversion"></a>Konvertieren der Lizenz
 Sie können Windows Server 2016 Standard (Verkaufsversion) in Windows Server 2016 Datacenter (Verkaufsversion) konvertieren.
 
@@ -90,7 +90,7 @@ Sie können Windows Server 2016 Essentials (Verkaufsversion) in Windows Server�
 Sie können die Evaluierungsversion von Windows Server 2016 Standard in Windows Server 2016 Standard (Verkaufsversion) oder Datacenter (Verkaufsversion) konvertieren.
 
 Sie können die Evaluierungsversion von Windows Server 2016 Datacenter in Windows Server 2016 Datacenter (Verkaufsversion) konvertieren.
- 
+ 
 ## <a name="upgrading-to-windows-server-2012-r2"></a>Aktualisieren auf Windows Server 2012 R2
 Ausführliche Informationen, z. B. wichtige Hinweise und Einschränkungen für Upgrades, Lizenzkonvertierung zwischen Editionen von Windows Server 2012 R2 und Konvertierung von Evaluierungseditionen in Verkaufsversionen, finden Sie unter [Upgradeoptionen für Windows Server 2012 R2](https://technet.microsoft.com/library/dn303416.aspx).
 
@@ -115,7 +115,7 @@ Sie können die Evaluierungsversion von Windows Server 2012 Standard in Windows 
 
 ## <a name="upgrading-to-windows-server-2012"></a>Aktualisieren auf Windows Server 2012
 Ausführliche Informationen, z. B. wichtige Hinweise und Einschränkungen für Upgrades und zur Konvertierung von Evaluierungseditionen in Verkaufsversionen, finden Sie unter [Evaluierungsversionen und Upgradeoptionen für Windows Server 2012](https://technet.microsoft.com/library/jj574204.aspx).
- 
+ 
 Kurzübersicht in Tabellenform über unterstützte Pfade für das Upgrade von älteren Windows Server-Verkaufseditionen auf Windows Server 2012-Verkaufseditionen:
 
 |Im Folgenden werden die Betriebssysteme aufgeführt:|Zieleditionen:|

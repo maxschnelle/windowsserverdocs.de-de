@@ -13,12 +13,12 @@ author: gitmichiko
 ms.author: michikos
 manager: dongill
 ms.date: 03/06/2017
-ms.openlocfilehash: ec41e85949cb61c8130d8765b4786eefe39ebd0b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 475b6a0b24b811008ee213c1604d98d9aa9eb092
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855591"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447034"
 ---
 # <a name="whats-new-in-credential-protection"></a>Neues in den Schutz von Anmeldeinformationen
 
@@ -49,7 +49,7 @@ Domäne Schutz erfordern Active Directory-Domäne.
 
 Mit Windows 10 Version 1507 und Windows Server 2016 ab, wenn eine Domäne eingebundenes Gerät gebundenen öffentlichen Schlüssel mit einem Windows Server 2016-Domänencontroller (DC) registrieren kann, kann das Gerät mit dem öffentlichen Schlüssel, die mithilfe von Kerberos PKINIT authentifiziert Authentifizierung bei einem Windows Server 2016-Domänencontroller.
 
-Ab Windows Server 2016 unterstützen KDCs Authentifizierung unter Verwendung von Kerberos-Schlüssel.  
+Ab Windows Server 2016 unterstützen KDCs Authentifizierung unter Verwendung von Kerberos-Schlüssel.  
 
 [Erfahren Sie mehr über die public Key-Unterstützung für die Domäne eingebundene Geräte & Schlüssel Kerberos-Vertrauensstellung](https://technet.microsoft.com/windows-server-docs/security/kerberos/whats-new-in-kerberos-authentication).
 
@@ -63,7 +63,7 @@ Ab Windows Server 2016 können KDCs PKInit Aktualität Erweiterung unterstützen
 
 ### <a name="rolling-public-key-only-users-ntlm-secrets"></a>Nur Benutzer des öffentlichen Schlüssels des NTLM-Geheimnisse parallelen
 
-Ab Windows Server 2016-Domänenfunktionsebene (DFL) können DCs unterstützen, ein eine einzige Benutzer des öffentlichen Schlüssels des NTLM-Geheimnisse. Dieses Feature ist darin in niedrigeren DFLs.
+Ab Windows Server 2016-Domänenfunktionsebene (DFL) können DCs unterstützen, ein eine einzige Benutzer des öffentlichen Schlüssels des NTLM-Geheimnisse. Dieses Feature ist darin in niedrigeren DFLs.
 
 > [!WARNING] 
 > Hinzufügen eines Domänencontrollers zu einer Domäne mit rollierenden NTLM-Geheimnisse, die aktiviert werden, bevor der Domänencontroller mit mindestens vom 8. November 2016 aktualisiert wurde Wartung ausgeführt wird das Risiko der Domänencontroller abstürzt. 
@@ -73,7 +73,7 @@ Konfiguration: Für neue Domänen ist dieses Feature standardmäßig aktiviert. 
 1. Maustaste auf die Domäne im linken Bereich auf, aus dem Active Directory Administrative Center, und wählen **Eigenschaften**.
 
     ![Domäneneigenschaften](../media/Credentials-Protection-And-Management/domain-properties.png)
-    
+
 2. Wählen Sie **aktivieren ablaufende NTLM geheimer Schlüssel, für Benutzer, die Verwendung von Microsoft Passport oder eine Smartcard für die interaktive Anmeldung erforderlich sind bei der parallelen**.
 
     ![Autoroll ablaufende NTLM Geheimnisse](../media/Credentials-Protection-And-Management/autoroll-ntlm.png)

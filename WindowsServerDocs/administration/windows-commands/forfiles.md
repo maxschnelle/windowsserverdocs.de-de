@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 08/21/2018
-ms.openlocfilehash: 127f715620321354792d46f024ee12a06925d866
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d5ac95b795d1c5a59f8917bf851ab08fb4d7c1e7
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59881311"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439184"
 ---
 # <a name="forfiles"></a>forfiles
 
@@ -37,14 +37,14 @@ forfiles [/p <Path>] [/m <SearchMask>] [/s] [/c "<Command>"] [/d [{+|-}][{<Date>
 
 ## <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|/ p \<Pfad >|Gibt den Pfad aus dem die Suche zu starten. Standardmäßig startet die Suche im aktuellen Arbeitsverzeichnis.|
-|/ m \<Suchmaske >|Durchsucht Dateien gemäß der angegebenen Maske. Die Standard-Suche-Maske ist **\*.\***.|
-|/s|Weist die **Forfiles** Befehl aus, um in Unterverzeichnissen rekursiv suchen.|
-|/ c "\<Befehl >"|Führt den angegebenen Befehl für jede Datei. Befehlszeichenfolgen sollte in Anführungszeichen eingeschlossen werden. Der Standardbefehl ist **"Cmd/c Echo @file"**.|
-|/d&nbsp;[{+\|-}]&#8288;[{\<Date>\|&#8288;\<Days>}]|Wählt aus Dateien mit einem Datum der letzten Änderung innerhalb des angegebenen Zeitraums.</br>: Wählt die Dateien mit einem Datum der letzten Änderung später als oder gleich (**+**) oder älter als oder gleich (**-**) dem angegebenen Datum, wobei *Datum* ist im Format MM/TT/JJJJ.</br>: Wählt die Dateien mit einem Datum der letzten Änderung später als oder gleich (**+**) das aktuelle Datum plus die Anzahl der Tage angegeben, oder älter als oder gleich (**-**) dem aktuellen Datum minus die Anzahl von Tagen angegeben.</br>-Die gültigen Werte für *Tage* eine beliebige Anzahl im Bereich 0-32, 768 enthalten. Wenn kein Vorzeichen angegeben werden, **+** wird standardmäßig verwendet.|
-|/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
+|                     Parameter                      |                                                                                                                                                                                                                                                                                                    Beschreibung                                                                                                                                                                                                                                                                                                     |
+|----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|                     / p \<Pfad >                     |                                                                                                                                                                                                                                                 Gibt den Pfad aus dem die Suche zu starten. Standardmäßig startet die Suche im aktuellen Arbeitsverzeichnis.                                                                                                                                                                                                                                                  |
+|                  / m \<Suchmaske >                  |                                                                                                                                                                                                                                                           Durchsucht Dateien gemäß der angegebenen Maske. Die Standard-Suche-Maske ist **\*.\\** \*.                                                                                                                                                                                                                                                           |
+|                         /s                         |                                                                                                                                                                                                                                                                   Weist die **Forfiles** Befehl aus, um in Unterverzeichnissen rekursiv suchen.                                                                                                                                                                                                                                                                    |
+|                  / c "\<Befehl >"                   |                                                                                                                                                                                                                                  Führt den angegebenen Befehl für jede Datei. Befehlszeichenfolgen sollte in Anführungszeichen eingeschlossen werden. Der Standardbefehl ist **"Cmd/c Echo @file"** .                                                                                                                                                                                                                                   |
+| /d&nbsp;[{+\|-}]&#8288;[{\<Date>\|&#8288;\<Days>}] | Wählt aus Dateien mit einem Datum der letzten Änderung innerhalb des angegebenen Zeitraums.</br>: Wählt die Dateien mit einem Datum der letzten Änderung später als oder gleich ( **+** ) oder älter als oder gleich ( **-** ) dem angegebenen Datum, wobei *Datum* ist im Format MM/TT/JJJJ.</br>: Wählt die Dateien mit einem Datum der letzten Änderung später als oder gleich ( **+** ) das aktuelle Datum plus die Anzahl der Tage angegeben, oder älter als oder gleich ( **-** ) dem aktuellen Datum minus die Anzahl von Tagen angegeben.</br>-Die gültigen Werte für *Tage* eine beliebige Anzahl im Bereich 0-32, 768 enthalten. Wenn kein Vorzeichen angegeben werden, **+** wird standardmäßig verwendet. |
+|                         /?                         |                                                                                                                                                                                                                                                                                        Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                                                                                                                                                                        |
 
 ## <a name="remarks"></a>Hinweise
 
@@ -97,4 +97,4 @@ forfiles /s /m *.* /c "cmd /c echo The extension of @file is 0x09@ext"
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

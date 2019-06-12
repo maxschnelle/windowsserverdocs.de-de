@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: e0f79dd72190888340144bc5c109ee31fa301937
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0acfa6eec1d83c246c43ad32f7548ea771eb3c11
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870801"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445760"
 ---
 # <a name="deploy-implementing-retention-of-information-on-file-servers-demonstration-steps"></a>Deploy Implementing Retention of Information on File Servers (Demonstration Steps)
 
@@ -24,7 +24,7 @@ Mithilfe der Dateiklassifizierungsinfrastruktur und dem Ressourcen-Manager für 
   
 **In diesem Dokument**  
   
--   [Erforderliche Komponenten](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_Prereqs)  
+-   [Voraussetzungen](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_Prereqs)  
   
 -   [Schritt 1: Erstellen von ressourceneigenschaftsdefinitionen](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_Step1)  
   
@@ -57,7 +57,7 @@ In diesem Schritt werden die Ressourceneigenschaften für Aufbewahrungsdauer und
   
 5.  Klicken Sie mit der rechten Maustaste auf **Erkennbarkeit**, und klicken Sie dann auf **Aktivieren**.  
   
-![Lösungshandbücher](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***  
+![Lösungshandbücher](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -79,7 +79,7 @@ In diesem Schritt wird die Konsole für den Ressourcen-Manager für Dateiserver 
   
 3.  Öffnen Sie den Ressourcen-Manager für Dateiserver. Klicken Sie in Server-Manager auf **Extras** und dann auf **Ressourcen-Manager für Dateiserver**.  
   
-4.  Klicken Sie mit der rechten Maustaste auf **Ressourcen-Manager für Dateiserver (lokal)**, und klicken Sie dann auf **Optionen konfigurieren**.  
+4.  Klicken Sie mit der rechten Maustaste auf **Ressourcen-Manager für Dateiserver (lokal)** , und klicken Sie dann auf **Optionen konfigurieren**.  
   
 5.  Führen Sie auf der Registerkarte **E-Mail-Benachrichtigungen** Folgendes aus:  
   
@@ -91,7 +91,7 @@ In diesem Schritt wird die Konsole für den Ressourcen-Manager für Dateiserver 
   
 6.  Klicken Sie auf **OK**.  
   
-![Lösungshandbücher](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***  
+![Lösungshandbücher](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -142,7 +142,7 @@ In diesem Schritt wird die Konsole für den Ressourcen-Manager für Dateiserver 
   
 11. Klicken Sie auf **OK**.  
   
-![Lösungshandbücher](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***  
+![Lösungshandbücher](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -189,6 +189,6 @@ In diesem Schritt wird eine Datei mit zugewiesener rechtlicher Aufbewahrungspfli
   
 -   [Planen der Aufbewahrung von Informationen auf Dateiservern](assetId:///edf13190-7077-455a-ac01-f534064a9e0c)  
   
--   [Dynamische Zugriffssteuerung: Übersicht über das Szenario](Dynamic-Access-Control--Scenario-Overview.md)  
+-   [Dynamische Zugriffsteuerung: Szenarioübersicht](Dynamic-Access-Control--Scenario-Overview.md)  
   
 

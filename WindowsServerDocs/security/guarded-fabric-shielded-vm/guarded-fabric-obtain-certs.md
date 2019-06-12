@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 14ee8eb6431a266d05897160d241d63e8cdb09a4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2dc232eb7aeb8b0807a8e9989ae3dc893f925f66
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887731"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447363"
 ---
 # <a name="obtain-certificates-for-hgs"></a>Abrufen von Zertifikaten für die Host-Überwachungsdienst
 
@@ -89,5 +89,5 @@ Sie können auch hinzufügen oder ändern Sie das SSL-Zertifikat zu einem späte
 
 ## <a name="next-step"></a>Nächster Schritt
 
->[!div class="nextstepaction"]
-[Installieren von Host-Überwachungsdienst](guarded-fabric-choose-where-to-install-hgs.md)
+> [!div class="nextstepaction"]
+> [Installieren von HGS](guarded-fabric-choose-where-to-install-hgs.md)

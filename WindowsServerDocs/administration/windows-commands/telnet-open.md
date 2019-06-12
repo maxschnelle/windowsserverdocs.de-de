@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a87c4bac000a63af806705e9371a79d7370a34c1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 186664a75978f589a9a26047c72b9db74dd2dc4d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59838241"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441126"
 ---
 # <a name="telnet-open"></a>Telnet: Öffnen
 
@@ -30,14 +30,16 @@ Eine Verbindung mit einem Telnet-Server.
 o[pen] <hostname> [<Port>]  
 ```  
 ### <a name="parameters"></a>Parameter  
-|Parameter|Beschreibung|  
-|-------|--------|  
-|<hostname>|Gibt den Computernamen oder IP-Adresse.|  
-|[<Port>]|Gibt den TCP-Port, dem der Telnet-Server überwacht. Der Standardwert ist die TCP-Port 23.|  
+
+| Parameter  |                                        Beschreibung                                         |
+|------------|--------------------------------------------------------------------------------------------|
+| <hostname> |                         Gibt den Computernamen oder IP-Adresse.                         |
+|  [<Port>]  | Gibt den TCP-Port, dem der Telnet-Server überwacht. Der Standardwert ist die TCP-Port 23. |
+
 ## <a name="BKMK_Examples"></a>Beispiele für  
 Verbinden Sie mit einem Telnetserver telnet.microsoft.com.  
 ```  
 o telnet.microsoft.com  
 ```  
 ## <a name="additional-references"></a>Zusätzliche Referenzen  
--   [Befehlszeilensyntax](command-line-syntax-key.md)  
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  

@@ -9,12 +9,12 @@ ms.assetid: ''
 ms.author: pashort
 author: shortpatti
 ms.date: 08/08/2018
-ms.openlocfilehash: 58596387d79f3f212a472f00c2785bacc278e855
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: aab4ec7c69ec5b52eae926cd1065d777415b1124
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821911"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446210"
 ---
 # <a name="virtual-network-peering"></a>Virtuelles Netzwerk peering
 
@@ -36,20 +36,20 @@ Die Verwendung von vnet-peering bietet folgende Vorteile:
 
 Vnet-peering verfügt über einige Anforderungen und Einschränkungen:
 
--   Mittels Peering verknüpften virtuellen Netzwerke müssen Schritte ausführen:
+- Mittels Peering verknüpften virtuellen Netzwerke müssen Schritte ausführen:
 
-    -   IP-Adressräume ohne überschneidungen verfügen
+  -   IP-Adressräume ohne überschneidungen verfügen
 
-    -   Durch den gleichen Netzwerkcontroller verwaltet werden
+  -   Durch den gleichen Netzwerkcontroller verwaltet werden
 
--   Nachdem Sie ein virtuelles Netzwerk mit einem anderen virtuellen Netzwerk per Peering verknüpfen, können nicht Sie hinzufügen oder löschen in den Adressraum-Adressbereiche.
+- Nachdem Sie ein virtuelles Netzwerk mit einem anderen virtuellen Netzwerk per Peering verknüpfen, können nicht Sie hinzufügen oder löschen in den Adressraum-Adressbereiche.
 
-   >[!TIP]
-   >Wenn Sie die Adressbereiche hinzufügen möchten:<ol><li>Das peering zu entfernen.</li><li>Fügen Sie den Adressraum hinzu.</li><li>Fügen Sie das peering wieder hinzu.</li></ol>
+  >[!TIP]
+  >Wenn Sie die Adressbereiche hinzufügen möchten:<ol><li>Das peering zu entfernen.</li><li>Fügen Sie den Adressraum hinzu.</li><li>Fügen Sie das peering wieder hinzu.</li></ol>
 
--   Da die vnet-peering zwischen zwei virtuellen Netzwerken ist, besteht es keine abgeleitete transitive Beziehung zwischen Peerings. Z. B. Wenn Sie ein VirtualNetworkA mit VirtualNetworkB und VirtualNetworkB mit virtualnetworkc verknüpft Peering, klicken Sie dann VirtualNetworkA nicht mit virtualnetworkc verknüpft Peering zu erhalten.
+- Da die vnet-peering zwischen zwei virtuellen Netzwerken ist, besteht es keine abgeleitete transitive Beziehung zwischen Peerings. Z. B. Wenn Sie ein VirtualNetworkA mit VirtualNetworkB und VirtualNetworkB mit virtualnetworkc verknüpft Peering, klicken Sie dann VirtualNetworkA nicht mit virtualnetworkc verknüpft Peering zu erhalten.
 
-    [Hier Image]
+  [Hier Image]
 
 ## <a name="connectivity"></a>Verbindung
 

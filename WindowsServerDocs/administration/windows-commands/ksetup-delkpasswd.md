@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e487389e0f27f58aacaea2b81d573dc9a965e42f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a1c701707f736fe51a1f4af70a2571e63025f281
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889081"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438041"
 ---
 # <a name="ksetupdelkpasswd"></a>ksetup:delkpasswd
 
@@ -30,10 +30,12 @@ Entfernt einen Kerberos-Kennwort-Server (Kpasswd) für einen Bereich. Beispiele 
 ksetup /delkpasswd <RealmName> <KpasswdName>
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
-|-------|--------|
-|<RealmName>|Der Bereichsname ist als Großbuchstaben DNS-Name, wie z. B. CORP. angegeben. "Contoso.com", und als Standard-Bereich oder einen Bereich = Wenn **Ksetup** ausgeführt wird.|
-|<KpasswdName>|Der KDC-Name, der als Kerberos-Kennwort-Server verwendet werden, die als Groß-/Kleinschreibung, den vollqualifizierten Domänennamen, z. B. mitkdc.contoso.com angegeben ist. Der KDC-Name fehlt, möglicherweise DNS verwendet werden, um KDCs zu suchen.|
+
+|   Parameter   |                                                                                                   Beschreibung                                                                                                   |
+|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  <RealmName>  |                                Der Bereichsname ist als Großbuchstaben DNS-Name, wie z. B. CORP. angegeben. "Contoso.com", und als Standard-Bereich oder einen Bereich = Wenn **Ksetup** ausgeführt wird.                                |
+| <KpasswdName> | Der KDC-Name, der als Kerberos-Kennwort-Server verwendet werden, die als Groß-/Kleinschreibung, den vollqualifizierten Domänennamen, z. B. mitkdc.contoso.com angegeben ist. Der KDC-Name fehlt, möglicherweise DNS verwendet werden, um KDCs zu suchen. |
+
 ## <a name="remarks"></a>Hinweise
 Führen Sie den Befehl **Ksetup** den KDC-Namen überprüfen. Wenn **Kpasswd =** wird nicht in der Ausgabe angezeigt, und klicken Sie dann die Zuordnung nicht konfiguriert wurde. Mehrere Zuordnungen werden ebenfalls aufgelistet, wenn festgelegt.
 ## <a name="BKMK_Examples"></a>Beispiele für
@@ -45,4 +47,4 @@ Führen Sie zum Überprüfen der Befehl erfolgreich ausgeführt wurde wie vorges
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 -   [ksetup](ksetup.md)
 -   [ksetup:delkpasswd](ksetup-delkpasswd.md)
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

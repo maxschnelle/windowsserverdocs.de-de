@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6997e878b2bb7b77a5920ad7398ef7c2301cc8c0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 6b5f6231273fb9fe9a99a1cd1bf72dbd0bad71af
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813191"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433913"
 ---
 # <a name="defrag"></a>defrag
 
@@ -35,6 +35,7 @@ defrag <volumes> | /C | /E <volumes> /X [/H] [/M [n]| [/U] [/V]]
 defrag <volume> [/<Parameter>]*
 ```
 ## <a name="parameters"></a>Parameter
+
 |Parameter|Beschreibung|
 |-------|--------|
 |`<volume>`|Gibt an, der Laufwerkbuchstabe oder Bereitstellungspunkt Punkt Laufwerkpfad des Volumes, defragmentiert oder analysiert werden soll.|
@@ -56,20 +57,20 @@ defrag <volume> [/<Parameter>]*
 |?|Zeigt diese Hilfeinformationen an.|
 
 ## <a name="remarks"></a>Hinweise
--   Sie können keine bestimmte Typen von Dateisystem-Datenträger oder Laufwerke defragmentieren:
-    -   Sie können keine Volumes zu defragmentieren, die im Dateisystem gesperrt hat.
-    -   Sie können keine Defragmentieren Volumes, die im Dateisystem als fehlerhaft gekennzeichnet wurde gibt möglicherweise an. Sie müssen ausführen **Chkdsk** auf einen fehlerhaften Datenträger zu defragmentieren können. Sie können feststellen, ob ein Volume fehlerhaft ist, mit der **Fsutil** Abfragebefehl geändert. Weitere Informationen zu **Chkdsk** und **Fsutil** modifizierte, finden Sie unter [zusätzliche Verweise](defrag.md#BKMK_additionalRef).
-    -   Sie können keine Netzwerklaufwerke defragmentieren.
-    -   Sie können keine CD-ROMs defragmentieren.
-    -   Sie können keine Dateisystemlaufwerke, die nicht defragmentieren **NTFS**, **ReFS**, **Fat** oder **Fat32**.
--   Mit WindowsServer 2008 R2, Windows Server 2008 und Windows Vista können Sie planen, um ein Volume defragmentiert. Allerdings können Sie keine planen Defragmentieren ein Solid State Drive (SSD) oder ein Volume auf einer virtuellen Festplatte (VHD), die sich auf einem SSD-befindet.
--   Um diese Schritte ausführen zu können, müssen Sie auf dem lokalen Computer ein Mitglied der Gruppe %%amp;quot;Administratoren%%amp;quot; sein oder Ihnen muss die entsprechende Berechtigung übertragen worden sein. Wenn der Computer zu einer Domäne gehört, können möglicherweise Mitglieder der Gruppe "Domänen-Admins" dieses Verfahren ausführen. Als Security best Practices, sollten Sie verwenden **ausführenden** zum Ausführen dieses Verfahrens.
--   Das Volume muss mindestens 15 % freier Speicherplatz für gibt **Defragmentieren** vollständig und ordnungsgemäß defragmentiert werden kann. **Defragmentieren** verwendet diesen als Sortierbereich zum Dateifragmente. Wenn ein Volume mit weniger als 15 % freien Speicherplatz, verfügt **Defragmentieren** wird nur teilweise defragmentiert werden. Um den freien Speicherplatz auf einem Volume zu erhöhen, nicht benötigte Dateien löschen, oder auf einen anderen Datenträger verschieben.
--   Während **Defragmentieren** ist analysieren und Defragmentieren eines Volumes, einen blinkenden Cursor angezeigt. Wenn **Defragmentieren** ist fertig analysieren und Defragmentieren das Volume, er zeigt den Bericht, Defragmentierungsberichts oder beide Berichte, beendet das Hilfsprogramm dann to the commund Prompt.
--   In der Standardeinstellung **Defragmentieren** wird eine Zusammenfassung der Analyse und die Defragmentierung Berichte angezeigt, wenn Sie nicht angeben der **/a** oder **/v** Parameter.
--   Sie können die Berichte in eine Textdatei senden, indem Sie eingeben **>** *FileName.txt*, wobei *Dateiname.txt* ist ein Dateiname, die Sie angeben. Beispiel: `defrag volume /v > FileName.txt`
--   Um die Defragmentierung ab, in der Befehlszeile zu unterbrechen, drücken Sie **STRG + C**.
--   Ausführen der **Defragmentieren** Befehl und Defragmentierung schließen sich gegenseitig. Wenn Sie die Defragmentierung Defragmentieren ein Volumes verwenden und Ausführen der **Defragmentieren** -Befehl an einer Befehlszeile, die **Defragmentieren** Befehl schlägt fehl. Im Gegensatz dazu, wenn das Ausführen der **Defragmentieren** Befehl, und Öffnen von Defragmentierung, für die Defragmentierungsoptionen in der Defragmentierung nicht verfügbar sind.
+- Sie können keine bestimmte Typen von Dateisystem-Datenträger oder Laufwerke defragmentieren:
+  -   Sie können keine Volumes zu defragmentieren, die im Dateisystem gesperrt hat.
+  -   Sie können keine Defragmentieren Volumes, die im Dateisystem als fehlerhaft gekennzeichnet wurde gibt möglicherweise an. Sie müssen ausführen **Chkdsk** auf einen fehlerhaften Datenträger zu defragmentieren können. Sie können feststellen, ob ein Volume fehlerhaft ist, mit der **Fsutil** Abfragebefehl geändert. Weitere Informationen zu **Chkdsk** und **Fsutil** modifizierte, finden Sie unter [zusätzliche Verweise](defrag.md#BKMK_additionalRef).
+  -   Sie können keine Netzwerklaufwerke defragmentieren.
+  -   Sie können keine CD-ROMs defragmentieren.
+  -   Sie können keine Dateisystemlaufwerke, die nicht defragmentieren **NTFS**, **ReFS**, **Fat** oder **Fat32**.
+- Mit WindowsServer 2008 R2, Windows Server 2008 und Windows Vista können Sie planen, um ein Volume defragmentiert. Allerdings können Sie keine planen Defragmentieren ein Solid State Drive (SSD) oder ein Volume auf einer virtuellen Festplatte (VHD), die sich auf einem SSD-befindet.
+- Um diese Schritte ausführen zu können, müssen Sie auf dem lokalen Computer ein Mitglied der Gruppe %%amp;quot;Administratoren%%amp;quot; sein oder Ihnen muss die entsprechende Berechtigung übertragen worden sein. Wenn der Computer zu einer Domäne gehört, können möglicherweise Mitglieder der Gruppe "Domänen-Admins" dieses Verfahren ausführen. Als Security best Practices, sollten Sie verwenden **ausführenden** zum Ausführen dieses Verfahrens.
+- Das Volume muss mindestens 15 % freier Speicherplatz für gibt **Defragmentieren** vollständig und ordnungsgemäß defragmentiert werden kann. **Defragmentieren** verwendet diesen als Sortierbereich zum Dateifragmente. Wenn ein Volume mit weniger als 15 % freien Speicherplatz, verfügt **Defragmentieren** wird nur teilweise defragmentiert werden. Um den freien Speicherplatz auf einem Volume zu erhöhen, nicht benötigte Dateien löschen, oder auf einen anderen Datenträger verschieben.
+- Während **Defragmentieren** ist analysieren und Defragmentieren eines Volumes, einen blinkenden Cursor angezeigt. Wenn **Defragmentieren** ist fertig analysieren und Defragmentieren das Volume, er zeigt den Bericht, Defragmentierungsberichts oder beide Berichte, beendet das Hilfsprogramm dann to the commund Prompt.
+- In der Standardeinstellung **Defragmentieren** wird eine Zusammenfassung der Analyse und die Defragmentierung Berichte angezeigt, wenn Sie nicht angeben der **/a** oder **/v** Parameter.
+- Sie können die Berichte in eine Textdatei senden, indem Sie eingeben **>** <em>Dateiname.txt</em>, wobei *Dateiname.txt* ist ein Dateiname, die Sie angeben. Beispiel: `defrag volume /v > FileName.txt`
+- Um die Defragmentierung ab, in der Befehlszeile zu unterbrechen, drücken Sie **STRG + C**.
+- Ausführen der **Defragmentieren** Befehl und Defragmentierung schließen sich gegenseitig. Wenn Sie die Defragmentierung Defragmentieren ein Volumes verwenden und Ausführen der **Defragmentieren** -Befehl an einer Befehlszeile, die **Defragmentieren** Befehl schlägt fehl. Im Gegensatz dazu, wenn das Ausführen der **Defragmentieren** Befehl, und Öffnen von Defragmentierung, für die Defragmentierungsoptionen in der Defragmentierung nicht verfügbar sind.
 
 ## <a name="BKMK_examples"></a>Beispiele für
 Geben Sie Folgendes ein, um das Volume auf dem Laufwerk C: zu defragmentieren und gleichzeitig ausgeführt und die ausführliche Ausgabe:
@@ -105,4 +106,4 @@ Defragmentieren des Task ausgeführt wird als ein Wartungstask und wird in der R
 -   [chkdsk](chkdsk.md)
 -   [fsutil](fsutil.md)
 -   [fsutil dirty](fsutil-dirty.md)
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

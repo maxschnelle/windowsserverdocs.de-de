@@ -9,12 +9,12 @@ ms.assetid: c4e2f6c7-0364-4bf8-bb66-9af59c0bbd74
 ms.author: pashort
 author: shortpatti
 ms.date: 08/22/2018
-ms.openlocfilehash: 618c2c4da60decc94f84c2a40cd4d2aa80d5f26b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d29a98e24b475c38fee61972bf9efbd5a2528974
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59827571"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446263"
 ---
 # <a name="manage-certificates-for-software-defined-networking"></a>Verwalten von Zertifikaten für die Software Defined Networking
 
@@ -128,13 +128,13 @@ Sie können das Zertifikate-Snap-in zum Anfordern von Zertifikaten verwenden. Si
 **Benutzer** oder lokale **Administratoren** mindestens Mitglied der Gruppe zum Durchführen dieses Verfahrens erforderlich ist.
 
 1. Öffnen Sie das Zertifikate-Snap-in für einen Computer an.
-2. Klicken Sie in der Konsolenstruktur auf **Zertifikate \(lokalen Computer\)**. Wählen Sie die **persönliche** Zertifikatspeicher.
-3. Auf der **Aktion** , zeigen Sie auf ** alle Aufgaben **, und klicken Sie dann auf **neues Zertifikat anfordern** zum Starten des Assistenten für die Registrierung von Zertifikaten. Klicken Sie auf **Weiter**.
+2. Klicken Sie in der Konsolenstruktur auf **Zertifikate \(lokalen Computer\)** . Wählen Sie die **persönliche** Zertifikatspeicher.
+3. Auf der **Aktion** , zeigen Sie auf ** alle Aufgaben<strong>, und klicken Sie dann auf ** Neues Zertifikat anfordern</strong> zum Starten des Assistenten für die Registrierung von Zertifikaten. Klicken Sie auf **Weiter**.
 4. Wählen Sie die **von Ihrem Administrator konfiguriert** Certificate Enrollment-Richtlinie, und klicken Sie auf **Weiter**.
 5. Wählen Sie die **Active Directory-Registrierungsrichtlinie** \(basierend auf der ZS-Vorlage, die Sie im vorherigen Abschnitt konfiguriert\).
 6. Erweitern Sie die **Details** aus und konfigurieren Sie die folgenden Elemente.
-    1. Sicherstellen, dass **Schlüsselverwendung** enthält die beiden ** digitale Signatur ** und **Schlüsselverschlüsselung**.
-    2. Sicherstellen, dass **Anwendungsrichtlinien** enthält die beiden **Serverauthentifizierung** \(1.3.6.1.5.5.7.3.1\) und **Clientauthentifizierung** \(1.3.6.1.5.5.7.3.2\).
+   1. Sicherstellen, dass **Schlüsselverwendung** enthält die beiden <strong>digitale Signatur ** und ** Schlüsselverschlüsselung</strong>.
+   2. Sicherstellen, dass **Anwendungsrichtlinien** enthält die beiden **Serverauthentifizierung** \(1.3.6.1.5.5.7.3.1\) und **Clientauthentifizierung** \(1.3.6.1.5.5.7.3.2\).
 7. Klicken Sie auf **Eigenschaften**.
 8. Auf der **Betreff** Registerkarte **Antragstellername**im **Typ**Option **allgemeiner Name**. Geben Sie in "Wert" **Network Controller-REST-Endpunkt**.
 9. Klicken Sie auf **Übernehmen**, und klicken Sie anschließend auf **OK**.

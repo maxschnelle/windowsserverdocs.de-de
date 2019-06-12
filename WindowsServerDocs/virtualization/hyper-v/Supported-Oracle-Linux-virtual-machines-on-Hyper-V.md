@@ -11,12 +11,12 @@ ms.assetid: c02fdb5b-62f3-43cb-a190-ab74b3ebcf77
 author: shirgall
 ms.author: kathydav
 ms.date: 06/01/2017
-ms.openlocfilehash: c72fd2c3a72a304fe8372afb93468fc451b3f2bc
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: e353ea0b444c07557de99db4472f565decb37349
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222665"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447753"
 ---
 # <a name="supported-oracle-linux-virtual-machines-on-hyper-v"></a>Unterstützte Oracle Linux-VMs auf Hyper-V
 
@@ -167,10 +167,9 @@ Oracle Linux Unbreakable Enterprise Kernel (UEK), ist nur die 64-Bit- und verfü
 
 13. Sicheren Start aktiviert standardmäßig über Leistungstools auf Windows Server 2012 R2Generation 2 virtuelle Computer verfügen, und einige virtuelle Linux-Computer wird nicht gestartet werden, es sei denn, die Option für den sicheren Start deaktiviert ist. Sie können den sicheren Start im Deaktivieren der **Firmware** Abschnitt der Einstellungen für den virtuellen Computer in **Hyper-V-Manager** oder Sie können mithilfe von Powershell deaktivieren:
 
-   ```Powershell
-   Set-VMFirmware -VMName "VMname" -EnableSecureBoot Off
-
-   ```
+    ```Powershell
+    Set-VMFirmware -VMName "VMname" -EnableSecureBoot Off
+    ```
 
     Der Linux-Integrationsdienste Download kann auf vorhandenen VMs der 2. Generation angewendet werden, aber Generation 2-Funktion ist nicht übermitteln.
 

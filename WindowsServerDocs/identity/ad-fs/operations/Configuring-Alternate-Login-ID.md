@@ -9,12 +9,12 @@ ms.date: 11/14/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 5bc43717f37fb3b14ac7f384a061ee64c734222d
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 75ab011ed4931af3d5a03a38b3f7a7f0cfecbe3d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189656"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444911"
 ---
 # <a name="configuring-alternate-login-id"></a>Konfigurieren von alternativen Anmelde-ID
 
@@ -31,9 +31,9 @@ Active Directory-Verbunddienste (AD FS) können verbundanwendungen mithilfe von 
 
 ## <a name="alternate-id-in-azure-ad"></a>Alternative Id in Azure AD
 Eine Organisation möglicherweise alternative ID in den folgenden Szenarien verwenden:
-1.  Der Name der lokalen Domäne ist nicht routingfähig, z. B. "Contoso.Local" und der Standard-Benutzerprinzipalname ist daher nicht routingfähige (jdoe@contoso.local). Vorhandene UPN werden nicht aufgrund von lokalen anwendungsabhängigkeiten oder Richtlinien des Unternehmens geändert. Azure AD und Office 365 benötigen alle Domänensuffixe Internet routingfähige vollständig sein Azure AD-Verzeichnis zugeordnet. 
-2.  Der lokale UPN ist nicht identisch mit die e-Mail-Adresse des Benutzers, um Office 365 anmelden, verwenden Benutzer e-Mail-Adresse und UPN nicht aufgrund von Einschränkungen für die Organisation verwendet werden.
-In den oben genannten Szenarien kann alternative ID mit AD FS Benutzer Azure AD anmelden, ohne Ihre lokalen UPNs zu ändern. 
+1. Der Name der lokalen Domäne ist nicht routingfähig, z. B. "Contoso.Local" und der Standard-Benutzerprinzipalname ist daher nicht routingfähige (jdoe@contoso.local). Vorhandene UPN werden nicht aufgrund von lokalen anwendungsabhängigkeiten oder Richtlinien des Unternehmens geändert. Azure AD und Office 365 benötigen alle Domänensuffixe Internet routingfähige vollständig sein Azure AD-Verzeichnis zugeordnet. 
+2. Der lokale UPN ist nicht identisch mit die e-Mail-Adresse des Benutzers, um Office 365 anmelden, verwenden Benutzer e-Mail-Adresse und UPN nicht aufgrund von Einschränkungen für die Organisation verwendet werden.
+   In den oben genannten Szenarien kann alternative ID mit AD FS Benutzer Azure AD anmelden, ohne Ihre lokalen UPNs zu ändern. 
 
 ## <a name="end-user-experience-with-alternate-login-id"></a>Endbenutzer-Erfahrung mit der alternativen Anmelde-ID
 Die benutzerfreundlichkeit hängt von der Authentifizierungsmethode, die mit der alternativen Anmelde-Id ab.  Derzeit es gibt drei Möglichkeiten, die in der Verwendung von alternativen Anmelde-Id erreicht werden kann.  Die Überladungen sind:
@@ -81,7 +81,7 @@ Im folgenden Beispiel aktivieren Sie alternative Anmelde-ID-Funktionen, dass Ihr
 Set-AdfsClaimsProviderTrust -TargetIdentifier "AD AUTHORITY" -AlternateLoginID mail -LookupForests contoso.com,fabrikam.com
 ```
 
-3.  Um dieses Feature zu deaktivieren, legen Sie den Wert für beide Parameter null sein.
+3. Um dieses Feature zu deaktivieren, legen Sie den Wert für beide Parameter null sein.
 
 ``` powershell
 Set-AdfsClaimsProviderTrust -TargetIdentifier "AD AUTHORITY" -AlternateLoginID $NULL -LookupForests $NULL
@@ -155,6 +155,7 @@ HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zo
 ## <a name="applications-and-user-experience-after-the-additional-configuration"></a>Anwendungen und Benutzern auftreten, nachdem die zusätzliche Konfiguration
 
 ### <a name="non-exchange-and-skype-for-business-clients"></a>Nicht-Exchange und Skype für Business-Clients
+
 |Client|Support-Anweisung|Hinweise|
 | ----- | -----|-----|
 |Microsoft Teams|Unterstützt|<li>Microsoft Teams unterstützt AD FS (SAML-P, WS-Fed-, WS-Trust und OAuth) und die moderne Authentifizierung.</li><li> Core Microsoft Teams wie z. B. Funktionen von Kanälen, Chats und Dateien funktioniert mit der alternativen Anmelde-ID an.</li><li>1. und 3rd Party-apps müssen separat vom Kunden ermittelt werden. Dies ist, da jede Anwendung eigene Authentifizierungsprotokolle Unterstützung verfügt.</li>|     
@@ -173,7 +174,7 @@ HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zo
 |Outlook Web Access|Unterstützt|Unterstützt|
 |Outlook Mobile-Apps für Android, IOS und Windows Phone|Unterstützt|Unterstützt|
 |Skype for Business / Lync|Unterstützt werden, ohne zusätzliche aufforderungen|Unterstützt (sofern nicht anders angegeben), aber es besteht die Gefahr von Verwechslungen von Benutzern.</br></br>Für mobile Clients die, der alternativen Id wird nur unterstützt, wenn SIP-Adresse = e-Mail-Adresse = alternativen-ID.</br></br> Benutzer müssen möglicherweise zweimal auf die Skype für Business desktop-Client zunächst mit dem lokalen UPN und klicken Sie dann mit der alternativen ID anmelden (Beachten Sie, dass die "Anmeldeadresse" eigentlich die SIP-Adresse der möglicherweise nicht identisch mit "User Name" ist, jedoch ist häufig). Bei zuerst für einen Benutzer dazu aufgefordert werden, sollte der Benutzer UPN, eingeben, auch wenn es nicht ordnungsgemäß mit der alternativen ID oder SIP-Adresse vorab aufgefüllt wird. Nachdem der Benutzer klickt, melden Sie sich mit den UPN, der Benutzer die Eingabeaufforderung wieder angezeigt wird, dieses Mal enthält bereits den UPN. Melden Sie diesmal, die der Benutzer führt eine Ersetzung mit der alternativen ID muss, und klicken Sie auf an, um den Anmeldeprozess abzuschließen. Mobile Clients sollten Benutzer die lokalen Benutzer-ID in die Seite "Erweitert", geben Sie auf mit SAM-Stil-Format (Domäne\Benutzername), nicht die UPN-Format.</br></br>Nach der erfolgreichen Anmeldung Falls der Skype for Business oder Lync lautet "Exchange benötigt Ihre-Anmeldeinformationen", müssen Sie die Anmeldeinformationen angeben, die auf dem sich das Postfach befindet gültig sind. Wenn das Postfach in der Cloud befindet, Sie die alternative ID angeben müssen Wenn das Postfach lokal ist, die Sie den lokalen UPN angeben müssen.| 
- 
+
 ## <a name="additional-details--considerations"></a>Weitere Informationen und Überlegungen
 
 -   Die alternative Anmelde-ID-Funktion ist mit AD FS-Bereitstellung für verbundene Umgebungen verfügbar.  Es wird nicht in den folgenden Szenarien unterstützt:
@@ -211,12 +212,12 @@ Im folgenden finden verschiedene Fehler und die entsprechenden Auswirkungen auf 
 
 
 
-**Fehler**|**Auswirkungen auf die Anmeldung**|**Ereignis**|
----------|---------|---------
-Kann nicht auf einen Wert für "sAMAccountName" für das Benutzerobjekt zu erhalten.|Fehler bei der Anmeldung|Ereignis-ID 364 mit Ausnahmemeldung MSIS8012: Wurde nicht gefunden "sAMAccountName" für den Benutzer: "{0}".|
-Das CanonicalName-Attribut kann nicht zugegriffen werden|Fehler bei der Anmeldung|Ereignis-ID 364 mit Ausnahmemeldung MSIS8013: CanonicalName-Element: '{0}"des Benutzers:"{1}"befindet sich im hat ein ungültiges Format.|
-Mehrere Benutzerobjekte befinden sich in einem Gesamtstrukturen|Fehler bei der Anmeldung|Ereignis-ID 364 mit Ausnahmemeldung MSIS8015: Finden Sie mehrere Konten mit Identität '{0}"in der Gesamtstruktur"{1}"mit Identitäten: {2}|
-Mehrere Benutzerobjekte befinden sich in mehreren Gesamtstrukturen|Fehler bei der Anmeldung|Ereignis-ID 364 mit Ausnahmemeldung MSIS8014: Finden Sie mehrere Konten mit Identität '{0}"in Gesamtstrukturen: {1}|
+|                       **Fehler**                        | **Auswirkungen auf die Anmeldung** |                                                              **Ereignis**                                                              |
+|--------------------------------------------------------------|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| Kann nicht auf einen Wert für "sAMAccountName" für das Benutzerobjekt zu erhalten. |          Fehler bei der Anmeldung           |                  Ereignis-ID 364 mit Ausnahmemeldung MSIS8012: Wurde nicht gefunden "sAMAccountName" für den Benutzer: "{0}".                   |
+|        Das CanonicalName-Attribut kann nicht zugegriffen werden         |          Fehler bei der Anmeldung           |               Ereignis-ID 364 mit Ausnahmemeldung MSIS8013: CanonicalName-Element: '{0}"des Benutzers:"{1}"befindet sich im hat ein ungültiges Format.                |
+|        Mehrere Benutzerobjekte befinden sich in einem Gesamtstrukturen        |          Fehler bei der Anmeldung           | Ereignis-ID 364 mit Ausnahmemeldung MSIS8015: Finden Sie mehrere Konten mit Identität '{0}"in der Gesamtstruktur"{1}"mit Identitäten: {2} |
+|   Mehrere Benutzerobjekte befinden sich in mehreren Gesamtstrukturen    |          Fehler bei der Anmeldung           |           Ereignis-ID 364 mit Ausnahmemeldung MSIS8014: Finden Sie mehrere Konten mit Identität '{0}"in Gesamtstrukturen: {1}            |
 
 ## <a name="see-also"></a>Siehe auch
 [AD FS-Vorgänge](../../ad-fs/AD-FS-2016-Operations.md)

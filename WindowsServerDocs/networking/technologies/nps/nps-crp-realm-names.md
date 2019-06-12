@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: d011eaad-f72a-4a83-8099-8589c4ee8994
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 0257c4d15db4fc54e55ef430f6f2eea9cea2ec4d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 65a272873a60d74efcf417a16fdc84670f5878da
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882821"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447004"
 ---
 # <a name="realm-names"></a>Bereichsnamen
 
@@ -28,7 +28,7 @@ Ein weiteres Beispiel, wenn das Benutzernamen RADIUS-Attribut den Benutzernamen 
 
 - **Example\user1**. In diesem Beispiel den Bereichsnamen **Beispiel** ist ein Präfix und kann auch den Namen des Active Directory&reg; Domänendienste \(AD DS\) Domäne.
 
-- **user1@example.com**. In diesem Beispiel den Bereichsnamen **"example.com"** ist ein Suffix ein, und es ist entweder einen DNS-Domänennamen oder den Namen der AD DS-Domäne.
+- <strong>user1@example.com</strong>. In diesem Beispiel den Bereichsnamen **"example.com"** ist ein Suffix ein, und es ist entweder einen DNS-Domänennamen oder den Namen der AD DS-Domäne.
 
 Können Sie sicherstellen, dass die verbindungsanforderungen von RADIUS-Clients, die so genannte Netzwerkzugriffsserver, an, die RADIUS-Server weitergeleitet werden Bereichsnamen in Verbindungsanforderungsrichtlinien beim Entwerfen und Bereitstellen von Ihrem RADIUS-Infrastruktur konfiguriert authentifizieren Sie und autorisieren Sie die verbindungsanforderung.
 

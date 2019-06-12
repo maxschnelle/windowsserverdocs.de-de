@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 99b938618deb2d1e779fd20c504c01a13a2d3f8a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dd19a97246aa6155182cb055deceb4b5a5019f6c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868161"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438583"
 ---
 # <a name="ftp-mput1"></a>FTP: mput_1
 
@@ -30,9 +30,11 @@ Lokale Dateien auf dem Remotecomputer über die aktuelle Datei kopiert Übertrag
 mput <LocalFile>[ ]  
 ```  
 ### <a name="parameters"></a>Parameter  
-|Parameter|Beschreibung|  
-|-------|--------|  
-|<LocalFile>|Gibt an, die lokale Datei auf den Remotecomputer kopiert.|  
+
+|  Parameter  |                       Beschreibung                        |
+|-------------|----------------------------------------------------------|
+| <LocalFile> | Gibt an, die lokale Datei auf den Remotecomputer kopiert. |
+
 ## <a name="BKMK_Examples"></a>Beispiele für  
 Kopie **Program1.exe** und **Program2.exe** an den Remotecomputer, der den aktuellen Dateityp für die Übertragung verwenden.  
 ```  
@@ -41,4 +43,4 @@ mput Program1.exe Program2.exe
 ## <a name="additional-references"></a>Zusätzliche Referenzen  
 -   [ftp: ascii](ftp-ascii.md)  
 -   [FTP: binär](ftp-binary.md)  
--   [Befehlszeilensyntax](command-line-syntax-key.md)  
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  

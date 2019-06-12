@@ -8,12 +8,12 @@ ms.date: 02/13/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: 966f25eb0bd43513b3c544fb3dc97115ed668b28
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 856eb7c2c2dfe0e0e3300fcf826e75b56258dc1b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59872751"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447651"
 ---
 # <a name="use-storage-migration-service-to-migrate-a-server"></a>Verwenden von Storage-Migration-Dienst zum Migrieren eines Servers
 
@@ -55,18 +55,18 @@ In diesem Schritt geben Sie an welche Server aus, um zu migrieren und dann über
 
 In diesem Schritt werden die Daten nach dem angeben, wo Sie sie ablegen, auf dem Zielserver übertragen.
 
- 1. Auf der **Datenübertragung** > **Geben Sie Anmeldeinformationen** Seite, und geben Sie Administratoranmeldeinformationen, die arbeiten auf dem Zielserver zu migrieren möchten, und wählen Sie dann **Weiter**.
- 1. Auf der **fügen Sie ein Zielgerät und Zuordnungen hinzu** Seite, dem ersten Quellserver aufgelistet. Geben Sie den Namen des Servers, der Sie migrieren möchten und wählen Sie dann **Gerät überprüfen**.
- 1. Ordnen Sie die Quellvolumes an Zielvolumes, deaktivieren die **Include** Kontrollkästchen für alle Freigaben nicht möchten (einschließlich administrativen Freigaben, die sich in der Windows-Systemordner befindet) übertragen, und wählen Sie dann **weiter** .
-    ![Screenshot mit einem Quellserver und die Volumes und Freigaben und, müssen sie auf übertragen werden, auf dem Ziel](media/migrate/transfer.png) **Abbildung 3: Ein Quell- und dem auf der Speicher übertragen werden sollen**
- 1. Fügen Sie einen Zielserver und Zuordnungen für alle Weitere Quellserver hinzu, und wählen Sie dann **Weiter**.
- 1. Optional anpassen, die übertragen von Einstellungen, und wählen Sie dann **Weiter**.
- 1. Wählen Sie **überprüfen** und wählen Sie dann **Weiter**.
- 1. Wählen Sie **Übertragung starten** um übertragen von Daten zu starten.<br>Beim ersten, die Sie übertragen, müssen wir alle vorhandenen Dateien in ein Ziel in einen Sicherungsordner verschieben. Für nachfolgende Übertragungen an wird standardmäßig wir das Ziel aktualisieren, ohne zuerst sichern. <br>Speicherung Datenbankmigrationsdienst ist darüber hinaus intelligent genug ist, für den Umgang mit sich überschneidenden Freigaben – es wird nicht die gleichen Ordnern zweimal im selben Auftrag kopieren.
- 1. Nachdem die Übertragung abgeschlossen ist, checken Sie den Zielserver, um sicherzustellen, dass alle Daten ordnungsgemäß übertragen. Wählen Sie **nur Fehler protokollieren** sollten Sie ein Protokoll aller Dateien herunterladen, die nicht zu übertragen.
+1. Auf der **Datenübertragung** > **Geben Sie Anmeldeinformationen** Seite, und geben Sie Administratoranmeldeinformationen, die arbeiten auf dem Zielserver zu migrieren möchten, und wählen Sie dann **Weiter**.
+2. Auf der **fügen Sie ein Zielgerät und Zuordnungen hinzu** Seite, dem ersten Quellserver aufgelistet. Geben Sie den Namen des Servers, der Sie migrieren möchten und wählen Sie dann **Gerät überprüfen**.
+3. Ordnen Sie die Quellvolumes an Zielvolumes, deaktivieren die **Include** Kontrollkästchen für alle Freigaben nicht möchten (einschließlich administrativen Freigaben, die sich in der Windows-Systemordner befindet) übertragen, und wählen Sie dann **weiter** .
+   ![Screenshot mit einem Quellserver und die Volumes und Freigaben und, müssen sie auf übertragen werden, auf dem Ziel](media/migrate/transfer.png) **Abbildung 3: Ein Quell- und dem auf der Speicher übertragen werden sollen**
+4. Fügen Sie einen Zielserver und Zuordnungen für alle Weitere Quellserver hinzu, und wählen Sie dann **Weiter**.
+5. Optional anpassen, die übertragen von Einstellungen, und wählen Sie dann **Weiter**.
+6. Wählen Sie **überprüfen** und wählen Sie dann **Weiter**.
+7. Wählen Sie **Übertragung starten** um übertragen von Daten zu starten.<br>Beim ersten, die Sie übertragen, müssen wir alle vorhandenen Dateien in ein Ziel in einen Sicherungsordner verschieben. Für nachfolgende Übertragungen an wird standardmäßig wir das Ziel aktualisieren, ohne zuerst sichern. <br>Speicherung Datenbankmigrationsdienst ist darüber hinaus intelligent genug ist, für den Umgang mit sich überschneidenden Freigaben – es wird nicht die gleichen Ordnern zweimal im selben Auftrag kopieren.
+8. Nachdem die Übertragung abgeschlossen ist, checken Sie den Zielserver, um sicherzustellen, dass alle Daten ordnungsgemäß übertragen. Wählen Sie **nur Fehler protokollieren** sollten Sie ein Protokoll aller Dateien herunterladen, die nicht zu übertragen.
 
-  > [!NOTE]
-  > Wenn Sie einen Audit-Trail von Übermittlungen beibehalten möchten oder beabsichtigen, mehr als eine Übertragung in einem Auftrag auszuführen, klicken Sie auf **Übertragungsprotokoll** um eine CSV-Kopie zu speichern. Jede nachfolgende Übertragung werden die Informationen von einer vorherigen Ausführung überschrieben. 
+   > [!NOTE]
+   > Wenn Sie einen Audit-Trail von Übermittlungen beibehalten möchten oder beabsichtigen, mehr als eine Übertragung in einem Auftrag auszuführen, klicken Sie auf **Übertragungsprotokoll** um eine CSV-Kopie zu speichern. Jede nachfolgende Übertragung werden die Informationen von einer vorherigen Ausführung überschrieben. 
 
 An diesem Punkt haben Sie drei Optionen:
 

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: baf527d3590a4ec52a51260d3083419ab27d548d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d801d6e6286e97319766c879f7289f6191cc7101
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887181"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66434334"
 ---
 # <a name="cipher"></a>cipher
 
@@ -45,24 +45,24 @@ cipher /rekey [PathName [...]]
 
 ## <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|----------|-----------|
-|/b|Bricht Sie ab, wenn ein Fehler aufgetreten ist. In der Standardeinstellung **Cipher** wird weiterhin ausgeführt, auch wenn Fehler auftreten.|
-|/c|Zeigt Informationen zu der verschlüsselten Datei.|
-|/d|Entschlüsselt die angegebenen Dateien oder Verzeichnisse.|
-|/ e|Verschlüsselt die angegebenen Dateien oder Verzeichnisse. Verzeichnisse werden markiert, sodass Dateien, die später hinzugefügt werden verschlüsselt werden.|
-|/h|Zeigt Dateien mit ausgeblendet oder Systemattribute. Standardmäßig werden diese Dateien nicht verschlüsselt oder entschlüsselt.|
-|/k|Erstellt ein neues Zertifikat und Schlüssel für die Verwendung mit verteilten Dateisystems (Encrypting File System, EFS)-Dateien an. Wenn die **/k** -Parameter angegeben wird, alle anderen Parameter werden ignoriert.|
-|/ r:\<Dateiname > [/ Smartcard]|Generiert eine EFS-Wiederherstellungs-Agent-Schlüssel und das Zertifikat, und schreibt sie in eine PFX-Datei (mit Zertifikaten und privaten Schlüsseln) und eine CER-Datei (nur das Zertifikat enthält). Wenn **/Smartcard** angegeben wird, schreibt er den Wiederherstellungsschlüssel und das Zertifikat in eine Smartcard, und keine PFX-Datei generiert.|
-|/ s:\<Verzeichnis >|Führt den angegebenen Vorgang für alle Unterverzeichnisse im angegebenen *Directory*.|
-|/u [/n]|Sucht alle verschlüsselte Dateien auf lokalen Laufwerken. Bei Verwendung mit der **/n** -Parameter, die keine Updates ausgeführt werden. Ohne Angabe von **/n**, **/u** vergleicht Verschlüsselungsschlüssel für Sicherheitsdatei des Benutzers oder der Recovery-Agent-Schlüssel auf den aktuellen Schlüssel und aktualisiert sie, wenn diese geändert wurden. Dieser Parameter funktioniert nur mit **/n**.|
-|/ w:\<Verzeichnis >|Entfernt Daten aus nicht verwendeten Speicherplatz auf dem Datenträger. Bei Verwendung der **/w** Parameter alle anderen Parameter werden ignoriert. Das angegebene Verzeichnis kann an einer beliebigen Stelle in einem lokalen Volume befinden. Wenn sie ein Bereitstellungspunkt zeigen oder Wiederherstellungspunkte in einem anderen Volume, die Daten in ein Verzeichnis, dass das Volume entfernt wird.|
-|/ x [: Efsfile] [\<Dateiname >]|Sichert die EFS-Zertifikate und Schlüssel des angegebenen Dateinamens. Bei Verwendung mit **: Efsfile**, **/x** gesichert, die Zertifikate des Benutzers, die zum Verschlüsseln der Datei verwendet wurden. Andernfalls werden aktuelle EFS-Zertifikat und Schlüssel des Benutzers gesichert.|
-|/y|Zeigt Ihre aktuelle Miniaturansicht der EFS-Zertifikat auf dem lokalen Computer.|
-|/adduser [/ Certhash:\<Hash > | /certfile:<FileName>]|Fügt einen Benutzer für die angegebenen verschlüsselten Dateien. Bei Verwendung mit **/certhash**, **Cipher** sucht nach einem Zertifikat mit dem SHA1-Hash angegeben. Bei Verwendung mit **/certfile**, **Cipher** extrahiert das Zertifikat aus dem angegebenen Dateinamen.|
-|/rekey|Aktualisiert die angegebenen verschlüsselten Dateien den aktuell konfigurierten EFS-Schlüssel verwenden.|
-|/RemoveUser /certhash:\<Hash >|Entfernt einen Benutzer aus den angegebenen Dateien. Die *Hash* vorgesehenen **/certhash** muss der SHA1-Hash des Zertifikats, das entfernt werden.|
-|/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
+|          Parameter           |                                                                                                                                                   Beschreibung                                                                                                                                                    |
+|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|              /b               |                                                                                                    Bricht Sie ab, wenn ein Fehler aufgetreten ist. In der Standardeinstellung **Cipher** wird weiterhin ausgeführt, auch wenn Fehler auftreten.                                                                                                    |
+|              /c               |                                                                                                                                   Zeigt Informationen zu der verschlüsselten Datei.                                                                                                                                    |
+|              /d               |                                                                                                                                   Entschlüsselt die angegebenen Dateien oder Verzeichnisse.                                                                                                                                   |
+|              / e               |                                                                                          Verschlüsselt die angegebenen Dateien oder Verzeichnisse. Verzeichnisse werden markiert, sodass Dateien, die später hinzugefügt werden verschlüsselt werden.                                                                                           |
+|              /h               |                                                                                                     Zeigt Dateien mit ausgeblendet oder Systemattribute. Standardmäßig werden diese Dateien nicht verschlüsselt oder entschlüsselt.                                                                                                     |
+|              /k               |                                                                            Erstellt ein neues Zertifikat und Schlüssel für die Verwendung mit verteilten Dateisystems (Encrypting File System, EFS)-Dateien an. Wenn die **/k** -Parameter angegeben wird, alle anderen Parameter werden ignoriert.                                                                            |
+|  / r:\<Dateiname > [/ Smartcard]  |   Generiert eine EFS-Wiederherstellungs-Agent-Schlüssel und das Zertifikat, und schreibt sie in eine PFX-Datei (mit Zertifikaten und privaten Schlüsseln) und eine CER-Datei (nur das Zertifikat enthält). Wenn **/Smartcard** angegeben wird, schreibt er den Wiederherstellungsschlüssel und das Zertifikat in eine Smartcard, und keine PFX-Datei generiert.   |
+|        / s:\<Verzeichnis >        |                                                                                                               Führt den angegebenen Vorgang für alle Unterverzeichnisse im angegebenen *Directory*.                                                                                                               |
+|            /u [/n]            |  Sucht alle verschlüsselte Dateien auf lokalen Laufwerken. Bei Verwendung mit der **/n** -Parameter, die keine Updates ausgeführt werden. Ohne Angabe von **/n**, **/u** vergleicht Verschlüsselungsschlüssel für Sicherheitsdatei des Benutzers oder der Recovery-Agent-Schlüssel auf den aktuellen Schlüssel und aktualisiert sie, wenn diese geändert wurden. Dieser Parameter funktioniert nur mit **/n**.  |
+|        / w:\<Verzeichnis >        | Entfernt Daten aus nicht verwendeten Speicherplatz auf dem Datenträger. Bei Verwendung der **/w** Parameter alle anderen Parameter werden ignoriert. Das angegebene Verzeichnis kann an einer beliebigen Stelle in einem lokalen Volume befinden. Wenn sie ein Bereitstellungspunkt zeigen oder Wiederherstellungspunkte in einem anderen Volume, die Daten in ein Verzeichnis, dass das Volume entfernt wird. |
+|  / x [: Efsfile] [\<Dateiname >]   |                                 Sichert die EFS-Zertifikate und Schlüssel des angegebenen Dateinamens. Bei Verwendung mit **: Efsfile**, **/x** gesichert, die Zertifikate des Benutzers, die zum Verschlüsseln der Datei verwendet wurden. Andernfalls werden aktuelle EFS-Zertifikat und Schlüssel des Benutzers gesichert.                                 |
+|              /y               |                                                                                                                      Zeigt Ihre aktuelle Miniaturansicht der EFS-Zertifikat auf dem lokalen Computer.                                                                                                                      |
+|  /adduser [/ Certhash:\<Hash >  |                                                                                                                                              /certfile:<FileName>]                                                                                                                                               |
+|            /rekey             |                                                                                                                 Aktualisiert die angegebenen verschlüsselten Dateien den aktuell konfigurierten EFS-Schlüssel verwenden.                                                                                                                 |
+| /RemoveUser /certhash:\<Hash > |                                                                                       Entfernt einen Benutzer aus den angegebenen Dateien. Die *Hash* vorgesehenen **/certhash** muss der SHA1-Hash des Zertifikats, das entfernt werden.                                                                                       |
+|              /?               |                                                                                                                                       Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                       |
 
 ## <a name="remarks"></a>Hinweise
 
@@ -107,4 +107,4 @@ Beachten Sie, dass das Private Verzeichnis markiert ist verschlüsselt.
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

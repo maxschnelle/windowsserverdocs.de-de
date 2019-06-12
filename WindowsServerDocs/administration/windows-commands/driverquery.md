@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6436ea47e3ec5c7c9ceee9fd50d052dba4a49724
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 88a59f9da9927bb923418695bc760303c0fb00b0
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861171"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439487"
 ---
 # <a name="driverquery"></a>driverquery
 
@@ -36,16 +36,16 @@ driverquery [/s <System> [/u [<Domain>\]<Username> [/p <Password>]]] [/fo {table
 
 ## <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|/s \<System>|Gibt den Namen oder die IP-Adresse eines Remotecomputers. Verwenden Sie keine umgekehrte Schrägstriche. Der Standardwert ist der lokale Computer.|
-|/u [\<Domain>\]<Username>|Führt den Befehl mit den Anmeldeinformationen des Benutzerkontos laut *Benutzer* oder *Domäne*\*Benutzer *. In der Standardeinstellung **/s** verwendet die Anmeldeinformationen des Benutzers, der derzeit auf dem Computer angemeldet ist, die den Befehl ausgegeben wird. **/ u** kann nicht verwendet werden, es sei denn, **/s** angegeben ist.|
-|/ p \<Kennwort >|Gibt das Kennwort des Benutzerkontos ein, die im angegebenen die **/u** Parameter. **/ p** kann nicht verwendet werden, es sei denn, **/u** angegeben ist.|
-|/ FO {table | list | csv}|Gibt das Format zum Anzeigen der Treiberinformationen. Gültige Werte sind **Tabelle**, **Liste**, und **Csv**. Das Standardformat für die Ausgabe ist **Tabelle**.|
-|/nh|Lässt die Headerzeile aus der angezeigten Treiberinformationen. Nicht gültig, wenn die **/Fo** Parametersatz zu **Liste**.|
-|/v|Zeigt eine ausführliche Ausgabe. **/ v** gilt nicht für signierte Treiber.|
-|/si|Enthält Informationen zu den signierten Treiber.|
-|/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
+|         Parameter         |                                                                                                                                         Beschreibung                                                                                                                                          |
+|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|       /s \<System>        |                                                                                      Gibt den Namen oder die IP-Adresse eines Remotecomputers. Verwenden Sie keine umgekehrte Schrägstriche. Der Standardwert ist der lokale Computer.                                                                                       |
+| /u [\<Domain>\]<Username> | Führt den Befehl mit den Anmeldeinformationen des Benutzerkontos laut *Benutzer* oder *Domäne*\*Benutzer<em>. In der Standardeinstellung \* \*/s</em> \* verwendet die Anmeldeinformationen des Benutzers, der derzeit auf dem Computer angemeldet ist, die den Befehl ausgegeben wird. **/ u** kann nicht verwendet werden, es sei denn, **/s** angegeben ist. |
+|      / p \<Kennwort >       |                                                                           Gibt das Kennwort des Benutzerkontos ein, die im angegebenen die **/u** Parameter. **/ p** kann nicht verwendet werden, es sei denn, **/u** angegeben ist.                                                                            |
+|        / FO {table         |                                                                                                                                             list                                                                                                                                             |
+|            /nh            |                                                                                      Lässt die Headerzeile aus der angezeigten Treiberinformationen. Nicht gültig, wenn die **/Fo** Parametersatz zu **Liste**.                                                                                      |
+|            /v             |                                                                                                               Zeigt eine ausführliche Ausgabe. **/ v** gilt nicht für signierte Treiber.                                                                                                               |
+|            /si            |                                                                                                                          Enthält Informationen zu den signierten Treiber.                                                                                                                          |
+|            /?             |                                                                                                                             Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                             |
 
 ## <a name="BKMK_examples"></a>Beispiele für
 
@@ -72,4 +72,4 @@ driverquery /s server1 /u maindom\user1 /p p@ssw3d
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

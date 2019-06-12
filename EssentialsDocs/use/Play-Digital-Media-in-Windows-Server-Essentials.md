@@ -12,12 +12,12 @@ ms.assetid: 5f570492-ee21-471b-92c1-3fd9bfb84f55
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 8228d0b17a58858ed893181ddceb465715ffdeb5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f38d234768d40903615145954f1215546119344a
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874101"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435943"
 ---
 # <a name="play-digital-media-in-windows-server-essentials"></a>Wiedergeben von digitalen Medien in Windows Server Essentials
 
@@ -190,25 +190,25 @@ Digitale Medien sind Audio-, Video- und Fotoinhalte, die digital komprimiert wur
   
 #### <a name="to-play-shared-media-files-when-you-are-away-from-the-network"></a>So geben Sie freigegebene Mediendateien wieder, wenn Sie keinen Zugriff auf Ihr Netzwerk haben  
   
-1.  Öffnen Sie einen Internetbrowser.  
+1. Öffnen Sie einen Internetbrowser.  
   
-2.  Wechseln Sie zur Website für Remotewebzugriff. Typ **https://<YourDomainName\>/remote** in der Adressleiste des Internet-Browser, und drücken Sie dann die EINGABETASTE.  
+2. Wechseln Sie zur Website für Remotewebzugriff. Typ **https://<YourDomainName\>/remote** in der Adressleiste des Internet-Browser, und drücken Sie dann die EINGABETASTE.  
   
-    > [!NOTE]
-    >  *< IhrDomänenname\>*  ist ein Platzhalter. Sie werden ein Name, der auf dem Server eindeutig ist, damit die eingegebene Adresse aussieht **https://contoso.com/remote**. Wenn Sie den Namen der Domäne nicht kennen, erkundigen Sie sich beim Administrator, der den Domänennamen bei der Einrichtung der Remotezugriffsfunktion auf dem Server ausgewählt hat. Weitere Informationen finden Sie unter [Turn on Remote Web Access](../manage/Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_TurnOnRWA).  
+   > [!NOTE]
+   >  *< IhrDomänenname\>*  ist ein Platzhalter. Sie werden ein Name, der auf dem Server eindeutig ist, damit die eingegebene Adresse aussieht **https://contoso.com/remote** . Wenn Sie den Namen der Domäne nicht kennen, erkundigen Sie sich beim Administrator, der den Domänennamen bei der Einrichtung der Remotezugriffsfunktion auf dem Server ausgewählt hat. Weitere Informationen finden Sie unter [Turn on Remote Web Access](../manage/Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_TurnOnRWA).  
   
-3.  Geben Sie auf der Anmeldeseite für den Remotewebzugriff Ihren Benutzernamen und Ihr Kennwort ein, und klicken Sie dann auf den Pfeil.  
+3. Geben Sie auf der Anmeldeseite für den Remotewebzugriff Ihren Benutzernamen und Ihr Kennwort ein, und klicken Sie dann auf den Pfeil.  
   
-4.  Suchen Sie die wiederzugebende Mediendatei auf die für Sie geeignete Weise.  
+4. Suchen Sie die wiederzugebende Mediendatei auf die für Sie geeignete Weise.  
   
-    > [!NOTE]
+   > [!NOTE]
+   > 
+   >  Informationen zu den verschiedenen Methoden zu suchen, finden Sie unter [suchen und Wiedergeben von Mediendateien in Windows Server Essentials auf einem Computer oder digital Media-Player im Netzwerk](Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_2.1).  
+   > 
+   >  Informationen zu den verschiedenen Methoden zu suchen, finden Sie unter [suchen und Wiedergeben von Mediendateien in Windows Server Essentials auf einem Computer oder digital Media-Player im Netzwerk](../use/Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_2.1).  
 
-    >  Informationen zu den verschiedenen Methoden zu suchen, finden Sie unter [suchen und Wiedergeben von Mediendateien in Windows Server Essentials auf einem Computer oder digital Media-Player im Netzwerk](Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_2.1).  
-
-    >  Informationen zu den verschiedenen Methoden zu suchen, finden Sie unter [suchen und Wiedergeben von Mediendateien in Windows Server Essentials auf einem Computer oder digital Media-Player im Netzwerk](../use/Play-Digital-Media-in-Windows-Server-Essentials.md#BKMK_2.1).  
-
   
-5.  Sobald der Name der Mediendatei angezeigt wird, klicken Sie auf den Dateinamen, um das Medium wiederzugeben.  
+5. Sobald der Name der Mediendatei angezeigt wird, klicken Sie auf den Dateinamen, um das Medium wiederzugeben.  
   
 ##  <a name="BKMK_4"></a> Fügen Sie digitaler Mediendateien zum Server hinzu  
 
@@ -241,21 +241,21 @@ Digitale Medien sind Audio-, Video- und Fotoinhalte, die digital komprimiert wur
   
  Wählen Sie im Folgenden die Option, die Ihre Downloadanforderungen erfüllt:  
   
--   **Komprimierte ZIP-Datei (.zip)**  
+- **Komprimierte ZIP-Datei (.zip)**  
   
-     Durch das Zippen einer Datei wird eine komprimierte Dateiversion erstellt, die kleiner als die Originaldatei ist. Die komprimierte Dateiversion verfügt über die Dateierweiterung ".zip". Dateitypen, die am meisten von der Komprimierung profitieren, sind textorientierte Dateitypen (z. B. TXT-, DOC- und XLS-Dateien) und Grafiken, die nicht komprimierte Dateitypen verwenden (z. B. ".bmp"). Einige Grafikdateien wie JPG- und GIF-Dateien nutzen bereits die Komprimierung, sodass sich die Dateigröße durch das Komprimieren nur geringfügig verkleinert. Darüber hinaus reduziert sich die Dateigröße eines Word-Dokuments mit vielen Grafiken nicht in dem Maße wie ein Dokument, das hauptsächlich Text enthält.  
+   Durch das Zippen einer Datei wird eine komprimierte Dateiversion erstellt, die kleiner als die Originaldatei ist. Die komprimierte Dateiversion verfügt über die Dateierweiterung ".zip". Dateitypen, die am meisten von der Komprimierung profitieren, sind textorientierte Dateitypen (z. B. TXT-, DOC- und XLS-Dateien) und Grafiken, die nicht komprimierte Dateitypen verwenden (z. B. ".bmp"). Einige Grafikdateien wie JPG- und GIF-Dateien nutzen bereits die Komprimierung, sodass sich die Dateigröße durch das Komprimieren nur geringfügig verkleinert. Darüber hinaus reduziert sich die Dateigröße eines Word-Dokuments mit vielen Grafiken nicht in dem Maße wie ein Dokument, das hauptsächlich Text enthält.  
   
-    > [!NOTE]
-    >  Diese Option bietet eingeschränkte Unterstützung für internationale Dateinamen.  
+  > [!NOTE]
+  >  Diese Option bietet eingeschränkte Unterstützung für internationale Dateinamen.  
   
--   **Selbstextrahierende ausführbare Datei (.exe)**  
+- **Selbstextrahierende ausführbare Datei (.exe)**  
   
-     Eine selbstextrahierende ausführbare Datei ist eine herunterladbare Datei, die das Dekomprimierungsprogramm (ausführbare Datei) mit den komprimierten Dateien kombiniert. Beim Ausführen des Programms werden die komprimierten Dateien automatisch dekomprimiert. Mit diesem gängigen Verfahren können komprimierte Daten verteilt werden, ohne dass der Empfänger über das nötige Dekomprimierungshilfsprogramm verfügen muss.  
+   Eine selbstextrahierende ausführbare Datei ist eine herunterladbare Datei, die das Dekomprimierungsprogramm (ausführbare Datei) mit den komprimierten Dateien kombiniert. Beim Ausführen des Programms werden die komprimierten Dateien automatisch dekomprimiert. Mit diesem gängigen Verfahren können komprimierte Daten verteilt werden, ohne dass der Empfänger über das nötige Dekomprimierungshilfsprogramm verfügen muss.  
   
-    > [!NOTE]
-    >  Diese Option unterstützt Unicode-Zeichen.  
+  > [!NOTE]
+  >  Diese Option unterstützt Unicode-Zeichen.  
   
- Vor Beginn des eigentlichen Downloads wird die EXE- oder ZIP-Datei erstellt. Abhängig von der Anzahl der Dateien und der Gesamtgröße der Downloaddateien kann dies einige Minuten dauern. Nachdem die Downloaddatei erstellt wurde, erfolgt das Herunterladen der Datei im Hintergrund. Dadurch können Sie weiterarbeiten, während der Downloadvorgang ausgeführt wird.  
+  Vor Beginn des eigentlichen Downloads wird die EXE- oder ZIP-Datei erstellt. Abhängig von der Anzahl der Dateien und der Gesamtgröße der Downloaddateien kann dies einige Minuten dauern. Nachdem die Downloaddatei erstellt wurde, erfolgt das Herunterladen der Datei im Hintergrund. Dadurch können Sie weiterarbeiten, während der Downloadvorgang ausgeführt wird.  
   
 ##  <a name="BKMK_6"></a> Einfache Tool "Dateiupload"  
  Die Tool "einfacher Dateiupload" optimiert das Hochladen von Dateien auf dem Windows Server Essentials-Server. Sie können beliebig viele Dateien, wie Sie das Tool einfacher Dateiupload möchten, und klicken Sie dann auf die freigegebenen Ordner auf dem Windows Server Essentials-Server in einem einzelnen Batch hochladen hinzufügen. Weitere Informationen finden Sie im Blogbeitrag [Grundlegendes zur Dateifreigabe mit Remotewebzugriff](http://blogs.technet.com/b/sbs/archive/2012/04/19/understanding-remote-web-access-file-sharing.aspx).  

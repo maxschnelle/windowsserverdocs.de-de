@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 17c050a3504e763488a34bd19faad80558847965
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b6f89c1e3b0d36f14dbd55f9e6994c788305b30d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868821"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66437184"
 ---
 # <a name="mstsc"></a>mstsc
 
@@ -37,19 +37,20 @@ mstsc.exe /migrate
 ```
 
 ## <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
-|-------|--------|
-|<Connection File>|Gibt den Namen einer RDP-Datei für die Verbindung.|
-|/ v: < Server [:<Port>]|Gibt an, die Remotecomputer und optional die Portnummer, die Sie eine Verbindung herstellen möchten.|
-|/admin|Verbindet Sie mit einer Sitzung für das Verwalten des Servers.|
-|/f|Startet Remotedesktopverbindung im Vollbildmodus an.|
-|/w:<Width>|Gibt die Breite des Fensters Remotedesktop.|
-|/h:<Height>|Gibt die Höhe des Fensters Remotedesktop.|
-|/public|Remotedesktop im öffentlichen Modus ausgeführt. Im öffentlichen Modus werden Kennwörter und Bitmaps nicht zwischengespeichert.|
-|/span|Entspricht der Remotedesktop-Breite und Höhe mit dem lokalen virtuellen Desktop, die Aufteilung auf mehrere Monitore bei Bedarf.|
-|/ Edit <Connection File>|Öffnet die angegebene RDP-Datei zur Bearbeitung.|
-|/ Migrieren|Ältere Verbindungsdateien, die mit Client-Verbindungs-Manager, in neue RDP-Verbindungsdateien erstellt wurden wird migriert.|
-|/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
+
+|        Parameter        |                                                         Beschreibung                                                         |
+|-------------------------|-----------------------------------------------------------------------------------------------------------------------------|
+|    <Connection File>    |                                   Gibt den Namen einer RDP-Datei für die Verbindung.                                    |
+|   / v: < Server [:<Port>]   |                Gibt an, die Remotecomputer und optional die Portnummer, die Sie eine Verbindung herstellen möchten.                 |
+|         /admin          |                                   Verbindet Sie mit einer Sitzung für das Verwalten des Servers.                                   |
+|           /f            |                                    Startet Remotedesktopverbindung im Vollbildmodus an.                                    |
+|       /w:<Width>        |                                      Gibt die Breite des Fensters Remotedesktop.                                      |
+|       /h:<Height>       |                                     Gibt die Höhe des Fensters Remotedesktop.                                      |
+|         /public         |                  Remotedesktop im öffentlichen Modus ausgeführt. Im öffentlichen Modus werden Kennwörter und Bitmaps nicht zwischengespeichert.                  |
+|          /span          | Entspricht der Remotedesktop-Breite und Höhe mit dem lokalen virtuellen Desktop, die Aufteilung auf mehrere Monitore bei Bedarf. |
+| / Edit <Connection File> |                                         Öffnet die angegebene RDP-Datei zur Bearbeitung.                                          |
+|        / Migrieren         |       Ältere Verbindungsdateien, die mit Client-Verbindungs-Manager, in neue RDP-Verbindungsdateien erstellt wurden wird migriert.       |
+|           /?            |                                            Zeigt die Hilfe an der Eingabeaufforderung an.                                             |
 
 ## <a name="remarks"></a>Hinweise
 -   Default.RDP wird für jeden Benutzer als eine ausgeblendete Datei im Ordner "Dokumente" des Benutzers gespeichert. Benutzer, die RDP-Dateien erstellt werden standardmäßig im Ordner "Dokumente" des Benutzers gespeichert, jedoch kann eine beliebige Stelle gespeichert werden.
@@ -64,7 +65,7 @@ mstsc.exe /migrate
     ```
     mstsc /edit filename.rdp
     ```
-    
+
 #### <a name="additional-references"></a>Zusätzliche Referenzen
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Remotedesktopdienste &#40;Terminaldienste&#41; -Befehlsreferenz](remote-desktop-services-terminal-services-command-reference.md)

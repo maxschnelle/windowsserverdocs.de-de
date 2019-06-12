@@ -12,14 +12,14 @@ ms.assetid: 07d0c4c6-3e92-4969-82b8-105e46ab8d97
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: c60e5f73c88a225fbd1067992894f9d20da745ad
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a99698519524c3b5050dc534d61921560522528c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59860481"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433869"
 ---
-#<a name="support-for-larger-deployments"></a>Unterstützung für größere Bereitstellungen
+# <a name="support-for-larger-deployments"></a>Unterstützung für größere Bereitstellungen
 
 >Gilt für: Windows Server 2016 Essentials
 
@@ -34,7 +34,7 @@ Windows Server Essentials unterstützt nun die größere Bereitstellungen mit:
 - Möglichkeit zum Angeben eines designierten Domänencontrollers
 - Support für bis zu 500 Benutzer und 500 Geräte
 
-##<a name="support-for-multiple-domains"></a>Unterstützung mehrerer Domänen
+## <a name="support-for-multiple-domains"></a>Unterstützung mehrerer Domänen
 
 Windows Server 2012 R2 Essentials unterstützt nur eine Domäne pro Server, der erforderlich ist, und der Essentials-Server muss der Stamm der Gesamtstruktur sein. Während einer Domäne und Gesamtstruktur nach wie vor erforderlich sind, kann nun die Windows Server 2016 Essentials Experience-Rolle auf Windows Server 2016 Standard oder Datacenter Unterstützung für mehrere Domänen bereitgestellt werden.
 
@@ -42,7 +42,7 @@ Windows Server 2012 R2 Essentials unterstützt nur eine Domäne pro Server, der 
 
  Windows Server Essentials 2012 R2 blockiert alle Dienste, die Azure Active Directory, z. B. Office 365 nutzen, in denen mehr als einen Domänencontroller bereitgestellt wird. Der Grund ist, dass die Konto- und kennwortsynchronisierung zwischen dem lokalen Domänencontroller und Azure Active Directory, Anmeldeinformationen mit Kennwörtern führen kann, die nicht mehr synchron sind. Diese Einschränkung wurde in Windows Server 2016 Essentials entfernt.
 
-##<a name="ability-to-specify-a-designated-domain-controller"></a>Möglichkeit zum Angeben eines designierten Domänencontrollers
+## <a name="ability-to-specify-a-designated-domain-controller"></a>Möglichkeit zum Angeben eines designierten Domänencontrollers
 
 Jetzt können Sie einen designierten Domänencontroller die wird Abrufzeiten für Objekte der Active Directory-Domäne zu verbessern sowie Synchronisierung von kontoänderung in andere Domänencontroller in der Domäne zu koordinieren.
 
@@ -50,7 +50,7 @@ Standard festgelegten Domänencontroller wird derselbe Server sein, der die Wind
 
 ![Dieser Screenshot zeigt die Einstellungen steuern das Bereich in den Vordergrund und dem Windows Server Essentials-Dashboard im Hintergrund. Derzeit ist die Domänencontroller festgelegt-Seite der Systemsteuerung Einstellungen ausgewählt.](media/larger-deployments-1.PNG)
 
-##<a name="support-for-500-users-and-500-devices"></a>Unterstützung von 500 Benutzern und 500 Geräte
+## <a name="support-for-500-users-and-500-devices"></a>Unterstützung von 500 Benutzern und 500 Geräte
 -------------------------------------
 
 Die maximale Anzahl von unterstützten Benutzer und Geräte in Windows Server 2012 R2 Essentials ist 25 und 50. Mit der Einführung der Windows Server Essentials Experience-Serverrolle diesen Grenzwert zu 100 Benutzern und 200 Geräten erhöht wurde.
@@ -66,4 +66,4 @@ Dieser Screenshot zeigt die Verwendung der Suchfunktion des Windows Server Essen
 
 <a name="see-also"></a>Siehe auch
 --------
-[Erste Schritte mit Windows Server Essentials](get-started.md)
+[Erste Schritte in Windows Server Essentials](get-started.md)

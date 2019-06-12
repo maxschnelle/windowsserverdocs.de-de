@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: beb94475-b21f-46a9-ac51-bf2bb28ca94e
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 468854d6e03bbc2abee3b9fce7f7960c7c25cfd3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2a38e5682b03cdb37ff88332317122b6addd000c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879711"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446875"
 ---
 # <a name="monitor-connected-remote-clients-for-activity-and-status"></a>Überwachen der Aktivitäten und des Status von verbundenen Remoteclients
 
@@ -41,7 +41,7 @@ Sie können die-Verwaltungskonsole auf dem RAS-Server verwenden, remoteclientakt
   
 4.  Sehen Sie die Liste der Benutzer, die mit dem RAS-Server verbunden sind, und detaillierte Statistiken zu diesen. Klicken Sie auf der ersten Zeile in der Liste, die ein Client entspricht. Wenn Sie eine Zeile auswählen, wird die Remotebenutzer-Aktivität im Vorschaufenster angezeigt.  
   
-![Windows PowerShell](../../../media/Monitor-connected-remote-clients-for-activity-and-status/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***  
+![Windows PowerShell](../../../media/Monitor-connected-remote-clients-for-activity-and-status/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
