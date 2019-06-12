@@ -8,12 +8,12 @@ ms.date: 06/28/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: dbef7d07041a1fd32656c95947d5202b566c068a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c85a02ae6a71cf31fd172ec012a14cd81c126e16
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868321"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445651"
 ---
 # <a name="migrate-an-ad-fs-20-wid-farm"></a>Migrieren einer AD FS 2.0-WID-farm  
 Dieses Dokument enthält ausführliche Informationen zum Migrieren eines AD FS 2.0 Windows Internal Database (WID)-Farm zu Windows Server 2012.
@@ -30,7 +30,7 @@ Um eine WID-Farm zu Windows Server 2012 zu migrieren, führen Sie die folgenden 
 > [!IMPORTANT]
 >  Als Ergebnis der Aktualisierung des Betriebssystems die AD FS-Konfiguration auf diesem Server verloren und die AD FS 2.0-Serverrolle wird entfernt. Wird stattdessen die Windows Server 2012 AD FS-Serverrolle installiert, aber nicht konfiguriert ist. Sie müssen die ursprüngliche AD FS-Konfiguration erstellen und Wiederherstellen der verbleibenden AD FS-Einstellungen, um die verbundservermigration abzuschließen.  
   
-4.  Erstellen Sie die ursprüngliche AD FS-Konfiguration auf diesem Server an.  
+4. Erstellen Sie die ursprüngliche AD FS-Konfiguration auf diesem Server an.  
   
 Sie können die ursprüngliche AD FS-Konfiguration erstellen, mit der **AD FS-Verbundserverkonfigurations-Assistenten** eine WID-Farm einen Verbundserver hinzu. Weitere Informationen finden Sie unter [Hinzufügen eines Verbundservers zu einer Verbundserverfarm](add-a-federation-server-to-a-federation-server-farm.md).  
   
@@ -39,13 +39,13 @@ Sie können die ursprüngliche AD FS-Konfiguration erstellen, mit der **AD FS-Ve
 >  
 > Sie beim Erreichen der **Geben Sie dem Namen des Verbunddiensts** Seite, wählen Sie dasselbe SSL-Zertifikat, das Sie in der "Vorbereiten der Migration eine WID-Farm" aufgezeichnet [Vorbereiten der Migration des AD FS 2.0-Verbundservers](prepare-to-migrate-a-wid-farm.md).  
   
-5.  Aktualisieren Sie Ihre AD FS-Webseiten auf diesem Server. Wenn Sie Ihre angepassten AD FS-Webseiten während der Vorbereitung der Migration gesichert, müssen Sie Ihre Sicherungsdaten zu verwenden, um die AD FS-Standardwebseiten zu überschreiben, die standardmäßig erstellt wurden die **%systemdrive%\inetpub\adfs\ls** als Verzeichnis ein Ergebnis von der AD FS-Konfiguration unter Windows Server 2012.  
+5. Aktualisieren Sie Ihre AD FS-Webseiten auf diesem Server. Wenn Sie Ihre angepassten AD FS-Webseiten während der Vorbereitung der Migration gesichert, müssen Sie Ihre Sicherungsdaten zu verwenden, um die AD FS-Standardwebseiten zu überschreiben, die standardmäßig erstellt wurden die **%systemdrive%\inetpub\adfs\ls** als Verzeichnis ein Ergebnis von der AD FS-Konfiguration unter Windows Server 2012.  
   
-6.  Fügen Sie den Server, den Sie für den Load Balancer nur auf Windows Server 2012 aktualisiert.  
+6. Fügen Sie den Server, den Sie für den Load Balancer nur auf Windows Server 2012 aktualisiert.  
   
-7.  Wiederholen Sie die Schritte 1 bis 6 für die restlichen sekundären Server in Ihrer Windows-datenbankfarm.  
+7. Wiederholen Sie die Schritte 1 bis 6 für die restlichen sekundären Server in Ihrer Windows-datenbankfarm.  
   
-8.  Stufen Sie einen der sekundären Server, für die ein Upgrade ausgeführt wurde, zum primären Server in der internen Windows-Datenbankfarm herauf. Öffnen Sie dazu Windows PowerShell, und führen Sie den folgenden Befehl aus: `PSH:> Set-AdfsSyncProperties –Role PrimaryComputer`.  
+8. Stufen Sie einen der sekundären Server, für die ein Upgrade ausgeführt wurde, zum primären Server in der internen Windows-Datenbankfarm herauf. Öffnen Sie dazu Windows PowerShell, und führen Sie den folgenden Befehl aus: `PSH:> Set-AdfsSyncProperties –Role PrimaryComputer`.  
   
 9. Entfernen Sie den ursprünglichen primären Server Ihrer internen Windows-Datenbankfarm aus dem Lastenausgleich.  
   
@@ -76,4 +76,4 @@ Sie können die ursprüngliche AD FS-Konfiguration erstellen, mit der **AD FS-Ve
  [Vorbereiten der Migration von AD FS 2.0-Verbundserver-Server-Proxy](prepare-to-migrate-ad-fs-fed-proxy.md)   
  [Migrieren des AD FS 2.0-Verbundservers](migrate-the-ad-fs-fed-server.md)   
  [Migrieren der AD FS 2.0-Verbundserver-Server-Proxy](migrate-the-ad-fs-2-fed-server-proxy.md)   
- [Migrieren der AD FS 1.1-Web-Agents](migrate-the-ad-fs-web-agent.md)
+ [Migrieren der AD FS 1.1-Web-Agents](migrate-the-ad-fs-web-agent.md)

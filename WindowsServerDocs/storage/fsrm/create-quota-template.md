@@ -8,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: f74382c4a5e2c0a8636edbd4f9cfe2227cd6334a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 236b5cb198a13441a087ad6dbfeef9a416e07e61
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59875871"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445981"
 ---
 # <a name="create-a-quota-template"></a>Erstellen einer Kontingentvorlage
 
@@ -55,44 +55,44 @@ Beispielsweise können Sie Schwellenwerte konfigurieren, um eine E-Mail-Nachrich
 
 **So konfigurieren Sie Benachrichtigungen, die Ressourcen-Manager generiert, mit einem Kontingentschwellenwert**
 
-1.  Klicken Sie im Dialogfeld **Kontingentvorlage erstellen** unter **Benachrichtigungsschwellenwerte** auf **Hinzufügen**. Das Dialogfeld **Schwellenwert hinzufügen** wird geöffnet.
+1. Klicken Sie im Dialogfeld **Kontingentvorlage erstellen** unter **Benachrichtigungsschwellenwerte** auf **Hinzufügen**. Das Dialogfeld **Schwellenwert hinzufügen** wird geöffnet.
 
-2.  So legen Sie eine prozentuale Kontingentgrenze fest, die eine Benachrichtigung generiert:
+2. So legen Sie eine prozentuale Kontingentgrenze fest, die eine Benachrichtigung generiert:
 
-    Geben Sie in das Textfeld **Benachrichtigungen generieren, wenn die Auslastung den folgenden Prozentwert erreicht: (%)** einen Prozentsatz der Kontingentgrenze für den Benachrichtigungsschwellenwert ein. (Der für den Schwellenwert für die erste Benachrichtigung liegt bei 85 Prozent.)
+   Geben Sie in das Textfeld **Benachrichtigungen generieren, wenn die Auslastung den folgenden Prozentwert erreicht: (%)** einen Prozentsatz der Kontingentgrenze für den Benachrichtigungsschwellenwert ein. (Der Standardprozentsatz des ersten Benachrichtigungsschwellenwerts ist 85 %.)
 
-3.  So konfigurieren Sie E-Mail-Benachrichtigungen:
+3. So konfigurieren Sie E-Mail-Benachrichtigungen:
 
-    Legen Sie auf der Registerkarte **E-Mail-Nachricht** folgende Optionen fest:
+   Legen Sie auf der Registerkarte **E-Mail-Nachricht** folgende Optionen fest:
 
-    -   Um Administratoren zu benachrichtigen, wenn ein Schwellenwert erreicht wird, aktivieren Sie das Kontrollkästchen **E-Mail an die folgenden Administratoren senden** und geben Sie die Namen der administrativen Konten ein, die die Benachrichtigungen erhalten sollen. Verwenden Sie das Format *account@domain*, und verwenden Sie Semikolons zum Trennen mehrerer Konten.
-    -   Aktivieren Sie zum Senden der E-Mail an die Person, deren gespeicherte Datei den Kontingentschwelle erreicht hat, das Kontrollkästchen **E-Mail an den Benutzer senden, der den Schwellenwert überschritten hat**.
-    -   Um die Nachricht zu konfigurieren, ändern Sie den vorgegebenen standardmäßigen Betreff und Textkörper. Der Text in Klammern fügt die Variableninformationen über das Kontingent-Ereignis ein, das die Benachrichtigung verursacht hat. Z. B. die **\[e/a-Quellbesitzer\]** Variable fügt den Namen des Benutzers, der die Datei gespeichert, die die Kontingentschwelle erreicht. Um zusätzliche Variablen in den Text einzufügen, klicken Sie auf **Variable einfügen**.
-    -   Wenn Sie weitere Header konfigurieren möchten (einschließlich Von, Cc, Bcc und Antwort an), klicken Sie auf **Weitere E-Mail-Kopfzeilen**.
+   - Um Administratoren zu benachrichtigen, wenn ein Schwellenwert erreicht wird, aktivieren Sie das Kontrollkästchen **E-Mail an die folgenden Administratoren senden** und geben Sie die Namen der administrativen Konten ein, die die Benachrichtigungen erhalten sollen. Verwenden Sie das Format <em>account@domain</em>, und verwenden Sie Semikolons zum Trennen mehrerer Konten.
+   - Aktivieren Sie zum Senden der E-Mail an die Person, deren gespeicherte Datei den Kontingentschwelle erreicht hat, das Kontrollkästchen **E-Mail an den Benutzer senden, der den Schwellenwert überschritten hat**.
+   - Um die Nachricht zu konfigurieren, ändern Sie den vorgegebenen standardmäßigen Betreff und Textkörper. Der Text in Klammern fügt die Variableninformationen über das Kontingent-Ereignis ein, das die Benachrichtigung verursacht hat. Z. B. die **\[e/a-Quellbesitzer\]** Variable fügt den Namen des Benutzers, der die Datei gespeichert, die die Kontingentschwelle erreicht. Um zusätzliche Variablen in den Text einzufügen, klicken Sie auf **Variable einfügen**.
+   - Wenn Sie weitere Header konfigurieren möchten (einschließlich Von, Cc, Bcc und Antwort an), klicken Sie auf **Weitere E-Mail-Kopfzeilen**.
 
-4.  So protokollieren Sie ein Ereignis:
+4. So protokollieren Sie ein Ereignis:
 
-    Klicken Sie auf die Registerkarte **Ereignisprotokoll** und wählen Sie das Kontrollkästchen **Warnung an Ereignisprotokoll senden**. Bearbeiten Sie anschließend den Standard-Protokolleintrag.
+   Klicken Sie auf die Registerkarte **Ereignisprotokoll** und wählen Sie das Kontrollkästchen **Warnung an Ereignisprotokoll senden**. Bearbeiten Sie anschließend den Standard-Protokolleintrag.
 
-5.  So führen Sie einen Befehl oder ein Skript aus:
+5. So führen Sie einen Befehl oder ein Skript aus:
 
-    Aktivieren Sie auf der Registerkarte **Befehl** das Kontrollkästchen **Diesen Befehl oder dieses Skript ausführen** . Geben Sie anschließend den Befehl ein oder klicken Sie auf **Durchsuchen**, um den Speicherort zu suchen, in dem das Skript gespeichert ist. Sie können ebenfalls Befehlsargumente eingeben, ein Arbeitsverzeichnis für den Befehl oder ein Skript auswählen oder die Sicherheitsstufeneinstellungen für den Befehl ändern.
+   Aktivieren Sie auf der Registerkarte **Befehl** das Kontrollkästchen **Diesen Befehl oder dieses Skript ausführen** . Geben Sie anschließend den Befehl ein oder klicken Sie auf **Durchsuchen**, um den Speicherort zu suchen, in dem das Skript gespeichert ist. Sie können ebenfalls Befehlsargumente eingeben, ein Arbeitsverzeichnis für den Befehl oder ein Skript auswählen oder die Sicherheitsstufeneinstellungen für den Befehl ändern.
 
-6.  So erstellen Sie einen oder mehrere Speicherberichte:
+6. So erstellen Sie einen oder mehrere Speicherberichte:
 
-    Aktivieren Sie auf der Registerkarte **Bericht** das Kontrollkästchen **Berichte** und wählen Sie dann aus, welche Berichte erstellt werden sollen. (Sie können einen oder mehrere Administratoren als E-Mail-Empfänger für den Bericht auswählen oder den Bericht per E-Mail an den Benutzer senden, dessen Datei den Schwellenwert erreicht hat.)
+   Aktivieren Sie auf der Registerkarte **Bericht** das Kontrollkästchen **Berichte** und wählen Sie dann aus, welche Berichte erstellt werden sollen. (Sie können einen oder mehrere Administratoren als E-Mail-Empfänger für den Bericht auswählen oder den Bericht per E-Mail an den Benutzer senden, dessen Datei den Schwellenwert erreicht hat.)
 
-    Der Bericht wird am Standardort für Schadensberichte gespeichert. Dieser kann im Dialogfeld **Optionen für den Ressourcen-Manager für Dateiserver** geändert werden.
+   Der Bericht wird am Standardort für Schadensberichte gespeichert. Dieser kann im Dialogfeld **Optionen für den Ressourcen-Manager für Dateiserver** geändert werden.
 
-7.  Klicken Sie auf **OK**, um den Benachrichtigungsschwellenwert zu speichern.
+7. Klicken Sie auf **OK**, um den Benachrichtigungsschwellenwert zu speichern.
 
-8.  Wiederholen Sie diese Schritte aus, wenn Sie zusätzliche Benachrichtigungsschwellenwerte für die Kontingentvorlage konfigurieren möchten.
+8. Wiederholen Sie diese Schritte aus, wenn Sie zusätzliche Benachrichtigungsschwellenwerte für die Kontingentvorlage konfigurieren möchten.
 
 ## <a name="see-also"></a>Siehe auch
 
--   [Management von sollvorgaben](quota-management.md)
--    [Einstellung File Server Resource Manager-Optionen](setting-file-server-resource-manager-options.md)
--   [Kontingentvorlageneigenschaften bearbeiten](edit-quota-template-properties.md)
+-   [Kontingentverwaltung](quota-management.md)
+-    [Festlegen der Optionen des Ressourcen-Managers für Dateiserver](setting-file-server-resource-manager-options.md)
+-   [Bearbeiten von Kontingentvorlageneigenschaften](edit-quota-template-properties.md)
 -   [Befehlszeilentools](command-line-tools.md)
 
 

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0a76ea6ede1237b05a7f7dd95fdb9f7c1560a922
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 13eb4e45b3fdc17fd48fa9793abaaf05925b56a2
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858251"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436961"
 ---
 # <a name="nslookup-finger-command"></a>Befehl nslookup finger
 
@@ -34,12 +34,12 @@ finger [<UserName>] [{[>] <FileName>|[>>] <FileName>}]
 
 ## <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|\<Benutzername >|Gibt den Namen des zu suchenden Benutzers.|
-|\<FileName>|Gibt einen Dateinamen in dem die Ausgabe zu speichern. Sie können es verwenden, der größer als (>) und doppeltes größer als (>>) Zeichen, die die Ausgabe umgeleitet, auf die übliche Weise.|
-|{Hilfe | ?}|Zeigt eine kurze Zusammenfassung der **Nslookup** Unterbefehle.|
+|  Parameter  |                                                                               Beschreibung                                                                               |
+|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| \<Benutzername > |                                                               Gibt den Namen des zu suchenden Benutzers.                                                                |
+| \<FileName> | Gibt einen Dateinamen in dem die Ausgabe zu speichern. Sie können es verwenden, der größer als (>) und doppeltes größer als (>>) Zeichen, die die Ausgabe umgeleitet, auf die übliche Weise. |
+|    {Hilfe    |                                                                                   ?}                                                                                    |
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

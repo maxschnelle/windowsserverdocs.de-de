@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: d46ede6f-1a21-414d-b8c3-6b5c87344b9d
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 5bb28ff6131c371e4b2f668fd20ec0a6133a0099
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: db0318f1306102bf19c82012f57e78ce2852d288
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59860001"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446616"
 ---
 # <a name="step-4-install-and-configure-rsa-and-edge1"></a>Schritt 4 installieren und Konfigurieren von RSA und EDGE1
 
@@ -66,13 +66,13 @@ Sie führt die folgenden Schritte aus, um den RSA-Bereitstellung zu konfiguriere
   
 2.  In **Netzwerkverbindungen**, mit der rechten Maustaste **LAN-Verbindung**, und klicken Sie dann auf **Eigenschaften**.  
   
-3.  Klicken Sie auf **Internetprotokoll Version 4 (TCP/IPv4)**, und klicken Sie dann auf **Eigenschaften**.  
+3.  Klicken Sie auf **Internetprotokoll Version 4 (TCP/IPv4)** , und klicken Sie dann auf **Eigenschaften**.  
   
 4.  Klicken Sie auf **Folgende IP-Adresse verwenden**. Geben Sie im Feld **IP-Adresse**die Adresse **10.0.0.5**ein. Geben Sie im Feld **Subnetzmaske**den Wert **255.255.255.0**ein. In **Standardgateway**, Typ **10.0.0.2**. Klicken Sie auf **verwenden Sie die folgenden DNS-Serveradressen**im **Bevorzugter DNS-Server**, Typ **10.0.0.1**.  
   
 5.  Klicken Sie auf **Erweitert** und dann auf die Registerkarte **DNS**.  
   
-6.  In **DNS-Suffix für diese Verbindung**, Typ **"corp.contoso.com"**, und klicken Sie dann auf **OK** zweimal.  
+6.  In **DNS-Suffix für diese Verbindung**, Typ **"corp.contoso.com"** , und klicken Sie dann auf **OK** zweimal.  
   
 7.  Auf der **Eigenschaften von LAN-Verbindung** Dialogfeld klicken Sie auf **schließen**.  
   
@@ -94,7 +94,7 @@ Sie führt die folgenden Schritte aus, um den RSA-Bereitstellung zu konfiguriere
   
 2.  Klicken Sie im Dialogfeld **Systemeigenschaften** auf der Registerkarte **Computername** auf **Ändern**.  
   
-3.  In **Computername**, Typ **RSA**. In **Mitglied**, klicken Sie auf **Domäne**, Typ **"corp.contoso.com"**, und klicken Sie auf **OK**.  
+3.  In **Computername**, Typ **RSA**. In **Mitglied**, klicken Sie auf **Domäne**, Typ **"corp.contoso.com"** , und klicken Sie auf **OK**.  
   
 4.  Wenn Sie für einen Benutzernamen und Kennwort aufgefordert werden, geben Sie **"user1"** und dieses Kennwort, und die auf **OK**.  
   
@@ -180,11 +180,11 @@ Sie führt die folgenden Schritte aus, um den RSA-Bereitstellung zu konfiguriere
   
     3.  Unter den **Seriennummer** Überschrift klicken Sie auf die erste Zahl aufgeführt, und klicken Sie auf **weisen**.  
   
-    4.  Klicken Sie auf das zugewiesene Token, und klicken Sie auf **bearbeiten**. In der **SecurID-PIN-Verwaltung** Abschnitt **Benutzer die Authentifizierungsanforderung**wählen **erfordern keine PIN (nur Tokencode)**.  
+    4.  Klicken Sie auf das zugewiesene Token, und klicken Sie auf **bearbeiten**. In der **SecurID-PIN-Verwaltung** Abschnitt **Benutzer die Authentifizierungsanforderung**wählen **erfordern keine PIN (nur Tokencode)** .  
   
     5.  Klicken Sie auf **speichern und Verteilen von Token**.  
   
-    6.  Auf der **Verteilen von Software-Token** auf der Seite die **Grundlagen** auf **Problem Token Datei (SDTID)**.  
+    6.  Auf der **Verteilen von Software-Token** auf der Seite die **Grundlagen** auf **Problem Token Datei (SDTID)** .  
   
     7.  Auf der **Verteilen von Software-Token** auf der Seite die **Token Dateioptionen** deaktivieren Sie im Abschnitt der **Kopierschutz aktivieren** Kontrollkästchen. Klicken Sie auf **kein Kennwort** und **Weiter**.  
   
@@ -194,7 +194,7 @@ Sie führt die folgenden Schritte aus, um den RSA-Bereitstellung zu konfiguriere
   
 8.  Konfigurieren Sie Authentifizierungs-Manager als RADIUS-Server.  
   
-    1.  Klicken Sie auf den desktop Doppelklick des RSA-Computer **"RSA Security Operations-Konsole"**.  
+    1.  Klicken Sie auf den desktop Doppelklick des RSA-Computer **"RSA Security Operations-Konsole"** .  
   
     2.  Wenn die Sicherheit Warnung Zertifikat / sicherheitswarnung angezeigt, klicken Sie auf **Laden dieser Website fortsetzen** oder klicken Sie auf **Ja** fortfahren und diesen Standort zu vertrauenswürdigen Websites hinzufügen werden, wenn angefordert.  
   
@@ -208,7 +208,7 @@ Sie führt die folgenden Schritte aus, um den RSA-Bereitstellung zu konfiguriere
   
     7.  Überprüfen Sie, ob die Nachricht **"wurde erfolgreich konfiguriert RADIUS-Server"** wird angezeigt. Klicken Sie auf **Fertig**. Schließen der **RSA-Betriebskonsole**.  
   
-    8.  Wechseln Sie zurück zu den **"RSA Security-Konsole"**.  
+    8.  Wechseln Sie zurück zu den **"RSA Security-Konsole"** .  
   
     9. Auf der **RADIUS** Registerkarte auf **RADIUS-Servern**. Stellen Sie sicher, dass diese rsa.corp.contoso.com aufgeführt ist.  
   
@@ -228,7 +228,7 @@ Sie führt die folgenden Schritte aus, um den RSA-Bereitstellung zu konfiguriere
   
     1.  Auf der **Zugriff** Registerkarte, markieren Sie **Authentifizierungs-Agents**, und klicken Sie auf **Add New**.  
   
-    2.  Typ **EDGE1** in die **Hostname** ein, und klicken Sie auf **Auflösen von IP-**.  
+    2.  Typ **EDGE1** in die **Hostname** ein, und klicken Sie auf **Auflösen von IP-** .  
   
     3.  Beachten Sie, die die IP-Adresse EDGE1 jetzt, in angezeigt wird der **IP-Adresse** Feld. Klicken Sie auf **Speichern**.  
   
@@ -294,23 +294,23 @@ Verwenden Sie dieses Verfahren zum Konfigurieren von EDGE1 zum Ausführen der RS
   
 #### <a name="configure-the-rsa-authentication-agent"></a>Konfigurieren Sie den RSA Authentication Agent  
   
-1.  Öffnen Sie Windows Explorer, und erstellen Sie den Ordner C:\RSA-Dateien, auf EDGE1. Navigieren Sie zu den RSA-ACE-Installationsmedien.  
+1. Öffnen Sie Windows Explorer, und erstellen Sie den Ordner C:\RSA-Dateien, auf EDGE1. Navigieren Sie zu den RSA-ACE-Installationsmedien.  
   
-2.  Kopieren Sie die agent_nsload.exe Dateien, AM_Config.zip und EDGE1_NodeSecret.zip vom RSA-Medium auf C:\RSA-Dateien.  
+2. Kopieren Sie die agent_nsload.exe Dateien, AM_Config.zip und EDGE1_NodeSecret.zip vom RSA-Medium auf C:\RSA-Dateien.  
   
-3.  Extrahieren Sie den Inhalt der beiden Zip-Dateien in der folgenden Speicherorte:  
+3. Extrahieren Sie den Inhalt der beiden Zip-Dateien in der folgenden Speicherorte:  
   
-    1.  C:\Windows\system32\  
+   1.  C:\Windows\system32\  
   
-    2.  C:\Windows\SysWOW64\  
+   2.  C:\Windows\SysWOW64\  
   
-4.  Copy agent_nsload.exe to C:\Windows\SysWOW64\\.  
+4. Copy agent_nsload.exe to C:\Windows\SysWOW64\\.  
   
-5.  Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten, und navigieren Sie zu C:\Windows\SysWOW64.  
+5. Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten, und navigieren Sie zu C:\Windows\SysWOW64.  
   
-6.  Typ **agent_nsload.exe -f nodesecret.rec -p <password>**  , in denen <password> das starke Kennwort, das Sie während der anfänglichen RSA-Konfiguration erstellt wird. Drücken Sie die EINGABETASTE.  
+6. Typ **agent_nsload.exe -f nodesecret.rec -p <password>**  , in denen <password> das starke Kennwort, das Sie während der anfänglichen RSA-Konfiguration erstellt wird. Drücken Sie die EINGABETASTE.  
   
-7.  Copy C:\Windows\SysWOW64\securid to C:\Windows\System32.  
+7. Copy C:\Windows\SysWOW64\securid to C:\Windows\System32.  
   
 ## <a name="configOTP"></a>Konfigurieren von EDGE1 zu OTP-Authentifizierung unterstützen  
 Verwenden Sie dieses Verfahren zum Konfigurieren von OTP für DirectAccess, und überprüfen Sie die Konfiguration.  

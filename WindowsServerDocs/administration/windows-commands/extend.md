@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 84047c690006bf727bc12855576960bbf67d1617
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6fdf070a733392d89bafe5bed5a1bf23d8e24d57
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857931"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439354"
 ---
 # <a name="extend"></a>Erweitern
 
@@ -37,12 +37,12 @@ extend filesystem [noerr]
   
 ## <a name="parameters"></a>Parameter  
   
-|Parameter|Beschreibung|  
-|-------|--------|  
-|Größe\=<n>|Gibt die Menge des Speicherplatzes in Megabyte \(MB\) so die aktuellen Volume oder eine Partition hinzu. Wenn keine Größe angegeben wird, werden alle dem freien Speicherplatz, der auf dem Datenträger verfügbar ist verwendet.|  
-|disk\=<n>|Gibt den Datenträger, auf dem das Volume oder die Partition erweitert wird. Wenn kein Laufwerk angegeben wird, wird das Volume oder eine Partition auf dem aktuellen Datenträger erweitert.|  
-|Dateisystem|Erweitert das Dateisystem des Volumes mit dem Fokus. Für die Verwendung nur auf Datenträgern, in dem das Dateisystem mit dem Volume nicht erweitert wurde.|  
-|Diskpart|nur für Skripts. Wenn ein Fehler gefunden wird, weiterhin DiskPart Befehle zu verarbeiten, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter wird ein Fehler DiskPart mit dem Fehlercode zu beenden.|  
+| Parameter  |                                                                                             Beschreibung                                                                                              |
+|------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Größe\=<n>  |      Gibt die Menge des Speicherplatzes in Megabyte \(MB\) so die aktuellen Volume oder eine Partition hinzu. Wenn keine Größe angegeben wird, werden alle dem freien Speicherplatz, der auf dem Datenträger verfügbar ist verwendet.       |
+| disk\=<n>  |                          Gibt den Datenträger, auf dem das Volume oder die Partition erweitert wird. Wenn kein Laufwerk angegeben wird, wird das Volume oder eine Partition auf dem aktuellen Datenträger erweitert.                          |
+| Dateisystem |                                   Erweitert das Dateisystem des Volumes mit dem Fokus. Für die Verwendung nur auf Datenträgern, in dem das Dateisystem mit dem Volume nicht erweitert wurde.                                    |
+|   Diskpart    | nur für Skripts. Wenn ein Fehler gefunden wird, weiterhin DiskPart Befehle zu verarbeiten, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter wird ein Fehler DiskPart mit dem Fehlercode zu beenden. |
   
 ## <a name="remarks"></a>Hinweise  
   
@@ -72,7 +72,7 @@ extend filesystem
 ```  
   
 #### <a name="additional-references"></a>Zusätzliche Referenzen  
-[Befehlszeilensyntax](command-line-syntax-key.md)  
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
   
 
   

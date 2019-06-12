@@ -8,12 +8,12 @@ ms.topic: get-started-article
 author: nedpyle
 ms.date: 04/26/2019
 ms.assetid: 12bc8e11-d63c-4aef-8129-f92324b2bf1b
-ms.openlocfilehash: e832dce3eed7d0e5103254fb48683726b82af2e6
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: d03407292a797b1cd511937ba40fc0fa373f5dc0
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65475930"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447568"
 ---
 # <a name="frequently-asked-questions-about-storage-replica"></a>Häufig gestellte Fragen zu Speicherreplikaten
 
@@ -227,7 +227,7 @@ Leider können wir unterstützen keine, erstellen eine *neue* Partnerschaft zwis
 Allerdings rufen Sie die verbesserte replikationsleistung von Windows Server-2019 müssen alle Mitglieder der Partnerschaft 2019 für Windows Server ausführen und Sie müssen vorhandene Partnerschaften löschen verknüpften Replikationsgruppen und per Seeding hinzugefügten Daten (entweder neu erstellt Wenn Sie die Partnerschaft in Windows Admin Center oder mit dem Cmdlet New-SRPartnership erstellen).
 
 ## <a name="FAQ17"></a> Wie melde ich ein Problem mit Speicherreplikaten oder diesem Leitfaden?  
-Falls Sie technische Unterstützung für Speicherreplikate benötigen, können Sie Ihre Fragen in den [Microsoft TechNet-Foren](https://social.technet.microsoft.com/Forums/windowsserver/en-US/home?forum=WinServerPreview) stellen. Sie können uns auch eine E-Mail an srfeed@microsoft.com senden, wenn Sie Fragen zu Speicherreplikaten oder dieser Dokumentation haben. Die https://windowsserver.uservoice.com Standort wird für Design Change Requests, bevorzugt, da anderen Kunden Unterstützung und Feedback zu Ihren Ideen geben können.
+Falls Sie technische Unterstützung für Speicherreplikate benötigen, können Sie Ihre Fragen in den [Microsoft TechNet-Foren](https://social.technet.microsoft.com/Forums/windowsserver/en-US/home?forum=WinServerPreview) stellen. Sie können uns auch eine E-Mail an srfeed@microsoft.com senden, wenn Sie Fragen zu Speicherreplikaten oder dieser Dokumentation haben. Die <https://windowsserver.uservoice.com> Standort wird für Design Change Requests, bevorzugt, da anderen Kunden Unterstützung und Feedback zu Ihren Ideen geben können.
 
 
 

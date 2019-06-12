@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage-spaces
 ms.date: 07/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 7090657a0936aed0f4b2e79007f69d7b082b0b8f
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: f9b5d2b0d5acfcbde52131c29704e38d835d048e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63750654"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447553"
 ---
 # <a name="deploy-storage-spaces-on-a-stand-alone-server"></a>Bereitstellen von Speicherplätzen auf einem eigenständigen server
 
@@ -150,16 +150,16 @@ Als Nächstes erstellen Sie einzelne oder mehrere virtuelle Datenträger aus dem
 
 8. Auf der **Geben Sie die Bereitstellung** Seite, wählen Sie eine der folgenden Optionen aus, und wählen Sie dann **Weiter**.
     
-      - **Dünn**
+   - **Dünn**
         
-        Bei einer schlanken Bereitstellung wird Speicher nur auf Bedarf zugeordnet. Dadurch wird die Nutzung des verfügbaren Speichers optimiert. Da auf diese Weise aber eine übermäßige Zuteilung des Speichers möglich ist, müssen Sie sorgfältig überwachen, wie viel Speicherplatz verfügbar ist.
+     Bei einer schlanken Bereitstellung wird Speicher nur auf Bedarf zugeordnet. Dadurch wird die Nutzung des verfügbaren Speichers optimiert. Da auf diese Weise aber eine übermäßige Zuteilung des Speichers möglich ist, müssen Sie sorgfältig überwachen, wie viel Speicherplatz verfügbar ist.
     
-      - **behoben**
+   - **behoben**
         
-        Bei einer festen Bereitstellung wird die Speicherkapazität sofort beim Erstellen eines virtuellen Datenträgers zugeteilt. Daher entspricht der Speicherplatz, der bei einer festen Bereitstellung aus dem Speicherpool verwendet wird, der Größe des virtuellen Datenträgers.
+     Bei einer festen Bereitstellung wird die Speicherkapazität sofort beim Erstellen eines virtuellen Datenträgers zugeteilt. Daher entspricht der Speicherplatz, der bei einer festen Bereitstellung aus dem Speicherpool verwendet wird, der Größe des virtuellen Datenträgers.
     
-    >[!TIP]
-    >Mit Speicherplätzen können Sie im selben Speicherpool virtuelle Datenträger sowohl mit schlanker als auch fester Bereitstellung erstellen. Sie können beispielsweise sowohl einen virtuellen Datenträger mit schlanker Bereitstellung als Host für eine Datenbank als auch einen virtuellen Datenträger mit fester Bereitstellung als Host für die zugehörigen Protokolldateien verwenden.
+     >[!TIP]
+     >Mit Speicherplätzen können Sie im selben Speicherpool virtuelle Datenträger sowohl mit schlanker als auch fester Bereitstellung erstellen. Sie können beispielsweise sowohl einen virtuellen Datenträger mit schlanker Bereitstellung als Host für eine Datenbank als auch einen virtuellen Datenträger mit fester Bereitstellung als Host für die zugehörigen Protokolldateien verwenden.
 
 9. Auf der Seite **Geben Sie die Größe des virtuellen Datenträgers an** gehen Sie folgendermaßen vor:
     

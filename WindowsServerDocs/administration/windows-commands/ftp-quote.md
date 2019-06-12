@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0b1aaf9eadfd9c51048ad41106ce6532f6f9588b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1f468bfc384673818dc53be303f82cd4803cb2eb
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59865881"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438489"
 ---
 # <a name="ftp-quote"></a>FTP: Anführungszeichen
 
@@ -30,9 +30,11 @@ Sendet wörtliche Argumente an den remote-ftp-Server an. Es wird ein einzelnes F
 quote <Argument>[ ]  
 ```  
 ### <a name="parameters"></a>Parameter  
-|Parameter|Beschreibung|  
-|-------|--------|  
-|<Argument>|Gibt das Argument an den ftp-Server senden.|  
+
+| Parameter  |                    Beschreibung                    |
+|------------|---------------------------------------------------|
+| <Argument> | Gibt das Argument an den ftp-Server senden. |
+
 ## <a name="remarks"></a>Hinweise  
 Die **Anführungszeichen** Befehl ist identisch mit der **literal** Befehl.  
 ## <a name="BKMK_Examples"></a>Beispiele für  
@@ -42,4 +44,4 @@ quote quit
 ```  
 ## <a name="additional-references"></a>Zusätzliche Referenzen  
 -   [FTP: literal_1](ftp-literal_1.md)  
--   [Befehlszeilensyntax](command-line-syntax-key.md)  
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  

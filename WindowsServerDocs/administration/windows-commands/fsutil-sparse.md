@@ -9,12 +9,12 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 76a263c82ebc42de4cc6d136f9a814c3a678666b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b1bc4e45ed2a2b06c72318e0999988ed8f016c40
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59878391"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438972"
 ---
 # <a name="fsutil-sparse"></a>Fsutil-sparsedatei
 >Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, WindowsServer 2012, Windows 8, Windows Server 2008 R2, Windows 7
@@ -34,15 +34,15 @@ fsutil sparse [setrange] <FileName> <BeginningOffset> <Length>
 
 ## <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|-------------|---------------|
-|queryflag|Abfragen mit geringer Dichte.|
-|queryrange|Durchsucht eine Datei, und sucht nach Bereichen, die möglicherweise Daten ungleich NULL enthalten.|
-|SETFLAG|Markiert die angegebene Datei mit geringer Dichte.|
-|SetRange|Füllt einen angegebenen Bereich von einer Datei mit Nullen aufgefüllt.|
-|<FileName>|Gibt den vollständigen Pfad zur Datei einschließlich der Namen und die Erweiterung, z. B. C:\documents\filename.txt an.|
-|<BeginningOffset>|Gibt den Offset in der Datei um geringen Dichte zu markieren.|
-|<Length>|Gibt die Länge des Bereichs in der Datei als mit geringer Dichte (in Byte) markiert werden.|
+|     Parameter     |                                                    Beschreibung                                                    |
+|-------------------|-------------------------------------------------------------------------------------------------------------------|
+|     queryflag     |                                                  Abfragen mit geringer Dichte.                                                  |
+|    queryrange     |                        Durchsucht eine Datei, und sucht nach Bereichen, die möglicherweise Daten ungleich NULL enthalten.                        |
+|      SETFLAG      |                                        Markiert die angegebene Datei mit geringer Dichte.                                        |
+|     SetRange      |                                   Füllt einen angegebenen Bereich von einer Datei mit Nullen aufgefüllt.                                   |
+|    <FileName>     | Gibt den vollständigen Pfad zur Datei einschließlich der Namen und die Erweiterung, z. B. C:\documents\filename.txt an. |
+| <BeginningOffset> |                              Gibt den Offset in der Datei um geringen Dichte zu markieren.                              |
+|     <Length>      |                 Gibt die Länge des Bereichs in der Datei als mit geringer Dichte (in Byte) markiert werden.                 |
 
 ## <a name="remarks"></a>Hinweise
 
@@ -62,7 +62,7 @@ fsutil sparse setflag c:\temp\sample.txt
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
-[Befehlszeilensyntax](Command-Line-Syntax-Key.md)
+[Erläuterung zur Befehlszeilensyntax](Command-Line-Syntax-Key.md)
 
 [Fsutil](Fsutil.md)
 

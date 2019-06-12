@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: christianmontoya
 ms.localizationpriority: medium
-ms.openlocfilehash: e60cf70f1f91ad87046bedf024fe9afc459075b6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8b1baf642ffa3c8e8a0a2cfc70d2f49b58f208b3
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59860511"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446579"
 ---
 # <a name="integrate-azure-ad-domain-services-with-your-rds-deployment"></a>Integration von Azure Active Directory Domain Services mit der RDS-Bereitstellung
 
@@ -51,26 +51,26 @@ Verwenden Sie die folgenden Schritte zum Bereitstellen von Azure AD DS und RDS.
 2. Einrichten von RDS. Sie können eine Azure-Vorlage verwenden oder RDS manuell bereitstellen.
    - Verwenden der [vorhandene AD-Vorlage](https://azure.microsoft.com/resources/templates/rds-deployment-existing-ad/). Stellen Sie sicher, dass Folgendes anpassen:
    
-      - **Einstellungen**
-         - **Ressourcengruppe**: Verwenden Sie die Ressourcengruppe, in dem Sie die RDS-Ressourcen erstellen möchten.
+     - **Einstellungen**
+       - **Ressourcengruppe**: Verwenden Sie die Ressourcengruppe, in dem Sie die RDS-Ressourcen erstellen möchten.
          > [!NOTE] 
          > Jetzt muss die gleiche Ressourcengruppe vorhanden ist, in dem die Azure Resource Manager-Netzwerk.
 
-         - **Bezeichnung des DNS-Präfix**: Geben Sie die URL, die Benutzern auf RD-Web zugreifen sollen.
-         - **AD-Domänenname**: Geben Sie den vollständigen Namen Ihrer Azure AD-Instanz, z. B. "contoso.onmicrosoft.com" oder "contoso.com".
-         - **AD-Vnet-Name** und **Ad Subnetzname**: Geben Sie die gleichen Werte, die Sie verwendet werden, wenn Sie die Azure Resource Manager-Netzwerk erstellt haben. Dies ist das Subnetz, mit dem die RDS-Ressourcen verbunden werden.
-         - **Benutzername des Administrators** und **Administratorkennwort**: Geben Sie die Anmeldeinformationen für einen Benutzer mit Administratorrechten, die ein Mitglied der **AAD DC Administrators** Gruppe in Azure AD.
+       - **Bezeichnung des DNS-Präfix**: Geben Sie die URL, die Benutzern auf RD-Web zugreifen sollen.
+       - **AD-Domänenname**: Geben Sie den vollständigen Namen Ihrer Azure AD-Instanz, z. B. "contoso.onmicrosoft.com" oder "contoso.com".
+       - **AD-Vnet-Name** und **Ad Subnetzname**: Geben Sie die gleichen Werte, die Sie verwendet werden, wenn Sie die Azure Resource Manager-Netzwerk erstellt haben. Dies ist das Subnetz, mit dem die RDS-Ressourcen verbunden werden.
+       - **Benutzername des Administrators** und **Administratorkennwort**: Geben Sie die Anmeldeinformationen für einen Benutzer mit Administratorrechten, die ein Mitglied der **AAD DC Administrators** Gruppe in Azure AD.
    
-      - **Vorlage**
-         - Entfernen Sie alle Eigenschaften des **DnsServers**: nach der Auswahl **Bearbeitungsvorlage** klicken Sie auf der Azure-Schnellstart-Vorlage, suchen Sie nach "DnsServers", und entfernen Sie die Eigenschaft. 
+     - **Vorlage**
+        - Entfernen Sie alle Eigenschaften des **DnsServers**: nach der Auswahl **Bearbeitungsvorlage** klicken Sie auf der Azure-Schnellstart-Vorlage, suchen Sie nach "DnsServers", und entfernen Sie die Eigenschaft. 
 
-            Angenommen, vor dem Entfernen der **DnsServers** Eigenschaft:
+           Angenommen, vor dem Entfernen der **DnsServers** Eigenschaft:
       
-            ![Azure-schnellstartvorlage mit DnsSettings-Eigenschaft](media/rds-remove-dnssettings-before.png)
+           ![Azure-schnellstartvorlage mit DnsSettings-Eigenschaft](media/rds-remove-dnssettings-before.png)
 
-            Und hier ist die gleiche Datei nach dem Entfernen der Eigenschaft:
+           Und hier ist die gleiche Datei nach dem Entfernen der Eigenschaft:
 
-            ![Azure-schnellstartvorlage mit entfernten DnsSettings-Eigenschaft](media/rds-remove-dnssettings-after.png)
+           ![Azure-schnellstartvorlage mit entfernten DnsSettings-Eigenschaft](media/rds-remove-dnssettings-after.png)
    
    - [Manuelles Bereitstellen von RDS](rds-deploy-infrastructure.md). 
 
