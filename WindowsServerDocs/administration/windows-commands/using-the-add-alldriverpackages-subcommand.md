@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6c7a9e95ebd36209d5729f81b7eae9e2660b3606
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3f934d8c65da939fb60c564b375699f411b7c9ac
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890691"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440835"
 ---
 # <a name="using-the-add-alldriverpackages-subcommand"></a>Verwenden des Add-AllDriverPackages Unterbefehls
 
@@ -34,12 +34,12 @@ WDSUTIL /Add-AllDriverPackages /FolderPath:<Folder Path> [/Server:<Server name>]
 
 ## <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|/ "FolderPath":\<Ordnerpfad >|Gibt den vollständigen Pfad zu dem Ordner, der die INF-Dateien für die Treiberpakete enthält.|
-|[/ Server:\<Servername >]|Gibt den Namen des Servers an. Dies kann den NetBIOS-Namen oder den vollqualifizierten Domänennamen sein. Wenn kein Servername angegeben wird, wird der lokale Server verwendet.|
-|[/ Architecture: {X86 | ia64 | x64}]|Gibt die Architektur für die Treiberpakete hinzufügen. Treiberpakete für andere Architekturen werden ignoriert.|
-|[/ DriverGroup:\<Gruppenname >]|Gibt den Namen der Gruppe "Treiber", der die Pakete hinzugefügt werden soll.|
+|          Parameter           |                                                              Beschreibung                                                              |
+|------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+|  / "FolderPath":\<Ordnerpfad >  |                      Gibt den vollständigen Pfad zu dem Ordner, der die INF-Dateien für die Treiberpakete enthält.                      |
+|   [/ Server:\<Servername >]   | Gibt den Namen des Servers an. Dies kann den NetBIOS-Namen oder den vollqualifizierten Domänennamen sein. Wenn kein Servername angegeben wird, wird der lokale Server verwendet. |
+|     [/ Architecture: {X86      |                                                                 ia64                                                                  |
+| [/ DriverGroup:\<Gruppenname >] |                             Gibt den Namen der Gruppe "Treiber", der die Pakete hinzugefügt werden soll.                             |
 
 ## <a name="BKMK_examples"></a>Beispiele für
 
@@ -53,6 +53,6 @@ WDSUTIL /Add-AllDriverPackages /FolderPath:"C:\Temp\Drivers\Printers" /DriverGro
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
 [Add-WdsDriverPackage](https://technet.microsoft.com/library/dn283440.aspx)

@@ -9,12 +9,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 2da1e33d24fa6d68815f4fbc0891be0616004856
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dd9b89f34a3b4af8bb98d2399a524790aa65de0e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817471"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447484"
 ---
 # <a name="shielded-vms-for-tenants---creating-a-new-shielded-vm-on-premises-and-moving-it-to-a-guarded-fabric"></a>Abgeschirmte virtuelle Computer für Mandanten – Erstellen einer neuen abgeschirmten VM lokal und verschiebt es in ein geschütztes fabric
 
@@ -76,62 +76,62 @@ Im Rahmen des Verfahrens erstellen Sie eine Schlüsselschutzvorrichtung, die zwe
 
 Eine Abbildung, zeigt die Schlüsselschutzvorrichtung, die ein Element in eine geschützte Datendatei ist, finden Sie unter [welche Daten Schutz ist und warum dies erforderlich ist?](guarded-fabric-and-shielded-vms.md#what-is-shielding-data-and-why-is-it-necessary).
 
-1.  Führen Sie auf einem Hyper-V-Host-Mandanten zum Erstellen einer neuen Generation 2 VM den folgenden Befehl ein.
+1. Führen Sie auf einem Hyper-V-Host-Mandanten zum Erstellen einer neuen Generation 2 VM den folgenden Befehl ein.
 
-    Für &lt;ShieldedVMname&gt;, geben Sie einen Namen für den virtuellen Computer, z.B.: **ShieldVM1**
+   Für &lt;ShieldedVMname&gt;, geben Sie einen Namen für den virtuellen Computer, z.B.: **ShieldVM1**
     
-    Für &lt;%vhdpath&gt;, geben Sie einen Speicherort zum Speichern von VHDX des virtuellen Computers, z.B.: **C:\\VMs\\ShieldVM1\\ShieldVM1.vhdx**
+   Für &lt;%vhdpath&gt;, geben Sie einen Speicherort zum Speichern von VHDX des virtuellen Computers, z.B.: **C:\\VMs\\ShieldVM1\\ShieldVM1.vhdx**
     
-    Für &lt;NnGB&gt;, geben Sie z. B. eine Größe für die VHDX: **60GB**
+   Für &lt;NnGB&gt;, geben Sie z. B. eine Größe für die VHDX: **60GB**
 
-        New-VM -Generation 2 -Name "<ShieldedVMname>" -NewVHDPath <VHDPath>.vhdx -NewVHDSizeBytes <nnGB>
+       New-VM -Generation 2 -Name "<ShieldedVMname>" -NewVHDPath <VHDPath>.vhdx -NewVHDSizeBytes <nnGB>
 
-2.  Installieren Sie ein unterstütztes Betriebssystem (WindowsServer 2012 oder höher, Windows 8-Client oder höher) auf dem virtuellen Computer, und aktivieren Sie die Remotedesktopverbindung und den entsprechenden Firewall-Regel. Notieren Sie IP-Adresse bzw. in der DNS-Namen des virtuellen Computers an; Sie benötigen diese Remote eine Verbindung damit herstellen.
+2. Installieren Sie ein unterstütztes Betriebssystem (WindowsServer 2012 oder höher, Windows 8-Client oder höher) auf dem virtuellen Computer, und aktivieren Sie die Remotedesktopverbindung und den entsprechenden Firewall-Regel. Notieren Sie IP-Adresse bzw. in der DNS-Namen des virtuellen Computers an; Sie benötigen diese Remote eine Verbindung damit herstellen.
 
-3.  Verwenden Sie RDP, Remote eine Verbindung mit dem virtuellen Computer und stellen Sie sicher, dass RDP und die Firewall ordnungsgemäß konfiguriert sind. Als Teil des geschützten Prozesses ist Konsolenzugriff auf den virtuellen Computer über Hyper-V deaktiviert werden, daher es wichtig ist, um sicherzustellen, dass Sie das System Remote über das Netzwerk verwalten können.
+3. Verwenden Sie RDP, Remote eine Verbindung mit dem virtuellen Computer und stellen Sie sicher, dass RDP und die Firewall ordnungsgemäß konfiguriert sind. Als Teil des geschützten Prozesses ist Konsolenzugriff auf den virtuellen Computer über Hyper-V deaktiviert werden, daher es wichtig ist, um sicherzustellen, dass Sie das System Remote über das Netzwerk verwalten können.
 
-4.  Führen Sie den folgenden Befehl, um eine neue Schlüsselschutzvorrichtung (am Anfang des in diesem Abschnitt beschrieben) zu erstellen.
+4. Führen Sie den folgenden Befehl, um eine neue Schlüsselschutzvorrichtung (am Anfang des in diesem Abschnitt beschrieben) zu erstellen.
 
-    Für &lt;GuardianName&gt;, den angegebenen Namen in der vorherigen Prozedur, z. B. verwenden: **HostingProvider1**
+   Für &lt;GuardianName&gt;, den angegebenen Namen in der vorherigen Prozedur, z. B. verwenden: **HostingProvider1**
 
-    Umfassen **- AllowUntrustedRoot** um selbstsignierte Zertifikate zu ermöglichen.
+   Umfassen **- AllowUntrustedRoot** um selbstsignierte Zertifikate zu ermöglichen.
 
-        $Guardian = Get-HgsGuardian -Name '<GuardianName>'
+       $Guardian = Get-HgsGuardian -Name '<GuardianName>'
 
-        $Owner = New-HgsGuardian -Name 'Owner' -GenerateCertificates
+       $Owner = New-HgsGuardian -Name 'Owner' -GenerateCertificates
 
-        $KP = New-HgsKeyProtector -Owner $Owner -Guardian $Guardian -AllowUntrustedRoot
+       $KP = New-HgsKeyProtector -Owner $Owner -Guardian $Guardian -AllowUntrustedRoot
 
-    Wenn Sie sich für mehr als einem Rechenzentrum, um Ihre abgeschirmte VM (z. B. Standort für die notfallwiederherstellung und einem öffentlichen Cloudanbieter) ausgeführt werden zu können möchten, können Sie eine Liste von Überwachungen auf Bereitstellen der **-Überwachungsdienst** Parameter. Weitere Informationen finden Sie unter [New-HgsKeyProtector] (https://docs.microsoft.com/powershell/module/hgsclient/new-hgskeyprotector?view=win10-ps.
+   Wenn Sie sich für mehr als einem Rechenzentrum, um Ihre abgeschirmte VM (z. B. Standort für die notfallwiederherstellung und einem öffentlichen Cloudanbieter) ausgeführt werden zu können möchten, können Sie eine Liste von Überwachungen auf Bereitstellen der **-Überwachungsdienst** Parameter. Weitere Informationen finden Sie unter [New-HgsKeyProtector] (https://docs.microsoft.com/powershell/module/hgsclient/new-hgskeyprotector?view=win10-ps.
 
-5.  Führen Sie den folgenden Befehl, um die vTPM mithilfe der Schlüsselschutzvorrichtung zu aktivieren. Für &lt;ShieldedVMname&gt;, verwenden Sie den gleichen VM-Namen in den vorherigen Schritten verwendet.
+5. Führen Sie den folgenden Befehl, um die vTPM mithilfe der Schlüsselschutzvorrichtung zu aktivieren. Für &lt;ShieldedVMname&gt;, verwenden Sie den gleichen VM-Namen in den vorherigen Schritten verwendet.
 
-        $VMName="<ShieldedVMname>"
+       $VMName="<ShieldedVMname>"
 
-        Stop-VM -Name $VMName -Force
+       Stop-VM -Name $VMName -Force
 
-        Set-VMKeyProtector -VMName $VMName -KeyProtector $KP.RawData
+       Set-VMKeyProtector -VMName $VMName -KeyProtector $KP.RawData
 
-        Set-VMSecurityPolicy -VMName $VMName -Shielded $true
+       Set-VMSecurityPolicy -VMName $VMName -Shielded $true
 
-        Enable-VMTPM -VMName $VMName
+       Enable-VMTPM -VMName $VMName
 
-6.  Führen Sie den folgenden Befehl zum Starten des virtuellen Computers, um sicherzustellen, dass die Schlüsselschutzvorrichtung mit lokalen besitzerzertifikate arbeitet.
+6. Führen Sie den folgenden Befehl zum Starten des virtuellen Computers, um sicherzustellen, dass die Schlüsselschutzvorrichtung mit lokalen besitzerzertifikate arbeitet.
 
-        Start-VM -Name $VMName
+       Start-VM -Name $VMName
 
-7.  Stellen Sie sicher, dass der virtuelle Computer in der Hyper-V-Konsole gestartet wurde.
+7. Stellen Sie sicher, dass der virtuelle Computer in der Hyper-V-Konsole gestartet wurde.
 
-8.  Verwenden Sie RDP, Remote eine Verbindung mit dem virtuellen Computer und Aktivieren von BitLocker auf alle Partitionen auf alle vhdx-Dateien, die die abgeschirmte VM angefügt sind.
+8. Verwenden Sie RDP, Remote eine Verbindung mit dem virtuellen Computer und Aktivieren von BitLocker auf alle Partitionen auf alle vhdx-Dateien, die die abgeschirmte VM angefügt sind.
 
-    > [!IMPORTANT]
-    > Warten Sie vor dem Fortfahren mit dem nächsten Schritt die BitLocker-Verschlüsselung für alle Partitionen abgeschlossen, in denen es aktiviert.
+   > [!IMPORTANT]
+   > Warten Sie vor dem Fortfahren mit dem nächsten Schritt die BitLocker-Verschlüsselung für alle Partitionen abgeschlossen, in denen es aktiviert.
 
-9.  Herunterfahren des virtuellen Computers ein, wenn Sie bereit sind, verschieben Sie es zum überwachten Fabric.
+9. Herunterfahren des virtuellen Computers ein, wenn Sie bereit sind, verschieben Sie es zum überwachten Fabric.
 
-10.  Exportieren Sie den virtuellen Computer mit dem Tool Ihrer Wahl (Windows PowerShell oder Hyper-V-Manager), auf dem Hyper-V-mandantenserver. Ordnen Sie für die Dateien auf einem bewachten Host verwaltet, die von Ihrem Hostinganbieter oder Unternehmensrechenzentren kopiert werden sollen.
+10. Exportieren Sie den virtuellen Computer mit dem Tool Ihrer Wahl (Windows PowerShell oder Hyper-V-Manager), auf dem Hyper-V-mandantenserver. Ordnen Sie für die Dateien auf einem bewachten Host verwaltet, die von Ihrem Hostinganbieter oder Unternehmensrechenzentren kopiert werden sollen.
 
-11.  **Für das hosting-Anbieter bzw. unternehmensrechenzentrums**:
+11. **Für das hosting-Anbieter bzw. unternehmensrechenzentrums**:
 
     Importieren Sie die abgeschirmte VM, die mit dem Hyper-V-Manager oder Windows PowerShell. Sie müssen die Konfigurationsdatei des virtuellen Computers aus der VM-Besitzer importieren, um den virtuellen Computer zu starten. Dies ist, da die Schlüsselschutzvorrichtung "und" virtual TPM des virtuellen Computers in der Konfigurationsdatei gespeichert werden. Wenn der virtuelle Computer für die Ausführung auf dem geschützten Fabric konfiguriert ist, sollte er erfolgreich starten können.
 

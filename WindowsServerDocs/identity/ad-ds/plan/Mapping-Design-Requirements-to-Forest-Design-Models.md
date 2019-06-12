@@ -9,12 +9,12 @@ ms.date: 08/07/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 4577e65fe5dd2193fe7256cc555e859a78824b4b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 35d6322f053c7a02dc1df5430b28f771f57a1ad7
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867941"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442571"
 ---
 # <a name="mapping-design-requirements-to-forest-design-models"></a>Zuordnen von Entwurfsanforderungen zu Gesamtstruktur-Entwurfsmodelle
 
@@ -33,7 +33,7 @@ Wenn nicht alle Gruppen in Ihrer Organisation können eine einzelne Gesamtstrukt
 |------------|------------------------|------------------|-----------------|---------------------|--------------------|  
 |[Szenario 1: Verknüpfen einer vorhandenen Gesamtstruktur für die Datenautonomie](#BKMK_1)|Nein|Nein|Ja|Nein|Nein|  
 |[Szenario 2: Verwenden von einer Organisation Gesamtstruktur oder Domäne für die Autonomie eines Dienstes](#BKMK_2)|Nein|Nein|Nicht zutreffend|Nein|Ja|  
-|[Szenario 3: Verwenden Sie Organisationsgesamtstruktur oder Ressourcen-Gesamtstruktur für die Isolation von Diensten.](#BKMK_3)|Nein|Nein|Nicht zutreffend|Ja|Nicht zutreffend|  
+|[Szenario: 3: Verwenden Sie Organisationsgesamtstruktur oder Ressourcen-Gesamtstruktur für die Isolation von Diensten.](#BKMK_3)|Nein|Nein|Nicht zutreffend|Ja|Nicht zutreffend|  
 |[Szenario 4: Verwenden Sie eine Organisation Gesamtstruktur oder eine Gesamtstruktur mit eingeschränktem Zugriff für die Datenisolation](#BKMK_4)|Nicht zutreffend|Ja|Nicht zutreffend|Nicht zutreffend|Nicht zutreffend|  
 |[Szenario 5: Verwenden Sie eine Organisationsgesamtstruktur, oder Konfigurieren der Firewalls für eingeschränkte Konnektivität](#BKMK_5)|Ja|Nein|Nicht zutreffend|Nein|Nein|  
 |[Szenario 6: Verwenden einer Organisation Gesamtstruktur oder Domäne, und Konfigurieren der Firewalls für die Autonomie eines Dienstes mit eingeschränkter Konnektivität](#BKMK_6)|Ja|Nein|Nicht zutreffend|Nein|Ja|  
@@ -89,13 +89,13 @@ Sie können die Datenisolation erreichen, indem Sie eine der folgenden Aktionen 
 
 - Organisation Gesamtstrukturen, die für die Datenisolation erstellten Domänen aus anderen Gesamtstrukturen vertrauen können, aber Benutzer aus anderen Gesamtstrukturen müssen nicht in eine der folgenden enthalten:  
 
-   - Gruppen, die verantwortlich für dienstverwaltung oder Gruppen, die die Mitgliedschaft der Dienstadministrator-Gruppen verwalten können  
+  - Gruppen, die verantwortlich für dienstverwaltung oder Gruppen, die die Mitgliedschaft der Dienstadministrator-Gruppen verwalten können  
 
-   - Gruppen, die administrativen Kontrolle über Computer verfügen, die geschützte Daten speichern  
+  - Gruppen, die administrativen Kontrolle über Computer verfügen, die geschützte Daten speichern  
 
-   - Gruppen, die Zugriff auf geschützte Daten oder Gruppen, die sind dafür verantwortlich, für die Verwaltung von Benutzerobjekten oder Group-Objekte, die Zugriff auf, geschützte Daten  
+  - Gruppen, die Zugriff auf geschützte Daten oder Gruppen, die sind dafür verantwortlich, für die Verwaltung von Benutzerobjekten oder Group-Objekte, die Zugriff auf, geschützte Daten  
 
-   Wenn Benutzer aus einer anderen Gesamtstruktur in einer dieser Gruppen enthalten sind, kann eine Gefährdung der anderen Gesamtstruktur zu einer Gefährdung der isolierten Gesamtstruktur und Offenlegung der geschützten Daten führen.  
+    Wenn Benutzer aus einer anderen Gesamtstruktur in einer dieser Gruppen enthalten sind, kann eine Gefährdung der anderen Gesamtstruktur zu einer Gefährdung der isolierten Gesamtstruktur und Offenlegung der geschützten Daten führen.  
 
 - Anderen Gesamtstrukturen können konfiguriert werden, um Vertrauen der Organisationsgesamtstruktur für die Datenisolation erstellt werden, sodass Benutzer in der isolierten Gesamtstruktur Ressourcen in anderen Gesamtstrukturen zugreifen können. Allerdings müssen Benutzer aus der isolierten Gesamtstruktur nicht interaktiv auf Arbeitsstationen in der vertrauenden Gesamtstruktur anmelden. Der Computer in der vertrauenden Gesamtstruktur kann möglicherweise durch böswillige Software beeinträchtigt werden und kann verwendet werden, um die Anmeldeinformationen des Benutzers zu erfassen.  
 

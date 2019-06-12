@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.assetid: 1a1182a6-4462-4a13-806e-0e642a0d5db2
 ms.technology: identity-adds
-ms.openlocfilehash: 6f600ade3d07130d4e1fb3b1a254cb1073f592e9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9cf89c9f4875f602abea89e366cadfba8d0599c3
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874231"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443010"
 ---
 # <a name="ad-forest-recovery---performing-a-full-server-recovery"></a>AD-Gesamtstruktur-Wiederherstellung: Ausführen einer vollständigen Wiederherstellungs 
 
@@ -69,15 +69,15 @@ Je nach Szenario verwenden Sie eine der folgenden Verfahren zum Ausführen einer
    ![Wiederherstellung des Servers](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore8.png)
 8. Geben Sie den UNC-Pfad zum Speicherort Sicherungsfreigabe (z. B. \\\server1\backups), und klicken Sie auf **OK**. Sie können auch die IP-Adresse des Zielservers, eingeben, z. B. \\\192.168.1.3\backups. 
    ![Wiederherstellung des Servers](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore9.png)
-10. Geben Sie Anmeldeinformationen zum Zugreifen auf die Freigabe, und klicken Sie auf OK. 
-11. Jetzt **wählen Sie Datum und Uhrzeit der Systemabbild wiederherzustellenden** , und klicken Sie auf **Weiter**.
-12. Sie werden jetzt eine Option aus, um angegeben werden:
-   - Datenträger formatieren und neu partitionieren
-   - Installieren von Treibern
-   - Deaktivieren Sie das Kontrollkästchen der **erweitert** Funktionen automatisch neu zu starten und die Überprüfung auf Fehler auf den Datenträger. Diese sind standardmäßig aktiviert.
-13. Klicken Sie auf **Weiter**.
-14. Klicken Sie auf **Fertig stellen**. Sie werden aufgefordert werden, stellen Sie sicher, dass Sie den Vorgang fortsetzen möchten. Klicken Sie auf **Ja**.  
-15. Sobald dies abgeschlossen ist, führen eine autorisierende Wiederherstellung von SYSVOL, siehe [AD-Gesamtstruktur-Wiederherstellung: Ausführen einer autoritativen Synchronisierung des DFSR-repliziertes SYSVOL](AD-Forest-Recovery-Authoritative-Recovery-SYSVOL.md).
+9. Geben Sie Anmeldeinformationen zum Zugreifen auf die Freigabe, und klicken Sie auf OK. 
+10. Jetzt **wählen Sie Datum und Uhrzeit der Systemabbild wiederherzustellenden** , und klicken Sie auf **Weiter**.
+11. Sie werden jetzt eine Option aus, um angegeben werden:
+    - Datenträger formatieren und neu partitionieren
+    - Installieren von Treibern
+    - Deaktivieren Sie das Kontrollkästchen der **erweitert** Funktionen automatisch neu zu starten und die Überprüfung auf Fehler auf den Datenträger. Diese sind standardmäßig aktiviert.
+12. Klicken Sie auf **Weiter**.
+13. Klicken Sie auf **Fertig stellen**. Sie werden aufgefordert werden, stellen Sie sicher, dass Sie den Vorgang fortsetzen möchten. Klicken Sie auf **Ja**.  
+14. Sobald dies abgeschlossen ist, führen eine autorisierende Wiederherstellung von SYSVOL, siehe [AD-Gesamtstruktur-Wiederherstellung: Ausführen einer autoritativen Synchronisierung des DFSR-repliziertes SYSVOL](AD-Forest-Recovery-Authoritative-Recovery-SYSVOL.md).
 
 ## <a name="enabling-the-network-adapter-for-a-network-backup"></a>Aktivieren den Netzwerkadapter für eine netzwerksicherung
 
@@ -132,5 +132,5 @@ Wenn Sie einen Netzwerkadapter an der Eingabeaufforderung zum Wiederherstellen v
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Für die Wiederherstellung des AD-Gesamtstruktur](AD-Forest-Recovery-Guide.md)
-- [Wiederherstellung der Gesamtstruktur der Active Directory - Prozeduren](AD-Forest-Recovery-Procedures.md)
+- [Wiederherstellung der AD-Gesamtstruktur: Leitfaden](AD-Forest-Recovery-Guide.md)
+- [Wiederherstellung der AD-Gesamtstruktur: Verfahren](AD-Forest-Recovery-Procedures.md)

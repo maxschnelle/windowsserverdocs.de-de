@@ -12,12 +12,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 69b433ee3e0f57398db1e7814d2de24df7dd1696
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: 9205565486b75edcd550174fc89990a5aa2d69b7
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222924"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439849"
 ---
 # <a name="step-4-configure-group-policy-settings-for-automatic-updates"></a>Schritt 4: Konfigurieren der Gruppenrichtlinieneinstellungen für automatische Updates
 
@@ -420,10 +420,11 @@ Um diese Einstellung verwenden zu können, müssen Sie zwei Server Name-Werte fe
 
 **Optionen:** Wenn diese richtlinieneinstellung aktiviert ist, müssen Sie angeben, dass Updatedienst, WSUS-Clients werden bei der Erkennung von Updates und Internet Statistiken Servers, auf dem WSUS-Clients aktualisiert, die Statistiken hochladen möchten. Beispielwerte:
 
-|Festlegen der Option:|Beispielwert:|
-|----------|---------|
-|Legen Sie den Intranet-Update-Dienst zum Ermitteln von updates|http://wsus01:8530|
-|Legen Sie den Intranet-Statistik-server|http://IntranetUpd01|
+
+|                    Festlegen der Option:                    |    Beispielwert:    |
+|-------------------------------------------------------|----------------------|
+| Legen Sie den Intranet-Update-Dienst zum Ermitteln von updates |  http://wsus01:8530  |
+|          Legen Sie den Intranet-Statistik-server           | http://IntranetUpd01 |
 
 #### <a name="turn-on-recommended-updates-via-automatic-updates"></a>Aktivieren Sie empfohlene Updates über automatische Updates
 Gibt an, ob automatische Updates wichtige übermittelt und empfohlene Updates von WSUS.
@@ -586,7 +587,7 @@ Gibt an, ob die **Updates installieren "und" Herunterfahren** -Option ist zuläs
 |**Deaktiviert**|Gibt an, ob die **Updates installieren "und" Herunterfahren** Option werden die Standardoption in der **schließen Sie Windows** im Dialogfeld, wenn Updates zur Installation, die zum Zeitpunkt sind der Benutzer das Herunterfahren wählt Klicken Sie unten die Option zum Herunterfahren des Computers.|
 
 **Optionen:** Es gibt keine Optionen für diese Einstellung aus.
-    
+
 #### <a name="remove-access-to-use-all-windows-update-features"></a>Zugriff auf alle Windows Update-Funktionen entfernen
 Mit dieser Einstellung können Sie WSUS-Client den Zugriff auf Windows Update zu entfernen.
 

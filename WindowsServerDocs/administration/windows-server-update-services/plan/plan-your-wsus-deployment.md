@@ -10,12 +10,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 05/24/2018
-ms.openlocfilehash: 4e4da87e5a2a4cd80e748a05596da3f23b5ac85f
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: a568324ba69b13c7016f4715d3c37f991ae4c1ad
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222900"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439727"
 ---
 # <a name="plan-your-wsus-deployment"></a>Planen der WSUS-Bereitstellung
 
@@ -94,19 +94,19 @@ Während des Installationsvorgangs installiert WSUS standardmäßig die folgende
 
 Beachten Sie, dass das Konfigurieren von Clientcomputern (einschließlich Server) für die Aktualisierung über WSUS zu folgenden Einschränkungen führt:
 
-1.  Serverrollen, deren Nutzlasten mit Features bei Bedarf entfernt wurden, können nicht bei Bedarf von Microsoft Update installiert werden. Sie müssen entweder eine Installationsquelle bereitstellen, die zum Zeitpunkt der Sie versuchen, solche Serverrollen zu installieren oder konfigurieren eine Quelle für Features bei Bedarf in der Gruppenrichtlinie.
+1. Serverrollen, deren Nutzlasten mit Features bei Bedarf entfernt wurden, können nicht bei Bedarf von Microsoft Update installiert werden. Sie müssen entweder eine Installationsquelle bereitstellen, die zum Zeitpunkt der Sie versuchen, solche Serverrollen zu installieren oder konfigurieren eine Quelle für Features bei Bedarf in der Gruppenrichtlinie.
 
-2.  Windows-Client-Editionen können .NET 3.5 nicht bei Bedarf über das Web installieren. Die gleichen Überlegungen wie Serverrollen gelten für .NET 3.5.
+2. Windows-Client-Editionen können .NET 3.5 nicht bei Bedarf über das Web installieren. Die gleichen Überlegungen wie Serverrollen gelten für .NET 3.5.
 
-    > [!NOTE]
-    > Konfigurieren einer Features bei Bedarf-Installationsquelle ist WSUS nicht enthalten. Informationen zum Konfigurieren von Features finden Sie unter [Configure Features on Demand in Windows Server](https://technet.microsoft.com/library/jj127275.aspx).
+   > [!NOTE]
+   > Konfigurieren einer Features bei Bedarf-Installationsquelle ist WSUS nicht enthalten. Informationen zum Konfigurieren von Features finden Sie unter [Configure Features on Demand in Windows Server](https://technet.microsoft.com/library/jj127275.aspx).
 
 3. Enterprise-Geräte, die unter Windows 10, Version 1709 oder Version 1803, können keine Features bei Bedarf direkt über WSUS installiert werden. Installieren von Features bei Bedarf [erstellen Sie eine Featuredatei (Seite-an-Seite-Speicher)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj127275%28v=ws.11%29#create-a-feature-file-or-side-by-side-store) oder rufen Sie die Funktion bei Bedarf Paket von einem der folgenden Quellen:
-    - [Volume Licensing Service Center](https://www.microsoft.com/licensing/servicecenter) (VLSC) – VL-Zugriff erforderlich ist
-    - OEM-Portal – ist der OEM-Zugriff erforderlich
-    - MSDN-Download - MSDN-Abonnement ist erforderlich
+   - [Volume Licensing Service Center](https://www.microsoft.com/licensing/servicecenter) (VLSC) – VL-Zugriff erforderlich ist
+   - OEM-Portal – ist der OEM-Zugriff erforderlich
+   - MSDN-Download - MSDN-Abonnement ist erforderlich
 
-    Feature einzeln abgerufen, nach Bedarf Paketen kann installiert werden, mithilfe von [DISM-Befehlszeilenoptionen](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-operating-system-package-servicing-command-line-options).
+     Feature einzeln abgerufen, nach Bedarf Paketen kann installiert werden, mithilfe von [DISM-Befehlszeilenoptionen](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-operating-system-package-servicing-command-line-options).
 
 ### <a name="wsus-database-requirements"></a>WSUS-Datenbankanforderungen
 WSUS erfordert eine der folgenden Datenbanken:
@@ -319,7 +319,7 @@ Das Auswählen von Sprachen für einen Upstreamserver ist nicht dasselbe wie das
 > [!NOTE]
 > Dies sollte geschehen, obwohl der Downstreamserver dieselben Sprachen wie der Upstreamserver herunterladen soll.
 
-2.  Wenn der Upstreamserver zum Herunterladen von Updatedateien in allen Sprachen konfiguriert wurde: Klicken Sie im WSUS-Konfigurationsassistenten auf **Updates in allen Sprachen herunterladen, die auf dem Upstreamserver unterstützt werden**.
+2. Wenn der Upstreamserver zum Herunterladen von Updatedateien in allen Sprachen konfiguriert wurde: Klicken Sie im WSUS-Konfigurationsassistenten auf **Updates in allen Sprachen herunterladen, die auf dem Upstreamserver unterstützt werden**.
 
 > [!NOTE]
 > Dies sollte geschehen, obwohl der Downstreamserver dieselben Sprachen wie der Upstreamserver herunterladen soll. Diese Einstellung bewirkt, dass der Upstreamserver Updates in allen Sprachen herunterlädt, einschließlich der Sprachen, die ursprünglich nicht für den Upstreamserver konfiguriert wurden. Wenn Sie dem Upstreamserver Sprachen hinzufügen, sollten Sie die neuen Updates auf dessen Replikatserver kopieren.

@@ -10,17 +10,17 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.localizationpriority: medium
-ms.openlocfilehash: bb5a605ef6438bfa6a2afe4963b8206f9dc84a3a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 09c98d1bd7d2caa8e4cfaea68f9875b25da94003
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869351"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444654"
 ---
 # <a name="networking"></a>Netzwerk
 
 >[!TIP]
-> Suchen Sie nach Informationen zu älteren Versionen von Windows? Sehen Sie sich unsere [Windows Server-Bibliotheken](/previous-versions/windows/) auf docs.microsoft.com an. Sie können auch nach bestimmten Informationen [auf dieser Website suchen](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions).
+> Suchen Sie nach Informationen zu älteren Versionen von Windows? Sehen Sie sich unsere [Windows Server-Bibliotheken](/previous-versions/windows/) auf „docs.microsoft.com“ an. Sie können auch nach bestimmten Informationen [auf dieser Website suchen](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions).
 
 <HR />
 
@@ -43,7 +43,7 @@ Diese Konsistenz bedeutet, dass die Anwendungen sich jetzt leichter skalieren un
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                        <h2><a href="../networking/What-s-New-in-Networking.md">Neues bei Netzwerken</a></h2>
+                                        <h2><a href="../networking/What-s-New-in-Networking.md">Was&#39;Neues bei Netzwerken</a></h2>
                                         </div>
                                     </div>
                                 </div>
@@ -68,7 +68,7 @@ Diese Konsistenz bedeutet, dass die Anwendungen sich jetzt leichter skalieren un
                                         <div class="cardText">
                                         <h3><a href="https://docs.microsoft.com/windows-server/networking/sdn/">Software-Defined Networking (SDN)</a><hr /></h3>Dieses Thema enthält Informationen zu den SDN-Technologien, die in Windows Server, System Center und Microsoft Azure bereitgestellt werden.</p>
                         
-                                        <p><b>Hinweis</b>: Für Hyper-V-Hosts und virtuellen Maschinen \(VMs\) die SDN-Infrastrukturserver, z. B. dem Netzwerkcontroller und den Softwarelastenausgleich-Knoten führen, Sie Windows Server Datacenter Edition installieren müssen. Für Hyper-V-Hosts, die nur arbeitsauslastungs-VMs, die mit SDN verbunden sind Mandanten\-gesteuert von Netzwerken, können Sie Windows Server Standard Edition ausführen.</p>                                        </div>
+                                        <p><b>Hinweis</b>: Für Hyper-V-Hosts und virtuellen Computern (VMs), die SDN-Infrastrukturserver, z. B. dem Netzwerkcontroller und den Softwarelastenausgleich-Knoten ausführen, müssen Sie Windows Server Datacenter-Edition installieren. Für Hyper-V-Hosts, die nur Mandanten Workload-VMs enthalten, die mit SDN gesteuerte Netzwerken verbunden sind, können Sie Windows Server Standard Edition ausführen.</p>                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -119,7 +119,7 @@ Diese Konsistenz bedeutet, dass die Anwendungen sich jetzt leichter skalieren un
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                        <h3><a href="sdn/technologies/network-function-virtualization/software-load-balancing-for-sdn.md">Softwarelastenausgleich &#40;SLB&#41; für SDN</a><hr /></h3>Cloud-Dienstanbieter \(CSPs\) und Unternehmen, die Software-Defined Networking (SDN) in Windows Server 2016 bereitstellen können, den Softwarelastenausgleich \(SLB\) Mandanten und Mandanten gleichmäßig verteilen Kunden von Netzwerkdatenverkehr zwischen Ressourcen des virtuellen Netzwerks. Windows Server-SLB ermöglicht es Ihnen, mehrere Server zum Hosten derselben Workload zu aktivieren, um hohe Verfügbarkeit und Skalierbarkeit bereitzustellen.</p>                                        </div>
+                                        <h3><a href="sdn/technologies/network-function-virtualization/software-load-balancing-for-sdn.md">Softwarelastenausgleich &#40;SLB&#41; für SDN</a><hr /></h3>Clouddienstanbieter (CSPs) und Unternehmen, das Bereitstellen von Software-Defined Networking (SDN) in Windows Server 2016 können (Software Load Balancing, SLB) Sie um Mandanten und Kunden mandantennetzwerk-Datenverkehr auf virtuelle Netzwerkressourcen gleichmäßig zu verteilen. Windows Server-SLB ermöglicht es Ihnen, mehrere Server zum Hosten derselben Workload zu aktivieren, um hohe Verfügbarkeit und Skalierbarkeit bereitzustellen.</p>                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -136,7 +136,7 @@ Diese Konsistenz bedeutet, dass die Anwendungen sich jetzt leichter skalieren un
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                        <h3><a href="sdn/technologies/network-function-virtualization/RAS-Gateway-for-SDN.md">RAS-Gateway für SDN</a><hr /></h3>RAS-Gateway, eine softwarebasierte, mehrinstanzenfähige Border Gateway Protocol ist \(BGP\) fähiger Router in Windows Server 2016 ist für das Cloud-Dienstanbieter \(CSPs\) und Unternehmen, die hosten mehrinstanzenfähige virtuelle Netzwerke mithilfe der Hyper-V-Netzwerkvirtualisierung.</p>                                        </div>
+                                        <h3><a href="sdn/technologies/network-function-virtualization/RAS-Gateway-for-SDN.md">RAS-Gateway für SDN</a><hr /></h3>RAS-Gateway, das ist ein softwarebasierter, mehrinstanzenfähiger, Border Gateway Protocol (BGP)-fähiger Router in Windows Server 2016, dient für Clouddienstanbieter (CSPs) und Unternehmen, die mehrinstanzenfähige virtuelle Netzwerke mithilfe Netzwerks für Hyper-V-host Virtualisierung.</p>                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -153,7 +153,7 @@ Diese Konsistenz bedeutet, dass die Anwendungen sich jetzt leichter skalieren un
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                        <h3><a href="sdn/technologies/network-function-virtualization/Network-Function-Virtualization.md">Netzwerkfunktionsvirtualisierung</a><hr /></h3>Netzwerk-Funktionen, die von Hardware ausgeführt wird, werden in softwaredefinierten Rechenzentren \(wie Load balancer, Firewalls, Routern, Switches und So weiter\) werden zunehmend als virtuelle Appliances virtualisiert wird. Diese „Netzwerkfunktionsvirtualisierung“ ist ein natürlicher Fortschritt der Server- und Netzwerkvirtualisierung.</p>                                        </div>
+                                        <h3><a href="sdn/technologies/network-function-virtualization/Network-Function-Virtualization.md">Netzwerkfunktionsvirtualisierung</a><hr /></h3>In softwaredefinierten Rechenzentren werden Netzwerkfunktionen, die von Hardware (z. B. Load balancer, Firewalls, Routern, Switches usw.) ausgeführt werden zunehmend als virtuelle Appliances virtualisiert wird. Dies &quot;Funktion Netzwerkvirtualisierung&quot; ist ein natürlicher Fortschritt der Servervirtualisierung und Netzwerkvirtualisierung.</p>                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -194,7 +194,7 @@ Diese Konsistenz bedeutet, dass die Anwendungen sich jetzt leichter skalieren un
                                         </div>
                                         <div class="cardText">
                                         <h3><a href="branchcache/BranchCache.md">BranchCache</a><hr /></h3>
-                                        <p>BranchCache ist ein wide Area Network \(WAN\) Technologie zur Optimierung der Bandbreite. Um die WAN-Bandbreite zu optimieren, wenn Benutzer auf Inhalte von Remoteservern zugreifen, ruft BranchCache Inhalte von Inhaltsservern in der Hauptniederlassung oder gehosteten Cloudinhaltsservern ab und speichert sie an Filialstandorten zwischen, sodass Clientcomputer in Filialen lokal und nicht über das WAN auf diese Inhalte zugreifen können.</p>
+                                        <p>BranchCache ist eine Technologie zur WAN-Bandbreitenoptimierung. Um die WAN-Bandbreite zu optimieren, wenn Benutzer auf Inhalte von Remoteservern zugreifen, ruft BranchCache Inhalte von Inhaltsservern in der Hauptniederlassung oder gehosteten Cloudinhaltsservern ab und speichert sie an Filialstandorten zwischen, sodass Clientcomputer in Filialen lokal und nicht über das WAN auf diese Inhalte zugreifen können.</p>
                     </div>
                 </div>
             </div>
@@ -247,8 +247,8 @@ Diese Konsistenz bedeutet, dass die Anwendungen sich jetzt leichter skalieren un
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                        <h3><a href="dns/dns-top.md">Domain Name System (DNS) "></a><hr /></h3>
-                                        <p>Domain Name System \(DNS\) ist eine der branchenüblichen Suiten von Protokollen, die TCP/IP umfassen, und zusammen stellen DNS-Client und DNS-Server Computern und Benutzern einen Namensauflösungsdienst für die Zuordnung von Computername zu IP-Adresse bereit.</p>
+                                        <h3><a href="dns/dns-top.md">Domain Name System (DNS)&quot;&gt;</a><hr /></h3>
+                                        <p>Domain Name System (DNS) ist eines der branchenüblichen Suiten von Protokollen, die TCP/IP umfassen, und zusammen mit den DNS-Client und der DNS-Server bieten die entsprechenden Computer-IP-Adresse Zuordnung Namensauflösungsdienste für Computer und Benutzer.</p>
                     </div>
                 </div>
             </div>
@@ -266,7 +266,7 @@ Diese Konsistenz bedeutet, dass die Anwendungen sich jetzt leichter skalieren un
                                         </div>
                                         <div class="cardText">
                                         <h3><a href="technologies/dhcp/dhcp-top.md">Dynamic Host Configuration-Protokoll &#40;DHCP&#41;</a><hr /></h3>
-                                        <p>Dynamic Host Configuration-Protokoll \(DHCP\) ist ein Client/Server-Protokoll, das einem Internetprotokollhost \(IP\) automatisch seine IP-Adresse und andere Konfigurationsinformationen bereitstellt, z. B. die Subnetzmaske und das Standardgateway.</p>
+                                        <p>Dynamic Host Configuration Protocol (DHCP) ist ein Client/Server-Protokoll, das einen Host IP (Internet Protocol) automatisch mit der IP-Adresse und andere verwandte Konfigurationsinformationen, z.B. die Subnetzmaske und das Standard-Gateway bereitstellt.</p>
                     </div>
                 </div>
             </div>
@@ -284,7 +284,7 @@ Diese Konsistenz bedeutet, dass die Anwendungen sich jetzt leichter skalieren un
                                         </div>
                                         <div class="cardText">
                                         <h3><a href="sdn/technologies/hyper-v-network-virtualization/Hyper-V-Network-Virtualization.md">Hyper-V-Netzwerkvirtualisierung</a><hr /></h3>
-                                        <p>Hyper-V-Netzwerkvirtualisierung \(HNV\) ermöglicht die Virtualisierung von Kundennetzwerken auf der Basis einer gemeinsam genutzten physischen Netzwerkinfrastruktur.</p>
+                                        <p>Hyper-V-Netzwerkvirtualisierung (HNV) ermöglicht die Virtualisierung von Kundennetzwerken auf der Basis einer gemeinsam genutzten physischen Netzwerkinfrastruktur.</p>
                     </div>
                 </div>
             </div>
@@ -301,7 +301,7 @@ Diese Konsistenz bedeutet, dass die Anwendungen sich jetzt leichter skalieren un
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                        <h3><a href="../virtualization/hyper-v-virtual-switch/Hyper-V-Virtual-Switch.md">Hyper-V-Switches</a><hr /></h3>
+                                        <h3><a href="../virtualization/hyper-v-virtual-switch/Hyper-V-Virtual-Switch.md">Virtueller Hyper-V-Switch</a><hr /></h3>
                                         <p>Beim virtuellen Hyper-V-Switch handelt es sich um einen softwarebasierten Schicht-2-Ethernet-Netzwerkswitch, der im Hyper-V-Manager verfügbar ist, wenn Sie die Hyper-V-Serverrolle installieren. Der Switch umfasst programmgesteuert verwaltete und erweiterbare Funktionen zum Verbinden virtueller Computer mit virtuellen Netzwerken und dem physischen Netzwerk. Außerdem bietet der virtuelle Hyper-V-Switch Richtlinienerzwingung für Sicherheits-, Isolations- und Dienststufen. </p>
                     </div>
                 </div>
@@ -320,7 +320,7 @@ Diese Konsistenz bedeutet, dass die Anwendungen sich jetzt leichter skalieren un
                                         </div>
                                         <div class="cardText">
                                         <h3><a href="technologies/ipam/ipam-top.md">IP-Adressverwaltung &#40;IPAM&#41;</a><hr /></h3>
-                                        <p>Bei der IP-Adressverwaltung \(IPAM\) handelt es sich um eine integrierte Suite an Tools, die die durchgängige Planung, Bereitstellung, Verwaltung und Überwachung Ihrer IP-Adresseninfrastruktur mit einer umfassenden Benutzeroberfläche ermöglichen. IPAM ermittelt IP-adresseninfrastrukturserver und DNS automatisch \(DNS\) Server in Ihrem Netzwerk und ermöglicht es Ihnen, die sie über eine zentrale Schnittstelle verwalten. </p>
+                                        <p>IP-Adressverwaltung (IPAM) ist eine integrierte Suite von Tools zum ermöglichen der End-to-End-Planung, Bereitstellung, Verwaltung und Überwachung Ihrer IP-adresseninfrastruktur mit einer umfassenden Benutzeroberfläche. IPAM ermittelt IP-Adresseninfrastrukturserver und DNS-Server in Ihrem Netzwerk automatisch und ermöglicht Ihnen, sie auf einer zentralen Oberfläche zu verwalten. </p>
                     </div>
                 </div>
             </div>
@@ -338,7 +338,7 @@ Diese Konsistenz bedeutet, dass die Anwendungen sich jetzt leichter skalieren un
                                         </div>
                                         <div class="cardText">
                                         <h3><a href="technologies/Network-Load-Balancing.md">Netzwerklastenausgleich</a><hr /></h3>
-                                        <p>Beim Netzwerklastenausgleich \(NLB\) wird der Datenverkehr mithilfe des TCP/IP-Netzwerkprotokolls über mehrere Server verteilt. Bei Nicht-SDN-Bereitstellungen stellt NLB sicher, dass statusfreie Anwendungen, beispielsweise Webserver, auf denen Internetinformationsdienste \(IIS\) ausgeführt werden, durch Hinzufügen zusätzlicher Server bei zunehmender Last skalierbar sind.</p>
+                                        <p>Netzwerklastenausgleich (Network Load Balancing, NLB) verteilt den Datenverkehr auf mehrere Server mithilfe des TCP/IP-Netzwerkprotokolls. Für nicht-SDN-Bereitstellungen stellt NLB sicher, dass statusfreie Anwendungen, beispielsweise Webserver mit IIS (Internetinformationsdienste), sind durch Hinzufügen weiterer Server mit zunehmender Last skalierbar.</p>
                     </div>
                 </div>
             </div>
@@ -398,9 +398,9 @@ Mit einem Netzwerkrichtlinienserver (Network Policy Server, NPS) können Sie org
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                        <h3><a href="technologies/netsh/netsh.md">Netzwerkshell (Netsh)</a><hr /></h3>
+                                        <h3><a href="technologies/netsh/netsh.md">Network Shell (Netsh)</a><hr /></h3>
                                         <p>
-Sie können die Netzwerk-Shell \(Netsh\) networking-Hilfsprogramm zum Verwalten der netzwerktechnologien in Windows Server 2016 und Windows 10.</p>
+Sie können die Network Shell (Netsh) Netzwerk Hilfsprogramm verwenden, zum Verwalten von netzwerktechnologien in Windows Server 2016 und Windows 10.</p>
                     </div>
                 </div>
             </div>
@@ -419,7 +419,7 @@ Sie können die Netzwerk-Shell \(Netsh\) networking-Hilfsprogramm zum Verwalten 
                                         <div class="cardText">
                                         <h3><a href="technologies/network-subsystem/net-sub-performance-top.md">Netzwerksubsystem optimieren</a><hr /></h3>
                                         <p>
-Dieses Thema enthält Informationen zum Auswählen des geeigneten Netzwerkadapters für Ihre serverarbeitsauslastung, netzwerkbezogenen Sortierung Netzwerkschnittstellen, Leistungsindikatoren und Optimieren der Leistung network Adapter und zugehörige netzwerktechnologien wie z. B. Empfangsseitige Skalierung \(RSS\), empfangen Side Coalescing \(RSC\), und andere.</p>
+Dieses Thema enthält Informationen zum Auswählen des geeigneten Netzwerkadapters für Ihre serverarbeitsauslastung, netzwerkbezogenen Sortierung Netzwerkschnittstellen, Leistungsindikatoren und Optimieren der Leistung network Adapter und zugehörige netzwerktechnologien wie z. B. Erhalten Sie die empfangsseitige Skalierung (RSS), erhalten empfangsseitige Zusammenfügung (RSC) und andere.</p>
                     </div>
                 </div>
             </div>
@@ -495,7 +495,7 @@ Windows Internet Name Service (WINS) ist ein älterer Registrierungs- und Auflö
                                         <div class="cardText">
                                         <h3><a href="../remote/remote-access/remote-access.md">Remotezugriff</a><hr /></h3>
                                         <p>
-Können Sie Remotezugriffstechnologien wie DirectAccess und Virtual Private Networking \(VPN\) für Verbindungen mit internen Netzwerkressourcen Remotemitarbeiter bereit. Darüber hinaus können Sie den Remotezugriff für lokale Netzwerke \(LAN\) routing, und für die Web Application Proxy. Dieser Proxy bietet Reverseproxyfunktion für Webanwendungen in Ihrem Unternehmensnetzwerk, damit Benutzer außerhalb des Unternehmensnetzwerks von allen Geräten auf die Anwendungen zugreifen können.</p>
+Sie können die Remotezugriffstechnologien wie DirectAccess und virtuelles privates Netzwerk (VPN), remote-Mitarbeiter mit der Konnektivität auf interne Netzwerkressourcen zu verwenden. Darüber hinaus können Sie Remotezugriff für lokale Netzwerke (LAN) routing, und für die Web Application Proxy verwenden. Dieser Proxy bietet Reverseproxyfunktion für Webanwendungen in Ihrem Unternehmensnetzwerk, damit Benutzer außerhalb des Unternehmensnetzwerks von allen Geräten auf die Anwendungen zugreifen können.</p>
 
                                         <p>Weitere Informationen zu Web Application Proxy, der einen Rollendienst der Remotezugriffs-Serverrolle ist, finden Sie unter <a href="https://docs.microsoft.com/windows-server/remote/remote-access/web-application-proxy/web-application-proxy-windows-server">Webanwendungsproxy in Windows Server 2016</a></p>
                     </div>
@@ -518,7 +518,7 @@ Können Sie Remotezugriffstechnologien wie DirectAccess und Virtual Private Netw
                                         <p>
 Windows Container Networking ermöglicht das Erstellen und Verwalten von Netzwerken zum Verbinden von Containerendpunkten auf Windows 10- und Windows Server-Hosts mithilfe von standardmäßigen Branchentools und Workflows. Windows Container Networking unterstützt mehrere Topologien, z. B. private, flat-L2 und routed-L3.</p>
 
-                                        <p>Ebenfalls unterstützt, sind Overlays, die Sie lokal auf dem Host erstellen können mithilfe von Docker, Kubernetes oder Windows PowerShell über Plug-Ins, die Kommunikation mit dem Netzwerk-Dienst von Windows-Host \(HNS\). Sie können das Erstellen und Verwalten von mehreren\-Knoten Clusternetzwerke, durch höhere Ebene orchestrierungssysteme durch Kommunikation über einen lokalen Agent auf jedem Knoten des HNS.</p>
+                                        <p>Ebenfalls unterstützt, sind Overlays, die Sie lokal auf dem Host erstellen können mithilfe von Docker, Kubernetes oder Windows PowerShell über Plug-Ins, die mit der Windows Host Networking Service (HNS) zu kommunizieren. Sie können erstellen und verwalten Cluster mit mehreren Knoten Netzwerken über das höhere Servicelevel orchestrierungssysteme durch Kommunikation über einen lokalen Agent auf jedem Knoten des HNS.</p>
                     </div>
                 </div>
             </div>
@@ -535,11 +535,11 @@ Windows Container Networking ermöglicht das Erstellen und Verwalten von Netzwer
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                        <h3><a href="../remote/remote-access/vpn/vpn-top.md">Virtuelle Private Netzwerke (VPN)</a><hr /></h3>
+                                        <h3><a href="../remote/remote-access/vpn/vpn-top.md">Virtual Private Networking (VPN)</a><hr /></h3>
                                         <p>
 DirectAccess und VPN ist ein Rollendienst der Remote Accessserver Rolle.</p>
 
-                                        <p>Wenn Sie Remotezugriff auf einen VPN-Server installieren, können Sie virtuelles privates Netzwerk \(VPN\) zu den Remotemitarbeitern mit Verbindungen mit Ihrem Organisationsnetzwerk über das Internet - Informationen auch beibehalten werden. Datenschutz für verschlüsselte Verbindungen.</p>
+                                        <p>Wenn Sie Remotezugriff auf einen VPN-Server installieren, können virtuelles privates Netzwerk (VPN) Sie die Remotemitarbeitern mit Verbindungen mit Ihrem Organisationsnetzwerk über das Internet - bereitzustellen und dabei außerdem Informationen zum Datenschutz bei verschlüsselten Verbindungen .</p>
 
                                        <p> Mit Windows Server Remote Access VPN – und Windows 10-Clientcomputern – können Sie Always On VPN bereitstellen. Mit Always On VPN verwalten Sie Remote-VPN-Clients, die immer verbunden sind, um externen Mitarbeitern zusätzlichen Komfort bieten, weil sich diese nicht mehr manuell über VPN mit dem Netzwerk Ihres Unternehmens verbinden oder von diesem trennen müssen.</p>
 
@@ -557,4 +557,4 @@ Networking-Ressourcen für Betriebssysteme vor Windows Server 2016 stehen unter 
 
 - Windows Server 2012 und Windows Server 2012 R2 [Übersicht über Netzwerke](https://technet.microsoft.com/library/hh831357.aspx)
 - Windows Server 2008 und Windows Server 2008 R2 [Netzwerke](https://technet.microsoft.com/library/cc753940)
-- Windows Server 2003 [Windows Server 2003/2003 R2 – veraltete Inhalte ](https://www.microsoft.com/download/details.aspx?id=53314)
+- WindowsServer 2003 [Windows Server 2003/2003 R2 – veraltete Inhalte](https://www.microsoft.com/download/details.aspx?id=53314)

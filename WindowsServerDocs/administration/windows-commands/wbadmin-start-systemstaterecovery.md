@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7c99a934987e320baaec0e56c69f36eda5a32819
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4282da2011c39daec0315a7f3836d5517f29debb
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852681"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440204"
 ---
 # <a name="wbadmin-start-systemstaterecovery"></a>Wbadmin Start systemstaterecovery
 
@@ -74,17 +74,17 @@ wbadmin start systemstaterecovery
 
 ## <a name="BKMK_examples"></a>Beispiele für
 
--   Geben Sie Folgendes ein, um eine Wiederherstellung des Systemstatus, der die Sicherung vom 03/31/2013 um 9:00 Uhr auszuführen:  
-    ```
-    wbadmin start systemstaterecovery -version:03/31/2013-09:00
-    ```  
--   Eine Wiederherstellung des Systemstatus, der die Sicherung von 30/04/2013 ausführen, um 9:00 Uhr für die freigegebene Ressource gespeichert wird \\ \\Servername\share für "SERVER01", Typ:  
-    ```
-    wbadmin start systemstaterecovery -version:04/30/2013-09:00 -backupTarget:\\servername\share -machine:server01
-    ```
+- Geben Sie Folgendes ein, um eine Wiederherstellung des Systemstatus, der die Sicherung vom 03/31/2013 um 9:00 Uhr auszuführen:  
+  ```
+  wbadmin start systemstaterecovery -version:03/31/2013-09:00
+  ```  
+- Eine Wiederherstellung des Systemstatus, der die Sicherung von 30/04/2013 ausführen, um 9:00 Uhr für die freigegebene Ressource gespeichert wird \\ \\Servername\share für "SERVER01", Typ:  
+  ```
+  wbadmin start systemstaterecovery -version:04/30/2013-09:00 -backupTarget:\\servername\share -machine:server01
+  ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)
 -   [Start-WBSystemStateRecovery](https://technet.microsoft.com/library/jj902449.aspx) cmdlet

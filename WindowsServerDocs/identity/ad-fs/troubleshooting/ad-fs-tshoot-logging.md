@@ -8,12 +8,12 @@ ms.date: 02/21/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 20e2d0747b98e7c7728230d0768506261f5b0d50
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1acc00ca376c48f7fb34214cef3a92961d355ae4
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59825121"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444022"
 ---
 # <a name="ad-fs-troubleshooting---events-and-logging"></a>AD FS-Problembehandlung – Ereignisse und Protokollierung
 AD FS bietet zwei primäre Protokolle, die bei der Problembehandlung verwendet werden können.  Die Überladungen sind:
@@ -89,18 +89,21 @@ Die folgende Tabelle beschreibt die grundlegenden Typen von Ereignissen.
 Von der AD FS-Dienstkonto die sicherheitsüberwachung kann manchmal bei der Probleme bei der Aktualisierung von Kennwörtern "," Anforderung/Antwort-Protokollierung "," context-Header für Anforderung "und" Gerät Registrierung Ergebnisse aufspüren.  Überwachung der AD FS-Dienstkonto ist standardmäßig deaktiviert.
 
 ### <a name="to-enable-security-auditing"></a>Zum Aktivieren der sicherheitsüberwachung
-1.       Klicken Sie auf Start, zeigen Sie auf **Programme**, zeigen Sie auf **Verwaltung**, und klicken Sie dann auf **Local Security Policy**.
-2.       Navigieren Sie zum Ordner **Sicherheitseinstellungen\Lokale Richtlinien\User Rights Management** und doppelklicken dann auf **Generieren von Sicherheitsüberwachungen**.
-3.       Auf der **lokale Sicherheitseinstellung** Registerkarte, stellen Sie sicher, dass das AD FS-Dienstkonto aufgeführt wird. Wenn es nicht vorhanden ist, klicken Sie auf Benutzer oder Gruppe hinzufügen zur Liste fügen Sie hinzu und klicken Sie dann auf OK.
-4.       Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten, und führen Sie den folgenden Befehl zum Aktivieren der Überwachung auditpol.exe/set/SubCategory: "Anwendung wurde generiert" Success /success:enable 5.       Schließen **Local Security Policy**, und öffnen Sie dann das AD FS-Verwaltungs-Snap-in.
- 
+1. Klicken Sie auf Start, zeigen Sie auf **Programme**, zeigen Sie auf **Verwaltung**, und klicken Sie dann auf **Local Security Policy**.
+2. Navigieren Sie zum Ordner **Sicherheitseinstellungen\Lokale Richtlinien\User Rights Management** und doppelklicken dann auf **Generieren von Sicherheitsüberwachungen**.
+3. Auf der **lokale Sicherheitseinstellung** Registerkarte, stellen Sie sicher, dass das AD FS-Dienstkonto aufgeführt wird. Wenn es nicht vorhanden ist, klicken Sie auf Benutzer oder Gruppe hinzufügen zur Liste fügen Sie hinzu und klicken Sie dann auf OK.
+4. Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten, und führen Sie den folgenden Befehl zum Aktivieren der Überwachung auditpol.exe/set/SubCategory: "Anwendung wurde generiert" Success /success:enable
+5. Schließen **Local Security Policy**, und öffnen Sie dann das AD FS-Verwaltungs-Snap-in.
+ 
 Um das AD FS-Verwaltungs-Snap-in zu öffnen, klicken Sie auf Start, zeigen Sie auf Programme, zeigen Sie auf Verwaltung, und klicken Sie dann auf AD FS-Verwaltung.
- 
-6.       Klicken Sie im Bereich Aktionen auf Bearbeiten Federation Service Eigenschaften 7.       Klicken Sie in das Dialogfeld "Verbunddiensteigenschaften" auf der Registerkarte "Ereignisse". 8.       Wählen Sie die **erfolgsüberwachungen** und **Fehlerüberwachungen** Kontrollkästchen.
-9.       Klicken Sie auf „OK“.
+ 
+6. Klicken Sie im Aktionsbereich auf Verbunddiensteigenschaften bearbeiten
+7. Klicken Sie in das Dialogfeld "Verbunddiensteigenschaften" auf der Registerkarte "Ereignisse".
+8. Wählen Sie die **erfolgsüberwachungen** und **Fehlerüberwachungen** Kontrollkästchen.
+9. Klicken Sie auf „OK“.
 
 ![die Verbesserte Überwachung](media/ad-fs-tshoot-logging/event4.PNG)  
- 
+ 
 >[!NOTE]
 >Nur, wenn AD FS auf einem eigenständigen Mitgliedsserver ist, werden die obigen Anweisungen verwendet.  Wenn AD FS, auf einem Domänencontroller, anstatt der lokalen Sicherheitsrichtlinie ausgeführt wird, verwenden Sie die **Standarddomänencontroller-Richtlinie** befindet sich in **Group Policy Management/Gesamtstruktur/Domänen/Domain Controller**.  Klicken Sie auf Bearbeiten, und navigieren Sie zu **Computerkonfiguration\Richtlinien\Windows unter Sicherheitseinstellungen\Lokale Richtlinien\Zuweisen von Benutzerrechten**
 
@@ -155,4 +158,4 @@ Der Aufrufer-ID-Ereignis protokolliert auch die Aktivitäts-ID können Sie diese
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [AD FS-Problembehandlung](ad-fs-tshoot-overview.md)
+- [Behandeln von AD FS-Problemen](ad-fs-tshoot-overview.md)

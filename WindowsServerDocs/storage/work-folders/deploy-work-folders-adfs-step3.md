@@ -8,12 +8,12 @@ ms.author: jeffpatt
 author: JeffPatt24
 ms.date: 4/5/2017
 ms.assetid: 5a43b104-4d02-4d73-a385-da1cfb67e341
-ms.openlocfilehash: 81f30a7a4d50423a68719343fec3032cc6a1602e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: d6b21579fb1dedc777733317e7222debd8d944a1
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854711"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812666"
 ---
 # <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-3-set-up-work-folders"></a>Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 3: Einrichten von Arbeitsordnern
 
@@ -32,7 +32,7 @@ In diesem Thema wird der dritte Schritt bei der Bereitstellung von Arbeitsordner
 -   [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 5, richten Sie Clients](deploy-work-folders-adfs-step5.md)  
   
 > [!NOTE]
->   Die in diesem Abschnitt enthaltenen Anweisungen gelten für eine Server 2016-Umgebung. Wenn Sie Windows Server 2012 R2 verwenden, folgen Sie den [Anweisungen für Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
+>   Die Anweisungen in diesem Abschnitt behandelten sind für eine Windows Server-2019 oder Windows Server 2016-Umgebung. Wenn Sie Windows Server 2012 R2 verwenden, folgen Sie den [Anweisungen für Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
 
 Wenn Sie Arbeitsordner einrichten möchten, gehen Sie folgendermaßen vor.  
   
@@ -250,7 +250,7 @@ Gehen Sie folgendermaßen vor, um Arbeitsordner zum Verwenden von AD FS zur Auth
   
 4.  Wählen Sie im Dialogfenster **Arbeitsordnereinstellungen** **Active Directory-Verbunddienste** und geben Sie eine Verbunddienst-URL ein. Klicken Sie auf **Übernehmen**.  
   
-    Im Testbeispiel die URL ist **https://blueadfs.contoso.com**.  
+    Im Testbeispiel die URL ist **https://blueadfs.contoso.com** .  
   
 So führen Sie dieselbe Aufgabe mit Windows PowerShell-Cmdlet aus:  
   

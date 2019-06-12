@@ -14,16 +14,16 @@ manager: dongill
 ms.author: elizapo
 ms.date: 05/07/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 20879507e13ac7da566c95db7b59d88e0b5d8ce8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: b2141a6a57629ccbb585b2f74c581eba5ba2b1b1
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59873571"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446682"
 ---
 # <a name="get-started-with-remote-desktop-on-windows"></a>Erste Schritte mit Remotedesktop für Windows
 
->Gilt für: Windows 10, Windows 8.1, Windows Server 2012 R2, WindowsServer 2016
+>Gilt für: Windows 10, Windows 8.1, WindowsServer 2019, WindowsServer 2016, Windows Server 2012 R2
 
 Sie können die Remotedesktop-Client für Windows verwenden, zum Arbeiten mit Windows-apps und Desktops Remote von einem anderen Windows-Gerät.
 
@@ -48,25 +48,25 @@ So erstellen Sie eine Remotedesktopverbindung hergestellt:
 
 1. In das Connection Center Tap **+ Add**, und tippen Sie dann auf **Desktop**.
 2. Geben Sie die folgende Informationen für den Computer herstellen möchten:
-  - **PC-Namen** – der Name des Computers. Dies kann es sich um einen Windows-Computernamen, einen Internet-Domänennamen oder eine IP-Adresse sein. Sie können auch die Portinformationen anfügen, auf den PC-Namen (z. B. **MyDesktop:3389** oder **10.0.0.1:3389**).
-  - **Benutzerkonto** – das Benutzerkonto auf einem Remotecomputer zugreifen. Tippen Sie auf **+** zum Hinzufügen eines neuen Kontos oder ein vorhandenes Konto auswählen. Sie können die folgenden Formate für den Benutzernamen verwenden: *User_name*, *Domäne\Benutzername*, oder *user_name@domain.com*. Sie können auch angeben, ob Benutzername und Kennwort beim Herstellen der Verbindung aufgefordert, dazu **Fragen jedes Mal**.
+   - **PC-Namen** – der Name des Computers. Dies kann es sich um einen Windows-Computernamen, einen Internet-Domänennamen oder eine IP-Adresse sein. Sie können auch die Portinformationen anfügen, auf den PC-Namen (z. B. **MyDesktop:3389** oder **10.0.0.1:3389**).
+   - **Benutzerkonto** – das Benutzerkonto auf einem Remotecomputer zugreifen. Tippen Sie auf **+** zum Hinzufügen eines neuen Kontos oder ein vorhandenes Konto auswählen. Sie können die folgenden Formate für den Benutzernamen verwenden: *User_name*, *Domäne\Benutzername*, oder <em>user_name@domain.com</em>. Sie können auch angeben, ob Benutzername und Kennwort beim Herstellen der Verbindung aufgefordert, dazu **Fragen jedes Mal**.
 3. Sie können auch zusätzliche Optionen festlegen, durch Tippen auf **mehr anzeigen**:
-  - **Anzeigename des** – ein leicht zu merkenden Namen für den PC mit dem Sie eine Verbindung mit. Sie können eine beliebige Zeichenfolge verwenden, aber der PC-Name wird angezeigt, wenn Sie einen Anzeigenamen nicht angeben, aus.
-  - **Gruppe** – Geben Sie eine Gruppe aus, um Ihre Verbindungen sich später leichter wiederfinden zu erleichtern. Sie können eine neue Gruppe hinzufügen, durch Tippen auf **+** oder aus der Liste auswählen.
-  - **Gateway** – die Remotedesktop-Gateway, das Sie Verbindung mit virtuellen Desktops, RemoteApp-Programmen und sitzungsbasierten Desktops in einem internen Unternehmensnetzwerk herstellen möchten. Rufen Sie Informationen über das Gateway von Ihrem Systemadministrator an.
-  - **Herstellen einer Verbindung administratorensitzung mit** -mit dieser Option können Sie die Verbindung mit einer konsolensitzung, um einen Windows-Server zu verwalten.
-  - **Austauschen der Maustasten** – mit dieser Option können Sie die linke Maustaste Tauschen der Schaltflächenfunktionen für die rechte Maustaste gedrückt. (Dies ist besonders nützlich, wenn der remote-PC für einen Benutzer für Linkshänder konfiguriert ist, aber Sie eine rechtshändige Maus verwenden.)
-  - **Legen Sie auf meine Lösung Remotesitzung:** – wählen Sie die Auflösung, die Sie in der Sitzung verwenden möchten. **Wählen Sie für mich** wird die Auflösung basierend auf der Größe des Clients festgelegt.
-  - **Ändern der Größe der Anzeige:** – Wenn Sie eine hohe statische Auflösung für die Sitzung auswählen, haben Sie die Möglichkeit, Elemente auf dem Bildschirm zur besseren Lesbarkeit größer angezeigt werden. Hinweis: Dies gilt nur, wenn Verbindungen mit Windows 8.1 oder höher herstellen.
-  - **Aktualisieren Sie die Remotesitzung Auflösung beim Ändern der Größe** – Wenn aktiviert, wird der Client dynamisch die Sitzung Auflösung basierend auf der Größe des Clients aktualisieren. Hinweis: Dies gilt nur, wenn Verbindungen mit Windows 8.1 oder höher herstellen.
-  - **Zwischenablage** – Wenn aktiviert, können Sie Text kopieren und Bilder in und aus dem remote-PC,.
-  - **Audiowiedergabe** – wählen Sie das Gerät für Audio während der Remotesitzung verwenden. Sie können auswählen, um auf den lokalen Geräten, die remote-PC oder überhaupt nicht Systemsound wiederzugeben.
-  - **Audio-Aufzeichnung** – Wenn aktiviert, können Sie mit einem lokalen Mikrofon mit Anwendungen auf einem Remotecomputer,.
+   - **Anzeigename des** – ein leicht zu merkenden Namen für den PC mit dem Sie eine Verbindung mit. Sie können eine beliebige Zeichenfolge verwenden, aber der PC-Name wird angezeigt, wenn Sie einen Anzeigenamen nicht angeben, aus.
+   - **Gruppe** – Geben Sie eine Gruppe aus, um Ihre Verbindungen sich später leichter wiederfinden zu erleichtern. Sie können eine neue Gruppe hinzufügen, durch Tippen auf **+** oder aus der Liste auswählen.
+   - **Gateway** – die Remotedesktop-Gateway, das Sie Verbindung mit virtuellen Desktops, RemoteApp-Programmen und sitzungsbasierten Desktops in einem internen Unternehmensnetzwerk herstellen möchten. Rufen Sie Informationen über das Gateway von Ihrem Systemadministrator an.
+   - **Herstellen einer Verbindung administratorensitzung mit** -mit dieser Option können Sie die Verbindung mit einer konsolensitzung, um einen Windows-Server zu verwalten.
+   - **Austauschen der Maustasten** – mit dieser Option können Sie die linke Maustaste Tauschen der Schaltflächenfunktionen für die rechte Maustaste gedrückt. (Dies ist besonders nützlich, wenn der remote-PC für einen Benutzer für Linkshänder konfiguriert ist, aber Sie eine rechtshändige Maus verwenden.)
+   - **Legen Sie auf meine Lösung Remotesitzung:** – wählen Sie die Auflösung, die Sie in der Sitzung verwenden möchten. **Wählen Sie für mich** wird die Auflösung basierend auf der Größe des Clients festgelegt.
+   - **Ändern der Größe der Anzeige:** – Wenn Sie eine hohe statische Auflösung für die Sitzung auswählen, haben Sie die Möglichkeit, Elemente auf dem Bildschirm zur besseren Lesbarkeit größer angezeigt werden. Hinweis: Dies gilt nur, wenn Verbindungen mit Windows 8.1 oder höher herstellen.
+   - **Aktualisieren Sie die Remotesitzung Auflösung beim Ändern der Größe** – Wenn aktiviert, wird der Client dynamisch die Sitzung Auflösung basierend auf der Größe des Clients aktualisieren. Hinweis: Dies gilt nur, wenn Verbindungen mit Windows 8.1 oder höher herstellen.
+   - **Zwischenablage** – Wenn aktiviert, können Sie Text kopieren und Bilder in und aus dem remote-PC,.
+   - **Audiowiedergabe** – wählen Sie das Gerät für Audio während der Remotesitzung verwenden. Sie können auswählen, um auf den lokalen Geräten, die remote-PC oder überhaupt nicht Systemsound wiederzugeben.
+   - **Audio-Aufzeichnung** – Wenn aktiviert, können Sie mit einem lokalen Mikrofon mit Anwendungen auf einem Remotecomputer,.
 4. Tippen Sie auf **speichern**.
 
-Möchten Sie diese Einstellungen zu bearbeiten? Tippen Sie auf das Menü "Überlauf" (**...** ) neben dem Namen der Desktop, und tippen Sie anschließend auf **bearbeiten**.
+Möchten Sie diese Einstellungen zu bearbeiten? Tippen Sie auf das Menü "Überlauf" ( **...** ) neben dem Namen der Desktop, und tippen Sie anschließend auf **bearbeiten**.
 
-Möchten Sie die Verbindung löschen? Tippen Sie in diesem Fall auf das Menü "Überlauf" (**...** ), und tippen Sie dann auf **entfernen**.
+Möchten Sie die Verbindung löschen? Tippen Sie in diesem Fall auf das Menü "Überlauf" ( **...** ), und tippen Sie dann auf **entfernen**.
 
 ### <a name="add-a-remote-resource"></a>Hinzufügen einer Remoteressource
 Remote-Ressourcen sind die RemoteApp-Programme, sitzungsbasierte Desktops und virtuellen Desktops, die von Ihrem Administrator mit Remote Desktop Services veröffentlicht.
@@ -82,12 +82,12 @@ Der remote-Ressourcen werden im Connection Center angezeigt.
 
 So löschen Sie die remote-Ressourcen:
 
-1. Tippen Sie in das Connection Center, auf das Überlaufmenü (**...** ) neben der Remoteressource.
+1. Tippen Sie in das Connection Center, auf das Überlaufmenü ( **...** ) neben der Remoteressource.
 2. Tippen Sie auf **entfernen**.
 
 ### <a name="pin-a-saved-desktop-to-your-start-menu"></a>Einen gespeicherten Desktop an Ihr Startmenü anheften
 
-Um eine Verbindung mit Ihrem Menü "Start" anheften möchten, tippen Sie auf das Überlaufmenü (**...** ) neben dem Namen der Desktop, und tippen Sie anschließend auf **an Startmenü anheften**.
+Um eine Verbindung mit Ihrem Menü "Start" anheften möchten, tippen Sie auf das Überlaufmenü ( **...** ) neben dem Namen der Desktop, und tippen Sie anschließend auf **an Startmenü anheften**.
 
 Jetzt können Sie die Remotedesktopverbindung direkt vom Startmenü starten, durch Tippen.
 
@@ -100,8 +100,8 @@ So richten ein neues Gateway:
 1. Tippen Sie in das Connection Center, auf **Einstellungen**.
 2. Tippen Sie neben dem Gateway auf **+** zum Hinzufügen eines neuen Gateways. Hinweis: Ein Gateway kann auch hinzugefügt werden, wenn Sie eine neue Verbindung hinzufügen.
 3. Geben Sie die folgende Informationen ein:
-  - **Servername** – der Name des Computers als Gateway verwenden möchten. Dies kann es sich um einen Windows-Computernamen, einen Internet-Domänennamen oder eine IP-Adresse sein. Sie können auch Informationen hinzufügen, um den Namen des Servers (z. B.: **RDGateway:443** oder **10.0.0.1:443**).
-  - **Benutzerkonto** – wählen oder ein Benutzerkonto mit dem Remotedesktop-Gateway verwenden Sie eine Verbindung mit hinzufügen. Sie können auch auswählen, **Remotedesktop-Benutzerkonto verwenden** auf die gleichen Anmeldeinformationen wie für die Remotedesktopverbindung verwenden.
+   - **Servername** – der Name des Computers als Gateway verwenden möchten. Dies kann es sich um einen Windows-Computernamen, einen Internet-Domänennamen oder eine IP-Adresse sein. Sie können auch Informationen hinzufügen, um den Namen des Servers (z. B.: **RDGateway:443** oder **10.0.0.1:443**).
+   - **Benutzerkonto** – wählen oder ein Benutzerkonto mit dem Remotedesktop-Gateway verwenden Sie eine Verbindung mit hinzufügen. Sie können auch auswählen, **Remotedesktop-Benutzerkonto verwenden** auf die gleichen Anmeldeinformationen wie für die Remotedesktopverbindung verwenden.
 4. Tippen Sie auf **speichern**.  
 
 ## <a name="global-app-settings"></a>Globale app-Einstellungen

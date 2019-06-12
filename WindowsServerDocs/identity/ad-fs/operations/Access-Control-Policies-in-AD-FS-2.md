@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 216af933aee643ee56feff71c59d9ecc2e62998c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 036d6d0543687e7f82caf3dfd2c3bb0b4a981181
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842991"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445049"
 ---
 # <a name="client-access-control-policies-in-ad-fs-20"></a>Client-Zugriffssteuerungsrichtlinien in AD FS 2.0
 Eine Client-Zugriffsrichtlinien in Active Directory-Verbunddienste 2.0 können Sie einschränken oder gewähren Benutzerzugriff auf Ressourcen.  Dieses Dokument beschreibt, wie Sie Clientzugriffsrichtlinien in AD FS 2.0 zu aktivieren und konfigurieren Sie die häufigsten Szenarien.
@@ -52,11 +52,13 @@ Erstellen Sie auf die Active Directory Anspruchsanbieter-Vertrauensstellung eine
     `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application`
 
 
-    `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-user-agent`
+~~~
+`https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-user-agent`
 
-    `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy`
+`https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy`
 
-    `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path`
+`https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path`
+~~~
 
 ### <a name="step-3-update-the-microsoft-office-365-identity-platform-relying-party-trust"></a>Schritt 3: Aktualisieren Sie die Microsoft Office 365 Identity Platform, die Vertrauensstellung einer vertrauenden Seite
 
@@ -160,16 +162,16 @@ Im folgenden Beispiel wird der Zugriff von internen Clients basierend auf IP-Adr
 
 ### <a name="descriptions-of-the-claim-rule-language-syntax-used-in-the-above-scenarios"></a>Beschreibungen der Anspruchsregel-Sprachsyntax, die in den oben genannten Szenarien verwendet
 
-|Beschreibung|Anspruch der syntax|
-|-----|-----| 
-|Standardmäßige AD FS-Regel zum Zulassen des Zugriffs auf alle Benutzer. Diese Regel sollte bereits in der Microsoft Office 365 Identity Platform, die Liste der Regeln für Ausstellungsautorisierung Vertrauensstellung einer vertrauenden Seite vorhanden sein.|=> issue(Type = "https://schemas.microsoft.com/authorization/claims/permit", Value = "true");| 
-|Diese Klausel hinzufügen, um eine neue, benutzerdefinierte Regel gibt an, dass die Anforderung aus dem Verbundserverproxy herauskommt (d. h. sie hat den Header X-ms-Proxy)
-Es wird empfohlen, dass alle Regeln, die diese enthalten.|exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy"])| 
-|Verwendet, um die ermittelt, ob die Anforderung von einem Client mit einer IP-Adresse im akzeptierten Bereich definiert ist.|NOT exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip", Value=~"customer-provided public ip address regex"])| 
-|Diese Klausel wird verwendet, um anzugeben, dass wenn die Anwendung auf die zugegriffen wird, nicht Microsoft.Exchange.ActiveSync ist die Anforderung abgelehnt werden soll.|NOT exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application", Value=="Microsoft.Exchange.ActiveSync"])| 
-|Mit dieser Regel können Sie bestimmen, ob der Aufruf über einen Webbrowser wurde, und nicht verweigert werden.|NOT exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value == "/adfs/ls/"])| 
-|Diese Regel gibt an, dass die einzigen Benutzer in einer bestimmten Active Directory-Gruppe (auf der Grundlage der SID-Wert) verweigert werden soll. Diese Anweisung nicht hinzugefügt, bedeutet, dass es sich bei eine Gruppe von Benutzern, unabhängig von Ihrem Standort möglich ist.|vorhanden ist ([Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Wert = ~ "{Gruppe SID-Wert, der zulässigen Gruppe" AD "}"])| 
-|Dies ist eine erforderliche Klausel Deny ausgeben, wenn alle oben genannten Bedingungen erfüllt sind.|=> issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "true");|
+|                                                                                                   Beschreibung                                                                                                   |                                                                     Anspruch der syntax                                                                     |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|              Standardmäßige AD FS-Regel zum Zulassen des Zugriffs auf alle Benutzer. Diese Regel sollte bereits in der Microsoft Office 365 Identity Platform, die Liste der Regeln für Ausstellungsautorisierung Vertrauensstellung einer vertrauenden Seite vorhanden sein.              |                                  => issue(Type = "<https://schemas.microsoft.com/authorization/claims/permit>", Value = "true");                                   |
+|                               Diese Klausel hinzufügen, um eine neue, benutzerdefinierte Regel gibt an, dass die Anforderung aus dem Verbundserverproxy herauskommt (d. h. sie hat den Header X-ms-Proxy)                                |                                                                                                                                                                    |
+|                                                                                 Es wird empfohlen, dass alle Regeln, die diese enthalten.                                                                                  |                                    exists([Type == "<https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy>"])                                    |
+|                                                         Verwendet, um die ermittelt, ob die Anforderung von einem Client mit einer IP-Adresse im akzeptierten Bereich definiert ist.                                                         | NOT exists([Type == "<https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip>", Value=~"customer-provided public ip address regex"]) |
+|                                    Diese Klausel wird verwendet, um anzugeben, dass wenn die Anwendung auf die zugegriffen wird, nicht Microsoft.Exchange.ActiveSync ist die Anforderung abgelehnt werden soll.                                     |       NOT exists([Type == "<https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application>", Value=="Microsoft.Exchange.ActiveSync"])        |
+|                                                      Mit dieser Regel können Sie bestimmen, ob der Aufruf über einen Webbrowser wurde, und nicht verweigert werden.                                                      |              NOT exists([Type == "<https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path>", Value == "/adfs/ls/"])               |
+| Diese Regel gibt an, dass die einzigen Benutzer in einer bestimmten Active Directory-Gruppe (auf der Grundlage der SID-Wert) verweigert werden soll. Diese Anweisung nicht hinzugefügt, bedeutet, dass es sich bei eine Gruppe von Benutzern, unabhängig von Ihrem Standort möglich ist. |             vorhanden ist ([Type == "<https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid>", Wert = ~ "{Gruppe SID-Wert, der zulässigen Gruppe" AD "}"])              |
+|                                                                Dies ist eine erforderliche Klausel Deny ausgeben, wenn alle oben genannten Bedingungen erfüllt sind.                                                                 |                                   => issue(Type = "<https://schemas.microsoft.com/authorization/claims/deny>", Value = "true");                                    |
 
 ### <a name="building-the-ip-address-range-expression"></a>Erstellen die IP-Adresse-Range-Ausdruck
 
@@ -271,4 +273,4 @@ Nachdem Sie die Ablaufverfolgung aktiviert haben, verwenden Sie die folgende Bef
 
 ## <a name="related"></a>Verwandte Themen
 Weitere Informationen zu den neuen Anspruchstypen finden Sie unter [Anspruchstypen für AD FS](AD-FS-Claims-Types.md).
- 
+

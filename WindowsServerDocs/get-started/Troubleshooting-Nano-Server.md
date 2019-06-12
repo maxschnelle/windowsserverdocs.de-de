@@ -12,12 +12,12 @@ ms.assetid: e427c66f-9571-4b8c-b65d-e7370d91544d
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: 0f5d3e352cd022853a1602c67c3aaf2530cfc696
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e832d35f1ae3bbdba256b3531a22f93b69cadbb3
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813641"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443392"
 ---
 # <a name="troubleshooting-nano-server"></a>Problembehandlung bei Nano Server
 
@@ -43,8 +43,8 @@ Wenn Sie Nano Server entweder auf einem virtuellen Computer oder auf einem physi
 -   Einige Bildschirme verfügen über zusätzliche Funktionen, die in der letzten Zeile des Bildschirms aufgeführt sind. Wenn Sie z.B. einen Netzwerkadapter durchsuchen, deaktiviert F4 den Netzwerkadapter.  
   
 Mit der Wiederherstellungskonsole können Sie Netzwerkadapter, TCP/IP-Einstellungen sowie Firewallregeln anzeigen und konfigurieren.
-> [!NOTE]  
-    > Die Wiederherstellungskonsole unterstützt nur grundlegende Tastaturfunktionen. Tastaturbeleuchtung, Nummernblöcke und Tastaturlayoutwechsel wie z.B. FESTSTELLTASTE und Num-Lock-Taste werden nicht unterstützt. Es werden nur englische Tastaturen und Zeichensätze unterstützt.
+> [!NOTE]
+> Die Wiederherstellungskonsole unterstützt nur grundlegende Tastaturfunktionen. Tastaturbeleuchtung, Nummernblöcke und Tastaturlayoutwechsel wie z.B. FESTSTELLTASTE und Num-Lock-Taste werden nicht unterstützt. Es werden nur englische Tastaturen und Zeichensätze unterstützt.
 
 ## <a name="accessing-nano-server-over-a-serial-port-with-emergency-management-services"></a>Zugreifen auf Nano Server über einen seriellen Anschluss mit Notverwaltungsdiensten  
 Mit den Notverwaltungsdiensten (Management Services, EMS) können Sie die grundlegende Problembehandlung durchführen, den Netzwerkstatus abrufen und Konsolensitzungen öffnen (einschließend CMD/PowerShell), indem Sie einen Terminalemulator auf einem seriellen Port verwenden. Durch diese Option ist es nicht mehr notwendig, dass eine Tastatur und ein Monitor die Fehlerbehebung für einen Server ausführen müssen. Weitere Informationen zu EMS finden Sie unter [Emergency Management Services Technical Reference (Technische Referenz zu den Notverwaltungsdiensten)](https://technet.microsoft.com/library/cc784411(v=ws.10).aspx).

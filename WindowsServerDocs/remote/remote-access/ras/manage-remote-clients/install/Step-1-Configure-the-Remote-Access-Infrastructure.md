@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 0e7d1f5b-c939-47ca-892f-5bb285027fbc
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: dc08d89f7d84b5435e97ed5ed77eb72d003b0c84
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 95fc9cbef454c8f36b1921eb7f570138bf124256
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59888571"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446943"
 ---
 # <a name="step-1-configure-the-remote-access-infrastructure"></a>Schritt 1 Konfigurieren der Remotezugriffinfrastruktur
 
@@ -57,11 +57,11 @@ Folgendes wird benötigt:
   
 -   Eine einzelne, interne, statische IPv4- oder IPv6-Adresse  
   
-**Hinter einem NAT-Gerät (zwei Netzwerkadaptern)**:  
+**Hinter einem NAT-Gerät (zwei Netzwerkadaptern)** :  
   
 Erfordert eine einzelne, interne umkreisnetzwerkzugriff statische IPv4- oder IPv6-Adresse an.  
   
-**Hinter einem NAT-Gerät (mit einem Netzwerkadapter)**:  
+**Hinter einem NAT-Gerät (mit einem Netzwerkadapter)** :  
   
 Erfordert eine einzelne statische IPv4- oder IPv6-Adresse an.  
   
@@ -164,7 +164,7 @@ Nachdem Sie Ihre Vorlagen vorbereitet haben, können Sie diese so konfigurieren 
 ### <a name="BKMK_IPHTTPS"></a>Konfigurieren Sie das IP-HTTPS-Zertifikat  
 Für den Remotezugriff ist zum Authentifizieren von IP-HTTPS-Verbindungen mit dem Remotezugriffsserver ein IP-HTTPS-Zertifikat erforderlich. Für das IP-HTTPS-Zertifikat sind drei Zertifikatoptionen verfügbar:  
   
--   **Public**  
+-   **Öffentlich**  
   
     Von einem Drittanbieter bereitgestellt.  
   
@@ -234,7 +234,7 @@ Sie müssen einen DNS-Eintrag für die Netzwerkadressenserver-Website für das i
   
 1.  Vorgehensweise auf dem internen Netzwerk-DNS-Server: Auf der **starten** geben**dnsmgmt.msc**, und drücken Sie dann die EINGABETASTE.  
   
-2.  Erweitern Sie im linken Bereich der **DNS-Manager**-Konsole die Forward-Lookupzone für Ihre Domäne. Mit der rechten Maustaste in der Domänenadministrators, und klicken Sie auf **neuer Host (A oder AAAA)**.  
+2.  Erweitern Sie im linken Bereich der **DNS-Manager**-Konsole die Forward-Lookupzone für Ihre Domäne. Mit der rechten Maustaste in der Domänenadministrators, und klicken Sie auf **neuer Host (A oder AAAA)** .  
   
 3.  In der **neuen Host** Dialogfeld die **Name (wird übergeordneter Domänenname bei Nichtangabe)** Geben Sie den DNS-Namen für die Netzwerkadressenserver-Website (Dies ist der Name der DirectAccess-Clients zu verwenden, um das Herstellen einer Verbindung mit der Netzwerkadressenserver). In der **IP-Adresse** Feld, geben Sie die IPv4-Adresse des Netzwerkadressenservers, und klicken Sie auf **Host hinzufügen**, und klicken Sie dann auf **OK**.  
   
@@ -244,7 +244,7 @@ Sie müssen einen DNS-Eintrag für die Netzwerkadressenserver-Website für das i
   
 6.  Klicken Sie auf **Fertig**.  
   
-![Windows PowerShell](../../../../media/Step-1-Configure-the-Remote-Access-Infrastructure/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***  
+![Windows PowerShell](../../../../media/Step-1-Configure-the-Remote-Access-Infrastructure/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -316,7 +316,7 @@ Der Remotezugriffsserver und alle DirectAccess-Clientcomputer müssen zu einer A
   
 10. Klicken Sie bei Aufforderung auf **Jetzt neu starten**.  
   
-![Windows PowerShell](../../../../media/Step-1-Configure-the-Remote-Access-Infrastructure/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***  
+![Windows PowerShell](../../../../media/Step-1-Configure-the-Remote-Access-Infrastructure/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -456,5 +456,5 @@ Ob Sie ein privates Zertifikat oder ein selbstsigniertes Zertifikat verwenden, b
   
 ## <a name="BKMK_Links"></a>Siehe auch  
   
--   [Schritt 2: Konfigurieren Sie den RAS-Server](Step-2-Configure-the-Remote-Access-Server.md)
+-   [Schritt 2: Konfigurieren des Remotezugriffsservers](Step-2-Configure-the-Remote-Access-Server.md)
 

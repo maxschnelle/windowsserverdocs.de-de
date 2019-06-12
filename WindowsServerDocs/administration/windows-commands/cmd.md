@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7d9b99dbe7e26190e87c5dfc9de29980b9cb2f43
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 581e9a3bad8323c79839a4487b7da045e9cfec21
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192586"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811234"
 ---
 # <a name="cmd"></a>Cmd
 
@@ -76,10 +76,12 @@ Die folgende Tabelle enthält gültige hexadezimale Ziffern, mit denen Sie als W
 
 -   Verwenden mehrerer Befehle
 
-    Verwenden Sie für mehrere Befehle \<Zeichenfolge >, trennen sie die durch das Befehlstrennzeichen **&&** und schließen Sie diese in Anführungszeichen ein. Zum Beispiel:  
+    Verwenden Sie für mehrere Befehle \<Zeichenfolge >, trennen sie die durch das Befehlstrennzeichen **&&** und schließen Sie diese in Anführungszeichen ein. Zum Beispiel:
+
     ```
     "<Command>&&<Command>&&<Command>"
-    ```  
+    ``` 
+ 
 -   Verarbeiten von Anführungszeichen
 
     Bei Angabe von **/c** oder **/k**, **Cmd** verarbeitet die restliche *Zeichenfolge* und Anführungszeichen werden nur beibehalten, wenn alle der folgenden Bedingungen erfüllt sind:  

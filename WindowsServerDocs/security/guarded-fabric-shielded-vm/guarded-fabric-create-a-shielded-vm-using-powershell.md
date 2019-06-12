@@ -7,12 +7,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 76be26e107bd16165367d5432e1dd757dea2f9b4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0086edb7781a604cc90b9e76d34e5a3dc2725547
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855411"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447526"
 ---
 # <a name="create-a-shielded-vm-using-powershell"></a>Erstellen Sie eine geschützte VM mithilfe von PowerShell
 
@@ -56,15 +56,15 @@ Darüber hinaus benötigen Sie eine Antwortdatei für die unbeaufsichtigte Insta
 Führen Sie die folgenden Cmdlets auf einem Computer mit dem Remoteserver-Verwaltungstools für abgeschirmte VMs installiert.
 Wenn Sie eine PDK für eine Linux-VM erstellen, müssen Sie dies auf einem Server mit Windows Server, Version 1709 oder höher.
 
- 
+ 
 ```powershell
 # Create owner certificate, don't lose this!
 # The certificate is stored at Cert:\LocalMachine\Shielded VM Local Certificates
 $Owner = New-HgsGuardian –Name 'Owner' –GenerateCertificates
- 
+ 
 # Import the HGS guardian for each fabric you want to run your shielded VM
 $Guardian = Import-HgsGuardian -Path C:\HGSGuardian.xml -Name 'TestFabric'
- 
+ 
 # Create the PDK file
 # The "Policy" parameter describes whether the admin can see the VM's console or not
 # Use "EncryptionSupported" if you are testing out shielded VMs and want to debug any issues during the specialization process
@@ -115,5 +115,5 @@ Die abgeschirmte VM kann jetzt live werden innerhalb des Clusters migriert.
 
 ## <a name="next-step"></a>Nächster Schritt
 
->[!div class="nextstepaction"]
-[Bereitstellen einer geschützten mithilfe von VMM](guarded-fabric-tenant-deploys-shielded-vm-using-vmm.md)
+> [!div class="nextstepaction"]
+> [Bereitstellen einer geschützten mithilfe von VMM](guarded-fabric-tenant-deploys-shielded-vm-using-vmm.md)

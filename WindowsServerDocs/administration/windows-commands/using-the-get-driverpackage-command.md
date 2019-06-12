@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6574177f1f0a8ead0cc2fa596380eb2c980f8d1f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b0f123d281625140b3c4ba46316cb9b773bf5fee
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59888521"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440517"
 ---
 # <a name="using-the-get-driverpackage-command"></a>Mithilfe des Befehls Get-DriverPackage /
 
@@ -34,12 +34,12 @@ WDSUTIL /Get-DriverPackage [/Server:<Server name>] {/DriverPackage:<Package Name
 
 ## <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|[/ Server:\<Servername >]|Gibt den Namen des Servers an. Dies kann den NetBIOS-Namen oder den vollqualifizierten Domänennamen sein. Wenn kein Servername angegeben wird, wird der lokale Server verwendet.|
-|[/ DriverPackage /:\<Name >]|Gibt den Namen des Treiberpakets angezeigt.|
-|[/PackageId:\<ID>]|Gibt an, die Windows Deployment Services-ID des Treiberpakets angezeigt. Sie müssen die ID angeben, wenn das Treiberpaket eindeutig anhand des Namens identifiziert werden kann.|
-|[/Show: {Drivers | Dateien | All}]|Gibt an, welche Informationen angezeigt (falls angegeben). Wenn **/anzeigen** nicht angegeben ist, wird standardmäßig nur den Treiber Paketmetadaten zurückgegeben werden. **Treiber** zeigt alle Treiber im Paket. **Dateien** zeigt die Liste der Dateien im Paket. **Alle** zeigt Treiber, Dateien und Metadaten.|
+|        Parameter         |                                                                           Beschreibung                                                                            |
+|--------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [/ Server:\<Servername >] |              Gibt den Namen des Servers an. Dies kann den NetBIOS-Namen oder den vollqualifizierten Domänennamen sein. Wenn kein Servername angegeben wird, wird der lokale Server verwendet.               |
+| [/ DriverPackage /:\<Name >] |                                                        Gibt den Namen des Treiberpakets angezeigt.                                                         |
+|    [/PackageId:\<ID>]    | Gibt an, die Windows Deployment Services-ID des Treiberpakets angezeigt. Sie müssen die ID angeben, wenn das Treiberpaket eindeutig anhand des Namens identifiziert werden kann. |
+|     [/Show: {Drivers     |                                                                              Dateien                                                                               |
 
 ## <a name="BKMK_examples"></a>Beispiele für
 
@@ -53,4 +53,4 @@ WDSUTIL /Get-DriverPackage /DriverPackage:MyDriverPackage /Show:All
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

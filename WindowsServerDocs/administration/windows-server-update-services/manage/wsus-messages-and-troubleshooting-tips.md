@@ -12,12 +12,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 77a4702ddab987cb3adda7627badb790e3102952
-ms.sourcegitcommit: 8eea7aadbe94f5d4635c4ffedc6a831558733cc0
+ms.openlocfilehash: 4acc5e284d5ca7a62335a1c52f341cda3dfb547e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66308546"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66439730"
 ---
 # <a name="wsus-messages-and-troubleshooting-tips"></a>WSUS-Nachrichten und Tipps zur Problembehandlung
 
@@ -48,13 +48,13 @@ Die häufigsten Gründe sind:
 
 ## <a name="message-id-6703---wsus-synchronization-failed"></a>Statusmeldung 6703 - WSUS-Synchronisierung fehlgeschlagen
 > Meldung: Die Anforderung ist mit HTTP-Status 503 fehlgeschlagen: Der Dienst ist nicht verfügbar.
-
+> 
 > Quelle: Microsoft.UpdateServices.Administration.AdminProxy.createUpdateServer.
 
 Wenn Sie versuchen, die Update Services auf dem WSUS-Server öffnen Fehlermeldung Sie die folgende:
 
 > Fehler: Verbindungsfehler
-
+> 
 > Verbindung mit dem WSUS-Server ist ein Fehler aufgetreten. Dieser Fehler kann eine Reihe von Gründen auftreten. Wenden Sie sich an Ihren Netzwerkadministrator, wenn das Problem weiterhin besteht. Klicken Sie auf das Zurücksetzen des Server-Knoten, um erneut eine Verbindung mit dem Server herzustellen.
 
 Zusätzlich zu den oben genannten versucht, auf die URL für die WSUS-Verwaltungswebsite zugreifen (z. B. `http://CM12CAS:8530`) mit folgendem Fehler fehl:
@@ -88,8 +88,8 @@ Um dieses Problem zu beheben, Gewähren von Berechtigungen vom Systemadministrat
 
 - **SQL Service:** Jeder Dienst, mit Ausnahme von selbstaktualisierungsdiensts erfordert, dass der SQL-Dienst ausgeführt wird. Wenn eine der Protokolldateien für SQL-Verbindungsprobleme anzugeben, überprüfen Sie zunächst den SQL-Dienst. Um die SQL-Dienst zuzugreifen, klicken Sie auf **starten**, zeigen Sie auf **Verwaltung**, klicken Sie auf **Services**, und suchen Sie nach einer der folgenden:
     
-    -   **MSSQLSERver** (bei Verwendung WMSDE oder MSDE, oder wenn Sie SQL Server verwenden und der Name der Standardinstanz für den Instanznamen verwenden)
+  - **MSSQLSERver** (bei Verwendung WMSDE oder MSDE, oder wenn Sie SQL Server verwenden und der Name der Standardinstanz für den Instanznamen verwenden)
     
-    -   **MSSQL$ WSUS** (Wenn Sie SQL Server-Datenbank verwenden und müssen mit dem Namen Ihrer Datenbankinstanz "WSUS")
+  - **MSSQL$ WSUS** (Wenn Sie SQL Server-Datenbank verwenden und müssen mit dem Namen Ihrer Datenbankinstanz "WSUS")
     
     Mit der rechten Maustaste in des Diensts, und klicken Sie dann auf **starten** , wenn der Dienst nicht ausgeführt wird, oder **Neustart** auf den Dienst zu aktualisieren, wenn er ausgeführt wird.

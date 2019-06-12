@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 940b0931671d5f3c2137fafe4ae73b7cecd0160e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1e4b9cde10e11558aaa95edda94921144dac1f86
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821191"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441805"
 ---
 # <a name="repair"></a>Reparieren
 
@@ -36,11 +36,11 @@ repair disk=<n> [align=<n>] [noerr]
   
 ## <a name="parameters"></a>Parameter  
   
-|Parameter|Beschreibung|  
-|-------|--------|  
-|disk\=<n>|Gibt an, den dynamischen Datenträger, der die Region für die fehlerhafte Festplatte ersetzt wird.|  
-|align\=<n>|Richtet alle Volumes oder einer Partition Blöcke auf der nächsten. *n* ist die Anzahl der Kilobytes \(KB\) vom Anfang des Datenträgers an, die am nächsten Ausrichtungsgrenze.|  
-|Diskpart|nur für Skripts. Wenn ein Fehler gefunden wird, weiterhin DiskPart Befehle zu verarbeiten, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter wird ein Fehler DiskPart mit dem Fehlercode zu beenden.|  
+| Parameter  |                                                                                             Beschreibung                                                                                              |
+|------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| disk\=<n>  |                                                                 Gibt an, den dynamischen Datenträger, der die Region für die fehlerhafte Festplatte ersetzt wird.                                                                 |
+| align\=<n> |          Richtet alle Volumes oder einer Partition Blöcke auf der nächsten. *n* ist die Anzahl der Kilobytes \(KB\) vom Anfang des Datenträgers an, die am nächsten Ausrichtungsgrenze.           |
+|   Diskpart    | nur für Skripts. Wenn ein Fehler gefunden wird, weiterhin DiskPart Befehle zu verarbeiten, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter wird ein Fehler DiskPart mit dem Fehlercode zu beenden. |
   
 ## <a name="remarks"></a>Hinweise  
   
@@ -56,7 +56,7 @@ repair disk=4
 ```  
   
 #### <a name="additional-references"></a>Zusätzliche Referenzen  
-[Befehlszeilensyntax](command-line-syntax-key.md)  
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
   
 
   

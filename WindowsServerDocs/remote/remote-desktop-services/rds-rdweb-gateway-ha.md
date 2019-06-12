@@ -12,16 +12,16 @@ author: lizap
 ms.author: elizapo
 ms.date: 11/08/2016
 manager: dongill
-ms.openlocfilehash: fa09532e0b327b24ebb1c0e155c26c25d1043b63
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 4e185e51b09d2e2f8ac4527f9de339de27e02f24
+ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854601"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66805140"
 ---
 # <a name="add-high-availability-to-the-rd-web-and-gateway-web-front"></a>Hohen Verfügbarkeit auf die Web-Front RD Web- und Gatewaycomputers hinzufügen
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2019, WindowsServer 2016
 
 
 Sie können eine Remote-Remotedesktop-Webzugriff (RD-Webzugriff) und Remotedesktopgateway (RD-Gateway)-Farm, zur Verbesserung der Verfügbarkeit und Skalierung einer Windows Server Remote Desktop Services (RDS)-Bereitstellung bereitstellen. 
@@ -41,20 +41,20 @@ Einrichten eines Servers als zusätzliche RD-Web und RD-Gateway - fungieren kann
     3. Wählen Sie den neu erstellten RD Web- und Gatewaycomputers Server (z. B. Contoso-WebGw2) aus, und klicken Sie auf **OK**.
 3. Hinzufügen von RD-Web und Gatewayservern zur Bereitstellung  
     1. Server-Manager zu starten.  
-    2. Klicken Sie auf **Remote Desktop Services > Übersicht > Bereitstellungsserver > Vorgänge > Hinzufügen von Servern mit Web Access für Remotedesktop-**.   
+    2. Klicken Sie auf **Remote Desktop Services > Übersicht > Bereitstellungsserver > Vorgänge > Hinzufügen von Servern mit Web Access für Remotedesktop-** .   
     3. Wählen Sie den neu erstellten Server (z. B. Contoso-WebGw2), und klicken Sie dann auf **Weiter**.  
     4. Wählen Sie auf der Bestätigungsseite **Remotecomputer neu starten, je nach Bedarf**, und klicken Sie dann auf **hinzufügen**.  
     5. Wiederholen Sie diese Schritte aus, um den RD-Gateway-Server hinzufügen, aber wählen **RD-Gatewayservern** in Schritt b.
 4. Installieren Sie Zertifikate für die RD-Gateway-Server neu:
-    1.  Klicken Sie im Server-Manager auf dem Server RDMS **Remote Desktop Services > Übersicht > Aufgaben > Bereitstellungseigenschaften bearbeiten**.  
-    2.  Erweitern Sie **Zertifikate**.  
-    3.  Scrollen Sie nach unten zur Tabelle. Klicken Sie auf Remotedesktop **Remotedesktopgateway-Rollendiensts > vorhandenes Zertifikat auswählen.**  
-    4.  Klicken Sie auf **wählen Sie ein anderes Zertifikat** und suchen Sie dann den Speicherort des Zertifikats. Z. B. \Contoso-CB1\Certificates). Wählen Sie die Zertifikatdatei für den RD-Web "und" Gateway-Server, die während der die erforderlichen Komponenten (z. B. ContosoRdGwCert) erstellt, und klicken Sie dann auf **öffnen**.  
-    5.  Geben Sie das Kennwort für das Zertifikat, wählen **können Sie das Zertifikat dem Zertifikatspeicher "Vertrauenswürdige Stammzertifizierungsstellen" auf den Zielcomputern hinzugefügt werden**, und klicken Sie dann auf **OK**.  
-    6.  Klicken Sie auf **Übernehmen**.
-    > [!Note] 
-    > Sie müssen die TSGateway-Dienst ausgeführt wird, auf jedem Remotedesktopgateway-Server entweder über Server-Manager oder Task-Manager manuell neu starten.
-    7.  Wiederholen Sie die Schritte a bis f für den RD-Web Access-Rollendienst.
+   1. Klicken Sie im Server-Manager auf dem Server RDMS **Remote Desktop Services > Übersicht > Aufgaben > Bereitstellungseigenschaften bearbeiten**.  
+   2. Erweitern Sie **Zertifikate**.  
+   3. Scrollen Sie nach unten zur Tabelle. Klicken Sie auf Remotedesktop **Remotedesktopgateway-Rollendiensts > vorhandenes Zertifikat auswählen.**  
+   4. Klicken Sie auf **wählen Sie ein anderes Zertifikat** und suchen Sie dann den Speicherort des Zertifikats. Z. B. \Contoso-CB1\Certificates). Wählen Sie die Zertifikatdatei für den RD-Web "und" Gateway-Server, die während der die erforderlichen Komponenten (z. B. ContosoRdGwCert) erstellt, und klicken Sie dann auf **öffnen**.  
+   5. Geben Sie das Kennwort für das Zertifikat, wählen **können Sie das Zertifikat dem Zertifikatspeicher "Vertrauenswürdige Stammzertifizierungsstellen" auf den Zielcomputern hinzugefügt werden**, und klicken Sie dann auf **OK**.  
+   6. Klicken Sie auf **Übernehmen**.
+      > [!NOTE] 
+      > Sie müssen die TSGateway-Dienst ausgeführt wird, auf jedem Remotedesktopgateway-Server entweder über Server-Manager oder Task-Manager manuell neu starten.
+   7. Wiederholen Sie die Schritte a bis f für den RD-Web Access-Rollendienst.
 
 ## <a name="step-2-configure-rd-web-and-rd-gateway-properties-on-the-new-server"></a>Schritt 2: Konfigurieren von RD-Web und RD-Gateway-Eigenschaften auf dem neuen server
 1. Konfigurieren der Server eine RD-gatewayfarm angehören:
@@ -90,7 +90,7 @@ Einrichten eines Servers als zusätzliche RD-Web und RD-Gateway - fungieren kann
 
 Wenn Sie Azure-Infrastruktur verwenden, können Sie einen Azure Load Balancer erstellen; Wenn dies nicht der Fall ist, können Sie einen separaten Hardware oder Software Load Balancer einrichten. Der Lastenausgleich Schlüssel ist, sodass Datenverkehr gleichmäßig verteilt die langlebigen Verbindungen über Remote Desktop-Clients über das RD-Gateway, auf die Server, dass Benutzer ihre Workloads ausgeführt werden soll.
 
-> [!Note] 
+> [!NOTE] 
 > Wenn der vorherige Server ausgeführt wird, RD-Web und RD-Gateway hinter einem externen Load Balancer bereits eingerichtet wurde, fahren Sie zum Schritt 4, wählen Sie den vorhandenen Back-End-Pool, und fügen den neuen Server für den Pool.
 
 1.  Erstellen Sie einen Azure Load Balancer:  

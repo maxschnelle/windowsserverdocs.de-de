@@ -9,12 +9,12 @@ ms.date: 01/18/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 2d819ea036029fbe7cfde9ad5a445db6b2b42c96
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: c69192a4223379b896a57eb04a38e37863c1366e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189696"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444316"
 ---
 # <a name="configuring-ad-fs-for-user-certificate-authentication"></a>Konfigurieren von AD FS für die Authentifizierung mit Benutzerzertifikat
 
@@ -51,23 +51,22 @@ Stellen Sie sicher, alle CRL und Delta-Zertifikatsperrlisten-Speicherorte auflö
 
 ## <a name="reference-complete-list-of-user-certificate-claim-types-and-example-values"></a>Referenz: Vollständige Liste der Benutzerzertifikat anspruchtypen und Beispielwerte
 
-|Anspruchstyp|Beispielwert
-|-----|-----
-|https://schemas.microsoft.com/2012/12/certificatecontext/field/x509version | 3
-|https://schemas.microsoft.com/2012/12/certificatecontext/field/signaturealgorithm | sha256RSA
-|https://schemas.microsoft.com/2012/12/certificatecontext/field/issuer | CN=entca, DC=domain, DC=contoso, DC=com
-|https://schemas.microsoft.com/2012/12/certificatecontext/field/issuername | CN=entca, DC=domain, DC=contoso, DC=com
-|https://schemas.microsoft.com/2012/12/certificatecontext/field/notbefore | 12/05/2016 20:50:18
-|https://schemas.microsoft.com/2012/12/certificatecontext/field/notafter | 12/05/2017 20:50:18
-|https://schemas.microsoft.com/2012/12/certificatecontext/field/subject | E =user@contoso.com, CN = Benutzer, CN = Users, DC = Domain, DC = Contoso, DC = com
-|https://schemas.microsoft.com/2012/12/certificatecontext/field/subjectname | E =user@contoso.com, CN = Benutzer, CN = Users, DC = Domain, DC = Contoso, DC = com
-|https://schemas.microsoft.com/2012/12/certificatecontext/field/rawdata | {Base64-codierte Daten des digitalen Zertifikats}
-|https://schemas.microsoft.com/2012/12/certificatecontext/extension/keyusage | DigitalSignature
-|https://schemas.microsoft.com/2012/12/certificatecontext/extension/keyusage | KeyEncipherment
-|https://schemas.microsoft.com/2012/12/certificatecontext/extension/subjectkeyidentifier | 9D11941EC06FACCCCB1B116B56AA97F3987D620A
-|https://schemas.microsoft.com/2012/12/certificatecontext/extension/authoritykeyidentifier | KeyID=d6 13 e3 6b bc e5 d8 15 52 0a fd 36 6a d5 0b 51 f3 0b 25 7f
-|https://schemas.microsoft.com/2012/12/certificatecontext/extension/certificatetemplatename | Benutzer
-|https://schemas.microsoft.com/2012/12/certificatecontext/extension/san | Andere Namen: Prinzipalname =user@contoso.com, RFC822-namens =user@contoso.com
-|https://schemas.microsoft.com/2012/12/certificatecontext/extension/eku | 1.3.6.1.4.1.311.10.3.4
-
+|                                         Anspruchstyp                                         |                              Beispielwert                               |
+|--------------------------------------------------------------------------------------------|--------------------------------------------------------------------------|
+|         https://schemas.microsoft.com/2012/12/certificatecontext/field/x509version         |                                    3                                     |
+|     https://schemas.microsoft.com/2012/12/certificatecontext/field/signaturealgorithm      |                                sha256RSA                                 |
+|           https://schemas.microsoft.com/2012/12/certificatecontext/field/issuer            |                 CN=entca, DC=domain, DC=contoso, DC=com                  |
+|         https://schemas.microsoft.com/2012/12/certificatecontext/field/issuername          |                 CN=entca, DC=domain, DC=contoso, DC=com                  |
+|          https://schemas.microsoft.com/2012/12/certificatecontext/field/notbefore          |                           12/05/2016 20:50:18                            |
+|          https://schemas.microsoft.com/2012/12/certificatecontext/field/notafter           |                           12/05/2017 20:50:18                            |
+|           https://schemas.microsoft.com/2012/12/certificatecontext/field/subject           |   E =user@contoso.com, CN = Benutzer, CN = Users, DC = Domain, DC = Contoso, DC = com   |
+|         https://schemas.microsoft.com/2012/12/certificatecontext/field/subjectname         |   E =user@contoso.com, CN = Benutzer, CN = Users, DC = Domain, DC = Contoso, DC = com   |
+|           https://schemas.microsoft.com/2012/12/certificatecontext/field/rawdata           |                {Base64-codierte Daten des digitalen Zertifikats}                 |
+|        https://schemas.microsoft.com/2012/12/certificatecontext/extension/keyusage         |                             DigitalSignature                             |
+|        https://schemas.microsoft.com/2012/12/certificatecontext/extension/keyusage         |                             KeyEncipherment                              |
+|  https://schemas.microsoft.com/2012/12/certificatecontext/extension/subjectkeyidentifier   |                 9D11941EC06FACCCCB1B116B56AA97F3987D620A                 |
+| https://schemas.microsoft.com/2012/12/certificatecontext/extension/authoritykeyidentifier  |    KeyID=d6 13 e3 6b bc e5 d8 15 52 0a fd 36 6a d5 0b 51 f3 0b 25 7f     |
+| https://schemas.microsoft.com/2012/12/certificatecontext/extension/certificatetemplatename |                                   Benutzer                                   |
+|           https://schemas.microsoft.com/2012/12/certificatecontext/extension/san           | Andere Namen: Prinzipalname =user@contoso.com, RFC822-namens =user@contoso.com |
+|           https://schemas.microsoft.com/2012/12/certificatecontext/extension/eku           |                          1.3.6.1.4.1.311.10.3.4                          |
 

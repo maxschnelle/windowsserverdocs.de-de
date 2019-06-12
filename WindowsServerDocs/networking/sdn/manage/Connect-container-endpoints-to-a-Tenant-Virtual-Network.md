@@ -13,12 +13,12 @@ ms.assetid: f7af1eb6-d035-4f74-a25b-d4b7e4ea9329
 ms.author: pashort
 author: jmesser81
 ms.date: 08/24/2018
-ms.openlocfilehash: 1968a4db9231459fe5858d9a0f3ba5e8f317ed1b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: cb9c7157ffb07233e41e1c933f6775f1cd0766a9
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59872741"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446351"
 ---
 # <a name="connect-container-endpoints-to-a-tenant-virtual-network"></a>Verbinden von Containerendpunkten mit einem virtuellen Mandantennetzwerk
 
@@ -34,9 +34,11 @@ Netzwerkrichtlinie (ACLs, Kapselung und QoS) für diesen containerendpunkten wer
 
 Der Unterschied zwischen der *l2bridge* und *l2tunnel* Treiber sind:
 
-| l2bridge | l2tunnel |
-| --- | --- |
-|Containerendpunkte, die sich befinden: <ul><li>Der gleiche Container Hosten virtueller Computer und im gleichen Subnetz gesamten Netzwerkdatenverkehr innerhalb des virtuellen Hyper-V-Switches überbrückt. </li><li>Verschiedene Container Hosten von virtuellen Computern oder in unterschiedlichen Subnetzen müssen den Datenverkehr weitergeleitet wird, auf dem physischen Hyper-V-Host. </li></ul>Netzwerkrichtlinie wird nicht erzwungen zu erhalten, da der Netzwerkdatenverkehr zwischen Containern auf dem gleichen Host und im gleichen Subnetz werden erst übernommen, auf dem physischen Host. Netzwerkrichtlinie gilt nur auf Cross-Host oder subnetzübergreifende Container des Netzwerkdatenverkehrs. | *ALLE* Netzwerkdatenverkehr zwischen zwei containerendpunkte auf dem physischen Hyper-V-Host unabhängig vom Host oder das Subnetz weitergeleitet wird. Netzwerkrichtlinie gilt für sowohl subnetzübergreifende und Cross-Host Netzwerkdatenverkehr. |
+
+|                                                                                                                                                                                                                                                                            l2bridge                                                                                                                                                                                                                                                                            |                                                                                                 l2tunnel                                                                                                  |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Containerendpunkte, die sich befinden: <ul><li>Der gleiche Container Hosten virtueller Computer und im gleichen Subnetz gesamten Netzwerkdatenverkehr innerhalb des virtuellen Hyper-V-Switches überbrückt. </li><li>Verschiedene Container Hosten von virtuellen Computern oder in unterschiedlichen Subnetzen müssen den Datenverkehr weitergeleitet wird, auf dem physischen Hyper-V-Host. </li></ul>Netzwerkrichtlinie wird nicht erzwungen zu erhalten, da der Netzwerkdatenverkehr zwischen Containern auf dem gleichen Host und im gleichen Subnetz werden erst übernommen, auf dem physischen Host. Netzwerkrichtlinie gilt nur auf Cross-Host oder subnetzübergreifende Container des Netzwerkdatenverkehrs. | *ALLE* Netzwerkdatenverkehr zwischen zwei containerendpunkte auf dem physischen Hyper-V-Host unabhängig vom Host oder das Subnetz weitergeleitet wird. Netzwerkrichtlinie gilt für sowohl subnetzübergreifende und Cross-Host Netzwerkdatenverkehr. |
+
 ---
 
 >[!NOTE]
@@ -60,10 +62,10 @@ Der Unterschied zwischen der *l2bridge* und *l2tunnel* Treiber sind:
 ## <a name="workflow"></a>Workflow
 
 [1. Hinzufügen mehrerer IP-Konfigurationen einer vorhandenen VM-NIC-Ressource über den Netzwerkcontroller (Hyper-V-Host)](#1-add-multiple-ip-configurations)
-[2. Aktivieren den Netzwerk-Proxy auf dem Host zuweisen KA-IP-Adressen für den containerendpunkte (Hyper-V-Host) ](#2-enable-the-network-proxy) 
- [3. Installieren Sie die private Cloud-Plug-in den containerendpunkte (Containerhost-VM) KA-IP-Adressen zuweisen ](#3-install-the-private-cloud-plug-in) 
- [4. Erstellen Sie eine *l2bridge* oder *l2tunnel* Netzwerk mithilfe von Docker (Container-Host-VM) ](#4-create-an-l2bridge-container-network)
- 
+[2. Aktivieren den Netzwerk-Proxy auf dem Host zuweisen KA-IP-Adressen für den containerendpunkte (Hyper-V-Host)](#2-enable-the-network-proxy)
+[3. Installieren Sie die private Cloud-Plug-in den containerendpunkte (Containerhost-VM) KA-IP-Adressen zuweisen](#3-install-the-private-cloud-plug-in)
+[4. Erstellen Sie eine *l2bridge* oder *l2tunnel* Netzwerk mithilfe von Docker (Container-Host-VM)](#4-create-an-l2bridge-container-network)
+
 >[!NOTE]
 >Mehrere IP-Konfigurationen wird nicht unterstützt, auf der VM-NIC-Ressourcen, die über System Center Virtual Machine Manager erstellt. Es wird für solche Bereitstellungen empfohlen, die Erstellung der VM-NIC-Ressource Out-of-Band-mithilfe Netzwerks Controller PowerShell.
 
@@ -101,10 +103,10 @@ foreach ($i in 1..10)
         $resourceid += "0$i"
         $ipstr = "192.168.1.10$i"
     }
-    
+
     $newipconfig.ResourceId = $resourceid
     $props.PrivateIPAddress = $ipstr    
-    
+
     $props.PrivateIPAllocationMethod = "Static"
     $props.Subnet = new-object Microsoft.Windows.NetworkController.Subnet
     $props.Subnet.ResourceRef = $vmsubnet.ResourceRef

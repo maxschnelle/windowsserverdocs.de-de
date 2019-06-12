@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 8a2ddc0f2ab495b2500d4bfe48f3ee83c333c769
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9d302dcd06b7a3a40afbb6f613c39caaabbeba91
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842751"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443727"
 ---
 # <a name="configure-the-fabric-dns-for-guarded-hosts"></a>Konfigurieren Sie den Fabric-DNS für überwachte hosts
 
@@ -32,5 +32,5 @@ Ein Fabric-Administrator muss das Fabric konfigurieren, die DNS verwendet, um ü
 
 ## <a name="next-step"></a>Nächster Schritt
 
->[!div class="nextstepaction"]
-[Konfigurieren von HGS-DNS und einer unidirektionalen Vertrauensstellung](guarded-fabric-configure-dns-forwarding-and-trust.md)
+> [!div class="nextstepaction"]
+> [Konfigurieren von HGS DNS und einer unidirektionalen Vertrauensstellung](guarded-fabric-configure-dns-forwarding-and-trust.md)

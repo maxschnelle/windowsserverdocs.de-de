@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4cad6607e13d2657433e4e78ce8e65beff73aa9d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d237f4d6d3562e3787efe28ca98f9dc553d74898
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857511"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440752"
 ---
 # <a name="uniqueid"></a>uniqueid
 
@@ -37,10 +37,10 @@ uniqueid disk [id={<dword> | <GUID>}] [noerr]
 
 ## <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|id={\<dword> | <GUID>}|Gibt an für MBR-Datenträger eine vier-Byte-DWORD-Wert im hexadezimalen Format für die Signatur.</br>Gibt Sie für GPT-Datenträger eine GUID für den Bezeichner ein.|
-|Diskpart|nur für Skripts. Wenn ein Fehler gefunden wird, weiterhin DiskPart Befehle zu verarbeiten, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter wird ein Fehler DiskPart mit dem Fehlercode zu beenden.|
+|  Parameter   |                                                                                             Beschreibung                                                                                              |
+|--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| id={\<dword> |                                                                                               <GUID>}                                                                                                |
+|    Diskpart     | nur für Skripts. Wenn ein Fehler gefunden wird, weiterhin DiskPart Befehle zu verarbeiten, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter wird ein Fehler DiskPart mit dem Fehlercode zu beenden. |
 
 ## <a name="remarks"></a>Hinweise
 

@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b32d72a1317683e4c1bbeb2d6101d1315b69148e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ad9d180e2cf2110d36ebc82211af3a495a0e0b6b
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862641"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440732"
 ---
 # <a name="using-the-add-drivergrouppackage-command"></a>Mithilfe des Befehls Add-DriverGroupPackage
 
@@ -30,12 +30,14 @@ eine Treibergruppe wird einem Treiberpaket hinzugefügt.
 wdsutil /add-DriverGroupPackage /DriverGroup:<Group Name> [/Server:<Server Name>] {/DriverPackage:<Name> | /PackageId:<ID>}
 ```
 ## <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
-|-------|--------|
-|/DriverGroup:<Group Name>|Gibt den Namen der Gruppe "Treiber".|
-|/ Server:<Server name>|Gibt den Namen des Servers an. Dies kann den NetBIOS-Namen oder den vollqualifizierten Domänennamen sein. Wenn kein Servername angegeben wird, wird der lokale Server verwendet.|
-|/DriverPackage:<Name>|Gibt den Namen des Treiberpakets der Gruppe hinzugefügt werden. Sie müssen diese Option angeben, wenn das Treiberpaket eindeutig anhand des Namens identifiziert werden kann.|
-|/PackageId:<ID>|Gibt die ID für ein Paket. Um die Paket-ID zu suchen, klicken Sie auf die Treibergruppe gewährt wird, der das Paket wird (oder die **alle Pakete** Knoten) mit der rechten Maustaste auf das Paket, und klicken Sie dann auf **Eigenschaften**. Die Paket-ID finden Sie auf die **allgemeine** Registerkarte, z. B.: **{DD098D20-1850-4fc8-8E35-EA24A1BEFF5E}**.|
+
+|         Parameter         |                                                                                                                                               Beschreibung                                                                                                                                               |
+|---------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| /DriverGroup:<Group Name> |                                                                                                                                 Gibt den Namen der Gruppe "Treiber".                                                                                                                                 |
+|   / Server:<Server name>   |                                                                                  Gibt den Namen des Servers an. Dies kann den NetBIOS-Namen oder den vollqualifizierten Domänennamen sein. Wenn kein Servername angegeben wird, wird der lokale Server verwendet.                                                                                  |
+|   /DriverPackage:<Name>   |                                                                      Gibt den Namen des Treiberpakets der Gruppe hinzugefügt werden. Sie müssen diese Option angeben, wenn das Treiberpaket eindeutig anhand des Namens identifiziert werden kann.                                                                       |
+|      /PackageId:<ID>      | Gibt die ID für ein Paket. Um die Paket-ID zu suchen, klicken Sie auf die Treibergruppe gewährt wird, der das Paket wird (oder die **alle Pakete** Knoten) mit der rechten Maustaste auf das Paket, und klicken Sie dann auf **Eigenschaften**. Die Paket-ID finden Sie auf die **allgemeine** Registerkarte, z. B.: **{DD098D20-1850-4fc8-8E35-EA24A1BEFF5E}** . |
+
 ## <a name="BKMK_examples"></a>Beispiele für
 Um ein Treiberpaket hinzufügen möchten, geben Sie eine der folgenden:
 ```

@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 454d261aa520778a6129ac9809f53894937b036a
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 1023ca7da02d2a1f6af42f68892dc4c5c8f1a2bf
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190139"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444371"
 ---
 # <a name="add-a-claim-description"></a>Hinzufügen einer Anspruchsbeschreibung
 
@@ -31,27 +31,29 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
 
 1. Klicken Sie im Server-Manager **Tools**, und wählen Sie dann **AD FS-Verwaltung**. 
 
-2.  Erweitern Sie **Service** und auf der rechten Maustaste auf **Anspruchsbeschreibung hinzufügen**.
-![Fügen Sie die anspruchsbeschreibung](media\Add-a-Claim-Description\claimdesc1.png)
+2. Erweitern Sie **Service** und auf der rechten Maustaste auf **Anspruchsbeschreibung hinzufügen**.
+   ![Fügen Sie die anspruchsbeschreibung](media/Add-a-Claim-Description/claimdesc1.png)
 
-3.  Auf dem Hinzufügen einer Anspruchsbeschreibung Dialogfeld **Anzeigenamen**, geben Sie einen eindeutigen Namen, der die Gruppe oder Rolle für dieser Anspruch identifiziert.
+3. Auf dem Hinzufügen einer Anspruchsbeschreibung Dialogfeld **Anzeigenamen**, geben Sie einen eindeutigen Namen, der die Gruppe oder Rolle für dieser Anspruch identifiziert.
 
-4.  Hinzufügen einer **kurze Namen**.
+4. Hinzufügen einer **kurze Namen**.
 
-5.  In **Anspruch Bezeichner**, geben Sie einen URI, der mit der Gruppe oder Rolle des Anspruchs, die Sie verwenden möchten, zugeordnet ist.
+5. In **Anspruch Bezeichner**, geben Sie einen URI, der mit der Gruppe oder Rolle des Anspruchs, die Sie verwenden möchten, zugeordnet ist.
 
-6.  Klicken Sie unter **Beschreibung**, geben Sie Text ein, die den Zweck dieses Anspruchs am besten beschreibt.
+6. Klicken Sie unter **Beschreibung**, geben Sie Text ein, die den Zweck dieses Anspruchs am besten beschreibt.
 
-7.  Je nach den Anforderungen Ihrer Organisation wählen Sie eines der folgenden Kontrollkästchen nach Bedarf, um diesen Anspruch in Verbundmetadaten veröffentlicht:
+7. Je nach den Anforderungen Ihrer Organisation wählen Sie eines der folgenden Kontrollkästchen nach Bedarf, um diesen Anspruch in Verbundmetadaten veröffentlicht:
 
 
-    - Um diesen Anspruch zu Partnern Beachten Sie, dass dieser Server dieser Anspruch akzeptieren kann zu veröffentlichen, klicken Sie auf **diesen Anspruch in Verbundmetadaten als Anspruchstyp, der diesem Verbunddienst akzeptiert veröffentlichen**.
-    - Um diesen Anspruch zu Partnern Beachten Sie, dass dieser Server dieser Anspruch ausstellen kann zu veröffentlichen, klicken Sie auf **diesen Anspruch in Verbundmetadaten als Anspruchstyp, der diesem Verbunddienst gesendet werden können veröffentlichen**.
+~~~
+- To publish this claim to make partners aware that this server can accept this claim, click **Publish this claim in federation metadata as a claim type that this Federation Service can accept**.
+- To publish this claim to make partners aware that this server can issue this claim, click **Publish this claim in federation metadata as a claim type that this Federation Service can send**.
+~~~
 
-8.  Klicken Sie auf **OK**.
+8. Klicken Sie auf **OK**.
 
-![Fügen Sie die anspruchsbeschreibung](media\Add-a-Claim-Description\claimdesc2.png)
+![Fügen Sie die anspruchsbeschreibung](media/Add-a-Claim-Description/claimdesc2.png)
 
-  
+
 ## <a name="see-also"></a>Siehe auch  
 [AD FS-Vorgänge](../../ad-fs/AD-FS-2016-Operations.md) 

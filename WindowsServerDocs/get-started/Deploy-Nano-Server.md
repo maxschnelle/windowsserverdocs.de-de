@@ -12,12 +12,12 @@ ms.assetid: 9f109c91-7c2e-4065-856c-ce9e2e9ce558
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: 8953627b7240bdb6bd0ea76b09c5af8317bde186
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e61844cfb04f95723fe9d08b9bd2e8b481714eea
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830761"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442223"
 ---
 # <a name="deploy-nano-server"></a>Bereitstellen von Nano Server
 
@@ -59,36 +59,37 @@ Wenn Sie mit einigen dieser Prozesse nicht vertraut sind, finden Sie weiter unte
 
 ## <a name="BKMK_CreateImage"></a>Erstellen eines benutzerdefinierten Nano Server-Images  
 Für Windows Server 2016 wird Nano Server auf den physischen Medien verteilt. Dort Sie finden einen Ordner namens **NanoServer** mit einem .wim-Image und einem Unterordner namens **Packages**. Die dort enthaltenen Paketdateien verwenden Sie zum Hinzufügen von Serverrollen und Features zum VHD-Image und zum anschließenden Starten.  
-  
+
 Sie können auch suchen und Installieren der Pakete des NanoServerPackage-Anbieters des PackageManagement (OneGet) PowerShell-Moduls. Beachten Sie hierzu den Abschnitt „Online-Installieren von Rollen und Features“ in diesem Thema.  
-  
+
 Die nachstehende Tabelle zeigt die Rollen und Features, die in dieser Version von Nano Server verfügbar sind, einschließlich der Windows PowerShell-Optionen, mit denen die zugehörigen Pakete installiert werden. Einige Pakete werden direkt mit eigenen Windows PowerShell-Switches installiert (beispielsweise -Compute). Andere werden installiert, indem Sie Paketnamen an den Parameter „-Package“ übergeben. Diese Paketnamen können Sie in einer durch Trennzeichen getrennten Liste zusammenfassen. Sie können die verfügbaren Pakete mit dem Cmdlet „Get-NanoServerPackage“ dynamisch auflisten.  
-  
-|Rolle oder Feature|Option|
-|-------------------|----------|
-|Hyper-V-Rolle (einschließlich NetQoS)|-Compute|
-|Failovercluster und andere Komponenten, wie im Anschluss an diese Tabelle beschrieben|-Clustering|
-|Grundlegende Treiber für eine Vielzahl von Netzwerkadaptern und Speichercontrollern. Hierbei handelt es sich um denselben Treibersatz, der in einer Server Core-Installation von Windows Server 2016 enthalten ist.|-OEMDrivers|
-|Dateiserverrolle und andere Speicherkomponenten, wie im Anschluss an diese Tabelle beschrieben|-Storage|
-|Windows Defender, einschließlich einer Standardsignaturdatei|-Defender|
-|Reverse-Weiterleitungen für die Anwendungskompatibilität, z.B. allgemeine Anwendungsframeworks wie Ruby, Node.js usw.|Jetzt standardmäßig enthalten|
-|DNS-Serverrolle|-Package Microsoft-NanoServer-DNS-Package|
-|PowerShell Desired State Configuration (DSC)|-Package Microsoft-NanoServer-DSC-Package<br />**Hinweis**: Ausführliche Informationen finden Sie unter [Using DSC on Nano Server (Verwenden von DSC unter Nano Server)](https://msdn.microsoft.com/powershell/dsc/nanoDsc).|
-|Internetinformationsdienste (IIS).|-Package Microsoft-NanoServer-IIS-Package<br />**Hinweis**: Finden Sie unter [IIS unter Nano Server](IIS-on-Nano-Server.md) Weitere Informationen zum Arbeiten mit IIS.|
-|Hostunterstützung für Windows-Container|-Containers|
-|System Center Virtual Machine Manager-Agent|-Package Microsoft-NanoServer-SCVMM-Package<br />-Package Microsoft-NanoServer-SCVMM-Compute-Package<br />**Hinweis**: Verwenden Sie die SCVMM-Compute-Pakets, nur, wenn Sie Hyper-V überwachen. Für zusammengeführte Bereitstellungen in VMM sollten Sie auch den Speicher-Parameter angeben. Weitere Informationen finden Sie in der [VMM Dokumentation](https://technet.microsoft.com/system-center-docs/vmm/manage/manage-compute-add-nano-hyper-v).| 
-|System Center Operations Manager Agent| Wird separat installiert. Finden Sie in der System Center Operations Manager-Dokumentation für weitere Details zur https://technet.microsoft.com/system-center-docs/om/manage/install-agent-on-nano-server.|
-|Data Center Bridging (einschließlich DCBQoS)|-Package Microsoft-NanoServer-DCB-Package|
-|Bereitstellen auf einem virtuellen Computer|-Package Microsoft-NanoServer-Guest-Package|
-|Bereitstellen auf einem physischen Computer|- Package Microsoft-NanoServer-Host-Package|
-|BitLocker, Trusted Platform Module (TPM), Volumeverschlüsselung, Plattform-ID, Kryptografieanbieter und andere Funktionen, die mit einem sicheren Start verbunden sind|-Package Microsoft-NanoServer-SecureStartup-Package|
-|Unterstützung von Hyper-V für abgeschirmte VMs|-Package Microsoft-NanoServer-ShieldedVM-Package<br />**Hinweis**: Dieses Paket ist nur für die Datacenter-Edition von Nano Server verfügbar.|
-|SNMP (Simple Network Management-Protokoll)-Agent|-Package Microsoft-NanoServer-SNMP-Agent-Package.cab<br />**Hinweis**: Mit Windows Server 2016-Installationsmedien enthalten nicht. Nur online verfügbar. Details finden Sie unter [Online-Installieren von Rollen und Features](https://technet.microsoft.com/windows-server-docs/get-started/deploy-nano-server#a-namebkmkonlineainstalling-roles-and-features-online).|
-|IPHelper-Dienst, der mithilfe von IPv6-Übertragungstechnologien (6to4, ISATAP, Port Proxy und Teredo) und IP-HTTPS Tunnelkonnektivität bereitstellt.|-Package Microsoft-NanoServer-IPHelper-Service-Package.cab<br />**Hinweis**: Mit Windows Server 2016-Installationsmedien enthalten nicht. Nur online verfügbar. Details finden Sie unter [Online-Installieren von Rollen und Features](https://technet.microsoft.com/windows-server-docs/get-started/deploy-nano-server#a-namebkmkonlineainstalling-roles-and-features-online).|
+
+
+|                                                                             Rolle oder Feature                                                                             |                                                                                                                                                                                                          Option                                                                                                                                                                                                           |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|                                                                     Hyper-V-Rolle (einschließlich NetQoS)                                                                     |                                                                                                                                                                                                         -Compute                                                                                                                                                                                                          |
+|                                                   Failovercluster und andere Komponenten, wie im Anschluss an diese Tabelle beschrieben                                                   |                                                                                                                                                                                                        -Clustering                                                                                                                                                                                                        |
+| Grundlegende Treiber für eine Vielzahl von Netzwerkadaptern und Speichercontrollern. Hierbei handelt es sich um denselben Treibersatz, der in einer Server Core-Installation von Windows Server 2016 enthalten ist. |                                                                                                                                                                                                        -OEMDrivers                                                                                                                                                                                                        |
+|                                                Dateiserverrolle und andere Speicherkomponenten, wie im Anschluss an diese Tabelle beschrieben                                                 |                                                                                                                                                                                                         -Storage                                                                                                                                                                                                          |
+|                                                          Windows Defender, einschließlich einer Standardsignaturdatei                                                           |                                                                                                                                                                                                         -Defender                                                                                                                                                                                                         |
+|                         Reverse-Weiterleitungen für die Anwendungskompatibilität, z.B. allgemeine Anwendungsframeworks wie Ruby, Node.js usw.                         |                                                                                                                                                                                                  Jetzt standardmäßig enthalten                                                                                                                                                                                                  |
+|                                                                             DNS-Serverrolle                                                                             |                                                                                                                                                                                         -Package Microsoft-NanoServer-DNS-Package                                                                                                                                                                                         |
+|                                                              PowerShell Desired State Configuration (DSC)                                                               |                                                                                                                               -Package Microsoft-NanoServer-DSC-Package<br />**Hinweis**: Ausführliche Informationen finden Sie unter [Using DSC on Nano Server (Verwenden von DSC unter Nano Server)](https://msdn.microsoft.com/powershell/dsc/nanoDsc).                                                                                                                               |
+|                                                                    Internetinformationsdienste (IIS).                                                                    |                                                                                                                                       -Package Microsoft-NanoServer-IIS-Package<br />**Hinweis**: Finden Sie unter [IIS unter Nano Server](IIS-on-Nano-Server.md) Weitere Informationen zum Arbeiten mit IIS.                                                                                                                                        |
+|                                                                   Hostunterstützung für Windows-Container                                                                   |                                                                                                                                                                                                        -Containers                                                                                                                                                                                                        |
+|                                                               System Center Virtual Machine Manager-Agent                                                               | -Package Microsoft-NanoServer-SCVMM-Package<br />-Package Microsoft-NanoServer-SCVMM-Compute-Package<br />**Hinweis**: Verwenden Sie die SCVMM-Compute-Pakets, nur, wenn Sie Hyper-V überwachen. Für zusammengeführte Bereitstellungen in VMM sollten Sie auch den Speicher-Parameter angeben. Weitere Informationen finden Sie in der [VMM Dokumentation](https://technet.microsoft.com/system-center-docs/vmm/manage/manage-compute-add-nano-hyper-v). |
+|                                                                 System Center Operations Manager Agent                                                                  |                                                                                                                 Wird separat installiert. Finden Sie in der System Center Operations Manager-Dokumentation für weitere Details zur https://technet.microsoft.com/system-center-docs/om/manage/install-agent-on-nano-server.                                                                                                                 |
+|                                                                 Data Center Bridging (einschließlich DCBQoS)                                                                 |                                                                                                                                                                                         -Package Microsoft-NanoServer-DCB-Package                                                                                                                                                                                         |
+|                                                                     Bereitstellen auf einem virtuellen Computer                                                                      |                                                                                                                                                                                        -Package Microsoft-NanoServer-Guest-Package                                                                                                                                                                                        |
+|                                                                     Bereitstellen auf einem physischen Computer                                                                     |                                                                                                                                                                                        - Package Microsoft-NanoServer-Host-Package                                                                                                                                                                                        |
+|     BitLocker, Trusted Platform Module (TPM), Volumeverschlüsselung, Plattform-ID, Kryptografieanbieter und andere Funktionen, die mit einem sicheren Start verbunden sind     |                                                                                                                                                                                    -Package Microsoft-NanoServer-SecureStartup-Package                                                                                                                                                                                    |
+|                                                                    Unterstützung von Hyper-V für abgeschirmte VMs                                                                     |                                                                                                                                         -Package Microsoft-NanoServer-ShieldedVM-Package<br />**Hinweis**: Dieses Paket ist nur für die Datacenter-Edition von Nano Server verfügbar.                                                                                                                                         |
+|                                                             SNMP (Simple Network Management-Protokoll)-Agent                                                             |                                   -Package Microsoft-NanoServer-SNMP-Agent-Package.cab<br />**Hinweis**: Mit Windows Server 2016-Installationsmedien enthalten nicht. Nur online verfügbar. Details finden Sie unter [Online-Installieren von Rollen und Features](https://technet.microsoft.com/windows-server-docs/get-started/deploy-nano-server#a-namebkmkonlineainstalling-roles-and-features-online).                                    |
+|               IPHelper-Dienst, der mithilfe von IPv6-Übertragungstechnologien (6to4, ISATAP, Port Proxy und Teredo) und IP-HTTPS Tunnelkonnektivität bereitstellt.               |                                -Package Microsoft-NanoServer-IPHelper-Service-Package.cab<br />**Hinweis**: Mit Windows Server 2016-Installationsmedien enthalten nicht. Nur online verfügbar. Details finden Sie unter [Online-Installieren von Rollen und Features](https://technet.microsoft.com/windows-server-docs/get-started/deploy-nano-server#a-namebkmkonlineainstalling-roles-and-features-online).                                 |
 
 > [!NOTE]  
 > Wenn Sie Pakete mit diesen Optionen installieren, wird auch ein zugehöriges Language Pack installiert, das auf dem ausgewählten Gebietsschema des Servermediums basiert. Sie finden die verfügbaren Language Packs und deren Gebietsschemakürzel auf den Installationsmedien in Unterordnern, die nach dem Gebietsschema des Images benannt sind.  
-  
+
 > [!NOTE]  
 > Bei Verwendung des Parameters „-Storage“ zum Installieren von Dateidiensten werden diese Dienste nicht aktiviert. Aktivieren Sie dieses Feature von einem Remotecomputer mit Server Manager. 
 
@@ -114,94 +115,94 @@ Die nachstehende Tabelle zeigt die Rollen und Features, die in dieser Version vo
 - SMB-Zeuge Service
 - Dynamische Volumes
 - Grundlegender Windows-Speicheranbieter (für Windows-Speicherverwaltung)
- 
-  
-  
-  
+
+
+
+
 ### <a name="installing-a-nano-server-vhd"></a>Installieren einer Nano Server-VHD  
 In diesem Beispiel wird ein GPT-basiertes VHDX-Image mit einem vorhandenen Computernamen einschließlich Hyper-V-Gasttreibern mit Nano Server-Installationsmedien auf einer Netzwerkfreigabe erstellt. Beginnen Sie in einer Windows PowerShell-Eingabeaufforderung mit erhöhten Rechten mit dem folgenden Cmdlet:  
-  
+
 `Import-Module <Server media location>\NanoServer\NanoServerImageGenerator; New-NanoServerImage -DeploymentType Guest -Edition Standard -MediaPath \\Path\To\Media\server_en-us -BasePath .\Base -TargetPath .\FirstStepsNano.vhdx -ComputerName FirstStepsNano`  
-  
+
 Das Cmdlet führt alle nachstehenden Aufgaben aus:  
-  
+
 1.  Wählen Sie „Standard“ als Basisedition.  
-  
+
 2.  Sie werden zur Eingabe des Administratorkennworts aufgefordert.  
-  
+
 3.  Kopieren Sie die Installationsmedien von \\\Path\To\Media\server_en-us nach .\Base.  
-  
+
 4.  Konvertieren Sie das WIM-Image in ein VHD-Image. (Durch die Dateierweiterung des Zielpfadarguments wird bestimmt, ob eine MBR-basierte VHD für virtuelle Computer der Generation 1 oder eine GPT-basierte VHDX für virtuelle Computer der Generation 2 erstellt wird.)  
-  
+
 5.  Kopieren Sie die resultierende VHD-Datei nach „.\FirstStepsNano.vhdx“.  
-  
+
 6.  Legen Sie das Administratorkennwort für das Image wie angegeben fest.  
-  
+
 7.  Legen Sie als Computernamen des Images „FirstStepsNano“ fest.  
-  
+
 8.  Installieren Sie die Hyper-V-Gasttreiber.  
-  
+
 Hierdurch wird das Image „.\FirstStepsNano.vhdx“ erstellt.  
-  
+
 Das Cmdlet generiert während seiner Ausführung ein Protokoll und informiert Sie nach Fertigstellung darüber, wo dieses Protokoll gespeichert ist. Die WIM-VHD-Konvertierung, die vom begleiterskript erreicht, generiert ein eigenes Protokoll unter %TEMP%\Convert-WindowsImage\\\<GUID > (wobei \<GUID > ist ein eindeutiger Bezeichner konvertierungssitzung).  
-  
+
 Solange Sie denselben Basispfad verwenden, können Sie den Medienpfadparameter stets auslassen, wenn Sie dieses Cmdlet ausführen, da es zwischengespeicherte Dateien des Basispfads verwendet. Wenn Sie keinen Basispfad angeben, generiert das Cmdlet einen Standardpfad im TEMP-Ordner. Wenn Sie andere Quellmedien, aber denselben Basispfad verwenden möchten, sollten Sie jedoch den Medienpfadparameter angeben.  
-  
+
 >[!NOTE]  
 >Sie können nun angeben, ob als Nano Server-Edition die Standard- oder die Datacenter-Edition erstellt werden soll. Verwenden Sie den Parameter „-Edition“, um *Standard* oder *Datacenter* anzugeben.  
-  
+
 Sobald ein Image vorhanden ist, können Sie es nach Bedarf mit dem Cmdlet *Edit-NanoServerImage* ändern.  
-  
+
 Wenn Sie keinen Computernamen angeben, wird ein zufälliger Name generiert.  
-  
+
 ### <a name="installing-a-nano-server-wim"></a>Installieren eines Nano Server-WIM  
-  
-1.  Kopieren Sie den Ordner *NanoServerImageGenerator* aus dem Ordner „\NanoServer“ unter Windows Server 2016 ISO in einen lokalen Ordner auf Ihrem Computer.  
+
+1. Kopieren Sie den Ordner *NanoServerImageGenerator* aus dem Ordner „\NanoServer“ unter Windows Server 2016 ISO in einen lokalen Ordner auf Ihrem Computer.  
 2. Starten Sie Windows PowerShell als Administrator, ändern Sie das Verzeichnis in den Ordner, in dem Sie den Ordner „NanoServerImageGenerator“ gespeichert haben, und importieren Sie anschließend das Modul mit `Import-Module .\NanoServerImageGenerator -Verbose`.  
-  
- >[!NOTE]  
->Möglicherweise müssen Sie die Windows PowerShell-Ausführungsrichtlinie anpassen. `Set-ExecutionPolicy RemoteSigned` sollte gut funktionieren.  
-  
+
+   >[!NOTE]  
+   >Möglicherweise müssen Sie die Windows PowerShell-Ausführungsrichtlinie anpassen. `Set-ExecutionPolicy RemoteSigned` sollte gut funktionieren.  
+
 Um ein Nano Server-Image zu erstellen, das als Hyper-V-Host fungiert, führen Sie Folgendes aus:  
-  
+
 `New-NanoServerImage -Edition Standard -DeploymentType Host -MediaPath <path to root of media> -BasePath .\Base -TargetPath .\NanoServerPhysical\NanoServer.wim -ComputerName <computer name> -OEMDrivers -Compute -Clustering`  
-  
+
 Wobei  
 -   „-MediaPath“ der Stamm des DVD-Mediums bzw. ISO-Images ist, das Windows Server 2016 enthält.  
 -   „-BasePath“ eine Kopie der Nano Server-Binärdateien enthält, sodass Sie „New-NanoServerImage -BasePath“ verwenden können, ohne bei künftigen Ausführungen „-MediaPath“ angeben zu müssen.  
 -   „-TargetPath“ die resultierende WIM-Datei mit den von Ihnen ausgewählten Rollen und Features enthält. Stellen Sie sicher, dass Sie die WIM-Erweiterung angeben.  
 -   „-Compute“ die Hyper-V-Rolle hinzufügt.  
 -   „-OemDrivers“ eine Reihe allgemeiner Treiber hinzufügt.  
-  
+
 Sie werden zur Eingabe eines Administratorkennworts aufgefordert.  
-  
+
 Wenn Sie hierzu weitere Informationen benötigen, führen Sie `Get-Help New-NanoServerImage -Full` aus.  
-   
+
 Starten Sie Windows PE (WinPE), und stellen Sie sicher, dass von WinPE auf die gerade erstellte WIM-Datei zugegriffen werden kann. (Sie könnten beispielsweise die WIM-Datei in ein startbares WinPE-Image auf einem USB-Speicherstick kopieren.)  
-  
+
 Nach dem Start von WinPE verwenden Sie „Diskpart.exe“, um die Festplatte des Zielcomputers vorzubereiten. Führen Sie die folgenden Diskpart-Befehle aus (passen Sie die Befehle entsprechend an, wenn Sie nicht UEFI und GPT verwenden):  
-   
+
 > [!WARNING]  
 > Mit diesen Befehlen werden alle Daten auf der Festplatte gelöscht.  
-  
+
 **Diskpart.exe wählen Datenträger 0 bereinigen konvertieren GPT erstellen Efi Partitionsgröße 100 als schnelle Format FS = FAT32-Label = "System" Assign Letter = = "s" Create Partition Msr Size = 128 erstellen partitionieren primären Format schnelle FS = NTFS-Bezeichnung "NanoServer" Assign Letter = = "n" Volume der Liste Beenden**  
-   
+
 Wenden Sie das Nano Server-Image an (passen Sie den Pfad der WIM-Datei an):  
-  
+
 **Dism.exe /apply-image /imagefile:.\NanoServer.wim /index:1 /applydir:n:\ Bcdboot.exe n:\Windows /s s:**  
-   
+
 Entfernen Sie das DVD-Medium bzw. den USB-Speicherstick, und starten Sie das System mit **Wpeutil.exe Reboot** neu.  
-  
-  
+
+
 ### <a name="editing-files-on-nano-server-locally-and-remotely"></a>Lokales und remotes Bearbeiten von Dateien auf Nano Server  
  Stellen Sie in beiden Fällen eine Verbindung zu Nano Server her, beispielsweise mit Windows PowerShell-Remoting.  
-   
+
  Nachdem Sie eine Verbindung zu Nano Server hergestellt haben, können Sie eine auf Ihrem lokalen Computer gespeicherte Datei bearbeiten, indem Sie den relativen oder absoluten Pfad der Datei an den Befehl „psEdit“ übergeben. Beispiel:   
 `psEdit C:\Windows\Logs\DISM\dism.log` oder `psEdit .\myScript.ps1`  
-  
+
 Bearbeiten Sie eine Datei auf dem remoten Nano-Server, indem Sie eine Remotesitzung mit `Enter-PSSession -ComputerName "192.168.0.100" -Credential ~\Administrator` starten und anschließend den relativen oder absoluten Pfad der Datei wie folgt an den Befehl „psEdit“ übergeben:   
 `psEdit C:\Windows\Logs\DISM\dism.log`  
-  
+
 ## <a name="BKMK_online"></a>Installieren von Rollen und Funktionen  
 > [!NOTE]
 > Wenn Sie ein optionales Nano Server-Paket von Medien oder aus dem Onlinerepository installieren, sind keine aktuellen Sicherheitsfixes enthalten. Um einen Versionskonflikt zwischen dem optionalen Paketen und der Basisbetriebssystemversion zu vermeiden sollten Sie das [das neueste kumulative Update](https://technet.microsoft.com/windows-server-docs/get-started/update-nano-server) unmittelbar nach der Installation der optionalen Pakete und **vor** dem Neustart des Servers installieren.
@@ -229,7 +230,7 @@ Find-NanoServerPackage
 Save-NanoServerPackage  
 Install-NanoServerPackage
 ```  
-  
+
 Sie können ebenfalls generische PackageManagement-Cmdlets verwenden und den NanoServerPackage-Anbieter angeben:
 
 ```powershell
@@ -238,16 +239,16 @@ Save-Package -ProviderName NanoServerPackage
 Install-Package -ProviderName NanoServerPackage
 Get-Package -ProviderName NanoServerPackage
 ```
-  
+
 Fügen Sie `-ProviderName NanoServerPackage` hinzu, um eines dieser Cmdlets mit Nano Server-Paketen auf Nano Server zu verwenden. Wenn Sie den Parameter „-ProviderName“ nicht hinzufügen, durchläuft PackageManagement alle Anbieter. Führen Sie für weitere Informationen zu diesen Cmdlets `Get-Help <cmdlet>` aus. Hier sind einige allgemeine Verwendungsbeispiele:
-    
+
 ### <a name="searching-for-nano-server-packages"></a>Suchen nach Nano Server-Paketen  
 Verwenden Sie `Find-NanoServerPackage` oder `Find-Package -ProviderName NanoServerPackage`, um nach Nano Server-Paketen zu suchen, die im Onlinerepository verfügbar sind, und eine Liste dieser Pakete auszugeben. Sie können beispielsweise mit dem folgenden Cmdlet eine Liste der aktuellen Pakete abrufen:
 
 ```powershell
 Find-NanoServerPackage
 ```
-  
+
 Durch Ausführen von `Find-Package -ProviderName NanoServerPackage -DisplayCulture` werden alle verfügbaren Kulturen angezeigt.
 
 Sollten Sie eine bestimmte Gebietsschemaversion wie z.B. Englisch (USA) benötigen, können Sie `Find-NanoServerPackage -Culture en-us` oder  
@@ -275,7 +276,7 @@ Hier sind einige Beispiele für das Verknüpfen von Paketsuchergebnissen mit dem
 `Find-NanoServerPackage *dcb* | Install-NanoServerPackage` Sucht Pakete mit "Dcb" im Namen ein, und klicken Sie dann installiert.
 
 `Find-Package *nanoserver-compute-* | Install-Package` Sucht Pakete mit "Nanoserver - Compute-" im Namen und installiert sie.
-  
+
 `Find-NanoServerPackage -Name *nanoserver-compute* | Install-NanoServerPackage -ToVhd C:\MyNanoVhd.vhd` Sucht Pakete mit "Compute" im Namen, und sie zu einem Offlineabbild installiert.
 
 `Find-Package -ProviderName NanoserverPackage *nanoserver-compute-* | Install-Package -ToVhd C:\MyNanoVhd.vhd` führt dieselbe Funktion wie ein Paket, das "Nanoserver - Compute-" im Namen hat.
@@ -304,13 +305,13 @@ Um die Nano Server-Pakete zu suchen, die in einem Offline-Image installiert sind
 
 ### <a name="installing-roles-and-features-from-local-source"></a>Installieren von Rollen und Features von einer lokalen Quelle  
 Zwar wird empfohlen, Serverrollen und andere Pakete offline zu installieren, möglicherweise müssen Sie diese aber online (bei ausgeführtem Nano Server) in Container-Szenarios installieren. Gehen Sie hierzu folgendermaßen vor:  
-  
+
 1.  Kopieren Sie den Ordner „Packages“ vom Installationsmedium lokal auf den Server, auf dem Nano Server ausgeführt wird (z.B. nach „C:\packages“).  
-  
+
 2.  Erstellen Sie eine neue Datei „Unattend.xml“ auf einem anderen Computer, und kopieren Sie diese nach Nano Server. Sie können diesen XML-Inhalt kopieren und in die von Ihnen erstellte XML-Datei einfügen (das Beispiel zeigt das Installieren des IIS-Pakets):  
-  
-   
-     
+
+
+
 ```  
 <?xml version="1.0" encoding="utf-8"?>
     <unattend xmlns="urn:schemas-microsoft-com:unattend">  
@@ -327,84 +328,84 @@ Zwar wird empfohlen, Serverrollen und andere Pakete offline zu installieren, mö
     <cpi:offlineImage cpi:source="" xmlns:cpi="urn:schemas-microsoft-com:cpi" />  
 </unattend>  
 ```  
-  
-  
-  
-  
-3.  Ändern Sie in der neuen, von Ihnen erstellten (bzw. kopierten) XML-Datei den Eintrag „C:\packages“ in das Verzeichnis, in das Sie den Inhalt des Ordners „Packages“ kopiert haben.  
-  
-4.  Wechseln Sie zu dem Verzeichnis mit der neu erstellten XML-Datei, und führen Sie Folgendes aus:  
-  
-    **dism /online /apply-unattend:.\unattend.xml**  
-  
-     
-  
-5.  Vergewissern Sie sich, dass das Paket und das zugehörige Language Pack ordnungsgemäß installiert wurde, indem Sie Folgendes ausführen:  
-  
-    **dism /online /get-packages**  
-  
-    Daraufhin sollte "Package Identity: Microsoft-NanoServer-IIS-Package ~ 31bf3856ad364e35 ~ amd64 ~ En-US ~ 10.0.10586.0" zweimal aufgeführt, einmal für den Versionstyp: Language Pack und einmal für den Versionstyp: FeaturePack.  
-  
+
+
+
+
+3. Ändern Sie in der neuen, von Ihnen erstellten (bzw. kopierten) XML-Datei den Eintrag „C:\packages“ in das Verzeichnis, in das Sie den Inhalt des Ordners „Packages“ kopiert haben.  
+
+4. Wechseln Sie zu dem Verzeichnis mit der neu erstellten XML-Datei, und führen Sie Folgendes aus:  
+
+   **dism /online /apply-unattend:.\unattend.xml**  
+
+
+
+5. Vergewissern Sie sich, dass das Paket und das zugehörige Language Pack ordnungsgemäß installiert wurde, indem Sie Folgendes ausführen:  
+
+   **dism /online /get-packages**  
+
+   Daraufhin sollte "Package Identity: Microsoft-NanoServer-IIS-Package ~ 31bf3856ad364e35 ~ amd64 ~ En-US ~ 10.0.10586.0" zweimal aufgeführt, einmal für den Versionstyp: Language Pack und einmal für den Versionstyp: FeaturePack.  
+
 ## <a name="customizing-an-existing-nano-server-vhd"></a>Anpassen einer vorhandenen Nano Server-VHD  
 Sie können die Details einer vorhandenen VHD ändern, indem Sie – wie im folgenden Beispiel – das Cmdlet „Edit-NanoServerImage“ verwenden:  
-  
+
 `Edit-NanoServerImage   -BasePath .\Base   -TargetPath .\BYOVHD.vhd`  
-  
+
 Dieses Cmdlet hat dieselbe Funktion wie „New-NanoServerImage“, allerdings wird kein WIM-Image in ein VHD-Image konvertiert, sondern das vorhandene Image wird geändert. Das Cmdlet unterstützt dieselben Parameter wie „New-NanoServerImage“, mit Ausnahme von „-MediaPath“ und „-MaxSize“, sodass die ursprüngliche VHD mit diesen Parametern erstellt worden sein muss, bevor Sie Änderungen mit „Edit-NanoServerImage“ vornehmen können.  
 
 ## <a name="additional-tasks-you-can-accomplish-with-new-nanoserverimage-and-edit-nanoserverimage"></a>Weitere mit „New-NanoServerImage“ und „Edit-NanoServerImage“ ausführbare Aufgaben  
-  
+
 ### <a name="joining-domains"></a>Beitreten zu Domänen  
 „New-NanoServerImage“ bietet zwei Methoden, um einer Domäne beizutreten. Beide beruhen auf der Offline-Domänenbereitstellung, bei einer dieser Methoden wird für den Beitritt jedoch ein Blob genutzt. In diesem Beispiel nutzt das Cmdlet ein Domänen-Blob für die Contoso-Domäne vom lokalen Computer (der natürlich Teil der Contoso-Domäne sein muss). Anschließend stellt es das Image unter Verwendung des Blobs offline bereit:  
-  
+
 `New-NanoServerImage -Edition Standard -DeploymentType Host -MediaPath \\Path\To\Media\en_us -BasePath .\Base -TargetPath .\JoinDomHarvest.vhdx -ComputerName JoinDomHarvest -DomainName Contoso`  
-  
+
 Nach Beendigung dieses Cmdlets sollte die Active Directory-Computerliste einen Computer namens „JoinDomHarvest“ enthalten.  
-  
+
 Sie können dieses Cmdlet auch auf einem Computer verwenden, der nicht zu einer Domäne gehört. Hierzu nutzen Sie ein Blob eines beliebigen Computers, der zu der Domäne gehört, und anschließend stellen Sie das Blob für das Cmdlet bereit. Beachten Sie Folgendes: Wenn Sie ein solches Blob eines anderen Computers nutzen, enthält das Blob bereits den Namen dieses Computers. Wenn Sie also versuchen, den Parameter *-ComputerName* hinzuzufügen, wird ein Fehler ausgegeben.  
-  
+
 Sie können das Blob mit dem folgenden Befehl nutzen:  
-  
+
 **djoin**  
  **/Provision**  
  **Bzw. der Domäne Contoso**  
  **/ Machine JoiningDomainsNoHarvest**  
  **/SaveFile JoiningDomainsNoHarvest.djoin**  
-  
+
 Führen Sie „New-NanoServerImage“ mit dem genutzten Blob aus:  
-  
+
 `New-NanoServerImage -DeploymentType Host -Edition Standard -MediaPath \\Path\To\Media\en_us -BasePath .\Base -TargetPath .\JoinDomNoHrvest.vhd -DomainBlobPath .\Path\To\Domain\Blob\JoinDomNoHrvestContoso.djoin`  
-  
+
 Wenn Sie bereits über einen Knoten in der Domäne verfügen, der denselben Computernamen aufweist wie Ihr künftiger Nano Server, könnten Sie den Computernamen wiederverwenden, indem Sie den Parameter `-ReuseDomainNode` hinzufügen.  
 
 ### <a name="adding-additional-drivers"></a>Hinzufügen zusätzlicher Treiber
 Nano Server stellt ein Paket bereit, das eine Reihe von allgemeinen Treibern für eine Vielzahl von Netzwerkadaptern und Speichercontrollern enthält. Möglicherweise sind jedoch keine Treiber für Ihre Netzwerkadapter enthalten. Mithilfe der folgenden Schritte können Sie Treiber in einem funktionierenden System suchen, extrahieren und zum Nano Server-Image hinzufügen.
 
-1.  Installieren Sie Windows Server 2016 auf dem physischen Computer, auf dem Nano Server ausgeführt werden soll.
-2.  Öffnen Sie den Geräte-Manager, und identifizieren Sie Geräte in den folgenden Kategorien:
-* Netzwerkadapter
-* Speichercontroller
-* Laufwerke
-3.  Klicken Sie für jedes Gerät in diesen Kategorien mit der rechten Maustaste auf den Gerätenamen, und klicken Sie anschließend auf **Eigenschaften**. Klicken Sie im nun geöffneten Dialogfeld auf die Registerkarte **Treiber**, und klicken Sie anschließend auf **Treiberdetails**.
-4.  Merken Sie sich den angezeigten Dateinamen und den angezeigten Pfad der Treiberdatei. Ein Beispiel: Der Name der Treiberdatei lautet „e1i63x64.sys“, und sie befindet sich unter „C:\Windows\System32\Drivers“.
-5.  Suchen Sie in einer Befehlszeile nach der Treiberdatei, und suchen Sie nach allen Instanzen mit „dir e1i*.sys /s /b“. In diesem Beispiel ist die Treiberdatei auch in folgendem Pfad vorhanden: C:\Windows\System32\DriverStore\FileRepository\net1ic64.inf_amd64_fafa7441408bbecd\e1i63x64.sys.
-6.  Wechseln Sie in einem Eingabeaufforderungsfenster mit erhöhten Rechten zu dem Verzeichnis, in dem sich die Nano Server-VHD befindet, und führen Sie anschließend die folgenden Befehle aus: **md mountdir**
-     
-     **dism\dism /Mount-Image /ImageFile:.\NanoServer.vhd /Index:1 /MountDir:.\mountdir**
-     
-     **Dism\dism Add /image:.\mountdir/Driver: C:\Windows\System32\DriverStore\FileRepository\net1ic64.inf_amd64_fafa7441408bbecd**
-     
-     **dism\dism /Unmount-Image /MountDir:.\MountDir /Commit**
-7.  Wiederholen Sie diese Schritte für alle benötigten Treiberdateien.
+1. Installieren Sie Windows Server 2016 auf dem physischen Computer, auf dem Nano Server ausgeführt werden soll.
+2. Öffnen Sie den Geräte-Manager, und identifizieren Sie Geräte in den folgenden Kategorien:
+3. Netzwerkadapter
+4. Speichercontroller
+5. Laufwerke
+6. Klicken Sie für jedes Gerät in diesen Kategorien mit der rechten Maustaste auf den Gerätenamen, und klicken Sie anschließend auf **Eigenschaften**. Klicken Sie im nun geöffneten Dialogfeld auf die Registerkarte **Treiber**, und klicken Sie anschließend auf **Treiberdetails**.
+7. Merken Sie sich den angezeigten Dateinamen und den angezeigten Pfad der Treiberdatei. Ein Beispiel: Der Name der Treiberdatei lautet „e1i63x64.sys“, und sie befindet sich unter „C:\Windows\System32\Drivers“.
+8. Suchen Sie in einer Befehlszeile nach der Treiberdatei, und suchen Sie nach allen Instanzen mit „dir e1i*.sys /s /b“. In diesem Beispiel ist die Treiberdatei auch in folgendem Pfad vorhanden: C:\Windows\System32\DriverStore\FileRepository\net1ic64.inf_amd64_fafa7441408bbecd\e1i63x64.sys.
+9. Wechseln Sie in einem Eingabeaufforderungsfenster mit erhöhten Rechten zu dem Verzeichnis, in dem sich die Nano Server-VHD befindet, und führen Sie anschließend die folgenden Befehle aus: **md mountdir**
+
+    **dism\dism /Mount-Image /ImageFile:.\NanoServer.vhd /Index:1 /MountDir:.\mountdir**
+
+    **Dism\dism Add /image:.\mountdir/Driver: C:\Windows\System32\DriverStore\FileRepository\net1ic64.inf_amd64_fafa7441408bbecd**
+
+    **dism\dism /Unmount-Image /MountDir:.\MountDir /Commit**
+10. Wiederholen Sie diese Schritte für alle benötigten Treiberdateien.
 
 > [!NOTE]  
 > In dem Ordner, in dem Ihre Treiber gespeichert sind, müssen sowohl die SYS-Dateien als auch die zugehörigen INF-Dateien vorhanden sein. Ferner unterstützt Nano Server nur signierte 64\-Bit-Treiber. 
-  
+
 ### <a name="injecting-drivers"></a>Hinzufügen von Treibern  
 Nano Server stellt ein Paket bereit, das eine Reihe von allgemeinen Treibern für eine Vielzahl von Netzwerkadaptern und Speichercontrollern enthält. Möglicherweise sind jedoch keine Treiber für Ihre Netzwerkadapter enthalten. Sie können die folgende Syntax verwenden, um mit „New-NanoServerImage“ das Verzeichnis nach verfügbaren Treibern zu durchsuchen und diese zum Nano Server-Image hinzuzufügen:  
-  
+
 `New-NanoServerImage -DeploymentType Host -Edition Standard -MediaPath \\Path\To\Media\en_us -BasePath .\Base -TargetPath .\InjectingDrivers.vhdx -DriverPath .\Extra\Drivers`  
-  
+
 > [!NOTE]
 > In dem Ordner, in dem Ihre Treiber gespeichert sind, müssen sowohl die SYS-Dateien als auch die zugehörigen INF-Dateien vorhanden sein. Ferner unterstützt Nano Server nur signierte 64-Bit-Treiber.
 
@@ -414,19 +415,19 @@ Mit dem Parameter „-DriverPath” können Sie auch ein Array von Pfaden zu den
 
 ### <a name="connecting-with-winrm"></a>Herstellen einer Verbindung mit WinRM  
 Um mithilfe der Windows-Remoteverwaltung (WinRM) (von einem anderen Computer, der sich nicht im gleichen Subnetz befindet) eine Verbindung zu einem Nano Server-Computer herstellen zu können, öffnen Sie Port 5985 für eingehenden TCP-Datenverkehr auf dem Nano Server-Image. Verwenden Sie das folgende Cmdlet:  
-  
+
 `New-NanoServerImage -DeploymentType Host -Edition Standard -MediaPath \\Path\To\Media\en_us -BasePath .\Base -TargetPath .\ConnectingOverWinRM.vhd -EnableRemoteManagementPort`  
-  
+
 ### <a name="setting-static-ip-addresses"></a>Festlegen statischer IP-Adressen  
 Um ein Nano Server-Image so zu konfigurieren, dass es statische IP-Adressen verwendet, müssen Sie zunächst nach dem Namen oder Index der Schnittstelle suchen, die Sie ändern möchten, indem Sie „Get-NetAdapter“, Netsh oder die Nano Server-Wiederherstellungskonsole verwenden. Verwenden Sie zum Angeben der Konfiguration die Parameter „-Ipv6Address“, „-Ipv6Dns“, „-Ipv4Address“, „-Ipv4SubnetMask“, „-Ipv4Gateway“ und „-Ipv4Dns“. Beispiel:  
-  
+
 `New-NanoServerImage -DeploymentType Host -Edition Standard -MediaPath \\Path\To\Media\en_us -BasePath .\Base -TargetPath .\StaticIpv4.vhd -InterfaceNameOrIndex Ethernet -Ipv4Address 192.168.1.2 -Ipv4SubnetMask 255.255.255.0 -Ipv4Gateway 192.168.1.1 -Ipv4Dns 192.168.1.1`  
-  
+
 ### <a name="custom-image-size"></a>Benutzerdefinierte Imagegröße  
 Sie können das Nano Server-Image mit dem Parameter „-MaxSize“ wie in diesem Beispiel so konfigurieren, dass es sich um dynamisch erweiterbares VHD oder VHDX handelt:  
-  
+
 `New-NanoServerImage -DeploymentType Host -Edition Standard -MediaPath \\Path\To\Media\en_us -BasePath .\Base -TargetPath .\BigBoss.vhd -MaxSize 100GB`  
-  
+
 ### <a name="embedding-custom-data"></a>Einbetten von benutzerdefinierten Daten  
 Verwenden Sie den Parameter „-CopyPath“, um Ihre eigenen Skripts oder Binärdateien in das Nano Server-Image einzubetten und ein Array von zu kopierenden Dateien und Verzeichnissen zu übergeben: Der Parameter „-CopyPath” akzeptiert auch eine Hashtabelle zum Festlegen des Zielpfads für Dateien und Verzeichnisse.
 
@@ -452,9 +453,9 @@ Wenn Sie auf Nano Server entwickeln und testen möchten, können Sie den Paramet
 
 ### <a name="custom-unattend-file"></a>Benutzerdefinierte Datei für die unbeaufsichtigte Installation  
 Wenn Sie eine eigene Datei für die unbeaufsichtigte Installation verwenden möchten, verwenden Sie den Parameter „-UnattendPath“:  
-  
+
 `New-NanoServerImage -DeploymentType Guest -Edition Standard -MediaPath \\Path\To\Media\en_us -BasePath .\Base -TargetPath .\NanoServer.wim -UnattendPath \\path\to\unattend.xml`  
-  
+
 Durch das Angeben eines Administratorkennworts oder Computernamens in dieser Datei für die unbeaufsichtigte Installation werden die durch „-AdministratorPassword“ und „-ComputerName“ festgelegten Werte überschrieben. 
 
 > [!NOTE]
@@ -517,24 +518,24 @@ PnP-Treiberpakete können mithilfe von [PnpUtil](https://msdn.microsoft.com/libr
 
 
 
- 
+
 --------------------------------------------------  
-  
-  
+
+
 ## <a name="BKMK_JoinDomain"></a>Hinzufügen von Nano Server zu einer Domäne  
-  
+
 ### <a name="to-add-nano-server-to-a-domain-online"></a>So fügen Sie Nano Server online zu einer Domäne hinzu  
-  
+
 1.  Nutzen Sie mit dem folgenden Befehl ein Daten-Blob eines Computers in der Domäne, auf dem bereits Windows Threshold Server ausgeführt wird:  
-  
+
     `djoin.exe /provision /domain <domain-name> /machine <machine-name> /savefile .\odjblob`  
-  
+
     Das Daten-Blob wird nun in einer Datei namens „odjblob“ gespeichert.  
-  
+
 2.  Kopieren Sie die Datei „odjblob“ mit den folgenden Befehlen auf den Nano Server-Computer:  
-  
+
     **Net use z: \\ \\ \<IP-Adresse des Nano Servers > \c$**  
-  
+
     > [!NOTE]  
     > Wenn der Befehl „net use“ fehlschlägt, müssen Sie wahrscheinlich die Regeln der Windows-Firewall anpassen. Öffnen Sie hierzu zunächst ein Eingabeaufforderungsfenster mit erhöhten Rechten, starten Sie Windows PowerShell, und stellen Sie anschließend mit den folgenden Befehlen eine Verbindung zum Nano Server-Computer mit Windows PowerShell-Remoting her:  
     >   
@@ -549,135 +550,135 @@ PnP-Treiberpakete können mithilfe von [PnpUtil](https://msdn.microsoft.com/libr
     > **Netsh Advfirewall Firewall legen Regelgruppe = "Datei- und Druckerfreigabe" neue Enable = Yes**  
     >   
     > Beenden Sie Windows PowerShell mit `Exit-PSSession`, und wiederholen Sie den Befehl „net use“. Setzen Sie im Erfolgsfall das Kopieren des Inhalts der Datei „odjblob“ auf den Nano-Server fort.  
-  
+
     **MD z:\Temp**  
-  
+
     **Kopieren Sie Odjblob z:\Temp**  
-  
+
 3.  Prüfen Sie die Domäne, mit der Nano Server verknüpft werden soll, und stellen Sie sicher, dass DNS konfiguriert ist. Überprüfen Sie auch, dass die Namensauflösung der Domäne bzw. ein Domänencontroller wie erwartet funktioniert. Öffnen Sie hierzu ein Eingabeaufforderungsfenster mit erhöhten Rechten, starten Sie Windows PowerShell, und stellen Sie anschließend mit den folgenden Befehlen eine Verbindung zum Nano Server-Computer mit Windows PowerShell-Remoting her:  
-  
+
     `Set-Item WSMan:\localhost\Client\TrustedHosts "<IP address of Nano Server>"`  
-  
+
     `$ip = "<ip address of Nano Server>"`  
-  
+
     `Enter-PSSession -ComputerName $ip -Credential $ip\Administrator`  
-  
+
     Geben Sie das Administratorkennwort ein, wenn Sie dazu aufgefordert werden. Nslookup ist auf Nano Server nicht verfügbar, Sie können deshalb die Namensauflösung mit „Resolve-DNSName“ überprüfen.
 
 4. Ist die Namensauflösung erfolgreich, führen Sie in derselben Windows PowerShell-Sitzung den folgenden Befehl für den Beitritt zur Domäne aus:  
-  
+
     `djoin /requestodj /loadfile c:\Temp\odjblob /windowspath c:\windows /localos`  
-  
+
 5.  Starten Sie den Nano Server-Computer neu, und beenden Sie anschließend die Windows PowerShell-Sitzung:  
-  
+
     `shutdown /r /t 5`  
-  
+
     `Exit-PSSession`  
-  
+
 6.  Nachdem Sie Nano Server zu einer Domäne hinzugefügt haben, fügen Sie das Domänenbenutzerkonto zur Administratorengruppe auf dem Nano Server hinzu.
 
 7. Entfernen Sie aus Sicherheitsgründen Nano Server-Instanz aus der Liste vertrauenswürdiger Hosts mit dem folgenden Befehl ein: `Set-Item WSMan:\localhost\client\TrustedHosts ""` 
-  
+
 **Alternative Methode zum Beitreten einer Domäne in einem Schritt**  
-  
+
 Nutzen Sie zunächst mit dem folgenden Befehl das Daten-Blob eines anderen Computers in der Domäne, auf dem bereits Windows Threshold Server ausgeführt wird:  
-  
+
 `djoin.exe /provision /domain <domain-name> /machine <machine-name> /savefile .\odjblob`  
-  
+
 Öffnen Sie (z.B. im Editor) die Datei „odjblob“, kopieren Sie ihren Inhalt, und fügen Sie den Inhalt anschließend in den Abschnitt \<AccountData> der untenstehenden Datei „Unattend.xml“ ein.  
-  
+
 Speichern Sie diese Datei „Unattend.xml“ im Ordner „C:\NanoServer“, und verwenden Sie anschließend die folgenden Befehle, um die VHD einzubinden und die Einstellungen im Abschnitt `offlineServicing` anzuwenden:  
-  
+
 **dism\dism /Mount-ImagemediaFile:.\NanoServer.vhd /Index:1 /MountDir:.\mountdir**  
-  
+
 **dism\dismmedia:.\mountdir /Apply-Unattend:.\unattend.xml**  
-  
+
 Erstellen Sie einen Ordner „Panther“ (von Windows-Systemen für die Speicherung von Dateien während des Setups verwendet; bei Interesse siehe [Speicherort der Setup-Protokolldateien unter Windows 7, Windows Server 2008 R2 und Windows Vista](https://support.microsoft.com/en-us/kb/927521)), kopieren Sie die Datei „Unattend.xml“ in diesen Ordner, und heben Sie anschließend die Einbindung der VHD mit den folgenden Befehlen auf:  
-  
+
 **MD .\mountdir\windows\panther**  
-  
+
 **copy .\unattend.xml .\mountdir\windows\panther**  
-  
+
 **dism\dism /Unmount-Image /MountDir:.\mountdir /Commit**  
-  
+
 Beim ersten Starten von Nano Server von dieser VHD werden die übrigen Einstellungen angewendet.  
-  
+
 Nachdem Sie Nano Server zu einer Domäne hinzugefügt haben, fügen Sie das Domänenbenutzerkonto zur Administratorengruppe auf dem Nano Server hinzu.  
- 
+
 ## <a name="working-with-server-roles-on-nano-server"></a>Arbeiten mit Serverrollen auf Nano Server
 
-###<a name="using-hyper-v-on-nano-server"></a>Verwenden von Hyper-V auf Nano Server  
+### <a name="using-hyper-v-on-nano-server"></a>Verwenden von Hyper-V auf Nano Server  
 Hyper-V funktioniert auf Nano Server in derselben Weise wie unter Windows Server im Server Core-Modus, jedoch mit zwei Ausnahmen:  
-  
+
 -   Sie müssen die gesamte Verwaltung remote ausführen, und auf dem Verwaltungscomputer muss derselbe Build von Windows Server ausgeführt werden wie auf dem Nano Server. Ältere Versionen von Hyper-V-Manager- oder Hyper-V Windows PowerShell-Cmdlets funktionieren nicht.  
-  
+
 -   RemoteFX ist nicht verfügbar.  
-  
+
 In dieser Version wurden die folgenden Features von Hyper-V überprüft:  
-  
+
 -   Aktivieren von Hyper-V  
-  
+
 -   Erstellen von virtuellen Computern der Generation 1 und 2  
-  
+
 -   Erstellen virtueller Switches  
-  
+
 -   Starten virtueller Computer und Ausführen von Windows-Gastbetriebssystemen  
 - Hyper-V-Replikat  
-  
-  
-  
+
+
+
 Wenn Sie eine Livemigration virtueller Computer durchführen möchten, erstellen Sie einen virtuellen Computer auf einer SMB-Freigabe oder verbinden Ressourcen auf einer vorhandenen SMB-Freigabe mit einem vorhandenen virtuellen Computer. Dabei ist es wichtig, dass Sie die Authentifizierung ordnungsgemäß konfigurieren. Sie können hierbei aus zwei Möglichkeiten wählen:  
-  
+
 **Eingeschränkte Delegierung**  
-  
+
 Die eingeschränkte Delegierung funktioniert wie in früheren Versionen. Weitere Informationen finden Sie in den folgenden Artikeln:  
-  
+
 -   [Aktivieren der Remoteverwaltung von Hyper-V – Konfigurieren der eingeschränkten Delegierung für SMB und hoch verfügbaren SMB](http://blogs.msdn.com/b/taylorb/archive/2012/03/20/enabling-hyper-v-remote-management-configuring-constrained-delegation-for-smb-and-highly-available-smb.aspx)  
-  
+
 -   [Aktivieren der Remoteverwaltung von Hyper-V – Konfigurieren der eingeschränkten Delegierung für nicht gruppierte Livemigration](http://blogs.msdn.com/b/taylorb/archive/2012/03/20/enabling-hyper-v-remote-management-configuring-constrained-delegation-for-non-clustered-live-migration.aspx)  
-  
+
 **CredSSP**  
-  
+
 Beachten Sie zunächst den Abschnitt „Verwenden von Windows PowerShell“ in diesem Thema, um CredSSP zu aktivieren und zu testen. Anschließend können Sie auf dem Verwaltungscomputer Hyper-V-Manager verwenden und die Option „Als anderer Benutzer verbinden“ auswählen. Hyper-V-Manager wird CredSSP verwenden. Sie sollten dies auch dann tun, wenn Sie Ihr aktuelles Konto verwenden.  
-  
+
 Windows PowerShell-Cmdlets für Hyper-V können CimSession- oder Anmeldeinformationsparameter verwenden, die beide mit CredSSP funktionieren.  
-  
+
 ### <a name="BKMK_Failover"></a>Verwenden des Failoverclustering auf Nano Server-Instanz  
 Das Failoverclustering funktioniert auf Nano Server in derselben Weise wie unter Windows Server im Server Core-Modus. Beachten Sie jedoch die folgenden Warnhinweise:  
-  
+
 -   Cluster müssen mit dem Failovercluster-Manager oder mit Windows PowerShell remote verwaltet werden.  
-  
+
 -   Alle Nano Server-Clusterknoten müssen derselben Domäne angehören, ähnlich wie Clusterknoten unter Windows Server.  
-  
+
 -   Das Domänenkonto muss auf allen Nano Server-Knoten über Administratorrechte verfügen, ähnlich wie Clusterknoten unter Windows Server.  
-  
+
 -   Alle Befehle müssen in einem Eingabeaufforderungsfenster mit erhöhten Rechten ausgeführt werden.  
-  
+
 > [!NOTE]  
 > Darüber hinaus werden in dieser Version bestimmte Features nicht unterstützt:  
 >   
 > -   Sie können keine Failoverclustering-Cmdlets auf einem lokalen Nano-Server über Windows PowerShell ausführen.  
 > -   Gruppierung von Rollen, ausgenommen Hyper-V und Dateiserver.  
-  
+
 Die folgenden Windows PowerShell-Cmdlets sind nützlich beim Verwalten von Failoverclustern:  
-  
+
 Sie können einen neuen Cluster mit erstellen. `New-Cluster -Name <clustername> -Node <comma-separated cluster node list>`  
-  
+
 Nachdem Sie einen neuen Cluster eingerichtet haben, sollten Sie auf allen Knoten `Set-StorageSetting -NewDiskPolicy OfflineShared` ausführen.  
-  
+
 Der Cluster mit einen zusätzlichen Knoten hinzugefügt `Add-ClusterNode -Name <comma-separated cluster node list>  -Cluster <clustername>`  
-  
+
 Entfernen eines Knotens aus dem Cluster mit  `Remove-ClusterNode -Name <comma-separated cluster node list>  -Cluster <clustername>`  
-  
+
 Erstellen Sie einen Dateiserver mit horizontaler Skalierung-Server mit `Add-ClusterScaleoutFileServerRole -name <sofsname> -cluster <clustername>`  
-  
+
 Weitere Cmdlets für das Failoverclustering finden Sie unter [Microsoft.FailoverClusters.PowerShell](https://technet.microsoft.com/library/ee461009.aspx).  
-  
+
 ### <a name="BKMK_DNS"></a>Mithilfe von DNS-Servers auf Nano Server  
 Um die DNS-Serverrolle auf Nano Server bereitzustellen, fügen Sie das Microsoft-NanoServer-DNS-Package zum Image hinzu. (Beachten Sie hierzu den Abschnitt „Erstellen eines benutzerdefinierten Nano Server-Images“ in diesem Thema.) Sobald der Nano Server ausgeführt wird, stellen Sie eine Verbindung zum Server her. Führen Sie den folgenden Befehl von einer Windows PowerShell-Konsole mit erhöhten Rechten aus, um das Feature zu aktivieren:  
-  
+
 `Enable-WindowsOptionalFeature -Online -FeatureName DNS-Server-Full-Role`  
-  
+
 ### <a name="BKMK_IIS"></a>Verwenden IIS auf Nano Server  
 Unter [IIS on Nano Server (IIS auf Nano Server)](IIS-on-Nano-Server.md) werden die Schritte für die Verwendung der IIS-Rolle (Internetinformationsdienste) beschrieben. 
 
@@ -688,14 +689,14 @@ Unter [MPIO on Nano Server (MPIO auf Nano Server)](MPIO-on-Nano-Server.md) werde
 Eine Anleitung zum Installieren und Verwenden von SSH auf Nano Server mit dem OpenSSH-Projekt finden Sie unter der [Win32-OpenSSH-Wiki](https://github.com/PowerShell/Win32-OpenSSH/wiki).
 
 ## <a name="appendix-sample-unattendxml-file-that-joins-nano-server-to-a-domain"></a>Anhang: Beispiel der Datei "Unattend.xml", die in Nano Server-Instanz in eine Domäne eingebunden  
-  
+
 > [!NOTE]  
 > Achten Sie darauf, nach dem Einfügen in die „Unattend“-Datei das nachfolgende Leerzeichen im Inhalt von „odjblob“ zu löschen.  
-  
+
 ```  
 <?xml version='1.0' encoding='utf-8'?>  
 <unattend xmlns="urn:schemas-microsoft-com:unattend" xmlns:wcm="https://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">  
-  
+
   <settings pass="offlineServicing">  
     <component name="Microsoft-Windows-UnattendedJoin" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">  
         <OfflineIdentification>                
@@ -706,7 +707,7 @@ Eine Anleitung zum Installieren und Verwenden von SSH auf Nano Server mit dem Op
          </OfflineIdentification>    
     </component>  
   </settings>  
-  
+
   <settings pass="oobeSystem">  
     <component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">  
       <UserAccounts>  
@@ -718,7 +719,7 @@ Eine Anleitung zum Installieren und Verwenden von SSH auf Nano Server mit dem Op
       <TimeZone>Pacific Standard Time</TimeZone>  
     </component>  
   </settings>  
-  
+
   <settings pass="specialize">  
     <component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">  
       <RegisteredOwner>My Team</RegisteredOwner>  
@@ -727,4 +728,4 @@ Eine Anleitung zum Installieren und Verwenden von SSH auf Nano Server mit dem Op
   </settings>  
 </unattend>  
 ```  
-  
+

@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.assetid: 5a291f65-794e-4fc3-996e-094c5845a383
 ms.technology: identity-adds
-ms.openlocfilehash: 8e05043d029636ddeb3a24349897ac61a713b2a7
-ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
+ms.openlocfilehash: 9883d337520c3920f8638ddfe5f6bd393e31fd2f
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65034113"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442860"
 ---
 # <a name="perform-initial-recovery"></a>Erste Wiederherstellung ausführen  
 
@@ -126,7 +126,7 @@ Fügen Sie nach der Überprüfung die DCs im Produktionsnetzwerk, und führen Si
 
 - Um die namensauflösung zu beheben, erstellen Sie DNS-Delegierungseinträge aus, und konfigurieren Sie DNS-Weiterleitung und Stamm Stammhinweisen je nach Bedarf. Führen Sie **Repadmin/replsum** Replikation zwischen DCs zu überprüfen. 
 - Wenn des wiederhergestellten DC nicht direkten Replikationspartner sind, werden replikationswiederherstellung viel schneller durch das Erstellen von temporären Verbindungsobjekte zwischen ihnen. 
-- Um Metadaten bereinigen zu überprüfen, führen **Repadmin /viewlist \***  eine Liste mit allen Domänencontrollern in der Gesamtstruktur. Führen Sie **Nltest /DCList:** *< Domäne\>*  eine Liste mit allen Domänencontrollern in der Domäne. 
+- Um Metadaten bereinigen zu überprüfen, führen **Repadmin /viewlist \\** * eine Liste mit allen Domänencontrollern in der Gesamtstruktur. Führen Sie **Nltest /DCList:** *< Domäne\>*  eine Liste mit allen Domänencontrollern in der Domäne. 
 - Um Domänencontroller- und DNS-Integrität zu überprüfen, führen Sie DCDiag/v um Fehler zu melden, für alle Domänencontroller in der Gesamtstruktur. 
 
 ## <a name="add-the-global-catalog-to-a-domain-controller-in-the-forest-root-domain"></a>Hinzufügen des globalen Katalogs zu einem Domänencontroller in der Gesamtstruktur-Stammdomäne

@@ -7,12 +7,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 09/11/2018
-ms.openlocfilehash: 2721bf13a7f6d3c90f9d055835fba51138ef75dd
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 65c5eb25f7a98e4db6a44e705a2968f185f3f962
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59841561"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447378"
 ---
 # <a name="install-trusted-tpm-root-certificates"></a>Installieren des vertrauenswürdigen TPM-Stammzertifikate
 
@@ -58,8 +58,8 @@ Bleiben vorhandene Zertifikate vertrauenswürdiger, aber neue Zertifikate finden
 
 ## <a name="next-step"></a>Nächster Schritt
 
->[!div class="nextstepaction"]
-[Konfigurieren Sie DNS-fabric](guarded-fabric-configuring-fabric-dns-tpm.md)
+> [!div class="nextstepaction"]
+> [Konfigurieren des Fabric-DNS](guarded-fabric-configuring-fabric-dns-tpm.md)
 
 
 

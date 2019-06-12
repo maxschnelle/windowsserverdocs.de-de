@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 6bd107aca6c6f33cdf5f88e5b48a52fdea8d2086
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: a29406880481f0e4e257105e94bc1a33ee661164
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189341"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66444441"
 ---
 # <a name="create-a-rule-to-transform-an-incoming-claim"></a>Erstellen einer Regel zum Transformieren eines eingehenden Anspruchs
 
@@ -130,9 +130,9 @@ Mitgliedschaft in **Administratoren**, oder einer entsprechenden, auf dem lokale
 >   
 > Weitere Informationen zu Dynamic Access Control-Szenarien finden Sie unter [Dynamic Access Control Content Roadmap](../../solution-guides/dynamic-access-control--scenario-overview.md) oder [Using AD DS-Ansprüchen mit AD FS](https://technet.microsoft.com/library/hh831504.aspx).  
   
-7.  Klicken Sie auf **Fertig stellen**.  
+7. Klicken Sie auf **Fertig stellen**.  
   
-8.  In der **Edit Claim Rules** Dialogfeld klicken Sie auf **OK** um die Regel zu speichern.  
+8. In der **Edit Claim Rules** Dialogfeld klicken Sie auf **OK** um die Regel zu speichern.  
 
 ## <a name="additional-references"></a>Weitere Verweise 
 [Konfigurieren von Anspruchsregeln](Configure-Claim-Rules.md)  

@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.date: 04/26/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 3e6d67eee496d19b216a4366af51ab5736229cf0
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: e38c53c3458c3f66f24ea2ddaa66febf508c4568
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65476150"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66442457"
 ---
 # <a name="scale-out-file-server-for-application-data-overview"></a>Übersicht über Dateiserver mit horizontaler Skalierung für Anwendungsdaten
 
@@ -177,25 +177,25 @@ In der folgenden Tabelle sind die neuen Funktionen in SMB 3.0, die gängigen Win
 <td>Dateiverwaltung</td>
 <td>Ordnerumleitung</td>
 <td>Ja</td>
-<td>Nicht empfohlen*</td>
+<td>nicht empfohlen.<em></td>
 </tr>
 <tr class="odd">
 <td>Dateiverwaltung</td>
 <td>Offlinedateien (clientseitiges Zwischenspeichern)</td>
 <td>Ja</td>
-<td>Nicht empfohlen*</td>
+<td>Nicht empfohlen</em></td>
 </tr>
 <tr class="even">
 <td>Dateiverwaltung</td>
 <td>Roamingbenutzerprofile</td>
 <td>Ja</td>
-<td>Nicht empfohlen*</td>
+<td>nicht empfohlen.<em></td>
 </tr>
 <tr class="odd">
 <td>Dateiverwaltung</td>
 <td>Basisverzeichnisse</td>
 <td>Ja</td>
-<td>Nicht empfohlen*</td>
+<td>Nicht empfohlen</em></td>
 </tr>
 <tr class="even">
 <td>Dateiverwaltung</td>
@@ -256,13 +256,13 @@ In der folgenden Tabelle werden die Features dieses Szenarios und die Art der be
 <tbody>
 <tr class="odd">
 <td><a href="failover-clustering.md">Failoverclustering</a></td>
-<td>Failovercluster werden die folgenden Features in Windows Server 2012, um die Unterstützung von Dateiservern mit horizontaler hinzugefügt: Verteilter Netzwerkname, den Ressourcentyp für den Scale-Out File Server, freigegebenen Clustervolumes (CSV) 2 und die Rolle für die horizontale Skalierung hohe Verfügbarkeit des Dateiservers. Weitere Informationen zu diesen Funktionen finden Sie unter <a href="https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265972(v%3dws.11)">neues beim Failoverclustering unter Windows Server 2012 [umgeleitet]</a>.</td>
+<td>Failovercluster werden die folgenden Features in Windows Server 2012, um die Unterstützung von Dateiservern mit horizontaler hinzugefügt: Verteilter Netzwerkname, den Ressourcentyp für den Scale-Out File Server, freigegebenen Clustervolumes (CSV) 2 und die Rolle für die horizontale Skalierung hohe Verfügbarkeit des Dateiservers. Weitere Informationen zu diesen Funktionen finden Sie unter <a href="https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265972(v%3dws.11)">was&#39;s neues beim Failoverclustering unter Windows Server 2012 [umgeleitet]</a>.</td>
 </tr>
 <tr class="even">
 <td><a href="https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831795(v%3dws.11)">Server Message Block</a></td>
 <td>SMB 3.0 wurde die folgenden Features in Windows Server 2012 mit horizontaler Skalierung unterstützen: SMB Transparent Failover, SMB Multichannel und SMB Direct.<br />
 <br />
-Weitere Informationen zu neuen und geänderten Funktionen für SMB unter Windows Server 2012 R2, finden Sie unter <a href="https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831474(v%3dws.11)">Neues in SMB unter Windows Server</a>.</td>
+Weitere Informationen zu neuen und geänderten Funktionen für SMB unter Windows Server 2012 R2, finden Sie unter <a href="https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831474(v%3dws.11)">was&#39;s New in SMB unter Windows Server</a>.</td>
 </tr>
 </tbody>
 </table>
