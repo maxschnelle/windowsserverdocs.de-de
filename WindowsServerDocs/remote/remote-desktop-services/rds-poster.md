@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a8c6d5fa-399b-4823-8f10-affec1bbfe65
 ms.localizationpriority: medium
-ms.openlocfilehash: 601261780f64a779d0aa43ea8d14f58fdcb5f502
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 571af5a50618db285aecbf26573ba52a6aec1101
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874141"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453113"
 ---
 # <a name="remote-desktop-services---planning-poster"></a>Planungsposter für Remotedesktopdienste
 
@@ -27,7 +27,7 @@ ms.locfileid: "59874141"
 
 Das Team für die Remotedesktopdienste hat ein Poster entworfen, das Sie bei der Planung, Erstellung und Ausführung einer RDS-Umgebung unterstützen kann.
 
-![Poster für Remotedesktopdienste](.\media\rds-poster-download.png)
+![Poster für Remotedesktopdienste](./media/rds-poster-download.png)
 
 Rufen Sie eine Kopie des Posters ab, indem Sie mit der rechten Maustaste auf das Bild klicken und das Poster auf Ihrem lokalen System speichern.
 

@@ -8,12 +8,12 @@ ms.date: 05/21/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: fd99058036a5b8041e4c65ca120c6a7e68b2df8d
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.openlocfilehash: ce4cbdc291d98a180ee6f5b597d322620fa1b19f
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65976649"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453171"
 ---
 # <a name="storage-migration-service-overview"></a>Übersicht über Storage-Migration Service
 
@@ -32,7 +32,7 @@ Verwenden Sie Storage-Migration-Dienst, da Sie haben einen Server (oder viele Se
 - Optional, damit Benutzer und apps keine Änderungen vornehmen, für den Zugriff auf vorhandene Daten haben Sie die Identität der Source Server (auch bekannt als Ausschneiden über)
 - Verwalten Sie eine oder mehrere Migrationen über die Benutzeroberfläche von Windows Admin Center
 
-![Das Diagramm zeigt die Speicherdienst-Migration Migrieren von Dateien und die Konfiguration vom Quellserver auf den Zielserver, Azure-VMs und Azure File Sync.](media\overview\storage-migration-service-diagram.png)
+![Das Diagramm zeigt die Speicherdienst-Migration Migrieren von Dateien und die Konfiguration vom Quellserver auf den Zielserver, Azure-VMs und Azure File Sync.](media/overview/storage-migration-service-diagram.png)
 
 **Abbildung 1: Speicherung Datenbankmigrationsdienst Quellen und Ziele**
 

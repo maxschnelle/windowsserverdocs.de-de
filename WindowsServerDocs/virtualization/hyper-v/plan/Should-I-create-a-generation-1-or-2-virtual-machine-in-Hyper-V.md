@@ -11,12 +11,12 @@ ms.assetid: 02e31413-6140-4723-a8d6-46c7f667792d
 author: KBDAzure
 ms.author: kathydav
 ms.date: 12/05/2016
-ms.openlocfilehash: e3c88ef5ee700bb3906746402bf6cc8916976800
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 95ececde8a1b8c591ea2baf367a93f63ee55a6e3
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192769"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811985"
 ---
 # <a name="should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v"></a>Sollte ich virtuelle Computer der Generation 1 oder 2 in Hyper-V erstellen?
 
@@ -35,25 +35,25 @@ Weitere Informationen dazu, welche Features mit virtuellen Maschinen der Generat
 
 Sie können nicht Generation eines virtuellen Computers, nach dem Erstellen noch ändern. Daher empfehlen wir, dass Sie die Überlegungen hier als auch wählen Sie das Betriebssystem, Startmethode und Funktionen, die Sie verwenden, bevor Sie eine Generation auswählen möchten.  
 
-## <a name="BKMK_OS"></a>Welche Gastbetriebssysteme werden unterstützt?
+## <a name="which-guest-operating-systems-are-supported"></a>Welche Gastbetriebssysteme werden unterstützt?
 
 Virtuelle Computer der Generation 1 unterstützt die meisten Gastbetriebssysteme. Virtuelle Computer der Generation 2 unterstützen die 64-Bit-Versionen von Windows und aktuelleren Versionen von Linux und FreeBSD-Betriebssystemen. Verwenden Sie die folgenden Abschnitten, um anzuzeigen, welche Generation des virtuellen Computers des Gastbetriebssystems unterstützt, die Sie installieren möchten.  
 
-- [Betriebssystemunterstützung für Windows-Gast](Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md#BKMK_Windows)  
+- [Betriebssystemunterstützung für Windows-Gast](#windows-guest-operating-system-support)  
 
-- [CentOS und Red Hat Enterprise Linux gastbetriebssystemunterstützung](Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md#BKMK_CentOS)  
+- [CentOS und Red Hat Enterprise Linux gastbetriebssystemunterstützung](#centos-and-red-hat-enterprise-linux-guest-operating-system-support)  
 
-- [Debian gastbetriebssystemunterstützung](Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md#BKMK_Debian)  
+- [Debian gastbetriebssystemunterstützung](#debian-guest-operating-system-support)  
 
-- [FreeBSD gastbetriebssystemunterstützung](Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md#BKMK_FreeBSD)  
+- [FreeBSD gastbetriebssystemunterstützung](#freebsd-guest-operating-system-support)  
 
-- [Oracle Linux-Gast-Betriebssystem-Unterstützung](Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md#BKMK_Oracle)  
+- [Oracle Linux-Gast-Betriebssystem-Unterstützung](#oracle-linux-guest-operating-system-support)  
 
-- [SUSE gastbetriebssystemunterstützung](Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md#BKMK_SUSE)  
+- [SUSE gastbetriebssystemunterstützung](#suse-guest-operating-system-support)  
 
-- [Ubuntu gastbetriebssystemunterstützung](Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md#BKMK_Ubuntu)  
+- [Ubuntu gastbetriebssystemunterstützung](#ubuntu-guest-operating-system-support)  
 
-### <a name="BKMK_Windows"></a>Betriebssystemunterstützung für Windows-Gast
+### <a name="windows-guest-operating-system-support"></a>Betriebssystemunterstützung für Windows-Gast
 
 Die folgende Tabelle zeigt, welche 64-Bit-Versionen von Windows Sie als Gast-Betriebssystem für die Generation 1 und Generation 2 virtueller Maschinen verwenden können.  
 
@@ -79,7 +79,7 @@ Die folgende Tabelle zeigt, welche 32-Bit-Versionen von Windows Sie als Gast-Bet
 |Windows 8|&#10004;| &#10006;|  
 |Windows 7|&#10004;| &#10006;|  
 
-### <a name="BKMK_CentOS"></a>CentOS und Red Hat Enterprise Linux gastbetriebssystemunterstützung
+### <a name="centos-and-red-hat-enterprise-linux-guest-operating-system-support"></a>CentOS und Red Hat Enterprise Linux gastbetriebssystemunterstützung
 
 Die folgende Tabelle zeigt, welche Versionen von Red Hat Enterprise Linux \(RHEL\) und CentOS können Sie als Gast-Betriebssystem verwenden, für die Generation 1 und virtuelle Maschinen der Generation 2.
 
@@ -91,7 +91,7 @@ Die folgende Tabelle zeigt, welche Versionen von Red Hat Enterprise Linux \(RHEL
 
 Weitere Informationen finden Sie unter [CentOS und Red Hat Enterprise Linux virtuelle Maschinen auf Hyper-V](../Supported-CentOS-and-Red-Hat-Enterprise-Linux-virtual-machines-on-Hyper-V.md).  
 
-### <a name="BKMK_Debian"></a>Debian gastbetriebssystemunterstützung  
+### <a name="debian-guest-operating-system-support"></a>Debian gastbetriebssystemunterstützung  
 
 Die folgende Tabelle zeigt, welche Versionen von Debian Sie als Gast-Betriebssystem für die Generation 1 und Generation 2 virtueller Maschinen verwenden können.
 
@@ -102,7 +102,7 @@ Die folgende Tabelle zeigt, welche Versionen von Debian Sie als Gast-Betriebssys
 
 Weitere Informationen finden Sie unter [virtuelle Debian-Computer auf Hyper-V](../Supported-Debian-virtual-machines-on-Hyper-V.md).  
 
-### <a name="BKMK_FreeBSD"></a>FreeBSD gastbetriebssystemunterstützung
+### <a name="freebsd-guest-operating-system-support"></a>FreeBSD gastbetriebssystemunterstützung
 
 Die folgende Tabelle zeigt, welche Versionen von FreeBSD Sie als Gast-Betriebssystem für die Generation 1 und Generation 2 virtueller Maschinen verwenden können.  
 
@@ -114,7 +114,7 @@ Die folgende Tabelle zeigt, welche Versionen von FreeBSD Sie als Gast-Betriebssy
 
 Weitere Informationen finden Sie unter [FreeBSD-Maschinen auf Hyper-V](../Supported-FreeBSD-virtual-machines-on-Hyper-V.md).  
 
-### <a name="BKMK_Oracle"></a>Oracle Linux-Gast-Betriebssystem-Unterstützung  
+### <a name="oracle-linux-guest-operating-system-support"></a>Oracle Linux-Gast-Betriebssystem-Unterstützung  
 
 Die folgende Tabelle zeigt, welche Versionen von Red Hat-kompatible Kernel Reihen Sie als Gast-Betriebssystem für die Generation 1 und Generation 2 virtueller Maschinen verwenden können.  
 
@@ -133,7 +133,7 @@ Die folgende Tabelle zeigt, welche Versionen der Unbreakable Enterprise Kernel S
 
 Weitere Informationen finden Sie unter [Oracle Linux-VMs auf Hyper-V](../Supported-Oracle-Linux-virtual-machines-on-Hyper-V.md).  
 
-### <a name="BKMK_SUSE"></a>SUSE gastbetriebssystemunterstützung
+### <a name="suse-guest-operating-system-support"></a>SUSE gastbetriebssystemunterstützung
 
 Die folgende Tabelle zeigt, welche Versionen von SUSE Sie als Gast-Betriebssystem für die Generation 1 und Generation 2 virtueller Maschinen verwenden können.
 
@@ -145,7 +145,7 @@ Die folgende Tabelle zeigt, welche Versionen von SUSE Sie als Gast-Betriebssyste
 
 Weitere Informationen finden Sie unter [SUSE-Computer auf Hyper-V](../Supported-SUSE-virtual-machines-on-Hyper-V.md).  
 
-### <a name="BKMK_Ubuntu"></a>Ubuntu gastbetriebssystemunterstützung
+### <a name="ubuntu-guest-operating-system-support"></a>Ubuntu gastbetriebssystemunterstützung
 
 Die folgende Tabelle zeigt, welche Versionen von Ubuntu Sie als Gast-Betriebssystem für die Generation 1 und Generation 2 virtueller Maschinen verwenden können.
 
@@ -156,7 +156,7 @@ Die folgende Tabelle zeigt, welche Versionen von Ubuntu Sie als Gast-Betriebssys
 
 Weitere Informationen finden Sie unter [virtuellen Ubuntu-Computern auf Hyper-V](../Supported-Ubuntu-virtual-machines-on-Hyper-V.md).  
 
-## <a name="BKMK_Boot"></a>Wie kann ich den virtuellen Computer starten?
+## <a name="how-can-i-boot-the-virtual-machine"></a>Wie kann ich den virtuellen Computer starten?
 
 Die folgende Tabelle zeigt, welche Startimages, die Methoden von Generation 1 und virtuelle Maschinen der Generation 2 unterstützt werden.  
 
@@ -168,7 +168,7 @@ Die folgende Tabelle zeigt, welche Startimages, die Methoden von Generation 1 un
 |Zum Starten von virtuellen Festplatte von IDE-Controller (. VHD-Datei) oder virtuelle DVD (. ISO)|&#10004;| &#10006;|  
 |Zum Starten von Diskette (. VFD)|&#10004;| &#10006;|  
 
-## <a name="BKMK_Advantages"></a>Was sind die Vorteile der Verwendung von virtuellen Maschinen der Generation 2?
+## <a name="what-are-the-advantages-of-using-generation-2-virtual-machines"></a>Was sind die Vorteile der Verwendung von virtuellen Maschinen der Generation 2?
 
 Hier sind einige der Vorteile, die Sie erhalten, wenn Sie die virtuelle Maschine der Generation 2 verwenden:  
 - **Sicherer Start** Dies ist ein Feature, das überprüft, das Startladeprogramm ist signiert, von einer vertrauenswürdigen Stelle in der UEFI-Datenbank ob, um zu verhindern, dass nicht autorisierte Firmware, Betriebssysteme oder UEFI-Treiber zur Startzeit ausgeführt. Der sichere Start ist standardmäßig bei virtuellen Computern der Generation 2 aktiviert. Wenn Sie möchten die Gast-Betriebssystem ausführen, die von der sichere Start nicht unterstützt wird, können Sie es nach dem Erstellen des virtuellen Computers deaktivieren.  Weitere Informationen finden Sie unter [Sicherer Start](https://technet.microsoft.com/library/dn486875.aspx).  
@@ -177,9 +177,9 @@ Hier sind einige der Vorteile, die Sie erhalten, wenn Sie die virtuelle Maschine
 
 - **Größere Startvolume** das maximale Startvolume für virtuelle Maschinen der Generation 2 beträgt 64 TB. Dies ist die maximale Datenträgergröße von unterstützt ein. VHDX. Für virtuelle Maschinen der Generation 1 ist das maximale Startvolume 2TB für ein. VHDX und Größe von 2040GB für ein. VHD-DATEI. Weitere Informationen finden Sie unter [Hyper-V Virtual Hard Disk Format Overview](https://technet.microsoft.com/library/hh831446.aspx).  
 
- Sie können auch einer leichten Verbesserung der virtuellen Computer der Start- und Installationszeiten mit virtuellen Maschinen der Generation 2 finden Sie unter.
+  Sie können auch einer leichten Verbesserung der virtuellen Computer der Start- und Installationszeiten mit virtuellen Maschinen der Generation 2 finden Sie unter.
 
-## <a name="BKMK_DeviceCompare"></a> Was ist der Unterschied in der Unterstützung für Geräte?
+## <a name="whats-the-difference-in-device-support"></a>Was ist der Unterschied in der Unterstützung für Geräte?
 
 Die folgende Tabelle vergleicht die Geräte, die zwischen der Generation 1 und virtuelle Maschinen der Generation 2 verfügbar.  
 
@@ -200,7 +200,7 @@ Die folgende Tabelle vergleicht die Geräte, die zwischen der Generation 1 und v
 |Programmierbarer Intervallzeitgeber (Programmable interval timer, PIT)|Nicht mehr erforderlich|Nicht zutreffend|  
 |Super-E/A-Gerät|Nicht mehr erforderlich|Nicht zutreffend|  
 
-## <a name="BKMK_More"></a> Weitere Informationen zu virtuellen Maschinen der Generation 2
+## <a name="more-about-generation-2-virtual-machines"></a>Weitere Informationen zu virtuellen Maschinen der Generation 2
 
 Hier sind einige zusätzliche Tipps zur Verwendung von virtuellen Maschinen der Generation 2.
 
@@ -230,7 +230,7 @@ Virtuelle Computer der Generation 2 verwenden standardmäßig IPv4. Wenn um IPv6
 Set-VMFirmware -VMName TestVM -IPProtocolPreference IPv6  
 ```  
 
-## <a name="BKMK_Debug"></a>Fügen Sie einen COM-Port für die Kernel-debugging
+## <a name="add-a-com-port-for-kernel-debugging"></a>Fügen Sie einen COM-Port für die Kernel-debugging
 
 COM-Anschlüsse nicht im virtuellen Maschinen der Generation 2 verfügbar sind, bis Sie sie hinzufügen. Dies ist mit Windows PowerShell oder Windows-Verwaltungsinstrumentation (Windows Management Instrumentation, WMI) möglich. Diese Schritte veranschaulichen, wie Sie ihn mit Windows PowerShell.
 

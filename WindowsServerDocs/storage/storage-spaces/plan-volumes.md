@@ -9,16 +9,16 @@ ms.topic: article
 author: cosmosdarwin
 ms.date: 01/10/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: e2d9e6828584f4027aa32cec26572c2290098ab6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c68444be5662480293cee630970d5eb76b52268a
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59830101"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453196"
 ---
 # <a name="planning-volumes-in-storage-spaces-direct"></a>Planen von Volumes in Direkte Speicherplätze
 
-> Gilt für: WindowsServer 2016, WindowsServer 2019
+> Gilt für: Windows Server 2019, Windows Server 2016
 
 Dieses Thema enthält Informationen zum Planen von Volumes in Direkte Speicherplätze, um die Leistungs- und Kapazitätsanforderungen Ihrer Workloads zu erfüllen, einschließlich der Auswahl des Dateisystems, Resilienztyps und der Größe.
 
@@ -31,7 +31,7 @@ Volumes sind die Datenspeicher, in denen Sie die von Ihren Workloads benötigten
 
 ![what-are-volumes](media/plan-volumes/what-are-volumes.png)
 
-Alle Volumes sind für alle Server im Cluster gleichzeitig zugänglich. Sobald sie erstellt wurden, werden sie unter **C:\ClusterStorage\** auf alle Servern angezeigt.
+Alle Volumes sind für alle Server im Cluster gleichzeitig zugänglich. Nach der Erstellung diese angezeigt werden am **C:\ClusterStorage\\**  auf allen Servern.
 
 ![csv-folder-screenshot](media/plan-volumes/csv-folder-screenshot.png)
 
@@ -87,9 +87,9 @@ Welcher Resilienztyp verwendet werden sollte, hängt von den Anforderungen Ihrer
 
 | **Resilienztyp**| **Kapazität Effizienz**| **Geschwindigkeit**| **Workloads**
 |--------------------|--------------------------------|--------------------------------|--------------------------
-| **Spiegel**         | ![Storage Effizienz mit 33 %](media\plan-volumes\3-way-mirror-storage-efficiency.png)<br>Drei-Wege-Spiegelung: 33% <br>Zwei-Wege-Spiegelung: 50 %     |![Leistung mit 100 %](media\plan-volumes\three-way-mirror-perf.png)<br> Höchste Leistung  | Für virtualisierte arbeitsauslastungen sind<br> Datenbanken<br>Andere Workloads für hohe Leistung |
-| **Parität Mirror-Beschleunigung** |![Speichereffizienz mit ca. 50 %](media\plan-volumes\mirror-accelerated-parity-storage-efficiency.png)<br> Hängt von den Anteil der Spiegelung und Parität | ![Leistung ca. 20 %](media\plan-volumes\mirror-accelerated-parity-perf.png)<br>Sehr viel langsamer als spiegeln jedoch einrichten, doppelt so schnell wie die duale Parität<br> Am besten für große sequenzielle Schreib- und Lesevorgänge | Archivierung und Sicherung<br> Virtualisierten Desktopinfrastruktur     |
-| **Dual-parity**               | ![Speichereffizienz mit ca. 80 %](media\plan-volumes\dual-parity-storage-efficiency.png)<br>4 Server: 50 % <br>16 Server: bis zu 80 % | ![Leistung ca. 10 %](media\plan-volumes\dual-parity-perf.png)<br>Höchste Latenz für e/a & CPU-Auslastung für Schreibvorgänge<br> Am besten für große sequenzielle Schreib- und Lesevorgänge | Archivierung und Sicherung<br> Virtualisierten Desktopinfrastruktur  |
+| **Spiegel**         | ![Storage Effizienz mit 33 %](media/plan-volumes/3-way-mirror-storage-efficiency.png)<br>Drei-Wege-Spiegelung: 33% <br>Zwei-Wege-Spiegelung: 50 %     |![Leistung mit 100 %](media/plan-volumes/three-way-mirror-perf.png)<br> Höchste Leistung  | Für virtualisierte arbeitsauslastungen sind<br> Datenbanken<br>Andere Workloads für hohe Leistung |
+| **Durch Spiegelung beschleunigte Parität** |![Speichereffizienz mit ca. 50 %](media/plan-volumes/mirror-accelerated-parity-storage-efficiency.png)<br> Hängt von den Anteil der Spiegelung und Parität | ![Leistung ca. 20 %](media/plan-volumes/mirror-accelerated-parity-perf.png)<br>Sehr viel langsamer als spiegeln jedoch einrichten, doppelt so schnell wie die duale Parität<br> Am besten für große sequenzielle Schreib- und Lesevorgänge | Archivierung und Sicherung<br> Virtualisierten Desktopinfrastruktur     |
+| **Dual-parity**               | ![Speichereffizienz mit ca. 80 %](media/plan-volumes/dual-parity-storage-efficiency.png)<br>4 Server: 50 % <br>16 Server: bis zu 80 % | ![Leistung ca. 10 %](media/plan-volumes/dual-parity-perf.png)<br>Höchste Latenz für e/a & CPU-Auslastung für Schreibvorgänge<br> Am besten für große sequenzielle Schreib- und Lesevorgänge | Archivierung und Sicherung<br> Virtualisierten Desktopinfrastruktur  |
 
 #### <a name="when-performance-matters-most"></a>Wenn Leistung am wichtigsten ist
 
@@ -199,4 +199,4 @@ Siehe [Erstellen von Volumes in Direkte Speicherplätze](create-volumes.md).
 
 - [Übersicht über Storage "direkte Speicherplätze"](storage-spaces-direct-overview.md)
 - [Auswählen von Laufwerken für "direkte Speicherplätze"](choosing-drives.md)
-- [Fault Tolerance und Speicher Effizienz](storage-spaces-fault-tolerance.md)
+- [Fehlertoleranz und Speichereffizienz](storage-spaces-fault-tolerance.md)

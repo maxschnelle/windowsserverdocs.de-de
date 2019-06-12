@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4aa041c27b1797e7d00476212887a7dc6dbc1880
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b2dd62e34f8205e0b5d395ba759fff4b4937b0ad
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59889061"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435042"
 ---
 # <a name="bdehdcfg-driveinfo"></a>Bdehdcfg: Driveinfo
 
@@ -30,9 +30,11 @@ Zeigt an, der Buchstabe des Laufwerks, beträgt die Gesamtgröße, der maximale 
 bdehdcfg -driveinfo <DriveLetter>
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
-|-------|--------|
-|<DriveLetter>|Gibt einen Laufwerkbuchstaben an, gefolgt von einem Doppelpunkt an.|
+
+|   Parameter   |                  Beschreibung                  |
+|---------------|-----------------------------------------------|
+| <DriveLetter> | Gibt einen Laufwerkbuchstaben an, gefolgt von einem Doppelpunkt an. |
+
 ## <a name="remarks"></a>Hinweise
 Der Befehl dient nur zu Informationszwecken und ist keine Änderungen auf das Laufwerk.
 ## <a name="BKMK_Examples"></a>Beispiel
@@ -41,5 +43,5 @@ Das folgende Beispiel zeigt die Laufwerkinformationen für Laufwerk c:.
 bdehdcfg  driveinfo C:
 ```
 ## <a name="additional-references"></a>Zusätzliche Referenzen
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [bdehdcfg](bdehdcfg.md)

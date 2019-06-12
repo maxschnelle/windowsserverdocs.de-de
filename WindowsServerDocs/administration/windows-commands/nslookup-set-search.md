@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bf952a0337e23c0426265c6c0a4a8387a6ab45e1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d95ebe30ce45430787bebbfe63766a571a436bbf
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816991"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436592"
 ---
 # <a name="nslookup-set-search"></a>nslookup set search
 
@@ -34,12 +34,12 @@ set [no]search
 
 ## <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|**nosearch**|Beendet den Domain Name System (DNS)-Domänennamen in der Suchliste für DNS-Domäne auf die Anforderung anfügen.|
-|**search**|Fügt der Domain Name System (DNS)-Domänennamen in der Suchliste für DNS-Domäne auf die Anforderung, bis eine Antwort empfangen wird. Die Standardsyntax ist **Suche**.|
-|{Hilfe | ?}|Zeigt eine kurze Zusammenfassung der **Nslookup** Unterbefehle.|
+|  Parameter   |                                                                          Beschreibung                                                                          |
+|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **nosearch** |                            Beendet den Domain Name System (DNS)-Domänennamen in der Suchliste für DNS-Domäne auf die Anforderung anfügen.                            |
+|  **search**  | Fügt der Domain Name System (DNS)-Domänennamen in der Suchliste für DNS-Domäne auf die Anforderung, bis eine Antwort empfangen wird. Die Standardsyntax ist **Suche**. |
+|    {Hilfe     |                                                                              ?}                                                                               |
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

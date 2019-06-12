@@ -13,12 +13,12 @@ author: brentfor
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d65a40e229fe4b0a1b27db496523dfe7a9419752
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 03bad9864f81cf75be13b4ca391fdcbc5f9dcb5c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59886791"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435357"
 ---
 # <a name="manage-user-access-logging"></a>Verwalten der Benutzerzugriffsprotokollierung
 
@@ -195,7 +195,7 @@ Am ersten Tag des Jahrs erstellt die Benutzerzugriffsprotokollierung eine neue D
   
 2.  Drücken Sie die WINDOWS-TASTE+R, und geben Sie dann **cmd** ein, um ein Eingabeaufforderungsfenster zu öffnen.  
   
-3.  Fügen Sie den folgenden Registrierungswert hinzu:  **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\WMI\AutoLogger\Sum\PollingInterval (REG_DWORD)**.  
+3.  Fügen Sie den folgenden Registrierungswert hinzu:  **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\WMI\AutoLogger\Sum\PollingInterval (REG_DWORD)** .  
   
     > [!WARNING]  
     > Durch eine fehlerhafte Bearbeitung der Registrierung können schwerwiegende Schäden am System verursacht werden. Bevor Änderungen an der Registrierung vorgenommen werden, sollten Sie eine Sicherungskopie aller wichtigen Daten auf dem Computer erstellen.  
@@ -211,13 +211,13 @@ Die Benutzerzugriffsprotokollierung ist keine unternehmenskritische Komponente. 
   
 #### <a name="to-delete-data-logged-by-ual"></a>So löschen Sie von der Benutzerzugriffsprotokollierung protokollierte Daten  
   
-1.  Beenden Sie den Dienst für die Benutzerzugriffsprotokollierung.  
+1. Beenden Sie den Dienst für die Benutzerzugriffsprotokollierung.  
   
-2.  Öffnen Sie Windows-Explorer.  
+2. Öffnen Sie Windows-Explorer.  
   
-3.  Wechseln Sie zu **\Windows\System32\Logfiles\SUM\**.  
+3. Wechseln Sie zu **\Windows\System32\Logfiles\SUM\\** .  
   
-4.  Löschen Sie alle Dateien im Ordner.  
+4. Löschen Sie alle Dateien im Ordner.  
   
 ## <a name="managing-ual-in-high-volume-environments"></a>Verwalten der Benutzerzugriffsprotokollierung in Umgebungen mit hohem Aufkommen an Clientanforderungen  
 In diesem Abschnitt werden die Besonderheiten erläutert, die bei der Verwendung der Benutzerzugriffsprotokollierung auf einem Server mit vielen Clients zu berücksichtigen sind:  

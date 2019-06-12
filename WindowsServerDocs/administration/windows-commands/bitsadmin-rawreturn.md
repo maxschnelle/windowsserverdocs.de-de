@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 80eef106452a45ac4f071446ec8d427b757c443d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4e12c8e621021d35ac618b4592515fe38c36be0e
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817021"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66434888"
 ---
 # <a name="bitsadmin-rawreturn"></a>bitsadmin rawreturn
 
@@ -34,7 +34,7 @@ bitsadmin /RawReturn
 
 Zeilenumbruchzeichen leisten und die Formatierung aus der Ausgabe.
 
-Normalerweise verwenden Sie diesen Befehl in Verbindung mit der **erstellen** und **erhalten\***  Switches, um nur den Wert zu erhalten. Sie müssen diesen Switch vor anderen Schaltern angeben.
+Normalerweise verwenden Sie diesen Befehl in Verbindung mit der **erstellen** und **erhalten\\** * Switches, um nur den Wert zu erhalten. Sie müssen diesen Switch vor anderen Schaltern angeben.
 
 ## <a name="BKMK_examples"></a>Beispiele für
 
@@ -45,4 +45,4 @@ C:\>bitsadmin /RawReturn /GetState myDownloadJob
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

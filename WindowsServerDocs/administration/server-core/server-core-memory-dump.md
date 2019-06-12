@@ -7,12 +7,12 @@ ms.sitesec: library
 author: lizap
 ms.localizationpriority: medium
 ms.date: 10/17/2017
-ms.openlocfilehash: bd22378ec7ce5a1ff4e39546246e6e85ca859c45
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 235df6f681de51a12f82b9fad019dd2db45fd486
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59828841"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435553"
 ---
 # <a name="configure-memory-dump-files-for-server-core-installation"></a>Konfigurieren von Speicherabbilddateien für Server Core-installation
 
@@ -39,7 +39,7 @@ Sie müssen nicht die Auslagerungsdatei auf der Partition haben, in denen das Be
 3. Klicken Sie auf **Bearbeiten > Neu > Zeichenfolgenwert**.
 4. Benennen Sie den Wert **DedicatedDumpFile**, und drücken Sie dann die EINGABETASTE.
 5. Mit der rechten Maustaste **DedicatedDumpFile**, und klicken Sie dann auf **ändern**.
-6. In **Wertdaten** Typ  **\<Laufwerk\>:\\\<Dedicateddumpfile.sys\>**, und klicken Sie dann auf **OK**.
+6. In **Wertdaten** Typ  **\<Laufwerk\>:\\\<Dedicateddumpfile.sys\>** , und klicken Sie dann auf **OK**.
 
    >[!NOTE] 
    > Ersetzen Sie dies \<Laufwerk\> mit einem Laufwerk mit genügend Datenträger Speicherplatz für die Auslagerungsdatei, und Ersetzen Sie \<Dedicateddumpfile.dmp\> durch den vollständigen Pfad zu der dedizierten Datei.
@@ -49,8 +49,8 @@ Sie müssen nicht die Auslagerungsdatei auf der Partition haben, in denen das Be
 9. Mit der rechten Maustaste **DumpFileSize**, und klicken Sie dann auf **ändern**.
 10. In **DWORD-Wert bearbeiten**unter **Base**, klicken Sie auf **Decimal**.
 11. In **Wertdaten**, geben Sie den entsprechenden Wert ein, und klicken Sie dann auf **OK**.
-   >[!NOTE]
-   > Die Größe der Dumpdatei wird in Megabyte (MB).
+    >[!NOTE]
+    > Die Größe der Dumpdatei wird in Megabyte (MB).
 12. Beenden Sie den Registrierungs-Editor.
 
 Nachdem Sie den Speicherort der Partition, der das Speicherabbild des ermittelt haben, konfigurieren Sie den Zielpfad für die Auslagerungsdatei. Um den aktuellen Zielpfad für die Auslagerungsdatei anzuzeigen, führen Sie den folgenden Befehl aus:

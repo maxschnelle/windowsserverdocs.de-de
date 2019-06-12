@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: acd3b4bb0342dfb8dc651ce7c31e85f1e77a2569
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
+ms.openlocfilehash: 37fdcd1f60281eedc4faa9a14e18410b1215b685
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66222968"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811210"
 ---
 # <a name="dir"></a>dir
 
@@ -58,71 +58,83 @@ dir [<Drive>:][<Path>][<FileName>] [...] [/p] [/q] [/w] [/d] [/a[[:]<Attributes>
 
 ## <a name="remarks"></a>Hinweise
 
--   Verwenden Sie mehrere *FileName* Parameter trennen Sie den Namen der Dateien durch ein Leerzeichen, Komma oder Semikolon.
--   Sie können Platzhalterzeichen verwenden (**&#42;** oder **?** ), um ein oder mehrere Zeichen, der einen Dateinamen und eine Teilmenge der Dateien oder Unterverzeichnisse anzuzeigen.
+- Verwenden Sie mehrere *FileName* Parameter trennen Sie den Namen der Dateien durch ein Leerzeichen, Komma oder Semikolon.
+- Sie können Platzhalterzeichen verwenden ( **&#42;** oder **?** ), um ein oder mehrere Zeichen, der einen Dateinamen und eine Teilmenge der Dateien oder Unterverzeichnisse anzuzeigen.
 
-    **Sternchen (\*):** Verwenden Sie das Sternchen als Ersatz für eine beliebige Zeichenfolge von Zeichen, z. B.:  
-    -   **Dir \*.txt** Listet alle Dateien im aktuellen Verzeichnis mit Erweiterungen, die mit txt, z. B. txt, .txt1, .txt_old beginnen.
-    -   **Lesen Sie Dir\*.txt** Listet alle Dateien im aktuellen Verzeichnis, die beginnen mit "Read" und Erweiterungen, die mit txt, z. B. txt, .txt1 oder .txt_old beginnen.
-    -   **Lesen Sie Dir\*.\***  Listet alle Dateien im aktuellen Verzeichnis, die mit "s" beginnen mit einer beliebigen Erweiterung.
+  **Sternchen (\*):** Verwenden Sie das Sternchen als Ersatz für eine beliebige Zeichenfolge von Zeichen, z. B.:  
+  - **Dir \*.txt** Listet alle Dateien im aktuellen Verzeichnis mit Erweiterungen, die mit txt, z. B. txt, .txt1, .txt_old beginnen.
+  - **Lesen Sie Dir\*.txt** Listet alle Dateien im aktuellen Verzeichnis, die beginnen mit "Read" und Erweiterungen, die mit txt, z. B. txt, .txt1 oder .txt_old beginnen.
+  - **Lesen Sie Dir\*.\\** * Listet alle Dateien im aktuellen Verzeichnis, die mit "s" beginnen mit einer beliebigen Erweiterung.
 
-    Der Sternchen-Platzhalter verwendet immer kurze Dateinamen Namen zuordnen, damit Sie möglicherweise unerwartete Ergebnisse erhalten. Das folgende Verzeichnis enthält beispielsweise zwei Dateien (t.txt2 und t97.txt):  
-    ```
-    C:\test>dir /x
-    Volume in drive C has no label.
-    Volume Serial Number is B86A-EF32
+  Der Sternchen-Platzhalter verwendet immer kurze Dateinamen Namen zuordnen, damit Sie möglicherweise unerwartete Ergebnisse erhalten. Das folgende Verzeichnis enthält beispielsweise zwei Dateien (t.txt2 und t97.txt): 
+ 
+  ```
+  C:\test>dir /x
+  Volume in drive C has no label.
+  Volume Serial Number is B86A-EF32
     
-    Directory of C:\test
+  Directory of C:\test
     
-    11/30/2004  01:40 PM <DIR>  .
-    11/30/2004  01:40 PM <DIR> ..
-    11/30/2004  11:05 AM 0 T97B4~1.TXT t.txt2
-    11/30/2004  01:16 PM 0 t97.txt
-    ```  
-    Sie erwarten wahrscheinlich, dass mit **Dir t97\***  würde die Datei t97.txt zurückgeben. Allerdings eingeben **Dir t97\***  beiden Dateien an und gibt zurück, da es sich bei der Sternchen-Platzhalter die Datei t.txt2 zu t97.txt entspricht, mithilfe der Zuordnung Kurznamen T97B4~1.TXT. Auf ähnliche Weise eingeben **del t97\***  beide Dateien gelöscht.
+  11/30/2004  01:40 PM <DIR>  .
+  11/30/2004  01:40 PM <DIR> ..
+  11/30/2004  11:05 AM 0 T97B4~1.TXT t.txt2
+  11/30/2004  01:16 PM 0 t97.txt
+  ```  
 
-    **Fragezeichen (?):** Verwenden Sie das Fragezeichen als Ersatz für ein einzelnes Zeichen in einen Namen ein. Geben Sie z. B. **Dir lesen Zuweisen von gruppenlizenzen finden. TXT** Listet alle Dateien im aktuellen Verzeichnis mit der Erweiterung TXT, die beginnen mit "Read", und von bis zu drei Zeichen gefolgt sind. Dies schließt Read.txt, Read1.txt, Read12.txt, Read123.txt, und Readme1.txt, aber nicht Readme12.txt.
--   Angeben der Attribute der Datei anzeigen
+  Sie erwarten wahrscheinlich, dass mit **Dir t97\\** * die Datei t97.txt zurück. Allerdings eingeben **Dir t97\\** * beiden Dateien an und gibt zurück, da es sich bei der Sternchen-Platzhalter die Datei t.txt2 zu t97.txt entspricht, mithilfe der Zuordnung Kurznamen T97B4~1.TXT. Auf ähnliche Weise eingeben **del t97\\** * beide Dateien gelöscht.
 
-    Bei Verwendung von **/a** mit mehr als ein Wert in *Attribute*, **Dir** zeigt die Namen der nur die Dateien mit den angegebenen Attributen. Angenommen, Sie verwenden **/a** mit **r** und **-h** als Attribute (indem Sie entweder **/ a: R-h** oder **/ar** ), **Dir** nur zeigt die Namen der schreibgeschützten Dateien, die nicht ausgeblendet werden.
--   Angeben der Sortierreihenfolge von Dateien
+  **Fragezeichen (?):** Verwenden Sie das Fragezeichen als Ersatz für ein einzelnes Zeichen in einen Namen ein. Geben Sie z. B. **Dir lesen Zuweisen von gruppenlizenzen finden. TXT** Listet alle Dateien im aktuellen Verzeichnis mit der Erweiterung TXT, die beginnen mit "Read", und von bis zu drei Zeichen gefolgt sind. Dies schließt Read.txt, Read1.txt, Read12.txt, Read123.txt, und Readme1.txt, aber nicht Readme12.txt.
+- Angeben der Attribute der Datei anzeigen
 
-    Bei Angabe von mehr als eine *SortOrder* Wert **Dir** sortiert die Dateinamen, nach dem ersten Kriterium aus, und klicken Sie dann durch das zweite Kriterium, und So weiter. Angenommen, Sie verwenden **/o** mit der **e** und **-s** Werte für *SortOrder* (indem Sie entweder **OE-s**oder **/oe-s**), **Dir** sortiert die Namen von Verzeichnissen und Dateien nach Erweiterung, mit dem größten ersten und zeigt dann das endgültige Ergebnis. Die alphabetische Sortierung nach Erweiterung bewirkt, dass Dateinamen ohne Erweiterungen zuerst angezeigt werden und Verzeichnisnamen, und klicken Sie dann Dateinamen mit der Erweiterung.
--   Mithilfe der Umleitungssymbole und pipes
+  Bei Verwendung von **/a** mit mehr als ein Wert in *Attribute*, **Dir** zeigt die Namen der nur die Dateien mit den angegebenen Attributen. Angenommen, Sie verwenden **/a** mit **r** und **-h** als Attribute (indem Sie entweder **/ a: R-h** oder **/ar** ), **Dir** nur zeigt die Namen der schreibgeschützten Dateien, die nicht ausgeblendet werden.
+- Angeben der Sortierreihenfolge von Dateien
 
-    Bei Verwendung der Umleitungssymbol ( **>** ) zum Senden von **Dir** Ausgabe in eine Datei oder einen senkrechten Strich ( **|** ) zum Senden von **Dir**Ausgabe an einen anderen Befehl verwenden **z.** und **/b** nur Dateinamen auflisten. Können Sie *FileName* mit **/b** und **/s** an, dass **Dir** besteht darin, das aktuelle Verzeichnis und seinen Unterverzeichnissen für alle Dateien suchen Diese Übereinstimmung nennt *FileName*. **Dir** Listet nur den Laufwerkbuchstaben, Verzeichnisname, Dateiname und Dateierweiterung (ein Pfad pro Zeile), für jede Datei sucht nach Namen. Bevor Sie eine Pipe, zum Senden von verwenden **Dir** Ausgabe an einen anderen Befehl, Sie sollten legen Sie die TEMP-Umgebungsvariable in Ihrer Datei.
--   Die **Dir** -Befehl, mit verschiedenen Parametern finden Sie in der Wiederherstellungskonsole.
+  Bei Angabe von mehr als eine *SortOrder* Wert **Dir** sortiert die Dateinamen, nach dem ersten Kriterium aus, und klicken Sie dann durch das zweite Kriterium, und So weiter. Angenommen, Sie verwenden **/o** mit der **e** und **-s** Werte für *SortOrder* (indem Sie entweder **OE-s**oder **/oe-s**), **Dir** sortiert die Namen von Verzeichnissen und Dateien nach Erweiterung, mit dem größten ersten und zeigt dann das endgültige Ergebnis. Die alphabetische Sortierung nach Erweiterung bewirkt, dass Dateinamen ohne Erweiterungen zuerst angezeigt werden und Verzeichnisnamen, und klicken Sie dann Dateinamen mit der Erweiterung.
+- Mithilfe der Umleitungssymbole und pipes
+
+  Bei Verwendung der Umleitungssymbol ( **>** ) zum Senden von **Dir** Ausgabe in eine Datei oder einen senkrechten Strich ( **|** ) zum Senden von **Dir**Ausgabe an einen anderen Befehl verwenden **z.** und **/b** nur Dateinamen auflisten. Können Sie *FileName* mit **/b** und **/s** an, dass **Dir** besteht darin, das aktuelle Verzeichnis und seinen Unterverzeichnissen für alle Dateien suchen Diese Übereinstimmung nennt *FileName*. **Dir** Listet nur den Laufwerkbuchstaben, Verzeichnisname, Dateiname und Dateierweiterung (ein Pfad pro Zeile), für jede Datei sucht nach Namen. Bevor Sie eine Pipe, zum Senden von verwenden **Dir** Ausgabe an einen anderen Befehl, Sie sollten legen Sie die TEMP-Umgebungsvariable in Ihrer Datei.
+- Die **Dir** -Befehl, mit verschiedenen Parametern finden Sie in der Wiederherstellungskonsole.
 
 ## <a name="examples"></a>Beispiele
 
 Klicken Sie zum Anzeigen von allen Verzeichnissen eine nach dem anderen, in alphabetischer Reihenfolge, klicken Sie im breiten Format und nach jedem Bildschirm anhalten stellen Sie sicher, dass das Root-Verzeichnis im aktuellen Verzeichnis ist, und geben:
+
 ```
 dir /s/w/o/p
 ```
+
 **Dir** enthält das Stammverzeichnis, Unterverzeichnisse und Dateien in das Stammverzeichnis, einschließlich der Erweiterungen. Klicken Sie dann **Dir** Listet die Namen der Unterverzeichnisse und den Dateinamen in den einzelnen Unterverzeichnissen in der Struktur.
 
 Im vorherige Beispiel ändern, damit **Dir** zeigt den Dateinamen und Erweiterungen, lässt aber die Namen der Verzeichnisse, Typ:
+
 ```
 dir /s/w/o/p/a:-d
 ```
+
 Um eine Verzeichnisliste zu drucken, geben Sie Folgendes ein:
+
 ```
 dir > prn
 ```
+
 Beim Angeben von **Prn**, Verzeichnisliste wird gesendet, an den Drucker, die an den LPT1 Port verbunden ist. Wenn der Drucker an einen anderen Port verbunden ist, müssen Sie ersetzen **Prn** durch den Namen der richtige Port.
 
 Sie können auch Ausgabe umleiten der **Dir** Befehl in eine Datei und Ersetzen Sie dabei **Prn** mit einem Dateinamen. Sie können auch einen Pfad eingeben. Z. B. zum direkten **Dir** Ausgabe in der Datei dir.doc im Verzeichnis, Typ:
+
 ```
 dir > \records\dir.doc
 ```
+
 Wenn dir.doc nicht vorhanden ist, **Dir** erstellt, es sei denn, das Datensätze-Verzeichnis nicht vorhanden ist. In diesem Fall wird die folgende angezeigt:
 
 `File creation error`
 
 Um eine Liste aller Dateinamen mit der Erweiterung TXT in allen Verzeichnissen auf Laufwerk C anzuzeigen, geben Sie Folgendes ein:
+
 ```
 dir c:\*.txt /w/o/s/p
 ```
+
 **Dir** angezeigt, das im breiten Format eine alphabetisch sortierte Liste der entsprechenden Datei benannt wird, in jedem Verzeichnis, und er hält jedes Mal, den Bildschirm ausfüllt, bis Sie eine beliebige Taste, um den Vorgang fortzusetzen drücken.
 
 #### <a name="additional-references"></a>Weitere Verweise

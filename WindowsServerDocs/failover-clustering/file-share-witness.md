@@ -8,12 +8,12 @@ author: johnmarlin-msft
 ms.date: 01/24/2019
 description: Dateifreigabezeugen können Sie eine Dateifreigabe zu verwenden, um im Clusterquorum abstimmen. Dieses Thema beschreibt dateifreigabezeugen und die neuen Funktionen, einschließlich der Verwendung von einem USB-Laufwerk an einen Router als einen Dateifreigabenzeugen verbunden.
 ms.localizationpriority: medium
-ms.openlocfilehash: 1888142f96208800a0417c9caeea89e8a0472e88
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 47371be946c08cac2f271138d701922fc340a89d
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59831751"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453046"
 ---
 # <a name="deploy-a-file-share-witness"></a>Bereitstellen Sie ein dateifreigabezeugen
 
@@ -61,26 +61,26 @@ Weitere Hinweise:
 
 Am [Microsoft Ignite 2018](https://azure.microsoft.com/ignite/), [Spitzengruppe Storage](http://www.dataonstorage.com/) mussten Sie einem Cluster für direkte Speicherplätze in ihrer Region Kioskmodus.  Dieser Cluster verbunden war, eine [NetGear](https://www.netgear.com) Nighthawk X4S WiFi-Router mithilfe des USB-Ports als Datei Dateifreigabenzeugen ähnelt.
 
-![NetGear Zeugen](media\File-Share-Witness\FSW1.png)
+![NetGear Zeugen](media/File-Share-Witness/FSW1.png)
 
 Die Schritte zum Erstellen eines Dateifreigabenzeugen mithilfe eines USB-Geräts auf diesem bestimmten Router sind unten aufgeführt.  Erfahren Sie, wie bereitgestellt, beachten Sie, dass die Schritte, die von anderen Routern und NAS-Geräte variieren und mithilfe von Anbieter durchgeführt werden soll.
 
 
 1. Melden Sie sich den Router, mit dem USB-Gerät angeschlossen.
 
-   ![NetGear-Schnittstelle](media\File-Share-Witness\FSW2.png)
+   ![NetGear-Schnittstelle](media/File-Share-Witness/FSW2.png)
 
 2. Wählen Sie aus der Liste der Optionen ReadySHARE handelt es sich, in denen Freigaben erstellt werden können.
 
-   ![NetGear ReadySHARE](media\File-Share-Witness\FSW3.png)
+   ![NetGear ReadySHARE](media/File-Share-Witness/FSW3.png)
 
 3. Für einen Dateifreigabenzeugen ist eine einfache Freigabe alles, die was erforderlich ist.  Die Schaltfläche "Bearbeiten" auswählen, wird ein Dialogfeld angezeigt, in dem die Freigabe auf dem USB-Gerät erstellt werden kann.
 
-   ![NetGear-Freigabe-Schnittstelle](media\File-Share-Witness\FSW4.png)
+   ![NetGear-Freigabe-Schnittstelle](media/File-Share-Witness/FSW4.png)
 
 4. Nach der Schaltfläche "anwenden" auswählen, wird die Freigabe wird erstellt und in der Liste angezeigt werden kann.
 
-   ![NetGear Freigaben](media\File-Share-Witness\FSW5.png)
+   ![NetGear Freigaben](media/File-Share-Witness/FSW5.png)
 
 5. Sobald die Freigabe erstellt wurde, ist der Dateifreigabenzeuge für Cluster mit PowerShell erstellt.
 

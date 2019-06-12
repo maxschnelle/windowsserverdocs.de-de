@@ -10,12 +10,12 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.service: na
 ms.assetid: 9cafd6cb-dbbe-4b91-b26c-dee1c18fd8c2
-ms.openlocfilehash: b049efc61d5060791574f20fcdd8b369a26f0507
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e2c14e471abb9af7a9182100969a8dd94a17205a
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59890251"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812193"
 ---
 >Gilt für: Windows 10, WindowsServer 2016, WindowsServer 2019
 
@@ -25,8 +25,8 @@ Hyper-V-Integrationsdienste Verbessern der Leistung der virtuellen Computer, und
 
 Weitere Informationen zu einzelnen Integrationsdienst, finden Sie unter [Hyper-V-Integrationsdienste](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/integration-services).
 
->[!IMPORTANT]
->Jeder Dienst, die Sie verwenden möchten, muss in den Host- und Gastbetriebssysteme aktiviert sein, um zu funktionieren. Alle Integrationsdienste mit Ausnahme von "Hyper-V-Gastdienstschnittstelle" sind standardmäßig auf Windows-Gastbetriebssysteme. Die Dienste aktiviert werden können, ein- und ausschalten einzeln. Die nächsten Abschnitte zeigen Ihnen, wie.
+> [!IMPORTANT]
+> Jeder Dienst, die Sie verwenden möchten, muss in den Host- und Gastbetriebssysteme aktiviert sein, um zu funktionieren. Alle Integrationsdienste mit Ausnahme von "Hyper-V-Gastdienstschnittstelle" sind standardmäßig auf Windows-Gastbetriebssysteme. Die Dienste aktiviert werden können, ein- und ausschalten einzeln. Die nächsten Abschnitte zeigen Ihnen, wie.
 
 ## <a name="turn-an-integration-service-on-or-off-using-hyper-v-manager"></a>Aktivieren Sie oder deaktivieren Sie mit dem Hyper-V-Manager von eines Integration-Diensts
 
@@ -47,6 +47,7 @@ Die folgenden Beispiele veranschaulichen das Aktivieren des Gast-Datei kopieren 
     ``` PowerShell
     Get-VMIntegrationService -VMName "DemoVM"
     ```
+
 1. Die Ausgabe sollte wie folgt aussehen:
 
     ``` PowerShell
@@ -84,12 +85,13 @@ Einige Features funktionieren nicht ordnungsgemäß oder überhaupt, wenn das Ga
 ```
 REG QUERY "HKLM\Software\Microsoft\Virtual Machine\Auto" /v IntegrationServicesVersion
 ```
+
 Frühere Gastbetriebssysteme müssen nicht alle verfügbaren Dienste. Sind keine Windows Server 2008 R2-Gäste z. B. die "Hyper-V-Gastdienstschnittstelle".
 
 ## <a name="start-and-stop-an-integration-service-from-a-windows-guest"></a>Starten Sie und beenden Sie einen Integration-Dienst von einem Windows-Gast
 In der Reihenfolge für einen Integrationsdienst voll funktionsfähig ist muss der entsprechende Dienst auf dem Gast zusätzlich zur Aktivierung auf dem Host ausgeführt werden. In Windows-Gäste ist jede Integration-Dienst als standard Windows-Dienst aufgeführt. Sie können das Applet "Dienste" in der Systemsteuerung oder PowerShell verwenden, beenden und starten Sie diese Dienste.
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > Beenden des Diensts Integration kann die Fähigkeit des Hosts zum Verwalten Ihres virtuellen Computers gravierend. Ordnungsgemäß funktioniert, muss jeder Integrationsdienst, die Sie verwenden möchten, auf dem Host und Gast aktiviert sein.
 > Als bewährte Methode sollten Sie nur Integrationsdiensten vom Hyper-V mithilfe der oben genannten Anweisungen steuern. Der entsprechende Dienst im Gastbetriebssystem, das wird beenden oder automatisch gestartet, wenn Sie seinen Status in Hyper-V geändert.
 > Wenn Sie einen Dienst in das Gastbetriebssystem starten, aber er die in Hyper-V deaktiviert ist, wird der Dienst beendet. Wenn Sie einen Dienst in der Gast-Betriebssystems, die in Hyper-V aktiviert ist beenden, wird Hyper-V schließlich erneut gestartet. Wenn Sie den Dienst auf dem Gast zu deaktivieren, werden Hyper-V kann nicht gestartet werden.
@@ -104,7 +106,6 @@ In der Reihenfolge für einen Integrationsdienst voll funktionsfähig ist muss d
 
 1. Mit der rechten Maustaste in der Sie des Diensts starten oder beenden. Klicken Sie auf die gewünschte Aktion.
 
-
 ### <a name="use-windows-powershell-to-start-or-stop-an-integration-service-within-a-windows-guest"></a>Mithilfe von Windows PowerShell starten oder Beenden einen Integrationsdienst auf einem Windows-Gast
 
 1. Um eine Liste von Integrationsservices zu erhalten, führen Sie Folgendes aus:
@@ -112,6 +113,7 @@ In der Reihenfolge für einen Integrationsdienst voll funktionsfähig ist muss d
     ```
     Get-Service -Name vm*
     ```
+
 1.  Die Ausgabe sollte etwa wie folgt aussehen:
 
     ```PowerShell
@@ -137,13 +139,13 @@ In der Reihenfolge für einen Integrationsdienst voll funktionsfähig ist muss d
 
 Linux-Integrationsdienste werden in der Regel über den Linux-Kernel bereitgestellt. Der Linux Integration Services-Treiber ist mit dem Namen **Hv_utils**.
 
-1.  Um zu ermitteln, ob **Hv_utils** geladen wurde, verwenden Sie diesen Befehl:
+1. Um zu ermitteln, ob **Hv_utils** geladen wurde, verwenden Sie diesen Befehl:
 
-    ``` BASH
-    lsmod | grep hv_utils
-    ``` 
+   ``` BASH
+   lsmod | grep hv_utils
+   ``` 
   
-1. Die Ausgabe sollte etwa wie folgt aussehen:  
+2. Die Ausgabe sollte etwa wie folgt aussehen:  
   
     ``` BASH
     Module                  Size   Used by
@@ -151,13 +153,13 @@ Linux-Integrationsdienste werden in der Regel über den Linux-Kernel bereitgeste
     hv_vmbus               61440   8 hv_balloon,hyperv_keyboard,hv_netvsc,hid_hyperv,hv_utils,hyperv_fb,hv_storvsc
     ```
 
-1. Um herauszufinden, ob die erforderlichen Daemons ausgeführt werden, verwenden Sie diesen Befehl aus.
+3. Um herauszufinden, ob die erforderlichen Daemons ausgeführt werden, verwenden Sie diesen Befehl aus.
   
     ``` BASH
     ps -ef | grep hv
     ```
   
-1. Die Ausgabe sollte etwa wie folgt aussehen: 
+4. Die Ausgabe sollte etwa wie folgt aussehen: 
   
     ```BASH
     root       236     2  0 Jul11 ?        00:00:00 [hv_vmbus_con]
@@ -170,13 +172,13 @@ Linux-Integrationsdienste werden in der Regel über den Linux-Kernel bereitgeste
     scooley  43774 43755  0 21:20 pts/0    00:00:00 grep --color=auto hv          
     ```
 
-1. Führen Sie Folgendes aus, um festzustellen, welche Daemons verfügbar sind:
+5. Führen Sie Folgendes aus, um festzustellen, welche Daemons verfügbar sind:
 
     ``` BASH
     compgen -c hv_
     ```
   
-1. Die Ausgabe sollte etwa wie folgt aussehen:
+6. Die Ausgabe sollte etwa wie folgt aussehen:
   
     ``` BASH
     hv_vss_daemon
@@ -187,10 +189,10 @@ Linux-Integrationsdienste werden in der Regel über den Linux-Kernel bereitgeste
     hv_fcopy_daemon     
     ```
   
- Daemons für Integrationsdienste, die aufgelistet werden können, gehören die folgenden. Fehlen, sie möglicherweise nicht auf Ihrem System unterstützt werden, oder sie können nicht installiert werden. Details finden, finden Sie unter [unterstützt Linux und FreeBSD-VMs für Hyper-V unter Windows](https://technet.microsoft.com/library/dn531030.aspx).  
-  - **hv_vss_daemon**: Dieser Daemon ist erforderlich, um live Linux-VM-Sicherungen zu erstellen.
-  - **hv_kvp_daemon**: Dieser Daemon ermöglicht das Festlegen und Abfragen interner und externer Schlüsselwertpaare Schlüssel-/Wertpaaren.
-  - **hv_fcopy_daemon**: Dieser Daemon implementiert einen dateikopierdienst zwischen Host und Gast.  
+   Daemons für Integrationsdienste, die aufgelistet werden können, gehören die folgenden. Fehlen, sie möglicherweise nicht auf Ihrem System unterstützt werden, oder sie können nicht installiert werden. Details finden, finden Sie unter [unterstützt Linux und FreeBSD-VMs für Hyper-V unter Windows](https://technet.microsoft.com/library/dn531030.aspx).  
+   - **hv_vss_daemon**: Dieser Daemon ist erforderlich, um live Linux-VM-Sicherungen zu erstellen.
+   - **hv_kvp_daemon**: Dieser Daemon ermöglicht das Festlegen und Abfragen interner und externer Schlüsselwertpaare Schlüssel-/Wertpaaren.
+   - **hv_fcopy_daemon**: Dieser Daemon implementiert einen dateikopierdienst zwischen Host und Gast.  
 
 ### <a name="examples"></a>Beispiele
 

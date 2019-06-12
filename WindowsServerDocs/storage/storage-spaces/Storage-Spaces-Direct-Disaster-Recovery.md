@@ -8,12 +8,12 @@ author: johnmarlin-msft
 ms.date: 03/29/2018
 description: Dieser Artikel beschreibt die Szenarien, die heute verfügbar sind, für die notfallwiederherstellung von Microsoft HCI (Storage Spaces Direct)
 ms.localizationpriority: medium
-ms.openlocfilehash: 32bbf02ca78d5c6a2147162768c984d0e0b27e36
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c844c56c3a1717658bcdb970e78d45b5cdda861c
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879591"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453122"
 ---
 # <a name="disaster-recovery-with-storage-spaces-direct"></a>Notfallwiederherstellung mit "direkte Speicherplätze"
 
@@ -41,7 +41,7 @@ Eine wichtige Funktion von Funktion "Speicherreplikat" ist, dass es in Azure als
 
 In diesem Szenario sind zwei separate unabhängige Cluster. Zum Konfigurieren von Funktion "Speicherreplikat" zwischen HCI, Sie können die Schritte in [Cluster-zu-Cluster-Speicherreplikation](../storage-replica/cluster-to-cluster-storage-replication.md).
 
-![Diagramm der Storage-Replikation](media\storage-spaces-direct-disaster-recovery\Disaster-Recovery-Figure1.png)
+![Diagramm der Storage-Replikation](media/storage-spaces-direct-disaster-recovery/Disaster-Recovery-Figure1.png)
 
 Die folgenden Überlegungen gelten beim Bereitstellen der Funktion "Speicherreplikat". 
 
@@ -56,7 +56,7 @@ Funktion "Speicherreplikat" kann verwendet werden, wenn Sie virtuelle Maschinen 
 
 [Hyper-V-Replikat](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/set-up-hyper-v-replica) Ebene Replikation des virtuellen Computers für die notfallwiederherstellung für hyperkonvergente Infrastrukturen enthält. Hyper-V-Replikat Möglichkeiten ist, einen virtuellen Computer und auf einem sekundären Standort oder in Azure (Replikat) repliziert werden. Dann können vom sekundären Standort, Hyper-V-Replikat replizieren des virtuellen Computers in einer dritten (Erweiterte Replikat).
 
-![Diagramm für Hyper-V-Replikation](media\storage-spaces-direct-disaster-recovery\Disaster-Recovery-Figure2.png)
+![Diagramm für Hyper-V-Replikation](media/storage-spaces-direct-disaster-recovery/Disaster-Recovery-Figure2.png)
 
 Mit Hyper-V-Replikat wird die Replikation von Hyper-V übernommen. Wenn Sie erstmals einen virtuellen Computer für die Replikation aktivieren, gibt es drei Optionen für die sollen wie für der ersten Kopie an das entsprechende Replikat-Cluster gesendet werden.
 

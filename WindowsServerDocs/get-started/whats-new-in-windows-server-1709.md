@@ -7,19 +7,23 @@ ms.topic: article
 author: coreyp-at-msft
 ms.author: coreyp
 ms.localizationpriority: medium
-ms.openlocfilehash: 32ce591a8b50c6e35c3fde4fedb177b6d76fccdd
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
+ms.date: 06/03/2019
+ms.openlocfilehash: e17a636c5bf06d194abd1bfe9b6d20970773e993
+ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65976726"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66501403"
 ---
 # <a name="whats-new-in-windows-server-version-1709"></a>Neues in IPAM unter Windows Server, Version 1709.
 
 >Gilt für: Windows Server (Semi-Annual Channel)
 
 <img src="../media/landing-icons/new.png" style='float:left; padding:.5em;' alt="Icon showing a newspaper">&nbsp;Weitere Informationen zu den neuesten Features in Windows finden Sie unter [Neuigkeiten in Windows Server](whats-new-in-windows-server.md). In diesem Abschnitt wird beschrieben, was in Windows Server, Version 1709, neu ist und was sich geändert hat. Die hier aufgeführten Neuerungen und Änderungen haben bei der Arbeit in dieser Version vermutlich die größte Auswirkung. Weitere Informationen finden Sie unter [Windows Server, Version 1709](https://blogs.technet.microsoft.com/windowsserver/2017/08/24/sneak-peek-1-windows-server-version-1709/).
-   
+
+> [!IMPORTANT]
+> Windows Server ist Version 1709 nicht mehr unterstützt wird ab dem 9. April 2019.
+
 
 ## <a name="new-cadence-of-releases"></a>Neuer Versionsrhythmus
 
@@ -126,20 +130,20 @@ Weitere Informationen finden Sie unter [Übersicht über geschütztes Fabric und
 - **Erhalten Sie im Fenster Autotuning**: TCP-Autotuning Logik berechnet den Parameter "erhalten im Fenster" eine TCP-Verbindung.  Verbindungen mit hoher Geschwindigkeit und/oder Verzögerungen der Verbindungen benötigen diesen Algorithmus, um gute Leistungsmerkmale zu erzielen.  In dieser Version wurde der Algorithmus geändert, um eine Schritt-Funktion zu verwenden, um den maximal zulässigen Empfangsfensterwert für eine bestimmte Verbindung zu erhalten.
 - **TCP-Stats-API**: Es wird eine neue API eingeführt SIO_TCP_INFO aufgerufen.  Mit SIO_TCP_INFO können Entwickler umfassende Informationen zu einzelnen TCP-Verbindungen mit einer Socketoption abfragen.
 - **IPv6**: Es gibt mehrere Verbesserungen in IPv6 in dieser Version.
-    - **RFC 6106** unterstützen: RFC-6106 die DNS-Konfiguration über routerankündigungen (RAs) ermöglicht. Sie können die folgenden Befehle verwenden, um den RFC 6106 -Support zu aktivieren oder zu deaktivieren:
+  - **RFC 6106** unterstützen: RFC-6106 die DNS-Konfiguration über routerankündigungen (RAs) ermöglicht. Sie können die folgenden Befehle verwenden, um den RFC 6106 -Support zu aktivieren oder zu deaktivieren:
 
     ```
     netsh int ipv6 set interface <ifindex> rabaseddnsconfig=<enabled | disabled>
     ```
 
-    - **Flow Bezeichnungen**: Ab dem Creators Update, ausgehende TCP- und UDP-Pakete über IPv6 wird dieses Feld mit einem Hash des 5-Tupel (Src IP, Dst IP, Quellport, Zielport) festgelegt haben.  Hierdurch wird der Lastenausgleich oder die Flussklassifizierung der „nur IPv6-Rechenzentren” effizienter ausgeführt. So aktivieren Sie die Flussbezeichnungen:
+  - **Flow Bezeichnungen**: Ab dem Creators Update, ausgehende TCP- und UDP-Pakete über IPv6 wird dieses Feld mit einem Hash des 5-Tupel (Src IP, Dst IP, Quellport, Zielport) festgelegt haben.  Hierdurch wird der Lastenausgleich oder die Flussklassifizierung der „nur IPv6-Rechenzentren” effizienter ausgeführt. So aktivieren Sie die Flussbezeichnungen:
 
     ```
     netsh int ipv6 set flowlabel=[disabled|enabled] (enabled by default)
     netsh int ipv6 set global flowlabel=<enabled | disabled>
     ```
 
-    - **ISATAP und 6to4**: Als Maßnahme zur zukünftigen Veraltung müssen dem Creators Update dieser Technologien, die standardmäßig deaktiviert.
+  - **ISATAP und 6to4**: Als Maßnahme zur zukünftigen Veraltung müssen dem Creators Update dieser Technologien, die standardmäßig deaktiviert.
 - **Erkennung von Gateways (DGD)** : Der Algorithmus DGD geht automatisch Verbindungen über in ein anderes Gateway, wenn das aktuelle Gateway nicht erreichbar ist. In dieser Version ist der Algorithmus verbessert, um die Netzwerkumgebung in regelmäßigen Abständen erneut zu überprüfen.
 - [Test-NetConnection](https://technet.microsoft.com/itpro/powershell/windows/nettcpip/test-netconnection) ist ein integriertes Cmdlet in Windows PowerShell, das eine Vielzahl von Netzwerkdiagnosen ausführt.  In dieser Version haben wir das Cmdlet verbessert, um detaillierte Informationen sowohl zur Routenauswahl als auch zur Quelladresse zu verbessern.
 

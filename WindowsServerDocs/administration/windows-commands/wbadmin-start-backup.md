@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 09b2ffabcea414dd4717a2ffa1f6e860a17f3653
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2ac602506960b92333750e7a37692c44c92aae22
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59871701"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440277"
 ---
 # <a name="wbadmin-start-backup"></a>Sicherung des Wbadmin-starten
 
@@ -87,27 +87,27 @@ Wbadmin start backup
 Die folgenden Beispiele zeigen die **Sicherung des Wbadmin-starten** in verschiedenen backup-Szenarien verwendet werden:
 
 Szenario #1
--   Erstellen Sie eine Sicherung von Volumes "e:", d:\mountpoint, und \\ \\? \Volume{cc566d14-4410-11d9-9d93-806e6f6e6963}
--   Speichern Sie die Sicherung auf Volume f:
-```
-wbadmin start backup -backupTarget:f: -include:e:,d:\mountpoint,\\?\Volume{cc566d14-44a0-11d9-9d93-806e6f6e6963}\
-```
-Szenario #2
--   Führen Sie eine Einmalsicherung *f:\folder1* und *h:\folder2* Volume *"d:"*.
--   Sicherung des Systemstatus
--   Stellen Sie eine Sicherung kopieren, damit die Normal geplante differenzielle Sicherung nicht beeinträchtigt wird.
-```
-wbadmin start backup –backupTarget:d: -include:g\folder1,h:\folder2 –systemstate -vsscopy
-```
-#3-Szenario
--   Führen Sie eine Einmalsicherung *d:\folder1* , sollte gesichert werden nicht rekursiv.
--   Sichern Sie den Ordner für den Netzwerkspeicherort  *\\ \\backupshare\backup1*
--   Beschränken des Zugriffs auf die Mitglieder der Sicherung der **Administratoren** oder **Sicherungs-Operatoren** Gruppe.
-```
-wbadmin start backup –backupTarget: \\backupshare\backup1 -noinheritacl -nonrecurseinclude:d:\folder1
-```
+- Erstellen Sie eine Sicherung von Volumes "e:", d:\mountpoint, und \\ \\? \Volume{cc566d14-4410-11d9-9d93-806e6f6e6963}
+- Speichern Sie die Sicherung auf Volume f:
+  ```
+  wbadmin start backup -backupTarget:f: -include:e:,d:\mountpoint,\\?\Volume{cc566d14-44a0-11d9-9d93-806e6f6e6963}\
+  ```
+  Szenario #2
+- Führen Sie eine Einmalsicherung *f:\folder1* und *h:\folder2* Volume *"d:"* .
+- Sicherung des Systemstatus
+- Stellen Sie eine Sicherung kopieren, damit die Normal geplante differenzielle Sicherung nicht beeinträchtigt wird.
+  ```
+  wbadmin start backup –backupTarget:d: -include:g\folder1,h:\folder2 –systemstate -vsscopy
+  ```
+  #3-Szenario
+- Führen Sie eine Einmalsicherung *d:\folder1* , sollte gesichert werden nicht rekursiv.
+- Sichern Sie den Ordner für den Netzwerkspeicherort  *\\ \\backupshare\backup1*
+- Beschränken des Zugriffs auf die Mitglieder der Sicherung der **Administratoren** oder **Sicherungs-Operatoren** Gruppe.
+  ```
+  wbadmin start backup –backupTarget: \\backupshare\backup1 -noinheritacl -nonrecurseinclude:d:\folder1
+  ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)

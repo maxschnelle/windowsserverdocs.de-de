@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 666a15056e75cea37959d821c34288ffc2c6a6c4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c06684eb73639e7480b5bad39d4d679739682800
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59825671"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66437157"
 ---
 # <a name="netstat"></a>netstat
 
@@ -32,20 +32,21 @@ netstat [-a] [-e] [-n] [-o] [-p <Protocol>] [-r] [-s] [<Interval>]
 ```
 
 ### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
-|-------|--------|
-|-a|Zeigt alle aktiven TCP-Verbindungen und die TCP- und UDP-Ports, die der Computer überwacht wird.|
-|-e|Zeigt die Ethernet-Statistiken, z. B. die Anzahl der Bytes und versandter und erhaltener Pakete. Dieser Parameter kann mit kombiniert werden **-s**.|
-|-n|Zeigt bei der aktive TCP-Verbindungen, jedoch Adressen und Portnummern numerisch ausgedrückt werden und wird kein Versuch unternommen, um Namen zu bestimmen.|
-|-o|Zeigt die aktiven TCP-Verbindungen an, und die Prozess-ID (PID) für jede Verbindung enthält. Sie finden die Anwendung basierend auf der PID auf der Registerkarte "Prozesse" im Windows Task-Manager. Dieser Parameter kann mit kombiniert werden **– ein**, **- n**, und **-p**.|
-|-p <Protocol>|Zeigt die Verbindungen für das Protokoll gemäß *Protokoll*. In diesem Fall die *Protokoll* Tcp, Udp, tcpv6 oder udpv6 werden können. Wenn dieser Parameter verwendet wird, mit **-s** anzuzeigenden Statistiken vom Netzwerkprotokoll *Protokoll* kann sein, Tcp, Udp, Icmp, Ip, tcpv6, udpv6, icmpv6 oder ipv6.|
-|-s|Zeigt Statistiken vom Protokoll an. Standardmäßig werden Statistiken für die TCP, UDP, ICMP- und IP-Protokolle angezeigt. Wenn das IPv6-Protokoll installiert ist, werden Statistiken für TCP über IPv6, UDP über IPv6, ICMPv6 und IPv6-Protokolle angezeigt. Die **-p** Parameter kann verwendet werden, um eine Reihe von Protokollen angeben.|
-|-r|Zeigt den Inhalt der IP-Routingtabelle. Dies ist gleichbedeutend mit dem Befehl Route print.|
-|<Interval>|Zeigt den ausgewählten Informationen jede *Intervall* Sekunden. Drücken Sie STRG + C zum Beenden der erneuten Anzeige aus. Wenn dieser Parameter ausgelassen wird, **Netstat** den ausgewählten Informationen nur einmal ausgegeben.|
-|/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
+
+|   Parameter   |                                                                                                                                              Beschreibung                                                                                                                                              |
+|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|      -a       |                                                                                                   Zeigt alle aktiven TCP-Verbindungen und die TCP- und UDP-Ports, die der Computer überwacht wird.                                                                                                   |
+|      -e       |                                                                                 Zeigt die Ethernet-Statistiken, z. B. die Anzahl der Bytes und versandter und erhaltener Pakete. Dieser Parameter kann mit kombiniert werden **-s**.                                                                                  |
+|      -n       |                                                                               Zeigt bei der aktive TCP-Verbindungen, jedoch Adressen und Portnummern numerisch ausgedrückt werden und wird kein Versuch unternommen, um Namen zu bestimmen.                                                                               |
+|      -o       |                          Zeigt die aktiven TCP-Verbindungen an, und die Prozess-ID (PID) für jede Verbindung enthält. Sie finden die Anwendung basierend auf der PID auf der Registerkarte "Prozesse" im Windows Task-Manager. Dieser Parameter kann mit kombiniert werden **– ein**, **- n**, und **-p**.                           |
+| -p <Protocol> |               Zeigt die Verbindungen für das Protokoll gemäß *Protokoll*. In diesem Fall die *Protokoll* Tcp, Udp, tcpv6 oder udpv6 werden können. Wenn dieser Parameter verwendet wird, mit **-s** anzuzeigenden Statistiken vom Netzwerkprotokoll *Protokoll* kann sein, Tcp, Udp, Icmp, Ip, tcpv6, udpv6, icmpv6 oder ipv6.                |
+|      -s       | Zeigt Statistiken vom Protokoll an. Standardmäßig werden Statistiken für die TCP, UDP, ICMP- und IP-Protokolle angezeigt. Wenn das IPv6-Protokoll installiert ist, werden Statistiken für TCP über IPv6, UDP über IPv6, ICMPv6 und IPv6-Protokolle angezeigt. Die **-p** Parameter kann verwendet werden, um eine Reihe von Protokollen angeben. |
+|      -r       |                                                                                                     Zeigt den Inhalt der IP-Routingtabelle. Dies ist gleichbedeutend mit dem Befehl Route print.                                                                                                     |
+|  <Interval>   |                                                        Zeigt den ausgewählten Informationen jede *Intervall* Sekunden. Drücken Sie STRG + C zum Beenden der erneuten Anzeige aus. Wenn dieser Parameter ausgelassen wird, **Netstat** den ausgewählten Informationen nur einmal ausgegeben.                                                         |
+|      /?       |                                                                                                                                 Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                  |
 
 ## <a name="remarks"></a>Hinweise
--   Mit diesem Befehl verwendeten Parameter müssen das Präfix mit einem Bindestrich (**-**) anstatt einem Schrägstrich (**/**).
+-   Mit diesem Befehl verwendeten Parameter müssen das Präfix mit einem Bindestrich ( **-** ) anstatt einem Schrägstrich ( **/** ).
 -   **Netstat** stellt Statistiken für Folgendes bereit:
     -   Proto den Namen des Protokolls (TCP oder UDP).
     -   Lokale Adresse die IP-Adresse, von dem lokalen Computer und die Portnummer, die verwendet wird. Der Name des lokalen Computers, der die IP-Adresse entspricht und den Namen des Ports werden angezeigt, es sei denn, die **- n** Parameter angegeben ist. Wenn Sie noch nicht der Port bekannt ist, wird die Portnummer als ein Sternchen (*) angezeigt.
@@ -72,4 +73,4 @@ netstat -n -o
 ```
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

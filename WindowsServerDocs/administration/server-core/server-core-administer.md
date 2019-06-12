@@ -8,12 +8,12 @@ author: lizap
 ms.author: elizapo
 ms.localizationpriority: medium
 ms.date: 12/18/2018
-ms.openlocfilehash: 39fbb92645d39a46613f2142d0258c78a6ba425b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 50fa737db5862132c1dde5cb6eb6b83674b3f02e
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842661"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811388"
 ---
 # <a name="administer-a-server-core-server"></a>Verwaltung einer Server Core-server
 
@@ -80,19 +80,19 @@ Verwenden Sie die folgenden Cmdlets zum Hinzufügen eines Computers zu einer Dom
 Verwenden Sie die folgenden Schritte aus, um den Server umbenennen.
 
 1. Ermitteln Sie mit dem Befehl **hostname** oder **ipconfig** den aktuellen Namen des Servers.
-2. Führen Sie **Rename-Computer: ComputerName \<New_name\>**.
+2. Führen Sie **Rename-Computer: ComputerName \<New_name\>** .
 3. Starten Sie den Computer neu.
 
 ### <a name="activate-the-server"></a>Aktivieren des Servers
 
-Führen Sie **slmgr.vbs – Ipk\<Productkey\>**. Führen Sie dann **slmgr.vbs – Ato**. Wenn die Aktivierung erfolgreich ist, erhalten Sie keine Nachricht.
+Führen Sie **slmgr.vbs – Ipk\<Productkey\>** . Führen Sie dann **slmgr.vbs – Ato**. Wenn die Aktivierung erfolgreich ist, erhalten Sie keine Nachricht.
 
 > [!NOTE]
 > Sie können auch den Server durch Aktivieren Telefon, mithilfe einer [Schlüsselverwaltungsdienst (KMS) Server](../../get-started/server-2016-activation.md), oder Remote. Um per Remotezugriff zu aktivieren, führen Sie das folgende Cmdlet auf einem Remotecomputer aus: 
-
->```powershell
->**cscript windows\system32\slmgr.vbs <ServerName> <UserName> <password>:-ato**
->```
+> 
+> ```powershell
+> **cscript windows\system32\slmgr.vbs <ServerName> <UserName> <password>:-ato**
+> ```
  
 ### <a name="configure-windows-firewall"></a>Konfigurieren der Windows-Firewall
 
@@ -102,35 +102,34 @@ Die Windows-Firewall können Sie lokal auf dem Server Core-Computer mithilfe von
 
 Wenn Sie Windows PowerShell-Remoting aktivieren, werden in Windows PowerShell auf einem Computer eingegebene Befehle auf einem anderen Computer ausgeführt. Aktivieren Sie Windows PowerShell-Remoting mit **Enable-PSRemoting**.
 
-Weitere Informationen finden Sie unter [About_remote_faq](/powershell/module/microsoft.powershell.core/about/about_remote_faq?view=powershell-5.1)
-</br>
+Weitere Informationen finden Sie unter [About_remote_faq](/powershell/module/microsoft.powershell.core/about/about_remote_faq?view=powershell-5.1).
 
 ## <a name="administrative-tasks-from-the-command-line"></a>Verwaltungsaufgaben über die Befehlszeile
 Verwenden Sie die folgenden Referenzinformationen für Verwaltungsaufgaben über die Befehlszeile an.
 
 ### <a name="configuration-and-installation"></a>Konfiguration und Installation
-|Aufgabe | Befehl |
-|-----|-------|
-|Festlegen des lokalen Administratorkennworts| **NET Benutzeradministrator** \* |
-|Hinzufügen eines Computers zu einer Domäne| **Netdom Join %Computername%** **/Domain:\<Domäne\> /userd:\<Domäne\\Benutzername \> /passwordd:**\* <br> Starten Sie den Computer neu.|
-|Bestätigen, dass die Domäne geändert wurde| **set** |
-|Entfernen eines Computer aus einer Domäne|**Netdom Remove \<Computername\>**| 
-|Hinzufügen eines Benutzers zu der lokalen Gruppe "Administratoren"|**net Localgroup Administratoren / add \<Domäne\\Benutzername\>** |
-|Entfernen eines Benutzers aus der lokalen Gruppe "Administratoren"|**net Localgroup Administratoren/Delete \<Domäne\\Benutzername\>** |
-|Hinzufügen eines Benutzers zum lokalen Computer|**NET Benutzer \<"Domäne\Benutzername"\> * / add** |
-|Hinzufügen einer Gruppe zum lokalen Computer|**net Localgroup \<Gruppenname\> / add**|
-|Ändern des Namens eines Computers, der einer Domäne angehört|**Netdom Renamecomputer % Computername % / NewName:\<neuen Computernamen\> /userd:\<Domäne\\Benutzername \> /passwordd:** * |
-|Bestätigen des neuen Computernamens|**set**| 
-|Ändern des Namens eines Computers in einer Arbeitsgruppe|**Netdom Renamecomputer \<AktuellerComputername\> /NewName:\<Newcomputername\>** <br>Starten Sie den Computer neu.|
-|Deaktivieren der Verwaltung von Auslagerungsdateien|**WMIC-Computersystem, wobei name = "\<Computername\>" Festlegen von AutomaticManagedPagefile = "false"**| 
-|Konfigurieren der Auslagerungsdatei|**WMIC Pagefileset, wobei name = "\<Pfad/Dateiname\>" Festlegen von InitialSize =\<Initialsize\>, MaximumSize =\<MaxSize-Wert\>** <br>In denen *Pfad/Dateiname* ist der Pfad und den Namen der Auslagerungsdatei, *Initialsize* ist die Anfangsgröße der Auslagerungsdatei in Byte und *Maxsize* ist die maximale Größe der der Auslagerungsdatei in Byte.|
-|Wechseln zu einer statischen IP-Adresse|**ipconfig /all** <br>Notieren Sie die relevanten Informationen ein, oder leiten Sie ihn in eine Textdatei (**Ipconfig/all > ipconfig.txt**).<br>**"Netsh Interface IPv4-Show Interfaces"**<br>Stellen Sie sicher, dass eine Schnittstellenliste vorhanden ist.<br>**Netsh Interface ipv4-Adresse znamen \<-ID aus Schnittstellenliste\> Quelle = statische Adresse =\<bevorzugte IP-Adresse\> Gateway =\<-Gatewayadresse\>**<br>Führen Sie **Ipconfig/all** zu Vierfy, die DHCP-aktiviert, um festgelegt ist **keine**.|
-|Festlegen der statischen DNS-Adresse.|**Netsh Interface ipv4 Hinzufügen von DNS-Server-Name =\<Name oder ID der Netzwerkkarte\> Adresse =\<IP-Adresse des primären DNS-Servers\> Index = 1 <br>** Netsh Interface ipv4 add DNS-Server-Name =\<Name des sekundären DNS-Server\> Adresse =\<IP-Adresse des sekundären DNS-Servers\> Index = 2 ** <br> Wiederholen Sie je nach Bedarf zusätzliche Server hinzufügen.<br>Führen Sie **Ipconfig/all** um sicherzustellen, dass die Adressen richtig sind.|
-|Wechseln von einer statischen IP-Adresse zu einer von DHCP bereitgestellten IP-Adresse|**Netsh Interface ipv4-Adresse znamen =\<IP-Adresse des lokalen Systemkontos\> Source = DHCP** <br>Führen Sie **Ipconfig/all** zu überprüfen, ob DHCP aktiviert, um festgelegt ist **Ja**.|
-|Eingeben eines Product Keys|**slmgr.vbs – Ipk \<Produktschlüssel\>**| 
-|Lokales Aktivieren des Servers|**slmgr.vbs -ato**| 
-|Remotes Aktivieren des Servers|**Cscript slmgr.vbs – Ipk \<Produktschlüssel\>\<Servernamen\>\<Benutzername\>\<Kennwort\>** <br>**Cscript slmgr.vbs – Ato \<Servername\> \<Benutzername\> \<Kennwort\>** <br>Rufen Sie die GUID des Computers durch Ausführen **Cscript slmgr.vbs – hat** <br> Führen Sie **Cscript slmgr.vbs – Dli \<GUID\>** <br>Überprüfen, ob Softwarelizenz-Statusangaben zu **(aktiviert) lizenziert**.
 
+|                             Aufgabe                              |                                                                                                                                                                                                                 Befehl                                                                                                                                                                                                                 |
+|---------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|             Festlegen des lokalen Administratorkennworts             |                                                                                                                                                                                                      **NET Benutzeradministrator** \*                                                                                                                                                                                                      |
+|                  Hinzufügen eines Computers zu einer Domäne                  |                                                                                                                                                       **Netdom Join %Computername%** **/Domain:\<Domäne\> /userd:\<Domäne\\Benutzername \> /passwordd:** \* <br> Starten Sie den Computer neu.                                                                                                                                                        |
+|              Bestätigen, dass die Domäne geändert wurde              |                                                                                                                                                                                                                 **set**                                                                                                                                                                                                                 |
+|                Entfernen eines Computer aus einer Domäne                |                                                                                                                                                                                                   **Netdom Remove \<Computername\>**                                                                                                                                                                                                    |
+|         Hinzufügen eines Benutzers zu der lokalen Gruppe "Administratoren"          |                                                                                                                                                                                       **net Localgroup Administratoren / add \<Domäne\\Benutzername\>**                                                                                                                                                                                       |
+|       Entfernen eines Benutzers aus der lokalen Gruppe "Administratoren"       |                                                                                                                                                                                     **net Localgroup Administratoren/Delete \<Domäne\\Benutzername\>**                                                                                                                                                                                      |
+|               Hinzufügen eines Benutzers zum lokalen Computer                |                                                                                                                                                                                                **NET Benutzer \<"Domäne\Benutzername"\> \* / add**                                                                                                                                                                                                 |
+|               Hinzufügen einer Gruppe zum lokalen Computer               |                                                                                                                                                                                                 **net Localgroup \<Gruppenname\> / add**                                                                                                                                                                                                  |
+|          Ändern des Namens eines Computers, der einer Domäne angehört          |                                                                                                                                                           **Netdom Renamecomputer % Computername % / NewName:\<neuen Computernamen\> /userd:\<Domäne\\Benutzername \> /passwordd:** \*                                                                                                                                                            |
+|                 Bestätigen des neuen Computernamens                 |                                                                                                                                                                                                                 **set**                                                                                                                                                                                                                 |
+|         Ändern des Namens eines Computers in einer Arbeitsgruppe         |                                                                                                                                                                **Netdom Renamecomputer \<AktuellerComputername\> /NewName:\<Newcomputername\>** <br>Starten Sie den Computer neu.                                                                                                                                                                 |
+|                Deaktivieren der Verwaltung von Auslagerungsdateien                 |                                                                                                                                                                        **WMIC-Computersystem, wobei name = "\<Computername\>" Festlegen von AutomaticManagedPagefile = "false"**                                                                                                                                                                         |
+|                   Konfigurieren der Auslagerungsdatei                   |                                                            **WMIC Pagefileset, wobei name = "\<Pfad/Dateiname\>" Festlegen von InitialSize =\<Initialsize\>, MaximumSize =\<MaxSize-Wert\>** <br>In denen *Pfad/Dateiname* ist der Pfad und den Namen der Auslagerungsdatei, *Initialsize* ist die Anfangsgröße der Auslagerungsdatei in Byte und *Maxsize* ist die maximale Größe der der Auslagerungsdatei in Byte.                                                             |
+|                 Wechseln zu einer statischen IP-Adresse                 | **ipconfig /all** <br>Notieren Sie die relevanten Informationen ein, oder leiten Sie ihn in eine Textdatei (**Ipconfig/all > ipconfig.txt**).<br>**"Netsh Interface IPv4-Show Interfaces"**<br>Stellen Sie sicher, dass eine Schnittstellenliste vorhanden ist.<br>**Netsh Interface ipv4-Adresse znamen \<-ID aus Schnittstellenliste\> Quelle = statische Adresse =\<bevorzugte IP-Adresse\> Gateway =\<-Gatewayadresse\>**<br>Führen Sie **Ipconfig/all** zu überprüfen, ob DHCP aktiviert, um festgelegt ist **keine**. |
+|                   Festlegen der statischen DNS-Adresse.                   |   <strong>Netsh Interface ipv4 Hinzufügen von DNS-Server-Name =\<Name oder ID der Netzwerkkarte\> Adresse =\<IP-Adresse des primären DNS-Servers\> Index = 1 <br></strong>Netsh Interface ipv4 Hinzufügen von DNS-Server-Name =\<Name des sekundären DNS-Server\> Adresse =\<IP-Adresse des sekundären DNS-Servers\> Index = 2\*\* <br> Wiederholen Sie je nach Bedarf zusätzliche Server hinzufügen.<br>Führen Sie **Ipconfig/all** um sicherzustellen, dass die Adressen richtig sind.   |
+| Wechseln von einer statischen IP-Adresse zu einer von DHCP bereitgestellten IP-Adresse |                                                                                                                                      **Netsh Interface ipv4-Adresse znamen =\<IP-Adresse des lokalen Systemkontos\> Source = DHCP** <br>Führen Sie **Ipconfig/all** zu überprüfen, ob DHCP aktiviert, um festgelegt ist **Ja**.                                                                                                                                      |
+|                      Eingeben eines Product Keys                      |                                                                                                                                                                                                   **slmgr.vbs – Ipk \<Produktschlüssel\>**                                                                                                                                                                                                    |
+|                  Lokales Aktivieren des Servers                  |                                                                                                                                                                                                           **slmgr.vbs -ato**                                                                                                                                                                                                            |
+|                 Remotes Aktivieren des Servers                  |                                            **Cscript slmgr.vbs – Ipk \<Produktschlüssel\>\<Servernamen\>\<Benutzername\>\<Kennwort\>** <br>**Cscript slmgr.vbs – Ato \<Servername\> \<Benutzername\> \<Kennwort\>** <br>Rufen Sie die GUID des Computers durch Ausführen **Cscript slmgr.vbs – hat** <br> Führen Sie **Cscript slmgr.vbs – Dli \<GUID\>** <br>Überprüfen, ob Softwarelizenz-Statusangaben zu **(aktiviert) lizenziert**.                                             |
 
 ### <a name="networking-and-firewall"></a>Netzwerk und Firewall
 
@@ -153,25 +152,25 @@ Verwenden Sie die folgenden Referenzinformationen für Verwaltungsaufgaben über
 
 ### <a name="updates-error-reporting-and-feedback"></a>Updates, Fehlerberichterstattung und feedback
 
-|Aufgabe|Befehl| 
-|----|-------|
-|Installieren eines Updates|**wusa \<update\>.msu /quiet**| 
-|Auflisten von installierten Updates|**systeminfo**| 
-|Entfernen eines Updates|**expand /f:\* \<update\>.msu c:\test** <br>Navigieren Sie zu c:\test\ und Open \<aktualisieren\>XML in einem Text-Editor.<br>Ersetzen Sie dies **installieren** mit **entfernen** und speichern Sie die Datei.<br>**pkgmgr /n:\<update\>.xml**|
-|Konfigurieren von automatischen Updates|Um zu überprüfen, ob die aktuelle Einstellung: ** "cscript" %systemroot%\system32\scregedit.wsf au/v **<br>So aktivieren Sie automatische Updates: **Cscript scregedit.wsf au-4** <br>So deaktivieren Sie automatische Updates: **Cscript %systemroot%\system32\scregedit.wsf au 1**| 
-|Aktivieren der Fehlerberichterstattung|Um zu überprüfen, ob die aktuelle Einstellung: **ServerWerOptin/Query** <br>Automatisch ausführliche Berichte senden: **ServerWerOptin / detailed** <br>Damit diese automatisch Zusammenfassungsberichte senden: **ServerWerOptin/Summary** <br>So deaktivieren Sie die Fehlerberichterstattung: **ServerWerOptin/Disable**|
-|Teilnehmen am Programm zur Verbesserung der Benutzerfreundlichkeit|Um zu überprüfen, ob die aktuelle Einstellung: **ServerCEIPOptin/Query** <br>Um CEIP zu aktivieren: **ServerCEIPOptin/Enable /** <br>Um CEIP zu deaktivieren: **ServerCEIPOptin/Disable**|
+|                               Aufgabe                                |                                                                                                                               Befehl                                                                                                                                |
+|-------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|                         Installieren eines Updates                         |                                                                                                                    **wusa \<update\>.msu /quiet**                                                                                                                    |
+|                      Auflisten von installierten Updates                       |                                                                                                                            **systeminfo**                                                                                                                            |
+|                         Entfernen eines Updates                          |                                 **expand /f:\* \<update\>.msu c:\test** <br>Navigieren Sie zu c:\test\ und Open \<aktualisieren\>XML in einem Text-Editor.<br>Ersetzen Sie dies **installieren** mit **entfernen** und speichern Sie die Datei.<br>**pkgmgr /n:\<update\>.xml**                                 |
+|                    Konfigurieren von automatischen Updates                    |          Um zu überprüfen, ob die aktuelle Einstellung: **Cscript %systemroot%\system32\scregedit.wsf au/v \* \* <br>um automatische Updates zu aktivieren: \* \*Cscript scregedit.wsf au-4** <br>So deaktivieren Sie automatische Updates: **Cscript %systemroot%\system32\scregedit.wsf au 1**          |
+|                      Aktivieren der Fehlerberichterstattung                       | Um zu überprüfen, ob die aktuelle Einstellung: **ServerWerOptin/Query** <br>Automatisch ausführliche Berichte senden: **ServerWerOptin / detailed** <br>Damit diese automatisch Zusammenfassungsberichte senden: **ServerWerOptin/Summary** <br>So deaktivieren Sie die Fehlerberichterstattung: **ServerWerOptin/Disable** |
+| Teilnehmen am Programm zur Verbesserung der Benutzerfreundlichkeit |                                                     Um zu überprüfen, ob die aktuelle Einstellung: **ServerCEIPOptin/Query** <br>Um CEIP zu aktivieren: **ServerCEIPOptin/Enable /** <br>Um CEIP zu deaktivieren: **ServerCEIPOptin/Disable**                                                      |
 
 ### <a name="services-processes-and-performance"></a>Dienste, Prozesse und Leistung
 
-|Aufgabe|Befehl| 
-|----|-------|
-|Die ausgeführten Dienste aufgelistet.|**SC-Abfrage** oder **net Start**| 
-|Starten eines Diensts|**sc Start \<Dienstnamen\>**  oder **net Start \<Dienstname\>**| 
-|Beenden eines Diensts|**sc Stop \<Dienstnamen\>**  oder **net Stop \<Dienstname\>**| 
-|Abrufen einer Liste mit ausgeführten Anwendungen und zugehörigen Prozessen|**tasklist**||Erzwingen der Beendigung eines Prozesses|Führen Sie **Tasklist** rufen Sie die Prozess-ID (PID), und führen Sie **Taskkill "/ PID" \<Prozess-ID\>**|
-|Starten des Task-Managers|**taskmgr**| 
-|Erstellen und Verwalten von Sitzung und die Leistung Protokolle der ereignisablaufverfolgung|Ein Indikator, Ablaufverfolgung, Serverkonfigurations-Datensammlung oder eine API zu erstellen: **Logman erstellen** <br>Beim Abfragen der Data Collector Eigenschaften: **Logman-Abfrage** <br>So starten oder Beenden der Datensammlung: **Logman Start\|beenden** <br>So löschen Sie eine Sammlung: **Logman löschen** <br> Um die Eigenschaften einer Sammlung zu aktualisieren: **Logman Update** <br>Um einen datensammlersatz aus einer XML-Datei importieren oder exportieren es in eine XML-Datei: **Logman Import\|exportieren**|
+|                               Aufgabe                               |                                                                                                                                                                                                             Befehl                                                                                                                                                                                                              |
+|------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|                    Die ausgeführten Dienste aufgelistet.                     |                                                                                                                                                                                                  **SC-Abfrage** oder **net Start**                                                                                                                                                                                                   |
+|                         Starten eines Diensts                          |                                                                                                                                                                                 **sc Start \<Dienstnamen\>**  oder **net Start \<Dienstname\>**                                                                                                                                                                                  |
+|                          Beenden eines Diensts                          |                                                                                                                                                                                  **sc Stop \<Dienstnamen\>**  oder **net Stop \<Dienstname\>**                                                                                                                                                                                   |
+| Abrufen einer Liste mit ausgeführten Anwendungen und zugehörigen Prozessen |                                                                                                                                                                                                           **tasklist**                                                                                                                                                                                                           |
+|                        Starten des Task-Managers                        |                                                                                                                                                                                                           **taskmgr**                                                                                                                                                                                                            |
+|    Erstellen und Verwalten von Sitzung und die Leistung Protokolle der ereignisablaufverfolgung    | Ein Indikator, Ablaufverfolgung, Serverkonfigurations-Datensammlung oder eine API zu erstellen: **Logman erstellen** <br>Beim Abfragen der Data Collector Eigenschaften: **Logman-Abfrage** <br>So starten oder Beenden der Datensammlung: **Logman Start\|beenden** <br>So löschen Sie eine Sammlung: **Logman löschen** <br> Um die Eigenschaften einer Sammlung zu aktualisieren: **Logman Update** <br>Um einen datensammlersatz aus einer XML-Datei importieren oder exportieren es in eine XML-Datei: **Logman Import\|exportieren** |
 
 ### <a name="event-logs"></a>Ereignisprotokolle
 
@@ -185,18 +184,18 @@ Verwenden Sie die folgenden Referenzinformationen für Verwaltungsaufgaben über
 
 ### <a name="disk-and-file-system"></a>Datenträger- und Dateisystem
 
-|Aufgabe|Befehl|
-|----|-------|
-|Verwalten von Datenträgerpartitionen|Führen Sie für eine vollständige Liste der Befehle, **Diskpart /?**|  
-|Verwalten von Software-RAID|Führen Sie für eine vollständige Liste der Befehle, **Diskraid /?**|  
-|Verwalten von Volumebereitstellungspunkten|Führen Sie für eine vollständige Liste der Befehle, **Mountvol /?**| 
-|Defragmentieren eines Volumes|Führen Sie für eine vollständige Liste der Befehle, **Defragmentieren /?**|  
-|Konvertieren eines Volumes in das NTFS-Dateisystem|**Konvertieren von \<Volumebuchstaben\> FS: NTFS**| 
-|Komprimieren einer Datei|Führen Sie für eine vollständige Liste der Befehle, **compact /?**|  
-|Verwalten geöffneter Dateien|Führen Sie für eine vollständige Liste der Befehle, **Openfiles /?**|  
-|Verwalten von VSS-Ordnern|Führen Sie für eine vollständige Liste der Befehle, **Vssadmin /?**| 
-|Verwalten des Dateisystems|Führen Sie für eine vollständige Liste der Befehle, **Fsutil /?**||Überprüfen einer Dateisignatur|**sigverif /?**| 
-|Übernehmen des Besitzes für eine Datei oder einen Ordner|Führen Sie für eine vollständige Liste der Befehle, **Icacls /?**| 
+|                   Aufgabe                   |                        Befehl                        |
+|------------------------------------------|-------------------------------------------------------|
+|          Verwalten von Datenträgerpartitionen          | Führen Sie für eine vollständige Liste der Befehle, **Diskpart /?**  |
+|           Verwalten von Software-RAID           | Führen Sie für eine vollständige Liste der Befehle, **Diskraid /?**  |
+|        Verwalten von Volumebereitstellungspunkten        | Führen Sie für eine vollständige Liste der Befehle, **Mountvol /?**  |
+|           Defragmentieren eines Volumes            |  Führen Sie für eine vollständige Liste der Befehle, **Defragmentieren /?**   |
+| Konvertieren eines Volumes in das NTFS-Dateisystem |        **Konvertieren von \<Volumebuchstaben\> FS: NTFS**         |
+|              Komprimieren einer Datei              |  Führen Sie für eine vollständige Liste der Befehle, **compact /?**  |
+|          Verwalten geöffneter Dateien           | Führen Sie für eine vollständige Liste der Befehle, **Openfiles /?** |
+|          Verwalten von VSS-Ordnern          | Führen Sie für eine vollständige Liste der Befehle, **Vssadmin /?**  |
+|        Verwalten des Dateisystems        |  Führen Sie für eine vollständige Liste der Befehle, **Fsutil /?**   |
+|    Übernehmen des Besitzes für eine Datei oder einen Ordner    |  Führen Sie für eine vollständige Liste der Befehle, **Icacls /?**   |
  
 ### <a name="hardware"></a>Hardware
 

@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: c87b76224d1ac5dbe3befc837fad8879d0b9a1ef
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: bda071be6668710361205643125fc8ad44246012
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189396"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453024"
 ---
 # <a name="create-a-rule-to-send-an-ad-fs-1x-compatible-claim"></a>Erstellen Sie eine Regel zum Senden eines-kompatibler Anspruchs von AD FS 1.x
 
@@ -42,9 +42,6 @@ Je nach den Anforderungen Ihrer Organisation verwenden Sie eine der folgenden Ve
   
 > [!NOTE]  
 > Für diese Regel wie erwartet funktioniert, stellen Sie sicher, dass die Vertrauensstellung der vertrauenden Seite oder die Anspruchsanbieter-Vertrauensstellung Sie mit dieser Regel erstellen zur Verwendung konfiguriert wurden die **AD FS 1.0 und 1.1-Profil**. 
-
-
-
 
 ## <a name="to-create-a-rule-to-issue-an-adfs1x-name-id-claim-using-the-pass-through-or-filter-an-incoming-claim-rule-template-on-a-relying-party-trust-in-windows-server-2016"></a>Erstellen Sie eine Regel zum Ausführen von AD FS 1. *x* namens-ID Anspruch mit dem Pass-Through oder Filtern von einer Vorlage des eingehenden Anspruchs-Regel auf a Relying Party Trust in Windows Server 2016 
 
@@ -125,11 +122,10 @@ Je nach den Anforderungen Ihrer Organisation verwenden Sie eine der folgenden Ve
     -   **Pass-through-nur Anspruchswerte, die einem bestimmten e-Mail-Suffixwert entsprechen**  
   
     -   **Pass-through-nur Anspruchswerte durchalufen, die mit einem bestimmten Wert beginnen.**  
-![Regel erstellen](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs3.PNG)   
+![Regel erstellen](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs3.PNG)
 
 10. Klicken Sie auf **Fertig stellen**, und klicken Sie dann auf **OK** um die Regel zu speichern.  
 
-  
 
 ## <a name="to-create-a-rule-to-transform-an-incoming-claim-on-a-relying-party-trust-in-windows-server-2016"></a>Zum Erstellen einer Regel zum Transformieren eines eingehenden Anspruchs auf a Relying Party Trust in Windows Server 2016 
 
@@ -139,13 +135,13 @@ Je nach den Anforderungen Ihrer Organisation verwenden Sie eine der folgenden Ve
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule9.PNG)  
   
 3.  Rechts\-klicken Sie auf der ausgewählten Vertrauensstellung, und klicken Sie dann auf **Anspruchsausstellungsrichtlinie bearbeiten**.
-![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule10.PNG)   
+![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule10.PNG)
   
 4.  In der **Anspruchsausstellungsrichtlinie bearbeiten** Dialogfeld **Ausstellungstransformationsregeln** klicken Sie auf **Regel hinzufügen** um die Regel-Assistenten zu starten. 
-![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule11.PNG)    
+![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule11.PNG)
 
 5.  Auf der **Regelvorlage auswählen** Seite **anspruchsregelvorlage**Option **Transformieren eines eingehenden Anspruchs** aus der Liste aus, und klicken Sie dann auf **Weiter**.  
-![Regel erstellen](media/Create-a-Rule-to-Transform-an-Incoming-Claim/transform3.PNG)      
+![Regel erstellen](media/Create-a-Rule-to-Transform-an-Incoming-Claim/transform3.PNG)
 
 6.  Auf der **Regel konfigurieren** geben anspruchsregelname.  
   
@@ -168,7 +164,7 @@ Je nach den Anforderungen Ihrer Organisation verwenden Sie eine der folgenden Ve
     -   **Ersetzen Sie einen eingehenden Anspruchswert durch einen anderen ausgehenden Anspruchswert**  
   
     -   **Ersetzen Sie eingehende e\-e-Mail-suffixansprüche mit einer neuen e\-e-Mail-Suffix**  
-![Regel erstellen](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs4.PNG)    
+![Regel erstellen](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs4.PNG)
 
 11. Klicken Sie auf **Fertig stellen**, und klicken Sie dann auf **OK** um die Regel zu speichern.  
 
@@ -273,7 +269,7 @@ Je nach den Anforderungen Ihrer Organisation verwenden Sie eine der folgenden Ve
     -   **Pass-through-nur Anspruchswerte, die einem bestimmten e-Mail-Suffixwert entsprechen**  
   
     -   **Pass-through-nur Anspruchswerte durchalufen, die mit einem bestimmten Wert beginnen.**  
-![Regel erstellen](media/\Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs1.PNG)   
+![Regel erstellen](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs1.PNG)
 
 10. Klicken Sie auf **Fertig stellen**, und klicken Sie dann auf **OK** um die Regel zu speichern.  
 

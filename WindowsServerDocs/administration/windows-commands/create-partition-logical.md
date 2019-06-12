@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6b347581773a086d525bb005edeca2efa31e1848
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d3af60aed6c8305e410c6ebfba3cf2e006034ad7
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59886051"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66434151"
 ---
 # <a name="create-partition-logical"></a>Erstellen Sie eine logische partition
 
@@ -36,12 +36,12 @@ create partition logical [size=<n>] [offset=<n>] [align=<n>] [noerr]
   
 ## <a name="parameters"></a>Parameter  
   
-|Parameter|Beschreibung|  
-|-------|--------|  
-|Größe\=<n>|Gibt die Größe der logischen Partition in Megabytes \(MB\), die kleiner als der erweiterten Partition sein muss. Wenn keine Größe angegeben wird, wird die Partition erst in der erweiterten Partition nicht mehr Speicherplatz verfügbar ist.|  
-|offset\=<n>|Gibt den Offset in Kilobyte \(KB\), an dem die Partition erstellt wird. Der Offset wird aufgerundet, vollständig ausgefüllt verwendete ist. Wird kein Offset angegeben wird, wird die Partition in der ersten Datenträgerbereich platziert, die groß genug für die sie enthalten ist. Die Partition ist als die angegebene Anzahl mindestens so lange in Byte **Größe\=<n>**. Wenn Sie eine Größe für die logische Partition angeben, muss er kleiner als der erweiterten Partition sein.|  
-|align\=<n>|Richtet alle Volumes oder einer Partition Blöcke auf der nächsten. In der Regel verwendet, mit der Hardware-RAID Logical Unit Number \(LUN\) Arrays zur Verbesserung der Leistung.  <n> ist die Anzahl der Kilobytes \(KB\) vom Anfang des Datenträgers an, die am nächsten Ausrichtungsgrenze.|  
-|Diskpart|nur für Skripts. Wenn ein Fehler gefunden wird, weiterhin DiskPart Befehle zu verarbeiten, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter wird ein Fehler DiskPart mit dem Fehlercode zu beenden.|  
+|  Parameter  |                                                                                                                                                                                                                       Beschreibung                                                                                                                                                                                                                        |
+|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  Größe\=<n>  |                                                                                                              Gibt die Größe der logischen Partition in Megabytes \(MB\), die kleiner als der erweiterten Partition sein muss. Wenn keine Größe angegeben wird, wird die Partition erst in der erweiterten Partition nicht mehr Speicherplatz verfügbar ist.                                                                                                               |
+| offset\=<n> | Gibt den Offset in Kilobyte \(KB\), an dem die Partition erstellt wird. Der Offset wird aufgerundet, vollständig ausgefüllt verwendete ist. Wird kein Offset angegeben wird, wird die Partition in der ersten Datenträgerbereich platziert, die groß genug für die sie enthalten ist. Die Partition ist als die angegebene Anzahl mindestens so lange in Byte **Größe\=<n>** . Wenn Sie eine Größe für die logische Partition angeben, muss er kleiner als der erweiterten Partition sein. |
+| align\=<n>  |                                                                                     Richtet alle Volumes oder einer Partition Blöcke auf der nächsten. In der Regel verwendet, mit der Hardware-RAID Logical Unit Number \(LUN\) Arrays zur Verbesserung der Leistung.  <n> ist die Anzahl der Kilobytes \(KB\) vom Anfang des Datenträgers an, die am nächsten Ausrichtungsgrenze.                                                                                      |
+|    Diskpart    |                                                                                                                           nur für Skripts. Wenn ein Fehler gefunden wird, weiterhin DiskPart Befehle zu verarbeiten, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter wird ein Fehler DiskPart mit dem Fehlercode zu beenden.                                                                                                                           |
   
 ## <a name="remarks"></a>Hinweise  
   
@@ -59,7 +59,7 @@ create partition logical size=1000
 ```  
   
 #### <a name="additional-references"></a>Zusätzliche Referenzen  
-[Befehlszeilensyntax](command-line-syntax-key.md)  
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
   
 
   

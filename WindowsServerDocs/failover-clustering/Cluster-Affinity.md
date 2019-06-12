@@ -7,12 +7,12 @@ ms.topic: article
 author: johnmarlin-msft
 ms.date: 03/07/2019
 description: Dieser Artikel beschreibt die Failover-Cluster-Affinität und AntiAffinity-Ebenen
-ms.openlocfilehash: a38d53f6aed1ca634d41822f4486779f6d279ec0
-ms.sourcegitcommit: ed27ddbe316d543b7865bc10590b238290a2a1ad
+ms.openlocfilehash: 67929e6d3399633ebfec0b908463131973aecaf7
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65476051"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453029"
 ---
 # <a name="cluster-affinity"></a>Cluster-Affinität
 
@@ -69,7 +69,7 @@ Der Wert "0" bedeutet, dass er deaktiviert ist, und nicht erzwungen werden.  Der
 
 Wenn beide Werte festgelegt sind, werden die Gruppe daran gehindert, neue online zusammen.  Wenn sie sich auf demselben Knoten befinden, ist dies an, was Sie im Failovercluster-Manager sehen würden.
 
-![Cluster-Affinität](media\Cluster-Affinity\Cluster-Affinity-1.png)
+![Cluster-Affinität](media/Cluster-Affinity/Cluster-Affinity-1.png)
 
 In einer PowerShell-Auflistung der Gruppen, wird Folgendes angezeigt:
 

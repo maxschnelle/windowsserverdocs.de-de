@@ -8,12 +8,12 @@ ms.author: jeffpatt
 author: JeffPatt24
 ms.date: 10/18/2018
 ms.assetid: 938cdda2-f17e-4964-9218-f5868fd96735
-ms.openlocfilehash: a26b784c18049ee473a191abc7bfa0a5d253d15e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 4f4119e893b215bd9f6d713bc5a17218b751c3d3
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883031"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812684"
 ---
 # <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-step-1-set-up-ad-fs"></a>Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 1: Einrichten von AD FS
 
@@ -32,7 +32,7 @@ In diesem Thema wird der erste Schritt bei der Bereitstellung von Arbeitsordnern
 -   [Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Schritt 5, richten Sie Clients](deploy-work-folders-adfs-step5.md)  
   
 > [!NOTE]
->   Die in diesem Abschnitt enthaltenen Anweisungen gelten für eine Server 2016-Umgebung. Wenn Sie Windows Server 2012 R2 verwenden, folgen Sie den [Anweisungen für Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
+>   Die Anweisungen in diesem Abschnitt behandelten sind für eine Windows Server-2019 oder Windows Server 2016-Umgebung. Wenn Sie Windows Server 2012 R2 verwenden, folgen Sie den [Anweisungen für Windows Server 2012 R2](https://technet.microsoft.com/library/dn747208(v=ws.11).aspx).
 
 Gehen Sie folgendermaßen vor, um AD FS für die Verwendung mit Arbeitsordnern einzurichten.  
   

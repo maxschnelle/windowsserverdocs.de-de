@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bf9f456ad6ab3010493154da843b2b519754e250
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3b47338b74cf71a4754b7320d6b3842f342d324d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816331"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436139"
 ---
 # <a name="delete-partition"></a>Löschen einer partition
 
@@ -43,8 +43,8 @@ delete partition [noerr] [override]
 
 > [!CAUTION]
 > Durch das Löschen einer Partitions auf einem dynamischen Datenträger können alle dynamischen Volumes auf dem Datenträger somit dadurch alle Daten beschädigt werden und des Datenträgers beschädigt. Um ein dynamisches Volume löschen, verwenden Sie immer die **Volume löschen** stattdessen den Befehl. Partitionen können dynamische Datenträger gelöscht werden, aber sie sollten nicht erstellt werden. Beispielsweise ist es möglich, eine unbekanntes GUID-Partitionstabelle (GPT) Partition auf einem dynamischen GPT-Datenträger zu löschen. Löschen einer solchen Partition bewirkt nicht, den sich ergebenden freien Speicherplatz verfügbar wird. Mit diesem Befehl Reclame Speicherplatz auf einem beschädigten offline dynamischen Datenträger in einer Notsituation ermöglichen soll, in denen die **Bereinigen** Befehl in DiskPart kann nicht verwendet werden.
--   Die Systempartition, Startpartition oder eine Partition, die die aktive Paging-Datei oder ein Absturz Dumpinformationen enthält, kann nicht gelöscht werden.
--   Eine Partition muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt werden. Verwenden der **wählen Partition** Befehl aus, um eine Partition auswählen, und verschiebt den Fokus auf sie.
+> -   Die Systempartition, Startpartition oder eine Partition, die die aktive Paging-Datei oder ein Absturz Dumpinformationen enthält, kann nicht gelöscht werden.
+> -   Eine Partition muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt werden. Verwenden der **wählen Partition** Befehl aus, um eine Partition auswählen, und verschiebt den Fokus auf sie.
 
 ## <a name="BKMK_examples"></a>Beispiele für
 
@@ -55,5 +55,5 @@ delete partition
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

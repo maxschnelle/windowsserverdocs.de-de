@@ -13,12 +13,12 @@ author: brentfor
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 095cd2ad799857b789943b4f477aa9e6a8c3ae50
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 506072251b77362f3dc35faa0c976f396f7f6034
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59815181"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435480"
 ---
 # <a name="manage-software-inventory-logging"></a>Verwaltung der Protokollierung des Softwarebestands
 
@@ -121,7 +121,7 @@ Software die Protokollierung des Softwarebestands tägliche sammeln und weiterle
 ## <a name="configuring-software-inventory-logging"></a>Konfigurieren der Protokollierung des Softwarebestands  
 Sie führen drei Schritte aus, um die Protokollierung des Softwarebestands so zu konfigurieren, dass Daten nach und nach an einen Aggregationsserver weitergeleitet werden:  
   
-1.  Verwendung **Set-SilLogging – TargetUri** auf die Webadresse Ihres aggregationsservers festzulegen (muss mit "https://? beginnen).  
+1.  Verwendung **Set-SilLogging – TargetUri** auf die Webadresse Ihres aggregationsservers festzulegen (muss mit "https://" beginnen).  
   
 2.  Verwenden Sie **Set-SilLogging –CertificateThumbprint** , um den Fingerabdruckhash Ihres gültigen SSL-Zertifikats anzugeben, der zum Authentifizieren der Datenübertragungen an den Aggregationsserver verwendet werden soll (der Aggregationsserver muss so konfiguriert werden, dass ein Hash akzeptiert wird).  
   
@@ -140,17 +140,17 @@ Wenn die Protokollierung des Softwarebestands von einem Administrator gestartet 
 ## <a name="BKMK_Step3"></a>Anzeigen von Daten für die Protokollierung des Softwarebestands  
 Neben den im vorherigen Abschnitt beschriebenen PowerShell-Cmdlets stehen Ihnen in sechs weitere Cmdlets zum Sammeln von Daten der Protokollierung des Softwarebestands zur Verfügung:  
   
--   **[Get-SilComputer](https://technet.microsoft.com/library/dn283392.aspx)**: Zeigt sowohl den zeitlichen Verlauf der Werte für bestimmte Server und betriebssystembezogene Daten an, als auch den FQDN oder Hostnamen des physischen Hosts, falls verfügbar.  
+-   **[Get-SilComputer](https://technet.microsoft.com/library/dn283392.aspx)** : Zeigt sowohl den zeitlichen Verlauf der Werte für bestimmte Server und betriebssystembezogene Daten an, als auch den FQDN oder Hostnamen des physischen Hosts, falls verfügbar.  
   
--   **[Get-SilComputerIdentity (KB 3000850)](https://technet.microsoft.com/library/dn858074.aspx)**: Zeigt die von SIL verwendeten Bezeichner für einzelne Server an.  
+-   **[Get-SilComputerIdentity (KB 3000850)](https://technet.microsoft.com/library/dn858074.aspx)** : Zeigt die von SIL verwendeten Bezeichner für einzelne Server an.  
   
--   **[Get-SilData](https://technet.microsoft.com/library/dn283388.aspx)**: Zeigt den gesammelten zeitlichen Verlauf aller Daten der Protokollierung des Softwarebestands an.  
+-   **[Get-SilData](https://technet.microsoft.com/library/dn283388.aspx)** : Zeigt den gesammelten zeitlichen Verlauf aller Daten der Protokollierung des Softwarebestands an.  
   
--   **[Get-SilSoftware](https://technet.microsoft.com/library/dn283397.aspx)**: Zeigt die Identität im zeitlichen Verlauf der gesamten auf dem Computer installierten Software an.  
+-   **[Get-SilSoftware](https://technet.microsoft.com/library/dn283397.aspx)** : Zeigt die Identität im zeitlichen Verlauf der gesamten auf dem Computer installierten Software an.  
   
--   **[Get-SilUalAccess](https://technet.microsoft.com/library/dn283389.aspx)**: Zeigt für die vergangenen zwei Tage die Gesamtzahl der eindeutigen Clientanforderungen für Geräte und Benutzer an.  
+-   **[Get-SilUalAccess](https://technet.microsoft.com/library/dn283389.aspx)** : Zeigt für die vergangenen zwei Tage die Gesamtzahl der eindeutigen Clientanforderungen für Geräte und Benutzer an.  
   
--   **[Get-SilWindowsUpdate](https://technet.microsoft.com/library/dn283393.aspx)**: Zeigt den zeitlichen Verlauf der Liste aller auf dem Computer installierten Windows-Updates an.  
+-   **[Get-SilWindowsUpdate](https://technet.microsoft.com/library/dn283393.aspx)** : Zeigt den zeitlichen Verlauf der Liste aller auf dem Computer installierten Windows-Updates an.  
   
 Ein typischer Anwendungsfall für Cmdlets zur Protokollierung des Softwarebestands wäre das Abfragen der Protokollierung des Softwarebestands für einen bestimmten Zeitpunkt der gesamten Protokollierung durch einen Administrator mithilfe von [Get-SilSoftware](https://technet.microsoft.com/library/dn283397.aspx).  
   
@@ -206,13 +206,13 @@ Die Protokollierung des Softwarebestands wurde nicht als unternehmenskritische K
   
 #### <a name="to-delete-data-logged-by-software-inventory-logging"></a>So löschen Sie mit der Protokollierung des Softwarebestands protokollierte Daten  
   
-1.  Beenden Sie in PowerShell die Protokollierung des Softwarebestands mit dem Befehl **[Stop-SilLogging](https://technet.microsoft.com/library/dn283394.aspx)** .  
+1. Beenden Sie in PowerShell die Protokollierung des Softwarebestands mit dem Befehl **[Stop-SilLogging](https://technet.microsoft.com/library/dn283394.aspx)** .  
   
-2.  Öffnen Sie Windows-Explorer.  
+2. Öffnen Sie Windows-Explorer.  
   
-3.  Wechseln Sie zu **\Windows\System32\Logfiles\SIL\**  
+3. Wechseln Sie zu **\Windows\System32\Logfiles\SIL\\**  
   
-4.  Löschen Sie alle Dateien im Ordner.  
+4. Löschen Sie alle Dateien im Ordner.  
   
 ## <a name="BKMK_Step5"></a>Sichern und Wiederherstellen der Protokollierung des Softwarebestands protokollierte Daten  
 Die Protokollierung des Softwarebestands speichert vorübergehend eine stündliche Datenerfassung, wenn die Weiterleitung über das Netzwerk fehlschlägt. Die Protokolldateien werden im Verzeichnis „\Windows\System32\LogFiles\SIL\“ gespeichert. Mit der regelmäßigen Server-Sicherung können auch diese Daten der Protokollierung des Softwarebestands gesichert werden.  
@@ -237,9 +237,9 @@ Auf alle Daten, die lokal auf einem Windows-Server gespeichert sind (tritt nur a
   
 -   Bei Verwendung von „ [Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) - TimeOfDay“ zum Festlegen des Ausführungszeitpunkts für die SIL-Protokollierung müssen Sie ein Datum und eine Uhrzeit angeben. Das Kalenderdatum wird festgelegt, und die Protokollierung erfolgt erst, wenn das betreffende Datum in der lokalen Systemzeit erreicht wird.  
   
--   Bei Verwendung [Get-SilSoftware](https://technet.microsoft.com/library/dn283397.aspx), oder [Get-SilWindowsUpdate](https://technet.microsoft.com/library/dn283393.aspx), "InstallDate? 12:00:00 Uhr, bedeutungslosen Wert wird immer angezeigt werden.  
+-   Bei Verwendung [Get-SilSoftware](https://technet.microsoft.com/library/dn283397.aspx), oder [Get-SilWindowsUpdate](https://technet.microsoft.com/library/dn283393.aspx), 12:00:00 Uhr, bedeutungslosen Wert wird von "InstallDate" immer anzeigen.  
   
--   Bei Verwendung [Get-SilUalAccess](https://technet.microsoft.com/library/dn283389.aspx), "SampleDate? 23:59:00 Uhr, bedeutungslosen Wert wird immer angezeigt werden.  Für diese Cmdlet-Abfragen ist „Date“ entscheidend.  
+-   Bei Verwendung [Get-SilUalAccess](https://technet.microsoft.com/library/dn283389.aspx), "SampleDate" werden immer 23:59:00 Uhr, bedeutungslosen Wert angezeigt.  Für diese Cmdlet-Abfragen ist „Date“ entscheidend.  
   
 ## <a name="BKMK_Step10"></a>Aktivieren und Konfigurieren von in einer bereitgestellten virtuellen Festplatte Protokollierung des Softwarebestands  
 Die Protokollierung des Softwarebestands unterstützt auch das Konfigurieren und Aktivieren auf offline geschalteten virtuellen Computern. Praktische Verwendungsmöglichkeiten hierfür sind „Gold-Image“-Setups zur breitflächigen Bereitstellung in Rechenzentren oder das Konfigurieren von Benutzerabbildern, deren Hosting vom Standort in die Cloud verlagert werden soll.  
@@ -256,13 +256,13 @@ Um diese Einsatzbereiche zu unterstützen, sind der Protokollierung des Software
   
 Um diese Werte auf einer offline geschalteten virtuellen Festplatte (VM-Betriebssystem wird nicht ausgeführt) zu ändern, muss die VHD zunächst bereitgestellt werden, und dann können die folgenden Befehle verwendet werden, um Änderungen vorzunehmen.  
   
--   [REG laden](https://technet.microsoft.com/library/cc742053.aspx)  
+-   [Reg load](https://technet.microsoft.com/library/cc742053.aspx)  
   
 -   [Reg delete](https://technet.microsoft.com/library/cc742145.aspx)  
   
--   [REG hinzufügen](https://technet.microsoft.com/library/cc742162.aspx)  
+-   [Reg add](https://technet.microsoft.com/library/cc742162.aspx)  
   
--   [REG entladen](https://technet.microsoft.com/library/cc742043.aspx)  
+-   [Reg unload](https://technet.microsoft.com/library/cc742043.aspx)  
   
 Die Protokollierung des Softwarebestands überprüft diese Werte beim Start des Betriebssystems und verfährt entsprechend.  
   

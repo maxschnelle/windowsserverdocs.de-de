@@ -12,12 +12,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7cced9a930b63baa79b4addb429c562c38d6da01
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 298df36b856cba97ec19126f77456785e5eb6f50
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843881"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810930"
 ---
 # <a name="wsus-and-the-catalog-site"></a>WSUS und die Katalogwebsite
 
@@ -64,7 +64,7 @@ WSUS-Administratoren sollten Einschränken des Zugriffs auf die Hotfixes, die si
 
     -   Wählen Sie **Windows-Authentifizierung** , und klicken Sie auf **aktivieren** in die **Aktionen** im rechten Bereich.
 
-2.  Erstellen Sie eine WSUS-Zielgruppe für die Computer, die den Hotfix benötigen, und fügen sie der Gruppe hinzu. Weitere Informationen über Computer und Gruppen finden Sie unter [WSUS-Verwaltung von Clientcomputern und WSUS-Computergruppen](managing-wsus-client-computers-and-wsus-computer-groups.md) in diesem Handbuch und Abschnitt [3.3. Konfigurieren von WSUS-Computergruppen](../deploy/2-configure-wsus.md#BKMK_ConfigcomputerGroups) von Schritt 3: Konfigurieren Sie WSUS, in der WSUS-Bereitstellungshandbuch.
+2.  Erstellen Sie eine WSUS-Zielgruppe für die Computer, die den Hotfix benötigen, und fügen sie der Gruppe hinzu. Weitere Informationen über Computer und Gruppen finden Sie unter [WSUS-Verwaltung von Clientcomputern und WSUS-Computergruppen](managing-wsus-client-computers-and-wsus-computer-groups.md) in diesem Handbuch und Abschnitt [3.3. Konfigurieren von WSUS-Computergruppen](../deploy/2-configure-wsus.md#23-configure-wsus-computer-groups) von Schritt 3: Konfigurieren Sie WSUS, in der WSUS-Bereitstellungshandbuch.
 
 3.  Laden Sie die Dateien für den Hotfix herunter.
 

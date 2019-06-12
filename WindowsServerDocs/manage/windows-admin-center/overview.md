@@ -5,21 +5,21 @@ ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
-ms.date: 04/12/2019
+ms.date: 06/07/2019
 ms.localizationpriority: high
 ms.prod: windows-server-threshold
-ms.openlocfilehash: ee3c4ba5d6c3dc911ab318ade9a46b279317496f
-ms.sourcegitcommit: 39ab8041d166e6817a95417d6aa30bc7abeeef54
+ms.openlocfilehash: 2314e336cbf9ad44b07f3f94d7a866b48b5e9bff
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66260258"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811809"
 ---
 # <a name="windows-admin-center"></a>Windows Admin Center
 
->Gilt für: Windows Admin Center, Windows Admin Center Preview
+> Gilt für: Windows Admin Center, Windows Admin Center Preview
 
-**Windows Admin Center** (mit dem Codenamen **Projekt Honolulu**) wird eine Weiterentwicklung der Windows Server integrierte Verwaltungstools; es ist eine zentrale Konsole, die alle Aspekte der Verwaltung von lokalen Servern und Remoteservern konsolidiert. Als eine lokal bereitgestellte, Browser-basierte Management wünschen sind keine Verbindung mit dem Internet und Azure erforderlich. Windows Admin Center ermöglicht die vollständige Kontrolle über alle Aspekte der Bereitstellung, einschließlich privater Netzwerke, die nicht mit dem Internet verbunden sind.
+**Windows Admin Center** (ehemals mit dem Codenamen **Projekt Honolulu**) wird eine Weiterentwicklung der Windows Server integrierte Verwaltungstools; es ist eine zentrale Konsole, die alle Aspekte der Verwaltung von lokalen Servern und Remoteservern konsolidiert. Als eine lokal bereitgestellte, Browser-basierte Management wünschen sind keine Verbindung mit dem Internet und Azure erforderlich. Windows Admin Center ermöglicht die vollständige Kontrolle über alle Aspekte der Bereitstellung, einschließlich privater Netzwerke, die nicht mit dem Internet verbunden sind.
 
 ## <a name="introduction"></a>Einführung
 
@@ -75,6 +75,7 @@ Sie können Windows Admin Center einrichten und von in Ihrer Umgebung in Minuten
             <ul>
             <li><a href="configure/settings.md">Windows Admin Center-Einstellungen</a>
             <li><a href="configure/user-access-control.md">User Access Control und Berechtigungen</a>
+            <li><a href="configure/shared-connections.md">Gemeinsam genutzte Verbindungen</a>
             <li><a href="configure/using-extensions.md">Erweiterungen</a>
             </ul>
         </td>
@@ -92,7 +93,7 @@ Sie können Windows Admin Center einrichten und von in Ihrer Umgebung in Minuten
             </ul>
         </td>
         <td style="vertical-align: top;">
-            <h3>Verbinden mit Azure</h3>
+            <h3>Herstellen einer Verbindung mit Azure</h3>
             <ul>
             <li><a href="azure/index.md">Azure hybriddienste</a></li>
             <li><a href="azure/azure-integration.md">Verbinden von Windows Admin Center in Azure</a></li>

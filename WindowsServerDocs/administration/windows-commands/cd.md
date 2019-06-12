@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5f907b6162e6767820e23222e287b933397397d8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 53340612d26eaa7c4ae6fd977a0eac573f91881d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861101"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66434602"
 ---
 # <a name="cd"></a>cd
 
@@ -53,16 +53,16 @@ chdir [..]
 ## <a name="remarks"></a>Hinweise
 
 Wenn befehlserweiterungen aktiviert sind, gelten die folgenden Bedingungen für die **cd** Befehl:
--   Zeichenfolge des aktuellen Verzeichnisses wird konvertiert, um die gleiche Groß-/Kleinschreibung als die Namen auf dem Datenträger zu verwenden. Z. B. `cd C:\TEMP` das aktuelle Verzeichnis wird auf C:\Temp festgelegt werden, wenn dies der Fall, auf dem Datenträger ist.
--   Leerzeichen als Trennzeichen und daher nicht behandelt *Pfad* darf Leerzeichen enthalten, ohne die Anführungszeichen einschließen. Zum Beispiel:  
-    ```
-    cd username\programs\start menu
-    ```  
-    ist identisch:  
-    ```
-    cd "username\programs\start menu"
-    ```  
-    Die Anführungszeichen sind erforderlich, aber wenn Erweiterungen deaktiviert sind.
+- Zeichenfolge des aktuellen Verzeichnisses wird konvertiert, um die gleiche Groß-/Kleinschreibung als die Namen auf dem Datenträger zu verwenden. Z. B. `cd C:\TEMP` das aktuelle Verzeichnis wird auf C:\Temp festgelegt werden, wenn dies der Fall, auf dem Datenträger ist.
+- Leerzeichen als Trennzeichen und daher nicht behandelt *Pfad* darf Leerzeichen enthalten, ohne die Anführungszeichen einschließen. Zum Beispiel:  
+  ```
+  cd username\programs\start menu
+  ```  
+  ist identisch:  
+  ```
+  cd "username\programs\start menu"
+  ```  
+  Die Anführungszeichen sind erforderlich, aber wenn Erweiterungen deaktiviert sind.
 
 Um befehlserweiterungen deaktivieren möchten, geben Sie Folgendes ein:
 ```
@@ -86,4 +86,4 @@ cd [<Drive>:]
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

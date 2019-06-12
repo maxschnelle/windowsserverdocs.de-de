@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 83175d8529d9204c6b6d969a3db2aee2775bd0c4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0bec8cf64a3c7f261c792a07da603cba4366e1a7
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852381"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436437"
 ---
 # <a name="openfiles"></a>openfiles
 
@@ -43,16 +43,16 @@ openfiles /disconnect [/s <System> [/u [<Domain>\]<UserName> [/p [<Password>]]]]
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|/s \<System>|Gibt an, dem remoten System für die Verbindung (nach Name oder IP-Adresse). Verwenden Sie keine umgekehrte Schrägstriche. Wenn Sie nicht verwenden, die **/s** Option, den Befehl auf dem lokalen Computer ausgeführt wird, wird standardmäßig. Dieser Parameter gilt für alle Dateien und Ordner, die im Befehl angegeben werden.|
-|/u [\<Domain>\]<UserName>|Führt den Befehl mit den Berechtigungen des angegebenen Benutzerkontos. Wenn Sie nicht verwenden, die **/u** option System Berechtigungen werden standardmäßig verwendet.|
-|/ p [\<Kennwort >]|Gibt das Kennwort des Benutzerkontos ein, die im angegebenen die **/u** Option. Wenn Sie nicht verwenden, die **/p** Option aufgefordert, ein Kennwort angezeigt wird, wenn der Befehl ausgeführt wird.|
-|/id \<OpenFileID>|Trennt die Verbindung geöffneten Dateien anhand der angegebenen Datei-ID Das Platzhalterzeichen (**&#42;**) kann mit diesem Parameter verwendet werden.</br>Hinweis: Sie können die **Openfiles/Query** Befehl aus, um die Datei-ID suchen|
-|/a \<AccessedBy>|Trennt alle geöffneten Dateien im Zusammenhang mit den Benutzernamen ein, die in angegeben ist die *Zugriff durch* Parameter. Das Platzhalterzeichen (**&#42;**) kann mit diesem Parameter verwendet werden.|
-|/ o {lesen \| schreiben \| Lese-/Schreibzugriff}|Trennt die Verbindung aller geöffneten Dateien mit dem Wert des angegebenen Modus "open". Gültige Werte sind Lese-, Schreib- oder Lese-/Schreibzugriff. Das Platzhalterzeichen (**&#42;**) kann mit diesem Parameter verwendet werden.|
-|/op \<OpenFile>|Trennt alle geöffneten dateiverbindungen, die mit einem bestimmten geöffneten Dateinamen erstellt werden. Das Platzhalterzeichen (**&#42;**) kann mit diesem Parameter verwendet werden.|
-|/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
+|            Parameter             |                                                                                                                                 Beschreibung                                                                                                                                  |
+|----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|           /s \<System>           | Gibt an, dem remoten System für die Verbindung (nach Name oder IP-Adresse). Verwenden Sie keine umgekehrte Schrägstriche. Wenn Sie nicht verwenden, die **/s** Option, den Befehl auf dem lokalen Computer ausgeführt wird, wird standardmäßig. Dieser Parameter gilt für alle Dateien und Ordner, die im Befehl angegeben werden. |
+|    /u [\<Domain>\]<UserName>     |                                                          Führt den Befehl mit den Berechtigungen des angegebenen Benutzerkontos. Wenn Sie nicht verwenden, die **/u** option System Berechtigungen werden standardmäßig verwendet.                                                           |
+|         / p [\<Kennwort >]         |                                               Gibt das Kennwort des Benutzerkontos ein, die im angegebenen die **/u** Option. Wenn Sie nicht verwenden, die **/p** Option aufgefordert, ein Kennwort angezeigt wird, wenn der Befehl ausgeführt wird.                                                |
+|        /id \<OpenFileID>         |                                       Trennt die Verbindung geöffneten Dateien anhand der angegebenen Datei-ID Das Platzhalterzeichen ( **&#42;** ) kann mit diesem Parameter verwendet werden.</br>Hinweis: Sie können die **Openfiles/Query** Befehl aus, um die Datei-ID suchen                                       |
+|         /a \<AccessedBy>         |                                                Trennt alle geöffneten Dateien im Zusammenhang mit den Benutzernamen ein, die in angegeben ist die *Zugriff durch* Parameter. Das Platzhalterzeichen ( **&#42;** ) kann mit diesem Parameter verwendet werden.                                                 |
+| / o {lesen \| schreiben \| Lese-/Schreibzugriff} |                                               Trennt die Verbindung aller geöffneten Dateien mit dem Wert des angegebenen Modus "open". Gültige Werte sind Lese-, Schreib- oder Lese-/Schreibzugriff. Das Platzhalterzeichen ( **&#42;** ) kann mit diesem Parameter verwendet werden.                                                |
+|         /op \<OpenFile>          |                                                           Trennt alle geöffneten dateiverbindungen, die mit einem bestimmten geöffneten Dateinamen erstellt werden. Das Platzhalterzeichen ( **&#42;** ) kann mit diesem Parameter verwendet werden.                                                           |
+|                /?                |                                                                                                                     Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                     |
 
 ### <a name="examples"></a>Beispiele
 
@@ -89,15 +89,15 @@ openfiles /query [/s <System> [/u [<Domain>\]<UserName> [/p [<Password>]]]] [/fo
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|/s \<System>|Gibt an, dem remoten System für die Verbindung (nach Name oder IP-Adresse). Verwenden Sie keine umgekehrte Schrägstriche. Wenn Sie nicht verwenden, die **/s** Option, den Befehl auf dem lokalen Computer ausgeführt wird, wird standardmäßig. Dieser Parameter gilt für alle Dateien und Ordner, die im Befehl angegeben werden.|
-|/u [\<Domain>\]<UserName>|Führt den Befehl mit den Berechtigungen des angegebenen Benutzerkontos. Wenn Sie nicht verwenden, die **/u** option System Berechtigungen werden standardmäßig verwendet.|
-|/ p [\<Kennwort >]|Gibt das Kennwort des Benutzerkontos ein, die im angegebenen die **/u** Option. Wenn Sie nicht verwenden, die **/p** Option aufgefordert, ein Kennwort angezeigt wird, wenn der Befehl ausgeführt wird.|
-|[/ FO {Tabelle \| Liste \| CSV}]|Zeigt die Ausgabe im angegebenen Format. Gültige Werte für *Format* sind:</br>TABELLE:  Zeigt die Ausgabe in einer Tabelle.</br>LISTE: Zeigt die Ausgabe in einer Liste.</br>CSV: Zeigt die Ausgabe in durch Trennzeichen getrennten Format.|
-|/nh|Unterdrückt die Kopfzeile der Spalte in der Ausgabe. Nur gültig, wenn die **/Fo** Parametersatz zu **Tabelle** oder **CSV**.|
-|/v|Gibt an, dass ausführliche Informationen in der Ausgabe angezeigt werden.|
-|/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
+|          Parameter           |                                                                                                                                 Beschreibung                                                                                                                                  |
+|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|         /s \<System>         | Gibt an, dem remoten System für die Verbindung (nach Name oder IP-Adresse). Verwenden Sie keine umgekehrte Schrägstriche. Wenn Sie nicht verwenden, die **/s** Option, den Befehl auf dem lokalen Computer ausgeführt wird, wird standardmäßig. Dieser Parameter gilt für alle Dateien und Ordner, die im Befehl angegeben werden. |
+|  /u [\<Domain>\]<UserName>   |                                                          Führt den Befehl mit den Berechtigungen des angegebenen Benutzerkontos. Wenn Sie nicht verwenden, die **/u** option System Berechtigungen werden standardmäßig verwendet.                                                           |
+|       / p [\<Kennwort >]       |                                               Gibt das Kennwort des Benutzerkontos ein, die im angegebenen die **/u** Option. Wenn Sie nicht verwenden, die **/p** Option aufgefordert, ein Kennwort angezeigt wird, wenn der Befehl ausgeführt wird.                                                |
+| [/ FO {Tabelle \| Liste \| CSV}] |                             Zeigt die Ausgabe im angegebenen Format. Gültige Werte für *Format* sind:</br>TABELLE:  Zeigt die Ausgabe in einer Tabelle.</br>LISTE: Zeigt die Ausgabe in einer Liste.</br>CSV: Zeigt die Ausgabe in durch Trennzeichen getrennten Format.                              |
+|             /nh              |                                                                                Unterdrückt die Kopfzeile der Spalte in der Ausgabe. Nur gültig, wenn die **/Fo** Parametersatz zu **Tabelle** oder **CSV**.                                                                                 |
+|              /v              |                                                                                                       Gibt an, dass ausführliche Informationen in der Ausgabe angezeigt werden.                                                                                                        |
+|              /?              |                                                                                                                     Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                     |
 
 ### <a name="examples"></a>Beispiele
 
@@ -169,4 +169,4 @@ openfiles /local off
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

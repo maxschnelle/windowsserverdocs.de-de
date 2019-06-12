@@ -7,12 +7,12 @@ ms.topic: article
 author: johnmarlin-msft
 ms.date: 02/01/2019
 description: Dieser Artikel beschreibt das Erstellen eines dateiserverclusters mit zwei Knoten
-ms.openlocfilehash: fbfde60f60df64514a6a0f514cbabd005544af84
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9f50470b379bd0ab05834eb3c5a35be0f5e9e93a
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846411"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66452999"
 ---
 # <a name="deploying-a-two-node-clustered-file-server"></a>Bereitstellen eines gruppierten Dateiservers mit zwei Knoten
 
@@ -28,11 +28,11 @@ Server in einem Failovercluster können in einer Vielzahl von Rollen, einschlie�
 
 Ein Failovercluster enthält normalerweise eine Speichereinheit, die mit allen Servern im Cluster physisch verbunden ist, obwohl auf jedes Volume im Speicher immer nur von je einem Server zugegriffen wird. Im folgenden Diagramm finden Sie einen Failovercluster mit zwei Knoten, der an mit einer Speichereinheit verbunden ist.
 
-![Cluster mit zwei Knoten](media\Cluster-File-Server\Cluster-FS-Overview.png)
+![Cluster mit zwei Knoten](media/Cluster-File-Server/Cluster-FS-Overview.png)
 
 Die für die Knoten eines Clusters offen gelegten Speichervolumes oder logischen Gerätenummern (Logical Unit Numbers, LUNs) müssen für andere Server, einschließlich der Server in einem anderen Cluster, nicht offen gelegt werden. Dies wird im folgenden Diagramm veranschaulicht.
 
-![LUNs im Speicher](media\Cluster-File-Server\Cluster-FS-LUNs.png)
+![LUNs im Speicher](media/Cluster-File-Server/Cluster-FS-LUNs.png)
 
 Beachten Sie, dass im Sinne einer optimalen Serververfügbarkeit bewährte Methoden der Serververwaltung zu befolgen, z. B. das sorgfältige Verwalten der physischen Umgebung der Server, das Testen von Softwareänderungen vor der vollständigen Implementierung und das gründliche Nachverfolgen von Softwareupdates und Konfigurationsänderungen auf allen geclusterten Servern.
 
@@ -167,7 +167,7 @@ In diesem Schritt wird die Datei Server-Rolle und Failover-Cluster-Funktion inst
 
 1. Open **Server-Manager** und wählen Sie unter den **verwalten** öffnen Sie die Dropdownliste, wählen Sie **Hinzufügen von Rollen und Features**.
 
-   ![Funktion hinzufügen](media\Cluster-File-Server\Cluster-FS-Add-Feature.png)
+   ![Funktion hinzufügen](media/Cluster-File-Server/Cluster-FS-Add-Feature.png)
 
 2. Wenn die **vor dem Beginn** Fenster geöffnet wird, wählen Sie **Weiter**.
 
@@ -177,11 +177,11 @@ In diesem Schritt wird die Datei Server-Rolle und Failover-Cluster-Funktion inst
 
 5. Öffnen Sie für die Server-Rolle, aus der Liste der Rollen, **Dateidienste**Option **Dateiserver**, und **Weiter**.
 
-   ![Rolle hinzufügen](media\Cluster-File-Server\Cluster-FS-Add-FS-Role-1.png)
+   ![Rolle hinzufügen](media/Cluster-File-Server/Cluster-FS-Add-FS-Role-1.png)
 
 6. Wählen Sie für die Funktionen, aus der Liste der Features, **Failover-Clusterunterstützung**.  Ein Popupdialogfeld zeigt, dass, die Verwaltungstools auch installierenden aufgelistet sind.  Alle beibehalten der ausgewählten Option **Features hinzufügen** und **Weiter**.
 
-   ![Funktion hinzufügen](media\Cluster-File-Server\Cluster-FS-Add-WSFC-1.png)
+   ![Funktion hinzufügen](media/Cluster-File-Server/Cluster-FS-Add-WSFC-1.png)
 
 7. Wählen Sie auf der Seite "Bestätigung" installieren.
 
@@ -191,7 +191,7 @@ In diesem Schritt wird die Datei Server-Rolle und Failover-Cluster-Funktion inst
 
 #### <a name="using-powershell"></a>Mithilfe der PowerShell
 
-1. Öffnen Sie eine administrative PowerShell-Sitzung, indem Sie einen Rechtsklick auf die Schaltfläche "Start", und wählen Sie dann **Windows PowerShell (Admin)**.
+1. Öffnen Sie eine administrative PowerShell-Sitzung, indem Sie einen Rechtsklick auf die Schaltfläche "Start", und wählen Sie dann **Windows PowerShell (Admin)** .
 2. Führen Sie zum Installieren der Rolle für Dateiserver den Befehl ein:
 
     ```PowerShell
@@ -233,7 +233,7 @@ Es wird dringend empfohlen, vor dem Erstellen eines Clusters die Konfiguration z
 
 4. In der **Server auswählen oder in einem Cluster** Fenster in den Namen der zwei Computer, die die Knoten des Clusters hinzufügen.  Beispielsweise wenn die Namen NODE1 und NODE2 sind, geben Sie den Namen, und wählen Sie **hinzufügen**.  Sie können auch die **Durchsuchen** Schaltfläche, um die Active Directory nach den Namen zu suchen.  Sobald beide unter aufgeführten **ausgewählten Servern**, wählen Sie **Weiter**.
 
-5. In der **Testoptionen** wählen Sie im Fenster **alle Tests ausführen (empfohlen)**, und **Weiter**.
+5. In der **Testoptionen** wählen Sie im Fenster **alle Tests ausführen (empfohlen)** , und **Weiter**.
 
 6. Auf der **Bestätigung** Seite haben Sie die Auflistung aller Tests überprüft.  Wählen Sie **Weiter** und die Tests beginnen.
 
@@ -245,7 +245,7 @@ Es wird dringend empfohlen, vor dem Erstellen eines Clusters die Konfiguration z
 
 #### <a name="using-powershell"></a>Mithilfe der PowerShell
 
-1. Öffnen Sie eine administrative PowerShell-Sitzung, indem Sie einen Rechtsklick auf die Schaltfläche "Start", und wählen Sie dann **Windows PowerShell (Admin)**.
+1. Öffnen Sie eine administrative PowerShell-Sitzung, indem Sie einen Rechtsklick auf die Schaltfläche "Start", und wählen Sie dann **Windows PowerShell (Admin)** .
 
 2. Um die Computer (z. B. Namen der Computer wird von NODE1 und NODE2) für Failover-Clusterunterstützung zu überprüfen, führen Sie den Befehl aus:
 
@@ -283,7 +283,7 @@ Im folgenden wird ein Cluster erstellt aus der Computer und die Konfiguration, w
 
 #### <a name="using-powershell"></a>Mithilfe der PowerShell
 
-1. Öffnen Sie eine administrative PowerShell-Sitzung, indem Sie einen Rechtsklick auf die Schaltfläche "Start", und wählen Sie dann **Windows PowerShell (Admin)**.
+1. Öffnen Sie eine administrative PowerShell-Sitzung, indem Sie einen Rechtsklick auf die Schaltfläche "Start", und wählen Sie dann **Windows PowerShell (Admin)** .
 
 2. Führen Sie den folgenden Befehl zum Erstellen des Clusters, wenn Sie statische IP-Adressen verwenden.  Z. B. die Namen der Computer sind NODE1 und NODE2, der Namen des Clusters werden die CLUSTER und die IP-Adresse werden 1.1.1.1.
 
@@ -315,7 +315,7 @@ Um eine Dateiserver-Failovercluster zu konfigurieren, führen Sie die folgenden 
 
 7. Wählen Sie für die Dateiservertyp **Dateiserver zur allgemeinen Verwendung** und **Weiter**.<br>Weitere Informationen zu den Scale-Out File Server, finden Sie unter [Scale-Out File Server Overview](sofs-overview.md).
 
-   ![Dateiservertyp](media\Cluster-File-Server\Cluster-FS-File-Server-Type.png)
+   ![Dateiservertyp](media/Cluster-File-Server/Cluster-FS-File-Server-Type.png)
 
 8. In der **Clientzugriffspunkt** Fenster, geben Sie den Namen des Dateiservers, die Sie verwenden.  Beachten Sie, dass dies nicht der Name des Clusters ist.  Dies ist für die Datei-Freigabe-Konnektivität.  Angenommen, ich möchte, für die Verbindung \\SERVER, würde der Name der eingegebenen SERVER sein.
 

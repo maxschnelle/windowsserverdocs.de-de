@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 08a9fad482930d353eff1c09923155a510791c9a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 99ac8736ca8223a1a444784c4cf605a973a9e4dd
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59818431"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436540"
 ---
 # <a name="nslookup-set"></a>nslookup set
 
@@ -30,11 +30,13 @@ ms.locfileid: "59818431"
 set <KeyWord>[=<Value>]
 ```
 ## <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
-|-------|--------|
-|<KeyWord>|Bezeichnet die Unterbefehle, die abgeleitet sind die **festgelegt** Unterbefehl. Z. B. der Unterbefehl **set d2** verfügt über ein Schlüsselwort der [**keine**]**d2**. Die Liste der Unterbefehle, die abgeleitet sind die **festgelegt** Unterbefehl, finden Sie zusätzliche Verweise.|
-|<Value>|Gibt die Nslookup-Konfigurationswert Einstellung für jede Unterbefehl an.|
-|{help &#124; ?}|Zeigt eine kurze Zusammenfassung der **Nslookup** Unterbefehle.|
+
+|    Parameter    |                                                                                                                    Beschreibung                                                                                                                    |
+|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|    <KeyWord>    | Bezeichnet die Unterbefehle, die abgeleitet sind die **festgelegt** Unterbefehl. Z. B. der Unterbefehl **set d2** verfügt über ein Schlüsselwort der [**keine**]**d2**. Die Liste der Unterbefehle, die abgeleitet sind die **festgelegt** Unterbefehl, finden Sie zusätzliche Verweise. |
+|     <Value>     |                                                                                      Gibt die Nslookup-Konfigurationswert Einstellung für jede Unterbefehl an.                                                                                      |
+| {help &#124; ?} |                                                                                               Zeigt eine kurze Zusammenfassung der **Nslookup** Unterbefehle.                                                                                               |
+
 ## <a name="remarks"></a>Hinweise
 Verwendung **alle festlegen** um eine Liste mit den aktuellen Einstellungen anzuzeigen.
 ## <a name="additional-references"></a>Zusätzliche Referenzen

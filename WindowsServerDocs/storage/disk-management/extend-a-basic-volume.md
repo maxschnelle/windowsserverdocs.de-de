@@ -1,32 +1,29 @@
 ---
 title: Erweitern eines Basisvolume
 description: In diesem Artikel wird beschrieben, wie das Hinzufügen von Speicherplatz auf primären und logischen Laufwerken ein Basisvolume erweitert
-ms.date: 10/12/2017
+ms.date: 06/07/2019
 ms.prod: windows-server-threshold
 ms.technology: storage
 ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: c20e2da3e629743ab4d4d4cf1da16a6e69093ecf
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 4cad773746ae64a2244178be83e4d59c7c44b6a7
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192585"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812435"
 ---
 # <a name="extend-a-basic-volume"></a>Erweitern eines Basisvolume
 
-> **Gilt für:** Windows 10, Windows 8.1, WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012
+> **Gilt für:** Windows 10, Windows 8.1, WindowsServer (Halbjährlicher Kanal), WindowsServer 2019, WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012
 
 Sie können vorhandenen primären Partitionen und logischen Laufwerken mehr Platz hinzufügen, indem sie diese auf den angrenzenden, verfügbaren Speicherplatz auf dem gleichen Datenträger erweitern. Wenn ein Basisvolume zu erweitern, muss es unformatierte (nicht mit einem Dateisystem formatiert) oder mit dem NTFS-Dateisystem formatiert sein. Sie können ein logisches Laufwerk innerhalb einem fortlaufendem, freiem Speicherplatz in der erweiterten Partition erweitern, die es enthält. Wenn Sie ein logisches Laufwerk über den freien Speicherplatz in der erweiterten Partition erweitern, erhöht die erweiterte Partition die Größe, um das logische Laufwerk zu enthalten.
 
 Für logische Laufwerke und Start- oder System-Volumes, können Sie das Volume nur in fortlaufendem Speicherplatz erweitern und auch nur dann, wenn der Datenträger auf einen dynamischen Datenträger aktualisiert werden kann. Bei anderen Volumes können Sie das Volume in einen nicht zusammenhängenden Speicherplatz erweitern, jedoch werden Sie aufgefordert, den Datenträger in einen dynamischen Datenträger zu konvertieren.
 
 ## <a name="extending-a-basic-volume"></a>Erweitern eines Basisvolumes
-
--   [Mithilfe der Windows-Benutzeroberfläche](#to-extend-a-basic-volume-using-the-windows-interface)
--   [Über die Befehlszeile](#to-extend-a-basic-volume-using-a-command-line)
 
 #### <a name="to-extend-a-basic-volume-using-the-windows-interface"></a>So erweitern Sie ein Basisvolume mithilfe der Windows-Benutzeroberfläche
 
@@ -48,10 +45,10 @@ Für logische Laufwerke und Start- oder System-Volumes, können Sie das Volume n
 
 | Wert | Beschreibung |
 | --- | --- |
-| <p>**Liste volume**</p> | <p>Zeigt eine Liste der Basis- und dynamischen Volumes auf allen Festplatten an.</p> |
-| <p>**Wählen Sie volume**</p> | <p>Wählt das angegebene Volume aus, wobei <em>volumenumber</em> die Anzahl der Volumes ist, und legt den Fokus fest. Wenn kein Volume angegeben ist, zeigt der Befehl **Auswählen** die Liste des aktuellen Volumes mit Fokus an. Das Volume kann durch die Anzahl, den Laufwerkbuchstaben oder den Bereitstellungspunkt angegeben werden. Bei einer Basisfestplatte erhält durch das Auswählen einer Festplatte auch die entsprechende Partition den Fokus.</p> |
-| <p>**extend**</p> | <p><ul><li>Erweitert das Volume mit dem Fokus auf den nächsten fortlaufenden, nicht zugewiesenen Speicherplatz. Für Basisvolumes muss der nicht zugewiesene Speicherplatz auf dem gleichen Datenträger sein und der noch nicht zugeordnete Speicherbereich muss auf die Partition mit dem Fokus folgen (einen höheren Sektoren-Offsetwert haben als diese Partition). Ein einfaches dynamisches Volume oder ein übergreifendes Volume kann auf einen leeren Bereich auf den dynamischen Datenträgern erweitert werden. Mit diesem Befehl können Sie einem vorhandenen Volume in einen neu erstellten Speicherplatz erweitern.</p></li ><p><li>Wurde die Partition zuvor mit dem NTFS-Dateisystem formatiert, wird das Dateisystem automatisch so erweitert, dass es die größere Partition belegt werden. Es tritt kein Datenverlust auf. Wurde die Partition zuvor mit einem anderen Dateisystem als NTFS formatiert, schlägt der Befehl fehl, und die Partition wird nicht geändert.</p></li></ul>|
-| <p>**size=** <em>size</em></p> | <p>Der Speicherplatz in Megabyte (MB), der zur aktuellen Partition hinzugefügt wird. Wenn Sie keine Größe festlegen, wird der Datenträger so erweitert, dass er den gesamten nächsten fortlaufenden Speicherplatz einnimmt, der nicht zugeordnet ist.</p> |
+| **Liste volume** | Zeigt eine Liste der Basis- und dynamischen Volumes auf allen Festplatten an. |
+| **Wählen Sie volume** | Wählt das angegebene Volume aus, wobei <em>volumenumber</em> die Anzahl der Volumes ist, und legt den Fokus fest. Wenn kein Volume angegeben ist, zeigt der Befehl **Auswählen** die Liste des aktuellen Volumes mit Fokus an. Das Volume kann durch die Anzahl, den Laufwerkbuchstaben oder den Bereitstellungspunkt angegeben werden. Bei einer Basisfestplatte erhält durch das Auswählen einer Festplatte auch die entsprechende Partition den Fokus. |
+| **extend** | <ul><li>Erweitert das Volume mit dem Fokus auf den nächsten fortlaufenden, nicht zugewiesenen Speicherplatz. Für Basisvolumes muss der nicht zugewiesene Speicherplatz auf dem gleichen Datenträger sein und der noch nicht zugeordnete Speicherbereich muss auf die Partition mit dem Fokus folgen (einen höheren Sektoren-Offsetwert haben als diese Partition). Ein einfaches dynamisches Volume oder ein übergreifendes Volume kann auf einen leeren Bereich auf den dynamischen Datenträgern erweitert werden. Mit diesem Befehl können Sie einem vorhandenen Volume in einen neu erstellten Speicherplatz erweitern.</li ><li>Wurde die Partition zuvor mit dem NTFS-Dateisystem formatiert, wird das Dateisystem automatisch so erweitert, dass es die größere Partition belegt werden. Es tritt kein Datenverlust auf. Wurde die Partition zuvor mit einem anderen Dateisystem als NTFS formatiert, schlägt der Befehl fehl, und die Partition wird nicht geändert.</li></ul> |
+| **size=** <em>size</em> | Der Speicherplatz in Megabyte (MB), der zur aktuellen Partition hinzugefügt wird. Wenn Sie keine Größe festlegen, wird der Datenträger so erweitert, dass er den gesamten nächsten fortlaufenden Speicherplatz einnimmt, der nicht zugeordnet ist. |
 
 ## <a name="additional-considerations"></a>Weitere Aspekte
 

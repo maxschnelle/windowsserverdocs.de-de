@@ -7,16 +7,16 @@ ms.topic: article
 ms.author: TimWi; ChrisRob; HerbertM; KenBrumf;  MLeary; ShawnRab
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 79f95c88c49d384f8a13b8808c63a0dc00de53cb
-ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
+ms.openlocfilehash: 7ac9453159fe97dc15ecbb2ab858214664a2a197
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266629"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811528"
 ---
 # <a name="ldap-considerations-in-adds-performance-tuning"></a>LDAP-Überlegungen in AD DS zur leistungsoptimierung
 
->[!Important]
+> [!IMPORTANT]
 > Im folgenden finden Sie eine Zusammenfassung der wichtigsten Empfehlungen und Überlegungen zur Optimierung der Serverhardware für Active Directory-Workloads in detaillierter behandelt die [Kapazitätsplanung für Active Directory Domain Services](https://go.microsoft.com/fwlink/?LinkId=324566) Artikel. Leser werden dringend empfohlen, überprüfen [Kapazitätsplanung für Active Directory Domain Services](https://go.microsoft.com/fwlink/?LinkId=324566) für ein besseres Verständnis für die technische und die Auswirkungen dieser Empfehlungen.
 
 ## <a name="verify-ldap-queries"></a>Überprüfen von LDAP-Abfragen
@@ -45,14 +45,14 @@ Die Indizierung von Attributen ist nützlich, bei der Suche nach Objekten, die d
 
 -   Eine Abfrage nimmt viel Zeit und wird innerhalb eines akzeptablen Zeitrahmen für den Client aufgrund einer um zu geringen Anzahl von Indizes behandelt nicht abgeschlossen.
 
--   Große Mengen von langsamen Abfragen verursachen Ressourcenverbrauch und Auslastung der Threadwarteschlange LDAP-Threads. Überwachen Sie die folgenden Leistungsindikatoren:
+- Große Mengen von langsamen Abfragen verursachen Ressourcenverbrauch und Auslastung der Threadwarteschlange LDAP-Threads. Überwachen Sie die folgenden Leistungsindikatoren:
 
-    -   **NTDS\\Anforderungswartezeit** – Dies ist unterliegen, wie lange die Anforderung den Prozess durchführt. Active Directory nach tritt ein Timeout Anforderungen 120 Sekunden (Standardwert), jedoch die meisten sollten viel schneller ausgeführt und sehr lang andauernde Abfragen in den allgemeinen Zahlen ausgeblendet erhalten soll. Suchen Sie nach Änderungen an dieser Grundlinie, anstatt absoluten Schwellenwerte.
+    - **NTDS\\Anforderungswartezeit** – Dies ist unterliegen, wie lange die Anforderung den Prozess durchführt. Active Directory nach tritt ein Timeout Anforderungen 120 Sekunden (Standardwert), jedoch die meisten sollten viel schneller ausgeführt und sehr lang andauernde Abfragen in den allgemeinen Zahlen ausgeblendet erhalten soll. Suchen Sie nach Änderungen an dieser Grundlinie, anstatt absoluten Schwellenwerte.
 
-        > [!Note]   Hohe Werte Hier können auch Indikatoren, die Verzögerungen bei der "Proxyanforderungen" mit anderen Domänen und die Zertifikatsperrliste überprüft werden.
+        > [!NOTE]
+        > Hohe Werte Hier können auch Indikatoren, die Verzögerungen bei der "Proxyanforderungen" mit anderen Domänen und die Zertifikatsperrliste überprüft werden.
 
-
-    -   **NTDS\\Warteschlangenverzögerung geschätzte** – Dies sollte im Idealfall sein, in der Nähe von 0 für eine optimale Leistung, da dies bedeutet, dass Anforderungen keine Zeit, die auf Bearbeitung warten verbringen.
+    - **NTDS\\Warteschlangenverzögerung geschätzte** – Dies sollte im Idealfall sein, in der Nähe von 0 für eine optimale Leistung, da dies bedeutet, dass Anforderungen keine Zeit, die auf Bearbeitung warten verbringen.
 
 Diese Szenarien können mithilfe einer oder mehrerer der folgenden Ansätze erkannt werden:
 
@@ -98,8 +98,8 @@ Weitere Informationen finden Sie in der folgenden:
 
 -   [Indizierte Attribute](https://msdn.microsoft.com/library/windows/desktop/ms677112.aspx)
 
-
 ## <a name="see-also"></a>Siehe auch
+
 - [Active Directory-Server die Optimierung der Leistung](index.md)
 - [Hardwareaspekte](hardware-considerations.md)
 - [Ordnungsgemäße Platzierung von Domänencontrollern und Überlegungen zum Standort](site-definition-considerations.md)

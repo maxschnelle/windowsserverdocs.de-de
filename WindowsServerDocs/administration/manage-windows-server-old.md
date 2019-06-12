@@ -8,19 +8,19 @@ author: lizap
 ms.author: elizapo
 ms.date: 03/16/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 4faadb811927626c26a5b01e2ce0598d40792b68
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7ae87b12997aa3cb3ae3fe290c9243995b30d6b0
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846761"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66452819"
 ---
 # <a name="manage-windows-server"></a>Windows Server verwalten
 
 >Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
 
 >[!TIP]
-> Suchen Sie nach Informationen zu älteren Versionen von Windows? Sehen Sie sich unsere [Windows Server-Bibliotheken](/previous-versions/windows/) auf docs.microsoft.com an. Sie können auch nach bestimmten Informationen [auf dieser Website suchen](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions).
+> Suchen Sie nach Informationen zu älteren Versionen von Windows? Sehen Sie sich unsere [Windows Server-Bibliotheken](/previous-versions/windows/) auf „docs.microsoft.com“ an. Sie können auch nach bestimmten Informationen [auf dieser Website suchen](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions).
 
  <ul class="cardse panelContent cols cols3">
     <li>
@@ -118,5 +118,5 @@ Windows PowerShell ist eine Sprache für die Befehlszeile und zudem eine Skripts
 Die Windows-Befehlszeilentools dienen zum Durchführen von Verwaltungsaufgaben in Windows. Mit der Befehlsreferenz können Sie sich mit den Befehlszeilentools vertraut machen, mehr über die Befehlsshell erfahren und Befehlszeilenaufgaben mithilfe von Stapeldateien oder Skripting-Tools automatisieren.
 
 ## <a name="windows-server-insider-preview"></a>Windows Server-Insider – Vorschau
-### <a name="system-insightsmanagesystem-insightsoverviewmd"></a>[System-Einblicke](..\manage\system-insights\overview.md)
+### <a name="system-insightsmanagesystem-insightsoverviewmd"></a>[Systemdaten](../manage/system-insights/overview.md)
 Systemeinblicke ist ein neues Feature, das auf Windows Server systemintern vorhersehbare Analytics einführt. Diese Funktionen analysieren lokal vorhersehbare Windows Server Systemdaten, wie die Leistungsindikatoren oder ETW-Ereignisse, und helfen IT-Administratoren proaktiv problematische Verhalten in ihrer Bereitstellung zu entdecken und zu beheben. 

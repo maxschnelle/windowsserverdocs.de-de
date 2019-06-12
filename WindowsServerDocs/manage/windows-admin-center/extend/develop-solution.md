@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: ed5ecddbaef91f127846825e408a9a6ec65ff741
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 268a7d2833f73e9fab006501e9b3dc261d1b1d9e
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59825471"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66452577"
 ---
 # <a name="develop-a-solution-extension"></a>Entwickeln einer Lösungserweiterung
 
@@ -71,10 +71,10 @@ Sobald dies abgeschlossen ist, haben Sie alles, was einrichten, die Sie die neue
 
 Nun, dass Sie eine Erweiterung mit der Windows Admin Center-CLI erstellt haben, können Sie Inhalt anpassen.  Diese Leitfäden finden Sie Beispiele für Möglichkeiten:
 
-- Hinzufügen einer [leere-Modul](guides\add-module.md)
-- Hinzufügen einer [iFrame](guides\add-iframe.md)
-- Erstellen Sie eine [benutzerdefinierte Verbindungsanbieter](guides\create-connection-provider.md)
-- Ändern Sie [root Navigationsverhalten](guides\modify-root-navigation.md)
+- Hinzufügen einer [leere-Modul](guides/add-module.md)
+- Hinzufügen einer [iFrame](guides/add-iframe.md)
+- Erstellen Sie eine [benutzerdefinierte Verbindungsanbieter](guides/create-connection-provider.md)
+- Ändern Sie [root Navigationsverhalten](guides/modify-root-navigation.md)
  
 Weitere Beispiele finden Sie unserem [Website des GitHub-SDKS](https://aka.ms/wacsdk):
 -  [Entwicklertools](https://github.com/Microsoft/windows-admin-center-sdk/tree/master/windows-admin-center-developer-tools) ist eine voll funktionsfähige-Erweiterung, die in Windows Admin Center-Seite geladen werden können, und eine umfangreiche Sammlung von Beispiel-Funktionen und Tools Beispiele, die Sie durchsuchen und verwenden Sie in Ihrer eigenen Extension enthält.

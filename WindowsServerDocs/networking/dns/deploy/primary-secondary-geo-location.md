@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: a9ee7a56-f062-474f-a61c-9387ff260929
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 6869ee5f39f1719a3c71025207ef9ffe740492ff
-ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
+ms.openlocfilehash: cf66a306c7f023852cec93d6458e74a99c46c831
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266786"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812112"
 ---
 # <a name="use-dns-policy-for-geo-location-based-traffic-management-with-primary-secondary-deployments"></a>Verwenden von DNS-Richtlinien für eine auf Geolocation basierende Datenverkehrsverwaltung mit primären und sekundären Bereitstellungen
 
@@ -25,8 +25,8 @@ Das vorherige Szenario [verwenden DNS-Richtlinien für die GeoLocation-basierte 
   
 Die sekundären Server verwenden die Übertragungsprotokolle Zone autorisierenden Übertragung (AXFR) und inkrementelle Zone Übertragung (IXFR) anfordern und Empfangen von zonenaktualisierungen aktualisiert, die neue Änderungen an den Zonen in der primären DNS-Servern enthalten.   
   
->[!NOTE]
->Weitere Informationen zu AXFR, finden Sie unter der Internet Engineering Task Force (IETF) [Request for Comments 5936](https://tools.ietf.org/rfc/rfc5936.txt). Weitere Informationen zu IXFR, finden Sie unter der Internet Engineering Task Force (IETF) [fordern Sie für Kommentare 1995](https://tools.ietf.org/html/rfc1995).  
+> [!NOTE]
+> Weitere Informationen zu AXFR, finden Sie unter der Internet Engineering Task Force (IETF) [Request for Comments 5936](https://tools.ietf.org/rfc/rfc5936.txt). Weitere Informationen zu IXFR, finden Sie unter der Internet Engineering Task Force (IETF) [fordern Sie für Kommentare 1995](https://tools.ietf.org/html/rfc1995).  
   
 ## <a name="primary-secondary-geo-location-based-traffic-management-example"></a>Primären und sekundären geografischen Standort-basierten Management-Beispiel für Webverkehr  
 Es folgt ein Beispiel für die Verwendung von DNS-Richtlinien in einer primär-/ Sekundär-Bereitstellung, um die Umleitung des Webdatenverkehrs basierend auf dem physischen Standort des Clients zu erreichen, die eine DNS-Abfrage ausführt.  
@@ -82,7 +82,7 @@ Für weitere Updates in einem Bereich für die Zone wird eine IXFR-Benachrichtig
 
 Bevor Sie beginnen, stellen Sie sicher, dass Sie alle Schritte im Thema abgeschlossen haben [verwenden DNS-Richtlinien für die GeoLocation-basierte Datenverkehrsverwaltung mit Primärservern](../../dns/deploy/Scenario--Use-DNS-Policy-for-Geo-Location-Based-Traffic-Management-with-Primary-Servers.md), und Ihre primäre DNS-Server mit Zonen, Zone Bereiche, DNS-Client konfiguriert ist Subnetze, und DNS-Richtlinie.  
   
->[!NOTE]
+> [!NOTE]
 > Die Anweisungen in diesem Thema, um die DNS-Client-Subnetze, Bereiche der Zone und DNS-Richtlinien von den primären DNS-Servern in den sekundären DNS-Servern zu kopieren sind für Ihre erste DNS-Setup und die Überprüfung. In der Zukunft empfiehlt es sich um die DNS-Client-Subnetze, Zone Bereiche und Einstellungen auf dem primären Server zu ändern. In diesem Fall können Sie Automatisierungsskripts, um den sekundären Servern, die mit dem primären Server synchronisiert zu halten, erstellen.  
   
 Um DNS-Richtlinien für die primären und sekundären geografischen Standort basierend Abfrageantworten konfigurieren zu können, müssen Sie die folgenden Schritte ausführen.  
@@ -95,9 +95,10 @@ Um DNS-Richtlinien für die primären und sekundären geografischen Standort bas
   
 Die folgenden Abschnitte enthalten ausführliche konfigurationsanweisungen.  
   
->[!IMPORTANT]
->Die folgenden Abschnitte enthalten Windows PowerShell-Beispielbefehle, die Beispielwerte für viele Parameter enthalten. Stellen Sie sicher, dass Sie die Beispielwerte in diesen Befehlen durch Werte, die für die Bereitstellung sinnvoll sind ersetzen, bevor Sie diese Befehle ausführen.  
-><br>Mitgliedschaft in **DnsAdmins**, oder die entsprechende ist erforderlich, um die folgenden Schritte ausführen.  
+> [!IMPORTANT]
+> Die folgenden Abschnitte enthalten Windows PowerShell-Beispielbefehle, die Beispielwerte für viele Parameter enthalten. Stellen Sie sicher, dass Sie die Beispielwerte in diesen Befehlen durch Werte, die für die Bereitstellung sinnvoll sind ersetzen, bevor Sie diese Befehle ausführen.  
+> 
+> Mitgliedschaft in **DnsAdmins**, oder die entsprechende ist erforderlich, um die folgenden Schritte ausführen.  
   
 ### <a name="create-the-secondary-zones"></a>Erstellen Sie die sekundäre Zonen
 
@@ -124,8 +125,8 @@ Sie müssen die Einstellungen für die primäre Zone konfigurieren, damit:
   
 Sie können die folgenden Windows PowerShell-Befehle verwenden, so konfigurieren Sie die zoneneinstellungen für die Übertragung auf die primäre Zone.
   
->[!NOTE]
->Im folgenden Beispielbefehl, den Parameter **-benachrichtigen** gibt an, dass der primäre Server Benachrichtigungen über Änderungen an der Auswahlliste der sekundären Replikate sendet.  
+> [!NOTE]
+> Im folgenden Beispielbefehl, den Parameter **-benachrichtigen** gibt an, dass der primäre Server Benachrichtigungen über Änderungen an der Auswahlliste der sekundären Replikate sendet.  
   
     
     Set-DnsServerPrimaryZone -Name "woodgrove.com" -Notify Notify -SecondaryServers "10.0.0.2,10.0.0.3" -SecureSecondaries TransferToSecureServers -ComputerName PrimaryServer  
@@ -160,8 +161,8 @@ Sie können folgende Windows PowerShell-Befehle verwenden, um die Bereiche der Z
     Get-DnsServerZoneScope -ZoneName "woodgrove.com" -ComputerName PrimaryServer|Add-DnsServerZoneScope -ZoneName "woodgrove.com" -ComputerName SecondaryServer2 -ErrorAction Ignore  
   
 
->[!NOTE]
->In diesen Beispielbefehlen die **- ErrorAction ignorieren** Parameter enthalten ist, da ein Standardbereich für die Zone für jede Zone vorhanden ist. Der Standardbereich für die Zone kann nicht erstellt oder gelöscht werden. Pipelining führt zu dem Versuch, diesen Bereich zu erstellen und sie schlägt fehl. Alternativ können Sie die nicht standardmäßigen Zone Bereichen auf zwei sekundäre Zonen erstellen.  
+> [!NOTE]
+> In diesen Beispielbefehlen die **- ErrorAction ignorieren** Parameter enthalten ist, da ein Standardbereich für die Zone für jede Zone vorhanden ist. Der Standardbereich für die Zone kann nicht erstellt oder gelöscht werden. Pipelining führt zu dem Versuch, diesen Bereich zu erstellen und sie schlägt fehl. Alternativ können Sie die nicht standardmäßigen Zone Bereichen auf zwei sekundäre Zonen erstellen.  
   
 Weitere Informationen finden Sie unter [hinzufügen-DnsServerZoneScope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps).  
   

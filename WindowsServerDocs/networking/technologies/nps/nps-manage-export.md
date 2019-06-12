@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: d268dc57-78f8-47ba-9a7a-a607e8b9225c
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: a5f28c317f1d58fd1889fb55d345463dc8a62999
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b95e39af63e284d0147335faabfb740c0dd175bc
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816421"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812300"
 ---
 # <a name="export-an-nps-configuration-for-import-on-another-server"></a>Exportieren Sie eine NPS-Konfiguration für den Import auf einem anderen Server
 
@@ -26,13 +26,13 @@ Verwenden Sie eine der folgenden Tools, um die NPS-Konfiguration zu exportieren:
 - In Windows Server 2016, Windows Server 2012 R2 und Windows Server 2012 können Sie Netsh, oder Sie können Windows PowerShell verwenden.
 - In Windows Server 2008 R2 und Windows Server 2008 können mithilfe von Netsh.
 
->[!IMPORTANT]
->Verwenden Sie dieses Verfahren nicht, wenn die NPS-Quelldatenbank eine höhere Versionsnummer als die Versionsnummer der Zieldatenbank NPS hat. Sehen Sie die Versionsnummer der Datenbank aus der Anzeige des NPS die **Netsh Nps anzeigen Config** Befehl.
+> [!IMPORTANT]
+> Verwenden Sie dieses Verfahren nicht, wenn die NPS-Quelldatenbank eine höhere Versionsnummer als die Versionsnummer der Zieldatenbank NPS hat. Sehen Sie die Versionsnummer der Datenbank aus der Anzeige des NPS die **Netsh Nps anzeigen Config** Befehl.
 
 Da die NPS-Konfigurationen nicht verschlüsselt sind, in der exportierten XML-Datei, und senden, dass sie über ein Netzwerk ein Sicherheitsrisiko darstellen könnte also Vorsichtsmaßnahmen Sie beim Verschieben von XML-Datei vom Quellserver auf dem Zielserver. Beispielsweise können fügen Sie die Datei auf einer verschlüsselten, kennwortgeschützten Archivdatei vor dem Verschieben der Datei hinzu. Speichern Sie außerdem die Datei an einem sicheren Ort, um zu verhindern, dass böswillige Benutzer darauf zugreifen.
 
->[!NOTE]
->Wenn SQL Server-Protokollierung auf dem Quellcomputer NPS konfiguriert ist, werden die Einstellungen für SQL Server-Protokollierung nicht der XML-Datei exportiert. Nachdem Sie die Datei auf einer anderen NPS importiert haben, müssen Sie SQL Server-Protokollierung manuell konfigurieren.
+> [!NOTE]
+> Wenn SQL Server-Protokollierung auf dem Quellcomputer NPS konfiguriert ist, werden die Einstellungen für SQL Server-Protokollierung nicht der XML-Datei exportiert. Nachdem Sie die Datei auf einer anderen NPS importiert haben, müssen Sie SQL Server-Protokollierung manuell konfigurieren.
 
 ## <a name="export-and-import-the-nps-configuration-by-using-windows-powershell"></a>Exportieren Sie und importieren Sie die NPS-Konfiguration mithilfe von Windows PowerShell
 
@@ -80,8 +80,8 @@ Können Sie Netzwerkshell \(Netsh\) So exportieren Sie die NPS-Konfiguration mit
 
 Wenn die **Netsh Nps import** ausgeführt wird, NPS wird automatisch mit den aktualisierten Konfigurationseinstellungen aktualisiert. Sie müssen nicht zum Beenden von NPS auf dem Zielcomputer zum Ausführen der **Netsh Nps import** Befehl jedoch, wenn die NPS-Konsole oder NPS-MMC-Snap-in während des Imports Konfiguration geöffnet ist, Änderungen an der Serverkonfiguration nicht erst sichtbar sind Sie können die Ansicht aktualisieren. 
 
->[!NOTE]
->Bei Verwendung der **Netsh Nps export** Befehls müssen Sie die Befehlsparameter bieten **ExportPSK** mit dem Wert **Ja**. Dieser Parameter und Wert Zustand explizit, dass Sie wissen, dass Sie die NPS-Konfiguration exportieren und die exportierte XML-Datei enthält nicht gemeinsame geheime Schlüssel für RADIUS-Clients und Mitglieder von RADIUS-Remoteservergruppen verschlüsselte.
+> [!NOTE]
+> Bei Verwendung der **Netsh Nps export** Befehls müssen Sie die Befehlsparameter bieten **ExportPSK** mit dem Wert **Ja**. Dieser Parameter und Wert Zustand explizit, dass Sie wissen, dass Sie die NPS-Konfiguration exportieren und die exportierte XML-Datei enthält nicht gemeinsame geheime Schlüssel für RADIUS-Clients und Mitglieder von RADIUS-Remoteservergruppen verschlüsselte.
 
 **Administratoranmeldeinformationen**
 
@@ -93,13 +93,13 @@ Um dieses Verfahren ausführen zu können, müssen Sie Mitglied der Gruppe "Admi
 
 2. Auf der **Netsh** dazu aufgefordert werden, geben Sie **Nps**, und drücken Sie dann die EINGABETASTE. 
 
-3. Auf der **Netsh Nps** dazu aufgefordert werden, geben Sie **exportieren Filename =**"*path\file.xml*" **ExportPSK = YES**, wobei *Pfad* ist der Speicherort des Ordners, in dem die NPS-XML-Konfigurationsdatei gespeichert werden soll, und *Datei* ist der Name der XML-Datei, die Sie speichern möchten. Drücken Sie die EINGABETASTE. 
+3. Auf der **Netsh Nps** dazu aufgefordert werden, geben Sie **exportieren Filename =** "*path\file.xml*" **ExportPSK = YES**, wobei *Pfad* ist der Speicherort des Ordners, in dem die NPS-XML-Konfigurationsdatei gespeichert werden soll, und *Datei* ist der Name der XML-Datei, die Sie speichern möchten. Drücken Sie die EINGABETASTE. 
 
 Speichert Konfigurationseinstellungen \(einschließlich registrierungseinstellungen\) in eine XML-Datei. Der Pfad kann relativ oder absolut sein, oder es kann ein Universal Naming Convention \(UNC\) Pfad. Nachdem Sie die EINGABETASTE drücken, wird eine Meldung, der angibt,, ob der Export in Datei erfolgreich war.
 
 4. Kopieren Sie die Datei, die Sie erstellt haben, an das Ziel NPS.
 
-5. Geben Sie an einer Eingabeaufforderung auf dem NPS-Zielserver **Netsh Nps import Dateiname =**"*path\file.xml*", und drücken Sie dann die EINGABETASTE. Es erscheint eine Meldung angibt, ob der Import aus der XML-Datei erfolgreich war.
+5. Geben Sie an einer Eingabeaufforderung auf dem NPS-Zielserver **Netsh Nps import Dateiname =** "*path\file.xml*", und drücken Sie dann die EINGABETASTE. Es erscheint eine Meldung angibt, ob der Import aus der XML-Datei erfolgreich war.
 
 Weitere Informationen zu Netsh finden Sie unter [Netzwerkshell (Netsh)](../netsh/netsh.md).
 

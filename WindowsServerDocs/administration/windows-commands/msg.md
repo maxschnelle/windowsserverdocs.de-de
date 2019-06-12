@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b6c6193fc439140fa559643427067066e819c502
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 68a393b57a255915b93759b4b26286ce4d838019
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879551"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66437223"
 ---
 # <a name="msg"></a>msg
 
@@ -35,19 +35,20 @@ msg {<UserName> | <SessionName> | <SessionID>| @<FileName> | *} [/server:<Server
 ```
 
 ## <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
-|-------|--------|
-|<UserName>|Gibt den Namen des Benutzers, der die Nachricht empfangen soll.|
-|<SessionName>|Gibt den Namen der Sitzung, die die Nachricht empfangen soll.|
-|<SessionID>|Gibt an, die numerische ID der Sitzung, deren Benutzer eine Meldung angezeigt werden sollen.|
-|@<FileName>|Identifiziert eine Datei mit einer Liste von Benutzernamen, Namen und die Sitzungs-IDs, die die Nachricht empfangen werden sollen.|
-|*|Sendet die Nachricht an alle Benutzernamen auf dem System.|
-|/server:<ServerName>|Gibt dem RD-Sitzungshostserver, deren Sitzung oder der Benutzer die Meldung angezeigt werden soll. Falls nicht angegeben, **/Server** verwendet der Server, auf die Sie derzeit angemeldet sind.|
-|/ Time:<Seconds>|Gibt die Zeitspanne, die die Meldung, die Sie gesendet, die auf dem Bildschirm des Benutzers angezeigt wird. Wenn das Zeitlimit erreicht wird, verschwindet die Nachricht. Wenn keine zeitliche Begrenzung festgelegt ist, werden die Nachricht auf dem Bildschirm des Benutzers bleibt, bis der Benutzer die Meldung angezeigt, und klickt auf **OK**.|
-|/v|Zeigt Informationen zu den Aktionen, die ausgeführt wird.|
-|/w|Wartet auf eine Bestätigung vom Benutzer, dass die Nachricht empfangen wurde. Verwenden Sie diesen Parameter mit **/Uhrzeit:**<*Sekunden*> um eine mögliche lange Verzögerung zu vermeiden, wenn der Benutzer nicht sofort reagiert. Dieser Parameter mit **/v** ist auch hilfreich.|
-|<Message>|Gibt den Text der Nachricht, die Sie senden möchten. Wenn keine Meldung angegeben wird, werden Sie aufgefordert werden, eine Nachricht eingeben. Geben Sie zum Senden einer Nachricht, die in einer Datei enthalten ist, das kleiner-als (<) gefolgt vom Namen Datei ein.|
-|/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
+
+|      Parameter       |                                                                                                                               Beschreibung                                                                                                                               |
+|----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|      <UserName>      |                                                                                                  Gibt den Namen des Benutzers, der die Nachricht empfangen soll.                                                                                                   |
+|    <SessionName>     |                                                                                                 Gibt den Namen der Sitzung, die die Nachricht empfangen soll.                                                                                                 |
+|     <SessionID>      |                                                                                            Gibt an, die numerische ID der Sitzung, deren Benutzer eine Meldung angezeigt werden sollen.                                                                                            |
+|     @<FileName>      |                                                                         Identifiziert eine Datei mit einer Liste von Benutzernamen, Namen und die Sitzungs-IDs, die die Nachricht empfangen werden sollen.                                                                         |
+|          \*          |                                                                                                           Sendet die Nachricht an alle Benutzernamen auf dem System.                                                                                                            |
+| /server:<ServerName> |                                              Gibt dem RD-Sitzungshostserver, deren Sitzung oder der Benutzer die Meldung angezeigt werden soll. Falls nicht angegeben, **/Server** verwendet der Server, auf die Sie derzeit angemeldet sind.                                              |
+|   / Time:<Seconds>    | Gibt die Zeitspanne, die die Meldung, die Sie gesendet, die auf dem Bildschirm des Benutzers angezeigt wird. Wenn das Zeitlimit erreicht wird, verschwindet die Nachricht. Wenn keine zeitliche Begrenzung festgelegt ist, werden die Nachricht auf dem Bildschirm des Benutzers bleibt, bis der Benutzer die Meldung angezeigt, und klickt auf **OK**. |
+|          /v          |                                                                                                         Zeigt Informationen zu den Aktionen, die ausgeführt wird.                                                                                                         |
+|          /w          |         Wartet auf eine Bestätigung vom Benutzer, dass die Nachricht empfangen wurde. Verwenden Sie diesen Parameter mit **/Uhrzeit:** <*Sekunden*> um eine mögliche lange Verzögerung zu vermeiden, wenn der Benutzer nicht sofort reagiert. Dieser Parameter mit **/v** ist auch hilfreich.          |
+|      <Message>       |                  Gibt den Text der Nachricht, die Sie senden möchten. Wenn keine Meldung angegeben wird, werden Sie aufgefordert werden, eine Nachricht eingeben. Geben Sie zum Senden einer Nachricht, die in einer Datei enthalten ist, das kleiner-als (<) gefolgt vom Namen Datei ein.                  |
+|          /?          |                                                                                                                  Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                   |
 
 ## <a name="remarks"></a>Hinweise
 -   Wenn Sie einen Benutzer nicht angeben oder eine Sitzung, **msg** wird eine Fehlermeldung angezeigt. Wenn Sie eine Sitzung angeben, muss es eine aktiv sein.
@@ -78,7 +79,7 @@ msg {<UserName> | <SessionName> | <SessionID>| @<FileName> | *} [/server:<Server
     ```
     msg * /time:10 Let's meet at 1PM today
     ```
-    
+
 #### <a name="additional-references"></a>Zusätzliche Referenzen
--  [Befehlszeilensyntax](command-line-syntax-key.md)
+-  [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -  [Remotedesktopdienste &#40;Terminaldienste&#41; -Befehlsreferenz](remote-desktop-services-terminal-services-command-reference.md)

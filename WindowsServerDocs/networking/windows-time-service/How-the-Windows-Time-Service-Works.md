@@ -9,12 +9,12 @@ ms.date: 05/08/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: networking
-ms.openlocfilehash: 67c3471a726df354e0faa9e3aced491c4084e9e3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9e4131c28a18a50f3312e5e0201a0ed9529d4555
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864341"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812397"
 ---
 # <a name="how-the-windows-time-service-works"></a>Funktionsweise des Windows-Zeitdiensts
 
@@ -22,13 +22,13 @@ ms.locfileid: "59864341"
 
 **In diesem Abschnitt**  
   
--   [Windows-Zeitdienst-Architektur](#w2k3tr_times_how_rrfo)  
+-   [Windows-Zeitdienst-Architektur](#windows-time-service-architecture)  
   
--   [Windows Time Service Time-Protokolle](#w2k3tr_times_how_ekoc)  
+-   [Windows Time Service Time-Protokolle](#windows-time-service-time-protocols)  
   
--   [Windows Time Serviceprozesse und-Interaktionen](#w2k3tr_times_how_izcr)  
+-   [Windows Time Serviceprozesse und-Interaktionen](#windows-time-service-processes-and-interactions)  
   
--   [Von Windows-Zeitdienst verwendete Netzwerkports](#w2k3tr_times_how_ydum)  
+-   [Von Windows-Zeitdienst verwendete Netzwerkports](#network-ports-used-by-windows-time-service)  
   
 > [!NOTE]  
 > In diesem Thema wird erläutert, wie nur die Windows-Zeitdienst (W32Time) funktioniert. Informationen zum Konfigurieren der Windows-Zeitdienst, finden Sie unter [Konfigurieren von Systemen für hohe Genauigkeit](configuring-systems-for-high-accuracy.md).
@@ -57,7 +57,7 @@ Der Grad, zu dem Zeit des Computers korrekt ist, wird eine Stratum aufgerufen. D
   
 Wenn der W32Time-Manager Stichproben erhält, verwendet er spezielle Algorithmen in NTP um zu bestimmen, welche die Time-Beispiele verwenden die am besten geeignet ist. Der Zeitdienst verwendet auch einen anderen Satz von Algorithmen, um zu bestimmen, welche die konfigurierte Zeitquellen die genaueste Lösung darstellt. Wenn der Zeitdienst die Time-Beispiel am besten geeignet ist ermittelt hat, wird angepasst basierend auf den oben genannten Kriterien, die lokale Uhr Rate so, dass auf die richtige Uhrzeit konvergiert können. Wenn der Zeitunterschied zwischen lokalen Uhrzeit und das ausgewählte genaue Uhrzeit-Beispiel (so genannte Zeit skew) zu groß, um das Anpassen der Rate für die lokale Uhr ist, legt der Zeitdienst die lokale Uhr auf die richtige Uhrzeit fest. Diese Anpassung der Taktrate oder direkte Uhrzeit geändert wird als Uhr Disziplin bezeichnet.  
   
-## <a name="w2k3tr_times_how_rrfo"></a>Windows-Zeitdienst-Architektur  
+## <a name="windows-time-service-architecture"></a>Windows-Zeitdienst-Architektur  
 Der Windows-Zeitdienst besteht aus folgenden Komponenten:  
   
 -   Dienststeuerungs-Manager  
@@ -88,7 +88,7 @@ Der Synchronisierungsvorgang für die Zeit umfasst die folgenden Schritte aus:
   
 Wenn ein Computer als einen Zeitserver festgelegt wurde, kann er die Zeit an einem beliebigen Computer Anfordern von Synchronisierung zu einem beliebigen Zeitpunkt in diesem Prozess senden.  
   
-## <a name="w2k3tr_times_how_ekoc"></a>Windows Time Service Time-Protokolle  
+## <a name="windows-time-service-time-protocols"></a>Windows Time Service Time-Protokolle  
 
 Protokolle von Zeit zu bestimmen, wie genau zwei Computern Uhren werden synchronisiert. Ein Time-Protokoll dient beim Ermitteln der beste Zeitpunkt der Verfügbarkeit der Informationen und konvergieren die Uhren, um sicherzustellen, dass es sich bei einem konsistenten Zeitpunkt auf separaten Systemen verwaltet wird.  
   
@@ -144,7 +144,7 @@ Der Windows-Zeitdienst kann zusammenarbeiten, mit Computern unter Windows NT 4.0
   
 Windows NT 4.0 verwendet einen einfacheren Mechanismus für die zeitsynchronisierung als der Zeit von Windows-Dienst verwendet. Aus diesem Grund wird um genaue uhrzeitsynchronisierung in Ihrem Netzwerk zu gewährleisten, empfohlen, alle Windows NT 4.0-Domänencontroller auf Windows 2000 oder Windows Server 2003 zu aktualisieren.  
   
-## <a name="w2k3tr_times_how_izcr"></a>Windows Time Serviceprozesse und-Interaktionen  
+## <a name="windows-time-service-processes-and-interactions"></a>Windows Time Serviceprozesse und-Interaktionen  
 
 Der Windows-Zeitdienst wurde entwickelt, um die Uhren von Computern in einem Netzwerk zu synchronisieren. Der Netzwerk-Zeit-Synchronisierungsvorgang Zeit konvergent, so genannte tritt auf, in einem Netzwerk immer greift auf Computer aus eine genauere Zeitserver. Zeit Konvergenz umfasst einen Prozess mit dem ein autorisierender Server die aktuelle Uhrzeit auf den Clientcomputern in Form von NTP-Pakete enthält. Die Informationen in einem Paket gibt an, ob eine Anpassung der aktuellen-Uhrzeit des Computers vorgenommen werden, damit er mit dem eine präzisere-Server synchronisiert wird.  
   
@@ -203,7 +203,7 @@ Die folgende Tabelle enthält die Abfragen, die von einem Domänencontroller wir
   
 **Abfragen der Domäne Domänencontroller-Zeitquelle**  
   
-|Abfrageanzahl|Domänencontroller|Pfad|Zuverlässigkeit von Zeitquelle|  
+|Abfrageanzahl|Domänencontroller|Speicherort|Zuverlässigkeit von Zeitquelle|  
 |----------------|---------------------|------------|------------------------------|  
 |1|Übergeordneten Domänencontroller|Am Standort|Bevorzugt eine zuverlässige Zeitquelle jedoch mit einer nicht zuverlässigen Zeitquelle synchronisieren können, wenn dies alles ist, die verfügbar ist.|  
 |2|Lokale Domänencontroller|Am Standort|Nur synchronisiert mit einer zuverlässigen Zeitquelle.|  
@@ -252,7 +252,7 @@ Einmalig sind Server, die von Clients als vertrauenswürdig eingestuft werden, a
 ### <a name="disabling-the-windows-time-service"></a>Deaktivieren des Windows-Zeitdienstes  
 Der Windows-Zeitdienst (W32Time) kann vollständig deaktiviert werden. Wenn Sie entscheiden, ein Drittanbieter-Time-Synchronisierung-Produkt zu implementieren, die NTP-Server verwendet, müssen Sie den Windows-Zeitdienst deaktivieren. Dies ist, da alle NTP-Server Zugriff auf TCP-Port 123 User Datagram Protocol (UDP benötigen) aus, und wie der Windows-Zeitdienst auf dem Windows Server 2003-Betriebssystem ausgeführt wird, Port 123 durch Windows-Uhrzeit reserviert bleibt.  
   
-## <a name="w2k3tr_times_how_ydum"></a>Von Windows-Zeitdienst verwendete Netzwerkports  
+## <a name="network-ports-used-by-windows-time-service"></a>Von Windows-Zeitdienst verwendete Netzwerkports  
 Der Windows-Zeitdienst kommuniziert über ein Netzwerk für den zuverlässigen Quellen zu identifizieren, erhalten Informationen und Informationen mit anderen Computern bereitstellen. Er führt diese Kommunikation über die NTP und SNTP-RFCs definiert.  
   
 **Portzuweisungen für den Windows-Zeitdienst**  

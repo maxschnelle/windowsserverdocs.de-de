@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: c925c7eb-6880-411f-8e59-bd0f57cc5fc3
 author: lizap
 manager: dongill
-ms.openlocfilehash: 894ea8b134ae5b871a2978e3f72e683c12346fe5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8571c2220f804a27e4e1a6b744e8e15e38bd53a3
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850201"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453083"
 ---
 # <a name="supported-configurations-for-remote-desktop-services-in-windows-server-2016"></a>Unterstützte Konfigurationen für Remotedesktopdienste in Windows Server 2016
 
@@ -90,7 +90,7 @@ Windows Server 2016 RDS unterstützt die zwei wichtigsten SSO-Funktionen:
  - In-app (Remote Desktop-Anwendung auf Windows, iOS, Android und Mac)
  - Web-SSO
  
-Verwenden die Remote Desktop-Anwendung, Sie können Speichern von Anmeldeinformationen als Teil der Verbindungsinformationen ([Mac](clients\remote-desktop-mac.md)) oder als Teil der verwalteten Konten ([iOS](clients\remote-desktop-ios.md#manage-your-user-accounts), [Android](clients\remote-desktop-android.md#manage-your-user-accounts), Windows) sicher über die Mechanismen, die für jedes Betriebssystem eindeutig.
+Verwenden die Remote Desktop-Anwendung, Sie können Speichern von Anmeldeinformationen als Teil der Verbindungsinformationen ([Mac](clients/remote-desktop-mac.md)) oder als Teil der verwalteten Konten ([iOS](clients/remote-desktop-ios.md#manage-your-user-accounts), [Android](clients/remote-desktop-android.md#manage-your-user-accounts), Windows) sicher über die Mechanismen, die für jedes Betriebssystem eindeutig.
 
 Um über den Posteingang Remote Desktop Connection-Client auf Windows-Desktops und RemoteApps mit SSO zu verbinden, müssen Sie zu der RD-Webseite über Internet Explorer verbinden. Die folgenden Konfigurationsoptionen sind auf dem Server erforderlich. Keine anderen Konfigurationen werden für Web-SSO unterstützt:
 

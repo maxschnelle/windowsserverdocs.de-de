@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c3bc06f82f557f136850872180a5c430f70da5fd
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 39b28e7d43df2427caae46d323cd30f03b6b484c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59888481"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436573"
 ---
 # <a name="nslookup-set-srchlist"></a>nslookup set srchlist
 
@@ -31,18 +31,20 @@ ms.locfileid: "59888481"
 Set srchlist=<DomainName>[/...]
 ```
 ## <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
-|-------|--------|
-|<DomainName>|Gibt neue Namen für die Standard-DNS-Domäne, und suchen. Der Name der domänenstandardwert basiert auf den Namen des Hosts. Sie können maximal sechs Namen, die durch Schrägstriche (/) getrennt angeben.|
-|{help &#124; ?}|Zeigt eine kurze Zusammenfassung der **Nslookup** Unterbefehle.|
+
+|    Parameter    |                                                                                        Beschreibung                                                                                        |
+|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  <DomainName>   | Gibt neue Namen für die Standard-DNS-Domäne, und suchen. Der Name der domänenstandardwert basiert auf den Namen des Hosts. Sie können maximal sechs Namen, die durch Schrägstriche (/) getrennt angeben. |
+| {help &#124; ?} |                                                                   Zeigt eine kurze Zusammenfassung der **Nslookup** Unterbefehle.                                                                   |
+
 ## <a name="remarks"></a>Hinweise
--   Die **Srchlist festgelegt**Befehl überschreibt der standardmäßigen DNS-Namen, und suchen Sie Domänenliste der **Satz Domäne** Befehl. Verwenden der **alle festlegen** Befehl aus, um die Liste anzuzeigen.
-## <a name="BKMK_examples"></a>Beispiele für
-Im folgenden Beispiel wird die DNS-Domäne mfg.widgets.com und der Liste "Suchen" auf die drei Namen:
-```
-set srchlist=mfg.widgets.com/mrp2.widgets.com/widgets.com
-```
-## <a name="additional-references"></a>Zusätzliche Referenzen
-[Befehlszeilen-Syntaxschlüssel](command-line-syntax-key.md)
-[Domäne fest, Nslookup](nslookup-set-domain.md)
-[Nslookup alle festlegen](nslookup-set-all.md)
+- Die **Srchlist festgelegt**Befehl überschreibt der standardmäßigen DNS-Namen, und suchen Sie Domänenliste der **Satz Domäne** Befehl. Verwenden der **alle festlegen** Befehl aus, um die Liste anzuzeigen.
+  ## <a name="BKMK_examples"></a>Beispiele für
+  Im folgenden Beispiel wird die DNS-Domäne mfg.widgets.com und der Liste "Suchen" auf die drei Namen:
+  ```
+  set srchlist=mfg.widgets.com/mrp2.widgets.com/widgets.com
+  ```
+  ## <a name="additional-references"></a>Zusätzliche Referenzen
+  [Befehlszeilen-Syntaxschlüssel](command-line-syntax-key.md)
+  [Domäne fest, Nslookup](nslookup-set-domain.md)
+  [Nslookup alle festlegen](nslookup-set-all.md)

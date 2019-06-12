@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: c9b2e9201d58472286b42a9c89a36423f40d143d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 348ebf5b99de7f582a3edf57b0a190f87f1c4a5b
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59834511"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66452597"
 ---
 # <a name="use-a-custom-gateway-plugin-in-your-tool-extension"></a>Verwenden eines benutzerdefinierten Gateway-Plug-Ins in der Tool-Erweiterung
 
@@ -23,7 +23,7 @@ In diesem Artikel verwenden wir ein benutzerdefiniertes Gateway-Plug-in in einer
 
 ## <a name="prepare-your-environment"></a>Vorbereiten der Umgebung ##
 
-Wenn Sie nicht bereits getan haben, befolgen Sie die Anweisungen [Entwickeln einer toolerweiterung](..\develop-tool.md) zum Vorbereiten der Umgebung, und erstellen Sie eine neue, leere toolerweiterung.
+Wenn Sie nicht bereits getan haben, befolgen Sie die Anweisungen [Entwickeln einer toolerweiterung](../develop-tool.md) zum Vorbereiten der Umgebung, und erstellen Sie eine neue, leere toolerweiterung.
 
 ## <a name="add-a-module-to-your-project"></a>Fügen Sie ein Modul zu Ihrem Projekt ##
 
@@ -62,6 +62,9 @@ export class PluginService {
 ```
 
 Ändern Sie Verweise auf ```Sample Uno``` und ```Sample%20Uno``` Ihre Namen Features nach Bedarf.
+
+[!WARNING]
+> Es wird empfohlen, die den integrierten ```this.appContextService.node``` dient zum Aufrufen einer APIs, die in Ihr benutzerdefiniertes Gateway-Plug-in definiert ist. Dadurch wird sichergestellt, dass wenn Anmeldeinformationen in Ihrem Gateway-Plug-Ins erforderlich sind, dass sie ordnungsgemäß verarbeitet werden.
 
 ### <a name="modify-modulets"></a>Module.ts ändern
 
@@ -142,4 +145,4 @@ Fügen Sie der HTML-Datei den folgenden Inhalt hinzu:
 
 ## <a name="build-and-side-load-your-extension"></a>Erstellen und die Seite laden die Erweiterung
 
-Nun können Sie auf [erstellen und die Seite laden](..\develop-tool.md#build-and-side-load-your-extension) Ihre Erweiterung in Windows Admin Center.
+Nun können Sie auf [erstellen und die Seite laden](../develop-tool.md#build-and-side-load-your-extension) Ihre Erweiterung in Windows Admin Center.

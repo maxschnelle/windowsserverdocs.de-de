@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: Asmahi; SandySp; JoPoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 2a49fdaba89a01c8daf6483f72dbc88daa91452b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f16ee9cff9c244a8c579e008bced1e90b1a20673
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843241"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435589"
 ---
 # <a name="hyper-v-processor-performance"></a>Hyper-V, Prozessorbezogene Leistungsdaten
 
@@ -69,19 +69,19 @@ Die Features virtuelles NUMA und dynamischer Arbeitsspeicher können nicht gleic
 
 Weitere Informationen zum virtuellen NUMA, finden Sie unter [Hyper-V virtuellen NUMA (Übersicht)](https://technet.microsoft.com/library/dn282282.aspx).
 
-##<a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Siehe auch
 
 -   [Hyper-V-Terminologie](terminology.md)
 
 -   [Hyper-V-Architektur](architecture.md)
 
--   [Hyper-V-Server-Konfiguration](configuration.md)
+-   [Hyper-V-Serverkonfiguration](configuration.md)
 
--   [Hyper-V-Memory-Leistung](memory-performance.md)
+-   [Hyper-V-Arbeitsspeicherleistung](memory-performance.md)
 
--   [Hyper-V-Speicher-e/a-Leistung](storage-io-performance.md)
+-   [E/A-Leistung für Hyper-V-Speicher](storage-io-performance.md)
 
--   [Hyper-V-Netzwerk-e/a-Leistung](network-io-performance.md)
+-   [E/A-Leistung für Hyper-V-Netzwerk](network-io-performance.md)
 
 -   [Erkennen von Engpässen in einer virtualisierten Umgebung](detecting-virtualized-environment-bottlenecks.md)
 

@@ -14,18 +14,18 @@ ms.assetid: 52b9e09f-39e0-41a9-9d3b-4d5f4eacf3e0
 author: christianmontoya
 manager: scottman
 ms.localizationpriority: medium
-ms.openlocfilehash: cd00f92254f9e55f83442f5e68e344e0aa7579a2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3d148c99911be0cebfc29429d93241f24c2b9606
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855501"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453016"
 ---
 # <a name="welcome-to-remote-desktop-services"></a>Willkommen bei den Remotedesktopdiensten 
 
 Remote Desktop Services (RDS) ist die Plattform der Wahl für das Erstellen von Virtualisierungslösungen für jedes End-Kunde sind, einschließlich einzelne virtualisierte Anwendungen bereitstellen, einen sicheren mobilen und desktop-Zugriff und die Endbenutzer die Möglichkeit, ihre Anwendungen und Desktops aus der Cloud auszuführen.
 
-![Übersicht über Remotedesktopdienste](.\media\rds-overview.png)
+![Übersicht über Remotedesktopdienste](./media/rds-overview.png)
 
 RDS bietet Flexibilität bei der Bereitstellung, Kosten der Effizienz und Erweiterbarkeit – alle übermittelten über eine Vielzahl von Bereitstellungsoptionen, einschließlich Windows Server 2016 für lokale Bereitstellungen, Microsoft Azure für Cloud-Bereitstellungen und eine stabile Array des Partners Lösungen.
 

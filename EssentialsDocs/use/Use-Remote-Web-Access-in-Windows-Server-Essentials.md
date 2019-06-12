@@ -12,12 +12,12 @@ ms.assetid: 47ea21a0-5e05-4b4b-8fa4-338c82601276
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: f8cf1b12a8fffe2a6e3389aad518ac96bc136cc9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: b78d6abbaf287fc56336ff8d16127ce249b97519
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59872171"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435914"
 ---
 # <a name="use-remote-web-access-in-windows-server-essentials"></a>Verwalten des Remotewebzugriffs in Windows Server 2012 Essentials
 
@@ -139,21 +139,21 @@ ms.locfileid: "59872171"
   
 ###### <a name="to-upload-files"></a>So laden Sie Dateien hoch  
   
-1.  Klicken Sie im Remotewebzugriff auf die Registerkarte für die **freigegebenen Ordner**, und klicken Sie dann auf die Verknüpfung eines freigegebenen Ordners. Eine Liste der Dateien und Ordner in diesem freigegebenen Ordner wird angezeigt.  
+1. Klicken Sie im Remotewebzugriff auf die Registerkarte für die **freigegebenen Ordner**, und klicken Sie dann auf die Verknüpfung eines freigegebenen Ordners. Eine Liste der Dateien und Ordner in diesem freigegebenen Ordner wird angezeigt.  
   
-2.  Klicken Sie in der Liste der freigegebenen Ordner der Dateien und Ordner auf den Ordner, in den die Datei hochgeladen werden soll, und klicken Sie dann auf **Hochladen**.  
+2. Klicken Sie in der Liste der freigegebenen Ordner der Dateien und Ordner auf den Ordner, in den die Datei hochgeladen werden soll, und klicken Sie dann auf **Hochladen**.  
   
-3.  Wenn das standardmäßige Uploadtool nicht bereits geladen ist, klicken Sie auf die **Option zur Verwendung der Standardmethode für Uploads**.  
+3. Wenn das standardmäßige Uploadtool nicht bereits geladen ist, klicken Sie auf die **Option zur Verwendung der Standardmethode für Uploads**.  
   
-4.  Klicken Sie auf **Durchsuchen**  , um die entsprechende Datei auf Ihrem Computer zu finden.  
+4. Klicken Sie auf **Durchsuchen**  , um die entsprechende Datei auf Ihrem Computer zu finden.  
   
-5.  Navigieren Sie zwischen den Ordnern auf Ihrem Computer, um die hochzuladende Datei zu finden, und klicken Sie dann auf **Öffnen**.  
+5. Navigieren Sie zwischen den Ordnern auf Ihrem Computer, um die hochzuladende Datei zu finden, und klicken Sie dann auf **Öffnen**.  
   
-6.  Wiederholen Sie die Schritte 2 und 3 für jede Datei, die Sie hochladen möchten.  
+6. Wiederholen Sie die Schritte 2 und 3 für jede Datei, die Sie hochladen möchten.  
   
-7.  Klicken Sie nach dem Hinzufügen sämtlicher hochzuladender Datei auf **Hochladen**.  
+7. Klicken Sie nach dem Hinzufügen sämtlicher hochzuladender Datei auf **Hochladen**.  
   
- Das Tool „Einfacher Dateiupload“ optimiert das Hochladen von Dateien auf Ihrem Server unter Windows Server Essentials. Sie können mithilfe des Tools „Einfacher Dateiupload“ beliebig viele Dateien unter Verwendung des Drag-and-drop-Features hinzufügen und sie anschließend als freigegebene Ordner auf dem Server hochladen.  
+   Das Tool „Einfacher Dateiupload“ optimiert das Hochladen von Dateien auf Ihrem Server unter Windows Server Essentials. Sie können mithilfe des Tools „Einfacher Dateiupload“ beliebig viele Dateien unter Verwendung des Drag-and-drop-Features hinzufügen und sie anschließend als freigegebene Ordner auf dem Server hochladen.  
   
 > [!NOTE]
 >  Das Hochladen mehrerer Dateien wird in Webbrowsern, die mit HTML5 kompatibel sind, nativ unterstützt. Dieses Tool ist nur erforderlich, wenn der Webbrowser HTML5 nicht unterstützt.  
@@ -166,7 +166,7 @@ ms.locfileid: "59872171"
   
 3.  Sie müssen möglicherweise das Add-On für Windows Server-Lösungen ausführen. Wenn dies der Fall sein sollte, klicken Sie auf den gelben Streifen oben auf dem Bildschirm, klicken Sie auf **Add-On**, und klicken Sie dann auf das Dialogfeld **Ausführen**.  
   
-4.  Klicken Sie auf **Verwenden Sie das Tool 'Einfacher Dateiupload'**, wenn das Tool „Einfacher Dateiupload“ nicht bereits geladen wurde.  
+4.  Klicken Sie auf **Verwenden Sie das Tool 'Einfacher Dateiupload'** , wenn das Tool „Einfacher Dateiupload“ nicht bereits geladen wurde.  
   
 5.  Sie können Dateien per Drag-and-drop aus dem Windows-Explorer im Tool „Einfacher Dateiupload“ ablegen oder auf **auf 'Durchsuchen' klicken, um Dateien auszuwählen** klicken.  
   
@@ -178,39 +178,39 @@ ms.locfileid: "59872171"
   
 ###### <a name="to-download-a-single-file"></a>So laden Sie eine einzelne Datei herunter  
   
-1.  Klicken Sie im Remotewebzugriff auf die Registerkarte für die **freigegebenen Ordner**, und klicken Sie dann auf die Verknüpfung eines freigegebenen Ordners. Eine Liste der Dateien und Ordner in diesem freigegebenen Ordner wird angezeigt.  
+1. Klicken Sie im Remotewebzugriff auf die Registerkarte für die **freigegebenen Ordner**, und klicken Sie dann auf die Verknüpfung eines freigegebenen Ordners. Eine Liste der Dateien und Ordner in diesem freigegebenen Ordner wird angezeigt.  
   
-2.  Aktivieren Sie in der Dateiliste für den freigegebenen Ordner das Kontrollkästchen neben der Datei, die Sie auf Ihren physischen Computer herunterladen möchten.  
+2. Aktivieren Sie in der Dateiliste für den freigegebenen Ordner das Kontrollkästchen neben der Datei, die Sie auf Ihren physischen Computer herunterladen möchten.  
   
-3.  Klicken Sie auf **Download**, um den Download zu starten.  
+3. Klicken Sie auf **Download**, um den Download zu starten.  
   
-4.  Klicken Sie im Dialogfeld **Dateidownload** auf **Speichern**, um die Datei auf Ihrem Computer zu speichern.  
+4. Klicken Sie im Dialogfeld **Dateidownload** auf **Speichern**, um die Datei auf Ihrem Computer zu speichern.  
   
-5.  Wählen Sie im Dialogfeld **Speichern unter** den Speicherort für das Speichern der Datei aus, und klicken Sie dann auf **Speichern**. Eine einzelne Datei wird nicht komprimiert, bevor sie heruntergeladen wird.  
+5. Wählen Sie im Dialogfeld **Speichern unter** den Speicherort für das Speichern der Datei aus, und klicken Sie dann auf **Speichern**. Eine einzelne Datei wird nicht komprimiert, bevor sie heruntergeladen wird.  
   
- Es gibt zwei Optionen zum Herunterladen mehrerer Dateien oder Ordner. Wählen Sie die für Ihre Anforderungen geeignete Option aus:  
+   Es gibt zwei Optionen zum Herunterladen mehrerer Dateien oder Ordner. Wählen Sie die für Ihre Anforderungen geeignete Option aus:  
   
 > [!NOTE]
 >  Diese Optionen stehen nur zur Verfügung, wenn Sie mehrere Dateien oder Ordner auf Ihren Computer herunterladen.  
   
--   **Selbstextrahierende ausführbare Datei (.exe)**  
+- **Selbstextrahierende ausführbare Datei (.exe)**  
   
-    > [!NOTE]
-    >   Dieser Abschnitt gilt für einen Server mit Windows Server Essentials.  
+  > [!NOTE]
+  >   Dieser Abschnitt gilt für einen Server mit Windows Server Essentials.  
   
-     Eine selbstextrahierende ausführbare Datei ist eine herunterladbare Datei, die das Dekomprimierungsprogramm (ausführbare Datei) mit den komprimierten Dateien kombiniert. Wenn Sie das ausführbare Programm ausführen, dekomprimiert es automatisch die komprimierten Dateien (selbstextrahierend). Mit diesem gängigen Verfahren können komprimierte Daten verteilt werden, ohne dass der Empfänger über das nötige Dekomprimierungshilfsprogramm verfügen muss.  
+   Eine selbstextrahierende ausführbare Datei ist eine herunterladbare Datei, die das Dekomprimierungsprogramm (ausführbare Datei) mit den komprimierten Dateien kombiniert. Wenn Sie das ausführbare Programm ausführen, dekomprimiert es automatisch die komprimierten Dateien (selbstextrahierend). Mit diesem gängigen Verfahren können komprimierte Daten verteilt werden, ohne dass der Empfänger über das nötige Dekomprimierungshilfsprogramm verfügen muss.  
   
-    > [!NOTE]
-    >  Diese Option unterstützt Unicode-Zeichen.  
+  > [!NOTE]
+  >  Diese Option unterstützt Unicode-Zeichen.  
   
--   **Windows-komprimierten Ordner (.zip)**  
+- **Windows-komprimierten Ordner (.zip)**  
   
-     Durch das Zippen einer Datei wird eine komprimierte Dateiversion erstellt, die kleiner als die Originaldatei ist. Die komprimierte Dateiversion verfügt über die Dateierweiterung ".zip". Dateitypen, die am stärksten verpackt werden, sind textorientierte Dateitypen wie TXT,- DOC-, XLS- und grafische Dateien, die nicht komprimierte Dateitypen wie .bmp verwenden. Einige Grafikdateien wie JPG- und GIF-Dateien nutzen bereits die Komprimierung, sodass sich die Dateigröße durch das Komprimieren nur geringfügig verkleinert. Darüber hinaus reduziert sich die Dateigröße eines Word-Dokuments mit vielen Grafiken nicht in dem Maße wie ein Dokument, das hauptsächlich Text enthält.  
+   Durch das Zippen einer Datei wird eine komprimierte Dateiversion erstellt, die kleiner als die Originaldatei ist. Die komprimierte Dateiversion verfügt über die Dateierweiterung ".zip". Dateitypen, die am stärksten verpackt werden, sind textorientierte Dateitypen wie TXT,- DOC-, XLS- und grafische Dateien, die nicht komprimierte Dateitypen wie .bmp verwenden. Einige Grafikdateien wie JPG- und GIF-Dateien nutzen bereits die Komprimierung, sodass sich die Dateigröße durch das Komprimieren nur geringfügig verkleinert. Darüber hinaus reduziert sich die Dateigröße eines Word-Dokuments mit vielen Grafiken nicht in dem Maße wie ein Dokument, das hauptsächlich Text enthält.  
   
-    > [!NOTE]
-    >  Diese Option bietet eingeschränkte Unterstützung für internationale Dateinamen in Windows Server Essentials.  
+  > [!NOTE]
+  >  Diese Option bietet eingeschränkte Unterstützung für internationale Dateinamen in Windows Server Essentials.  
   
- Vor dem Beginn des tatsächlichen Herunterladens wird die EXE- oder ZIP-Datei erstellt. Abhängig von der Anzahl der Dateien und der Gesamtgröße der Downloaddateien kann dies einige Minuten dauern. Nachdem die Downloaddatei erstellt wurde, erfolgt das Herunterladen der Datei im Hintergrund. Dadurch können Sie weiterarbeiten, während der Downloadvorgang ausgeführt wird.  
+  Vor dem Beginn des tatsächlichen Herunterladens wird die EXE- oder ZIP-Datei erstellt. Abhängig von der Anzahl der Dateien und der Gesamtgröße der Downloaddateien kann dies einige Minuten dauern. Nachdem die Downloaddatei erstellt wurde, erfolgt das Herunterladen der Datei im Hintergrund. Dadurch können Sie weiterarbeiten, während der Downloadvorgang ausgeführt wird.  
   
 ###### <a name="to-download-multiple-files-or-folders"></a>So laden Sie mehrere Dateien oder Ordner herunter  
   
@@ -326,13 +326,13 @@ ms.locfileid: "59872171"
   
 ##### <a name="to-return-to-the-mobile-version-of-remote-web-access"></a>So kehren Sie zur mobilen Version des Remotewebzugriffs zurück  
   
-1.  Melden Sie sich ab.  
+1. Melden Sie sich ab.  
   
-2.  Öffnen Sie einen Webbrowser und Typ **https://***<IhrDomänenname\>***/Remote/m** in der Adressleiste. Stellen Sie sicher, dass Sie die s in Https enthalten.  
+2. Öffnen Sie einen Webbrowser und Typ **https://***<IhrDomänenname\>***/Remote/m** in der Adressleiste. Stellen Sie sicher, dass Sie die s in Https enthalten.  
   
-3.  Die mobile Version des Remotewebzugriffs wird angezeigt. Geben Sie auf der Anmeldeseite des Remotewebzugriffs Ihren Benutzernamen und Kennwort in die Textfelder ein, und klicken Sie dann auf den Pfeil. Sie sind in der mobilen Version des Remotewebzugriffs angemeldet.  
+3. Die mobile Version des Remotewebzugriffs wird angezeigt. Geben Sie auf der Anmeldeseite des Remotewebzugriffs Ihren Benutzernamen und Kennwort in die Textfelder ein, und klicken Sie dann auf den Pfeil. Sie sind in der mobilen Version des Remotewebzugriffs angemeldet.  
   
- Sie können nach Dateien und Ordnern in den freigegebenen Ordnern auf dem Server suchen.  
+   Sie können nach Dateien und Ordnern in den freigegebenen Ordnern auf dem Server suchen.  
   
 ###  <a name="BKMK_9"></a> Unterstützte Webbrowser für Mobilgeräte  
  Unterstützte Webbrowser für Mobilgeräte umfassen:  

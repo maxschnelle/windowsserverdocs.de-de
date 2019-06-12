@@ -12,12 +12,12 @@ ms.assetid: e45b3d89-c057-4c70-a627-86fb06dd22aa
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 9b0d11be08840ecedabab6fd4e96f5d453ea4857
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 52ec9bf1caa4cb4c7ed661eec1448f3f2a4be980
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59848191"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66436049"
 ---
 # <a name="troubleshoot-connecting-computers-to-the-server-in-windows-server-essentials"></a>Problembehandlung beim Verbinden von Computern mit dem Server in Windows Server Essentials
 
@@ -165,7 +165,7 @@ ms.locfileid: "59848191"
   
  Dies kann geschehen, wenn Datum und Uhrzeit auf dem verbundenen Computer nicht synchron mit Datum und Uhrzeit auf dem Server sind.  Windows Server Essentials und Windows Server Essentials verwenden den Zeitsynchronisierungsdienst, um das Datum und Uhrzeit von Computern in einer Windows Server Essentials oder Windows Server Essentials-Netzwerk zu synchronisieren. Eine synchronisierte Uhrzeit ist wichtig, da das standardmäßig verwendete Authentifizierungsprotokoll die Uhrzeit des Servers für die Authentifizierung verwendet. Z. B. wenn die Uhr auf einem Clientcomputer nicht, um das richtige Datum und die Uhrzeit, Windows Server Essentials synchronisiert ist oder Windows Server Essentials-Authentifizierung möglicherweise fälschlicherweise eine anmeldeanforderung wie einen Eindringversuch interpretiert, und Verweigern des Zugriffs auf den Benutzer.  
   
- Dies kann vorkommen, wenn der Server s freie Speicherplatz weniger als 5 Prozent ist.  
+ Dies kann vorkommen, wenn der freie Arbeitsspeicher des Servers unter 5 Prozent liegt.  
   
  Dies kann geschehen, wenn Sie bereits über eine VPN-Verbindung mit dem Windows Essentials-Server verfügen und versuchen, die Connectorsoftware extern mithilfe einer Domänenadresse zu konfigurieren.  
   
@@ -179,17 +179,17 @@ ms.locfileid: "59848191"
   
 #### <a name="to-change-the-date-and-time-on-the-client-computer"></a>So ändern Sie Datum und Uhrzeit auf dem Clientcomputer  
   
-1.  Öffnen Sie auf dem Clientcomputer auf der Seite **Start**die Systemsteuerung.  
+1. Öffnen Sie auf dem Clientcomputer auf der Seite **Start**die Systemsteuerung.  
   
-2.  Klicken Sie in der Systemsteuerung auf **Zeit, Sprache und Region**, und klicken Sie dann auf **Datum und Uhrzeit**.  
+2. Klicken Sie in der Systemsteuerung auf **Zeit, Sprache und Region**, und klicken Sie dann auf **Datum und Uhrzeit**.  
   
-3.  Klicken Sie auf **Datum und Uhrzeit ändern**, legen Sie Datum und Uhrzeit auf die gewünschten Angaben fest, und klicken Sie dann auf **OK**.  
+3. Klicken Sie auf **Datum und Uhrzeit ändern**, legen Sie Datum und Uhrzeit auf die gewünschten Angaben fest, und klicken Sie dann auf **OK**.  
   
-4.  Klicken Sie auf **OK**, um die Systemsteuerung zu schließen.  
+4. Klicken Sie auf **OK**, um die Systemsteuerung zu schließen.  
   
-5.  Versuchen Sie erneut, den Clientcomputer mit dem Server zu verbinden. Anleitungen finden Sie unter "Verbinden von Computern mit dem Server".  
+5. Versuchen Sie erneut, den Clientcomputer mit dem Server zu verbinden. Anleitungen finden Sie unter "Verbinden von Computern mit dem Server".  
   
- Wenn sich der Clientcomputer immer noch nicht mit dem Server verbinden kann, stellen Sie sicher, dass Datum und Uhrzeit auf dem Server richtig sind. Wenn Datum und Uhrzeit nicht richtig sind, ändern Sie die Angaben.  
+   Wenn sich der Clientcomputer immer noch nicht mit dem Server verbinden kann, stellen Sie sicher, dass Datum und Uhrzeit auf dem Server richtig sind. Wenn Datum und Uhrzeit nicht richtig sind, ändern Sie die Angaben.  
   
 #### <a name="to-change-the-date-and-time-on-the-server"></a>So ändern Sie Datum und Uhrzeit auf dem Server  
   

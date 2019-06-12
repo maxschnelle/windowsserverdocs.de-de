@@ -6,12 +6,12 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 17fa97e28d099806c9280e42dd900e8d6c708641
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dd381c04b02889a7f2e7b8992ff6050d1b0f078a
+ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850241"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453059"
 ---
 # <a name="dfs-replication-overview"></a>Übersicht über die DFS-Replikation
 
@@ -25,7 +25,7 @@ Weitere Informationen über die Replikation von SYSVOL mit DFS-Replikation finde
 
 Um die DFS-Replikation verwenden zu können, müssen Sie Replikationsgruppen erstellen und replizierte Ordner, die den Gruppen hinzufügen. Replikationsgruppen, replizierte Ordner und Elemente werden in der folgenden Abbildung dargestellt.
 
-![Eine Replikationsgruppe, die eine Verbindung zwischen zwei Member enthält, replizierte jeweils mehrere Ordner](media\dfsr-overview.gif)
+![Eine Replikationsgruppe, die eine Verbindung zwischen zwei Member enthält, replizierte jeweils mehrere Ordner](media/dfsr-overview.gif)
 
 Diese Abbildung zeigt, dass eine Replikationsgruppe enthalten eine Gruppe von Servern, die als Mitglieder bezeichnet ist, die an einen oder mehrere replizierte Ordner der Replikation beteiligt ist. Ein replizierter Ordner ist ein Ordner, der auf jedem Mitglied synchronisiert bleibt. Es gibt zwei replizierte Ordner, in der Abbildung: Projekte und Vorschläge. Wenn die Daten in jeder replizierten Ordner geändert wird, werden die Änderungen in Verbindungen zwischen den Mitgliedern der Replikationsgruppe repliziert. Die Verbindungen zwischen allen Mitgliedern bilden die Replikationstopologie.
 Erstellen mehrere replizierte Ordner, in einer einzelnen Replikationsgruppe vereinfacht den Prozess der Bereitstellung von replizierte Ordner, da die Topologie, Zeitplan und für die Replikationsgruppe für die bandbreitenbeschränkung für jeden replizierten Ordner gelten. Zum Bereitstellen zusätzlicher replizierte Ordner können Dfsradmin.exe oder eine führen Sie die Anweisungen des Assistenten Sie zum Definieren der lokale Pfad und die Berechtigungen für den neuen replizierten Ordner.

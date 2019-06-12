@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: Qizha;TristanB
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 8a2ef4fd39554446aaac686e142ad24f53b4efaa
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 9b8af89992f01712e16d0ef503c8cbbac915df1d
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863051"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811591"
 ---
 # <a name="processor-power-management-ppm-tuning-for-the-windows-server-balanced-power-plan"></a>Optimierung der Energiesparplan von Windows Server mit Lastenausgleich für die Energieverwaltung (PPM)
 
@@ -20,7 +20,7 @@ Ab Windows Server 2008 bietet Windows Server drei Energiesparpläne aus: **Mit L
 
 Wenn Sie ein Server-System, die andere workloadmerkmale oder Leistung und geringeren Energieverbrauch als für diese Workloads verfügt ausführen, möchten Sie möglicherweise optimieren Sie die Standardeinstellungen für die Power (d. h., einen benutzerdefinierten Energiesparplan erstellen). Ist eine Informationsquelle nützliche Optimierung der [Server Power Hardwareanforderungen](../power.md). Alternativ können Sie entscheiden, dass die **hohe Leistung** Energiesparplan ist die richtige Wahl für Ihre Umgebung erkennen, dass Sie wahrscheinlich eine erhebliche Energie, die im Austausch gegen gewisse erhöhte Reaktionsfähigkeit erreicht gelangen.
 
->[!Important]
+> [!IMPORTANT]
 > Nutzen Sie die Power-Richtlinien, die mit Windows Server enthalten sind, es sei denn, Sie eine spezifische Notwendigkeit haben, erstellen Sie eine benutzerdefinierte und sehr gute Kenntnisse, dass die Ergebnisse je nach den Eigenschaften Ihrer arbeitsauslastung variieren.
 
 ## <a name="windows-processor-power-tuning-methodology"></a>Windows-Prozessor Power Optimierung Methodik
@@ -28,7 +28,7 @@ Wenn Sie ein Server-System, die andere workloadmerkmale oder Leistung und gering
 
 ### <a name="tested-workloads"></a>Getestete workloads
 
-Workloads werden ausgewählt, auf einen Best-Effort-Prinzip "typische? Windows Server-Workloads. Dieser Satz ist offensichtlich nicht vorgesehen, für die ganze Bandbreite der echten serverumgebungen repräsentativ sein.
+Workloads werden ausgewählt, auf einen Best-Effort-Prinzip von "typischen" Windows Server-Workloads. Dieser Satz ist offensichtlich nicht vorgesehen, für die ganze Bandbreite der echten serverumgebungen repräsentativ sein.
 
 Die Optimierung in jeder Richtlinie Power sind Daten, die durch die folgenden fünf Workloads gesteuert:
 
@@ -60,12 +60,12 @@ Für jede Version von Windows werden die aktuellen Produktionsserver in den Powe
 
 Angesichts der Tatsache, dass die meisten Server mit 1 bis 4 prozessorsockets verkauft werden, und da hochskalieren Server weniger wahrscheinlich Energieeffizienz als eines der Hauptprobleme sind, sind die Power-Plan Optimierung in erster Linie auf Systemen mit 2-Socket und 4-Socket-Tests. Die Menge an Arbeitsspeicher, Datenträger und Netzwerk-Ressourcen für jeden Test werden ausgewählt, um jedes System auszuführende einprozessorenlösungen bis hinauf unter Berücksichtigung die Cost-Einschränkungen, die normalerweise zu echten serverumgebungen, z. B. unter Beibehaltung der vollen Kapazität ermöglichen die Konfigurationen, die sinnvoll.
 
->[!Important]
+> [!IMPORTANT]
 > Obwohl das System an die Spitzenlast ausführen kann, in der Regel Optimierung erfolgt für geringer Auslastung, da Server, die konsistent zu ihren Spitzenwert Auslastungsgrad ausgeführt klar empfohlen wäre, mit der **High Performance** Energiesparoption, es sei denn, Energie Effizienz ist eine hohe Priorität.
 
 ### <a name="metrics"></a>Metriken
 
-Alle von den getesteten Benchmarks verwenden Durchsatz, als die Leistungsmetrik. Antwortzeit gilt als SLA-Anforderung für diese Workloads (mit Ausnahme von SAP, in denen es sich um eine primäre Metrik ist). Beispielsweise ist eine Benchmark, führen Sie "? gültig Wenn die Mittelwert- oder die maximale Antwortzeit kleiner als bestimmten Wert ist.
+Alle von den getesteten Benchmarks verwenden Durchsatz, als die Leistungsmetrik. Antwortzeit gilt als SLA-Anforderung für diese Workloads (mit Ausnahme von SAP, in denen es sich um eine primäre Metrik ist). Ein vergleichstestlaufs gilt z. B. "ungültig", wenn die Mittelwert- oder die maximale Antwortzeit, die kleiner als bestimmten Wert ist.
 
 Aus diesem Grund verwendet der Optimierungsanalyse auch PPM Durchsatz als Leistungsmetrik.  Auf der höchsten Auslastung-Ebene (100 % der CPU-Auslastung) ist unser Ziel an, dass der Durchsatz mehr als ein paar Prozent aufgrund Power Management Optimierungen nicht verringert werden soll. Aber der wichtigste Aspekt ist, um die Energieeffizienz zu maximieren (wie unten definiert) auf mittlerer und geringer Auslastung.
 
@@ -73,7 +73,7 @@ Aus diesem Grund verwendet der Optimierungsanalyse auch PPM Durchsatz als Leistu
 
 Die CPU-Kerne auf niedrigeren Häufigkeit ausgeführt wird Energieverbrauch reduziert. Niedriger Häufigkeit wird jedoch in der Regel Durchsatz verringern, und der Antwortzeit zu erhöhen. Für die **ausgeglichen** Energiesparplan, besteht eine absichtliche vor-und Nachteile des Reaktionsfähigkeit und Leistung Effizienz. Die SAP-Workload-Tests als auch die Antwortzeit SLAs für andere Workloads, stellen sicher, dass es sich bei der Antwort verlängern Schwellenwert (5 % als Beispiel) für diese speziellen Workloads nicht überschreitet.
 
->[!Note]
+> [!NOTE]
 > Wenn die arbeitsauslastung Antwortzeit als die Leistungsmetrik verwendet, sollte das System entweder zum Wechseln der **hohe Leistung** Energiesparplan von Computern oder ändern Sie **ausgeglichen** Energiesparplan, wie im [ Ausgeglichene Power-Plan-Parameter für die schnelle Antwortzeit empfohlen](recommended-balanced-plan-parameters.md).
 
 ### <a name="tuning-results"></a>Optimierung der Ergebnisse
@@ -98,20 +98,20 @@ Aufgrund der Anzahl und Komplexität der Parameter Dies kann eine Herausforderun
 
 -   **Verringern der Zeit der Prozessor Leistung** – größere Werte verringern Perf eher allmählich während Leerlaufzeiten
 
--   **Prozessor-Leistungsrichtlinie Erhöhung** – der "Single? Richtlinie verlangsamt die Perf-Antwort auf zunehmende und nachhaltige Aktivität; die "Rocket? Richtlinie reagiert schnell auf eine Zunahme der Aktivität
+-   **Prozessor-Leistungsrichtlinie erhöhen** – die Richtlinie "Einfach" verlangsamt die Perf-Antwort auf zunehmende und nachhaltige-Aktivität, die Richtlinie "Rocket" reagiert schnell zu erhöhten Aktivität
 
--   **Prozessor-Leistungsrichtlinie verringern** – der "Single? Richtlinie verringert die Leistung eher allmählich über mehr Leerlaufzeiten; die "Rocket? Richtlinie löscht Power sehr schnell, wenn Sie eine Zeit im Leerlauf eingeben
+-   **Prozessor-Leistungsrichtlinie verringern** – die Richtlinie "Einfach" Perf wird über mehr Leerlaufzeiten eher allmählich verringert wird, die die Richtlinie "Rocket" löscht Power sehr schnell, wenn Sie eine Zeit im Leerlauf eingeben
 
 >[!Important]
 > Vor dem Starten alle Experimente, sollten Sie zuerst Ihre Workloads, verstehen, was das richtige PPM-Parameter aus und verringern den Aufwand, der Optimierung.
 
 ### <a name="understand-high-level-performance-and-power-requirements"></a>Allgemeine Leistung und Energieprofil zu verstehen
 
-Wenn Ihre Workload "Echtzeit? (z. B. anfällig für Glitching oder andere durch den Endbenutzer sichtbar wirkt sich auf) oder sind sehr strenge Reaktionsfähigkeit erforderlich (z. B. eine Börsenmakler), und wenn Energieverbrauch keiner primären Kriterien für Ihre Umgebung ist, sollten Sie vielleicht stattdessen die **Hohe Leistung** Energiesparplan. Andernfalls sollten Sie verstehen der Anforderungen an Reaktionen auf-Zeit Ihrer Workloads, und klicken Sie dann optimieren die PPM-Parameter für die beste möglich Energieeffizienz, die immer noch diese Anforderungen erfüllt.
+Wenn Ihre Workload "Echtzeit" ist (z. B. anfällig für Glitching oder andere durch den Endbenutzer sichtbar wirkt sich auf) oder sind sehr strenge Reaktionsfähigkeit erforderlich (z. B. eine Börsenmakler), und wenn Energieverbrauch keiner primären Kriterien für Ihre Umgebung ist, sollten Sie Wechseln Sie einfach auf die **hohe Leistung** Energiesparplan. Andernfalls sollten Sie verstehen der Anforderungen an Reaktionen auf-Zeit Ihrer Workloads, und klicken Sie dann optimieren die PPM-Parameter für die beste möglich Energieeffizienz, die immer noch diese Anforderungen erfüllt.
 
 ### <a name="understand-underlying-workload-characteristics"></a>Verstehen der zugrunde liegenden Merkmalen der arbeitsauslastung
 
-Sie kennen Ihre Workloads und Entwerfen das Experiment Parametersätze für die Optimierung. Z. B. wenn die Häufigkeit der CPU-Kerne müssen sehr ramped werden erhöhen Fast (vielleicht haben Sie eine bursty arbeitsauslastung mit erheblichen Leerlaufzeiten, aber Sie benötigen sehr schnelle Reaktionsfähigkeit, wenn eine neue Transaktion, die dabei spielt), und klicken Sie dann auf die prozessorleistung Richtlinie Klicken Sie auf "Rocket? festgelegt werden müssen (die, wie der Name schon sagt, Schießen der CPU-Core-Häufigkeit als der maximale Wert, anstatt über eine bestimmte Zeitspanne intensivieren).
+Sie kennen Ihre Workloads und Entwerfen das Experiment Parametersätze für die Optimierung. Z. B. wenn die Häufigkeit der CPU-Kerne müssen sehr ramped werden erhöhen Fast (vielleicht haben Sie eine bursty arbeitsauslastung mit erheblichen Leerlaufzeiten, aber Sie benötigen sehr schnelle Reaktionsfähigkeit, wenn eine neue Transaktion, die dabei spielt), und klicken Sie dann auf die prozessorleistung Richtlinie möchten "Rocket" (der, wie der Name schon sagt, wird die CPU-Core-Häufigkeit als der maximale Wert, anstatt über eine bestimmte Zeitspanne intensivieren geschossen) festgelegt werden.
 
 Wenn Ihre Workload sehr bursty ist, kann Intervall für die Seiten pro Minute reduziert werden, um die CPU-Frequenz, die schrittweise Ausführung beginnen sich früher nach dem Empfangen eines plötzlichen Ansturms zu machen. Wenn Ihre Workload mit hoher threadparallelität besitzt, und klicken Sie dann das Parken aktiviert werden kann, erzwingen Sie die Workload für eine kleinere Anzahl von Kernen, ausführen, wodurch die potenziell verbessern könnten Cachetreffer Prozessor Verhältnissen.
 
@@ -127,7 +127,7 @@ Aus diesem Grund Windows bietet ist eine **ausgeglichen** – energiesparplanüb
 
 ## <a name="see-also"></a>Siehe auch
 - [Überlegungen zur Leistung von Server-Hardware](../index.md)
-- [Überlegungen zur Power von Server-Hardware](../power.md)
-- [Leistung und Leistungsoptimierung](power-performance-tuning.md)
-- [Processor Power Management-Optimierung](processor-power-management-tuning.md)
-- [Ausgeglichene Parametern empfohlen](recommended-balanced-plan-parameters.md)
+- [Server Hardware Power Considerations](../power.md) (Überlegungen zum Energiebedarf von Serverhardware)
+- [Power and Performance Tuning](power-performance-tuning.md) (Leistungs- und Energieoptimierung)
+- [Processor Power Management (PPM) Tuning for the Windows Server Balanced Power Plan](processor-power-management-tuning.md) (Optimieren der Prozessorenergieverwaltung (Processor Power Management (PPM)) für den ausgewogenen Energiesparplan von Windows Server)
+- [Recommended Balanced Power Plan Parameters for Workloads Requiring Quick Response Times](recommended-balanced-plan-parameters.md) (Empfohlene Parameter für den ausgewogenen Energiesparplan für Workloads, die kurze Antwortzeiten erfordern)

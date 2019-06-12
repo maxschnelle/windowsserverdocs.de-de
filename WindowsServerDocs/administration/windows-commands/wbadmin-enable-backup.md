@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6fd0bea5da83ca9351d5ea1028c94392bdb40422
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 08a9754b6bb11c50e21ba0d30543761be1866326
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845541"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66440249"
 ---
 # <a name="wbadmin-enable-backup"></a>Sicherung des Wbadmin-aktivieren
 
@@ -76,7 +76,6 @@ wbadmin enable backup
 [-password:<Password>]
 [-quiet] 
 [-allowDeleteOldBackups]
-
 ```
 
 ## <a name="parameters"></a>Parameter
@@ -109,28 +108,28 @@ Geben Sie zum Anzeigen der Datenträger-ID-Wert für Ihre Datenträger **Wbadmin
 Die folgenden Beispiele zeigen die **Wbadmin Aktivieren der Sicherung** in verschiedenen backup-Szenarien verwendet werden:
 
 Szenario #1
--   Planen von Sicherungen von Festplattenlaufwerken "e:", d:\mountpoint, und \\ \\? \Volume{cc566d14-44a0-11d9-9d93-806e6f6e6963}\
--   Speichern Sie die Dateien auf den Datenträger DiskID
--   Ausführen von Sicherungen täglich um 9:00 Uhr und 18:00 Uhr
-```
-wbadmin enable backup -addtarget:DiskID -schedule:09:00,18:00 -include:e:,d:\mountpoint,\\?\Volume{cc566d14-44a0-11d9-9d93-806e6f6e6963}\
-```
-Szenario #2
--   Planen von Sicherungen von den Ordner d:\documents für den Netzwerkspeicherort \\ \\backupshare\backup1
--   Verwenden Sie die Netzwerkanmeldeinformationen für den Sicherungsadministrator Aaren Ekelund (Aekel), ist ein Mitglied der Domäne CONTOSOEAST zum Authentifizieren des Zugriffs auf die Netzwerkfreigabe verfügen. Die Aaren Kennwort ist *$3 hM 9 ^ 5lp*.
--   Ausführen von Sicherungen täglich um 12:00 Uhr und 18:00 Uhr
-```
-wbadmin enable backup –addtarget:\\backupshare\backup1 –include: d:\documents –user:CONTOSOEAST\aekel –password:$3hM9^5lp –schedule:00:00,19:00
-```
-#3-Szenario
--   Planen von Sicherungen der Volume-t "und" Ordner d:\documents auf dem Laufwerk h:, aber schließen Sie den Ordner d:\documents\~Tmp
--   Führen Sie eine vollständige Sicherung, die mit dem Volumeschattenkopie-Dienst.
--   Ausführen von Sicherungen täglich um 1:00 Uhr
-```
-wbadmin enable backup –addtarget:H: –include T:,D:\documents –exclude D:\documents\~tmp –vssfull –schedule:01:00
-```
+- Planen von Sicherungen von Festplattenlaufwerken "e:", d:\mountpoint, und \\ \\? \Volume{cc566d14-44a0-11d9-9d93-806e6f6e6963}\
+- Speichern Sie die Dateien auf den Datenträger DiskID
+- Ausführen von Sicherungen täglich um 9:00 Uhr und 18:00 Uhr
+  ```
+  wbadmin enable backup -addtarget:DiskID -schedule:09:00,18:00 -include:e:,d:\mountpoint,\\?\Volume{cc566d14-44a0-11d9-9d93-806e6f6e6963}\
+  ```
+  Szenario #2
+- Planen von Sicherungen von den Ordner d:\documents für den Netzwerkspeicherort \\ \\backupshare\backup1
+- Verwenden Sie die Netzwerkanmeldeinformationen für den Sicherungsadministrator Aaren Ekelund (Aekel), ist ein Mitglied der Domäne CONTOSOEAST zum Authentifizieren des Zugriffs auf die Netzwerkfreigabe verfügen. Die Aaren Kennwort ist *$3 hM 9 ^ 5lp*.
+- Ausführen von Sicherungen täglich um 12:00 Uhr und 18:00 Uhr
+  ```
+  wbadmin enable backup –addtarget:\\backupshare\backup1 –include: d:\documents –user:CONTOSOEAST\aekel –password:$3hM9^5lp –schedule:00:00,19:00
+  ```
+  #3-Szenario
+- Planen von Sicherungen der Volume-t "und" Ordner d:\documents auf dem Laufwerk h:, aber schließen Sie den Ordner d:\documents\~Tmp
+- Führen Sie eine vollständige Sicherung, die mit dem Volumeschattenkopie-Dienst.
+- Ausführen von Sicherungen täglich um 1:00 Uhr
+  ```
+  wbadmin enable backup –addtarget:H: –include T:,D:\documents –exclude D:\documents\~tmp –vssfull –schedule:01:00
+  ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)
