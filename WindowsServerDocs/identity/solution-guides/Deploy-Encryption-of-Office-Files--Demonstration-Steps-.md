@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 529000c60a80ee33fc2aa7d09370d8ac1e06311c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8e454a9b1a7375be5cfdbc1e76316ad62ff40067
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850231"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66445802"
 ---
 # <a name="deploy-encryption-of-office-files-demonstration-steps"></a>Bereitstellen der Verschlüsselung von Office-Dateien (Demonstrationsschritte)
 
@@ -37,21 +37,21 @@ In diesem Szenario müssen Sie die folgenden Schritte ausführen:
   
 #### <a name="to-enable-resource-properties"></a>So aktivieren Sie Ressourceneigenschaften  
   
-1.  Stellen Sie in Hyper-V-Manager eine Verbindung mit dem Server "ID_AD_DC1" her. Melden Sie sich an den Server als "Contoso\Administrator" mit dem Kennwort **pass@word1**.  
+1. Stellen Sie in Hyper-V-Manager eine Verbindung mit dem Server "ID_AD_DC1" her. Melden Sie sich an den Server als "Contoso\Administrator" mit dem Kennwort <strong>pass@word1</strong>.  
   
-2.  Öffnen Sie das Active Directory-Verwaltungscenter, und klicken Sie auf **Strukturansicht**.  
+2. Öffnen Sie das Active Directory-Verwaltungscenter, und klicken Sie auf **Strukturansicht**.  
   
-3.  Erweitern Sie **DYNAMISCHE ZUGRIFFSTEUERUNG**, und wählen Sie **Ressourceneigenschaften**aus.  
+3. Erweitern Sie **DYNAMISCHE ZUGRIFFSTEUERUNG**, und wählen Sie **Ressourceneigenschaften**aus.  
   
-4.  Führen Sie in der Spalte **Anzeigename** einen Bildlauf zur Eigenschaft **Auswirkung** durch. Klicken Sie mit der rechten Maustaste auf **Auswirkung**, und klicken Sie dann auf **Aktivieren**.  
+4. Führen Sie in der Spalte **Anzeigename** einen Bildlauf zur Eigenschaft **Auswirkung** durch. Klicken Sie mit der rechten Maustaste auf **Auswirkung**, und klicken Sie dann auf **Aktivieren**.  
   
-5.  Führen Sie in der Spalte **Anzeigename** einen Bildlauf zur Eigenschaft **Personenbezogene Informationen** durch. Klicken Sie mit der rechten Maustaste auf **Personenbezogene Informationen**, und klicken Sie dann auf **Aktivieren**.  
+5. Führen Sie in der Spalte **Anzeigename** einen Bildlauf zur Eigenschaft **Personenbezogene Informationen** durch. Klicken Sie mit der rechten Maustaste auf **Personenbezogene Informationen**, und klicken Sie dann auf **Aktivieren**.  
   
-6.  Wenn Sie die Ressourceneigenschaften in der **Globalen Ressourcenliste** veröffentlichen möchten, klicken Sie im linken Bereich auf **Ressourceneigenschaftenlisten**, und doppelklicken Sie dann auf **Globale Ressourceneigenschaftenliste**.  
+6. Wenn Sie die Ressourceneigenschaften in der **Globalen Ressourcenliste** veröffentlichen möchten, klicken Sie im linken Bereich auf **Ressourceneigenschaftenlisten**, und doppelklicken Sie dann auf **Globale Ressourceneigenschaftenliste**.  
   
-7.  Klicken Sie auf **Hinzufügen**, führen Sie einen Bildlauf zu **Auswirkung** durch, und klicken Sie dann darauf, um die Eigenschaft zur Liste hinzuzufügen. Führen Sie dieselben Aktionen für **Personenbezogene Informationen** aus. Klicken Sie abschließend zweimal auf **OK** .  
+7. Klicken Sie auf **Hinzufügen**, führen Sie einen Bildlauf zu **Auswirkung** durch, und klicken Sie dann darauf, um die Eigenschaft zur Liste hinzuzufügen. Führen Sie dieselben Aktionen für **Personenbezogene Informationen** aus. Klicken Sie abschließend zweimal auf **OK** .  
   
-![Lösungshandbücher](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***  
+![Lösungshandbücher](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -67,21 +67,21 @@ Außerdem erstellen Sie die Regel **High PII** . Mit dieser Regel wird der Inhal
   
 #### <a name="to-create-the-high-impact-classification-rule"></a>So erstellen Sie die Klassifizierungsregel "High Impact"  
   
-1.  Stellen Sie in Hyper-V-Manager eine Verbindung mit dem Server "ID_AD_FILE1" her. Melden Sie sich an den Server als "Contoso\Administrator" mit dem Kennwort **pass@word1**.  
+1. Stellen Sie in Hyper-V-Manager eine Verbindung mit dem Server "ID_AD_FILE1" her. Melden Sie sich an den Server als "Contoso\Administrator" mit dem Kennwort <strong>pass@word1</strong>.  
   
-2.  Sie müssen die globalen Ressourceneigenschaften aus Active Directory aktualisieren. Öffnen Sie Windows PowerShell, geben Sie `Update-FSRMClassificationPropertyDefinition`ein, und drücken Sie dann die EINGABETASTE. Schließen Sie Windows PowerShell.  
+2. Sie müssen die globalen Ressourceneigenschaften aus Active Directory aktualisieren. Öffnen Sie Windows PowerShell, geben Sie `Update-FSRMClassificationPropertyDefinition`ein, und drücken Sie dann die EINGABETASTE. Schließen Sie Windows PowerShell.  
   
-3.  Öffnen Sie den Ressourcen-Manager für Dateiserver. Klicken Sie zum Öffnen des Ressourcen-Managers für Dateiserver auf **Start**, geben Sie **Ressourcen-Manager für Dateiserver**ein, und klicken Sie dann auf **Ressourcen-Manager für Dateiserver**.  
+3. Öffnen Sie den Ressourcen-Manager für Dateiserver. Klicken Sie zum Öffnen des Ressourcen-Managers für Dateiserver auf **Start**, geben Sie **Ressourcen-Manager für Dateiserver**ein, und klicken Sie dann auf **Ressourcen-Manager für Dateiserver**.  
   
-4.  Erweitern Sie im linken Bereich des Ressourcen-Managers für Dateiserver die Struktur von **Klassifizierungsverwaltung**, und wählen Sie dann **Klassifizierungsregeln**aus.  
+4. Erweitern Sie im linken Bereich des Ressourcen-Managers für Dateiserver die Struktur von **Klassifizierungsverwaltung**, und wählen Sie dann **Klassifizierungsregeln**aus.  
   
-5.  Klicken Sie im Bereich **Aktionen** auf **Klassifizierungsplan konfigurieren**. Wählen Sie auf der Registerkarte **Automatische Klassifizierung** die Option **Festen Zeitplan aktivieren** aus, wählen Sie einen **Wochentag** aus, und aktivieren Sie dann das Kontrollkästchen **Fortlaufende Klassifizierung für neue Dateien zulassen**. Klicken Sie auf **OK**.  
+5. Klicken Sie im Bereich **Aktionen** auf **Klassifizierungsplan konfigurieren**. Wählen Sie auf der Registerkarte **Automatische Klassifizierung** die Option **Festen Zeitplan aktivieren** aus, wählen Sie einen **Wochentag** aus, und aktivieren Sie dann das Kontrollkästchen **Fortlaufende Klassifizierung für neue Dateien zulassen**. Klicken Sie auf **OK**.  
   
-6.  Klicken Sie im Bereich **Aktionen** auf **Klassifizierungsregel erstellen**. Das Dialogfeld **Klassifizierungsregel erstellen** wird geöffnet.  
+6. Klicken Sie im Bereich **Aktionen** auf **Klassifizierungsregel erstellen**. Das Dialogfeld **Klassifizierungsregel erstellen** wird geöffnet.  
   
-7.  Geben Sie im Feld **Regelname** die Zeichenfolge **High Business Impact** ein.  
+7. Geben Sie im Feld **Regelname** die Zeichenfolge **High Business Impact** ein.  
   
-8.  In der **Beschreibung** geben **bestimmt, ob das Dokument großen geschäftsrelevanten Einfluss basierend auf dem Vorhandensein der Zeichenfolge "Contoso vertraulich" verfügt.**  
+8. In der **Beschreibung** geben **bestimmt, ob das Dokument großen geschäftsrelevanten Einfluss basierend auf dem Vorhandensein der Zeichenfolge "Contoso vertraulich" verfügt.**  
   
 9. Klicken Sie auf der Registerkarte **Bereich** auf **Ordnerverwaltungseigenschaften festlegen**. Wählen Sie **Ordnerverwendung**aus, klicken Sie auf **Hinzufügen**, und klicken Sie dann auf **Durchsuchen**. Navigieren Sie zum Pfad "D:\Finance Documents", klicken Sie auf **OK**, und wählen Sie dann einen Eigenschaftswert namens **Gruppendateien** aus, und klicken Sie auf **Schließen**. Nachdem Sie die Verwaltungseigenschaften festgelegt haben, können Sie auf der Registerkarte **Regelbereich** die Option **Gruppendateien**auswählen.  
   
@@ -95,7 +95,7 @@ Außerdem erstellen Sie die Regel **High PII** . Mit dieser Regel wird der Inhal
   
 14. Klicken Sie auf die Registerkarte **Evaluierungstyp** .  Klicken Sie auf Vorhandene Eigenschaftenwerte erneut auswerten, auf **Vorhandenen Wert überschreiben**und dann auf **OK** , um den Vorgang abzuschließen.  
   
-![Lösungshandbücher](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***  
+![Lösungshandbücher](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -109,35 +109,35 @@ New-FSRMClassificationRule -Name "High Business Impact" -Property "Impact_MS" -D
   
 #### <a name="to-create-the-high-pii-classification-rule"></a>So erstellen Sie die Klassifizierungsregel "High PII"  
   
-1.  Stellen Sie in Hyper-V-Manager eine Verbindung mit dem Server "ID_AD_FILE1" her. Melden Sie sich an den Server als "Contoso\Administrator" mit dem Kennwort **pass@word1**.  
+1. Stellen Sie in Hyper-V-Manager eine Verbindung mit dem Server "ID_AD_FILE1" her. Melden Sie sich an den Server als "Contoso\Administrator" mit dem Kennwort <strong>pass@word1</strong>.  
   
-2.  Öffnen Sie auf dem Desktop den Ordner **Reguläre Ausdrücke**, und öffnen Sie dann das Textdokument **RegEx-SSN**. Markieren und kopieren Sie die folgende reguläre Ausdruckszeichenfolge: **^ (?! 000) ([0-7] \d{2}| 7([0-7]\d|7[012])) ([-]?) (?! 00) \d\d\3 (?! 0000) \d{4}$**. Diese Zeichenfolge wird im späteren Verlauf in diesem Schritt verwendet. Belassen Sie sie daher in der Zwischenablage.  
+2. Öffnen Sie auf dem Desktop den Ordner **Reguläre Ausdrücke**, und öffnen Sie dann das Textdokument **RegEx-SSN**. Markieren und kopieren Sie die folgende reguläre Ausdruckszeichenfolge: **^ (?! 000) ([0-7] \d{2}| 7([0-7]\d|7[012])) ([-]?) (?! 00) \d\d\3 (?! 0000) \d{4}$** . Diese Zeichenfolge wird im späteren Verlauf in diesem Schritt verwendet. Belassen Sie sie daher in der Zwischenablage.  
   
-3.  Öffnen Sie den Ressourcen-Manager für Dateiserver. Klicken Sie zum Öffnen des Ressourcen-Managers für Dateiserver auf **Start**, geben Sie **Ressourcen-Manager für Dateiserver**ein, und klicken Sie dann auf **Ressourcen-Manager für Dateiserver**.  
+3. Öffnen Sie den Ressourcen-Manager für Dateiserver. Klicken Sie zum Öffnen des Ressourcen-Managers für Dateiserver auf **Start**, geben Sie **Ressourcen-Manager für Dateiserver**ein, und klicken Sie dann auf **Ressourcen-Manager für Dateiserver**.  
   
-4.  Erweitern Sie im linken Bereich des Ressourcen-Managers für Dateiserver die Struktur von **Klassifizierungsverwaltung**, und wählen Sie dann **Klassifizierungsregeln**aus.  
+4. Erweitern Sie im linken Bereich des Ressourcen-Managers für Dateiserver die Struktur von **Klassifizierungsverwaltung**, und wählen Sie dann **Klassifizierungsregeln**aus.  
   
-5.  Klicken Sie im Bereich **Aktionen** auf **Klassifizierungsplan konfigurieren**. Wählen Sie auf der Registerkarte **Automatische Klassifizierung** die Option **Festen Zeitplan aktivieren** aus, wählen Sie einen **Wochentag** aus, und aktivieren Sie dann das Kontrollkästchen **Fortlaufende Klassifizierung für neue Dateien zulassen**. Klicken Sie auf „OK“.  
+5. Klicken Sie im Bereich **Aktionen** auf **Klassifizierungsplan konfigurieren**. Wählen Sie auf der Registerkarte **Automatische Klassifizierung** die Option **Festen Zeitplan aktivieren** aus, wählen Sie einen **Wochentag** aus, und aktivieren Sie dann das Kontrollkästchen **Fortlaufende Klassifizierung für neue Dateien zulassen**. Klicken Sie auf „OK“.  
   
-6.  Geben Sie im Feld **Regelname** die Zeichenfolge **High PII**ein. Geben Sie im Feld **Beschreibung** Folgendes ein: **Ermittelt basierend auf dem Vorhandensein einer Sozialversicherungsnummer, ob das Dokument ein High PII-Dokument ist**  
+6. Geben Sie im Feld **Regelname** die Zeichenfolge **High PII**ein. Geben Sie im Feld **Beschreibung** Folgendes ein: **Ermittelt basierend auf dem Vorhandensein einer Sozialversicherungsnummer, ob das Dokument ein High PII-Dokument ist**  
   
-7.  Klicken Sie auf die Registerkarte **Bereich** , und aktivieren Sie das Kontrollkästchen **Gruppendateien** .  
+7. Klicken Sie auf die Registerkarte **Bereich** , und aktivieren Sie das Kontrollkästchen **Gruppendateien** .  
   
-8.  Klicken Sie auf die Registerkarte **Klassifizierung**.  Wählen Sie unter Methode zum Zuweisen einer Eigenschaft für Dateien auswählenin der Dropdownliste den Eintrag **Inhaltsklassifizierung** aus.  
+8. Klicken Sie auf die Registerkarte **Klassifizierung**.  Wählen Sie unter Methode zum Zuweisen einer Eigenschaft für Dateien auswählenin der Dropdownliste den Eintrag **Inhaltsklassifizierung** aus.  
   
 9. Wählen Sie unter **Daten zuzuweisende Eigenschaft auswählen** in der Dropdownliste den Eintrag **Personenbezogene Informationen** aus.  
   
 10. Wählen Sie unter **Wert angeben** in der Dropdownliste den Eintrag **Hoch** aus.  
   
 11. Klicken Sie unter **Parameter** auf **Konfigurieren**.   
-    Klicken Sie im Bereich **Klassifizierungsparameter**in der Liste **Ausdruckstyp** die Option **Regulärer Ausdruck**. In der **Ausdruck** fügen Sie den Text aus der Zwischenablage: **^ (?! 000) ([0-7] \d{2}| 7([0-7]\d|7[012])) ([-]?) (?! 00) \d\d\3 (?! 0000) \d{4}$**, und klicken Sie dann auf **OK**.  
+    Klicken Sie im Bereich **Klassifizierungsparameter**in der Liste **Ausdruckstyp** die Option **Regulärer Ausdruck**. In der **Ausdruck** fügen Sie den Text aus der Zwischenablage: **^ (?! 000) ([0-7] \d{2}| 7([0-7]\d|7[012])) ([-]?) (?! 00) \d\d\3 (?! 0000) \d{4}$** , und klicken Sie dann auf **OK**.  
   
     > [!NOTE]  
     > Dieser Ausdruck lässt ungültige Sozialversicherungsnummern zu. Dadurch können wir in der Demonstration frei erfundene Sozialversicherungsnummern verwenden.  
   
 12. Klicken Sie auf die Registerkarte **Evaluierungstyp** .  Wählen Sie Vorhandene Eigenschaftenwerte erneut auswerten, **Vorhandenen Wert überschreiben**, und klicken Sie dann auf **OK** , um den Vorgang abzuschließen.  
   
-![Lösungshandbücher](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***  
+![Lösungshandbücher](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -156,25 +156,25 @@ Nun, dass Sie Regeln zum automatischen Klassifizieren von Dokumenten auf Grundla
   
 #### <a name="to-protect-documents-with-ad-rms"></a>So schützen Sie Dokumente mit AD RMS  
   
-1.  Stellen Sie in Hyper-V-Manager eine Verbindung mit dem Server "ID_AD_FILE1" her. Melden Sie sich an den Server als "Contoso\Administrator" mit dem Kennwort **pass@word1**.  
+1. Stellen Sie in Hyper-V-Manager eine Verbindung mit dem Server "ID_AD_FILE1" her. Melden Sie sich an den Server als "Contoso\Administrator" mit dem Kennwort <strong>pass@word1</strong>.  
   
-2.  Öffnen Sie den Ressourcen-Manager für Dateiserver. Klicken Sie zum Öffnen des Ressourcen-Managers für Dateiserver auf **Start**, geben Sie **Ressourcen-Manager für Dateiserver**ein, und klicken Sie dann auf **Ressourcen-Manager für Dateiserver**.  
+2. Öffnen Sie den Ressourcen-Manager für Dateiserver. Klicken Sie zum Öffnen des Ressourcen-Managers für Dateiserver auf **Start**, geben Sie **Ressourcen-Manager für Dateiserver**ein, und klicken Sie dann auf **Ressourcen-Manager für Dateiserver**.  
   
-3.  Wählen Sie im linken Bereich die Option **Dateiverwaltungsaufgaben** aus. Wählen Sie im Bereich **Aktionen** die Option **Dateiverwaltungsaufgabe erstellen**aus.  
+3. Wählen Sie im linken Bereich die Option **Dateiverwaltungsaufgaben** aus. Wählen Sie im Bereich **Aktionen** die Option **Dateiverwaltungsaufgabe erstellen**aus.  
   
-4.  Geben Sie im Feld **Aufgabenname** die Zeichenfolge **High PII**ein. Geben Sie im Feld **Beschreibung** Folgendes ein: **Automatischer RMS-Schutz für High PII-Dokumente**.  
+4. Geben Sie im Feld **Aufgabenname** die Zeichenfolge **High PII**ein. Geben Sie im Feld **Beschreibung** Folgendes ein: **Automatischer RMS-Schutz für High PII-Dokumente**.  
   
-5.  Klicken Sie auf die Registerkarte **Bereich** , und aktivieren Sie das Kontrollkästchen **Gruppendateien** .  
+5. Klicken Sie auf die Registerkarte **Bereich** , und aktivieren Sie das Kontrollkästchen **Gruppendateien** .  
   
-6.  Klicken Sie auf die Registerkarte **Aktion** . Wählen Sie unter Typdie Option **RMS-Verschlüsselung**aus. Klicken Sie auf **Durchsuchen**, um eine Vorlage auszuwählen, und wählen Sie dann die Vorlage **Nur Contoso-FinanzAdmins** aus.  
+6. Klicken Sie auf die Registerkarte **Aktion** . Wählen Sie unter Typdie Option **RMS-Verschlüsselung**aus. Klicken Sie auf **Durchsuchen**, um eine Vorlage auszuwählen, und wählen Sie dann die Vorlage **Nur Contoso-FinanzAdmins** aus.  
   
-7.  Klicken Sie auf die Registerkarte **Bedingung** , und klicken Sie dann auf **Hinzufügen**. Wählen Sie unter **Eigenschaft** die Option **Personenbezogene Informationen** aus. Wählen Sie unter **Operator**die Option **Gleich**aus. Wählen Sie unter **Wert** die Option **Hoch** aus. Klicken Sie auf **OK**.  
+7. Klicken Sie auf die Registerkarte **Bedingung** , und klicken Sie dann auf **Hinzufügen**. Wählen Sie unter **Eigenschaft** die Option **Personenbezogene Informationen** aus. Wählen Sie unter **Operator**die Option **Gleich**aus. Wählen Sie unter **Wert** die Option **Hoch** aus. Klicken Sie auf **OK**.  
   
-8.  Klicken Sie auf die Registerkarte **Zeitplan** . Klicken Sie im Abschnitt Zeitplan auf **Wöchentlich**, und wählen Sie dann **Sonntag** aus. Wenn Sie die Aufgabe einmal pro Woche ausführen, können Sie sicherstellen, dass alle Dokumente erfasst werden, die möglicherweise aufgrund eines Dienstausfalls oder einer anderen Unterbrechung nicht berücksichtigt wurden.  
+8. Klicken Sie auf die Registerkarte **Zeitplan** . Klicken Sie im Abschnitt Zeitplan auf **Wöchentlich**, und wählen Sie dann **Sonntag** aus. Wenn Sie die Aufgabe einmal pro Woche ausführen, können Sie sicherstellen, dass alle Dokumente erfasst werden, die möglicherweise aufgrund eines Dienstausfalls oder einer anderen Unterbrechung nicht berücksichtigt wurden.  
   
 9. Wählen Sie im Abschnitt **Fortlaufende Ausführung** die Option **Für neue Dateien fortlaufend ausführen**aus, und klicken Sie dann auf **OK**. Sie verfügen jetzt über eine Dateiverwaltungsaufgabe mit dem Namen "High PII".  
   
-![Lösungshandbücher](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***  
+![Lösungshandbücher](media/Deploy-Encryption-of-Office-Files--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -191,21 +191,21 @@ Es ist nun einen Blick auf Ihre neue automatische Klassifizierung und den Regeln
   
 #### <a name="to-view-the-results"></a>So zeigen Sie die Ergebnisse an  
   
-1.  Stellen Sie in Hyper-V-Manager eine Verbindung mit dem Server "ID_AD_FILE1" her. Melden Sie sich an den Server als "Contoso\Administrator" mit dem Kennwort **pass@word1**.  
+1. Stellen Sie in Hyper-V-Manager eine Verbindung mit dem Server "ID_AD_FILE1" her. Melden Sie sich an den Server als "Contoso\Administrator" mit dem Kennwort <strong>pass@word1</strong>.  
   
-2.  Navigieren Sie in Windows-Explorer zum Ordner "D:\Finance Documents".  
+2. Navigieren Sie in Windows-Explorer zum Ordner "D:\Finance Documents".  
   
-3.  Klicken Sie mit der rechten Maustaste auf das Dokument "Finance Memo", und klicken Sie auf **Eigenschaften**. Klicken Sie auf die Registerkarte **Klassifizierung** . Beachten Sie, dass der Eigenschaft "Auswirkung" aktuell kein Wert zugewiesen ist. Klicken Sie auf **Abbrechen**.  
+3. Klicken Sie mit der rechten Maustaste auf das Dokument "Finance Memo", und klicken Sie auf **Eigenschaften**. Klicken Sie auf die Registerkarte **Klassifizierung** . Beachten Sie, dass der Eigenschaft "Auswirkung" aktuell kein Wert zugewiesen ist. Klicken Sie auf **Abbrechen**.  
   
-4.  Klicken Sie mit der rechten Maustaste auf das Dokument **Request for Approval to Hire**, und klicken Sie dann auf **Eigenschaften**.  
+4. Klicken Sie mit der rechten Maustaste auf das Dokument **Request for Approval to Hire**, und klicken Sie dann auf **Eigenschaften**.  
   
-5.  Klicken Sie auf die Registerkarte **Klassifizierung**. Beachten Sie, dass der Eigenschaft **Personenbezogene Informationen** aktuell kein Wert zugewiesen ist. Klicken Sie auf **Abbrechen**.  
+5. Klicken Sie auf die Registerkarte **Klassifizierung**. Beachten Sie, dass der Eigenschaft **Personenbezogene Informationen** aktuell kein Wert zugewiesen ist. Klicken Sie auf **Abbrechen**.  
   
-6.  Wechseln Sie zu "CLIENT1". Melden, der angemeldet ist, und melden Sie sich als "contoso\mreid" mit dem Kennwort **pass@word1**.  
+6. Wechseln Sie zu "CLIENT1". Melden, der angemeldet ist, und melden Sie sich als "contoso\mreid" mit dem Kennwort <strong>pass@word1</strong>.  
   
-7.  Öffnen Sie auf dem Desktop den freigegebenen Ordner **Finance Documents** .  
+7. Öffnen Sie auf dem Desktop den freigegebenen Ordner **Finance Documents** .  
   
-8.  Öffnen Sie das Dokument **Finance Memo**. Fast am Ende des Dokuments steht das Wort **Vertraulich**. Ändern Sie die Zeichenfolge wie folgt: **Contoso Vertraulich**. Speichern und schließen Sie das Dokument.  
+8. Öffnen Sie das Dokument **Finance Memo**. Fast am Ende des Dokuments steht das Wort **Vertraulich**. Ändern Sie die Zeichenfolge wie folgt: **Contoso Vertraulich**. Speichern und schließen Sie das Dokument.  
   
 9. Öffnen Sie das Dokument **Request for Approval to Hire** . Geben Sie im Abschnitt **Social Security#:** die folgende Sozialversicherungsnummer ein: 777-77-7777. Speichern und schließen Sie das Dokument.  
   

@@ -9,12 +9,12 @@ manager: dongill
 ms.author: jgerend
 ms.date: 6/24/2017
 description: Arbeitsordner bereitstellen, einschließlich der Installation der Serverrolle, der Erstellung von Synchronisierungsfreigaben und von DNS-Einträgen.
-ms.openlocfilehash: 1f7a0aa0b7e08a1dd444cd6b488a1ced6ee3d9d7
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 1ed26c9949fa3f4b53b9f650ca5a3649d5261d65
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812541"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66447848"
 ---
 # <a name="deploying-work-folders"></a>Bereitstellen von Arbeitsordnern
 
@@ -36,17 +36,17 @@ In diesem Thema werden die erforderlichen Schritte zum Implementieren von Arbeit
 ## <a name="step-1-obtain-ssl-certificates"></a>Schritt 1: Abrufen von SSL-Zertifikaten  
  Die Arbeitsordner verwenden HTTPS, um Dateien zwischen den Arbeitsordner-Clients und den Arbeitsordner-Servern sicher zu synchronisieren. Für die von Arbeitsordnern verwendeten SSL-Zertifikate gelten die folgenden Anforderungen:  
   
--   Das Zertifikat muss von einer vertrauenswürdigen Stammzertifizierungsstelle ausgestellt sein. Für die meisten Arbeitsordnerimplementierungen wird eine öffentlich vertrauenswürdige Zertifizierungsstelle (ZS) empfohlen, da Zertifikate von internetbasierten Geräten verwendet werden, die keiner Domäne angehören.  
+- Das Zertifikat muss von einer vertrauenswürdigen Stammzertifizierungsstelle ausgestellt sein. Für die meisten Arbeitsordnerimplementierungen wird eine öffentlich vertrauenswürdige Zertifizierungsstelle (ZS) empfohlen, da Zertifikate von internetbasierten Geräten verwendet werden, die keiner Domäne angehören.  
   
--   Das Zertifikat muss gültig sein.  
+- Das Zertifikat muss gültig sein.  
   
--   Der private Schlüssel des Zertifikats muss exportierbar sein (das Zertifikat muss auf mehreren Servern installiert werden).  
+- Der private Schlüssel des Zertifikats muss exportierbar sein (das Zertifikat muss auf mehreren Servern installiert werden).  
   
--   Der Antragstellername des Zertifikats muss die öffentliche Arbeitsordner-URL enthalten, die verwendet wird, um den Arbeitsordnerdienst über das Internet zu ermitteln. Die URL muss das Format `workfolders.`*<domain_name>* aufweisen.  
+- Der Antragstellername des Zertifikats muss die öffentliche Arbeitsordner-URL enthalten, die verwendet wird, um den Arbeitsordnerdienst über das Internet zu ermitteln. Die URL muss das Format `workfolders.` *<domain_name>* aufweisen.  
   
--   Im Zertifikat müssen alternative Antragstellernamen (SANs) vorhanden sein, die den Servernamen für jeden verwendeten Synchronisierungsserver auflisten.
+- Im Zertifikat müssen alternative Antragstellernamen (SANs) vorhanden sein, die den Servernamen für jeden verwendeten Synchronisierungsserver auflisten.
 
- Im [Blog](https://blogs.technet.microsoft.com/filecab/2013/08/09/work-folders-certificate-management/) „Zertifikatverwaltung der Arbeitsordner” finden Sie weitere Informationen zum Verwenden von Zertifikaten mit Arbeitsordner.
+  Im [Blog](https://blogs.technet.microsoft.com/filecab/2013/08/09/work-folders-certificate-management/) „Zertifikatverwaltung der Arbeitsordner” finden Sie weitere Informationen zum Verwenden von Zertifikaten mit Arbeitsordner.
   
 ## <a name="step-2-create-dns-records"></a>Schritt 2: Erstellen von DNS-Einträgen  
  Damit Benutzer Ordner über das Internet synchronisieren können, müssen Sie einen Host (A)-Eintrag im öffentlichen DNS erstellen, um Internetclients das Auflösen der Arbeitsordner-URL zu ermöglichen. Dieser DNS-Eintrag muss in die externe Schnittstelle des Reverseproxyservers aufgelöst werden.  
@@ -96,9 +96,9 @@ Add-WindowsFeature FS-SyncShareService
 
 - Eine Gruppe für alle Arbeitsordneradministratoren, damit sie für jedes Benutzerobjekt ein Attribut bearbeiten können, durch das der Benutzer mit dem richtigen Synchronisierungsserver verknüpft wird (sofern mehrere Synchronisierungsserver verwendet werden)
 
- Gruppen sollten gemäß den standardmäßigen Benennungskonventionen benannt und nur für Arbeitsordner verwendet werden, um potenzielle Konflikte mit anderen Sicherheitsanforderungen zu vermeiden.
+  Gruppen sollten gemäß den standardmäßigen Benennungskonventionen benannt und nur für Arbeitsordner verwendet werden, um potenzielle Konflikte mit anderen Sicherheitsanforderungen zu vermeiden.
 
- Führen Sie das folgende Verfahren zum Erstellen der entsprechenden Sicherheitsgruppen mehrmals aus – einmal für jede Synchronisierungsfreigabe und einmal optional zum Erstellen einer Gruppe für Dateiserveradministratoren.
+  Führen Sie das folgende Verfahren zum Erstellen der entsprechenden Sicherheitsgruppen mehrmals aus – einmal für jede Synchronisierungsfreigabe und einmal optional zum Erstellen einer Gruppe für Dateiserveradministratoren.
 
 #### <a name="to-create-security-groups-for-work-folders"></a>So erstellen Sie Sicherheitsgruppen für Arbeitsordner
 
@@ -166,38 +166,38 @@ DsAcls $ADGroupPath /I:S /G ""$GroupName":RPWP;msDS-SyncServerUrl;user"
 ## <a name="step-7-create-sync-shares-for-user-data"></a>Schritt 7: Erstellen von Synchronisierungsfreigaben für Benutzerdaten  
  Jetzt können Sie einen Ordner auf dem Synchronisierungsserver angeben, in dem die Dateien der Benutzer gespeichert werden sollen. Dieser Ordner wird als Synchronisierungsfreigabe bezeichnet und kann anhand des folgenden Verfahrens erstellt werden.  
   
-1.  Wenn Sie noch nicht über ein NTFS-Volume mit freiem Speicherplatz für die Synchronisierungsfreigabe und die darin enthaltenen Benutzerdateien verfügen, erstellen Sie ein neues Volume, das Sie mit dem NTFS-Dateisystem formatieren.  
+1. Wenn Sie noch nicht über ein NTFS-Volume mit freiem Speicherplatz für die Synchronisierungsfreigabe und die darin enthaltenen Benutzerdateien verfügen, erstellen Sie ein neues Volume, das Sie mit dem NTFS-Dateisystem formatieren.  
   
-2.  Klicken Sie im Server-Manager auf **Datei- und Speicherdienste** und anschließend auf **Arbeitsordner**.  
+2. Klicken Sie im Server-Manager auf **Datei- und Speicherdienste** und anschließend auf **Arbeitsordner**.  
   
-3.  Oben im Detailbereich wird eine Liste der vorhandenen Synchronisierungsfreigaben angezeigt. Klicken Sie zum Erstellen einer neuen Synchronisierungsfreigabe im Menü **Aufgaben** auf **Neue Synchronisierungsfreigabe**. Der Assistent für neue Synchronisierungsfreigaben wird angezeigt.  
+3. Oben im Detailbereich wird eine Liste der vorhandenen Synchronisierungsfreigaben angezeigt. Klicken Sie zum Erstellen einer neuen Synchronisierungsfreigabe im Menü **Aufgaben** auf **Neue Synchronisierungsfreigabe**. Der Assistent für neue Synchronisierungsfreigaben wird angezeigt.  
   
-4.  Geben Sie auf der Seite **Server und Pfad auswählen** den gewünschten Speicherort für die Synchronisierungsfreigabe an. Wenn Sie bereits eine Dateifreigabe für diese Benutzerdaten erstellt haben, können Sie sie auswählen. Alternativ können Sie einen neuen Ordner erstellen.  
+4. Geben Sie auf der Seite **Server und Pfad auswählen** den gewünschten Speicherort für die Synchronisierungsfreigabe an. Wenn Sie bereits eine Dateifreigabe für diese Benutzerdaten erstellt haben, können Sie sie auswählen. Alternativ können Sie einen neuen Ordner erstellen.  
   
-    > [!NOTE]
-    >  Standardmäßig ist der direkte Zugriff auf Synchronisierungsfreigaben über eine Dateifreigabe nicht möglich (sofern Sie keine vorhandene Dateifreigabe auswählen). Wenn Sie den Zugriff auf eine Synchronisierungsfreigabe über eine Dateifreigabe zulassen möchten, verwenden Sie die Kachel **Freigeben** im Server-Manager oder das Cmdlet [New-SmbShare](https://technet.microsoft.com/library/jj635722.aspx), um eine Dateifreigabe zu erstellen (möglichst mit aktivierter zugriffsbasierter Aufzählung).  
+   > [!NOTE]
+   >  Standardmäßig ist der direkte Zugriff auf Synchronisierungsfreigaben über eine Dateifreigabe nicht möglich (sofern Sie keine vorhandene Dateifreigabe auswählen). Wenn Sie den Zugriff auf eine Synchronisierungsfreigabe über eine Dateifreigabe zulassen möchten, verwenden Sie die Kachel **Freigeben** im Server-Manager oder das Cmdlet [New-SmbShare](https://technet.microsoft.com/library/jj635722.aspx), um eine Dateifreigabe zu erstellen (möglichst mit aktivierter zugriffsbasierter Aufzählung).  
   
-5.  Wählen Sie auf der Seite **Struktur für Benutzerordner angeben** eine Benennungskonvention für Benutzerordner in der Synchronisierungsfreigabe aus. Zwei Optionen stehen zur Verfügung:  
+5. Wählen Sie auf der Seite **Struktur für Benutzerordner angeben** eine Benennungskonvention für Benutzerordner in der Synchronisierungsfreigabe aus. Zwei Optionen stehen zur Verfügung:  
   
-    -   **Benutzeralias** erstellt Benutzerordner, die keinen Domänennamen enthalten. Wählen Sie diese Benennungskonvention aus, wenn Sie eine Dateifreigabe verwenden, die bereits mit der Ordnerumleitung oder einer anderen Benutzerdatenlösung genutzt wird. Optional können Sie das Kontrollkästchen **Nur den folgenden Unterordner synchronisieren** aktivieren, um nur einen bestimmten Unterordner zu synchronisieren, z. B. den Ordner %%amp;quot;Dokumente%%amp;quot;.  
+   - **Benutzeralias** erstellt Benutzerordner, die keinen Domänennamen enthalten. Wählen Sie diese Benennungskonvention aus, wenn Sie eine Dateifreigabe verwenden, die bereits mit der Ordnerumleitung oder einer anderen Benutzerdatenlösung genutzt wird. Optional können Sie das Kontrollkästchen **Nur den folgenden Unterordner synchronisieren** aktivieren, um nur einen bestimmten Unterordner zu synchronisieren, z. B. den Ordner %%amp;quot;Dokumente%%amp;quot;.  
   
-    -   **Benutzer alias@domain** erstellt Benutzerordner, die einen Domänennamen enthalten. Wählen Sie diese Benennungskonvention aus, wenn Sie keine bereits mit der Ordnerumleitung oder einer anderen Benutzerdatenlösung genutzte Dateifreigabe verwenden. Durch diese Einstellung werden Konflikte bei der Ordnerbenennung verhindert, wenn mehrere Benutzer der Freigabe identische Aliase haben (dies kann passieren, wenn die Benutzer unterschiedlichen Domänen angehören).  
+   - <strong>Benutzer alias@domain</strong> erstellt Benutzerordner, die einen Domänennamen enthalten. Wählen Sie diese Benennungskonvention aus, wenn Sie keine bereits mit der Ordnerumleitung oder einer anderen Benutzerdatenlösung genutzte Dateifreigabe verwenden. Durch diese Einstellung werden Konflikte bei der Ordnerbenennung verhindert, wenn mehrere Benutzer der Freigabe identische Aliase haben (dies kann passieren, wenn die Benutzer unterschiedlichen Domänen angehören).  
   
-6.  Geben Sie auf der Seite **Name der Synchronisierungsfreigabe eingeben** einen Namen und eine Beschreibung für die Synchronisierungsfreigabe an. Dieser Name wird nicht im Netzwerk angekündigt, ist jedoch im Server-Manager und in Windows PowerShell sichtbar, um die Unterscheidung von Synchronisierungsfreigaben zu erleichtern.  
+6. Geben Sie auf der Seite **Name der Synchronisierungsfreigabe eingeben** einen Namen und eine Beschreibung für die Synchronisierungsfreigabe an. Dieser Name wird nicht im Netzwerk angekündigt, ist jedoch im Server-Manager und in Windows PowerShell sichtbar, um die Unterscheidung von Synchronisierungsfreigaben zu erleichtern.  
   
-7.  Geben Sie auf der Seite **Gruppen Synchronisierungszugriff gewähren** die von Ihnen erstellte Gruppe an, die die zur Verwendung dieser Synchronisierungsfreigabe berechtigten Benutzer enthält.  
+7. Geben Sie auf der Seite **Gruppen Synchronisierungszugriff gewähren** die von Ihnen erstellte Gruppe an, die die zur Verwendung dieser Synchronisierungsfreigabe berechtigten Benutzer enthält.  
   
-    > [!IMPORTANT]
-    >  Zum Verbessern der Leistung und Sicherheit sollten Sie nicht einzelnen Benutzern, sondern Gruppen Zugriff gewähren und dabei so spezifisch wie möglich sein. Vermeiden Sie z. B. allgemeine Gruppen wie %%amp;quot;Authentifizierte Benutzer%%amp;quot; und %%amp;quot;Domänenbenutzer%%amp;quot;. Wenn Sie Gruppen mit vielen Benutzern Zugriff gewähren, nimmt das Abfragen von AD DS durch Arbeitsordner mehr Zeit in Anspruch. Erstellen Sie im Fall einer großen Anzahl von Benutzern mehrere Synchronisierungsfreigaben, um die Last zu verteilen.  
+   > [!IMPORTANT]
+   >  Zum Verbessern der Leistung und Sicherheit sollten Sie nicht einzelnen Benutzern, sondern Gruppen Zugriff gewähren und dabei so spezifisch wie möglich sein. Vermeiden Sie z. B. allgemeine Gruppen wie %%amp;quot;Authentifizierte Benutzer%%amp;quot; und %%amp;quot;Domänenbenutzer%%amp;quot;. Wenn Sie Gruppen mit vielen Benutzern Zugriff gewähren, nimmt das Abfragen von AD DS durch Arbeitsordner mehr Zeit in Anspruch. Erstellen Sie im Fall einer großen Anzahl von Benutzern mehrere Synchronisierungsfreigaben, um die Last zu verteilen.  
   
-8.  Geben Sie auf der Seite **Geräterichtlinien angeben** an, ob Sicherheitseinschränkungen auf Clientcomputern und -geräten erforderlich sind. Die folgenden zwei Geräterichtlinien können einzeln ausgewählt werden:  
+8. Geben Sie auf der Seite **Geräterichtlinien angeben** an, ob Sicherheitseinschränkungen auf Clientcomputern und -geräten erforderlich sind. Die folgenden zwei Geräterichtlinien können einzeln ausgewählt werden:  
   
-    -   **Arbeitsordner verschlüsseln**: Arbeitsordner müssen auf Clientcomputern und -geräten verschlüsselt werden  
+   -   **Arbeitsordner verschlüsseln**: Arbeitsordner müssen auf Clientcomputern und -geräten verschlüsselt werden  
   
-    -   **Bildschirm automatisch sperren und ein Kennwort anfordern**: Der Bildschirm von Clientcomputern und -geräten wird nach 15 Minuten automatisch gesperrt und muss durch Eingabe eines mindestens sechs Zeichen langen Kennworts entsperrt werden. Zudem wird nach 10 fehlgeschlagenen Versuchen der Sperrmodus des Geräts aktiviert.  
+   -   **Bildschirm automatisch sperren und ein Kennwort anfordern**: Der Bildschirm von Clientcomputern und -geräten wird nach 15 Minuten automatisch gesperrt und muss durch Eingabe eines mindestens sechs Zeichen langen Kennworts entsperrt werden. Zudem wird nach 10 fehlgeschlagenen Versuchen der Sperrmodus des Geräts aktiviert.  
   
-        > [!IMPORTANT]
-        >  Wenn Sie Kennwortrichtlinien für Windows 7-PCs und für Nichtadministratoren auf Computern, die einer Domäne angehören, erzwingen möchten, sollten Sie stattdessen Gruppenrichtlinien-Kennwortrichtlinien für die Computerdomänen verwenden und diese Domänen von den Kennwortrichtlinien für Arbeitsordner ausschließen. Domänen können nach dem Erstellen der Synchronisierungsfreigabe mithilfe des Cmdlets [Set-Syncshare -PasswordAutoExcludeDomain](https://technet.microsoft.com/library/dn296649\(v=wps.630\).aspx) ausgeschlossen werden. Informationen zum Festlegen der Gruppenrichtlinien-Kennwortrichtlinien finden Sie unter [Kennwortrichtlinie](https://technet.microsoft.com/library/hh994572(v=ws.11).aspx).  
+       > [!IMPORTANT]
+       >  Wenn Sie Kennwortrichtlinien für Windows 7-PCs und für Nichtadministratoren auf Computern, die einer Domäne angehören, erzwingen möchten, sollten Sie stattdessen Gruppenrichtlinien-Kennwortrichtlinien für die Computerdomänen verwenden und diese Domänen von den Kennwortrichtlinien für Arbeitsordner ausschließen. Domänen können nach dem Erstellen der Synchronisierungsfreigabe mithilfe des Cmdlets [Set-Syncshare -PasswordAutoExcludeDomain](https://technet.microsoft.com/library/dn296649\(v=wps.630\).aspx) ausgeschlossen werden. Informationen zum Festlegen der Gruppenrichtlinien-Kennwortrichtlinien finden Sie unter [Kennwortrichtlinie](https://technet.microsoft.com/library/hh994572(v=ws.11).aspx).  
   
 9. Überprüfen Sie Ihre Einstellungen, und schließen Sie den Assistenten ab, um die Synchronisierungsfreigabe zu erstellen.
 
@@ -251,7 +251,7 @@ Im folgenden Beispiel wird eine neue Synchronisierungsfreigabe namens *Share01* 
 6.  Geben Sie im Feld **Hinzuzufügender Wert** die URL des Synchronisierungsservers ein, mit dem dieser Benutzer Ordner synchronisieren soll, klicken Sie auf **Hinzufügen**, auf **OK** und dann noch einmal auf **OK**.  
   
     > [!NOTE]
-    >  Die Synchronisierungsserver-URL lautet einfach `https://` oder `http://` (je nachdem, ob eine sichere Verbindung erforderlich ist) gefolgt vom vollqualifizierten Domänennamen des Synchronisierungsservers. Z. B. **https://sync1.contoso.com**.
+    >  Die Synchronisierungsserver-URL lautet einfach `https://` oder `http://` (je nachdem, ob eine sichere Verbindung erforderlich ist) gefolgt vom vollqualifizierten Domänennamen des Synchronisierungsservers. Z. B. **https://sync1.contoso.com** .
 
 Verwenden Sie Active Directory-PowerShell, um das Attribut für mehrere Benutzer aufzufüllen. Im folgenden Beispiel wird das Attribut für alle Mitglieder der in Schritt 5 erörterten Gruppe *Benutzer der Personal-Synchronisierungsfreigabe* aufgefüllt.
   
@@ -276,15 +276,15 @@ Informationen zum Einrichten des Zugriffs auf Arbeitsordner mithilfe von Azure A
 
 Wenn Sie für viele in eine Domäne eingebundene Computer Arbeitsordner bereitstellen möchten, können Sie die folgenden Konfigurationsaufgaben für Clientcomputer mithilfe von Gruppenrichtlinien durchführen:  
   
--   Angeben der von Benutzern zu verwendenden Synchronisierungsserver  
+- Angeben der von Benutzern zu verwendenden Synchronisierungsserver  
   
--   Erzwingen der automatischen Einrichtung von Arbeitsordnern anhand von Standardeinstellungen (lesen Sie vor dem Ausführen dieser Aufgabe die Informationen zu Gruppenrichtlinien im Thema [Entwerfen einer Arbeitsordnerimplementierung](plan-work-folders.md))  
+- Erzwingen der automatischen Einrichtung von Arbeitsordnern anhand von Standardeinstellungen (lesen Sie vor dem Ausführen dieser Aufgabe die Informationen zu Gruppenrichtlinien im Thema [Entwerfen einer Arbeitsordnerimplementierung](plan-work-folders.md))  
   
- Erstellen Sie zum Steuern dieser Einstellungen ein neues Gruppenrichtlinienobjekt (Group Policy object, GPO) für Arbeitsordner, und konfigurieren Sie anschließend die folgenden Gruppenrichtlinieneinstellungen wie erforderlich:  
+  Erstellen Sie zum Steuern dieser Einstellungen ein neues Gruppenrichtlinienobjekt (Group Policy object, GPO) für Arbeitsordner, und konfigurieren Sie anschließend die folgenden Gruppenrichtlinieneinstellungen wie erforderlich:  
   
--   Richtlinieneinstellung "Arbeitsordnereinstellungen festlegen" unter %%amp;quot;Benutzerkonfiguration\Richtlinien\Administrative Vorlagen\Windows-Komponenten\WorkFolders%%amp;quot;  
+- Richtlinieneinstellung "Arbeitsordnereinstellungen festlegen" unter %%amp;quot;Benutzerkonfiguration\Richtlinien\Administrative Vorlagen\Windows-Komponenten\WorkFolders%%amp;quot;  
   
--   Richtlinieneinstellung „Automatisches Setup für alle Benutzer erzwingen“ unter „Computerkonfiguration\Richtlinien\Administrative Vorlagen\Windows-Komponenten\WorkFolders“  
+- Richtlinieneinstellung „Automatisches Setup für alle Benutzer erzwingen“ unter „Computerkonfiguration\Richtlinien\Administrative Vorlagen\Windows-Komponenten\WorkFolders“  
   
 > [!NOTE]
 >  Diese Richtlinieneinstellungen sind nur verfügbar, wenn Sie Gruppenrichtlinien auf einem Computer bearbeiten, auf dem die Gruppenrichtlinienverwaltung unter Windows 8.1, Windows Server 2012 R2 oder höher ausgeführt wird. In Versionen der Gruppenrichtlinienverwaltung von früheren Betriebssystemen sind diese Einstellungen nicht verfügbar. Diese Richtlinieneinstellungen gelten für Windows 7-PCs auf dem die App [Arbeitsordner für Windows 7](http://blogs.technet.com/b/filecab/archive/2014/04/24/work-folders-for-windows-7.aspx) installiert wurde.  
