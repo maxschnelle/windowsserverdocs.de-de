@@ -12,12 +12,12 @@ manager: ''
 ms.author: kaushika; rklemen; josh.bender; v-tea
 ms.date: 02/22/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 4bbdd17f5e6e2b161e0dda0e172ea862a9107841
-ms.sourcegitcommit: 564158d760f902ced7f18e6d63a9daafa2a92bd4
+ms.openlocfilehash: 43e40f8442600dfc66dafd6b8b210274908b4595
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64988335"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446718"
 ---
 # <a name="troubleshooting-remote-desktop-connections"></a>Problembehandlung bei Remotedesktopverbindungen
 Kurze erläuterungen einiger der am häufigsten auftretenden Probleme mit Remote Desktop Services (RDS), finden Sie unter [häufig gestellte Fragen zu den Remotedesktopclients](https://review.docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/remote-desktop-client-faq). Dieser Artikel beschreibt erweiterte Vorgehensweisen zum Beheben von Verbindungsproblemen. Viele der folgenden Verfahren gelten, ob Sie eine einfache Konfiguration, wie ein physischer Computer, die beim Verbinden mit einem anderen physischen Computer oder eine kompliziertere Konfiguration behandeln möchten. Einige Verfahren zur Behebung von Problemen, die nur in komplexeren Szenarien für mehrere Benutzer auftreten. Weitere Informationen über die remote desktop-Komponenten und wie diese zusammenarbeiten, finden Sie unter [Remote Desktop Services-Architektur](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture).
@@ -68,7 +68,7 @@ Um zu überprüfen und ändern Sie den Status des RDP-Protokolls auf einem Remot
 2. Wählen Sie im Registrierungs-Editor **Datei**, und wählen Sie dann **verbinden Netzwerk Registrierung**.
 3. In der **Computer auswählen** Dialogfeld ein, geben Sie den Namen des Remotecomputers ein, wählen Sie **Namen überprüfen**, und wählen Sie dann **OK**.
 4. Navigieren Sie zu **HKEY\_lokalen\_Computer\\SYSTEM\\CurrentControlSet\\Steuerelement\\Terminalserver**.  
-   ![Registrierungs-Editor den Eintrag fDenyTSConnections angezeigt](..\media\troubleshoot-remote-desktop-connections\RegEntry_fDenyTSConnections.png)
+   ![Registrierungs-Editor den Eintrag fDenyTSConnections angezeigt](../media/troubleshoot-remote-desktop-connections/RegEntry_fDenyTSConnections.png)
    - Wenn der Wert des der **fDenyTSConnections** Schlüssel **0**, und klicken Sie dann die RDP aktiviert ist
    - Wenn der Wert des der **fDenyTSConnections** Schlüssel ist **1**, und klicken Sie dann die RDP deaktiviert ist
 5. Zum Aktivieren von RDP ändern Sie den Wert der **fDenyTSConnections** aus **1** zu **0**.
@@ -85,9 +85,9 @@ gpresult /H c:\gpresult.html
 
 - Wenn die Einstellung für diese Richtlinie ist **aktiviert**, Gruppenrichtlinien RDP-Verbindungen nicht blockiert.
 - Wenn die Einstellung für diese Richtlinie ist **deaktiviert**, überprüfen Sie **ausschlaggebenden Gruppenrichtlinienobjekts**. Dies ist das Gruppenrichtlinienobjekt, das RDP-Verbindungen blockiert werden.
-![Ein Beispiel-Segment der gpresult.html, in dem das GPO der Domänenebene ** Block RDP ** wird RDP deaktivieren.](..\media\troubleshoot-remote-desktop-connections\GPResult_RDSH_Connections_GP.png)
+  ![Ein Beispiel-Segment der gpresult.html, in dem das GPO der Domänenebene ** Block RDP ** wird RDP deaktivieren.](../media/troubleshoot-remote-desktop-connections/GPResult_RDSH_Connections_GP.png)
    
-  ![Ein Beispiel-Segment der gpresult.html, in dem ** lokalen Gruppe Konfigurationsrichtlinie ** wird RDP deaktivieren.](..\media\troubleshoot-remote-desktop-connections\GPResult_RDSH_Connections_LGP.png)
+  ![Ein Beispiel-Segment der gpresult.html, in dem ** lokalen Gruppe Konfigurationsrichtlinie ** wird RDP deaktivieren.](../media/troubleshoot-remote-desktop-connections/GPResult_RDSH_Connections_LGP.png)
 
 #### <a name="check-whether-a-gpo-is-blocking-rdp-on-a-remote-computer"></a>Überprüfen Sie, ob ein GPO RDP auf einem Remotecomputer blockiert wird
 
@@ -117,7 +117,7 @@ Auf dem Computer lokalen (Client-) und dem Remotecomputer (Zielcomputer)-Compute
 
 Sie können das Dienste-MMC-Snap-in verwenden, um die Dienste lokal oder Remote zu verwalten. Sie können auch PowerShell verwenden, lokal oder Remote (wenn der Remotecomputer konfiguriert ist, remote-PowerShell-Befehle akzeptieren).
 
-![Remotedesktopdienste im Dienste-MMC-Snap-in. Ändern Sie die Standardeinstellungen für den Dienst nicht.](..\media\troubleshoot-remote-desktop-connections\RDSServiceStatus.png)
+![Remotedesktopdienste im Dienste-MMC-Snap-in. Ändern Sie die Standardeinstellungen für den Dienst nicht.](../media/troubleshoot-remote-desktop-connections/RDSServiceStatus.png)
 
 Auf einem der Computer Wenn eine oder beide dieser Dienste nicht ausgeführt werden, starten Sie sie.
 
@@ -135,7 +135,7 @@ Verwenden Sie für dieses Verfahren eine PowerShell-Instanz, die über Administr
 
 1. Öffnen Sie ein PowerShell-Fenster. Um eine Verbindung mit einem Remotecomputer herzustellen, geben Sie **Enter-PSSession – ComputerName \<Computername\>** .
 2. Geben Sie **Qwinsta**. 
-    ![Der Qwinsta Befehl listet die Prozesse, die auf die Anschlüsse des Computers überwachen.](..\media\troubleshoot-remote-desktop-connections\WPS_qwinsta.png)
+    ![Der Qwinsta Befehl listet die Prozesse, die auf die Anschlüsse des Computers überwachen.](../media/troubleshoot-remote-desktop-connections/WPS_qwinsta.png)
 3. Wenn die Liste enthält **Rdp-TCP-** mit dem Status **Lauschen**, der RDP-Listener arbeitet. Fahren Sie fort mit [überprüfen Sie den RDP-Listener-Port](#check-the-rdp-listener-port). Andernfalls fahren Sie mit Schritt 4.
 4. Exportieren Sie die RDP-Listener-Konfiguration auf einem Arbeitscomputer.
     1. Melden Sie sich auf einem Computer, der die gleiche Version des Betriebssystems verfügt wie der betroffenen Computer verfügt, und Zugriff auf Registrierung des Computers (z. B. mithilfe von Registrierungs-Editor).
@@ -171,7 +171,7 @@ Verwenden Sie für dieses Verfahren eine PowerShell-Instanz, die über Administr
 
 1. Wenn Sie noch keine Verbindung herstellen können, öffnen Sie das Zertifikate-MMC-Snap-in. Wenn Sie aufgefordert werden, wählen Sie den Zertifikatspeicher, wählen Sie zum Verwalten von **Computerkonto**, und wählen Sie dann auf den betroffenen Computer.
 2. In der **Zertifikate** Unterordner **Remotedesktop**, des selbstsignierten Zertifikats für RDP zu löschen. 
-    ![Remote Desktop Zertifikate im MMC-Zertifikat-Snap-in.](..\media\troubleshoot-remote-desktop-connections\MMCCert_Delete.png)
+    ![Remote Desktop Zertifikate im MMC-Zertifikat-Snap-in.](../media/troubleshoot-remote-desktop-connections/MMCCert_Delete.png)
 3. Starten Sie auf dem betroffenen Computer den Remote Desktop Services-Dienst neu.
 4. Aktualisieren Sie das Zertifikate-Snap-in.
 5. Wenn das selbstsignierte Zertifikat für RDP nicht neu erstellt wurde [überprüfen Sie die Berechtigungen des Ordners "MachineKeys"](#check-the-permissions-of-the-machinekeys-folder).
@@ -197,7 +197,7 @@ Verwenden Sie zum Überprüfen, oder ändern den RDP-Port, Registrierungs-Editor
       - Wählen Sie zum Verbinden mit einem Remotecomputer **Datei**, und wählen Sie dann **Netzwerk-Connect-Registrierung**.
       - In der **Computer auswählen** Dialogfeld ein, geben Sie den Namen des Remotecomputers ein, wählen Sie **Namen überprüfen**, und wählen Sie dann **OK**.
 2. Öffnen Sie die Registrierung, und navigieren Sie zu **HKEY\_lokalen\_Computer\\SYSTEM\\CurrentControlSet\\Steuerelement\\Terminal Server\\WinStations\\ \<Listener\>** . 
-    ![Die PortNumber-Unterschlüssel für das RDP-Protokoll.](..\media\troubleshoot-remote-desktop-connections\RegEntry_PortNumber.png)
+    ![Die PortNumber-Unterschlüssel für das RDP-Protokoll.](../media/troubleshoot-remote-desktop-connections/RegEntry_PortNumber.png)
 3. Wenn **PortNumber** verfügt über einen Wert als **3389**, ändern Sie ihn in **3389**. 
    > [!IMPORTANT]  
     > Sie können Remote Desktop Services über einen anderen Port betreiben. Allerdings empfohlen nicht, dass Sie so vorgehen. Problembehandlung für eine solche Konfiguration ist über den Rahmen dieses Artikels hinaus.
@@ -214,19 +214,19 @@ Verwenden Sie für dieses Verfahren eine PowerShell-Instanz, die über Administr
     cmd /c 'netstat -ano | find "3389"'  
     ```
   
-    ![Der Netstat-Befehl erzeugt eine Liste der Ports und die Dienste überwacht.](..\media\troubleshoot-remote-desktop-connections\WPS_netstat.png)
-1. Suchen Sie nach einem Eintrag für den TCP-Port 3389 (oder dem zugewiesenen RDP-Port) mit dem Status **Empfangsbereit**. 
+    ![Der Netstat-Befehl erzeugt eine Liste der Ports und die Dienste überwacht.](../media/troubleshoot-remote-desktop-connections/WPS_netstat.png)
+3. Suchen Sie nach einem Eintrag für den TCP-Port 3389 (oder dem zugewiesenen RDP-Port) mit dem Status **Empfangsbereit**. 
     > [!NOTE]  
    > In der Spalte PID wird die PID (Prozess-ID) des Prozesses oder Diensts angezeigt, der diesen Port verwendet.
-1. Um zu bestimmen, welche Anwendung Port 3389 (oder den zugewiesene RDP-Port) verwendet wird, geben Sie den folgenden Befehl aus:  
+4. Um zu bestimmen, welche Anwendung Port 3389 (oder den zugewiesene RDP-Port) verwendet wird, geben Sie den folgenden Befehl aus:  
    
      ```powershell  
     cmd /c 'tasklist /svc | find "<pid listening on 3389>"'  
     ```  
   
-    ![Die Tasklist-Befehl Gibt Details zu einem bestimmten Prozess.](..\media\troubleshoot-remote-desktop-connections\WPS_tasklist.png)
-1. Suchen Sie nach einem Eintrag für die PID-Nummer, die dem Port zugeordnet ist (aus der **Netstat** Ausgabe). Werden Sie auf der rechten Seite angezeigt, die Dienste oder Prozesse, die dieser PID zugeordnet sind.
-1. Wenn eine Anwendung oder ein Dienst als Remote Desktop Services (TermServ.exe) auf den Port verwendet wird, können Sie den Konflikt auflösen, indem Sie eine der folgenden Methoden:
+    ![Die Tasklist-Befehl Gibt Details zu einem bestimmten Prozess.](../media/troubleshoot-remote-desktop-connections/WPS_tasklist.png)
+5. Suchen Sie nach einem Eintrag für die PID-Nummer, die dem Port zugeordnet ist (aus der **Netstat** Ausgabe). Werden Sie auf der rechten Seite angezeigt, die Dienste oder Prozesse, die dieser PID zugeordnet sind.
+6. Wenn eine Anwendung oder ein Dienst als Remote Desktop Services (TermServ.exe) auf den Port verwendet wird, können Sie den Konflikt auflösen, indem Sie eine der folgenden Methoden:
       - Konfigurieren Sie die andere Anwendung oder Dienst um einen anderen Port (empfohlen) verwenden.
       - Deinstallieren Sie andere Anwendungen oder Dienste.
       - Konfigurieren von RDP, um einen anderen Port verwenden, und starten Sie den Remote Desktop Services-Dienst (nicht empfohlen).
@@ -295,7 +295,7 @@ Das folgende Verfahren verwendet Server-Manager, um die konfigurationsänderunge
 3. Wählen Sie **RD-Lizenzierung**, und wählen Sie dann den entsprechenden Lizenzierungsmodus für die Bereitstellung ( **"pro Gerät"** oder **pro Benutzer**).
 4. Geben Sie den vollqualifizierten Domänennamen (FQDN) des Servers RD-Lizenz, und wählen Sie dann **hinzufügen**.
 5. Wenn Sie mehr als eine Remotedesktop-Lizenzserver verfügen, wiederholen Sie Schritt 4 für jeden Server. 
-    ![RD-Lizenz Serverkonfigurationsoptionen im Server-Manager.](..\media\troubleshoot-remote-desktop-connections\RDLicensing_Configure.png)
+    ![RD-Lizenz Serverkonfigurationsoptionen im Server-Manager.](../media/troubleshoot-remote-desktop-connections/RDLicensing_Configure.png)
 
 ### <a name="refresh-the-x509-certificate-registry-keys"></a>Registrierungsschlüssel für die Aktualisierung der X509 Zertifikate
 
@@ -440,12 +440,12 @@ Um dieses Problem zu beheben, stellen Sie sicher, dass alle Systeme vollständig
 
 Um dieses Problem umgehen, bis die Updates abgeschlossen sind, überprüfen Sie KB 4093492 zulässigen Typen von Verbindungen. Wenn es keine alternativen möglichen gibt sollten Sie eine der folgenden Methoden:
 
-  - Legen Sie für den betroffenen Clientcomputern, die **Verschlüsselung Oracle Wiederherstellung** Richtlinie zurück zum **gefährdet**.
-  - Ändern Sie die folgenden Richtlinien in der **Computerkonfiguration\\Administrative Vorlagen\\Windows-Komponenten\\Remote Desktop Services\\Remote Desktop Session Host\\ Sicherheit** Ordner "Group Policy":  
-      - **Verwenden einer bestimmten Sicherheitsstufe für Remoteverbindungen (RDP) erfordern**: Legen Sie auf **aktiviert** , und wählen Sie **RDP**.
-      - **Benutzerauthentifizierung mit Authentifizierung auf Netzwerkebene für Remoteverbindungen erfordern**: Legen Sie auf **deaktiviert**.
-      > [!IMPORTANT]  
-      > Diese Änderungen reduzieren die Sicherheit Ihrer Bereitstellung. Sie sollte nur temporär ist, wenn Sie überhaupt verwendet werden.
+- Legen Sie für den betroffenen Clientcomputern, die **Verschlüsselung Oracle Wiederherstellung** Richtlinie zurück zum **gefährdet**.
+- Ändern Sie die folgenden Richtlinien in der **Computerkonfiguration\\Administrative Vorlagen\\Windows-Komponenten\\Remote Desktop Services\\Remote Desktop Session Host\\ Sicherheit** Ordner "Group Policy":  
+  - **Verwenden einer bestimmten Sicherheitsstufe für Remoteverbindungen (RDP) erfordern**: Legen Sie auf **aktiviert** , und wählen Sie **RDP**.
+  - **Benutzerauthentifizierung mit Authentifizierung auf Netzwerkebene für Remoteverbindungen erfordern**: Legen Sie auf **deaktiviert**.
+    > [!IMPORTANT]  
+    > Diese Änderungen reduzieren die Sicherheit Ihrer Bereitstellung. Sie sollte nur temporär ist, wenn Sie überhaupt verwendet werden.
 
 Weitere Informationen zum Arbeiten mit der Gruppenrichtlinie finden Sie unter [Ändern eines blockierenden Gruppenrichtlinienobjekts](#modifying-a-blocking-gpo).
 
@@ -493,7 +493,7 @@ Remote desktop-Clients, die versuchen, auch eine Verbindung nicht mehr reagiert.
 
 Um dieses Problem zu umgehen, starten Sie die RDSH-Server neu.
 
-Dieses Problem zu beheben, weisen Sie die KB-4093114 [10. April 2018 – KB4093114 (monatlichen Rollups)] (file:///C:\\Benutzer\\V-Jesits\\AppData\\lokale\\Microsoft\\Windows\\INetCache\\Content.Outlook\\FUB8OO45\\% für April 2010 % 202018 – KB4093114 %20\(monatliche % 20Rollup\)), auf die RDSH-Server.
+Dieses Problem zu beheben, weisen Sie die KB-4093114 [10. April 2018 – KB4093114 (monatliche Rollup)](file:///C:/Users/v-jesits/AppData/Local/Microsoft/Windows/INetCache/Content.Outlook/FUB8OO45/April%2010,%202018—KB4093114%20(Monthly%20Rollup)), in der RDSH-Server.
 
 ### <a name="rd-listener-issue"></a>Remotedesktop-Listener-Problem
 

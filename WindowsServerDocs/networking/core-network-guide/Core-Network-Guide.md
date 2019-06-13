@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: b3cd60f7-d380-4712-9a78-0a8f551e1121
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 0a9ef4c61794aec6c46cdad2c7111a03430972a1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: ef764356c5f74eb0aff15753e7f83a020c68c091
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850541"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66446529"
 ---
 # <a name="core-network-components"></a>Kernkomponenten
 
@@ -561,11 +561,11 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** sein, damit Sie d
 
 Wenn die Installation erfolgreich abgeschlossen wurde, wird die folgende Meldung in Windows PowerShell angezeigt.
 
-    
+
     Success Restart Needed  Exit Code   Feature Result
     ------- --------------  ---------   --------------
     True    No              Success     {Active Directory Domain Services, Group P...
-    
+
 
 - Geben Sie in Windows PowerShell den folgenden Befehl ein, und Ersetzen Sie dabei den Text **"corp.contoso.com"** mit Ihren Domänennamen ein, und drücken Sie dann die EINGABETASTE:
 
@@ -583,11 +583,13 @@ Install-ADDSForest -DomainName "corp.contoso.com"
 
 - Wenn Sie die folgende Aufforderung angezeigt wird, geben Sie den Buchstaben **Y** und drücken Sie dann die EINGABETASTE.
 
-    
-    Der Zielserver als Domänencontroller konfiguriert und neu gestartet, wenn dieser Vorgang abgeschlossen ist.
-    Möchten Sie diesen Vorgang fortsetzen?
-    [J] Ja [A] keine [L] Nein, alle [S] anhalten Ja zu allen [N] [?] Hilfe (Standardeinstellung ist "J"):
-    
+
+~~~
+The target server will be configured as a domain controller and restarted when this operation is complete.
+Do you want to continue with this operation?
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):
+~~~
+
 - Wenn Sie möchten, können Sie die warnungsmeldungen lesen, die während der normalen, erfolgreiche Installation von AD DS und DNS angezeigt werden. Diese Nachrichten werden normal, und weisen nicht auf Fehler bei der Installation.
 
 - Nach der erfolgreichen Installation wird eine Meldung besagt, dass Sie sind dabei, auf dem Computer angemeldet sein, damit der Computer neu starten können. Wenn Sie auf **schließen**, Sie sofort den Computer angemeldet sind und der Computer neu gestartet wird. Wenn Sie nicht auf **schließen**, einem Computerneustart nach einer Standard-Zeitspanne.
@@ -870,7 +872,7 @@ Sie müssen mindestens Mitglied der Gruppe **DHCP-Administratoren** oder einer e
 
 1.  Klicken Sie auf DHCP1 unter Server-Manager auf **Tools** und dann auf **DHCP**. Das DHCP-Snap-In der MMC wird geöffnet.
 
-2.  In **DHCP**, erweitern Sie den Namen des Servers. Z. B. wenn der DHCP-Server-Name %% amp;quot;DHCP1.corp.contoso.com%%amp;quot; lautet, klicken Sie auf den Pfeil nach unten neben **%% amp;quot;DHCP1.corp.contoso.com%%amp;quot;**.
+2.  In **DHCP**, erweitern Sie den Namen des Servers. Z. B. wenn der DHCP-Server-Name %% amp;quot;DHCP1.corp.contoso.com%%amp;quot; lautet, klicken Sie auf den Pfeil nach unten neben **%% amp;quot;DHCP1.corp.contoso.com%%amp;quot;** .
 
 3.  Unter den Servernamen, Maustaste **IPv4**, und klicken Sie dann auf **neuer Bereich**. Der Bereichserstellungs-Assistent wird geöffnet.
 
@@ -940,7 +942,7 @@ Sie müssen mindestens Mitglied der Gruppe **DHCP-Administratoren** oder einer e
 
 1.  Melden Sie sich bei dem Computer mit dem lokalen Administratorkonto an.
 
-2.  In **suchen im Web und auf Windows**, Typ **System**. Klicken Sie in den Suchergebnissen auf **System (Systemsteuerung)**. Das Dialogfeld **System** wird geöffnet.
+2.  In **suchen im Web und auf Windows**, Typ **System**. Klicken Sie in den Suchergebnissen auf **System (Systemsteuerung)** . Das Dialogfeld **System** wird geöffnet.
 
 3.  In **System**, klicken Sie auf **Erweiterte Systemeinstellungen**. Das Dialogfeld **Systemeigenschaften** wird geöffnet. Klicken Sie auf die **Computername** Registerkarte.
 
@@ -1098,7 +1100,7 @@ Zur Ausführung dieses Verfahrens müssen Sie ein Mitglied der Gruppe **Domänen
 
 1.  Klicken Sie auf NPS1 unter Server-Manager auf %%amp;quot;Extras%%amp;quot; und dann auf **Netzwerkrichtlinienserver**. Das MMC-Snap-In %%amp;quot;Netzwerkrichtlinienserver%%amp;quot; wird geöffnet.
 
-2.  Klicken Sie mit der rechten Maustaste auf **NPS (Lokal)**, und klicken Sie dann auf **Server in Active Directory registrieren**. Das Dialogfeld **Netzwerkrichtlinienserver** wird geöffnet.
+2.  Klicken Sie mit der rechten Maustaste auf **NPS (Lokal)** , und klicken Sie dann auf **Server in Active Directory registrieren**. Das Dialogfeld **Netzwerkrichtlinienserver** wird geöffnet.
 
 3.  Klicken Sie im Dialogfeld **Netzwerkrichtlinienserver** auf **OK**, und klicken Sie erneut auf **OK**.
 
@@ -1147,7 +1149,7 @@ Sie müssen Mitglied der Gruppe **Administratoren** sein, um diesen Vorgang ausz
 
 4.  Auf der **Zielserver auswählen** Seite, stellen Sie sicher, dass der lokale Computer ausgewählt ist, und klicken Sie dann auf **Weiter**.
 
-5.  Auf der **Serverrollen auswählen** Seite einen Bildlauf zu, und wählen Sie **Webserver (IIS)**. Die **Hinzufügen von Funktionen, die für Webserver (IIS) erforderlich sind** Dialogfeld wird geöffnet. Klicken Sie auf **Features hinzufügen**und dann auf **Weiter**.
+5.  Auf der **Serverrollen auswählen** Seite einen Bildlauf zu, und wählen Sie **Webserver (IIS)** . Die **Hinzufügen von Funktionen, die für Webserver (IIS) erforderlich sind** Dialogfeld wird geöffnet. Klicken Sie auf **Features hinzufügen**und dann auf **Weiter**.
 
 6.  Klicken Sie auf **Weiter**, bis Sie alle Standardeinstellungen für Webserver akzeptiert haben, und klicken Sie dann auf **Installieren**.
 
@@ -1242,7 +1244,7 @@ Die Mitgliedschaft in **Administratoren** oder einer entsprechenden Gruppe ist d
 
 1.  Klicken Sie auf **Start** und dann auf **Systemsteuerung**.
 
-2.  Klicken Sie in der Systemsteuerung auf ******Netzwerk und Internet**. **Netzwerk und Internet** wird geöffnet.
+2.  Klicken Sie in der Systemsteuerung auf **** **Netzwerk und Internet**. **Netzwerk und Internet** wird geöffnet.
 
     Klicken Sie in **Netzwerk und Internet** auf **Netzwerk- und Freigabecenter**. **Netzwerk- und Freigabecenter** wird geöffnet.
 
@@ -1250,7 +1252,7 @@ Die Mitgliedschaft in **Administratoren** oder einer entsprechenden Gruppe ist d
 
 4.  Klicken Sie in **Netzwerkverbindungen** mit der rechten Maustaste auf die zu konfigurierende Netzwerkverbindung, und klicken Sie dann auf **Eigenschaften**.
 
-5.  Wählen Sie unter **Eigenschaften von LAN-Verbindung** in **Diese Verbindung verwendet folgende Elemente****Internetprotokoll Version 4 (TCP/IPv4)** aus, und klicken Sie dann auf **Eigenschaften**. Das Dialogfeld **Eigenschaften von Internetprotokoll Version 4 (TCP/IPv4)** wird geöffnet.
+5.  Wählen Sie unter **Eigenschaften von LAN-Verbindung** in **Diese Verbindung verwendet folgende Elemente** **Internetprotokoll Version 4 (TCP/IPv4)** aus, und klicken Sie dann auf **Eigenschaften**. Das Dialogfeld **Eigenschaften von Internetprotokoll Version 4 (TCP/IPv4)** wird geöffnet.
 
 6.  Klicken Sie in **Eigenschaften von Internetprotokoll Version 4 (TCP/IPv4)** auf der Registerkarte **Allgemein** auf **Folgende IP-Adresse verwenden**. Geben Sie in **IP-Adresse** die IP-Adresse ein, die Sie verwenden möchten.
 
@@ -1277,7 +1279,7 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
 
 4.  Klicken Sie in **Netzwerkverbindungen** mit der rechten Maustaste auf die zu konfigurierende Netzwerkverbindung, und klicken Sie dann auf **Eigenschaften**.
 
-5.  Wählen Sie unter **Eigenschaften von LAN-Verbindung** in **Diese Verbindung verwendet folgende Elemente****Internetprotokoll Version 4 (TCP/IPv4)** aus, und klicken Sie dann auf **Eigenschaften**. Das Dialogfeld **Eigenschaften von Internetprotokoll Version 4 (TCP/IPv4)** wird geöffnet.
+5.  Wählen Sie unter **Eigenschaften von LAN-Verbindung** in **Diese Verbindung verwendet folgende Elemente** **Internetprotokoll Version 4 (TCP/IPv4)** aus, und klicken Sie dann auf **Eigenschaften**. Das Dialogfeld **Eigenschaften von Internetprotokoll Version 4 (TCP/IPv4)** wird geöffnet.
 
 6.  Klicken Sie in **Eigenschaften von Internetprotokoll Version 4 (TCP/IPv4)** auf der Registerkarte **Allgemein** auf **Folgende IP-Adresse verwenden**. Geben Sie in **IP-Adresse** die IP-Adresse ein, die Sie verwenden möchten.
 

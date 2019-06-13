@@ -12,12 +12,12 @@ ms.assetid: 1836682e-c7bb-4dd5-a2b5-6ff032693574
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: e0f65dfd25afbd584764d33904ba82e4da4c5443
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 38843a511548cd11c154dd5c130a0b2da88b59eb
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842451"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433236"
 ---
 # <a name="manage-server-storage-in-windows-server-essentials"></a>Verwalten von Serverspeicher in Windows Server Essentials
 
@@ -44,19 +44,19 @@ ms.locfileid: "59842451"
 ##  <a name="BKMK_1"></a> Verwalten von Festplatten, die mithilfe des Dashboards  
  Windows Server Essentials ermöglicht Ihnen das Verwalten aller Festplatten, die mit dem Server verbunden sind, über das Dashboard. Auf der Registerkarte **Speicher** des Dashboards werden unter **Festplatten** alle Festplatten angezeigt, die auf dem Server zum Speichern von Daten und Serversicherungen verfügbar sind. Der Server überwacht den auf jeder Festplatte verfügbaren Speicherplatz und zeigt eine Warnung an, wenn der Festplattenspeicherplatz nahezu belegt ist. Auf der Registerkarte **Festplatten** werden die folgenden Informationen angezeigt:  
   
--   Der Name jeder Festplatte  
+- Der Name jeder Festplatte  
   
--   Die Kapazität jeder Festplatte  
+- Die Kapazität jeder Festplatte  
   
--   Der belegte Speicherplatz auf jeder Festplatte  
+- Der belegte Speicherplatz auf jeder Festplatte  
   
--   Der freie Speicherplatz auf jeder Festplatte  
+- Der freie Speicherplatz auf jeder Festplatte  
   
--   Der Status jeder Festplatte; ein leerer Status bedeutet, dass das Laufwerk ordnungsgemäß funktioniert  
+- Der Status jeder Festplatte; ein leerer Status bedeutet, dass das Laufwerk ordnungsgemäß funktioniert  
   
--   Der Detailbereich, in dem alle Speicherstapelinformationen (für Speicherpool, Speicherplatz und Festplatte) angezeigt werden, wenn sich die ausgewählte Festplatte auf einem Speicherplatz (und nicht auf einem physikalischen Datenträger) befindet  
+- Der Detailbereich, in dem alle Speicherstapelinformationen (für Speicherpool, Speicherplatz und Festplatte) angezeigt werden, wenn sich die ausgewählte Festplatte auf einem Speicherplatz (und nicht auf einem physikalischen Datenträger) befindet  
   
- In der folgenden Tabelle sind die im Dashboard verfügbaren Aufgaben zur Festplattenverwaltung und deren Beschreibungen aufgelistet. Einige der Aufgaben werden nur angezeigt, wenn eine Festplatte ausgewählt ist.  
+  In der folgenden Tabelle sind die im Dashboard verfügbaren Aufgaben zur Festplattenverwaltung und deren Beschreibungen aufgelistet. Einige der Aufgaben werden nur angezeigt, wenn eine Festplatte ausgewählt ist.  
   
 ### <a name="available-hard-drive-management-tasks"></a>Verfügbare Aufgaben zur Festplattenverwaltung  
   
@@ -118,7 +118,7 @@ ms.locfileid: "59842451"
   
 2.  Die Festplatte formatieren und für die Serversicherung einrichten. Wenn Sie diese Option auswählen, wird der Assistent zum Einrichten der Serversicherung gestartet und führt Sie durch die Serversicherungskonfiguration.  
   
-3.  Wenn eine Speicherplatz verfügt t vorhanden ist, verwenden Sie die neue Festplatte zum Erstellen eines Speicherplatzes. Sie benötigen mindestens zwei Festplatten, um einen Speicherplatz zu erstellen.  
+3.  Wenn ein Speicherplatz vorhanden ist, verwenden Sie die neue Festplatte, um einen Speicherplatz zu erstellen. Sie benötigen mindestens zwei Festplatten, um einen Speicherplatz zu erstellen.  
   
 4.  Wenn bereits ein Speicherplatz vorhanden ist, verwenden Sie die neue Festplatte, um die Kapazität eines Speicherpools zu erhöhen. Diese Option wird nur angezeigt, wenn bereits ein Speicherplatz auf dem Server erstellt ist. Wenn Sie diese Option auswählen, fügt der Assistent diese Festplatte zum Speicherpool hinzu.  
   
@@ -136,41 +136,41 @@ ms.locfileid: "59842451"
   
 ##### <a name="to-store-server-folders"></a>Speichern von Serverordnern  
   
-1.  Öffnen Sie das Dashboard.  
+1. Öffnen Sie das Dashboard.  
   
-2.  Klicken Sie auf die Registerkarte **SPEICHER** und anschließend auf **Serverordner**.  
+2. Klicken Sie auf die Registerkarte **SPEICHER** und anschließend auf **Serverordner**.  
   
-3.  Führen Sie im Bereich **Tasks für Serverordner** einen der folgenden Schritte aus:  
+3. Führen Sie im Bereich **Tasks für Serverordner** einen der folgenden Schritte aus:  
   
-    1.  Zum Hinzufügen eines Serverordners klicken Sie auf **Ordner hinzufügen**.  
+   1.  Zum Hinzufügen eines Serverordners klicken Sie auf **Ordner hinzufügen**.  
   
-    2.  Zum Verschieben eines Serverordners wählen Sie den Ordner aus, den Sie auf die neue Festplatte verschieben möchten, und klicken Sie dann auf **Ordner verschieben**.  
+   2.  Zum Verschieben eines Serverordners wählen Sie den Ordner aus, den Sie auf die neue Festplatte verschieben möchten, und klicken Sie dann auf **Ordner verschieben**.  
   
-    > [!NOTE]
-    >  Wenn Sie zur Festplatte navigieren und sie als Speicherort für Serverordner auswählen, ohne einen Ordner zu erstellen, wird die folgende Fehlermeldung angezeigt: **Ein Stammverzeichnis (z. B. "c:"\\, "d:"\\) kann nicht als Serverordner hinzugefügt werden. Erstellen Sie einen neuen Ordner oder eine vorhandene auszuwählen, unter dem Stammverzeichnis, und wiederholen Sie den erneut**. Um diesen Fehler zu beheben, erstellen Sie einen neuen Ordner auf der neu hinzugefügten Festplatte, und wählen Sie dann den neuen Ordner als Speicherort für Serverordner aus.  
+   > [!NOTE]
+   >  Wenn Sie zur Festplatte navigieren und sie als Speicherort für Serverordner auswählen, ohne einen Ordner zu erstellen, wird die folgende Fehlermeldung angezeigt: **Ein Stammverzeichnis (z. B. "c:"\\, "d:"\\) kann nicht als Serverordner hinzugefügt werden. Erstellen Sie einen neuen Ordner oder eine vorhandene auszuwählen, unter dem Stammverzeichnis, und wiederholen Sie den erneut**. Um diesen Fehler zu beheben, erstellen Sie einen neuen Ordner auf der neu hinzugefügten Festplatte, und wählen Sie dann den neuen Ordner als Speicherort für Serverordner aus.  
   
-4.  Folgen Sie den Anweisungen, um den Assistenten zu beenden.  
+4. Folgen Sie den Anweisungen, um den Assistenten zu beenden.  
   
- Weitere Informationen zum Verschieben von Serverordnern finden Sie unter [Add or move a server folder](Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_5).  
+   Weitere Informationen zum Verschieben von Serverordnern finden Sie unter [Add or move a server folder](Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_5).  
   
 ###  <a name="BKMK_4b"></a> Verwenden Sie die neue Festplatte zum Speichern von serversicherungen  
  Sie können die neu hinzugefügte Festplatte zum Speichern von Serversicherungen verwenden.  
   
 ##### <a name="to-store-server-backups"></a>Speichern von Serversicherungen  
   
-1.  Öffnen Sie das Dashboard.  
+1. Öffnen Sie das Dashboard.  
   
-2.  Klicken Sie auf die Registerkarte **Geräte**, wählen Sie den Server aus dem Listenbereich aus, und führen Sie dann im Aufgabenbereich eine der folgenden Aktionen aus:  
+2. Klicken Sie auf die Registerkarte **Geräte**, wählen Sie den Server aus dem Listenbereich aus, und führen Sie dann im Aufgabenbereich eine der folgenden Aktionen aus:  
   
-    1.  Wenn die Serversicherung nicht auf dem Server konfiguriert ist, klicken Sie auf **Serversicherung einrichten**.  
+   1. Wenn die Serversicherung nicht auf dem Server konfiguriert ist, klicken Sie auf **Serversicherung einrichten**.  
   
-    2.  Wenn die Serversicherung auf dem Server konfiguriert ist, klicken Sie auf **Serversicherung anpassen**.  
+   2. Wenn die Serversicherung auf dem Server konfiguriert ist, klicken Sie auf **Serversicherung anpassen**.  
   
-     Der Assistent zum Einrichten der Serversicherung wird angezeigt.  
+      Der Assistent zum Einrichten der Serversicherung wird angezeigt.  
   
-3.  Wählen Sie auf der Seite **Sicherungsziel auswählen** die neue Festplatte als Sicherungsziel aus.  
+3. Wählen Sie auf der Seite **Sicherungsziel auswählen** die neue Festplatte als Sicherungsziel aus.  
   
-4.  Folgen Sie den Anweisungen, um den Assistenten zu beenden.  
+4. Folgen Sie den Anweisungen, um den Assistenten zu beenden.  
   
 ###  <a name="BKMK_4c"></a> Verwenden Sie die neue Festplatte zum Erhöhen der Speicherpoolkapazität  
  Wenn die Speicherpoolkapazität gering ist, wird Ihnen eine Warnung angezeigt, die besagt, dass Sie die Speicherpoolkapazität erhöhen können, indem Sie mithilfe des Assistenten zum Erhöhen der Kapazität eines Speicherpools eine neue Festplatte zum Speicherpool hinzufügen.  
@@ -191,7 +191,7 @@ ms.locfileid: "59842451"
 5.  Folgen Sie den Anweisungen, um den Assistenten zu beenden.  
   
 ##  <a name="BKMK_5"></a> Speicherplätze – Übersicht  
- Mithilfe von Speicherplätzen können Sie Datenträger in einem Speicherpool zu Gruppen zusammenfassen. Dann können Sie Poolkapazität zum Erstellen von Speicherplätzen verwenden. Speicherplätze sind virtuelle Laufwerke, die auf der Registerkarte **Festplatten** des Dashboards angezeigt werden. Können Speicherplätze wie jedes andere Laufwerk, sodass es einfach ist, arbeiten mit Dateien darauf. Wenn die Poolkapazität nur noch gering ist, können Sie große Speicherplätze erstellen und weitere Laufwerke zum Speicherpool hinzufügen. Wenn Sie zwei oder mehr Datenträger im Speicherpool haben, können Sie Speicherplätze erstellen, mit-Wege-Spiegelung, die nicht von einem defekten Laufwerk betroffen? oder sogar zwei Laufwerke einen Fehler? Wenn Sie einen drei-Wege-spiegelspeicherplatz erstellen.  
+ Mithilfe von Speicherplätzen können Sie Datenträger in einem Speicherpool zu Gruppen zusammenfassen. Dann können Sie Poolkapazität zum Erstellen von Speicherplätzen verwenden. Speicherplätze sind virtuelle Laufwerke, die auf der Registerkarte **Festplatten** des Dashboards angezeigt werden. Sie können Speicherplätze wie jedes andere Laufwerk verwenden, daher ist es einfach zum Arbeiten mit Dateien auf. Wenn die Poolkapazität nur noch gering ist, können Sie große Speicherplätze erstellen und weitere Laufwerke zum Speicherpool hinzufügen. Wenn Sie zwei oder mehr Datenträger im Speicherpool haben, können Sie Speicherplätze erstellen, mit-Wege-Spiegelung, die nicht von einem defekten Laufwerk betroffen? oder sogar zwei Laufwerke einen Fehler? Wenn Sie einen drei-Wege-spiegelspeicherplatz erstellen.  
   
  Zum Erstellen eines Speicherplatzes benötigen Sie lediglich ein oder mehrere Laufwerke zusätzlich zu dem, auf dem Windows installiert ist. Bei diesen Laufwerken kann es sich um interne oder externe Festplatten oder Festkörperlaufwerke handeln. Sie können eine Vielzahl von Laufwerkstypen für Speicherplätze verwenden, einschließlich USB-, SATA- und SAS-Laufwerke.  
   
@@ -212,29 +212,29 @@ ms.locfileid: "59842451"
   
 #### <a name="to-create-a-storage-space-in-windows-server-essentials"></a>Zum Erstellen eines Speicherplatzes in Windows Server Essentials  
   
-1.  Fügen Sie alle Laufwerke, die Sie mithilfe von Speicherplätzen in einer Gruppe zusammenfassen möchten, zum Server mit Windows Server Essentials hinzu oder stellen Sie eine Verbindung her.  
+1. Fügen Sie alle Laufwerke, die Sie mithilfe von Speicherplätzen in einer Gruppe zusammenfassen möchten, zum Server mit Windows Server Essentials hinzu oder stellen Sie eine Verbindung her.  
   
-2.  Klicken Sie auf dem Dashboard auf **erweitert: Verwalten von Speicherplätzen**.  
+2. Klicken Sie auf dem Dashboard auf **erweitert: Verwalten von Speicherplätzen**.  
   
-3.  Klicken Sie auf **Neuen Pool und Speicherplatz erstellen**.  
+3. Klicken Sie auf **Neuen Pool und Speicherplatz erstellen**.  
   
-4.  Wählen Sie die Laufwerke aus, die Sie zu dem neuen Speicherplatz hinzufügen möchten, und klicken Sie dann auf **Pool erstellen**.  
+4. Wählen Sie die Laufwerke aus, die Sie zu dem neuen Speicherplatz hinzufügen möchten, und klicken Sie dann auf **Pool erstellen**.  
   
-5.  Weisen Sie dem Laufwerk einen Namen und einen Buchstaben zu, und wählen Sie dann ein Layout. Mithilfe von**Zwei-Wege-Spiegelung**, **Drei-Wege-Spiegelung**und **Parität** können Sie die Dateien am Speicherplatz bei Laufwerkfehlern schützen.  
+5. Weisen Sie dem Laufwerk einen Namen und einen Buchstaben zu, und wählen Sie dann ein Layout. Mithilfe von**Zwei-Wege-Spiegelung**, **Drei-Wege-Spiegelung**und **Parität** können Sie die Dateien am Speicherplatz bei Laufwerkfehlern schützen.  
   
-6.  Geben Sie die maximale Größe an, die der Speicherplatz erreichen kann, und klicken Sie dann auf **Speicherplatz erstellen**.  
+6. Geben Sie die maximale Größe an, die der Speicherplatz erreichen kann, und klicken Sie dann auf **Speicherplatz erstellen**.  
   
- In Windows Server Essentials können Sie einen bidirektionalen gespiegelten Speicherplatz erstellen mit der ein Storage Space-Assistent aus dem Dashboard.  
+   In Windows Server Essentials können Sie einen bidirektionalen gespiegelten Speicherplatz erstellen mit der ein Storage Space-Assistent aus dem Dashboard.  
   
 #### <a name="to-create-a-storage-space-in-windows-server-essentials"></a>Zum Erstellen eines Speicherplatzes in Windows Server Essentials  
   
-1.  Fügen Sie alle Laufwerke, die Sie mithilfe von Speicherplätzen in einer Gruppe zusammenfassen möchten, zum Server mit Windows Server Essentials hinzu oder stellen Sie eine Verbindung her.  
+1. Fügen Sie alle Laufwerke, die Sie mithilfe von Speicherplätzen in einer Gruppe zusammenfassen möchten, zum Server mit Windows Server Essentials hinzu oder stellen Sie eine Verbindung her.  
   
-2.  Klicken Sie auf dem Dashboard auf **Speicherplatz verwalten**. Der Assistent zum Erstellen eines Speicherplatzes wird angezeigt.  
+2. Klicken Sie auf dem Dashboard auf **Speicherplatz verwalten**. Der Assistent zum Erstellen eines Speicherplatzes wird angezeigt.  
   
-3.  Folgen Sie den Anweisungen, um den Assistenten fertigzustellen.  
+3. Folgen Sie den Anweisungen, um den Assistenten fertigzustellen.  
   
- Informationen zum Erhöhen der Speicherpoolkapazität finden Sie unter [Use the new hard drive to increase storage pool capacity](Manage-Server-Storage-in-Windows-Server-Essentials.md#BKMK_4c).  
+   Informationen zum Erhöhen der Speicherpoolkapazität finden Sie unter [Use the new hard drive to increase storage pool capacity](Manage-Server-Storage-in-Windows-Server-Essentials.md#BKMK_4c).  
   
 ## <a name="see-also"></a>Siehe auch  
   

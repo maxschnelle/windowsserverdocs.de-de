@@ -12,12 +12,12 @@ ms.assetid: 3043f83b-389c-4f37-a1ff-85afe99314fa
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 91635a58c64fbf74d3b0139be7c9c36365487319
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: d9002a1530e114f490ddf1cfb0e5706ddec52431
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59842051"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433153"
 ---
 # <a name="manage-system-health-in-windows-server-essentials"></a>Verwalten der Systemintegrität in Windows Server Essentials
 
@@ -28,7 +28,7 @@ ms.locfileid: "59842051"
 > [!NOTE]
 >  In Windows Server Essentials und Windows Server 2012 R2 mit installierter Windows Server Essentials Experience-Rolle können die Warnungen für den Server und Clientcomputer im Netzwerk werden nicht mehr in der Meldungsanzeige angezeigt, jedoch stattdessen auf die angezeigtwerdenkönnen **Integritätsberichte** Registerkarte die **Startseite** Seite.  
   
- Windows Server Essentials überwacht aktiv jeden Computer, die mit dem Server verbunden ist und der Administrator Probleme mit der Systemintegrität s, einschließlich Kritischer Updates verknüpft fehlende Schutz vor Schadsoftware, veraltete Virendefinitionen auf Client-Warnungen Computer und andere wichtige Probleme, die ein Eingreifen erfordern. Diese Probleme werden angezeigt, als Warnungen im Alert Viewer, die vom Server s Dashboard oder den Clientcomputer s Launchpad in Windows Server Essentials oder gestartet werden kann die **Integritätsberichte** Registerkarte in Windows Server Essentials. Standardmäßig werden die Warnungen alle 30 Minuten aktualisiert, doch Sie können die Warnungen für Ihr Netzwerk jederzeit abrufen, indem Sie in der Meldungsanzeige oder auf der Registerkarte **Integritätsberichte** auf **Aktualisieren** klicken.  
+ Windows Server Essentials überwacht aktiv jeden Computer, die mit dem Server verbunden ist und der Administrator Probleme mit des Systems im Gesundheitswesen, einschließlich Kritischer Updates verknüpft fehlende Schutz vor Schadsoftware, veraltete Virendefinitionen auf Client-Warnungen Computer und andere wichtige Probleme, die ein Eingreifen erfordern. Diese Probleme werden angezeigt, als Warnungen im Alert Viewer, die über das Dashboard des Servers oder Clientcomputers Launchpad in Windows Server Essentials oder gestartet werden kann die **Integritätsberichte** Registerkarte in Windows Server Essentials. Standardmäßig werden die Warnungen alle 30 Minuten aktualisiert, doch Sie können die Warnungen für Ihr Netzwerk jederzeit abrufen, indem Sie in der Meldungsanzeige oder auf der Registerkarte **Integritätsberichte** auf **Aktualisieren** klicken.  
   
  In den folgenden Themen wird erläutert, was die Warnungen in der Meldungsanzeige bedeuten und wie Sie sie anzeigen und behandeln können. Außerdem finden Sie in diesen Themen Anweisungen zum Konfigurieren Ihres Servers, sodass Warnbenachrichtigungen über E-Mail eingehen:  
   
@@ -56,7 +56,7 @@ ms.locfileid: "59842051"
 > [!NOTE]
 >  **Windows Server Essentials:** Sie können das Statusbericht-add-in für Windows Server Essential aus dem [Microsoft Download Center](https://go.microsoft.com/fwlink/p/?LinkId=266342).  
 >   
->  **Windows Server Essentials:** In der Standardeinstellung des Integritätsberichts-add-Ins ist integriert mit Windows Server Essentials oder Windows Server 2012 R2 mit installierter Windows Server Essentials Experience-Rolle und die Statusberichte werden angezeigt, auf die **Integritätsberichte** Registerkarte im Dashboard s **Startseite** Seite.  
+>  **Windows Server Essentials:** In der Standardeinstellung des Integritätsberichts-add-Ins ist integriert mit Windows Server Essentials oder Windows Server 2012 R2 mit installierter Windows Server Essentials Experience-Rolle und die Statusberichte werden angezeigt, auf die **Integritätsberichte** Registerkarte der Dashboard- **Startseite** Seite.  
   
 ###  <a name="BKMK_Generate"></a> Generieren eines Berichts bei Bedarf oder nach Zeitplan  
  Nach dem Installieren des Add-ins für den Statusbericht und dem erneuten Start des Dashboards wird eine neue Registerkarte, **Berichte** , zum Dashboard hinzugefügt. Sie können einen Statusbericht jederzeit auf Anforderung erstellen, indem Sie auf die Aufgabe **Statusbericht erstellen** auf der Registerkarte **Berichte** klicken.  
@@ -68,21 +68,21 @@ ms.locfileid: "59842051"
 ###  <a name="BKMK_Customize"></a> Der Inhalt des Berichts anpassen  
  Der Integritätsbericht enthält Folgendes:  
   
--   **Kritische Warnungen** Diese entsprechen den kritischen Warnungen, die in der Meldungsanzeige auf dem Dashboard angezeigt werden. Informationsmeldungen sind im Integritätsbericht nicht enthalten.  
+- **Kritische Warnungen** Diese entsprechen den kritischen Warnungen, die in der Meldungsanzeige auf dem Dashboard angezeigt werden. Informationsmeldungen sind im Integritätsbericht nicht enthalten.  
   
--   **Kritische Fehler in den Ereignisprotokollen** Anwendungen und Dienstprotokolle werde gescannt, und die in den letzten 24 Stunden protokollierten Fehler werden im Abschnitt **Details** des Berichts aufgeführt.  
+- **Kritische Fehler in den Ereignisprotokollen** Anwendungen und Dienstprotokolle werde gescannt, und die in den letzten 24 Stunden protokollierten Fehler werden im Abschnitt **Details** des Berichts aufgeführt.  
   
--   **Serversicherung** Die Informationen über die letzte Serversicherung werden im Abschnitt **Details** des Berichts aufgeführt.  
+- **Serversicherung** Die Informationen über die letzte Serversicherung werden im Abschnitt **Details** des Berichts aufgeführt.  
   
--   **Nicht ausgeführte Autostartdienste** Wenn zum Zeitpunkt der Berichterstellung kein Autostartdienst ausgeführt wird, werden die Informationen zu diesem Dienst im Detailabschnitt**** des Berichts aufgeführt.  
+- **Nicht ausgeführte Autostartdienste** Wenn zum Zeitpunkt der Berichterstellung kein Autostartdienst ausgeführt wird, werden die Informationen zu diesem Dienst im Detailabschnitt **** des Berichts aufgeführt.  
   
--   **Updates** Im Detailabschnitt**** wird der Updatestatus des Servers und aller Clientcomputer angezeigt.  
+- **Updates** Im Detailabschnitt **** wird der Updatestatus des Servers und aller Clientcomputer angezeigt.  
   
--   **Speicher** Im Detailabschnitt**** wird die Liste der Treiber und ihre Kapazität aufgeführt.  
+- **Speicher** Im Detailabschnitt **** wird die Liste der Treiber und ihre Kapazität aufgeführt.  
   
- Zeigen Sie im Integritätsbericht zunächst die **Zusammenfassung**an, und klicken Sie dann bei den Elementen mit einem roten Fehlersymbol oder einem gelben Warnsymbol auf den Link **Details** auf derselben Zeile, um die Details zum Element anzuzeigen.  
+  Zeigen Sie im Integritätsbericht zunächst die **Zusammenfassung**an, und klicken Sie dann bei den Elementen mit einem roten Fehlersymbol oder einem gelben Warnsymbol auf den Link **Details** auf derselben Zeile, um die Details zum Element anzuzeigen.  
   
- Wenn Sie nicht möchten, dass einige Datenpunkte standardmäßig in den Bericht einbezogen werden, können Sie den Inhalt des Berichts anpassen, indem Sie im Listenbereich auf **Einstellungen für den Integritätsbericht anpassen** und dann auf die Registerkarte **Inhalt** klicken. Deaktivieren Sie die Kontrollkästchen für den Inhalt, der Sie Ich möchte im Bericht angezeigt werden soll. Z. B. Wenn Sie Ihren eigenen serversicherungsplan verfügen und Don ' t Warnungen zu serversicherungen sehen möchten, können Sie serversicherungen aus Ausschließen des Berichts durch Deaktivieren der **serversicherung** Kontrollkästchen.  
+  Wenn Sie nicht möchten, dass einige Datenpunkte standardmäßig in den Bericht einbezogen werden, können Sie den Inhalt des Berichts anpassen, indem Sie im Listenbereich auf **Einstellungen für den Integritätsbericht anpassen** und dann auf die Registerkarte **Inhalt** klicken. Deaktivieren Sie die Kontrollkästchen für den Inhalt, den nicht im Bericht angezeigt werden sollen. Z. B. Wenn Sie Ihren eigenen serversicherungsplan verfügen und keine Warnungen zu serversicherungen sehen möchten, können Sie serversicherungen aus Ausschließen des Berichts durch Deaktivieren der **serversicherung** Kontrollkästchen.  
   
 ###  <a name="BKMK_emailreport"></a> E-Mail-Adresse des Berichts  
  Sich beim Dashboard anmelden zu müssen, um Berichte zu lesen, ist für einige Administratoren immer noch unpraktisch, vor allem wenn sie mehr als nur einen Server verwalten. Wenn die E-Mail-Funktion aktiviert ist, wird nach der Berichterstellung eine E-Mail an eine Liste von definierten E-Mail-Adressen mit dem Inhalt des Berichts gesendet. Der Administrator kann diesen Bericht von jedem Gerät oder jeder Clientanwendung aus öffnen und sicherstellen, dass der Server im bestmöglichen Zustand ausgeführt wird.  
@@ -140,13 +140,13 @@ ms.locfileid: "59842051"
   
 ##### <a name="to-ignore-an-alert"></a>So ignorieren Sie eine Warnung  
   
-1.  Öffnen Sie das Launchpad auf einem mit dem Windows Server Essentials-Server verbundenen Computer.  
+1. Öffnen Sie das Launchpad auf einem mit dem Windows Server Essentials-Server verbundenen Computer.  
   
-2.  Klicken Sie auf dem Launchpad auf eines der angezeigten Warnsymbole (Kritisch, Warnung oder Information). Daraufhin wird die Meldungsanzeige geöffnet.  
+2. Klicken Sie auf dem Launchpad auf eines der angezeigten Warnsymbole (Kritisch, Warnung oder Information). Daraufhin wird die Meldungsanzeige geöffnet.  
   
-3.  Wählen Sie in der Meldungsanzeige die zu ignorierende Warnung aus, und klicken Sie im Abschnitt **Aufgaben** auf **Warnung ignorieren**.  
+3. Wählen Sie in der Meldungsanzeige die zu ignorierende Warnung aus, und klicken Sie im Abschnitt **Aufgaben** auf **Warnung ignorieren**.  
   
- Um eine deaktivierte Warnung zu behandeln, müssen Sie sie zuerst aktivieren.  
+   Um eine deaktivierte Warnung zu behandeln, müssen Sie sie zuerst aktivieren.  
   
 ###  <a name="BKMK_5"></a> Aktivieren einer Warnung  
  Sie können eine Warnung, die Sie zuvor ignoriert haben, aktivieren. Nachdem die Warnung aktiviert ist, können Sie sie beheben oder ggf. löschen. Eine Warnung wird als deaktiviert angezeigt, wenn sie ignoriert und entsprechend gekennzeichnet wurde. Wenn Sie eine zuvor deaktivierte Warnung aktivieren, wird sie wieder in die Gesamtbewertung der Computerintegrität einbezogen.  
@@ -276,7 +276,7 @@ ms.locfileid: "59842051"
   
 4.  Gehen Sie im Fenster **SMTP-Einstellungen** folgendermaßen vor:  
   
-    1.  Geben Sie als **Absender-E-Mail-Adresse** die E-Mail-Adresse ein, die Sie für das Senden von E-Mail-Benachrichtigungen verwenden möchten. Diese e-Mail-Adresse wird als die Adresse des Absenders s in den Benachrichtigungen für Warnungen angezeigt werden.  
+    1.  Geben Sie als **Absender-E-Mail-Adresse** die E-Mail-Adresse ein, die Sie für das Senden von E-Mail-Benachrichtigungen verwenden möchten. Diese e-Mail-Adresse wird als die Adresse des Absenders in den Benachrichtigungen für Warnungen angezeigt werden.  
   
     2.  Geben Sie im Textfeld für die **Absender-E-Mail-Adresse**unter **SMTP-Servername** den Namen des SMTP-Servers ein, den Sie in Schritt 4a angegeben haben. (In Tabelle 1 finden Sie einige der SMTP-Servernamen.)  
   
@@ -309,7 +309,7 @@ ms.locfileid: "59842051"
  In diesem Abschnitt wird erläutert, wie Sie die SMTP-Einstellungen für Ihren Server konfigurieren, sodass Sie Integritätsberichte über E-Mail erhalten.  
   
 > [!NOTE]
->  In der Standardeinstellung des Integritätsberichts-add-Ins ist integriert mit Windows Server Essentials oder Windows Server 2012 R2 mit installierter Windows Server Essentials Experience-Rolle und die Statusberichte werden angezeigt, auf die **Integritätsberichte** Registerkarte im Dashboard s **Startseite** Seite.  
+>  In der Standardeinstellung des Integritätsberichts-add-Ins ist integriert mit Windows Server Essentials oder Windows Server 2012 R2 mit installierter Windows Server Essentials Experience-Rolle und die Statusberichte werden angezeigt, auf die **Integritätsberichte** Registerkarte der Dashboard- **Startseite** Seite.  
   
 ##### <a name="to-set-up-email-notification-for-health-reports"></a>So richten Sie E-Mail-Benachrichtigungen für Integritätsberichte ein  
   
@@ -321,7 +321,7 @@ ms.locfileid: "59842051"
   
 4.  Gehen Sie auf der Registerkarte **Planen und senden** im Bereich **E-Mail** wie folgt vor:  
   
-    1.  Klicken Sie auf **Aktivieren**, und geben Sie die E-Mail-Adresse ein, die Sie zum Versenden von Integritätsberichten verwenden möchten. Diese e-Mail-Adresse wird als die Adresse des Absenders s in den Berichten zur Systemintegrität angezeigt, die per e-Mail gesendet werden.  
+    1.  Klicken Sie auf **Aktivieren**, und geben Sie die E-Mail-Adresse ein, die Sie zum Versenden von Integritätsberichten verwenden möchten. Diese e-Mail-Adresse wird als die Adresse des Absenders in die Integritätsberichte angezeigt, die per e-Mail gesendet werden.  
   
         1.  Geben Sie unter **Name des SMTP-Servers** den Namen des SMTP-Servers ein. (In Tabelle 1 finden Sie einige der SMTP-Servernamen.)  
   

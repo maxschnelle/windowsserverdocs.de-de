@@ -9,12 +9,12 @@ ms.assetid: 244a4b48-06e5-4796-8750-a50e4f88ac72
 ms.author: pashort
 author: shortpatti
 ms.date: 09/13/2018
-ms.openlocfilehash: d0cf1e1d6b1681a0f18908b08cd17572159e0462
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 0ea129fe2230332c0099d735f064768bce9fc50c
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59881751"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812280"
 ---
 # <a name="network-load-balancing"></a>Netzwerklastenausgleich
 
@@ -22,8 +22,8 @@ ms.locfileid: "59881751"
 
 In diesem Thema, wir bieten Ihnen einen Überblick über den Netzwerklastenausgleich \(NLB\) -Feature in Windows Server 2016. Sie können NLB verwenden, um zwei oder mehr Servern als einzelnen virtuellen Cluster verwalten. NLB verbessert die Verfügbarkeit und Skalierbarkeit von Internet-serveranwendungen wie für Web-, FTP, firewall, Proxyserver, virtuelles privates Netzwerk \(VPN\), und andere unternehmenskritische\-wichtigen Servern.  
 
->[!NOTE]
->Windows Server 2016 enthält ein neuer Azure Inspirierte Software Load Balancer \(SLB\) als Komponente von der Software Defined Networking \(SDN\) Infrastruktur. Verwendung SLB anstelle von NLB bei Verwendung von SDN-nicht-Windows-Workloads verwenden, benötigen Sie ausgehenden NAT \(NAT\), oder Layer 3 benötigen \(L3\) oder nicht-TCP-basierte Lastenausgleich. Sie können weiterhin Verwendung von NLB mit Windows Server 2016 für nicht-SDN-Bereitstellungen. Weitere Informationen zu den SLB, finden Sie unter [Software Load Balancing (SLB) für SDN](../sdn/technologies/network-function-virtualization/Software-Load-Balancing--SLB--for-SDN.md).
+> [!NOTE]
+> Windows Server 2016 enthält ein neuer Azure Inspirierte Software Load Balancer \(SLB\) als Komponente von der Software Defined Networking \(SDN\) Infrastruktur. Verwendung SLB anstelle von NLB bei Verwendung von SDN-nicht-Windows-Workloads verwenden, benötigen Sie ausgehenden NAT \(NAT\), oder Layer 3 benötigen \(L3\) oder nicht-TCP-basierte Lastenausgleich. Sie können weiterhin Verwendung von NLB mit Windows Server 2016 für nicht-SDN-Bereitstellungen. Weitere Informationen zu den SLB, finden Sie unter [Software Load Balancing (SLB) für SDN](../sdn/technologies/network-function-virtualization/Software-Load-Balancing--SLB--for-SDN.md).
 
 Der Netzwerklastenausgleich \(NLB\) Feature verteilt den Datenverkehr auf mehrere Server mithilfe von TCP\/IP-Netzwerkprotokolls. Durch die Kombination von zwei oder mehr Computern, die Anwendungen in einem einzelnen virtuellen Cluster ausgeführt werden, bietet NLB Zuverlässigkeit und Leistung für Webserver und andere unternehmenskritische\-wichtigen Servern.  
   

@@ -12,12 +12,12 @@ ms.assetid: f5fe1088-ebe7-4799-a47d-075b0048dea1
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: d740b71a2c3b9ed8ddb0ecfae6da2cf7d4f689a5
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: a66f98b0896e706f520aa057b91cce2fe662d22d
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63720415"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433319"
 ---
 # <a name="manage-devices-in-windows-server-essentials"></a>Verwalten von Geräten in Windows Server Essentials
 
@@ -64,13 +64,13 @@ ms.locfileid: "63720415"
   
 #### <a name="to-view-the-status-of-network-computers"></a>So zeigen Sie den Status von Netzwerkcomputern an  
   
-1.  Öffnen Sie das Windows Server Essentials-Dashboard.  
+1. Öffnen Sie das Windows Server Essentials-Dashboard.  
   
-2.  Klicken Sie auf der Navigationsleiste auf **Geräte**.  
+2. Klicken Sie auf der Navigationsleiste auf **Geräte**.  
   
-3.  Zeigen Sie den Status aller Computer im Netzwerk im Listenbereich an.  
+3. Zeigen Sie den Status aller Computer im Netzwerk im Listenbereich an.  
   
- Die folgende Tabelle beschreibt die verschiedenen Computer und Sicherungsaufgaben, die im Windows Server Essentials-Dashboard verfügbar sind. Einige Aufgaben sind computerspezifisch und nur sichtbar, wenn Sie einen Computer in der Liste auswählen.  
+   Die folgende Tabelle beschreibt die verschiedenen Computer und Sicherungsaufgaben, die im Windows Server Essentials-Dashboard verfügbar sind. Einige Aufgaben sind computerspezifisch und nur sichtbar, wenn Sie einen Computer in der Liste auswählen.  
   
 ### <a name="computer-tasks-in-the-dashboard"></a>Computeraufgaben im Dashboard  
   
