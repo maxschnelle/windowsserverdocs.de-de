@@ -7,19 +7,18 @@ ms.topic: article
 author: phstee
 ms.author: NedPyle; Danlo; DKruse
 ms.date: 4/14/2017
-ms.openlocfilehash: ed9e9c6e2280aa69408455a111eddb3af7f88750
-ms.sourcegitcommit: d84dc3d037911ad698f5e3e84348b867c5f46ed8
+ms.openlocfilehash: dc8a845a6d352fa03517e2a092c44b6d1c1def4b
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266697"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811466"
 ---
 # <a name="performance-tuning-for-file-servers"></a>Leistungsoptimierung für Dateiserver
 
 Sie sollten die richtige Hardware für die zu erwartende Dateiserverlast auswählen, indem Sie die durchschnittliche Last, Spitzenlast, Kapazität, geplanten Erweiterungen und Antwortzeiten berücksichtigen. Aufgrund von Hardwareengpässen wird die Effektivität der Softwareoptimierung eingeschränkt.
 
 ## <a name="general-tuning-parameters-for-clients"></a>Allgemeine Optimierungsparameter für Clients
-
 
 Die folgenden REG\_DWORD-Registrierungseinstellungen können sich auf die Leistung von Clientcomputern auswirken, die mit SMB-Dateiservern interagieren:
 
@@ -94,9 +93,9 @@ Die folgenden REG\_DWORD-Registrierungseinstellungen können sich auf die Leistu
 
     Die Standardeinstellung beträgt 10 Sekunden. Dies ist der Timeout für den Verzeichniscache.
 
-    > [!Note]   Mit diesem Parameter wird die Zwischenspeicherung von Verzeichnismetadaten gesteuert, wenn keine Verzeichnisleases vorhanden sind.
-
-     
+    > [!NOTE]
+    > Dieser Parameter steuert die Zwischenspeicherung von Verzeichnismetadaten Directory Leases vorhanden ist.
+     
 
 -   **DirectoryCacheEntrySizeMax**
 
@@ -222,7 +221,7 @@ Mit den allgemeinen Optimierungsparametern für Clientcomputer kann ein Computer
 | FileNotFoundCacheEntriesMax | 32.768 | 128     |
 | MaxCmds                     | 32.768 | 15      |
 
- 
+ 
 
 Ab Windows 8 können Sie viele dieser SMB-Einstellungen konfigurieren, indem Sie die Windows PowerShell-Cmdlets **Set-SmbClientConfiguration** und **Set-SmbServerConfiguration** verwenden. Nur für die Registrierung geltende Einstellungen können auch mit Windows PowerShell konfiguriert werden.
 

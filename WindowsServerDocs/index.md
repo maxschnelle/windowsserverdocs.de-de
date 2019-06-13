@@ -1,17 +1,17 @@
 ---
 layout: HubPage
 hide_bc: true
-author: coreyp
+author: jasongerend
 ms.author: apexprodleads
 ms.topic: hub-page
 title: Windows Server-Dokumentation
 description: Mit der Windows Server-Dokumentation können IT-Experten Windows Server evaluieren, planen, bereitstellen, sichern und verwalten
-ms.openlocfilehash: 29ea8c17f41edbbaab275a61b6f96c0b348f9760
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 65e514d25e3e94841f7f1db0be2590b57a6b6455
+ms.sourcegitcommit: 9dc457ac1d64962e67aaf1d3924bc9361df8488d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59891441"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66462170"
 ---
 <div id="main" class="v2">
 <div class="container">
@@ -20,34 +20,33 @@ ms.locfileid: "59891441"
 <p> </p>
 
 <ul class="pivots">
-<li>
-<a href="#main"></a>
-
-   <ul id="main">
     <li>
-    <a href="#mainPanel"></a>
-        <ul id="mainPanel" class="cardsF">
+    <a href="#main"></a>
+        <ul id="main">
             <li>
-                <a href="get-started-19/whats-new-19.md">
-                    <div class="cardSize">
-                        <div class="cardPadding">
-                            <div class="card">
-                                <div class="cardImageOuter">
-                                    <div class="cardImage">
-                                        <img src="media/i-whats-new.svg" alt="" />
+                <a href="#mainPanel"></a>
+                <ul id="mainPanel" class="cardsF">
+                    <li>
+                        <a href="get-started-19/whats-new-19.md">
+                            <div class="cardSize">
+                                <div class="cardPadding">
+                                    <div class="card">
+                                        <div class="cardImageOuter">
+                                            <div class="cardImage">
+                                                <img src="media/i-whats-new.svg" alt="" />
+                                            </div>
+                                        </div>
+                                        <div class="cardText">
+                                            <h2>Neuigkeiten</h2>
+                                            <p>Erfahren Sie, was&#39;Neues in Windows Server</p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="cardText">
-                                    <h2>Das ist neu:</h2>
-                                    <p>Neuerungen in Windows Server</p>
-                                </div>
                             </div>
-                        </div>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="get-started-19/get-started-19.md">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="get-started-19/get-started-19.md">
                             <div class="cardSize">
                                 <div class="cardPadding">
                                     <div class="card">
@@ -64,8 +63,8 @@ ms.locfileid: "59891441"
                                 </div>
                             </div>
                             </a>
-            </li>
-            <li>
+                    </li>
+                    <li>
                             <a href="http://aka.ms/upgradecenter">
                             <div class="cardSize">
                                 <div class="cardPadding">
@@ -83,12 +82,12 @@ ms.locfileid: "59891441"
                                 </div>
                             </div>
                             </a>
-            </li>
-            <li class="fullSpan">
-            <HR WIDTH="60%">
-            </li>
-            <li>
-                            <a href="https://docs.microsoft.com/windows-server/manage/windows-admin-center/overview">
+                    </li>
+                    <li class="fullSpan">
+                        <HR WIDTH="60%">
+                    </li>
+                    <li>
+                         <a href="https://docs.microsoft.com/windows-server/manage/windows-admin-center/overview">
                             <div class="cardSize">
                                 <div class="cardPadding">
                                     <div class="card">
@@ -107,7 +106,7 @@ ms.locfileid: "59891441"
                             </a>
             </li>
             <li>
-                            <a href="https://docs.microsoft.com/windows-server/hyperconverged">
+                            <a href="hyperconverged/index.yml">
                             <div class="cardSize">
                                 <div class="cardPadding">
                                     <div class="card">
@@ -126,19 +125,19 @@ ms.locfileid: "59891441"
                             </a>
             </li>
             <li>
-                            <a href="https://docs.microsoft.com/windows-insider/at-work">
+                            <a href="azure-hybrid-services/index.md">
                             <div class="cardSize">
                                 <div class="cardPadding">
                                     <div class="card">
                                         <div class="cardImageOuter">
                                             <div class="cardImage">
-                                                <img src="media/i-insider.svg" alt="" />
+                                                <img src="media/i-microsoft-azure.svg" alt="" />
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                            <h2>Windows-Insider-Programm für Server</h2>
-                                            <p>Testen Sie die Vorabversionen von Windows Server 2019</p>
-            <li>
+                                            <h2>Verbinden mit SQL Azure Hybrid services</h2>
+                                            <p>Verbinden Sie Ihres Servers oder Clusters in Azure Hybrid Services kombinieren das beste aus lokalen und der Cloud an.</p>
+            </li>
                     <li class="fullSpan">
                     <HR COLOR="purple" SIZE="6" WIDTH="60%">
                     </li>
@@ -180,12 +179,25 @@ ms.locfileid: "59891441"
                             </div>
                             </a>
             </li>
+            <li>
+                            <a href="https://docs.microsoft.com/windows-insider/at-work">
+                            <div class="cardSize">
+                                <div class="cardPadding">
+                                    <div class="card">
+                                        <div class="cardImageOuter">
+                                            <div class="cardImage">
+                                                <img src="media/i-insider.svg" alt="" />
+                                            </div>
+                                        </div>
+                                        <div class="cardText">
+                                            <h2>Windows-Insider-Programm für Server</h2>
+                                            <p>Testen Sie die Vorabversionen von Windows Server 2019</p>
+            </li>
         </ul>
     </li>
     </ul>
     </li>
 </ul>
-
 <h1>Anleitung für Windows Server 2019 und Windows Server 2016</h1>
     <h3>Mit der Windows Server-Dokumentation können IT-Experten Windows Server evaluieren, planen, bereitstellen, sichern und verwalten</h3>
     <ul class="pivots">
@@ -212,8 +224,7 @@ ms.locfileid: "59891441"
         <td style="vertical-align: top;">
             <h4><u>Höchste Bewertung</u></h4>
             <ol>
-            <li>1. <a href="https://docs.microsoft.com/windows-server/identity/software-restriction-policies/software-restriction-policies">Richtlinien für die Softwareeinschränkung</a></li>              
-       <hr width="80%">
+            <li>1. <a href="https://docs.microsoft.com/windows-server/identity/software-restriction-policies/software-restriction-policies">Richtlinien für die Softwareeinschränkung</a></li><br/>       <hr width="80%">
             <li>2. <a href="https://docs.microsoft.com/windows-server/identity/solution-guides/deploy-a-central-access-policy--demonstration-steps-">Bereitstellen einer zentralen Zugriffsrichtlinie (Demonstrationsschritte)</a></li>
        <hr width="80%">
             <li>3. <a href="https://docs.microsoft.com/windows-server/identity/solution-guides/scenario--file-access-auditing">Szenario: Dateizugriffsüberwachung</a></li>
@@ -256,13 +267,9 @@ ms.locfileid: "59891441"
             <h4><u>Höchste Bewertung</u></h4>
             <ol>
             <li>1. <a href="https://docs.microsoft.com/windows-server/networking/what-s-new-in-networking">Anforderungen und Best Practices für clusterfähiges Aktualisieren</a></li>
-              
        <hr width="80%">
-
             <li>2. <a href="https://docs.microsoft.com/windows-server/failover-clustering/vm-load-balancing-overview">VM-Lastenausgleich – Übersicht</a></li>
-                 
        <hr width="80%">
-
             <li>3. <a href="https://docs.microsoft.com/windows-server/failover-clustering/troubleshooting-using-wer-reports">Problembehandlung bei einem Failovercluster mit Windows-Fehlerberichterstattung</a></li>
             </ol>
         </td>
@@ -270,14 +277,10 @@ ms.locfileid: "59891441"
             <h4><u>Am beliebtesten</u></h4>
             <ol>
             <li>1. <a href="https://docs.microsoft.com/windows-server/failover-clustering/manage-cluster-quorum">Konfigurieren und Verwalten des Quorums</a></li>
-                   
        <hr width="80%">
-
             <li>2. <a href="https://docs.microsoft.com/windows-server/failover-clustering/failover-cluster-csvs">Verwenden von freigegebenen Clustervolumes in einem Failovercluster</a></li>
-                 
        <hr width="80%">
-
-            <li>3. <a href="https://docs.microsoft.com/windows-server/failover-clustering/whats-new-in-failover-clustering">Neues beim Failoverclustering</a></li>
+            <li>3. <a href="https://docs.microsoft.com/windows-server/failover-clustering/whats-new-in-failover-clustering">Was&#39;neues beim Failoverclustering</a></li>
             </ol>
         </td>
     </tr>
@@ -307,13 +310,9 @@ ms.locfileid: "59891441"
             <h4><u>Höchste Bewertung</u></h4>
             <ol>
             <li>1. <a href="https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-radius-clients-configure">Konfigurieren von RADIUS-Clients</a></li>
-              
        <hr width="80%">
-
             <li>2. <a href="https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-np-configure">Konfigurieren von Netzwerkrichtlinien</a></li>
-                 
        <hr width="80%">
-
             <li>3. <a href="https://docs.microsoft.com/windows-server/networking/sdn/software-defined-networking">Software-Defined Networking (SDN)</a></li>
             </ol>
         </td>
@@ -321,13 +320,9 @@ ms.locfileid: "59891441"
             <h4><u>Am beliebtesten</u></h4>
             <ol>
             <li>1. <a href="https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy">robocopy</a></li>
-                   
        <hr width="80%">
-
             <li>2. <a href="https://docs.microsoft.com/windows-server/manage/windows-admin-center/understand/windows-admin-center">Hallo, Windows Admin Center!</a></li>
-                 
        <hr width="80%">
-
             <li>3. <a href="https://docs.microsoft.com/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus">Windows Server Update Services (WSUS)</a></li>
             </ol>
         </td>
@@ -358,13 +353,9 @@ ms.locfileid: "59891441"
             <h4><u>Höchste Bewertung</u></h4>
             <ol>
             <li>1. <a href="https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-radius-clients-configure">Konfigurieren von RADIUS-Clients</a></li>
-              
        <hr width="80%">
-
             <li>2. <a href="https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-np-configure">Konfigurieren von Netzwerkrichtlinien</a></li>
-                 
        <hr width="80%">
-
             <li>3. <a href="https://docs.microsoft.com/windows-server/networking/sdn/software-defined-networking">Software-Defined Networking (SDN)</a></li>
             </ol>
         </td>
@@ -372,13 +363,9 @@ ms.locfileid: "59891441"
             <h4><u>Am beliebtesten</u></h4>
             <ol>
             <li>1. <a href="https://docs.microsoft.com/windows-server/networking/windows-time-service/windows-time-service-tools-and-settings">Windows-Zeitdienst: Tools und Einstellungen</a></li>
-                   
        <hr width="80%">
-
             <li>2. <a href="https://docs.microsoft.com/windows-server/networking/technologies/netsh/netsh-contexts">Netsh-Befehlssyntax, Kontexte und Formatierung</a></li>
-                 
        <hr width="80%">
-
             <li>3. <a href="https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top">Netzwerkrichtlinienserver (Network Policy Server, NPS)</a></li>
             </ol>
         </td>
@@ -410,13 +397,9 @@ ms.locfileid: "59891441"
             <h4><u>Höchste Bewertung</u></h4>
             <ol>
             <li>1. <a href="https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections">Schritt 6: Konfigurieren von Always On VPN-Verbindungen für den Windows 10-Client</a></li>
-              
        <hr width="80%">
-
             <li>2. <a href="https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-in-azure">Nahtloses Bereitstellen von RDS mit ARM und Azure Marketplace</a></li>
-                 
        <hr width="80%">
-
             <li>3. <a href="https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-server-infrastructure">Schritt 2: Konfigurieren der Serverinfrastruktur</a></li>
             </ol>
         </td>
@@ -424,13 +407,9 @@ ms.locfileid: "59891441"
             <h4><u>Am beliebtesten</u></h4>
             <ol>
             <li>1. <a href="https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients">Remotedesktopclients</a></li>
-                   
        <hr width="80%">
-
             <li>2. <a href="https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access">Remotedesktop – Gewähren des Zugriffs auf Ihren PC</a></li>
-                 
        <hr width="80%">
-
             <li>3. <a href="https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac">Remotedesktopclients</a></li>
             </ol>
         </td>
@@ -461,13 +440,9 @@ ms.locfileid: "59891441"
             <h4><u>Höchste Bewertung</u></h4>
             <ol>
             <li>1. <a href="https://docs.microsoft.com/windows-server/security/windows-authentication/windows-authentication-overview">Windows-Authentifizierung: Übersicht</a></li>
-              
        <hr width="80%">
-
             <li>2. <a href="https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts">Erste Schritte mit gruppenverwalteten Dienstkonten</a></li>
-                 
        <hr width="80%">
-
             <li>3. <a href="https://docs.microsoft.com/windows-server/security/kerberos/kerberos-constrained-delegation-overview">Übersicht zu Kerberos Constrained Delegation</a></li>
             </ol>
         </td>
@@ -475,15 +450,10 @@ ms.locfileid: "59891441"
             <h4><u>Am beliebtesten</u></h4>
             <ol>
             <li>1. <a href="https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings">Registrierungseinstellungen für Transport Layer Security (TLS)</a></li>
-                   
        <hr width="80%">
-
-            <li>2. <a href="https://docs.microsoft.com/windows-server/security/windows-services/security-guidelines-for-disabling-system-services-in-windows-server">Guidance on disabling system services on Windows Server 2016 with Desktop Experience
-</a></li>
-                 
+            <li>2. <a href="https://docs.microsoft.com/windows-server/security/windows-services/security-guidelines-for-disabling-system-services-in-windows-server">Anleitungen zur Deaktivierung von Systemdiensten unter Windows Server 2016 mit Desktopdarstellung </a></li>
        <hr width="80%">
-
-            <li>3. <a href="https://docs.microsoft.com/windows-server/security/windows-authentication/credentials-processes-in-windows-authentication">Credentials Processes in Windows Authentication</a></li>
+            <li>3. <a href="https://docs.microsoft.com/windows-server/security/windows-authentication/credentials-processes-in-windows-authentication">Anmeldeinformationen-Prozesse in der Windows-Authentifizierung</a></li>
             </ol>
         </td>
     </tr>
@@ -513,13 +483,9 @@ ms.locfileid: "59891441"
             <h4><u>Höchste Bewertung</u></h4>
             <ol>
             <li>1. <a href="https://docs.microsoft.com/windows-server/storage/storage-replica/storage-replica-overview">Übersicht über Speicherreplikate</a></li>
-              
        <hr width="80%">
-
             <li>2. <a href="https://docs.microsoft.com/windows-server/storage/storage-spaces/understand-quorum">Grundlegendes zum Cluster- und Poolquorum</a></li>
-                 
        <hr width="80%">
-
             <li>3. <a href="https://docs.microsoft.com/windows-server/storage/data-deduplication/understand">Grundlegendes zu Datendeduplizierung</a></li>
             </ol>
         </td>
@@ -527,13 +493,9 @@ ms.locfileid: "59891441"
             <h4><u>Am beliebtesten</u></h4>
             <ol>
             <li>1. <a href="https://docs.microsoft.com/windows-server/storage/disk-management/initialize-new-disks">Initialisieren neuer Datenträger</a></li>
-                   
        <hr width="80%">
-
             <li>2. <a href="https://docs.microsoft.com/windows-server/storage/disk-management/change-an-mbr-disk-into-a-gpt-disk">Konvertieren eines MBR-Datenträgers in einen GPT-Datenträger</a></li>
-                 
        <hr width="80%">
-
             <li>3. <a href="https://docs.microsoft.com/windows-server/storage/disk-management/extend-a-basic-volume">Erweitern eines Basisvolumes</a></li>
             </ol>
         </td>
@@ -564,13 +526,9 @@ ms.locfileid: "59891441"
             <h4><u>Höchste Bewertung</u></h4>
             <ol>
             <li>1. <a href="https://docs.microsoft.com/windows-server/failover-clustering/troubleshooting-using-wer-reports">Problembehandlung bei einem Failovercluster mit Windows-Fehlerberichterstattung</a></li>
-              
        <hr width="80%">
-
             <li>2. <a href="https://docs.microsoft.com/windows-server/networking/sdn/troubleshoot/troubleshoot-windows-server-software-defined-networking-stack">Problembehandlung für Windows Server-Software Defined Networking-Stapel</a></li>
-                 
        <hr width="80%">
-
             <li>3. <a href="https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/troubleshoot-windows-defender-antivirus">Überprüfen der Ereignisprotokolle und Fehlercodes zum Behandeln von Problemen in Windows Defender AV</a></li>
             </ol>
         </td>
@@ -578,13 +536,9 @@ ms.locfileid: "59891441"
             <h4><u>Am beliebtesten</u></h4>
             <ol>
             <li>1. <a href="https://docs.microsoft.com/windows-server/storage/disk-management/troubleshooting-disk-management">Datenträgerverwaltung: Problembehandlung</a></li>
-                   
        <hr width="80%">
-
             <li>2. <a href="https://docs.microsoft.com/windows-server/administration/windows-server-update-services/manage/wsus-messages-and-troubleshooting-tips">WSUS-Nachrichten und Tipps zur Problembehandlung</a></li>
-                 
        <hr width="80%">
-
             <li>3. <a href="https://docs.microsoft.com/windows-server/manage/windows-admin-center/use/troubleshooting">Problembehandlung für Windows Admin Center</a></li>
             </ol>
         </td>
@@ -615,13 +569,9 @@ ms.locfileid: "59891441"
             <h4><u>Höchste Bewertung</u></h4>
             <ol>
             <li>1. <a href="https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v">Erstellen eines virtuellen Computers in Hyper-V</a></li>
-              
        <hr width="80%">
-
             <li>2. <a href="https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-debian-virtual-machines-on-hyper-v">Unterstützte virtuelle Debian-Computer in Hyper-V</a></li>
-                 
        <hr width="80%">
-
             <li>3. <a href="https://docs.microsoft.com/windows-server/virtualization/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms">Übersicht über geschütztes Fabric und abgeschirmte VMs</a></li>
             </ol>
         </td>
@@ -629,13 +579,9 @@ ms.locfileid: "59891441"
             <h4><u>Am beliebtesten</u></h4>
             <ol>
             <li>1. <a href="https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/remotely-manage-hyper-v-hosts">Remoteverwaltung von Hyper-V-Hosts mit Hyper-V-Manager</a></li>
-                   
        <hr width="80%">
-
             <li>2. <a href="https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines">Erstellen eines virtuellen Switches für Hyper-V-VMs</a></li>
-                 
        <hr width="80%">
-
             <li>3. <a href="https://docs.microsoft.com/windows-server/virtualization/hyper-v/learn-more/hyper-v-virtual-machine-connect">Hyper-V-VM-Verbindung</a></li>
             </ol>
         </td>
@@ -652,9 +598,7 @@ ms.locfileid: "59891441"
             </ul>
         </li>
     </ul>
-                  
        <hr />
-
   <h1>Frühere Versionen von Windows Server</h1>
     <h3>Technische Inhalte für IT-Experten, die ältere Versionen von Windows Server verwalten<h3>
     <p> </p>
@@ -663,7 +607,6 @@ ms.locfileid: "59891441"
             <a href="#main"></a>
             <ul id="main">
                 <li>
-                    
                     <ul id="mainPanel" class="cardsF">
                         <li>
                             <a href="https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh801901(v=ws.11)">
@@ -676,7 +619,7 @@ ms.locfileid: "59891441"
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                            <h3>Windows Server 2012 and<br> Windows Server 2012 R2</h3>
+                                            <h3>Unter WindowsServer 2012 und<br> Windows Server 2012 R2</h3>
                                             <p></p>
                                         </div>
                                     </div>

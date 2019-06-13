@@ -6,12 +6,12 @@ author: msmbaldwin
 ms.author: esaggese
 ms.date: 05/30/2019
 ms.topic: article
-ms.openlocfilehash: ce058a2885315c84d2c1c6701ad2801790d3c590
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
-ms.translationtype: HT
+ms.openlocfilehash: f5d621a0ba06f5b1beb97ccdbffb8376b5503168
+ms.sourcegitcommit: 927adf32faa6052234ad08f21125906362e593dc
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66814073"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67033341"
 ---
 # <a name="upgrading-ad-rms-to-windows-server-2016"></a>Aktualisieren von AD RMS auf WindowsServer 2016
 
@@ -257,7 +257,7 @@ Wenn Ihr AD RMS-Cluster ein Hardwaresicherheitsmodul statt einem zentral verwalt
 
 13. Öffnen Sie nach der Anmeldung Back **Server-Manager** wählen **Tools** und dann **Active Directory Rights Management**. Das Fenster "Verwaltung" angezeigt werden soll, und um anzugeben, dass der Cluster die zusätzlichen Server im Cluster verfügt.
 
-14. 14. Wenn die AD RMS-Erweiterung für Mobile Geräte in der ursprünglichen AD RMS-Cluster installiert wurde, müssen Sie auch MDE in den aktualisierten Clusterknoten installiert werden. Folgen Sie den Anweisungen in der Dokumentation zu MDE MDE Ihrer AD RMS-Cluster hinzu. An diesem Punkt können alle bereits vorhandenen Knoten wiederverwenden oder ein upgrade auf Windows Server 2016 und verknüpfen Sie sie erneut mit AD RMS-Clusters mit dem oben beschriebenen Verfahren. 
+14. Wenn die AD RMS-Erweiterung für Mobile Geräte in der ursprünglichen AD RMS-Cluster installiert wurde, müssen Sie auch MDE in den aktualisierten Clusterknoten installiert werden. Folgen Sie den Anweisungen in der Dokumentation zu MDE MDE Ihrer AD RMS-Cluster hinzu. An diesem Punkt können alle bereits vorhandenen Knoten wiederverwenden oder ein upgrade auf Windows Server 2016 und verknüpfen Sie sie erneut mit AD RMS-Clusters mit dem oben beschriebenen Verfahren. 
 
 ### <a name="configuring-windows-server-2016-web-application-proxy-wap"></a>Konfigurieren von Windows Server 2016-Webanwendungsproxy (WAP)
 
