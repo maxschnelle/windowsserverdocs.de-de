@@ -12,12 +12,12 @@ ms.assetid: 27bf6f24-30c4-4935-9b24-069eb43e22f4
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 15d9a10daec0b72eb41092dbd9fa87f989ebedb8
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: 5618eb95fb8afcff2057575191699da05612a542
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63720665"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433064"
 ---
 # <a name="restore-or-repair-your-server-running-windows-server-essentials"></a>Wiederherstellen oder Reparieren des Servers mit Windows Server Essentials
 
@@ -36,19 +36,19 @@ ms.locfileid: "63720665"
   
  Die häufigsten Gründe für die Wiederherstellung eines Servers sind im Folgenden aufgeführt:  
   
--   Ein Virus auf dem Server kann nicht bekämpft oder gelöscht werden.  
+- Ein Virus auf dem Server kann nicht bekämpft oder gelöscht werden.  
   
--   Die Konfigurationseinstellungen des Servers sind unzureichend, und der Server kann nicht gestartet werden.  
+- Die Konfigurationseinstellungen des Servers sind unzureichend, und der Server kann nicht gestartet werden.  
   
--   Sie haben das Systemlaufwerk ausgetauscht.  
+- Sie haben das Systemlaufwerk ausgetauscht.  
   
--   Sie nehmen den Server außer Betrieb. Sie möchten eine Wiederherstellung auf einem neuen Server durchführen.  
+- Sie nehmen den Server außer Betrieb. Sie möchten eine Wiederherstellung auf einem neuen Server durchführen.  
   
- Sie können den Server entweder mithilfe von Sicherheitskopien oder über die werkseitigen Standardeinstellungen wiederherstellen.  
+  Sie können den Server entweder mithilfe von Sicherheitskopien oder über die werkseitigen Standardeinstellungen wiederherstellen.  
   
--   [Wiederherstellen des Servers aus einer Sicherung](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_RestoreFromBackup)  
+- [Wiederherstellen des Servers aus einer Sicherung](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_RestoreFromBackup)  
   
--   [Zurücksetzen des Servers auf die werkseitigen Standardeinstellungen](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_FactoryReset)  
+- [Zurücksetzen des Servers auf die werkseitigen Standardeinstellungen](Restore-or-repair-your-server-running-Windows-Server-Essentials.md#BKMK_FactoryReset)  
   
 ###  <a name="BKMK_RestoreFromBackup"></a> Wiederherstellen des Servers aus einer Sicherung  
  Dieser Abschnitt enthält Anleitungen in Bezug auf die Auswahl der Sicherungsart.  
@@ -57,21 +57,21 @@ ms.locfileid: "63720665"
   
  Wenn Sie den Server über eine frühere Sicherung wiederherstellen möchten, wählen Sie die konkrete Sicherheitskopie, die für die Wiederherstellung angewendet werden soll. Sie benötigen dafür eine gültige Sicherungsdatei auf einem externen Festplattenlaufwerk, das direkt mit dem Server verbunden ist:  
   
--   **Wenn Sie erst vor Kurzem eine Sicherung des Servers erfolgreich durchgeführt haben** und Sie wissen, dass in der Sicherung sämtliche Ihrer kritischen Daten enthalten sind, verläuft Ihre Auswahl recht unkompliziert. Sie müssen nur jene Daten neu erstellen, die nach der letzten erfolgreichen Sicherung erstellt wurden. Außerdem müssen Sie die nach der Sicherung vorgenommenen Einstellungsänderungen neu konfigurieren.  
+- **Wenn Sie erst vor Kurzem eine Sicherung des Servers erfolgreich durchgeführt haben** und Sie wissen, dass in der Sicherung sämtliche Ihrer kritischen Daten enthalten sind, verläuft Ihre Auswahl recht unkompliziert. Sie müssen nur jene Daten neu erstellen, die nach der letzten erfolgreichen Sicherung erstellt wurden. Außerdem müssen Sie die nach der Sicherung vorgenommenen Einstellungsänderungen neu konfigurieren.  
   
--   **Wenn Sie die Wiederherstellung des Servers aufgrund eines Virus durchführen**, wählen Sie Sicherheitskopien, bei denen Sie sicher sind, dass sie vor dem Auftreten des Virus erstellt wurden. Sie müssen möglicherweise mehrere Tage zurückdatieren, um eine Sicherung auszuwählen, die einwandfrei ist.  
+- **Wenn Sie die Wiederherstellung des Servers aufgrund eines Virus durchführen**, wählen Sie Sicherheitskopien, bei denen Sie sicher sind, dass sie vor dem Auftreten des Virus erstellt wurden. Sie müssen möglicherweise mehrere Tage zurückdatieren, um eine Sicherung auszuwählen, die einwandfrei ist.  
   
--   **Wenn Sie den Server wegen fehlerhafter Konfigurationseinstellungen wiederherstellen**, wählen Sie eine Sicherung, von der Sie wissen, dass sie vor der Konfigurationseinstellungsänderung vorgenommen wurde, welche das Problem auf dem Server verursacht hat.  
+- **Wenn Sie den Server wegen fehlerhafter Konfigurationseinstellungen wiederherstellen**, wählen Sie eine Sicherung, von der Sie wissen, dass sie vor der Konfigurationseinstellungsänderung vorgenommen wurde, welche das Problem auf dem Server verursacht hat.  
   
- Wenn Sie eine Wiederherstellung über eine Sicherung vornehmen, hängen das genaue Vorgehen und die erforderlichen Folgemaßnahmen von der Anzahl der Festplatten auf dem Server sowie davon ab, ob das Systemlaufwerk ersetzt wird:  
+  Wenn Sie eine Wiederherstellung über eine Sicherung vornehmen, hängen das genaue Vorgehen und die erforderlichen Folgemaßnahmen von der Anzahl der Festplatten auf dem Server sowie davon ab, ob das Systemlaufwerk ersetzt wird:  
   
--   **Wenn der Server über eine einzelne Festplatte verfügt und das Laufwerk nicht ersetzt wird**, bleiben die Informationen zur Laufwerkspartition beim Wiederherstellen des Servers unberührt. Das Systemvolumen wird wiederhergestellt, und die Daten auf dem verbleibenden Datenträger werden beibehalten.  
+- **Wenn der Server über eine einzelne Festplatte verfügt und das Laufwerk nicht ersetzt wird**, bleiben die Informationen zur Laufwerkspartition beim Wiederherstellen des Servers unberührt. Das Systemvolumen wird wiederhergestellt, und die Daten auf dem verbleibenden Datenträger werden beibehalten.  
   
--   **Wenn der Server über eine einzelne Festplatte verfügt und das Laufwerk ersetzt wird**, so wird das Systemvolumen wiederhergestellt. Sie müssen dann die Ordner für die Datenträger manuell wiederherstellen. Alle nicht standardmäßig freigegebenen Ordner müssen erstellt werden, da diese nicht erstellt werden, wenn der Serverspeicher neu erstellt wird.  
+- **Wenn der Server über eine einzelne Festplatte verfügt und das Laufwerk ersetzt wird**, so wird das Systemvolumen wiederhergestellt. Sie müssen dann die Ordner für die Datenträger manuell wiederherstellen. Alle nicht standardmäßig freigegebenen Ordner müssen erstellt werden, da diese nicht erstellt werden, wenn der Serverspeicher neu erstellt wird.  
   
--   **Wenn der Server über mehrere Festplatten verfügt und Laufwerk 0 (enthält das Systemvolumen) nicht ersetzt wird**, bleiben die Informationen zur Laufwerkspartition beim Wiederherstellen des Servers unberührt. Das Systemvolumen wird wiederhergestellt, und die Daten auf allen verbleibenden Datenträgern werden beibehalten.  
+- **Wenn der Server über mehrere Festplatten verfügt und Laufwerk 0 (enthält das Systemvolumen) nicht ersetzt wird**, bleiben die Informationen zur Laufwerkspartition beim Wiederherstellen des Servers unberührt. Das Systemvolumen wird wiederhergestellt, und die Daten auf allen verbleibenden Datenträgern werden beibehalten.  
   
--   **Wenn der Server über mehrere Festplatten verfügt und Laufwerk 0 (enthält das Systemvolumen) ersetzt wird**, so wird das Systemvolumen wiederhergestellt. Sie müssen dann alle freigegebenen Ordner, die zuvor auf Laufwerk 0 gespeichert waren, manuell wiederherstellen.  
+- **Wenn der Server über mehrere Festplatten verfügt und Laufwerk 0 (enthält das Systemvolumen) ersetzt wird**, so wird das Systemvolumen wiederhergestellt. Sie müssen dann alle freigegebenen Ordner, die zuvor auf Laufwerk 0 gespeichert waren, manuell wiederherstellen.  
   
 ###  <a name="BKMK_FactoryReset"></a> Zurücksetzen des Servers auf die werkseitigen Standardeinstellungen  
  Wenn Sie über keine Sicherheitskopien verfügen, über die Sie eine Wiederherstellung vornehmen können, oder wenn Sie aus einem anderen Grund eine vollständige Systemwiederherstellung durchführen möchten oder müssen, ohne die vorherige Serverkonfiguration wiederherzustellen, können Sie eine Wiederherstellung durchführen, die den Server auf die werkseitigen Standardeinstellungen zurückgesetzt, indem Sie die Installations- oder Wiederherstellungsmedien vom Hardware-Hersteller verwenden.  

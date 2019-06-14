@@ -12,12 +12,12 @@ ms.assetid: ed062945-27e9-4572-b1bb-6c8cf1b9c2f4
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 12a9ba285757a37a8fc32a73e52ac3003db80a6d
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: f080bed5714ae4426cc6d0ca8edb5fab2d3c65b2
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63721026"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66432469"
 ---
 # <a name="troubleshoot-file-history-in-windows-server-essentials"></a>Problembehandlung beim Dateiversionsverlauf in Windows Server Essentials
 
@@ -29,11 +29,11 @@ ms.locfileid: "63721026"
 ### <a name="file-history-data-is-not-automatically-deleted"></a>Dateiversionsverlaufs-Daten werden nicht automatisch gelöscht.  
  Die Dateiversionsverlaufs-Daten werden möglicherweise in folgenden Fällen nicht automatisch gelöscht:  
   
--   Wenn Sie ein Benutzerkonto zu löschen, Sie das Benutzerkonto, das s Dateiversionsverlauf-Daten nicht gelöscht werden, und angeben, dass die Daten manuell löschen.  
+- Wenn Sie ein Benutzerkonto zu löschen, Sie das Benutzerkonto, das s Dateiversionsverlauf-Daten nicht gelöscht werden, und angeben, dass die Daten manuell löschen.  
   
--   Wenn Sie versuchen, die Dateiversionsverlauf-Daten zu löschen, diese aber von einem anderen Prozess verwendet werden.  
+- Wenn Sie versuchen, die Dateiversionsverlauf-Daten zu löschen, diese aber von einem anderen Prozess verwendet werden.  
   
- Um dieses Problem zu beheben, müssen Sie den Dateiversionsverlauf mit dem folgenden Verfahren manuell löschen:  
+  Um dieses Problem zu beheben, müssen Sie den Dateiversionsverlauf mit dem folgenden Verfahren manuell löschen:  
   
 ####  <a name="BKMK_manuallyDelete"></a> Sicherungen von Dateiversionsverläufen für einen Benutzer oder Computer manuell zu löschen  
   
@@ -78,7 +78,7 @@ ms.locfileid: "63721026"
 ### <a name="a-user-account-was-removed-but-the-users-file-history-remains"></a>Ein Benutzerkonto wurde entfernt, aber der Dateiversionsverlauf des Benutzers bleibt erhalten  
  Nach Wunsch kann der Netzwerkadministrator einen Benutzer oder Computer vom Server entfernen, aber den Dateiversionsverlauf für eine künftige Nutzung aufbewahren. Wenn Sie den Dateiversionsverlauf nicht mehr benötigen, entfernen Sie den Ordner "Sicherungen von Dateiversionsverläufen" des Benutzers oder Computers aus freigegebenen Ordnern auf dem Server. Weitere Informationen dazu finden Sie unter [To manually delete File History backups for a user or a computer](Troubleshoot-File-History-in-Windows-Server-Essentials.md#BKMK_manuallyDelete).  
 
-5.  Sie können jetzt den neuen Benutzer hinzufügen. Anleitungen hierzu finden Sie unter "Hinzufügen eines Benutzerkontos"? in [Verwalten von Benutzerkonten](../manage/Manage-User-Accounts-in-Windows-Server-Essentials.md).  
+5. Sie können jetzt den neuen Benutzer hinzufügen. Anleitungen hierzu finden Sie unter "Hinzufügen eines Benutzerkontos"? in [Verwalten von Benutzerkonten](../manage/Manage-User-Accounts-in-Windows-Server-Essentials.md).  
   
 ### <a name="a-user-account-was-removed-but-the-users-file-history-remains"></a>Ein Benutzerkonto wurde entfernt, aber der Dateiversionsverlauf des Benutzers bleibt erhalten  
  Nach Wunsch kann der Netzwerkadministrator einen Benutzer oder Computer vom Server entfernen, aber den Dateiversionsverlauf für eine künftige Nutzung aufbewahren. Wenn Sie den Dateiversionsverlauf nicht mehr benötigen, entfernen Sie den Ordner "Sicherungen von Dateiversionsverläufen" des Benutzers oder Computers aus freigegebenen Ordnern auf dem Server. Weitere Informationen dazu finden Sie unter [To manually delete File History backups for a user or a computer](../support/Troubleshoot-File-History-in-Windows-Server-Essentials.md#BKMK_manuallyDelete).  

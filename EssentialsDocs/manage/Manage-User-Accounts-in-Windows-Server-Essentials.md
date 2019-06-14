@@ -12,12 +12,12 @@ ms.assetid: 0d115697-532b-48c2-a659-9f889e235326
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 008e614ca7ae202d575d2c3e5976ed3d5544b6ea
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: 1cce047c45279f7116e0e8a256633df06344e13c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63720703"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433140"
 ---
 # <a name="manage-user-accounts-in-windows-server-essentials"></a>Verwalten von Benutzerkonten in Windows Server Essentials
 
@@ -63,8 +63,8 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
 -   Zuweisen von Benutzergruppen (nur Windows Server Essentials).  
   
 > [!NOTE]
->  -   Nicht-ASCII-Zeichen werden in Microsoft Azure Active Directory (Azure AD) nicht unterstützt. Verwenden Sie keine nicht-ASCII-Zeichen in Ihrem Kennwort, wenn der Server in Azure AD integriert ist.  
-> -   Die E-Mail-Optionen sind nur verfügbar, wenn Sie ein Add-In installieren, das den E-Mail-Dienst bereitstellt.  
+> - Nicht-ASCII-Zeichen werden in Microsoft Azure Active Directory (Azure AD) nicht unterstützt. Verwenden Sie keine nicht-ASCII-Zeichen in Ihrem Kennwort, wenn der Server in Azure AD integriert ist.  
+>   -   Die E-Mail-Optionen sind nur verfügbar, wenn Sie ein Add-In installieren, das den E-Mail-Dienst bereitstellt.  
   
 ##### <a name="to-add-a-user-account"></a>So fügen Sie ein Benutzerkonto hinzu  
   
@@ -200,38 +200,38 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
  Windows Server Essentials ermöglicht es, die allgemeinen administrativen Aufgaben mithilfe des Windows Server Essentials-Dashboard auszuführen. In der Standardeinstellung die **Benutzer** Seite des Dashboards enthält zwei Registerkarten **Benutzer** und **Benutzergruppen**.  
   
 > [!NOTE]
->  -   Eine neue Registerkarte wird aufgerufen, wenn Sie Ihren Server, auf denen Windows Server Essentials in Office 365 ausgeführt wird integrieren, **Verteilergruppen** wird ebenfalls hinzugefügt, in der **Benutzer** Seite des Dashboards.  
-> -   In Windows Server Essentials die **Benutzer** Seite des Dashboards enthält nur eine einzelne Registerkarte: **Benutzer**.  
+> - Eine neue Registerkarte wird aufgerufen, wenn Sie Ihren Server, auf denen Windows Server Essentials in Office 365 ausgeführt wird integrieren, **Verteilergruppen** wird ebenfalls hinzugefügt, in der **Benutzer** Seite des Dashboards.  
+>   -   In Windows Server Essentials die **Benutzer** Seite des Dashboards enthält nur eine einzelne Registerkarte: **Benutzer**.  
   
  Die Registerkarte **Benutzer** enthält Folgendes:  
   
--   Eine Liste von Benutzerkonten, in der Folgendes angezeigt wird:  
+- Eine Liste von Benutzerkonten, in der Folgendes angezeigt wird:  
   
-    -   Der Name des Benutzers.  
+  -   Der Name des Benutzers.  
   
-    -   Der Anmeldename für das Benutzerkonto.  
+  -   Der Anmeldename für das Benutzerkonto.  
   
-    -   Ob das Benutzerkonto über die Berechtigung "Zugriff überall" verfügt. Die Berechtigung "Zugriff überall" für ein Benutzerkonto bedeutet entweder **Zulässig** oder **Nicht zulässig**.  
+  -   Ob das Benutzerkonto über die Berechtigung "Zugriff überall" verfügt. Die Berechtigung "Zugriff überall" für ein Benutzerkonto bedeutet entweder **Zulässig** oder **Nicht zulässig**.  
   
-    -   Ob der Dateiverlauf für dieses Benutzerkonto von dem Server verwaltet wird, der Windows Server Essentials ausführt. Der Dateiverlaufsstatus für ein Benutzerkonto ist entweder **Verwaltet** oder **Nicht verwaltet**.  
+  -   Ob der Dateiverlauf für dieses Benutzerkonto von dem Server verwaltet wird, der Windows Server Essentials ausführt. Der Dateiverlaufsstatus für ein Benutzerkonto ist entweder **Verwaltet** oder **Nicht verwaltet**.  
   
-    -   Die Zugriffsebene, die dem Benutzerkonto zugewiesen wird. Sie können entweder **Standardbenutzer** oder **Administrator** für den Umfang des Zugriffs auf ein Benutzerkonto zuweisen.  
+  -   Die Zugriffsebene, die dem Benutzerkonto zugewiesen wird. Sie können entweder **Standardbenutzer** oder **Administrator** für den Umfang des Zugriffs auf ein Benutzerkonto zuweisen.  
   
-    -   Der Benutzerkontostatus. Ein Benutzerkonto kann **Aktiv**, **Inaktiv** oder **Unvollständig** sein.  
+  -   Der Benutzerkontostatus. Ein Benutzerkonto kann **Aktiv**, **Inaktiv** oder **Unvollständig** sein.  
   
-    -   Wenn der Server mit Office 365 oder Windows Intune integriert ist, wird in Windows Server Essentials das Microsoft-Onlinekonto angezeigt.  
+  -   Wenn der Server mit Office 365 oder Windows Intune integriert ist, wird in Windows Server Essentials das Microsoft-Onlinekonto angezeigt.  
   
-    -   Wenn der Server mit Microsoft Office 365 integriert ist, wird in Windows Server Essentials der Status des Office 365-Kontos (in Windows Server Essentials als Microsoft-Onlinekonto bezeichnet) für das Benutzerkonto angezeigt.  
+  -   Wenn der Server mit Microsoft Office 365 integriert ist, wird in Windows Server Essentials der Status des Office 365-Kontos (in Windows Server Essentials als Microsoft-Onlinekonto bezeichnet) für das Benutzerkonto angezeigt.  
   
--   Ein Detailbereich mit zusätzlichen Informationen zum ausgewählten Benutzerkonto.  
+- Ein Detailbereich mit zusätzlichen Informationen zum ausgewählten Benutzerkonto.  
   
--   Ein Aufgabenbereich, der Folgendes enthält:  
+- Ein Aufgabenbereich, der Folgendes enthält:  
   
-    -   Eine Reihe von Verwaltungsaufgaben für das Benutzerkonto, z. B. Benutzerkonten anzeigen und entfernen oder Kennwörter ändern.  
+  -   Eine Reihe von Verwaltungsaufgaben für das Benutzerkonto, z. B. Benutzerkonten anzeigen und entfernen oder Kennwörter ändern.  
   
-    -   Aufgaben, die es Ihnen gestatten, Einstellungen für alle Benutzerkonten im Netzwerk global festzulegen oder zu ändern.  
+  -   Aufgaben, die es Ihnen gestatten, Einstellungen für alle Benutzerkonten im Netzwerk global festzulegen oder zu ändern.  
   
- In der folgenden Tabelle sind die verschiedenen Benutzerkontoaufgaben beschrieben, die über die Registerkarte **Benutzer** verfügbar sind. Einige Aufgaben sind benutzerkontoabhängig und sie werden nur angezeigt, wenn Sie ein Benutzerkonto in der Liste auswählen.  
+  In der folgenden Tabelle sind die verschiedenen Benutzerkontoaufgaben beschrieben, die über die Registerkarte **Benutzer** verfügbar sind. Einige Aufgaben sind benutzerkontoabhängig und sie werden nur angezeigt, wenn Sie ein Benutzerkonto in der Liste auswählen.  
   
 > [!NOTE]
 >  Wenn Sie Office 365 mit Windows Server Essentials integrieren, werden zusätzliche Aufgaben verfügbar. Weitere Informationen finden Sie unter [Verwalten von Online-Konten für Benutzer](Manage-Online-Accounts-for-Users.md).  
@@ -286,55 +286,55 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
   
 ##### <a name="to-reset-the-password-for-a-user-account"></a>So setzen Sie das Kennwort für ein Benutzerkonto zurück  
   
-1.  Öffnen Sie das Windows Server Essentials-Dashboard.  
+1. Öffnen Sie das Windows Server Essentials-Dashboard.  
   
-2.  Klicken Sie auf der Navigationsleiste auf **Benutzer**.  
+2. Klicken Sie auf der Navigationsleiste auf **Benutzer**.  
   
-3.  Wählen Sie in der Liste der Benutzerkonten das Benutzerkonto aus, das Sie zurücksetzen möchten.  
+3. Wählen Sie in der Liste der Benutzerkonten das Benutzerkonto aus, das Sie zurücksetzen möchten.  
   
-4.  In der **< Benutzerkonto\> Aufgaben** Bereich, klicken Sie auf **ändern das Kennwort des Benutzerkontos**. Der Assistent zum Ändern des Benutzerkontokennworts wird angezeigt.  
+4. In der **< Benutzerkonto\> Aufgaben** Bereich, klicken Sie auf **ändern das Kennwort des Benutzerkontos**. Der Assistent zum Ändern des Benutzerkontokennworts wird angezeigt.  
   
-5.  Geben Sie ein neues Kennwort für das Benutzerkonto ein, und geben Sie das Kennwort anschließend erneut ein, um es zu bestätigen.  
+5. Geben Sie ein neues Kennwort für das Benutzerkonto ein, und geben Sie das Kennwort anschließend erneut ein, um es zu bestätigen.  
   
-6.  Klicken Sie auf **Kennwort ändern**.  
+6. Klicken Sie auf **Kennwort ändern**.  
   
-7.  Stellen Sie das neue Kennwort für die Benutzer bereit.  
+7. Stellen Sie das neue Kennwort für die Benutzer bereit.  
   
-    > [!IMPORTANT]
-    >  -   Möglicherweise können Sie Ihr Kennwort nicht ändern, wenn die Kennwortrichtlinie für Ihr Konto auf **Kennwörter laufen nicht ab** festgelegt wurde.  
-    > -   Nicht-ASCII-Zeichen werden in Azure AD nicht unterstützt. Aus diesem Grund, wenn Ihr Server mit Azure AD integriert ist, verwenden Sie keine nicht-ASCII-Zeichen in Ihrem Kennwort.  
-    > -   Wenn ein Microsoft-Onlinekonto (in Windows Server Essentials als ein Office 365-Konto bezeichnet), die dem Benutzer zugewiesen ist, wird das Kennwort mit dem onlinekontokennwort synchronisiert. Der Benutzer verwendet das neue Kennwort, um sich auf dem Server oder bei Office 365 anzumelden. Weitere Informationen finden Sie unter [Verwalten von Online-Konten für Benutzer](Manage-Online-Accounts-for-Users.md).  
+   > [!IMPORTANT]
+   > - Möglicherweise können Sie Ihr Kennwort nicht ändern, wenn die Kennwortrichtlinie für Ihr Konto auf **Kennwörter laufen nicht ab** festgelegt wurde.  
+   >   -   Nicht-ASCII-Zeichen werden in Azure AD nicht unterstützt. Aus diesem Grund, wenn Ihr Server mit Azure AD integriert ist, verwenden Sie keine nicht-ASCII-Zeichen in Ihrem Kennwort.  
+   >   -   Wenn ein Microsoft-Onlinekonto (in Windows Server Essentials als ein Office 365-Konto bezeichnet), die dem Benutzer zugewiesen ist, wird das Kennwort mit dem onlinekontokennwort synchronisiert. Der Benutzer verwendet das neue Kennwort, um sich auf dem Server oder bei Office 365 anzumelden. Weitere Informationen finden Sie unter [Verwalten von Online-Konten für Benutzer](Manage-Online-Accounts-for-Users.md).  
   
 ###  <a name="BKMK_Access3"></a> Was Sie über Richtlinien für Kennwörter wissen sollten  
  Die Kennwortrichtlinie besteht aus einer Reihe von Regeln, die festlegen, wie Benutzer Kennwörter entsprechend erstellen und verwenden. Die Richtlinie hilft dabei den nicht berechtigten Zugriff auf Benutzerdaten und andere Informationen zu vermeiden, die auf dem Server gespeichert werden. Die Kennwortrichtlinie wird auf alle Benutzerkonten angewendet, die auf das Netzwerk zugreifen.  
   
  Die Kennwortrichtlinie von Windows Server Essentials besteht wie folgt aus drei primären Elementen:  
   
--   **Kennwortlänge**  Je länger ein Kennwort, desto sicherer ist es. Leere Kennwörter sind nicht sicher.  
+- **Kennwortlänge**  Je länger ein Kennwort, desto sicherer ist es. Leere Kennwörter sind nicht sicher.  
   
--   **Kennwortkomplexität**  Komplexe Kennwörter enthalten eine Mischung aus Groß- und Kleinbuchstaben (a-z, A-Z), Basiszahlen (0-9) und nicht alphabetischen Zeichen (z. B. !,@,#,_,-). Komplexe Kennwörter sind weniger anfällig für unberechtigte Zugriffe. Kennwörter, die Benutzernamen, Geburtsdaten oder andere persönliche Informationen enthalten, bieten keine geeignete Sicherheit.  
+- **Kennwortkomplexität**  Komplexe Kennwörter enthalten eine Mischung aus Groß- und Kleinbuchstaben (a-z, A-Z), Basiszahlen (0-9) und nicht alphabetischen Zeichen (z. B. !,@,#,_,-). Komplexe Kennwörter sind weniger anfällig für unberechtigte Zugriffe. Kennwörter, die Benutzernamen, Geburtsdaten oder andere persönliche Informationen enthalten, bieten keine geeignete Sicherheit.  
   
--   **Kennwortalter**  Windows Server Essentials erfordert, dass Benutzer ihr Kennwort mindestens alle 180 Tage ändern. Optional können Sie auswählen, dass Kennwörter nicht ablaufen.  
+- **Kennwortalter**  Windows Server Essentials erfordert, dass Benutzer ihr Kennwort mindestens alle 180 Tage ändern. Optional können Sie auswählen, dass Kennwörter nicht ablaufen.  
   
- Um die Implementierung einer Kennwortrichtlinie in Ihrem Computernetzwerk zu vereinfachen, bietet Windows Server Essentials ein einfaches Tool, mit dem die Kennwortrichtlinie auf eines der folgenden vier vordefinierten Richtlinienprofile festgelegt oder in eines dieser Profile geändert werden kann:  
+  Um die Implementierung einer Kennwortrichtlinie in Ihrem Computernetzwerk zu vereinfachen, bietet Windows Server Essentials ein einfaches Tool, mit dem die Kennwortrichtlinie auf eines der folgenden vier vordefinierten Richtlinienprofile festgelegt oder in eines dieser Profile geändert werden kann:  
   
--   **Unsicher**  Benutzer können ein beliebiges nicht leeres Kennwort angeben.  
+- **Unsicher**  Benutzer können ein beliebiges nicht leeres Kennwort angeben.  
   
--   **Mittel**  Diese Kennwörter müssen mindestens fünf Zeichen enthalten. Ein komplexes Kennwort ist nicht erforderlich.  
+- **Mittel**  Diese Kennwörter müssen mindestens fünf Zeichen enthalten. Ein komplexes Kennwort ist nicht erforderlich.  
   
--   **Mittelstark**  Diese Kennwörter müssen mindestens fünf Zeichen enthalten und dabei Buchstaben, Zahlen und Zeichen einbeziehen.  
+- **Mittelstark**  Diese Kennwörter müssen mindestens fünf Zeichen enthalten und dabei Buchstaben, Zahlen und Zeichen einbeziehen.  
   
--   **Sicher**  Diese Kennwörter müssen mindestens sieben Zeichen enthalten und dabei Buchstaben, Zahlen und Zeichen einbeziehen. Diese Kennwörter sind sicherer, aber schwerer zu merken.  
+- **Sicher**  Diese Kennwörter müssen mindestens sieben Zeichen enthalten und dabei Buchstaben, Zahlen und Zeichen einbeziehen. Diese Kennwörter sind sicherer, aber schwerer zu merken.  
   
-    > [!NOTE]
-    >  Kennwörter dürfen weder den Benutzernamen noch die E-Mail-Adresse enthalten.  
-    >   
-    >  Bei der Integration mit Office 365 wird die Kennwortrichtlinie **Sicher** erzwungen und die Richtlinie aktualisiert, um die folgenden Anforderungen einzubeziehen:  
-    >   
-    >  -   Kennwörter müssen 8-16-Zeichen enthalten.  
-    > -   Kennwörter dürfen kein Leerzeichen oder den E-Mail-Namen für Office 365 enthalten.  
+  > [!NOTE]
+  >  Kennwörter dürfen weder den Benutzernamen noch die E-Mail-Adresse enthalten.  
+  > 
+  >  Bei der Integration mit Office 365 wird die Kennwortrichtlinie **Sicher** erzwungen und die Richtlinie aktualisiert, um die folgenden Anforderungen einzubeziehen:  
+  > 
+  > - Kennwörter müssen 8-16-Zeichen enthalten.  
+  >   -   Kennwörter dürfen kein Leerzeichen oder den E-Mail-Namen für Office 365 enthalten.  
   
- Bei der Serverinstallation wird die Standardkennwortrichtlinie standardmäßig auf die Option **Sicher** festgelegt.  
+  Bei der Serverinstallation wird die Standardkennwortrichtlinie standardmäßig auf die Option **Sicher** festgelegt.  
   
 ###  <a name="BKMK_Access4"></a> Ändern der Kennwortrichtlinie  
  Verwenden Sie das folgende Verfahren zum Festlegen oder Ändern der Kennwortrichtlinie auf bzw. in eines der vier vordefinierten Richtlinienprofile.  
@@ -373,21 +373,21 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
   
 ##### <a name="to-remove-a-user-account-but-retain-access-to-the-user-s-files"></a>Zum Entfernen eines Benutzerkontos bewahren aber den Zugriff auf die Benutzer s-Dateien  
   
-1.  Öffnen Sie das Windows Server Essentials-Dashboard.  
+1. Öffnen Sie das Windows Server Essentials-Dashboard.  
   
-2.  Klicken Sie auf der Navigationsleiste auf **Benutzer**.  
+2. Klicken Sie auf der Navigationsleiste auf **Benutzer**.  
   
-3.  Wählen Sie in der Liste der Benutzerkonten das zu entfernende Benutzerkonto aus.  
+3. Wählen Sie in der Liste der Benutzerkonten das zu entfernende Benutzerkonto aus.  
   
-4.  In der **< Benutzerkonto\> Aufgaben** Bereich, klicken Sie auf **Entfernen des Benutzerkontos**. Der Assistent zum Löschen eines Benutzerkontos wird angezeigt.  
+4. In der **< Benutzerkonto\> Aufgaben** Bereich, klicken Sie auf **Entfernen des Benutzerkontos**. Der Assistent zum Löschen eines Benutzerkontos wird angezeigt.  
   
-5.  Stellen Sie auf der Seite **Möchten Sie die Dateien behalten?** sicher, dass das Kontrollkästchen **Dateien (samt Sicherungen des Dateiversionsverlaufs und umgeleitetem Ordner) für das Benutzerkonto löschen** deaktiviert ist, und klicken Sie dann auf **Weiter**.  
+5. Stellen Sie auf der Seite **Möchten Sie die Dateien behalten?** sicher, dass das Kontrollkästchen **Dateien (samt Sicherungen des Dateiversionsverlaufs und umgeleitetem Ordner) für das Benutzerkonto löschen** deaktiviert ist, und klicken Sie dann auf **Weiter**.  
   
-     Es wird eine Bestätigungsseite mit einer Warnung angezeigt, dass Sie das Konto löschen, aber die Dateien behalten.  
+    Es wird eine Bestätigungsseite mit einer Warnung angezeigt, dass Sie das Konto löschen, aber die Dateien behalten.  
   
-6.  Klicken Sie auf **Konto löschen** , um das Benutzerkonto zu löschen.  
+6. Klicken Sie auf **Konto löschen** , um das Benutzerkonto zu löschen.  
   
- Nachdem das Benutzerkonto entfernt wurde, kann der Administrator einem anderen Benutzerkonto den Zugriff auf den freigegebenen Ordner erteilen.  
+   Nachdem das Benutzerkonto entfernt wurde, kann der Administrator einem anderen Benutzerkonto den Zugriff auf den freigegebenen Ordner erteilen.  
   
 ##### <a name="to-give-a-user-account-permission-to-access-a-shared-folder"></a>So erteilen Sie einem Benutzerkonto die Berechtigung für den Zugriff auf einen freigegebenen Ordner  
   
@@ -414,15 +414,15 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
   
 ##### <a name="to-manually-synchronize-the-dsrm-password-to-a-network-administrator-account"></a>So synchronisieren Sie das DSRM-Kennwort mit einem Netzwerkadministratorkonto  
   
-1.  Führen Sie an einer Eingabeaufforderung `ntdsutil.exe` aus, um das Tool "ntdsutil" zu öffnen.  
+1. Führen Sie an einer Eingabeaufforderung `ntdsutil.exe` aus, um das Tool "ntdsutil" zu öffnen.  
   
-2.  Geben Sie zum Zurücksetzen des DSRM-Kennworts **set dsrm password**ein.  
+2. Geben Sie zum Zurücksetzen des DSRM-Kennworts **set dsrm password**ein.  
   
-3.  Um das DSRM-Kennwort auf einem Domänencontroller mit dem aktuellen netzwerkadministratorkonto s synchronisieren möchten, geben Sie Folgendes ein:  
+3. Um das DSRM-Kennwort auf einem Domänencontroller mit dem aktuellen netzwerkadministratorkonto s synchronisieren möchten, geben Sie Folgendes ein:  
   
-     **Synchronisierung von Domänenkonto** *< aktuelles_netzwerkadministratorkonto >* , und drücken Sie dann die EINGABETASTE.  
+    **Synchronisierung von Domänenkonto** *< aktuelles_netzwerkadministratorkonto >* , und drücken Sie dann die EINGABETASTE.  
   
- Da Sie das Kennwort für das Netzwerkadministratorkonto in regelmäßigen Abständen ändern, um sicherzustellen, dass das DSRM-Kennwort immer dem aktuellen Kennwort des Netzwerkadministrators entspricht, empfiehlt es sich, einen Zeitplantask zu planen, um das DSRM-Kennwort automatisch täglich mit dem Netzwerkadministratorkennwort zu synchronisieren.  
+   Da Sie das Kennwort für das Netzwerkadministratorkonto in regelmäßigen Abständen ändern, um sicherzustellen, dass das DSRM-Kennwort immer dem aktuellen Kennwort des Netzwerkadministrators entspricht, empfiehlt es sich, einen Zeitplantask zu planen, um das DSRM-Kennwort automatisch täglich mit dem Netzwerkadministratorkennwort zu synchronisieren.  
   
 ##### <a name="to-automatically-synchronize-the-dsrm-password-to-a-network-administrator-account"></a>So synchronisieren Sie das DSRM-Kennwort automatisch mit einem Netzwerkadministratorkonto  
   
@@ -460,15 +460,15 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
   
  Der Assistent zum Einrichten von "Zugriff überall" gestattet es Ihnen, zwei Methoden für den Remotezugriff zu aktivieren:  
   
--   Virtuelles privates Netzwerk (Virtual Private Network, VPN)  
+- Virtuelles privates Netzwerk (Virtual Private Network, VPN)  
   
--   Remotewebzugriff  
+- Remotewebzugriff  
   
- Wenn Sie den Assistenten ausführen, können Sie auch auswählen, dass für alle aktuellen und neu hinzugefügten Benutzerkonten der "Zugriff überall" gestattet ist.  
+  Wenn Sie den Assistenten ausführen, können Sie auch auswählen, dass für alle aktuellen und neu hinzugefügten Benutzerkonten der "Zugriff überall" gestattet ist.  
   
- Öffnen Sie zum Einrichten von "Zugriff überall" die Seite **Start** des Dashboards, klicken Sie auf **SETUP**, und klicken Sie dann auf **"Zugriff überall" einrichten**.  
+  Öffnen Sie zum Einrichten von "Zugriff überall" die Seite **Start** des Dashboards, klicken Sie auf **SETUP**, und klicken Sie dann auf **"Zugriff überall" einrichten**.  
   
- Weitere Informationen zu Zugriff überall, finden Sie unter [Manage Anywhere Access](Manage-Anywhere-Access-in-Windows-Server-Essentials.md).  
+  Weitere Informationen zu Zugriff überall, finden Sie unter [Manage Anywhere Access](Manage-Anywhere-Access-in-Windows-Server-Essentials.md).  
   
 ###  <a name="BKMK_Access9"></a> Aktivieren von Benutzern für den Zugriff auf Ressourcen auf dem server  
   Dieser Abschnitt gilt auf einem Server, auf denen Windows Server Essentials oder Windows Server Essentials ausgeführt wird, oder auf einem Server mit Windows Server 2012 R2 Standard oder Windows Server 2012 R2 Datacenter mit installierter Windows Server Essentials Experience-Rolle.  
