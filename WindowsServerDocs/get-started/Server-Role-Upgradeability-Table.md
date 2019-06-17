@@ -15,11 +15,11 @@ ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
 ms.openlocfilehash: 9f8310baf659810d5d51587bafcc868c59ace61a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59852051"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63687272"
 ---
 # <a name="server-role-upgrade-and-migration-matrix-for-windows-server-2016"></a>Serverrollenupgrade und Migrationsmatrix für Windows Server 2016
 
@@ -31,7 +31,7 @@ Das Raster auf dieser Seite veranschaulicht Ihre Optionen für Serverrollenupgra
 |-------------------|----------|--------------|--------------|----------|  
 |Active Directory-Zertifikatdienste| Ja|    Ja|    Ja|    Nein|
 |Active Directory Domain Services|  Ja|    Ja|    Ja|    Ja|
-|Active Directory-Verbunddienste (AD FS)|  Nein| Nein| Ja|    Nein (neue Knoten müssen zur Farm hinzugefügt werden)|
+|Active Directory-Verbunddienste|  Nein| Nein| Ja|    Nein (neue Knoten müssen zur Farm hinzugefügt werden)|
 |Active Directory Lightweight Directory Services|   Ja|    Ja|    Ja|    Ja|
 |Active Directory-Rechteverwaltungsdienste|   Ja|    Ja|    Ja|    Nein|
 |DHCP-Server|   Ja|    Ja|    Ja|    Ja|
@@ -42,7 +42,7 @@ Das Raster auf dieser Seite veranschaulicht Ihre Optionen für Serverrollenupgra
 |Druck- und Faxdienste|    Nein| Nein| Ja (Printbrm.exe)| Nein|
 |Remotedesktopdienste|   Ja, für alle untergeordneten Rollen. Die Farm im gemischten Modus wird jedoch nicht unterstützt|   Ja, für alle untergeordneten Rollen. Die Farm im gemischten Modus wird jedoch nicht unterstützt|   Ja|    Nein|
 |Webserver (IIS)|  Ja|    Ja|    Ja|    Nein|
-|Windows Server Essentials-Umgebung|  Ja|    N/V – neues Feature|  Ja|    Nein|
+|Windows Server Essentials Experience|  Ja|    N/V – neues Feature|  Ja|    Nein|
 |Windows Server Update Services|    Ja|    Ja|    Ja|    Nein|
 |Arbeitsordner|  Ja|    Ja|    Ja|    Ja, vom Cluster WS 2012 R2, wenn [Cluster OS Rolling Upgrade](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade) ausgeführt wird.|
 

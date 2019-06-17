@@ -12,12 +12,12 @@ ms.assetid: 441c2d6c-435a-42cb-90f2-6d680d279d34
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 4fb34e05b00c35156a8451ffb0d8b914fcc73cf5
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: 5bd36db4f61b990c3864828370607158df4803a3
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63720288"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433040"
 ---
 # <a name="set-up-or-customize-server-backup"></a>Einrichten oder Anpassen der Serversicherung
 
@@ -55,12 +55,12 @@ ms.locfileid: "63720288"
   
 > [!NOTE]
 >  In der Standardinstallation von Windows Server Essentials ist der Server konfiguriert, dass automatisch einmal pro Woche eine Defragmentierung durchgeführt wird. Dadurch können die Sicherungen größer als üblich ausfallen, wenn Sie nicht von Microsoft stammende Imaging-Software verwenden. Wenn die regelmäßige Defragmentierung des Servers nicht erforderlich ist, führen Sie die folgenden Schritte aus, um den Defragmentierungszeitplan zu deaktivieren:  
->   
->  1.  Drücken Sie WINDOWS+W, um die **Suche** zu öffnen.  
-> 2.  Geben Sie im Suchfeld **Defragment**ein.  
-> 3.  Klicken Sie im Ergebnisabschnitt auf **Laufwerke defragmentieren und optimieren**.  
-> 4.  Wählen Sie auf der Seite **Laufwerke optimieren** ein Laufwerk aus, und klicken Sie dann auf **Einstellungen ändern**.  
-> 5.  Deaktivieren Sie im Fenster **Optimierungszeitplan** das Kontrollkästchen **Nach Zeitplan ausführen (empfohlen)** , und klicken Sie dann auf **OK** , um die Änderung zu speichern.  
+> 
+> 1. Drücken Sie WINDOWS+W, um die **Suche** zu öffnen.  
+>    2. Geben Sie im Suchfeld **Defragment**ein.  
+>    3. Klicken Sie im Ergebnisabschnitt auf **Laufwerke defragmentieren und optimieren**.  
+>    4. Wählen Sie auf der Seite **Laufwerke optimieren** ein Laufwerk aus, und klicken Sie dann auf **Einstellungen ändern**.  
+>    5. Deaktivieren Sie im Fenster **Optimierungszeitplan** das Kontrollkästchen **Nach Zeitplan ausführen (empfohlen)** , und klicken Sie dann auf **OK** , um die Änderung zu speichern.  
   
 ##  <a name="BKMK_2"></a> Serversicherungszeitplan  
  Wenn Sie den Assistenten zum Einrichten der Serversicherung oder den Assistenten zum Anpassen der Serversicherung verwenden, können Sie wählen, die Serverdaten zu verschiedenen Zeitpunkten täglich zu sichern. Da die Assistenten inkrementelle Sicherungen planen, werden die Sicherungen schnell ausgeführt und die Serverleistung nicht wesentlich beeinträchtigt. Standardmäßig wird von den Assistenten eine tägliche Sicherung um 12 Uhr und um 23 Uhr geplant. Sie können den Sicherungszeitplan jedoch entsprechend den Anforderungen Ihrer Organisation anpassen. Sie sollten von Zeit zu Zeit die Effektivität des Sicherungsplans bewerten und diesen nach Bedarf ändern.  
@@ -106,32 +106,32 @@ ms.locfileid: "63720288"
   
 > [!NOTE]
 >  Wenn eine Sicherung nicht erfolgreich ist, weil das Sicherungslaufwerk nicht genügend Speicherplatz haben, wird der Laufwerkbuchstabe für das Sicherungsziellaufwerk aus der Windows Server Essentials-Datenbank entfernt und das Dashboard wird das Laufwerk nicht angezeigt. Wenn Sie das Laufwerk in zukünftigen Sicherungen verwenden möchten, müssen Sie mithilfe eines systemeigenen Tools den Laufwerkbuchstaben erneut zuweisen.  
->   
+> 
 >  **Um einen Laufwerkbuchstaben für ein vorhandenes Volume erneut zuweisen.**  
->   
->  1.  Öffnen Sie in der Systemsteuerung **System und Sicherheit**.  
-> 2.  Klicken Sie unter **Verwaltung**auf **Festplattenpartitionen erstellen und formatieren**.  
-> 3.  Klicken Sie mit der rechten Maustaste auf das Laufwerk, und klicken Sie auf **Laufwerkbuchstaben und -pfade ändern...** .  
-> 4.  Klicken Sie auf **Hinzufügen**.  
-> 5.  Wählen Sie im Dialogfeld Laufwerkbuchstaben oder -pfad hinzufügen“ einen Laufwerkbuchstaben für die Zuweisung aus. (Sie können den gleichen Laufwerkbuchstaben erneut zuweisen.) Klicken Sie dann auf **OK**.  
->   
->      Das Laufwerk wird sofort auf dem Dashboard angezeigt.  
+> 
+> 1. Öffnen Sie in der Systemsteuerung **System und Sicherheit**.  
+>    2. Klicken Sie unter **Verwaltung**auf **Festplattenpartitionen erstellen und formatieren**.  
+>    3. Klicken Sie mit der rechten Maustaste auf das Laufwerk, und klicken Sie auf **Laufwerkbuchstaben und -pfade ändern...** .  
+>    4. Klicken Sie auf **Hinzufügen**.  
+>    5. Wählen Sie im Dialogfeld Laufwerkbuchstaben oder -pfad hinzufügen“ einen Laufwerkbuchstaben für die Zuweisung aus. (Sie können den gleichen Laufwerkbuchstaben erneut zuweisen.) Klicken Sie dann auf **OK**.  
+> 
+>    Das Laufwerk wird sofort auf dem Dashboard angezeigt.  
   
 ##  <a name="BKMK_4"></a> Elemente, die gesichert werden.  
  Sie können wählen, alle Laufwerke, Dateien und Ordner auf dem Server zu sichern oder nur einzelne Laufwerke, Dateien oder Ordner für die Sicherung auswählen.  
   
  Wenn Sie ein Laufwerk oder freigegebene Dateien und Ordner hinzufügen oder entfernen, müssen Sie die Serversicherungskonfiguration erneut überprüfen, um sicherzustellen, dass diese Elemente der Sicherungskonfiguration hinzugefügt oder daraus entfernt wurden. Führen Sie einen der folgenden Schritte aus, um Elemente für die Sicherung hinzuzufügen oder zu entfernen:  
   
--   Um ein Datenlaufwerk in die Serversicherung einzuschließen, aktivieren Sie das daneben liegende Kontrollkästchen.  
+- Um ein Datenlaufwerk in die Serversicherung einzuschließen, aktivieren Sie das daneben liegende Kontrollkästchen.  
   
--   Um ein Datenlaufwerk aus der Serversicherung auszuschließen, deaktivieren Sie das daneben liegende Kontrollkästchen.  
+- Um ein Datenlaufwerk aus der Serversicherung auszuschließen, deaktivieren Sie das daneben liegende Kontrollkästchen.  
   
-    > [!NOTE]
-    >  Wenn Sie das **Betriebssystem** aus der Sicherung ausschließen möchten, müssen Sie zuerst das Kontrollkästchen **Systemsicherung (empfohlen)** deaktivieren.  
+  > [!NOTE]
+  >  Wenn Sie das **Betriebssystem** aus der Sicherung ausschließen möchten, müssen Sie zuerst das Kontrollkästchen **Systemsicherung (empfohlen)** deaktivieren.  
   
- Um den Serverspeicher zu minimieren, den die Serversicherungen verwenden, sollten Sie alle Ordner ausschließen, die Dateien enthalten, die Sie nicht für wertvoll oder besonders wichtig halten.  
+  Um den Serverspeicher zu minimieren, den die Serversicherungen verwenden, sollten Sie alle Ordner ausschließen, die Dateien enthalten, die Sie nicht für wertvoll oder besonders wichtig halten.  
   
- So können Sie beispielsweise über einen Ordner verfügen, der aufgezeichnete Fernsehsendungen enthält und viel Festplattenspeicherplatz belegt. Sie können festlegen, dass diese Dateien nicht gesichert werden, da sie normalerweise nach einmaliger Wiedergabe ohnehin gelöscht werden. Ein weiteres Beispiel ist ein Ordner mit temporären Dateien, die Sie nicht aufbewahren möchten.  
+  So können Sie beispielsweise über einen Ordner verfügen, der aufgezeichnete Fernsehsendungen enthält und viel Festplattenspeicherplatz belegt. Sie können festlegen, dass diese Dateien nicht gesichert werden, da sie normalerweise nach einmaliger Wiedergabe ohnehin gelöscht werden. Ein weiteres Beispiel ist ein Ordner mit temporären Dateien, die Sie nicht aufbewahren möchten.  
   
 ## <a name="see-also"></a>Siehe auch  
   

@@ -12,12 +12,12 @@ ms.assetid: d09dd82f-f7d2-47ce-862d-fd9869f2021c
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 413c1d5d3bec7f002b73e9861aa119d495c5cfb2
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: 502e54cf719895dd11030cf163159f6cdda47164
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63717125"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433730"
 ---
 # <a name="add-windows-server-essentials-as-a-member-server"></a>Hinzufügen von Windows Server Essentials als Mitgliedsserver
 
@@ -49,23 +49,23 @@ Dieses Thema bezieht sich auf einem Server unter Windows Server 2012 R2 Standard
   
 #### <a name="to-join-windows-server-essentials-to-a-workgroup-or-domain"></a>So fügen Sie Windows Server Essentials zu einer Domäne oder Arbeitsgruppe hinzu  
   
-1.  Schließen Sie nach Abschluss der Installation von Windows Server Essentials auf Ihrem zweiten Server den Assistenten zum Konfigurieren von Windows Server Essentials.  
+1. Schließen Sie nach Abschluss der Installation von Windows Server Essentials auf Ihrem zweiten Server den Assistenten zum Konfigurieren von Windows Server Essentials.  
   
-2.  Geben Sie im Feld **Suche** **System Settings**ein, und klicken Sie in den Suchergebnissen auf **Erweiterte Systemeinstellungen anzeigen**.  
+2. Geben Sie im Feld **Suche** **System Settings**ein, und klicken Sie in den Suchergebnissen auf **Erweiterte Systemeinstellungen anzeigen**.  
   
-3.  Klicken Sie in **Systemeigenschaften** auf die Registerkarte **Computername**.  
+3. Klicken Sie in **Systemeigenschaften** auf die Registerkarte **Computername**.  
   
-4.  Klicken Sie in **Computername**im Bereich **Domäne** auf **Ändern**.  
+4. Klicken Sie in **Computername**im Bereich **Domäne** auf **Ändern**.  
   
-5.  In **Änderung des Computernamens bzw. der Domäne**in die **Member** wählen sollten Sie den Server mit Windows Server Essentials zu verbinden einer **Arbeitsgruppe** oder eine **Domäne**.  
+5. In **Änderung des Computernamens bzw, der Domäne**in die **Member** wählen sollten Sie den Server mit Windows Server Essentials zu verbinden einer **Arbeitsgruppe** oder eine **Domäne**.  
   
-    -   Um den Server zu einer Arbeitsgruppe hinzuzufügen, geben Sie **workgroup** ein, und klicken Sie dann auf **OK**.  
+   -   Um den Server zu einer Arbeitsgruppe hinzuzufügen, geben Sie **workgroup** ein, und klicken Sie dann auf **OK**.  
   
-    -   Um diesen Server mit einer vorhandenen Active Directory-Domäne zu verknüpfen, geben Sie den Namen der Domäne ein, und klicken Sie dann auf **OK**.  
+   -   Um diesen Server mit einer vorhandenen Active Directory-Domäne zu verknüpfen, geben Sie den Namen der Domäne ein, und klicken Sie dann auf **OK**.  
   
-6.  Starten Sie den Server erneut, um die Änderungen zu übernehmen.  
+6. Starten Sie den Server erneut, um die Änderungen zu übernehmen.  
   
- Nachdem Sie den Server mit der Domäne des primären Servers s hinzugefügt haben, können Sie weiterhin Windows Server Essentials konfigurieren, indem Sie Ausführung der Konfigurieren von Windows Server Essentials-Assistenten im Server-Manager.  
+   Nachdem Sie den Server mit der Domäne des primären Servers s hinzugefügt haben, können Sie weiterhin Windows Server Essentials konfigurieren, indem Sie Ausführung der Konfigurieren von Windows Server Essentials-Assistenten im Server-Manager.  
   
 #### <a name="to-configure-windows-server-essentials-experience-on-a-member-server"></a>So konfigurieren Sie Windows Server Essentials Experience auf einem Mitgliedsserver  
   
