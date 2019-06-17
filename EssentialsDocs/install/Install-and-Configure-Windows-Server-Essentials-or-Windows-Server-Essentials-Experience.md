@@ -12,12 +12,12 @@ ms.assetid: 48ea6cd4-3955-4aaf-9236-2515a6c3e730
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 8a2310b178663c6ca32a4e07d11656f1aaf2a11b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: f5593c21b99f4f8cb22979d5dc201a38e54be84c
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844411"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66433480"
 ---
 # <a name="install-and-configure-windows-server-essentials-or-windows-server-essentials-experience"></a>Installieren und Konfigurieren von Windows Server Essentials oder Windows Server Essentials Experience
 
@@ -73,28 +73,28 @@ Bevor Sie Windows Server Essentials oder die Essentials Experience-Rolle install
   
 ##### <a name="to-configure-windows-server-essentials-on-a-physical-server"></a>So konfigurieren Sie Windows Server Essentials auf einem physischen server  
   
-1.  Im Anschluss an die Windows-Startseite**** wird der Assistent für die Konfiguration von Windows Server Essentials**** auf Ihrem Desktop angezeigt.  
+1. Im Anschluss an die Windows-Startseite **** wird der Assistent für die Konfiguration von Windows Server Essentials **** auf Ihrem Desktop angezeigt.  
   
-2.  Befolgen Sie die Anweisungen, um den Assistenten wie folgt abzuschließen:  
+2. Befolgen Sie die Anweisungen, um den Assistenten wie folgt abzuschließen:  
   
-    1.  Klicken Sie auf der Seite **Windows Server Essentials konfigurieren** auf **Weiter**.  
+   1.  Klicken Sie auf der Seite **Windows Server Essentials konfigurieren** auf **Weiter**.  
   
-    2.  Stellen Sie unter **Uhrzeiteinstellungen**sicher, dass Datum, Uhrzeit und Zeitzone richtig sind, und klicken Sie dann auf **Weiter**.  
+   2.  Stellen Sie unter **Uhrzeiteinstellungen**sicher, dass Datum, Uhrzeit und Zeitzone richtig sind, und klicken Sie dann auf **Weiter**.  
   
-    3.  Geben Sie unter **Firmeninformationen**Ihren Unternehmensnamen wie **Contoso,Ltd.** ein, und klicken Sie dann auf **Weiter**. Optional können Sie den internen Domänennamen und den Servernamen ändern.  
+   3.  Geben Sie unter **Firmeninformationen**Ihren Unternehmensnamen wie **Contoso,Ltd.** ein, und klicken Sie dann auf **Weiter**. Optional können Sie den internen Domänennamen und den Servernamen ändern.  
   
-    4.  Geben Sie unter der Option zum Erstellen eines Netzwerkadministrators **** einen neuen Administratorkontonamen und ein -kennwort ein.  
+   4.  Geben Sie unter der Option zum Erstellen eines Netzwerkadministrators **** einen neuen Administratorkontonamen und ein -kennwort ein.  
   
-        > [!NOTE]
-        >  Verwenden Sie nicht den bzw. das standardmäßige(n) **Administrator**-Kontonamen und -kennwort.  
+       > [!NOTE]
+       >  Verwenden Sie nicht den bzw. das standardmäßige(n) **Administrator**-Kontonamen und -kennwort.  
   
-    5.  Klicken Sie auf **Konfigurieren**.  
+   5.  Klicken Sie auf **Konfigurieren**.  
   
-3.  Während des Konfigurationsvorgangs wird der Server mehrfach neu gestartet, und Ihre Anmeldungen erfolgen automatisch, bis die Konfiguration abgeschlossen ist. Dieser Vorgang nimmt etwa 20 Minuten in Anspruch.  
+3. Während des Konfigurationsvorgangs wird der Server mehrfach neu gestartet, und Ihre Anmeldungen erfolgen automatisch, bis die Konfiguration abgeschlossen ist. Dieser Vorgang nimmt etwa 20 Minuten in Anspruch.  
   
-4.  Klicken Sie auf dem Desktop auf das Dashboardsymbol, um das Serverdashboard zu starten. Schließen Sie auf der Startseite**** die Aufgaben **Erste Schritte** ab, die auf der Registerkarte **Einrichtung** aufgelistet sind.  
+4. Klicken Sie auf dem Desktop auf das Dashboardsymbol, um das Serverdashboard zu starten. Schließen Sie auf der Startseite **** die Aufgaben **Erste Schritte** ab, die auf der Registerkarte **Einrichtung** aufgelistet sind.  
   
- Nach Abschluss der Serverkonfiguration wird der Server, auf dem Windows Server Essentials ausgeführt wird, als Domänencontroller festgelegt.  
+   Nach Abschluss der Serverkonfiguration wird der Server, auf dem Windows Server Essentials ausgeführt wird, als Domänencontroller festgelegt.  
   
 ###  <a name="BKMK_DeployWSERole"></a> Bereitstellen der Windows Server Essentials Experience-Rolle in Windows Server 2012 R2 Standard und Datacenter  
  Sie können die Server-Manager verwenden, aktivieren und Konfigurieren von Windows Server Essentials Experience-Rolle in Windows Server 2012 R2 Standard oder Windows Server 2012 R2 Datacenter mithilfe des folgenden Verfahrens.  

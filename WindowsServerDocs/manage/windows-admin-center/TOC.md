@@ -34,18 +34,18 @@
 
 
 ## Herstellen einer Verbindung mit Azure
-### [Azure hybriddienste](azure/index.md)
-#### [Azure-Sicherung](azure/azure-backup.md)
+### [Azure-Hybriddienste](azure/index.md)
+#### [Azure Backup](azure/azure-backup.md)
 #### [Azure Site Recovery](azure/azure-site-recovery.md)
-#### [Azure File Sync](azure/azure-file-sync.md)
+#### [Azure-Dateisynchronisierung](azure/azure-file-sync.md)
 #### [Azure Monitor](azure/azure-monitor.md)
 #### [Azure-Updateverwaltung](azure/azure-update-management.md)
-### [Verbinden von Windows Admin Center in Azure](azure/azure-integration.md)
+### [Verbinden von Windows Admin Center mit Azure](azure/azure-integration.md)
 ### [Bereitstellen von Windows Admin Center in Azure](azure/deploy-wac-in-azure.md)
 ### [Verwalten von Azure-VMs mit Windows Admin Center](azure/manage-azure-vms.md)
 
 ## Support
-### [Support-Richtlinie](support/index.md)
+### [Unterstützungsrichtlinie](support/index.md)
 ### [Allgemeine Schritte zur Problembehandlung](support/troubleshooting.md)
 ### [Bekannte Probleme](support/known-issues.md)
 
@@ -71,7 +71,7 @@
 #### [Verwenden von PowerShell in Erweiterungen](extend/guides/powershell.md)
 #### [Anleitung zu CSS-Symbolen](extend/guides/cssicons.md)
 #### [Migrieren zum neuesten SDK](extend/guides/migration-guide-0_1-1_0.md)
-#### [Aktivieren Sie die Erweiterung Discovery-banner](extend/guides/extension-discovery-banner.md)
+#### [Aktivieren des Erweiterungsermittlungsbanners](extend/guides/extension-discovery-banner.md)
 ### [Veröffentlichen von Erweiterungen](extend/publish-extensions.md)
 ### Fallstudien
 #### [DataON](extend/case-studies/dataon.md)

@@ -1,6 +1,6 @@
 ---
 title: schtasks
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7aed2b88823c117a7424a4d90edd86829a53f786
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 76ae264ded3cd0611c06b56c1074a2d916513da4
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822881"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66441613"
 ---
 # <a name="schtasks"></a>schtasks
 
@@ -36,20 +36,20 @@ Um die Befehlssyntax anzuzeigen, klicken Sie auf die folgenden Befehle aus:
 
 ## <a name="remarks"></a>Hinweise
 
--   **SchTasks.exe** führt die gleichen Vorgänge wie **geplante Tasks** in **Systemsteuerung**. Sie können diese Tools verwenden, zusammen und austauschbar.
--   **SCHTASKS** ersetzt **At.exe**, ein Tool, das in früheren Versionen von Windows enthalten. Obwohl **At.exe** befindet sich noch in der Windows Server 2003-Familie, **"SCHTASKS"** ist die empfohlene Befehlszeilen zum Planen von Tasks.
--   Die Parameter in einer **"SCHTASKS"** Befehl in beliebiger Reihenfolge angezeigt werden kann. Eingabe **"SCHTASKS"** ohne Parameter eine Abfrage ausführt.
--   Berechtigungen für **"SCHTASKS"**  
-    -   Sie benötigen die Berechtigung zum Ausführen des Befehls. Alle Benutzer kann eine Aufgabe auf dem lokalen Computer planen, und sie anzeigen und ändern Sie die Aufgaben, die sie geplant werden können. Mitglieder der Gruppe "Administratoren" können planen, anzeigen und ändern alle Aufgaben auf dem lokalen Computer.
-    -   Zum Planen, anzeigen oder Ändern eines Tasks auf einem Remotecomputer befindet, müssen Sie Mitglied der Gruppe "Administratoren" auf dem Remotecomputer ausgeführt, oder verwenden Sie die **/u** Parameter, um die Anmeldeinformationen eines Administrators des Remotecomputers angeben.
-    -   Können Sie die **/u** Parameter in eine **/ create** oder **/change** Vorgang nur, wenn der lokale Computer und Remotecomputer befinden sich in derselben Domäne oder der lokale Computer in einer Domäne ist, der Remotecomputer mit dem Domänenvertrauensstellungen. Klicken Sie andernfalls den Remotecomputer kann nicht das angegebene Benutzerkonto authentifizieren, und kann nicht überprüfen, dass das Konto ein Mitglied der Gruppe "Administratoren" ist.
-    -   Der Vorgang muss über die Berechtigung zum Ausführen. Die erforderlichen Berechtigungen variieren je nach der Aufgabe. Aufgaben werden standardmäßig ausgeführt, mit den Berechtigungen des aktuellen Benutzers des lokalen Computers oder mit den Berechtigungen des Benutzers gemäß dem **/u** -Parameters, wenn eine enthalten ist. Verwenden Sie zum Ausführen einer Aufgabe mit den Berechtigungen eines anderen Benutzerkontos oder mit einer Systemberechtigungen, die **/RU** Parameter.
--   Stellen Sie sicher, dass eine geplante Aufgabe ausgeführt wurde, oder um herauszufinden, warum eine geplante Aufgabe nicht ausgeführt haben, finden in das Transaktionsprotokoll der Taskplaner-Dienst *SystemRoot*\SchedLgU.txt. Diese Protokolldatensätze Ausführungsversuche von allen Tools, mit denen den Dienst, einschließlich **geplante Tasks** und **SchTasks.exe**.
--   In seltenen Fällen Dateien beschädigt. Beschädigte Tasks werden nicht ausgeführt. Wenn Sie versuchen, einen Vorgang auf beschädigte Tasks ausführen **SchTasks.exe** wird die folgende Fehlermeldung angezeigt:  
-    ```
-    ERROR: The data is invalid.
-    ```  
-    Beschädigte Tasks kann nicht wiederhergestellt werden. Verwenden Sie zum Wiederherstellen der Features von System-aufgabenplanung **SchTasks.exe** oder **geplante Tasks** auf die Aufgaben aus dem System zu löschen und neu zu planen.
+- **SchTasks.exe** führt die gleichen Vorgänge wie **geplante Tasks** in **Systemsteuerung**. Sie können diese Tools verwenden, zusammen und austauschbar.
+- **SCHTASKS** ersetzt **At.exe**, ein Tool, das in früheren Versionen von Windows enthalten. Obwohl **At.exe** befindet sich noch in der Windows Server 2003-Familie, **"SCHTASKS"** ist die empfohlene Befehlszeilen zum Planen von Tasks.
+- Die Parameter in einer **"SCHTASKS"** Befehl in beliebiger Reihenfolge angezeigt werden kann. Eingabe **"SCHTASKS"** ohne Parameter eine Abfrage ausführt.
+- Berechtigungen für **"SCHTASKS"**  
+  -   Sie benötigen die Berechtigung zum Ausführen des Befehls. Alle Benutzer kann eine Aufgabe auf dem lokalen Computer planen, und sie anzeigen und ändern Sie die Aufgaben, die sie geplant werden können. Mitglieder der Gruppe "Administratoren" können planen, anzeigen und ändern alle Aufgaben auf dem lokalen Computer.
+  -   Zum Planen, anzeigen oder Ändern eines Tasks auf einem Remotecomputer befindet, müssen Sie Mitglied der Gruppe "Administratoren" auf dem Remotecomputer ausgeführt, oder verwenden Sie die **/u** Parameter, um die Anmeldeinformationen eines Administrators des Remotecomputers angeben.
+  -   Können Sie die **/u** Parameter in eine **/ create** oder **/change** Vorgang nur, wenn der lokale Computer und Remotecomputer befinden sich in derselben Domäne oder der lokale Computer in einer Domäne ist, der Remotecomputer mit dem Domänenvertrauensstellungen. Klicken Sie andernfalls den Remotecomputer kann nicht das angegebene Benutzerkonto authentifizieren, und kann nicht überprüfen, dass das Konto ein Mitglied der Gruppe "Administratoren" ist.
+  -   Der Vorgang muss über die Berechtigung zum Ausführen. Die erforderlichen Berechtigungen variieren je nach der Aufgabe. Aufgaben werden standardmäßig ausgeführt, mit den Berechtigungen des aktuellen Benutzers des lokalen Computers oder mit den Berechtigungen des Benutzers gemäß dem **/u** -Parameters, wenn eine enthalten ist. Verwenden Sie zum Ausführen einer Aufgabe mit den Berechtigungen eines anderen Benutzerkontos oder mit einer Systemberechtigungen, die **/RU** Parameter.
+- Stellen Sie sicher, dass eine geplante Aufgabe ausgeführt wurde, oder um herauszufinden, warum eine geplante Aufgabe nicht ausgeführt haben, finden in das Transaktionsprotokoll der Taskplaner-Dienst *SystemRoot*\SchedLgU.txt. Diese Protokolldatensätze Ausführungsversuche von allen Tools, mit denen den Dienst, einschließlich **geplante Tasks** und **SchTasks.exe**.
+- In seltenen Fällen Dateien beschädigt. Beschädigte Tasks werden nicht ausgeführt. Wenn Sie versuchen, einen Vorgang auf beschädigte Tasks ausführen **SchTasks.exe** wird die folgende Fehlermeldung angezeigt:  
+  ```
+  ERROR: The data is invalid.
+  ```  
+  Beschädigte Tasks kann nicht wiederhergestellt werden. Verwenden Sie zum Wiederherstellen der Features von System-aufgabenplanung **SchTasks.exe** oder **geplante Tasks** auf die Aufgaben aus dem System zu löschen und neu zu planen.
 
 ## <a name="BKMK_create"></a>"SCHTASKS" erstellen
 
@@ -112,7 +112,7 @@ Plant eine Aufgabe auf dem angegebenen Remotecomputer. Geben Sie den Namen oder 
 
 ##### <a name="u-domainuser"></a>/u [\<Domain>\]<User>
 
-Führt diesen Befehl mit den Berechtigungen des angegebenen Benutzerkontos. Der Standardwert ist die Berechtigungen des aktuellen Benutzers des lokalen Computers. Die **/u** und **/p** Parameter gelten nur für die Planung einer Aufgabe auf einem Remotecomputer (**/s**).
+Führt diesen Befehl mit den Berechtigungen des angegebenen Benutzerkontos. Der Standardwert ist die Berechtigungen des aktuellen Benutzers des lokalen Computers. Die **/u** und **/p** Parameter gelten nur für die Planung einer Aufgabe auf einem Remotecomputer ( **/s**).
 
 Die Berechtigungen des angegebenen Kontos dienen zur Planung der Aufgabe und zum Ausführen des Tasks. Führen Sie die Aufgabe mit den Berechtigungen eines anderen Benutzers mit der **/RU** Parameter.
 
@@ -122,22 +122,23 @@ Das Benutzerkonto muss Mitglied der Gruppe "Administratoren" auf dem Remotecompu
 
 Das Kennwort enthält, für das Benutzerkonto, das im angegebenen die **/u** Parameter. Bei Verwendung der **/u** Parameter jedoch weglassen der **/p** Parameter oder die Password-Argument, **"SCHTASKS"** aufgefordert, ein Kennwort ein, und den eingegebene Text verdeckt.
 
-Die **/u** und **/p** Parameter gelten nur für die Planung einer Aufgabe auf einem Remotecomputer (**/s**).
+Die **/u** und **/p** Parameter gelten nur für die Planung einer Aufgabe auf einem Remotecomputer ( **/s**).
 
 ##### <a name="ru-domainuser--system"></a>/ru {[\<Domain>\]<User> | System}
 
 Führt die Aufgabe mit den Berechtigungen des angegebenen Benutzerkontos. In der Standardeinstellung die Aufgabe ausgeführt wird, mit den Berechtigungen des aktuellen Benutzers des lokalen Computers oder mit der Berechtigung des Benutzers gemäß dem **/u** -Parameters, wenn eine enthalten ist. Die **/RU** Parameter ist gültig, beim Planen von Aufgaben auf lokalen Computern oder Remotecomputern.
 
-|Wert|Beschreibung|
-|-----|-----------|
-|[\<Domain>\]<User>|Gibt ein anderes Benutzerkonto an.|
-|System oder ""|Gibt an, das lokale Systemkonto, ein Konto ein, die das Betriebssystem und die Systemdienste.|
+
+|       Wert        |                                                    Beschreibung                                                    |
+|--------------------|-------------------------------------------------------------------------------------------------------------------|
+| [\<Domain>\]<User> |                                       Gibt ein anderes Benutzerkonto an.                                        |
+|    System oder ""    | Gibt an, das lokale Systemkonto, ein Konto ein, die das Betriebssystem und die Systemdienste. |
 
 ##### <a name="rp-password"></a>RD/RP \<Kennwort >
 
 Gibt das Kennwort für das Benutzerkonto, das im angegebenen die **/RU** Parameter. Wenn Sie diesen Parameter weglassen, wenn Sie ein Benutzerkonto angeben **SchTasks.exe** fordert Sie das Kennwort ein, und den eingegebene Text verdeckt.
 
-Verwenden Sie nicht die **RD/RP** -Parameter für Aufgaben mit den Anmeldeinformationen des Systemkontos ausgeführt (**/ru System**). Das Systemkonto verfügt nicht über ein Kennwort und **SchTasks.exe** fordert nicht für eine.
+Verwenden Sie nicht die **RD/RP** -Parameter für Aufgaben mit den Anmeldeinformationen des Systemkontos ausgeführt ( **/ru System**). Das Systemkonto verfügt nicht über ein Kennwort und **SchTasks.exe** fordert nicht für eine.
 
 ##### <a name="mo-modifier"></a>/ Monat \<Modifizierer >
 
@@ -161,11 +162,12 @@ Gibt an, wie oft der Task in den Zeitplantyp ausgeführt wird. Dieser Parameter 
 
 Gibt an, täglich oder Tage der Woche oder einen Tag (oder Tage) eines Monats. Nur gültig mit einem wöchentlichen oder MONATLICHEN Zeitplan.
 
-|Zeitplantyp|Modifikator|Tag-Werte (/ d)|Beschreibung|
-|-------------|--------|---------------|-----------|
-|WÖCHENTLICH|1 - 52|MO - [, MO - SO...] | *|Optional. MON ist die Standardeinstellung. Der Platzhalterwert (*) bedeutet, dass täglich.|
-|MONATLICH|ZUNÄCHST ZWEITE, DRITTE, VIERTE, LETZTE|MO-|Für einen bestimmten Woche Zeitplan erforderlich.|
-|MONATLICH|None oder {1 bis 12}|1 - 31|Optional und nur gültig mit kein Modifizierer (**/Monat**) Parameter (einem bestimmten Datum Zeitplan) oder wenn die **/Monat** ist 1 bis 12 (ein "jedes \<N > Monate" Zeitplan). Der Standardwert ist Tag 1 (der erste Tag des Monats).|
+
+| Zeitplantyp |              Modifikator              |     Tag-Werte (/ d)      |                                                                                                 Beschreibung                                                                                                 |
+|---------------|------------------------------------|--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|    WÖCHENTLICH     |               1 - 52               | MO - [, MO - SO...] |                                                                                                     \*                                                                                                      |
+|    MONATLICH    | ZUNÄCHST ZWEITE, DRITTE, VIERTE, LETZTE |        MO-         |                                                                                   Für einen bestimmten Woche Zeitplan erforderlich.                                                                                    |
+|    MONATLICH    |          None oder {1 bis 12}          |          1 - 31          | Optional und nur gültig mit kein Modifizierer ( **/Monat**) Parameter (einem bestimmten Datum Zeitplan) oder wenn die **/Monat** ist 1 bis 12 (ein "jedes \<N > Monate" Zeitplan). Der Standardwert ist Tag 1 (der erste Tag des Monats). |
 
 ##### <a name="m-monthmonth"></a>/ m Monat [, Monat...]
 
@@ -212,11 +214,12 @@ Das Format für *"StartDate"* variiert mit dem Gebietsschema für den lokalen Co
 
 Die gültig Datumsformate werden in der folgenden Tabelle aufgeführt. Verwenden Sie das Format für die ausgewählten Format am ähnlichsten **kurzes Datum** in **Regions- und Sprachoptionen** in **Systemsteuerung** auf dem lokalen Computer.
 
-|Wert|Beschreibung|
-|-----|-----------|
-|\<MM>/<DD>/<YYYY>|Verwenden Sie für Monat-First-Formate, z. B. **Englisch (Vereinigte Staaten)** und **Spanisch (Panama)**.|
-|\<DD>/<MM>/<YYYY>|Verwenden Sie für die Tag-First-Formate, z. B. **Bulgarisch** und **Niederländisch (Niederlande)**.|
-|\<YYYY>/<MM>/<DD>|Verwenden Sie für Year-First-Formate, z. B. **Schwedisch** und **Französisch (Kanada)**.|
+
+|       Wert       |                                        Beschreibung                                         |
+|-------------------|--------------------------------------------------------------------------------------------|
+| \<MM>/<DD>/<YYYY> | Verwenden Sie für Monat-First-Formate, z. B. **Englisch (Vereinigte Staaten)** und **Spanisch (Panama)** . |
+| \<DD>/<MM>/<YYYY> |       Verwenden Sie für die Tag-First-Formate, z. B. **Bulgarisch** und **Niederländisch (Niederlande)** .        |
+| \<YYYY>/<MM>/<DD> |          Verwenden Sie für Year-First-Formate, z. B. **Schwedisch** und **Französisch (Kanada)** .          |
 
 / ED \<"EndDate" >
 
@@ -226,11 +229,12 @@ Das Format für *"EndDate"* variiert mit dem Gebietsschema für den lokalen Comp
 
 Die gültig Datumsformate werden in der folgenden Tabelle aufgeführt. Verwenden Sie das Format für die ausgewählten Format am ähnlichsten **kurzes Datum** in **Regions- und Sprachoptionen** in **Systemsteuerung** auf dem lokalen Computer.
 
-|Wert|Beschreibung|
-|-----|-----------|
-|\<MM>/<DD>/<YYYY>|Verwenden Sie für Monat-First-Formate, z. B. **Englisch (Vereinigte Staaten)** und **Spanisch (Panama)**.|
-|\<DD>/<MM>/<YYYY>|Verwenden Sie für die Tag-First-Formate, z. B. **Bulgarisch** und **Niederländisch (Niederlande)**.|
-|\<YYYY>/<MM>/<DD>|Verwenden Sie für Year-First-Formate, z. B. **Schwedisch** und **Französisch (Kanada)**.|
+
+|       Wert       |                                        Beschreibung                                         |
+|-------------------|--------------------------------------------------------------------------------------------|
+| \<MM>/<DD>/<YYYY> | Verwenden Sie für Monat-First-Formate, z. B. **Englisch (Vereinigte Staaten)** und **Spanisch (Panama)** . |
+| \<DD>/<MM>/<YYYY> |       Verwenden Sie für die Tag-First-Formate, z. B. **Bulgarisch** und **Niederländisch (Niederlande)** .        |
+| \<YYYY>/<MM>/<DD> |          Verwenden Sie für Year-First-Formate, z. B. **Schwedisch** und **Französisch (Kanada)** .          |
 
 ##### <a name="it"></a>/it
 
@@ -364,7 +368,7 @@ schtasks /create /tn "Security Script" /tr sec.vbs /sc daily /mo 70 /it
 ```
 
 > [!NOTE]
-> Zur Identifizierung von Aufgaben mit der nur interaktiv (**/IT**)-Eigenschaft, verwenden Sie eine ausführliche Abfrage **(/ Abfrage/v**). In der Anzeige einer ausführlichen Abfrage eines Tasks durch **/IT**, **Anmeldemodus** Feld hat den Wert der **nur interaktiv**.
+> Zur Identifizierung von Aufgaben mit der nur interaktiv ( **/IT**)-Eigenschaft, verwenden Sie eine ausführliche Abfrage **(/ Abfrage/v**). In der Anzeige einer ausführlichen Abfrage eines Tasks durch **/IT**, **Anmeldemodus** Feld hat den Wert der **nur interaktiv**.
 
 ### <a name="BKMK_weeks"></a>Eine Aufgabe zu planen, die alle N Wochen ausgeführt wird.
 
@@ -378,7 +382,7 @@ schtasks /create /tn <TaskName> /tr <TaskRun> /sc weekly [/mo {1 - 52}] [/d {<MO
 
 In einem wöchentlichen Zeitplan die **/SC wöchentlich** -Parameter ist erforderlich. Die **/Monat** (Modifizierer)-Parameter ist optional und gibt die Anzahl der Wochen zwischen jeder Ausführung des Tasks. Der Standardwert für **/Monat** ist 1 (wöchentlich).
 
-Wöchentliche Zeitpläne verfügen auch über ein optionales **/d** Parameter zur Planung der Aufgabe auszuführenden für bestimmte Tage der Woche oder für alle Tage (*). Der Standardwert ist MON (Montag). Die täglich (*)-Option ist gleichwertig mit tägliche Aufgabe zu planen.
+Wöchentliche Zeitpläne verfügen auch über ein optionales **/d** Parameter zur Planung der Aufgabe auszuführenden für bestimmte Tage der Woche oder für alle Tage ( *). Der Standardwert ist MON (Montag). Die täglich (* )-Option ist gleichwertig mit tägliche Aufgabe zu planen.
 
 #### <a name="examples"></a>Beispiele
 
@@ -447,7 +451,7 @@ schtasks /create /tn <TaskName> /tr <TaskRun> /sc weekly [/d {<MON - SUN>[,MON -
 
 #### <a name="remarks"></a>Hinweise
 
-Der Zeitplan "Tag der Woche" ist eine Variation des den wöchentlichen Zeitplan. In einem wöchentlichen Zeitplan die **/SC wöchentlich** -Parameter ist erforderlich. Die **/Monat** (Modifizierer)-Parameter ist optional und gibt die Anzahl der Wochen zwischen jeder Ausführung des Tasks. Der Standardwert für **/Monat** ist 1 (wöchentlich). Die **/d** -Parameter, der optional ist, plant die Aufgabe, die für bestimmte Tage der Woche oder für alle Tage (*) ausgeführt. Der Standardwert ist MON (Montag). Die jedem Tag-Option (**/d \*** ) ist äquivalent zum Planen einer täglichen Aufgabe.
+Der Zeitplan "Tag der Woche" ist eine Variation des den wöchentlichen Zeitplan. In einem wöchentlichen Zeitplan die **/SC wöchentlich** -Parameter ist erforderlich. Die **/Monat** (Modifizierer)-Parameter ist optional und gibt die Anzahl der Wochen zwischen jeder Ausführung des Tasks. Der Standardwert für **/Monat** ist 1 (wöchentlich). Die **/d** -Parameter, der optional ist, plant die Aufgabe, die für bestimmte Tage der Woche oder für alle Tage ausgeführt (<em>). Der Standardwert ist MON (Montag). Die jedem Tag-Option (</em>* / d \***) ist äquivalent zum Planen einer täglichen Aufgabe.
 
 #### <a name="examples"></a>Beispiele
 
@@ -475,7 +479,7 @@ schtasks /create /tn <TaskName> /tr <TaskRun> /sc monthly /mo {FIRST | SECOND | 
 
 #### <a name="remarks"></a>Hinweise
 
-Bei diesem Zeitplan kann die **/SC monatlich** -Parameter der **/Monat** (Modifizierer)-Parameter, und die **/d** (Tag) Parameter sind erforderlich. Die **/Monat** (Modifizierer)-Parameter gibt die Woche, die auf dem der Task ausgeführt wird. Die **/d** Parameter gibt den Tag der Woche. (Sie können nur einen Tag der Woche für diesen Zeitplan angeben.) Dieser Zeitplan verfügt auch über einen optionalen **/m** (Monat)-Parameter, Sie können, Zeit, die für bestimmte Monate oder jedes Monats (*). Der Standardwert für die **/m** -Parameter ist monatlich (*).
+Bei diesem Zeitplan kann die **/SC monatlich** -Parameter der **/Monat** (Modifizierer)-Parameter, und die **/d** (Tag) Parameter sind erforderlich. Die **/Monat** (Modifizierer)-Parameter gibt die Woche, die auf dem der Task ausgeführt wird. Die **/d** Parameter gibt den Tag der Woche. (Sie können nur einen Tag der Woche für diesen Zeitplan angeben.) Dieser Zeitplan verfügt auch über einen optionalen **/m** (Monat)-Parameter, Sie können, Zeit, die für bestimmte Monate oder jedes Monats (<em>). Der Standardwert für die  * */m</em>* -Parameter ist monatlich (* ).
 
 #### <a name="examples"></a>Beispiele
 
@@ -505,7 +509,7 @@ schtasks /create /tn <TaskName> /tr <TaskRun> /sc monthly /d {1 - 31} [/m {JAN -
 
 Geben Sie in das Datum Zeitplan die **/SC monatlich** Parameter und die **/d** (Tag) Parameter sind erforderlich. Die **/d** Parameter gibt an, einen Tag des Monats (1-31), kein Tag der Woche. Sie können nur ein Tag im Zeitplan angeben. Die **/Monat** (Modifizierer)-Parameter ist mit diesem Typ "Zeitplan" ungültig.
 
-Die **/m** (Monat)-Parameter ist optional für diesen Zeitplan aus, und der Standardwert ist monatlich (*). **SCHTASKS** ist nicht möglich, die eine Aufgabe für ein Datum zu planen, die nicht in einem Monat gemäß auftritt der **/m** Parameter. Aber wenn weglassen der **/m** -Parameter, und planen, die eine Aufgabe für ein Datum, das nicht in jeden Monats, z. B. den 31. Tag, und klicken Sie dann auf die Aufgabe angezeigt wird, führt nicht in den kürzeren Monaten. Um eine Aufgabe für den letzten Tag des Monats planen, verwenden Sie den letzten Tag Zeitplantyp aus.
+Die **/m** (Monat)-Parameter ist optional für diesen Zeitplan aus, und der Standardwert ist monatlich (<em>). * *"SCHTASKS"</em>*  ist nicht möglich, die eine Aufgabe für ein Datum zu planen, die nicht enthalten in einem Monat gemäß der **/m** Parameter. Aber wenn weglassen der **/m** -Parameter, und planen, die eine Aufgabe für ein Datum, das nicht in jeden Monats, z. B. den 31. Tag, und klicken Sie dann auf die Aufgabe angezeigt wird, führt nicht in den kürzeren Monaten. Um eine Aufgabe für den letzten Tag des Monats planen, verwenden Sie den letzten Tag Zeitplantyp aus.
 
 #### <a name="examples"></a>Beispiele
 
@@ -697,7 +701,6 @@ Type the password for Marketing\Admin01:********
 Please enter the run as password for Reskits\User01: ********
 
 SUCCESS: The scheduled task "My App" has successfully been created.
-
 ```
 
 #### <a name="to-run-a-task-only-when-a-particular-user-is-logged-on"></a>Zum Ausführen einer Aufgabe nur, wenn ein bestimmter Benutzer angemeldet ist
@@ -711,11 +714,11 @@ Der Befehl verwendet den **/s** Parameter, um den Namen des Remotecomputers ange
 schtasks /create /tn "Check Admin" /tr AdminCheck.exe /sc weekly /d FRI /st 04:00 /s Public /u Domain3\Admin06 /ru Public\Admin01 /it
 ```
 **Hinweis**
--   Zur Identifizierung von Aufgaben mit der nur interaktiv (**/IT**)-Eigenschaft, verwenden Sie eine ausführliche Abfrage **(/ Abfrage/v**). In der Anzeige einer ausführlichen Abfrage eines Tasks durch **/IT**, **Anmeldemodus** Feld hat den Wert der **nur interaktiv**.
+-   Zur Identifizierung von Aufgaben mit der nur interaktiv ( **/IT**)-Eigenschaft, verwenden Sie eine ausführliche Abfrage **(/ Abfrage/v**). In der Anzeige einer ausführlichen Abfrage eines Tasks durch **/IT**, **Anmeldemodus** Feld hat den Wert der **nur interaktiv**.
 
 ### <a name="BKMK_sys_perms"></a>Um eine Aufgabe zu planen, die mit einer Systemberechtigungen ausgeführt wird
 
-Tasks aller Typen können mit den Berechtigungen des Systemkontos auf dem lokalen und einem Remotecomputer ausführen. Zusätzlich zu den Parametern, die erforderlich sind, für den bestimmten Zeitplan-Typ der **/RU-System** (oder **/ru ""**)-Parameter ist erforderlich, und die **RD/RP** -Parameter ist ungültig.
+Tasks aller Typen können mit den Berechtigungen des Systemkontos auf dem lokalen und einem Remotecomputer ausführen. Zusätzlich zu den Parametern, die erforderlich sind, für den bestimmten Zeitplan-Typ der **/RU-System** (oder **/ru ""** )-Parameter ist erforderlich, und die **RD/RP** -Parameter ist ungültig.
 
 **Wichtig**
 -   Das System-Konto keine Rechte zur interaktiven Anmeldung. Können nicht finden Sie unter oder Benutzern oder Programmen interagieren Aufgaben, die mit Systemberechtigungen ausgeführt werden.
@@ -723,7 +726,7 @@ Tasks aller Typen können mit den Berechtigungen des Systemkontos auf dem lokale
 
 **Hinweis**
 
-Um Aufgaben zu identifizieren, die mit einer Systemberechtigungen ausgeführt, verwenden Sie eine ausführliche Abfrage (**/Abfragen** **/v**). In der Anzeige einer ausführlichen Abfrage eines System ausgeführten Vorgangs der **als Benutzer ausführen** Feld hat den Wert der **NT AUTHORITY\SYSTEM** und **Anmeldemodus** Feld hat den Wert der  **Nur im Hintergrund**.
+Um Aufgaben zu identifizieren, die mit einer Systemberechtigungen ausgeführt, verwenden Sie eine ausführliche Abfrage ( **/Abfragen** **/v**). In der Anzeige einer ausführlichen Abfrage eines System ausgeführten Vorgangs der **als Benutzer ausführen** Feld hat den Wert der **NT AUTHORITY\SYSTEM** und **Anmeldemodus** Feld hat den Wert der  **Nur im Hintergrund**.
 
 #### <a name="examples"></a>Beispiele
 
@@ -739,7 +742,6 @@ Im Gegenzug **SchTasks.exe** eine informative Meldung und eine Erfolgsmeldung an
 ```
 INFO: The task will be created under user name ("NT AUTHORITY\SYSTEM").
 SUCCESS: The Scheduled task "My App" has successfully been created.
-
 ```
 
 #### <a name="to-run-a-task-with-system-permissions-on-a-remote-computer"></a>Zum Ausführen einer Aufgabe mit einer Systemberechtigungen auf einem Remotecomputer
@@ -759,29 +761,28 @@ Type the password for Admin01:**********
 INFO: The Schedule Task "My App" will be created under user name ("NT AUTHORITY\
 SYSTEM").
 SUCCESS: The scheduled task "My App" has successfully been created.
-
 ```
 
 ### <a name="BKMK_multi_progs"></a>Eine Aufgabe zu planen, die mehr als ein Programm ausgeführt wird.
 
 Jede Aufgabe wird nur ein Programm ausgeführt. Allerdings können Sie eine Batchdatei, die mehrere Programme ausgeführt wird und dann einen Task zum Ausführen der Batchdatei planen. Das folgende Verfahren veranschaulicht diese Methode:
-1.  Erstellen Sie eine Batchdatei, die Programme startet, die Sie ausführen möchten.
+1. Erstellen Sie eine Batchdatei, die Programme startet, die Sie ausführen möchten.
 
-    In diesem Beispiel erstellen Sie eine Batchdatei, die Ereignisanzeige (Eventvwr.exe) und zum Systemmonitor (Perfmon.exe) beginnt.  
-    -   Öffnen Sie einen Text-Editor, z. B. Notepad.
-    -   Geben Sie den Namen und den vollqualifizierten Pfad zur ausführbaren Datei für jedes Programm. In diesem Fall enthält die Datei die folgenden Anweisungen.  
-        ```
-        C:\Windows\System32\Eventvwr.exe 
-        C:\Windows\System32\Perfmon.exe
-        ```  
-    -   Speichern Sie die Datei als MyApps.bat.
-2.  Verwendung **Schtasks.exe** eine Aufgabe zu erstellen, MyApps.bat ausgeführt wird.
+   In diesem Beispiel erstellen Sie eine Batchdatei, die Ereignisanzeige (Eventvwr.exe) und zum Systemmonitor (Perfmon.exe) beginnt.  
+   - Öffnen Sie einen Text-Editor, z. B. Notepad.
+   - Geben Sie den Namen und den vollqualifizierten Pfad zur ausführbaren Datei für jedes Programm. In diesem Fall enthält die Datei die folgenden Anweisungen.  
+     ```
+     C:\Windows\System32\Eventvwr.exe 
+     C:\Windows\System32\Perfmon.exe
+     ```  
+   - Speichern Sie die Datei als MyApps.bat.
+2. Verwendung **Schtasks.exe** eine Aufgabe zu erstellen, MyApps.bat ausgeführt wird.
 
-    Der folgende Befehl erstellt die Monitor-Aufgabe, bei der ausgeführt wird, wenn jemand sich anmeldet. Er verwendet den **TN** Parameter, um die Namen der Aufgabe und die **/TR** Parameter, um MyApps.bat auszuführen. Er verwendet den **/SC** Parameter, um den Zeitplantyp OnLogon anzugeben und die **/RU** Parameter zum Ausführen des Tasks mit den Berechtigungen des Administratorkonto des Benutzers.  
-    ```
-    schtasks /create /tn Monitor /tr C:\MyApps.bat /sc onlogon /ru Reskit\Administrator
-    ```  
-    Startet, als Ergebnis dieses Befehls Wenn ein Benutzer anmeldet, sich bei dem Computer, der Task sowohl Ereignisanzeige und zum Systemmonitor.
+   Der folgende Befehl erstellt die Monitor-Aufgabe, bei der ausgeführt wird, wenn jemand sich anmeldet. Er verwendet den **TN** Parameter, um die Namen der Aufgabe und die **/TR** Parameter, um MyApps.bat auszuführen. Er verwendet den **/SC** Parameter, um den Zeitplantyp OnLogon anzugeben und die **/RU** Parameter zum Ausführen des Tasks mit den Berechtigungen des Administratorkonto des Benutzers.  
+   ```
+   schtasks /create /tn Monitor /tr C:\MyApps.bat /sc onlogon /ru Reskit\Administrator
+   ```  
+   Startet, als Ergebnis dieses Befehls Wenn ein Benutzer anmeldet, sich bei dem Computer, der Task sowohl Ereignisanzeige und zum Systemmonitor.
 
 ### <a name="BKMK_remote"></a>Eine Aufgabe zu planen, die auf einem Remotecomputer ausgeführt wird.
 
@@ -824,7 +825,6 @@ SUCCESS: The scheduled task "My App" has successfully been created.
 
 WARNING: The Scheduled task "My App" has been created, but may not run because
 the account information could not be set.
-
 ```
 Diese Warnung gibt an, dass das angegebene Konto nicht in die Remotedomäne authentifizieren konnte die **/u** Parameter. In diesem Fall konnte die Remotedomäne das Benutzerkonto nicht authentifiziert werden, da der lokale Computer nicht Mitglied einer Domäne ist, die die remote-Computer-Domäne vertraut. In diesem Fall der Auftrag für die Aufgabe wird angezeigt, in der Liste der geplanten Tasks, aber der Task ist jedoch leer, und nicht ausführen.
 
@@ -863,7 +863,6 @@ Repeat: Until: Duration: Disabled
 Repeat: Stop If Still Running: Disabled
 Idle Time: Disabled
 Power Management: Disabled
-
 ```
 
 #### <a name="remarks"></a>Hinweise
@@ -872,7 +871,7 @@ Power Management: Disabled
 -   Um weitere Komponenten anzuzeigen **"SCHTASKS" / create** Beispiele, Typ **"SCHTASKS" / erstellen /?** an einer Eingabeaufforderung.
 -   Um eine Aufgabe zu planen, die mit den Berechtigungen eines anderen Benutzers ausgeführt wird, verwenden Sie die **/RU** Parameter. Die **/RU** Parameter für Aufgaben auf lokalen Computern und Remotecomputern gültig ist.
 -   Verwenden der **/u** Parameter dem lokalen Computer muss sich in derselben Domäne wie der Remotecomputer oder in einer Domäne, die der Domäne des remote-Computer vertraut sein. Andernfalls entweder der Vorgang wird nicht erstellt werden, oder der Taskauftrag ist leer und die Aufgabe wird nicht ausgeführt.
--   **SCHTASKS** Aufforderung zur Kennworteingabe immer, es sei denn, Sie Konstruktor bereitstellen, auch wenn Sie planen, dass ein Task auf dem lokalen Computer mithilfe des aktuellen Benutzerkontos. Dies ist ein normales Verhalten für **"SCHTASKS"**.
+-   **SCHTASKS** Aufforderung zur Kennworteingabe immer, es sei denn, Sie Konstruktor bereitstellen, auch wenn Sie planen, dass ein Task auf dem lokalen Computer mithilfe des aktuellen Benutzerkontos. Dies ist ein normales Verhalten für **"SCHTASKS"** .
 -   **SCHTASKS** überprüft nicht, Dateispeicherorte für die Anwendung oder Kennwörter von Benutzerkonten. Wenn Sie nicht den richtigen Speicherort oder das richtige Kennwort für das Benutzerkonto eingeben, wird die Aufgabe erstellt, aber er wird nicht ausgeführt. Darüber hinaus wird Wenn das Kennwort eines Kontos ändert oder abläuft und Sie das Kennwort gespeichert, in der Aufgabe nicht ändern, klicken Sie dann die Aufgabe nicht ausgeführt.
 -   Das System-Konto keine Rechte zur interaktiven Anmeldung. Benutzer werden nicht angezeigt und können nicht mit Programmen, Ausführen mit einer Systemberechtigungen interagieren.
 -   Jede Aufgabe wird nur ein Programm ausgeführt. Sie können jedoch eine Batchdatei, die mehrere Aufgaben gestartet und dann Planen einer Aufgabe, die die Batchdatei ausgeführt wird.
@@ -881,10 +880,10 @@ Power Management: Disabled
 ## <a name="BKMK_change"></a>Ändern Sie "SCHTASKS"
 
 Ändert eine oder mehrere der folgenden Eigenschaften eines Tasks.
--   Das Programm, das die Aufgabe ausgeführt wird (**/TR**).
--   Das Benutzerkonto, unter dem der Task ausgeführt wird (**/RU**).
+-   Das Programm, das die Aufgabe ausgeführt wird ( **/TR**).
+-   Das Benutzerkonto, unter dem der Task ausgeführt wird ( **/RU**).
 -   Das Kennwort für das Benutzerkonto (**RD/RP**).
--   Fügt die Eigenschaft nur interaktiv an die Aufgabe (**/IT**).
+-   Fügt die Eigenschaft nur interaktiv an die Aufgabe ( **/IT**).
 
 ### <a name="syntax"></a>Syntax
 
@@ -894,36 +893,36 @@ schtasks /change /tn <TaskName> [/s <Computer> [/u [<Domain>\]<User> [/p <Passwo
 
 ### <a name="parameters"></a>Parameter
 
-|Begriff|Definition|
-|----|----------|
-|TN \<TaskName >|Identifiziert den Task geändert werden. Geben Sie den Vorgang.|
-|/ s \<Computer >|Gibt den Namen oder IP-Adresse eines Remotecomputers an (mit oder ohne umgekehrte Schrägstriche). Der Standardwert ist der lokale Computer.|
-|/u [\<Domain>\]<User>|Führt diesen Befehl mit den Berechtigungen des angegebenen Benutzerkontos. Der Standardwert ist die Berechtigungen des aktuellen Benutzers des lokalen Computers. Das angegebene Benutzerkonto muss Mitglied der Gruppe "Administratoren" auf dem Remotecomputer ausgeführt werden. Die **/u** und **/p** Parameter gelten nur für eine Aufgabe auf einem Remotecomputer ändern (**/s**).|
-|/ p \<Kennwort >|Gibt das Kennwort des Benutzerkontos im der **/u** Parameter. Bei Verwendung der **/u** Parameter jedoch weglassen der **/p** Parameter oder die Password-Argument, **"SCHTASKS"** aufgefordert, ein Kennwort einzugeben.</br>Die **/u** und **/p** Parameter gültig sind nur bei Verwendung von **/s**.|
-|/ru {[\<Domain>\]<User> | System}|Gibt an, um das Benutzerkonto zu ändern, unter dem der Task ausgeführt wird. Für das lokale Systemkonto angeben, die gültige Einträge sind "", "NT-AUTORITÄT\SYSTEM" oder "SYSTEM".</br>Wenn Sie das Benutzerkonto ändern, müssen Sie auch das Kennwort des Benutzers ändern. Wenn ein Befehl hat eine **/RU** Parameter, nicht jedoch ein **RD/RP** Parameter **"SCHTASKS"** aufgefordert, ein neues Kennwort ein.</br>Aufgaben, die mit den Berechtigungen des lokalen Systemkontos ausgeführt nicht erforderlich, und eines Kennworts aufgefordert.|
-|RD/RP \<Kennwort >|Gibt ein neues Kennwort für das vorhandene Benutzerkonto oder das Benutzerkonto, das gemäß der **/RU** Parameter. Dieser Parameter wird ignoriert, mit dem lokalen Systemkonto verwendet.|
-|/tr \<TaskRun>|Ändert die Anwendung, die der Task ausgeführt wird. Geben Sie den vollqualifizierten Pfad und Namen der eine ausführbare Datei, einer Skriptdatei oder einer Batchdatei aus. Wenn Sie den Pfad weglassen **"SCHTASKS"** wird davon ausgegangen, dass die Datei in die \<Systemroot > \System32-Verzeichnis. Das angegebene Programm ersetzt das ursprüngliche Programm, das vom Task ausgeführt wird.|
-|/ St \<"StartTime" >|Gibt die Startzeit für den Task mit dem 24-Stunden-Format: hh: mm an. Beispielsweise ist ein Wert 14:30, die 12-Stunden-Zeit von 2:30 Uhr entspricht.|
-|/ri \<Interval>|Gibt das Wiederholungsintervall für die geplante Aufgabe, in Minuten an. Gültige Bereich ist 1-599940 (599940 Minuten = 9999 Stunden).|
-|/ et \<"EndTime" >|Gibt die Endzeit für den Task mit dem 24-Stunden-Format: hh: mm an. Beispielsweise ist ein Wert 14:30, die 12-Stunden-Zeit von 2:30 Uhr entspricht.|
-|/du \<Duration>|Gibt an, dass die Aufgabe an schließen die \<"EndTime" > oder <Duration>angegeben.|
-|/k|Beendet das Programm, das die Aufgabe ausgeführt, die zum Zeitpunkt der gemäß wird **/et** oder **/du**. Ohne **/k**, **"SCHTASKS"** beginnt nicht das Programm erneut, nachdem sie die angegebene Zeit erreicht **/et** oder **/du**, aber es wird nicht beendet das Programm, wenn er noch ausgeführt wird. Dieser Parameter ist optional und nur mit einem Zeitplan MINUTE bzw. stündlich gültig.|
-|/ SD \<"StartDate" >|Gibt das erste Datum auf dem die Aufgabe ausgeführt werden soll. Das Datum das Format ist MM/TT/JJJJ.|
-|/ ED \<"EndDate" >|Gibt das letzte Datum, an dem die Aufgabe ausgeführt werden soll. Das Format ist MM/TT/JJJJ.|
-|/ AKTIVIEREN|Gibt an, um den geplanten Task zu aktivieren.|
-|/DISABLE|Gibt an, um die geplante Aufgabe zu deaktivieren.|
-|/it|Gibt an, dass die Ausführung des geplanten Tasks nur, wenn der Benutzer "Ausführen als" (das Benutzerkonto, unter dem der Task ausgeführt wird) auf dem Computer angemeldet ist.</br>Dieser Parameter hat keine Auswirkungen auf Vorgänge, die mit einer Systemberechtigungen ausgeführt oder Vorgänge, die bereits die nur interaktiv-Eigenschaft festgelegt haben. Einen Befehl zum Ändern eines können nicht können Sie um die Eigenschaft nur interaktiv aus einer Aufgabe zu entfernen.</br>Standardmäßig ist der "Ausführen als" Benutzer vom aktuellen Benutzer des lokalen Computers, wenn der Task geplant ist oder das Konto, das gemäß der **/u** -Parameters, sofern einer verwendet wird. Allerdings, wenn der Befehl umfasst die **/RU** Parameter, klicken Sie dann die "Ausführen als" Benutzer ist das Konto, das gemäß der **/RU** Parameter.|
-|/z|Gibt an, um die Aufgabe nach dem Abschluss der Zeitplan zu löschen.|
-|/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
+|          Begriff           |                                                                                                                                                                                                                                                                                                                                     Definition                                                                                                                                                                                                                                                                                                                                      |
+|-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|     TN \<TaskName >     |                                                                                                                                                                                                                                                                                                               Identifiziert den Task geändert werden. Geben Sie den Vorgang.                                                                                                                                                                                                                                                                                                               |
+|     / s \<Computer >      |                                                                                                                                                                                                                                                                               Gibt den Namen oder IP-Adresse eines Remotecomputers an (mit oder ohne umgekehrte Schrägstriche). Der Standardwert ist der lokale Computer.                                                                                                                                                                                                                                                                               |
+|  /u [\<Domain>\]<User>  |                                                                                                                                                                 Führt diesen Befehl mit den Berechtigungen des angegebenen Benutzerkontos. Der Standardwert ist die Berechtigungen des aktuellen Benutzers des lokalen Computers. Das angegebene Benutzerkonto muss Mitglied der Gruppe "Administratoren" auf dem Remotecomputer ausgeführt werden. Die **/u** und **/p** Parameter gelten nur für eine Aufgabe auf einem Remotecomputer ändern ( **/s**).                                                                                                                                                                  |
+|     / p \<Kennwort >      |                                                                                                                                                                                              Gibt das Kennwort des Benutzerkontos im der **/u** Parameter. Bei Verwendung der **/u** Parameter jedoch weglassen der **/p** Parameter oder die Password-Argument, **"SCHTASKS"** aufgefordert, ein Kennwort einzugeben.</br>Die **/u** und **/p** Parameter gültig sind nur bei Verwendung von **/s**.                                                                                                                                                                                               |
+| /ru {[\<Domain>\]<User> |                                                                                                                                                                                                                                                                                                                                       System}                                                                                                                                                                                                                                                                                                                                       |
+|     RD/RP \<Kennwort >     |                                                                                                                                                                                                                                                 Gibt ein neues Kennwort für das vorhandene Benutzerkonto oder das Benutzerkonto, das gemäß der **/RU** Parameter. Dieser Parameter wird ignoriert, mit dem lokalen Systemkonto verwendet.                                                                                                                                                                                                                                                  |
+|     /tr \<TaskRun>      |                                                                                                                                                                                  Ändert die Anwendung, die der Task ausgeführt wird. Geben Sie den vollqualifizierten Pfad und Namen der eine ausführbare Datei, einer Skriptdatei oder einer Batchdatei aus. Wenn Sie den Pfad weglassen **"SCHTASKS"** wird davon ausgegangen, dass die Datei in die \<Systemroot > \System32-Verzeichnis. Das angegebene Programm ersetzt das ursprüngliche Programm, das vom Task ausgeführt wird.                                                                                                                                                                                  |
+|    / St \<"StartTime" >     |                                                                                                                                                                                                                                                              Gibt die Startzeit für den Task mit dem 24-Stunden-Format: hh: mm an. Beispielsweise ist ein Wert 14:30, die 12-Stunden-Zeit von 2:30 Uhr entspricht.                                                                                                                                                                                                                                                               |
+|     /ri \<Interval>     |                                                                                                                                                                                                                                                                           Gibt das Wiederholungsintervall für die geplante Aufgabe, in Minuten an. Gültige Bereich ist 1-599940 (599940 Minuten = 9999 Stunden).                                                                                                                                                                                                                                                                            |
+|     / et \<"EndTime" >      |                                                                                                                                                                                                                                                               Gibt die Endzeit für den Task mit dem 24-Stunden-Format: hh: mm an. Beispielsweise ist ein Wert 14:30, die 12-Stunden-Zeit von 2:30 Uhr entspricht.                                                                                                                                                                                                                                                                |
+|     /du \<Duration>     |                                                                                                                                                                                                                                                                                                     Gibt an, dass die Aufgabe an schließen die \<"EndTime" > oder <Duration>angegeben.                                                                                                                                                                                                                                                                                                      |
+|           /k            |                                                                                                                                                                   Beendet das Programm, das die Aufgabe ausgeführt, die zum Zeitpunkt der gemäß wird **/et** oder **/du**. Ohne **/k**, **"SCHTASKS"** beginnt nicht das Programm erneut, nachdem sie die angegebene Zeit erreicht **/et** oder **/du**, aber es wird nicht beendet das Programm, wenn er noch ausgeführt wird. Dieser Parameter ist optional und nur mit einem Zeitplan MINUTE bzw. stündlich gültig.                                                                                                                                                                   |
+|    / SD \<"StartDate" >     |                                                                                                                                                                                                                                                                                              Gibt das erste Datum auf dem die Aufgabe ausgeführt werden soll. Das Datum das Format ist MM/TT/JJJJ.                                                                                                                                                                                                                                                                                               |
+|     / ED \<"EndDate" >      |                                                                                                                                                                                                                                                                                                 Gibt das letzte Datum, an dem die Aufgabe ausgeführt werden soll. Das Format ist MM/TT/JJJJ.                                                                                                                                                                                                                                                                                                  |
+|         / AKTIVIEREN         |                                                                                                                                                                                                                                                                                                                       Gibt an, um den geplanten Task zu aktivieren.                                                                                                                                                                                                                                                                                                                       |
+|        /DISABLE         |                                                                                                                                                                                                                                                                                                                      Gibt an, um die geplante Aufgabe zu deaktivieren.                                                                                                                                                                                                                                                                                                                       |
+|           /it           | Gibt an, dass die Ausführung des geplanten Tasks nur, wenn der Benutzer "Ausführen als" (das Benutzerkonto, unter dem der Task ausgeführt wird) auf dem Computer angemeldet ist.</br>Dieser Parameter hat keine Auswirkungen auf Vorgänge, die mit einer Systemberechtigungen ausgeführt oder Vorgänge, die bereits die nur interaktiv-Eigenschaft festgelegt haben. Einen Befehl zum Ändern eines können nicht können Sie um die Eigenschaft nur interaktiv aus einer Aufgabe zu entfernen.</br>Standardmäßig ist der "Ausführen als" Benutzer vom aktuellen Benutzer des lokalen Computers, wenn der Task geplant ist oder das Konto, das gemäß der **/u** -Parameters, sofern einer verwendet wird. Allerdings, wenn der Befehl umfasst die **/RU** Parameter, klicken Sie dann die "Ausführen als" Benutzer ist das Konto, das gemäß der **/RU** Parameter. |
+|           /z            |                                                                                                                                                                                                                                                                                                          Gibt an, um die Aufgabe nach dem Abschluss der Zeitplan zu löschen.                                                                                                                                                                                                                                                                                                          |
+|           /?            |                                                                                                                                                                                                                                                                                                                        Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                                                                                                                                                                                                         |
 
 ### <a name="remarks"></a>Hinweise
 
 -   Die **TN** und **/s** Parameter zu identifizieren, die Aufgabe. Die **/TR**, **/RU**, und **RD/RP** Parameter geben die Eigenschaften des Tasks, die Sie ändern können.
 -   Die **/RU**, und **RD/RP** Parameter geben Sie die Berechtigungen, die unter dem der Task ausgeführt wird. Die **/u** und **/p** Parameter geben die Berechtigungen verwendet, um die Aufgabe zu ändern.
 -   Um Tasks auf einem Remotecomputer zu ändern, muss der Benutzer auf dem lokalen Computer mit einem Konto angemeldet sein, die ein Mitglied der Gruppe "Administratoren" auf dem Remotecomputer ausgeführt wird.
--   Zum Ausführen einer **/change** Befehl mit den Berechtigungen eines anderen Benutzers (**/u**, **/p**), dem lokalen Computer muss sich in derselben Domäne wie der Remotecomputer oder in einer Domäne sein muss dass die Remotecomputer-Domäne vertraut.
+-   Zum Ausführen einer **/change** Befehl mit den Berechtigungen eines anderen Benutzers ( **/u**, **/p**), dem lokalen Computer muss sich in derselben Domäne wie der Remotecomputer oder in einer Domäne sein muss dass die Remotecomputer-Domäne vertraut.
 -   Das System-Konto keine Rechte zur interaktiven Anmeldung. Benutzer werden nicht angezeigt und können nicht mit Programmen, Ausführen mit einer Systemberechtigungen interagieren.
--   Zum Identifizieren von Aufgaben mit der **/IT** -Eigenschaft, verwenden Sie eine ausführliche Abfrage (**/Abfrage/v**). In der Anzeige einer ausführlichen Abfrage eines Tasks durch **/IT**, **Anmeldemodus** Feld hat den Wert der **nur interaktiv**.
+-   Zum Identifizieren von Aufgaben mit der **/IT** -Eigenschaft, verwenden Sie eine ausführliche Abfrage ( **/Abfrage/v**). In der Anzeige einer ausführlichen Abfrage eines Tasks durch **/IT**, **Anmeldemodus** Feld hat den Wert der **nur interaktiv**.
 
 ### <a name="examples"></a>Beispiele
 
@@ -1013,13 +1012,13 @@ schtasks /run /tn <TaskName> [/s <Computer> [/u [<Domain>\]<User> [/p <Password>
 
 ### <a name="parameters"></a>Parameter
 
-|Begriff|Definition|
-|----|----------|
-|TN \<TaskName >|Erforderlich. Identifiziert den Task.|
-|/ s \<Computer >|Gibt den Namen oder IP-Adresse eines Remotecomputers an (mit oder ohne umgekehrte Schrägstriche). Der Standardwert ist der lokale Computer.|
-|/u [\<Domain>\]<User>|Führt diesen Befehl mit den Berechtigungen des angegebenen Benutzerkontos. Standardmäßig wird der Befehl mit den Berechtigungen des aktuellen Benutzers des lokalen Computers ausgeführt.</br>Das angegebene Benutzerkonto muss Mitglied der Gruppe "Administratoren" auf dem Remotecomputer ausgeführt werden. Die **/u** und **/p** Parameter gültig sind nur bei Verwendung von **/s**.|
-|/ p \<Kennwort >|Gibt das Kennwort des Benutzerkontos im der **/u** Parameter. Bei Verwendung der **/u** Parameter jedoch weglassen der **/p** Parameter oder die Password-Argument, **"SCHTASKS"** aufgefordert, ein Kennwort einzugeben.</br>Die **/u** und **/p** Parameter gültig sind nur bei Verwendung von **/s**.|
-|/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
+|         Begriff          |                                                                                                                                                                 Definition                                                                                                                                                                  |
+|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|    TN \<TaskName >    |                                                                                                                                                       Erforderlich. Identifiziert den Task.                                                                                                                                                        |
+|    / s \<Computer >     |                                                                                                           Gibt den Namen oder IP-Adresse eines Remotecomputers an (mit oder ohne umgekehrte Schrägstriche). Der Standardwert ist der lokale Computer.                                                                                                           |
+| /u [\<Domain>\]<User> | Führt diesen Befehl mit den Berechtigungen des angegebenen Benutzerkontos. Standardmäßig wird der Befehl mit den Berechtigungen des aktuellen Benutzers des lokalen Computers ausgeführt.</br>Das angegebene Benutzerkonto muss Mitglied der Gruppe "Administratoren" auf dem Remotecomputer ausgeführt werden. Die **/u** und **/p** Parameter gültig sind nur bei Verwendung von **/s**. |
+|    / p \<Kennwort >     |                          Gibt das Kennwort des Benutzerkontos im der **/u** Parameter. Bei Verwendung der **/u** Parameter jedoch weglassen der **/p** Parameter oder die Password-Argument, **"SCHTASKS"** aufgefordert, ein Kennwort einzugeben.</br>Die **/u** und **/p** Parameter gültig sind nur bei Verwendung von **/s**.                           |
+|          /?           |                                                                                                                                                    Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                                     |
 
 ### <a name="remarks"></a>Hinweise
 
@@ -1058,7 +1057,6 @@ The attempt to log on to the account associated with the task failed, therefore,
 The specific error is:
 0x8007052e: Logon failure: unknown user name or bad password.
 Verify that the task's Run-as name and password are valid and try again.
-
 ```
 Offensichtlich ist, gilt der Benutzername oder das Kennwort in der Aufgabe nicht auf dem System. Die folgenden **"SCHTASKS" / Change** Befehl aktualisiert den Benutzernamen und das Kennwort für den Update-Vorgang auf Svr01:
 ```
@@ -1082,13 +1080,13 @@ schtasks /end /tn <TaskName> [/s <Computer> [/u [<Domain>\]<User> [/p <Password>
 
 ### <a name="parameters"></a>Parameter
 
-|Begriff|Definition|
-|----|----------|
-|TN \<TaskName >|Erforderlich. Gibt die Aufgabe, die das Programm gestartet.|
-|/ s \<Computer >|Gibt den Namen oder die IP-Adresse eines Remotecomputers. Der Standardwert ist der lokale Computer.|
-|/u [\<Domain>\]<User>|Führt diesen Befehl mit den Berechtigungen des angegebenen Benutzerkontos. Standardmäßig wird der Befehl mit den Berechtigungen des aktuellen Benutzers des lokalen Computers ausgeführt. Das angegebene Benutzerkonto muss Mitglied der Gruppe "Administratoren" auf dem Remotecomputer ausgeführt werden. Die **/u** und **/p** Parameter gültig sind nur bei Verwendung von **/s**.|
-|/ p \<Kennwort >|Gibt das Kennwort des Benutzerkontos im der **/u** Parameter. Bei Verwendung der **/u** Parameter jedoch weglassen der **/p** Parameter oder die Password-Argument, **"SCHTASKS"** aufgefordert, ein Kennwort einzugeben.</br>Die **/u** und **/p** Parameter gültig sind nur bei Verwendung von **/s**.|
-|/?|Zeigt Hilfe an.|
+|         Begriff          |                                                                                                                                                               Definition                                                                                                                                                                |
+|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|    TN \<TaskName >    |                                                                                                                                         Erforderlich. Gibt die Aufgabe, die das Programm gestartet.                                                                                                                                         |
+|    / s \<Computer >     |                                                                                                                        Gibt den Namen oder die IP-Adresse eines Remotecomputers. Der Standardwert ist der lokale Computer.                                                                                                                        |
+| /u [\<Domain>\]<User> | Führt diesen Befehl mit den Berechtigungen des angegebenen Benutzerkontos. Standardmäßig wird der Befehl mit den Berechtigungen des aktuellen Benutzers des lokalen Computers ausgeführt. Das angegebene Benutzerkonto muss Mitglied der Gruppe "Administratoren" auf dem Remotecomputer ausgeführt werden. Die **/u** und **/p** Parameter gültig sind nur bei Verwendung von **/s**. |
+|    / p \<Kennwort >     |                        Gibt das Kennwort des Benutzerkontos im der **/u** Parameter. Bei Verwendung der **/u** Parameter jedoch weglassen der **/p** Parameter oder die Password-Argument, **"SCHTASKS"** aufgefordert, ein Kennwort einzugeben.</br>Die **/u** und **/p** Parameter gültig sind nur bei Verwendung von **/s**.                         |
+|          /?           |                                                                                                                                                             Zeigt Hilfe an.                                                                                                                                                              |
 
 ### <a name="remarks"></a>Hinweise
 
@@ -1130,19 +1128,19 @@ schtasks /delete /tn {<TaskName> | *} [/f] [/s <Computer> [/u [<Domain>\]<User> 
 
 ### <a name="parameters"></a>Parameter
 
-|Begriff|Definition|
-|----|----------|
-|/tn {\<TaskName>| *}|Erforderlich. Identifiziert den Task gelöscht wird.</br>**\<TaskName >** -löscht die Aufgabe.</br>**<\*>** -Löscht den geplante Aufgaben auf dem Computer.|
-|/f|Unterdrückt die bestätigungsmeldung angezeigt. Der Vorgang wird ohne Warnung gelöscht.|
-|/ s \<Computer >|Gibt den Namen oder IP-Adresse eines Remotecomputers an (mit oder ohne umgekehrte Schrägstriche). Der Standardwert ist der lokale Computer.|
-|/u [\<Domain>\]<User>|Führt diesen Befehl mit den Berechtigungen des angegebenen Benutzerkontos. Standardmäßig wird der Befehl mit den Berechtigungen des aktuellen Benutzers des lokalen Computers ausgeführt.</br>Das angegebene Benutzerkonto muss Mitglied der Gruppe "Administratoren" auf dem Remotecomputer ausgeführt werden. Die **/u** und **/p** Parameter gültig sind nur bei Verwendung von **/s**.|
-|/ p \<Kennwort >|Gibt das Kennwort des Benutzerkontos im der **/u** Parameter. Bei Verwendung der **/u** Parameter jedoch weglassen der **/p** Parameter oder die Password-Argument, **"SCHTASKS"** aufgefordert, ein Kennwort einzugeben.</br>Die **/u** und **/p** Parameter gültig sind nur bei Verwendung von **/s**.|
-|/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
+|         Begriff          |                                                                                                                                                                 Definition                                                                                                                                                                  |
+|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   /tn {\<TaskName>    |                                                                                                                                                                     \*}                                                                                                                                                                     |
+|          /f           |                                                                                                                                  Unterdrückt die bestätigungsmeldung angezeigt. Der Vorgang wird ohne Warnung gelöscht.                                                                                                                                  |
+|    / s \<Computer >     |                                                                                                           Gibt den Namen oder IP-Adresse eines Remotecomputers an (mit oder ohne umgekehrte Schrägstriche). Der Standardwert ist der lokale Computer.                                                                                                           |
+| /u [\<Domain>\]<User> | Führt diesen Befehl mit den Berechtigungen des angegebenen Benutzerkontos. Standardmäßig wird der Befehl mit den Berechtigungen des aktuellen Benutzers des lokalen Computers ausgeführt.</br>Das angegebene Benutzerkonto muss Mitglied der Gruppe "Administratoren" auf dem Remotecomputer ausgeführt werden. Die **/u** und **/p** Parameter gültig sind nur bei Verwendung von **/s**. |
+|    / p \<Kennwort >     |                          Gibt das Kennwort des Benutzerkontos im der **/u** Parameter. Bei Verwendung der **/u** Parameter jedoch weglassen der **/p** Parameter oder die Password-Argument, **"SCHTASKS"** aufgefordert, ein Kennwort einzugeben.</br>Die **/u** und **/p** Parameter gültig sind nur bei Verwendung von **/s**.                           |
+|          /?           |                                                                                                                                                    Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                                     |
 
 ### <a name="remarks"></a>Hinweise
 
--   Die **löschen** Vorgang löscht den Task im Zeitplan. Löschen das Programm, das die Aufgabe ausgeführt wird oder kein ausgeführtes Programm zu unterbrechen.
--   Die **löschen \***  Befehl löscht alle geplanten Tasks für den Computer, nicht nur die Aufgaben, die vom aktuellen Benutzer geplant.
+- Die **löschen** Vorgang löscht den Task im Zeitplan. Löschen das Programm, das die Aufgabe ausgeführt wird oder kein ausgeführtes Programm zu unterbrechen.
+- Die **löschen \\** * Befehl löscht alle geplanten Tasks für den Computer, nicht nur die Aufgaben, die vom aktuellen Benutzer geplant.
 
 ### <a name="examples"></a>Beispiele
 
@@ -1152,7 +1150,7 @@ Der folgende Befehl löscht den Task "Mail starten" aus dem Zeitplan von einem R
 ```
 schtasks /delete /tn "Start Mail" /s Svr16
 ```
-Im Gegenzug **SchTasks.exe** wird die folgende Bestätigung angezeigt. Drücken Sie Y, um die Aufgabe zu löschen,**.** Geben Sie den Befehl um abzubrechen, **n**:
+Im Gegenzug **SchTasks.exe** wird die folgende Bestätigung angezeigt. Drücken Sie Y, um die Aufgabe zu löschen,<strong>.</strong> Geben Sie den Befehl um abzubrechen, **n**:
 ```
 WARNING: Are you sure you want to remove the task "Start Mail" (Y/N )? 
 SUCCESS: The scheduled task "Start Mail" was successfully deleted.
@@ -1160,7 +1158,7 @@ SUCCESS: The scheduled task "Start Mail" was successfully deleted.
 
 ### <a name="to-delete-all-tasks-scheduled-for-the-local-computer"></a>So löschen Sie alle für den lokalen Computer geplanten tasks
 
-Der folgende Befehl löscht alle Aufgaben aus dem Zeitplan des lokalen Computers, einschließlich der Aufgaben, die von anderen Benutzern geplant. Er verwendet den **TN \***  Parameter, um alle Aufgaben auf dem Computer darstellen und die **/f** Parameter, um die Bestätigung zu unterdrücken.
+Der folgende Befehl löscht alle Aufgaben aus dem Zeitplan des lokalen Computers, einschließlich der Aufgaben, die von anderen Benutzern geplant. Er verwendet den **TN \\** * Parameter, um alle Aufgaben auf dem Computer darstellen und die **/f** Parameter, um die Bestätigung zu unterdrücken.
 ```
 schtasks /delete /tn * /f
 ```
@@ -1180,16 +1178,16 @@ schtasks [/query] [/fo {TABLE | LIST | CSV}] [/nh] [/v] [/s <Computer> [/u [<Dom
 
 ### <a name="parameters"></a>Parameter
 
-|Begriff|Definition|
-|----|----------|
-|[/query]|Der Name des Vorgangs ist optional. Eingabe **"SCHTASKS"** ohne Parameter eine Abfrage ausführt.|
-|/fo {TABLE| LISTE| CSV}|Gibt das Ausgabeformat. **Tabelle** ist die Standardeinstellung.|
-|/nh|Lässt die Spaltenüberschriften in der Tabelle werden angezeigt. Dieser Parameter ist gültig, mit der **Tabelle** und **CSV** Ausgabeformate.|
-|/v|Fügt die erweiterten Eigenschaften der Tasks auf dem Bildschirm hinzu.</br>Abfragen mit **/v** formatiert werden sollen, als **Liste** oder **CSV**.|
-|/ s \<Computer >|Gibt den Namen oder IP-Adresse eines Remotecomputers an (mit oder ohne umgekehrte Schrägstriche). Der Standardwert ist der lokale Computer.|
-|/u [\<Domain>\]<User>|Führt diesen Befehl mit den Berechtigungen des angegebenen Benutzerkontos. Standardmäßig wird der Befehl mit den Berechtigungen des aktuellen Benutzers des lokalen Computers ausgeführt.</br>Das angegebene Benutzerkonto muss Mitglied der Gruppe "Administratoren" auf dem Remotecomputer ausgeführt werden. Die **/u** und **/p** Parameter gültig sind nur bei Verwendung von **/s**.|
-|/ p \<Kennwort >|Gibt das Kennwort des Benutzerkontos im der **/u** Parameter. Bei Verwendung von **/u**, jedoch weglassen **/p** oder dem Password-Argument, **"SCHTASKS"** aufgefordert, ein Kennwort einzugeben.</br>Die **/u** und **/p** Parameter gültig sind nur bei Verwendung von **/s**.|
-|/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
+|         Begriff          |                                                                                                                                                                 Definition                                                                                                                                                                  |
+|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|       [/query]        |                                                                                                                        Der Name des Vorgangs ist optional. Eingabe **"SCHTASKS"** ohne Parameter eine Abfrage ausführt.                                                                                                                         |
+|      /fo {TABLE       |                                                                                                                                                                    LISTE                                                                                                                                                                     |
+|          /nh          |                                                                                                            Lässt die Spaltenüberschriften in der Tabelle werden angezeigt. Dieser Parameter ist gültig, mit der **Tabelle** und **CSV** Ausgabeformate.                                                                                                             |
+|          /v           |                                                                                                         Fügt die erweiterten Eigenschaften der Tasks auf dem Bildschirm hinzu.</br>Abfragen mit **/v** formatiert werden sollen, als **Liste** oder **CSV**.                                                                                                          |
+|    / s \<Computer >     |                                                                                                           Gibt den Namen oder IP-Adresse eines Remotecomputers an (mit oder ohne umgekehrte Schrägstriche). Der Standardwert ist der lokale Computer.                                                                                                           |
+| /u [\<Domain>\]<User> | Führt diesen Befehl mit den Berechtigungen des angegebenen Benutzerkontos. Standardmäßig wird der Befehl mit den Berechtigungen des aktuellen Benutzers des lokalen Computers ausgeführt.</br>Das angegebene Benutzerkonto muss Mitglied der Gruppe "Administratoren" auf dem Remotecomputer ausgeführt werden. Die **/u** und **/p** Parameter gültig sind nur bei Verwendung von **/s**. |
+|    / p \<Kennwort >     |                                        Gibt das Kennwort des Benutzerkontos im der **/u** Parameter. Bei Verwendung von **/u**, jedoch weglassen **/p** oder dem Password-Argument, **"SCHTASKS"** aufgefordert, ein Kennwort einzugeben.</br>Die **/u** und **/p** Parameter gültig sind nur bei Verwendung von **/s**.                                         |
+|          /?           |                                                                                                                                                    Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                                     |
 
 ### <a name="remarks"></a>Hinweise
 
@@ -1210,7 +1208,6 @@ TaskName Next Run Time Status
 ========================= ======================== ==============
 Microsoft Outlook At logon time
 SecureScript 14:42:00 PM , 2/4/2001
-
 ```
 
 ### <a name="to-display-advanced-properties-of-scheduled-tasks"></a>Zum Anzeigen der erweiterter Eigenschaften des geplanten tasks
@@ -1253,7 +1250,6 @@ Idle: If Not Idle Retry For X Minutes: Disabled
 Idle: Stop Task If Idle State End: Disabled
 Power Mgmt: No Start On Batteries: Disabled
 Power Mgmt: Stop On Battery Mode: Disabled
-
 ```
 
 ### <a name="to-log-tasks-scheduled-for-a-remote-computer"></a>Anmelden für einen Remotecomputer geplante Aufgaben
@@ -1268,4 +1264,4 @@ Im Gegenzug **SchTasks.exe** fügt hinzu, die für den Computer Reskit16 zur p01
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Befehlszeilensyntax](command-line-syntax-key.md)
+[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

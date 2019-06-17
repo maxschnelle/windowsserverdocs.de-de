@@ -7,53 +7,22 @@ author: jwwool
 ms.author: jeffrew
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.date: 02/12/2019
-ms.openlocfilehash: 53c943ee3eddbe8f67bec125961eb3d36ead17a3
-ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
+ms.date: 06/07/2019
+ms.openlocfilehash: 8e718eda7859c5e0b6949829c225b28e882525ad
+ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65034477"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66811706"
 ---
 # <a name="troubleshooting-windows-admin-center"></a>Problembehandlung für Windows Admin Center
 
->Gilt für: Windows Admin Center, Windows Admin Center Preview
+> Gilt für: Windows Admin Center, Windows Admin Center Preview
 
 > [!Important]
 > Dieses Handbuch hilft Ihnen beim Diagnostizieren und Beheben von Problemen, die mit Windows Admin Center auftreten. Wenn Sie ein Problem mit einem bestimmten Tool haben, überprüfen Sie, ob Sie ein [bekanntes Problems haben.](http://aka.ms/wacknownissues)
 
-<a id="toc"></a>
-
-## <a name="quick-links"></a>Direktlink
-
-* [Das Installationsprogramm schlägt fehl mit Meldung: **_Das Modul 'Microsoft.PowerShell.LocalAccounts' konnte nicht geladen werden._** ](#psmodulepath)
-
-* Ich erhalte einen Fehler **diese Websiteseite kann nicht erreicht werden** im Webbrowser (Wählen Sie Ihren Bereitstellungstyp aus)
-    * [Ich habe Windows Admin Center als App auf Windows 10 installiert](#whitescreenw10)
-    * [Ich habe Windows Admin Center als unter Windows Server-Gateway installiert](#whitescreenws)
-    * [Ich habe Windows Admin Center als ein Gateway auf einer Azure-VM installiert](#if-you-have-installed-windows-admin-center-in-an-azure-windows-server-vm)
-
-* [Windows Admin Center auf der Startseite geladen, aber ich bin hängen bleiben, die im Bereich "Verbindung hinzufügen", oder keine Verbindung mit Computern herstellen.](#winvercompat)
-
-* [Ich erhalte die Meldung aus: "Fehler beim Laden des Moduls. RPC: Abgelaufene Wiederholungen "Ping"."](#winvercompat)
-
-* [Ich erhalte die Meldung aus: "Kann eine sichere Verbindung mit dieser Seite. Möglicherweise reichen die Website veraltete oder unsafe-TLS-Sicherheit-Einstellungen verwendet."](#tls)
-
-* [Ich habe Probleme mit den Tools für Remotedesktop, Ereignisse und PowerShell.](#websockets)
-
-* [Ich habe Probleme beim Verwenden von Azure-Features in Microsoft Edge.](#azlogin)
-
-* [Ich kann auf einigen Servern, andere dagegen nicht verbinden.](#connectionissues)
-
-* [Ich verwende Windows Admin Center in einem **Arbeitsgruppe**](#workgroup)
-
-* [Ich hatte zuvor Windows Admin Center installiert kann, und jetzt nichts den gleichen TCP/IP-port](#urlacl)
-
-* [Mein Problem hier nicht aufgeführt ist, oder die Schritte auf dieser Seite wurde mein Problem nicht behoben.](#filebug)
-
-<a id="psmodulepath"></a>
-
-## <a name="installer-fails-with-message-the-module-microsoftpowershelllocalaccounts-could-not-be-loaded"></a>Installer gibt zurück: **_Das Modul 'Microsoft.PowerShell.LocalAccounts' konnte nicht geladen werden._** 
+## <a name="installer-fails-with-message-the-module-microsoftpowershelllocalaccounts-could-not-be-loaded"></a>Installer gibt zurück: **_Das Modul 'Microsoft.PowerShell.LocalAccounts' konnte nicht geladen werden._ **
 
 Dies kann vorkommen, wenn der Standardpfad für PowerShell-Modul geändert oder entfernt wurde. Um das Problem zu beheben, stellen sicher, dass ```%SystemRoot%\system32\WindowsPowerShell\v1.0\Modules``` ist die **erste** Element in der PSModulePath-Umgebungsvariablen. Sie können dies mit der folgenden Zeile von PowerShell erreichen:
 
@@ -63,8 +32,6 @@ Dies kann vorkommen, wenn der Standardpfad für PowerShell-Modul geändert oder 
 
 ## <a name="i-get-a-this-sitepage-cant-be-reached-error-in-my-web-browser"></a>Ich erhalte einen Fehler **diese Websiteseite kann nicht erreicht werden** im Webbrowser
 
-<a id="whitescreenw10"></a>
-
 ### <a name="if-youve-installed-windows-admin-center-as-an-app-on-windows-10"></a>Wenn Sie Windows Admin Center als eine **App für Windows 10** installiert haben
 
 * Überprüfen Sie, dass Windows Admin Center ausgeführt wird. Suchen Sie nach dem Symbol "Windows Admin Center" ![](../media/trayIcon.PNG) in der Taskleiste oder **Windows Admin Center-Desktop / SmeDesktop.exe** im Task-Manager. Wenn dies nicht der Fall ist, starten Sie **Windows Admin Center** im Startmenü.
@@ -72,7 +39,7 @@ Dies kann vorkommen, wenn der Standardpfad für PowerShell-Modul geändert oder 
 > [!NOTE] 
 > Nach dem Neustart müssen Sie Windows Admin Center im Startmenü starten.  
 
-* [Überprüfen Sie die Windows-version](#winvercompat)
+* [Überprüfen Sie die Windows-version](#check-the-windows-version)
 
 * Stellen Sie sicher, dass Sie Microsoft Edge oder Google Chrome als Webbrowser verwenden.
 
@@ -82,20 +49,17 @@ Dies kann vorkommen, wenn der Standardpfad für PowerShell-Modul geändert oder 
 
 * Aktualisieren Sie Windows 10 vor kurzem auf einen neuen Build oder die Version?
 
-  * Dies kann die Einstellungen für die vertrauenswürdigen Hosts gelöscht haben. [Um die Einstellungen für die vertrauenswürdigen Hosts aktualisieren, gehen Sie wie folgt vor.](#configure-trustedhosts) 
-
-[[zurück zum Anfang]](#toc)
-
-<a id="whitescreenws"></a>
+  * Dies kann die Einstellungen für die vertrauenswürdigen Hosts gelöscht haben. [Um die Einstellungen für die vertrauenswürdigen Hosts aktualisieren, gehen Sie wie folgt vor.](#configure-trustedhosts)
 
 ### <a name="if-youve-installed-windows-admin-center-as-a-gateway-on-windows-server"></a>Wenn Sie Windows Admin Center als **Gateway unter Windows Server** installiert haben
 
 * Durchführen Sie ein Upgrade von einer früheren Version von Windows Admin Center? Stellen Sie sicher, dass die Firewall-Regel wurde nicht gelöscht werden, da [dieses bekannte Problem](known-issues.md#upgrade). Verwenden Sie den folgenden PowerShell-Befehl, um zu bestimmen, ob die Regel vorhanden ist. Wenn dies nicht der Fall, führen Sie die [diese Anweisungen](known-issues.md#upgrade) neu erstellt.
+    
     ```powershell
     Get-NetFirewallRule -DisplayName "SmeInboundOpenException"
     ```
 
-* [Überprüfen Sie die Windows-Version](#winvercompat) auf dem Client und Server.
+* [Überprüfen Sie die Windows-Version](#check-the-windows-version) auf dem Client und Server.
 
 * Stellen Sie sicher, dass Sie Microsoft Edge oder Google Chrome als Webbrowser verwenden.
 
@@ -103,21 +67,16 @@ Dies kann vorkommen, wenn der Standardpfad für PowerShell-Modul geändert oder 
 ![](../media/Service-TaskMan.PNG)
 
 * Testen Sie die Netzwerkverbindung mit dem Gateway (ersetzen Sie dies \<Werte > mit den Informationen aus der Bereitstellung)
+
     ```powershell
     Test-NetConnection -Port <port> -ComputerName <gateway> -InformationLevel Detailed
     ```
 
-[[zurück zum Anfang]](#toc)
-
 ### <a name="if-you-have-installed-windows-admin-center-in-an-azure-windows-server-vm"></a>Wenn Sie Windows Admin Center auf einer Azure Windows Server-VM installiert haben
 
-* [Überprüfen Sie die Windows-version](#winvercompat)
+* [Überprüfen Sie die Windows-version](#check-the-windows-version)
 * Haben Sie eine eingehende Portregel für HTTPS hinzugefügt? 
 * [Weitere Informationen zum Installieren von Windows Admin Center in einer Azure-VM](https://docs.microsoft.com/windows-server/manage/windows-admin-center/configure/azure-integration#use-a-windows-admin-center-gateway-deployed-in-azure)
-
-[[zurück zum Anfang]](#toc)
-
-<a id="winvercompat"></a>
 
 ### <a name="check-the-windows-version"></a>Überprüfen Sie die Windows-Version
 
@@ -137,10 +96,6 @@ Dies kann vorkommen, wenn der Standardpfad für PowerShell-Modul geändert oder 
 
 * Dies kann die Einstellungen für die vertrauenswürdigen Hosts gelöscht haben. [Um die Einstellungen für die vertrauenswürdigen Hosts aktualisieren, gehen Sie wie folgt vor.](#configure-trustedhosts) 
 
-[[zurück zum Anfang]](#toc)
-
-<a id="tls"></a>
-
 ## <a name="i-get-the-message-cant-connect-securely-to-this-page-this-might-be-because-the-site-uses-outdated-or-unsafe-tls-security-settings"></a>Ich erhalte die Meldung aus: "Kann eine sichere Verbindung mit dieser Seite. Dies kann sein, da die Website veraltete oder unsafe-TLS-Sicherheit-Einstellungen verwendet.
 
 <!--REF: https://docs.microsoft.com/iis/get-started/whats-new-in-iis-10/http2-on-iis#when-is-http2-not-supported -->
@@ -151,34 +106,23 @@ EnableHttp2Cleartext=dword:00000000
 EnableHttp2Tls=dword:00000000
 ```
 
-[[zurück zum Anfang]](#toc)
-
-<a id="websockets"></a> 
-
 ## <a name="im-having-trouble-with-the-remote-desktop-events-and-powershell-tools"></a>Ich habe Probleme mit den Tools für Remotedesktop, Ereignisse und PowerShell.
 
 Diese drei Tools erfordern das Websocket-Protokoll, die häufig von Proxy-Server und Firewalls blockiert wird. Wenn Sie Google Chrome verwenden, besteht eine [bekanntes Problem](known-issues.md#google-chrome) mit Websockets oder NTLM-Authentifizierung.
 
-[[zurück zum Anfang]](#toc)
-
-
-<a id="connectionissues"></a> 
-
 ## <a name="i-can-connect-to-some-servers-but-not-others"></a>Ich kann eine Verbindung zu einigen Servern, jedoch nicht zu anderen herstellen.
+
 * Melden Sie sich den Gatewaycomputer lokal und es wurde versucht, ```Enter-PSSession <machine name>``` in PowerShell ersetzen \<Machine-Name > durch den Namen des Computers in Windows Admin Center verwalten möchten. 
 
-* Wenn Ihre Umgebung eine Arbeitsgruppe anstatt eine Domäne verwendet, lesen Sie [Windows Admin Center in einer Arbeitsgruppe verwenden](#workgroup).
+* Wenn Ihre Umgebung eine Arbeitsgruppe anstatt eine Domäne verwendet, lesen Sie [Windows Admin Center in einer Arbeitsgruppe verwenden](#using-windows-admin-center-in-a-workgroup).
 
 * **Verwenden lokale Administratorkonten:** Wenn Sie ein lokales Benutzerkonto, das nicht das integrierte Administratorkonto ist verwenden, müssen Sie die Richtlinie auf dem Zielcomputer zu aktivieren, indem Sie mit den folgenden Befehl in PowerShell oder an einer Eingabeaufforderung als Administrator auf dem Zielcomputer:
 
-        REG ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1
+    ```
+    REG ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1
+    ```
 
-
-[[zurück zum Anfang]](#toc)
-
-<a id="workgroup"></a>
-
-## <a name="using-windows-admin-center-in-a-workgroup"></a>Verwenden von Windows Admin Center in einer Arbeitsgruppe 
+## <a name="using-windows-admin-center-in-a-workgroup"></a>Verwenden von Windows Admin Center in einer Arbeitsgruppe
 
 ### <a name="what-account-are-you-using"></a>Welches Konto verwenden Sie?
 Stellen Sie sicher, dass die Anmeldeinformationen, die Sie verwenden, Mitglied der lokalen Administratorgruppe des Zielservers sind. In einigen Fällen erfordert WinRM auch die Mitgliedschaft in der Gruppe Remoteverwaltungsbenutzer. Wenn Sie ein lokales Benutzerkonto verwenden, das **nicht das integrierte Administratorkonto** ist, müssen Sie die Richtlinie auf dem Zielcomputer mithilfe des folgenden Befehls in PowerShell oder an einer Eingabeaufforderung als Administrator auf dem Zielcomputer aktivieren:
@@ -215,10 +159,10 @@ Beim Installieren von Windows Admin Center können Sie Windows Admin Center opti
     Get-Item WSMan:\localhost\Client\TrustedHosts
     ```
 
-    > [!WARNING]
-    > Wenn die aktuelle Einstellung von TrustedHosts nicht leer ist, werden die folgenden Befehle die Einstellung überschreiben. Es wird empfohlen, dass Sie die aktuelle Einstellung in eine Textdatei mit dem folgenden Befehl speichern, damit Sie diese wiederherstellen können, falls erforderlich:
-
-    > `Get-Item WSMan:localhost\Client\TrustedHosts | Out-File C:\OldTrustedHosts.txt`
+   > [!WARNING]
+   > Wenn die aktuelle Einstellung von TrustedHosts nicht leer ist, werden die folgenden Befehle die Einstellung überschreiben. Es wird empfohlen, dass Sie die aktuelle Einstellung in eine Textdatei mit dem folgenden Befehl speichern, damit Sie diese wiederherstellen können, falls erforderlich:
+   > 
+   > `Get-Item WSMan:localhost\Client\TrustedHosts | Out-File C:\OldTrustedHosts.txt`
 
 3. Legen Sie TrustedHosts auf NetBIOS-IP oder FQDN der Computer fest, den Sie verwalten möchten:
 
@@ -226,10 +170,10 @@ Beim Installieren von Windows Admin Center können Sie Windows Admin Center opti
     Set-Item WSMan:localhost\Client\TrustedHosts -Value '192.168.1.1,server01.contoso.com,server02'
     ```
 
-    > [!TIP] 
-    >Eine einfache Möglichkeit, alle TrustedHosts gleichzeitig festlegen zu können, ist das Verwenden von Platzhaltern.
-
-    >     Set-Item WSMan:\localhost\Client\TrustedHosts -Value '*'
+   > [!TIP]
+   > Eine einfache Möglichkeit, alle TrustedHosts gleichzeitig festlegen zu können, ist das Verwenden von Platzhaltern.
+   > 
+   >     Set-Item WSMan:\localhost\Client\TrustedHosts -Value '*'
 
 4. Wenn Sie fertig mit dem Testen sind, können Sie den folgenden Befehl aus einer PowerShell-Sitzung mit erhöhten Rechten zum Deaktivieren der TrustedHosts-Einstellung ausgeben:
 
@@ -243,10 +187,6 @@ Beim Installieren von Windows Admin Center können Sie Windows Admin Center opti
     Set-Item WSMan:localhost\Client\TrustedHosts -Value '<paste values from text file>'
     ```
 
-[[zurück zum Anfang]](#toc)
-
-<a id="urlacl"></a>
-
 ## <a name="i-previously-had-windows-admin-center-installed-and-now-nothing-else-can-use-the-same-tcpip-port"></a>Ich hatte zuvor Windows Admin Center installiert kann, und jetzt nichts den gleichen TCP/IP-port
 
 Führen Sie diese beiden Befehle manuell an einer Eingabeaufforderung mit erhöhten Rechten aus:
@@ -256,11 +196,7 @@ netsh http delete sslcert ipport=0.0.0.0:443
 netsh http delete urlacl url=https://+:443/
 ```
 
-[[zurück zum Anfang]](#toc)
-
-<a id="azlogin"></a>
-
-## <a name="im-having-issues-using-azure-features-in-edge"></a>Ich habe Probleme beim Verwenden von Azure-Features in Microsoft Edge.
+## <a name="azure-features-dont-work-properly-in-edge"></a>Azure-Features funktionieren nicht ordnungsgemäß in Microsoft Edge
 
 Kante hat [bekannte Probleme](https://github.com/AzureAD/azure-activedirectory-library-for-js/wiki/Known-issues-on-Edge) im Zusammenhang mit Sicherheitszonen, die Azure-Anmeldung in Windows Admin Center zu beeinflussen. Wenn Sie schwierigkeiten bei der Verwendung von Azure-Features, wenn Sie Edge verwenden auftreten, versuchen Sie es hinzufügen https://login.microsoftonline.com, https://login.live.com und die URL Ihres Gateways als vertrauenswürdige Sites und Standorte für Edge-Popupblocker-Einstellungen in Ihrem Client-Side-Browser zulässig. 
 
@@ -271,15 +207,10 @@ Gehen Sie dazu wie folgt vor:
 4. Wechseln Sie zu der **Datenschutz** Registerkarte
 5. Unter den **Popup-Blocker** Abschnitt, klicken Sie auf die **Einstellungen** Schaltfläche, und fügen Sie die URLs im Dialogfeld, das geöffnet wird. Sie müssen Ihre Gateway-URL hinzufügen sowie https://login.microsoftonline.com und https://login.live.com.
 
-
-[[zurück zum Anfang]](#toc)
-
-<a id="azissue"></a>
-
 ## <a name="having-an-issue-with-an-azure-related-feature"></a>Problem ist ein mit einer Azure-bezogenen Features?
 
 Senden Sie uns eine e-Mail an wacFeedbackAzure@microsoft.com mit den folgenden Informationen:
-* Allgemeines Problem mit der Informationen aus der [Fragen, die unten aufgeführten](#filebug). 
+* Allgemeines Problem mit der Informationen aus der [Fragen, die unten aufgeführten](#providing-feedback-on-issues).
 * Beschreiben Sie Ihr Problem, und die Schritte, die Sie zum Reproduzieren des Problems ausgeführt. 
 * Sie zuvor Registrieren des Gateways in Azure mit dem New-AadApp.ps1 herunterladbare Skript und dann ein upgrade auf Version 1807? Oder haben Sie registrieren das Gateway in Azure über die Benutzeroberfläche vom Gateway-Einstellungen > Azure?
 * Ist Ihr Azure-Konto verknüpft ist, können mehrere Verzeichnisse/Mandanten?
@@ -291,11 +222,7 @@ Senden Sie uns eine e-Mail an wacFeedbackAzure@microsoft.com mit den folgenden I
 * Ist auf der Computer werden zum Verwalten einer Azure-VM an?
 * Werden Windows Admin Center ist auf einer Azure-VM installiert?
 
-[[zurück zum Anfang]](#toc)
-
-<a id="filebug"></a>
-
-## <a name="still-not-working-or-is-your-issue-not-captured-here-troubleshooting-common-questions"></a>Noch keine arbeiten, oder Ihr Problem hier nicht erfasst wird? [häufig gestellte Fragen zur Problembehandlung]
+## <a name="providing-feedback-on-issues"></a>Senden von Feedback zu Problemen
 
 Navigieren Sie zur Ereignisanzeige > Anwendung und Dienste > Microsoft ServerManagementExperience und suchen Sie nach Fehlern oder Warnungen.
 
@@ -304,17 +231,16 @@ Melden Sie den Fehler und eine Beschreibung auf unserer [UserVoice](https://wind
 Geben Sie dabei auch alle Fehler oder Warnungen an, die Sie im Ereignisprotokoll gefunden haben sowie die folgenden Informationen: 
 
 * Die Plattform, auf der Windows Admin Center (Windows 10 oder Windows Server) **installiert** ist:
-    * Wenn auf dem Server installiert haben, was ist die Windows [Version](#winvercompat) von **der Computer mit der Browser** auf Windows Admin Center zugreifen: 
+    * Wenn auf dem Server installiert haben, was ist die Windows [Version](#check-the-windows-version) von **der Computer mit der Browser** auf Windows Admin Center zugreifen: 
     * Verwenden Sie das selbstsignierte Zertifikat, das vom Installationsprogramm erstellt werden?
     * Wenn Sie Ihr eigenes Zertifikat verwenden, stimmt der Antragstellername des Computers überein?
     * Wenn Sie Ihr eigenes Zertifikat verwenden, gibt es einen alternativen Antragstellernamen an?
 * Haben Sie den Standard-Port installiert?
     * Falls dies nicht der Fall ist, welchen Port haben Sie angegeben?
 * Ist der Computer, auf dem Windows Admin Center **installiert** ist, Mitglied einer Domäne?
-* Die -[Version](#winvercompat), auf der Windows Admin Center **installiert** ist:
+* Die -[Version](#check-the-windows-version), auf der Windows Admin Center **installiert** ist:
 * Ist der Computer, den Sie **verwalten möchten**, Mitglied einer Domäne?
-* Die Windows-[Version](#winvercompat) des Computers, den Sie **versuchen zu verwalten**:
+* Die Windows-[Version](#check-the-windows-version) des Computers, den Sie **versuchen zu verwalten**:
 * Welche Browser verwenden Sie?
     * Wenn Sie Google Chrome verwenden, was ist die Version? (Hilfe > Info zu Google Chrome)
 
-[[zurück zum Anfang]](#toc)

@@ -1,6 +1,6 @@
 ---
 title: ipconfig
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: babcdaf6ae35770d48176c7c391fa41e295ce5d5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: fff4e5088e3e08cf2e9e742d8fb6aa2187bb9e83
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59825051"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66438133"
 ---
 # <a name="ipconfig"></a>ipconfig
 
@@ -45,15 +45,15 @@ ipconfig [/allcompartments] [/all] [/renew [<Adapter>]] [/release [<Adapter>]] [
 |/RELEASE6 [\<Adapter >]|Der DHCPv6-Server, die aktuelle DHCP-Konfiguration und verwerfen die Konfiguration der IPv6-Adresse entweder für alle Adapter (wenn ein Adapter nicht angegeben ist) oder für einen bestimmten Adapter eine DHCPRELEASE-Nachricht sendet, wenn die *Adapter* Parameter ist enthalten. Dieser Parameter deaktiviert die TCP/IP für Adapter, die so konfiguriert, dass eine IP-Adresse automatisch beziehen. Um einen Adapternamen angeben, geben Sie den Adapternamen, der angezeigt wird, bei der Verwendung **Ipconfig** ohne Parameter.|
 |/ renew [\<Adapter >]|DHCP-Konfiguration für alle Adapter (wenn ein Adapter nicht angegeben ist) oder für einen bestimmten Adapter erneuert, wenn die *Adapter* Parameter enthalten ist. Dieser Parameter ist nur auf Computern mit Adaptern, die konfiguriert werden, um eine IP-Adresse automatisch beziehen verfügbar. Um einen Adapternamen angeben, geben Sie den Adapternamen, der angezeigt wird, bei der Verwendung **Ipconfig** ohne Parameter.|
 |/renew6 [\<Adapter >]|DHCPv6-Konfiguration für alle Adapter (wenn ein Adapter nicht angegeben ist) oder für einen bestimmten Adapter erneuert, wenn die *Adapter* Parameter enthalten ist. Dieser Parameter ist nur auf Computern mit Adaptern, die konfiguriert werden, um eine IPv6-Adresse automatisch beziehen verfügbar. Um einen Adapternamen angeben, geben Sie den Adapternamen, der angezeigt wird, bei der Verwendung **Ipconfig** ohne Parameter.|
-|/setclassid \<Adapter>[ <ClassID>]|Konfiguriert die DHCP-Klassen-ID eines angegebenen Adapters. Um die DHCP-Klassen-ID für alle Adapter zu festzulegen, verwenden Sie das Sternchen (**&#42;**) anstelle der Platzhalter-Spaltennamens *Adapter*. Dieser Parameter ist nur auf Computern mit Adaptern, die konfiguriert werden, um eine IP-Adresse automatisch beziehen verfügbar. Wenn Sie eine DHCP-Klassen-ID nicht angegeben ist, wird die aktuelle Klassenid entfernt.|
-|/ showclassid \<Adapter >|Zeigt die DHCP-Klassen-ID eines angegebenen Adapters. Um die DHCP-Klassen-ID für alle Adapter zu anzuzeigen, verwenden Sie das Sternchen (**&#42;**) anstelle der Platzhalter-Spaltennamens *Adapter*. Dieser Parameter ist nur auf Computern mit Adaptern, die konfiguriert werden, um eine IP-Adresse automatisch beziehen verfügbar.|
+|/setclassid \<Adapter>[ <ClassID>]|Konfiguriert die DHCP-Klassen-ID eines angegebenen Adapters. Um die DHCP-Klassen-ID für alle Adapter zu festzulegen, verwenden Sie das Sternchen ( **&#42;** ) anstelle der Platzhalter-Spaltennamens *Adapter*. Dieser Parameter ist nur auf Computern mit Adaptern, die konfiguriert werden, um eine IP-Adresse automatisch beziehen verfügbar. Wenn Sie eine DHCP-Klassen-ID nicht angegeben ist, wird die aktuelle Klassenid entfernt.|
+|/ showclassid \<Adapter >|Zeigt die DHCP-Klassen-ID eines angegebenen Adapters. Um die DHCP-Klassen-ID für alle Adapter zu anzuzeigen, verwenden Sie das Sternchen ( **&#42;** ) anstelle der Platzhalter-Spaltennamens *Adapter*. Dieser Parameter ist nur auf Computern mit Adaptern, die konfiguriert werden, um eine IP-Adresse automatisch beziehen verfügbar.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
 
--   Dieser Befehl eignet sich am besten auf Computern, die konfiguriert werden, um eine IP-Adresse automatisch beziehen. Dadurch können Benutzer, um zu bestimmen, welche Werte der TCP/IP-Konfiguration von DHCP, Private IP-Adressierung APIPA (Automatic) oder eine alternative Konfiguration konfiguriert wurden.
--   Wenn Sie den Namen für angeben *Adapter* enthält Leerzeichen, Anführungszeichen der Name des Adapters verwenden (Beispiel: **"***Adaptername***"**).
--   Für den Adapternamen **Ipconfig** unterstützt die Verwendung des Platzhalterzeichens Sternchen (*) entweder für Adapter mit Namen angeben, die mit einer angegebenen Zeichenfolge oder Netzwerkkarten mit Namen mit einer angegebenen Zeichenfolge beginnen. Z. B. **lokalen\***  entspricht allen Adaptern, die mit der Zeichenfolge lokal zu starten und **\*Con\*** entspricht allen Adaptern, die die Zeichenfolge Con enthalten.
+- Dieser Befehl eignet sich am besten auf Computern, die konfiguriert werden, um eine IP-Adresse automatisch beziehen. Dadurch können Benutzer, um zu bestimmen, welche Werte der TCP/IP-Konfiguration von DHCP, Private IP-Adressierung APIPA (Automatic) oder eine alternative Konfiguration konfiguriert wurden.
+- Wenn Sie den Namen für angeben *Adapter* enthält Leerzeichen, Anführungszeichen der Name des Adapters verwenden (Beispiel: **"** <em>Adaptername</em> **"** ).
+- Für den Adapternamen **Ipconfig** unterstützt die Verwendung des Sternchens ( *) Platzhalterzeichen, um die beiden Namen anzugeben, die mit einer angegebenen Zeichenfolge oder Netzwerkkarten mit Namen mit einer angegebenen Zeichenfolge beginnen. Z. B. **lokalen\\** *    entspricht allen Adaptern, die mit der Zeichenfolge lokal zu starten und  **\*Con\\** * entspricht allen Adaptern, die enthalten die Zeichenfolge bestätigen.
 
 ## <a name="examples"></a>Beispiele
 
@@ -84,4 +84,4 @@ ipconfig /setclassid "Local Area Connection" TEST
 
 #### <a name="additional-references"></a>Weitere Verweise
 
--   [Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

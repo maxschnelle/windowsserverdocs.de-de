@@ -94,7 +94,7 @@ Die folgenden REG\_DWORD-Registrierungseinstellungen können sich auf die Leistu
     Die Standardeinstellung beträgt 10 Sekunden. Dies ist der Timeout für den Verzeichniscache.
 
     > [!NOTE]
-    > Dieser Parameter steuert die Zwischenspeicherung von Verzeichnismetadaten Directory Leases vorhanden ist.
+    > Mit diesem Parameter wird die Zwischenspeicherung von Verzeichnismetadaten gesteuert, wenn keine Verzeichnisleases vorhanden sind.
      
 
 -   **DirectoryCacheEntrySizeMax**
@@ -216,10 +216,10 @@ Mit den allgemeinen Optimierungsparametern für Clientcomputer kann ein Computer
 | Parameter                   | Wert | Standard |
 |-----------------------------|-------|---------|
 | DisableBandwidthThrottling  | 1     | 0       |
-| FileInfoCacheEntriesMax     | 32.768 | 64      |
-| DirectoryCacheEntriesMax    | 4.096  | 16      |
-| FileNotFoundCacheEntriesMax | 32.768 | 128     |
-| MaxCmds                     | 32.768 | 15      |
+| FileInfoCacheEntriesMax     | 32\.768 | 64      |
+| DirectoryCacheEntriesMax    | 4\.096  | 16      |
+| FileNotFoundCacheEntriesMax | 32\.768 | 128     |
+| MaxCmds                     | 32\.768 | 15      |
 
  
 

@@ -1,6 +1,6 @@
 ---
-title: Verbinden von Windows Server mit Azure Hybrid-Diensten
-description: Sie können bei lokalen Bereitstellungen von Windows Server in die Cloud erweitern, mithilfe von Azure Hybrid-Diensten.
+title: Verbinden von Windows Server mit Azure Hybriddiensten
+description: Du kannst lokale Bereitstellungen von Windows Server mithilfe von Azure-Hybriddiensten auf die Cloud erweitern.
 ms.technology: manage
 ms.topic: article
 author: jasongerend
@@ -15,85 +15,85 @@ ms.contentlocale: de-DE
 ms.lasthandoff: 06/01/2019
 ms.locfileid: "66455361"
 ---
-# <a name="connecting-windows-server-to-azure-hybrid-services"></a>Verbinden von Windows Server mit Azure Hybrid-Diensten
+# <a name="connecting-windows-server-to-azure-hybrid-services"></a>Verbinden von Windows Server mit Azure Hybriddiensten
 
->Gilt für: WindowsServer 2019, WindowsServer 2016, WindowsServer (Halbjährlicher Kanal)
+>Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (halbjährlicher Kanal)
 
-Sie können bei lokalen Bereitstellungen von Windows Server in die Cloud erweitern, mithilfe von Azure Hybrid-Diensten. Diese Cloud-Dienste bieten ein Array von nützlichen Funktionen, einschließlich der folgenden:
+Du kannst lokale Bereitstellungen von Windows Server mithilfe von Azure-Hybriddiensten auf die Cloud erweitern. Diese Clouddienste bieten eine Reihe nützlicher Funktionen, darunter die folgenden:
 
-- Schützen Sie virtueller Computer und verwenden Sie Cloud-basierten Backup und Disaster Recovery (HA/DR) mit Azure Site Recovery. 
-- Verfolgen Sie, was in Anwendungen, Netzwerk und Infrastruktur mithilfe von erweiterten Analysen und Machine learning in Azure Monitor geht. 
-- Vereinfachen Sie die Netzwerkkonnektivität mit Azure mit Azure-Netzwerkadapter.
-- Halten Sie virtuelle Computer auf dem neuesten Stand mit der Azure-Updateverwaltung.
+- Schützen von virtuellen Computern und Verwenden von cloudbasierter Sicherung und Notfallwiederherstellung (HA/DR) mit Azure Site Recovery 
+- Nachverfolgen von Anwendungen, Netzwerk und Infrastruktur mithilfe von erweiterten Analysefunktionen und maschinellem Lernen in Azure Monitor 
+- Vereinfachen der Netzwerkverbindung zu Azure mit dem Azure Netzwerkadapter
+- Virtuelle Computer mit der Azure-Updateverwaltung auf dem neuesten Stand halten
 
-Azure Hybrid Services funktionieren mit Windows-Servern in der folgenden Konfiguration:
+Azure-Hybriddienste funktionieren mit Windows-Servern in den folgenden Konfigurationen:
 
-- Eigenständige physischen Servern und virtuellen Computern (VMs)
-- Cluster, einschließlich der hyperkonvergenten Cluster zertifiziert den [Azure Stack HCI](https://docs.microsoft.com/azure-stack/operator/azure-stack-hci-overview), und [Windows Server Software-Defined (WSSD)](https://www.microsoft.com/en-us/cloud-platform/software-defined-datacenter) Programme
+- Eigenständige physische Server und virtuelle Computer (VMs)
+- Cluster, einschließlich der hyperkonvergenten Clustern, die durch die Programme [Azure Stack HCI](https://docs.microsoft.com/azure-stack/operator/azure-stack-hci-overview) und [Windows Server Software-Defined (WSSD)](https://www.microsoft.com/en-us/cloud-platform/software-defined-datacenter) zertifiziert sind
 
-Während Sie die meisten Azure hybriddienste, die mithilfe von Azure-Portal und ein Download oder zwei einrichten können, sind viele direkt in Windows Admin Center ein vereinfachtes Setup-Benutzeroberfläche und eine serverorientierten Ansicht der Dienste integriert.
+Während du die meisten Azure-Hybriddienste über das Azure-Portal und ein oder zwei Downloads einrichten kannst, sind viele davon direkt in Windows Admin Center integriert, um eine vereinfachte Einrichtung und eine serverorientierte Ansicht der Dienste zu ermöglichen.
 
-## <a name="azure-hybrid-services-tool"></a>Azure Hybrid-Services-Konfigurationstool
+## <a name="azure-hybrid-services-tool"></a>Azure-Hybriddienstetool
 
-Die hybriddienste Azure-tool in [Windows Admin Center](../understand/windows-admin-center.md) konsolidiert alle integrierten Azure-Dienste in einer zentralen Hub, in dem Sie alle verfügbaren Azure-Dienste, die Wert für Ihre lokalen bietet mühelos ermitteln können, oder Hybrid-Umgebung. 
+Das Azure-Hybriddienstetool in [Windows Admin Center](../understand/windows-admin-center.md) konsolidiert alle integrierten Azure-Dienste in einem zentralen Hub, in dem du mühelos alle verfügbaren Azure-Dienste erkennen kannst, die einen Mehrwert für Ihre lokale oder hybride Umgebung bieten. 
 
-![Screenshot der Windows Admin Center zeigt das Tool Azure Hybrid Services](../media/azure-services/ahs-discover.png)
+![Screenshot von Windows Admin Center mit dem Azure-Hybriddienstetool](../media/azure-services/ahs-discover.png)
 
-Wenn Sie mit Azure-Diensten geschehen auf einem Server verbunden sind, dient das Azure Hybrid-Services-Konfigurationstool, als eine zentrale Konsole auf alle aktivierten Dienste auf dem Server finden Sie unter. Sie können problemlos lernen Sie die relevanten Tool in Windows Admin Center, starten Sie zum Azure-Portal für detailliertere Verwaltung von dieser Azure-Dienste, oder erfahren Sie mehr mit der Dokumentation zur Hand. 
+Wenn du eine Verbindung mit einem Server herstellst, auf dem bereits Azure-Dienste aktiviert sind, dient das Azure-Hybriddienstetool als zentrale Benutzeroberfläche zur Anzeige aller aktivierten Dienste auf diesem Server. Du kannst mühelos zum entsprechenden Tool in Windows Admin Center gelangen, das Azure-Portal für eine bessere Verwaltung dieser Azure-Dienste aufrufen oder über die immer verfügbare Dokumentation mehr erfahren. 
 
-![Screenshot der Windows Admin Center mit der Azure-Dienste, die bereits auf dem Server installiert sind](../media/azure-services/ahs-dayN.png)
+![Screenshot von Windows Admin Center mit Azure-Diensten, die bereits auf dem Server installiert sind](../media/azure-services/ahs-dayN.png)
 
-Aus dem Azure Hybrid-Services-Tool können Sie folgende Aktionen ausführen:
-- Sichern des Windows-Servers von Windows Admin Center mit [Azure-Sicherung](azure-backup.md)
-- Schützen Sie Ihre Hyper-V-VMs aus Windows Admin Center mit [Azure Site Recovery](azure-site-recovery.md)
-- Synchronisieren Sie Ihre Dateiserver mit der Cloud mit [Azure File Sync](azure-file-sync.md)
-- Verwalten von Betriebssystem-Updates für alle Ihre Windows Server lokal oder in der Cloud mit [Updateverwaltung für Azure](azure-update-management.md)
-- Überwachen von Servern, sowohl lokal oder in der Cloud, und Konfigurieren von Warnungen mit [Azure Monitor](azure-monitor.md)
-- Verbinden Sie Ihre lokalen Server, auf einem virtuellen Azure-Netzwerk mit [Azure-Netzwerkadapter](https://aka.ms/WACNetworkAdapter)
+Über das Azure-Hybriddienstetool hast du folgende Möglichkeiten:
+- Sichern des Windows-Servers über Windows Admin Center mit [Azure Backup](azure-backup.md)
+- [Schützen der virtuellen Hyper-V-Computer mit Azure Site Recovery in Windows Admin Center](azure-site-recovery.md)
+- Synchronisierung des Dateiservers mit der Cloud per [Azure-Dateisynchronisierung](azure-file-sync.md)
+- Verwalten von Betriebssystemupdates für alle deine Windows-Server – lokal oder in der Cloud – mit [Azure-Updateverwaltung](azure-update-management.md)
+- Überwachen von Servern, sowohl lokal als auch in der Cloud, und Konfigurieren von Warnungen mit [Azure Monitor](azure-monitor.md)
+- Verbinden der lokalen Server mit einem virtuellen Azure-Netzwerk mithilfe von [Azure-Netzwerkadapter](https://aka.ms/WACNetworkAdapter)
 
-## <a name="services-for-stand-alone-servers-and-vms"></a>Dienste für die eigenständigen Servern und VMs
+## <a name="services-for-stand-alone-servers-and-vms"></a>Dienste für eigenständige Server und virtuelle Computer
 
-Dies ist die vollständige Liste der Azure-Dienste, die Funktionen auf eigenständigen Servern und virtuellen Computern bereitstellen:
+Dies ist die vollständige Liste der Azure-Dienste, die Funktionen für eigenständige Server und virtuelle Computer bereitstellen:
 
-- **(Neu) Synchronisieren Sie den Dateiserver mit der Cloud mithilfe [Azure File Sync](https://aka.ms/afs)**  
-Synchronisieren von Dateien auf diesem Server mit Azure-Dateifreigaben. Alle Dateien lokal beibehalten, oder Verwenden von cloud-tiering und Cache nur die am häufigsten verwendeten Dateien auf dem Server, die kalte Daten in die Cloud-tiering aus. Daten in der Cloud können gesichert werden und Sie müssen auf lokale Server-Sicherung kümmern. Darüber hinaus kann multi-site-Synchronisierung einen Satz von Dateien auf mehreren Servern synchronisieren.
+- **Synchronisierung des Dateiservers mit der Cloud per [Azure-Dateisynchronisierung](https://aka.ms/afs)**  
+Synchronisiere Dateien auf diesem Server mit Azure-Dateifreigaben. Behalte alle deine Dateien lokal, oder verwende Cloudtiering, um nur die am häufigsten verwendeten Dateien auf dem Server zwischenzuspeichern und kalte Daten in die Cloud zu übertragen. Daten in der Cloud können gesichert werden, sodass keine lokale Serversicherung erforderlich ist. Darüber hinaus kann mit Multisite-Synchronisierung eine Gruppe von Dateien auf mehreren Servern synchronisiert werden.
 
-- **Windows Admin Center eine Sicherheitsschicht hinzugefügt, durch Hinzufügen von [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) Authentifizierung**  
-Sie können Windows Admin Center eine zusätzliche Sicherheitsebene hinzufügen, indem Sie Benutzer für die Authentifizierung mit Azure Active Directory (Azure AD)-Identitäten auf dem Gateway. Azure AD-Authentifizierung können Sie die Azure AD Sicherheitsfunktionen wie bedingten Zugriff und Multi-Factor Authentication nutzen.  
-Weitere Informationen finden Sie unter [Konfigurieren von Azure AD-Authentifizierung für Windows Admin Center.](../configure/user-access-control.md#azure-active-directory)  
+- **Hinzufügen einer Sicherheitsschicht zu Windows Admin Center durch Hinzufügen von [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/)-Authentifizierung**  
+Du kannst Windows Admin Center eine zusätzliche Sicherheitsschicht hinzufügen, indem du von den Benutzern verlangst, sich über Azure Active Directory (Azure AD)-Identitäten für den Zugriff auf das Gateway zu authentifizieren. Mit der Azure AD-Authentifizierung kannst du auch die Sicherheitsfunktionen von Azure AD wie bedingten Zugriff und mehrstufige Authentifizierung nutzen.  
+Weitere Informationen findest du unter [Konfigurieren der Azure Active Directory-Authentifizierung für Windows Admin Center (Vorschau)](../configure/user-access-control.md#azure-active-directory).  
 
-- **Schützen Sie Ihre Hyper-V-VMs mit [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)**  
-Sie können Workloads replizieren, die auf virtuellen Computern ausgeführt werden, sodass Ihre unternehmenskritischen Infrastruktur bei einem Notfall geschützt ist. Windows Admin Center optimiert Setup- und der Prozess der Replikation Ihrer virtuellen Computer am Hyper-V-Server oder Cluster, erleichtert Ihnen die resilienz Ihrer Umgebung mit Azure Site Recovery, Disaster Recovery-Dienst zu untermauern.  
-Weitere Informationen finden Sie unter [Schützen von virtuellen Computern mit Azure Site Recovery und Windows Admin Center](azure-site-recovery.md).
+- **Schützen der virtuellen Hyper-V-Computer mit [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)**  
+Du kannst Arbeitslasten auf virtuellen Computern replizieren und so deine wichtige Geschäftsinfrastruktur in Notfällen schützen. Windows Admin Center optimiert die Einrichtung und den Prozess der Replikation der virtuellen Computer auf deinen Hyper-V-Servern oder -Clustern und macht es einfacher, die Ausfallsicherheit der Umgebung mit dem Notfallwiederherstellungsdienst von Azure Site Recovery zu erhöhen.  
+Weitere Informationen findest du unter [Schützen Sie Ihre Hyper-V-VMs mit Azure Site Recovery und Windows Admin Center](azure-site-recovery.md).
 
-- **Sichern Sie Ihre Windows-Server mit [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview)**  
-Sie können Ihre Windows-Server in Azure und zum Schutz vor versehentlichem oder böswilligem löschen, Ransomware und Beschädigungen sichern.  
-Weitere Informationen finden Sie unter [sichern Sie Ihre Server mit Azure Backup](azure-backup.md).
+- **Sichern der Windows-Server mit [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview)**  
+Du kannst deine Windows-Server bei Azure sichern und so dazu beitragen, sie vor versehentlichem oder böswilligem Löschen, Beschädigung und Ransomware zu schützen.  
+Weitere Informationen findest du unter [Back up your servers with Azure Backup](azure-backup.md) (Sichern der Server mit Azure Backup).
 
-- **Überwachen und erhalten Sie e-Mail-Benachrichtigungen für alle Server in Ihrer Umgebung mit [Azure Monitor für virtuelle Computer](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview)**  
-Können Sie Azure Monitor, auch bekannt als virtuelle Computer Einblicke, Serverzustand und Ereignisse überwachen, e-Mail-Warnungen erstellen, erhalten eine konsolidierte Ansicht der Leistung in Ihrer gesamten Umgebung und Visualisieren von Systemen, Anwendungen und von verbundenen Diensten zu einer bestimmten Server.  
-Weitere Informationen finden Sie unter [verbinden Ihrer Server mit Azure Monitor, und Konfigurieren von e-Mail-Benachrichtigungen](azure-monitor.md).
+- **Überwachen und Erhalten von E-Mail-Benachrichtigungen für alle Server in der Umgebung mit [Azure Monitor für virtuelle Computer](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview)**  
+Mit Azure Monitor, auch bekannt als „Virtual Machines Insights“, kannst du die Integrität und die Ereignisse des Servers überwachen, E-Mail-Benachrichtigungen erstellen, eine konsolidierte Ansicht der Serverleistung in der Umgebung erhalten und Anwendungen, Systeme und Dienste visualisieren, die mit einem bestimmten Server verbunden sind.  
+Weitere Informationen findest du unter [Connect your servers to Azure Monitor and configure email notifications](azure-monitor.md) (Verbinden der Server mit Azure Monitor und Konfigurieren von E-Mail-Benachrichtigungen).
 
-- **Aktualisieren des Betriebssystems zentral zu verwalten, für alle Windows-Server mit [Azure-Updateverwaltung](https://docs.microsoft.com/azure/automation/automation-update-management)**  
-Sie können Updates und Patches für mehrere Server und VMs an einem zentralen Ort, und nicht auf eine einzelne Server verwalten. Mit der Azure-Updateverwaltung können Sie schnell den Status verfügbarer Updates bewerten, Installation von erforderlichen Updates planen und Bereitstellungsergebnisse überprüfen um sicherzustellen, dass Updates, die erfolgreich angewendet. Dies ist möglich, ob Ihre Server auf virtuellen Azure-Computern, die von anderen cloudanbietern gehostet sind oder lokal.  
-Weitere Informationen finden Sie unter [Konfigurieren von Servern für die Verwaltung von Azure](azure-update-management.md).
+- **Zentrales Verwalten von Betriebssystemupdates für alle deine Windows-Server mit [Azure-Updateverwaltung](https://docs.microsoft.com/azure/automation/automation-update-management)**  
+Du kannst Updates und Patches für mehrere Server und virtuelle Computer über eine einzige Stelle anstatt auf Serverebene verwalten. Mit Azure-Updateverwaltung kannst du den Status verfügbarer Updates schnell bewerten, die Installation der erforderlichen Updates planen und die Ergebnisse der Bereitstellung überprüfen, um sicherzustellen, dass Updates erfolgreich angewendet werden. Dies ist unabhängig davon möglich, ob es sich bei den Servern um virtuelle Azure-Computer handelt, die von anderen Cloudanbietern gehostet werden, oder um lokale Computer.  
+Weitere Informationen findest du unter [Verwenden von Windows Admin Center zum Verwalten von Betriebssystem-Updates mit der Azure-Updateverwaltung](azure-update-management.md).
 
-- **Verbinden Sie Ihre lokalen Server, auf einem virtuellen Azure-Netzwerk mit einem [Azure-Netzwerkadapter](https://aka.ms/WACNetworkAdapter)**  
-Sie können ein Azure-Netzwerkadapter hinzufügen, mit Ihren lokalen Servern können Sie den Server mit einem Azure Virtual Network sicher zu verbinden.  
-Weitere Informationen finden Sie unter [konfigurieren eine Punkt-zu-Standort-VPN-Verbindung zwischen einem lokalen Windows-Server und einem Azure Virtual Network](https://aka.ms/WACNetworkAdapter).
+- **Verbinden der lokalen Server mit einem virtuellen Azure-Netzwerk mithilfe eines [Azure-Netzwerkadapters](https://aka.ms/WACNetworkAdapter)**  
+Du kannst deinen lokalen Servern einen Azure-Netzwerkadapter hinzufügen, um den Server sicher mit einem virtuellen Azure-Netzwerk zu verbinden.  
+Weitere Informationen findest du unter [Configure a point-to-site VPN connection between an on-premises Windows Server and an Azure Virtual Network](https://aka.ms/WACNetworkAdapter) (Konfigurieren einer Punkt-zu-Standort-VPN-Verbindung zwischen einem lokalen Windows-Server und einem virtuellen Azure-Netzwerk).
 
-- **Verwalten von Azure-IaaS-VMs mit [Windows Admin Center](manage-azure-vms.md)**  
-Sie können Windows Admin Center verwenden, zum Verwalten Ihrer virtuellen Azure-Computern sowie auf lokalen Computern. Konfigurieren Sie Ihr Windows Admin Center-Gateway eine Verbindung mit Ihrem Azure-VNet herstellen, können Sie virtuelle Computer in Azure mithilfe der konsistente, vereinfachte Tools Windows Admin Center verwalten. Weitere Informationen finden Sie unter [konfigurieren Windows Admin Center zum Verwalten von virtuellen Computern in Azure](manage-azure-vms.md).
+- **Verwalten von virtuellen Azure IaaS-Computern mit [Windows Admin Center](manage-azure-vms.md)**  
+Mit Windows Admin Center kannst du deine virtuellen Azure-Computer und lokalen Computer verwalten. Durch die Konfiguration des Windows Admin Center-Gateways für die Verbindung mit deinem Azure VNET kannst du virtuelle Computer in Azure mit den konsistenten, vereinfachten Tools von Windows Admin Center verwalten. Weitere Informationen findest du unter [Verwalten von virtuellen Azure IaaS-Computern mit Windows Admin Center](manage-azure-vms.md).
 
 ## <a name="services-for-clusters"></a>Dienste für Cluster
 
-Hierbei handelt es sich um die Azure-Dienste, die Funktionalität für Cluster als Ganzes bereitstellen (diese werden nicht alle integriert Windows Admin Center noch):
+Dies sind die Azure-Dienste, die Funktionen für Cluster als Ganzes bereitstellen (diese sind noch nicht alle in Windows Admin Center integriert):
 
 - [Überwachen eines hyperkonvergenten Clusters mit Azure Monitor](../../../storage/storage-spaces/configure-azure-monitor.md)
 - [Schützen von virtuellen Computern mit Azure Site Recovery](azure-site-recovery.md)
-- [Bereitstellen eines cloudzeugen für den cluster](../../../failover-clustering/deploy-cloud-witness.md)
+- [Bereitstellen eines Cluster-Cloudzeugen](../../../failover-clustering/deploy-cloud-witness.md)
 
 ## <a name="see-also"></a>Weitere Informationen
 
-- [Verbinden von Windows Admin Center in Azure](azure-integration.md)
+- [Verbinden von Windows Admin Center mit Azure](azure-integration.md)
 - [Bereitstellen von Windows Admin Center in Azure](deploy-wac-in-azure.md)

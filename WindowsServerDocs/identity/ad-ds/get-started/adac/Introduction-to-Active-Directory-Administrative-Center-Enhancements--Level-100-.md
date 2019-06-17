@@ -1,6 +1,6 @@
 ---
 ms.assetid: 074e63e9-976c-49da-8cba-9ae0b3325e34
-title: Einführung in die Erweiterungen des ActiveDirectory-Verwaltungscenters (Stufe100)
+title: Einführung in die Erweiterungen des ActiveDirectory Verwaltungscenters (Stufe100)
 description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -9,14 +9,14 @@ ms.date: 08/07/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: d16447425b86fef979732c4785db27d1542116b8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: d3b5f3eee338128fb424c28e7280bb7f543c9f58
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840171"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66443002"
 ---
-# <a name="introduction-to-active-directory-administrative-center-enhancements-level-100"></a>Einführung in die Erweiterungen des ActiveDirectory-Verwaltungscenters (Stufe100)
+# <a name="introduction-to-active-directory-administrative-center-enhancements-level-100"></a>Einführung in die Erweiterungen des ActiveDirectory Verwaltungscenters (Stufe100)
 
 >Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -75,7 +75,7 @@ In diesem Schritt werden Sie die Funktionsebene der Gesamtstruktur heraufstufen.
 
 3. Klicken Sie auf die Zieldomäne im linken Navigationsbereich, und klicken Sie im Bereich **Aufgaben** auf **Gesamtstrukturfunktionsebene heraufstufen**. Wählen Sie eine Gesamtstrukturfunktionsebene, die mindestens Windows Server 2008 R2 oder höher, und klicken Sie dann auf **OK**.
 
-![Einführung in AD Admin center](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***
+![Einführung in Active Directory-Verwaltungscenter](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***
 
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.
 
@@ -95,11 +95,11 @@ In diesem Schritt aktivieren Sie den Papierkorb zum Wiederherstellen gelöschter
 
 2. Klicken Sie auf **Verwalten**, klicken Sie auf **Navigationsknoten hinzufügen** , und wählen Sie die entsprechende Zieldomäne im Dialogfeld **Navigationsknoten hinzufügen** aus. Klicken Sie anschließend auf **OK**.
 
-3. Klicken Sie im Bereich **Aufgaben** auf **Papierkorb aktivieren...**, klicken Sie im Warnhinweisfeld auf **OK******, und klicken Sie dann auf **OK**, um die ADAC-Meldung zu aktualisieren.
+3. Klicken Sie im Bereich **Aufgaben** auf **Papierkorb aktivieren...** , klicken Sie im Warnhinweisfeld auf **OK** **** , und klicken Sie dann auf **OK**, um die ADAC-Meldung zu aktualisieren.
 
 4. Drücken Sie auf F5, um ADAC zu aktualisieren.
 
-![Einführung in AD Admin center](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***
+![Einführung in Active Directory-Verwaltungscenter](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***
 
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.
 
@@ -142,7 +142,7 @@ Mit den folgenden Schritten erstellen Sie zwei Testbenutzer. Anschließend werde
 5. Klicken Sie auf **group1**, und klicken Sie dann unter dem Bereich **Aufgaben** auf **Eigenschaften**.
 6. Klicken Sie auf **Mitglieder**, klicken Sie auf **Hinzufügen**, geben Sie **test1;test2**ein, und klicken Sie dann auf **OK**.
 
-![Einführung in AD Admin center](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***
+![Einführung in Active Directory-Verwaltungscenter](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***
 
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.
 
@@ -159,7 +159,7 @@ Add-ADGroupMember -Identity group1 -Member test1
 
    - **NameOU1**
 
-![Einführung in AD Admin center](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***
+![Einführung in Active Directory-Verwaltungscenter](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***
 
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.
 
@@ -167,7 +167,6 @@ Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vor
 1..2 | ForEach-Object {New-ADUser -SamAccountName test$_ -Name "test$_" -Path "DC=fabrikam,DC=com" -AccountPassword (ConvertTo-SecureString -AsPlainText "p@ssword1" -Force) -Enabled $true}
 New-ADGroup -Name "group1" -SamAccountName group1 -GroupCategory Security -GroupScope Global -DisplayName "group1"
 New-ADOrganizationalUnit -Name OU1 -Path "DC=fabrikam,DC=com"
-
 ```
 
 ### <a name="bkmk_restore_del_obj"></a>Schritt 4: Wiederherstellen gelöschter Objekte
@@ -182,7 +181,7 @@ In den folgenden Anleitungen stellen Sie gelöschte Objekte aus dem Container **
 
 3. Wählen Sie die Benutzer **test1** und **test2**aus, klicken Sie auf **Löschen** im Bereich **Aufgaben** , und klicken Sie dann auf **Ja** , um den Löschvorgang zu bestätigen.
 
-    ![Einführung in AD Admin center](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***
+    ![Einführung in Active Directory-Verwaltungscenter](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***
 
     Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.
 
@@ -199,7 +198,7 @@ In den folgenden Anleitungen stellen Sie gelöschte Objekte aus dem Container **
 
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.
 
-![Einführung in AD Admin center](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***
+![Einführung in Active Directory-Verwaltungscenter](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***
 
 ```powershell
 Get-ADObject -Filter 'Name -Like "*test*"' -IncludeDeletedObjects | Restore-ADObject
@@ -219,7 +218,7 @@ Get-ADObject -Filter 'Name -Like "*test*"' -IncludeDeletedObjects | Restore-ADOb
 
 6. Wenn Sie sich davon überzeugen möchten, dass die Objekte in **OU1** wiederhergestellt wurden, navigieren Sie zu der Zieldomäne, doppelklicken Sie auf **OU1** und überprüfen Sie, dass die Benutzerkonten dort aufgeführt sind.
 
-![Einführung in AD Admin center](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***
+![Einführung in Active Directory-Verwaltungscenter](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***
 
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.
 
@@ -274,7 +273,7 @@ Im folgenden Verfahren werden Sie die Domänenfunktionsebene der Zieldomäne auf
 
 3. Klicken Sie auf die Zieldomäne im linken Navigationsbereich, und klicken Sie im **Aufgabenbereich** auf **Domänenfunktionsebene heraufstufen**. Wählen Sie eine Gesamtstrukturfunktionsebene, die mindestens WindowsServer 2008 oder höher, und klicken Sie dann auf **OK**.
 
-![Einführung in AD Admin center](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***
+![Einführung in Active Directory-Verwaltungscenter](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***
 
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.
 
@@ -310,7 +309,7 @@ In der folgenden Anleitung erstellen Sie mithilfe der grafischen Benutzeroberfl�
 
 6. Klicken Sie auf **OK** , um die Erstellung zu übermitteln.
 
-![Einführung in AD Admin center](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***
+![Einführung in Active Directory-Verwaltungscenter](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***
 
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.
 
@@ -335,7 +334,7 @@ Im folgenden Verfahren zeigen Sie an, die kennworteinstellungen für einen Benut
 
 5. Überprüfen Sie die Kennworteinstellungsrichtlinie, und klicken Sie dann auf **Abbrechen**.
 
-![Einführung in AD Admin center](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***
+![Einführung in Active Directory-Verwaltungscenter](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***
 
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.
 
@@ -361,7 +360,7 @@ Im folgenden Verfahren bearbeiten Sie die differenzierte Kennwortrichtlinie, die
 
 6. Klicken Sie auf **OK**.
 
-![Einführung in AD Admin center](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***
+![Einführung in Active Directory-Verwaltungscenter](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***
 
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.
 
@@ -387,7 +386,7 @@ Set-ADFineGrainedPasswordPolicy TestPswd -PasswordHistoryCount:"30"
 
 7. Klicken Sie im Bestätigungsdialogfeld auf **OK**.
 
-![Einführung in AD Admin center](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)Windows PowerShell entsprechende Befehle ***
+![Einführung in Active Directory-Verwaltungscenter](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>gleichwertige Windows PowerShell-Befehle</em>***
 
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.
 

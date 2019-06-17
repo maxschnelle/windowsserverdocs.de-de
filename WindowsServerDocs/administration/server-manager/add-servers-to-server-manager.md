@@ -14,12 +14,12 @@ ms.author: coreyp
 manager: dongill
 ms.localizationpriority: medium
 ms.date: 02/01/2018
-ms.openlocfilehash: a663e7dbb3ee84c09fc14ba23a50e6de16c4c7b5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: a47ecbc0c7359438ed60ed34c94adf0096b14967
+ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840691"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66435449"
 ---
 # <a name="add-servers-to-server-manager"></a>Hinzufügen von Servern zu Server-Manager
 
@@ -31,9 +31,9 @@ In diesem Thema wird beschrieben, wie Sie dem Server-Manager-Serverpool Server h
 
 > [!NOTE]
 > Bei unseren Tests lassen sich mit dem Server-Manager in Windows Server 2012 und späteren Versionen von Windows Server bis zu 100 Server verwalten, die mit einer typischen Arbeitsauslastung konfiguriert sind. Die Anzahl der Server, die Sie mit einer einzelnen Server-Manager-Konsole verwalten können, kann von der Datenmenge abhängig sein, die Sie von den verwalteten Servern anfordern, sowie von den Hardware- und Netzwerkressourcen, die für den Computer mit dem Server-Manager zur Verfügung stehen. Wenn die anzuzeigende Datenmenge die Ressourcenkapazität des Computers erreicht, kann es zu langsamen Reaktionszeiten des Server-Managers und Verzögerungen bei der Durchführung von Aktualisierungen kommen. Um die Anzahl der Server zu erhöhen, die Sie mit dem Server-Manager verwalten können, sollten Sie die Ereignisdaten, die der Server-Manager von den verwalteten Servern empfängt, über das Dialogfeld **Ereignisdaten konfigurieren** beschränken. Sie können das Dialogfeld über das Menü **Aufgaben** in der Kachel **Ereignisse** öffnen. Wenn Sie in Ihrer Organisation eine organisationsübergreifende Anzahl von Servern verwalten müssen, wird empfohlen, die Produkte in der [Microsoft System Center-Suite](https://go.microsoft.com/fwlink/p/?LinkId=239437) auszuwerten.
->
+> 
 > Server-Manager kann von Servern unter Windows Server 2003 nur den Online- oder Offlinestatus empfangen. Obwohl Sie Server-Manager zum Ausführen von Verwaltungsaufgaben auf Servern unter Windows Server 2008 R2 oder Windows Server 2008 verwenden können, können Sie keine Rollen und Features auf Server hinzufügen, auf denen Windows Server 2008 R2, Windows Server 2008 oder Windows Server 2003 ausgeführt wird.
-
+> 
 > Server-Manager kann nicht verwendet werden, um eine neuere Version des Betriebssystems Windows Server zu verwalten. Server-Manager auf Windows Server 2012 R2, Windows Server 2012, Windows 8.1 oder Windows 8 kann nicht verwendet werden, um Server unter Windows Server 2016 zu verwalten.
 
 Dieses Thema enthält die folgenden Abschnitte:
@@ -124,7 +124,7 @@ Diese oder ähnliche Fehler können unter den folgenden Bedingungen auftreten.
 
     Wenn sich die beiden Computer im gleichen Subnetz befinden oder wenn das Netzwerkprofil des Arbeitsgruppenservers im **Netzwerk- und Freigabecenter** auf **Privat** gesetzt ist, fahren Sie mit dem nächsten Schritt fort.
 
-    Wenn sie sich nicht im gleichen Subnetz befinden oder wenn das Netzwerkprofil des Arbeitsgruppenservers nicht auf **Privat** gesetzt ist, ändern Sie auf dem Arbeitsgruppenserver in der Windows-Firewall die eingehende Einstellung **Windows-Remoteverwaltung (HTTP eingehend)**, um Verbindungen von Remotecomputern explizit zuzulassen. Fügen Sie hierzu die Computernamen auf der Registerkarte **Computer** im Dialogfeld **Eigenschaften** der Einstellung hinzu.
+    Wenn sie sich nicht im gleichen Subnetz befinden oder wenn das Netzwerkprofil des Arbeitsgruppenservers nicht auf **Privat** gesetzt ist, ändern Sie auf dem Arbeitsgruppenserver in der Windows-Firewall die eingehende Einstellung **Windows-Remoteverwaltung (HTTP eingehend)** , um Verbindungen von Remotecomputern explizit zuzulassen. Fügen Sie hierzu die Computernamen auf der Registerkarte **Computer** im Dialogfeld **Eigenschaften** der Einstellung hinzu.
 
 3.  > [!IMPORTANT]
     > Durch das Ausführen des Cmdlets in diesem Schritt werden Mechanismen der Benutzerkontensteuerung außer Kraft gesetzt, die die Ausführung von Prozessen mit erhöhen Rechten auf Arbeitsgruppencomputern verhindern, sofern die Prozesse nicht über das integrierte Administrator- oder Systemkonto ausgeführt werden. Das Cmdlet ermöglicht es, dass Mitglieder der Administratorengruppe den Arbeitsgruppenserver verwalten, ohne dass sie sich über das integrierte Administratorkonto anmelden müssen. Wenn zusätzlichen Benutzern das Verwalten des Arbeitsgruppenservers ermöglicht wird, kann dies die Sicherheit des Servers herabsetzen. Diese Vorgehensweise ist jedoch sicherer, als die Anmeldeinformationen des integrierten Administratorkontos möglicherweise einer ganzen Gruppe von Personen zur Verfügung zu stellen, die für die Verwaltung des Arbeitsgruppenservers zuständig sind.
@@ -155,7 +155,7 @@ Diese oder ähnliche Fehler können unter den folgenden Bedingungen auftreten.
 
     Wenn sich die beiden Computer im gleichen Subnetz befinden oder wenn das Netzwerkprofil des Arbeitsgruppencomputers im **Netzwerk- und Freigabecenter** auf **Privat** gesetzt ist, fahren Sie mit dem nächsten Schritt fort.
 
-    Wenn sie sich nicht im gleichen Subnetz befinden oder wenn das Netzwerkprofil des Arbeitsgruppencomputers nicht auf **Privat** gesetzt ist, ändern Sie auf dem Arbeitsgruppencomputer, auf dem Server-Manager ausgeführt wird, in der Windows-Firewall die eingehende Einstellung **Windows-Remoteverwaltung (HTTP eingehend)**, um Verbindungen von Remotecomputern explizit zuzulassen. Fügen Sie hierzu die Computernamen auf der Registerkarte **Computer** im Dialogfeld **Eigenschaften** der Einstellung hinzu.
+    Wenn sie sich nicht im gleichen Subnetz befinden oder wenn das Netzwerkprofil des Arbeitsgruppencomputers nicht auf **Privat** gesetzt ist, ändern Sie auf dem Arbeitsgruppencomputer, auf dem Server-Manager ausgeführt wird, in der Windows-Firewall die eingehende Einstellung **Windows-Remoteverwaltung (HTTP eingehend)** , um Verbindungen von Remotecomputern explizit zuzulassen. Fügen Sie hierzu die Computernamen auf der Registerkarte **Computer** im Dialogfeld **Eigenschaften** der Einstellung hinzu.
 
 3.  Öffnen Sie auf dem Computer, auf dem Server-Manager ausgeführt wird, die Seite **Alle Server**.
 
