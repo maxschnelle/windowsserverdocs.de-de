@@ -8,12 +8,12 @@ ms.date: 02/13/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: 856eb7c2c2dfe0e0e3300fcf826e75b56258dc1b
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 879a87d4383d07e37227ecf6fffa5d002a77bbc0
+ms.sourcegitcommit: 214e827934e7b3e8987e9e0ab2cf00047d332c89
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447651"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67153315"
 ---
 # <a name="use-storage-migration-service-to-migrate-a-server"></a>Verwenden von Storage-Migration-Dienst zum Migrieren eines Servers
 
@@ -35,7 +35,7 @@ Bevor Sie beginnen, installieren Sie Storage Migration-Dienst aus, und stellen S
     - Windows-Verwaltungsinstrumentation (WMI-In)
 
    > [!NOTE]
-   > Wenn Sie Firewalls von Drittanbietern verwenden, sind die Bereiche der eingehende Port zu öffnen, TCP/445 (SMB), TCP/135 (RPC/DCOM-endpunktzuordnung) und TCP (kurzlebige Ports der RPC/DCOM) zwischen 1025 und 65535.
+   > Wenn Sie Firewalls von Drittanbietern verwenden, sind die Bereiche der eingehende Port zu öffnen, TCP/445 (SMB), TCP/135 (RPC/DCOM-endpunktzuordnung) und TCP (kurzlebige Ports der RPC/DCOM) zwischen 1025 und 65535. Die Storage-Migration-Dienst-Ports sind TCP/28940 (Orchestrator) und TCP/28941 (Proxy).
 
 1. Wenn Sie einen Orchestrator-Server verwenden sind, um die Migration zu verwalten und Sie herunterladen, Ereignisse oder ein Protokoll darüber, welche Daten Sie übertragen möchten, überprüfen Sie, dass die Datei- und Druckerfreigabe (SMB eingehend)-Firewall-Regel auf dem Server ebenfalls aktiviert ist.
 
