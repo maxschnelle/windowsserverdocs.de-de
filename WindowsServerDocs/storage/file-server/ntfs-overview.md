@@ -6,18 +6,18 @@ ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 ms.technology: storage
-ms.date: 09/06/2018
+ms.date: 06/17/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: f85e321381adcf607c3504005a0a3448ab0f098a
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: 2e45fd1eb13044fdf0ba0f66a6e909a3f2d39bc3
+ms.sourcegitcommit: 6fec3ca19ddaecbc936320d98cca0736dd8505d1
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63738445"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67196169"
 ---
 # <a name="ntfs-overview"></a>NTFS-Übersicht
 
->Gilt für: Windows 10, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
+>Gilt für: Windows 10, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
 NTFS – das primäre Dateisystem für neuere Versionen von Windows und Windows Server – bietet ein breites Spektrum an Funktionen, einschließlich Sicherheitsdeskriptoren, Verschlüsselung, Datenträgerkontingente und Extraktion umfangreicher Metadaten und kann mit freigegebenen Clustervolumes (CSV) verwendet werden, um fortlaufend bereitzustellen. Verfügbare Volumes, die gleichzeitig von mehreren Knoten eines Failoverclusters zugegriffen werden können.
 
@@ -93,8 +93,11 @@ Wenn der Speicherplatz auf einem Volume beschränkt ist, bietet NTFS die folgend
 
 ## <a name="additional-information"></a>Weitere Informationen
 
-|Inhaltstyp|Verweise|
-|---|---|
-|Bewertung|- [Neues in NTFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn466520(v%3dws.11)) (Windows Server 2012 R2)<br>- [Neues in NTFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff383236(v=ws.10)) (Windows Server 2008 R2, Windows 7)<br>- [NTFS-Integrität und Chkdsk](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831536(v%3dws.11))<br>- [Selbst heilen NTFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771388(v=ws.10)) (eingeführt in Windows Server 2008)<br>- [Transaktions-NTFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc730726(v%3dws.10)) (eingeführt in Windows Server 2008)|
-|Communityressourcen|- [Windows-Speicherteams](https://blogs.msdn.microsoft.com/san/)|
-|Verwandte Technologien|- [Speicher in WindowsServer](../storage.md)<br>- [Verwenden freigegebener Clustervolumes in einem Failovercluster](../../failover-clustering/failover-cluster-csvs.md)<br>– Die [freigegebene Clustervolumes](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831630(v%3dws.11)#cluster-shared-volumes>) und [Speicherentwurf](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831630(v%3dws.11)#storage-design>) Teile [Entwerfen einer Cloudinfrastruktur](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831630(v%3dws.11)) <br>- [Speicherplätze](../storage-spaces/overview.md)<br>- [Robustes Dateisystem (ReFS): Übersicht](../refs/refs-overview.md)
+- [Die empfohlenen Größen für ReFS und die NTFS-Cluster](https://techcommunity.microsoft.com/t5/Storage-at-Microsoft/Cluster-size-recommendations-for-ReFS-and-NTFS/ba-p/425960)
+- [Robustes Dateisystem (ReFS): Übersicht](../refs/refs-overview.md)
+- [Neues in NTFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn466520(v%3dws.11)) (Windows Server 2012 R2)
+- [Neues in NTFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff383236(v=ws.10)) (Windows Server 2008 R2, Windows 7)
+- [NTFS-Integrität und Chkdsk](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831536(v%3dws.11))
+- [Selbst heilen NTFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771388(v=ws.10)) (eingeführt in Windows Server 2008)
+- [Transaktions-NTFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc730726(v%3dws.10)) (eingeführt in Windows Server 2008)
+- [Speicher in WindowsServer](../storage.md)
