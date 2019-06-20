@@ -9,12 +9,12 @@ ms.date: 10/16/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: networking
-ms.openlocfilehash: 6722d537c85ce913080224f229f2889e47f41274
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 721816c650adc21109cbfd065f29b694fb6c830f
+ms.sourcegitcommit: a3c9a7718502de723e8c156288017de465daaf6b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812347"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67263042"
 ---
 # <a name="windows-time-service-tools-and-settings"></a>Windows-Zeitdienst: Tools und Einstellungen
 >Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10 oder höher
@@ -199,25 +199,30 @@ Die folgenden Registrierungseinträge müssen hinzugefügt werden, um W32Time-Pr
 #### <a name="maxallowedphaseoffset-information"></a>Max. zugelassener Phasenoffset-Informationen
 In der Reihenfolge für W32Time die Computeruhr allmählich festgelegt, der Offset muss kleiner als der **Max. zugelassener Phasenoffset** Wert ein, und erfüllen Sie die folgende Gleichung zur gleichen Zeit:  
 
-```  
-|CurrentTimeOffset| / (PhaseCorrectRate*UpdateInterval) < SystemClockRate / 2  
-``` 
-Die CurrentTimeOffset wird in Teilstrichen, gemessen, in denen 1 ms = 10.000 Teilstriche auf einem Windows-System Uhr.  
+* Windows Server 2016 und höher:
+   ```  
+    |CurrentTimeOffset| / (16*PhaseCorrectRate*pollIntervalInSeconds) <= SystemClockRate / 2  
+   ``` 
+* Windows Server 2012 R2 und früheren Versionen:
+   ```  
+   |CurrentTimeOffset| / (PhaseCorrectRate*UpdateInterval) <= SystemClockRate / 2  
+   ``` 
+Die **CurrentTimeOffset** Wert in Zeiteinheiten, wobei 1 ms = 10.000 auf einem Windows-System Teilstrichen gemessen wird.  
 
-SystemClockRate und PhaseCorrectRate werden auch in Zeiteinheiten gemessen. Rufen Sie die SystemClockRate können Sie mithilfe des folgenden Befehls und Konvertieren von Sekunden in Ticks, die mit der Formel Sekunden clock * 1000\*10000:  
+**SystemClockRate** und **PhaseCorrectRate** werden auch in Zeiteinheiten gemessen. Zum Abrufen der **SystemClockRate** Wert können Sie den folgenden Befehl und Konvertieren von, Teilstrichen, Sekunden mithilfe der Formel Sekunden * 1000\*10000:  
 
 ```  
 W32tm /query /status /verbose  
 ClockRate: 0.0156000s  
 ```  
 
-SystemclockRate ist die Rate der Uhr auf dem System. Verwenden Sie als Beispiel 156000 Sekunden ein, die SystemclockRate würde werden = 0.0156000 \* 1000 \* 10000 = 156000 Zeiteinheiten.  
+**SystemclockRate** ist die Rate der Uhr auf dem System. Mithilfe von 156000 Sekunden als Beispiel die **SystemclockRate** Wert würde 0.0156000 = werden \* 1000 \* 10000 = 156000 Zeiteinheiten.  
 
-Max. zugelassener Phasenoffset ist auch in Sekunden. Multiplizieren Sie zum konvertieren, um die Uhr Ticks Max. zugelassener Phasenoffset * 1000\*10000.  
+**Max. zugelassener Phasenoffset** wird auch in Sekunden angegeben. Multiplizieren Sie zum konvertieren, um die Uhr Ticks **Max. zugelassener Phasenoffset**\*1000\*10000.  
 
-Die beiden folgenden Beispiele zeigen, wie anwenden  
+Die folgenden Beispiele zeigen, wie diese Berechnungen angewendet wird, wenn Sie Windows Server 2012 R2 oder eine frühere Version verwenden.
 
-**Beispiel 1**: Zeit unterscheidet sich von 4 Minuten (z. B. die Zeit ist 11:05 Uhr und die Time-Beispiel von einem Peer empfangen und korrekt sind der Meinung, dass 11:09 Uhr ist).
+**Beispiel 1**: Zeit unterscheidet sich von 4 Minuten (z. B. die Zeit ist 11:05 und das Time-Beispiel, das Sie von einem Peer empfangen und korrekt sind der Meinung sind, wird 11:09).
   
 ```
 phasecorrectRate = 1  
@@ -230,19 +235,19 @@ MaxAllowedPhaseOffset = 10min = 600 seconds = 600*1000\*10000=6000000000 clock t
 
 |currentTimeOffset| = 4mins = 4*60\*1000\*10000 = 2400000000 ticks  
 
-Is CurrentTimeOffset < MaxAllowedPhaseOffset?  
+Is CurrentTimeOffset <= MaxAllowedPhaseOffset?  
 
-2400000000 < 6000000000 = TRUE  
+2400000000 <= 6000000000 = TRUE  
 ```
 
 UND es erfüllt die oben aufgeführten Gleichung? 
 
 ```
-(|CurrentTimeOffset| / (PhaseCorrectRate*UpdateInterval) < SystemClockRate / 2)  
+(|CurrentTimeOffset| / (PhaseCorrectRate*UpdateInterval) <= SystemClockRate / 2)  
 
-Is 2,400,000,000 / (30000*1) < 156000/2  
+Is 2,400,000,000 / (30000*1) <= 156000/2  
 
-Is 80,000 < 78,000  
+Is 80,000 <= 78,000  
 
 NO/FALSE  
 ```  
@@ -250,7 +255,7 @@ NO/FALSE
 Aus diesem Grund würde W32tm Uhr sofort zurückgesetzt.  
 
 > [!NOTE]  
-> Wenn die Uhr wieder langsam zurückgestellt werden sollen, müssen Sie in diesem Fall würde passen Sie die Werte der PhaseCorrectRate oder UpdateInterval in der Registrierung auch, um sicherzustellen, dass die Ergebnisse der Formel in "true".  
+> In diesem Fall wenn die Uhr wieder langsam zurückgestellt werden sollen, würde auch müssen Sie die Werte der anpassen **PhaseCorrectRate** oder **UpdateInterval** in der Registrierung, um sicherzustellen, dass das Ergebnis der Gleichung **"True"** .  
 
 **Beispiel 2**: Zeit unterscheidet sich von 3 Minuten. 
  
@@ -265,19 +270,19 @@ MaxAllowedPhaseOffset = 10min = 600 seconds = 600*1000\*10000=6000000000 clock t
 
 currentTimeOffset = 3mins = 3*60\*1000\*10000 = 1800000000 clock ticks  
 
-Is CurrentTimeOffset < MaxAllowedPhaseOffset?  
+Is CurrentTimeOffset <= MaxAllowedPhaseOffset?  
 
-1800000000 < 6000000000 = TRUE  
+1800000000 <= 6000000000 = TRUE  
 ```  
 
 UND es erfüllt die oben aufgeführten Gleichung?
 
 ```
-(|CurrentTimeOffset| / (PhaseCorrectRate*UpdateInterval) < SystemClockRate / 2)  
+(|CurrentTimeOffset| / (PhaseCorrectRate*UpdateInterval) <= SystemClockRate / 2)  
 
-Is 3 mins (1,800,000,000) / (30000*1) < 156000/2  
+Is 3 mins (1,800,000,000) / (30000*1) <= 156000/2  
 
-Is 60,000 < 78,000  
+Is 60,000 <= 78,000  
 
 YES/TRUE  
 ```  
