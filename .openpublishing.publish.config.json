@@ -7,7 +7,7 @@
       "build_output_subfolder": "WindowsServerDocs-VSTS",
       "locale": "de-DE",
       "monikers": [],
-      "open_to_public_contributors": true,
+      "open_to_public_contributors": false,
       "type_mapping": {
         "Conceptual": "Content",
         "ManagedReference": "Content",
