@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ras
+ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 570c81d6-c4f4-464c-bee9-0acbd4993584
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 35b008b12cde28391876f914f25002ce8cb8d56c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 7fafc2e95f30a3956a1e2fdfcdf2f368a1798d28
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59822651"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280961"
 ---
 # <a name="troubleshooting-enabling-multisite"></a>Behandeln von Problemen beim Aktivieren der Funktionen für mehrere Standorte
 
@@ -52,7 +51,7 @@ So konfigurieren Sie die Computerzertifikatauthentifizierung:
   
 1.  Klicken Sie in der Remotezugriffs-Verwaltungskonsole im Detailbereich in Schritt 2 **RAS-Server** auf **Bearbeiten**.  
   
-2.  Aktivieren Sie im Setup-Assistenten für den RAS-Server**** auf der Seite **Authentifizierung** das Kontrollkästchen **Computerzertifikate verwenden**, und wählen Sie die Stamm- oder Zwischenzertifizierungsstelle aus, von der Zertifikate in Ihrer Bereitstellung ausgestellt werden.  
+2.  Aktivieren Sie im **Setup-Assistenten für den RAS-Server** auf der Seite **Authentifizierung** das Kontrollkästchen **Computerzertifikate verwenden**, und wählen Sie die Stamm- oder Zwischenzertifizierungsstelle aus, von der Zertifikate in Ihrer Bereitstellung ausgestellt werden.  
   
 Verwenden Sie zum Aktivieren der Computerzertifikatauthentifizierung mithilfe von Windows PowerShell die `Set-DAServer` Cmdlet, und geben Sie die *IPsecRootCertificate* Parameter.  
   
@@ -69,7 +68,7 @@ So wählen Sie ein IP-HTTPS-Zertifikat aus:
   
 1.  Klicken Sie in der Remotezugriffs-Verwaltungskonsole im Detailbereich in Schritt 2 **RAS-Server** auf **Bearbeiten**.  
   
-2.  Stellen Sie sicher, dass im Setup-Assistenten für den RAS-Server **** auf der Seite **Netzwerkadapter** unter **Wählen Sie das Zertifikat aus, mit dem IP-HTTPS-Verbindungen authentifiziert werden:** das Kontrollkästchen **Selbstsigniertes Zertifikat verwenden, das von DirectAccess automatisch erstellt wurde** deaktiviert ist, und klicken Sie auf **Durchsuchen**, um ein von einer vertrauenswürdigen Zertifizierungsstelle ausgestelltes Zertifikat auszuwählen.  
+2.  Stellen Sie sicher, dass im **Setup-Assistenten für den RAS-Server** auf der Seite **Netzwerkadapter** unter **Wählen Sie das Zertifikat aus, mit dem IP-HTTPS-Verbindungen authentifiziert werden:** das Kontrollkästchen **Selbstsigniertes Zertifikat verwenden, das von DirectAccess automatisch erstellt wurde** deaktiviert ist, und klicken Sie auf **Durchsuchen**, um ein von einer vertrauenswürdigen Zertifizierungsstelle ausgestelltes Zertifikat auszuwählen.  
   
 ## <a name="network-location-server"></a>Netzwerkadressenserver  
   
@@ -87,7 +86,7 @@ So wählen Sie ein IP-HTTPS-Zertifikat aus:
   
     1.  Klicken Sie in der Remotezugriffs-Verwaltungskonsole im Detailbereich in Schritt 3 **Infrastrukturserver** auf **Bearbeiten**.  
   
-    2.  Stellen Sie sicher, dass im **** Assistenten zum Einrichten des Infrastrukturservers auf der Seite **Netzwerkadressenserver** unter **Der Netzwerkadressenserver wird auf dem RAS-Server bereitgestellt.** das Kontrollkästchen **Selbstsigniertes Zertifikat verwenden** deaktiviert ist, und klicken Sie auf **Durchsuchen**, um ein von einer Unternehmenszertifizierungsstelle ausgestelltes Zertifikat auszuwählen.  
+    2.  Stellen Sie sicher, dass im **Assistenten zum Einrichten** des Infrastrukturservers auf der Seite **Netzwerkadressenserver** unter **Der Netzwerkadressenserver wird auf dem RAS-Server bereitgestellt.** das Kontrollkästchen **Selbstsigniertes Zertifikat verwenden** deaktiviert ist, und klicken Sie auf **Durchsuchen**, um ein von einer Unternehmenszertifizierungsstelle ausgestelltes Zertifikat auszuwählen.  
   
 -   **Problem 2**  
   
@@ -105,7 +104,7 @@ So wählen Sie ein IP-HTTPS-Zertifikat aus:
   
     1.  Klicken Sie in der Remotezugriffs-Verwaltungskonsole im Detailbereich in Schritt 3 **Infrastrukturserver** auf **Bearbeiten**.  
   
-    2.  Klicken Sie im **** Assistenten zum Einrichten des Infrastrukturservers auf der Seite **Netzwerkadressenserver** unter **Der Netzwerkadressenserver wird auf dem RAS-Server bereitgestellt.** auf **Durchsuchen**, um das zuvor abgerufene Zertifikat auszuwählen. Das Zertifikat muss einen Antragstellernamen enthalten, der sich vom internen Namen des RAS-Servers unterscheidet.  
+    2.  Klicken Sie im **Assistenten zum Einrichten** des Infrastrukturservers auf der Seite **Netzwerkadressenserver** unter **Der Netzwerkadressenserver wird auf dem RAS-Server bereitgestellt.** auf **Durchsuchen**, um das zuvor abgerufene Zertifikat auszuwählen. Das Zertifikat muss einen Antragstellernamen enthalten, der sich vom internen Namen des RAS-Servers unterscheidet.  
   
 ## <a name="windows-7-client-computers"></a>Windows 7-Clientcomputer  
 **Empfangene Warnung**. Wenn Sie für mehrere Standorte aktivieren, müssen für DirectAccess-Clients konfigurierten Sicherheitsgruppen keine Windows 7-Computer enthalten. Wählen Sie eine Sicherheitsgruppe aus, die die Clients für die einzelnen Einstiegspunkte enthält, damit Clientcomputer mit Windows 7 in einer Bereitstellung mit mehreren Standorten unterstützt werden.  

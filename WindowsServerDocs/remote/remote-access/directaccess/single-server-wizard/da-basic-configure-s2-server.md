@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 82bf5fed-93b3-4fa6-8e71-522146eccdb1
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 9983fb475143109d191f3b6d69afef48d109472a
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 5bd248e36c316b11ea5e272707b75624d73dc49a
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446953"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283427"
 ---
 # <a name="step-2-configure-the-basic-directaccess-server"></a>Schritt 2 der grundlegenden DirectAccess-Server konfigurieren
 
@@ -112,13 +111,13 @@ Installieren die Rolle "Remotezugriff" die folgenden Windows PowerShell-Cmdlets:
   
 3.  Warten Sie, bis die Computerrichtlinien erfolgreich aktualisiert wurden.  
   
-4.  Geben Sie **Get-DnsClientNrptPolicy** ein, und drücken Sie die EINGABETASTE **** .  
+4.  Geben Sie **Get-DnsClientNrptPolicy** ein, und drücken Sie die **EINGABETASTE**.  
   
     Die Einträge in der Richtlinientabelle für die Namensauflösung (Name Resolution Policy Table, NRPT) für Direct Access werden angezeigt. Beachten Sie, dass die NLS-Serverausnahme angezeigt wird. Der Assistent für erste Schritte hat diesen DNS-Eintrag für den DirectAccess-Server automatisch erstellt und ein zugehöriges selbstsigniertes Zertifikat bereitgestellt, sodass der DirectAccess-Server als Netzwerkadressenserver fungieren kann.  
   
-5.  Geben Sie **Get-NCSIPolicyConfiguration** ein, und drücken Sie dann die EINGABETASTE **** . Die vom Assistenten bereitgestellten Einstellungen für die Statusanzeige der Netzwerkkonnektivität werden angezeigt. Achten Sie auf den Wert von %%amp;quot;DomainLocationDeterminationURL%%amp;quot;. Sobald auf diese Netzwerkadressenserver-URL zugegriffen werden kann, ermittelt der Client, dass sie sich innerhalb des Unternehmensnetzwerks befindet, und die NRPT-Einstellungen werden nicht angewendet.  
+5.  Geben Sie **Get-NCSIPolicyConfiguration** ein, und drücken Sie dann die **EINGABETASTE**. Die vom Assistenten bereitgestellten Einstellungen für die Statusanzeige der Netzwerkkonnektivität werden angezeigt. Achten Sie auf den Wert von %%amp;quot;DomainLocationDeterminationURL%%amp;quot;. Sobald auf diese Netzwerkadressenserver-URL zugegriffen werden kann, ermittelt der Client, dass sie sich innerhalb des Unternehmensnetzwerks befindet, und die NRPT-Einstellungen werden nicht angewendet.  
   
-6.  Geben Sie **Get-DAConnectionStatus**, und drücken Sie dann die EINGABETASTE **** . Da der Client die Netzwerkadressenserver-URL erreichen kann, wird der Status **Lokal verbunden** angezeigt.  
+6.  Geben Sie **Get-DAConnectionStatus**, und drücken Sie dann die **EINGABETASTE**. Da der Client die Netzwerkadressenserver-URL erreichen kann, wird der Status **Lokal verbunden** angezeigt.  
   
 ## <a name="BKMK_Links"></a>Vorherigen Schritt  
   

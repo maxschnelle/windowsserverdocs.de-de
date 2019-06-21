@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ras
+ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: dcc1037f-1a65-4497-99e6-0df9aef748a8
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: d4dfd37e2e8d87dafe6de4e03caf7464e3f0ee6c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 51f49364aa4e7a6da6c51b1d8b7da7e37f842190
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59820461"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67282565"
 ---
 # <a name="troubleshooting-adding-entry-points"></a>Beheben von Problemen beim Hinzufügen von Einstiegspunkten
 
@@ -105,7 +104,7 @@ Die ConnectTo-Adresse muss über das Internet aufgelöst werden können, damit C
 ## <a name="directaccess-or-vpn-already-installed"></a>DirectAccess oder VPN bereits installiert  
 **Fehler**. Auf dem Server < Servername > ist eine VPN-Installation gefunden. Geben Sie einen alternativen Server an, auf dem kein Remotezugriff installiert ist, oder entfernen Sie die VPN-Konfiguration vom Server.  
   
-Oder  
+oder  
   
 Remotezugriff ist bereits auf Server < Servername > installiert. Geben Sie einen alternativen Server an, auf dem DirectAccess nicht ausgeführt wird, oder entfernen Sie die vorhandene DirectAccess-Konfiguration vom Server.  
   
@@ -229,7 +228,7 @@ So erstellen Sie eine Ausnahme für eine Adresse in den NRPT-Regeln:
   
 1.  Klicken Sie in der Remotezugriffs-Verwaltungskonsole in Schritt 3 **Infrastrukturserver** auf **Bearbeiten**.  
   
-2.  Doppelklicken Sie im Assistenten zum Einrichten des Infrastrukturservers**** auf der Seite **DNS** auf die Tabelle, um ein neues Namenssuffix einzugeben.  
+2.  Doppelklicken Sie im Assistenten zum **Einrichten des Infrastrukturservers** auf der Seite **DNS** auf die Tabelle, um ein neues Namenssuffix einzugeben.  
   
 3.  Geben Sie im Dialogfeld **DNS-Serveradressen** unter %%amp;quot;DNS-Suffix%%amp;quot; die ConnectTo-Adresse des Einstiegspunkts ein, und klicken Sie auf **Übernehmen**.  
   
