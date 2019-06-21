@@ -8,12 +8,12 @@ author: johnmarlin-msft
 ms.date: 02/28/2019
 description: In diesem Artikel wird beschrieben, einen Failovercluster mit 2 Knoten mit derselben Hardware, aktualisieren
 ms.localizationpriority: medium
-ms.openlocfilehash: 77cde9e64fda385facd91d86483f4d7f749f30a1
-ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
+ms.openlocfilehash: 6787d852cc5075e306373a163814135190f27fd6
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66453050"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280243"
 ---
 # <a name="upgrading-failover-clusters-on-the-same-hardware"></a>Aktualisieren von Failoverclustern auf derselben hardware
 
@@ -25,7 +25,7 @@ Dieses Handbuch beschreibt die Schritte zum Aktualisieren der Clusterknoten 2019
 
 ## <a name="overview"></a>Übersicht
 
-Upgrade des Betriebssystems auf einem vorhandenen Failovercluster wird Cluster nur unterstützt, wenn Sie von Windows Server 2016 zur Windows-2019.  Wenn Sie der Failovercluster auf eine frühere Version ausgeführt wird, wird wie z. B. Windows Server 2012 R2 und früheren Versionen aktualisieren, während die Cluster-Dienste ausgeführt werden nicht zugelassen, Knoten verknüpfen.  Wenn Sie dieselbe Hardware verwenden zu können, können Maßnahmen ergriffen werden, um es auf die neuere Version zu erhalten.  
+Upgrade des Betriebssystems auf einem vorhandenen Failovercluster wird Cluster nur unterstützt, wenn Sie von Windows Server 2016 zur Windows-2019.  Wenn Sie der Failovercluster auf eine frühere Version, z. B. Windows Server 2012 R2 und früher ausgeführt wird lässt aktualisieren, während die Cluster-Dienste ausgeführt werden nicht Knoten verknüpfen.  Wenn Sie dieselbe Hardware verwenden zu können, können Maßnahmen ergriffen werden, um es auf die neuere Version zu erhalten.  
 
 Vor jedem Upgrade des Failoverclusters finden Sie in der [Windows Upgrade Center](https://www.microsoft.com/upgradecenter).  Wenn Sie eine Windows-Server direkt aktualisieren, verschieben Sie in einer neueren Version und verwenden dabei die gleiche Hardware von einer vorhandenen Betriebssystem-Version ein. Windows Server möglich aktualisierten direktes mindestens und manchmal zwei Versionen weiterleiten. Z. B. Windows Server 2012 R2 und Windows Server 2016 aktualisiert werden können direkt auf Windows Server-2019.  Außerdem Beachten Sie, dass die [Cluster Migration Wizard](https://blogs.msdn.microsoft.com/clustering/2012/06/25/how-to-move-highly-available-clustered-vms-to-windows-server-2012-with-the-cluster-migration-wizard/) kann verwendet werden, jedoch wird nur unterstützt, bis zu zwei Versionen zurück. Die folgende Grafik zeigt die Upgradepfade für Windows Server. Nach unten zeigenden Pfeil darstellen der unterstützte Upgradepfad von früheren Versionen bis 2019 für Windows-Server zu verschieben.
 

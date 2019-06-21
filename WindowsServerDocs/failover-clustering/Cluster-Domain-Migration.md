@@ -8,12 +8,12 @@ author: johnmarlin-msft
 ms.date: 01/18/2019
 description: Dieser Artikel beschreibt das Verschieben eines 2019 für Windows Server-Clusters von einer Domäne in eine andere
 ms.localizationpriority: medium
-ms.openlocfilehash: 1054de942e807f00586903683faeaf695ec2f033
-ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
+ms.openlocfilehash: 5d5aaa333d2e20fa25e4738e343f326d63f75c6b
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66452931"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280213"
 ---
 # <a name="failover-cluster-domain-migration"></a>Migration von Failover-Cluster
 
@@ -61,7 +61,7 @@ Die zweite Option ist weniger destruktiv jedoch zusätzliche Hardware erforderli
 Wie die Animation wird gezeigt, wird diese Option ist nicht zerstörerische jedoch erfordert entweder auf anderer Hardware oder auf einen Knoten aus dem vorhandenen Cluster als entfernt wurde.
 
 1. Erstellen Sie eine neue Clusterin der neuen Domäne, während Sie weiterhin den alten Cluster zur Verfügung.
-2. Verwenden der [Cluster Migration Wizard](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754481(v=ws.10)) alle Ressourcen für den neuen Cluster migrieren. Zur Erinnerung: Dies kopiert keine Daten, daher müssen separat ausgeführt werden.
+2. Verwenden der [Cluster Migration Wizard](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754481(v=ws.10)) alle Ressourcen für den neuen Cluster migrieren. Zur Erinnerung: Dies kopiert keine Daten, daher müssen separat ausgeführt werden.
 3. Außer Betrieb nehmen Sie, oder entfernen Sie den alten Cluster.
 
 Bei beiden Optionen müssen im neue Cluster, dass alle [clusterfähige Anwendungen](https://technet.microsoft.com/aa369082(v=vs.90)) installiert ist, Treiber, die alle auf dem neuesten Stand, und möglicherweise testen, um sicherzustellen, dass alle ordnungsgemäß ausgeführt wird.  Dies ist ein zeitaufwändiger Prozess, wenn die Daten auch verschoben werden müssen.

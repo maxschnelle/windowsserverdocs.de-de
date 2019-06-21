@@ -6,12 +6,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 11/21/2018
-ms.openlocfilehash: 274bdf027947ffb6fe807d4acd0a3b2174c20e28
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 39974806c02e55b37d3d16748c4ca0e3f361ee45
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59867451"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284110"
 ---
 # <a name="upgrade-a-guarded-fabric-to-windows-server-2019"></a>Upgrade eines überwachten Fabric auf Windows Server 2019
 
@@ -52,7 +52,7 @@ Es wird empfohlen, aktualisieren Ihren HGS-Cluster auf Windows Server-2019, vor 
 
 Aktualisieren Ihren HGS-Cluster erfordert, dass Sie vorübergehend entfernen einen Knoten aus dem Cluster zu einem Zeitpunkt während des Upgrades ist. Dies reduziert die Kapazität des Clusters zum Reagieren auf Anforderungen von den Hyper-V-Hosts und kann zu langsamen Reaktionszeiten kommt oder Ausfälle von Betriebssystemdiensten für Ihren Mandanten. Stellen Sie sicher, dass Sie ausreichenden Kapazität für Ihre Nachweis und die wichtigsten Release-Anforderungen zu verarbeiten, vor dem Upgrade eines HGS-Servers verfügen.
 
-Um Ihren HGS-Cluster zu aktualisieren, führen Sie die folgenden Schritte auf jedem Knoten des Clusters, pro Knoten zum Zeitpunkt:
+Um Ihren HGS-Cluster zu aktualisieren, führen Sie die folgenden Schritte auf jedem Knoten des Clusters, einen Knoten zu einem Zeitpunkt:
 
 1.  Entfernen Sie den HGS-Server aus dem Cluster mit `Clear-HgsServer` in einer PowerShell-Eingabeaufforderung mit erhöhten Rechten. Dieses Cmdlet entfernt die Host-Überwachungsdienst replizierte Speicher, Host-Überwachungsdienst-Websites und Knoten aus dem Failovercluster.
 2.  Wenn Sie Ihr HGS-Server ein Domänencontroller (Standardkonfiguration) ist, müssen Sie ausführen `adprep /forestprep` und `adprep /domainprep` auf dem ersten Knoten, die gerade aktualisiert wird, um die Domäne für ein Betriebssystemupgrade vorzubereiten. Finden Sie unter den [Active Directory Domain Services-upgradedokumentation](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/upgrade-domain-controllers#supported-in-place-upgrade-paths) für Weitere Informationen.
@@ -69,9 +69,9 @@ Set-HgsServerVersion  v2
 
 Bevor Sie den Hyper-V-Hosts Windows Server-2019 aktualisieren, stellen Sie sicher, dass es sich bei Ihrem Host-Überwachungsdienst-Cluster auf Windows Server-2019 bereits aktualisiert wird und dass Sie alle virtuellen Computer vom Hyper-V-Server verschoben haben.
 
-1.  Wenn Sie Windows Defender Application Control anwendungssteuerungscode-Integritätsrichtlinien auf dem Server (immer der Fall bei Verwendung von TPM-Nachweis) verwenden, stellen Sie sicher, dass die Richtlinie befindet sich entweder in der Überwachungsmodus aktiviert oder deaktiviert werden, bevor Sie versuchen, den Server zu aktualisieren. [Erfahren Sie, wie eine WDAC-Richtlinie deaktivieren](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/disable-windows-defender-application-control-policies)
+1.  Wenn Sie Windows Defender Application Control anwendungssteuerungscode-Integritätsrichtlinien auf dem Server (immer der Fall bei Verwendung von TPM-Nachweis) verwenden, stellen Sie sicher, dass die Richtlinie befindet sich entweder in der Überwachungsmodus aktiviert oder deaktiviert werden, bevor Sie versuchen, den Server zu aktualisieren. [Erfahren Sie, wie eine WDAC-Richtlinie deaktivieren](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/disable-windows-defender-application-control-policies)
 2.  Befolgen Sie die Anweisungen in der [Windows Server-Upgrade-Center](http://aka.ms/upgradecenter) Hosts an, um Windows Server-2019 zu aktualisieren. Wenn Ihre Hyper-V-Host Teil eines Failoverclusters ist, sollten Sie eine [Cluster Operating System Rolling Upgrade](../../failover-clustering/Cluster-Operating-System-Rolling-Upgrade.md).
-3.  [Testen und reaktivieren Sie](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/audit-windows-defender-application-control-policies) Ihre Windows Defender Application Control-Richtlinie, wenn Sie einen vor dem Upgrade aktiviert haben.
+3.  [Testen und reaktivieren Sie](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/audit-windows-defender-application-control-policies) Ihre Windows Defender Application Control-Richtlinie, wenn Sie einen vor dem Upgrade aktiviert haben.
 4.  Führen Sie `Get-HgsClientConfiguration` überprüft, ob **IsHostGuarded = True**, d. h. des Hosts Nachweis mit dem HGS-Server erfolgreich übergeben wird.
 5.  Wenn Sie TPM-Nachweis verwenden, müssen Sie möglicherweise auf [erfassen Sie die Integrität-Richtlinie für den TPM Baseline oder den Code erneut](guarded-fabric-add-host-information-for-tpm-trusted-attestation.md) nach dem Upgrade auf einen Nachweis erbringen.
 6.  Start ausführen abgeschirmter VMs auf dem Host wieder!

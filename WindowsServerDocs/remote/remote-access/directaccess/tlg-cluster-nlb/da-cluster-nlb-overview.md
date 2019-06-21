@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: cd1e9efd-19e9-49e7-8432-881f661c9792
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 118a07b761979d3c32a8f7cf4f149aed56a1a893
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a6d82713dfb12e6775402d29bfcebaa0ec8b066c
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59863581"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67281556"
 ---
 # <a name="overview-of-the-directaccess-cluster-nlb-test-lab-scenario"></a>Übersicht über das Testumgebungsszenario für DirectAccess-Cluster-NLB
 
@@ -40,7 +39,7 @@ In diesem Test Lab-Szenario wird DirectAccess mit bereitgestellt:
   
 -   **NAT1**– eine Client-Computer, der als ein Gerät Network Address (Translator, NAT) verwenden die gemeinsame Nutzung der Internetverbindung konfiguriert ist.  
   
--   **"Client1"**– eine Client-Computer, der als DirectAccess-Client konfiguriert ist, das verwendet wird, um die DirectAccess-Konnektivität zu testen, beim Verschieben zwischen dem internen Netzwerk, das simulierte Internet und einem Heimnetzwerk.  
+-   **"Client1"** – eine Client-Computer, der als DirectAccess-Client konfiguriert ist, das verwendet wird, um die DirectAccess-Konnektivität zu testen, beim Verschieben zwischen dem internen Netzwerk, das simulierte Internet und einem Heimnetzwerk.  
   
 Die-testumgebung besteht aus drei Subnetze, mit die Folgendes simuliert:  
   

@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d486735e-71fe-4443-9878-4b784cd588a7
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 2bb01cc21bde80b6f5a54b1b0c495e7248420f5c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: db8d2e6ffe8e3fae4723eb78cb9212a64fdb5711
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844521"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283551"
 ---
 # <a name="plan-an-advanced-directaccess-deployment"></a>Planen einer erweiterten DirectAccess-Bereitstellung
 
@@ -30,7 +29,7 @@ Dieses Thema enthält die Planungsschritte, die zur Bereitstellung eines einzeln
   
     In dieser Phase planen Sie Ihre Netzwerk- und Servertopologie, die Firewall-Einstellungen, die Zertifikatanforderungen, das DNS (Domain Name System), das Active Directory, die DirectAccess-Verwaltungsserver und den DirectAccess-Netzwerkadressenserver.  
   
--   [Schritt 2: Planen des erweiterten DirectAccess-Bereitstellungen](da-adv-plan-s2-deployments.md)  
+-   [Schritt 2: Planen erweiterter DirectAccess-Bereitstellungen](da-adv-plan-s2-deployments.md)  
   
     In dieser Phase planen Sie die Client- und Serverbereitstellung, einschließlich der DirectAccess-Infrastruktur und der Anwendungsserver.  
   

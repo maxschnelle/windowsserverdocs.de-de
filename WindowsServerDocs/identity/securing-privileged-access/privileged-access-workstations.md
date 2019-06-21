@@ -9,12 +9,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: mas
-ms.openlocfilehash: 846307e19324ab18f8bbfd84971108871b677aeb
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 9ac591d65fb84f3c0a8bbd33ca71c93daf892ced
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66445878"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280730"
 ---
 # <a name="privileged-access-workstations"></a>Arbeitsstationen mit privilegiertem Zugriff
 
@@ -96,7 +96,7 @@ In dieser Konfiguration werden tägliche Aufgaben, für die keine Administratorr
 
 Um dieses Setup zu konfigurieren, führen Sie die Schritte in dieser Anleitung für den PAW-Host aus, fügen Sie Hyper-V-Funktionen für Clients hinzu, erstellen Sie einen virtuellen Benutzercomputer, und installieren Sie dann ein Windows 10-Unternehmensimage auf dem virtuellen Benutzercomputer.
 
-Lesen Sie den Artikel [Hyper-V für Clients](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/index), um weitere Informationen zu dieser Funktion zu erhalten. Beachten Sie, dass das Betriebssystem auf virtuellen Gastcomputern gemäß der [Microsoft-Produktlizenzierung](https://www.microsoft.com/en-us/Licensing/product-licensing/products.aspx) lizenziert werden muss, die auch [hier](https://download.microsoft.com/download/9/8/D/98D6A56C-4D79-40F4-8462-DA3ECBA2DC2C/Licensing_Windows_Desktop_OS_for_Virtual_Machines.pdf) beschrieben wird.
+Lesen Sie den Artikel [Hyper-V für Clients](https://docs.microsoft.com/virtualization/hyper-v-on-windows/index), um weitere Informationen zu dieser Funktion zu erhalten. Beachten Sie, dass das Betriebssystem auf virtuellen Gastcomputern gemäß der [Microsoft-Produktlizenzierung](https://www.microsoft.com/en-us/Licensing/product-licensing/products.aspx) lizenziert werden muss, die auch [hier](https://download.microsoft.com/download/9/8/D/98D6A56C-4D79-40F4-8462-DA3ECBA2DC2C/Licensing_Windows_Desktop_OS_for_Virtual_Machines.pdf) beschrieben wird.
 
 #### <a name="simultaneous-use---adding-remoteapp-rdp-or-a-vdi"></a>Gleichzeitige Verwendung: Hinzufügen von RemoteApp, RDP oder einer VDI
 
@@ -138,7 +138,7 @@ Diese Methode eignet sich für Konten mit Zugriff auf hochwertige Assets:
 * **Information Worker mit hoher** -Ansatz wird in eine PAW bieten auch Schutz für streng vertrauliche Information Worker-Aufgaben und Mitarbeiter, die im Zusammenhang mit vor Ankündigung Zusammenführungs- sowie Kaufszenarien Aktivität Vorabversion Finanzberichte, Präsenz der Organisation in sozialen Medien, Kommunikation der Geschäftsleitung, noch nicht patentierte Geschäftsgeheimnisse, vertrauliche Recherchen oder andere vertrauliche oder sensiblen Daten. Der vorliegende Leitfaden erläutert nicht die detaillierte Konfiguration solcher Information Worker-Szenarien, auch wird das Szenario nicht in den technischen Anweisungen behandelt.
 
     > [!NOTE]
-    > Die Microsoft-IT-Abteilung verwendet PAWs (die intern als „Sichere Arbeitsstationen für Administratoren“ [Secure Admin Workstations, SAWs] bezeichnet werden), um den sicheren Zugriff auf diese wertvollen Microsoft-internen Systeme zu verwalten. Im Abschnitt „Verwendung von Arbeitsstationen für Administratoren bei Microsoft“ finden Sie weitere Informationen dazu, wie Microsoft PAWs einsetzt. Ausführlichere Informationen zu diesem Ansatz für eine Umgebung mit höchst wertvollen Assets finden Sie im Artikel [Schützen von wertvollen Assets mit sicheren Arbeitsstationen für Administratoren](https://msdn.microsoft.com/en-us/library/mt186538.aspx).
+    > Die Microsoft-IT-Abteilung verwendet PAWs (die intern als „Sichere Arbeitsstationen für Administratoren“ [Secure Admin Workstations, SAWs] bezeichnet werden), um den sicheren Zugriff auf diese wertvollen Microsoft-internen Systeme zu verwalten. Im Abschnitt „Verwendung von Arbeitsstationen für Administratoren bei Microsoft“ finden Sie weitere Informationen dazu, wie Microsoft PAWs einsetzt. Ausführlichere Informationen zu diesem Ansatz für eine Umgebung mit höchst wertvollen Assets finden Sie im Artikel [Schützen von wertvollen Assets mit sicheren Arbeitsstationen für Administratoren](https://msdn.microsoft.com/library/mt186538.aspx).
 
 Das vorliegende Dokument erläutert, warum diese Vorgehensweise zum Schutz von privilegierten Konten mit weitreichenden Berechtigungen empfohlen wird, wie diese PAW-Lösungen zum Schutz von Administratorrechten aussehen und wie Sie schnell eine PAW-Lösung für die Verwaltung von Domänen- und Clouddiensten bereitstellen.
 
@@ -857,7 +857,7 @@ Führen Sie die folgenden Schritte aus, um diese Phase zu konfigurieren:
 2. **Whitelist vertrauenswürdige Anwendungen, die mithilfe von Windows Defender Application Control "bzw." AppLocker**.  Indem Sie die Möglichkeit einschränken, dass nicht vertrauenswürdiger oder nicht signierter Code auf einer PAW ausgeführt wird, können Sie die Wahrscheinlichkeit schädlicher Aktivitäten und Gefährdungen weiter verringern.  Windows bietet zwei primäre Optionen für die Anwendungssteuerung:
 
    * **AppLocker**:  Mit AppLocker können Administratoren steuern, welche Anwendungen auf einem bestimmten System ausgeführt werden können.  AppLocker kann über Gruppenrichtlinien zentral gesteuert und auf bestimmte Benutzer oder Gruppen angewendet werden (beispielsweise für eine bestimmte Zielanwendung auf die Benutzer einer PAW).  Weitere Informationen zu AppLocker finden Sie im TechNet-Artikel [Technische Übersicht über AppLocker](https://technet.microsoft.com/library/hh831440.aspx).
-   * **Windows Defender Application Control**: die neue Windows Defender Application Control-Funktion bietet erweiterte hardwarebasierte anwendungssteuerung, die im Gegensatz zu AppLocker nicht überschrieben werden kann, auf dem betroffenen Gerät.  Windows Defender Application Control können, ebenso wie AppLocker kann über die Gruppenrichtlinie gesteuert und auf bestimmte Benutzer ausgerichtet werden.  Weitere Informationen zum Einschränken der anwendungsnutzung mit Windows Defender Application Control finden Sie in [Windows Defender Application Control-Bereitstellungshandbuch](https://docs.microsoft.com/en-gb/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control-deployment-guide).
+   * **Windows Defender Application Control**: die neue Windows Defender Application Control-Funktion bietet erweiterte hardwarebasierte anwendungssteuerung, die im Gegensatz zu AppLocker nicht überschrieben werden kann, auf dem betroffenen Gerät.  Windows Defender Application Control können, ebenso wie AppLocker kann über die Gruppenrichtlinie gesteuert und auf bestimmte Benutzer ausgerichtet werden.  Weitere Informationen zum Einschränken der anwendungsnutzung mit Windows Defender Application Control finden Sie in [Windows Defender Application Control-Bereitstellungshandbuch](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control-deployment-guide).
 
 3. **Verwenden Sie die Gruppe „Geschützte Benutzer“, Authentifizierungsrichtlinien und Authentifizierungssilos, um privilegierte Konten zusätzlich zu schützen**.  Für die Mitglieder der Gruppe „Geschützte Benutzer“ gelten zusätzliche Sicherheitsrichtlinien, welche die im lokalen Sicherheits-Agent (LSA) gespeicherten Anmeldeinformationen schützen und das Risiko des Diebstahls und der Wiederverwendung von Anmeldeinformationen deutlich senken.  Authentifizierungsrichtlinien und -silos steuern die Art und Weise, in der Benutzer mit bestimmten Berechtigungen auf Ressourcen in der Domäne zugreifen können.  Bei gemeinsamem Einsatz stärken diese Schutzmaßnahmen die Kontosicherheit dieser Benutzer ganz erheblich.  Weitere Informationen zu diesen Funktionen finden Sie im Webartikel [Konfigurieren geschützter Konten](https://technet.microsoft.com/library/dn518179.aspx).
 
@@ -912,7 +912,7 @@ Wenn VM-basierten PAWs mit geschützt werden. die [empfohlenen GPO-Einstellungen
 ### <a name="set-up-the-host-guardian-service"></a>Richten Sie Host-Überwachungsdienst
 
 Host-Überwachungsdienst ist für die Identität und die Integrität eines physischen Geräts für die PAW Nachweise verantwortlich.
-Nur die Computer die Host-Überwachungsdienst bekannt sind und Ausführen von einer vertrauenswürdigen [codeintegritätsrichtlinie](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control) sind zulässig, um abgeschirmte VMs zu starten.
+Nur die Computer die Host-Überwachungsdienst bekannt sind und Ausführen von einer vertrauenswürdigen [codeintegritätsrichtlinie](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control) sind zulässig, um abgeschirmte VMs zu starten.
 Dies schützt die abgeschirmten VMs, die vertrauenswürdige arbeitsauslastungen zum Verwalten von Ihrer mehrstufigen-Ressourcen vor Bedrohungen für Benutzer-desktop-Umgebung ausgeführt werden.
 
 Da die Host-Überwachungsdienst ist verantwortlich für die Bestimmung, welche Geräte die PAW-VMs ausführen können, wird dies eine Ebene-0-Ressource betrachtet.
@@ -1010,7 +1010,7 @@ Sobald die vorlagendatenträger und eine geschützte Datendatei bereit sind, kö
 
 [Device Guard – Überblick](https://technet.microsoft.com/library/dn986865(v=vs.85).aspx)
 
-[Schützen von wertvollen Assets mit sicheren Arbeitsstationen für Administratoren](https://msdn.microsoft.com/en-us/library/mt186538.aspx)
+[Schützen von wertvollen Assets mit sicheren Arbeitsstationen für Administratoren](https://msdn.microsoft.com/library/mt186538.aspx)
 
 [Isolierter Benutzermodus in Windows 10 mit Dave Probert (Channel 9)](https://channel9.msdn.com/Blogs/Seth-Juarez/Isolated-User-Mode-in-Windows-10-with-Dave-Probert)
 

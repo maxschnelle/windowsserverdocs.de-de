@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b211a9ca-1208-4e1f-a0fe-26a610936c30
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 260926e4818ef95db85d00af02a4fa87665ad709
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f17e1c9dd1a4e2d064a4e5980904c524dc62fb72
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864651"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283611"
 ---
 # <a name="deploy-a-single-directaccess-server-with-advanced-settings"></a>Bereitstellen eines einzelnen DirectAccess-Servers mit erweiterten Einstellungen
 
@@ -29,9 +28,9 @@ Dieses Thema enthält eine Einführung in das DirectAccess-Szenario, das mit ein
 ## <a name="before-you-begin-deploying-see-the-list-of-unsupported-configurations-known-issues-and-prerequisites"></a>Bevor Sie mit der Bereitstellung beginnen, sollten Sie sich die folgende Liste mit nicht unterstützten Konfigurationen, bekannten Problemen und Voraussetzungen ansehen:  
 In den folgenden Themen können Sie die Voraussetzungen und andere Informationen überprüfen, bevor Sie DirectAccess bereitstellen.  
   
--   [DirectAccess nicht unterstützte Konfigurationen](../../../remote-access/directaccess/DirectAccess-Unsupported-Configurations.md)  
+-   [DirectAccess: Nicht unterstützte Konfigurationen](../../../remote-access/directaccess/DirectAccess-Unsupported-Configurations.md)  
   
--   [Voraussetzungen für die Bereitstellung von DirectAccess](../../../remote-access/directaccess/Prerequisites-for-Deploying-DirectAccess.md)  
+-   [Erforderliche Komponenten für die Bereitstellung von DirectAccess](../../../remote-access/directaccess/Prerequisites-for-Deploying-DirectAccess.md)  
   
 ## <a name="BKMK_OVER"></a>Beschreibung des Szenarios  
 In diesem Szenario wird ein einzelner Computer mit Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 können als DirectAccess-Server mit erweiterten Einstellungen konfiguriert.  

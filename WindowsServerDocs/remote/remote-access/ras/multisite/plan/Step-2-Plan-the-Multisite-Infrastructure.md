@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ras
+ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 64c10107-cb03-41f3-92c6-ac249966f574
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 771df80fc3130b5c4c03bf628a95d67b7df04b36
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a2655f4de83576ef62b113419a69badaacc868f9
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59888201"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280997"
 ---
 # <a name="step-2-plan-the-multisite-infrastructure"></a>Schritt 2 Planen der Infrastruktur für mehrere Standorte
 
@@ -116,7 +115,7 @@ Beachten Sie beim Verwenden manuell erstellter Gruppenrichtlinienobjekte Folgend
   
     -   **Server-Gruppenrichtlinienobjekt**– ein Server-Gruppenrichtlinienobjekt für jeden Einstiegspunkt (in der Domäne, in dem sich der Einstiegspunkt befindet). Dieses Gruppenrichtlinienobjekt wird auf jedem RAS-Server im Einstiegspunkt angewendet werden.  
   
-    -   **Client-Gruppenrichtlinienobjekt (Windows 7)**– ein Gruppenrichtlinienobjekt für jeden Einstiegspunkt und jede Domäne, die mit Windows 7-Clientcomputer, die an Einstiegspunkte in die Bereitstellung mit mehreren Standorten eine Verbindung herstellen. Z. B. Domain1\DA_W7_Clients_GPO_Europe; Domain2\DA_W7_Clients_GPO_Europe; Domain1\DA_W7_Clients_GPO_US; Domain2\DA_W7_Clients_GPO_US. Wenn keine Windows 7-Clientcomputer auf Einstiegspunkte verbunden sind werden, sind die Gruppenrichtlinienobjekte nicht erforderlich.  
+    -   **Client-Gruppenrichtlinienobjekt (Windows 7)** – ein Gruppenrichtlinienobjekt für jeden Einstiegspunkt und jede Domäne, die mit Windows 7-Clientcomputer, die an Einstiegspunkte in die Bereitstellung mit mehreren Standorten eine Verbindung herstellen. Z. B. Domain1\DA_W7_Clients_GPO_Europe; Domain2\DA_W7_Clients_GPO_Europe; Domain1\DA_W7_Clients_GPO_US; Domain2\DA_W7_Clients_GPO_US. Wenn keine Windows 7-Clientcomputer auf Einstiegspunkte verbunden sind werden, sind die Gruppenrichtlinienobjekte nicht erforderlich.  
   
 -   Es ist nicht erforderlich, die zusätzliche Gruppenrichtlinienobjekte für Windows 8-Client zu erstellen. Ein Gruppenrichtlinienobjekt für jede Domäne, die Clientcomputer enthalten wurde bereits erstellt, wenn der RAS-Servers bereitgestellt wurde. Diese Client-Gruppenrichtlinienobjekte funktionieren in einer Bereitstellung für mehrere Standorte wie die Gruppenrichtlinienobjekte für Windows 8-Clients verwendet wird.  
   

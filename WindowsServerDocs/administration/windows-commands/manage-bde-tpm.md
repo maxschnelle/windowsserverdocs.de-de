@@ -1,6 +1,6 @@
 ---
 title: Verwalten von-Bde-tpm
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,19 +13,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0d41c846034ad421d0da81bda57acbcd419c1ae1
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: bc3cfa583866335d214282be08366854dec77d0f
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66437389"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280008"
 ---
 # <a name="manage-bde-tpm"></a>Verwalten von-Bde: Tpm
 
 > Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
 > 
 > [!IMPORTANT]
-> Mit diesem Befehl wird für die Verwendung auf Computern unter Windows 8, Windows Server 2012 oder höher nicht unterstützt. Für solche Computer können Sie die [TPM-Verwaltungs-Cmdlets für Windows PowerShell](https://docs.microsoft.com/en-us/powershell/module/trustedplatformmodule/).
+> Mit diesem Befehl wird für die Verwendung auf Computern unter Windows 8, Windows Server 2012 oder höher nicht unterstützt. Für solche Computer können Sie die [TPM-Verwaltungs-Cmdlets für Windows PowerShell](https://docs.microsoft.com/powershell/module/trustedplatformmodule/).
 > Wenn Sie diesen Befehl auf Computer unter Windows 7 oder Windows Server 2008 verwenden, können Sie weiterhin des Computers Trusted Platform Module (TPM) mit folgendem Befehl konfigurieren. Beispiele wie dieser Befehl verwendet werden kann, finden Sie unter [Beispiele](#BKMK_Examples).
 > ## <a name="syntax"></a>Syntax
 > ```

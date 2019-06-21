@@ -8,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 6f3907426fd1124c5ed0a411a155490a2a537239
-ms.sourcegitcommit: a3958dba4c2318eaf2e89c7532e36c78b1a76644
+ms.openlocfilehash: 572f923c33739b854808372a826e9c9bbc6aaca3
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66719678"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280856"
 ---
 # <a name="upgrade-domain-controllers-to-windows-server-2016"></a>Upgrade von Domänencontrollern auf Windows Server 2016
 
@@ -27,7 +27,7 @@ Die empfohlene Methode zur Aktualisierung einer Domäne ist Heraufstufen von Dom
 1. Stellen Sie sicher, dass der Zielserver die Systemanforderungen erfüllt. 
 2. Überprüfen Sie die Anwendungskompatibilität. 
 3. Empfehlungen Sie für die Umstellung auf Windows Server 2016 
-4. Überprüfen Sie die Sicherheitseinstellungen. Weitere Informationen finden Sie unter [veraltete Features und verhaltensänderungen in Bezug auf AD DS in Windows Server 2016](https://docs.microsoft.com/en-us/windows-server/get-started/deprecated-features). 
+4. Überprüfen Sie die Sicherheitseinstellungen. Weitere Informationen finden Sie unter [veraltete Features und verhaltensänderungen in Bezug auf AD DS in Windows Server 2016](https://docs.microsoft.com/windows-server/get-started/deprecated-features). 
 5. Überprüfen Sie die Verbindung zum Zielserver für den Computer, auf dem Sie die Ausführung des Installationsvorgangs planen. 
 6. Überprüfen Sie, ob die erforderlichen Betriebsmasterrollen verfügbar sind. 
    - Zum Installieren des ersten Domänencontrollers, der Windows Server 2016 in einer vorhandenen Domäne und Gesamtstruktur ausgeführt wird, benötigt der Computer, in dem Sie die Installation ausführen, eine Verbindung mit der **Schemamaster** zum Ausführen von Adprep/forestprep und dem Infrastrukturmaster Um Adprep/domainprep ausführen zu können. 

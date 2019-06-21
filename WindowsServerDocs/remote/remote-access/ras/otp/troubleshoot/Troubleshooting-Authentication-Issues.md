@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ras
+ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 71307757-f8f4-4f82-b8b3-ffd4fd8c5d6d
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: ff1dd94db3e433235a87fd6809459283fc439d0d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 08dd6822cc30135506d82041cfbeab0bc1a058ab
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855741"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67282359"
 ---
 # <a name="troubleshooting-authentication-issues"></a>Problembehandlung bei Authentifizierungsfehlern
 
@@ -77,7 +76,7 @@ Die vom Benutzer bereitgestellte Einmalkennwort war richtig, aber die ausstellen
   
 **Lösung**  
   
-Stellen Sie sicher, dass DirectAccess-OTP-Benutzern die Berechtigung zum Registrieren für das Zertifikat für die DirectAccess-OTP-Anmeldung und die richtige "Anwendungsrichtlinie" in die DA OTP-Registrierungsstelle, die Anmeldung der Vorlage enthalten ist. Außerdem stellen Sie sicher, dass der DirectAccess-registrierungsstellenzertifikats auf dem RAS-Server gültig ist. 3.2 Planung der OTP-Zertifikatvorlage und 3.3 Planen der registrierungsstellenzertifikats angezeigt.  
+Stellen Sie sicher, dass DirectAccess-OTP-Benutzern die Berechtigung zum Registrieren für das Zertifikat für die DirectAccess-OTP-Anmeldung und die richtige "Anwendungsrichtlinie" in die DA OTP-Registrierungsstelle, die Anmeldung der Vorlage enthalten ist. Außerdem stellen Sie sicher, dass der DirectAccess-registrierungsstellenzertifikats auf dem RAS-Server gültig ist. 3\.2 Planung der OTP-Zertifikatvorlage und 3.3 Planen der registrierungsstellenzertifikats angezeigt.  
   
 ## <a name="missing-or-invalid-computer-account-certificate"></a>Computer-Kontozertifikat fehlt oder ist ungültig  
 **Szenario**. Benutzer nicht authentifizieren, Fehler OTP mit: "Fehler bei der Authentifizierung aufgrund eines internen Fehlers"  

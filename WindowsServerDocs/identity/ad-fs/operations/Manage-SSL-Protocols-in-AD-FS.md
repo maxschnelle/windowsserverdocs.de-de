@@ -8,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: e834c50965c3af569dbe3756d677ec4cb2372542
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c1153cd81185dcfe83d291161a85481e5a7d0700
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883921"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280547"
 ---
 # <a name="managing-ssltls-protocols-and-cipher-suites-for-ad-fs"></a>Verwalten von SSL/TLS-Protokolle und Verschlüsselungssammlungen für AD FS
 Die folgende Dokumentation enthält Informationen zum Deaktivieren und aktivieren bestimmte Protokolle TLS/SSL-Verschlüsselungssammlungen, die von AD FS verwendet werden
@@ -256,7 +256,7 @@ Sie können bestimmte bestimmten Verschlüsselungen deaktivieren aus HKEY_LOCAL_
 
 Um eine Verschlüsselungssammlung zu aktivieren, fügen Sie der Zeichenfolgenwert, der Wert der mehrteiligen Zeichenfolge Funktionsschlüssel hinzu.  Z. B., wenn wir TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P521 aktivieren möchten würde dann wir es in die Zeichenfolge hinzufügen.
 
-Eine vollständige Liste der unterstützten Cipher Suites finden Sie unter [Verschlüsselungssammlungen in TLS/SSL (Schannel SSP)](https://msdn.microsoft.com/en-us/library/windows/desktop/aa374757.aspx).  Dieses Dokument enthält eine Tabelle mit Sammlungen, die aktiviert sind, standardmäßig und solche, die unterstützt werden, aber nicht standardmäßig aktiviert.  Priorisieren die Verschlüsselungssammlungen finden Sie unter [Priorisieren von Schannel Cipher Suites](https://msdn.microsoft.com/en-us/library/windows/desktop/bb870930.aspx).
+Eine vollständige Liste der unterstützten Cipher Suites finden Sie unter [Verschlüsselungssammlungen in TLS/SSL (Schannel SSP)](https://msdn.microsoft.com/library/windows/desktop/aa374757.aspx).  Dieses Dokument enthält eine Tabelle mit Sammlungen, die aktiviert sind, standardmäßig und solche, die unterstützt werden, aber nicht standardmäßig aktiviert.  Priorisieren die Verschlüsselungssammlungen finden Sie unter [Priorisieren von Schannel Cipher Suites](https://msdn.microsoft.com/library/windows/desktop/bb870930.aspx).
 
 ## <a name="enabling-strong-authentication-for-net-applications"></a>Aktivieren strenge Authentifizierung für .NET-Anwendungen
 Die .NET Framework-3.5/4.0/4.5.x-Anwendungen können das Standardprotokoll aktivieren den Registrierungsschlüssel SchUseStrongCrypto auf TLS 1.2 wechseln.  Dieser Registrierungsschlüssel wird für die Verwendung von TLS 1.2 .NET Anwendungen erzwungen.
@@ -280,7 +280,7 @@ Für .NET Framework 4.0/4.5.x, verwenden Sie den folgenden Registrierungsschlüs
 
 ## <a name="additional-information"></a>Weitere Informationen
 
-- [Verschlüsselungssammlungen in TLS/SSL (Schannel SSP)](https://msdn.microsoft.com/en-us/library/windows/desktop/aa374757.aspx)
-- [TLS-Verschlüsselungssammlungen in Windows 8.1](https://msdn.microsoft.com/en-us/library/windows/desktop/mt767781.aspx)
-- [Priorisieren von Schannel-Cipher-Suites](https://msdn.microsoft.com/en-us/library/windows/desktop/bb870930.aspx)
+- [Verschlüsselungssammlungen in TLS/SSL (Schannel SSP)](https://msdn.microsoft.com/library/windows/desktop/aa374757.aspx)
+- [TLS-Verschlüsselungssammlungen in Windows 8.1](https://msdn.microsoft.com/library/windows/desktop/mt767781.aspx)
+- [Priorisieren von Schannel-Cipher-Suites](https://msdn.microsoft.com/library/windows/desktop/bb870930.aspx)
 - [Verschlüsselung und der andere rätselhaften Zunge sprechende](https://blogs.technet.microsoft.com/askds/2015/12/08/speaking-in-ciphers-and-other-enigmatic-tonguesupdate/)

@@ -9,12 +9,12 @@ ms.topic: article
 author: eldenchristensen
 ms.date: 06/13/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: f6b93b55d8685180de8eafff5e8a3d5ca33e5fb5
-ms.sourcegitcommit: 3fe551f99c58ac232a9df72aaca55187118eac3b
+ms.openlocfilehash: 7fa4560e0c050c8decbcb4e9456a884976e447e2
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67132923"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284418"
 ---
 # <a name="storage-spaces-direct-hardware-requirements"></a>Hardwareanforderungen für „Direkte Speicherplätze“
 
@@ -22,7 +22,7 @@ ms.locfileid: "67132923"
 
 Dieses Thema beschreibt die minimalen hardwareanforderungen für "direkte Speicherplätze".
 
-Für die Produktion, Microsoft empfiehlt, die eine überprüfte Hardware/Software-Lösung von unseren Partnern kaufen, umfassen, die die von Bereitstellungstools und Verfahren. Diese Lösungen werden entworfen, zusammengesetzt und für unsere Referenzarchitektur, um sicherzustellen, dass Kompatibilität und Zuverlässigkeit, damit Sie Sie nutzen und schnell überprüft. 2019 für Windows Server-Lösungen finden Sie auf die [Solutions-Website für Azure Stack HCI](https://azure.microsoft.com/overview/azure-stack/hci). Für Windows Server 2016-Lösungen, erfahren Sie mehr unter [Windows Server-Software-Defined](https://microsoft.com/wssd).
+Für die Produktion empfiehlt Microsoft, erwerben eine überprüfte Hardware/Software-Lösung von unseren Partnern, die von Bereitstellungstools und Verfahren enthalten. Diese Lösungen werden entworfen, zusammengesetzt und für unsere Referenzarchitektur, um sicherzustellen, dass Kompatibilität und Zuverlässigkeit, damit Sie Sie nutzen und schnell überprüft. 2019 für Windows Server-Lösungen finden Sie auf die [Solutions-Website für Azure Stack HCI](https://azure.microsoft.com/overview/azure-stack/hci). Für Windows Server 2016-Lösungen, erfahren Sie mehr unter [Windows Server-Software-Defined](https://microsoft.com/wssd).
 
    > [!TIP]
    > "Direkte Speicherplätze" ausgewertet werden soll, aber keine Hardware? Hyper-V oder Azure-Computer verwenden, siehe [mithilfe von "direkte Speicherplätze" in VM-gastclustern](storage-spaces-direct-in-vm.md).

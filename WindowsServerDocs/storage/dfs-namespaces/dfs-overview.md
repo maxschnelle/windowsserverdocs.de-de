@@ -8,12 +8,12 @@ ms.topic: article
 author: jasongerend
 ms.date: 06/07/2019
 description: In diesem Thema wird beschrieben, wie Sie mithilfe des Rollendiensts für DFS-Namespaces in Windows Server freigegebene Ordner, die sich auf verschiedenen Servern befinden, in logisch strukturierten Namespaces gruppieren.
-ms.openlocfilehash: b16d8145d766cbb9b12feaaa2e5e9443813a69f2
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 2d91cb7197d2deecd96ebb29a951ef96ceefd9aa
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812579"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284286"
 ---
 # <a name="dfs-namespaces-overview"></a>Übersicht über DFS-Namespaces
 
@@ -126,6 +126,6 @@ Weitere verwandte Informationen finden Sie in den folgenden Ressourcen:
 | **Bereitstellung**    | [Überlegungen zur Skalierbarkeit von DFS-Namespace](http://blogs.technet.com/b/filecab/archive/2012/08/26/dfs-namespace-scalability-considerations.aspx) |
 | **Betrieb**    | [DFS-Namespaces: Häufig gestellte Fragen](https://technet.microsoft.com/library/ee404780.aspx) |
 | **Communityressourcen** | [Zu Dateidiensten und Speicher-TechNet-Forum](https://social.technet.microsoft.com/forums/winserverfiles/threads/) |
-| **Protokolle**        | [Protokolle in WindowsServer für Dateidienste](https://msdn.microsoft.com/en-us/library/cc239318.aspx) (veraltet) |
+| **Protokolle**        | [Protokolle in WindowsServer für Dateidienste](https://msdn.microsoft.com/library/cc239318.aspx) (veraltet) |
 | **Verwandte Technologien** | [Failoverclustering](../../failover-clustering/failover-clustering-overview.md)|
 | **Support** | [Windows IT Pro-Support](https://www.microsoft.com/itpro/windows/support)|

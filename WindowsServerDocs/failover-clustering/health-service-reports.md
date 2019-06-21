@@ -8,15 +8,15 @@ ms.topic: article
 ms.assetid: ''
 author: cosmosdarwin
 ms.date: 10/05/2017
-ms.openlocfilehash: bc21b9fdec5700fec23dc6af7ca15873ded34bea
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e018c0270a0bf410dada9c05d2c25e51fdfac1d8
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59821961"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280153"
 ---
 # <a name="health-service-reports"></a>Integritätsdienst-Berichte
-> Gilt für Windows Server 2016
+> Gilt für: Windows Server 2019, Windows Server 2016
 
 ## <a name="what-are-reports"></a>Was sind Berichte  
 
@@ -110,7 +110,7 @@ public void DiscoverObjects(CimSession Session)
 
 Hierbei handelt es sich um die gleichen Objekte Sie im PowerShell erhalten-Cmdlets wie über **Get-StorageSubSystem**, **Get-StorageNode**, und **Get-Volume**.
 
-Es stehen die gleichen Eigenschaften, die am dokumentiert [Storage Management API Classes](https://msdn.microsoft.com/en-us/library/windows/desktop/hh830612(v=vs.85).aspx).
+Es stehen die gleichen Eigenschaften, die am dokumentiert [Storage Management API Classes](https://msdn.microsoft.com/library/windows/desktop/hh830612(v=vs.85).aspx).
 
 ```
 ...
@@ -131,7 +131,7 @@ Die vollständige Liste der Metriken, die in jeder Bereich in Windows Server 201
 
 ### <a name="iobserveronnext"></a>IObserver.OnNext()
 
-Dieser Beispielcode verwendet die [Entwurfsmuster "Beobachter"](https://msdn.microsoft.com/en-us/library/ee850490(v=vs.110).aspx) zum Implementieren eines observers, deren **OnNext()** Methode wird aufgerufen werden, wenn jedes neues Beispiel von Metriken empfangen. Die **OnCompleted()** Methode wird aufgerufen, wenn/wenn streaming endet. Beispielsweise könnte es können Sie erneut initiieren, streaming, damit es auf unbestimmte Zeit fortgesetzt.
+Dieser Beispielcode verwendet die [Entwurfsmuster "Beobachter"](https://msdn.microsoft.com/library/ee850490(v=vs.110).aspx) zum Implementieren eines observers, deren **OnNext()** Methode wird aufgerufen werden, wenn jedes neues Beispiel von Metriken empfangen. Die **OnCompleted()** Methode wird aufgerufen, wenn/wenn streaming endet. Beispielsweise könnte es können Sie erneut initiieren, streaming, damit es auf unbestimmte Zeit fortgesetzt.
 
 ```
 class MetricsObserver<T> : IObserver<T>

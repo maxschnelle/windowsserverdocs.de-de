@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 72b5b2af-6925-41e0-a3f9-b8809ed711d1
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 7b4e0e8647fa2011eae73efa8bcbd696c422f12c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6fd33926f4c3d86d5947bffdd5b212db0ae91f47
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59859681"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283602"
 ---
 # <a name="step-2-plan-the-directaccess-deployment"></a>Schritt 2 planen die DirectAccess-Bereitstellung
 
@@ -57,7 +56,7 @@ Beim Planen der Bereitstellung Ihres Remotezugriffsservers müssen Sie mehrere E
   
 -   **IP-HTTPS-Zertifikat**– Wenn SSTP-VPN konfiguriert ist, wird der Aktivieren von DirectAccess-Assistenten übernimmt das von SSTP für IP-HTTPS verwendete Zertifikat. Wenn SSTP-VPN nicht konfiguriert ist, versucht der Assistent zu ermitteln, ob ein Zertifikate für IP-HTTPS konfiguriert wurde. Falls das nicht der Fall ist, stellt der Assistent automatisch selbstsignierte Zertifikate für IP-HTTPS bereit. Außerdem aktiviert er automatisch die Kerberos-Authentifizierung. Außerdem aktiviert der Assistent NAT64 und DNS64 für die Protokollübersetzung in der auf IPv4 beschränkten Umgebung.  
   
--   **IPv6-Präfixe**– Wenn der Assistent erkennt, dass IPv6 auf den Netzwerkadaptern bereitgestellt wurde, erstellt es automatisch IPv6-Präfixe für das interne Netzwerk, ein IPv6-Präfix zum Zuweisen für die DirectAccess-Clientcomputer und ein IPv6-Präfix zum Zuweisen von VPN Client-Computer. Wenn die automatisch generierten Präfixe nicht mit Ihrer systemeigenen IPv6- oder ISATAP-Infrastruktur übereinstimmen, müssen Sie sie manuell ändern. 1.1 Planen der Netzwerk- und Servertopologie und-Einstellungen finden Sie in.  
+-   **IPv6-Präfixe**– Wenn der Assistent erkennt, dass IPv6 auf den Netzwerkadaptern bereitgestellt wurde, erstellt es automatisch IPv6-Präfixe für das interne Netzwerk, ein IPv6-Präfix zum Zuweisen für die DirectAccess-Clientcomputer und ein IPv6-Präfix zum Zuweisen von VPN Client-Computer. Wenn die automatisch generierten Präfixe nicht mit Ihrer systemeigenen IPv6- oder ISATAP-Infrastruktur übereinstimmen, müssen Sie sie manuell ändern. 1\.1 Planen der Netzwerk- und Servertopologie und-Einstellungen finden Sie in.  
   
 -   **Windows 7-Clients**-standardmäßig Windows 7-Clientcomputer keine Verbindung mit Herstellen einer Remote Access in Windows Server 2012-Bereitstellung. Wenn Sie Windows 7-Clientcomputer in Ihrer Organisation, die Remotezugriff für interne Ressourcen benötigen verfügen, können Sie eine Verbindung hergestellt werden. Clientcomputer, die auf interne Ressourcen zugreifen sollen, müssen Mitglied einer Sicherheitsgruppe sein, die Sie im Assistenten zum Aktivieren von DirectAccess angeben.  
   

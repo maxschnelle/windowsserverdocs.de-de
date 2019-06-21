@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 456e5971-3aa7-4a24-bc5d-0c21fec7687e
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 37fd165b5a943be15eda007bf22c3081e27b799a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d6f0f4a089dd8e99bb9f9815f0900a3c53c9d1ba
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843621"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67281987"
 ---
 # <a name="directaccess-capacity-planning"></a>DirectAccess-Kapazitätsplanung
 
@@ -38,7 +37,7 @@ Die folgende Tabelle enthält die Ergebnisse, die mit der Testumgebung zum Ermit
 ||||  
 |-|-|-|  
 |Konfiguration – Hardware|Lowend-Hardware (4 GB RAM, 4 Core)|Highend-Hardware (8 GB RAM, 8 Core)|  
-|Doppelter Tunnel<br /><br />-   PKI<br /><br />– Einschließlich des DNS64/NAT64|750 gleichzeitige Verbindungen bei 50 % CPU, 50 % Arbeitsspeicher mit Corpnet-NIC-Durchsatz von 75 MBit/s. Das %%amp;quot;Stretch Target%%amp;quot; beträgt 1.000 Benutzer bei 50 % CPU.|1.500 gleichzeitige Verbindungen bei 50 % CPU, 50 % Arbeitsspeicher mit Corpnet-NIC-Durchsatz von 150 Mbit/s.|  
+|Doppelter Tunnel<br /><br />-   PKI<br /><br />– Einschließlich des DNS64/NAT64|750 gleichzeitige Verbindungen bei 50 % CPU, 50 % Arbeitsspeicher mit Corpnet-NIC-Durchsatz von 75 MBit/s. Das %%amp;quot;Stretch Target%%amp;quot; beträgt 1.000 Benutzer bei 50 % CPU.|1\.500 gleichzeitige Verbindungen bei 50 % CPU, 50 % Arbeitsspeicher mit Corpnet-NIC-Durchsatz von 150 Mbit/s.|  
 ## <a name="test-environment"></a>Testumgebung
 
 **Leistungsbenchmark – Topologie**  

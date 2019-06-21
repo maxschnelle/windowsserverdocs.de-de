@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1cc0abc6-be4d-4cbe-bd0c-cc448bf294f6
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 8b0f91b4d2b876cb7b22dc8614e7ea5dcce6da2d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4746ff5118814506d20983d3570881366297322f
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833561"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283182"
 ---
 # <a name="step-7-install-and-configure-2-app1"></a>Schritt 7 installieren und Konfigurieren von 2-APP1
 
@@ -58,7 +57,7 @@ Konfigurieren Sie TCP/IP-Eigenschaften auf 2-APP1 an.
   
 2.  In der **Netzwerkverbindungen** Fenster mit der rechten Maustaste **verkabelte Ethernetverbindung**, und klicken Sie dann auf **Eigenschaften**.  
   
-3.  Klicken Sie auf **Internetprotokoll Version 4 (TCP/IPv4)**, und klicken Sie dann auf **Eigenschaften**.  
+3.  Klicken Sie auf **Internetprotokoll Version 4 (TCP/IPv4)** , und klicken Sie dann auf **Eigenschaften**.  
   
 4.  Klicken Sie auf **Folgende IP-Adresse verwenden**. In **IP-Adresse**, Typ **10.2.0.3**. Geben Sie im Feld **Subnetzmaske**den Wert **255.255.255.0**ein. In **Standardgateway**, Typ **10.2.0.254**.  
   
@@ -66,7 +65,7 @@ Konfigurieren Sie TCP/IP-Eigenschaften auf 2-APP1 an.
   
 6.  Klicken Sie auf **Erweitert** und dann auf die Registerkarte **DNS**. In **DNS-Suffix für diese Verbindung**, Typ **corp2.corp.contoso.com**, und klicken Sie auf **OK** zweimal.  
   
-7.  Klicken Sie auf **Internetprotokoll Version 6 (TCP/IPv6)**, und klicken Sie dann auf **Eigenschaften**.  
+7.  Klicken Sie auf **Internetprotokoll Version 6 (TCP/IPv6)** , und klicken Sie dann auf **Eigenschaften**.  
   
 8.  Klicken Sie auf **verwenden Sie die folgende IPv6-Adresse**. In **IPv6-Adresse**, Typ **2001:db8:2::3**. In **Subnetzpräfixlänge**, Typ **64**. In **Standardgateway**, Typ **2001:db8:2::fe**. Klicken Sie auf **verwenden Sie die folgenden DNS-Serveradressen**, und klicken Sie in **Bevorzugter DNS-Server**, Typ **2001:db8:2::1**.  
   
@@ -110,7 +109,7 @@ Installieren Sie die Rolle Webserver (IIS), um 2-APP1 einen Webserver zu machen.
   
 2.  Klicken Sie auf **Weiter** dreimal, um dem Auswahlbildschirm des Server-Rolle zu erhalten  
   
-3.  Auf der **Serverrollen auswählen** Seite **Webserver (IIS)**, und klicken Sie dann auf **Weiter** viermal.  
+3.  Auf der **Serverrollen auswählen** Seite **Webserver (IIS)** , und klicken Sie dann auf **Weiter** viermal.  
   
 4.  Klicken Sie auf der Seite **Installationsauswahl bestätigen** auf **Installieren**.  
   
@@ -123,7 +122,7 @@ Erstellen Sie einen freigegebenen Ordner und eine Textdatei im Ordner auf 2-APP1
   
 1.  Auf der **starten** geben**explorer.exe**, und drücken Sie dann die EINGABETASTE.  
   
-2.  Klicken Sie auf **Computer**, doppelklicken Sie dann auf **Lokaler Datenträger (c)**.  
+2.  Klicken Sie auf **Computer**, doppelklicken Sie dann auf **Lokaler Datenträger (c)** .  
   
 3.  Klicken Sie auf **neuer Ordner**, Typ **Dateien**, und drücken Sie dann die EINGABETASTE. Lassen Sie die **lokalen Datenträger** Fenster geöffnet.  
   
@@ -131,7 +130,7 @@ Erstellen Sie einen freigegebenen Ordner und eine Textdatei im Ordner auf 2-APP1
   
 5.  In der **Unbenannt - Editor** geben **Dies ist eine freigegebene Datei auf 2-APP1**.  
   
-6.  Klicken Sie auf **Datei**, klicken Sie auf **speichern**, klicken Sie auf **Computer**, doppelklicken Sie auf **Lokaler Datenträger (c)**, und doppelklicken Sie dann auf die **Dateien**  Ordner.  
+6.  Klicken Sie auf **Datei**, klicken Sie auf **speichern**, klicken Sie auf **Computer**, doppelklicken Sie auf **Lokaler Datenträger (c)** , und doppelklicken Sie dann auf die **Dateien**  Ordner.  
   
 7.  In **Dateiname**, Typ **example.txt**, und klicken Sie dann auf **speichern**. Schließen Sie Editor.  
   

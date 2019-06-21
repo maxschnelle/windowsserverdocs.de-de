@@ -9,16 +9,16 @@ manager: brianlic
 ms.author: jgerend
 ms.date: 06/04/2019
 description: Neue und aktualisierte Themen in der lokalen Speicher für Windows Server für IT-Experten.
-ms.openlocfilehash: 3245e6bc5320cc0ffae01817a8f7b9caeaa6c685
-ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
+ms.openlocfilehash: 442d640809d3ae9cf4a11feb646fbbd566e6e3fa
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66501487"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284457"
 ---
 # <a name="change-history-for-storage-topics-in-windows-server"></a>Änderungsverlauf für Speicher-Themen in Windows Server
 
-> Gilt für: WindowsServer 2019, WindowsServer 2016, WindowsServer (Halbjährlicher Kanal)
+> Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (halbjährlicher Kanal)
 
 Dieses Thema listet neue und aktualisierte Themen in der [Storage](storage.md) Dokumentation zu Windows Server.
 
@@ -73,10 +73,10 @@ Dieses Thema listet neue und aktualisierte Themen in der [Storage](storage.md) D
 |---                                                         |---           |
 |[Geschachtelte Resilienz](storage-spaces/nested-resiliency.md)    | Neues Thema    |
 |[Speicherung Datenbankmigrationsdienst bekannte Probleme](storage-migration-service/known-issues.md)   | Neues Thema    |
-|[DFS-Replikation: Häufig gestellte Fragen](dfs-replication/dfsr-faq.md)|Migriert die [Vorgängerversionen](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/) Bibliothek|
-|[Migrieren der SYSVOL-Replikation zur DFS-Replikation](dfs-replication/migrate-sysvol-to-dfsr.md)|Migriert die [Vorgängerversionen](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/) Bibliothek|
-|[SMB: Ports für Datei- und Druckerfreigaben sollten offen sein](file-server/best-practices-analyzer/smb-open-file-sharing-ports.md)|Migriert die [Vorgängerversionen](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/) Bibliothek|
-|[Volumeschattenkopie-Dienst](file-server/volume-shadow-copy-service.md)|Migriert die [Vorgängerversionen](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/) Bibliothek|
+|[DFS-Replikation: Häufig gestellte Fragen](dfs-replication/dfsr-faq.md)|Migriert die [Vorgängerversionen](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/) Bibliothek|
+|[Migrieren der SYSVOL-Replikation zur DFS-Replikation](dfs-replication/migrate-sysvol-to-dfsr.md)|Migriert die [Vorgängerversionen](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/) Bibliothek|
+|[SMB: Ports für Datei- und Druckerfreigaben sollten offen sein](file-server/best-practices-analyzer/smb-open-file-sharing-ports.md)|Migriert die [Vorgängerversionen](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/) Bibliothek|
+|[Volumeschattenkopie-Dienst](file-server/volume-shadow-copy-service.md)|Migriert die [Vorgängerversionen](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/) Bibliothek|
 
 ## <a name="october-2018"></a>Oktober 2018
 

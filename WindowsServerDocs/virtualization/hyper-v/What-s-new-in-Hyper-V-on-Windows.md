@@ -11,12 +11,12 @@ ms.assetid: 1a65a98e-54b6-4c41-9732-1e3d32fe3a5f
 author: KBDAzure
 ms.author: kathydav
 ms.date: 09/21/2017
-ms.openlocfilehash: 8b7d9233b105f710d620b5142205fb2eadd0248a
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 6ec5db82ecae2fb74731f3c52b9113325837a2fb
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67141369"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280016"
 ---
 # <a name="whats-new-in-hyper-v-on-windows-server"></a>Neuerungen in Hyper-V unter Windows Server
 
@@ -212,7 +212,7 @@ Konfigurationsdateien virtueller Computer verwenden Sie ein neues Format, das is
   
 ### <a name="virtual-machine-configuration-version-updated"></a>VM-Konfigurationsversion \(aktualisiert\)
 
-Die Version darstellt, die Kompatibilität der gespeicherte Zustand und Snapshot-Dateien mit der Version von Hyper-V-Konfiguration des virtuellen Computers. Virtuelle Computer mit Version 5 sind kompatibel mit Windows Server 2012 R2 und können auf Windows Server 2012 R2 und Windows Server 2016 ausführen. Virtuelle Computer mit Versionen, die in Windows Server 2016 eingeführt wurde und und Windows Server-2019 nicht in Hyper-V unter Windows Server 2012 R2 ausgeführt.   
+Die Version darstellt, die Kompatibilität der gespeicherte Zustand und Snapshot-Dateien mit der Version von Hyper-V-Konfiguration des virtuellen Computers. Virtuelle Computer mit Version 5 sind kompatibel mit Windows Server 2012 R2 und können auf Windows Server 2012 R2 und Windows Server 2016 ausführen. Virtuelle Computer mit Versionen, die in Windows Server 2016 und Windows Server-2019 eingeführt wird nicht in Hyper-V auf Windows Server 2012 R2 ausgeführt.   
   
 Wenn Sie verschieben oder Importieren eines virtuellen Computers auf einem Server mit Hyper-V unter Windows Server 2016 oder Windows Server-2019 von Windows Server 2012 R2, ist nicht der VM Konfiguration automatisch aktualisiert. Dies bedeutet, dass Sie die virtuelle Maschine zurück auf einen Server verschieben können, die Windows Server 2012 R2 ausgeführt wird. Aber dies bedeutet auch, dass Sie neue Features für virtuelle Computer verwenden können, bis Sie die Version der Konfiguration des virtuellen Computers manuell aktualisieren.  
   

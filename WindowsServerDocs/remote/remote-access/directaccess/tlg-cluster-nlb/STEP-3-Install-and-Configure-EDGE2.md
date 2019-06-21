@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f04eb11e-ed5f-42a1-a77b-57a248ba2d10
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 0692d47d50d84a66b5c3cc41d2ba2fca1004cafe
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 708a2a71f798b842e38510a2c5ea8ed10ae7656e
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870881"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283370"
 ---
 # <a name="step-3-install-and-configure-edge2"></a>Schritt 3 installieren und Konfigurieren von EDGE2
 
@@ -44,11 +43,11 @@ Führen Sie die folgenden Schritte zum Konfigurieren von EDGE2:
   
 2.  In der **Netzwerkverbindungen** rechten Maustaste auf die Netzwerkverbindung, die mit dem Subnetz "Corpnet" oder den virtuellen Switch verbunden ist, und klicken Sie dann auf **umbenennen**.  
   
-3.  Typ **"Corpnet"**, und drücken Sie dann die EINGABETASTE.  
+3.  Typ **"Corpnet"** , und drücken Sie dann die EINGABETASTE.  
   
-4.  Mit der rechten Maustaste **"Corpnet"**, und klicken Sie dann auf **Eigenschaften**.  
+4.  Mit der rechten Maustaste **"Corpnet"** , und klicken Sie dann auf **Eigenschaften**.  
   
-5.  Klicken Sie auf **Internetprotokoll Version 4 (TCP/IPv4)**, und klicken Sie dann auf **Eigenschaften**.  
+5.  Klicken Sie auf **Internetprotokoll Version 4 (TCP/IPv4)** , und klicken Sie dann auf **Eigenschaften**.  
   
 6.  Klicken Sie auf **Folgende IP-Adresse verwenden**. In **IP-Adresse**, Typ **10.0.0.8**. Geben Sie im Feld **Subnetzmaske**den Wert **255.255.255.0**ein.  
   
@@ -56,9 +55,9 @@ Führen Sie die folgenden Schritte zum Konfigurieren von EDGE2:
   
 8.  Klicken Sie auf **Erweitert** und dann auf die Registerkarte **DNS**.  
   
-9. In **DNS-Suffix für diese Verbindung**, Typ **"corp.contoso.com"**, klicken Sie auf **OK** zweimal.  
+9. In **DNS-Suffix für diese Verbindung**, Typ **"corp.contoso.com"** , klicken Sie auf **OK** zweimal.  
   
-10. Klicken Sie auf **Internetprotokoll Version 6 (TCP/IPv6)**, und klicken Sie dann auf **Eigenschaften**.  
+10. Klicken Sie auf **Internetprotokoll Version 6 (TCP/IPv6)** , und klicken Sie dann auf **Eigenschaften**.  
   
 11. Klicken Sie auf **verwenden Sie die folgende IPv6-Adresse**. In **IPv6-Adresse**, Typ **2001:db8:1::8**. In **Subnetzpräfixlänge**, Typ **64**.  
   
@@ -66,7 +65,7 @@ Führen Sie die folgenden Schritte zum Konfigurieren von EDGE2:
   
 13. Klicken Sie auf **Erweitert** und dann auf die Registerkarte **DNS**.  
   
-14. In **DNS-Suffix für diese Verbindung**, Typ **"corp.contoso.com"**, klicken Sie auf **OK** zweimal aus, und klicken Sie dann auf **schließen**.  
+14. In **DNS-Suffix für diese Verbindung**, Typ **"corp.contoso.com"** , klicken Sie auf **OK** zweimal aus, und klicken Sie dann auf **schließen**.  
   
 15. In der **Netzwerkverbindungen** rechten Maustaste auf die Netzwerkverbindung, die mit dem Internet-Subnetz verbunden ist, und klicken Sie dann auf **umbenennen**.  
   
@@ -74,7 +73,7 @@ Führen Sie die folgenden Schritte zum Konfigurieren von EDGE2:
   
 17. Klicken Sie mit der rechten Maustaste auf **Internet**, und klicken Sie dann auf **Eigenschaften**.  
   
-18. Klicken Sie auf **Internetprotokoll Version 4 (TCP/IPv4)**, und klicken Sie dann auf **Eigenschaften**.  
+18. Klicken Sie auf **Internetprotokoll Version 4 (TCP/IPv4)** , und klicken Sie dann auf **Eigenschaften**.  
   
 19. Klicken Sie auf **Folgende IP-Adresse verwenden**. In **IP-Adresse**, geben Sie **131.107.0.8**. In **Subnetzmaske**, geben Sie **255.255.255.0**.  
   
@@ -96,7 +95,7 @@ Führen Sie die folgenden Schritte zum Konfigurieren von EDGE2:
   
 2.  Klicken Sie auf der Registerkarte **Computername** im Dialogfeld **Systemeigenschaften** auf **Ändern**.  
   
-3.  Auf der **Änderung des Computernamens bzw. der Domäne** Dialogfeld die **Computername** geben **EDGE2**. In der **Mitglied** Bereich, klicken Sie auf **Domäne**, und geben Sie in das Textfeld ein **"corp.contoso.com"**, und klicken Sie dann auf **OK**.  
+3.  Auf der **Änderung des Computernamens bzw. der Domäne** Dialogfeld die **Computername** geben **EDGE2**. In der **Mitglied** Bereich, klicken Sie auf **Domäne**, und geben Sie in das Textfeld ein **"corp.contoso.com"** , und klicken Sie dann auf **OK**.  
   
 4.  Geben Sie, wenn Sie zur Angabe eines Benutzernamens und eines Kennworts aufgefordert werden, **User1** und das zugehörige Kennwort ein, und klicken Sie dann auf **OK**.  
   

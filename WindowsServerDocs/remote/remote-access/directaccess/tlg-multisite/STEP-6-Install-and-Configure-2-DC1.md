@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3d66901a-c40b-474c-9948-f989f399cfea
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 4f31c0e1d36ff458fb4807ab6856a56498f449ab
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 8c3e12f9d64619ce00e578c7a8096c764e68ff7d
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59838181"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283159"
 ---
 # <a name="step-6-install-and-configure-2-dc1"></a>Schritt 6 installieren und Konfigurieren von 2-DC1
 
@@ -66,7 +65,7 @@ Konfigurieren Sie das TCP/IP-Protokoll mit statischen IP-Adressen.
   
 2.  Klicken Sie unter **Netzwerkverbindungen** mit der rechten Maustaste auf **Verkabelte Ethernetverbindung**, und klicken Sie dann auf **Eigenschaften**.  
   
-3.  Klicken Sie auf **Internetprotokoll Version 4 (TCP/IPv4)**, und klicken Sie dann auf **Eigenschaften**.  
+3.  Klicken Sie auf **Internetprotokoll Version 4 (TCP/IPv4)** , und klicken Sie dann auf **Eigenschaften**.  
   
 4.  Klicken Sie auf **Folgende IP-Adresse verwenden**. In **IP-Adresse**, Typ **10.2.0.1**. Geben Sie im Feld **Subnetzmaske**den Wert **255.255.255.0**ein. In **Standardgateway**, Typ **10.2.0.254**. Klicken Sie auf **verwenden Sie die folgenden DNS-Serveradressen**im **Bevorzugter DNS-Server**, Typ **10.2.0.1**, und klicken Sie in **alternativer DNS-Server**, Typ **10.0.0.1**.  
   
@@ -74,7 +73,7 @@ Konfigurieren Sie das TCP/IP-Protokoll mit statischen IP-Adressen.
   
 6.  In **DNS-Suffix für diese Verbindung**, Typ **corp2.corp.contoso.com**, und klicken Sie dann auf **OK** zweimal.  
   
-7.  Klicken Sie auf **Internetprotokoll Version 6 (TCP/IPv6)**, und klicken Sie dann auf **Eigenschaften**.  
+7.  Klicken Sie auf **Internetprotokoll Version 6 (TCP/IPv6)** , und klicken Sie dann auf **Eigenschaften**.  
   
 8.  Klicken Sie auf **verwenden Sie die folgende IPv6-Adresse**. In **IPv6-Adresse**, Typ **2001:db8:2::1**. In **Subnetzpräfixlänge**, Typ **64**. In **Standardgateway**, Typ **2001:db8:2::fe**. Klicken Sie auf **verwenden Sie die folgenden DNS-Serveradressen**im **Bevorzugter DNS-Server**, Typ **2001:db8:2::1**, und klicken Sie in **alternativer DNS-Server**, Typ **2001:db8:1::1**.  
   
@@ -142,25 +141,25 @@ Geben Sie die "corp\user1" Benutzer mit vollen Berechtigungen zum Erstellen und 
   
 4.  Klicken Sie auf **hinzufügen**, und klicken Sie auf dem neuen **Select User, Computer oder Gruppe** Dialogfeld klicken Sie auf **Speicherorte**.  
   
-5.  Auf der **Speicherorte** Dialogfeld die **Speicherort** Struktur, klicken Sie auf **"corp.contoso.com"**, und klicken Sie auf **OK**.  
+5.  Auf der **Speicherorte** Dialogfeld die **Speicherort** Struktur, klicken Sie auf **"corp.contoso.com"** , und klicken Sie auf **OK**.  
   
-6.  In **Geben Sie den zu verwendenden Objektnamen** Typ **"user1"**, klicken Sie auf **OK**, und klicken Sie auf die **Benutzer oder Gruppe hinzufügen** Dialogfeld klicken Sie auf **OK** .  
+6.  In **Geben Sie den zu verwendenden Objektnamen** Typ **"user1"** , klicken Sie auf **OK**, und klicken Sie auf die **Benutzer oder Gruppe hinzufügen** Dialogfeld klicken Sie auf **OK** .  
   
 7.  Klicken Sie in der Gruppenrichtlinien-Verwaltungskonsole, in der Struktur auf **Group Policy Objects**, und klicken Sie in die Details im Bereich auf die **Delegierung** Registerkarte.  
   
 8.  Klicken Sie auf **hinzufügen**, und klicken Sie auf dem neuen **Select User, Computer oder Gruppe** Dialogfeld klicken Sie auf **Speicherorte**.  
   
-9. Auf der **Speicherorte** Dialogfeld die **Speicherort** Struktur, klicken Sie auf **"corp.contoso.com"**, und klicken Sie auf **OK**.  
+9. Auf der **Speicherorte** Dialogfeld die **Speicherort** Struktur, klicken Sie auf **"corp.contoso.com"** , und klicken Sie auf **OK**.  
   
-10. In **Geben Sie den zu verwendenden Objektnamen** Typ **"user1"**, klicken Sie auf **OK**.  
+10. In **Geben Sie den zu verwendenden Objektnamen** Typ **"user1"** , klicken Sie auf **OK**.  
   
 11. Klicken Sie in der Gruppenrichtlinien-Verwaltungskonsole, in der Struktur auf **WMI-Filter**, und klicken Sie in die Details im Bereich auf die **Delegierung** Registerkarte.  
   
 12. Klicken Sie auf **hinzufügen**, und klicken Sie auf dem neuen **Select User, Computer oder Gruppe** Dialogfeld klicken Sie auf **Speicherorte**.  
   
-13. Auf der **Speicherorte** Dialogfeld die **Speicherort** Struktur, klicken Sie auf **"corp.contoso.com"**, und klicken Sie auf **OK**.  
+13. Auf der **Speicherorte** Dialogfeld die **Speicherort** Struktur, klicken Sie auf **"corp.contoso.com"** , und klicken Sie auf **OK**.  
   
-14. In **Geben Sie den zu verwendenden Objektnamen** Typ **"user1"**, klicken Sie auf **OK**. Auf der **Benutzer oder Gruppe hinzufügen** Dialogfeld Feld, stellen Sie sicher, dass **Berechtigungen** festgelegt **Vollzugriff**, und klicken Sie dann auf **OK**.  
+14. In **Geben Sie den zu verwendenden Objektnamen** Typ **"user1"** , klicken Sie auf **OK**. Auf der **Benutzer oder Gruppe hinzufügen** Dialogfeld Feld, stellen Sie sicher, dass **Berechtigungen** festgelegt **Vollzugriff**, und klicken Sie dann auf **OK**.  
   
 15. Schließen Sie die Gruppenrichtlinien-Verwaltungskonsole.  
   
@@ -178,13 +177,13 @@ Computer in der Domäne CORP2 müssen Computerzertifikate von der Zertifizierung
   
 4.  Klicken Sie auf **hinzufügen**, und klicken Sie auf die **Auswahl von Benutzern, Computern, Dienstkonten oder Gruppen** Dialogfeld klicken Sie auf **Speicherorte**.  
   
-5.  Auf der **Speicherorte** Dialogfeld **Speicherort**, erweitern Sie **"corp.contoso.com"**, klicken Sie auf **corp2.corp.contoso.com**, und klicken Sie dann auf  **OK**.  
+5.  Auf der **Speicherorte** Dialogfeld **Speicherort**, erweitern Sie **"corp.contoso.com"** , klicken Sie auf **corp2.corp.contoso.com**, und klicken Sie dann auf  **OK**.  
   
 6.  In **Geben Sie die zu verwendenden Objektnamen**, Typ **Domänen-Admins; Domänencomputer** , und klicken Sie dann auf **OK**.  
   
-7.  Auf der **Eigenschaften von Client / Server-Authentifizierung** Dialogfeld **Gruppen-oder Benutzernamen**, klicken Sie auf **Domänen-Admins (Administratoren CORP2\Domain)**, und klicken Sie in  **Berechtigungen für die Domänen-Admins**in die **zulassen** Spalte **schreiben** und **registrieren**.  
+7.  Auf der **Eigenschaften von Client / Server-Authentifizierung** Dialogfeld **Gruppen-oder Benutzernamen**, klicken Sie auf **Domänen-Admins (Administratoren CORP2\Domain)** , und klicken Sie in  **Berechtigungen für die Domänen-Admins**in die **zulassen** Spalte **schreiben** und **registrieren**.  
   
-8.  In **Gruppen-oder Benutzernamen**, klicken Sie auf **Domänencomputer (CORP2\Domain Computer)**, und klicken Sie in **Berechtigungen für Domänencomputer**in die **zulassen**Spalte **registrieren** und **automatisch registrieren**, und klicken Sie dann auf **OK**.  
+8.  In **Gruppen-oder Benutzernamen**, klicken Sie auf **Domänencomputer (CORP2\Domain Computer)** , und klicken Sie in **Berechtigungen für Domänencomputer**in die **zulassen**Spalte **registrieren** und **automatisch registrieren**, und klicken Sie dann auf **OK**.  
   
 9. Schließen Sie die Zertifikatvorlagenkonsole.  
   
@@ -201,7 +200,7 @@ Bevor Sie Zertifikate auf 2-EDGE1 registrieren können, müssen Sie die Replikat
   
 4.  Auf der **DEFAULTIPSITELINK Eigenschaften** Dialogfeld **Kosten**, Typ **1**im **Replizieren alle**, Typ **15**, und klicken Sie dann auf **OK**. Warten Sie 15 Minuten, bis die Replikation beendet ist.  
   
-5.  Um die Replikation jetzt in der Konsolenstruktur zu erzwingen, erweitern Sie **%%amp;quot;sites\standardwebsite\adfs%%amp;quot;)-First-Site-name\Servers\DC1\NTDS Einstellungen**, im Detailbereich mit der Maustaste **<automatically generated>**, klicken Sie auf  **Jetzt replizieren**, und klicken Sie dann auf die **Jetzt replizieren** Dialogfeld klicken Sie auf **OK**.  
+5.  Um die Replikation jetzt in der Konsolenstruktur zu erzwingen, erweitern Sie **%%amp;quot;sites\standardwebsite\adfs%%amp;quot;)-First-Site-name\Servers\DC1\NTDS Einstellungen**, im Detailbereich mit der Maustaste **<automatically generated>** , klicken Sie auf  **Jetzt replizieren**, und klicken Sie dann auf die **Jetzt replizieren** Dialogfeld klicken Sie auf **OK**.  
   
 6.  Um sicherzustellen, dass Replikation erfolgreich abgeschlossen wurde gehen Sie folgendermaßen vor:  
   

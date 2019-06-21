@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 140e8e4204148dd8862385054554d7b8336856ec
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 7253502390db004747d3732cf3d288a51afdaaf1
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192011"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280688"
 ---
 # <a name="set-a-service-communications-certificate"></a>Festlegen eines Dienstkommunikationszertifikats
 
@@ -22,7 +22,7 @@ ms.locfileid: "66192011"
 Verbundserver in Active Directory Federation Services \(AD FS\) dienstkommunikationszertifikat zum Sichern von Web Services – Verkehr für Secure Sockets Layer verwenden \(SSL\) Kommunikation mit dem Web Clients oder Verbundserverproxys bestimmen.
 
 > [!NOTE]  
-> Dienstkommunikationszertifikat ist nicht identisch mit einem SSL-Zertifikat. Um das AD FS-SSL-Zertifikat zu ändern, müssen Sie Powershell verwenden. Befolgen Sie die Anweisungen in diesem [Artikel](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap).
+> Dienstkommunikationszertifikat ist nicht identisch mit einem SSL-Zertifikat. Um das AD FS-SSL-Zertifikat zu ändern, müssen Sie Powershell verwenden. Befolgen Sie die Anweisungen in diesem [Artikel](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap).
 
 
 Sie können das folgende Verfahren verwenden, so ändern Sie das Dienstzertifikat für die Kommunikation mit dem AD FS-Verwaltungs-Snap\-in.  

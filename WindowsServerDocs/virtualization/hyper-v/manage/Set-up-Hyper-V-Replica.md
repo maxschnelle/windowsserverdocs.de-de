@@ -10,12 +10,12 @@ ms.assetid: eea9e996-bfec-4065-b70b-d8f66e7134ac
 author: KBDAzure
 ms.author: kathydav
 ms.date: 10/10/2016
-ms.openlocfilehash: 04066c5b645c0be641c2ba76fadac032d5a91420
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b8dcf23946d99509aafba0f8af58bf633bedd069
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843211"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280233"
 ---
 # <a name="set-up-hyper-v-replica"></a>Einrichten von Hyper-V-Replikaten
 
@@ -80,7 +80,7 @@ Um die Replikation zwischen den primären und sekundären Servern zu ermögliche
 
     1. Windows-Firewall mit erweiterter Sicherheit öffnen und auf **Eingangsregeln**.  
 
-    2. Zum Aktivieren der Authentifizierung für HTTP (Kerberos) Maustaste **Hyper-V-Replikat-HTTP-Listener (TCP eingehend)** >**Regel aktivieren.** Um HTTPS-Zertifikat-basierte Authentifizierung zu aktivieren, Maustaste **Hyper-V-Replikat-HTTPS-Listener (TCP eingehend)** > E**aktiviere Regel**.  
+    2. Zum Aktivieren der Authentifizierung für HTTP (Kerberos) Maustaste **Hyper-V-Replikat-HTTP-Listener (TCP eingehend)**  >**Regel aktivieren.** Um HTTPS-Zertifikat-basierte Authentifizierung zu aktivieren, Maustaste **Hyper-V-Replikat-HTTPS-Listener (TCP eingehend)** > E**aktiviere Regel**.  
 
 -  Um Regeln in einem Hyper-V-Cluster zu aktivieren, öffnen Sie eine Windows PowerShell-Sitzung mit **als Administrator ausführen**, führen Sie dann einen der folgenden Befehle:  
 
@@ -110,14 +110,14 @@ Gehen Sie auf jedem virtuellen Computer, die Sie replizieren möchten:
 
     Wenn Sie die Offlinereplikation durchführen müssen Sie die erste Kopie auf dem sekundären Server mit einer externen Speichermedium, z. B. eine Festplatte oder ein USB-Laufwerk transport. Zu diesem Zweck Sie die externe Verbindung müssen senden Speicherung auf dem primären Server (oder von Besitzerknoten in einem Cluster), und klicken Sie dann bei der Auswahl Erstkopie mithilfe von externen Medien, die Sie einen Speicherort angeben können, lokal oder auf Ihre externen Medien, in dem die erste Kopie gespeichert werden kann.  Eine Platzhalter-VM wird am Replikatstandort erstellt. Nach Abschluss der Erstreplikation kann der externe Speicher zum Replikatstandort geliefert werden. Es müssen Sie die externen Medien auf dem sekundären Server oder auf den Besitzerknoten des dem sekundären Cluster verbinden. Klicken Sie dann Sie importieren das ursprüngliche Replikat in einer angegebenen Position und die Platzhalter virtuelle Maschine zusammenführen.  
 
-9. Auf der **das Aktivieren der Replikation abschließen** Seite, überprüfen Sie die Informationen in der Zusammenfassung, und klicken Sie dann auf **Fertig stellen.**. Daten des virtuellen Computers werden in Übereinstimmung mit den ausgewählten Einstellungen übertragen werden. und ein Dialogfeld wird angezeigt, der angibt, dass die Replikation erfolgreich aktiviert wurde.  
+9. Auf der **das Aktivieren der Replikation abschließen** Seite, überprüfen Sie die Informationen in der Zusammenfassung, und klicken Sie dann auf **Fertig stellen.** . Daten des virtuellen Computers werden in Übereinstimmung mit den ausgewählten Einstellungen übertragen werden. und ein Dialogfeld wird angezeigt, der angibt, dass die Replikation erfolgreich aktiviert wurde.  
 
 10. Wenn Sie erweiterte (verkettete) Replikation konfigurieren möchten, öffnen Sie den Replikatserver, und mit der rechten Maustaste den virtuellen Computer, die, den Sie replizieren möchten. Klicken Sie auf **Replikation** > **Erweitern der Replikation** , und geben Sie Einstellungen für die Replikation.  
 
 ## <a name="run-a-failover"></a>Ausführen eines Failovers  
 Nach Abschluss dieser Bereitstellungsschritte wird Ihrer replizierten Umgebung ausgeführt. Jetzt können Sie ein Failover ausführen, je nach Bedarf.  
 
-**Test-Failover**:  Wenn Sie verwenden möchten, führen Sie den primären virtuellen Computer eine Test-Failover mit der rechten Maustaste und wählen **Replikation** > **Test-Failover**. Wählen Sie den neuesten oder anderen Wiederherstellungspunkt aus, wenn konfiguriert. Ein neuen virtuellen Testcomputer erstellt und am sekundären Standort gestartet. Nachdem Sie die Tests abgeschlossen haben, wählen Sie **Testfailover beenden** auf den replizierten virtuellen Computer, um es zu bereinigen. Beachten Sie, dass für eine virtuelle Maschine, die Sie nur ausführen können Failover zu einem Zeitpunkt zu testen. [Erfahren Sie mehr](https://blogs.technet.com/b/virtualization/archive/2012/07/26/types-of-failover-operations-in-hyper-v-replica.aspx).  
+**Test-Failover**:  Wenn Sie verwenden möchten, führen Sie den primären virtuellen Computer eine Test-Failover mit der rechten Maustaste und wählen **Replikation** > **Test-Failover**. Wählen Sie den neuesten oder anderen Wiederherstellungspunkt aus, wenn konfiguriert. Ein neuen virtuellen Testcomputer erstellt und am sekundären Standort gestartet. Nachdem Sie die Tests abgeschlossen haben, wählen Sie **Testfailover beenden** auf den replizierten virtuellen Computer zu bereinigen. Beachten Sie, dass für eine virtuelle Maschine, die Sie nur ausführen können Failover zu einem Zeitpunkt zu testen. [Erfahren Sie mehr](https://blogs.technet.com/b/virtualization/archive/2012/07/26/types-of-failover-operations-in-hyper-v-replica.aspx).  
 
 **Geplantes Failover**: Führen ein geplantes Failover mit der rechten Maustaste den primären virtuellen Computer und wählen dann **Replikation** > **Geplantes Failover**. Geplantes Failover führt die Voraussetzungen überprüft, um sicherzustellen, dass keine Daten verloren gehen. Er überprüft, dass der primäre virtuelle Computer vor Beginn des Failovers heruntergefahren ist. Nach dem Failover der virtuelle Computer ausgeführt wird, startet es die Änderungen zurück an den primären Standort repliziert werden, sobald diese verfügbar ist. Beachten Sie, dass den primären Server dazu zu empfangsseitennachrichten Replikation vom sekundären Server oder von der Hyper-V-Replikatbroker im Fall von einem primären Cluster konfiguriert werden soll. Geplantes Failover sendet der letzten Überarbeitungen festgelegt. [Erfahren Sie mehr](https://blogs.technet.com/b/virtualization/archive/2012/07/31/types-of-failover-operations-in-hyper-v-replica-part-ii-planned-failover.aspx).  
 

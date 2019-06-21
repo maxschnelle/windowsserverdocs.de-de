@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 693acb5c-dffc-4484-8286-163bb67724c9
 ms.author: coreyp
 author: coreyp-at-msft
-ms.openlocfilehash: 707591604a1d030b3abba9395081d2c2e4b7fb1c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d6967b975b3a950c90de465872832d623755a494
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59838811"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67281416"
 ---
 # <a name="step-8-configure-inet1"></a>SCHRITT 8: Konfigurieren von INET1
 
@@ -30,7 +29,7 @@ Um-Clientcomputern über das Internet eine Verbindung zum RAS-Server zu aktivier
   
 1.  Auf der **starten** geben**dnsmgmt.msc**, und drücken Sie dann die EINGABETASTE.  
   
-2.  Öffnen Sie in der Konsolenstruktur **Forward-Lookupzonen**, klicken Sie auf **"contoso.com"**, klicken Sie dann mit der rechten Maustaste **"contoso.com"**, und klicken Sie dann auf **neuer Host (A oder AAAA)**.  
+2.  Öffnen Sie in der Konsolenstruktur **Forward-Lookupzonen**, klicken Sie auf **"contoso.com"** , klicken Sie dann mit der rechten Maustaste **"contoso.com"** , und klicken Sie dann auf **neuer Host (A oder AAAA)** .  
   
 3.  In **Namen**, Typ **2-EDGE1**. In **IP-Adresse**, Typ **131.107.0.20**. Klicken Sie auf **Host hinzufügen**, klicken Sie auf **OK**, und klicken Sie dann auf **Fertig**.  
   

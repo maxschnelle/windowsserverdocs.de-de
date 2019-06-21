@@ -6,12 +6,12 @@ contributor: maertendMSFT
 ms.product: w10
 author: maertendMSFT
 title: OpenSSH-Server-Konfiguration für Windows
-ms.openlocfilehash: 8e6476e4005bd5bbc2d40c8a59d39510ca1beb70
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7eff3d3e1af67c9daf7a68c67c3609c0ee89fc93
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59827281"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280037"
 ---
 # <a name="openssh-server-configuration-for-windows-10-1809-and-server-2019"></a>OpenSSH-Server-Konfiguration für Windows 10-1809 und Server 2019#
 
@@ -28,7 +28,7 @@ Zum Festlegen der Standard-Befehlsshell bestätigen Sie, dass der OpenSSH-Instal
 Befehls-shell | Befehl verwendet
 ------------- | -------------- 
 Befehl | path
-PowerShell | $env:\path
+PowerShell | $env: Path
 
 Konfigurieren der standardmäßigen ssh Shell in der Windows-Registrierung erfolgt durch den vollständigen Pfad der ausführbaren Datei Computer\HKEY_LOCAL_MACHINE\SOFTWARE\OpenSSH im Zeichenfolgenwert DefaultShell Shell hinzufügen. 
 
@@ -53,7 +53,7 @@ Steuern, welche Benutzer und Gruppen, mit dem Server verbinden können erfolgt m
 Beim Konfigurieren von Benutzer-/Gruppenkonten Regeln mit einem Domänenbenutzer oder-Gruppen basieren, verwenden Sie das folgende Format: ``` user?domain* ```.
 Windows ermöglicht mehrere Formate zum Angeben von Domänenprinzipale viele mit Linux-Standardmuster in Konflikt stehen. Aus diesem Grund * wird hinzugefügt, um FQDNs abzudecken. Dieser Ansatz verwendet außerdem "?", statt @, zur Vermeidung von Konflikten mit der username@host Format. 
 
-Arbeit Gruppe Benutzer/Gruppen und Konten Internetverbindung werden immer auf ihre lokalen Account-Name (kein Teil der Domäne, ähnlich wie standard-Unix-Namen) aufgelöst werden. Domänen-Benutzer und Gruppen werden ausschließlich in aufgelöst [NameSamCompatible](https://docs.microsoft.com/en-us/windows/desktop/api/secext/ne-secext-extended_name_format) Format auf: Domain_short_name\user_name. Alle Benutzer/Gruppe basieren, Konfiguration, die Regeln in dieses Format entsprechen müssen.
+Arbeit Gruppe Benutzer/Gruppen und Konten Internetverbindung werden immer auf ihre lokalen Account-Name (kein Teil der Domäne, ähnlich wie standard-Unix-Namen) aufgelöst werden. Domänen-Benutzer und Gruppen werden ausschließlich in aufgelöst [NameSamCompatible](https://docs.microsoft.com/windows/desktop/api/secext/ne-secext-extended_name_format) Format auf: Domain_short_name\user_name. Alle Benutzer/Gruppe basieren, Konfiguration, die Regeln in dieses Format entsprechen müssen.
 
 Beispiele für Domänenbenutzer und Gruppen 
 

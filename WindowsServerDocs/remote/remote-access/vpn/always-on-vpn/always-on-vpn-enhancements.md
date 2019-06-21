@@ -9,12 +9,12 @@ ms.author: pashort
 author: shortpatti
 ms.date: 11/05/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 0b4dd78e0e88678d4570d408b3dcd472bddc88ba
-ms.sourcegitcommit: 0948a1abff1c1be506216eeb51ffc6f752a9fe7e
+ms.openlocfilehash: e7cbe64609e30b042df70020896aebd85b7d22b9
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66749667"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280774"
 ---
 # <a name="always-on-vpn-enhancements"></a>Always On VPN-Verbesserungen
 
@@ -27,7 +27,7 @@ Always On-VPN-hat viele Vorteile, über die Windows-VPN-Lösungen der Vergangenh
 
 - **Plattformintegration:** Always On-VPN-verfügt über verbesserte Integration in das Windows-Betriebssystem und Drittanbieter-Lösungen bieten Sie eine robuste Plattform für viele erweiterte Verbindung-Szenarien.
 
-- **Sicherheit:** Always On-VPN-verfügt über neue, erweiterte Sicherheitsfunktionen, um den Typ des Datenverkehrs, zu beschränken, welche Anwendungen die VPN-Verbindung verwenden können, und welche Authentifizierungsmethoden, die Sie zum Initiieren der Verbindung verwenden können. Wenn die Verbindung in den meisten Fällen aktiv ist, ist es besonders wichtig, um die Verbindung zu schützen. Weitere Informationen finden Sie unter [VPN-Authentifizierungsoptionen](https://docs.microsoft.com/en-us/windows/security/identity-protection/vpn/vpn-authentication).
+- **Sicherheit:** Always On-VPN-verfügt über neue, erweiterte Sicherheitsfunktionen, um den Typ des Datenverkehrs, zu beschränken, welche Anwendungen die VPN-Verbindung verwenden können, und welche Authentifizierungsmethoden, die Sie zum Initiieren der Verbindung verwenden können. Wenn die Verbindung in den meisten Fällen aktiv ist, ist es besonders wichtig, um die Verbindung zu schützen. Weitere Informationen finden Sie unter [VPN-Authentifizierungsoptionen](https://docs.microsoft.com/windows/security/identity-protection/vpn/vpn-authentication).
 
 - **VPN-Konnektivität:** Always On-VPN-, bietet mit oder ohne Gerät Tunnel-automatisch ausgelöste Funktion auf. Bevor Sie Always On-VPN-war die Möglichkeit zum Auslösen einer automatischen Verbindungs entweder über Benutzer oder Geräteauthentifizierung nicht möglich.  
 

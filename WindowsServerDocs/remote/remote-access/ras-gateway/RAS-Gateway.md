@@ -9,12 +9,12 @@ ms.assetid: acaa46b7-09b1-4707-9562-116df8db17eb
 ms.author: pashort
 author: shortpatti
 ms.date: 05/23/2018
-ms.openlocfilehash: 8fc1c97d7c2a8694e56cc36b5501a82081b3db23
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d61dcdbb61449bd2af57b8e2c99ced6235c4deca
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812341"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67281262"
 ---
 # <a name="ras-gateway"></a>RAS-Gateway
 
@@ -105,13 +105,13 @@ Wenn Sie RAS-Gateways bereitstellen den Hostservern mit Hyper-V und die virtuell
 ## <a name="bkmk_features"></a>RAS-Gateway – Features  
 RAS-Gateway enthält die folgenden Funktionen.  
   
--   **Standort-zu-Standort-VPN-**. Dieses Feature für die RAS-Gateway können Sie zwei Netzwerke an verschiedenen physischen Standorten mit einer Standort-zu-Standort-VPN-Verbindung über das Internet zu verbinden. Wenn Sie eine zentrale und mehreren Zweigniederlassungen verfügen, können bereitstellen eine Edge-RAS-Gateway an jedem Standort und Standort-zu-Standort-Verbindungen zum Bereitstellen des Netzwerkdatenverkehrs zwischen den Standorten erstellen. Für CSPs, die viele Mandanten in ihren Rechenzentren hosten, stellt der RAS-Gateway eine mehrinstanzenfähige gatewaylösung Mandanten zugreifen auf und verwalten ihre Ressourcen über Standort-zu-Standort-VPN-Verbindungen von Remotestandorten aus, und, mit der Fluss von Netzwerkdatenverkehr zwischen virtuellen Ressourcen in Ihrem Datencenter und dem physischen Netzwerk.  
+-   **Standort-zu-Standort-VPN-** . Dieses Feature für die RAS-Gateway können Sie zwei Netzwerke an verschiedenen physischen Standorten mit einer Standort-zu-Standort-VPN-Verbindung über das Internet zu verbinden. Wenn Sie eine zentrale und mehreren Zweigniederlassungen verfügen, können bereitstellen eine Edge-RAS-Gateway an jedem Standort und Standort-zu-Standort-Verbindungen zum Bereitstellen des Netzwerkdatenverkehrs zwischen den Standorten erstellen. Für CSPs, die viele Mandanten in ihren Rechenzentren hosten, stellt der RAS-Gateway eine mehrinstanzenfähige gatewaylösung Mandanten zugreifen auf und verwalten ihre Ressourcen über Standort-zu-Standort-VPN-Verbindungen von Remotestandorten aus, und, mit der Fluss von Netzwerkdatenverkehr zwischen virtuellen Ressourcen in Ihrem Datencenter und dem physischen Netzwerk.  
   
--   **Punkt-zu-Standort-VPN-**. Dieses Feature für die RAS-Gateway kann Mitarbeiter des Unternehmens "oder" Administratoren ", von Remotestandorten aus eine Verbindung mit dem Netzwerk Ihrer Organisation. Für einzelnen Mandanten Bereitstellungen des RAS-Gateways können Remotemitarbeiter eine VPN-Verbindung mit dem Netzwerk Ihrer Organisation verbinden. Diese Verbindung können sie interne Netzwerkressourcen, z. B. Intranet-Websites und Dateiservern zu verwenden. Bei mehrinstanzenfähigen Bereitstellungen können Netzwerk Mandantenadministratoren Punkt-zu-Standort-VPN-Verbindungen Sie Ressourcen des virtuellen Netzwerks im CSP-Datencenter zugreifen.  
+-   **Punkt-zu-Standort-VPN-** . Dieses Feature für die RAS-Gateway kann Mitarbeiter des Unternehmens "oder" Administratoren ", von Remotestandorten aus eine Verbindung mit dem Netzwerk Ihrer Organisation. Für einzelnen Mandanten Bereitstellungen des RAS-Gateways können Remotemitarbeiter eine VPN-Verbindung mit dem Netzwerk Ihrer Organisation verbinden. Diese Verbindung können sie interne Netzwerkressourcen, z. B. Intranet-Websites und Dateiservern zu verwenden. Bei mehrinstanzenfähigen Bereitstellungen können Netzwerk Mandantenadministratoren Punkt-zu-Standort-VPN-Verbindungen Sie Ressourcen des virtuellen Netzwerks im CSP-Datencenter zugreifen.  
   
--   **Dynamisches routing mit Border Gateway Protocol (BGP)**. BGP verringert den Bedarf an manueller Routingkonfiguration auf Routern, da es ein dynamisches Routingprotokoll ist, das automatisch Routen zwischen Standorten lernt, die über die Standort-zu-Standort-VPN-Verbindungen verbunden sind. Wenn Ihre Organisation über mehrere Standorte, die verfügt mithilfe von BGP-fähigen Routern, z. B. RAS-Gateway verbunden sind, kann BGP die Router automatisch berechnen und verwenden die gültige Routen miteinander im Falle einer Störung des Netzwerks oder Fehler. Weitere Informationen finden Sie unter [RFC 4271](https://tools.ietf.org/html/rfc4271).  
+-   **Dynamisches routing mit Border Gateway Protocol (BGP)** . BGP verringert den Bedarf an manueller Routingkonfiguration auf Routern, da es ein dynamisches Routingprotokoll ist, das automatisch Routen zwischen Standorten lernt, die über die Standort-zu-Standort-VPN-Verbindungen verbunden sind. Wenn Ihre Organisation über mehrere Standorte, die verfügt mithilfe von BGP-fähigen Routern, z. B. RAS-Gateway verbunden sind, kann BGP die Router automatisch berechnen und verwenden die gültige Routen miteinander im Falle einer Störung des Netzwerks oder Fehler. Weitere Informationen finden Sie unter [RFC 4271](https://tools.ietf.org/html/rfc4271).  
   
--   **Netzwerkadressübersetzung (NAT)**. Netzwerkadressübersetzung (NAT) können Sie eine Verbindung mit dem öffentlichen Internet über eine einzelne Schnittstelle für eine einzelne öffentliche IP-Adresse freigeben. Verwenden Sie die Computer im privaten Netzwerk private, nicht routingfähige Adressen. NAT wird die privaten Adressen in die öffentliche Adresse zugeordnet. Dieses Feature für die RAS-Gateway kann Mitarbeiter der Organisation mit der Bereitstellung der einzelnen Mandanten, den Zugriff auf Internetressourcen über das Gateway. Für CSPs können Anwendungen, die auf die Mandanten-VMs, die Zugriff auf das Internet ausgeführt werden. Beispielsweise kann ein Mandanten-VM, der als Webserver konfiguriert ist externe finanzielle Ressourcen zum Verarbeiten von Kreditkartentransaktionen wenden Sie sich an.  
+-   **Netzwerkadressübersetzung (NAT)** . Netzwerkadressübersetzung (NAT) können Sie eine Verbindung mit dem öffentlichen Internet über eine einzelne Schnittstelle für eine einzelne öffentliche IP-Adresse freigeben. Verwenden Sie die Computer im privaten Netzwerk private, nicht routingfähige Adressen. NAT wird die privaten Adressen in die öffentliche Adresse zugeordnet. Dieses Feature für die RAS-Gateway kann Mitarbeiter der Organisation mit der Bereitstellung der einzelnen Mandanten, den Zugriff auf Internetressourcen über das Gateway. Für CSPs können Anwendungen, die auf die Mandanten-VMs, die Zugriff auf das Internet ausgeführt werden. Beispielsweise kann ein Mandanten-VM, der als Webserver konfiguriert ist externe finanzielle Ressourcen zum Verarbeiten von Kreditkartentransaktionen wenden Sie sich an.  
 
   
 ## <a name="bkmk_deploy"></a>RAS-Gateway-Bereitstellungsszenarien  
@@ -124,11 +124,11 @@ Es folgen die empfohlenen Bereitstellungsszenarien für RAS-Gateway.
 ## <a name="bkmk_manage"></a>RAS-Gateway-Verwaltungstools  
 Es folgen die Verwaltungstools für RAS-Gateway.  
   
--   In Windows Server 2016 zum Bereitstellen eines RAS-Gateway-Routers, müssen Sie Windows PowerShell-Befehle verwenden. Weitere Informationen finden Sie unter [Remotezugriff-Cmdlets](https://technet.microsoft.com/library/hh918399.aspx) für Windows Server 2016 und Windows 10.  
+-   In Windows Server 2016 zum Bereitstellen eines RAS-Gateway-Routers, müssen Sie Windows PowerShell-Befehle verwenden. Weitere Informationen finden Sie unter [Remotezugriff-Cmdlets](https://docs.microsoft.com/powershell/module/remoteaccess) für Windows Server 2016 und Windows 10.  
   
--   In System Center 2012 R2 Virtual Machine Manager (VMM), heißt das RAS-Gateway dem Windows Server-Gateway. Eine begrenzte Anzahl von Border Gateway Protocol (BGP)-Konfigurationsoptionen sind verfügbar, in der VMM-Softwareschnittstelle, einschließlich **lokale BGP-IP-Adresse** und **autonome Systemnummern (ASN)**,  **Liste der BGP-Peer-IP-Adressen**, und **ASN Werte**. Sie können jedoch Windows PowerShell-BGP-Befehle per Remotezugriff verwenden, um alle anderen Features des Windows Server-Gateways zu konfigurieren. Weitere Informationen finden Sie unter [Virtual Machine Manager (VMM)](https://technet.microsoft.com/system-center-docs/vmm/vmm) und [Remotezugriff-Cmdlets](https://technet.microsoft.com/library/hh918399.aspx) für Windows Server 2016 und Windows 10.  
+-   In System Center 2012 R2 Virtual Machine Manager (VMM), heißt das RAS-Gateway dem Windows Server-Gateway. Eine begrenzte Anzahl von Border Gateway Protocol (BGP)-Konfigurationsoptionen sind verfügbar, in der VMM-Softwareschnittstelle, einschließlich **lokale BGP-IP-Adresse** und **autonome Systemnummern (ASN)** ,  **Liste der BGP-Peer-IP-Adressen**, und **ASN Werte**. Sie können jedoch Windows PowerShell-BGP-Befehle per Remotezugriff verwenden, um alle anderen Features des Windows Server-Gateways zu konfigurieren. Weitere Informationen finden Sie unter [Virtual Machine Manager (VMM)](https://technet.microsoft.com/system-center-docs/vmm/vmm) und [Remotezugriff-Cmdlets](https://technet.microsoft.com/library/hh918399.aspx) für Windows Server 2016 und Windows 10.  
   
 ## <a name="related-topics"></a>Verwandte Themen
 - [RAS-Gateway: Hohe Verfügbarkeit](../../../networking/sdn/technologies/network-function-virtualization/RAS-Gateway-High-Availability.md)  
-- [GRE-Tunneling in WindowsServer](gre-tunneling-windows-server.md)
-- [RAS-Gateway-GRE-Tunnel-Durchsatz und Leistung](RAS-Gateway-GRE-Perf.md)
+- [GRE-Tunneling in Windows Server](gre-tunneling-windows-server.md)
+- [GRE-Tunneling für RAS-Gateway: Durchsatz und Leistung](RAS-Gateway-GRE-Perf.md)

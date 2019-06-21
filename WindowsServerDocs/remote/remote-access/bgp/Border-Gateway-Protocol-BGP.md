@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ras
+ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 78cc2ce3-a48e-45db-b402-e480b493fab1
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 65af14e3adfacd96334e2326f8dd0b346e27034a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 655a7b02468db4246b85b495289806a3f9735a95
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59850181"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67282004"
 ---
 # <a name="border-gateway-protocol-bgp"></a>Border Gateway Protocol (BGP)
 
@@ -29,7 +28,7 @@ In diesem Thema erhalten Sie Informationen zum Verständnis des Border Gateway P
 > [!NOTE]  
 > Zusätzlich zu diesem Thema wird die folgende Dokumentation zum BGP verfügbar.  
 >   
-> -   [BGP Windows PowerShell-Befehlsreferenz](../../remote-access/bgp/BGP-Windows-PowerShell-Command-Reference.md)  
+> -   [BGP-Befehlsreferenz für Windows PowerShell](../../remote-access/bgp/BGP-Windows-PowerShell-Command-Reference.md)  
   
 Dieses Thema enthält die folgenden Abschnitte:  
   
@@ -150,7 +149,7 @@ Im folgenden werden die Funktionen von der RAS-Gateway-BGP-Router.
   
 **BGP-Routing als ein Rollendienst der Remotezugriff**. Sie können jetzt installieren die **Routing** Rollendienst der Remotezugriffs-Serverrolle ohne Installation der **Remote Access Service (RAS)** Rollendienst, wenn Sie Remotezugriff als BGP-LAN-Router verwenden möchten.  Dies reduziert den Speicherbedarf der BGP-Router und installiert nur die erforderlichen Komponenten für das dynamische BGP-routing. Der Routingdienst für die Rolle eignet sich Wenn nur eine BGP-Router-VM erforderlich ist, und die Verwendung von DirectAccess oder VPN nicht erforderlich. Darüber hinaus bietet mithilfe von Remotezugriff als LAN mit BGP-Router mit den dynamischen routing-Vorteilen von BGP in Ihrem internen Netzwerk.  
   
-**BGP-Statistiken (Nachrichtenindikatoren, Routingindikatoren)**. Der BGP-Router unterstützt, falls erforderlich, die Anzeige von Nachrichten- und Routingstatistiken mit dem Windows PowerShell-Befehl **Get-BgpStatistics** .  
+**BGP-Statistiken (Nachrichtenindikatoren, Routingindikatoren)** . Der BGP-Router unterstützt, falls erforderlich, die Anzeige von Nachrichten- und Routingstatistiken mit dem Windows PowerShell-Befehl **Get-BgpStatistics** .  
   
 **Equal Cost Multi Path Routing (ECMP)-Unterstützung**. Der BGP-Router unterstützt ECMP und kann über mehr als eine Route mit gleichen Kosten in BGP-Routingtabelle und -stapel verfügen. Die BGP-Routerauswahl der Route für die Übertragung von Datenpaketen ist bei aktiviertem ECMP zufällig.  
   
@@ -162,7 +161,7 @@ Im folgenden werden die Funktionen von der RAS-Gateway-BGP-Router.
   
 **Unterstützung von IPv4- und IPv6-Transportpeering**. Der BGP-Router unterstützt IPv4- und IPv6-Peering. Sie müssen jedoch den BGP-Bezeichner als IPv4-Adresse des BGP-Routers konfigurieren. Für alle BGP-Routerbereitstellungstopologien kann einer der beiden Peeringtypen (IPV4/IPv6) verwendet werden.  
   
-**IPv4- und IPv6-Unicastrouten-Lern- und Ankündigungsfunktionen (Multiprotokoll-NRLI [Network Layer Reachability Information])**. Unabhängig von der verwendeten Transportart kann der BGP-Router IPv4- und IPv6-Routen austauschen, wenn die entsprechende Funktion beim Einrichten der Sitzung durch andere BGP-Router angekündigt wird. Zum Konfigurieren von IPv6-Routing, muss der Parameter IPv6Routing aktiviert sein, und eine lokale, globale IPv6-Adresse muss auf Routerebene konfiguriert sein.  
+**IPv4- und IPv6-Unicastrouten-Lern- und Ankündigungsfunktionen (Multiprotokoll-NRLI [Network Layer Reachability Information])** . Unabhängig von der verwendeten Transportart kann der BGP-Router IPv4- und IPv6-Routen austauschen, wenn die entsprechende Funktion beim Einrichten der Sitzung durch andere BGP-Router angekündigt wird. Zum Konfigurieren von IPv6-Routing, muss der Parameter IPv6Routing aktiviert sein, und eine lokale, globale IPv6-Adresse muss auf Routerebene konfiguriert sein.  
   
 **Peering im gemischten Modus und im passiven Modus**. Sie können konfigurieren, BGP-peeringsitzungen entweder im gemischten Modus -, in dem der BGP-Router als Initiator und Responder - fungiert oder im passiven Modus, in dem der BGP-Router kein peering initiiert, jedoch auf eingehende Anforderungen reagiert. Der gemischte Modus ist die Standardeinstellung und wird für BGP-Peering empfohlen. Dies gilt, wenn Sie den passiven Modus nicht zum Debuggen und zur Diagnose verwenden möchten. Für alle BGP-Routerbereitstellungstopologien ist Peering im gemischten Modus erforderlich, um automatische Neustarts bei Fehlerereignissen zu aktivieren.  
   

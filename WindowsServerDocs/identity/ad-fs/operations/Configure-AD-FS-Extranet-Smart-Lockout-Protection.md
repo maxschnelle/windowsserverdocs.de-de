@@ -9,12 +9,12 @@ ms.date: 05/20/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 7a4ad8c0199f0f62d7cd69a43897cb4608ddb365
-ms.sourcegitcommit: ccc802338b163abdad2e53b55f39addcfea04603
+ms.openlocfilehash: eb31a76dbd7ccdff3ea3ee0d6bb26f9ee16ae93f
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687370"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280704"
 ---
 # <a name="ad-fs-extranet-lockout-and-extranet-smart-lockout"></a>AD FS Extranet Lockout und intelligente Extranetsperre
 
@@ -237,7 +237,7 @@ Dieses Verhalten kann überschrieben werden, übergeben den - Server-Parameter.
 ## <a name="event-logging--user-activity-information-for-ad-fs-extranet-lockout"></a>Protokollierung von Komponentenereignissen und Aktivität der Benutzerinformationen für AD FS Extranet Lockout
 
 ### <a name="connect-health"></a>Connect Health
-Die empfohlene Methode zum Überwachen der Benutzeraktivität-Konto erfolgt über Connect Health. Connect Health generiert herunterladbare Berichte zu riskanten IP-Adressen und erfolgte Eingaben falscher Kennwörter. Jedes Element im Bericht riskante IP-Adresse zeigt zusammengefasste Informationen zu fehlgeschlagenen AD FS-Anmeldeaktivitäten, die angegebene Schwellenwert überschritten. E-Mail-Benachrichtigungen können Administratoren festgelegt werden, als dies mit anpassbaren e-Mail-Einstellungen auftritt. Weitere Informationen und Anweisungen zur Einrichtung finden Sie auf die [Connect Health-Dokumentation](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-health-adfs).
+Die empfohlene Methode zum Überwachen der Benutzeraktivität-Konto erfolgt über Connect Health. Connect Health generiert herunterladbare Berichte zu riskanten IP-Adressen und erfolgte Eingaben falscher Kennwörter. Jedes Element im Bericht riskante IP-Adresse zeigt zusammengefasste Informationen zu fehlgeschlagenen AD FS-Anmeldeaktivitäten, die angegebene Schwellenwert überschritten. E-Mail-Benachrichtigungen können Administratoren festgelegt werden, als dies mit anpassbaren e-Mail-Einstellungen auftritt. Weitere Informationen und Anweisungen zur Einrichtung finden Sie auf die [Connect Health-Dokumentation](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs).
 
 ### <a name="ad-fs-extranet-smart-lockout-events"></a>AD FS Extranet Smart Lockout-Ereignisse.
 Für Extranet Smart Lockout-Ereignisse zu schreibender zusammenfassender Meldung muss aktiviert sein, im Modus "nur Log" oder "erzwingen" aus, und AD FS-sicherheitsüberwachung aktiviert ist.

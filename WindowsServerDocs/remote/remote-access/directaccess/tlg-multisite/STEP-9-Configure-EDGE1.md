@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f6e8d85b-de65-43b3-bf3e-ec84471a1fcc
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: f5d216934f0d09cdef97ce4405161862b112d632
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: b0a47a436bbd11c795caa8b402054ae0d2c3282f
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59864871"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67281376"
 ---
 # <a name="step-9-configure-edge1"></a>Schritt 9 Konfigurieren von EDGE1
 
@@ -32,15 +31,15 @@ Die folgenden Verfahren werden auf dem Server EDGE1 ausgeführt:
   
 ## <a name="IPv6"></a>Konfigurieren Sie die DNS-Server auf EDGE1  
   
-1.  Klicken Sie in der Server-Manager-Konsole auf **lokalen Server**, und klicken Sie dann in der **Eigenschaften** Bereich, der neben **"Corpnet"**, klicken Sie auf den Link.  
+1.  Klicken Sie in der Server-Manager-Konsole auf **lokalen Server**, und klicken Sie dann in der **Eigenschaften** Bereich, der neben **"Corpnet"** , klicken Sie auf den Link.  
   
-2.  Im Fenster Netzwerkverbindungen mit der Maustaste **"Corpnet"**, und klicken Sie dann auf **Eigenschaften**.  
+2.  Im Fenster Netzwerkverbindungen mit der Maustaste **"Corpnet"** , und klicken Sie dann auf **Eigenschaften**.  
   
-3.  Klicken Sie auf **Internetprotokoll Version 4 (TCP/IPv4)**, und klicken Sie dann auf **Eigenschaften**.  
+3.  Klicken Sie auf **Internetprotokoll Version 4 (TCP/IPv4)** , und klicken Sie dann auf **Eigenschaften**.  
   
 4.  In **alternativer DNS-Server**, Typ **10.2.0.1**. ein, und klicken Sie dann auf **OK**.  
   
-5.  Klicken Sie auf **Internetprotokoll Version 6 (TCP/IPv6)**, und klicken Sie dann auf **Eigenschaften**.  
+5.  Klicken Sie auf **Internetprotokoll Version 6 (TCP/IPv6)** , und klicken Sie dann auf **Eigenschaften**.  
   
 6.  In **alternativer DNS-Server**, Typ **2001:db8:2::1** , und klicken Sie dann auf **OK**.  
   

@@ -11,12 +11,12 @@ author: sakitong
 ms.author: coreyp
 manager: lizapo
 ms.date: 10/16/2017
-ms.openlocfilehash: 7331418c1926958da07c94bca9ff9f871134f3fa
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 5f2a99bb69fd41c05013788187838f8fceb5f69a
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66439871"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280453"
 ---
 # <a name="express-update-delivery-isv-support"></a>ISV-Unterstützung für Express-Updatebereitstellung
 
@@ -66,7 +66,7 @@ WSUS dient als Schnittstelle zu Windows Update und verwaltet alle Metadaten, die
 
 #### <a name="specify-the-isv-file-cache"></a>Geben Sie den ISV-Dateicache
 
-Neue clientseitige Gruppenrichtlinien und Internet-Informationsdienste (Mobile Device Management, MDM) Einstellungen finden Sie unter den [ **Konfigurationsdienstanbieter-Referenz** ](https://msdn.microsoft.com/en-us/windows/hardware/commercialize/customize/mdm/configuration-service-provider-reference) definieren Sie den Speicherort des Dateicaches ISV.
+Neue clientseitige Gruppenrichtlinien und Internet-Informationsdienste (Mobile Device Management, MDM) Einstellungen finden Sie unter den [ **Konfigurationsdienstanbieter-Referenz** ](https://msdn.microsoft.com/windows/hardware/commercialize/customize/mdm/configuration-service-provider-reference) definieren Sie den Speicherort des Dateicaches ISV.
 
 | **Name**                                              | **Beschreibung**                                                                                                                                                      |
 |-------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -93,7 +93,7 @@ Der ISV-Datei-Cache muss aktualisiert werden, mit Dateien im Zusammenhang mit de
 
 **Der ISV-Datei-Cache zu füllen:**
 
-1. Verwendung [WSUS-APIs](https://msdn.microsoft.com/en-us/library/windows/desktop/microsoft.updateservices.administration.updatefile(v=vs.85).aspx) den Zugriff auf des Updates Dateipfad und Dateinamen für den MU-Dienst.
+1. Verwendung [WSUS-APIs](https://msdn.microsoft.com/library/windows/desktop/microsoft.updateservices.administration.updatefile(v=vs.85).aspx) den Zugriff auf des Updates Dateipfad und Dateinamen für den MU-Dienst.
 
     Die Metadaten für die einzelnen Updates auf WSUS-Server enthält des Updates Pfad und Dateinamen auf Microsoft Update wie folgt (Microsoft Update-Hostnamen in fettformatierung, gefolgt vom Pfad und Dateiname): **<http://download.windowsupdate.com>** /c/Msdownload/Update / Software/UPDT/2016/09/windows10.0-kb3195781-x64_0c06079bccc35cba35a48bd2b1ec46f818bd2e74.msu
 
@@ -119,7 +119,7 @@ Der ISV-Client-Agent orchestriert den Download und die Installation genehmigter 
 
 5.  Sobald die Updates heruntergeladen wurden, ruft der ISV-Client-Agent die WU-Clients, um die genehmigten Updates installieren
 
-Finden Sie unter [suchen, herunterladen und Installieren von Updates](https://msdn.microsoft.com/en-us/library/windows/desktop/aa387102(v=vs.85).aspx) Weitere Informationen zur Verwendung des WU-Clients überprüfen, Updates herunterladen und installieren.
+Finden Sie unter [suchen, herunterladen und Installieren von Updates](https://msdn.microsoft.com/library/windows/desktop/aa387102(v=vs.85).aspx) Weitere Informationen zur Verwendung des WU-Clients überprüfen, Updates herunterladen und installieren.
 
 ### <a name="download-workflow-options"></a>Workflow-Downloadoptionen
 

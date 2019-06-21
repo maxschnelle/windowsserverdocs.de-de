@@ -9,12 +9,12 @@ ms.date: 03/06/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: e62032533b15ec3d93896d242273612faafdca58
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 1e72556f9a630e188b59722e09650f9e48fb6852
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66444102"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280469"
 ---
 # <a name="ad-fs-requirements"></a>AD FS-Anforderungen
 
@@ -110,7 +110,7 @@ Wenn Sie SQL Server für die AD FS-Konfigurationsdatenbank verwenden, die Größ
   
 -   Für den Extranetzugriff, müssen Sie die Webanwendungsproxy-Rollendienst bereitstellen \- Teil der Serverrolle "Remotezugriff". 
 
--   Unterstützung von Drittanbieter-Proxys müssen die [MS-ADFSPIP Protokoll](https://msdn.microsoft.com/en-us/library/dn392811.aspx) als AD FS-Proxy unterstützt werden müssen.  Eine Liste der 3rd Party Anbietern finden Sie unter den [– häufig gestellte Fragen](AD-FS-FAQ.md#what-third-party-proxies-are-available-for-ad-fs-that-support-ms-adfspip).
+-   Unterstützung von Drittanbieter-Proxys müssen die [MS-ADFSPIP Protokoll](https://msdn.microsoft.com/library/dn392811.aspx) als AD FS-Proxy unterstützt werden müssen.  Eine Liste der 3rd Party Anbietern finden Sie unter den [– häufig gestellte Fragen](AD-FS-FAQ.md#what-third-party-proxies-are-available-for-ad-fs-that-support-ms-adfspip).
 
 -   AD FS 2016 ist die Webanwendungsproxy-Server unter Windows Server 2016 erforderlich.  Ein Downlevel-Proxy kann nicht für eine der verhaltensebene 2016-Farm mit AD FS 2016-Farm konfiguriert werden.
   

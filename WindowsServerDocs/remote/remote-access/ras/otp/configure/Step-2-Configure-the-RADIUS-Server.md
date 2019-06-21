@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ras
+ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0326818f-9144-496c-b946-f82be4eefbd3
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 219c333745d28bdedb9027c1dd46148ac80998f6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9c111ce52f2cca0cc37ea4d5b873c5fde12bce18
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840871"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67282449"
 ---
 # <a name="step-2-configure-the-radius-server"></a>Schritt 2 konfigurieren den RADIUS-Server
 
@@ -43,7 +42,7 @@ Der RADIUS-Server verwendet die UDP-Ports für die Kommunikation verwendet, und 
 Der RADIUS-Server verwendet einen gemeinsamen geheimen Schlüssel zum Zweck der Authentifizierung. Konfigurieren des RADIUS-Servers durch ein sicheres Kennwort für den gemeinsamen geheimen Schlüssel ein, und beachten Sie, dass dies verwendet wird, wenn der DirectAccess-Server Client Computer-Konfiguration für die Verwendung mit DirectAccess mit OTP zu konfigurieren.  
   
 ## <a name="BKMK_Probe"></a>2.3 hinzufügen-Benutzerkonto für die OTP-Tests  
-Erstellen Sie auf dem RADIUS-Server ein neues Benutzerkonto namens **DAProbeUser** und weisen Sie ihm das Kennwort **"daprobepass"**.  
+Erstellen Sie auf dem RADIUS-Server ein neues Benutzerkonto namens **DAProbeUser** und weisen Sie ihm das Kennwort **"daprobepass"** .  
   
 ## <a name="BKMK_Active"></a>2.4 synchronisieren Sie mit Active Directory.  
 Der RADIUS-Server muss Benutzerkonten verfügen, die die Benutzer in Active Directory zu entsprechen, die DirectAccess mit OTP verwenden möchten.  

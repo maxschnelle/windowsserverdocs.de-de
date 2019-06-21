@@ -8,12 +8,12 @@ ms.author: jol
 ms.date: 03/01/2019
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: fe00072932d9c7f283ebd887a5292ac9a9d0e37f
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 4d156820781d2a9defc989fa1acf35d4289fb24f
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446029"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284081"
 ---
 # <a name="manage-hyper-converged-infrastructure-with-windows-admin-center"></a>Verwalten von Hyper-konvergiert-Infrastruktur mit Windows Admin Center
 
@@ -21,7 +21,7 @@ ms.locfileid: "66446029"
 
 ## <a name="what-is-hyper-converged-infrastructure"></a>Was ist Hyper-Converged Infrastruktur
 
-Zusammengeführte Infrastruktur konsolidiert softwaredefinierte COMPUTE-, Speicher- und Netzwerkressourcen in einem Cluster zu hoch leistungsfähige, kostengünstige und einfach skalierbare Virtualisierung. Diese Funktion wurde in Windows Server 2016 mit eingeführt ["direkte Speicherplätze"](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview), [Software Defined Networking](https://docs.microsoft.com/en-us/windows-server/networking/sdn/software-defined-networking) und [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-on-windows-server).
+Zusammengeführte Infrastruktur konsolidiert softwaredefinierte COMPUTE-, Speicher- und Netzwerkressourcen in einem Cluster zu hoch leistungsfähige, kostengünstige und einfach skalierbare Virtualisierung. Diese Funktion wurde in Windows Server 2016 mit eingeführt ["direkte Speicherplätze"](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview), [Software Defined Networking](https://docs.microsoft.com/windows-server/networking/sdn/software-defined-networking) und [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-on-windows-server).
 
 > [!Tip]
 > Suche nach Hyper-Converged Infrastruktur? Microsoft empfiehlt diese [Windows Server-Software-Defined](https://microsoft.com/wssd) Lösungen unserer Partner. Sie werden entworfen, zusammengesetzt und für unsere Referenzarchitektur, um sicherzustellen, dass Kompatibilität und Zuverlässigkeit, damit Sie Sie nutzen und schnell überprüft.

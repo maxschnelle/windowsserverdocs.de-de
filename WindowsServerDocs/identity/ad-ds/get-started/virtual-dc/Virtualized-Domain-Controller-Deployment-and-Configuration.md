@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 4af0f96b0af3a547ab7d509d031a9e23cce8b654
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 059bb3c1b15afdc579ba048b8bbb02ed185f3d42
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66443212"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280954"
 ---
 # <a name="virtualized-domain-controller-deployment-and-configuration"></a>Bereitstellung und Konfiguration virtualisierter Domänencontroller
 
@@ -153,7 +153,7 @@ Bevor Sie versuchen, einen Domänencontroller zu klonen, müssen Sie überprüfe
     >   
     > Da diese RPC-Methode neu ist, benötigt Ihre Netzwerkanalysesoftware aktualisierte Parser, um Felder für das neue Opnum 28 in die vorhandene UUID E3514235-4B06-11D1-AB04-00C04FC2DCD2 einzuschließen. Andernfalls können Sie diesen Datenverkehr nicht analysieren.  
     >   
-    > Weitere Informationen finden Sie unter [4.1.29 IDL_DRSAddCloneDC (Opnum 28)](https://msdn.microsoft.com/en-us/library/hh554213(v=prot.13).aspx).  
+    > Weitere Informationen finden Sie unter [4.1.29 IDL_DRSAddCloneDC (Opnum 28)](https://msdn.microsoft.com/library/hh554213(v=prot.13).aspx).  
   
 ***Dies bedeutet auch bei Verwendung nicht vollständig gerouteter Netzwerke Klonen virtualisierter Domänencontroller benötigt Netzwerksegmente mit Zugriff auf den PDCE***. Es ist akzeptabel, einen geklonten Domänencontroller nach dem Klonen – wie einen physischen Domänencontroller – in ein anderes Netzwerk zu verschieben, solange Sie darauf achten, die Informationen zum logischen AD DS-Standort zu aktualisieren.  
   

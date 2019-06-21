@@ -1,12 +1,12 @@
 ---
 title: Konfigurieren von Kerberos für die IP-Adresse
 description: Kerberos-Unterstützung für IP-basierte SPNs
-ms.openlocfilehash: 30741f7a0f1978fcaa6ac83c98a54c07e1ef25c5
-ms.sourcegitcommit: c6acac3622e5d34714ca5c569805931681f98779
+ms.openlocfilehash: aa2685fcff2fdf231e5e5884d25885585f0bd6c9
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66391521"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67279968"
 ---
 # <a name="kerberos-clients-allow-ipv4-and-ipv6-address-hostnames-in-service-principal-names-spns"></a>Kerberos-Clients zulassen IPv4 und IPv6-Adresse-Hostnamen in Service Principal Names (SPNs)
 
@@ -30,7 +30,7 @@ A Service Principal Name ist ein eindeutiger Bezeichner, die während der Kerber
 
 IP-Adressen sind normalerweise nicht anstelle von Hostnamen verwendet, da es sich bei IP-Adressen oft temporär sind. Dies kann zu Konflikten und Authentifizierungsfehlern führen, wie Adressleases laufen ab und zu erneuern. Aus diesem Grund registrieren einen IP-Adressen basierenden SPN ist ein manueller Prozess, und sollte nur verwendet werden, wenn es nicht möglich, wechseln Sie auf eine Basis von DNS-Hostname ist.
 
-Der empfohlene Ansatz ist die Verwendung der [Setspn.exe](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11)) Tool. Beachten Sie, dass ein SPN nur registriert werden kann, die einem einzelnen Konto in Active Directory zu einem Zeitpunkt daher wird empfohlen, dass die IP-Adressen statisch Leases aufweisen, wenn DHCP verwendet wird.
+Der empfohlene Ansatz ist die Verwendung der [Setspn.exe](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11)) Tool. Beachten Sie, dass ein SPN nur registriert werden kann, die einem einzelnen Konto in Active Directory zu einem Zeitpunkt daher wird empfohlen, dass die IP-Adressen statisch Leases aufweisen, wenn DHCP verwendet wird.
 
 ```
 Setspn -s <service>/ip.address> <domain-user-account>  

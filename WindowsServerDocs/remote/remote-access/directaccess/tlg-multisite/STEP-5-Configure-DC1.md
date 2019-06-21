@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 70357156-fcb0-4346-a61e-4ea963e3ffb0
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: e7f907c3bf463e3a90d413e5b167a70051057f06
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 108e517923c75f685d817cdf9fad9b14132e3bb0
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59876771"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67281435"
 ---
 # <a name="step-5-configure-dc1"></a>Schritt 5 Konfigurieren von DC1
 
@@ -40,11 +39,11 @@ Zum Konfigurieren des Remotezugriffs um eine Topologie mit mehreren Standorten v
   
 2.  Im Fenster Netzwerkverbindungen mit der Maustaste **verkabelte Ethernetverbindung**, und klicken Sie dann auf **Eigenschaften**.  
   
-3.  Klicken Sie auf **Internetprotokoll Version 4 (TCP/IPv4)**, und klicken Sie dann auf **Eigenschaften**.  
+3.  Klicken Sie auf **Internetprotokoll Version 4 (TCP/IPv4)** , und klicken Sie dann auf **Eigenschaften**.  
   
 4.  In **Standardgateway**, Typ **10.0.0.254**, und klicken Sie in **alternativer DNS-Server**, Typ **10.2.0.1**, und klicken Sie dann auf **OK** .  
   
-5.  Klicken Sie auf **Internetprotokoll Version 6 (TCP/IPv6)**, und klicken Sie dann auf **Eigenschaften**.  
+5.  Klicken Sie auf **Internetprotokoll Version 6 (TCP/IPv6)** , und klicken Sie dann auf **Eigenschaften**.  
   
 6.  In **Standardgateway**, Typ **2001:db8:1::fe**, und klicken Sie in **alternativer DNS-Server**, Typ **2001:db8:2::1**, und klicken Sie dann auf **OK**.  
   
@@ -61,7 +60,7 @@ Erstellen Sie die Sicherheitsgruppen für DirectAccess für Windows 7 mithilfe d
   
 1.  Auf der **starten** geben**dsa.msc**, und drücken Sie dann die EINGABETASTE.  
   
-2.  Erweitern Sie im linken Bereich **"corp.contoso.com"**, klicken Sie auf **Benutzer**, klicken Sie dann mit der rechten Maustaste **Benutzer**, zeigen Sie auf **neu**, und klicken Sie dann auf **Gruppe**.  
+2.  Erweitern Sie im linken Bereich **"corp.contoso.com"** , klicken Sie auf **Benutzer**, klicken Sie dann mit der rechten Maustaste **Benutzer**, zeigen Sie auf **neu**, und klicken Sie dann auf **Gruppe**.  
   
 3.  Auf der **neues Objekt – Gruppe** Dialogfeld **Gruppenname**, geben Sie **Win7_Clients_Site1**.  
   

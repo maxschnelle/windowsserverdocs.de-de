@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 01/30/2019
-ms.openlocfilehash: 25ed17d964f12c2f497ccde443dad9f8bc253b20
-ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
+ms.openlocfilehash: 3c36eff8aabd1fa1c6456dce1d08ebe504102e8c
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65034673"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284168"
 ---
 # <a name="shielded-vms-for-tenants---creating-shielding-data-to-define-a-shielded-vm"></a>Abgeschirmte virtuelle Computer für Mandanten - geschützte Daten erstellen, um eine geschützte VM zu definieren.
 
@@ -199,7 +199,7 @@ Führen Sie die Schutzdatendatei-Assistenten, um eine geschützte Datendatei (PD
 Sie können als Alternative zum Schutzdatendatei-Assistenten ausführen [New-ShieldingDataFile](https://docs.microsoft.com/powershell/module/shieldedvmdatafile/new-shieldingdatafile?view=win10-ps) um eine geschützte Datendatei zu erstellen.
 
 Alle geschützten Datendateien müssen mit dem richtigen Besitzer und den Überwachungsdienst Zertifikate, die abgeschirmten VMs für die Ausführung auf einem geschützten Fabric autorisiert konfiguriert werden.
-Sie können überprüfen, ob Sie alle Überwachungen, die lokal mit installiert haben [Get-HgsGuardian](https://docs.microsoft.com/en-us/powershell/module/hgsclient/get-hgsguardian?view=win10-ps). Besitzer Guardians aufweisen private Schlüssel, während Überwachungen für Ihr Rechenzentrum in der Regel nicht der Fall ist.
+Sie können überprüfen, ob Sie alle Überwachungen, die lokal mit installiert haben [Get-HgsGuardian](https://docs.microsoft.com/powershell/module/hgsclient/get-hgsguardian?view=win10-ps). Besitzer Guardians aufweisen private Schlüssel, während Überwachungen für Ihr Rechenzentrum in der Regel nicht der Fall ist.
 
 Wenn Sie ein Besitzer Überwachungsdienst erstellen möchten, führen Sie den folgenden Befehl aus:
 
@@ -238,7 +238,7 @@ Der Name des Datenträgers und das Signaturzertifikat müssen genau für den Ver
 Sie können mehrere vorlagendatenträger vertrauen, durch die Bereitstellung einer durch Trennzeichen getrennte Liste von Volume-ID-Qualifizierer auf den `-VolumeIDQualifier` Parameter.
 Wenn Sie andere haben Dateien schließlich begleitet die Antwortdatei mit dem virtuellen Computer verwenden, müssen die `-OtherFile` Parameter und geben Sie eine durch Trennzeichen getrennte Liste von Dateipfaden.
 
-Finden Sie in der Cmdlet-Dokumentation für [New-ShieldingDataFile](https://docs.microsoft.com/en-us/powershell/module/shieldedvmdatafile/New-ShieldingDataFile?view=win10-ps) und [New-VolumeIDQualifier](https://docs.microsoft.com/en-us/powershell/module/shieldedvmdatafile/New-VolumeIDQualifier?view=win10-ps) Informationen zu weiteren Möglichkeiten zum Konfigurieren der geschützten Datendatei.
+Finden Sie in der Cmdlet-Dokumentation für [New-ShieldingDataFile](https://docs.microsoft.com/powershell/module/shieldedvmdatafile/New-ShieldingDataFile?view=win10-ps) und [New-VolumeIDQualifier](https://docs.microsoft.com/powershell/module/shieldedvmdatafile/New-VolumeIDQualifier?view=win10-ps) Informationen zu weiteren Möglichkeiten zum Konfigurieren der geschützten Datendatei.
 
 ## <a name="see-also"></a>Siehe auch
 

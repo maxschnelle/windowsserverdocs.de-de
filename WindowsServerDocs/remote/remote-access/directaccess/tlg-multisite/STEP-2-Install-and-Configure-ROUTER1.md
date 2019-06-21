@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: dc20b1a0-540d-4531-a176-50b87c071600
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 6a771b5eb8587d23bc67a7e7769264251afdb5bf
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7d215ca234d63e7e393fbbce4d65e0803f023487
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59838511"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283213"
 ---
 # <a name="step-2-install-and-configure-router1"></a>Schritt 2 installieren und Konfigurieren von ROUTER1
 
@@ -54,15 +53,15 @@ Konfigurieren von TCP/IP-Einstellungen auf dem Router, und benennen Sie den Comp
   
 1.  Klicken Sie in der Server-Manager-Konsole auf **lokalen Server**, und klicken Sie dann in der **Eigenschaften** Bereich, der neben **verkabelte Ethernetverbindung**, klicken Sie auf den Link.  
   
-2.  In der **Netzwerkverbindungen** Fenster mit der rechten Maustaste in des Netzwerkadapter, die mit Corpnet verbunden ist, klicken Sie auf **umbenennen**, Typ **"Corpnet"**, und drücken Sie EINGABETASTE.  
+2.  In der **Netzwerkverbindungen** Fenster mit der rechten Maustaste in des Netzwerkadapter, die mit Corpnet verbunden ist, klicken Sie auf **umbenennen**, Typ **"Corpnet"** , und drücken Sie EINGABETASTE.  
   
-3.  Mit der rechten Maustaste **"Corpnet"**, und klicken Sie dann auf **Eigenschaften**.  
+3.  Mit der rechten Maustaste **"Corpnet"** , und klicken Sie dann auf **Eigenschaften**.  
   
-4.  Klicken Sie auf **Internetprotokoll Version 4 (TCP/IPv4)**, und klicken Sie dann auf **Eigenschaften**.  
+4.  Klicken Sie auf **Internetprotokoll Version 4 (TCP/IPv4)** , und klicken Sie dann auf **Eigenschaften**.  
   
 5.  Klicken Sie auf **Folgende IP-Adresse verwenden**. In **IP-Adresse**, Typ **10.0.0.254**. In **Subnetzmaske**, Typ **255.255.255.0**, und klicken Sie dann auf **OK**.  
   
-6.  Klicken Sie auf **Internetprotokoll Version 6 (TCP/IPv6)**, und klicken Sie dann auf **Eigenschaften**.  
+6.  Klicken Sie auf **Internetprotokoll Version 6 (TCP/IPv6)** , und klicken Sie dann auf **Eigenschaften**.  
   
 7.  Klicken Sie auf **verwenden Sie die folgende IPv6-Adresse**. In **IPv6-Adresse**, Typ **2001:db8:1::fe**. In **Subnetzpräfixlänge**, Typ **64**, und klicken Sie dann auf **OK**.  
   
@@ -72,11 +71,11 @@ Konfigurieren von TCP/IP-Einstellungen auf dem Router, und benennen Sie den Comp
   
 10. Mit der rechten Maustaste **2-Corpnet**, und klicken Sie dann auf **Eigenschaften**.  
   
-11. Klicken Sie auf **Internetprotokoll Version 4 (TCP/IPv4)**, und klicken Sie dann auf **Eigenschaften**.  
+11. Klicken Sie auf **Internetprotokoll Version 4 (TCP/IPv4)** , und klicken Sie dann auf **Eigenschaften**.  
   
 12. Klicken Sie auf **Folgende IP-Adresse verwenden**. In **IP-Adresse**, Typ **10.2.0.254**. In **Subnetzmaske**, Typ **255.255.255.0**, und klicken Sie dann auf **OK**.  
   
-13. Klicken Sie auf **Internetprotokoll Version 6 (TCP/IPv6)**, und klicken Sie dann auf **Eigenschaften**.  
+13. Klicken Sie auf **Internetprotokoll Version 6 (TCP/IPv6)** , und klicken Sie dann auf **Eigenschaften**.  
   
 14. Klicken Sie auf **verwenden Sie die folgende IPv6-Adresse**. In **IPv6-Adresse**, Typ **2001:db8:2::fe**. In **Subnetzpräfixlänge**, Typ **64**, und klicken Sie dann auf **OK**.  
   

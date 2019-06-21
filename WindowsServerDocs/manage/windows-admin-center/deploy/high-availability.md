@@ -7,12 +7,12 @@ author: jwwool
 ms.author: jeffrew
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: a0062230dd3d9e9c52aa317f87e06b0e84507dc4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ad8e2a8eade1ea9d3faaba8f387b1f489854e589
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59861061"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280636"
 ---
 # <a name="deploy-windows-admin-center-with-high-availability"></a>Bereitstellen von Windows Admin Center mit hoher Verfügbarkeit
 
@@ -37,9 +37,9 @@ Sie können Windows Admin Center in einem Failovercluster für hohe Verfügbarke
     - `-clientAccessPoint`: Wählen Sie einen Namen, die Sie verwenden, um Windows Admin Center zugreifen. Angenommen, Sie führen das Skript mit dem Parameter `-clientAccessPoint contosoWindowsAdminCenter`, greifen auf den Dienst Windows Admin Center finden Sie unter `https://contosoWindowsAdminCenter.<domain>.com`
     - `-staticAddress`: Optional. Eine oder mehrere statische Adressen für den generischen Clusterdienst. 
     - `-msiPath`: Der Pfad für die MSI-Datei von Windows Admin Center.
-    - `-certPath`: Optional. Der Pfad für eine Zertifikat-PFX-Datei.
+    - `-certPath`: Dies ist optional. Der Pfad für eine Zertifikat-PFX-Datei.
     - `-certPassword`: Optional. Ein SecureString-Kennwort für die Zertifikat-PFX-Datei im bereitgestellten `-certPath`
-    - `-generateSslCert`: Dies ist optional. Wenn Sie kein signiertes Zertifikat bereitstellen möchten, schließen Sie dieses Flag Parameter, um ein selbstsigniertes Zertifikat zu generieren. Beachten Sie, dass das selbstsignierte Zertifikat in 60 Tagen ablaufen wird.
+    - `-generateSslCert`: Optional. Wenn Sie kein signiertes Zertifikat bereitstellen möchten, schließen Sie dieses Flag Parameter, um ein selbstsigniertes Zertifikat zu generieren. Beachten Sie, dass das selbstsignierte Zertifikat in 60 Tagen ablaufen wird.
     - `-portNumber`: Optional. Wenn Sie keinen Port angeben, wird der Gateway-Dienst auf Port 443 (HTTPS) bereitgestellt. Verwendung von ein anderen Port geben Sie in diesem Parameter. Beachten Sie, dass wenn Sie einen benutzerdefinierten Port (alles, was zusätzlich zu Port 443) verwenden, Sie die Windows Admin Center zugreifen müssen, indem Sie zu https://\<ClientAccessPoint\>:\<Port\>.
 
 > [!NOTE]
@@ -74,7 +74,7 @@ Wenn eine neue Version von Windows Admin Center veröffentlicht wird, führen Si
 
 ### <a name="update-the-certificate-used-by-windows-admin-center"></a>Aktualisieren Sie das Zertifikat ein, die Windows Admin Center
 
-Sie können das Zertifikat von einer HA-Bereitstellung von Windows Admin Center zu einem beliebigen Zeitpunkt verwendet werden, durch die Bereitstellung von PFX-Datei des neuen Zertifikats aktualisieren und und das Kennwort.
+Sie können das Zertifikat von einer HA-Bereitstellung von Windows Admin Center zu einem beliebigen Zeitpunkt verwendet wird, das neue Zertifikat-PFX-Datei und ein Kennwort aktualisieren.
 
 ```powershell
 $certPassword = Read-Host -AsSecureString

@@ -8,15 +8,15 @@ ms.topic: article
 ms.assetid: ''
 author: cosmosdarwin
 ms.date: 10/05/2017
-ms.openlocfilehash: 31a38eacea3af3c0a288d61a77a24b4fa45a1932
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 72b1593503db75aa275b9eb45c8342cee6724001
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59843371"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280396"
 ---
 # <a name="health-service-faults"></a>Integritätsdienst-Dienstfehler
-> Gilt für Windows Server 2016
+> Gilt für: Windows Server 2019, Windows Server 2016
 
 ## <a name="what-are-faults"></a>Was sind Fehler
 
@@ -136,7 +136,7 @@ public void DiscoverObjects(CimSession Session)
 
 Hierbei handelt es sich um die gleichen Objekte Sie im PowerShell erhalten-Cmdlets wie über **Get-StorageSubSystem**, **Get-StorageNode**, und **Get-Volume**.
 
-Es stehen die gleichen Eigenschaften, die am dokumentiert [Storage Management API Classes](https://msdn.microsoft.com/en-us/library/windows/desktop/hh830612(v=vs.85).aspx).
+Es stehen die gleichen Eigenschaften, die am dokumentiert [Storage Management API Classes](https://msdn.microsoft.com/library/windows/desktop/hh830612(v=vs.85).aspx).
 
 ```
 ...
@@ -391,7 +391,7 @@ In Windows Server 2016 bietet der Integritätsdienst die folgende Abdeckung für
 * Grund: *"Der Speicherpool muss nicht die minimale empfohlene reservierte Kapazität. Dadurch kann Ihre Fähigkeit, Daten Stabilität bei Fehlern bei der Umwandlung Laufwerk wiederherstellen eingeschränkt."*
 * RecommendedAction: *"Zusätzlichen Kapazität dem Speicherpool hinzufügen oder Kapazität freizugeben. Die empfohlene reservieren variiert je nach der Bereitstellung, aber es ist ungefähr 2 Laufwerken-Wert, der Kapazität."*
 
-### <a name="volume-capacity-2sup1sup"></a>**Volumekapazität (2)**<sup>1</sup>
+### <a name="volume-capacity-2sup1sup"></a>**Volumekapazität (2)** <sup>1</sup>
 
 #### <a name="faulttype-microsofthealthfaulttypevolumecapacity"></a>FaultType: Microsoft.Health.FaultType.Volume.Capacity
 * Schweregrad: Warnung
@@ -498,7 +498,7 @@ In Windows Server 2016 bietet der Integritätsdienst die folgende Abdeckung für
 * Grund: *"Firmware Rollout wurde aufgrund von zu viele physische Datenträger, die einen Firmware-Update-Versuch fehlschlagen abgebrochen."*
 * RecommendedAction: *"Neustart Firmware einführen, sobald das Firmware-Problem gelöst wurde."*
 
-### <a name="storage-qos-3sup2sup"></a>**QoS für Speicher (3)**<sup>2</sup>
+### <a name="storage-qos-3sup2sup"></a>**QoS für Speicher (3)** <sup>2</sup>
 
 #### <a name="faulttype-microsofthealthfaulttypestorqosinsufficientthroughput"></a>FaultType: Microsoft.Health.FaultType.StorQos.InsufficientThroughput
 * Schweregrad: Warnung

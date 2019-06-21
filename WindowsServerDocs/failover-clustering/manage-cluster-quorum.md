@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.date: 06/07/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 85b75d0039fec1b2ad9982d6ae9bf83fa8da2fdf
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: bf854418e9efb7dbb5bd07ba86f29d84ba54d68a
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66810983"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280379"
 ---
 # <a name="configure-and-manage-quorum"></a>Konfigurieren und Verwalten des Quorums
 
@@ -67,7 +67,7 @@ Als erweiterte quorumkonfigurationsoption können Sie auswählen, beim Zuweisen 
 
 Möglicherweise möchten Sie die Stimmen von Knoten in bestimmten Notfallwiederherstellungskonfigurationen entfernen. Bei einem Cluster mit mehreren Standorten könnten Sie z. B. Stimmen von den Knoten am Sicherungsstandort entfernen, damit sich diese Knoten nicht auf die Quorumberechnungen auswirken. Diese Konfiguration wird nur für standortübergreifende manuelle Failover empfohlen. Weitere Informationen finden Sie weiter unten in diesem Thema unter [Quorumüberlegungen zu Notfallwiederherstellungskonfigurationen](#quorum-considerations-for-disaster-recovery-configurations).
 
-Die konfigurierte Stimme eines Knotens überprüft werden kann, indem Sie seinen der **NodeWeight** allgemeine Eigenschaft des Clusterknotens mithilfe der [Get-ClusterNode](http://technet.microsoft.com/library/hh847268.aspx)Windows PowerShell-Cmdlet. Der Wert 0 gibt an, dass für den Knoten keine Quorumstimme konfiguriert ist. Der Wert 1 gibt an, dass die Quorumstimme des Knotens zugewiesen wurde und sie vom Cluster verwaltet wird. Weitere Informationen zur Verwaltung von Knotenstimmen finden Sie unter [Dynamische Quorumverwaltung](#dynamic-quorum-management) in diesem Thema.
+Die konfigurierte Stimme eines Knotens überprüft werden kann, indem Sie seinen der **NodeWeight** allgemeine Eigenschaft des Clusterknotens mithilfe der [Get-ClusterNode](https://technet.microsoft.com/library/hh847268.aspx)Windows PowerShell-Cmdlet. Der Wert 0 gibt an, dass für den Knoten keine Quorumstimme konfiguriert ist. Der Wert 1 gibt an, dass die Quorumstimme des Knotens zugewiesen wurde und sie vom Cluster verwaltet wird. Weitere Informationen zur Verwaltung von Knotenstimmen finden Sie unter [Dynamische Quorumverwaltung](#dynamic-quorum-management) in diesem Thema.
 
 Die Stimmenzuweisung für alle Clusterknoten kann mithilfe des Validierungstests **Clusterquorum überprüfen** überprüft werden.
 

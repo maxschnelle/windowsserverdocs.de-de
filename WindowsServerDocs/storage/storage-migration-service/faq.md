@@ -8,12 +8,12 @@ ms.date: 06/04/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: 258f25a7e1ec5c796c15450625397e96db25d693
-ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
+ms.openlocfilehash: 8f0f16f14ccf9099af8ff8bb8b27209c75c87cfc
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66501519"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284470"
 ---
 # <a name="storage-migration-service-frequently-asked-questions-faq"></a>Storage-Migration-Dienst häufig gestellte Fragen (FAQ)
 
@@ -131,7 +131,7 @@ Die Storage-Migration-Dienst enthält einen Multithreaded lesen und kopieren-Eng
 
 - **Leistungsstarke Verarbeitung zu aktivieren.** Stellen Sie sicher, dass die BIOS/UEFI-Einstellungen für Server eine hohe Leistung ermöglichen (z. B. Deaktivieren des C-Status, Festlegen der QPI-Geschwindigkeit, Aktivieren von NUMA und Festlegen der höchsten Speicherfrequenz). Stellen Sie sicher, dass die energieverwaltung in Windows Server auf eine hohe Leistung festgelegt ist. Führen Sie gegebenenfalls einen Neustart aus. Vergessen Sie nicht, diese zu entsprechenden Status zurückzugeben, nach Abschluss der Migration. 
 
-- **Optimieren der Hardware** überprüfen Sie die [Performance Tuning Richtlinien für Windows Server 2016](https://docs.microsoft.com/en-us/windows-server/administration/performance-tuning/) für die Optimierung der Orchestrator und Zielcomputern, die unter WindowsServer 2019 und Windows Server 2016. Die [Optimieren der Leistung mit Subsystem](https://docs.microsoft.com/en-us/windows-server/networking/technologies/network-subsystem/net-sub-performance-tuning-nics) Abschnitt besonders nützlich, Informationen enthält.
+- **Optimieren der Hardware** überprüfen Sie die [Performance Tuning Richtlinien für Windows Server 2016](https://docs.microsoft.com/windows-server/administration/performance-tuning/) für die Optimierung der Orchestrator und Zielcomputern, die unter WindowsServer 2019 und Windows Server 2016. Die [Optimieren der Leistung mit Subsystem](https://docs.microsoft.com/windows-server/networking/technologies/network-subsystem/net-sub-performance-tuning-nics) Abschnitt besonders nützlich, Informationen enthält.
 
 - **Verwenden Sie schneller Speicher.** Während es schwierig, aktualisieren Sie die Quelle Computer speichergeschwindigkeit sein kann, sollten Sie sicherstellen, dass der Zielspeicher ist mindestens genauso schnell schreiben e/a-Leistung wie die Quelle lesen e/a-Leistung ist, um sicherzustellen, dass keine unnötigen Engpass in Übertragungen vorhanden ist. Wenn das Ziel eines virtuellen Computers ist, stellen Sie sicher, dass mindestens für die Zwecke der Migration, er in der am schnellsten Speicherebene Hypervisor-Hosts, z. B. den Tarif "flash" oder mit Storage Spaces Direct HCI-Clustern, die mit gespiegelten All-Flash- oder hybride Leerzeichen ausgeführt wird. Nach Abschluss der SMS-Migration kann die VM live können zu einem langsameren Ebene oder Host migriert.
 

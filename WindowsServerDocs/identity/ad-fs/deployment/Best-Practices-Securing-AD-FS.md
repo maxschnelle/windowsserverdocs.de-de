@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 958bf8455d03ddc04395fafe83e70a49c7659c96
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: a7f4f29b37793b45a614bd592feddb339dd05c3d
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192442"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280606"
 ---
 ## <a name="best-practices-for-securing-active-directory-federation-services"></a>Bewährte Methoden zum Schützen von Active Directory Federation Services
 
@@ -109,7 +109,7 @@ Der Verbunddienstproxy (Teil der WAP) stellt die überlastungssteuerung zum Schu
 3.  Ändern Sie die Standardwerte, die Einstellungen für die überlastungssteuerung "<congestionControl latencyThresholdInMSec="8000" minCongestionWindowSize="64" enabled="true" />".
 4.  Speichern und schließen Sie die Datei.
 5.  Starten Sie den AD FS-Dienst durch Ausführen von "net Stop Adfssrv", und klicken Sie dann "net Start Adfssrv" neu.
-Zur Referenz, Hinweise zu dieser Funktion finden Sie [hier](https://msdn.microsoft.com/en-us/library/azure/dn528859.aspx ).
+Zur Referenz, Hinweise zu dieser Funktion finden Sie [hier](https://msdn.microsoft.com/library/azure/dn528859.aspx ).
 
 ### <a name="standard-http-request-checks-at-the-proxy"></a>Standard-HTTP-Anforderung überprüft werden, auf dem proxy
 Der Proxy führt auch die folgenden standard-Prüfungen für den gesamten Datenverkehr an:

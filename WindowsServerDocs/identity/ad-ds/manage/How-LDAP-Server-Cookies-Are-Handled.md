@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: e9c293d04f1fd1b8091b768e49db554a23e7ce95
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 873953155d22bafef5b042887b22e953ff580b5c
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59846561"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280568"
 ---
 # <a name="how-ldap-server-cookies-are-handled"></a>Behandlung von LDAP-Servercookies
 
@@ -128,7 +128,7 @@ Erhalten Sie auf Ihrem DC/LDAP-Server Ereignis 2898, empfiehlt sich eine Erhöhu
   
 Wenn Sie bei einem Pool mit dieser Größe nach wie vor 2899-Ereignisse erhalten, ist zu vermuten, dass auf dicht aufeinander folgende Abfragen sehr vieler Clients große Mengen an Objekten in kürzester Folge zurückgegeben werden. Die Daten, die Sie sammeln können, mit der [Active Directory Data Collector Set](http://blogs.technet.com/b/askds/archive/2010/06/08/son-of-spa-ad-data-collector-sets-in-win2008-and-beyond.aspx) Hilfe finden Sie wiederholte seitenweise Abfragen, die Ihre LDAP-Server können gebucht werden. Diese Abfragen werden alle mit einer Anzahl von "zurückgegebenen Einträge" angezeigt, die die Größe der verwendeten Seite entspricht.  
   
-Wenn möglich, sollten Sie das Anwendungsdesign überprüfen und implementieren einen anderen Ansatz mit einer niedrigeren Häufigkeit, Datenvolumen und/oder weniger Clientinstanzen, die die Abfrage dieser Daten. Bei den Anwendungen, die für die Sie Zugriff auf den Quellcode, dieses Handbuchs haben [effiziente AD-Enabled anwendungserstellung](https://msdn.microsoft.com/en-us/library/ms808539.aspx) ermöglicht Ihnen die optimale Methode zugreifen AD-Anwendungen zu verstehen.  
+Wenn möglich, sollten Sie das Anwendungsdesign überprüfen und implementieren einen anderen Ansatz mit einer niedrigeren Häufigkeit, Datenvolumen und/oder weniger Clientinstanzen, die die Abfrage dieser Daten. Bei den Anwendungen, die für die Sie Zugriff auf den Quellcode, dieses Handbuchs haben [effiziente AD-Enabled anwendungserstellung](https://msdn.microsoft.com/library/ms808539.aspx) ermöglicht Ihnen die optimale Methode zugreifen AD-Anwendungen zu verstehen.  
   
 Wenn das Abfrageverhalten kann nicht geändert werden, wird ein Ansatz auch hinzugefügt mehr replizierte Instanzen der benötigten Namenskontexte und um die Clients verteilen und schließlich reduzieren die Last auf den einzelnen LDAP-Servern.  
   

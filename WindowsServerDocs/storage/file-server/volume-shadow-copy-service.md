@@ -6,12 +6,12 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: d67f15d65feb28fb05fc056fd3c34c04cee80d09
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 0a4af25723c6d1e796cd3255875c15faf21fb8be
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447765"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284383"
 ---
 # <a name="volume-shadow-copy-service"></a>Volumeschattenkopie-Dienst
 
@@ -380,7 +380,7 @@ Um bestimmte Dateien von Schattenkopien auszuschließen, verwenden Sie den folge
 > <UL>
 > <LI>Es kann nicht aus einer Schattenkopie Dateien gelöscht werden, die auf einem Windows Server erstellt wurde, mithilfe der Funktion für die früheren Versionen.<BR><BR>
 > <LI>Es kann keine Dateien von Schattenkopien für freigegebene Ordner löschen.<BR><BR>
-> <LI>Können sie Dateien löschen, aus einer Schattenkopie, das erstellt wurde die <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/diskshadow" data-raw-source="[Diskshadow](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/diskshadow)">Diskshadow</a> Dienstprogramm, aber es kann nicht löschen Sie Dateien aus einer Schattenkopie, das erstellt wurde die <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/vssadmin" data-raw-source="[Vssadmin](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/vssadmin)">Vssadmin</a> Hilfsprogramm.<BR><BR>
+> <LI>Können sie Dateien löschen, aus einer Schattenkopie, das erstellt wurde die <a href="https://docs.microsoft.com/windows-server/administration/windows-commands/diskshadow" data-raw-source="[Diskshadow](https://docs.microsoft.com/windows-server/administration/windows-commands/diskshadow)">Diskshadow</a> Dienstprogramm, aber es kann nicht löschen Sie Dateien aus einer Schattenkopie, das erstellt wurde die <a href="https://docs.microsoft.com/windows-server/administration/windows-commands/vssadmin" data-raw-source="[Vssadmin](https://docs.microsoft.com/windows-server/administration/windows-commands/vssadmin)">Vssadmin</a> Hilfsprogramm.<BR><BR>
 > <LI>Dateien werden aus einer Schattenkopie Best-Effort-Basis gelöscht. Dies bedeutet, dass sie nicht garantiert werden, gelöscht werden soll.<BR><BR></LI></UL>
 
 

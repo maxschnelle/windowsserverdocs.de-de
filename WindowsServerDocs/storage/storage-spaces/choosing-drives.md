@@ -9,12 +9,12 @@ ms.topic: article
 author: cosmosdarwin
 ms.date: 10/08/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: d16a9ddea96760b41c6cd2e4239b9bb51c8b3b38
-ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
+ms.openlocfilehash: 8bdce646c631b56309f86292f0895fe80b0adf31
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66501642"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284501"
 ---
 # <a name="choosing-drives-for-storage-spaces-direct"></a>Auswählen von Laufwerken für Direkte Speicherplätze
 
@@ -116,7 +116,7 @@ Der Cache sollte Größe angepasst werden, die zur Aufnahme der Arbeitssatz Ihre
 
 Es wird empfohlen, die gesamte Speicherkapazität pro Server auf etwa 100 Terabytes (TB) zu beschränken. Je mehr Speicherkapazität pro Server existiert, desto länger dauert die Neusynchronisierung der Daten nach dem Herunterfahren des Systems oder nach einem Neustart wie z. B. beim Aktualisieren von Software.
 
-Die aktuelle maximale Größe pro Speicherpool ist 4 im petabytebereich (PB) (4.000 TB) für Windows Server-2019 oder 1 Petabyte für für Windows Server 2016.
+Die aktuelle maximale Größe pro Speicherpool ist 4 im petabytebereich (PB) (4.000 TB) für Windows Server-2019 oder 1 Petabyte für Windows Server 2016.
 
 ## <a name="see-also"></a>Siehe auch
 

@@ -6,20 +6,19 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-nict
+ms.technology: networking-nict
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a4caaa86-5799-4580-8775-03ee213784a3
 ms.author: pashort
 author: shortpatti
 ms.date: 09/13/2018
-ms.openlocfilehash: 57957e88ff4c398be23355534d5cc0ad7f920bb1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: dd222cdbcd8b4eee19da6b79e12bd11f6bdd8629
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59877931"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283728"
 ---
 # <a name="nic-teaming-settings"></a>NIC-Teamvorgang-Einstellungen
 In diesem Thema haben wir bieten Ihnen einen Überblick über den NIC-Team-Eigenschaften, z. B. Teamvorgang und Lastenausgleich Modi zu laden. Sie haben zudem Details über die Standby-adaptereinstellung und die Eigenschaft des primären Team-Schnittstelle. Wenn Sie in einem NIC-Team über mindestens zwei Netzwerkadapter verfügen, müssen Sie keinen Standby-Adapter für die Fehlertoleranz zu bestimmen.
@@ -29,7 +28,7 @@ In diesem Thema haben wir bieten Ihnen einen Überblick über den NIC-Team-Eigen
 ![NIC-Team-Eigenschaften](../../media/Create-a-New-NIC-Team-on-a-Host-Computer-or-VM/nict_06_properties.jpg)  
 
 ## <a name="teaming-modes"></a>Teaming-Modi 
-Die Optionen für den teammodus sind **Switchunabhängig** und **abhängige Schalter**. Die abhängige Schalter-Modus schließt **statischer Teamvorgang** und **Link Aggregation Control Protocol (LACP)**. 
+Die Optionen für den teammodus sind **Switchunabhängig** und **abhängige Schalter**. Die abhängige Schalter-Modus schließt **statischer Teamvorgang** und **Link Aggregation Control Protocol (LACP)** . 
 
 >[!TIP]
 >Für eine optimale Leistung für NIC-Team empfehlen wir die Verwendung einer lastenausgleichsmodus dynamische Verteilung.  

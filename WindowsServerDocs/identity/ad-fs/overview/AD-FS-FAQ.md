@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: it-pro
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: f3f84a5c18589d38606825ee064cfb729003a05d
-ms.sourcegitcommit: a3958dba4c2318eaf2e89c7532e36c78b1a76644
+ms.openlocfilehash: fc92e8b30d6b4c0c765333d3e22311e551d3365d
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66719687"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280492"
 ---
 # <a name="ad-fs-frequently-asked-questions-faq"></a>AD FS-häufig gestellte Fragen (FAQ)
 
@@ -138,9 +138,9 @@ Mit AD FS-Server 2019 können Sie jetzt in der Parameter "Scope" eingebetteten R
 AD FS-Server 2019 unterstützt Proof Key für Code Exchange (PKCE) für OAuth Authorization Code Grant-flow
 
 ### <a name="what-permitted-scopes-are-supported-by-ad-fs"></a>Welche zulässigen Bereiche werden von AD FS unterstützt?
-- Aza – Wenn [OAuth 2.0-Protokoll-Erweiterungen für Broker-Clients](https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-oapxbc/2f7d8875-0383-4058-956d-2fb216b44706) und wenn der Parameter "Scope" Bereich "Aza" enthält, wird der Server gibt ein neues primäre Aktualisierungstoken und wird im Feld Aktualisierungstoken aus, der die Antwort sowie die Einstellung das Feld Refresh_token_expires_in die Lebensdauer des neuen primären aktualisierungstokens, das eine wird erzwungen.
+- Aza – Wenn [OAuth 2.0-Protokoll-Erweiterungen für Broker-Clients](https://docs.microsoft.com/openspecs/windows_protocols/ms-oapxbc/2f7d8875-0383-4058-956d-2fb216b44706) und wenn der Parameter "Scope" Bereich "Aza" enthält, wird der Server gibt ein neues primäre Aktualisierungstoken und wird im Feld Aktualisierungstoken aus, der die Antwort sowie die Einstellung das Feld Refresh_token_expires_in die Lebensdauer des neuen primären aktualisierungstokens, das eine wird erzwungen.
 - OpenID - Anwendung für die Verwendung des OpenID Connect Authorization-Protokolls anfordern können.
-- Logon_cert --Bereich Logon_cert kann eine Anwendung anfordern Anmeldung von Zertifikaten, die authentifizierte Benutzer interaktiv anmelden verwendet werden kann. AD FS-Server, den Access_token-Parameter aus der Antwort ausgelassen und stattdessen bieten Sie eine base64-codierte CMS-Zertifikatkette oder einer vollständigen CMC-PKI-Antwort. Weitere Informationen zur Verfügung [hier](https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-oapx/32ce8878-7d33-4c02-818b-6c9164cc731e). 
+- Logon_cert --Bereich Logon_cert kann eine Anwendung anfordern Anmeldung von Zertifikaten, die authentifizierte Benutzer interaktiv anmelden verwendet werden kann. AD FS-Server, den Access_token-Parameter aus der Antwort ausgelassen und stattdessen bieten Sie eine base64-codierte CMS-Zertifikatkette oder einer vollständigen CMC-PKI-Antwort. Weitere Informationen zur Verfügung [hier](https://docs.microsoft.com/openspecs/windows_protocols/ms-oapx/32ce8878-7d33-4c02-818b-6c9164cc731e). 
 - "user_impersonation" - ist der Bereich "user_impersonation" erforderlich, um ein im-Auftrag-von-Zugriffstoken erfolgreich von AD FS anzufordern. Informationen zur Verwendung von diesem Bereich finden Sie unter [Erstellen einer Multi-Tier-Anwendung, die im-Auftrag (OBO) mithilfe von OAuth in AD FS 2016 mit](../../ad-fs/development/ad-fs-on-behalf-of-authentication-in-windows-server.md).
 - Vpn_cert - ermöglicht der Vpn_cert Bereich einer Anwendung, Anforderung-VPN-Clientzertifikate, die verwendet werden kann, um VPN-Verbindungen mithilfe von EAP-TLS-Authentifizierung herzustellen. Dies wird nicht mehr unterstützt.
 - e-Mail - Anwendung für die e-Mail-Anspruch für den angemeldeten Benutzer anfordern können. Dies wird nicht mehr unterstützt. 

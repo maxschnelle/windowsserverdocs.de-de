@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d98d6f7a-a2e6-45b1-9c63-08e2986a5c03
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 1640dbae52a1a7c93355b34822d72faa5351bcda
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9810d7294a2651d4811bc5969eaf6a118db8ed56
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59860311"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283266"
 ---
 # <a name="step-10-install-and-configure-2-edge1"></a>Schritt 10 installieren und Konfigurieren von 2-EDGE1
 
@@ -60,7 +59,7 @@ ms.locfileid: "59860311"
   
 3.  Mit der rechten Maustaste **2-Corpnet**, und klicken Sie dann auf **Eigenschaften**.  
   
-4.  Klicken Sie auf **Internetprotokoll Version 4 (TCP/IPv4)**, und klicken Sie dann auf **Eigenschaften**.  
+4.  Klicken Sie auf **Internetprotokoll Version 4 (TCP/IPv4)** , und klicken Sie dann auf **Eigenschaften**.  
   
 5.  Klicken Sie auf **Folgende IP-Adresse verwenden**. In **IP-Adresse**, Typ **10.2.0.20**im **Subnetzmaske**, Typ **255.255.255.0**.  
   
@@ -70,7 +69,7 @@ ms.locfileid: "59860311"
   
 8.  In **DNS-Suffix für diese Verbindung**, Typ **corp2.corp.contoso.com**, und klicken Sie dann auf **OK** zweimal.  
   
-9. Klicken Sie auf **Internetprotokoll Version 6 (TCP/IPv6)**, und klicken Sie dann auf **Eigenschaften**.  
+9. Klicken Sie auf **Internetprotokoll Version 6 (TCP/IPv6)** , und klicken Sie dann auf **Eigenschaften**.  
   
 10. Klicken Sie auf **verwenden Sie die folgende IPv6-Adresse**. In **IPv6-Adresse**, Typ **2001:db8:2::20**im **Subnetzpräfixlänge**, Typ **64**. Klicken Sie auf **verwenden Sie die folgenden DNS-Serveradressen**, und klicken Sie in **Bevorzugter DNS-Server**, Typ **2001:db8:2::1**im **alternativer DNS-Server**, Typ **2001:db8:1::1**.  
   
@@ -84,7 +83,7 @@ ms.locfileid: "59860311"
   
 15. Klicken Sie mit der rechten Maustaste auf **Internet**, und klicken Sie dann auf **Eigenschaften**.  
   
-16. Klicken Sie auf **Internetprotokoll Version 4 (TCP/IPv4)**, und klicken Sie dann auf **Eigenschaften**.  
+16. Klicken Sie auf **Internetprotokoll Version 4 (TCP/IPv4)** , und klicken Sie dann auf **Eigenschaften**.  
   
 17. Klicken Sie auf **Folgende IP-Adresse verwenden**. In **IP-Adresse**, Typ **131.107.0.20**. Geben Sie im Feld **Subnetzmaske**den Wert **255.255.255.0**ein.  
   
@@ -175,9 +174,9 @@ ms.locfileid: "59860311"
   
 4.  Auf der **Administratoreigenschaften** Dialogfeld klicken Sie auf **hinzufügen**, und klicken Sie auf die **Auswahl von Benutzern, Computern, Dienstkonten oder Gruppen** im Dialogfeld klicken Sie auf  **Speicherorte**.  
   
-5.  Auf der **Speicherorte** Dialogfeld die **Speicherort** Struktur, klicken Sie auf **"corp.contoso.com"**, und klicken Sie dann auf **OK**.  
+5.  Auf der **Speicherorte** Dialogfeld die **Speicherort** Struktur, klicken Sie auf **"corp.contoso.com"** , und klicken Sie dann auf **OK**.  
   
-6.  In der **Geben Sie die zu verwendenden Objektnamen** Typ **"user1"**, und klicken Sie dann auf **OK**.  
+6.  In der **Geben Sie die zu verwendenden Objektnamen** Typ **"user1"** , und klicken Sie dann auf **OK**.  
   
 7.  Auf der **Administratoreigenschaften** Dialogfeld klicken Sie auf **OK**.  
   
