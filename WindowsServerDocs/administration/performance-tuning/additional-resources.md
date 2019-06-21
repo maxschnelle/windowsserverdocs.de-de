@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: phstee
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: c7ac20da7e8508b824fdd000f6a9dde6e807cdf2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e09363eae005114b73bedac084f5ab0745c237ee
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835831"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280059"
 ---
 # <a name="additional-performance-tuning-resources"></a>Zusätzliche Informationen zur Optimierung Ressourcen
 
@@ -29,7 +29,7 @@ Verwenden Sie die Links in diesem Thema erfahren Sie mehr über die Konzepte, di
 
 ## <a name="power-management-tuning-resources"></a>Optimieren von Power Management-Ressourcen
 
--   [Energierichtlinienkonfiguration und Bereitstellung in Windows](https://msdn.microsoft.com/en-us/library/windows/hardware/mt422910.aspx)
+-   [Energierichtlinienkonfiguration und Bereitstellung in Windows](https://msdn.microsoft.com/library/windows/hardware/mt422910.aspx)
 
 -   [Zum Bewerten der Energieeffizienz von Systemen mit PowerCfg](https://technet.microsoft.com/library/cc748940.aspx)
 
@@ -56,7 +56,7 @@ Verwenden Sie die Links in diesem Thema erfahren Sie mehr über die Konzepte, di
 -   [Gewusst wie: Deaktivieren Sie das Diagnoseprogramm für die TCP-autotuning](https://support.microsoft.com/kb/967475)
 
 ## <a name="active-directory-server-tuning-resources"></a>Optimieren von Active Directory-Server-Ressourcen
--   [Active Directory-Leistung](https://msdn.microsoft.com/en-us/library/windows/hardware/dn567654(v=vs.85).aspx)
+-   [Active Directory-Leistung](https://msdn.microsoft.com/library/windows/hardware/dn567654(v=vs.85).aspx)
 -   [Vorgehensweise: Konfigurieren von Active Directory Protokollierung von Diagnoseereignissen in Windows Server 2003 und Windows 2000 Server](https://support.microsoft.com/kb/314980)
 
 ## <a name="virtualization-server-tuning-resources"></a>Virtualisierungsressourcen Server optimieren
@@ -83,30 +83,30 @@ Verwenden Sie die Links in diesem Thema erfahren Sie mehr über die Konzepte, di
 
 ## <a name="server-workload-tuning-resources"></a>Arbeitsauslastung Optimieren von Serverressourcen
 
--   [Leistungsoptimierung für NTttcp](https://msdn.microsoft.com/en-us/library/windows/hardware/dn567663(v=vs.85).aspx)
+-   [Leistungsoptimierung für NTttcp](https://msdn.microsoft.com/library/windows/hardware/dn567663(v=vs.85).aspx)
 
 -   [Ttcp](http://en.wikipedia.org/wiki/Ttcp)
 
 -   [Gewusst wie: Verwenden Sie NTttcp mit Test-Netzwerkleistung](https://msdn.microsoft.com/windows/hardware/gg463264.aspx)
 
--   [Mithilfe des Datei-Server-Capactiy-Konfigurationstools](https://msdn.microsoft.com/en-us/library/windows/hardware/dn567658(v=vs.85).aspx)
+-   [Mithilfe des Datei-Server-Capactiy-Konfigurationstools](https://msdn.microsoft.com/library/windows/hardware/dn567658(v=vs.85).aspx)
 
--   [Verwenden den Dateiserver SPECsfs2008](https://msdn.microsoft.com/en-us/library/windows/hardware/dn567653(v=vs.85).aspx)
+-   [Verwenden den Dateiserver SPECsfs2008](https://msdn.microsoft.com/library/windows/hardware/dn567653(v=vs.85).aspx)
 
--   [Optimieren der Leistung für die Umsatz- und Verteilung von Workloads](https://msdn.microsoft.com/en-us/library/windows/hardware/dn567646(v=vs.85).aspx)
+-   [Optimieren der Leistung für die Umsatz- und Verteilung von Workloads](https://msdn.microsoft.com/library/windows/hardware/dn567646(v=vs.85).aspx)
 
--   [Leistungsoptimierung für die Onlinetransaktionsverarbeitung (OLTP)](https://msdn.microsoft.com/en-us/library/windows/hardware/dn567642(v=vs.85).aspx)
+-   [Leistungsoptimierung für die Onlinetransaktionsverarbeitung (OLTP)](https://msdn.microsoft.com/library/windows/hardware/dn567642(v=vs.85).aspx)
 
--   [So wird es gemacht: Konfigurieren von SQLServer zur Verwendung von Soft-NUMA](https://go.microsoft.com/fwlink/?LinkId=98292)
+-   [Vorgehensweise: Konfigurieren von SQLServer zur Verwendung von Soft-NUMA](https://go.microsoft.com/fwlink/?LinkId=98292)
 
--   [So wird es gemacht: Zuordnen von TCP/IP-Ports zu NUMA-Knoten](https://go.microsoft.com/fwlink/?LinkId=98293)
+-   [Vorgehensweise: Zuordnen von TCP/IP-Ports zu NUMA-Knoten](https://go.microsoft.com/fwlink/?LinkId=98293)
 
 -   [ALTER SERVER CONFIGURATION (Transact-SQL)](https://msdn.microsoft.com/library/ee210585.aspx)
 
 
 ## <a name="server-tuning-tools"></a>Server-Tools-Optimierung
 
--   [Microsoft Server Performance Advisor](https://msdn.microsoft.com/en-us/library/windows/hardware/dn481522(v=vs.85).aspx)
+-   [Microsoft Server Performance Advisor](https://msdn.microsoft.com/library/windows/hardware/dn481522(v=vs.85).aspx)
 
 ## <a name="performance-tuning-guidelines-for-previous-versions-of-windows-server"></a>Richtlinien zur Optimierung der Leistung für frühere Versionen von Windows Server
 

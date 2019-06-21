@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-da
+ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f009fdd1-94e6-4ccb-8c6e-609a5394db53
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: d19f204e139433d11cf674c4ec39a134cde7eefa
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2c7ff4953fd4369340f55f40f93cfc01d4240b26
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59813171"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67281459"
 ---
 # <a name="step-3-install-and-configure-client2"></a>Schritt 3 installieren und Konfigurieren von CLIENT2
 
@@ -34,7 +33,7 @@ CLIENT2 ist ein Windows 7&reg; Computer, der verwendet wird, um zu veranschaulic
   
 1.  Starten Sie die Installation von Windows 7.  
   
-2.  Wenn Sie für einen Benutzernamen aufgefordert werden, geben Sie **"user1"**. Wenn Sie für eines Computernamens aufgefordert werden, geben Sie **CLIENT2**.  
+2.  Wenn Sie für einen Benutzernamen aufgefordert werden, geben Sie **"user1"** . Wenn Sie für eines Computernamens aufgefordert werden, geben Sie **CLIENT2**.  
   
 3.  Wenn Sie nach einem Kennwort gefragt werden, ein sicheres Kennwort zweimal eingeben.  
   
@@ -57,7 +56,7 @@ Wenn Sie das Betriebssystem Windows 7 konfigurieren, müssen Sie auf **Weiter** 
   
 3.  Klicken Sie auf der Registerkarte **Computername** im Dialogfeld **Systemeigenschaften** auf **Ändern**.  
   
-4.  Auf der **Änderung des Computernamens bzw. der Domäne** Dialogfeld klicken Sie auf **Domäne**, Typ **"corp.contoso.com"**, und klicken Sie dann auf **OK**.  
+4.  Auf der **Änderung des Computernamens bzw. der Domäne** Dialogfeld klicken Sie auf **Domäne**, Typ **"corp.contoso.com"** , und klicken Sie dann auf **OK**.  
   
 5.  Wenn Sie für einen Benutzernamen und Kennwort aufgefordert werden, geben Sie den Benutzernamen und das Kennwort für das Domänenkonto "user1", und klicken Sie dann auf **OK**.  
   

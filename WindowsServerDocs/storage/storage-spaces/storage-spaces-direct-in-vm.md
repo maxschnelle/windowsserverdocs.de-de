@@ -9,12 +9,12 @@ author: eldenchristensen
 ms.date: 10/25/2017
 description: "\"Direkte Speicherplätze\" Bereitstellen in einem VM-gastcluster – z. B. in Microsoft Azure"
 ms.localizationpriority: medium
-ms.openlocfilehash: b99e750b78654df48ad3b412269511d047e3057c
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: d05afb5ee564b866dcd15ec6aa473cee608dbd8f
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447811"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284403"
 ---
 # <a name="using-storage-spaces-direct-in-guest-virtual-machine-clusters"></a>Mithilfe von "direkte Speicherplätze" in VM-gastclustern
 
@@ -79,6 +79,6 @@ Die folgenden Überlegungen gelten, wenn Sie "direkte Speicherplätze" in einer 
 
 ## <a name="see-also"></a>Siehe auch
 
-[Zusätzliche Azure-IaaS-VM-Vorlagen für die Bereitstellung von "direkte Speicherplätze", Videos und Anleitungen](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/).
+[Zusätzliche Azure-IaaS-VM-Vorlagen für die Bereitstellung von "direkte Speicherplätze", Videos und Anleitungen](https://techcommunity.microsoft.com/t5/Failover-Clustering/Deploying-IaaS-VM-Guest-Clusters-in-Microsoft-Azure/ba-p/372126).
 
-[Direkte zusätzliche Speicherplätze – Überblick](https://docs.microsoft.com/en-us/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
+[Direkte zusätzliche Speicherplätze – Überblick](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)

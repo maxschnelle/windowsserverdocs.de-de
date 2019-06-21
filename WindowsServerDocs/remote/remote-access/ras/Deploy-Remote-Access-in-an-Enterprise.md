@@ -6,19 +6,18 @@ ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- networking-ras
+ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4781df0a-158b-4562-b8f5-32b27615a4f8
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: f110ad945139da3b07b33bbb0adb3e8084743fdb
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7cbcc844c356978f5bb5f34b66aa36dec9b163c1
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812241"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67283003"
 ---
 # <a name="deploy-remote-access-in-an-enterprise"></a>Bereitstellen des Remotezugriffs in einem Unternehmen
 
@@ -32,9 +31,9 @@ Dieses Thema enthält eine Einführung in das DirectAccess-Szenario für das Unt
   
 ## <a name="before-you-begin-deploying-see-the-list-of-unsupported-configurations-known-issues-and-prerequisites"></a>Bevor Sie mit der Bereitstellung beginnen, sollten Sie sich die folgende Liste mit nicht unterstützten Konfigurationen, bekannten Problemen und Voraussetzungen ansehen:  
   
--   [DirectAccess nicht unterstützte Konfigurationen](https://technet.microsoft.com/windows-server-docs/networking/remote-access/directaccess/directaccess-unsupported-configurations)  
+-   [DirectAccess: Nicht unterstützte Konfigurationen](https://technet.microsoft.com/windows-server-docs/networking/remote-access/directaccess/directaccess-unsupported-configurations)  
   
--   [DirectAccess – bekannte Probleme](https://technet.microsoft.com/windows-server-docs/networking/remote-access/directaccess/directaccess-known-issues)  
+-   [DirectAccess: Bekannte Probleme](https://technet.microsoft.com/windows-server-docs/networking/remote-access/directaccess/directaccess-known-issues)  
   
 -   [Voraussetzungen für die Bereitstellung von DirectAccess) Voraussetzungen](https://technet.microsoft.com/windows-server-docs/networking/remote-access/directaccess/prerequisites-for-deploying-directaccess)  
   
@@ -46,7 +45,7 @@ Jedes Unternehmensszenario wird in einem Dokument beschrieben, das Anweisungen z
   
 -   [Bereitstellen des Remotezugriffs in einem cluster](cluster/Deploy-Remote-Access-In-Cluster.md)  
   
--   [Bereitstellen Sie mehrerer Remotezugriffsserver in einer Bereitstellung für mehrere Standorte](multisite/Deploy-Multiple-Remote-Access-Servers-in-a-Multisite-Deployment.md)  
+-   [Bereitstellen mehrerer RAS-Server in einer Bereitstellung mit mehreren Standorten](multisite/Deploy-Multiple-Remote-Access-Servers-in-a-Multisite-Deployment.md)  
   
 -   [Bereitstellen des Remotezugriffs mit OTP-Authentifizierung](otp/Deploy-RA-OTP.md)  
   
