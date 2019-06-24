@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 72266dcedcda080ee98dd7bc90da8db1a27255b4
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: aa7fae25f68030702aecd378d797301d5cb83186
+ms.sourcegitcommit: 6b6c3601fb7493ab145ccff02db26d7123df9a3d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66192535"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67316346"
 ---
 # <a name="ad-fs-operations"></a>AD FS-Vorgänge
 
@@ -53,13 +53,13 @@ Dieses Dokument enthält eine Liste aller Vorgänge Dokumentation für AD FS fü
 - [Anpassen des HTTP-Antwort-Sicherheitsheader mit AD FS-2019](../ad-fs/operations/customize-http-security-headers-ad-fs.md)
 - [Delegieren des AD FS-PowerShell-Cmdlet-Zugriffs an Benutzer ohne Administratorrechte](../ad-fs/operations/delegate-ad-fs-pshell-access.md)
 - [Geräteauthentifizierungsteuerung in AD FS](../ad-fs/operations/device-authentication-controls-in-AD-FS.md) 
-
 - [Verbesserte Interoperabilität mit SAML 2.0](../ad-fs/operations/Improved-interoperability-with-SAML-2.0.md)
 - [Verbinden mit einem Arbeitsplatz von einem beliebigen Gerät für SSO und nahtlose zweistufige Authentifizierung bei allen Unternehmensanwendungen](../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md)
 - [Verwalten von Risiken mit zusätzlicher Mehrstufiger Authentifizierung für sensible Anwendungen](../ad-fs/operations/Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
 - [Verwalten von Risiken mit der bedingten Zugriffssteuerung](../ad-fs/operations/Manage-Risk-with-Conditional-Access-Control.md)
 - [Verwalten von SSL-Zertifikaten in AD FS und WAP 2016](../ad-fs/operations/Manage-SSL-Certificates-AD-FS-WAP-2016.md)
 - [Einrichten einer AD FS-Laborumgebung](../ad-fs/operations/Set-up-an-AD-FS-lab-environment.md)
+- [SQL Feinabstimmung und Behandeln von Wartezeiten](../ad-fs/operations/adfs-sql-latency.md) 
 - [Handbuch mit exemplarischer Vorgehensweise: Verwalten von Risiken mit zusätzlicher Mehrstufiger Authentifizierung für sensible Anwendungen](../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
 - [Handbuch mit exemplarischer Vorgehensweise: Verwalten von Risiken mit der bedingten Zugriffssteuerung](../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md)
 - [Exemplarische Vorgehensweise: Arbeitsplatzbeitritt mit einem Windows-Gerät](../ad-fs/operations/Walkthrough--Workplace-Join-with-a-Windows-Device.md)
