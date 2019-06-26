@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: it-pro
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: fc92e8b30d6b4c0c765333d3e22311e551d3365d
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 1fe73df2ce209fc47c7414d33cb1e0a83d31dcd7
+ms.sourcegitcommit: 9bece8049b1766bd9bb0d5eb5921413a2de2ca61
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280492"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67351289"
 ---
 # <a name="ad-fs-frequently-asked-questions-faq"></a>AD FS-häufig gestellte Fragen (FAQ)
 
@@ -300,3 +300,6 @@ AD FS und Web Application-Server unterstützt Firewall, die keine SSL-Tunnelabsc
 In AD FS 2016 tokenbindung wird automatisch aktiviert, und bewirkt, dass mehrere bekannte Probleme mit Proxy und die Federation-Szenarien die Ergebnis zu diesem Fehler. Um dies zu beheben, führen Sie den folgenden Powershell-Befehl aus, und entfernen Sie bindungsunterstützung für das token.
 
 `Set-AdfsProperties -IgnoreTokenBinding $true`
+
+### <a name="i-have-upgraded-my-farm-from-ad-fs-in-windows-server-2016-to-ad-fs-in-windows-server-2019-the-farm-behavior-level-for-the-ad-fs-farm-has-been-successfully-raised-to-2019-but-the-web-application-proxy-configuration-is-still-displayed-as-windows-server-2016"></a>Ich haben Meine Farm von AD FS unter Windows Server 2016 zu AD FS unter Windows Server-2019 aktualisiert. Ausgelöst die Farmen mit Verhaltensebene für AD FS-Farm erfolgreich zu 2019 wurde, aber angezeigt die Web Application Proxy-Konfiguration wird als Windows Server 2016 noch?
+Nach der Aktualisierung auf Windows Server-2019 zeigt die Version der Konfiguration der Webanwendungsproxy weiterhin als Windows Server 2016. Die Web Application Proxy keine neue Version bestimmte Features für Windows Server-2019, und wenn Farmebene Verhalten in AD FS erfolgreich ausgelöst wurde, der Webanwendungsproxy wird weiterhin als Windows Server 2016 standardmäßig angezeigt. 

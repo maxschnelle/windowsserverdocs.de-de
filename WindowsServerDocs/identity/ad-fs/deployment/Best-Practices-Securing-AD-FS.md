@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: a7f4f29b37793b45a614bd592feddb339dd05c3d
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 3cc4194b562dad17d0c2021f4aaf061114e2c94b
+ms.sourcegitcommit: 9bece8049b1766bd9bb0d5eb5921413a2de2ca61
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280606"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67351301"
 ---
 ## <a name="best-practices-for-securing-active-directory-federation-services"></a>Bewährte Methoden zum Schützen von Active Directory Federation Services
 
@@ -34,6 +34,9 @@ Das folgende Diagramm zeigt die Firewallports, die zwischen und für die Kompone
 >Beachten Sie, dass Port 49443 verwendet nur erforderlich, wenn die Authentifizierung mit Benutzerzertifikat der Einsatz ist optional für Azure AD verwendet wird, und Office 365.
 
 ![AD FS-Standard-Topologie](media/Best-Practices-Securing-AD-FS/adfssec2.png)
+
+>[!NOTE]
+> Port 808 (Windows Server 2012 R2) oder 1501 (Windows Server 2016 und höher) ist, dass der AD FS für der Net.TCP-Port für den lokalen WCF-Endpunkt verwendet werden, um die Konfigurationsdaten an den Dienstprozess und Powershell übertragen. Dieser Port kann anzeigen, indem Sie Ausführung von Get-AdfsProperties | Wählen Sie die NetTcpPort. Dies ist ein lokaler Port, der nicht in der Firewall geöffnet sein müssen, aber in einer Port-Scan angezeigt. 
 
 ### <a name="azure-ad-connect-and-federation-serverswap"></a>Azure AD Connect und Verbund/WAP-Server
 Diese Tabelle beschreibt die Ports und Protokolle, die für die Kommunikation zwischen Azure AD Connect-Server und Verbund-/WAP-Servern erforderlich sind.  
