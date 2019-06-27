@@ -7,17 +7,18 @@ ms.manager: dongill
 ms.technology: storage-spaces
 ms.topic: article
 author: JasonGerend
-ms.date: 08/24/2016
+ms.date: 06/25/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 0c39d704056c4ae6935f3be9c521c12ca1014820
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4ebec8618c79c43816680387ae5e495f125b3c54
+ms.sourcegitcommit: 545dcfc23a81943e129565d0ad188263092d85f6
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870551"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67407553"
 ---
 # <a name="storage-class-memory-nvdimm-n-health-management-in-windows"></a>Integritätsverwaltung für Speicherklassenspeicher (NVDIMM-N) in Windows
-> Gilt für: Windows Server 2016, Windows 10 (Version 1607)
+
+> Gilt für: WindowsServer 2019, WindowsServer 2016, WindowsServer (Halbjährlicher Kanal), Windows 10
 
 In diesem Artikel finden Systemadministratoren und IT-Experten Informationen zur Fehlerbehandlung und Integritätsverwaltung bei Speicherklassenspeichergeräten (NVDIMM-N) in Windows. Dabei werden die Unterschiede zwischen Speicherklassenspeicher und herkömmlichen Speichergeräten hervorgehoben.
 
@@ -25,6 +26,8 @@ Wenn Sie nicht mit der Windows-Unterstützung für Speicherklassenspeichergerät
 - [Verwenden von Non-Volatile Memory (NVDIMM-N) as Block Storage in WindowsServer 2016](https://channel9.msdn.com/Events/Build/2016/P466)
 - [Verwenden von Non-Volatile Memory (NVDIMM-N) als Byte-Addressable Storage in WindowsServer 2016](https://channel9.msdn.com/Events/Build/2016/P470)
 - [Gleichzeitig die Leistung von SQL Server 2016 mit persistenten Speicher in Windows Server 2016](https://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-2016-and-Windows-Server-2016-SCM--FAST)
+
+Siehe auch [verstehen und Bereitstellen von persistenten Speicher in "direkte Speicherplätze"](deploy-pmem.md).
 
 Ab Windows Server 2016 und Windows 10 (Version 1607) werden JEDEC-kompatible NVDIMM-N-Speicherklassenspeichergeräte in Windows mit nativen Treibern unterstützt. Wenngleich das Verhalten dieser Geräte mit dem Verhalten anderer Datenträger (HDDs und SSDs) vergleichbar ist, müssen einige Unterschiede berücksichtigt werden.
 
@@ -48,10 +51,10 @@ PS C:\> Get-PhysicalDisk | where BusType -eq "SCM" | select SerialNumber, Health
 
 Dabei wird folgende Beispielausgabe zurückgegeben:
 
-|SerialNumber|HealthStatus|OperationalStatus|OperationalDetails|
-|---|---|---|---|
-|802c-01-1602-117cb5fc|Fehlerfrei|OK||
-|802c-01-1602-117cb64f|Warnung|Predictive Failure|{Threshold Exceeded,NVDIMM\_N Error}|
+| SerialNumber | HealthStatus | OperationalStatus | OperationalDetails |
+| --- | --- | --- | --- |
+| 802c-01-1602-117cb5fc | Fehlerfrei | OK | |
+| 802c-01-1602-117cb64f | Warnung | Predictive Failure | {Threshold Exceeded,NVDIMM\_N Error} |
 
 > [!NOTE]
 > Um den Standort eines in einem Ereignis angegebenen NVDIMM-N-Geräts zu finden, gehen Sie auf der Registerkarte **Details** in der Ereignisanzeige auf **EventData** > **Speicherort**. Beachten Sie, dass Windows Server 2016 die NVDIMM-N-Geräte mit falschem Speicherort aufführt. Dies wurde in Windows Server, Version 1709, behoben.
@@ -62,36 +65,36 @@ In den folgenden Abschnitten finden Sie Informationen zu den verschiedenen Integ
 
 Diese Bedingung liegt vor, wenn beim Überprüfen der Integrität eines Speicherklassenspeichergeräts der Integritätsstatus **Warning** zurückgegeben wird (wie in der folgenden Beispielausgabe gezeigt):
 
-|SerialNumber|HealthStatus|OperationalStatus|OperationalDetails|
-|---|---|---|---|
-|802c-01-1602-117cb5fc|Fehlerfrei|OK||
-|802c-01-1602-117cb64f|Warnung|Predictive Failure|{Threshold Exceeded,NVDIMM\_N Error}|
+| SerialNumber | HealthStatus | OperationalStatus | OperationalDetails |
+| --- | --- | --- | --- |
+| 802c-01-1602-117cb5fc | Fehlerfrei | OK | |
+| 802c-01-1602-117cb64f | Warnung | Predictive Failure | {Threshold Exceeded,NVDIMM\_N Error} |
 
 Die folgende Tabelle enthält Informationen zu dieser Bedingung.
 
-||Beschreibung|
-|---|---|
-|Wahrscheinliche Bedingung|Der NVDIMM-N-Warnungsschwellenwert wurde überschritten.|
-|Ursache|NVDIMM-N-Geräte überwachen eine Reihe von Schwellenwerten, z. B. für Temperatur, NVM-Lebensdauer und/oder Lebensdauer der Energiequelle. Wenn einer dieser Schwellenwerte überschritten wird, wird das Betriebssystem benachrichtigt.|
-|Allgemeines Verhalten|Das Gerät bleibt voll funktionsfähig. Dies ist eine Warnung, kein Fehler.|
-|Speicherplatzverhalten|Das Gerät bleibt voll funktionsfähig. Dies ist eine Warnung, kein Fehler.|
-|Weitere Informationen|OperationalStatus-Feld des PhysicalDisk-Objekts. EventLog – Microsoft-Windows-ScmDisk0101/Operational|
-|Erforderlich|Abhängig davon, welcher Warnungsschwellenwert überschritten wurde, kann es sinnvoll sein, das NVDIMM-N-Gerät vollständig oder teilweise zu ersetzen. Wenn z. B. der Schwellenwert zur NVM-Lebensdauer überschritten wurde, sollte das NVDIMM-N-Gerät ersetzt werden.|
+| | Beschreibung |
+| --- | --- |
+| Wahrscheinliche Bedingung | Der NVDIMM-N-Warnungsschwellenwert wurde überschritten. |
+| Ursache | NVDIMM-N-Geräte überwachen eine Reihe von Schwellenwerten, z. B. für Temperatur, NVM-Lebensdauer und/oder Lebensdauer der Energiequelle. Wenn einer dieser Schwellenwerte überschritten wird, wird das Betriebssystem benachrichtigt. |
+| Allgemeines Verhalten | Das Gerät bleibt voll funktionsfähig. Dies ist eine Warnung, kein Fehler. |
+| Speicherplatzverhalten | Das Gerät bleibt voll funktionsfähig. Dies ist eine Warnung, kein Fehler. |
+| Weitere Informationen | OperationalStatus-Feld des PhysicalDisk-Objekts. EventLog – Microsoft-Windows-ScmDisk0101/Operational |
+| Erforderlich | Abhängig davon, welcher Warnungsschwellenwert überschritten wurde, kann es sinnvoll sein, das NVDIMM-N-Gerät vollständig oder teilweise zu ersetzen. Wenn z. B. der Schwellenwert zur NVM-Lebensdauer überschritten wurde, sollte das NVDIMM-N-Gerät ersetzt werden. |
 
 ## <a name="writes-to-an-nvdimm-n-fail"></a>Fehler bei Schreibvorgängen auf einem NVDIMM-N-Gerät
 
 Diese Bedingung liegt vor, wenn beim Überprüfen der Integrität eines Speicherklassenspeichergeräts der Integritätsstatus **Unhealthy** und im Betriebsstatus ein **IO Error** zurückgegeben wird (wie in der folgenden Beispielausgabe gezeigt):
 
-|SerialNumber|HealthStatus|OperationalStatus|OperationalDetails|
-|---|---|---|---|
-|802c-01-1602-117cb5fc|Fehlerfrei|OK||
-|802c-01-1602-117cb64f|Unhealthy|{Stale Metadata, IO Error, Transient Error}|{Lost Data Persistence, Lost Data, NV...}|
+| SerialNumber | HealthStatus | OperationalStatus | OperationalDetails |
+| --- | --- | --- | --- |
+| 802c-01-1602-117cb5fc | Fehlerfrei | OK | |
+| 802c-01-1602-117cb64f | Unhealthy | {Stale Metadata, IO Error, Transient Error} | {Lost Data Persistence, Lost Data, NV...} |
 
 Die folgende Tabelle enthält Informationen zu dieser Bedingung.
 
-||Beschreibung|
-|---|---|
-|Wahrscheinliche Bedingung|Unterbrechung der Energiequelle für Persistenz/Sicherungen|
+| | Beschreibung |
+| --- | --- |
+| Wahrscheinliche Bedingung | Unterbrechung der Energiequelle für Persistenz/Sicherungen |
 |Ursache|Um Persistenz sicherzustellen, hängen NVDIMM-N-Geräte von einer Energiequelle für Sicherungen ab – üblicherweise ein Akku oder Superkondensator. Wenn diese Energiequelle nicht verfügbar ist oder das Gerät aus einem anderen Grund keine Sicherung durchführen kann (Controller-/Flash-Fehler), besteht das Risiko von Datenverlust. Windows verhindert daher, dass weitere Schreibvorgänge auf den betroffenen Geräten durchgeführt werden. Lesevorgänge sind weiterhin möglich, um Daten zu verschieben.|
 |Allgemeines Verhalten|Die Bereitstellung des NTFS-Volumes wird aufgehoben.<br>Im Integritätsstatusfeld PhysicalDisk wird der Status „Unhealthy“ für alle betroffenen NVDIMM-N-Geräte angezeigt.|
 |Speicherplatzverhalten|Sofern nur ein NVDIMM-N-Gerät betroffen ist, ist der Speicherplatz weiterhin verfügbar. Wenn mehrere Geräte betroffen sind, werden Schreibvorgänge auf dem Speicherplatz mit einem Fehler beendet. <br>Im Integritätsstatusfeld PhysicalDisk wird der Status „Unhealthy“ für alle betroffenen NVDIMM-N-Geräte angezeigt.|
@@ -102,8 +105,8 @@ Die folgende Tabelle enthält Informationen zu dieser Bedingung.
 
 Diese Bedingung tritt ein, wenn ein Speicherklassenspeichergerät mit einer Kapazität von 0 Bytes angezeigt wird und nicht initialisiert werden kann, oder wenn das Gerät als „Generic Physical Disk“ mit dem Betriebsstatus **Lost Communication** angezeigt wird (siehe Beispielausgabe unten):
 
-|SerialNumber|HealthStatus|OperationalStatus|OperationalDetails|
-|---|---|---|---|
+| SerialNumber | HealthStatus | OperationalStatus | OperationalDetails |
+| --- | --- | --- | --- |
 |802c-01-1602-117cb5fc|Fehlerfrei|OK||
 ||Warnung|Lost Communication||
 
@@ -122,8 +125,8 @@ Die folgende Tabelle enthält Informationen zu dieser Bedingung.
 
 Diese Bedingung liegt vor, wenn beim Überprüfen der Integrität eines Speicherklassenspeichergeräts der Integritätsstatus **Unhealthy** und als Betriebsstatus **Unrecognized Metadata** zurückgegeben wird (wie in der folgenden Beispielausgabe gezeigt):
 
-|SerialNumber|HealthStatus|OperationalStatus|OperationalDetails|
-|---|---|---|---|
+| SerialNumber | HealthStatus | OperationalStatus | OperationalDetails |
+| --- | --- | --- | --- |
 |802c-01-1602-117cb5fc|Fehlerfrei|OK|{Unknown}|
 |802c-01-1602-117cb64f|Unhealthy|{Unrecognized Metadata, Stale Metadata}|{Unknown}|
 

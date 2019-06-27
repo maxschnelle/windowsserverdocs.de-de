@@ -6,13 +6,13 @@ ms.topic: article
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
-ms.date: 09/11/2018
-ms.openlocfilehash: 65c5eb25f7a98e4db6a44e705a2968f185f3f962
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.date: 06/21/2019
+ms.openlocfilehash: 211d2f24b01d1e308f012df681f9e16a2190449f
+ms.sourcegitcommit: 260b1d78cb28b88b876579e1ac9a41a74e8752fd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447378"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67398798"
 ---
 # <a name="install-trusted-tpm-root-certificates"></a>Installieren des vertrauenswürdigen TPM-Stammzertifikate
 
@@ -35,7 +35,7 @@ Wenn Ihr TPM-Zertifikate nicht in der folgenden Paket enthalten sind, wenden Sie
 
 Wiederholen Sie die folgenden Schritte auf **jeder HGS-Server**:
 
-1.  Laden Sie das neueste Paket aus [ https://tpmsec.microsoft.com/OnPremisesDHA/TrustedTPM.cab ](https://tpmsec.microsoft.com/OnPremisesDHA/TrustedTPM.cab).
+1.  Laden Sie das neueste Paket aus [ https://tpmsec.microsoft.com/TPMCerts/TrustedTPM.cab ](https://tpmsec.microsoft.com/TPMCerts/TrustedTPM.cab).
 
 2.  Erweitern Sie die Cab-Datei aus.
 

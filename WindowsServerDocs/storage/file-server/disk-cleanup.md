@@ -8,12 +8,12 @@ ms.author: jgerend
 manager: daveba
 ms.technology: storage-spaces
 ms.date: 06/20/2019
-ms.openlocfilehash: b479697366239144e5ca9d3486b84191eb51dc4d
-ms.sourcegitcommit: 078304c4b92bb57eb85ba29634afc92cc028c644
+ms.openlocfilehash: fbec7cd2b8312f03998cfb27b739d0866d3a47c5
+ms.sourcegitcommit: 545dcfc23a81943e129565d0ad188263092d85f6
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67301580"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67407669"
 ---
 # <a name="using-disk-cleanup-on-windows-server"></a>Verwenden die Datenträgerbereinigung unter WindowsServer
 
@@ -23,7 +23,7 @@ Das Tool die Datenträgerbereinigung löscht nicht benötigte Dateien in einer W
 
 Um die Datenträgerbereinigung-Tool zu starten, führen Sie den Befehl Cleanmgr.exe oder wählen Sie **starten**Option **Windows-Verwaltung**, und wählen Sie dann **Datenträgerbereinigung**.
 
-Sie können auch die Datenträgerbereinigung ausführen, mit der [cleanmgr aus Windows-Befehl](../../administration/windows-commands/clean-mgr.md) und Befehlszeilenoptionen verwenden, um anzugeben, dass bestimmte Dateien Datenträgerbereinigung bereinigt.
+Sie können auch die Datenträgerbereinigung ausführen, mit der [cleanmgr aus Windows-Befehl](../../administration/windows-commands/cleanmgr.md) und Befehlszeilenoptionen verwenden, um anzugeben, dass bestimmte Dateien Datenträgerbereinigung bereinigt.
 
 ## <a name="enable-disk-cleanup-on-an-earlier-version-of-windows-server-by-installing-the-desktop-experience"></a>Datenträgerbereinigung auf eine frühere Version von Windows Server zu aktivieren, indem Sie die Desktopdarstellung installieren
 
@@ -78,4 +78,4 @@ Damit der Datenträgerbereinigung-Schaltfläche, die auf einem Datenträger des 
 
 [Freigeben von Speicherplatz auf dem Laufwerk in Windows 10](https://support.microsoft.com/en-us/help/12425/windows-10-free-up-drive-space)
 
-[cleanmgr](../../administration/windows-commands/clean-mgr.md)
+[cleanmgr](../../administration/windows-commands/cleanmgr.md)

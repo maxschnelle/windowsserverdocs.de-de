@@ -1,24 +1,20 @@
 ---
 title: Windows-Befehle
 description: Windows-Befehle
-ms.custom: na
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c703d07c-8227-4e86-94a6-8ef390f94cdc
-author: coreyp-at-msft
-ms.author: coreyp
+author: jasongerend
+ms.author: jgerend
 manager: dongill
-ms.date: 05/22/2018
+ms.date: 06/26/2019
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 861c8f35cf57fc7c8d03914dba2d971d50b66fc5
-ms.sourcegitcommit: 078304c4b92bb57eb85ba29634afc92cc028c644
+ms.openlocfilehash: d0cf58ea8d37efccf80ce262b64e604218bd8d0b
+ms.sourcegitcommit: 545dcfc23a81943e129565d0ad188263092d85f6
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67298173"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67407657"
 ---
 # <a name="windows-commands"></a>Windows-Befehle
 
@@ -54,7 +50,8 @@ Um Informationen über einen bestimmten Befehl in der folgende A-Z-Menü zu find
 [X](#x) | Y | Z
 
 ## <a name="prerequisites"></a>Vorraussetzungen
-Die Informationen, die in diesem PDF-Datei enthalten ist, gilt für:
+
+Die Informationen, die in diesem Thema enthalten ist, gilt für:
 
 -   Windows Server 2019
 -   Windows Server (Semi-Annual Channel)
@@ -67,6 +64,7 @@ Die Informationen, die in diesem PDF-Datei enthalten ist, gilt für:
 -   Windows 8.1
 
 ### <a name="command-shell-overview"></a>Übersicht über die Befehlsshell
+
 Die Befehl-Shell war die erste Shell integriert Windows Automatisieren von Routineaufgaben, wie z. B. Verwaltung von Benutzerkonten oder nächtliche Backups mit Batchdateien (bat). Mit Windows Script Host können Sie komplexere Skripts in der Befehlsshell ausführen. Weitere Informationen finden Sie unter [Cscript](cscript.md) oder [Wscript](wscript.md). Sie können Vorgänge effizienter ausführen, mithilfe von Skripts als Sie mit der Benutzeroberfläche können. Skripts akzeptieren alle Befehle, die in der Befehlszeile zur Verfügung stehen.
 
 Windows verfügt über zwei Befehlsshells: Der Befehl-Shell und [PowerShell](https://docs.microsoft.com/powershell/scripting/powershell-scripting?view=powershell-6). Jede-Shell ist ein Softwareprogramm, das die direkte Kommunikation zwischen Sie und das Betriebssystem oder der Anwendung und stellt eine Umgebung zum Automatisieren von IT-Vorgänge bereitstellt.
@@ -88,6 +86,7 @@ Es wird empfohlen, für die meisten robuster, auf dem neuesten Stand Windows Aut
 > Festlegen der **Reg_DWOrd** Wert, den hexadezimalen Wert eines Steuerzeichens für eine bestimmte Funktion verwenden (z. B. **0-9** Registerkarte und **0 08** RÜCKTASTE ist). Benutzerdefinierte Einstellungen haben Vorrang vor Einstellungen des Computers, und Befehlszeilenoptionen haben Vorrang vor registrierungseinstellungen.
 
 ## <a name="command-line-reference-a-z"></a>A-Z-Befehlszeilenreferenz
+
 Um Informationen zu einem bestimmten Windows-Befehl in der folgende A-Z-Menü zu finden, klicken Sie auf der Buchstabe, das mit dem Befehl wird gestartet, und klicken Sie dann auf den Namen des Befehls.
 
 [EIN](#a) |
@@ -225,7 +224,7 @@ Um Informationen zu einem bestimmten Windows-Befehl in der folgende A-Z-Menü zu
 - [chkntfs](chkntfs.md)
 - [choice](choice.md)
 - [cipher](cipher.md)
-- [cleanmgr](clean-mgr.md)
+- [cleanmgr](cleanmgr.md)
 - [clip](clip.md)
 - [cls](cls.md)
 - [Cmd](Cmd.md)

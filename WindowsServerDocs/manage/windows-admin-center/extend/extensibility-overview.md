@@ -8,12 +8,12 @@ ms.author: jol
 ms.date: 09/17/2018
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: fa3d7e75b32f0195346e58db54b7932c8d2fd3b9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: beb2b3d1eefc5d70e39baa461708938ac9c17be5
+ms.sourcegitcommit: 3be280c8638214857dc355b201eb56a04499a5e5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59885001"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67396684"
 ---
 # <a name="extensions-for-windows-admin-center"></a>Erweiterungen für Windows Admin Center
 
@@ -43,17 +43,22 @@ Wir haben außerdem Beispielcode auf GitHub gehostet: [Entwicklertools](https://
 Lesen Sie die Themen unten, um mehr über das SDK und die ersten Schritte zu erfahren:
 
 - [Funktionsweise von Erweiterungen](understand-extensions.md)
-- [Entwickeln Sie eine Erweiterung](developing-extensions.md)
-- [Anleitungen](guides.md)
+- [Entwickeln einer Erweiterung](developing-extensions.md)
+- [Handbücher](guides.md)
 - [Veröffentlichen Sie Ihrer extension](publish-extensions.md)
 
 ## <a name="partner-spotlight"></a>Partner Spotlight
 
 Sehen Sie den Wert, den unsere Partner mit dem Windows Admin Center-Ökosystem haben und probieren Sie die Erweiterungen heute aus. Auf [Erweiterungen installieren](../configure/using-extensions.md) im Windows Admin Center erfahren Sie mehr.
 
+### <a name="biitops"></a>BiitOps
+Die BiitOps Änderungen-Erweiterung bietet änderungsnachverfolgung, die für die Hardware, Software und Konfiguration von Einstellungen für Ihre physische/virtuelle Windows Server-Computer. Die BiitOps Änderungen, die Erweiterung anzeigen, wird genau Neuigkeiten, was sich geändert hat und was in einem einzelnen Bereich-transparente verfolgen, Probleme gelöscht wurde im Zusammenhang mit Kompatibilität, Zuverlässigkeit und Sicherheit. [Erfahren Sie mehr über die Erweiterung BiitOps Änderungen](case-studies/biitops.md).
+
+![BiitOps-Erweiterung](../media/extensibility-overview/biitops-1.png)
+
 ### <a name="dataon"></a>DataON
 
-Der Spitzengruppe muss Erweiterung bietet Überwachung, Verwaltung und End-to-End-Einblick in Spitzengruppes hyperkonvergenten Infrastruktur und Speichersysteme basierend auf Windows Server. Die Erweiterung muss hinzufügt, eindeutigen Wert z. B. Vergangenheitsdaten reporting, datenträgerzuordnung, systemwarnungen und SAN-ähnlichen Aufruf home-Dienst, ergänzen die Windows Admin Center-Server und einer hyperkonvergenten Infrastruktur-Management-Funktionen über eine nahtlose, einheitliche Erfahrung. [Erfahren Sie mehr über DataON's MUST-Erweiterungen und die Erfahrung der Entwicklung](case-studies/dataon.md).
+Die Erweiterung muss Spitzengruppe bietet Überwachung, Verwaltung und End-to-End-Einblick in Spitzengruppes hyperkonvergenten Infrastruktur und Speichersysteme, die basierend auf Windows Server. Die Erweiterung muss hinzufügt, eindeutigen Wert z. B. Vergangenheitsdaten reporting, datenträgerzuordnung, systemwarnungen und SAN-ähnlichen Aufruf home-Dienst, ergänzen die Windows Admin Center-Server und einer hyperkonvergenten Infrastruktur-Management-Funktionen über eine nahtlose, einheitliche Erfahrung. [Erfahren Sie mehr über DataON's MUST-Erweiterungen und die Erfahrung der Entwicklung](case-studies/dataon.md).
 
 ![DataON MUST-Erweiterung](../media/extensibility-overview/dataon-must-extension.png)
 
@@ -65,7 +70,7 @@ Fujitsu ServerView-Integrität und RAID-Health-Erweiterungen für Windows Admin 
 
 ### <a name="lenovo"></a>Lenovo
 
-Die Lenovo XClarity Integrator-Erweiterung nimmt hardwareverwaltung auf die nächste Stufe durch die nahtlose Integration in verschiedene Umgebungen innerhalb Windows Admin Center. Die XClarity Integrator-Lösung bietet einen allgemeinen Überblick über alle Lenovo-Server, und verschiedene Tools-Erweiterungen bieten Hardwaredetails, ob Sie mit einem einzelnen Server, Failovercluster oder eines hyperkonvergenten Clusters verbunden sind. [Erfahren Sie mehr über die Erweiterung Lenovo XClarity Integrator](case-studies/lenovo.md).
+Die Lenovo XClarity Integrator-Erweiterung nimmt die hardwareverwaltung auf die nächste Stufe durch die nahtlose Integration in verschiedene Umgebungen innerhalb Windows Admin Center. Die XClarity Integrator-Lösung bietet einen allgemeinen Überblick über alle Lenovo-Server, und verschiedene Tools-Erweiterungen bieten Hardwaredetails, ob Sie mit einem einzelnen Server, Failovercluster oder eines hyperkonvergenten Clusters verbunden sind. [Erfahren Sie mehr über die Erweiterung Lenovo XClarity Integrator](case-studies/lenovo.md).
 
 ![Lenovo-Erweiterung](../media/extensibility-overview/lenovo-extension.png)
 
@@ -74,6 +79,12 @@ Die Lenovo XClarity Integrator-Erweiterung nimmt hardwareverwaltung auf die näc
 Pure-Speicher bietet Unternehmen, die All-Flash-Daten-Storage-Lösungen, die datenorientierte Architektur beschleunigen Sie Ihr Unternehmen einen Wettbewerbsvorteil zu übermitteln. Die reine Storage-Erweiterung für Windows Admin Center bietet einen zentralen Überblick in reinen FlashArray-Produkte und ermöglicht Benutzern, führen Sie Überwachungsaufgaben, in Echtzeit Leistungsmetriken anzeigen und Verwalten von Speichervolumes und Initiatoren, die über eine einzige Benutzeroberfläche auftreten. [Erfahren Sie mehr über die Pure-Erweiterungen und ihre Entwicklungsumgebung](case-studies/purestorage.md).
 
 ![Reine speichererweiterung](../media/extensibility-overview/purestorage-extension.png)
+
+### <a name="qct"></a>QCT
+
+Die Erweiterung QCT Management Suite ergänzt Windows Admin Center, durch die Bereitstellung von physischen Servern zu Überwachung und Verwaltung von QCT Azure Stack HCI zertifizierten Systeme. Die QCT Management Suite-Erweiterung zeigt Serverhardwareinformationen und bietet ein intuitiver Assistent UI können Sie die physischen ersetzen, Hardware-Ereignisprotokoll-Tools und s.m.a.r.t. Datenträger basieren predictive datenträgerverwaltung. [Erfahren Sie mehr über die QCT Management Suite-Erweiterung](case-studies/qct.md).
+
+![QCT-Erweiterung](../media/extensibility-overview/qct-extension.png)
 
 ### <a name="squared-up"></a>Squared Up
 
