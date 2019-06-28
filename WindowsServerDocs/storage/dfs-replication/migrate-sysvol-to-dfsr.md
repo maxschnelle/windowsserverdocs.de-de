@@ -28,7 +28,7 @@ In diesem Dokument wird davon ausgegangen, dass Sie über grundlegende Kenntniss
 
 
 > [!NOTE]
-> Um eine druckbare Version dieses Handbuchs herunterzuladen, wechseln Sie zu <a href="http://go.microsoft.com/fwlink/?linkid=150375">Anleitung zur SYSVOL-Replikationsmigration: FRS-zu DFS-Replikation</a> ()http://go.microsoft.com/fwlink/?LinkId=150375)
+> Um eine druckbare Version dieses Handbuchs herunterzuladen, wechseln Sie zu <a href="http://go.microsoft.com/fwlink/?linkid=150375">Anleitung zur SYSVOL-Replikationsmigration: FRS-zu DFS-Replikation</a> (http://go.microsoft.com/fwlink/?LinkId=150375)
 <br>
 
 

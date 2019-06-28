@@ -27,10 +27,10 @@ Wenn Sie nicht bereits getan haben, befolgen Sie die Anweisungen in Entwickeln e
 
 ## <a name="use-the-angular-cli-to-create-a-module-and-component"></a>Verwenden der Angular-Befehlszeilenschnittstelle zum Erstellen eines Moduls (und die Komponente)
 
-Wenn Sie mit Angular vertraut sind, ist das Lesen Sie der Dokumentation zur Angular.Io Websiteseite, um weitere Informationen zu Angular und NgModule dringend empfohlen. Weitere Informationen zu NgModule finden Sie hier:https://angular.io/guide/ngmodule
+Wenn Sie mit Angular vertraut sind, ist das Lesen Sie der Dokumentation zur Angular.Io Websiteseite, um weitere Informationen zu Angular und NgModule dringend empfohlen. Weitere Informationen zu NgModule finden Sie hier: [https://angular.io/guide/ngmodule](https://angular.io/guide/ngmodule )
 
-* Weitere Informationen zum Generieren eines neuen Moduls in Winkel CLI:https://github.com/angular/angular-cli/wiki/generate-module
-* Weitere Informationen zum Generieren von einer neuen Komponente in Winkel CLI:https://github.com/angular/angular-cli/wiki/generate-component
+* Weitere Informationen zum Generieren eines neuen Moduls in Winkel CLI: [https://github.com/angular/angular-cli/wiki/generate-module](https://github.com/angular/angular-cli/wiki/generate-module )
+* Weitere Informationen zum Generieren von einer neuen Komponente in Winkel CLI: [https://github.com/angular/angular-cli/wiki/generate-component](https://github.com/angular/angular-cli/wiki/generate-component )
 
 
 Öffnen Sie eine Eingabeaufforderung, wechseln Sie zu \src\app in Ihrem Projekt, und führen Sie die folgenden Befehle aus, und Ersetzen Sie dabei ```{!ModuleName}``` durch den Modulnamen Ihres (Leerzeichen):
@@ -55,7 +55,7 @@ ng generate component ManageFooWorksPortal
 
 ## <a name="add-routing-information"></a>Routing-Informationen hinzufügen
 
-Wenn Sie mit Angular vertraut sind, wird empfohlen, dass Winkel Routing und Navigation lernen. In den folgenden Abschnitten werden die erforderlichen routing Elemente, mit denen Windows Admin Center, zur Erweiterung und zwischen Ansichten in der Erweiterung als Antwort auf die Aktivität des Benutzers zu navigieren definiert. Weitere Informationen finden Sie hier:https://angular.io/guide/router
+Wenn Sie mit Angular vertraut sind, wird empfohlen, dass Winkel Routing und Navigation lernen. In den folgenden Abschnitten werden die erforderlichen routing Elemente, mit denen Windows Admin Center, zur Erweiterung und zwischen Ansichten in der Erweiterung als Antwort auf die Aktivität des Benutzers zu navigieren definiert. Weitere Informationen finden Sie hier: [https://angular.io/guide/router](https://angular.io/guide/router )
 
 Verwenden Sie den gleichen Modulnamen, den Sie im vorherigen Schritt verwendet.
 
