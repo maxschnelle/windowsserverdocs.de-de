@@ -69,7 +69,7 @@ Vor Windows 8, Windows Server 2012, würde Übergang der Benutzer zwischen dem O
 
 Immer Offline-Modus können Computer nie Übergang in den Online-Modus bei der **Modus für langsame Verbindungen konfigurieren** gruppenrichtlinieneinstellung konfiguriert ist und die **Latenz** Schwellenwertparameter auf 1 Millisekunde festgelegt ist. Änderungen werden standardmäßig alle 120 Minuten im Hintergrund synchronisiert, aber die Synchronisierung kann mithilfe der Gruppenrichtlinieneinstellung **Hintergrundsynchronisierung konfigurieren** konfiguriert werden.
 
-Weitere Informationen finden Sie unter [Enable the Always Offline Mode to Provide Faster Access to Files](enable-always-offline.md).
+Weitere Informationen finden Sie unter [Aktivieren der Always Offline Mode to Provide Faster Access to Dateien](enable-always-offline.md).
 
 ## <a name="cost-aware-synchronization"></a>Sparsame Synchronisation
 
@@ -112,7 +112,7 @@ Wenn Sie das Herunterladen privater Benutzerdaten auf Hauptcomputer beschränken
     1. Wenn es sich bei dem Computer um einen der Hauptcomputer des Benutzers handelt, werden von Windows die Einstellungen "Roamingbenutzerprofil" und "Ordnerumleitung" angewendet.
     2. Wenn es sich bei dem Computer nicht um einen der Hauptcomputer des Benutzers handelt, wird von Windows das zwischengespeicherte lokale Profil des Benutzers (falls vorhanden) geladen oder ein neues lokales Profil erstellt. Von Windows werden gemäß der Entfernungsaktion, die in der zuvor angewendeten Gruppenrichtlinieneinstellung angegeben ist, auch alle vorhandenen Ordnerumleitungen entfernt. Diese Einstellung wird in der lokalen Konfiguration für die Ordnerumleitung beibehalten.
 
-Weitere Informationen finden Sie unter [Deploy Primary Computers for Folder Redirection and Roaming User Profiles](deploy-primary-computers.md)
+Weitere Informationen finden Sie unter [Bereitstellen von Hauptcomputern für Ordnerumleitung und Roamingbenutzerprofile](deploy-primary-computers.md)
 
 ## <a name="hardware-requirements"></a>Hardwareanforderungen
 
