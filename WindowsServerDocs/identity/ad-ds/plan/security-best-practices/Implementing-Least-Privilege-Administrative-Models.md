@@ -9,12 +9,12 @@ ms.date: 08/09/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 609ea0bd796a4d3696e14c7499be047ebdd83183
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 01113b957c6b0be4e18955b5ddc78be3f463abe4
+ms.sourcegitcommit: 236a8ae1da12cea1acfff3f306246db0f022354d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868851"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67412208"
 ---
 # <a name="implementing-least-privilege-administrative-models"></a>Implementieren von Verwaltungsmodellen der geringste Rechte
 
@@ -37,7 +37,7 @@ In der vorherigen Auszüge beschriebenen Prinzipien wurden nicht geändert, aber
 
 Leider ist der Weg des geringsten Widerstands in vielen Umgebungen belegt, dass die übermäßige Nutzung von Konten mit Berechtigungen für breit angelegte und tief. Umfassende Berechtigungen werden Rechte und Berechtigungen, mit denen ein Konto, um bestimmte Aktivitäten z. B. über eine große Querschnitt von der Umgebung ausführen, können Helpdesk-Mitarbeiter Berechtigungen erteilt werden, die sie für das Zurücksetzen der Kennwörter für viele Benutzerkonten zu ermöglichen.  
 
-Umfassende Berechtigungen sind umfangreiche Berechtigungen, die einem schmalen Segment der Auffüllung angewendet werden, repariert solche bietet einen Techniker über Administratorrechte auf einem Server, damit sie ausführen können. Weder umfassende Berechtigungen als auch detaillierte Berechtigungen unbedingt gefährlich ist, aber wenn viele Konten in der Domäne dauerhaft breit angelegte und tief Berechtigung gewährt werden, wenn nur eines der Konten gefährdet ist, sie können schnell verwendet werden, die Umgebung neu zu konfigurieren der Zweck des Angreifers oder sogar große Teile der Infrastruktur zu zerstören.  
+Umfassende Berechtigungen sind umfangreiche Berechtigungen, die einem schmalen Segment der Auffüllung, z.B. erhalten einen Techniker über Administratorrechte auf einem Server, damit diese Reparaturen können angewendet werden. Weder umfassende Berechtigungen als auch detaillierte Berechtigungen unbedingt gefährlich ist, aber wenn viele Konten in der Domäne dauerhaft breit angelegte und tief Berechtigung gewährt werden, wenn nur eines der Konten gefährdet ist, sie können schnell verwendet werden, die Umgebung neu zu konfigurieren der Zweck des Angreifers oder sogar große Teile der Infrastruktur zu zerstören.  
 
 Pass-the-Hash-Angriffen, die eine Art von Angriffe mit gestohlenen Anmeldeinformationen sind, sind allgegenwärtig, da die Tools zu deren Ausführung kostenlos verfügbar und einfach zu bedienende ist und viele Umgebungen für Angriffe anfällig sind. Pass-the-Hash-Angriffen, sind jedoch nicht das eigentliche Problem. Der Knackpunkt des Problems bietet zwei Vorteile:  
 
@@ -276,7 +276,7 @@ Privileged Identitätsmanagement (PIM), auch bezeichnet als privilegierte Konten
 
 Ist eine der Herausforderungen bei der Verwaltung von privilegierten Konten, die in der Standardeinstellung werden die Konten, die privilegierte und geschützte Konten verwalten können, und verfügen über Privilegien Gruppen und Konten geschützt. Wenn Sie die entsprechende RBAC und PIM-Lösungen für die Installation der Active Directory implementieren, können die Lösungen Ansätze enthalten, die Ihnen ermöglichen, die effektiv die Mitgliedschaft der höchsten Berechtigungen Gruppen im Verzeichnis, füllen die Gruppen nur depopulate vorübergehend und, falls erforderlich.  
 
-Wenn Sie native RBAC und PIM implementieren, jedoch sollten Sie Konten, die es wurden keine Berechtigungen haben und mit die einzige Funktion Auffüllen und depopulating privilegierten Gruppen in Active Directory bei Bedarf erstellen. [Anhang I: Erstellen von Verwaltungskonten für geschützte Konten und Gruppen in Active Directory](../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory.md) enthält schrittweise Anleitungen, die Sie zum Erstellen von Konten für diesen Zweck verwenden können.  
+Wenn Sie native RBAC und PIM implementieren, jedoch sollten Sie Konten, die es wurden keine Berechtigungen haben und mit die einzige Funktion Auffüllen und depopulating privilegierten Gruppen in Active Directory bei Bedarf erstellen. [Anhang I: Erstellen von Verwaltungskonten für geschützte Konten und Gruppen in Active Directory](../../../ad-ds/manage/component-updates/../../../ad-ds/manage/component-updates/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory.md) enthält schrittweise Anleitungen, die Sie zum Erstellen von Konten für diesen Zweck verwenden können.  
 
 ### <a name="implementing-robust-authentication-controls"></a>Implementieren von Steuerelementen für stabile Mechanismen für Authentifizierung
 
