@@ -7,14 +7,14 @@ ms.manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
-ms.date: 01/10/2019
+ms.date: 06/28/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: c68444be5662480293cee630970d5eb76b52268a
-ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
+ms.openlocfilehash: a04a362b65af8f184037d26728a1c147ca8ef948
+ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66453196"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67469673"
 ---
 # <a name="planning-volumes-in-storage-spaces-direct"></a>Planen von Volumes in Direkte Speicherplätze
 
@@ -24,7 +24,7 @@ Dieses Thema enthält Informationen zum Planen von Volumes in Direkte Speicherpl
 
 ## <a name="review-what-are-volumes"></a>Lesen Sie: Was sind Volumes
 
-Volumes sind die Datenspeicher, in denen Sie die von Ihren Workloads benötigten Dateien ablegen, z. B. VHD- oder VHDX-Dateien für virtuelle Hyper-V-Computer. Volumes kombinieren die Laufwerke im Speicherpool, um die Fehlertoleranz, Skalierbarkeit und Leistungsvorteile von Direkte Speicherplätze einzuführen.
+Volumes sind, ordnen Sie die Dateien, die Ihre Workloads, die z. b. virtuelle Festplatten benötigen oder die VHDX-Dateien für Hyper-V-Computer. Volumes kombinieren die Laufwerke im Speicherpool, um die Fehlertoleranz, Skalierbarkeit und Leistungsvorteile von Direkte Speicherplätze einzuführen.
 
    >[!NOTE]
    > In der gesamten Dokumentation für Direkte Speicherplätze verwenden wir Begriff "Volume" als Bezeichnung für das Volume und den virtuellen Datenträger darunter, einschließlich der Funktionen, die von anderen integrierten Windows-Features bereitgestellt werden, z. B. freigegebenen Clustervolumes (Cluster Shared Volumes, CSV) und ReFS. Es ist nicht erforderlich, diese Unterschiede auf Implementierungsebene zu verstehen, um Direkte Speicherplätze erfolgreich zu planen und bereitzustellen.
@@ -51,23 +51,27 @@ Wir empfehlen die Verwendung des neuen [robusten Dateisystems (Resilient File Sy
 
 Wenn Ihre Workload ein Feature erfordert, das von ReFS noch nicht unterstützt wird, können Sie stattdessen NTFS verwenden.
 
-   >[!TIP]
+   > [!TIP]
    > Volumes mit verschiedenen Dateisystemen können im selben Cluster vorhanden sein.
 
 ## <a name="choosing-the-resiliency-type"></a>Auswählen des Resilienztyps
 
 Volumes in Direkte Speicherplätze bieten Resilienz zum Schutz vor Hardwareproblemen, z. B. Laufwerks- oder Serverausfällen, und zum Aktivieren von kontinuierlicher Verfügbarkeit während der gesamten Serverwartung der Server, z. B. bei Softwareupdates.
 
-   >[!NOTE]
+   > [!NOTE]
    > Die auswählbaren Resilienztypen hängen nicht von der Art der Laufwerke ab, die Sie verwenden.
 
 ### <a name="with-two-servers"></a>Bei zwei Servern
 
-Die einzige Option für Cluster mit zwei Servern ist die Zweiwegespiegelung. Dabei werden zwei Kopien aller Daten beibehalten, eine Kopie auf den Laufwerken auf jedem Server. Die Speichereffizienz ist 50 % – zum Schreiben von 1 TB an Daten benötigen Sie mindestens 2 TB physische Speicherkapazität im Speicherpool. Die Zweiwegespiegelung kann jeweils einen Hardwarefehler (Laufwerk oder Server) sicher tolerieren.
+Mit zwei Servern im Cluster können Sie die zwei-Wege-Spiegelung verwenden. Wenn Sie Windows Server-2019 ausführen, können Sie auch geschachtelte resilienz.
+
+Zwei-Wege-Spiegelung speichert zwei Kopien aller Daten, die eine Kopie auf den Laufwerken auf jedem Server. Die Speichereffizienz ist 50 %, um 1 TB an Daten zu schreiben, benötigen Sie mindestens 2 TB an physischem Speicherkapazität im Speicherpool. Wege-Spiegelung kann sicher ein Hardwarefehler zu einem Zeitpunkt (ein Server oder Laufwerk) tolerieren.
 
 ![Zwei-Wege-Spiegelung](media/plan-volumes/two-way-mirror.png)
 
-Wenn Sie mehr als zwei Server haben, wird empfohlen, stattdessen einen der folgenden Resilienztypen zu verwenden.
+Geschachtelte resilienz (nur für Windows Server-2019 verfügbar) bietet datenresilienz zwischen den Servern mit zwei-Wege-Spiegelung und fügt dann die Flexibilität innerhalb eines Servers mit zwei-Wege-Spiegelung oder Parität Mirror-Beschleunigung. Schachtelung wird ausfallsicherheit bei Daten, auch wenn ein Server neu gestartet oder nicht verfügbar ist. Die Speichereffizienz ist 25 % mit geschachtelten-Wege-Spiegelung und ca. 35-40 % für die geschachtelte Mirror-beschleunigte Parität. Geschachtelte resilienz kann problemlos zwei Hardwarefehler zu einem Zeitpunkt (zwei Laufwerken oder einem Server und ein Laufwerk auf dem verbleibenden Server) tolerieren. Aufgrund dieser resilienz hinzugefügten Daten empfehlen wir geschachtelte resilienz in produktionsbereitstellungen von zwei-Server-Cluster, wenn Sie Windows Server-2019 ausführen. Weitere Informationen finden Sie unter [geschachtelte resilienz](nested-resiliency.md).
+
+![Geschachtelte Mirror-beschleunigte Parität](media/nested-resiliency/nested-mirror-accelerated-parity.png)
 
 ### <a name="with-three-servers"></a>Bei drei-Servern
 
@@ -77,16 +81,16 @@ Bei drei Servern sollten Sie die Dreiwegespiegelung für eine bessere Fehlertole
 
 ### <a name="with-four-or-more-servers"></a>Bei vier oder mehr Servern
 
-Bei vier oder mehr Servern können Sie für jedes Volume auswählen, ob Dreiwegespiegelung, duale Parität (häufig als "Erasure Coding" bezeichnet) oder eine Kombination aus beidem verwendet wird.
+Mit vier oder mehr Servern können Sie für jedes Volume auswählen, ob die drei-Wege-Spiegelung, dualen Parität (häufig dem Namen "Erasure coding bezeichnet"), oder kombinieren die beiden mit Parität Mirror-Beschleunigung.
 
-Die duale Parität bietet die gleiche Fehlertoleranz wie die Drei-Wege-Spiegelung, allerdings mit einer verbesserten Speichereffizienz. Bei vier Servern ist die Speichereffizienz 50,0 % – zum Speichern von 2 TB an Daten benötigen Sie 4 TB physische Kapazität im Speicherpool. Dies erhöht sich bei sieben Servern auf 66,7 % Speichereffizienz und kann auf eine Speichereffizienz von 80,0 % gesteigert werden. Der Nachteil besteht darin, dass Paritätscodierung rechenintensiver ist, was die Leistung einschränken kann.
+Die duale Parität bietet die gleiche Fehlertoleranz wie die Drei-Wege-Spiegelung, allerdings mit einer verbesserten Speichereffizienz. Mit vier Servern ist die Speichereffizienz 50.0%—to Speichern von 2 TB Daten, benötigen Sie 4 TB physischen Speicherkapazität im Speicherpool. Dies erhöht sich bei sieben Servern auf 66,7 % Speichereffizienz und kann auf eine Speichereffizienz von 80,0 % gesteigert werden. Der Nachteil besteht darin, dass Paritätscodierung rechenintensiver ist, was die Leistung einschränken kann.
 
 ![dual-parity](media/plan-volumes/dual-parity.png)
 
 Welcher Resilienztyp verwendet werden sollte, hängt von den Anforderungen Ihrer Workload ab. Hier ist eine Tabelle, die zusammengefasst, welche Workloads für jeden resilienztyp sowie die Leistung und Effizienz für jeden resilienztyp geeignet sind.
 
-| **Resilienztyp**| **Kapazität Effizienz**| **Geschwindigkeit**| **Workloads**
-|--------------------|--------------------------------|--------------------------------|--------------------------
+| Resilienztyp | Kapazität Effizienz | Geschwindigkeit | Arbeitsauslastungen |
+| ------------------- | ----------------------  | --------- | ------------- |
 | **Spiegel**         | ![Storage Effizienz mit 33 %](media/plan-volumes/3-way-mirror-storage-efficiency.png)<br>Drei-Wege-Spiegelung: 33% <br>Zwei-Wege-Spiegelung: 50 %     |![Leistung mit 100 %](media/plan-volumes/three-way-mirror-perf.png)<br> Höchste Leistung  | Für virtualisierte arbeitsauslastungen sind<br> Datenbanken<br>Andere Workloads für hohe Leistung |
 | **Durch Spiegelung beschleunigte Parität** |![Speichereffizienz mit ca. 50 %](media/plan-volumes/mirror-accelerated-parity-storage-efficiency.png)<br> Hängt von den Anteil der Spiegelung und Parität | ![Leistung ca. 20 %](media/plan-volumes/mirror-accelerated-parity-perf.png)<br>Sehr viel langsamer als spiegeln jedoch einrichten, doppelt so schnell wie die duale Parität<br> Am besten für große sequenzielle Schreib- und Lesevorgänge | Archivierung und Sicherung<br> Virtualisierten Desktopinfrastruktur     |
 | **Dual-parity**               | ![Speichereffizienz mit ca. 80 %](media/plan-volumes/dual-parity-storage-efficiency.png)<br>4 Server: 50 % <br>16 Server: bis zu 80 % | ![Leistung ca. 10 %](media/plan-volumes/dual-parity-perf.png)<br>Höchste Latenz für e/a & CPU-Auslastung für Schreibvorgänge<br> Am besten für große sequenzielle Schreib- und Lesevorgänge | Archivierung und Sicherung<br> Virtualisierten Desktopinfrastruktur  |
@@ -108,8 +112,8 @@ Workloads, die in großen, sequenziellen Phasen schreiben, z. B. Archivierungs-
 
 Die resultierende Speichereffizienz hängt von den ausgewählten Proportionen ab. In [dieser Demo](https://www.youtube.com/watch?v=-LK2ViRGbWs&t=36m55s) finden Sie einige Beispiele.
 
-   >[!TIP]
-   > Wenn Sie eine abrupte Abnahme der Leistung der Schreibvorgänge eines über Daten Injestion beobachten, kann dies bedeuten, dass es sich bei der Spiegelung Teil nicht groß genug ist, oder ob Mirror-beschleunigte Parität für Ihren Anwendungsfall geeignet ist. Beispielsweise wenn beeinträchtigt dies die Leistung von 400 MB/s auf 40 MB pro Sekunde zu schreiben, erweitern Sie den Teil Spiegelung oder Wechsel zu drei-Wege-Spiegelung.
+   > [!TIP]
+   > Wenn Sie eine abrupte Abnahme der Leistung der Schreibvorgänge eines über die Datenerfassung beobachten, kann dies bedeuten, dass es sich bei der Spiegelung Teil nicht groß genug ist, oder ob Mirror-beschleunigte Parität für Ihren Anwendungsfall geeignet ist. Beispielsweise wenn beeinträchtigt dies die Leistung von 400 MB/s auf 40 MB pro Sekunde zu schreiben, erweitern Sie den Teil Spiegelung oder Wechsel zu drei-Wege-Spiegelung.
 
 ### <a name="about-deployments-with-nvme-ssd-and-hdd"></a>Informationen zu Bereitstellungen mit NVMe, SSD und HDD
 
@@ -117,7 +121,7 @@ Bei Bereitstellungen mit zwei Arten von Laufwerken bieten die schnellere Laufwer
 
 Bei Bereitstellungen mit allen drei Arten von Laufwerken bieten nur die schnellsten Laufwerke (NVMe) Zwischenspeicherung, die zwei verbleibenden Laufwerkarten (SSD und HDD) stellen die Kapazität bereit. Für jedes Volume können Sie auswählen, ob es sich vollständig auf SSD-Ebene, vollständig auf der HDD-Ebene befindet oder sich über beide erstreckt.
 
-   >[!IMPORTANT]
+   > [!IMPORTANT]
    > Wir empfehlen die Verwendung der SSD-Ebene, um für Ihre leistungsabhängigsten Workloads eine reine Flash-Bereitstellung zu nutzen.
 
 ## <a name="choosing-the-size-of-volumes"></a>Auswählen der Volumegröße
@@ -125,11 +129,11 @@ Bei Bereitstellungen mit allen drei Arten von Laufwerken bieten nur die schnells
 Es wird empfohlen, die größenbeschränkung von jedem Volume auf:
 
 | Windows Server 2016 | Windows Server 2019 |
-|---------------------|---------------------|
+| ------------------- | ------------------- |
 | Bis zu 32 TB         | Bis zu 64 TB         |
 
-   >[!TIP]
-   > Wenn Sie eine Sicherungslösung verwenden, die auf dem Volumeschattenkopie-Dienst (Volume Shadow Copy Service, VSS) und dem Softwareanbieter Volsnap basiert – wie es für Dateiserver-Workloads üblich ist – verbessert das Beschränken die Volumegröße 10 TB die Leistung und Zuverlässigkeit. Sicherungslösungen, die die neuere Hyper-V RCT-API und/oder Block-Clone-Vorgänge auf ReFS und/oder die systemeigenen SQL-Sicherungs-APIs verwenden, bieten bei einer Größe von bis zu 32 TB und mehr eine gute Leistung.
+   > [!TIP]
+   > Wenn Sie eine sicherungslösung verwenden, die den Volumeschattenkopie-Dienst (VSS) und der Volsnap-Software-Anbieter verwendet – es ist häufig bei Datei-Server-Workloads – Beschränken der Größe des Volumes auf 10 TB verbessert Leistung und Zuverlässigkeit. Sicherungslösungen, die die neuere Hyper-V RCT-API und/oder Block-Clone-Vorgänge auf ReFS und/oder die systemeigenen SQL-Sicherungs-APIs verwenden, bieten bei einer Größe von bis zu 32 TB und mehr eine gute Leistung.
 
 ### <a name="footprint"></a>Speicherbedarf
 

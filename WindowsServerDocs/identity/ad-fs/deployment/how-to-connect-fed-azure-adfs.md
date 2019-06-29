@@ -16,12 +16,12 @@ ms.date: 10/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 588bc3f87c78feccac47d18d31d37be3b1a02d2f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f075f91e97f806555507bfc0e0c5f3d1589a71e6
+ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835101"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67469651"
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Bereitstellen von Active Directory-Verbunddienste in Azure
 AD FS bietet einen vereinfachten und sicheren Identitätsverbund sowie einmaliges Anmelden (SSO) Funktionen. Verbund mit Azure AD oder O365 ermöglicht Benutzern die Authentifizierung mit lokalen Anmeldeinformationen und Zugriff auf Ressourcen in der Cloud. Es wird daher wichtig, dass eine hochverfügbare AD FS-Infrastruktur, um den Zugriff auf Ressourcen sicherzustellen, dass sowohl lokal und in der Cloud. Bereitstellen von AD FS in Azure helfen bei der hochverfügbarkeit mit wenig Aufwand erforderlich.
@@ -277,11 +277,6 @@ Generell benötigen Sie die folgenden Regeln, um Ihr internes Subnetz (in der Re
 
 ![INT-Zugriffsregeln (eingehend)](./media/how-to-connect-fed-azure-adfs/nsg_int.png)
 
-<!--
-[comment]: <> (![INT access rules (inbound)](./media/how-to-connect-fed-azure-adfs/nsgintinbound.png))
-[comment]: <> (![INT access rules (outbound)](./media/how-to-connect-fed-azure-adfs/nsgintoutbound.png))
--->
-
 **9.2. Schützen des DMZ-Subnetzes**
 
 | Regel | Beschreibung | Fluss |
@@ -290,11 +285,6 @@ Generell benötigen Sie die folgenden Regeln, um Ihr internes Subnetz (in der Re
 | DenyInternetOutbound |Alles außer HTTPS-VERBINDUNGEN zum Internet blockiert |Outbound |
 
 ![EXT-Zugriffsregeln (eingehend)](./media/how-to-connect-fed-azure-adfs/nsg_dmz.png)
-
-<!--
-[comment]: <> (![EXT access rules (inbound)](./media/how-to-connect-fed-azure-adfs/nsgdmzinbound.png))
-[comment]: <> (![EXT access rules (outbound)](./media/how-to-connect-fed-azure-adfs/nsgdmzoutbound.png))
--->
 
 > [!NOTE]
 > Wenn der Clientbenutzer-Zertifikatauthentifizierung (ClientTLS-Authentifizierung mit X509 von Benutzerzertifikaten) erforderlich ist, und klicken Sie dann die AD FS TCP erfordert Port 49443 für eingehenden Zugriff aktiviert werden.
@@ -324,7 +314,7 @@ Sie können ein vorhandenes virtuelles Netzwerk verwenden oder ein neues VNET er
 
 | Parameter | Beschreibung |
 |:--- |:--- |
-| Pfad |Die Region, die Ressourcen in, z. B. Osten USA bereitzustellen. |
+| Speicherort |Die Region, die Ressourcen in, z. B. Osten USA bereitzustellen. |
 | StorageAccountType |Der Typ des Speicherkontos erstellt |
 | VirtualNetworkUsage |Gibt an, ob ein neues virtuelles Netzwerk erstellt werden, oder eine bereits vorhandene verwenden |
 | VirtualNetworkName |Der Name des virtuellen Netzwerks zu erstellen, die Nutzung von vorhandenen oder neuen virtuellen Netzwerks obligatorisch. |

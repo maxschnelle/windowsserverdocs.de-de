@@ -6,12 +6,12 @@ ms.author: joflore
 ms.date: 04/19/2018
 ms.topic: article
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 8a1775a40761e4a489cc39535514d75174edffa5
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 297c2a26f10503cb68ae241576a72e08aa4e55a0
+ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66442990"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67469568"
 ---
 # <a name="virtualizing-domain-controllers-using-hyper-v"></a>Virtualisieren von Domänencontrollern, die mit Hyper-V
 
@@ -82,7 +82,6 @@ Eine VHD-Datei eines virtuellen Domänencontrollers entspricht der physischen Fe
 ## <a name="rodcs"></a>RODCs
 
 RODCs haben den Vorteil, dass sie an Standorten verwendet werden können, wo die physische Sicherheit nicht garantiert werden kann, wie z. B. in Zweigstellen. Sie können Windows BitLocker Drive Encryption verwenden, um VHD-Dateien selbst schützen (nicht die Dateisysteme darin) aus, die auf dem Host durch den Diebstahl des physischen Datenträgers beeinträchtigt wird. 
-<!-- Removed link to Windows Server 2008 Hyper-V and BitLocker Drive Encryption (http://go.microsoft.com/fwlink/?linkid=123534). Link is dead. -->
 
 ## <a name="performance"></a>Leistung
 
@@ -176,10 +175,8 @@ Um eine zufriedenstellende Leistung sicherzustellen, wurden Integrationskomponen
 Wenn Sie die Leistung von virtuellen Computern mit der Zuverlässigkeits- und Leistungsüberwachung (Perfmon.msc) überwachen, stimmen die CPU-Informationen innerhalb des virtuellen Computers aufgrund der Art und Weise, wie die virtuelle CPU auf dem physischen Prozessor eingeplant wird, nicht genau. Wenn Sie CPU-Information für einen virtuellen Computer abrufen möchten, der auf einem Hyper-V-Server ausgeführt wird, verwenden Sie den Leistungsindikator Logischer Prozessor für Hyper-V-Hypervisor in der Hostpartition.
 
 Weitere Informationen zur leistungsoptimierung für AD DS und Hyper-V, finden Sie unter [Performance Tuning Richtlinien für Windows Server 2016](../../../../administration/performance-tuning/index.md).
-<!-- Updated to 2016 perf guidance -->
 
 Darüber hinaus sollten Sie keine differenzierende virtuelle Festplatte auf einem virtuellen Computer verwenden, der als Domänencontroller konfiguriert ist, da durch die differenzierende virtuelle Festplatte die Leistung beeinträchtigt werden kann. Weitere Informationen zu Hyper-V-Datenträgertypen, einschließlich differenzierender Datenträger, finden Sie unter [Assistenten für neue virtuelle Festplatte](http://go.microsoft.com/fwlink/?linkid=137279).
-<!-- Couldn't find an equivalent WS 2016 Hyper-V article. -->
 
 Weitere Informationen zu AD DS in virtuellen Hostumgebungen finden Sie unter [Punkte zu berücksichtigen, wenn Sie Active Directory-Domänencontrollern in virtuellen Hostumgebungen hosten](https://go.microsoft.com/fwlink/?linkid=141292) in der Microsoft Knowledge Base.
 
@@ -384,8 +381,6 @@ Falls keine Sicherung der Systemstatusdaten vorhanden ist, die vor dem Auftreten
 ## <a name="usn-and-usn-rollback"></a>USN und USN-Rollback
 
 In diesem Abschnitt werden Replikationsprobleme beschrieben, die auftreten können, wenn die Active Directory-Datenbank mit einer älteren Version eines virtuellen Computers fehlerhaft wiederhergestellt wurde. Weitere Informationen zum Active Directory-Replikationsvorgang finden Sie unter [Active Directory-Replikationskonzepte](../replication/active-directory-replication-concepts.md)
-
-<!-- Replaced this link with 2016 article: [How the Active Directory Replication Model Works](http://go.microsoft.com/fwlink/?linkid=27636) (http://go.microsoft.com/fwlink/?LinkID=27636). -->
 
 ## <a name="usns"></a>USNs
 

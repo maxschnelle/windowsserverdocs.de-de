@@ -8,12 +8,12 @@ ms.date: 05/08/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: networking
-ms.openlocfilehash: 2a5a7a6bd6313f7a4eadd827e3d754c1e467c3bc
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: 9bfa4e7d4f8777f8fef299cf3991238e31564ace
+ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63745419"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67469597"
 ---
 # <a name="configuring-systems-for-high-accuracy"></a>Konfigurieren von Systemen für hohe Genauigkeit
 >Gilt für: Windows Server 2016 und Windows 10 Version 1607 oder höher
@@ -91,7 +91,6 @@ Zum Beispiel: Erwägen Sie eine Zeithierarchie für die Synchronisierung mit der
 - Time-Server A und der Quelle
 
 Diese Messung kann mit dem Posteingang w32tm.exe Tool abgerufen werden.  Gehen Sie dazu wie folgt vor:
-<!-- Use PowerShell to import the CSV then average the RTT Column -->
 
 1. Die Berechnung auf dem Ziel und die Uhrzeit Server b ausführen.
     

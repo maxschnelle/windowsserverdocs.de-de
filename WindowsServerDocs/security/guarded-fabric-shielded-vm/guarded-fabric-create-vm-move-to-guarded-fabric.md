@@ -9,21 +9,16 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: dd9b89f34a3b4af8bb98d2399a524790aa65de0e
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 9601145048b8798cfb102757384da49bed16a538
+ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447484"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67469625"
 ---
 # <a name="shielded-vms-for-tenants---creating-a-new-shielded-vm-on-premises-and-moving-it-to-a-guarded-fabric"></a>Abgeschirmte virtuelle Computer für Mandanten – Erstellen einer neuen abgeschirmten VM lokal und verschiebt es in ein geschütztes fabric
 
 >Gilt für: WindowsServer 2019, WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
-
-
-<!-- NOTE THAT THIS FILE HAS A "redirect_url" LINE IN THE METADATA. EVENTUALLY WE WILL PROBABLY STRIP OUT THE DETAILED METADATA AND THE CONTENT BELOW, SO IT'S PURELY A REDIRECTED TOPIC. However, as of mid-November 2016, we're still deciding. -->
-
-
 
 In diesem Thema wird beschrieben, die Schritte zum Erstellen einer abgeschirmten VM mit nur Hyper-V; d. h. ohne Virtual Machine Manager, vorlagendatenträger oder eine geschützte Datendatei. Dies ist ein ungewöhnliches Szenario für die meisten öffentlichen Cloud-Hostingumgebungen, jedoch kann nützlich sein, wenn Sie ein geschütztes Fabric zu testen, oder klicken Sie in Unternehmen Szenarien, in denen ein virtuellen Computer aus eine Textur auf Abteilungsebene zu verschoben wird, IT-Infrastruktur freigegeben, und vor der Migration verschlüsselt werden müssen.
 

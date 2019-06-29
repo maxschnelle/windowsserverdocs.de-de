@@ -9,12 +9,12 @@ ms.date: 10/17/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: networking
-ms.openlocfilehash: e25217feba45516cd0e9a3aa2bf1a2581d2087f5
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 3256ff55ec8f293cd37acbea6122584a63847284
+ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59838041"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67469578"
 ---
 # <a name="windows-time-for-traceability"></a>Windows Time zur nachverfolgung
 >Gilt für: Windows Server 2016 Version 1709 oder höher und Windows 10 Version 1703 oder höher
@@ -41,7 +41,6 @@ Es ist keine Konfiguration erforderlich, um dieses Feature zu nutzen.  Diese Ere
 
 Im folgende Abschnitt wird beschrieben, für den Einsatz in den rückverfolgbarkeit protokollierten Ereignisse.
 
-<!-- use tabs like the group policies -->
 # <a name="257tab257"></a>[257](#tab/257)
 Dieses Ereignis wird protokolliert, wenn der Windows-Zeitdienst (W32Time) gestartet wird, und Informationen über die aktuelle Uhrzeit, aktuelle Anzahl der Ticks, die Laufzeitkonfiguration, Zeitanbieter und aktuelle Taktfrequenz protokolliert.
 
@@ -82,7 +81,7 @@ Dieses Ereignis wird protokolliert, wenn der Windows-Zeitdienst (W32Time) wird b
 |Protokollierte Daten |<ul><li>Aktuelle Uhrzeit in UTC</li><li>Aktuelle Tickzähler</li></ul> |
 |Mechanismus zur moduleinschränkung  |Keine Dieses Ereignis wird ausgelöst, jedes Mal, wenn der Dienst beendet wird. |
 
-**Beispieltext:**
+**Beispieltext:** 
 `W32time service is stopping at 2018-03-01T05:42:13.944Z (UTC), System Tick Count 6370250.`
 
 # <a name="259tab259"></a>[259](#tab/259)
@@ -111,7 +110,7 @@ server1.Fabrikam.com, 0 x 8 (ntp.m|0x8|[::]:123 -> [IPAddress]:123)server2.fabri
 |||
 |---|---|
 |Ereignisbeschreibung |Dienstkonfiguration für die Uhrzeit und status |
-|Details |W32Time-Protokolle in regelmäßigen Abständen die Konfigurations- und Statusinformationen. Dies ist das Äquivalent eines Aufrufs:<br><br>`w32tm /query /configuration /verbose`<br>ODER<br>`w32tm /query /status /verbose` |
+|Details |W32Time-Protokolle in regelmäßigen Abständen die Konfigurations- und Statusinformationen. Dies ist das Äquivalent eines Aufrufs:<br><br>`w32tm /query /configuration /verbose`<br>oder<br>`w32tm /query /status /verbose` |
 |Mechanismus zur moduleinschränkung  |Protokolliert alle 8 Stunden. |
 
 # <a name="261tab261"></a>[261](#tab/261)
@@ -144,7 +143,7 @@ Diese protokolliert jede Instanz, wenn Systemzeit mit SetSystemTime-API geänder
 |||
 |---|---|
 |Ereignisbeschreibung |Ändern Sie in der Time-Quellen, die von NTP-Client verwendet |
-|Details |NTP-Client zeichnet ein Ereignis mit dem aktuellen Status der Time-Server/Peers aus, wenn ein Zeit-Server/Peer Zustand ändert (**ausstehende Sync->**, **Sync -> nicht erreichbar**, oder andere Übergänge) |
+|Details |NTP-Client zeichnet ein Ereignis mit dem aktuellen Status der Time-Server/Peers aus, wenn ein Zeit-Server/Peer Zustand ändert (**ausstehende Sync->** , **Sync -> nicht erreichbar**, oder andere Übergänge) |
 |Mechanismus zur moduleinschränkung  |Max. Häufigkeit – nur einmal alle 5 Minuten auf vorübergehende Probleme und fehlerhafte anbieterimplementierung des Protokolls verhindern. |
 
 # <a name="265tab265"></a>[265](#tab/265)

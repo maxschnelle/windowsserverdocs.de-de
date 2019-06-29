@@ -71,13 +71,3 @@
 ## Automatisieren der Windows Server-Verwaltung
 ### [Windows PowerShell-Skripting](/powershell/scripting/powershell-scripting?view=powershell-5.1)
 ### [Windows-Befehle](windows-commands/windows-commands.md)
-
-
-<!--
-#### [A-Z list](windows-commands/a-z-list.md)
-#### [Command-Line Syntax Key](windows-commands/command-line-syntax-key.md)
-#### [Commands by Server Role](windows-commands/commands-by-server-role.md)
-##### [Print Command Reference](windows-commands/print-command-reference.md)
-##### [Services for Network File System Command Reference](windows-commands/services-for-network-file-system-command-reference.md)
-##### [Remote Desktop Services (Terminal Services) Command Reference](windows-commands/remote-desktop-services-terminal-services-command-reference.md)
-##### [Windows Server Backup Command Reference](windows-commands/windows-server-backup-command-reference.md) -->

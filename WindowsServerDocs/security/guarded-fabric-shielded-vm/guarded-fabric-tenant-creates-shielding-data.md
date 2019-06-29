@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 01/30/2019
-ms.openlocfilehash: 3c36eff8aabd1fa1c6456dce1d08ebe504102e8c
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: d1d269ecdbfd4803c51da4817b62caf01d2091ae
+ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67284168"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67469616"
 ---
 # <a name="shielded-vms-for-tenants---creating-shielding-data-to-define-a-shielded-vm"></a>Abgeschirmte virtuelle Computer für Mandanten - geschützte Daten erstellen, um eine geschützte VM zu definieren.
 
@@ -43,8 +43,6 @@ Anschließend können Sie die schutzdatendatei erstellen:
 Da Mandanten nur für die Verbindung mit ihren abgeschirmte VMs über Remotedesktopverbindung oder andere Remoteverwaltungstools können, ist es wichtig sicherzustellen, dass Mandanten überprüfen können sie eine Verbindung mit dem richtigen Endpunkt (das heißt, es ist keinem "Man in the Middle" Abfangen von der Verbindungs).
 
 Eine Möglichkeit, um sicherzustellen, dass Sie mit dem gewünschten Server verbinden, ist zum Installieren und Konfigurieren eines Zertifikats für Remote Desktop Services, um anzuzeigen, wenn Sie eine Verbindung initiieren. Client-Computer mit dem Server überprüft, ob sie das Zertifikat und das Anzeigen einer Warnung vertraut, wenn dies nicht der Fall. Um sicherzustellen, dass der verbindende Client dem Zertifikat vertraut, werden im Allgemeinen die RDP-Zertifikate von des Mandanten PKI ausgegeben. Weitere Informationen zu [Verwenden von Zertifikaten in Remote Desktop Services](https://technet.microsoft.com/library/dn781533.aspx) finden Sie auf TechNet.
-
-<!-- The previous link comes from Windows 2012 R2 content, but as of Sept 2016, there isn't a more recent link that covers the same information. -->
 
 > [!NOTE]
 > Wenn Sie eine RDP-Zertifikat in der geschützten Datendatei aufgenommen auswählen möchten, achten Sie darauf, dass Sie ein Platzhalterzertifikat verwenden. Eine geschützte Datendatei kann verwendet werden, um eine unbegrenzte Anzahl von VMs zu erstellen. Da jeder virtuelle Computer das gleiche Zertifikat freigibt, gewährleistet ein Platzhalterzertifikat, dass das Zertifikat gültig ist, unabhängig von der Hostname der VM sein wird.
@@ -142,8 +140,6 @@ Sie oder Ihre hosting-Anbieter kann der überwachungsmetadaten aus der Host-Übe
         $relecloudmetadata = Get-SCGuardianConfiguration
 
         $relecloudmetadata.InnerXml | Out-File .\RelecloudGuardian.xml -Encoding UTF8
-
-<!-- Note that the VMM PowerShell cmdlets aren't Windows PowerShell, so "VMM PowerShell" is the correct terminology for them. -->
 
 Abrufen der Überwachungsdienst Metadaten-Dateien für jeden geschützten Fabrics, die Sie autorisieren Sie die abgeschirmten VMs ausgeführt bevor Sie fortfahren möchten.
 

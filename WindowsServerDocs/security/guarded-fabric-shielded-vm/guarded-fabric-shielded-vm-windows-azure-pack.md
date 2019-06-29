@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 600ccd74c379daa281f438b1200179dcae210817
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 4cb5ed3433e04b7a5fe7004e517eb4cc38c7eb53
+ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447352"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67469662"
 ---
 # <a name="shielded-vms--for-tenants---deploying-a-shielded-vm-by-using-windows-azure-pack"></a>Abgeschirmte virtuelle Computer für Mandanten – Bereitstellen eines abgeschirmten virtuellen Computers mit Windows Azure Pack
 
@@ -22,8 +22,6 @@ ms.locfileid: "66447352"
 Wenn Ihre hosting-Anbieter unterstützt wird, können Sie Windows Azure Pack verwenden, zum Bereitstellen eines abgeschirmten virtuellen Computers.
 
 Führen Sie die folgenden Schritte aus:
-
-<!-- When we have a link to the topic about how tenants subscribe, add that link as an indented item just under step 1 below. -->
 
 1. Abonnieren von einem oder mehreren Plänen, die in Windows Azure Pack angeboten.
 

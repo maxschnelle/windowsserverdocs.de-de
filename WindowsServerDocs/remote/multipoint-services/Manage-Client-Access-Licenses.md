@@ -13,19 +13,19 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: f5f78d3d2387d3b95177a6a8a40fb9b16d8ed8e2
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 42b943ed5e0066f1f810efaba9e65a529ac25f00
+ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446118"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67469349"
 ---
 # <a name="manage-client-access-licenses"></a>Verwalten der Clientzugriffslizenzen
 Jede Station, die eine Verbindung mit einem MultiPoint Services-System, einschließlich des Computers mit MultiPoint-Dienste, die als Station verwendet wird, müssen einen gültigen benutzerspezifische Remotedesktop *-Clientzugriffslizenz (CAL)* .
 
 Wenn Sie virtuelle desktopstationen anstelle von physischen Stationen verwenden, müssen Sie eine Clientzugriffslizenz für jede Station virtuellen Desktop installieren.  
   
-1.  Erwerben Sie eine Clientzugriffslizenz für jede Station, die mit Ihrem MultiPoint Services-Computer oder Server verbunden ist. Weitere Informationen über den Erwerb von CALs finden Sie auf die Dokumentation für die Remotedesktop-Lizenzierung. <!--@Liza: add link to RDS licensing here-->
+1.  Erwerben Sie eine Clientzugriffslizenz für jede Station, die mit Ihrem MultiPoint Services-Computer oder Server verbunden ist. Weitere Informationen über den Erwerb von CALs finden Sie auf die Dokumentation für die Remotedesktop-Lizenzierung. 
 
 2.  Von der **starten** öffnen **MultiPoint-Manager**.  
   

@@ -4,33 +4,34 @@ description: In diesem optionalen Schritt können Sie Ihre Ressourcen mithilfe v
 ms.prod: windows-server-threshold
 ms.technology: networking-ras
 ms.topic: article
-ms.assetid: ''
 ms.localizationpriority: medium
 ms.author: pashort
 author: shortpatti
-ms.date: 07/13/2018
+ms.date: 06/28/2019
 ms.reviewer: deverette
-ms.openlocfilehash: c87d0075696bf8ab5794667d42c40829c3eb61bd
-ms.sourcegitcommit: 0948a1abff1c1be506216eeb51ffc6f752a9fe7e
+ms.openlocfilehash: f6383030f70dd7c0487edd534bcc0ad42010f409
+ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66749526"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67469311"
 ---
 # <a name="step-7-optional-conditional-access-for-vpn-connectivity-using-azure-ad"></a>Schritt 7 (Optional) Bedingter Zugriff für VPN-Verbindungen mithilfe von Azure AD
 
 - [**Vorherige:** Schritt 6 Konfigurieren von Always On VPN-Verbindungen für den Windows 10-Client](always-on-vpn/deploy/vpn-deploy-client-vpn-connections.md)
 - [**nächster:** Schritt 7.1. Konfigurieren von EAP-TLS für das Ignorieren der Zertifikatssperrlisten-Überprüfung](vpn-config-eap-tls-to-ignore-crl-checking.md)
 
-In diesem optionalen Schritt können Sie optimieren, wie Ihre Ressourcen mithilfe von VPN-Benutzer Zugriff auf [Azure Active Directory (Azure AD) bedingten Zugriff](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). Mit Azure AD für bedingten Zugriff für Verbindungen über virtuelles privates Netzwerk (VPN) helfen Ihnen, die VPN-Verbindungen schützen. Beim bedingten Zugriff handelt es sich um ein richtlinienbasiertes Auswertungsmodul, mit dem Sie Zugriffsregeln für alle mit Azure Active Directory (Azure AD) verknüpften Anwendungen erstellen können. 
+In diesem optionalen Schritt können Sie optimieren, wie Ihre Ressourcen mithilfe von VPN-Benutzer Zugriff auf [Azure Active Directory (Azure AD) bedingten Zugriff](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). Mit Azure AD für bedingten Zugriff für Verbindungen über virtuelles privates Netzwerk (VPN) helfen Ihnen, die VPN-Verbindungen schützen. Beim bedingten Zugriff handelt es sich um ein richtlinienbasiertes Auswertungsmodul, mit dem Sie Zugriffsregeln für alle mit Azure Active Directory (Azure AD) verknüpften Anwendungen erstellen können.
 
 ## <a name="prerequisites"></a>Vorraussetzungen
 
 Sie sind mit den folgenden Themen vertraut sind:
+
 - [Bedingter Zugriff in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
 - [VPN und bedingter Zugriff](https://docs.microsoft.com/windows/access-protection/vpn/vpn-conditional-access)
 
 Um Azure Active Directory für bedingten Zugriff für VPN-Verbindungen konfigurieren zu können, müssen Sie die folgenden Komponenten konfiguriert haben:
+
 - [Server-Infrastruktur](always-on-vpn/deploy/vpn-deploy-server-infrastructure.md)
 - [RAS-Server für Always On-VPN](always-on-vpn/deploy/vpn-deploy-ras.md)
 - [Netzwerkrichtlinienserver](always-on-vpn/deploy/vpn-deploy-nps.md)
@@ -48,9 +49,13 @@ Ein EAP-TLS-Client keine Verbindung herstellen, es sei denn, der NPS-Server eine
 In diesem Schritt konfigurieren Sie die Stammzertifikate für die VPN-Authentifizierung mit Azure AD, die automatisch eine VPN-Server-Cloud-app im Mandanten erstellt.  
 
 Zum Konfigurieren des bedingten Zugriffs für VPN-Verbindungen müssen Sie:
-1. Erstellen Sie ein VPN-Zertifikat im Azure-Portal (Sie können mehr als ein Zertifikat erstellen).
+
+1. Erstellen Sie ein VPN-Zertifikat im Azure-Portal an.
 2. Herunterladen des VPN-Zertifikats an.
 3. Bereitstellen Sie das Zertifikat auf Ihrem VPN-Server.
+
+> [!IMPORTANT]
+> Nachdem ein VPN-Zertifikat im Azure-Portal erstellt wurde, beginnt Azure AD, damit sie sofort verwenden, um kurze kurzlebige Zertifikate für den VPN-Client auszustellen. Es ist wichtig, dass das VPN-Zertifikat an den VPN-Server zur Vermeidung von Problemen mit Validierung der Anmeldeinformationen des VPN-Clients sofort bereitgestellt werden.
 
 ## <a name="step-73-configure-the-conditional-access-policyvpn-config-conditional-access-policymd"></a>[Schritt 7.3: Konfigurieren der Richtlinie für bedingten Zugriff](vpn-config-conditional-access-policy.md)
 
@@ -67,13 +72,14 @@ Um die Richtlinie für bedingten Zugriff konfigurieren zu können, müssen Sie:
 In diesem Schritt haben Sie ein vertrauenswürdiges Stammzertifikat für die VPN-Authentifizierung bereitstellen, auf Ihre lokale AD.
 
 Um das vertrauenswürdige Stammzertifikat bereitzustellen, müssen Sie:
+
 1. Fügen Sie das heruntergeladene Zertifikat als eine *vertrauenswürdigen Stamm-CA für die Authentifizierung der VPN-* .
 2. Importieren Sie das Stammzertifikat in das VPN-Server und VPN-Client an.
 3. Stellen Sie sicher, dass die Zertifikate vorhanden sind, und zeigen als vertrauenswürdig.
 
 ## <a name="step-75-create-oma-dm-based-vpnv2-profiles-to-windows-10-devicesvpn-create-oma-dm-based-vpnv2-profilesmd"></a>[Schritt 7.5: Erstellen von OMA-DM-basierten VPNv2-Profilen für Windows 10-Geräte](vpn-create-oma-dm-based-vpnv2-profiles.md)
 
-In diesem Schritt erstellen Sie können OMA-DM-basierte VPNv2-Profile, die mithilfe von Intune zum Bereitstellen einer Konfigurationsrichtlinie für VPN-Gerät. Wenn Sie SCCM oder PowerShell-Skript zum Erstellen von VPNv2-Profilen finden Sie unter verwenden möchten [VPNv2 CSP-Einstellungen](https://docs.microsoft.com/windows/client-management/mdm/vpnv2-csp) Weitere Details. 
+In diesem Schritt erstellen Sie können OMA-DM-basierte VPNv2-Profile, die mithilfe von Intune zum Bereitstellen einer Konfigurationsrichtlinie für VPN-Gerät. Wenn Sie SCCM oder PowerShell-Skript zum Erstellen von VPNv2-Profilen finden Sie unter verwenden möchten [VPNv2 CSP-Einstellungen](https://docs.microsoft.com/windows/client-management/mdm/vpnv2-csp) Weitere Details.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
@@ -81,7 +87,7 @@ In diesem Schritt erstellen Sie können OMA-DM-basierte VPNv2-Profile, die mithi
 
 ## <a name="related-topics"></a>Verwandte Themen
 
-- [VPNv2-Profile konfigurieren](https://docs.microsoft.com/windows/access-protection/vpn/vpn-conditional-access): Der VPN-Client kann nun in die cloudbasierte Plattform für den bedingten Zugriff integriert werden, um eine Gerätekompatibilitätsoption für Remoteclients bereitzustellen. In diesem Schritt konfigurieren Sie die VPNv2-Profile mit  **\<DeviceCompliance > \<aktiviert > "true"\</aktiviert >** . 
+- [VPNv2-Profile konfigurieren](https://docs.microsoft.com/windows/access-protection/vpn/vpn-conditional-access): Der VPN-Client kann nun in die cloudbasierte Plattform für den bedingten Zugriff integriert werden, um eine Gerätekompatibilitätsoption für Remoteclients bereitzustellen. In diesem Schritt konfigurieren Sie die VPNv2-Profile mit  **\<DeviceCompliance > \<aktiviert > "true"\</aktiviert >** .
 
 - [Erweitern des Remotezugriffs unter Windows 10 mit einer automatischen VPN-Profil](https://www.microsoft.com/itshowcase/Article/Content/894/Enhancing-remote-access-in-Windows-10-with-an-automatic-VPN-profile): Erfahren Sie, wie Microsoft für bedingten Zugriff für VPN-Verbindungen implementiert. VPN-Profile enthalten alle Informationen, die ein Gerät erfordert, für die Verbindung mit dem Unternehmensnetzwerk, einschließlich der Authentifizierungsmethoden, die unterstützt werden und der VPN-Server, dem das Gerät eine Verbindung herstellen soll. Änderungen in Windows 10 Anniversary Update, einschließlich der für den bedingten Zugriff und single Sign-on, es wurde ermöglicht, für uns, unsere Always On-VPN-clientverbindungsprofil zu erstellen. Wir erstellt haben, das Verbindungsprofil für die Domäne eingebundenen und Microsoft Intune verwalteten Geräten mit System Center Configuration Manager-Konsole.
 
