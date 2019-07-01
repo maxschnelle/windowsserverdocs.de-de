@@ -40,6 +40,7 @@
 ### [Network File System bereitstellen](nfs/deploy-nfs.md)
 ### [Übersicht über NTFS](file-server/ntfs-overview.md)
 ### [Volumeschattenkopie-Dienst](file-server/volume-shadow-copy-service.md)
+### [Verwenden der Datenträgerbereinigung](file-server/disk-cleanup.md)
 ## [Ressourcen-Manager für Dateiserver](fsrm/fsrm-overview.md)
 ### [Prüfliste: Anwenden eines Kontingents auf ein Volume oder einen Ordner](fsrm/checklist-apply-quota-to-volume-or-folder.md)
 ### [Prüfliste: Dateiprüfung auf ein Volume oder einen Ordner anwenden](fsrm/checklist-apply-file-screen-to-volume-or-folder.md)
@@ -128,7 +129,9 @@
 #### [Erstellen von Volumes](storage-spaces/create-volumes.md)
 #### [Geschachtelte Resilienz](storage-spaces/nested-resiliency.md)
 #### [Konfigurieren des Quorums](../failover-clustering/manage-cluster-quorum.md)
-#### [Upgrade eines „Direkte Speicherplätze“-Clusters auf Windows Server 2019](storage-spaces/upgrade-storage-spaces-direct-to-windows-server-2019.md)
+#### [Upgrade eines „Direkte Speicherplätze“-Clusters](storage-spaces/upgrade-storage-spaces-direct-to-windows-server-2019.md)
+#### [Grundlagen und Bereitstellung des persistenten Speichers](storage-spaces/deploy-pmem.md)
+
 ### Verwalten
 #### [Verwalten mit Windows Admin Center](../manage/windows-admin-center/use/manage-hyper-converged.md)
 #### [Hinzufügen von Servern oder Laufwerken](storage-spaces/add-nodes.md)
@@ -148,11 +151,14 @@
 ##### [Scripting-Beispiele](storage-spaces/performance-history-scripting.md)
 #### [Einschränken der Zuweisung von Volumes](storage-spaces/delimit-volume-allocation.md)
 #### [Verwenden von Azure Monitor zum Senden von E-Mails für Integritätsdienstfehler](storage-spaces/configure-azure-monitor.md)
+
 ### Problembehandlung
 #### [Problembehandlungsszenarien](storage-spaces/troubleshooting-storage-spaces.md)
 #### [Integrität- und Betriebsstatus](storage-spaces/storage-spaces-states.md)
 #### [Sammeln von Daten](storage-spaces/data-collection.md)
 #### [Häufig gestellte Fragen](storage-spaces/storage-spaces-direct-faq.md)
+#### [Integritätsverwaltung für Speicherklassenspeicher](storage-spaces/Storage-class-memory-health.md)
+
 ## [Arbeitsordner](work-folders/work-folders-overview.md)
 ### [Entwerfen einer Arbeitsordnerimplementierung](work-folders/plan-work-folders.md)
 ### [Bereitstellen von Arbeitsordnern](work-folders/deploy-work-folders.md)
@@ -163,6 +169,5 @@
 #### [Schritt 4: Einrichten von WAP](work-folders/deploy-work-folders-adfs-step4.md)
 #### [Schritt 5: Einrichten von Clients](work-folders/deploy-work-folders-adfs-step5.md)
 ## [Speicher-QoS](storage-qos/storage-qos-overview.md)
-## [Integritätsverwaltung für Speicherklassenspeicher](storage-spaces/Storage-class-memory-health.md)
 ## [Änderungsverlauf für Speicherthemen](storage-change-history.md)
 
