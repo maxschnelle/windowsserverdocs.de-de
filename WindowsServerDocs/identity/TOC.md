@@ -421,6 +421,7 @@
 #### [Planen des gerätebasierten bedingten lokalen Zugriffs](ad-fs/deployment/Plan-Device-based-Conditional-Access-on-Premises.md)
 
 #### [Einrichten einer AD FS-Laborumgebung](ad-fs/operations/Set-up-an-AD-FS-lab-environment.md)
+#### [SQL-Optimierung und Berücksichtigung von Latenz](ad-fs/operations/adfs-sql-latency.md)
 #### [Handbuch mit exemplarischer Vorgehensweise: Verwalten von Risiken mit zusätzlicher mehrstufiger Authentifizierung für sensible Anwendungen](ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
 #### [Handbuch mit exemplarischer Vorgehensweise: Verwalten von Risiken mit der bedingten Zugriffssteuerung](ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md)
 #### [Exemplarische Vorgehensweise: Arbeitsplatzbeitritt mit einem Windows-Gerät](ad-fs/operations/Walkthrough--Workplace-Join-with-a-Windows-Device.md)
