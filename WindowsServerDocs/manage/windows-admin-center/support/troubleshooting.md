@@ -8,12 +8,12 @@ ms.author: jeffrew
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 ms.date: 06/07/2019
-ms.openlocfilehash: 8e718eda7859c5e0b6949829c225b28e882525ad
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 4d108161dd4f6b57d4a86cbcaa5852aff53f0ac3
+ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66811706"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67469521"
 ---
 # <a name="troubleshooting-windows-admin-center"></a>Problembehandlung für Windows Admin Center
 
@@ -98,7 +98,6 @@ Dies kann vorkommen, wenn der Standardpfad für PowerShell-Modul geändert oder 
 
 ## <a name="i-get-the-message-cant-connect-securely-to-this-page-this-might-be-because-the-site-uses-outdated-or-unsafe-tls-security-settings"></a>Ich erhalte die Meldung aus: "Kann eine sichere Verbindung mit dieser Seite. Dies kann sein, da die Website veraltete oder unsafe-TLS-Sicherheit-Einstellungen verwendet.
 
-<!--REF: https://docs.microsoft.com/iis/get-started/whats-new-in-iis-10/http2-on-iis#when-is-http2-not-supported -->
 Ihr Computer ist auf HTTP/2-Verbindungen beschränkt. Windows Admin Center verwendet die integrierte Windows-Authentifizierung, die in HTTP/2 nicht unterstützt wird. Fügen Sie die folgenden beiden Registrierungswerte unter dem ```HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Http\Parameters``` auf die Taste **der Computer mit der Browser** So entfernen Sie die HTTP/2-Einschränkung:
 
 ```

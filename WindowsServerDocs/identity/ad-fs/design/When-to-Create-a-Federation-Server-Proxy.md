@@ -28,10 +28,10 @@ Erstellen einen Verbundserverproxy in Ihrer Organisation Ihre Active Directory F
   
 Die Rolle, die ein Verbundserverproxy in Ihrer Organisation spielt, hängt davon ab, ob Sie Verbundserverproxys in der Kontopartnerorganisation oder in der Ressourcenpartnerorganisation platzieren. Z. B. wenn ein Verbundserverproxy im Umkreisnetzwerk des Kontopartners platziert wird, werden seine Rolle die Benutzeranmeldeinformationen von Browserclients zu erfassen. Wenn ein Verbundserverproxy im Umkreisnetzwerk des Ressourcenpartners platziert wird, überträgt Sie Sicherheitstoken Anforderungen an einen Ressourcenverbundserver und erzeugt organisatorische Sicherheitstoken in Reaktion auf die Sicherheitstoken, die von bereitgestellt werden die Kontopartner.  
   
-Weitere Informationen finden Sie unter [Review the Role of the Federation Server Proxy in the Account Partner](Review-the-Role-of-the-Federation-Server-Proxy-in-the-Account-Partner.md) und [Review the Role of the Federation Server Proxy in the Resource Partner](Review-the-Role-of-the-Federation-Server-Proxy-in-the-Resource-Partner.md).  
+Weitere Informationen finden Sie unter [Überprüfen der Rolle des Verbundserverproxys beim Kontopartner](Review-the-Role-of-the-Federation-Server-Proxy-in-the-Account-Partner.md) und [Überprüfen der Rolle des Verbundserverproxys beim Ressourcenpartner](Review-the-Role-of-the-Federation-Server-Proxy-in-the-Resource-Partner.md).  
   
 ## <a name="how-to-create-a-federation-server-proxy"></a>Erstellen eines Verbundserverproxys  
-Sie können einen Verbundserverproxy mithilfe des AD FS Federation Server Proxy-Assistenten oder den Befehl Fsconfig.exe erstellen\-Tools "Linie". Anleitungen hierzu finden Sie unter [Configure a Computer for the Federation Server Proxy Role](../../ad-fs/deployment/Configure-a-Computer-for-the-Federation-Server-Proxy-Role.md).  
+Sie können einen Verbundserverproxy mithilfe des AD FS Federation Server Proxy-Assistenten oder den Befehl Fsconfig.exe erstellen\-Tools "Linie". Anleitungen hierzu finden Sie unter [Konfigurieren eines Computers für die Verbundserverproxy-Rolle](../../ad-fs/deployment/Configure-a-Computer-for-the-Federation-Server-Proxy-Role.md).  
   
 Allgemeine Informationen zum Einrichten der erforderlichen Komponenten zum Bereitstellen eines Verbundserverproxys erforderlich sind, finden Sie unter [Prüfliste: Das Einrichten eines Verbundserverproxys](../../ad-fs/deployment/Checklist--Setting-Up-a-Federation-Server-Proxy.md).  
   
