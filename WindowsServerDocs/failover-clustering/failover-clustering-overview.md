@@ -11,10 +11,10 @@ ms.technology: storage-failover-clustering
 ms.date: 06/06/2019
 ms.localizationpriority: high
 ms.openlocfilehash: a7f6dd847d2762dbc616189ed729449479788f98
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66810906"
 ---
 # <a name="failover-clustering-in-windows-server"></a>Failoverclustering in Windows Server
@@ -30,22 +30,22 @@ Für Failoverclustering gibt es viele praktische Anwendungsfälle, einschließli
 * Hoch verfügbarer oder fortlaufend verfügbarer Dateifreigabespeicher für Anwendungen wie Microsoft SQL Server und Hyper-V-basierte virtuelle Computer
 * Hoch verfügbare Clusterrollen, die auf physischen Servern oder virtuellen Computern ausgeführt werden, die auf Servern mit Hyper-V installiert sind
 
-| **Verstehe**                                                               |  **Planung**                          |  **Bereitstellung**       |
+| **Grundlegende Informationen**                                                               |  **Planung**                          |  **Bereitstellung**       |
 | -------------                                                                |  --------------                        | --------------------- |
-| [Neues beim Failoverclustering](whats-new-in-failover-clustering.md)    | [Planen der Failoverclustering-Hardwareanforderungen und Speicheroptionen](clustering-requirements.md)  | [Erstellen eines Failoverclusters](create-failover-cluster.md) |
+| [Neues beim Failoverclustering](whats-new-in-failover-clustering.md)    | [Planen der Hardwareanforderungen und Speicheroptionen für Failoverclustering](clustering-requirements.md)  | [Erstellen eines Failoverclusters](create-failover-cluster.md) |
 | [Dateiserver mit horizontaler Skalierung für Anwendungsdaten](sofs-overview.md)               | [Verwenden von freigegebenen Clustervolumes (CSVs)](failover-cluster-csvs.md) | [Bereitstellen eines Dateiservers mit zwei Knoten](../storage/storage-spaces/storage-spaces-direct-in-vm.md) |
-|  [Cluster- und Poolquorum](../storage/storage-spaces/understand-quorum.md)   |  [Verwenden von gastclustern für virtuelle Computer mit "direkte Speicherplätze"](../storage/storage-spaces/storage-spaces-direct-in-vm.md)       | [Vorabbereitstellen von clustercomputerobjekten in Active Directory Domain Services](prestage-cluster-adds.md) |
+|  [Cluster- und Poolquorum](../storage/storage-spaces/understand-quorum.md)   |  [Verwenden von virtuellen Gastcomputerclustern mit direkten Speicherplätzen](../storage/storage-spaces/storage-spaces-direct-in-vm.md)       | [Vorabbereitstellen von Clustercomputerobjekten in Active Directory Domain Services](prestage-cluster-adds.md) |
 | [Fehlerdomänenunterstützung](fault-domains.md)                                 |                                 | [Konfigurieren von Clusterkonten in Active Directory](configure-ad-accounts.md) |
-| [Vereinfachte SMB Multichannel- und Multi-NIC-Clusternetzwerke](smb-multichannel.md) |                       | [Verwalten des Quorums und Zeugen](manage-cluster-quorum.md) |
-| [VM-Lastenausgleich](vm-load-balancing-overview.md)                         |                             | [Bereitstellen eines cloudzeugen](deploy-cloud-witness.md) |
+| [Vereinfachte SMB Multichannel- und Multi-NIC-Clusternetzwerke](smb-multichannel.md) |                       | [Verwalten des Quorums und von Zeugen](manage-cluster-quorum.md) |
+| [VM-Lastenausgleich](vm-load-balancing-overview.md)                         |                             | [Bereitstellen eines Cloudzeugen](deploy-cloud-witness.md) |
 | [Clustergruppen](../storage/storage-spaces/cluster-sets.md)                  |                             |[Bereitstellen eines Dateifreigabezeugen](file-share-witness.md) |
 | [Clusteraffinität](cluster-affinity.md)                                     |                            | [Paralleles Upgrade für Clusterbetriebssystem](cluster-operating-system-rolling-upgrade.md) |
 |                                                                             |                            | [Upgrade eines Failoverclusters auf derselben Hardware](upgrade-option-same-hardware.md) |
-|                                                                            |                             | [Bereitstellen eines Active Directory getrennten Clusters](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn265970\(v%3dws.11\))
+|                                                                            |                             | [Bereitstellen eines von Active Directory getrennten Clusters](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn265970\(v%3dws.11\))
 
 |**Verwalten**  |  **Tools und Einstellungen**  |  **Communityressourcen**       |
 | ------------- |  -------------- | --------------------- |
-| [Clusterfähiges Aktualisieren](cluster-aware-updating.md)    |   [Failoverclustering PowerShell-Cmdlets](https://docs.microsoft.com/powershell/module/failoverclusters/?view=win10-ps)      |  [Forum für hohe Verfügbarkeit (Clustering)](https://go.microsoft.com/fwlink/p/?LinkId=230641)       |
-|  [Integritätsdienst](health-service-overview.md)   |   [Beachten Sie PowerShell-Cmdlets aktualisieren-Cluster](https://docs.microsoft.com/powershell/module/clusterawareupdating/?view=win10-ps)      | [Laden von Failoverclustering und Netzwerklastenausgleichs-Teamblog](http://blogs.msdn.com/b/clustering/)        |
+| [Clusterfähiges Aktualisieren](cluster-aware-updating.md)    |   [PowerShell-Cmdlets für Failoverclustering](https://docs.microsoft.com/powershell/module/failoverclusters/?view=win10-ps)      |  [Forum für hohe Verfügbarkeit (Clustering)](https://go.microsoft.com/fwlink/p/?LinkId=230641)       |
+|  [Integritätsdienst](health-service-overview.md)   |   [PowerShell-Cmdlets für das clusterfähige Aktualisieren](https://docs.microsoft.com/powershell/module/clusterawareupdating/?view=win10-ps)      | [Teamblog zu Failoverclustering und Netzwerklastenausgleich](http://blogs.msdn.com/b/clustering/)        |
 |  [Clusterdomänenmigration](cluster-domain-migration.md)   |         |         |
 |  [Problembehandlung mit der Windows-Fehlerberichterstattung](troubleshooting-using-wer-reports.md)   |         |         |

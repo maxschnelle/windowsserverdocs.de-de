@@ -11,20 +11,20 @@ author: shortpatti
 ms.author: pashort
 ms.localizationpriority: high
 ms.openlocfilehash: 53c927f89fd3ccaa212c998f7102d0fdb9f41bde
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66447938"
 ---
 # <a name="virtualization"></a>Virtualisierung
 
 >[!TIP]
-> Suchen Sie nach Informationen zu älteren Versionen von Windows? Sehen Sie sich unsere [Windows Server-Bibliotheken](/previous-versions/windows/) auf „docs.microsoft.com“ an. Sie können auch nach bestimmten Informationen [auf dieser Website suchen](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions).
+> Suchen Sie nach Informationen zu älteren Versionen von Windows Server? Sehen Sie sich unsere [Windows Server-Bibliotheken](/previous-versions/windows/) auf „docs.microsoft.com“ an. Sie können auch nach bestimmten Informationen [auf dieser Website suchen](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions).
 
 <HR />
 
-Virtualisierung in Windows Server ist eine der grundlegenden Technologien, die zum Erstellen Ihrer softwaredefinierten Infrastruktur erforderlich sind. Zusammen mit Netzwerk- und Speicherressourcen bieten Virtualisierungs-Features die Flexibilität, die Sie benötigen, um die Workloads Ihrer Kunden zu beschleunigen.
+Virtualisierung in Windows Server ist eine der grundlegenden Technologien, die zum Erstellen Ihrer softwaredefinierten Infrastruktur erforderlich sind. Zusammen mit Netzwerk- und Speicherressourcen bieten Virtualisierungsfeatures die Flexibilität, die Sie benötigen, um die Workloads Ihrer Kunden zu beschleunigen.
 
 <HR />
 <ul class="cardsI panelContent">
@@ -41,7 +41,7 @@ Virtualisierung in Windows Server ist eine der grundlegenden Technologien, die z
                     <div class="cardText">
                         <h3>Geschütztes Fabric und abgeschirmte VMs</h3>
 <HR />
-                        <p>Als Cloud-Dienstanbieter oder privater Cloud-Administrator in Unternehmen können Sie eine geschützte Fabric verwenden, um eine sicherere Umgebung für VMs bereitzustellen. Ein geschütztes Fabric besteht aus einem Host Guardian Service (HGS) – in der Regel ein Cluster mit drei Knoten – plus eins oder mehrere von überwachten Hosts und einen Satz von abgeschirmten VMs.</p>
+                        <p>Als Cloud-Dienstanbieter oder privater Cloud-Administrator im Unternehmen können Sie ein geschütztes Fabric verwenden, um eine sicherere Umgebung für VMs bereitzustellen. Ein geschütztes Fabric besteht aus einem Host Guardian Service (HGS, Host-Überwachungsdienst) – in der Regel ein Cluster mit drei Knoten – sowie einem oder mehreren geschützten Hosts und einer Reihe von abgeschirmten virtuellen Computern (VMs).</p>
                      </div>
                   </div>
               </div>
@@ -61,7 +61,7 @@ Virtualisierung in Windows Server ist eine der grundlegenden Technologien, die z
                     <div class="cardText">
                         <h3>Microsoft Hyper-V Server</h3>
 <HR />
-                        <p>Die Hyper-V-Technologie stellt Computing-Ressourcen durch Hardware-Virtualisierung bereit. Hyper-V erstellt eine Softwareversion von einem Computer, einen virtuellen Computer, auf dem Sie ein Betriebssystem und Anwendungen ausführen können. Sie können mehrere virtuelle Computer gleichzeitig ausführen und bei Bedarf erstellen und löschen.</p>
+                        <p>Die Hyper-V-Technologie stellt Computing-Ressourcen durch Hardwarevirtualisierung bereit. Hyper-V erstellt eine Softwareversion von einem Computer, einen so genannten „virtuellen Computer“, auf dem Sie ein Betriebssystem und Anwendungen ausführen können. Sie können mehrere virtuelle Computer gleichzeitig ausführen und sie nach Bedarf erstellen und löschen.</p>
                      </div>
                   </div>
               </div>
@@ -81,7 +81,7 @@ Virtualisierung in Windows Server ist eine der grundlegenden Technologien, die z
                     <div class="cardText">
                         <h3>Windows-Container</h3>
 <HR />
-                        <p>Windows-Container ermöglichen die Virtualisierung auf Betriebssystemebene, auf der mehrere isolierte Anwendungen auf einem einzigen System ausgeführt werden können. Das Feature stellt zwei verschiedene Arten von Containerlaufzeiten mit zwei unterschiedlichen Anwendungsisolierungsgraden bereit.</p>
+                        <p>Windows-Container ermöglichen die Virtualisierung auf Betriebssystemebene und damit die Ausführung mehrerer isolierter Anwendungen auf einem einzigen System. Das Feature stellt zwei verschiedene Arten von Containerlaufzeiten mit zwei unterschiedlichen Anwendungsisolierungsgraden bereit.</p>
                      </div>
                   </div>
               </div>
@@ -99,9 +99,9 @@ Virtualisierung in Windows Server ist eine der grundlegenden Technologien, die z
                         </div>
                     </div>
                     <div class="cardText">
-                       <h3>Windows 10 für Unternehmen: Möglichkeiten, um Geräte für die Arbeit verwenden.</h3>
+                       <h3>Windows 10 für Unternehmen: Möglichkeiten zur Verwendung von Geräten für die Arbeit</h3>
 <HR />
-                       <p>Die Hyper-V-Technologie stellt Computing-Ressourcen durch Hardware-Virtualisierung bereit. Hyper-V erstellt eine Softwareversion von einem Computer, einen virtuellen Computer, auf dem Sie ein Betriebssystem und Anwendungen ausführen können. Sie können mehrere virtuelle Computer gleichzeitig ausführen und bei Bedarf erstellen und löschen.</p>
+                       <p>Die Hyper-V-Technologie stellt Computing-Ressourcen durch Hardwarevirtualisierung bereit. Hyper-V erstellt eine Softwareversion von einem Computer, einen so genannten „virtuellen Computer“, auf dem Sie ein Betriebssystem und Anwendungen ausführen können. Sie können mehrere virtuelle Computer gleichzeitig ausführen und sie nach Bedarf erstellen und löschen.</p>
                      </div>
                   </div>
               </div>
@@ -123,9 +123,9 @@ Virtualisierung in Windows Server ist eine der grundlegenden Technologien, die z
 <HR />
                         <p>Der virtuelle Hyper-V-Switch ist ein softwarebasierter Layer-2-Ethernet-Netzwerkswitch, der in allen Versionen von Hyper-V enthalten ist.</p>
 <HR />
-                        <p>Hyper-V Virtual Switch ist in Hyper-V-Manager verfügbar, nachdem Sie die Hyper-V-Serverrolle installiert haben.</p>
+                        <p>Der virtuelle Hyper-V-Switch ist in Hyper-V-Manager verfügbar, nachdem Sie die Hyper-V-Serverrolle installiert haben.</p>
 <HR />
-                        <p>Hyper-V Virtual Switch umfasst programmgesteuert verwaltete und erweiterbare Funktionen zum Verbinden von virtuellen Computern mit virtuellen Netzwerken und dem physischen Netzwerk.</p>
+                        <p>Der virtuelle Hyper-V-Switch umfasst programmgesteuert verwaltete und erweiterbare Funktionen zum Verbinden von virtuellen Computern mit virtuellen Netzwerken und dem physischen Netzwerk.</p>
 <HR />
                         <p>Außerdem bietet der virtuelle Hyper-V-Switch Richtlinienerzwingung für Sicherheits-, Isolations- und Dienststufen.</p>
                      </div>
@@ -140,7 +140,7 @@ Virtualisierung in Windows Server ist eine der grundlegenden Technologien, die z
 
 ### <a name="related"></a>Verwandte Themen
 
-- Hyper-V erfordert spezielle Hardware, um die Virtualisierungsumgebung zu erstellen. Weitere Informationen finden Sie unter [Systemanforderungen für Hyper-V unter Windows Server 2016](./hyper-v/system-requirements-for-hyper-v-on-windows.md). 
+- Hyper-V erfordert spezielle Hardware zum Erstellen der Virtualisierungsumgebung. Weitere Informationen finden Sie unter [Systemanforderungen für Hyper-V unter Windows Server 2016](./hyper-v/system-requirements-for-hyper-v-on-windows.md). 
 
 - Weitere Informationen zu Hyper-V unter Windows 10 finden Sie unter [Hyper-V unter Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows).
 

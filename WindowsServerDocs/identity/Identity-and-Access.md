@@ -11,16 +11,16 @@ ms.topic: landing-page
 ms.author: billmath
 ms.localizationpriority: high
 ms.openlocfilehash: 161840d86cae6b688e3e7a877c7c44b17aefd432
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824241"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63684201"
 ---
 # <a name="identity--access"></a>Identität | Zugriff
 
 >[!TIP]
-> Suchen Sie nach Informationen zu älteren Versionen von Windows? Sehen Sie sich unsere [Windows Server-Bibliotheken](/previous-versions/windows/) auf docs.microsoft.com an. Sie können auch nach bestimmten Informationen [auf dieser Website suchen](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions).
+> Suchen Sie nach Informationen zu älteren Versionen von Windows Server? Sehen Sie sich unsere [Windows Server-Bibliotheken](/previous-versions/windows/) auf „docs.microsoft.com“ an. Sie können auch nach bestimmten Informationen [auf dieser Website suchen](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions).
 
 <hr />
 
@@ -80,8 +80,8 @@ Zugriffs- und Identitätstechnologien ermöglichen sichere Active Directory-Umge
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Windows 10 für Unternehmen: Möglichkeiten, um Geräte für die Arbeit verwenden.</h3><hr />
-                        <p>Windows 10 bietet Ihnen die Möglichkeit, Azure Active Directory nutzen. Windows 10-Geräte können mit Azure AD verbunden werden, und Benutzer können sich bei Windows mit Azure AD-Konten anmelden oder ihre Azure-ID hinzufügen, um auf geschäftliche Apps und Ressourcen zuzugreifen.</p>
+                        <h3>Windows 10 für Unternehmen: Möglichkeiten zur Verwendung von Geräten für die Arbeit</h3><hr />
+                        <p>Windows 10 ermöglicht es Ihnen, Azure Active Directory zu nutzen. Windows 10-Geräte können mit Azure AD verbunden werden, und Benutzer können sich bei Windows mit Azure AD-Konten anmelden oder ihre Azure-ID hinzufügen, um auf geschäftliche Apps und Ressourcen zuzugreifen.</p>
                     </div>
                 </div>
             </div>
@@ -119,7 +119,7 @@ Zugriffs- und Identitätstechnologien ermöglichen sichere Active Directory-Umge
                     </div>
                     <div class="cardText">
                         <h3>Active Directory-Verbunddienste (AD FS)</h3><hr />
-                        <p>Detaillierte Dokumentation aller neuen Features für AD FS in Windows Server.</p>
+                        <p>Detaillierte Dokumentation aller neuen Features für AD DS in Windows Server.</p>
                     </div>
                 </div>
             </div>
@@ -131,7 +131,7 @@ Zugriffs- und Identitätstechnologien ermöglichen sichere Active Directory-Umge
 ---
 
 ## <a name="solutions-and-scenario-guides"></a>Handbücher zu Lösungen und Szenarien  
-* [Sichern des Zugriffs auf Unternehmensressourcen von jedem Ort auf jedem Gerät](https://technet.microsoft.com/library/dn550982.aspx)  
-*  [Verbinden mit einem Arbeitsplatz von einem beliebigen Gerät für SSO und nahtlose zweistufige Authentifizierung bei allen Unternehmensanwendungen](https://technet.microsoft.com/library/dn280945.aspx)  
-* [Verwalten von Risiken mit zusätzlicher Mehrstufiger Authentifizierung für sensible Anwendungen](https://technet.microsoft.com/library/dn280949.aspx)  
+* [Sicherer Zugriff auf Unternehmensressourcen von praktisch jedem Standort und Gerät aus](https://technet.microsoft.com/library/dn550982.aspx)  
+*  [Arbeitsplatzbeitritt von einem beliebigen Gerät für SSO und die nahtlose zweistufige Authentifizierung bei allen Unternehmensanwendungen](https://technet.microsoft.com/library/dn280945.aspx)  
+* [Verwalten von Risiken mit zusätzlicher mehrstufiger Authentifizierung für sensible Anwendungen](https://technet.microsoft.com/library/dn280949.aspx)  
 * [Verwalten von Risiken mit der bedingten Zugriffssteuerung](https://technet.microsoft.com/library/dn280937.aspx)
