@@ -5,16 +5,16 @@ description: ''
 author: billmath
 ms.author: billmath
 manager: femila
-ms.date: 04/01/2019
+ms.date: 07/02/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: a831154a8b1e84f5ed879375980882e208c33d73
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 525ba403473a9de522d9ab30662adc868b17b88d
+ms.sourcegitcommit: c02756b7f5c92bf5018e17192f6fffb4754b0f06
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190351"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67533509"
 ---
 # <a name="ad-fs-rapid-restore-tool"></a>AD FS: Schnelles Wiederherstellungstool
 
@@ -213,6 +213,13 @@ Jedes Mal, wenn eine Sicherung oder Wiederherstellung ausgeführt wird, wird ein
 > Beim Durchführen einer Wiederherstellung, die eine PostRestore_Instructions-Datei mit einer Übersicht über die zusätzliche Authentifizierung-Anbieter erstellt werden kann, Attribut speichert, und lokale Anspruchsanbieter-Vertrauensstellungen manuell installiert werden, vor dem Starten des AD FS-Diensts.
 
 ## <a name="version-release-history"></a>Verlauf der Versionsveröffentlichungen
+
+### <a name="version-10820"></a>Version 1.0.82.0
+Version: Juli 2019
+
+**Behobene Probleme:**
+- Programmfehlerbehebung für AD FS service Kontonamen, die LDAP-Escape-Zeichen enthalten.
+
 
 ### <a name="version-10810"></a>Version: 1.0.81.0
 Version: April 2019
