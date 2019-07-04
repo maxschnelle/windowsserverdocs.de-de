@@ -1,6 +1,6 @@
 ---
 title: Problembehandlung bei Remotedesktopverbindungen
-description: Problembehandlung bei Prozeduren, die unterteilt nach symptom
+description: Vorgehensweisen zur Problembehandlung, nach Symptom geordnet
 ms.custom: na
 ms.reviewer: rklemen; josh.bender
 ms.suite: na
@@ -12,612 +12,612 @@ manager: ''
 ms.author: kaushika; rklemen; josh.bender; v-tea
 ms.date: 02/22/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 43e40f8442600dfc66dafd6b8b210274908b4595
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
-ms.translationtype: MT
+ms.openlocfilehash: c6ce719ffa24cfc6704348c17548fe5cf33d9271
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446718"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284145"
 ---
 # <a name="troubleshooting-remote-desktop-connections"></a>Problembehandlung bei Remotedesktopverbindungen
-Kurze erläuterungen einiger der am häufigsten auftretenden Probleme mit Remote Desktop Services (RDS), finden Sie unter [häufig gestellte Fragen zu den Remotedesktopclients](https://review.docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/remote-desktop-client-faq). Dieser Artikel beschreibt erweiterte Vorgehensweisen zum Beheben von Verbindungsproblemen. Viele der folgenden Verfahren gelten, ob Sie eine einfache Konfiguration, wie ein physischer Computer, die beim Verbinden mit einem anderen physischen Computer oder eine kompliziertere Konfiguration behandeln möchten. Einige Verfahren zur Behebung von Problemen, die nur in komplexeren Szenarien für mehrere Benutzer auftreten. Weitere Informationen über die remote desktop-Komponenten und wie diese zusammenarbeiten, finden Sie unter [Remote Desktop Services-Architektur](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture).
+Kurze Erläuterungen einiger der häufigsten Probleme mit Remotedesktopdiensten (RDS) finden Sie unter [Häufig gestellte Fragen zu den Remotedesktopclients](https://review.docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/remote-desktop-client-faq). Dieser Artikel beschreibt eine Reihe höher entwickelter Vorgehensweisen zum Beheben von Verbindungsproblemen. Viele dieser Verfahren gelten für Probleme in einfachen Konfigurationen, wie etwa Verbindungen zwischen zwei physischen Computern, ebenso wie für komplexere Konfigurationen. Einige Vorgehensweisen befassen sich mit Problemen, die nur in komplexeren Szenarien mit mehreren Benutzern auftreten. Weitere Informationen über die Remotedesktopkomponenten und die Weise ihrer Interaktion finden Sie unter [Architektur der Remotedesktopdienste](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture).
 
 > [!NOTE]  
-> Viele der Verfahren, die in diesem Artikel beschrieben werden müssen Sie auf mehreren Computern, von denen einige möglicherweise müssen Sie Remotezugriff auf. Weitere Informationen zu den Remoteserver-Verwaltungstools und deren Konfiguration finden Sie unter [Remote Server-Verwaltungstools (RSAT) für Windows-Betriebssysteme](https://support.microsoft.com/en-us/help/2693643/remote-server-administration-tools-rsat-for-windows-operating-systems).
+> Viele der in diesem Artikel beschriebenen Prozeduren erfordern von Ihnen den Zugriff auf mehrere Computer, von denen Sie auf einige remote zugreifen müssen. Weitere Informationen über Tools zur Remoteverwaltung und ihre Konfiguration finden Sie unter [Remoteserver-Verwaltungstools (RSAT) für Windows-Betriebssysteme](https://support.microsoft.com/en-us/help/2693643/remote-server-administration-tools-rsat-for-windows-operating-systems).
 
-Identifizieren Sie in der folgenden Liste den Typ des Symptom, auf denen Sie (oder Ihre Benutzer) auftreten.
+Identifizieren Sie in der folgenden Liste die Art des Symptoms, das bei Ihnen (oder Ihren Benutzern) auftritt.
 
-- [Der Remotedesktop-Client kann keine Verbindung hergestellt, um den Remotedesktop, aber es sind keine bestimmten Symptomen oder Nachrichten (allgemeine Schritte zur Problembehandlung)](#no-specific-symptoms-or-messages-general-troubleshooting-steps)
-- [Der Remotedesktop-Client kann keine Verbindung mit Remotedesktop und empfängt eine Nachricht "Klasse nicht registriert"](#client-cannot-connect-class-not-registered)
-- [Der Remotedesktop-Client kann keine Verbindung mit Remotedesktop und empfängt eine "keine Lizenzen verfügbar" oder "Sicherheit" Fehlermeldung](#client-cannot-connect-no-licenses-available)
-- [Der Benutzer erhält eine Nachricht "Zugriff verweigert" oder Anmeldeinformationen muss zweimal angeben.](#user-cannot-authenticate-or-must-authenticate-twice)
-- [Zum Herstellen einer Verbindung, die empfängt eine Nachricht "Remotedesktopdienst ist derzeit ausgelastet."](#on-connecting-user-receives-remote-desktop-service-is-currently-busy-message)
-- [Der Remotedesktop-Client getrennt und kann nicht mit der gleichen Sitzung wiederhergestellt](#rd-client-disconnects-and-cannot-reconnect-to-the-same-session)
-- [Der Benutzer einen remote-Laptop über ein drahtloses Netzwerk hergestellt, und klicken Sie dann wird der Laptop vom Netzwerk getrennt](#remote-laptop-disconnects-from-wireless-network).
-- [Die Benutzeroberflächen, eine schlechte Leistung oder Probleme mit Remoteanwendungen](#user-experiences-poor-performance-or-application-problems)
-
-> [!NOTE]  
-> Eine aktuelle Liste der Fehlercodes der RDP-Verbindung trennen, finden Sie unter [ExtendedDisconnectReasonCode Enumeration](https://docs.microsoft.com/en-us/windows/desktop/TermServ/extendeddisconnectreasoncode). 
-
-## <a name="no-specific-symptoms-or-messages-general-troubleshooting-steps"></a>Keine bestimmten Symptomen oder Nachrichten, die (allgemeine Schritte zur Problembehandlung)
-
-Verwenden Sie diese Schritte aus, wenn ein Remotedesktop-Client keine mit einem remote Desktop Verbindung kann bietet jedoch nicht, dass Nachrichten oder andere Symptome, die dabei helfen, würde die Ursache identifizieren. Um viele der häufigsten Ursachen für diese Art von Problem zu beheben, verwenden Sie die folgenden Methoden:
-
-- [Überprüfen Sie den Status des RDP-Protokolls](#check-the-status-of-the-rdp-protocol)
-- [Überprüfen Sie den Status der RDP-Dienste](#check-the-status-of-the-rdp-services)
-- [Überprüfen Sie, dass die RDP-Listener ausgeführt wird](#check-that-the-rdp-listener-is-functioning)
-- [Überprüfen Sie den RDP-Listener-port](#check-the-rdp-listener-port)
-
-### <a name="check-the-status-of-the-rdp-protocol"></a>Überprüfen Sie den Status des RDP-Protokolls
-
-#### <a name="check-the-status-of-the-rdp-protocol-on-a-local-computer"></a>Überprüfen Sie den Status des RDP-Protokolls auf einem lokalen computer
-
-Um zu überprüfen und ändern Sie den Status des RDP-Protokolls auf einem lokalen Computer, finden Sie unter [Gewusst wie: Aktivieren von Remotedesktop](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access#how-to-enable-remote-desktop).
+- [Der Remotedesktopclient kann keine Verbindung mit dem Remotedesktop herstellen, es gibt aber keine spezifischen Symptome oder Nachrichten (allgemeine Schritte zur Problembehandlung)](#no-specific-symptoms-or-messages-general-troubleshooting-steps)
+- [Der Remotedesktopclient kann keine Verbindung mit dem Remotedesktop herstellen und empfängt eine Nachricht „Klasse nicht registriert“](#client-cannot-connect-class-not-registered)
+- [Der Remotedesktopclient kann keine Verbindung mit dem Remotedesktop herstellen und empfängt eine Nachricht „Keine Lizenzen verfügbar“ oder „Sicherheitsfehler“](#client-cannot-connect-no-licenses-available)
+- [Der Benutzer empfängt eine Nachricht „Zugriff verweigert“ oder muss die Anmeldeinformationen zweimal eingeben](#user-cannot-authenticate-or-must-authenticate-twice)
+- [Beim Herstellen der Verbindung wird eine Nachricht „Der Remotedesktopdienst ist aktuell ausgelastet“ empfangen](#on-connecting-user-receives-remote-desktop-service-is-currently-busy-message)
+- [Der Remotedesktopclient wird getrennt und kann die Verbindung zur gleichen Sitzung nicht wiederherstellen](#rd-client-disconnects-and-cannot-reconnect-to-the-same-session)
+- [Der Benutzer stellt über ein drahtloses Netzwerk eine Verbindung mit einem Remotelaptop her, anschließend trennt der Laptop die Netzwerkverbindung](#remote-laptop-disconnects-from-wireless-network).
+- [Beim Benutzer treten schlechte Leistung von oder Probleme mit Remoteanwendungen auf](#user-experiences-poor-performance-or-application-problems)
 
 > [!NOTE]  
-> Wenn der Remotedesktop-Optionen nicht verfügbar sind, finden Sie unter [überprüfen, ob ein Gruppenrichtlinienobjekt RDP blockiert](#check-whether-a-group-policy-object-gpo-is-blocking-rdp-on-a-local-computer).
+> Eine aktuelle Liste der RDP-Trennungscodes finden Sie unter [ExtendedDisconnectReasonCode enumeration](https://docs.microsoft.com/windows/desktop/TermServ/extendeddisconnectreasoncode) (Erweiterte DisconnectReasonCode-Enumeration). 
 
-#### <a name="check-the-status-of-the-rdp-protocol-on-a-remote-computer"></a>Überprüfen Sie den Status des RDP-Protokolls auf einem Remotecomputer
+## <a name="no-specific-symptoms-or-messages-general-troubleshooting-steps"></a>Keine spezifischen Symptome oder Nachrichten (allgemeine Schritte zur Problembehandlung)
+
+Führen Sie diese Schritte aus, wenn ein Remotedesktopclient keine Verbindung mit einem Remotedesktop herstellen kann, aber keine Nachrichten oder sonstigen Symptome zur Verfügung stellt, die beim Bestimmen der Ursache nützlich wären. Verwenden Sie die folgenden Methoden, um viele der häufigsten Ursachen dieser Art von Problem zu beheben:
+
+- [Überprüfen des Status des RDP-Protokolls](#check-the-status-of-the-rdp-protocol)
+- [Überprüfen des Status der RDP-Dienste](#check-the-status-of-the-rdp-services)
+- [Überprüfen der Funktion des RDP-Listeners](#check-that-the-rdp-listener-is-functioning)
+- [Überprüfen des RDP-Listener-Ports](#check-the-rdp-listener-port)
+
+### <a name="check-the-status-of-the-rdp-protocol"></a>Überprüfen des Status des RDP-Protokolls
+
+#### <a name="check-the-status-of-the-rdp-protocol-on-a-local-computer"></a>Überprüfen des Status des RDP-Protokolls auf einem lokalen Computer
+
+Informationen zum Überprüfen und Ändern des Status des RDP-Protokolls auf einem lokalen Computer finden Sie unter [So aktivieren Sie Remotedesktop](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access#how-to-enable-remote-desktop).
+
+> [!NOTE]  
+> Wenn die Remotedesktopoptionen nicht verfügbar sind, lesen Sie [Überprüfen, ob ein Gruppenrichtlinienobjekt RDP blockiert](#check-whether-a-group-policy-object-gpo-is-blocking-rdp-on-a-local-computer).
+
+#### <a name="check-the-status-of-the-rdp-protocol-on-a-remote-computer"></a>Überprüfen des Status des RDP-Protokolls auf einem Remotecomputer
 
 > [!IMPORTANT]  
-> Die Schritte in diesem Abschnitt sorgfältig. Wird die Registrierung falsch angepasst, können schwerwiegende Probleme auftreten. Bevor Sie Änderungen vornehmen, müssen [sichern Sie die Registrierung für die Wiederherstellung](https://support.microsoft.com/en-us/help/322756%22%20target=%22_self%22) für den Fall, dass Probleme auftreten.
+> Folgen Sie den Schritten in diesem Abschnitt sorgfältig. Wird die Registrierung falsch angepasst, können schwerwiegende Probleme auftreten. Bevor Sie sie ändern, [sichern Sie die Registrierung zwecks Wiederherstellung](https://support.microsoft.com/en-us/help/322756%22%20target=%22_self%22) für den Fall, dass Probleme auftreten.
 
-Um zu überprüfen und ändern Sie den Status des RDP-Protokolls auf einem Remotecomputer befindet, verwenden Sie eine Netzwerkverbindung für die Registrierung:
+Um den Status des RDP-Protokolls auf einem Remotecomputer zu überprüfen und zu ändern, verwenden Sie eine Netzwerkverbindung mit der Registrierung:
 
-1. Wählen Sie **starten**Option **ausführen**, und geben Sie dann **regedt32**.
-2. Wählen Sie im Registrierungs-Editor **Datei**, und wählen Sie dann **verbinden Netzwerk Registrierung**.
-3. In der **Computer auswählen** Dialogfeld ein, geben Sie den Namen des Remotecomputers ein, wählen Sie **Namen überprüfen**, und wählen Sie dann **OK**.
-4. Navigieren Sie zu **HKEY\_lokalen\_Computer\\SYSTEM\\CurrentControlSet\\Steuerelement\\Terminalserver**.  
-   ![Registrierungs-Editor den Eintrag fDenyTSConnections angezeigt](../media/troubleshoot-remote-desktop-connections/RegEntry_fDenyTSConnections.png)
-   - Wenn der Wert des der **fDenyTSConnections** Schlüssel **0**, und klicken Sie dann die RDP aktiviert ist
-   - Wenn der Wert des der **fDenyTSConnections** Schlüssel ist **1**, und klicken Sie dann die RDP deaktiviert ist
-5. Zum Aktivieren von RDP ändern Sie den Wert der **fDenyTSConnections** aus **1** zu **0**.
+1. Wählen Sie **Start** und dann **Ausführen** aus, und geben Sie dann **regedt32** ein.
+2. Wählen Sie im Registrierungs-Editor **Datei** und dann **Netzwerkregistrierung verbinden** aus.
+3. Geben Sie im Dialogfeld **Computer auswählen** den Namen des Remotecomputers ein, wählen Sie **Namen überprüfen** und dann **OK** aus.
+4. Navigieren Sie zu **HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server**.  
+   ![Registrierungs-Editor mit Darstellung des Eintrags „fDenyTSConnections“](../media/troubleshoot-remote-desktop-connections/RegEntry_fDenyTSConnections.png)
+   - Wenn der Wert des **fDenyTSConnections**-Schlüssels **0** ist, ist RDP aktiviert
+   - Wenn der Wert des **fDenyTSConnections**-Schlüssels **1** ist, ist RDP deaktiviert
+5. Um RDP zu aktivieren, ändern Sie den Wert von **fDenyTSConnections** von **1** in **0**.
 
-#### <a name="check-whether-a-group-policy-object-gpo-is-blocking-rdp-on-a-local-computer"></a>Überprüfen Sie, ob (Group Policy Object, GPO) RDP auf einem lokalen Computer blockiert wird
+#### <a name="check-whether-a-group-policy-object-gpo-is-blocking-rdp-on-a-local-computer"></a>Überprüfen, ob ein Gruppenrichtlinienobjekt RDP auf einem lokalen Computer blockiert
 
-Wenn Sie RDP in der Benutzeroberfläche können nicht aktivieren, oder wenn der Wert des **fDenyTSConnections** wiederhergestellt **1** , nachdem Sie sie geändert haben, ein GPO möglicherweise werden überschreiben die Einstellungen auf Computerebene.
+Wenn Sie RDP nicht auf der Benutzeroberfläche aktivieren können oder der Wert von **fDenyTSConnections** wieder auf **1** zurückgesetzt wird, nachdem Sie ihn geändert haben, setzt möglicherweise ein GPO die Einstellungen auf Computerebene außer Kraft.
 
-Um die Gruppenrichtlinienkonfiguration auf einem lokalen Computer zu überprüfen, öffnen Sie ein Eingabeaufforderungsfenster als Administrator, und geben Sie den folgenden Befehl aus:
+Um die Gruppenrichtlinienkonfiguration auf einem lokalen Computer zu überprüfen, öffnen Sie ein Eingabeaufforderungsfenster als Administrator, und geben Sie den folgenden Befehl ein:
 ```
 gpresult /H c:\gpresult.html
 ```
-Öffnen Sie nach Abschluss dieses Befehls gpresult.html. In **Computerkonfiguration\\Administrative Vorlagen\\Windows-Komponenten\\Remotedesktopdienste\\Remotedesktop-Sitzungshost\\Verbindungen**, Suchen der **können Benutzer mithilfe von Remote Desktop Services eine Remoteverbindung herstellen** Richtlinie.
+Öffnen Sie nach dem Abschluss dieses Befehls „gpresult.html“. Suchen Sie in **Computerkonfiguration\\Administrative Vorlagen\\Windows-Komponenten\\Remotedesktopdienste\\Remotedesktop-Sitzungshost\\Verbindungen** die Richtlinie **Remoteverbindungen für Benutzer mithilfe der Remotedesktopdienste zulassen**.
 
-- Wenn die Einstellung für diese Richtlinie ist **aktiviert**, Gruppenrichtlinien RDP-Verbindungen nicht blockiert.
-- Wenn die Einstellung für diese Richtlinie ist **deaktiviert**, überprüfen Sie **ausschlaggebenden Gruppenrichtlinienobjekts**. Dies ist das Gruppenrichtlinienobjekt, das RDP-Verbindungen blockiert werden.
-  ![Ein Beispiel-Segment der gpresult.html, in dem das GPO der Domänenebene ** Block RDP ** wird RDP deaktivieren.](../media/troubleshoot-remote-desktop-connections/GPResult_RDSH_Connections_GP.png)
+- Wenn die Einstellung für diese Richtlinie **Aktiviert** ist, werden RDP-Verbindungen nicht durch eine Gruppenrichtlinie blockiert.
+- Wenn die Einstellung für diese Richtlinie **Deaktiviert** ist, überprüfen Sie **Ausschlaggebendes Gruppenrichtlinienobjekt**. Das ist das Gruppenrichtlinienobjekt, das RDP-Verbindungen blockiert.
+  ![Ein Beispielsegment von „gpresult.html“, in dem das GPO **Block RDP** RDP deaktiviert.](../media/troubleshoot-remote-desktop-connections/GPResult_RDSH_Connections_GP.png)
    
-  ![Ein Beispiel-Segment der gpresult.html, in dem ** lokalen Gruppe Konfigurationsrichtlinie ** wird RDP deaktivieren.](../media/troubleshoot-remote-desktop-connections/GPResult_RDSH_Connections_LGP.png)
+  ![Ein Beispielsegment von „gpresult.html“, in dem **Lokale Gruppenrichtlinie** RDP deaktiviert.](../media/troubleshoot-remote-desktop-connections/GPResult_RDSH_Connections_LGP.png)
 
-#### <a name="check-whether-a-gpo-is-blocking-rdp-on-a-remote-computer"></a>Überprüfen Sie, ob ein GPO RDP auf einem Remotecomputer blockiert wird
+#### <a name="check-whether-a-gpo-is-blocking-rdp-on-a-remote-computer"></a>Überprüfen, ob ein GPO RDP auf einem Remotecomputer blockiert
 
-Um die Konfiguration von Gruppenrichtlinien auf einem Remotecomputer zu überprüfen, lautet der Befehl mit fast genauso wie bei einem lokalen Computer:
+Der Befehl zum Überprüfen der Konfiguration von Gruppenrichtlinien auf einem Remotecomputer lautet fast genauso wie für einen lokalen Computer:
 ```
 gpresult /S <computer name> /H c:\gpresult-<computer name>.html
 ```
-Die Datei, die dieser Befehl erzeugt (**Gpresult -\<Computername\>.html**) verwendet das gleiche Informationsformat wie die Version des lokalen Computers (**gpresult.html**) verwendet.
+Die Datei, die durch diesen Befehl erzeugt wird (**gpresult-\<computername\>.html**) verwendet das gleiche Informationsformat wie in der Version für lokale Computer (**gpresult.html**).
 
-#### <a name="modifying-a-blocking-gpo"></a>Ändern ein Gruppenrichtlinienobjekt blockieren
+#### <a name="modifying-a-blocking-gpo"></a>Ändern ein blockierenden Gruppenrichtlinienobjekts
 
-Sie können diese Einstellungen in der Group Policy-Objekt-Editor (GPE) und Group Policy Management Console (GPM) ändern. Weitere Informationen dazu, wie Sie mithilfe von Gruppenrichtlinien finden Sie unter [Advanced Group Policy Management](https://docs.microsoft.com/en-us/microsoft-desktop-optimization-pack/agpm/).
+Sie können diese Einstellungen im Gruppenrichtlinienobjekt-Editor (GPE) und der Gruppenrichtlinien-Verwaltungskonsole (GPM) ändern. Weitere Informationen zum Verwenden der Gruppenrichtlinie finden Sie unter [Advanced Group Policy Management](https://docs.microsoft.com/microsoft-desktop-optimization-pack/agpm/) (Erweiterte Gruppenrichtlinienverwaltung).
 
-Verwenden Sie zum Ändern der Richtlinie zum Blockieren von einer der folgenden Methoden aus:
+Verwenden Sie eins der folgenden Verfahren, um die blockierende Richtlinie zu ändern:
 
-- In GPE, die entsprechenden Ebene des Gruppenrichtlinienobjekts (z. B. ein lokales oder Domänenbenutzerkonto), und navigieren Sie zu **Computerkonfiguration\\Administrative Vorlagen\\Windows-Komponenten\\Remote Desktop Services\\ Remotedesktop-Sitzungshost\\Verbindungen**\\**können Benutzer mithilfe von Remote Desktop Services eine Remoteverbindung herstellen**.  
-   1. Legen Sie die Richtlinie auf **aktiviert** oder **nicht konfiguriert**.
-   2. Klicken Sie auf den betroffenen Computern, öffnen Sie ein Eingabeaufforderungsfenster als Administrator, und führen die **Gpupdate/force** Befehl.
-- Navigieren Sie in GPM zu der Organisationseinheit, die in der die Richtlinie zum blockierende der betroffene Computer gilt, und löschen Sie die Richtlinie aus der Organisationseinheit.
+- Greifen Sie im GPE auf die passende GPO-Ebene (wie etwa lokal oder Domäne) zu, und navigieren Sie zu **Computerkonfiguration\\Administrative Vorlagen\\Windows-Komponenten\\Remotedesktopdienste\\Remotedesktop-Sitzungshost\\Verbindungen**\\**Remoteverbindungen für Benutzer mithilfe der Remotedesktopdienste zulassen**.  
+   1. Legen Sie die Richtlinie auf **Aktiviert** oder **Nicht konfiguriert** fest.
+   2. Öffnen Sie auf den betroffenen Computern ein Eingabeaufforderungsfenster als Administrator, und führen Sie den Befehl **gpupdate /force** aus.
+- Navigieren Sie in GPM zu der Organisationseinheit, in der die blockierende Richtlinie auf die betroffenen Computer angewendet wird, und löschen Sie die Richtlinie aus der Organisationseinheit.
 
-### <a name="check-the-status-of-the-rdp-services"></a>Überprüfen Sie den Status der RDP-Dienste
+### <a name="check-the-status-of-the-rdp-services"></a>Überprüfen des Status der RDP-Dienste
 
-Auf dem Computer lokalen (Client-) und dem Remotecomputer (Zielcomputer)-Computer sollten die folgenden Dienste ausgeführt werden:
+Auf dem lokalen Computer (Client) und dem Remotecomputer (Zielcomputer) sollten die folgenden Dienste ausgeführt werden:
 
 - Remotedesktopdienste (TermService)
-- Remote Desktop Anschlussumleitung für Terminaldienst-Redirector (UmRdpService)
+- Portumleitung für Remotedesktopdienste im Benutzermodus (UmRdpService)
 
-Sie können das Dienste-MMC-Snap-in verwenden, um die Dienste lokal oder Remote zu verwalten. Sie können auch PowerShell verwenden, lokal oder Remote (wenn der Remotecomputer konfiguriert ist, remote-PowerShell-Befehle akzeptieren).
+Sie können das Dienste-MMC-Snap-In verwenden, um die Dienste lokal oder remote zu verwalten. Sie können darüber hinaus PowerShell lokal oder remote verwenden (wenn der Remotecomputer für das Annehmen von PowerShell-Remotebefehlen konfiguriert ist).
 
-![Remotedesktopdienste im Dienste-MMC-Snap-in. Ändern Sie die Standardeinstellungen für den Dienst nicht.](../media/troubleshoot-remote-desktop-connections/RDSServiceStatus.png)
+![Remotedesktopdienste im Dienste-MMC-Snap-In. Ändern Sie die Standardeinstellungen für den Dienst nicht.](../media/troubleshoot-remote-desktop-connections/RDSServiceStatus.png)
 
-Auf einem der Computer Wenn eine oder beide dieser Dienste nicht ausgeführt werden, starten Sie sie.
+Wenn einer der Dienste (oder beide) auf einem von beiden Computern nicht ausgeführt wird, starten Sie ihn.
 
 > [!NOTE]  
-> Wenn Sie die Remote Desktop Services-Dienst starten, klicken Sie auf **Ja** Remote Desktop Services UserMode Port Redirectordienst automatisch neu gestartet.
+> Wenn Sie den Remotedesktopdienst starten, klicken Sie auf **Ja**, um den Portumleitungsdienst für Remotedesktopdienste im Benutzermodus automatisch neu zu starten.
 
-### <a name="check-that-the-rdp-listener-is-functioning"></a>Überprüfen Sie, dass die RDP-Listener ausgeführt wird
+### <a name="check-that-the-rdp-listener-is-functioning"></a>Überprüfen der Funktion des RDP-Listeners
 
 > [!IMPORTANT]  
-> Die Schritte in diesem Abschnitt sorgfältig. Wird die Registrierung falsch angepasst, können schwerwiegende Probleme auftreten. Bevor Sie Änderungen vornehmen, müssen [sichern Sie die Registrierung für die Wiederherstellung](https://support.microsoft.com/en-us/help/322756%22%20target=%22_self%22) für den Fall, dass Probleme auftreten.
+> Folgen Sie den Schritten in diesem Abschnitt sorgfältig. Wird die Registrierung falsch angepasst, können schwerwiegende Probleme auftreten. Bevor Sie sie ändern, [sichern Sie die Registrierung zwecks Wiederherstellung](https://support.microsoft.com/en-us/help/322756%22%20target=%22_self%22) für den Fall, dass Probleme auftreten.
 
-#### <a name="check-the-status-of-the-rdp-listener"></a>Überprüfen des Status der RDP-listener
+#### <a name="check-the-status-of-the-rdp-listener"></a>Überprüfen des Status des RDP-Listeners
 
-Verwenden Sie für dieses Verfahren eine PowerShell-Instanz, die über Administratorberechtigungen verfügt. Für einen lokalen Computer können Sie auch eine Eingabeaufforderung, die über Administratorberechtigungen verfügt. Dieses Verfahren ist jedoch PowerShell verwendet, da die gleichen Befehle sowohl lokal als auch Remote arbeiten.
+Verwenden Sie für dieses Verfahren eine PowerShell-Instanz, die über Administratorberechtigungen verfügt. Für einen lokalen Computer können Sie auch eine Eingabeaufforderung mit Administratorberechtigungen verwenden. In diesem Verfahren verwenden wir aber PowerShell, da die gleichen Befehle sowohl lokal als auch remote funktionieren.
 
-1. Öffnen Sie ein PowerShell-Fenster. Um eine Verbindung mit einem Remotecomputer herzustellen, geben Sie **Enter-PSSession – ComputerName \<Computername\>** .
-2. Geben Sie **Qwinsta**. 
-    ![Der Qwinsta Befehl listet die Prozesse, die auf die Anschlüsse des Computers überwachen.](../media/troubleshoot-remote-desktop-connections/WPS_qwinsta.png)
-3. Wenn die Liste enthält **Rdp-TCP-** mit dem Status **Lauschen**, der RDP-Listener arbeitet. Fahren Sie fort mit [überprüfen Sie den RDP-Listener-Port](#check-the-rdp-listener-port). Andernfalls fahren Sie mit Schritt 4.
-4. Exportieren Sie die RDP-Listener-Konfiguration auf einem Arbeitscomputer.
-    1. Melden Sie sich auf einem Computer, der die gleiche Version des Betriebssystems verfügt wie der betroffenen Computer verfügt, und Zugriff auf Registrierung des Computers (z. B. mithilfe von Registrierungs-Editor).
-    2. Navigieren Sie zu den folgenden Registrierungseintrag:  
-        **HKEY\_lokalen\_Computer\\SYSTEM\\CurrentControlSet\\Steuerelement\\Terminalserver\\WinStations\\RDP-Tcp**
-    3. Exportieren Sie den Eintrag in einer REG-Datei. Zum Beispiel im Registrierungs-Editor mit der rechten Maustaste des Eintrags, wählen Sie **exportieren**, und geben Sie einen Dateinamen für die exportierten Einstellungen.
-    4. Kopieren Sie die exportierte REG-Datei, auf dem betroffenen Computer.
-5. Um die RDP-Listener-Konfiguration importieren möchten, öffnen Sie ein PowerShell-Fenster, das über Administratorberechtigungen verfügt, auf dem betroffenen Computer (oder öffnen Sie das PowerShell-Fenster, und Herstellen einer Remoteverbindung mit dem betroffenen Computer).
-   1. Um den vorhandenen Registrierungseintrag sichern, geben Sie den folgenden Befehl aus:  
+1. Öffnen Sie ein PowerShell-Fenster. Um eine Verbindung mit einem Remotecomputer herzustellen, geben Sie **Enter-PSSession -ComputerName \<Computername\>** ein.
+2. Geben Sie **qwinsta** ein. 
+    ![Der Befehl „qwinsta“ listet die Prozesse auf, die an den Ports des Computers lauschen.](../media/troubleshoot-remote-desktop-connections/WPS_qwinsta.png)
+3. Wenn die Liste **rdp-tcp** mit dem Status **Listen** (Lauschen) enthält, funktioniert der RDP-Listener. Fahren Sie mit [Überprüfen des RDP-Listener-Ports](#check-the-rdp-listener-port) fort. Fahren Sie andernfalls mit Schritt 4 fort.
+4. Exportieren der RDP-Listener-Konfiguration von einem funktionierenden Computer.
+    1. Melden Sie sich bei einem Computer an, der die gleiche Betriebssystemversion wie der betroffene Computer aufweist, und greifen Sie auf die Registrierung dieses Computers zu (beispielsweise mithilfe des Registrierungs-Editors).
+    2. Navigieren Sie zu folgendem Registrierungseintrag:  
+        **HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\\WinStations\\RDP-Tcp**
+    3. Exportieren Sie den Eintrag in eine REG-Datei. Klicken Sie beispielsweise im Registrierungs-Editor mit der rechten Maustaste auf den Eintrag, wählen Sie **Exportieren** aus, und geben Sie dann einen Dateinamen für die exportierten Einstellungen ein.
+    4. Kopieren Sie die exportierte REG-Datei auf den betroffenen Computer.
+5. Um die Konfiguration des RDP-Listeners zu importieren, öffnen Sie ein PowerShell-Fenster, das über Administratorberechtigungen auf dem betroffenen Computer verfügt (oder öffnen Sie das PowerShell-Fenster, und stellen Sie eine Remoteverbindung mit dem betroffenen Computer her).
+   1. Geben Sie den folgenden Befehl ein, um den vorhandenen Registrierungseintrag zu sichern:  
    
       ```powershell  
       cmd /c 'reg export "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-tcp" C:\Rdp-tcp-backup.reg'   
       ```  
    
 
-   2. Um den vorhandenen Registrierungseintrag zu entfernen, geben Sie die folgenden Befehle aus:  
+   2. Geben Sie den folgenden Befehl ein, um den vorhandenen Registrierungseintrag zu entfernen:  
    
       ```powershell  
       Remove-Item -path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-tcp' -Recurse -Force  
       ```
    
-   3. Zum Importieren des neuen Registrierungseintrags, und klicken Sie dann den Dienst neu starten, geben Sie die folgenden Befehle aus:  
+   3. Um den neuen Registrierungseintrag zu importieren und den Dienst anschließend neu zu starten, geben Sie die folgenden Befehle ein:  
    
       ```powershell  
       cmd /c 'regedit /s c:\<filename>.reg'  
       Restart-Service TermService -Force  
       ```   
-      wo \<Filename\> ist der Name der exportierte REG-Datei.
-6. Testen Sie die Konfiguration, indem Sie die Remotedesktopverbindung erneut versuchen. Wenn Sie noch keine Verbindung herstellen können, starten Sie den betroffenen Computer neu.
-7. Wenn Sie noch keine Verbindung herstellen können, [Überprüfen des Status des selbstsignierten Zertifikats für RDP](#check-the-status-of-the-rdp-self-signed-certificate).
+      dabei steht \<Dateiname\> für den Namen der exportierten REG-Datei.
+6. Testen Sie die Konfiguration, indem Sie erneut versuchen, die Remotedesktopverbindung herzustellen. Wenn Sie trotzdem keine Verbindung herstellen können, führen Sie einen Neustart des betroffenen Computers durch.
+7. Wenn Sie noch immer keine Verbindung herstellen können, [überprüfen Sie den Status des selbstsignierten RDP-Zertifikats](#check-the-status-of-the-rdp-self-signed-certificate).
 
-#### <a name="check-the-status-of-the-rdp-self-signed-certificate"></a>Überprüfen des Status des selbstsignierten Zertifikats für RDP
+#### <a name="check-the-status-of-the-rdp-self-signed-certificate"></a>Überprüfen des Status des selbstsignierten RDP-Zertifikats
 
-1. Wenn Sie noch keine Verbindung herstellen können, öffnen Sie das Zertifikate-MMC-Snap-in. Wenn Sie aufgefordert werden, wählen Sie den Zertifikatspeicher, wählen Sie zum Verwalten von **Computerkonto**, und wählen Sie dann auf den betroffenen Computer.
-2. In der **Zertifikate** Unterordner **Remotedesktop**, des selbstsignierten Zertifikats für RDP zu löschen. 
-    ![Remote Desktop Zertifikate im MMC-Zertifikat-Snap-in.](../media/troubleshoot-remote-desktop-connections/MMCCert_Delete.png)
-3. Starten Sie auf dem betroffenen Computer den Remote Desktop Services-Dienst neu.
-4. Aktualisieren Sie das Zertifikate-Snap-in.
-5. Wenn das selbstsignierte Zertifikat für RDP nicht neu erstellt wurde [überprüfen Sie die Berechtigungen des Ordners "MachineKeys"](#check-the-permissions-of-the-machinekeys-folder).
+1. Wenn Sie immer noch keine Verbindung herstellen können, öffnen Sie das MMC-Zertifikate-Snap-In. Wenn Sie aufgefordert werden, den zu verwaltenden Zertifikatspeicher auszuwählen, wählen Sie **Computerkonto** und dann den betroffenen Computer aus.
+2. Löschen Sie im Ordner **Certificates** unter **Remote Desktop** das selbstsignierte RDP-Zertifikat. 
+    ![Remotedesktopzertifikate im MMC-Zertifikate-Snap-In.](../media/troubleshoot-remote-desktop-connections/MMCCert_Delete.png)
+3. Starten Sie auf dem betroffenen Computer die Remotedesktopdienste erneut.
+4. Aktualisieren Sie das Zertifikate-Snap-In.
+5. Wenn das selbstsignierte RDP-Zertifikat nicht erneut erstellt wurde, [überprüfen Sie die Berechtigungen des MachineKeys-Ordners](#check-the-permissions-of-the-machinekeys-folder).
 
-#### <a name="check-the-permissions-of-the-machinekeys-folder"></a>Überprüfen Sie die Berechtigungen des Ordners "MachineKeys"
+#### <a name="check-the-permissions-of-the-machinekeys-folder"></a>Überprüfen der Berechtigungen des MachineKeys-Ordners
 
-1. Auf dem betroffenen Computer, öffnen Sie Explorer, und navigieren Sie zum **C:\\ProgramData\\Microsoft\\Crypto\\RSA\\** .
-2. Mit der rechten Maustaste **"MachineKeys"** Option **Eigenschaften**Option **Sicherheit**, und wählen Sie dann **erweitert**.
-3. Stellen Sie sicher, dass die folgenden Berechtigungen konfiguriert sind:
-      - "Vordefiniert"\\Administratoren: Vollzugriff
-      - Alle Benutzer: Lesen, schreiben
+1. Öffnen Sie auf dem betroffenen Computer den Explorer, und navigieren Sie dann zu **C:\\Programme\\Microsoft\\Crypto\\RSA\\** .
+2. Klicken Sie mit der rechen Maustaste auf **MachineKeys**, wählen Sie **Eigenschaften**, dann **Sicherheit** und schließlich **Erweitert** aus.
+3. Vergewissern Sie sich, dass die folgenden Berechtigungen konfiguriert sind:
+      - Vordefiniert\\Administratoren: Vollzugriff
+      - Jeder: Lesen, Schreiben
 
-### <a name="check-the-rdp-listener-port"></a>Überprüfen Sie den RDP-Listener-port
+### <a name="check-the-rdp-listener-port"></a>Überprüfen des RDP-Listener-Ports
 
-Auf dem Computer lokalen (Client-) und dem Remotecomputer (Zielcomputer)-Computer sollte die RDP-Listener an Port 3389 überwacht werden. Keine anderen Anwendungen sollten diesen Port verwenden.
+Auf dem lokalen Computer (Client) und dem Remotecomputer (Zielcomputer) sollte der RDP-Listener an Port 3389 lauschen. Keine anderen Anwendungen sollten diesen Port verwenden.
 
 > [!IMPORTANT]  
-> Die Schritte in diesem Abschnitt sorgfältig. Wird die Registrierung falsch angepasst, können schwerwiegende Probleme auftreten. Bevor Sie Änderungen vornehmen, müssen [sichern Sie die Registrierung für die Wiederherstellung](https://support.microsoft.com/en-us/help/322756%22%20target=%22_self%22) für den Fall, dass Probleme auftreten.
+> Folgen Sie den Schritten in diesem Abschnitt sorgfältig. Wird die Registrierung falsch angepasst, können schwerwiegende Probleme auftreten. Bevor Sie sie ändern, [sichern Sie die Registrierung zwecks Wiederherstellung](https://support.microsoft.com/en-us/help/322756%22%20target=%22_self%22) für den Fall, dass Probleme auftreten.
 
-Verwenden Sie zum Überprüfen, oder ändern den RDP-Port, Registrierungs-Editor ein:
+Um den RDP-Port zu überprüfen oder zu ändern, verwenden Sie den Registrierungs-Editor:
 
-1. Wählen Sie auf Start, wählen Sie **ausführen**, und geben Sie dann **regedt32**.
-      - Wählen Sie zum Verbinden mit einem Remotecomputer **Datei**, und wählen Sie dann **Netzwerk-Connect-Registrierung**.
-      - In der **Computer auswählen** Dialogfeld ein, geben Sie den Namen des Remotecomputers ein, wählen Sie **Namen überprüfen**, und wählen Sie dann **OK**.
-2. Öffnen Sie die Registrierung, und navigieren Sie zu **HKEY\_lokalen\_Computer\\SYSTEM\\CurrentControlSet\\Steuerelement\\Terminal Server\\WinStations\\ \<Listener\>** . 
-    ![Die PortNumber-Unterschlüssel für das RDP-Protokoll.](../media/troubleshoot-remote-desktop-connections/RegEntry_PortNumber.png)
-3. Wenn **PortNumber** verfügt über einen Wert als **3389**, ändern Sie ihn in **3389**. 
+1. Wählen Sie „Start“, dann **Ausführen** aus, und geben Sie dann **regedt32** ein.
+      - Um eine Verbindung mit einem Remotecomputer herzustellen, wählen Sie **Datei** und dann **Mit Netzwerkregistrierung verbinden** aus.
+      - Geben Sie im Dialogfeld **Computer auswählen** den Namen des Remotecomputers ein, wählen Sie **Namen überprüfen** und dann **OK** aus.
+2. Öffnen Sie die Registrierung, und navigieren Sie zu **HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\\WinStations\\\<listener\>** . 
+    ![Der PortNumber-Unterschlüssel für das RDP-Protokoll.](../media/troubleshoot-remote-desktop-connections/RegEntry_PortNumber.png)
+3. Wenn **PortNumber** einen anderen Wert als **3389** aufweist, ändern Sie ihn in **3389**. 
    > [!IMPORTANT]  
-    > Sie können Remote Desktop Services über einen anderen Port betreiben. Allerdings empfohlen nicht, dass Sie so vorgehen. Problembehandlung für eine solche Konfiguration ist über den Rahmen dieses Artikels hinaus.
-4. Nachdem Sie die Portnummer ändern, starten Sie die Remote Desktop Services-Dienst neu.
+    > Sie können die Remotedesktopdienste über einen anderen Port betreiben. Allerdings raten wir davon ab. Die Problembehandlung für eine derartige Konfiguration liegt außerhalb des Bereichs dieses Artikels.
+4. Führen Sie nach dem Ändern der Portnummer einen Neustart des Remotedesktopdiensts durch.
 
-#### <a name="check-that-another-application-is-not-trying-to-use-the-same-port"></a>Überprüfen Sie, dass eine andere Anwendung versucht, auf den gleichen Port verwenden
+#### <a name="check-that-another-application-is-not-trying-to-use-the-same-port"></a>Überprüfen, ob eine andere Anwendung den gleichen Port zu verwenden versucht
 
-Verwenden Sie für dieses Verfahren eine PowerShell-Instanz, die über Administratorberechtigungen verfügt. Für einen lokalen Computer können Sie auch eine Eingabeaufforderung, die über Administratorberechtigungen verfügt. Dieses Verfahren ist jedoch PowerShell verwendet, da dieselben Befehle lokal und Remote arbeiten.
+Verwenden Sie für dieses Verfahren eine PowerShell-Instanz, die über Administratorberechtigungen verfügt. Für einen lokalen Computer können Sie auch eine Eingabeaufforderung mit Administratorberechtigungen verwenden. In diesem Verfahren verwenden wir aber PowerShell, da die gleichen Befehle lokal wie auch remote funktionieren.
 
-1. Öffnen Sie ein PowerShell-Fenster. Um eine Verbindung mit einem Remotecomputer herzustellen, geben Sie **Enter-PSSession – ComputerName \<Computername\>** .
+1. Öffnen Sie ein PowerShell-Fenster. Um eine Verbindung mit einem Remotecomputer herzustellen, geben Sie **Enter-PSSession -ComputerName \<Computername\>** ein.
 2. Geben Sie den folgenden Befehl aus:  
    
      ```powershell  
     cmd /c 'netstat -ano | find "3389"'  
     ```
   
-    ![Der Netstat-Befehl erzeugt eine Liste der Ports und die Dienste überwacht.](../media/troubleshoot-remote-desktop-connections/WPS_netstat.png)
+    ![Der Netstat-Befehl erzeugt eine Liste der Ports und der Dienste, die an ihnen lauschen.](../media/troubleshoot-remote-desktop-connections/WPS_netstat.png)
 3. Suchen Sie nach einem Eintrag für den TCP-Port 3389 (oder dem zugewiesenen RDP-Port) mit dem Status **Empfangsbereit**. 
     > [!NOTE]  
    > In der Spalte PID wird die PID (Prozess-ID) des Prozesses oder Diensts angezeigt, der diesen Port verwendet.
-4. Um zu bestimmen, welche Anwendung Port 3389 (oder den zugewiesene RDP-Port) verwendet wird, geben Sie den folgenden Befehl aus:  
+4. Um zu bestimmen, welche Anwendung Port 3389 (oder den zugewiesenen RDP-Port) verwendet, geben Sie den folgenden Befehl ein:  
    
      ```powershell  
     cmd /c 'tasklist /svc | find "<pid listening on 3389>"'  
     ```  
   
-    ![Die Tasklist-Befehl Gibt Details zu einem bestimmten Prozess.](../media/troubleshoot-remote-desktop-connections/WPS_tasklist.png)
-5. Suchen Sie nach einem Eintrag für die PID-Nummer, die dem Port zugeordnet ist (aus der **Netstat** Ausgabe). Werden Sie auf der rechten Seite angezeigt, die Dienste oder Prozesse, die dieser PID zugeordnet sind.
-6. Wenn eine Anwendung oder ein Dienst als Remote Desktop Services (TermServ.exe) auf den Port verwendet wird, können Sie den Konflikt auflösen, indem Sie eine der folgenden Methoden:
-      - Konfigurieren Sie die andere Anwendung oder Dienst um einen anderen Port (empfohlen) verwenden.
-      - Deinstallieren Sie andere Anwendungen oder Dienste.
-      - Konfigurieren von RDP, um einen anderen Port verwenden, und starten Sie den Remote Desktop Services-Dienst (nicht empfohlen).
+    ![Der Aufgabenlistenbefehl meldet Details zu einem bestimmten Prozess.](../media/troubleshoot-remote-desktop-connections/WPS_tasklist.png)
+5. Suchen Sie nach einem Eintrag für die PID-Nummer, die dem Port zugeordnet ist (gemäß der **netstat**-Ausgabe). Die Dienste oder Prozesse, die der betreffenden PID zugeordnet sind, werden rechts angezeigt.
+6. Wenn eine andere Anwendung oder ein anderer Dienst als Remotedesktopdienste (TermServ.exe) den Port verwendet, können Sie den Konflikt mit einem der folgenden Verfahren beheben:
+      - Konfigurieren der anderen Anwendung oder des anderen Diensts für die Verwendung eines anderen Ports (empfohlen).
+      - Deinstallieren der anderen Anwendung oder des anderen Diensts.
+      - Konfigurieren von RDP für die Verwendung eines anderen Ports, gefolgt von einem Neustart der Remotedesktopdienste (nicht empfohlen).
 
-#### <a name="check-whether-a-firewall-is-blocking-the-rdp-port"></a>Überprüfen Sie, ob eine Firewall den RDP-Port blockiert wird
+#### <a name="check-whether-a-firewall-is-blocking-the-rdp-port"></a>Überprüfen, ob der RDP-Port durch eine Firewall blockiert wird
 
-Verwenden der **Psping** Tool zum Testen, ob Sie über Port 3389 ist den betroffenen Computer erreichen können.
+Verwenden Sie das **psping**-Tool, um zu testen, ob Sie den betroffenen Computer über Port 3389 erreichen können.
 
-1. Auf einem Computer, die sich von dem betroffenen Computer herunterladen **Psping** aus <https://live.sysinternals.com/psping.exe>.
-2. Öffnen Sie ein Eingabeaufforderungsfenster als Administrator, wechseln Sie zu dem Verzeichnis, in dem Sie installiert **Psping**, und geben Sie dann den folgenden Befehl aus:  
+1. Laden Sie auf einem anderen als dem betroffenen Computer **psping** von <https://live.sysinternals.com/psping.exe> herunter.
+2. Öffnen Sie ein Eingabeaufforderungsfenster als Administrator, wechseln Sie in das Verzeichnis, in dem Sie **psping** installiert haben, und geben Sie dann den folgenden Befehl ein:  
    
    ```  
    psping -accepteula <computer IP>:3389  
    ```
    
-3. Überprüfen Sie die Ausgabe von der **Psping** für Ergebnisse wie den folgenden Befehl:  
-      - **Herstellen einer Verbindung mit \<Computer IP-Adresse\>** : Der Remotecomputer ist erreichbar.
-      - **(0 % Loss)** : Alle Versuche, die Verbindung war erfolgreich.
-      - **Der Remotecomputer verweigert die Netzwerkverbindung**: Der Remotecomputer ist nicht erreichbar.
-      - **(100 %-Verlust)** : Fehler bei der alle Versuche, eine Verbindung herstellen.
-1. Führen Sie **Psping** auf mehreren Computern So testen Sie ihre Fähigkeit zum Verbinden mit dem betroffenen Computer.
-1. Beachten Sie, ob es sich bei der betroffene Computer Verbindungen von allen anderen Computern, einige andere Computer oder nur einen anderen Computer blockiert.
+3. Überprüfen Sie die Ausgabe des **psping**-Befehls auf Ergebnisse wie das folgende:  
+      - **Herstellen einer Verbindung mit \<Computer-IP-Adresse\>** : Der Remotecomputer ist erreichbar.
+      - **(0 % Verlust)** : Alle Verbindungsversuche waren erfolgreich.
+      - **Der Remotecomputer hat die Netzwerkverbindung abgelehnt**: Der Remotecomputer ist nicht erreichbar.
+      - **(100 % Verlust)** : Bei allen Verbindungsversuchen ist ein Fehler aufgetreten.
+1. Führen Sie **psping** auf mehreren Computern aus, um ihre Fähigkeit zu überprüfen, eine Verbindung mit dem betroffenen Computer herzustellen.
+1. Achten Sie darauf, ob der betroffene Computer Verbindungen von allen anderen Computern, von einigen anderen Computern oder nur von einem anderen Computer blockiert.
 1. Empfohlene nächste Schritte:
-      - Tauschen Sie sich Ihren Netzwerkadministratoren, um sicherzustellen, dass das Netzwerk auf dem betroffenen Computer RDP-Datenverkehr zulässt.
-      - Untersuchen Sie die Konfigurationen der alle Firewalls zwischen dem Quellcomputer und dem betroffenen Computer (einschließlich Windows-Firewall auf dem betroffenen Computer), um festzustellen, ob eine Firewall den RDP-Port blockiert wird.
+      - Tauschen Sie sich mit Ihren Netzwerkadministratoren aus, um sicherzustellen, dass das Netzwerk RDP-Datenverkehr zum betroffenen Computer zulässt.
+      - Untersuchen Sie die Konfigurationen aller Firewalls zwischen den Quellcomputern und dem betroffenen Computer (einschließlich der Windows Firewall auf dem betroffenen Computer), um zu bestimmen, ob eine Firewall den RDP-Port blockiert.
 
-## <a name="client-cannot-connect-class-not-registered"></a>Client keine Verbindung herstellen, "Der Klasse nicht registriert."
+## <a name="client-cannot-connect-class-not-registered"></a>Der Client kann keine Verbindung herstellen, „Klasse nicht registriert“
 
-Wenn Sie versuchen, eine Verbindung mit einem Remotecomputer mithilfe eines Clients, auf denen Windows 10, Version 1709 ausgeführt wird oder höher, der Client nicht verbunden kann, während der Remote Desktop Session Host-Server eine Meldung, die den Fehlercode "Nicht registriert (0 x 80040154) Class" enthält.
+Wenn Sie versuchen, eine Verbindung mit einem Remotecomputer mithilfe eines Clients herzustellen, der Windows 10, Version 1709 oder höher, ausführt, stellt der Client möglicherweise keine Verbindung her, während der Remotedesktop-Sitzungshostserver eine Nachricht meldet, die den Fehlercode „Klasse nicht registriert (0x80040154)“ enthält.
 
-Dieses Problem tritt auf, wenn der Benutzer, die eine Verbindung herzustellen versucht ein verbindliches Benutzerprofil hat. Um dieses Problem zu beheben, installieren die [24. Juli 2018 – KB4338817 (OS Build 16299.579)](https://support.microsoft.com/en-us/help/4338817/windows-10-update-kb4338817) Windows 10-Update.
+Dieses Problem tritt auf, wenn der Benutzer, der die Verbindung herzustellen versucht, über ein obligatorisches Benutzerprofil verfügt. Um dieses Problem zu beheben, installieren Sie das Windows 10-Update vom [24. Juli 2018—KB4338817 (Betriebssystembuild 16299.579)](https://support.microsoft.com/en-us/help/4338817/windows-10-update-kb4338817).
 
-## <a name="client-cannot-connect-no-licenses-available"></a>Client keine Verbindung herstellen, keine Lizenzen verfügbar
+## <a name="client-cannot-connect-no-licenses-available"></a>Der Client kann keine Verbindung herstellen, keine Lizenzen verfügbar
 
-Dies gilt für Bereitstellungen mit einem RDSH-Server und einem Server Remote Desktop Licensing.
+Diese Situation betrifft alle Bereitstellungen, die einen RDSH-Server und einen Remotedesktop-Lizenzierungsserver beinhalten.
 
-Ermitteln Sie, welche Art von Verhalten, die Benutzern angezeigt werden:
+Bestimmen Sie die Art von Verhalten, die Benutzer erleben:
 
-- Die Sitzung wurde getrennt, da keine Lizenzen verfügbar sind oder kein License-Server verfügbar ist
-- Der Zugriff wurde aufgrund eines Sicherheitsfehlers verweigert.
+- Die Sitzung wurde getrennt, weil keine Lizenzen verfügbar sind oder kein Lizenzserver verfügbar ist
+- Der Zugriff wurde aufgrund eines Sicherheitsfehlers verweigert
 
-Melden Sie sich bei dem Remotedesktop-Sitzungshost als Domänenadministrator an, und öffnen Sie die Diagnose der RD-Lizenz. Suchen Sie nach Meldungen wie die folgende:
+Melden Sie sich beim RD-Sitzungshost als Domänenadministrator an, und öffnen Sie die RD-Lizenzdiagnose. Suchen Sie nach Nachrichten wie der folgenden:
 
-  - Die Kulanzfrist für die Remote desktop Session Host-Server ist abgelaufen, aber die Remotedesktop-Sitzungshostserver wurde nicht mit Lizenzservern konfiguriert. Verbindungen mit dem Remotedesktop-Sitzungshost-Server werden verweigert werden, es sei denn, ein Lizenzserver für Remotedesktop-Sitzungshostserver konfiguriert ist.
-  - Lizenzserver \<Computername\> ist nicht verfügbar. Dies könnte darauf zurückzuführen, dass Probleme mit der Netzwerkverbindung, der Remote Desktop Licensing-Dienst wurde beendet, auf dem Lizenzserver oder RD-Lizenzierung wird nicht mehr auf dem Computer installiert.
+  - Die Kulanzfrist für den Remotedesktop-Sitzungshostserver ist abgelaufen, der RD-Sitzungshostserver wurde jedoch noch nicht mit Lizenzservern konfiguriert. Verbindungen mit dem RD-Sitzungshostserver werden abgelehnt, bis ein Lizenzserver für den RD-Sitzungshostserver konfiguriert wurde.
+  - Der Lizenzserver \<Computername\> ist nicht verfügbar. Dies könnte durch Probleme mit der Netzwerkverbindung verursacht sein oder darauf beruhen, dass der Remotedesktop-Lizenzierungsdienst auf dem Lizenzserver beendet wurde oder die RD-Lizenzierung nicht mehr auf dem Computer installiert ist.
 
-Diese Probleme sind tendenziell die folgenden Benutzernachrichten zugeordnet werden:
+Diese Probleme gehen häufig mit den folgenden Benutzermeldungen einher:
 
-  - Die Remotesitzung wurde abgebrochen, da keine Remote Desktop-Clientzugriffslizenzen für diesen Computer verfügbar sind.
-  - Die Remotesitzung wurde abgebrochen, da keine Remote Desktop License Server eine Lizenz verfügbar sind.
+  - Die Remotesitzung wurde getrennt, da für diesen Computer keine Remotedesktop-Clientzugriffslizenzen verfügbar sind.
+  - Die Remotesitzung wurde getrennt, da keine Remotedesktop-Lizenzserver verfügbar sind, um eine Lizenz bereitzustellen.
 
-In diesem Fall [konfigurieren Sie den Dienst RD-Lizenzierung](#configure-the-rd-licensing-service).
+In diesem Fall können Sie [den RD-Lizenzierungsdienst konfigurieren](#configure-the-rd-licensing-service).
 
-Wenn die Diagnose der RD-Lizenz anderer Probleme angezeigt werden, wie z. B. "die Komponente X.224 der RDP-Protokoll hat einen Fehler im Protokollablauf erkannt und der Client wurde getrennt," möglicherweise ein Problem darstellen, die die Lizenzzertifikate betroffen sind. Solche Probleme tendenziell benutzermeldungen, wie z. B. die folgenden zugeordnet werden:
+Wenn die RD-Lizenzdiagnose andere Probleme auflistet, wie etwa „Die RDP-Protokollkomponente X.224 hat einen Fehler im Protokolldatenstrom erkannt und den Client getrennt“, liegt möglicherweise ein Problem vor, das die Lizenzzertifikate betrifft. Solche Probleme gehen häufig mit Benutzermeldungen einher, wie etwa der folgenden:
 
-Der Client konnte aufgrund eines Sicherheitsfehlers nicht mit dem Terminalserver verbunden werden. Stellen Sie sicher, dass Sie mit dem Netzwerk angemeldet sind, versuchen Sie es erneut eine Verbindung mit dem Server.
+Aufgrund eines Sicherheitsfehlers konnte der Client keine Verbindung mit dem Terminalserver herstellen. Nachdem Sie sichergestellt haben, dass Sie beim Netzwerk angemeldet sind, versuchen Sie noch einmal, eine Verbindung mit dem Server herzustellen.
 
-In diesem Fall [Registrierungsschlüssel für die Aktualisierung der X509 Zertifikate](#refresh-the-x509-certificate-registry-keys).
+In diesem Fall können Sie [die Registrierungsschlüssel des X509-Zertifikats aktualisieren](#refresh-the-x509-certificate-registry-keys).
 
-### <a name="configure-the-rd-licensing-service"></a>Konfigurieren Sie den Dienst RD-Lizenzierung
+### <a name="configure-the-rd-licensing-service"></a>Konfigurieren des RD-Lizenzierungsdiensts
 
-Das folgende Verfahren verwendet Server-Manager, um die konfigurationsänderungen vorzunehmen. Weitere Informationen zum Konfigurieren und Server-Manager verwenden, finden Sie unter [Server-Manager](https://docs.microsoft.com/en-us/windows-server/administration/server-manager/server-manager).
+Im folgenden Verfahren wird der Server-Manager für die Konfigurationsänderungen verwendet. Weitere Informationen zum Konfigurieren und Verwenden des Server-Managers finden Sie unter [Server-Manager](https://docs.microsoft.com/windows-server/administration/server-manager/server-manager).
 
-1. Öffnen Sie Server-Manager, und navigieren Sie zum **Remote Desktop Services**.
-2. Auf **Bereitstellungsübersicht**Option **Aufgaben**, und wählen Sie dann **Bereitstellungseigenschaften bearbeiten**.
-3. Wählen Sie **RD-Lizenzierung**, und wählen Sie dann den entsprechenden Lizenzierungsmodus für die Bereitstellung ( **"pro Gerät"** oder **pro Benutzer**).
-4. Geben Sie den vollqualifizierten Domänennamen (FQDN) des Servers RD-Lizenz, und wählen Sie dann **hinzufügen**.
-5. Wenn Sie mehr als eine Remotedesktop-Lizenzserver verfügen, wiederholen Sie Schritt 4 für jeden Server. 
-    ![RD-Lizenz Serverkonfigurationsoptionen im Server-Manager.](../media/troubleshoot-remote-desktop-connections/RDLicensing_Configure.png)
+1. Öffnen Sie Server-Manager, und navigieren Sie dann zu **Remotedesktopdienste**.
+2. Wählen Sie unter **Bereitstellungsübersicht** zuerst **Aufgaben** und anschließend **Bereitstellungseigenschaften bearbeiten** aus.
+3. Wählen Sie **RD-Lizenzierung** und dann den passenden Lizenzierungsmodus für Ihre Bereitstellung aus (**Pro Gerät** oder **Pro Benutzer**).
+4. Geben Sie den vollqualifizierten Domänennamen (FQDN) Ihres RD-Lizenzservers ein, und wählen Sie dann **Hinzufügen** aus.
+5. Wenn Sie über mehrere RD-Lizenzserver verfügen, wiederholen Sie Schritt 4 für jeden Server. 
+    ![Konfigurationsoptionen für den RD-Lizenzserver in Server-Manager.](../media/troubleshoot-remote-desktop-connections/RDLicensing_Configure.png)
 
-### <a name="refresh-the-x509-certificate-registry-keys"></a>Registrierungsschlüssel für die Aktualisierung der X509 Zertifikate
+### <a name="refresh-the-x509-certificate-registry-keys"></a>Aktualisieren der Registrierungsschlüssel des X509-Zertifikats
 
 > [!IMPORTANT]  
-> Die Schritte in diesem Abschnitt sorgfältig. Wird die Registrierung falsch angepasst, können schwerwiegende Probleme auftreten. Bevor Sie Änderungen vornehmen, müssen [sichern Sie die Registrierung für die Wiederherstellung](https://support.microsoft.com/en-us/help/322756%22%20target=%22_self%22) für den Fall, dass Probleme auftreten.
+> Folgen Sie den Schritten in diesem Abschnitt sorgfältig. Wird die Registrierung falsch angepasst, können schwerwiegende Probleme auftreten. Bevor Sie sie ändern, [sichern Sie die Registrierung zwecks Wiederherstellung](https://support.microsoft.com/en-us/help/322756%22%20target=%22_self%22) für den Fall, dass Probleme auftreten.
 
-Um dieses Problem zu beheben, sichern, und klicken Sie dann Registrierungsschlüssel für das Entfernen der X509 Zertifikate, neu starten, den Computer, und reaktivieren Sie den Remotedesktop-Lizenzserver. Führen Sie dazu folgende Schritte durch.
+Um dieses Problem zu beheben, sichern Sie die Registrierungsschlüssel des X509-Zertifikats, entfernen Sie sie anschließend, starten Sie den Computer neu, und aktivieren Sie den RD-Lizenzierungsserver erneut. Führen Sie dazu folgende Schritte durch.
 
 > [!NOTE]  
-> Führen Sie das folgende Verfahren auf jedem der RDSH-Server.
+> Führen Sie den folgenden Vorgang auf jedem der RDSH-Server durch.
 
-1. Öffnen Sie die Registrierungs-Editor, und navigieren Sie zu **HKEY\_lokalen\_Computer\\SYSTEM\\CurrentControlSet\\Steuerelement\\Terminal Server\\RCM**.
-2. Wählen Sie im Menü Registrierung **Registrierungsdatei exportieren**.
-3. Typ **exportierte Zertifikat** in die **Dateiname** Feld, und wählen Sie dann **speichern**.
-4. Mit der rechten Maustaste jeweils die folgenden Werte, die Option **löschen**, und wählen Sie dann **Ja** um den Löschvorgang zu überprüfen:  
+1. Öffnen Sie den Registrierungs-Editor, und navigieren Sie zu **HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\\RCM**.
+2. Wählen Sie im Menü „Registrierung“ **Registrierungsdatei exportieren** aus.
+3. Geben Sie **exportiertes Zertifikat** im Feld **Dateiname** ein, und wählen Sie dann **Speichern** aus.
+4. Klicken Sie mit der rechten Maustaste auf jeden der folgenden Werte, wählen Sie **Löschen** und anschließend **Ja** aus, um die Löschung zu bestätigen:  
       - **Certificate**
       - **X509 Certificate**
       - **X509 Certificate ID**
-      - **X509 Certificate2**
-5. Beenden Sie Registrierungs-Editor zu und Neustarten Sie des RDSH-Servers.
+      - **X509-Zertifikat2**
+5. Schließen Sie den Registrierungs-Editor, und starten Sie den RDSH-Server anschließend neu.
 
-## <a name="user-cannot-authenticate-or-must-authenticate-twice"></a>Benutzer nicht authentifizieren kann, oder muss zweimal authentifizieren
+## <a name="user-cannot-authenticate-or-must-authenticate-twice"></a>Der Benutzer kann sich nicht authentifizieren oder muss sich zweimal authentifizieren
 
-Es gibt mehrere Probleme, die Probleme verursachen können, die Benutzerauthentifizierung zu betreffen. In diesem Abschnitt werden die folgenden Fälle:
+Probleme, die sich auf die Benutzerauthentifizierung auswirken, können in verschiedenen Bereichen auftreten. In diesem Abschnitt werden die folgenden Fälle behandelt:
 
-  - [Ein Benutzer mit der Meldung "restricted Anmeldetyp" keinen Zugriff](#access-denied-restricted-type-of-logon)
-  - [Benutzer oder Anwendungen Zugriff mit Ereignis 16965 verweigert wird, "verfügt über ein Remoteaufruf an der SAM-Datenbank verweigert wurde"](#access-denied-a-remote-call-to-the-sam-database-has-been-denied)
-  - [Ein Benutzer kann nicht mit einer Smartcard anmelden](#a-user-cannot-sign-in-by-using-a-smart-card)
-  - [Wenn der Remotecomputer gesperrt ist, muss ein Benutzer ein Kennwort zweimal eingeben](#if-the-remote-pc-is-locked-a-user-needs-to-enter-a-password-twice)
-  - [Ein Benutzer nicht anmelden und "Authentifizierungsfehler" und "CredSSP Verschlüsselung Oracle-Remediation" Nachrichten empfängt](#user-cannot-sign-in-and-receives-authentication-error-and-credssp-encryption-oracle-remediation-messages)
-  - [Nach dem Aktualisieren von Clientcomputern einige Benutzer müssen sich zweimal anmelden](#after-you-update-client-computers-some-users-need-to-sign-in-twice).
-  - [Benutzer in einer Bereitstellung von Zugriff, die RemoteGuard mit mehreren Remotedesktop-Verbindungsbroker verwendet](#users-are-denied-access-on-a-deployment-that-uses-remote-credential-guard-with-multiple-rd-connection-brokers)
+  - [Einem Benutzer wird der Zugriff verweigert und eine Meldung „eingeschränkter Anmeldetyp“ zurückgegeben](#access-denied-restricted-type-of-logon)
+  - [Einem Benutzer oder einer Anwendung wird der Zugriff mit Ereignis 16965 verweigert, „Ein Remoteaufruf der SAM-Datenbank wurde verweigert“](#access-denied-a-remote-call-to-the-sam-database-has-been-denied)
+  - [Ein Benutzer kann sich nicht mithilfe einer Smartcard anmelden](#a-user-cannot-sign-in-by-using-a-smart-card)
+  - [Wenn der Remotecomputer gesperrt ist, muss ein Benutzer das Kennwort zweimal eingeben](#if-the-remote-pc-is-locked-a-user-needs-to-enter-a-password-twice)
+  - [Ein Benutzer kann sich nicht anmelden und erhält die Meldungen „Authentifizierungsfehler“ und „CredSSP encryption oracle remediation“ (CredSSP-Verschlüsselung – Oracle-Wartung)](#user-cannot-sign-in-and-receives-authentication-error-and-credssp-encryption-oracle-remediation-messages)
+  - [Nach einem Update von Clientcomputern müssen sich manche Benutzer zweimal anmelden](#after-you-update-client-computers-some-users-need-to-sign-in-twice).
+  - [Benutzern wird der Zugriff auf eine Bereitstellung verweigert, die RemoteGuard mit mehreren RD-Verbindungsbrokern verwendet](#users-are-denied-access-on-a-deployment-that-uses-remote-credential-guard-with-multiple-rd-connection-brokers)
 
-### <a name="access-denied-restricted-type-of-logon"></a>Der Zugriff verweigert, eingeschränkten Typ der Anmeldung
+### <a name="access-denied-restricted-type-of-logon"></a>Zugriff verweigert, eingeschränkter Anmeldungstyp
 
-In diesem Fall wird ein Windows 10-Benutzer, die versuchen, auf Windows 10 oder Windows Server 2016-Computer eine Verbindung mit der folgenden Meldung Zugriff:
+In diesem Fall wird einem Windows 10-Benutzer, der versucht, eine Verbindung mit Windows 10- oder Windows Server 2016-Computern herzustellen, der Zugriff mit der folgenden Meldung verweigert:
 
 > Remotedesktopverbindung:  
-> Der Systemadministrator hat den Typ der Anmeldung eingeschränkt (Netzwerk oder einen interaktiven), die Sie verwenden können. Hilfe zu erhalten wenden Sie sich an Ihren Systemadministrator oder den technischen Support.
+> Der Systemadministrator hat den zulässigen Anmeldetyp (Netzwerk oder interaktiv) eingeschränkt. Bitten Sie Ihren Systemadministrator oder den technischen Support um Hilfe.
 
-Dieses Problem tritt auf, wenn es sich bei (Network Level Authentication, NLA) ist für die RDP-Verbindungen erforderlich, und der Benutzer ist nicht Mitglied der **Remote Desktop Users** Gruppe. Er kann auch auftreten, wenn die **Remote Desktop Users** Gruppe nicht zugewiesen wurde die **Zugriff auf diesen Computer vom Netzwerk** verfügen.
+Dieses Problem tritt auf, wenn für RDP-Verbindungen Authentifizierung auf Netzwerkebene (Network Level Authentication, NLA) vorgeschrieben ist und der Benutzer kein Mitglied der Gruppe **Remotedesktopbenutzer** ist. Es kann ebenfalls auftreten, wenn die Gruppe **Remotedesktopbenutzer** nicht dem Benutzerrecht **Auf diesen Computer vom Netzwerk aus zugreifen** zugewiesen wurde.
 
 Um dieses Problem zu beheben, führen Sie einen der folgenden Schritte aus:
 
-  - [Ändern der Gruppenmitgliedschaft des Benutzers oder Zuweisen von Benutzerrechten](#modify-the-users-group-membership-or-user-rights-assignment).
-  - Deaktivieren Sie NLA (nicht empfohlen).
-  - Verwenden Sie remote desktop-Clients als Windows 10. Windows 7-Clients müssen sich beispielsweise nicht auf dieses Problem aus.
+  - [Ändern der Gruppenmitgliedschaft oder der Zuweisung von Benutzerrechten für den Benutzer](#modify-the-users-group-membership-or-user-rights-assignment).
+  - Deaktivieren von NLA (nicht empfohlen).
+  - Verwenden anderer Remotedesktopclients als Windows 10. Beispielsweise tritt dieses Problem mit Windows 7-Clients nicht auf.
 
-#### <a name="modify-the-users-group-membership-or-user-rights-assignment"></a>Ändern der Gruppenmitgliedschaft des Benutzers oder Zuweisen von Benutzerrechten
+#### <a name="modify-the-users-group-membership-or-user-rights-assignment"></a>Ändern der Gruppenmitgliedschaft oder der Zuweisung von Benutzerrechten für den Benutzer
 
-Wenn dieses Problem einen einzelnen Benutzer betrifft, ist die einfachste Lösung für dieses Problem beim Hinzufügen des Benutzers, der **Remote Desktop Users** Gruppe.
+Wenn dieses Problem einen einzelnen Benutzer betrifft, besteht die geradlinigste Lösung dieses Problems darin, ihn der Gruppe **Remotedesktopbenutzer** zuzuweisen.
 
-Wenn der Benutzer bereits Mitglied dieser Gruppe zugeordnet ist (oder mehrere Mitglieder auf das gleiche Problem haben), überprüfen Sie die Konfiguration der Benutzerrechte auf dem Remotecomputer Windows 10 oder Windows Server 2016.
+Wenn der Benutzer bereits ein Mitglied dieser Gruppe ist (oder wenn mehrere Gruppenmitglieder das gleiche Problem haben), überprüfen Sie die Konfiguration der Benutzerrechte auf dem Windows 10- oder Windows Server 2016-Remotecomputer.
 
-1. Group Policy Object Editor (GPE) zu öffnen, und Verbinden mit der lokalen Richtlinie des Remotecomputers.
-2. Navigieren Sie zu **Computerkonfiguration\\Windows-Einstellungen\\Sicherheitseinstellungen\\lokale Richtlinien\\Zuweisen von Benutzerrechten**, mit der rechten Maustaste **den Zugriff auf diese Computer vom Netzwerk**, und wählen Sie dann **Eigenschaften**.
-3. Überprüfen Sie die Liste von Benutzern und Gruppen für **Remote Desktop Users** (oder eine übergeordnete Gruppe).
-4. Die Liste nicht enthalten **Remote Desktop Users** (oder eine übergeordnete Gruppe, z. B. **jeder**) müssen Sie ihn zur Liste hinzufügen (Wenn Sie mehr als ein oder zwei Computern in Ihrer Bereitstellung verfügen, verwenden Sie ein Gruppenrichtlinienobjekt) .  
-    Z. B. die Standardmitgliedschaft für **Zugriff auf diesen Computer vom Netzwerk** enthält **jeder**. Wenn die Bereitstellung ein Gruppenrichtlinienobjekts verwendet, um entfernen **jeder**, müssen Sie möglicherweise den Zugriff wiederherzustellen, durch das Gruppenrichtlinienobjekt hinzufügen aktualisieren **Remote Desktop Users**.
+1. Öffnen Sie den Gruppenrichtlinienobjekt-Editor (GPE), und stellen Sie eine Verbindung mit der lokalen Richtlinie des Remotecomputers her.
+2. Navigieren Sie zu **Computerkonfiguration\\Windows-Einstellungen\\Sicherheitseinstellungen\\Lokale Richtlinien\\Zuweisen von Benutzerrechten**, klicken Sie mit der rechten Maustaste auf **Auf diesen Computer vom Netzwerk aus zugreifen**, und wählen Sie dann **Eigenschaften** aus.
+3. Überprüfen Sie die Liste der Benutzer und Gruppen für **Remotedesktopbenutzer** (oder eine übergeordnete Gruppe).
+4. Wenn die Liste keine **Remotedesktopbenutzer** (oder eine übergeordnete Gruppe, wie etwa **Jeder**) enthält, müssen Sie sie der Liste hinzufügen (wenn Ihre Bereitstellung mehr als ein oder zwei Computer umfasst, verwenden Sie ein Gruppenrichtlinienobjekt).  
+    Beispielsweise schließt die Standardmitgliedschaft für **Auf diesen Computer vom Netzwerk aus zugreifen** **Jeder** ein. Wenn Ihre Bereitstellung ein Gruppenrichtlinienobjekt verwendet, um **Jeder** zu entfernen, müssen Sie möglicherweise den Zugriff wiederherstellen, indem Sie das Gruppenrichtlinienobjekt so aktualisieren, dass **Remotedesktopbenutzer** hinzugefügt werden.
 
-### <a name="access-denied-a-remote-call-to-the-sam-database-has-been-denied"></a>Der Zugriff verweigert, ein Remoteaufruf an der SAM-Datenbank wurde verweigert
+### <a name="access-denied-a-remote-call-to-the-sam-database-has-been-denied"></a>Zugriff verweigert, ein Remoteaufruf der SAM-Datenbank wurde abgelehnt
 
-Dieses Verhalten ist wahrscheinlich auftreten, wenn Benutzer versuchen, eine Verbindung herstellen, mithilfe einer benutzerdefinierten Verbindungs-app und Ihren Domänencontrollern WindowsServer 2016 oder höher ausgeführt werden. Insbesondere werden Anwendungen, die die Benutzerprofilinformationen in Active Directory zugreifen. der Zugriff verweigert.
+Dieses Verhalten tritt mit hoher Wahrscheinlichkeit auf, wenn auf Ihren Domänencontrollern Windows Server 2016 oder höher ausgeführt wird und Benutzer versuchen, mithilfe einer benutzerdefinierten Verbindungs-App eine Verbindung herzustellen. Insbesondere wird Anwendungen, die versuchen, auf Profilinformationen von Benutzern in Active Directory zuzugreifen, der Zugriff verweigert.
 
-Dieses Verhalten ist das Ergebnis einer Änderung in Windows. In Windows Server 2012 R2 und früheren Versionen, wenn ein Benutzer meldet sich an eine remote desktop, Kontakte für Remote Connection Manager (RCM) den Domänencontroller (DC), um die Konfigurationen abzufragen, die sich per Remotedesktop für das Benutzerobjekt im Active Directory-Domäne spezifisch sind Domain Services (AD DS). Diese Informationen werden auf der Registerkarte Remote Desktop Services-Profil eines Benutzers von Objekteigenschaften in den Active Directory-Benutzer und Computer MMC-Snap-in angezeigt.
+Dieses Verhalten ist das Ergebnis einer Änderung an Windows. Wenn sich ein Benutzer in Windows Server 2012 R2 und früheren Versionen bei einem Remotedesktop anmeldet, wendet sich der Remoteverbindungs-Manager (RCM) an den Domänencontroller (DC), um die Konfigurationen abzufragen, die für Remote Desktop für das Benutzerobjekt in Active Directory Domain Services (AD DS) spezifisch sind. Diese Informationen werden auf der Registerkarte „Remotedesktopdienste“ der Eigenschaften eines Benutzerobjekts im MMC-Snap-In Active Directory-Benutzer und -Computer angezeigt.
 
-Ab Windows Server 2016, Abfragen RCM nicht mehr die Benutzer-Objekte in AD DS. Wenn Sie benötigen die RCM zu AD DS abgefragt werden, da Sie die Remote Desktop Services-Attribute verwenden, müssen Sie das vorherige Verhalten von RCM manuell aktivieren.
+Seit Windows Server 2016 fragt RCM die Benutzerobjekte in AD DS nicht mehr ab. Wenn Sie die Abfrage von AD DS durch den RCM benötigen, weil Sie die Remotedesktopdienste-Attribute verwenden, müssen Sie das frühere RCM-Verhalten manuell aktivieren.
 
 > [!IMPORTANT]  
-> Die Schritte in diesem Abschnitt sorgfältig. Wird die Registrierung falsch angepasst, können schwerwiegende Probleme auftreten. Bevor Sie Änderungen vornehmen, müssen [sichern Sie die Registrierung für die Wiederherstellung](https://support.microsoft.com/en-us/help/322756%22%20target=%22_self%22) für den Fall, dass Probleme auftreten.
+> Folgen Sie den Schritten in diesem Abschnitt sorgfältig. Wird die Registrierung falsch angepasst, können schwerwiegende Probleme auftreten. Bevor Sie sie ändern, [sichern Sie die Registrierung zwecks Wiederherstellung](https://support.microsoft.com/en-us/help/322756%22%20target=%22_self%22) für den Fall, dass Probleme auftreten.
 
-Um das auf einem Remotedesktop-Sitzungshostserver RCM-Legacyverhalten zu aktivieren, konfigurieren Sie die folgenden Registrierungseinträge, und wiederholen Sie den **Remote Desktop Services** Dienst:  
-  - **HKEY\_lokalen\_Computer\\SOFTWARE\\Richtlinien\\Microsoft\\Windows NT\\Terminaldienste**
-  - **HKEY\_lokalen\_Computer\\SYSTEM\\CurrentControlSet\\Steuerelement\\Terminal Server\\WinStations\\\<Winstation-Name\>\\**  
+Um das RCM-Legacyverhalten auf einem RD-Sitzungshostserver zu aktivieren, konfigurieren Sie die folgenden Registrierungseinträge, und starten Sie dann den **Remotedesktopdienste**-Dienst erneut:  
+  - **HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\Terminal Services**
+  - **HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\\WinStations\\\<Winstation-Name\>\\**  
       - Name: **fQueryUserConfigFromDC**
       - Typ: **Reg\_DWORD**
-      - Wert: **1** (dezimal)
+      - Wert: **1** (Dezimal)
 
-Um das auf einem anderen als einen Remotedesktop-Sitzungshostserver RCM-Legacyverhalten zu aktivieren, konfigurieren Sie diese Registrierungseinträge und die folgenden zusätzlichen Registrierungseintrag (und klicken Sie dann starten Sie den Dienst neu):
-  - **HKEY\_lokalen\_Computer\\SYSTEM\\CurrentControlSet\\Steuerelement\\Terminalserver**
+Um das RCM-Legacyverhalten auf einem anderen Server als einem RD-Sitzungshostserver zu aktivieren, konfigurieren Sie diese Registrierungseinträge und den folgenden zusätzlichen Registrierungseintrag (und starten Sie den Dienst dann neu):
+  - **HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server**
 
-Weitere Informationen zu diesem Verhalten finden Sie unter KB 3200967 [Änderungen auf Remote-Verbindungs-Manager in Windows Server](https://support.microsoft.com/en-us/help/3200967/changes-to-remote-connection-manager-in-windows-server).
+Weitere Informationen zu diesem Verhalten finden Sie unter KB 3200967 [Änderungen am Remote-Verbindungs-Manager in Windows Server](https://support.microsoft.com/en-us/help/3200967/changes-to-remote-connection-manager-in-windows-server).
 
-### <a name="a-user-cannot-sign-in-by-using-a-smart-card"></a>Ein Benutzer kann nicht mit einer Smartcard anmelden
+### <a name="a-user-cannot-sign-in-by-using-a-smart-card"></a>Ein Benutzer kann sich nicht mithilfe einer Smartcard anmelden
 
-In diesem Artikel werden drei häufige Situationen, in denen ein Benutzer mit einem Remotedesktop anmelden kann nicht mit einer Smartcard:  
-  - [Der Benutzer kann nicht an eine Filiale melden Sie sich, die einen schreibgeschützten Domänencontroller (RODC) verwendet.](#cannot-sign-in-with-a-smart-card-in-a-branch-office-with-a-rodc)
-  - [Der Benutzer kann nicht auf einem Windows Server 2008 SP2-Computer anmelden, der vor kurzem aktualisiert wurde](#cannot-sign-in-with-a-smart-card-to-a-windows-server-2008-sp2-computer)
-  - [Der Benutzer kann nicht in einem Windows-Computer, der vor kurzem aktualisiert wurde angemeldet bleiben, und der Remote Desktop Services-Dienst wird nicht mehr reagiert (hängt)](#cannot-stay-signed-in-with-a-smart-card-and-remote-desktop-services-service-hangs)
+Dieser Artikel behandelt drei häufige Umstände, unter denen ein Benutzer sich nicht mithilfe einer Smartcard an einem Remotedesktop anmelden kann:  
+  - [Der Benutzer kann sich nicht bei einer Filiale anmelden, die einen schreibgeschützten Domänencontroller (RODC) verwendet](#cannot-sign-in-with-a-smart-card-in-a-branch-office-with-a-rodc)
+  - [Der Benutzer kann sich nicht bei einem Windows Server 2008 SP2-Computer anmelden, der vor Kurzem aktualisiert wurde](#cannot-sign-in-with-a-smart-card-to-a-windows-server-2008-sp2-computer)
+  - [Der Benutzer kann nicht bei einem Windows-Computer angemeldet bleiben, der vor Kurzem aktualisiert wurde, und der Remotedesktopdienst reagiert nicht mehr (hängt)](#cannot-stay-signed-in-with-a-smart-card-and-remote-desktop-services-service-hangs)
 
-#### <a name="cannot-sign-in-with-a-smart-card-in-a-branch-office-with-a-rodc"></a>Die Anmeldung mit einer Smartcard, die in einer Zweigstelle mit einem RODC kann nicht ausgeführt werden.
+#### <a name="cannot-sign-in-with-a-smart-card-in-a-branch-office-with-a-rodc"></a>Die Anmeldung mit einer Smartcard bei einer Filiale mit einem RODC ist nicht möglich
 
-Dieses Problem tritt in Bereitstellungen mit einem RDSH-Server an einem Branch-Standort, der einen RODC verwendet. Die RDSH-Servers wird in der Stammdomäne gehostet. Benutzer in der Zweigniederlassung zu einer untergeordneten Domäne gehören, und Verwenden von Smartcards für die Authentifizierung. Der RODC Benutzerkennwörter Cache konfiguriert ist (der RODC gehört zu den **zulässige RODC-Kennwortreplikationsgruppe**). Wenn Benutzer versuchen, die Sitzungen auf dem RDSH-Server anmelden, erhalten sie Nachrichten wie z. B. "der versuchte Anmeldung ist ungültig. Dies liegt entweder an einen ungültigen Benutzernamen oder die Authentifizierung-Informationen. "
+Dieses Problem tritt in Bereitstellungen auf, die einen RDSH-Server an einem Filialstandort beinhalten, der einen RODC verwendet. Der RDSH-Server ist in der Stammdomäne gehostet. Die Benutzer am Filialstandort gehören zu einer Unterdomäne und verwenden Smartcards zur Authentifizierung. Der RODC ist für das Cachen von Benutzerkennwörtern konfiguriert (der RODC gehört zur **Zulässige RODC-Kennwortreplikationsgruppe**). Wenn Benutzer versuchen, sich bei Sitzungen auf dem RDSH-Server anzumelden, erhalten sie Meldungen wie „Der Anmeldeversuch ist ungültig. Dies liegt entweder an einem ungültigen Benutzernamen oder an ungültigen Authentifizierungsinformationen“.
 
-Dies ist ein bekanntes Problem in der Möglichkeit, die den Stamm DC und der RODC-Verschlüsselung der Anmeldeinformationen des Benutzers verwalten. Der Stamm-DC verwendet einen Verschlüsselungsschlüssel, um die Anmeldeinformationen verschlüsselt, und der RODC bietet einen Entschlüsselungsschlüssel an dem Client. Allerdings werden die beiden Schlüssel stimmen nicht überein.
+Dies ist ein bekanntes Problem bei dem Verfahren, mit dem der Stamm-DC und der RODC die Verschlüsselung der Benutzeranmeldeinformationen handhaben. Der Stamm-DC verwendet einen Verschlüsselungsschlüssel zum Verschlüsseln der Anmeldeinformationen, und der RODC stellt dem Client einen Entschlüsselungsschlüssel bereit. Allerdings stimmen die beiden Schlüssel nicht überein.
 
-Um dieses Problem zu umgehen, erwägen Sie die DC-Topologie, entweder durch das Zwischenspeichern von Kennwörtern auf dem RODC deaktivieren oder durch Bereitstellung von einem beschreibbaren Domänencontroller in der Zweigniederlassung. Eine alternative Methode ist zum Verschieben des RDSH-Servers auf die gleiche untergeordnete Domäne als der Benutzer. Eine weitere Möglichkeit ist, dass Benutzer ohne Smartcards anmelden können. Jede dieser Lösungen erfordern gefährdungen Leistung oder Sicherheit.
+Um dieses Problem zu umgehen, erwägen Sie eine Änderung Ihrer DC-Topologie, entweder indem Sie das Cachen von Kennwörtern auf dem RODC deaktivieren oder einen DC mit Schreibberechtigung am Filialstandort bereitstellen. Eine alternative Methode besteht darin, den RDSH-Server in die gleiche untergeordnete Domäne wie die Benutzer zu verschieben. Eine weitere Alternative ist es, Benutzern die Anmeldung ohne Smartcards zu erlauben. Jede dieser Lösungen bringt möglicherweise Kompromisse beim Leistungs- oder Sicherheitsniveau mit sich.
 
-#### <a name="cannot-sign-in-with-a-smart-card-to-a-windows-server-2008-sp2-computer"></a>Die Anmeldung mit einer Smartcard auf einem Windows Server 2008 SP2-Computer kann nicht ausgeführt werden.
+#### <a name="cannot-sign-in-with-a-smart-card-to-a-windows-server-2008-sp2-computer"></a>Die Anmeldung mit einer Smartcard bei einem Windows Server 2008 SP2-Computer ist nicht möglich
 
-Dieses Problem tritt auf, wenn der Benutzer auf einem Windows Server 2008 SP2-Computer anmelden, die mit KB4093227 aktualisiert wurde (2018.4B). Wenn Benutzer versuchen, sich mit einer Smartcard anmelden, wird der Zugriff mit Meldungen wie "keine gültige Zertifikate gefunden. verweigert Überprüfen Sie, ob die Karte richtig eingelegt und passt." Zur gleichen Zeit zeichnet die Windows Server-Computer-Ereignis der Anwendung "Fehler beim Abrufen von eines digitalen Zertifikats aus der eingeführten Smartcard. Ungültige Signatur."
+Dieses Problem tritt auf, wenn Benutzer sich bei einem Windows Server 2008 SP2-Computer anmelden, auf dem ein Update mit KB4093227 (2018.4B) ausgeführt wurde. Wenn Benutzer versuchen, sich mithilfe einer Smartcard anzumelden, wird ihnen der Zugriff mit Meldungen wie „Es wurden keine gültigen Zertifikate gefunden. Überprüfen Sie, ob die Karte ordnungsgemäß eingesteckt wurde und formschlüssig passt“ verweigert. Zugleich zeichnet der Windows Server-Computer das Anwendungsereignis „Fehler beim Abrufen eines digitalen Zertifikats von der eingelegten Smartcard. Ungültige Signatur“ auf.
 
-Um dieses Problem zu beheben, aktualisieren Sie die Windows Server-Computer, mit die 2018.06 B vorveröffentlichten KB 4093227, [Beschreibung des Sicherheitsupdates für die Ablehnung Windows Remote Desktop Protocol (RDP) in Windows Server 2008-Service-Sicherheitslücke: 10. April 2018](https://support.microsoft.com/en-us/help/4093227/security-update-for-vulnerabilities-in-windows-server-2008).
+Um dieses Problem zu beheben, aktualisieren Sie den Windows Server-Computer mit der Wiederveröffentlichung 2018.06 B von KB 4093227, [Beschreibung des Sicherheitsupdates für das Denial-of-Service-Sicherheitsrisiko beim Windows-Remotedesktopprotokoll (RDP) in Windows Server 2008: 10. April 2018](https://support.microsoft.com/en-us/help/4093227/security-update-for-vulnerabilities-in-windows-server-2008)
 
-#### <a name="cannot-stay-signed-in-with-a-smart-card-and-remote-desktop-services-service-hangs"></a>Kann nicht angemeldet ist, sich mit einer Smartcard und Remotedesktopdienste Dienstfehlern bleiben
+#### <a name="cannot-stay-signed-in-with-a-smart-card-and-remote-desktop-services-service-hangs"></a>Der Benutzer kann nicht mit einer Smartcard angemeldet bleiben, und der Remotedesktopdienst reagiert nicht
 
-Dieses Problem tritt auf, wenn der Benutzer auf einem Windows oder Windows Server-Computer anmelden, die mit KB 4056446 aktualisiert wurde. Zunächst der Benutzer möglicherweise auf das System mit einer Smartcard anmelden können, aber dann empfängt eine "RGEBNISSE\_E\_keine\_SERVICE" Fehlermeldung angezeigt. Möglicherweise ist der Remotecomputer reagiert.
+Dieses Problem tritt auf, wenn sich Benutzer bei einem Windows- oder Windows Server-Computer anmelden, für den ein Update mithilfe von KB 4056446 ausgeführt wurde. Der Benutzer ist möglicherweise zunächst in der Lage, sich mithilfe einer Smartcard beim System anzumelden, aber anschließend erhält er eine Fehlermeldung „SCARD\_E\_NO\_SERVICE“. Der Remotecomputer hört möglicherweise auf, zu reagieren.
 
-Um dieses Problem zu umgehen, starten Sie den Remotecomputer neu.
+Um dieses Problem zu umgehen, führen Sie einen Neustart des Remotecomputers durch.
 
-Um dieses Problem zu beheben, aktualisieren Sie den Remotecomputer mit den entsprechenden Fix:
+Um dieses Problem zu beheben, aktualisieren Sie den Remotecomputer mit dem passenden Fix:
 
-  - Windows Server 2008 SP2: KB 4090928, [Windows Speicherverluste Handles im Prozess lsm.exe und möglicherweise smartcardanwendungen angezeigt "RGEBNISSE\_E\_keine\_SERVICE" Fehler](https://support.microsoft.com/en-us/help/4090928/scard-e-no-service-errors-when-windows-leaks-handles-in-the-lsm-exe)
-  - Windows Server 2012 R2: KB 4103724, [17 Mai 2018 – KB4103724 (Vorschau des monatlichen Rollups)](https://support.microsoft.com/en-us/help/4103724/windows-81-update-kb4103724)
-  - Windows Server 2016 und Windows 10 Version 1607: KB 4103720, [17 Mai 2018 – KB4103720 (Betriebssystembuild 14393.2273)](https://support.microsoft.com/en-us/help/4103720/windows-10-update-kb4103720)
+  - Windows Server 2008 SP2: KB 4090928, [Windows leaks handles in the lsm.exe process and smart card applications may display "SCARD\_E\_NO\_SERVICE" errors](https://support.microsoft.com/en-us/help/4090928/scard-e-no-service-errors-when-windows-leaks-handles-in-the-lsm-exe) (Windows verliert Handles im lsm.exe-Prozess, und für Smartcardanwendungen werden möglicherweise SCARD_E_NO_SERVICE-Fehler angezeigt)
+  - Windows Server 2012 R2: KB 4103724, [17. Mai 2018 – KB4103724 (Vorschau der monatlichen Zusammenfassung)](https://support.microsoft.com/en-us/help/4103724/windows-81-update-kb4103724)
+  - Windows Server 2016 und Windows 10, Version 1607: KB 4103720, [17. Mai 2018 – KB4103720 (Betriebssystembuild 14393.2273)](https://support.microsoft.com/en-us/help/4103720/windows-10-update-kb4103720)
 
-### <a name="if-the-remote-pc-is-locked-a-user-needs-to-enter-a-password-twice"></a>Wenn der Remotecomputer gesperrt ist, muss ein Benutzer ein Kennwort zweimal eingeben
+### <a name="if-the-remote-pc-is-locked-a-user-needs-to-enter-a-password-twice"></a>Wenn der Remotecomputer gesperrt ist, muss ein Benutzer das Kennwort zweimal eingeben
 
-Dieses Problem kann auftreten, wenn ein Benutzer versucht, einen Remotedesktop herstellen, für die Windows 10, Version 1709 in einer Bereitstellung ausgeführt wird, in der RDP-Verbindungen keine Authentifizierung auf Netzwerkebene benötigen. Unter diesen Bedingungen, wenn der Remotedesktop gesperrt wurde, muss der Benutzer seine Anmeldeinformationen eingeben, zweimal, wenn eine Verbindung herstellen.
+Dieses Problem kann auftreten, wenn ein Benutzer versucht, eine Verbindung mit einem Remotedesktop herzustellen, auf dem Windows 10, Version 1709, in einer Bereitstellung ausgeführt wird, in der für RDP-Verbindungen keine Authentifizierung auf Netzwerkebene vorgeschrieben ist. Wenn unter diesen Umständen der Remotedesktop gesperrt wird, muss der Benutzer seine Anmeldeinformationen beim Herstellen der Verbindung zweimal eingeben.
 
-Um dieses Problem zu beheben, aktualisieren Sie den Computer mit Windows 10 Version 1709 mit KB-4343893 [30. August 2018 – KB4343893 (OS Build 16299.637)](https://support.microsoft.com/en-us/help/4343893/windows-10-update-kb4343893).
+Um dieses Problem zu beheben, führen Sie ein Update des Computers mit Windows 10, Version 1709, mit KB 4343893, [30. August 30, 2018 – KB4343893 (Betriebssystembuild 16299.637)](https://support.microsoft.com/en-us/help/4343893/windows-10-update-kb4343893) aus.
 
-### <a name="user-cannot-sign-in-and-receives-authentication-error-and-credssp-encryption-oracle-remediation-messages"></a>Benutzer nicht anmelden und "Authentifizierungsfehler" und "CredSSP Verschlüsselung Oracle-Remediation" Nachrichten empfängt
+### <a name="user-cannot-sign-in-and-receives-authentication-error-and-credssp-encryption-oracle-remediation-messages"></a>Der Benutzer kann sich nicht anmelden und erhält die Meldungen „Authentifizierungsfehler“ und „CredSSP encryption oracle remediation“ (CredSSP-Verschlüsselung – Oracle-Wartung)
 
-Wenn Benutzer versuchen, melden Sie sich mit einer beliebigen Version von Windows aus Windows Vista SP2 und höher oder Windows Server 2008 SP2 und höheren Versionen, Zugriff verweigert sie, und Empfangen von Nachrichten, wie z. B. die folgenden:
+Wenn Benutzer versuchen, sich mit einer beliebigen Version von Windows ab Windows Vista SP2 und höher oder Windows Server 2008 SP2 und höher anzumelden, wird ihnen der Zugriff verweigert, und es werden Meldungen wie die folgende angezeigt:
 
-  - Ein Authentifizierungsfehler aufgetreten. Die angeforderte Funktion wird nicht unterstützt.
-  - Dies konnte aufgrund von CredSSP Verschlüsselung Oracle Wiederherstellung sein.
+  - Authentifizierungsfehler. Die angeforderte Funktion wird nicht unterstützt.
+  - Dies könnte seine Ursache in der Oracle-Wartung der CredSSP-Verschlüsselung haben
 
-"CredSSP Verschlüsselung Oracle-Remediation" bezieht sich auf einen Satz von Sicherheitsupdates, die im März, April und Mai 2018 veröffentlicht wurde. CredSSP ist Authentifizierungsanbieter, der authentifizierungsanforderungen für andere Anwendungen verarbeitet werden. Der 13. März 2018, "3 b" "und" nachfolgenden Updates behandelt ein Exploit, in dem ein Angreifer die Anmeldeinformationen des Benutzers zum Ausführen von Code auf dem Zielsystem relay konnte.
+„CredSSP-Verschlüsselung – Oracle-Wartung“ bezieht sich auf einen Satz Sicherheitsupdates, die im März, April und Mai 2018 veröffentlicht wurden. CredSSP ist ein Authentifizierungsanbieter, der Authentifizierungsanforderungen für andere Anwendungen verarbeitet. Das Update „3B“ vom 13. März 2018 und nachfolgende Updates befassten sich mit einem Exploit, der es einem Angreifer ermöglichte, Benutzeranmeldeinformationen weiterzuleiten, um Code auf dem Zielsystem auszuführen.
 
-Die erste Updates zusätzliche Unterstützung für ein neues Gruppenrichtlinienobjekt, **Verschlüsselung Oracle Wiederherstellung**, die folgenden möglichen Einstellungen aufweist:
+Mit den anfänglichen Updates wurde Unterstützung für ein neues Gruppenrichtlinienobjekt, **Encryption Oracle-Abwehr**, eingeführt, das die folgenden möglichen Einstellungen aufweist:
 
-  - **Anfällige**. Clientanwendungen, die CredSSP verwenden, auch möglich, nicht sicheren Versionen, aber dieses Verhalten macht das remote-Desktops für Angriffe. Dienste, die CredSSP verwenden akzeptieren von Clients, die nicht aktualisiert wurden.
-  - **Verringert**. Clientanwendungen, die CredSSP verwenden, kein ausweichen auf unsichere Versionen, aber die Dienste, die CredSSP verwenden akzeptieren von Clients, die nicht aktualisiert wurden.
-  - **Force aktualisiert Clients**. Clientanwendungen, die CredSSP verwenden, kein ausweichen auf unsichere Versionen, und Dienste, die CredSSP verwenden nicht gepatchten Clients akzeptiert. 
-    Hinweis: Diese Einstellung sollte nicht bereitgestellt werden, bis alle remote-Hosts die neueste Version zu unterstützen.
+  - **Vulnerable** (Anfällig). Clientanwendungen, die CredSSP verwenden, können ein Fallback auf unsichere Versionen ausführen, jedoch werden die Remotedesktops durch dieses Verhalten möglichen Angriffen ausgesetzt. Dienste, die CredSSP verwenden, akzeptieren Clients, die nicht aktualisiert wurden.
+  - **Mitigated** (Entschärft). Clientanwendungen, die CredSSP verwenden, können kein Fallback auf unsichere Versionen vornehmen, aber Dienste, die CredSSP verwenden, akzeptieren Clients, für die kein Update ausgeführt wurde.
+  - **Force Updated Clients** (Aktualisierte Clients erzwingen). Clientanwendungen, die CredSSP verwenden, können kein Fallback auf unsichere Versionen vornehmen, und Dienste, die CredSSP verwenden, akzeptieren keine ungepachten Clients. 
+    Hinweis: Diese Einstellung sollte erst bereitgestellt werden, wenn alle Remotehosts die neueste Version unterstützen.
 
-Die Standardeinstellungen geändert, das 8. Mai 2018 Update **Verschlüsselung Oracle Wiederherstellung** aus **gefährdet** zu **entschärft**. Mit dieser Änderung vorgenommen wurde können nicht remote desktop-Clients, die die Updates auf Server zugreifen, die haben sie keine (oder Server, die nicht neu gestartet wurden, aktualisiert). Weitere Informationen zu den Auswirkungen der Updates und die Arten der Kommunikation, die sie blockieren, finden Sie unter KB 4093492, [CredSSP-updates für CVE-2018-0886](https://support.microsoft.com/en-us/help/4093492/credssp-updates-for-cve-2018-0886-march-13-2018).
+Mit dem Update vom 8. Mai 2018 wurde die Standardeinstellung von **Encryption Oracle-Abwehr** von **Vulnerable** (Anfällig) in **Mitigated** (Entschärft) geändert. Dank dieser Änderung können Remotedesktopclients, die die Updates enthalten, keine Verbindungen mit Servern herstellen, die nicht über sie verfügen (oder mit aktualisierten Servern, die nicht neu gestartet wurden). Weitere Informationen über die Wirkungen der Updates und die Kommunikationstypen, die durch sie blockiert werden, finden Sie unter KB 4093492, [CredSSP updates for CVE-2018-0886](https://support.microsoft.com/en-us/help/4093492/credssp-updates-for-cve-2018-0886-march-13-2018) (CredSSP-Updates für CVE-2018-0886).
 
-Um dieses Problem zu beheben, stellen Sie sicher, dass alle Systeme vollständig aktualisiert und neu gestartet werden. Eine vollständige Liste der Updates und Weitere Informationen zu den Sicherheitsrisiken, finden Sie unter [CVE-2018-0886 | CredSSP Remote Remotecodeausführung zu erzeugen](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2018-0886).
+Um dieses Problem zu beheben, stellen Sie sicher, dass alle Systeme vollständig aktualisiert und neu gestartet werden. Eine vollständige Liste der Updates und weitere Informationen zu Sicherheitsrisiken finden Sie unter [CVE-2018-0886 | CredSSP Remote Code Execution Vulnerability](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2018-0886) (CVE-2018-0886 | CredSSP – Sicherheitsrisiko bei der Remotecodeausführung).
 
-Um dieses Problem umgehen, bis die Updates abgeschlossen sind, überprüfen Sie KB 4093492 zulässigen Typen von Verbindungen. Wenn es keine alternativen möglichen gibt sollten Sie eine der folgenden Methoden:
+Um dieses Problem bis zum Abschluss der Updates zu umgehen, lesen Sie KB 4093492 wegen Informationen zu den zulässigen Verbindungstypen. Wenn sich keine realisierbaren Alternativen finden, können Sie eins der folgenden Verfahren in Erwägung ziehen:
 
-- Legen Sie für den betroffenen Clientcomputern, die **Verschlüsselung Oracle Wiederherstellung** Richtlinie zurück zum **gefährdet**.
-- Ändern Sie die folgenden Richtlinien in der **Computerkonfiguration\\Administrative Vorlagen\\Windows-Komponenten\\Remote Desktop Services\\Remote Desktop Session Host\\ Sicherheit** Ordner "Group Policy":  
-  - **Verwenden einer bestimmten Sicherheitsstufe für Remoteverbindungen (RDP) erfordern**: Legen Sie auf **aktiviert** , und wählen Sie **RDP**.
-  - **Benutzerauthentifizierung mit Authentifizierung auf Netzwerkebene für Remoteverbindungen erfordern**: Legen Sie auf **deaktiviert**.
+- Legen Sie für die betroffenen Clientcomputer die Richtlinie **Encryption Oracle-Abwehr** wieder auf **Vulnerable** (Anfällig) fest.
+- Ändern Sie die folgenden Richtlinien im Gruppenrichtlinienordner **Computerkonfiguration\\Administrative Vorlagen\\Windows-Komponenten\\Remotedesktopdienste\\Remotedesktop-Sitzungshost\\Sicherheit**:  
+  - **Verwendung einer bestimmten Sicherheitsstufe für Remoteverbindungen (RDP) ist erforderlich**: auf **Aktiviert** festlegen und **RDP** auswählen.
+  - **Benutzerauthentifizierung mit Authentifizierung auf Netzwerkebene für Remoteverbindungen ist erforderlich**: auf **Deaktiviert** festlegen.
     > [!IMPORTANT]  
-    > Diese Änderungen reduzieren die Sicherheit Ihrer Bereitstellung. Sie sollte nur temporär ist, wenn Sie überhaupt verwendet werden.
+    > Durch diese Änderungen verringert sich die Sicherheit Ihrer Bereitstellung. Sie sollten nur vorübergehend vorgenommen werden, falls überhaupt.
 
-Weitere Informationen zum Arbeiten mit der Gruppenrichtlinie finden Sie unter [Ändern eines blockierenden Gruppenrichtlinienobjekts](#modifying-a-blocking-gpo).
+Weitere Informationen zum Arbeiten mit Gruppenrichtlinien finden Sie unter [Ändern ein blockierenden Gruppenrichtlinienobjekts](#modifying-a-blocking-gpo).
 
-### <a name="after-you-update-client-computers-some-users-need-to-sign-in-twice"></a>Nach der Aktualisierung-Clientcomputern müssen einige Benutzer sich zweimal anmelden
+### <a name="after-you-update-client-computers-some-users-need-to-sign-in-twice"></a>Nach einem Update von Clientcomputern müssen sich manche Benutzer zweimal anmelden
 
-Benutzer auf eine Windows 7 oder Windows 10 Version 1709 Anmeldung, um eine Remotedesktopsitzung und sofort einen zweiten Bildschirm Anmeldung angezeigt. Dieses Problem tritt auf, wenn die Clientcomputer die folgenden Updates erhalten haben:
+Benutzer auf manchen Computern mit Windows 7 oder Windows 10, Version 1709, melden sich bei einer Remotedesktopsitzung an und sehen unmittelbar darauf einen zweiten Anmeldebildschirm. Dieses Problem tritt auf, wenn die Clientcomputer die folgenden Updates empfangen haben:
 
-  - Windows 7: KB 4103718, [8. Mai 2018 – KB4103718 (monatliche Rollup)](https://support.microsoft.com/en-us/help/4103718/windows-7-update-kb4103718)
+  - Windows 7: KB 4103718, [8. Mai 2018 – KB4103718 (monatliches Rollup)](https://support.microsoft.com/en-us/help/4103718/windows-7-update-kb4103718)
   - Windows 10 1709: KB 4103727, [8. Mai 2018 – KB4103727 (Betriebssystembuild 16299.431)](https://support.microsoft.com/en-us/help/4103727/windows-10-update-kb4103727)
 
-Um dieses Problem zu beheben, stellen Sie sicher, dass der Computer, auf denen die Benutzer (sowie RDSH oder RDVI Server) herstellen möchten, bis Juni 2018 vollständig aktualisiert werden. Dies umfasst die folgenden Updates:
+Um dieses Problem zu beheben, stellen Sie sicher, dass die Computer, mit denen Benutzer Verbindungen herstellen wollen (ebenso wie RDSH- oder RDVI-Server), alle Updates bis Juni 2018 erhalten haben. Dies schließt die folgenden Updates ein:
 
   - Windows Server 2016: KB 4284880, [12. Juni 2018 – KB4284880 (Betriebssystembuild 14393.2312)](https://support.microsoft.com/en-us/help/4284880/windows-10-update-kb4284880)
-  - Windows Server 2012 R2: KB 4284815, [12. Juni 2018 – KB4284815 (monatliche Rollup)](https://support.microsoft.com/en-us/help/4284815/windows-81-update-kb4284815)
-  - Windows Server 2012: KB 4284855, [12. Juni 2018 – KB4284855 (monatliche Rollup)](https://support.microsoft.com/en-us/help/4284855/windows-server-2012-update-kb4284855)
-  - Windows Server 2008 R2: KB 4284826, [12. Juni 2018 – KB4284826 (monatliche Rollup)](https://support.microsoft.com/en-us/help/4284826/windows-7-update-kb4284826)
-  - Windows Server 2008 SP2: KB4056564, [Beschreibung des Sicherheitsupdates für die CredSSP Remotecodeausführung zu erzeugen in Windows Server 2008 und Windows Embedded POSReady 2009, Windows Embedded Standard 2009: 13. März 2018](https://support.microsoft.com/en-us/help/4056564/security-update-for-vulnerabilities-in-windows-server-2008)
+  - Windows Server 2012 R2: KB 4284815, [12. Juni 2018 – KB4284815 (monatliches Rollup)](https://support.microsoft.com/en-us/help/4284815/windows-81-update-kb4284815)
+  - Windows Server 2012: KB 4284855, [12. Juni 2018 – KB4284855 (monatliches Rollup)](https://support.microsoft.com/en-us/help/4284855/windows-server-2012-update-kb4284855)
+  - Windows Server 2008 R2: KB 4284826, [12. Juni 2018 – KB4284826 (monatliches Rollup)](https://support.microsoft.com/en-us/help/4284826/windows-7-update-kb4284826)
+  - Windows Server 2008 SP2: KB4056564, [Beschreibung des Sicherheitsupdates für die CredSSP-Remotecodeausführung in Windows Server 2008, und Windows Embedded POSReady 2009 und Windows Embedded Standard 2009: 13. März 2018](https://support.microsoft.com/en-us/help/4056564/security-update-for-vulnerabilities-in-windows-server-2008)
 
-### <a name="users-are-denied-access-on-a-deployment-that-uses-remote-credential-guard-with-multiple-rd-connection-brokers"></a>Benutzer in einer Bereitstellung von Zugriff, die Remote Credential Guard mit mehreren Remotedesktop-Verbindungsbroker verwendet
+### <a name="users-are-denied-access-on-a-deployment-that-uses-remote-credential-guard-with-multiple-rd-connection-brokers"></a>Benutzern wird der Zugriff auf eine Bereitstellung verweigert, die Remote Credential Guard mit mehreren RD-Verbindungsbrokern verwendet
 
-Dieses Problem tritt in Hochverfügbarkeits-Bereitstellungen mit zwei oder mehr Remotedesktop-Verbindungsbroker, wenn Windows Defender Remote Credential Guard verwendet wird. Benutzer können keine Remotedesktops anmelden.
+Dieses Problem tritt in Hochverfügbarkeits-Bereitstellungen mit zwei oder mehr Remotedesktop-Verbindungsbrokern auf, wenn Windows Defender Remote Credential Guard verwendet wird. Benutzer können sich nicht an den Remotedesktops anmelden.
 
-Dieses Problem tritt auf, weil Remote Credential Guard mithilfe von Kerberos für die Authentifizierung und NTLM beschränkt. Allerdings kann nicht in einer Konfiguration mit hoher Verfügbarkeit mit Lastenausgleich, der Remotedesktop-Verbindungsbroker-Kerberos-Vorgänge unterstützt.
+Dieses Problem tritt auf, weil Remote Credential Guard Kerberos für die Authentifizierung verwendet und NTLM einschränkt. Allerdings können in einer Hochverfügbarkeitskonfiguration mit Lastenausgleich die RD-Verbindungsbroker keine Kerberos-Vorgänge unterstützen.
 
-Wenn Sie eine Konfiguration mit hoher Verfügbarkeit mit Remotedesktop-Verbindungsbroker mit Lastenausgleich verwenden möchten, können Sie dieses Problem umgehen, indem Sie Remote Credential Guard deaktivieren. Weitere Informationen zum Verwalten von Windows Defender Remote Credential Guard finden Sie unter [Schützen von Remotedesktop-Anmeldeinformationen mit Remote Credential Guard in Windows Defender](https://docs.microsoft.com/en-us/windows/security/identity-protection/remote-credential-guard#enable-windows-defender-remote-credential-guard).
+Wenn Sie eine Hochverfügbarkeitskonfiguration mit RD-Verbindungsbrokern mit Lastenausgleich verwenden müssen, können Sie dieses Problem umgehen, indem Sie Remote Credential Guard deaktivieren. Weitere Informationen über das Verwalten von Windows Defender Remote Credential Guard finden Sie unter [Schützen von Remote Desktop-Anmeldeinformationen mit Windows Defender Remote Credential Guard](https://docs.microsoft.com/windows/security/identity-protection/remote-credential-guard#enable-windows-defender-remote-credential-guard).
 
-## <a name="on-connecting-user-receives-remote-desktop-service-is-currently-busy-message"></a>Zum Herstellen einer Verbindung erhält der Benutzer die Meldung "Remotedesktopdienst ist derzeit ausgelastet"
+## <a name="on-connecting-user-receives-remote-desktop-service-is-currently-busy-message"></a>Beim Herstellen der Verbindung erhält der Benutzer die Meldung „Der Remotedesktopdienst ist aktuell ausgelastet“
 
-Um eine entsprechende Antwort an die dieses Problem zu ermitteln, verwenden Sie die folgenden Schritte aus:
+Um eine passende Reaktion auf dieses Problem zu ermitteln, verwenden Sie die folgenden Schritte:
 
-1. Ist der Remote Desktop Services-Dienst reagiert nicht mehr (z. B. die Remotedesktop-Client "auf der Willkommensseite nicht mehr reagiert." angezeigt).  
-      - Wenn der Dienst reagiert, finden Sie unter [RDSH-Servers Arbeitsspeicherproblems](#rdsh-server-memory-issue).
-      - Wenn der Client angezeigt wird, normalerweise mit dem Dienst interagieren, weiterhin mit dem nächsten Schritt.
-2. Wenn ein oder mehrere Benutzer ihre Remotedesktopsitzungen trennen, können Benutzer erneut eine Verbindung herstellen?  
-   - Wenn der Dienst weiterhin Verbindungen unabhängig davon, wie viele Benutzer ihre Sitzungen trennen, finden Sie unter [RD-Listener Problem](#rd-listener-issue).
-   - Wenn der Dienst akzeptiert beginnt über Verbindungen erneut nach einer Anzahl der Benutzer ihre Sitzungen, getrennt [überprüfen Sie die Richtlinie für die Verbindung](#check-the-connection-limit-policy).
+1. Hört der Remotedesktopdienst auf, zu reagieren (beispielsweise scheint der Remotedesktopclient beim Begrüßungsbildschirm zu „hängen“)?  
+      - Wenn der Dienst nicht mehr reagiert, sehen Sie beim [RDSH-Server-Arbeitsspeicherproblem](#rdsh-server-memory-issue) nach.
+      - Wenn der Client normal mit dem Dienst zu interagieren scheint, fahren Sie mit dem nächsten Schritt fort.
+2. Wenn mindestens ein Benutzer seine Remotedesktopsitzungen trennt, kann er sie wieder herstellen?  
+   - Wenn der Dienst Verbindungen auch weiterhin ablehnt, ganz gleich, wie viele Benutzer ihre Sitzungen trennen, lesen Sie [RD-Listener-Problem](#rd-listener-issue).
+   - Wenn der Dienst beginnt, Verbindungen anzunehmen, nachdem eine Reihe von Benutzern ihre Sitzungen getrennt haben, [überprüfen Sie die Richtlinie für den Verbindungsgrenzwert](#check-the-connection-limit-policy).
 
-### <a name="rdsh-server-memory-issue"></a>Speicherproblem für RDSH-server
+### <a name="rdsh-server-memory-issue"></a>RDSH-Server-Arbeitsspeicherproblem
 
-Ein Arbeitsspeicherverlust wurde auf einigen Servern Windows Server 2012 R2 RDSH gefunden. Beginnen im Laufe der Zeit diese Server sowohl für Remotedesktopverbindungen als auch für Anmeldungen mit Meldungen wie die folgende lokale Konsole verweigern:
+Auf einigen Windows Server 2012 R2-RDSH-Servern wurde Arbeitsspeicherverlust festgestellt. Im Lauf der Zeit beginnen diese Server, sowohl Remotedesktopverbindungen als auch lokale Konsolenanmeldungen mit Meldungen wie der folgenden abzulehnen:
 
-> Die Aufgabe, die Sie tun möchten kann nicht abgeschlossen werden, da Remotedesktop-Dienst aktuell ausgelastet ist. Versuchen Sie es in wenigen Minuten. Andere Benutzer sollten immer noch angemeldet sein.
+> Die Aufgabe, die Sie erledigen möchten, kann nicht ausgeführt werden, da der Remotedesktopdienst zurzeit ausgelastet ist. Wiederholen Sie den Vorgang in einigen Minuten. Andere Benutzer sollten immer noch in der Lage sein, sich anzumelden.
 
-Remote desktop-Clients, die versuchen, auch eine Verbindung nicht mehr reagiert.
+Remotedesktopclients, die versuchen, eine Verbindung herzustellen, hören auf, zu reagieren.
 
-Um dieses Problem zu umgehen, starten Sie die RDSH-Server neu.
+Um dieses Problem zu umgehen, führen Sie einen Neustart des RDSH-Servers durch.
 
-Dieses Problem zu beheben, weisen Sie die KB-4093114 [10. April 2018 – KB4093114 (monatliche Rollup)](file:///C:/Users/v-jesits/AppData/Local/Microsoft/Windows/INetCache/Content.Outlook/FUB8OO45/April%2010,%202018—KB4093114%20(Monthly%20Rollup)), in der RDSH-Server.
+Um dieses Problem zu beheben, wenden Sie KB 4093114, [10. April 2018 – KB4093114 (Monatliches Rollup)](Datei:///C:/Users/v-jesits/AppData/Local/Microsoft/Windows/INetCache/Content.Outlook/FUB8OO45/April%2010,%202018—KB4093114%20(Monthly%20Rollup)) auf die RDSH-Server an.
 
-### <a name="rd-listener-issue"></a>Remotedesktop-Listener-Problem
+### <a name="rd-listener-issue"></a>RD-Listener-Problem
 
-Für einige RDSH-Server, die direkt von Windows Server 2008 R2 auf Windows Server 2012 R2 aktualisiert wurden oder Windows Server 2016 wurde ein Problem festgestellt. Bei einem Remotedesktop-Client mit der RDSH-Servers verbunden ist, erstellt die RDSH-Servers ein Remotedesktop-Listeners für die benutzersitzung. Die betroffenen Servern behalten die Anzahl der von die RD-Listener, die steigt, wenn Benutzer eine Verbindung herstellen, aber nicht verringern.
+Auf einigen RDSH-Servern, für die ein direktes Upgrade von Windows Server 2008 R2 auf Windows Server 2012 R2 oder Windows Server 2016 ausgeführt wurde, wurde ein Problem festgestellt. Wenn ein Remotedesktopclient eine Verbindung mit dem RDSH-Server herstellt, erstellt der RDSH-Server einen RD-Listener für die Benutzersitzung. Die betroffenen Server unterhalten einen Zähler für die RD-Listener, der heraufgesetzt wird, wenn Benutzer Verbindungen herstellen, aber nicht wieder heruntergesetzt.
 
-Um dieses Problem zu umgehen, können Sie die folgenden Methoden:
+Um dieses Problem zu umgehen, können Sie die folgenden Methoden verwenden:
 
-  - Neustarten des RDSH-Servers zum Zurücksetzen des Zählers, der Remotedesktop-Listener
-  - Ändern Sie die Grenze Verbindungsrichtlinie auf einen sehr hohen Wert festlegen. Weitere Informationen zum Verwalten der Richtlinie für die Verbindung zu erhalten, finden Sie unter [überprüfen Sie die Richtlinie für die Verbindung](#check-the-connection-limit-policy).
+  - Führen Sie einen Neustart des RDSH-Servers durch, um den Zähler der RD-Listener zurückzusetzen
+  - Ändern Sie den Grenzwert der Verbindungsrichtlinie, und legen Sie sie auf einen sehr hohen Wert fest. Weitere Informationen zum Verwalten der Richtlinie für den Verbindungsgrenzwert finden Sie unter [Überprüfen der Richtlinie für den Verbindungsgrenzwert](#check-the-connection-limit-policy).
 
-Um dieses Problem zu beheben, müssen wenden Sie die folgenden Updates auf die RDSH-Server an:
+Um dieses Problem zu beheben, wenden Sie die folgenden Updates auf die RDSH-Server an:
 
   - Windows Server 2012 R2: KB 4343891, [30. August 2018 – KB4343891 (Vorschau des monatlichen Rollups)](https://support.microsoft.com/en-us/help/4343891/windows-81-update-kb4343891)
   - Windows Server 2016: KB 4343884, [30. August 2018 – KB4343884 (Betriebssystembuild 14393.2457)](https://support.microsoft.com/en-us/help/4343884/windows-10-update-kb4343884)
 
-### <a name="check-the-connection-limit-policy"></a>Überprüfen Sie die Richtlinie für Verbindung
+### <a name="check-the-connection-limit-policy"></a>Überprüfen der Verbindungsgrenzwert-Richtlinie
 
-Sie können den Grenzwert für die Anzahl der gleichzeitigen Remotedesktopverbindungen Ebene der einzelnen Computer oder durch konfigurieren ein Gruppenrichtlinienobjekt (GPO) festlegen. Standardmäßig ist der Grenzwert nicht festgelegt.
+Sie können die Anzahl der gleichzeitigen Remotedesktopverbindungen auf der Ebene der einzelnen Computer oder durch Konfiguration eines Gruppenrichtlinienobjekts (GPO) einschränken. Standardmäßig ist der Grenzwert nicht festgelegt.
 
-Überprüfen Sie die aktuellen Einstellungen und Gruppenrichtlinienobjekte für die RDSH-Servers zu identifizieren, öffnen Sie ein Eingabeaufforderungsfenster als Administrator, und geben den folgenden Befehl:
+Um die aktuellen Einstellungen zu überprüfen und die für die RDSH-Server vorhandenen Gruppenrichtlinienobjekte zu bestimmen, öffnen Sie ein Eingabeaufforderungsfenster als Administrator, und geben Sie den folgenden Befehl ein:
   
 ```
 gpresult /H c:\gpresult.html
 ```
    
-Nachdem dieser Befehl abgeschlossen ist, öffnen gpresult.html, und in **Computerkonfiguration\\Administrative Vorlagen\\Windows-Komponenten\\Remote Desktop Services\\Remote Desktop Session Host \\Verbindungen**, finden Sie die **Anzahl der Verbindungen einschränken** Richtlinie.
+Öffnen Sie nach dem Abschluss dieses Befehls „gpresult.html“, und suchen Sie in **Computerkonfiguration\\Administrative Vorlagen\\Windows-Komponenten\\Remotedesktopdienste\\Remotedesktop-Sitzungshost\\Verbindungen** die Richtlinie **Anzahl der Verbindungen einschränken**.
 
-  - Wenn die Einstellung für diese Richtlinie ist **deaktiviert**, und klicken Sie dann die RDP-Verbindungen von der Gruppenrichtlinie nicht eingeschränkt wird.
-  - Wenn die Einstellung für diese Richtlinie ist **aktiviert**, überprüfen Sie anschließend **ausschlaggebenden Gruppenrichtlinienobjekts**. Wenn Sie entfernen oder ändern Sie das Verbindungslimit festlegen möchten, bearbeiten Sie dieses Gruppenrichtlinienobjekt.
+  - Wenn die Einstellung für diese Richtlinie **Deaktiviert** ist, wird die Anzahl der RDP-Verbindungen nicht durch eine Gruppenrichtlinie eingeschränkt.
+  - Wenn die Einstellung für diese Richtlinie **Aktiviert** ist, überprüfen Sie **Ausschlaggebendes Gruppenrichtlinienobjekt**. Wenn Sie den Grenzwert für Verbindungen entfernen oder ändern müssen, bearbeiten Sie dieses GPO.
 
-Um die Änderung der Richtlinie zu erzwingen, öffnen Sie ein Eingabeaufforderungsfenster auf dem betroffenen Computer, und geben Sie den folgenden Befehl aus:
+Um die Änderung der Richtlinie zu erzwingen, öffnen Sie auf dem betroffenen Computer ein Eingabeaufforderungsfenster, und geben Sie den folgenden Befehl ein:
   
 ```
 gpupdate /force
 ```
   
-## <a name="rd-client-disconnects-and-cannot-reconnect-to-the-same-session"></a>Remotedesktop-Client trennt die Verbindung nicht hergestellt werden und mit der gleichen Sitzung
+## <a name="rd-client-disconnects-and-cannot-reconnect-to-the-same-session"></a>Der Remotedesktopclient wird getrennt und kann die Verbindung zur gleichen Sitzung nicht wiederherstellen
 
-Nach dem Remotedesktop-Client die Verbindung mit dem Remotedesktop verliert, kann nicht der Client sofort erneut eine Verbindung herzustellen. Der Benutzer erhält Fehlermeldungen wie z. B. Folgendes an:
+Nachdem der Remotedesktopclient die Verbindung mit dem Remotedesktop verloren hat, kann der Client die Verbindung nicht sofort wiederherstellen. Der Benutzer empfängt Fehlermeldungen wie etwa die folgenden:
 
-  - Der Client konnte aufgrund eines Sicherheitsfehlers nicht mit dem Terminalserver verbunden werden. Stellen Sie sicher, dass Sie mit dem Netzwerk angemeldet sind, versuchen Sie es erneut eine Verbindung mit dem Server.
-  - Remotedesktop nicht verbunden. Der Client konnte aufgrund eines Sicherheitsfehlers nicht mit dem Remotecomputer verbunden. Stellen Sie sicher, dass Sie am Netzwerk angemeldet sind, und wiederholen Sie dann erneut eine Verbindung herzustellen.
+  - Aufgrund eines Sicherheitsfehlers konnte der Client keine Verbindung mit dem Terminalserver herstellen. Nachdem Sie sichergestellt haben, dass Sie beim Netzwerk angemeldet sind, versuchen Sie noch einmal, eine Verbindung mit dem Server herzustellen.
+  - Remotedesktop getrennt. Aufgrund eines Sicherheitsfehlers konnte der Client keine Verbindung mit dem Remotecomputer herstellen. Stellen Sie sicher, dass Sie am Netzwerk angemeldet sind, und versuchen Sie dann noch einmal, eine Verbindung herzustellen.
 
-Mit dem zu einem späteren Zeitpunkt sich per Remotedesktop die Remotedesktop-Client verbindet. Allerdings anstelle den Client mit der ursprünglichen Sitzung verbinden, die RDSH-Servers vom Client eine Verbindung zu einer neuen Sitzung. Überprüfen die RDSH-Servers zeigt an, die der ursprünglichen Sitzung getrennt nicht eingeben, aber stattdessen bleibt aktiv.
+Zu einem späteren Zeitpunkt stellt der Remotedesktopclient die Verbindung mit dem Remotedesktop wieder her. Anstatt jedoch den Client mit der ursprünglichen Sitzung zu verbinden, stellt der RDSH-Server eine Verbindung des Clients mit einer neuen Sitzung her. Beim Überprüfen des RDSH-Servers stellt sich heraus, dass die ursprüngliche Sitzung nicht in einen getrennten Zustand versetzt wurde, sondern stattdessen weiterhin aktiv bleibt.
 
-Um dieses Problem zu umgehen, können Sie die **Keep-alive-Verbindungsintervall konfigurieren** Richtlinie in die **Computerkonfiguration\\Administrative Vorlagen\\fürWindows-Komponenten\\ Remote Desktop Services\\Remote Desktop Session Host\\Verbindungen** Ordner "Group Policy". Wenn Sie diese Richtlinie aktivieren, müssen Sie ein Keep-alive-Intervall eingeben. Das Keep-alive-Intervall bestimmt, wie oft in Minuten an, der Server den Sitzungszustand überprüft.
+Um dieses Problem zu umgehen, können Sie die Richtlinie **„Keep Alive“-Verbindungsintervall konfigurieren** im Gruppenrichtlinienordner **Computerkonfiguration\\Administrative Vorlagen\\Windows-Komponenten\\Remotedesktopdienste\\Remotedesktop-Sitzungshost\\Verbindungen** aktivieren. Wenn Sie diese Richtlinie aktivieren, müssen Sie ein Keep-Alive-Intervall angeben. Das Keep-Alive-Intervall bestimmt, wie oft der Server den Sitzungsstatus überprüft (Angabe in Minuten).
 
-Dieses Problem kann durch die Fehlkonfiguration von Einstellungen für die Authentifizierung und die Konfiguration verursacht werden. Sie können diese Einstellungen auf Serverebene oder mithilfe von Gruppenrichtlinienobjekten konfigurieren. Die gruppenrichtlinieneinstellungen finden Sie in der **Computerkonfiguration\\Administrative Vorlagen\\Windows-Komponenten\\Remote Desktop Services\\Remote Desktop Session Host\\ Sicherheit** Ordner "Group Policy".
+Dieses Problem kann seine Ursache in einer Fehlkonfiguration Ihrer Authentifizierungs- und Konfigurationseinstellungen haben. Sie können diese Einstellungen auf Serverebene oder mithilfe von GPOs konfigurieren. Die Gruppenrichtlinieneinstellungen stehen im Gruppenrichtlinienordner **Computerkonfiguration\\Administrative Vorlagen\\Windows-Komponenten\\Remotedesktopdienste\\Remotedesktop-Sitzungshost\\Sicherheit** zur Verfügung.
 
 1. Öffnen Sie auf dem RD-Sitzungshostserver die Konfiguration des Remotedesktop-Sitzungshosts.
-2. Klicken Sie unter **Verbindungen**mit der rechten Maustaste auf den Namen der Verbindung, und klicken Sie dann auf **Eigenschaften**.
-3. In der **Eigenschaften** im Dialogfeld für die Verbindung, auf die **allgemeine** Registerkarte **Sicherheit** layer, wählen Sie eine Methode.
-4. In **Verschlüsselungsstufe**, klicken Sie auf der Ebene, die Sie möchten. Sie können auswählen, **mit niedriger**, **kompatibel mit dem Client**, **hohe**, oder **FIPS-kompatible**.
+2. Klicken Sie unter **Verbindungen** mit der rechten Maustaste auf den Namen der Verbindung, und klicken Sie dann auf **Eigenschaften**.
+3. Wählen Sie im Dialogfeld **Eigenschaften** für die Verbindung auf der Registerkarte **Allgemein** in der Schicht **Sicherheit** eine Sicherheitsmethode aus.
+4. Klicken Sie in **Verschlüsselungsstufe** auf die gewünschte Stufe. Sie können zwischen **Niedrig**, **Clientkompatibel**, **Hoch** und **FIPS-konform** wählen.
 
 > [!NOTE]  
->  - Bei der Kommunikation zwischen Clients und RD-Sitzungshostserver die höchste Ebene der Verschlüsselung benötigen, verwenden Sie die FIPS-konforme Verschlüsselung.
->  - Verschlüsselungsstufeneinstellungen, die Sie in der Gruppenrichtlinie konfigurieren, überschreiben die Konfiguration, die Sie über das Remote Desktop Services-Konfigurationstool festlegen. Auch wenn Sie aktivieren die [Systemkryptografie: FIPS-konformen Algorithmus für Verschlüsselung, hashing und Signatur verwenden](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc780081\(v=ws.10\)) Richtlinie, um diese Einstellung überschreibt die **Verschlüsselungsstufe der Clientverbindung festlegen** Richtlinie. Die Kryptografie-Systemrichtlinie befindet sich in der **Computerkonfiguration\\Windows-Einstellungen\\Sicherheitseinstellungen\\lokale Richtlinien\\Sicherheitsoptionen** Ordner.
->  - Wenn Sie die Verschlüsselungsstufe ändern, wird die neue Verschlüsselungsstufe wirksam, sobald sich ein Benutzer das nächste Mal anmeldet. Wenn Sie mehrere Verschlüsselungsstufen auf einem Server benötigen, installieren Sie mehrere Netzwerkadapter, und konfigurieren Sie jeden Adapter getrennt.
->  - Um dieses Zertifikat verfügt über einen entsprechenden privaten Schlüssel in Remote Desktop Services-Konfiguration zu überprüfen, Maustaste die Verbindung für die Sie das Zertifikat anzuzeigen, aktivieren möchten **allgemeine**Option **bearbeiten**, wählen Sie das Zertifikat, das Sie anzeigen möchten, und wählen Sie dann **Zertifikat anzeigen**. Am unteren Rand der **allgemeine** Registerkarte, die Anweisung "Sie verfügen über einen privaten Schlüssel, die dieses Zertifikat entspricht" sollte angezeigt werden. Sie können diese Informationen auch mithilfe der Zertifikat-Snap-in anzeigen.
->  - FIPS-konforme Verschlüsselung (die **Systemkryptografie: FIPS-konformen Algorithmus für Verschlüsselung, hashing und Signatur** Richtlinie oder die **FIPS-kompatible** in Remote Desktop-Serverkonfiguration festlegen) verschlüsselt und entschlüsselt Daten, die vom Client gesendet werden, auf dem Server und aus der Server an den Client mit den Federal Information Processing Standard (FIPS) 140-1-Verschlüsselungsalgorithmen, verwendet kryptografische Module von Microsoft. Weitere Informationen finden Sie unter [FIPS 140-Überprüfung](https://docs.microsoft.com/en-us/windows/security/threat-protection/fips-140-validation).
->  - Die **hohe** Einstellung verschlüsselt die Daten, die vom Client an den Server und vom Server an den Client mithilfe von 128-Bit-Verschlüsselung gesendet.
->  - Die **Clientstandard** Einstellung verschlüsselt Datenübertragungen zwischen dem Client und dem Server unter der maximalen Verschlüsselungsstärke, die vom Client unterstützt werden.
->  - Die **niedrig** Einstellung verschlüsselt die Daten, die vom Client an den Server mit 56-Bit-Verschlüsselung gesendet.
+>  - Wenn für Verbindungen zwischen Clients und RD-Sitzungshostservern die höchste Verschlüsselungsstufe erforderlich ist, verwenden Sie FIPS-konforme Verschlüsselung.
+>  - Alle Einstellungen zur Verschlüsselungsstufe, die Sie in Gruppenrichtlinien konfigurieren, setzen die Konfiguration außer Kraft, die Sie mithilfe des Konfigurationstools für Remotedesktopdienste festlegen. Und wenn Sie die Richtlinie [Systemkryptografie: FIPS-konforme Algorithmen für Verschlüsselung, Hashing und Signatur verwenden](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc780081\(v=ws.10\)) aktivieren, setzt diese Einstellung die Richtlinie **Verschlüsselungsstufe der Clientverbindung festlegen** außer Kraft. Die Richtlinie für Systemkryptografie befindet sich im Ordner **Computerkonfiguration\\Windows-Einstellungen\\Sicherheitseinstellungen\\Lokale Richtlinien\\Sicherheitsoptionen**.
+>  - Wenn Sie die Verschlüsselungsstufe ändern, wird die neue Verschlüsselungsstufe wirksam, sobald sich ein Benutzer das nächste Mal anmeldet. Wenn Sie mehrere Verschlüsselungsstufen auf einem Server unterstützen müssen, installieren Sie mehrere Netzwerkadapter, und konfigurieren Sie jeden Adapter separat.
+>  - Um zu überprüfen, ob ein Zertifikat über einen entsprechenden privaten Schlüssel verfügt, klicken Sie mit der rechten Maustaste in „Remotedesktopdienste-Konfiguration“ mit der rechten Maustaste auf die Verbindung, für die Sie das Zertifikat anzeigen möchten, wählen Sie **Allgemein**, dann **Bearbeiten**, dann das Zertifikat, das Sie anzeigen möchten, und schließlich **Zertifikat anzeigen** aus. Unten auf der Registerkarte **Allgemein** sollte die Aussage „Sie verfügen über einen privaten Schlüssel, der diesem Zertifikat entspricht“ angezeigt werden. Sie können diese Informationen auch mithilfe des Zertifikat-Snap-Ins anzeigen.
+>  - FIPS-konforme Verschlüsselung (die Richtlinie **Systemkryptografie: FIPS-konforme Algorithmen für Verschlüsslung, Hashing und Signatur verwenden** oder die Einstellung **FIPS-konform** in der Remotedesktop-Serverkonfiguration) verschlüsselt und entschlüsselt die zwischen Client und Server ausgetauschten Daten mit Verschlüsselungsalgorithmen nach dem FIPS 140-1-Standard (Federal Information Processing Standard ) mithilfe von Microsoft-Kryptografiemodulen. Weitere Informationen finden Sie unter [FIPS 140-Überprüfung](https://docs.microsoft.com/windows/security/threat-protection/fips-140-validation).
+>  - Bei der Einstellung **Hoch** werden vom Client an den Server und vom Server an den Client gesendete Daten mithilfe von starker 128-Bit-Verschlüsselung verschlüsselt.
+>  - Bei der Einstellung **Clientkompatibel** werden die zwischen dem Client und dem Server ausgetauschten Daten mit der vom Client unterstützten maximalen Schlüsselstärke verschlüsselt.
+>  - Die Einstellung **Niedrig** verschlüsselt vom Client an den Server gesendete Daten mit 56-Bit-Verschlüsselung.
 
-## <a name="remote-laptop-disconnects-from-wireless-network"></a>Remote-Laptop trennt drahtloses Netzwerk
+## <a name="remote-laptop-disconnects-from-wireless-network"></a>Der Remotelaptop trennt die WLAN-Verbindung
 
-Dieses Problem kann auftreten, wenn einem Remotedesktopclient auf einem Laptop eine Verbindung herstellt, über ein Drahtlosnetzwerk 802.1 X. Gelegentlich, wird der Laptop dem drahtlosen Netzwerk trennt, und nicht automatisch neu.
+Dieses Problem kann auftreten, wenn ein Remotedesktopclient eine Verbindung mit einem Laptopcomputer mithilfe eines drahtlosen 802.1x-Netzwerks herstellt. Gelegentlich trennt der Laptop die Verbindung im dem Drahtlosnetzwerk und stellt sie nicht automatisch wieder her.
 
-Dies ist ein bekanntes Problem, das tritt auf, wenn für die drahtlose Netzwerkverbindung netzwerkauthentifizierungseinstellung **Benutzerauthentifizierung**.
+Dies ist ein bekanntes Problem, das auftritt, wenn die Netzwerk-Authentifizierungseinstellung für die drahtlose Netzwerkverbindung **Benutzerauthentifizierung** ist.
 
-Um dieses Problem zu umgehen, legen Sie netzwerkauthentifizierungseinstellung auf **Benutzer- oder Computerauthentifizierung** oder **Computerauthentifizierung**.
+Um dieses Problem zu umgehen, legen Sie Netzwerk-Authentifizierungseinstellung auf **Benutzer- oder Computerauthentifizierung** oder auf **Computerauthentifizierung** fest.
 
  > [!NOTE]  
-> Um die Netzwerkeinstellungen für die Authentifizierung auf einem einzelnen Computer zu ändern, müssen Sie die Netzwerk- und Freigabecenter-Systemsteuerung verwenden, um eine neue drahtlose Verbindung mit den neuen Einstellungen zu erstellen.
+> Um die Netzwerk-Authentifizierungseinstellungen auf einem einzelnen Computer zu ändern, müssen Sie möglicherweise die Systemsteuerung im Netzwerk- und Freigabecenter verwenden, um eine neue Drahtlosverbindung mit den neuen Einstellungen zu erstellen.
 
-Eine vollständige Beschreibung der Vorgehensweise: Konfigurieren von Einstellungen für drahtlose Netzwerke mithilfe der Gruppenrichtlinienobjekte finden Sie unter [Konfigurieren von Drahtlosnetzwerkrichtlinien (IEEE 802.11) Policies](https://docs.microsoft.com/en-us/windows-server/networking/core-network-guide/cncg/wireless/e-wireless-access-deployment#bkmk_policies).
+Eine vollständige Beschreibung der Konfiguration von Netzwerkeinstellungen mithilfe von Gruppenrichtlinienobjekten finden Sie unter [Configure Wireless Network (IEEE 802.11) Policies](https://docs.microsoft.com/windows-server/networking/core-network-guide/cncg/wireless/e-wireless-access-deployment#bkmk_policies) (Konfigurieren von Richtlinien für Drahtlosnetzwerke (IEEE 802.11)).
 
-## <a name="user-experiences-poor-performance-or-application-problems"></a>Benutzeroberflächen, eine schlechte Leistung oder Anwendungsproblemen
+## <a name="user-experiences-poor-performance-or-application-problems"></a>Beim Benutzer treten schlechte Leistung oder Probleme mit Anwendungen auf
 
-In diesem Abschnitt werden einige allgemeine Probleme, die Benutzer auftreten können, wenn sie die Remotedesktop-Funktionen verwenden:
+Dieser Abschnitt behandelt verschiedene häufige Probleme, die bei Benutzern auftreten können, wenn sie Remotedesktopfunktionen verwenden:
 
-  - [Benutzer, die für neue virtuelle Maschinen Microsoft Azure nicht ununterbrochen verbunden Probleme](#intermittent-problems-with-new-microsoft-azure-virtual-machines).
-  - [Benutzer, die Verbindung mit Windows 10 Version 1709-Remotedesktops möglicherweise Probleme bei der Wiedergabe von video](#video-playback-issues-on-windows-10-version-1709).
-  - [Benutzer mit nur-Lese Benutzerprofile, die mit Windows 10-remote-Desktops verbinden können ihre Desktops nicht freigeben.](#desktop-sharing-issues-on-windows-10)
-  - [Herstellen einer Verbindung mit Windows 10-Remotedesktops mit Clients, die unter älteren Versionen von Windows 10 ausgeführt werden. Benutzer kommen zu Leistungsproblemen, wenn NLA-Feature deaktiviert ist](#performance-issues-when-mixing-versions-of-windows-10-if-nla-is-disabled)
-  - [Wenn Benutzer mehrere Anwendungen in Remotedesktopsitzungen führen und trennen und häufig wiederherstellen, können sie einen schwarzen Bildschirm beim Wiederherstellen der Verbindung auftreten.](#black-screen-issue)
+  - [Bei Benutzern, die Verbindungen mit neuen virtuellen Computern auf Microsoft Azure herstellen, treten gelegentlich Probleme auf](#intermittent-problems-with-new-microsoft-azure-virtual-machines).
+  - [Bei Benutzern, die Verbindungen mit Remotedesktops herstellen, die Windows 10, Version 1709, ausführen, treten möglicherweise Probleme mit der Videowiedergabe auf](#video-playback-issues-on-windows-10-version-1709).
+  - [Benutzer mit schreibgeschützten Benutzerprofilen, die Verbindungen mit Windows 10-Remotedesktops herstellen, können ihren Desktop nicht freigeben.](#desktop-sharing-issues-on-windows-10)
+  - [Benutzer, die Verbindungen mit Windows 10-Remotedesktops mithilfe von Clients herstellen, auf denen ältere Versionen von Windows 10 ausgeführt werden, stellen schlechte Leistung fest, wenn NLA deaktiviert ist](#performance-issues-when-mixing-versions-of-windows-10-if-nla-is-disabled)
+  - [Wenn Benutzer mehrere Anwendungen in Remotedesktopsitzungen ausführen und die Verbindung häufig trennen und wiederherstellen, tritt möglicherweise beim Wiederherstellen der Verbindung ein schwarzer Bildschirm auf.](#black-screen-issue)
 
-### <a name="intermittent-problems-with-new-microsoft-azure-virtual-machines"></a>Wiederholt auftretende Probleme mit der neuen Microsoft Azure-Computern
+### <a name="intermittent-problems-with-new-microsoft-azure-virtual-machines"></a>Gelegentlich auftretende Probleme bei virtuellen Microsoft Azure-Computern
 
-Dieses Problem wirkt sich auf virtuellen Computern, die vor kurzem bereitgestellt wurden. Nachdem der Benutzer eine Verbindung mit dem virtuellen Computer herstellt, die Remotedesktopsitzung kann nicht geladen werden alle die Einstellungen des Benutzers korrekt.
+Dieses Problem betrifft virtuelle Computer, die vor Kurzem bereitgestellt wurden. Nachdem der Benutzer eine Verbindung mit dem virtuellen Computer hergestellt hat, lädt die Remotedesktopsitzung möglicherweise nicht alle Einstellungen des Benutzers ordnungsgemäß.
 
-Um dieses Problem zu umgehen, trennen Sie die virtuelle Maschine mindestens 20 Minuten warten Sie und dann erneut eine Verbindung her.
+Um dieses Problem zu umgehen, trennen Sie die Verbindung mit dem virtuellen Computer, warten Sie mindestens 20 Minuten lang, und stellen Sie dann wieder eine Verbindung her.
 
-Um dieses Problem zu beheben, müssen wenden Sie die folgenden Updates auf dem virtuellen Computer nach Bedarf an:
+Um dieses Problem zu lösen, wenden Sie die folgenden Updates nach Eignung auf die virtuellen Computer an:
 
-  - Windows 10 und WindowsServer 2016: KB 4343884, [30. August 2018 – KB4343884 (Betriebssystembuild 14393.2457)](https://support.microsoft.com/en-us/help/4343884/windows-10-update-kb4343884)
+  - Windows 10 und Windows Server 2016: KB 4343884, [30. August 2018 – KB4343884 (Betriebssystembuild 14393.2457)](https://support.microsoft.com/en-us/help/4343884/windows-10-update-kb4343884)
   - Windows Server 2012 R2: KB 4343891, [30. August 2018 – KB4343891 (Vorschau des monatlichen Rollups)](https://support.microsoft.com/en-us/help/4343891/windows-81-update-kb4343891)
 
-### <a name="video-playback-issues-on-windows-10-version-1709"></a>Videowiedergabe-Problemen unter Windows 10 Version 1709
+### <a name="video-playback-issues-on-windows-10-version-1709"></a>Probleme mit der Videowiedergabe unter Windows 10, Version 1709
 
-Dieses Problem tritt auf, wenn der Benutzer eine Verbindung mit Remotecomputern herstellen, auf denen Windows 10, Version 1709 ausgeführt werden. Wenn diese Benutzer Videowiedergabe mit der VMR9 (Video das Kombinieren von Renderer 9)-Codec, der Spieler zeigt nur ein schwarzes Fenster.
+Dieses Problem tritt auf, wenn Benutzer Verbindungen mit Remotecomputern herstellen, die Windows 10, Version 1709, ausführen. Wenn diese Benutzer Video mithilfe des VMR9-Codecs (Video Mixing Renderer 9) wiedergeben, zeigt der Player nur ein schwarzes Fenster an.
 
-Dies ist ein bekanntes Problem in Windows 10, Version 1709. Das Problem tritt nicht unter Windows 10 Version 1703.
+Dies ist ein bekanntes Problem in Windows 10, Version 1709. Das Problem tritt unter Windows 10, Version 1703, nicht auf.
 
-### <a name="desktop-sharing-issues-on-windows-10"></a>Freigeben von Problemen auf Windows 10 Desktop
+### <a name="desktop-sharing-issues-on-windows-10"></a>Probleme mit der Desktopfreigabe unter Windows 10
 
-Dieses Problem tritt auf, wenn der Benutzer eine nur-Lese Benutzerprofil (sowie den zugehörigen Registrierungsstruktur), z. B. in einem Szenario mit Kiosk verfügt. Wenn diese Benutzer mit einem Remotecomputer herstellt, auf denen Windows 10, Version 1803, ausgeführt wird, können nicht sie ihren Desktop freigeben.
+Dieses Problem tritt auf, wenn der Benutzer ein schreibgeschütztes Benutzerprofil (und eine zugeordnete Registrierungsstruktur) besitzt, wie etwa in einem Kioskszenario. Wenn ein solcher Benutzer eine Verbindung mit einem Remotecomputer unter Windows 10, Version 1803, herstellt, kann er seinen Desktop nicht freigeben.
 
-Um dieses Problem beheben, wenden Sie das Windows 10-Update 4340917, [24. Juli 2018 – KB4340917 (OS Build 17134.191)](https://support.microsoft.com/en-us/help/4340917/windows-10-update-kb4340917).
+Um dieses Problem zu beheben, wenden Sie das Windows 10-Update 4340917, [24. Juli 2018 – KB4340917 (Betriebssystembuild 17134.191)](https://support.microsoft.com/en-us/help/4340917/windows-10-update-kb4340917) an.
 
-### <a name="performance-issues-when-mixing-versions-of-windows-10-if-nla-is-disabled"></a>Leistungsprobleme beim Kombinieren von Versionen von Windows 10, wenn der NLA-Feature deaktiviert ist
+### <a name="performance-issues-when-mixing-versions-of-windows-10-if-nla-is-disabled"></a>Leistung bei der gemischten Verwendung von Windows 10-Versionen, wenn NLA deaktiviert ist
 
-Dieses Problem tritt auf, wenn NLA-Feature ist deaktiviert, und Remotedesktop-Client-Computer, auf denen Windows 10 verbinden, Remotedesktops, die unterschiedliche Versionen von Windows 10 ausführen. Benutzer von remote desktop-Clients auf Computern mit Windows 10, Version 1709 oder früheren Versionen kommen zu Leistungsproblemen, beim Verbinden mit remote-Desktops, auf denen Windows 10, Version 1803 oder eine höhere Version ausgeführt.
+Dieses Problem tritt auf, wenn NLA deaktiviert ist und Remotedesktop-Clientcomputer, die Windows 10 ausführen, Verbindungen mit Remotedesktops herstellen, die andere Versionen von Windows 10 ausführen. Benutzer von Remotedesktopclients auf Computern, die Windows 10, Version 1709 oder früher, ausführen, erfahren schlechte Leistung bei Verbindungen mit Remotedesktops, die Windows 10, Version 1803 oder höher, ausführen.
 
-Dies tritt auf, da bei der Authentifizierung auf Netzwerkebene deaktiviert ist, die älteren Client-Computer ein langsameres Protokoll beim Verbinden mit Windows 10, Version 1803 oder höher verwendet.
+Dies tritt auf, weil bei deaktivierter NLA die älteren Clientcomputer ein langsameres Protokoll für Verbindungen mit Windows 10, Version 1803 oder höher, verwenden.
 
-Dieses Problem zu beheben, weisen Sie die KB-4340917 [24. Juli 2018 – KB4340917 (OS Build 17134.191)](https://support.microsoft.com/en-us/help/4340917/windows-10-update-kb4340917).
+Um dieses Problem zu beheben, wenden Sie KB 4340917, [24. Juli 2018 — KB4340917 (Betriebssystembuild 17134.191)](https://support.microsoft.com/en-us/help/4340917/windows-10-update-kb4340917) an.
 
-### <a name="black-screen-issue"></a>Schwarzer Bildschirm angezeigt
+### <a name="black-screen-issue"></a>Problem mit schwarzem Bildschirm
 
-Dieses Problem tritt in Windows 8.0, Windows 8.1, Windows 10 RTM und Windows Server 2012 R2. Ein Benutzer mehrere Anwendungen auf einem remote Desktop startet, dann aus der Sitzung wird getrennt. In regelmäßigen Abständen, verbindet sich der Benutzer die Remotedesktopverbindung mit den Anwendungen interagieren, und trennen Sie dann erneut. An einem bestimmten Punkt, wenn der Benutzer die Verbindung wiederherstellt, zeigt die Remotedesktopsitzung nur einen schwarzen Bildschirm. Der Benutzer muss über die Remotedesktopsitzung aus dem Remotecomputer-Konsole (oder die RDSH-Server-Verwaltungskonsole) enden. Diese Aktion beendet die Anwendungen.
+Dieses Problem tritt in Windows 8.0, Windows 8.1, Windows 10 RTM und Windows Server 2012 R2 auf. Ein Benutzer startet mehrere Anwendungen auf einem Remotedesktop und trennt anschließend die Verbindung. In regelmäßigen Abständen stellt der Benutzer die Verbindung mit dem Remotedesktop wieder her, um mit den Anwendungen zu interagieren, und trennt die Verbindung dann wieder. An einem bestimmten Punkt zeigt die Remotedesktopsitzung beim Wiederherstellen der Verbindung nur einen schwarzen Bildschirm an. Der Benutzer muss die Remotedesktopsitzung von der Konsole des Remotecomputers aus (oder an der Konsole des RDSH-Servers) beenden. Bei dieser Aktion werden die Anwendungen beendet.
 
-Um dieses Problem zu beheben, müssen wenden Sie die folgenden Updates nach Bedarf an:
+Um dieses Problem zu beheben, wenden Sie die folgenden Updates nach Eignung an:
 
-  - Windows 8 und WindowsServer 2012: KB4103719, [17 Mai 2018 – KB4103719 (Vorschau des monatlichen Rollups)](https://support.microsoft.com/en-us/help/4103719/windows-server-2012-update-kb4103719)
-  - Windows 8.1 und Windows Server 2012 R2: KB4103724, [17 Mai 2018 – KB4103724 (Vorschau des monatlichen Rollups)](https://support.microsoft.com/en-us/help/4103724/windows-81-update-kb4103724) und KB 4284863, [am 21. Juni 2018 – KB4284863 (Vorschau des monatlichen Rollups)](https://support.microsoft.com/en-us/help/4284863/windows-81-update-kb4284863)
+  - Windows 8 und Windows Server 2012 KB4103719, [17. Mai 2018 – KB4103719 (Vorschau der monatlichen Zusammenfassung)](https://support.microsoft.com/en-us/help/4103719/windows-server-2012-update-kb4103719)
+  - Windows 8.1 und Windows Server 2012 R2: KB4103724, [17 Mai 2018 – KB4103724 (Vorschau des monatlichen Rollups)](https://support.microsoft.com/en-us/help/4103724/windows-81-update-kb4103724) und KB 4284863, [21. Juni 2018 – KB4284863 (Vorschau des monatlichen Rollups)](https://support.microsoft.com/en-us/help/4284863/windows-81-update-kb4284863)
   - Windows 10: Behoben in KB4284860, [12. Juni 2018 – KB4284860 (Betriebssystembuild 10240.17889)](https://support.microsoft.com/en-us/help/4284860/windows-10-update-kb4284860)

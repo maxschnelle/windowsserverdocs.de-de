@@ -1,108 +1,108 @@
 ---
-title: Was ist neu in Windows Server, Version 1903 sein
-description: Dieses Thema beschreibt einige der neuen Features in Windows Server, Version 1903 sein, eine Halbjährlicher Kanal-Version ist.
+title: Neuerungen in Windows Server, Version 1903
+description: In diesem Thema werden einige der neuen Features in Windows Server, Version 1903, beschrieben, die ein Release im halbjährlichen Kanal darstellt.
 ms.prod: windows-server-threshold
 ms.technology: server-general
 ms.topic: article
 author: jasongerend
 ms.author: jgerend
 ms.date: 05/21/2019
-ms.openlocfilehash: 2aa84df1ca162cb6e2dfa580b4b0744ff08cc95a
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
-ms.translationtype: MT
+ms.openlocfilehash: 0ec6a7ec624818b92fb306089f3dea3c786c0827
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65983440"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280317"
 ---
-# <a name="whats-new-in-windows-server-version-1903"></a>Was ist neu in Windows Server, Version 1903
+# <a name="whats-new-in-windows-server-version-1903"></a>Neuerungen in Windows Server, Version 1903
 
->Gilt für: Windows Server (Semi-Annual Channel)
+>Gilt für: Windows Server (Halbjährlicher Kanal)
 
-Dieses Thema beschreibt einige der neuen Features in Windows Server, Version 1903 sein, eine Halbjährlicher Kanal-Version ist. Zu diesen Funktionen gehören Verbesserungen für die Ausführung und Verwaltung von Containern, Tools für die Arbeit in Server Core-Installationen und die Möglichkeit zum Migrieren von Speicher von Linux-Geräten.
+In diesem Thema werden einige der neuen Features in Windows Server, Version 1903, beschrieben, die ein Release im halbjährlichen Kanal darstellt. Zu diesen Features zählen Verbesserungen für das Ausführen und Verwalten von Containern, Tools für das Arbeiten in Server Core-Installationen und die Möglichkeit, Speicherplatz von Linux-Geräten zu migrieren.
 
-Stattdessen neuerungen in der neuesten Version der langfristigen Wartungskanal (LTSC) von Windows Server finden Sie unter finden Sie unter [Neuigkeiten in Windows Server-2019](../get-started-19/whats-new-19.md). Siehe auch [Neuigkeiten in Windows 10, Version 1903 IT Pro-Inhalt](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1903).
+Um herauszufinden, was demgegenüber neu im aktuellsten LTSC-Release (Long-Term Servicing Channel) von Windows Server ist, lesen Sie [Neuerungen in Windows Server 2019](../get-started-19/whats-new-19.md). Lesen Sie außerdem [Neues in Windows 10, Version 1903 – Infos für IT-Experten](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1903).
 
-Die Systemanforderungen für diese Version sind identisch mit dem Windows Server-2019 – finden Sie unter [Systemanforderungen](../get-started-19/sys-reqs-19.md) für Weitere Informationen. Was ist vor kurzem entfernt wurde, finden Sie unter [Funktionen entfernt oder geplant für den Austausch, die mit Windows Server, Version 1903 ab](../get-started-19/removed-features-1903.md)
+Die Systemanforderungen für dieses Release sind die gleichen wie für Windows Server 2019 – weitere Informationen finden Sie unter [Systemanforderungen](../get-started-19/sys-reqs-19.md). Informationen über entfernte Features finden Sie unter [Features, die entfernt wurden bzw. deren Entfernung aus künftigen Windows Server, Version 1903, geplant ist](../get-started-19/removed-features-1903.md)
 
 > [!NOTE]
-> Windows-Containern müssen die gleiche Version von Windows verwenden, als dem Hostserver oder *früheren* Version. Z. B. kann einem Hostserver, die unter der endgültigen Produktversion von Windows Server, Version 1903 (build 18342) Windows Server-Container mit dieselbe oder eine frühere Version ausführen und Buildnummer (selbst wenn der Container eine Insider Preview-Version von Windows verwendet). Weitere Informationen finden Sie unter [Windows Container-Versionskompatibilität](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
+> Windows-Container müssen die gleiche Windows-Version wie der Hostserver oder eine *frühere* Version verwenden. Beispielsweise kann ein Hostserver, der die veröffentlichte Version von Windows Server ausführt, Version 1903 (Build 18342), Windows Server-Container mit der gleichen oder einer früheren Version und Buildnummer ausführen (selbst wenn der Container eine Insider Preview-Version von Windows ausführt). Weitere Informationen finden Sie unter [Versionskompatibilität von Windows-Containern](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
-## <a name="enhanced-support-for-non-microsoft-container-services"></a>Verbesserte Unterstützung für nicht-Microsoft containerdienste
+## <a name="enhanced-support-for-non-microsoft-container-services"></a>Verbesserte Unterstützung für nicht von Microsoft stammende Containerdienste
 
-Wir erweiterte Funktionen zur Unterstützung von Azure Container Service und die containerdienste von nicht-Microsoft-Plattform.
+Wir haben die Plattformfunktionen auf die Unterstützung von Azure-Containerdiensten und nicht von Microsoft stammende Containerdienste erweitert.
 
-- Wir die CRI-Containerd mit Host Compute Service (HCS) zur Unterstützung von Pods von Windows und Linux-Container unter Windows (LCOW) in Azure integriert.
-- Wir haben mit der Kubernetes-Community, um Unterstützung für Windows-Containern zu aktivieren. Mit der Version von Kubernetes v1.14 hat Unterstützung für Windows Server-Knoten offiziell von Beta auf stabilen. Weitere Informationen finden Sie unter [Windows-Containern in Kubernetes nun unterstützt](https://cloudblogs.microsoft.com/opensource/2019/03/25/windows-server-containers-now-supported-kubernetes/).
-- Tigera Calico für Windows ist jetzt allgemein verfügbar ist, als Teil des Tigera Essentials-Abonnement und Angebote nicht-Overlay-Netzwerk und Netzwerkrichtlinien für interoperable gemischten Linux/Windows-Umgebungen.
-- Wir übermittelt Verbesserungen der Skalierbarkeit, die Netzwerkunterstützung für Windows-Container, einschließlich Integration mit Kubernetes in der neusten Version der jene und Kubernetes v1.14 Overlay zu verbessern. Weitere Informationen finden Sie unter [Einführung in die Windows-Unterstützung in Kubernetes](https://kubernetes.io/docs/setup/windows/).
+- Wir haben CRI-containerd mit dem Hostcomputedienst (Host Compute Service, HCS) integriert, um Pods von Windows-Containern und Linux-Containern unter Windows (LCOW) auf Azure zu unterstützen.
+- Wir haben mit der Kubernetes-Community zusammengearbeitet, um Windows-Containerunterstützung zu ermöglichen. Mit der Veröffentlichung von Kubernetes v1.14 wurde die Knotenunterstützung für Windows Server offiziell von Beta zu stabil heraufgestuft. Weitere Informationen finden Sie unter [Windows containers now supported in Kubernetes](https://cloudblogs.microsoft.com/opensource/2019/03/25/windows-server-containers-now-supported-kubernetes/) (Windows-Container werden jetzt in Kubernetes unterstützt).
+- Tigera Calico für Windows ist jetzt allgemein als Teil des Tigera Essentials-Abonnements erhältlich und bietet sowohl Netzwerke ohne Overlay als auch interoperable Netzwerkrichtlinien für gemischte Linux/Windows-Umgebungen.
+- Wir haben Verbesserungen der Skalierbarkeit vorgenommen, was die Unterstützung für Overlaynetzwerke für Windows-Container verbessert, einschließlich der Integration mit Kubernetes durch das neueste Release von Flannel und Kubernetes v1.14. Weitere Informationen finden Sie unter [Einführung in die Windows-Unterstützung in Kubernetes](https://kubernetes.io/docs/setup/windows/).
 
 ## <a name="directx-hardware-acceleration-in-containers"></a>DirectX-Hardwarebeschleunigung in Containern
 
-Aktivieren wir Unterstützung für die Hardwarebeschleunigung von DirectX-APIs in Windows-Container Tp unterstützungsszenarien wie z. B. lokale grafische Verarbeitung (Unit, GPU) Hardware mithilfe von Machine Learning (ML) Rückschlüsse. Weitere Informationen finden Sie unter [bringen GPU-Beschleunigung mit Windows-Containern](https://techcommunity.microsoft.com/t5/Containers/Bringing-GPU-acceleration-to-Windows-containers/ba-p/393939).
+Wir aktivieren Unterstützung für Hardwarebeschleunigung von DirectX-APIs in Windows-Containern, um Szenarien wie Machine Learning (ML) unter Einbeziehung von lokaler GPU-Hardware (Graphical Processing Unit) zu unterstützen. Weitere Informationen finden Sie unter [Bringing GPU acceleration to Windows containers](https://techcommunity.microsoft.com/t5/Containers/Bringing-GPU-acceleration-to-Windows-containers/ba-p/393939) (Einbeziehung von GPU-Beschleunigung in Windows-Containern).
 
-## <a name="updated-container-identity-and-group-managed-service-account-documentation"></a>Aktualisierte Container Benutzeridentität und die Dokumentation zu Service-Konto verwaltet werden
+## <a name="updated-container-identity-and-group-managed-service-account-documentation"></a>Aktualisierte Dokumentation zu Containeridentität und gruppenverwalteten Dienstkonten
 
-Wir hinzugefügt, Weitere Beispiele und Kompatibilität von Informationen zu den [Gruppenverwaltete Dienstkonten: Übersicht](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/manage-serviceaccounts) -Dokumentation und die [Anmeldeinformationen Spezifikation PowerShell-Modul](https://www.powershellgallery.com/packages/CredentialSpec) im PowerShell-Katalog verfügbar. Weitere Informationen finden Sie in der [Neuigkeiten für Container Identität](https://techcommunity.microsoft.com/t5/Containers/What-s-new-for-container-identity/ba-p/389151) Blogbeitrag.
+Wir haben der Dokumentation zu [Gruppenverwalteten Dienstkonten](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/manage-serviceaccounts) weitere Beispiele und Kompatibilitätsinformationen hinzugefügt und das [CredentialSpec-PowerShell-Modul](https://www.powershellgallery.com/packages/CredentialSpec) vom PowerShell-Katalog aus zugänglich gemacht. Weitere Informationen finden Sie im Blogbeitrag [What's new for container identity](https://techcommunity.microsoft.com/t5/Containers/What-s-new-for-container-identity/ba-p/389151) (Neues zur Containeridentität).
 
-## <a name="add-task-scheduler-and-hyper-v-manager-to-server-core-installations"></a>Server Core-Installationen der Aufgabenplanung und Hyper-V-Manager hinzufügen
+## <a name="add-task-scheduler-and-hyper-v-manager-to-server-core-installations"></a>Hinzufügen von Aufgabenplanung und Hyper-V-Manager zu Server Core-Installationen
 
-Wie Sie wissen vielleicht, wird empfohlen, mithilfe der Installationsoption Server Core, bei Verwendung von Windows Server, Halbjährlicher Kanal in der Produktion. Server Core standardmäßig lässt jedoch eine Reihe von Tools für hilfreiches Verwaltungstool aus. Sie können die viele der am häufigsten verwendeten Tools durch Installieren des App-Kompatibilität, es gibt aber immer noch einige fehlende Tools hinzufügen.
+Wie Ihnen vielleicht bekannt ist, empfehlen wir die Verwendung der Server Core-Installationsoption beim Einsatz von Windows Server im halbjährlichen Kanal in Produktionsumgebungen. Standardmäßig sind in Server Core jedoch eine Reihe nützlicher Verwaltungstools fortgelassen. Viele der häufig verwendeten Tools lassen sich durch Installieren des App-Kompatibilitätsfeatures hinzufügen, aber einige Tools fehlten immer noch.
 
-Daher wurde hinzugefügt basierend auf Kundenfeedback, zwei weitere Tools für das App-Kompatibilität-Feature in dieser Version: Aufgabenplanung (taskschd.msc) und Hyper-V-Manager (virtmgmt.msc).
+Auf der Grundlage von Kundenfeedback haben wir uns daher entschieden, dem App-Kompatibilitätsfeature in dieser Version zwei weitere Tools hinzuzufügen: Aufgabenplanung (taskschd.msc) und Hyper-V-Manager (virtmgmt.msc).
 
-Weitere Informationen finden Sie unter [Kompatibilitätsfeature für Server Core-app](../get-started-19/install-fod-19.md).
+Weitere Informationen finden Sie unter [Server Core-App-Kompatibilitätsfeature](../get-started-19/install-fod-19.md).
 
-## <a name="storage-migration-service-now-migrates-local-accounts-clusters-and-linux-servers"></a>Storage-Migration-Dienst migriert jetzt lokale Konten, -Cluster und Linux-Servern
+## <a name="storage-migration-service-now-migrates-local-accounts-clusters-and-linux-servers"></a>Der Speichermigrationsdienst kann jetzt lokale Konten, Cluster und Linux-Server migrieren
 
-Storage-Migration-Dienst erleichtert es, für die Migration der Server auf eine neuere Version von Windows Server. Es bietet ein grafisches Tool, die inventarisiert, die Daten auf Servern und dann die Daten und die Konfiguration auf neueren Servern übertragen – alles ohne Anwendungen oder Benutzer Änderungen vornehmen müssen.
+Mit dem Speichermigrationsdienst können Server einfacher zu einer neueren Version von Windows Server migriert werden. Er bietet ein grafisches Tool, das Daten auf Servern inventarisiert und anschließend die Daten und die Konfiguration auf neuere Server überträgt – ganz ohne Apps oder die Notwendigkeit für Benutzer, irgendetwas zu ändern.
 
-Wenn diese Version von Windows Server verwenden, um Migrationen zu orchestrieren, haben wir die folgenden Funktionen hinzugefügt:
+Wenn Sie diese Version von Windows Server zum Orchestrieren von Migrationen verwenden möchten, haben wir für Sie die folgenden Funktionen hinzugefügt:
 
-- Migrieren Sie lokale Benutzer und Gruppen mit dem neuen server
-- Migrieren des Speichers von Failoverclustern
-- Migrieren des Speichers von einem Linux-Server, der Samba verwendet
-- Synchronisieren Sie leichter migrierte Dateifreigaben in Azure mithilfe von Azure File Sync
-- Migrieren Sie zu neuen wie z. B. Azure-Netzwerken
+- Migrieren lokaler Benutzer und Gruppen zum neuen Server
+- Migrieren von Speicher von Failoverclustern
+- Migrieren von Speicher von einem Linux-Server, der Samba verwendet
+- Vereinfachte Synchronisierung von migrierten Freigaben zu Azure mithilfe von Azure-Dateisynchronisierung
+- Migrieren zu neuen Netzwerken wie etwa Azure
 
-Weitere Informationen zu Storage Migration Service, finden Sie unter [Übersicht über die Speicherung Datenbankmigrationsdienst](../storage/storage-migration-service/overview.md).
+Weitere Informationen über den Speichermigrationsdienst finden Sie unter [Speichermigrationsdienst – Übersicht](../storage/storage-migration-service/overview.md).
 
-## <a name="system-insights-disk-anomaly-detection"></a>System Insights Datenträger Erkennung von Anomalien
+## <a name="system-insights-disk-anomaly-detection"></a>System Insights-Datenträger-Anomalieerkennung
 
-[System Insights](../manage/system-insights/overview.md) ist ein predictive Analytics-Feature, das lokal analysiert Daten von Windows Server System und bietet einen Einblick in die Funktionsweise des Servers. Es enthält eine Reihe von integrierten Funktionen, aber wir haben die Möglichkeit, installieren zusätzliche Funktionen, die über Windows Admin Center, hinzugefügt, der Erkennung von Anomalien ab.
+[System Insights](../manage/system-insights/overview.md) ist ein Feature zur vorausschauenden Analyse, das lokal Systemdaten von Windows Server analysiert und Einsichten in die Funktionsweise des Servers bietet. Es bietet standardmäßig eine Reihe integrierter Funktionen, wir haben aber die Möglichkeit zum Installieren weiterer Funktionen im Windows Admin Center hinzugefügt, und den Anfang macht die Erkennung von Datenträgeranomalien.
 
-Erkennung von Anomalien ist eine neue Funktion, die hebt hervor, wenn Datenträger gerätefähigkeiten *anders* als üblich. Zwar verschiedene nicht unbedingt kann eine schlechte Sache, sehen diese anomalen Momente hilfreich sein, beim Behandeln von Problemen auf Ihren Systemen.
+Die Erkennung von Datenträgeranomalien ist eine neue Funktion, die den Fall hervorhebt, dass Datenträger sich *anders* als gewöhnlich verhalten. Zwar ist anders nicht zwangsläufig schlecht, aber die Darstellung der anomalen Momente kann bei der Behandlung von Problemen auf Ihren Systemen eine große Hilfe sein.
 
-Diese Funktion steht auch für Server mit Windows Server-2019.
+Diese Funktion ist auch für Server verfügbar, die Windows Server 2019 ausführen.
 
-## <a name="windows-admin-center-enhancements"></a>Verbesserungen von Windows Admin Center
+## <a name="windows-admin-center-enhancements"></a>Verbesserungen am Windows Admin Center
 
-Eine neue Version von Windows Admin Center ist, Hinzufügen von neuen Funktionen zu Windows Server. Weitere Informationen zu den neuesten Features finden Sie unter [Windows Admin Center](../manage/windows-admin-center/understand/windows-admin-center.md).
+Eine neue Version von Windows Admin Center wurde veröffentlicht, die Windows Server um neue Funktionen bereichert. Informationen zu den neuesten Features finden Sie unter [Windows Admin Center](../manage/windows-admin-center/understand/windows-admin-center.md).
 
-## <a name="security-baseline-for-windows-10-and-windows-server"></a>Grundlegende Sicherheit für Windows 10 und Windows Server
+## <a name="security-baseline-for-windows-10-and-windows-server"></a>Sicherheitsgrundlinie für Windows 10 und Windows Server
 
-Der Draft-Version von der [Baseline Konfigurationseinstellungen](https://blogs.technet.microsoft.com/secguide/2019/04/24/security-baseline-draft-for-windows-10-v1903-and-windows-server-v1903/) Version 1903 für Windows 10, Version 1903 sein und für Windows Server verfügbar ist.
+Die Entwurfsversion der [Grundlinieneinstellungen der Sicherheitskonfiguration](https://blogs.technet.microsoft.com/secguide/2019/04/24/security-baseline-draft-for-windows-10-v1903-and-windows-server-v1903/) für Windows 10, Version 1903, und für Windows Server, Version 1903, ist verfügbar.
 
 ## <a name="setupdiag"></a>SetupDiag
-[SetupDiag](https://docs.microsoft.com/windows/deployment/upgrade/setupdiag) Version 1.4.1 ist verfügbar.
+[SetupDiag](https://docs.microsoft.com/windows/deployment/upgrade/setupdiag), Version 1.4.1, ist verfügbar.
 
-SetupDiag ist ein Befehlszeilentool, mit denen können diagnostizieren, warum ein Windows-Update ist fehlgeschlagen. SetupDiag durchsucht dazu die Windows Setup-Protokolldateien. Beim Durchsuchen von Protokolldateien verwendet SetupDiag eine Reihe von Regeln für den Abgleich mit bekannten Problemen. In der aktuellen Version von SetupDiag 53 in der Datei rules.xml enthaltenen Regeln vorhanden sind, wird der extrahiert, wenn SetupDiag ausgeführt wird. Die Datei rules.xml wird aktualisiert, sobald neue Versionen von SetupDiag verfügbar sind.
+SetupDiag ist ein Befehlszeilentool, mit dem Sie feststellen können, warum ein Windows-Update fehlgeschlagen ist. SetupDiag durchsucht dazu die Windows Setup-Protokolldateien. Beim Durchsuchen von Protokolldateien verwendet SetupDiag eine Reihe von Regeln für den Abgleich mit bekannten Problemen. In der aktuellen Version von SetupDiag enthält die Datei „rules.xml” 53 Regeln, die bei der Ausführung von SetupDiag extrahiert werden. Die Datei „rules.xml“ wird aktualisiert, sobald neue Versionen von SetupDiag verfügbar sind.
 
-## <a name="update-rollback-improvements"></a>Aktualisieren Sie die Rollback-Verbesserungen
+## <a name="update-rollback-improvements"></a>Verbesserungen beim Rollback von Updates
 
-Server können jetzt automatisch wiederhergestellt werden beim Start von Updates zu entfernen, wenn nach der Installation des neuesten Updates für Treiber oder Qualität der Startfehler eingeführt wurde. Wenn ein Gerät nach der kürzlich durchgeführten Installationen von Servicequalitätsanforderungen Treiberupdates starten kann, wird die Updates für das Gerät zu versetzen, Sichern und normal ausgeführt von Windows jetzt automatisch deinstalliert.
+Server können jetzt nach Startfehlern automatisch wiederhergestellt werden, indem Updates entfernt werden, wenn der Startfehler erstmals nach der Installation vor Kurzem erfolgter Treiber- oder Qualitätsupdates aufgetreten ist. Wenn ein Gerät nach der vor Kurzem erfolgten Installation von Qualitäts- oder Treiberupdates nicht mehr ordnungsgemäß starten kann, deinstalliert Windows die Updates nun automatisch, um dem Gerät so schnell wie möglich wieder den normalen Betrieb zu ermöglichen.
 
-Diese Funktion muss der Server mit die Server Core-Installationsoption verwenden eine [Windows-Wiederherstellungsumgebung](https://docs.microsoft.com/windows-hardware/manufacture/desktop/windows-recovery-environment--windows-re--technical-reference) Partition.
+Für diese Funktion muss der Server die Server Core-Installationsoption mit einer Partition für die [Windows-Wiederherstellungsumgebung](https://docs.microsoft.com/windows-hardware/manufacture/desktop/windows-recovery-environment--windows-re--technical-reference) verwenden.
 
-## <a name="microsoft-defender-advanced-threat-protection-atp-improvements"></a>Verbesserungen von Microsoft Defender Advanced Threat Protection (ATP)
+## <a name="microsoft-defender-advanced-threat-protection-atp-improvements"></a>Verbesserungen an Microsoft Defender Advanced Threat Protection (ATP)
 
-Windows Server beinhaltet Microsoft Defender Advanced Thread Protection (Weitere Informationen finden Sie unter [Windows Defender Antivirus auf Windows Server](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016)). Dieses Release enthält die folgenden Verbesserungen:
+Windows Server beinhaltet Microsoft Defender Advanced Thread Protection (weitere Informationen finden Sie unter [Windows Defender Antivirus auf Windows Server](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016)). In dieser Version sind die folgenden Verbesserungen enthalten:
 
-- [Oberflächenverringerung Angriffe](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/overview-attack-surface-reduction) – IT-Administratoren können konfigurieren, Geräte mit Schutz für die erweiterte Web, die ihnen ermöglicht, definieren Sie zulassen und verweigern Sie Listen aus, für bestimmte URLs und IP-Adressen.
-- [Sicherheit der nächsten Generation](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10) – Steuerelemente zum Schutz vor Ransomware, Missbrauch von Anmeldeinformationen und Angriffe, die über Wechselmedien übertragen werden erweitert wurden.
-    - Integrität erzwingen Funktionen – Enable remote-Runtime-Nachweis.
-    - Tamper-korrekturhilfen Funktionen – verwendet virtualisierungsbasierte Sicherheit zum Isolieren von Kritischer ATP Sicherheitsfunktionen außerhalb des Betriebssystems und der Angreifer.
-- Technologien für Microsoft Defender-ATP-Schutz der nächsten Generation:
-    - **Erweiterter Machine Learning**: Verbesserte mit fortschrittliches maschinelles lernen und KI-Modelle, die sie zum Schutz vor Apex-Angreifern, die mithilfe der innovativen Sicherheitsrisiko Exploit-Verfahren, Tools und Malware zu aktivieren.
-    - **Notfall-Schutz**: Bietet Schutz für Notfall das automatisch aktualisiert Geräte neue Erkenntnisse, wenn ein neuer Ausbruch erkannt wurde.
-    - **ISO 27001 Certified Compliance**: Stellt sicher, dass für die Bedrohungen, Schwachstellen und wirkt sich auf der Cloud-Dienst analysiert hat und Risiko-Management und Security-Steuerelemente vorhanden sind.
-    - **Unterstützung für GeoLocation**: Unterstützung für Geolocation und -Hoheit, der Beispieldaten sowie Richtlinien für die konfigurierbare Aufbewahrung.
+- [Verringerung der Angriffsoberfläche](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/overview-attack-surface-reduction): IT-Administratoren können Geräte mit erweitertem Webschutz konfigurieren, der ihnen das Definieren von Zulassungs- und Ablehnungslisten für bestimmte URLs und IP-Adressen ermöglicht.
+- [Sicherheit der nächsten Generation](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10): Steuerelemente wurden auf den Schutz vor Ransomware, Missbrauch von Anmeldeinformationen und Angriffen, die über Wechselmedien übertragen werden, ausgeweitet.
+    - Funktionen zur Durchsetzung von Integrität: Aktivieren von Remote-Laufzeitnachweis.
+    - Manipulationsresistente Funktionen: Verwendet auf Virtualisierung basierende Sicherheit, um kritische ATP-Sicherheitsfunktionen gegenüber dem Betriebssystem und Angreifern zu isolieren.
+- Microsoft Defender ATP-Schutztechnologien der nächsten Generation:
+    - **Erweitertes Machine Learning**: Mit erweitertem Machine Learning und KI-Modellen verbessert, die einen Schutz vor Angriffen auch auf dem Scheitelpunkt und unter Nutzung innovativer Techniken zum Exploit von Sicherheitsrisiken, Tools und Malware ermöglichen.
+    - **Notfallschutz vor Ausbrüchen**: Bietet Notfallschutz vor Ausbrüchen, der Geräte automatisch mit neuer Intelligenz aktualisiert, wenn ein neuer Ausbruch erkannt wurde.
+    - **ISO 27001-zertifizierte Compliance**: Stellt sicher, dass der Clouddienst auf Bedrohungen, Sicherheitsrisiken und Auswirkungen hin analysiert wurde und das Risikomanagement und Sicherheitskontrollen aktiv sind.
+    - **Geolocation-Unterstützung**: Unterstützung von Geolocation und Hoheit von Beispieldaten sowie konfigurierbare Aufbewahrungsrichtlinien.

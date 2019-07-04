@@ -1,5 +1,5 @@
 ---
-title: Neuerungen in Windows Server 2016
+title: Neuerungen in Windows Server 2016
 description: Welche neuen Features sind für Compute, Identitäten, Verwaltung, Automatisierung, Netzwerk, Sicherheit und Speicher verfügbar?
 ms.prod: windows-server-threshold
 ms.date: 05/21/2019
@@ -10,22 +10,22 @@ author: jasongerend
 ms.author: jgerend
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 2546322d6c6dbc4d64f18fc62366c698885108d8
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
-ms.translationtype: MT
+ms.openlocfilehash: b2be54748a36f97a11796ebfa16701baac1c612d
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66810623"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280645"
 ---
 # <a name="whats-new-in-windows-server-2016"></a>Neuerungen in Windows Server 2016
 
 >Gilt für: Windows Server 2016
 
-![Symbol mit einer Zeitung](media/whats-new.png) über die neuesten Features in Windows finden Sie unter [Neuigkeiten in Windows Server](whats-new-in-windows-server.md). In diesem Abschnitt wird beschrieben, was in Windows Server&reg; 2016 neu ist und was sich geändert hat. Die hier aufgeführten Neuerungen und Änderungen haben bei der Arbeit in dieser Version vermutlich die größte Auswirkung.
+![Symbol einer Zeitung](media/whats-new.png) Informationen über die neuesten Features in Windows finden Sie unter [Neues in Windows Server](whats-new-in-windows-server.md). In diesem Abschnitt wird beschrieben, was in Windows Server&reg; 2016 neu ist und was sich geändert hat. Die hier aufgeführten Neuerungen und Änderungen haben bei der Arbeit in dieser Version vermutlich die größte Auswirkung.
 
 ## <a name="computevirtualizationvirtualizationmd"></a>[Compute](../virtualization/virtualization.md)
 
-Der Bereich der Virtualisierung umfasst Virtualisierungsprodukte und -features, mit denen IT-Profis Windows Server entwerfen, bereitstellen und warten können.  
+Der Virtualisierungsbereich umfasst Virtualisierungsprodukte und -features, mit denen IT-Profis Windows Server entwerfen, bereitstellen und warten können.  
 
 ### <a name="general"></a>Allgemein  
 Physische und virtuelle Computer profitieren durch Verbesserungen beim Win32-Zeitdienst und Hyper-V-Uhrzeitsynchronisierungsdienst von einer höheren Zeitgenauigkeit. Windows Server kann jetzt zum Hosten von Diensten genutzt werden, die zukünftige Bestimmungen einhalten, bei denen eine Genauigkeit von 1 ms für UTC erforderlich ist.  
@@ -33,12 +33,12 @@ Physische und virtuelle Computer profitieren durch Verbesserungen beim Win32-Zei
 ### <a name="hyper-v"></a>Hyper-V  
 -   [Neues in Hyper-V auf Windows Server 2016](../virtualization/hyper-v/What-s-new-in-Hyper-V-on-Windows.md): In diesem Thema werden die neuen und überarbeiteten Funktionen der Hyper-V-Rolle in Windows Server 2016, Hyper-V für Clients mit Windows 10 und Microsoft Hyper-V Server 2016 beschrieben.  
 
--   [Windows-Containern](https://msdn.microsoft.com/virtualization/windowscontainers/containers_welcome):  Windows Server 2016-containerunterstützung fügt leistungsverbesserungen, vereinfachte netzwerkverwaltung sowie Unterstützung für Windows-Container unter Windows 10. Einige zusätzliche Informationen zu Containern finden Sie unter [Container: Docker, Windows und Trends](https://azure.microsoft.com/blog/2015/08/17/containers-docker-windows-and-trends/).  
+-   [Windows-Container](https://msdn.microsoft.com/virtualization/windowscontainers/containers_welcome):  Die Windows Server 2016-Containerunterstützung ermöglicht eine höhere Leistung, eine vereinfachte Netzwerkverwaltung sowie Unterstützung für Windows-Container unter Windows 10. Zusätzliche Informationen zu Containern finden Sie im Blog [Containers: Docker, Windows and Trends](https://azure.microsoft.com/blog/2015/08/17/containers-docker-windows-and-trends/) (Container: Docker, Windows und Trends).  
 
 ### <a name="nano-server"></a>Nano Server  
 Neuerungen in [Nano Server](getting-started-with-nano-server.md). Nano Server verfügt nun über ein aktualisiertes Modul zum Erstellen von Nano Server-Images. Außerdem ist die Funktionalität für physische Hosts und Gast-VMs stärker getrennt, und Kunden profitieren von der Unterstützung für unterschiedliche Windows Server-Editionen.   
 
-Darüber hinaus wurde auch die Wiederherstellungskonsole verbessert. Zu diesen Verbesserungen zählt u. a. die Trennung von eingehenden und ausgehenden Firewallregeln sowie die Möglichkeit, die Konfiguration von WinRM zu reparieren.  
+Darüber hinaus wurde auch die Wiederherstellungskonsole verbessert. Zu diesen Verbesserungen zählt u.a. die Trennung von eingehenden und ausgehenden Firewallregeln sowie die Möglichkeit, die Konfiguration von WinRM zu reparieren.  
 
 ### <a name="shielded-virtual-machines"></a>Abgeschirmte virtuelle Computer  
 Windows Server 2016 bietet eine neue Hyper-V-basierte abgeschirmte VM, um jeden virtuellen Computer der Generation 2 vor einem gefährdeten Fabric zu schützen. Zu den in Windows Server 2016 eingeführten Funktionen zählen die folgenden:  
@@ -63,7 +63,7 @@ Weitere Einzelheiten und Anweisungen zur Arbeit mit abgeschirmten virtuellen Com
 Mit den neuen Features für Identitäten wird die Möglichkeit verbessert, Active Directory-Umgebungen zu schützen. Außerdem können Unternehmen eine Migration zu reinen Cloudbereitstellungen oder Hybridbereitstellungen durchführen, bei denen einige Anwendungen und Dienste in der Cloud und andere Anwendungen und Dienste lokal gehostet werden.  
 
 ### <a name="active-directory-certificate-services"></a>Active Directory-Zertifikatdienste  
-Active Directory-Zertifikatdienste (AD CS) in Windows Server 2016 wird die Unterstützung für den TPM-schlüsselnachweis: Sie können jetzt Smart Card KSP für den schlüsselnachweis verwenden, und Geräte, die der Domäne nicht hinzugefügt werden können jetzt NDES-Registrierung verwenden, um die Zertifikate abzurufen, die für Schlüssel, die in einem TPM nachgewiesen werden kann.  
+Active Directory-Zertifikatdienste (AD CS) in Windows Server 2016 jetzt mit verbesserter Unterstützung für den TPM-Schlüsselnachweis: Sie können jetzt Smart Card KSP für den Schlüsselnachweis nutzen, und Geräte, die kein Domänenmitglied sind, können jetzt die NDES-Registrierung nutzen, um Zertifikate abzurufen, die als Nachweis für Schlüssel in einem TPM verwendet werden können.  
 
 ### <a name="active-directory-domain-services"></a>Active Directory Domain Services  
 Active Directory-Domänendienste beinhalten Verbesserungen, die Unternehmen beim Schutz Ihrer Active Directory-Umgebungen helfen und die Identitätsverwaltung für Unternehmens- und private Geräte verbessern. Weitere Informationen finden Sie unter [Neues in Active Directory Domain Services (AD DS) unter Windows Server 2016](../identity/whats-new-active-directory-domain-services.md).   
@@ -81,12 +81,12 @@ Windows PowerShell 5.1 enthält wichtige neue Features – einschließlich Unter
 
 Die neuen Features für Windows Server 2016 umfassen Folgendes: PowerShell.exe kann lokal unter Nano Server ausgeführt werden (nicht mehr nur remote), neue Cmdlets für lokale Benutzer und Gruppen ersetzen die GUI, neue PowerShell-Debuggingunterstützung sowie neue Unterstützung in Nano Server für Sicherheitsprotokollierung und -aufzeichnung sowie JEA.
 
-Hier sind einige neue Verwaltungsfeatures aufgeführt:
+Dies sind einige weitere neue Verwaltungsfeatures:
 
 ### <a name="powershell-desired-state-configuration-dsc-in-windows-management-framework-wmf-5"></a>PowerShell Desired State Configuration (DSC) im Windows Management Framework (WMF) 5
 Windows Management Framework 5 enthält Updates für Windows PowerShell Desired State Configuration (DSC), die Windows-Remoteverwaltung (Windows Remote Management, WinRM) und die Windows-Verwaltungsinstrumentation (Windows Management Instrumentation, WMI).
 
-Weitere Informationen zum Testen der DSC-Features von Windows Management Framework 5 finden Sie in der Blogbeitragsreihe, die unter [Validate features of PowerShell (Überprüfen der PowerShell DSC-Features)](https://blogs.msdn.microsoft.com/powershell/2015/07/06/validate-features-of-powershell-dsc/) besprochen werden. Die Downloaddateien finden Sie unter [Windows Management Framework 5.1](https://docs.microsoft.com/powershell/wmf/5.1/install-configure).
+Weitere Informationen zum Testen der DSC-Features von Windows Management Framework 5 finden Sie in der Blogbeitragsreihe, die unter [Validate features of PowerShell DSC](https://blogs.msdn.microsoft.com/powershell/2015/07/06/validate-features-of-powershell-dsc/) (Überprüfen der PowerShell DSC-Features) besprochen wird. Die Downloaddateien finden Sie unter [Windows Management Framework 5.1](https://docs.microsoft.com/powershell/wmf/5.1/install-configure).
 
 ### <a name="packagemanagement-unified-package-management-for-software-discovery-installation-and-inventory"></a>Einheitliche Paketverwaltung mit PackageManagement für die Softwareerkennung, Installation und Inventur
 Windows Server 2016 und Windows 10 enthalten ein neues PackageManagement-Feature (ehemals OneGet), das IT-Experten oder DevOps ermöglicht, die Erkennung, Installation und Inventarisierung von Software (Software Discovery, Installation, Inventory – SDII) lokal oder remote zu automatisieren, unabhängig von der Installationstechnologie und davon, wo sich die Software befindet. 
@@ -96,13 +96,13 @@ Weitere Informationen finden Sie unter [https://github.com/OneGet/oneget/wiki](h
 ### <a name="powershell-enhancements-to-assist-digital-forensics-and-help-reduce-security-breaches"></a>PowerShell-Erweiterungen zur Unterstützung der digitalen Forensik und Verringerung von Sicherheitslücken
 Um das Team zu unterstützen, das für die Untersuchung kompromittierter Systeme zuständig ist – manchmal als „Blue Team“ bezeichnet –, haben wir zusätzliche PowerShell-Protokollierungen und andere digitale, forensische Features hinzugefügt. Wir haben außerdem die Features zur Reduzierung von Sicherheitsrisiken in Skripts, z.B. PowerShell (eingeschränkt) und sichere CodeGeneration-APIs, hinzugefügt.
 
-Weitere Informationen finden Sie im Artikel zu [PowerShells ♥ Blue Team](https://blogs.msdn.microsoft.com/powershell/2015/06/09/powershell-the-blue-team/).
+Weitere Informationen finden Sie im Artikel zum [PowerShell ♥ Blue Team](https://blogs.msdn.microsoft.com/powershell/2015/06/09/powershell-the-blue-team/).
 
 ## <a name="networkingnetworkingnetworkingmd"></a>[Netzwerk](../networking/Networking.md)  
 Dieser Bereich befasst sich mit Netzwerkprodukten und -features, die IT-Spezialisten beim Entwerfen, Bereitstellen und Warten von Windows Server 2016 verwenden können.  
 
 ### <a name="software-defined-networking"></a>Softwaredefinierte Netzwerke
-Sie können Datenverkehr jetzt sowohl spiegeln als auch an neue oder vorhandene virtuelle Geräte leiten. In Kombination mit einer verteilten Firewall und Netzwerksicherheitsgruppen können Sie Workloads so – vergleichbar mit Azure – dynamisch segmentieren und schützen. Außerdem können Sie den gesamten softwaredefinierten Netzwerkstapel mithilfe von System Center Virtual Machine Manager bereitstellen und verwalten. Und Sie können Docker zum Verwalten von Windows Server-Containernetzwerken verwenden und SDN-Richtlinien nicht nur virtuellen Computern, sondern auch Containern zuordnen. Weitere Informationen finden Sie unter [Planen einer Software-Defined Networking-Infrastruktur](../networking/sdn/plan/plan-a-software-defined-network-infrastructure.md).
+Sie können Datenverkehr jetzt sowohl spiegeln als auch an neue oder vorhandene virtuelle Geräte leiten. In Kombination mit einer verteilten Firewall und Netzwerksicherheitsgruppen können Sie Workloads so – vergleichbar mit Azure – dynamisch segmentieren und schützen. Außerdem können Sie den gesamten softwaredefinierten Netzwerkstapel mithilfe von System Center Virtual Machine Manager bereitstellen und verwalten. Und Sie können Docker zum Verwalten von Windows Server-Containernetzwerken verwenden und SDN-Richtlinien nicht nur virtuellen Computern, sondern auch Containern zuordnen. Weitere Informationen finden Sie unter [Planen einer softwaredefinierten Netzwerkinfrastruktur](../networking/sdn/plan/plan-a-software-defined-network-infrastructure.md).
 
 ### <a name="tcp-performance-improvements"></a>TCP-Leistungsverbesserungen
 Das standardmäßige anfängliche Überlastungsfenster (Initial Congestion Window, ICW) wurde von 4 auf 10 erhöht und TCP Fast Open (TFO) wurde implementiert. TFO reduziert den Zeitaufwand für das Herstellen einer TCP-Verbindung, und das erhöhte ICW ermöglicht die Übertragung von größeren Objekten in den anfänglichen Burst. Diese Kombination kann die erforderliche Zeit für die Übertragung eines Internetobjekts zwischen dem Client und der Cloud erheblich reduzieren.
@@ -122,7 +122,7 @@ Credential Guard nutzt auf Virtualisierung basierende Sicherheitsverfahren, um g
 Credential Guard umfasst die Unterstützung für RDP-Sitzungen, damit die Anmeldeinformationen des Benutzers auf der Clientseite bleiben und nicht auf der Serverseite offengelegt werden. Außerdem wird Einmaliges Anmelden für Remotedesktop bereitgestellt. Weitere Informationen finden Sie unter [Schützen abgeleiteter Domänenanmeldeinformationen mit Windows Defender Credential Guard](https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard).   
 
 ### <a name="device-guard-code-integrity"></a>Device Guard (Codeintegrität)
-Device Guard bietet Codeintegrität im Kernelmodus (Kernel Mode Code Integrity, KMCI) und Codeintegrität im Benutzermodus (User Mode Code Integrity, UMCI), indem Richtlinien erstellt werden, die angeben, welcher Code auf dem Server ausgeführt werden kann. Siehe [Einführung in Windows Defender Device Guard: Virtualisierungsbasierte Sicherheit und Codeintegritätsrichtlinien](https://docs.microsoft.com/windows/device-security/device-guard/introduction-to-device-guard-virtualization-based-security-and-code-integrity-policies).
+Device Guard bietet Codeintegrität im Kernelmodus (Kernel Mode Code Integrity, KMCI) und Codeintegrität im Benutzermodus (User Mode Code Integrity, UMCI), indem Richtlinien erstellt werden, die angeben, welcher Code auf dem Server ausgeführt werden kann. Siehe [Einführung in Windows Defender Device Guard: virtualisierungsbasierte Sicherheit und Richtlinien zur Codeintegrität](https://docs.microsoft.com/windows/device-security/device-guard/introduction-to-device-guard-virtualization-based-security-and-code-integrity-policies).
 
 
 ### <a name="windows-defender"></a>Windows Defender  
@@ -179,26 +179,26 @@ Weiter Informationen finden Sie unter [Health Service in Windows Server 2016 (In
 ## <a name="application-development"></a>Anwendungsentwicklung
 
 ### <a name="internet-information-services-iis-100"></a>Internetinformationsdienste (IIS) 10.0
-Zu den neuen Funktionen des IIS 10.0-Webservers unter Windows Server 2016 gehören:
+Zu den neuen Features des IIS 10.0-Webservers unter Windows Server 2016 gehören:
 
-- Unterstützung des HTTP/2-Protokolls im Netzwerkstapel und Integration in IIS 10.0, ermöglicht IIS 10.0-Websites die automatische Verarbeitung von HTTP/2-Anforderungen für unterstützte Konfigurationen. Dies ermöglicht zahlreiche Verbesserungen über HTTP/1.1, z. B. eine effizientere Wiederverwendung von Verbindungen und geringere Latenz, wodurch die Ladezeiten für Webseiten verbessert werden. 
-- Möglichkeit zum Ausführen und Verwalten von IIS 10.0 unter Nano Server. Informationen finden Sie unter [IIS unter Nano Server](iis-on-nano-server.md).
-- Unterstützung für Platzhalter Hostheader, sodass Administratoren richten Sie einen Webserver für eine Domäne aus, und klicken Sie dann, dass der Webserver, die Anforderungen für eine beliebige Unterdomäne.
+- Die Unterstützung des HTTP/2-Protokolls im Netzwerkstapel und Integration in IIS 10.0 ermöglicht IIS 10.0-Websites die automatische Verarbeitung von HTTP/2-Anforderungen für unterstützte Konfigurationen. Dies ermöglicht zahlreiche Verbesserungen gegenüber HTTP/1.1, z.B. die effizientere Wiederverwendung von Verbindungen und geringere Latenz, wodurch die Ladezeiten für Webseiten verbessert werden. 
+- Möglichkeit zum Ausführen und Verwalten von IIS 10.0 unter Nano Server. Informationen dazu finden Sie unter [IIS unter Nano Server](iis-on-nano-server.md).
+- Die Unterstützung für Platzhalter-Hostheader ermöglicht Administratoren die Einrichtung eines Webservers für eine Domäne und die anschließende Verarbeitung von Anforderungen für jede Unterdomäne durch den Webserver.
 - Ein neues PowerShell-Modul (IISAdministration) zum Verwalten von IIS. 
 
 Weitere Informationen finden Sie unter [IIS](https://iis.net/learn).
 
 ### <a name="distributed-transaction-coordinator-msdtc"></a>Distributed Transaction Coordinator (MSDTC)
-In Microsoft Windows 10 und Windows Server 2016 werden drei neue Features hinzugefügt:
+In Microsoft Windows 10 und Windows Server 2016 werden drei neue Features hinzugefügt:
 
-- Eine neue Benutzeroberfläche für den erneuten Ressourcen-Manager-Beitritt kann von einem Ressourcen-Manager zum Ermitteln des Ergebnisses einer unsicheren Transaktion nach dem Neustart einer Datenbank aufgrund eines Fehlers verwendet werden. Details finden Sie unter [IResourceManagerRejoinable::Rejoin](https://msdn.microsoft.com/en-us/library/mt203799(v=vs.85).aspx).
+- Eine neue Benutzeroberfläche für den erneuten Beitritt zum Ressourcen-Manager (Resource Manager Rejoin) kann von einem Ressourcenmanager zum Ermitteln des Ergebnisses einer unsicheren Transaktion nach dem Neustart einer Datenbank aufgrund eines Fehlers verwendet werden. Details finden Sie unter [IResourceManagerRejoinable::Rejoin](https://msdn.microsoft.com/library/mt203799(v=vs.85).aspx).
 
-- Der Grenzwert des DSN-Namens wurde von 256 Bytes auf 3072 Bytes erhöht. Details finden Sie unter [IDtcToXaHelperFactory::Create](https://msdn.microsoft.com/en-us/library/ms686861(v=vs.85).aspx), [IDtcToXaHelperSinglePipe::XARMCreate](https://msdn.microsoft.com/en-us/library/ms679248(v=vs.85).aspx) oder [IDtcToXaMapper::RequestNewResourceManager](https://msdn.microsoft.com/en-us/library/ms680310(v=vs.85).aspx).
+- Der Grenzwert des DSN-Namens wurde von 256 Bytes auf 3072 Bytes heraufgesetzt. Details finden Sie unter [IDtcToXaHelperFactory::Create](https://msdn.microsoft.com/library/ms686861(v=vs.85).aspx), [IDtcToXaHelperSinglePipe::XARMCreate](https://msdn.microsoft.com/library/ms679248(v=vs.85).aspx) oder [IDtcToXaMapper::RequestNewResourceManager](https://msdn.microsoft.com/library/ms680310(v=vs.85).aspx).
 
-- Verbesserte Verfolgung ermöglicht Ihnen das Festlegen eines Registrierungsschlüssels zur Aufnahme eines Imagedateipfads in den Namen der Ereignisablaufverfolgung-Protokolldatei, sodass Sie wissen, welche Ablaufverfolgungs-Protokolldatei Sie überprüfen müssen. Ausführliche Informationen zum Konfigurieren der Verfolgung für MSDTC finden Sie unter [Aktivieren der Diagnoseablaufverfolgung für MS DTC auf einem Windows-basierten Computer](https://support.microsoft.com/en-us/kb/926099).
+- Die verbesserte Ablaufverfolgung ermöglicht Ihnen das Festlegen eines Registrierungsschlüssels, um den Pfad einer Imagedatei in den Namen der Ablaufverfolgungs-Protokolldatei aufzunehmen, sodass Sie sehen können, welche Ablaufverfolgungs-Protokolldatei überprüft werden muss. Ausführliche Informationen zum Konfigurieren der Ablaufverfolgung für MSDTC finden Sie unter [Aktivieren der Diagnoseablaufverfolgung für MS DTC auf einem Windows-basierten Computer](https://support.microsoft.com/en-us/kb/926099).
 
 
 
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 -   [Versionshinweise: Wichtige Probleme in Windows Server 2016](Windows-Server-2016-GA-Release-Notes.md)  
 

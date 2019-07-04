@@ -1,6 +1,6 @@
 ---
 title: App-Kompatibilität von Server Core-Feature on Demand (FOD)
-description: 'Vorgehensweise: Installieren von Windows Server-Features bei Bedarf'
+description: Installieren von Windows Server-Features bei Bedarf
 ms.prod: windows-server-threshold
 ms.technology: server-general
 ms.topic: article
@@ -10,31 +10,31 @@ ms.author: jgerend
 manager: jasgroce
 ms.localizationpriority: medium
 ms.date: 06/07/2019
-ms.openlocfilehash: 747258601aa05885d209aacde6947eb7b05e8121
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
-ms.translationtype: MT
+ms.openlocfilehash: 441cd9593371cb7e5018a61c3d7a6af991ce8fed
+ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66810794"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67280171"
 ---
 # <a name="server-core-app-compatibility-feature-on-demand-fod"></a>App-Kompatibilität von Server Core-Feature on Demand (FOD)
 
-> Gilt für: WindowsServer 2019, Windows Server Halbjährlicher Kanal
+> Gilt für: Windows Server 2019, Windows Server halbjährlicher Kanal
 
-Die **Kompatibilitätsfeature der Server Core-App bei Bedarf** ist ein optionales Feature-Paket, das Windows Server 2019 Server Core-Installationen oder Windows Server Halbjährlicher Kanal zu einem beliebigen Zeitpunkt hinzugefügt werden kann.
+Das **App-Kompatibilität von Server Core-Feature on Demand** ist ein optionales Featurepaket, das jederzeit zu Windows Server 2019 Server Core-Installationen oder zum halbjährlichen Kanal von Windows Server hinzugefügt werden kann.
 
-Weitere Informationen zu Funktionen für die Anforderung (Feature-On) finden Sie unter [Features bei Bedarf](https://docs.microsoft.com/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities).
+Weitere Informationen zu Features bei Bedarf (Features on Demand, FOD) finden Sie unter [Features On Demand](https://docs.microsoft.com/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities) (Features bei Bedarf).
 
-## <a name="why-install-the-app-compatibility-fod"></a>Warum installieren Sie die App-Kompatibilität Feature-On?
+## <a name="why-install-the-app-compatibility-fod"></a>Warum sollte das App-Kompatibilitäts-FOD installiert werden?
 
-App-Kompatibilität, eine Funktion bei Bedarf für Server Core, wesentlich verbessert die Anwendungskompatibilität für die Windows Server Core-Installationsoption dazu eine Teilmenge der Binärdateien und Pakete von Windows Server mit Desktopdarstellung, ohne die Windows Server-Desktopdarstellung grafischen Umgebung. Diese optionalen Pakets auf eine separate ISO-Datei oder über Windows Update verfügbar ist, jedoch kann nur auf Windows Server Core-Installationen und Bilder hinzugefügt werden.
+App-Kompatibilität, ein optionales Feature (FOD) für Server Core, verbessert die App-Kompatibilität für die Windows Server Core-Installationsoption erheblich durch Hinzufügen einer Teilmenge von Binärdateien und Paketen von Windows Server mit Desktopdarstellung, ohne dass die Windows Server Desktop Experience-Grafikumgebung hinzugefügt wird. Dieses optionale Paket ist in einer separaten ISO oder über Windows Update verfügbar, kann aber nur Windows Server Core-Installationen und Images hinzugefügt werden.
 
-Die zwei primären bereitgestellten Werte aus der App-Kompatibilität Feature-On sind:
+Dies sind die zwei wichtigsten Vorteile, die das optionale Feature App-Kompatibilität bietet:
 
-- Erhöht die Kompatibilität der Server Core für serveranwendungen, die bereits im Markt sind oder haben bereits von Organisationen entwickelt und bereitgestellt.
-- Hilfe bei der Bereitstellung von Betriebssystemkomponenten und höhere app-Kompatibilität von Softwaretools, die in akute Problembehandlung und Debuggen von Szenarios verwendet.
+- Es steigert die Kompatibilität von Server Core für Serveranwendungen, die bereits auf dem Markt sind oder bereits von Organisationen entwickelt und bereitgestellt wurden.
+- Es unterstützt die Bereitstellung von Betriebssystemkomponenten und gesteigerter App-Kompatibilität von Softwaretools, die in der akuten Problembehandlung und in Debugszenarien verwendet werden.
 
-Komponenten des Betriebssystems, die verfügbar sind, als Teil der Server Core-App-Kompatibilität Feature-On zählen:
+Zu den Betriebssystemkomponenten, die im Rahmen des Server Core-App-Kompatibilitäts-FODs verfügbar sind, zählen:
 
 -   Microsoft Management Console (mmc.exe)
 
@@ -44,53 +44,53 @@ Komponenten des Betriebssystems, die verfügbar sind, als Teil der Server Core-A
 
 -   Ressourcenmonitor (Resmon.exe)
 
--   Device Manager (Devmgmt.msc)
+-   Geräte-Manager (Devmgmt.msc)
 
 -   Datei-Explorer (Explorer.exe)
 
 -   Windows PowerShell (Powershell_ISE.exe)
 
--   Die Datenträgerverwaltung (Diskmgmt.msc)
+-   Datenträgerverwaltung (Diskmgmt.msc)
 
--   Failovercluster-Manager (' CluAdmin.msc)
+-   Failovercluster-Manager (CluAdmin.msc)
 
-    -   Hinzufügen der Failover-Clusterunterstützung von Windows Server-Funktion erfordert zuerst.
+    -   Erfordert zunächst das Hinzufügen des Windows Server-Features Failoverclusterunterstützung.
 
-        -   Aus einer PowerShell-Sitzung mit erhöhten Rechten aus: 
+        -   In einer PowerShell-Sitzung mit erhöhten Rechten: 
 
             ```PowerShell
             Install-WindowsFeature -NameFailover-Clustering -IncludeManagementTools
             ```
 
-        -   Geben Sie zum Failovercluster-Manager ausführen **Cluadmin** an der Eingabeaufforderung.
+        -   Geben Sie **cluadmin** an der Eingabeaufforderung an, um den Failovercluster-Manager zu öffnen.
 
-Server unter Windows Server, Version 1903 und höher auch unterstützen die folgenden Komponenten (wenn die gleiche Version von der App-Kompatibilität Feature-on verwendet):
+Server, die Windows Server, Version 1903 und höher, ausführen, unterstützen außerdem die folgenden Komponenten (wenn die gleiche Version des App-Kompatibilitäts-FODs verwendet wird):
 
-- Hyper-V-Manager (virtmgmt.msc)
+- Hyper-V Manager (virtmgmt.msc)
 - Aufgabenplanung (taskschd.msc)
 
-## <a name="installing-the-app-compatibility-fod"></a>Installieren die App-Kompatibilität Feature-On
+## <a name="installing-the-app-compatibility-fod"></a>Installieren des App-Kompatibilitäts-FODs
 
-Die App-Kompatibilität Feature-On kann nur auf Server Core installiert werden. Versuchen Sie nicht die Server Core-App-Kompatibilität Feature-On einer Windows Server-Installation von Windows Server mit Desktopdarstellung hinzu. Die gleichen optionalen Feature-On-Pakete ISO können für Windows Server 2019 Server Core-Installationen oder Windows Server Halbjährlicher Kanal-Installationen verwendet werden.
+Das App-Kompatibilitäts-FOD kann nur unter Server Core installiert werden. Versuchen Sie nicht, das Server Core-FOD App-Kompatibilität zu einer Windows Server-Installation von Windows Server mit Desktopdarstellung hinzuzufügen. Die gleiche ISO mit optionalen FOD-Paketen kann für Windows Server 2019 Server Core-Installationen oder Windows Server-Installationen im halbjährlichen Kanal verwendet werden.
 
-1. Wenn der Server mit Windows Update verbinden kann, müssen Sie, lediglich führen Sie den folgenden Befehl aus einer PowerShell-Sitzung mit erhöhten Rechten aus, und starten Sie Windows Server nach Ausführung des Befehls neu:
+1. Wenn der Server eine Verbindung mit Windows Update herstellen kann, brauchen Sie lediglich in einer PowerShell-Sitzung mit erhöhten Rechten den folgenden Befehl auszuführen und dann Windows Server neu zu starten, nachdem die Ausführung des Befehls abgeschlossen wurde:
 
     ```PowerShell
     Add-WindowsCapability -Online -Name ServerCore.AppCompatibility~~~~0.0.1.0
     ```
 
-2. Wenn der Server kann nicht auf Windows Update verbunden sind, stattdessen herunterladen Sie die optionalen Server Feature-On-Pakete ISO, und kopieren Sie die ISO-Datei an einen freigegebenen Ordner auf Ihrem lokalen Netzwerk:
+2. Wenn der Server keine Verbindung mit Windows Update herstellen kann, laden Sie stattdessen die ISO mit den optionalen Server-FOD-Paketen herunter, und kopieren Sie die ISO in einen freigegebenen Ordner in Ihrem lokalen Netzwerk:
 
-   - Wenn Sie über eine Volumenlizenz verfügen können Sie die Server Feature-On-ISO-Image-Datei im gleichen Portal herunterladen, in denen die Betriebssystem-ISO-Image-Datei abgerufen wird: [Volume Licensing Service Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx).
-   - Der Server Feature-On-ISO-Abbilddatei steht auch auf die [Microsoft Evaluation Center](https://www.microsoft.com/evalcenter/evaluate-windows-server) oder auf die [Visual Studio-Portal](https://visualstudio.microsoft.com) für Abonnenten.
+   - Wenn Sie eine Volumenlizenz besitzen, können Sie die Server-FOD-ISO-Imagedatei aus dem gleichen Portal herunterladen, aus dem auch das ISO-Image des Betriebssystems bezogen werden kann: [Volume Licensing Service Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx).
+   - Die Server-FOD-ISO-Imagedatei steht außerdem für Abonnenten im [Microsoft Evaluation Center](https://www.microsoft.com/evalcenter/evaluate-windows-server) oder im [Visual Studio-Portal](https://visualstudio.microsoft.com) zur Verfügung.
 
-3. Melden Sie sich mit einem Administratorkonto auf dem Server Core-Computer, die mit Ihrem lokalen Netzwerk verbunden ist und, die die Feature-On zu hinzugefügt werden soll.
+3. Melden Sie sich mit einem Administratorkonto auf dem Server Core-Computer an, der mit Ihrem lokalen Netzwerk verbunden ist und dem Sie das FOD hinzufügen möchten.
 
-4. Verwenden Sie **net verwenden**, oder eine andere Methode, für die Verbindung auf den Speicherort der FOD ISO.
+4. Verwenden Sie **net use** oder ein anderes Verfahren, um eine Verbindung zum Speicherort der FOD-ISO herzustellen.
 
-5. Kopieren Sie die FOD ISO in einen lokalen Ordner Ihrer Wahl ein.
+5. Kopieren Sie die FOD-ISO in einen lokalen Ordner Ihrer Wahl.
 
-6. Binden Sie die FOD ISO mit den folgenden Befehl in einer PowerShell-Sitzung mit erhöhten Rechten aus:
+6. Binden Sie die FOD-ISO in einer PowerShell-Sitzung mit erhöhten Rechten mithilfe des folgenden Befehls ein:
 
     ```PowerShell
     Mount-DiskImage -ImagePath drive_letter:\folder_where_ISO_is_saved\ISO_filename.iso
@@ -102,26 +102,26 @@ Die App-Kompatibilität Feature-On kann nur auf Server Core installiert werden. 
     Add-WindowsCapability -Online -Name ServerCore.AppCompatibility~~~~0.0.1.0 -Source <Mounted_Server_FOD_Drive> -LimitAccess
      ```
 
-8. Sobald der Statusbalken vollständig ist, starten Sie das Betriebssystem neu.
+8. Nachdem die Statusanzeige den Abschluss anzeigt, führen Sie einen Neustart des Betriebssystems aus.
 
    Weitere Informationen zu DISM-Befehlen finden Sie unter [Verwenden von DISM in Windows PowerShell](https://docs.microsoft.com/windows-hardware/manufacture/desktop/use-dism-in-windows-powershell-s14)
 
-## <a name="to-optionally-add-internet-explorer-11-to-server-core-after-adding-the-server-core-app-compatibility-fod"></a>Internet Explorer 11 zu Server Core optional hinzugefügt werden soll, (nach dem Hinzufügen der Server Core-App-Kompatibilität Feature-On.)
+## <a name="to-optionally-add-internet-explorer-11-to-server-core-after-adding-the-server-core-app-compatibility-fod"></a>Optionales Hinzufügen von Internet Explorer 11 zu Server Core (nach dem Hinzufügen des Server Core-App-Kompatibilitäts-FODs)
 
  >[!NOTE]  
-   > Der Server Core-App-Kompatibilität Feature-On ist für das Hinzufügen von Internet Explorer 11 erforderlich, aber Internet Explorer 11 ist nicht erforderlich, um die Server Core-App-Kompatibilität Feature-On hinzuzufügen.
+   > Das Server Core-App-Kompatibilitäts-FOD ist erforderlich, um Internet Explorer 11 hinzuzufügen, nicht aber umgekehrt.
 
-1. Melden Sie sich als Administrator auf dem Server Core-Computer, der die App-Kompatibilität Feature-On bereits hinzugefügt wurde und das optionale Server Feature-On-Paket, das ISO lokal kopiert.
+1. Melden Sie sich als Administrator auf dem Server Core-Computer an, dem das App-Kompatibilitäts-FOD bereits hinzugefügt und auf den die ISO-Datei mit dem optionalen Server-FOD-Paket lokal kopiert wurde.
 
-2. Starten Sie PowerShell, indem Sie eingeben **powershell.exe** an einer Eingabeaufforderung.
+2. Starten Sie PowerShell durch Eingeben von **powershell.exe** an einer Eingabeaufforderung.
 
-3. Einbinden der FOD ISO mithilfe des folgenden Befehls:
+3. Binden Sie die FOD-ISO mithilfe des folgenden Befehls ein:
 
     ```PowerShell
     Mount-DiskImage -ImagePath drive_letter:\folder_where_ISO_is_saved\ISO_filename.iso
     ```
 
-4. Führen Sie den folgenden Befehl, mit der `$package_path` Variable, die den Pfad zur Cab-Datei von Internet Explorer eingeben:
+4. Führen Sie den folgenden Befehl aus, und verwenden Sie die `$package_path`-Variable, um den Pfad zur CAB-Datei von Internet Explorer anzugeben:
 
     ```PowerShell
     $package_path = "D:\Microsoft-Windows-InternetExplorer-Optional-Package~31bf3856ad364e35~amd64~~.cab"
@@ -129,46 +129,46 @@ Die App-Kompatibilität Feature-On kann nur auf Server Core installiert werden. 
     Add-WindowsPackage -Online -PackagePath $package_path
     ```
 
-5. Sobald der Statusbalken vollständig ist, starten Sie das Betriebssystem neu.
+5. Nachdem die Statusanzeige den Abschluss anzeigt, führen Sie einen Neustart des Betriebssystems aus.
 
-## <a name="release-notes-and-suggestions-for-the-server-core-app-compatibility-fod-and-internet-explorer-11-optional-package"></a>Anmerkungen zu Releases und Vorschläge für das optionale Feature-On von Server Core-App-Kompatibilität und Internet Explorer 11-Paket
+## <a name="release-notes-and-suggestions-for-the-server-core-app-compatibility-fod-and-internet-explorer-11-optional-package"></a>Versionsanmerkungen und Vorschläge zum Server Core-App-Kompatibilitäts-FOD und dem optionalen Internet Explorer 11-Paket
 
 > [!IMPORTANT]
-> FODs unter Windows Server installiert, wird nicht Version 1809 bleiben unverändert nach einem für ein direktes Upgrade auf Windows Server, Version 1903 sein, sodass Sie ihn nach dem Upgrade erneut installieren. Alternativ können Sie vor dem Upgrade der neuen Windows Server-Installationsquelle FODs hinzufügen. Dadurch wird sichergestellt, dass die neue Version von jedem FODs sind vorhanden, nachdem das Upgrade abgeschlossen ist. Weitere Informationen finden Sie in der [Hinzufügen von Funktionen und optionale Pakete zu einem Server Core von WIM-Offlineabbild](install-fod-19.md#add-capabilities).
+> Unter Windows Server, Version 1809, installierte FODs bleiben nach einem lokalen Upgrade auf Windows Server, Version 1903, nicht erhalten, sodass Sie sie nach dem Upgrade erneut installieren müssen. Alternativ können Sie vor dem Upgrade FODs zur neuen Installationsquelle von Windows Server hinzufügen. Dadurch wird sichergestellt, dass nach dem Abschluss des Upgrades die neuen Versionen aller FODs vorhanden sind. Weitere Informationen finden Sie unter [Hinzufügen von Funktionen und optionalen Paketen zu einem WIM Server Core-Offlineimage](install-fod-19.md#add-capabilities).
 
-- **Wichtig:** Lesen Sie den Anmerkungen zur Version von Windows Server-2019 für alle Probleme, Überlegungen und Anleitungen, bevor Sie mit der Installation und Verwendung des optionalen Pakets Feature-On von Server Core-App-Kompatibilität und Internet Explorer 11.
+- **Wichtig:** Lesen Sie zu eventuellen Problemen, Überlegungen und Anleitungen die Versionsanmerkungen für Windows Server-2019 , bevor Sie mit der Installation und Verwendung des Server Core-App-Kompatibilitäts-FODs und des optionalen Internet Explorer 11-Pakets fortfahren.
 
-- Es ist möglich, die auftreten, mit der Server Core-konsolenumgebung Flimmern, wenn Sie die App-Kompatibilität Feature-On hinzufügen, nach der Verwendung von Windows Update zum Installieren von kumulativen Updates.  Dieses Problem wird mit Dezember 2018 aufgelöst wird aktualisiert.  Weitere Informationen und Lösungen finden Sie unter [4481610 Knowledge Base-Artikel: Bildschirm flackert, nach der Installation von Server Core-App-Kompatibilität Feature-On in Windows Server 2019 Server Core](https://support.microsoft.com/help/4481610/screen-flickers-after-fod-installation-windows2019-server-core).
+- In der Server Core-Konsolendarstellung kann es zu Flackern kommen, wenn das App-Kompatibilitäts-FOD nach dem Verwenden von Windows Update zum Installieren kumulativer Updates hinzugefügt wird.  Dieses Problem wurde mit den Updates aus Dezember 2018 behoben.  Weitere Informationen und Schritte zur Problemlösung finden Sie im [Knowledge Base-Artikel 4481610: Screen flickers after you install Server Core App Compatibility FOD in Windows Server 2019 Server Core](https://support.microsoft.com/help/4481610/screen-flickers-after-fod-installation-windows2019-server-core) (Bildschirmflackern nach der Installation des Server Core-App-Kompatibilitäts-FODs unter Windows Server 2019 Server Core).
 
-- Der Befehl im Fenster-Frames Konsolenfarbe ändert sich nach der Installation der App-Kompatibilität Feature-on und Neustart des Servers in einen anderen Blauton.
+- Nach der Installation des App-Kompatibilitäts-FODs und dem Neustart des Servers ändert sich die Rahmenfarbe des Befehlskonsolenfensters in einen anderen Blauton.
 
-- Möchten Sie die optionale Internet Explorer 11-Paket auch installieren, beachten Sie, dass die HTM-Dateien doppelklicken, um öffnen lokal gespeichert werden, wird nicht unterstützt. Sie können jedoch **mit der rechten Maustaste** , und wählen Sie **Öffnen mit IE**, oder Sie können sie direkt über Internet Explorer öffnen **Datei** -> **Öffnen**.
+- Wenn Sie sich außerdem für die Installation des optionalen Internet Explorer 11-Pakets entscheiden, beachten Sie, dass Doppelklicken zum Öffnen lokal gespeicherter HTM-Dateien nicht unterstützt wird. Jedoch können Sie **mit der rechten Maustaste klicken** und **Mit IE öffnen** auswählen oder eine gewünschte Datei über **Datei** -> **Öffnen** direkt in Internet Explorer öffnen.
 
-- Um die app-Kompatibilität von Server Core mit der App-Kompatibilität Feature-On weiter zu verbessern, wurde die IIS-Verwaltungskonsole auf Server Core als optionale Komponente hinzugefügt.  Allerdings ist es absolut notwendig ist, zuerst die App-Kompatibilität Feature-On Verwendung der IIS-Verwaltungskonsole hinzufügen. IIS-Verwaltungskonsole hängt von der Microsoft Management Console (mmc.exe), steht nur auf Server Core durch das Hinzufügen von der App-Kompatibilität Feature-On.  Verwenden von Powershell [ **Install-WindowsFeature** ](https://docs.microsoft.com/powershell/module/microsoft.windows.servermanager.migration/install-windowsfeature?view=win10-ps) IIS-Verwaltungskonsole hinzufügen.
+- Um die App-Kompatibilität von Server Core mit dem App-Kompatibilitäts-FOD weiter zu steigern, wurde Server Core die IIS-Verwaltungskonsole als optionale Komponente hinzugefügt.  Allerdings ist es unbedingt erforderlich, zuerst das App-Kompatibilitäts-FOD hinzuzufügen, um die IIS-Verwaltungskonsole zu verwenden. Die IIS-Verwaltungskonsole baut auf der Microsoft Management Console (mmc.exe) auf, die unter Server Core nur durch den Zusatz des App-Kompatibilitäts-FODs verfügbar ist.  Verwenden Sie den Powershell-Befehl [**Install-WindowsFeature**](https://docs.microsoft.com/powershell/module/microsoft.windows.servermanager.migration/install-windowsfeature?view=win10-ps), um die IIS-Verwaltungskonsole hinzuzufügen.
 
-- Wie Sie ein allgemeinen Punkt Anleitungen, die beim Installieren von apps auf Server (mit oder ohne diese optionale Pakete) es Core manchmal erforderlich, Installation im Hintergrund und Anweisungen zu verwenden ist. 
+- Als allgemeiner Anhaltspunkt ist es beim Installieren von Apps unter Server Core (mit oder ohne diese optionalen Pakete) manchmal erforderlich, die Optionen und Anweisungen für die Installation im Hintergrund zu verwenden. 
     
-  - Beispielsweise SQL Server Management Studio für SQL Server 2016 und SQL Server 2017 kann auf Server Core installiert werden und ist voll funktionsfähig, wenn die App-Kompatibilität Feature-On vorhanden ist.  Angezeigt wird, [Installieren von SQLServer über die Eingabeaufforderung](https://docs.microsoft.com/sql/database-engine/install-windows/install-sql-server-from-the-command-prompt?view=sql-server-2017).
-  - Wenn SQL Server Management Studio nicht gewünscht ist, ist es nicht erforderlich ist, installieren Sie die Server Core-App-Kompatibilität Feature-On.  Angezeigt wird, [Installieren von SQLServer unter Server Core](https://docs.microsoft.com/sql/database-engine/install-windows/install-sql-server-on-server-core?view=sql-server-2017).
+  - Beispielsweise kann SQL Server Management Studio für SQL Server 2016 und SQL Server 2017 unter Server Core installiert werden und weist den vollen Funktionsumfang auf, wenn das App-Kompatibilitäts-FOD vorhanden ist.  Weitere Informationen finden Sie unter [Installieren von SQL Server von der Eingabeaufforderung](https://docs.microsoft.com/sql/database-engine/install-windows/install-sql-server-from-the-command-prompt?view=sql-server-2017).
+  - Wenn SQL Server Management Studio nicht gewünscht ist, ist es nicht erforderlich, das Server Core-App-Kompatibilitäts-FOD zu installieren.  Mehr dazu erfahren Sie unter [Installieren von SQL Server unter Server Core](https://docs.microsoft.com/sql/database-engine/install-windows/install-sql-server-on-server-core?view=sql-server-2017).
 
-## <a name="a-idadd-capabilities-adding-capabilities-and-optional-packages-to-an-offline-wim-server-core-image"></a><a id="add-capabilities"> Hinzufügen von Funktionen und optionale Pakete zu einem Server Core von WIM-Offlineabbild
+## <a name="a-idadd-capabilities-adding-capabilities-and-optional-packages-to-an-offline-wim-server-core-image"></a><a id="add-capabilities"> Hinzufügen von Funktionen und optionalen Paketen zu einem WIM Server Core-Offlineimage
 
-1. Laden Sie die Windows Server und Server Feature-On-ISO-Dateien in einen lokalen Ordner auf einem Windows-Computer herunter.
+1. Laden Sie die ISO-Imagedateien für Windows Server und das Server-FOD ISO in einen lokalen Ordner auf einem Windows-Computer herunter.
 
-   - Wenn Sie über eine Volumenlizenz verfügen können Sie die Windows Server und Server Feature-On-ISO-Image-Dateien aus dem [Volume Licensing Service Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx).
-   - Der Server Feature-On-ISO-Abbilddatei finden Sie auch für langfristigen Wartungskanal auf Versionen der [Microsoft Evaluation Center](https://www.microsoft.com/evalcenter/evaluate-windows-server) oder auf die [Visual Studio-Portal](https://visualstudio.microsoft.com) für Abonnenten.
+   - Wenn Sie über eine Volumenlizenz verfügen, können Sie die ISO-Imagedateien für Windows Server und das Server-FOD aus dem [Volume Licensing Service Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx) herunterladen.
+   - Die Server-FOD-ISO-Imagedatei steht für Releases im Long-Term Servicing Channel für Abonnenten außerdem im [Microsoft Evaluation Center](https://www.microsoft.com/evalcenter/evaluate-windows-server) oder im [Visual Studio-Portal](https://visualstudio.microsoft.com) zur Verfügung.
 
-2. Öffnen Sie eine PowerShell-Sitzung als Administrator aus, und klicken Sie dann verwenden Sie die folgenden Befehle, um die Bilddateien als Laufwerke einbinden:
+2. Öffnen Sie eine PowerShell-Sitzung als Administrator, und verwenden Sie anschließend die folgenden Befehle, um die Imagedateien als Laufwerke einzubinden:
 
    ```PowerShell
    Mount-DiskImage -ImagePath Path_To_ServerFOD_ISO
    Mount-DiskImage -ImagePath Path_To_Windows_Server_ISO
    ```
 
-3. Kopieren der den Inhalt der Windows Server-ISO-Datei in einen lokalen Ordner (z. B. *C:\SetupFiles\WindowsServer*).
+3. Kopieren Sie den Inhalt der Windows Server-ISO-Datei in einen lokalen Ordner (beispielsweise *C:\SetupFiles\WindowsServer*).
 
-4. Rufen Sie den imagenamen, die, den Sie in der Datei "Install.wim" mithilfe des folgenden Befehls ändern möchten.<br>
-Verwenden der `$install_wim_path` Variable, die den Pfad zu der Datei "Install.wim" im Ordner "\Sources" der ISO-Datei eingeben.
+4. Rufen Sie den Namen des Images, den Sie innerhalb der Install.wim-Datei ändern möchten, mithilfe des folgenden Befehls ab.<br>
+Verwenden Sie die `$install_wim_path`-Variable, um den Pfad zur Install.wim-Datei einzugeben, die sich innerhalb des Ordners „\Sources“ der ISO-Datei befindet.
 
    ```PowerShell
    $install_wim_path = "C:\SetupFiles\WindowsServer\sources\install.wim"
@@ -176,10 +176,10 @@ Verwenden der `$install_wim_path` Variable, die den Pfad zu der Datei "Install.w
    Get-WindowsImage -ImagePath $install_wim_path
    ```
 
-5. Bereitstellen die Datei "Install.wim" in einem neuen Ordner mit den folgenden Befehl wird die Variable Beispielwerte durch Ihre eigenen ersetzen und Wiederverwenden von der `$install_wim_path` Variable aus dem vorherigen Befehl.<br>
+5. Binden Sie die Install.wim-Datei in einem neuen Ordner ein, indem Sie den folgenden Befehl verwenden, dabei die Beispielwerte der Variablen durch Ihre eigenen ersetzen und die Variable `$install_wim_path` aus dem vorhergehenden Befehl wiederverwenden.<br>
 
-   - `$image_name` -Geben Sie den Namen des Images, die Sie bereitstellen möchten.
-   - `$mount_folder variable` -Geben Sie den Ordner für den Inhalt der Datei "Install.wim" den Zugriff auf ein.
+   - `$image_name`: Geben Sie den Namen des Images ein, das Sie einbinden möchten.
+   - `$mount_folder variable`: Geben Sie den Ordner an, der für den Zugriff auf den Inhalt der Install.wim-Datei verwendet werden soll.
 
    ```PowerShell
    $image_name = "Windows Server Datacenter"
@@ -188,11 +188,11 @@ Verwenden der `$install_wim_path` Variable, die den Pfad zu der Datei "Install.w
    Mount-WindowsImage -ImagePath $install_wim_path -Name $image_name -path $mount_folder
    ```
 
-6. Hinzufügen von Funktionen und Pakete auf das bereitgestellte Install.wim-Abbild mithilfe der folgenden Befehle aus, und Ersetzen Sie dabei die Variable Beispielwerte durch Ihre eigenen.<br>
+6. Fügen Sie dem eingebundenen Install.wim-Image die gewünschten Funktionen und Pakete hinzu, indem Sie die folgenden Befehle verwenden und die Beispielwerte der Variablen durch eigene ersetzen.<br>
 
-   - `$capability_name` -Geben Sie den Namen der Funktion, die (in diesem Fall die AppCompatibility-Funktion) zu installieren.
-   - `$package_path` -Geben Sie den Pfad des Pakets an (in diesem Fall Internet Explorer) zu installieren.
-   - `$fod_drive` -Geben Sie den Laufwerkbuchstaben des bereitgestellten Server Feature-On-Abbilds.
+   - `$capability_name`: Geben Sie den Namen der zu installierenden Funktion an (in diesem Fall die Funktion AppCompatibility).
+   - `$package_path`: Geben Sie den Pfad zum zu installierenden Paket an (in diesem Fall Internet Explorer).
+   - `$fod_drive`: Geben Sie den Laufwerksbuchstaben des eingebundenen Server-FOD-Images an.
 
    ```PowerShell
    $capability_name = "ServerCore.AppCompatibility~~~~0.0.1.0"
@@ -203,10 +203,10 @@ Verwenden der `$install_wim_path` Variable, die den Pfad zu der Datei "Install.w
    Add-WindowsPackage -Path $mount_folder -PackagePath $package_path
    ```
 
-7. Aufheben der Bereitstellung und Änderungen in die Datei "Install.wim" mit den folgenden Befehl, der verwendet die `$mount_folder` -Variable wurde in den vorherigen Befehlen:
+7. Heben Sie die Einbindung auf, und committen Sie Änderungen an der Install.wim-Datei mit dem folgenden Befehl, der die `$mount_folder`-Variable aus den vorhergehenden Befehlen verwendet:
 
    ```PowerShell
    Dismount-WindowsImage -Path $mount_folder -Save
    ```
 
-Sie können jetzt Ihren Server aktualisieren, dazu führen Sie setup.exe aus dem Ordner, die Sie erstellt, für die Windows Server-Installationsdateien haben (in diesem Beispiel: *C:\SetupFiles\WindowsServer*). Dieser Ordner enthält nun die Windows Server-Installationsdateien mit den zusätzlichen Funktionen und optionale Pakete enthalten.
+Jetzt können Sie ein Upgrade Ihres Servers ausführen, indem Sie aus dem Ordner, den Sie für die Windows Server-Installationsdateien erstellt haben, „setup.exe“ ausführen (in diesem Beispiel: *C:\SetupFiles\WindowsServer*). Dieser Ordner enthält nun die Windows Server-Installationsdateien mit eingeschlossenen zusätzlichen Funktionen und optionalen Paketen.
