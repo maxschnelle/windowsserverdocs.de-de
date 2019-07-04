@@ -14,17 +14,17 @@ ms.assetid: ''
 author: ''
 manager: ''
 ms.openlocfilehash: 3aa582df6728d46b1f5f3ac13469ae7af52da28e
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862951"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63684571"
 ---
 # <a name="technology-in-windows-server-2016"></a>Technologie in Windows Server 2016 
 
-<img src="media/6-networking.png" style='align:left'> *Einführung in die Technologie. Diese dient dazu, über das Technologiemarketing zum Inhalt der Technologie überzuleiten. Ändern Sie das Symbol, um für Ihren Technologiebereich auf der Landing Page verwendet.*
+<img src="media/6-networking.png" style='align:left'> *Einführung in die Technologie. Diese dient dazu, über das Technologiemarketing zum Inhalt der Technologie überzuleiten. Ändern Sie das Symbol in das auf der Zielseite verwendete Symbol für Ihren Technologiebereich.*
 
-*Ziel ist es, den Kunden über das marketing der Technologie in die Inhalte einzuführen, mit dem sie es in ihrer Umgebung implementieren können.*
+*Ziel ist es, den Kunden über das Marketing für die Technologie in die Inhalte einzuführen, mit denen sich die Technologie in die Umgebung der Kunden implementieren lässt.*
 
 
 
@@ -33,7 +33,7 @@ ms.locfileid: "59862951"
 
 *Stellen Sie hier neue und aufregende Features vor.*
 
-*Geben Sie Links zu Ihren Inhalten – jeder Link muss entweder ein H2 oder ein H3 (und keine Tabellen oder Aufzählungszeichen). Finden Sie im Artikel über Netzwerke ein Beispiel für ein.*
+*Stellen Sie Links zu Ihren Inhalten bereit. Alle Links sollten entweder ein H2 oder ein H3 (und keine Tabellen oder Aufzählungszeichen) sein. Ein Beispiel finden Sie im Artikel über Netzwerke.*
 ## <a name="sub-technology"></a>Untergeordnete Technologie
 
 ### <a name="link-to-article-about-sub-technology"></a>Link zum Artikel über untergeordnete Technologie
