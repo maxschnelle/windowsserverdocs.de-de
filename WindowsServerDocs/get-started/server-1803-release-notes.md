@@ -1,6 +1,6 @@
 ---
-title: 'Anmerkungen zu dieser Version: wichtige Probleme in Windows Server, Version 1803'
-description: Erfahren Sie mehr über bekannte Probleme, Einschränkungen oder andere Informationen, die Sie benötigen, vor der Installation von Windows Server, Version 1803
+title: 'Anmerkungen zu dieser Version: Wichtige Probleme in Windows Server, Version 1803'
+description: Erfahren Sie mehr über bekannte Probleme, Einschränkungen oder andere Informationen, die Sie vor der Installation von Windows Server, Version 1803, benötigen
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -14,27 +14,27 @@ ms.author: elizapo
 manager: dougkim
 ms.localizationpriority: medium
 ms.openlocfilehash: e9bd860769ec375a6d89ac452e3430b791fff3ad
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59868501"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63688732"
 ---
 # <a name="release-notes-important-issues-in-windows-server-version-1803"></a>Versionshinweise: Wichtige Probleme in Windows Server, Version 1803
 
 >Gilt für: Windows Server (Semi-Annual Channel)
 
-Diese Anmerkungen zur Version fassen zusammen, die wichtigsten Probleme in das Betriebssystem Windows Server, einschließlich der Möglichkeiten, um zu vermeiden, oder bekannte Probleme zu umgehen. Weitere Informationen zu neuen Funktionen in dieser Version finden Sie unter [Neuigkeiten in Windows Server-Version 1803](whats-new-in-windows-server-1803.md). Sehen Sie sich [zu Windows-Containern](https://docs.microsoft.com/virtualization/windowscontainers/about/) in einem Windows-Server, Version 1803, -Container ausgeführt haben. 
+In diesen Anmerkungen zur Version sind die wichtigsten Probleme zusammengefasst, die im Windows Server-Betriebssystem auftreten können, und Sie erfahren, wie Sie diese Probleme gegebenenfalls umgehen können. Weitere Informationen zu neuen Features in diesem Release finden Sie unter [Neuerungen in Windows Server, Version 1803](whats-new-in-windows-server-1803.md). Ziehen Sie die [Informationen zu Windows-Containern](https://docs.microsoft.com/virtualization/windowscontainers/about/) zurate, wenn Sie daran interessiert sind, einen Windows Server-Container, Version 1803, auszuführen. 
 
-Sofern nicht anders angegeben, gelten alle aufgeführten Probleme, für alle Editionen und Installationsoptionen von Windows Server, Version 1803.  
+Sofern es nicht anders angegeben ist, gelten alle aufgeführten Probleme für alle Editionen und Installationsoptionen von Windows Server, Version 1803.  
 
-In diesem Artikel wird fortlaufend aktualisiert. Bekannte Probleme identifiziert werden, werden wir ihnen hier dokumentiert. 
+Dieser Artikel wird fortlaufend aktualisiert. Wenn Probleme bekannt werden, werden diese hier dokumentiert. 
 
 
-## <a name="software-defined-datacenter"></a>Softwaredefinierten Rechenzentrums
+## <a name="software-defined-datacenter"></a>Softwaredefiniertes Rechenzentrum
 
-Softwaredefinierten Rechenzentrums-Funktionen wie "direkte Speicherplätze", softwaredefiniertes Netzwerk und geschützten nicht virtuelle Computern in Windows Server, Version 1803 enthalten. Siehe [Update für Windows Server Halbjährlicher Kanal](https://cloudblogs.microsoft.com/windowsserver/2018/03/29/windows-server-semi-annual-channel-update/), die Halbjährlicher Kanal von Windows Server konzentriert sich auf Container und Anwendungsszenarien, die von schnelleren Innovationen profitieren. 
+Features des softwaredefinierten Rechenzentrums, wie z.B. „Direkte Speicherplätze“, Software-Defined Networking und geschützte virtuelle Computern sind in Windows Server, Version 1803, nicht enthalten. Wie unter [Update für Windows Server (halbjährlicher Kanal)](https://cloudblogs.microsoft.com/windowsserver/2018/03/29/windows-server-semi-annual-channel-update/) beschrieben, konzentriert sich der halbjährliche Kanal von Windows Server auf Container- und Anwendungsszenarien, die von schnelleren Innovationen profitieren. 
 
-Wenn Sie die Infrastrukturrollen benötigen, verwenden Sie einer langfristigen Wartungskanal-Version: Windows Server 2016 (jetzt verfügbar) oder [Windows Server-2019](https://cloudblogs.microsoft.com/windowsserver/2018/03/20/introducing-windows-server-2019-now-available-in-preview) (später in diesem Jahr verfügbar).
+Wenn Sie die Infrastrukturrollen benötigen, verwenden Sie ein Long Term Servicing Channel-Release: Windows Server 2016 (jetzt verfügbar) oder [Windows Server-2019](https://cloudblogs.microsoft.com/windowsserver/2018/03/20/introducing-windows-server-2019-now-available-in-preview) (später in diesem Jahr verfügbar).
 
-Wir setzen uns für die beste Plattform für die hyperkonvergenten Infrastruktur erstellen, und wir weiterhin neue Features entwickeln und verbessern vorhandene basierend auf Ihrem Feedback. Vielen Dank für das Abrufen von leistungsbezogenen [10.000 Cluster "direkte Speicherplätze"](https://blogs.technet.microsoft.com/filecab/2018/03/27/storage-spaces-direct-momentum)! Wir freuen uns, zur gemeinsamen Nutzung von mehr später in diesem Jahr.
+Wir setzen uns für die Entwicklung der besten Plattform für hyperkonvergente Infrastruktur ein und entwickeln ständig neue Features und verbessern vorhandene basierend auf Ihrem Feedback. Vielen Dank für Ihre Unterstützung, dank derer wir [die Marke von 10.000 Clustern von „Direkte Speicherplätze“ überschritten haben](https://blogs.technet.microsoft.com/filecab/2018/03/27/storage-spaces-direct-momentum)! Wir freuen uns darauf, noch in diesem Jahr mehr darüber bekannt zu geben.
