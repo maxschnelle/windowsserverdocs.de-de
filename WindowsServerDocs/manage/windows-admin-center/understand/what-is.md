@@ -1,6 +1,6 @@
 ---
-title: Was ist Windows Admin Center
-description: Was ist Windows Admin Center (Projekt Honolulu)
+title: Was ist Windows Admin Center?
+description: Was ist Windows Admin Center (Projekt Honolulu)?
 ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
@@ -9,63 +9,63 @@ ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 ms.date: 06/07/2019
 ms.openlocfilehash: 99f1a9a32ef69ba8322b2dba902003f8a750a4d2
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66811644"
 ---
 # <a name="what-is-windows-admin-center"></a>Was ist Windows Admin Center?
 
-> Gilt für: Windows Admin Center, Windows Admin Center Preview
+> Gilt für: Windows Admin Center, Windows Admin Center (Vorschauversion)
 
-Windows Admin Center ist ein lokal bereitgestelltes, browserbasiertes Verwaltungs-Tool, welches die lokale Verwaltung von Windows-Servern unabhängig von Azure oder der Cloud ermöglicht. Windows Admin Center ermöglicht die vollständige Kontrolle über alle Aspekte der Server-Infrastruktur und ist besonders nützlich für die Verwaltung auf privaten Netzwerken, die nicht mit dem Internet verbunden sind.
+Windows Admin Center ist ein neues lokal bereitgestelltes, browserbasiertes Verwaltungstool, das die Verwaltung von Windows-Servern unabhängig von Azure oder der Cloud ermöglicht. Windows Admin Center ermöglicht die vollständige Kontrolle über alle Aspekte der Serverinfrastruktur und ist besonders nützlich für die Verwaltung von Servern in privaten Netzwerken, die nicht mit dem Internet verbunden sind.
 
-Windows Admin Center ist die moderne Weiterentwicklung von integrierten Verwaltungstools wie Server Manager und MMC. Ergänzung von System Center – es ist kein Ersatz.
+Windows Admin Center ist die moderne Weiterentwicklung von integrierten Verwaltungstools wie Server-Manager und MMC. Windows Admin Center ist kein Ersatz für System Center, sondern dient als Ergänzung.
 
 ![](../media/wac-complements.png)
 
 ## <a name="how-does-windows-admin-center-work"></a>Funktionsweise von Windows Admin Center
 
-Windows Admin Center wird in einem Webbrowser ausgeführt und verwaltet 2019 für Windows Server, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows 10 und mehr über die **Windows Admin Center Gateway** installiert unter Windows Server oder Windows 10. Das Gateway verwaltet Server unter Verwendung von Remote-PowerShell und WMI über WinRM. Das Gateway gehört zum Lieferumfang von Windows Admin Center in einem einzelnen MSI-Paket, dass Sie [herunterladen](https://aka.ms/windowsadmincenter) können.
+Windows Admin Center wird in einem Webbrowser ausgeführt und dient zur Verwaltung von Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows 10 und weiteren Versionen über das unter Windows Server 10 oder Windows 10 installierte **Windows Admin Center-Gateway**. Das Gateway verwaltet Server unter Verwendung von Remote-PowerShell und WMI über WinRM. Das Gateway ist als einzelnes MSI-Paket im Lieferumfang von Windows Admin Center enthalten und kann [hier](https://aka.ms/windowsadmincenter) heruntergeladen werden.
 
-Mit Windows Admin Center-Gateway können Sie nach der Veröffentlichung von DNS und de Zugriff über entsprechende Unternehmensfirewalls die Server unabhängig vom Standort mit Microsoft Edge oder Google Chrome verbinden oder verwalten.
+Wenn das Windows Admin Center-Gateway im DNS veröffentlicht und ihm Zugriff durch entsprechende Unternehmensfirewalls gewährt wurde, kannst du damit unabhängig vom Standort über Microsoft Edge oder Google Chrome eine Verbindung mit deinen Servern herstellen und diese verwalten.
 
 ![](../media/architecture.png)
 
-## <a name="learn-how-windows-admin-center-improves-your-management-environment"></a>Hier erfahren Sie, wie Windows Admin Center Ihre Verwaltungsumgebung verbessert
+## <a name="learn-how-windows-admin-center-improves-your-management-environment"></a>Hier erfährst du, wie Windows Admin Center deine Verwaltungsumgebung verbessert.
 
-### <a name="familiar-functionality"></a>**Vertrauter Funktionen**
+### <a name="familiar-functionality"></a>**Vertraute Funktionen**
 
-Windows Admin Center ist die Weiterentwicklung der langfristigen, bekannten Management-Plattformen wie Microsoft Management Console (MMC), die für erstellte und heute verwaltete Systeme erstellt wurde. Windows Admin Center enthält viele der vertrauten Tools, mit denen Sie aktuell Windows-Server und Clients verwalten.
+Windows Admin Center ist eine konsequente Weiterentwicklung etablierter Verwaltungsplattformen wie Microsoft Management Console (MMC) und wurde von Grund auf für die Erstellung und Verwaltung aktueller Systeme konzipiert. Windows Admin Center enthält viele der vertrauten Tools, mit denen du aktuell Windows-Server und -Clients verwaltest.
 
-### <a name="easy-to-install-and-use"></a>**Leicht zu installieren und verwenden**
+### <a name="easy-to-install-and-use"></a>**Einfache Installation und Verwendung**
 
-[Installieren](../deploy/install.md) Sie diese auf einem Computer mit Windows 10 und beginnen Sie in Minuten mit der Verwaltung oder installieren Sie diese auf einen Windows 2016-Server, der als Gateway für die gesamte Organisation zum Verwalten von Computern über ihren Webbrowser fungiert.
+[Installiere](../deploy/install.md) die Plattform auf einem Windows 10-Computer, und beginne innerhalb weniger Minuten mit der Verwaltung. Installiere Windows Admin Center alternativ auf einem als Gateway fungierenden Windows 2016-Server, um der gesamten Organisation die Verwaltung von Computern über den Webbrowser zu ermöglichen.
 
-### <a name="complements-existing-solutions"></a>**Ergänzt vorhandene Lösungen**
+### <a name="complements-existing-solutions"></a>**Ergänzung vorhandener Lösungen**
 
-Windows Admin Center funktioniert mit Lösungen wie System Center und Azure-Verwaltung und Sicherheit, hinzufügen zu ihrer Funktionen zum Ausführen von ausführliche Verwaltungsaufgaben von einem einzelnen Computer.
+Windows Admin Center kann mit Lösungen wie System Center und Azure-Verwaltung und -Sicherheit verwendet werden, um ihre Funktionen zu erweitern und detaillierte Verwaltungsaufgaben auf einem einzelnen Computer auszuführen.
 
-### <a name="manage-from-anywhere"></a>**Verwalten von überall aus**
+### <a name="manage-from-anywhere"></a>**Verwaltung an jedem beliebigen Standort**
 
-Veröffentlichen Sie Ihren Windows Admin Center Gateway-Server mit dem öffentlichen Internet, um mit Servern unabhängig vom Standort alle auf sichere Weise Verbindungen herzustellen und diese zu verwalten.
+Veröffentliche deinen Windows Admin Center-Gatewayserver im öffentlichen Internet. Anschließend kannst du unabhängig vom Standort auf sichere Weise eine Verbindung mit deinen Servern herstellen und sie verwalten.
 
-### <a name="enhanced-security-for-your-management-platform"></a>**Erhöhte Sicherheit für Ihre Managementplattform**
+### <a name="enhanced-security-for-your-management-platform"></a>**Erweiterte Sicherheit für deine Verwaltungsplattform**
 
-Windows Admin Center verfügt über zahlreiche Erweiterungen, die Ihre Management-Plattform [sicherer](../plan/user-access-options.md) machen. Mit der rollenbasierten Zugriffssteuerung können Sie optimieren, welche Administratoren Zugriff auf die Managementfunktionen haben. Gateway-Authentifizierungsoptionen umfassen lokale Gruppen, lokales domänenbasiertes Active Directory und Cloud-basiertes Azure Active Directory.  [Erhalten Sie einen Einblick](../use/logging.md) in Management-Aktionen in Ihrer Umgebung.
+Windows Admin Center verfügt über zahlreiche Erweiterungen, die deine Verwaltungsplattform [sicherer](../plan/user-access-options.md) machen. Mit der rollenbasierten Zugriffssteuerung kannst du präzise steuern, welche Administratoren Zugriff auf bestimmte Verwaltungsfunktionen haben. Zu den Gatewayauthentifizierungsoptionen zählen lokale Gruppen, lokale domänenbasierte Active Directory-Instanzen und cloudbasierte Azure Active Directory-Instanzen.  Erhalte darüber hinaus [Einblick](../use/logging.md) in die in deiner Umgebung ausgeführten Verwaltungsaktionen.
 
-### <a name="azure-integration"></a>**Azure-integration**
+### <a name="azure-integration"></a>**Azure-Integration**
 
-Windows Admin Center verfügt über viele Datenpunkte [-Integration mit Azure-Dienste](../plan/azure-integration-options.md), einschließlich Azure Active Directory, Azure Backup, Azure Site Recovery und vieles mehr.
+Windows Admin Center kann in zahlreiche [Azure-Dienste integriert werden](../plan/azure-integration-options.md), etwa Azure Activity Directory, Azure Backup, Azure Site Recovery usw.
 
-### <a name="manage-hyper-converged-clusters"></a>**Verwalten von hyper-konvergiert-Clustern**
+### <a name="manage-hyper-converged-clusters"></a>**Verwaltung hyperkonvergenter Cluster**
 
-Windows Admin Center bietet die beste Erfahrung für das [Verwalten von hyperkonvergenten Clustern](../use/manage-hyper-converged.md) – einschließlich virtualisierter Computersysteme, Speicherung und Netzwerkkomponenten.
+Windows Admin Center bietet eine optimale Umgebung für das [Verwalten von hyperkonvergenten Clustern](../use/manage-hyper-converged.md), einschließlich virtualisierter Compute-, Speicher- und Netzwerkkomponenten.
 
 ### <a name="extensibility"></a>**Erweiterbarkeit**
 
-Windows Admin Center wurde für Microsoft und Drittanbieter-Entwicklertools und -Lösungen erstellt, die über die aktuellen Dienstangebote hinausgehen und die Erweiterbarkeit beachten. Microsoft bietet ein [SDK](../extend/extensibility-overview.md), mit dem Entwickler eigene Tools für Windows Admin Center erstellen kann.
+Windows Admin Center wurde von Anfang an in Hinblick auf Erweiterbarkeit entworfen und soll Microsoft und Drittanbietern die Entwicklung von noch vielseitigeren Tools und Lösungen ermöglichen. Microsoft bietet ein [SDK](../extend/extensibility-overview.md), mit dem Entwickler eigene Tools für Windows Admin Center erstellen können.
 
 > [!Tip]
-> Sind Sie bereit zum Installieren von Windows Admin Center? [Jetzt herunterladen](https://aka.ms/windowsadmincenter)
+> Bist du für die Installation von Windows Admin Center bereit? [Jetzt herunterladen](https://aka.ms/windowsadmincenter)

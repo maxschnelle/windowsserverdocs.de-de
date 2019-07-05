@@ -1,6 +1,6 @@
 ---
-title: Ändern einer GUID-Partitionstabellen (GPT)-Festplatte in eine Master Boot Record (MBR)-Festplatte
-description: Beschreibt, wie Sie den Partitionsstil einer GUID-Partitionstabellen (GPT)-Festplatte in eine Master Boot Record (MBR)-Festplatte konvertieren.
+title: Ändern eines GPT-Datenträgers (GUID Partition Table, GUID-Partitionstabelle) in einen MBR-Datenträger (Master Boot Record)
+description: Hier wird beschrieben, wie du einen GPT-Datenträger (GUID Partition Table, GUID-Partitionstabelle) in einen MBR-Datenträger (Master Boot Record) änderst.
 ms.date: 06/19/2018
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -9,59 +9,59 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 5cd345230ce5c0fc556bfd8b421d866bd827507b
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66812445"
 ---
-# <a name="convert-a-gpt-disk-into-an-mbr-disk"></a>Konvertieren Sie einen GPT-Datenträger in einen MBR-Datenträger
+# <a name="convert-a-gpt-disk-into-an-mbr-disk"></a>Konvertieren eines GPT-Datenträgers in einen MBR-Datenträger
 
-> **Gilt für:** Windows 10, Windows 8.1, WindowsServer (Halbjährlicher Kanal), WindowsServer 2019, WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012
+> **Gilt für:** Windows 10, Windows 8.1, Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Master Boot Record (MBR)-Festplatten verwenden die Standard-BIOS-Partitionstabelle. GUID-Partitionstabelle (GPT)-Festplatten verwenden Unified Extensible Firmware Interface (UEFI). MBR-Festplatten unterstützen nicht mehr als vier Partitionen auf jeder Festplatte. Die Methode der MBR-Partition wird nicht für Festplatten mit mehr als zwei Terabyte (TB) empfohlen.
+Für MBR-Datenträger wird die standardmäßige BIOS-Partitionstabelle verwendet. GPT-Datenträger verwenden die Unified Extensible Firmware Interface (UEFI). MBR-Datenträger unterstützen maximal vier Partitionen auf jedem Datenträger. Die MBR-Partitionsmethode wird für Datenträger mit mehr als zwei Terabyte (TB) nicht empfohlen.
 
-Sie können eine Festplatte von einem GPT- in einen MBR-Partitionsstil ändern, solange sie leer ist und keine Volumes enthält.
-
-> [!NOTE]
-> Bevor Sie einen Datenträger konvertieren, Sichern Sie alle Daten darauf aus, und schließen Sie alle Programme, die auf den Datenträger zugreifen.
+Du kannst einen GPT-Datenträger in einen MBR-Datenträger ändern, sofern der Datenträger leer ist und keine Volumes enthält.
 
 > [!NOTE]
-> Sie müssen mindestens ein Mitglied der Gruppe **Sicherungsoperatoren** or **Administratoren** sein, um diese Schritte durchzuführen.
+> Sichere vor dem Konvertieren eines Datenträgers die darauf gespeicherten Daten, und schließe alle Programme, die auf den Datenträger zugreifen.
+
+> [!NOTE]
+> Du musst mindestens Mitglied der Gruppe **Sicherungsoperatoren** oder **Administratoren** sein, um diese Schritte ausführen zu können.
 
 ## <a name="converting-using-the-windows-interface"></a>Konvertieren mithilfe der Windows-Benutzeroberfläche
 
-1.  Sichern Sie oder verschieben Sie alle Volumes auf dem GPT-Basisdatenträger, die Sie in eine MBR-Festplatte konvertieren möchten.
+1.  Sichere oder verschiebe alle Volumes auf dem GPT-Basisdatenträger, den du in einen MBR-Datenträger konvertieren möchtest.
 
-2.  Wenn die Festplatte Partitionen oder Volumes enthält, klicken Sie mit der rechten Maustaste auf jede und klicken Sie dann auf **Volume löschen**.
+2.  Enthält der Datenträger Partitionen oder Volumes, klicke mit der rechten Maustaste auf jede Partition bzw. auf jedes Volume, und klicke dann auf **Volume löschen**.
 
-3.  Klicken Sie mit der rechten Maustaste auf die GPT-Festplatte, die Sie in eine MBR-Festplatte konvertieren möchten, und klicken Sie dann auf **in MBR-Datenträger konvertieren**.
+3.  Klicke mit der rechten Maustaste auf den GPT-Datenträger, den du in einen MBR-Datenträger konvertieren möchtest, und klicke dann auf **In MBR-Datenträger konvertieren**.
 
 ## <a name="converting-using-a-command-line"></a>Konvertieren mithilfe einer Befehlszeile
 
-1.  Sichern Sie oder verschieben Sie alle Volumes auf dem GPT-Basisdatenträger, die Sie in eine MBR-Festplatte konvertieren möchten.
+1.  Sichere oder verschiebe alle Volumes auf dem GPT-Basisdatenträger, den du in einen MBR-Datenträger konvertieren möchtest.
 
-2.  Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten, indem Sie mit der rechten Maustaste auf **Eingabeaufforderung** klicken und dann **Als Administrator ausführen** wählen.
+2.  Öffne eine Eingabeaufforderung mit erhöhten Rechten, indem du mit der rechten Maustaste auf **Eingabeaufforderung** klickst und dann **Als Administrator ausführen** auswählst.
 
-3. Geben Sie `diskpart` ein. Wenn der Datenträger keine Partitionen oder Volumes enthält, fahren Sie mit Schritt 6 fort.
+3. Geben Sie `diskpart` ein. Wenn der Datenträger keine Partitionen oder Volumes enthält, fahre mit Schritt 6 fort.
 
-4.  Geben Sie an der **DISKPART**-Eingabeaufforderung `list disk` ein. Notieren Sie die Datenträgernummer, die entfernt werden soll.
+4.  Gib an der Eingabeaufforderung **DISKPART** Folgendes ein: `list disk`. Notiere die Nummer des Datenträgers, der gelöscht werden soll.
 
-5.  Geben Sie an der **DISKPART**-Eingabeaufforderung `select disk <disknumber>` ein.
+5.  Gib an der Eingabeaufforderung **DISKPART** Folgendes ein: `select disk <disknumber>`.
 
-6.  Geben Sie an der **DISKPART**-Eingabeaufforderung `clean` ein.
+6.  Gib an der Eingabeaufforderung **DISKPART** Folgendes ein: `clean`.
 
     > [!IMPORTANT]
-    > Der Befehl **Bereinigen** löscht alle Partitionen oder Volumes auf dem Datenträger.
+    > Der Befehl zum **Bereinigen** löscht alle Partitionen oder Volumes auf dem Datenträger.
 
-7.  Geben Sie an der **DISKPART**-Eingabeaufforderung `convert mbr` ein.
+7.  Gib an der Eingabeaufforderung **DISKPART** Folgendes ein: `convert mbr`.
 
 |                Wert                  |      Beschreibung   |
 | ------------------------------------- | -----------------  |
-|  <strong>Liste Datenträger</strong>  | Zeigt eine Liste der Festplatten und deren Informationen an wie z. B. ihre Größe, die Menge an Speicherplatz, ob es sich um eine Basis- oder einen dynamischen Datenträger handelt und ob die Festplatte den Partitionsstil Master Boot Record (MBR) oder GUID-Partitionstabelle (GPT) verwendet. Der Datenträger mit einem Sternchen gekennzeichnet (\*) den Fokus besitzt. |
-| <strong>Wählen Sie Datenträger</strong> |                                                                                                          Wählt die angegebene Festplatte aus, wobei <em>disknumber</em> die Nummer der Festplatte ist, und legt den Fokus fest.                                                                                                           |
-| <strong>Konvertieren von mbr</strong> |                                                                               Konvertiert einen leeren Basisdatenträger mit dem GUID-Partitionstabelle (GPT)-Partitionsstil zu einem Basisdatenträger mit Master Boot Record (MBR)-Partitionsstil.                                                                                |
+|  <strong>list disk</strong>  | Zeigt eine Liste der Festplatten und ihre Informationen an, etwa ihre Größe, den verfügbaren freien Speicherplatz, ob es sich um eine Basisfestplatte oder einen dynamischen Datenträger handelt und ob der Datenträger den MBR- oder den GPT-Partitionsstil verwendet. Der mit einem Sternchen (\*) gekennzeichnete Datenträger hat den Fokus. |
+| <strong>select disk</strong> |                                                                                                          Wählt den angegebenen Datenträger aus und weist ihm den Fokus zu. (<em>disknumber</em> ist die Nummer des Datenträgers.)                                                                                                           |
+| <strong>convert mbr</strong> |                                                                               Konvertiert eine leere Basisfestplatte mit dem GPT-Partitionsstil in eine Basisfestplatte mit dem MBR-Partitionsstil.                                                                                |
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
--   [Notation der Befehlszeilensyntax](https://technet.microsoft.com/library/cc742449(v=ws.11).aspx)
+-   [Command-line syntax notation](https://technet.microsoft.com/library/cc742449(v=ws.11).aspx) (Notation der Befehlszeilensyntax)

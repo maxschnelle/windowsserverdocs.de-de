@@ -1,6 +1,6 @@
 ---
-title: Aktivieren der notfallwiederherstellung von RDS mit Azure Site Recovery
-description: Erfahren Sie, wie Sie die notfallwiederherstellung von RDS mit Azure Site Recovery aktivieren.
+title: Aktivieren der Notfallwiederherstellung von RDS mithilfe von Azure Site Recovery
+description: Hier erfährst du, wie du die Notfallwiederherstellung von RDS mithilfe von Azure Site Recovery aktivierst.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,44 +13,44 @@ ms.topic: article
 author: lizap
 manager: dongill
 ms.openlocfilehash: 7aa25602c71e5d114be7ae59c5e3ce168844d700
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66446550"
 ---
-# <a name="enable-disaster-recovery-of-rds-using-azure-site-recovery"></a>Aktivieren der notfallwiederherstellung von RDS mit Azure Site Recovery
+# <a name="enable-disaster-recovery-of-rds-using-azure-site-recovery"></a>Aktivieren der Notfallwiederherstellung von RDS mithilfe von Azure Site Recovery
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2019, WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016
 
-Um sicherzustellen, dass Ihre RDS-Bereitstellung für die notfallwiederherstellung ordnungsgemäß konfiguriert ist, müssen Sie alle Komponenten, aus denen Ihre RDS-Bereitstellung zu schützen:
+Um sicherzustellen, dass deine RDS-Bereitstellung hinreichend für die Notfallwiederherstellung konfiguriert ist, musst du alle Komponenten deiner RDS-Bereitstellung schützen:
 
 - Active Directory
 - SQL Server-Ebene
 - RDS-Komponenten
 - Netzwerkkomponenten
 
-## <a name="configure-active-directory-and-dns-replication"></a>Konfigurieren der Active Directory und DNS-Replikation
+## <a name="configure-active-directory-and-dns-replication"></a>Konfigurieren von Active Directory und DNS-Replikation
 
-Sie benötigen eine Active Directory am Standort notfallwiederherstellung für Ihre RDS-Bereitstellung funktioniert. Sie haben zwei Möglichkeiten, die basierend auf der Komplexität die RDS-Bereitstellung ist:
+Du benötigst Active Directory am Notfallwiederherstellungsstandort, damit deine RDS-Bereitstellung funktioniert. Du hast basierend auf der Komplexität deiner RDS-Bereitstellung zwei Möglichkeiten:
 
-- Option 1: Wenn Sie eine kleine Anzahl von Anwendungen und ein einzelnen Domänencontroller für den gesamten Standorts gleichzeitig, Ihre gesamten lokalen Standort und Failover werden wird verwenden Sie ASR-Replikation zum Replizieren des Domänencontrollers am sekundären Standort ("true" für beide Standort-zu-Standort und Standort-zu-Azure-Szenarien).
-- Option 2: Sie haben eine große Anzahl von Anwendungen und führen Sie eine Active Directory-Gesamtstruktur müssen Sie Failover verschiedener Anwendungen zu einem Zeitpunkt, richten Sie einen zusätzlichen Domänencontroller am Standort notfallwiederherstellung (entweder ein sekundärer Standort oder in Azure).
+- Option 1: Wenn du eine geringe Anzahl von Anwendungen und einen einzelnen Domänencontroller für deinen gesamten lokalen Standort besitzt und ein Failover für den ganzen Standort ausführst, verwende die ASR-Replikation für das Replizieren des Domänencontrollers am sekundären Standort. (Dies gilt sowohl für Site-to-Site-Szenarien als auch für Site-to-Azure-Szenarien).
+- Option 2: Wenn du über eine große Anzahl von Anwendungen und eine Active Directory-Gesamtstruktur verfügst und jeweils nur für wenige Anwendungen ein Failover ausführst, richte einen zusätzlichen Domänencontroller am Notfallwiederherstellungsstandort (sekundärer Standort oder in Azure) ein.
 
-Finden Sie unter [Schützen von Active Directory und DNS mit Azure Site Recovery](/azure/site-recovery/site-recovery-active-directory) ausführliche Informationen zum Verfügbarmachen von eines Domänencontrollers am Standort notfallwiederherstellung. Bei der Rest dieses Leitfadens wird davon ausgegangen, dass Sie diese Schritte befolgt haben und den Domänencontroller zur Verfügung steht.
+Ausführliche Informationen zum Verfügbarmachen eines Domänencontrollers am Notfallwiederherstellungsstandort findest du unter [Einrichten der Notfallwiederherstellung für Active Directory und DNS](/azure/site-recovery/site-recovery-active-directory). In der übrigen Anleitung wird davon ausgegangen, dass du diese Schritte ausgeführt hast und der Domänencontroller verfügbar ist.
 
-## <a name="set-up-sql-server-replication"></a>Einrichten von SQL Server-Replikation
+## <a name="set-up-sql-server-replication"></a>Einrichten der SQL Server-Replikation
 
-Finden Sie unter [Schützen von SQL Server mit SQL Server-Wiederherstellung und Azure Site Recovery](/azure/site-recovery/site-recovery-sql) die Schritte zum Einrichten von SQL Server-Replikation.
+Schritte zum Einrichten der SQL Server-Replikation findest du unter [Einrichten der Notfallwiederherstellung für SQL Server](/azure/site-recovery/site-recovery-sql).
 
 ## <a name="enable-protection-for-the-rds-application-components"></a>Aktivieren des Schutzes für die RDS-Anwendungskomponenten
 
-Je nach den Typ der RDS-Bereitstellung können Sie Schutz für die andere Komponente-VMs (wie in der folgenden Tabelle aufgeführt) in Azure Site Recovery aktivieren. Konfigurieren Sie die relevante Azure Site Recovery-Elemente, die basierend auf dem, ob Ihre virtuellen Computer auf Hyper-V oder VMWare bereitgestellt werden.
+Abhängig vom Typ deiner RDS-Bereitstellung kannst du in Azure Site Recovery den Schutz virtueller Computer für verschiedene Komponenten aktivieren (siehe Tabelle weiter unten). Konfiguriere die relevanten Azure Site Recovery-Elemente basierend darauf, ob deine virtuellen Computer unter Hyper-V oder VMWare bereitgestellt werden.
 
 
-|               Bereitstellungstyp                |                                                                                                     Schutz-Schritte                                                                                                     |
+|               Bereitstellungstyp                |                                                                                                     Schritte für den Schutz                                                                                                     |
 |----------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|     Persönlicher virtueller Desktop (nicht verwaltet)     | 1. Stellen Sie sicher, dass alle Virtualisierungshosts über den RDVH-Rolle installiert sind.    </br>2. Verbindungsbroker.  </br>3. Persönliche Desktops. </br>4. Gold-Vorlagen-VM. </br>5. Webzugriff, Lizenzserver und Gatewayserver |
-| In einem Pool zusammengefassten virtuellen Desktops, die (mit kein Benutzerprofil-Datenträger verwaltet) |                    1. Alle Virtualisierungshosts sind über den RDVH-Rolle installiert.  </br>2. Verbindungsbroker.  </br>3. Gold-Vorlagen-VM. </br>4. Webzugriff, Lizenzserver und Gatewayserver.                    |
-|   RemoteApps und Remotedesktopsitzungen (ohne UPD)   |                                                          1. Sitzung hostet.  </br>2. Verbindungsbroker. </br>3. Webzugriff, Lizenzserver und Gatewayserver.                                                           |
+|     Persönlicher virtueller Desktop (nicht verwaltet)     | 1. Stelle sicher, dass alle Virtualisierungshosts bereit sind und die RDVH-Rolle installiert ist.    </br>2. Verbindungsbroker  </br>3. Persönliche Desktops </br>4. Virtueller Computer mit Gold-Vorlage </br>5. Webzugriff, Lizenzserver und Gatewayserver |
+| Virtueller Desktop in einem Pool (ohne UPD verwaltet) |                    1. Alle Virtualisierungshosts sind bereit, und die RDVH-Rolle ist installiert.  </br>2. Verbindungsbroker  </br>3. Virtueller Computer mit Gold-Vorlage </br>4. Webzugriff, Lizenzserver und Gatewayserver                    |
+|   RemoteApps und Desktopsitzungen (ohne UPD)   |                                                          1. Sitzungshosts  </br>2. Verbindungsbroker </br>3. Webzugriff, Lizenzserver und Gatewayserver                                                           |
 

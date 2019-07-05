@@ -1,6 +1,6 @@
 ---
-title: Remotedesktopdienste - sicheren Datenspeicher
-description: Planungsinformationen für das sichere Speichern von Daten mithilfe von Benutzerprofil-Datenträgern (UPDs) in RDS.
+title: 'Remotedesktopdienste: Schützen von Datenspeicher'
+description: Planungsinformationen für das sichere Speichern von Daten mithilfe von Benutzerprofil-Datenträgern (User Profile Disks, UPDs) in RDS
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -14,22 +14,22 @@ ms.author: elizapo
 ms.date: 11/21/2016
 manager: dongill
 ms.openlocfilehash: c3c7be624e3b093347807a5ee131270d3c802f1a
-ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66805160"
 ---
-# <a name="remote-desktop-services---secure-data-storage-with-upds"></a>Remotedesktopdienste - sicheren Datenspeicher mit dem Benutzerprofil-Datenträger
+# <a name="remote-desktop-services---secure-data-storage-with-upds"></a>Remotedesktopdienste: Schützen von Datenspeicher mit Benutzerprofil-Datenträgern
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2019, WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016
 
-Ressourcen für die Business Store, Personalisierung von Benutzerdaten und Einstellungen sicher lokal oder in Azure. RD-Sitzungshosts AD-Authentifizierung verwenden, und steigern der Benutzerproduktivität mit den benötigten Ressourcen in einer personalisierten Umgebung sicher. 
+Speichere Unternehmensressourcen, benutzerspezifische Personalisierungsdaten und Einstellungen sicher lokal oder in Azure. RD-Sitzungshosts nutzen AD-Authentifizierung und stellen Benutzern auf sichere Weise die Ressourcen zur Verfügung, die sie in einer personalisierten Umgebung benötigen. 
 
-Sicherstellen, dass Benutzer über eine einheitliche, unabhängig von den Endpunkt, von denen sie Zugriff auf die Remoteressourcen, ist ein wichtiger Aspekt der Verwaltung einer RDS-Bereitstellung, verfügen. Benutzerprofil-Datenträgern (UPDs) können Benutzerdaten, Anpassungen und Anwendungseinstellungen, folgen Sie einen Benutzer in einer einzelnen Sammlung. Ein Benutzerprofil-Datenträger ist ein pro-Benutzer, sammlungsspezifischen VHD-Datei, die in einer zentralen Freigabe, die bereitgestellt wird, um der Sitzung eines Benutzers, bei seiner Anmeldung: dem Benutzerprofil-Datenträger wird als lokales Laufwerk behandelt, für die Dauer der Sitzung, gespeichert. 
+Ein wichtiger Aspekt beim Verwalten einer RDS-Bereitstellung besteht darin, Benutzern eine konsistente Umgebung bereitzustellen, unabhängig vom Endpunkt, über den sie auf ihre Remoteressourcen zugreifen. Dank Benutzerprofil-Datenträgern (User Profile Disks, UPDs) stehen Benutzerdaten, Anpassungen und Anwendungseinstellungen einem Benutzer innerhalb einer einzelnen Sammlung überall zur Verfügung. Bei einem Benutzerprofil-Datenträger handelt es sich um eine benutzer- und sammlungsspezifische VHD-Datei in einer zentralen Freigabe, die bei der Anmeldung eines Benutzers in seine Sitzung eingebunden wird. Der Benutzerprofil-Datenträger wird während der Sitzungsdauer als lokales Laufwerk behandelt. 
 
-Aus Sicht des Benutzers dem Benutzerprofil-Datenträger bietet eine Famililar: sie speichern ihre Dokumente in ihre Dokumente (dazu, was angezeigt wird, werden von einem lokalen Laufwerk), Ordner ändern ihre app-Einstellungen wie gewohnt, und alle Änderungen an ihrer Windows-Umgebung vornehmen. Alle diese Daten, einschließlich der Registrierungsstruktur, auf dem Benutzerprofil-Datenträger gespeichert und bleiben in einer zentralen Netzwerkfreigabe verfügen. Benutzerprofil-Datenträger sind nur für den Benutzer verfügbar, wenn der Benutzer aktiv mit einem Desktop- oder RemoteApp verbunden ist. Benutzerprofil-Datenträger können nur innerhalb einer Auflistung wechseln, da der gesamte benutzerorder `C:\Users\<username\>` Verzeichnis (einschließlich AppData\Local) auf dem Benutzerprofil-Datenträger gespeichert ist.
+Aus Sicht des Benutzers bietet der Benutzerprofil-Datenträger eine vertraute Umgebung: Er speichert seine Dokumente im Ordner „Dokumente“ (auf dem vermeintlich lokalen Laufwerk), ändert seine App-Einstellungen wie gewohnt und nimmt Anpassungen an seiner Windows-Umgebung vor. Alle diese Daten, einschließlich der Registrierungsstruktur, werden auf dem Benutzerprofil-Datenträger gespeichert und endgültig in einer zentralen Netzwerkfreigabe gespeichert. Benutzerprofil-Datenträger sind nur für den Benutzer verfügbar, wenn er aktiv mit einem Desktop oder mit RemoteApp verbunden ist. Roaming ist für Benutzerprofil-Datenträger nur innerhalb einer Sammlung möglich, da das gesamte Verzeichnis `C:\Users\<username\>` des Benutzers (einschließlich „AppData\Local“) auf dem Benutzerprofil-Datenträger gespeichert ist.
 
-Sie können [PowerShell-Cmdlets](https://technet.microsoft.com/library/jj215443.aspx) , bestimmen den Pfad zu den zentralen Freigabe, die Größe jeder Benutzerprofil-Datenträger und die Ordner einbezogen oder das Benutzerprofil auf dem Benutzerprofil-Datenträger gespeichert ausgeschlossen werden. Alternativ können Sie Benutzerprofil-Datenträger mithilfe von Server Manager aktivieren, indem Sie zu **Remote Desktop Services** > **Sammlungen** > **Sammlung Desktops**  >  **Desktop Sammlungseigenschaften** > **Benutzerprofil-Datenträger**. Beachten Sie, dass Sie aktivieren oder Deaktivieren von Benutzerprofil-Datenträger für alle Benutzer, der eine ganze Sammlung, nicht für bestimmte Benutzer in dieser Auflistung. Benutzerprofil-Datenträger müssen in einer zentralen Dateifreigabe gespeichert werden, in denen die Server in der Auflistung mit Vollzugriff verfügen. 
+Du kannst [PowerShell-Cmdlets](https://technet.microsoft.com/library/jj215443.aspx) verwenden, um den Pfad zur zentralen Freigabe, die Größe der einzelnen Benutzerprofil-Datenträger sowie die Ordner festzulegen, die in das auf dem Benutzerprofil-Datenträger gespeicherte Profil aufgenommen bzw. davon ausgeschlossen werden sollen. Alternativ kannst du Benutzerprofil-Datenträger über den Server-Manager aktivieren. Navigiere dazu zu **Remotedesktopdienste** > **Sammlungen** > **Desktopsammlung** > **Desktop Collection Properties (Desktopsammlungseigenschaften)**  > **Benutzerprofil-Datenträger**. Beachte, dass Benutzerprofil-Datenträger für alle Benutzer einer gesamten Sammlung und nicht nur für bestimmte Benutzer in dieser Sammlung aktiviert bzw. deaktiviert werden. Benutzerprofil-Datenträger müssen in einer zentralen Dateifreigabe gespeichert werden, für die die Server in der Sammlung über Vollzugriff verfügen. 
 
-Sie erreichen hochverfügbarkeit für Ihre UPDs durch Speichern in Azure mit ["direkte Speicherplätze"](rds-storage-spaces-direct-deployment.md). 
+Du kannst Hochverfügbarkeit für deine Benutzerprofil-Datenträger erzielen, indem du sie mit [direkten Speicherplätzen](rds-storage-spaces-direct-deployment.md) in Azure speicherst. 

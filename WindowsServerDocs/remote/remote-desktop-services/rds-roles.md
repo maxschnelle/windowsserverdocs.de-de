@@ -1,6 +1,6 @@
 ---
-title: Remotedesktopdienste – Rollen
-description: Beschreibt die Komponenten der Desktop, Dienst hostet.
+title: 'Remotedesktopdienste: Rollen'
+description: Hier werden die Komponenten eines Desktophostingdiensts beschrieben.
 ms.prod: windows-server-threshold
 ms.technology: remote-desktop-services
 ms.author: helohr
@@ -8,97 +8,97 @@ ms.date: 07/06/2018
 ms.topic: article
 author: heidilohr
 manager: dougkim
-ms.openlocfilehash: 48efbffa4f82b707b63e33e6416da43eb105221f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 717f6c714ce95793a9a7b5fcf0ddd304c77daa32
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844721"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63753175"
 ---
-# <a name="remote-desktop-services-roles"></a>Remotedesktopdienste – Rollen
+# <a name="remote-desktop-services-roles"></a>Remotedesktopdienste: Rollen
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016
 
-Dieser Artikel beschreibt die Rollen in einer Umgebung Remote Desktop Services.
+In diesem Artikel werden die Rollen in einer Remotedesktopdienste-Umgebung beschrieben.
 
 ## <a name="remote-desktop-session-host"></a>Remotedesktop-Sitzungshost
 
-Der Remotedesktop-Sitzungshost (RD-Sitzungshost) enthält die Sitzungs-basierten Anwendungen und Desktops, die Sie für Benutzer freigeben. Benutzer können diese Desktops und apps über einen der Remotedesktop-Clients, die unter Windows, MacOS, iOS und Android ausgeführt. Benutzer können auch über einen unterstützten Browser mithilfe des Web-Clients herstellen.
+Der Remotedesktop-Sitzungshost (RD-Sitzungshost) enthält die sitzungsbasierten Apps und Desktops, die du für Benutzer freigibst. Benutzer können auf diese Desktops und Apps über einen der Remotedesktopclients zugreifen, die unter Windows, macOS, iOS und Android ausgeführt werden. Außerdem können Benutzer eine Verbindung über einen unterstützten Browser herstellen, indem sie den Webclient verwenden.
 
-Sie können Desktops und apps in einen oder mehrere RD Session Host-Server, die Namen "Sammlungen". organisieren. Sie können diese Sammlungen für bestimmte Gruppen von Benutzern in jeder Mandant anpassen. Beispielsweise können Sie eine Sammlung erstellen, in denen eine bestimmte Benutzergruppe kann auf bestimmte apps zugreifen, aber Personen außerhalb der gewünschten Gruppe nicht auf diese apps zugreifen können.
+Du kannst Desktops und Apps zu einzelnen oder mehreren RD-Sitzungshostservern (sogenannten Sammlungen) zusammenfassen. Diese Sammlungen kannst du für bestimmte Gruppen von Benutzern in den einzelnen Mandanten anpassen. So kannst du beispielsweise eine Sammlung erstellen, in der eine bestimmte Benutzergruppe auf bestimmte Apps zugreifen kann, Benutzer außerhalb der Gruppe jedoch keinen Zugriff auf diese Apps haben.
 
-Für kleine Bereitstellungen können Sie die Anwendungen direkt auf dem RD-Sitzungshostserver installieren. Für größere Bereitstellungen empfehlen wir eine base-Image Erstellen und Bereitstellen von virtuellen Computern aus diesem Image.
+Bei kleinen Bereitstellungen kannst du Anwendungen direkt auf den RD-Sitzungshostservern installieren. Bei größeren Bereitstellungen empfiehlt es sich, ein Basisimage zu erstellen und virtuelle Computer auf der Grundlage dieses Images bereitzustellen.
 
-Sie können Sammlungen erweitern, durch das Hinzufügen von RD-Sitzungshost-Server-Computer in einer Auflistung-Farm mit einzelnen virtuellen RDSH-Computers in einer Sammlung, die derselben verfügbarkeitsgruppe zugewiesen. Dies bietet eine höhere Verfügbarkeit der Sammlung und erhöht die Skalierung um Benutzer oder eine Ressource-Anwendungen zu unterstützen.
+Du kannst Sammlungen erweitern, indem du virtuelle RD-Sitzungshost-Servercomputer einer Sammlungsfarm hinzufügst, in der jeder virtuelle RDSH-Computer innerhalb einer Sammlung der gleichen Verfügbarkeitsgruppe zugewiesen ist. Dadurch erreichst du eine höhere Verfügbarkeit der Sammlung sowie eine höhere Skalierung und kannst mehr Benutzer oder ressourcenintensive Anwendungen unterstützen.
 
-In den meisten Fällen teilen sich die Benutzer die gleichen Remotedesktop-Sitzungshostserver, die Azure-Ressourcen für eine desktophostinglösungen möglichst effizient verwendet. In dieser Konfiguration müssen die Benutzer in Sammlungen mit einem nicht-Administratorkonten melden. Sie können auch einige Benutzer vollen administrativen Zugriff auf den remote Desktop geben durch das Erstellen von privaten Sitzung desktopsammlungen.
+In den meisten Fällen wird ein RD-Sitzungshostserver von mehreren Benutzern gemeinsam verwendet. Dadurch wird eine möglichst effiziente Nutzung der Azure-Ressourcen für eine Desktophostinglösung erreicht. In dieser Konfiguration müssen sich die Benutzer bei Sammlungen mit einem Konto ohne Administratorrechte anmelden. Du kannst auch persönliche Sitzungsdesktopsammlungen erstellen, um einigen Benutzern uneingeschränkten Administratorzugriff auf ihren Remotedesktop zu gewähren.
 
-Sie können anpassen, dass Desktops noch erhöhen, indem das Erstellen und Hochladen einer virtuellen Festplatte mit Windows Server-Betriebssystems, die Sie als Vorlage zum Erstellen neuer RD Session Host virtuelle Maschinen verwenden können.
+Außerdem kannst du zur weiteren Desktopanpassung eine virtuelle Festplatte mit dem Windows Server-Betriebssystem erstellen, hochladen und als Vorlage für die Erstellung neuer virtueller RD-Sitzungshostcomputer verwenden.
 
 Weitere Informationen finden Sie in den folgenden Artikeln:
 
-* [Remotedesktopdienste - sicheren Datenspeicher](rds-plan-secure-data-storage.md)
-* [Hochladen einer generalisierten VHD und zum Erstellen neuer virtueller Computer in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json)
-* [Aktualisieren Sie die RDSH-Auflistung (ARM-Vorlage)](https://azure.microsoft.com/resources/templates/rds-update-rdsh-collection/)
+* [Remotedesktopdienste: Schützen von Datenspeicher mit Benutzerprofil-Datenträgern](rds-plan-secure-data-storage.md)
+* [Hochladen einer generalisierten VHD und Verwendung dieser zum Erstellen neuer VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json)
+* [Update RDSH collection](https://azure.microsoft.com/resources/templates/rds-update-rdsh-collection/) (Aktualisieren der RDSH-Sammlung) (ARM-Vorlage)
 
 ## <a name="remote-desktop-connection-broker"></a>Remotedesktop-Verbindungsbroker
 
-Remotedesktop-Verbindungsbroker (RD-Verbindungsbroker) verwaltet eingehende Remotedesktopverbindungen mit RD-Sitzungshost-Serverfarmen. RD Connection Broker verarbeitet Verbindungen mit beiden Auflistungen der vollständigen Desktops und Sammlungen von remote-apps. RD Connection Broker können der Auflistung serverübergreifenden Lastenausgleich beim Herstellen von neuer Verbindungen. Wenn eine Sitzung wird getrennt, Verbindung RD Connection Broker den Benutzer den richtigen RD Session Host-Server und ihre unterbrochenen Sitzung, die in der Farm RD Session Host immer noch vorhanden ist.
+Der Remotedesktop-Verbindungsbroker (RD-Verbindungsbroker) verwaltet eingehende Remotedesktopverbindungen für RD-Sitzungshost-Serverfarmen. Über den RD-Verbindungsbroker werden sowohl Verbindungen mit Sammlungen vollständiger Desktops als auch Verbindungen mit Sammlungen von Remote-Apps abgewickelt. Der RD-Verbindungsbroker kann bei der Herstellung neuer Verbindungen die Last zwischen den Servern der Sammlung ausgleichen. Sollte die Verbindung mit einer Sitzung unterbrochen werden, verbindet der RD-Verbindungsbroker den Benutzer erneut mit dem korrekten RD-Sitzungshostserver und der unterbrochenen Sitzung, die weiterhin in der RD-Sitzungshostfarm vorhanden ist.
 
-Sie müssen übereinstimmende digitale Zertifikate auf dem Remotedesktop-Verbindungsbroker-Server und des Clients zur Unterstützung des einmaligen Anmeldens und Veröffentlichen einer Anwendung zu installieren. Beim Entwickeln oder Testen eines Netzwerks, können Sie ein selbst generiertes und selbstsigniertes Zertifikat verwenden. Veröffentlichte Dienste erfordern jedoch ein digitales Zertifikat von einer vertrauenswürdigen Zertifizierungsstelle. Der Name des Zertifikats muss als der interne vollständig qualifizierte Domäne (FQDN) des virtuellen Computers RD Connection Broker übereinstimmen.
+Zur Unterstützung von Anwendungsveröffentlichung und einmaligem Anmelden müssen sowohl auf dem RD-Verbindungsbrokerserver als auch auf dem Client übereinstimmende digitale Zertifikate installiert werden. Beim Entwickeln oder Testen eines Netzwerks kannst du ein selbstgeneriertes und selbstsigniertes Zertifikat verwenden. Für veröffentlichte Dienste wird dagegen ein digitales Zertifikat von einer vertrauenswürdigen Zertifizierungsstelle benötigt. Der Name des Zertifikats muss dem internen vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) des virtuellen RD-Verbindungsbrokercomputers entsprechen.
 
-Sie können Remotedesktop-Verbindungsbroker von Windows Server 2016 installieren, auf dem gleichen virtuellen Computer wie AD DS, um Kosten zu senken. Bei Bedarf zu skalieren, dass mehr Benutzer, können Sie auch zusätzliche RD Connection Broker virtuelle Computer in derselben verfügbarkeitsgruppe zum Erstellen eines Remotedesktop-Verbindungsbroker-Clusters hinzufügen.
+Du kannst den Remotedesktop-Verbindungsbroker von Windows Server 2016 auf dem gleichen virtuellen Computer installieren wie AD DS, um Kosten zu sparen. Wenn du horizontal skalieren musst, um mehr Benutzer zu unterstützen, kannst du auch zusätzliche virtuelle RD-Verbindungsbrokercomputer in der gleichen Verfügbarkeitsgruppe hinzufügen, um einen RD-Verbindungsbrokercluster zu erstellen.
 
-Bevor Sie einen Remotedesktop-Verbindungsbroker-Cluster erstellen können, müssen Sie Azure SQL-Datenbank in der Mandanten-Umgebung bereitstellen oder erstellen eine SQL Server AlwaysOn-Verfügbarkeitsgruppe.
+Zuvor musst du jedoch entweder eine Azure SQL-Datenbank in der Mandantenumgebung bereitstellen oder eine SQL Server-AlwaysOn-Verfügbarkeitsgruppe erstellen.
 
 Weitere Informationen finden Sie in den folgenden Artikeln:
 
-* [Die Bereitstellung der Remotedesktop-Verbindungsbrokerserver hinzu, und Konfigurieren von hochverfügbarkeit](rds-connection-broker-cluster.md)
-* [SQL-Datenbank](desktop-hosting-service.md#sql-database) in desktophosting-Dienst.
+* [Add the RD Connection Broker server to the deployment and configure high availability](rds-connection-broker-cluster.md) (Hinzufügen des RD-Verbindungsbrokerservers zur Bereitstellung und Konfigurieren von Hochverfügbarkeit)
+* [SQL-Datenbank](desktop-hosting-service.md#sql-database) in „Desktophosting-Dienst“
 
 ## <a name="remote-desktop-gateway"></a>Remotedesktopgateway
 
-Remotedesktopgateway (RD-Gateway) ermöglicht den Benutzern in öffentlichen Netzwerken auf Windows-Desktops und Anwendungen, die in Microsoft Azure Cloud-Diensten gehostet werden.
+Über das Remotedesktopgateway (RD-Gateway) können Benutzer in öffentlichen Netzwerken auf Windows-Desktops und Anwendungen zugreifen, die in den Clouddiensten von Microsoft Azure gehostet werden.
 
-Die RD-Gateway-Komponente verwendet Secure Sockets Layer (SSL) zum Verschlüsseln des Kommunikationskanals zwischen Clients und dem Server. Der RD-Gateway-VM muss über eine öffentliche IP-Adresse zugänglich sein, die eingehenden TCP-Verbindungen an Port 443 und eingehende UDP-Verbindungen an Port 3391 ermöglicht. Dadurch können Benutzer über das Internet mithilfe von HTTPS kommunikationstransportprotokoll und das UDP-Protokoll eine Verbindung herstellen.
+Die Remotedesktopgateway-Komponente verwendet Secure Sockets Layer (SSL), um den Kommunikationskanal zwischen den Clients und dem Server zu verschlüsseln. Der virtuelle RD-Gatewaycomputer muss über eine öffentliche IP-Adresse erreichbar sein, die eingehende TCP-Verbindungen am Port 443 sowie eingehende UDP-Verbindungen am Port 3391 zulässt. Dadurch können Benutzer über das Internet eine Verbindung unter Verwendung des HTTPS-Kommunikationstransportprotokolls bzw. des UDP-Protokolls herstellen.
 
-Digitalen Zertifikate auf dem Server und Client müssen übereinstimmen, damit dies funktioniert. Wenn Sie entwickeln oder testen ein Netzwerks, können Sie ein selbst generiertes und selbstsigniertes Zertifikat verwenden. Allerdings erfordert ein freigegebenen Dienst ein Zertifikat von einer vertrauenswürdigen Zertifizierungsstelle. Der Name des Zertifikats muss übereinstimmen, den FQDN des Remotedesktop-Gateway, den Zugriff auf, ob der FQDN der öffentlichen IP-Adresse extern ausgerichtete DNS-Namen oder den CNAME-DNS-Ressourceneintrag, die auf die öffentliche IP-Adresse ist.
+Hierzu müssen auf dem Server und auf dem Client entsprechende digitale Zertifikate installiert sein. Beim Entwickeln oder Testen eines Netzwerks kannst du ein selbstgeneriertes und selbstsigniertes Zertifikat verwenden. Für einen veröffentlichten Dienst wird dagegen ein Zertifikat von einer vertrauenswürdigen Zertifizierungsstelle benötigt. Der Name des Zertifikats muss dem FQDN entsprechen, der für den Zugriff auf das RD-Gateway verwendet wird. Das kann der nach außen gerichtete DNS-Name der öffentlichen IP-Adresse oder der CNAME-DNS-Eintrag sein, der auf die öffentliche IP-Adresse verweist.
 
-Für Mandanten mit weniger Benutzer können die Rollen Web Access für Remotedesktop und RD-Gateway auf einem einzelnen virtuellen Computer verwenden, um Kosten zu senken kombiniert werden. Sie können auch mehrere RD-Gateway-VMs zu einer Farm RD-Gateway zum Erhöhen der Verfügbarkeit des Diensts und horizontal hochskalieren, dass mehr Benutzer hinzufügen. Virtuelle Computer in größerer RD-Gateway-Farmen sollte in einer Gruppe mit Lastenausgleich konfiguriert werden. -IP-Affinität ist nicht erforderlich, wenn Sie RD-Gateway auf einem virtuellen Windows Server 2016-Computer verwenden, aber es ist, wenn Sie es auf einem virtuellen Windows Server 2012 R2-Computer ausführen.
+Bei Mandanten mit weniger Benutzern können die Rollen „RD-Webzugriff“ und „RD-Gateway“ auf einem einzelnen virtuellen Computer zusammengefasst werden, um Kosten zu sparen. Du kannst aber auch weitere virtuelle RD-Gatewaycomputer zu einer RD-Gatewayfarm hinzufügen, um die Dienstverfügbarkeit zu erhöhen und eine horizontale Skalierung für mehr Benutzer durchzuführen. Virtuelle Computer in größeren RD-Gatewayfarmen sollten in einer Gruppe mit Lastenausgleich konfiguriert werden. Wenn du das RD-Gateway auf einem virtuellen Computer mit Windows Server 2016 verwendest, ist keine IP-Affinität erforderlich. Bei Verwendung eines virtuellen Computers mit Windows Server 2012 R2 dagegen schon.
 
 Weitere Informationen finden Sie in den folgenden Artikeln:
 
-* [Hohen Verfügbarkeit auf die Web-Front RD Web- und Gatewaycomputers hinzufügen](rds-rdweb-gateway-ha.md)
-* [Remote Desktop Services - Zugriff von überall aus](rds-plan-access-from-anywhere.md)
-* [Remote Desktop Services – Multi-Factor authentication](rds-plan-mfa.md)
+* [Add high availability to the RD Web and Gateway web front](rds-rdweb-gateway-ha.md) (Hinzufügen von Hochverfügbarkeit zu RD-Web und RD-Gateway (Webfront))
+* [Remotedesktopdienste – ortsunabhängiger Zugriff](rds-plan-access-from-anywhere.md)
+* [Remote Desktop Services - Multi-Factor Authentication](rds-plan-mfa.md) (Remotedesktopdienste: mehrstufige Authentifizierung)
 
 ## <a name="remote-desktop-web-access"></a>Web Access für Remotedesktop
 
-Remote Web Access für Remotedesktop (RD-Webzugriff) können Benutzer Zugriff auf Desktops und Anwendungen über ein Webportal, und sie über das Gerät die native Microsoft-Remotedesktop-Clientanwendung startet. Können Sie das Webportal zum Veröffentlichen von Windows-Desktops und Anwendungen für Windows und nicht-Windows Clientgeräte, und Sie können auch selektiv Desktops oder apps für bestimmte Benutzer oder Gruppen veröffentlichen.
+Web Access für Remotedesktop (Web Access für RD) ermöglicht Benutzern den Zugriff auf Desktops und Anwendungen über ein Webportal und startet diese über die native Microsoft-Remotedesktop-Clientanwendung des Geräts. Über das Webportal kannst du Windows-Desktops und Anwendungen für Windows-basierte und Windows-fremde Clientgeräte veröffentlichen. Außerdem kannst du Desktops oder Apps wahlweise für bestimmte Benutzer oder Gruppen veröffentlichen.
 
-Web Access für Remotedesktop muss IIS (Internetinformationsdienste) ordnungsgemäß funktioniert. Eine Hypertext Transfer Protocol Secure (HTTPS)-Verbindung stellt einen Kanal verschlüsselte Kommunikation zwischen Clients und dem RD-Web-Server bereit. Der virtuelle Computer von Web Access für Remotedesktop muss über eine öffentliche IP-Adresse zugegriffen werden, die eingehende TCP-Verbindungen an Port 443, um die Benutzer des Mandanten über das Internet herstellen können ermöglicht die Verwendung von Transport des HTTPS-Kommunikationsprotokoll.
+Web Access für RD benötigt Internetinformationsdienste (Internet Information Services, IIS). Eine HTTPS-Verbindung (Hypertext Transfer Protocol Secure) stellt einen verschlüsselten Kommunikationskanal zwischen den Clients und dem RD-Webserver bereit. Der virtuelle Computer für Web Access für RD muss über eine öffentliche IP-Adresse erreichbar sein, die eingehende TCP-Verbindungen am Port 443 zulässt, damit die Benutzer des Mandanten über das Internet eine Verbindung unter Verwendung des HTTPS-Kommunikationstransportprotokolls herstellen können.
 
-Abgleich von digitalen Zertifikaten muss auf dem Server und Clients installiert sein. Für Entwicklungs- und Testzwecke verwenden kann dies ein selbst generiertes und selbstsigniertes Zertifikat sein. Für einen veröffentlichten Dienst muss das digitale Zertifikat von einer vertrauenswürdigen Zertifizierungsstelle abgerufen werden. Der Name des Zertifikats muss den vollständig qualifizierten Domänennamen (FQDN) für den Zugriff auf Web Access für Remotedesktop übereinstimmen. Mögliche FQDNs enthalten den extern zugänglichen DNS-Namen für die öffentliche IP-Adresse und den CNAME-DNS-Ressourceneintrag, die auf die öffentliche IP-Adresse verweist.
+Auf dem Server und den Clients müssen entsprechende digitale Zertifikate installiert sein. Bei der Entwicklung und zu Testzwecken kann ein selbstgeneriertes und selbstsigniertes Zertifikat verwendet werden. Bei einem veröffentlichten Dienst muss das digitale Zertifikat dagegen von einer vertrauenswürdigen Zertifizierungsstelle bezogen werden. Der Name des Zertifikats muss dem vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) entsprechen, der für den Zugriff auf Web Access für RD verwendet wird. Dabei kann es sich um den nach außen gerichteten DNS-Namen für die öffentliche IP-Adresse oder um den CNAME-DNS-Eintrag handeln, der auf die öffentliche IP-Adresse verweist.
 
-Bei Mandanten mit weniger Benutzern können Sie Kosten senken, durch die Kombination der Web Access für Remotedesktop und Remotedesktopgateway-Workloads in einem einzelnen virtuellen Computer. Sie können auch zusätzliche RD-Web-virtuelle Computer zu einer Farm Web Access für RD-Erhöhen der Verfügbarkeit des Diensts und horizontal hochskalieren, dass mehr Benutzer hinzufügen. In einer Web Access für Remotedesktop-Serverfarm mit mehreren virtuellen Computern müssen Sie die virtuellen Computer in einer Gruppe mit Lastenausgleich konfigurieren.
+Bei Mandanten mit weniger Benutzern können die Workloads „RD-Webzugriff“ und „Remotedesktopgateway“ zu einem einzelnen virtuellen Computer zusammengefasst werden, um Kosten zu sparen. Du kannst aber auch zusätzliche virtuelle RD-Webcomputer zu einer Farm für Web Access für RD hinzufügen, um die Dienstverfügbarkeit zu erhöhen und eine horizontale Skalierung für mehr Benutzer durchzuführen. In einer Farm für Web Access für RD mit mehreren virtuellen Computern müssen die virtuellen Computer in einer Gruppe mit Lastenausgleich konfiguriert werden.
 
-Weitere Informationen zum Konfigurieren von Web Access für Remotedesktop finden Sie unter den folgenden Artikeln:
+Weitere Informationen zum Konfigurieren von Web Access für RD findest du in den folgenden Artikeln:
 
-* [Richten Sie den Remotedesktop-Web-Client für Ihre Benutzer](clients/remote-desktop-web-client-admin.md)
-* [Erstellen und Bereitstellen einer Sammlung von Remote Desktop Services](rds-create-collection.md)
-* [Erstellen einer Remote Desktop Services-Sammlung für Desktops und apps ausführen](rds-create-collection.md)
+* [Einrichten des Remotedesktop-Webclients für Ihre Benutzer](clients/remote-desktop-web-client-admin.md)
+* [Erstellen und Bereitstellen einer Remotedesktopdienste-Sammlung](rds-create-collection.md)
+* [Create a Remote Desktop Services collection for desktops and apps to run](rds-create-collection.md) (Erstellen einer Remotedesktopdienste-Sammlung zum Ausführen von Desktops und Apps)
 
 ## <a name="remote-desktop-licensing"></a>Remotedesktoplizenzierung
 
-Aktiviert die Remotedesktoplizenzierung (RD-Lizenzierung) Server ermöglichen Benutzern die Verbindung mit dem Remotedesktop-Sitzungshostserver Hosten von Desktops und apps des Mandantenverwaltungs. Mandantenumgebungen kommen in der Regel mit dem RD-Lizenzierungsserver bereits installiert, aber für gehostete Umgebungen müssen Sie den Server im Modus "pro Benutzer" konfigurieren.
+Aktivierte Server für die Remotedesktoplizenzierung (RD-Lizenzierung) ermöglichen es Benutzern, eine Verbindung mit den RD-Sitzungshostservern herzustellen, auf denen die Desktops und Apps des Mandanten gehostet werden. In Mandantenumgebungen ist der RD-Lizenzierungsserver in der Regel bereits installiert. Für gehostete Umgebungen muss der Server jedoch im Modus „Pro Benutzer“ konfiguriert werden.
 
-Der Dienstanbieter benötigt genügend RDS Subscriber Access Licenses, (SALs), um alle autorisierten eindeutig (nicht gleichzeitigen) Benutzer abzudecken, die an den Dienst pro Monat, melden Sie sich. Dienstanbieter können Microsoft Azure Infrastructure Services direkt erwerben und können SALs über das Microsoft Service Provider Licensing Agreement (SPLA)-Programm erwerben. Kunden, die für eine desktop gehostete Lösung müssen vollständige gehostete Lösung (Azure und RDS) vom Dienstanbieter erwerben.
+Der Dienstanbieter muss über genügend RDS-Abonnentenzugriffslizenzen (Subscriber Access Licenses, SALs) für alle autorisierten individuellen (nicht gleichzeitigen) Benutzer verfügen, die sich jeden Monat bei dem Dienst anmelden. Dienstanbieter können Microsoft Azure-Infrastrukturdienste direkt und SALs über das SPLA-Programm (Service Provider Licensing Agreement) von Microsoft erwerben. Kunden, die eine gehostete Desktoplösung benötigen, müssen die vollständige gehostete Lösung (Azure und RDS) vom Dienstanbieter erwerben.
 
-Kleine Mandanten können Kosten senken, durch die Kombination des Dateiservers und RD-Lizenzierung Komponenten auf einem einzelnen virtuellen Computer. Um höhere Verfügbarkeit zu gewährleisten, können Mandanten zwei RD-Lizenz-Server-Computer in derselben verfügbarkeitsgruppe bereitstellen. Alle Remotedesktop-Server in der Mandanten-Umgebung fallen beide Remotedesktop-Lizenzserver zu Benutzern, die für neue Sitzungen herstellen, selbst wenn einer der Server ausfällt.
+Bei kleinen Mandanten können die Dateiserver- und die RD-Lizenzierungskomponente auf einem einzelnen virtuellen Computer zusammengefasst werden, um Kosten zu sparen. Um eine höhere Dienstverfügbarkeit zu erzielen, können Mandanten zwei virtuelle RD-Lizenzservercomputer in der gleichen Verfügbarkeitsgruppe bereitstellen. Alle RD-Server in der Mandantenumgebung werden mit beiden RD-Lizenzservern verknüpft, damit Benutzer auch dann eine Verbindung mit neuen Sitzungen herstellen können, wenn einer der Server ausfällt.
 
 Weitere Informationen finden Sie in den folgenden Artikeln:
 
-* [Lizenzieren Sie Ihre RDS-Bereitstellung mit Clientzugriffslizenzen (CALs)](rds-client-access-license.md)
-* [Aktivieren des Lizenzservers Remote Desktop Services](rds-activate-license-server.md)
-* [Verfolgen Sie Ihre Remote Desktop Services-Clientzugriffslizenzen (TS CALs)](rds-track-cals.md)
-* [Microsoft Volume Licensing: Lizenzierungsoptionen für Dienstanbieter](https://www.microsoft.com/en-us/Licensing/licensing-programs/spla-program.aspx)
+* [License your RDS deployment with client access licenses (CALs)](rds-client-access-license.md) (Lizenzieren deiner RDS-Bereitstellung mit Clientzugriffslizenzen (CALs))
+* [Aktivieren des Remotedesktopdienste-Lizenzservers](rds-activate-license-server.md)
+* [Track your Remote Desktop Services client access licenses (RDS CALs)](rds-track-cals.md) (Nachverfolgen deiner Remotedesktopdienste-Clientzugriffslizenzen (RDS-CALs))
+* [Lizenzoptionen für Service Provider](https://www.microsoft.com/en-us/Licensing/licensing-programs/spla-program.aspx)

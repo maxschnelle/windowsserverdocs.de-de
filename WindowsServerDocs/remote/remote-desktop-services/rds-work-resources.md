@@ -1,6 +1,6 @@
 ---
-title: Anpassen der RDS Titel "Arbeitsressourcen" mithilfe von PowerShell unter Windows Server
-description: Enthält eine Beschreibung zum Namen des Arbeitsbereichs von Standard in Windows Server zu ändern.
+title: Anpassen des RDS-Titels „Work Resources“ mithilfe von PowerShell unter Windows Server
+description: Hier findest du eine Beschreibung, wie du den Standardnamen des Arbeitsbereichs unter Windows Server änderst.
 ms.prod: windows-server-threshold
 ms.technology: remote-desktop-services
 ms.author: helohr
@@ -8,38 +8,38 @@ ms.date: 10/26/2017
 ms.topic: article
 author: Heidilohr
 ms.openlocfilehash: 43837826a6cddc2c3c4c7c1af874334718a3a067
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59826711"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63743331"
 ---
-# <a name="customize-the-rds-title-work-resources-using-powershell-on-windows-server"></a>Anpassen der RDS Titel "Arbeitsressourcen" mithilfe von PowerShell unter Windows Server
+# <a name="customize-the-rds-title-work-resources-using-powershell-on-windows-server"></a>Anpassen des RDS-Titels „Work Resources“ mithilfe von PowerShell unter Windows Server
 
-Wenn Sie Windows Server mit RemoteApps oder Desktops über Remotedesktop-WebAccess oder der neuen Remotedesktop-app zugreifen, Ihnen aufgefallen, dass der Arbeitsbereich in "Arbeitsressourcen" standardmäßig mit dem Namen ist.  Sie können einfach den Titel ändern, mithilfe von PowerShell-Cmdlets.
+Wenn du Windows Server für den Zugriff auf RemoteApps oder Desktops über RD WebAccess oder die neue Remotedesktop-App verwendest, hast du möglicherweise bemerkt, dass der Arbeitsbereich standardmäßig den Titel „Work Resources“ hat.  Du kannst den Titel einfach mithilfe von PowerShell-Cmdlets ändern.
 
-Um den Titel ändern, öffnen Sie ein neues PowerShell-Fenster auf dem Connection Broker Server, und importieren Sie das RemoteDesktop-Modul mit dem folgenden Befehl aus.
+Öffne zum Ändern des Titels auf dem Verbindungsbrokerserver ein neues PowerShell-Fenster, und importiere das RemoteDesktop-Modul mit dem folgenden Befehl:
 
 ```powershell
     Import-Module RemoteDesktop
 ```
 
-Verwenden Sie anschließend den Befehl Set-RDWorkspace so ändern Sie den Namen des Arbeitsbereichs.
+Ändere anschließend mithilfe des Befehls „Set-RDWorkspace“ den Namen des Arbeitsbereichs:
 
 ```powershell
     Set-RDWorkspace [-Name] <string> [-ConnectionBroker <string>]  [<CommonParameters>]
 ```   
 
-Beispielsweise können Sie den folgenden Befehl aus, um den Arbeitsbereich in Namen "Contoso RemoteApps" ändern:
+Du kannst beispielsweise den folgenden Befehl verwenden, um den Arbeitsbereichsnamen in „Contoso RemoteApps“ zu ändern:
 
 ```powershell
     Set-RDWorkspace -Name "Contoso RemoteApps" -ConnectionBroker broker01.contoso.com
 ```
 
-Wenn Sie mehrere Verbindungsbroker im Hochverfügbarkeitsmodus ausführen, müssen Sie dies für die aktiver Broker ausführen. Sie können diesen Befehl verwenden:
+Wenn du mehrere Verbindungsbroker im Hochverfügbarkeitsmodus ausführst, muss der Befehl für den aktiven Broker ausgeführt werden. Du kannst den folgenden Befehl verwenden:
 
 ```powershell
     Set-RDWorkspace -Name "Contoso RemoteApps" -ConnectionBroker (Get-RDConnectionBrokerHighAvailability).ActiveManagementServer
 ```
 
-Weitere Informationen zum Cmdlet Set-RDWorkspace finden Sie unter den [Set-RDSWorkspace](https://docs.microsoft.com/powershell/module/remotedesktop/set-rdworkspace?view=win10-ps) Verweis.
+Weitere Informationen zum Cmdlet „Set-RDWorkspace“ findest du in der Referenz zu [Set-RDSWorkspace](https://docs.microsoft.com/powershell/module/remotedesktop/set-rdworkspace?view=win10-ps).

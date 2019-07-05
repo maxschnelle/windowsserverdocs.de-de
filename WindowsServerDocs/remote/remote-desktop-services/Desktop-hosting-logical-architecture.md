@@ -1,6 +1,6 @@
 ---
 title: Architektur der Remotedesktopdienste
-description: Architekturdiagramme für Remotedesktopdienste
+description: Architekturdiagramme für RDS
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,50 +13,50 @@ ms.topic: article
 ms.assetid: 7f73bb0a-ce98-48a4-9d9f-cf7438936ca1
 author: lizap
 manager: dongill
-ms.openlocfilehash: ba597318cdaf1d4659a72905eeb4e252c9020e49
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 14c32831445b12b314c71e538320c2ce5a9b7ee4
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887871"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63749423"
 ---
 # <a name="remote-desktop-services-architecture"></a>Architektur der Remotedesktopdienste
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016
 
-Im folgenden finden Sie verschiedene Konfigurationen für die Bereitstellung von Remote Desktop Services Hosten von Windows-apps und Desktops für Endbenutzer.
+Im Anschluss findest du verschiedene Konfigurationen für die Bereitstellung der Remotedesktopdienste zum Hosten von Windows-Apps und -Desktops für Endbenutzer.
 
 >[!NOTE]
-> Die folgenden Architekturdiagramme zeigen die Verwendung von RDS in Azure. Sie können jedoch Remote Desktop Services lokal bereitstellen und in anderen Clouds. Diese Diagramme werden in erster Linie veranschaulichen, wie die RDS-Rollen zusammengestellt werden, und andere Dienste verwenden.
+> Die folgenden Architekturdiagramme zeigen die Verwendung von RDS in Azure. Die Remotedesktopdienste können aber auch lokal und in anderen Clouds bereitgestellt werden. Diese Diagramme sollen in erster Linie die Zusammenstellung der RDS-Rollen und die Verwendung anderer Dienste veranschaulichen.
 
-## <a name="standard-rds-deployment-architectures"></a>Standardarchitekturen für RDS-Bereitstellung
+## <a name="standard-rds-deployment-architectures"></a>Standardarchitekturen für die RDS-Bereitstellung
 
-Remote Desktop Services verfügt über zwei standard-Architekturen:
--   Einfache Bereitstellung – enthält die minimale Anzahl von Servern zum Erstellen einer vollständig wirksam RDS-Umgebung
--   Bereitstellung mit hoher Verfügbarkeit – enthält alle erforderlichen Komponenten für die höchste garantierte Betriebszeit für Ihre RDS-Umgebung
+Für die Remotedesktopdienste stehen zwei Standardarchitekturen zur Verfügung:
+-   Einfache Bereitstellung: Enthält die erforderliche Mindestanzahl von Servern für eine effektive RDS-Umgebung.
+-   Hoch verfügbare Bereitstellung: Enthält alle erforderlichen Komponenten, um die höchstmögliche garantierte Betriebszeit für deine RDS-Umgebung zu erzielen.
 
 ### <a name="basic-deployment"></a>Einfache Bereitstellung
 
-![Grundlegenden RDS-Bereitstellung](./media/basic-rds.png)
+![Einfache RDS-Bereitstellung](./media/basic-rds.png)
 
-### <a name="highly-available-deployment"></a>Bereitstellung mit hoher Verfügbarkeit
+### <a name="highly-available-deployment"></a>Hoch verfügbare Bereitstellung
 
-![Hoch verfügbaren RDS-Bereitstellung](./media/ha-rds.png)
+![Hoch verfügbare RDS-Bereitstellung](./media/ha-rds.png)
 
 ## <a name="rds-architectures-with-unique-azure-paas-roles"></a>RDS-Architekturen mit eindeutigen Azure-PaaS-Rollen
 
-Auch wenn die RDS-Bereitstellung und Standardarchitekturen den meisten Fällen entspricht, Azure engagiert sich auch weiterhin Erstanbieter-PaaS-Lösungen, Kundenwert Laufwerk. Im folgenden finden Sie einige Architekturen zeigt, wie sie mit RDS integrieren
+Die Standardarchitekturen für die RDS-Bereitstellung sind zwar für die meisten Szenarien geeignet, Azure investiert jedoch weiter in PaaS-Erstanbieterlösungen, um den Nutzen für Kunden noch weiter zu erhöhen. Im Anschluss folgen einige Architekturen zur Veranschaulichung der RDS-Integration.
 
-### <a name="rds-deployment-with-azure-ad-domain-services"></a>RDS-Bereitstellung mit Azure AD Domain Services
+### <a name="rds-deployment-with-azure-ad-domain-services"></a>RDS-Bereitstellung mit Azure AD Domain Services
 
-Die beiden oben stehenden Standardarchitektur Diagrammen basieren auf einer herkömmlichen Active Directory (AD), die auf einem Windows Server-VM bereitgestellt. Jedoch wenn Sie nicht über eine herkömmliche AD verfügen und nur über Azure AD-Mandanten verfügen, über Dienste wie Office 365 – aber weiterhin RDS nutzen möchten, können Sie [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) zum Erstellen einer vollständig verwalteten Domäne in Ihrem Azure-IaaS Umgebung, die die Benutzern verwendet, die in Azure AD-Mandanten vorhanden sein. Dadurch wird die Komplexität der manuellen Synchronisierung von Benutzern und Verwalten von mehr virtuelle Computer entfernt. Azure Active Directory-Domänendienste in keiner der Bereitstellungen ausgeführt werden kann: grundlegende oder hoch verfügbar.
+Die beiden Standardarchitekturdiagramme von weiter oben basieren auf einer traditionellen AD-Bereitstellung (Active Directory) auf einem virtuellen Windows Server-Computer. Wenn du allerdings über keine traditionelle AD-Bereitstellung und nur über einen einzelnen Azure AD-Mandanten (über Dienste wie Office 365) verfügst, RDS aber trotzdem nutzen möchtest, kannst du mithilfe von [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) in deiner Azure-IaaS-Umgebung eine vollständig verwaltete Domäne erstellen, die die gleichen Benutzer verwendet, die auch in deinem Azure AD-Client vorhanden sind. Dadurch entfällt die Komplexität durch die manuelle Synchronisierung von Benutzern und die Verwaltung weiterer virtueller Computer. Azure AD Domain Services können sowohl in einer einfachen als auch in einer hoch verfügbaren Bereitstellung verwendet werden.
 
-![Azure AD und RDS-Bereitstellung](./media/aadds-rds.png)
+![Bereitstellung mit Azure AD und RDS](./media/aadds-rds.png)
 
-### <a name="rds-deployment-with-azure-ad-application-proxy"></a>RDS-Bereitstellung mit Azure AD-Anwendungsproxy
+### <a name="rds-deployment-with-azure-ad-application-proxy"></a>RDS-Bereitstellung mit Azure AD-Anwendungsproxy
 
-Die beiden oben stehenden Standardarchitektur Diagrammen verwenden Sie die Web-/Remotedesktopgateway-Server als Einstiegspunkt in das System RDS Internetzugriff. In einigen Umgebungen bevorzugen Administratoren ihre eigenen Server aus dem Umkreis entfernen und stattdessen Technologien, die auch zusätzliche Sicherheit durch Technologien für reverse-Proxy bereitstellen. Die [Azure AD-Anwendungsproxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started) PaaS-Rolle passt hervorragend zu diesem Szenario.
+In den beiden Standardarchitekturdiagrammen von weiter oben werden RD-Webserver/Gatewayserver als internetseitiger Einstiegspunkt für das RDS-System verwendet. Bei manchen Umgebungen möchten Administratoren allerdings ihre eigenen Server lieber aus der Umgebung entfernen und stattdessen Technologien mit zusätzlicher Sicherheit durch Reverseproxytechnologien verwenden. Die PaaS-Rolle [Azure AD-Anwendungsproxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started) ist für ein solches Szenario wie geschaffen.
 
-Unterstützte Konfigurationen und wie Sie dieses Setup erstellen, finden Sie unter Vorgehensweise [Veröffentlichen des Remotedesktops mit Azure AD-Anwendungsproxy](/azure/active-directory/application-proxy-publish-remote-desktop).
+Informationen zu unterstützten Szenarien sowie zur Einrichtung findest du unter [Veröffentlichen des Remotedesktops per Azure AD-Anwendungsproxy](/azure/active-directory/application-proxy-publish-remote-desktop).
 
-![RDS mit Azure AD-Anwendungsproxy](./media/aadappproxy-rds.png)
+![RDS mit Azure AD-Anwendungsproxy](./media/aadappproxy-rds.png)

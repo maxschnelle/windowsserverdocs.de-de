@@ -12,10 +12,10 @@ author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
 ms.openlocfilehash: 7c1623e365be71cac2fd58da5444ce4358d75309
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66443560"
 ---
 # <a name="nano-server-quick-start"></a>Nano Server-Schnellstart
@@ -23,7 +23,7 @@ ms.locfileid: "66443560"
 >Gilt für: Windows Server 2016
 
 > [!IMPORTANT]
-> Mit dem Beginn von Windows Server, Version 1709 steht Nano Server nur als [Basisimage des Betriebssystems für den Container](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image) zur Verfügung. Sehen Sie sich [Änderungen an Nano Server](nano-in-semi-annual-channel.md) an und erfahren Sie, was dies bedeutet. 
+> Ab Windows Server, Version 1709, steht Nano Server nur als [Basis-Betriebssystemimage für Container](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image) zur Verfügung. Sieh dir die [Änderungen an Nano Server](nano-in-semi-annual-channel.md) an, und erfahre, was dies bedeutet. 
 
 Führen Sie die Schritte in diesem Abschnitt aus, wenn Sie schnell mit einer einfachen Bereitstellung von Nano Server mithilfe von DHCP zum Abrufen einer IP-Adresse beginnen möchten. Sie können eine Nano Server-VHD entweder auf einem virtuellen Computer ausführen oder von einem physischen Computer aus starten. Die Schritte unterscheiden sich leicht.
 
@@ -37,13 +37,13 @@ Führen Sie diese Schritte aus, um eine Nano Server-VHD zu erstellen, die auf ei
   
 1. Kopieren Sie den Ordner *NanoServerImageGenerator* aus dem Ordner „\NanoServer“ in der Windows Server 2016-ISO-Datei in einen Ordner auf Ihrer Festplatte.  
   
-2. Starten Sie Windows PowerShell als Administrator, ändern Sie das Verzeichnis in den Ordner, in dem Sie den Ordner "NanoServerImageGenerator" platziert wurden, und importieren Sie das Modul mit `Import-Module .\NanoServerImageGenerator -Verbose`  
+2. Starte Windows PowerShell als Administrator, ändere das Verzeichnis in den Ordner, in dem du den Ordner „NanoServerImageGenerator“ gespeichert hast, und importiere anschließend das Modul mit `Import-Module .\NanoServerImageGenerator -Verbose`  
    >[!NOTE]  
    >Möglicherweise müssen Sie die Windows PowerShell-Ausführungsrichtlinie anpassen. `Set-ExecutionPolicy RemoteSigned` sollte gut funktionieren.  
   
 3. Erstellen Sie eine VHD für die Standardedition, die einen Computernamen festlegt und die Hyper-V-**Gasttreiber** einschließt, indem Sie den folgenden Befehl ausführen, der Sie dazu auffordern wird, ein Administratorkennwort für die neue VHD einzugeben:  
   
-   `New-NanoServerImage -Edition Standard -DeploymentType Guest -MediaPath <path to root of media> -BasePath .\Base -TargetPath .\NanoServerVM\NanoServerVM.vhd -ComputerName <computer name>` WHERE  
+   `New-NanoServerImage -Edition Standard -DeploymentType Guest -MediaPath <path to root of media> -BasePath .\Base -TargetPath .\NanoServerVM\NanoServerVM.vhd -ComputerName <computer name>` Dabei gilt Folgendes:  
   
    -   **-MediaPath <Stammverzeichnis des Installationsmediums\>** gibt einen Pfad zum Stamm der Inhalte der Windows Server 2016-ISO-Datei an. Wenn Sie z.B. die Inhalte der ISO-Datei in „d:\TP5ISO“ kopiert haben, würden Sie diesen Pfad verwenden.  
   
@@ -70,7 +70,7 @@ Führen Sie diese Schritte aus, um eine Nano Server-VHD zu erstellen, die auf ei
   
 7. Fordern Sie die IP-Adresse des virtuellen Nano Server-Computers an, und verwenden Sie Windows PowerShell-Remoting oder andere Remoteverwaltungstools, um eine Verbindung mit dem virtuellen Computer herzustellen und diesen remote zu verwalten.  
   
-**Nano Server-Instanz auf einem physischen computer**  
+**Nano Server auf einem physischen Computer**  
   
 Sie können auch eine VHD erstellen, die Nano Server auf einem physischen Computer ausführen wird, indem Sie die vorinstallierten Gerätetreiber verwenden. Wenn Ihre Hardware einen Treiber benötigt, der nicht bereits bereitgestellt ist, um ein Netzwerk zu starten bzw. eine Verbindung mit einem Netzwerk herzustellen, führen Sie die Schritte im Abschnitt „Hinzufügen zusätzlicher Treiber“ dieses Leitfadens aus.  
   
@@ -78,14 +78,14 @@ Sie können auch eine VHD erstellen, die Nano Server auf einem physischen Comput
   
 1.  Kopieren Sie den Ordner *NanoServerImageGenerator* aus dem Ordner „\NanoServer“ in der Windows Server 2016-ISO-Datei in einen Ordner auf Ihrer Festplatte.  
   
-2.  Starten Sie Windows PowerShell als Administrator, ändern Sie das Verzeichnis in den Ordner, in dem Sie den Ordner "NanoServerImageGenerator" platziert wurden, und importieren Sie das Modul mit `Import-Module .\NanoServerImageGenerator -Verbose`  
+2.  Starte Windows PowerShell als Administrator, ändere das Verzeichnis in den Ordner, in dem du den Ordner „NanoServerImageGenerator“ gespeichert hast, und importiere anschließend das Modul mit `Import-Module .\NanoServerImageGenerator -Verbose`  
   
 >[!NOTE]  
 >Möglicherweise müssen Sie die Windows PowerShell-Ausführungsrichtlinie anpassen. `Set-ExecutionPolicy RemoteSigned` sollte gut funktionieren.  
   
 3. Erstellen Sie eine VHD, die einen Computernamen festlegt und die OEM-Treiber und Hyper-V einschließt, indem Sie den folgenden Befehl ausführen, der Sie dazu auffordern wird, ein Administratorkennwort für die neue VHD einzugeben:  
   
-   `New-NanoServerImage -Edition Standard -DeploymentType Host -MediaPath <path to root of media> -BasePath .\Base -TargetPath .\NanoServerPhysical\NanoServer.vhd -ComputerName <computer name> -OEMDrivers -Compute -Clustering` WHERE  
+   `New-NanoServerImage -Edition Standard -DeploymentType Host -MediaPath <path to root of media> -BasePath .\Base -TargetPath .\NanoServerPhysical\NanoServer.vhd -ComputerName <computer name> -OEMDrivers -Compute -Clustering` Dabei gilt Folgendes:  
   
    -   **-MediaPath <Stammverzeichnis des Installationsmediums\>** gibt einen Pfad zum Stamm der Inhalte der Windows Server 2016-ISO-Datei an. Wenn Sie z.B. die Inhalte der ISO-Datei in „d:\TP5ISO“ kopiert haben, würden Sie diesen Pfad verwenden.  
   

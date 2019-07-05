@@ -1,6 +1,6 @@
 ---
-title: Erste Schritte mit Remote Desktop Services
-description: Enthält Informationen, um Ihnen den Einstieg in RDS in Windows Server 2016 erleichtern.
+title: Erste Schritte mit Remotedesktopdiensten
+description: Hier findest du Informationen für die ersten Schritte mit RDS unter Windows Server 2016.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,21 +13,21 @@ ms.topic: article
 ms.assetid: e8f8cfd2-c62e-4f9b-b843-099fd37c6d58
 author: lizap
 manager: dongill
-ms.openlocfilehash: 3e7dd00e9c5e0c15d8d7ab229e1383ad7051b3cc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.openlocfilehash: 6b429cf5e0313c061b4e3718146f9aa69544692e
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59814761"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63713064"
 ---
 # <a name="get-started-with-remote-desktop-services-in-windows-server-2016"></a>Erste Schritte mit Remotedesktopdiensten unter Windows Server 2016
 
 > Gilt für: Windows Server 2016
 
-Verwenden Sie die folgende Informationen, um erkunden und mit Remotedesktopdiensten unter Windows Server 2016 zu beginnen.
+Mach dich mithilfe der folgenden Informationen mit der Verwendung von Remotedesktopdiensten unter Windows Server 2016 vertraut.
 
-- [Was ist neu in Remote Desktop Services?](rds-whats-new.md) – Sehen Sie sich die neuerungen in Windows Server 2016 sowie Verbesserungen an vorhandenen Features und Szenarios.
-- [Remote Desktop Services planungsposter](rds-poster.md) – wir erstellten ein Poster, die Sie sich mit allen Überlegungen zur Planung der Remote Desktop-Bereitstellung vertraut machen.
-- [Hosten von Windows-Desktops und Anwendungen – Lernpfad](rds-hosting-partners.md) -müssen auf virtuellen Computern in eine desktophostinglösung zu erstellen? Erfahren Sie mehr über die neuen Remote Desktop Services-Lernpfad sowie Identifizierung von Partnern, mit die Sie Ihre Umgebung erstellen können.
+- [Neuigkeiten in den Remotedesktopdiensten](rds-whats-new.md) – Sieh dir die neuen in Windows Server 2016 hinzugefügten Features sowie Verbesserungen vorhandener Funktionen und Szenarien an.
+- [Planungsposter für Remotedesktopdienste](rds-poster.md) – Wir haben ein Poster mit allen Überlegungen bei der Planung der Remotedesktopbereitstellung erstellt.
+- [Host Windows desktops and applications - learning path](rds-hosting-partners.md) (Hosten von Windows-Desktops und -Anwendungen: Lernpfad) – Du musst eine Desktophostinglösung auf virtuellen Computern erstellen? Hier erfährst du mehr über den neuen Lernpfad für Remotedesktopdienste sowie über Partner, die dich beim Entwickeln deiner Umgebung unterstützen können.
 
-Nachdem Sie die Informationen über überprüft haben, nehmen Sie im nächsten Schritt und [Planung die Bereitstellung aufzunehmen](rds-plan-and-design.md).
+Nachdem du dir diese Informationen angesehen hast, kannst du mit der [Planung deiner Bereitstellung](rds-plan-and-design.md) beginnen.

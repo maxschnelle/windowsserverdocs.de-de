@@ -1,6 +1,6 @@
 ---
-title: Den Datenträger einen anderen Computer verschieben
-description: In diesem Artikel wird beschrieben, wie Sie Datenträger auf einen anderen Computer verschieben
+title: Verschieben von Datenträgern auf einen anderen Computer
+description: In diesem Artikel wird beschrieben, wie du Datenträger auf einen anderen Computer verschiebst.
 ms.date: 10/12/2017
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -9,36 +9,36 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 6b235ce8e5b936940629d5977a17bbc729efbe82
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854001"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63751721"
 ---
-# <a name="move-disks-to-another-computer"></a>Den Datenträger einen anderen Computer verschieben
+# <a name="move-disks-to-another-computer"></a>Verschieben von Datenträgern auf einen anderen Computer
 
-> **Gilt für:** Windows 10, Windows 8.1, WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012
+> **Gilt für:** Windows 10, Windows 8.1, Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Dieser Abschnitt beschreibt die Schritte und Überlegungen, Datenträger auf einen anderen Computer zu verschieben. Möglicherweise möchten Sie dieses Verfahren ausdrucken oder die Schritte notieren, bevor Sie versuchen, den Datenträger von einem Computer auf einen anderen zu verschieben.
+Dieser Abschnitt beschreibt die erforderlichen Schritte und Überlegungen im Zusammenhang mit dem Verschieben von Datenträgern auf einen anderen Computer. Es wird empfohlen, diese Vorgehensweise auszudrucken oder sich die Schritte zu notieren, bevor du Datenträger von einem Computer auf einen anderen verschiebst.
 
 > [!NOTE]
-> Sie müssen mindestens ein Mitglied der Gruppe **Sicherungsoperatoren** or **Administratoren** sein, um diese Schritte durchzuführen.
+> Du musst mindestens Mitglied der Gruppe **Sicherungsoperatoren** oder **Administratoren** sein, um diese Schritte ausführen zu können.
 
 ## <a name="verify-volume-health"></a>Überprüfen der Volume-Integrität
 
-Verwenden Sie die Datenträgerverwaltung, um sicherzustellen, dass der Status des Volumes auf dem Datenträger **Fehlerfrei** ist. Wenn der Status nicht **Fehlerfrei** ist, reparieren Sie die Volumes vor dem Verschieben der Datenträger.
+Stelle mithilfe der Datenträgerverwaltung sicher, dass der Status der Volumes auf den Datenträgern **Fehlerfrei** lautet. Lautet der Status nicht **Fehlerfrei**, repariere die Volumes vor dem Verschieben der Datenträger.
 
-Um den Datenträgerstatus im Menü **Ansicht** zu überprüfen, überprüfen Sie die Spalte **Status** in der **Volumeliste**-Ansicht oder unter **Volumegröße** und Dateisystem-Informationen in der **Grafischen Ansicht**.
+Den Volumestatus kannst du über das Menü **Ansicht** in der Spalte **Status** der Ansicht **Volumeliste** oder in der **grafischen Ansicht** in den Informationen zu **Volumegröße** und Dateisystem überprüfen.
 
-## <a name="uninstall-the-disks"></a>Deinstallieren Sie die Datenträger
+## <a name="uninstall-the-disks"></a>Deinstallieren der Datenträger
 
-Deinstallieren Sie mithilfe des Geräte-Managers die Datenträger, die verschoben werden sollen.
+Deinstalliere mithilfe des Geräte-Managers die Datenträger, die verschoben werden sollen.
 
-**So deinstallieren Sie Datenträger**
+**So deinstallierst du Datenträger**
 
-1.  Öffnen Sie den Geräte-Manager in der Computerverwaltung.
+1.  Öffne den Geräte-Manager in der Computerverwaltung.
 
-2.  Doppelklicken Sie in der Liste der Geräte auf **Laufwerke**.
+2.  Doppelklicke in der Geräteliste auf **Laufwerke**.
 
 3.  Klicken Sie mit der rechten Maustaste auf die zu deinstallierenden Datenträger, und klicken Sie dann auf **Deinstallieren**.
 
@@ -46,34 +46,34 @@ Deinstallieren Sie mithilfe des Geräte-Managers die Datenträger, die verschobe
 
 ## <a name="remove-dynamic-disks"></a>Entfernen dynamischer Datenträger
 
-1. Wenn die Datenträger, die Sie verschieben möchten dynamische Datenträger sind, klicken Sie in der Datenträgerverwaltung mit der rechten Maustaste auf die Datenträger, die Sie verschieben möchten, und klicken Sie dann auf **Datenträger entfernen**.
+1. Möchtest du dynamische Datenträger verschieben, klicke in der Datenträgerverwaltung mit der rechten Maustaste auf die zu verschiebenden Datenträger, und klicke dann auf **Datenträger entfernen**.
 
-2. Nach dem Entfernen der dynamischen Datenträger, oder wenn Sie Basisfestplatten verschieben, können Sie diese jetzt physisch trennen. Wenn es sich um externe Datenträger handelt, können Sie diese jetzt vom Computer entfernen. Wenn es sich um interne Datenträger handelt, schalten Sie den Computer aus und entfernen Sie diese physisch.
+2. Wenn du dynamische Datenträger entfernt hast oder Basisfestplatten verschiebst, kannst du sie jetzt physisch trennen. Wenn es sich um externe Datenträger handelt, kannst du diese jetzt vom Computer entfernen. Schalte bei internen Datenträger den Computer aus, und entferne sie dann physisch.
 
-## <a name="install-disks-in-the-new-computer"></a>Installieren Sie Datenträger in den neuen Computer.
+## <a name="install-disks-in-the-new-computer"></a>Einbauen von Datenträgern in den neuen Computer
 
-1. Wenn es sich um externe Datenträger handelt, schließen sie diese an den Computer an. Wenn es sich um interne Datenträger handelt, stellen Sie sicher, dass der Computer deaktiviert ist und installieren Sie dann die Datenträger auf diesem Computer.
+1. Wenn es sich um externe Datenträger handelt, schließe sie an den Computer an. Stelle bei internen Datenträger sicher, dass der Computer ausgeschaltet ist, und baue die Datenträger dann in den Computer ein.
 
-2. Starten Sie den Computer, der die Datenträger enthält, die verschoben werden sollen und folgen Sie den Anweisungen im Dialogfeld "Neue Hardware gefunden".
+2. Starte den Computer mit den verschobenen Datenträgern, und befolge die Anweisungen im Dialogfeld „Neue Hardware gefunden“.
 
-## <a name="detect-new-disks"></a>Neue Datenträger erkennen
+## <a name="detect-new-disks"></a>Erkennen neuer Datenträger
 
-1. Öffnen Sie die "Datenträgerverwaltung" auf dem neuen Computer. 
-2. Klicken Sie auf **Aktion** und dann auf **Festplatten neu einlesen**.
-3. Klicken Sie mit der rechten Maustaste auf einen Datenträger mit der Markierung **Fremd**. 
-4. Klicken Sie auf **Fremde Datenträger importieren**, und befolgen Sie dann die Anweisungen auf dem Bildschirm.
+1. Öffne die Datenträgerverwaltung auf dem neuen Computer. 
+2. Klicke auf **Aktion** und anschließend auf **Datenträger neu einlesen**.
+3. Klicke mit der rechten Maustaste auf einen Datenträger mit der Kennzeichnung **Fremd**. 
+4. Klicke auf **Fremde Datenträger importieren**, und befolge die Bildschirmanweisungen.
 
 ## <a name="additional-considerations"></a>Weitere Aspekte
 
--   Nach dem Verschieben auf einen anderen Computer erhalten Basisvolumes den nächsten verfügbaren Laufwerkbuchstaben auf dem Computer. 
--   Dynamische Volumes behalten den Laufwerkbuchstaben, den sie auf dem vorherigen Computer hatten. Wenn ein dynamisches Volume keinen Laufwerkbuchstaben auf dem vorherigen Computer hatte, erhält es keinen Laufwerkbuchstaben, wenn es auf den anderen Computer verschoben wird. Wenn der Laufwerkbuchstabe auf dem Computer bereits verwendet wird, auf denen das Volume verschoben wird, erhält das Volume den nächsten verfügbaren Laufwerkbuchstaben.
+-   Beim Verschieben auf einen anderen Computer erhalten Basisvolumes den nächsten verfügbaren Laufwerkbuchstaben auf dem Computer. 
+-   Dynamische Volumes behalten den Laufwerkbuchstaben, den sie auf dem vorherigen Computer hatten. War einem dynamischen Volume auf dem vorherigen Computer kein Laufwerkbuchstabe zugewiesen, erhält es beim Verschieben auf einen anderen Computer keinen Laufwerkbuchstaben. Wird der Laufwerkbuchstabe auf dem Computer bereits verwendet, auf den das Volume verschoben wird, erhält das Volume den nächsten verfügbaren Laufwerkbuchstaben.
 
--   Wenn ein Administrator entweder die **mountvol /n** oder die **diskpart automount**-Befehle verwendet hat, um zu verhindern, dass neue Volumes dem System hinzugefügt werden, wird verhindert, dass Volumes, die von einem anderen Computer verschoben werden, bereitgestellt werden und einen Laufwerkbuchstaben erhalten. Um das Volume zu verwenden, müssen Sie manuell das Volume bereitstellen und ihm einen Laufwerkbuchstaben mit der Datenträgerverwaltung oder den Befehlen **DiskPart** und **Mountvol** zuweisen.
+-   Wenn ein Administrator den Befehl **mountvol /n** oder **diskpart automount** ausgeführt hat, um zu verhindern, dass dem System neue Volumes hinzugefügt werden, können von einem anderen Computer verschobene Volumes nicht eingebunden werden, und sie erhalten auch keinen Laufwerkbuchstaben. Wenn du das Volume verwenden möchtest, musst du es mit der Datenträgerverwaltung oder den Befehlen **DiskPart** und **mountvol** manuell einbinden und ihm einen Laufwerkbuchstaben zuweisen.
 
--   Wenn Sie einfache, übergreifende, Stripeset- oder gespiegelte Volumes oder RAID-5-Volumes verschieben, wird dringend empfohlen, alle Datenträger zusammen zu verschieben, die das Volume enthalten. Andernfalls können die Volumes auf den Datenträgern nicht online geschaltet werden und stehen nicht zur Verfügung, es sei denn, sie möchten diese löschen.
+-   Wenn du übergreifende oder gespiegelte Volumes oder Stripeset- oder RAID-5-Volumes verschiebst, wird dringend empfohlen, alle Datenträger zusammen zu verschieben, die das Volume enthalten. Andernfalls können die Volumes auf den Datenträgern nicht online geschaltet werden und stehen (außer zum Löschen) nicht zur Verfügung.
 
--   Sie können mehrere Datenträger von verschiedenen Computern auf einen Computer verschieben, indem Sie die Datenträger installieren, die Datenträgerverwaltung öffnen, mit der rechten Maustaste auf den neuen Datenträger klicken und dann auf **fremde Datenträger importieren** klicken. Wenn Sie mehrere Datenträger von verschiedenen Computern importieren, sollten Sie immer alle Datenträger von einem Computer in einem Schritt importieren. Wenn Sie beispielsweise Datenträger von zwei Computern verschieben möchten, importieren Sie alle Datenträger aus dem ersten Computer und importieren Sie dann alle Datenträger vom zweiten Computer.
+-   Du kannst mehrere Datenträger von verschiedenen Computern auf einen Computer verschieben. Baue dazu die Datenträger ein, öffne die Datenträgerverwaltung, und klicke mit der rechten Maustaste auf einen der neuen Datenträger. Klicke dann auf **Fremde Datenträger importieren**. Wenn du mehrere Datenträger von verschiedenen Computern importierst, importiere immer jeweils alle Datenträger von einem Computer. Beispiel: Wenn du Datenträger von zwei Computern verschieben möchtest, importiere alle Datenträger vom ersten Computer und dann alle Datenträger vom zweiten Computer.
 
--   Die Datenträgerverwaltung beschreibt die Bedingung der Volumes auf den Datenträgern, bevor sie importiert werden. Lesen Sie diese Informationen sorgfältig. Wenn Probleme aufgetreten sollten, lernen Sie aus diesen Informationen, was mit den einzelnen Volumes auf diesen Datenträgern passiert, nachdem die Datenträger importiert wurden.
+-   Die Datenträgerverwaltung beschreibt den Zustand der Volumes auf den Datenträgern vor dem Import. Lies diese Informationen sorgfältig. Sollten Probleme auftreten, kannst du anhand dieser Informationen ermitteln, was mit den einzelnen Volumes auf diesen Datenträgern nach ihrem Import geschieht.
 
--   Wenn Sie eine GPT-Datenträger (GUID Partition Table, GUID-Partitionstabelle) mit dem Windows-Betriebssystem auf einen x86-basierten oder x64-basierten Computer verschieben, können Sie auf die Daten zugreifen, aber Sie können nicht über dieses Betriebssystem starten.
+-   Wenn du einen GPT-Datenträger (GUID Partition Table, GUID-Partitionstabelle) mit dem Windows-Betriebssystem auf einen x86-basierten oder x64-basierten Computer verschiebst, kannst du auf die Daten zugreifen, aber nicht über dieses Betriebssystem starten.

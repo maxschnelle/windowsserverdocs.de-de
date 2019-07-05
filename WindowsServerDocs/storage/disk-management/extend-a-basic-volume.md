@@ -1,6 +1,6 @@
 ---
-title: Erweitern eines Basisvolume
-description: In diesem Artikel wird beschrieben, wie das Hinzufügen von Speicherplatz auf primären und logischen Laufwerken ein Basisvolume erweitert
+title: Erweitern eines Basisvolumes
+description: In diesem Artikel erfährst du, wie du Speicherplatz auf primären und logischen Laufwerken hinzufügst, um ein Basisvolume zu erweitern.
 ms.date: 06/07/2019
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -9,51 +9,51 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 4cad773746ae64a2244178be83e4d59c7c44b6a7
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66812435"
 ---
-# <a name="extend-a-basic-volume"></a>Erweitern eines Basisvolume
+# <a name="extend-a-basic-volume"></a>Erweitern eines Basisvolumes
 
-> **Gilt für:** Windows 10, Windows 8.1, WindowsServer (Halbjährlicher Kanal), WindowsServer 2019, WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012
+> **Gilt für:** Windows 10, Windows 8.1, Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Sie können vorhandenen primären Partitionen und logischen Laufwerken mehr Platz hinzufügen, indem sie diese auf den angrenzenden, verfügbaren Speicherplatz auf dem gleichen Datenträger erweitern. Wenn ein Basisvolume zu erweitern, muss es unformatierte (nicht mit einem Dateisystem formatiert) oder mit dem NTFS-Dateisystem formatiert sein. Sie können ein logisches Laufwerk innerhalb einem fortlaufendem, freiem Speicherplatz in der erweiterten Partition erweitern, die es enthält. Wenn Sie ein logisches Laufwerk über den freien Speicherplatz in der erweiterten Partition erweitern, erhöht die erweiterte Partition die Größe, um das logische Laufwerk zu enthalten.
+Du kannst vorhandenen primären Partitionen und logischen Laufwerken mehr Speicherplatz hinzufügen, indem du sie auf angrenzenden, verfügbaren Speicherplatz auf dem gleichen Datenträger erweiterst. Um ein Basisvolume erweitern zu können, muss es entweder unformatiert (nicht mit einem Dateisystem formatiert) oder mit dem NTFS-Dateisystem formatiert sein. Ein logisches Laufwerk kann innerhalb des zusammenhängenden freien Speicherplatzes in der erweiterten Partition erweitert werden, die es enthält. Wenn du ein logisches Laufwerk über den freien Speicherplatz hinaus erweiterst, der in der erweiterten Partition verfügbar ist, wird die erweiterte Partition vergrößert, um das logische Laufwerk aufnehmen zu können.
 
-Für logische Laufwerke und Start- oder System-Volumes, können Sie das Volume nur in fortlaufendem Speicherplatz erweitern und auch nur dann, wenn der Datenträger auf einen dynamischen Datenträger aktualisiert werden kann. Bei anderen Volumes können Sie das Volume in einen nicht zusammenhängenden Speicherplatz erweitern, jedoch werden Sie aufgefordert, den Datenträger in einen dynamischen Datenträger zu konvertieren.
+Bei logischen Laufwerken sowie bei Start- oder Systemvolumes kann das Volume nur in zusammenhängenden Speicherplatz erweitert werden, und das auch nur, wenn für den Datenträger ein Upgrade auf einen dynamischen Datenträger durchgeführt werden kann. Bei anderen Volumes kannst du das Volume in nicht zusammenhängenden Speicherplatz erweitern. Dabei wirst du allerdings aufgefordert, den Datenträger in einen dynamischen Datenträger zu konvertieren.
 
 ## <a name="extending-a-basic-volume"></a>Erweitern eines Basisvolumes
 
-#### <a name="to-extend-a-basic-volume-using-the-windows-interface"></a>So erweitern Sie ein Basisvolume mithilfe der Windows-Benutzeroberfläche
+#### <a name="to-extend-a-basic-volume-using-the-windows-interface"></a>So erweiterst du ein Basisvolume über die Windows-Benutzeroberfläche
 
-1. Klicken Sie mit der rechten Maustaste in der Datenträgerverwaltung auf das Basisvolume, das Sie erweitern möchten.
+1. Klicke in der Datenträgerverwaltung mit der rechten Maustaste auf das Basisvolume, das du erweitern möchtest.
 
-2. Klicken Sie auf **Volume erweitern**.
+2. Klicke auf **Volume erweitern**.
 
 3. Befolgen Sie die Anweisungen auf dem Bildschirm.
 
-#### <a name="to-extend-a-basic-volume-using-a-command-line"></a>So erweitern Sie ein Baisisvolume mithilfe einer Befehlszeile
+#### <a name="to-extend-a-basic-volume-using-a-command-line"></a>So erweiterst du ein Basisvolume mithilfe einer Befehlszeile
 
 1. Öffnen Sie eine Eingabeaufforderung, und geben Sie `diskpart` ein.
 
-2. Geben Sie an der **DISKPART**-Eingabeaufforderung `list volume` ein. Notieren Sie das Basisvolume, das Sie erweitern möchten.
+2. Gib an der Eingabeaufforderung **DISKPART** Folgendes ein: `list volume`. Notiere dir das Basisvolume, das du erweitern möchtest.
 
-3. Geben Sie an der **DISKPART**-Eingabeaufforderung `select volume <volumenumber>` ein. Dadurch wird das Basisvolume *volumenumber* ausgewählt, das Sie in zusammenhängenden, leeren Speicherplatz auf derselben Festplatte erweitern möchten.
+3. Gib an der Eingabeaufforderung **DISKPART** Folgendes ein: `select volume <volumenumber>`. Dadurch wird das Basisvolume *volumenumber* ausgewählt, das du in zusammenhängenden leeren Speicherplatz auf dem gleichen Datenträger erweitern möchtest.
 
-4. Geben Sie an der **DISKPART**-Eingabeaufforderung `extend [size=<size>]` ein. Dies erweitert das ausgewählte Volume in der *Größe* in Megabyte (MB).
+4. Gib an der Eingabeaufforderung **DISKPART** Folgendes ein: `extend [size=<size>]`. Dadurch wird das ausgewählte Volume um *size* Megabyte (MB) erweitert.
 
 | Wert | Beschreibung |
 | --- | --- |
-| **Liste volume** | Zeigt eine Liste der Basis- und dynamischen Volumes auf allen Festplatten an. |
-| **Wählen Sie volume** | Wählt das angegebene Volume aus, wobei <em>volumenumber</em> die Anzahl der Volumes ist, und legt den Fokus fest. Wenn kein Volume angegeben ist, zeigt der Befehl **Auswählen** die Liste des aktuellen Volumes mit Fokus an. Das Volume kann durch die Anzahl, den Laufwerkbuchstaben oder den Bereitstellungspunkt angegeben werden. Bei einer Basisfestplatte erhält durch das Auswählen einer Festplatte auch die entsprechende Partition den Fokus. |
-| **extend** | <ul><li>Erweitert das Volume mit dem Fokus auf den nächsten fortlaufenden, nicht zugewiesenen Speicherplatz. Für Basisvolumes muss der nicht zugewiesene Speicherplatz auf dem gleichen Datenträger sein und der noch nicht zugeordnete Speicherbereich muss auf die Partition mit dem Fokus folgen (einen höheren Sektoren-Offsetwert haben als diese Partition). Ein einfaches dynamisches Volume oder ein übergreifendes Volume kann auf einen leeren Bereich auf den dynamischen Datenträgern erweitert werden. Mit diesem Befehl können Sie einem vorhandenen Volume in einen neu erstellten Speicherplatz erweitern.</li ><li>Wurde die Partition zuvor mit dem NTFS-Dateisystem formatiert, wird das Dateisystem automatisch so erweitert, dass es die größere Partition belegt werden. Es tritt kein Datenverlust auf. Wurde die Partition zuvor mit einem anderen Dateisystem als NTFS formatiert, schlägt der Befehl fehl, und die Partition wird nicht geändert.</li></ul> |
-| **size=** <em>size</em> | Der Speicherplatz in Megabyte (MB), der zur aktuellen Partition hinzugefügt wird. Wenn Sie keine Größe festlegen, wird der Datenträger so erweitert, dass er den gesamten nächsten fortlaufenden Speicherplatz einnimmt, der nicht zugeordnet ist. |
+| **list volume** | Zeigt eine Liste der Basisvolumes und dynamischen Volumes auf allen Datenträgern an. |
+| **select volume** | Wählt das angegebene Volume aus und weist ihm den Fokus zu. (<em>volumenumber</em> ist die Nummer des Volumes.) Ohne Volumeangabe führt der Befehl **select** die aktuellen Volumes mit Fokus auf. Das Volume kann anhand von Nummer, Laufwerkbuchstabe oder Bereitstellungspunktpfad angegeben werden. Wenn bei einer Basisfestplatte ein Volume ausgewählt wird, erhält die entsprechende Partition den Fokus. |
+| **extend** | <ul><li>Erweitert das Volume, das den Fokus hat, auf den nächsten zusammenhängenden verfügbaren Speicher. Bei Basisvolumes muss sich der verfügbare Speicher auf dem gleichen Datenträger befinden wie die Partition mit dem Fokus, und er muss auf die Partition mit dem Fokus folgen (also einen höheren Sektor-Offset besitzen). Ein einfaches dynamisches Volume oder ein übergreifendes Volume kann auf einen leeren Bereich auf einem beliebigen dynamischen Datenträger erweitert werden. Mit diesem Befehl kannst du ein vorhandenes Volume auf neu erstellten Speicherplatz erweitern.</li ><li>Wenn die Partition zuvor mit dem NTFS-Dateisystem formatiert wurde, wird das Dateisystem automatisch erweitert, um die größere Partition zu belegen. Es gehen keine Daten verloren. Wurde die Partition zuvor mit einem NTFS-fremden Dateisystem formatiert, ist der Befehl nicht erfolgreich, und die Partition wird nicht geändert.</li></ul> |
+| **size=** <em>size</em> | Der Speicherplatz in Megabyte (MB), der der aktuellen Partition hinzugefügt werden soll. Ohne Größenangabe wird der Datenträger so erweitert, dass er den gesamten zusammenhängenden verfügbaren Speicher einnimmt. |
 
 ## <a name="additional-considerations"></a>Weitere Aspekte
 
--   Wenn der Datenträger keine Start- oder System-Partitionen enthält, erweitern Sie das Volume in anderen Nicht-Boot oder Nicht-System-Datenträger. Der Datenträger wird allerdings in einen dynamischen Datenträger konvertiert (wenn er aktualisiert werden kann).
+-   Wenn der Datenträger keine Start- oder Systempartitionen enthält, kannst du das Volume auf andere Datenträger erweitern, bei denen es sich nicht um Start- oder Systemdatenträger handelt. Der Datenträger wird dann allerdings in einen dynamischen Datenträger konvertiert (sofern ein entsprechendes Upgrade möglich ist).
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
--   [Notation der Befehlszeilensyntax](https://technet.microsoft.com/library/cc742449(v=ws.11).aspx)
+-   [Command-line syntax notation](https://technet.microsoft.com/library/cc742449(v=ws.11).aspx) (Notation der Befehlszeilensyntax)

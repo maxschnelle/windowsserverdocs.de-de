@@ -1,6 +1,6 @@
 ---
-title: Zurückkonvertieren eines dynamischen Datenträgers in einen Basisdatenträger
-description: Beschreibt, wie Sie einen dynamischen Datenträger in einen Basisdatenträger zurück konvertieren.
+title: Zurückkonvertieren eines dynamischen Datenträgers in eine Basisfestplatte
+description: Hier erfährst du, wie du einen dynamischen Datenträger in eine Basisfestplatte zurückkonvertierst.
 ms.date: 06/07/2019
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -9,70 +9,70 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 249db6d2779e696ef93fecfd11718dbcce8654be
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66812469"
 ---
-# <a name="change-a-dynamic-disk-back-to-a-basic-disk"></a>Zurückkonvertieren eines dynamischen Datenträgers in einen Basisdatenträger
+# <a name="change-a-dynamic-disk-back-to-a-basic-disk"></a>Zurückkonvertieren eines dynamischen Datenträgers in eine Basisfestplatte
 
-> **Gilt für:** Windows 10, Windows 8.1, WindowsServer (Halbjährlicher Kanal), WindowsServer 2019, WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012
+> **Gilt für:** Windows 10, Windows 8.1, Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-In diesem Thema wird beschrieben, wie Sie alle Daten auf einer dynamischen Festplatte löschen und diesen wieder in einen Basisdatenträger konvertieren. Dynamische Datenträger von Windows sind veraltet und nicht empfohlen, diese nicht mehr verwenden. Stattdessen empfehlen wir mithilfe von Basisdatenträger oder mithilfe der neueren [Speicherplätze](https://support.microsoft.com/help/12438/windows-10-storage-spaces) -Technologie, wenn Sie Datenträger im Speicherpool zusammen in größere Volumes möchten. Wenn Sie das Volume spiegeln möchten, von dem Windows gestartet wird, können Sie einen Hardware-RAID-Controller wie z. B. den auf Hauptplatinen verwendeten.
+In diesem Thema erfährst du, wie du alle Daten auf einem dynamischen Datenträger löschst und ihn in eine Basisfestplatte zurückkonvertierst. Dynamische Datenträger sind in Windows veraltet und sollten nicht mehr verwendet werden. Verwende stattdessen Basisfestplatten oder die neuere [Speicherplätze](https://support.microsoft.com/help/12438/windows-10-storage-spaces)-Technologie, wenn du Festplatten in größeren Volumes zusammenlegen möchtest. Wenn du das Windows-Startvolume spiegeln möchtest, empfiehlt sich ggf. die Verwendung eines Hardware-RAID-Controllers, wie er beispielsweise auf vielen Hauptplatinen zu finden ist.
 
 > [!WARNING]
-> Zum Konvertieren einer dynamischen Festplatte zu einem Basisdatenträger müssen Sie alle Volumes von der Festplatte löschen und so alle Daten auf der Festplatte dauerhaft löschen. Daher sollten Sie vor der Aktion alle Dateien sichern, die Sie noch benötigen.
+> Um einen dynamischen Datenträger wieder in eine Basisfestplatte zu konvertieren, musst du alle Volumes von dem Datenträger löschen. Dabei werden alle Daten auf dem Datenträger endgültig gelöscht. Sichere daher zuvor alle Daten, die du noch benötigst.
 
-## <a name="changing-a-dynamic-disk-back-to-a-basic-disk"></a>Zurückkonvertieren einer dynamischen Festplatte in einen Basisdatenträger
+## <a name="changing-a-dynamic-disk-back-to-a-basic-disk"></a>Zurückkonvertieren eines dynamischen Datenträgers in eine Basisfestplatte
 
--   [Mithilfe der Windows-Benutzeroberfläche](#to-change-a-dynamic-disk-back-to-a-basic-disk-using-the-windows-interface)
--   [Über die Befehlszeile](#to-change-a-dynamic-disk-back-to-a-basic-disk-using-a-command-line)
+-   [Über die Windows-Benutzeroberfläche](#to-change-a-dynamic-disk-back-to-a-basic-disk-using-the-windows-interface)
+-   [Über eine Befehlszeile](#to-change-a-dynamic-disk-back-to-a-basic-disk-using-a-command-line)
 
 > [!NOTE]
-> Sie müssen mindestens ein Mitglied der Gruppe **Sicherungsoperatoren** or **Administratoren** sein, um diese Schritte durchzuführen.
+> Du musst mindestens Mitglied der Gruppe **Sicherungsoperatoren** oder **Administratoren** sein, um diese Schritte ausführen zu können.
 
-#### <a name="to-change-a-dynamic-disk-back-to-a-basic-disk-using-the-windows-interface"></a>So konvertieren Sie mithilfe der Windows-Benutzeroberfläche einen dynamischen Datenträger wieder in einen Basisdatenträger
+#### <a name="to-change-a-dynamic-disk-back-to-a-basic-disk-using-the-windows-interface"></a>So konvertierst du einen dynamischen Datenträger über die Windows-Benutzeroberfläche wieder in eine Basisfestplatte
 
-1.  Sichern Sie alle Volumes auf der Festplatte, den Sie von einem dynamischen in einen Basisdatenträger konvertieren möchten.
+1.  Sichere alle Volumes auf dem Datenträger, den du von einem dynamischen Datenträger in eine Basisfestplatte konvertieren möchtest.
 
-2.  Klicken Sie mit der rechten Maustaste in der Datenträgerverwaltung auf jedes Volume der dynamischen Festplatte, die Sie in einen Basisdatenträger konvertieren möchten, und klicken Sie dann auf **Volume löschen** für jedes Volume auf der Festplatte.
+2.  Klicke in der Datenträgerverwaltung mit der rechten Maustaste auf jedes Volume des dynamischen Datenträgers, den du in eine Basisfestplatte konvertieren möchtest, und klicke anschließend für jedes Volume auf dem Datenträger auf **Volume löschen**.
 
-3.  Wenn alle Volumes auf der Festplatte gelöscht wurden, klicken Sie mit der rechten Maustaste auf die Festplatte, und klicken Sie dann auf **Konvertieren in Basisdatenträger**.
+3.  Nachdem alle Volumes auf dem Datenträger gelöscht wurden, klicke mit der rechten Maustaste auf den Datenträger, und klicke anschließend auf **In einen Basisdatenträger konvertieren**.
 
-#### <a name="to-change-a-dynamic-disk-back-to-a-basic-disk-using-a-command-line"></a>So konvertieren Sie mithilfe der Befehlszeile einen dynamischen Datenträger wieder in einen Basisdatenträger
+#### <a name="to-change-a-dynamic-disk-back-to-a-basic-disk-using-a-command-line"></a>So konvertierst du einen dynamischen Datenträger über eine Befehlszeile wieder in eine Basisfestplatte
 
-1.  Sichern Sie alle Volumes auf der Festplatte, den Sie von einem dynamischen in einen Basisdatenträger konvertieren möchten.
+1.  Sichere alle Volumes auf dem Datenträger, den du von einem dynamischen Datenträger in eine Basisfestplatte konvertieren möchtest.
 
 2.  Öffnen Sie eine Eingabeaufforderung, und geben Sie `diskpart` ein.
 
-3.  Geben Sie an der **DISKPART**-Eingabeaufforderung `list disk` ein. Notieren Sie die Anzahl der Festplatten, die Sie in einen Basisdatenträger konvertieren möchten.
+3.  Gib an der Eingabeaufforderung **DISKPART** Folgendes ein: `list disk`. Notiere die Nummer des Datenträgers, den du in eine Basisfestplatte konvertieren möchtest.
 
-4.  Geben Sie an der **DISKPART**-Eingabeaufforderung `select disk <disknumber>` ein.
+4.  Gib an der Eingabeaufforderung **DISKPART** Folgendes ein: `select disk <disknumber>`.
 
-5.  Geben Sie an der **DISKPART**-Eingabeaufforderung `detail disk <disknumber>` ein.
+5.  Gib an der Eingabeaufforderung **DISKPART** Folgendes ein: `detail disk <disknumber>`.
 
-6.  Geben Sie für jedes Volume auf der Festplatte bei der **DISKPART**-Eingabeaufforderung `select volume= <volumenumber>` und dann `delete volume` ein.
+6.  Gib für jedes Volume auf dem Datenträger an der Eingabeaufforderung **DISKPART** zuerst `select volume= <volumenumber>` und dann `delete volume` ein.
 
-7.  Geben Sie bei der **DISKPART**-Eingabeaufforderung `select disk <disknumber>` ein, und geben Sie die Festplattennummer der Festplatte an, die Sie in einen Basisdatenträger konvertieren möchten.
+7.  Gib an der Eingabeaufforderung **DISKPART** den Befehl `select disk <disknumber>` ein, und gib dabei die Nummer des Datenträgers an, den du in eine Basisfestplatte konvertieren möchtest.
 
-8.  Geben Sie an der **DISKPART**-Eingabeaufforderung `convert basic` ein.
+8.  Gib an der Eingabeaufforderung **DISKPART** Folgendes ein: `convert basic`.
 
 
 | Wert  | Beschreibung |
 | --- | --- |
-| **Liste Datenträger**                         | Zeigt eine Liste der Festplatten und deren Informationen an wie z. B. ihre Größe, die Menge an Speicherplatz, ob es sich um einen dynamischen Datenträger handelt und ob die Festplatte den Partitionsstil Master Boot Record (MBR) oder GUID-Partitionstabelle (GPT) verwendet. Die Festplatte mit einem Sternchen (*) hat den Fokus. |
-| **Wählen Sie Datenträger** <em>Disknumber</em>   | Wählt die angegebene Festplatte aus, wobei <em>disknumber</em> die Nummer der Festplatte ist, und legt den Fokus fest.  |
-| **Detail Datenträger** <em>Disknumber</em>   | Zeigt die Eigenschaften des ausgewählten Datenträgers und das Volume auf der Festplatte an.  |
-| **Wählen Sie Volume** <em>Disknumber</em> | Wählt das angegebene Volume aus, wobei <em>disknumber</em> die Anzahl der Volumes ist, und legt den Fokus fest. Wenn kein Volume angegeben ist, zeigt der Befehl **Auswählen** die Liste des aktuellen Volumes mit Fokus an. Das Volume kann durch die Anzahl, den Laufwerkbuchstaben oder den Bereitstellungspunkt angegeben werden. Bei einer Basisfestplatte erhält durch das Auswählen einer Festplatte auch die entsprechende Partition den Fokus. |
-| **Löschen von volume**                     | Hiermit wird das ausgewählte Volume gelöscht. Systemvolume, Startvolume sowie das Volume, das die aktive Auslagerungsdatei oder das Absturzabbild (Speicherabbild) enthält, können nicht gelöscht werden. |
-| **grundlegende konvertieren** | Konvertieren eines Basisdatenträgers in einen dynamischen Datenträger.  |
+| **list disk**                         | Zeigt eine Liste der Festplatten und ihre Informationen an, etwa ihre Größe, den verfügbaren freien Speicherplatz, ob es sich um eine Basisfestplatte oder einen dynamischen Datenträger handelt und ob der Datenträger den MBR- oder den GPT-Partitionsstil verwendet. Der mit einem Sternchen (*) gekennzeichnete Datenträger hat den Fokus. |
+| **select disk** <em>disknumber</em>   | Wählt den angegebenen Datenträger aus und weist ihm den Fokus zu. (<em>disknumber</em> ist die Nummer des Datenträgers.)  |
+| **detail disk** <em>disknumber</em>   | Zeigt die Eigenschaften des ausgewählten Datenträgers und der Volumes auf dem Datenträger an.  |
+| **select volume** <em>disknumber</em> | Wählt das angegebene Volume aus und weist ihm den Fokus zu. (<em>disknumber</em> ist die Nummer des Volumes.) Ohne Volumeangabe führt der Befehl **select** die aktuellen Volumes mit Fokus auf. Das Volume kann anhand von Nummer, Laufwerkbuchstabe oder Bereitstellungspunktpfad angegeben werden. Wenn bei einer Basisfestplatte ein Volume ausgewählt wird, erhält die entsprechende Partition den Fokus. |
+| **delete volume**                     | Löscht das ausgewählte Volume. Systemvolume, Startvolume und Volumes, die die aktive Auslagerungsdatei oder das Absturzabbild (Speicherabbild) enthalten, können nicht gelöscht werden. |
+| **convert basic** | Konvertiert einen leeren dynamischen Datenträger in eine Basisfestplatte.  |
 
 ## <a name="additional-considerations"></a>Weitere Aspekte
 
--   Die Festplatte darf keine Volumes oder Daten enthalten, wenn Sie ihn in einen Basisdatenträger zurückkonvertieren möchten. Wenn Sie Ihre Daten beibehalten möchten, sichern Sie oder verschieben Sie diese auf ein anderes Volume, bevor Sie die Festplatte in einen Basisdatenträger konvertieren.
--   Wenn Sie einen dynamischen Datenträger wieder in einen Basisdatenträger konvertieren, können Sie nur Partitionen und logische Laufwerke auf der Festplatte erstellen.
+-   Der Datenträger, der in eine Basisfestplatte zurückkonvertiert werden soll, darf keine Volumes oder Daten enthalten. Wenn du deine Daten behalten möchtest, musst du sie sichern oder auf ein anderes Volume verschieben, bevor du den Datenträger in eine Basisfestplatte konvertierst.
+-   Nachdem du einen dynamischen Datenträger wieder in eine Basisfestplatte konvertiert hast, kannst du darauf nur Partitionen und logische Laufwerke erstellen.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
--   [Notation der Befehlszeilensyntax](https://technet.microsoft.com/library/cc742449(v=ws.11).aspx)
+-   [Command-line syntax notation](https://technet.microsoft.com/library/cc742449(v=ws.11).aspx) (Notation der Befehlszeilensyntax)

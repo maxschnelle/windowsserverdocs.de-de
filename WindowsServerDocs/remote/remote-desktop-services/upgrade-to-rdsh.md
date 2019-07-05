@@ -1,6 +1,6 @@
 ---
-title: Aktualisieren Ihrer Remotedesktop-Sitzungshost auf WindowsServer 2016
-description: Dieser Artikel beschreibt, wie Sie Ihre vorhandenen Remote Desktop Services-Bereitstellungen auf Windows Server 2016 aktualisieren.
+title: Aktualisieren deines Remotedesktop-Sitzungshosts auf Windows Server 2016
+description: In diesem Artikel wird beschrieben, wie du deine vorhandenen Bereitstellungen der Remotedesktopdienste auf Windows Server 2016 aktualisierst.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,36 +13,36 @@ ms.topic: article
 ms.assetid: 5c9b98b8-4eca-4a39-b10b-2bac729f7f44
 author: spatnaik
 manager: scottman
-ms.openlocfilehash: 0cf5af29d610ba64d045e10241fd39b01d3f7024
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 98ed5b75680e6969a40017a27061e33449cb69e8
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59856061"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63743332"
 ---
-# <a name="upgrading-your-remote-desktop-session-host-to-windows-server-2016"></a>Aktualisieren Ihrer Remotedesktop-Sitzungshost auf WindowsServer 2016
+# <a name="upgrading-your-remote-desktop-session-host-to-windows-server-2016"></a>Aktualisieren deines Remotedesktop-Sitzungshosts auf Windows Server 2016
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016
 
 > [!IMPORTANT]
-> Alle Anwendungen müssen vor dem Upgrade deinstalliert und nach dem Upgrade auf app Kompatibilitätsprobleme zu vermeiden, die aufgrund des Upgrades steigt möglicherweise neu installiert werden.
+> Alle Anwendungen müssen vor dem Upgrade deinstalliert und nach dem Upgrade neu installiert werden, um App-Kompatibilitätsprobleme zu vermeiden, die infolge des Upgrades auftreten können.
 
-## <a name="supported-os-upgrades-with-rds-role-installed"></a>Unterstützt Upgrades des Betriebssystems mit Remotedesktopdienste-Rolle installiert
-Upgrades auf Windows Server 2016 werden nur von Windows Server 2012 R2 und Windows Server 2016 TP5 unterstützt.
+## <a name="supported-os-upgrades-with-rds-role-installed"></a>Unterstützte Betriebssystemupgrades mit installierter RDS-Rolle
+Upgrades auf Windows Server 2016 werden nur von Windows Server 2012 R2 und Windows Server 2016 TP5 unterstützt.
 
-## <a name="upgrading-a-rds-session-based-collection"></a>Upgrade einer RDS-Sitzungen basierende-Auflistung
-Um die Ausfallzeit auf ein Minimum zu halten, empfiehlt es sich um die folgenden Schritte, die während des Upgrades von einer sitzungsbasierten RDS-Sammlung unter:
+## <a name="upgrading-a-rds-session-based-collection"></a>Upgrade einer auf einer RDS-Sitzung basierenden Sammlung
+Um die Ausfallzeit möglichst gering zu halten, solltest du beim Aktualisieren einer auf einer RDS-Sitzung basierenden Sammlung die folgenden Schritte ausführen:
 
-1. Identifizieren Sie die Server aktualisiert werden, z. B. die Hälfte der Server in der Sammlung.
-2. Zu verhindern, dass neue Verbindungen mit diesen Servern durch Festlegen von **neue Verbindungen zulassen** auf "false".
-3. Melden Sie alle Sitzungen auf diesen Servern. 
-4. Entfernen Sie diesen Server aus der Auflistung.
-5. Aktualisieren Sie den Server, auf Windows Server 2016.
-6. Legen Sie **neue Verbindungen zulassen** auf "false" auf den verbleibenden Servern in der Auflistung.
-7. Fügen Sie die aktualisierten Server wieder zur entsprechenden Auflistungen.
-8. Entfernen Sie die verbleibende Gruppe von Servern aus der Auflistung aktualisiert werden.
-9. Legen Sie **neue Verbindungen zulassen** auf "True", auf den aktualisierten Servern in der Auflistung.
-10. Jetzt aktualisieren Sie die verbleibenden Server in der Bereitstellung dazu die folgenden Schritte 3 bis 9 oben.
+1. Ermittle die Server, für die das Upgrade ausgeführt werden soll (beispielsweise die Hälfte der Server in der Sammlung).
+2. Verhindere neue Verbindungen mit diesen Servern, indem du **Neue Verbindungen zulassen** auf „false“ festlegst.
+3. Melde alle Sitzungen auf diesen Servern ab. 
+4. Entferne diese Server aus der Sammlung.
+5. Aktualisiere die Server auf Windows Server 2016.
+6. Lege für die übrigen Server in der Sammlung die Option **Neue Verbindungen zulassen** auf „false“ fest.
+7. Füge die aktualisierten Server wieder ihren entsprechenden Sammlungen hinzu.
+8. Entferne die verbleibenden Server, für die ein Upgrade ausgeführt werden soll, aus der Sammlung.
+9. Lege für die aktualisierten Server in der Sammlung die Option **Neue Verbindungen zulassen** auf „true“ fest.
+10. Führe jetzt die oben angegebenen Schritte 3 bis 9 aus, um die verbleibenden Server in der Bereitstellung zu aktualisieren.
 
-## <a name="upgrading-a-standalone-rd-session-host-server"></a>Beim Upgrade eines eigenständigen RD-Sitzungshost-Servers
-Eine eigenständige RD-Sitzungshostserver kann jederzeit aktualisiert werden.
+## <a name="upgrading-a-standalone-rd-session-host-server"></a>Aktualisieren eines eigenständigen RD-Sitzungshostservers
+Ein eigenständiger RD-Sitzungshostserver kann jederzeit aktualisiert werden.

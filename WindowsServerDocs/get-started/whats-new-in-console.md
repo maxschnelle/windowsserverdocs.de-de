@@ -15,11 +15,11 @@ ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
 ms.openlocfilehash: 2f05bcffa7c8c4f9e74f3699b9838b8a627af1b1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837721"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63688676"
 ---
 # <a name="whats-new-in-the-windows-console-in-windows-server-2016"></a>Neues in der Windows-Konsole in Windows Server 2016
 >Gilt für: Windows Server 2016
@@ -66,7 +66,7 @@ Das Konsolenfenster kann jetzt halbtransparent dargestellt werden (bis zu einer 
 ## <a name="selection"></a>Auswahl  
 Es gibt viele neue Möglichkeiten zum Auswählen von Text und Zeilen sowie zum Markieren von Text und zum Verwenden des Pufferverlaufs. In der Konsole wird versucht, Konflikte mit anderen Anwendungen zu vermeiden, bei denen die gleichen Tastenkombinationen verwendet werden.  
 
-**Für Entwickler:** Wenn ein Konflikt auftritt, können Sie in der Regel das Verhalten der Anwendung mit mehrzeiligen Eingaben, verarbeitete Eingaben und Echo Eingabe Modi mit der Setconsolemode()-API-API steuern. Wenn Sie den Modus für verarbeitete Eingaben verwenden, gelten die unten aufgeführten Tastenkombinationen. In anderen Modi müssen diese von Ihrer Anwendung behandelt werden. Alle hier nicht aufgeführten Tastenkombinationen funktionieren genauso wie in den vorherigen Versionen der Konsole. Sie können auch versuchen, Konflikte mithilfe der verschiedenen Einstellungen auf der Registerkarte **Optionen** zu lösen. Wenn alle anderen Versuche fehlschlagen, können Sie jederzeit zur ursprünglichen Konsole zurückwechseln.  
+**Für Entwickler:** Wenn ein Konflikt auftritt, kannst du in der Regel mithilfe der SetConsoleMode()-API steuern, mit welchem Verhalten die Anwendung auf die Nutzung der Modi für Zeileneingaben, verarbeitete Eingaben und Echoeingaben reagiert. Wenn Sie den Modus für verarbeitete Eingaben verwenden, gelten die unten aufgeführten Tastenkombinationen. In anderen Modi müssen diese von Ihrer Anwendung behandelt werden. Alle hier nicht aufgeführten Tastenkombinationen funktionieren genauso wie in den vorherigen Versionen der Konsole. Sie können auch versuchen, Konflikte mithilfe der verschiedenen Einstellungen auf der Registerkarte **Optionen** zu lösen. Wenn alle anderen Versuche fehlschlagen, können Sie jederzeit zur ursprünglichen Konsole zurückwechseln.  
 
 Sie können jetzt auch außerhalb des QuickEdit-Modus einen Textabschnitt durch Klicken und Ziehen markieren. Genauso wie in Editor können Sie Text nun zeilenübergreifend markieren, und zwar nicht nur als rechteckigen Textblock. Für Kopiervorgänge brauchen Sie die Zeilenumbrüche nicht mehr zu entfernen. Neben dem Markieren von Textabschnitten durch Klicken und Ziehen stehen die folgenden Tastenkombinationen zur Verfügung:  
 
@@ -90,7 +90,7 @@ Sie können jetzt auch außerhalb des QuickEdit-Modus einen Textabschnitt durch 
 |Den gesamten Text nach der Eingabeaufforderung markieren, wenn sich der Cursor in der aktuellen Zeile befindet und die Zeile nicht leer ist|STRG+A|  
 |Den gesamten Puffer auswählen, wenn sich der Cursor **nicht** in der aktuellen Zeile befindet|STRG+A|  
 
-**Bearbeiten von text**  
+**Bearbeiten von Text**  
 
 Sie können nun mithilfe von Tastaturbefehlen in der Konsole Text kopieren und einfügen. STRG+C hat jetzt zwei Funktionen. Wenn bei der Verwendung des Tastaturbefehls kein Text markiert ist, wird wie gewohnt der BREAK-Befehl gesendet. Wenn Text markiert ist, wird dieser Text durch die erste Verwendung des Befehls kopiert und die Markierung aufgehoben. Die zweite Verwendung sendet den BREAK-Befehl. Außerdem können folgende Befehle zum Bearbeiten von Text verwendet werden:  
 

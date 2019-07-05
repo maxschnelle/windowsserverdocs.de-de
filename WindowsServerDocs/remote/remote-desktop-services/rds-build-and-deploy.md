@@ -1,6 +1,6 @@
 ---
-title: RDS - erstellen und bereitstellen
-description: Schritte zum Erstellen einer Bereitstellung von Remotedesktop
+title: 'RDS: Erstellen und Bereitstellen'
+description: Schritte zum Erstellen einer Remotedesktopbereitstellung
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -14,36 +14,36 @@ ms.assetid: 176ae424-96e9-4c78-88f5-da418e76c3d7
 author: lizap
 manager: dongill
 ms.openlocfilehash: 309ea068488d005eabfe22f8ea055f85dd098452
-ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66453073"
 ---
-# <a name="build-and-deploy-your-remote-desktop-services-deployment"></a>Erstellen Sie und Bereitstellen Sie Ihrer Remote Desktop Services-Bereitstellung
+# <a name="build-and-deploy-your-remote-desktop-services-deployment"></a>Erstellen und Bereitstellen deiner Remotedesktopdienste-Bereitstellung
 
-Eine Remote Desktop Services-Bereitstellung ist die Infrastruktur verwendet, um apps und Ressourcen für Ihre Benutzer freigeben. Je nach der Erfahrung, die Sie bereitstellen möchten, können Sie es beliebig klein oder komplexe vornehmen, wie Sie benötigen. Remotedesktopbereitstellungen auf einfache Weise skaliert werden. Sie können zu erhöhen und Reduzieren von Web Access für Remotedesktop, werden Gateway "," Connection Broker "und" Session Host-Servern an. Sie können Remote Desktop Connection Broker verwenden, um arbeitsauslastungen zu verteilen. Active Directory-basierte Authentifizierung bietet eine äußerst sichere Umgebung. 
+Bei einer Remotedesktopdienste-Bereitstellung handelt es sich um die Infrastruktur, die zum Freigeben von Apps und Ressourcen für deine Benutzer verwendet wird. Abhängig von der bereitzustellenden Umgebung kannst du die Infrastruktur nach Bedarf einfach oder komplex gestalten. Remotedesktopbereitstellungen können mühelos skaliert werden. Du kannst nach Belieben Webzugriffs-, Gateway-, Verbindungsbroker- und Sitzungshostserver für Remotedesktop hinzufügen und entfernen. Du kannst den Remotedesktop-Verbindungsbroker zum Verteilen von Workloads verwenden. Dank Active Directory-basierter Authentifizierung wird eine äußerst sichere Umgebung bereitgestellt. 
 
-[Remotedesktopclients](clients/remote-desktop-clients.md) Aktivieren des Zugriffs von jedem Windows, Apple und Android-Computer, Tablet oder Telefon.
+[Remotedesktopclients](clients/remote-desktop-clients.md) ermöglichen Zugriff von jedem Windows-, Apple- oder Android-Computer, Tablet oder Smartphone aus.
 
-Finden Sie unter [Remote Desktop Services-Architektur](desktop-hosting-logical-architecture.md) für ausführliche Informationen zu den unterschiedlichen Komponenten, die zusammenarbeiten, um die Remotedesktopdienste-Bereitstellung zu erstellen.
+Eine ausführliche Erläuterung der verschiedenen Komponenten, aus denen sich deine Remotedesktopdienste-Bereitstellung zusammensetzt, findest du unter [Architektur der Remotedesktopdienste](desktop-hosting-logical-architecture.md).
 
-Haben Sie eine vorhandene basierende auf einer früheren Version von Windows Server Remote Desktop-Bereitstellung? Sehen Sie sich die Optionen zum Wechsel zu WIndows Server 2016, wenn Sie neue und bessere Funktionen bezüglich Leistung und Skalierung nutzen können:
+Deine vorhandene Remotedesktopbereitstellung basiert auf einer älteren Version von Windows Server? Sieh dir die Optionen für die Migration zu Windows Server 2016 an, und nutze neue und bessere Funktionen für Leistung und Skalierung:
 
-- [Migrieren Sie Ihre RDS-Bereitstellung auf Windows Server 2016](migrate-rds-role-services.md)
-- [Aktualisieren Sie Ihre RDS-Bereitstellung auf Windows Server 2016](upgrade-to-rds-2016.md)
+- [Migrate your RDS deployment to Windows Server 2016](migrate-rds-role-services.md) (Migrieren deiner RDS-Bereitstellung zu Windows Server 2016)
+- [Upgrade your RDS deployment to Windows Server 2016](upgrade-to-rds-2016.md) (Aktualisieren deiner RDS-Bereitstellung auf Windows Server 2016)
 
-Möchten Sie zum Erstellen einer neuen Remotedesktop-Bereitstellung? Verwenden Sie zum Bereitstellen von Remotedesktop in Windows Server 2016 die folgende Informationen ein:
+Du möchtest eine neue Remotedesktopbereitstellung erstellen? Du kannst Remotedesktop anhand der folgenden Informationen unter Windows Server 2016 bereitstellen:
 
-- [Bereitstellen der Infrastruktur Remote Desktop Services](rds-deploy-infrastructure.md)
-- [Erstellen einer sitzungssammlung zum Speichern von den apps und Ressourcen, die Sie freigeben möchten.](rds-create-collection.md)
-- [Lizenzieren Sie Ihre RDS-Bereitstellung](rds-client-access-license.md)
-- Haben Sie Ihre Benutzer bei der Installation einer [Remotedesktopclient](clients/remote-desktop-clients.md) damit sie die apps und Ressourcen zugreifen können. 
-- Aktivieren Sie hohen Verfügbarkeit durch Hinzufügen von zusätzlichen Verbindungsbroker und -Sitzungshosts:
+- [Deploy the Remote Desktop Services infrastructure](rds-deploy-infrastructure.md) (Bereitstellen der Remotedesktopdienste-Infrastruktur)
+- [Create a session collection to hold the apps and resources you want to share](rds-create-collection.md) (Erstellen einer Sitzungssammlung für die freizugebenden Apps und Ressourcen)
+- [License your RDS deployment with client access licenses (CALs)](rds-client-access-license.md) (Lizenzieren deiner RDS-Bereitstellung mit Clientzugriffslizenzen (CALs))
+- Fordere deine Benutzer auf, einen [Remotedesktopclient](clients/remote-desktop-clients.md) zu installieren, sodass sie auf die Apps und Ressourcen zugreifen können. 
+- Ermögliche Hochverfügbarkeit, indem du zusätzliche Verbindungsbroker und Sitzungshosts hinzufügst:
    - [Horizontales Skalieren einer vorhandenen RDS-Sammlung mit einer RD-Sitzungshostfarm](rds-scale-rdsh-farm.md)
    - [Hinzufügen von hoher Verfügbarkeit zur RD Connection Broker-Infrastruktur](rds-connection-broker-cluster.md)
    - [Hinzufügen von hoher Verfügbarkeit zur RD Web- und RD Gateway-Webfront](rds-rdweb-gateway-ha.md)
    - [Bereitstellen eines auf zwei Knoten und „Direkte Speicherplätze“ basierenden Dateisystems für die UPD-Speicherung](rds-storage-spaces-direct-deployment.md)
 
 
-Wenn Sie einem Hostingpartner interessiert, die über Remote Desktop-apps und Ressourcen bereitstellen, Kunden oder einen Kunden, die für eine Person zum Hosten Ihrer apps suchen möchten, sehen Sie sich [Remote Desktop Services Hosten von Partnern](rds-hosting-partners.md) Informationen zu einer Bewertung können Sie nutzen, zur Verwendung von RDS in Azure als hostumgebung sowie eine Liste der Partner, die sie übergeben haben.
+Wenn du Hostingpartner bist und dich für die Bereitstellung von Apps und Ressourcen für Kunden mithilfe von Remotedesktop interessierst oder ein Kunde auf der Suche nach einer Person bist, die deine Apps hostet, sieh dir den Artikel [Remotedesktopdienste – Hostingpartner](rds-hosting-partners.md) an. Dort findest du Informationen zu einer Bewertung, mit der du die Verwendung von RDS in Azure als Hostingumgebung evaluieren kannst, sowie eine Liste mit Partnern, die diese Bewertung bestanden haben.

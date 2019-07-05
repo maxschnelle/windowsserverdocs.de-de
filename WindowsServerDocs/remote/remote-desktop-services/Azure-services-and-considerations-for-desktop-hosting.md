@@ -1,6 +1,6 @@
 ---
 title: Azure-Dienste und Überlegungen zum Desktophosting
-description: Informationen Sie zu Überlegungen, die in Azure mit einer Remote Desktophostinglösung eindeutig.
+description: Hier findest du spezifische Überlegungen zu Azure mit einer Remotedesktophosting-Lösung.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,65 +13,65 @@ ms.topic: article
 ms.assetid: 0f402ae3-5391-4c7d-afea-2c5c9044de46
 author: heidilohr
 manager: dougkim
-ms.openlocfilehash: 37210a5d75399309c53364f5b8ee9e06d26d6f32
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: c07a86c8168d323cf6e2af373ad51dc6a6b640b5
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849801"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63749242"
 ---
 # <a name="azure-services-and-considerations-for-desktop-hosting"></a>Azure-Dienste und Überlegungen zum Desktophosting
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016
 
-Den folgenden Abschnitten werden die Azure-Infrastrukturdiensten.
+In den folgenden Abschnitten werden Azure-Infrastrukturdienste beschrieben.
   
 ## <a name="azure-portal"></a>Azure-Portal
 
-Nachdem der Anbieter ein Azure-Abonnement erstellt wurde, kann im Azure-Portal verwendet werden, um jedes Mandanten Umgebung manuell zu erstellen. Dieser Prozess kann auch mithilfe von PowerShell-Skripts automatisiert werden.  
+Nach Erstellung eines Azure-Abonnements durch den Anbieter kann über das Azure-Portal manuell die Umgebung des jeweiligen Mandanten erstellt werden. Dieser Prozess kann auch mithilfe von PowerShell-Skripts automatisiert werden.  
 
-Weitere Informationen finden Sie auf die [Microsoft Azure](https://www.azure.microsoft.com) Website.
+Weitere Informationen findest du auf der [Microsoft Azure-Website](https://www.azure.microsoft.com).
   
-## <a name="azure-load-balancer"></a>Azure-Lastenausgleich
+## <a name="azure-load-balancer"></a>Azure Load Balancer
 
-Die Mandanten-Komponenten werden auf virtuellen Computern, die die Kommunikation miteinander in einem isolierten Netzwerk. Während der Bereitstellung können Sie diese virtuellen Maschinen extern über den Azure Load Balancer, die mithilfe von Remotedesktopprotokoll-Endpunkte oder einem Remote-PowerShell-Endpunkt zugreifen. Sobald eine Bereitstellung abgeschlossen ist, werden diese Endpunkte in der Regel gelöscht werden, um die Angriffsfläche zu reduzieren. Die einzige Endpunkte werden den HTTPS- und UDP-Endpunkte, die für den virtuellen Computer mit dem RD-Web und RD-Gateway-Komponenten erstellt. Dadurch können Clients im Internet zur Verbindung mit Sitzungen in des Mandanten desktophosting-Dienst ausgeführt. Wenn ein Benutzer eine Anwendung öffnet die Verbindung mit dem Internet, z. B. ein Webbrowser, werden die Verbindungen über den Azure Load Balancer übergeben.  
+Die Komponenten des Mandanten werden auf virtuellen Computern ausgeführt, die über ein isoliertes Netzwerk miteinander kommunizieren. Im Rahmen der Bereitstellung kannst du über Azure Load Balancer extern auf diese virtuellen Computer zugreifen – entweder unter Verwendung von Remotedesktopprotokoll-Endpunkten oder unter Verwendung eines Remote-PowerShell-Endpunkts. Nach Abschluss der Bereitstellung werden diese Endpunkte in der Regel gelöscht, um weniger Angriffsfläche zu bieten. Die einzigen Endpunkte sind die HTTPS- und UDP-Endpunkte, die für den virtuellen Computer erstellt wurden, auf dem die RD-Webkomponente und die RD-Gatewaykomponente ausgeführt werden. Dadurch können Clients im Internet eine Verbindung mit Sitzungen herstellen, die im Desktophostingdienst des Mandanten ausgeführt werden. Wenn ein Benutzer eine Anwendung öffnet, die eine Verbindung mit dem Internet herstellt (etwa ein Webbrowser), durchlaufen diese Verbindungen Azure Load Balancer.  
   
-Weitere Informationen finden Sie unter [Neuigkeiten von Azure Load Balancer?](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-load-balance/)
+Weitere Informationen findest du unter [Was versteht man unter Azure Load Balancer?](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-load-balance/).
   
-## <a name="security-considerations"></a>Sicherheitsüberlegungen
+## <a name="security-considerations"></a>Überlegungen zur Sicherheit
 
-Dieser Azure Desktop Referenzarchitekturhandbuch soll eine äußerst sichere und isolierte Umgebung für jeden Mandanten bereitzustellen. Systemsicherheit hängt auch von Sicherheitsmaßnahmen, die vom Anbieter ausgeführt wird, während der Bereitstellung und Betrieb des gehosteten Diensts ab. Die folgende Liste beschreibt einige Überlegungen, die der Anbieter durchführen soll, um ihre desktophostinglösungen anhand dieser Referenzarchitektur sicher zu halten.
+Dieser Leitfaden zur Referenzarchitektur für das Azure-Desktophosting dient dazu, eine möglichst sichere und isolierte Umgebung für jeden Mandanten bereitzustellen. Die Systemsicherheit hängt auch von Sicherheitsmaßnahmen ab, die der Anbieter im Rahmen der Bereitstellung und während des Betriebs des gehosteten Diensts ergreift. In der folgenden Liste werden einige Aspekte beschrieben, die der Anbieter berücksichtigen sollte, um die Sicherheit seiner auf dieser Referenzarchitektur basierenden Desktophostinglösung zu gewährleisten.
 
-- Alle administrative Kennwörter müssen stark, sein, im Idealfall nach dem Zufallsprinzip generiert wurde, häufig geändert, und speichern an einem sicheren zentralen Ort nur für eine Option einige Ressourcenanbieter-Administratoren zugänglich.  
-- Wenn Sie die mandantenumgebung für neue Mandanten zu replizieren, verwenden Sie die gleichen oder schwachen Administratorkennwörtern.
-- Web Access für Remotedesktop-Website-URL, Name und Zertifikate muss eindeutig und erkennbaren einzelnen Mandanten, um spoofing-Angriffe zu verhindern.  
-- Während des normalen Vorgangs von der desktophosting-Dienst sollte alle öffentliche IP-Adressen für alle virtuellen Computer mit Ausnahme der RD-Web und RD-Gateway-VM gelöscht werden, die Benutzer des Mandanten desktophosting Cloud-Dienst sichere Verbindung benötigen. Öffentliche IP-Adressen können vorübergehend hinzugefügt werden, wenn dies für Verwaltungsaufgaben, aber sie sollten immer danach gelöscht werden.  
+- Alle Administratorkennwörter müssen sicher sein. Im Idealfall werden sie nach dem Zufallsprinzip generiert, häufig geändert und an einem sicheren zentralen Ort gespeichert, auf den nur einige wenige Administratoren des Anbieters Zugriff haben.  
+- Wenn die Mandantenumgebung für neue Mandanten repliziert wird, dürfen nicht jedes Mal die gleichen oder unsichere Administratorkennwörter verwendet werden.
+- URL, Name und Zertifikate von Web Access für Remotedesktop müssen für jeden Mandanten eindeutig und erkennbar sein, um Spoofingangriffe zu verhindern.  
+- Während des regulären Betriebs des Desktophostingdiensts müssen alle öffentlichen IP-Adressen für alle virtuellen Computer gelöscht werden – mit Ausnahme des virtuellen Computers mit der RD-Webkomponente und der RD-Gatewaykomponente, der dafür sorgt, dass Benutzer eine sichere Verbindung mit dem Desktophosting-Clouddienst des Mandanten herstellen können. Öffentliche IP-Adressen können vorübergehend hinzugefügt werden, wenn dies für Verwaltungsaufgaben erforderlich ist. Sie sollten allerdings anschließend immer gelöscht werden.  
   
 Weitere Informationen finden Sie in den folgenden Artikeln:
 
-- [Sicherheit und Schutz](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831778(v=ws.11))  
-- [Bewährte Sicherheitsmethoden für IIS 8](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj635855(v=ws.11))  
-- [Sichern von Windows Server 2012 R2](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831360(v=ws.11))  
+- [Security and Protection](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831778(v=ws.11)) (Sicherheit und Schutz)  
+- [Security Best Practices for IIS 8](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj635855(v=ws.11)) (Bewährte Sicherheitsmethoden für IIS 8)  
+- [Secure Windows Server 2012 R2 and Windows Server 2012](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831360(v=ws.11)) (Schützen von Windows Server 2012 R2 und Windows Server 2012)  
   
 ## <a name="design-considerations"></a>Überlegungen zum Entwurf
 
-Es ist wichtig, die Einschränkungen von Microsoft Azure Infrastructure Services beim Entwurf einer mehrinstanzenfähigen desktophosting-Dienst zu berücksichtigen. Die folgende Liste beschreibt die Überlegungen, die der Anbieter ausführen muss, um eine funktionale und kostengünstige desktophostinglösungen anhand dieser Referenzarchitektur zu erreichen.  
+Bei der Entwicklung eines mehrinstanzenfähigen Desktophostingdiensts müssen die Einschränkungen der Microsoft Azure-Infrastrukturdienste berücksichtigt werden. In der folgenden Liste werden Aspekte beschrieben, die der Anbieter berücksichtigen muss, um auf der Grundlage dieser Referenzarchitektur eine funktionierende und kostengünstige Desktophostinglösung zu erhalten.  
   
-- Ein Azure-Abonnement verfügt über eine maximale Anzahl von virtuellen Netzwerken, VM-Kerne und Cloud-Dienste, die verwendet werden kann. Wenn ein Anbieter mehr Ressourcen als dies erfordert, müssen sie möglicherweise mehrere Abonnements erstellen.
-- Azure-Clouddienst verfügt über eine maximale Anzahl von virtuellen Computern, die verwendet werden kann. Der Anbieter müssen möglicherweise mehrere Cloud-Dienste für größere Mandanten zu erstellen, die die maximale Anzahl überschritten.  
-- Bereitstellung von Azure-Kosten basieren teilweise auf der Anzahl und Größe der virtuellen Computer. Der Anbieter sollte die Anzahl und Größe der virtuellen Computer für jeden Mandanten, um eine funktionsfähige und hochsicheren Desktop hostumgebung zu den geringsten Kosten zu optimieren.  
-- Die Ressourcen des physischen Computers im Azure-Rechenzentrum werden mithilfe von Hyper-V virtualisiert. Hyper-V-Hosts werden nicht in Hostclustern konfiguriert, damit die Verfügbarkeit der virtuellen Computer abhängig von der Verfügbarkeit der einzelnen Server, die in der Azure-Infrastruktur verwendet wird. Um höhere Verfügbarkeit zu gewährleisten, können mehrere Instanzen jeder Rolle Dienst virtuelle Computer in einer verfügbarkeitsgruppe erstellt werden, und klicken Sie dann die Gast-clustering innerhalb der virtuellen Computer implementiert werden kann.  
-- In einer typischen Storage-Konfiguration müssen ein Dienstanbieter ein einzelnes Speicherkonto mit mehreren Containern (z. B. eine für jeden Mandanten) und mehrere Datenträger in jeden Container aus. Es ist jedoch eine Obergrenze für den Gesamtspeicher und die Leistung, die für ein einzelnes Speicherkonto erzielt werden kann. Für Dienstanbieter, die große Anzahl von Mandanten oder Mandanten mit hohen speicheranforderungen Kapazität oder Leistung zu unterstützen, kann der Dienstanbieter müssen mehrere Speicherkonten zu erstellen.  
+- In einem Azure-Abonnement kann nur eine bestimmte Anzahl von virtuellen Netzwerken, VM-Kernen und Clouddiensten verwendet werden. Sollte ein Anbieter mehr Ressourcen benötigen, muss er ggf. mehrere Abonnements erstellen.
+- In einem Azure-Clouddienst kann nur eine bestimmte Anzahl von virtuellen Computern verwendet werden. Für größere Mandanten, bei denen die Obergrenze überschritten wird, muss der Anbieter ggf. mehrere Clouddienste erstellen.  
+- Azure-Bereitstellungskosten basieren zum Teil auf der Anzahl und Größe der virtuellen Computer. Der Anbieter muss Anzahl und Größe der virtuellen Computer für jeden Mandanten optimieren, um eine funktionierende und möglichst sichere Desktophostingumgebung zu möglichst geringen Kosten bereitstellen zu können.  
+- Die physischen Computerressourcen im Azure-Rechenzentrum werden mithilfe von Hyper-V virtualisiert. Hyper-V-Hosts werden nicht in Hostclustern konfiguriert. Die Verfügbarkeit der virtuellen Computer hängt daher von der Verfügbarkeit der einzelnen Server ab, die in der Azure-Infrastruktur verwendet werden. Um eine höhere Verfügbarkeit zu erzielen, können mehrere Instanzen jedes virtuellen Rollendienstcomputers in einer Verfügbarkeitsgruppe erstellt werden, und für die virtuellen Computer kann dann Gastclustering implementiert werden.  
+- In einer typischen Speicherkonfiguration verfügt ein Dienstanbieter über ein einzelnes Speicherkonto mit mehreren Containern (beispielsweise einer für jeden Mandanten) sowie mit mehreren Datenträgern in jedem Container. Es gibt jedoch eine Obergrenze für den Gesamtspeicher und die Gesamtleistung eines einzelnen Speicherkontos. Dienstanbieter, die sehr viele Mandanten oder Mandanten mit hoher Speicherkapazität oder hohem Leistungsbedarf unterstützen, müssen ggf. mehrere Speicherkonten erstellen.  
   
 Weitere Informationen finden Sie in den folgenden Artikeln:
 
 - [Größen für Clouddienste](https://docs.microsoft.com/azure/cloud-services/cloud-services-sizes-specs)  
-- [Microsoft Azure Virtual machines-Preisdetails](https://azure.microsoft.com/pricing/details/virtual-machines/)  
-- [Hyper-V: Übersicht](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831531(v=ws.11))  
-- [Skalierbarkeits- und Leistungsziele für Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets)  
+- [Virtuelle Linux-Computer – Preise](https://azure.microsoft.com/pricing/details/virtual-machines/)  
+- [Hyper-V overview](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831531(v=ws.11)) (Übersicht über Hyper-V)  
+- [Skalierbarkeits- und Leistungsziele für Speicherkonten in Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets)  
 
-## <a name="azure-active-directory-application-proxy"></a>Azure Active Directory-Anwendungsproxy
+## <a name="azure-active-directory-application-proxy"></a>Azure Active Directory-Anwendungsproxy
 
-Azure Active Directory (AD)-Anwendungsproxy ist ein Dienst in der kostenpflichtigen SKUs von Azure AD, mit denen Benutzer eine Verbindung mit internen Anwendungen über Azure eigenen Reverse-Proxy-Dienst herstellen können. Dadurch können die RD-Web und RD-Gateway-Endpunkte innerhalb des virtuellen Netzwerks, und Sie müssen über eine öffentliche IP-Adresse mit dem Internet verbunden werden ausgeblendet werden soll. Azure AD-Anwendungsproxy können Hoster um die Anzahl der virtuellen Computer in der Mandanten-Umgebung zu verkleinern, während gleichzeitig eine vollständige Bereitstellung. Azure AD-Anwendungsproxy ermöglicht auch viele der Vorzüge, die Azure AD, z. B. für den bedingten Zugriff und Multi-Factor Authentication bietet.
+Der Azure AD-Anwendungsproxy (Active Directory) ist ein Dienst, der in kostenpflichtigen SKUs von Azure AD bereitgestellt wird. Mit diesem Dienst können Benutzer über den Azure-eigenen Reverseproxydienst eine Verbindung mit internen Anwendungen herstellen. Dadurch können die RD-Web- und RD-Gatewayendpunkte innerhalb des virtuellen Netzwerks verborgen werden. Das hat den Vorteil, dass sie nicht mit einer öffentlichen IP-Adresse für das Internet verfügbar gemacht werden müssen. Hoster können mithilfe des Azure AD-Anwendungsproxys die Anzahl virtueller Computer in der Mandantenumgebung verringern, ohne die Bereitstellung einzuschränken. Darüber hinaus bietet der Azure AD-Anwendungsproxy viele der Vorteile von Azure AD wie etwa bedingten Zugriff und mehrstufige Authentifizierung.
 
-Weitere Informationen finden Sie unter [erste Schritte mit dem Anwendungsproxy und Installieren des Connectors](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-enable).
+Weitere Informationen findest du unter [Tutorial: Hinzufügen einer lokalen Anwendung für den Remotezugriff über den Anwendungsproxy in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-enable).

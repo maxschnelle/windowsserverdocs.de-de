@@ -1,7 +1,7 @@
 ---
 title: Automatische Aktivierung virtueller Computer
 TOCTitle: Automatic VM Activation
-description: Aktivieren von virtuellen Computern in Windows Server-2019, Windows Server 2016 und Windows Server 2012 R2
+description: Aktivieren virtueller Computer unter Windows Server 2019, Windows Server 2016 und Windows Server 2012 R2
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,15 +13,15 @@ author: lizap
 ms.author: elizapo
 ms.localizationpriority: medium
 ms.openlocfilehash: 18e20433050371dc02782fb8630a885e53ae31ad
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/24/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "63688703"
 ---
 # <a name="automatic-virtual-machine-activation"></a>Automatische Aktivierung virtueller Computer
 
-> Gilt für: WindowsServer 2019, Windows Server Halbjährlicher Kanal, WindowsServer 2016, Windows Server 2012 R2
+> Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2
 
 Die automatische Aktivierung virtueller Maschinen (Automatic Virtual Machine Activation, AVMA) dient als Kaufnachweisverfahren, damit Sie sicherstellen können, dass Windows-Produkte gemäß den Produktnutzungsrechten und den Microsoft-Software-Lizenzbedingungen verwendet werden.
 
@@ -41,29 +41,29 @@ Manager von Serverrechenzentren können AVMA für Folgendes verwenden:
 
 Es müssen keine Product Keys verwaltet und keine Aufkleber auf den Servern gelesen werden. Der virtuelle Computer wird aktiviert und weiterhin ausgeführt, auch wenn er zu einem Array mit Virtualisierungsservern migriert wird.
 
-Partner eines Dienstanbieter-Lizenzvertrags (SPLA) und andere Hostinganbieter müssen die Product Keys nicht an Mandanten weitergeben oder zur Aktivierung auf den virtuellen Computer eines Mandanten zugreifen. Die Aktivierung virtueller Computer ist für Mandanten leicht verständlich, wenn AVMA verwendet wird. Hostinganbieter können anhand der Serverprotokolle die Einhaltung der Lizenzvorschriften überprüfen und den Verlauf der Clientauslastung nachverfolgen.
+Partner eines Dienstanbieter-Lizenzvertrags (SPLA) und andere Hostinganbieter müssen die Product Keys nicht an Mandanten weitergeben oder zur Aktivierung auf den virtuellen Computer eines Mandanten zugreifen. Die Aktivierung virtueller Computer ist für Mandanten leicht verständlich, wenn AVMA verwendet wird. Hostinganbieter können anhand der Serverprotokolle die Einhaltung der Lizenzvorschriften überprüfen und den Verlauf der Clientauslastung nachverfolgen.
 
 ## <a name="system-requirements"></a>Systemanforderungen
 
-AVMA erfordert eine Microsoft Virtualization-Server unter Windows Server 2019 Datacenter, Windows Server 2016 Datacenter oder Windows Server 2012 R2. 
+Für AVMA ist ein Microsoft-Virtualisierungsserver unter Windows Server 2019 Datacenter, Windows Server 2016 Datacenter oder Windows Server 2012 R2 erforderlich. 
 
-Hier sind die Gäste, die die andere Version Hosts aktiviert werden können:
+Hier sind die Gäste aufgeführt, die von den verschiedenen Versionshosts aktiviert werden können:
 
-|Version des Server-host|Windows Server 2019|Windows Server 2016|Windows Server 2012 R2|
+|Serverhostversion|Windows Server 2019|Windows Server 2016|Windows Server 2012 R2|
 |-|-|-|-|
 |Windows Server 2019|X|X|X|
 |Windows Server 2016| |X|X|
 |Windows Server 2012 R2| ||X|
 
-Beachten Sie, dass diese alle Editionen (Datacenter, Standard und Essentials) zu aktivieren.
+Beachte, dass diese alle Editionen (Datacenter, Standard oder Essentials) aktivieren.
 
-Dieses Tool funktioniert nicht mit anderen Technologien Virtualization Server.
+Dieses Tool funktioniert nicht mit anderen Virtualisierungsservertechnologien.
 
 ## <a name="how-to-implement-avma"></a>Implementieren von AVMA
 
-1.  Klicken Sie auf einem Windows Server Datacenter-Virtualisierungsserver installieren und Konfigurieren der Microsoft Hyper-V-Serverrolle. Weitere Informationen finden Sie unter [Installieren von Hyper-V-Server](../virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server.md).
+1.  Installiere und konfiguriere auf einem Virtualisierungsserver mit Windows Server Datacenter die Microsoft Hyper-V Server-Rolle. Weitere Informationen findest du unter [Installieren von Hyper-V Server](../virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server.md).
 
-2.  [Erstellen eines virtuellen Computers](../virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v.md) und darauf ein unterstütztes Serverbetriebssystem installieren.
+2.  [Erstelle einen virtuellen Computer](../virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v.md), und installiere darauf ein unterstütztes Serverbetriebssystem.
 
 3.  Installieren Sie den AVMA-Schlüssel auf dem virtuellen Computer. Führen Sie an einer Eingabeaufforderung mit erhöhten Rechten den folgenden Befehl aus:
     
@@ -80,7 +80,7 @@ Vom virtuellen Computer wird die Lizenz für den Virtualisierungsserver automati
 
 ## <a name="avma-keys"></a>AVMA-Schüssel
 
-Die folgenden AVMA-Schlüssel können für Windows Server-2019 verwendet werden.
+Die folgenden AVMA-Schlüssel können für Windows Server 2019 verwendet werden:
 
 |Edition|   AVMA-Schüssel|
 |-|-|
@@ -88,14 +88,14 @@ Die folgenden AVMA-Schlüssel können für Windows Server-2019 verwendet werden.
 |Standard|  TNK62-RXVTB-4P47B-2D623-4GF74|
 |Essentials|    2CTP7-NHT64-BP62M-FV6GG-HFV28|
  
-Die folgenden AVMA-Schlüssel können für Windows Server, Version 1809 verwendet werden.
+Die folgenden AVMA-Schlüssel können für Windows Server, Version 1809, verwendet werden:
 
 |Edition|   AVMA-Schüssel|
 |-|-|
 |Datacenter|    H3RNG-8C32Q-Q8FRX-6TDXV-WMBMW|
 |Standard|  TNK62-RXVTB-4P47B-2D623-4GF74|
 
-Die folgenden AVMA-Schlüssel können für Windows Server, Version 1803 und 1709 verwendet werden.
+Die folgenden AVMA-Schlüssel können für Windows Server, Version 1803 und 1709, verwendet werden:
 
 |Edition|AVMA-Schüssel|
 |-|-|
@@ -103,7 +103,7 @@ Die folgenden AVMA-Schlüssel können für Windows Server, Version 1803 und 1709
 |Standard|C3RCX-M6NRP-6CXC9-TW2F2-4RHYD|
 
 
-Die folgenden AVMA-Schlüssel können für Windows Server 2016 verwendet werden.
+Die folgenden AVMA-Schlüssel können für Windows Server 2016 verwendet werden:
 
 |Edition|AVMA-Schüssel|
 |-|-|
@@ -120,7 +120,7 @@ Die folgenden AVMA-Schlüssel können für Windows Server 2012 R2 verwendet wer
 |Standard|DBGBW-NPF86-BJVTX-K3WKJ-MTB6V|
 |Essentials|K2XGM-NMBT3-2R6Q8-WF2FK-P36R2|
 
-## <a name="reporting-and-tracking"></a>Berichterstellung und nachverfolgung
+## <a name="reporting-and-tracking"></a>Berichterstellung und Nachverfolgung
 
 Die Registrierung (KVP) auf dem Virtualisierungsserver stellt Echtzeit-Nachverfolgungsdaten für die Gastbetriebssysteme bereit. Da der Registrierungsschlüssel mit dem virtuellen Computer verknüpft ist, können Sie auch Lizenzinformationen abrufen. Standardmäßig werden vom KVP Informationen zum virtuellen Computer zurückgegeben, z. B.:
 
@@ -134,7 +134,7 @@ Die Registrierung (KVP) auf dem Virtualisierungsserver stellt Echtzeit-Nachverfo
 
   - RDP-Adressen
 
-Weitere Informationen zum Abrufen dieser Informationen finden Sie unter [Hyper-V-Skript: KVP-guestintrinsicexchangeitems suchen](http://blogs.msdn.com/b/virtual_pc_guy/archive/2008/11/18/hyper-v-script-looking-at-kvp-guestintrinsicexchangeitems.aspx).
+Weitere Informationen dazu, wie du diese Informationen beschaffst, findest du unter [Hyper-V Skript: KVP-GuestIntrinsicExchangeItems](http://blogs.msdn.com/b/virtual_pc_guy/archive/2008/11/18/hyper-v-script-looking-at-kvp-guestintrinsicexchangeitems.aspx).
 
 
 > [!NOTE]

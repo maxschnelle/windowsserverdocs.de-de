@@ -1,6 +1,6 @@
 ---
-title: Neuerungen für Remotedesktop für Windows
-description: Erfahren Sie mehr über die letzten Änderungen an der Remotedesktop-Client für Windows
+title: Neuerungen bei Remotedesktop unter Windows
+description: Hier erfährst du mehr über aktuelle Änderungen am Remotedesktopclient für Windows.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -11,45 +11,54 @@ ms.topic: article
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.date: 11/06/2018
+ms.date: 03/19/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 8fb66d3578156eb0d0d37edeee02cd2b4d4288c8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 18c14da5b5b16ed20005515fde46235e4cf27331
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839551"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63748832"
 ---
-# <a name="whats-new-for-the-remote-desktop-client-on-windows"></a>What's new for Remote Desktop-Client auf Windows zu finden?
+# <a name="whats-new-for-the-remote-desktop-client-on-windows"></a>Neuerungen beim Remotedesktopclient unter Windows
 
-Wir aktualisieren regelmäßig die [Remotedesktop-Client für Windows](windows.md), neue Features hinzugefügt wurden, und Beheben von Problemen. Sehen Sie sich die neuesten Updates, die weiter unten.
+Der [Remotedesktopclient für Windows](windows.md) wird regelmäßig mit neuen Features und Problembehebungen aktualisiert. Im Anschluss findest du die neuesten Aktualisierungen.
+
+## <a name="updates-for-version-1011098"></a>Updates für Version 10.1.1098
+*Veröffentlichungsdatum: 15.03.2019*
+
+- Du kannst nun einen Anzeigenamen für Benutzerkonten festlegen und dadurch den gleichen Benutzernamen mit verschiedenen Kennwörtern speichern.
+- Beim Hinzufügen von Remoteressourcen kann nun ein vorhandenes Benutzerkonto ausgewählt werden.
+- Ein Problem wurde behoben, aufgrund dessen der Client nicht ordnungsgemäß beendet wurde.
+- Der Client behandelt sein Aussetzen nun ordnungsgemäß, wenn sekundäre Fenster geöffnet sind.
+- Zusätzliche Fehlerbehebungen
 
 ## <a name="updates-for-version-1011088"></a>Updates für Version 10.1.1088
-*Veröffentlichungsdatum: 11/06/2018*
+*Veröffentlichungsdatum: 06.11.2018*
 
-- Anzeigename der Verbindung ist jetzt leichter auffindbar.
-- Korrektur eines Absturzes, wenn der Clientfenster schließen, während eine Verbindung noch aktiv ist.
-- Beheben einer ausbleibenden Reaktion, beim Wiederherstellen der Verbindung nach der Client minimiert wird.
-- Ermöglichen Sie Desktops auf eine beliebige Stelle in einer Gruppe gezogen werden.
-- Stellen Sie sicher, eine Verbindung über die Jumplist-Ergebnisse in einem separaten Fenster bei Bedarf zu starten.
-- Zusätzliche Fehlerbehebungen.
+- Der Anzeigename der Verbindung ist jetzt leichter auffindbar.
+- Ein Absturz wurde behoben, der auftrat, wenn während einer aktiven Verbindung das Clientfenster geschlossen wurde.
+- Die ausbleibende Reaktion beim Wiederherstellen der Verbindung nach dem Minimieren des Clients wurde korrigiert.
+- Desktops können an eine beliebige Position in einer Gruppe gezogen werden.
+- Es wird sichergestellt, dass beim Starten einer Verbindung über die Sprungliste bei Bedarf ein separates Fenster geöffnet wird.
+- Zusätzliche Fehlerbehebungen
 
 ## <a name="updates-for-version-1011060"></a>Updates für Version 10.1.1060
-*Veröffentlichungsdatum: 09/14/2018*
+*Veröffentlichungsdatum: 14.09.2018*
 
-- Behandelt ein Problem, in denen zwei Sitzungen gestartet werden durch Doppelklicken auf einen Remotedesktop-Verbindung verursacht hat.
-- Korrektur eines Absturzes, beim Wechseln zwischen lokalen virtuellen Desktops.
-- Verschieben eine Sitzung an einen anderen Monitor jetzt aktualisiert auch den Skalierungsfaktor für die Sitzung. 
-- Behandeln Sie zusätzliche Systemtasten wie ALT GR.
-- Zusätzliche Fehlerbehebungen.
+- Ein Problem wurde behoben, das dazu führte, dass beim Doppelklicken auf eine Desktopverbindung zwei Sitzungen gestartet wurden.
+- Ein Absturz wurde behoben, der beim lokalen Wechseln zwischen virtuellen Desktops auftrat.
+- Beim Verschieben einer Sitzung auf einen anderen Monitor wird nun auch der Skalierungsfaktor der Sitzung aktualisiert. 
+- Behandlung zusätzlicher Systemtasten wie ALT GR.
+- Zusätzliche Fehlerbehebungen
 
 ## <a name="updates-for-version-1011046"></a>Updates für Version 10.1.1046
-*Veröffentlichungsdatum: 06/20/2018*
+*Veröffentlichungsdatum: 20.06.2018*
 
-- Fehlerbehebungen.
+- Fehlerbehebungen
 
 ## <a name="updates-for-version-1011042"></a>Updates für Version 10.1.1042
-*Veröffentlichungsdatum: 04/02/2018*
+*Veröffentlichungsdatum: 02.04.2018*
 
-- Aktualisiert, um CredSSP Verschlüsselung Oracle Wiederherstellung in CVE-2018-0886 beschrieben.
-- Zusätzliche Fehlerbehebungen.
+- Aktualisierungen für die in CVE-2018-0886 beschriebene CredSSP-Encryption Oracle-Abwehr
+- Zusätzliche Fehlerbehebungen

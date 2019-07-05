@@ -1,6 +1,6 @@
 ---
-title: Remote Desktop Services - Verbindung von einem beliebigen Gerät
-description: Erfahren Sie mehr über die verschiedenen Methoden, die Benutzer sich per Remotedesktop eine Verbindung herstellen können.
+title: 'Remotedesktopdienste: Verbinden von einem beliebigen Gerät aus'
+description: Hier erfährst du mehr über die verschiedenen Methoden, mit denen Benutzer eine Verbindung mit Remotedesktop herstellen können.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,17 +13,17 @@ author: lizap
 ms.author: spatnaik
 ms.date: 09/23/2016
 manager: scottman
-ms.openlocfilehash: b06c081965869ece6c7418646413421382ae0c3b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7ff06314dc518dcc206da331327e2f974c9a5f6d
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887121"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63743445"
 ---
-# <a name="remote-desktop-services---connect-from-any-device"></a>Remote Desktop Services - Verbindung von einem beliebigen Gerät
+# <a name="remote-desktop-services---connect-from-any-device"></a>Remotedesktopdienste: Verbinden von einem beliebigen Gerät aus
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016
 
-Auf die Unternehmensressourcen zugreifen von Windows, Apple und Android-Computer, Tablet oder Telefon. Können Sie Benutzer problemlos zur Verfügung, Desktops und Anwendungen über jedes Gerät über das RD-Web-Feed finden Sie unter.
+Greife von jedem Windows-, Apple- oder Android-Computer, Tablet oder Smartphone auf Unternehmensressourcen zu. Ermögliche Benutzern über einen RD-Feed die einfache Anzeige ihrer verfügbaren Desktops und Anwendungen auf jedem beliebigen Gerät.
 
-Erfahren Sie mehr über [Microsoft-Remotedesktopclients](clients/remote-desktop-clients.md).
+Weitere Informationen zu [Microsoft-Remotedesktopclients](clients/remote-desktop-clients.md)

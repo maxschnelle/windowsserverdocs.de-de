@@ -1,5 +1,5 @@
 ---
-title: Vergleich von Standard- und Datacenter-Editionen von Windows Server-2019
+title: Vergleich der Standard- und Datacenter-Editionen von Windows Server 2019
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -12,19 +12,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: jasgroce
 ms.localizationpriority: medium
-ms.openlocfilehash: ba7487a7e063775219182645a273d49c473f52e2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e6ec6934b5c2cfcc33a95a0336e22a20dbd60d82
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854131"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "64772396"
 ---
-# <a name="comparison-of-standard-and-datacenter-editions-of-windows-server-2019"></a>Vergleich von Standard- und Datacenter-Editionen von Windows Server-2019
+# <a name="comparison-of-standard-and-datacenter-editions-of-windows-server-2019"></a>Vergleich der Standard- und Datacenter-Editionen von Windows Server 2019
 
 > Gilt für: Windows Server 2019
   
 ## <a name="locks-and-limits"></a>Sperren und Beschränkungen
-|Sperren und Beschränkungen|Windows Server 2019 Standard|Windows Server 2019 Datacenter|  
+|Sperren und Beschränkungen|Windows Server 2019 Standard|Windows Server 2019 Datacenter|  
 |-------------------|----------|---------------------------|  
 |Maximale Anzahl von Benutzern|Basierend auf Clientzugriffslizenzen|Basierend auf Clientzugriffslizenzen|
 |Maximale Anzahl von SMB-Verbindungen|16777216|16777216|
@@ -35,13 +35,13 @@ ms.locfileid: "59854131"
 |Maximale Anzahl von Kernen|unbegrenzt|unbegrenzt|
 |Maximaler RAM|24 TB|24 TB|
 |Kann als Virtualisierungsgast verwendet werden|Ja. 2 virtuelle Computer plus ein Hyper-V-Host pro Lizenz|Ja. Unbegrenzte Anzahl von virtuellen Computern plus ein Hyper-V-Host pro Lizenz|
-|Server kann einer Domäne beitreten.|ja|ja|
-|Umkreisnetzwerkschutz/-firewall|nein|nein|
-|DirectAccess|ja|ja|
+|Server kann einer Domäne beitreten.|Ja|Ja|
+|Umkreisnetzwerkschutz/-firewall|Nein|Nein|
+|DirectAccess|Ja|Ja|
 |DLNA-Codecs und Webmedienstreaming|Ja, bei der Installation als Server mit Desktopdarstellung|Ja, bei der Installation als Server mit Desktopdarstellung|
 
 ## <a name="server-roles"></a>Serverrollen
-|Verfügbare Windows Server-Rollen|Rollendienste|Windows Server 2019 Standard|Windows Server 2019 Datacenter|  
+|Verfügbare Windows Server-Rollen|Rollendienste|Windows Server 2019 Standard|Windows Server 2019 Datacenter|  
 |-------------------|----------|----------|---------------------------|  
 |Active Directory-Zertifikatdienste| |Ja|Ja|
 |Active Directory Domain Services| |Ja|Ja|
@@ -66,7 +66,6 @@ ms.locfileid: "59854131"
 |Datei- und Speicherdienste|Speicherdienste|Ja|Ja|
 |Host-Überwachungsdienst| |Ja|Ja|
 |Hyper-V| |Ja|Ja; einschließlich abgeschirmte virtuelle Computer|
-|MultiPoint Services| |Ja|Ja|
 |Netzwerkcontroller| |Nein|Ja|
 |Network Policy and Access Services| |Ja, bei der Installation als Server mit Desktopdarstellung|Ja, bei der Installation als Server mit Desktopdarstellung|
 |Druck- und Dokumentdienste| |Ja|Ja|
@@ -78,12 +77,12 @@ ms.locfileid: "59854131"
 |Windows Server Essentials-Umgebung| |Ja|Ja|
 |Windows Server Update Services| |Ja|Ja|
 
-* Die WDS-Transportserver ist neu in Server Core-Installationen in Windows Server-2019 (ebenfalls in der halbjährlicher Kanal, beginnend mit Windows Server, Version 1803)
+*WDS-Transportserver ist neu in Server Core-Installationen unter Windows Server 2019 (auch im halbjährlichen Kanal ab Windows Server, Version 1803)
 
 
 ## <a name="features"></a>Features
 
-|Windows Server-Features mit Server-Manager (oder PowerShell) installierbar|Windows Server 2019 Standard|Windows Server 2019 Datacenter|  
+|Windows Server-Features mit Server-Manager (oder PowerShell) installierbar|Windows Server 2019 Standard|Windows Server 2019 Datacenter|  
 |-------------------|----------|---------------------------|  
 |.NET Framework 3.5|Ja|Ja|
 |.NET Framework 4.6|Ja|Ja|
@@ -125,7 +124,7 @@ ms.locfileid: "59854131"
 |SMTP-Server|Ja|Ja|
 |SNMP-Dienst|Ja|Ja|
 |Softwarelastenausgleich|Ja|Ja|
-|Speicherreplikat|Nein|Ja|
+|Speicherreplikat|Ja|Ja|
 |Telnet-Client|Ja|Ja|
 |TFTP-Client|Ja, bei der Installation als Server mit Desktopdarstellung|Ja, bei der Installation als Server mit Desktopdarstellung|
 |VM-Abschirmungstools für Fabric-Verwaltung|Ja|Ja|
@@ -147,10 +146,10 @@ ms.locfileid: "59854131"
 |WoW64-Unterstützung|Installiert|Installiert|
 |XPS-Viewer|Ja, bei der Installation als Server mit Desktopdarstellung|Ja, bei der Installation als Server mit Desktopdarstellung|
 
-|Allgemein verfügbare Funktionen|Windows Server 2019 Standard|Windows Server 2019 Datacenter|  
+|Allgemein verfügbare Funktionen|Windows Server 2019 Standard|Windows Server 2019 Datacenter|  
 |-------------------|----------|---------------------------|  
 |Best Practices Analyzer|Ja|Ja|
-|Eingeschränkte Funktion "Speicherreplikat"|Ja, (1-Partnerschaft und 1 Ressourcengruppe mit einzelnen 2TB)|Ja, unbegrenzt|
+|Eingeschränkte Speicherreplikate|Ja (1 Partnerschaft und 1 Ressourcengruppe mit einem einzelnen 2-TB-Volume)|Ja, unbegrenzt|
 |Direct Access|Ja|Ja|
 |Dynamischer Arbeitsspeicher (in Virtualisierung)|Ja|Ja|
 |RAM im laufenden Systembetrieb hinzufügen/entfernen|Ja|Ja|

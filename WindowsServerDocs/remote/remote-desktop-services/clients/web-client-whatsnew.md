@@ -1,6 +1,6 @@
 ---
-title: What's new for Remote Desktop Web-Client zu finden?
-description: Erfahren Sie mehr über aktuelle Änderungen an den Webclient für Remotedesktop
+title: Neues beim Remotedesktop-Webclient
+description: Hier erfährst du mehr über aktuelle Änderungen für den Remotedesktop-Webclient.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -14,95 +14,95 @@ ms.author: elizapo
 ms.date: 05/20/2019
 ms.localizationpriority: medium
 ms.openlocfilehash: 5be9b05da1e78cc54e12254f43d0f44f7ff65c5d
-ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66804880"
 ---
-# <a name="whats-new-for-the-remote-desktop-web-client"></a>Neuigkeiten für den Remotedesktop-Webclient
+# <a name="whats-new-for-the-remote-desktop-web-client"></a>Neues beim Remotedesktop-Webclient
 
-Wir aktualisieren regelmäßig die [Remote Desktop WebClient](remote-desktop-web-client.md), neue Features hinzugefügt wurden, und Beheben von Problemen. Sehen Sie sich die neuesten Updates, die weiter unten.
+Der [Remotedesktop-Webclient](remote-desktop-web-client.md) wird regelmäßig mit neuen Features und Problembehebungen aktualisiert. Im Anschluss findest du die neuesten Aktualisierungen.
 
 > [!NOTE]
-> Wir haben das System zur zeilenversionsverwaltung für den WebClient geändert. Ab Version 1.0.18.0 werden alle Releaseversionen der Web-Client (im Format "W.X.Y.Z") enthalten. Releasenummer für den Remotedesktop-Webclient endet immer mit 0 (z. B. W.X.Y.0). Jeder virtuelle Windows-Desktop Web Client-Version wird die letzte Ziffer bis zur nächsten Remote Desktop Web Client Veröffentlichung (z. B. 1.0.18.1) geändert.
+> Wir haben das Versionsverwaltungssystem für den Webclient geändert. Ab Version 1.0.18.0 enthalten alle Releaseversionen des Webclients Zahlen (im Format „W.X.Y.Z“). Releasenummern für den Remotedesktop-Webclient enden immer mit einer Null (Beispiel: W.X.Y.0). Mit jedem Windows Virtual Desktop-Webclientrelease ändert sich die letzte Stelle bis zum nächsten Remotedesktop-Webclientrelease (Beispiel: 1.0.18.1).
 
-## <a name="updates-for-version-10180"></a>Updates für Version 1.0.18.0
-*Veröffentlichungsdatum: 5/14/2019*
+## <a name="updates-for-version-10180"></a>Updates für Version 1.0.18.0
+*Veröffentlichungsdatum: 14.5.2019*
 
-- Hinzugefügte Ressource Launch Method-Konfiguration in der Registerkarte "Einstellungen", ermöglicht den Benutzern auf Ressourcen im Browser öffnen oder eine RDP-Datei mit einem anderen Client herunterladen. Diese Einstellung kann von Ihrem Administrator konfiguriert werden Details in Bezug auf die Administratorkonfigurationen für dieses Feature Sie in finden der [web-Client-Setup-Dokumentation](remote-desktop-web-client-admin.md).
-- Feste Farbe, die Probleme, die Aktivierung mehr lebendige Rendern Farben in der Remotesitzung.
-- Überarbeitete Fehlermeldungen im Zusammenhang mit der Remoteressource, die feed-Fehler. 
-- Unterstützung für weitere Office Tastenkombinationen, z. B. spezielle einfügen (Strg + Alt + V).
-- Zusätzliche Tastenkombinationen für Benutzer zum Aufrufen der Windows-Schlüssel in der Remotesitzung (Alt + F3)
-- Aktualisierte Fehlermeldung für Benutzer, die für die Authentifizierung mit einem abgelaufenen Kennwort.
-- Feed aktualisiert Benutzeroberfläche auf der Seite "alle Ressourcen".
-- Verbinden aufgelöst überlappende Dialoge, die während der Sitzung aufgetreten sind.
-- Größenanpassung der Remoteressource-Symbol behoben in der Taskleiste Ressource.
+- Konfiguration für die Ressourcenstartmethode auf der Registerkarte „Einstellungen“ hinzugefügt, sodass Benutzer wählen können, ob Ressourcen im Browser geöffnet werden sollen oder ob eine RDP-Datei für einen anderen Client heruntergeladen werden soll. Diese Einstellung kann von deinem Administrator konfiguriert werden. Details zu Administratorkonfigurationen für dieses Feature findest du in der [Setupdokumentation für den Webclient](remote-desktop-web-client-admin.md).
+- Probleme beim Rendern von Farben behoben, um kräftigere Farben in deiner Remotesitzung zu ermöglichen.
+- Fehlermeldungen im Zusammenhang mit Feedfehlern für Remoteressourcen überarbeitet. 
+- Unterstützung für weitere Office-Tastenkombinationen hinzugefügt – beispielsweise „Inhalte einfügen“ (STRG+ALT+V).
+- Tastenkombination hinzugefügt, mit der Benutzer die Windows-Taste in der Remotesitzung verwenden können (ALT+F3).
+- Fehlermeldung für Benutzer aktualisiert, die versuchen, sich mit einem abgelaufenen Kennwort zu authentifizieren.
+- Feedbenutzeroberfläche auf der Seite „Alle Ressourcen“ aktualisiert.
+- Problem mit überlappenden Dialogen beim Wiederherstellen der Sitzungsverbindung behoben.
+- Größenanpassung des Remoteressourcensymbols auf der Ressourcentaskleiste korrigiert.
 
-## <a name="updates-for-version-1011"></a>Updates für Version 1.0.11
-*Veröffentlichungsdatum: 2/22/2019*
+## <a name="updates-for-version-1011"></a>Updates für Version 1.0.11
+*Veröffentlichungsdatum: 22.2.2019*
 
-- Aktiviert die Verbindung mit RD-Broker ohne RD-Gateway in Windows Server-2019.
-- Feeds alphabetisch sortiert (d. h. RemoteApps zuerst Desktops zweite).
-- Verbessern der Kompatibilität mit Bildschirmleseprogrammen mehrere Eingabehilfen-Fehler behoben.
-- Unsere Buildtools wird aktualisiert.
-- Verschiedene Fehlerbehebungen.
+- Verbindung mit RD-Broker ohne RD-Gateway in Windows Server 2019 ermöglicht.
+- Feeds alphabetisch sortiert (zuerst RemoteApps, dann Desktops).
+- Mehrere Barrierefreiheitsfehler behoben, um die Bildschirmsprachausgabe zu verbessern.
+- Buildtools aktualisiert.
+- Verschiedene Fehler behoben.
 
-## <a name="updates-for-version-107"></a>Updates für Version 1.0.7
-*Veröffentlichungsdatum: 1/24/2019*
+## <a name="updates-for-version-107"></a>Updates für Version 1.0.7
+*Veröffentlichungsdatum: 24.1.2019*
 
-- Offline-Verwendung in internen Netzwerken wird jetzt unterstützt.
-- Verbessertes Rendering für nicht - Microsoft Edge-Browser.
-- Implementierte Limit für das Abrufen von feed "Wiederholen" versucht, die DoS zu verhindern.
-- Feste Eingabehilfen-Fehler, aktivieren die Benutzer mit sehbehinderung den Webclient verwenden.
-- Verbesserte Fehlermeldungen, die dem Benutzer für den feed Fehler angezeigt.
-- Hinzugefügt Strg + Alt + Ende (Windows) und fn + Steuerelement + Option + löschen (Mac)-Tastenkombinationen STRG + Alt + ENTF auf remote-Computer aufrufen.
-- Verbesserte Telemetrie für absturzereignissen.
-- Verbesserte unsere Buildpipeline und Buildtools.
-- Verschiedene Fehlerbehebungen.
+- Offlineverwendung in internen Netzwerken wird jetzt unterstützt.
+- Rendering in Microsoft Edge-fremden Browsern verbessert.
+- Limit für erneute Feedabrufversuche implementiert, um DoS-Angriffen vorzubeugen.
+- Barrierefreiheitsfehler behoben, um Benutzern mit Sehbehinderung die Verwendung des Webclients zu ermöglichen.
+- Fehlermeldungen verbessert, die dem Benutzer bei Feedfehlern angezeigt werden.
+- Tastenkombinationen STRG+ALT+ENDE (Windows) und FN+CTRL+OPTION+ENTF (Mac) hinzugefügt, um STRG+ALT+ENTF auf dem Remotecomputer verwenden zu können.
+- Telemetriedaten für Absturzereignisse verbessert.
+- Buildpipeline und Buildtools verbessert.
+- Verschiedene Fehler behoben.
 
-## <a name="updates-for-version-101"></a>Updates für Version 1.0.1
-*Veröffentlichungsdatum: 10/29/2018*
+## <a name="updates-for-version-101"></a>Updates für Version 1.0.1
+*Veröffentlichungsdatum: 29.10.2018*
 
-- Eine Option aus, um hinzugefügt **Capture Supportinformationen** auf der Seite "Info", um Probleme zu diagnostizieren.
+- Option zum **Erfassen von Supportinformationen** auf der Infoseite hinzugefügt, um Probleme zu diagnostizieren.
 - InPrivate-Modus wird jetzt unterstützt.
-- Verbesserte Unterstützung für nicht-englischen Tastaturen.
-- Ein Problem behoben wurde gezeigt, in denen nicht ordnungsgemäß, QuickInfos mit nicht englischen Zeichen.
-- Problem behoben, Grafiken Rendering der Chrome-Benutzer betroffen.
-- Zeitzone Umleitung mit vollständigen DST-Unterstützung aktualisiert.
-- Verbessert die Fehlermeldung für die Out-of-Memory-Fehler.
-- Verschiedene Fehlerbehebungen.
+- Unterstützung nicht-englischer Tastaturen verbessert.
+- Problem behoben, das dazu führte, dass QuickInfos mit nicht englischen Zeichen falsch angezeigt wurden.
+- Problem beim Grafikrendering für Chrome-Benutzer behoben.
+- Zeitzonenumleitung mit vollständiger DST-Unterstützung aktualisiert.
+- Fehlermeldung für unzureichenden Arbeitsspeicher verbessert.
+- Verschiedene Fehler behoben.
 
-## <a name="updates-for-version-100"></a>Updates für Version 1.0.0
-*Veröffentlichungsdatum: 07/16/2018*
+## <a name="updates-for-version-100"></a>Updates für Version 1.0.0
+*Veröffentlichungsdatum: 16.7.2018*
 
-- Remotedesktop-Client ist nun allgemein verfügbar.
-- Administratoren können global für den WebClient-Telemetrie deaktivieren aktivieren.
-- Verschiedene Fehlerbehebungen.
+- Der Remotedesktop-Webclient ist nun allgemein verfügbar.
+- Administratoren können Telemetriedaten global für den Webclient deaktivieren.
+- Verschiedene Fehler behoben.
 
-## <a name="updates-for-version-090"></a>Updates für Version 0.9.0
-*Veröffentlichungsdatum: 07/05/2018*
+## <a name="updates-for-version-090"></a>Updates für Version 0.9.0
+*Veröffentlichungsdatum: 5.7.2018*
 
-- Neue Anmeldeoberfläche WebClient heraus.
-- Nicht mehr zur Eingabe von Anmeldeinformationen aufgefordert, beim Starten von einer Desktop- oder app-Verbindungs (einmaliges Anmelden).
-- Den WebClient verschoben in eine neue URL: <https://server_FQDN/RDWeb/webclient/index.html>
-- Hinzugefügte Zeitzone Umleitung.
-- Verschiedene Fehlerbehebungen.
+- Neue Anmeldeoberfläche innerhalb des Webclients
+- Keine Aufforderung zur Eingabe von Anmeldeinformationen beim Starten einer Desktop- oder App-Verbindung mehr (einmaliges Anmelden)
+- Webclient zu einer neuen URL verschoben: <https://server_FQDN/RDWeb/webclient/index.html>
+- Zeitzonenumleitung hinzugefügt.
+- Verschiedene Fehler behoben.
 
-## <a name="updates-for-version-081"></a>Updates für Version 0.8.1
-*Veröffentlichungsdatum: 05/17/2018*
+## <a name="updates-for-version-081"></a>Updates für Version 0.8.1
+*Veröffentlichungsdatum: 17.5.2018*
 
-- Aktualisiert, um CredSSP Verschlüsselung Oracle Wiederherstellung in CVE-2018-0886 beschrieben.
-- Verbindungsfehler für einige Sprachen behoben, wenn das Drucken aktiviert ist.
-- Verbesserte Fehlermeldungen, wenn ein Gateway nicht als Teil der Bereitstellung ist.
-- **Hilfe** und **Feedback** Optionen hinzugefügt wurden.
+- Aktualisierungen für die in CVE-2018-0886 beschriebene CredSSP-Encryption Oracle-Abwehr
+- Verbindungsfehler bei Druckaktivierung für einige Sprachen behoben.
+- Fehlermeldung verbessert, die angezeigt wird, wenn die Bereitstellung kein Gateway enthält.
+- Optionen **Hilfe** und **Feedback** hinzugefügt.
 
-## <a name="updates-for-version-080"></a>Updates für Version 0.8.0
-*Veröffentlichungsdatum: 03/28/2018*
+## <a name="updates-for-version-080"></a>Updates für Version 0.8.0
+*Veröffentlichungsdatum: 28.3.2018*
 
-- Erste öffentliche Vorschauversion des Webclients.
-- Kopieren und Einfügen von Text über die Zwischenablage mit **STRG + C** und **STRG + V**.
-- Druckt in eine PDF-Datei.
-- In 18 Sprachen lokalisiert.
+- Erstes Public Preview-Release des Webclients
+- Kopieren und Einfügen von Text über die Zwischenablage mit **STRG+C** und **STRG+V**
+- Drucken in eine PDF-Datei
+- Lokalisierung in 18 Sprachen
  

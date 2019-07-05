@@ -1,6 +1,6 @@
 ---
 title: Erstellen virtueller Computer für Remotedesktop
-description: Erstellen Sie virtuelle Computer, auf dem Host Remote Desktop-Komponenten in der Cloud.
+description: Hier erfährst du, wie du virtuelle Computer erstellst, um Remotedesktopkomponenten in der Cloud zu hosten.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -14,73 +14,73 @@ ms.assetid: b0f62d6f-0915-44ca-afef-be44a922e20e
 author: lizap
 manager: dongill
 ms.openlocfilehash: 5c61d9f08cb799d6a63a004bedab924a6ba37fdc
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66446728"
 ---
 # <a name="create-virtual-machines-for-remote-desktop"></a>Erstellen virtueller Computer für Remotedesktop
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2019, WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016
 
-Verwenden Sie die folgenden Schritte aus, um die virtuellen Computer in der Mandanten-Umgebung zu erstellen, die zum Ausführen von Windows Server 2016-Rollen, Dienste und Funktionen für eine desktophostingbereitstellung verwendet werden.   
+Führe die folgenden Schritte aus, um in der Mandantenumgebung die virtuellen Computer zu erstellen, auf denen die für eine Desktophostingbereitstellung benötigten Rollen, Dienste und Features von Windows Server 2016 ausgeführt werden.   
   
-Dieses Beispiel, für eine einfache Bereitstellung wird das Minimum von 3 VMs erstellt werden. Ein virtueller Computer hostet die Rollendienste Remote Desktop (RD)-Verbindungsbroker und License Server und einer Dateifreigabe für die Bereitstellung. Ein zweiter virtueller Computer hostet der Rollendienste RD-Gateway und Web Access.  Ein dritter virtuellen Computer hosten, den RD-Sitzungshost-Rollendienst. Für sehr kleine Bereitstellungen können Sie VM-Kosten reduzieren, indem Sie AAD App Proxy verwenden, um alle öffentlichen Endpunkten aus der Bereitstellung zu vermeiden, und kombinieren alle Rollendienste auf einem einzelnen virtuellen Computer. Für größere Bereitstellungen können Sie die verschiedenen Rollendienste auf einzelnen virtuellen Computern, um eine bessere Skalierung ermöglichen installieren.  
+In dieser einfachen exemplarischen Bereitstellung wird die erforderliche Mindestanzahl von drei virtuellen Computern erstellt. Der erste virtuelle Computer hostet die Rollendienste „Remotedesktop-Verbindungsbroker“ und „Remotedesktop-Lizenzserver“ sowie eine Dateifreigabe für die Bereitstellung. Der zweite virtuelle Computer hostet die Rollendienste „Remotedesktop-Gateway“ und „Web Access für Remotedesktop“.  Der dritte virtuelle Computer hostet den Rollendienst „Remotedesktop-Sitzungshost“. Bei sehr kleinen Bereitstellungen kannst du zur Verringerung der VM-Kosten den AAD-App-Proxy verwenden, um alle öffentlichen Endpunkte aus der Bereitstellung zu entfernen, sowie alle Rollendienste auf einem einzelnen virtuellen Computer zusammenfassen. Bei größeren Bereitstellungen kannst du die verschiedenen Rollendienste auf einzelnen virtuellen Computern installieren, um eine bessere Skalierung zu ermöglichen.  
   
-In diesem Abschnitt wird beschrieben, die erforderlichen Schritte zum Bereitstellen von virtuellen Computern für jede Rolle basierend auf Windows Server-Images in die [Microsoft Azure Marketplace](https://azure.microsoft.com/marketplace/). Wenn Sie zum Erstellen virtueller Maschinen aus einem benutzerdefinierten Image, das PowerShell erforderlich ist benötigen, lesen Sie [Erstellen einer Windows-VM mit Resource Manager und PowerShell](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-ps-create/). Klicken Sie dann hier zum Anfügen von Azure-Datenträgern für die Dateifreigabe, und geben eine externe URL für Ihre Bereitstellung zurück.  
+In diesem Abschnitt werden die Schritte beschrieben, die ausgeführt werden müssen, um virtuelle Computer für die einzelnen Rollen auf der Grundlage von Windows Server-Images aus dem [Microsoft Azure Marketplace](https://azure.microsoft.com/marketplace/) bereitzustellen. Wenn du virtuelle Computer auf der Grundlage eines benutzerdefinierten Images erstellen möchtest, musst du PowerShell verwenden. Weitere Informationen hierzu findest du unter [Schnellstart: Erstellen eines virtuellen Windows-Computers in Azure mit PowerShell](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-ps-create/). Kehre anschließend wieder hierher zurück, um Azure-Datenträger für die Dateifreigabe anzufügen und eine externe URL für deine Bereitstellung einzugeben.  
   
-1. [Erstellen von Windows-VMs](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-hero-tutorial/) auf dem RD Connection Broker, Remotedesktop-Lizenzserver und Datei-Server gehostet.  
+1. [Erstelle virtuelle Windows-Computer](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-hero-tutorial/), um den RD-Verbindungsbroker, den RD-Lizenzserver und den Dateiserver zu hosten.  
   
-   Für unsere Zwecke verwendet haben wir die folgenden Benennungskonventionen:  
-   - Remotedesktop-Lizenzserver und Dateiserver:   
-       - VM: Contoso-Cb1  
+   In unserem Beispiel haben wir folgende Benennungskonventionen verwendet:  
+   - RD-Verbindungsbroker, Lizenzserver und Dateiserver:   
+       - Virtueller Computer: Contoso-Cb1  
        - Verfügbarkeitsgruppe: CbAvSet    
-   - Web Access für Remotedesktop und RD-Gateway-Server:   
-       - VM: Contoso-WebGw1  
+   - Web Access für RD und RD-Gatewayserver:   
+       - Virtueller Computer: Contoso-WebGw1  
        - Verfügbarkeitsgruppe: WebGwAvSet  
           
-   - Remotedesktop-Sitzungshosts:   
-       - VM: Contoso-Sh1  
+   - RD-Sitzungshost:   
+       - Virtueller Computer: Contoso-Sh1  
        - Verfügbarkeitsgruppe: ShAvSet  
           
-   Jeder virtuelle Computer wird die gleiche Ressourcengruppe verwendet.  
-2. Erstellen Sie ein, und fügen Sie einen Azure-Datenträger für die Benutzer-Profil-Datenträgern (UPD)-Freigabe:  
-   1.  Im Azure-Portal auf **Durchsuchen > Ressourcengruppen**, klicken Sie auf die Ressourcengruppe für die Bereitstellung aus, und klicken Sie dann auf den virtuellen Computer für den Remotedesktop-Verbindungsbroker (z. B. Contoso-Cb1) erstellt.  
-   2.  Klicken Sie auf **Einstellungen > Datenträger > neuen Anfügen**.  
-   3.  Akzeptieren Sie die Standardwerte für Name und Typ.  
-   4.  Geben Sie eine Größe (in GB), die zum Speichern von Netzwerkfreigaben für die Mandanten-Umgebung, einschließlich Benutzerprofil-Datenträger und Zertifikate groß genug ist. Sie können 5 GB pro Benutzer annäherungsweise implementieren, die Sie verwenden möchten  
-   5.  Akzeptieren Sie die Standardwerte für den Speicherort und Host-caching, und klicken Sie dann auf **OK**.  
-3. Erstellen Sie einen Load Balancer für den Zugriff auf die extern-Bereitstellung:
-   1. Im Azure-Portal auf **Durchsuchen > Load Balancer**, und klicken Sie dann auf **hinzufügen**.
-   2. Geben Sie eine **Namen**Option **öffentliche** als die **Typ** der Load Balancer, und wählen Sie das entsprechende **Abonnement**,  **Ressourcengruppe**, und **Speicherort**.
-   3. Wählen Sie **eine öffentliche IP-Adresse**, **neu erstellen**, geben Sie einen Namen ein, und wählen **Ok**.
-   4. Wählen Sie **erstellen** den Load Balancer zu erstellen.
-4. Konfigurieren Sie den externen Lastenausgleich für die Bereitstellung
-   1. Im Azure-Portal auf **Durchsuchen > Ressourcengruppen**, klicken Sie auf die Ressourcengruppe für die Bereitstellung aus, und klicken Sie dann auf den Load Balancer, die Sie für die Bereitstellung erstellt haben.
-   2. Fügen Sie einen Back-End-Adresspool für den Load Balancer den Datenverkehr zu senden:
-       1. Wählen Sie **Back-End-Pool** und **hinzufügen**.
-       2. Geben Sie einen **Namen** , und wählen Sie  **\+ Hinzufügen eines virtuellen Computers**.
-       3. Wählen Sie **verfügbarkeitsgruppe** und **WebGwAvSet**.
-       4. Wählen Sie **VMs**, **Contoso-WebGw1**, **wählen**, **OK**, und **OK**.
-   3. Fügen Sie einen Test hinzu, damit der Load Balancer weiß, welche Computer aktiv sind:
-       1. Wählen Sie **Tests** und **hinzufügen**.
-       2. Geben Sie einen **Namen** (z. B. HTTPS), wählen Sie **TCP**, geben Sie **Port** 443, und wählen **OK**.
-   4. Geben Sie lastenausgleichsregeln, um den eingehenden Datenverkehr zu verteilen:
-      1. Wählen Sie **Lastenausgleichsregeln** und **hinzufügen**
-      2. Geben Sie einen **Namen** (z. B. HTTPS), wählen Sie **TCP**, und 443 für beide die **Port** und **Back-End-Port**.
-          - Lassen Sie für eine Windows 10 und Windows Server 2016-Bereitstellung, **Sitzungspersistenz** als **keine**wählen Sie andernfalls **Client-IP-** .
-      3. Wählen Sie **OK** , die HTTPS-Regel zu akzeptieren.
-      4. Erstellen einer neuen Regel dazu **hinzufügen**.
-      5. Geben Sie einen **Namen** (z. B. UDP), wählen Sie **UDP**, und 3391 für beide die <strong>Port und die ** Back-End-Port</strong>.
-          - Lassen Sie bei einer Bereitstellung von Windows 10 und Windows Server 2016 **Sitzungspersistenz** als **keine**wählen Sie andernfalls **Client-IP-** .
-      6. Wählen Sie **OK** , die UDP-Regel zu akzeptieren.
-   5. Geben Sie eine eingehende NAT-Regel eine direkte Verbindung zum Contoso-WebGw1 herstellen
-       1. Wählen Sie **NAT-Eingangsregeln** und **hinzufügen**.
-       2. Geben Sie einen **Namen** (z. B. RDP-Contoso-WebGw1), wählen Sie **Customm** für den Dienst **TCP** für das Protokoll, und geben Sie 14000 für die **Port**.
-       3. Wählen Sie **wählen Sie einen virtuellen Computer** und Contoso-WebGw1.
-       4. Wählen Sie **benutzerdefinierte** Geben Sie für die portzuordnung 3389 für die **Target Port**, und wählen Sie **OK**.
-5. Geben Sie einen externe URL/DNS-Namen für Ihre Bereitstellung für den externen Zugriff:  
-   1.  Klicken Sie im Azure-Portal auf **Durchsuchen > Ressourcengruppen**, klicken Sie auf die Ressourcengruppe für die Bereitstellung aus, und klicken Sie dann auf die öffentliche IP-Adresse, die Sie für Web Access für Remotedesktop und RD-Gateway erstellt haben.  
-   2.  Klicken Sie auf **Konfiguration**, geben Sie einen DNS-Namen (z. B. an Contoso), und klicken Sie dann auf **speichern**. Diese DNS-namensbezeichnung (contoso.westus.cloudapp.azure.com) ist der DNS-Name, die Sie für die Verbindung mit Ihrem Server Web Access für Remotedesktop und RD-Gateway verwenden.  
+   Jeder virtuelle Computer verwendet die gleiche Ressourcengruppe.  
+2. Erstelle einen Azure-Datenträger für die UPD-Freigabe (User Profile Disk, Benutzerprofil-Datenträger):  
+   1.  Klicke im Azure-Portal auf **Durchsuchen > Ressourcengruppen**, klicke auf die Ressourcengruppe für die Bereitstellung, und klicke anschließend auf den virtuellen Computer, der für den RD-Verbindungsbroker erstellt wurde (Beispiel: Contoso-Cb1).  
+   2.  Klicke auf **Einstellungen > Datenträger > Neuen anfügen**.  
+   3.  Übernimm die Standardwerte für Name und Typ.  
+   4.  Gib eine Größe (in GB) ein, die ausreicht, um Netzwerkfreigaben für die Mandantenumgebung aufzunehmen (einschließlich Benutzerprofil-Datenträger und Zertifikate). Für jeden geplanten Benutzer werden ca. 5 GB benötigt.  
+   5.  Übernimm die Standardwerte für Speicherort und Hostzwischenspeicherung, und klicke auf **OK**.  
+3. Erstelle einen externen Lastenausgleich für den externen Zugriff auf die Bereitstellung:
+   1. Klicke im Azure-Portal auf **Durchsuchen > Lastenausgleichsmodule** und anschließend auf **Hinzufügen**.
+   2. Gib unter **Name** einen Namen ein, wähle unter **Typ** den Lastenausgleichstyp **Öffentlich** aus, und wähle **Abonnement**,  **Ressourcengruppe** und **Standort** aus.
+   3. Wähle **Öffentliche IP-Adresse auswählen** > **Neu erstellen** aus, gib einen Namen ein, und wähle **OK** aus.
+   4. Wähle **Erstellen** aus, um den Lastenausgleich zu erstellen.
+4. Konfigurieren des externen Lastenausgleichs für deine Bereitstellung
+   1. Klicke im Azure-Portal auf **Durchsuchen > Ressourcengruppen**, klicke auf die Ressourcengruppe für die Bereitstellung, und klicke anschließend auf den Lastenausgleich, den du für die Bereitstellung erstellt hast.
+   2. Füge für den Lastenausgleich einen Back-End-Pool hinzu, an den Datenverkehr gesendet werden kann:
+       1. Wähle **Back-End-Pool** > **Hinzufügen** aus.
+       2. Gib unter **Name** einen Namen ein, und wähle **\+ Virtuellen Computer hinzufügen** aus.
+       3. Wähle **Verfügbarkeitsgruppe** > **WebGwAvSet** aus.
+       4. Wähle **Virtuelle Computer** > **Contoso-WebGw1** > **Auswählen** > **OK** > **OK** aus.
+   3. Füge einen Test hinzu, damit der Lastenausgleich weiß, welche Computer aktiv sind:
+       1. Wähle **Tests** > **Hinzufügen** aus.
+       2. Gib unter **Name** einen Namen ein (beispielsweise „HTTPS“), wähle **TCP** aus, gib unter **Port** den Wert „443“ ein, und wähle anschließend **OK** aus.
+   4. Gib Lastenausgleichsregeln für die Verteilung des eingehenden Datenverkehrs ein:
+      1. Wähle **Lastenausgleichsregeln** > **Hinzufügen** aus.
+      2. Gib unter **Name** einen Namen ein (beispielsweise „HTTPS“), wähle **TCP** aus, und gib sowohl für **Port** als auch für **Back-End-Port** den Wert „443“ ein.
+          - Behalte bei einer Windows 10- oder Windows Server 2016-Bereitstellung unter **Sitzungspersistenz** den Wert **Keine** bei, oder wähle andernfalls **Client-IP** aus.
+      3. Wähle **OK** aus, um die HTTPS-Regel zu akzeptieren.
+      4. Wähle **Hinzufügen** aus, um eine neue Regel zu erstellen.
+      5. Gib unter **Name** einen Namen ein (beispielsweise „UDP“), wähle **UDP** aus, und gib sowohl für <strong>Port</strong> als auch für **Back-End-Port** den Wert „3391“ ein.
+          - Behalte bei einer Windows 10- oder Windows Server 2016-Bereitstellung unter **Sitzungspersistenz** den Wert **Keine** bei, oder wähle andernfalls **Client-IP** aus.
+      6. Wähle **OK** aus, um die UDP-Regel zu akzeptieren.
+   5. Gib eine NAT-Regel für eingehenden Datenverkehr ein, um eine direkte Verbindung mit „Contoso-WebGw1“ herzustellen.
+       1. Wähle **NAT-Regeln für eingehenden Datenverkehr** > **Hinzufügen** aus.
+       2. Gib unter **Name** einen Namen ein (beispielsweise „RDP-Contoso-WebGw1“), wähle für den Dienst die Option **Benutzerdefiniert** und für das Protokoll die Option **TCP** aus, und gib für **Port** den Wert „14000“ ein.
+       3. Wähle **Virtuellen Computer auswählen** > „Contoso-WebGw1“ aus.
+       4. Wähle für die Portzuordnung die Option **Benutzerdefiniert** aus, gib für **Zielport** den Wert „3389“ ein, und wähle **OK** aus.
+5. Gib eine externe URL/einen DNS-Namen für deine Bereitstellung ein, um extern darauf zugreifen zu können:  
+   1.  Klicke im Azure-Portal auf **Durchsuchen > Ressourcengruppen**, klicke auf die Ressourcengruppe für die Bereitstellung, und klicke anschließend auf die öffentliche IP-Adresse, die du für Web Access für RD und RD-Gateway erstellt hast.  
+   2.  Klicke auf **Konfiguration**, gib eine DNS-Namensbezeichnung ein (beispielsweise „contoso“), und klicke anschließend auf **Speichern**. Diese DNS-Namensbezeichnung („contoso.westus.cloudapp.azure.com“) ist der DNS-Name, der für die Verbindungsherstellung mit deinem Server für Web Access für RD und RD-Gateway verwendet wird.  
 

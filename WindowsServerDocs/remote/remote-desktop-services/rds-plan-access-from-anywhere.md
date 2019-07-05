@@ -1,6 +1,6 @@
 ---
-title: Remote Desktop Services - Zugriff von überall aus
-description: Informationen zur Planung für eine RD-Gateway
+title: Remotedesktopdienste – ortsunabhängiger Zugriff
+description: Informationen zur Planung für ein RD-Gateway
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,24 +13,24 @@ author: lizap
 ms.author: elizapo
 ms.date: 11/03/2016
 manager: dongill
-ms.openlocfilehash: 2b10428ff90c50c4d7e113552ddda3cca5447b06
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0d3d8ed036b3befd81da6d5bbe8702ee866c6aa8
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845831"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63748823"
 ---
-# <a name="remote-desktop-services---access-from-anywhere"></a>Remote Desktop Services - Zugriff von überall aus
+# <a name="remote-desktop-services---access-from-anywhere"></a>Remotedesktopdienste – ortsunabhängiger Zugriff
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016
 
-Endbenutzer können auf interne Netzwerkressourcen sicher von außerhalb der Unternehmensfirewall über RD-Gateway verbinden.
+Endbenutzer können über RD-Gateway sicher von außerhalb der Unternehmensfirewall eine Verbindung mit internen Netzwerkressourcen herstellen.
 
-Unabhängig davon, wie Sie die Desktops für Ihre Endbenutzer konfigurieren können Sie einfach das RD-Gateway in der Verbindung erforderlichen für eine schnelle, sichere Verbindung anschließen. Für Endbenutzer, die eine Verbindung über veröffentlichte Feeds können Sie die RD-Gateway-Eigenschaft konfigurieren, wie Sie die allgemeine Bereitstellungseigenschaften konfigurieren. Für Endbenutzer das Herstellen einer Verbindung über auf ihre Desktops geladen, ohne einen Feed können sie einfach den Namen des Hinweises mit den RD-Gateways als eine Verbindungseigenschaft hinzufügen, unabhängig davon, welche Remote Desktop-Client-Anwendung, die sie verwenden.
+Unabhängig von der Konfiguration der Desktops für deine Endbenutzer kannst du einfach das RD-Gateway in den Verbindungsflow aufnehmen, um eine schnelle, sichere Verbindung zu ermöglichen. Für Endbenutzer, die eine Verbindung über veröffentlichte Feeds herstellen, kannst du die RD-Gatewayeigenschaft genauso konfigurieren wie die allgemeinen Bereitstellungseigenschaften. Endbenutzer, die ohne Feed eine Verbindung mit ihren Desktops herstellen, können einfach den Namen des RD-Gateways des Unternehmens als Verbindungseigenschaft hinzufügen. Dabei spielt es keine Rolle, welche Remotedesktop-Clientanwendung sie nutzen.
 
-Die drei primären Aufgaben des RD-Gateways, in der Reihenfolge der Verbindungssequenz sind:
-1. **Einrichten einen verschlüsselten SSL-Tunnel zwischen dem End-Gerät des Benutzers und dem RD-Gatewayserver**: Verbindungsherstellung über alle Remotedesktop-Gatewayserver, der RD-Gateway-Server muss ein Zertifikat installiert, die dem End-Gerät des Benutzers erkennt verfügen. In den Tests und Machbarkeitsstudien selbstsignierte Zertifikate können verwendet werden, aber nur öffentlich vertrauenswürdige Zertifikate von einer Zertifizierungsstelle in einer produktionsumgebung verwendet werden soll.
-2. **Authentifizieren des Benutzers in der Umgebung**: Das RD-Gateway verwendet den Posteingang IIS-Dienst-Authentifizierung durchzuführen und können auch das RADIUS-Protokoll nutzen nutzen [Multi-Factor Authentication](rds-plan-mfa.md) Lösungen wie Azure MFA. Abgesehen von der Standard-Richtlinien erstellt haben können Sie erstellen zusätzliche Remotedesktop-Ressourcenautorisierungsrichtlinien (RD-RAPs) und RD-Verbindungsautorisierungsrichtlinien (RD-CAPs) um genauer zu definieren, welche Benutzer Zugriff haben sollen auf welche Ressourcen in die sichere Umgebung.
-3. **Hin und her übertragen von Datenverkehr zwischen dem End-Gerät des Benutzers und die angegebene Ressource**: Das RD-Gateway wird für diese Aufgabe ausgeführt, solange die Verbindung hergestellt wurde fortgesetzt. Sie können verschiedene Timeouteigenschaften angeben, auf den RD-Gateway-Servern, um die Sicherheit der Umgebung zu verwalten, für den Fall, dass der Benutzer außerhalb des Geräts führt.
+Die drei Hauptaufgaben des RD-Gateways (in der Reihenfolge der Verbindungssequenz) lauten wie folgt:
+1. **Einrichten eines verschlüsselten SSL-Tunnels zwischen dem Gerät des Endbenutzers und dem RD-Gatewayserver:** Damit eine Verbindung über einen RD-Gatewayserver hergestellt werden kann, muss auf dem RD-Gatewayserver ein Zertifikat installiert sein, das vom Gerät des Endbenutzers erkannt wird. In Tests und Machbarkeitsstudien können selbstsignierte Zertifikate verwendet werden. In Produktionsumgebungen sollten jedoch nur öffentlich vertrauenswürdige Zertifikate von einer Zertifizierungsstelle zum Einsatz kommen.
+2. **Authentifizieren des Benutzers in der Umgebung:** Das RD-Gateway verwendet den IIS-Posteingangsdienst für die Authentifizierung und kann sogar das RADIUS-Protokoll nutzen, um von Lösungen für die [mehrstufige Authentifizierung](rds-plan-mfa.md) (etwa Azure MFA) zu profitieren. Zusätzlich zu den erstellten Standardrichtlinien kannst du RD-Ressourcenautorisierungsrichtlinien (RD Resource Authorization Policies, RD RAPs) sowie RD-Verbindungsautorisierungsrichtlinien (RD Connection Authorization Policies, RD CAPs) erstellen, um genauer zu definieren, auf welche Ressourcen bestimmte Benutzer in der sicheren Umgebung zugreifen können.
+3. **Hin- und Herübertragen von Datenverkehr zwischen dem Endbenutzergerät und der angegebenen Ressource:** Das RD-Gateway führt diese Aufgabe so lange aus, wie die Verbindung besteht. Du kannst verschiedene Timeouteigenschaften für die RD-Gatewayserver festlegen, um die Sicherheit der Umgebung zu gewährleisten, sollte sich der Benutzer vom Gerät entfernen.
 
-Sie finden weitere Informationen zu der Gesamtarchitektur einer Remote Desktop Services-Bereitstellung [in das desktophosting-Referenzarchitektur](desktop-hosting-reference-architecture.md).
+Weitere Einzelheiten zur gesamten Architektur einer Remotedesktopdienste-Bereitstellung findest du unter [Referenzarchitektur für das Desktophosting](desktop-hosting-reference-architecture.md).
