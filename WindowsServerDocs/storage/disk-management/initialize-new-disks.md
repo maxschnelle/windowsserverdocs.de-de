@@ -1,6 +1,6 @@
 ---
 title: Initialisieren neuer Datenträger
-description: So initialisieren Sie neue Datenträger mit der Datenträgerverwaltung diese Vorbereitung verwendet werden. Enthält auch Links zur Behandlung von Problemen.
+description: Hier erfährst du, wie du neue Datenträger mit der Datenträgerverwaltung initialisierst und damit für die Verwendung vorbereitest. Darüber hinaus findest du hier Links zur Problembehandlung.
 ms.date: 06/07/2019
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -9,45 +9,45 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 7a275c372e1486b26821f797a7663eecbc3e8784
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66812429"
 ---
 # <a name="initialize-new-disks"></a>Initialisieren neuer Datenträger
 
-> **Gilt für:** Windows 10, Windows 8.1, Windows 7, WindowsServer (Halbjährlicher Kanal), WindowsServer 2019, WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012
+> **Gilt für:** Windows 10, Windows 8.1, Windows 7, Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Wenn Sie einen neuen Datenträger auf Ihren PC hinzufügen, und es nicht im Datei-Explorer angezeigt, Sie müssen möglicherweise [Hinzufügen eines Laufwerksbuchstabens](change-a-drive-letter.md), oder initialisieren Sie sie vor der Verwendung. Sie können nur einem Laufwerk initialisieren, die noch nicht formatiert ist. Initialisieren eines Datenträgers Löscht alles, was darauf, und bereitet es für die Verwendung von Windows, nach dem können Sie sie formatieren und dann speichern Dateien vor.
+Wenn du einen ganz neuen Datenträger zu deinem PC hinzufügst und er nicht im Datei-Explorer angezeigt wird, musst du unter Umständen einen [Laufwerkbuchstaben hinzufügen](change-a-drive-letter.md) oder den Datenträger vor der Verwendung initialisieren. Du kannst nur ein noch nicht formatiertes Laufwerk initialisieren. Beim Initialisieren eines Datenträgers werden alle darauf gespeicherten Daten gelöscht, und der Datenträger wird für die Verwendung durch Windows vorbereitet. Anschließend kannst du ihn formatieren und Dateien darauf speichern.
 
 > [!WARNING]
-> Wenn Ihr Datenträger bereits Dateien, die Sie interessiert verfügt, nicht initialisieren Sie es – verlieren Sie alle Dateien. Stattdessen es wird empfohlen, zur Problembehandlung des Datenträgers angezeigt, wenn Sie die Dateien – lesen können, finden Sie unter [der Status eines Datenträgers ist nicht initialisiert oder der Datenträger fehlt vollständig](troubleshooting-disk-management.md#a-disks-status-is-not-initialized-or-the-disk-is-missing).
+> Enthält dein Datenträger bereits wichtige Dateien, solltest du ihn nicht initialisieren. Andernfalls gehen alle Dateien verloren. Stattdessen wird die Ausführung der Problembehandlung für den Datenträger empfohlen, um zu überprüfen, ob die Dateien gelesen werden können. Informationen dazu findest du unter [Ein Datenträger hat den Status „Nicht initialisiert“, oder der Datenträger fehlt.](troubleshooting-disk-management.md#a-disks-status-is-not-initialized-or-the-disk-is-missing).
 
-## <a name="to-initialize-new-disks"></a>So initialisieren Sie neue Datenträger
+## <a name="to-initialize-new-disks"></a>So initialisierst du neue Datenträger
 
-So sieht wie einen neuen Datenträger mit der Datenträgerverwaltung initialisiert. Wenn Sie PowerShell lieber, verwenden Sie die [Initialize-Disk](https://docs.microsoft.com/powershell/module/storage/initialize-disk) Cmdlet stattdessen.
+Hier wird erläutert, wie du einen neuen Datenträger mit der Datenträgerverwaltung initialisierst. Wenn du PowerShell bevorzugst, verwende stattdessen das Cmdlet [initialize-disk](https://docs.microsoft.com/powershell/module/storage/initialize-disk).
 
-1. Öffnen Sie Datenträgerverwaltung mit Administratorberechtigungen aus. 
+1. Öffne die Datenträgerverwaltung mit Administratorberechtigungen. 
  
-    Geben Sie dazu in das Suchfeld auf der Taskleiste **Datenträgerverwaltung**, wählen Sie aus, und halten (oder mit der rechten Maustaste) **Datenträgerverwaltung**, und wählen Sie dann **als Administrator ausführen**  >  **Ja**. Wenn Sie sie als Administrator öffnen können, geben Sie **Computerverwaltung** stattdessen, und navigieren Sie zu **Storage** > **Datenträgerverwaltung**.
-1. In der Datenträgerverwaltung mit der Maustaste des Datenträgers zu initialisieren, und klicken Sie dann auf **Datenträgerinitialisierung** (hier gezeigt). Wenn der Datenträger als aufgeführt wird *Offline*, zuerst mit der rechten Maustaste darauf und wählen **Online**.
+    Gib dazu ins Suchfeld auf der Taskleiste **Datenträgerverwaltung** ein, halte **Datenträgerverwaltung** gedrückt (oder klicke mit der rechten Maustaste darauf), und wähle anschließend **Als Administrator ausführen** > **Ja** aus. Falls das Öffnen als Administrator nicht funktioniert, gib stattdessen **Computerverwaltung** ein, und navigiere anschließend zu **Speicher** > **Datenträgerverwaltung**.
+1. Klicke in der Datenträgerverwaltung mit der rechten Maustaste auf den zu initialisierenden Datenträger, und klicke dann auf **Datenträgerinitialisierung** (siehe Abbildung unten). Wird der Datenträger als *Offline* angezeigt, klicke zunächst mit der rechten Maustaste darauf, und wähle dann **Online** aus.
 
-     Beachten Sie, dass einige USB-Laufwerke haben keine Möglichkeit, das initialisiert wird, werden sie nur die erste formatiert und ein [Laufwerkbuchstaben](change-a-drive-letter.md).
+     Beachte, dass für einige USB-Laufwerke keine Option zum Initialisieren verfügbar ist. Sie werden einfach formatiert und erhalten einen [Laufwerkbuchstaben](change-a-drive-letter.md).
 
-    ![Datenträgerverwaltung, die einen unformatierten Datenträger anzeigt und im Kontextmenü "Datenträger initialisieren" angezeigt](media/uninitialized-disk.PNG)
-2. In der **Datenträgerinitialisierung** Dialogfeld (hier gezeigt), überprüfen, stellen Sie sicher, dass die richtige Datenträger ausgewählt ist, und klicken Sie dann auf **OK** , dem standardpartitionsstil zu akzeptieren. Wenn Sie den Partition Stil ("GPT" oder "MBR") finden Sie unter ändern müssen [zu Partitionstypen - GPT- und MBR](#about-partition-styles---gpt-and-mbr).
+    ![Datenträgerverwaltung mit einem unformatierten Datenträger und dem Kontextmenü „Datenträger initialisieren“](media/uninitialized-disk.PNG)
+2. Vergewissere dich im Dialogfeld **Datenträger initialisieren** (siehe Abbildung unten), dass der richtige Datenträger ausgewählt ist, und klicke dann auf **OK**, um den Standardpartitionsstil zu übernehmen. Informationen zum Ändern des Partitionsstils (GPT oder MBR) findest du unter [Informationen zu Partitionsstilen: GPT und MBR](#about-partition-styles---gpt-and-mbr).
 
-     Kurz ändert sich der Datenträgerstatus **Initializing** und wählen Sie dann die **Online** Status. Wenn aus irgendeinem Grund ein Fehler auftritt initialisieren möchten, finden Sie unter [der Status eines Datenträgers ist nicht initialisiert oder der Datenträger fehlt vollständig](troubleshooting-disk-management.md#a-disks-status-is-not-initialized-or-the-disk-is-missing).
+     Der Datenträgerstatus wird kurzzeitig in **Initialisieren** und dann in **Online** geändert. Tritt bei der Initialisierung ein Fehler auf, findest du unter [Ein Datenträger hat den Status „Nicht initialisiert“, oder der Datenträger fehlt.](troubleshooting-disk-management.md#a-disks-status-is-not-initialized-or-the-disk-is-missing) weitere Informationen.
 
-    ![Das Dialogfeld "Datenträger initialisieren", mit dem GPT-Partitionsstil ausgewählt](media/initialize-disk.PNG)
+    ![Das Dialogfeld „Datenträger initialisieren“ mit ausgewähltem GPT-Partitionsstil](media/initialize-disk.PNG)
 
-## <a name="about-partition-styles---gpt-and-mbr"></a>Informationen zu Partitionstypen - GPT- und MBR
+## <a name="about-partition-styles---gpt-and-mbr"></a>Informationen zu Partitionsstilen: GPT und MBR
 
-Datenträger können in mehrere Blöcke, die Partitionen aufgeteilt werden. Jede Partition - verfügt selbst wenn Sie nur eine jeweils -, haben Sie einen Partitionstyp - GPT "oder" MBR. Windows verwendet den Partitionsstil zu um verstehen, wie die Daten auf dem Datenträger zuzugreifen.
+Datenträger können in mehrere Blöcke, sogenannte Partitionen, unterteilt werden. Auch wenn nur eine Partition vorhanden ist: Für jede Partition muss ein Partitionsstil (GPT oder MBR) festgelegt werden. Windows erkennt anhand des Partitionsstils, wie auf die Daten auf dem Datenträger zugegriffen werden soll.
 
-So faszinierend, wie dies wahrscheinlich nicht, ist das Fazit, dass heutzutage, Sie müssen in der Regel keine Partitionstyp kümmern – Windows automatisch den geeigneten Datenträger-Typ verwendet.
+Letztendlich musst du dir heutzutage in der Regel aber ohnehin keine Gedanken mehr über den Partitionsstil machen, da Windows automatisch den geeigneten Datenträgertyp verwendet.
 
-Die meisten PCs verwenden Sie den Datenträgertyp von GUID-Partitionstabelle (GPT) für Festplatten und SSDs. GPT bietet mehr Stabilität und Volumes größer als 2 TB ermöglicht. Der ältere Master Boot Record (MBR)-Datenträgertyp wird von 32-Bit-PCs, ältere PCs und Wechseldatenträger wie z. B. Speicherkarten verwendet.
+Die meisten PCs verwenden den Datenträgertyp „GPT“ (GUID Partition Table, GUID-Partitionstabelle) für Festplatten und SSDs. GPT bietet mehr Stabilität und ermöglicht die Verwendung von Volumes mit mehr als 2 TB. Der ältere MBR-Datenträgertyp (Master Boot Record) wird von 32-Bit-PCs, älteren PCs und Wechseldatenträgern wie Speicherkarten verwendet.
 
-Um einen Datenträger von MBR zu GPT oder umgekehrt zu konvertieren, müssen Sie zuerst das Löschen aller Volumes vom Datenträger, löschen Alles, was auf dem Datenträger. Weitere Informationen finden Sie unter [ein MBR-Datenträgers in einen GPT-Datenträger konvertieren](change-an-mbr-disk-into-a-gpt-disk.md), oder [einen GPT-Datenträger in einen MBR-Datenträger konvertieren](change-a-gpt-disk-into-an-mbr-disk.md).
+Zum Konvertieren eines Datenträgers von MBR in GPT oder umgekehrt musst du zuerst alle Volumes vom Datenträger und damit alle Daten vom Datenträger löschen. Weitere Informationen findest du unter [Konvertieren eines MBR-Datenträgers in einen GPT-Datenträger](change-an-mbr-disk-into-a-gpt-disk.md) bzw. [Konvertieren eines GPT-Datenträgers in einen MBR-Datenträger](change-a-gpt-disk-into-an-mbr-disk.md).
