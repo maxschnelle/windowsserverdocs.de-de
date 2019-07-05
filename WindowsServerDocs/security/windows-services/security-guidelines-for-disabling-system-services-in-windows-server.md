@@ -1,5 +1,5 @@
 ---
-title: Sicherheitsrichtlinien für die Systemdienste in Windows Server 2016
+title: Sicherheitsrichtlinien für Systemdienste in Windows Server 2016
 description: Sicherheitsrichtlinien für das Deaktivieren von Diensten in Windows Server 2016 mit Desktopdarstellung
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -11,82 +11,82 @@ ms.assetid: b886b2fd-3567-4f0a-8aa3-4ba7923d2d21
 author: nirb
 ms.author: nirb
 ms.openlocfilehash: 1a9496a121fc45df0b788ea56d50db922fd24536
-ms.sourcegitcommit: 0948a1abff1c1be506216eeb51ffc6f752a9fe7e
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66749449"
 ---
-## <a name="guidance-on-disabling-system-services-on-windows-server-2016-with-desktop-experience"></a>Anleitungen zur Deaktivierung von Systemdiensten unter Windows Server 2016 mit Desktopdarstellung
+## <a name="guidance-on-disabling-system-services-on-windows-server-2016-with-desktop-experience"></a>Anleitungen zur Deaktivierung von Systemdiensten unter Windows Server 2016 mit Desktopdarstellung
 
 Gilt für: Windows Server 2016
 
-Das Windows-Betriebssystem enthält viele Systemdienste, die wichtige Funktionen bereitstellen. Dienste weisen verschiedene Start-Standardrichtlinien: Einige sind standardmäßig gestartet (automatisch), einige bei Bedarf (manuell), und einige sind standardmäßig deaktiviert und muss explizit aktiviert werden, bevor sie ausgeführt werden können. Diese Standardwerte wurden sorgfältig ausgewählt, für jeden Dienst, um Leistung, Funktionalität und Sicherheit für die typischen Kunden auszugleichen.
+Das Windows-Betriebssystem enthält viele Systemdienste, mit denen wichtige Funktionen bereitgestellt werden. Die Dienste verfügen über unterschiedliche Standardrichtlinien für den Start: einige werden standardmäßig gestartet (automatisch), einige bei Bedarf (manuell) und einige sind standardmäßig deaktiviert und müssen explizit aktiviert werden, bevor sie ausgeführt werden können. Diese Standardeinstellungen wurden für jeden Dienst sorgfältig gewählt, um für typische Kunden eine gute Abstimmung in Bezug auf Leistung, Funktionalität und Sicherheit zu erzielen.
 
-Allerdings einige Enterprise-Kunden bevorzugt einen Ausgleich mehr sicherheitsorientierte für ihre Windows-PCs und Servern, eine, die ihrer Angriffe reduziert Oberfläche, auf das absolute Minimum und möchten daher alle Dienste vollständig zu deaktivieren, die nicht in ihre spezifischen benötigt werden Umgebungen. Für Kunden stellt Microsoft® bereit, die zugehörige Anweisungen im Hinblick auf die Dienste für diesen Zweck deaktiviert werden können.
+Einige Unternehmenskunden ziehen für ihre Windows-PCs und -Server aber ggf. einen stärker auf Sicherheit ausgerichteten Ansatz vor, bei dem die Angriffsfläche auf das absolute Minimum reduziert ist. Diese Kunden möchten daher alle Dienste vollständig deaktivieren, die in ihren jeweiligen Umgebungen nicht benötigt werden. Für diese Kunden stellt Microsoft® diese Anleitung bereit, die Hinweise dazu enthält, welche Dienste zu diesem Zweck deaktiviert werden können.
 
-Die Anleitung ist nur für Windows Server 2016 mit Desktopdarstellung (es sei denn, die als Ersatz für desktop für Endbenutzer verwendet wird). Ab Windows Server-2019, werden diese Richtlinien standardmäßig konfiguriert. Jeder Dienst im System ist wie folgt kategorisiert:
+Die Anleitung gilt nur für Windows Server 2016 mit Desktopdarstellung (nicht bei Nutzung als Desktopersatz für Endbenutzer). Ab Windows Server 2019 sind diese Richtlinien standardmäßig konfiguriert. Die Dienste des Systems sind jeweils wie folgt kategorisiert:
 
--   **Sollten deaktivieren:** Eine sicherheitsorientierte Unternehmen wird in den meisten Fällen deaktivieren Sie diesen Dienst und seine Funktionalität verzichten möchten (Weitere Informationen siehe unten).
-- **OK, um Sie zu deaktivieren:** Dieser Dienst bietet Funktionen, die hilfreich, einige jedoch nicht alle Unternehmen und sicherheitsorientierte Unternehmen, die sie nicht verwenden, sicher deaktivieren.
-- **Deaktivieren Sie nicht:** Das Deaktivieren dieses Diensts wird die Auswirkungen auf die wesentlichen Funktionen oder verhindern, dass bestimmte Rollen oder Features ordnungsgemäß funktioniert. Es sollte daher nicht deaktiviert werden.
--  **(Keine Anleitung):** Die Auswirkungen der Deaktivierung dieser Dienste wurde nicht vollständig ausgewertet. Aus diesem Grund sollte die Standardkonfiguration dieser Dienste nicht geändert werden.
+-   **Deaktivierung empfohlen**: Für sicherheitsorientierte Unternehmen wird die Deaktivierung dieses Diensts und der Verzicht auf die damit verbundenen Funktionen in den meisten Fällen empfohlen (siehe zusätzliche Details unten).
+- **Deaktivierung OK**: Dieser Dienst verfügt über Funktionen, die für einige Unternehmen nützlich sind. Er kann von sicherheitsorientierten Unternehmen, die ihn nicht nutzen, problemlos deaktiviert werden.
+- **Nicht deaktivieren**: Wenn Dienste dieser Art deaktiviert werden, wirkt sich dies auf grundlegende Funktionen aus, oder es wird verhindert, dass bestimmte Rollen oder Features richtig funktionieren. Daher sollten sie nicht deaktiviert werden.
+-  **Kein Hinweis**: Die Auswirkungen der Deaktivierung dieser Dienste wurden noch nicht vollständig evaluiert. Aus diesem Grund sollte die Standardkonfiguration dieser Dienste nicht geändert werden.
 
 
-Kunden können ihre Windows-PCs und Servern, um die ausgewählten Dienste mithilfe der Vorlage für die Sicherheit in die Gruppenrichtlinien oder PowerShell-Automatisierung deaktivieren konfigurieren. In einigen Fällen enthält die Anleitung spezifische gruppenrichtlinieneinstellungen, die der integritätsdienstfunktionalität direkt als Alternative zum Deaktivieren des Diensts selbst deaktivieren.
+Kunden können ihre Windows-PCs und -Server konfigurieren, um ausgewählte Dienste zu deaktivieren, indem sie die Sicherheitsvorlagen in ihren Gruppenrichtlinien oder die PowerShell-Automatisierung verwenden. In einigen Fällen umfasst die Anleitung bestimmte Gruppenrichtlinieneinstellungen, mit denen die Funktionen des Diensts direkt deaktiviert werden. Dies ist eine Alternative zum Deaktivieren des gesamten Diensts.
 
-Microsoft empfiehlt, dass Kunden die folgenden Dienste und die jeweiligen geplante Aufgaben unter Windows Server 2016 mit Desktopdarstellung deaktivieren:
+Microsoft empfiehlt Kunden die Deaktivierung der folgenden Dienste und der jeweiligen geplanten Aufgaben unter Windows Server 2016 mit Desktopdarstellung:
 
 Dienste: 
-1. Xbox Live Auth Manager
-2. Xbox Live-Spiel speichern
+1. Xbox Live Authentifizierungs-Manager
+2. Xbox Live-Spiele speichern
 
 Geplante Aufgaben: 
 1. \Microsoft\XblGameSave\XblGameSaveTask
 2. \Microsoft\XblGameSave\XblGameSaveTaskLogon
 
-(Sie können auch die Informationen für alle Dienste, die anhand der angefügten Microsoft Excel-Arbeitsblatt in diesem Artikel beschriebene zugreifen: [Anleitungen zur Deaktivierung von Systemdiensten unter WindowsServer 2016 mit Desktopdarstellung](https://msdnshared.blob.core.windows.net/media/2017/05/Service-management-WS2016.xlsx))
+(Du kannst auf die Informationen zu allen Diensten in diesem Artikel auch zugreifen, indem du die angefügte Microsoft Excel-Tabelle anzeigst: [Anleitungen zur Deaktivierung von Systemdiensten unter Windows Server 2016 mit Desktopdarstellung](https://msdnshared.blob.core.windows.net/media/2017/05/Service-management-WS2016.xlsx).)
 
 <br />
 
-### <a name="disabling-services-not-installed-by-default"></a>Deaktivieren von Diensten, die nicht standardmäßig installiert
+### <a name="disabling-services-not-installed-by-default"></a>Deaktivieren von nicht standardmäßig installierten Diensten
 
-Microsoft empfiehlt für die Anwendung von Richtlinien für Dienste deaktivieren, die nicht standardmäßig installiert werden.
--  Der Dienst ist in der Regel erforderlich, wenn das Feature installiert ist. Der Dienst oder das Feature installieren, sind Administratorrechte erforderlich. Lehnen Sie die Installation von Features, nicht der Start des Diensts.
--  Der Microsoft Windows-Dienst blockiert beenden kein Administrator (oder ohne Administratorrechte in einigen Fällen) installieren Sie eine ähnliche Drittanbieter-Entsprechung, vielleicht eine mit der ein höheres Sicherheitsrisiko.
--  Eine Baseline oder einen Vergleichstest, die einen nicht standardmäßigen Windows-Dienst (z. B. W3SVC) deaktiviert werden einige Prüfer die falsche Eindruck entstehen, dass die Technologie (z. B. IIS) grundsätzlich unsicher und nie verwendet werden sollte.
--  Wenn das Feature (und Dienst) nicht installiert ist, fügt diese nur unnötige Bulk, und der Baseline und für die Überprüfung der Arbeit.
-
-<br />
-Für alle Systemdienste, die in diesem Dokument aufgeführten bieten die zwei Tabellen, die führen Sie eine Erläuterung der Spalten und Empfehlungen von Microsoft zum Aktivieren und Deaktivieren der Systemdienste in Windows Server 2016 mit Desktopdarstellung: 
+Microsoft rät von der Anwendung von Richtlinien zum Deaktivieren von Diensten ab, die nicht standardmäßig installiert werden.
+-  Der Dienst wird in der Regel benötigt, wenn das Feature installiert ist. Für das Installieren des Diensts bzw. des Features sind Administratorrechte erforderlich. Lege nicht das Starten des Diensts als unzulässig fest, sondern das Installieren des Features.
+-  Durch das Blockieren des Microsoft Windows-Diensts wird nicht verhindert, dass ein Administrator (oder in einigen Fällen auch andere Benutzer) einen ähnlichen Dienst eines Drittanbieters installiert, der unter Umständen mit einem höheren Sicherheitsrisiko verbunden ist.
+-  Wenn ein nicht zum Standard gehörender Windows-Dienst (z. B. W3SVC) per Baseline oder Benchmark deaktiviert wird, erweckt dies bei einigen Prüfern den Eindruck, als ob die Technologie (z. B. IIS) grundsätzlich unsicher ist und niemals verwendet werden sollte.
+-  Wenn das Feature (und der Dienst) niemals installiert wird, macht dies die Baseline und den Prüfaufwand nur unnötig komplizierter.
 
 <br />
+Die beiden folgenden Tabellen enthalten für alle in diesem Dokument aufgeführten Dienste eine Beschreibung der Spalten und Microsoft-Empfehlungen zum Aktivieren und Deaktivieren von Systemdiensten unter Windows Server 2016 mit Desktopdarstellung: 
 
-### <a name="explanation-of-columns"></a>Erläuterung von Spalten
+<br />
+
+### <a name="explanation-of-columns"></a>Beschreibung der Spalten
 
 | | |
 |---|---|
-|**Dienstbeschreibung**|   Die Beschreibung des Dienstes, von sc.exe Qdescription.|
-|**Name** |Schlüssel der Name des Diensts (intern)|
-|**Installation** |Immer installiert: Dienst wird auf Server Core und Server mit Desktopdarstellung  <br /> Nur mit Desktopdarstellung: Dienst ist unter Windows Server 2016 mit Desktopdarstellung, aber ***nicht*** unter Server Core |
-|**StartType**  |Starttyp des Diensts unter Windows Server 2016|
-|**Empfehlung** |Microsoft-Empfehlung/Tipps zur das Deaktivieren dieses Diensts unter Windows Server 2016 in einer typischen und gut verwalteten Enterprise-Bereitstellung und, in dem der Server nicht als eine durch den Endbenutzer-desktop-Ersatz verwendet wird.|
-|**Kommentare** |Zusätzliche erläuterungen|
+|**Dienstbeschreibung**|   Die Beschreibung des Diensts aus „sc.exe qdescription“.|
+|**Name** |Schlüsselname (interner Name) des Diensts|
+|**Installation** |Immer installiert: Dienst ist für Server Core und Server mit Desktopdarstellung verfügbar  <br /> Nur mit Desktopdarstellung: Dienst ist unter Windows Server 2016 mit Desktopdarstellung verfügbar, aber ***nicht*** für Server Core |
+|**Starttyp**  |Starttyp des Diensts unter Windows Server 2016|
+|**Empfehlung** |Empfehlung/Hinweis von Microsoft zur Deaktivierung dieses Diensts unter Windows Server 2016 bei einer typischen, gut verwalteten Unternehmensbereitstellung, bei der der Server nicht als Desktopersatz für den Endbenutzer verwendet wird.|
+|**Kommentare** |Zusätzliche Beschreibung|
 
 <br />
 
-### <a name="explanation-of-microsoft-recommendations"></a>Erläuterung der Empfehlungen von Microsoft
+### <a name="explanation-of-microsoft-recommendations"></a>Beschreibung von Microsoft-Empfehlungen
 
 | | |
 |---|---|
-|**Deaktivieren Sie nicht** |Dieser Dienst sollte nicht deaktiviert werden|
-|**OK, um deaktivieren**| Dieser Dienst kann deaktiviert werden, wenn die Funktion, die sie unterstützt nicht verwendet wird.|
-|**Wurde bereits deaktiviert.**|  Dieser Dienst ist standardmäßig deaktiviert. keine Notwendigkeit, mit der Richtlinie zu erzwingen.|
-|**Sollte deaktiviert werden** |Dieser Dienst sollte nie auf einem ordnungsgemäß verwalteten Enterprise-System aktiviert werden.|
+|**Nicht deaktivieren** |Dieser Dienst sollte nicht deaktiviert werden.|
+|**Deaktivierung OK**| Dieser Dienst kann deaktiviert werden, wenn das von ihm unterstützte Feature nicht verwendet wird.|
+|**Bereits deaktiviert**|  Dieser Dienst wird standardmäßig deaktiviert. Die Erzwingung per Richtlinie ist nicht erforderlich.|
+|**Deaktivierung empfohlen** |Dieser Dienst sollte auf einem gut verwalteten Unternehmenssystem niemals aktiviert werden.|
 
 <br />
 
-In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der Systemdienste unter Windows Server 2016 mit Desktopdarstellung:
+Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Systemdiensten unter Windows Server 2016 mit Desktopdarstellung:
 
 <br />
 
@@ -94,25 +94,25 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |
 |---|---|
-|   **Dienstbeschreibung** |   User Account Control-Überprüfung für die Installation von ActiveX-Steuerelemente aus dem Internet ermöglicht und Verwaltung von ActiveX-Steuerelement-Installation anhand der Gruppenrichtlinien-Einstellungen. Dieser Dienst wird bedarfsgesteuert gestartet und wenn die Installation von ActiveX-Steuerelemente deaktiviert wird, verhalten sich entsprechend Browser Standardeinstellungen.    |
-|   **Name des Diensts**    |   AxInstSV    |
+|   **Dienstbeschreibung** |   Ermöglicht die Überprüfung der Benutzerkontensteuerung für die Installation von ActiveX-Steuerelementen über das Internet und die Verwaltung der Installation von ActiveX-Steuerelementen basierend auf Gruppenrichtlinieneinstellungen. Dieser Dienst wird bedarfsgesteuert gestartet, und wenn er deaktiviert ist, verhält sich die Installation von ActiveX-Steuerelementen gemäß den Einstellungen des Standardbrowsers.    |
+|   **Dienstname**    |   AxInstSV    |
 |   **Installation**    |   Nur mit Desktopdarstellung    |
-|   **StartType**   |   Manuell  |
-|   **Empfehlung**  |   OK, um deaktivieren   |
-|   **Kommentare**    |   OK, deaktivieren, wenn die Funktion nicht erforderlich |
+|   **Starttyp**   |   Manual  |
+|   **Empfehlung**  |   Deaktivierung OK   |
+|   **Kommentare**    |   Die Deaktivierung ist in Ordnung, wenn das Feature nicht benötigt wird. |
 
 
 <br />
 
-## <a name="alljoyn-router-service"></a>AllJoyn Router Service   
+## <a name="alljoyn-router-service"></a>AllJoyn-Routerdienst   
 
 | | |
 |---|---|
-|   **Dienstbeschreibung** |   Dass AllJoyn-Nachrichten weiterleitet für die lokalen AllJoyn-Clients. Wenn dieser Dienst beendet wird werden die AllJoyn-Clients, die keine eigene gebündelte Router kann nicht ausgeführt werden. |
-|   **Name des Diensts**    |   AJRouter    |
+|   **Dienstbeschreibung** |   Leitet AllJoyn-Mitteilungen für die lokalen AllJoyn-Clients um. Wenn dieser Dienst angehalten wird, können die AllJoyn-Clients, die nicht über eigene gebündelte Router verfügen, nicht ausgeführt werden. |
+|   **Dienstname**    |   AJRouter    |
 |   **Installation**    |   Nur mit Desktopdarstellung    |
-|   **StartType**   |   Manuell  |
-|   **Empfehlung**  | Keine allgemeinen Vorgaben       |
+|   **Starttyp**   |   Manual  |
+|   **Empfehlung**  | Kein Hinweis       |
 |   **Kommentare**    |       |
 | | |
 
@@ -122,11 +122,11 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |
 |---|---|
-**Dienstbeschreibung** |   Ruft die apps zur Verwendung beim erstmaligen eines Benutzers anmelden auf diesen PC und beim Hinzufügen neuer apps bereit.
-**Name des Diensts**    |   AppReadiness
+**Dienstbeschreibung** |   Bereitet Apps für die Nutzung vor, wenn sich ein Benutzer zum ersten Mal am PC anmeldet und neue Apps hinzugefügt werden.
+**Dienstname**    |   AppReadiness
 **Installation**    |   Nur mit Desktopdarstellung
-**StartType**   |   Manuell
-**Empfehlung**  |   Deaktivieren Sie nicht
+**Starttyp**   |   Manual
+**Empfehlung**  |   Nicht deaktivieren
 **Kommentare**    |   
 | | |
 
@@ -136,11 +136,11 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |       
 |---|---|   
-**Dienstbeschreibung** |   Bestimmt, und überprüft die Identität einer Anwendung. Das Deaktivieren dieses Diensts wird verhindert, dass AppLocker erzwungen wird.
-**Name des Diensts**    |   AppIDSvc
+**Dienstbeschreibung** |   Ermittelt und überprüft die Identität einer Anwendung. Wenn dieser Dienst deaktiviert wird, kann AppLocker nicht erzwungen werden.
+**Dienstname**    |   AppIDSvc
 **Installation**    |   Immer installiert
-**StartType**   |   Manuell
-**Empfehlung**  |Keine allgemeinen Vorgaben    
+**Starttyp**   |   Manual
+**Empfehlung**  |Kein Hinweis    
 **Kommentare**    |   
 |||     
 
@@ -150,12 +150,12 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |       
 |---|---|   
-|   **Dienstbeschreibung** |   Ermöglicht das Ausführen von interaktiven Anwendungen mit zusätzlichen administrativen Berechtigungen.  Wenn dieser Dienst beendet wird, können Benutzer keine Anwendungen mit den zusätzlichen administrativen Berechtigungen starten, auf die gewünschten Benutzer Aufgaben erforderlich sind.
-|   **Name des Diensts**    |   Appinfo
+|   **Dienstbeschreibung** |   Ermöglicht das Ausführen von interaktiven Anwendungen mit zusätzlichen Administratorrechten.  Wenn dieser Dienst beendet wird, können Benutzer keine Anwendungen mit den zusätzlichen Administratorrechten mehr starten, die sie für bestimmte Benutzeraufgaben unter Umständen benötigen.
+|   **Dienstname**    |   Appinfo
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
-|   **Kommentare**    |   Unterstützt die gleichen Desktop UAC-rechteerweiterung
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
+|   **Kommentare**    |   Unterstützt die Rechteerweiterung für die Benutzerkontensteuerung auf demselben Desktop
 |||     
 
 <br />
@@ -164,11 +164,11 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|           
-|   **Dienstbeschreibung** |   Bietet Unterstützung für Protokoll von Drittanbieter-Plug-ins für die gemeinsame Nutzung der Internetverbindung
-|   **Name des Diensts**    |   ALG
+|   **Dienstbeschreibung** |   Stellt Unterstützung für Drittanbieterprotokoll-Plug-Ins für die gemeinsame Nutzung der Internetverbindung bereit.
+|   **Dienstname**    |   ALG
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |Keine allgemeinen Vorgaben    
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |Kein Hinweis    
 |   **Kommentare**    |   
 |||     
 
@@ -178,11 +178,11 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Verarbeitet die Installation sowie die Entfernung und Enumeration Anforderungen für Software, die über Gruppenrichtlinien bereitgestellt. Wenn der Dienst deaktiviert ist, werden Benutzer nicht installieren, entfernen oder Auflisten von Software, die über Gruppenrichtlinien bereitgestellt. Wenn dieser Dienst deaktiviert ist, werden alle Dienste, die explizit davon abhängig sind möglicherweise nicht gestartet werden.
-|   **Name des Diensts**    |   AppMgmt
+|   **Dienstbeschreibung** |   Verarbeitet Installations-, Entfernungs und Enumerationsanforderungen für Software, die über die Gruppenrichtlinie bereitgestellt wird. Wenn der Dienst deaktiviert wird, können Benutzer keine Software mehr installieren, entfernen oder enumerieren, die per Gruppenrichtlinie bereitgestellt wird. Wenn dieser Dienst deaktiviert ist, können alle Dienste, die explizit davon abhängen, nicht gestartet werden.
+|   **Dienstname**    |   AppMgmt
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
@@ -192,25 +192,25 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|
-|   **Dienstbeschreibung** |   Bietet infrastrukturunterstützung für die Bereitstellung von Store-Anwendungen. Dieser Dienst bedarfsgesteuert gestartet wurde und deaktivierte Store-Anwendungen nicht für das System bereitgestellt werden werden und möglicherweise nicht funktionieren ordnungsgemäß.
-|   **Name des Diensts**    |   AppXSvc
+|   **Dienstbeschreibung** |   Stellt Infrastrukturunterstützung für die Bereitstellung von Store-Anwendungen bereit. Dieser Dienst wird bedarfsgesteuert gestartet. Wenn er deaktiviert wird, werden Store-Anwendungen nicht für das System bereitgestellt und funktionieren ggf. nicht richtig.
+|   **Dienstname**    |   AppXSvc
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-## <a name="auto-time-zone-updater"></a>Automatische Zeitzone Updater           
+## <a name="auto-time-zone-updater"></a>Automatische Zeitzonenaktualisierung           
 
 | | |           
 |---|---|           
 |   **Dienstbeschreibung** |   Legt die Zeitzone des Systems automatisch fest.
-|   **Name des Diensts**    |   tzautoupdate
+|   **Dienstname**    |   tzautoupdate
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Disabled
-|   **Empfehlung**  |   Wurde bereits deaktiviert.
+|   **Starttyp**   |   Deaktiviert
+|   **Empfehlung**  |   Bereits deaktiviert
 |   **Kommentare**    |   
 |||         
 
@@ -220,55 +220,55 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Überträgt Dateien im Hintergrund im Leerlauf befindliche Netzwerkbandbreite. Wenn der Dienst deaktiviert ist, klicken Sie dann werden alle Anwendungen, die von BITS, beispielsweise Windows Update oder MSN Explorer abhängen kann nicht automatisch heruntergeladen werden Programme und andere Informationen.
-|   **Name des Diensts**    |   BITS
+|   **Dienstbeschreibung** |   Überträgt Dateien im Hintergrund, indem ungenutzte Netzwerkbandbreite verwendet wird. Wenn der Dienst deaktiviert wird, können alle Anwendungen, die von BITS abhängig sind, z. B. Windows Update oder MSN Explorer, Programme und andere Informationen nicht automatisch herunterladen.
+|   **Dienstname**    |   BITS
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
 
-## <a name="background-tasks-infrastructure-service"></a>Infrastruktur von Hintergrunddienst-Aufgaben      
+## <a name="background-tasks-infrastructure-service"></a>Infrastrukturdienst für Hintergrundaufgaben      
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Windows-Infrastruktur-Dienst, der steuert, welche Aufgaben im Hintergrund kann auf dem System ausgeführt.
-|   **Name des Diensts**    |   BrokerInfrastructure
+|   **Dienstbeschreibung** |   Windows-Infrastrukturdienst, mit dem gesteuert wird, welche Hintergrundaufgaben auf dem System ausgeführt werden können.
+|   **Dienstname**    |   BrokerInfrastructure
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Automatic
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-## <a name="base-filtering-engine"></a>Basis-Engine-Filterung            
+## <a name="base-filtering-engine"></a>Basisfiltermodul            
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Die Base Filtering Engine (BFE) ist ein Dienst, der verwaltet die Firewall und Richtlinien für Internet Protocol Security (IPsec) und Benutzer Modus Filtern implementiert. Der BFE-Dienst anhalten oder deaktivieren reduziert der Sicherheit des Systems. Dies führt auch zu einem unvorhersehbaren Verhalten in IPSec-Management und Firewall-Anwendungen.
-|   **Name des Diensts**    |   BFE
+|   **Dienstbeschreibung** |   Das Basisfiltermodul (Base Filtering Engine, BFE) ist ein Dienst, mit dem Firewall- und IPsec-Richtlinien (Internetprotokollsicherheit) verwaltet werden und die Benutzermodusfilterung implementiert wird. Wenn der BFE-Dienst beendet oder deaktiviert wird, bedeutet dies eine erhebliche Reduzierung der Systemsicherheit. Darüber hinaus führt dies zu unvorhersehbarem Verhalten von IPsec-Verwaltungs- und Firewallanwendungen.
+|   **Dienstname**    |   BFE
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Automatic
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-## <a name="bluetooth-support-service"></a>Unterstützung für Bluetooth-Dienst            
+## <a name="bluetooth-support-service"></a>Bluetooth-Unterstützungsdienst            
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Der Bluetooth-Dienst unterstützt die Erkennung und Zuordnung von externen Bluetooth-Geräten.  Beenden oder das Deaktivieren dieses Diensts möglicherweise bereits installierte Bluetooth-Geräten nicht ordnungsgemäß ausgeführt werden und verhindern, dass neue Geräte erkannt oder verknüpft ist.
-|   **Name des Diensts**    |   bthserv
+|   **Dienstbeschreibung** |   Der Bluetooth-Dienst unterstützt die Ermittlung und Zuordnung von externen Bluetooth-Geräten.  Das Beenden oder Deaktivieren dieses Diensts kann dazu führen, dass bereits installierte Bluetooth-Geräte nicht mehr richtig funktionieren und verhindert wird, dass neue Geräte ermittelt oder zugeordnet werden können.
+|   **Dienstname**    |   bthserv
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   OK, um deaktivieren
-|   **Kommentare**    |   OK, deaktivieren, wenn Sie nicht verwendet. Einen anderen Mechanismus für das deaktivieren: https://technet.microsoft.com/library/dd252791.aspx
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Deaktivierung OK
+|   **Kommentare**    |   Die Deaktivierung ist in Ordnung, wenn der Dienst nicht verwendet wird. Ein weiterer Mechanismus für die Deaktivierung: https://technet.microsoft.com/library/dd252791.aspx
 |||         
 
 <br />          
@@ -278,54 +278,54 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Dieser Benutzerdienst wird für Connected Devices Platform-Szenarien verwendet werden.
-|   **Name des Diensts**    |   CDPUserSvc
+|   **Dienstbeschreibung** |   Dieser Benutzerdienst wird für Szenarien mit der Plattform für verbundene Geräte verwendet.
+|   **Dienstname**    |   CDPUserSvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Automatic
-|   **Empfehlung**  |   OK, um deaktivieren
-|   **Kommentare**    |   Vorlage "Benutzer"-Dienst
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  |   Deaktivierung OK
+|   **Kommentare**    |   Benutzerdienstvorlage
 |||         
 
 <br />          
 
 
-##  <a name="certificate-propagation"></a>Zertifikat-Verteilung     
+##  <a name="certificate-propagation"></a>Zertifikatverteilung     
 
 | | |           
 |---|---|
-|   **Dienstbeschreibung** |   Benutzerzertifikate und Stammzertifikate von Smartcards in Zertifikatspeicher des aktuellen Benutzers kopiert, erkennt, wenn eine Smartcard in einen Smartcardleser eingelegt wird, und bei Bedarf, die Smartcard-Minitreiber Plug & Play installiert.
-|   **Name des Diensts**    |   CertPropSvc
+|   **Dienstbeschreibung** |   Kopiert Benutzer- und Stammzertifikate von Smartcards in den Zertifikatspeicher des aktuellen Benutzers, erkennt das Einlegen einer Smartcard in einen Smartcardleser und installiert bei Bedarf den zugehörigen Plug & Play-Minitreiber.
+|   **Dienstname**    |   CertPropSvc
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-##  <a name="client-license-service-clipsvc"></a>Client-Lizenzdienst (ClipSVC)        
+##  <a name="client-license-service-clipsvc"></a>Clientlizenzdienst (ClipSVC)        
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Bietet infrastrukturunterstützung für den Microsoft Store an. Dieser Dienst wird bedarfsgesteuert gestartet und wenn deaktivierte Anwendungen gekauft mithilfe von Microsoft Store wird nicht mehr ordnungsgemäß funktionieren.
-|   **Name des Diensts**    |   ClipSVC
+|   **Dienstbeschreibung** |   Stellt Infrastrukturunterstützung für den Microsoft Store bereit. Dieser Dienst wird bedarfsgesteuert gestartet, und wenn er deaktiviert wird, verhalten sich über den Microsoft Store gekaufte Anwendungen nicht korrekt.
+|   **Dienstname**    |   ClipSVC
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-## <a name="cng-key-isolation"></a>CNG-Schlüssel-Isolation
+## <a name="cng-key-isolation"></a>CNG-Schlüsselisolation
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Die CNG-Schlüsselisolationsdienst wird im LSA-Prozess gehostet. Der Dienst bietet schlüsseländerung Isolierung zur Einschränkung des privaten Schlüssel und die zugehörigen kryptografische Vorgänge wie die Common Criteria erforderlich. Der Dienst speichert und langlebige Schlüssel in ein sicheres Verfahren, die Einhaltung der Common Criteria-Anforderungen verwendet.
-|   **Name des Diensts**    |   KeyIso
+|   **Dienstbeschreibung** |   Der CNG-Schlüsselisolationsdienst wird im LSA-Prozess gehostet. Der Dienst stellt eine Schlüsselprozessisolation für private Schlüssel und zugehörige Kryptografievorgänge gemäß den Anforderungen der allgemeinen Kriterien bereit. Der Dienst speichert und verwendet langlebige Schlüssel in einem sicheren Prozess in Übereinstimmung mit den Anforderungen der allgemeinen Kriterien.
+|   **Dienstname**    |   KeyIso
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
@@ -335,82 +335,82 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Unterstützt System Event Notification Service (SENS), die automatische Verteilung von Ereignissen zum Abonnieren von Component Object Model (COM) Komponenten bereitstellt. Wenn der Dienst beendet wird, wird SENS geschlossen, und ist nicht möglich, an- und Abmeldung Benachrichtigungen bereitzustellen. Wenn dieser Dienst deaktiviert ist, werden alle Dienste, die explizit davon abhängig sind möglicherweise nicht gestartet werden.
-|   **Name des Diensts**    |   EventSystem
+|   **Dienstbeschreibung** |   Unterstützt den Systemereignis-Benachrichtigungsdienst (SENS), mit dem Ereignisse automatisch an abonnierende COM-Komponenten verteilt werden. Nach dem Beenden des Diensts wird SENS geschlossen, so dass keine weiteren Anmelde- und Abmeldebenachrichtigungen bereitgestellt werden können. Wenn dieser Dienst deaktiviert ist, können alle Dienste, die explizit davon abhängen, nicht gestartet werden.
+|   **Dienstname**    |   EventSystem
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Automatic
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-##  <a name="com-system-application"></a>COM+-Anwendung     
+##  <a name="com-system-application"></a>COM+-Systemanwendung     
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Verwaltet die Konfiguration und Überwachung von Component Object Model (COM)-basierten Komponenten. Wenn der Dienst wird beendet, die meisten COM+-basierte Komponenten nicht ordnungsgemäß. Wenn dieser Dienst deaktiviert ist, werden alle Dienste, die explizit davon abhängig sind möglicherweise nicht gestartet werden.
-|   **Name des Diensts**    |   COMSysApp
+|   **Dienstbeschreibung** |   Verwaltet die Komponentenkonfiguration und -überwachung von COM+-basierten Komponenten. Nach dem Beenden des Diensts sind die meisten COM+-basierten Komponenten nicht ordnungsgemäß funktionsfähig. Wenn dieser Dienst deaktiviert ist, können alle Dienste, die explizit davon abhängen, nicht gestartet werden.
+|   **Dienstname**    |   COMSysApp
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-##  <a name="computer-browser"></a>Computer-Browser        
+##  <a name="computer-browser"></a>Computerbrowser        
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Enthält eine aktualisierte Liste der Computer im Netzwerk, und sendet diese Liste auf Computern, die als Browser. Wenn dieser Dienst beendet wird, wird diese Liste nicht aktualisiert oder verwaltet werden. Wenn dieser Dienst deaktiviert ist, werden alle Dienste, die explizit davon abhängig sind möglicherweise nicht gestartet werden.
-|   **Name des Diensts**    |   Browser
+|   **Dienstbeschreibung** |   Führt eine aktuelle Liste der Computer im Netzwerk und gibt diese an als Browser fungierende Computer weiter. Diese Liste wird nicht aktualisiert oder gewartet, falls der Dienst beendet wird. Wenn dieser Dienst deaktiviert ist, können alle Dienste, die explizit davon abhängen, nicht gestartet werden.
+|   **Dienstname**    |   Browser
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Disabled
-|   **Empfehlung**  |   Wurde bereits deaktiviert.
+|   **Starttyp**   |   Deaktiviert
+|   **Empfehlung**  |   Bereits deaktiviert
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-## <a name="connected-devices-platform-service"></a>Plattform-Dienst für verbundene Geräte       
+## <a name="connected-devices-platform-service"></a>Plattformdienst für verbundene Geräte       
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Dieser Dienst wird für Szenarien mit verbundenen Geräten und universelle Glass verwendet.
-|   **Name des Diensts**    |   CDPSvc
+|   **Dienstbeschreibung** |   Dieser Dienst wird für verbundene Geräte und Universal Glass-Szenarien verwendet.
+|   **Dienstname**    |   CDPSvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Automatic
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-## <a name="connected-user-experiences-and-telemetry"></a>Verbundene Benutzererfahrung und Telemetrie     
+## <a name="connected-user-experiences-and-telemetry"></a>Benutzererfahrung und Telemetrie im verbundenen Modus     
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Der verbundene Benutzererfahrung und Telemetrie-Dienst ermöglicht Funktionen, die in der Anwendung verbundenen Benutzerfunktionalität zu unterstützen. Dieser Dienst darüber hinaus verwaltet, die das ereignisgesteuerte Sammlung und Übermittlung von Diagnose- und Nutzungsdaten Informationen (zur Verbesserung der benutzerfreundlichkeit und Qualität der Windows-Plattform) bei der Diagnose und Nutzung von datenschutzeinstellungen für Option unter aktiviert sind Feedback und Diagnose.
-|   **Name des Diensts**    |   DiagTrack
+|   **Dienstbeschreibung** |   Durch den Dienst für Benutzererfahrung und Telemetrie im verbundenen Modus werden Features aktiviert, die Benutzerfreundlichkeit in Anwendungen und im verbundenen Modus unterstützen. Außerdem verwaltet dieser Dienst die ereignisgesteuerte Sammlung und Übertragung von Diagnose- und Nutzungsdaten (die zur Verbesserung der Benutzerfreundlichkeit und Qualität der Windows-Plattform eingesetzt werden). Dazu müssen die Diagnose- und Nutzungseinstellungen in der Datenschutzoption unter „Feedback und Diagnose“ aktiviert sein.
+|   **Dienstname**    |   DiagTrack
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Automatic
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-##  <a name="contact-data"></a>Wenden Sie sich an Daten        
+##  <a name="contact-data"></a>Kontaktdaten        
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Indizes erhalten Sie Daten schnell Kontakt suchen. Wenn Sie beenden oder deaktivieren Sie diesen Dienst, aus den Suchergebnissen fehlen möglicherweise Kontakte.
-|   **Name des Diensts**    |   PimIndexMaintenanceSvc
+|   **Dienstbeschreibung** |   Indiziert Kontaktdaten für die schnelle Kontaktsuche. Wenn du diesen Dienst beendest oder deaktivierst, können Kontakte in den Suchergebnissen fehlen.
+|   **Dienstname**    |   PimIndexMaintenanceSvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   OK, um deaktivieren
-|   **Kommentare**    |   Vorlage "Benutzer"-Dienst
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Deaktivierung OK
+|   **Kommentare**    |   Benutzerdienstvorlage
 |||         
 
 <br />          
@@ -419,11 +419,11 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|           
-|   **Dienstbeschreibung** |   Verwaltet die Kommunikation zwischen Komponenten des Informationssystems.
-|   **Name des Diensts**    |   CoreMessagingRegistrar
+|   **Dienstbeschreibung** |   Verwaltet die Kommunikation zwischen Systemkomponenten.
+|   **Dienstname**    |   CoreMessagingRegistrar
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Automatic
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
@@ -433,39 +433,39 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Stellt sicher speichern und Abrufen von Anmeldeinformationen für Benutzer, Anwendungen und Sicherheitspakete der Dienst bereit.
-|   **Name des Diensts**    |   VaultSvc
+|   **Dienstbeschreibung** |   Ermöglicht die sichere Speicherung und den Abruf von Anmeldeinformationen für Benutzer, Anwendungen und Sicherheitspakete.
+|   **Dienstname**    |   VaultSvc
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-## <a name="cryptographic-services"></a>Kryptografische Dienste           
+## <a name="cryptographic-services"></a>Kryptografiedienste           
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Stellt drei Management-Dienste bereit: Katalogsichten von Datenbank-Dienst, der bestätigt der Signatures von Windows-Dateien, und neue Programme installiert werden können; Root-Dienst, der hinzugefügt und entfernt Zertifikate für vertrauenswürdige Stammzertifikate von Zertifizierungsstellen auf diesem Computer wird geschützt. und automatische Root Certificate Updatedienst, der Stammzertifikate von Windows-Update abgerufen, und ermöglichen Szenarien wie SSL. Wenn dieser Dienst beendet wird, werden diese Management-Dienste möglicherweise nicht ordnungsgemäß. Wenn dieser Dienst deaktiviert ist, werden alle Dienste, die explizit davon abhängig sind möglicherweise nicht gestartet werden.
-|   **Name des Diensts**    |   CryptSvc
+|   **Dienstbeschreibung** |   Stellt drei Verwaltungsdienste bereit: den Katalogdatenbankendienst, der die Signaturen von Windows-Dateien bestätigt und die Installation neuer Programme ermöglicht, den geschützten Stammdienst, der diesem Computer vertrauenswürdige Zertifikate von Stammzertifizierungsstellen hinzufügt und diese vom Computer entfernt, und den automatischen Aktualisierungsdienst für die Stammzertifizierung, der Stammzertifikate vom Windows Update abruft und Szenarien wie SSL aktiviert. Wird dieser Dienst beendet, funktionieren diese Verwaltungsdienste nicht ordnungsgemäß. Wenn dieser Dienst deaktiviert ist, können alle Dienste, die explizit davon abhängen, nicht gestartet werden.
+|   **Dienstname**    |   CryptSvc
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Automatic
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-## <a name="data-sharing-service"></a>Datendienst-Freigabe         
+## <a name="data-sharing-service"></a>Datenfreigabedienst         
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Stellt Daten Vermittlung zwischen Anwendungen.
-|   **Name des Diensts**    |   DsSvc
+|   **Dienstbeschreibung** |   Dient als Datenbroker zwischen Anwendungen.
+|   **Dienstname**    |   DsSvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
@@ -475,25 +475,25 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Der DCP (Datensammlung und das Veröffentlichen)-Dienst unterstützt die Erstanbieter-apps zum Hochladen von Daten in die cloud.
-|   **Name des Diensts**    |   DcpSvc
+|   **Dienstbeschreibung** |   Der Dienst für die Erfassung und Veröffentlichung von Daten (Data Collection and Publishing, DCP) unterstützt Erstanbieter-Apps zum Hochladen von Daten in die Cloud.
+|   **Dienstname**    |   DcpSvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-## <a name="dcom-server-process-launcher"></a>DCOM-Prozess-Startprogramm         
+## <a name="dcom-server-process-launcher"></a>DCOM-Server-Prozessstart         
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Der DCOMLAUNCH-Dienst wird gestartet, COM- und DCOM-Server als Antwort auf aktivierungsanforderungen Objekt. Wenn dieser Dienst beendet oder deaktiviert ist, werden mithilfe von COM, oder DCOM Programme nicht ordnungsgemäß. Es wird dringend empfohlen, dass der DCOMLAUNCH-Dienst ausgeführt werden.
-|   **Name des Diensts**    |   DcomLaunch
+|   **Dienstbeschreibung** |   Der Dienst DCOMLAUNCH startet COM- und DCOM-Server als Reaktion auf Objektaktivierungsanforderungen. Wenn dieser Dienst beendet oder deaktiviert wird, funktionieren Programme, für die COM oder DCOM genutzt wird, nicht richtig. Wir empfehlen dir dringend, den Dienst DCOMLAUNCH auszuführen.
+|   **Dienstname**    |   DcomLaunch
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Automatic
-|   **Empfehlung**  |Keine allgemeinen Vorgaben    
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  |Kein Hinweis    
 |   **Kommentare**    |   
 |||         
 
@@ -503,67 +503,67 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Aktiviert die Kopplung zwischen dem System und verkabelten oder drahtlosen Geräte.
-|   **Name des Diensts**    |   DeviceAssociationService
+|   **Dienstbeschreibung** |   Ermöglicht die Kopplung zwischen dem System und verkabelten Geräten oder Drahtlosgeräten.
+|   **Dienstname**    |   DeviceAssociationService
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />
 
-##  <a name="device-install-service"></a>Gerät installieren von Service
+##  <a name="device-install-service"></a>Geräteinstallationsdienst
 
 | | |
 |---|---|
-|   **Dienstbeschreibung** |   Ermöglicht es einem Computer zu erkennen und übernehmen auf hardwareänderungen, mit nur wenig oder keine Benutzereingaben aus. Beenden oder das Deaktivieren dieses Diensts führt zur Instabilität des Systems.
-|   **Name des Diensts**    |   DeviceInstall
+|   **Dienstbeschreibung** |   Ermöglicht einem Computer die Erkennung und Anpassung an Hardwareänderungen mit nur wenigen oder ganz ohne Benutzereingaben. Das Beenden oder Deaktivieren dieses Diensts führt zu Instabilität des Systems.
+|   **Dienstname**    |   DeviceInstall
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis
 |   **Kommentare**    |
 |||
 
 <br />          
 
-##  <a name="device-management-enrollment-service"></a>Registrierungsdienst für Netzwerkgeräte Management        
+##  <a name="device-management-enrollment-service"></a>Registrierungsdienst für die Geräteverwaltung        
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Führt Aktivitäten der Registrierung für die Geräteverwaltung
-|   **Name des Diensts**    |   DmEnrollmentSvc
+|   **Dienstbeschreibung** |   Führt Aktivitäten der Geräteregistrierung für die Geräteverwaltung durch.
+|   **Dienstname**    |   DmEnrollmentSvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-## <a name="device-setup-manager"></a>Setup-Geräte-Manager         
+## <a name="device-setup-manager"></a>Geräteinstallations-Manager         
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Ermöglicht die Erkennung, Download und Installation von Software im Zusammenhang mit dem Gerät. Wenn dieser Dienst deaktiviert ist, werden Geräte mit veralteter Software konfiguriert werden können, und möglicherweise nicht ordnungsgemäß ausgeführt.
-|   **Name des Diensts**    |   DsmSvc
+|   **Dienstbeschreibung** |   Ermöglicht die Erkennung, den Download und die Installation von gerätebezogener Software. Wenn dieser Dienst deaktiviert wird, werden die Geräte ggf. mit veralteter Software konfiguriert und funktionieren unter Umständen nicht richtig.
+|   **Dienstname**    |   DsmSvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-## <a name="devquery-background-discovery-broker"></a>Die Ermittlung Broker DevQuery-Hintergrund         
+## <a name="devquery-background-discovery-broker"></a>Broker für DevQuery-Hintergrundermittlung         
 
 | | |           
 |---|---|           
-|   **Dienstbeschreibung** |   Ermöglicht apps, Geräte mit einem Task Rasterlinie ermitteln
-|   **Name des Diensts**    |   DevQueryBroker
+|   **Dienstbeschreibung** |   Ermöglicht Apps die Ermittlung von Geräten per Hintergrundaufgabe.
+|   **Dienstname**    |   DevQueryBroker
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
@@ -573,67 +573,67 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Registriert und aktualisiert IP-Adressen und DNS-Einträge für diesen Computer. Wenn dieser Dienst beendet wird, erhalten diese Computer keine dynamische IP-Adressen und DNS-Updates. Wenn dieser Dienst deaktiviert ist, werden alle Dienste, die explizit davon abhängig sind möglicherweise nicht gestartet werden.
-|   **Name des Diensts**    |   Dhcp
+|   **Dienstbeschreibung** |   Registriert und aktualisiert IP-Adressen und DNS-Einträge für diesen Computer. Wenn dieser Dienst beendet wird, empfängt der Computer keine dynamischen IP-Adressen und DNS-Updates mehr. Wenn dieser Dienst deaktiviert ist, können alle Dienste, die explizit davon abhängen, nicht gestartet werden.
+|   **Dienstname**    |   Dhcp
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Automatic
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-## <a name="diagnostic-policy-service"></a>Diagnostic Policy-Dienst            
+## <a name="diagnostic-policy-service"></a>Diagnoserichtliniendienst            
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Den Diagnoserichtliniendienst ermöglicht problemerkennung, Problembehandlung und Lösung für das Windows-Komponenten.  Wenn dieser Dienst beendet wird, wird die Diagnose nicht mehr funktionieren.
-|   **Name des Diensts**    |   DPS
+|   **Dienstbeschreibung** |   Der Diagnoserichtliniendienst ermöglicht die Problemerkennung, Problembehandlung und Lösung für Windows-Komponenten.  Wenn dieser Dienst beendet wird, funktioniert die Diagnose nicht mehr.
+|   **Dienstname**    |   DPS
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Automatic
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-##  <a name="diagnostic-service-host"></a>Diagnose-Diensthost     
+##  <a name="diagnostic-service-host"></a>Diagnosediensthost     
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Die Diagnose-Diensthost wird von den Diagnoserichtliniendienst für die Host-Diagnose verwendet, die in einem Kontext lokaler Dienst ausgeführt werden müssen.  Wenn dieser Dienst beendet wird, werden Diagnoseinformationen, die davon abhängen, nicht mehr funktionieren.
-|   **Name des Diensts**    |   WdiServiceHost
+|   **Dienstbeschreibung** |   Der Diagnosediensthost wird vom Diagnoserichtliniendienst als Host für Diagnosen verwendet, die im Kontext eines lokalen Diensts ausgeführt werden müssen.  Wird dieser Dienst beendet, funktionieren alle davon abhängigen Diagnosen nicht mehr ordnungsgemäß.
+|   **Dienstname**    |   WdiServiceHost
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-## <a name="diagnostic-system-host"></a>Diagnosesystem-Host           
+## <a name="diagnostic-system-host"></a>Diagnosesystemhost           
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Diagnose Systemhost wird von den Diagnoserichtliniendienst für die Host-Diagnose verwendet, die in einem lokalen System-Kontext ausgeführt werden müssen.  Wenn dieser Dienst beendet wird, werden Diagnoseinformationen, die davon abhängen, nicht mehr funktionieren.
-|   **Name des Diensts**    |   WdiSystemHost
+|   **Dienstbeschreibung** |   Der Diagnosesystemhost wird vom Diagnoserichtliniendienst verwendet, um Diagnosen zu hosten, die für einen lokalen Dienst durchgeführt werden müssen.  Wird dieser Dienst beendet, funktionieren alle davon abhängigen Diagnosen nicht mehr ordnungsgemäß.
+|   **Dienstname**    |   WdiSystemHost
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-##  <a name="distributed-link-tracking-client"></a>DLT-Client            
+##  <a name="distributed-link-tracking-client"></a>Überwachung verteilter Verknüpfungen (Client)            
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Verwaltet die Links zwischen den NTFS-Dateien auf einem Computer oder auf Computern in einem Netzwerk.
-|   **Name des Diensts**    |   TrkWks
+|   **Dienstbeschreibung** |   Verwaltet die Links zwischen NTFS-Dateien auf einem Computer oder für die Computer eines Netzwerks.
+|   **Dienstname**    |   TrkWks
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Automatic
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
@@ -643,11 +643,11 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Koordiniert Transaktionen, die mehrere Ressourcen-Manager, z. B. Datenbanken, Nachrichtenwarteschlangen und Dateisysteme umfassen. Wenn dieser Dienst beendet wird, schlägt diese Transaktionen fehl. Wenn dieser Dienst deaktiviert ist, werden alle Dienste, die explizit davon abhängig sind möglicherweise nicht gestartet werden.
-|   **Name des Diensts**    |   MSDTC
+|   **Dienstbeschreibung** |   Koordiniert Transaktionen, die sich über mindestens zwei Ressourcenverwaltungen wie Datenbanken, Nachrichtenwarteschlangen oder Dateisysteme erstrecken. Wenn der Dienst beendet ist, treten bei diesen Transaktionen Fehler auf. Wenn dieser Dienst deaktiviert ist, können alle Dienste, die explizit davon abhängen, nicht gestartet werden.
+|   **Dienstname**    |   MSDTC
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Automatic
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
@@ -657,12 +657,12 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   WAP Push-Nachricht-Routingdienst
-|   **Name des Diensts**    |   dmwappushservice
+|   **Dienstbeschreibung** |   WAP Push-Nachrichtenroutingdienst
+|   **Dienstname**    |   dmwappushservice
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   OK, um deaktivieren
-|   **Kommentare**    |   Der Dienst für Intune, Verwaltung mobiler Geräte und ähnliche Technologien und für Unified Write Filter, die auf Clientgeräten erforderlich. Für Server erforderlich nicht.
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Deaktivierung OK
+|   **Kommentare**    |   Dieser Dienst wird auf Clientgeräten für Intune, MDM und ähnlichen Verwaltungstechnologien sowie für einheitliche Schreibfilter benötigt. Für Server ist der Dienst nicht erforderlich.
 |||         
 
 <br />      
@@ -671,39 +671,39 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Der DNS-Clientdienst (dnscache) wird zum Zwischenspeichern von DNS-Namen (Domain Name System) verwendet und registriert den vollständigen Computernamen für diesen Computer. Wenn der Dienst angehalten wird, werden DNS-Namen weiterhin aufgelöst. Allerdings werden die Ergebnisse der DNS-Namensabfragen nicht zwischengespeichert werden, und der Name des Computers wird nicht registriert werden. Wenn der Dienst deaktiviert wird, können Dienste, die explizit von diesem Dienst abhängig sind, nicht gestartet werden.
-|   **Name des Diensts**    |   DnsCache
+|   **Dienstbeschreibung** |   Der DNS-Clientdienst (dnscache) wird zum Zwischenspeichern von DNS-Namen (Domain Name System) verwendet und registriert den vollständigen Computernamen für diesen Computer. Wenn der Dienst angehalten wird, werden DNS-Namen weiterhin aufgelöst. Die Ergebnisse von DNS-Namensabfragen werden jedoch nicht zwischengespeichert, und der Name des Computers wird nicht registriert. Wenn der Dienst deaktiviert wird, können Dienste, die explizit von diesem Dienst abhängig sind, nicht gestartet werden.
+|   **Dienstname**    |   Dnscache
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Automatic
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-##  <a name="downloaded-maps-manager"></a>Heruntergeladene Maps-Manager     
+##  <a name="downloaded-maps-manager"></a>Manager für heruntergeladene Karten     
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Windows-Dienst für die Anwendung den Zugriff auf die heruntergeladene Zuordnungen. Dieser Dienst wird bei Bedarf gestartet von Anwendung den Zugriff auf Karten heruntergeladen. Das Deaktivieren dieses Diensts wird verhindert, dass apps den Zugriff auf Karten.
-|   **Name des Diensts**    |   MapsBroker
+|   **Dienstbeschreibung** |   Windows-Dienst für den Anwendungszugriff auf heruntergeladene Karten. Dieser Dienst wird bedarfsgesteuert je nach der Anwendung gestartet, die auf heruntergeladene Karten zugreift. Wenn der Dienst deaktiviert wird, können Apps nicht auf Karten zugreifen.
+|   **Dienstname**    |   MapsBroker
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Automatic
-|   **Empfehlung**  |   OK, um deaktivieren
-|   **Kommentare**    |   Deaktivieren Seitenumbrüche apps, die auf den Dienst basieren; OK, um Wenn deaktivieren, apps, die sich nicht darauf verlassen.
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  |   Deaktivierung OK
+|   **Kommentare**    |   Wenn der Dienst deaktiviert wird, funktionieren Apps nicht mehr, die den Dienst benötigen. Die Aktivierung ist kein Problem, wenn der Dienst von Apps nicht benötigt wird.
 |||         
 
 <br />          
 
-## <a name="embedded-mode"></a>Eingebetteten Modus            
+## <a name="embedded-mode"></a>Eingebetteter Modus            
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Der Dienst eingebetteten Modus ermöglicht Szenarien, die im Zusammenhang mit Hintergrundanwendungen.  Das Deaktivieren dieses Diensts verhindert, dass Programme im Hintergrund aus aktiviert wird.
-|   **Name des Diensts**    |   embeddedmode
+|   **Dienstbeschreibung** |   Der Dienst „Eingebetteter Modus“ ermöglicht Szenarien, die sich auf Hintergrundanwendungen beziehen.  Wenn dieser Dienst deaktiviert wird, wird die Aktivierung von Hintergrundanwendungen verhindert.
+|   **Dienstname**    |   embeddedmode
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
@@ -713,25 +713,25 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |                   
 |---|---|           
-|   **Dienstbeschreibung** | Bietet die Kern-dateiverschlüsselungstechnologie zum Speichern von verschlüsselter Dateien auf NTFS-Dateisystemvolumes verwendet. Wenn dieser Dienst beendet oder deaktiviert wird, werden Anwendungen kann nicht auf verschlüsselte Dateien zuzugreifen.            
-|   **Name des Diensts**  |  EFS            
+|   **Dienstbeschreibung** | Eine wichtige Dateiverschlüsselungstechnologie zum Speichern verschlüsselter Dateien auf Volumes mit dem Dateisystem NTFS. Wenn dieser Dienst beendet oder deaktiviert wird, können Anwendungen nicht mehr auf verschlüsselte Dateien zugreifen.            
+|   **Dienstname**  |  EFS            
 |   **Installation**  |  Immer installiert           
-|   **StartType**   |  Manuell           
-|   **Empfehlung**  | Keine allgemeinen Vorgaben           
+|   **Starttyp**   |  Manual           
+|   **Empfehlung**  | Kein Hinweis           
 |   **Kommentare**   |
 |||                 
 
 <br />  
 
-## <a name="enterprise-app-management-service"></a>Enterprise-App-Management-Dienst            
+## <a name="enterprise-app-management-service"></a>Verwaltungsdienst für Unternehmens-Apps            
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Ermöglicht die Verwaltung von unternehmensanwendungen.
-|   **Name des Diensts**    |   EntAppSvc
+|   **Dienstbeschreibung** |   Ermöglicht die Verwaltung von Unternehmensanwendungen.
+|   **Dienstname**    |   EntAppSvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
@@ -741,11 +741,11 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Der Extensible Authentication Protocol (EAP)-Dienst bietet die Netzwerkauthentifizierung in einem solchen Szenario 802.1 x verkabelt und drahtlos, VPN- und (Network Access Protection, NAP).  EAP bietet auch die Anwendungsprogrammierschnittstellen (APIs), die durch die Clients, drahtlosen und VPN-Clients, einschließlich der während des Authentifizierungsprozesses Zugriff verwendet werden.  Wenn Sie diesen Dienst deaktivieren, wird verhindert, dass dieser Computer den Zugriff auf Netzwerke, die EAP-Authentifizierung erforderlich ist.
-|   **Name des Diensts**    |   EapHost
+|   **Dienstbeschreibung** |   Der EAP-Dienst (Extensible Authentication Protocol) stellt in folgenden Szenarios eine Netzwerkauthentifizierung bereit: 802.1X (verkabelt und drahtlos), VPN und NAP (Network Access Protection).  EAP stellt darüber hinaus APIs (Application Programming Interface, Anwendungsprogrammierschnittstelle) bereit, die von Netzwerkzugriffclients, einschließlich Drahtlosclients und VPN-Clients, beim Authentifizierungsvorgang verwendet werden.  Wenn du diesen Dienst deaktivierst, kann dieser Computer nicht mehr auf Netzwerke zugreifen, die eine EAP-Authentifizierung verwenden.
+|   **Dienstname**    |   EapHost
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
@@ -755,11 +755,11 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Der FDPHOST-Dienst hostet die Netzwerkanbieter Ermittlung Function Discovery (FD). Diese Anbieter FD Geben Sie Netzwerk-Ermittlung für einfache Services Discovery-Protokoll (SSDP) und Webdienste - Discovery (WS-D)-Protokolls. Anhalten oder Deaktivieren des FDPHOST-Diensts wird die Netzwerkermittlung für diese Protokolle deaktiviert, wenn FD verwenden. Wenn dieser Dienst nicht verfügbar ist, werden Netzwerkgeräte oder Ressourcen kann nicht gefunden Netzwerkdienste FD verwenden und auf diese Protokolle für die Ermittlung zu verlassen.
-|   **Name des Diensts**    |   fdPHost
+|   **Dienstbeschreibung** |   Der FDPHOST-Dienst dient zum Hosten der Netzwerkerkennungsanbieter für die Funktionssuche (Function Discovery, FD). Von diesen FD-Anbietern werden Netzwerkerkennungsdienste für das Simple Services Discovery-Protokoll (SSDP) und das Web Services – Discovery (WS-D)-Protokoll bereitgestellt. Durch das Beenden oder Deaktivieren des FDPHOST-Diensts wird bei Verwendung von FD die Netzwerkerkennung für diese Protokolle deaktiviert. Ist dieser Dienst nicht verfügbar, können mit Netzwerkdiensten, von denen FD und diese Erkennungsprotokolle verwendet werden, keine Netzwerkgeräte oder -ressourcen gesucht werden.
+|   **Dienstname**    |   fdPHost
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
@@ -769,11 +769,11 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Veröffentlicht diesen Computer und Ressourcen, die an den Computer angeschlossen werden, damit diese über das Netzwerk gefunden werden können.  Wenn dieser Dienst beendet wird, Netzwerkressourcen nicht mehr veröffentlicht werden, und sie werden nicht von anderen Computern im Netzwerk ermittelt werden.
-|   **Name des Diensts**    |   FDResPub
+|   **Dienstbeschreibung** |   Veröffentlicht diesen Computer und die daran angeschlossenen Ressourcen, damit sie über das Netzwerk gesucht werden können.  Wenn dieser Dienst beendet wird, werden die Netzwerkressourcen nicht mehr veröffentlicht, damit sie von anderen Computern im Netzwerk gesucht werden können.
+|   **Dienstname**    |   FDResPub
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
@@ -783,12 +783,12 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Dieser Dienst überwacht den aktuellen Speicherort des Systems und Geofences (einen geografischen Standort mit zugeordneten Ereignissen) verwaltet.  Wenn Sie diesen Dienst deaktivieren, werden Anwendungen nicht verwenden oder Empfangen von Benachrichtigungen für Geolocation oder Geofences.
-|   **Name des Diensts**    |   lfsvc
+|   **Dienstbeschreibung** |   Dieser Dienst überwacht den aktuellen Standort des Systems und verwaltet Geofences (geografische Standorte mit zugeordneten Ereignissen).  Wenn du diesen Dienst deaktivierst, sind Anwendungen nicht in der Lage, Benachrichtigungen zu Geolocations oder Geofences zu nutzen oder zu empfangen.
+|   **Dienstname**    |   lfsvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   OK, um deaktivieren
-|   **Kommentare**    |   Deaktivieren Seitenumbrüche apps, die auf den Dienst basieren; OK, um Wenn deaktivieren, apps, die sich nicht darauf verlassen.
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Deaktivierung OK
+|   **Kommentare**    |   Wenn der Dienst deaktiviert wird, funktionieren Apps nicht mehr, die den Dienst benötigen. Die Aktivierung ist kein Problem, wenn der Dienst von Apps nicht benötigt wird.
 |||         
 
 <br />          
@@ -797,11 +797,11 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Der Dienst ist verantwortlich für die Anwendung von Einstellungen, die von Administratoren für den Computer und Benutzer über die Gruppenrichtlinien-Komponente konfiguriert. Wenn der Dienst deaktiviert ist, werden die Einstellungen nicht angewendet, und Anwendungen und Komponenten werden nicht über eine Gruppenrichtlinie verwaltet werden. Alle Komponenten oder Anwendungen, die von der Gruppenrichtlinienkomponente abhängig sind möglicherweise nicht mehr funktionsfähig, wenn der Dienst deaktiviert ist.
-|   **Name des Diensts**    |   gpsvc
+|   **Dienstbeschreibung** |   Der Dienst ist für das Anwenden von Einstellungen verantwortlich, die über die Gruppenrichtlinienkomponente durch Administratoren für den Computer und die Benutzer konfiguriert wurden. Wenn der Dienst deaktiviert wird, werden die Einstellungen nicht angewendet. Somit können Anwendungen und Komponenten nicht über die Gruppenrichtlinie verwaltet werden. Von der Gruppenrichtlinienkomponente abhängige Komponenten oder Anwendungen funktionieren zudem ggf. nicht, wenn der Dienst deaktiviert wird.
+|   **Dienstname**    |   gpsvc
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Automatic
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
@@ -812,11 +812,11 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Aktiviert und die Verwendung von Abkürzungstasten auf Tastaturen, Fernbedienungen und andere Multimediageräte verwaltet. Es wird empfohlen, zu diesem Dienst ausgeführt wird.
-|   **Name des Diensts**    |   hidserv
+|   **Dienstbeschreibung** |   Aktiviert und unterstützt die Verwendung von Abkürzungstasten auf Tastaturen, Fernbedienungen und anderen Multimediageräten. Wir empfehlen dir, diesen Dienst auszuführen.
+|   **Dienstname**    |   hidserv
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
@@ -826,12 +826,12 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Stellt eine Schnittstelle für den Hyper-V-Hypervisor Leistungsindikatoren pro Partition, für das Hostbetriebssystem bereitstellen.
-|   **Name des Diensts**    |   HvHost
+|   **Dienstbeschreibung** |   Stellt eine Schnittstelle für den Hyper-V-Hypervisor bereit, um für das Hostbetriebssystem Leistungsindikatoren pro Partition verfügbar zu machen.
+|   **Dienstname**    |   HvHost
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   Deaktivieren Sie nicht
-|   **Kommentare**    |   Leistung Enhancers für Gast-VMs. Nicht verwendete heute mit Ausnahme von explizit VMs aufgefüllt, jedoch verwendet werden, in der Application Guard
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Nicht deaktivieren
+|   **Kommentare**    |   Leistungsoptimierungen für Gast-VMs. Wird heutzutage meist nicht mehr verwendet (mit Ausnahme von explizit aufgefüllten VMs), aber der Dienst wird für Application Guard eingesetzt.
 |||         
 
 <br />          
@@ -841,11 +841,11 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 | | |           
 |---|---|   
 |   **Dienstbeschreibung** |   Stellt einen Mechanismus zum Austauschen von Daten zwischen dem virtuellen Computer und dem Betriebssystem bereit, das auf dem physischen Computer ausgeführt wird.
-|   **Name des Diensts**    |   vmickvpexchange
+|   **Dienstname**    |   vmickvpexchange
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   Deaktivieren Sie nicht
-|   **Kommentare**    |   Finden Sie unter HvHost
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Nicht deaktivieren
+|   **Kommentare**    |   Siehe „HvHost“.
 |||         
 
 <br />      
@@ -854,12 +854,12 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Stellt eine Schnittstelle für den Hyper-V-Host für die Interaktion mit bestimmten Diensten, die auf dem virtuellen Computer ausgeführt wird.
-|   **Name des Diensts**    |   vmicguestinterface
+|   **Dienstbeschreibung** |   Stellt eine Schnittstelle für den Hyper-V-Host für die Interaktion mit bestimmten Diensten bereit, die auf dem virtuellen Computer ausgeführt werden.
+|   **Dienstname**    |   vmicguestinterface
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   Deaktivieren Sie nicht
-|   **Kommentare**    |   Finden Sie unter HvHost
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Nicht deaktivieren
+|   **Kommentare**    |   Siehe „HvHost“.
 |||         
 
 <br />  
@@ -868,12 +868,12 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Stellt einen Mechanismus zum Herunterfahren des Betriebssystems des virtuellen Computers über die Verwaltungsschnittstellen auf dem physischen Computer.
-|   **Name des Diensts**    |   vmicshutdown
+|   **Dienstbeschreibung** |   Stellt einen Mechanismus zum Herunterfahren des Betriebssystems dieses virtuellen Computers über die Verwaltungsschnittstellen auf dem physischen Computer bereit.
+|   **Dienstname**    |   vmicshutdown
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   Deaktivieren Sie nicht
-|   **Kommentare**    |   Finden Sie unter HvHost
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Nicht deaktivieren
+|   **Kommentare**    |   Siehe „HvHost“.
 |||         
 
 <br />
@@ -881,12 +881,12 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 ## <a name="hyper-v-heartbeat-service"></a>Hyper-V Taktdienst
 | | |
 |---|---|
-|   **Dienstbeschreibung** |   Überwacht den Zustand dieser virtuellen Maschine von einem Takt in regelmäßigen Abständen reporting. Dieser Dienst ermöglicht Ihnen die ausgeführten virtuellen Computer zu identifizieren, die keine Reaktion mehr.
-|   **Name des Diensts**    |   vmicheartbeat
+|   **Dienstbeschreibung** |   Überwacht den Zustand dieses virtuellen Computers, indem in regelmäßigen Abständen ein Heartbeat gemeldet wird. Mit diesem Dienst kannst du ausgeführte virtuelle Computer identifizieren, die nicht mehr reagieren.
+|   **Dienstname**    |   vmicheartbeat
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   Deaktivieren Sie nicht
-|   **Kommentare**    |   Finden Sie unter HvHost
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Nicht deaktivieren
+|   **Kommentare**    |   Siehe „HvHost“.
 |||
 
 <br />          
@@ -895,12 +895,12 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Stellt einen Mechanismus zum Verwalten des virtuellen Computers mit PowerShell über VM-Sitzungen ohne ein virtuelles Netzwerk bereit.
-|   **Name des Diensts**    |   vmicvmsession
+|   **Dienstbeschreibung** |   Stellt einen Mechanismus bereit, um einen virtuellen Computer mit PowerShell über eine VM-Sitzung ohne virtuelles Netzwerk zu verwalten.
+|   **Dienstname**    |   vmicvmsession
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   Deaktivieren Sie nicht
-|   **Kommentare**    |   Finden Sie unter HvHost
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Nicht deaktivieren
+|   **Kommentare**    |   Siehe „HvHost“.
 |||         
 
 <br />          
@@ -909,12 +909,12 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Bietet eine Plattform für die Kommunikation zwischen den virtuellen Computer und das Betriebssystem auf dem physischen Computer ausgeführt wird.
-|   **Name des Diensts**    |   vmicrdv
+|   **Dienstbeschreibung** |   Stellt eine Plattform für die Kommunikation zwischen dem virtuellen Computer und dem Betriebssystem bereit, das auf dem physischen Computer ausgeführt wird.
+|   **Dienstname**    |   vmicrdv
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   Deaktivieren Sie nicht
-|   **Kommentare**    |   Finden Sie unter HvHost
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Nicht deaktivieren
+|   **Kommentare**    |   Siehe „HvHost“.
 |||         
 
 <br />          
@@ -924,11 +924,11 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 | | |           
 |---|---|       
 |   **Dienstbeschreibung** |   Synchronisiert die Systemzeit dieses virtuellen Computers mit der Systemzeit des physischen Computers.
-|   **Name des Diensts**    |   vmictimesync
+|   **Dienstname**    |   vmictimesync
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   Deaktivieren Sie nicht
-|   **Kommentare**    |   Finden Sie unter HvHost
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Nicht deaktivieren
+|   **Kommentare**    |   Siehe „HvHost“.
 |||         
 
 <br />          
@@ -937,12 +937,12 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|           
-|   **Dienstbeschreibung** |   Koordiniert die Kommunikation, die erforderlich sind, um die Volumeschattenkopie-Dienst zu verwenden, um Anwendungen und Daten auf diesem virtuellen Computer aus dem Betriebssystem auf dem physischen Computer sichern.
-|   **Name des Diensts**    |   vmicvss
+|   **Dienstbeschreibung** |   Koordiniert die Kommunikation, die erforderlich ist, damit der Volumeschattenkopie-Dienst zum Sichern von Anwendungen und Daten auf diesem virtuellen Computer basierend auf dem Betriebssystem des physischen Computers verwendet werden kann.
+|   **Dienstname**    |   vmicvss
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   Deaktivieren Sie nicht
-|   **Kommentare**    |   Finden Sie unter HvHost
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Nicht deaktivieren
+|   **Kommentare**    |   Siehe „HvHost“.
 |||         
 
 <br />          
@@ -951,11 +951,11 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Die IKEEXT-Diensthosts der Internetinformationsdienste (Internet Key Exchange, IKE) und Internet AuthIP (Authenticated Protocol) Schlüsselerstellungsmodule. Diese Schlüsselerstellungsmodule werden im Internet Protocol Security (IPsec) für die Authentifizierung und den Schlüsselaustausch verwendet. Die IKEEXT-Dienst anhalten oder deaktivieren wird IKE- und AuthIP Schlüsselaustausch mit Peercomputern deaktiviert. IPsec ist in der Regel für die Verwendung von IKE- oder AuthIP konfiguriert; aus diesem Grund die IKEEXT-Dienst anhalten oder Deaktivieren einer IPsec-Fehler unter Umständen, und möglicherweise die Sicherheit des Systems beeinträchtigen. Es wird dringend empfohlen, dass der IKEEXT-Dienst ausgeführt werden.
-|   **Name des Diensts**    |   IKEEXT
+|   **Dienstbeschreibung** |   Die IKEEXT-Diensthosts der Schlüsselerstellungsmodule für IKE (Internet Key Exchange) und Auth-IP (Authenticated Internet Protocol). Diese Schlüsselerstellungsmodule werden für die Authentifizierung und den Schlüsselaustausch in Internet Protocol Security (IPsec) verwendet. Wenn du den IKEEXT-Dienst anhältst oder deaktivierst, wird der IKE/AuthIP-Schlüsselaustausch mit Peercomputern deaktiviert. IPsec ist im Allgemeinen für die Verwendung von IKE/AuthIP konfiguriert, und das Anhalten oder Deaktivieren des IKEEXT-Diensts kann zu einem IPsec-Fehler führen und die Sicherheit des Systems gefährden. Wir empfehlen dir dringend, den Dienst IKEEXT auszuführen.
+|   **Dienstname**    |   IKEEXT
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |    
 |||         
 
@@ -965,11 +965,11 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Aktiviert die benutzerbenachrichtigung von Benutzereingaben für interaktive Dienste, die ermöglicht den Zugriff auf Dialogfelder, die von interaktiver Dienste erstellt werden, wenn diese angezeigt werden. Wenn dieser Dienst beendet wird, Benachrichtigungen über neue Dialogfelder werden nicht mehr funktionieren und gibt es möglicherweise nicht den Zugriff auf Dialogfelder. Wenn dieser Dienst deaktiviert ist, werden Benachrichtigungen der und Zugriff auf neue Dialogfelder nicht mehr funktionieren.
-|   **Name des Diensts**    |   UI0Detect
+|   **Dienstbeschreibung** |   Aktiviert die Benutzerbenachrichtigung von Benutzereingaben für interaktive Dienste. Dies ermöglicht den Zugriff auf von interaktiven Diensten erstellte Dialogfelder, wenn diese angezeigt werden. Wenn dieser Dienst beendet wird, funktionieren Benachrichtigungen über neue interaktive Dienstdialogfelder nicht mehr, und der Zugriff auf Dialogfelder von interaktiven Diensten ist eventuell nicht möglich. Wenn dieser Dienst deaktiviert wird, funktionieren weder die Benachrichtigung über noch der Zugriff auf neue interaktive Dienstdialogfelder.
+|   **Dienstname**    |   UI0Detect
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
@@ -979,12 +979,12 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|           
-|   **Dienstbeschreibung** |   Stellt die Netzwerkadressübersetzung, Adressierung, Name Auflösung oder der Intrusion Prevention-Dienst für ein Heim-oder Büronetzwerken Netzwerk bereit.
-|   **Name des Diensts**    |   SharedAccess
+|   **Dienstbeschreibung** |   Stellt die Dienste für die Netzwerkadressenübersetzung, Adressierung, Namensauflösung bzw. Verhinderung von Eindringversuchen für ein Heimnetzwerk oder ein Netzwerk eines kleinen Büros bereit.
+|   **Dienstname**    |   SharedAccess
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   OK, um deaktivieren
-|   **Kommentare**    |   Erforderlich für Clients, die als WLAN-Hotspots und auch an beiden Enden der Miracast-Projektion verwendet. Gemeinsam genutzter Internetverbindung können blockiert werden, mit der GPO-Einstellung, die "Verbieten die Verwendung eines Internet Connection Sharing in Ihrem DNS-Domäne-Netzwerk"
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Deaktivierung OK
+|   **Kommentare**    |   Ist für Clients erforderlich, die als WLAN-Hotspots genutzt werden, und außerdem an beiden Enden einer Miracast-Projektion. Die gemeinsame Nutzung der Internetverbindung kann mit der GPO-Einstellung „Verwendung der gemeinsam genutzten Internetverbindung im eigenen DNS-Domänennetzwerk nicht zulassen“ blockiert werden.
 |||         
 
 <br />          
@@ -993,11 +993,11 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Stellt tunnelkonnektivität mithilfe von IPv6-übergangstechnologien (6to4, ISATAP, Port-Proxy und Teredo) und IP-HTTPS bereit. Wenn dieser Dienst beendet wird, wird der Computer nicht die Vorteile für verbesserte Konnektivität verfügen, die diese Technologien bieten.
-|   **Name des Diensts**    |   iphlpsvc
+|   **Dienstbeschreibung** |   Stellt Tunnelkonnektivität mithilfe von IPv6-Übergangstechnologien (IP6-zu-IP4, ISATAP, Portproxy und Teredo) und IP-HTTPS bereit. Wenn der Dienst beendet wird, verfügt der Computer nicht über die durch diese Technologien ermöglichten Konnektivitätsvorteile.
+|   **Dienstname**    |   iphlpsvc
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Automatic
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
@@ -1008,25 +1008,25 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Unterstützt die Internet Protocol Security (IPsec) Peer-Authentifizierung, die Datenursprungsauthentifizierung, Datenintegrität, Vertraulichkeit (Verschlüsselung), der Daten auf Netzwerkebene und replay-Schutz.  Dieser Dienst setzt die IPsec-Richtlinien, die über das IP-Sicherheitsrichtlinien-Snap-in oder des Befehlszeilentools "Netsh Ipsec" erstellt.  Wenn Sie diesen Dienst beenden, können Verbindungsprobleme auftreten, wenn Ihre Richtlinie erfordert, dass Verbindungen über IPsec verwenden.  Darüber hinaus ist die Remoteverwaltung von Windows-Firewall nicht verfügbar, wenn dieser Dienst beendet wird.
-|   **Name des Diensts**    |   PolicyAgent
+|   **Dienstbeschreibung** |   IPsec (Internetprotokollsicherheit) unterstützt die Peerauthentifizierung auf Netzwerkebene, die Datenursprungsauthentifizierung, die Datenintegrität, die Datenvertraulichkeit (Verschlüsselung) und den Replay-Schutz.  Dieser Dienst erzwingt IPsec-Richtlinien, die mit dem Snap-In „IP-Sicherheitsrichtlinien“ oder dem Befehlszeilentool „netsh ipsec“ erstellt wurden.  Wenn du diesen Dienst beendest, treten unter Umständen Probleme mit der Netzwerkkonnektivität auf, falls es für deine Richtlinie erforderlich ist, dass für Verbindungen IPsec genutzt wird.  Darüber hinaus ist die Remoteverwaltung der Windows-Firewall nicht verfügbar, wenn dieser Dienst beendet wird.
+|   **Dienstname**    |   PolicyAgent
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />
 
-##  <a name="kdc-proxy-server-service-kps"></a>KDC-proxyserverdienst (KPS)      
+##  <a name="kdc-proxy-server-service-kps"></a>KDC-Proxyserverdienst (KPS)      
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   KDC-proxyserverdienst führt auf Edgeservern an Kerberos-Proxy-Protokollnachrichten auf Domänencontrollern mit dem Unternehmensnetzwerk verbunden.
-|   **Name des Diensts**    |   KPSSVC
+|   **Dienstbeschreibung** |   Der KDC-Proxyserverdienst wird auf Edgeservern ausgeführt, um als Proxy für Kerberos-Protokollnachrichten für Domänencontroller im Unternehmensnetzwerk zu fungieren.
+|   **Dienstname**    |   KPSSVC
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben    
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis    
 |   **Kommentare**    |   
 |||         
 
@@ -1036,26 +1036,26 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Koordiniert Transaktionen zwischen der Distributed Transaction Coordinator (MSDTC) und den Kerneltransaktions-Manager (KTM). Wenn es nicht erforderlich ist, empfiehlt es sich, dass dieses Diensts bleiben beendet. Wenn es erforderlich ist, werden sowohl MSDTC und KTM dieser Dienst automatisch gestartet. Wenn dieser Dienst deaktiviert ist, wird MSDTC-Transaktion, die Interaktion mit einem Kernel-Ressourcen-Manager und alle Dienste, die explizit davon abhängen schlägt fehl, um zu starten.
-|   **Name des Diensts**    |   KtmRm
+|   **Dienstbeschreibung** |   Koordiniert Transaktionen zwischen dem Distributed Transaction Coordinator (MSDTC) und dem Kerneltransaktions-Manager (KTM). Wir empfehlen dir, diesen Dienst zu beenden, falls er nicht benötigt wird. Falls der Dienst benötigt wird, wird er sowohl vom MSDTC als auch vom KTM automatisch gestartet. Wenn dieser Dienst deaktiviert ist, tritt für alle MSDTC-Transaktionen, die mit einem Kernelressourcen-Manager interagieren, ein Fehler auf. Alle Dienste, die explizit davon abhängen, können nicht gestartet werden.
+|   **Dienstname**    |   KtmRm
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />
 
-##  <a name="link-layer-topology-discovery-mapper"></a>Zuordnung für Verbindungsschicht-Topologie        
+##  <a name="link-layer-topology-discovery-mapper"></a>Verbindungsschicht-Topologieerkennungs-Zuordnungsprogramm        
 
 | | |       
 |---|---|       
-|   **Dienstbeschreibung** |   Erstellt eine Netzwerkübersicht, bestehend aus PC und Geräte Topologieinformationen (Verbindung) und Metadaten zur Beschreibung jeder PC und Geräte an.  Wenn dieser Dienst deaktiviert ist, wird die Netzwerk-Zuordnung nicht mehr ordnungsgemäß.
-|   **Name des Diensts**    |   lltdsvc
+|   **Dienstbeschreibung** |   Erstellt eine Netzwerkübersicht mit Computer- und Gerätetopologieinformationen (d. h. Konnektivitätsinformationen) sowie Metadaten, die jeden PC und jedes Gerät beschreiben.  Wenn dieser Dienst deaktiviert wird, funktioniert die Netzwerkübersicht nicht richtig.
+|   **Dienstname**    |   lltdsvc
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   OK, um deaktivieren
-|   **Kommentare**    |   OK, wenn keine Abhängigkeiten von Netzwerk-Zuordnung deaktivieren
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Deaktivierung OK
+|   **Kommentare**    |   Kann deaktiviert werden, wenn keine Abhängigkeiten von der Netzwerkübersicht bestehen.
 |||         
 
 <br />
@@ -1064,52 +1064,52 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |                   
 |---|---|   
-|   **Dienstbeschreibung** |   Core Windows-Dienst, der lokale benutzersitzungen verwaltet. Beenden oder das Deaktivieren dieses Diensts führt zur Instabilität des Systems.    
-|   **Name des Diensts**    |   LSM |
+|   **Dienstbeschreibung** |   Windows-Kerndienst, der lokale Benutzersitzungen verwaltet. Das Beenden oder Deaktivieren dieses Diensts führt zu Instabilität des Systems.    
+|   **Dienstname**    |   LSM |
 |   **Installation**    |   Immer installiert    |
-|   **StartType**   |   Automatic   |
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Automatisch   |
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||                 
 
 <br />                  
 
-## <a name="microsoft-r-diagnostics-hub-standard-collector"></a>Microsoft (R)-Diagnose-Hub-Standard-Auflister         
+## <a name="microsoft-r-diagnostics-hub-standard-collector"></a>Standardsammlungsdienst des Microsoft(R)-Diagnose-Hubs         
 
 | | |           
 |---|---|           
-|   **Dienstbeschreibung** |   Core Windows-Dienst, der lokale benutzersitzungen verwaltet. Beenden oder das Deaktivieren dieses Diensts führt zur Instabilität des Systems.
-|   **Name des Diensts**    |   LSM
+|   **Dienstbeschreibung** |   Windows-Kerndienst, der lokale Benutzersitzungen verwaltet. Das Beenden oder Deaktivieren dieses Diensts führt zu Instabilität des Systems.
+|   **Dienstname**    |   LSM
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Automatic
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />
 
-## <a name="microsoft-account-sign-in-assistant"></a>Microsoft-Konto-Anmeldeassistent
+## <a name="microsoft-account-sign-in-assistant"></a>Anmelde-Assistent für Microsoft-Konten
 | | |
 |---|---|
-|   **Dienstbeschreibung** |   Ermöglicht der Benutzeranmeldung durch Identitätsdienste für Microsoft-Konto. Wenn dieser Dienst beendet wird, werden Benutzer nicht auf dem Computer mit ihrem Microsoft-Konto anmelden.
-|   **Name des Diensts**    |   wlidsvc
+|   **Dienstbeschreibung** |   Ermöglicht die Benutzeranmeldung über die Identitätsdienste des Microsoft-Kontos. Wenn dieser Dienst beendet wird, können sich Benutzer nicht mehr mit ihrem Microsoft-Konto am Computer anmelden.
+|   **Dienstname**    |   wlidsvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   OK, um deaktivieren
-|   **Kommentare**    |   Microsoft-Accounts werden n/v unter Windows Server
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Deaktivierung OK
+|   **Kommentare**    |   Microsoft-Konten sind unter Windows Server nicht verfügbar.
 |||
 
 <br />          
 
-##  <a name="microsoft-app-v-client"></a>Microsoft App-V-Client      
+##  <a name="microsoft-app-v-client"></a>Microsoft App-V Client      
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Verwaltet die App-V-Benutzer und virtuelle Anwendungen
-|   **Name des Diensts**    |   AppVClient
+|   **Dienstbeschreibung** |   Dient zum Verwalten von App-V-Benutzern und virtuellen Anwendungen.
+|   **Dienstname**    |   AppVClient
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Disabled
-|   **Empfehlung**  |   Wurde bereits deaktiviert.
+|   **Starttyp**   |   Deaktiviert
+|   **Empfehlung**  |   Bereits deaktiviert
 |   **Kommentare**    |   
 |||         
 
@@ -1119,12 +1119,12 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Verwaltet Internet SCSI (iSCSI)-Sitzungen auf diesem Computer auf remote-iSCSI-Zielgeräte an. Wenn dieser Dienst beendet wird, wird diesem Computer nicht anmelden oder auf dem iSCSI-Ziele zugreifen können. Wenn dieser Dienst deaktiviert ist, werden alle Dienste, die explizit davon abhängig sind möglicherweise nicht gestartet werden.
-|   **Name des Diensts**    |   MSiSCSI
+|   **Dienstbeschreibung** |   Dient zum Verwalten von iSCSI-Sitzungen (Internet SCSI) von diesem Computer zu iSCSI-Remotezielgeräten. Wenn dieser Dienst beendet wird, kann sich dieser Computer nicht an iSCSI-Zielen anmelden und nicht darauf zugreifen. Wenn dieser Dienst deaktiviert ist, können alle Dienste, die explizit davon abhängen, nicht gestartet werden.
+|   **Dienstname**    |   MSiSCSI
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   Deaktivieren Sie nicht
-|   **Kommentare**    |   Unsere Diagnosen deuten darauf hin, dass dies sowohl Client als auch Server verwendet wird. Keine Deaktivierung dieser Vorteil.
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Nicht deaktivieren
+|   **Kommentare**    |   Unsere Diagnosedaten deuten darauf hin, dass dieser Dienst auf Clients und auf Servern genutzt wird. Die Deaktivierung hat keinerlei Vorteile.
 |||         
 
 <br />          
@@ -1133,12 +1133,12 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Bietet Prozessisolation für kryptografische Schlüssel verwendet, um die zugehörigen Identitätsanbieter eines Benutzers zu authentifizieren. Wenn dieser Dienst deaktiviert ist, werden alle verwendet und die Verwaltung dieser Schlüssel nicht verfügbar ist, darunter Computer anmelden und einmaligem Anmelden auf für apps und Websites. Dieser Dienst wird gestartet und automatisch beendet. Es wird empfohlen, dass Sie diesen Dienst nicht neu konfigurieren.
-|   **Name des Diensts**    |   NgcSvc
+|   **Dienstbeschreibung** |   Ermöglicht eine Prozessisolation für Kryptografieschlüssel, die zum Authentifizieren der zugeordneten Identitätsanbieter eines Benutzers verwendet werden. Wenn dieser Dienst deaktiviert wird, ist die gesamte Anwendung und Verwaltung dieser Schlüssel nicht verfügbar. Dies gilt auch für die Computeranmeldung und einmaliges Anmelden für Apps und Websites. Dieser Dienst wird automatisch gestartet und beendet. Wir empfehlen dir, diesen Dienst nicht neu zu konfigurieren.
+|   **Dienstname**    |   NgcSvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   OK, um deaktivieren
-|   **Kommentare**    |   Nach der PIN/Hello-Anmeldungen, die auf dem Server nicht unterstützt werden
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Deaktivierung OK
+|   **Kommentare**    |   Wird für PIN/Hello-Anmeldungen benötigt, die auf dem Server nicht unterstützt werden.
 |||         
 
 <br />          
@@ -1147,40 +1147,40 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Verwaltet lokaler Benutzer Identitätsschlüssel verwendet, um Benutzer von Identitätsanbietern als auch virtuellen TPM-Smartcards authentifizieren. Wenn dieser Dienst deaktiviert ist, kann Identitätsschlüssel für lokale Benutzer und virtuellen TPM-Smartcards nicht zugegriffen werden. Es wird empfohlen, dass Sie diesen Dienst nicht neu konfigurieren.
-|   **Name des Diensts**    |   NgcCtnrSvc
+|   **Dienstbeschreibung** |   Verwaltet lokale Benutzeridentitätsschlüssel, um Benutzer für Identitätsanbieter und virtuelle TPM-Smartcards zu authentifizieren. Wenn dieser Dienst deaktiviert wird, kann nicht auf lokale Benutzeridentitätsschlüssel und virtuelle TPM-Smartcards zugegriffen werden. Wir empfehlen dir, diesen Dienst nicht neu zu konfigurieren.
+|   **Dienstname**    |   NgcCtnrSvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   OK, um deaktivieren
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-## <a name="microsoft-software-shadow-copy-provider"></a>Microsoft Software Schattenkopieanbieter          
+## <a name="microsoft-software-shadow-copy-provider"></a>Microsoft-Softwareschattenkopie-Anbieter          
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Verwaltet die Softwarebasierte Volumeschattenkopien vom Volumeschattenkopie-Dienst. Wenn dieser Dienst beendet wird, können keine softwarebasierten Volumeschattenkopien verwaltet werden. Wenn dieser Dienst deaktiviert ist, werden alle Dienste, die explizit davon abhängig sind möglicherweise nicht gestartet werden.
-|   **Name des Diensts**    |   swprv
+|   **Dienstbeschreibung** |   Verwaltet softwarebasierte Volumeschattenkopien des Volumeschattenkopie-Diensts. Softwarebasierte Volumeschattenkopien können nicht verwaltet werden, wenn dieser Dienst beendet wird. Wenn dieser Dienst deaktiviert ist, können alle Dienste, die explizit davon abhängen, nicht gestartet werden.
+|   **Dienstname**    |   swprv
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-## <a name="microsoft-storage-spaces-smp"></a>Microsoft-Speicherplätze SMP         
+## <a name="microsoft-storage-spaces-smp"></a>Microsoft-SMP für Speicherplätze         
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Der Hostdienst für Anbieter für die Microsoft-Speicherplätze. Wenn dieser Dienst beendet oder deaktiviert ist, können keine Speicherplätze verwaltet werden.
-|   **Name des Diensts**    |   smphost
+|   **Dienstbeschreibung** |   Hostdienst für den Microsoft-Verwaltungsanbieter für Speicherplätze. Wird dieser Dienst beendet oder deaktiviert, ist die Verwaltung von Speicherplätzen nicht mehr möglich.
+|   **Dienstname**    |   smphost
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   Deaktivieren Sie nicht
-|   **Kommentare**    |   Speicher-Management werden APIs ohne diesen Dienst fehl. Beispiel: "Get-WmiObject -class MSFT_Disk -Namespace Root\Microsoft\Windows\Storage".
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Nicht deaktivieren
+|   **Kommentare**    |   Für APIs für die Speicherverwaltung tritt ohne diesen Dienst ein Fehler auf. Beispiel: "Get-WmiObject -class MSFT_Disk -Namespace Root\Microsoft\Windows\Storage".
 |||         
 
 <br />          
@@ -1189,11 +1189,11 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Bietet die Möglichkeit zur Freigabe von TCP-Ports über das net.tcp-Protokoll.
-|   **Name des Diensts**    |   NetTcpPortSharing
+|   **Dienstbeschreibung** |   Ermöglicht die Freigabe von TCP-Ports über das net.tcp-Protokoll.
+|   **Dienstname**    |   NetTcpPortSharing
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Disabled
-|   **Empfehlung**  |   Wurde bereits deaktiviert.
+|   **Starttyp**   |   Deaktiviert
+|   **Empfehlung**  |   Bereits deaktiviert
 |   **Kommentare**    |   
 |||         
 
@@ -1203,25 +1203,25 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|           
-|   **Dienstbeschreibung** |   Verwaltet einen sicheren Kanal zwischen diesem Computer und dem Domänencontroller zum Authentifizieren von Benutzern und Diensten. Wenn dieser Dienst beendet wird, der Computer möglicherweise nicht authentifizieren von Benutzern und Diensten und der Domänencontroller können nicht registriert werden DNS-Einträge. Wenn dieser Dienst deaktiviert ist, werden alle Dienste, die explizit davon abhängig sind möglicherweise nicht gestartet werden.
-|   **Name des Diensts**    |   Netlogon
+|   **Dienstbeschreibung** |   Dient zum Verwalten eines sicheren Kanals zwischen diesem Computer und dem Domänencontroller für die Authentifizierung von Benutzern und Diensten. Wenn dieser Dienst angehalten wird, kann der Computer Benutzer und Dienste möglicherweise nicht authentifizieren, und der Domänencontroller kann keine DNS-Datensätze registrieren. Wenn dieser Dienst deaktiviert ist, können alle Dienste, die explizit davon abhängen, nicht gestartet werden.
+|   **Dienstname**    |   Netlogon
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-## <a name="network-connection-broker"></a>Netzwerk-Verbindungsbroker            
+## <a name="network-connection-broker"></a>Netzwerkverbindungsbroker            
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Broker-Verbindungen, die Microsoft Store-Apps zum Empfangen von Benachrichtigungen über das Internet zu ermöglichen.
-|   **Name des Diensts**    |   NcbService
+|   **Dienstbeschreibung** |   Fungiert als Broker für Verbindungen, über die Microsoft Store-Apps Benachrichtigungen über das Internet empfangen können.
+|   **Dienstname**    |   NcbService
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   OK, um deaktivieren
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   
 |||         
 
@@ -1231,11 +1231,11 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Verwaltet von Objekten im Netzwerk und DFÜ-Verbindungen Ordner, in dem Sie sowohl lokale Netzwerk Verbindungen und Remoteverbindungen anzeigen können.
-|   **Name des Diensts**    |   NETMAN
+|   **Dienstbeschreibung** |   Verwaltet Objekte im Ordner „Netzwerk- und Wählverbindungen“, in dem LAN- und Remoteverbindungen angezeigt werden.
+|   **Dienstname**    |   Netman
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
@@ -1245,11 +1245,11 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Enthält die DirectAccess-Benachrichtigung für UI-Komponenten
-|   **Name des Diensts**    |   NcaSvc
+|   **Dienstbeschreibung** |   Stellt die Benachrichtigung zum DirectAccess-Status für Komponenten der Benutzeroberfläche bereit.
+|   **Dienstname**    |   NcaSvc
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
@@ -1259,53 +1259,53 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Identifiziert die Netzwerke, der Computer hat eine Verbindung hergestellt, erfasst und speichert Eigenschaften für diese Netzwerke und meldet Anwendungen, wenn diese Eigenschaften zu ändern.
-|   **Name des Diensts**    |   netprofm
+|   **Dienstbeschreibung** |   Identifiziert die Netzwerke, mit denen der Computer eine Verbindung hergestellt hat, sammelt und speichert Eigenschaften für diese Netzwerke und benachrichtigt Anwendungen, wenn sich diese Eigenschaften ändern.
+|   **Dienstname**    |   netprofm
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-## <a name="network-location-awareness"></a>Network Location Awareness           
+## <a name="network-location-awareness"></a>NLA (Network Location Awareness)           
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Sammelt und speichert die Konfigurationsinformationen für das Netzwerk und Programme benachrichtigt, wenn diese Informationen geändert wird. Wenn dieser Dienst beendet wird, kann die Konfigurationsinformationen nicht verfügbar sein. Wenn dieser Dienst deaktiviert ist, werden alle Dienste, die explizit davon abhängig sind möglicherweise nicht gestartet werden.
-|   **Name des Diensts**    |   NlaSvc
+|   **Dienstbeschreibung** |   Sammelt und speichert Konfigurationsinformationen für das Netzwerk und benachrichtigt Programme, wenn diese Informationen geändert werden. Wenn dieser Dienst beendet wird, sind die Konfigurationsinformationen möglicherweise nicht verfügbar. Wenn dieser Dienst deaktiviert ist, können alle Dienste, die explizit davon abhängen, nicht gestartet werden.
+|   **Dienstname**    |   NlaSvc
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Automatic
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-##  <a name="network-setup-service"></a>Einrichten des Netzwerk-Diensts       
+##  <a name="network-setup-service"></a>Netzwerkeinrichtungsdienst       
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Der Setup-Netzwerkdienst verwaltet die Installation der Netzwerktreiber und ermöglicht die Konfiguration von Netzwerkeinstellungen auf niedriger Ebene.  Wenn dieser Dienst beendet wird, wird möglicherweise alle Treiberinstallationen, die in Bearbeitung sind abgebrochen werden.
-|   **Name des Diensts**    |   NetSetupSvc
+|   **Dienstbeschreibung** |   Der Netzwerkeinrichtungsdienst verwaltet die Installation von Netzwerktreibern und ermöglicht die Konfiguration von Netzwerkeinstellungen auf unterer Ebene.  Wenn der Dienst beendet wird, werden aktuell ausgeführte Treiberinstallationen unter Umständen abgebrochen.
+|   **Dienstname**    |   NetSetupSvc
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-## <a name="network-store-interface-service"></a>Network Store Interface-Dienst      
+## <a name="network-store-interface-service"></a>Netzwerkspeicher-Schnittstellendienst      
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Dieser Dienst bietet Netzwerk-Benachrichtigungen (z. B. Schnittstelle hinzufügen/löschen usw.) auf Clients im Modus für Benutzer. Beim Beenden dieses Diensts wird zum Verlust der Netzwerkkonnektivität. Wenn dieser Dienst deaktiviert ist, werden alle anderen Dienste, die explizit von diesem Dienst abhängen nicht gestartet.
-|   **Name des Diensts**    |   nsi
+|   **Dienstbeschreibung** |   Dieser Dienst stellt Netzwerkbenachrichtigungen (z. B. beim Hinzufügen/Löschen von Schnittstellen) für Benutzermodusclients bereit. Wenn du diesen Dienst beendest, wird die Netzwerkkonnektivität getrennt. Wenn dieser Dienst deaktiviert wird, können andere Dienste, die von diesem Dienst ausschließlich abhängig sind, nicht mehr gestartet werden.
+|   **Dienstname**    |   nsi
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Automatic
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
@@ -1315,53 +1315,53 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Die Offlinedateien-Dienst ausführt Wartungsarbeiten an der Offlinedateien-Cache auf Benutzerereignisse an- und Abmeldung, reagiert die Interna der öffentlichen API implementiert und sendet, die relevante Ereignisse, die daran interessiert, Offlinedateien Aktivitäten und Änderungen in den Zustand des Cache.
-|   **Name des Diensts**    |   CscService
+|   **Dienstbeschreibung** |   Der Offlinedateiendienst führt Wartungsaktivitäten am Cache für Offlinedateien aus, reagiert auf Benutzeranmelde- und -abmeldeereignisse, implementiert die internen Komponenten der öffentlichen API, leitet interessante Ereignisse an Empfänger weiter, die an Offlineaktivitäten interessiert sind, und ändert den Cachestatus.
+|   **Dienstname**    |   CscService
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Disabled
-|   **Empfehlung**  |   Wurde bereits deaktiviert.
+|   **Starttyp**   |   Deaktiviert
+|   **Empfehlung**  |   Bereits deaktiviert
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-## <a name="optimize-drives"></a>Optimieren von Laufwerken          
+## <a name="optimize-drives"></a>Laufwerke optimieren          
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Können den Computer, die durch das Optimieren von Dateien auf Speichergeräten effizienter ausgeführt.
-|   **Name des Diensts**    |   defragsvc
+|   **Dienstbeschreibung** |   Unterstützt den Computer bei einer effizienteren Ausführung durch das Optimieren von Dateien auf Speicherlaufwerken.
+|   **Dienstname**    |   defragsvc
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />
 
-## <a name="performance-counter-dll-host"></a>Leistung-Leistungsindikator-DLL-Host         
+## <a name="performance-counter-dll-host"></a>Leistungsindikator-DLL-Host         
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Ermöglicht Remotebenutzern und 64-Bit-Prozessen, zum Abfragen von Leistungsindikatoren, die von 32-Bit-DLLs bereitgestellt. Wenn dieser Dienst beendet wird, werden nur lokale Benutzer und 32-Bit-Prozesse können Abfragen von Leistungsindikatoren, die von 32-Bit-DLLs bereitgestellt.
-|   **Name des Diensts**    |   PerfHost
+|   **Dienstbeschreibung** |   Ermöglicht Remotebenutzern und 64-Bit-Prozessen die Abfrage von Leistungsindikatoren, die von 32-Bit-DLLs bereitgestellt werden. Wenn dieser Dienst beendet wird, können nur lokale Benutzer und 32-Bit-Prozesse die von den 32-Bit-DLLs bereitgestellten Leistungsindikatoren abfragen.
+|   **Dienstname**    |   PerfHost
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben    
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis    
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-## <a name="performance-logs--alerts"></a>Leistungsprotokolle und Warnungen            
+## <a name="performance-logs--alerts"></a>Leistungsprotokolle und -warnungen            
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Leistungsprotokolle und Warnungen erfasst Daten von lokalen Computern oder Remotecomputern auf der Grundlage vorkonfigurierter Zeitplanparameter, klicken Sie dann schreibt die Daten in ein Protokoll oder löst eine Warnung aus. Wenn dieser Dienst beendet wird, werden keine Informationen gesammelt. Wenn dieser Dienst deaktiviert ist, werden alle Dienste, die explizit davon abhängig sind möglicherweise nicht gestartet werden.
-|   **Name des Diensts**    |   PLA
+|   **Dienstbeschreibung** |   „Leistungsprotokolle und -warnungen“ sammelt Leistungsdaten von lokalen oder Remotecomputern basierend auf vorkonfigurierten Zeitplanparametern und schreibt die Daten dann in ein Protokoll oder löst eine Warnung aus. Wenn dieser Dienst beendet wird, werden keine Leistungsinformationen erfasst. Wenn dieser Dienst deaktiviert ist, können alle Dienste, die explizit davon abhängen, nicht gestartet werden.
+|   **Dienstname**    |   pla
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
@@ -1371,39 +1371,39 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Verwaltet die Telefonie-Zustand auf dem Gerät
-|   **Name des Diensts**    |   PhoneSvc
+|   **Dienstbeschreibung** |   Verwaltet den Telefoniestatus des Geräts.
+|   **Dienstname**    |   PhoneSvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   OK, um deaktivieren
-|   **Kommentare**    |   Ein, die moderne VoIP-apps
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Deaktivierung OK
+|   **Kommentare**    |   Wird von modernen VoIP-Apps verwendet.
 |||         
 
 <br />          
 
-##      <a name="plug-and-play"></a>Plug & Play       
+##      <a name="plug-and-play"></a>Plug & Play       
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Ermöglicht es einem Computer zu erkennen und übernehmen auf hardwareänderungen, mit nur wenig oder keine Benutzereingaben aus. Beenden oder das Deaktivieren dieses Diensts führt zur Instabilität des Systems.
-|   **Name des Diensts**    |   PlugPlay
+|   **Dienstbeschreibung** |   Ermöglicht einem Computer die Erkennung und Anpassung an Hardwareänderungen mit nur wenigen oder ganz ohne Benutzereingaben. Das Beenden oder Deaktivieren dieses Diensts führt zu Instabilität des Systems.
+|   **Dienstname**    |   PlugPlay
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-## <a name="portable-device-enumerator-service"></a>Tragbare Geräte Enumerator-Dienst           
+## <a name="portable-device-enumerator-service"></a>Enumeratordienst für tragbare Geräte           
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Erzwingt die Gruppenrichtlinie für Massenspeicher-Wechselmedien. Ermöglicht es Anwendungen, wie z. B. Windows Media Player und Image Tabellenimport-Assistenten zum übertragen und Synchronisieren von Inhalt mithilfe von Wechselmedien Massenspeicher.
-|   **Name des Diensts**    |   WPDBusEnum
+|   **Dienstbeschreibung** |   Erzwingt Gruppenrichtlinien für Wechsel-Massenspeichergeräte. Ermöglicht Anwendungen wie Windows Media Player und dem Bildimport-Assistenten, Inhalte unter Verwendung von Wechsel-Massenspeichergeräten zu übertragen und zu synchronisieren.
+|   **Dienstname**    |   WPDBusEnum
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
@@ -1413,11 +1413,11 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Verwaltet Energierichtlinie und Benachrichtigungsübermittlung für Power-Richtlinie.
-|   **Name des Diensts**    |   Stromversorgung
+|   **Dienstbeschreibung** |   Verwaltet die Energierichtlinie und die Zustellung der Energierichtlinienbenachrichtigung.
+|   **Dienstname**    |   Stromversorgung
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Automatic
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
@@ -1427,53 +1427,53 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Dieser Dienst spoolt Druckaufträge und Interaktion mit dem Drucker behandelt.  Wenn Sie diesen Dienst deaktivieren, ist Sie nicht drucken oder finden Sie unter Ihrer Drucker.
-|   **Name des Diensts**    |   Spooler
+|   **Dienstbeschreibung** |   Dieser Dienst spoolt Druckaufträge und verarbeitet Interaktionen mit dem Drucker.  Wenn du diesen Dienst ausschaltest, kannst du weder drucken noch Drucker anzeigen.
+|   **Dienstname**    |   Spooler
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Automatic
-|   **Empfehlung**  |   OK, wenn kein Druckserver oder auf einem Domänencontroller deaktiviert
-|   **Kommentare**    |   Auf einem Domänencontroller fügt die Installation der DC-Rolle einen Thread für den Warteschlangendienst auf, der für die print-Bereinigung – Entfernen der veralteten Druckwarteschlange-Objekte aus Active Directory zuständig ist.  Wenn es sich bei der Spoolerdienst auf mindestens einem Domänencontroller an jedem Standort nicht ausgeführt wird, verfügt AD keine Möglichkeit, alte Warteschlangen zu entfernen, die nicht mehr vorhanden sind. https://blogs.technet.microsoft.com/askperf/2008/11/18/disabling-unnecessary-services-a-word-to-the-wise/
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  |   Kann deaktiviert werden, wenn es sich nicht um einen Druckerserver oder einen Domänencontroller handelt.
+|   **Kommentare**    |   Auf einem Domänencontroller wird dem Spoolerdienst bei Installation der Domänencontroller-Rolle ein Thread hinzugefügt, der für die Durchführung der Druckbereinigung zuständig ist. Hiermit werden die veralteten Objekte der Druckwarteschlange aus Active Directory entfernt.  Wenn der Spoolerdienst nicht auf mindestens einem DC auf jeder Site ausgeführt wird, kann AD keine alten Warteschlangen entfernen, die nicht mehr vorhanden sind. https://blogs.technet.microsoft.com/askperf/2008/11/18/disabling-unnecessary-services-a-word-to-the-wise/
 |||         
 
 <br />          
 
-##  <a name="printer-extensions-and-notifications"></a>Erweiterungen der Drucker und Benachrichtigungen        
+##  <a name="printer-extensions-and-notifications"></a>Druckererweiterungen und Benachrichtigungen        
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Dieser Dienst benutzerdefinierte Drucker Dialogfelder geöffnet, und verarbeitet Benachrichtigungen von einem Remotedruckerserver oder einen Drucker. Wenn Sie diesen Dienst deaktivieren, wird nicht Sie Drucker Erweiterungen oder Benachrichtigungen zu sehen sein.
-|   **Name des Diensts**    |   PrintNotify
+|   **Dienstbeschreibung** |   Mit diesem Dienst werden benutzerdefinierte Druckerdialogfelder geöffnet und Benachrichtigungen von einem Remotedruckerserver oder Drucker verarbeitet. Wenn du diesen Dienst deaktivierst, werden keine Druckererweiterungen oder Benachrichtigungen angezeigt.
+|   **Dienstname**    |   PrintNotify
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   OK, um Sie zu deaktivieren, wenn keinem Druckerserver
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Kann deaktiviert werden, wenn es sich nicht um einen Druckerserver handelt.
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-##  <a name="problem-reports-and-solutions-control-panel-support"></a>Problemberichte und -Lösungen Control Panel-Unterstützung     
+##  <a name="problem-reports-and-solutions-control-panel-support"></a>Unterstützung in der Systemsteuerung unter Lösungen für Probleme     
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Dieser Dienst bietet Unterstützung für anzeigen, senden und Löschen von Problemberichten mit auf Systemebene für die Systemsteuerung für Problemberichte und-Lösungen an.
-|   **Name des Diensts**    |   wercplsupport
+|   **Dienstbeschreibung** |   Dieser Dienst bietet Unterstützung für das Anzeigen, Senden und Löschen von Problemberichten auf Systemebene für das Applet „Lösungen für Probleme“ in der Systemsteuerung.
+|   **Dienstname**    |   wercplsupport
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-##  <a name="program-compatibility-assistant-service"></a>Programm-Assistenten Kompatibilitätsdienst     
+##  <a name="program-compatibility-assistant-service"></a>Programmkompatibilitäts-Assistent-Dienst     
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Dieser Dienst bietet Unterstützung für die Program Compatibility Assistant (PCA).  Der PCA überwacht Programme installiert und vom Benutzer ausgeführt und erkennt bekannte Kompatibilitätsprobleme. Wenn dieser Dienst beendet wird, wird der PCA nicht ordnungsgemäß.
-|   **Name des Diensts**    |   PcaSvc
+|   **Dienstbeschreibung** |   Dieser Dienst bietet Unterstützung für den Programmkompatibilitäts-Assistenten (Program Compatibility Assistant, PCA).  Mit dem PCA werden die vom Benutzer installierten und ausgeführten Programme überwacht. Wenn dieser Dienst beendet wird, wird der PCA nicht ordnungsgemäß ausgeführt.
+|   **Dienstname**    |   PcaSvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Automatic
-|   **Empfehlung**  |   OK, um deaktivieren
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   
 |||         
 
@@ -1483,53 +1483,53 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Quality Windows Audio/Video-Streaming (qWave) ist eine Netzwerkplattform für Audio Video (AV) streaming von Anwendungen im privaten IP-Netzwerken. qWave verbessert AV-streaming-Leistung und Zuverlässigkeit Leuchten Netzwerk Quality-of-Service (QoS) für AV-Anwendungen. Es bietet es sich um Mechanismen zur Zugangskontrolle, Zeit zu überwachen und erzwingen, anwendungsfeedback und Priorisierung von Datenverkehr ausführen.
-|   **Name des Diensts**    |   QWAVE
+|   **Dienstbeschreibung** |   Der Windows-Dienst für verbessertes Audio/Video-Streaming (qWave) ist eine Netzwerkplattform für Audio/Video-Streaminganwendungen (AV) in privaten IP-Netzwerken. qWave verbessert die AV-Streamingleistung und -zuverlässigkeit, indem Netzwerk-QoS (Quality-of-Service) für AV-Anwendungen sichergestellt wird. Es werden Mechanismen für Zugangssteuerung, Laufzeitüberwachung und -erzwingung, Anwendungsfeedback sowie Verkehrspriorisierung bereitgestellt.
+|   **Dienstname**    |   QWAVE
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   OK, um deaktivieren
-|   **Kommentare**    |   Die clientseitige QoS-Dienst
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Deaktivierung OK
+|   **Kommentare**    |   Clientseitiger QoS-Dienst
 |||         
 
 <br />          
 
-##      <a name="radio-management-service"></a>Radio-Management-Dienst        
+##      <a name="radio-management-service"></a>Funkverwaltungsdienst        
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Verwaltung des Senders und Flugzeug-Modus-Dienst
-|   **Name des Diensts**    |   RmSvc
+|   **Dienstbeschreibung** |   Dienst für Funkverwaltung und Flugzeugmodus
+|   **Dienstname**    |   RmSvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   OK, um deaktivieren
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-## <a name="remote-access-auto-connection-manager"></a>Remote Access automatisch Verbindungs-Manager            
+## <a name="remote-access-auto-connection-manager"></a>Verwaltung für automatische RAS-Verbindung            
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Erstellt eine Verbindung mit einem Remotenetzwerk, wenn ein Programm auf einem remote-DNS oder NetBIOS-Name oder Adresse verweist auf.
-|   **Name des Diensts**    |   RasAuto
+|   **Dienstbeschreibung** |   Erstellt eine Verbindung mit einem Remotenetzwerk, wenn ein Programm auf einen Remote-DNS- oder -NetBIOS-Namen (bzw. eine Adresse) verweist.
+|   **Dienstname**    |   RasAuto
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-## <a name="remote-access-connection-manager"></a>RAS-Verbindungsverwaltung         
+## <a name="remote-access-connection-manager"></a>RAS-Verbindungs-Manager         
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Verwaltet von DFÜ- und virtuelle private Netzwerkverbindungen (VPN) auf diesem Computer mit dem Internet oder anderen remote-Netzwerke. Wenn dieser Dienst deaktiviert ist, werden alle Dienste, die explizit davon abhängig sind möglicherweise nicht gestartet werden.
-|   **Name des Diensts**    |   RasMan
+|   **Dienstbeschreibung** |   Verwaltet Einwähl- und VPN-Verbindungen zwischen diesem Computer und dem Internet oder anderen Remotenetzwerken. Wenn dieser Dienst deaktiviert ist, können alle Dienste, die explizit davon abhängen, nicht gestartet werden.
+|   **Dienstname**    |   RasMan
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
@@ -1539,11 +1539,11 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Konfiguration des Remotedesktop-Remotedienst (Centers oder RDCS) ist verantwortlich für alle von Remote Desktop Services und Remotedesktop verwandte Aktivitäten zur Konfiguration und Sitzung Wartung, die SYSTEM-Kontext erfordern. Dazu gehören die temporären Ordner für die Sitzung, RD-Designs und RD-Zertifikate.
-|   **Name des Diensts**    |   SessionEnv
+|   **Dienstbeschreibung** |   Der Remotedesktop-Konfigurationsdienst (Remote Desktop Configuration Service, RDCS) ist für alle Konfigurations- und Sitzungsverwaltungsaktivitäten im Zusammenhang mit den Remotedesktopdiensten und Remotedesktop zuständig, die den SYSTEM-Kontext erfordern. Dazu gehören die sitzungsspezifischen temporären Ordner, Remotedesktopthemen und Remotedesktopzertifikate.
+|   **Dienstname**    |   SessionEnv
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   Deaktivieren Sie nicht
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Nicht deaktivieren
 |   **Kommentare**    |   
 |||         
 
@@ -1553,26 +1553,26 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Ermöglicht Benutzern, interaktiv mit einem Remotecomputer herzustellen. Remotedesktop und Remote Desktop Session Host-Server müssen Sie diesem Dienst abhängig.  Deaktivieren Sie die Kontrollkästchen auf der Registerkarte "Remote" des Systemsteuerungselements das System-Eigenschaften, um zu verhindern, dass die Remoteverwendung von diesem Computer.
-|   **Name des Diensts**    |   TermService
+|   **Dienstbeschreibung** |   Ermöglicht Benutzern das Herstellen einer interaktiven Verbindung mit einem Remotecomputer. Remotedesktop und Remotedesktop-Hostserver können nur zusammen mit diesem Dienst verwendet werden.  Wenn du die Remoteverwendung dieses Computers verhindern möchtest, muss du die Kontrollkästchen auf der Registerkarte „Remote“ in den Systemsteuerungsoptionen deaktivieren.
+|   **Dienstname**    |   TermService
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   Deaktivieren Sie nicht
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Nicht deaktivieren
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-##  <a name="remote-desktop-services-usermode-port-redirector"></a>Remote Desktop Anschlussumleitung für Terminaldienst-Redirector        
+##  <a name="remote-desktop-services-usermode-port-redirector"></a>Anschlussumleitung für Remotedesktopdienst im Benutzermodus        
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Ermöglicht die Umleitung von Druckern/Laufwerke/Ports für RDP-Verbindungen
-|   **Name des Diensts**    |   UmRdpService
+|   **Dienstbeschreibung** |   Ermöglicht die Umleitung von Druckern, Laufwerken und Anschlüssen für RDP-Verbindungen.
+|   **Dienstname**    |   UmRdpService
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   Deaktivieren Sie nicht
-|   **Kommentare**    |   Unterstützt die umleitungen der Verbindung auf dem Server.
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Nicht deaktivieren
+|   **Kommentare**    |   Unterstützt Umleitungen auf der Serverseite der Verbindung.
 |||         
 
 <br />          
@@ -1581,25 +1581,25 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   RPCSS-Diensts wird der Dienststeuerungs-Manager für COM- und DCOM-Server. Es führt Aktivierungen objektanforderungen, Objekt Exporter-Tool-Lösungen und verteilte Garbagecollection für COM- und DCOM-Server. Wenn dieser Dienst beendet oder deaktiviert ist, werden mithilfe von COM, oder DCOM Programme nicht ordnungsgemäß. Es wird dringend empfohlen, dass der RPCSS-Dienst ausgeführt werden.
-|   **Name des Diensts**    |   RpcSs
+|   **Dienstbeschreibung** |   Der RPCSS-Dienst wird als Dienststeuerungs-Manager für COM- und DCOM-Server verwendet. Von ihm werden Objektaktivierungsanforderungen, Objektexporterauflösungen und die verteilte Garbage Collection für COM- und DCOM-Server ausgeführt. Wenn dieser Dienst beendet oder deaktiviert wird, werden Programme, für die COM oder DCOM verwendet wird, nicht ordnungsgemäß ausgeführt. Wir empfehlen dir dringend, den RPCSS-Dienst auszuführen.
+|   **Dienstname**    |   RpcSs
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Automatic
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-##  <a name="remote-procedure-call-rpc-locator"></a>Locator der Remoteprozeduraufruf-Remoteprozeduraufruf (RPC)             
+##  <a name="remote-procedure-call-rpc-locator"></a>RPC-Locator             
 
 | | |               
 |---|---|   
-|   **Dienstbeschreibung** |   In Windows 2003 und früheren Versionen von Windows verwaltet der (Remote Procedure Call, RPC) Locator-Dienst die RPC-Name-Dienstdatenbank. In Windows Vista und höheren Versionen von Windows wird dieser Dienst bietet alle Funktionen keine und für die Anwendungskompatibilität vorhanden ist.   |
-|   **Name des Diensts**    |   RpcLocator  |
+|   **Dienstbeschreibung** |   Unter Windows 2003 und früheren Windows-Versionen wird mit dem RPC-Locatordienst (Remote Procedure Call) die RPC-Namensdienstdatenbank verwaltet. Unter Windows Vista und höheren Windows-Versionen stellt dieser Dienst keine Funktionalität bereit und ist nur für Zwecke der Anwendungskompatibilität vorhanden.   |
+|   **Dienstname**    |   RpcLocator  |
 |   **Installation**    |   Nur mit Desktopdarstellung    |
-|   **StartType**   |   Manuell  |
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   |
+|   **Starttyp**   |   Manual  |
+|   **Empfehlung**  | Kein Hinweis   |
 |   **Kommentare**    |       |
 |||             
 
@@ -1609,25 +1609,25 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Ermöglicht Remotebenutzern registrierungseinstellungen auf diesem Computer zu ändern. Wenn dieser Dienst beendet wird, kann die Registrierung nur von Benutzern auf diesem Computer geändert werden. Wenn dieser Dienst deaktiviert ist, werden alle Dienste, die explizit davon abhängig sind möglicherweise nicht gestartet werden.
-|   **Name des Diensts**    |   RemoteRegistry
+|   **Dienstbeschreibung** |   Ermöglicht es Remotebenutzern, Registrierungseinstellungen dieses Computers zu verändern. Wenn dieser Dienst beendet wird, kann die Registrierung nur von lokalen Benutzern dieses Computers verändert werden. Wenn dieser Dienst deaktiviert ist, können alle Dienste, die explizit davon abhängen, nicht gestartet werden.
+|   **Dienstname**    |   RemoteRegistry
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Automatic
-|   **Empfehlung**  |   Deaktivieren Sie nicht
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  |   Nicht deaktivieren
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-##  <a name="resultant-set-of-policy-provider"></a>Richtlinienergebnissatz-Richtlinienanbieter            
+##  <a name="resultant-set-of-policy-provider"></a>Richtlinienergebnissatzanbieter            
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Stellt einen Netzwerkdienst, der verarbeitet die Anforderungen an die Anwendung von gruppenrichtlinieneinstellungen für einen Zielbenutzer oder Computer in verschiedenen Situationen zu simulieren und die Einstellungen des Richtlinienergebnissatzes berechnet.
-|   **Name des Diensts**    |   RSoPProv
+|   **Dienstbeschreibung** |   Stellt einen Netzwerkdienst bereit, der Anforderungen zum Simulieren der Anwendung von Gruppenrichtlinieneinstellungen auf einen Zielbenutzer oder -computer in verschiedenen Situationen verarbeitet und einen sich daraus ergebenden Satz von Richtlinieneinstellungen berechnet.
+|   **Dienstname**    |   RSoPProv
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |Keine allgemeinen Vorgaben    
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |Kein Hinweis    
 |   **Kommentare**    |   
 |||         
 
@@ -1637,12 +1637,12 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Bietet Routingdienste für Unternehmen im LAN und WAN-netzwerkumgebungen.
-|   **Name des Diensts**    |   RemoteAccess
+|   **Dienstbeschreibung** |   Bietet Routingdienste in LAN- und WAN-Netzwerkumgebungen.
+|   **Dienstname**    |   RemoteAccess
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Disabled
-|   **Empfehlung**  |   Wurde bereits deaktiviert.
-|   **Kommentare**    |   Wurde bereits deaktiviert.
+|   **Starttyp**   |   Deaktiviert
+|   **Empfehlung**  |   Bereits deaktiviert
+|   **Kommentare**    |   Bereits deaktiviert
 |||         
 
 <br />          
@@ -1651,11 +1651,11 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   RPC-Schnittstellen-IDs in Transport-Endpunkte aufgelöst. Wenn dieser Dienst beendet oder deaktiviert ist, werden Programme, die mithilfe von (Remoteprozeduraufruf) Services möglicherweise nicht ordnungsgemäß.
-|   **Name des Diensts**    |   RpcEptMapper
+|   **Dienstbeschreibung** |   Löst RPC-Schnittstellen-IDs für den Transport von Endpunkten auf. Wenn dieser Dienst angehalten oder deaktiviert wird, können Programme, für die Remoteprozeduraufruf-Dienste (Remote Procedure Call, RPC) verwendet werden, nicht ordnungsgemäß ausgeführt werden.
+|   **Dienstname**    |   RpcEptMapper
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Automatic
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
@@ -1665,85 +1665,85 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Ermöglicht das Starten von Prozessen unter alternativen Anmeldeinformationen. Wenn dieser Dienst beendet wird, werden diese Art der Anmeldung nicht verfügbar. Wenn dieser Dienst deaktiviert ist, werden alle Dienste, die explizit davon abhängig sind möglicherweise nicht gestartet werden.
-|   **Name des Diensts**    |   Seclogon
+|   **Dienstbeschreibung** |   Aktiviert das Starten von Prozessen mit verschiedenen Anmeldeinformationen. Wenn dieser Dienst beendet wird, ist dieser Typ von Anmeldezugriff nicht mehr verfügbar. Wenn dieser Dienst deaktiviert ist, können alle Dienste, die explizit davon abhängen, nicht gestartet werden.
+|   **Dienstname**    |   seclogon
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-##  <a name="secure-socket-tunneling-protocol-service"></a>Secure Socket Tunneling Protokolldienst            
+##  <a name="secure-socket-tunneling-protocol-service"></a>SSTP-Dienst            
 
 | | |               
 |---|---|       
-|   **Dienstbeschreibung** |   Bietet Unterstützung für das Secure Socket Tunneling Protocol (SSTP) eine Verbindung mit Remotecomputern über ein VPN herstellen. Wenn dieser Dienst deaktiviert ist, werden Benutzer nicht mit SSTP auf Remoteservern zugreifen können.    |
-|   **Name des Diensts**    |   SstpSvc |
+|   **Dienstbeschreibung** |   Unterstützt SSTP (Secure Socket Tunneling-Protokoll), um über VPN eine Verbindung mit Remotecomputern herzustellen. Wenn dieser Dienst deaktiviert ist, können Benutzer SSTP nicht für den Zugriff auf Remoteserver verwenden.    |
+|   **Dienstname**    |   SstpSvc |
 |   **Installation**    |   Immer installiert    |
-|   **StartType**   |   Manuell  |
-|   **Empfehlung**  |   Deaktivieren Sie nicht  |
-|   **Kommentare**    |   Deaktivieren Seitenumbrüche RRAS   |
+|   **Starttyp**   |   Manual  |
+|   **Empfehlung**  |   Nicht deaktivieren  |
+|   **Kommentare**    |   Wenn der Dienst deaktiviert wird, treten RRAS-Fehler auf.   |
 |||             
 
 <br />              
 
-## <a name="security-accounts-manager"></a>Sicherheitskonten-Manager            
+## <a name="security-accounts-manager"></a>Sicherheitskonto-Manager            
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Der Start dieses Diensts signalisiert andere Dienste, dass der Security Accounts Manager (SAM) zum Akzeptieren von Anforderungen bereit ist.  Das Deaktivieren dieses Diensts verhindert, dass andere Dienste im System benachrichtigt wird, wenn der SAM bereit ist, der möglicherweise wiederum dazu führen, dass diese Dienste nicht ordnungsgemäß gestartet. Dieser Dienst sollte nicht deaktiviert werden.
-|   **Name des Diensts**    |   SamSs
+|   **Dienstbeschreibung** |   Durch den Start dieses Diensts wird anderen Diensten signalisiert, dass die Sicherheitskontenverwaltung (SAM) bereit ist, Anforderungen anzunehmen.  Wenn du diesen Dienst deaktivierst, wird verhindert, dass andere Dienste im System benachrichtigt werden, wenn die Sicherheitskontenverwaltung bereit ist. Dies kann wiederum dazu führen, dass diese Dienste nicht korrekt gestartet werden. Dieser Dienst sollte nicht deaktiviert werden.
+|   **Dienstname**    |   SamSs
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Automatic
-|   **Empfehlung**  | Deaktivieren Sie nicht
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  | Nicht deaktivieren
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-## <a name="sensor-data-service"></a>Sensor-Datendienst  
+## <a name="sensor-data-service"></a>Sensordatendienst  
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Stellt Daten über eine Vielzahl von Sensoren
-|   **Name des Diensts**    |   SensorDataService
+|   **Dienstbeschreibung** |   Liefert Daten von verschiedenen Sensoren.
+|   **Dienstname**    |   SensorDataService
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   OK, um deaktivieren
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   
 |||         
 
 <br />  
 
-## <a name="sensor-monitoring-service"></a>Sensor-Überwachungsdienst            
+## <a name="sensor-monitoring-service"></a>Sensorüberwachungsdienst            
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Überwacht die verschiedenen Sensoren aus, um die Daten verfügbar machen, und passen Sie System- und Status.  Wenn dieser Dienst beendet oder deaktiviert ist, wird die anzeigehelligkeit nicht an Lichtverhältnissen anpassen. Beim Beenden dieses Diensts beeinträchtigen andere Systemfunktionen und Features ebenfalls.
-|   **Name des Diensts**    |   SensrSvc
+|   **Dienstbeschreibung** |   Überwacht verschiedene Sensoren, um Daten verfügbar zu machen und eine Anpassung an den System- und Benutzerstatus vorzunehmen.  Wird dieser Dienst beendet oder deaktiviert, wird die Anzeigehelligkeit nicht an die Lichtbedingungen der Umgebung angepasst. Das Beenden des Diensts kann auch andere Systemfeatures betreffen.
+|   **Dienstname**    |   SensrSvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   OK, um deaktivieren
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   
 |||         
 
 <br /><br/>
-## <a name="sensor-servicebr--br------br---strongservice-descriptionstrong----a-service-for-sensors-that-manages-different-sensors39-functionality-manages-simple-device-orientation-sdo-and-history-for-sensors-loads-the-sdo-sensor-that-reports-device-orientation-changes--if-this-service-is-stopped-or-disabled-the-sdo-sensor-will-not-be-loaded-and-so-auto-rotation-will-not-occur-history-collection-from-sensors-will-also-be-stopped"></a>Sensor-Dienst<br/>| | |<br/>|---|---|<br/>|   <strong>Dienstbeschreibung</strong> |   Ein Dienst für Sensoren, der verschiedene Sensoren verwaltet&#39; Funktionalität. Verwaltet die einfache Device Orientation (SDO) und den Verlauf für Sensoren. Lädt die SDO-Sensor, der Änderungen der bildschirmausrichtung Gerät meldet.  Wenn dieser Dienst beendet oder deaktiviert ist, der SDO Sensor wird nicht geladen werden und automatische Rotation erfolgt also keine. Verlauf der Sammlung von Sensoren wird auch beendet werden.
-|   <strong>Name des Diensts</strong> |   SensorService |   <strong>Installation</strong> |   Nur mit Desktopdarstellung |   <strong>StartType</strong> |   Manuelle |   <strong>Empfehlung</strong> |   OK, um Sie zu deaktivieren |   <strong>Kommentare</strong>    |<br/>|||<br/>
+## <a name="sensor-servicebr--br------br---strongservice-descriptionstrong----a-service-for-sensors-that-manages-different-sensors39-functionality-manages-simple-device-orientation-sdo-and-history-for-sensors-loads-the-sdo-sensor-that-reports-device-orientation-changes--if-this-service-is-stopped-or-disabled-the-sdo-sensor-will-not-be-loaded-and-so-auto-rotation-will-not-occur-history-collection-from-sensors-will-also-be-stopped"></a>Sensordienst<br/>| | |<br/>|---|---|<br/>|   <strong>Dienstbeschreibung</strong> |   Ein Sensordienst, der verschiedene Sensorfunktionen verwaltet. Er verwaltet SDO (Simple Device Orientation) und den Verlauf für Sensoren und lädt den SDO-Sensor, der Änderungen der Geräteausrichtung meldet.  Wenn der Dienst beendet oder deaktiviert wird, wird der SDO-Sensor nicht geladen, und es findet keine automatische Drehung statt. Die Sammlung von Verlaufsdaten von den Sensoren wird ebenfalls beendet.
+|   <strong>Dienstname</strong>    |   SensorService |   <strong>Installation</strong>    |   Nur mit Desktopdarstellung |   <strong>Starttyp</strong>   |   Manuell |   <strong>Empfehlung</strong>  |   Deaktivierung OK |   <strong>Kommentare</strong>    |<br/>|||<br/>
 <br />          
 
 ## <a name="server"></a>Server           
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Unterstützt die Datei-, Druck- und named Pipes über das Netzwerk für diesen Computer freigeben. Wenn dieser Dienst beendet wird, werden diese Funktionen nicht verfügbar. Wenn dieser Dienst deaktiviert ist, werden alle Dienste, die explizit davon abhängig sind möglicherweise nicht gestartet werden.
-|   **Name des Diensts**    |   LanmanServer
+|   **Dienstbeschreibung** |   Unterstützt Datei-, Drucker- und Named-Piped-Freigabe für diesen Computer über das Netzwerk. Diese Funktionen sind nicht mehr verfügbar, falls dieser Dienst beendet wird. Wenn dieser Dienst deaktiviert ist, können alle Dienste, die explizit davon abhängen, nicht gestartet werden.
+|   **Dienstname**    |   LanmanServer
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Automatic
-|   **Empfehlung**  |   Deaktivieren Sie nicht
-|   **Kommentare**    |   Erforderlich für die Remoteverwaltung IPC$, SMB-Dateifreigabe
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  |   Nicht deaktivieren
+|   **Kommentare**    |   Wird für die Remoteverwaltung, IPC$ und SMB-Dateifreigabe benötigt.
 |||         
 
 <br />          
@@ -1752,11 +1752,11 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Stellt Benachrichtigungen für die automatische Wiedergabe Hardwareereignisse bereit.
-|   **Name des Diensts**    |   ShellHWDetection
+|   **Dienstbeschreibung** |   Zeigt Meldungen für Hardwareereignisse für automatische Wiedergabe an.
+|   **Dienstname**    |   ShellHWDetection
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Automatic
-|   **Empfehlung**  |   OK, um deaktivieren
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   
 |||         
 
@@ -1766,39 +1766,39 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Verwaltet den Zugriff auf Smartcards, die von diesem Computer gelesen. Wenn dieser Dienst beendet wird, werden dieser Computer kann nicht gelesen werden Smartcards. Wenn dieser Dienst deaktiviert ist, werden alle Dienste, die explizit davon abhängig sind möglicherweise nicht gestartet werden.
-|   **Name des Diensts**    |   SCardSvr
+|   **Dienstbeschreibung** |   Verwaltet den Zugriff auf Smartcards, die von diesem Computer gelesen werden. Wenn dieser Dienst beendet wird, kann der Computer keine Smartcards mehr lesen. Wenn dieser Dienst deaktiviert ist, können alle Dienste, die explizit davon abhängen, nicht gestartet werden.
+|   **Dienstname**    |   SCardSvr
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Disabled
-|   **Empfehlung**  |   Wurde bereits deaktiviert.
+|   **Starttyp**   |   Deaktiviert
+|   **Empfehlung**  |   Bereits deaktiviert
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-## <a name="smart-card-device-enumeration-service"></a>Smartcard-Gerätedienst-Enumeration                    
+## <a name="smart-card-device-enumeration-service"></a>Smartcard-Geräteaufzählungsdienst                    
 
 | | |               
 |---|---|       
-|   **Dienstbeschreibung** |   Software-Device-Knoten erstellt für alle Smartcard-Lesern zugegriffen werden kann, um eine bestimmte Sitzung. Wenn dieser Dienst deaktiviert ist, werden WinRT-APIs nicht zum Auflisten von Smartcard-Lesern können.   |
-|   **Name des Diensts**    |   ScDeviceEnum    |
+|   **Dienstbeschreibung** |   Erstellt Softwaregeräteknoten für alle Smartcardleser, die einer bestimmten Sitzung zur Verfügung stehen. Wird dieser Dienst deaktiviert, können von WinRT-APIs keine Smartcardleser aufgezählt werden.   |
+|   **Dienstname**    |   ScDeviceEnum    |
 |   **Installation**    |   Immer installiert    |
-|   **StartType**   |   Manuell  |
-|   **Empfehlung**  |   OK, um deaktivieren   |
-|   **Kommentare**    |   Fast ausschließlich für WinRT-apps erforderlich sind    |
+|   **Starttyp**   |   Manual  |
+|   **Empfehlung**  |   Deaktivierung OK   |
+|   **Kommentare**    |   Wird fast ausschließlich für WinRT-Apps benötigt.    |
 |||             
 
 <br />              
 
-## <a name="smart-card-removal-policy"></a>Entfernen des Smartcard-Richtlinie        
+## <a name="smart-card-removal-policy"></a>Richtlinie zum Entfernen der Smartcard        
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Lässt das System konfiguriert werden, um dem Desktop des Benutzers beim Entfernen der Smartcard sperren.
-|   **Name des Diensts**    |   SCPolicySvc
+|   **Dienstbeschreibung** |   Lässt eine Konfiguration des Systems zu, bei der der Benutzerdesktop beim Entfernen der Smartcard gesperrt wird.
+|   **Dienstname**    |   SCPolicySvc
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
@@ -1808,11 +1808,11 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Empfängt die Trap-Nachrichten von lokalen oder Remotecomputer Simple Network Management Protocol (SNMP)-Agents generiert und leitet die Nachrichten auf SNMP-Management-Programme, die auf diesem Computer ausgeführt. Wenn dieser Dienst beendet wird, erhalten die SNMP-basierte Programme auf diesem Computer keine SNMP-Trap-Nachrichten. Wenn dieser Dienst deaktiviert ist, werden alle Dienste, die explizit davon abhängig sind möglicherweise nicht gestartet werden.
-|   **Name des Diensts**    |   SNMPTRAP
+|   **Dienstbeschreibung** |   Empfängt Trap-Nachrichten, die von lokalen oder Remote-SNMP-Agents generiert wurden, und leitet die Nachrichten an SNMP-Verwaltungsprogramme weiter, die auf diesem Computer ausgeführt werden. SNMP-basierte Programme auf diesem Computer empfangen keine SNMP-Trap-Nachrichten, falls dieser Dienst beendet wird. Wenn dieser Dienst deaktiviert ist, können alle Dienste, die explizit davon abhängen, nicht gestartet werden.
+|   **Dienstname**    |   SNMPTRAP
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
@@ -1822,11 +1822,11 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Aktiviert den Download, Installation und Erzwingung von Lizenzen für digitale für Windows und Windows Anwendungen. Wenn der Dienst deaktiviert ist, können das Betriebssystem und lizenzierte Anwendungen in einem Benachrichtigungsmodus ausgeführt. Es wird dringend empfohlen, nicht des softwareschutzdienstes zu deaktivieren.
-|   **Name des Diensts**    |   sppsvc
+|   **Dienstbeschreibung** |   Aktiviert das Herunterladen, die Installation und die Durchsetzung digitaler Lizenzen für Windows und Windows-Anwendungen. Wenn der Dienst deaktiviert wird, werden das Betriebssystem und lizenzierte Anwendungen in einem Benachrichtigungsmodus ausgeführt. Es wird dringend empfohlen, den Softwareschutzdienst nicht zu deaktivieren.
+|   **Dienstname**    |   sppsvc
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Automatic
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
@@ -1836,81 +1836,81 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Ermöglicht es Administratoren, die für den Remotezugriff von einer Eingabeaufforderung mithilfe von EMS.
-|   **Name des Diensts**    |   Sacsvr
+|   **Dienstbeschreibung** |   Ermöglicht Administratoren über die Notverwaltungsdienste (Emergency Management Services, EMS) den Remotezugriff auf eine Eingabeaufforderung.
+|   **Dienstname**    |   sacsvr
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-## <a name="spot-verifier"></a>Spot-Verifier            
+## <a name="spot-verifier"></a>Echtzeit-Datenträgerprüfung            
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Potenzielle dateisystembeschädigungen wird überprüft.
-|   **Name des Diensts**    |   svsvc
+|   **Dienstbeschreibung** |   Überprüft mögliche Beschädigungen des Dateisystems.
+|   **Dienstname**    |   svsvc
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-## <a name="ssdp-discovery"></a>Ermittlung von SSDP           
+## <a name="ssdp-discovery"></a>SSDP-Suche           
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Ermittelt, vernetzten Geräten und Diensten, die die SSDP Discovery-Protokolls, z. B. UPnP-Geräte zu verwenden. Kündigt auch, SSDP-Geräte und Dienste, die auf dem lokalen Computer ausgeführt wird. Wenn dieser Dienst beendet wird, werden die SSDP-basierte Geräte nicht ermittelt werden. Wenn dieser Dienst deaktiviert ist, werden alle Dienste, die explizit davon abhängig sind möglicherweise nicht gestartet werden.
-|   **Name des Diensts**    |   SSDPSRV
+|   **Dienstbeschreibung** |   Sucht nach Netzwerkgeräten und -diensten, die das SSDP-Suchprotokoll verwenden, z. B. UPnP-Geräte. Kündigt zudem SSDP-Geräte und -dienste an, die auf dem lokalen Computer ausgeführt werden. Wenn dieser Dienst beendet wird, werden SSDP-basierte Geräte nicht entdeckt. Wenn dieser Dienst deaktiviert ist, können alle Dienste, die explizit davon abhängen, nicht gestartet werden.
+|   **Dienstname**    |   SSDPSRV
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   OK, um deaktivieren
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-## <a name="state-repository-service"></a>Status der Repository-Dienst         
+## <a name="state-repository-service"></a>StateRepository-Dienst         
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Stellt die erforderliche Infrastruktur zur Unterstützung für das Anwendungsmodell bereit.
-|   **Name des Diensts**    |   StateRepository
+|   **Dienstbeschreibung** |   Bietet die erforderliche Infrastrukturunterstützung für das Anwendungsmodell.
+|   **Dienstname**    |   StateRepository
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-##  <a name="still-image-acquisition-events"></a>Weiterhin Image Acquisition-Ereignisse
+##  <a name="still-image-acquisition-events"></a>Ereignisse zum Abrufen von Standbildern
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Startet die Anwendungen weiterhin Image Käufen zugeordnet.
-|   **Name des Diensts**    |   WiaRpc
+|   **Dienstbeschreibung** |   Startet Anwendungen im Zusammenhang mit Ereignissen zum Abrufen von Standbildern.
+|   **Dienstname**    |   WiaRpc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   OK, um deaktivieren
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   
 |||         
 
 <br />  
 
-## <a name="storage-service"></a>Storage-Dienst          
+## <a name="storage-service"></a>Speicherdienst          
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Aktivieren von Diensten für speichereinstellungen und externen Speicher-Erweiterung bietet
-|   **Name des Diensts**    |   StorSvc
+|   **Dienstbeschreibung** |   Stellt Unterstützungsdienste für Speichereinstellungen und externe Speichererweiterung bereit.
+|   **Dienstname**    |   StorSvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
@@ -1920,25 +1920,25 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Optimiert die Platzierung von Daten in die Speicherebenen für alle mehrstufigen Speicherplätzen in das System an.
-|   **Name des Diensts**    |   TieringEngineService
+|   **Dienstbeschreibung** |   Optimiert die Verteilung der Daten auf den Speicherstufen für alle mehrstufigen Speicherplätze im System.
+|   **Dienstname**    |   TieringEngineService
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-##  <a name="superfetch"></a>SuperFetch          
+##  <a name="superfetch"></a>Superfetch          
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Verwaltet und verbessert die Leistung des Systems im Laufe der Zeit.
-|   **Name des Diensts**    |   SysMain
+|   **Dienstbeschreibung** |   Verwaltet und verbessert die Systemleistung im Zeitablauf.
+|   **Dienstname**    |   SysMain
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
@@ -1948,12 +1948,12 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Dieser Dienst synchronisiert, e-Mail, Kontakte, Kalender und verschiedene andere Benutzerdaten. E-Mail und andere Anwendungen, die diese Funktionalität hängt funktioniert nicht ordnungsgemäß, wenn dieser Dienst nicht ausgeführt wird.
-|   **Name des Diensts**    |   OneSyncSvc
+|   **Dienstbeschreibung** |   Dieser Dienst synchronisiert E-Mail-, Kontakt-, Kalender- und verschiedene andere Benutzerdaten. Wenn dieser Dienst nicht ausgeführt wird, funktionieren E-Mail-Programme und andere Anwendungen, die von dieser Funktionalität abhängig sind, nicht ordnungsgemäß.
+|   **Dienstname**    |   OneSyncSvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Automatic
-|   **Empfehlung**  |   OK, um deaktivieren
-|   **Kommentare**    |   Vorlage "Benutzer"-Dienst
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  |   Deaktivierung OK
+|   **Kommentare**    |   Benutzerdienstvorlage
 |||         
 
 <br />          
@@ -1962,26 +1962,26 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Systemereignisse überwacht, und benachrichtigt Abonnenten von COM+-Ereignissystem dieser Ereignisse.
-|   **Name des Diensts**    |   SENS
+|   **Dienstbeschreibung** |   Überwacht Systemereignisse und benachrichtigt Abonnenten des COM+-Ereignissystems bei diesen Ereignissen.
+|   **Dienstname**    |   SENS
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Automatic
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-## <a name="system-events-broker"></a>System-Ereignisse-Broker             
+## <a name="system-events-broker"></a>Systemereignissebroker             
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Koordiniert die Ausführung von Hintergrundaufgaben für WinRT-Anwendung. Wenn dieser Dienst beendet oder deaktiviert ist, kann keine Verarbeitung im Hintergrund ausgelöst werden.
-|   **Name des Diensts**    |   SystemEventsBroker
+|   **Dienstbeschreibung** |   Koordiniert die Ausführung der Hintergrundvorgänge für WinRT-Anwendungen. Wird dieser Dienst beendet oder deaktiviert, werden die Hintergrundvorgänge unter Umständen nicht ausgelöst.
+|   **Dienstname**    |   SystemEventsBroker
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Automatic
-|   **Empfehlung**  |   Deaktivieren Sie nicht
-|   **Kommentare**    |   Trotz der Tatsache, die die Beschreibung impliziert, dass es nur für WinRT-apps ist, ist es für die aufgabenplanung, Broker-Infrastruktur-Dienst und anderen internen Komponenten erforderlich.
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  |   Nicht deaktivieren
+|   **Kommentare**    |   In der Beschreibung wird nur die Nutzung für WinRT-Apps erwähnt, aber der Dienst wird auch für die Aufgabenplanung, den Brokerinfrastrukturdienst und andere interne Komponenten benötigt.
 |||         
 
 <br />          
@@ -1990,25 +1990,25 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Ermöglicht Benutzern das Konfigurieren und planen automatisierte Aufgaben auf diesem Computer. Der Dienst enthält außerdem mehrere Windows-System – wichtige Aufgaben. Wenn dieser Dienst beendet oder deaktiviert ist, diese Aufgaben werden nicht ausgeführt werden zu den geplanten Zeiten. Wenn dieser Dienst deaktiviert ist, werden alle Dienste, die explizit davon abhängig sind möglicherweise nicht gestartet werden.
-|   **Name des Diensts**    |   Zeitplan
+|   **Dienstbeschreibung** |   Ermöglicht es einem Benutzer, automatische Aufgaben auf diesem Computer zu konfigurieren und zu planen. Der Dienst hostet auch mehrere kritische Aufgaben für das Windows-System. Wenn dieser Dienst beendet oder deaktiviert wird, werden diese Vorgänge nicht zu den geplanten Zeiten ausgeführt. Wenn dieser Dienst deaktiviert ist, können alle Dienste, die explizit davon abhängen, nicht gestartet werden.
+|   **Dienstname**    |   Zeitplan
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Automatic
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-## <a name="tcpip-netbios-helper"></a>TCP/IP-NetBIOS-Hilfsprogramm            
+## <a name="tcpip-netbios-helper"></a>TCP/IP-NetBIOS-Hilfsdienst            
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Bietet Unterstützung für die NetBIOS über TCP/IP (NetBT)-Dienst und den NetBIOS-namensauflösung für Clients im Netzwerk aus diesem Grund ermöglicht Benutzern zum Freigeben von Dateien, drucken, und melden Sie sich mit dem Netzwerk. Wenn dieser Dienst beendet wird, können diese Funktionen nicht verfügbar sein. Wenn dieser Dienst deaktiviert ist, werden alle Dienste, die explizit davon abhängig sind möglicherweise nicht gestartet werden.
-|   **Name des Diensts**    |   lmhosts
+|   **Dienstbeschreibung** |   Bietet Unterstützung für den NetBIOS-über-TCP/IP-Dienst (NetBT) und die NetBIOS-Namensauflösung für Clients im Netzwerk, sodass Benutzer Daten gemeinsam nutzen, drucken und sich am Netzwerk anmelden können. Diese Funktionen sind nicht mehr verfügbar, falls dieser Dienst beendet wird. Wenn dieser Dienst deaktiviert ist, können alle Dienste, die explizit davon abhängen, nicht gestartet werden.
+|   **Dienstname**    |   lmhosts
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
@@ -2018,12 +2018,12 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Bietet Telefonie-API (TAPI)-Unterstützung für Programme, die Steuerung von Telefoniegeräten, auf dem lokalen Computer und über das LAN auf Servern, auf denen auch den Dienst ausgeführt wird.
-|   **Name des Diensts**    |   TapiSrv
+|   **Dienstbeschreibung** |   Bietet Telefonie-API-Unterstützung (TAPI) für Programme, die lokale und über das LAN auf Servern (die diesen Dienst ebenfalls ausführen) angebundene Telefoniegeräte steuern.
+|   **Dienstname**    |   TapiSrv
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   Deaktivieren Sie nicht
-|   **Kommentare**    |   Deaktivieren Seitenumbrüche RRAS
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Nicht deaktivieren
+|   **Kommentare**    |   Wenn der Dienst deaktiviert wird, treten RRAS-Fehler auf.
 |||         
 
 <br />          
@@ -2032,81 +2032,81 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|
-|   **Dienstbeschreibung** |   Enthält, Designverwaltung des Benutzererlebnisses.
-|   **Name des Diensts**    |   Designs
+|   **Dienstbeschreibung** |   Stellt die Designverwaltung zur Verfügung.
+|   **Dienstname**    |   Designs
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Automatic
-|   **Empfehlung**  |   Deaktivieren Sie nicht
-|   **Kommentare**    |   Barrierefreiheit-Designs kann nicht festgelegt werden, wenn dieser Dienst deaktiviert ist
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  |   Nicht deaktivieren
+|   **Kommentare**    |   Es können keine Designs für Barrierefreiheit festgelegt werden, wenn dieser Dienst deaktiviert ist.
 |||         
 
 <br />  
 
-## <a name="tile-data-model-server"></a>Kachel "Data Model-server           
+## <a name="tile-data-model-server"></a>Kacheldaten-Modellserver           
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Kachelserver für kachelaktualisierungen.
-|   **Name des Diensts**    |   tiledatamodelsvc
+|   **Dienstbeschreibung** |   Kachelserver zur Kachelaktualisierung.
+|   **Dienstname**    |   tiledatamodelsvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Automatic
-|   **Empfehlung**  |   Deaktivieren Sie nicht
-|   **Kommentare**    |   Starten Sie Menü unterbrochen, wenn dieser Dienst deaktiviert ist
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  |   Nicht deaktivieren
+|   **Kommentare**    |   Wenn dieser Dienst deaktiviert wird, tritt für das Startmenü ein Fehler auf.
 |||         
 
 <br />          
 
-##  <a name="time-broker"></a>Time-Broker     
+##  <a name="time-broker"></a>Zeitbroker     
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Koordiniert die Ausführung von Hintergrundaufgaben für WinRT-Anwendung. Wenn dieser Dienst beendet oder deaktiviert ist, kann keine Verarbeitung im Hintergrund ausgelöst werden.
-|   **Name des Diensts**    |   TimeBrokerSvc
+|   **Dienstbeschreibung** |   Koordiniert die Ausführung der Hintergrundvorgänge für WinRT-Anwendungen. Wird dieser Dienst beendet oder deaktiviert, werden die Hintergrundvorgänge unter Umständen nicht ausgelöst.
+|   **Dienstname**    |   TimeBrokerSvc
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   Deaktivieren Sie nicht
-|   **Kommentare**    |   Trotz der Tatsache, die die Beschreibung impliziert, dass es nur für WinRT-apps ist, ist es für die aufgabenplanung, Broker-Infrastruktur-Dienst und anderen internen Komponenten erforderlich.
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Nicht deaktivieren
+|   **Kommentare**    |   In der Beschreibung wird nur die Nutzung für WinRT-Apps erwähnt, aber der Dienst wird auch für die Aufgabenplanung, den Brokerinfrastrukturdienst und andere interne Komponenten benötigt.
 |||         
 
 <br />          
 
-## <a name="touch-keyboard-and-handwriting-panel-service"></a>Touch, Tastatur und Handschrift-Bereich-Dienst         
+## <a name="touch-keyboard-and-handwriting-panel-service"></a>Dienst für Bildschirmtastatur und Schreibbereich         
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Ermöglicht das Handschrifterkennungs-Bereich und tippen Sie auf der Tastatur Stift- und Handschrifteingaben-Funktionen
-|   **Name des Diensts**    |   TabletInputService
+|   **Dienstbeschreibung** |   Aktiviert die Stift- und Freihandfunktionalität der Bildschirmtastatur und des Schreibbereichs.
+|   **Dienstname**    |   TabletInputService
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   OK, um deaktivieren
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-## <a name="update-orchestrator-service-for-windows-update"></a>Orchestrator-Dienst für Windows Update aktualisieren           
+## <a name="update-orchestrator-service-for-windows-update"></a>Update Orchestrator Service für Windows Update           
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Verwaltet die Windows-Updates. Wenn beendet, werden Ihre Geräte werden nicht zum Herunterladen und installieren die neuesten Updates.
-|   **Name des Diensts**    |   UsoSvc
+|   **Dienstbeschreibung** |   Verwaltet Windows-Updates. Wenn der Dienst beendet wird, können auf deinen Geräten keine aktuellen Updates heruntergeladen und installiert werden.
+|   **Dienstname**    |   UsoSvc
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   Deaktivieren Sie nicht
-|   **Kommentare**    |   Beschreibung des Diensts konnte nicht in der v1607; Windows Update (inkl. WSUS), die diesem Dienst abhängig ist.
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Nicht deaktivieren
+|   **Kommentare**    |   In v1607 hat die Dienstbeschreibung gefehlt. Dieser Dienst wird für Windows Update (inkl. WSUS) benötigt.
 |||         
 
 <br />          
 
-## <a name="upnp-device-host"></a>Host UPnP-Geräte         
+## <a name="upnp-device-host"></a>UPnP-Gerätehost         
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Ermöglicht das UPnP-Geräte, die auf diesem Computer gehostet werden. Wenn dieser Dienst beendet wird, alle gehosteten UPnP-Geräte werden nicht mehr funktioniert, und keine zusätzlichen gehosteten Geräte hinzugefügt werden können. Wenn dieser Dienst deaktiviert ist, werden alle Dienste, die explizit davon abhängig sind möglicherweise nicht gestartet werden.
-|   **Name des Diensts**    |   upnphost
+|   **Dienstbeschreibung** |   Ermöglicht es, dass UPnP-Geräte auf diesem Computer gehostet werden können. Wenn dieser Dienst beendet wird, sind alle gehosteten UPnP-Geräte nicht mehr betriebsbereit, und es können keine weiteren gehosteten Geräte hinzugefügt werden. Wenn dieser Dienst deaktiviert ist, können alle Dienste, die explizit davon abhängen, nicht gestartet werden.
+|   **Dienstname**    |   upnphost
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   OK, um deaktivieren
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   
 |||         
 
@@ -2116,40 +2116,40 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Dieser Dienst protokolliert eindeutigen Clientanforderungen, in Form von IP-Adressen und Namen, der installierten Produkte und Rollen auf dem lokalen Server. Diese Informationen kann, über Powershell: Administratoren müssen Clients bei Bedarf von Server-Software für die Verwaltung von offline (Client Access License, CAL) quantifizieren abgefragt werden. Wenn der Dienst deaktiviert ist, Clientanforderungen werden nicht protokolliert, und werden nicht über Powershell Abfragen abgerufen werden. Beenden des Diensts wirkt sich nicht auf das Abfragen von Verlaufsdaten (Siehe unterstützende Dokumentation für die Schritte zum Löschen von Verlaufsdaten) aus. Der lokalen Systemadministrator muss wenden Sie sich an, auffordern, Windows Server-Lizenzbedingungen zum Ermitteln von der Anzahl der Clientzugriffslizenzen, die für die Serversoftware ordnungsgemäß lizenziert werden erforderlich sind; die Benutzerzugriffsprotokollierung-Dienst verwenden und Daten ändert sich nicht auf diese Verpflichtung.
-|   **Name des Diensts**    |   UALSVC
+|   **Dienstbeschreibung** |   Mithilfe dieses Diensts werden eindeutige Clientzugriffsanforderungen in Form von IP-Adressen und Benutzernamen von auf dem lokalen Server installierten Produkten und Rollen protokolliert. Diese Informationen können über PowerShell von Administratoren abgefragt werden, die den Clientbedarf an Serversoftware für die Offlineverwaltung von Clientzugriffslizenzen (Client Access License, CAL) berechnen müssen. Wenn der Dienst deaktiviert wird, werden Clientanforderungen nicht protokolliert und sind daher nicht über PowerShell-Abfragen abrufbar. Wird der Dienst beendet, so beeinflusst dies nicht die Abfrage von Verlaufsdaten. (Schritte zum Löschen von Verlaufsdaten findest du in der begleitenden Dokumentation.) Der lokale Systemadministrator muss in den Windows Server-Lizenzbedingungen die Anzahl von Clientzugriffslizenzen festlegen, die für eine ordnungsgemäße Lizenzierung der Serversoftware erforderlich ist. Die Verwendung des UAL-Diensts und der UAL-Daten entbinden nicht von dieser Verpflichtung.
+|   **Dienstname**    |   UALSVC
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Automatic
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-##  <a name="user-data-access"></a>Datenzugriff für Benutzer        
+##  <a name="user-data-access"></a>Benutzerdatenzugriff        
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Bietet apps Zugriff auf strukturierte Benutzerdaten, einschließlich von Kontaktinformationen, Kalender, Nachrichten und andere Inhalte an. Wenn Sie beenden oder deaktivieren Sie diesen Dienst, können apps, die diese Daten verwenden, nicht ordnungsgemäß.
-|   **Name des Diensts**    |   UserDataSvc
+|   **Dienstbeschreibung** |   Ermöglicht Apps den Zugriff auf strukturierte Benutzerdaten, z. B. Kontaktinformationen, Kalender, Nachrichten und andere Inhalte. Wenn du diesen Dienst beendest oder deaktivierst, funktionieren Apps, die diese Daten verwenden, möglicherweise nicht ordnungsgemäß.
+|   **Dienstname**    |   UserDataSvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   OK, um deaktivieren
-|   **Kommentare**    |   Vorlage "Benutzer"-Dienst
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Deaktivierung OK
+|   **Kommentare**    |   Benutzerdienstvorlage
 |||         
 
 <br />          
 
-## <a name="user-data-storage"></a>Speicherung von            
+## <a name="user-data-storage"></a>Benutzerdatenspeicher            
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Verarbeitet die Speicherung von strukturierten Benutzerdaten, einschließlich von Kontaktinformationen, Kalender, Meldungen und anderen Inhalten. Wenn Sie beenden oder deaktivieren Sie diesen Dienst, können apps, die diese Daten verwenden, nicht ordnungsgemäß.
-|   **Name des Diensts**    |   UnistoreSvc
+|   **Dienstbeschreibung** |   Verarbeitet die Speicherung strukturierter Benutzerdaten, z. B. Kontaktinformationen, Kalender, Nachrichten und andere Inhalte. Wenn du diesen Dienst beendest oder deaktivierst, funktionieren Apps, die diese Daten verwenden, möglicherweise nicht ordnungsgemäß.
+|   **Dienstname**    |   UnistoreSvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   OK, um deaktivieren
-|   **Kommentare**    |   Vorlage "Benutzer"-Dienst
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Deaktivierung OK
+|   **Kommentare**    |   Benutzerdienstvorlage
 |||         
 
 <br />          
@@ -2158,11 +2158,11 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Bietet Unterstützung für Anwendungs- und betriebssystemeinstellungen roaming
-|   **Name des Diensts**    |   UevAgentService
+|   **Dienstbeschreibung** |   Stellt Unterstützung für das Roaming von Anwendungen und Betriebssystemeinstellungen bereit.
+|   **Dienstname**    |   UevAgentService
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Disabled
-|   **Empfehlung**  |   Wurde bereits deaktiviert.
+|   **Starttyp**   |   Deaktiviert
+|   **Empfehlung**  |   Bereits deaktiviert
 |   **Kommentare**    |   
 |||         
 
@@ -2172,11 +2172,11 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Benutzer-Manager stellt die Runtime-Komponenten, die für mehrere Benutzer Interaktion erforderlich sind.  Wenn dieser Dienst beendet wird, können einige Anwendungen möglicherweise nicht ordnungsgemäß.
-|   **Name des Diensts**    |   UserManager
+|   **Dienstbeschreibung** |   Der Benutzer-Manager stellt die Laufzeitkomponenten bereit, die für Interaktionen mit mehreren Benutzern erforderlich sind.  Wenn dieser Dienst beendet wird, funktionieren einige Anwendungen möglicherweise nicht korrekt.
+|   **Dienstname**    |   UserManager
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Automatic
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
@@ -2186,39 +2186,39 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Dieser Dienst ist verantwortlich für das Laden und Entladen von Benutzerprofilen. Wenn dieser Dienst beendet oder deaktiviert ist, Benutzer werden nicht mehr in der Lage, sich erfolgreich angemeldet haben, oder melden Sie sich ab, apps treten möglicherweise Probleme, die auf Daten des Benutzers abrufen und Komponenten, die den Empfang von Benachrichtigungen des Arbeitsprofils-Ereignis registriert wird nicht empfangen.
-|   **Name des Diensts**    |   ProfSvc
+|   **Dienstbeschreibung** |   Dieser Dienst ist für das Laden und Entladen von Benutzerprofilen verantwortlich. Wenn dieser Dienst beendet oder deaktiviert ist, können Benutzer sich nicht mehr an- oder abmelden. Zudem können Probleme beim Abrufen von Benutzerdaten für Apps auftreten, und Komponenten, die für den Empfang von Profilereignisbenachrichtigungen registriert sind, erhalten keine Benachrichtigungen.
+|   **Dienstname**    |   ProfSvc
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Automatic
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-## <a name="virtual-disk"></a>Virtuelles Laufwerk             
+## <a name="virtual-disk"></a>Virtueller Datenträger             
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Stellt Verwaltungsdienste für Datenträger, Volumes, Dateisysteme und Speicherarrays.
-|   **Name des Diensts**    |   vds
+|   **Dienstbeschreibung** |   Stellt Verwaltungsdienste für Datenträger, Volumes, Dateisysteme und Speicherarrays bereit.
+|   **Dienstname**    |   vds
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   Keine allgemeinen Vorgaben
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Kein Hinweis
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-## <a name="volume-shadow-copy"></a>Volumeschattenkopie-Dienst           
+## <a name="volume-shadow-copy"></a>Volumeschattenkopie           
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Verwaltet und implementiert Volumeschattenkopien für Sicherung und andere Zwecke verwendet. Wenn dieser Dienst beendet wird, Schattenkopien sind nicht verfügbar, für die Sicherung und die Sicherung fehlschlagen. Wenn dieser Dienst deaktiviert ist, werden alle Dienste, die explizit davon abhängig sind möglicherweise nicht gestartet werden.
-|   **Name des Diensts**    |   VSS
+|   **Dienstbeschreibung** |   Verwaltet und implementiert Volumeschattenkopien, die zu Sicherungs- und anderen Zwecken verwendet werden. Wenn dieser Dienst beendet wird, sind keine Schattenkopien für Sicherungen verfügbar, und die Sicherung kann eventuell fehlschlagen. Wenn dieser Dienst deaktiviert ist, können alle Dienste, die explizit davon abhängen, nicht gestartet werden.
+|   **Dienstname**    |   VSS
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   Keine allgemeinen Vorgaben
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Kein Hinweis
 |   **Kommentare**    |   
 |||         
 
@@ -2228,39 +2228,39 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Hosts-Objekte, die von Clients der Hülle der verwendet wird
-|   **Name des Diensts**    |   WalletService
+|   **Dienstbeschreibung** |   Von Clients der Funktion „Brieftasche“ verwendete Hostobjekte.
+|   **Dienstname**    |   WalletService
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   OK, um deaktivieren
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-## <a name="windows-audio"></a>Windows Audio            
+## <a name="windows-audio"></a>Windows-Audio            
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Audio für Windows-basierten Programmen wird verwaltet.  Wenn dieser Dienst beendet wird, werden Audio- und Effekte möglicherweise nicht ordnungsgemäß.  Wenn dieser Dienst deaktiviert ist, werden alle Dienste, die explizit davon abhängig sind nicht gestartet
-|   **Name des Diensts**    |   Audiosrv
+|   **Dienstbeschreibung** |   Verwaltet Audioinhalte für Windows-basierte Programme.  Wenn dieser Dienst beendet wird, funktionieren Audiogeräte und -effekte nicht ordnungsgemäß.  Wenn der Dienst deaktiviert wird, können Dienste, die explizit von diesem Dienst abhängig sind, nicht gestartet werden.
+|   **Dienstname**    |   Audiosrv
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   OK, um deaktivieren
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-## <a name="windows-audio-endpoint-builder"></a>Windows Audio Endpoint Builder           
+## <a name="windows-audio-endpoint-builder"></a>Windows-Audio-Endpunkterstellung           
 
 | | |           
 |---|---|
-|   **Dienstbeschreibung** |   Verwaltet Audiogeräte für den Windows-Audio-Dienst.  Wenn dieser Dienst beendet wird, werden Audio- und Effekte möglicherweise nicht ordnungsgemäß.  Wenn dieser Dienst deaktiviert ist, werden alle Dienste, die explizit davon abhängig sind nicht gestartet
-|   **Name des Diensts**    |   AudioEndpointBuilder
+|   **Dienstbeschreibung** |   Verwaltet Audiogeräte für den Windows-Audiodienst.  Wenn dieser Dienst beendet wird, funktionieren Audiogeräte und -effekte nicht ordnungsgemäß.  Wenn der Dienst deaktiviert wird, können Dienste, die explizit von diesem Dienst abhängig sind, nicht gestartet werden.
+|   **Dienstname**    |   AudioEndpointBuilder
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   OK, um deaktivieren
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   
 |||         
 
@@ -2270,25 +2270,25 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Der Windows-biometriedienst bietet Clientanwendungen die Möglichkeit, zu erfassen, verglichen werden soll, bearbeiten und Speichern von biometrischen Daten ohne direkten Zugriff auf biometrische Hardware oder nur Beispiele. Der Dienst wird in einem privilegierten SVCHOST-Prozess gehostet.
-|   **Name des Diensts**    |   WbioSrvc
+|   **Dienstbeschreibung** |   Mit dem Windows-Biometriedienst können in Clientanwendungen biometrische Daten erfasst, verglichen, geändert und gespeichert werden, ohne dass ein direkter Zugriff auf biometrische Hardware oder Proben erfolgt. Der Dienst wird in einem privilegierten SVCHOST-Prozess gehostet.
+|   **Dienstname**    |   WbioSrvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-##  <a name="windows-camera-frame-server"></a>Windows-Kamera-Frame-Server         
+##  <a name="windows-camera-frame-server"></a>Windows-Kamera-FrameServer         
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Ermöglicht er mehreren Clients Videoframes Kamerageräte auf.
-|   **Name des Diensts**    |   FrameServer
+|   **Dienstbeschreibung** |   Ermöglicht mehreren Clients den Zugriff auf Videoframes von Kameras.
+|   **Dienstname**    |   FrameServer
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   OK, um deaktivieren
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   
 |||         
 
@@ -2298,11 +2298,11 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Wird automatisch eine Verbindung herstellen/trennen Entscheidungen basierend auf die Konnektivität-Netzwerkoptionen, die derzeit für den PC zur Verfügung und ermöglicht die Verwaltung der Netzwerkverbindungen, die basierend auf einer Gruppenrichtlinie Einstellungen.
-|   **Name des Diensts**    |   Wcmsvc
+|   **Dienstbeschreibung** |   Anhand der aktuell auf dem PC verfügbaren Netzwerkkonnektivitätsoptionen wird die Verbindung automatisch hergestellt oder getrennt. Zudem kann die Netzwerkkonnektivität mithilfe von Gruppenrichtlinieneinstellungen verwaltet werden.
+|   **Dienstname**    |   Wcmsvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Automatic
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
@@ -2312,11 +2312,11 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Hilft beim gegen Eindringversuche für bekannte und neu entdeckte Sicherheitslücken in Netzwerkprotokollen
-|   **Name des Diensts**    |   WdNisSvc
+|   **Dienstbeschreibung** |   Schützt gegen Eindringversuche bei bekannten und neu erkannten Sicherheitsrisiken von Netzwerkprotokollen.
+|   **Dienstname**    |   WdNisSvc
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben    
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis    
 |   **Kommentare**    |   
 |||         
 
@@ -2326,39 +2326,39 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Benutzer schützen vor Malware und andere potenziell unerwünschte software
-|   **Name des Diensts**    |   WinDefend
+|   **Dienstbeschreibung** |   Schützt Benutzer vor Schadsoftware und weiterer potenziell unerwünschter Software.
+|   **Dienstname**    |   WinDefend
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Automatic
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-## <a name="windows-driver-foundation---user-mode-driver-framework"></a>Windows-Treiber-Foundation - Benutzermodus-Treiberframework           
+## <a name="windows-driver-foundation---user-mode-driver-framework"></a>Windows Driver Foundation – Benutzermodus-Treiberframework           
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Erstellt und verwaltet die Benutzermodus-Treiber. Dieser Dienst kann nicht beendet werden.
-|   **Name des Diensts**    |   wudfsvc
+|   **Dienstbeschreibung** |   Erstellt und verwaltet Benutzermodus-Treiberprozesse. Der Dienst kann nicht beendet werden.
+|   **Dienstname**    |   wudfsvc
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-## <a name="windows-encryption-provider-host-service"></a>Windows-Verschlüsselung-Anbieterdienst für Host     
+## <a name="windows-encryption-provider-host-service"></a>Hostdienst für Windows Encryption Provider     
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Windows-Verschlüsselung-Anbieter-Hostdienst Broker die verschlüsselungsbezogenen Funktionen von Drittanbieter-Kryptografieanbietern für Prozesse, die zum Auswerten und EAS-Richtlinien anwenden müssen. Beendet wird werden Überprüfungen der EAS-Konformität gefährdet werden, die von verbundenen e-Mail-Konten eingerichtet wurden
-|   **Name des Diensts**    |   WEPHOSTSVC
+|   **Dienstbeschreibung** |   Der Hostdienst für Windows Encryption Provider vermittelt Verschlüsselungsfunktionen von Drittanbieter-Verschlüsselungsanbietern an Prozesse, die EAS-Richtlinien bewerten und anwenden müssen. Wenn dieser Dienst beendet wird, sind die EAS-Kompatibilitätsüberprüfungen gefährdet, die von den verbundenen E-Mail-Konten eingerichtet wurden.
+|   **Dienstname**    |   WEPHOSTSVC
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
@@ -2368,12 +2368,12 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Ermöglicht Fehler gemeldet werden, wenn Programme arbeiten oder reagiert nicht mehr und vorhandene Lösungen bereitgestellt werden. Ermöglicht auch die Protokolle für Diagnose generiert werden soll, und reparieren Sie die Dienste. Wenn dieser Dienst beendet wird, Fehlerberichterstattung funktionieren möglicherweise nicht korrekt und Diagnosedienste repariert und dessen Ergebnisse möglicherweise nicht angezeigt.
-|   **Name des Diensts**    |   WerSvc
+|   **Dienstbeschreibung** |   Ermöglicht die Berichterstattung von Fehlern bei nicht mehr funktionierenden und reagierenden Programmen und das Angeben von Lösungen. Ermöglicht außerdem das Generieren von Protokollen für Diagnose- und Reparaturdienste. Wenn dieser Dienst beendet wird, funktioniert die Fehlerberichterstattung möglicherweise nicht ordnungsgemäß, und die Ergebnisse von Diagnosediensten und Reparaturen werden möglicherweise nicht angezeigt.
+|   **Dienstname**    |   WerSvc
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   Deaktivieren Sie nicht
-|   **Kommentare**    |   Sammelt und sendet abstürzen/Stillständen-Daten, die sowohl MS als auch von Drittanbietern ISVs/IHVs verwendet wird. Die Daten werden zum Diagnostizieren von Fehlern Abstürze auslösen, Sicherheitsfehler enthalten kann. Auch erforderlich für die Fehlerberichterstattung im Unternehmen.
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Nicht deaktivieren
+|   **Kommentare**    |   Erfasst und sendet Daten zu Abstürzen und zum Hängen, die sowohl von MS als auch von Dritten (ISVs/IHVs) genutzt werden. Die Daten werden zum Diagnostizieren von Fehlern verwendet, die zu Abstürzen führen können. Dies können auch Sicherheitsfehler sein. Wird auch für die Fehlerberichterstattung in Unternehmen benötigt.
 |||         
 
 <br />          
@@ -2382,12 +2382,12 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Dieser Dienst verwaltet permanente Abonnements von Ereignissen aus Remotequellen, die WS-Management-Protokoll unterstützen. Dies umfasst Windows Vista-Ereignisprotokolle, Hardware und IPMI-fähigen Ereignisquellen. Der Dienst speichert weitergeleitete Ereignisse in ein lokales Ereignisprotokoll. Wenn dieser Dienst beendet oder deaktiviert ist Event-Abonnements können nicht erstellt werden, und weitergeleitete Ereignisse nicht zulässig.
-|   **Name des Diensts**    |   Wecsvc
+|   **Dienstbeschreibung** |   Dieser Dienst verwaltet permanente Abonnements für Ereignisse von Remotequellen, die das WS-Verwaltungsprotokoll unterstützen. Hierzu gehören Windows Vista-Ereignisprotokolle sowie Hardware- und IPMI-fähige Ereignisquellen. Der Dienst speichert weitergeleitete Ereignisse in einem lokalen Ereignisprotokoll. Falls dieser Dienst beendet oder deaktiviert wird, können Ereignisabonnements nicht erstellt und weitergeleitete Ereignisse nicht angenommen werden.
+|   **Dienstname**    |   Wecsvc
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   Deaktivieren Sie nicht
-|   **Kommentare**    |   Erfasst ETW-Ereignisse (z. B. sicherheitsrelevanten Ereignissen), für die Verwaltbarkeit sowie Diagnose.  Viele der Funktionen und Tools von Drittanbietern erforderlich ist, einschließlich Security Audit-tools
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Nicht deaktivieren
+|   **Kommentare**    |   Erfasst ETW-Ereignisse (z. B. Sicherheitsereignisse) für Verwaltungs- und Diagnosezwecke.  Von diesem Dienst sind viele Features und Drittanbietertools abhängig, z. B. Tools für die Sicherheitsüberwachung.
 |||         
 
 <br />          
@@ -2396,11 +2396,11 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Dieser Dienst verwaltet, Ereignisse und Ereignisprotokolle. Protokollieren von Ereignissen, Ereignisse abonnieren von Ereignissen, Ereignisprotokollen Archivierung und Verwalten von Ereignismetadaten Abfragen unterstützt. Sie können Ereignisse im sowohl XML- und nur-Text-Format angezeigt. Beim Beenden dieses Diensts kann die Sicherheit und Zuverlässigkeit des Systems beeinträchtigt werden.
-|   **Name des Diensts**    |   EventLog
+|   **Dienstbeschreibung** |   Dieser Dienst verwaltet Ereignisse und Ereignisprotokolle. Er unterstützt die Protokollierung, die Abfrage und das Abonnement von Ereignissen sowie die Archivierung von Ereignisprotokollen und die Verwaltung von Ereignismetadaten. Er kann Ereignisse im XML- und Nur-Text-Format anzeigen. Durch das Beenden dieses Diensts können die Sicherheit und Zuverlässigkeit des Systems beeinträchtigt werden.
+|   **Dienstname**    |   EventLog
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Automatic
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
@@ -2410,39 +2410,39 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Windows-Firewall hilft dabei, Ihren Computer zu schützen, indem durch verhindert, dass nicht autorisierte Benutzer Zugriff auf Ihren Computer über das Internet oder einem Netzwerk.
-|   **Name des Diensts**    |   MpsSvc
+|   **Dienstbeschreibung** |   Die Windows-Firewall trägt zum Schutz des Computers bei, indem der Zugriff durch nicht autorisierte Benutzer auf den Computer über das Internet bzw. ein Netzwerk verhindert wird.
+|   **Dienstname**    |   MpsSvc
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Automatic
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-##  <a name="windows-font-cache-service"></a>Windows-Schriftartencache      
+##  <a name="windows-font-cache-service"></a>Windows-Dienst für Schriftartencache      
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Optimiert die Leistung von Anwendungen durch das Zwischenspeichern von häufig verwendeten Schriftartdaten. Anwendungen, werden dieser Dienst gestartet, wenn er nicht bereits ausgeführt wird. Es kann deaktiviert werden, obwohl dies die Leistung der Anwendung beeinträchtigen wird.
-|   **Name des Diensts**    |   FontCache
+|   **Dienstbeschreibung** |   Optimiert die Leistung von Anwendungen durch das Speichern häufig verwendeter Schriftartendaten. Dieser Dienst wird von Anwendungen gestartet, wenn er nicht bereits ausgeführt wird. Er kann deaktiviert werden, aber dadurch wird die Leistung von Anwendungen herabgesetzt.
+|   **Dienstname**    |   FontCache
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Automatic
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-## <a name="windows-image-acquisition-wia"></a>Windows Image Acquisition (WIA)          
+## <a name="windows-image-acquisition-wia"></a>Windows-Bilderfassung (WIA)          
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Stellt Image Acquisition-Dienste für Scanner und Kameras
-|   **Name des Diensts**    |   stisvc
+|   **Dienstbeschreibung** |   Stellt Bilderfassungsdienste für Scanner und Kameras zur Verfügung.
+|   **Dienstname**    |   stisvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   OK, um deaktivieren
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   
 |||         
 
@@ -2453,11 +2453,11 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 | | |           
 |---|---|   
 |   **Dienstbeschreibung** |   wisvc
-|   **Name des Diensts**    |   wisvc
+|   **Dienstname**    |   wisvc
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   OK, um deaktivieren
-|   **Kommentare**    |   Server unterstützt keine Test-flighting, daher wird keine Aktion auf dem Server. Funktion kann auch über Gruppenrichtlinien deaktiviert werden.
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Deaktivierung OK
+|   **Kommentare**    |   Für Server wird das Test-Flighting nicht unterstützt, sodass darauf kein Vorgang durchgeführt wird. Das Feature kann auch per Gruppenrichtlinie deaktiviert werden.
 |||         
 
 <br />          
@@ -2466,11 +2466,11 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|
-|   **Dienstbeschreibung** |   Hinzugefügt, geändert und entfernt Anwendungen, die als Windows Installer (*.msi, *.msp)-Paket bereitgestellt. Wenn dieser Dienst deaktiviert ist, werden alle Dienste, die explizit davon abhängig sind möglicherweise nicht gestartet werden.
-|   **Name des Diensts**    |   MSIServer
+|   **Dienstbeschreibung** |   Fügt Anwendungen, die als Windows Installer-Paket (*.msi, *.msp) angeboten werden, hinzu bzw. ändert oder entfernt sie. Wenn dieser Dienst deaktiviert ist, können alle Dienste, die explizit davon abhängen, nicht gestartet werden.
+|   **Dienstname**    |   msiserver
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
@@ -2480,11 +2480,11 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Bietet infrastrukturunterstützung für den Microsoft Store an.  Dieser Dienst wird bedarfsgesteuert gestartet und wenn Inhalt über den Microsoft Store erworben wurden klicken Sie dann deaktiviert, funktionieren nicht ordnungsgemäß.
-|   **Name des Diensts**    |   LicenseManager
+|   **Dienstbeschreibung** |   Stellt Infrastrukturunterstützung für den Microsoft Store bereit.  Der Dienst wird bei Bedarf gestartet, und bei einer Deaktivierung verhalten sich im Windows Store erworbene Inhalte nicht ordnungsgemäß.
+|   **Dienstname**    |   LicenseManager
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
@@ -2494,81 +2494,81 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Bietet eine allgemeine Schnittstelle und-Objektmodell auf Management-Informationen zu Betriebssystem, Geräte, Anwendungen und Dienste zugreifen. Wenn dieser Dienst beendet wird, werden die meisten Windows-basierter Software nicht ordnungsgemäß. Wenn dieser Dienst deaktiviert ist, werden alle Dienste, die explizit davon abhängig sind möglicherweise nicht gestartet werden.
-|   **Name des Diensts**    |   Winmgmt
+|   **Dienstbeschreibung** |   Bietet eine standardmäßige Schnittstelle und ein Objektmodell zum Zugreifen auf Verwaltungsinformationen über das Betriebssystem, Geräte, Anwendungen und Dienste. Die meiste Windows-basierte Software kann nicht ordnungsgemäß ausgeführt werden, falls dieser Dienst beendet wird. Wenn dieser Dienst deaktiviert ist, können alle Dienste, die explizit davon abhängen, nicht gestartet werden.
+|   **Dienstname**    |   Winmgmt
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Automatic
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-##  <a name="windows-mobile-hotspot-service"></a>Windows Mobile-Hotspot-Dienst          
+##  <a name="windows-mobile-hotspot-service"></a>Windows-Dienst für mobile Hotspots          
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Bietet die Möglichkeit, eine Datenverbindung mit einem anderen Gerät freizugeben.
-|   **Name des Diensts**    |   icssvc
+|   **Dienstbeschreibung** |   Ermöglicht die Freigabe einer Datenverbindung für ein anderes Gerät.
+|   **Dienstname**    |   icssvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   OK, um deaktivieren
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-## <a name="windows-modules-installer"></a>Windows-Modulinstallation        
+## <a name="windows-modules-installer"></a>Windows Modules Installer        
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Können die Installation, Änderung und Entfernen von Windows-Updates und optionalen Komponenten. Wenn dieser Dienst deaktiviert ist, installieren Sie oder deinstallieren Sie der Windows-Updates für diesen Computer fehlschlagen.
-|   **Name des Diensts**    |   TrustedInstaller
+|   **Dienstbeschreibung** |   Ermöglicht das Installieren, Ändern und Entfernen von Windows-Updates und optionalen Komponenten. Wenn dieser Dienst deaktiviert ist, können beim Installieren oder Deinstallieren von Windows-Updates auf diesem Computer Fehler auftreten.
+|   **Dienstname**    |   TrustedInstaller
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-## <a name="windows-push-notifications-system-service"></a>Windows-Push-Benachrichtigungen-Systemdienst            
+## <a name="windows-push-notifications-system-service"></a>Windows-Pushbenachrichtigungssystemdienst            
 
 | | |           
 |---|---|
-|   **Dienstbeschreibung** |   Dieser Dienst wird in Sitzung 0 ausgeführt und hostet den Benachrichtigungsanbieters-Plattform und die Verbindung, der Verbindung zwischen dem Gerät und WNS-Server verarbeitet.
-|   **Name des Diensts**    |   WpnService
+|   **Dienstbeschreibung** |   Der Dienst wird in Sitzung 0 ausgeführt und hostet die Benachrichtigungsplattform und den Verbindungsanbieter, der die Verbindung zwischen Gerät und WNS-Server behandelt.
+|   **Dienstname**    |   WpnService
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Automatic
-|   **Empfehlung**  |   OK, um deaktivieren
-|   **Kommentare**    |   Für live-Kacheln und anderen Funktionen erforderlich sind
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  |   Deaktivierung OK
+|   **Kommentare**    |   Wird für Live-Kacheln und andere Features benötigt.
 |||         
 
 <br />      
 
-## <a name="windows-push-notifications-user-service"></a>Windows Push Benachrichtigungsdienst-Benutzer          
+## <a name="windows-push-notifications-user-service"></a>Windows-Pushbenachrichtigungs-Benutzerdienst          
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Dieser Dienst hostet die Plattform für Windows bietet Unterstützung für lokale und Pushbenachrichtigungen. Unterstützte Benachrichtigungen sind Kachel, Toast und Rohdaten.
-|   **Name des Diensts**    |   WpnUserService
+|   **Dienstbeschreibung** |   Dieser Dienst hostet die Windows-Benachrichtigungsplattform, die lokale Benachrichtigungen und Pushbenachrichtigungen unterstützt. Unterstützt werden Kachel-, Popup- und unformatierte Benachrichtigungen.
+|   **Dienstname**    |   WpnUserService
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   OK, um deaktivieren
-|   **Kommentare**    |   Vorlage "Benutzer"-Dienst
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Deaktivierung OK
+|   **Kommentare**    |   Benutzerdienstvorlage
 |||         
 
 <br />
 
-## <a name="windows-remote-management-ws-management"></a>Windows-Remoteverwaltung (WS-Management)
+## <a name="windows-remote-management-ws-management"></a>Windows-Remoteverwaltung (WS-Verwaltung)
 | | |
 |---|---|
 |   **Dienstbeschreibung** |   Mit dem Windows-Remoteverwaltungsdienst (WinRM) wird das WS-Verwaltungsprotokoll für die Remoteverwaltung implementiert. Die WS-Verwaltung stellt ein Standard-Webdienst-Protokoll dar, das für die Remote-Software- und Hardware-Verwaltung verwendet wird. Der WinRM-Dienst durchsucht das Netzwerk nach WS-Verwaltungsanforderungen und verarbeitet diese. Der WinRM-Dienst muss mit einem „Listener“ unter Verwendung des Befehlszeilenprogramms winrm.cmd oder über die Gruppenrichtlinie konfiguriert werden, um im Netzwerk „lauschen“ zu können. Der WinRM-Dienst stellt einen Zugriff auf WMI-Daten bereit und ermöglicht eine Ereignissammlung. Die Ereignissammlung und das Abonnieren von Ereignissen machen es erforderlich, dass der Dienst ausgeführt wird. WinRM-Nachrichten verwenden HTTP oder HTTPS als Transporte. Der WinRM-Dienst ist nicht von IIS abhängig, er wird jedoch vorkonfiguriert, um auf demselben Computer einen Port mit IIS zu teilen.  Der WinRM-Dienst reserviert das URL-Präfix „/wsman“. Um Konflikten mit IIS vorzubeugen, sollten Administratoren sicherstellen, dass keine auf IIS gehostete Website das URL-Präfix „/wsman“ verwendet.
-|   **Name des Diensts**    |   WinRM
+|   **Dienstname**    |   WinRM
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Automatic
-|   **Empfehlung**  |   Deaktivieren Sie nicht
-|   **Kommentare**    |   Für die Remoteverwaltung erforderlich
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  |   Nicht deaktivieren
+|   **Kommentare**    |   Wird für die Remoteverwaltung benötigt.
 |||
 
 <br />          
@@ -2577,11 +2577,11 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Bietet inhaltsindizierung Zwischenspeichern von Eigenschaften und Suchergebnisse für Dateien, E-mail und andere Inhalte an.
-|   **Name des Diensts**    |   WSearch
+|   **Dienstbeschreibung** |   Stellt Inhaltsindizierung, Eigenschaftenzwischenspeicherung und Suchergebnisse für Dateien, E-Mails und andere Inhalte bereit.
+|   **Dienstname**    |   WSearch
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Disabled
-|   **Empfehlung**  |   Wurde bereits deaktiviert.
+|   **Starttyp**   |   Deaktiviert
+|   **Empfehlung**  |   Bereits deaktiviert
 |   **Kommentare**    |   
 |||         
 
@@ -2591,11 +2591,11 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Verwaltet Synchronisierung von Datum und Uhrzeit auf allen Clients und Servern im Netzwerk. Wenn dieser Dienst beendet wird, werden Datums-, Zeit- und datumssynchronisierung nicht verfügbar. Wenn dieser Dienst deaktiviert ist, werden alle Dienste, die explizit davon abhängig sind möglicherweise nicht gestartet werden.
-|   **Name des Diensts**    |   W32Time
+|   **Dienstbeschreibung** |   Behält Datums- und Zeitsynchronisation auf allen Clients und Servern im Netzwerk bei. Wenn dieser Dienst beendet wurde, sind Zeit- und Datumssynchronisierung nicht verfügbar. Wenn dieser Dienst deaktiviert ist, können alle Dienste, die explizit davon abhängen, nicht gestartet werden.
+|   **Dienstname**    |   W32Time
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Automatic
-|   **Empfehlung**  | Keine allgemeinen Vorgaben
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  | Kein Hinweis
 |   **Kommentare**    |   
 |||         
 
@@ -2605,11 +2605,11 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Ermöglicht die Erkennung, Download und Installation von Updates für Windows und andere Programme. Wenn dieser Dienst deaktiviert ist, Benutzer dieses Computers mit Windows Update oder die Funktion zum automatischen Aktualisieren nicht möglich, und Programme werden nicht in der Windows Update Agent (WUA) API verwenden können.
-|   **Name des Diensts**    |   wuauserv
+|   **Dienstbeschreibung** |   Erkennung, Download und Installation von Updates für Windows und andere Programme. Wenn der Dienst deaktiviert ist, können „Windows Update“ bzw. das Feature „Automatische Updates“ nicht verwendet werden. Außerdem können Programme dann die Windows Update-Agent-Anwendungsprogrammierschnittstelle (WUA API) nicht verwenden.
+|   **Dienstname**    |   wuauserv
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
@@ -2619,25 +2619,25 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   WinHTTP die Client-HTTP-Stapel implementiert und bietet Entwicklern eine Win32-API und COM-Automatisierung-Komponente für HTTP-Anforderungen senden und Empfangen von Antworten. Darüber hinaus bietet WinHTTP Unterstützung für die automatische Ermittlung von Proxy-Konfiguration über die Implementierung des Protokolls (Web Proxy Auto-Discovery, WPAD).
-|   **Name des Diensts**    |   WinHttpAutoProxySvc
+|   **Dienstbeschreibung** |   WinHTTP implementiert den HTTP-Clientstapel und bietet Entwicklern eine Win32-API und COM-Automatisierungskomponente zum Senden von HTTP-Anforderungen und zum Empfangen von Antworten. Außerdem unterstützt WinHTTP die automatische Erkennung von Proxykonfigurationen über die entsprechende Implementierung des WPAD-Protokolls (Web Proxy Auto-Discovery).
+|   **Dienstname**    |   WinHttpAutoProxySvc
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   Deaktivieren Sie nicht
-|   **Kommentare**    |   Alle Elemente, die den Netzwerkstapel verwendet haben ein funktionales abhängigkeitsprofil für diesen Dienst. Viele Organisationen nutzen auf diese Option, um ihre interne Netzwerke HTTP-Proxy routing konfigurieren.  Ohne diese werden intern, stammen von HTTP-Verbindungen mit dem Internet ausfallen.
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Nicht deaktivieren
+|   **Kommentare**    |   Alle Elemente, die den Netzwerkstapel nutzen, können über eine funktionale Abhängigkeit von diesem Dienst verfügen. Er wird von vielen Organisationen genutzt, um das Routing von HTTP-Proxys für interne Netzwerke zu konfigurieren.  Ohne diesen Dienst tritt für alle HTTP-Internetverbindungen mit internem Ursprung ein Fehler auf.
 |||         
 
 <br />          
 
-## <a name="wired-autoconfig"></a>Wired AutoConfig         
+## <a name="wired-autoconfig"></a>Automatische Konfiguration (verkabelt)         
 
 | | |           
 |---|---|       
-|   **Dienstbeschreibung** |   Der Dienst für automatische Konfiguration von Kabelnetzwerken (DOT3SVC) ist verantwortlich für die Durchführung der IEEE 802.1X-Authentifizierung auf Ethernet-Schnittstellen. Wenn die aktuelle Bereitstellung des verkabelten Netzwerk 802.1 X Authentifizierung erzwingt, sollte die DOT3SVC-Dienst konfiguriert werden, führen Sie für die Einrichtung einer Layer 2-Konnektivität "und/oder" Bereitstellung des Zugriffs auf Netzwerkressourcen. Verdrahtete Netzwerken, die keine 802.1X-Authentifizierung erzwingen, sind nicht betroffen, durch den DOT3SVC-Dienst.
-|   **Name des Diensts**    |   dot3svc
+|   **Dienstbeschreibung** |   Mit dem Dienst für die automatische Konfiguration von Kabelnetzwerken (DOT3SVC) wird eine IEEE 802.1X-Authentifizierung an Ethernet-Schnittstellen ausgeführt. Wenn bei der aktuellen verkabelten Netzwerkbereitstellung die 802.1X-Authentifizierung erzwungen wird, muss der DOT3SVC-Dienst so konfiguriert werden, dass eine Konnektivität auf der 2. Schicht hergestellt bzw. Zugriff auf Netzwerkressourcen ermöglicht wird. Der DOT3SVC-Dienst wirkt sich nicht auf Kabelnetzwerke aus, bei denen die 802.1X-Authentifizierung nicht erzwungen wird.
+|   **Dienstname**    |   dot3svc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben   
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
@@ -2647,11 +2647,11 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Stellt Leistungsinformationen für die Bibliothek von Windows-Verwaltungsinstrumentation (Windows Management Instrumentation, WMI)-Anbietern für Clients im Netzwerk bereit. Dieser Dienst wird nur ausgeführt, wenn Performance Data Helper aktiviert ist.
-|   **Name des Diensts**    |   wmiApSrv
+|   **Dienstbeschreibung** |   Bietet Leistungsbibliotheksinformationen der Windows-Verwaltungsinstrumentationsanbieter für Clients im Netzwerk. Dieser Dienst wird nur ausgeführt, wenn das Leistungsdaten-Hilfsprogramm aktiviert ist.
+|   **Dienstname**    |   wmiApSrv
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Manuell
-|   **Empfehlung**  | Keine allgemeinen Vorgaben       
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  | Kein Hinweis       
 |   **Kommentare**    |   
 |||         
 
@@ -2661,40 +2661,40 @@ In den folgenden Tabellen bieten Microsoft-Anleitung zum Deaktivieren der System
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Erstellt und verwaltet Clientnetzwerkverbindungen zu Remoteservern mithilfe des SMB-Protokolls. Wenn dieser Dienst beendet wird, werden diese Verbindungen nicht verfügbar. Wenn dieser Dienst deaktiviert ist, werden alle Dienste, die explizit davon abhängig sind möglicherweise nicht gestartet werden.
-|   **Name des Diensts**    |   LanmanWorkstation
+|   **Dienstbeschreibung** |   Erstellt und wartet Clientnetzwerkverbindungen mit Remoteservern unter Verwendung des SMB-Protokolls. Diese Verbindungen sind nicht mehr verfügbar, falls dieser Dienst beendet wird. Wenn dieser Dienst deaktiviert ist, können alle Dienste, die explizit davon abhängen, nicht gestartet werden.
+|   **Dienstname**    |   LanmanWorkstation
 |   **Installation**    |   Immer installiert
-|   **StartType**   |   Automatic
-|   **Empfehlung**  | Keine allgemeinen Vorgaben       
+|   **Starttyp**   |   Automatisch
+|   **Empfehlung**  | Kein Hinweis       
 |   **Kommentare**    |   
 |||         
 
 <br />
 
-## <a name="xbox-live-auth-manager"></a>Xbox Live Auth Manager           
+## <a name="xbox-live-auth-manager"></a>Xbox Live Authentifizierungs-Manager           
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Bietet Authentifizierung und Autorisierung Dienste für die Interaktion mit Xbox Live. Wenn dieser Dienst beendet wird, können einige Anwendungen möglicherweise nicht ordnungsgemäß.
-|   **Name des Diensts**    |   XblAuthManager
+|   **Dienstbeschreibung** |   Stellt Authentifizierungs- und Autorisierungsservices für Xbox Live bereit. Wenn dieser Dienst beendet wird, funktionieren einige Anwendungen möglicherweise nicht korrekt.
+|   **Dienstname**    |   XblAuthManager
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   Sollte deaktiviert werden
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Deaktivierung empfohlen
 |   **Kommentare**    |   
 |||         
 
 <br />          
 
-## <a name="xbox-live-game-save"></a>Xbox Live-Spiel speichern          
+## <a name="xbox-live-game-save"></a>Xbox Live-Spiele speichern          
 
 | | |           
 |---|---|   
-|   **Dienstbeschreibung** |   Dieser Dienst wird synchronisiert speichern Sie Daten speichern aktiviert Spiele für Xbox Live.  Wenn dieser Dienst beendet wird, wird nicht Spiel Daten speichern, zum Hochladen oder Herunterladen von Xbox Live.
-|   **Name des Diensts**    |   XblGameSave
+|   **Dienstbeschreibung** |   Dieser Dienst synchronisiert für Xbox Live-Spiele gespeicherte Daten.  Wenn der Dienst beendet wird, werden die gespeicherten Spieldaten für Xbox Live nicht hochgeladen bzw. heruntergeladen.
+|   **Dienstname**    |   XblGameSave
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **StartType**   |   Manuell
-|   **Empfehlung**  |   Sollte deaktiviert werden
-|   **Kommentare**    |   Dieser Dienst wird synchronisiert speichern Sie Daten speichern aktiviert Spiele für Xbox Live.  Wenn dieser Dienst beendet wird, wird nicht Spiel Daten speichern, zum Hochladen oder Herunterladen von Xbox Live.
+|   **Starttyp**   |   Manual
+|   **Empfehlung**  |   Deaktivierung empfohlen
+|   **Kommentare**    |   Dieser Dienst synchronisiert für Xbox Live-Spiele gespeicherte Daten.  Wenn der Dienst beendet wird, werden die gespeicherten Spieldaten für Xbox Live nicht hochgeladen bzw. heruntergeladen.
 |||         
 
 <br /> 
