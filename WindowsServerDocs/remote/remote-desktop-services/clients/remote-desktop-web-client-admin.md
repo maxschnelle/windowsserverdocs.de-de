@@ -1,6 +1,6 @@
 ---
 title: Einrichten des Remotedesktop-Webclients für Ihre Benutzer
-description: Beschreibt, wie der Remotedesktop-Webclient ein Administrator einrichten kann.
+description: In diesem Artikel wird beschrieben, wie ein Administrator den Remotedesktop-Webclient einrichten kann.
 ms.prod: windows-server-threshold
 ms.technology: remote-desktop-services
 ms.author: helohr
@@ -9,271 +9,271 @@ ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
 ms.openlocfilehash: 45164e9eca0873c82148aa3b7baa179a3f626dd7
-ms.sourcegitcommit: d888e35f71801c1935620f38699dda11db7f7aad
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66804974"
 ---
 # <a name="set-up-the-remote-desktop-web-client-for-your-users"></a>Einrichten des Remotedesktop-Webclients für Ihre Benutzer
 
-Der Remote Desktop WebClient ermöglicht Benutzern das Remote Desktop-Infrastruktur Ihres Unternehmens über einen kompatiblen Webbrowser zugreifen. Sie können mit remote-apps oder Desktops, wie sie mit einem lokalen PC unabhängig von deren Position interagieren. Nachdem Sie Ihre Remote Desktop WebClient eingerichtet haben, alles, was Ihre Benutzer müssen für den Einstieg ist die URL, in dem sie den Client, ihre Anmeldeinformationen und einen unterstützten Webbrowser zugreifen.
+Mit dem Remotedesktop-Webclient können Benutzer über einen kompatiblen Webbrowser auf die Remotedesktopinfrastruktur Ihrer Organisation zugreifen. Die Benutzer können unabhängig von ihrem jeweiligen Standort mit Remote-Apps oder Remotedesktops so interagieren wie mit einem lokalen PC. Nachdem Sie Ihren Remotedesktop-Webclient eingerichtet haben, benötigen Ihre Benutzer für den Einstieg nur die URL, über die sie auf den Client zugreifen können, ihre Anmeldeinformationen und einen unterstützten Webbrowser.
 
 >[!IMPORTANT]
->Der Webclient unterstützt derzeit nicht mit dem Azure-Anwendungsproxy und Web Application Proxy nicht überhaupt unterstützt. Finden Sie unter [mithilfe von RDS mit anwendungsproxydienste](../rds-supported-config.md#using-remote-desktop-services-with-application-proxy-services) Details.
+>Der Webclient bietet derzeit keine Unterstützung für den Azure-Anwendungsproxy und gar keine Unterstützung für den Webanwendungsproxy. Weitere Informationen finden Sie unter [Verwenden von Remotedesktopdiensten mit Anwendungsproxydiensten](../rds-supported-config.md#using-remote-desktop-services-with-application-proxy-services).
 
-## <a name="what-youll-need-to-set-up-the-web-client"></a>Sie benötigen Folgendes, um die WebClient einzurichten
+## <a name="what-youll-need-to-set-up-the-web-client"></a>Voraussetzungen für das Einrichten des Webclients
 
-Beachten Sie bevor Sie beginnen die folgenden Punkte berücksichtigen:
+Beachten Sie vor dem Ausführen der ersten Schritte die folgenden Punkte:
 
-* Stellen Sie sicher, dass Ihre [remotedesktopbereitstellung](../rds-deploy-infrastructure.md) hat ein RD-Gateway, ein Remotedesktop-Verbindungsbroker und Web Access für Remotedesktop unter Windows Server 2016 oder 2019.
-* Stellen Sie sicher, dass Ihre Bereitstellung konfiguriert wurde für [pro Benutzer-Clientzugriffslizenzen](../rds-client-access-license.md) (CALs) anstelle von pro-Gerät, andernfalls alle Lizenzen verwendet werden.
-* Installieren Sie die [KB4025334 für Windows 10-Update](https://support.microsoft.com/en-us/help/4025334/windows-10-update-kb4025334) auf dem RD-Gateway. Später kumulativen Updates enthält möglicherweise bereits dieser KB-Artikel.
-* Stellen Sie sicher, dass öffentlich vertrauenswürdige Zertifikate für die RD-Gateway und Web Access für Remotedesktop-Rollen konfiguriert sind.
-* Stellen Sie sicher, dass alle Computer, die, denen Ihre Benutzer eine Verbindung herstellen, eines der folgenden Betriebssystemversionen ausgeführt werden:
+* Stellen Sie sicher, dass Ihre [Remotedesktopbereitstellung](../rds-deploy-infrastructure.md) ein Remotedesktopgateway, einen Remotedesktop-Verbindungsbroker und eine Komponente mit Web Access für Remotedesktop unter Windows Server 2016 oder 2019 umfasst.
+* Stellen Sie sicher, dass Ihre Bereitstellung für [Clientzugriffslizenzen](../rds-client-access-license.md) (Client Access Licenses, CALs) vom Typ „Pro Benutzer“ (und nicht vom Typ „Pro Gerät“) konfiguriert ist. Andernfalls werden alle Lizenzen verwendet.
+* Installieren Sie das [Windows 10-Update KB4025334](https://support.microsoft.com/en-us/help/4025334/windows-10-update-kb4025334) auf dem RD-Gateway. Spätere kumulative Updates enthalten möglicherweise bereits diese KB-Version.
+* Stellen Sie sicher, dass öffentliche vertrauenswürdige Zertifikate für die Rollen „RD-Gateway“ und „Web Access für Remotedesktop“ konfiguriert sind.
+* Stellen Sie sicher, dass alle Computer, mit denen Ihre Benutzer eine Verbindung herstellen, unter einer der folgenden Betriebssystemversionen ausgeführt werden:
   * Windows 10
   * Windows Server 2008 R2 oder höher
 
-Den Benutzern werden eine bessere Leistung zu verbinden, auf Windows Server 2016 (oder höher) und Windows 10 (Version 1611 oder höher) angezeigt.
+Die Benutzer können eine bessere Leistung verzeichnen, wenn die Verbindung mit Windows Server 2016 (oder höher) und Windows 10 (Version 1611 oder höher) hergestellt wird.
 
 >[!IMPORTANT]
->Wenn Sie den WebClient während des Vorschauzeitraums verwendet und eine Version vor 1.0.0 installiert, müssen Sie zunächst die alten Clients vor dem Wechsel zu der neuen Version deinstallieren. Wenn Sie eine Fehlermeldung erhalten, die besagt, dass "der Webclient mit einer älteren Version von RDWebClientManagement installiert wurde, und muss vor der Bereitstellung der neuen Version zuerst entfernt werden", gehen Sie wie folgt vor:
+>Wenn Sie den Webclient während des Vorschauzeitraums verwendet und eine Version vor 1.0.0 installiert haben, müssen Sie zuerst den alten Client deinstallieren, bevor Sie auf die neue Version umsteigen. Wenn Sie eine Fehlermeldung erhalten, die besagt, dass der Webclient mit einer älteren Version von RDWebClientManagement installiert wurde und vor der Bereitstellung der neuen Version entfernt werden muss, führen Sie die folgenden Schritte aus:
 >
 >1. Öffnen Sie eine PowerShell-Eingabeaufforderung mit erhöhten Rechten.
->2. Führen Sie **Uninstall-Module RDWebClientManagement** beim Deinstallieren des neuen Moduls.
->3. Schließen und Öffnen der PowerShell-Eingabeaufforderung mit erhöhten Rechten aus.
->4. Führen Sie **"Install-Module RDWebClientManagement - requiredversion" \<alte Version >, das alte Modul installieren.**
->5. Führen Sie **deinstallieren-RDWebClient** zum Deinstallieren des alten Web-Clients.
->6. Führen Sie **Uninstall-Module RDWebClientManagement** beim Deinstallieren des alten Moduls.
->7. Schließen und Öffnen der PowerShell-Eingabeaufforderung mit erhöhten Rechten aus.
->8. Gehen Sie wie folgt mit den normalen Installationsschritten.
+>2. Führen Sie **Uninstall-Module RDWebClientManagement** aus, um das neue Modul zu deinstallieren.
+>3. Schließen Sie die PowerShell-Eingabeaufforderung mit erhöhten Rechten, und öffnen Sie sie erneut.
+>4. Führen Sie **Install-Module RDWebClientManagement -RequiredVersion \<alte Version> aus, um das alte Modul zu installieren.**
+>5. Führen Sie **Uninstall-RDWebClient** aus, um den alten Webclient zu deinstallieren.
+>6. Führen Sie **Uninstall-Module RDWebClientManagement** aus, um das alte Modul zu deinstallieren.
+>7. Schließen Sie die PowerShell-Eingabeaufforderung mit erhöhten Rechten, und öffnen Sie sie erneut.
+>8. Fahren Sie wie folgt mit den normalen Installationsschritten fort.
 
-## <a name="how-to-publish-the-remote-desktop-web-client"></a>Gewusst wie: Veröffentlichen Sie den Remotedesktop-Web-client
+## <a name="how-to-publish-the-remote-desktop-web-client"></a>Veröffentlichen des Remotedesktop-Webclients
 
-Um den WebClient zum ersten Mal installieren, gehen Sie folgendermaßen vor:
+Um den Webclient zum ersten Mal zu installieren, führen Sie die folgenden Schritte aus:
 
-1. Rufen Sie das Zertifikat, das zum Herstellen von Remotedesktopverbindungen und exportieren Sie es als CER-Datei, auf dem Remotedesktop-Verbindungsbroker-Server. Kopieren Sie die CER-Datei aus dem Remotedesktop-Verbindungsbroker an den Server, auf die RD-Web-Rolle ausgeführt wird.
-2. Öffnen Sie auf dem Server mit Web Access für Remotedesktop eine PowerShell-Eingabeaufforderung mit erhöhten Rechten aus.
-3. Unter Windows Server 2016 aktualisiert das PowerShellGet-Modul werden, weil die Posteingang-Version nicht unterstützt, das Web Client Management-Modul installieren. Führen Sie zum Aktualisieren von PowerShellGet das folgende Cmdlet aus:
+1. Rufen Sie auf dem Remotedesktop-Verbindungsbrokerserver das für Remotedesktopverbindungen verwendete Zertifikat ab, und exportieren Sie es als CER-Datei. Kopieren Sie die CER-Datei vom Remotedesktop-Verbindungsbroker auf den Server, auf dem die Rolle „Web Access für Remotedesktop“ ausgeführt wird.
+2. Öffnen Sie auf dem Server mit Web Access für Remotedesktop eine PowerShell-Eingabeaufforderung mit erhöhten Rechten.
+3. Aktualisieren Sie unter Windows Server 2016 das PowerShellGet-Modul, weil die mitgelieferte Version die Installation des Webclient-Verwaltungsmoduls nicht unterstützt. Führen Sie zum Aktualisieren von PowerShellGet das folgende Cmdlet aus:
     ```PowerShell
     Install-Module -Name PowerShellGet -Force
     ```
 
     >[!IMPORTANT]
-    >Sie müssen PowerShell neu starten, bevor das Update, andernfalls wirksam werden, die das Modul möglicherweise nicht funktioniert.
+    >Sie müssen PowerShell neu starten, damit die Aktualisierung wirksam wird. Andernfalls funktioniert das Modul möglicherweise nicht.
 
-4. Installieren Sie das Remote Desktop Web Client Management-PowerShell-Modul aus dem PowerShell-Katalog mit diesem Cmdlet:
+4. Installieren Sie das PowerShell-Modul für die Remotedesktop-Webclientverwaltung (RDWebClientManagement) aus dem PowerShell-Katalog mit dem folgenden Cmdlet:
     ```PowerShell
     Install-Module -Name RDWebClientManagement
     ```
 
-5. Führen Sie anschließend das folgende Cmdlet aus, um die neueste Version des Clients Remote Desktop Web herunterzuladen:
+5. Führen Sie danach das folgende Cmdlet aus, um die aktuelle Version des Remotedesktop-Webclients herunterzuladen:
     ```PowerShell
     Install-RDWebClientPackage
     ```
 
-6. Als Nächstes führen Sie dieses Cmdlet mit dem in Klammern stehenden Werte ersetzt werden, mit dem Pfad der CER-Datei, die Sie vom RD-Broker kopiert:
+6. Führen Sie als Nächstes das folgende Cmdlet aus, wobei Sie den in Klammern stehenden Wert durch den Pfad der CER-Datei ersetzen, die Sie vom Remotedesktop-Verbindungsbroker kopiert haben:
     ```PowerShell
     Import-RDWebClientBrokerCert <.cer file path>
     ```
 
-7. Abschließend führen Sie dieses Cmdlet aus, um den Remotedesktopclient für Web zu veröffentlichen:
+7. Führen Sie abschließend das folgende Cmdlet aus, um den Remotedesktop-Webclient zu veröffentlichen:
     ```PowerShell
     Publish-RDWebClientPackage -Type Production -Latest
     ```
-    Stellen Sie sicher, Sie können den Webclient an der URL der Web-Client zugreifen, durch den Servernamen als formatierte <https://server_FQDN/RDWeb/webclient/index.html>. Es ist wichtig, den Namen des Servers verwenden, der das öffentliche Zertifikat der Web Access für Remotedesktop in der URL (in der Regel der Server FQDN) entspricht.
+    Stellen Sie sicher, dass Sie unter der Webclient-URL mit dem Servernamen im Format <https://server_FQDN/RDWeb/webclient/index.html> auf den Webclient zugreifen können. Es ist wichtig, den Servernamen zu verwenden, der dem öffentlichen Zertifikat von Web Access für Remotedesktop in der URL entspricht (das ist in der Regel der FQDN des Servers).
 
     >[!NOTE]
-    >Bei der Ausführung der **veröffentlichen-RDWebClientPackage** -Cmdlet, möglicherweise angezeigt, eine Warnung, die pro-Geräte-Clientzugriffslizenzen besagt, werden nicht unterstützt, auch wenn für pro-Benutzer-Clientzugriffslizenzen in der Bereitstellung konfiguriert ist. Wenn die Bereitstellung pro-Benutzer-CALs verwendet, können Sie diese Warnung ignorieren. Wir zeigen, um sicherzustellen, dass Sie über die Configuration-Einschränkung sind.
-8. Wenn Sie Benutzer auf die Web-Client zugreifen möchten, senden sie die Web Client-URL, die Sie erstellt haben.
+    >Beim Ausführen des Cmdlets **Publish-RDWebClientPackage** wird möglicherweise eine Warnmeldung angezeigt, die besagt, dass CALs vom Typ „Pro Gerät“ nicht unterstützt werden, obwohl Ihre Bereitstellung für CALs vom Typ „Pro Benutzer“ konfiguriert ist. Wenn Ihre Bereitstellung CALs vom Typ „Pro Benutzer“ verwendet, können Sie diese Warnung ignorieren. Die Warnung wird angezeigt, um sicherzustellen, dass Sie sich der Konfigurationseinschränkung bewusst sind.
+8. Wenn Sie bereit sind, dass die Benutzer auf den Webclient zugreifen können, senden Sie Ihnen einfach die von Ihnen erstellte Webclient-URL.
 
 >[!NOTE]
->Um eine Liste aller unterstützten Cmdlets für das Modul RDWebClientManagement anzuzeigen, führen Sie das folgende Cmdlet in PowerShell aus:
+>Wenn Sie eine Liste aller unterstützten Cmdlets für das Modul „RDWebClientManagement“ anzeigen möchten, führen Sie in PowerShell das folgende Cmdlet aus:
 >```PowerShell
 >Get-Command -Module RDWebClientManagement
 >```
 
-## <a name="how-to-update-the-remote-desktop-web-client"></a>Vorgehensweise beim Aktualisieren der Remotedesktop-Webclient
+## <a name="how-to-update-the-remote-desktop-web-client"></a>Aktualisieren des Remotedesktop-Webclients
 
-Gehen folgendermaßen Sie vor, um die Bereitstellung mit den neuen Client zu aktualisieren, wenn eine neue Version des Remote Desktop Web-Clients verfügbar ist, haben:
+Wenn eine neue Version des Remotedesktop-Webclients verfügbar ist, führen Sie die folgenden Schritte aus, um die Bereitstellung mit dem neuen Client zu aktualisieren:
 
-1. Öffnen einer PowerShell-Eingabeaufforderung mit erhöhten auf dem Web Access für Remotedesktop-Server, und führen Sie das folgende Cmdlet aus, um die neueste verfügbare Version des Webclients herunterzuladen:
+1. Öffnen Sie auf dem Server mit Web Access für Remotedesktop eine PowerShell-Eingabeaufforderung mit erhöhten Rechten, und führen Sie das folgende Cmdlet aus, um die neueste verfügbare Version des Webclients herunterzuladen:
     ```PowerShell
     Install-RDWebClientPackage
     ```
 
-2. Optional können Sie den Client veröffentlichen, für Tests vor der offiziellen Freigabe durch Ausführen dieses Cmdlets:
+2. Optional können Sie den Client zu Testzwecken vor der offiziellen Freigabe veröffentlichen, indem Sie das folgende Cmdlet ausführen:
     ```PowerShell
     Publish-RDWebClientPackage -Type Test -Latest
     ```
 
-    Der Client sollte angezeigt werden, auf die Test-URL, die Ihre Web-Client-URL entspricht (z. B. <https://server_FQDN/RDWeb/webclient-test/index.html>).
-3. Veröffentlichen Sie des Clients für Benutzer, indem Sie das folgende Cmdlet ausführen:
+    Der Client sollte in der Test-URL angezeigt werden, die Ihrer Webclient-URL entspricht (Beispiel: <https://server_FQDN/RDWeb/webclient-test/index.html>).
+3. Veröffentlichen Sie den Client für Benutzer, indem Sie das folgende Cmdlet ausführen:
     ```PowerShell
     Publish-RDWebClientPackage -Type Production -Latest
     ```
 
-    Dadurch wird den Client für alle Benutzer ersetzt, wenn sie die Webseite neu starten.
+    Dadurch wird der Client für alle Benutzer ersetzt, wenn sie die Webseite neu starten.
 
-## <a name="how-to-uninstall-the-remote-desktop-web-client"></a>Vorgehensweise beim Deinstallieren der Remotedesktop-Webclient
+## <a name="how-to-uninstall-the-remote-desktop-web-client"></a>Deinstallieren des Remotedesktop-Webclients
 
-Um alle Spuren des Webclients zu entfernen, gehen Sie folgendermaßen vor:
+Führen Sie die folgenden Schritte aus, um alle Spuren des Webclients zu entfernen:
 
-1. Öffnen Sie auf dem Server mit Web Access für Remotedesktop eine PowerShell-Eingabeaufforderung mit erhöhten Rechten aus.
-2. Aufheben Sie die Test- und Produktionsumgebungen Clients, deinstallieren Sie alle lokalen Pakete und entfernen Sie die Web-Client-Einstellungen:
+1. Öffnen Sie auf dem Server mit Web Access für Remotedesktop eine PowerShell-Eingabeaufforderung mit erhöhten Rechten.
+2. Heben Sie die Veröffentlichung der Test- und Produktionsclients auf, deinstallieren Sie alle lokalen Pakete, und entfernen Sie die Webclienteinstellungen:
 
    ```PowerShell
    Uninstall-RDWebClient
    ```
 
-3. Deinstallieren Sie das Remote Desktop Web Client Management-PowerShell-Modul:
+3. Deinstallieren Sie das PowerShell-Modul für die Remotedesktop-Webclientverwaltung:
 
    ```PowerShell
    Uninstall-Module -Name RDWebClientManagement
    ```
 
-## <a name="how-to-install-the-remote-desktop-web-client-without-an-internet-connection"></a>Gewusst wie: Installieren des Remote Desktop Web-Clients ohne Internetverbindung
+## <a name="how-to-install-the-remote-desktop-web-client-without-an-internet-connection"></a>Installieren des Remotedesktop-Webclients ohne Internetverbindung
 
-Um die Web-Client auf einem Web Access für Remotedesktop-Server bereitstellen, die über eine Internetverbindung verfügt, gehen Sie wie folgt vor.
-
-> [!NOTE]
-> Installieren, ohne eine Internetverbindung in Version 1.0.1 und höher verfügbar ist des RDWebClientManagement-PowerShell-Moduls.
+Führen Sie die folgenden Schritte aus, um den Webclient auf einem Server mit Web Access für Remotedesktop bereitzustellen, der nicht über eine Internetverbindung verfügt.
 
 > [!NOTE]
-> Sie benötigen ein Admin-PC mit Internetzugriff die erforderlichen Dateien herunterzuladen, bevor sie in der offline-Server übertragen wird.
+> Die Option der Installation ohne Internetverbindung ist in Version 1.0.1 (und höher) des PowerShell-Moduls „RDWebClientManagement“ verfügbar.
 
 > [!NOTE]
-> Der Endbenutzer-PC benötigt eine Internetverbindung jetzt. Dies wird in einer zukünftigen Version des Clients zu einem vollständigen Offlineszenario behoben werden.
+> Sie benötigen jedoch einen Administrator-PC mit Internetzugang, um die erforderlichen Dateien herunterzuladen, bevor sie an den Offlineserver übertragen werden.
 
-### <a name="from-a-device-with-internet-access"></a>Von einem Gerät mit Zugriff auf das internet
+> [!NOTE]
+> Der Endbenutzer-PC benötigt vorerst eine Internetverbindung. Dies wird in einer zukünftigen Version des Clients gelöst, um ein vollständiges Offlineszenario zu ermöglichen.
+
+### <a name="from-a-device-with-internet-access"></a>Auf einem Gerät mit Internetzugang
 
 1. Öffnen Sie eine PowerShell-Eingabeaufforderung.
 
-2. Importieren Sie das Remote Desktop Web Client Management-PowerShell-Modul aus dem PowerShell-Katalog:
+2. Importieren Sie das PowerShell-Modul für die Remotedesktop-Webclientverwaltung aus dem PowerShell-Katalog:
     ```PowerShell
     Import-Module -Name RDWebClientManagement
     ```
 
-3. Laden Sie die neueste Version von Remotedesktop-Web-Client für die Installation auf einem anderen Gerät herunter:
+3. Laden Sie die aktuelle Version des Remotedesktop-Webclients zur Installation auf einem anderen Gerät herunter:
     ```PowerShell
     Save-RDWebClientPackage "C:\WebClient\"
     ```
 
-4. Laden Sie die neueste Version des RDWebClientManagement-PowerShell-Moduls:
+4. Laden Sie die aktuelle Version des PowerShell-Moduls „RDWebClientManagement“ herunter:
     ```PowerShell
     Find-Module -Name "RDWebClientManagement" -Repository "PSGallery" | Save-Module -Path "C:\WebClient\"
     ```
 
-5. Kopieren Sie den Inhalt von "C:\WebClient\" an den Web Access für Remotedesktop-Server.
+5. Kopieren Sie den Inhalt des Verzeichnisses „C:\WebClient\" auf den Server mit Web Access für Remotedesktop.
 
-### <a name="from-the-rd-web-access-server"></a>Aus dem Web Access für Remotedesktop-server
+### <a name="from-the-rd-web-access-server"></a>Auf dem Server mit Web Access für Remotedesktop
 
-Befolgen Sie die Anweisungen unter [Gewusst wie: Veröffentlichen Sie den Remote Desktop WebClient](remote-desktop-web-client-admin.md#how-to-publish-the-remote-desktop-web-client), und Ersetzen Sie dabei mit den folgenden Schritten 4 und 5.
+Folgen Sie den Anweisungen unter [Veröffentlichen des Remotedesktop-Webclients](remote-desktop-web-client-admin.md#how-to-publish-the-remote-desktop-web-client), und ersetzen Sie dabei die Schritte 4 und 5 durch die folgenden Schritte.
 
-4. Importieren Sie das Remote Desktop Web Client Management-PowerShell-Modul aus dem lokalen Ordner aus:
+4. Importieren Sie das PowerShell-Modul für die Remotedesktop-Webclientverwaltung aus dem lokalen Ordner:
     ```PowerShell
     Import-Module -Name "C:\WebClient\"
     ```
 
-5. Stellen Sie die neueste Version von Remotedesktop-Web-Client aus dem lokalen Ordner (ersetzen Sie dies durch die entsprechende Zip-Datei) bereit:
+5. Stellen Sie die aktuelle Version des Remotedesktop-Webclients aus dem lokalen Ordner bereit (ersetzen Sie dabei die Angabe durch die entsprechende ZIP-Datei):
     ```PowerShell
     Install-RDWebClientPackage -Source "C:\WebClient\rdwebclient-1.0.1.zip"
     ```
 
-## <a name="connecting-to-rd-broker-without-rd-gateway-in-windows-server-2019"></a>Herstellen einer Verbindung mit RD-Broker ohne RD-Gateway unter WindowsServer 2019
-Dieser Abschnitt beschreibt, wie Sie eine Verbindung zu einem Remotedesktop-Broker ohne RD-Gateway in Windows Server-2019 Client zu aktivieren.
+## <a name="connecting-to-rd-broker-without-rd-gateway-in-windows-server-2019"></a>Herstellen einer Verbindung mit dem RD-Broker ohne RD-Gateway in Windows Server 2019
+In diesem Abschnitt wird beschrieben, wie Sie eine Webclientverbindung mit einem Remotedesktop-Verbindungsbroker ohne RD-Gateway in Windows Server 2019 aktivieren.
 
-### <a name="setting-up-the-rd-broker-server"></a>Einrichten der Remotedesktop-Verbindungsbrokerserver
+### <a name="setting-up-the-rd-broker-server"></a>Einrichten des Remotedesktop-Verbindungsbrokerservers
 
-#### <a name="follow-these-steps-if-there-is-no-certificate-bound-to-the-rd-broker-server"></a>Gehen Sie folgendermaßen vor, wenn kein Zertifikat auf dem Remotedesktop-Verbindungsbrokerserver gebunden ist
+#### <a name="follow-these-steps-if-there-is-no-certificate-bound-to-the-rd-broker-server"></a>Führen Sie die folgenden Schritte aus, wenn kein Zertifikat an den Remotedesktop-Verbindungsbrokerserver gebunden ist:
 
-1. Open **Server-Manager** > **Remotedesktopdienste**.
+1. Öffnen Sie **Server-Manager** > **Remotedesktopdienste**.
 
-2. In **Bereitstellungsübersicht** wählen Sie im Abschnitt der **Aufgaben** Dropdown-Menü.
+2. Wählen Sie im Abschnitt **Bereitstellungsübersicht** das Dropdownmenü **Aufgaben** aus.
 
-3. Wählen Sie **Bereitstellungseigenschaften bearbeiten**, einem neuen Fenster mit dem Titel **Bereitstellungseigenschaften** wird geöffnet.
+3. Wählen Sie **Bereitstellungseigenschaften bearbeiten** aus. Daraufhin wird ein neues Fenster mit dem Titel **Bereitstellungseigenschaften** geöffnet.
 
-4. In der **Bereitstellungseigenschaften** wählen Sie im Fenster **Zertifikate** im linken Menü.
+4. Wählen Sie im Fenster **Bereitstellungseigenschaften** im linken Menü die Option **Zertifikate** aus.
 
-5. Wählen Sie in der Liste der Zertifikat-Ebenen, **RD-Verbindungsbroker - einmaliges Anmelden aktivieren**. Sie haben zwei Möglichkeiten: (1) erstellen Sie ein neues Zertifikat oder (2) ein vorhandenes Zertifikat.
+5. Wählen Sie in der Liste der Zertifikatsstufen den Eintrag **Remotedesktop-Verbindungsbroker – einmaliges Anmelden aktivieren** aus. Sie haben zwei Möglichkeiten: (1) Sie können ein neues Zertifikat erstellen oder (2) ein vorhandenes Zertifikat auswählen.
 
-#### <a name="follow-these-steps-if-there-is-a-certificate-previously-bound-to-the-rd-broker-server"></a>Gehen Sie folgendermaßen vor, wenn ein zuvor auf dem Remotedesktop-Verbindungsbrokerserver gebunden Zertifikat
+#### <a name="follow-these-steps-if-there-is-a-certificate-previously-bound-to-the-rd-broker-server"></a>Führen Sie die folgenden Schritte aus, wenn ein zuvor an den Remotedesktop-Verbindungsbrokerserver gebundenes Zertifikat vorhanden ist:
 
-1. Öffnen Sie das Zertifikat gebunden an den Broker und die Kopie der **Fingerabdruck** Wert.
+1. Öffnen Sie das an den Verbindungsbroker gebundene Zertifikat, und kopieren Sie den **Fingerabdruckwert**.
 
-2. Um dieses Zertifikat mit dem sicheren Port 3392 binden möchten, öffnen Sie ein PowerShell-Fenster mit erhöhten Rechten, und führen den folgenden Befehl, und Ersetzen Sie dabei **"< Fingerabdruck >"** mit dem Wert aus dem vorherigen Schritt kopiert haben:
+2. Um dieses Zertifikat an den sicheren Port 3392 zu binden, öffnen Sie ein PowerShell-Fenster mit erhöhten Rechten, und führen Sie den folgenden Befehl aus, wobei Sie **"<Fingerabdruck>"** durch den Wert ersetzen, den Sie im vorherigen Schritt kopiert haben:
 
     ```PowerShell
     netsh http add sslcert ipport=0.0.0.0:3392 certhash="<thumbprint>" certstorename="Remote Desktop" appid="{00000000-0000-0000-0000-000000000000}"
     ```
 
     > [!NOTE]
-    > Um festzustellen, ob das Zertifikat ordnungsgemäß gebunden wurde, führen Sie den folgenden Befehl aus:
+    > Wenn Sie überprüfen möchten, ob das Zertifikat ordnungsgemäß gebunden wurde, führen Sie den folgenden Befehl aus:
     >
     > ```PowerShell
     > netsh http show sslcert
     > ```
     >
-    > In der Liste der SSL-zertifikatbindungen stellen Sie sicher, dass das richtige Zertifikat an Port 3392 gebunden ist.
+    > Vergewissern Sie sich, dass in der Liste der SSL-Zertifikatbindungen das richtige Zertifikat an Port 3392 gebunden ist.
 
-3. Öffnen Sie die Windows-Registrierung (Regedit) und Nagivate zu ```HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp``` und suchen Sie den Registrierungsschlüssel **WebSocketURI**. Der Wert muss festgelegt werden, um <strong>https://+:3392/rdp/</strong>.
+3. Öffnen Sie die Windows-Registrierung (regedit), navigieren Sie zu ```HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp```, und suchen Sie nach dem Schlüssel **WebSocketURI**. Der Wert muss auf <strong>https://+:3392/rdp/</strong> festgelegt sein.
 
-### <a name="setting-up-the-rd-session-host"></a>Einrichten der Remotedesktop-Sitzungshost
-Wenn der Remotedesktop-Sitzungshostserver den Remotedesktop-Verbindungsbrokerserver unterscheidet, gehen Sie folgendermaßen vor:
+### <a name="setting-up-the-rd-session-host"></a>Einrichten des Remotedesktop-Sitzungshosts
+Führen Sie die folgenden Schritte aus, wenn sich der Remotedesktop-Sitzungshostserver vom Remotedesktop-Verbindungsbrokerserver unterscheidet:
 
-1. Erstellen Sie ein Zertifikat für den RD-Sitzungshost-Computer, öffnen Sie sie aus, und kopieren Sie die **Fingerabdruck** Wert.
+1. Erstellen Sie ein Zertifikat für den Remotedesktop-Sitzungshostcomputer, öffnen Sie es, und kopieren Sie den **Fingerabdruckwert**.
 
-2. Um dieses Zertifikat mit dem sicheren Port 3392 binden möchten, öffnen Sie ein PowerShell-Fenster mit erhöhten Rechten, und führen den folgenden Befehl, und Ersetzen Sie dabei **"< Fingerabdruck >"** mit dem Wert aus dem vorherigen Schritt kopiert haben:
+2. Um dieses Zertifikat an den sicheren Port 3392 zu binden, öffnen Sie ein PowerShell-Fenster mit erhöhten Rechten, und führen Sie den folgenden Befehl aus, wobei Sie **"<Fingerabdruck>"** durch den Wert ersetzen, den Sie im vorherigen Schritt kopiert haben:
 
     ```PowerShell
     netsh http add sslcert ipport=0.0.0.0:3392 certhash="<thumbprint>" appid="{00000000-0000-0000-0000-000000000000}"
     ```
 
     > [!NOTE]
-    > Um festzustellen, ob das Zertifikat ordnungsgemäß gebunden wurde, führen Sie den folgenden Befehl aus:
+    > Wenn Sie überprüfen möchten, ob das Zertifikat ordnungsgemäß gebunden wurde, führen Sie den folgenden Befehl aus:
     >
     > ```PowerShell
     > netsh http show sslcert
     > ```
     >
-    > In der Liste der SSL-zertifikatbindungen stellen Sie sicher, dass das richtige Zertifikat an Port 3392 gebunden ist.
+    > Vergewissern Sie sich, dass in der Liste der SSL-Zertifikatbindungen das richtige Zertifikat an Port 3392 gebunden ist.
 
-3. Öffnen Sie die Windows-Registrierung (Regedit) und Nagivate zu ```HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp``` und suchen Sie den Registrierungsschlüssel **WebSocketURI**. Der Wert muss festgelegt werden, um <https://+:3392/rdp/>.
+3. Öffnen Sie die Windows-Registrierung (regedit), navigieren Sie zu ```HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp```, und suchen Sie nach dem Schlüssel **WebSocketURI**. Der Wert muss auf <https://+:3392/rdp/> festgelegt sein.
 
-### <a name="general-observations"></a>Allgemeine Beobachtungen
+### <a name="general-observations"></a>Allgemeine Hinweise
 
-* Stellen Sie sicher, dass dem RD-Sitzungshost und RD-Broker-Server Windows Server-2019 ausgeführt werden.
+* Stellen Sie sicher, dass der Remotedesktop-Sitzungshostserver und der Remotedesktop-Verbindungsbrokerserver unter Windows Server 2019 ausgeführt werden.
 
-* Stellen Sie sicher, dass öffentliche vertrauenswürdiger Zertifikate für die dem Remotedesktop-Sitzungshost und RD-Broker-Server konfiguriert sind.
+* Stellen Sie sicher, dass öffentliche vertrauenswürdige Zertifikate sowohl für den RD-Sitzungshostserver als auch für den RD-Verbindungsbrokerserver konfiguriert sind.
     > [!NOTE]
-    > Wenn sowohl auf dem Remotedesktop-Sitzungshost als auch auf dem Remotedesktop-Verbindungsbrokerserver denselben Computer verwenden, legen Sie nur das RD-Broker-Serverzertifikat. Wenn der RD-Sitzungshost und RD-Broker-Server auf unterschiedliche Computern verwenden, müssen sowohl mit eindeutigen Zertifikaten konfiguriert werden.
+    > Wenn der RD-Sitzungshostserver und der RD-Verbindungsbrokerserver denselben Computer verwenden, legen Sie nur das Zertifikat des RD-Verbindungsbrokerservers fest. Wenn der RD-Sitzungshostserver und der RD-Verbindungsbrokerserver unterschiedliche Computer verwenden, müssen für beide Server eindeutige Zertifikate konfiguriert werden.
 
-* Die **alternativen Antragstellernamen (SAN)** für jedes Zertifikat mit des Computers festgelegt werden muss **vollständig qualifizierten Domänennamen (FQDN)** . Die **allgemeiner Name (CN)** muss mit die SAN für jedes Zertifikat übereinstimmen.
+* Der **alternative Antragstellername** (Subject Alternative Name, SAN) für jedes Zertifikat muss auf den **vollqualifizierten Domänennamen** (Fully Qualified Domain Name, FQDN) des Computers festgelegt werden. Der **allgemeine Name** (Common Name, CN) muss dem alternativen Antragstellernamen entsprechen.
 
-## <a name="how-to-pre-configure-settings-for-remote-desktop-web-client-users"></a>Konfigurieren Sie Einstellungen für Remote Desktop Web Client-Benutzer vorab
-In diesem Abschnitt erfahren Sie, wie Sie PowerShell verwenden, um Einstellungen für die Remote Desktop Web Client-Bereitstellung zu konfigurieren. Diese PowerShell-Cmdlets-Steuerelement, die Fähigkeit eines Benutzers so ändern Sie die Einstellungen basierend auf Ihrer Organisation die Sicherheitsrisiken oder Workflow vorgesehen. Die folgenden Einstellungen befinden sich im die **Einstellungen** Seitenleiste des Webclients. 
+## <a name="how-to-pre-configure-settings-for-remote-desktop-web-client-users"></a>Vorkonfigurieren von Einstellungen für Benutzer des Remotedesktop-Webclients
+In diesem Abschnitt wird beschrieben, wie Sie die Einstellungen für Ihre Remotedesktop-Webclientbereitstellung mithilfe von PowerShell konfigurieren. Mit diesen PowerShell-Cmdlets wird die Fähigkeit eines Benutzers zum Ändern von Einstellungen basierend auf den Sicherheitsaspekten Ihrer Organisation oder dem vorgesehenen Workflow gesteuert. Die folgenden Einstellungen befinden sich auf der Seitenleiste **Einstellungen** des Webclients. 
 
 ### <a name="suppress-telemetry"></a>Unterdrücken von Telemetriedaten
-Standardmäßig können Benutzer aktivieren oder Deaktivieren der Erfassung von Telemetriedaten, die an Microsoft gesendet werden. Informationen zu Microsoft erfasst Telemetriedaten, finden Sie unsere datenschutzerklärung über den Link in der **zu** Seitenleiste.
+Standardmäßig können Benutzer auswählen, ob die Erfassung der an Microsoft gesendeten Telemetriedaten aktiviert oder deaktiviert werden soll. Informationen zu den von Microsoft erfassten Telemetriedaten finden Sie in unserer Datenschutzerklärung, auf die Sie über den Link auf der Seitenleiste **Info** zugreifen können.
 
-Als Administrator können Sie auswählen, um die Erfassung von Telemetriedaten für die Bereitstellung mit dem folgenden PowerShell-Cmdlet zu unterdrücken:
+Als Administrator können Sie die Telemetriedatenerfassung für Ihre Bereitstellung mit dem folgenden PowerShell-Cmdlet unterdrücken:
 
    ```PowerShell
     Set-RDWebClientDeploymentSetting -SuppressTelemetry $true
    ```
 
-Standardmäßig kann der Benutzer auswählen, aktivieren oder Deaktivieren der Telemetrie. Ein boolescher Wert **$false** entspricht das Standardverhalten für den Client. Ein boolescher Wert **$true** -Telemetrie deaktiviert, und hindert, dass den Benutzer Aktivieren von Telemetriedaten.
+Standardmäßig kann der Benutzer auswählen, ob die Option für Telemetriedaten aktiviert oder deaktiviert werden soll. Der boolesche Wert **$false** entspricht dem Standardverhalten des Clients. Der boolesche Wert **$true** deaktiviert die Option für Telemetriedaten und verhindert, dass der Benutzer diese aktivieren kann.
 
-### <a name="remote-resource-launch-method"></a>Remoteressource Launch-Methode
-Standardmäßig können Benutzer wählen Sie zum Starten des remote-Ressourcen (1) im Browser oder (2) durch das Herunterladen einer RDP-Datei mit einem anderen Client auf ihrem Computer installieren. Als Administrator können Sie auswählen, um die Remoteressource Launch-Methode für die Bereitstellung mit dem folgenden Powershell-Befehl zu beschränken:
+### <a name="remote-resource-launch-method"></a>Methode zum Starten von Remoteressourcen
+Standardmäßig können Benutzer auswählen, ob Remoteressourcen (1) im Browser oder (2) durch Herunterladen einer RDP-Datei zur Bearbeitung mit einem anderen auf dem Computer installierten Client gestartet werden sollen. Als Administrator können Sie die Methode zum Starten von Remoteressourcen für Ihre Bereitstellung mit dem folgenden PowerShell-Befehl einschränken:
 
    ```PowerShell
     Set-RDWebClientDeploymentSetting -LaunchResourceInBrowser ($true|$false)
    ```
- Standardmäßig kann der Benutzer entweder Launch-Methode auswählen. Ein boolescher Wert **$true** erzwingt, dass den Benutzer auf Ressourcen im Browser zu starten. Ein boolescher Wert **$false** erzwingt, dass den Benutzer aus, um Ressourcen zu starten, indem Sie eine RDP-Datei mit einer lokal installierten RDP-Client herunterladen.
+ Standardmäßig kann der Benutzer eine der Startmethoden auswählen. Der boolesche Wert **$true** zwingt den Benutzer, die Ressourcen im Browser zu starten. Der boolesche Wert **$false** zwingt den Benutzer, die Ressourcen durch Herunterladen einer RDP-Datei zur Bearbeitung mit einem lokal installierten RDP-Client zu starten.
 
-### <a name="reset-rdwebclientdeploymentsetting-configurations-to-default"></a>Zurücksetzen Sie RDWebClientDeploymentSetting Konfigurationen auf Standard
-Führen Sie das folgende PowerShell-Cmdlet, um alle auf Web-Clienteinstellungen auf den Standardkonfigurationen zurückzusetzen:
+### <a name="reset-rdwebclientdeploymentsetting-configurations-to-default"></a>Zurücksetzen der RDWebClientDeploymentSetting-Konfigurationen auf die Standardwerte
+Führen Sie das folgende PowerShell-Cmdlet aus, um alle Webclienteinstellungen auf Bereitstellungsebene auf die Standardkonfigurationen zurückzusetzen:
 
    ```PowerShell
     Reset-RDWebClientDeploymentSetting 
@@ -281,39 +281,39 @@ Führen Sie das folgende PowerShell-Cmdlet, um alle auf Web-Clienteinstellungen 
 
 ## <a name="troubleshooting"></a>Problembehandlung
 
-Wenn ein Benutzer eines der folgenden Probleme meldet, wenn den WebClient zum ersten Mal öffnen, werden in den folgenden Abschnitten Vorgehensweise zur Behebung informieren.
+Wenn ein Benutzer meldet, dass beim ersten Öffnen des Webclients eines der folgenden Probleme auftritt, lesen Sie die folgenden Abschnitte, um zu erfahren, was zu tun ist, um diese Probleme zu beheben.
 
-### <a name="what-to-do-if-the-users-browser-shows-a-security-warning-when-they-try-to-access-the-web-client"></a>Was Sie tun, wenn der Browser des Benutzers eine sicherheitswarnung wird, wenn versucht wird, auf die Web-client
+### <a name="what-to-do-if-the-users-browser-shows-a-security-warning-when-they-try-to-access-the-web-client"></a>Was zu tun ist, wenn im Browser des Benutzers beim Versuch, auf den Webclient zuzugreifen, eine Sicherheitswarnung angezeigt wird
 
-Ein vertrauenswürdiges Zertifikat möglicherweise nicht die Rolle Web Access für Remotedesktop verwenden. Stellen Sie sicher, dass die Rolle Web Access für Remotedesktop mit einem öffentlich vertrauenswürdiges Zertifikat konfiguriert ist.
+Die Rolle „Web Access für Remotedesktop“ verwendet möglicherweise kein vertrauenswürdiges Zertifikat. Stellen Sie sicher, dass die Rolle „Web Access für Remotedesktop“ mit einem öffentlich vertrauenswürdigen Zertifikat konfiguriert ist.
 
-Wenn dies nicht funktioniert, den Servernamen in der Web Client-URL entsprechen möglicherweise nicht den Namen, die über das RD-Web-Zertifikat bereitgestellt. Stellen Sie sicher, dass Ihre URL den vollqualifizierten Domänennamen des Servers mit der RD-Web-Rolle verwendet.
+Wenn das nicht funktioniert, stimmt der Servername in der Webclient-URL möglicherweise nicht mit dem Namen überein, der vom Zertifikat für Web Access für Remotedesktop angegeben wurde. Stellen Sie sicher, dass in Ihrer URL der FQDN des Servers verwendet wird, auf dem die Rolle „Web Access für Remotedesktop“ gehostet wird.
 
-### <a name="what-to-do-if-the-user-cant-connect-to-a-resource-with-the-web-client-even-though-they-can-see-the-items-under-all-resources"></a>Was Sie tun, wenn der Benutzer auf eine Ressource mit dem Webclient keine Verbindung herstellen kann, obwohl sie die Elemente unter alle Ressourcen anzeigen können
+### <a name="what-to-do-if-the-user-cant-connect-to-a-resource-with-the-web-client-even-though-they-can-see-the-items-under-all-resources"></a>Was zu tun ist, wenn der Benutzer mit dem Webclient keine Verbindung mit einer Ressource herstellen kann, obwohl die Elemente unter „Alle Ressourcen“ angezeigt werden
 
-Wenn der Benutzer meldet, dass sie keine Verbindung mit dem Webclient herstellen können, auch, wenn sie die aufgeführten Ressourcen sehen können, überprüfen Sie die folgenden Schritte aus:
+Wenn der Benutzer meldet, dass er keine Verbindung mit dem Webclient herstellen kann, obwohl er die aufgeführten Ressourcen sehen kann, überprüfen Sie die folgenden Punkte:
 
-* Ist die Rolle von RD-Gateway ordnungsgemäß konfiguriert ein öffentliches vertrauenswürdiges Zertifikat?
-* Weist der RD-Gateway-Server die erforderlichen Updates installiert? Stellen Sie sicher, dass der Server besitzt [das Update KB4025334](https://support.microsoft.com/en-us/help/4025334/windows-10-update-kb4025334) installiert.
+* Ist die Rolle „RD-Gateway“ ordnungsgemäß für die Verwendung eines öffentlichen vertrauenswürdigen Zertifikats konfiguriert?
+* Sind auf dem RD-Gatewayserver die erforderlichen Updates installiert? Stellen Sie sicher, dass das [Update KB4025334](https://support.microsoft.com/en-us/help/4025334/windows-10-update-kb4025334) auf dem Server installiert ist.
 
-Wenn der Benutzer einen Fehler "unerwartetes CMG-Serverauthentifizierungszertifikat wurde empfangen." angezeigt wird, wenn sie versuchen, eine Verbindung herstellen, und klicken Sie dann die Nachricht den Fingerabdruck des Zertifikats angezeigt wird. Suchen Sie die Remotedesktop-Verbindungsbrokerserver Zertifikat-Manager, die mithilfe dieses Fingerabdrucks an das richtige Zertifikat gefunden. Stellen Sie sicher, dass das Zertifikat konfiguriert ist, für die RD-Broker-Rolle auf der Eigenschaftenseite des Remotedesktop-Bereitstellung verwendet werden soll. Nach dem nicht sichergestellt wird das Zertifikat abgelaufen ist, kopieren Sie das Zertifikat im CER-Dateiformat mit dem Web Access für Remotedesktop-Server, und führen Sie den folgenden Befehl auf dem Web Access für Remotedesktop-Server, mit der in Klammern stehenden Werte durch die zertifikatdateipfad ersetzt:
+Wenn der Benutzer beim Versuch, eine Verbindung herzustellen, eine Fehlermeldung erhält, die besagt, dass ein unerwartetes Serverauthentifizierungszertifikat empfangen wurde, wird in der Meldung der Fingerabdruck des Zertifikats angezeigt. Durchsuchen Sie den Zertifikat-Manager des Remotedesktop-Verbindungsbrokerservers anhand dieses Fingerabdrucks, um das richtige Zertifikat zu finden. Vergewissern Sie sich auf der Seite mit den Remotedesktop-Bereitstellungseigenschaften, dass das Zertifikat für die Rolle „Remotedesktop-Verbindungsbroker“ konfiguriert ist. Nachdem Sie sichergestellt haben, dass das Zertifikat nicht abgelaufen ist, können Sie das Zertifikat im CER-Dateiformat auf den Server mit Web Access für Remotedesktop kopieren und auf dem Server mit Web Access für Remotedesktop den folgenden Befehl ausführen, wobei Sie den in Klammern stehenden Wert durch den Pfad der Zertifikatdatei ersetzen:
 
 ```PowerShell
 Import-RDWebClientBrokerCert <certificate file path>
 ```
 
-### <a name="diagnose-issues-with-the-console-log"></a>Diagnose von Problemen mit das Konsolenprotokoll
+### <a name="diagnose-issues-with-the-console-log"></a>Diagnostizieren von Problemen mit dem Konsolenprotokoll
 
-Wenn Sie das Problem anhand der Anweisungen in diesem Artikel zur Problembehandlung lösen können, Sie können versuchen, die Ursache des Problems kennen die Konsole, indem Sie selbst zu diagnostizieren im Browser anmelden. Der Webclient bietet es sich um eine Methode für die Aufzeichnung der Protokollaktivität für Browser-Konsole bei der Verwendung des Webclients an, um Probleme zu diagnostizieren.
+Wenn Sie das Problem nicht anhand der in diesem Artikel aufgeführten Anweisungen zur Problembehandlung lösen können, versuchen Sie, die Ursache des Problems selbst zu ermitteln, indem Sie sich das Konsolenprotokoll im Browser ansehen. Der Webclient bietet eine Methode zum Aufzeichnen der Browser-Konsolenprotokollaktivität, während der Webclient zum Diagnostizieren von Problemen verwendet wird.
 
-* Wählen Sie in der oberen rechten Ecke die Auslassungspunkte, und navigieren Sie zu der **zu** Seite in der Dropdown-Menü.
-* Klicken Sie unter **Capture Supportinformationen** wählen Sie die **Aufzeichnung starten** Schaltfläche.
-* Führen Sie die Vorgänge in der Webclient, der das Problem, die, das Sie versuchen erzeugt, zu diagnostizieren.
-* Navigieren Sie zu der **zu** Seite und wählen Sie **Aufzeichnung beenden**.
-* Ihr Browser wird automatisch herunterladen, eine TXT-Datei mit dem Titel **RD-Konsole "Logs.txt"** . Diese Datei enthält die vollständige Console Log-Aktivität, die beim Reproduzieren des Problems Ziel generiert.
+* Wählen Sie in der oberen rechten Ecke die Auslassungspunkte aus, und navigieren Sie im Dropdownmenü zur Seite **Info**.
+* Wählen Sie unter **Supportinformationen erfassen** die Schaltfläche **Aufzeichnung starten** aus.
+* Führen Sie im Webclient die Vorgänge aus, die das Problem verursacht haben, das Sie diagnostizieren möchten.
+* Navigieren Sie zur Seite **Info**, und wählen Sie **Aufzeichnung beenden** aus.
+* Ihr Browser lädt automatisch eine TXT-Datei mit dem Namen **RD Console Logs.txt** herunter. Diese Datei enthält die vollständige Konsolenprotokollaktivität, die beim Reproduzieren des Zielproblems generiert wurde.
 
-Die Konsole kann auch direkt über Ihren Browser zugegriffen werden. Die Konsole befindet sich im Allgemeinen unter der Entwicklertools. Sie können z. B. das Protokoll in Microsoft Edge zugreifen, durch Drücken der **F12** Taste, oder indem Sie auf die Auslassungspunkte, und dann weiter navigieren **mehr Tools** > **Entwicklertools**.
+Sie können auch über Ihren Browser direkt auf die Konsole zugreifen. Die Konsole befindet sich im Allgemeinen unter den Entwicklertools. Beispielsweise können Sie in Microsoft Edge auf das Protokoll zugreifen, indem Sie entweder die **F12**-Taste drücken oder die Auslassungspunkte auswählen und dann zu **Weitere Tools** > **Entwicklertools** navigieren.
 
-## <a name="get-help-with-the-web-client"></a>Hilfe bei der WebClient
+## <a name="get-help-with-the-web-client"></a>Anfordern von Hilfe zum Webclient
 
-Wenn Sie ein Problem aufgetreten ist, die von den Informationen in diesem Artikel nicht gelöst werden kann, können Sie [e-Mail](mailto:rdwbclnt@microsoft.com) zu melden. Sie können auch anfordern, oder stimmen Sie für die neuen Funktionen finden unsere [Vorschläge](https://aka.ms/rdwebfbk).
+Wenn ein Problem aufgetreten ist, das nicht anhand der in diesem Artikel enthaltenen Informationen gelöst werden kann, können Sie uns eine [E-Mail senden](mailto:rdwbclnt@microsoft.com), um das Problem zu melden. Sie können auch auf unserer [Suggestion Box](https://aka.ms/rdwebfbk)-Seite neue Features vorschlagen oder über neue Features abstimmen.

@@ -1,6 +1,6 @@
 ---
-title: Remotedesktop - vergleichen Sie die Client-apps
-description: Erfahren Sie, wie die verschiedenen RD-apps vergleichen, bei unterstützten Features und Funktionen.
+title: Remote Desktop – Die Client-Apps im Vergleich
+description: Erfahren Sie, wie die verschiedenen Remotedesktop-Apps in Bezug auf die unterstützten Features und Funktionen im Vergleich abschneiden.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -15,58 +15,58 @@ ms.author: elizapo
 ms.date: 05/20/2019
 ms.localizationpriority: medium
 ms.openlocfilehash: 0e001b590f524711185e3dd70db3bc52a9b8d9af
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66447126"
 ---
-# <a name="compare-the-client-apps"></a>Vergleichen Sie die Client-apps
+# <a name="compare-the-client-apps"></a>Die Client-Apps im Vergleich
 
->Gilt für: Windows 10, Windows 8.1, WindowsServer 2019, WindowsServer 2016, Windows Server 2012 R2
+>Gilt für: Windows 10, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2
 
-Wir häufig gefragt, wie die anderen Remotedesktop-Client-apps miteinander verglichen werden soll. Machen sie alle dasselbe? Hier sind die Antworten auf diese Fragen.
+Wir werden häufig gefragt, wie die verschiedenen Remotedesktopclient-Apps im Vergleich abschneiden. Erfüllen Sie alle die gleichen Aufgaben? Hier finden Sie die Antworten auf diese Fragen.
 
-## <a name="redirection-support"></a>-Umleitung
+## <a name="redirection-support"></a>Umleitungsunterstützung
 
-Die folgenden Tabellen vergleichen die Unterstützung für Geräte und andere umleitungen auf das Remote Desktop Connection-app, Universal-app, Android-app, iOS-app, MacOS-app und die Web-Client. Diese Tabellen beziehen sich die umleitungen, die Sie einmal in einer Remotesitzung zugreifen können. 
+In den folgenden Tabellen wird die Unterstützung für Geräte und andere Umleitungen von den folgenden Komponenten verglichen: Remotedesktopverbindungs-App, universelle App, Android-App, iOS-App, macOS-App und Webclient. In diesen Tabellen werden die Umleitungen aufgeführt, auf die Sie in einer Remotesitzung zugreifen können. 
 
-Wenn Sie eine Remoteverbindung mit Ihrem persönlichen Desktop, stehen zusätzliche umleitungen, die Sie, in konfigurieren können der **zusätzliche Einstellungen** für die Sitzung. Wenn Ihre Remotedesktop oder apps, die von Ihrer Organisation verwaltet werden, kann Ihr Administrator die Funktionen aktivieren oder Deaktivieren von umleitungen, die über gruppenrichtlinieneinstellungen bereitstellen.
+Wenn Sie remote auf Ihren persönlichen Desktop zugreifen, stehen zusätzliche Umleitungen zur Verfügung, die Sie in den **Zusätzlichen Einstellungen** für die Sitzung konfigurieren können. Wenn Ihr Remotedesktop oder Ihre Apps von Ihrer Organisation verwaltet werden, kann Ihr Administrator die Umleitungen über Gruppenrichtlinieneinstellungen aktivieren oder deaktivieren.
 
-### <a name="input-redirection"></a>Geben Sie die Umleitung
+### <a name="input-redirection"></a>Eingabeumleitung
 
-| Umleitung | Remotedesktop<br> Verbindung | Universelle | Android | iOS | MacOS |          WebClient           |
+| Umleitung | Remotedesktop<br> Verbindung | Universelle | Android | iOS | macOS |          Webclient           |
 |-------------|-------------------------------|-----------|---------|-----|-------|-------------------------------|
 |  Tastatur   |               X               |     X     |    X    |  X  |   X   |               X               |
 |    Maus    |               X               |     X     |    X    | X\* |   X   |               X               |
-|    Touch    |               X               |     X     |    X    |  X  |       | X (Microsoft Edge und Internet Explorer nicht unterstützt) |
+|    Touch    |               X               |     X     |    X    |  X  |       | X (Edge und IE werden nicht unterstützt.) |
 |    Andere    |              Stift              |           |         |     |       |                               |
 
-* Anzeigen der [Liste von unterstützten Geräten für die Eingabe für den Remotedesktop-iOS-Beta-Client](remote-desktop-ios.md#supported-input-devices).
+*Sehen Sie sich die Liste der [unterstützten Eingabegeräte](remote-desktop-ios.md#supported-input-devices) für den Remotedesktop-Beta-Client für iOS an.
 
-### <a name="port-redirection"></a>Portweiterleitung   
+### <a name="port-redirection"></a>Anschlussumleitung   
 
-| Umleitung | Remotedesktop <br>Verbindung | Universelle | Android | iOS | MacOS | WebClient |
+| Umleitung | Remotedesktop <br>Verbindung | Universelle | Android | iOS | macOS | Webclient |
 |-------------|-------------------------------|-----------|---------|-----|-------|------------|
-| Seriellen Anschluss | X                             |           |         |     |       |            |
+| Serieller Anschluss | X                             |           |         |     |       |            |
 | USB         | X                             |           |         |     |       |            |
 
-Wenn Sie USB-Anschluss-Umleitung aktivieren, werden alle USB-Geräte an den USB-Anschluss automatisch in der Remotesitzung erkannt.
+Wenn Sie die USB-Anschlussumleitung aktivieren, werden alle am USB-Anschluss angeschlossenen USB-Geräte automatisch in der Remotesitzung erkannt.
 
-### <a name="other-redirection-devices-etc"></a>Anderen umleitungen (Geräte usw.)
+### <a name="other-redirection-devices-etc"></a>Andere Umleitung (Geräte usw.)
 
 
 
-| Umleitung         | Remotedesktopverbindung | Universelle   | Android | iOS         | MacOS                                    | WebClient    |
+| Umleitung         | Remotedesktopverbindung | Universelle   | Android | iOS         | macOS                                    | Webclient    |
 |---------------------|---------------------------|-------------|---------|-------------|------------------------------------------|---------------|
 | Kameras             | X                         |             |         |             |                                          |               |
-| Zwischenablage           | X                         | Text, image | Text    | Text, image | X                                        | Text          |
-| Lokales Laufwerk/Speicher | X                         |             | X       |             | x                                        |               |
-| Speicherort            | X                         |             |         |             |                                          |               |
-| Mikrofonen         | X                         |X            |         |             | X                                        |               |
-| Drucker            | X                         |             |         |             | X (nur CUPS)                            | PDF-Datei drucken     |
+| Zwischenablage           | X                         | Text, Bild | Text    | Text, Bild | X                                        | Text          |
+| Lokales Laufwerk/lokaler Speicher | X                         |             | X       |             | x                                        |               |
+| Pfad            | X                         |             |         |             |                                          |               |
+| Mikrofone         | X                         |X            |         |             | X                                        |               |
+| Drucker            | X                         |             |         |             | X (nur CUPS)                            | PDF-Ausgabe     |
 | Scanner            | X                         |             |         |             |                                          |               |
-| Smartcards         | X                         |             |         |             | X (Windows-Authentifizierung nicht unterstützt) |               |
-| Lautsprecher            | X                         | X           | X       | X           | X                                        | X (mit Ausnahme von Internet Explorer) |
+| Smartcards         | X                         |             |         |             | X (Windows-Authentifizierung wird nicht unterstützt.) |               |
+| Lautsprecher            | X                         | X           | X       | X           | X                                        | X (außer IE) |
 
-* Für die druckerumleitung - unterstützt die MacOS-app den Druckertreiber Verleger Belichter standardmäßig. Sie unterstützen keine systemeigenen Druckertreiber umleiten.
+*Druckerumleitung: Die macOS-App unterstützt standardmäßig den Druckertreiber Publisher Imagesetter. Die Umleitung nativer Druckertreiber wird nicht unterstützt.
