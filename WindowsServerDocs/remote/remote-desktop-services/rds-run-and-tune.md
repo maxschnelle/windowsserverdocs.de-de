@@ -1,6 +1,6 @@
 ---
-title: RDS - ausführen und optimieren
-description: Stellt die Verwaltungsdaten für Remote Desktop Services bereit.
+title: 'Remotedesktopdienste: Ausführen und Optimieren'
+description: Bietet Verwaltungsinformationen für Remotedesktopdienste.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -14,37 +14,37 @@ ms.assetid: 79909767-a4c3-4ecf-8d3f-77d37a663153
 author: spatnaik
 manager: scottman
 ms.openlocfilehash: 40f8dbd560da359e8764ed715e7776cc2d230a7f
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59862181"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63712048"
 ---
-# <a name="run-and-tune-your-remote-desktop-services-environment"></a>Führen Sie aus und Optimieren Sie Ihrer Umgebung Remote Desktop Services
+# <a name="run-and-tune-your-remote-desktop-services-environment"></a>Ausführen und Optimieren Ihrer Remotedesktopdienste-Umgebung
 
-Optimieren Ihre Bereitstellung nimmt Zeit in Anspruch und erfordert die Instrumentierung und Überwachung. Verwenden Sie die folgenden Prozesse optimieren Ihrer remotedesktopbereitstellung, weiterhin ausführen, und aktivieren Sie die Skalierung, hoch- und Herunterskalieren, je nach Bedarf. 
+Das Optimieren Ihrer Bereitstellung nimmt Zeit in Anspruch und setzt Instrumentierung und Überwachung voraus. Verwenden Sie die unten dargestellten Prozesse, um Ihre Remotedesktopbereitstellung zu optimieren, ihren Betrieb aufrecht zu erhalten und sie nach Bedarf horizontal hoch- und herunterzuskalieren. 
 
-Es hat sich bewährt, die ständig die Metriken und Lastenausgleich für die laufenden Kosten zu bewerten.
+Es hat sich bewährt, die Kennzahlen fortlaufend auszuwerten und sie den laufenden Kosten gegenüber zu stellen.
 
 ## <a name="management-and-monitoring"></a>Verwaltung und Überwachung
 
-Sehen Sie sich [Verwalten von Benutzern in Ihrer Sammlung RDS](rds-user-management.md) für Informationen zum Verwalten des Zugriffs auf Ihre Desktops und Remoteressourcen.
+Sehen Sie sich [Verwalten von Benutzern in Ihrer RDS-Sammlung](rds-user-management.md) an, um Informationen für das Verwalten des Zugriffs auf Ihre Desktops und Remoteressourcen zu erhalten.
 
-Verwendung **Microsoft Operations Management Suite (OMS)** remotedesktopbereitstellungen für potenzielle Engpässe zu überwachen und verwalten sie mit einer der folgenden Methoden: 
+Verwenden Sie die **Microsoft Operations Management Suite (OMS)** , um Remotedesktopbereitstellungen auf potenzielle Engpässe zu überprüfen und sie auf eine der folgenden Weisen zu verwalten: 
 
-- **Server Manager**: Verwenden Sie das RD-Verwaltungstool, das auf Windows Server zum Verwalten von Bereitstellungen mit bis zu 500 gleichzeitige remote Endbenutzer enthalten ist. 
-- **PowerShell**: Verwenden Sie das RD-PowerShell-Modul auch in Windows Server integriert, um Bereitstellungen mit bis zu 5.000 gleichzeitiger remote Endbenutzern zu verwalten.
+- **Server Manager**: Verwenden Sie das in Windows Server integrierte RD-Verwaltungstool, um Bereitstellungen mit bis zu 500 gleichzeitigen Remote-Endbenutzern zu verwalten. 
+- **PowerShell**: Verwenden Sie das ebenfalls in Windows Server integrierte RD-PowerShell-Modul, um Bereitstellungen mit bis zu 500 gleichzeitigen Remote-Endbenutzern zu verwalten.
 
-## <a name="scale-bigger-better-faster"></a>Skalierung: Größere, besser und schneller
+## <a name="scale-bigger-better-faster"></a>Skalierung: größer, besser, schneller
 
-Einblick in die Bereitstellung können Sie die Skalierungsgruppe mit einer höheren Genauigkeit steuern. Ganz einfach hinzufügen oder Remotedesktop-Hostservern, die je nach Anforderungen der Skalierungsgruppe zu entfernen. 
+Dank der transparenten Bereitstellung können Sie die Skalierung mit größerer Präzision steuern. Fügen Sie ganz einfach Remotedesktop-Hostserver hinzu, oder entfernen Sie sie, wie es die Skalierung erfordert. 
 
-Remotedesktopbereitstellungen, die in Azure integriert sind möglich. Verwenden von Azure-Dienste wie Azure SQL, um automatisch nach Bedarf zu skalieren.
+Remotedesktopbereitstellungen, die auf Azure aufgebaut sind, können Azure-Services, wie etwa Azure SQL, nutzen, um bei Bedarf automatisch zu skalieren.
 
-## <a name="automation-script-for-success"></a>Automation: Skript für den Erfolg
+## <a name="automation-script-for-success"></a>Automatisierung: mit Skripts zum Erfolg
 
-Warten eine ausgeführte Anwendung mit hoher Skalierung umfasst die Vorgänge in regelmäßigen Abständen zu wiederholen. Verwenden Sie Remote Desktop Services-PowerShell-Cmdlets und WMI-Anbieter zum Entwickeln von Skripts, die auf mehrere Bereitstellungen, bei Bedarf ausgeführt werden kann. Führen Sie Best Practice Analyzer (BPA)-Regeln für Remote Desktop Services, auf Ihre Bereitstellungen für Ihre Bereitstellungen zu optimieren.
+Das Warten einer laufenden, hochgradig skalierten Anwendung bringt sich regelmäßig wiederholende Vorgänge mit sich. Verwenden Sie PowerShell-Cmdlets und WMI-Anbieter der Remotedesktopdienste, um Skripts zu entwickeln, die bei Bedarf in mehreren Bereitstellungen ausgeführt werden können. Führen Sie BPA-Regeln (Best Practice Analyzer) für Remotedesktopdienste in Ihren Bereitstellungen aus, um Ihre Bereitstellungen zu optimieren.
 
-## <a name="load-testing-avoid-surprises"></a>Laden Sie die Tests: Vermeiden Sie überraschungen
+## <a name="load-testing-avoid-surprises"></a>Auslastungstests: Vermeiden Sie Überraschungen
 
-Die Bereitstellung mit Belastungstests und Simulation von realen Nutzung des Auslastungstests. Variieren Sie die Größe der Auslastung um überraschungen zu vermeiden! Stellen Sie sicher, dass die Reaktionsfähigkeit der benutzeranforderungen erfüllt und dass das gesamte System stabil ist. Erstellen Sie Auslastungstests mit simulationstools wie LoginVSI, die Überprüfen Ihrer Bereitstellung können Sie die Anforderungen der Benutzer erfüllen. 
+Führen Sie Auslastungstests der Bereitstellung mit Belastungstests und Simulation der tatsächlichen Nutzung durch. Variieren Sie den Umfang der Last, um Überraschungen zu vermeiden! Stellen Sie sicher, dass die Reaktionsfähigkeit die Anforderungen der Benutzer erfüllt und das gesamte System stabil ist. Erstellen Sie Auslastungstests mit Simulationstools wie LoginVSI, die überprüfen, inwieweit Ihre Bereitstellung die Benutzeranforderungen erfüllt. 

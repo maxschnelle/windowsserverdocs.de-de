@@ -1,6 +1,6 @@
 ---
-title: Remote Desktop Services – erstellen Sie eine beliebige Stelle
-description: Informationen zur Planung können Sie bestimmen, wo Sie Ihre RDS-Bereitstellung zu hosten.
+title: 'Remotedesktopdienste: Erstellen überall'
+description: Planungsinformationen zur Unterstützung Ihrer Entscheidung, wo Ihre RDS-Bereitstellung gehostet werden soll.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,26 +13,26 @@ author: lizap
 ms.author: elizapo
 ms.date: 09/07/2016
 manager: dongill
-ms.openlocfilehash: cbb8e73d753b1fe4f0293cf4427c634020a23a42
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 4563108d2efa9cd864fbe75fa82349d21659a941
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59869511"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63712332"
 ---
-# <a name="remote-desktop-services---build-anywhere"></a>Remote Desktop Services – erstellen Sie eine beliebige Stelle
+# <a name="remote-desktop-services---build-anywhere"></a>Remotedesktopdienste: Erstellen überall
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016
 
-Stellen Sie lokal, in der Cloud oder in einer Hybriden der beiden bereit. Ändern Sie die Bereitstellung aus, wie Sie Ihre geschäftlichen Anforderungen ändern.
+Sie können lokal, in der Cloud oder in einer aus beiden Optionen bestehenden Hybridumgebung bereitstellen. Ändern Sie Ihre Bereitstellung, wenn sich Ihre geschäftlichen Anforderungen ändern.
 
-Unabhängig davon, wo Sie sind, die zugrunde liegende [Architektur](desktop-hosting-logical-architecture.md) von der Remote Desktop Services Umgebung bleibt unverändert:
-- Sie benötigen immer noch einen Server mit Internetverbindung Nutzen von Web Access für Remotedesktop und RD-Gateway für externe Benutzer
-- Dennoch benötigen Sie ein Active Directory und--für hoch verfügbare Umgebungen – einer SQL-Datenbank, House-Benutzer und dem Remotedesktop-Eigenschaften
-- Sie benötigen immer noch Zugriff der Kommunikation zwischen der Infrastrukturrollen Remotedesktop (RD-Verbindungsbroker, RD-Gateway, RD-Lizenzierung und Web Access für Remotedesktop) und dem Ende RDSH oder RDVH-Hosts, um die Endbenutzer auf ihre Desktops oder Anwendungen eine Verbindung herstellen zu können.
+Unabhängig davon, wo Sie sich befinden, die zugrunde liegende [Architektur](desktop-hosting-logical-architecture.md) der Remotedesktopdienste-Umgebung bleibt die gleiche:
+- Sie benötigen in jedem Fall einen Server mit Internetverbindung, um RD Web Access und RD Gateway für externe Benutzer verwenden zu können
+- Sie benötigen in jedem Fall Active Directory und – für Umgebungen mit Hochverfügbarkeit – eine SQL-Datenbank zum Speichern der Eigenschaften von Benutzern und Remotedesktops
+- Sie benötigen in jedem Fall Verbindungszugriff zwischen den RD-Infrastrukturrollen (RD-Verbindungsbroker, RD-Gateway, RD-Lizenzierung und RD Web Access) und die RDSH- oder RDVH-Endhosts, um Endbenutzer mit ihren Desktops oder Anwendungen verbinden zu können.
 
-Diese Flexibilität können Sie das beste aus beiden Welten zu erzielen:
-- Die Einfachheit und mit nutzungsbasierter Bezahlung-Methoden, mit der Cloud und die online-Welt verknüpft ist.
-- Die Kenntnisse und diejenige Methode nutzen Sie umfangreiche Ressourcen, die bereits vorhanden sind lokal.
+Mithilfe dieser Flexibilität sichern Sie sich das beste aus beiden Welten:
+- Die Einfachheit und nutzungsbasierten Zahlungsverfahren aus der Cloud und der Onlinewelt.
+- Die Vertrautheit und Problemlosigkeit bei der Nutzung der lokal bereits vorhandenen umfangreichen Ressourcen.
 
-Weitere Informationen finden Sie in der Vorgehensweise [erstellen und Bereitstellen Ihrer Remote Desktop Services-Bereitstellung](rds-build-and-deploy.md).
+Weitere Informationen finden Sie in der Vorgehensweise zum [Erstellen und Bereitstellen Ihrer Remotedesktopdienste-Bereitstellung](rds-build-and-deploy.md).

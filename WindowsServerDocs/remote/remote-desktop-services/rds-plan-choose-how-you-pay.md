@@ -1,6 +1,6 @@
 ---
-title: Wählen Sie Remotedesktopdienste - bezahlungsart
-description: Planen die Informationen zur Lizenzierung von RDS.
+title: 'Remotedesktopdienste: Wählen der Bezahlungsart'
+description: Planungsinformationen zur Lizenzierung von RDS.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,17 +13,17 @@ author: spatnaik
 ms.author: spatnaik
 ms.date: 09/23/2016
 manager: scottman
-ms.openlocfilehash: daa23b6ff8123f7b5122d93f39c4865402bd8565
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5d6b0b230bace0ce66d9956fad231eac5b679403
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844481"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63712069"
 ---
-# <a name="remote-desktop-services---choose-how-you-pay"></a>Wählen Sie Remotedesktopdienste - bezahlungsart
+# <a name="remote-desktop-services---choose-how-you-pay"></a>Remotedesktopdienste: Wählen der Bezahlungsart
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016
 
-Wählen Sie Ihre Lizenzierung auf Grundlage, was für Ihr Unternehmen sinnvoll ist. Lizenz pro Benutzer, die Benutzer remote auf allen Geräten in einem BYOD-Szenario zu aktivieren. Die Lizenz pro Gerät, wenn Benutzer die gleichen Geräten freigeben. Wenn Sie einen Service Provider (SHSP oder MSP) oder ISV, wählen Sie die benutzerbasierte SALs Lizenzen für einen flexiblen nutzungsbasierten zahlungsmodell.
+Wählen Sie Ihre Lizenzierung danach aus, was für Ihr Unternehmen sinnvoll ist. Benutzerlizenzen ermöglichen es Benutzern, sich remote mit jedem ihrer Geräte in einem BYOD-Szenario zu verbinden. Gerätelizenzen eignen sich, wenn Benutzer das gleiche Gerät verwenden. Wenn Sie ein Dienstanbieter (HSP oder MSP) oder ein unabhängiger Softwarehersteller sind, erhalten Sie mit der SALs-Benutzerlizenz ein flexibles, nutzungsbasiertes Modell.
 
-Weitere Informationen finden Sie in [lizenzieren Sie Ihre RDS-Bereitstellung mit Clientzugriffslizenzen (CALs)](rds-client-access-license.md).
+Weitere Informationen finden Sie unter [Lizenzieren Ihrer RDS-Bereitstellung mit Clientzugriffslizenzen (CALs)](rds-client-access-license.md).

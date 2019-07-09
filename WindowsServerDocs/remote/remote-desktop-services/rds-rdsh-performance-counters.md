@@ -1,6 +1,6 @@
 ---
-title: Verwenden von Leistungsindikatoren zur diagnose von Problemen von Anwendung Reaktionsfähigkeit auf Remote Desktop Session Hosts
-description: Wird Ihre app langsam auf RDS ausgeführt? Erfahren Sie mehr über Leistungsindikatoren, die Sie zum Diagnostizieren von app-Leistungsprobleme für RDSH verwenden können
+title: Verwenden von Leistungsindikatoren für die Diagnose von Problemen mit der Reaktionsfähigkeit von Anwendungen auf Remotedesktop-Sitzungshosts
+description: Läuft Ihre Anwendung in Remotedesktopsitzungen langsam? Erfahren Sie, wie Sie Leistungsindikatoren für die Diagnose von Leistungsproblemen von Anwendungen auf RDSHs verwenden können
 ms.prod: windows-server-threshold
 ms.technology: remote-desktop-services
 ms.author: elizapo
@@ -11,102 +11,102 @@ author: lizap
 manager: dougkim
 ms.localizationpriority: medium
 ms.openlocfilehash: f9aafaa34d5c16e45681e88b1ce60e99a9ad2842
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66447092"
 ---
-# <a name="use-performance-counters-to-diagnose-app-performance-problems-on-remote-desktop-session-hosts"></a>Verwenden von Leistungsindikatoren zur diagnose von app-Leistungsprobleme für Remote Desktop Session Hosts
+# <a name="use-performance-counters-to-diagnose-app-performance-problems-on-remote-desktop-session-hosts"></a>Verwenden von Leistungsindikatoren für die Diagnose von Leistungsproblemen von Anwendungen auf Remotedesktop-Sitzungshosts
 
-Eines der schwierigsten Probleme diagnostizieren der Leistung der Anwendung ist, die Anwendungen sind langsam oder reagiert nicht. Sie können in der Vergangenheit Starten der Diagnose durch das Sammeln von CPU, Arbeitsspeicher, Datenträger-e/a und andere Metriken und verwenden Sie Tools wie Windows Performance Analyzer, um zu ermitteln, die Ursache des Problems. Leider können nicht in den meisten Fällen diese Daten Sie die Ursache zu ermitteln, da Resource Consumption Leistungsindikatoren häufige und große Variationen aufweisen. Dadurch wird es schwierig ist, lesen Sie die Daten und korrelieren sie mit das gemeldete Problem. Können Sie weitere Ihrer app-Leistungsprobleme schnell zu beheben, haben wir einige neue Leistungsindikatoren hinzugefügt (verfügbaren [herunterladen](#download-windows-server-insider-software) über die [Windows Insider-Programm](https://insider.windows.com)) dieses Measure Benutzereingaben Flows.
+Eins der schwierigsten Probleme in der Diagnose ist schlechte Anwendungsleistung – die Anwendungen laufen langsam oder reagieren nicht. In herkömmlicher Weise können Sie Ihre Diagnose beginnen, indem Sie Metriken zu CPU, Arbeitsspeicher, Datenträger-E/A und weiteren Punkten sammeln und dann Tools wie den Windows Performance Analyzer verwenden, um die Ursache des Problems zu ermitteln zu versuchen. Leider helfen Ihnen in den meisten Fällen diese Daten nicht beim Bestimmen der Grundursache, da Indikatoren zum Ressourcenverbrauch viele und große Variationen aufweisen. Dadurch wird es schwierig, die Daten zu lesen und sie mit dem gemeldeten Problem in Beziehung zu setzen. Um Sie bei der schnelleren Lösung Ihrer Probleme mit der Anwendungsleistung zu unterstützen, haben wir einige neue Leistungsindikatoren hinzugefügt (zum [Download](#download-windows-server-insider-software) über das [Windows Insider-Programm](https://insider.windows.com) verfügbar), die den Fluss von Benutzereingaben messen.
 
-Der Zähler für die Eingabe Benutzerverzögerung können Sie die Hauptursache für fehlerhafte Benutzer schnell zu identifizieren, die RDP-Umgebungen. Dieser Leistungsindikator misst, wie lange (z. B. Maus oder Tastatur Nutzung) Eingabe durch den Benutzer in der Warteschlange bleibt, bevor sie von einem Prozess übernommen wird, und der Indikator kann in lokale und remote-Sitzungen.
+Der Indikator User Input Delay (Benutzereingabeverzögerung) kann Sie dabei unterstützen, schnell die Grundursache für schlechte Endbenutzer-RDP-Erfahrungen zu bestimmen. Dieser Indikator misst, wie lange jede Benutzereingabe (wie etwa Maus- oder Tastaturbetätigungen) in der Warteschlange verbleibt, bevor sie von einem Prozess aufgenommen wird, und der Indikator funktioniert sowohl in lokalen als auch in Remotesitzungen.
 
-Die folgende Abbildung zeigt eine grobe Darstellung der Eingabe benutzerflow vom Client, Anwendung.
+Die folgende Abbildung zeigt eine ungefähre Darstellung des Flusses von Benutzereingaben vom Client zur Anwendung.
 
-![Remotedesktop - Benutzereingaben fließen über den Remotedesktopclient für Benutzer der Anwendung](./media/rds-user-input.png)
+![Remotedesktop: Fluss von Benutzereingaben vom Remotedesktopclient des Benutzers zur Anwendung](./media/rds-user-input.png)
 
-Der Eingabe Benutzerverzögerung-Indikator misst das maximale Delta (innerhalb einer bestimmten Zeitspanne) zwischen der Eingabe, die in die Warteschlange gestellt und wenn sie in von der app übernommen wird eine [herkömmliche Nachrichtenschleife](https://msdn.microsoft.com/library/windows/desktop/ms644927.aspx#loop), wie im folgenden Flussdiagramm dargestellt:
+Der User Input Delay-Indikator misst das maximale Delta (innerhalb eines Zeitintervalls) zwischen der Einstellung der Eingabe in die Warteschlange und ihrer Übernahme durch die Anwendung in einer [herkömmlichen Nachrichtenschleife](https://msdn.microsoft.com/library/windows/desktop/ms644927.aspx#loop), wie im folgenden Diagramm dargestellt:
 
-![Remotedesktop - Eingabe Benutzer Verzögerung Performance Counter-flow](./media/rds-user-input-delay.png)
+![Remotedesktop: Fluss im User Input Delay-Leistungsindikator](./media/rds-user-input-delay.png)
 
-Ein wichtiges Detail in dieses Indikators ist, dass die maximale Verzögerung Eingabe innerhalb eines konfigurierbaren Zeitraums gemeldet. Dies ist die am längsten dauert es für eine Eingabe für die Anwendung erreicht ist, die die Geschwindigkeit von wichtig und sichtbar Aktionen wie die Eingabe auswirken kann.
+Ein wichtiges Detail dieses Indikators besteht darin, dass er die maximale Verzögerung der Benutzereingabe innerhalb eines konfigurierbaren Intervalls meldet. Dies ist der längste Zeitraum, den eine Eingabe zum Erreichen der Anwendung benötigt, der sich auf die Geschwindigkeit wichtiger und sichtbarer Aktionen auswirken kann, z. B. der Eingabe.
 
-Beispielsweise würde in der folgenden Tabelle, die Eingabe benutzerverzögerung als 1.000 ms innerhalb dieses Intervalls gemeldet werden. Der Leistungsindikator erfasst die langsamste Benutzereingabe Verzögerung im Intervall da Wahrnehmung des Benutzers, der "langsam" durch die am langsamsten Eingabezeit bestimmt wird (Maximalwert) es kommen, nicht die durchschnittliche Geschwindigkeit, der alle insgesamt Eingaben.
+Beispielsweise würde in der folgenden Tabelle die Verzögerung der Benutzereingabe innerhalb dieses Intervalls als 1.000 ms gemeldet. Der Indikator meldet die längste Verzögerung der Benutzereingabe im Intervall, da die Wahrnehmung des Benutzers als „langsam“ durch die längste erlebte Eingabezeit (das Maximum) bestimmt wird, nicht durch die mittlere Geschwindigkeit aller Eingaben.
 
 |Number| 0 | 1 | 2 |
 |------|---|---|---|
-|Verzögerung |16 ms| 20 ms| 1.000 ms|
+|Verzögerung |16 ms| 20 ms| 1\.000 ms|
 
-## <a name="enable-and-use-the-new-performance-counters"></a>Aktivieren Sie und verwenden Sie die neue Leistungsindikatoren
+## <a name="enable-and-use-the-new-performance-counters"></a>Aktivieren und Verwenden der neuen Leistungsindikatoren
 
-Um diesen neuen Leistungsindikatoren verwenden zu können, müssen Sie zuerst einen Registrierungsschlüssel mit dem folgenden Befehl aktivieren:
+Um diese neuen Leistungsindikatoren zu verwenden, müssen Sie zuerst einen Registrierungsschlüssel aktivieren, indem Sie den folgenden Befehl ausführen:
 
 ```
 reg add "HKLM\System\CurrentControlSet\Control\Terminal Server" /v "EnableLagCounter" /t REG_DWORD /d 0x1 /f
 ```
 
 >[!NOTE]
-> Wenn Sie Windows 10, Version 1809 oder höher oder WindowsServer 2019 (oder höher) verwenden, müssen Sie wird nicht den Registrierungsschlüssel zu aktivieren.
+> Wenn Sie Windows 10, Version 1809 oder höher oder Windows Server 2019 oder höher verwenden, brauchen Sie den Registrierungsschlüssel nicht zu aktivieren.
 
-Als Nächstes starten Sie den Server neu. Klicken Sie dann öffnen Sie den Systemmonitor, und wählen Sie das Pluszeichen (+) aus, wie im folgenden Screenshot gezeigt.
+Starten Sie dann den Server neu. Öffnen Sie anschließend den Systemmonitor, und wählen Sie das Pluszeichen (+) aus, wie im folgenden Screenshot dargestellt.
 
-![Remote Desktop – dieser Screenshot zeigt die Vorgehensweise beim Hinzufügen des Benutzers Eingabe-Leistungsindikator "Verzögerung"](./media/rds-add-user-input-counter-screen.png)
+![Remotedesktop: Screenshot, der das Hinzufügen des User Input Delay-Leistungsindikators veranschaulicht](./media/rds-add-user-input-counter-screen.png)
 
-Danach sollte das Dialogfeld "Leistungsindikatoren hinzufügen", in dem Sie auswählen können **Eingabe Benutzerverzögerung pro Prozess** oder **Eingabe Benutzerverzögerung pro Sitzung**.
+Anschließend sollten Sie das Dialogfeld „Leistungsindikatoren hinzufügen“ sehen, in dem Sie **User Input Delay per Process** (Verzögerung der Benutzereingabe nach Prozess) oder **User Input Delay per Session** (Verzögerung der Benutzereingabe nach Sitzung) auswählen können.
 
-![Remote Desktop – dieser Screenshot zeigt die Eingabe Benutzerverzögerung pro Sitzung hinzufügen](./media/rds-user-delay-per-session.png)
+![Remotedesktop: Screenshot, der das Hinzufügen von User Input Delay pro Sitzung veranschaulicht](./media/rds-user-delay-per-session.png)
 
-![Remote Desktop – dieser Screenshot zeigt die Eingabe Benutzerverzögerung pro Prozess hinzufügen](./media/rds-user-delay-per-process.png)
+![Remotedesktop: Screenshot, der das Hinzufügen von User Input Delay pro Prozess veranschaulicht](./media/rds-user-delay-per-process.png)
 
-Bei Auswahl von **Eingabe Benutzerverzögerung pro Prozess**, sehen Sie die **Instanzen des ausgewählten Objekts** (das heißt, die Prozesse) in ```SessionID:ProcessID <Process Image>``` Format.
+Wenn Sie **User Input Delay per Process** auswählen, sehen Sie die **Instances of the selected object** (Instanzen des ausgewählten Objekts, also anderes ausgedrückt: die Prozesse) im ```SessionID:ProcessID <Process Image>```-Format.
 
-Angenommen, die Rechner-Anwendung ausgeführt wird, einem [Sitzungs-ID 1](https://msdn.microsoft.com/library/ms524326.aspx), sehen Sie ```1:4232 <Calculator.exe>```.
+Wenn beispielsweise die Rechner-App in einer [Sitzung mit ID 1](https://msdn.microsoft.com/library/ms524326.aspx) ausgeführt wird, sehen Sie ```1:4232 <Calculator.exe>```.
 
 > [!NOTE]
-> Nicht alle Prozesse sind enthalten. Alle Prozesse, die als SYSTEM ausgeführt werden, nicht angezeigt werden.
+> Es werden nicht alle Prozesse dargestellt. Sie sehen keine Prozesse, die als SYSTEM ausgeführt werden.
 
-Der Indikator wird gestartet, Eingabe benutzerverzögerung reporting, sobald Sie ihn hinzufügen. Beachten Sie, dass die maximale Dezimalstellen standardmäßig auf 100 (ms) festgelegt ist. 
+Der Indikator beginnt sofort nach dem Hinzufügen, die Verzögerung der Benutzereingabe zu melden. Beachten Sie, dass der Maßstab standardmäßig auf ein Maximum von 100 ms festgelegt ist. 
 
-![Remote Desktop – ein Beispiel der Aktivität für die Eingabe Benutzerverzögerung pro Prozess im Systemmonitor](./media/rds-sample-user-input-delay-perfmon.png)
+![Remotedesktop: Beispiel für Aktivität für User Input Delay pro Prozess im Systemmonitor](./media/rds-sample-user-input-delay-perfmon.png)
 
-Als Nächstes sehen wir uns die **Eingabe Benutzerverzögerung pro Sitzung**. Instanzen für jede Sitzungs-ID vorhanden sind, und die Indikatoren des Prozesses der Eingabe benutzerverzögerung innerhalb der angegebenen Sitzungs angezeigt. Darüber hinaus stehen zwei Instanzen, die als "Max" (der maximale Eingabe Verzögerung in alle Sitzungen) und "Average" (alle Sitzungen über die durchschnittliche Acorss) bezeichnet.
+Sehen wir uns als nächstes die **User Input Delay per Session** (Verzögerung der Benutzereingabe pro Sitzung) an. Es gibt Instanzen für jede Sitzungs-ID, und ihre Indikatoren zeigen die Verzögerung der Benutzereingabe jedes Prozesses innerhalb der angegebenen Sitzung. Darüber hinaus gibt es zwei Instanzen mit den Bezeichnungen „Max“ (die maximale Verzögerung der Benutzereingabe über alle Sitzungen) und „Average“ (Durchschnitt; der Durchschnittswert aus allen Sitzungen).
 
-Diese Tabelle zeigt ein Beispiel dieser Instanzen. (Sie können die gleiche Informationen in Perfmon abrufen durch den Wechsel zu den Graph-Berichtstyp.)
+Diese Tabelle zeigt ein visuelles Beispiel dieser Instanzen. (Sie können die gleichen Informationen im Systemmonitor abrufen, indem Sie zum Diagrammtyp „Bericht“ wechseln.)
 
-|Typ eines Indikators|Instanzenname|Gemeldete Verzögerung (ms)|
+|Indikatortyp|Instanzenname|Gemeldete Verzögerung (ms)|
 |---------------|-------------|-------------------|
-|Eingabe Benutzerverzögerung pro Prozess|1:4232 < Calculator.exe >|  200|
-|Eingabe Benutzerverzögerung pro Prozess|2:1000 < Calculator.exe >|  16|
-|Eingabe Benutzerverzögerung pro Prozess|1:2000 < Calculator.exe >|  32|
-|Eingabe Benutzerverzögerung pro Sitzung|1|    200|
-|Eingabe Benutzerverzögerung pro Sitzung|2|    16|
-|Eingabe Benutzerverzögerung pro Sitzung|Durchschnitt|  108|
-|Eingabe Benutzerverzögerung pro Sitzung|Max.|  200|
+|Verzögerung der Benutzereingabe pro Prozess|1:4232 <Calculator.exe>|  200|
+|Verzögerung der Benutzereingabe pro Prozess|2:1000 <Calculator.exe>|  16|
+|Verzögerung der Benutzereingabe pro Prozess|1:2000 <Calculator.exe>|  32|
+|Verzögerung der Benutzereingabe pro Sitzung|1|    200|
+|Verzögerung der Benutzereingabe pro Sitzung|2|    16|
+|Verzögerung der Benutzereingabe pro Sitzung|Durchschnitt|  108|
+|Verzögerung der Benutzereingabe pro Sitzung|Max.|  200|
 
-## <a name="counters-used-in-an-overloaded-system"></a>Leistungsindikatoren, die in einem überladenen System verwendet
+## <a name="counters-used-in-an-overloaded-system"></a>Einsatz der Indikatoren in einem überlasteten System
 
-Jetzt sehen wir uns im Bericht angezeigt, wenn die Leistung für eine app beeinträchtigt wird. Das folgende Diagramm zeigt die Messwerte für die Remote-Benutzer in Microsoft Word. In diesem Fall nimmt die Leistung des RDSH-Servers im Laufe der Zeit ab, wie weitere Benutzer angemeldet haben.
+Sehen wir uns jetzt an, wie der Bericht aussieht, wenn die Leistung für eine App herabgesetzt ist. Das folgende Diagramm zeigt Messwerte für Benutzer, die remote in Microsoft Word arbeiten. In diesem Fall lässt die Leistung des RDSH-Servers im Lauf der Zeit nach, wenn sich mehr Benutzer anmelden.
 
-![Remote Desktop – eine Beispiel-Leistungsdiagramm für die Ausführung von Microsoft Word RDSH-Servers](./media/rds-user-input-perf-graph.png)
+![Remotedesktop: Ein Leistungsdiagrammbeispiel für den RDSH-Server, der Microsoft Word ausführt](./media/rds-user-input-perf-graph.png)
 
-Hier ist das Diagramm Zeilen lesen:
+So lesen sich die Linien des Diagramms:
 
-- Die rosa Linie zeigt die Anzahl der Sitzungen, die auf dem Server angemeldet.
+- Die pinkfarbene Linie zeigt die Anzahl der Sitzungen, die beim Server angemeldet sind.
 - Die rote Linie ist die CPU-Auslastung.
-- Die grüne Linie ist die maximale Verzögerung Eingabe für alle Sitzungen.
-- Die blaue Linie (angezeigt als Schwarz in diesem Diagramm) stellt die durchschnittliche Eingabe benutzerverzögerung in allen Sitzungen dar.
+- Die grüne Linie ist die maximale Verzögerung der Benutzereingaben über alle Sitzungen.
+- Die blaue Linie (in diesem Diagramm schwarz dargestellt) stellt die durchschnittliche Verzögerung der Benutzereingabe über alle Sitzungen dar.
 
-Sie werden feststellen, dass eine Korrelation zwischen der CPU-Spitzen und Eingabe benutzerverzögerung vorhanden ist, wie die CPU weitere Nutzung abruft, die Benutzereingabe Verzögerung erhöht. Wenn weitere Benutzer mit dem System hinzugefügt werden, ruft CPU-Auslastung auch näher an 100 %, führt zu häufigeren User input Verzögerung Spitzen ab. Während dieser Leistungsindikator in Fällen sehr nützlich ist, in dem der Server nicht über ausreichende Ressourcen ausgeführt wird, auch können sie Sie zum Nachverfolgen von Eingabe benutzerverzögerung im Zusammenhang mit einer bestimmten Anwendung.
+Sie werden feststellen, dass ein Zusammenhang zwischen den Spitzen der CPU-Auslastung und der Verzögerung der Benutzereingabe besteht – wenn die CPU stärker ausgelastet wird, erhöht sich die Verzögerung der Benutzereingaben. Außerdem gelangt die CPU-Auslastung näher an 100 %, während dem System weitere Benutzer hinzugefügt werden, was zu häufigeren Spitzen bei der Verzögerung der Benutzereingaben führt. Dieser Indikator ist einerseits sehr nützlich in Fällen, in denen die Serverressourcen zur Neige gehen, andererseits können Sie ihn auch verwenden, um die Verzögerung der Benutzereingaben im Zusammenhang einer bestimmten Anwendung nachzuverfolgen.
 
 ## <a name="configuration-options"></a>Konfigurationsoptionen
 
-Ein wichtig zu beachten, wenn Sie diesen Leistungsindikator zu verwenden ist, dass die Eingabe benutzerverzögerung standardmäßig in einem Intervall von 1000 ms gemeldet. Wenn Sie die Performance Counter-Beispiel Interval-Eigenschaft (wie im folgenden Screenshot gezeigt), etwas anderes festlegen, wird bei dem gemeldete Wert falsch sein.
+Bei der Verwendung dieses Leistungsindikators ist zu beachten, dass er die Verzögerung der Benutzereingaben standardmäßig in einem Intervall von 1.000 ms meldet. Wenn Sie die Intervalleigenschaft des Leistungsindikatorbeispiels auf einen anderen Wert festlegen (wie im folgenden Screenshot dargestellt), ist der gemeldete Wert falsch.
 
-![Remote Desktop – die Eigenschaften für Ihre Leistung überwachen](./media/rds-user-input-perfmon-properties.png)
+![Remotedesktop: Die Eigenschaften Ihres Systemmonitors](./media/rds-user-input-perfmon-properties.png)
 
-Um dieses Problem zu beheben, können Sie festlegen, den folgenden Registrierungsschlüssel mit das Intervall (in Millisekunden) übereinstimmen, das Sie verwenden möchten. Wenn wir Beispiel alle X Sekunden in 5 Sekunden ändern, müssen wir z. B. diesen Schlüssel auf 5000 ms festlegen.
+Um dies zu beheben, können Sie den folgenden Registrierungsschlüssel übereinstimmend mit dem Intervall festlegen (in Millisekunden), das Sie verwenden möchten. Wenn wir beispielsweise „Stichprobe alle x Sekunden“ auf 5 Sekunden festlegen, müssen wir diesen Schlüssel auf 5.000 ms festlegen.
 
 ```
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server]
@@ -115,28 +115,28 @@ Um dieses Problem zu beheben, können Sie festlegen, den folgenden Registrierung
 ```
 
 >[!NOTE]
->Wenn Sie Windows 10, Version 1809 oder höher oder WindowsServer 2019 (oder höher) verwenden, müssen Sie nicht LagCounterInterval, beheben Sie den Leistungsindikator festlegen.
+>Wenn Sie Windows 10, Version 1809 oder höher, oder Windows Server 2019 oder höher verwenden, brauchen Sie LagCounterInterval nicht festzulegen, um den Leistungsindikator zu korrigieren.
 
-Wir haben außerdem eine Reihe von Schlüsseln hinzugefügt, die unter dem gleichen Registrierungsschlüssel hilfreich sein können:
+Unter dem gleichen Registrierungsschlüssel haben wir außerdem zwei Schlüssel hinzugefügt, die Sie möglicherweise nützlich finden:
 
-**LagCounterImageNameFirst** – legen Sie diesen Schlüssel auf `DWORD 1` (Standardwert ist 0 oder Schlüssel ist nicht vorhanden). Dadurch wird die Indikatornamen in "Name des Bilds < SessionID:ProcessId >." geändert. Z. B. "Explorer < 1:7964 >." Dies ist hilfreich, wenn nach Bildnamen sortiert werden soll.
+**LagCounterImageNameFirst**: Legen Sie diesen Schlüssel auf `DWORD 1` fest (Standardwert 0, oder der Schlüssel ist nicht vorhanden). Dadurch werden die Namen der Indikatoren in „Imagename <Sitzungs-ID:Prozess-ID>“ geändert. Beispiel: „explorer <1:7964>“. Dies ist nützlich, wenn Sie nach dem Imagenamen sortieren möchten.
 
-**LagCounterShowUnknown** – legen Sie diesen Schlüssel auf `DWORD 1` (Standardwert ist 0 oder Schlüssel ist nicht vorhanden). Dies zeigt alle Prozesse, die als Dienste oder das SYSTEM ausgeführt werden. Einige Prozesse mit jeweils Sitzung als festgelegt angezeigt "?."
+**LagCounterShowUnknown**: Legen Sie diesen Schlüssel auf `DWORD 1` fest (Standardwert 0, oder der Schlüssel ist nicht vorhanden). Dies zeigt alle Prozesse an, die als Dienste oder SYSTEM ausgeführt werden. Einige Dienste werden mit „?“ als Wert für die Sitzung angezeigt.
 
-Dies ist, wie es Wenn Sie beide Schlüssel einschalten aussieht:
+So sieht es aus, wenn Sie beide Schlüssel aktivieren:
 
-![Remotedesktop - Systemmonitor mit den beiden Schlüsseln auf](./media/rds-user-input-delay-with-two-counters.png)
+![Remotedesktop: Systemmonitor, wenn beide Schlüssel aktiviert sind](./media/rds-user-input-delay-with-two-counters.png)
 
-## <a name="using-the-new-counters-with-non-microsoft-tools"></a>Verwenden die neuen Indikatoren mit nicht-Microsoft-tools
+## <a name="using-the-new-counters-with-non-microsoft-tools"></a>Verwenden der neuen Indikatoren mit nicht von Microsoft stammenden Tools
 
-Tools zur Überwachung dieser Leistungsindikator erzeugen kann, indem die [Perfmon-API](https://msdn.microsoft.com/library/windows/desktop/aa371903.aspx).
+Überwachungstools können diesen Indikator mithilfe der [Perfmon-API](https://msdn.microsoft.com/library/windows/desktop/aa371903.aspx) nutzen.
 
-## <a name="download-windows-server-insider-software"></a>Windows Server Insider-Software herunterladen
+## <a name="download-windows-server-insider-software"></a>Herunterladen von Windows Server Insider-Software
 
-Registrierte Insider können direkt zu navigieren, die [Windows Server Insider Preview-Download-Seite](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewserver) auf die neuesten Insider Software herunterlädt.  Vorgehensweise: Registrieren Sie als Insider finden Sie unter [erste Schritte mit Server](https://insider.windows.com/en-us/for-business-getting-started-server/).
+Registrierte Insider können direkt zur [Windows Server Insider-Vorschau-Downloadseite](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewserver) navigieren, um die aktuellsten Insider-Softwaredownloads abzurufen.  Informationen zum Registrieren als Insider finden Sie unter [Erste Schritte mit Server](https://insider.windows.com/en-us/for-business-getting-started-server/).
 
-## <a name="share-your-feedback"></a>Teilen Sie uns Ihre Meinung
+## <a name="share-your-feedback"></a>Teilen Sie Ihr Feedback mit
 
-Sie können Feedback für dieses Feature über den Feedback-Hub senden. Wählen Sie **Apps > alle anderen apps** und umfassen "RDS-Leistungsindikatoren – Leistungsüberwachung" in Ihren Beitrag für den Titel.
+Sie können Feedback zu dieser Funktion über den Feedback-Hub senden. Wählen Sie **Apps > Alle anderen Apps** aus, und schließen Sie  „RDS-Leistungsindikatoren: Systemmonitor“ in den Titel Ihres Beitrags ein.
 
-Allgemeine funktionsideen finden Sie auf die [RDS-UserVoice-Seite](https://aka.ms/uservoice-rds).
+Ideen zu allgemeinen Funktionen können Sie auf der [RDS-UserVoice-Seite](https://aka.ms/uservoice-rds) anregen.

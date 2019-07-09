@@ -1,6 +1,6 @@
 ---
-title: Aktualisieren Ihre Remote Desktop Services-Bereitstellungen auf Windows Server 2016
-description: Dieser Artikel beschreibt, wie Sie Ihre vorhandenen Remote Desktop Services-Bereitstellungen auf Windows Server 2016 aktualisieren.
+title: Upgrade Ihrer Remotedesktopdienste-Bereitstellungen auf Windows Server 2016
+description: In diesem Artikel wird beschrieben, wie Sie Ihre vorhandenen Bereitstellungen der Remotedesktopdienste auf Windows Server 2016 aktualisieren.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -14,60 +14,60 @@ ms.assetid: f7b1f1f6-57c8-40ab-a235-e36240dcc1f8
 author: spatnaik
 manager: scottman
 notes: https://social.technet.microsoft.com/wiki/contents/articles/22069.remote-desktop-services-upgrade-guidelines-for-windows-server-2012-r2.aspx
-ms.openlocfilehash: f683a7d9346494e7f1fb6faf716ca9c90cfef8d3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d39361c62d71f9a804087e62936d2cf8c646917a
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59875751"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63711801"
 ---
-# <a name="upgrading-your-remote-desktop-services-deployments-to-windows-server-2016"></a>Aktualisieren Ihre Remote Desktop Services-Bereitstellungen auf Windows Server 2016
+# <a name="upgrading-your-remote-desktop-services-deployments-to-windows-server-2016"></a>Upgrade Ihrer Remotedesktopdienste-Bereitstellungen auf Windows Server 2016
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016
 
-## <a name="supported-os-upgrades-with-rds-role-installed"></a>Unterstützt Upgrades des Betriebssystems mit Remotedesktopdienste-Rolle installiert
-Upgrades auf Windows Server 2016 werden nur von Windows Server 2012 R2 und Windows Server 2016 unterstützt.
+## <a name="supported-os-upgrades-with-rds-role-installed"></a>Unterstützte Betriebssystemupgrades mit installierter RDS-Rolle
+Upgrades auf Windows Server 2016 werden nur von Windows Server 2012 R2 und Windows Server 2016 unterstützt.
 
-## <a name="flow-for-deployment-upgrades"></a>Der Ablauf für die Bereitstellung upgrades
-Um die Ausfallzeit auf ein Minimum zu halten, empfiehlt es sich um die folgenden Schritte ausführen:
+## <a name="flow-for-deployment-upgrades"></a>Ablauf für Upgrades von Bereitstellungen
+Um die Ausfallzeit so kurz wie möglich zu halten, sollten Sie die unten beschriebenen Schritte ausführen:
 
-1. **RD-Verbindungsbrokerserver** muss die erste aktualisiert werden. Wenn in der Bereitstellung aktiv/aktiv-Konfiguration vorhanden ist, entfernen Sie alle bis auf einen Server aus der Bereitstellung, und führen Sie ein direktes Upgrade. Führen Sie Upgrades für die übrigen RD Connection Broker Server offline, und klicken Sie dann erneut auf die Bereitstellung hinzufügen. Die Bereitstellung wird während des Upgrades von RD Connection Broker Server nicht verfügbar sein.
+1. Für **RD-Verbindungsbrokerserver** sollte zuerst ein Upgrade ausgeführt werden. Wenn in der Bereitstellung eine aktiv/aktiv-Konfiguration vorliegt, entfernen Sie alle Server bis auf einen aus der Bereitstellung, und führen Sie ein direktes Upgrade durch. Führen Sie Upgrades auf den verbleibenden RD-Verbindungsbrokerservern offline durch, und fügen Sie sie anschließend der Bereitstellung wieder hinzu. Die Bereitstellung ist während des Upgrades der RD-Verbindungsbrokerserver nicht verfügbar.
 
    > [!NOTE] 
-   > Es ist erforderlich, um RD Connection Broker Server zu aktualisieren. Windows Server 2012 R2 RD Connection Broker Server unterstützt in einer gemischten Bereitstellung mit Windows Server 2016-Servern nicht. Sobald die RD Connection Broker Server Windows Server 2016 ausgeführt werden wird die Bereitstellung funktionsfähig ist, auch wenn die übrigen Server in der Bereitstellung mehr Windows Server 2012 R2 ausgeführt werden.
+   > Es ist erforderlich, ein Upgrade der RD-Verbindungsbrokerserver durchzuführen. Windows Server 2012 R2-RD-Verbindungsbrokerserver werden in einer gemischten Bereitstellung mit Windows Server 2016-Servern nicht unterstützt. Sobald die RD-Verbindungsbrokerserver Windows Server 2016 ausführen, ist die Bereitstellung betriebsbereit, auch wenn der Rest der Server in der Bereitstellung noch Windows Server 2012 R2 ausführt.
 
-2. **Remotedesktop-Lizenzserver** muss aktualisiert werden, vor dem upgrade von Remotedesktop-Sitzungshostserver.
+2. **RD-Lizenzserver** sollten aktualisiert werden, bevor Sie das Upgrade Ihrer RD-Sitzungshostserver durchführen.
    > [!NOTE] 
-   > Windows Server 2012 und 2012 R2-Remotedesktop-Lizenzserver mit der Windows Server 2016-Bereitstellung funktioniert, aber sie können nur Clientzugriffslizenzen, die von Windows Server 2012 R2 und älteren verarbeiten. Sie können keine Clientzugriffslizenzen für Windows Server 2016. Finden Sie unter [lizenzieren Sie Ihre RDS-Bereitstellung mit Clientzugriffslizenzen (CALs)](rds-client-access-license.md) für Weitere Informationen zum Remotedesktop-Lizenzserver.
+   > Windows Server 2012- und 2012 R2 RD-Lizenzserver arbeiten mit Windows Server 2016-Bereitstellungen zusammen, sie können aber nur CALs von Windows Server 2012 R2 und älter verarbeiten. Sie können keine CALs von Windows Server 2016 verwenden. Weitere Informationen zu RD-Lizenzservern finden Sie unter [Lizenzieren Ihrer RDS-Bereitstellung mit Clientzugriffslizenzen (CALs)](rds-client-access-license.md).
 
-3. **RD-Sitzungshostservern** anschließend aktualisiert werden können. Der Administrator kann die Server in 2 Schritten wie nachstehend beschrieben aktualisiert werden aufteilen, um Ausfallzeiten während des Upgrades zu vermeiden. Alle werden funktionalen nach dem Upgrade. Um zu aktualisieren, verwenden Sie die Schritte in [Upgrade Remote Desktop Session Host-Server auf Windows Server 2016](upgrade-to-rdsh.md).
+3. Für **RD-Sitzungshostserver** kann als nächstes ein Upgrade ausgeführt werden. Um Ausfallzeiten während des Upgrades zu vermeiden, kann der Administrator die Server für das Upgrade in zwei Schritte aufteilen, wie unten ausführlich beschrieben. Nach dem Upgrade sind alle betriebsbereit. Führen Sie für das Upgrade die in [Upgrade von Remotedesktop-Sitzungshostservern auf Windows Server 2016](upgrade-to-rdsh.md) beschriebenen Schritte aus.
 
-4. **Remotedesktop-Virtualisierungshostserver** anschließend aktualisiert werden können. Um zu aktualisieren, verwenden Sie die Schritte in [Aktualisieren von Remotedesktop-Virtualisierungshost-Server auf Windows Server 2016](upgrade-to-rdvh.md).
+4. Für **RD-Virtualisierungshostserver** kann als nächstes das Upgrade ausgeführt werden. Führen Sie für das Upgrade die in [Upgrade von Remotedesktop-Virtualisierungshostservern auf Windows Server 2016](upgrade-to-rdvh.md) beschriebenen Schritte aus.
 
-5. **Server mit Web Access für Remotedesktop** können jederzeit aktualisiert werden.
+5. Für **RD-Webzugriffsserver** kann jederzeit ein Upgrade durchgeführt werden.
    > [!NOTE]
-   > Aktualisieren von RD-Web kann IIS-Eigenschaften (z. B. alle Konfigurationsdateien) zurückgesetzt. Um die nicht der Fall ist, stellen Sie Hinweise oder Kopien von Anpassungen, die an den RD-Web-Website in IIS ausgeführt.
+   > Beim Upgrade von RD Web werden möglicherweise IIS-Eigenschaften (wie etwa alle Konfigurationsdateien) zurückgesetzt. Um Ihre Änderungen nicht zu verlieren, notieren oder kopieren Sie an der RD-Website in IIS vorgenommene Anpassungen.
 
    > [!NOTE] 
-   > Windows Server 2012 und 2012 R2 Web Access für Remotedesktop-Server funktionieren mit Windows Server 2016-Bereitstellungen.
+   > Windows Server 2012 und 2012 R2 RD-Webzugriffsserver funktionieren in Kombination mit Windows Server 2016-Bereitstellungen.
 
-6. **Remotedesktop-Gatewayservern** können jederzeit aktualisiert werden.
+6. Für **RD-Gatewayserver** kann jederzeit ein Upgrade ausgeführt werden.
    > [!NOTE]
-   > Windows Server 2016 enthält keine-Richtlinien (Network Access Protection, NAP) - müssen entfernt werden soll. So entfernen Sie die richtigen Richtlinien die einfachste Möglichkeit ist durch den Upgrade-Assistenten ausführen. Wenn es alle NAP-Richtlinien, die Sie löschen müssen sind, das Upgrade blockiert und erstellen eine Textdatei auf dem Desktop, der die spezifischen Richtlinien enthält. Um NAP-Richtlinien zu verwalten, öffnen Sie die Netzwerkrichtlinienserver-Tool. Nach dem Löschen, klicken Sie auf **aktualisieren** im Setup-Tool, um den Upgradevorgang fortzusetzen. 
+   > Windows Server 2016 enthält keine Richtlinien zum Netzwerkzugriffsschutz (Network Access Protection, NAP) – diese müssen entfernt werden. Die einfachste Möglichkeit zum Entfernen der richtigen Richtlinien besteht im Ausführen des Upgrade-Assistenten. Wenn NAP-Richtlinien vorhanden sind, die Sie löschen müssen, blockiert das Upgrade und erstellt eine Textdatei auf dem Desktop, die die spezifischen Richtlinien enthält. Öffnen Sie zum Verwalten von NAP-Richtlinien das Netzwerkrichtlinienserver-Tool. Klicken Sie nach ihrem Löschen im Setuptool auf **Aktualisieren**, um den Upgradevorgang fortzusetzen. 
 
    > [!NOTE] 
-   > Windows Server 2012 und 2012 R2 Remotedesktop-Gatewayservern funktionieren mit Windows Server 2016-Bereitstellungen.
+   > Windows Server 2012 und 2012 R2 RD-Gatewayserver funktionieren in Kombination mit Windows Server 2016-Bereitstellungen.
 
-## <a name="vdi-deployment--supported-guest-os-upgrade"></a>VDI-Bereitstellung – unterstützten Gastbetriebssystem-Upgrades
-Administratoren müssen die folgenden Optionen zum Aktualisieren der VM-Sammlungen:
+## <a name="vdi-deployment--supported-guest-os-upgrade"></a>VDI-Bereitstellung: Upgrade des unterstützten Gastbetriebssystems
+Administratoren bieten sich die folgenden Optionen zum Aktualisieren von VM-Sammlungen:
 
-### <a name="upgrade-managed-shared-vm-collections"></a>Aktualisieren von verwalteten freigegebenen VM-Sammlungen 
-Administratoren müssen zum Erstellen von VM-Vorlagen mit der gewünschten Betriebssystemversion aus, und verwenden, um alle virtuellen Computer im Pool zu patchen. 
+### <a name="upgrade-managed-shared-vm-collections"></a>Upgrade von verwalteten freigegebenen VM-Sammlungen 
+Die Administratoren müssen VM-Vorlagen mit der gewünschten Betriebssystemversion erstellen und sie verwenden, um alle VMs im Pool zu patchen. 
 
-Wir unterstützen die folgenden Patchen Szenarien:
-- Windows 7 SP1 kann gepatcht werden, um Windows 8 oder Windows 8.1
-- Windows 8 kann gepatcht werden, um Windows 8.1
-- Windows 8.1 kann gepatcht werden, auf Windows 10
+Wir unterstützen die folgenden Patchszenarien:
+- Windows 7 SP1 kann auf Windows 8 oder Windows 8.1 gepatcht werden
+- Windows 8 kann auf Windows 8.1 gepatcht werden
+- Windows 8.1 kann auf Windows 10 gepatcht werden
 
-### <a name="upgrade-unmanaged-shared-vm-collections"></a>Upgrade von nicht verwalteten freigegebenen VM-Auflistungen 
-Endbenutzer können nicht ihre persönliche Desktops aktualisieren. Administratoren sollten das Upgrade ausführen. Die genauen Schritte sind immer noch bestimmt werden soll.
+### <a name="upgrade-unmanaged-shared-vm-collections"></a>Upgrade von nicht verwalteten freigegebenen VM-Sammlungen 
+Endbenutzer können kein Upgrade ihrer persönlichen Desktopcomputer durchführen. Das Upgrade sollte durch Administratoren ausgeführt werden. Die Schritte sind im Einzelnen noch nicht festgelegt worden.

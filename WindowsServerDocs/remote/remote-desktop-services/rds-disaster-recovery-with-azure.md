@@ -1,6 +1,6 @@
 ---
-title: Einrichten der notfallwiederherstellung für RDS mit Azure-Notfallwiederherstellung
-description: Erfahren Sie, wie Sie mit Azure-Notfallwiederherstellung für die notfallwiederherstellung für eine RDS-Bereitstellung
+title: Einrichten von Notfallwiederherstellung für RDS mithilfe von Azure Disaster Recovery
+description: Erfahren Sie, wie Sie Azure Disaster Recovery zur Notfallwiederherstellung für eine RDS-Bereitstellung verwenden
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -12,59 +12,59 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 manager: dongill
-ms.openlocfilehash: 561a515e23d12cc3397c40fd885550e735ed4d27
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 24b5fdaa815b6d2e84606cd8e681634eb3d0f4e9
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59878171"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63713082"
 ---
-# <a name="set-up-disaster-recovery-for-rds-using-azure-site-recovery"></a>Einrichten der notfallwiederherstellung für RDS mit Azure Site Recovery
+# <a name="set-up-disaster-recovery-for-rds-using-azure-site-recovery"></a>Einrichten von Notfallwiederherstellung für RDS mithilfe von Azure Site Recovery
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016
 
-Sie können Azure Site Recovery verwenden, um eine Lösung zur notfallwiederherstellung für die Remotedesktopdienste-Bereitstellung zu erstellen. 
+Sie können Azure Site Recovery verwenden, um eine Lösung zur Notfallwiederherstellung für Ihre Remotedesktopdienste-Bereitstellung zu erstellen. 
 
-[Azure Site Recovery](/azure/site-recovery/site-recovery-overview) ist ein Azure-basierten Dienst, der Disaster Recovery Funktionen bietet, durch Orchestrierung der Replikation, Failover und Wiederherstellung von virtuellen Computern. Azure Site Recovery unterstützt eine Reihe von Replikationstechnologien, um Sie konsistent zu replizieren, Schutz und nahtlos Failover für virtuelle Computer und Anwendungen in privaten/öffentlichen oder des Hosters-Clouds. 
+[Azure Site Recovery](/azure/site-recovery/site-recovery-overview) ist ein Azure-basierter Dienst, der Funktionen zur Notfallwiederherstellung bietet, indem er Replikation, Failover und Wiederherstellung von virtuellen Computern orchestriert. Azure Site Recovery unterstützt eine Reihe von Replikationstechnologien, um konsistente Replikation, Schutz und nahtloses Failover von virtuellen Computern und Anwendungen in private/öffentliche oder von Hostanbietern betriebene Clouds zu ermöglichen. 
 
-Verwenden Sie die folgende Informationen zum Erstellen und überprüfen die Lösung für die notfallwiederherstellung.
+Verwenden Sie die folgenden Informationen zum Erstellen und Überprüfen der Lösung zur Notfallwiederherstellung.
 
-## <a name="disaster-recovery-deployment-options"></a>Disaster Recovery-Bereitstellungsoptionen
+## <a name="disaster-recovery-deployment-options"></a>Bereitstellungsoptionen für Notfallwiederherstellung
 
-Sie können RDS auf virtuelle Computer mit Hyper-V oder VMWare oder physischen Servern bereitstellen. Azure Site Recovery kann sowohl auf lokale und virtuelle Bereitstellungen entweder ein sekundärer Standort oder in Azure schützen. Die folgende Tabelle zeigt, dass die verschiedenen RDS-Bereitstellungen in Standort-zu-Standort und Standort-zu-Azure-notfallwiederherstellung Recvoery Szenarien unterstützt.
+Sie können RDS wahlweise auf physischen Servern oder auf virtuellen Computern bereitstellen, die Hyper-V oder VMWare ausführen. Azure Site Recovery kann sowohl lokale als auch virtuelle Bereitstellungen mit entweder einem zweiten Standort oder auf Azure schützen. Die folgende Tabelle zeigt die verschiedenen unterstützten RDS-Bereitstellungen in Szenarien für die Notfallwiederherstellung von Standort zu Standort oder von Standort zu Azure.
 
 | Bereitstellungstyp                          | Hyper-V-Standort-zu-Standort | Hyper-V-Standort-zu-Azure | VMWare-Standort-zu-Azure | Physischer Standort-zu-Azure |
 |------------------------------------------|----------------------|-----------------------|---------------------|----------------------|-----------------------|------------------------|
-| In einem Pool zusammengefassten virtuellen Desktops, die (nicht verwaltet)       |Ja|Nein|Nein|Nein |
-| Virtuelle Desktops eines Pools (verwaltet, ohne UPD) | Ja|Nein|Nein|Nein|
-| RemoteApps und Desktop-Sitzungen (ohne UPD) | Ja|Ja|Ja|Ja  |
+| Gepoolter virtueller Desktop (nicht verwaltet)       |Ja|Nein|Nein|Nein |
+| Gepoolter virtueller Desktop (verwaltet, ohne UPD) | Ja|Nein|Nein|Nein|
+| RemoteApps und Desktopsitzungen (ohne UPD) | Ja|Ja|Ja|Ja  |
 
-## <a name="prerequisites"></a>Vorraussetzungen
+## <a name="prerequisites"></a>Voraussetzungen
 
-Bevor Sie Azure Site Recovery für die Bereitstellung konfigurieren können, stellen Sie sicher, dass Sie die folgenden Anforderungen erfüllen:
+Bevor Sie Azure Site Recovery für Ihre Bereitstellung konfigurieren können, achten Sie darauf, dass die folgenden Anforderungen erfüllt sind:
 
-- Erstellen Sie eine [lokalen RDS-Bereitstellung](rds-deploy-infrastructure.md).
-- Hinzufügen [Azure Site Recovery Services-Tresor](/azure/site-recovery/site-recovery-vmm-to-azure#create-a-recovery-services-vault) mit Ihrem Microsoft Azure-Abonnement.
-- Wenn Sie Azure als Wiederherstellungsstandort verwenden möchten, führen Sie die [Azure Virtual Machine Readiness Assessment-Tool](https://azure.microsoft.com/downloads/vm-readiness-assessment/) auf Ihren virtuellen Computern, um sicherzustellen, dass sie mit Azure-VMs und Azure Site Recovery Services kompatibel sind.
+- Erstellen Sie eine [lokale RDS-Bereitstellung](rds-deploy-infrastructure.md).
+- Fügen Sie Ihrem Microsoft Azure-Abonnement den [Azure Site Recovery Services-Tresor](/azure/site-recovery/site-recovery-vmm-to-azure#create-a-recovery-services-vault) hinzu.
+- Wenn Sie Azure als Ihren Wiederherstellungsstandort verwenden, führen Sie das [Azure Virtual Machine Readiness Assessment-Tool](https://azure.microsoft.com/downloads/vm-readiness-assessment/) auf Ihren VMs aus, um sicherzustellen, dass sie mit Azure-VMs und Azure Site Recovery-Diensten kompatibel sind.
  
 ## <a name="implementation-checklist"></a>Checkliste für die Implementierung
 
-Ich werde die verschiedenen Schritte zum Aktivieren von Azure Site Recovery Services für Ihre RDS-Bereitstellung im Detail, aber hier sind die Implementierungsschritte für die allgemeine.
+Wir behandeln die verschiedenen Schritte zum Aktivieren der Azure Site Recovery-Dienste für Ihre RDS-Bereitstellung noch ausführlicher, dies sind zunächst mal die allgemeinen Implementierungsschritte.
 
-| **Schritt 1: Konfigurieren von virtuellen Computern für die notfallwiederherstellung**                                                                                                                                                                                               |
+| **Schritt 1: Konfigurieren von virtuellen Computern für die Notfallwiederherstellung**                                                                                                                                                                                               |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Hyper-V - Download der Microsoft Azure Site Recovery-Anbieter. Installieren Sie es auf Ihrem VMM-Server oder Hyper-V-Host. Finden Sie unter [Voraussetzungen für die Replikation in Azure mithilfe von Azure Site Recovery](/azure/site-recovery/site-recovery-prereq) Informationen.                                                                                                                             |
-| VMWare - Schutzserver, Konfigurationsserver und masterzielserver konfigurieren                                                                                                                                                      |
+| Hyper-V: Laden Sie den Microsoft Azure Site Recovery-Anbieter herunter. Installieren Sie ihn auf Ihrem VMM-Server oder Hyper-V-Host. Weitere Informationen finden Sie unter [Prerequisites for replication to Azure by using Azure Site Recovery](/azure/site-recovery/site-recovery-prereq) (Voraussetzungen für die Replikation in Azure mithilfe von Azure Site Recovery).                                                                                                                             |
+| VMWare: Konfigurieren Sie den Schutzserver, den Konfigurationsserver und die Masterzielserver                                                                                                                                                      |
 | **Schritt 2: Vorbereiten Ihrer Ressourcen**                                                                                                                                                                                                           |
-| Hinzufügen einer [Azure Storage-Konto](/azure/storage/storage-create-storage-account).                                                                                                                                                                                                              |
-| Hyper-V – Microsoft Azure Recovery Services-Agent herunterladen und installieren sie auf Hyper-V-Hostservern.                                                                                                                                     |
-| VMWare - stellen Sie sicher, dass der Mobility Service auf allen virtuellen Computern installiert ist.                                                                                                                                                                           |
-| [Aktivieren des Schutzes für virtuelle Computer in VMM-Cloud, Hyper-V-Websites oder VMWare-Standorten](rds-enable-dr-with-asr.md).                                                                                                                                                                    |
-| **Schritt 3: Entwerfen von Ihren Wiederherstellungsplan.**                                                                                                                                                                                                        |
-| Ordnen Sie Ihre Ressourcen - Zuordnung in lokalen Netzwerken und Azure-VNETs.                                                                                                                                                                              |
-| [Erstellen des Wiederherstellungsplans](rds-disaster-recovery-plan.md). |
-| Testen Sie den Wiederherstellungsplan, indem Sie ein Test-Failover erstellen. Stellen Sie sicher, dass alle virtuellen Computer die erforderliche Ressourcen wie Active Directory zugreifen können. Stellen Sie sicher, Netzwerk, die umleitungen konfiguriert sind und widmet RDS. Ausführliche Schritte zum Testen Ihres Plans finden Sie unter [Ausführen eines Testfailovers](/azure/site-recovery/site-recovery-test-failover-to-azure)|
-| **Schritt 4: Ausführen ein notfallwiederherstellungsverfahrens.**                                                                                                                                                                                                     |
-| Ausführen eines notfallwiederherstellungsverfahrens, die mithilfe von geplanten und ungeplanten Failover. Stellen Sie sicher, dass alle virtuellen Computer auf erforderliche Ressourcen, z. B. Active Directory zugreifen. Stellen Sie sicher, dass alle virtuellen Computer auf erforderliche Ressourcen, z. B. Active Directory zugreifen. Anleitung für Failover und führt einen Drilldown ausführen, finden Sie unter [-Failover in Site Recovery](/azure/site-recovery/site-recovery-failover).|
+| Fügen Sie ein [Azure Storage-Konto](/azure/storage/storage-create-storage-account) hinzu.                                                                                                                                                                                                              |
+| Hyper-V: Laden Sie den Microsoft Azure Recovery Services-Agent herunter, und installieren Sie ihn auf den Hyper-V-Hostservern.                                                                                                                                     |
+| VMWare: Stellen Sie sicher, dass der Mobilitätsdienst auf allen VMs installiert ist.                                                                                                                                                                           |
+| [Aktivieren Sie Schutz für VMs in der VMM-Cloud, auf Hyper-V-Sites oder auf VMWare-Sites](rds-enable-dr-with-asr.md).                                                                                                                                                                    |
+| **Schritt 3: Entwerfen Ihres Wiederherstellungsplans.**                                                                                                                                                                                                        |
+| Zuordnen Ihrer Ressourcen: Ordnen Sie lokale Netzwerke Azure VNETs zu.                                                                                                                                                                              |
+| [Erstellen Sie den Wiederherstellungsplan](rds-disaster-recovery-plan.md). |
+| Testen Sie den Wiederherstellungsplan, indem Sie ein Testfailover erstellen. Stellen Sie sicher, dass alle VMs auf die erforderlichen Ressourcen wie Active Directory zugreifen können. Achten Sie darauf, dass Netzwerkumleitungen für RDS konfiguriert sind und funktionieren. Detaillierte Schritte zum Testen Ihres Wiederherstellungsplans finden Sie unter [Ausführen eines Testfailovers](/azure/site-recovery/site-recovery-test-failover-to-azure)|
+| **Schritt 4: Ausführen einer Notfallwiederherstellungsübung.**                                                                                                                                                                                                     |
+| Führen Sie eine Notfallwiederherstellungsübung durch, und verwenden Sie dazu geplante und ungeplante Failover. Achten Sie darauf, dass alle VMs Zugriff auf die erforderlichen Ressourcen wie Active Directory haben. Achten Sie darauf, dass alle VMs Zugriff auf die erforderlichen Ressourcen wie Active Directory haben. Detaillierte Schritte zu Failovern und dem Durchführen von Übungen finden Sie unter [Failover in Site Recovery](/azure/site-recovery/site-recovery-failover).|
 
 
