@@ -1,6 +1,6 @@
 ---
 title: Zugriff auf den Remotedesktop-Webclient
-description: Beschreibt, wie Sie sich an den WebClient Remote Desktop angemeldet.
+description: Hier wird beschrieben, wie du dich beim Remotedesktop-Webclient anmeldest.
 ms.prod: windows-server-threshold
 ms.technology: remote-desktop-services
 ms.author: helohr
@@ -9,56 +9,56 @@ ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
 ms.openlocfilehash: f4433ad592219d6ed15b28fd0514790b078525fd
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849371"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63743832"
 ---
 # <a name="access-the-remote-desktop-web-client"></a>Zugriff auf den Remotedesktop-Webclient
 
-Der Webclient Remotedesktop können Sie einen kompatiblen Webbrowser Ihres Unternehmens (apps und Desktops) veröffentlicht, die Sie von Ihrem Administrator den Zugriff auf Remoteressourcen Sie werden möglicherweise von für die Interaktion mit dem remote-apps und Desktops, wie Sie mit einem lokalen PC unabhängig davon, wo Sie sind ohne zu einem anderen desktop-PC zu wechseln. Sobald Ihr Administrator die Remoteressourcen eingerichtet hat, wird alles, was, die Sie benötigen, werden, Ihre Domäne, Benutzername, Kennwort, die URL Ihren Administrator gesendet, Sie und einen unterstützten Webbrowser, und Sie können alles in Ordnung.
+Der Remotedesktop-Webclient ermöglicht dir, mit einem kompatiblen Webbrowser auf die Remoteressourcen (Apps und Desktops) deiner Organisation zuzugreifen, die dir von deinem Administrator zur Verfügung gestellt werden. Egal wo du dich befindest, kannst du mit den Remote-Apps und -desktops wie mit einem lokalen PC interagieren, ohne zu einem anderen Desktop-PC wechseln zu müssen. Sobald dein Administrator deine Remoteressourcen eingerichtet hat, benötigst du nur noch deine Domäne, deinen Benutzernamen, dein Kennwort, die URL, die dir dein Administrator geschickt hat, und einen unterstützten Webbrowser, und schon kannst du loslegen.
 
 >[!NOTE]
->Möchten Sie wissen zu den neuen Versionen für den WebClient? Sehen Sie sich [Neuigkeiten für Remote Desktop WebClient?](web-client-whatsnew.md)
+>Möchtest du mehr über die neuen Versionen für den Webclient erfahren? Lies [Neues beim Remotedesktop-Webclient](web-client-whatsnew.md).
 
-## <a name="what-youll-need-to-use-the-web-client"></a>Was Sie benötigen, verwenden Sie den WebClient
+## <a name="what-youll-need-to-use-the-web-client"></a>Voraussetzungen für die Verwendung des Webclients
 
-* Für den WebClient benötigen Sie einen PC unter Windows, MacOS, ChromeOS oder Linux. Mobile Geräte werden zurzeit nicht unterstützt.
-* Einem modernen Browser wie Microsoft Edge, Internet Explorer 11, Google Chrome, Mozilla Firefox oder Safari (v55.0 und höher).
-* Die URL Ihr Administrator hat Ihnen gesendet.
-
->[!NOTE]
->Die Internet Explorer-Version des Webclients Audio zu diesem Zeitpunkt keinen.
->Safari möglicherweise einen grauen Bildschirm angezeigt, wenn der Browser angepasst wird, oder geben Sie im Vollbildmodus mehrmals.
-
-## <a name="start-using-the-remote-desktop-client"></a>Starten Sie mit dem Remotedesktop-client
-
-Melden Sie sich an den Client, öffnen die URL Ihren Administrator, die Sie gesendet. Geben Sie auf der Anmeldeseite Ihrer Domäne und den Namen im Format ```DOMAIN\username```, geben Sie Ihr Kennwort ein, und wählen Sie dann **Anmeldung**.
+* Für den Webclient benötigst du einen Windows-, macOS-, ChromeOS- oder Linux-PC. Mobile Geräte werden derzeit nicht unterstützt.
+* Ein moderner Browser wie Microsoft Edge, Internet Explorer 11, Google Chrome, Safari oder Mozilla Firefox (v55.0 und höher).
+* Die URL, die dein Administrator dir gesendet hat.
 
 >[!NOTE]
->Indem Sie sich anmelden, an den Webclient, stimmen Sie zu, dass Ihr PC mit der Sicherheitsrichtlinie Ihrer Organisation entspricht.
+>Die Internet Explorer-Version des Webclients bietet zu diesem Zeitpunkt keine Audiounterstützung.
+>Safari zeigt möglicherweise einen grauen Bildschirm an, wenn der Browser angepasst wird oder mehrmals in den Vollbildmodus wechselt.
 
-Nachdem Sie sich angemeldet haben, der Client gelangen Sie auf die **alle Ressourcen** Registerkarte, die alle Elemente enthält, die Ihnen unter einer oder mehreren reduzierbare Gruppen, z. B. die Gruppe "Arbeit" veröffentlicht. Sie werden sehen, dass mehrere Symbolen zur Darstellung der apps, Desktops oder Ordner, die mehr apps oder -Desktops, die der Administrator der Gruppe "Arbeit" zur Verfügung gestellt hat. Sie können auf dieser Registerkarte zu einem beliebigen Zeitpunkt aus, um zusätzliche Ressourcen starten zurückkehren.
+## <a name="start-using-the-remote-desktop-client"></a>Erste Schritte bei der Verwendung des Remotedesktopclients
 
-Nutzen Sie eine app oder den Desktop, wählen Sie das Element, das Sie verwenden möchten, geben den gleichen Benutzernamen und Kennwort für die Anmeldung an den Webclient, wenn Sie aufgefordert werden, und wählen Sie dann **senden**. Sie können auch ein Zustimmungsdialogfeld Zugriff auf lokale Ressourcen, z. B. Clipboard "und" Drucker angezeigt werden. Sie können nicht eines dieser umleiten, oder wählen Sie auch **zulassen** auf die Standardeinstellungen verwenden. Warten Sie, bis des Webclients zum Herstellen der Verbindung, und starten Sie dann mit der Ressource, wie gewohnt.
+Um dich beim Client anzumelden, öffnest du die URL, die dein Administrator dir gesendet hat. Gib auf der Anmeldeseite deine Domäne und deinen Benutzernamen im Format ```DOMAIN\username``` ein, gib dein Kennwort ein, und wähle dann **Anmelden** aus.
 
-Wenn Sie fertig sind, können Sie die Sitzung beenden, durch Drücken der **Abmelden** Schaltfläche auf der Symbolleiste am oberen Rand den Bildschirm oder das Browserfenster schließen.
+>[!NOTE]
+>Indem du dich beim Webclient anmeldest, stimmst du zu, dass dein PC der Sicherheitsrichtlinie deiner Organisation entspricht.
 
-## <a name="printing-from-the-remote-desktop-web-client"></a>Drucken über den Remotedesktopclient für web
+Nachdem du dich angemeldet hast, führt der Client dich zur Registerkarte **Alle Ressourcen**, die unter einer oder mehreren reduzierbaren Gruppen alle für dich veröffentlichten Elemente enthält, z.B. die Gruppe „Arbeit“. Es werden mehrere Symbole angezeigt, die die Apps, Desktops oder Ordner mit weiteren Apps oder Desktops darstellen, die der Administrator der Arbeitsgruppe zur Verfügung gestellt hat. Du kannst jederzeit auf diese Registerkarte zurückgreifen, um zusätzliche Ressourcen zu starten.
 
-So drucken Sie vom WebClient, gehen Sie wie folgt vor:
+Um mit der Verwendung einer App oder eines Desktops zu beginnen, wählst du das Element aus, das du verwenden möchtest, gibst bei Aufforderung den gleichen Benutzernamen und das gleiche Kennwort ein, mit denen du dich beim Webclient angemeldet haben, und wählst dann **Senden** aus. Möglicherweise wird dir auch ein Zustimmungsdialogfeld angezeigt, um auf lokale Ressourcen wie Zwischenablage und Drucker zuzugreifen. Du kannst wählen, nichts davon umzuleiten, oder **Zulassen** auswählen, um die Standardeinstellungen zu verwenden. Warte, bis der Webclient die Verbindung hergestellt hat, und beginne dann mit der Nutzung der Ressource, wie du es normalerweise tun würdest.
 
-1. Starten Sie den Druckvorgang, wie gewohnt für die app verwenden, die Sie drucken möchten.
-2. Wählen Sie bei Aufforderung zum Auswählen eines Druckers **Remote Desktop virtuellen Drucker**.
-3. Wählen Sie nach der Auswahl Ihrer Einstellungen **Drucken**.
-4. Ihr Browser wird eine PDF-Datei des Druckauftrags generiert.
-5. Sie können auswählen, die PDF-Datei zu öffnen und seinen Inhalt auf dem lokalen Drucker drucken oder speichern Sie es auf Ihrem PC für die spätere Verwendung.
+Wenn du fertig bist, kannst du deine Sitzung beenden, indem du entweder die Schaltfläche **Abmelden** in der Symbolleiste oben auf deinem Bildschirm auswählst oder das Browserfenster schließt.
 
-## <a name="copy-and-paste-from-the-remote-desktop-web-client"></a>Kopieren Sie aus der Remotedesktop-Webclient
+## <a name="printing-from-the-remote-desktop-web-client"></a>Drucken über den Remotedesktop-Webclient
 
-Der Webclient unterstützt derzeit kopieren und Einfügen von nur-Text. Dateien nicht kopiert oder eingefügt, und vom WebClient. Darüber hinaus können Sie nur **STRG + C** und **STRG + V** kopieren und Einfügen von Text.
+So druckst du über den Webclient:
 
-## <a name="get-help-with-the-web-client"></a>Hilfe bei der WebClient
+1. Starte wie gewohnt den Druckvorgang für die App, aus der du drucken möchtest.
+2. Wähle bei Aufforderung zum Auswählen eines Druckers **Virtueller Remote Desktopdrucker** aus.
+3. Wähle nach der Auswahl deiner Einstellungen **Drucken** aus.
+4. Dein Browser generiert eine PDF-Datei des Druckauftrags.
+5. Du kannst wählen, ob du die PDF-Datei öffnen und ihren Inhalt auf deinem lokalen Drucker ausdrucken oder sie zur späteren Verwendung auf deinem PC speichern möchtest.
 
-Wenn Sie ein Problem aufgetreten ist, die von den Informationen in diesem Artikel nicht gelöst werden kann, erhalten Sie Hilfe mit dem Webclient per e-Mail an die Adresse auf der Seite "Info" des Webclients.
+## <a name="copy-and-paste-from-the-remote-desktop-web-client"></a>Kopieren und Einfügen über den Remotedesktop-Webclient
+
+Der Webclient unterstützt derzeit nur das Kopieren und Einfügen von Text. Dateien können über den Webclient nicht kopiert oder eingefügt werden. Außerdem kannst du nur mit **STRG+C** und **STRG+V** Text kopieren und einfügen.
+
+## <a name="get-help-with-the-web-client"></a>Hilfe zum Webclient
+
+Wenn ein Problem aufgetreten ist, das mit den Informationen in diesem Artikel nicht behoben werden kann, kannst du Hilfe zum Webclient erhalten, indem du eine E-Mail an die Adresse auf der Info-Seite des Webclients sendest.

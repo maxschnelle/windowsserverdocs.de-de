@@ -1,6 +1,6 @@
 ---
 title: Lokale Komponenten von Mandanten
-description: Beschreibt die lokalen Komponenten in Ihre RDS-Bereitstellung.
+description: Dieser Artikel beschreibt die lokalen Komponenten deiner RDS-Bereitstellung.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,36 +13,36 @@ ms.topic: article
 ms.assetid: b3eebb38-a835-4fa6-9e41-1966014bf2cb
 author: lizap
 manager: dongill
-ms.openlocfilehash: a01dbd12d76b1efa84e38f2ded38cfd613fb2ac4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ff584533eef70144e3bb6ba595fd0f8db89697e9
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59857401"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63744042"
 ---
 # <a name="tenant-on-premises-components"></a>Lokale Komponenten von Mandanten
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016
 
-Die folgenden Informationen beschreiben die lokalen Komponenten, aus denen die desktophostingbereitstellung.  
+Die folgenden Informationen beschreiben die lokalen Komponenten, aus denen die Desktophostingbereitstellung besteht.  
   
 ##  <a name="clients"></a>Clients  
-Um die gehostete Desktops und Anwendungen zuzugreifen, müssen die Benutzer Remotedesktopclients verwenden, die Remote Desktop Protocol (RDP) 7.1 oder höher unterstützen. Insbesondere muss der Client Remotedesktopgateway und Remote Desktop Connection Broker unterstützen. Der Client muss auch die RemoteApp-Funktion unterstützen, zum Übermitteln von Anwendungen auf dem lokalen Desktop. Um hohe Verfügbarkeit für Gateways zu erreichen, muss der Client die reinen HTTP-Transport-Verbindungen mit RD-Gateway unterstützen.  
+Für den Zugriff auf die gehosteten Desktops und Anwendungen müssen Benutzer Remotedesktopclients verwenden, die das Remotedesktopprotokoll (RDP) 7.1 oder höher unterstützen. Insbesondere muss der Client das Remotedesktopgateway und den Remotedesktop-Verbindungsbroker unterstützen. Um Anwendungen für den lokalen Desktop bereitstellen zu können, muss der Client auch das RemoteApp-Feature unterstützen. Um eine hohe Gatewayverfügbarkeit zu erzielen, muss der Client reine HTTP-Übertragungsverbindungen mit dem Remotedesktopgateway unterstützen.  
   
 Weitere Informationen:  
-[RemoteFX-fähige Geräte](https://social.technet.microsoft.com/wiki/contents/articles/14534.remotefx-enabled-devices.aspx)  
-[Neuerungen in Windows Server 2012 R2 Remotedesktopgateway](https://blogs.technet.microsoft.com/enterprisemobility/2013/03/14/whats-new-in-windows-server-2012-remote-desktop-gateway/#transport)  
+[RemoteFX Enabled Devices](https://social.technet.microsoft.com/wiki/contents/articles/14534.remotefx-enabled-devices.aspx) (RemoteFX-fähige Geräte)  
+[What's new in Windows Server 2012 R2 Remote Desktop Gateway](https://blogs.technet.microsoft.com/enterprisemobility/2013/03/14/whats-new-in-windows-server-2012-remote-desktop-gateway/#transport) (Neues beim Windows Server 2012 R2-Remotedesktopgateway)  
 [Microsoft-Remotedesktopclients](https://technet.microsoft.com/library/dn473009.aspx)  
-[Remotedesktop-app für Windows in Microsoft Store](https://apps.microsoft.com/windows/app/remote-desktop/051f560e-5e9b-4dad-8b2e-fa5e0b05a480)  
-[Microsoft Remote Desktop – Android-Apps in Google Play](https://play.google.com/store/apps/details?id=com.microsoft.rdc.android)  
-[Mac App Store - Microsoft-Remotedesktopclient](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12)  
-[Microsoft Remote Desktop in den App Store](https://itunes.apple.com/us/app/microsoft-remote-desktop/id714464092?mt=8)  
+[Remotedesktop-App für Windows im Microsoft Store](https://apps.microsoft.com/windows/app/remote-desktop/051f560e-5e9b-4dad-8b2e-fa5e0b05a480)  
+[Microsoft-Remotedesktop – Android-Apps in Google Play](https://play.google.com/store/apps/details?id=com.microsoft.rdc.android)  
+[Mac App Store – Microsoft-Remotedesktop](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12)  
+[Microsoft-Remotedesktop im App Store](https://itunes.apple.com/us/app/microsoft-remote-desktop/id714464092?mt=8)  
   
 ##  <a name="active-directory-domain-services"></a>Active Directory Domain Services  
-Einige größeren und komplexeren Mandanten können auch einen Active Directory Domain Services (AD DS)-Server lokal hosten. In diesem Fall werden die AD DS-Server in der Mandanten-Umgebung ein Replikat der AD DS-Server in der Regel, die auf dem Firmengelände des Mandanten ist. Dies wird unterstützt, indem Sie ein virtuelles Netzwerk erstellen, in der Mandanten-Umgebung und mithilfe der Azure-VPN-um Standort-zu-Standort-Verbindung von des Mandanten im lokalen Netzwerk mit virtuellen Netzwerk des Mandanten, in das Azure-Rechenzentrum zu erstellen.  
+Einige größere und komplexere Mandanten entscheiden sich möglicherweise dafür, einen AD DS-Server (Active Directory Domain Services) lokal zu hosten. In diesem Fall ist der AD DS-Server in der Umgebung des Mandanten in der Regel ein Replikat eines lokalen AD DS-Servers des Mandanten. Dies wird unterstützt, indem ein virtuelles Netzwerk in der Umgebung des Mandanten erstellt wird. Dann wird über das Azure-VPN eine Site-to-Site-Verbindung zwischen dem lokalen Mandantennetzwerk zum virtuellen Mandantennetzwerk im Azure-Rechenzentrum erstellt.  
   
 Weitere Informationen:  
-[Übersicht über die Microsoft Azure Virtual Network](https://azure.microsoft.com/documentation/articles/virtual-networks-overview/)  
-[Erstellen Sie eine Resource Manager-VNet mit einer Standort-zu-Standort-VPN-Verbindung über das Azure-Portal](https://azure.microsoft.com/documentation/articles/vpn-gateway-howto-site-to-site-resource-manager-portal/)  
+[Übersicht über das Microsoft Azure Virtual Network](https://azure.microsoft.com/documentation/articles/virtual-networks-overview/)  
+[Erstellen einer Site-to-Site-Verbindung im Azure-Portal](https://azure.microsoft.com/documentation/articles/vpn-gateway-howto-site-to-site-resource-manager-portal/)  
 
 

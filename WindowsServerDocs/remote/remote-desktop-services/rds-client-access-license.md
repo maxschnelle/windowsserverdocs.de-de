@@ -1,6 +1,6 @@
 ---
-title: Lizenzieren Sie Ihre RDS-Bereitstellung mit Clientzugriffslizenzen (CALs)
-description: Übersicht über die Lizenzierung in Remote Desktop Services Client.
+title: Lizenzieren deiner RDS-Bereitstellung mit Clientzugriffslizenzen (CALs)
+description: Hier findest du eine Übersicht über die Clientlizenzierung in den Remotedesktopdiensten.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,68 +13,67 @@ author: lizap
 ms.author: elizapo
 ms.date: 09/20/2018
 manager: dongill
-ms.openlocfilehash: 6648a52bb4d09725935a2197d6ce6fa6d8cc74a8
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0254c03396cba69a86eed021319ca2e2483ca625
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59853441"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63743863"
 ---
-# <a name="license-your-rds-deployment-with-client-access-licenses-cals"></a>Lizenzieren Sie Ihre RDS-Bereitstellung mit Clientzugriffslizenzen (CALs)
+# <a name="license-your-rds-deployment-with-client-access-licenses-cals"></a>Lizenzieren deiner RDS-Bereitstellung mit Clientzugriffslizenzen (CALs)
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016
 
-Jeden Benutzer und Gerät für die Verbindung mit einem Remote Desktop Session Host benötigt eine Client-Clientzugriffslizenzen (CAL). Sie verwenden RD-Lizenzierung zum Installieren, ausstellen und Nachverfolgen von RDS-CALs.  
+Jeder Benutzer und jedes Gerät, der bzw. das eine Verbindung mit einem Remotedesktop-Sitzungshost herstellt, benötigt eine Clientzugriffslizenz (Client Access License, CAL). Zum Installieren, Ausstellen und Nachverfolgen der RDS-CALs verwendest du die RD-Lizenzierung.  
 
-Wenn ein Benutzer oder ein Gerät mit einem RD Session Host-Server verbunden ist, bestimmt der RD-Sitzungshost-Server bei Bedarf eine RDS-CAL ist. Der Remotedesktop-Sitzungshostserver fordert dann eine RDS-CAL aus dem Remotedesktop-Lizenzserver. Wenn eine entsprechende RDS-CAL von einem Lizenzserver verfügbar ist, die RDS-CAL für den Client ausgestellt wird, und der Client ist eine Verbindung herstellen, auf dem RD-Sitzungshost-Server und von dort auf dem Desktop oder apps, die sie verwenden möchten.
+Wenn ein Benutzer oder ein Gerät eine Verbindung mit einem RD-Sitzungshostserver herstellt, bestimmt der RD-Sitzungshostserver, ob eine RDS-CAL benötigt wird. Der RD-Sitzungshostserver fordert dann eine RDS-CAL vom Remotedesktop-Lizenzserver an. Wenn eine geeignete RDS-CAL auf einem Lizenzserver verfügbar ist, wird die RDS-CAL für den Client ausgestellt, und der Client kann eine Verbindung mit dem RD-Sitzungshostserver und von dort aus mit den Desktops oder Apps herstellen, die verwendet werden sollen.
 
-Jedoch besteht eine Kulanzfrist, in dem kein, die Lizenzserver erforderlich ist, nachdem der Toleranzperiode endet, Clients eine gültige RDS-CAL von einem Lizenzserver, bevor Sie ausgestellt haben, müssen, können sie mit einem RD Session Host-Server anmelden.
+Es gibt zwar eine Lizenzierungskarenzzeit, in der kein Lizenzserver erforderlich ist, nach Ablauf dieses Zeitraums müssen die Clients aber eine gültige RDS-CAL von einem Lizenzserver erhalten, bevor sie sich bei einem RD-Sitzungshostserver anmelden können.
 
-Verwenden Sie die folgende Informationen, um zu erfahren, wie die Clientzugriffslizenz in Remote Desktop Services funktioniert und zum Bereitstellen und verwalten Ihre Lizenzen:
+Verwende die folgenden Informationen, um zu erfahren, wie die Clientzugriffslizenzierung in den Remotedesktopdiensten funktioniert, und um deine Lizenzen bereitzustellen und zu verwalten:
 
-- [Verstehen des Modells CALs](#understanding-the-cals-model)
-- [Aktivieren des Lizenzservers](rds-activate-license-server.md)
-- [RDS-CALs auf dem Lizenzserver installieren](rds-install-cals.md)
-- [Verfolgen Sie die in Ihrer Bereitstellung verwendeten CALs](rds-track-cals.md)
+- [Lizenzieren deiner RDS-Bereitstellung mit Clientzugriffslizenzen (CALs)](#license-your-rds-deployment-with-client-access-licenses-cals)
+  - [Grundlegendes zum Modell der Clientzugriffslizenzen](#understanding-the-cals-model)
+  - [Hinweis zu CAL-Versionen](#note-about-cal-versions)
 
-## <a name="understanding-the-cals-model"></a>Grundlegendes zum Datenmodell CALs
+## <a name="understanding-the-cals-model"></a>Grundlegendes zum Modell der Clientzugriffslizenzen
 
-Es gibt zwei Arten von Clientzugriffslizenzen:
+Es gibt zwei Typen von CALs:
 
-- RDS pro Geräte-Clientzugriffslizenzen
-- RDS pro-Benutzer-CALs
+- RDS-CALs pro Gerät
+- RDS-CALs pro Benutzer
 
-Die folgende Tabelle beschreibt die Unterschiede zwischen den zwei Arten von Clientzugriffslizenzen:
+Die folgende Tabelle zeigt die Unterschiede zwischen den beiden CAL-Typen:
 
 | Pro Gerät                                                     | Pro Benutzer                                                                         |
 |----------------------------------------------------------------|----------------------------------------------------------------------------------|
-| Clientzugriffslizenzen sind für jedes Gerät physisch zugewiesen.                   | CALs werden zu einem Benutzer in Active Directory zugewiesen.                                 |
-| CALs werden von der Lizenzserver nachverfolgt.                        | CALs werden von der Lizenzserver nachverfolgt.                                          |
-| Clientzugriffslizenzen, die unabhängig von Active Directory-Gruppenmitgliedschaft überwacht werden können. | Clientzugriffslizenzen können nicht in einer Arbeitsgruppe nachverfolgt werden.                                       |
-| Sie können bis zu 20 % der CALs widerrufen.                              | Sie können nicht widerrufen, dass keine Clientzugriffslizenzen.                                                      |
-| Temporären CALs sind 52: 89 Tagen gültig.                       | Es sind keine temporären CALs zur Verfügung.                                                |
-| Clientzugriffslizenzen können nicht überlastet werden.                                  | (In einer der Remote Desktop licensing Agreement) können CALs überlastet werden. |
+| CALs werden jedem Gerät physisch zugewiesen.                   | CALs werden einem Benutzer in Active Directory zugewiesen.                                 |
+| CALs werden vom Lizenzserver nachverfolgt.                        | CALs werden vom Lizenzserver nachverfolgt.                                          |
+| CALs können unabhängig von der Mitgliedschaft in Active Directory nachverfolgt werden. | CALs können innerhalb einer Arbeitsgruppe nicht nachverfolgt werden.                                       |
+| Du kannst bis zu 20 % der CALs widerrufen.                              | Du kannst keine CALs widerrufen.                                                      |
+| Temporäre CALs sind 52–89 Tage lang gültig.                       | Es sind keine temporären CALs verfügbar.                                                |
+| CALs können nicht überprovisioniert werden.                                  | CALs können überprovisioniert werden (entgegen der Remotedesktop-Lizenzvereinbarung). |
 
-Wenn Sie das Modell "pro Gerät" verwenden, wird eine temporäre Lizenz erstmalig ausgegeben, die ein Gerät mit dem Remotedesktop-Sitzungshost verbindet. Beim zweiten Mal eine Verbindung herstellt, Gerät, solange der Lizenzserver aktiviert ist, und es CALs verfügbar, der Lizenzserver eine permanente Clientzugriffslizenz für RDS-pro-Gerät sind.
+Bei Verwendung des Pro-Gerät-Modells wird eine temporäre Lizenz ausgestellt, wenn ein Gerät zum ersten Mal eine Verbindung mit dem Remotedesktop-Sitzungshost herstellt. Bei der zweiten Verbindungsherstellung stellt der Lizenzserver eine permanente RDS-CAL pro Gerät aus, sofern der Server aktiviert ist und CALs verfügbar sind.
 
-Wenn Sie das Modell pro Benutzer verwenden, Lizenzierung wird nicht erzwungen, und jeder Benutzer erhält eine Lizenz von einer beliebigen Anzahl von Geräten eine Verbindung mit RD-Sitzungshosts. Der Lizenzserver gibt Lizenzen aus dem verfügbaren CAL-Pool oder den Over-Used CAL-Pool. Es Ihrer Verantwortung, sicherzustellen, dass alle Benutzer eine gültige Lizenz und Over-Used CALs NULL ist, andernfalls, befinden Sie sich in der Verstoß gegen die Lizenzbedingungen für Remote Desktop Services.
+Wenn du das Pro-Benutzer-Modell verwendest, wird die Lizenzierung nicht erzwungen, und jedem Benutzer wird eine Lizenz erteilt, mit der er von einer beliebigen Anzahl von Geräten aus eine Verbindung mit einem Remotedesktop-Sitzungshost herstellen kann. Der Lizenzserver stellt Lizenzen aus dem verfügbaren CAL-Pool oder dem CAL-Pool „Überbeansprucht“ aus. Du musst sicherstellen, dass all deine Benutzer eine gültige Lizenz und keine CALs aus dem Pool „Überbeansprucht“ besitzen– andernfalls liegt ein Verstoß gegen die Lizenzbedingungen der Remotedesktopdienste vor.
 
-Um sicherzustellen, dass Sie gemäß den Lizenzbedingungen für Remotedesktop Services, Nachverfolgen von RDS-CALs pro Benutzer in Ihrer Organisation verwendet, und achten Sie darauf, dass Sie eine ausreichende Clientzugriffslizenzen pro Benutzer auf dem Lizenzserver für alle Benutzer installiert haben.
+Um die Einhaltung der Lizenzbedingungen der Remotedesktopdienste gewährleisten, verfolge die Anzahl von RDS-CALs pro Benutzer nach, die in deiner Organisation verwendet werden. Stelle außerdem sicher, dass auf dem Lizenzserver genügend Pro-Benutzer-CALs für all deine Benutzer installiert sind.
 
-Sie können den Remotedesktoplizenzierungs-Manager verwenden, zum Nachverfolgen und Berichte für RDS-CALs pro Benutzer.
+Du kannst den Remotedesktoplizenzierungs-Manager verwenden, um die RDS-CALs pro Benutzer nachzuverfolgen und Berichte dazu zu generieren.
 
-## <a name="note-about-cal-versions"></a>Informationen zu CAL-Versionen Beachten
+## <a name="note-about-cal-versions"></a>Hinweis zu CAL-Versionen
 
-Die CAL von Benutzern oder Geräten verwendet muss die Version von Windows Server entsprechen, die dem Benutzer oder Gerät eine Verbindung herstellt. Können keine ältere CALs auf neuere Versionen von Windows Server, jedoch können Sie neuere CALs frühere Versionen von Windows Server zuzugreifen.
+Die von Benutzern oder Geräten verwendete CAL muss der Windows Server-Version entsprechen, mit der der Benutzer oder das Gerät eine Verbindung herstellt. Du kannst keine älteren CALs für den Zugriff auf neuere Windows Server-Versionen verwenden, aber du kannst mit neueren CALs auf ältere Versionen von Windows Server zugreifen.
 
-Die folgende Tabelle zeigt die CALs, die auf RD-Sitzungshosts und Remotedesktop-Virtualisierungshosts kompatibel sind.
+Die folgende Tabelle zeigt die CALs, die auf RD-Sitzungshosts und RD-Virtualisierungshosts kompatibel sind.
 
-|                  |2008 R2 und früheren CAL|2012 CAL|2016 CAL|2019 CAL|
+|                  |CAL für 2008 R2 und früher|CAL für 2012|CAL für 2016|CAL für 2019|
 |---------------------------------|--------|--------|--------|--------|
-| **2008, 2008 R2-Lizenz-server**| Ja    | Nein     | Nein     | Nein     |
-| **2012-Lizenzserver**         | Ja    | Ja    | Nein     | Nein     |
-| **2012 R2-Lizenzserver**      | Ja    | Ja    | Nein     | Nein     |
-| **2016-Lizenzserver**         | Ja    | Ja    | Ja    | Nein     |
-| **2019-Lizenzserver**         | Ja    | Ja    | Ja    | Ja    |
+| **Lizenzserver: 2008, 2008 R2**| Ja    | Nein     | Nein     | Nein     |
+| **Lizenzserver: 2012**         | Ja    | Ja    | Nein     | Nein     |
+| **Lizenzserver: 2012 R2**      | Ja    | Ja    | Nein     | Nein     |
+| **Lizenzserver: 2016**         | Ja    | Ja    | Ja    | Nein     |
+| **Lizenzserver: 2019**         | Ja    | Ja    | Ja    | Ja    |
 
-Alle RDS-Server-Lizenz kann Lizenzen alle früheren Versionen von Remote Desktop Services und die aktuelle Version von Remote Desktop Services hosten. Beispielsweise kann ein Windows Server 2016-RDS-Lizenzserver Lizenzen alle früheren Versionen von RDS, hosten, während ein Windows Server 2012 R2 RDS-Lizenzservers nur Lizenzen bis zu Windows Server 2012 R2 hosten kann.
+Jeder RDS-Lizenzserver kann Lizenzen der aktuellen und aller früheren Versionen der Remotedesktopdienste hosten. Ein Windows Server 2016-RDS-Lizenzserver kann beispielsweise Lizenzen aller früheren Versionen von RDS hosten, ein Windows Server 2012 R2-RDS-Lizenzserver nur Lizenzen für Versionen bis zu Windows Server 2012 R2.

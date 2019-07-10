@@ -1,6 +1,6 @@
 ---
-title: 'Anmerkungen zu dieser Version: wichtige Probleme in Windows Server-2019'
-description: Fasst die kritische Probleme müssen, Abstürze, hängende, Installation von Systemfehlern und Datenverlusten zu vermeiden.
+title: 'Versionshinweise: Wichtige Probleme in Windows Server 2019'
+description: Dieser Artikel fasst wichtige Probleme zusammen, für die eine Problemumgehung erforderlich ist, um Abstürze, das Aufhängen des Systems, Installationsfehler und Datenverluste zu verhindern.
 ms.prod: windows-server-threshold
 ms.technology: server-general
 ms.topic: article
@@ -11,28 +11,28 @@ manager: jasgroce
 ms.localizationpriority: medium
 ms.date: 06/07/2019
 ms.openlocfilehash: 515255c301d343aa1b83bcfb506f2e3baa6ca969
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66810742"
 ---
-# <a name="release-notes---important-issues-in-windows-server-2019"></a>Anmerkungen zu dieser Version: wichtige Probleme in Windows Server-2019
+# <a name="release-notes---important-issues-in-windows-server-2019"></a>Versionshinweise: Wichtige Probleme in Windows Server 2019
 
 >Gilt für: Windows Server 2019
 
-Diese Anmerkungen zur Version fassen zusammen, die wichtigsten Probleme in Windows Server-2019 ausgeführt wird, einschließlich der Möglichkeiten zum Umgehen der Probleme, sofern bekannt. Weitere Informationen zu entwurfsbedingten Änderungen, neuen Features und Fixes in dieser Version finden Sie unter [Neuigkeiten in Windows Server-2019](whats-new-19.md) und in den Ankündigungen der zuständigen Featureteams. Sofern nicht anders angegeben, gelten alle aufgeführten Probleme, für alle Editionen und Installationsoptionen von Windows Server-2019.  
+In diesen Versionshinweisen sind die wichtigsten Probleme des Windows Server 2019-Betriebssystems zusammengefasst, und du erfährst, wie sich diese Probleme gegebenenfalls umgehen lassen. Informationen zu entwurfsbedingten Änderungen, neuen Features und Fehlerbehebungen in diesem Release findest du unter [Neues in Windows Server 2019](whats-new-19.md) und in den Ankündigungen der zuständigen Featureteams. Sofern es nicht anders angegeben ist, gelten alle aufgeführten Probleme für alle Editionen und Installationsoptionen von Windows Server 2019.  
 
 Dieses Dokument wird ständig aktualisiert. Wenn kritische Probleme ermittelt werden, die eine Problemumgehung erfordern, werden diese genauso wie neue Problemumgehungen und Fixes hinzugefügt, sobald sie verfügbar sind.  
 
 ## <a name="release-notes"></a>Anmerkungen zu dieser Version
 
-Die folgenden bekannten Probleme sind in Windows Server-2019.
+Windows Server 2019 weist die folgenden bekannten Probleme auf.
 
 | Titel         | Beschreibung                            |
 | -----         | -----------                            |
-| Installation Option im Menü beim Server-Setup wurde deutschen Text abgeschnitten werden. | Beim Ausführen des Setups über deutsche Server-Medien, auf das Betriebssystem Auswahlfenster mit dem Titel "Wählen Sie das Betriebssystem, die, das Sie installieren möchten" wird die Beschreibung für den Desktop Experience-Installationsoptionen fehlende oder falsche Zeichen am Ende haben. des Satzes. Hier ist der vollständige deutsche Text, wie sie angezeigt werden soll.<br/>      <br/>`Durch diese Option wird die vollständige grafische Umgebung von Windows installiert, wodurch zusätzlicher Speicherplatz verbraucht wird. Sie kann hilfreich sein, wenn Sie den Windows-Desktop verwenden möchten oder über eine App verfügen, die die grafische Umgebung benötigt.` <br><br>Dies wirkt sich nur auf die deutschen Medien, die öffentliche Verfügbarkeit von Windows Server 2019, Windows Server, Version 1809 und Microsoft Hyper-V Server 2019 veröffentlicht.|
-| Windows Server-branding-Image während der Installation von Windows-Server, Version 1809 falsch | Während des Setupvorgangs für Windows Server, Version 1809, überprüft das Hintergrundbild auf einigen anfänglichen zeigt &quot;Windows Server-2019&quot;.  Wie Sie mit Windows Server, Version 1709 und 1803, dies einfach zu sagen, sollten &quot;WindowsServer&quot;.  Es gibt keine anderen Auswirkungen, die an anderer Stelle innerhalb des Produkts, und es hat keine Auswirkungen auf das Produkt Windows Server-2019.  Das Problem ist auf dieses Abbild beschränkt, während des Setups von Windows-Server, Version 1809, nur Volumenlizenzkunden, die Zugriff auf das Volume Licensing Service Center zur Verfügung.<br/> |
+| Deutscher Text im Menü mit Installationsoptionen beim Serversetup abgeschnitten | Beim Ausführen des Setups von deutschsprachigen Servermedien werden im Fenster zur Auswahl des Betriebssystems mit dem Titel „Zu installierendes Betriebssystem auswählen“ in der Beschreibung der Installationsoptionen für die Desktopdarstellung am Satzende falsche Zeichen angezeigt, und einige Zeichen fehlen ganz. Hier der vollständige deutsche Text, wie er angezeigt werden sollte.<br/>      <br/>`Durch diese Option wird die vollständige grafische Umgebung von Windows installiert, wodurch zusätzlicher Speicherplatz verbraucht wird. Sie kann hilfreich sein, wenn Sie den Windows-Desktop verwenden möchten oder über eine App verfügen, die die grafische Umgebung benötigt.` <br><br>Dies betrifft nur deutschsprachige Medien, die für die öffentliche Verfügbarkeit von Windows Server 2019, Windows Server, Version 1809, und Microsoft Hyper-V Server 2019 herausgegeben wurden.|
+| Windows Server-Branding falsch beim Setup von Windows Server, Version 1809 | Während des Setupvorgangs von Windows Server, Version 1809, zeigt das Hintergrundbild auf einigen anfänglichen Bildschirmen &quot;Windows Server 2019&quot; an.  Wie bei den Windows Server-Versionen 1709 und 1803 sollte die Beschriftung einfach &quot;Windows Server&quot; lauten.  Dieser Fehler tritt an keiner anderen Stelle des Produkts auf und wirkt sich in keiner Weise auf das Produkt Windows Server 2019 aus.  Das Problem ist auf dieses eine Bild während des Setups von Windows Server, Version 1809, beschränkt, und trifft nur auf Volumenlizenzkunden zu, die auf das Volume License Service Center zugreifen.<br/> |
 
 ### <a name="copyright"></a>Copyright
 

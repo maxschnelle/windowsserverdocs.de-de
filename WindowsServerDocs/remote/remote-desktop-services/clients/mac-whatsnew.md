@@ -1,6 +1,6 @@
 ---
-title: Neuerungen für Remotedesktop auf Mac
-description: Erfahren Sie mehr über die letzten Änderungen an den Remotedesktopclient für Mac
+title: Neuerungen bei Remotedesktop auf Mac-Systemen
+description: Hier erfährst du mehr über aktuelle Änderungen beim Remotedesktopclient für Mac.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -11,171 +11,190 @@ ms.topic: article
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.date: 03/06/2019
+ms.date: 04/29/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: d0cf81f24374e81ca28c2d2cfd83a394e096706c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 6cfd8a6338d283b7ff42b091e686a31b044a6b7b
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844791"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "65564763"
 ---
-# <a name="whats-new-for-the-remote-desktop-client-on-macos"></a>Neuigkeiten für den Remotedesktop-Client unter macOS
+# <a name="whats-new-for-the-remote-desktop-client-on-macos"></a>Neuerungen beim Remotedesktopclient unter macOS
 
-Wir aktualisieren regelmäßig die [Remotedesktop-Client für MacOS](remote-desktop-mac.md), neue Features hinzugefügt wurden, und Beheben von Problemen. Sehen Sie sich die neuesten Updates, die weiter unten.
+Der [Remotedesktopclient für macOS](remote-desktop-mac.md) wird regelmäßig mit neuen Features und Problembehebungen aktualisiert. Hier findest du die neuesten Updates.
 
-Wenn Probleme auftreten, Sie können immer kontaktieren Sie uns über **Hilfe > ein Problem melden**.
+Bei Problemen kannst du dich jederzeit gern über **Hilfe > Problem melden** an uns wenden.
+
+## <a name="updates-for-version-10213"></a>Updates für Version 10.2.13
+*Veröffentlichungsdatum: 8.5.2019*
+
+- Ein Problem mit einer Blockade beim Herstellen einer Verbindung über ein Remotedesktopgateway wurde behoben.
+- Dem Dialogfeld „Feed hinzufügen“ wurde ein Datenschutzhinweis hinzugefügt.
+
+## <a name="updates-for-version-10212"></a>Updates für Version 10.2.12
+*Veröffentlichungsdatum: 16.4.2019* 
+
+- Ein Problem mit zufälligen Verbindungstrennungen (mit Fehlercode 0x904) wurde behoben, das beim Herstellen einer Verbindung über ein Remotedesktopgateway auftrat.
+- Ein Fehler wurde korrigiert, der zu einer leeren Auflösungsliste in den Anwendungseinstellungen nach einer Installation führte.
+- Ein Fehler wurde korrigiert, der einen Absturz des Clients verursachte, wenn der Auflösungsliste bestimmte Auflösungen hinzugefügt wurden.
+- Eine Schleife bei ADAL-Authentifizierungsaufforderungen wurde entfernt, die beim Herstellen einer Verbindung mit Bereitstellungen von virtuellen Windows-Desktops auftrat.
+
+## <a name="updates-for-version-10210"></a>Updates für Version 10.2.10
+*Veröffentlichungsdatum: 30.3.2019*
+
+- In dieser Version haben wir eine Instabilität behoben, die durch ein kürzlich erfolgtes Update für macOS 10.14.4 verursacht wurde. Wir haben außerdem Darstellungsfehler bei der Decodierung von AVC-Codecdaten korrigiert, die von einem Server mit NVIDIA-Hardware codiert wurden.
 
 ## <a name="updates-for-version-1029"></a>Updates für Version 10.2.9
-*Veröffentlichungsdatum: 3/6/2019*
+*Veröffentlichungsdatum: 6.3.2019*
 
-- In dieser Version, die wir ein RD-Gateway-Konnektivitätsproblem, die auftreten können behoben, wenn die Umleitung wird zu platzieren.
-- Wir auch eine RD-Gateway-Regression durch die 10.2.8 adressiert aktualisieren.
+- In dieser Version haben wir ein Konnektivitätsproblem beim Remotedesktopgateway behoben, das bei einer Serverumleitung auftreten kann.
+- Wir haben auch eine Regression beim Remotedesktopgateway korrigiert, die durch das Update für 10.2.8 verursacht wurde.
 
 ## <a name="updates-for-version-1028"></a>Updates für Version 10.2.8
-*Veröffentlichungsdatum: 3/1/2019*
+*Veröffentlichungsdatum: 1.3.2019*
 
-- Behobene Konnektivitätsprobleme, der angezeigt wird, wenn Sie ein RD-Gateway verwenden.
-- Korrigiert falsche zertifikatwarnungen, die beim Herstellen einer Verbindung angezeigt wurden.
-- Behandelt einige Fälle, in der Menüleiste und Andocken unnötig beim Starten von remote-apps verdecken würde.
-- Überarbeitet, den Zwischenablage-Umleitung-Code zum Adresse Abstürze und Einfrieren, die Probleme von einigen Benutzern.
-- Korrektur eines Fehlers, das das Connection Center unnötig Bildlaufes beim Drehen starten eine Verbindung verursacht hat.
+- Konnektivitätsprobleme wurden behoben, die beim Verwenden eines Remotedesktopgateways auftreten konnten.
+- Falsche Zertifikatwarnungen wurden korrigiert, die beim Herstellen einer Verbindung angezeigt wurden.
+- Es wurden einige Fälle korrigiert, bei denen beim Starten von Remote-Apps Menüleiste und Dock unnötigerweise ausgeblendet wurden.
+- Der Code für die Umleitung aus der Zwischenablage wurde überarbeitet, um Probleme einiger Benutzer zu beheben, bei denen Systeme abstürzten oder nicht mehr reagierten.
+- Ein Fehler wurde korrigiert, der dazu führte, dass das Connection Center beim Starten einer Verbindung unnötigerweise scrollt.
 
 ## <a name="updates-for-version-1027"></a>Updates für Version 10.2.7
-*Veröffentlichungsdatum: 2/6/2019*
+*Veröffentlichungsdatum: 6.2.2019*
 
-- In dieser Version behoben wir Mispaints von Grafiken (verursacht durch einen Codierung Server-Fehler), die angezeigt wurden, bei Verwendung des AVC444-Modus.
+- In dieser Version haben wir (durch einen Codierungsfehler auf dem Server entstandene) Grafikfehler korrigiert, die bei Verwendung des AVC444-Modus auftraten.
 
 ## <a name="updates-for-version-1026"></a>Updates für Version 10.2.6
-*Veröffentlichungsdatum: 1/28/2019*
+*Veröffentlichungsdatum: 28.1.2019*
 
-- Unterstützung für den Codec AVC (420 und 444), die beim Verbinden mit aktuellen Versionen von Windows 10 verfügbar.
-- In an Fenstermodus anpassen, eine Aktualisierung der Fenster nun tritt sofort nach dem auf der Ebene des richtigen Interpolation eine Größe aus, um sicherzustellen, dass der Inhalt gerendert wird.
-- Korrektur eines Layout-Fehlers, das feed-Header für einige Benutzer überlappen verursacht hat.
-- Die Benutzeroberfläche der Anwendung Einstellungen werden bereinigt.
-- Optimierte die hinzufügen/bearbeiten von Desktop-Benutzeroberfläche.
-- Versucht, viele anpassen und Fertigstellen Anpassungen vor, um das Connection Center Kachel und den Listenansichten für Desktops und Feeds.
+- Wir haben Unterstützung für den AVC-Codec (420 und 444) hinzugefügt, der beim Herstellen einer Verbindung mit aktuellen Windows 10-Versionen verfügbar ist.
+- Im Modus „An Fenster anpassen“ erfolgt die Fensteraktualisierung jetzt sofort nach einer Größenänderung, um sicherzustellen, dass der Inhalt auf der richtigen Interpolationsstufe gerendert wird.
+- Ein Layoutfehler wurde korrigiert, der bei einigen Benutzern zu einem Überlappen von Feedkopfzeilen führte.
+- Die Benutzeroberfläche für die Anwendungseinstellungen wurde überarbeitet.
+- Die Benutzeroberfläche zum Hinzufügen und Bearbeiten von Desktops wurde optimiert.
+- Die Anzeige der Kachel für das Connection Center und die Listenansichten für Desktops und Feeds wurden angepasst und optimiert.
 
 >[!NOTE]
->Es ist ein Fehler im Ordner "MacOS 10.14.0 und 10.14.1, die die".com.microsoft.rdc.application-data_SUPPORT/_EXTERNAL_DATA"verursachen können" (geschachtelt tief im Ordner "~/Library"), um eine große Menge an Speicherplatz zu nutzen. Um dieses Problem zu beheben, löschen Sie den Ordnerinhalt, und ein upgrade auf MacOS 10.14.2. Beachten Sie, dass ein Nebeneffekt, dass der Inhalt des Ordners löschen, Momentaufnahmen, die zugewiesenen Lesezeichen gelöscht werden. Diese Images werden erneut generiert werden, beim Wiederherstellen der Verbindung mit dem remote-PC.
+>In macOS 10.14.0 und 10.14.1 ist ein Fehler vorhanden, der dazu führen kann, dass der Ordner „.com.microsoft.rdc.application-data_SUPPORT/_EXTERNAL_DATA“ (der sich in einem Unterverzeichnis des Ordners „~/Library“ befindet) sehr viel Speicherplatz belegt. Um dieses Problem zu beheben, lösche die Inhalte dieses Ordners, und führe ein Upgrade auf macOS 10.14.2 durch. Beachte, dass beim Löschen von Ordnerinhalten auch Momentaufnahmenbilder gelöscht werden, die Lesezeichen zugewiesen sind. Diese Bilder werden erneut generiert, wenn erneut eine Verbindung mit dem Remote-PC hergestellt wird.
 
 ## <a name="updates-for-version-1024"></a>Updates für Version 10.2.4
-*Veröffentlichungsdatum: 12/18/2018*
+*Veröffentlichungsdatum: 18.12.2018*
 
-- Dunkel modusunterstützung für MacOS Mojave 10.14 hinzugefügt.
-- Eine Option aus, um die von Microsoft Remote Desktop 8. nun importieren wird im Connection Center angezeigt, wenn es leer ist.
-- Behandelt die Ordner-Umleitung-Kompatibilität mit manchen unternehmensanwendungen von Drittanbietern.
-- Behobene Probleme, in dem Benutzer ein 0x30000069 Remotedesktop-Gateway-Fehler aufgrund von Sicherheit Probleme beim Protokoll abrufen, enthalten.
-- Feste progressives Rendering-Problemen, die, denen einige Benutzer mit aufgetreten war, das Anpassen an ausgeführt.
-- Korrektur eines Fehlers, der verhinderte Kopieren der Datei, und fügen Sie daran, die neueste Version einer Datei zu kopieren.
-- Verbessert die Maus-basierte Bildlauf für kleinen Bildlauf Deltas.
+- Unterstützung für den dunklen Modus für macOS Mojave 10.14 wurde hinzugefügt.
+- Im Connection Center wird jetzt eine Option zum Importieren aus Microsoft-Remotedesktop 8 angezeigt, falls es leer ist.
+- Die Kompatibilität der Ordnerumleitung mit einigen Unternehmensanwendungen von Drittanbietern wurde angepasst.
+- Ein Problem wurde behoben, bei dem Benutzern aufgrund von Fallbackproblemen beim Sicherheitsprotokoll der Fehler „0x30000069“ für Remotedesktopgateway angezeigt wurde.
+- Probleme mit dem progressiven Rendern wurden behoben, die bei einigen Benutzern beim Modus „An Fenster anpassen“ auftraten.
+- Ein Fehler wurde behoben, der das Kopieren und Einfügen aus der letzten Version einer Datei verhinderte.
+- Das Scrollen mit der Maus in kleinen Scrollbereichen wurde verbessert.
 
 ## <a name="updates-for-version-1023"></a>Updates für Version 10.2.3
-*Veröffentlichungsdatum: 11/06/2018*
+*Veröffentlichungsdatum: 06.11.2018*
 
-- Unterstützung für die Einstellung "Remoteapplicationcmdline" RDP-Datei für remote-app-Szenarien.
-- Der Titel des Fensters enthält jetzt den Namen des RDP-Datei (und Servername) Wenn Sie über eine RDP-Datei gestartet.
-- Korrektur gemeldeten RD Gateway-Leistungsprobleme.
-- Feste gemeldeten RD-Gateway stürzt ab.
-- Behobene Probleme, in dem die Verbindung reagierte, wenn über das RD Gateway eine Verbindung herstellen.
-- Bessere Verarbeitung von Vollbild-remote-apps, indem Sie auf intelligente Weise ausblenden, die Menüleiste und Andocken.
-- Feste Szenarien, in dem RemoteApp ausgeblendet bleibt, nachdem er gestartet wurde.
-- Langsame Rendering Updates behoben, bei Verwendung von "An Fenster anpassen" mit Hardwarebeschleunigung, die deaktiviert.
-- Behandelt die Erstellung Datenbankfehler, die durch falsche Berechtigungen verursacht werden, wenn der Client wird gestartet. 
-- Wurde behoben ein Problem, in dem der Client konsistent beim Start abstürzt und nicht für einige Benutzer ab.
-- Korrektur ein Szenarios, in denen wurden Verbindungen nicht ordnungsgemäß als Vollbild-Schutz von Remote Desktop 8. importiert.
+- Unterstützung für die RDP-Dateieinstellung „remoteapplicationcmdline“ für Remote-App-Szenarien wurde hinzufügen.
+- Der Titel des Sitzungsfensters enthält jetzt den Namen der RDP-Datei (und den Servernamen), wenn das Fenster über eine RDP-Datei gestartet wurde.
+- Gemeldete Leistungsprobleme beim Remotedesktopgateway wurden behoben.
+- Gemeldete Abstürze beim Remotedesktopgateway wurden behoben.
+- Probleme mit nicht reagierenden Verbindungen über ein Remotedesktopgateway wurden behoben.
+- Die Anzeige von Remote-Apps mit Vollbildschirm wurde durch intelligentes Ausblenden von Menüleiste und Dock verbessert.
+- Szenarien wurden korrigiert, in denen Remote-Apps nach dem Start ausgeblendet blieben.
+- Langsame Renderingupdates bei Verwendung der Option „An Fenster anpassen“ mit deaktivierter Hardwarebeschleunigung wurden behoben.
+- Fehler bei der Datenbankerstellung wurden korrigiert, die durch falsche Berechtigungen beim Clientstart verursacht wurden. 
+- Ein Problem wurde behoben, bei dem bei einigen Benutzern der Client beim Start immer wieder abstürzte und nicht gestartet werden konnte.
+- Ein Szenario wurde korrigiert, bei dem Verbindungen fälschlicherweise im Vollbildmodus aus Remotedesktop 8 importiert wurden.
 
 ## <a name="updates-for-version-1022"></a>Updates für Version 10.2.2
-*Veröffentlichungsdatum: 10/09/2018*
+*Veröffentlichungsdatum: 09.10.2018*
 
-- Eine völlig neue Connection Center, das unterstützt Drag & drop, manuelle Anordnung von Desktops, veränderbare Spalten in den Modus der Listenansicht, spaltenbasierte sortieren und einfachere Verwaltung.
-- Connection Center jetzt erinnert sich das letzte aktive Pivot-Element ("Desktops" oder "Feeds") beim Schließen der app.
-- Die Anmeldeinformationen aufzufordern, Benutzeroberfläche und Flows wurden überholt.
-- RD-Gateway-Feedback ist jetzt Teil der Benutzeroberfläche für eine Verbindung herstellen Status.
-- Importieren von Einstellungen auf dem Client der Version 8 wurde verbessert.
-- RDP-Dateien, die auf der RemoteApp-Endpunkte können jetzt in das Connection Center importiert werden.
-- Retina Display Optimierungen für die einzelnen Monitor Remote Desktop-Szenarien.
-- Unterstützung für die Angabe der Ebene der Grafik-Interpolation (die Unschärfe wirkt sich auf.) Wenn Retina-Optimierungen nicht verwendet.
-- 256-Farben-Unterstützung für die Verbindung mit Windows 2000 zu aktivieren.
-- Korrektur Kürzen von den rechten und unteren Rand des Bildschirms beim Verbinden mit Windows 7, WindowsServer 2008 R2 und früher.
-- Kopieren jetzt eine lokale Datei in Outlook (die in einer Remotesitzung ausgeführt wird), wird die Datei als Anlage hinzugefügt.
-- Ein Problem wurde behoben, die den Zwischenablage-basierte dateiübertragungen verlangsamen wurde, wenn die Dateien über ein freigegebenes Netzwerk stammt.
-- Behandelt einen Fehler auf, der in Excel (die in einer Remotesitzung ausgeführt wird) verursacht wurde, nicht mehr reagiert, wenn in einer Datei in einem umgeleiteten Ordner speichern.
-- Ein Problem wurde behoben, das kein Speicherplatz für umgeleitete Ordner gemeldet werden, verursacht wurde.
-- Korrektur eines Fehlers, die Miniaturansichten zu viel Speicherplatz auf MacOS 10.14 nutzen verursacht hat.
-- Unterstützung für die Umsetzung von RD-Gateway-Umleitung Geräterichtlinien hinzugefügt.
-- Ein Problem wurde behoben, das Sitzungsfenster schließen verhindert, bei der Verbindung mit einer Verbindung mit RD-Gateway getrennt wird.
-- Wenn (Network Level Authentication, NLA) nicht vom Server erzwungen wird, werden Sie jetzt zur Anmeldeseite weitergeleitet werden, wenn Ihr Kennwort abgelaufen ist.
-- Korrigiert Leistungsprobleme, die beim tauchen viele Daten wurde über das Netzwerk übertragen werden.
-- Umleitung von Smartcards behoben.
-- Unterstützung für alle möglichen Werte der "EnableCredSspSupport" und "Authentifizierungsebene" RDP-dateieinstellungen Wenn der Standardschlüssel des ClientSettings.EnforceCredSSPSupport-Benutzer (in der Domäne com.microsoft.rdc.macos) auf 0 festgelegt ist.
-- Unterstützung für die Einstellung der "Eingabeaufforderung für Anmeldeinformationen auf Client" RDP-Datei bei der Authentifizierung auf Netzwerkebene keine ausgehandelt wird.
-- Unterstützung für die Smartcard-basierte Anmeldung über die Umleitung der Smartcard an der Eingabeaufforderung für Windows-Anmeldung bei der Authentifizierung auf Netzwerkebene keine ausgehandelt wird.
-- Ein Problem wurde behoben, der verhinderte, Download des Feeds von Ressourcen, die Leerzeichen in der URL enthalten.
+- Ein völlig neues Connection Center, das Drag & Drop-Vorgänge, die manuelle Gestaltung von Desktops, anpassbare Spalten im Listenansichtsmodus, spaltenbasiertes Sortieren und einfachere Gruppenverwaltung unterstützt.
+- Das Connection Center merkt sich jetzt beim Schließen der App das zuletzt aktive Element (Desktops oder Feeds).
+- Die Benutzeroberfläche und Flows für die Aufforderung zur Eingabe von Anmeldeinformationen wurden überarbeitet.
+- Rückmeldungen aus dem Remotedesktopgateway gehören jetzt zur Benutzeroberfläche für den Verbindungsstatus.
+- Der Import von Einstellungen aus Clients der Version 8 wurde verbessert.
+- Remotedesktopprotokoll-Dateien, die auf RemoteApp-Endpunkte zeigen, können jetzt in das Connection Center importiert werden.
+- Optimierungen für Retinadisplays in Remotedesktopszenarien mit einem Monitor.
+- Unterstützung für die Angabe der Interpolationsstufe für Grafiken (die sich auf die Unschärfe auswirkt), wenn keine Retinaoptimierungen verwendet werden.
+- Unterstützung für 256 Farben, um die Konnektivität mit Windows 2000 zu ermöglichen.
+- Fehler beim Zuschneiden der rechten und unteren Seite eines Bildschirms wurden behoben, die beim Herstellen einer Verbindung mit Windows 7, Windows Server 2008 R2 und früheren Versionen auftraten.
+- Beim Kopieren einer lokalen Datei in Outlook (ausgeführt in einer Remotesitzung) wird die Datei jetzt als Anlage hinzugefügt.
+- Ein Problem wurde behoben, das Dateiübertragungen in die und aus der Zwischenablage verlangsamte, wenn die Dateien aus einer Netzwerkfreigabe stammten.
+- Ein Fehler wurde korrigiert, der dazu führte, dass Excel (ausgeführt in einer Remotesitzung) nicht mehr reagierte, wenn eine Datei in einem umgeleiteten Ordner gespeichert wurde.
+- Ein Problem wurde behoben, das dazu führte, dass für umgeleitete Ordner kein freier Speicherplatz gemeldet wurde.
+- Ein Fehler wurde korrigiert, der dazu führte, dass Miniaturbilder unter macOS 10.14 zu viel Speicherplatz auf dem Datenträger belegten.
+- Unterstützung für das Erzwingen von Remotedesktopgateway-Richtlinien für die Umleitung von Geräten wurde hinzugefügt.
+- Ein Problem wurde behoben, das verhinderte, dass beim Trennen einer Verbindung über das Remotedesktopgateway Sitzungsfenster geschlossen wurden.
+- Wenn die Authentifizierung auf Netzwerkebene (Network Level Authentication, NLA) nicht vom Server erzwungen wird, wirst du jetzt an den Anmeldebildschirm weitergeleitet, wenn dein Kennwort abgelaufen ist.
+- Leistungsprobleme wurden behoben, die bei der Übertragung großer Datenmengen über das Netzwerk auftraten.
+- Problembehebungen bei Smartcardumleitungen.
+- Unterstützung für alle möglichen Werte der Remotedesktopprotokoll-Dateieinstellungen „EnableCredSspSupport“ und „Authentifizierungsebene“, wenn der Standardbenutzerschlüssel „ClientSettings.EnforceCredSSPSupport“ (in der Domäne „com.microsoft.rdc.macos“) auf 0 festgelegt ist.
+- Unterstützung für die Remotedesktopprotokoll-Dateieinstellung „Zur Eingabe von Anmeldeinformationen auf dem Client auffordern“, wenn die Authentifizierung auf Netzwerkebene nicht ausgehandelt wurde.
+- Unterstützung für die smartcardbasierte Anmeldung über eine Smartcardumleitung an der Eingabeaufforderung der Windows-Anmeldung, wenn die Authentifizierung auf Netzwerkebene nicht ausgehandelt wurde.
+- Ein Problem wurde behoben, das das Herunterladen von Feedressourcen mit Leerzeichen in der URL verhinderte.
 
 ## <a name="updates-for-version-1021"></a>Updates für Version 10.2.1
-*Veröffentlichungsdatum: 08/06/2018*
+*Veröffentlichungsdatum: 06.08.2018*
 
-- Aktiviert Konnektivität zu Azure Active Directory (AAD) eingebundene PCs. Zum Herstellen einer Verbindung mit eine AAD eingebundenen PC handeln, Ihren Benutzernamen muss eines der folgenden Formate: "AzureAD\user" oder "AzureAD\user@domain".
-- Behandelt einige Fehler, die Auswirkungen auf die Verwendung von Smartcards in einer Remotesitzung.
+- Konnektivität mit über Azure Active Directory (AAD) eingebundenen PCs wurde ermöglicht. Um eine Verbindung mit einem über AAD eingebundenen PC herzustellen, muss dein Benutzername in einem der folgenden Formate vorliegen: „AzureAD\Benutzer“ oder „AzureAD\user@domain“.
+- Einige Fehler wurden korrigiert, die sich auf die Verwendung von Smartcards in einer Remotesitzung auswirkten.
 
 ## <a name="updates-for-version-1020"></a>Updates für Version 10.2.0
-*Veröffentlichungsdatum: 07/24/2018*
+*Veröffentlichungsdatum: 24.7.2018*
 
-- Eingefügten Updates für die Einhaltung der dsgvo.
-- MicrosoftAccount\username@domain wird nun als einen gültigen Benutzernamen akzeptiert werden.
-- Freigabe der Zwischenablage wurde umgeschrieben, um schneller ausgeführt wird und Weitere Formate unterstützen.
-- Kopieren und Einfügen von Text, Bilder oder Dateien zwischen den Sitzungen jetzt umgeht die Zwischenablage des lokalen Computers.
-- Sie können jetzt über einen Remotedesktop-Gatewayserver mit einem nicht vertrauenswürdigen Zertifikat herstellen, (Wenn Sie die Warnung aufforderungen akzeptiert haben).
-- -Metal-Hardware-Beschleunigung wird jetzt (sofern unterstützt) verwendet, um Rendering zu beschleunigen und zu Akkunutzung optimieren.
-- Nach der Verwendung von-Metal-Hardware Acceleration wir versuchen, die Magie zu arbeiten, an die Sitzung Grafiken schärfere erscheinen.
-- Wurde von einigen Instanzen entfernen, in denen Windows würde auf dem Auflegen geschlossen wird.
-- Behobene Programmfehler, die den Start des RemoteApp-Programme in einigen Szenarien verhindert wurden.
-- Wurde ein Synchronisierungsfehler RD-Gateway-Kanal, die sich in 0x204 Fehler ergeben wurde behoben.
-- Die Mauscursorform aktualisiert nun ordnungsgemäß, wenn einer Sitzung oder die RemoteApp-Fenster verlassen.
-- Korrektur eines Fehlers der Ordner-Umleitung, die Datenverlust verursacht, wurde beim Kopieren und Einfügen von Ordnern.
-- Ein Ordner-Umleitung-Problem, das verursacht hat, fehlerhafte Berichte, Ordner Größen behoben.
-- Korrektur einer Regression, die Protokollierung in einen AAD eingebundene Computer mit einem lokalen Konto verhindert hat.
-- Behobene Programmfehler, die die Sitzung Fensterinhalt freistellen verursacht wurden.
-- Unterstützung für Remotedesktop-Endpunkt-Zertifikaten, die Elliptische Kurve asymmetrische Schlüssel enthalten.
-- Korrektur eines Fehlers, das das Herunterladen von verwalteten Ressourcen in einigen Szenarien verhindert hat.
-- Behandelt ein Clipping-Problem mit angehefteten Connection Center an.
-- Die Kontrollkästchen behoben in den zeigt die Eigenschaftenseite, besser zusammenarbeiten und.
-- Seitenverhältnis sperren ist jetzt deaktiviert, wenn dynamische Anzeige Änderung aktiviert ist.
-- Behandelt die Kompatibilitätsprobleme mit F5-Infrastruktur.
-- Aktualisiert die Behandlung von leeren Kennwörtern, um sicherzustellen, dass die ordnungsgemäßen Nachrichten zum Zeitpunkt der Verbindung angezeigt werden.
-- Feste Maus Kompatibilitätsprobleme mit MapInfra Pro scrollen.
-- Einige Ausrichtungsprobleme behoben im Connection Center, bei Ausführung auf Mojave.
+- Updates zum Zweck der Einhaltung der DSGVO wurden eingepflegt.
+- MicrosoftAccount\username@domain wird jetzt als gültiger Benutzername akzeptiert.
+- Die Freigabe der Zwischenablage wurde neu programmiert und ist jetzt schneller und unterstützt mehr Formate.
+- Beim Kopieren und Einfügen von Text, Bildern oder Dateien zwischen Sitzungen wird jetzt die Zwischenablage des lokalen Computers umgangen.
+- Du kannst jetzt mit einem nicht vertrauenswürdigen Zertifikat eine Verbindung über einen Remotedesktopgateway-Server herstellen (wenn du die Warnungen akzeptierst).
+- Die Metal-Hardwarebeschleunigung wird jetzt verwendet (sofern unterstützt), um das Rendern zu beschleunigen und die Akkunutzung zu optimieren.
+- Bei der Verwendung der Metal-Hardwarebeschleunigung wird versucht, die Grafiken in Sitzungen schärfer anzuzeigen.
+- Einige Instanzen wurden entfernt, bei denen Fenster nach dem Schließen weiter sichtbar blieben.
+- Fehler wurden korrigiert, die in einigen Szenarien den Start von RemoteApp-Programmen verhinderten.
+- Ein Fehler bei der Kanalsynchronisierung im Remotedesktopgateway wurde korrigiert, der zu 0x204-Fehlern führte.
+- Die Form des Mauszeigers wird jetzt ordnungsgemäß aktualisiert, wenn die Maus aus einem Sitzungs- oder RemoteApp-Fenster herausbewegt wird.
+- Ein Fehler bei der Ordnerumleitung wurde korrigiert, der beim Kopieren und Einfügen von Ordnern zu Datenverlust führte.
+- Ein Problem mit der Ordnerumleitung wurde behoben, das eine fehlerhafte Meldung von Ordnergrößen verursachte.
+- Eine Regression wurde korrigiert, die eine Anmeldung bei einem über AAD eingebundenen Computer mit einem lokalen Konto verhinderte.
+- Fehler wurden korrigiert, die dazu führten, dass die Inhalte von Sitzungsfenstern abgeschnitten wurden.
+- Unterstützung für Remotedesktop-Endpunktzertifikate wurde hinzugefügt, die elliptische asymmetrische Schlüssel enthalten.
+- Ein Fehler wurde korrigiert, der in einigen Szenarien das Herunterladen von verwalteten Ressourcen verhinderte.
+- Ein Problem mit abgeschnittenen Inhalten im angehefteten Connection Center wurde behoben.
+- Auf dem Blatt mit Anzeigeeigenschaften sind die Kontrollkästchen jetzt besser aufeinander abgestimmt.
+- Das Sperren des Seitenverhältnisses ist jetzt deaktiviert, wenn die dynamische Anzeigeänderung aktiviert ist.
+- Kompatibilitätsprobleme mit der F5-Infrastruktur wurden behoben.
+- Die Verarbeitung von leeren Kennwörtern wurde aktualisiert, um sicherzustellen, dass zum Zeitpunkt der Verbindungsherstellung die richtigen Meldungen angezeigt werden.
+- Kompatibilitätsprobleme beim Scrollen mit der Maus in MapInfra Pro wurden behoben.
+- Einige Ausrichtungsprobleme im Connection Center wurden behoben, die bei der Ausführung unter Mojave auftraten.
 
 ## <a name="updates-for-version-1018"></a>Updates für Version 10.1.8
-*Veröffentlichungsdatum: 05/04/2018*
+*Veröffentlichungsdatum: 4.5.2018*
 
-- Unterstützung für das Ändern der remote-Auflösung durch Ändern der Größe des Sitzungsfensters!
-- Feste Szenarien, in denen Remoteressource Download Feed, würde eine übermäßig lange Zeit in Anspruch nehmen.
-- Die 0x207-Fehler, der auftreten können, bei der Verbindung von Servern, die nicht mit dem CredSSP Verschlüsselung Oracle Wiederherstellung-Update (CVE-2018-0886) gepatcht wurde behoben.
+- Unterstützung für das Ändern der Remoteauflösung durch Ändern der Größe des Sitzungsfensters wurde hinzugefügt.
+- Szenarien wurden korrigiert, in denen das Herunterladen von Remoteressourcenfeeds übermäßig lange dauerte.
+- Der 0x207-Fehler wurde korrigiert, der beim Herstellen einer Verbindung mit Servern auftreten konnte, die nicht mit dem CredSSP-Update für „Encryption Oracle Remediation“ (CVE-2018-0886) gepatcht sind.
 
-## <a name="updates-for-version-1017"></a>Updates für Version 10.1.7 für
-*Veröffentlichungsdatum: 04/05/2018*
+## <a name="updates-for-version-1017"></a>Updates für Version 10.1.7
+*Veröffentlichungsdatum: 5.4.2018*
 
-- Versucht, Sicherheitsfixes CredSSP Verschlüsselung Oracle Wiederherstellung Updates zu integrieren, wie in der CVE-2018-0886 beschrieben.
-- Verbessertes RemoteApp-Symbol und eine Maus Cursor Rendering gemeldeten Mispaints adressiert.
-- Behandelt Probleme, in denen RemoteApp Windows hinter das Connection Center vorkam.
-- Korrektur ein Problems, das aufgetreten sind, wenn Sie lokale Ressourcen nach dem Importieren aus Remote Desktop 8. bearbeiten.
-- Sie können jetzt eine Verbindung starten, durch Drücken der EINGABETASTE eine desktop-Kachel.
-- Wenn Sie im Vollbildmodus befinden, ordnet CMD + M jetzt ordnungsgemäß Windows-Taste + M.
-- Die Connection Center, Einstellungen und Informationen zu Windows reagieren Sie jetzt auf CMD + M.
-- Sie können jetzt beginnen, ermitteln Feeds durch Drücken der EINGABETASTE auf der **Remoteressourcen hinzufügen** Seite.
-- Ein Problem behoben wurde, in dem ein neuer Remoteressourcen Feed datensuchvorgang im Connection Center bis gezeigt, nach der Aktualisierung.
+- Sicherheitsfixes zur Einbindung von CredSSP-Updates für „Encryption Oracle Remediation“, wie in CVE-2018-0886 beschrieben.
+- Das Rendering von RemoteApp-Symbol und -Mauszeiger wurde verbessert, um gemeldete Darstellungsfehler zu beheben.
+- Ein Problem wurde behoben, das dazu führte, dass RemoteApp-Fenster hinter dem Connection Center angezeigt wurden.
+- Ein Problem wurde behoben, das beim Bearbeiten von lokalen Ressourcen nach dem Importieren aus Remotedesktop 8 auftrat.
+- Du kannst jetzt eine Verbindung starten, indem du auf einer Desktopkachel die EINGABETASTE drückst.
+- Im Vollbildmodus wird BEFEHLSTASTE+M jetzt ordnungsgemäß zu WINDOWS-TASTE+M zugeordnet.
+- Die Fenster „Connection Center“, „Einstellungen“ und „Info“ reagieren jetzt auf BEFEHLSTASTE+M.
+- Du kannst mit dem Erkunden von Feeds beginnen, indem du auf der Seite **Remoteressourcen hinzufügen** die EINGABETASTE drückst.
+- Ein Fehler wurde behoben, der dazu führte, dass ein neuer Remoteressourcenfeed im Connection Center leer war, bis die Anzeige aktualisiert wurde.
  
 ## <a name="updates-for-version-1016"></a>Updates für Version 10.1.6
-*Veröffentlichungsdatum: 03/26/2018*
+*Veröffentlichungsdatum: 26.3.2018*
 
-- Ein Problem behoben, in denen würde RemoteApp Windows selbst neu anordnen.
-- Ein Fehler auf, der einige Windows RemoteApp hinter ihren übergeordneten Fenster hängen bleiben verursacht wurde behoben.
-- Behandelt ein Offset Mauszeiger-Problem mit Auswirkung auf eine RemoteApp-Programme.
-- Ein Problem behoben, in denen gegeben haben eine neue Verbindung ab den Fokus zu einer vorhandenen Sitzung, statt eine neue Sitzung-Fenster öffnen.
-- Es wurde einen Fehler mit einer Fehlermeldung behoben – sehen Sie die richtige Nachricht jetzt Wenn wir Ihr Gateway nicht finden können.
-- Die Quit-Verknüpfung (⌘ + Q) ist jetzt durchgängig in der Benutzeroberfläche angezeigt.
-- Die Bildqualität verbessert, wenn im Modus "an Fenster anpassen" Strecken.
-- Korrektur einer Regression, die mehrere Instanzen von in der Remotesitzung angezeigt wird, wird der Ordner "home" verursacht hat.
-- Aktualisiert das Standardsymbol für desktop-Kacheln.
+- Ein Problem wurde behoben, bei dem RemoteApp-Fenster sich selbst neu anordneten.
+- Ein Fehler wurde korrigiert, der dazu führte, dass einige RemoteApp-Fenster hinter dem übergeordneten Fenster hängenblieben.
+- Ein Versatzproblem beim Mauszeiger wurde behoben, das sich auf einige RemoteApp-Programme auswirkte.
+- Ein Problem wurde behoben, bei dem beim Starten einer neuen Verbindung kein neues Sitzungsfenster geöffnet wurde, sondern eine vorhandene Sitzung den Fokus erhielt.
+- Wir haben einen Fehler bei einer Fehlermeldung korrigiert: Dir wird jetzt die richtige Meldung angezeigt, wenn dein Gateway nicht gefunden wird.
+- Der Tastaturbefehl zum Beenden (⌘ + Q) wird jetzt dauerhaft auf der Benutzeroberfläche angezeigt.
+- Die Bildqualität beim Strecken in den Modus „An Fenster anpassen“ wurde verbessert.
+- Eine Regression wurde korrigiert, die dazu führte, dass in einer Remotesitzung mehrere Instanzen des Basisordners angezeigt wurden.
+- Das Standardsymbol für Desktopkacheln wurde aktualisiert.

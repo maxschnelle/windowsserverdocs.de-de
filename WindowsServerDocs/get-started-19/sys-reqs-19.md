@@ -1,6 +1,6 @@
 ---
-title: Systemanforderungen für Windows Server 2019
-description: Die Mindestanforderungen für Speicher, CPU, Netzwerk, Arbeitsspeicher und RAM bei einer Neuinstallation von Windows Server-2019.
+title: Windows Server 2019-Systemanforderungen
+description: Mindestanforderungen für Speicher, CPU, Netzwerk, Arbeitsspeicher und RAM bei einer Neuinstallation von Windows Server 2019.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -14,21 +14,21 @@ ms.author: coreyp
 manager: jasgroce
 ms.localizationpriority: medium
 ms.openlocfilehash: d97ec0efee86165f82bdf99a316d24d9c39ec958
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66810716"
 ---
 # <a name="system-requirements"></a>Systemanforderungen
 
 >Gilt für: Windows Server 2019 
 
-In diesem Thema werden die mindestsystemanforderungen zum Ausführen von Windows Server&reg; 2019.
+Dieses Thema erläutert die Mindestsystemanforderungen zum Ausführen von Windows Server&reg; 2019.
 
 ## <a name="review-system-requirements"></a>Überprüfen der Systemanforderungen  
 
-Im folgenden sind die geschätzten Systemanforderungen für Windows Server-2019. Erfüllt der Computer diese Mindestanforderungen nicht, kann das Produkt nicht ordnungsgemäß installiert werden. Die tatsächlichen Anforderungen sind von der Systemkonfiguration und den installierten Anwendungen und Features abhängig.
+Nachfolgend sind die geschätzten Systemanforderungen für Windows Server 2019 aufgeführt. Erfüllt der Computer diese Mindestanforderungen nicht, kann das Produkt nicht ordnungsgemäß installiert werden. Die tatsächlichen Anforderungen sind von der Systemkonfiguration und den installierten Anwendungen und Features abhängig.
 
 Sofern nicht anders angegeben gelten diese Mindestanforderungen für alle Installationsoptionen (Server Core, Server mit Desktopdarstellung und Nano Server) auf jeweils der Standard- und der Datacenter Edition.  
 
@@ -46,14 +46,14 @@ Die Prozessorleistung ist nicht nur von der Taktfrequenz des Prozessors abhängi
 - Unterstützt CMPXCHG16b, LAHF/SAHF und PrefetchW  
 - Unterstützt SLAT (Second-Level Address Translation) (EPT oder NPT)  
 
-[Coreinfo](https://technet.microsoft.com/sysinternals/cc835722.aspx) ist ein Tool können Sie, welche dieser Funktionen Ihre CPU verfügt über zu bestätigen.
+[Coreinfo](https://technet.microsoft.com/sysinternals/cc835722.aspx) ist ein Tool, mit dem du überprüfen kannst, über welche dieser Funktionen die CPU verfügt.
 
 ## <a name="ram"></a>RAM  
 Nachfolgend sind die geschätzten RAM-Anforderungen für dieses Produkt aufgeführt:  
 
 **Minimum**:  
 - 512 MB (2 GB für Server mit der Installationsoption „Desktopdarstellung“)
-- ECC (Error Correcting Code)-Typ oder einer vergleichbaren Technologie, die für physischen Host-Bereitstellungen
+- ECC-Typ (Error Correcting Code) oder ähnliche Technologie, für physische Hostbereitstellungen
 
 > [!IMPORTANT]  
 > Wenn Sie einen virtuellen Computer, der in Bezug auf die Hardware nur die Mindestanforderungen (1 Prozessorkern und 512 MB RAM) unterstützt, erstellen und dann versuchen, diese Version auf dem virtuellen Computer zu installieren, tritt ein Fehler beim Setup auf.  
@@ -61,17 +61,17 @@ Nachfolgend sind die geschätzten RAM-Anforderungen für dieses Produkt aufgefü
 > Führen Sie zur Vermeidung dieses Problems eine der folgenden Aktionen aus:  
 >   
 > -   Ordnen Sie dem virtuellen Computer, auf dem diese Version installiert werden soll, mehr als 800 MB RAM zu. Nach dem Setup können Sie die Zuordnung abhängig von der tatsächlichen Serverkonfiguration in 512 MB RAM ändern.  
-> -   Unterbrechen Sie den Startprozess dieser Version auf dem virtuellen Computer mit SHIFT+F10. Erstellen Sie in der geöffneten Eingabeaufforderung mithilfe von %%amp;quot;Diskpart.exe%%amp;quot; eine Installationspartition, und formatieren Sie sie. Führen Sie **Wpeutil createpagefile /path=C:\pf.sys** aus (vorausgesetzt, Sie haben die Installationspartition %%amp;quot;C:%%amp;quot; erstellt). Schließen Sie die Eingabeaufforderung, und setzen Sie das Setup fort.  
+> -   Unterbrechen Sie den Startprozess dieser Version auf dem virtuellen Computer mit UMSCHALTTASTE+F10. Erstellen Sie in der geöffneten Eingabeaufforderung mithilfe von %%amp;quot;Diskpart.exe%%amp;quot; eine Installationspartition, und formatieren Sie sie. Führen Sie **Wpeutil createpagefile /path=C:\pf.sys** aus (vorausgesetzt, Sie haben die Installationspartition %%amp;quot;C:%%amp;quot; erstellt). Schließen Sie die Eingabeaufforderung, und setzen Sie das Setup fort.  
 
 ## <a name="storage-controller-and-disk-space-requirements"></a>Speichercontroller- und Speicherplatzanforderungen  
-Computer, auf denen Windows Server-2019 ausführen müssen über einen Speicheradapter verfügen, der mit der PCI Express-architekturspezifikation konform ist. Bei beständigen Speichergeräten auf Servern, die als Festplattenlaufwerke klassifiziert sind, darf es sich nicht um PATA handeln. Windows Server-2019 ist ATA/PATA/IDE/EIDE nicht für Start-, auslagerungs- oder Daten-Datenlaufwerke zulässig.  
+Computer mit Windows Server 2019 müssen über einen Speicheradapter verfügen, der mit der PCI Express-Architekturspezifikation konform ist. Bei beständigen Speichergeräten auf Servern, die als Festplattenlaufwerke klassifiziert sind, darf es sich nicht um PATA handeln. Bei Windows Server 2019 ist ATA/PATA/IDE/EIDE nicht für Start-, Auslagerungs- oder Datenlaufwerke zulässig.  
 
 Nachfolgend sind die geschätzten **minimalen** Speicherplatzanforderungen für die Systempartition aufgeführt.  
 
 **Minimum**: 32 GB  
 
 > [!NOTE]
-> Beachten Sie, dass der *absolute Mindestwert* für eine erfolgreiche Installation 32 GB beträgt. Dieser Mindestwert ermöglicht Windows Server-2019 in Server Core-Modus mit der Serverrolle für Webdienste (IIS) installiert. Ein Server im Server Core-Modus ist ca. 4 GB kleiner als der gleiche Server im Modus %%amp;quot;Server mit grafischer Benutzeroberfläche%%amp;quot;. 
+> Beachten Sie, dass der *absolute Mindestwert* für eine erfolgreiche Installation 32 GB beträgt. Dieser Mindestwert ermöglicht die Installation von Windows Server 2019 im Server Core-Modus mit der Serverrolle „Webdienste (IIS)“. Ein Server im Server Core-Modus ist ca. 4 GB kleiner als der gleiche Server im Modus %%amp;quot;Server mit grafischer Benutzeroberfläche%%amp;quot;. 
 > 
 > In den folgenden Fällen ist zusätzlicher Speicherplatz für die Systempartition erforderlich:  
 > 
@@ -88,7 +88,7 @@ Netzwerkkarten, die mit diesem Release verwendet werden, sollten folgende Featur
 
 Eine Netzwerkkarte, die das Netzwerkdebugging (KDNet) unterstützt, ist sinnvoll, jedoch keine Mindestanforderung.   
 
-Eine Netzwerkkarte, unterstützt das Pre-Boot Execution Environment (PXE) nützlich ist, jedoch keine Mindestanforderung.
+Ein Netzwerkadapter, der die PXE (Pre-boot Execution Environment) unterstützt, ist sinnvoll, aber keine Mindestanforderung.
 
 ## <a name="other-requirements"></a>Sonstige Anforderungen  
 Computer, auf denen dieses Release ausgeführt wird, müssen außerdem über folgende Elemente verfügen:  
@@ -110,6 +110,6 @@ Die folgenden Elemente sind nicht unbedingt erforderlich, werden jedoch für bes
 > Ein TPM-Chip (Trusted Platform Module) ist nicht unbedingt für die Installation dieses Release erforderlich. Für die Verwendung bestimmter Features wie z.B. der BitLocker-Laufwerkverschlüsselung wird jedoch ein solcher Chip benötigt. Wenn Ihr Computer TPM verwendet, müssen die folgenden Anforderungen erfüllt sein:  
 >  
 > - Bei hardwarebasierten TPMs muss Version 2.0 der TPM-Spezifikation implementiert sein.  
-> - TPMs, die Version 2.0 implementieren, müssen über ein EK-Zertifikat verfügen, das entweder vorab vom Hardwarehersteller für das TPM bereitgestellt wird, oder beim ersten Start vom Gerät abgerufen werden kann.  
-> - TPMs, die Version 2.0 implementieren, müssen über SHA-256 PCR-Bänke verfügen und PCRs 0 bis 23 für SHA-256 implementieren. Es ist akzeptabel, TPMs mit einer einzigen wechselbaren PCR-Bank auszuliefern, die sowohl für SHA-1 als auch für SHA-256 verwendet werden kann.  
+> - TPMs, die Version 2.0 implementieren, müssen über ein EK-Zertifikat verfügen, das entweder vorab vom Hardwarehersteller für das TPM bereitgestellt wird, oder beim ersten Start vom Gerät abgerufen werden kann.  
+> - TPMs, die Version 2.0 implementieren, müssen über SHA-256 PCR-Bänke verfügen und PCRs 0 bis 23 für SHA-256 implementieren. Es ist akzeptabel, TPMs mit einer einzigen wechselbaren PCR-Bank auszuliefern, die sowohl für SHA-1 als auch für SHA-256 verwendet werden kann.  
 > - Eine UEFI-Option zum Deaktivieren des TPMs ist nicht erforderlich.  

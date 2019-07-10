@@ -1,6 +1,6 @@
 ---
-title: Remote Desktop Services – hohe Verfügbarkeit
-description: Planen die Informationen zum Einrichten einer hoch verfügbaren RDS-Bereitstellung.
+title: Remotedesktopdienste – Hochverfügbarkeit
+description: Planen der Informationen für die Einrichtung einer hoch verfügbaren RDS-Bereitstellung.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,27 +13,27 @@ author: lizap
 ms.author: elizapo
 ms.date: 09/07/2016
 manager: dongill
-ms.openlocfilehash: b5a2bd38c8831063d6fd2ba525b71a10403b8fc2
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 79fd05458d0d838e34402bf28ef83b9327bfcceb
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839261"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63743460"
 ---
-# <a name="remote-desktop-services---high-availability"></a>Remote Desktop Services – hohe Verfügbarkeit
+# <a name="remote-desktop-services---high-availability"></a>Remotedesktopdienste – Hochverfügbarkeit
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016
 
-Fehler und Drosselung sind unvermeidlich großmaßstäbliche Systeme. Es ist einfach zum Einrichten von Remote Desktop-Infrastrukturrollen, Unterstützung für hochverfügbarkeit und Endbenutzern ermöglichen, verbinden Sie nahtlos, jedes Mal, wenn.
+Fehler und Drosselung sind in umfangreichen Systemen unvermeidlich. Es ist einfach, Remotedesktop-Infrastrukturrollen einzurichten, um Hochverfügbarkeit zu unterstützen und es Endbenutzern zu ermöglichen, jederzeit problemlos eine Verbindung herzustellen.
 
-In Remote Desktop Services stellen die folgenden Elemente der Infrastrukturrollen von Remotedesktop mit ihren entsprechenden Anleitungen zum Herstellen von hochverfügbarkeit dar:
+In den Remotedesktopdiensten (Remote Desktop Services, RDS) repräsentieren die folgenden Elemente die Remotedesktop-Infrastrukturrollen. In den einzelnen Artikeln findest du Anleitungen dazu, wie du Hochverfügbarkeit herstellst:
 - [Remotedesktop-Verbindungsbroker](Deploy-a-Remote-Desktop-Connection-Broker-cluster.md)
 - [Remotedesktopgateway](Deploy-a-RD-Web-Access-and-Gateway-farm.md)
 - Remotedesktoplizenzierung
-- [Web Access für Remotedesktop](Deploy-a-RD-Web-Access-and-Gateway-farm.md)
+- [Remotedesktop-Webzugriff](Deploy-a-RD-Web-Access-and-Gateway-farm.md)
 
-Hoher Verfügbarkeit wird hergestellt, indem die einzelnen Rollendienste auf einem zweiten Computer dupliziert wird. In Azure erhalten Sie eine garantierte Verfügbarkeit durch den Satz von zwei virtuellen Computer (in der gleichen Rolle gehostet) in einer verfügbarkeitsgruppe platzieren legt diese fest.
+Hochverfügbarkeit wird durch Duplizierung jedes dieser Rollendienste auf sekundären Computern erzielt. In Azure kannst du für eine garantierte Betriebszeit sorgen, indem du die Gruppe mit den beiden virtuellen Computern (die die gleiche Rolle hosten) in einer Verfügbarkeitsgruppe platzierst.
 
-Zusammen mit Verfügbarkeitsgruppen können Sie jetzt die Leistungsfähigkeit von Azure SQL-Datenbank und der Azure-Backup-SLA, um sicherzustellen, dass Sie immer Informationen über die Verbindung und die können Benutzer auf ihre Desktops und Anwendungen nutzen.
+Zusätzlich zu Verfügbarkeitsgruppen kannst du jetzt von Azure SQL-Datenbank und der zugehörigen von Azure gestützten SLA profitieren, um sicherzustellen, dass du jederzeit über Verbindungsinformationen verfügst und Benutzer zu ihren Desktops und Anwendungen umleiten kannst.
 
-Bewährte Methoden zum Erstellen der RDS-Umgebung finden Sie unter den [desktophosting-Architektur](desktop-hosting-reference-architecture.md).
+Bewährte Methoden zum Erstellen deiner RDS-Umgebung findest du in der [Referenzarchitektur für das Desktophosting](desktop-hosting-reference-architecture.md).

@@ -1,6 +1,6 @@
 ---
-title: Verwenden Sie persönliche sitzungsdesktops mit Remote Desktop Services
-description: Erfahren Sie, wie personalisierten, Freigeben von zugewiesenen Desktops mittels RDS.
+title: Verwenden von persönlichen Sitzungsdesktops mit Remotedesktopdiensten
+description: Hier erfährst du, wie du personalisierte, zugewiesene Desktops über die Remotedesktopdienste freigibst.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -12,94 +12,94 @@ author: lizap
 ms.author: elizapo
 ms.date: 09/16/2016
 manager: dongill
-ms.openlocfilehash: 41f6a28c1b754a5277a0966a87dae08a6aa34e08
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 723e68bad79e7723aaa0690c312e20ccf47c47b0
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59875951"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63743504"
 ---
-# <a name="use-personal-session-desktops-with-remote-desktop-services"></a>Verwenden Sie persönliche sitzungsdesktops mit Remote Desktop Services
+# <a name="use-personal-session-desktops-with-remote-desktop-services"></a>Verwenden von persönlichen Sitzungsdesktops mit Remotedesktopdiensten
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016
 
-Sie können Server-basierten persönliche Desktops in einer Cloud-computing-Umgebung mithilfe von persönlichen sitzungsdesktops bereitstellen.  (Eine Cloud-computing-Umgebung weist eine Trennung zwischen den Hyper-V-fabricservern und den virtuellen Gastcomputern bereitstellen, z. B. Microsoft Azure-Cloud oder der Microsoft-Cloud-Plattform.) Die persönlichen Sitzung-desktop-Funktion erweitert das sitzungsbasierte desktopbereitstellung-Szenario in Remote Desktop Services, um eine neue Art von sitzungssammlung zu erstellen, wird jeder Benutzer ihre eigenen persönlichen Sitzungshost mit Administratorrechten zugewiesen. 
+Mithilfe von persönlichen Sitzungsdesktops kannst du serverbasierte persönliche Desktops in einer Cloud Computing-Umgebung bereitstellen.  (In einer Cloud Computing-Umgebung besteht eine Trennung zwischen den Hyper-V-Fabricservern und den Gast-VMs wie der Microsoft Azure Cloud oder der Microsoft-Cloudplattform.) Die Funktion für persönliche Sitzungsdesktops erweitert das Szenario für die Bereitstellung sitzungsbasierter Desktops in den Remotedesktopdiensten: Es wird eine neue Art von Sitzungssammlung erstellt, in der jeder Benutzer zu einem eigenen persönlichen Sitzungshost zugewiesen wird und dafür Administratorrechte erhält. 
 
-Verwenden Sie die folgende Informationen zum Erstellen und Verwalten einer persönlichen desktop sitzungssammlung.
+Verwende die folgenden Informationen, um eine Sammlung persönlicher Sitzungsdesktops zu erstellen und zu verwalten.
 
-## <a name="create-a-personal-session-desktop-collection"></a>Erstellen einer persönlichen desktop sitzungssammlung
+## <a name="create-a-personal-session-desktop-collection"></a>Erstellen einer Sammlung persönlicher Sitzungsdesktops
 
-Verwenden Sie das Cmdlet "New-RDSessionCollection", um einen persönlichen desktop sitzungssammlung erstellen. Die folgenden drei Parameter geben die Konfigurationsinformationen für persönliche sitzungsdesktops benötigt:
+Verwende das Cmdlet „New-RDSessionCollection“, um eine Sammlung persönlicher Sitzungsdesktops zu erstellen. Die folgenden drei Parameter stellen die Konfigurationsinformationen bereit, die für persönliche Sitzungsdesktops benötigt werden:
 
-- **-PersonalUnmanaged** -gibt der Typ der sitzungssammlung, der Ihnen ermöglicht eine persönliche Sitzungshostserver Benutzer zuweisen. Wenn Sie diesen Parameter nicht angeben, wird als eine herkömmliche RD-Sitzungshost-Auflistung, die Sammlung erstellt, in denen Benutzer den nächsten verfügbaren Sitzungshost zugewiesen sind, bei der Anmeldung.
-- **-GrantAdministrativePrivilege** : bei Verwendung von **- PersonalUnmanaged**, gibt an, dass der Benutzer, die dem Sitzungshost zugewiesen Administratorrechte zugewiesen werden. Wenn Sie diesen Parameter nicht verwenden, erhalten Benutzer nur Berechtigungen für Standardbenutzer.
-- **-AutoAssignUser** : bei Verwendung von **- PersonalUnmanaged**, gibt an, dass neue Benutzer, die eine Verbindung über den Remotedesktop-Verbindungsbroker automatisch auf einem Sitzungshost nicht zugewiesene zugewiesen werden. Wenn keine nicht zugewiesenen Sitzungshosts in der Auflistung vorhanden sind, wird der Benutzer eine Fehlermeldung angezeigt. Wenn Sie diesen Parameter nicht verwenden, müssen Sie [manuell zuweisen von Benutzern zu einem Host für Remotedesktopsitzungen](#manually-assign-a-user-to-a-personal-session-host) , bevor sie sich anmelden.
+- **-PersonalUnmanaged**: Gibt den Typ der Sitzungssammlung an, mit dem du Benutzer einem persönlichen Sitzungshostserver zuweisen kannst. Wenn du diesen Parameter nicht angibst, wird die Sammlung als herkömmliche Remotedesktop-Sitzungshostsammlung erstellt, bei der Benutzer beim Anmelden dem nächsten verfügbaren Sitzungshost zugewiesen werden.
+- **-GrantAdministrativePrivilege**: Wenn du **-PersonalUnmanaged** verwendest, gibt dieser Parameter an, dass der Benutzer, der dem Sitzungshost zugewiesen wurde, Administratorrechte erhalten soll. Wenn du diesen Parameter nicht verwendest, werden den Benutzern nur Standardbenutzerrechte erteilt.
+- **-AutoAssignUser**: Wenn du **-PersonalUnmanaged** verwendest, gibt dieser Parameter an, dass neue Benutzer, die eine Verbindung über den Remotedesktop-Verbindungsbroker herstellen, automatisch einem noch nicht zugewiesenen Sitzungshost zugewiesen werden. Wenn in der Sammlung keine nicht zugewiesenen Sitzungshosts vorhanden sind, wird dem Benutzer eine Fehlermeldung angezeigt. Wenn du diesen Parameter nicht verwendest, musst du [Benutzer manuell einem Sitzungshost zuweisen](#manually-assign-a-user-to-a-personal-session-host), bevor die Benutzer sich anmelden.
 
-## <a name="manually-assign-a-user-to-a-personal-session-host"></a>Weisen Sie einen Benutzer manuell zu einer persönlichen Sitzungshost
-Verwenden der **Set-RDPersonalSessionDesktopAssignment** Cmdlet, um eine persönliche Sitzungshostserver in der Auflistung einen Benutzer manuell zuweisen. Das Cmdlet unterstützt die folgenden Parameter:
-
--CollectionName \<Zeichenfolge\>
-
--ConnectionBroker \<string\> 
-
--Benutzer \<Zeichenfolge\>
-
---Name \<Zeichenfolge\>
-
-- **– CollectionName** -gibt den Namen des persönlichen desktop sitzungssammlung. Dieser Parameter ist erforderlich.
-- **– ConnectionBroker** -gibt den Remotedesktop-Verbindungsbroker (RD-Verbindungsbroker)-Server für die Bereitstellung von Remotedesktop. Wenn Sie keinen Wert angeben, verwendet das Cmdlet den vollqualifizierten Domänennamen (FQDN) des lokalen Computers.
-- **– Benutzer** -gibt das Benutzerkonto an, die persönliche Sitzung Desktop, im Format "Domäne\Benutzer" zugeordnet werden soll. Dieser Parameter ist erforderlich.
-- **– Name** -gibt den Namen des Sitzungshostservers. Dieser Parameter ist erforderlich. Die hier identifizierte Sitzungshost muss ein Member der Auflistung, die **- CollectionName** angegeben wird.
-
-Die **Import-RDPersonalSessionDesktopAssignment** Cmdlet werden die Zuordnungen zwischen Benutzerkonten und persönliche sitzungsdesktops aus einer Textdatei importiert. Das Cmdlet unterstützt die folgenden Parameter:
+## <a name="manually-assign-a-user-to-a-personal-session-host"></a>Manuelles Zuweisen eines Benutzers zu einem persönlichen Sitzungshost
+Verwende das Cmdlet **Set-RDPersonalSessionDesktopAssignment**, um einen Benutzer manuell einem persönlichen Sitzungshostserver in der Sammlung zuzuweisen. Das Cmdlet unterstützt die folgenden Parameter:
 
 -CollectionName \<Zeichenfolge\>
 
--ConnectionBroker \<string\>
+-ConnectionBroker \<Zeichenfolge\> 
 
--Path \<Zeichenfolge >
+-User \<Zeichenfolge\>
 
-**– Pfad** gibt an, der Pfad und Dateiname einer Datei importieren.
+-Name \<Zeichenfolge\>
+
+- **-CollectionName**: Gibt den Namen einer Sammlung mit persönlichen Sitzungsdesktops an. Dieser Parameter ist erforderlich.
+- **-ConnectionBroker**: Gibt den Server des Remotedesktop-Verbindungsbrokers für deine Remotedesktopbereitstellung an. Wenn du keinen Wert angibst, verwendet das Cmdlet den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) des lokalen Computers.
+- **-User**: Gibt das Benutzerkonto, das dem persönlichen Sitzungsdesktop zugeordnet werden soll, im Format „DOMAENE\Benutzer“ an. Dieser Parameter ist erforderlich.
+- **-Name**: Gibt den Namen des Sitzungshostservers an. Dieser Parameter ist erforderlich. Der hier identifizierte Sitzungshost muss Mitglied der Sammlung sein, die vom Parameter **-CollectionName** angegeben wird.
+
+Das Cmdlet **Import-RDPersonalSessionDesktopAssignment** importiert Zuordnungen zwischen Benutzerkonen und persönlichen Sitzungsdesktops aus einer Textdatei. Das Cmdlet unterstützt die folgenden Parameter:
+
+-CollectionName \<Zeichenfolge\>
+
+-ConnectionBroker \<Zeichenfolge\>
+
+-Path \<Zeichenfolge>
+
+**-Path** gibt den Pfad und den Dateinamen der Datei an, die importiert werden soll.
  
-## <a name="removing-a-user-assignment-from-a-personal-session-host"></a>Entfernen eine aus einer persönlichen Sitzungshost
-Verwenden der **Remove-RDPersonalSessionDesktopAssignment** Cmdlet, um die Zuordnung zwischen einem Desktop persönliche Sitzung und ein Benutzer zu entfernen. Das Cmdlet unterstützt die folgenden Parameter:
+## <a name="removing-a-user-assignment-from-a-personal-session-host"></a>Entfernen einer Benutzerzuweisung aus einem persönlichen Sitzungshost
+Verwende das Cmdlet **Remove-RDPersonalSessionDesktopAssignment**, um die Zuordnung zwischen einem persönlichen Sitzungsdesktop und einem Benutzer zu entfernen. Das Cmdlet unterstützt die folgenden Parameter:
 
 -CollectionName \<Zeichenfolge\>
 
--ConnectionBroker \<string\>
+-ConnectionBroker \<Zeichenfolge\>
 
 -Force
 
---Name \<Zeichenfolge\>
+-Name \<Zeichenfolge\>
 
--Benutzer \<Zeichenfolge\>
+-User \<Zeichenfolge\>
 
-**– Erzwingen** erzwingt, dass den Befehl ohne Aufforderung zur Bestätigung des Benutzers ausgeführt.
+**-Force** erzwingt die Ausführung des Befehls ohne Aufforderung zur Bestätigung durch den Benutzer.
 
-## <a name="query-user-assignments"></a>Abfrage von Benutzerrechten
-Verwenden der **Get-RDPersonalSessionDesktopAssignment** -Cmdlet zum Abrufen einer Liste von persönlichen sitzungsdesktops und zugeordnete Benutzerkonten. Das Cmdlet unterstützt die folgenden Parameter:
-
--CollectionName \<Zeichenfolge\>
-
--ConnectionBroker \<string\>
-
--Benutzer \<Zeichenfolge\>
-
---Name \<Zeichenfolge\>
-
-Sie können das Cmdlet Sammlungsname, den Benutzernamen ein, oder vom desktop Sitzungsname auf Abfrage ausführen. Wenn Sie nur angeben, die **– CollectionName** -Parameter mit dem-Cmdlet gibt eine Liste von Sitzungshosts und zugeordneten Benutzern. Wenn Sie auch angeben, die **– Benutzer** Parameter, der mit diesem Benutzer verknüpfte Sitzungshost wird zurückgegeben. Wenn Sie angeben, die **– Name** Parameter der Benutzer verknüpft ist, mit dem Sitzungshost wird zurückgegeben. 
-
-
-Die **Export-RDPersonalPersonalDesktopAssignment** Cmdlet exportiert die aktuellen Zuordnungen zwischen Benutzern und persönliche virtuelle Desktops in einer Textdatei gespeichert. Das Cmdlet unterstützt die folgenden Parameter:
+## <a name="query-user-assignments"></a>Abfragen von Benutzerzuweisungen
+Verwende das Cmdlet **Get-RDPersonalSessionDesktopAssignment**, um eine Liste mit persönlichen Sitzungsdesktops und den zugeordneten Benutzerkonten abzurufen. Das Cmdlet unterstützt die folgenden Parameter:
 
 -CollectionName \<Zeichenfolge\>
 
--ConnectionBroker \<string\>
+-ConnectionBroker \<Zeichenfolge\>
+
+-User \<Zeichenfolge\>
+
+-Name \<Zeichenfolge\>
+
+Mit diesem Cmdlet kannst du Abfragen nach Sammlungsnamen, Benutzernamen oder Namen von Sitzungsdesktops ausführen. Wenn du nur den Parameter **-CollectionName** angibst, gibt das Cmdlet eine Liste mit Sitzungshosts und zugeordneten Benutzern zurück. Wenn du auch den Parameter **-User** angibst, wird der Sitzungshost zurückgegeben, der diesem Benutzer zugeordnet ist. Wenn du den Parameter **-Name** angibst, wird der Benutzer zurückgegeben, der diesem Sitzungshost zugeordnet ist. 
+
+
+Das Cmdlet **Export-RDPersonalPersonalDesktopAssignment** exportiert die aktuellen Zuordnungen zwischen Benutzern und persönlichen virtuellen Desktops in eine Textdatei. Das Cmdlet unterstützt die folgenden Parameter:
+
+-CollectionName \<Zeichenfolge\>
+
+-ConnectionBroker \<Zeichenfolge\>
 
 -Path \<Zeichenfolge\>
 
 
-Alle neuen-Cmdlets unterstützt diese gängigen Parameter:-Verbose,-Debug, - ErrorAction, -ErrorVariable,-OutBuffer und - OutVariable. Weitere Informationen finden Sie unter [about_CommonParameters](https://go.microsoft.com/fwlink/p/?LinkID=113216).
+Alle neuen Cmdlets unterstützen die folgenden allgemeinen Parameter: -Verbose, -Debug, -ErrorAction, -ErrorVariable, -OutBuffer und -OutVariable. Weitere Informationen finden Sie unter [about_CommonParameters](https://go.microsoft.com/fwlink/p/?LinkID=113216).
 
-## <a name="hardware-accelerated-graphics"></a>Beschleunigter Grafikfunktionen von Hardware
-Windows Server 2016 erweitert die RemoteFX 3D Graphics Adapter (vGPU)-Technologie zur Unterstützung von OpenGL und Einzelbenutzer-Windows Server 2016-Gast-VMs unterstützt. Sie können persönliche sitzungsdesktops kombinieren, mit den neuen vGPU-Funktionen, um Unterstützung für gehostete Anwendungen bereitzustellen, die beschleunigte Grafikfunktionen erfordern. Alternativ können Sie persönliche sitzungsdesktops kombinieren, mit der neue diskrete Gerät Zuweisung (DDA)-Funktion, die auch für gehostete Anwendungen unterstützen, die beschleunigte Grafikfunktionen erfordern.
+## <a name="hardware-accelerated-graphics"></a>Hardwarebeschleunigte Grafikfunktionen
+Windows Server 2016 erweitert die RemoteFX 3D-Grafikadaptertechnologie (vGPU) auf die Unterstützung von OpenGL und unterstützt Windows Server 2016-Gast-VMs für Einzelbenutzer. Du kannst persönliche Sitzungsdesktops mit den neuen vGPU-Funktionen kombinieren, um Unterstützung für gehostete Anwendungen bereitzustellen, die beschleunigte Grafikfunktionen erfordern. Alternativ dazu kannst du persönliche Sitzungsdesktops mit der neuen Discrete Device Assignment-Funktion (DDA) kombinieren, um Unterstützung für solche gehosteten Anwendungen bereitzustellen.

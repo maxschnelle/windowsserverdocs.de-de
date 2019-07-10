@@ -1,6 +1,6 @@
 ---
-title: Erstellen des Wiederherstellungsplans
-description: Erfahren Sie, wie Sie einen Notfallwiederherstellungsplan für Ihre RDS-Bereitstellung zu erstellen.
+title: Erstellen des Notfallwiederherstellungs-Plans
+description: Erfahre, wie du einen Notfallwiederherstellungs-Plan für deine RDS-Bereitstellung erstellst.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -12,55 +12,55 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 manager: dongill
-ms.openlocfilehash: 8ad759a73e4a0ce1dc28f2b8e8d80f4365895430
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e7bfe19258662a8e334ea0476689d8e860bfc8e5
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879501"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63743891"
 ---
-# <a name="create-your-disaster-recovery-plan-for-rds"></a>Erstellen Sie Ihres Plans zur notfallwiederherstellung für RDS
+# <a name="create-your-disaster-recovery-plan-for-rds"></a>Erstellen des Notfallwiederherstellungs-Plans für RDS
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016
 
-Sie können einen Notfallwiederherstellungsplan erstellen, in Azure Site Recovery, um den Failoverprozess zu automatisieren. Fügen Sie dem Wiederherstellungsplan alle virtuellen Computer RDS-Komponente hinzu.
+Du kannst in Azure Site Recovery einen Notfallwiederherstellungs-Plan erstellen, um den Failoverprozess zu automatisieren. Füge alle RDS-Komponenten-VMs dem Wiederherstellungsplan hinzu.
 
-Verwenden Sie die folgenden Schritte in Azure, um Ihren Wiederherstellungsplan zu erstellen:
+Erstelle deinen Wiederherstellungsplan mit folgenden Schritte in Azure:
 
-1. Öffnen Sie Azure Site Recovery-Tresor im Azure-Portal aus, und klicken Sie dann auf **Wiederherstellungspläne**.
-2. Klicken Sie auf **erstellen** , und geben Sie einen Namen für den Plan.
-3. Wählen Sie Ihre **Quelle** und **Ziel**. Das Ziel ist eine sekundäre RDS-Website oder Azure.
-4. Wählen Sie die VMs, die Ihre RDS-Komponenten zu hosten, und klicken Sie dann auf **OK**.
+1. Öffne den Azure Site Recovery-Tresor im Azure-Portal, und klicke dann auf **Wiederherstellungspläne**.
+2. Klicke auf **Erstellen**, und gib einen Namen für den Plan ein.
+3. Wähle deine **Quelle** und dein **Ziel** aus. Das Ziel ist entweder ein sekundärer RDS-Standort oder Azure.
+4. Wähle die VMs aus, die deine RDS-Komponenten hosten, und klicke dann auf **OK**.
 
-Die folgenden Abschnitte enthalten weitere Informationen zum Erstellen von Wiederherstellungsplänen für die verschiedenen Typen von RDS-Bereitstellung.
+Die folgenden Abschnitte enthalten weitere Informationen zum Erstellen von Wiederherstellungsplänen für die verschiedenen RDS-Bereitstellungstypen.
 
-## <a name="sessions-based-rds-deployment"></a>Sitzungen basierende RDS-Bereitstellung
+## <a name="sessions-based-rds-deployment"></a>Sitzungsbasierte RDS-Bereitstellung
 
-Gruppieren Sie die VMs für eine Bereitstellung mit RDS-Sitzungen damit diese nacheinander kommen:
+Gruppiere die VMs für eine sitzungsbasierte RDS-Bereitstellung, sodass sie nacheinander gestartet werden:
 
-1. Failovergruppe 1: Session Host-VM
-2. Failovergruppe 2: Broker-VM-Verbindung
-3. Failovergruppe 3 – Web Access-VM
+1. Failovergruppe 1: Sitzungshost-VM
+2. Failovergruppe 2: Verbindungsbroker-VM
+3. Failovergruppe 3: Webzugriff-VM
 
-Ihr Plan wird wie folgt aussehen: 
+Dein Plan sieht etwa so aus: 
 
-![Einen Notfallwiederherstellungsplan für eine sitzungsbasierte RDS-Bereitstellung](media/rds-asr-session-drplan.png)
+![Ein Notfallwiederherstellungs-Plan für eine sitzungsbasierte RDS-Bereitstellung](media/rds-asr-session-drplan.png)
 
-## <a name="pooled-desktops-rds-deployment"></a>In einem Pool zusammengefasste Desktops RDS-Bereitstellung
+## <a name="pooled-desktops-rds-deployment"></a>RDS-Bereitstellung mit in einem Pool zusammengefassten Desktops
 
-Gruppieren Sie die VMs für eine RDS-Bereitstellung bei gepoolten Desktops damit sie in der Sequenz ist, Hinzufügen von manuellen Schritte und Skripts kommen.
+Gruppiere die VMs bei einer RDS-Bereitstellung mit in einem Pool zusammengefassten Desktops, sodass sie nacheinander gestartet werden, und füge manuelle Schritte und Skripts hinzu.
 
-1. Failovergruppe 1: RDS Connection Broker-VM
-2. Gruppe 1 manuelle Aktion - Update DNS
+1. Failovergruppe 1: RDS-Verbindungsbroker-VM
+2. Gruppe 1 manuelle Aktion: DNS aktualisieren
 
-   Führen Sie PowerShell im erweiterten Modus, auf dem virtuellen Computer Verbindung-Broker. Führen Sie den folgenden Befehl aus, und warten Sie einige Minuten, um sicherzustellen, dass das DNS mit den neuen Wert aktualisiert wird:
+   Führe PowerShell im Modus mit erhöhten Rechten auf der Verbindungsbroker-VM aus. Führe den folgenden Befehl aus, und warte einige Minuten, um sicherzustellen, dass das DNS mit den neuen Wert aktualisiert wird:
 
    ```
    ipconfig /registerdns
    ```
-3. Gruppe 1-Skript – hinzufügen Virtualisierungshosts
+3. Gruppe 1 Skript: Virtualisierungshosts hinzufügen
 
-   Ändern Sie das folgende Skript auf jedem Virtualisierungshost in der Cloud ausführen. Nachdem Sie einen Virtualisierungshost Verbindungsbrokers hinzugefügt haben, müssen Sie in der Regel den Host neu starten. Stellen Sie sicher, dass der Host verfügt nicht über einen ausstehenden Neustart, bevor Sie das Skript ausgeführt, sonst wird fehlerhaft sein.
+   Ändere das folgende Skript, sodass es auf jedem Virtualisierungshost in der Cloud ausgeführt wird. Nachdem du einem Verbindungsbroker einen Virtualisierungshost hinzugefügt hast, musst du in der Regel den Host neu starten. Bevor das Skript ausgeführt wird, stelle sicher, dass bei dem Host kein Neustart aussteht, andernfalls tritt ein Fehler auf.
 
    ```
    Broker - broker.contoso.com
@@ -69,10 +69,10 @@ Gruppieren Sie die VMs für eine RDS-Bereitstellung bei gepoolten Desktops damit
    ipmo RemoteDesktop; 
    add-rdserver –ConnectionBroker broker.contoso.com –Role RDS-VIRTUALIZATION –Server VH1.contoso.com 
    ```
-4. Failovergruppe 2 - Vorlagen-VM
-5. Gruppe 2 Skript 1: Aktivieren Sie off-VM-Vorlage
+4. Failovergruppe 2: Vorlagen-VM
+5. Gruppe 2 Skript 1: Vorlagen-VM deaktivieren
    
-   Der Vorlagen-VM beim Wiederherstellen der an den sekundären Standort wird gestartet, aber es ist ein mit Sysprep vorbereitete virtuelle Computer und kann nicht vollständig gestartet. RDS erfordert auch, dass die VM Herunterfahren auf, um eine in einem Pool zusammengefasste VM-Konfiguration erstellen können. Daher müssen wir diese Funktion zu deaktivieren. Wenn Sie einen einzelnen VMM-Server verfügen, ist der VM-Vorlagenname auf dem primären Replikat identisch und der sekundären Datenbank. Aus diesem Grund verwenden wir die VM-ID gemäß der *Kontext* Variable im Skript unten. Wenn Sie mehrere Vorlagen verfügen, deaktivieren sie alle.
+   Die Vorlagen-VM wird gestartet, wenn sie am sekundären Standort wiederhergestellt wurde, aber für sie wurde eine Systemvorbereitung mit Sysprep durchgeführt und sie kann nicht vollständig gestartet werden. RDS erfordert auch, dass die VM heruntergefahren wird, um eine Konfiguration für in einem Pool zusammengefasste VMs auf ihrer Basis zu erstellen. Daher müssen wir sie deaktivieren. Wenn du einen einzelnen VMM-Server hast, ist der Name der Vorlagen-VM am primären und sekundären Standort identisch. Aus diesem Grund verwenden wir die VM-ID wie von der *Kontextvariablen* im folgenden Skript festgelegt. Wenn du über mehrere Vorlagen verfügst, deaktiviere alle.
 
    ```powershell
    ipmo virtualmachinemanager; 
@@ -81,9 +81,9 @@ Gruppieren Sie die VMs für eine RDS-Bereitstellung bei gepoolten Desktops damit
       Get-SCVirtualMachine -ID $vm | Stop-SCVirtualMachine –Force
    } 
    ```
-6. Gruppe 2 Skript 2: Entfernen Sie vorhandene in einem Pool zusammengefasste virtuelle Computer
+6. Gruppe 2 Skript 2: vorhandene in einem Pool zusammengefasste virtuelle Computer entfernen
 
-   Sie müssen die in einem Pool zusammengefasste virtuelle Computer, auf dem primären Standort aus der Verbindungsbroker entfernen, damit neue virtuelle Computer am sekundären Standort erstellt werden können. In diesem Fall müssen Sie den genauen Host für die Erstellung den in einem Pool zusammengefasste virtuelle Computer angeben. Beachten Sie, dass dies die virtuellen Computer aus der Auflistung gelöscht werden.
+   Du musst die in einem Pool zusammengefassten VMs am primären Standort aus dem Verbindungsbroker entfernen, damit am sekundären Standort neue VMs erstellt werden können. In diesem Fall musst du den genauen Host angeben, auf dem die in einem Pool zusammengefassten virtuellen Computer erstellt werden sollen. Beachte, dass die virtuellen Computer damit nur aus der Sammlung gelöscht werden.
 
    ```powershell
    ipmo RemoteDesktop
@@ -94,38 +94,38 @@ Gruppieren Sie die VMs für eine RDS-Bereitstellung bei gepoolten Desktops damit
    ```
 7. Gruppe 2 manuelle Aktion: neue Vorlage zuweisen
 
-   Sie müssen den Verbindungsbroker für die Auflistung die neue Vorlage zuweisen, sodass Sie neue in einem Pool zusammengefasste virtuelle Computer am Wiederherstellungsstandort erstellen können. Wechseln Sie zu der RDS-Verbindungsbroker und bestimmen Sie die Auflistung. Bearbeiten Sie die Eigenschaften, und geben Sie ein neues VM-Image, als der Vorlage.
-8. Gruppe 2 Skript 3: Erstellen Sie alle in einem Pool zusammengefasste virtuelle Computer neu.
+   Du musst die neue Vorlage dem Verbindungsbroker für die Sammlung zuordnen, damit du neue in einem Pool zusammengefasste VMs am Wiederherstellungsstandort erstellen kannst. Wechsele zum RDS-Verbindungsbroker, und bestimme die Sammlung. Bearbeite die Eigenschaften, und gib ein neues VM-Image als Vorlage an.
+8. Gruppe 2 Skript 3: alle in einem Pool zusammengefassten virtuellen Computer neu erstellen
 
-   Erstellen Sie die in einem Pool zusammengefasste virtuelle Computer am Wiederherstellungsstandort über den Verbindungsbroker neu. In diesem Fall müssen Sie den genauen Host für die Erstellung den in einem Pool zusammengefasste virtuelle Computer angeben.
+   Erstelle die in einem Pool zusammengefassten virtuellen Computer am Wiederherstellungsstandort über den Verbindungsbroker neu. In diesem Fall musst du den genauen Host angeben, auf dem die in einem Pool zusammengefassten virtuellen Computer erstellt werden sollen.
 
-   In einem Pool zusammengefasste VM-Name muss mit dem Präfix und Suffix eindeutig sein. Wenn Sie der VM-Namen bereits vorhanden ist, wird das Skript fehl. Auch wenn der primären Seite virtuelle Computer von 1 bis 5, nummeriert werden wird die Site Recovery Nummerierung aus 6 fortgesetzt.
+   Die Namen der in einem Pool zusammengefassten VMs müssen unter Verwendung von Präfix und Suffix eindeutig sein. Wenn der VM-Name bereits vorhanden ist, tritt bei der Skriptausführung ein Fehler auf. Außerdem: Wenn die VMs am primären Standort von 1-5 nummeriert sind, wird die Nummerierung am Wiederherstellungsstandort mit 6 fortgesetzt.
 
    ```powershell
    ipmo RemoteDesktop; 
    Add-RDVirtualDesktopToCollection -CollectionName Win8Desktops -VirtualDesktopAllocation @{"RDVH1.contoso.com" = 1} 
    ```
-9. Failovergruppe 3 – Web Access und Gateway-Server-VM
+9. Failovergruppe 3: Webzugriff und Gatewayserver-VM
 
 Der Wiederherstellungsplan wird wie folgt aussehen:
 
-![Einen Notfallwiederherstellungsplan für eine RDS-Bereitstellung, bei gepoolten desktops](media/rds-asr-pooled-drplan.png)
+![Ein Notfallwiederherstellungs-Plan für eine RDS-Bereitstellung mit in einem Pool zusammengefassten Desktops](media/rds-asr-pooled-drplan.png)
 
-## <a name="personal-desktops-rds-deployment"></a>Für persönliche Desktops RDS-Bereitstellung
+## <a name="personal-desktops-rds-deployment"></a>RDS-Bereitstellung mit persönlichen Desktops
 
-Gruppieren Sie die VMs, damit sie in der Sequenz ist, Hinzufügen von manuellen Schritte und Skripts kommen, für eine RDS-Bereitstellung mit persönliche Desktops.
+Gruppiere die VMs bei einer RDS-Bereitstellung mit persönlichen Desktops, sodass sie nacheinander gestartet werden, und füge manuelle Schritte und Skripts hinzu.
 
-1. Failovergruppe 1: RDS Connection Broker-VM
-2. Gruppe 1 manuelle Aktion - Update DNS
+1. Failovergruppe 1: RDS-Verbindungsbroker-VM
+2. Gruppe 1 manuelle Aktion: DNS aktualisieren
 
-   Führen Sie PowerShell im erweiterten Modus, auf dem virtuellen Computer Verbindung-Broker. Führen Sie den folgenden Befehl aus, und warten Sie einige Minuten, um sicherzustellen, dass das DNS mit den neuen Wert aktualisiert wird:
+   Führe PowerShell im Modus mit erhöhten Rechten auf der Verbindungsbroker-VM aus. Führe den folgenden Befehl aus, und warte einige Minuten, um sicherzustellen, dass das DNS mit den neuen Wert aktualisiert wird:
 
    ```
    ipconfig /registerdns
    ```
-3. Gruppe 1-Skript: Hinzufügen von Virtualisierungshosts
+3. Gruppe 1 Skript: Virtualisierungshosts hinzufügen
       
-   Ändern Sie das folgende Skript auf jedem Virtualisierungshost in der Cloud ausführen. Nachdem Sie einen Virtualisierungshost Verbindungsbrokers hinzugefügt haben, müssen Sie in der Regel den Host neu starten. Stellen Sie sicher, dass der Host verfügt nicht über einen ausstehenden Neustart, bevor Sie das Skript ausgeführt, sonst wird fehlerhaft sein.
+   Ändere das folgende Skript, sodass es auf jedem Virtualisierungshost in der Cloud ausgeführt wird. Nachdem du einem Verbindungsbroker einen Virtualisierungshost hinzugefügt hast, musst du in der Regel den Host neu starten. Bevor das Skript ausgeführt wird, stelle sicher, dass bei dem Host kein Neustart aussteht, andernfalls tritt ein Fehler auf.
 
    ```powershell
    Broker - broker.contoso.com
@@ -134,10 +134,10 @@ Gruppieren Sie die VMs, damit sie in der Sequenz ist, Hinzufügen von manuellen 
    ipmo RemoteDesktop; 
    add-rdserver –ConnectionBroker broker.contoso.com –Role RDS-VIRTUALIZATION –Server VH1.contoso.com 
    ```
-4. Failovergruppe 2 - Vorlagen-VM
-5. Gruppe 2 Skript 1: Aktivieren Sie aus der VM-Vorlage
+4. Failovergruppe 2: Vorlagen-VM
+5. Gruppe 2 Skript 1: Vorlagen-VM deaktivieren
    
-   Der Vorlagen-VM beim Wiederherstellen der an den sekundären Standort wird gestartet, aber es ist ein mit Sysprep vorbereitete virtuelle Computer und kann nicht vollständig gestartet. RDS erfordert auch, dass die VM Herunterfahren auf, um eine in einem Pool zusammengefasste VM-Konfiguration erstellen können. Daher müssen wir diese Funktion zu deaktivieren. Wenn Sie einen einzelnen VMM-Server verfügen, ist der VM-Vorlagenname auf dem primären Replikat identisch und der sekundären Datenbank. Aus diesem Grund verwenden wir die VM-ID gemäß der *Kontext* Variable im Skript unten. Wenn Sie mehrere Vorlagen verfügen, deaktivieren sie alle.
+   Die Vorlagen-VM wird gestartet, wenn sie am sekundären Standort wiederhergestellt wurde, aber für sie wurde eine Systemvorbereitung mit Sysprep durchgeführt und sie kann nicht vollständig gestartet werden. RDS erfordert auch, dass die VM heruntergefahren wird, um eine Konfiguration für in einem Pool zusammengefasste VMs auf ihrer Basis zu erstellen. Daher müssen wir sie deaktivieren. Wenn du einen einzelnen VMM-Server hast, ist der Name der Vorlagen-VM am primären und sekundären Standort identisch. Aus diesem Grund verwenden wir die VM-ID wie von der *Kontextvariablen* im folgenden Skript festgelegt. Wenn du über mehrere Vorlagen verfügst, deaktiviere alle.
 
    ```powershell
    ipmo virtualmachinemanager; 
@@ -146,10 +146,10 @@ Gruppieren Sie die VMs, damit sie in der Sequenz ist, Hinzufügen von manuellen 
       Get-SCVirtualMachine -ID $vm | Stop-SCVirtualMachine –Force
    } 
    ```
-6. Gruppe 3: Persönliche virtuelle Computer für Failover
-7. 3 Skript 1: Entfernen Sie vorhandene persönliche virtuelle Computer, und fügen Sie
+6. Failovergruppe 3: Persönliche virtuelle Computer
+7. Gruppe 3 Skript 1: vorhandene persönliche virtuelle Computer entfernen und hinzufügen
 
-   Entfernen Sie die persönliche virtuelle Computer, auf dem primären Standort aus der Verbindungsbroker ein, damit neue virtuelle Computer am sekundären Standort erstellt werden können. Sie müssen die VMs Zuweisungen zu extrahieren und die virtuellen Computer erneut an den Broker für die Verbindung mit dem Hashwert der Zuweisungen hinzufügen. Nur die persönliche virtuelle Computer aus der Auflistung entfernt und erneut hinzufügen. Die Zuordnung für persönliche Desktops exportiert und importiert in der Auflistung.
+   Entferne die persönlichen VMs am primären Standort aus dem Verbindungsbroker, damit am sekundären Standort neue VMs erstellt werden können. Du musst die Zuweisungen der VMs extrahieren und die virtuellen Computer mit dem Zuweisungenhash erneut dem Verbindungsbroker hinzufügen. Damit werden nur die persönlichen virtuellen Computer aus der Sammlung entfernt und erneut hinzugefügt. Die Zuordnung des persönlichen Desktops wird exportiert und wieder in die Sammlung importiert.
 
    ```powershell
    ipmo RemoteDesktop
@@ -162,8 +162,8 @@ Gruppieren Sie die VMs, damit sie in der Sequenz ist, Hinzufügen von manuellen 
    
    Import-RDPersonalVirtualDesktopAssignment -CollectionName CEODesktops -Path ./Desktopallocations.txt -ConnectionBroker broker.contoso.com 
    ```
-8. Failovergruppe 3 – Web Access und Gateway-Server-VM
+8. Failovergruppe 3: Webzugriff und Gatewayserver-VM
 
-Ihr Plan wird wie folgt aussehen: 
+Dein Plan sieht etwa so aus: 
 
-![Einen Notfallwiederherstellungsplan für eine persönliche Desktops RDS-Bereitstellung](media/rds-asr-personal-desktops-drplan.png)
+![Ein Notfallwiederherstellungs-Plan für eine RDS-Bereitstellung mit persönlichen Desktops](media/rds-asr-personal-desktops-drplan.png)

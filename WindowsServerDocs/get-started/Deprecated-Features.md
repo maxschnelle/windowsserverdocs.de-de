@@ -1,6 +1,6 @@
 ---
 title: In Windows Server 2016 entfernte oder veraltete Features
-description: Eine Liste der Features und Funktionen in Windows Server 2016, die entweder in der aktuellen Version aus dem Produkt entfernt wurden oder geplant sind, sollen in künftigen Versionen (veraltet). Sie ist für IT-Experten vorgesehen, die Betriebssysteme in einer kommerziellen Umgebung aktualisieren.
+description: Hier findest du eine Liste der Features und Funktionen in Windows Server 2016, die aus der aktuellen Version des Produkts entfernt wurden oder möglicherweise in künftigen Versionen entfernt werden sollen („veraltet“). Sie ist für IT-Experten vorgesehen, die Betriebssysteme in einer kommerziellen Umgebung aktualisieren.
 ms.prod: windows-server-threshold
 ms.technology: server-general
 ms.topic: article
@@ -11,10 +11,10 @@ ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
 ms.openlocfilehash: 83855cf7e4fa86a932298dd15735dc5bf7277dfb
-ms.sourcegitcommit: c8cc0b25ba336a2aafaabc92b19fe8faa56be32b
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "65976606"
 ---
 # <a name="features-removed-or-deprecated-in--windows-server-2016"></a>In Windows Server 2016 entfernte oder veraltete Features
@@ -23,7 +23,7 @@ ms.locfileid: "65976606"
 
 Es folgt eine Liste der Features und Funktionen in Windows Server 2016, die für die aktuelle Version aus dem Produkt entfernt wurden oder möglicherweise in künftigen Versionen entfernt werden sollen („veraltet“). Sie ist für IT-Experten vorgesehen, die Betriebssysteme in einer kommerziellen Umgebung aktualisieren. Für diese Liste sind Änderungen in zukünftigen Versionen vorbehalten. Zudem enthält sie möglicherweise nicht alle veralteten Features oder Funktionen. Weitere Details zu bestimmten Features oder Funktionen und ihrer jeweiligen Ersetzung finden Sie in der zugehörigen Dokumentation.
 
-Informationen zu was entfernt oder in neueren Versionen als veraltet markiert wurde, finden Sie unter [Funktionen entfernt oder ersetzt, die ab Windows Server-2019](../get-started-19/removed-features-19.md).
+Informationen über Features, die in neueren Versionen entfernt oder als „veraltet“ gekennzeichnet wurden, findest du unter [Entfernte oder zur Ersetzung vorgesehene Features in Windows Server 2019](../get-started-19/removed-features-19.md).
 
 ## <a name="features-removed-from-windows-server-2016"></a>In Windows Server 2016 entfernte Features
 
@@ -46,21 +46,21 @@ Die Snap-In „Freigabe- und Speicherverwaltung“ für die Microsoft Management
 Die Datei „Journal.dll“ wurde aus Windows Server 2016 entfernt. Es gibt keinen Ersatz.  
 
 ### <a name="security-configuration-wizard"></a>Sicherheitskonfigurations-Assistent  
-Der Sicherheitskonfigurations-Assistent wurde entfernt. Stattdessen werden Features standardmäßig gesichert. Wenn Sie bestimmte Sicherheitseinstellungen steuern müssen, können Sie Gruppenrichtlinien oder [Microsoft Security Compliance Manager](https://technet.microsoft.com/solutionaccelerators/cc835245.aspx)verwenden.  
+Der Sicherheitskonfigurations-Assistent wurde entfernt. Stattdessen werden Features standardmäßig gesichert. Wenn Sie bestimmte Sicherheitseinstellungen steuern müssen, können Sie Gruppenrichtlinien oder [Microsoft Security Compliance Manager](https://technet.microsoft.com/solutionaccelerators/cc835245.aspx) verwenden.  
 
 ### <a name="sqm"></a>SQM  
 Die Anmeldungskomponenten, mit der die Teilnahme am Programm zur Verbesserung der Benutzerfreundlichkeit verwaltet wurden, sind entfernt worden. 
 
 ### <a name="windows-update"></a>Windows Update
-Der Befehl **wuauclt.exe /detectnow** wurde entfernt und wird nicht mehr unterstützt. Wählen Sie eine der Optionen, um einen Updatescan auszulösen:
+Der Befehl **wuauclt.exe /detectnow** wurde entfernt und wird nicht mehr unterstützt. Führe einen der folgenden Schritte aus, um eine Überprüfung auf Updates auszulösen:
 
-- Führen Sie diese PowerShell-Befehle aus:
+- Führe diese PowerShell-Befehle aus:
     ````powershell
     $AutoUpdates = New-Object -ComObject "Microsoft.Update.AutoUpdate"`
     $AutoUpdates.DetectNow()` 
     ````
 
-- Verwenden Sie alternativ hierzu dieses VBScript:
+- Verwende alternativ dazu dieses VBScript:
     ````vb
     Set automaticUpdates = CreateObject("Microsoft.Update.AutoUpdate")
     automaticUpdates.DetectNow()

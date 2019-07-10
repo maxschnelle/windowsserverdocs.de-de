@@ -15,10 +15,10 @@ ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
 ms.openlocfilehash: 299cf420b44e4a15985d00489edf84784316540d
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66810577"
 ---
 # <a name="upgrade-and-conversion-options-for-windows-server-2016"></a>Upgrade- und Konvertierungsoptionen für Windows Server 2016
@@ -29,7 +29,7 @@ Dieses Thema enthält Informationen zum Aktualisieren auf Windows Server® 2016 
 
 Abhängig vom Ausgangsbetriebssystem und der gewählten Methode kann die Vorgehensweise bei der Migration zu Windows Server 2016 stark variieren. Mithilfe der folgenden Begriffe unterscheiden wir zwischen verschiedenen Aktionen, die alle eine Rolle in einer neuen Bereitstellung von Windows Server 2016 spielen können.
 
-- Durch die **Installation** gelangt das neue Betriebssystem auf Ihre Hardware. Bei einer **Neuinstallation** muss das vorherige Betriebssystem gelöscht werden. Weitere Informationen zum Installieren von Windows Server 2016 finden Sie unter [Systemanforderungen und Installation](https://technet.microsoft.com/windows-server-docs/get-started/system-requirements--and-installation). Weitere Informationen zum Installieren anderer Versionen von Windows Server finden Sie unter [Installation und Upgrade von Windows Server](https://technet.microsoft.com//windowsserver/dn527667).
+- Durch die **Installation** gelangt das neue Betriebssystem auf Ihre Hardware. Bei einer **Neuinstallation** muss das vorherige Betriebssystem gelöscht werden. Weitere Informationen zum Installieren von Windows Server 2016 finden Sie unter [Systemanforderungen und Installation](https://technet.microsoft.com/windows-server-docs/get-started/system-requirements--and-installation). Weitere Informationen zum Installieren anderer Versionen von Windows Server finden Sie unter [Windows Server Installation and Upgrade (Windows Server Installation und Upgrade)](https://technet.microsoft.com//windowsserver/dn527667).
 
 - **Migration** bezeichnet den Wechsel vom vorhandenen Betriebssystem zu Windows Server 2016 durch die Übertragung auf andere Hardwarekomponenten oder auf virtuelle Computer. Ausführliche Informationen zur Migration, die abhängig von den installierten Serverrollen stark variieren kann, finden Sie unter [Windows Server Installation, Upgrade, and Migration (Windows Server-Installation, -Upgrade und -Migration)](https://technet.microsoft.com/windowsserver/dn458795).
 
@@ -43,7 +43,7 @@ Abhängig vom Ausgangsbetriebssystem und der gewählten Methode kann die Vorgehe
 > Das Upgrade funktioniert am Besten auf virtuellen Computern, auf denen keine spezifischen OEM Hardwaretreiber für ein erfolgreiches Upgrade benötigt werden.  
 
 > [!IMPORTANT]  
-> Für ältere Versionen von Windows Server 2016 als 14393.0.161119-1705.RS1_REFRESH **können Sie diese Konvertierung der Evaluierungsversion in eine Verkaufsversion** nur mit Windows Server 2016 durchführen, das mithilfe der Option „Desktopdarstellung“ installiert wurde (und nicht mit der Server Core-Option). Ab Version 14393.0.161119-1705. RS1_REFRESH können Sie Testversionen unabhängig von der verwendeten Installationsoption in Einzelhandelsversionen konvertieren.
+> Für Windows Server 2016-Versionen vor 14393.0.161119-1705.RS1_REFRESH **kannst du die Konvertierung der Evaluierungsversion in eine Verkaufsversion** nur mit Windows Server 2016 durchführen, das mithilfe der Option „Desktopdarstellung“ installiert wurde (nicht mit der Server Core-Option). Ab Version 14393.0.161119-1705.RS1_REFRESH kannst du Testversionen unabhängig von der verwendeten Installationsoption in Verkaufsversionen konvertieren.
 
 > [!IMPORTANT]  
 > Wenn Ihr Server den NIC-Teamvorgang verwendet, deaktivieren Sie diesen vor dem Upgrade, und aktivieren Sie ihn erneut, wenn das Upgrade abgeschlossen ist. Weitere Details finden Sie unter [NIC-Teamvorgang: Übersicht](https://technet.microsoft.com/library/hh831648(v=ws.11).aspx).
@@ -68,12 +68,12 @@ Werden in der rechten Spalte mehrere Editionen angezeigt, wird das Upgrade auf *
 |Ausgeführte Edition:|Zieleditionen:|  
 |-------------------|----------|  
 |Windows Server2012 Standard|Windows Server 2016 Standard oder Datacenter|
-|Windows Server2012 Datacenter|Windows Server 2016 Datacenter|
-|Windows Server 2012 R2 Standard|Windows Server 2016 Standard oder Datacenter|
-|Windows Server2012R2 Datacenter|Windows Server 2016 Datacenter|
+|Windows Server 2012 Datacenter|Windows Server 2016 Datacenter|
+|Windows Server 2012 R2 Standard|Windows Server 2016 Standard oder Datacenter|
+|Windows Server 2012 R2 Datacenter|Windows Server 2016 Datacenter|
 |Windows Server 2012 R2 Essentials|Windows Server 2016 Essentials|
 |Windows Storage Server2012 Standard|Windows Storage Server 2016 Standard|
-|Windows Storage Server2012 Workgroup|Windows Storage Server 2016 Workgroup|
+|Windows Storage Server 2012 Workgroup|Windows Storage Server 2016 Workgroup|
 |Windows Storage Server 2012 R2 Standard|Windows Storage Server 2016 Standard|
 |Arbeitsgruppe unter Windows Storage Server 2012 R2|Windows Storage Server 2016 Workgroup|
 
@@ -87,11 +87,11 @@ Auch bei unterstützten Upgradepfaden von älteren Verkaufsversionen auf Windows
 Sie können die Evaluierungsversion von Windows Server 2016 Standard in Windows Server 2016 Standard (Verkaufsversion) oder Datacenter (Verkaufsversion) konvertieren. Entsprechend können Sie die Evaluierungsversion von Windows Server 2016 Datacenter in die Verkaufsversion konvertieren.
 
 > [!IMPORTANT]  
-> Für ältere Versionen von Windows Server 2016 als 14393.0.161119-1705.RS1_REFRESH können Sie diese Konvertierung aus der Test- in die Einzelhandelsversion nur mit Windows Server 2016 ausführen, das unter Verwendung der Option „Desktopdarstellung“ installiert wurde (und nicht mit der Server Core-Option). Ab Version 14393.0.161119-1705. RS1_REFRESH können Sie Testversionen unabhängig von der verwendeten Installationsoption in Einzelhandelsversionen konvertieren.
+> Für Windows Server 2016-Versionen vor 14393.0.161119-1705.RS1_REFRESH kannst du diese Konvertierung der Evaluierungsversion in eine Verkaufsversion nur mit Windows Server 2016 durchführen, das mithilfe der Option „Desktopdarstellung“ installiert wurde (nicht mit der Server Core-Option). Ab Version 14393.0.161119-1705.RS1_REFRESH kannst du Testversionen unabhängig von der verwendeten Installationsoption in Verkaufsversionen konvertieren.
 
 Vergewissern Sie sich vor dem Konvertieren der Evaluierungsversion in eine Verkaufsversion, dass auf dem Server wirklich eine Evaluierungsversion ausgeführt wird. Führen Sie hierzu eine der folgenden Aktionen aus:
 
-- Führen Sie an einer Eingabeaufforderung mit erhöhten Rechten den Befehl **slmgr.vbs /dlv**aus. Für Evaluierungsversionen ist in der Ausgabe “EVAL” angegeben.
+- Führen Sie an einer Eingabeaufforderung mit erhöhten Rechten den Befehl **slmgr.vbs /dlv**aus. Für Evaluierungsversionen ist in der Ausgabe %%amp;quot;EVAL%%amp;quot; angegeben.
 
 - Öffnen Sie auf der Startseite die **Systemsteuerung**. Öffnen Sie **System und Sicherheit**und anschließend **System**. Sehen Sie sich auf der Seite **System** im Windows-Aktivierungsbereich den Windows-Aktivierungsstatus an. Klicken Sie in der Windows-Aktivierung auf **Details anzeigen**, um weitere Informationen zum Status Ihrer Windows-Aktivierung anzuzeigen.
 
@@ -99,7 +99,7 @@ Wurde Windows bereits aktiviert, wird auf dem Desktop die verbleibende Evaluieru
 
 Wenn auf dem Server eine Verkaufsversion anstelle einer Evaluierungsversion ausgeführt wird, finden Sie in diesem Thema im Abschnitt "Aktualisieren älterer Verkaufsversionen von Windows Server auf Windows Server 2016" Anweisungen zum Aktualisieren auf Windows Server 2016.
 
-Für **Windows Server 2016 Essentials**: Sie können in der vollständigen Verkaufsversion konvertieren, hierzu eine im Einzelhandel, Volumenlizenzierung oder OEM-Product Key im Befehl **%% amp;quot;slmgr.vbs%%amp;quot;** .
+Für **Windows Server 2016 Essentials**: Du kannst eine Konvertierung in die Vollversion für den Verkauf vornehmen, indem du im Befehl **slmgr.vbs** einen Verkaufsschlüssel, einen Volumenlizenzschlüssel oder einen OEM-Schlüssel eingibst.
 
 Wird auf dem Server eine Evaluierungsversion von Windows Server 2016 Standard oder Windows Server 2016 Datacenter ausgeführt, können Sie diese wie folgt in eine Verkaufsversion konvertieren:
 
@@ -110,14 +110,14 @@ Wird auf dem Server eine Evaluierungsversion von Windows Server 2016 Standard od
 Für die Evaluierungsversion von Windows Server 2016 Standard kann ebenfalls in einem einzelnen Schritt eine Umwandlung in die Verkaufsversion von Windows Server 2016 Datacenter ausgeführt werden. Verwenden Sie hierzu den gleichen Befehl und den passenden Product Key.
 
 > [!TIP] 
-> Weitere Informationen zu Dism.exe finden Sie unter [DISM-Befehlszeilenoptionen](https://go.microsoft.com/fwlink/?LinkId=192466).
+> Weitere Informationen zu „Dism.exe“ findest du unter [DISM-Befehlszeilenoptionen](https://go.microsoft.com/fwlink/?LinkId=192466).
 
 ## <a name="converting-a-current-retail-edition-to-a-different-current-retail-edition"></a>Konvertieren einer aktuellen Verkaufsedition in eine andere aktuelle Verkaufsedition
 
 Nach der Installation von Windows Server 2016 können Sie jederzeit das Setup ausführen, um die Installation zu reparieren (Überschreiben der vorhandenen Version) oder – in bestimmten Fällen – zu einer anderen Edition zu wechseln.
 Das Überschreiben der vorhandenen Version durch Ausführen des Setups ist für jede Edition von Windows Server 2016 möglich. Als Ergebnis erhalten Sie wieder die Ausgangsedition.
 
-Für Windows Server 2016 Standard können Sie das System wie folgt zu Windows Server 2016 Datacenter konvertieren: Ermitteln Sie an einer Eingabeaufforderung mit erhöhten Rechten durch Ausführen des Befehls **DISM /online /Get-CurrentEdition**den Namen der aktuellen Edition. In Windows Server 2016 Standard ist das `ServerStandard`. Führen Sie den Befehl **DISM / online/Get-TargetEditions** beim Abrufen der ID der Edition, können Sie auf aktualisieren. Notieren Sie sich diese Edition ID abgekürzter Form der Namen der Edition. Führen Sie dann **DISM / online/Set-Edition:\<Editions-ID\> /ProductKey: XXXXX-XXXXX-XXXXX-XXXXX/AcceptEula**, die Editions-ID für Ihr Ziel und den Product Key die Verkaufsversion bereitstellen. Der Server wird zweimal neu gestartet.
+Bei Windows Server 2016 Standard kannst du das System wie folgt zu Windows Server 2016 Datacenter konvertieren: Ermitteln Sie an einer Eingabeaufforderung mit erhöhten Rechten durch Ausführen des Befehls **DISM /online /Get-CurrentEdition**den Namen der aktuellen Edition. Bei Windows Server 2016 Standard ist dies `ServerStandard`. Führe den Befehl **DISM /online /Get-TargetEditions** aus, um die ID der Edition abzurufen, auf die du ein Upgrade durchführen kannst. Notiere dir die Editions-ID (eine abgekürzte Version des Editionsnamens). Führe dann **DISM /online /Set-Edition:\<Editions-ID\> /ProductKey:XXXXX-XXXXX-XXXXX-XXXXX-XXXXX /AcceptEula** aus, und stelle die Editions-ID sowie den zugehörigen Product Key für die Verkaufsversion bereit. Der Server wird zweimal neu gestartet.
 
 ## <a name="converting-a-current-retail-version-to-a-current-volume-licensed-version"></a>Konvertieren einer aktuellen Verkaufsversion in eine aktuelle Volumenlizenzversion
 

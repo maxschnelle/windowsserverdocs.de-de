@@ -1,6 +1,6 @@
 ---
 title: 'Datenträgerverwaltung: Übersicht'
-description: Die Datenträgerverwaltung ist ein Systemprogramm in Windows, die Ihnen ermöglicht, erweiterte Storage-Aufgaben, z. B. ein neues Laufwerk zu initialisieren, Erweitern von Volumes, Verkleinern von Partitionen und Ändern von Laufwerkbuchstaben auszuführen.
+description: Die Datenträgerverwaltung ist ein Systemhilfsprogramm unter Windows, mit dem du erweiterte Speicheraufgaben ausführen kannst, wie z.B. die Initialisierung eines neuen Laufwerks, die Erweiterung von Volumes, das Schrumpfen von Partitionen und das Ändern von Laufwerksbuchstaben.
 ms.date: 06/07/2019
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -9,54 +9,54 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: a3885ae6b09ad431fd1ea5e4c593e02c7bb274d9
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66812548"
 ---
 # <a name="overview-of-disk-management"></a>Datenträgerverwaltung: Übersicht
 
-> **Gilt für:** Windows 10, Windows 8.1, Windows 7, WindowsServer (Halbjährlicher Kanal), WindowsServer 2019, WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012
+> **Gilt für:** Windows 10, Windows 8.1, Windows 7, Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Die Datenträgerverwaltung ist ein Systemprogramm in Windows, die Sie erweiterte Aufgaben ausführen können. Hier sind einige Dinge, die die Datenträgerverwaltung für geeignet ist:
+Die Datenträgerverwaltung ist ein Systemhilfsprogramm unter Windows, mit dem du erweiterte Speicheraufgaben ausführen kannst. Die Datenträgerverwaltung ist u.a. für folgende Aufgaben geeignet:
 
-- Um ein neues Laufwerk einrichten zu können, finden Sie unter [initialisieren ein neues Laufwerk](initialize-new-disks.md).
-- Zum Erweitern eines Volumes in den Speicherplatz, der nicht bereits Teil eines Volumes auf dem gleichen Laufwerk ist, finden Sie unter [Erweitern eines Basisvolumes](extend-a-basic-volume.md).
-- Verkleinern Sie eine Partition, in der Regel, damit Sie eine Partition benachbarte erweitern können, finden Sie unter [Verkleinern eines Basisvolumes](shrink-a-basic-volume.md).
-- Um einen Laufwerkbuchstaben zu ändern oder einen neuen Laufwerkbuchstaben zuweisen, finden Sie unter [ändern Sie einen Laufwerkbuchstaben](change-a-drive-letter.md).
+- Informationen zum Einrichten eines neuen Laufwerks findest du unter [Initialisieren neuer Datenträger](initialize-new-disks.md).
+- Wie du ein Volume in einen Speicherplatz hinein erweiterst, der nicht bereits Teil eines Volumes auf demselben Laufwerk ist, erfährst du unter [Erweitern eines Basisvolumes](extend-a-basic-volume.md).
+- Wie du eine Partition so verkleinerst, dass du eine benachbarte Partition erweitern kannst, erfährst du unter [Verkleinern eines Basisvolumes](shrink-a-basic-volume.md).
+- Wie du einen Laufwerkbuchstaben änderst oder einen neuen Laufwerkbuchstaben zuweist, erfährst du unter [Ändern eines Laufwerkbuchstabens](change-a-drive-letter.md).
 
-![Ein typisches Laufwerk mit drei Partitionen – eine Systempartition 499 MB, ein größeres C-Laufwerk für Windows und einer anderen 499 MB-Partition für die Wiederherstellung mit Datenträger-Verwaltung](media/disk-management.png)
+![Datenträgerverwaltung mit einem typischen Laufwerk mit drei Partitionen – einer 499-MB-Systempartition, einem größeren C-Laufwerk für Windows und einer weiteren 499-MB-Partition für die Wiederherstellung.](media/disk-management.png)
 
 > [!TIP]
->  Wenn Sie eine Fehlermeldung erhalten oder etwas nicht möglich, wenn diese Verfahren befolgen, nehmen Sie einen Blick die [Datenträgerverwaltung: Problembehandlung](troubleshooting-disk-management.md) Thema. Wenn dies nicht helfen – keine Panik! Auf eine Fülle von Informationen ist die [Microsoft-Community](https://answers.microsoft.com/en-us/windows) site – suchen Sie die [Dateien, Ordner und Speicher](https://answers.microsoft.com/en-us/windows/forum/windows_10-files?sort=lastreplydate&dir=desc&tab=All&status=all&mod=&modAge=&advFil=&postedAfter=&postedBefore=&threadType=all&isFilterExpanded=true&tm=1514405359639) aus, und wenn Sie weitere Hilfe benötigen, senden, gibt es eine Frage und von Microsoft oder anderen Mitgliedern der der Community versucht, die helfen. Wenn Sie Feedback zum Verbessern der in diesen Themen haben, wir würden uns über Ihre anregungen! Beantworten Sie einfach die *ist diese Seite hilfreich?* Eingabeaufforderung ein, und lassen Sie alle Kommentare, dort oder aber in der öffentlichen Kommentare Thread am Ende dieses Themas.
+>  Wenn du beim Befolgen dieser Verfahren eine Fehlermeldung erhältst oder etwas nicht funktioniert, wirf einen Blick in das Thema [Datenträgerverwaltung: Problembehandlung](troubleshooting-disk-management.md). Wenn dies nicht hilft – keine Panik! In der [Microsoft-Community](https://answers.microsoft.com/en-us/windows) stehen jede Menge Informationen zur Verfügung. Durchsuche am besten den Abschnitt [Dateien, Ordner und Onlinespeicher](https://answers.microsoft.com/en-us/windows/forum/windows_10-files?sort=lastreplydate&dir=desc&tab=All&status=all&mod=&modAge=&advFil=&postedAfter=&postedBefore=&threadType=all&isFilterExpanded=true&tm=1514405359639). Solltest du danach immer noch Hilfe benötigen, kannst du dort eine Frage stellen, die dann von Microsoft oder von anderen Mitgliedern der Community beantwortet wird. Wir freuen uns auch über Feedback zu Verbesserungsmöglichkeiten bei diesen Themen. Beantworte einfach die Frage *Ist diese Seite hilfreich?* , und hinterlasse dort oder in den öffentlichen Kommentaren am Ende dieses Themas einen Kommentar.
 
-Hier sind einige allgemeinen Aufgaben, die Sie tun möchten, können jedoch, die anderen Tools in Windows verwenden:
+Die folgenden gängigen Aufgaben möchtest du vielleicht erledigen, aber hierfür werden andere Tools in Windows verwendet:
 
-- Zum Freigeben von Speicherplatz finden Sie unter [Speicherplatz auf Laufwerk in Windows 10-](https://support.microsoft.com/help/12425/windows-10-free-up-drive-space).
-- Um Ihre Laufwerke defragmentieren möchten, finden Sie unter [Ihres Windows 10-PCs zu defragmentieren](https://support.microsoft.com/help/4026701/windows-defragment-your-windows-10-pc).
-- Mehrere Festplatten und pool zusammen, wie ein RAID, finden Sie unter [Speicherplätze](https://support.microsoft.com/help/12438/windows-10-storage-spaces).
+- Wie du Speicherplatz freigibst, erfährst du unter [Freigeben von Speicherplatz unter Windows 10](https://support.microsoft.com/help/12425/windows-10-free-up-drive-space).
+- Wie du deine Laufwerke defragmentierst, erfährst du unter [Defragmentieren des Windows 10-PCs](https://support.microsoft.com/help/4026701/windows-defragment-your-windows-10-pc).
+- Wie du mehrere Festplatten in einem Pool ähnlich einem RAID zusammenfasst, erfährst du unter [Speicherplätze unter Windows 10](https://support.microsoft.com/help/12438/windows-10-storage-spaces).
 
 ## <a name="about-those-extra-recovery-partitions"></a>Informationen zu diesen zusätzlichen Wiederherstellungspartitionen
 
-Für den Fall, dass Sie wissen (Wir haben Ihre Kommentare lesen!), umfasst Windows in der Regel drei Partitionen auf dem Haupt-Laufwerk (normalerweise C:\ Laufwerk):
+Falls du neugierig bist (wir haben deine Kommentare gelesen!): Windows umfasst typischerweise drei Partitionen auf deinem Hauptlaufwerk (normalerweise das C:-Laufwerk):
 
-![Datenträger 0 mit drei Partitionen – eine EFI-Systempartition, die Windows-Partition und einer Wiederherstellungspartition](media/windows-partitions.png)
+![Datenträger 0 mit drei Partitionen – eine EFI-Systempartition, die Windows-Partition und eine Wiederherstellungspartition](media/windows-partitions.png)
 
-- **EFI-Systempartition** – wird von modernen PCs zum (start) verwendet Ihr PC und ein Betriebssystem.
-- **Windows-Betriebssystemlaufwerk (c)** – Dies ist, auf dem Windows installiert ist, und in der Regel fügen Sie den Rest Ihrer apps und Dateien hinzu.
-- **Wiederherstellungspartition** – Dies ist, in denen spezielle Tools gespeichert sind, können Sie die Windows wiederherstellen, falls es Probleme beim Starten oder andere ernsthafte Probleme ausgeführt wird.
+- **EFI-Systempartition**: Sie wird bei modernen PCs zum Starten (Booten) des PCs und des Betriebssystems verwendet.
+- **Windows-Betriebssystemlaufwerk (C:)** : Hier ist Windows installiert ist, und in der Regel speicherst du dort deine übrigen Apps und Dateien.
+- **Wiederherstellungspartition**: Hier werden spezielle Tools gespeichert, die dir bei der Wiederherstellung von Windows helfen, falls Probleme beim Starten oder andere schwerwiegende Probleme auftreten.
 
-Obwohl Datenträgerverwaltung die EFI-Systempartition und die Wiederherstellungspartition als 100 % frei anzeigen kann, ist es zurück. Diese Partitionen sind in der Regel ziemlich voller wirklich wichtigen Dateien, die Ihr PC benötigt wird, ordnungsgemäß funktioniert. Es wird empfohlen, lassen Sie sie allein dazu ihre Arbeit, starten Ihren PC, und so können Sie die Probleme zu beheben.
+Wenn die Datenträgerverwaltung die EFI-Systempartition und die Wiederherstellungspartition als 100% frei anzeigt, lügt sie. Diese Partitionen enthalten in der Regel viele wirklich wichtige Dateien, die dein PC benötigt, um ordnungsgemäß zu funktionieren. Du solltest sie einfach in Ruhe ihre Arbeit erledigen lassen, damit sie deinen PC starten und dir helfen, Probleme zu beheben.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
 - [Verwalten von Datenträgern](manage-disks.md)
 - [Verwalten von Basisvolumes](manage-basic-volumes.md)
 - [Datenträgerverwaltung: Problembehandlung](troubleshooting-disk-management.md)
-- [Wiederherstellungsoptionen im Windows 10](https://support.microsoft.com/help/12415/windows-10-recovery-options)
-- [Suchen nach verlorenen Dateien nach der Aktualisierung auf Windows 10](https://support.microsoft.com/help/12386/windows-10-find-lost-files-after-update)
-- [Sichern und Wiederherstellen von Dateien](https://support.microsoft.com/help/17143/windows-10-back-up-your-files)
-- [Erstellen Sie ein Wiederherstellungslaufwerk](https://support.microsoft.com/help/4026852/windows-create-a-recovery-drive)
+- [Wiederherstellungsoptionen unter Windows 10](https://support.microsoft.com/help/12415/windows-10-recovery-options)
+- [Suchen nach fehlenden Dateien nach dem Upgrade auf Windows 10](https://support.microsoft.com/help/12386/windows-10-find-lost-files-after-update)
+- [Sichern und Wiederherstellen in Windows 10](https://support.microsoft.com/help/17143/windows-10-back-up-your-files)
+- [Erstellen eines Wiederherstellungslaufwerks](https://support.microsoft.com/help/4026852/windows-create-a-recovery-drive)
 - [Erstellen eines Systemwiederherstellungspunkts](https://support.microsoft.com/help/4027538/windows-create-a-system-restore-point)
-- [Suchen Sie die BitLocker-Wiederherstellungsschlüssel](https://support.microsoft.com/help/4026181/windows-find-my-bitlocker-recovery-key)
+- [Suchen des BitLocker-Wiederherstellungsschlüssels](https://support.microsoft.com/help/4026181/windows-find-my-bitlocker-recovery-key)

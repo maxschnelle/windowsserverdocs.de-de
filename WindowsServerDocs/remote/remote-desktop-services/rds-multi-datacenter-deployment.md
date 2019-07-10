@@ -1,6 +1,6 @@
 ---
-title: Geo-redundant RDS-Rechenzentren in Azure
-description: Erfahren Sie, wie eine RDS-Bereitstellung zu erstellen, die mehrere Rechenzentren verwendet werden, um hochverfügbarkeit über geografische Standorte hinweg bereitzustellen.
+title: Georedundante RDS-Rechenzentren in Azure
+description: Hier erfährst du, wie du eine RDS-Bereitstellung erstellst, die mehrere Rechenzentren nutzt, um Hochverfügbarkeit über mehrere geografische Standorte hinweg zu bieten.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -14,85 +14,85 @@ ms.author: elizapo
 ms.date: 06/14/2017
 manager: dongill
 ms.openlocfilehash: 2d12062f302c28a8124e0aa49af7f441e77ffe33
-ms.sourcegitcommit: 8ba2c4de3bafa487a46c13c40e4a488bf95b6c33
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/25/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66222793"
 ---
-# <a name="create-a-geo-redundant-multi-data-center-rds-deployment-for-disaster-recovery"></a>Erstellen einer Geo-redundant, mit mehreren Daten Center RDS-Bereitstellung für die notfallwiederherstellung
+# <a name="create-a-geo-redundant-multi-data-center-rds-deployment-for-disaster-recovery"></a>Erstellen einer georedundanten RDS-Bereitstellung mit mehreren Rechenzentren für die Notfallwiederherstellung
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2019, WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016
 
-Sie können die Wiederherstellung im Notfall für Ihre Remote Desktop Services-Bereitstellung aktivieren, durch die Nutzung von mehreren Rechenzentren in Azure. Im Gegensatz zu einer standard hoch verfügbaren RDS-Bereitstellung (wie in der [Remote Desktop Services-Architektur](desktop-hosting-logical-architecture.md)), die Rechenzentren in einer einzelnen Azure-Region (z.B. Europa, Westen) verwendet, eine Bereitstellung mit mehreren Data Center verwendet die Daten Rechenzentren an mehreren geografischen Standorten befinden, erhöhen die Verfügbarkeit Ihrer Bereitstellung – eine Azure-Rechenzentrum ist möglicherweise nicht verfügbar, aber es ist unwahrscheinlich, dass mehrere Regionen zur gleichen Zeit ausfallen würde. Durch die Bereitstellung eines geografisch redundanten RDS-Architektur, können Sie Failover im Fall von schwerwiegenden Fehler einer gesamten Region aktivieren.
+Du kannst eine Notfallwiederherstellung für die Remotedesktopdienste-Bereitstellung (Remote Desktop Services, RDS) einrichten, indem du mehrere Rechenzentren in Azure nutzt. Im Gegensatz zu einer standardmäßigen hoch verfügbaren RDS-Bereitstellung (wie in der [Architektur der Remotedesktopdienste](desktop-hosting-logical-architecture.md) beschrieben), bei der Rechenzentren in einer einzigen Azure-Region (z.B. „Europa, Westen“) genutzt werden, verwendet eine georedundante Bereitstellung mehrere Rechenzentren in mehreren geografischen Regionen. Dadurch wird die Verfügbarkeit der gesamten Bereitstellung erhöht: Es kann passieren, dass ein Azure-Rechenzentrum nicht mehr verfügbar ist, aber dass mehrere Regionen gleichzeitig ausfallen, ist höchst unwahrscheinlich. Durch Bereitstellung einer georedundanten RDS-Architektur kannst du ein Failover aktivieren, falls eine komplette Region vollständig ausfallen sollte.
 
-Können Sie die nachstehenden Anweisungen für die Nutzung von Microsoft Azure-Infrastrukturdiensten und RDS zum Bereitstellen von geografisch redundanten Desktop hostende Dienste und Subscriber Access Licenses, (SALs) mit mehreren Mandanten über das [Microsoft Service Provider License Agreement (SPLA)-Programm](https://www.microsoft.com/hosting/licensing/splabenefits.aspx). Sie können auch die folgenden Schritte verwenden, erstellen Sie ein Geo-redundant-Hostingdienst für Ihre eigenen Mitarbeiter mit [RDS-Benutzer-CALs erweiterten Rechte durch Software Assurance](https://download.microsoft.com/download/6/B/A/6BA3215A-C8B5-4AD1-AA8E-6C93606A4CFB/Windows_Server_2012_R2_Remote_Desktop_Services_Licensing_Datasheet.pdf).
+Mit der unten stehenden Anleitung kannst du die Microsoft Azure-Infrastrukturdienste und die Remotedesktopdienste nutzen, um über das [Microsoft SPLA-Programm](https://www.microsoft.com/hosting/licensing/splabenefits.aspx) (Service Provider License Agreement) georedundante Desktophostingdienste und Abonnentenzugriffslizenzen (Subscriber Access Licenses, SALs) auf mehreren Mandanten bereitzustellen. Du kannst die Schritte auch nutzen, um über [erweiterte Rechte für RDS-Benutzer-CALs durch Software Assurance](https://download.microsoft.com/download/6/B/A/6BA3215A-C8B5-4AD1-AA8E-6C93606A4CFB/Windows_Server_2012_R2_Remote_Desktop_Services_Licensing_Datasheet.pdf) einen georedundanten Hostingdienst für deine eigenen Mitarbeiter zu erstellen.
 
-## <a name="logical-architecture-for-high-availability---single-and-multiple-regions"></a>Logische Architektur für hohe Verfügbarkeit – einzelne und mehrere Regionen
-Die folgende Abbildung zeigt die Architektur für eine hoch verfügbare Bereitstellung in einer Azure-Region an:
+## <a name="logical-architecture-for-high-availability---single-and-multiple-regions"></a>Logische Architektur für Hochverfügbarkeit – in einzelnen oder mehreren Regionen
+Die folgende Abbildung zeigt die Architektur für eine hoch verfügbare Bereitstellung in einer einzelnen Azure-Region:
 
-![Eine hoch verfügbare Bereitstellung in einer Azure-region](media/rds-ha-single-region.png)
+![Hoch verfügbare Bereitstellung in einer einzelnen Azure-Region](media/rds-ha-single-region.png)
 
-Die Bereitstellung besteht aus drei Schichten:
+Die Bereitstellung besteht aus drei Ebenen:
 
-- Azure-Dienste – die Azure-Verwaltungsschnittstellen, einschließlich der Azure-Portal und APIs sowie öffentliche Netzwerkdienste wie DNS und die öffentliche IP-Adressen.
-- Desktophosting-Dienst – virtuelle Computer, Netzwerke, Speicher, Azure-Dienste und Windows Server-Rollendienste
-- Azure-Fabric - Windows Server-Betriebssystemen die Hyper-V-Rolle, die zum Virtualisieren von physischen Servern, Speichereinheiten, Netzwerk-Switches und Router verwendet werden. Mithilfe der Azure-Fabric können Sie die virtuellen Computer, Netzwerke, Speicher und Anwendungen unabhängig von der zugrunde liegenden Hardware zu erstellen.
-
-
-Im Gegensatz dazu ist hier die Architektur für eine Bereitstellung mit mehreren Azure-Datencentern ein:
-
-![Einer RDS-Bereitstellung, die mehrere Azure-Regionen verwendet.](media/rds-ha-multi-region.png)
-
-Die gesamte RDS-Bereitstellung wird in einer zweiten Azure-Region zum Erstellen einer geografisch redundanten Bereitstellung repliziert. Diese Architektur verwendet ein Aktiv / Passiv-Modell, dem nur eine RDS-Bereitstellung zu einem Zeitpunkt ausgeführt wird. Eine VNet-zu-VNet-Verbindung können die beiden Umgebungen, die miteinander kommunizieren. Die RDS-Bereitstellungen basieren auf einer einzelnen Active Directory-Gesamtstruktur/Domäne, und die AD-Server in die beiden Bereitstellungen replizieren, Bedeutung-Benutzer können sich anmelden, in keiner der Bereitstellungen mit denselben Anmeldeinformationen an. Benutzereinstellungen und im Benutzer-Benutzerprofil-Datenträger (UPD) gespeicherten Daten werden auf einem Cluster "direkte Speicherplätze" Horizontales Skalieren mit zwei Knoten-Dateiserver (SOFS) gespeichert. Ein zweiter Cluster auf identischer "direkte Speicherplätze" in der zweiten (passiven) Region bereitgestellt wird, und die Funktion "Speicherreplikat" wird verwendet, um die Benutzerprofile aus dem aktiven replizieren, passiven Bereitstellung. Azure Traffic Manager wird verwendet, um automatisch weiterzuleiten, welche Bereitstellung Benutzer ist zurzeit eine aktive - aus der Perspektive des Endbenutzers, die sie Zugriff auf die Bereitstellung mithilfe einer einzelnen URL und nicht bewusst, welche Region sie enden mit.
+- Azure-Dienste: die Azure-Verwaltungsschnittstellen, einschließlich Azure-Portal und APIs, sowie öffentliche Netzwerkdienste wie DNS und öffentliche IP-Adressen.
+- Desktophostingdienste: virtuelle Computer, Netzwerke, Speicher, Azure-Dienste und Windows Server-Rollendienste.
+- Azure Fabric: Windows Server-Betriebssysteme mit Hyper-V-Rolle, die zum Virtualisieren von physischen Servern, Speichereinheiten, Netzwerkswitches und Routern verwendet werden. Mit Azure Fabric kannst du VMs, Netzwerke, Speicher und Anwendungen unabhängig von der zugrunde liegenden Hardware erstellen.
 
 
-Sie *konnte* erstellen Sie eine nicht hoch verfügbare RDS-Bereitstellung in jeder Region, aber auch ein einzelnen virtuellen Computer in einer Region gestartet wird, wird ein Failover auftreten, erhöhen die Wahrscheinlichkeit, dass bei Failovern Auswirkungen auf die Leistung verknüpft.
+Im Vergleich dazu zeigt die folgende Abbildung die Architektur für eine Bereitstellung mit mehreren Azure-Rechenzentren:
+
+![RDS-Bereitstellung mit mehreren Azure-Regionen](media/rds-ha-multi-region.png)
+
+Die gesamte RDS-Bereitstellung wird in einer zweiten Azure-Region repliziert, sodass eine georedundante Bereitstellung entsteht. Diese Architektur verwendet ein Aktiv-Passiv-Modell, bei dem nur jeweils eine RDS-Bereitstellung ausgeführt wird. Eine VNET-to-VNET-Verbindung ermöglicht die Kommunikation zwischen den beiden Umgebungen. Die RDS-Bereitstellungen basieren auf einer einzelnen Active Directory-Gesamtstruktur bzw. -Domäne, und die AD-Server führen die Replikation zwischen den beiden Bereitstellungen aus. Das bedeutet, dass Benutzer sich mit den gleichen Anmeldeinformationen bei beiden Bereitstellungen anmelden können. Benutzereinstellungen und Daten auf Benutzerprofil-Datenträgern (User Profile Disks, UPDs) werden auf einem aus zwei Knoten bestehenden Scale-Out-Dateiclusterserver (Scale-Out File Server, SOFS) mit direkten Speicherplätzen gespeichert. In der zweiten (passiven) Region wird ein zweiter, identischer Cluster mit direkten Speicherplätzen bereitgestellt, und die Benutzerprofile werden mithilfe von Speicherreplikaten von der aktiven in die passive Bereitstellung repliziert. Endbenutzer werden mithilfe von Azure Traffic Manager an diejenige Bereitstellung weitergeleitet, die gerade aktiv ist. Aus Perspektive der Endbenutzer greifen diese über eine einzelne URL auf die Bereitstellung zu und erfahren nicht, welche Region sie letztendlich nutzen.
+
+
+Du *könntest* in jeder Region eine RDS-Bereitstellung ohne Hochverfügbarkeit erstellen, aber schon das Neustarten einer einzigen VM in einer Region würde zu einem Failover führen. Damit würde die Wahrscheinlichkeit eines Failovers mit den damit zusammenhängenden Leistungsbeeinträchtigungen steigen.
 
 ## <a name="deployment-steps"></a>Bereitstellungsschritte
-Erstellen Sie die folgenden Ressourcen in Azure zum Erstellen einer geografisch redundanten mehreren Rechenzentren RDS-Bereitstellung:
+Erstelle die folgenden Ressourcen in Azure, um eine georedundante RDS-Bereitstellung mit mehreren Rechenzentren aufzubauen:
 
-1. Zwei Ressourcengruppen in zwei separate Azure-Regionen. Z. B. RG A (die aktive Bereitstellung, RG steht für "Ressourcengruppe") und RG B (die passive Bereitstellung).
-2. Eine hoch verfügbare Active Directory-Bereitstellung in der RG A. Sie können die [neue AD-Domäne mit einer Vorlage für 2 Domänencontroller](https://azure.microsoft.com/resources/templates/active-directory-new-domain-ha-2-dc/) zum Erstellen der Bereitstellung.
-3. Einer hoch verfügbaren RDS-Bereitstellung RG A. Use der [RDS-Bereitstellung mithilfe von vorhandenen active Directory farm](https://azure.microsoft.com/resources/templates/rds-deployment-existing-ad/) Vorlage zum Erstellen der grundlegenden RDS-Bereitstellung, und befolgen dann die Informationen in [Remote Desktop Services – hoch Verfügbarkeit](rds-plan-high-availability.md) so konfigurieren Sie die anderen RDS-Komponenten für hohe Verfügbarkeit.
-4. Ein VNet in der RG B – Achten Sie darauf, einen Adressraum verwenden, der die Bereitstellung in der RG A. nicht überlappt
-5. Ein [VNet-zu-VNet-Verbindung](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps) zwischen den zwei Ressourcengruppen.
-6. Zwei AD virtuelle Computer in einer verfügbarkeitsgruppe, die in der RG-B - stellen Sie sicher, dass die VM-Namen unterscheiden sich von den AD-VMs in RG A. Deploy zwei Windows Server 2016-VMs in einer einzelnen verfügbarkeitsgruppe festlegen, installieren Sie die Active Directory-Domänendienste-Rolle und dann zu der Domäne bietet höher stufen farbrollen in der Domäne, die Sie in Schritt 1 erstellt haben.
-7. Eine zweite hoch verfügbaren RDS-Bereitstellung in der RG B. 
-   1. Verwenden der [RDS-Bereitstellung mithilfe von vorhandenen active Directory farm](https://azure.microsoft.com/resources/templates/rds-deployment-existing-ad/) Vorlage erneut, dieses Mal jedoch die folgenden Änderungen vornehmen. (Zum Anpassen der Vorlage, wählen sie im Katalog aus, klicken Sie auf **in Azure bereitstellen** und dann **Bearbeitungsvorlage**.)
-      1. Passen Sie den Adressraum des der DNS-Server private IP-Adresse in das VNet in der RG B. entsprechen. 
+1. Zwei Ressourcengruppen in zwei separaten Azure-Regionen. Beispielsweise RG A (die aktive Bereitstellung, RG bedeutet „Ressourcengruppe“) und RG B (die passive Bereitstellung).
+2. Eine hoch verfügbare Active Directory-Bereitstellung in RG A. Du kannst die Vorlage [Create an new AD Domain with 2 Domain Controllers](https://azure.microsoft.com/resources/templates/active-directory-new-domain-ha-2-dc/) (Neue AD-Domäne mit zwei Domänencontrollern erstellen) verwenden, um die Bereitstellung zu erstellen.
+3. Eine hoch verfügbare RDS-Bereitstellung in RG A. Verwende die Vorlage [RDS farm deployment using existing active directory](https://azure.microsoft.com/resources/templates/rds-deployment-existing-ad/) (Bereitstellung einer RDS-Farm über eine vorhandene Active Directory-Instanz), um die grundlegende RDS-Bereitstellung zu erstellen. Befolge dann die Anweisungen in [Remote Desktop Services – hohe Verfügbarkeit](rds-plan-high-availability.md), um die anderen RDS-Komponenten im Hinblick auf Hochverfügbarkeit zu konfigurieren.
+4. Ein VNET in RG B: Stelle sicher, dass du einen Adressraum verwendest, der sich nicht mit der Bereitstellung in RG A überschneidet.
+5. Eine [VNET-to-VNET-Verbindung](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps) zwischen den beiden Ressourcengruppen.
+6. Zwei virtuelle AD-Computer in einer Verfügbarkeitsgruppe in RG B: Stelle sicher, dass die VM-Namen sich von den AD-VMs in RG A unterscheiden. Stelle zwei Windows Server 2016-VMs in einer einzelnen Verfügbarkeitsgruppe bereit, installiere die Active Directory Domain Services-Rolle, und stufe die VMs dann zum Domänencontroller in der in Schritt 1 erstellten Domäne hoch.
+7. Eine zweite hoch verfügbare RDS-Bereitstellung in RG B. 
+   1. Verwende erneut die Vorlage [RDS farm deployment using existing active directory](https://azure.microsoft.com/resources/templates/rds-deployment-existing-ad/) (Bereitstellung einer RDS-Farm über eine vorhandene Active Directory-Instanz), nimm aber diesmal die folgenden Änderungen vor. (Um die Vorlage anzupassen, wähle sie im Katalog aus, und klicke auf **In Azure bereitstellen** und dann auf **Vorlage bearbeiten**.)
+      1. Ändere den Adressraum der privaten IP-Adresse des DNS-Servers so, dass er dem VNET in RG B entspricht. 
       
-         Suchen Sie nach "DnsServerPrivateIp" in der Variablen. Bearbeiten Sie die Standard-IP (10.0.0.4) um den Adressraum zu entsprechen, die Sie in das VNet in der RG B. definiert
+         Suche in Variablen nach „dnsServerPrivateIp“. Bearbeite die Standardadresse (10.0.0.4) so, dass sie dem im VNET in RG B definierten Adressraum entspricht.
    
-      2. Bearbeiten Sie die Computernamen, damit sie mit den Angaben in der Bereitstellung in der RG A. in Konflikt stehen keine
+      2. Bearbeite die Computernamen, sodass keine Konflikte mit den Namen in der Bereitstellung in RG A entstehen.
       
-         Suchen Sie die virtuellen Computer in der **Ressourcen** -Abschnitt der Vorlage. Ändern der **ComputerName** Feld **"osprofile"** . Beispielsweise kann "Gateway" werden "Gateway **-b**"; "[Concat ('Rdsh-", copyIndex())] "kann"[Concat ("Rdsh - b-", copyIndex())]"werden, und"Broker"Annehmen" Broker **-b**".
+         Suche im Abschnitt **Resources** der Vorlage nach den VMs. Ändere das Feld **computerName** unter **osProfile**. „gateway“ kann beispielsweise zu „gateway **-b**“ werden, „[concat('rdsh-', copyIndex())]“ zu „[concat('rdsh-b-', copyIndex())]“ und „broker“ zu „broker **-b**“.
       
-         (Sie können auch die Namen der virtuellen Computer manuell ändern, nachdem Sie die Vorlage ausführen.)
-   2. Wie in Schritt 3 oben, verwenden Sie die Informationen im [Remote Desktop Services - hochverfügbarkeit](rds-plan-high-availability.md) so konfigurieren Sie die anderen RDS-Komponenten für hohe Verfügbarkeit.
-8. Ein "direkte Speicherplätze" Dateiserver mit horizontaler Skalierung Server mit der Funktion "Speicherreplikat" in die beiden Bereitstellungen. Verwenden der [PowerShell-Skript](https://github.com/robotechredmond/301-s2d-sr-dr-md/tree/master/scripts) zum Bereitstellen der [Vorlage](https://github.com/robotechredmond/301-s2d-sr-dr-md) über Ressourcengruppen hinweg.
+         (Du kannst die Namen der VMs auch nach dem Ausführen der Vorlage manuell ändern.)
+   2. Verwende wie in Schritt 3 oben die Informationen in [Remote Desktop Services – hohe Verfügbarkeit](rds-plan-high-availability.md), um die anderen RDS-Komponenten im Hinblick auf Hochverfügbarkeit zu konfigurieren.
+8. Ein Scale-Out-Dateiserver mit direkten Speicherplätzen und Speicherreplikaten über die beiden Bereitstellungen hinweg. Verwende das [PowerShell-Skript](https://github.com/robotechredmond/301-s2d-sr-dr-md/tree/master/scripts), um die [Vorlage](https://github.com/robotechredmond/301-s2d-sr-dr-md) für alle Ressourcengruppen bereitzustellen.
 
    > [!NOTE]
-   > Sie können den Speicher manuell (anstatt die PowerShell-Skript und die Vorlage) bereitstellen: 
-   >1. Bereitstellen einer [zwei Knoten Storage Spaces Direct SOFS](rds-storage-spaces-direct-deployment.md) RG A zum Speichern der Benutzerprofil-Datenträgern (UPDs).
-   >2. Bereitstellen eines zweiten, identische Speicher Leerzeichen direkte SOFS in RG B – stellen Sie sicher, dass die gleiche Menge an Speicher in jedem Cluster verwenden.
-   >3. Richten Sie [Funktion "Speicherreplikat" bei der asynchronen Replikation](../../storage/storage-replica/cluster-to-cluster-storage-replication.md) zwischen den beiden.
+   > Du kannst den Speicher auch manuell bereitstellen (anstatt das PowerShell-Skript und eine Vorlage zu verwenden): 
+   >1. Stelle einen [Scale-Out-Dateiserver mit direkten Speicherplätzen und zwei Knoten](rds-storage-spaces-direct-deployment.md) in RG A bereit, um die Benutzerprofil-Datenträger (User Profile Disks, UPDs) zu speichern.
+   >2. Stelle einen zweiten, identischen Scale-Out-Dateiserver mit direkten Speicherplätzen in RG B bereit, und stelle sicher, dass in jedem Cluster die gleiche Menge an Speicherplatz verwendet wird.
+   >3. Richte ein [Speicherreplikat mit asynchroner Replikation](../../storage/storage-replica/cluster-to-cluster-storage-replication.md) zwischen beiden ein.
 
-### <a name="enable-upds"></a>Aktivieren von Benutzerprofil-Datenträger
-Funktion "Speicherreplikat" repliziert Daten über ein Quellvolume (primär/aktiv-Bereitstellung zugeordnet) auf ein Zielvolume (sekundär/Passiv-Bereitstellung zugeordnet). Programmbedingt wird der Zielcluster als **Online (kein Zugriff)** -Funktion "Speicherreplikat" hebt die Bereitstellung der Zielvolumes sowie deren Laufwerk Laufwerkbuchstaben oder Bereitstellungspunkte Punkte. Dies bedeutet, dass es sich bei Aktivierung von Benutzerprofil-Datenträger für die sekundäre Bereitstellung durch die Bereitstellung des Dateifreigabepfad misslingt, da das Volume nicht bereitgestellt wird. 
+### <a name="enable-upds"></a>Aktivieren von UPDs
+Das Speicherreplikat repliziert Daten aus einem Quellvolume (das der primären bzw. aktiven Bereitstellung zugeordnet ist) in ein Zielvolume (das der sekundären bzw. passiven Bereitstellung zugeordnet ist). Programmbedingt wird der Zielcluster als **online (kein Zugriff)** angezeigt. Das Speicherreplikat hebt die Bereitstellung der Zielvolumes und der zugehörigen Laufwerkbuchstaben oder Bereitstellungspunkte auf. Das bedeutet, dass die Aktivierung von UPDs für die sekundäre Bereitstellung durch Angabe des Dateifreigabepfad nicht funktioniert, weil das Volume nicht eingebunden ist. 
 
-Möchten Sie weitere Informationen zum Verwalten der Replikation? Sehen Sie sich [-Cluster zu Cluster-Speicherreplikation](../../storage/storage-replica/cluster-to-cluster-storage-replication.md).
+Möchtest du mehr über das Verwalten der Replikation erfahren? Dann lies den Artikel [Cluster-zu-Cluster-Speicherreplikation](../../storage/storage-replica/cluster-to-cluster-storage-replication.md).
 
-Um die Benutzerprofil-Datenträger für beide Bereitstellungen zu aktivieren, führen Sie folgende Schritte aus:
+Führe zum Aktivieren von UPDs in beiden Bereitstellungen folgende Schritte aus:
 
-1. Führen Sie die [Cmdlet "Set-RDSessionCollectionConfiguration"](https://docs.microsoft.com/powershell/module/remotedesktop/set-rdsessioncollectionconfiguration) So aktivieren Sie die Benutzerprofil-Datenträger für die Bereitstellung die primäre (aktive) – Geben Sie einen Pfad für die Dateifreigabe, auf dem Quellvolume (das Sie in Schritt 7 in den Schritten zur Bereitstellung erstellt haben).
-2. Kehren Sie die Funktion "Speicherreplikat", damit das Zielvolume wird dem Quellvolume (dies einbinden des Volumes und ermöglicht es den von der sekundären Bereitstellung Zugriff auf). Sie können ausführen **Set-SRPartnership** Cmdlet, um diese auszuführen. Zum Beispiel:
+1. Führe das Cmdlet [Set-RDSessionCollectionConfiguration](https://docs.microsoft.com/powershell/module/remotedesktop/set-rdsessioncollectionconfiguration) aus, um die Benutzerprofil-Datenträger für die primäre (aktive) Bereitstellung zu aktivieren. Gib einen Pfad zu der Dateifreigabe auf dem Quellvolume an (das du in Bereitstellungsschritt 7 erstellt hast).
+2. Kehre die Richtung des Speicherreplikats um, sodass das Zielvolume zum Quellvolume wird (dadurch wird das Volume eingebunden, und die sekundäre Bereitstellung kann darauf zugreifen). Zu diesem Zweck kannst du das Cmdlet **Set-SRPartnership** ausführen. Zum Beispiel:
 
    ```powershell
    Set-SRPartnership -NewSourceComputerName "cluster-b-s2d-c" -SourceRGName "cluster-b-s2d-c" -DestinationComputerName "cluster-a-s2d-c" -DestinationRGName "cluster-a-s2d-c"
    ```
-3. Die Benutzerprofil-Datenträger in der sekundären (passiven) Bereitstellung zu aktivieren. Verwenden Sie die gleichen Schritte wie für die primäre Bereitstellung, in Schritt 1.
-4. Kehren Sie die Funktion "Speicherreplikat" in diesem Fall also das ursprüngliche Volume mit Datenquelle erneut dem Quellvolume in der SR-Partnerschaft, und die primäre Bereitstellung Zugriff auf die Dateifreigabe. Zum Beispiel:
+3. Aktiviere die Benutzerprofil-Datenträger in der sekundären (passiven) Bereitstellung. Führe die gleichen Aktionen aus wie für die primäre Bereitstellung in Schritt 1.
+4. Kehre die Richtung des Speicherreplikats erneut um, sodass das ursprüngliche Quellvolume wieder zum Quellvolume in der Speicherreplikat-Partnerschaft wird. Nun kann die primäre Bereitstellung auf die Dateifreigabe zugreifen. Zum Beispiel:
 
    ```powershell
    Set-SRPartnership -NewSourceComputerName "cluster-a-s2d-c" -SourceRGName "cluster-a-s2d-c" -DestinationComputerName "cluster-b-s2d-c" -DestinationRGName "cluster-b-s2d-c"
@@ -101,67 +101,67 @@ Um die Benutzerprofil-Datenträger für beide Bereitstellungen zu aktivieren, f�
 
 ### <a name="azure-traffic-manager"></a>Azure Traffic Manager 
 
-Erstellen einer [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) Profil, und wählen Sie die **Priorität** Methode für das datenverkehrsrouting. Legen Sie die beiden Endpunkte, auf die öffentliche IP-Adressen jeder Bereitstellung. Klicken Sie unter **Konfiguration**, ändern Sie das Protokoll auf HTTPS (anstelle von HTTP) und den Port 443 (anstelle von 80). Notieren Sie sich die **DNS-Gültigkeitsdauer Standardnachricht**, und legen Sie ihn entsprechend dem Failover muss. 
+Erstelle ein [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview)-Profil, und wähle die Routingmethode **Priorität** aus. Lege die beiden Endpunkte auf die öffentlichen IP-Adressen jeder Bereitstellung fest. Ändere unter **Konfiguration** das Protokoll zu HTTPS (statt HTTP) und den Port zu 443 (statt 80). Lege die **DNS-Gültigkeitsdauer** auf einen für deine Failoveranforderungen geeigneten Wert fest. 
 
-Beachten Sie, dass Traffic Manager Endpunkte zurückzugebenden 200 OK als Reaktion auf eine GET-Anforderung, um als "fehlerfrei" markiert werden. Die öffentliche IP-Objekt, das aus den RDS-Vorlagen erstellten funktionieren, aber fügen Sie einen Nachtrag Pfad nicht. Stattdessen, Sie erhalten Benutzer die URL des Traffic Manager mit "/ RDWeb" angefügt, beispielsweise: ```http://deployment.trafficmanager.net/RDWeb```
+Beachte, dass Endpunkte bei GET-Anforderungen „200 OK“ zurückgeben müssen, um von Traffic Manager als „fehlerfrei“ markiert zu werden. Das aus den RDS-Vorlagen erstellte publicIP-Objekt funktioniert. Füge jedoch keinen Pfadzusatz hinzu. Stattdessen kannst du Endbenutzern die Traffic Manager-URL mit angefügtem „/RDWeb“ zur Verfügung stellen, z.B.: ```http://deployment.trafficmanager.net/RDWeb```.
 
-Durch die Bereitstellung von Azure Traffic Manager mit der prioritätsbasierten Routingmethode verhindern, dass Sie Endbenutzern den Zugriff auf die passiven Bereitstellung, während die aktive Bereitstellung funktionsfähig ist. Wenn Endbenutzer greifen auf den passiven Bereitstellung und die Richtung für die Funktion "Speicherreplikat" noch nicht für das Failover gewechselt wurde, hängt die Benutzeranmeldung, wie die Bereitstellung versucht und Zugriff auf die Dateifreigabe auf dem passiven Cluster "direkte Speicherplätze" - schließlich die Bereitstellung schlägt fehl wird aufgeben und weisen Sie dem Benutzer ein temporäres Profil.  
+Durch Bereitstellung von Azure Traffic Manager mit der prioritätsbasierten Routingmethode verhinderst du, dass Endbenutzer auf die passive Bereitstellung zugreifen, während die aktive Bereitstellung funktionsfähig ist. Wenn Endbenutzer auf die passive Bereitstellung zugreifen und die Richtung des Speicherreplikats nicht zum Failover geändert wurde, reagiert die Benutzeranmeldung nicht, weil die Bereitstellung erfolglos versucht, auf dem passiven Cluster mit direkten Speicherplätzen auf die Dateifreigabe zuzugreifen. Letztendlich erhält der Benutzer ein temporäres Profil.  
 
-### <a name="deallocate-vms-to-save-resources"></a>Zuordnung VMs zum Einsparen von Ressourcen 
-Nach der Konfiguration beider Bereitstellungen können Sie optional Herunterfahren und Aufheben der Zuordnung der sekundären RDS-Infrastruktur und RDSH-VMs, um Kosten einzusparen, auf diesen VMs. Der Storage Spaces Direct SOFS und AD-Server VMs muss immer in der sekundären/Passiv-Bereitstellung zum Aktivieren der Synchronisierung für Benutzer Konto- und Profilinformationen ausgeführt wird.  
+### <a name="deallocate-vms-to-save-resources"></a>Aufheben der Zuordnung von VMs zum Einsparen von Ressourcen 
+Nachdem du beide Bereitstellungen konfiguriert hast, kannst du optional die sekundäre RDS-Infrastruktur und die sekundären RDSH-VMs herunterfahren und die Zuordnung aufheben, um die Kosten für diese VMs zu sparen. Die Scale-Out-Dateiserver mit direkten Speicherplätzen und die AD-Server-VMs müssen in der sekundären bzw. passiven Bereitstellung immer ausgeführt werden, um die Synchronisierung von Benutzerkonto und Benutzerprofil zu ermöglichen.  
 
-Wenn ein Failover auftritt, müssen Sie die Aufhebung der Zuordnung virtuellen Computer gestartet. Diese Konfiguration hat es sich um den Vorteil, geringeren Kosten, aber auf Kosten der Failover-Zeit. Im Falle ein schwerwiegenden Fehlers in der aktiven Bereitstellung müssen Sie die passive Bereitstellung manuell starten, oder Sie benötigen ein Automatisierungsskript erkennt den Ausfall, und starten Sie die passive Bereitstellung automatisch. In beiden Fällen dauert mehrere Minuten in der passiven Bereitstellung ausgeführt wird und für Benutzer zur Anmeldung erhalten es einige Ausfallzeiten für den Dienst. Diese Ausfallzeit hängt die Zeitspanne, während es verwendet, um die RDS-Infrastruktur und RDSH-VMs (in der Regel 2 bis 4 Minuten, wenn der virtuelle Computer nacheinander, sondern parallel gestartet werden) und die Uhrzeit auf den passiven Cluster online schalten (das hängt von der Größe des Clusters zu starten in der Regel 2 bis 4 Minuten für einen 2-Knoten-Cluster mit 2 Datenträger pro Knoten). 
+Wenn ein Failover auftritt, musst du die VMs, deren Zuordnung aufgehoben wurde, starten. Diese Bereitstellungskonfiguration ist kostengünstiger, benötigt aber mehr Zeit für ein Failover. Bei einem schwerwiegenden Ausfall der aktiven Umgebung musst du die passive Bereitstellung manuell starten oder benötigst ein Automatisierungsskript, das den Ausfall erkennt und die passive Bereitstellung automatisch startet. In beiden Fällen kann es mehrere Minuten dauern, bis die passive Bereitstellung ausgeführt wird und Benutzern für die Anmeldung zur Verfügung steht. Dadurch können Ausfallzeiten für den Dienst entstehen. Die Länge dieser Ausfallzeit hängt davon ab, wie lange es dauert, die RDS-Infrastruktur und die RDSH-VMs neu zu starten (in der Regel zwei bis vier Minuten, wenn die VMs nicht seriell, sondern parallel gestartet werden) und den passiven Cluster online zu schalten (dies wiederum hängt von der Größe des Clusters ab – in der Regel sind bei einem Cluster mit zwei Knoten und zwei Datenträgern pro Knoten zwei bis vier Minuten zu veranschlagen). 
 
 ### <a name="active-directory"></a>Active Directory 
-Die Active Directory-Server in jeder Bereitstellung sind Replikate in der gleichen Gesamtstruktur oder Domäne an. Active Directory verfügt über eine integrierte Synchronisierungsprotokoll, um die vier Domänencontroller zu synchronisieren. Allerdings gibt es möglicherweise gewisse Verzögerung, wenn ein AD-Server ein neuer Benutzer hinzugefügt wird, kann es einige Zeit über alle AD-Server in die beiden Bereitstellungen repliziert dauern. Achten Sie daher darauf, warnen der Benutzer nicht versuchen, melden Sie sich unmittelbar mit der Domäne hinzugefügt wird. 
+Die Active Directory-Server in den Bereitstellungen sind Replikate innerhalb der gleichen Gesamtstruktur bzw. Domäne. Active Directory verfügt über ein integriertes Synchronisierungsprotokoll, um die vier Domänencontroller zu synchronisieren. Es können jedoch Verzögerungen auftreten. Wenn also ein neuer Benutzer zu einem AD-Server hinzugefügt wird, kann es eine Weile dauern, bis dieser auf allen AD-Servern in beiden Bereitstellungen repliziert ist. Benutzer sollten daher nicht sofort versuchen, sich anzumelden, nachdem sie der Domäne hinzugefügt wurden. 
 
-### <a name="rd-license-server"></a>Remotedesktop-Lizenzserver 
-Geben Sie einen [RD-pro-Benutzer-CAL](rds-client-access-license.md) für jeden benannten Benutzer, die autorisiert ist, auf den geografisch redundanten Bereitstellung zugreifen. Verteilen der pro Benutzer-Clientzugriffslizenzen gleichmäßig auf die beiden Remotedesktop-Lizenzserver in der aktiven Bereitstellung. Klicken Sie dann doppelte diese Lizenzen, die zwei Remotedesktop-Lizenzserver in der passiven Bereitstellung. Da die CALs zwischen aktivem und passivem Bereitstellung dupliziert werden, kann zu jedem Zeitpunkt nur eine Bereitstellung mit Benutzern verbinden aktiv; andernfalls verstoßen Sie den Lizenzvertrag.  
+### <a name="rd-license-server"></a>RD-Lizenzserver 
+Stelle eine [RD-Lizenz pro Benutzer](rds-client-access-license.md) für jeden benannten Benutzer bereit, der für den Zugriff auf die georedundante Bereitstellung autorisiert ist. Verteile die CALs pro Benutzer gleichmäßig auf die beiden RD-Lizenzserver in der aktiven Bereitstellung. Dupliziere diese CALs dann auf die beiden RD-Lizenzserver in der passiven Bereitstellung. Da die CALs zwischen der aktiven und der passiven Bereitstellung dupliziert sind, kann zu jedem Zeitpunkt nur eine Bereitstellung aktiv sein, mit der Benutzer eine Verbindung herstellen. Andernfalls besteht ein Verstoß gegen die Lizenzvereinbarung.  
 
-### <a name="image-management"></a>Abbildverwaltung 
-Wenn Sie Ihre RDSH-Images zum Bereitstellen von Softwareupdates oder neue Anwendungen aktualisieren, müssen Sie separat aktualisieren Sie die RDSH-Sammlungen in jeder Bereitstellung, die eine übergreifende benutzerfreundlichkeit innerhalb beider Bereitstellungen beibehalten. Können Sie die [Update RDSH Auflistung Vorlage](https://azure.microsoft.com/resources/templates/rds-update-rdsh-collection/), aber beachten Sie, dass der passive Bereitstellung RDS-Infrastruktur und RDSH-VMs ausgeführt werden muss, um die Vorlage auszuführen. 
+### <a name="image-management"></a>Imageverwaltung 
+Beim Aktualisieren von RDSH-Images zum Bereitstellen von Softwareupdates oder neuen Anwendungen musst du die RDSH-Sammlungen in jeder Bereitstellung separat aktualisieren, um ein einheitliches Benutzererlebnis in beiden Bereitstellungen beizubehalten. Du kannst die Vorlage [Update RDSH collection](https://azure.microsoft.com/resources/templates/rds-update-rdsh-collection/) (RDSH-Sammlung aktualisieren) verwenden, beachte aber, dass die RDS-Infrastruktur-VMs und RDSH-VMs der passiven Bereitstellung ausgeführt werden müssen, damit die Vorlage ausgeführt werden kann. 
 
 ## <a name="failover"></a>Failover
 
-Bei der Aktiv / Passiv-Bereitstellung erfordert das Failover die virtuellen Computer eines der sekundären Bereitstellung zu starten. Sie können manuell oder mit einem Automatisierungsskript dazu. Im Fall eines schwerwiegenden Failovers des Storage Spaces Direct SOFS ändern Sie die Funktion "Speicherreplikat" Partnerschaft Richtung, sodass das Zielvolume auf dem Quellvolume wird. Zum Beispiel:
+Im Fall der Aktiv-Passiv-Bereitstellung ist es für ein Failover erforderlich, die VMs der sekundären Bereitstellung zu starten. Du kannst dies manuell oder mit einem Automatisierungsskript durchführen. Sollte ein schwerwiegender Ausfall des Scale-Out-Dateiservers mit direkten Speicherplätzen eintreten, ändere die Richtung der Speicherreplikat-Partnerschaft, sodass das Zielvolume zum Quellvolume wird. Zum Beispiel:
 
    ```powershell
    Set-SRPartnership -NewSourceComputerName "cluster-b-s2d-c" -SourceRGName "cluster-b-s2d-c" -DestinationComputerName "cluster-a-s2d-c" -DestinationRGName "cluster-a-s2d-c"
    ```
 
-Weitere Informationen finden Sie in [-Cluster zu Cluster-Speicherreplikation](../../storage/storage-replica/cluster-to-cluster-storage-replication.md).
+Mehr dazu erfährst du im Artikel [Cluster-zu-Cluster-Speicherreplikation](../../storage/storage-replica/cluster-to-cluster-storage-replication.md).
 
-Azure Traffic Manager erkennt automatisch, dass die primäre Bereitstellung fehlgeschlagen ist und die sekundäre Bereitstellung fehlerfrei ist (in den RD-Gateway-VMs gestartet wurden in der RG B) und leitet den Datenverkehr auf die sekundäre Bereitstellung. Benutzer können die gleichen Traffic Manager-URL verwenden, zum Fortsetzen der Arbeit auf die Remoteressourcen an, ein konsistentes Verhalten profitieren zu können. Beachten Sie, dass der Client DNS-Cache den Datensatz nicht für die Dauer der Gültigkeitsdauer (TTL), legen Sie in Azure Traffic Manager-Konfiguration aktualisiert wird.
+Azure Traffic Manager erkennt automatisch, dass die primäre Bereitstellung ausgefallen und die sekundäre Bereitstellung fehlerfrei ist (wenn die RD-Gateway-VMs in RG B gestartet wurden), und leitet den Benutzerdatenverkehr an die sekundäre Bereitstellung weiter. Benutzer können die gleiche Traffic Manager-URL verwenden, um weiter an ihren Remoteressourcen zu arbeiten, und profitieren von einem konsistenten Benutzererlebnis. Beachte, dass der DNS-Clientcache den Datensatz während der in der Azure Traffic Manager-Konfiguration festgelegten Gültigkeitsdauer nicht aktualisiert.
 
 ### <a name="test-failover"></a>Testen des Failovers
-In einer Partnerschaft für Funktion "Speicherreplikat" kann nur ein Volume (Quelle) zu einem Zeitpunkt aktiv sein. Dies bedeutet, wenn Sie die Richtung SR-Partnerschaft wechseln, das Volume in der primären Bereitstellung (RG A) wird das Ziel der Replikation und daher ausgeblendet ist. Daher haben alle Benutzer RG A mit mehr Zugriff auf ihren Benutzerprofil-Datenträger gespeichert, auf dem SOFS in RG A. 
+In einer Speicherreplikat-Partnerschaft kann immer nur ein Volume (die Quelle) aktiv sein. Das bedeutet Folgendes: Wenn du die Richtung der Speicherreplikat-Partnerschaft änderst, wird das Volume in der primären Bereitstellung (RG A) zum Ziel der Replikation und wird daher ausgeblendet. Daher haben Benutzer, die eine Verbindung mit RG A herstellen, keinen Zugriff mehr auf ihre Benutzerprofil-Datenträger, die auf dem Scale-Out-Dateiserver in RG A gespeichert sind. 
 
-So testen Sie das Failover, während Benutzer weiterhin anmelden:
-1. Starten Sie die Infrastruktur-VMs und die RDSH-Computer in der RG B.
-2. Die SR-Partnerschaft Richtung wechseln (Cluster-b-s2d-c wird das Quellvolume).
-3. [Deaktivieren Sie den Endpunkt](/azure/traffic-manager/traffic-manager-manage-endpoints#to-disable-an-endpoint) RG A in Azure Traffic Manager-Profils zu einem Geldautomaten zum Leiten des Datenverkehrs auf RG B. Sie können auch erzwingen, verwenden Sie ein PowerShell-Skript:
+So testest du das Failover und ermöglichst Benutzern weiterhin die Anmeldung:
+1. Starte die Infrastruktur-VMs und die RDSH-VMs in RG B.
+2. Ändere die Richtung der Speicherreplikat-Partnerschaft („cluster-b-s2d-c“ wird zum Quellvolume).
+3. [Deaktiviere den Endpunkt](/azure/traffic-manager/traffic-manager-manage-endpoints#to-disable-an-endpoint) von RG A im Azure Traffic Manager-Profil, um Azure Traffic Manager zu zwingen, Datenverkehr an RG B weiterzuleiten. Alternativ dazu kannst du auch ein PowerShell-Skript verwenden:
 
    ```powershell
    Disable-AzureRmTrafficManagerEndpoint -Name publicIpA -Type AzureEndpoints -ProfileName MyTrafficManagerProfile -ResourceGroupName RGA -Force
    ```
 
-RG B ist jetzt der aktiven primären Bereitstellung. Wechseln Sie zurück zur RG A als die primäre Bereitstellung:
+RG B ist jetzt die aktive primäre Bereitstellung. So wechselst du wieder zu RG A als primäre Bereitstellung:
 
-1. Die SR-Partnerschaft Richtung wechseln (Cluster-a-s2d-c wird das Quellvolume):
+1. Ändere die Richtung der Speicherreplikat-Partnerschaft („cluster-a-s2d-c“ wird zum Quellvolume):
 
    ```powershell
    Set-SRPartnership -NewSourceComputerName "cluster-a-s2d-c" -SourceRGName "cluster-a-s2d-c" -DestinationComputerName "cluster-b-s2d-c" -DestinationRGName "cluster-b-s2d-c"
    ```
-2. Aktivieren Sie erneut den Endpunkt der RG A in Azure Traffic Manager-Profil:
+2. Aktiviere den Endpunkt von RG A erneut im Azure Traffic Manager-Profil:
 
    ```powershell
    Enable-AzureRmTrafficManagerEndpoint -Name publicIpA -Type AzureEndpoints -ProfileName MyTrafficManagerProfile -ResourceGroupName RGA 
    ```
 
-## <a name="considerations-for-on-premises-deployments"></a>Überlegungen für lokale Bereitstellungen
+## <a name="considerations-for-on-premises-deployments"></a>Überlegungen zu lokalen Bereitstellungen
 
-Während eine lokalen Bereitstellung der Azure-Schnellstartvorlagen, die in diesem Artikel erwähnten verwenden konnte nicht, können Sie die Infrastrukturrollen manuell implementieren. In einer lokalen-Bereitstellung, in dem Kosten nicht von Azure-Nutzung gesteuert wird, sollten Sie in Betracht ziehen, ein aktiv / aktiv-Modell für schnellere Failover zu verwenden.
+Zwar kannst du bei einer lokalen Bereitstellung nicht die in diesem Artikel erwähnten Azure-Schnellstartvorlagen verwenden, aber du kannst alle Infrastrukturrollen manuell implementieren. In einer lokalen Bereitstellung, bei der die Kosten nicht durch die Azure-Nutzung bestimmt werden, solltest du ein Aktiv-Aktiv-Modell in Betracht ziehen, um ein schnelleres Failover zu erreichen.
 
-Können Sie Azure Traffic Manager mit lokalen Endpunkten, aber es ist ein Azure-Abonnement erforderlich. Alternativ dazu für das DNS-Endbenutzer die Möglichkeit bereitgestellt, geben sie einen CNAME-Eintrag, der die Benutzer auf die primäre Bereitstellung einfach weiterleitet. Im Fall eines Failovers ändern Sie den DNS CNAME-Eintrag an die sekundäre Bereitstellung umleiten. Auf diese Weise verwendet der Endbenutzer eine einzelne URL, wie mit Azure Traffic Manager, die den Benutzer die entsprechende Bereitstellung weiterleitet. 
+Du kannst Azure Traffic Manager mit lokalen Endpunkten verwenden, aber dafür ist ein Azure-Abonnement erforderlich. Alternativ dazu kannst du für das Domain Name System, das für Endbenutzer bereitgestellt wird, auch einen CNAME-Eintrag zur Verfügung stellen, der Benutzer einfach an die primäre Bereitstellung weiterleitet. Ändere bei einem Failover den DNS-CNAME-Eintrag so, dass die Weiterleitung an die sekundäre Bereitstellung erfolgt. Auf diese Weise benötigen Endbenutzer nur eine einzige URL – genau wie bei Azure Traffic Manager –, die sie an die geeignete Bereitstellung weiterleitet. 
 
-Wenn Sie ein Modell auf-lokal-zu-Azure-Standort erstellen möchten, erwägen Sie [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview).
+Wenn du ein Modell mit Weiterleitung zwischen lokaler Umgebung und Azure-Standort erstellen möchtest, ziehe die Verwendung von [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) in Betracht.

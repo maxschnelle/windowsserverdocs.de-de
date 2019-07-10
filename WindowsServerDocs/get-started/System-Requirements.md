@@ -15,17 +15,17 @@ ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
 ms.openlocfilehash: d089af3562467aa1c222b17d9a1ad69d9c1b5008
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66810583"
 ---
 # <a name="system-requirements"></a>Systemanforderungen
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016 
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016 
 
-Dieses Thema behandelt die Mindestsystemanforderungen zum Ausführen von Windows Server oder Windows Server 2016, Version 1709&reg;.
+Dieses Thema behandelt die Mindestsystemanforderungen zum Ausführen von Windows Server&reg; 2016 oder Windows Server, Version 1709.
 
 > [!NOTE]  
 > Bei diesem Release wird eine Neuinstallation empfohlen.  
@@ -53,7 +53,7 @@ Die Prozessorleistung ist nicht nur von der Taktfrequenz des Prozessors abhängi
 - Unterstützt CMPXCHG16b, LAHF/SAHF und PrefetchW  
 - Unterstützt SLAT (Second-Level Address Translation) (EPT oder NPT)  
 
-[Coreinfo](https://technet.microsoft.com/sysinternals/cc835722.aspx) ist ein Tool können Sie, welche dieser Funktionen Ihre CPU verfügt über zu bestätigen.
+[Coreinfo](https://technet.microsoft.com/sysinternals/cc835722.aspx) ist ein Tool, mit dem du überprüfen kannst, über welche dieser Funktionen die CPU verfügt.
 
 ## <a name="ram"></a>RAM  
 Nachfolgend sind die geschätzten RAM-Anforderungen für dieses Produkt aufgeführt:  
@@ -68,7 +68,7 @@ Nachfolgend sind die geschätzten RAM-Anforderungen für dieses Produkt aufgefü
 > Führen Sie zur Vermeidung dieses Problems eine der folgenden Aktionen aus:  
 >   
 > -   Ordnen Sie dem virtuellen Computer, auf dem diese Version installiert werden soll, mehr als 800 MB RAM zu. Nach dem Setup können Sie die Zuordnung abhängig von der tatsächlichen Serverkonfiguration in 512 MB RAM ändern.  
-> -   Unterbrechen Sie den Startprozess dieser Version auf dem virtuellen Computer mit SHIFT+F10. Erstellen Sie in der geöffneten Eingabeaufforderung mithilfe von %%amp;quot;Diskpart.exe%%amp;quot; eine Installationspartition, und formatieren Sie sie. Führen Sie **Wpeutil createpagefile /path=C:\pf.sys** aus (vorausgesetzt, Sie haben die Installationspartition %%amp;quot;C:%%amp;quot; erstellt). Schließen Sie die Eingabeaufforderung, und setzen Sie das Setup fort.  
+> -   Unterbrechen Sie den Startprozess dieser Version auf dem virtuellen Computer mit UMSCHALTTASTE+F10. Erstellen Sie in der geöffneten Eingabeaufforderung mithilfe von %%amp;quot;Diskpart.exe%%amp;quot; eine Installationspartition, und formatieren Sie sie. Führen Sie **Wpeutil createpagefile /path=C:\pf.sys** aus (vorausgesetzt, Sie haben die Installationspartition %%amp;quot;C:%%amp;quot; erstellt). Schließen Sie die Eingabeaufforderung, und setzen Sie das Setup fort.  
 
 ## <a name="storage-controller-and-disk-space-requirements"></a>Speichercontroller- und Speicherplatzanforderungen  
 Computer mit Windows Server 2016 müssen über einen Speicheradapter verfügen, der mit der PCI Express-Architekturspezifikation konform ist. Bei beständigen Speichergeräten auf Servern, die als Festplattenlaufwerke klassifiziert sind, darf es sich nicht um PATA handeln. Bei Windows Server 2016 ist ATA/PATA/IDE/EIDE nicht für Start-, Auslagerungs- oder Datenlaufwerke zulässig.  
@@ -117,15 +117,15 @@ Die folgenden Elemente sind nicht unbedingt erforderlich, werden jedoch für bes
 > Ein TPM-Chip (Trusted Platform Module) ist nicht unbedingt für die Installation dieses Release erforderlich. Für die Verwendung bestimmter Features wie z.B. der BitLocker-Laufwerkverschlüsselung wird jedoch ein solcher Chip benötigt. Wenn Ihr Computer TPM verwendet, müssen die folgenden Anforderungen erfüllt sein:  
 >  
 > - Bei hardwarebasierten TPMs muss Version 2.0 der TPM-Spezifikation implementiert sein.  
-> - TPMs, die Version 2.0 implementieren, müssen über ein EK-Zertifikat verfügen, das entweder vorab vom Hardwarehersteller für das TPM bereitgestellt wird, oder beim ersten Start vom Gerät abgerufen werden kann.  
-> - TPMs, die Version 2.0 implementieren, müssen über SHA-256 PCR-Bänke verfügen und PCRs 0 bis 23 für SHA-256 implementieren. Es ist akzeptabel, TPMs mit einer einzigen wechselbaren PCR-Bank auszuliefern, die sowohl für SHA-1 als auch für SHA-256 verwendet werden kann.  
+> - TPMs, die Version 2.0 implementieren, müssen über ein EK-Zertifikat verfügen, das entweder vorab vom Hardwarehersteller für das TPM bereitgestellt wird, oder beim ersten Start vom Gerät abgerufen werden kann.  
+> - TPMs, die Version 2.0 implementieren, müssen über SHA-256 PCR-Bänke verfügen und PCRs 0 bis 23 für SHA-256 implementieren. Es ist akzeptabel, TPMs mit einer einzigen wechselbaren PCR-Bank auszuliefern, die sowohl für SHA-1 als auch für SHA-256 verwendet werden kann.  
 > - Eine UEFI-Option zum Deaktivieren des TPMs ist nicht erforderlich.  
 
 ## <a name="installation-of-nano-server"></a>Installation von Nano Server  
 Detaillierte Schritte zum Installieren von Windows Server 2016 als Nano Server-Version finden Sie unter [Installieren von Nano Server](Getting-Started-with-Nano-Server.md).
 
-## <a name="additional-resources"></a>Zusätzliche Ressourcen
+## <a name="additional-resources"></a>Weitere Ressourcen
 - [Windows-Prozessoranforderungen](https://docs.microsoft.com/windows-hardware/design/minimum/windows-processor-requirements)
-- [Vergleich von Standard- und Datacenter-Editionen von Windows Server 2016](https://docs.microsoft.com/windows-server/get-started/2016-edition-comparison)
-- [Systemanforderungen für Windows 10](https://www.microsoft.com/windows/windows-10-specifications#system-specifications)
-- [Die Lizenzierung Windows Server 2016-Datenblatt herunterladen](http://download.microsoft.com/download/7/2/9/7290EA05-DC56-4BED-9400-138C5701F174/WS2016LicensingDatasheet.pdf)
+- [Vergleich der Standard- und Datacenter-Editionen von Windows Server 2016](https://docs.microsoft.com/windows-server/get-started/2016-edition-comparison)
+- [Windows 10-Systemanforderungen](https://www.microsoft.com/windows/windows-10-specifications#system-specifications)
+- [Herunterladen des Windows Server 2016 Lizenzierungsdatenblatts](http://download.microsoft.com/download/7/2/9/7290EA05-DC56-4BED-9400-138C5701F174/WS2016LicensingDatasheet.pdf)

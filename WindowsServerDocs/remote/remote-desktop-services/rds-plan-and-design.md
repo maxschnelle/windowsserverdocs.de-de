@@ -1,6 +1,6 @@
 ---
-title: RDS - ausführen und optimieren
-description: Informationen zur Planung unterstützen Sie beim Entwerfen Ihrer Remotedesktop-Bereitstellung.
+title: 'Remotedesktopdienste: Ausführen und Optimieren'
+description: Diese Informationen zur Planung helfen dir beim Entwerfen deiner Remotedesktop-Bereitstellung.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -14,27 +14,27 @@ ms.assetid: 047b08be-7f91-4194-a641-5b6941b92515
 author: spatnaik
 manager: scottman
 ms.openlocfilehash: 534fbef473c2627f65189c6f3dfcc9a89200f289
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59815731"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63743492"
 ---
-# <a name="plan-and-design-your-remote-desktop-services-environment"></a>Planen Sie und Entwerfen Sie Ihrer Umgebung Remote Desktop Services
+# <a name="plan-and-design-your-remote-desktop-services-environment"></a>Planen und Entwerfen der Umgebung für die Remotedesktopdienste
 
-Eine hochgradig skalierbare Remote Desktop-Bereitstellung erfordert die Verwendung spezifischer Muster und Verfahren.
-Entwurf für eine optimale Leistung und Skalierung ist der Schlüssel. Verwenden Sie die folgenden Szenarios können Sie die zu planen, Entwerfen und ständig Optimieren Ihrer Bereitstellung.
+Eine in hohem Maß skalierbare Remotedesktop-Bereitstellung erfordert die Verwendung bestimmter Muster und Verfahren.
+Es ist von entscheidender Bedeutung, den Entwurf auf eine optimale Leistung und Skalierbarkeit auszurichten. Die unten genannten Szenarien dienen dazu, dass du dir deine Bereitstellung besser vorstellen und sie entsprechend aufbauen und fortlaufend optimieren kannst.
 
-Verwenden Sie die folgende Informationen zum Planen und Entwerfen Ihrer Bereitstellung:
+Die folgenden Informationen unterstützten dich beim Planen und Entwerfen deiner Bereitstellung:
 
-- [Erstellen Sie überall](rds-plan-build-anywhere.md)
+- [RDS – überall erstellen](rds-plan-build-anywhere.md)
 - [Zusatzaufwand für andere Arten von Benutzern](rds-plan-cater-to-users.md)
-- [Zugriff von überall aus](rds-plan-access-from-anywhere.md)
+- [Zugriff von jedem beliebigen Standort](rds-plan-access-from-anywhere.md)
 - [Hohe Verfügbarkeit](rds-plan-high-availability.md)
-- [MultiFactor Authentication](rds-plan-mfa.md)
-- [Sichern des Datenspeichers](rds-plan-secure-data-storage.md)
-- [Aktivieren von High-End-Grafik-rendering](rds-graphics-virtualization.md)
-- [Herstellen einer Verbindung von einem beliebigen Gerät](rds-plan-connect-from-any-device.md)
-- [Wählen der bezahlungsart](rds-plan-choose-how-you-pay.md)
+- [Multi-Factor Authentication](rds-plan-mfa.md)
+- [Sichere Datenspeicherung](rds-plan-secure-data-storage.md)
+- [High-End-Rendering von Grafiken](rds-graphics-virtualization.md)
+- [Verbinden von einem beliebigen Gerät aus](rds-plan-connect-from-any-device.md)
+- [Wählen der Bezahlungsart](rds-plan-choose-how-you-pay.md)
 
-Lesen Sie unbedingt auch die [Desktop hosten Reference Architecture](desktop-hosting-reference-architecture.md), die bietet eine Übersicht über die Remotedesktop-Architektur und hilft Ihnen, eine Hybrid-RDS-Umgebung zu planen, die Azure-Infrastruktur enthält.
+Lies auch den Artikel [Referenzarchitektur für das Desktophosting](desktop-hosting-reference-architecture.md), der einen Überblick über die Remotedesktop-Architektur bietet und dich bei der Planung einer hybriden Remotedesktopdienste-Umgebung unterstützt, die eine Azure-Infrastruktur umfasst.

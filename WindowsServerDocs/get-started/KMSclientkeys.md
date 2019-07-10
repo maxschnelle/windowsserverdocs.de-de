@@ -1,6 +1,6 @@
 ---
 title: KMS-Clientsetupschlüssel
-description: Schlüssel zur Aktivierung von Windows-Produkte durch einen KMS-Server
+description: Schlüssel zur Aktivierung von Windows-Produkten durch einen KMS-Server
 ms.prod: windows-server-threshold
 ms.mktglfcycl: manage
 ms.sitesec: library
@@ -10,42 +10,42 @@ ms.localizationpriority: medium
 ms.date: 05/21/2019
 ms.topic: get-started-article
 ms.openlocfilehash: c0d85da8a51a43acd7765957b34220829a43b086
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
-ms.translationtype: MT
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "66810708"
 ---
 # <a name="kms-client-setup-keys"></a>KMS-Clientsetupschlüssel
 
->Gilt für: Windows Server 2019, Windows Server Halbjährlicher Kanal, WindowsServer 2016, Windows 10
+>Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows 10
 
 Computer, auf denen Volumenlizenzeditionen von Windows Server, Windows 10, Windows 8.1, Windows Server 2012 R2, Windows 8, Windows Server 2012, Windows 7, Windows Server 2008 R2, Windows Vista und Windows Server 2008 ausgeführt werden, sind standardmäßig KMS-Clients und benötigen keine zusätzliche Konfiguration.
 
 > [!NOTE]
-> In den Tabellen, die folgen, steht "LTSC" für "Long-term Servicing Kanal", während "LTSB", "Long-term Servicing Branch." verweist. 
+> In den folgenden Tabellen steht „LTSC“ für „Long-Term Servicing Channel“, während „LTSB“ für „Long-Term Servicing Branch“ steht. 
 
-**Um mithilfe der hier aufgeführten (die GVLKs sind), müssen Sie zuerst einen KMS-Host in Ihrer Umgebung ausführen.** Wenn Sie noch keinen KMS-Host konfiguriert haben, befolgen Sie die Anweisungen unter [Deploy KMS Activation](https://technet.microsoft.com/library/dn502531(v=ws.11).aspx) , um einen einzurichten.
+**Um die hier aufgeführten Setupschlüssel (GVLKs) zu verwenden**, musst du zuerst einen KMS-Host in deiner Umgebung ausführen. Wenn Sie noch keinen KMS-Host konfiguriert haben, befolgen Sie die Anweisungen unter [Deploy KMS Activation](https://technet.microsoft.com/library/dn502531(v=ws.11).aspx) , um einen einzurichten.
 
-Wenn Sie für einen Computer die Umstellung von einem KMS-Host, einer MAK-Version oder einer Einzelhandelsversion von Windows auf einen KMS-Client durchführen, müssen Sie den entsprechenden Setupschlüssel (GVLK) installieren. Verwenden Sie dazu die folgenden Tabellen. Um eine Client-Setup-Schlüssel installieren möchten, öffnen Sie eine administratoreingabeaufforderung, auf dem Client Typ **slmgr / IPK \<Setupschlüssel\>**  , und drücken Sie dann die **EINGABETASTE**.
+Wenn Sie für einen Computer die Umstellung von einem KMS-Host, einer MAK-Version oder einer Einzelhandelsversion von Windows auf einen KMS-Client durchführen, müssen Sie den entsprechenden Setupschlüssel (GVLK) installieren. Verwenden Sie dazu die folgenden Tabellen. Öffne zum Installieren eines Clientsetupschlüssels auf dem Client eine Eingabeaufforderung mit administrativen Rechten, gib **slmgr /ipk \<Setupschlüssel\>** ein, und drücke die **EINGABETASTE**.
 
 | Wenn Sie Folgendes erreichen möchten,…    | …verwenden Sie diese Ressourcen   |
 |--------------------|------------------------|
-| Beim Aktivieren von Windows ohne Volumeaktivierung (d. h., Sie versuchen, eine Einzelhandelsversion von Windows zu aktivieren) **funktionieren diese Schlüssel nicht**. | Verwenden Sie die folgenden Links für Einzelhandelsversionen von Windows: |
-| Beheben Sie diesen Fehler, die Sie erhalten, wenn Sie versuchen, eine Windows 8.1, Windows Server 2012 R2 oder höher System zu aktivieren: "Fehler: 0xC004F050 Vom Softwarelizenzierungsdienst wurde ein ungültiger Product Key gemeldet."… | [Installieren Sie dieses Update](https://support.microsoft.com/en-us/help/3172614/july-2016-update-rollup-for-windows-8-1-and-windows-server-2012-r2) auf dem KMS-Host, wenn er Windows 8.1, Windows Server 2012 R2, Windows 8 oder Windows Server 2012 ausführt. |
+| Beim Aktivieren von Windows außerhalb einer Volumeaktivierung (d.h., du versuchst, eine Einzelhandelsversion von Windows zu aktivieren) **funktionieren diese Schlüssel nicht**. | Verwenden Sie die folgenden Links für Einzelhandelsversionen von Windows: |
+| Behebe diesen Fehler, der auftritt, wenn du versuchst, ein Windows 8.1-, Windows Server 2012 R2- oder höheres System zu aktivieren: "Fehler: 0xC004F050 Vom Softwarelizenzierungsdienst wurde ein ungültiger Product Key gemeldet."… | [Installieren Sie dieses Update](https://support.microsoft.com/en-us/help/3172614/july-2016-update-rollup-for-windows-8-1-and-windows-server-2012-r2) auf dem KMS-Host, wenn er Windows 8.1, Windows Server 2012 R2, Windows 8 oder Windows Server 2012 ausführt. |
 
--   [Windows 10 abrufen](https://www.microsoft.com/en-us/windows/get-windows-10)
+-   [Windows 10 Home oder Pro kaufen](https://www.microsoft.com/en-us/windows/get-windows-10)
 
--   [Abrufen eines neuen Product Keys für Windows](https://support.microsoft.com/help/10749/windows-product-key)
+-   [Suchen des Windows-Product Keys](https://support.microsoft.com/help/10749/windows-product-key)
 
--   [Genuine Windows-Hilfe und Anleitungen](https://support.microsoft.com/help/15087/windows-genuine)
+-   [Informationen zur Originalversion von Windows](https://support.microsoft.com/help/15087/windows-genuine)
 
 
->   Wenn Sie Windows Server 2008 R2 oder Windows 7 ausführen, achten Sie auf Updates, die diese Betriebssysteme als KMS-Hosts für Windows 10-Clients unterstützen.
+>   Wenn du Windows Server 2008 R2 oder Windows 7 ausführst, achte auf Updates, die diese Betriebssysteme als KMS-Hosts für Windows 10-Clients unterstützen.
 
-## <a name="windows-server-semi-annual-channel-versions"></a>Versionen von Windows Server Halbjährlicher Kanal
+## <a name="windows-server-semi-annual-channel-versions"></a>Windows Server-Versionen, halbjährlicher Kanal
 
-### <a name="windows-server-version-1903-and-windows-server-version-1809"></a>Windows Server, Version 1903 und Windows Server, Version 1809
+### <a name="windows-server-version-1903-and-windows-server-version-1809"></a>Windows Server, Version 1903 und Windows Server, Version 1809
 
 | Betriebssystemedition  | KMS-Clientsetupschlüssel          |
 |---------------------------|-------------------------------|
@@ -66,12 +66,12 @@ Wenn Sie für einen Computer die Umstellung von einem KMS-Host, einer MAK-Versio
 | Windows Server Datacenter | 6Y6KB-N82V8-D8CQV-23MJW-BWTG6  | 
 | Windows Server Standard   | DPCNP-XQFKJ-BJF7R-FRC8D-GF6G4  |
 
-## <a name="windows-server-ltscltsb-versions"></a>Windows Server-LTSC/LTSB-Versionen
+## <a name="windows-server-ltscltsb-versions"></a>Windows Server, LTSC/LTSB-Versionen
 
 ### <a name="windows-server-2019"></a>Windows Server 2019
 | Betriebssystemedition       | KMS-Clientsetupschlüssel          |
 |--------------------------------|-------------------------------|
-| Windows Server 2019 Datacenter | WMDGN-G9PQG-XVVXX-R3X43-63DFG  | 
+| Windows Server 2019 Datacenter | WMDGN-G9PQG-XVVXX-R3X43-63DFG  | 
 | Windows Server 2019 Standard   | N69G4-B89J2-4G8F4-WWYCC-J464C  |
 | Windows Server 2019 Essentials|WVDHN-86M7X-466P6-VHXV7-YY726|
 
@@ -83,9 +83,9 @@ Wenn Sie für einen Computer die Umstellung von einem KMS-Host, einer MAK-Versio
 | Windows Server 2016 Standard   | WC2BQ-8NRM3-FDDYY-2BFGV-KHKQY |
 | Windows Server 2016 Essentials | JCKRF-N37P4-C2D82-9YXRT-4M63B |
 
-## <a name="windows-10-all-supported-semi-annual-channel-versions"></a>Windows 10, alle unterstützten Versionen von Halbjährlicher Kanal
+## <a name="windows-10-all-supported-semi-annual-channel-versions"></a>Windows 10, alle unterstützten Versionen des halbjährlichen Kanals
 
-Finden Sie unter den [Windows Lifecycle Fact Sheet](https://support.microsoft.com/en-us/help/13853/windows-lifecycle-fact-sheet) Informationen zu unterstützten Versionen und Ende von Dienstdaten.
+Informationen zu unterstützten Versionen und Dienstendedaten findest du im [Informationsblatt zum Lebenszyklus von Windows](https://support.microsoft.com/en-us/help/13853/windows-lifecycle-fact-sheet).
 
 | Betriebssystemedition          | KMS-Clientsetupschlüssel          |
 |-----------------------------------|-------------------------------|
@@ -102,7 +102,7 @@ Finden Sie unter den [Windows Lifecycle Fact Sheet](https://support.microsoft.co
 |Windows 10 Enterprise G|YYVX9-NTFWV-6MDM3-9PT4T-4M68B|
 |Windows 10 Enterprise G N|44RPN-FTY23-9VTTB-MP9BX-T84FV|
 
-## <a name="windows-10-ltscltsb-versions"></a>Windows 10 LTSC/LTSB versions
+## <a name="windows-10-ltscltsb-versions"></a>Windows 10 LTSC/LTSB-Versionen
 
 ### <a name="windows-10-ltsc-2019"></a>Windows 10 LTSC 2019
 
@@ -131,7 +131,7 @@ Finden Sie unter den [Windows Lifecycle Fact Sheet](https://support.microsoft.co
 | Betriebssystemedition               | KMS-Clientsetupschlüssel          |
 |----------------------------------------|-------------------------------|
 | Windows Server 2012 R2 Server Standard | D2N9P-3P6X9-2R39C-7RTCD-MDVJX |
-| Windows Server2012R2 Datacenter      | W3GGN-FT8W3-Y4M27-J84CP-Q3VJ9 |
+| Windows Server 2012 R2 Datacenter      | W3GGN-FT8W3-Y4M27-J84CP-Q3VJ9 |
 | Windows Server 2012 R2 Essentials      | KNC87-3J2TX-XB4WP-VCPJV-M4FWM |
 
 ### <a name="windows-server-2012"></a>Windows Server 2012
@@ -153,7 +153,7 @@ Finden Sie unter den [Windows Lifecycle Fact Sheet](https://support.microsoft.co
 | Betriebssystemedition                         | KMS-Clientsetupschlüssel          |
 |--------------------------------------------------|-------------------------------|
 | Windows Server 2008 R2 Web                       | 6TPJF-RBVHG-WBW2R-86QPH-6RTM4 |
-| Windows Server 2008 R2 HPC Edition               | TT8MH-CG224-D3D7Q-498W2-9QCTX |
+| Windows Server 2008 R2 HPC Edition               | TT8MH-CG224-D3D7Q-498W2-9QCTX |
 | Windows Server 2008 R2 Standard                  | YC6KT-GKW9T-YTKYR-T4X34-R7VHC |
 | Windows Server 2008 R2 Enterprise                | 489J6-VHDMP-X63PK-3K798-CPX3Y |
 | Windows Server 2008 R2 Datacenter                | 74YFP-3QFB3-KQT8W-PMXWJ-7M648 |
@@ -166,7 +166,7 @@ Finden Sie unter den [Windows Lifecycle Fact Sheet](https://support.microsoft.co
 | Windows Web Server 2008                        | WYR28-R7TFJ-3X2YQ-YCY4H-M249D |
 | Windows Server 2008 Standard                   | TM24T-X9RMF-VWXK6-X8JC9-BFGM2 |
 | Windows Server 2008 Standard ohne Hyper-V   | W7VD6-7JFBR-RX26B-YKQ3Y-6FFFJ |
-| Windows Server 2008 Enterprise                 | YQGMW-MPWTJ-34KDK-48M3W-X4Q6V |
+| Windows Server 2008 Enterprise                 | YQGMW-MPWTJ-34KDK-48M3W-X4Q6V |
 | Windows Server 2008 Enterprise ohne Hyper-V | 39BXF-X8Q23-P2WWT-38T2F-G3FPG |
 | Windows Server 2008 HPC                        | RCTX3-KWVHP-BR6TB-RB6DM-6X7HP |
 | Windows Server 2008 Datacenter                 | 7M67G-PC374-GR742-YH8V4-TCBY3 |
@@ -200,14 +200,14 @@ Finden Sie unter den [Windows Lifecycle Fact Sheet](https://support.microsoft.co
 |--------------------------------------------------|-------------------------------|
 | Windows 7 Professional                           | FJ82H-XT6CR-J8D7P-XQJJ2-GPDD4 |
 | Windows 7 Professional N                         | MRPKT-YTG23-K7D7T-X2JMM-QY7MG |
-| Windows 7 Professional E                         | W82YF-2Q76Y-63HXB-FGJG9-GF7QX |
+| Windows 7 Professional E                         | W82YF-2Q76Y-63HXB-FGJG9-GF7QX |
 | Windows 7 Enterprise                             | 33PXH-7Y6KF-2VJC9-XBBR8-HVTHH |
 | Windows 7 Enterprise N                           | YDRBP-3D83W-TY26F-D46B2-XCKRJ |
-| Windows 7 Enterprise E                           | C29WB-22CC8-VJ326-GHFJW-H9DH4 |
+| Windows 7 Enterprise E                           | C29WB-22CC8-VJ326-GHFJW-H9DH4 |
 
 
-Siehe auch
+Weitere Informationen
 
-• [Planen der Volumenaktivierung](https://technet.microsoft.com/library/jj134042(v=ws.11).aspx)
+[Planen für die Volumenaktivierung](https://technet.microsoft.com/library/jj134042(v=ws.11).aspx)
 
 

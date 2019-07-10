@@ -1,6 +1,6 @@
 ---
-title: Erstellen Sie eine Sammlung von Remote Desktop Services
-description: Erfahren Sie, wie hinzugefügt und RDSH und RemoteApp-Programme für Ihre RDS-Bereitstellung.
+title: Erstellen einer RDS-Sammlung
+description: Erfahre, wie du RDSH- und RemoteApp-Programme deiner RDS-Bereitstellung hinzufügst.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,54 +13,54 @@ ms.topic: article
 ms.assetid: ae9767e3-864a-4eb2-96c0-626759ce6d60
 author: lizap
 manager: dongill
-ms.openlocfilehash: 52806e28c4ef87453995728623efe2954a76dfd9
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 87de04e3ca34217fbbc3ec451dc061ee228a1a60
+ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59839241"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "63743826"
 ---
-# <a name="create-a-remote-desktop-services-collection-for-desktops-and-apps-to-run"></a>Erstellen einer Remote Desktop Services-Sammlung für Desktops und apps ausführen
+# <a name="create-a-remote-desktop-services-collection-for-desktops-and-apps-to-run"></a>Erstellen einer RDS-Sammlung zum Ausführen von Desktops und Apps
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016
 
-Verwenden Sie die folgenden Schritte aus, um eine Auflistung der Remotedesktopdienste-Sitzung zu erstellen. Eine sitzungssammlung enthält, die apps und Desktops, die Sie für Benutzer verfügbar machen möchten. Nachdem Sie die Sammlung erstellt haben, veröffentlichen Sie, damit Benutzer darauf zugreifen können.
+Führe die folgenden Schritte aus, um eine RDS-Sitzungssammlung zu erstellen. Eine Sitzungssammlung enthält die Apps und Desktops, die du Benutzern zur Verfügung stellen möchtest. Nachdem du die Sammlung erstellt hast, veröffentliche sie, damit Benutzer darauf zugreifen können.
 
-Bevor Sie eine Sammlung erstellen, müssen Sie entscheiden, welche Art von Sammlung, die Sie benötigen: in einem Pool zusammengefasste Remotedesktopsitzungen oder persönlichen Remotedesktopsitzungen. 
+Bevor du eine Sammlung erstellst, musst du entscheiden, welche Art von Sammlung du benötigst: Pooldesktopsitzungen oder persönliche Desktopsitzungen. 
 
-- **Verwenden Sie in einem Pool zusammengefasste Remotedesktopsitzungen für sitzungsbasierte Virtualisierung**: Nutzen Sie die rechenleistung von Windows Server, bieten eine kostengünstige Multisession-Umgebung, um alltägliche Workloads für Ihrer Benutzer fördern
-- **Verwenden Sie zum Erstellen einer virtuellen Desktopinfrastruktur (VDI) persönliche Remotedesktopsitzungen für**: Nutzen Sie die Windows-Client, um die hohe Leistung, Anwendungskompatibilität und vertraut sind, die Ihre Benutzer von uns erwarten von ihren Windows-desktop-Erlebnis zu bieten.
+- **Verwenden von Pooldesktopsitzungen für sitzungsbasierte Virtualisierung**: Nutze die Rechenleistung von Windows Server, um eine kostengünstige Multisessionumgebung für die täglichen Workloads deiner Benutzer bereitzustellen.
+- **Verwenden von persönlichen Desktopsitzungen, um eine virtuelle Desktopinfrastruktur (VDI) zu erstellen**: Nutze den Windows-Client, um die hohe Leistung, App-Kompatibilität und Vertrautheit zu bieten, die deine Benutzer von ihrer Windows-Desktopdarstellung gewohnt sind.
  
-Mit einer Sitzung in einem Pool zusammengefasste mehrere Benutzer Zugriff auf einen freigegebenen Pool von Ressourcen, während Sie sich mit einer persönlichen desktop-Sitzung sind Benutzer zugeordnet ihre eigenen Desktop von innerhalb des Pools. Die Sitzung in einem Pool zusammengefasste bietet geringere Gesamtkosten aus, während persönliche Sitzungen Benutzer zum Anpassen ihrer desktop-Erlebnis ermöglichen.
+Bei einer Poolsitzung greifen mehrere Benutzer auf einen gemeinsamen Ressourcenpool zu, während bei einer persönlichen Desktopsitzung den Benutzern ein eigener Desktop aus dem Pool zugewiesen wird. Die Poolsitzung bietet niedrigere Gesamtkosten, während persönliche Sitzungen den Benutzern ermöglichen, ihre Desktopdarstellung anzupassen.
 
-Wenn Sie auf Freigabe, die gehostete Anwendungen, die grafikintensive sind benötigen, können Sie persönliche sitzungsdesktops mit RemoteFX vGPU für Grafiken beschleunigungen konfiguriert kombinieren. Alternativ können Sie persönliche sitzungsdesktops kombinieren, mit der neue diskrete Gerät Zuweisung (DDA)-Funktion, die auch für gehostete Anwendungen unterstützen, die beschleunigte Grafikfunktionen erfordern. Sehen Sie sich [welche Grafiken Virtualisierungstechnologie ist die richtige für Sie](rds-graphics-virtualization.md) für Weitere Informationen.
-
-
-Unabhängig von der Art der Auflistung, die Sie auswählen, füllen Sie die Sammlungen mit RemoteApps - Programme und Ressourcen, die Benutzer können von einem beliebigen unterstützten Gerät Zugriff auf und Arbeiten mit, als ob die Anwendung lokal ausgeführt wurde.
-
-## <a name="create-a-pooled-desktop-session-collection"></a>Erstellen Sie eine Remotedesktop-Sitzungshosts in einem Pool zusammengefasste Sammlung
-
-1.  Klicken Sie im Server-Manager **Remote Desktop Services > Sammlungen > Vorgänge > Sitzungssammlungen erstellen**.  
-2.  Geben Sie einen Namen für die Auflistung, z. B. **ContosoAps**.  
-3.  Wählen Sie den Remotedesktop-Sitzungshost-Server (z. B. Contoso-Shr1) erstellten.  
-4.  Übernehmen Sie den Standardnamen **Benutzergruppen**.  
-5.  Geben Sie den Speicherort der Dateifreigabe, die Sie für die Benutzerprofil-Datenträger für diese Sammlung erstellt haben (z. B. **\Contoso-Cb1\UserDisksr**).   
-6.  Klicken Sie auf **Erstellen**. Wenn die Auflistung erstellt wird, klicken Sie auf **schließen**.  
+Wenn du gehostete Anwendungen mit hohem Grafikaufwand freigeben musst, kannst du persönliche Sitzungsdesktops mit RemoteFX vGPU kombinieren, das für Grafikbeschleunigungen konfiguriert ist. Alternativ dazu kannst du persönliche Sitzungsdesktops mit der neuen Discrete Device Assignment-Funktion (DDA) kombinieren, um Unterstützung für solche gehosteten Anwendungen bereitzustellen. Weitere Informationen findest du unter [Welche Grafikvirtualisierungstechnologie ist für Sie geeignet?](rds-graphics-virtualization.md).
 
 
-## <a name="create-a-personal-desktop-session-collection"></a>Erstellen Sie eine Sammlung von persönlichen Remotedesktop-Sitzungshosts
+Unabhängig von der Art der Sammlung, die du wählst, füllst du diese Sammlungen mit RemoteApps – Programmen und Ressourcen, auf die Benutzer von jedem unterstützten Gerät aus zugreifen und mit denen sie arbeiten können, als ob das Programm lokal ausgeführt würde.
 
-Verwenden Sie das Cmdlet "New-RDSessionCollection", um einen persönlichen desktop sitzungssammlung erstellen. Die folgenden drei Parameter geben die Konfigurationsinformationen für persönliche sitzungsdesktops benötigt:
+## <a name="create-a-pooled-desktop-session-collection"></a>Erstellen einer Pooldesktopsitzungs-Sammlung
 
-- **-PersonalUnmanaged** -gibt der Typ der sitzungssammlung, der Ihnen ermöglicht eine persönliche Sitzungshostserver Benutzer zuweisen. Wenn Sie diesen Parameter nicht angeben, wird als eine herkömmliche RD-Sitzungshost-Auflistung, die Sammlung erstellt, in denen Benutzer den nächsten verfügbaren Sitzungshost zugewiesen sind, bei der Anmeldung.
-- **-GrantAdministrativePrivilege** : bei Verwendung von **- PersonalUnmanaged**, gibt an, dass der Benutzer, die dem Sitzungshost zugewiesen Administratorrechte zugewiesen werden. Wenn Sie diesen Parameter nicht verwenden, erhalten Benutzer nur Berechtigungen für Standardbenutzer.
-- **-AutoAssignUser** : bei Verwendung von **- PersonalUnmanaged**, gibt an, dass neue Benutzer, die eine Verbindung über den Remotedesktop-Verbindungsbroker automatisch auf einem Sitzungshost nicht zugewiesene zugewiesen werden. Wenn keine nicht zugewiesenen Sitzungshosts in der Auflistung vorhanden sind, wird der Benutzer eine Fehlermeldung angezeigt. Wenn Sie diesen Parameter nicht verwenden, müssen Sie [manuell zuweisen von Benutzern zu einem Host für Remotedesktopsitzungen](rds-manage-personal-collection.md#manually-assign-a-user-to-a-personal-session-host) , bevor sie sich anmelden.
+1.  Klicke im Server-Manager auf **Remotedesktopdienste > Sammlungen > Tasks > Sitzungssammlungen erstellen**.  
+2.  Gib einen Namen für die Sammlung ein, z.B. **ContosoAps**.  
+3.  Wähle den RD-Sitzungshost-Server aus, den du erstellt hast (z.B. Contoso-Shr1).  
+4.  Übernimm die Vorgabe **Benutzergruppen**.  
+5.  Gib den Speicherort der Dateifreigabe ein, die du für die Benutzerprofil-Datenträger für diese Sammlung erstellt hast (z.B. **\Contoso-Cb1\UserDisksr**).   
+6.  Klicken Sie auf **Erstellen**. Klicke nach Erstellen der Sammlung auf **Schließen**.  
 
-Sie können PowerShell-Cmdlets verwenden, um Ihre persönliche Remotedesktop-Sitzungshost-Sammlungen zu verwalten. Finden Sie unter [verwalten Sie Ihre persönliche Remotedesktop-Sitzungshost-Sammlungen](rds-manage-personal-collection.md) für Weitere Informationen.
 
-## <a name="publish-remoteapp-programs"></a>RemoteApp-Programme veröffentlichen
-Verwenden Sie die folgenden Schritte aus, um die apps und Ressourcen in Ihrer Sammlung zu veröffentlichen:
+## <a name="create-a-personal-desktop-session-collection"></a>Erstellen einer Sammlung einer persönlichen Desktopsitzung
 
-1.  Wählen Sie die neue Sammlung im Server-Manager (**ContosoApps**).  
-2.  Klicken Sie unter der RemoteApp-Programmen **Veröffentlichen des RemoteApp-Programme**.  
-3. Wählen Sie die Programme, die Sie veröffentlichen möchten, und klicken Sie dann auf **veröffentlichen**.  
+Verwende das Cmdlet „New-RDSessionCollection“, um eine Sammlung persönlicher Sitzungsdesktops zu erstellen. Die folgenden drei Parameter stellen die Konfigurationsinformationen bereit, die für persönliche Sitzungsdesktops benötigt werden:
+
+- **-PersonalUnmanaged**: Gib den Typ der Sitzungssammlung an, mit dem du Benutzer einem persönlichen Sitzungshostserver zuweisen können. Wenn du diesen Parameter nicht angibst, wird die Sammlung als herkömmliche Remotedesktop-Sitzungshostsammlung erstellt, bei der Benutzer beim Anmelden dem nächsten verfügbaren Sitzungshost zugewiesen werden.
+- **-GrantAdministrativePrivilege**: Wenn du **-PersonalUnmanaged** verwendest, gibt dieser Parameter an, dass der Benutzer, der dem Sitzungshost zugewiesen wurde, Administratorrechte erhalten soll. Wenn du diesen Parameter nicht verwendest, werden den Benutzern nur Standardbenutzerrechte erteilt.
+- **-AutoAssignUser**: Wenn du **-PersonalUnmanaged** verwendest, gibt dieser Parameter an, dass neue Benutzer, die eine Verbindung über den Remotedesktop-Verbindungsbroker herstellen, automatisch einem noch nicht zugewiesenen Sitzungshost zugewiesen werden. Wenn in der Sammlung keine nicht zugewiesenen Sitzungshosts vorhanden sind, wird dem Benutzer eine Fehlermeldung angezeigt. Wenn du diesen Parameter nicht verwendest, musst du [Benutzer manuell einem Sitzungshost zuweisen](rds-manage-personal-collection.md#manually-assign-a-user-to-a-personal-session-host), bevor die Benutzer sich anmelden.
+
+Du kannst PowerShell-Cmdlets verwenden, um deine Sammlungen persönlicher Desktopsitzungen zu verwalten. Weitere Informationen findest du unter [Verwalten Ihrer Sammlung mit persönlichen Desktopsitzungen](rds-manage-personal-collection.md).
+
+## <a name="publish-remoteapp-programs"></a>Veröffentlichen von RemoteApp-Programmen
+Führe die folgenden Schritte aus, um die Apps und Ressourcen in deiner Sammlung zu veröffentlichen:
+
+1.  Wähle im Server-Manager die neue Sammlung aus (**ContosoApps**).  
+2.  Klicke unter „RemoteApp-Programme“ auf **RemoteApp-Programme veröffentlichen**.  
+3. Wähle die Programme aus, die du veröffentlichen möchtest, und klicke dann auf **Veröffentlichen**.  
