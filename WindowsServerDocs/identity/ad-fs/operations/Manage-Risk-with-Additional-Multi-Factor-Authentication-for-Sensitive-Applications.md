@@ -72,7 +72,7 @@ Eine globale Authentifizierungsrichtlinie gilt für alle vertrauenden Seiten, di
 
 -   Einstellungen und Methoden für die MFA
 
--   Angabe, ob die Geräteauthentifizierung aktiviert ist. Weitere Informationen finden Sie unter [Join to Workplace from Any Device for SSO and Seamless Second Factor Authentication Across Company Applications](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md).
+-   Angabe, ob die Geräteauthentifizierung aktiviert ist. Weitere Informationen finden Sie unter [Arbeitsplatzbeitritt von einem beliebigen Gerät für SSO und die nahtlose zweistufige Authentifizierung bei allen Unternehmensanwendungen](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md).
 
 Authentifizierungsrichtlinien für Vertrauensstellungen der vertrauenden Seite gelten speziell bei Versuchen, auf die Vertrauensstellung der vertrauenden Seite (Anwendung oder Dienst) zuzugreifen. Als Teil der Authentifizierungsrichtlinie, die pro Vertrauensstellung der vertrauenden Seite gilt, können die folgenden Einstellungen konfiguriert werden:
 

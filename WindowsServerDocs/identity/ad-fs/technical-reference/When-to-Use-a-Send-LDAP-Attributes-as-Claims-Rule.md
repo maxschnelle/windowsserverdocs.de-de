@@ -45,7 +45,7 @@ Wenn Sie das Senden von LDAP-Attributen als Ansprüche Regelvorlage verwenden, k
   
 Mithilfe dieser Vorlage können Sie mehrere Attribute hinzufügen, die von einer Regel aus als mehrere Ansprüche gesendet werden. Sie können diese Regelvorlage z. B. verwenden, um eine Regel zu erstellen, die Attributwerte für authentifizierte Benutzer aus den Active Directory-Attributen **Unternehmen** und **Abteilung** heraussucht und dann diese Werte als zwei unterschiedliche ausgehende Ansprüche sendet.  
   
-Mit dieser Regel können Sie auch alle Gruppenmitgliedschaften des Benutzers senden. Wenn Sie nur einzelne Gruppenmitgliedschaften senden möchten, verwenden Sie die Regelvorlage „Gruppenmitgliedschaft als Anspruch senden“. Weitere Informationen finden Sie unter [When to Use a Send Group Membership as a Claim Rule](When-to-Use-a-Send-Group-Membership-as-a-Claim-Rule.md).  
+Mit dieser Regel können Sie auch alle Gruppenmitgliedschaften des Benutzers senden. Wenn Sie nur einzelne Gruppenmitgliedschaften senden möchten, verwenden Sie die Regelvorlage „Gruppenmitgliedschaft als Anspruch senden“. Weitere Informationen finden Sie unter [verwenden ein Senden der Gruppenmitgliedschaft als Anspruchsregel](When-to-Use-a-Send-Group-Membership-as-a-Claim-Rule.md).  
   
 ## <a name="how-to-create-this-rule"></a>Erstellen dieser Regel  
 Sie können erstellen diese Regel entweder mithilfe der anspruchsregelsprache oder mithilfe der senden-LDAP-Attribute als Ansprüche Regelvorlage in AD FS-Verwaltungs ausrichten\-in. Diese Regelvorlage bietet die folgenden Konfigurationsoptionen:  

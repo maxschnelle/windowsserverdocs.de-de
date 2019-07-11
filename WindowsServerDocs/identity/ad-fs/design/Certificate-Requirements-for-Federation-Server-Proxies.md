@@ -22,7 +22,7 @@ Server, die in der Verbundserverproxy-Rolle in Active Directory-Verbunddienste a
   
 Verbundserverproxys werden in der Regel die verfügbar gemacht, für Computer im Internet, die nicht in der public Key-Infrastruktur Ihres Unternehmens enthalten sind \(PKI\). Aus diesem Grund verwenden Sie ein Serverauthentifizierungszertifikat, das von einer öffentlichen ausgegeben wird \(dritte\-Partei\) Zertifizierungsstelle \(Zertifizierungsstelle\), z. B. VeriSign.  
   
-Wenn Sie eine Verbundserverproxy-Farm verfügen, müssen alle Verbundserverproxy-Computer das gleiche Serverauthentifizierungszertifikat verwenden. Weitere Informationen finden Sie unter [When to Create a Federation Server Proxy Farm](When-to-Create-a-Federation-Server-Proxy-Farm.md).  
+Wenn Sie eine Verbundserverproxy-Farm verfügen, müssen alle Verbundserverproxy-Computer das gleiche Serverauthentifizierungszertifikat verwenden. Weitere Informationen finden Sie unter [Wann sollte eine Verbundserverproxy-Farm erstellt werden?](When-to-Create-a-Federation-Server-Proxy-Farm.md).  
   
 Es ist wichtig, stellen Sie sicher, dass der Antragstellername im Server-Authentifizierung Zertifikat Übereinstimmungen den Namen des Verbunddiensts Wert, der im AD FS-Verwaltungs-Snap-angegeben\-in. Öffnen Sie zum Suchen dieses Werts das Snap-in\-direkt in,\-klicken Sie auf **Service**, klicken Sie auf **Verbunddiensteigenschaften bearbeiten**, und suchen Sie dann den Wert im **Verbund Name des Diensts** Textfeld.  
   

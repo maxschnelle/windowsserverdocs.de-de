@@ -36,7 +36,7 @@ In den folgenden Themen können Sie die Voraussetzungen und andere Informationen
 In diesem Szenario wird ein einzelner Computer mit Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 können als DirectAccess-Server mit erweiterten Einstellungen konfiguriert.  
   
 > [!NOTE]  
-> Wenn Sie nur eine grundlegende Bereitstellung mit einfachen Standardeinstellungen konfigurieren möchten, finden Sie unter [Deploy a Single DirectAccess Server Using the Getting Started Wizard](../../../remote-access/directaccess/single-server-wizard/Deploy-a-Single-DirectAccess-Server-Using-the-Getting-Started-Wizard.md)weitere Informationen. In dem einfachen Szenario wird DirectAccess über einen Assistenten mit Standardeinstellungen eingerichtet, ohne dass die Notwendigkeit zur Konfiguration von Infrastruktureinstellungen wie einer Zertifizierungsstelle oder Active Directory-Sicherheitsgruppen besteht.  
+> Falls Sie lediglich eine einfache Bereitstellung mit einfachen Einstellungen konfigurieren möchten, finden Sie unter [Bereitstellen eines DirectAccess-Servers mit dem Assistenten für erste Schritte](../../../remote-access/directaccess/single-server-wizard/Deploy-a-Single-DirectAccess-Server-Using-the-Getting-Started-Wizard.md) weitere Informationen. In dem einfachen Szenario wird DirectAccess über einen Assistenten mit Standardeinstellungen eingerichtet, ohne dass die Notwendigkeit zur Konfiguration von Infrastruktureinstellungen wie einer Zertifizierungsstelle oder Active Directory-Sicherheitsgruppen besteht.  
   
 ## <a name="in-this-scenario"></a>Inhalt dieses Szenarios  
 Um einen einzelnen DirectAccess-Server mit erweiterten Einstellungen einzurichten, müssen Sie einige Planungs- und Bereitstellungsschritte durchführen.  
