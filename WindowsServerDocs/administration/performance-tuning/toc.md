@@ -7,8 +7,10 @@
 #### [Empfohlene Parameter für den ausgewogenen Energiesparplan](hardware/power/recommended-balanced-plan-parameters.md)
 ## Serverrollenoptimierung
 ### [Active Directory-Server](role/active-directory-server/index.md)
+#### [Kapazitätsplanung für AD DS](role/active-directory-server/capacity-planning-for-active-directory-domain-services.md)
 #### [Überlegungen zur Websitedefinition](role/active-directory-server/site-definition-considerations.md)
 #### [Hardwareaspekte](role/active-directory-server/hardware-considerations.md)
+#### [Überlegungen zur Speicherauslastung](role/active-directory-server/memory-usage-considerations.md)
 #### [Überlegungen zu LDAP](role/active-directory-server/ldap-considerations.md)
 #### [Problembehandlung bezüglich der ADDS-Leistung](role/active-directory-server/troubleshoot.md)
 ### [Dateiserver](role/file-server/index.md)
