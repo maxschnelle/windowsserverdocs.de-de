@@ -4,16 +4,16 @@ description: Bekannte Probleme und Supportinformationen zur Problembehandlung f�
 author: nedpyle
 ms.author: nedpyle
 manager: siroy
-ms.date: 05/14/2019
+ms.date: 07/09/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: e1cfd2b0ea3bc4d7802cb4a6d2a8c1493d5511a1
-ms.sourcegitcommit: 0099873d69bd23495d275d7bcb464594de09ee3c
+ms.openlocfilehash: 08156a09491d66016b5fcfe6056ed318d682b987
+ms.sourcegitcommit: 514d659c3bcbdd60d1e66d3964ede87b85d79ca9
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65699697"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67735161"
 ---
 # <a name="storage-migration-service-known-issues"></a>Speicherung Datenbankmigrationsdienst bekannte Probleme
 
@@ -70,7 +70,7 @@ Wir haben dieses Problem in einer späteren Version von Windows Server-2019 beho
 
 Wenn Windows Admin Center oder PowerShell verwenden die Übertragung Vorgänge ausführliche Fehler nur CSV-Protokoll herunterladen, erhalten Sie Fehler auf:
 
- >   Übertragungsprotokoll – überprüfen Sie, ob die Freigabe von Dateien in Ihrer Firewall zulässig ist. : Dieser Anforderungsvorgang gesendet, um die NET. TCP://localhost: 28940/Sms/Service/1/Übertragung hat keine empfangen eine Antwort innerhalb des konfigurierten Timeouts (00: 01:00). Die Zeit, die für diesen Vorgang zugewiesene Zeitraum war möglicherweise ein Teil eines längeren Zeitlimits. Dies kann sein, da der Dienst den Vorgang noch verarbeitet oder der Dienst eine Antwortnachricht senden konnte. Erhöhen Sie das Timeout des Vorgangs (durch Umwandeln des Kanals/Proxys in IContextChannel und Festlegen der OperationTimeout-Eigenschaft), und stellen Sie sicher, dass der Dienst an den Client eine Verbindung herstellen können.
+ >   Übertragungsprotokoll – überprüfen Sie, ob die Freigabe von Dateien in Ihrer Firewall zulässig ist. : Dieser Anforderungsvorgang gesendet, um die NET. TCP://localhost: 28940/Sms/Service/1/Übertragung hat keine empfangen eine Antwort innerhalb des konfigurierten Timeouts (00: 01:00). Die für diesen Vorgang zugewiesene Zeit war möglicherweise ein Teil eines längeren Timeouts. Dies kann sein, da der Dienst den Vorgang noch verarbeitet oder der Dienst eine Antwortnachricht senden konnte. Erhöhen Sie das Timeout des Vorgangs (durch Umwandeln des Kanals/Proxys in IContextChannel und Festlegen der OperationTimeout-Eigenschaft), und stellen Sie sicher, dass der Dienst an den Client eine Verbindung herstellen können.
 
 Dieses Problem wird durch eine extrem hohe Anzahl von übertragenen Dateien verursacht, die in das Standardtimeout-einer Minute zulässig, die vom Speicherdienst für die Migration nicht gefiltert werden können. 
 
@@ -173,12 +173,39 @@ Dieser Fehler wird erwartet, wenn Sie die Firewallregel "Datei- und Druckerfreig
 
 ## <a name="error-couldnt-transfer-storage-on-any-of-the-endpoints-when-transfering-from-windows-server-2008-r2"></a>Fehler "konnte nicht transfer Speicher auf einem der Endpunkte" beim Übertragen von Windows Server 2008 R2
 
-Beim Versuch, Daten von einem Windows Server 2008 R2-Quellcomputer zu übertragen, erhalten keine Trasnfers Daten, und Sie zu einem Fehler:  
+Beim Versuch, Daten von einem Windows Server 2008 R2-Quellcomputer zu übertragen, erhalten keine Datenübertragungen und Sie zu einem Fehler:  
 
   Speicherkonto konnte nicht auf einem der Endpunkte übertragen werden.
 0x9044
 
 Dieser Fehler wird erwartet, wenn es sich bei Ihrem Windows Server 2008 R2-Computer mit allen kritischen und wichtigen Updates über Windows Update ist nicht alle Patches installiert. Unabhängig von der Speicherung Datenbankmigrationsdienst empfehlen wir grundsätzlich die Patchen von eines Windows Server 2008 R2-Computers aus Sicherheitsgründen wie das Betriebssystem nicht zu die sicherheitsverbesserungen neuerer Versionen von Windows Server enthält.
+
+## <a name="error-couldnt-transfer-storage-on-any-of-the-endpoints-and-check-if-the-source-device-is-online---we-couldnt-access-it"></a>Fehler "konnte nicht transfer Speicher auf einem der Endpunkte" und "Überprüfen ist das Quellgerät online - konnte nicht wir darauf zugreifen."
+
+Beim Versuch, Daten von einem Quellcomputer zu übertragen, werden einige oder alle Freigaben nicht, mit der Zusammenfassung Fehler übertragen:
+
+   Speicherkonto konnte nicht auf einem der Endpunkte übertragen werden.
+0x9044
+
+Untersuchen die Details der SMB-Übertragung wird Fehler angezeigt:
+
+   Überprüfen Sie, wenn das Quellgerät online - ist es darauf zugreifen konnte nicht.
+
+Zeigt das StorageMigrationService/Admin-Ereignisprotokoll untersucht:
+
+   Speicherkonto konnte nicht übertragen werden.
+
+   Auftrag: Job1 ID:  
+   Status: Fehler: 36931 Fehlermeldung angezeigt: 
+
+   Leitfaden: Prüfen Sie die ausführliche Fehlermeldung, und stellen Sie sicher, dass die Übertragung Anforderungen erfüllt werden. Der Übertragungsauftrag konnten keine Quell- und Ziel-Computer übertragen. Dies möglicherweise daran, dass der Orchestrator-Computer konnten keine Computer Quell- oder Zielschema, möglicherweise aufgrund einer Firewallregel erreichen oder Berechtigungen fehlt.
+
+Untersuchen die StorageMigrationService-Proxy/Debug Protokoll zeigt:
+
+   Fehler beim Überprüfen von 07/02/2019-13:35:57.231 [Aufgabenschema] übertragen. ErrorCode: 40961, Quellendpunkt ist nicht erreichbar oder nicht vorhanden ist, Datenquellen-Anmeldeinformationen sind ungültig oder authentifizierter Benutzer verfügt nicht über ausreichende Berechtigungen für den Zugriff.
+am Microsoft.StorageMigration.Proxy.Service.Transfer.TransferOperation.Validate() am Microsoft.StorageMigration.Proxy.Service.Transfer.TransferRequestHandler.ProcessRequest ("FileTransferRequest FileTransferRequest", "Guid" operationId "")    [d:\os\src\base\dms\proxy\transfer\transferproxy\TransferRequestHandler.cs::
+
+Dieser Fehler wird erwartet, verfügt Ihr Migrationskonto nicht mindestens Lesezugriff auf die SMB-Freigaben. Zur Umgehung dieses Fehlers fügen Sie eine Sicherheitsgruppe mit den Konto des Quellstandorts-Migration auf die SMB-Freigaben auf dem Quellcomputer hinzu, und lesen, ändern oder Vollzugriff zu gewähren. Nachdem die Migration abgeschlossen ist, können Sie dieser Gruppe entfernen. Eine zukünftige Version von Windows Server kann dieses Verhalten dahingehend, dass nicht mehr explizite Berechtigungen für die Quellfreigaben ändern.
 
 ## <a name="see-also"></a>Siehe auch
 

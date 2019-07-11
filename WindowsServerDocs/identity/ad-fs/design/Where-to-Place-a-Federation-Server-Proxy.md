@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 9cc40920d366c973ace06a0b6d438a1c2d84b03e
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 03792d7ae5fec3c209cf1abfaa7af3fdfdb75f08
+ms.sourcegitcommit: be243a92f09048ca80f85d71555ea6ee3751d712
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66190509"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67792275"
 ---
 # <a name="where-to-place-a-federation-server-proxy"></a>Platzieren eines Verbundserverproxys
 
@@ -34,7 +34,7 @@ Darüber hinaus das Internet\-für Firewallserver, z. B. einen Computer mit Micr
   
 Regeln zur Server-Veröffentlichung bestimmen, wie die Server-Veröffentlichung funktioniert – im Wesentlichen Filtern aller über den ISA Server-Computer eingehenden und ausgehenden Anforderungen. Die Regeln zur Server-Veröffentlichung ordnen eingehende Clientanforderungen den entsprechenden Servern hinter dem ISA Server-Computer zu. Informationen zum Konfigurieren von ISA Server zum Veröffentlichen eines Servers finden Sie unter [Erstellen einer sicheren Webveröffentlichungsregel](https://go.microsoft.com/fwlink/?LinkId=75182).  
   
-In der verbundumgebung von AD FS, diese Clientanforderungen werden in der Regel versucht, eine bestimmte URL, z. B. eine Verbund-ID-URL wie z. B. http://fs.fabrikam.com. Da diese Clientanforderungen kommt in aus dem Internet, das Internet\-mit Internetzugriff Firewallserver muss konfiguriert werden, um die Verbund-Server-Bezeichner-URL für jeden Verbundserverproxy zu veröffentlichen, die im Umkreisnetzwerk bereitgestellt wird.  
+In der verbundumgebung von AD FS, diese Clientanforderungen werden in der Regel versucht, eine bestimmte URL, z. B. eine Verbund-ID-URL z. B. http:\//fs.fabrikam.com. Da diese Clientanforderungen kommt in aus dem Internet, das Internet\-mit Internetzugriff Firewallserver muss konfiguriert werden, um die Verbund-Server-Bezeichner-URL für jeden Verbundserverproxy zu veröffentlichen, die im Umkreisnetzwerk bereitgestellt wird.  
   
 ### <a name="configuring-isa-server-to-allow-ssl"></a>Konfigurieren von ISA Server zum Zulassen von SSL  
 Um sichere AD FS-Kommunikation zu ermöglichen, müssen Sie ISA Server zum Zulassen von Secure Sockets Layer konfigurieren \(SSL\) Kommunikation zwischen den folgenden:  

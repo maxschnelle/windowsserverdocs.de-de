@@ -9,12 +9,12 @@ ms.date: 3/29/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 071017d05b288a70592af9203fedc72f699d18e0
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 2336847825cfb3f232674a1e39d3bab7953a32c0
+ms.sourcegitcommit: be243a92f09048ca80f85d71555ea6ee3751d712
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66191938"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67792302"
 ---
 # <a name="required-updates-for-active-directory-federation-services-ad-fs-and-web-application-proxy-wap"></a>Erforderliche Updates für Active Directory-Verbunddienste (AD FS) und Webanwendungsproxy (WAP)
 
@@ -29,6 +29,7 @@ Updates für Windows Server 2016 werden monatlich über Windows Update bereitges
 
 |KB # |Beschreibung|Veröffentlichungsdatum
 |----- | ----- |-----
+|[CVE-2019-1126](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1126) | Dieses Sicherheitsupdate bezieht es sich um ein Sicherheitsrisiko in Active Directory-Verbunddienste (AD FS) dabei könnte einen Angreifer die extranetsperre-Richtlinie zu umgehen. |Juli 2019|
 |[4489889 (OS Build 14393.2879)](https://support.microsoft.com/help/4489889/windows-10-update-kb4489889) | Behebt ein Problem in Active Directory-Verbunddienste (AD FS), die bewirkt, dass ein Duplikat der vertrauenden Seite Vertrauensstellung in der AD FS-Verwaltungskonsole angezeigt werden. Dies tritt auf, wenn Sie beim Erstellen oder Anzeigen von Vertrauensstellungen der vertrauenden mithilfe der AD FS-Verwaltungskonsole. |März 2019|
 |[4487006 (OS Build 14393.2828)](https://support.microsoft.com/help/4487006/windows-10-update-kb4487006) | Löst das Problem, Updates für eine Vertrauensstellung der vertrauenden Seite dass fehlschlägt, wenn Sie PowerShell oder die Verwaltungskonsole für Active Directory-Verbunddienste (AD FS) verwenden. Dieses Problem tritt auf, wenn Sie eine Vertrauensstellung der vertrauenden Seite konfigurieren um eine online-Metadaten-URL verwenden, die mehr als eine PassiveRequestorEndpoint veröffentlicht. Der Fehler auftritt, "MSIS7615: Der vertrauenswürdige Endpunkte, die in einer Vertrauensstellung der vertrauenden Seite angegebenen müssen für diese Vertrauensstellung der vertrauenden Seite eindeutig sein."  </br></br>Behebt ein Problem, in dem eine bestimmte Fehlermeldung bei externen Komplexität kennwortänderungen aufgrund von Azure-Kennwort-Protection-Richtlinien angezeigt. |Februar 2019|
 |[4462928 (OS Build 14393.2580)](https://support.microsoft.com/help/4462928/windows-10-update-kb4462928)|Behebt Probleme, die interoperation zwischen Active Directory Federation Services (ADFS) Extranet Smart Lockout zusammenfassender Meldung und alternative Anmelde-ID. Bei der alternativen Anmelde-ID aktiviert ist, ruft zu AD FS-Powershell-Cmdlets, Get-AdfsAccountActivity und Reset-AdfsAccountLockout, return "-Konto wurde nicht gefunden"-Fehler. Wenn Set-AdfsAccountActivity aufgerufen wird, wird ein neuer Eintrag hinzugefügt, anstatt eine vorhandene Ressourcengruppe.|Oktober 2018|
@@ -50,11 +51,12 @@ Im folgenden finden Sie die Liste der Hotfixes und Update Rollups, die für die 
 
 |KB # |Beschreibung|Veröffentlichungsdatum
 |----- | ----- |-----
-|[4041685](https://support.microsoft.com/kb/4041685)|Behandelt ein AD FS-Problem, in denen MSISConext Cookies in Anforderungsheadern können schließlich overflow den Grenzwert für die Header und verursachen Fehler bei der Authentifizierung mit dem HTTP-Statuscode 400 "Fehlerhafte Anforderung – Header zu lang".</br></br>Ein Problem behoben, in dem AD FS nicht mehr ignorieren können "prompt = Login" während der Authentifizierung. Eine Option "Deaktiviert" wurde hinzugefügt, um zu Wiederherstellungsszenarien, wo nicht kennwortgestützte Authentifizierung verwendet wird.|Oktober 2017-Vorschau der Update-Rollup|
-|[4019217](https://support.microsoft.com/kb/4019217)|Arbeitsordner-Clients mithilfe der ressourcentokenbroker nicht funktionieren, wenn Sie einen Server 2012 R2 AD FS-Server verwenden|Update-Rollup für Mai 2017 (Vorschau)|
-|[4015550](https://support.microsoft.com/kb/4015550)|Ein Problem behoben mit AD FS-Authentifizierung nicht von externen Benutzern und AD FS-WAP, die nach dem Zufallsprinzip Weiterleiten der Anforderung nicht|Update-Rollup für April 2017|
-|[4015547](https://support.microsoft.com/kb/4015547)|Ein Problem behoben mit AD FS-Authentifizierung nicht von externen Benutzern und AD FS-WAP, die nach dem Zufallsprinzip Weiterleiten der Anforderung nicht|Security-Update vom April 2017|
-|[4012216](https://support.microsoft.com/kb/4009970)|MS17-019 löst dieses Sicherheitsupdate auf eine Sicherheitslücke in Active Directory Federation Services (ADFS). Dieses Sicherheitsrisiko kann Offenlegung von Informationen ermöglichen, wenn ein Angreifer eine spezielle Anforderung an einen AD FS-Server sendet und der Angreifer kann vertrauliche Informationen über das Zielsystem zu lesen.|Updaterollup von März 2017|
+|[4507448](https://support.microsoft.com/help/4507448/windows-8-1-update-kb4507448)| Dieses Sicherheitsupdate bezieht es sich um ein Sicherheitsrisiko in Active Directory-Verbunddienste (AD FS) dabei könnte einen Angreifer die extranetsperre-Richtlinie zu umgehen. |Juli 2019
+|[4041685](https://support.microsoft.com/kb/4041685)|Behandelt ein AD FS-Problem, in denen MSISConext Cookies in Anforderungsheadern können schließlich overflow den Grenzwert für die Header und verursachen Fehler bei der Authentifizierung mit dem HTTP-Statuscode 400 "Fehlerhafte Anforderung – Header zu lang".</br></br>Ein Problem behoben, in dem AD FS nicht mehr ignorieren können "prompt = Login" während der Authentifizierung. Eine Option "Deaktiviert" wurde hinzugefügt, um zu Wiederherstellungsszenarien, wo nicht kennwortgestützte Authentifizierung verwendet wird.|Oktober 2017-Vorschau der Update-Rollup
+|[4019217](https://support.microsoft.com/kb/4019217)|Arbeitsordner-Clients mithilfe der ressourcentokenbroker nicht funktionieren, wenn Sie einen Server 2012 R2 AD FS-Server verwenden|Update-Rollup für Mai 2017 (Vorschau)
+|[4015550](https://support.microsoft.com/kb/4015550)|Ein Problem behoben mit AD FS-Authentifizierung nicht von externen Benutzern und AD FS-WAP, die nach dem Zufallsprinzip Weiterleiten der Anforderung nicht|Update-Rollup für April 2017
+|[4015547](https://support.microsoft.com/kb/4015547)|Ein Problem behoben mit AD FS-Authentifizierung nicht von externen Benutzern und AD FS-WAP, die nach dem Zufallsprinzip Weiterleiten der Anforderung nicht|Security-Update vom April 2017
+|[4012216](https://support.microsoft.com/kb/4009970)|MS17-019 löst dieses Sicherheitsupdate auf eine Sicherheitslücke in Active Directory Federation Services (ADFS). Dieses Sicherheitsrisiko kann Offenlegung von Informationen ermöglichen, wenn ein Angreifer eine spezielle Anforderung an einen AD FS-Server sendet und der Angreifer kann vertrauliche Informationen über das Zielsystem zu lesen.|Updaterollup von März 2017
 |[3179574](https://support.microsoft.com/kb/3179574)|Korrigiert: Probleme mit AD FS extranet-Kennwort aktualisieren. |Updaterollup vom August 2016
 |[3172614](https://support.microsoft.com/kb/3172614)|Eingeführten Eingabeaufforderung = Anmeldename [unterstützen](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-faq#BKMK_7), mit dem AD FS-Verwaltungskonsole und AlwaysRequireAuthentication Einstellung Problem wurde behoben. |Updaterollup vom Juli 2016
 |[3163306](https://support.microsoft.com/kb/3163306)|Active Directory-Verbunddienste (AD FS) 3.0 kann keine Verbindung herstellen, um Lightweight Directory Access Protocol (LDAP)-Attributspeicher, die Verwendung von Secure Sockets Layer (SSL)-Port 636 oder 3269 in Verbindungszeichenfolge konfiguriert sind. |Updaterollup vom Juni 2016

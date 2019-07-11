@@ -9,16 +9,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 069cdb493cd0ad442e8922ec67c2b9cc6b2ec5fc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ed8a22881cd20633e6fcd61b146f3b0aad7a757b
+ms.sourcegitcommit: be243a92f09048ca80f85d71555ea6ee3751d712
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59858171"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67792278"
 ---
 # <a name="active-directory-domain-services-overview"></a>Übersicht über Active Directory Domain Services
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 
 Ein Verzeichnis ist eine hierarchische Struktur, die Informationen zu Objekten im Netzwerk gespeichert. Ein Verzeichnisdienst wie Active Directory Domain Services (AD DS), stellt die Methoden für die Speicherung von Verzeichnisdaten und die Verfügbarmachung dieses Daten für Netzwerkbenutzer und Administratoren bereit. Z. B. AD DS speichert Informationen über Benutzerkonten wie Namen, Kennwörter, Telefonnummern und So weiter, und ermöglicht anderen autorisierten Benutzern im selben Netzwerk auf diese Informationen zuzugreifen.
@@ -46,11 +46,11 @@ Active Directory enthält außerdem:
  
 * [Struktur von Active Directory und Speichertechnologien](https://technet.microsoft.com/library/cc759186(v=ws.10).aspx)
 * [Domänen-Controller-Rollen](https://technet.microsoft.com/library/cc786438(v=ws.10).aspx) 
-* Active Directory-Schema 
-* [Grundlegendes zu Vertrauensstellungen](https://technet.microsoft.com/library/cc771294(v=ws.10).aspx) 
+* [Active Directory-Schema](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771796(v=ws.10))
+* [Grundlegendes zu Vertrauensstellungen](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771568(v=ws.10)) 
 * [Active Directory-Replikation-Technologien](https://technet.microsoft.com/library/cc786438(v=ws.10).aspx) 
 * [Active Directory-Suche und Veröffentlichung-Technologien](https://technet.microsoft.com/library/cc775686(v=ws.10).aspx) 
-* Zusammenarbeit mit DNS und der Gruppenrichtlinie 
+* [Zusammenarbeit mit DNS und der Gruppenrichtlinie](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd197486(v=ws.10))
 * [Grundlegendes zum Schema](https://technet.microsoft.com/library/cc759402(v=ws.10).aspx) 
 
 Eine detaillierte Liste der Active Directory-Konzepte, finden Sie unter [Understanding Active Directory](https://technet.microsoft.com/library/cc781408(v=ws.10).aspx). 

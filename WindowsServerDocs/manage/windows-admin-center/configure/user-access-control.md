@@ -8,16 +8,16 @@ ms.author: harowl
 ms.date: 06/07/2019
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
-ms.openlocfilehash: 96d09b25ddb2f473fb4fe22c0cf716bfcf8becaa
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: ef87a3bcc5bd0b924a938f055307a0a87cb60d0b
+ms.sourcegitcommit: be243a92f09048ca80f85d71555ea6ee3751d712
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66811926"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67792317"
 ---
 # <a name="configure-user-access-control-and-permissions"></a>Konfigurieren der Zugriffssteuerung für Benutzer und Berechtigungen
 
-> Gilt für: Windows Admin Center, Windows Admin Center Preview
+> Gilt für: Windows Admin Center, Windows Admin Center-Vorschau
 
 Wenn Sie nicht bereits getan haben, informieren Sie sich über die [Benutzeroptionen Access-Steuerelement in Windows Admin Center](../plan/user-access-options.md)
 
@@ -111,7 +111,7 @@ Einer der Vorteile der Verwendung von Azure AD als eine zusätzliche Sicherheits
 
 Bei der Installation von Windows Admin Center unter Windows 10 kann sie einmaliges Anmelden verwenden. Wenn Sie Windows Admin Center in Windows Server verwenden also, müssen Sie jedoch eine Art von Kerberos-Delegierung in Ihrer Umgebung einrichten, bevor Sie einmaliges Anmelden verwenden können. Die Delegierung konfiguriert den Gatewaycomputer als vertrauenswürdig für die Delegierung an den Zielknoten. 
 
-So konfigurieren Sie [ressourcenbasierte eingeschränkte Delegierung](http://windowsitpro.com/security/how-windows-server-2012-eases-pain-kerberos-constrained-delegation-part-1) in Ihrer Umgebung führen Sie die folgenden PowerShell-Cmdlets. Werden Sie (Beachten Sie, dass dies erfordert, dass einen Domänencontroller unter Windows Server 2012 oder höher).
+So konfigurieren Sie [ressourcenbasierte eingeschränkte Delegierung](https://docs.microsoft.com/windows-server/security/kerberos/kerberos-constrained-delegation-overview) in Ihrer Umgebung führen Sie die folgenden PowerShell-Cmdlets. Werden Sie (Beachten Sie, dass dies erfordert, dass einen Domänencontroller unter Windows Server 2012 oder höher).
 
 ```powershell
      $gateway = "WindowsAdminCenterGW" # Machine where Windows Admin Center is installed
