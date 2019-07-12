@@ -75,5 +75,5 @@ Zum Ausführen dieser Prozedur müssen Sie Mitglied der Gruppe **Administratoren
 
 ## <a name="additional-references"></a>Weitere Verweise
 
-[Grundlegendes zu freigegebenen Ordnern und die Windows-Firewall](https://technet.microsoft.com/library/cc731402.aspx)()https://technet.microsoft.com/library/cc731402.aspx)
+[Grundlegendes zu freigegebenen Ordnern und die Windows-Firewall](https://technet.microsoft.com/library/cc731402.aspx)(https://technet.microsoft.com/library/cc731402.aspx)
 

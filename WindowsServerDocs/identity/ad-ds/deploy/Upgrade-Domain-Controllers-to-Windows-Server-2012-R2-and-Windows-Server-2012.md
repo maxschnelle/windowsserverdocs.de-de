@@ -159,9 +159,9 @@ Ab Windows Server 2008 haben-Domänencontroller auch die folgenden sicheren Stan
 |-|-|-|-|  
 |Verschlüsselungstyp oder -richtlinie|Windows Server 2008-Standardeinstellung|Windows Server 2012- und Windows Server 2008 R2-Standardeinstellung|Kommentar|  
 |AllowNT4Crypto|Disabled|Disabled|SMB-Clients (Server Message Block) von Drittanbietern sind möglicherweise nicht mit den sicheren Standardeinstellungen auf Domänencontrollern kompatibel. Um Interoperabilität zu erreichen, können diese Einstellungen jeweils auch gelockert werden, jedoch nur auf Kosten der Sicherheit. Weitere Informationen finden Sie unter [Artikel 942564](https://go.microsoft.com/fwlink/?LinkId=164558) in der Microsoft Knowledge Base (https://go.microsoft.com/fwlink/?LinkId=164558).|  
-|DES|Enabled|Disabled|[Artikel 977321](https://go.microsoft.com/fwlink/?LinkId=177717) in der Microsoft Knowledge Base ()https://go.microsoft.com/fwlink/?LinkId=177717)|  
+|DES|Enabled|Disabled|[Artikel 977321](https://go.microsoft.com/fwlink/?LinkId=177717) in der Microsoft Knowledge Base (https://go.microsoft.com/fwlink/?LinkId=177717)|  
 |CBT/Erweiterter Schutz für integrierte Authentifizierung|Nicht zutreffend|Enabled|Finden Sie unter [Microsoft Security Advisory (937811)](https://go.microsoft.com/fwlink/?LinkId=164559) (https://go.microsoft.com/fwlink/?LinkId=164559) und [Artikel 976918](https://go.microsoft.com/fwlink/?LinkId=178251) in der Microsoft Knowledge Base (https://go.microsoft.com/fwlink/?LinkId=178251).<br /><br />Überprüfen und installieren Sie den Hotfix [Artikel 977073](https://go.microsoft.com/fwlink/?LinkId=186394) (https://go.microsoft.com/fwlink/?LinkId=186394) in der Microsoft Knowledge Base nach Bedarf.|  
-|LMv2|Enabled|Disabled|[Artikel 976918](https://go.microsoft.com/fwlink/?LinkId=178251) in der Microsoft Knowledge Base ()https://go.microsoft.com/fwlink/?LinkId=178251)|  
+|LMv2|Enabled|Disabled|[Artikel 976918](https://go.microsoft.com/fwlink/?LinkId=178251) in der Microsoft Knowledge Base (https://go.microsoft.com/fwlink/?LinkId=178251)|  
 
 ## <a name="BKMK_SysReqs"></a>Betriebssystemanforderungen
 
