@@ -24,7 +24,7 @@ ms.locfileid: "66433644"
 >Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
 ##  <a name="BKMK_AddIns"></a> Installieren von Add-Ins während des Setups zu automatisieren.  
- Verwenden Sie zum Installieren von Add-Ins während des Setups die Methode „PostIC.cmd“, die im Abschnitt [Create the PostIC.cmd File for Running Post Initial Configuration Tasks](Create-the-PostIC.cmd-File-for-Running-Post-Initial-Configuration-Tasks.md) dieses Dokuments beschrieben wird.  
+ Verwenden Sie zum Installieren von Add-Ins während des Setups die Methode „PostIC.cmd“, die im Abschnitt [Erstellen der Datei „PostIC.cmd“ zum Ausführen von Aufgaben nach der Erstkonfiguration](Create-the-PostIC.cmd-File-for-Running-Post-Initial-Configuration-Tasks.md) dieses Dokuments beschrieben wird.  
   
  Fügen Sie der Datei "PostIC.cmd" den folgenden Eintrag hinzu:  
   
