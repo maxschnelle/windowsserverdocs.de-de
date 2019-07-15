@@ -4,22 +4,29 @@ description: Läuft Ihre Anwendung in Remotedesktopsitzungen langsam? Erfahren S
 ms.prod: windows-server-threshold
 ms.technology: remote-desktop-services
 ms.author: elizapo
-ms.date: 09/19/2018
+ms.date: 07/11/2019
 ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: f9aafaa34d5c16e45681e88b1ce60e99a9ad2842
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: a302e775d3304db9304cc51e09ede19fa2eba802
+ms.sourcegitcommit: f75d9496f345d73fdda88037617763e7a2f614b7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66447092"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67863109"
 ---
 # <a name="use-performance-counters-to-diagnose-app-performance-problems-on-remote-desktop-session-hosts"></a>Verwenden von Leistungsindikatoren für die Diagnose von Leistungsproblemen von Anwendungen auf Remotedesktop-Sitzungshosts
 
-Eins der schwierigsten Probleme in der Diagnose ist schlechte Anwendungsleistung – die Anwendungen laufen langsam oder reagieren nicht. In herkömmlicher Weise können Sie Ihre Diagnose beginnen, indem Sie Metriken zu CPU, Arbeitsspeicher, Datenträger-E/A und weiteren Punkten sammeln und dann Tools wie den Windows Performance Analyzer verwenden, um die Ursache des Problems zu ermitteln zu versuchen. Leider helfen Ihnen in den meisten Fällen diese Daten nicht beim Bestimmen der Grundursache, da Indikatoren zum Ressourcenverbrauch viele und große Variationen aufweisen. Dadurch wird es schwierig, die Daten zu lesen und sie mit dem gemeldeten Problem in Beziehung zu setzen. Um Sie bei der schnelleren Lösung Ihrer Probleme mit der Anwendungsleistung zu unterstützen, haben wir einige neue Leistungsindikatoren hinzugefügt (zum [Download](#download-windows-server-insider-software) über das [Windows Insider-Programm](https://insider.windows.com) verfügbar), die den Fluss von Benutzereingaben messen.
+> Gilt für: Windows Server 2019, Windows 10
+
+Eins der schwierigsten Probleme in der Diagnose ist schlechte Anwendungsleistung – die Anwendungen laufen langsam oder reagieren nicht. In herkömmlicher Weise können Sie Ihre Diagnose beginnen, indem Sie Metriken zu CPU, Arbeitsspeicher, Datenträger-E/A und weiteren Punkten sammeln und dann Tools wie den Windows Performance Analyzer verwenden, um die Ursache des Problems zu ermitteln zu versuchen. Leider helfen diese Daten in den meisten Fällen nicht beim Bestimmen der Grundursache, da Indikatoren zum Ressourcenverbrauch viele und große Variationen aufweisen. Dadurch wird es schwierig, die Daten zu lesen und sie mit dem gemeldeten Problem in Beziehung zu setzen. Zur Unterstützung bei der schnellen Lösung von Problemen mit der Anwendungsleistung haben wir einige neue Leistungsindikatoren hinzugefügt (zum [Download](#download-windows-server-insider-software) über das [Windows Insider-Programm](https://insider.windows.com) verfügbar), die den Fluss von Benutzereingaben messen.
+
+>[!NOTE]
+>Der Indikator „User Input Delay“ (Benutzereingabeverzögerung) ist nur kompatibel mit:
+> - Windows Server 2019 oder höher
+> - Windows 10, Version 1809 oder höher
 
 Der Indikator User Input Delay (Benutzereingabeverzögerung) kann Sie dabei unterstützen, schnell die Grundursache für schlechte Endbenutzer-RDP-Erfahrungen zu bestimmen. Dieser Indikator misst, wie lange jede Benutzereingabe (wie etwa Maus- oder Tastaturbetätigungen) in der Warteschlange verbleibt, bevor sie von einem Prozess aufgenommen wird, und der Indikator funktioniert sowohl in lokalen als auch in Remotesitzungen.
 
