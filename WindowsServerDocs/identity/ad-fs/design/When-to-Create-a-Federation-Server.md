@@ -29,9 +29,9 @@ In den folgenden Abschnitten werden einige der wichtigsten Entscheidungen zur Be
 ## <a name="determine-the-organizational-role-for-the-federation-server"></a>Bestimmen der Organisationsrollen für den Verbundserver  
 Damit wird eine fundierte Entscheidung in Bezug auf einen neuen Verbundserver zu erstellen, müssen Sie zunächst ermitteln, in welcher Organisation der Server gespeichert werden soll. Die Rolle, die ein Verbundserver in einer Organisation spielt, hängt davon ab, ob Sie den Verbundserver in der Kontopartnerorganisation oder in der Ressourcenpartnerorganisation platzieren.  
   
-Wenn der Verbundserver im Unternehmensnetzwerk des Kontopartners platziert wird, werden seine Rolle die Anmeldeinformationen des Browsers, Webdienst oder identitätsauswahlclients zu authentifizieren und Senden von Sicherheitstoken an die Clients. Weitere Informationen finden Sie unter [Review the Role of the Federation Server in the Account Partner](Review-the-Role-of-the-Federation-Server-in-the-Account-Partner.md).  
+Wenn der Verbundserver im Unternehmensnetzwerk des Kontopartners platziert wird, werden seine Rolle die Anmeldeinformationen des Browsers, Webdienst oder identitätsauswahlclients zu authentifizieren und Senden von Sicherheitstoken an die Clients. Weitere Informationen finden Sie unter [Überprüfen der Rolle des Verbundservers beim Kontopartner](Review-the-Role-of-the-Federation-Server-in-the-Account-Partner.md).  
   
-Wenn der Verbundserver im Unternehmensnetzwerk des Ressourcenpartners platziert wird, seine Rolle darin, authentifizieren Benutzer basierend auf der ein Sicherheitstoken, das durch einen Verbundserver in der Ressourcenpartnerorganisation ausgestellt wird, oder seine Rolle darin, tokenanfragen von umleiten konfigurierten Webanwendungen oder Webdiensten der Kontopartnerorganisation, die der Client angehört. Weitere Informationen finden Sie unter [Review the Role of the Federation Server in the Resource Partner](Review-the-Role-of-the-Federation-Server-in-the-Resource-Partner.md).  
+Wenn der Verbundserver im Unternehmensnetzwerk des Ressourcenpartners platziert wird, seine Rolle darin, authentifizieren Benutzer basierend auf der ein Sicherheitstoken, das durch einen Verbundserver in der Ressourcenpartnerorganisation ausgestellt wird, oder seine Rolle darin, tokenanfragen von umleiten konfigurierten Webanwendungen oder Webdiensten der Kontopartnerorganisation, die der Client angehört. Weitere Informationen finden Sie unter [Überprüfen der Rolle des Verbundservers beim Ressourcenpartner](Review-the-Role-of-the-Federation-Server-in-the-Resource-Partner.md).  
   
 ## <a name="determine-which-ad-fs-design-to-deploy"></a>Ermitteln des AD FS-Entwurfs für die Bereitstellung  
 Sie erstellen Verbundserver in Ihrer Organisation, wenn Sie die folgenden AD FS-Entwürfe bereitstellen möchten:  
@@ -66,13 +66,13 @@ Sie können einen Verbundserver unter Verwendung der AD FS Konfigurations-Assist
   
 -   Erstellen des ersten Verbundservers in einer Verbundserverfarm  
   
-    Weitere Informationen zum Einrichten des ersten Verbundservers oder zum Hinzufügen eines Verbundservers zu einer Farm finden Sie unter [Create the First Federation Server in a Federation Server Farm](../../ad-fs/deployment/Create-the-First-Federation-Server-in-a-Federation-Server-Farm.md).  
+    Weitere Informationen zum Einrichten des ersten Verbundservers oder zum Hinzufügen eines Verbundservers zu einer Farm finden Sie unter [Erstellen des ersten Verbundservers in einer Verbundserverfarm](../../ad-fs/deployment/Create-the-First-Federation-Server-in-a-Federation-Server-Farm.md).  
   
 -   Hinzufügen eines Verbundservers zu einer Verbundserverfarm  
   
-    Weitere Informationen zum Hinzufügen eines Verbundservers zu einer Farm finden Sie unter [Add a Federation Server to a Federation Server Farm](../../ad-fs/deployment/Add-a-Federation-Server-to-a-Federation-Server-Farm.md).  
+    Weitere Informationen zur Vorgehensweise beim Hinzufügen eines Verbundservers zu einer Farm finden Sie unter [Hinzufügen eines Verbundservers zu einer Verbundserverfarm](../../ad-fs/deployment/Add-a-Federation-Server-to-a-Federation-Server-Farm.md).  
   
-Ausführlichere Informationen zur Funktionsweise der einzelnen Optionen finden Sie unter [The Role of the AD FS Configuration Database](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md).  
+Weitere Informationen zur wie jede dieser Optionen finden Sie unter [die Rolle der AD FS-Konfigurationsdatenbank](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md).  
   
 Weitere Informationen über das Einrichten der erforderlichen Komponenten zum Bereitstellen eines Verbundservers finden Sie unter [Prüfliste: Das Einrichten eines Verbundservers](../../ad-fs/deployment/Checklist--Setting-Up-a-Federation-Server.md).  
   
