@@ -17,7 +17,7 @@ sections:
   - title: Weitere Informationen...
   - items:
       - type: markdown
-        text: 'Stellen Sie den Remotezugriff als einzelnes Mandanten-VPN-RAS-Gateway für Point-to-Site-VPN-Verbindungen mit einer der vier unten erwähnten Szenarios für Remoteclientcomputer bereit, auf denen Windows 10 ausgeführt wird.  Wenn Sie derzeit DirectAccess verwenden, sollten Sie die Always On-VPN-Funktionalität sorgfältig untersuchen, um zu bestimmen, ob sie alle Ihre Remotezugriffsanforderungen erfüllt, bevor Sie von DirectAccess zu Always On-VPN migrieren.'
+        text: 'Stellen Sie den Remotezugriff als einzelnes Mandanten-VPN-RAS-Gateway für Point-to-Site-VPN-Verbindungen mit einer der vier unten erwähnten Szenarios für Remoteclientcomputer bereit, auf denen Windows 10 ausgeführt wird.  Wenn Sie derzeit DirectAccess verwenden, sollten Sie die Always On-VPN-Funktionalität sorgfältig untersuchen, um zu bestimmen, ob sie all Ihre Remotezugriffsanforderungen erfüllt, bevor Sie von DirectAccess zu Always On-VPN migrieren.'
   - items:
       - type: list
         style: cards
