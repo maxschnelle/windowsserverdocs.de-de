@@ -9,16 +9,16 @@ ms.topic: article
 author: cosmosdarwin
 ms.date: 10/08/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 8bdce646c631b56309f86292f0895fe80b0adf31
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: eb19e7ecf89f02200d3393dc1a4a9e5cd85cf598
+ms.sourcegitcommit: 1bc3c229e9688ac741838005ec4b88e8f9533e8a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67284501"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314993"
 ---
 # <a name="choosing-drives-for-storage-spaces-direct"></a>Auswählen von Laufwerken für Direkte Speicherplätze
 
->Gilt für: 2019 für Windows, WindowsServer 2016
+>Gilt für: Windows 2019, Windows Server 2016
 
 Dieses Thema enthält Informationen zum Auswählen von Laufwerken für [Direkte Speicherplätze](storage-spaces-direct-overview.md), um Ihre Leistungs- und Kapazitätsanforderungen zu erfüllen.
 
@@ -67,11 +67,11 @@ Es gibt zur Zeit drei Möglichkeiten dafür:
 
 ![All-Flash-Deployment-Possibilities](media/choosing-drives-and-resiliency-types/All-Flash-Deployment-Possibilities.png)
 
-1. **Alle NVMe.** Die ausschließliche Verwendung von NVMe bietet unübertroffene Leistung, inklusive der vorhersagbar niedrigsten Latenz. Wenn das Modell all Ihrer Laufwerke identisch ist, gibt es keinen Cache. Sie können NVMe-Modelle für höhere und niedrigere Belastungen miteinander verwenden und das erste Modell zum Speichern von Schreibvorgängen auf das Cache des zweiten Modells konfigurieren ([Installation erforderlich](understand-the-cache.md#manual)).
+1. **Alle nvme.** Die ausschließliche Verwendung von NVMe bietet unübertroffene Leistung, inklusive der vorhersagbar niedrigsten Latenz. Wenn das Modell all Ihrer Laufwerke identisch ist, gibt es keinen Cache. Sie können NVMe-Modelle für höhere und niedrigere Belastungen miteinander verwenden und das erste Modell zum Speichern von Schreibvorgängen auf das Cache des zweiten Modells konfigurieren ([Installation erforderlich](understand-the-cache.md#manual-configuration)).
 
-2. **NVMe + SSD.** Bei der Verwendung von NVMe- mit SSDs-Laufwerken speichert das NVMe-Laufwerk automatisch Schreibvorgänge im Cache des SSDs-Laufwerks. Dadurch können Schreibvorgänge im Cache zusammengefügt und nur bei Bedarf zur Reduzierung der Abnutzung des SSDs-Laufwerks aufgehoben werden. Dies ermöglicht NVMe-ähnliche Merkmale der Schreibvorgänge, während Lesevorgänge ebenfalls direkt von den ebenfalls schnellen SSDs-Laufwerken bereitgestellt wird.
+2. **Nvme und SSD.** Bei der Verwendung von NVMe- mit SSDs-Laufwerken speichert das NVMe-Laufwerk automatisch Schreibvorgänge im Cache des SSDs-Laufwerks. Dadurch können Schreibvorgänge im Cache zusammengefügt und nur bei Bedarf zur Reduzierung der Abnutzung des SSDs-Laufwerks aufgehoben werden. Dies ermöglicht NVMe-ähnliche Merkmale der Schreibvorgänge, während Lesevorgänge ebenfalls direkt von den ebenfalls schnellen SSDs-Laufwerken bereitgestellt wird.
 
-3. **Alle SSD.** Wie bei allen NVMe-Laufwerken ist kein Cache vorhanden, wenn das Modell all Ihrer Laufwerke identisch ist. Wenn Sie NVMe-Modelle für höhere und niedrigere Belastungen miteinander verwenden, können Sie das erste Modell zum Speichern von Schreibvorgängen auf das Cache des zweiten Modells konfigurieren ([Installation erforderlich](understand-the-cache.md#manual)).
+3. **Alle SSD.** Wie bei allen NVMe-Laufwerken ist kein Cache vorhanden, wenn das Modell all Ihrer Laufwerke identisch ist. Wenn Sie NVMe-Modelle für höhere und niedrigere Belastungen miteinander verwenden, können Sie das erste Modell zum Speichern von Schreibvorgängen auf das Cache des zweiten Modells konfigurieren ([Installation erforderlich](understand-the-cache.md#manual-configuration)).
 
    >[!NOTE]
    > Der Vorteil bei der ausschließlichen Verwendung von NVMe oder von SSD ohne Cache ist, dass Sie jederzeit auf die verwendbare Speicherkapazität jedes Laufwerks zugreifen können. Es gibt keine „überschüssige” Kapazität beim Zwischenspeichern, was bei einer Skalierung von kleineren Laufwerken von Vorteil sein kann.
@@ -88,7 +88,7 @@ Für Umgebungen mit einer Vielzahl von Anwendungen und Workloads – einige davo
 
     Es gibt eine zusätzliche, etwas „exotische” Option: Laufwerke mit *allen drei* Typen.
 
-3. **NVMe, SSD und HDD.** Bei der Verwendung von Laufwerken aller drei Typen übernimmt der NVME-Speicher das Zwischenspeichern die SSDs und HDDs. Der Anreiz dabei ist, dass Sie parallel im gleichen Cluster Volumes auf SSDs und HDDs erstellen können, die alle von NVMe beschleunigt werden. Die erste Option gleicht einer Bereitstellung, die ausschließlich Flash verwendet, während letztere Option einer oben beschriebenen hybriden Bereitstellung gleicht. Konzeptuell gleicht es einem System mit zwei Pools, dessen Kapazitätsmanagement, Fehler- und Reparaturzyklus usw. überwiegend unabhängig ist.
+3. **Nvme + SSD + HDD.** Bei der Verwendung von Laufwerken aller drei Typen übernimmt der NVME-Speicher das Zwischenspeichern die SSDs und HDDs. Der Anreiz dabei ist, dass Sie parallel im gleichen Cluster Volumes auf SSDs und HDDs erstellen können, die alle von NVMe beschleunigt werden. Die erste Option gleicht einer Bereitstellung, die ausschließlich Flash verwendet, während letztere Option einer oben beschriebenen hybriden Bereitstellung gleicht. Konzeptuell gleicht es einem System mit zwei Pools, dessen Kapazitätsmanagement, Fehler- und Reparaturzyklus usw. überwiegend unabhängig ist.
 
    >[!IMPORTANT]
    > Wir empfehlen die Verwendung der SSD-Ebene, um für Ihre leistungsabhängigsten Workloads eine reine Flash-Bereitstellung zu nutzen.
@@ -102,7 +102,7 @@ Für Workloads, die eine große Kapazität erfordern und unregelmäßig schreibe
 1. **SSD + HDD**. SSDs speichern Lese- und Schreibvorgänge, um Datenverkehrsspitzen aufzufangen und eine SSD-ähnliche Leistung der Schreibvorgänge mit einer späteren optimierten Bereitstellung im HDD anzubieten.
 
 >[!IMPORTANT]
->Konfiguration mit HDDs wird nur nicht unterstützt. Hohe Endurance SSDs zu niedrigen Endurance SSDs Zwischenspeichern ist nicht empfehlenswert.
+>Nur die Konfiguration mit HDDs wird unterstützt. Hohe Ausdauer-SSDs-Zwischenspeicherung und SSDs mit niedriger Ausdauer ist nicht empfehlenswert.
 
 ## <a name="sizing-considerations"></a>Überlegungen zur Größe
 
@@ -110,18 +110,18 @@ Für Workloads, die eine große Kapazität erfordern und unregelmäßig schreibe
 
 Jeder Server muss über mindestens zwei Cache-Laufwerke verfügen (die Mindestanforderungen für Redundanz). Wir empfehlen, dass die Anzahl der Kapazitätslaufwerke um ein Vielfaches der Anzahl der Cache-Laufwerke entspricht. Wenn Sie beispielsweise über vier Cachelaufwerke verfügen, ist die Leistung bei Verwendung von acht Kapazitätslaufwerken konsistenter (Verhältnis 1:2) als bei Verwendung von sieben oder neun Laufwerken.
 
-Der Cache sollte Größe angepasst werden, die zur Aufnahme der Arbeitssatz Ihrer Anwendungen und Workloads, d. h. alle Daten sie lesen und Schreiben von einem bestimmten Zeitpunkt aktiv. Darüber hinaus gibt es keine Cachegrößenanforderung. Für Bereitstellungen mit HDDs, ein ziemlich guten Ausgangspunkt ist 10 % der Kapazität – beispielsweise verfügt jeder Server über 4 x 4 TB HDDS = 16 TB Kapazität, dann 2 800 GB SSD = 1,6 TB des Caches pro Server. Für die All-Flash-Bereitstellungen, insbesondere bei sehr [hohe Endurance](https://blogs.technet.microsoft.com/filecab/2017/08/11/understanding-dwpd-tbw/) SSDs, möglicherweise davon ausgehen, die näher bei 5 % der Kapazität – z. B. Starten verfügt jeder Server über 24 x 1,2 TB SSD = Sie 28,8 TB Kapazität, dann 2 x 750 GB NVMe = 1,5 TB des Caches pro Server. Sie können zu einem späteren Zeitpunkt immer noch Cache-Laufwerke hinzufügen oder entfernen.
+Der Cache sollte die Größe des Arbeits Satzes Ihrer Anwendungen und Arbeits Auslastungen abdecken, d. h. alle Daten, die Sie zu einem beliebigen Zeitpunkt aktiv Lesen und schreiben. Darüber hinaus gibt es keine Cachegrößenanforderung. Bei bereit Stellungen mit HDDs besteht ein guter Ausgangspunkt aus 10% der Kapazität – beispielsweise, wenn jeder Server 4 x 4 TB HDD = 16 TB Kapazität hat, dann 2 x 800 GB SSD = 1,6 TB Cache pro Server. Für alle Flash Bereitstellungen, insbesondere bei sehr [hohen Belastungs](https://blogs.technet.microsoft.com/filecab/2017/08/11/understanding-dwpd-tbw/) -SSDs, ist es möglicherweise sehr wichtig, sich mit 5% der Kapazität zu beginnen – beispielsweise, wenn jeder Server über 24 x 1,2 TB SSD = 28,8 TB Kapazität verfügt, dann 2 x 750 GB nvme = 1,5 TB Cache pro Server. Sie können zu einem späteren Zeitpunkt immer noch Cache-Laufwerke hinzufügen oder entfernen.
 
 ### <a name="general"></a>Allgemein
 
 Es wird empfohlen, die gesamte Speicherkapazität pro Server auf etwa 100 Terabytes (TB) zu beschränken. Je mehr Speicherkapazität pro Server existiert, desto länger dauert die Neusynchronisierung der Daten nach dem Herunterfahren des Systems oder nach einem Neustart wie z. B. beim Aktualisieren von Software.
 
-Die aktuelle maximale Größe pro Speicherpool ist 4 im petabytebereich (PB) (4.000 TB) für Windows Server-2019 oder 1 Petabyte für Windows Server 2016.
+Die aktuelle maximale Größe pro Speicherpool beträgt 4 Petabytebereich (PB) (4.000 TB) für Windows Server 2019 oder 1 Petabytebereich für Windows Server 2016.
 
 ## <a name="see-also"></a>Siehe auch
 
-- [Übersicht über Storage "direkte Speicherplätze"](storage-spaces-direct-overview.md)
-- [Verstehen des Caches in "direkte Speicherplätze"](understand-the-cache.md)
-- [Storage Spaces Direct-hardwareanforderungen](storage-spaces-direct-hardware-requirements.md)
-- [Planen von Volumes im "direkte Speicherplätze"](plan-volumes.md)
+- [Übersicht über direkte Speicherplätze](storage-spaces-direct-overview.md)
+- [Grundlegendes zum Cache in direkte Speicherplätze](understand-the-cache.md)
+- [Direkte Speicherplätze Hardwareanforderungen](storage-spaces-direct-hardware-requirements.md)
+- [Planen von Volumes in direkte Speicherplätze](plan-volumes.md)
 - [Fehlertoleranz und Speichereffizienz](storage-spaces-fault-tolerance.md)

@@ -7,14 +7,14 @@ ms.manager: dongill
 ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
-ms.date: 07/18/2017
+ms.date: 07/17/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 62fa33d08af25c424c786c10191fe6ae2b3d02bc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0050a8931162e37408895ef664293be2349d1bde
+ms.sourcegitcommit: 1bc3c229e9688ac741838005ec4b88e8f9533e8a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855511"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314999"
 ---
 # <a name="understanding-the-cache-in-storage-spaces-direct"></a>Grundlegendes zum Cache in direkten Speicherplätzen
 
@@ -25,7 +25,7 @@ Die Funktionsweise des Caches richtet sich nach den vorhandenen Laufwerktypen.
 
 Das folgende Video zeigt im Detail die Funktionsweise des Zwischenspeicherns für direkte Speicherplätze sowie andere Entwurfsüberlegungen.
 
-<strong>"Direkte Speicherplätze" Storage-entwurfsüberlegungen</strong><br>(20 Minuten)<br>
+<strong>Überlegungen zum direkte Speicherplätze Entwurf</strong><br>(20 Minuten)<br>
 <iframe src="https://channel9.msdn.com/Blogs/windowsserver/Design-Considerations-for-Storage-Spaces-Direct/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
 ## <a name="drive-types-and-deployment-options"></a>Laufwerktypen und Bereitstellungsoptionen
@@ -88,7 +88,7 @@ Wenn Sie SSDs und HDDs verwenden, dienen die SSDs als Cache für die HDDs.
    >[!NOTE]
    > Cachelaufwerke leisten keinen Beitrag zur nutzbaren Speicherkapazität. Alle im Cache gespeicherten Daten werden auch an einem anderen Ort gespeichert (spätestens nach Aufhebung der Bereitstellung). Dies bedeutet, dass die gesamte reine Speicherkapazität Ihrer Bereitstellung nur die Summe Ihrer Kapazitätslaufwerke ist.
 
-Wenn alle Laufwerke den gleichen Typ haben, wird nicht automatisch ein Cache konfiguriert. Sie können manuell konfigurieren, dass Laufwerke mit höherer Belastbarkeit als Cache für Laufwerke desselben Typs dienen, die für geringere Belastungen ausgelegt sind. Informationen hierzu finden Sie im Abschnitt [Manuelle Konfiguration](#manual).
+Wenn alle Laufwerke den gleichen Typ haben, wird nicht automatisch ein Cache konfiguriert. Sie können manuell konfigurieren, dass Laufwerke mit höherer Belastbarkeit als Cache für Laufwerke desselben Typs dienen, die für geringere Belastungen ausgelegt sind. Informationen hierzu finden Sie im Abschnitt [Manuelle Konfiguration](#manual-configuration).
 
    >[!TIP]
    > Bei reinen NVMe- oder SSD-Bereitstellungen (vor allem in kleinerem Umfang) kann die Speichereffizienz deutlich verbessert werden, wenn keine Laufwerke für den Cache reserviert werden.
@@ -109,7 +109,7 @@ Dies führt dazu, dass Merkmale von Schreibvorgängen, z. B. die Schreiblatenz,
 
 ### <a name="readwrite-caching-for-hybrid-deployments"></a>Zwischenspeichern von Lese-/Schreibvorgängen für Hybridbereitstellungen
 
-Beim Zwischenspeichern für Festplattenlaufwerke (HDDs) werden sowohl Lese- *als auch* Schreibvorgänge zwischengespeichert, um für beide Vorgänge eine Latenz wie bei Flash zu erzielen (häufig um den Faktor 10 schneller). Im Lesecache werden kürzlich und häufig gelesene Daten zwischengespeichert, um den schnellen Zugriff zu ermöglichen und zufälligen Datenverkehr für die HDDs zu verringern. (Aufgrund der Such- und rotierenden Verzögerungen können die Latenz und den zufälligen Zugriff auf eine HDD anfallenden Zeitverlust ist erheblich.) Schreibt die bursts von zwischengespeichert, absorbieren und, wie zuvor, zusammenzufügen schreibt und schreibt und den kumulativen Datenverkehr auf die Kapazität-Laufwerke zu minimieren.
+Beim Zwischenspeichern für Festplattenlaufwerke (HDDs) werden sowohl Lese- *als auch* Schreibvorgänge zwischengespeichert, um für beide Vorgänge eine Latenz wie bei Flash zu erzielen (häufig um den Faktor 10 schneller). Im Lesecache werden kürzlich und häufig gelesene Daten zwischengespeichert, um den schnellen Zugriff zu ermöglichen und zufälligen Datenverkehr für die HDDs zu verringern. (Aufgrund von Such-und Rotations Verzögerungen ist die Latenz und die verlorene Zeit, die durch den zufälligen Zugriff auf eine HDD entstehen, von großer Bedeutung.) Schreibvorgänge werden zwischengespeichert, um Spitzen zu absorbieren, und, wie zuvor, die zusammen Fügung von Schreib-und Schreibvorgängen sowie das Minimieren des kumulativen Datenverkehrs an die Kapazitäts Laufwerke.
 
 Für „Direkte Speicherplätze“ wird ein Algorithmus implementiert, mit dem die Zufälligkeit von Schreibvorgängen beseitigt wird, bevor deren Bereitstellung aufgehoben wird. So soll ein E/A-Muster für das Laufwerk emuliert werden, das auch dann noch sequenziell erscheint, wenn die tatsächliche Eingabe/Ausgabe von der Workload (z. B. virtuelle Computer) zufälliger Art ist. Auf diese Weise werden der IOPS-Wert und der Durchsatz für die HDDs maximiert.
 
@@ -121,13 +121,13 @@ Wenn alle drei Laufwerkstypen vorhanden sind, übernehmen die NVMe-Laufwerke die
 
 In der folgenden Tabelle ist angegeben, welche Laufwerke zum Zwischenspeichern verwendet werden, welche als Kapazitätslaufwerke eingesetzt werden und welches Cacheverhalten für jede Bereitstellungsmöglichkeit gilt.
 
-| Bereitstellung       | Cachelaufwerke                        | Kapazitätslaufwerke | Cacheverhalten (Standard)                  |
-|------------------|-------------------------------------|-----------------|-------------------------------------------|
-| Nur NVMe         | Keine (Optional: manuelle Konfiguration) | NVMe            | Nur Schreibvorgänge (falls konfiguriert)                |
-| Nur SSDs          | Keine (Optional: manuelle Konfiguration) | SSD             | Nur Schreibvorgänge (falls konfiguriert)                |
-| NVMe und SSD       | NVMe                                | SSD             | Nur Schreibvorgänge                                |
-| NVMe und HDD       | NVMe                                | HDD             | Lese- und Schreibvorgänge                              |
-| SSD und HDD        | SSD                                 | HDD             | Lese- und Schreibvorgänge                              |
+| Bereitstellung     | Cachelaufwerke                        | Kapazitätslaufwerke | Cacheverhalten (Standard)  |
+| -------------- | ----------------------------------- | --------------- | ------------------------- |
+| Nur NVMe         | Keine (Optional: manuelle Konfiguration) | NVMe            | Nur Schreibvorgänge (falls konfiguriert)  |
+| Nur SSDs          | Keine (Optional: manuelle Konfiguration) | SSD             | Nur Schreibvorgänge (falls konfiguriert)  |
+| NVMe und SSD       | NVMe                                | SSD             | Nur Schreibvorgänge                  |
+| NVMe und HDD       | NVMe                                | HDD             | Lese- und Schreibvorgänge                |
+| SSD und HDD        | SSD                                 | HDD             | Lese- und Schreibvorgänge                |
 | NVMe und SSD und HDD | NVMe                                | SSD und HDD       | Lese- und Schreibvorgänge für HDD, nur Schreibvorgänge für SSD  |
 
 ## <a name="server-side-architecture"></a>Serverseitige Architektur
@@ -171,11 +171,13 @@ Der per Software definierte Speicherstapel von Windows enthält mehrere andere C
 
 Bei Direkte Speicherplätze sollte das Standardverhalten für den Zurückschreibcache von Direkte Speicherplätze nicht geändert werden. Vermeiden Sie es beispielsweise, Parameter wie **-WriteCacheSize** für das **New-Volume**-Cmdlet zu verwenden.
 
-Sie können frei entscheiden, ob Sie den CSV-Cache verwenden möchten. Er ist in Direkte Speicherplätze standardmäßig deaktiviert, steht aber in keinerlei Konflikt mit dem neuen Cache, der in diesem Thema beschrieben wird. In bestimmten Szenarien können hiermit wertvolle Leistungssteigerungen erzielt werden. Weitere Informationen finden Sie unter [How to Enable CSV Cache](https://blogs.msdn.microsoft.com/clustering/2013/07/19/how-to-enable-csv-cache/) (Aktivieren des CSV-Caches).
+Sie können frei entscheiden, ob Sie den CSV-Cache verwenden möchten. Er ist in Direkte Speicherplätze standardmäßig deaktiviert, steht aber in keinerlei Konflikt mit dem neuen Cache, der in diesem Thema beschrieben wird. In bestimmten Szenarien können hiermit wertvolle Leistungssteigerungen erzielt werden. Weitere Informationen finden Sie unter [How to Enable CSV Cache](../../failover-clustering/failover-cluster-csvs.md#enable-the-csv-cache-for-read-intensive-workloads-optional) (Aktivieren des CSV-Caches).
 
-## <a name="manual"></a> Manuelle Konfiguration
+## <a name="manual-configuration"></a>Manuelle Konfiguration
 
-Bei den meisten Bereitstellungen ist keine manuelle Konfiguration erforderlich. Lesen Sie weiter, falls Sie eine manuelle Konfiguration durchführen müssen.
+Bei den meisten Bereitstellungen ist keine manuelle Konfiguration erforderlich. Falls Sie ihn benötigen, finden Sie weitere Informationen in den folgenden Abschnitten. 
+
+Wenn Sie nach der Installation Änderungen am Cache Gerätemodell vornehmen müssen, bearbeiten Sie das Dokument mit den unterstützten Komponenten der Integritätsdienst, wie in [Integritätsdienst Übersicht](../../failover-clustering/health-service-overview.md#supported-components-document)beschrieben.
 
 ### <a name="specify-cache-drive-model"></a>Angeben des Cachelaufwerkmodells
 
@@ -188,15 +190,25 @@ Wenn Sie Laufwerke mit höherer Belastbarkeit als Cache für Laufwerke des gleic
 
 ####  <a name="example"></a>Beispiel
 
-```
-PS C:\> Get-PhysicalDisk | Group Model -NoElement
+Holen Sie zunächst eine Liste der physischen Datenträger:
 
+```PowerShell
+Get-PhysicalDisk | Group Model -NoElement
+```
+
+Ausgabebeispiel:
+
+```
 Count Name
 ----- ----
     8 FABRIKAM NVME-1710
    16 CONTOSO NVME-1520
+```
 
-PS C:\> Enable-ClusterS2D -CacheDeviceModel "FABRIKAM NVME-1710"
+Geben Sie dann den folgenden Befehl ein, wobei Sie das Cache Gerätemodell angeben:
+
+```PowerShell
+Enable-ClusterS2D -CacheDeviceModel "FABRIKAM NVME-1710"
 ```
 
 Sie können überprüfen, ob die gewünschten Laufwerke für die Zwischenspeicherung verwendet werden, indem Sie **Get-PhysicalDisk** in PowerShell ausführen und sicherstellen, dass für die **Usage**-Eigenschaft der Wert **"Journal"** angegeben ist.
@@ -211,26 +223,38 @@ Bei der manuellen Konfiguration haben Sie die folgenden Bereitstellungsmöglichk
 
 Es ist möglich, das Standardverhalten des Caches außer Kraft zu setzen. Beispielsweise können Sie auch für eine reine Flash-Bereitstellung festlegen, dass Lesevorgänge zwischengespeichert werden sollen. Es ist nicht ratsam, das Verhalten zu ändern (es sei denn, Sie sind sich sicher, dass die Standardeinstellungen für Ihre Workloads nicht geeignet sind).
 
-Verwenden Sie zum Außerkraftsetzen dieses Verhaltens das **Set-ClusterS2D**-Cmdlet mit den Parametern **-CacheModeSSD** und **-CacheModeHDD**. Mit dem Parameter **CacheModeSSD** wird das Cacheverhalten für die Zwischenspeicherung für Festkörperlaufwerke festgelegt. Mit dem Parameter **CacheModeHDD** wird das Cacheverhalten für die Zwischenspeicherung für Festplattenlaufwerke festgelegt. Dies ist jederzeit nach dem Aktivieren von Direkte Speicherplätze möglich.
+Um das Verhalten zu überschreiben, verwenden Sie das Cmdlet " **Set-clusterstoragespacesdirect** " und die Parameter " **-cachemodessd** " und " **-cachemodehdd** ". Mit dem Parameter **CacheModeSSD** wird das Cacheverhalten für die Zwischenspeicherung für Festkörperlaufwerke festgelegt. Mit dem Parameter **CacheModeHDD** wird das Cacheverhalten für die Zwischenspeicherung für Festplattenlaufwerke festgelegt. Dies ist jederzeit nach dem Aktivieren von Direkte Speicherplätze möglich.
 
-Sie können **Get-ClusterS2D** verwenden, um sich zu vergewissern, dass das Verhalten festgelegt ist.
+Sie können **Get-clusterstoragespacesdirect** verwenden, um zu überprüfen, ob das Verhalten festgelegt ist.
 
 #### <a name="example"></a>Beispiel
 
-```
-PS C:\> Get-ClusterS2D
+Holen Sie sich zunächst die direkte Speicherplätze Einstellungen:
 
+```PowerShell
+Get-ClusterStorageSpacesDirect
+```
+
+Ausgabebeispiel:
+
+```
 CacheModeHDD : ReadWrite
 CacheModeSSD : WriteOnly
-...
+```
 
-PS C:\> Set-ClusterS2D -CacheModeSSD ReadWrite
+Gehen Sie dann wie folgt vor:
 
-PS C:\> Get-ClusterS2D
+```PowerShell
+Set-ClusterStorageSpacesDirect -CacheModeSSD ReadWrite
 
+Get-ClusterS2D
+```
+
+Ausgabebeispiel:
+
+```
 CacheModeHDD : ReadWrite
 CacheModeSSD : ReadWrite
-...
 ```
 
 ## <a name="sizing-the-cache"></a>Festlegen der Größe des Caches
@@ -250,5 +274,5 @@ Es gibt keine allgemeingültige Regel, aber wenn es für zu viele Lesevorgänge 
 ## <a name="see-also"></a>Siehe auch
 
 - [Auswählen von Laufwerken und resilienztypen](choosing-drives.md)
-- [Fault Tolerance und Speicher Effizienz](storage-spaces-fault-tolerance.md)
-- [Storage Spaces Direct-hardwareanforderungen](storage-spaces-direct-hardware-requirements.md)
+- [Fehlertoleranz und Speichereffizienz](storage-spaces-fault-tolerance.md)
+- [Direkte Speicherplätze Hardwareanforderungen](storage-spaces-direct-hardware-requirements.md)

@@ -1,6 +1,6 @@
 ---
 title: Upgrade von Domänencontrollern auf Windows Server 2016
-description: In diesem Dokument wird beschrieben, wie Aktualisieren von Windows Server 2012 R2 auf Windows Server 2016
+description: In diesem Dokument wird beschrieben, wie Sie ein Upgrade von Windows Server 2012 R2 auf Windows Server 2016 durchführen.
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -8,38 +8,38 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 02124a05967b793890630d487b9bcf53081d3f62
-ms.sourcegitcommit: 63926404009f9e1330a4a0aa8cb9821a2dd7187e
+ms.openlocfilehash: 3e144a09c99d9b72d623956e868b3f573962ed94
+ms.sourcegitcommit: 67833e36b8b2c6194a1426a974c5ad9c859fa4c9
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67469448"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68329639"
 ---
 # <a name="upgrade-domain-controllers-to-windows-server-2016"></a>Upgrade von Domänencontrollern auf Windows Server 2016
 
-Gilt für: Windows Server 2016
+Gilt für: Windows Server
 
-Dieses Thema enthält Hintergrundinformationen zu Active Directory Domain Services in Windows Server 2016 und wird der Prozess zum Upgraden von Domänencontrollern von Windows Server 2012 oder Windows Server 2012 R2 beschrieben.
+Dieses Thema enthält Hintergrundinformationen zu Active Directory Domain Services in Windows Server 2016 und erläutert den Prozess zum Aktualisieren von Domänen Controllern von Windows Server 2012 oder Windows Server 2012 R2.
 
 ## <a name="pre-requisites"></a>Voraussetzungen
 
-Die empfohlene Methode zur Aktualisierung einer Domäne ist Heraufstufen von Domänencontrollern, die denen neuere Versionen von Windows Server und ältere Domänencontroller nach Bedarf herabzustufen. Diese Methode empfiehlt sich gegenüber einem Upgrade des Betriebssystems auf einem vorhandenen Domänencontroller. Diese Liste umfasst allgemeine Schritte zu befolgen, bevor Sie einen Domänencontroller heraufstufen, der eine neuere Version von Windows Server ausgeführt wird:
+Die empfohlene Vorgehensweise zum Aktualisieren einer Domäne ist die herauf Stufung von Domänen Controllern, auf denen neuere Versionen von Windows Server ausgeführt werden, und die älteren Domänen Controller nach Bedarf herabgestuft. Diese Methode empfiehlt sich gegenüber einem Upgrade des Betriebssystems auf einem vorhandenen Domänencontroller. Diese Liste enthält die allgemeinen Schritte, die Sie befolgen müssen, bevor Sie einen Domänen Controller herauf Stufen, der eine neuere Version von Windows Server ausführt:
 
 1. Stellen Sie sicher, dass der Zielserver die Systemanforderungen erfüllt.
-2. Überprüfen Sie die Anwendungskompatibilität.
-3. Empfehlungen Sie für die Umstellung auf Windows Server 2016
-4. Überprüfen Sie die Sicherheitseinstellungen. Weitere Informationen finden Sie unter [veraltete Features und verhaltensänderungen in Bezug auf AD DS in Windows Server 2016](https://docs.microsoft.com/windows-server/get-started/deprecated-features).
-5. Überprüfen Sie die Verbindung zum Zielserver für den Computer, auf dem Sie die Ausführung des Installationsvorgangs planen.
-6. Überprüfen Sie, ob die erforderlichen Betriebsmasterrollen verfügbar sind.
-   - Zum Installieren des ersten Domänencontrollers, der Windows Server 2016 in einer vorhandenen Domäne und Gesamtstruktur ausgeführt wird, benötigt der Computer, in dem Sie die Installation ausführen, eine Verbindung mit der **Schemamaster** zum Ausführen von Adprep/forestprep und dem Infrastrukturmaster Um Adprep/domainprep ausführen zu können.
-   - Für die Installation des ersten Domänencontrollers in einer Domäne, für die das Gesamtstrukturschema bereits erweitert wurde, benötigen Sie nur eine Verbindung mit dem Infrastrukturmaster.
-   - Zum Installieren oder Entfernen einer Domäne in einer vorhandenen Gesamtstruktur, benötigen Sie eine Verbindung mit der **Domänennamenmaster**.
-   - Jede Domänencontrollerinstallation erfordert außerdem die Verbindung mit der **RID-Master.**
-   - Wenn Sie den ersten schreibgeschützten Domänencontroller in einer vorhandenen Gesamtstruktur installieren, benötigen Sie eine Verbindung mit dem Infrastrukturmaster für jede Anwendungsverzeichnispartition (auch als NDNC (Non-Domain Naming Context) bezeichnet).
+1. Überprüfen Sie die Anwendungs Kompatibilität.
+1. Lesen Sie die Empfehlungen für den Umstieg auf Windows Server 2016.
+1. Überprüfen Sie die Sicherheitseinstellungen. Weitere Informationen finden Sie unter [Veraltete Features und Verhaltensänderungen im Zusammenhang mit AD DS in Windows Server 2016](../../../get-started/deprecated-features.md).
+1. Überprüfen Sie die Verbindung zum Zielserver für den Computer, auf dem Sie die Ausführung des Installationsvorgangs planen.
+1. Überprüfen Sie, ob die erforderlichen Betriebsmasterrollen verfügbar sind.
+   - Um den ersten Domänen Controller, auf dem Windows Server 2016 ausgeführt wird, in einer vorhandenen Domäne und Gesamtstruktur zu installieren, benötigt der Computer, auf dem die Installation ausgeführt wird, eine Verbindung mit dem **Schema Master** , um adprep/forestprep und den Infrastruktur Master auszuführen, um adprep/ausführen zu können. DomainPrep.
+   - Um den ersten Domänen Controller in einer Domäne zu installieren, in der das Gesamtstruktur Schema bereits erweitert ist, benötigen Sie nur eine Verbindung mit dem **Infrastruktur Master**.
+   - Sie benötigen eine Verbindung mit dem **Domänen Namen Master**, um eine Domäne in einer vorhandenen Gesamtstruktur zu installieren oder zu entfernen.
+   - Für jede Domänen Controller Installation ist auch eine Verbindung mit dem **RID-Master erforderlich.**
+   - Wenn Sie den ersten schreibgeschützten Domänen Controller in einer vorhandenen Gesamtstruktur installieren, benötigen Sie eine Verbindung mit dem **Infrastruktur Master** für jede Anwendungsverzeichnis Partition (auch als nicht-Domänen namens Kontext oder NDNC bezeichnet).
 
-### <a name="installation-steps-and-required-administrative-levels"></a>Schritte zur Installation und die erforderlichen administrativen Ebenen
+### <a name="installation-steps-and-required-administrative-levels"></a>Installationsschritte und erforderliche Verwaltungs Stufen
 
-Die folgende Tabelle enthält eine Übersicht über die Upgradeschritte und die berechtigungsanforderungen zum Durchführen dieser Schritte
+In der folgenden Tabelle finden Sie eine Zusammenfassung der Upgradeschritte und die Berechtigungsanforderungen zum Ausführen dieser Schritte.
 
 |Installationsaktion|Anforderungen bezüglich der Anmeldeinformationen|
 | ----- | ----- |
@@ -51,13 +51,13 @@ Die folgende Tabelle enthält eine Übersicht über die Upgradeschritte und die 
 |adprep/domainprep/gpprep ausführen|Domänen-Admins|
 |adprep/rodcprep ausführen|Organisations-Admins|
 
-Weitere Informationen zu neuen Features in Windows Server 2016 finden Sie unter [Neuigkeiten in Windows Server 2016](../../../get-started/what-s-new-in-windows-server-2016.md).
+Weitere Informationen zu neuen Features in Windows Server 2016 finden Sie unter [What es New in Windows Server 2016](../../../get-started/what-s-new-in-windows-server-2016.md).
 
 ## <a name="supported-in-place-upgrade-paths"></a>Unterstützte direkte Aktualisierungspfade
 
-Domänencontroller, auf denen 64-Bit-Versionen von Windows Server 2012 oder Windows Server 2012 R2 ausführen, können auf Windows Server 2016 aktualisiert werden. Nur 64-Bit-Version-Upgrades werden unterstützt, da Windows Server 2016 nur in einer 64-Bit-Version stammen.
+Domänen Controller, auf denen 64-Bit-Versionen von Windows Server 2012 oder Windows Server 2012 R2 ausgeführt werden, können auf Windows Server 2016 aktualisiert werden. Nur 64-Bit-Versions Upgrades werden unterstützt, da Windows Server 2016 nur in einer 64-Bit-Version verfügbar ist.
 
-|Wenn Sie diese Edition ausführen|Mögliches Upgrade auf Editionen|
+|Ausgeführte Edition:|Zieleditionen:|
 | ----- | ----- |
 |Windows Server2012 Standard|Windows Server 2016 Standard oder Datacenter|
 |Windows Server2012 Datacenter|Windows Server 2016 Datacenter|
@@ -69,38 +69,38 @@ Domänencontroller, auf denen 64-Bit-Versionen von Windows Server 2012 oder Wind
 |Windows Storage Server 2012 R2 Standard|Windows Storage Server 2016 Standard|
 |Arbeitsgruppe unter Windows Storage Server 2012 R2|Windows Storage Server 2016 Workgroup|
 
-Weitere Informationen zu unterstützten Upgradepfaden finden Sie unter [Unterstützte Upgradepfade](../../../get-started/supported-upgrade-paths.md)
+Weitere Informationen zu unterstützten Upgradepfaden finden Sie [unter Unterstützte Upgradepfade](../../../get-started/supported-upgrade-paths.md) .
 
-## <a name="adprep-and-domainprep"></a>Adprep und Domainprep
+## <a name="adprep-and-domainprep"></a>Adprep und DomainPrep
 
-Wenn Sie ein direktes Upgrade von einem existierenden Domänencontroller für das Betriebssystem Windows Server 2016 durchführen, müssen Sie zum Ausführen von Adprep/forestprep "und" Adprep/domainprep / manuell.  Adprep/forestprep muss in der Gesamtstruktur nur einmal ausgeführt werden.  Adprep/domainprep / muss einmal in jeder Domäne ausgeführt werden, in dem Sie Domänencontroller verwenden, die Sie auf Windows Server 2016 aktualisieren.
+Wenn Sie ein direktes Upgrade eines vorhandenen Domänen Controllers auf das Betriebssystem Windows Server 2016 ausführen, müssen Sie adprep/forestprep und adprep/domainprep manuell ausführen.  Adprep/forestprep muss in der Gesamtstruktur nur einmal ausgeführt werden.  Adprep/domainprep muss einmal in jeder Domäne ausgeführt werden, in der Sie über Domänen Controller verfügen, die Sie auf Windows Server 2016 aktualisieren.
 
-Wenn Sie einen neuen Windows Server 2016-Server höher gestuft werden, müssen Sie nicht manuell ausführen.  Diese sind in der PowerShell integriert, und Server-Manager-Umgebungen.
+Wenn Sie einen neuen Windows Server 2016-Server herauf Stufen, müssen Sie diese nicht manuell ausführen.  Diese sind in die Funktionen von PowerShell und Server-Manager integriert.
 
-Weitere Informationen zum Ausführen von Adprep finden Sie unter [Ausführen von Adprep](https://technet.microsoft.com/library/dd464018.aspx)
+Weitere Informationen zum Ausführen von Adprep finden Sie unter [Ausführen von adprep](https://technet.microsoft.com/library/dd464018.aspx) .
 
 ## <a name="functional-level-features-and-requirements"></a>Funktionen und Anforderungen auf Funktionsebene
 
-Windows Server 2016 ist eine Windows Server 2003-Gesamtstrukturfunktionsebene erforderlich. D. h., bevor Sie einen Domänencontroller, der Windows Server 2016 zu einer vorhandenen Active Directory-Gesamtstruktur ausgeführt wird hinzufügen können, muss die Gesamtstrukturfunktionsebene auf WindowsServer 2003 oder höher sein. Wenn die Gesamtstruktur Domänencontroller mit Windows Server 2003 oder höher enthält, die Gesamtstrukturfunktionsebene jedoch noch auf Windows 2000 basiert, wird die Installation ebenfalls blockiert.
+Für Windows Server 2016 ist eine Windows Server 2003-Gesamtstruktur Funktionsebene erforderlich. Das heißt, bevor Sie einen Domänen Controller, auf dem Windows Server 2016 ausgeführt wird, zu einer vorhandenen Active Directory Gesamtstruktur hinzufügen können, muss die Gesamtstruktur Funktionsebene Windows Server 2003 oder höher sein. Wenn die Gesamtstruktur Domänencontroller mit Windows Server 2003 oder höher enthält, die Gesamtstrukturfunktionsebene jedoch noch auf Windows 2000 basiert, wird die Installation ebenfalls blockiert.
 
-Windows 2000-Domänencontrollern müssen Windows Server 2016-Domänencontroller in Ihrer Gesamtstruktur hinzufügen, bevor Sie entfernt werden. Erwägen Sie in diesem Fall den folgenden Workflow:
+Windows 2000-Domänen Controller müssen entfernt werden, bevor der Gesamtstruktur Windows Server 2016-Domänen Controller hinzugefügt werden. Erwägen Sie in diesem Fall den folgenden Workflow:
 
-1. Installieren Sie Domänencontroller, auf denen Windows Server 2003 oder höher ausgeführt wird. Diese Domänencontroller können unter einer Evaluierungsversion von Windows Server bereitgestellt werden. Dieser Schritt erfordert auch das Ausführen von adprep.exe für diese Betriebssystemversion als Voraussetzung.
+1. Installieren Sie Domänencontroller, auf denen Windows Server 2003 oder höher ausgeführt wird. Diese Domänencontroller können unter einer Evaluierungsversion von Windows Server bereitgestellt werden. Dieser Schritt erfordert außerdem die Ausführung von Adprep. exe für diese Betriebssystemversion als Voraussetzung.
 1. Entfernen Sie die Windows 2000-Domänencontroller. Führen Sie eine ordnungsgemäße Herabstufung oder erzwungene Entfernung der Windows Server 2000-Domänencontroller aus der Domäne durch, und verwenden Sie %%amp;quot;Active Directory-Benutzer und -Computer%%amp;quot;, um die Domänencontrollerkonten für alle entfernten Domänencontroller zu entfernen.
 1. Stufen Sie die Gesamtstrukturfunktionsebene auf Windows Server 2003 oder höher herauf.
-1. Installieren Sie Domänencontroller, auf denen Windows Server 2016 ausgeführt.
+1. Installieren Sie Domänen Controller, auf denen Windows Server 2016 ausgeführt wird.
 1. Entfernen Sie Domänencontroller, auf denen ältere Versionen von Windows Server ausgeführt werden.
 
-### <a name="rolling-back-functional-levels"></a>Rollback-Funktionsebenen
+### <a name="rolling-back-functional-levels"></a>Zurückkehren von Funktionsebenen
 
-Nachdem Sie die Gesamtstrukturfunktionsebene (FFL) auf einen bestimmten Wert festgelegt haben, können Sie zurücksetzen oder Herabstufen von Funktionsebene der Gesamtstruktur, mit Ausnahme der folgenden:
+Nachdem Sie die Gesamtstruktur Funktionsebene (FFL) auf einen bestimmten Wert festgelegt haben, können Sie die Gesamtstruktur Funktionsebene nicht zurücksetzen oder senken, mit den folgenden Ausnahmen:
 
-- Wenn Sie von Windows Server 2012 R2 FFL aktualisieren, können Sie es an Windows Server 2012 R2 herabsetzen.
-- Wenn Sie von Windows Server 2008 R2 FFL aktualisieren, können Sie es an Windows Server 2008 R2 herabsetzen.
+- Wenn Sie ein Upgrade von Windows Server 2012 R2 FFL durchführen, können Sie es auf Windows Server 2012 R2 zurücksetzen.
+- Wenn Sie ein Upgrade von Windows Server 2008 R2 FFL durchführen, können Sie es auf Windows Server 2008 R2 zurücksetzen.
 
-Nachdem Sie die Domänenfunktionsebene auf einen bestimmten Wert festgelegt, können Sie zurücksetzen oder Herabstufen von Funktionsebene der Domäne, mit Ausnahme der folgenden:
+Nachdem Sie die Domänen Funktionsebene auf einen bestimmten Wert festgelegt haben, können Sie die Domänen Funktionsebene nicht zurücksetzen oder verringern, mit den folgenden Ausnahmen:
 
-- Wenn Sie Heraufstufen der Domänenfunktionsebene auf Windows Server 2016, und wenn die Gesamtstrukturfunktionsebene auf Windows Server 2012 oder niedriger ist, müssen Sie die Domänenfunktionsebene auf Zurücksetzen sichern, Windows Server 2012 oder Windows Server 2012 R2
+- Wenn Sie die Domänen Funktionsebene auf Windows Server 2016 erhöhen und die Gesamtstruktur Funktionsebene Windows Server 2012 oder niedriger ist, können Sie die Domänen Funktionsebene auf Windows Server 2012 oder Windows Server 2012 R2 zurücksetzen.
 
 Weitere Informationen zu Features, die auf niedrigeren Funktionsebenen verfügbar sind, finden Sie unter [Understanding Active Directory Domain Services (AD DS) Functional Levels](../active-directory-functional-levels.md).
 
@@ -118,57 +118,57 @@ AD DS kann nicht auf einem Server installiert werden, auf dem auch die folgenden
 
 ## <a name="administration-of-windows-server-2016-servers"></a>Verwaltung von Windows Server 2016-Servern
 
-Verwenden Sie das Remote Server Administration Tools für Windows 10, zum Verwalten von Domänencontrollern und anderen Servern, auf denen Windows Server 2016 ausgeführt. Sie können die Windows Server 2016 Remoteserver-Verwaltungstools auf einem Computer ausführen, die Windows 10 ausgeführt wird.
+Verwenden Sie den Remoteserver-Verwaltungstools für Windows 10 zum Verwalten von Domänen Controllern und anderen Servern, auf denen Windows Server 2016 ausgeführt wird. Sie können Windows Server 2016 Remoteserver-Verwaltungstools auf einem Computer mit Windows 10 ausführen.
 
-## <a name="step-by-step-for-upgrading-to-windows-server-2016"></a>Schrittweise Anleitung für das Upgrade auf WindowsServer 2016
+## <a name="step-by-step-for-upgrading-to-windows-server-2016"></a>Schritt-für-Schritt-Anleitung für das Upgrade auf Windows Server 2016
 
-Folgendes ist ein einfaches Beispiel die Contoso-Gesamtstruktur in Windows Server 2012 R2 auf Windows Server 2016 zu aktualisieren.
+Im folgenden finden Sie ein einfaches Beispiel für das Upgrade der Gesamtstruktur von Windows Server 2012 R2 auf Windows Server 2016.
 
 ![Upgrade/Aktualisieren](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade1.png)
 
-1. Verknüpfen Sie die neue Windows Server 2016, mit der Gesamtstruktur. Starten Sie neu, wenn Sie aufgefordert werden.
+1. Fügen Sie den neuen Windows Server 2016 mit Ihrer Gesamtstruktur hinzu. Bei entsprechender Aufforderung neu starten.
 
    ![Upgrade/Aktualisieren](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade2.png)
 
-1. Melden Sie sich auf die neue Windows Server 2016 mit einem Domänen-Administratorkonto an.
-1. In **Server-Manager**unter **Hinzufügen von Rollen und Features**, installieren Sie **Active Directory Domain Services** auf neuen Windows Server 2016. Dies wird automatisch Adprep auf 2012 R2-Gesamtstruktur und Domäne ausgeführt.
+1. Melden Sie sich mit einem Domänen Administrator Konto beim neuen Windows Server 2016 an.
+1. Installieren Sie in **Server-Manager**unter **Rollen und Features hinzufügen** **Active Directory Domain Services** auf dem neuen Windows Server 2016. Dadurch wird adprep automatisch in der 2012 R2-Gesamtstruktur und-Domäne ausgeführt.
 
    ![Upgrade/Aktualisieren](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade3.png)
 
-1. In **Server-Manager**, klicken Sie auf der gelben Dreieck, und klicken Sie in der Dropdownliste auf **den Server auf einem Domänencontroller heraufstufen**.
+1. Klicken Sie in **Server-Manager**auf das gelbe Dreieck, und klicken Sie in der Dropdown-Dropdown-Datei auf **Server zu einem Domänen Controller**herauf Stufen.
 
    ![Upgrade/Aktualisieren](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade4.png)
 
-1. Auf der **Bereitstellungskonfiguration** auf **Domänencontroller zu einer vorhandenen Gesamtstruktur hinzufügen** , und klicken Sie auf Weiter.
+1. Wählen Sie auf der Seite **Bereitstellungs Konfiguration** die **Option Domänen Controller einer vorhandenen Gesamtstruktur hinzufügen** aus, und klicken Sie auf Weiter.
 
    ![Upgrade/Aktualisieren](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade5.png)
 
-1. Auf der **Domänencontroller Optionen** Bildschirm, geben Sie die **Directory Verzeichnisdienst-Wiederherstellungsmodus (DSRM)** Kennwort, und klicken Sie auf Weiter.
-1. Für der Rest der Bildschirme auf **Weiter**.
-1. Auf der **Voraussetzungsprüfung** auf **installieren**. Nach der Neustart Abschluss können in sich dann erneut anmelden.
-1. Auf dem Windows Server 2012 R2-Server in **Server-Manager**, wählen Sie die Tools, **Active Directory-Modul für Windows PowerShell**.
+1. Geben Sie auf dem Bildschirm **Domänen Controller Optionen** das DSRM-Kennwort **(Directory Services Restore Mode)** ein, und klicken Sie auf Weiter.
+1. Klicken Sie in den restlichen Bildschirmen auf **weiter**.
+1. Klicken Sie im Bildschirm Voraussetzungs **Prüfung** auf **Installieren**. Nachdem der Neustart abgeschlossen ist, können Sie sich wieder anmelden.
+1. Wählen Sie auf dem Windows Server 2012 R2-Server in **Server-Manager**unter Extras **Active Directory Modul für Windows PowerShell aus**.
 
    ![Upgrade/Aktualisieren](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade6.png)
 
-1. Verwenden Sie in Windows PowerShell die Move-ADDirectoryServerOperationMasterRole FSMO-Rollen zu verschieben. Sie können Geben Sie den Namen der einzelnen - OperationMasterRole oder verwenden Zahlen auf die Rollen angeben. Weitere Informationen finden Sie unter [Move-ADDirectoryServerOperationMasterRole](https://technet.microsoft.com/library/hh852302.aspx)
+1. Verwenden Sie in den PowerShell-Fenstern die Move-addirector yserveroperationmasterrole, um die FSMO-Rollen zu verschieben. Sie können den Namen der einzelnen operationmasterrole eingeben oder Zahlen zum Angeben der Rollen verwenden. Weitere Informationen finden Sie unter [Move-addirector yserveroperationmasterrole](https://technet.microsoft.com/library/hh852302.aspx) .
 
-   ``` powershell
-   Move-ADDirectoryServerOperationMasterRole -Identity "DC-W2K16" -OperationMasterRole 0,1,2,3,4
-   ```
+    ``` powershell
+    Move-ADDirectoryServerOperationMasterRole -Identity "DC-W2K16" -OperationMasterRole 0,1,2,3,4
+    ```
 
-   ![Upgrade/Aktualisieren](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade7.png)
+    ![Upgrade/Aktualisieren](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade7.png)
 
-1. Überprüfen Sie, indem Sie auf dem Windows Server 2016-Server in die Rollen verschoben wurden **Server-Manager**unter **Tools**Option **Active Directory-Modul für Windows PowerShell**. Verwenden der `Get-ADDomain` und `Get-ADForest` -Cmdlets zum Anzeigen der FSMO-Rolleninhaber.
+1. Vergewissern Sie sich, dass die Rollen verschoben wurden, indem Sie auf dem Windows Server 2016-Server in **Server-Manager** **unter Extras** **Active Directory Modul für Windows PowerShell**auswählen. Verwenden Sie `Get-ADDomain` die `Get-ADForest` -und-Cmdlets, um die FSMO-Rollen Inhaber anzuzeigen.
 
-   ![Upgrade/Aktualisieren](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade8.png)
+    ![Upgrade/Aktualisieren](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade8.png)
 
-   ![Upgrade/Aktualisieren](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade9.png)
+    ![Upgrade/Aktualisieren](media/Upgrade-Domain-Controllers-to-Windows-Server-2016/upgrade9.png)
 
-1. Tieferstufen Sie und entfernen Sie den Windows Server 2012 R2-Domänencontroller. Weitere Informationen zum Herabstufen eines Domänencontrollers, finden Sie unter [Herabstufen von Domänencontrollern und Domänen](../../ad-ds/deploy/Demoting-Domain-Controllers-and-Domains--Level-200-.md)
-1. Nachdem der Server herabgestuft und entfernt wurde, können Sie die Gesamtstrukturfunktionsebene und Funktionsebenen der Domäne auf Windows Server 2016 heraufstufen.
+1. Stufen Sie den Windows Server 2012 R2-Domänen Controller herab, und entfernen Sie ihn. Informationen zum Herabstufen eines DC finden Sie unter Herabstufen von [Domänen Controllern und Domänen](../../ad-ds/deploy/Demoting-Domain-Controllers-and-Domains--Level-200-.md) .
+1. Nachdem der Server herabgestuft und entfernt wurde, können Sie die Gesamtstruktur Funktionsebene und die Domänen Funktionsebene auf Windows Server 2016 erhöhen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- [Neues beim Installieren und Entfernen der Active Directory Domain Services](../../ad-ds/deploy/What-s-New-in-Active-Directory-Domain-Services-Installation-and-Removal.md)  
-- [Installieren von Active Directory-Domänendienste &#40;Stufe 100&#41;](../../ad-ds/deploy/Install-Active-Directory-Domain-Services--Level-100-.md)
-- [Windows Server 2016-Funktionsebenen](../../ad-ds/Windows-Server-2016-Functional-Levels.md)  
+- [Neues beim Installieren und Entfernen der Active Directory Domain Services](../../ad-ds/deploy/What-s-New-in-Active-Directory-Domain-Services-Installation-and-Removal.md)
+- [Installieren Sie &#40;Active Directory Domain Services Ebene 100&#41;](../../ad-ds/deploy/Install-Active-Directory-Domain-Services--Level-100-.md)
+- [Funktionsebenen von Windows Server 2016](../../ad-ds/Windows-Server-2016-Functional-Levels.md)  

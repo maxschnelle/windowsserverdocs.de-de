@@ -9,41 +9,41 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: cb4432084386cb3296163f24c801be1c74b379df
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a7fec85301e2b70fb64f35f0b6e345adde29eed0
+ms.sourcegitcommit: 67833e36b8b2c6194a1426a974c5ad9c859fa4c9
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883041"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68329645"
 ---
 # <a name="install-a-replica-windows-server-2012-domain-controller-in-an-existing-domain-level-200"></a>Installieren eines Windows Server 2012-Domänencontrollerreplikats in einer vorhandenen Domäne (Stufe 200)
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Dieser Artikel beschreibt die erforderlichen Schritte für die Aktualisierung bestehender Gesamtstrukturen oder Domänen auf Windows Server 2012, entweder via Server-Manager oder Windows PowerShell. Sie erfahren, wie Sie die Domänencontroller, auf denen Windows Server 2012 ausgeführt wird, zu einer Domäne hinzufügen können.  
   
--   [Upgrade und Replikat-Workflow](../../ad-ds/deploy/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-.md#BKMK_Workflow)  
+-   [Upgrade-und Replikat Workflow](../../ad-ds/deploy/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-.md#BKMK_Workflow)  
   
--   [Upgrade und Replikat mit Windows PowerShell](../../ad-ds/deploy/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-.md#BKMK_PS)  
+-   [Upgrade und Replikat von Windows PowerShell](../../ad-ds/deploy/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-.md#BKMK_PS)  
   
 -   [Bereitstellung](../../ad-ds/deploy/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-.md#BKMK_Dep)  
   
-## <a name="BKMK_Workflow"></a>Upgrade und Replikat-Workflow  
+## <a name="BKMK_Workflow"></a>Upgrade-und Replikat Workflow  
 Das folgende Diagramm zeigt den Konfigurationsprozess für Active Directory-Domänendienste, wenn Sie die AD DS-Rolle zuvor installiert haben und den Konfigurations-Assistenten für die Active Directory-Domänendienste über den Server-Manager gestartet haben, um einen neuen Domänencontroller in einer existierenden Domäne zu erstellen.  
   
 ![Installieren eines Replikats](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/adds_forestupgrade.png)  
   
-## <a name="BKMK_PS"></a>Upgrade und Replikat mit Windows PowerShell  
+## <a name="BKMK_PS"></a>Upgrade und Replikat von Windows PowerShell  
   
 |||  
 |-|-|  
 |**Cmdlet "ADDSDeployment"**|Argumente (erforderliche Argumente sind **fett** markiert. Argumente in *Kursivschrift* können mithilfe von Windows PowerShell oder dem AD DS-Konfigurations-Assistenten angegeben werden.)|  
-|Install-AddsDomainController|-SkipPreChecks<br /><br />***-DomainName***<br /><br />*-SafeModeAdministratorPassword*<br /><br />*-SiteName*<br /><br />*-ADPrepCredential*<br /><br />-ApplicationPartitionsToReplicate<br /><br />*-AllowDomainControllerReinstall*<br /><br />-Confirm<br /><br />*-CreateDNSDelegation*<br /><br />***-Credential***<br /><br />-CriticalReplicationOnly<br /><br />*-DatabasePath*<br /><br />*-DNSDelegationCredential*<br /><br />-Force<br /><br />*-InstallationMediaPath*<br /><br />*-InstallDNS*<br /><br />*-LogPath*<br /><br />-MoveInfrastructureOperationMasterRoleIfNecessary<br /><br />-NoDnsOnNetwork<br /><br />*-NoGlobalCatalog*<br /><br />-Norebootoncompletion<br /><br />*-ReplicationSourceDC*<br /><br />-SkipAutoConfigureDNS<br /><br />-SiteName<br /><br />*-SystemKey*<br /><br />*-SYSVOLPath*<br /><br />*-UseExistingAccount*<br /><br />*-Whatif*|  
+|Install-AddsDomainController|-SkipPreChecks<br /><br />***-Domain Name***<br /><br />*-SafeModeAdministratorPassword*<br /><br />*-Sitename*<br /><br />*-Adprepcredential*<br /><br />-ApplicationPartitionsToReplicate<br /><br />*-Allowdomaincontrollerreinstall*<br /><br />-Confirm<br /><br />*-"-Kreatednsdelegation"*<br /><br />***-Credential***<br /><br />-CriticalReplicationOnly<br /><br />*-DatabasePath*<br /><br />*-Dnsdelegationcredential*<br /><br />-Force<br /><br />*-Installationmediapath*<br /><br />*-InstallDNS*<br /><br />*-LogPath*<br /><br />-MoveInfrastructureOperationMasterRoleIfNecessary<br /><br />-NoDnsOnNetwork<br /><br />*-Noglobalcatalog*<br /><br />-Norebootoncompletion<br /><br />*-ReplicationSourceDC*<br /><br />-SkipAutoConfigureDNS<br /><br />-SiteName<br /><br />*-System Key*<br /><br />*-Sysvolpath*<br /><br />*-UseExistingAccount*<br /><br />*-WhatIf*|  
   
 > [!NOTE]  
 > Das Argument **-credential** wird nur benötigt, wenn Sie nicht bereits als Mitglied der Gruppen Organisations-Admins und Schema-Admins (für Upgrades der Gesamtstruktur) oder der Gruppe Domänen-Admins (beim Hinzufügen eines neuen Domänencontrollers zu einer existierenden Domäne) angemeldet sind.  
   
-## <a name="BKMK_Dep"></a>Bereitstellung  
+## <a name="BKMK_Dep"></a>Nutzung  
   
 ### <a name="deployment-configuration"></a>Bereitstellungskonfiguration  
 ![Installieren eines Replikats](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradeDeployConfig.png)  
@@ -306,7 +306,7 @@ Ebenso wie beim Server-Manager werden Sie von **Install-ADDSDomainController** d
   
 ![Installieren eines Replikats](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_PSUpgradeProgress.png)  
   
-Um einen Domänencontroller remote per Windows PowerShell zu konfigurieren, müssen Sie das **install-adddomaincontroller**-Cmdlet *innerhalb* des **invoke-command**-Cmdlets verschachteln. Verwenden Sie dazu geschweifte Klammern.  
+Um einen Domänen Controller Remote mithilfe von Windows PowerShell zu konfigurieren, müssen Sie das Cmdlet **install-addsdomaincontroller** *innerhalb* des Cmdlets " **Aufruf-Command** " einschließen. Verwenden Sie dazu geschweifte Klammern.  
   
 ```  
 invoke-command {install-addsdomaincontroller "domainname <domain> -credential (get-credential)} -computername <dc name>  

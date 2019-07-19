@@ -1,6 +1,6 @@
 ---
-title: AD FS-Problembehandlung – Überwachung der Ereignisse und Protokollierung
-description: Dieses Dokument beschreibt, wie die verschiedenen Protokolle der AD FS verwenden, um Probleme zu beheben
+title: 'AD FS Problembehandlung: Überwachungs Ereignisse und Protokollierung'
+description: In diesem Dokument wird beschrieben, wie Sie die verschiedenen AD FS Protokolle verwenden, um Probleme zu beheben.
 author: billmath
 ms.author: billmath
 manager: mtillman
@@ -8,109 +8,109 @@ ms.date: 02/21/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 1acc00ca376c48f7fb34214cef3a92961d355ae4
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: bfa305103e81f316dc5ad5df22cd238f6fb5ec31
+ms.sourcegitcommit: 1bc3c229e9688ac741838005ec4b88e8f9533e8a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66444022"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314336"
 ---
-# <a name="ad-fs-troubleshooting---events-and-logging"></a>AD FS-Problembehandlung – Ereignisse und Protokollierung
-AD FS bietet zwei primäre Protokolle, die bei der Problembehandlung verwendet werden können.  Die Überladungen sind:
+# <a name="ad-fs-troubleshooting---events-and-logging"></a>AD FS Problembehandlung: Ereignisse und Protokollierung
+In AD FS werden zwei primäre Protokolle bereitgestellt, die bei der Problembehandlung verwendet werden können.  Die Überladungen sind:
 
-- das Admin-Protokoll
-- das Ablaufverfolgungsprotokoll  
+- das Administrator Protokoll
+- Das Ablauf Verfolgungs Protokoll  
  
-Jedes dieser Protokolle werden unten erläutert.
+Diese Protokolle werden im folgenden erläutert.
 
-## <a name="admin-log"></a>Administratoranmeldung
-Das Admin-Protokoll bietet detaillierte Informationen zu Problemen, die auftreten, und ist standardmäßig aktiviert.
+## <a name="admin-log"></a>Administrator Protokoll
+Das Administrator Protokoll bietet allgemeine Informationen zu auftretenden Problemen und ist standardmäßig aktiviert.
 
-### <a name="to-view-the-admin-log"></a>Das Administratorprotokoll anzeigen
+### <a name="to-view-the-admin-log"></a>So zeigen Sie das Administrator Protokoll an
 1.  Öffnen Sie die Ereignisanzeige
-2.  Erweitern Sie **Anwendungen und Services Log**.
+2.  Erweitern Sie **Anwendungs-und Dienst Protokoll**.
 3.  Erweitern Sie **AD FS**.
 4.  Klicken Sie auf **Admin**.
 
-![die Verbesserte Überwachung](media/ad-fs-tshoot-logging/event1.PNG)  
+![Überwachungs Erweiterungen](media/ad-fs-tshoot-logging/event1.PNG)  
 
-## <a name="trace-log"></a>Die Ablaufverfolgung
-Das Ablaufverfolgungsprotokoll ist, in dem ausführliche Meldungen werden protokolliert und werden das am nützlichsten Protokoll aus, bei der Problembehandlung. Da viele Ablaufverfolgungsinformationen in kurzer Zeit generiert werden kann, auf die Systemleistung auswirken können, sind die Ablaufverfolgungsprotokolle standardmäßig deaktiviert. 
+## <a name="trace-log"></a>Ablauf Verfolgungs Protokoll
+Im Ablauf Verfolgungs Protokoll werden ausführliche Meldungen protokolliert, die bei der Problembehandlung am nützlichsten protokolliert werden. Da viele Ablauf Verfolgungs Protokoll-Informationen in kurzer Zeit generiert werden können, was sich auf die Systemleistung auswirken kann, sind die Ablauf Verfolgungs Protokolle standardmäßig deaktiviert. 
 
-### <a name="to-enable-and-view-the-trace-log"></a>Zum Aktivieren und das Ablaufverfolgungsprotokoll anzeigen
+### <a name="to-enable-and-view-the-trace-log"></a>So aktivieren und anzeigen Sie das Ablauf Verfolgungs Protokoll
 1.  Öffnen Sie die Ereignisanzeige
-2.  Mit der rechten Maustaste auf **Anwendungen und Services Log** Ansicht auswählen, und klicken Sie auf **analytische und Debugprotokolle**.  Dadurch werden weitere Knoten auf der linken Seite angezeigt.
-![die Verbesserte Überwachung](media/ad-fs-tshoot-logging/event2.PNG)  
-3.  Erweitern Sie die AD FS-Ablaufverfolgung
-4.  Mit der rechten Maustaste auf Debuggen, und wählen **Protokoll aktivieren**.
-![die Verbesserte Überwachung](media/ad-fs-tshoot-logging/event3.PNG)  
+2.  Klicken Sie mit der rechten Maustaste auf **Anwendungs-und Dienst Protokoll** , und wählen Sie anzeigen aus, und klicken Sie auf **analytische und Debugprotokolle**  Dadurch werden zusätzliche Knoten auf der linken Seite angezeigt.
+![Überwachungs Erweiterungen](media/ad-fs-tshoot-logging/event2.PNG)  
+3.  AD FS Ablauf Verfolgung erweitern
+4.  Klicken Sie mit der rechten Maustaste auf Debug, und wählen Sie **Protokoll aktivieren**.
+![Überwachungs Erweiterungen](media/ad-fs-tshoot-logging/event3.PNG)  
 
 
-## <a name="event-auditing-information-for-ad-fs-on-windows-server-2016"></a>Ereignis Überwachungsinformationen für AD FS unter Windows Server 2016  
-Standardmäßig verfügt die AD FS unter Windows Server 2016 einen grundlegenden Servicelevel-Überwachung aktiviert.  Bei der grundlegenden Überwachung werden Administratoren 5 oder weniger Ereignisse für eine einzelne Anforderung finden Sie unter.  Kennzeichnet eine deutliche Verringerung der Anzahl der Ereignisse, die Administratoren haben, betrachten, um eine einzelne Anforderung finden Sie unter.   Die Überwachungsebene kann ausgelöst werden, oder gesenkt werden, mithilfe der PowerShell-Cmdlet:  
+## <a name="event-auditing-information-for-ad-fs-on-windows-server-2016"></a>Informationen zur Ereignisüberwachung für AD FS unter Windows Server 2016  
+Standardmäßig ist für AD FS in Windows Server 2016 ein grundlegendes Maß an Überwachung aktiviert.  Bei der grundlegenden Überwachung sehen Administratoren maximal 5 oder weniger Ereignisse für eine einzelne Anforderung.  Dies kennzeichnet einen signifikanten Rückgang der Anzahl von Ereignissen, die Administratoren untersuchen müssen, um eine einzelne Anforderung anzuzeigen.   Die Überwachungs Ebene kann mithilfe des PowerShell-cmdlt ausgelöst oder verringert werden:  
 
 ```PowerShell
 Set-AdfsProperties -AuditLevel 
 ```
 
-In der folgenden Tabelle erläutert die verfügbaren Überwachungsebenen dienen.  
+In der folgenden Tabelle werden die verfügbaren Überwachungs Stufen erläutert.  
 
-|Überwachungsebene|PowerShell-syntax|Beschreibung|  
+|Überwachungsebene|PowerShell-Syntax|Beschreibung|  
 |----- | ----- | ----- |
-|Keine|Set-AdfsProperties - AuditLevel keine|Die Überwachung ist deaktiviert, und keine Ereignisse protokolliert werden.|  
-|Basic (Standard)|Set-AdfsProperties - AuditLevel Basic|Nicht mehr als 5 Ereignisse werden für eine einzelne Anforderung protokolliert|  
-|Ausführlich|Set-AdfsProperties - AuditLevel-Verbose|Alle Ereignisse werden protokolliert.  Dadurch wird eine beträchtliche Menge an Daten pro Anforderung protokolliert.|  
+|Keine|Set-ADF sproperties-AuditLevel None|Die Überwachung ist deaktiviert, und es werden keine Ereignisse protokolliert.|  
+|Basic (Standard)|Set-ADF sproperties-AuditLevel Basic|Für eine einzelne Anforderung werden höchstens 5 Ereignisse protokolliert.|  
+|Ausführlich|Set-ADF sproperties-AuditLevel Verbose|Alle Ereignisse werden protokolliert.  Dadurch wird eine beträchtliche Menge an Informationen pro Anforderung protokolliert.|  
   
-Zum Anzeigen der aktuellen Ebene für die Überwachung können Sie die PowerShell-Cmdlet verwenden:  Get-AdfsProperties.  
+Zum Anzeigen der aktuellen Überwachungs Ebene können Sie das PowerShell-Cmdlet verwenden:  Get-ADF sproperties.  
   
-![die Verbesserte Überwachung](media/ad-fs-tshoot-logging/ADFS_Audit_1.PNG)  
+![Überwachungs Erweiterungen](media/ad-fs-tshoot-logging/ADFS_Audit_1.PNG)  
   
-Die Überwachungsebene kann ausgelöst werden, oder gesenkt werden, mithilfe der PowerShell-Cmdlet:  Set-AdfsProperties -AuditLevel.  
+Die Überwachungs Ebene kann mithilfe des PowerShell-cmdlt ausgelöst oder verringert werden:  Set-ADF sproperties-AuditLevel.  
   
-![die Verbesserte Überwachung](media/ad-fs-tshoot-logging/ADFS_Audit_2.png)  
+![Überwachungs Erweiterungen](media/ad-fs-tshoot-logging/ADFS_Audit_2.png)  
   
-## <a name="types-of-events"></a>Typen von Ereignissen  
-AD FS-Ereignisse können verschiedener Typen, die basierend auf die verschiedenen Typen von Anforderungen, die von AD FS verarbeitet werden. Jeder Ereignistyp hat bestimmte ihm zugeordnete Daten.  Der Typ von Ereignissen kann zwischen anmeldeanforderungen (d. h. tokenanforderungen) im Vergleich zu den Anforderungen des Systems (einschließlich Konfigurationsinformationen abrufen Servern-Aufrufe) unterschieden werden.    
+## <a name="types-of-events"></a>Ereignis Typen  
+AD FS Ereignisse können unterschiedliche Typen aufweisen, basierend auf den verschiedenen Typen von Anforderungen, die von AD FS verarbeitet werden. Jedem Ereignistyp sind bestimmte Daten zugeordnet.  Der Ereignistyp kann zwischen Anmelde Anforderungen (d. h. Tokenanforderungen) und Systemanforderungen (Server-Server-Aufrufe einschließlich Abrufen von Konfigurationsinformationen) unterscheiden.    
 
-Die folgende Tabelle beschreibt die grundlegenden Typen von Ereignissen.  
+In der folgenden Tabelle werden die grundlegenden Ereignis Typen beschrieben.  
   
 |Ereignistyp|Ereignis-ID|Beschreibung| 
 |----- | ----- | ----- | 
-|Neue Anmeldeinformationen Validierung erfolgreich|1202|Eine Anforderung, in dem neue Anmeldeinformationen erfolgreich vom Verbunddienst überprüft werden. Dies schließt die WS-Trust, WS-Federation, SAML-P (ersten Abschnitt zum Generieren von SSO) und Autorisieren von OAuth-Endpunkte.|  
-|Überprüfungsfehler für die neuen Anmeldeinformationen|1203|Eine Anforderung, in dem neue Anmeldeinformationen für den Verbunddienst Fehler bei der Überprüfung. Dies schließt die WS-Trust, WS-Fed-, SAML-P (ersten Abschnitt zum Generieren von SSO) und Autorisieren von OAuth-Endpunkte.|  
-|Anwendung Token erfolgreich|1200|Eine Anforderung, in denen ein Sicherheitstoken vom Verbunddienst erfolgreich ausgegeben wird. Für WS-Verbund, SAML-P-dies protokolliert, wenn es sich bei der Verarbeitung der Anforderung mit der SSO-Element. (z. B. das SSO-Cookie).|  
-|Fehler bei der Anwendung Token|1201|Eine Anforderung, an der tokenausstellung Sicherheit für den Verbunddienst fehlgeschlagen ist. Für WS-Verbund, SAML-P-dies protokolliert, wenn die Anforderung, mit der SSO-Element verarbeitet wurde. (z. B. das SSO-Cookie).|  
-|Anforderung wurde erfolgreich von Kennwort geändert|1204|Eine Transaktion, in denen Anforderung der kennwortänderung, wurde erfolgreich vom Verbunddienst verarbeitet.|  
-|Kennwort ändern-Anforderungsfehler|1205|Eine Transaktion, in denen Anforderung der kennwortänderung, nicht durch den Verbunddienst verarbeitet werden konnten.| 
-|Melden Sie sich erfolgreich|1206|Beschreibt eine erfolgreiche Anforderung zur Abmelde.|  
-|Fehler beim Abmelden|1207|Beschreibt eine Anforderung zur Abmelde und Fehler an.|  
+|Erfolgreiche Überprüfung der Anmelde Informationen erfolgreich|1202|Eine Anforderung, bei der neue Anmelde Informationen erfolgreich vom Verbunddienst überprüft werden. Dies umfasst WS-Trust, WS-Federation, SAML-P (erster Teil zum Generieren von SSO) und OAuth-Autorisierungs Endpunkte.|  
+|Fehler bei der Validierung der neuen Anmelde Informationen|1203|Eine Anforderung, bei der die Überprüfung der neuen Anmelde Informationen für den Verbunddienst fehlgeschlagen ist Hierzu gehören WS-Trust, WS-Fed, SAML-P (erster Teil zum Generieren von SSO) und OAuth-Autorisierungs Endpunkte.|  
+|Anwendungs Token erfolgreich|1200|Eine Anforderung, bei der ein Sicherheits Token erfolgreich vom Verbunddienst ausgestellt wird. Für WS-Federation wird SAML-P protokolliert, wenn die Anforderung mit dem SSO-Element verarbeitet wird. (z. b. das SSO-Cookie).|  
+|Anwendungs Token-Fehler|1201|Eine Anforderung, bei der die sicherheitstokenausstellung im Verbunddienst fehlgeschlagen ist Für WS-Federation wird SAML-P bei der Verarbeitung der Anforderung mit dem SSO-Element protokolliert. (z. b. das SSO-Cookie).|  
+|Anforderung zum Ändern von Kenn Wörtern erfolgreich|1204|Eine Transaktion, bei der das Kennwort Change Request erfolgreich vom Verbunddienst verarbeitet wurde.|  
+|Fehler beim Ändern der Kenn Wort Änderung|1205|Eine Transaktion, bei der das Kennwort Change Request nicht vom Verbunddienst verarbeitet werden konnte.| 
+|Erfolg abmelden|1206|Beschreibt eine erfolgreiche Abmelde Anforderung.|  
+|Abmelde Fehler|1207|Beschreibt eine fehlgeschlagene Abmelde Anforderung.|  
 
 ## <a name="security-auditing"></a>Sicherheitsüberwachung
-Von der AD FS-Dienstkonto die sicherheitsüberwachung kann manchmal bei der Probleme bei der Aktualisierung von Kennwörtern "," Anforderung/Antwort-Protokollierung "," context-Header für Anforderung "und" Gerät Registrierung Ergebnisse aufspüren.  Überwachung der AD FS-Dienstkonto ist standardmäßig deaktiviert.
+Die Sicherheitsüberwachung des AD FS-Dienst Kontos kann manchmal hilfreich sein, um Probleme mit Kenn Wort Aktualisierungen, Anforderungs-/antwortprotokollierung, Anforderungs Kandidaten und Geräte Registrierungs Ergebnissen zu beheben.  Die Überwachung des AD FS-Dienst Kontos ist standardmäßig deaktiviert.
 
-### <a name="to-enable-security-auditing"></a>Zum Aktivieren der sicherheitsüberwachung
-1. Klicken Sie auf Start, zeigen Sie auf **Programme**, zeigen Sie auf **Verwaltung**, und klicken Sie dann auf **Local Security Policy**.
+### <a name="to-enable-security-auditing"></a>So aktivieren Sie die Sicherheitsüberwachung
+1. Klicken Sie auf Start, zeigen Sie auf **Programme**, zeigen Sie auf **Verwaltung**, und klicken Sie dann auf **lokale Sicherheitsrichtlinie**.
 2. Navigieren Sie zum Ordner **Sicherheitseinstellungen\Lokale Richtlinien\User Rights Management** und doppelklicken dann auf **Generieren von Sicherheitsüberwachungen**.
-3. Auf der **lokale Sicherheitseinstellung** Registerkarte, stellen Sie sicher, dass das AD FS-Dienstkonto aufgeführt wird. Wenn es nicht vorhanden ist, klicken Sie auf Benutzer oder Gruppe hinzufügen zur Liste fügen Sie hinzu und klicken Sie dann auf OK.
-4. Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten, und führen Sie den folgenden Befehl zum Aktivieren der Überwachung auditpol.exe/set/SubCategory: "Anwendung wurde generiert" Success /success:enable
-5. Schließen **Local Security Policy**, und öffnen Sie dann das AD FS-Verwaltungs-Snap-in.
+3. Überprüfen Sie auf der Registerkarte **lokale Sicherheitseinstellung** , ob das AD FS-Dienst Konto aufgeführt ist. Wenn Sie nicht vorhanden ist, klicken Sie auf Benutzer oder Gruppe hinzufügen, fügen Sie Sie der Liste hinzu, und klicken Sie dann auf OK.
+4. Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten, und führen Sie den folgenden Befehl aus, um die Überwachung Auditpol. exe/Set/SubCategory: "Application generated"/Failure: enable/Success: enable zu aktivieren.
+5. Schließen Sie **lokale Sicherheitsrichtlinie**, und öffnen Sie dann das Snap-in "AD FS-Verwaltung".
  
-Um das AD FS-Verwaltungs-Snap-in zu öffnen, klicken Sie auf Start, zeigen Sie auf Programme, zeigen Sie auf Verwaltung, und klicken Sie dann auf AD FS-Verwaltung.
+Klicken Sie zum Öffnen des Snap-Ins "AD FS-Verwaltung" auf Start, zeigen Sie auf Programme, zeigen Sie auf Verwaltung, und klicken Sie dann auf AD FS Verwaltung.
  
-6. Klicken Sie im Aktionsbereich auf Verbunddiensteigenschaften bearbeiten
-7. Klicken Sie in das Dialogfeld "Verbunddiensteigenschaften" auf der Registerkarte "Ereignisse".
-8. Wählen Sie die **erfolgsüberwachungen** und **Fehlerüberwachungen** Kontrollkästchen.
+6. Klicken Sie im Aktionsbereich auf Verbunddienst Eigenschaften bearbeiten.
+7. Klicken Sie im Dialogfeld Verbunddienst Eigenschaften auf die Registerkarte Ereignisse.
+8. Aktivieren Sie die Kontrollkästchen **Erfolgs** Überwachungen und **Fehler** Überwachungen.
 9. Klicken Sie auf „OK“.
 
-![die Verbesserte Überwachung](media/ad-fs-tshoot-logging/event4.PNG)  
+![Überwachungs Erweiterungen](media/ad-fs-tshoot-logging/event4.PNG)  
  
 >[!NOTE]
->Nur, wenn AD FS auf einem eigenständigen Mitgliedsserver ist, werden die obigen Anweisungen verwendet.  Wenn AD FS, auf einem Domänencontroller, anstatt der lokalen Sicherheitsrichtlinie ausgeführt wird, verwenden Sie die **Standarddomänencontroller-Richtlinie** befindet sich in **Group Policy Management/Gesamtstruktur/Domänen/Domain Controller**.  Klicken Sie auf Bearbeiten, und navigieren Sie zu **Computerkonfiguration\Richtlinien\Windows unter Sicherheitseinstellungen\Lokale Richtlinien\Zuweisen von Benutzerrechten**
+>Die obigen Anweisungen werden nur verwendet, wenn AD FS auf einem eigenständigen Mitglieds Server ist.  Wenn AD FS auf einem Domänen Controller ausgeführt wird, anstelle der lokalen Sicherheitsrichtlinie, verwenden Sie die **Standard Domänen Controller Richtlinie** in **Gruppenrichtlinie Verwaltung/Gesamtstruktur/Domänen/** Domänen Controller.  Klicken Sie auf Bearbeiten, und navigieren Sie zu Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale Richt **Linien \ Benutzer Rights Management**
 
-## <a name="windows-communication-foundation-and-windows-identity-foundation-messages"></a>Windows Communication Foundation und Windows Identity Foundation-Nachrichten
-Zusätzlich zur standardprotokollierung der Ablaufverfolgung manchmal müssen Sie möglicherweise an der Windows Communication Foundation (WCF) und Windows Identity Foundation (WIF) Nachrichten aus, um ein Problem zu beheben. Dies ist möglich durch Ändern der **Microsoft.IdentityServer.ServiceHost.Exe.Config** -Datei auf dem AD FS-Server. 
+## <a name="windows-communication-foundation-and-windows-identity-foundation-messages"></a>Windows Communication Foundation-und Windows Identity Foundation-Meldungen
+Zusätzlich zur Ablauf Verfolgungs Protokollierung müssen Sie möglicherweise Windows Communication Foundation (WCF) und Windows Identity Foundation (WIF)-Nachrichten anzeigen, um ein Problem zu beheben. Dies kann durch Ändern der Datei " **Microsoft. identityserver. ServiceHost. exe. config** " auf dem AD FS-Server erreicht werden. 
 
-Diese Datei befindet sich im **< System Stamm % > \Windows\ADFS** und im XML-Format. Die relevanten Abschnitte der Datei werden unten angezeigt: 
+Diese Datei befindet sich in **<% System root% > \windows\adfs** und ist im XML-Format. Die relevanten Teile der Datei sind unten dargestellt: 
 ```
 <!-- To enable WIF tracing, change the switchValue below to desired trace level - Verbose, Information, Warning, Error, Critical -->
 
@@ -122,23 +122,23 @@ Diese Datei befindet sich im **< System Stamm % > \Windows\ADFS** und im XML-For
 ```
 
 
-Nachdem Sie diese Änderungen vorgenommen haben, speichern Sie die Konfiguration, und starten Sie den AD FS-Dienst neu. Nachdem Sie diese ablaufverfolgungen durch Festlegen der entsprechenden Switches aktivieren, werden sie in das AD FS-Ablaufverfolgungsprotokoll in der Windows-Ereignisanzeige angezeigt.
+Nachdem Sie diese Änderungen vorgenommen haben, speichern Sie die Konfiguration, und starten Sie den AD FS-Dienst erneut. Nachdem Sie diese Ablauf Verfolgungen durch Festlegen der entsprechenden Switches aktiviert haben, werden Sie im AD FS Ablauf Verfolgungs Protokoll in der Windows-Ereignisanzeige angezeigt.
 
 ## <a name="correlating-events"></a>Korrelieren von Ereignissen
-Eine der schwierigsten Aufgaben zur Problembehandlung ist Probleme, die einen Großteil der Fehler generiert und debug-Ereignisse.
+Eine der schwierigsten Probleme bei der Problembehandlung sind Zugriffs Probleme, die viele Fehler-oder Debugereignisse generieren.
 
-Um dies zu vereinfachen, korreliert AD FS für alle Ereignisse, die aufgezeichnet werden, in der Ereignisanzeige, in der Administrator und die Debugprotokolle, die auf eine bestimmte Anforderung zu entsprechen, mit der eine eindeutige Bezeichner (GLOBALLY Unique) wird aufgerufen, der die Aktivität-ID Diese ID wird generiert, wenn die Anforderung der tokenausstellung zunächst auf die Webanwendung (für Anwendungen, die über das passive Requestor-Profil) oder die Anforderungen direkt an die Anspruchsanbieter-Vertrauensstellung gesendet wurden (für Anwendungen, die mit WS-Trust) dargestellt wird. 
+Um dies zu unterstützen, AD FS korreliert alle Ereignisse, die in der Ereignisanzeige aufgezeichnet werden, sowohl in den Admin-als auch in den Debug-Protokollen, die einer bestimmten Anforderung entsprechen, mithilfe einer eindeutigen GUID (Global Unique Identifier), die als Aktivitäts-ID bezeichnet wird. Diese ID wird generiert, wenn die tokenausstellungsanforderung anfänglich der Webanwendung (für Anwendungen, die das passive Anforderer-Profil verwenden) oder Anforderungen, die direkt an den Anspruchs Anbieter gesendet werden (bei Anwendungen mit WS-Trust), angezeigt wird. 
 
-![activityid](media/ad-fs-tshoot-logging/activityid1.png)
+![ActivityId](media/ad-fs-tshoot-logging/activityid1.png)
 
-Diese Aktivitäts-ID bleibt unverändert für die gesamte Dauer der Anforderung, und es wird protokolliert, Teil jedes Ereignisses im Event Viewer für diese Anforderung aufgezeichnet wurden. Dies bedeutet Folgendes:
- - Filtern oder durchsuchen die Ereignisanzeige, die mit dieser Aktivität ID kann alle verwandten Ereignisse mitverfolgen, die die Anforderung des Tokens entsprechen
- - dieselbe Aktivitäts-ID wird auf unterschiedlichen Computern Dadurch haben Sie die Problembehandlung bei einer benutzeranforderung auf mehreren Computern wie z. B. den Federation Server Proxy (FSP) protokolliert.
- - die Aktivitäts-ID wird auch in den Browser des Benutzers angezeigt, wenn den AD FS-Anforderungsfehler in keiner Weise, sodass des Benutzers, diese ID dem Helpdesk oder IT-Support zu kommunizieren.
+Diese Aktivitäts-ID bleibt für die gesamte Dauer der Anforderung gleich und wird als Teil jedes Ereignisses protokolliert, das im Ereignisanzeige für diese Anforderung aufgezeichnet wurde. Dies bedeutet Folgendes:
+ - Wenn Sie die Ereignisanzeige mit dieser Aktivitäts-ID filtern oder durchsuchen, können Sie alle verwandten Ereignisse nachverfolgen, die der Tokenanforderung entsprechen.
+ - dieselbe Aktivitäts-ID wird auf verschiedenen Computern protokolliert, sodass Sie die Problembehandlung für eine Benutzer Anforderung auf mehreren Computern, wie z. b. dem Verbund Server Proxy (FSP), ermöglichen.
+ - die Aktivitäts-ID wird auch im Browser des Benutzers angezeigt, wenn die AD FS Anforderung in irgendeiner Weise fehlschlägt, sodass der Benutzer diese ID dem Helpdesk oder dem IT-Support mitteilen kann.
 
-![activityid](media/ad-fs-tshoot-logging/activityid2.png)
+![ActivityId](media/ad-fs-tshoot-logging/activityid2.png)
 
-Zur Unterstützung bei der Problembehandlung protokolliert AD FS auch die Aufrufer-ID-Ereignis, wenn der tokenausstellung auf AD FS-Server kann nicht ausgeführt. Dieses Ereignis enthält den Anspruchstyp und den Wert eines der folgenden Anspruchstypen, vorausgesetzt, dass diese Informationen als Teil einer tokenanforderung an den Verbunddienst übergeben wurde:
+Zur Unterstützung des Problem Behandlungsprozesses protokolliert AD FS auch immer dann das Aufrufer-ID-Ereignis, wenn der tokenausstellungs-Prozess auf einem AD FS Server fehlschlägt. Dieses Ereignis enthält den Anspruchstyp und den Wert eines der folgenden Anspruchs Typen, wobei angenommen wird, dass diese Informationen als Teil einer Tokenanforderung an die Verbunddienst übermittelt wurden:
 - http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountnameh
 - http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier
 - http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upnh
@@ -151,7 +151,7 @@ Zur Unterstützung bei der Problembehandlung protokolliert AD FS auch die Aufruf
 - http://schemas.microsoft.com/ws/2008/06/identity/claims/name
 - http://schemas.xmlsoap.org/ws/2005/05/identity/claims/privatepersonalidentifier 
 
-Der Aufrufer-ID-Ereignis protokolliert auch die Aktivitäts-ID können Sie diese Aktivitäts-ID zum Filtern oder durchsuchen die Ereignisprotokolle für eine bestimmte Anforderung verwenden.
+Das Ereignis Aufruferkennung protokolliert auch die Aktivitäts-ID, damit Sie die Ereignisprotokolle mithilfe dieser Aktivitäts-ID filtern oder nach einer bestimmten Anforderung durchsuchen können.
 
 
 
