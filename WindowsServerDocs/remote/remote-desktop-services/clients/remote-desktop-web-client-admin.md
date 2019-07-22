@@ -8,12 +8,12 @@ ms.date: 11/2/2018
 ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
-ms.openlocfilehash: 45164e9eca0873c82148aa3b7baa179a3f626dd7
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 02c7098c8e3f93ce315e7d9a881613a03924e78b
+ms.sourcegitcommit: 286e3181ebd2cb9d7dc7fe651858a4e0d61d153f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66804974"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68300697"
 ---
 # <a name="set-up-the-remote-desktop-web-client-for-your-users"></a>Einrichten des Remotedesktop-Webclients für Ihre Benutzer
 
@@ -259,7 +259,7 @@ Standardmäßig können Benutzer auswählen, ob die Erfassung der an Microsoft g
 Als Administrator können Sie die Telemetriedatenerfassung für Ihre Bereitstellung mit dem folgenden PowerShell-Cmdlet unterdrücken:
 
    ```PowerShell
-    Set-RDWebClientDeploymentSetting -SuppressTelemetry $true
+    Set-RDWebClientDeploymentSetting -Name "SuppressTelemetry" $true
    ```
 
 Standardmäßig kann der Benutzer auswählen, ob die Option für Telemetriedaten aktiviert oder deaktiviert werden soll. Der boolesche Wert **$false** entspricht dem Standardverhalten des Clients. Der boolesche Wert **$true** deaktiviert die Option für Telemetriedaten und verhindert, dass der Benutzer diese aktivieren kann.
@@ -268,15 +268,15 @@ Standardmäßig kann der Benutzer auswählen, ob die Option für Telemetriedaten
 Standardmäßig können Benutzer auswählen, ob Remoteressourcen (1) im Browser oder (2) durch Herunterladen einer RDP-Datei zur Bearbeitung mit einem anderen auf dem Computer installierten Client gestartet werden sollen. Als Administrator können Sie die Methode zum Starten von Remoteressourcen für Ihre Bereitstellung mit dem folgenden PowerShell-Befehl einschränken:
 
    ```PowerShell
-    Set-RDWebClientDeploymentSetting -LaunchResourceInBrowser ($true|$false)
+    Set-RDWebClientDeploymentSetting -Name "LaunchResourceInBrowser" ($true|$false)
    ```
  Standardmäßig kann der Benutzer eine der Startmethoden auswählen. Der boolesche Wert **$true** zwingt den Benutzer, die Ressourcen im Browser zu starten. Der boolesche Wert **$false** zwingt den Benutzer, die Ressourcen durch Herunterladen einer RDP-Datei zur Bearbeitung mit einem lokal installierten RDP-Client zu starten.
 
 ### <a name="reset-rdwebclientdeploymentsetting-configurations-to-default"></a>Zurücksetzen der RDWebClientDeploymentSetting-Konfigurationen auf die Standardwerte
-Führen Sie das folgende PowerShell-Cmdlet aus, um alle Webclienteinstellungen auf Bereitstellungsebene auf die Standardkonfigurationen zurückzusetzen:
-
+Um eine Webclienteinstellung auf Bereitstellungsebene auf die Standardkonfiguration zurückzusetzen, führen Sie das folgende PowerShell-Cmdlet aus, und geben Sie mit dem Parameter „--Name“ die Einstellung an, die Sie zurücksetzen möchten:
    ```PowerShell
-    Reset-RDWebClientDeploymentSetting 
+    Reset-RDWebClientDeploymentSetting -Name "LaunchResourceInBrowser"
+    Reset-RDWebClientDeploymentSetting -Name "SuppressTelemetry"
    ```
 
 ## <a name="troubleshooting"></a>Problembehandlung
