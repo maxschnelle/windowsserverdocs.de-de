@@ -74,11 +74,11 @@ ms.locfileid: "66433153"
   
 - **Serversicherung** Die Informationen über die letzte Serversicherung werden im Abschnitt **Details** des Berichts aufgeführt.  
   
-- **Nicht ausgeführte Autostartdienste** Wenn zum Zeitpunkt der Berichterstellung kein Autostartdienst ausgeführt wird, werden die Informationen zu diesem Dienst im Detailabschnitt **** des Berichts aufgeführt.  
+- **Nicht ausgeführte Autostartdienste** Wenn zum Zeitpunkt der Berichterstellung kein Autostartdienst ausgeführt wird, werden die Informationen zu diesem Dienst im **Detailabschnitt** des Berichts aufgeführt.  
   
-- **Updates** Im Detailabschnitt **** wird der Updatestatus des Servers und aller Clientcomputer angezeigt.  
+- **Updates** Im **Detailabschnitt** wird der Updatestatus des Servers und aller Clientcomputer angezeigt.  
   
-- **Speicher** Im Detailabschnitt **** wird die Liste der Treiber und ihre Kapazität aufgeführt.  
+- **Speicher** Im **Detailabschnitt** wird die Liste der Treiber und ihre Kapazität aufgeführt.  
   
   Zeigen Sie im Integritätsbericht zunächst die **Zusammenfassung**an, und klicken Sie dann bei den Elementen mit einem roten Fehlersymbol oder einem gelben Warnsymbol auf den Link **Details** auf derselben Zeile, um die Details zum Element anzuzeigen.  
   

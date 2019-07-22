@@ -109,7 +109,7 @@ Die Gruppenrichtlinienobjekte (GPOs) werden für Windows Server Essentials aktua
 
 2. Klicken Sie auf **Start** und anschließend auf **Serververwaltung**. 
 
-3. Klicken Sie im Navigationsbereich auf **Advanced Management**, klicken Sie auf **Gruppenrichtlinienverwaltung**, und klicken Sie dann auf **Gesamtstruktur: *** < IhrDomänenname\>* . 
+3. Klicken Sie im Navigationsbereich auf **Advanced Management**, klicken Sie auf **Gruppenrichtlinienverwaltung**, und klicken Sie dann auf **Gesamtstruktur:** *<IhrDomänenname\>* . 
 
 4. Klicken Sie auf **Domänen**, klicken Sie auf *< IhrDomänenname\>* , und klicken Sie dann auf **Group Policy Objects**. 
 
@@ -151,7 +151,7 @@ Es wird empfohlen, dass die Kennwortrichtlinie zu konfigurieren, in Windows Serv
 
 2. Klicken Sie auf **Start** und anschließend auf **Serververwaltung**.
 
-3. Klicken Sie im Navigationsbereich auf **Advanced Management**, klicken Sie auf **Gruppenrichtlinienverwaltung**, und klicken Sie dann auf **Gesamtstruktur: *** < Ihrnetzwerkdomänenname\>*
+3. Klicken Sie im Navigationsbereich auf **Advanced Management**, klicken Sie auf **Gruppenrichtlinienverwaltung**, und klicken Sie dann auf **Gesamtstruktur:** *<Ihrnetzwerkdomänenname\>*
 
 4. Klicken Sie auf **Domänen**, klicken Sie auf *< Ihrnetzwerkdomänenname\>* , und klicken Sie dann auf **WMI-Filter**.
 

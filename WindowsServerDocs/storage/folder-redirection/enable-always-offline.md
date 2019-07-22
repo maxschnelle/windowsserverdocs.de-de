@@ -44,7 +44,7 @@ Um immer Offline-Modus zu aktivieren, mithilfe von Gruppenrichtlinien zum Aktivi
 6. Wählen Sie **Aktiviert** aus.
 7. In der **Optionen** Kontrollkästchen **anzeigen**. Die **Inhalt anzeigen Fenster** wird angezeigt.
 8. In der **Wertnamen** geben die Dateifreigabe, die für die Sie aktivieren, immer Offline-Modus möchten.
-9. Um auf alle freigegebenen Ordner immer Offline-Modus zu aktivieren, geben Sie **\\***.
+9. Um auf alle freigegebenen Ordner immer Offline-Modus zu aktivieren, geben Sie **\\** *.
 10. In der **Wert** geben **Latenz = 1** Schwellenwert für die Latenzzeit auf 1 Millisekunde festgelegt, und wählen Sie dann **OK**.
 
 >[!NOTE]

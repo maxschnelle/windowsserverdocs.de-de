@@ -85,9 +85,9 @@ Sie können Server-Manager zu verwaltende Server hinzufügen, indem Sie eine der
 
 3.  Führen Sie eine der folgenden Aktionen aus.
 
-    -   Wählen Sie auf der Registerkarte **Active Directory** die Server aus, die sich in der aktuellen Domäne befinden. Halten Sie die STRG-Taste gedrückt, um mehrere Server auszuwählen. **** Klicken Sie auf die Schaltfläche mit dem Pfeil nach rechts, um die ausgewählten Server in die Liste **ausgewählt** zu verschieben.
+    -   Wählen Sie auf der Registerkarte **Active Directory** die Server aus, die sich in der aktuellen Domäne befinden. Halten Sie die **STRG**-Taste gedrückt, um mehrere Server auszuwählen. Klicken Sie auf die Schaltfläche mit dem Pfeil nach rechts, um die ausgewählten Server in die Liste **ausgewählt** zu verschieben.
 
-    -   Geben Sie auf der Registerkarte **DNS** die ersten Zeichen eines Computernamens oder einer IP-Adresse ein, und drücken Sie dann die EINGABETASTE , oder klicken Sie auf **Suchen**. **** Wählen Sie die hinzuzufügenden Server aus, und klicken Sie dann auf die Schaltfläche mit dem Pfeil nach rechts.
+    -   Geben Sie auf der Registerkarte **DNS** die ersten Zeichen eines Computernamens oder einer IP-Adresse ein, und drücken Sie dann die **EINGABETASTE** ,oder klicken Sie auf **Suchen**. Wählen Sie die hinzuzufügenden Server aus, und klicken Sie dann auf die Schaltfläche mit dem Pfeil nach rechts.
 
     -   Suchen Sie auf der Registerkarte **Import** nach einer Textdatei mit den DNS-Namen oder IP-Adressen der Computer, die Sie hinzufügen möchten (die Datei enthält jeweils einen Namen oder eine IP-Adresse pro Zeile).
 
