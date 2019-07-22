@@ -5,7 +5,7 @@ ms.technology: extend
 ms.topic: article
 author: daniellee-msft
 ms.author: jol
-ms.date: 06/24/2019
+ms.date: 07/18/2019
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 ms.openlocfilehash: 93b8a450aa86a454ec6febd349fcaa35df590266
@@ -15,47 +15,50 @@ ms.contentlocale: de-DE
 ms.lasthandoff: 06/26/2019
 ms.locfileid: "67396760"
 ---
-# <a name="thomas-krennag-extension"></a>Thomas-Krenn.AG Extension
+# Windows Admin Center Extension der Thomas Krenn.AG
 
-## <a name="intuitive-server-and-storage-health-management"></a>Intuitive integritätsverwaltung für Server und Speicher
+## Einfache Storage-Verwaltung dank intuitiver Benutzeroberfläche
 
-Die Erweiterung Thomas Krenn.AG Windows Admin Center wurde speziell für die hoch verfügbare 2 Knoten [S2D Micro-Cluster](https://www.thomas-krenn.com/en/products/application/software-defined-storage/s2d-micro-cluster.html) Appliance. Die benutzerfreundliche, grafische Weboberfläche eine Micro-Cluster-Integritätsstatus über ein einfaches Dashboard visualisiert und ermöglicht Ihnen, um einen Drilldown auf Speichergeräte, Netzwerkschnittstellen oder den gesamten Cluster, um weitere Details anzuzeigen.
+Die Thomas Krenn.AG ist ein führender, wachstumsstarker Hersteller individueller Server- und Storage-Systeme. Die Windows Admin Center Extension der Thomas-Krenn.AG wurde speziell für den [S2D Micro-Cluster](https://www.thomas-krenn.com/de/produkte/einsatzzweck/software-defined-storage/s2d-micro-cluster.html), ein hochverfügbares 2 Node Cluster, entwickelt. Mit der nutzerfreundlichen Bedienoberfläche der Extension haben Sie den Status Ihres Systems über das Windows Admin Center jederzeit im Blick. Ob einzelne Datenträger, Clusterstatus oder Netzwerkschnittstellen, wählen Sie einfach per Mausklick die verschiedenen Elemente der grafischen Bedienoberfläche aus und Sie erhalten sofort einen Überblick über die wichtigsten Eigenschaften Ihres Clusters.
 
-Diese Erweiterung bietet intuitiven Zugriff auf Informationen, die in der Regel auf oberster Ebene Service- und Aufrufe wie z. B. Seriennummern, die Softwareversionen, die speicherauslastung und vieles mehr benötigt. Es soll an Administratoren nützlich sein, die keine Erfahrung mit Windows Server hyper-konvergiert Infrastruktur haben.
+Auch ein schneller Zugriff auf Seriennummern, Betriebssystemversion und Speicherauslastung ist jederzeit möglich. Zudem lässt sich für die gesamte Erweiterung auch ein „Dark-Mode“ aktiveren. Dank der Windows Admin Center Extension der Thomas-Krenn.AG haben Sie somit die Verwaltung Ihres S2D Micro-Clusters immer bestens im Griff.
 
-Einige der Erkenntnisse verfügbar sind:
-- Allgemeine Informationen über die Micro-Knoten und die Micro-Cluster
-- Betriebssystem und dem Gerätestatus
-- Kapazität HDD- und SSD-Status Zwischenspeichern
-- Clusterereignisse
-- Netzwerkstatus und Informationen
+Die Extension bietet eine Vielzahl an Möglichkeiten, wie der Status der Systeme und des Clusters abgerufen werden kann:
+- Informationen der MicroNodes abrufen
+- Status und Zustand der Betriebssystem-Disk
+- Zustand der Capacity-HDDs sowie der Caching-SSDs
+- Cluster-Übersicht sowie Cluster-Events
+- Informationen über das Netzwerk 
 
-Verwenden Sie das Dashboard, um zu bestimmen, Integritätsstatus und wichtigen Systeminformationen, wie z. B. Seriennummern, Modell, Version des Betriebssystems und die Auslastung des Clusters. Darüber hinaus werden-Lüfter, die NIC und die allgemeine Integrität der Knoten-Hardware auf dem Dashboard wird ebenfalls angezeigt.
+![Thomas Krenn Erweiterung](thomas-krenn-de-1.png)
 
-![Thomas Krenn Erweiterung](../../media/extend-case-study-thomas-krenn/thomas-krenn-1.png)
+Auf einen Blick finden Sie alle notwendigen Informationen über die Micro-Nodes. Hierzu zählen zum Beispiel Seriennummer, Modell, Betriebssystemversion und Systemauslastung. Außerdem erkennt man sofort, ob alle Lüfter und Netzwerkadapter ordnungsgemäß funktionieren.
 
-Sie können Storage Geräten anzeigen, Seriennummern, die SMARTCARD-Status und die Ausnutzung der Speicherkapazität aufgliedern. Startgeräte werden auch Wear, Indikatoren, die neu reserviert Sektoren und Power pünktlich, sind die besten Indikatoren SSD-Integrität.
+![Thomas Krenn Erweiterung](thomas-krenn-de-2.png)
 
-![Thomas Krenn Erweiterung](../../media/extend-case-study-thomas-krenn/thomas-krenn-2.png)
+Bei den Informationen über die Betriebssystem SSD sehen Sie die genaue Modellbezeichnung, die Seriennummer sowie den SMART-Zustand. Zusätzlich wird die Speicherauslastung des Speichermediums grafisch dargestellt.
 
-Das Symbol für den Cluster wird erweitert, um eine Zusammenfassung der Funktionsdetails des Clusters.
+![Thomas Krenn Erweiterung](thomas-krenn-de-3.png)
 
-![Thomas Krenn Erweiterung](../../media/extend-case-study-thomas-krenn/thomas-krenn-3.png)
+Durch Anklicken der Caching-SSDs oder der Capacity-HDDs kann deren Zustand kinderleicht ausgelesen werden. Hier finden Sie ebenfalls die genaue Modellbezeichnung, die Seriennummern und die Speicherauslastung in grafischer Darstellung.
 
-Nachdem diese Micro-Cluster Azure-Cloud-Zeuge für eine ganze Nacht nicht verfügbar war, ist ein Blick genug, um das Problem zu identifizieren. Klicken auf "Benachrichtigungen" sofort sind relevante Ereignisse für die schnelle Behebung aufgeführt. Clusterereignisse sind lokalisiert und durch die Basissprache des Betriebssystems bestimmt. Die Erweiterung selbst unterstützt Englisch und Deutsch.
+![Thomas Krenn Erweiterung](thomas-krenn-de-4.png)
+![Thomas Krenn Erweiterung](thomas-krenn-de-5.png)
 
-![Thomas Krenn Erweiterung](../../media/extend-case-study-thomas-krenn/thomas-krenn-4.png)
+In der Cluster-Darstellung sehen Sie auf den ersten Blick den DNS-Namen, die IP-Adresse und den Status des Clusters. Außerdem wird die Storage-Pool-Kapazität sowie die Auslastung der einzelnen Cluster-Nodes grafisch angezeigt.
 
-Informationen zum Netzwerk ist ebenfalls verfügbar.
+![Thomas Krenn Erweiterung](thomas-krenn-de-6.png)
 
-![Thomas Krenn Erweiterung](../../media/extend-case-study-thomas-krenn/thomas-krenn-5.png)
+Zusätzlich zu den Cluster-Informationen werden die Cluster-Ereignisse in tabellarischer Form dargestellt, hierbei wird zwischen Warnungen und Fehlern unterschieden.
 
-Basierend auf Kundenfeedback, haben wir auch "dunkel" Verfügbare Modus in Windows Admin Center v1904 implementiert. Dies ist die wohltuend in dunkel Rechenzentren und schlecht hervorgehobenen CAB-Dateien und Kleiderschrank aufbewahrt werden sollte. Es ist auch Windows Admin Center Zugriff auf durch Verringern der Beschichtung für Administratoren mit bestimmten sehfähigkeit.
+![Thomas Krenn Erweiterung](thomas-krenn-de-7.png)
 
-![Thomas Krenn Erweiterung](../../media/extend-case-study-thomas-krenn/thomas-krenn-6.png)
+Um Informationen über die Netzwerkschnittstellen abrufen zu können, drücken Sie einfach auf das Network Symbol. Hier sehen Sie die Namen der NICs, die konfigurierte IP Adresse und den Netzwerknamen. Außerdem sehen Sie auf einen Blick, ob für die iWARP-fähigen Netzwerkkarten RDMA aktiviert ist.
 
-Thomas-Krenn realisiert sofort, dass benutzerfreundlichkeit und Barrierefreiheit für untrainiertes Administratoren Taste, um eine große benutzerfreundlichkeit für die hyperkonvergenten Infrastruktur auf dem Markt für kleine und mittelständische Unternehmen wäre. Thomas-Krenn Micro-Cluster-Erweiterung ergänzt perfekt Verwaltungsfunktionen von Windows Admin Center native HCI durch einschließlich proprietären Hardware-Informationen auf dem Dashboard und erneut gruppieren wichtig Integrität Clusterinformationen in einem neuen, Benutzerfreundlicher-Schnittstelle.
+![Thomas Krenn Erweiterung](thomas-krenn-de-8.png)
 
-Während des Entwicklungsprozesses wurde beschlossen, Windows Admin Center 1904 in einer Konfiguration mit hoher Verfügbarkeit für den Cluster selbst sicherstellen Verwaltbarkeit auch nach dem Ausfall von Serverknoten bereitstellen. Die Erweiterung ist vorinstalliert, wie das gesamte Betriebssystem.
+Die Windows Admin Center Extension der Thomas Krenn.AG unterstützt den in der Version 1904 neu eingeführten „Dark-Mode“.
 
-Die Erweiterung erstellt wurde gleichzeitig mit Windows Admin Center 1904 bei Microsoft entwickelt. Enge Zusammenarbeit und kontinuierliches Feedback verfügbar gemacht werden Probleme auf beiden Seiten, die vor dem Produkt wurde erfolgreich gestartet wird, im April 2019 gemeinsam aufgelöst wurden. Thomas-Krenn ist sehr stolz auf den ersten vollständig unterstützen, und implementieren die neuen Features von Windows Admin Center 1904.
+![Thomas Krenn Erweiterung](thomas-krenn-de-9.png)
+
+Mit dem [S2D Micro-Cluster](https://www.thomas-krenn.com/de/produkte/einsatzzweck/software-defined-storage/s2d-micro-cluster.html) haben die Techniker der Thomas Krenn.AG mit Unterstützung von Microsoft ein System entwickelt, das perfekt auf Storage Spaces Direct zugeschnitten ist. Und dank der speziell entwickelten Windows Admin Center Extension können Sie den Status des 2-Node-Clusters jederzeit über eine grafische Benutzeroberfläche im Webbrowser einsehen. Damit steht Anwendern von Windows Server ein kompaktes Komplettsystem mit hoher Leistungsdichte für Hyperkonvergenz und Software-definierten Storage zur Verfügung.
