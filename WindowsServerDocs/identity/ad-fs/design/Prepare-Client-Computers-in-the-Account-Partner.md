@@ -24,7 +24,7 @@ Damit die Clientcomputer nahtlos verbundanwendungen ohne zertifikataufforderunge
   
 -   Konfigurieren Sie Internet Explorer auf jedem Clientcomputer, der Kontoverbundserver zu vertrauen.  
   
-    Weitere Informationen finden Sie unter [Configure Client Computers to Trust the Account Federation Server](../../ad-fs/deployment/Configure-Client-Computers-to-Trust-the-Account-Federation-Server.md).  
+    Weitere Informationen finden Sie unter [Konfigurieren von Clientcomputern zum Vertrauen der Kontoverbundserver](../../ad-fs/deployment/Configure-Client-Computers-to-Trust-the-Account-Federation-Server.md).  
   
 -   Installieren Sie die entsprechenden Kontoverbundserver, Ressourcenverbundserver und Webserver Secure Sockets Layer \(SSL\) Zertifikate \(oder die entsprechenden Zertifikate einer vertrauenswürdigen Stammzertifizierungsstelle\) auf jedem Client-Computer.  
   

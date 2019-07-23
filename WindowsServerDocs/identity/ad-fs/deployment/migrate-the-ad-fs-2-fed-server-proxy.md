@@ -31,7 +31,7 @@ Um einen AD FS 2.0-Verbundserverproxy zu Windows Server 2012 zu migrieren, führ
 > [!IMPORTANT]
 >  Durch das Upgrade des Betriebssystems geht die AD FS-Proxykonfiguration auf diesem Server verloren und die AD FS 2.0-Serverrolle wird entfernt. Wird stattdessen die Windows Server 2012 AD FS-Serverrolle installiert, aber nicht konfiguriert ist. Sie müssen die ursprüngliche AD FS-Proxykonfiguration manuell erstellen und die verbleibenden AD FS-Proxyeinstellungen wiederherstellen, um die Verbundserverproxymigration abzuschließen.  
   
-4. Erstellen Sie die ursprüngliche AD FS-Proxykonfiguration mithilfe des **Assistenten für die Konfiguration eines AD FS-Verbundserverproxys**. Weitere Informationen finden Sie unter [Configure a Computer for the Federation Server Proxy Role](configure-a-computer-for-the-federation-server-proxy-role.md). Wenn Sie den Assistenten ausführen, verwenden Sie die Informationen, die Sie in Vorbereitung auf die Migration des AD FS 2.0-Verbundserverproxys gesammelt haben, wie folgt:  
+4. Erstellen Sie die ursprüngliche AD FS-Proxykonfiguration mithilfe des **Assistenten für die Konfiguration eines AD FS-Verbundserverproxys**. Weitere Informationen finden Sie unter [Konfigurieren eines Computers für die Verbundserverproxy-Rolle](configure-a-computer-for-the-federation-server-proxy-role.md). Wenn Sie den Assistenten ausführen, verwenden Sie die Informationen, die Sie in Vorbereitung auf die Migration des AD FS 2.0-Verbundserverproxys gesammelt haben, wie folgt:  
   
  
 |**Eingabeoption für den Assistenten für Verbundserverproxys**|**Verwenden Sie den folgenden Wert**|

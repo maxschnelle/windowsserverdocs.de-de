@@ -26,7 +26,7 @@ Dieses Thema enthält Hintergrundinformationen zu Active Directory Domain Servic
 Die empfohlene Vorgehensweise zum Upgrade einer Domäne besteht im Heraufstufen von Domänencontrollern, auf denen neuere Versionen von Windows Server ausgeführt werden, und ältere Domänencontroller nach Bedarf herabzustufen. Diese Methode empfiehlt sich gegenüber einem Upgrade des Betriebssystems auf einem vorhandenen Domänencontroller. Diese Liste umfasst allgemeine Schritte zu befolgen, bevor Sie einen Domänencontroller heraufstufen, der eine neuere Version von Windows Server ausgeführt wird:  
   
 1. Stellen Sie sicher, dass der Zielserver die [Systemanforderungen](https://technet.microsoft.com/library/dn303418.aspx)erfüllt.  
-2. Lesen Sie unter [Application compatibility](../../ad-ds/deploy/Upgrade-Domain-Controllers-to-Windows-Server-2012-R2-and-Windows-Server-2012.md#BKMK_AppCompat)nach.  
+2. Stellen Sie sicher [Anwendungskompatibilität](../../ad-ds/deploy/Upgrade-Domain-Controllers-to-Windows-Server-2012-R2-and-Windows-Server-2012.md#BKMK_AppCompat).  
 3. Überprüfen Sie die Sicherheitseinstellungen. Weitere Informationen finden Sie unter [Veraltete Features und Verhaltensänderungen in Bezug auf AD DS unter Windows Server 2012](../../ad-ds/deploy/Upgrade-Domain-Controllers-to-Windows-Server-2012-R2-and-Windows-Server-2012.md#BKMK_DeprecatedFeatures) und [Secure default settings in Windows Server 2008 und Windows Server 2008 R2](https://technet.microsoft.com/library/upgrade-domain-controllers-to-windows-server-2008-r2(WS.10).aspx#BKMK_SecureDefault).  
 4. Überprüfen Sie die Verbindung zum Zielserver für den Computer, auf dem Sie die Ausführung des Installationsvorgangs planen.  
 5. Überprüfen Sie, ob die erforderlichen Betriebsmasterrollen verfügbar sind.  

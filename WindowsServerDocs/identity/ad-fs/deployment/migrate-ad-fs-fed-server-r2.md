@@ -43,7 +43,7 @@ Zum Migrieren eines AD FS-Verbundservers, das eine AD FS-Farm mit einzelnem Knot
 Sie müssen das vom Verbunddienst verwendete SSL-Zertifikat und seinen privaten Schlüssel in eine PFX-Datei exportieren. Weitere Informationen finden Sie unter [Exportieren des Bereichs mit dem privaten Schlüssel eines Serverauthentifizierungszertifikats](export-the-private-key-portion-of-a-server-authentication-certificate.md).  
   
 > [!NOTE]
->  Wenn Sie den Geräteregistrierungsdienst im Rahmen der Ausführung von AD FS in Windows Server 2012 R2 bereitstellen möchten, müssen Sie ein neues SSL-Zertifikat abrufen. Weitere Informationen finden Sie unter [Enroll an SSL Certificate for AD FS](enroll-an-ssl-certificate-for-ad-fs.md) und [Configure a federation server with Device Registration Service](configure-a-federation-server-with-device-registration-service.md).  
+>  Wenn Sie den Geräteregistrierungsdienst im Rahmen der Ausführung von AD FS in Windows Server 2012 R2 bereitstellen möchten, müssen Sie ein neues SSL-Zertifikat abrufen. Weitere Informationen finden Sie unter [Registrieren eines SSL-Zertifikats für AD FS](enroll-an-ssl-certificate-for-ad-fs.md) und [Konfigurieren eines Verbundservers mit Device Registration Service](configure-a-federation-server-with-device-registration-service.md).  
   
 Führen Sie zum Anzeigen der verwendeten Tokensignatur-, Tokenentschlüsselungs- und Dienstkommunikationszertifikate den folgenden Windows PowerShell-Befehl aus, um eine Liste aller verwendeten Zertifikate in einer Datei zu erstellen:  
   
