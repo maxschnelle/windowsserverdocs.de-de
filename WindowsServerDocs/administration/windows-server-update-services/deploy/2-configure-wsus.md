@@ -389,11 +389,11 @@ WSUS erfordert zwei Ports für SSL: einen Port, der HTTPS für das Senden versch
 
 2.  Wechseln Sie zu **starten**, Typ **CMD**, mit der rechten Maustaste **Eingabeaufforderung**, und klicken Sie dann auf **als Administrator ausführen**.
 
-3.  Navigieren Sie zu der *%ProgramFiles%***\Update Services\Tools\\* * Ordner.
+3.  Navigieren Sie zu der *%ProgramFiles%* **\Update Services\Tools\\* * Ordner.
 
 4.  Geben Sie im Eingabeaufforderungsfenster Befehl den folgenden Befehl ein:
 
-    **Wsusutil configuressl***certificateName*
+    **Wsusutil configuressl** *certificateName*
 
     Dabei gilt Folgendes:
 
