@@ -1,43 +1,43 @@
 ---
 title: Patchen von Server Core
-description: Informationen Sie zum Aktualisieren von einer Server Core-Installations von Windows Server
+description: Erfahren Sie, wie Sie eine Server Core-Installation von Windows Server aktualisieren.
 ms.prod: windows-server-threshold
 ms.mktglfcycl: manage
 ms.sitesec: library
 author: lizap
 ms.localizationpriority: medium
 ms.date: 10/17/2017
-ms.openlocfilehash: b19512a6f34e13469433aba6051f1232824beb0e
-ms.sourcegitcommit: 21165734a0f37c4cd702c275e85c9e7c42d6b3cb
+ms.openlocfilehash: b649a3cc16bc1a527c5df0b4a0d543da22a882d2
+ms.sourcegitcommit: 216d97ad843d59f12bf0b563b4192b75f66c7742
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65034159"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68476485"
 ---
-# <a name="patch-a-server-core-installation"></a>Patch für eine Server Core-installation
+# <a name="patch-a-server-core-installation"></a>Patchen einer Server Core-Installation
 
-> Gilt für: WindowsServer (Halbjährlicher Kanal) und WindowsServer 2016
+> Gilt für: Windows Server 2019, Windows Server 2016 und Windows Server (halbjährlicher Kanal)
 
-Sie können einen Server unter Server Core-Installation gibt folgende Möglichkeiten Patchen:
+Sie können einen Server, auf dem die Server Core-Installation ausgeführt wird, wie folgt Patchen:
 
-- **Verwenden von Windows Update, automatisch oder mit Windows Server Update Services (WSUS)** . Mithilfe von Windows Update, können entweder automatisch oder mit Befehlszeilentools und Windows Server Update Services (WSUS), Sie Server mit einer Server Core-Installation warten.
+- **Automatisches Verwenden von Windows Update oder mit Windows Server Update Services (WSUS)** . Wenn Sie Windows Update entweder automatisch oder mit Befehlszeilen Tools oder Windows Server Update Services (WSUS) verwenden, können Sie Server verwenden, auf denen eine Server Core-Installation ausgeführt wird.
 
-- **Manuell**. Auch in Organisationen, die nicht Windows Update oder WSUS verwenden, können Sie Updates manuell anwenden.
+- **Manuell**. Auch in Organisationen, in denen Windows Update oder WSUS nicht verwendet wird, können Sie Updates manuell anwenden.
 
-## <a name="view-the-updates-installed-on-your-server-core-server"></a>Zeigen Sie die auf Ihrem Server Core-Server installierte Updates an
-Bevor Sie ein neues Update von Server Core hinzufügen, ist es eine gute Idee, um festzustellen, welche Updates bereits installiert wurden.
+## <a name="view-the-updates-installed-on-your-server-core-server"></a>Anzeigen der auf dem Server-Core-Server installierten Updates
+Bevor Sie ein neues Update zu Server Core hinzufügen, empfiehlt es sich, zu sehen, welche Updates bereits installiert wurden.
 
-Führen Sie zum Anzeigen Updates mithilfe von Windows PowerShell **Get-Hotfix**.
+Wenn Sie Updates mithilfe von Windows PowerShell anzeigen möchten, führen **Sie Get-Hotfix**aus.
 
-Um Updates anzuzeigen, indem Sie einen Befehl ausführen, führen Sie **systeminfo.exe**. Es gibt möglicherweise eine kurze Verzögerung während des Tools auf Ihrem System überprüft.
+Um Updates durch Ausführen eines Befehls anzuzeigen, führen Sie **Systeminfo. exe**aus. Möglicherweise kommt es zu einer kurzen Verzögerung, während das Tool das System prüft.
 
-Sie können auch ausführen **Wmic-Qfe-Liste** über die Befehlszeile. 
+Sie können auch die **WMIC-QFE-Liste** über die Befehlszeile ausführen. 
 
-## <a name="patch-server-core-automatically-with-windows-update"></a>Patch für Server Core automatisch mit Windows Update
+## <a name="patch-server-core-automatically-with-windows-update"></a>Automatisches Patchen von Server Core mit Windows Update
 
-Verwenden Sie die folgenden Schritte aus, um den patch für des Servers mit Windows Update automatisch:
+Führen Sie die folgenden Schritte aus, um den Server automatisch mit Windows Update zu patchen:
 
-1. Überprüfen Sie die aktuelle Einstellung für die Windows Update aus:
+1. Überprüfen Sie die aktuelle Windows Update Einstellung:
    ```
    %systemroot%\system32\Cscript scregedit.wsf /AU /v 
    ```
@@ -50,7 +50,7 @@ Verwenden Sie die folgenden Schritte aus, um den patch für des Servers mit Wind
    Net start wuauserv
    ```  
 
-3. Führen Sie zum Deaktivieren von automatischen Updates:
+3. Führen Sie Folgendes aus, um automatische Updates zu deaktivieren:
 
    ```
    Net stop wuauserv 
@@ -58,7 +58,7 @@ Verwenden Sie die folgenden Schritte aus, um den patch für des Servers mit Wind
    Net start wuauserv 
    ```
 
-Wenn der Server Mitglied einer Domäne ist, können Sie Windows Update auch mithilfe einer Gruppenrichtlinie konfigurieren. Weitere Informationen finden Sie unter https://go.microsoft.com/fwlink/?LinkId=192470. Wenn Sie diese Methode verwenden, ist jedoch nur Option 4 ("Autom. herunterladen und laut Zeitplan installieren") für Server Core-Installationen relevant aufgrund des Mangels an eine grafische Benutzeroberfläche. Um besser steuern zu können, welche Updates zu welchem Zeitpunkt installiert werden, können Sie ein Skript verwenden. Das Skript stellt ein Befehlszeilenäquivalent der meisten Optionen der grafischen Windows Update-Benutzeroberfläche dar. Informationen zum Skript finden Sie unter https://go.microsoft.com/fwlink/?LinkId=192471.
+Wenn der Server Mitglied einer Domäne ist, können Sie Windows Update auch mithilfe einer Gruppenrichtlinie konfigurieren. Weitere Informationen finden Sie unter https://go.microsoft.com/fwlink/?LinkId=192470. Wenn Sie diese Methode verwenden, ist jedoch nur Option 4 ("Automatisches herunterladen und Planen der Installation") für Server Core-Installationen relevant, weil keine grafische Oberfläche verfügbar ist. Um besser steuern zu können, welche Updates zu welchem Zeitpunkt installiert werden, können Sie ein Skript verwenden. Das Skript stellt ein Befehlszeilenäquivalent der meisten Optionen der grafischen Windows Update-Benutzeroberfläche dar. Weitere Informationen zum Skript finden https://go.microsoft.com/fwlink/?LinkId=192471 Sie unter.
 
 Führen Sie den folgenden Befehl aus, um zu erzwingen, dass Windows Update alle verfügbaren Updates sofort erkennt und installiert:
 
@@ -66,16 +66,16 @@ Führen Sie den folgenden Befehl aus, um zu erzwingen, dass Windows Update alle 
 Wuauclt /detectnow 
 ```
 
-Je nach den installierten Updates kann es sein, dass Sie den Computer neu starten müssen, auch wenn vom System keine entsprechende Meldung angezeigt wird. Um zu bestimmen, ob der Installationsvorgang abgeschlossen ist, verwenden Sie Task-Manager zu überprüfen, ob die **Wuauclt** oder **vertrauenswürdiger Installer** -Prozess nicht aktiv ausgeführt wird. Sie können auch die Methoden in [die auf Ihrem Server Core-Server installierte Updates anzeigen](#view-the-updates-installed-on-your-server-core-server) um die Liste der installierten Updates zu überprüfen.
+Je nach den installierten Updates kann es sein, dass Sie den Computer neu starten müssen, auch wenn vom System keine entsprechende Meldung angezeigt wird. Um zu ermitteln, ob der Installationsvorgang abgeschlossen ist, verwenden Sie den Task-Manager, um zu überprüfen, ob die Prozesse **wuauclt** oder **vertrauenswürdiger Installer** nicht aktiv ausgeführt werden. Sie können auch die Methoden in [Anzeigen der auf dem Server-Core-Server installierten Updates](#view-the-updates-installed-on-your-server-core-server) verwenden, um die Liste der installierten Updates zu überprüfen.
 
-## <a name="patch-the-server-with-wsus"></a>Patch für den Server mit WSUS 
+## <a name="patch-the-server-with-wsus"></a>Patchen des Servers mit WSUS 
 
-Wenn der Server Core-Server Mitglied einer Domäne ist, können Sie diesen mithilfe einer Gruppenrichtlinie für die Verwendung eines WSUS-Servers konfigurieren. Weitere Informationen, die [Referenzinformationen für die Gruppenrichtlinie](https://www.microsoft.com/download/details.aspx?id=25250). Sie können auch überprüfen [Gruppenrichtlinieneinstellungen für automatische Updates konfigurieren](../windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates.md)
+Wenn der Server Core-Server Mitglied einer Domäne ist, können Sie diesen mithilfe einer Gruppenrichtlinie für die Verwendung eines WSUS-Servers konfigurieren. Weitere Informationen finden Sie unter [Gruppenrichtlinie Referenzinformationen](https://www.microsoft.com/download/details.aspx?id=25250). Weitere Informationen finden Sie auch unter [Konfigurieren von Gruppenrichtlinie Einstellungen für automatische Updates](../windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates.md)
 
-## <a name="patch-the-server-manually"></a>Patch für den Server manuell
+## <a name="patch-the-server-manually"></a>Manuelles Patchen des Servers
 
-Das Update herunterladen und macht sie für die Server Core-Installation verfügbar.
-Führen Sie an einer Eingabeaufforderung den folgenden Befehl ein:
+Laden Sie das Update herunter, und stellen Sie es für die Server Core-Installation zur Verfügung.
+Führen Sie an einer Eingabeaufforderung den folgenden Befehl aus:
 
 ```
 Wusa <update>.msu /quiet 

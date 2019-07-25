@@ -1,6 +1,6 @@
 ---
-title: Plan für die Bereitstellung von Geräten verwenden diskrete Gerätezuordnung
-description: Erfahren Sie mehr über die Funktionsweise der DDA in Windows Server
+title: Planen der Bereitstellung von Geräten mit diskreter Geräte Zuweisung
+description: Weitere Informationen zur Funktionsweise von DDA in Windows Server
 ms.prod: windows-server-threshold
 ms.service: na
 ms.technology: hyper-v
@@ -9,113 +9,138 @@ ms.topic: article
 author: chrishuybregts
 ms.author: chrihu
 ms.date: 02/06/2018
-ms.openlocfilehash: c64c2b75c00f97622278c3e590db46995e108218
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7df7dbd1e7252f5bab451ed9272f9cbede63d223
+ms.sourcegitcommit: 216d97ad843d59f12bf0b563b4192b75f66c7742
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59840201"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68476496"
 ---
-# <a name="plan-for-deploying-devices-using-discrete-device-assignment"></a>Planen der Bereitstellung von Geräten verwenden diskrete Gerätezuordnung
->Gilt für: Microsoft Hyper-V Server 2016, WindowsServer 2016 wird Microsoft Hyper-V-Server 2019, WindowsServer 2019
+# <a name="plan-for-deploying-devices-using-discrete-device-assignment"></a>Planen der Bereitstellung von Geräten mit diskreter Geräte Zuweisung
+>Gilt für: Microsoft Hyper-v Server 2016, Windows Server 2016, Microsoft Hyper-v Server 2019, Windows Server 2019
 
-Diskrete Gerätezuordnung können physischen Hardware PCIe direkt über auf einem virtuellen Computer zugegriffen werden.  Dieses Handbuch wird erläutert, den Typ der Geräte, die verwenden können, dass Sie diskrete Gerätezuordnung, Systemanforderungen, Einschränkungen, die auf den virtuellen Computer sowie die sicherheitsauswirkungen der diskrete Gerätezuordnung.
+Durch die diskrete Geräte Zuweisung kann auf physische PCIe-Hardware direkt von einem virtuellen Computer aus zugegriffen werden.  In diesem Leitfaden werden die Arten von Geräten erläutert, die diskrete Geräte Zuweisungen, Host Systemanforderungen, Einschränkungen der virtuellen Computer sowie Sicherheitsauswirkungen der diskreten Geräte Zuweisung verwenden können.
 
-Für diskrete Gerätezuordnung Veröffentlichung haben wir zwei Geräteklassen offiziell von Microsoft unterstützt werden müssen sich der Fokus auf: Grafikkarten und NVMe-Speicher Geräte.  Andere Geräte sind anzunehmen, dass und Hardwareanbieter können Anweisungen der Unterstützung für diese Geräte bieten.  Für diese wenden andere Geräte, bitte Sie sich an die Hardwareanbieter für die Unterstützung.
+Bei der erstmaligen Veröffentlichung einer diskreten Geräte Zuweisung haben wir uns auf zwei Geräteklassen konzentriert, die von Microsoft formal unterstützt werden: Grafikadapter und nvme-Speichergeräte.  Andere Geräte sind wahrscheinlich funktionsfähig, und Hardware Anbieter können Unterstützung für diese Geräte anbieten.  Wenden Sie sich für diese anderen Geräte an diese Hardware Anbieter, um Unterstützung zu erhalten.
 
-Wenn Sie diskrete Gerätezuordnung ausprobieren möchten, können Sie direkt über zum [Bereitstellung von Grafiken Geräte verwenden diskrete Gerätezuordnung](../deploy/Deploying-graphics-devices-using-dda.md) oder [bereitstellen Speichergeräte verwenden diskrete Gerätezuordnung](../deploy/Deploying-storage-devices-using-dda.md) um zu beginnen!
+Wenn Sie zum Testen der diskreten Geräte Zuweisung bereit sind, können Sie zum Einstieg zum Bereitstellen von [Grafik Geräten mithilfe einer diskreten Geräte Zuweisung](../deploy/Deploying-graphics-devices-using-dda.md) oder Bereitstellen von [Speichergeräten mithilfe von diskreten Geräte Zuweisungen](../deploy/Deploying-storage-devices-using-dda.md) wechseln.
 
-## <a name="supported-virtual-machines-and-guest-operating-systems"></a>Unterstützten virtuellen Computern und Gastbetriebssystemen
-Diskrete Gerätezuordnung wird für die Generation 1 oder 2 virtuellen Computern unterstützt.  Darüber hinaus enthalten die Gäste unterstützt, Windows 10, Windows Server-2019, Windows Server 2016, Windows Server 2012 R2 mit [KB 3133690](https://support.microsoft.com/kb/3133690) angewendet, und verschiedenen Distributionen von der [Linux-Betriebssystem.](../supported-linux-and-freebsd-virtual-machines-for-hyper-v-on-windows.md)
+## <a name="supported-virtual-machines-and-guest-operating-systems"></a>Unterstützte Virtual Machines und Gast Betriebssysteme
+Für VMS der Generation 1 oder 2 wird eine diskrete Geräte Zuweisung unterstützt.  Zu den unterstützten Gästen zählen zusätzlich Windows 10, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 mit angewendetem [KB 3133690](https://support.microsoft.com/kb/3133690) und verschiedene Verteilungen des [Linux-Betriebssystems.](../supported-linux-and-freebsd-virtual-machines-for-hyper-v-on-windows.md)
 
 ## <a name="system-requirements"></a>Systemanforderungen
-Zusätzlich zu den [System Requirements for Windows Server](../../../get-started/System-Requirements--and-Installation.md) und [Systemanforderungen für Hyper-V](../System-requirements-for-Hyper-V-on-Windows.md), diskrete Gerätezuordnung, erfordert Klasse Serverhardware, die gewähren kann die Betriebssystem-Kontrolle über die Konfiguration des PCIe-Fabrics (Native PCI Express-Steuerelement). Darüber hinaus enthält die PCIe Stamm komplexe, zur Unterstützung von "Access Control Services" (ACS), die Hyper-V zu erzwingen, dass alle PCIe-Datenverkehr über die e/a-MMU ermöglicht.
+Zusätzlich zu den [Systemanforderungen für Windows Server](../../../get-started/System-Requirements--and-Installation.md) und den [Systemanforderungen für Hyper-V](../System-requirements-for-Hyper-V-on-Windows.md)erfordert die diskrete Geräte Zuweisung Server Klassen Hardware, die die Betriebs System Steuerung über das Konfigurieren des PCIe erteilen kann. Fabric (System eigenes PCI Express-Steuerelement). Außerdem muss das komplexe PCIe-Stammverzeichnis "Access Control Services (ACS)" unterstützen, mit dem Hyper-V den gesamten PCIe-Datenverkehr über die e/a-MMU erzwingen kann.
 
-Diese Funktionen werden in der Regel werden nicht direkt in das BIOS auf dem Server verfügbar gemacht und sind oft hinter der anderen Einstellungen.  Beispielsweise die gleichen Funktionen für die SR-IOV-Unterstützung erforderlich sind und in das BIOS müssen Sie möglicherweise festlegen "SR-IOV zu aktivieren."  Bitte wenden Sie sich an den Hersteller Ihres Systems, wenn Sie nicht die richtige Einstellung im BIOS identifizieren können.
+Diese Funktionen werden in der Regel nicht direkt im BIOS des Servers verfügbar gemacht und sind häufig hinter anderen Einstellungen verborgen.  Beispielsweise sind die gleichen Funktionen für die SR-IOV-Unterstützung erforderlich, und im BIOS müssen Sie möglicherweise "SR-IOV aktivieren" festlegen.  Wenden Sie sich an Ihren Systemhersteller, wenn Sie die richtige Einstellung in Ihrem BIOS nicht identifizieren können.
 
-Helfen sicherzustellen, dass die Hardware die Hardware kann diskrete Gerätezuordnung, unsere Techniker haben zusammengestellt, die eine [Computer Profilskript](#machine-profile-script) , Sie, auf einem aktiviertem Hyper-V-Host ausführen können zu testen, ob Ihr Server ordnungsgemäß Setup- und was ist Geräte können diskrete Gerätezuordnung.
+Um sicherzustellen, dass die Hardware von der Hardware diskret Geräte zugewiesen werden kann, haben unsere Techniker ein [Machine profile-Skript](#machine-profile-script) eingefügt, das Sie auf einem Hyper-V-fähigen Host ausführen können, um zu testen, ob der Server ordnungsgemäß eingerichtet ist und welche Geräte in der Lage sind. Diskrete Geräte Zuweisung.
 
-## <a name="device-requirements"></a>Anforderungen für Geräte
-Nicht alle PCIe-Geräte kann mit diskrete Gerätezuordnung verwendet werden.  Beispielsweise werden die ältere Geräten, die ältere (INTx) PCI unterbricht nutzen nicht unterstützt. Jake Oshins [Blogbeiträge](https://blogs.technet.microsoft.com/virtualization/2015/11/20/discrete-device-assignment-machines-and-devices/) ausführlicher - jedoch wechseln Sie für den Consumer ein, mit der [Computer Profilskript](#machine-profile-script) wird angezeigt, welche Geräte verwendet werden, für die diskrete Gerätezuordnung kann sind.
+## <a name="device-requirements"></a>Geräteanforderungen
+Nicht jedes PCIe-Gerät kann mit diskreter Geräte Zuweisung verwendet werden.  Beispielsweise werden ältere Geräte, die Legacy-PCI-Interrupts (intX) nutzen, nicht unterstützt. Die [Blogbeiträge](https://blogs.technet.microsoft.com/virtualization/2015/11/20/discrete-device-assignment-machines-and-devices/) von Jake Oshin werden ausführlicher behandelt, aber für den Consumer wird bei der Ausführung des [Machine profile-Skripts](#machine-profile-script) angezeigt, welche Geräte für die diskrete Geräte Zuweisung eingesetzt werden können.
 
-Gerätehersteller können Sie ihren Microsoft-Vertreter, um mehr erreichen.
+Gerätehersteller können sich an Ihren Microsoft-Vertreter wenden, um weitere Informationen zu erhalten.
 
 ## <a name="device-driver"></a>Gerätetreiber
-Diskrete Gerätezuordnung das gesamte PCIe-Gerät in der Gast-VM übergibt, ist ein Host-Treiber nicht erforderlich, bevor das Gerät bereitgestellt wird, auf dem virtuellen Computer installiert werden.  Die einzige Anforderung besteht, auf dem Host ist, die des Geräts die [PCIe-Location-Path](#pcie-location-path) bestimmt werden kann.  Das Gerät die Treiber kann optional installiert werden, wenn dies beim Identifizieren des Geräts hilft.  Beispielsweise kann eine GPU, ohne die Gerätetreiber auf dem Host installiert als Microsoft grundlegenden Rendern Gerät angezeigt.  Wenn der Gerätetreiber installiert ist, werden die Hersteller und Modell wahrscheinlich angezeigt.
+Da die diskrete Geräte Zuweisung das gesamte PCIe-Gerät an die Gast-VM übergibt, muss vor dem Bereitstellen des Geräts innerhalb des virtuellen Computers kein Host Treiber installiert werden.  Die einzige Voraussetzung für den Host ist, dass der [PCIe-Speicherort Pfad](#pcie-location-path) des Geräts bestimmt werden kann.  Der Treiber des Geräts kann optional installiert werden, wenn dies zur Identifizierung des Geräts beiträgt.  Beispielsweise wird eine GPU, auf der der Gerätetreiber auf dem Host installiert ist, möglicherweise als Microsoft Basic-Rendering-Gerät angezeigt.  Wenn der Gerätetreiber installiert ist, werden der Hersteller und das Modell wahrscheinlich angezeigt.
 
-Sobald das Gerät auf dem Gast bereitgestellt ist, kann der Hersteller des Gerätetreibers jetzt wie üblich, in dem virtuellen Gastcomputer installiert werden.  
+Nachdem das Gerät innerhalb des Gast Betriebssystems bereitgestellt wurde, kann der Gerätetreiber des Herstellers jetzt wie üblich innerhalb des virtuellen Gast Computers installiert werden.  
 
-## <a name="virtual-machine-limitations"></a>VM-Einschränkungen
-Aufgrund der Natur der Implementierung von diskrete Gerätezuordnung sind einige Features von einem virtuellen Computer beschränkt, während ein Gerät angeschlossen ist.  Die folgenden Funktionen sind nicht verfügbar:
-- VM-speichern/wiederherstellen
-- Livemigration eines virtuellen Computers
-- Die Verwendung des dynamischen Arbeitsspeichers
-- Hinzufügen des virtuellen Computers zu einem Cluster für hohe Verfügbarkeit (HA)
+## <a name="virtual-machine-limitations"></a>Einschränkungen für virtuelle Computer
+Aufgrund der Art, wie die diskrete Geräte Zuweisung implementiert ist, werden einige Features eines virtuellen Computers eingeschränkt, während ein Gerät angefügt wird.  Die folgenden Funktionen sind nicht verfügbar:
+- Speichern/Wiederherstellen virtueller Computer
+- Live Migration eines virtuellen Computers
+- Die Verwendung von dynamischem Arbeitsspeicher
+- Hinzufügen des virtuellen Computers zu einem hoch Verfügbarkeits Cluster (ha)
 
 ## <a name="security"></a>Sicherheit
-Diskrete Gerätezuordnung übergibt das gesamte Gerät, auf dem virtuellen Computer.  Dies bedeutet, dass alle Funktionen des Geräts aus dem Gast-Betriebssystem zugänglich sind. Einige Funktionen, wie die Firmware aktualisieren, können sich negativ auf die Stabilität des Systems beeinträchtigen. Daher sind viele Warnungen, die dem Administrator angezeigt, wenn es sich bei Aufheben der Bereitstellung des Geräts auf dem Host. Es wird dringend empfohlen, dass diskrete Gerätezuordnung nur verwendet wird, in denen die Mandanten der virtuellen Computer als vertrauenswürdig gelten.  
+Die diskrete Geräte Zuweisung übergibt das gesamte Gerät an den virtuellen Computer.  Dies bedeutet, dass alle Funktionen dieses Geräts über das Gast Betriebssystem zugänglich sind. Einige Funktionen, wie z. b. Firmwareupdates, können sich negativ auf die Stabilität des Systems auswirken. Daher werden dem Administrator beim Aufheben der Einbindung des Geräts vom Host zahlreiche Warnungen angezeigt. Es wird dringend empfohlen, die diskrete Geräte Zuweisung nur dann zu verwenden, wenn die Mandanten der VMS vertrauenswürdig sind.  
 
-Wenn der Administrator ein Gerät mit einem nicht vertrauenswürdigen Mandanten verwenden möchte, haben wir den Gerätehersteller bereitgestellt, mit der Möglichkeit, einen Treiber für die Gerät-Lösung zu erstellen, der auf dem Host installiert werden können.  Wenden Sie sich an den Gerätehersteller, Einzelheiten gibt an, ob sie einen Gerätetreiber für die Lösung bereitstellen.
+Wenn der Administrator ein Gerät mit einem nicht vertrauenswürdigen Mandanten verwenden möchte, haben wir Geräteherstellern die Möglichkeit gegeben, einen geräteentschärfungs-Treiber zu erstellen, der auf dem Host installiert werden kann.  Wenden Sie sich an den Gerätehersteller, um zu erfahren, ob er einen Geräte Entschärfungs Treiber bereitstellt.
 
-Wenn Sie möchten die sicherheitsüberprüfungen für ein Gerät zu umgehen, die nicht über einen Gerätetreiber für die Lösung verfügt, müssen Sie übergeben die `-Force` Parameter, um die `Dismount-VMHostAssignableDevice` Cmdlet.  Beachten Sie, dass dadurch das Sicherheitsprofil des Systems geändert haben und dies ist nur während der Erstellung von Prototypen empfohlen oder vertrauenswürdigen Umgebungen.
+Wenn Sie die Sicherheitsüberprüfungen für ein Gerät umgehen möchten, das keinen Treiber für die Geräte Entschärfung hat, müssen Sie den `-Force` Parameter an das `Dismount-VMHostAssignableDevice` Cmdlet übergeben.  Dabei haben Sie sich bewusst, dass Sie das Sicherheitsprofil des Systems geändert haben und dies nur während der Erstellung von Prototypen oder vertrauenswürdigen Umgebungen empfohlen wird.
 
-## <a name="pcie-location-path"></a>PCIe-Location-Path
-Der Pfad zum Speicherort der PCIe ist erforderlich, Aufheben der Bereitstellung erstellt und das Gerät vom Host eingebunden.  Ein Speicherortpfad Beispiel sieht wie folgt: `"PCIROOT(20)#PCI(0300)#PCI(0000)#PCI(0800)#PCI(0000)"`.   Die [Computer Profilskript](#machine-profile-script) wird auch der Pfad zum Speicherort des Geräts PCIe zurückgeben.
+## <a name="pcie-location-path"></a>PCIe-Speicherort Pfad
+Der Pfad für den PCIe-Speicherort ist erforderlich, um das Gerät vom Host zu entfernen und zu binden.  Ein Beispiel für einen Speicherort Pfad sieht wie `"PCIROOT(20)#PCI(0300)#PCI(0000)#PCI(0800)#PCI(0000)"`folgt aus:.   Das [Computer Profil Skript](#machine-profile-script) gibt auch den Speicherort Pfad des PCIe-Geräts zurück.
 
-### <a name="getting-the-location-path-by-using-device-manager"></a>Abrufen des Pfads zum Speicherort mit Geräte-Manager
+### <a name="getting-the-location-path-by-using-device-manager"></a>Der Speicherort Pfad wird mithilfe Geräte-Manager
 ![Geräte-Manager](../deploy/media/dda-devicemanager.png)
-- Öffnen Sie die Geräte-Manager, und suchen Sie das Gerät.  
-- Klicken Sie mit der rechten Maustaste auf das Gerät, und wählen Sie "Eigenschaften".
-- Navigieren Sie zur Registerkarte "Details", und wählen Sie in der Dropdownliste für Eigenschaft "Location-Paths".  
-- Klicken Sie mit der rechten Maustaste auf den Eintrag, der mit "PCIROOT" beginnt, und wählen Sie "Kopieren".  Sie haben jetzt den Pfad zum Speicherort für das Gerät.
+- Öffnen Sie Geräte-Manager, und suchen Sie nach dem Gerät.  
+- Klicken Sie mit der rechten Maustaste auf das Gerät und wählen Sie "Eigenschaften"
+- Navigieren Sie zur Registerkarte Details, und wählen Sie in der Dropdown-Eigenschaft die Option "Location Path" aus.  
+- Klicken Sie mit der rechten Maustaste auf den Eintrag, der mit pciroot beginnt, und wählen Sie "Kopieren".  Sie verfügen nun über den Speicherort Pfad für das Gerät.
 
-## <a name="mmio-space"></a>MMIO-Speicher
-Bei einigen Geräten, insbesondere GPUs, erfordern zusätzlichen MMIO Speicherplatz mit dem virtuellen Computer für den Speicher des Geräts zugegriffen werden. Standardmäßig beginnt jede VM mit 128MB wenig MMIO-Speicherplatz und 512MB hohe MMIO-Speicherplatz zugeordnet. Jedoch ein Gerät möglicherweise mehr MMIO-Speicherplatz benötigt wird, oder mehrere Geräte können durch übergeben werden, so, dass die kombinierten Anforderungen diese Werte überschreiten.  Ändern die MMIO-Speicher ist unkompliziert und in PowerShell mithilfe der folgenden Befehle ausgeführt werden kann:
+## <a name="mmio-space"></a>MMIO-Speicherplatz
+Einige Geräte, insbesondere GPUs, erfordern zusätzlichen MMIO-Speicherplatz, der dem virtuellen Computer zugeordnet werden muss, damit der Arbeitsspeicher des Geräts zugänglich ist. Standardmäßig beginnt jede VM mit 128 MB geringem MMIO-Speicherplatz und 512 MB hohem MMIO-Speicherplatz. Ein Gerät benötigt jedoch möglicherweise mehr MMIO-Speicherplatz, oder es können mehrere Geräte durchlaufen werden, sodass die kombinierten Anforderungen diese Werte überschreiten.  Das Ändern des MMIO-Speicherplatzes erfolgt direkt und kann in PowerShell mithilfe der folgenden Befehle ausgeführt werden:
 
-```
+```PowerShell
 Set-VM -LowMemoryMappedIoSpace 3Gb -VMName $vm
 Set-VM -HighMemoryMappedIoSpace 33280Mb -VMName $vm
 ```
-Die einfachste Möglichkeit, um zu bestimmen, wie viel Speicherplatz MMIO zuweisen ist die Verwendung der [Computer Profilskript](#machine-profile-script).  Alternativ können Sie mit der Geräte-Manager berechnen. Sie finden Sie im TechNet-Blogbeitrag [diskrete Gerätezuordnung - GPUs](https://blogs.technet.microsoft.com/virtualization/2015/11/23/discrete-device-assignment-gpus/) Weitere Details.
 
-## <a name="machine-profile-script"></a>Computer-Profilskript
-Um zu vereinfachen, angibt, ob der Server ordnungsgemäß konfiguriert ist und welche Geräte übergeben werden, durch die Verwendung von diskrete Gerätezuordnung verfügbar sind, zusammengestellt, die eine der unsere Techniker das folgende PowerShell-Skript: [SurveyDDA.ps1.](https://github.com/Microsoft/Virtualization-Documentation/blob/live/hyperv-tools/DiscreteDeviceAssignment/SurveyDDA.ps1)
+Die einfachste Möglichkeit, um zu bestimmen, wie viel MMIO-Speicherplatz belegt werden soll, ist die Verwendung des [Computer Profil Skripts](#machine-profile-script). Führen Sie die folgenden Befehle in einer PowerShell-Konsole aus, um das Computer Profil Skript herunterzuladen und auszuführen:
 
-Vor der Verwendung des Skripts, vergewissern Sie sich die Hyper-V-Rolle installiert haben, und führen Sie das Skript in einem PowerShell-Befehlsfenster, das über Administratorrechte verfügt.
+```PowerShell
+curl -o SurveyDDA.ps1 https://raw.githubusercontent.com/MicrosoftDocs/Virtualization-Documentation/live/hyperv-tools/DiscreteDeviceAssignment/SurveyDDA.ps1
+.\SurveyDDA.ps1
+```
 
-Wenn das System zur Unterstützung von diskrete Gerätezuordnung falsch konfiguriert ist, zeigt das Tool eine Fehlermeldung angezeigt, was falsch ist. Findet das Tool das System ordnungsgemäß konfiguriert sind, werden alle Geräte aufgezählt, die auf dem PCIe-Bus gefunden werden kann.
+Bei Geräten, die zugewiesen werden können, zeigt das Skript die MMIO-Anforderungen eines bestimmten Geräts wie im folgenden Beispiel an:
 
-Für jedes Gerät, die sie findet, zeigt das Tool, ob es mit diskrete Gerätezuordnung verwendet werden kann. Wenn ein Gerät als kompatibel mit diskrete Gerätezuordnung identifiziert wird, wird das Skript einen Grund angeben.  Wenn ein Gerät als kompatibel erfolgreich identifiziert wird, wird der Pfad zum Speicherort des Geräts angezeigt.  Darüber hinaus, wenn das Gerät erfordert [MMIO-Speicher](#mmio-space), er wird auch angezeigt werden.
+```PowerShell
+NVIDIA GRID K520
+Express Endpoint -- more secure.
+    ...
+    And it requires at least: 176 MB of MMIO gap space
+...
+```
 
-![SurveyDDA.ps1](./images/hyper-v-surveydda-ps1.png)
+Der niedrige MMIO-Speicherplatz wird nur von 32-Bit-Betriebssystemen und Geräten verwendet, die 32-Bit-Adressen verwenden. In den meisten Fällen reicht das Festlegen des hohen MMIO-Speicherplatzes eines virtuellen Computers aus, da 32-Bit-Konfigurationen nicht sehr häufig verwendet werden.
+
+> [!IMPORTANT]
+> Beim Zuweisen von MMIO-Speicherplatz zu einem virtuellen Computer muss der Benutzer sicherstellen, dass der MMIO-Speicherplatz auf die Summe des angeforderten MMIO-Speicherplatzes für alle gewünschten zugewiesenen Geräte zuzüglich eines zusätzlichen Puffers festgelegt wird, wenn es andere virtuelle Geräte gibt, die einige MB MMIO-Speicherplatz erfordern. Verwenden Sie die oben beschriebenen MMIO-Standardwerte als Puffer für niedriges und hohes MMIO (128 MB bzw. 512 MB).
+
+Wenn ein Benutzer eine einzelne K520-GPU wie im obigen Beispiel zuweisen würde, muss er den MMIO-Speicherplatz der VM auf den Wert festlegen, der vom Computer Profil Skript und einem Puffer--176 MB + 512 MB ausgegeben wird. Wenn ein Benutzer drei K520-GPUs zuweisen würde, muss er den MMIO-Speicherplatz auf drei Mal 176 MB plus einen Puffer oder 528 MB + 512 MB festlegen.
+
+Eine ausführlichere Betrachtung von MMIO Space finden Sie im techcommunity [-Blog unter diskrete Geräte Zuweisung-GPUs](https://techcommunity.microsoft.com/t5/Virtualization/Discrete-Device-Assignment-GPUs/ba-p/382266) .
+
+## <a name="machine-profile-script"></a>Skript für Computer Profil
+Um zu vereinfachen, ob der Server ordnungsgemäß konfiguriert ist und welche Geräte durch diskrete Geräte Zuweisung übermittelt werden können, stellt einer unserer Techniker das folgende PowerShell-Skript bereit: [Surveydda. ps1.](https://github.com/Microsoft/Virtualization-Documentation/blob/live/hyperv-tools/DiscreteDeviceAssignment/SurveyDDA.ps1)
+
+Stellen Sie vor der Verwendung des Skripts sicher, dass die Hyper-V-Rolle installiert ist, und führen Sie das Skript in einem PowerShell-Befehlsfenster aus, das über Administrator Rechte verfügt.
+
+Wenn das System nicht ordnungsgemäß für die Unterstützung der diskreten Geräte Zuweisung konfiguriert ist, zeigt das Tool eine Fehlermeldung an, die falsch ist. Wenn das Tool feststellt, dass das System ordnungsgemäß konfiguriert ist, werden alle Geräte aufgelistet, die auf dem PCIe-Bus gefunden werden können.
+
+Das Tool zeigt für jedes gefundene Gerät an, ob es mit diskreter Geräte Zuweisung verwendet werden kann. Wenn ein Gerät als kompatibel mit der diskreten Geräte Zuweisung identifiziert wird, stellt das Skript einen Grund dar.  Wenn ein Gerät erfolgreich als kompatibel identifiziert wurde, wird der Speicherort Pfad des Geräts angezeigt.  Wenn dieses Gerät außerdem [MMIO-Speicherplatz](#mmio-space)erfordert, wird es ebenfalls angezeigt.
+
+![Surveydda. ps1](./images/hyper-v-surveydda-ps1.png)
 
 ## <a name="frequently-asked-questions"></a>Häufig gestellte Fragen
 
-### <a name="how-does-remote-desktops-remotefx-vgpu-technology-relate-to-discrete-device-assignment"></a>In welcher Beziehung steht Remote Desktop RemoteFX vGPU-Technologie auf diskrete Gerätezuordnung?
-Sie sind vollständig separate Technologien. RemoteFX vGPU muss nicht für die diskrete Gerätezuordnung funktioniert installiert werden. Darüber hinaus sind ohne zusätzlichen Rollen muss installiert sein. RemoteFX vGPU erfordert die RDVH-Rolle für die Installation in der Reihenfolge für den RemoteFX vGPU-Treiber auf dem virtuellen Computer vorhanden sein. Für diskrete Gerätezuordnung da Sie der Hardwarehersteller Treiber in der virtuellen Maschine installieren möchten, ohne zusätzlichen Rollen müssen vorhanden sein.  
+### <a name="how-does-remote-desktops-remotefx-vgpu-technology-relate-to-discrete-device-assignment"></a>Wie verhält sich die remotefx-vgpu-Technologie von Remotedesktop mit der diskreten Geräte Zuweisung?
+Dabei handelt es sich um vollständig getrennte Technologien. Remotefx vgpu muss nicht installiert werden, damit die diskrete Geräte Zuweisung funktioniert. Außerdem müssen keine weiteren Rollen installiert werden. Für remotefx vgpu muss die RDVH-Rolle installiert sein, damit der remotefx-vgpu-Treiber auf der VM vorhanden ist. Bei einer diskreten Geräte Zuweisung müssen keine weiteren Rollen vorhanden sein, da Sie den Treiber des Hardware Herstellers in der virtuellen Maschine installieren werden.  
 
-### <a name="ive-passed-a-gpu-into-a-vm-but-remote-desktop-or-an-application-isnt-recognizing-the-gpu"></a>Ich habe eine GPU übergeben, in einen virtuellen Computer jedoch Remotedesktop oder eine Anwendung ist nicht die GPU erkennen
-Es gibt zahlreiche Gründe, warum dies kann passieren, aber einige allgemeine Probleme sind unten aufgeführt.
-- Stellen Sie sicher die neuesten GPU-Hersteller Treiber installiert ist, und meldet einen Fehler nicht durch Überprüfen des Gerätestatus im Geräte-Manager.
-- Stellen Sie sicher, das Gerät verfügt über genug [MMIO-Speicher](#mmio-space) für dieses Volume auf dem virtuellen Computer zugewiesene.
-- Stellen Sie sicher, dass Sie eine GPU verwenden, die der Anbieter in dieser Konfiguration unterstützt verwendet wird. Beispielsweise verhindern, dass einige Anbieter ihre Consumer Karten arbeiten, die bei der Übergabe an einen virtuellen Computer.
-- Vergewissern Sie sich die Anwendung ausgeführt wird, unterstützt die Ausführung auf einem virtuellen Computer, und dass sowohl die GPU als auch die zugehörigen Treiber von der Anwendung unterstützt werden. Einige Anwendungen verfügen über Whitelists mit GPUs und Umgebungen.
-- Wenn Sie die Remote Desktop Session Host-Rolle oder Windows Multipoint Services auf dem Gast verwenden, müssen Sie sicherstellen, dass für ein bestimmten Eintrag für die Gruppenrichtlinie festgelegt ist, um die Verwendung des standardmäßigen GPU zulassen. Verwenden ein Gruppenrichtlinienobjekt angewendet, auf dem Gast (oder den Editor für lokale Gruppenrichtlinien auf dem Gast), navigieren Sie zum folgenden Element der Gruppenrichtlinie:
+### <a name="ive-passed-a-gpu-into-a-vm-but-remote-desktop-or-an-application-isnt-recognizing-the-gpu"></a>Ich habe eine GPU an einen virtuellen Computer übermittelt, aber Remotedesktop oder eine Anwendung erkennt die GPU nicht.
+Dies kann eine Reihe von Ursachen haben. es gibt jedoch einige häufige Probleme, die unten aufgeführt sind.
+- Stellen Sie sicher, dass der Treiber des aktuellen GPU-Anbieters installiert ist und keinen Fehler meldet, indem Sie den Gerätestatus in der Geräte-Manager überprüfen.
+- Stellen Sie sicher, dass auf dem Gerät ausreichend [MMIO-Speicherplatz](#mmio-space) auf dem virtuellen Computer zugeordnet ist.
+- Stellen Sie sicher, dass Sie eine GPU verwenden, die der Anbieter unterstützt, die in dieser Konfiguration verwendet wird. Beispielsweise verhindern einige Anbieter, dass Ihre verbraucherkarten funktionieren, wenn Sie an einen virtuellen Computer übermittelt werden.
+- Stellen Sie sicher, dass die Anwendung, die ausgeführt wird, auf einem virtuellen Computer ausgeführt wird und dass sowohl die GPU als auch die zugehörigen Treiber von der Anwendung unterstützt werden. Einige Anwendungen haben Whitelists von GPUs und Umgebungen.
+- Wenn Sie die Remotedesktop-Sitzungshost-Rolle oder Windows MultiPoint Services auf dem Gast verwenden, müssen Sie sicherstellen, dass ein bestimmter Gruppenrichtlinie Eintrag festgelegt ist, um die Verwendung der Standard-GPU zuzulassen. Wenn Sie ein Gruppenrichtlinie Objekt verwenden, das auf den Gast angewendet wird (oder auf den Editor für lokale Gruppenrichtlinien auf dem Gast), navigieren Sie zu folgendem Gruppenrichtlinie Element:
    - Computerkonfiguration
-   - Administrator-Vorlagen
+   - Administrator Vorlagen
    - Windows-Komponenten
    - Remotedesktopdienste
    - Remotedesktop-Sitzungshost
-   - Remotesitzung-Umgebung
-   - Verwenden der Grafikkarte des Hardware-Standard für alle Remotedesktopdienste-Sitzungen
+   - Remote Sitzungs Umgebung
+   - Verwenden des Hardware-Standard Grafikadapters für alle Remotedesktopdienste Sitzungen
 
-    Dieser Wert auf aktiviert festgelegt, und starten Sie den virtuellen Computer neu, nachdem die Richtlinie angewendet wurde.
+    Legen Sie diesen Wert auf aktiviert fest, und starten Sie den virtuellen Computer neu, sobald die Richtlinie angewendet wurde.
 
-### <a name="can-discrete-device-assignment-take-advantage-of-remote-desktops-avc444-codec"></a>Können diskrete Gerätezuordnung Remote Desktop AVC444 Codec nutzen?
-Ja, besuchen Sie diesen Blogbeitrag, um weitere Informationen ein: [Remote Desktop Protocol (RDP) 10 AVC/H.264-Verbesserungen in Windows 10 und Windows Server 2016 Technical Preview.](https://blogs.technet.microsoft.com/enterprisemobility/2016/01/11/remote-desktop-protocol-rdp-10-avch-264-improvements-in-windows-10-and-windows-server-2016-technical-preview/)
+### <a name="can-discrete-device-assignment-take-advantage-of-remote-desktops-avc444-codec"></a>Kann die diskrete Geräte Zuweisung den AVC444-Codec von Remotedesktop nutzen?
+Ja, weitere Informationen finden Sie in diesem Blogbeitrag: [Remotedesktopprotokoll (RDP) 10 AVC/H. 264 Verbesserungen in Windows 10 und Windows Server 2016 Technical Preview.](https://blogs.technet.microsoft.com/enterprisemobility/2016/01/11/remote-desktop-protocol-rdp-10-avch-264-improvements-in-windows-10-and-windows-server-2016-technical-preview/)
 
-### <a name="can-i-use-powershell-to-get-the-location-path"></a>Kann ich PowerShell verwenden, um den Pfad zum Speicherort zu erhalten?
-Ja, es gibt verschiedene Möglichkeiten zur Verfügung. Es folgt ein Beispiel aus:
+### <a name="can-i-use-powershell-to-get-the-location-path"></a>Kann ich PowerShell verwenden, um den Speicherort Pfad zu erhalten?
+Ja, es gibt verschiedene Möglichkeiten, dies zu tun. Im folgenden finden Sie ein Beispiel:
 ```
 #Enumerate all PNP Devices on the system
 $pnpdevs = Get-PnpDevice -presentOnly
@@ -125,5 +150,5 @@ $gpudevs = $pnpdevs |where-object {$_.Class -like "Display" -and $_.Manufacturer
 $locationPath = ($gpudevs | Get-PnpDeviceProperty DEVPKEY_Device_LocationPaths).data[0]
 ```
 
-### <a name="can-discrete-device-assignment-be-used-to-pass-a-usb-device-into-a-vm"></a>Kann diskrete Gerätezuordnung, übergeben ein USB-Gerät auf einem virtuellen Computer werden verwendet?
-Jedoch nicht offiziell unterstützt, haben Kunden diskrete Gerätezuordnung verwendet, dies, indem Sie den gesamten USB3 Controller auf einem virtuellen Computer übergeben.  Wie in der gesamte Controller übergeben wird, werden jede USB-Gerät angeschlossen, Controller auch auf dem virtuellen Computer zugegriffen werden kann.  Beachten Sie, dass nur einige USB3 Controller funktioniert möglicherweise USB2 Controller können nicht mit diskrete Gerätezuordnung verwendet werden.
+### <a name="can-discrete-device-assignment-be-used-to-pass-a-usb-device-into-a-vm"></a>Kann die diskrete Geräte Zuweisung verwendet werden, um ein USB-Gerät an einen virtuellen Computer zu übergeben?
+Obwohl es nicht offiziell unterstützt wird, haben unsere Kunden eine diskrete Geräte Zuweisung verwendet, indem Sie den gesamten USB3-Controller an einen virtuellen Computer übergeben.  Während der gesamte Controller übertragen wird, kann auf jedem USB-Gerät, das in diesen Controller eingebunden ist, auch auf dem virtuellen Computer zugegriffen werden.  Beachten Sie, dass nur einige USB3-Controller funktionieren, und USB2-Controller können nicht mit diskreter Geräte Zuweisung verwendet werden.
