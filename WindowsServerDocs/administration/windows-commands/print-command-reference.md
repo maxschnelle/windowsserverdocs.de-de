@@ -1,6 +1,6 @@
 ---
-title: Druckbefehlsreferenz
-description: 'Windows-Befehle Thema ***- '
+title: Befehls Verweis drucken
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,31 +13,31 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e2321b3fef67cfcbc5f7d0bbafe4650a8ec31207
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 8a9b0ab1e3e9ecb170eb4535cb7e4e643d791e5b
+ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436259"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68544533"
 ---
-# <a name="print-command-reference"></a>Druckbefehlsreferenz
+# <a name="print-command-reference"></a>Befehls Verweis drucken
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Folgendes ist eine Liste der print-Befehlszeilentools.
+Im folgenden finden Sie eine Liste der Befehlszeilen Tools für den Druck.
 
 |                         Befehl                          |                                                                Beschreibung                                                                 |
 |----------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-|                       [lpq]lpq.md)                       |                           Zeigt den Status einer Druckwarteschlange auf einem Computer unter (LPD Line Printer Daemon).                            |
-|                      [lpr](lpr.md)                       |      Sendet eine Datei auf einem Computer oder Geräte, die der Zeile LPD (Printer Daemon)-Dienst ausgeführt wird, als Vorbereitung für das Drucken der Druckerfreigabe.       |
-|                [Net print](net-print.md)                 | Zeigt Informationen zu einer angegebenen Druckerwarteschlange, zeigt Informationen zu einem angegebenen Druckauftrag oder einen angegebenen Druckauftrag steuert. |
-|                    [print](print.md)                     |                                                      Sendet eine Text-Datei an einen Drucker an.                                                       |
-|                  [prncnfg](prncnfg.md)                   |                                     Konfiguriert, oder Zeigt Konfigurationsinformationen zu einem Drucker aus.                                      |
-|                  [prndrvr](prndrvr.md)                   |                                                 Fügt hinzu, löscht und Druckertreiber aufgeführt.                                                  |
-|                  [prnjobs](prnjobs.md)                   |                                              Wird angehalten, fortgesetzt wird, bricht ab und listet Druckaufträge.                                               |
-|                  [prnmngr](prnmngr.md)                   |            Fügt hinzu, löscht und Drucker oder druckerverbindungen, zusätzlich zum Festlegen und Anzeigen von den Standarddrucker aufgeführt.            |
-|                  [prnport](prnport.md)                   |           Erstellt, löscht und standard-TCP/IP-Drucker-Ports zusätzlich zum Anzeigen und Ändern der Portkonfiguration aufgeführt.            |
-|                  [prnqctl](prnqctl.md)                   |                                Druckt eine Testseite, angehalten oder fortgesetzt wird einen Drucker und löscht eine Druckerwarteschlange.                                |
-|                   [pubprn](pubprn.md)                    |                                       Einen Drucker veröffentlicht in der active Directory-Dienst.                                       |
-| [rundll32 printui.dll,printUIEntry](rundll32-printui.md) |                Können Sie die Installation und Konfiguration von Druckern mithilfe von Skripts oder die Eingabeaufforderung zu automatisieren.                 |
+|                       [lpq](lpq.md)                       |                           Zeigt den Status einer Druck Warteschlange auf einem Computer an, auf dem der Line Printer Daemon (LPD) ausgeführt wird.                            |
+|                      [lpr](lpr.md)                       |      Sendet eine Datei an einen Computer oder ein Druckerfreigabe Gerät, auf dem der LPD-Dienst (Line Printer Daemon) ausgeführt wird, um den Druck vorzubereiten.       |
+|                [Net print](net-print.md)                 | Zeigt Informationen zu einer angegebenen Drucker Warteschlange an, zeigt Informationen zu einem angegebenen Druckauftrag an oder steuert einen angegebenen Druckauftrag. |
+|                    [print](print.md)                     |                                                      Sendet eine Textdatei an einen Drucker.                                                       |
+|                  [prncnfg](prncnfg.md)                   |                                     Konfiguriert oder zeigt Konfigurationsinformationen zu einem Drucker an.                                      |
+|                  [prndrvr](prndrvr.md)                   |                                                 Fügt Druckertreiber hinzu, löscht sie und listet Sie auf.                                                  |
+|                  [prnjobs](prnjobs.md)                   |                                              hält Druckaufträge an, setzt Sie fort, bricht Sie ab und listet Sie auf.                                               |
+|                  [prnmngr](prnmngr.md)                   |            Fügt Drucker oder Drucker Verbindungen hinzu, löscht sie und listet diese neben dem festlegen und Anzeigen des Standard Druckers auf.            |
+|                  [prnport](prnport.md)                   |           Hiermit werden standardmäßige TCP/IP-Drucker Anschlüsse erstellt, gelöscht und aufgelistet, zusätzlich zum Anzeigen und Ändern der Port Konfiguration.            |
+|                  [prnqctl](prnqctl.md)                   |                                druckt eine Testseite, hält einen Drucker an oder setzt ihn fort und löscht eine Drucker Warteschlange.                                |
+|                   [pubprn](pubprn.md)                    |                                       Veröffentlicht einen Drucker im Active Directory-Verzeichnisdienst.                                       |
+| [rundll32 printui. dll, PrintUIEntry](rundll32-printui.md) |                Ermöglicht es Ihnen, die Installation und Konfiguration von Druckern mithilfe von Skripts oder der Eingabeaufforderung zu automatisieren.                 |
 

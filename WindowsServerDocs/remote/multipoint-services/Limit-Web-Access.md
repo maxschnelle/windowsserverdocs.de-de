@@ -1,6 +1,6 @@
 ---
 title: Einschränken des Webzugriffs
-description: Erfahren Sie, wie den Benutzerzugriff auf das Internet in MultiPoint Services einschränken
+description: Erfahren Sie, wie Sie den Benutzer Zugriff auf das Internet in Multipoint Services einschränken.
 ms.custom: na
 ms.date: 07/08/2016
 ms.prod: windows-server-threshold
@@ -13,19 +13,19 @@ ms.assetid: 044f2fd5-5b87-42bb-ba0d-c06516ac48c8
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.openlocfilehash: 4274569f76b01c1793f7af7562a87f01ba1bdc07
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: cb91914608110d26ff2db8eff1cd28d26d04669b
+ms.sourcegitcommit: 9f955be34c641b58ae8b3000768caa46ad535d43
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446131"
+ms.lasthandoff: 07/27/2019
+ms.locfileid: "68590352"
 ---
 # <a name="limit-web-access"></a>Einschränken des Webzugriffs
-Zusätzlich zur Überwachung von Benutzeraktivitäten auf einzelnen Desktops, können Sie, als ein Administrator Benutzerzugriff auf bestimmte Websites durch begrenzen, der angibt, zulässige Websites und Websites, die Sie Benutzerzugriff blockieren möchten.  
+Zusätzlich zur Überwachung von Benutzeraktivitäten auf einzelnen Desktops können Sie als Administrator den Benutzer Zugriff auf bestimmte Websites einschränken, indem Sie zulässige Websites und Websites angeben, für die Sie den Benutzer Zugriff blockieren möchten.  
   
 ## <a name="to-limit-web-access-on-a-station"></a>So schränken Sie den Webzugriff auf einer Station ein  
   
-1. MultiPoint-Dashboard auf die **Webeinschränkung** auf **konfigurieren**. Die Seite **Webeinschränkung konfigurieren** wird geöffnet. Die Websites, auf die der Benutzer zugreifen kann, sind aufgelistet.  
+1. Klicken Sie im Multipoint-Dashboard auf der Registerkarte **webbeschränkung** auf **Konfigurieren**. Die Seite **Webeinschränkung konfigurieren** wird geöffnet. Die Websites, auf die der Benutzer zugreifen kann, sind aufgelistet.  
   
 2. Klicken Sie auf das Miniaturbild der Benutzerstation, auf der Sie den Webzugriff einschränken möchten.  
   
@@ -34,13 +34,13 @@ Zusätzlich zur Überwachung von Benutzeraktivitäten auf einzelnen Desktops, k�
 4. Geben Sie zum Hinzufügen einer zulässigen Website die Webadresse ein, und klicken Sie dann auf **Hinzuzufügen**.  
   
    > [!NOTE]
-   > Beispielsweise "Contoso.com" eingeben kann oder Websites, die relativ zum www.contoso.com (z. B. www.newpage.contoso.com) werden blockiert. Eingeben von "Contoso" gewährt oder alle Contoso-bezogene Websites (einschließlich "contoso.com", "contoso.uk" usw.) zu beschränken.  
+   > Wenn Sie z. b. "contoso.com" eingeben, werden Websites, die relativ\.zu www contoso.com sind (z\.. b. www NewPage.contoso.com), zugelassen oder blockiert. Durch die Eingabe von "Configuration Manager" werden alle standortbezogenen Websites (einschließlich contoso.com, contoso.uk usw.) entweder zugelassen oder beschränkt.  
   
 5. Zum Entfernen einer Webadresse aus der Liste der zulässigen Websites klicken Sie auf die Webadresse, zu der Sie den Zugang entfernen möchten, und klicken Sie dann auf **Entfernen**.  
   
 ## <a name="to-limit-web-access-on-all-stations"></a>So schränken Sie den Webzugriff auf allen Stationen ein  
   
-1. MultiPoint-Dashboard auf die **Webeinschränkung** Registerkarte, klicken Sie auf den Dropdownpfeil Start\-nach-unten-Menü, und klicken Sie dann auf **Einschränken des Webzugriffs auf allen Desktops**.  
+1. Klicken Sie im Multipoint-Dashboard auf der Registerkarte **webbegrenzung** auf das\-Dropdown Menü Start, und klicken Sie dann **auf Webzugriff auf allen Desktops begrenzen**.  
   
    Die Seite **Webeinschränkung konfigurieren** wird geöffnet. Die Websites, auf die der Benutzer zugreifen kann, sind aufgelistet. Führen Sie eines der folgenden Verfahren aus:  
   
@@ -49,9 +49,9 @@ Zusätzlich zur Überwachung von Benutzeraktivitäten auf einzelnen Desktops, k�
    Klicken Sie zum Hinzufügen einer Website, die die Benutzer nicht besuchen sollen, auf **Nur diese Websites nicht zulassen**, geben Sie die entsprechende Webadresse ein, und klicken Sie dann auf **Hinzufügen**.  
   
    > [!NOTE]
-   > Beispielsweise "Contoso.com" eingeben kann oder Websites, die relativ zum www.contoso.com (z. B. www.newpage.contoso.com) werden blockiert. Eingeben von "Contoso" gewährt oder alle Contoso-bezogene Websites (einschließlich "contoso.com", "contoso.uk" usw.) zu beschränken.  
+   > Wenn Sie z. b. "contoso.com" eingeben, können Sie Websites, die relativ zu www.contoso.com sind (z. b. www.NewPage.contoso.com), zulassen oder blockieren. Durch die Eingabe von "Configuration Manager" werden alle standortbezogenen Websites (einschließlich contoso.com, contoso.uk usw.) entweder zugelassen oder beschränkt.  
   
 3. Zum Entfernen einer Webadresse aus der Liste der zulässigen oder nicht zulässigen Websites wählen Sie die Webadresse aus und klicken dann auf **Entfernen**.  
   
 ## <a name="see-also"></a>Siehe auch  
-[Verwalten von Benutzerdesktops](manage-user-desktops-using-multipoint-dashboard.md)  
+[Verwalten von Benutzer Desktops](manage-user-desktops-using-multipoint-dashboard.md)  

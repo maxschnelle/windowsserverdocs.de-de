@@ -1,6 +1,6 @@
 ---
-title: Unterstützte Ubuntu-VMs auf Hyper-V
-description: Enthält die Linux-Integrationsdienste und Features, die unterschiedlichen Versionen
+title: Unterstützte virtuelle Ubuntu-Computer auf Hyper-V
+description: Listet die in jeder Version enthaltenen Linux-Integrationsdienste und-Funktionen auf.
 ms.prod: windows-server-threshold
 ms.service: na
 manager: dongill
@@ -11,161 +11,162 @@ ms.assetid: 95ea5f7c-25c6-494b-8ffd-2a77f631ee94
 author: shirgall
 ms.author: shirgall
 ms.date: 11/19/2018
-ms.openlocfilehash: 662541658fe6e7b99e66fe31344450e0a1cbd201
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 8dad054e79a155e6aa3ba123aba4566f0f675a9d
+ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447830"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68544700"
 ---
-# <a name="supported-ubuntu-virtual-machines-on-hyper-v"></a>Unterstützte Ubuntu-VMs auf Hyper-V
+# <a name="supported-ubuntu-virtual-machines-on-hyper-v"></a>Unterstützte virtuelle Ubuntu-Computer auf Hyper-V
 
->Gilt für: WindowsServer 2019, 2016, Hyper-V Server 2019, 2016, Windows Server 2012 R2, Hyper-V Server 2012 R2, Windows Server 2012 Hyper-V Server 2012, Windows Server 2008 R2, Windows 10, Windows 8.1, Windows 8, Windows 7.1, Windows 7
+>Gilt für: Windows Server 2019, 2016, Hyper-v Server 2019, 2016, Windows Server 2012 R2, Hyper-v Server 2012 R2, Windows Server 2012, Hyper-v Server 2012, Windows Server 2008 R2, Windows 10, Windows 8.1, Windows 8, Windows 7,1, Windows 7
 
-Ubuntu 12.04 ab, installiert Laden des Pakets "Linux virtual" einen Kernel, die für die Verwendung geeignet als eine Gast-VM. Dieses Paket hängt immer die neuesten minimale generisches Kernel-Image und die Header, die für virtuelle Computer verwendet. Ihre Verwendung ist, zwar optional wird der virtuellen Linux-Kernel weniger Treiber zu laden und kann schneller starten und haben weniger Speicherbedarf als ein allgemeines Bild.
+Ab Ubuntu 12,04 wird beim Laden des "Linux-Virtual"-Pakets ein für die Verwendung als virtueller Gastcomputer geeigneter Kernel installiert. Dieses Paket hängt immer vom aktuellen minimalen generischen Kernel Image und den für virtuelle Computer verwendeten Headern ab. Obwohl die Verwendung optional ist, lädt der Linux-Virtual Kernel weniger Treiber und startet möglicherweise schneller und erfordert weniger Speicher Aufwand als ein generisches Image.
 
-Um vollständige Verwendung von Hyper-V zu erhalten, installieren Sie die entsprechenden Linux-Tools und Linux-Cloud-Tools-Pakete, Tools und -Daemons für die Verwendung mit virtuellen Computern zu installieren. Wenn Sie den virtuellen Linux-Kernel verwenden, laden Sie die Linux-Tools-virtual- und Linux-Cloud-Tools-virtual.
+Um Hyper-V vollständig nutzen zu können, installieren Sie die entsprechenden Linux-Tools und Linux-Cloud-Tools-Pakete, um Tools und Daemons für die Verwendung mit virtuellen Computern zu installieren. Wenn Sie den virtuellen Linux-Kernel verwenden, laden Sie Linux-Tools-Virtual und Linux-Cloud-Tools-Virtual.
 
-Die folgende Funktion Verteilung Karte gibt an, die Funktionen in der jeweiligen Version. Nach der Tabelle werden die bekannten Probleme und problemumgehungen für die einzelnen Verteilungspunkte aufgeführt.
+Die folgende featureverteilungszuordnung gibt die Features in den einzelnen Versionen an. Die bekannten Probleme und Problem Umgehungen für die einzelnen Verteilungen werden nach der Tabelle aufgelistet.
 
-## <a name="table-legend"></a>Tabellenlegende
+## <a name="table-legend"></a>Tabellen Legende
 
-* **Integrierte** -LIS als Teil dieser Linux-Verteilung enthalten sind. Die von Microsoft bereitgestelltes LIS-Download-Paket funktioniert nicht für diese Verteilung, sodass sie nicht installieren müssen. Die Versionsnummern von Kernel-Modul für den integrierten LIS (siehe **Lsmod**, z. B.) unterscheiden sich die Versionsnummer für das von Microsoft bereitgestelltes LIS-Download-Paket. Ein Konflikt nicht angegeben, den integrierten LIS nicht mehr aktuell ist.
+* **Integrierte** -LIS sind als Teil dieser Linux-Distribution enthalten. Das von Microsoft bereitgestellte LIS-Downloadpaket funktioniert für diese Verteilung nicht. Installieren Sie es also nicht. Die Kernel-Modul Versionsnummern für die integrierten Lis (z. **b. lsmod**) unterscheiden sich von der Versionsnummer des von Microsoft bereitgestellten LIS-Download Pakets. Ein Konflikt weist nicht darauf hin, dass der integrierte LIS veraltet ist.
 
-* &#10004;-Funktion
+* &#10004;-Feature verfügbar
 
-* (*leere*)-Funktion nicht verfügbar.
+* (*leer*): Feature nicht verfügbar
 
-|**Funktion**|**Windows Server-Betriebssystemversion**|**18.10**|**18.04 LTS**|**16.04 LTS**|**14.04 LTS**|**12.04 LTS**|
-|-|-|-|-|-|-|-|
-|**Verfügbarkeit**||Integrierte|Integrierte|Integrierte|Integrierte|Integrierte|
-|**[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#core)**|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|Windows Server 2016 – genaue Uhrzeit|2019, 2016|&#10004;|&#10004;|&#10004;|||
-|**[Netzwerkfunktionen](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#networking)**|||||||
-|Großrahmen|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|VLAN-Kennzeichnung und trunking|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|Livemigration|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|Statische IP-Injection|2019, 2016, 2012 R2, 2012|&#10004;Hinweis 1|&#10004;Hinweis 1|&#10004;Hinweis 1|&#10004;Hinweis 1|&#10004;Hinweis 1|
-|vRSS|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;||
-|Segmentierung von TCP und Prüfsumme Abladungen|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;||
-|SR-IOV|2019, 2016|&#10004;|&#10004;|&#10004;|||
-|**[Speicher](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**||||||
-|VHDX resize|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;||
-|Virtueller Fibre Channel|2019, 2016, 2012 R2|&#10004;Hinweis 2|&#10004;Hinweis 2|&#10004;Hinweis 2|&#10004;Hinweis 2||
-|VM-Sicherung|2019, 2016, 2012 R2|&#10004;Beachten Sie, 3, 4, 6|&#10004;Beachten Sie, 3, 4, 5|&#10004;Beachten Sie, 3, 4, 5|&#10004;Beachten Sie, 3, 4, 5||
-|TRIM-Unterstützung|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|SCSI WWN|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;||
-|**[Arbeitsspeicher](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#memory)**||||||
-|Kernel-Unterstützung für PAE|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|Konfiguration der MMIO-Lücke|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|Dynamischer Arbeitsspeicher - Hot-Add-|2019, 2016, 2012 R2, 2012|&#10004;Beachten Sie, 7, 8, 9|&#10004;Beachten Sie, 7, 8, 9|&#10004;Beachten Sie, 7, 8, 9|&#10004;Beachten Sie, 7, 8, 9||
-|Dynamische Speichererweiterungsfunktion-|2019, 2016, 2012 R2, 2012|&#10004;Beachten Sie, 7, 8, 9|&#10004;Beachten Sie, 7, 8, 9|&#10004;Beachten Sie, 7, 8, 9|&#10004;Beachten Sie, 7, 8, 9||
-|Laufzeitspeichers|2019, 2016|&#10004;|&#10004;|&#10004;|&#10004;||
-|**[Video](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#video)**|||||||
-|Hyper-V-spezifischen Videogerät|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;||
-|**[Sonstige](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#miscellaneous)**||||||
-|Schlüssel/Wert-Paar|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;Hinweis 6, 10|&#10004;Hinweis 5, 10|&#10004;Hinweis 5, 10|&#10004;Hinweis 5, 10|&#10004;Hinweis 5, 10|
-|Nicht maskierbarer Interrupt|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
-|Kopieren von Dateien vom Host zum Gast|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;||
-|Lsvmbus-Befehl|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;||
-|Hyper-V-Sockets|2019, 2016||||||
-|PCI-Pass-Through-/ DDA|2019, 2016|&#10004;|&#10004;|&#10004;|&#10004;||
-|**[Virtuelle Computer der Generation 2](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#generation-2-virtual-machines)**||||||
-|Mit UEFI Boot|2019, 2016, 2012 R2|&#10004;Hinweis 11, 12|&#10004;Hinweis 11, 12|&#10004;Hinweis 11, 12|&#10004;Hinweis 11, 12||
-|Sicherer Start|2019, 2016|&#10004;|&#10004;|&#10004;|&#10004;||
+| **Funktion**                                                                                                                                  | **Windows Server-Betriebssystemversion** | **19,04**             | **18,10**             | **18,04 LTS**         | **16,04 LTS**         | **14,04 LTS**         | **12,04 LTS**       |
+|----------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|---------------------|
+| **Verfügbarkeit**                                                                                                                             |                                             | Integrierte              | Integrierte              | Integrierte              | Integrierte              | Integrierte              | Integrierte            |
+| **[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#core)**                                                   | 2019, 2016, 2012 R2, 2012, 2008 R2          | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;            |
+| Windows Server 2016 genaue Zeit                                                                                                            | 2019, 2016                                  | &#10004;              | &#10004;              | &#10004;              | &#10004;              |                       |                     |
+| **[Ungs](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#networking)**                                       |                                             |                       |                       |                       |                       |                       |                     |
+| Großrahmen                                                                                                                                 | 2019, 2016, 2012 R2, 2012, 2008 R2          | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;            |
+| VLAN-Tagging und-Abschneiden                                                                                                                    | 2019, 2016, 2012 R2, 2012, 2008 R2          | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;            |
+| Livemigration                                                                                                                               | 2019, 2016, 2012 R2, 2012, 2008 R2          | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;            |
+| Statische IP-Injektion                                                                                                                          | 2019, 2016, 2012 R2, 2012                   | &#10004;Hinweis 1       | &#10004;Hinweis 1       | &#10004;Hinweis 1       | &#10004;Hinweis 1       | &#10004;Hinweis 1       | &#10004;Hinweis 1     |
+| vRSS                                                                                                                                         | 2019, 2016, 2012 R2                         | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              |                     |
+| TCP-Segmentierung und Prüfsummen Offloads                                                                                                       | 2019, 2016, 2012 R2, 2012, 2008 R2          | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              |                     |
+| SR-IOV                                                                                                                                       | 2019, 2016                                  | &#10004;              | &#10004;              | &#10004;              | &#10004;              |                       |                     |
+| **[Speicher](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**                                             |                                             |                       |                       |                       |                       |                       |                     |
+| Vhdx-Größe ändern                                                                                                                                  | 2019, 2016, 2012 R2                         | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              |                     |
+| Virtueller Fibre Channel                                                                                                                        | 2019, 2016, 2012 R2                         | &#10004;Hinweis 2       | &#10004;Hinweis 2       | &#10004;Hinweis 2       | &#10004;Hinweis 2       | &#10004;Hinweis 2       |                     |
+| Sicherung virtueller Computer                                                                                                                  | 2019, 2016, 2012 R2                         | &#10004;Hinweis 3, 4, 6 | &#10004;Hinweis 3, 4, 6 | &#10004;Hinweis 3, 4, 5 | &#10004;Hinweis 3, 4, 5 | &#10004;Hinweis 3, 4, 5 |                     |
+| Trim-Unterstützung                                                                                                                                 | 2019, 2016, 2012 R2                         | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;            |
+| SCSI-WWN                                                                                                                                     | 2019, 2016, 2012 R2                         | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              |                     |
+| **[Gedenkens](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#memory)**                                               |                                             |                       |                       |                       |                       |                       |                     |
+| Unterstützung für den unterstützten Kernel                                                                                                                           | 2019, 2016, 2012 R2, 2012, 2008 R2          | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;            |
+| MMIO-Lücke konfigurieren                                                                                                                    | 2019, 2016, 2012 R2                         | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;            |
+| Dynamischer Arbeitsspeicher-Hot-Add                                                                                                                     | 2019, 2016, 2012 R2, 2012                   | &#10004;Hinweis 7, 8, 9 | &#10004;Hinweis 7, 8, 9 | &#10004;Hinweis 7, 8, 9 | &#10004;Hinweis 7, 8, 9 | &#10004;Hinweis 7, 8, 9 |                     |
+| Dynamischer Arbeitsspeicher-Ballooning                                                                                                                  | 2019, 2016, 2012 R2, 2012                   | &#10004;Hinweis 7, 8, 9 | &#10004;Hinweis 7, 8, 9 | &#10004;Hinweis 7, 8, 9 | &#10004;Hinweis 7, 8, 9 | &#10004;Hinweis 7, 8, 9 |                     |
+| Größenänderung des Lauf Zeit Speichers                                                                                                                        | 2019, 2016                                  | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              |                     |
+| **[Video](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#video)**                                                 |                                             |                       |                       |                       |                       |                       |                     |
+| Hyper-V-spezifisches Videogerät                                                                                                                | 2019, 2016, 2012 R2, 2012, 2008 R2          | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              |                     |
+| **[Verschiedensten](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#miscellaneous)**                                 |                                             |                       |                       |                       |                       |                       |                     |
+| Schlüssel-Wert-Paar                                                                                                                               | 2019, 2016, 2012 R2, 2012, 2008 R2          | &#10004;Hinweis 6, 10   | &#10004;Hinweis 6, 10   | &#10004;Hinweis 5, 10   | &#10004;Hinweis 5, 10   | &#10004;Hinweis 5, 10   | &#10004;Hinweis 5, 10 |
+| Nicht mastbare Unterbrechung                                                                                                                       | 2019, 2016, 2012 R2                         | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;            |
+| Dateikopie von Host zu Gast                                                                                                                 | 2019, 2016, 2012 R2                         | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              |                     |
+| lsvmbus-Befehl                                                                                                                              | 2019, 2016, 2012 R2, 2012, 2008 R2          | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              |                     |
+| Hyper-V-Sockets                                                                                                                              | 2019, 2016                                  |                       |                       |                       |                       |                       |                     |
+| PCI-Passthrough/DDA                                                                                                                          | 2019, 2016                                  | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              |                     |
+| **[Virtuelle Maschinen der Generation 2](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#generation-2-virtual-machines)** |                                             |                       |                       |                       |                       |                       |                     |
+| Starten mithilfe von UEFI                                                                                                                              | 2019, 2016, 2012 R2                         | &#10004;Hinweis 11, 12  | &#10004;Hinweis 11, 12  | &#10004;Hinweis 11, 12  | &#10004;Hinweis 11, 12  | &#10004;Hinweis 11, 12  |                     |
+| Sicherer Start                                                                                                                                  | 2019, 2016                                  | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              |                     |
+
 
 ## <a name="notes"></a>Hinweise
 
-1. Statische IP-Injection funktioniert möglicherweise nicht, wenn **Netzwerkmanager** für einen angegebenen Hyper-V-spezifischer Netzwerkadapter auf dem virtuellen Computer konfiguriert wurde. Um sicherzustellen, dass statische IP-Adresse reibungslos funktioniert Injection stellen Sie sicher, dass die Netzwerk-Manager vollständig ausgeschaltet wird oder wurde deaktiviert für einen bestimmten Netzwerkadapter durch seine **Ifcfg-EthX** Datei.
+1. Die statische IP-Injektion funktioniert möglicherweise nicht, wenn der **Netzwerk-Manager** für einen bestimmten, für Hyper-V spezifischen Netzwerkadapter auf dem virtuellen Computer konfiguriert wurde. Stellen Sie sicher, dass der Netzwerk-Manager vollständig ausgeschaltet ist oder für einen bestimmten Netzwerkadapter über seine **ifcfg-ethX-** Datei ausgeschaltet wurde, um eine reibungslose Funktionsweise der statischen IP-Injektion sicherzustellen.
 
-2. Bei der Verwendung von virtuellen Fibre Channel-Geräten, stellen Sie sicher, dass die logische Gerätenummer (LUN 0)-0 aufgefüllt wurde. Virtuelle Linux-Computer sind möglicherweise nicht Fiber-Channel-Geräten nativ bereitstellen können, wenn die LUN 0 nicht aufgefüllt wurde.
+2. Stellen Sie bei der Verwendung von Virtual Fiber Channel-Geräten sicher, dass die logische Gerätenummer 0 (LUN 0) aufgefüllt wurde. Wenn LUN 0 nicht aufgefüllt wurde, kann ein virtueller Linux-Computer möglicherweise keine systemeigenen Fiber-Fibre Channel-Geräte einbinden.
 
-3. Wenn geöffnet sind Dateihandles während eines Sicherungsvorgangs für die Livemigration einer virtuellen Maschine, und klicken Sie dann die gesicherten VHDs möglicherweise in einigen Fällen Ecke eine konsistenzprüfung für Datei-System zu durchlaufen (`fsck`) bei der Wiederherstellung.
+3. Wenn während eines Sicherungs Vorgangs für virtuelle Computer geöffnete Datei Handles vorhanden sind, müssen die gesicherten VHDs in einigen Fällen möglicherweise bei der Wiederherstellung einer Dateisystem Konsistenzprüfung (`fsck`) unterzogen werden.
 
-4. Live Sicherungsvorgänge können im Hintergrund fehl, wenn es sich bei dem virtuellen Computer eine angefügte iSCSI-Gerät oder direkt angeschlossenen Speicher (auch bekannt als Pass-Through-Datenträger) ist.
+4. Bei Live Sicherungs Vorgängen kann ein Fehler auftreten, wenn der virtuelle Computer über ein angefügtes iSCSI-Gerät oder einen direkt angeschlossenen Speicher (auch als Pass-Through-Datenträger bezeichnet) verfügt.
 
-5. Zur Unterstützung von langfristig verwenden (LTS) Versionen neueste virtuelle Hardware Enablement (HWE)-Kernel für Linux-Integrationsdienste auf dem neuesten Stand.
+5. Bei LTS-Releases (Long Term Support) wird der neueste HWE-Kernel (Virtual Hardware Enablement) für aktuelle Linux-Integration Services verwendet.
 
-   Um die optimierte Azure-Kernel auf 14.04, 16.04 und 18.04 zu installieren, führen Sie die folgenden Befehle als Stamm (oder "sudo"):
+   Führen Sie die folgenden Befehle als root (or sudo) aus, um den mit Azure optimierten Kernel auf 14,04, 16,04 und 18,04 zu installieren:
 
    ```bash
    # apt-get update
    # apt-get install linux-azure
    ```
 
-   12.04 muss sich nicht auf einen separaten virtuellen Kernel aus. Führen Sie die folgenden Befehle als Stamm (oder "sudo"), um den generischen HWE-Kernel auf 12.04 zu installieren:
+   12,04 weist keinen separaten virtuellen Kernel auf. Um den generischen HWE-Kernel auf 12,04 zu installieren, führen Sie die folgenden Befehle als root (oder sudo) aus:
 
    ```bash
    # apt-get update
    # apt-get install linux-generic-lts-trusty
    ```
 
-   Sind die folgenden Hyper-V-Daemons auf Ubuntu 12.04 in einem getrennt installierten Paket:
+   Unter Ubuntu 12,04 befinden sich die folgenden Hyper-V-Daemons in einem separat installierten Paket:
 
-   * **VSS-Momentaufnahme-Daemon** : dieser Daemon ist erforderlich, um live Linux-VM-Sicherungen zu erstellen.
-   * **KVP-Daemon** : dieser Daemon ermöglicht das Festlegen und Abfragen interner und externer Schlüsselwertpaare Schlüssel-/Wertpaaren.
-   * **Fcopy Daemon** : dieser Daemon implementiert einen dateikopierdienst zwischen Host und Gast.
+   * **VSS** -momentaufnahmendaemon: Dieser Daemon ist zum Erstellen von Sicherungen virtueller Linux-Computer erforderlich.
+   * **KVP-Daemon** : Dieser Daemon ermöglicht das Festlegen und Abfragen von systeminternen und extrinsischen Schlüssel-Wert-Paaren.
+   * "file **Copy Daemon** ": Dieser Daemon implementiert einen Datei Kopier Dienst zwischen Host und Gast.
 
-   Um den KVP-Daemon auf 12.04 zu installieren, führen Sie die folgenden Befehle als Stamm (oder "sudo").
+   Um den KVP-Daemon auf 12,04 zu installieren, führen Sie die folgenden Befehle als root (oder sudo) aus.
 
    ```bash
    # apt-get install hv-kvp-daemon-init linux-tools-lts-trusty linux-cloud-tools-generic-lts-trusty
    ```
 
-   Sobald der Kernel aktualisiert wird, muss der virtuelle Computer neu gestartet werden, um es zu verwenden.
+   Wenn der Kernel aktualisiert wird, muss der virtuelle Computer neu gestartet werden, um ihn zu verwenden.
 
-6. Verwenden Sie auf Ubuntu 18.10 den neuesten virtuellen Kernel, um die auf dem neuesten Stand Hyper-V-Funktionen verwenden zu können.
+6. Verwenden Sie unter Ubuntu 18,10 oder 19,04 den neuesten virtuellen Kernel, um über aktuelle Hyper-V-Funktionen zu verfügen.
 
-   Führen Sie die folgenden Befehle als Stamm (oder "sudo"), um den virtuellen Kernel auf 18.10 zu installieren:
+   Um den virtuellen Kernel auf 18,10 oder 19,04 zu installieren, führen Sie die folgenden Befehle als root (oder sudo) aus:
 
    ```bash
    # apt-get update
    # apt-get install linux-azure
    ```
 
-   Sobald der Kernel aktualisiert wird, muss der virtuelle Computer neu gestartet werden, um es zu verwenden.
+   Wenn der Kernel aktualisiert wird, muss der virtuelle Computer neu gestartet werden, um ihn zu verwenden.
 
-7. Unterstützung für dynamischen Speicher ist nur verfügbar, auf 64-Bit-Computern.
+7. Die Unterstützung dynamischer Arbeitsspeicher ist nur auf virtuellen 64-Bit-Computern verfügbar.
 
-8. Dynamische Memory-Vorgängen können fehlschlagen, wenn das Gastbetriebssystem für den Arbeitsspeicher zu niedrig ausgeführt wird. Es folgen einige bewährten Methoden:
+8. Dynamischer Arbeitsspeicher Vorgänge können fehlschlagen, wenn für das Gast Betriebssystem zu wenig Arbeitsspeicher verfügbar ist. Im folgenden finden Sie einige bewährte Methoden:
 
-   * Arbeitsspeicher beim Start und der minimale Arbeitsspeicher sollte gleich oder größer als die Größe des Arbeitsspeichers, die von der Verteilung Anbieter empfohlen wird.
+   * Start Speicher und minimaler Arbeitsspeicher müssen größer oder gleich dem vom Verteilungs Anbieter empfohlenen Arbeitsspeicher sein.
 
-   * Anwendungen, die in der Regel den gesamten verfügbaren Arbeitsspeicher auf einem System zu nutzen sind mit der Nutzung von bis zu 80 Prozent des verfügbaren Arbeitsspeichers beschränkt.
+   * Anwendungen, die in der Regel den gesamten verfügbaren Arbeitsspeicher auf einem System belegen, können bis zu 80 Prozent des verfügbaren Arbeitsspeichers verbrauchen.
 
-9. Wenn Sie dynamischen Arbeitsspeicher in Windows Server-2019, Windows Server 2016 oder Windows Server 2012/2012 R2-Betriebssystem verwenden, geben Sie **startspeicher**, **mindestens Erforderlicher Arbeitsspeicher**, und **maximale Arbeitsspeicher** Parameter in Vielfachen von 128 MB (Megabyte). Geschieht dies nicht zu "heiß"-Add-Fehlern führen kann, und vergrößern Sie auf der Gast-Betriebssystem Speicher werden möglicherweise nicht angezeigt.
+9. Wenn Sie dynamischer Arbeitsspeicher unter den Betriebssystemen Windows Server 2019, Windows Server 2016 oder Windows Server 2012/2012 R2 verwenden, geben Sie den **Start Speicher**, den **minimalen Arbeitsspeicher**und den **maximalen Arbeitsspeicher** Parameter in Vielfachen von 128 Megabyte (MB) an. Wenn dies nicht der Fall ist, kann dies zu Fehlern beim Hinzufügen von Fehlern führen, und es wird möglicherweise keine Arbeitsspeicher Zunahme für ein Gast Betriebssystem angezeigt.
 
-10. In Windows Server-2019, Windows Server 2016 oder Windows Server 2012 R2 die Schlüssel/Wert-Paar-Infrastruktur funktionieren möglicherweise nicht ordnungsgemäß ohne ein Linux-Softwareupdate. Wenden Sie sich an Ihren Händler, um das Softwareupdate zu erhalten, falls Sie Probleme mit diesem Feature finden Sie unter.
+10. In Windows Server 2019, Windows Server 2016 oder Windows Server 2012 R2 funktioniert die Schlüssel-Wert-Paar-Infrastruktur ohne Linux-Software Update möglicherweise nicht ordnungsgemäß. Wenden Sie sich an Ihren Verteilungs Hersteller, um das Software Update zu erhalten, falls Probleme mit diesem Feature auftreten.
 
-11. Unter Windows Server 2012 R2 müssen virtuelle Computer der Generation 2 sicheren Start, die standardmäßig aktiviert und einige Linux, virtuelle Computer nicht gestartet werden, es sei denn, die Option für den sicheren Start deaktiviert ist. Sie können den sicheren Start im Deaktivieren der **Firmware** Abschnitt der Einstellungen für den virtuellen Computer in **Hyper-V-Manager** oder Sie können mithilfe von Powershell deaktivieren:
+11. Auf virtuellen Computern der Generation 2 auf Windows Server 2012 R2 ist der sichere Start standardmäßig aktiviert, und einige virtuelle Linux-Computer werden erst gestartet, wenn die Option für den sicheren Start deaktiviert ist. Sie können den sicheren Start im Abschnitt **Firmware** der Einstellungen für den virtuellen Computer im **Hyper-V-Manager** deaktivieren, oder Sie können ihn mithilfe von PowerShell deaktivieren:
 
     ```Powershell
     Set-VMFirmware -VMName "VMname" -EnableSecureBoot Off
     ```
 
-12. Gehen Sie bevor Sie versuchen, kopieren Sie die virtuelle Festplatte von einem vorhandenen virtuellen Computer von Generation 2-VHD, um neue VMs der Generation 2 zu erstellen folgendermaßen vor:
+12. Führen Sie die folgenden Schritte aus, bevor Sie versuchen, die VHD eines vorhandenen virtuellen Computers der Generation 2 zu kopieren, um neue virtuelle Maschinen der Generation 2 zu erstellen:
 
-    1. Melden Sie sich die vorhandenen virtuellen Computer der Generation 2.
+    1. Melden Sie sich bei dem vorhandenen virtuellen Computer der Generation 2 an.
 
-    2. Wechseln Sie in der Start-EFI-Verzeichnis:
+    2. Wechseln Sie in das Verzeichnis für das Start-EFI:
 
        ```bash
        # cd /boot/efi/EFI
        ```
 
-    3. Kopieren Sie das Ubuntu-Verzeichnis, in, um ein neues Verzeichnis mit dem Namen Boot:
+    3. Kopieren Sie das Ubuntu-Verzeichnis in ein neues Verzeichnis mit dem Namen Boot:
 
        ```bash
        # sudo cp -r ubuntu/ boot
        ```
 
-    4. Ändern Sie das Verzeichnis, das neu erstellte Startverzeichnis:
+    4. Wechseln Sie in das neu erstellte Start Verzeichnis:
 
        ```bash
        # cd boot
        ```
 
-    5. Benennen Sie die shimx64.efi-Datei:
+    5. Benennen Sie die Datei shimx64. EFI um:
 
        ```bash
        # sudo mv shimx64.efi bootx64.efi
@@ -173,18 +174,18 @@ Die folgende Funktion Verteilung Karte gibt an, die Funktionen in der jeweiligen
 
 ## <a name="see-also"></a>Siehe auch
 
-* [Unterstützt von CentOS und Red Hat Enterprise Linux-VMs auf Hyper-V](Supported-CentOS-and-Red-Hat-Enterprise-Linux-virtual-machines-on-Hyper-V.md)
+* [Unterstützte virtuelle Computer der CentOS-und Red Hat Enterprise Linux auf Hyper-V](Supported-CentOS-and-Red-Hat-Enterprise-Linux-virtual-machines-on-Hyper-V.md)
 
 * [Unterstützte virtuelle Debian-Computer in Hyper-V](Supported-Debian-virtual-machines-on-Hyper-V.md)
 
-* [Unterstützte Oracle Linux-VMs auf Hyper-V](Supported-Oracle-Linux-virtual-machines-on-Hyper-V.md)
+* [Unterstützte Oracle Linux virtuellen Maschinen auf Hyper-V](Supported-Oracle-Linux-virtual-machines-on-Hyper-V.md)
 
-* [Unterstützte SUSE-Computer auf Hyper-V](Supported-SUSE-virtual-machines-on-Hyper-V.md)
+* [Unterstützte virtuelle SuSE-Computer auf Hyper-V](Supported-SUSE-virtual-machines-on-Hyper-V.md)
 
-* [Eine Beschreibung für Linux und FreeBSD-VMs auf Hyper-V-Funktion](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md)
+* [Funktionsbeschreibungen für virtuelle Linux-und FreeBSD-Computer auf Hyper-V](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md)
 
-* [Bewährte Methoden für die Ausführung von Linux in Hyper-V](Best-Practices-for-running-Linux-on-Hyper-V.md)
+* [Bewährte Methoden für die Ausführung von Linux unter Hyper-V](Best-Practices-for-running-Linux-on-Hyper-V.md)
 
-* [Set-VMFirmware](https://technet.microsoft.com/library/dn464287.aspx)
+* [Set-vmfirmware](https://technet.microsoft.com/library/dn464287.aspx)
 
-* [Ubuntu 14.04 in einer Generation 2 VM - ben armstrongs Blog zum Thema Virtualisierung](https://blogs.msdn.com/b/virtual_pc_guy/archive/2014/06/09/ubuntu-14-04-in-a-generation-2-vm.aspx)
+* [Ubuntu 14,04 in einem virtuellen Computer der Generation 2, den virtualisierungsblog von Ben Armstrong](https://blogs.msdn.com/b/virtual_pc_guy/archive/2014/06/09/ubuntu-14-04-in-a-generation-2-vm.aspx)

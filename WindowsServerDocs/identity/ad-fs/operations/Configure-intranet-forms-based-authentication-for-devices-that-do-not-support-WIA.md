@@ -1,6 +1,6 @@
 ---
 ms.assetid: d562ef46-f240-48be-bbd4-fd88fc6bbbdc
-title: Konfigurieren der formularbasierten Intranetauthentifizierung für Geräte, die ohne WIA-Unterstützung
+title: Konfigurieren der Formular basierten intranetauthentifizierung für Geräte, die WIA nicht unterstützen
 description: ''
 author: billmath
 ms.author: billmath
@@ -9,65 +9,69 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: c79524a011336d676fa2e80936e1254a8d2dd6b2
-ms.sourcegitcommit: 0b5fd4dc4148b92480db04e4dc22e139dcff8582
+ms.openlocfilehash: 6a730483f99e1c937c3618853ee6d3dbd175356b
+ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66189692"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68544582"
 ---
-# <a name="configuring-intranet-forms-based-authentication-for-devices-that-do-not-support-wia"></a>Konfigurieren der formularbasierten Intranetauthentifizierung für Geräte, die ohne WIA-Unterstützung
+# <a name="configuring-intranet-forms-based-authentication-for-devices-that-do-not-support-wia"></a>Konfigurieren der Formular basierten intranetauthentifizierung für Geräte, die WIA nicht unterstützen
 
 
-Standardmäßig Windows integrierte Authentifizierung (WIA) aktiviert ist, in Active Directory Federation Services (AD FS) in Windows Server 2012 R2 für authentifizierungsanforderungen, die innerhalb der internen Unternehmensnetzwerk (Intranet) für jede Anwendung auftreten, die verwendet ein Browser für die Authentifizierung. Diese können beispielsweise sein, browserbasierte Anwendungen, die WS-Verbund verwenden oder SAML-Protokolle und Rich-Anwendungen, die das OAuth-Protokoll verwenden. WIA bietet Endbenutzern nahtlose Anmeldung auf die Anwendungen ohne Manuelles Eingeben ihrer Anmeldeinformationen. Allerdings einige Geräte und Browser nicht WIA unterstützen und daher Fehlschlagen von authentifizierungsanforderungen von diesen Geräten. Darüber hinaus ist die Oberfläche auf bestimmte Browser, die auf NTLM auszuhandeln nicht wünschenswert. Der empfohlene Ansatz ist auf die formularbasierte Authentifizierung für solche Geräte und Browser.
+Standardmäßig ist die integrierte Windows-Authentifizierung (WIA) in Active Directory-Verbunddienste (AD FS) (AD FS) in Windows Server 2012 R2 für Authentifizierungsanforderungen aktiviert, die im internen Netzwerk des Unternehmens (Intranet) für Anwendungen erfolgen, die eine Browser für die Authentifizierung. Dies können beispielsweise browserbasierte Anwendungen sein, die WS-Verbund-oder SAML-Protokolle und umfangreiche Anwendungen verwenden, die das OAuth-Protokoll verwenden. WIA bietet Endbenutzern eine nahtlose Anmeldung bei den Anwendungen, ohne dass Ihre Anmelde Informationen manuell eingegeben werden müssen. Allerdings sind einige Geräte und Browser nicht in der Lage, WIA zu unterstützen, und das Ergebnis ist, dass Authentifizierungsanforderungen von diesen Geräten fehlschlagen. Außerdem ist das Verhalten für bestimmte Browser, die in NTLM aushandeln, nicht wünschenswert. Die empfohlene Vorgehensweise ist ein Fall Back auf Formular basierte Authentifizierung für solche Geräte und Browser.
 
-AD FS unter Windows Server 2016 und Windows Server 2012 R2 bietet Administratoren die Möglichkeit, die die Liste der Benutzer-Agents zu konfigurieren, dass das Fallback auf formularbasierte Authentifizierung unterstützen. Das Fallback wird durch zwei Konfigurationen ermöglicht:
+AD FS in Windows Server 2016 und Windows Server 2012 R2 bietet Administratoren die Möglichkeit, die Liste der Benutzer-Agents zu konfigurieren, die den Fall Back auf Formular basierte Authentifizierung unterstützen. Der Fall Back wird durch zwei Konfigurationen ermöglicht:
 
 
-- Die **WIASupportedUserAgentStrings** Eigenschaft der `Set-ADFSProperties` Cmdlet
-- Die **WindowsIntegratedFallbackEnabled** Eigenschaft der `Set-AdfsGlobalAuthenticationPolicy` Cmdlet
+- Die **wiasupporteduseragentstrings** -Eigenschaft des `Set-ADFSProperties` Commandlets
+- Die **windowsintegratedfallbackaktivierte** Eigenschaft des `Set-AdfsGlobalAuthenticationPolicy` Commandlets
 
-Die **WIASupportedUserAgentStrings** definiert, die Benutzer-Agents die WIA-Unterstützung. AD FS analysiert die Zeichenfolge des Benutzer-Agent beim Ausführen von Anmeldungen in einen Browser bzw. ein Webbrowser-Steuerelement. Wenn der Anteil der Zeichenfolge des Benutzer-Agent nicht die Komponenten, die Benutzer-Agent-Zeichenfolgen übereinstimmen, die in konfiguriert werden **WIASupportedUserAgentStrings** -Eigenschaft, AD FS wird ein Fallback auf formularbasierte die Authentifizierung bereitstellt, vorausgesetzt, dass die **WindowsIntegratedFallbackEnabled** Flag auf "true" festgelegt ist.
+**Wiasupporteduseragentstrings** definiert die Benutzer-Agents, die WIA unterstützen. AD FS analysiert die Zeichenfolge des Benutzer-Agents, wenn Anmeldungen in einem Browser-oder Browser Steuerelement durchgeführt werden. Wenn die Komponente der Zeichenfolge des Benutzer-Agents keiner der Komponenten der Zeichen Folgen des Benutzer-Agents entspricht, die in der **wiasupporteduseragentstrings** -Eigenschaft konfiguriert sind, wird AD FS auf die Formular basierte Authentifizierung zurückgreifen, vorausgesetzt, dass die  **Das Flag "windowsintegratedfallbackaktivierte** " ist auf "true" festgelegt.
 
-Eine neue Installation von AD FS hat standardmäßig eine Reihe von Benutzer-Agent-zeichenfolgenübereinstimmungen erstellt. Allerdings können diese nicht mehr aktuell sein basierend auf Änderungen an Browsern und Geräten. Insbesondere haben Windows-Geräte ähnlich wie Benutzer-Agent-Zeichenfolgen mit geringfügigen abweichungen in den Token. Das folgende Windows PowerShell-Beispiel bietet die beste gegenwärtige für den aktuellen Satz von Geräten, die heute am Markt sind, die nahtlose WIA-Unterstützung:
+Standardmäßig enthält eine neue AD FS Installation eine Reihe von Benutzer-Agent-Zeichen folgen, die erstellt wurden. Diese können jedoch aufgrund von Änderungen an Browsern und Geräten veraltet sein. Insbesondere Windows-Geräte verfügen über ähnliche Benutzer-Agent-Zeichen folgen mit geringfügigen Variationen in den Token. Das folgende Windows PowerShell-Beispiel bietet den besten Leitfaden für die aktuelle Gruppe von Geräten, die heute auf dem Markt sind und nahtlose WIA unterstützen:
 
     Set-AdfsProperties -WIASupportedUserAgents @("MSIE 6.0", "MSIE 7.0; Windows NT", "MSIE 8.0", "MSIE 9.0", "MSIE 10.0; Windows NT 6", "Windows NT 6.3; Trident/7.0", "Windows NT 6.3; Win64; x64; Trident/7.0", "Windows NT 6.3; WOW64; Trident/7.0", "Windows NT 6.2; Trident/7.0", "Windows NT 6.2; Win64; x64; Trident/7.0", "Windows NT 6.2; WOW64; Trident/7.0", "Windows NT 6.1; Trident/7.0", "Windows NT 6.1; Win64; x64; Trident/7.0", "Windows NT 6.1; WOW64; Trident/7.0", "MSIPC", "Windows Rights Management Client")
 
-Der obige Befehl wird sichergestellt, dass AD FS die folgenden Anwendungsfälle für WIA nur deckt:
+Mit dem obigen Befehl wird sichergestellt, dass AD FS nur die folgenden Anwendungsfälle für WIA abdeckt:
 
 Benutzer-Agents|Anwendungsfälle|
 -----|-----|
-MSIE 6.0|IE 6.0|
-MSIE 7.0; Windows NT|Internet Explorer 7, Internet Explorer, in der Intranetzone. Das Fragment "Windows NT" wird von desktop-Betriebssystem gesendet.|
-MSIE 8.0|Internet Explorer 8.0 (keine Geräte senden, daher müssen Sie spezifischere)|
-MSIE 9.0|Internet Explorer 9.0 (keine Geräte senden, damit keine müssen Sie diese spezifische)|
-MSIE 10.0; Windows NT 6|Internet Explorer 10.0 für Windows XP und neuere Versionen von desktop-Betriebssystem</br></br>Windows Phone 8.0-Geräte (mit bevorzugen, legen Sie für die mobile) werden ausgeschlossen, da sie senden</br></br>Benutzer-Agent: Mozilla/5.0 (kompatibel; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 920)|
-Windows NT 6.3; Trident/7.0</br></br>Windows NT 6.3; Win64; x64; Trident/7.0</br></br>Windows NT 6.3; WOW64; Trident/7.0| Windows 8.1-desktop-Betriebssystem, verschiedene Plattformen|
-Windows NT 6.2; Trident/7.0</br></br>Windows NT 6.2; Win64; x64; Trident/7.0</br></br>Windows NT 6.2; WOW64; Trident/7.0|Windows 8 desktop-Betriebssystem, verschiedene Plattformen|
-Windows NT 6.1; Trident/7.0</br></br>Windows NT 6.1; Win64; x64; Trident/7.0</br></br>Windows NT 6.1; WOW64; Trident/7.0|Windows 7 desktop-Betriebssystem, verschiedene Plattformen|
-MSIPC| Microsoft Information Protection und Steuerelement|
+MSIE 6,0|IE 6,0|
+MSIE 7,0; Windows NT|IE 7, IE in der Intranetzone. Das Fragment "Windows NT" wird vom Desktop Betriebssystem gesendet.|
+MSIE 8,0|IE 8,0 (keine Geräte senden dies, deshalb müssen Sie spezifischere festlegen)|
+MSIE 9,0|IE 9,0 (keine Geräte senden dies, sodass Sie dies nicht spezifischere machen müssen)|
+MSIE 10,0; Windows NT 6|IE 10,0 für Windows XP und neuere Versionen des Desktop Betriebssystems</br></br>Windows Phone 8,0-Geräte (mit der Einstellung Mobile) werden ausgeschlossen, da Sie</br></br>Benutzer-Agent: Mozilla/5.0 (kompatibel; MSIE 10,0; Windows Phone 8,0; Einzug/6.0; Iemobile/10.0; Harm Ansprechen Heftig Lumia 920)|
+Windows NT 6,3; Einzug/7.0</br></br>Windows NT 6,3; Win64 x64 Einzug/7.0</br></br>Windows NT 6,3; WOW64 Einzug/7.0| Windows 8.1 Desktop Betriebssystem, unterschiedliche Plattformen|
+Windows NT 6,2; Einzug/7.0</br></br>Windows NT 6,2; Win64 x64 Einzug/7.0</br></br>Windows NT 6,2; WOW64 Einzug/7.0|Windows 8 Desktop-Betriebssystem, unterschiedliche Plattformen|
+Windows NT 6,1; Einzug/7.0</br></br>Windows NT 6,1; Win64 x64 Einzug/7.0</br></br>Windows NT 6,1; WOW64 Einzug/7.0|Windows 7 Desktop-Betriebssystem, unterschiedliche Plattformen|
+MSIPC| Microsoft Information Protection and Control-Client|
 Windows Rights Management-Client|Windows Rights Management-Client|
 
-Um Fallback auf formularbasiert-Authentifizierung für Benutzer-Agents als den oben in der Zeichenfolge WIASupportedUserAgents zu ermöglichen, festlegen Sie das WindowsIntegratedFallbackEnabled-Flag auf "true"
+Um das Fall Back auf eine Formular basierte Authentifizierung für Benutzer-Agents zu aktivieren, die nicht in der Zeichenfolge wiasupporteduseragents erwähnt werden, legen Sie das Flag windowsintegratedfallbackenable auf true fest.
 
     Set-AdfsGlobalAuthenticationPolicy -WindowsIntegratedFallbackEnabled $true
 
-Stellen Sie außerdem sicher, dass die formularbasierte Authentifizierung für Intranet aktiviert ist.
+Stellen Sie außerdem sicher, dass die Formular basierte Authentifizierung für das Intranet aktiviert ist.
 
-## <a name="configuring-wia-for-chrome"></a>Konfigurieren der WIA für Chrome
-Sie können Chrome oder andere Benutzeragents auf dem AD FS-Konfiguration hinzufügen, die WIA unterstützt. Dies ermöglicht die nahtlose Anmeldung bei Anwendungen, ohne Anmeldeinformationen manuell eingeben, wenn Sie von AD FS geschützte Ressourcen zugreifen. Gehen Sie folgendermaßen vor, um WIA in Chrome zu aktivieren:
+## <a name="configuring-wia-for-chrome"></a>Konfigurieren von WIA für Chrome
+Sie können Chrome oder andere Benutzer-Agents der AD FS Konfiguration hinzufügen, die WIA unterstützt. Dies ermöglicht eine nahtlose Anmeldung bei Anwendungen, ohne dass Sie manuell Anmelde Informationen eingeben müssen, wenn Sie auf durch AD FS geschützte Ressourcen zugreifen. Führen Sie die folgenden Schritte aus, um WIA in Chrome zu aktivieren:
 
-Fügen Sie eine Zeichenfolge des Benutzer-Agenten für Chrome hinzu, in der AD FS-Konfiguration
+Fügen Sie in AD FS Konfiguration eine Benutzer-Agent-Zeichenfolge für Chrome auf Windows-basierten Plattformen hinzu:
 
-    Set-AdfsProperties -WIASupportedUserAgents ((Get-ADFSProperties | Select -ExpandProperty WIASupportedUserAgents) + “Chrome”)
-    
-Vergewissern Sie sich, dass die Zeichenfolge des Benutzer-Agenten für Chrome jetzt in den Eigenschaften des AD FS festgelegt ist
+    Set-AdfsProperties -WIASupportedUserAgents ((Get-ADFSProperties | Select -ExpandProperty WIASupportedUserAgents) + "Mozilla/5.0 (Windows NT")
+
+Fügen Sie die folgende Benutzer-Agent-Zeichenfolge für Chrome auf Apple macOS der AD FS Konfiguration hinzu:
+
+    Set-AdfsProperties -WIASupportedUserAgents ((Get-ADFSProperties | Select -ExpandProperty WIASupportedUserAgents) + "Mozilla/5.0 (Macintosh; Intel Mac OS X")
+
+Vergewissern Sie sich, dass die Benutzer-Agent-Zeichenfolge für Chrome nun in den AD FS Eigenschaften festgelegt ist:
 
     Get-AdfsProperties | Select -ExpandProperty WIASupportedUserAgents
 
-![Konfigurieren der Authentifizierung](media/Configure-intranet-forms-based-authentication-for-devices-that-do-not-support-WIA/chrome1.png) 
+(Sie benötigen hier einen neuen Screenshot) ![Konfigurieren der Authentifizierung](media/Configure-intranet-forms-based-authentication-for-devices-that-do-not-support-WIA/chrome1.png) 
 
 >[!NOTE]   
-> Wenn neue Browser und Geräte veröffentlicht werden, empfiehlt es sich, dass Sie die Funktionen des die Benutzeragents abstimmen und die AD FS-Konfiguration entsprechend aktualisieren, um das Benutzererlebnis bei der Authentifizierung zu optimieren, wenn Sie mithilfe von Browser und Geräte als bezeichnet. Genauer gesagt, es wird empfohlen, dass Sie erneut die **WIASupportedUserAgents** in AD FS festlegen, wenn es sich bei Ihrer Support-Matrix für WIA einen neuen Typ von Gerät bzw. Ihren Browser hinzugefügt.
+> Wenn neue Browser und Geräte veröffentlicht werden, wird empfohlen, dass Sie die Funktionen dieser Benutzer-Agents abstimmen und die AD FS Konfiguration entsprechend aktualisieren, um die Authentifizierung des Benutzers bei der Verwendung von Gesagten Browsern und Geräten zu optimieren. Genauer gesagt wird empfohlen, dass Sie die **wiasupporteduseragents** -Einstellung in AD FS neu auswerten, wenn Sie Ihrer Unterstützungs Matrix für WIA ein neues Gerät oder einen Browsertyp hinzufügen.
 
 

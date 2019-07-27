@@ -1,6 +1,6 @@
 ---
 title: cacls
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 42f620a417f9d7bd06f779802e684e0196efc6a7
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: d3c2ba6dca1797cda3851b3c270938d47828ed7a
+ms.sourcegitcommit: 9f955be34c641b58ae8b3000768caa46ad535d43
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434591"
+ms.lasthandoff: 07/27/2019
+ms.locfileid: "68590403"
 ---
 # <a name="cacls"></a>cacls
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Zeigt an, oder ändert Zugriffssteuerungslisten (DACL) für bestimmte Dateien.  
+Hiermit werden freigegebene Zugriffs Steuerungs Listen (DACL) für angegebene Dateien angezeigt oder geändert.  
 ## <a name="syntax"></a>Syntax  
 ```  
 cacls <filename> [/t] [/m] [/l] [/s[:sddl]] [/e] [/c] [/g user:<perm>] [/r user [...]] [/p user:<perm> [...]] [/d user [...]]  
@@ -33,39 +33,39 @@ cacls <filename> [/t] [/m] [/l] [/s[:sddl]] [/e] [/c] [/g user:<perm>] [/r user 
 
 |        Parameter        |                                                                                            Beschreibung                                                                                             |
 |-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|      \<filename\>       |                                                                            Erforderlich. Zeigt die Acls der angegebenen Dateien.                                                                             |
-|           /t            |                                                          Ändert die Acls der angegebenen Dateien in das aktuelle Verzeichnis und alle Unterverzeichnisse.                                                          |
-|           /m            |                                                                          Änderungen werden Acls der Volumes in ein Verzeichnis eingebunden.                                                                           |
-|           /l            |                                                                        Die symbolische Verknüpfung selbst im Vergleich zu dem Ziel arbeiten.                                                                         |
-|         /s:sddl         |                                       ersetzt die Acls, mit denen in der SDDL-Zeichenfolge angegebene (ungültig mit **/e**, **/g**, **/r**, **/p**, oder   **/d**).                                        |
-|           / e            |                                                                                 Bearbeiten Sie ACL, anstatt ihn zu ersetzen.                                                                                  |
-|           /c            |                                                                                 Bei Zugriffsverweigerungsfehler fortsetzen.                                                                                  |
-|    / g-Benutzer:\<permanent festlegen\>     |   Die angegebenen Benutzerzugriffsrechte auf.<br /><br />Gültige Werte für die Berechtigung:<br /><br />-n - keine<br />-R - lesen<br />-w - Schreibvorgänge<br />-C - Änderung (Schreiben)<br />-f - Vollzugriff   |
-|      / r-Benutzer [...]      |                                                                  Widerrufen des angegebenen Benutzers (nur gültig mit **/e**).                                                                   |
-| [/ p-Benutzer:\<Perm\> [...] | Ersetzen Sie die Zugriffsrechte des angegebenen Benutzers.<br /><br />Gültige Werte für die Berechtigung:<br /><br />-n - keine<br />-R - lesen<br />-w - Schreibvorgänge<br />-C - Änderung (Schreiben)<br />-f - Vollzugriff |
-|     [/ d-Benutzer [...]      |                                                                                    Angegebene Benutzer der Zugriff verweigert.                                                                                     |
+|      \<Einfügen\>       |                                                                            Erforderlich. Zeigt ACLs der angegebenen Dateien an.                                                                             |
+|           /t            |                                                          ändert ACLs der angegebenen Dateien im aktuellen Verzeichnis und allen Unterverzeichnissen.                                                          |
+|           /m            |                                                                          ändert ACLs von Volumes, die in ein Verzeichnis eingebunden sind.                                                                           |
+|           /l            |                                                                        Arbeiten Sie mit dem symbolischen Link selbst im Vergleich zum Ziel.                                                                         |
+|         /s: SDDL         |                                       ersetzt die ACLs durch die in der SDDL-Zeichenfolge angegebenen (ungültig durch **/e**, **/g**, **/r**, **/p**oder **/d**).                                        |
+|           /e            |                                                                                 Bearbeiten Sie die ACL, anstatt Sie zu ersetzen.                                                                                  |
+|           /c            |                                                                                 Fortfahren bei Fehlern beim Zugriff verweigert.                                                                                  |
+|    /g-Benutzer\<: Perm\>     |   Erteilen Sie angegebene Benutzer Zugriffsrechte.<br /><br />Gültige Werte für die Berechtigung:<br /><br />-n-None<br />-r-lesen<br />-w-schreiben<br />-c-ändern (schreiben)<br />-f-Vollzugriff   |
+|      /r Benutzer [...]      |                                                                  Widerrufen Sie die Zugriffsrechte des angegebenen Benutzers (nur gültig mit **/e**).                                                                   |
+| [/p User:\<Perm\> [...] | ersetzt die Zugriffsrechte für den angegebenen Benutzer.<br /><br />Gültige Werte für die Berechtigung:<br /><br />-n-None<br />-r-lesen<br />-w-schreiben<br />-c-ändern (schreiben)<br />-f-Vollzugriff |
+|     [/d User [...]      |                                                                                    Der angegebene Benutzer Zugriff wird verweigert.                                                                                     |
 |           /?            |                                                                                Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                |
 
 ## <a name="remarks"></a>Hinweise  
-- Mit diesem Befehl ist veraltet. Verwenden Sie [Icacls](icacls.md) stattdessen.  
-- Verwenden Sie in der folgende Tabelle, zum Interpretieren der Ergebnisse:  
+- Dieser Befehl ist veraltet. Verwenden Sie stattdessen [icacls](icacls.md) .  
+- Verwenden Sie die folgende Tabelle, um die Ergebnisse zu interpretieren:  
 
 
-  |      Ausgabe       |                Der Zugriffssteuerungseintrag (ACE) gilt für                |
+  |      Ausgabe       |                Zugriffs Steuerungs Eintrag (ACE) gilt für                |
   |-------------------|---------------------------------------------------------------------|
-  |        OI         |               Erbt. Dieser Ordner und Dateien.                |
-  |        CI         |           Container erben. Dieser Ordner und Unterordner.            |
-  |        IO         | Nur erben. Der ACE gilt nicht für die aktuelle Datei/Verzeichnis. |
-  | Keine Ausgabenachricht |                          Nur für diesen Ordner.                          |
-  |     (OI) (CI)      |                 Dieser Ordner, Unterordner und Dateien.                 |
-  |   (OI) (CI) (E/A)    |                     Nur Unterordner und Dateien.                      |
-  |     (CI)(IO)      |                          Nur Unterordner.                           |
-  |     (OI)(IO)      |                             Nur Dateien.                             |
+  |        ZÄHLEN         |               Objekt erben. Dieser Ordner und die Dateien.                |
+  |        CI         |           Der Container erbt. Dieser Ordner und Unterordner.            |
+  |        IO         | Nur erben. Der ACE gilt nicht für die aktuelle Datei bzw. das aktuelle Verzeichnis. |
+  | Keine Ausgabe Meldung |                          Nur dieser Ordner.                          |
+  |     ZÄHLEN RKI      |                 Dieser Ordner, die Unterordner und die Dateien.                 |
+  |   ZÄHLEN RKI BRASILIANER    |                     Nur Unterordner und Dateien.                      |
+  |     RKI BRASILIANER      |                          Nur Unterordner.                           |
+  |     ZÄHLEN BRASILIANER      |                             Nur Dateien.                             |
 
 
-- Sie können Platzhalter verwenden ( **?** und **\\***) auf mehrere Dateien anzugeben.  
+- Sie können Platzhalter verwenden ( **?** **und\\) zumAngebenmehrererDateien.\***  
 - Sie können mehr als einen Benutzer angeben.  
 
-#### <a name="additional-references"></a>Zusätzliche Referenzen  
+#### <a name="additional-references"></a>Weitere Verweise  
 -   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)   
 -   [icacls](icacls.md)  

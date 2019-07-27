@@ -1,6 +1,6 @@
 ---
 title: DNS-Richtlinien (Übersicht)
-description: Dieses Thema ist Teil des DNS-Richtlinie Szenario Handbuch für Windows Server 2016
+description: Dieses Thema ist Teil des DNS-Richtlinien szenariohandbuchs für Windows Server 2016.
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking-dns
@@ -8,124 +8,124 @@ ms.topic: article
 ms.assetid: 566bc270-81c7-48c3-a904-3cba942ad463
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 6c4d8f9bb6c56e8f90a90cd4e77565a39211f719
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 687864619c981b3ab8d24ef540c759bc29314c90
+ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66446435"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68544663"
 ---
 # <a name="dns-policies-overview"></a>DNS-Richtlinien (Übersicht)
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Sie können in diesem Thema erfahren Sie DNS-Richtlinie, das ist neu in Windows Server 2016 verwenden. DNS-Richtlinien können für GeoLocation-Verwaltung des Datenverkehrs, intelligente DNS-Antworten basierend auf der Tageszeit basierte, zu verwalten eines einzelnen DNS-Servers für die Teilung konfiguriert\-Brain-Bereitstellung, Anwenden von Filtern auf DNS-Abfragen und vieles mehr. Die folgenden Elemente enthalten, weitere Details zu diesen Funktionen wird.
+In diesem Thema erfahren Sie mehr über die DNS-Richtlinie, die in Windows Server 2016 neu ist. Sie können die DNS-Richtlinie für die georedunte Datenverkehrs Verwaltung, intelligente DNS-Antworten basierend auf der Tageszeit, die Verwaltung eines einzelnen DNS-\-Servers, der für die Split Brain-Bereitstellung konfiguriert ist, das Anwenden von Filtern auf DNS-Abfragen und vieles mehr. Die folgenden Elemente bieten weitere Details zu diesen Funktionen.
 
--   **Anwendungslastenausgleich.** Wenn Sie mehrere Instanzen einer Anwendung an verschiedenen Standorten bereitgestellt haben, können Sie die DNS-Richtlinien verwenden, um den Datenverkehr einen Lastenausgleich zwischen den verschiedenen Anwendungsinstanzen, dynamischen Zuweisung von der Auslastung für die Anwendung.
+-   **Anwendungs Lastenausgleich.** Wenn Sie mehrere Instanzen einer Anwendung an verschiedenen Speicherorten bereitgestellt haben, können Sie die DNS-Richtlinie verwenden, um die Auslastung des Datenverkehrs zwischen den verschiedenen Anwendungs Instanzen auszugleichen und die Datenverkehrs Last für die Anwendung dynamisch zuzuweisen.
 
--   **Geografische\-standortbasierte Verwaltung des Datenverkehrs.** DNS-Richtlinien können Sie primäre und sekundäre DNS-Server auf DNS-Clientabfragen basierend auf den geografischen Standort des dem Client und die Ressource, zu der der Client versucht, eine Verbindung herstellen, können den Client bereitstellen, mit der IP-Adresse am nächsten die Ressource. 
+-   **\-Standortbasierte Datenverkehrs Verwaltung** Mithilfe der DNS-Richtlinie können primäre und sekundäre DNS-Server auf DNS-Client Abfragen basierend auf dem geografischen Standort des Clients und der Ressource, mit der der Client eine Verbindung herzustellen versucht, Antworten, und dem Client wird die IP-Adresse des nächstgelegenen Ressource. 
 
--   **Split-Brain-DNS.** Mit Teilung\--Brain-DNS, DNS-Einträge werden in verschiedenen Bereichen von Zone auf dem gleichen DNS-Server geteilt werden soll, und DNS-Clients erhalten eine Antwort basierend auf der gibt an, ob die Clients interne oder externe Kunden sind. Sie können konfigurieren, Split\--Brain-DNS für Active Directory-integrierte Zonen oder Zonen auf eigenständigen DNS-Servern.
+-   **Teilen Sie das Hirn-DNS.** Mit Split\-Brain DNS werden DNS-Einträge in verschiedene Zonen Bereiche auf demselben DNS-Server aufgeteilt, und DNS-Clients erhalten eine Antwort, je nachdem, ob es sich bei den Clients um interne oder externe Clients handelt. Sie können Split\-Brain DNS für Active Directory integrierte Zonen oder Zonen auf eigenständigen DNS-Servern konfigurieren.
 
--   **Filtern.** Sie können konfigurieren, dass DNS-Richtlinien zum Abfragefilter erstellen, die auf Kriterien basieren, die Sie angeben. Abfragefilter in DNS-Richtlinien können Sie konfigurieren die DNS-Server zum Antworten auf benutzerdefinierte Weise basierend auf dem DNS-Abfrage und die DNS-Client, der die DNS-Abfrage sendet. 
--   **Ermöglicht forensische Analysen.** Sie können DNS-Richtlinien verwenden, zum Umleiten von böswilligen DNS-Clients auf einem Nichtstandard\-vorhandene IP-Adresse anstelle der Weiterleitung an den Computer, die sie erreichen möchten.
+-   **Filterung.** Sie können die DNS-Richtlinie konfigurieren, um Abfrage Filter basierend auf den von Ihnen angegebenen Kriterien zu erstellen. Mithilfe von Abfrage Filtern in der DNS-Richtlinie können Sie den DNS-Server so konfigurieren, dass er basierend auf der DNS-Abfrage und dem DNS-Client, der die DNS-Abfrage sendet, Benutzer definiert reagiert 
+-   **Forensik.** Sie können DNS-Richtlinien verwenden, um böswillige DNS-\-Clients an eine nicht vorhandene IP-Adresse umzuleiten, anstatt Sie an den Computer weiterzuleiten, den Sie zu erreichen versuchen.
 
--   **Zeit des Tages basierend Umleitung.** Sie können DNS-Richtlinien verwenden, Verteilen von Datenverkehr in verschiedenen geografisch verteilten Instanzen einer Anwendung mithilfe von DNS-Richtlinien, die auf die Uhrzeit basieren.
+-   **Uhrzeit der täglichen Umleitung.** Mithilfe der DNS-Richtlinie können Sie den Anwendungs Datenverkehr mithilfe von DNS-Richtlinien, die auf der Tageszeit basieren, über verschiedene geografisch verteilte Instanzen einer Anwendung verteilen.
 
 ## <a name="new-concepts"></a>Neue Konzepte  
-Zum Erstellen von Richtlinien, um die oben genannten Szenarien zu unterstützen, ist es erforderlich, um Gruppen von Datensätzen in einer Zone, die Gruppen von Clients in einem Netzwerk zwischen anderen Elementen identifizieren zu können. Diese Elemente werden durch die folgenden neuen DNS-Objekte dargestellt:  
+Um Richtlinien zur Unterstützung der oben aufgeführten Szenarios zu erstellen, ist es erforderlich, dass Sie in der Lage sind, Gruppen von Datensätzen in einer Zone, Gruppen von Clients in einem Netzwerk zu identifizieren. Diese Elemente werden durch die folgenden neuen DNS-Objekte dargestellt:  
 
-- **Client-Subnetz:** einem Subnetz-Objekt stellt ein IPv4- oder IPv6-Subnetz aus der Abfragen an einen DNS-Server gesendet werden. Sie können Subnetze, um später definieren Richtlinien basierend auf welches Subnetz angewendet werden, die die Anforderungen stammen erstellen. Beispielsweise sind in einem Split Brain-DNS-Szenario, die Anforderung für die Auflösung für einen Namen, z. B. <em>www.microsoft.com</em> beantwortet werden können, mit einer internen IP-Adresse für Clients internen Subnetzen und eine andere IP-Adresse für Clients in externen Subnetze.
+- **Clientsubnetz:** ein clientsubnetzobjekt stellt ein IPv4-oder IPv6-Subnetz dar, von dem Abfragen an einen DNS-Server übermittelt werden. Sie können Subnetze erstellen, um später Richtlinien zu definieren, die basierend auf dem Subnetz, von dem die Anforderungen stammen, angewendet werden sollen. Beispielsweise kann die Anforderung zur Auflösung eines Namens, wie z. b. <em>www.Microsoft.com</em> , in einem Split-Brain-DNS-Szenario mit einer internen IP-Adresse für Clients aus internen Subnetzen und eine andere IP-Adresse für Clients in externen Subnetzen beantwortet werden.
 
-- **Rekursion Bereich:** Rekursion Bereiche sind eindeutige Instanzen einer Gruppe von Einstellungen zur Steuerung der Rekursion auf einen DNS-Server. Ein Rekursion Bereich enthält eine Liste der Weiterleitungen, und gibt an, ob die Rekursion aktiviert ist. Ein DNS-Server haben viele Bereiche von Rekursion. DNS-Server Rekursion Richtlinien können Sie wählen einen Rekursion-Bereich für einen Satz von Abfragen. Wenn der DNS-Server nicht autorisierend ist zulässig für bestimmte Abfragen, DNS-Server Rekursion Richtlinien Sie steuern, wie Sie diese Abfragen zu beheben. Sie können die Weiterleitungen zu verwenden und angibt, ob die Verwendung der Rekursion angeben.
+- **Rekursions Bereich:** Rekursions Bereiche sind eindeutige Instanzen einer Gruppe von Einstellungen, die die Rekursion auf einem DNS-Server steuern. Ein Rekursions Bereich enthält eine Liste von Weiterleitungen und gibt an, ob die Rekursion aktiviert ist. Ein DNS-Server kann über viele Rekursions Bereiche verfügen. DNS-Server Rekursions Richtlinien ermöglichen es Ihnen, einen Rekursions Bereich für eine Reihe von Abfragen auszuwählen. Wenn der DNS-Server für bestimmte Abfragen nicht autoritativ ist, können Sie mit den Rekursions Richtlinien von DNS-Servern steuern, wie diese Abfragen aufgelöst werden. Sie können angeben, welche Weiterleitungen verwendet werden sollen und ob Rekursion verwendet werden soll.
 
-- **Zone Bereiche:** eine DNS-Zone kann mehrere Zone Bereiche, mit jeder Zone-Bereich mit ihren eigenen Satz von DNS-Einträge haben. Der gleiche Datensatz kann in mehrere Bereiche, die mit unterschiedlichen IP-Adressen vorhanden sein. Zonenübertragungen werden auch auf der Ebene der Zone Bereich ausgeführt. Dies bedeutet, dass es sich bei den Gültigkeitsbereich der gleichen Zone in eine sekundäre Zone Datensätze aus einem Bereich Zone eine primäre Zone übertragen werden sollen.
+- **Zonen Bereiche:** eine DNS-Zone kann über mehrere Zonen Bereiche verfügen, wobei jeder Zonen Bereich einen eigenen Satz von DNS-Einträgen enthält. Der gleiche Datensatz kann in mehreren Bereichen mit unterschiedlichen IP-Adressen vorhanden sein. Außerdem erfolgt die Zonen Übertragung auf Zonenebene. Dies bedeutet, dass Datensätze aus einem Zonen Bereich in einer primären Zone in denselben Zonen Bereich in einer sekundären Zone übertragen werden.
 
-## <a name="types-of-policy"></a>Arten von Richtlinien
+## <a name="types-of-policy"></a>Richtlinien Typen
 
-DNS-Richtlinien sind nach Ebene und Typ unterteilt. Sie können Richtlinien für Abfrage definieren, wie Abfragen verarbeitet werden und Zone übertragen Richtlinien definieren, wie zonenübertragungen werden. Sie können die einzelnen Richtlinientypen auf Serverebene oder der Ebene der Zone anwenden.
+DNS-Richtlinien werden nach Ebene und Typ aufgeteilt. Sie können Richtlinien für die Abfrage Auflösung verwenden, um zu definieren, wie Abfragen verarbeitet werden, sowie Zonen Übertragungs Richtlinien, um zu definieren, wie Zonenübertragungen erfolgen. Sie können jeden Richtlinientyp auf Serverebene oder auf Zonenebene anwenden.
 
-### <a name="query-resolution-policies"></a>Richtlinien für Abfrage
+### <a name="query-resolution-policies"></a>Richtlinien zur Abfrage Auflösung
 
-Sie können Richtlinien für DNS-Abfrage verwenden, wie eingehende Auflösung angeben, von einem DNS-Server Abfragen verarbeitet werden. Jede Richtlinie zur DNS-Abfrage enthält die folgenden Elemente:  
+Sie können DNS-Abfrage Auflösungs Richtlinien verwenden, um anzugeben, wie eingehende Auflösungs Abfragen von einem DNS-Server behandelt werden. Jede Richtlinie für die DNS-Abfrage Auflösung enthält die folgenden Elemente:  
 
 |Feld|Beschreibung|Mögliche Werte|  
 |---------|---------------|-------------------|  
-|**Name**|Richtlinienname|– Bis zu 256 Zeichen<br />– Sie können jedes Zeichen, die für einen Dateinamen enthalten werden.|  
-|**Zustand**|Richtlinienstatus|-Aktivieren Sie (Standard)<br />-Deaktiviert|  
-|**Level**|Richtlinienebene|-Server<br />-Zone|  
-|**Verarbeitungsreihenfolge**|Nachdem eine Abfrage nach der Ebene klassifiziert wird und wendet auf, findet der Server die erste Richtlinie, die für die die Abfrage, die die Kriterien erfüllt sind, und wendet ihn auf Abfragen|-Der numerische Wert<br />-Eindeutigen Wert für jede Richtlinie, die derselben Ebene und wendet auf den Wert enthält|  
-|**Aktion**|Aktion, die vom DNS-Server ausgeführt werden|– Lassen Sie zu (Standard für die Zonenebene)<br />-Deny (Standardeinstellung auf Serverebene)<br />-Ignore|  
-|**Kriterien**|Die Bedingung (und/oder) und die Liste der Kriterium erfüllt sein, damit die Richtlinie angewendet wird|-Bedingungs-Operator (and)<br />– Liste der Kriterien (Siehe Kriterium in der folgenden Tabelle)|  
-|**Bereich**|Liste der Bereiche der Zone und gewichtete pro Bereich. Gewichtete Werte werden für den Lastenausgleich der Verteilung verwendet. Beispielsweise, wenn diese Liste datacenter1 mit einer Gewichtung von 3 und datacenter2 mit einer Gewichtung von 5 umfasst einen Datensatz aus datacentre1 dreimal aus acht Anforderungen zur Remotezurücksetzung vom server|-Liste Bereiche der Zone (nach Namen) und Gewichtungen|  
+|**Name**|Richtlinienname|Bis zu 256 Zeichen<br />-Kann beliebige Zeichen enthalten, die für einen Dateinamen gültig sind.|  
+|**Zustand**|Richtlinien Status|-Enable (Standard)<br />-Deaktiviert|  
+|**Level**|Richtlinien Ebene|-Server<br />-Zone|  
+|**Verarbeitungsreihenfolge**|Nachdem eine Abfrage nach Ebene klassifiziert und angewendet wurde, ermittelt der Server die erste Richtlinie, für die die Abfrage den Kriterien entspricht, und wendet Sie auf die Abfrage an.|-Numerischer Wert<br />-Eindeutiger Wert pro Richtlinie, die dieselbe Ebene enthält und für den Wert gilt.|  
+|**Aktion**|Aktion, die vom DNS-Server ausgeführt werden soll|-Allow (Standard für die Zonenebene)<br />-DENY (Standard auf Serverebene)<br />-Ignorieren|  
+|**Liste**|Richtlinien Bedingung (und/oder) und Liste der Kriterien, die erfüllt werden müssen, damit die Richtlinie angewendet wird|-Condition-Operator (und/oder)<br />-Liste der Kriterien (siehe Kriterium Tabelle unten)|  
+|**Bereich**|Liste der Zonen Bereiche und gewichteten Werte pro Bereich. Gewichtete Werte werden für den Lastenausgleich der Verteilung verwendet. Wenn diese Liste beispielsweise Datacenter1 mit einer Gewichtung von 3 und datacenter2 mit einer Gewichtung von 5 enthält, antwortet der Server mit einem Datensatz von datacentre1 dreimal von acht Anforderungen.|-Liste der Zonen Bereiche (nach Name) und Gewichtungen|  
 
 > [!NOTE]
-> Server-Richtlinien auf Abonnementebene haben nur die Werte **Verweigern** oder **ignorieren** als Aktion.
+> Richtlinien auf Server Ebene können nur die Werte **Deny** oder **Ignore** als Aktion aufweisen.
 
-Das DNS-Richtlinie Kriterienfeld besteht aus zwei Elementen:
+Das Feld DNS-Richtlinien Kriterien besteht aus zwei Elementen:
 
 
-|              Name               |                                         Beschreibung                                          |                                                                                                                               Beispielwerte                                                                                                                               |
+|              Name               |                                         Beschreibung                                          |                                                                                                                               Beispiel Werte                                                                                                                               |
 |---------------------------------|----------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|        **Client-Subnetz**        | Der Name eines Subnetzes vordefinierte Client. Wird verwendet, um das Subnetz zu überprüfen, von dem die Abfrage gesendet wurde. |                             -   **EQ, Spanien, Frankreich** -aufgelöst wird, auf "true", wenn das Subnetz als Spain "oder" Frankreich identifiziert wird<br />-   **NE "," Kanada, Mexiko** -aufgelöst wird, auf "true" ist das Subnetz des Clients ein Subnetz als Kanada und Mexiko                             |
-|     **Transportprotokoll**      |        Transportprotokoll, die in der Abfrage verwendet. Mögliche Einträge sind **UDP** und **TCP**        |                                                                                                                    -   **EQ,TCP**<br />-   **EQ,UDP**                                                                                                                     |
-|      **Internetprotokoll**      |        Das Netzwerkprotokoll in der Abfrage verwendet. Mögliche Einträge sind **IPv4** und **IPv6**        |                                                                                                                   -   **EQ,IPv4**<br />-   **EQ,IPv6**                                                                                                                    |
-| **Die Schnittstelle IP-Adresse** |                   IP-Adresse für die eingehende DNS-Server-Netzwerkschnittstelle                   |                                                                                                              -   **EQ,10.0.0.1**<br />-   **EQ,192.168.1.1**                                                                                                              |
-|            **FQDN**             |            FQDN des Datensatzes in der Abfrage mit der Möglichkeit, einen Platzhalter verwenden            | -   **EQ, www.contoso.com** -löst in Warteschlangen gesamt Rue nur die bei die Abfrage versucht, lösen die <em>www.contoso.com</em> FQDN<br />-   **EQ,\*. "contoso.com"\*. woodgrove.com** -aufgelöst wird, auf "true", wenn die Abfrage für einen Datensatz mit dem Endstand *"contoso.com"***oder***woodgrove.com* |
-|         **Abfragetyp**          |                          Typ des Datensatzes, die abgefragt wird ("A", "Server", "TXT")                          |                                                  -   **EQ, TXT, SRV** -aufgelöst wird, auf "true", wenn die Abfrage eine TXT anfordert **oder** SRV-Eintrag<br />-   **EQ, MX** -aufgelöst wird, auf "true", wenn die Abfrage einen MX-Eintrag anfordert                                                   |
-|         **Tageszeit**         |                              Tageszeit, die die Abfrage empfangen wird                               |                                                                    -   **EQ, 10:00 Uhr – 12:00 Uhr, 22:00-23:00** -aufgelöst wird, auf "true", wenn die Abfrage, zwischen 10: 00 Uhr und am Mittag empfangen wird **oder** zwischen 22 Uhr und 23: 00 Uhr                                                                    |
+|        **Clientsubnetz**        | Name eines vordefinierten Clientsubnetzes. Wird verwendet, um das Subnetz zu überprüfen, aus dem die Abfrage gesendet wurde. |                             -   **EQ, Spanien, Frankreich** : wird zu true aufgelöst, wenn das Subnetz entweder als Spanien oder Frankreich identifiziert wird.<br />-   **Ne, Kanada, Mexiko** : wird zu true aufgelöst, wenn das clientsubnetz ein anderes Subnetz als Kanada und Mexiko ist.                             |
+|     **Transport Protokoll**      |        Das Transport Protokoll, das in der Abfrage verwendet wird. Mögliche Einträge sind **UDP** und **TCP** .        |                                                                                                                    -   **EQ, TCP**<br />-   **EQ, UDP**                                                                                                                     |
+|      **Internet Protokoll**      |        In der Abfrage verwendetes Netzwerkprotokoll. Mögliche Einträge sind **IPv4** und **IPv6** .        |                                                                                                                   -   **EQ, IPv4**<br />-   **EQ, IPv6**                                                                                                                    |
+| **IP-Adresse der Server Schnittstelle** |                   IP-Adresse für die Netzwerkschnittstelle des eingehenden DNS-Servers                   |                                                                                                              -   **EQ, 10.0.0.1**<br />-   **EQ, 192.168.1.1**                                                                                                              |
+|            **FQDN**             |            Der voll qualifizierte Daten Satz in der Abfrage mit der Möglichkeit, eine Platzhalter Karte zu verwenden.            | -   **EQ, www. Configuration. com** : löst nur den auf true aus, wenn die Abfrage versucht, den <em>www.contoso.com</em> -FQDN aufzulösen.<br />-   **EQ,\*. contoso.com,\*. Woodgrove.com** -wird zu true aufgelöst, wenn die Abfrage für einen Datensatz gilt, der in *contoso.com***oder***Woodgrove.com* endet. |
+|         **Abfragetyp**          |                          Typ des Datensatzes, der abgefragt wird (A, SRV, txt)                          |                                                  -   **EQ, txt, SRV** -wird in "true" aufgelöst, wenn die Abfrage einen txt- **oder** SRV-Datensatz anfordert.<br />-   **EQ, MX** : wird zu true aufgelöst, wenn die Abfrage einen MX-Datensatz anfordert.                                                   |
+|         **Tageszeit**         |                              Tageszeit, zu der die Abfrage empfangen wird                               |                                                                    -   **EQ, 10:00-12:00, 22:00-23:00** -wird in "true" aufgelöst, wenn die Abfrage zwischen 10 Uhr und 12 Uhr mittags **oder** zwischen 10PM und 11Uhr empfangen wird.                                                                    |
 
-Verwenden als Ausgangspunkt der obigen Tabelle, in der folgenden Tabelle verwendet werden, um ein Kriterium definiert, die verwendet wird, zum Abgleich von Abfragen für alle Arten von Datensätzen aber SRV-Einträge in der Domäne "contoso.com", die von einem Client im Subnetz 10.0.0.0/24 über TCP zwischen 8 und 10 Uhr bis bald ich Schnittstellen 10.0.0.3:  
+Mithilfe der obigen Tabelle als Ausgangspunkt könnte die folgende Tabelle verwendet werden, um ein Kriterium zu definieren, das zum Abgleichen von Abfragen für beliebige Daten Satz Typen verwendet wird, aber SRV-Einträge in der contoso.com-Domäne, die von einem Client im 10.0.0.0/24-Subnetz über TCP zwischen 8 und 10 Uhr bis i stammt. Schnittstellen 10.0.0.3:  
 
 |Name|Wert|  
 |--------|---------|  
-|Client-Subnetz|EQ,10.0.0.0/24|  
-|Transportprotokoll|EQ, TCP|  
-|Die Schnittstelle IP-Adresse|EQ,10.0.0.3|  
-|FQDN|EQ,*.contoso.com|  
-|Abfragetyp|NE "," SRV|  
-|Tageszeit|EQ,20:00-22:00|  
+|Clientsubnetz|EQ, 10.0.0.0/24|  
+|Transport Protokoll|EQ, TCP|  
+|IP-Adresse der Server Schnittstelle|EQ, 10.0.0.3|  
+|FQDN|EQ, *. ".|  
+|Abfragetyp|NE, SRV|  
+|Tageszeit|EQ, 20:00-22:00|  
 
-Sie können mehrere Abfragen Richtlinien von der gleichen Ebene befinden, erstellen, solange sie einen anderen Wert für die Verarbeitungsreihenfolge verfügen. Wenn mehrere Richtlinien verfügbar sind, verarbeitet der DNS-Server eingehende Abfragen auf folgende Weise:  
+Sie können mehrere Richtlinien für die Abfrage Auflösung auf derselben Ebene erstellen, sofern Sie einen anderen Wert für die Verarbeitungsreihenfolge aufweisen. Wenn mehrere Richtlinien verfügbar sind, verarbeitet der DNS-Server eingehende Abfragen wie folgt:  
 
-![DNS-die Verarbeitung der Gruppenrichtlinie](../../media/DNS-Policies-Overview/DNSQueryResolutionPolicyFlowchart.png)  
+![DNS-Richtlinien Verarbeitung](../../media/DNS-Policies-Overview/DNSQueryResolutionPolicyFlowchart.png)  
 
-### <a name="recursion-policies"></a>Rekursion-Richtlinien  
-Rekursion-Richtlinien sind eine besondere **Typ** des Server-Richtlinien auf Abonnementebene. Rekursion-Richtlinien steuern, wie der DNS-Server die Rekursion für eine Abfrage ausführt. Rekursion-Richtlinien gelten nur, wenn die abfrageverarbeitung den Rekursion Pfad erreicht. Sie können einen Wert von DENY oder ignorieren für Rekursion für einen Satz von Abfragen. Alternativ können Sie eine Gruppe von Weiterleitungen für eine Gruppe von Abfragen auswählen.  
+### <a name="recursion-policies"></a>Rekursions Richtlinien  
+Rekursions Richtlinien sind eine besondere **Art** von Richtlinien auf Serverebene. Rekursions Richtlinien steuern, wie der DNS-Server Rekursion für eine Abfrage ausführt. Rekursions Richtlinien gelten nur, wenn die Abfrage Verarbeitung den Rekursions Pfad erreicht. Sie können für eine Reihe von Abfragen den Wert Deny oder IGNORE for Rekursion auswählen. Alternativ können Sie eine Gruppe von Weiterleitungen für eine Reihe von Abfragen auswählen.  
 
-Sie können Rekursion-Richtlinien verwenden, um eine Split-brain DNS-Konfiguration zu implementieren. In dieser Konfiguration führt der DNS-Server Rekursion für eine Gruppe von Clients für eine Abfrage an, während der DNS-Server keine Rekursion für andere Clients für diese Abfrage ausführt.  
+Mithilfe von Rekursions Richtlinien können Sie eine Split-Brain-DNS-Konfiguration implementieren. In dieser Konfiguration führt der DNS-Server eine Rekursion für eine Gruppe von Clients für eine Abfrage aus, während der DNS-Server keine Rekursion für andere Clients für diese Abfrage ausführt.  
 
-Rekursion-Richtlinien enthalten die gleichen Elemente, die Richtlinie einer reguläre DNS-Abfrage enthält, zusammen mit die Elemente in der folgenden Tabelle:  
+Rekursions Richtlinien enthalten dieselben Elemente wie eine reguläre Richtlinie zur DNS-Abfrage Auflösung, zusammen mit den Elementen in der folgenden Tabelle:  
 
 |Name|Beschreibung|  
 |--------|---------------|  
-|**Anwenden von der Rekursion**|Gibt an, dass diese Richtlinie nur für die Rekursion verwendet werden soll.|  
-|**Bereich der Rekursion**|Der Name des Bereichs Rekursion.|  
+|**Auf Rekursion anwenden**|Gibt an, dass diese Richtlinie nur für die Rekursion verwendet werden soll.|  
+|**Rekursions Bereich**|Der Name des Rekursions Bereichs.|  
 
 > [!NOTE]  
-> Rekursion Richtlinien können nur auf Serverebene erstellt werden.  
+> Rekursions Richtlinien können nur auf Serverebene erstellt werden.  
 
-### <a name="zone-transfer-policies"></a>Richtlinien für die Übertragung von Zone  
-Richtlinien für die Übertragung von Zone steuern, ob eine zonenübertragung zulässig ist oder nicht von Ihrem DNS-Server. Sie können Richtlinien für die zonenübertragung auf Serverebene oder der Ebene der Zone erstellen. Server-Richtlinien auf Abonnementebene gelten für jede Zone-Übertragung-Abfrage, die auf dem DNS-Server auftritt. Richtlinien für die Ebene der Zone gelten nur für die Abfragen für eine Zone auf dem DNS-Server gehostet. Die häufigste Verwendung für Richtlinien für die Ebene der Zone ist gesperrte oder sichere Listen implementiert.  
+### <a name="zone-transfer-policies"></a>Zonen Übertragungs Richtlinien  
+Zonen Übertragungs Richtlinien steuern, ob eine Zonen Übertragung durch Ihren DNS-Server zulässig ist oder nicht. Sie können Richtlinien für die Zonen Übertragung auf Server-oder Zonenebene erstellen. Richtlinien auf Server Ebene gelten für jede Zonen Übertragungs Abfrage, die auf dem DNS-Server auftritt. Richtlinien auf Zonenebene gelten nur für die Abfragen in einer auf dem DNS-Server gehosteten Zone. Die häufigste Verwendung von Richtlinien auf Zonenebene besteht darin, blockierte oder sichere Listen zu implementieren.  
 
 > [!NOTE]  
-> Zone Übertragung Richtlinien können nur als Aktionen ablehnen oder ignorieren.  
+> Zonen Übertragungs Richtlinien können nur Deny oder IGNORE als Aktionen verwenden.  
 
-Die Ebene der Zone Übertragungsrichtlinie unten können Sie um eine zonenübertragung für die Domäne "contoso.com" aus einem bestimmten Subnetz zu verweigern:  
+Mithilfe der unten stehenden Zonen Übertragungs Richtlinie auf Serverebene können Sie eine Zonen Übertragung für die contoso.com-Domäne aus einem bestimmten Subnetz verweigern:  
 
 ```  
 Add-DnsServerZoneTransferPolicy -Name DenyTransferOfContosoToFabrikam -Zone contoso.com -Action DENY -ClientSubnet "EQ,192.168.1.0/24"  
 ```  
 
-Sie können mehrere zonenübertragung Richtlinien derselben Ebene erstellen, solange sie einen anderen Wert für die Verarbeitungsreihenfolge verfügen. Wenn mehrere Richtlinien verfügbar sind, verarbeitet der DNS-Server eingehende Abfragen auf folgende Weise:  
+Sie können mehrere Zonen Übertragungs Richtlinien auf derselben Ebene erstellen, sofern Sie einen anderen Wert für die Verarbeitungsreihenfolge aufweisen. Wenn mehrere Richtlinien verfügbar sind, verarbeitet der DNS-Server eingehende Abfragen wie folgt:  
 
-![DNS-Prozess für mehrere Richtlinien für die Übertragung von zone](../../media/DNS-Policies-Overview/DNSPolicyZone.png)  
+![DNS-Prozess für mehrere Zonen Übertragungs Richtlinien](../../media/DNS-Policies-Overview/DNSPolicyZone.png)  
 
-## <a name="managing-dns-policies"></a>Verwalten von DNS-Richtlinien  
-Sie können zu erstellen und Verwalten von DNS-Richtlinien mithilfe von PowerShell. Die folgenden Beispiele durchlaufen Sie andere Szenarien, die Sie mithilfe von DNS-Richtlinien konfigurieren können:  
+## <a name="managing-dns-policies"></a>DNS-Richtlinien verwalten  
+Sie können DNS-Richtlinien mithilfe von PowerShell erstellen und verwalten. In den folgenden Beispielen werden verschiedene Beispielszenarien durchlaufen, die Sie über DNS-Richtlinien konfigurieren können:  
 
-### <a name="traffic-management"></a>Verwaltung des Datenverkehrs  
-Sie können basierend auf einem FQDN auf verschiedenen Servern, je nachdem, wo der DNS-Client Datenverkehr weiterleiten. Das folgende Beispiel zeigt, wie Sie Datenverkehr Richtlinien, um den Kunden aus einem bestimmten Subnetz in einem nordamerikanischen Rechenzentrum und von einem anderen Subnetz in einem europäischen Rechenzentrum erstellen.  
+### <a name="traffic-management"></a>Datenverkehrs Verwaltung  
+Abhängig vom Speicherort des DNS-Clients können Sie den Datenverkehr basierend auf einem FQDN an verschiedene Server weiterleiten. Das folgende Beispiel zeigt, wie Richtlinien für die Datenverkehrs Verwaltung erstellt werden, um die Kunden von einem bestimmten Subnetz an ein nordamerikanisches Rechenzentrum und von einem anderen Subnetz zu einem europäischen Rechenzentrum zu leiten.  
 
 ```  
 Add-DnsServerClientSubnet -Name "NorthAmericaSubnet" -IPv4Subnet "172.21.33.0/24"  
@@ -138,17 +138,17 @@ Add-DnsServerQueryResolutionPolicy -Name "NorthAmericaPolicy" -Action ALLOW -Cli
 Add-DnsServerQueryResolutionPolicy -Name "EuropePolicy" -Action ALLOW -ClientSubnet "eq,EuropeSubnet" -ZoneScope "EuropeZoneScope,1" -ZoneName contoso.com  
 ```  
 
-Die ersten beiden Zeilen des Skripts erstellen von Subnetz-Clientobjekten für Nordamerika und Europa. Die beiden Zeilen nach dem Erstellen eines Zone Bereichs innerhalb der Domäne "contoso.com", eine für jede Region. Die beiden Zeilen danach erstellen einen Eintrag in jeder Zone, die ww.contoso.com andere IP-Adresse, eine für "Europa", eins für Nordamerika zuordnet. Abschließend erstellen Sie die letzten Zeilen des Skripts zwei DNS-Abfrage Auflösung-Richtlinien: eine, die mit dem Subnetz eine andere, um das Subnetz "Europa" North America angewendet werden.  
+In den ersten beiden Zeilen des Skripts werden clientsubnetzobjekte für Nordamerika und Europa erstellt. Die zwei Zeilen nach dem Erstellen einen Zonen Bereich innerhalb der contoso.com-Domäne, einen für jede Region. In den beiden folgenden Zeilen wird ein Datensatz in jeder Zone erstellt, der ww.contoso.com einer anderen IP-Adresse zuordnet, eine für Europa, eine andere für die Nordamerika. Schließlich erstellen die letzten Zeilen des Skripts zwei DNS-Abfrage Auflösungs Richtlinien, eine, die auf das Nordamerika Subnetz angewendet wird, eine andere auf das Subnetz "Europa".  
 
-### <a name="block-queries-for-a-domain"></a>Block-Abfragen für eine Domäne  
-Sie können eine DNS-Auflösung Abfragerichtlinie für Block-Abfragen in eine Domäne verwenden. Im folgenden Beispiel blockiert alle Abfragen treyresearch.net:  
+### <a name="block-queries-for-a-domain"></a>Blockieren von Abfragen für eine Domäne  
+Sie können eine DNS-Abfrage Auflösungs Richtlinie zum Blockieren von Abfragen in einer Domäne verwenden. Im folgenden Beispiel werden alle Abfragen für treyresearch.net blockiert:  
 
 ```  
 Add-DnsServerQueryResolutionPolicy -Name "BlackholePolicy" -Action IGNORE -FQDN "EQ,*.treyresearch.com"  
 ```  
 
-### <a name="block-queries-from-a-subnet"></a>Abfragen aus einem Subnetz blockiert  
-Sie können auch Abfragen, die von einem bestimmten Subnetz blockieren. Das folgende Skript erstellt ein Subnetz für 172.0.33.0/24 und erstellt dann eine Richtlinie aus, um alle Abfragen, die von diesem Subnetz zu ignorieren:  
+### <a name="block-queries-from-a-subnet"></a>Blockieren von Abfragen aus einem Subnetz  
+Sie können auch Abfragen blockieren, die von einem bestimmten Subnetz stammen. Mit dem folgenden Skript wird ein Subnetz für 172.0.33.0/24 erstellt, und anschließend wird eine Richtlinie erstellt, um alle Abfragen zu ignorieren, die von diesem Subnetz stammen:  
 
 ```  
 Add-DnsServerClientSubnet -Name "MaliciousSubnet06" -IPv4Subnet 172.0.33.0/24  
@@ -156,7 +156,7 @@ Add-DnsServerQueryResolutionPolicy -Name "BlackholePolicyMalicious06" -Action IG
 ```  
 
 ### <a name="allow-recursion-for-internal-clients"></a>Rekursion für interne Clients zulassen  
-Sie können die Rekursion steuern, mit einer Richtlinie zur DNS-Abfrage. Das folgende Beispiel kann verwendet werden, um Rekursion für interne Clients zu aktivieren, während sie für externe Clients in einer Split-Brain-Szenario deaktivieren.  
+Sie können die Rekursion mithilfe einer DNS-Abfrage Auflösungs Richtlinie steuern. Das folgende Beispiel kann verwendet werden, um die Rekursion für interne Clients zu aktivieren, während Sie in einem Split Brain-Szenario für externe Clients deaktiviert wird.  
 
 ```  
 Set-DnsServerRecursionScope -Name . -EnableRecursion $False   
@@ -164,39 +164,39 @@ Add-DnsServerRecursionScope -Name "InternalClients" -EnableRecursion $True
 Add-DnsServerQueryResolutionPolicy -Name "SplitBrainPolicy" -Action ALLOW -ApplyOnRecursion -RecursionScope "InternalClients" -ServerInterfaceIP  "EQ,10.0.0.34"  
 ```  
 
-Die erste Zeile im Skript ändert sich den Rekursion Standardbereich einfach mit dem Namen "." (Punkt) verwenden, um die Rekursion zu deaktivieren. Die zweite Zeile erstellt eine Rekursion-Bereichs mit dem Namen *InternalClients* mit Rekursion aktiviert. Und die dritte Zeile erstellt eine Richtlinie zum Anwenden der Rekursion-Bereich auf Abfragen, die durch eine Serverschnittstelle, die 10.0.0.34 als eine IP-Adresse wurde neu zu erstellen.  
+Die erste Zeile im Skript ändert den standardmäßigen Rekursions Bereich, der einfach als "." bezeichnet wird. (Punkt), um die Rekursion zu deaktivieren. Die zweite Zeile erstellt einen Rekursions Bereich namens *internalclients* mit aktivierter Rekursion. Und in der dritten Zeile wird eine Richtlinie erstellt, mit der der neu erstellte Rekursions Bereich auf alle Abfragen angewendet wird, die über eine Server Schnittstelle mit 10.0.0.34 als IP-Adresse übertragen werden.  
 
-### <a name="create-a-server-level-zone-transfer-policy"></a>Erstellen Sie eine Ebene der Zone Übertragungsrichtlinie  
-Sie können mithilfe von DNS-Zonenübertragung Richtlinien zonenübertragung in einem Formular eine feiner abgestimmte steuern. Im Beispielskript unten kann verwendet werden, um zonenübertragungen an einem beliebigen Server auf einem bestimmten Subnetz zu ermöglichen:  
+### <a name="create-a-server-level-zone-transfer-policy"></a>Erstellen einer Zonen Übertragungs Richtlinie auf Serverebene  
+Mithilfe von DNS-Zonen Übertragungs Richtlinien können Sie die Zonen Übertragung in differenziererer Form steuern. Das folgende Beispielskript kann verwendet werden, um Zonenübertragungen für einen beliebigen Server in einem bestimmten Subnetz zuzulassen:  
 
 ```  
 Add-DnsServerClientSubnet -Name "AllowedSubnet" -IPv4Subnet 172.21.33.0/24  
 Add-DnsServerZoneTransferPolicy -Name "NorthAmericaPolicy" -Action IGNORE -ClientSubnet "ne,AllowedSubnet"  
 ```  
 
-Die erste Zeile in das Skript erstellt ein Subnetzobjekt, mit dem Namen *AllowedSubnet* mit der IP-Adresse blockieren 172.21.33.0/24. Die zweite Zeile erstellt eine Zone datenübertragungsrichtlinie um zonenübertragungen an alle DNS-Server, auf das zuvor erstellte Subnetz zu ermöglichen.  
+In der ersten Zeile des Skripts wird ein Subnetzobjekt *mit dem* Namen "" und dem IP-Block "172.21.33.0/24" erstellt. In der zweiten Zeile wird eine Zonen Übertragungs Richtlinie erstellt, um Zonenübertragungen an einen beliebigen DNS-Server im zuvor erstellten Subnetz zuzulassen.  
 
-### <a name="create-a-zone-level-zone-transfer-policy"></a>Erstellen Sie eine Zone auf Zone Übertragung-Richtlinie  
-Sie können auch die Zone auf Zone Übertragung Richtlinien erstellen. Im folgenden Beispiel ignoriert alle Anforderungen für eine zonenübertragung für "contoso.com" eine Serverschnittstelle, die eine IP-des 10.0.0.33 Adresse stammen:  
+### <a name="create-a-zone-level-zone-transfer-policy"></a>Zonen Übertragungs Richtlinie auf Zonenebene erstellen  
+Sie können auch Zonen Übertragungs Richtlinien auf Zonenebene erstellen. Im folgenden Beispiel werden alle Anforderungen an eine Zonen Übertragung für contoso.com ignoriert, die von einer Server Schnittstelle mit der IP-Adresse 10.0.0.33 stammen:  
 
 ```  
-Add-DnsServerZoneTransferPolicy -Name "InternalTransfers" -Action IGNORE -ServerInterfaceIP "ne,10.0.0.33" -PassThru -ZoneName "contoso.com"  
+Add-DnsServerZoneTransferPolicy -Name "InternalTransfers" -Action IGNORE -ServerInterfaceIP "eq,10.0.0.33" -PassThru -ZoneName "contoso.com"  
 ```  
 
-## <a name="dns-policy-scenarios"></a>DNS-Richtlinie – Szenarien
+## <a name="dns-policy-scenarios"></a>DNS-Richtlinien Szenarien
 
-Informationen zur Verwendung von DNS-Richtlinien für bestimmte Szenarios, finden Sie unter den folgenden Themen in diesem Handbuch.
+Informationen zum Verwenden der DNS-Richtlinie für bestimmte Szenarien finden Sie in den folgenden Themen in diesem Handbuch.
 
-- [Verwenden von DNS-Richtlinien für GeoLocation basierende Datenverkehrsverwaltung mit Primärservern](primary-geo-location.md)  
-- [Verwenden von DNS-Richtlinien für GeoLocation basierende Datenverkehrsverwaltung mit primären und sekundären Bereitstellungen](primary-secondary-geo-location.md)  
-- [Verwenden Sie die DNS-Richtlinien für intelligente DNS-Antworten basierend auf dem Zeitpunkt des Tages](dns-tod-intelligent.md)
-- [DNS-Antworten basierend auf der Tageszeit mit einem Azure-Cloud-App-Server](dns-tod-azure-cloud-app-server.md)
-- [Verwenden von DNS-Richtlinien für Split-Brain-DNS-Bereitstellung](split-brain-DNS-deployment.md)
-- [Verwenden Sie die DNS-Richtlinien für Split-Brain-DNS in Active Directory](dns-sb-with-ad.md)
-- [Verwenden von DNS-Richtlinie zum Anwenden von Filtern auf DNS-Abfragen](apply-filters-on-dns-queries.md)
-- [Verwenden von DNS-Richtlinien für den Anwendungslastenausgleich](app-lb.md)
-- [Verwenden Sie die DNS-Richtlinien für den Anwendungslastenausgleich mit GeoLocation-Informationen](app-lb-geo.md)
+- [Verwenden der DNS-Richtlinie für die georeduntbasierte Datenverkehrs Verwaltung mit primären Servern](primary-geo-location.md)  
+- [Verwenden der DNS-Richtlinie für die georeduntbasierte Datenverkehrs Verwaltung mit primären sekundären bereit Stellungen](primary-secondary-geo-location.md)  
+- [Verwenden der DNS-Richtlinie für intelligente DNS-Antworten basierend auf der Tageszeit](dns-tod-intelligent.md)
+- [DNS-Antworten basierend auf der Tageszeit mit einem Azure Cloud App-Server](dns-tod-azure-cloud-app-server.md)
+- [Verwenden der DNS-Richtlinie für Split-Brain-DNS](split-brain-DNS-deployment.md)
+- [Verwenden der DNS-Richtlinie für Split-Brain-DNS in Active Directory](dns-sb-with-ad.md)
+- [Verwenden der DNS-Richtlinie zum Anwenden von Filtern auf DNS-Abfragen](apply-filters-on-dns-queries.md)
+- [Verwenden der DNS-Richtlinie für den Anwendungs Lastenausgleich](app-lb.md)
+- [Verwenden der DNS-Richtlinie für den Anwendungs Lastenausgleich mit georedundanstand](app-lb-geo.md)
 
-## <a name="using-dns-policy-on-read-only-domain-controllers"></a>Mithilfe von DNS-Richtlinien auf schreibgeschützten Domänencontrollern
+## <a name="using-dns-policy-on-read-only-domain-controllers"></a>Verwenden der DNS-Richtlinie auf schreibgeschützten Domänen Controllern
 
-DNS-Richtlinie ist kompatibel mit der Read-Only-Domänencontroller. Beachten Sie, dass ein Neustart des DNS-Serverdiensts erforderlich, damit die neuen DNS-Richtlinien auf Read-Only-Domänencontroller geladen werden. Dies ist nicht erforderlich, auf dem beschreibbaren Domänencontroller.
+Die DNS-Richtlinie ist mit schreibgeschützten Domänen Controllern kompatibel. Beachten Sie, dass ein Neustart des DNS-Server Dienstanbieter erforderlich ist, damit neue DNS-Richtlinien auf schreibgeschützten Domänen Controllern geladen werden. Dies ist auf beschreibbaren Domänen Controllern nicht erforderlich.

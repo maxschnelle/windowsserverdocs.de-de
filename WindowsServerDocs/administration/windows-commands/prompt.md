@@ -1,6 +1,6 @@
 ---
 title: prompt
-description: Informationen Sie zum Anpassen von der Eingabeaufforderung.
+description: Erfahren Sie, wie Sie die Eingabeaufforderung anpassen.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 5ef487ce9799c1f09660cdfcd6fba71336fc4d9a
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 8371a67ba1b8dc7d5f02272c809f916aae3df584
+ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66442146"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68544559"
 ---
 # <a name="prompt"></a>prompt
 
 
 
-Ändert die Cmd.exe-Eingabeaufforderung. Wenn Sie ohne Angabe von Parametern **Eingabeaufforderung** setzt die Eingabeaufforderung auf die Standardeinstellung, die den aktuellen Laufwerkbuchstaben und das Verzeichnis, das größer-als-Zeichen gefolgt wird ( **>** ).
+Ändert die Eingabeaufforderung "cmd. exe". Bei Verwendung ohne Parameter setzt **prompt die Eingabe** Aufforderung auf die Standardeinstellung zurück. Hierbei handelt es sich um den aktuellen Laufwerk Buchstaben und das Verzeichnis, gefolgt vom größer **>** -als-Symbol ().
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -38,60 +38,60 @@ prompt [<Text>]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<Text>|Gibt den Text und die Informationen, die in der Befehlszeile enthalten sein sollen.|
+|\<Text >|Gibt den Text und die Informationen an, die Sie in die Eingabeaufforderung einschließen möchten.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
 
-Sie können anpassen, dass die Eingabeaufforderung Text nicht angezeigt, die Sie verwenden, einschließlich Informationen wie den Namen der im aktuellen Verzeichnis, die Uhrzeit und Datum und die Microsoft Windows-Versionsnummer möchten.
+Sie können die Eingabeaufforderung anpassen, um den gewünschten Text anzuzeigen, einschließlich Informationen wie den Namen des aktuellen Verzeichnisses, das Datum und die Uhrzeit und die Microsoft Windows-Versionsnummer.
 
-Die folgende Tabelle enthält die Zeichenkombinationen, die Sie, anstelle von oder zusätzlich einen oder mehrere Zeichenfolgen in einschließen können die *Text* Parameter. Die Liste enthält eine kurze Beschreibung des Textes oder Informationen, die jede Zeichenkombination an der Eingabeaufforderung hinzufügt.  
+In der folgenden Tabelle sind die Zeichenkombinationen aufgelistet, die anstelle von oder zusätzlich zu einer oder mehreren Zeichen folgen im *Text* -Parameter enthalten sein können. Die Liste enthält eine kurze Beschreibung des Texts oder der Informationen, die von jeder Zeichenkombination der Eingabeaufforderung hinzugefügt werden.  
 
 | Zeichen |                                 Beschreibung                                 |
 |-----------|-----------------------------------------------------------------------------|
 |    $q     |                               = (Gleichheitszeichen)                                |
 |    $$     |                               $ (Dollarzeichen)                               |
-|    $t     |                                Aktuelle Zeit                                 |
+|    $t     |                                Aktuelle Uhrzeit                                 |
 |    $d     |                                Aktuelles Datum                                 |
-|    $p     |                           Aktuelle Laufwerk und Pfad                            |
+|    $p     |                           Aktuelles Laufwerk und Pfad                            |
 |    $v     |                           Windows-Versionsnummer                            |
 |    $n     |                                Aktuelles Laufwerk                                |
 |    $g     |                            > (größer als-Zeichen)                            |
-|    $l     |                             < (kleiner-als-Zeichen)                              |
-|    $b     |                                                                             |
-|    $_     |                               GEBEN SIE ZEILENVORSCHUB                                |
-|    $e     |                         ANSI-Escape-Code (Code 27)                          |
-|    $h     | Mit der RÜCKTASTE (löschen ein Zeichen, das in der Befehlszeile geschrieben wurden) |
-|    $ein     |                                & (kaufmännisches und-Zeichen)                                |
-|    $c     |                            ((Klammer)                             |
-|    $f     |                            ) (Klammer)                            |
-|    $s     |                                    Speicherplatz                                    |
+|    $l     |                             < (kleiner als Vorzeichen)                              |
+|    $b     |                              \|(Pipe-Symbol)                               |
+|    $_     |                               EINGABE-ZEILENVORSCHUB                                |
+|    $e     |                         ANSI-Escapecode (Code 27)                          |
+|    $h     | Rücktaste (zum Löschen eines Zeichens, das in die Befehlszeile geschrieben wurde) |
+|    $a     |                                & (kaufmännisches und-Paar)                                |
+|    $c     |                            ((linke Klammer)                             |
+|    $f     |                            ) (schließende Klammer)                            |
+|    $s     |                                    BRaum                                    |
 
-Befehlserweiterungen sind aktiviert, wenn (d. h. Standard) die **Eingabeaufforderung** -Befehl unterstützt die folgenden Formatierungszeichen:  
+Wenn Befehls Erweiterungen aktiviert sind (d. h. der Standardwert), unterstützt der **prompt** -Befehl die folgenden Formatierungszeichen:  
 
 |Zeichen|Beschreibung|
 |---------|-----------|
-|$+|NULL oder mehr Pluszeichen (+) ( **+** ) Zeichen, abhängig von die Tiefe der **Pushd** Directory Stack (ein Zeichen für jede Ebene mithilfe von Push übertragen).|
-|$m|Der Remotename der aktuellen Laufwerkbuchstabe oder eine leere Zeichenfolge zugeordnet, wenn aktuelle Laufwerk nicht auf einem Netzlaufwerk ist.|
+|$+|0 (null) oder mehr **+** Pluszeichen (), abhängig von der Tiefe des **pushd-** Verzeichnis Stapels (ein Zeichen für jede Ebene wird per Push abgelegt).|
+|$m|Der Remote Name, der dem aktuellen Laufwerk Buchstaben oder der leeren Zeichenfolge zugeordnet ist, wenn das aktuelle Laufwerk kein Netzwerklaufwerk ist.|
 
-Wenn Sie enthalten die **$p** Zeichen im Textparameter wird der Datenträger nach der Eingabe jedes Befehls (um zu bestimmen, das aktuelle Laufwerk und Pfad) gelesen. Dies kann zusätzliche Zeit, insbesondere für Diskettenlaufwerke dauern.
+Wenn Sie das **$p** Zeichen in den Text Parameter einschließen, wird der Datenträger gelesen, nachdem Sie jeden Befehl eingegeben haben (um das aktuelle Laufwerk und den Pfad zu bestimmen). Dies kann zusätzliche Zeit in Anspruch nehmen, insbesondere bei Diskettenlaufwerken.
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Um die erste Zeile und dem größer-als-Zeichen in der nächsten Zeile eine zweizeiligen-Eingabeaufforderung mit der aktuellen Uhrzeit und Datum festzulegen, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um eine zweizeilige Eingabeaufforderung mit der aktuellen Uhrzeit und dem aktuellen Datum in der ersten Zeile und dem größer-als-Zeichen in der nächsten Zeile festzulegen:
 ```
 prompt $d$s$s$t$_$g 
 ```
-Die Eingabeaufforderung wird wie folgt geändert, in denen das Datum und Uhrzeit aktuell sind:
+Die Eingabeaufforderung wird wie folgt geändert, wobei Datum und Uhrzeit aktuell sind:
 ```
 Fri 06/01/2007  13:53:28.91
 >
 ```
-Festlegen von der Eingabeaufforderung als ein Pfeil angezeigt (`-->`), Typ:
+Geben Sie Folgendes ein, um die Eingabeaufforderung als Pfeil`-->`() anzuzeigen:
 ```
 prompt --$g
 ```
-Um die Eingabeaufforderung auf die Standardeinstellung (das aktuelle Laufwerk und Pfad durch das größer-als-Zeichen) manuell zu ändern, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um die Eingabeaufforderung manuell in die Standardeinstellung (das aktuelle Laufwerk und den Pfad gefolgt von dem größer-als-Zeichen) zu ändern:
 ```
 prompt $p$g
 ```

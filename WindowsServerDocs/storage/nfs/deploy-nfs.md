@@ -1,6 +1,6 @@
 ---
 title: Network File System bereitstellen
-description: Beschreibt, wie Sie Network File System bereitstellen.
+description: Beschreibt, wie das Netzwerkdatei System bereitgestellt wird.
 ms.prod: windows-server-threshold
 ms.topic: article
 author: JasonGerend
@@ -8,79 +8,79 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 07/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: ab80b6d73a40256d5935635c9afc55b7c53727d3
-ms.sourcegitcommit: 2977c707a299929c6ab0d1e0adab2e1c644b8306
+ms.openlocfilehash: cc02f0a82b4143b80fc1107a63d234b117502d2d
+ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63737823"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68544649"
 ---
 # <a name="deploy-network-file-system"></a>Network File System bereitstellen
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Network File System (NFS) stellt eine dateifreigabelösung mit der Sie die Dateien zwischen PCs unter Windows Server und UNIX-Betriebssystemen, die über das NFS-Protokoll übertragen können. In diesem Thema beschreiben die Schritte, die Sie befolgen sollten, um NFS bereitzustellen.
+Network File System (NFS) stellt eine Dateifreigabe Lösung bereit, mit der Sie Dateien zwischen Computern mit Windows Server-und UNIX-Betriebssystemen mithilfe des NFS-Protokolls übertragen können. In diesem Thema werden die Schritte beschrieben, die Sie zum Bereitstellen von NFS befolgen sollten.
 
-## <a name="whats-new-in-network-file-system"></a>Neuerungen in Network File System
+## <a name="whats-new-in-network-file-system"></a>Neues im Netzwerkdatei System
 
-Hier ist, was für NFS unter Windows Server 2012 geändert wird:
+Hier finden Sie eine Änderung für NFS in Windows Server 2012:
 
-- **Unterstützung für NFS-Version 4.1**. Diese Protokollversion enthält die folgenden Verbesserungen.
-  - Navigieren in Firewalls ist einfacher, optimieren behindertengerechter Software.
-  - Unterstützt die RPCSEC\_GSS-Protokoll, stärker integrierte Sicherheit bereitstellen und ermöglicht Clients und Servern, zum Aushandeln der Sicherheit.
-  - Unterstützt die Semantik für UNIX und Windows-Datei.
-  - Nutzt die Vorteile der Bereitstellung von gruppierten Dateiservern-Server.
-  - WAN-freundlicher zusammengesetzte Prozeduren unterstützt.
+- **Unterstützung für NFS-Version 4,1**. Diese Protokollversion umfasst die folgenden Erweiterungen.
+  - Die Navigation in Firewalls ist einfacher und verbessert die Barrierefreiheit.
+  - Unterstützt das rpcsec\_-GSS-Protokoll, das eine stärkere Sicherheit bietet und Clients und Servern die Aushandlung der Sicherheit ermöglicht.
+  - Unterstützt die Datei Semantik von UNIX und Windows.
+  - Nutzt Cluster Dateiserver-bereit Stellungen.
+  - Unterstützt WAN-freundliche Verbund Prozeduren.
 
-- **NFS-Modul für Windows PowerShell**. Die Verfügbarkeit von integrierten NFS-Cmdlets erleichtert die Automatisierung verschiedener Vorgänge. Die Cmdlet-Namen sind konsistent mit anderen Windows PowerShell-Cmdlets (mit Verben wie "Get" und "Set"), erleichtert Ihnen die für Benutzer mit Windows PowerShell zu erfahren, wie Sie die neuen Cmdlets vertraut sind.
-- **Verbesserungen bei NFS**. Eine neue Konsole für die zentrale Verwaltung der UI-basierten vereinfacht die Konfiguration und Verwaltung von SMB und NFS-Freigaben, Kontingente, dateiprüfungen und Klassifizierung zusätzlich zum Verwalten von gruppierten Dateiservern.
-- **Zuordnen von Verbesserungen der Identität**. Neue Benutzeroberflächenautomatisierungs-Unterstützung und aufgabenbasierte von Microsoft Windows PowerShell-Cmdlets für die Konfiguration der identitätszuordnung, dadurch können Administratoren eine Quelle für identitätszuordnung schnell zu konfigurieren, und erstellen Sie einzelne zugeordnete Identitäten für Benutzer. Verbesserungen erleichtern es Administratoren, die zum Einrichten einer Freigabe für den Multi-Protocol-Zugriff über SMB und NFS.
-- **Cluster-Resource Model Umstrukturierung**. Diese Verbesserung sorgt für Konsistenz zwischen dem Cluster-Resource-Modell für die Windows-NFS und SMB-Protokoll-Server und vereinfacht die Verwaltung. Für die NFS-Servern, die viele Freigaben aufweisen, das Failover im Netzwerk der Ressource und die Anzahl der WMI-Aufrufe, die erforderlich sind, ein Volume enthält, die eine große Anzahl von NFS-Freigaben reduziert werden.
-- **Integration in fortsetzen Schlüssel Manager**. Der fortsetzen-Schlüssel-Manager ist eine Komponente, die verfolgt nach, Dateiserver und Dateisystem und die Windows SMB und NFS-Protokoll-Server für das Failover ohne Unterbrechung der Clients oder serveranwendungen, die ihre Daten auf dem Dateiserver speichern kann. Diese Verbesserung ist eine wichtige Komponente der Funktion fortlaufende Verfügbarkeit des Dateiservers mit Windows Server 2012 ausgeführt wird.
+- **NFS-Modul für Windows PowerShell**. Die Verfügbarkeit integrierter NFS-Cmdlets vereinfacht die Automatisierung verschiedener Vorgänge. Die Cmdlet-Namen sind mit anderen Windows PowerShell-Cmdlets konsistent (Verwendung von Verben wie "Get" und "Set"), sodass Benutzer, die mit Windows PowerShell vertraut sind, die Verwendung neuer Cmdlets erleichtern.
+- **Verbesserungen der NFS-Verwaltung** Eine neue zentralisierte, auf der Benutzeroberfläche basierende Verwaltungskonsole vereinfacht die Konfiguration und Verwaltung von SMB-und NFS-Freigaben, Kontingenten, Datei Bildschirmen und Klassifizierungen sowie das Verwalten von gruppierten Dateiservern.
+- **Verbesserungen der Identitäts Zuordnung**. Neue Benutzeroberflächen Unterstützung und Task basierte Windows PowerShell-Cmdlets zum Konfigurieren der Identitäts Zuordnung, mit deren Hilfe Administratoren schnell eine Identitäts Zuordnungsquelle konfigurieren und dann individuelle zugeordnete Identitäten für Benutzer erstellen können. Durch Verbesserungen können Administratoren auf einfache Weise eine Freigabe für den Zugriff auf mehrere Protokolle über NFS und SMB einrichten.
+- **Umstrukturierung des Cluster Ressourcen Modells**. Diese Verbesserung sorgt für Konsistenz zwischen dem Cluster Ressourcenmodell für die Windows NFS-und SMB-Protokollserver und vereinfacht die Verwaltung. Bei NFS-Servern mit vielen Freigaben wird das Ressourcennetzwerk und die Anzahl der erforderlichen WMI-Aufrufe für ein Volume mit einer großen Anzahl von NFS-Freigaben reduziert.
+- **Integration in den Resume-Schlüssel-Manager**. Der Schlüssel-Manager für fortsetzen ist eine Komponente, die den Dateiserver-und Dateisystem Status nachverfolgt und es den Windows-SMB-und NFS-Protokoll Servern ermöglicht, ein Failover durchführen, ohne dass Clients oder Server Anwendungen, die Ihre Daten auf dem Diese Verbesserung ist eine wichtige Komponente der Funktion für fortlaufende Verfügbarkeit des Dateiservers, auf dem Windows Server 2012 ausgeführt wird.
 
-## <a name="scenarios-for-using-network-file-system"></a>Szenarien für die Verwendung von Network File System
+## <a name="scenarios-for-using-network-file-system"></a>Szenarien für die Verwendung des Netzwerkdatei Systems
 
-NFS unterstützt eine gemischte Umgebung mit Windows-basierten und UNIX-basierten Betriebssystemen. Die folgenden Bereitstellungsszenarien sind Beispiele für wie Sie einen fortlaufend verfügbaren Dateiserver für Windows Server 2012 verwenden Sie stattdessen NFS bereitstellen können.
+NFS unterstützt eine gemischte Umgebung von Windows-basierten und UNIX-basierten Betriebssystemen. In den folgenden Bereitstellungs Szenarien finden Sie Beispiele für die Bereitstellung eines fortlaufend verfügbaren Windows Server 2012-Dateiservers mithilfe von NFS.
 
 ### <a name="provision-file-shares-in-heterogeneous-environments"></a>Bereitstellen von Dateifreigaben in heterogenen Umgebungen
 
-Dieses Szenario gilt für Organisationen mit heterogenen Umgebungen, die von Windows und andere Betriebssysteme, wie z. B. UNIX- oder Linux-basierten Client bestehen aus Computern. In diesem Szenario können Sie über die sowohl von SMB- und NFS-Protokolle Multiprotokoll-Zugriff auf die gleiche Dateifreigabe bereitstellen. Wenn Sie einen Windows-Dateiserver in diesem Szenario bereitstellen, möchten Sie in der Regel zur Erleichterung der Zusammenarbeit zwischen Benutzern auf Windows und UNIX-basierte Computer. Wenn eine Dateifreigabe konfiguriert ist, sie sowohl die SMB- und NFS-Protokolle, für den Zugriff auf ihre Dateien über das SMB-Protokoll, Windows-Benutzer freigegeben ist, und auf UNIX-basierten Computern in der Regel Benutzerzugriff auf ihre Dateien über das NFS-Protokoll.
+Dieses Szenario gilt für Organisationen mit heterogenen Umgebungen, die sowohl aus Windows als auch aus anderen Betriebssystemen bestehen, z. b. UNIX-oder Linux-basierten Client Computern. In diesem Szenario können Sie den Zugriff auf die gleiche Dateifreigabe über das SMB-und NFS-Protokoll auf dieselbe Dateifreigabe gewähren. Wenn Sie in diesem Szenario einen Windows-Dateiserver bereitstellen, möchten Sie in der Regel die Zusammenarbeit zwischen Benutzern auf Windows-und UNIX-basierten Computern vereinfachen. Wenn eine Dateifreigabe konfiguriert ist, wird Sie sowohl für SMB-als auch für NFS-Protokolle freigegeben, wobei Windows-Benutzer über das SMB-Protokoll auf Ihre Dateien zugreifen und Benutzer auf UNIX-basierten Computern in der Regel über das NFS-Protokoll auf Ihre Dateien zugreifen.
 
-In diesem Szenario müssen Sie eine gültige Identität Zuordnungskonfiguration-Quelle verfügen. Windows Server 2012 unterstützt die folgenden Identitätsspeicher für die Zuordnung an:
+Für dieses Szenario benötigen Sie eine gültige Konfiguration der Identitäts Zuordnung. Windows Server 2012 unterstützt die folgenden Identitäts Mapping-Speicher:
 
-- Zuordnungsdatei
+- Mapping-Datei
 - Active Directory-Domänendienste (AD DS)
-- RFC 2307-kompatible LDAP speichert, z. B. Active Directory Lightweight Directory Services (AD LDS)
-- Server des Benutzers-Namen zuordnen (UNM)
+- RFC 2307-kompatible LDAP-Speicher wie z. b. Active Directory Lightweight Directory Services (AD LDS)
+- Benutzernamenzuordnung (unm)-Server
 
-### <a name="provision-file-shares-in-unix-based-environments"></a>Bereitstellen von Dateifreigaben in UNIX-Umgebungen
+### <a name="provision-file-shares-in-unix-based-environments"></a>Bereitstellen von Dateifreigaben in UNIX-basierten Umgebungen
 
-In diesem Szenario werden die Windows-Dateiserver in einer hauptsächlich auf UNIX basierende Umgebung für UNIX-basierten Clientcomputer, auf den Zugriff auf die NFS-Dateifreigaben zu bereitgestellt. Eine Option für nicht zugeordnete UNIX User Access (UUUA) wurde ursprünglich für NFS-Freigaben in Windows Server 2008 R2 implementiert, damit, dass Windows Server können, zum Speichern von NFS-Daten verwendet werden ohne Erstellung von UNIX zu Windows Zuordnung berücksichtigen. UUUA kann Administratoren die schnelle Bereitstellung und Bereitstellen von NFS ohne kontozuordnung konfigurieren zu müssen. Wenn für NFS aktiviert wird, erstellt UUUA benutzerdefinierte Sicherheits-IDs (SIDs), um nicht zugeordnete Benutzer darzustellen. Zugeordnete Benutzerkonten verwenden die standardmäßigen Windows-Sicherheits-IDs (SIDs), und nicht zugeordneten Benutzer verwenden benutzerdefinierte NFS-SIDs.
+In diesem Szenario werden Windows-Dateiserver in einer vorwiegend UNIX-basierten Umgebung bereitgestellt, um den Zugriff auf NFS-Dateifreigaben für UNIX-basierte Client Computer zu ermöglichen. Eine nicht zugeordnete UUUA-Option (Unix User Access) wurde anfänglich für NFS-Freigaben in Windows Server 2008 R2 implementiert, sodass Windows-Server zum Speichern von NFS-Daten ohne Erstellen einer UNIX-zu-Windows-Konto Zuordnung verwendet werden können. Mit UUUA können Administratoren schnell NFS bereitstellen und bereitstellen, ohne die Konto Zuordnung konfigurieren zu müssen. Wenn Sie für NFS aktiviert ist, erstellt UUUA benutzerdefinierte Sicherheits-IDs (SIDs), die nicht zugeordnete Benutzer darstellen. Zugeordnete Benutzerkonten verwenden standardmäßige Windows-Sicherheits-IDs (SIDs), und nicht zugeordnete Benutzer verwenden benutzerdefinierte NFS-SIDs.
 
 ## <a name="system-requirements"></a>Systemanforderungen
 
-Server für NFS kann unter jeder Version von Windows Server 2012 installiert werden. Sie können NFS mit UNIX-basierten Computern verwenden, die ein NFS-Server oder NFS-Client ausgeführt werden, wenn dieser NFS-Server und Client-Implementierungen entsprechen mit einem der folgenden Protokollspezifikationen:
+Server für NFS kann unter jeder Version von Windows Server 2012 installiert werden. Sie können NFS mit UNIX-basierten Computern verwenden, auf denen ein NFS-Server oder ein NFS-Client ausgeführt wird, wenn diese NFS-Server-und Client Implementierungen eine der folgenden Protokoll Spezifikationen erfüllen:
 
-1. NFS-Version 4.1-Protokollspezifikation (gemäß RFC [5661](https://tools.ietf.org/html/rfc5661))
-2. NFS-Version 3-Protokollspezifikation (gemäß RFC [1813](https://tools.ietf.org/html/rfc1813))
-3. NFS Version 2 Protocol Specification (gemäß RFC [1094](https://tools.ietf.org/html/rfc1094))
+1. NFS-Version 4,1-Protokollspezifikation (wie in RFC [5661](https://tools.ietf.org/html/rfc5661)definiert)
+2. NFS, Version 3, Protokollspezifikation (wie in RFC [1813](https://tools.ietf.org/html/rfc1813)definiert)
+3. NFS, Version 2, Protokollspezifikation (wie in RFC [1094](https://tools.ietf.org/html/rfc1094)definiert)
 
-## <a name="deploy-nfs-infrastructure"></a>Bereitstellen der NFS-Infrastruktur
+## <a name="deploy-nfs-infrastructure"></a>NFS-Infrastruktur bereitstellen
 
-Sie müssen die folgenden Computer bereitstellen, und verbinden Sie sie in einem lokalen Netzwerk (LAN):
+Sie müssen die folgenden Computer bereitstellen und die Verbindung mit einem LAN (Local Area Network) herstellen:
 
-- Eine oder mehrere Computer unter Windows Server 2012 auf dem Sie die beiden wichtigsten Dienste für NFS-Komponenten installieren möchten: Server für NFS- und Client für NFS. Sie können diese Komponenten auf demselben Computer oder auf verschiedenen Computern installieren.
-- Eine oder mehrere UNIX-basierten Computern, die NFS-Server und NFS-Client-Software ausgeführt werden. Der UNIX-basierte Computer, der NFS-Server ausgeführt wird, hostet einen NFS-Dateifreigabe oder den Export, das von einem Computer zugegriffen werden kann, auf denen Windows Server 2012 als mit der-Client für NFS-Client ausgeführt wird. Sie können entweder in der gleichen UNIX-basierte Computer oder auf andere UNIX-basierten Computern wie gewünscht NFS-Server und Client-Software installieren.
-- Ein Domänencontroller, auf der Funktionsebene von Windows Server 2008 R2 ausgeführt wird. Der Domänencontroller bietet Informationen zur Benutzerauthentifizierung und -Zuordnungen für die Windows-Umgebung.
-- Wenn ein Domänencontroller nicht bereitgestellt wird, können Sie einen Server (Network Information Service, NIS), um Informationen zur Benutzerauthentifizierung für die UNIX-Umgebung bereitzustellen. Oder, falls gewünscht, können Sie von Kennwörtern und Gruppen-Dateien, die auf dem Computer gespeichert sind, die der User Name Mapping-Dienst ausgeführt wird.
+- Auf einem oder mehreren Computern, auf denen Windows Server 2012 ausgeführt wird, auf dem Sie die beiden Haupt Dienste für NFS-Komponenten installieren: Server für NFS und Client für NFS. Sie können diese Komponenten auf demselben Computer oder auf unterschiedlichen Computern installieren.
+- Mindestens ein UNIX-basierter Computer, auf dem NFS-Server und NFS-Client Software ausgeführt werden. Der UNIX-basierte Computer, auf dem der NFS-Server ausgeführt wird, hostet eine NFS-Dateifreigabe oder einen-Export, auf die von einem Computer mit Windows Server 2012 als Client mit Client für NFS zugegriffen wird. Sie können NFS-Server und-Client Software wie gewünscht entweder auf demselben UNIX-basierten Computer oder auf verschiedenen UNIX-basierten Computern installieren.
+- Ein Domänen Controller, der auf der Windows Server 2008 R2-Funktionsebene ausgeführt wird. Der Domänen Controller stellt Benutzer Authentifizierungsinformationen und die Zuordnung für die Windows-Umgebung bereit.
+- Wenn ein Domänen Controller nicht bereitgestellt wird, können Sie einen Netzwerkinformationsdienst (NIS)-Server verwenden, um Benutzer Authentifizierungsinformationen für die UNIX-Umgebung bereitzustellen. Wenn Sie möchten, können Sie auch Kenn Wort-und Gruppen Dateien verwenden, die auf dem Computer gespeichert sind, auf dem der Benutzernamenzuordnung-Dienst ausgeführt wird.
 
-### <a name="install-network-file-system-on-the-server-with-server-manager"></a>Installieren Sie Network File System, auf dem Server mit Server-Manager
+### <a name="install-network-file-system-on-the-server-with-server-manager"></a>Installieren Sie das Netzwerkdatei System auf dem Server mit Server-Manager
 
 1. Wählen Sie im Assistenten zum Hinzufügen von Rollen und Features unter "Serverrollen" die Option **Datei- und Speicherdienste** , falls diese nicht bereits installiert sind.
-2. Klicken Sie unter **Datei- und iSCSI-Dienste**Option **Dateiserver** und **Server für NFS**. Wählen Sie **Features hinzufügen** ausgewählte NFS-Funktionen einschließen.
-3. Wählen Sie **installieren** auf die NFS-Komponenten auf dem Server zu installieren.
+2. Wählen Sie unter **Datei-und iSCSI-Dienste**die Option **Datei Server** und **Server für NFS aus**. Wählen Sie **Features hinzufügen** aus, um ausgewählte NFS-Features einzubeziehen.
+3. Wählen Sie **Installieren** aus, um die NFS-Komponenten auf dem Server zu installieren.
 
-### <a name="install-network-file-system-on-the-server-with-windows-powershell"></a>Installieren Sie Network File System, auf dem Server mit Windows PowerShell
+### <a name="install-network-file-system-on-the-server-with-windows-powershell"></a>Installieren des Netzwerkdatei Systems auf dem Server mit Windows PowerShell
 
 1. Starten Sie Windows PowerShell. Klicken Sie auf der Taskleiste mit der rechten Maustaste auf das PowerShell-Symbol, und wählen Sie dann **Als Administrator ausführen**.
 2. Führen Sie die folgenden Windows PowerShell-Befehle aus:
@@ -93,43 +93,43 @@ Import-Module NFS
 
 ## <a name="configure-nfs-authentication"></a>Konfigurieren der NFS-Authentifizierung
 
-Wenn Sie die NFS-Version 4.1 und NFS-Version 3.0-Protokolle verwenden, müssen Sie die folgenden Optionen für Authentifizierung und Sicherheit.
+Bei Verwendung der Protokolle NFS, Version 4,1 und NFS, Version 3,0 haben Sie die folgenden Authentifizierungs-und Sicherheitsoptionen.
 
-- RPCSEC\_GSS
-  - **krb5**. Verwendet das Kerberos V5-Protokoll zum Authentifizieren von Benutzern vor dem Gewähren des Zugriffs auf die Dateifreigabe.
-  - **Krb5i**. Kerberos V5-Protokoll verwendet, für die Authentifizierung mit integritätsprüfung (Prüfsummen), die überprüft, ob die Daten nicht geändert wurde.
-  - **Krb5p** verwendet das Kerberos V5-Protokoll, das Authentifizierung von NFS-Datenverkehr mit Verschlüsselung für den Datenschutz.
-- AUTH\_SYS
+- RPCSEC\_-GSS
+  - **krb5**. Verwendet das Kerberos 5-Protokoll, um Benutzer zu authentifizieren, bevor Sie Zugriff auf die Dateifreigabe gewähren.
+  - **Krb5i**. Verwendet das Kerberos 5-Protokoll für die Authentifizierung bei der Integritäts Überprüfung (Prüfsummen), mit der überprüft wird, ob die Daten nicht geändert wurden.
+  - **Krb5p** Verwendet das Kerberos-Protokoll, Version 5, das NFS-Datenverkehr mit Verschlüsselung für den Datenschutz authentifiziert.
+- AUTORISIERUNG\_(SYS)
 
-Sie können auch auswählen, nicht zu Server-Autorisierung verwenden (AUTH\_SYS), die Ihnen die Möglichkeit, die nicht zugeordneten Benutzer den Zugriff zu ermöglichen. Bei Verwendung des Zugriffs von nicht zugeordneten Benutzer können Sie angeben, dass die nicht zugeordneten Benutzer Zugriff per UID / GID, der die Standardeinstellung ist, oder anonymen Zugriff zulassen.
+Sie können auch festlegen, dass die Server Autorisierung (auth\_sys) nicht verwendet werden soll. dadurch haben Sie die Möglichkeit, nicht zugeordneten Benutzer Zugriff zu aktivieren. Bei Verwendung des nicht zugeordneten Benutzer Zugriffs können Sie angeben, dass der Zugriff nicht zugeordneter Benutzer mit UID/GID zulässig ist (Standardeinstellung) oder anonymen Zugriff zulässt.
 
-Anweisungen zum Konfigurieren von NFS-Authentifizierung auf, die in der folgende Abschnitt erläutert wurde.
+Anweisungen zum Konfigurieren der NFS-Authentifizierung, die im folgenden Abschnitt erläutert werden.
 
-## <a name="create-an-nfs-file-share"></a>Erstellen einer Dateifreigabe für NFS
+## <a name="create-an-nfs-file-share"></a>Erstellen einer NFS-Dateifreigabe
 
-Sie können eine NFS-Dateifreigabe mithilfe von Server-Manager oder Windows PowerShell-NFS-Cmdlets erstellen.
+Sie können eine NFS-Dateifreigabe erstellen, indem Sie entweder Server-Manager oder Windows PowerShell-NFS-Cmdlets verwenden.
 
 ### <a name="create-an-nfs-file-share-with-server-manager"></a>Erstellen einer NFS-Dateifreigabe mit Server-Manager
 
 1. Melden Sie sich als Mitglied der lokalen Gruppe %%amp;quot;Administratoren%%amp;quot; beim Server an.
-2. Der Server-Manager wird automatisch gestartet. Wenn sie nicht automatisch gestartet wird, wählen Sie **starten**, Typ **servermanager.exe**, und wählen Sie dann **Server-Manager**.
-3. Wählen Sie auf der linken Seite **Datei- und Speicherdienste**, und wählen Sie dann **Freigaben**.
-4. Wählen Sie **um eine Dateifreigabe zu erstellen, starten Sie den Assistenten für neue Serverfreigaben**.
-5. Auf der **Profil auswählen** Seite, wählen Sie entweder **NFS-Freigabe – schnell** oder **NFS-Freigabe – erweitert**, und wählen Sie dann **Weiter**.
-6. Auf der **Freigabeort** Seite, wählen Sie einen Server und ein Volume aus, und wählen **Weiter**.
-7. Auf der **Freigabename** Seite aus, geben Sie einen Namen für die neue Freigabe, und wählen **Weiter**.
-8. Auf der **Authentifizierung** Seite, geben Sie die Authentifizierungsmethode, die Sie für diese Freigabe verwenden möchten.
-9. Auf der **Empfängern** Seite **hinzufügen**, und geben Sie dann den Host, Clientgruppe oder Netzgruppe, die Sie Berechtigungen für die Freigabe gewähren möchten.
-10. In **Berechtigungen**, konfigurieren Sie den Typ der Zugriffssteuerung, die die Benutzer besitzen, und wählen Sie **OK**.
-11. Auf der **Bestätigung** Seite, überprüfen Sie Ihre Konfiguration, und wählen **erstellen** die NFS-Dateifreigabe zu erstellen.
+2. Der Server-Manager wird automatisch gestartet. Wenn Sie nicht automatisch gestartet wird, wählen Sie **Start**, geben Sie **ServerManager. exe**ein, und wählen Sie dann **Server-Manager**aus.
+3. Wählen Sie auf der linken Seite **Datei-und Speicherdienste**aus, und wählen Sie dann Freigaben **aus.**
+4. Wählen Sie **eine Dateifreigabe aus, und starten Sie den Assistenten für neue**Freigaben.
+5. Wählen Sie auf der Seite **Profil auswählen** entweder **NFS-Freigabe – schnell** oder **NFS-Freigabe-erweitert**aus, und klicken Sie dann auf **weiter**.
+6. Wählen Sie  auf der Seite freigabeort einen Server und ein Volume aus, und klicken Sie auf **weiter**.
+7. Geben Sie auf der Seite **Freigabe Name** einen Namen für die neue Freigabe an, und klicken Sie auf **weiter**.
+8. Geben Sie auf der Seite **Authentifizierung** die Authentifizierungsmethode an, die Sie für diese Freigabe verwenden möchten.
+9. Wählen Sie auf der Seite **Freigabe Berechtigungen** die Option **Hinzufügen**aus, und geben Sie dann den Host, die Clientgruppe oder die Netzwerkgruppe an, der Sie die Berechtigung für die Freigabe erteilen möchten.
+10. Konfigurieren Sie unter **Berechtigungen**den Typ der Zugriffs Steuerung, den die Benutzer haben sollen, und wählen Sie **OK**aus.
+11. Überprüfen Sie die Konfiguration auf der Seite **Bestätigung** , und wählen Sie **Erstellen** aus, um die NFS-Dateifreigabe zu erstellen.
 
 ### <a name="windows-powershell-equivalent-commands"></a>Gleichwertige Windows PowerShell-Befehle
 
-Das folgende Windows PowerShell-Cmdlet kann auch eine NFS-Freigabe-Datei erstellen (wobei `nfs1` ist der Name der Freigabe und `C:\\shares\\nfsfolder` ist der Dateipfad):
+Mit dem folgenden Windows PowerShell-Cmdlet kann auch eine NFS-Dateifreigabe `nfs1` erstellt werden (wobei der Name der `C:\\shares\\nfsfolder` Freigabe und der Dateipfad ist):
 
 ```PowerShell
 New-NfsShare -name nfs1 -Path C:\shares\nfsfolder
 ```
 
 ### <a name="known-issue"></a>Bekanntes Problem
-NFS-Version 4.1 können Sie die Dateinamen werden erstellt oder kopiert haben, verwenden ungültige Zeichen. Wenn Sie versuchen, die Dateien mit vi-Editor zu öffnen, wird als beschädigt angezeigt. Nicht speichern Sie die Datei von vi, umbenannt, verschieben oder Ändern von Berechtigungen. Vermeiden Sie ungültiges Zeichen.
+In der NFS-Version 4,1 können die Dateinamen mit unzulässigen Zeichen erstellt oder kopiert werden. Wenn Sie versuchen, die Dateien mit dem VI-Editor zu öffnen, wird als beschädigt angezeigt. Sie können die Datei nicht aus VI speichern, umbenennen oder verschieben oder Berechtigungen ändern. Vermeiden Sie die Verwendung ungültiger Zeichen.

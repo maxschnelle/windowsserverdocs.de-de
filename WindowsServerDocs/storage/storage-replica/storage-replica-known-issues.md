@@ -8,18 +8,18 @@ ms.topic: get-started-article
 author: nedpyle
 ms.date: 06/25/2019
 ms.assetid: ceddb0fa-e800-42b6-b4c6-c06eb1d4bc55
-ms.openlocfilehash: 7659446f57aaad3827cc722c735a31a5194f30e2
-ms.sourcegitcommit: 545dcfc23a81943e129565d0ad188263092d85f6
+ms.openlocfilehash: ad08d8716819773484fc1d1fbe3cc79dd203c498
+ms.sourcegitcommit: 9f955be34c641b58ae8b3000768caa46ad535d43
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67407623"
+ms.lasthandoff: 07/27/2019
+ms.locfileid: "68590562"
 ---
 # <a name="known-issues-with-storage-replica"></a>Bekannte Probleme mit Speicherreplikaten
 
 >Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (halbjährlicher Kanal)
 
-Dieses Thema beschreibt bekannte Probleme mit der Funktion "Speicherreplikat" in Windows Server.
+In diesem Thema werden bekannte Probleme mit dem Speicher Replikat in Windows Server erörtert.
 
 ## <a name="after-removing-replication-disks-are-offline-and-you-cannot-configure-replication-again"></a>Nach dem Entfernen der Replikation sind Datenträger offline, und Sie können die Replikation nicht erneut konfigurieren
 
@@ -81,7 +81,7 @@ Verwenden Sie das Cmdlet `New-Partition**` anstelle von `New-Volume`, um Volumes
 
 Bei der Verwendung von `Test-SRTopology` wird eine der folgenden Fehlermeldungen angezeigt:  
 
-**FEHLERBEISPIEL 1:**
+**FEHLER BEISPIEL 1:**
 
     WARNING: Invalid value entered for target computer name: sr-srv03. Test-SrTopology cmdlet does not accept IP address as  
     input for target computer name parameter. NetBIOS names and fully qualified domain names are acceptable inputs  
@@ -96,11 +96,11 @@ Bei der Verwendung von `Test-SRTopology` wird eine der folgenden Fehlermeldungen
         + CategoryInfo          : InvalidArgument: (:) [Test-SRTopology], Exception  
         + FullyQualifiedErrorId : TestSRTopologyFailure,Microsoft.FileServices.SR.Powershell.TestSRTopologyCommand  
 
-**FEHLERBEISPIEL 2:**
+**FEHLER BEISPIEL 2:**
 
     WARNING: Invalid value entered for source computer name
 
-**FEHLERBEISPIEL 3:**
+**FEHLER BEISPIEL 3:**
 
     The specified volume cannot be found G: cannot be found on computer SRCLUSTERNODE1
 
@@ -146,7 +146,7 @@ Wenn Sie das MMC-Snap-In „Datenträgerverwaltung“ verwenden, wird diese Fehl
 
 Dies geschieht auch, wenn Sie das Ändern der Größe von Volumes auf dem Quellserver mithilfe von `Set-SRGroup -Name rg01 -AllowVolumeResize $TRUE` korrekt aktivieren. 
 
-Dieses Problem wurde im kumulativen Update für Windows 10, Version 1607 (Anniversary Update) und Windows Server 2016 behoben: Dezember 9 2016 (KB3201845). 
+Dieses Problem wurde im kumulativen Update für Windows 10, Version 1607 (Anniversary Update) und Windows Server 2016 behoben: 9. Dezember 2016 (KB3201845). 
 
 ## <a name="attempting-to-grow-a-replicated-volume-fails-due-to-missing-step"></a>Das Versuch, ein repliziertes Volume zu vergrößern, schlägt aufgrund eines fehlenden Schritts fehl.
 
@@ -155,13 +155,14 @@ Wenn Sie versuchen, die Größe eines replizierten Volumes auf dem Quellserver z
     PS C:\> Resize-Partition -DriveLetter I -Size 8GB
     Resize-Partition : Failed
 
-Aktivitäts-ID: {87aebbd6-4f47-4621-8aa4-5328dfa6c3be} bei Zeile: 1 Char: 1
-    + Resize-Partition - Laufwerkbuchstabe ich – Größe von 8GB
+    Activity ID: {87aebbd6-4f47-4621-8aa4-5328dfa6c3be}
+    At line:1 char:1
+    + Resize-Partition -DriveLetter I -Size 8GB
     + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         + CategoryInfo          : NotSpecified: (StorageWMI:ROOT/Microsoft/.../MSFT_Partition) [Resize-Partition], CimException
         + FullyQualifiedErrorId : StorageWMI 4,Resize-Partition
 
-Storage Replica Event log error 10307:
+    Storage Replica Event log error 10307:
 
     Attempted to resize a partition that is protected by Storage Replica .
 
@@ -175,17 +176,17 @@ Storage Replica Event log error 10307:
 
     Before you grow the source data partition, ensure that the destination data partition has enough space to grow to an equal size. Shrinking of data partition protected by Storage Replica is blocked.
 
-Disk Management Snap-in Error: 
+Fehler beim Snap-In „Datenträgerverwaltung“: 
 
     An unexpected error has occurred 
 
-After resizing the volume, remember to disable resizing with `Set-SRGroup -Name rg01 -AllowVolumeResize $FALSE`. This parameter prevents admins from attempting to resize volumes prior to ensuring that there is sufficient space on the destination volume, typically because they were unaware of Storage Replica's presence. 
+Denken Sie nach dem Ändern der Volumegröße daran, die Größenänderung mit `Set-SRGroup -Name rg01 -AllowVolumeResize $FALSE` zu deaktivieren. Dieser Parameter verhindert, dass Administratoren versuchen, die Volumegrößen zu ändern, bevor sie sichergestellt haben, dass auf dem Zielvolume ausreichend Speicherplatz verfügbar ist, in der Regel weil sie nicht wussten, dass Speicherreplikate vorhanden sind. 
 
-## Attempting to move a PDR resource between sites on an asynchronous stretch cluster fails
+## <a name="attempting-to-move-a-pdr-resource-between-sites-on-an-asynchronous-stretch-cluster-fails"></a>Fehler beim Versuch, eine PDR-Ressource zwischen Standorten in einem asynchronen Stretched Cluster zu verschieben
 
-When attempting to move a physical disk resource-attached role - such as a file server for general use - in order to move the associated storage in an asynchronous stretch cluster, you receive an error.
+Beim Versuch, eine mit einer physischen Datenträgerressource verbundene Rolle (z.B. einen zur allgemeinen Verwendung bestimmten Dateiserver) zu verschieben, um den zugehörigen Speicher in einen asynchronen Stretched Cluster zu verschieben, wird eine Fehlermeldung angezeigt.
 
-If using the Failover Cluster Manager snap-in:
+Bei Verwendung des Failovercluster-Manager-Snap-Ins:
 
     Error
     The operation has failed.
@@ -193,7 +194,7 @@ If using the Failover Cluster Manager snap-in:
     Error Code: 0x80071398
     The operation failed because either the specified cluster node is not the owner of the group, or the node is not a possible owner of the group
 
-If using the Cluster powershell cmdlet:
+Bei Verwendung des PowerShell-Cmdlets „Cluster“:
 
     PS C:\> Move-ClusterGroup -Name sr-fs-006 -Node sr-srv07
     Move-ClusterGroup : An error occurred while moving the clustered role 'sr-fs-006'.
@@ -205,35 +206,35 @@ If using the Cluster powershell cmdlet:
     + CategoryInfo          : NotSpecified: (:) [Move-ClusterGroup], ClusterCmdletException
     + FullyQualifiedErrorId : Move-ClusterGroup,Microsoft.FailoverClusters.PowerShell.MoveClusterGroupCommand
 
-This occurs due to a by-design behavior in Windows Server 2016. Use `Set-SRPartnership` to move these PDR disks in an asynchronous stretched cluster.  
+Die Ursache für das Auftreten ist ein beabsichtigtes Verhalten in Windows Server 2016. Verschieben Sie diese PDR-Datenträger mit `Set-SRPartnership` in einen asynchronen Stretched Cluster.  
 
-This behavior has been changed in Windows Server, version 1709 to allow manual and automated failovers with asynchronous replication, based on customer feedback.
+Dieses Verhalten wurde in Windows Server, Version 1709, geändert, um manuelle und automatisierte Failover mit asynchroner Replikation auf der Grundlage von Kundenfeedback zuzulassen.
 
-## Attempting to add disks to a two-node asymmetric cluster returns "No disks suitable for cluster disks found"
+## <a name="attempting-to-add-disks-to-a-two-node-asymmetric-cluster-returns-no-disks-suitable-for-cluster-disks-found"></a>Beim Versuch, Datenträger zu einem asymmetrischen Cluster mit zwei Knoten hinzuzufügen, wird „Keine geeigneten Datenträger für den Cluster gefunden“ angezeigt
 
-When attempting to provision a cluster with only two nodes, prior to adding Storage Replica stretch replication, you attempt to add the disks in the second site to the Available Disks. You receive the following error:
+Wenn Sie vor dem Hinzufügen einer Speicherreplikat-Stretchreplikation versuchen, einen Cluster mit nur zwei Knoten bereitzustellen, wird versucht, die Datenträger am zweiten Standort zu „Verfügbare Datenträger“ hinzufügen. Sie erhalten die folgende Fehlermeldung:
 
     "No disks suitable for cluster disks found. For diagnostic information about disks available to the cluster, use the Validate a Configuration Wizard to run Storage tests." 
 
-This does not occur if you have at least three nodes in the cluster. This issue occurs because of a by-design code change in Windows Server 2016 for asymmetric storage clustering behaviors. 
+Dieser Fehler tritt nicht auf, wenn im Cluster mindestens drei Knoten vorhanden sind. Dieses Problem tritt aufgrund einer beabsichtigten Codeänderung in Windows Server 2016 für das Clusteringverhalten bei asymmetrischem Speicher auf. 
 
-To add the storage, you can run the following command on the node in the second site:
+Um den Speicher hinzuzufügen, können Sie den folgenden Befehl auf dem Knoten am zweiten Standort ausführen:
 
 `Get-ClusterAvailableDisk -All | Add-ClusterDisk`
 
-This will not work with node local storage. You can use Storage Replica to replicate a stretch cluster between two total nodes, **each one using its own set of shared storage.** 
+Dies funktioniert nicht mit einem lokalen Speicher auf einem Knoten. Können Sie die Speicherreplikatfeature zum Replizieren eines Stretched Clusters zwischen zwei insgesamt Knoten verwenden, **bei dem jeder Knoten seinen eigenen freigegebenen Speicher verwendet.** 
 
-## The SMB Bandwidth limiter fails to throttle Storage Replica bandwidth
+## <a name="the-smb-bandwidth-limiter-fails-to-throttle-storage-replica-bandwidth"></a>SMB-Bandbreiteneinschränkung drosselt die Speicherreplikat-Bandbreite nicht
 
-When specifying a bandwidth limit to Storage Replica, the limit is ignored and full bandwidth used. For example:
+Wenn Sie dem Speicherreplikat eine Bandbreiteneinschränkung hinzufügen, wird das Limit ignoriert und die volle Bandbreite verwendet. Zum Beispiel:
 
 `Set-SmbBandwidthLimit  -Category StorageReplication -BytesPerSecond 32MB`
 
-This issue occurs because of an interoperability issue between Storage Replica and SMB. This issue was first fixed in the July 2017 Cumulative Update of Windows Server 2016 and in Windows Server, version 1709.
+Dieses Problem tritt aufgrund eines Kompatibilitätsproblems zwischen Speicherreplikat und SMB auf. Dieses Problem wurde zuerst im kumulativen Update vom Juli 2017 von Windows Server 2016 und in Windows Server, Version 1709, behoben.
 
-## Event 1241 warning repeated during initial sync
+## <a name="event-1241-warning-repeated-during-initial-sync"></a>Warnung 1241 im Zuge der ersten Synchronisierung wiederholt
 
-When specifying a replication partnership is asynchronous, the source computer repeatedly logs warning event 1241 in the Storage Replica Admin channel. For example:
+Beim Angeben einer asynchronen Replikationspartnerschaft meldet der Quellcomputer Warnung 1241 wiederholt im Speicherreplikatverwaltungs-Kanal. Zum Beispiel:
 
     Log Name:      Microsoft-Windows-StorageReplica/Admin
     Source:        Microsoft-Windows-StorageReplica
@@ -258,15 +259,15 @@ When specifying a replication partnership is asynchronous, the source computer r
 
     Guidance: This is typically due to one of the following reasons: 
 
-The asynchronous destination is currently disconnected. The RPO may become available after the connection is restored.
+Das asynchrone Ziel ist derzeit nicht verbunden. Die RPO ist eventuell verfügbar, nachdem die Verbindung wiederhergestellt wurde.
 
     The asynchronous destination is unable to keep pace with the source such that the most recent destination log record is no longer present in the source log. The destination will start block copying. The RPO should become available after block copying completes.
 
-This is expected behavior during initial sync and can safely be ignored. This behavior may change in a later release. If you see this behavior during ongoing asynchronous replication, investigate the partnership to determine why replication is delayed beyond your configured RPO (30 seconds, by default).
+Dies ist das erwartete Verhalten während der ersten Synchronisierung und kann ignoriert werden. In einer späteren Version wird dieses Verhalten möglicherweise geändert. Wenn dieses Verhalten während der asynchronen Replikation angezeigt wird, überprüfen Sie die Partnerschaft, um zu ermitteln, warum die Replikation von außerhalb der konfigurierten RPO (standardmäßig 30 Sekunden) verzögert wird.
 
-## Event 4004 warning repeated after rebooting a replicated node
+## <a name="event-4004-warning-repeated-after-rebooting-a-replicated-node"></a>Nach dem Neustart eines replizierten Knotens wiederholte Warnung 4004
 
-Under rare and usually unreproducable circumstances, rebooting a server that is in a partnership leads to replication failing and the rebooted node logging warning event 4004 with an access denied error.
+Unter sehr seltenen Umständen, die in der Regel nicht reproduziert werden können, führt ein Neustart des Servers, der in einer Partnerschaft ist zu Replikationsfehlern und der neu gestartete Zielknoten zeigt Warnung 4004 mit einem „Zugriff verweigert”-Fehler an.
 
     Log Name:      Microsoft-Windows-StorageReplica/Admin
     Source:        Microsoft-Windows-StorageReplica
@@ -292,11 +293,11 @@ Under rare and usually unreproducable circumstances, rebooting a server that is 
 
     Guidance: Possible causes include network failures, share creation failures for the remote replication group, or firewall settings. Make sure SMB traffic is allowed and there are no connectivity issues between the local computer and the remote computer. You should expect this event when suspending replication or removing a replication partnership.
 
-Note the `Status: "{Access Denied}"` and the message `A process has requested access to an object, but has not been granted those access rights.` This is a known issue within Storage Replica and was fixed in Quality Update September 12, 2017—KB4038782 (OS Build 14393.1715) https://support.microsoft.com/help/4038782/windows-10-update-kb4038782 
+Beachten Sie, dass es sich bei diesem Problem um ein bekanntes Problem im Speicher Replikat handelt, das in Qualitäts Update vom 12. September 2017 – KB4038782 (OS-Build 14393,1715) korrigiert wurde. `A process has requested access to an object, but has not been granted those access rights.` `Status: "{Access Denied}"`https://support.microsoft.com/help/4038782/windows-10-update-kb4038782 
 
-## Error "Failed to bring the resource 'Cluster Disk x' online." with a stretch cluster
+## <a name="error-failed-to-bring-the-resource-cluster-disk-x-online-with-a-stretch-cluster"></a>Fehler "Die Ressource konnte nicht in den Onlinemodus 'Cluster Disk x' versetzt werden". mithilfe eines Stretched Clusters
 
-When attempting to bring a cluster disk online after a successful failover, where you are attempting to make the original source site primary again, you receive an error in Failover Cluster Manager. For example:
+Wenn Sie versuchen, einen Clusterdatenträger nach einem erfolgreichen Failover in den Onlinemodus zu versetzen, indem Sie die ursprüngliche Quellwebsite erneut als primären Site festlegen möchten, erhalten Sie eine Fehlermeldung im Failovercluster-Manager. Zum Beispiel:
 
     Error
     The operation has failed.
@@ -305,7 +306,7 @@ When attempting to bring a cluster disk online after a successful failover, wher
     Error Code: 0x80071397
     The operation failed because either the specified cluster node is not the owner of the resource, or the node is not a possible owner of the resource.
 
-If you attempt to move the disk or CSV manually, you receive an additional error. For example:
+Wenn Sie versuchen, den Datenträger oder CSV manuell zu verschieben, erhalten Sie eine zusätzliche Fehlermeldung. Zum Beispiel:
 
     Error
     The operation has failed.
@@ -314,13 +315,13 @@ If you attempt to move the disk or CSV manually, you receive an additional error
     Error Code: 0x8007138d
     A cluster node is not available for this operation
 
-This issue is caused by one or more uninitialized disks being attached to one or more cluster nodes. To resolve the issue, initialize all attached storage using DiskMgmt.msc, DISKPART.EXE, or the Initialize-Disk PowerShell cmdlet.
+Dieses Problem wird dadurch verursacht, dass ein oder mehrere nicht initialisierte Datenträger an mindestens einen Cluster Knoten angefügt werden. Um das Problem zu beheben, initialisieren Sie alle Speichermedien mithilfe von „DiskMgmt.msc, DISKPART.EXE” oder des Initialize-Disk PowerShell-Cmdlets.
 
-We are working on providing an update that permanently resolves this issue. If you are interested in assisting us and you have a Microsoft Premier Support agreement, please email SRFEED@microsoft.com so that we can work with you on filing a backport request.
+Wir arbeiten an einem Update, das dieses Problem dauerhaft behebt. Wenn Sie an einer Unterstützung interessiert sind und über einen Microsoft Premier Support-Vertrag verfügen, senden Sie eine E-Mail an SRFEED@microsoft.com, damit wir mit Ihnen an einer Backport-Unterstützung arbeiten können.
 
-## GPT error when attempting to create a new SR partnership
+## <a name="gpt-error-when-attempting-to-create-a-new-sr-partnership"></a>GPT-Fehler beim Versuch, eine neue SR-Partnerschaft zu erstellen
 
-When running New-SRPartnership, it fails with error:
+Wenn eine neue SR-Partnership ausgeführt wird, schlägt diese mit folgender Nachricht fehl:
 
     Disk layout type for volume \\?\Volume{GUID}\ is not a valid GPT style layout.
     New-SRPartnership : Unable to create replication group SRG01, detailed reason: Disk layout type for volume
@@ -332,9 +333,9 @@ When running New-SRPartnership, it fails with error:
     , CimException
     + FullyQualifiedErrorId : Windows System Error 5078,New-SRPartnership
 
-In the Failover Cluster Manager GUI, there is no option to setup Replication for the disk.
+In der grafischen Benutzeroberfläche des Failovercluster-Managers ist keine Option zum Einrichten von Replikationen für das Laufwerk vorhanden.
 
-When running Test-SRTopology, it fails with: 
+Wenn „Test-SRTopology” ausgeführt wird, schlägt diese mit folgender Nachricht fehl: 
 
     WARNING: Object reference not set to an instance of an object.
     WARNING: System.NullReferenceException
@@ -348,46 +349,46 @@ When running Test-SRTopology, it fails with:
     + CategoryInfo : InvalidArgument: (:) [Test-SRTopology], NullReferenceException
     + FullyQualifiedErrorId : TestSRTopologyFailure,Microsoft.FileServices.SR.Powershell.TestSRTopologyCommand 
 
-This is caused by the cluster functional level still being set to Windows Server 2012 R2 (i.e. FL 8). Storage Replica is supposed to return a specific error here but instead returns an incorrect error mapping.
+Dies wird durch die noch auf Windows Server 2012 R2 (d. h. FL 8) festgelegte Cluster-Funktionsebene verursacht. Speicherreplikat sollte einen bestimmten Fehler zurückgeben, gibt jedoch stattdessen einen falschen Verweis auf die standardmäßige Zuordnung zurück.
 
-Run Get-Cluster | fl * on each node.
+Führen Sie Get-Cluster | fl * für jeden Knoten aus.
 
-If ClusterFunctionalLevel = 9, that is the Windows 2016 ClusterFunctionalLevel version needed to implement Storage Replica on this node.
-If ClusterFunctionalLevel is not 9, the ClusterFunctionalLevel will need to be updated in order to implement Storage Replica on this node.
+Wenn ClusterFunctionalLevel = 9 ist, muss die Windows 2016 ClusterFunctionalLevel Version das Speicherreplikat auf diesem Knoten installieren.
+Wenn ClusterFunctionalLevel nicht 9 ist, müssen die ClusterFunctionalLevel aktualisiert werden, um das Speicherreplikat auf diesen Knoten zu implementieren.
 
-To resolve the issue, raise the cluster functional level by running the PowerShell cmdlet: [Update-ClusterFunctionalLevel](https://docs.microsoft.com/powershell/module/failoverclusters/update-clusterfunctionallevel)
+Um das Problem zu beheben, erhöhen Sie die Funktionsebene des Clusters, indem Sie das PowerShell-Cmdlet ausführen: [Update-clusterfunctionallevel](https://docs.microsoft.com/powershell/module/failoverclusters/update-clusterfunctionallevel)
 
-## Small unknown partition listed in DISKMGMT for each replicated volume
+## <a name="small-unknown-partition-listed-in-diskmgmt-for-each-replicated-volume"></a>Kleine unbekannte Partition in DISKMGMT für jedes replizierte Volume aufgeführt
 
-When running the Disk Management snap-in (DISKMGMT.MSC), you notice one or more volumes listed with no label or drive letter and 1MB in size. You may be able to delete the unknown volume or you may receive:
+Beim Ausführen des Snap-Ins „Datenträgerverwaltung“ (DISKMGMT.MSC) bemerken Sie, dass mindestens ein Volume ohne Bezeichnung oder Laufwerkbuchstabe und mit einer Größe von 1 MB aufgeführt ist. Unter Umständen können Sie das unbekannte Volume löschen, oder Sie erhalten Folgendes:
 
     "An Unexpected Error has Occurred"  
 
-This behavior is by design. This not a volume, but a partition. Storage Replica creates a 512KB partition as a database slot for replication operations (the legacy DiskMgmt.msc tool rounds to the nearest MB). Having a partition like this for each replicated volume is normal and desirable. When no longer in use, you are free to delete this 512KB partition; in-use ones cannot be deleted. The partition will never grow or shrink. If you are recreating replication we recommend leaving the partition as Storage Replica will claim unused ones.
+Dieses Verhalten ist entwurfsbedingt. Dies ist kein Volume, sondern eine Partition. Das Speicherreplikat erstellt eine Partition mit 512 KB als Datenbankslot für Replikationsvorgänge (das Legacytool „DiskMgmt.msc“ rundet auf den nächsten MB-Wert auf). Die Nutzung einer Partition für jedes replizierte Volume ist normal und wünschenswert. Wenn sie nicht mehr verwendet wird, können Sie diese Partition mit 512 KB löschen. Sie können keine Partitionen löschen, die noch verwendet werden. Die Partition vergrößert oder verkleinert sich nicht. Beim Neuerstellen einer Replikation empfehlen wir Ihnen, die Partition beizubehalten, da nicht verwendete Partitionen vom Speicherreplikat beansprucht werden.
 
-To view details, use the DISKPART tool or Get-Partition cmdlet. These partitions will have a GPT Type of `558d43c5-a1ac-43c0-aac8-d1472b2923d1`.
+Verwenden Sie zum Anzeigen der Details das DISKPART-Tool oder das Get-Partition-Cmdlet. Diese Partitionen müssen den GPT-Typ `558d43c5-a1ac-43c0-aac8-d1472b2923d1` aufweisen.
 
-## A Storage Replica node hangs when creating snapshots
+## <a name="a-storage-replica-node-hangs-when-creating-snapshots"></a>Beim Erstellen von Momentaufnahmen hängt ein Speicher Replikat Knoten
 
-When creating a VSS snapshot (through backup, VSSADMIN, etc) a Storage Replica node hangs, and you must force a restart of the node to recover. There is no error, just a hard hang of the server.
+Beim Erstellen einer VSS-Momentaufnahme (durch Sicherung, vssadmin usw.) ist ein Speicher Replikat Knoten nicht mehr vorhanden, und Sie müssen einen Neustart des Knotens erzwingen, um ihn wiederherzustellen. Es gibt keinen Fehler, sondern nur einen festen Absturz des Servers.
 
-This issue occurs when you create a VSS snapshot of the log volume. The underlying cause is a legacy design aspect of VSS, not Storage Replica. The resulting behavior when you snapshot the Storage Replica log volume is a VSS I/O queing mechanism deadlocks the server.
+Dieses Problem tritt auf, wenn Sie eine VSS-Momentaufnahme des Protokoll Volumes erstellen. Die zugrunde liegende Ursache ist ein Legacy Design Aspekt von VSS, nicht Speicher Replikat. Das resultierende Verhalten beim Erstellen einer Momentaufnahme des Speicher Replikat Protokoll Volumes ist ein VSS-e/a-Abfrage Mechanismus, der den Server Deadlocks blockiert.
 
-To prevent this behavior, do not snapshot Storage Replica log volumes. There is no need to snapshot Storage Replica log volumes, as these logs cannot be restored. Furthermore, the log volume should never contain any other workloads, so no snapshot is needed in general.
+Um dieses Verhalten zu verhindern, erstellen Sie keine Momentaufnahme Speicher Replikat Protokollvolumes. Es ist nicht erforderlich, Speicher Replikat-Protokoll Volumes zu erstellen, da diese Protokolle nicht wieder hergestellt werden können. Außerdem sollte das Protokoll Volume nie andere Workloads enthalten, daher ist im Allgemeinen keine Momentaufnahme erforderlich.
 
-## High IO latency increase when using Storage Spaces Direct with Storage Replica
+## <a name="high-io-latency-increase-when-using-storage-spaces-direct-with-storage-replica"></a>Erhöhung der e/a-Latenz bei Verwendung direkte Speicherplätze mit Speicher Replikat
 
-When using Storage Spaces Direct with an NVME or SSD cache, you see a greater than expected increase in latency when configuring Storage Replica replication between Storage Spaces Direct clusters. The change in latency is proportionally much higher than you see when using NVME and SSD in a performance + capacity configuration and no HDD tier nor capacity tier.
+Wenn Sie direkte Speicherplätze mit einem nvme-oder SSD-Cache verwenden, wird bei der Konfiguration der Speicher Replikat Replikation zwischen direkte Speicherplätze Clustern eine höhere Latenz als erwartet angezeigt. Die Änderung der Latenz ist proportional sehr viel höher als bei der Verwendung von nvme und SSD in einer Leistungs-und Kapazitäts Konfiguration und ohne HDD-Ebene und Kapazitäts Ebene.
 
-This issue occurs due to architectural limitations within Storage Replica's log mechanism combined with the extremely low latency of NVME when compared to slower media. When using the Storage Spaces Direct cache, all I/O of Storage Replica logs, along with all recent read/write IO of applications, will occur in the cache and never on the performance or capacity tiers. This means that all Storage Replica activity happens on the same speed media - this configuration is supported but not recommended (see https://aka.ms/srfaq for log recommendations). 
+Dieses Problem tritt aufgrund von architektonischen Einschränkungen im Protokoll Mechanismus des Speicher Replikats in Kombination mit der extrem niedrigen Latenz von nvme im Vergleich zu langsameren Medien auf. Bei Verwendung des direkte Speicherplätze Caches werden alle e/a-Vorgänge von Speicher Replikat Protokollen zusammen mit allen aktuellen Lese-/Schreib-e/a-Vorgängen im Cache und nie auf den Leistungs-oder Kapazitäts Ebenen ausgeführt. Dies bedeutet, dass alle Speicher Replikat Aktivitäten auf der gleichen Geschwindigkeit erfolgen. diese Konfiguration wird zwar unterstützt, https://aka.ms/srfaq wird jedoch nicht empfohlen (Weitere Informationen finden Sie unter für Protokoll Empfehlungen). 
 
-When using Storage Spaces Direct with HDDs, you cannot disable or avoid the cache. As a workaround, if using just SSD and NVME, you can configure just performance and capacity tiers. If using that configuration, and by placing the SR logs on the performance tier only with the data volumes they service being on the capacity tier only, you will avoid the high latency issue described above. The same could be done with a mix of faster and slower SSDs and no NVME.
+Wenn Sie direkte Speicherplätze mit HDDs verwenden, ist es nicht möglich, den Cache zu deaktivieren oder zu vermeiden. Um dieses Problem zu umgehen, können Sie, wenn Sie nur SSD und nvme verwenden, nur die Leistungs-und Kapazitäts Ebenen konfigurieren. Wenn Sie diese Konfiguration verwenden und die SR-Protokolle nur mit den Datenvolumes, auf denen Sie sich auf der Kapazitäts Ebene befinden, auf der Leistungs Ebene platzieren, vermeiden Sie das oben beschriebene Problem mit hoher Latenz. Dies kann mit einer Mischung aus schnelleren und langsameren SSDs und ohne nvme erfolgen.
 
-This workaround is of course not ideal and some customers may not be able to make use of it. The Storage Replica team is working on optimizations and an updated log mechanism for the future to reduce these artificial bottlenecks. This v1.1 log first became available in Windows Server 2019 and its improved performance is described in on the [Server Storage Blog](https://blogs.technet.microsoft.com/filecab/2018/12/13/chelsio-rdma-and-storage-replica-perf-on-windows-server-2019-are-💯/).
+Diese Problem Umgehung ist natürlich nicht ideal, und einige Kunden sind möglicherweise nicht in der Lage, Sie zu nutzen. Das Speicher Replikat Team arbeitet an Optimierungen und einem aktualisierten Protokoll Mechanismus für die Zukunft, um diese künstlichen Engpässe zu verringern. Dieses v 1.1-Protokoll wurde zunächst in Windows Server 2019 verfügbar, und die verbesserte Leistung wird im [Server Storage-Blog](https://blogs.technet.microsoft.com/filecab/2018/12/13/chelsio-rdma-and-storage-replica-perf-on-windows-server-2019-are-💯/)beschrieben.
 
-## Error "Could not find file" when running Test-SRTopology between two clusters
+## <a name="error-could-not-find-file-when-running-test-srtopology-between-two-clusters"></a>Fehler "Datei konnte nicht gefunden werden" beim Ausführen von "Test-srtopology" zwischen zwei Clustern
 
-When running Test-SRTopology between two clusters and their CSV paths, it fails with error: 
+Wenn Sie Test-srtopology zwischen zwei Clustern und ihren CSV-Pfaden ausführen, tritt ein Fehler mit dem folgenden Fehler auf: 
 
     PS C:\Windows\system32> Test-SRTopology -SourceComputerName NedClusterA -SourceVolumeName C:\ClusterStorage\Volume1 -SourceLogVolumeName L: -DestinationComputerName NedClusterB -DestinationVolumeName C:\ClusterStorage\Volume1 -DestinationLogVolumeName L: -DurationInMinutes 1 -ResultPath C:\Temp
 
@@ -410,11 +411,11 @@ When running Test-SRTopology between two clusters and their CSV paths, it fails 
     + CategoryInfo          : ObjectNotFound: (:) [Test-SRTopology], FileNotFoundException
     + FullyQualifiedErrorId : TestSRTopologyFailure,Microsoft.FileServices.SR.Powershell.TestSRTopologyCommand 
 
-This is caused by a known code defect in Windows Server 2016. This issue was first fixed in Windows Server, version 1709 and the associated RSAT tools. For a downlevel resolution, please contact Microsoft Support and request a backport update. There is no workaround.
+Dies wird durch einen bekannten Code Fehler in Windows Server 2016 verursacht. Dieses Problem wurde zunächst in Windows Server, Version 1709 und den zugehörigen RSAT-Tools behoben. Wenden Sie sich für eine downlevelauflösung an Microsoft-Support, und fordern Sie eine backportaktualisierung an. Es gibt keine Problemumgehung.
 
-## Error "specified volume could not be found" when running Test-SRTopology between two clusters
+## <a name="error-specified-volume-could-not-be-found-when-running-test-srtopology-between-two-clusters"></a>Fehler "das angegebene Volume wurde nicht gefunden" beim Ausführen von "Test-srtopology" zwischen zwei Clustern
 
-When running Test-SRTopology between two clusters and their CSV paths, it fails with error:
+Wenn Sie Test-srtopology zwischen zwei Clustern und ihren CSV-Pfaden ausführen, tritt ein Fehler mit dem folgenden Fehler auf:
 
     PS C:\> Test-SRTopology -SourceComputerName RRN44-14-09 -SourceVolumeName C:\ClusterStorage\Volume1 -SourceLogVolumeName L: -DestinationComputerName RRN44-14-13 -DestinationVolumeName C:\ClusterStorage\Volume1 -DestinationLogVolumeName L: -DurationInMinutes 30 -ResultPath c:\report
 
@@ -425,23 +426,23 @@ When running Test-SRTopology between two clusters and their CSV paths, it fails 
         + CategoryInfo          : ObjectNotFound: (:) [Test-SRTopology], Exception
         + FullyQualifiedErrorId : TestSRTopologyFailure,Microsoft.FileServices.SR.Powershell.TestSRTopologyCommand
 
-When specifying the source node CSV as the source volume, you must select the node that owns the CSV. You can either move the CSV to the specified node or change the node name you specified in `-SourceComputerName`. This error received an improved message in Windows Server 2019.
+Wenn Sie das Quellknoten-CSV als Quell Volume angeben, müssen Sie den Knoten auswählen, der das CSV besitzt. Sie können das CSV entweder auf den angegebenen Knoten verschieben oder den Namen des Knotens ändern, `-SourceComputerName`den Sie in angegeben haben. Dieser Fehler hat eine verbesserte Nachricht in Windows Server 2019 erhalten.
 
-## Unable to access the data drive in Storage Replica after unexpected reboot when BitLocker is enabled
+## <a name="unable-to-access-the-data-drive-in-storage-replica-after-unexpected-reboot-when-bitlocker-is-enabled"></a>Auf das Daten Laufwerk im Speicher Replikat kann nach unerwartetem Neustart nicht zugegriffen werden, wenn BitLocker aktiviert ist.
 
-If BitLocker is enabled on both drives (Log Drive and Data Drive) and in both Storage replica drives, if the Primary Server reboots then you are unable to access the Primary Drive even after unlocking the Log Drive from BitLocker.
+Wenn BitLocker auf beiden Laufwerken (Protokoll Laufwerk und Daten Laufwerk) und auf beiden Speicher Replikat Laufwerken aktiviert ist, können Sie, wenn der primäre Server neu gestartet wird, nicht auf das primäre Laufwerk zugreifen, auch nachdem das Protokoll Laufwerk aus BitLocker entsperrt wurde.
 
-This is an expected behavior. To recover the data or access the drive, you need to unlock the log drive first and then open Diskmgmt.msc to locate the data drive. Turn the data drive offline and online again. Locate the BitLocker icon on the drive and unlock the drive.
+Dies ist ein erwartetes Verhalten. Zum Wiederherstellen der Daten oder zum Zugreifen auf das Laufwerk müssen Sie zuerst das Protokoll Laufwerk entsperren und dann "diskmgmt. msc" öffnen, um das Daten Laufwerk zu suchen. Schalten Sie das Daten Laufwerk offline und online. Suchen Sie auf dem Laufwerk das BitLocker-Symbol, und Entsperren Sie das Laufwerk.
 
-## Issue unlocking the Data drive on secondary server after breaking the Storage Replica partnership
+## <a name="issue-unlocking-the-data-drive-on-secondary-server-after-breaking-the-storage-replica-partnership"></a>Problem beim Entsperren des Daten Laufwerks auf dem sekundären Server, nachdem die Speicher Replikat Partnerschaft
 
-After Disabling the SR Partnership and removing the Storage Replica, it is expected if you are unable to unlock the Secondary Server’s Data drive with its respective password or key. 
+Nachdem Sie die SR-Partnerschaft deaktiviert und das Speicher Replikat entfernt haben, wird Sie erwartet, wenn Sie das Daten Laufwerk des sekundären Servers nicht mit dem entsprechenden Kennwort oder Schlüssel entsperren können. 
 
-You need to use Key or Password of Primary Server’s Data drive to unlock the Secondary Server’s data drive.
+Zum Entsperren des Daten Laufwerks des sekundären Servers müssen Sie den Schlüssel oder das Kennwort des Daten Laufwerks des primären Servers verwenden.
 
-## Test Failover doesn't mount when using asynchronous replication
+## <a name="test-failover-doesnt-mount-when-using-asynchronous-replication"></a>Das Test Failover wird bei Verwendung der asynchronen Replikation nicht ausgeführt.
 
-When running Mount-SRDestination to bring a destination volume online as part of the Test Failover feature, it fails with error:
+Wenn Sie "Mount-srdestination" ausführen, um ein Ziel Volume als Teil des Test Failover online zu schalten, tritt ein Fehler mit dem folgenden Fehler auf:
 
     Mount-SRDestination: Unable to mount SR group <TEST>, detailed reason: The group or resource is not in the correct state to perform the supported operation.
     At line:1 char:1
@@ -450,15 +451,15 @@ When running Mount-SRDestination to bring a destination volume online as part of
         + CategoryInfo          : NotSpecified: (MSFT WvrAdminTasks : root/Microsoft/...(MSFT WvrAdminTasks : root/Microsoft/. T_WvrAdminTasks) (Mount-SRDestination], CimException
         + FullyQua1ifiedErrorId : Windows System Error 5823, Mount-SRDestination.  
 
-If using a synchronous partnership type, test failover works normally.
+Wenn Sie einen synchronen partnerschaftentyp verwenden, funktioniert das Test Failover normal.
 
-This is caused by a known code defect in Windows Server, version 1709. To resolve this issue, install the [October 18, 2018 update](https://support.microsoft.com/help/4462932/windows-10-update-kb4462932). This issue isn't present in Windows Server 2019 and Windows Server, version 1809 and newer.
+Dies wird durch einen bekannten Code Fehler in Windows Server, Version 1709, verursacht. Um dieses Problem zu beheben, installieren Sie das [Update vom 18. Oktober 2018](https://support.microsoft.com/help/4462932/windows-10-update-kb4462932). Dieses Problem ist in Windows Server 2019 und Windows Server, Version 1809 und höher, nicht enthalten.
 
-## See also
+## <a name="see-also"></a>Siehe auch
 
-- [Storage Replica](storage-replica-overview.md)  
-- [Stretch Cluster Replication Using Shared Storage](stretch-cluster-replication-using-shared-storage.md)  
-- [Server to Server Storage Replication](server-to-server-storage-replication.md)  
-- [Cluster to Cluster Storage Replication](cluster-to-cluster-storage-replication.md)  
-- [Storage Replica: Frequently Asked Questions](storage-replica-frequently-asked-questions.md)  
-- [Storage Spaces Direct](../storage-spaces/storage-spaces-direct-overview.md)  
+- [Speicherreplikat](storage-replica-overview.md)  
+- [Stretch-Cluster Replikation mit frei gegebenem Speicher](stretch-cluster-replication-using-shared-storage.md)  
+- [Replikation von Server zu Server Speicher](server-to-server-storage-replication.md)  
+- [Cluster-zu-Cluster Speicher Replikation](cluster-to-cluster-storage-replication.md)  
+- [Speicherreplikat: Häufig gestellte Fragen](storage-replica-frequently-asked-questions.md)  
+- [Direkte Speicherplätze](../storage-spaces/storage-spaces-direct-overview.md)  

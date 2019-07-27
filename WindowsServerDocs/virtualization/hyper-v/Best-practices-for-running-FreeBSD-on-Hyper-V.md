@@ -1,6 +1,6 @@
 ---
-title: Bewährte Methoden für die Ausführung von FreeBSD in Hyper-V
-description: Enthält Empfehlungen für die Ausführung von FreeBSD auf virtuellen Computern
+title: Bewährte Methoden für die Ausführung von FreeBSD unter Hyper-V
+description: Bietet Empfehlungen zum Ausführen von FreeBSD auf virtuellen Computern.
 ms.prod: windows-server-threshold
 ms.service: na
 manager: dongill
@@ -11,45 +11,45 @@ ms.assetid: 0c66f1c8-2606-43a3-b4cc-166acaaf2d2a
 author: shirgall
 ms.author: kathydav
 ms.date: 01/09/2017
-ms.openlocfilehash: 6320ceb86093146592a54ab34b013f334f43ddb4
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 598087411b35dde2e4a1cb606fae6a4602fe588e
+ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66447775"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68544688"
 ---
-# <a name="best-practices-for-running-freebsd-on-hyper-v"></a>Bewährte Methoden für die Ausführung von FreeBSD in Hyper-V
+# <a name="best-practices-for-running-freebsd-on-hyper-v"></a>Bewährte Methoden für die Ausführung von FreeBSD unter Hyper-V
 
->Gilt für: Windows Server 2016 Hyper-V Server 2016, Windows Server 2012 R2, Hyper-V Server 2012 R2, Windows Server 2012 Hyper-V Server 2012, Windows Server 2008 R2, Windows 10, Windows 8.1, Windows 8, Windows 7.1, Windows 7
+>Gilt für: Windows Server 2019, Windows Server 2016, Hyper-v Server 2016, Windows Server 2012 R2, Hyper-v Server 2012 R2, Windows Server 2012, Hyper-v Server 2012, Windows Server 2008 R2, Windows 10, Windows 8.1, Windows 8, Windows 7,1, Windows 7
 
-Dieses Thema enthält eine Liste der Empfehlungen für die Ausführung von FreeBSD als Gast-Betriebssystem auf einem virtuellen Hyper-V-Computer.
+Dieses Thema enthält eine Liste der Empfehlungen zum Ausführen von FreeBSD als Gast Betriebssystem auf einem virtuellen Hyper-V-Computer.
 
-## <a name="enable-carp-in-freebsd-102-on-hyper-v"></a>Aktivieren Sie CARP in FreeBSD 10.2 auf Hyper-V
+## <a name="enable-carp-in-freebsd-102-on-hyper-v"></a>Aktivieren von Karpfen in FreeBSD 10,2 unter Hyper-V
 
-Das allgemeine Adresse Redundanz Protokoll (CARP) ermöglicht mehrere Hosts, die IP-Adresse freizugeben und virtuellen Host-ID (VHID) können Sie hohe Verfügbarkeit für einen oder mehrere Dienste bereitstellen. Wenn Sie einen oder mehrere Hosts ein Fehler auftritt, haben die anderen Hosts transparent, damit Benutzer ein Dienstfehlers nicht bemerken. Folgen Sie den Anweisungen, um CARP in FreeBSD 10.2 verwenden zu können, die [FreeBSD Handbuch](https://www.freebsd.org/doc/en/books/handbook/carp.html) und gehen Sie im Hyper-V-Manager.
+Das Common Address Redundanz-Protokoll (CARP) ermöglicht es mehreren Hosts, dieselbe IP-Adresse und virtuelle Host-ID (vhid) zu verwenden, um eine hohe Verfügbarkeit für einen oder mehrere Dienste zu gewährleisten. Wenn mindestens ein Host ausfällt, übernehmen die anderen Hosts transparent, sodass Benutzer keinen Dienst Fehler bemerken. Um Karpfen in FreeBSD 10,2 zu verwenden, befolgen Sie die Anweisungen im [FreeBSD-Handbuch](https://www.freebsd.org/doc/en/books/handbook/carp.html) , und führen Sie im Hyper-V-Manager die folgenden Schritte aus.
 
-* Überprüfen Sie die virtuelle Maschine verfügt über einen Netzwerkadapter, und es wurde einen virtuellen Switch zugewiesen. Wählen Sie den virtuellen Computer und **Aktionen** > **Einstellungen**.
+* Vergewissern Sie sich, dass der virtuelle Computer über einen Netzwerk Adapter verfügt und ihm ein virtueller Switch zugewiesen ist. Wählen Sie den virtuellen Computer aus, und wählen Sie **Aktions** > **Einstellungen**.
 
-![Screenshot der Einstellungen des virtuellen Computers mit Netzwerkadapter ausgewählt](media/Hyper-V_Settings_NetworkAdapter.png)
+![Screenshot der Einstellungen für virtuelle Computer mit ausgewähltem Netzwerkadapter](media/Hyper-V_Settings_NetworkAdapter.png)
 
-* MAC-adressspoofing zu aktivieren. Zu diesem Zweck
+* Spoofing von Mac-Adressen aktivieren. Gehen Sie hierzu wie folgt vor:
 
-   1. Wählen Sie den virtuellen Computer und **Aktionen** > **Einstellungen**.
+   1. Wählen Sie den virtuellen Computer aus, und wählen Sie **Aktions** > **Einstellungen**.
 
-   2. Erweitern Sie **Netzwerkadapter** , und wählen Sie **erweiterte Features**.
+   2. Erweitern Sie **Netzwerk Adapter** , und wählen Sie **Erweiterte Features**aus.
 
-   3. Wählen Sie **spoofing von MAC-Adresse aktivieren**.
+   3. Wählen Sie **Spoofing von Mac-Adressen aktivieren**aus.
 
-## <a name="create-labels-for-disk-devices"></a>Erstellen von Bezeichnungen für Datenträger
+## <a name="create-labels-for-disk-devices"></a>Erstellen von Bezeichnungen für Datenträger Geräte
 
-Während des Starts werden die Geräteknoten erstellt, wenn neue Geräte ermittelt werden. Dies kann bedeuten, dass Gerätenamen ändern können, wenn neue Geräte hinzugefügt werden. Wenn Sie ein ROOT-bereitstellen-Fehler während des Starts erhalten, sollten Sie Bezeichnungen für jede Partition IDE zur Vermeidung von Konflikten und Änderungen erstellen. Informationen dazu finden Sie unter [Datenträgergeräte Bezeichnung](https://www.freebsd.org/doc/handbook/geom-glabel.html). Im folgenden sind Beispiele. 
+Während des Starts werden Geräteknoten erstellt, wenn neue Geräte erkannt werden. Dies kann bedeuten, dass sich Gerätenamen ändern können, wenn neue Geräte hinzugefügt werden. Wenn beim Starten ein Fehler bei der Stamm einreihe auftritt, sollten Sie für jede IDE-Partition Bezeichnungen erstellen, um Konflikte und Änderungen zu vermeiden. Informationen zur Vorgehensweise finden Sie unter bezeichnen von Datenträger [Geräten](https://www.freebsd.org/doc/handbook/geom-glabel.html). Im folgenden finden Sie Beispiele. 
 
 > [!IMPORTANT]
-> Stellen Sie eine Sicherungskopie Ihrer Fstab, bevor Sie Änderungen vornehmen.
+> Erstellen Sie vor dem vornehmen von Änderungen eine Sicherungskopie Ihrer Datei.
 
-1. Starten Sie das System im Einzelbenutzermodus neu. Dies kann erreicht werden, durch Auswahl von Start-Menüoption 2 für FreeBSD 10.3 und höher (option 4 für FreeBSD 8.x), oder das Ausführen einer "Start -s" über die Eingabeaufforderung starten.
+1. Starten Sie das System im Einzelbenutzermodus neu. Wählen Sie hierzu die Option Start Menüoption 2 für FreeBSD 10.3 + (Option 4 für FreeBSD 8. x) aus, oder führen Sie in der Eingabeaufforderung "Boot-s" aus.
 
-2. Erstellen Sie im Einzelbenutzermodus GEOM Bezeichnungen für jede von der IDE-Datenträgerpartitionen, die in Ihrer Fstab (Stamm und Swap) aufgeführt. Im folgenden finden Sie ein Beispiel für FreeBSD 10.3.
+2. Erstellen Sie im Einzelbenutzermodus Geom-Bezeichnungen für jede der IDE-Datenträger Partitionen, die in Ihrem fstab (sowohl root als auch Swap) aufgelistet sind. Im folgenden finden Sie ein Beispiel für FreeBSD 10,3.
 
    ```bash
    # cat  /etc/fstab
@@ -62,9 +62,9 @@ Während des Starts werden die Geräteknoten erstellt, wenn neue Geräte ermitte
    # exit
    ```
 
-   Weitere Informationen zu GEOM Bezeichnungen finden Sie unter: [Bezeichnung Datenträgergeräte](https://www.freebsd.org/doc/handbook/geom-glabel.html).
+   Weitere Informationen zu Geom-Bezeichnungen finden Sie unter: [Bezeichnen](https://www.freebsd.org/doc/handbook/geom-glabel.html)von Datenträger Geräten.
 
-3. Das System fortsetzen mit mehreren Benutzern Start. Nach Abschluss der Start bearbeiten Sie/etc/fstab zu, und Ersetzen Sie die herkömmliche Gerätenamen, mit ihren jeweiligen Bezeichnungen aus. Die endgültige/etc/fstab wird wie folgt aussehen:
+3. Das System wird mit dem multibenutzerstart fortgesetzt. Nachdem der Startvorgang abgeschlossen ist, bearbeiten Sie "/etc/fstab", und ersetzen Sie die herkömmlichen Gerätenamen durch die jeweiligen Bezeichnungen. Der endgültige "/etc/fstab" sieht wie folgt aus:
 
    ```
    # Device                Mountpoint      FStype  Options         Dump    Pass#
@@ -72,7 +72,7 @@ Während des Starts werden die Geräteknoten erstellt, wenn neue Geräte ermitte
    /dev/label/swap         none            swap    sw              0       0
    ```
 
-4. Das System kann jetzt neu gestartet werden. Wenn gut Lief, wieder normal angezeigt wird, und Bereitstellung werden angezeigt:
+4. Das System kann jetzt neu gestartet werden. Wenn alles gut funktioniert, wird es normal angezeigt, und die einreihe zeigt Folgendes an:
 
    ```
    # mount
@@ -80,9 +80,9 @@ Während des Starts werden die Geräteknoten erstellt, wenn neue Geräte ermitte
    devfs on /dev (devfs, local, mutilabel)
    ```
 
-## <a name="use-a-wireless-network-adapter-as-the-virtual-switch"></a>Verwenden Sie einen Drahtlosnetzwerkadapter als dem virtuellen switch
+## <a name="use-a-wireless-network-adapter-as-the-virtual-switch"></a>Verwenden eines drahtlos Netzwerkadapters als virtuellen Switch
 
-Wenn der virtuelle Switch auf dem Host für den Adapter für funktnetzwerke basiert, reduzieren Sie die ARP-Ablaufzeit auf 60 Sekunden, mit dem folgenden Befehl. Andernfalls kann das Netzwerk des virtuellen Computers nach einer Weile mehr.
+Wenn der virtuelle Switch auf dem Host auf dem Drahtlos Netzwerkadapter basiert, verringern Sie die ARP-Ablaufzeit mit dem folgenden Befehl auf 60 Sekunden. Andernfalls kann das Netzwerk der VM nach einer Weile nicht mehr funktionieren.
 
 
 ```
@@ -92,4 +92,4 @@ Wenn der virtuelle Switch auf dem Host für den Adapter für funktnetzwerke basi
 
 Siehe auch
 
-* [Unterstützte FreeBSD-Maschinen in Hyper-V](Supported-FreeBSD-virtual-machines-on-Hyper-V.md)
+* [Unterstützte virtuelle FreeBSD-Maschinen auf Hyper-V](Supported-FreeBSD-virtual-machines-on-Hyper-V.md)

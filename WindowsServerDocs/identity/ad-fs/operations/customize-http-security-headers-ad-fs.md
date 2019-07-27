@@ -1,6 +1,6 @@
 ---
-title: Anpassen des HTTP-Antwort-Sicherheitsheader mit AD FS
-description: Dieses Dokument Descirbes Security-Header zum Schutz vor Sicherheitsrisiken anpassen.
+title: Anpassen von http-Sicherheits Antwort Headern mit AD FS
+description: In diesem Dokument wird beschrieben, wie Sicherheits Header angepasst werden, um Schutz vor Sicherheitsrisiken zu schützen.
 author: billmath
 ms.author: billmath
 manager: daveba
@@ -9,54 +9,57 @@ ms.date: 02/19/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 231c8783032f51f607565922d90ea7f7eb877cfd
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 3c497cbafb8f9313f988a1b892d2b8fef68115eb
+ms.sourcegitcommit: f6503e503d8f08ba8000db9c5eda890551d4db37
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66444691"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68523902"
 ---
-# <a name="customize-http-security-response-headers-with-ad-fs-2019"></a>Anpassen des HTTP-Antwort-Sicherheitsheader mit AD FS-2019 
+# <a name="customize-http-security-response-headers-with-ad-fs-2019"></a>Anpassen von http-Sicherheits Antwort Headern mit AD FS 2019 
  
-Zum Schutz vor allgemeinen Sicherheitsrisiken und bieten Administratoren die Möglichkeit, den neuesten Entwicklungen in browserbasierten Schutzmechanismen nutzen, hinzugefügt AD FS-2019 die Funktionalität zum Anpassen der HTTP-Antwort-Sicherheitsheader gesendet von AD FS. Dies erfolgt durch die Einführung von zwei neue Cmdlets: `Get-AdfsResponseHeaders` und `Set-AdfsResponseHeaders`.  
- 
-In diesem Dokument erörterten häufig wird verwendet, Security-Antwort-Header veranschaulicht, wie Sie von AD FS-2019 gesendeten Header anpassen.   
+Um vor allgemeinen Sicherheitsrisiken zu schützen und Administratoren die Möglichkeit zu bieten, die neuesten Verbesserungen in browserbasierten Schutzmechanismen zu nutzen, wurde AD FS 2019 die Funktionalität zum Anpassen der http-Sicherheits Antwortheader hinzugefügt. gesendet von AD FS. Dies wird durch die Einführung zweier neuer Cmdlets erreicht: `Get-AdfsResponseHeaders` und. `Set-AdfsResponseHeaders`  
+
+>[!NOTE]
+>Die Funktionalität zum Anpassen der http-Sicherheits Antwortheader (mit Ausnahme von cors-Headern) `Get-AdfsResponseHeaders` mithilfe `Set-AdfsResponseHeaders` von Cmdlets: und wurde auf AD FS 2016 zurückportiert. Sie können die Funktionalität Ihrer AD FS 2016 hinzufügen, indem Sie [KB4493473](https://support.microsoft.com/en-us/help/4493473/windows-10-update-kb4493473) und [KB4507459](https://support.microsoft.com/en-us/help/4507459/windows-10-update-kb4507459)installieren. 
+
+In diesem Dokument werden häufig verwendete Sicherheits Antwortheader erläutert, um zu veranschaulichen, wie von AD FS 2019 gesendete Header angepasst werden.   
  
 >[!NOTE]
->Das Dokument wird davon ausgegangen, dass AD FS-2019 installiert wurde.  
+>In diesem Dokument wird davon ausgegangen, dass AD FS 2019 installiert wurde.  
 
  
-Bevor wir Header erläutern, wir sehen uns nun einige Szenarien notwendig für Administratoren zum Anpassen der Security-Header 
+Bevor wir Header erörtern, betrachten wir einige Szenarien, in denen die Notwendigkeit von Administratoren zum Anpassen von Sicherheits Headern erläutert wird. 
  
 ## <a name="scenarios"></a>Szenarien 
-1. Administrator aktiviert hat [ **HTTP Strict-Transport-Security (HSTS)** ](#http-strict-transport-security-hsts) (erzwingt, dass alle Verbindungen über HTTPS-Verschlüsselung), die Benutzer zu schützen, die die Web-app mithilfe von HTTP über einen öffentlichen WLAN-Zugriffs zugreifen kann der Punkt, die gehackt werden kann. Sie möchten die Sicherheit weiter zu erhöhen, durch die Aktivierung von HSTS für untergeordnete Domänen.  
-2. Administrator wurde konfiguriert. die [ **X-Frame-Options** ](#x-frame-options) Antwortheader (Rendern von jeder Webseite in einem iFrame verhindert) zu verhindern, dass die Webseiten Clickjacked wird. Allerdings muss er zum Anpassen des Headerwert aufgrund einer neuen geschäftlichen Anforderung zum Anzeigen von Daten (im iFrame) aus einer Anwendung mit einem anderen Ursprung (Domäne).
-3. Administrator aktiviert hat [ **X-XSS-Protection** ](#x-xss-protection) (cross-scripting-Angriffe verhindert) zu bereinigen und blockieren die Seite aus, wenn Browser erkennt, cross-scripting-Angriffe. Allerdings muss sie zum Anpassen von Header an, um die Seite laden können einmal bereinigt.  
-4. Administrator aktivieren muss [ **Cross Origin Resource Sharing (CORS)** ](#cross-origin-resource-sharing-cors-headers) und legen Sie den Ursprung (Domäne) in AD FS zu einer einseitigen Anwendung auf eine Web-API mit einer anderen Domäne zugreifen können.  
-5. Administrator aktiviert hat [ **(Content Security Policy, CSP)** ](#content-security-policy-csp) -Header auf cross-Site scripting und Daten-Einschleusung zu verhindern, dass Angriffe, indem er die domänenübergreifende Anforderungen untersagt. Aufgrund einer neuen geschäftsanforderung muss er jedoch Anpassen des Headers, um die Webseite zum Laden von Bildern aus einem beliebigen Ursprung und Einschränken von Medien für vertrauenswürdige Anbieter zu ermöglichen.  
+1. Der Administrator hat [**http Strict-Transport-Security (hsts)** ](#http-strict-transport-security-hsts) aktiviert (erzwingt alle Verbindungen über die HTTPS-Verschlüsselung), um die Benutzer, die möglicherweise auf die Web-App zugreifen, über HTTP von einem öffentlichen WLAN-Zugriffspunkt zu schützen, der möglicherweise gehackt ist Sie möchte die Sicherheit durch Aktivieren von hsts für Unterdomänen weiter erhöhen.  
+2. Der Administrator hat den Antwortheader " [**X-Frame-Options**](#x-frame-options) " konfiguriert (verhindert das Rendern von Webseiten in einem IFRAME), um die Webseiten vor der klistung zu schützen. Allerdings muss Sie den Header Wert aufgrund einer neuen geschäftlichen Anforderung anpassen, um Daten (in iframe) aus einer Anwendung mit einem anderen Ursprung (Domäne) anzuzeigen.
+3. Der Administrator hat [**X-XSS-Protection**](#x-xss-protection) aktiviert (verhindert Kreuz Skript Angriffe), die Seite zu bereinigen und zu blockieren, wenn der Browser Kreuz Skript Angriffe erkennt. Allerdings muss der Header angepasst werden, damit die Seite nach dem Bereinigen geladen werden kann.  
+4. Der Administrator muss [**cors (Cross Origin Resource Sharing)** ](#cross-origin-resource-sharing-cors-headers) aktivieren und den Ursprung (Domäne) auf AD FS festlegen, damit eine Einzelseiten Anwendung auf eine Web-API mit einer anderen Domäne zugreifen kann.  
+5. Der Administrator hat den Header der [**Inhalts Sicherheitsrichtlinie (Content Security Policy, CSP)** ](#content-security-policy-csp) aktiviert, um Site übergreifende Skripts und Daten einschleusungs Angriffe zu verhindern. Aufgrund einer neuen geschäftlichen Anforderung muss Sie jedoch den Header so anpassen, dass die Webseite das Laden von Bildern von einem beliebigen Ursprung und das Einschränken von Medien auf vertrauenswürdige Anbieter zulässt.  
 
  
-## <a name="http-security-response-headers"></a>HTTP-Antwort-Sicherheitsheader 
-Die Header der Antwort sind in der ausgehenden HTTP-Antwort, die von AD FS gesendet wird, auf einen Webbrowser enthalten. Die Header können aufgeführt werden, mit der `Get-AdfsResponseHeaders` Cmdlet wie unten dargestellt.  
+## <a name="http-security-response-headers"></a>HTTP-Sicherheits Antwortheader 
+Die Antwortheader sind in der ausgehenden HTTP-Antwort enthalten, die von AD FS an einen Webbrowser gesendet wird. Die Header können wie unten dargestellt mithilfe `Get-AdfsResponseHeaders` des Cmdlets aufgelistet werden.  
 
-![Headerantwort](media/customize-http-security-headers-ad-fs/header1.png)
+![Header Antwort](media/customize-http-security-headers-ad-fs/header1.png)
 
-Die `ResponseHeaders` -Attribut im obigen Screenshot identifiziert den Security-Header, die von AD FS in jeder HTTP-Antwort enthalten sind. Die Header der Antwort gesendet wird, nur wenn `ResponseHeadersEnabled` nastaven NA hodnotu `True` (Standardwert). Der Wert kann festgelegt werden, um `False` um AD FS, einschließlich der Security-Header in der HTTP-Antwort zu verhindern. Dies ist jedoch nicht empfohlen.  Verwenden Sie hierzu Folgendes:
+Das `ResponseHeaders` -Attribut im obigen Screenshot identifiziert die Sicherheits Header, die von AD FS in jeder HTTP-Antwort eingeschlossen werden. Die Antwortheader werden nur gesendet, wenn `ResponseHeadersEnabled` auf `True` festgelegt ist (Standardwert). Der Wert kann auf `False` festgelegt werden, um zu verhindern, dass AD FS einschließlich der Sicherheits Header in der HTTP-Antwort ist. Dies wird jedoch nicht empfohlen.  Verwenden Sie hierzu Folgendes:
 
 ```PowerShell
 Set-AdfsResponseHeaders -EnableResponseHeaders $false
 ```
  
-### <a name="http-strict-transport-security-hsts"></a>HTTP Strict-Transport-Security (HSTS) 
-HSTS ist ein Web-Richtlinie Sicherheitsmechanismus wodurch zu verringern, Protokoll Downgrade-Angriffe und Cookie-Hijacking für Dienste, die HTTP- und HTTPS-Endpunkte haben. Sie können Webserver deklarieren, dass der Webbrowser (oder anderen leitete Benutzer-Agents) nur mithilfe von HTTPS und nie über das HTTP-Protokoll interagieren müssen.  
+### <a name="http-strict-transport-security-hsts"></a>HTTP Strict-Transport-Security (hsts) 
+Hsts ist ein Mechanismus für die Websicherheits Richtlinie, mit dem Angriffe herab Stufungs Angriffe und Cookie-Hijacking für Dienste mit http-und HTTPS-Endpunkten minimiert werden können. Auf diese Weise können Webserver deklarieren, dass Webbrowser (oder andere Benutzer-Agents) nur mit HTTPS und nie über das HTTP-Protokoll interagieren sollen.  
  
-Alle AD FS-Endpunkte für die Authentifizierung von Webverkehr werden ausschließlich über HTTPS geöffnet. AD FS werden daher effektiv die Risiken, die HTTP Strict Transport Security richtlinienmechanismus bereitstellt (es wird standardmäßig kein Downgrade auf HTTP da es sich um keine Listener in HTTP). Der Header kann angepasst werden, indem Sie die folgenden Parameter festlegen 
+Alle AD FS Endpunkte für den Webauthentifizierungs Datenverkehr werden exklusiv über HTTPS geöffnet. Demzufolge werden von AD FS effektiv die Bedrohungen verringert, die der http-Mechanismus für die strikte Transport Sicherheit bietet (Standardmäßig gibt es kein Downgrade auf http, da keine Listener in http vorhanden sind). Der Header kann durch Festlegen der folgenden Parameter angepasst werden. 
  
-- **Max-Age =&lt;ablaufen Kompilierzeit&gt;**  – die Ablaufzeit (in Sekunden) gibt an, wie lange die Website ist nur möglich sollten über HTTPS. Standardmäßige und empfohlene Wert ist 31536000 Sekunden (1 Jahr).  
-- **IncludeSubDomains** – Dies ist ein optionaler Parameter. Wenn angegeben, gilt die Regel HSTS alle Unterdomänen ebenfalls ab.  
+- **max-age =&lt;&gt;**  Ablaufzeit – die Ablaufzeit (in Sekunden) gibt an, wie lange nur über HTTPS auf die Website zugegriffen werden soll. Der standardmäßige und empfohlene Wert ist 31536000 Sekunden (1 Jahr).  
+- **includesubdomains** – Dies ist ein optionaler Parameter. Wenn angegeben, gilt die hsts-Regel auch für alle Unterdomänen.  
  
-#### <a name="hsts-customization"></a>HSTS Anpassung 
-Der Header ist standardmäßig aktiviert und `max-age` auf 1 Jahr festgelegt; allerdings können Administratoren ändern den `max-age` (Verringern der Max-Age-Wert wird nicht empfohlen) oder aktivieren Sie HSTS für untergeordnete Domänen über die `Set-AdfsResponseHeaders` Cmdlet.  
+#### <a name="hsts-customization"></a>Hsts-Anpassung 
+Standardmäßig ist der-Header aktiviert und `max-age` auf 1 Jahr festgelegt. Administratoren können jedoch den- `max-age` Wert ändern (der max-age-Wert wird nicht empfohlen), oder Sie können hsts `Set-AdfsResponseHeaders` für Unterdomänen über das Cmdlet aktivieren.  
  
 ```PowerShell
 Set-AdfsResponseHeaders -SetHeaderName "Strict-Transport-Security" -SetHeaderValue "max-age=<seconds>; includeSubDomains" 
@@ -68,25 +71,25 @@ Beispiel:
 Set-AdfsResponseHeaders -SetHeaderName "Strict-Transport-Security" -SetHeaderValue "max-age=31536000; includeSubDomains" 
  ```
 
-Standardmäßig befindet sich die Header in der `ResponseHeaders` Attribut, jedoch können Administratoren den Header über Entfernen der `Set-AdfsResponseHeaders` Cmdlet.  
+Standardmäßig ist der-Header im `ResponseHeaders` -Attribut enthalten, aber Administratoren können den Header über das `Set-AdfsResponseHeaders` Cmdlet entfernen.  
  
 ```PowerShell
 Set-AdfsResponseHeaders -RemoveHeaders "Strict-Transport-Security" 
 ```
 
 ### <a name="x-frame-options"></a>X-Frame-Optionen 
-AD FS standardmäßig erlaubt keine externe Anwendungen, die beim Ausführen einer interaktiver Anmeldungen iFrames verwendet. Dies erfolgt, um bestimmte Stil Phishing-Angriffe zu verhindern. Beachten Sie, dass nicht interaktiven Anmeldungen über iFrame aufgrund von vorherigen Sitzung-Sicherheit auf Zeilenebene ausgeführt werden können, das eingerichtet wurde.  
+Bei der Ausführung interaktiver Anmeldungen ist es AD FS standardmäßig nicht zulässig, dass externe Anwendungen iframes verwenden. Dadurch wird eine bestimmte Art von Phishingangriffen verhindert. Beachten Sie, dass nicht interaktive Anmeldungen über IFRAME ausgeführt werden können, da die zuvor festgelegte Sicherheit auf Sitzungs Ebene aufgetreten ist.  
  
-In seltenen Fällen können Sie jedoch eine bestimmte Anwendung vertrauen, die iFrame-fähige interaktive AD FS-Anmeldeseite erforderlich sind. Der Header "X-Frame-Options" wird für diesen Zweck verwendet.  
+In bestimmten seltenen Fällen können Sie jedoch eine bestimmte Anwendung als vertrauenswürdig einstufen, die iframe-fähige interaktive AD FS Anmeldeseite erfordert. Zu diesem Zweck wird der X-Frame-Options-Header verwendet.  
  
-Diese HTTP-Antwortheader Sicherheit wird verwendet, um dem Browser mitteilen kann, ob er eine Seite rendern kann eine &lt;Frame&gt;/&lt;Iframe&gt;. Der Header kann auf einen der folgenden Werte festgelegt werden: 
+Diese http-Sicherheits Antwort Kopfzeile wird verwendet, um mit dem Browser zu kommunizieren, ob eine Seite &lt;in&gt;einem Frame&gt;/&lt;-IFRAME dargestellt werden kann. Der Header kann auf einen der folgenden Werte festgelegt werden: 
  
-- **Verweigern** : die Seite in einem Frame wird nicht angezeigt werden. Dies ist der standardmäßige und empfohlene Einstellung.  
-- **Sameorigin** : die Seite wird nur im Rahmen angezeigt werden, wenn der Ursprung der Ursprung der Webseite identisch ist. Die Option ist nicht sehr nützlich, es sei denn, alle mittelbar übergeordneten Knoten in der gleichen Ursprungs ebenfalls enthalten sind.  
-- **Zulassen von <specified origin>**  -Seite wird nur im Rahmen angezeigt werden, wenn der Ursprung (z.B. https://www. ". com) stimmt mit den besonderen Ursprung in der Kopfzeile. 
+- **Deny** – die Seite in einem Frame wird nicht angezeigt. Dies ist die Standardeinstellung und die empfohlene Einstellung.  
+- **sameorigin** – die Seite wird nur im Frame angezeigt, wenn der Ursprung mit dem Ursprung der Webseite identisch ist. Die Option ist nicht sehr nützlich, es sei denn, alle Vorgänger befinden sich ebenfalls im selben Ursprung.  
+- **Allow-from <specified origin>**  : die Seite wird nur im Frame angezeigt, https://www wenn der Ursprung (z. b.... com) entspricht dem spezifischen Ursprung in der Kopfzeile. 
 
-#### <a name="x-frame-options-customization"></a>X-Frame-Options-Anpassung  
-Standardmäßig wird-Header festgelegt werden, um verweigern; Administratoren können jedoch den Wert durch Ändern der `Set-AdfsResponseHeaders` Cmdlet.  
+#### <a name="x-frame-options-customization"></a>Anpassung der X-Frame-Optionen  
+Standardmäßig wird der Header auf verweigern festgelegt. Administratoren können den Wert jedoch über das `Set-AdfsResponseHeaders` Cmdlet ändern.  
 ```PowerShell
 Set-AdfsResponseHeaders -SetHeaderName "X-Frame-Options" -SetHeaderValue "<deny/sameorigin/allow-from<specified origin>>" 
  ```
@@ -97,21 +100,21 @@ Beispiel:
 Set-AdfsResponseHeaders -SetHeaderName "X-Frame-Options" -SetHeaderValue "allow-from https://www.example.com" 
  ```
 
-Standardmäßig befindet sich die Header in der `ResponseHeaders` Attribut, jedoch können Administratoren den Header über Entfernen der `Set-AdfsResponseHeaders` Cmdlet.  
+Standardmäßig ist der-Header im `ResponseHeaders` -Attribut enthalten, aber Administratoren können den Header über das `Set-AdfsResponseHeaders` Cmdlet entfernen.  
 
 ```PowerShell
 Set-AdfsResponseHeaders -RemoveHeaders "X-Frame-Options" 
 ```
 
-### <a name="x-xss-protection"></a>X-XSS-Protection 
-Diese HTTP-Antwort-Sicherheitsheader wird zum Beenden von Webseiten aus geladen werden, wenn Angriffe Cross-Site-scripting (XSS) vom Browser erkannt werden. Dies wird als XSS-Filter bezeichnet. Der Header kann auf einen der folgenden Werte festgelegt werden 
+### <a name="x-xss-protection"></a>X-XSS-Schutz 
+Dieser http-Sicherheits Antwortheader wird verwendet, um das Laden von Webseiten zu beenden, wenn XSS-Angriffe (Cross-Site Scripting) von Browsern erkannt werden. Dies wird als XSS-Filterung bezeichnet. Der Header kann auf einen der folgenden Werte festgelegt werden: 
  
-- **0** – deaktiviert die XSS-Filter. Nicht empfohlen.  
-- **1** – ermöglicht XSS-Filter. Wenn XSS-Angriff erkannt wird, wird die Browser die Seite bereinigen.   
-- **1 Modus = Block** – ermöglicht XSS-Filter. XSS-Angriff erkannt wird, wird Browser Rendern der Seite verhindert. Dies ist der standardmäßige und empfohlene Einstellung.  
+- **0** – deaktiviert die XSS-Filterung. Nicht empfohlen.  
+- **1** – aktiviert das Filtern von XSS. Wenn ein XSS-Angriff erkannt wird, wird die Seite von Browser bereinigt.   
+- **1; Mode = Block** – aktiviert die XSS-Filterung. Wenn ein XSS-Angriff erkannt wird, verhindert der-Browser das Rendern der Seite. Dies ist die Standardeinstellung und die empfohlene Einstellung.  
 
-#### <a name="x-xss-protection-customization"></a>X-XSS-Protection-Anpassung 
-Standardmäßig wird der Header auf 1 festgelegt werden. Modus = Block Administratoren können jedoch den Wert durch Ändern der `Set-AdfsResponseHeaders` Cmdlet.  
+#### <a name="x-xss-protection-customization"></a>Anpassung des X-XSS-Schutzes 
+Standardmäßig wird der-Header auf 1 festgelegt. Mode = Block; Allerdings können Administratoren den Wert über das `Set-AdfsResponseHeaders` Cmdlet ändern.  
 
 ```PowerShell
 Set-AdfsResponseHeaders -SetHeaderName "X-XSS-Protection" -SetHeaderValue "<0/1/1; mode=block/1; report=<reporting-uri>>" 
@@ -123,62 +126,62 @@ Beispiel:
 Set-AdfsResponseHeaders -SetHeaderName "X-XSS-Protection" -SetHeaderValue "1" 
  ```
 
-Standardmäßig befindet sich die Header in der `ResponseHeaders` Attribut, jedoch können Administratoren den Header über Entfernen der `Set-AdfsResponseHeaders` Cmdlet. 
+Standardmäßig ist der-Header im `ResponseHeaders` -Attribut enthalten. Administratoren können den Header jedoch über das `Set-AdfsResponseHeaders` Cmdlet entfernen. 
 
 ```PowerShell
 Set-AdfsResponseHeaders -RemoveHeaders "X-XSS-Protection" 
 ```
 
-### <a name="cross-origin-resource-sharing-cors-headers"></a>Cross-Origin Resource Sharing (CORS)-Header 
-Webbrowsersicherheit wird verhindert, dass eine Webseite, die Cross-Origin-Anforderungen, die von innerhalb von Skripts initiiert. Jedoch sollten Sie auch Zugriff auf Ressourcen in anderen Quellen (Domänen). CORS ist ein W3C-standard, der einem Server zu lockern die Richtlinie des gleichen Ursprungs ermöglicht. Mit CORS kann ein Server explizit einige ursprungsübergreifende Anforderungen zulassen und andere ablehnen.  
+### <a name="cross-origin-resource-sharing-cors-headers"></a>Cross-Origin Resource Sharing (cors)-Header 
+Die Webbrowser Sicherheit verhindert, dass eine Webseite Ursprungs übergreifende Anforderungen aus Skripts initiiert. Manchmal möchten Sie jedoch möglicherweise auf Ressourcen in anderen Ursprüngen (Domänen) zugreifen. Cors ist ein W3C-Standard, der es einem Server ermöglicht, die Richtlinie für denselben Ursprung zu lockern. Mithilfe von cors kann ein Server einige Ursprungs übergreifende Anforderungen explizit zulassen und andere ablehnen.  
  
-Zum besseren Verständnis der CORS-Anforderung muss wir exemplarischen Vorgehensweise ein Szenario, in denen eine einzelne Anwendung (SPA) Seite, eine Web-API mit einer anderen Domäne aufrufen. Darüber hinaus sehen Sie sich, dass sowohl SPA-API in AD FS 2019 konfiguriert sind und AD FS hat die Aktivierung von CORS z. B. AD FS CORS-Header in der HTTP-Anforderung zu identifizieren, überprüfen Sie die Headerwerte und entsprechenden CORS-Header in der Antwort enthalten können (Informationen zum Aktivieren und Konfigurieren von CORS in AD FS 2019 in CORS-Anpassung Abschnitt weiter unten). Beispiel-Ablauf: 
+Um die cors-Anforderung besser zu verstehen, betrachten wir ein Szenario, in dem eine Single-Page-Anwendung (Spa) eine Web-API mit einer anderen Domäne aufruft. Beachten Sie außerdem, dass sowohl Spa als auch API auf ADFS 2019 konfiguriert sind AD FS und dass cors aktiviert ist, d. h. AD FS cors-Header in der HTTP-Anforderung identifizieren, Header Werte validieren und entsprechende cors-Header in der Antwort einschließen (Details zum Aktivieren von und). Konfigurieren Sie cors auf AD FS 2019 in cors-Anpassungs Abschnitt weiter unten). Beispiel Fluss: 
 
-1. Benutzer greift auf SPA durch Clientbrowser und zur AD FS-Auth-Endpunkt zur Authentifizierung umgeleitet. Da die SPA für implizite Gewährung konfiguriert ist, fordern Sie gibt, die ein Zugriff und die ID-Token an den Browser nach erfolgreicher Authentifizierung.  
-2. Nach der Benutzerauthentifizierung macht der Front-End-JavaScript-Code in die SPA enthalten eine Anforderung an die Web-API zugreifen. Die Anforderung wird an AD FS mit der folgenden Header umgeleitet.
-    - "Optionen" – beschreibt die Kommunikation für die Zielressource 
-    - Ursprung – umfasst den Ursprung der Web-API
-    - Access-Control-Request-Method – gibt die HTTP-Methode (z.B. "DELETE") verwendet werden, wenn die tatsächliche Anforderung erfolgt ist 
-    - Access-Control-Request-Headers - identifiziert die HTTP-Header verwendet werden, wenn die tatsächliche Anforderung erfolgt ist 
+1. Der Benutzer greift über den Client Browser auf Spa zu und wird zur Authentifizierung an AD FS Authentifizierungs Endpunkt umgeleitet. Da die Spa für den impliziten Zuweisungs Fluss konfiguriert ist, gibt die Anforderung nach erfolgreicher Authentifizierung ein Zugriffs-und ID-Token an den Browser zurück.  
+2. Nach der Benutzerauthentifizierung sendet das Front-End-JavaScript, das in Spa enthalten ist, eine Anforderung für den Zugriff auf die Web-API. Die Anforderung wird mit den folgenden Headern an AD FS umgeleitet.
+    - Optionen – beschreibt die Kommunikationsoptionen für die Ziel Ressource. 
+    - Ursprung – schließt den Ursprung der Web-API ein.
+    - Access-Control-Request-Method – identifiziert die HTTP-Methode (z. b. Delete), die bei der tatsächlichen Anforderung verwendet werden soll. 
+    - Access-Control-Request-Headers: identifiziert die HTTP-Header, die verwendet werden sollen, wenn die tatsächliche Anforderung erfolgt. 
     
    >[!NOTE]
-   >CORS-Anforderung ähnelt einer standard-HTTP-Anforderung, jedoch das Vorhandensein von einen Origin-Header signalisiert, dass die eingehende Anforderung CORS verknüpft ist. 
-3. AD FS stellt sicher, dass es sich bei der Web-API-Ursprung in der Kopfzeile enthalten in der vertrauenswürdige Ursprünge, die in AD FS (Details zum Ändern der vertrauenswürdige Ursprünge im nachstehenden Abschnitt der CORS-Anpassung) konfiguriert aufgeführt ist. AD FS antwortet dann mit folgenden Header.  
-    - Access-Control-Allow-Origin-Wert gleich wie in der Origin-Header 
-    - Access-Control-ermöglichen-Method – denselben Wert, wie in der Access-Control-Request-Method-Header 
-    - Access-Control-Allow-Headers - Wert denselben wie in der Access-Control-Request-Headers-header 
-4. Browser sendet die tatsächliche Anforderung, einschließlich der folgenden Header 
-    - HTTP-Methode (z. B., löschen) 
-    - Ursprung – umfasst den Ursprung der Web-API 
-    - Alle Header in der Access-Control-Allow-Headers-Antwortheader 
-5. Nach der Überprüfung genehmigt AD FS die Anforderung mit der Web-API-Domäne (Ursprung) in der Access-Control-Allow-Origin-Antwortheader.  
-6. Die Einbeziehung der Access-Control-Allow-Origin-Header können den Browser, um mit der die angeforderte API aufruft, fortfahren.
+   >Eine cors-Anforderung ähnelt einer Standard-HTTP-Anforderung. das vorhanden sein eines Ursprungs Headers signalisiert jedoch, dass die eingehende Anforderung mit cors verknüpft ist. 
+3. AD FS überprüft, ob der in der Kopfzeile enthaltene Web-API-Ursprung in den in AD FS konfigurierten vertrauenswürdigen Ursprüngen aufgeführt ist (Ausführliche Informationen zum Ändern von vertrauenswürdigen Ursprüngen im Abschnitt cors-Anpassung weiter unten). AD FS antwortet dann mit den folgenden Headern.  
+    - Access-Control-Allow-Origin – Wert identisch mit dem Wert im Ursprungs Header 
+    - Access-Control-Allow-Method – Wert identisch mit dem Wert im Access-Control-Request-Method-Header 
+    - Access-Control-Allow-Headers-Wert identisch mit dem Wert im Access-Control-Request-Headers-Header 
+4. Der Browser sendet die tatsächliche Anforderung einschließlich der folgenden Header. 
+    - HTTP-Methode (z. b. Delete) 
+    - Ursprung – schließt den Ursprung der Web-API ein. 
+    - Alle Header im Antwortheader "Access-Control-Allow-Headers" 
+5. Nach der Überprüfung AD FS die Anforderung durch einschließen der Web-API-Domäne (Ursprung) in den Antwortheader "Access-Control-Allow-Origin" genehmigt.  
+6. Durch die Einbindung des Headers Access-Control-Allow-Origin kann der Browser mit dem Aufrufen der angeforderten API fortfahren.
 
-#### <a name="cors-customization"></a>CORS-Anpassung 
-Standardmäßig werden die CORS-Funktion nicht aktiviert werden; Administratoren können jedoch die Funktionalität über das Cmdlet "Set-AdfsResponseHeaders" aktivieren.  
+#### <a name="cors-customization"></a>Cors-Anpassung 
+Standardmäßig wird die cors-Funktionalität nicht aktiviert. Administratoren können die Funktionalität jedoch über das Cmdlet "Set-adfsresponseheaders" aktivieren.  
 
 ```PowerShell 
 Set-AdfsResponseHeaders -EnableCORS $true 
  ```
 
-Eine aktiviert, Administratoren werden in der Lage, eine Liste der vertrauenswürdigen Ursprünge, die mithilfe des gleichen Cmdlets aufzulisten. Z. B. der folgende Befehl können CORS-Anforderungen über die Ursprünge **Https&#58;//example1.com** und **Https&#58;//example1.com**. 
+Eine aktivierte, Administratoren können mit demselben Cmdlet eine Liste vertrauenswürdiger Ursprünge auflisten. Beispielsweise können mit dem folgenden Befehl cors-Anforderungen von den Ursprüngen **https&#58;//example1.com** und **https&#58;//example1.com**zugelassen werden. 
  
 ```PowerShell
 Set-AdfsResponseHeaders -CORSTrustedOrigins https://example1.com,https://example2.com 
  ```
 
 > [!NOTE]
-> Administratoren können CORS-Anforderungen von einem beliebigen Ursprung mit "*" in der Liste der vertrauenswürdigen Ursprünge, obwohl dieser Ansatz nicht, aufgrund von Schwachstellen des Sicherheit und eine Warnmeldung empfohlen wird wird bereitgestellt, wenn Sie dies. 
+> Administratoren können cors-Anforderungen von einem beliebigen Ursprung aus zulassen, indem Sie "*" in die Liste der vertrauenswürdigen Ursprünge einschließen, obwohl dieser Ansatz aufgrund von Sicherheitsrisiken nicht empfohlen wird und eine Warnmeldung bereitgestellt wird, wenn Sie sich entscheiden. 
 
-### <a name="content-security-policy-csp"></a>Content Security Policy (CSP) 
-Diese HTTP-Antwort-Sicherheitsheader wird zum websiteübergreifendes scripting, Clickjacking und andere Data-Injection-Angriffe zu verhindern, indem Sie verhindern, dass Browser ausführen versehentlich böswillige Inhalte verwendet. Browsern, die mit Unterstützung für CSP nicht einfach ignoriert die CSP-Antwortheader.  
+### <a name="content-security-policy-csp"></a>Inhalts Sicherheitsrichtlinie (CSP) 
+Dieser http-Sicherheits Antwortheader wird verwendet, um Site übergreifende Skripts, Clickjacking und andere Daten einschleusungs Angriffe zu verhindern, indem verhindert wird, dass die Browser versehentlich bösartige Inhalte ausführen. Browser, die CSP nicht unterstützen, ignorieren einfach die CSP-Antwortheader.  
  
 #### <a name="csp-customization"></a>CSP-Anpassung 
-Anpassung des CSP-Headers umfasst das Ändern der Sicherheitsrichtlinie, die definiert, den Ressourcen-Browser für die Webseite geladen werden darf. Die Standardsicherheitsrichtlinie ist  
+Die Anpassung des CSP-Headers umfasst das Ändern der Sicherheitsrichtlinie, die definiert, welche Ressourcen Browser für die Webseite geladen werden dürfen. Die Standard Sicherheitsrichtlinie lautet  
  
 `Content-Security-Policy: default-src ‘self’ ‘unsafe-inline’ ‘’unsafe-eval’; img-src ‘self’ data:;` 
  
-Die **Standard-Src** Direktive wird verwendet, um ändern [- Src-Direktiven](https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Security-Policy/default-src) ohne jede Anweisung explizit auflisten. Im Beispiel unten die Richtlinie ist 1 z. B. die Richtlinie 2 entspricht.  
+Die **default-src** -Direktive dient zum Ändern von [-src-Direktiven](https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Security-Policy/default-src) , ohne jede Direktive explizit aufzulisten. Beispielsweise ist im folgenden Beispiel die Richtlinie 1 mit der Richtlinie 2 identisch.  
 
 Richtlinie 1 
 ```PowerShell
@@ -191,47 +194,47 @@ Set-AdfsResponseHeaders -SetHeaderName "Content-Security-Policy" -SetHeaderValue
 frame-src 'self'; manifest-src 'self'; media-src 'self';" 
 ```
 
-Wenn eine Richtlinie explizit aufgeführt wird, überschreibt der angegebene Wert vom Wert für die Standard-Src an. Im folgenden Beispiel wird das Img-Src-nehmen Sie den Wert als "*" (Images von einem beliebigen Ursprung geladen werden können), während andere - Src-Anweisungen den Wert annehmen, werden als "Self" (an denselben Ursprung, wie die Webseite einschränken).  
+Wenn eine-Direktive explizit aufgelistet ist, überschreibt der angegebene Wert den für Default-src angegebenen Wert. Im folgenden Beispiel nimmt img-src den Wert "*" (damit Bilder aus beliebigen Ursprungs geladen werden können), während andere-src-Direktiven den Wert als "Self" (auf denselben Ursprung wie die Webseite einschränken) übernehmen.  
 
 ```PowerShell
 Set-AdfsResponseHeaders -SetHeaderName "Content-Security-Policy" -SetHeaderValue "default-src ‘self’; img-src *" 
 ```
-Folgende Quellen kann für die Standard-Src-Richtlinie definiert werden 
+Folgende Quellen können für die Default-src-Richtlinie definiert werden. 
  
-- 'self': durch diese Angabe beschränkt, den Ursprung des Inhalts, die an den Ursprung der Webseite zu laden. 
-- 'unsafe-Inline': Angabe in der Richtlinie ermöglicht die Verwendung von Inline-JavaScript und CSS 
-- "unsafe-eval" – ermöglicht die Angabe dieser in der Richtlinie für die Verwendung von Text, der JavaScript-Mechanismen wie eval 
-- Durch diese Angabe 'none': den Inhalt einschränkt, von einem beliebigen Ursprung laden 
-- Daten:-angeben: URIs kann Inhaltsersteller kleine Dateien Inline in Dokumente einbetten. Die Verwendung nicht empfohlen.  
+- "Self" – Dies bedeutet, dass der Ursprung des Inhalts auf den Ursprung der Webseite beschränkt wird. 
+- "unsicher-Inline" – die Angabe dieses in der Richtlinie ermöglicht die Verwendung von Inline-JavaScript und CSS. 
+- "unsicher-eval" – die Angabe dieses in der Richtlinie ermöglicht die Verwendung von Text-zu-JavaScript-Mechanismen wie eval. 
+- "None" – durch Angabe dieser Einschränkung wird der Inhalt von einem beliebigen Ursprung zum Laden eingeschränkt. 
+- Daten: Angeben von Daten: Mit URIs können Inhalts Ersteller kleine Dateien Inline in Dokumente einbetten. Die Verwendung ist nicht empfehlenswert.  
  
 >[!NOTE]
->AD FS verwendet JavaScript, bei der Authentifizierung und ermöglicht daher die JavaScript durch Einschließen der "unsafe-Inline-" und "unsafe-eval" in Quellen Richtlinie.  
+>AD FS verwendet JavaScript im Authentifizierungsprozess und aktiviert daher JavaScript durch das Einschließen von "unsichere Inline" und "unsichere-eval"-Quellen in die Standard Richtlinie.  
 
 ### <a name="custom-headers"></a>Benutzerdefinierte Header 
-Zusätzlich zu den obigen aufgeführten Antwortheader Security (HSTS, CSP, X-Frame-Options "," X-XSS-Protection "und" CORS), AD FS-2019 bietet die Möglichkeit, neue Header festgelegt.  
+Zusätzlich zu den oben aufgeführten Sicherheits Antwort Headern (hsts, CSP, x-Frame-Options, x-XSS-Protection und cors) bietet AD FS 2019 die Möglichkeit, neue Header festzulegen.  
  
-Beispiel: Um einen neuen Header "TestHeader" mit Wert als "TestHeaderValue" festzulegen. 
+Beispiel: So legen Sie einen neuen Header "tesderader" mit dem Wert "testhadervalue" fest 
 
 ```PowerShell
 Set-AdfsResponseHeaders -SetHeaderName "TestHeader" -SetHeaderValue "TestHeaderValue" 
  ```
 
-Nach dem festlegen, wird der neue Kopf in der AD FS-Antwort (Fiddler Codeausschnitt unten) gesendet.  
+Nachdem die neue Kopfzeile festgelegt wurde, wird Sie in der AD FS-Antwort (unten nach dem folgenden Code Ausschnitt) gesendet.  
  
 ![Fiddler](media/customize-http-security-headers-ad-fs/header2.png)
 
-## <a name="web-browswer-compatibility"></a>Web Browswer-Kompatibilität
-Verwenden Sie die folgende Tabelle und die folgenden Links, um zu bestimmen, welche Webbrowser mit jedem der Antwortheader Sicherheit kompatibel sind.
+## <a name="web-browswer-compatibility"></a>Webbrowswer-Kompatibilität
+Verwenden Sie die folgende Tabelle und die Links, um zu bestimmen, welche Webbrowser mit den einzelnen Sicherheits Antwort Headern kompatibel sind.
 
-|HTTP-Antwort-Sicherheitsheader|Browserkompatibilität|
+|HTTP-Sicherheits Antwortheader|Browserkompatibilität|
 |-----|-----|
-|HTTP Strict-Transport-Security (HSTS)|[HSTS Browserkompatibilität](https://developer.mozilla.org/docs/Web/HTTP/Headers/Strict-Transport-Security#Browser_compatibility)|
+|HTTP Strict-Transport-Security (hsts)|[Hsts-Browserkompatibilität](https://developer.mozilla.org/docs/Web/HTTP/Headers/Strict-Transport-Security#Browser_compatibility)|
 |X-Frame-Optionen|[X-Frame-Options-Browserkompatibilität](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Frame-Options#Browser_compatibility)| 
-|X-XSS-Protection|[X-XSS-Protection Browserkompatibilität](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection#Browser_compatibility)| 
-|Cross-Origin Resource Sharing (CORS)|[CORS-Browserkompatibilität](https://developer.mozilla.org/docs/Web/HTTP/CORS#Browser_compatibility) 
-|Content Security Policy (CSP)|[CSP-Browserkompatibilität](https://developer.mozilla.org/docs/Web/HTTP/CSP#Browser_compatibility) 
+|X-XSS-Schutz|[Browserkompatibilität mit X-XSS-Protection](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection#Browser_compatibility)| 
+|Cross-Origin Resource Sharing (cors)|[Cors-Browserkompatibilität](https://developer.mozilla.org/docs/Web/HTTP/CORS#Browser_compatibility) 
+|Inhalts Sicherheitsrichtlinie (CSP)|[Kompatibilität des CSP-Browsers](https://developer.mozilla.org/docs/Web/HTTP/CSP#Browser_compatibility) 
 
 ## <a name="next"></a>Nächste
 
-- [Verwenden Sie AD FS-Hilfe Troublehshooting Leitfäden](https://aka.ms/adfshelp/troubleshooting )
+- [Hilfe zur Behandlung von Problemen mit AD FS Hilfe](https://aka.ms/adfshelp/troubleshooting )
 - [Behandeln von AD FS-Problemen](../../ad-fs/troubleshooting/ad-fs-tshoot-overview.md)

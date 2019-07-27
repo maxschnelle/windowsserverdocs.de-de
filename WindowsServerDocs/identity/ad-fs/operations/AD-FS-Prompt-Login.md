@@ -1,6 +1,6 @@
 ---
-title: AD FS-Prompt = Login
-description: Häufig gestellte Fragen für AD FS 2016
+title: AD FS prompt = Login
+description: Häufig gestellte Fragen zu AD FS 2016
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,67 +9,70 @@ ms.topic: article
 ms.custom: it-pro
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 6a4b6cfe98064181824e210be9031a0f67cb4b75
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: f4f284d4d970af8f8a672bd88be53f65ba70893f
+ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59824631"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68544639"
 ---
-# <a name="active-directory-federation-services-promptlogin-parameter-support"></a>Auffordern von Active Directory-Verbunddienste = Login-Parameter-Unterstützung
-Das folgende Dokument beschreibt die systemeigene Unterstützung für den Prompt = Login-Parameter, der in AD FS verfügbar ist.
+# <a name="active-directory-federation-services-promptlogin-parameter-support"></a>Active Directory-Verbunddienste (AD FS) prompt = Unterstützung von Anmelde Parametern
 
-## <a name="what-is-promptlogin"></a>Neuerungen Prompt = Login?  
+Im folgenden Dokument wird die native Unterstützung für den in AD FS verfügbaren prompt = Login-Parameter beschrieben.
 
-Einige Office 365-Anwendungen (mit aktivierter moderner Authentifizierung) senden den Prompt = Login-Parameter an Azure AD bei allen authentifizierungsanforderungen angegeben.  In der Standardeinstellung Azure AD übersetzt dies in zwei Parameter: <code> <b> wauth </b> =urn:oasis:names:tc:SAML:1.0:am:password </code>, und <code> <b> wfresh </b> =0 </code> .
+## <a name="what-is-promptlogin"></a>Was ist prompt = Login?
 
-Dadurch können Probleme mit dem Unternehmensintranet und Multi-Factor Authentication-Szenarien, die in der ein anderen Authentifizierungstyp als Benutzername und Kennwort gewünscht wird.  
+Wenn Anwendungen eine neue Authentifizierung von Azure AD anfordern müssen, was bedeutet, dass Sie Azure AD, den Benutzer erneut zu authentifizieren, auch wenn der Benutzer bereits authentifiziert wurde, kann er den `prompt=login` Parameter als Teil der Authentifizierung an Azure AD senden. Anforderung.
 
-AD FS unter Windows Server 2012 R2 mit dem Updaterollup vom Juli 2016 eingeführten systemeigenen Unterstützung für den Prompt = Login-Parameter.  Dies bedeutet, Sie haben jetzt die Möglichkeit der Konfiguration von Azure AD diesen Parameter zu senden – Ihre AD FS-Dienst wird als Teil von Azure AD und Office 365-authentifizierungsanforderungen.
+Wenn diese Anforderung für einen Verbund Benutzer gilt, muss Azure AD den IDP wie AD FS darüber informieren, dass die Anforderung für die neue Authentifizierung gilt.
 
-### <a name="ad-fs-versions-that-support-promptlogin"></a>AD FS-Versionen, die Eingabeaufforderung unterstützen =-Anmeldung
-Im folgenden finden eine Liste der AD FS-Versionen, die der Prompt = Login-Parameter unterstützt.
+Standardmäßig wird Azure AD beim `prompt=login` senden `wfresh=0` dieser Art von Authentifizierungsanforderungen an den Verbund-IDP in und `wauth=http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password` übersetzt.
 
-- AD FS unter Windows Server 2012 R2 mit dem Juli 2016 update-rollup
+Diese Parameter bedeuten Folgendes:
 
-- AD FS unter WindowsServer 2016
+- `wfresh=0`: neue Authentifizierung durchführen
+- `wauth=http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password`: Benutzername/Kennwort für die neue Authentifizierungsanforderung verwenden
 
-## <a name="how-do-to-configure-your-azure-ad-tenant-to-send-promptlogin-to-ad-fs"></a>Wie führen Sie zum Konfigurieren von Azure AD-Mandanten zum Senden von Prompt = Login für AD FS
+Dies kann Probleme mit unternehmensinternen Intranetszenarien und Multi-Factor Authentication-Szenarien verursachen, bei denen ein anderer Authentifizierungstyp als `wauth` Benutzername und Kennwort, wie vom-Parameter angefordert, gewünscht ist.  
 
-Verwenden Sie Azure AD PowerShell-Modul, um die Einstellung zu konfigurieren.
+AD FS in Windows Server 2012 R2 mit dem Updaterollup vom Juli 2016 wurde die native `prompt=login` Unterstützung für den-Parameter eingeführt. Dies bedeutet, dass Azure AD diesen Parameter jetzt unverändert an AD FS Dienst im Rahmen von Azure AD-und Office 365-Authentifizierungsanforderungen senden kann.
+
+## <a name="ad-fs-versions-that-support-promptlogin"></a>AD FS Versionen, die prompt = Login unterstützen
+
+Im folgenden finden Sie eine Liste der AD FS Versionen, die `prompt=login` den-Parameter unterstützen.
+
+- AD FS in Windows Server 2012 R2 mit dem Updaterollup vom Juli 2016
+- AD FS in Windows Server 2016
+
+## <a name="how-to-configure-a-federated-domain-to-send-promptlogin-to-ad-fs"></a>Konfigurieren einer Verbund Domäne zum Senden von prompt = Login an AD FS
+
+Verwenden Sie das Azure AD PowerShell-Modul, um die Einstellung zu konfigurieren.
 
 > [!NOTE]
-> Die Prompt = Login-Funktion (von der Eigenschaft PromptLoginBehavior aktiviert) steht derzeit nur in der ["Version 1.0' Azure AD Powershell-Modul](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185), in dem die-Cmdlets haben Namen, die"Msol", wie z. B. enthalten. Set-MsolDomainFederationSettings.  Es steht derzeit nicht über "Version 2.0' Azure AD PowerShell-Modul, dessen Cmdlets Namen haben wie" Set-AzureAD\*".
+> Die `prompt=login` Funktion (durch die `PromptLoginBehavior` -Eigenschaft aktiviert) ist zurzeit nur in [Version 1,0 des Azure AD PowerShell-Moduls](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)verfügbar, in dem die Cmdlets Namen enthalten, die "MSOL" enthalten, wie z. b. Set-msoldomainfederationsettings.  Es ist zurzeit nicht über "Version 2,0" des Azure AD PowerShell-Moduls verfügbar, dessen Cmdlets Namen wie "Set-azuread\*" haben.
 
-So konfigurieren Sie die Prompt = Login-Verhalten, die Cmdlet-Syntax, die weiter unten:
+1. Rufen Sie zuerst die aktuellen Werte `PreferredAuthenticationProtocol`von `SupportsMfa`, und `PromptLoginBehavior` für die Verbund Domäne ab, indem Sie den folgenden PowerShell-Befehl ausführen:
 
-Beispiel 1:
 ```powershell
-    Set-MsolDomainFederationSettings –DomainName <your domain name> -PreferredAuthenticationProtocol <your current protocol setting> 
+    Get-MsolDomainFederationSettings -DomainName <your_domain_name> | Format-List *
 ```
 
-Beispiel 2:
-```powershell
-    Set-MsolDomainFederationSettings –DomainName <your domain name> -SupportsMfa <$True|$False>
-```
-
-Beispiel 3:
-```powershell
-    Set-MsolDomainFederationSettings –DomainName <your domain name> -PromptLoginBehavior <TranslateToFreshPasswordAuth|NativeSupport|Disabled>
-```
-
- 
- Die Eigenschaftswerte PreferredAuthenticationProtocol SupportsMfa und PromptLoginBehavior finden Sie die Ausgabe des Cmdlets anzeigen: ![Get-MsolDomainFederationSettings](media/AD-FS-Prompt-Login/GetMsol.png)
-```powershell
-    Get-MsolDomainFederationSettings -DomainName <your_domain_name> | fl *
- ```
 > [!NOTE]
-> Standardmäßig werden bei Get-MsolDomainFederationSettings ausgeführt wird werden bestimmte Eigenschaften nicht in der Konsole angezeigt.  Um diese Parameter anzuzeigen, es empfohlen wird, die Sie verwenden, die | fl * um die Ausgabe aller Eigenschaften des Objekts zu erzwingen.
+> In der Ausgabe `Get-MsolDomainFederationSettings` von werden bestimmte Eigenschaften in der Konsole standardmäßig nicht angezeigt. Um alle Eigenschaften anzuzeigen, sollten Sie Ihre Ausgabe`|`an die Pipeline übergeben `Format-List *` , um die Ausgabe aller Eigenschaften des Objekts zu erzwingen.
 
+![Get-MsolDomainFederationSettings](media/AD-FS-Prompt-Login/GetMsol.png)
 
-Im folgenden finden weitere Informationen zu den PromptLoginBehavior-Parameter und deren Einstellungen.
-   
-   - <b>TranslateToFreshPasswordAuth</b> bedeutet, dass das Standardverhalten für die Azure AD senden <b>Wauth</b> und <b>Wfresh</b> auf AD FS statt mit Eingabeaufforderung =-Anmeldung
-   - <b>NativeSupport</b> bedeutet, die der Prompt = Login-Parameter in AD FS gesendet werden
-   - <b>Deaktivierte</b> bedeutet, dass nichts an der AD FS gesendet werden
+> [!NOTE]
+> Wenn die `PreferredAuthenticationMethod` -Eigenschaft leer ist`$null`(), bedeutet dies das Standard `TranslateToFreshPasswordAuth`Verhalten von.
 
+2. Konfigurieren Sie den gewünschten Wert `PromptLoginBehavior` von, indem Sie den folgenden Befehl ausführen:
+
+```powershell
+    Set-MsolDomainFederationSettings –DomainName <your_domain_name> -PreferredAuthenticationProtocol <current_value_from_step1> -SupportsMfa <current_value_from_step1> -PromptLoginBehavior <TranslateToFreshPasswordAuth|NativeSupport|Disabled>
+```
+
+Im folgenden sind die möglichen Werte `PromptLoginBehavior` des-Parameters und deren Bedeutung aufgeführt:
+
+- **Translatetofreshpasswordauth**: bedeutet das standardmäßige Azure AD Verhalten der `prompt=login` über `wauth=http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password` Setzung `wfresh=0`in und.
+- **Nativesupport**: bedeutet, dass `prompt=login` der Parameter unverändert an AD FS gesendet wird. Dies ist der empfohlene Wert, wenn AD FS in Windows Server 2012 R2 mit dem Updaterollup vom Juli 2016 oder höher ist.
+- **Deaktiviert**: bedeutet, dass `wfresh=0` nur an AD FS gesendet wird.

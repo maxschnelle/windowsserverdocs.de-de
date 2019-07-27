@@ -10,12 +10,12 @@ ms.topic: article
 ms.assetid: 8e7b77a4-1c6a-4c21-8844-0df89b63f68d
 author: brianlic-msft
 ms.date: 10/12/2016
-ms.openlocfilehash: 4ee77fba1e82179f6998959b494628e97ac23390
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: 888992366f8a722c4834f23e08a393c829b47a26
+ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67284225"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68544627"
 ---
 # <a name="device-health-attestation"></a>Integritätsnachweis für Geräte
 
@@ -98,7 +98,7 @@ Wenn DHA im EKCert-Validierungsmodus ausgeführt wird, hängt DHA von einer unte
 
 Microsoft veröffentlicht aggregierte Pakete von vertrauenswürdigen Stammzertifizierungsstellen und Zwischenzertifizierungsstellen für genehmigte TPM-Hersteller (sobald sie verfügbar sind) in einem öffentlich zugänglichen Archiv im CAB-Archiv. Sie müssen den Feed herunterladen, die Integrität überprüfen und das Zertifikat auf dem Server installieren, der den Integritätsnachweis für Geräte ausführt.
 
-Ein beispielarchiv ist [ https://tpmsec.microsoft.com/OnPremisesDHA/TrustedTPM.cab ](https://tpmsec.microsoft.com/OnPremisesDHA/TrustedTPM.cab).
+Ein Beispiel Archiv ist [https://go.microsoft.com/fwlink/?linkid=2097925](https://go.microsoft.com/fwlink/?linkid=2097925).
 
 #### <a name="aikcert-validation-mode"></a>AIKCert-Validierungsmodus
 
@@ -147,7 +147,7 @@ Nachdem Sie Windows Server 2016 installiert haben, wird das Gerät neu gestartet
 
 ### <a name="install-the-signing-and-encryption-certificates"></a>Installieren der Signatur- und Verschlüsselungszertifikate
 
-Installieren Sie mit dem folgenden Windows PowerShell-Skript die Signatur- und Verschlüsselungszertifikate. Weitere Informationen zu den Fingerabdruck, finden Sie unter [Vorgehensweise: Abrufen des Fingerabdrucks eines Zertifikats](https://msdn.microsoft.com/library/ms734695.aspx).
+Installieren Sie mit dem folgenden Windows PowerShell-Skript die Signatur- und Verschlüsselungszertifikate. Weitere Informationen zum Fingerabdruck finden [Sie unter Gewusst wie: Rufen Sie den Fingerabdruck eines Zertifikats](https://msdn.microsoft.com/library/ms734695.aspx)ab.
 
 ```
 $key = Get-ChildItem Cert:\LocalMachine\My | Where-Object {$_.Thumbprint -like "<thumbprint>"}
@@ -165,9 +165,9 @@ Um das vertrauenswürdige TPM-Stammzertifikatpaket zu installieren, müssen Sie 
 
 #### <a name="download-the-trusted-tpm-roots-certificate-package"></a>Herunterladen des vertrauenswürdigen TPM-Stammzertifikatpakets
 
-Bevor Sie das Zertifikatspaket installieren, können Sie die aktuelle Liste der vertrauenswürdigen TPM-Stammzertifizierungsstellen aus [ https://tpmsec.microsoft.com/OnPremisesDHA/TrustedTPM.cab ](https://tpmsec.microsoft.com/OnPremisesDHA/TrustedTPM.cab).
+Vor der Installation des Zertifikat Pakets können Sie die aktuelle Liste der vertrauenswürdigen TPM-Stämme von [https://go.microsoft.com/fwlink/?linkid=2097925](https://go.microsoft.com/fwlink/?linkid=2097925)herunterladen.
 
-> **Wichtig:** Stellen Sie sicher, dass es von Microsoft signiert ist, vor der Installation des Pakets.
+> **Wichtig:** Vergewissern Sie sich vor der Installation des Pakets, dass es von Microsoft digital signiert wurde.
 
 #### <a name="extract-the-trusted-certificate-package"></a>Extrahieren des vertrauenswürdigen Zertifikatpakets
 Extrahieren Sie das vertrauenswürdige Zertifikatspaket durch Ausführen der folgenden Befehle.
@@ -180,7 +180,7 @@ expand -F:* .\TrustedTpm.cab .\TrustedTpm
 
 Löschen Sie die Ordner für alle Zertifikatketten von TPM-Herstellern, die von Ihrer Organisation nicht als vertrauenswürdig eingestuft werden.
 
-> **Hinweis**: Wenn im AIK verwenden zu können, muss der Ordner "Microsoft" von Microsoft ausgestellten AIK-Zertifikate zu validieren.
+> **Hinweis**: Bei Verwendung des AIK-Zertifikat Modus ist der Microsoft-Ordner erforderlich, um von Microsoft ausgestellte AIK-Zertifikate zu überprüfen.
 
 #### <a name="install-the-trusted-certificate-package"></a>Installieren des vertrauenswürdigen Zertifikatpakets
 Installieren Sie das vertrauenswürdige Zertifikatpaket durch Ausführen des Setupskripts aus der CAB-Datei.
@@ -238,7 +238,7 @@ Get-DHASActiveSigningCertificate
 Set-DHASActiveSigningCertificate -Thumbprint "<hex>" -Force
 ```
 
-> **Hinweis**: Dieses Zertifikat muss bereitgestellt werden, auf dem Server mit den DHA-Dienst der **LocalMachine\My** Zertifikatspeicher. Wenn das aktive Signaturzertifikat festgelegt ist, wird das vorhandene aktive Signaturzertifikat in die Liste der inaktiven Signaturzertifikate verschoben.
+> **Hinweis**: Dieses Zertifikat muss auf dem Server bereitgestellt werden, auf dem der DHA-Dienst im Zertifikat Speicher **LocalMachine\MY** ausgeführt wird. Wenn das aktive Signaturzertifikat festgelegt ist, wird das vorhandene aktive Signaturzertifikat in die Liste der inaktiven Signaturzertifikate verschoben.
 
 ### <a name="list-the-inactive-signing-certificates"></a>Liste der inaktiven Signaturzertifikate
 ```
@@ -251,7 +251,7 @@ Remove-DHASInactiveSigningCertificates -Force
 Remove-DHASInactiveSigningCertificates  -Thumbprint "<hex>" -Force
 ```
 
-> **Hinweis**: Nur *eine* inaktives Zertifikat (beliebiger Typ) möglicherweise zu einem beliebigen Zeitpunkt im Dienst vorhanden. Zertifikate sollten aus der Liste der inaktiven Zertifikate entfernt werden, sobald sie nicht mehr benötigt werden.
+> **Hinweis**: Es kann immer nur ein inaktives Zertifikat (eines beliebigen Typs) im Dienst vorhanden *sein* . Zertifikate sollten aus der Liste der inaktiven Zertifikate entfernt werden, sobald sie nicht mehr benötigt werden.
 
 ### <a name="get-the-active-encryption-certificate"></a>Abrufen des aktiven Verschlüsselungszertifikats
 

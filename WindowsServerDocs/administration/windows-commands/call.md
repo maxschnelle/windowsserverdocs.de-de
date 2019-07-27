@@ -1,6 +1,6 @@
 ---
 title: Anruf
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,21 +13,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 06/05/2018
-ms.openlocfilehash: 1f5253700f2932b2afa725163121e64ea4c1748d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: e4331870f31309646974f5839d5aa70e534351e5
+ms.sourcegitcommit: 9f955be34c641b58ae8b3000768caa46ad535d43
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66434582"
+ms.lasthandoff: 07/27/2019
+ms.locfileid: "68590429"
 ---
 # <a name="call"></a>Anruf
 
 
 
-Ruft eine Batchdatei aus einem anderen ohne das übergeordnete Batchprogramm beenden zu müssen. Die **Aufrufen** Befehl akzeptiert Bezeichnungen als Ziel des Aufrufs.
+Ruft ein Batch Programm von einem anderen auf, ohne das übergeordnete Batch Programm zu beenden. Der **Befehl "** Befehl" akzeptiert Bezeichnungen als Ziel des Aufrufes.
 
 > [!NOTE]
-> **Rufen Sie** hat keine Auswirkung an der Eingabeaufforderung ein, wenn sie außerhalb einer Skript- oder Batchausführung-Datei verwendet wird.
+> Der- **Befehl hat an** der Eingabeaufforderung keine Auswirkung, wenn er außerhalb eines Skripts oder einer Batchdatei verwendet wird.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -41,72 +41,72 @@ call [Drive:][Path]<FileName> [<BatchParameters>] [:<Label> [<Arguments>]]
 
 |           Parameter           |                                                                         Beschreibung                                                                          |
 |-------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [\<Drive>:][<Path>]<FileName> | Gibt den Speicherort und Namen, der die Batch-Anwendung, die Sie aufrufen möchten. Die *FileName* -Parameter ist erforderlich, und sie muss eine BAT- oder cmd-Erweiterung. |
-|      \<BatchParameters>       |                                            Gibt alle Angaben in der Befehlszeile, die von der Batch-Anwendung erforderlich sind.                                             |
-|           :\<Label>           |                                            Gibt die Bezeichnung, die ein Batch-Programmsteuerung zu springen soll.                                             |
-|         \<Arguments>          |                     Gibt die Befehlszeile Informationen an die neue Instanz des aufzurufenden Programms, beginnend bei zu übergebenden *: Bezeichnung.*                     |
+| [\<Laufwerk >:] [\<Pfad >]<FileName> | Gibt den Speicherort und den Namen des aufzurufenden Batch Programms an. Der *filename* -Parameter ist erforderlich und muss über die Erweiterung ". bat" oder ". cmd" verfügen. |
+|      \<Batchparameters->       |                                            Gibt alle Befehlszeilen Informationen an, die vom Batch Programm benötigt werden.                                             |
+|           :\<Bezeichnung >           |                                            Gibt die Bezeichnung an, zu der ein Batch Programm-Steuerelement springen soll.                                             |
+|         \<Argumente >          |                     Gibt die Befehlszeilen Informationen an, die an die neue Instanz des Batch-Programms, beginnend bei *: Label* , übermittelt werden.                     |
 |              /?               |                                                             Zeigt die Hilfe an der Eingabeaufforderung an.                                                             |
 
-## <a name="batch-parameters"></a>Batchparameter
+## <a name="batch-parameters"></a>Batch Parameter
 
-Die Batch-Skriptverweise Argument ( **%0**, **%1**,...) werden in den folgenden Tabellen aufgeführt.
+Die Batch Skript-Argument Verweise ( **% 0**, **% 1**,...) sind in den folgenden Tabellen aufgeführt.
 
-**%** * in einem Batch von Skripts, bezieht sich auf alle Argumente (z. B. **%1**, **%2**, **%3**...)
+**%\*** in einem Batch Skript werden alle Argumente (z. b. **% 1**, **% 2**, **% 3**...) bezeichnet.
 
-Können Sie die folgenden optionalen Syntaxen als Ersatz für Batchparameter ( **%n**):
+Sie können die folgenden optionalen Syntaxen als Ersatz für Batch Parameter ( **% n**) verwenden:
 
-|Batchparameter|Beschreibung|
+|Batch-Parameter|Beschreibung|
 |---------------|-----------|
-|%~1|Wird erweitert, **%1** und entfernt, die umgebenden Anführungszeichen ("").|
-|%~f1|Wird erweitert, **%1** in einen vollständig qualifizierten Pfad.|
-|%~d1|Wird erweitert, **%1** nur einen Laufwerkbuchstaben.|
-|%~p1|Wird erweitert, **%1** nur zu einem Pfad.|
-|%~n1|Wird erweitert, **%1** nur zu einer Datei.|
-|%~x1|Wird erweitert, **%1** mit nur einer Dateierweiterung.|
-|%~s1|Wird erweitert, **%1** in einen vollqualifizierten Pfad, der nur einen kurze Namen enthält.|
-|%~a1|Wird erweitert, **%1** an den Dateiattributen.|
-|%~t1|Wird erweitert, **%1** auf das Datum und Uhrzeit der Datei.|
-|%~z1|Wird erweitert, **%1** auf die Größe der Datei.|
-|%~$PATH:1|Durchsucht die Verzeichnisse, die in der PATH-Umgebungsvariablen aufgelistet, und erweitert **%1** auf den vollqualifizierten Namen der das erste Verzeichnis gefunden. Wenn der Name der Umgebungsvariablen nicht definiert ist oder die Datei wird von der Suche nicht gefunden, wird dieser Modifizierer auf eine leere Zeichenfolge erweitert.|
+|% ~ 1|Erweitert **% 1** und entfernt die umgebenden Anführungszeichen ("").|
+|% ~ F1|" **% 1** " wird in einen voll qualifizierten Pfad erweitert.|
+|% ~ D1|" **% 1** " wird nur auf einen Laufwerk Buchstaben erweitert.|
+|% ~ P1|" **% 1** " wird nur in einen Pfad erweitert.|
+|% ~ N1|" **% 1** " wird nur in einen Dateinamen erweitert.|
+|% ~ x1|" **% 1** " wird nur zu einer Dateinamenerweiterung erweitert.|
+|% ~ S1|**% 1** wird auf einen voll qualifizierten Pfad erweitert, der nur Kurznamen enthält.|
+|% ~ a1|**% 1** wird auf die Dateiattribute erweitert.|
+|% ~ T1|Erweitert **% 1** auf das Datum und die Uhrzeit der Datei.|
+|% ~ Z1|Erweitert **% 1** auf die Größe der Datei.|
+|% ~ $PATH: 1|Durchsucht die Verzeichnisse, die in der PATH-Umgebungsvariablen aufgelistet sind, und erweitert **% 1** auf den voll qualifizierten Namen des ersten gefundenen Verzeichnisses. Wenn der Name der Umgebungsvariablen nicht definiert ist oder die Datei von der Suche nicht gefunden wird, wird dieser Modifizierer auf die leere Zeichenfolge erweitert.|
 
-Die folgende Tabelle zeigt, wie Sie die Modifizierer mit den Batchparametern für zusammengesetzte Ergebnisse kombinieren können:
+In der folgenden Tabelle wird gezeigt, wie Modifizierern mit den Batch Parametern für Verbund Ergebnisse kombiniert werden können:
 
-|Batchparameter mit dem Modifizierer|Beschreibung|
+|Batch-Parameter mit Modifizierer|Beschreibung|
 |-----------------------------|-----------|
-|%~dp1|Wird erweitert, **%1** auf einem Laufwerkbuchstaben und Pfad nur.|
-|%~nx1|Wird erweitert, **%1** , einen Dateinamen und die Erweiterung nur.|
-|%~dp$PATH:1|Durchsucht den in der PATH-Umgebungsvariable für die aufgeführten Verzeichnisse **%1**, und klicken Sie dann erweitert, um den Laufwerkbuchstaben und Pfad, der das erste Verzeichnis gefunden.|
-|%~ftza1|Wird erweitert, **%1** zur Anzeige der Ausgabe ähnelt der **Dir** Befehl.|
+|% ~ DP1|" **% 1** " wird nur auf einen Laufwerk Buchstaben und einen Pfad erweitert.|
+|% ~ NX1|" **% 1** " wird nur in einen Dateinamen und eine Erweiterung erweitert.|
+|% ~ DP $ Pfad: 1|Durchsucht die Verzeichnisse, die in der PATH-Umgebungsvariablen für **% 1**aufgelistet sind, und wird dann auf den Laufwerk Buchstaben und den Pfad des ersten gefundenen Verzeichnisses erweitert.|
+|% ~ ftza1|Erweitert **% 1** , um eine Ausgabe ähnlich dem **dir** -Befehl anzuzeigen.|
 
-In den obigen Beispielen **%1** und der Pfad kann durch andere Werte gültige Werte ersetzt werden. Die <strong>%~</strong> Syntax wird durch ein gültiges Argument Anzahl beendet. Die <strong>%~</strong> Modifizierer können nicht verwendet werden, mit ** %\\***.
+In den obigen Beispielen können **% 1** und path durch andere gültige Werte ersetzt werden. Die <strong>%~</strong> Syntax wird mit einer gültigen Argument Nummer beendet. Die <strong>%~</strong> modifiziererer können nicht **% \\ mit\*** verwendet werden.
 
 ## <a name="remarks"></a>Hinweise
 
--   Verwenden von Batchparametern
+-   Verwenden von Batch Parametern
 
-    Batchparameter darf keine Informationen, die Sie in einem Batchprogramm, z. B. Befehlszeilenoptionen, Dateinamen, die Batchparameter übergeben können **%0** über **%9**, und Variablen (z. B. **Baud %** ).
--   Mithilfe der *Bezeichnung* Parameter
+    Batch Parameter können alle Informationen enthalten, die an ein Batch-Programm übergeben werden können, einschließlich Befehlszeilenoptionen, Dateinamen, Batch Parameter **% 0** bis **% 9**und Variablen (z. b. **% Baud%** ).
+-   Verwenden des *Label* -Parameters
 
-    Mithilfe von **Aufrufen** mit der *Bezeichnung* Parameter, Sie erstellen einen neuen Kontext von Batch-Datei und übergibt die Steuerung an die Anweisung nach der angegebenen Bezeichnung. Beim ersten Ende der Batchdatei auftritt (d. h. nachdem Springen zur Bezeichnung), Steuerelement zurückgegeben wird, an die Anweisung nach der **Aufrufen** Anweisung. Das Ende der Batchdatei gefunden wird, das zum zweiten Mal wird der Batchskript wurde beendet.
--   Pipes und Umleitungssymbole
+    Wenn Sie den-Befehl mit dem *Label* - **Parameter verwenden,** erstellen Sie einen neuen Batchdatei Kontext und übergeben die Steuerung an die Anweisung nach der angegebenen Bezeichnung. Wenn das Ende der Batchdatei das erste Mal erreicht wird (d. h. nach dem Springen zur Bezeichnung), wird die Steuerung an die Anweisung nach der **Aufruf** Anweisung zurückgegeben. Das zweite Mal, wenn das Ende der Batchdatei gefunden wird, wird das Batch Skript beendet.
+-   Verwenden von Pipes und Umleitungs Symbolen
 
-    Verwenden Sie keine Pipes ( **|** ) und Umleitungssymbole ( **<** oder **>** ) mit **Aufrufen**.
--   Rekursive Aufrufe
+    Verwenden Sie keine Pipes ( **|** ) und Umleitungs Symbole **<** ( **>** oder) **mit dem-** Befehl.
+-   Rekursiver Rückruf
 
-    Sie können eine Batchdatei erstellen, die sich selbst aufruft. Allerdings müssen Sie eine beenden-Bedingung angeben. Andernfalls können die Batch-Programme von übergeordneten und untergeordneten endlos durchlaufen wird.
--   Arbeiten mit befehlserweiterungen
+    Sie können ein Batch-Programm erstellen, das sich selbst aufruft. Sie müssen jedoch eine Exit-Bedingung angeben. Andernfalls können das übergeordnete und das untergeordnete Batch Programm Endlosschleifen.
+-   Arbeiten mit Befehls Erweiterungen
 
-    Wenn der befehlserweiterungen aktiviert sind, **Aufrufen** akzeptiert *Bezeichnung* als Ziel des Aufrufs. Die richtige Syntax lautet wie folgt:
+    Wenn Befehls Erweiterungen aktiviert **sind, wird** die *Bezeichnung* als Ziel des Aufrufes akzeptiert. Die korrekte Syntax lautet wie folgt:
 
     `call :\<Label> <Arguments>`
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Um das Programm Checknew.bat aus einem anderen Batchprogramm auszuführen, geben Sie den folgenden Befehl in der übergeordneten Batch-Anwendung:
+Um das Programm checknew. bat von einem anderen Batch Programm auszuführen, geben Sie den folgenden Befehl in das übergeordnete Batch-Programm ein:
 ```
 call checknew
 ```
-Wenn das übergeordnete Batchprogramm zwei Batchparameter akzeptiert, und Sie diesen Parameter an Checknew.bat übergeben soll, geben Sie den folgenden Befehl in der übergeordneten Batch-Anwendung:
+Wenn das übergeordnete Batch-Programm zwei Batch Parameter annimmt und Sie diese Parameter an checknew. bat übergeben möchten, geben Sie den folgenden Befehl in das übergeordnete Batch-Programm ein:
 ```
 call checknew %1 %2
 ```
