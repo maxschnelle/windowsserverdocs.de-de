@@ -14,12 +14,12 @@ author: jaimeo
 ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 2c26d6d0c4c4465b5f9073dbcac951fc0adce1d5
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 4a305141b839772bb024140bd803073a67e266b2
+ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63688544"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68544577"
 ---
 # <a name="comparison-of-standard-and-datacenter-editions-of-windows-server-2016"></a>Vergleich der Standard- und Datacenter-Editionen von Windows Server 2016
 
@@ -123,7 +123,7 @@ ms.locfileid: "63688544"
 |SMB-Bandbreiteneinschränkung|Ja|Ja|
 |SMTP-Server|Ja|Ja|
 |SNMP-Dienst|Ja|Ja|
-|Softwarelastenausgleich|Ja|Ja|
+|Softwarelastenausgleich|Nein|Ja|
 |Speicherreplikat|Nein|Ja|
 |Telnet-Client|Ja|Ja|
 |TFTP-Client|Ja, bei der Installation als Server mit Desktopdarstellung|Ja, bei der Installation als Server mit Desktopdarstellung|
