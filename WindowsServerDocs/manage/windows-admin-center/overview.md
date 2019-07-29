@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 06/20/2019
 ms.localizationpriority: high
 ms.prod: windows-server-threshold
-ms.openlocfilehash: d00051f59eb39c6a7c668d00034f72879b0b097f
-ms.sourcegitcommit: 078304c4b92bb57eb85ba29634afc92cc028c644
+ms.openlocfilehash: 0612f4ff102d6b5d1fd24372ac20a98c3ec02edb
+ms.sourcegitcommit: 216d97ad843d59f12bf0b563b4192b75f66c7742
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67298138"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68476566"
 ---
 # <a name="windows-admin-center"></a>Windows Admin Center
 
@@ -129,6 +129,7 @@ Sie können Windows Admin Center in Ihrer Umgebung innerhalb von Minuten betrieb
 
 Lernen Sie unsere neuesten veröffentlichten Funktionen kennen:
 
+- Version [1907](https://aka.ms/wac1907): Links zu geschätzten Azure-Kosten hinzugefügt, Import/Export und Kennzeichnung von VMs verbessert.
 - Version [1906](https://aka.ms/wac1906): Import/Export von VMs eingeführt, Wechsel von Azure-Konten, Hinzufügen von Verbindungen aus Azure, Verbindungseinstellungen (experimentell), Leistungsverbesserungen und Tool für Leistungsprofile.
 - Version 1904.1 ist das aktuellste allgemein verfügbare Release – ein Wartungsupdate zur Verbesserung der Stabilität von Gateway-Plug-Ins.
 - Version [1904](https://aka.ms/wac1904) war ein allgemein verfügbares Release, mit dem das Azure-Hybriddienstetool und Funktionen eingeführt wurden, die zuvor in der Vorschau der GA-Version erhältlich waren.

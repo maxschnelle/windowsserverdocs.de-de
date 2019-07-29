@@ -66,13 +66,21 @@
 
 ## [Zusätzliche Unterstützung zum Thema Remotedesktop](rds-get-support.md)
 ## [Remotedesktopclients](clients/remote-desktop-clients.md)
+### Bekannte Probleme mit Remotedesktop
+#### [Allgemeine Problembehandlung bei Remotedesktopverbindungen](troubleshoot/rdp-error-general-troubleshooting.md)
+#### [Clients können keine Verbindung herstellen und erhalten den Fehler „Klasse nicht registriert“](troubleshoot/rdp-error-class-not-registered.md)
+#### [Clients können keine Verbindung herstellen und erhalten den Fehler „Keine Lizenzen verfügbar“](troubleshoot/rdp-error-no-licenses-available.md)
+#### [Der Benutzer kann sich nicht authentifizieren oder muss sich zweimal authentifizieren](troubleshoot/cannot-authenticate-or-must-authenticate-twice.md)
+#### [Fehler „Der Remotedesktopdienst ist aktuell ausgelastet“ bei der Verbindungsherstellung](troubleshoot/remote-desktop-service-currently-busy.md)
+#### [Remotedesktopclient wird getrennt und kann die Verbindung zur gleichen Sitzung nicht wiederherstellen](troubleshoot/rdp-client-disconnects-cannot-reconnect-same-session.md)
+#### [Remotelaptop trennt die WLAN-Verbindung](troubleshoot/remote-laptop-disconnects-wireless-network.md)
+#### [Eingeschränkte Leistung oder Anwendungsprobleme während der Remotedesktopverbindung](troubleshoot/poor-performance-or-application-problems.md)
 ### Allgemeine Informationen
 #### [Welcher Client eignet sich am besten für Sie?](clients/remote-desktop-app-compare.md)
 #### [Remotedesktop: Einstellungen für RDP-Datei](clients/rdp-files.md)
 #### [Remotedesktop-URI-Schema](clients/remote-desktop-uri.md)
 #### [Remotedesktopclient – Häufig gestellte Fragen](clients/remote-desktop-client-faq.md)
 #### [Privacy settings for managed apps and desktops](clients/remote-privacy-settings.md) (Datenschutzeinstellungen für verwaltete Apps und Desktops)
-#### [Problembehandlung bei Remotedesktopverbindungen](clients/troubleshoot-remote-desktop-connections.md)
 ### Remotedesktopclient für Windows
 #### [Erste Schritte](clients/windows.md)
 #### [Neuigkeiten zum Windows-Client](clients/windows-whatsnew.md)
