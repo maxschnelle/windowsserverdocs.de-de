@@ -1,6 +1,6 @@
 ---
 title: more
-description: 'Windows-Befehle Thema ***- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -12,19 +12,19 @@ ms.assetid: ded14f6a-d82f-4aeb-a2d8-7ec1c94dfb8f
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
-ms.date: 10/16/2017
-ms.openlocfilehash: 93ba6c696c509ea20ffe8f680d4416d24d202b89
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.date: 07/26/2019
+ms.openlocfilehash: 291d98492f3f2b200ff0567c28a97927ca8c75be
+ms.sourcegitcommit: e55e27143dad1d3fb956cfdac4c23ef4186af321
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66437315"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68603231"
 ---
 # <a name="more"></a>more
 
 
 
-Es wird ein Bildschirm mit der Ausgabe zu einem Zeitpunkt.
+Zeigt jeweils einen Bildschirm der Ausgabe an.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -40,77 +40,79 @@ more [/c] [/p] [/s] [/t<N>] [+<N>] [<Files>]
 
 |           Parameter            |                               Beschreibung                               |
 |--------------------------------|-------------------------------------------------------------------------|
-|           \<Befehl >           |      Gibt einen Befehl für den in der Ausgabe angezeigt werden sollen.      |
-|               /c               |               Löscht den Bildschirm vor der Anzeige einer Seite an.               |
-|               /p               |                      Wird erweitert, Zeichen.                      |
-|               /s               |          Zeigt mehrere leere Zeilen als einzelne Zeile leer.          |
-|             /t\<N>             |         Werden Registerkarten angezeigt wird, als die angegebene Anzahl von Leerzeichen durch *N*.         |
-|             +\<N>              |     Zeigt den Anfang der ersten Datei in der Zeile, die anhand des *N*.     |
-| [\<Drive>:] [<Path>]<FileName> |          Gibt den Speicherort und Namen einer Datei angezeigt.          |
-|            \<Dateien >            | Gibt eine Liste der Dateien angezeigt. Trennen Sie Namen durch ein Leerzeichen ein. |
+|           \<Befehls >           |      Gibt einen Befehl an, für den die Ausgabe angezeigt werden soll.      |
+|               /c               |               Löscht den Bildschirm, bevor eine Seite angezeigt wird.               |
+|               /p               |                      Erweitert Formular-Feed-Zeichen.                      |
+|               /s               |          Zeigt mehrere leere Zeilen als einzelne Leerzeile an.          |
+|             /t\<N >             |         Zeigt Registerkarten als Anzahl von Leerzeichen an, die durch *N*angegeben werden.         |
+|             +\<N >              |     Zeigt die erste Datei an, die in der durch *N*angegebenen Zeile beginnt.     |
+| [\<Laufwerk >:] [\<Pfad >]\<Dateiname > |          Gibt den Speicherort und den Namen einer Datei an, die angezeigt werden soll.          |
+|            \<Dateien >            | Gibt eine Liste der anzuzeigenden Dateien an. Trennen Sie die Dateinamen durch ein Leerzeichen. |
 |               /?               |                  Zeigt die Hilfe an der Eingabeaufforderung an.                   |
 
 ## <a name="remarks"></a>Hinweise
 
--   Die folgenden Unterbefehle akzeptiert werden, auf die **weitere** Eingabeaufforderung (`-- More --`).  
-    |Key|Aktion|
-    |---|------|
-    |SPACEBAR|Zeigt die nächste Seite.|
-    |EINGABETASTE|Zeigt die nächste Zeile.|
-    |f|Zeigt die nächste Datei.|
-    |q|Beendet die **weitere** Befehl.|
-    |=|Zeigt die Nummer der Zeile an.|
-    |p \<N>|Zeigt die nächste *N* Zeilen.|
-    |s \<N>|Überspringt die nächste *N* Zeilen.|
-    |?|Zeigt die Befehle, die unter der **weitere** Eingabeaufforderung.|
-– Wenn Sie das Umleitungszeichen verwenden ( **<** ), müssen Sie einen Dateinamen als Quelle angeben. Wenn Sie die Pipe zu verwenden (**|*), können Sie diese Befehle als **Dir**, **Sortierreihenfolge**, und **Typ**.
--   Die **weitere** -Befehl, mit verschiedenen Parametern finden Sie in der Wiederherstellungskonsole.
+-   Die folgenden Unterbefehle werden an der **ausführlicheren** Eingabeaufforderung`-- More --`() akzeptiert. 
 
-## <a name="BKMK_examples"></a>Beispiele für
+    | Key | Aktion |
+    | --- | ------ |
+    | LEERTASTE | Zeigt die nächste Seite an. |
+    | EINGABETASTE | Zeigt die nächste Zeile an. |
+    | f | Zeigt die nächste Datei an. |
+    | q | Beendet den **weiteren** Befehl. |
+    | = | Zeigt die Zeilennummer an. |
+    | p \<N > | Zeigt die nächsten *N* Zeilen an. |
+    | s \<N > |S kippt die nächsten *N* Zeilen. |
+    | ? | Zeigt die Befehle an, die an der **ausführlicheren** Eingabeaufforderung verfügbar sind.| 
+    
+-   Wenn Sie das-Umleitungs **<** Zeichen () verwenden, müssen Sie einen Dateinamen als Quelle angeben. Wenn Sie die Pipe ( **\|** ) verwenden, können Sie diese Befehle wie **dir**, **Sort**und **Type**verwenden.
+-   Der **Weitere** Befehl mit unterschiedlichen Parametern ist über die Wiederherstellungskonsole verfügbar.
 
-Geben Sie zum Anzeigen der ersten Seite des Informationen einer Datei mit dem Namen Kunden.neu einen der folgenden Befehle aus:
+## <a name="BKMK_examples"></a>Beispiele
+
+Geben Sie einen der folgenden Befehle ein, um den ersten Bildschirm der Informationen einer Datei mit dem Namen Clients. New anzuzeigen:
 ```
 more < clients.new
 type clients.new | more
 ```
-Die **weitere** Befehl zeigt den ersten Bildschirm von Informationen aus dem Kunden.neu und zeigt dann die folgende Aufforderung:
+Der Befehl **Weitere** zeigt den ersten Bildschirm der Informationen von Clients. neu an und zeigt dann die folgende Eingabeaufforderung an:
 ```
 -- More --
 ```
-Drücken Sie dann die LEERTASTE, um dem nächsten Bildschirm des Informationen finden Sie unter.
+Sie können dann die Leertaste drücken, um den nächsten Bildschirm anzuzeigen.
 
-Deaktivieren Sie den Bildschirm, und entfernen Sie alle zusätzliche leere Zeilen vor der Anzeige der Datei Kunden.neu, geben Sie einen der folgenden Befehle aus:
+Geben Sie einen der folgenden Befehle ein, um den Bildschirm zu löschen und alle zusätzlichen leeren Zeilen vor dem Anzeigen der Datei Clients. New zu entfernen:
 ```
 more /c /s < clients.new
 type clients.new | more /c /s
 ```
-Die **weitere** Befehl zeigt den ersten Bildschirm von Informationen aus dem Kunden.neu und zeigt dann die folgende Aufforderung:
+Der Befehl **Weitere** zeigt den ersten Bildschirm der Informationen von Clients. neu an und zeigt dann die folgende Eingabeaufforderung an:
 ```
 -- More --
 ```
 
-### <a name="using-more-subcommands"></a>Verwenden mehrere Unterbefehle
+### <a name="using-more-subcommands"></a>Verwenden von weiteren unter Befehlen
 
-In den folgenden Beispielen können verwendet werden, auf die **weitere** Eingabeaufforderung (`-- More --`).
-- Um die Datei eine Zeile zu einem Zeitpunkt anzuzeigen, drücken Sie die EINGABETASTE auf der **weitere** Eingabeaufforderung.
-- Drücken Sie die LEERTASTE an, um dem nächsten Bildschirm anzuzeigen, die **weitere** Eingabeaufforderung.
-- Geben Sie zum Anzeigen der nächsten Datei aufgeführt, die in der Befehlszeile **f** an die **weitere** Eingabeaufforderung.
-- Geben Sie zum Anzeigen der verfügbaren Befehle **?** auf der **weitere** Eingabeaufforderung.
-- Um den Vorgang abzubrechen **weitere**, Typ **q** an die **weitere** Eingabeaufforderung.
-- Um die aktuelle Zeilennummer anzuzeigen, geben **=** an die **weitere** Eingabeaufforderung. Die aktuelle Zeilennummer wird hinzugefügt, um die **weitere** Eingabeaufforderung wie folgt:  
+Die folgenden Beispiele können an der **ausführlicheren** Eingabeaufforderung (`-- More --`) verwendet werden.
+- Drücken **Sie die Eingabe** Taste, um die Datei nacheinander anzuzeigen.
+- Um den nächsten Bildschirm anzuzeigen, drücken Sie die Leertaste an **der Eingabeaufforderung** .
+- Wenn Sie die nächste Datei anzeigen möchten, die in der Befehlszeile aufgelistet ist, geben Sie **f** **an der Eingabe** Aufforderung ein.
+- **Geben Sie** ein, um die verfügbaren Befehle anzuzeigen. an der **ausführlicheren** Aufforderung.
+- Um **Weitere Informationen**zu erhalten, geben Sie **q** **an der Eingabe** Aufforderung ein.
+- Wenn Sie die aktuelle Zeilennummer anzeigen möchten **=** , geben Sie **an der Eingabe** Aufforderung ein. Die aktuelle Zeilennummer wird wie folgt der **weiteren** Eingabeaufforderung hinzugefügt:  
   ```
   -- More [Line: 24] --
   ```  
-- Geben Sie zum Anzeigen einer bestimmten Anzahl von Zeilen **p** an die **weitere** Eingabeaufforderung. **Weitere** aufgefordert, für die Anzahl der Zeilen, die wie folgt angezeigt:  
+- Wenn Sie eine bestimmte Anzahl von Zeilen anzeigen möchten, geben Sie **p** **an der Eingabe** Aufforderung ein. **Weitere** werden Sie aufgefordert, die Anzahl der anzuzeigenden Zeilen wie folgt anzuzeigen:  
   ```
   -- More -- Lines:
   ```  
-  Geben Sie die Anzahl der anzuzeigenden Zeilen an, und drücken Sie dann die EINGABETASTE. **Weitere** zeigt die angegebene Anzahl von Zeilen.
-- Um eine bestimmte Anzahl von Zeilen zu überspringen, geben Sie **s** an die **weitere** Eingabeaufforderung. **Weitere** aufgefordert, für die Anzahl der Zeilen, die wie folgt überspringen:  
+  Geben Sie die Anzahl der anzuzeigenden Zeilen ein, und drücken Sie dann die EINGABETASTE. **Weitere** zeigt die angegebene Anzahl von Zeilen an.
+- Um eine bestimmte Anzahl von Zeilen zu überspringen, geben Sie **s** **an der Eingabe** Aufforderung ein. **Weitere** werden Sie aufgefordert, die Anzahl der zu über springenden Zeilen wie folgt zu überspringen:  
   ```
   -- More -- Lines:
   ```  
-  Geben Sie die Anzahl der zu überspringenden Zeilen an, und drücken Sie dann die EINGABETASTE. **Weitere** überspringt die angegebene Anzahl von Zeilen und den nächsten Bildschirm des Informationen angezeigt.
+  Geben Sie die Anzahl der zu über springenden Zeilen ein, und drücken Sie die EINGABETASTE. **Mehr** überspringt die angegebene Anzahl von Zeilen und zeigt den nächsten Bildschirm der Informationen an.
 
 #### <a name="additional-references"></a>Weitere Verweise
 
