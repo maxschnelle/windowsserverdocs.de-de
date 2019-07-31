@@ -293,7 +293,7 @@ Unter sehr seltenen Umständen, die in der Regel nicht reproduziert werden könn
 
     Guidance: Possible causes include network failures, share creation failures for the remote replication group, or firewall settings. Make sure SMB traffic is allowed and there are no connectivity issues between the local computer and the remote computer. You should expect this event when suspending replication or removing a replication partnership.
 
-Beachten Sie, dass es sich bei diesem Problem um ein bekanntes Problem im Speicher Replikat handelt, das in Qualitäts Update vom 12. September 2017 – KB4038782 (OS-Build 14393,1715) korrigiert wurde. `A process has requested access to an object, but has not been granted those access rights.` `Status: "{Access Denied}"`https://support.microsoft.com/help/4038782/windows-10-update-kb4038782 
+Beachten Sie, dass es sich bei diesem Problem um ein bekanntes Problem im Speicher Replikat handelt, das in Qualitäts Update vom 12. September 2017 – KB4038782 (OS-Build 14393,1715) korrigiert wurde. `A process has requested access to an object, but has not been granted those access rights.` `Status: "{Access Denied}"` https://support.microsoft.com/help/4038782/windows-10-update-kb4038782 
 
 ## <a name="error-failed-to-bring-the-resource-cluster-disk-x-online-with-a-stretch-cluster"></a>Fehler "Die Ressource konnte nicht in den Onlinemodus 'Cluster Disk x' versetzt werden". mithilfe eines Stretched Clusters
 
