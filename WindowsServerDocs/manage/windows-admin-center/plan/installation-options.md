@@ -1,6 +1,6 @@
 ---
-title: Welche Art von Installation für Sie geeignet ist.
-description: Dieses Thema beschreibt die verschiedenen Installationsoptionen für Windows Admin Center, einschließlich der Installation auf einem Windows 10-PC oder einem Windows-Server für die Verwendung von mehreren Administratoren.
+title: Welche Art der Installation ist für Sie geeignet?
+description: In diesem Thema werden die verschiedenen Installationsoptionen für Windows Admin Center beschrieben, einschließlich der Installation von auf einem Windows 10-PC oder Windows Server für die Verwendung durch mehrere Administratoren.
 ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
@@ -8,79 +8,77 @@ ms.author: niwashbu
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 ms.date: 06/07/2019
-ms.openlocfilehash: 9b26ce28d8b3f74c26adab87e68b9985f2be5361
-ms.sourcegitcommit: 6ef4986391607bb28593852d06cc6645e548a4b3
+ms.openlocfilehash: 36c9dfcb38ef417df56206cdb18633cc877183c4
+ms.sourcegitcommit: af80963a1d16c0b836da31efd9c5caaaf6708133
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66811817"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68658897"
 ---
 # <a name="what-type-of-installation-is-right-for-you"></a>Welche Art von Installation ist für Sie geeignet?
 
->Gilt für: Windows Admin Center, Windows Admin Center Preview
+>Gilt für: Windows Admin Center, Windows Admin Center-Vorschau
 
-Dieses Thema beschreibt die verschiedenen Installationsoptionen für Windows Admin Center, einschließlich der Installation auf einem Windows 10-PC oder einem Windows-Server für die Verwendung von mehreren Administratoren. Zum Installieren von Windows Admin Center auf einem virtuellen Computer in Azure finden Sie unter [Deploy Windows Admin Center in Azure](../azure/deploy-wac-in-azure.md).
+In diesem Thema werden die verschiedenen Installationsoptionen für Windows Admin Center beschrieben, einschließlich der Installation von auf einem Windows 10-PC oder Windows Server für die Verwendung durch mehrere Administratoren. Informationen zum Installieren des Windows Admin Centers auf einem virtuellen Computer in Azure finden Sie unter Bereitstellen [des Windows Admin Centers in Azure](../azure/deploy-wac-in-azure.md).
 
-## <a name="supported-operating-systems-installation"></a>Unterstützte Betriebssysteme: Installation
+## <a name="installation-types"></a>Install Typen
 
-Sie können **installieren** Windows Admin Center auf den folgenden Windows-Betriebssystemen unterstützt:
+| Lokaler Client                                | Gatewayserver                                  | Verwalteter Server                               | Failovercluster                           |
+|---------------------------------------------|-------------------------------------------------|----------------------------------------------|--------------------------------------------|
+| ![IMG](../media/deployment-options/W10.PNG) | ![IMG](../media/deployment-options/gateway.PNG) | ![IMG](../media/deployment-options/node.PNG) | ![IMG](../media/deployment-options/HA.png) |
+| Installieren Sie auf einem lokalen Windows 10-Client, der über Konnektivität zu den verwalteten Servern verfügt.  Hervorragend geeignet für Schnellstart-, Test-, Ad-hoc-oder kleine Skalierungs Szenarien. |Installieren Sie auf einem bestimmten Gatewayserver, und greifen Sie von einem beliebigen Client Browser aus mit Verbindung zum Gatewayserver darauf zu.  Ideal für umfangreiche Szenarien. | Installieren Sie direkt auf einem verwalteten Server, um sich selbst oder einen Cluster zu verwalten, in dem es sich um einen Mitglieds Knoten handelt.  Hervorragend für verteilte Szenarien. | Stellen Sie in einem Failovercluster bereit, um die Hochverfügbarkeit des Gatewaydiensts zu ermöglichen. Hervorragend für Produktionsumgebungen, um die Resilienz Ihres Verwaltungs Dienstanbieter sicherzustellen. |
 
-| **Version**  | **Installationsmodus** |
-| -------------| -----------------------|
-| Windows 10, Version 1709 oder höher | Desktopmodus |
-| Windows Server (Semi-Annual Channel) | Gatewaymodus |
-| Windows Server 2016 | Gatewaymodus |
-| Windows Server 2019 | Gatewaymodus |
+## <a name="installation-supported-operating-systems"></a>Install Unterstützte Betriebssysteme
 
-**Desktop-Modus:** Über das Startmenü starten und eine Verbindung des Gateways Windows Admin Center aus dem gleichen Computer, auf dem er installiert ist (d. h. `https://localhost:6516`)
+Sie können Windows Admin Center unter den folgenden Windows-Betriebssystemen **Installieren** :
 
-**Gateway-Modus:** Ein Browser auf einem anderen Computer eine Verbindung mit dem Gateway Windows Admin Center (d. h. `https://servername.contoso.com`) 
+| **Plattform**                       | **Installationsmodus** |
+| -----------------------------------| --------------------- |
+| Windows 10, Version 1709 oder höher  | Lokaler Client |
+| Windows Server (Semi-Annual Channel) | Gatewayserver, verwalteter Server, Failovercluster |
+| Windows Server 2016                | Gatewayserver, verwalteter Server, Failovercluster |
+| Windows Server 2019                | Gatewayserver, verwalteter Server, Failovercluster |
+
+So betreiben Sie Windows Admin Center:
+
+- **In lokalem Client Szenario:** Starten Sie das Windows Admin Center-Gateway über das Startmenü, und stellen Sie über einen Client Webbrowser eine `https://localhost:6516`Verbindung dazu her, indem Sie auf zugreifen.
+- **In anderen Szenarien:** Herstellen einer Verbindung mit dem Windows Admin Center-Gateway auf einem anderen Computer als einem Client Browser über die URL, z. b.`https://servername.contoso.com`
 
 > [!WARNING]
-> Installieren von Windows Admin Center auf einem Domänencontroller wird nicht unterstützt. [Erfahren Sie mehr über die Sicherheit des Domänencontrollers, bewährte Methoden](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/securing-domain-controllers-against-attack). 
+> Die Installation von Windows Admin Center auf einem Domänen Controller wird nicht unterstützt. [Weitere Informationen finden Sie unter Bewährte Sicherheitsmethoden für Domänen Controller](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/securing-domain-controllers-against-attack). 
 
-> [!IMPORTANT]
-> Nicht möglich, verwenden Sie Internet Explorer zum Verwalten von Windows Admin Center – stattdessen müssen Sie verwenden eine [unterstützten Browser](../understand/faq.md#which-web-browsers-are-supported-by-windows-admin-center
-).  Bei der Installation von Windows Admin Center unter Windows Server wird empfohlen, beim Herstellen einer Remoteverbindung mit Windows 10 und Edge verwalten.  Alternativ können Sie lokal unter Windows Server verwalten, wenn Sie einen unterstützten Browser installiert haben.
+## <a name="installation-supported-web-browsers"></a>Install Unterstützte Webbrowser
 
-## <a name="supported-operating-systems-management"></a>Unterstützte Betriebssysteme: Management
+Microsoft Edge und Google Chrome werden auf Windows 10 getestet und unterstützt. Andere Webbrowser – einschließlich Internet Explorer und Firefox – sind zurzeit nicht Teil unserer Test Matrix und werden daher nicht *offiziell* unterstützt. Diese Browser haben möglicherweise Probleme beim Ausführen des Windows Admin Centers. Firefox verfügt beispielsweise über einen eigenen Zertifikat Speicher, sodass Sie das `Windows Admin Center Client` Zertifikat in Firefox importieren müssen, damit Windows Admin Center unter Windows 10 verwendet werden kann. Weitere Informationen finden Sie unter [browserspezifische bekannte Probleme](../support/known-issues.md#browser-specific-issues).
 
-Sie können **verwalten** die folgenden Windows-Betriebssysteme mit Windows Admin Center:
+## <a name="management-target-supported-operating-systems"></a>Verwaltungs Ziel: Unterstützte Betriebssysteme
 
-| Version | Verwalten von *Knoten* über *Server-Manager* | Verwalten von *Cluster* über *Failovercluster-Manager* | Verwalten von *HCI* über *HCI-Cluster-Manager* |
+Mithilfe des Windows Admin Centers können Sie die folgenden Windows-Betriebssysteme **Verwalten** :
+
+| Version | *Knoten* "verwalten" über *Server-Manager* | *Cluster* über *Failovercluster-Manager* verwalten | Verwalten von *HCI* über den *HCI-Cluster-Manager* |
 | ------------------------- |--------------- | ----- | ------------------------ |
-| Windows 10, Version 1709 oder höher | Ja (über die Computerverwaltung) | Nicht zutreffend | Nicht zutreffend |
+| Windows 10, Version 1709 oder höher | Ja (über Computer Verwaltung) | Nicht zutreffend | Nicht zutreffend |
 | Windows Server (Semi-Annual Channel) | Ja | Ja | Nicht zutreffend |
 | Windows Server 2019 | Ja | Ja | Ja |
-| Windows Server 2016 | Ja | Ja | Ja, mit [– neuestes Kumulatives Update](../use/manage-hyper-converged.md#prepare-your-windows-server-2016-cluster-for-windows-admin-center) |
+| Windows Server 2016 | Ja | Ja | Ja, mit dem [aktuellen kumulativen Update](../use/manage-hyper-converged.md#prepare-your-windows-server-2016-cluster-for-windows-admin-center) |
 | Microsoft Hyper-V Server 2016 | Ja | Ja | Nicht zutreffend |
 | Windows Server 2012 R2 | Ja | Ja | Nicht zutreffend |
 | Microsoft Hyper-V Server 2012 R2 | Ja | Ja | Nicht zutreffend |
 | Windows Server 2012 | Ja | Ja | Nicht zutreffend |
-| Windows Server 2008 R2 | Ja, begrenzte Funktionalität | Nicht zutreffend | Nicht zutreffend |
+| Windows Server 2008 R2 | Ja, eingeschränkte Funktionalität | Nicht zutreffend | Nicht zutreffend |
 
 > [!NOTE]
-> Windows Admin Center erfordert PowerShell-Funktionen, die nicht in Windows Server 2008 R2, 2012 und 2012 R2 enthalten sind. Wenn Sie diese mit Windows Admin Center verwalten, müssen Sie Windows Management Framework (WMF) Version 5.1 oder höher auf diesen Servern installieren.
+> Windows Admin Center erfordert PowerShell-Features, die nicht in Windows Server 2008 R2, 2012 und 2012 R2 enthalten sind. Wenn Sie diese mit dem Windows Admin Center verwalten, müssen Sie Windows Management Framework (WMF) Version 5,1 oder höher auf diesen Servern installieren.
 > 
 > Geben Sie `$PSVersiontable` in PowerShell ein, um zu prüfen, ob WMF 5.1 oder einen neuere Version installiert ist. 
 > 
-> Wenn WMF nicht installiert ist, können Sie [Herunterladen von WMF 5.1](https://www.microsoft.com/en-us/download/details.aspx?id=54616).
-
-## <a name="deployment-options"></a>Bereitstellungsoptionen
-
-| ![img](../media/deployment-options/W10.png) | ![img](../media/deployment-options/gateway.png) | ![img](../media/deployment-options/node.png) | ![img](../media/deployment-options/HA.png) |
-| --------------------------------------------- | ------------------------------------------------- |----------------------------------------------|-------------------------------------------- |
-|                                             |                                                 |                                              |                                            |
-
-| Lokaler Client | Gatewayserver | Verwalteter Server | Failovercluster |
-| --- | --- | --- | --- |
-| Installieren Sie auf einem lokalen Windows 10-Client, der eine Verbindung mit den verwalteten Servern verfügt.  Hervorragend geeignet für den schnellen Einstieg und Ad-hoc- oder kleinen Szenarien testen. |Auf einem designierten Gateway-Server installieren und über einen beliebigen Clientbrowser mit der Konnektivität mit dem Gatewayserver zugreifen.  Hervorragend geeignet für umfangreiche Szenarien. | Installieren Sie direkt auf einem verwalteten Server zum Verwalten von sich selbst oder auf einem Cluster, in dem ein Elementknoten ist.  Hervorragend geeignet für verteilten Szenarien. | Bereitstellen Sie in einem Failovercluster, um hohe Verfügbarkeit des Gateway-Diensts zu aktivieren. Hervorragend geeignet für produktionsumgebungen auf die Gewährleistung der resilienz von den Management-Dienst. |
+> Wenn WMF nicht installiert ist, können Sie [WMF 5,1 herunterladen](https://www.microsoft.com/en-us/download/details.aspx?id=54616).
 
 ## <a name="high-availability"></a>Hohe Verfügbarkeit
 
-Sie können die hohe Verfügbarkeit des Gatewaydiensts aktivieren, durch die Bereitstellung von Windows Admin Center in einem Aktiv / Passiv-Modell in einem Failovercluster installieren. Wenn einer der Knoten im Cluster ausfällt, ein Windows Admin Center ordnungsgemäß Failover auf einen anderen Knoten können Sie weiterhin die Server in Ihrer Umgebung problemlos verwalten.
+Sie können die Hochverfügbarkeit des Gatewaydiensts aktivieren, indem Sie das Windows Admin Center in einem aktiv/passiv-Modell auf einem Failovercluster bereitstellen. Wenn einer der Knoten im Cluster ausfällt, führt das Windows Admin Center ein ordnungsgemäßes Failover zu einem anderen Knoten durch, sodass Sie die Server in Ihrer Umgebung nahtlos weiter verwalten können.
 
-[Erfahren Sie, wie Windows Admin Center mit hochverfügbarkeit bereitstellen.](../deploy/high-availability.md)
+[Erfahren Sie, wie Sie das Windows Admin Center mit hoher Verfügbarkeit bereitstellen.](../deploy/high-availability.md)
 
 > [!Tip]
 > Sind Sie bereit zum Installieren von Windows Admin Center? [Jetzt herunterladen](https://aka.ms/windowsadmincenter)
