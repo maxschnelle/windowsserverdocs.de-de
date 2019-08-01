@@ -1,6 +1,6 @@
 ---
-title: Überlegungen zur Hardware unter AD zur leistungsoptimierung
-description: Überlegungen zur Hardware unter AD zur leistungsoptimierung
+title: Überlegungen zur Hardware bei der AD-Leistungsoptimierung
+description: Überlegungen zur Hardware bei der AD-Leistungsoptimierung
 ms.prod: windows-server-threshold
 ms.technology: performance-tuning-guide
 ms.topic: article
@@ -8,72 +8,72 @@ ms.author: TimWi; ChrisRob; HerbertM; KenBrumf;  MLeary; ShawnRab
 author: phstee
 ms.date: 10/16/2017
 ms.openlocfilehash: 0f1aa1e3c07c5cb9238a332156abfec248e74176
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.sourcegitcommit: af80963a1d16c0b836da31efd9c5caaaf6708133
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59866091"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "63721163"
 ---
-# <a name="hardware-considerations-in-adds-performance-tuning"></a>Überlegungen zur Hardware in AD DS zur leistungsoptimierung 
+# <a name="hardware-considerations-in-adds-performance-tuning"></a>Überlegungen zur Hardware in werden Leistungsoptimierungen hinzugefügt 
 
 >[!Important]
-> Im folgenden finden Sie eine Zusammenfassung der wichtigsten Empfehlungen und Überlegungen zur Optimierung der Serverhardware für Active Directory-Workloads in detaillierter behandelt die [Kapazitätsplanung für Active Directory Domain Services](https://go.microsoft.com/fwlink/?LinkId=324566) Artikel. Leser werden dringend empfohlen, überprüfen [Kapazitätsplanung für Active Directory Domain Services](https://go.microsoft.com/fwlink/?LinkId=324566) für ein besseres Verständnis für die technische und die Auswirkungen dieser Empfehlungen.
+> Im folgenden finden Sie eine Zusammenfassung der wichtigsten Empfehlungen und Überlegungen zur Optimierung der Server Hardware für Active Directory Arbeits Auslastungen, die in der [Kapazitätsplanung für Active Directory Domain Services](https://go.microsoft.com/fwlink/?LinkId=324566) Artikel ausführlicher behandelt werden. Leser werden dringend empfohlen, die [Kapazitätsplanung für Active Directory Domain Services](https://go.microsoft.com/fwlink/?LinkId=324566) zu überprüfen, um das technische Verständnis und die Auswirkungen dieser Empfehlungen zu überprüfen.
 
-## <a name="avoid-going-to-disk"></a>Vermeiden Sie laufende auf dem Datenträger
+## <a name="avoid-going-to-disk"></a>Vermeiden des Datenträgers
 
-Active Directory wird so viel von der Datenbank zwischengespeichert, da Speicher ermöglicht. Abrufen von Seiten aus dem Arbeitsspeicher sind sehr viel schneller, als Sie auf ein physisches Speichermedium aus, ob das Medium Spindel oder SSD-basierte. Fügen Sie mehr Arbeitsspeicher zur Minimierung der Datenträger-e/a.
+Active Directory speichert so viele Datenbanken wie der Arbeitsspeicher zulässt. Beim Abrufen von Seiten aus dem Arbeitsspeicher werden die Größenordnungen schneller als bei physischen Medien angezeigt, unabhängig davon, ob es sich um eine Spindel-oder SSD-basiert handelt Fügen Sie weiteren Arbeitsspeicher hinzu, um die Datenträger-e/a
 
--   Active Directory – bewährte Methoden empfehlen Einfügen von ausreichend Arbeitsspeicher zum Laden der gesamten DIT in den Arbeitsspeicher sowie zu ermöglichen, das Betriebssystem und andere installierten Anwendungen, z. B. eine Software Virenschutz, Sicherung, Überwachung, und so weiter.
+-   Active Directory bewährten Methoden empfehlen, genügend RAM zu platzieren, um die gesamte dit in den Arbeitsspeicher zu laden, sowie das Betriebssystem und andere installierte Anwendungen wie Antivirensoftware, Sicherungssoftware, Überwachung usw.
 
-    -   Informationen zu Einschränkungen der älteren Plattformen finden Sie unter [speicherauslastung durch den Prozess "Lsass.exe" auf Domänencontrollern, auf denen Windows Server 2003 oder Windows 2000 Server](https://support.microsoft.com/kb/308356).
+    -   Informationen zu den Einschränkungen der Legacy Plattformen finden Sie unter [Speicherauslastung durch den LSASS. exe-Prozess auf Domänen Controllern, auf denen Windows Server 2003 oder Windows 2000 Server ausgeführt](https://support.microsoft.com/kb/308356)wird.
 
-    -   Verwenden Sie den Arbeitsspeicher\\Long-term durchschnittliche Standby Cachelebensdauer (s) &gt; Leistungsindikator 30 Minuten.
+    -   Verwenden Sie den\\Leistungs Begriffswert für die langfristige durchschnittliche Dauer &gt; des standbycache-standbycaches von 30 Minuten.
 
--   Fügen Sie das Betriebssystem, Protokolle und die Datenbank auf separaten Volumes an. Wenn alle oder die Mehrheit der DIT kann zwischengespeichert werden, sobald der Cache vorbereitet wird und unter einem stabilen Zustand Dadurch wird weniger relevant, und bietet ein wenig mehr Flexibilität bei der Speicher-Layout. In Szenarien, in dem die gesamte DIT nicht zwischengespeichert werden können, wird die Bedeutung von Teilen, dem Betriebssystem, Protokolle und -Datenbank auf separaten Volumes noch wichtiger ist.
+-   Legen Sie das Betriebssystem, die Protokolle und die Datenbank auf separaten Volumes ab. Wenn der gesamte oder der Großteil der DIT zwischengespeichert werden kann, wird der Cache nach dem Aufwärmen und im stabilen Zustand weniger relevant und bietet ein wenig mehr Flexibilität beim Speicher Layout. In Szenarien, in denen die gesamte dit nicht zwischengespeichert werden kann, wird die Wichtigkeit der Aufteilung des Betriebssystems, der Protokolle und der Datenbank auf separaten Volumes wichtiger.
 
--   E/a-Verhältnis auf die DIT-Datenbank stehen normalerweise etwa 90 % lesen und Schreiben von 10 %. Szenarien, in denen e/a-Volumes schreiben erheblich 10-20 % überschreiten, werden als mit vielen Schreibvorgängen betrachtet. Mit vielen Schreibvorgängen Szenarien profitieren stark nicht aus dem Active Directory-Cache. Um die Dauerhaftigkeit von Daten zu gewährleisten, die in das Verzeichnis geschrieben wird, führt Active Directory keine Datenträger Schreibcache aus. Stattdessen führt einen Commit dafür alle Schreibvorgänge auf den Datenträger vor der Rückgabe eines erfolgreichen Abschluss-Status für einen Vorgang, es sei denn, es gibt eine explizite Anforderung nicht so vorgehen. Schnelle Datenträger-e/a ist daher wichtig, die Leistung von Schreibvorgängen auf Active Directory. Im folgenden sind die hardwareempfehlungen, die Leistung für diese Szenarien verbessert werden können:
+-   Normalerweise sind e/a-Verhältnisse für die DIT etwa 90% Lesevorgänge und 10% Schreibvorgänge. Szenarios, in denen Schreib-e/a-Volumes deutlich mehr als 10%-20% überschreiten, werden als Schreib intensiv angesehen Szenarien mit hohem Schreib Aufwand profitieren nicht von der Active Directory Cache. Um die transaktionale Dauerhaftigkeit von Daten zu gewährleisten, die in das Verzeichnis geschrieben werden, führt Active Directory keine Zwischenspeicherung von Schreibvorgängen durch. Stattdessen committet Sie alle Schreibvorgänge auf den Datenträger, bevor Sie einen erfolgreichen Abschluss Status für einen Vorgang zurückgibt, es sei denn, es gibt eine explizite Anforderung, dies zu tun. Daher ist die schnelle Datenträger-e/a wichtig für die Leistung von Schreibvorgängen für die Active Directory. Im folgenden finden Sie Hardware Empfehlungen, die die Leistung für diese Szenarien verbessern können:
 
-    -   Hardware-RAID-Controllern
+    -   Hardware-RAID-Controller
 
-    -   Erhöhen Sie die Anzahl der Low-Latenz/hohe-RPM-Datenträger hostet die DIT-Datenbank und-Protokolldateien
+    -   Erhöhen Sie die Anzahl der Datenträger mit niedriger Latenz/hoher RPM, auf denen die dit-und Protokolldateien gehostet werden.
 
-    -   Schreibcache auf dem controller
+    -   Schreiben Zwischenspeicherung auf dem Controller
 
--   Überprüfen Sie die Datenträger-subsystemleistung einzeln für jedes Volume ein. Die meisten Active Directory-Szenarien basieren auf vorwiegend Lese-, daher sind die Statistiken auf dem Datenträger die DIT-Datenbank, die wichtigsten, zu überprüfen. Allerdings nicht vergessen, den Rest dieser Laufwerke einschließlich des Betriebssystems, Überwachung, und melden Sie sich Dateien, Laufwerke. Um festzustellen, ob der Domänencontroller ordnungsgemäß konfiguriert ist, um wird der Engpass für die Leistung des Speichers zu vermeiden, verweisen Sie im Abschnitt in Speichersubsystemen speicherempfehlungen Standards. Ist in vielen Umgebungen die Philosophie, um sicherzustellen, dass es genügend Head Platz um Fall kämen oder Spitzenlasten zu berücksichtigen ist. Diese Schwellenwerte werden Warnung, Schwellenwerte für die Kopfzeile, in dem Platz, um Fall kämen oder Spitzenlasten zu berücksichtigen ist eingeschränkt, und Client-Reaktionsfähigkeit beeinträchtigt wird. Kurz gesagt, diese Schwellenwerte überschreiten ist nicht schlecht, kurzfristig (5 bis 15 Minuten ein paar Mal pro Tag), jedoch ein System mit längeren mit diesen Arten von Statistiken ist nicht vollständig die Zwischenspeicherung der Datenbank und möglicherweise über steuern abgeführt und sollten untersucht werden.
+-   Überprüfen Sie die Leistung des Datenträger Subsystems einzeln für jedes Volume. Die meisten Active Directory Szenarios sind hauptsächlich Schreib basiert, daher sind die Statistiken auf dem Volume, das die DIT-Anwendung gehostet, die wichtigste zu überprüfen. Übersehen Sie jedoch nicht die Überwachung der restlichen Laufwerke, einschließlich des Betriebssystems und der Protokolldatei Laufwerke. Um zu ermitteln, ob der Domänen Controller ordnungsgemäß konfiguriert ist, um zu vermeiden, dass Speicher als Engpass für die Leistung dient, finden Sie im Abschnitt Speicher Subsysteme Informationen zu Standard Speicher Empfehlungen. In vielen Umgebungen besteht die Philosophie darin, sicherzustellen, dass genügend Platz zur Verfügung steht, um Spitzen oder Spitzen bei Last zu bewältigen. Bei diesen Schwellenwerten handelt es sich um Schwellenwerte für Warnungen, bei denen der haupthfad für die Aufnahme von Spitzen oder Spitzenlast eingeschränkt wird und die Client Reaktionsfähigkeit Kurz gesagt: das Überschreiten dieser Schwellenwerte ist kurzfristig nicht schlecht (5 bis 15 Minuten mehrmals täglich), aber ein System, das mit dieser Art von Statistiken nicht vollständig ausgeführt wird, wird die Datenbank nicht vollständig Zwischenspeichern und ist möglicherweise übersteuert und sollte untersucht werden.
 
-    -   Datenbank ==&gt; Instances(lsass/NTDSA)\\e/a-Datenbank liest die durchschnittliche Latenz &lt; 15ms
+    -   Database = =&gt; Instanzen (LSASS/NTDSA)\\e/a-Datenbank liest durchschnittliche &lt; Latenz 15ms
 
-    -   Datenbank ==&gt; Instances(lsass/NTDSA)\\-Datenbank-e/a-Lesevorgänge/Sekunde &lt; 10
+    -   Database = =&gt; Instanzen (LSASS/NTDSA)\\e/a-Daten Bank Lese &lt; Vorgänge/Sek. 10
 
-    -   Datenbank ==&gt; Instances(lsass/NTDSA)\\durchschnittlichen Wartezeit für e/a-Protokollschreibvorgänge &lt; 10 ms.
+    -   Database = =&gt; Instanzen (LSASS/NTDSA)\\e/a-Protokoll Schreibvorgänge &lt; mit durchschnittlicher Latenz 10 ms
 
-    -   Datenbank ==&gt; Instances(lsass/NTDSA)\\Protokoll der e/a-Schreibvorgänge/s – nur zu Informationszwecken nur.
+    -   Database = =&gt; Instanzen (LSASS/NTDSA)\\e/a-Protokoll Schreibvorgänge/Sek. – nur Information.
 
-        Um die Konsistenz der Daten zu gewährleisten, müssen alle Änderungen in das Protokoll geschrieben werden. Es ist hier keine gut oder schlecht Anzahl, sondern nur ein Measure, wie viel Speicher der unterstützt wird.
+        Um die Konsistenz der Daten aufrechtzuerhalten, müssen alle Änderungen in das Protokoll geschrieben werden. Hier gibt es keine gute oder ungültige Zahl. es handelt sich lediglich um ein Maß dafür, wie viel Speicherplatz unterstützt wird.
 
--   Planen Sie nicht zum Kern Datenträger-e/a-Auslastung, wie z. B. Sicherung und Anti-Virus-Scans für außerhalb der Spitzenzeiten Perioden. Außerdem verwenden Sie, backup und Anti-Virus-Lösungen, die die e/a-Funktion mit niedriger Priorität eingeführt wurde in Windows Server 2008 um Wettbewerb mit e/a-Anforderungen von Active Directory zu verringern. zu unterstützen.
+-   Planen von e/a-Datenträger-e/a-Ladevorgängen, wie z. b. Sicherungs-und Antivirenscans, für nicht-Spitzenzeiten. Außerdem können Sie Sicherungs-und Antivirussoftware verwenden, die die in Windows Server 2008 eingeführte e/a-Funktion mit niedriger Priorität unterstützen, um den Wettbewerb mit den e/a-Anforderungen von Active Directory zu verringern.
 
-## <a name="dont-over-tax-the-processors"></a>Die Prozessoren nicht mehr als steuern
+## <a name="dont-over-tax-the-processors"></a>Steuern Sie die Prozessoren nicht.
 
-Prozessoren, die genügend freie Zyklen nicht haben, können lange Wartezeiten führen, zum Abrufen von Threads an der Prozessor für die Ausführung. In vielen Umgebungen die Philosophie wird sichergestellt, dass genügend Head Platz, um Fall kämen aufzunehmen oder Spitzen im laden, um die Auswirkungen auf die Client-Reaktionsfähigkeit in diesen Szenarien zu minimieren. Kurz gesagt, Überschreitung der Schwellenwerte ist nicht schlecht, kurzfristig (5 bis 15 Minuten ein paar Mal täglich), aber ein System mit ausgeführtem dauerhafte Statistiken in diesen nicht bereitstellt, HEAD-Platz zur Aufnahme von ungewöhnlichen lädt und können problemlos in einem versetzt werden besteuernden s Szenario. Systeme, die über dem Schwellenwert für einen längeren Ausgaben sollten zu Verfahren zum Verringern der Auslastung des Prozessors untersucht werden.
+Prozessoren, die nicht über genügend freie Zyklen verfügen, können lange Wartezeiten beim Ausführen von Threads an den Prozessor für die Ausführung verursachen. In vielen Umgebungen besteht die Philosophie darin, sicherzustellen, dass genügend Platz zur Verfügung steht, um die Auswirkungen auf die Reaktionsfähigkeit von Clients in diesen Szenarien zu minimieren. Kurz gesagt: das Überschreiten der folgenden Schwellenwerte ist kurzfristig nicht schlecht (5 bis 15 Minuten mehrmals täglich). ein System, das mit dieser Art von Statistiken ausgeführt wird, bietet jedoch keinen Platz für ungewöhnliche Lasten und kann problemlos in eine Übersteuerte CENARIO. Systeme, die die Schwellenwerte überschreiten, sollten untersucht werden, um die Prozessorauslastung zu reduzieren.
 
--   Weitere Informationen zum Auswählen von eines Prozessors finden Sie unter [Performance Tuning for Server Hardware](../../hardware/index.md).
+-   Weitere Informationen zum Auswählen eines Prozessors finden Sie unter [Leistungsoptimierung für Server Hardware](../../hardware/index.md).
 
--   Hinzufügen von Hardware, Auslastung zu optimieren, Clients an anderer Stelle anweisen, oder Entfernen von Laden aus der Umgebung auf die CPU-Last reduzieren.
+-   Fügen Sie Hardware hinzu, optimieren Sie die Last, leiten Sie Clients an einem anderen Ort weiter, oder entfernen Sie die Auslastung aus der Umgebung, um
 
--   Verwenden Sie die Prozessorinformationen (\_gesamt)\\% Prozessorauslastung &lt; 60 % Leistungsindikator.
+-   Verwenden Sie den Leistungswert\_Prozessor Informationen\\(Gesamt) &lt; % Prozessorauslastung 60%.
 
-## <a name="avoid-overloading-the-network-adapter"></a>Vermeiden Sie das überlasten von des Netzwerkadapters
+## <a name="avoid-overloading-the-network-adapter"></a>Vermeiden Sie das Überladen des Netzwerkadapters.
 
-Genau wie mit Prozessoren verursacht Auslastung übermäßige des Netzwerkadapters lange Wartezeiten für den ausgehenden Datenverkehr, um das Netzwerk zu erhalten, auf. Active Directory tendenziell kleine eingehende Anforderungen und relativ erheblich größere Mengen an Daten, die auf den Clientsystemen zurückgegeben. Gesendete Daten geht weit über empfangenen Daten. Ist in vielen Umgebungen die Philosophie, um sicherzustellen, dass es genügend Head Platz um Fall kämen oder Spitzenlasten zu berücksichtigen ist. Dieser Schwellenwert ist ein Schwellenwert für Warnung, in dem das Anfangselement Platz, um Fall kämen oder Spitzenlasten zu berücksichtigen, ist eingeschränkt, und Client-Reaktionsfähigkeit beeinträchtigt wird. Kurz gesagt, diese Schwellenwerte überschreiten ist nicht schlecht, kurzfristig (5 bis 15 Minuten ein paar Mal pro Tag), ist jedoch ein System mit längeren in diesen Statistiken über steuern abgeführt und sollten untersucht werden.
+Ebenso wie bei Prozessoren führt eine übermäßige Auslastung des Netzwerkadapters zu langen Wartezeiten, bis der ausgehende Datenverkehr an das Netzwerk gelangt. Active Directory haben tendenziell kleine eingehende Anforderungen und relativ zu erheblich größeren Datenmengen, die an die Client Systeme zurückgegeben werden. Die gesendeten Daten überschreiten die empfangenen Daten. In vielen Umgebungen besteht die Philosophie darin, sicherzustellen, dass genügend Platz zur Verfügung steht, um Spitzen oder Spitzen bei Last zu bewältigen. Dieser Schwellenwert ist ein Warnungs Schwellenwert, bei dem der haupthfad zum Aufnehmen von Spitzen oder Spitzen bei der Auslastung eingeschränkt wird und die Client Reaktionsfähigkeit beeinträchtigt wird. Kurz gesagt: das Überschreiten dieser Schwellenwerte ist kurzfristig nicht schlecht (5 bis 15 Minuten mehrmals täglich), aber ein System, das mit dieser Art von Statistiken ausgeführt wird, wird übersteuert und sollte untersucht werden.
 
--   Weitere Informationen zum Optimieren der Netzwerk-Subsystem, finden Sie unter [Leistungsoptimierung für Netzwerk-Subsysteme](../../../../networking/technologies/network-subsystem/net-sub-performance-top.md).
+-   Weitere Informationen zum Optimieren des Netzwerk Subsystems finden Sie unter [Leistungsoptimierung für Netzwerk Subsysteme](../../../../networking/technologies/network-subsystem/net-sub-performance-top.md).
 
--   Verwenden Sie den NetworkInterface verglichen werden soll (\*)\\gesendete Bytes/s mit NetworkInterface (\*)\\Leistungsindikator für die aktuelle Bandbreite. Das Verhältnis muss weniger als 60 Prozent belegt.
+-   Verwenden Sie den Leistungs Leistungs Dienst "\*netzwerkschnittstellenbytes ()\\mit gesendete\*Bytes\\/Sek." mit NetworkInterface (). Das Verhältnis sollte weniger als 60% betragen.
 
 ## <a name="see-also"></a>Siehe auch
-- [Active Directory-Server die Optimierung der Leistung](index.md)
-- [LDAP-Überlegungen](ldap-considerations.md)
-- [Ordnungsgemäße Platzierung von Domänencontrollern und Website-Überlegungen](site-definition-considerations.md)
-- [Problembehandlung für AD DS-Leistung](troubleshoot.md) 
-- [Kapazitätsplanung für Active Directory-Domänendienste](https://go.microsoft.com/fwlink/?LinkId=324566)
+- [Leistungsoptimierung Active Directory Server](index.md)
+- [Überlegungen zu LDAP](ldap-considerations.md)
+- [Ordnungsgemäße Platzierung von Domänencontrollern und Überlegungen zum Standort](site-definition-considerations.md)
+- [Problembehandlung bezüglich der ADDS-Leistung](troubleshoot.md) 
+- [Kapazitätsplanung für Active Directory Domain Services](https://go.microsoft.com/fwlink/?LinkId=324566)

@@ -1,6 +1,6 @@
 ---
-title: Logman Update-Warnung
-description: 'Windows-Befehle Thema ***- '
+title: logman Update-Warnung
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -14,17 +14,17 @@ ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: 0fddc654d0cfe37a167c0337dcc451cdb1755e43
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.sourcegitcommit: af80963a1d16c0b836da31efd9c5caaaf6708133
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "66437699"
 ---
-# <a name="logman-update-alert"></a>Logman Update-Warnung
+# <a name="logman-update-alert"></a>logman Update-Warnung
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Aktualisieren der Eigenschaften einer vorhandenen Warnungssammlung.  
+Aktualisieren Sie die Eigenschaften eines vorhandenen Warnungs Daten Sammlers.  
 
 ## <a name="syntax"></a>Syntax  
 ```  
@@ -34,39 +34,39 @@ logman update alert <[-n] <name>> [options]
 
 |                 Parameter                  |                                                                               Beschreibung                                                                               |
 |--------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|                     /?                     |                                                                    Zeigt, die kontextbezogene Hilfe an.                                                                     |
-|             -s <computer name>             |                                                          Führen Sie den Befehl auf dem angegebenen Remotecomputer.                                                          |
-|              -config <value>               |                                                         Gibt an, die Befehlsoptionen enthält Datei mit den Einstellungen.                                                         |
-|                [-n] <name>                 |                                                                       Der Name des Zielobjekts.                                                                        |
-|          -[-] u < Benutzer [Kennwort] >           | Gibt die Ausführung als Benutzer an. Eingeben einer \* für das Kennwort eine Aufforderung zur Kennworteingabe erzeugt. Das Kennwort wird nicht angezeigt, wenn Sie es an der kennworteingabeaufforderung eingeben. |
-| -m < [Start] [Start] [[Start] [Start] [...]] > |                                                Ändern Sie in den manuellen Start oder beenden Sie, anstatt einem geplanten Zeitpunkt von Begin- und End.                                                 |
-|             -rf < [[Hh:] mm:] ss >             |                                                        Führen Sie den Datensammler für den angegebenen Zeitraum.                                                         |
-|     -b < m/JJJJ hh: mm: [Uhr&#124;PM] >      |                                                              Starten Sie das Sammeln von Daten zum angegebenen Zeitpunkt.                                                               |
-|     -e: < m/JJJJ hh: mm: [Uhr&#124;PM] >      |                                                               Beenden der Datensammlung von zum angegebenen Zeitpunkt.                                                                |
-|             -si <[[hh:]mm:]ss>             |                                                 Gibt das Beispiel für Performance Counter-Datensammler an.                                                  |
-|           -o <path&#124;dsn!log>           |                                              Gibt an, dass die Ausgabeprotokolldatei oder der DSN einzurichten und sich Name in einer SQL­Datenbank.                                               |
-|                   -[-]r                    |                                                  Wiederholen Sie den Datensammler täglich um bestimmten Anfangs- und Endzeit ein.                                                  |
-|                   -[-]a                    |                                                                     Fügen Sie an einer vorhandenen Protokolldatei.                                                                     |
-|                   -[-]ow                   |                                                                     Überschreiben einer vorhandenen Protokolldatei an.                                                                     |
-|        -[-]v <nnnnnn&#124;mmddhhmm>        |                                                   Fügen Sie Versionsinformationen für die Datei an das Ende der Name der Protokolldatei.                                                   |
-|               -[-]rc <task>                |                                                         Führen Sie den Befehl angegebenen jedes Mal, die das Protokoll geschlossen wird.                                                          |
-|              -[-]max <value>               |                                                 Maximale Größe der Protokolldatei in MB oder die maximale Anzahl von Datensätzen für die SQL-Protokolle.                                                  |
-|           -[-]cnf <[[hh:]mm:]ss>           |     Wenn Zeit angegeben wird, erstellen Sie eine neue Datei, wenn die angegebene Zeit verstrichen ist. Wenn Zeit nicht angegeben ist, erstellen eine neue Datei ein, wenn die maximale Größe überschritten wird.     |
-|                     -y                     |                                                             Beantworten Sie Ja, alle Fragen ohne Eingabeaufforderung.                                                              |
-|               -cf <filename>               |                       Gibt die Auflistung der zu erfassenden Leistungsindikatoren an. Die Datei sollte ein Name des Leistungsindikators pro Zeile enthalten.                        |
-|                   -[-]el                   |                                                                Aktiviert oder deaktiviert die berichterstellung Ereignisprotokoll.                                                                 |
-|     -ten < Schwellenwert [Schwellenwert [...]] >      |                                                        Geben Sie Leistungsindikatoren und die Schwellenwerte für Warnung.                                                        |
-|              -[-]rdcs <name>               |                                                     Gibt an, den Sammlungssatz zu starten, wenn eine Warnung ausgelöst wird.                                                      |
-|               -[-]tn <task>                |                                                             Gibt an, die Aufgabe ausgeführt wird, wenn eine Warnung ausgelöst wird.                                                              |
-|            -[-]targ <argument>             |                                               Gibt die Argumente der Aufgabe, die mit der Aufgabe, die mit -tn angegeben verwendet werden.                                                |
+|                     /?                     |                                                                    Zeigt die kontextbezogene Hilfe an.                                                                     |
+|             -s<computer name>             |                                                          Führen Sie den Befehl auf dem angegebenen Remote Computer aus.                                                          |
+|              -config <value>               |                                                         Gibt die Einstellungsdatei an, die Befehlsoptionen enthält.                                                         |
+|                [-n]<name>                 |                                                                       Der Name des Zielobjekts.                                                                        |
+|          -[-] u < Benutzer [Kennwort] >           | Gibt den Benutzer an, der als ausgeführt werden soll. Wenn Sie \* einen als Kennwort eingeben, wird eine Eingabeaufforderung für das Kennwort ausgegeben. Das Kennwort wird nicht angezeigt, wenn Sie es an der Eingabeaufforderung eingeben. |
+| -m < [Start] [Ende] [[Start] [Ende] [...]] > |                                                Wechseln Sie zu "manueller Start" oder "beenden" anstelle eines geplanten Anfangs-oder Endzeit Zeitraums.                                                 |
+|             -RF < [[hh:] mm:] SS >             |                                                        Führt den Datensammler für den angegebenen Zeitraum aus.                                                         |
+|     -b < M/d/yyyy h:mm: SS [am&#124;pm] >      |                                                              Beginnt mit dem Sammeln von Daten zum angegebenen Zeitpunkt.                                                               |
+|     -e < M/d/yyyy h:mm: SS [am&#124;pm] >      |                                                               Beenden Sie die Datensammlung zum angegebenen Zeitpunkt.                                                                |
+|             -Si < [[hh:] mm:] SS >             |                                                 Gibt das Stichproben Intervall für Leistungsdaten Sammler an.                                                  |
+|           -o < Pfad&#124;DSN! Log >           |                                              Gibt die Ausgabeprotokoll Datei oder den DSN-und Protokoll Satz Namen in einer SQL-Datenbank an.                                               |
+|                   -[-] r                    |                                                  Wiederholen Sie den Datensammler täglich zu den angegebenen Anfangs-und Endzeiten.                                                  |
+|                   -[-] a                    |                                                                     Fügen Sie an eine vorhandene Protokolldatei an.                                                                     |
+|                   -[-] OW                   |                                                                     Hiermit wird eine vorhandene Protokolldatei überschrieben.                                                                     |
+|        -[-] v < nnnnnn&#124;mmddhhmm >        |                                                   Fügen Sie Datei Versionsinformationen an das Ende des Protokoll Dateinamens an.                                                   |
+|               -[-] RC<task>                |                                                         Führen Sie den Befehl aus, der bei jedem Schließen des Protokolls angegeben wird.                                                          |
+|              -[-] max. <value>               |                                                 Maximale Protokolldatei Größe in MB oder maximale Anzahl von Datensätzen für SQL-Protokolle.                                                  |
+|           -[-] cnf-< [[hh:] mm:] SS >           |     Wenn Time angegeben ist, wird eine neue Datei erstellt, wenn die angegebene Zeit abgelaufen ist. Wenn Time nicht angegeben ist, erstellen Sie eine neue Datei, wenn die maximale Größe überschritten wird.     |
+|                     -y                     |                                                             Antworten Sie auf Ja, um alle Fragen zu beantworten.                                                              |
+|               -CF<filename>               |                       Gibt die zu sammelnden Leistungsindikatoren zum Auflisten von Dateien an. Die Datei sollte einen Leistungs Leistungs beendenamen pro Zeile enthalten.                        |
+|                   -[-] El                   |                                                                Aktiviert oder deaktiviert die Ereignisprotokoll Berichterstattung.                                                                 |
+|     -Th < Schwellenwert [Schwellenwert [...]] >      |                                                        Geben Sie Zähler und deren Schwellenwerte für eine Warnung an.                                                        |
+|              -[-] RDCS<name>               |                                                     Gibt den Datensammler Satz an, der gestartet werden soll, wenn eine Warnung ausgelöst wird.                                                      |
+|               -[-] TN<task>                |                                                             Gibt die Aufgabe an, die ausgeführt wird, wenn eine Warnung ausgelöst wird.                                                              |
+|            -[-] Targ<argument>             |                                               Gibt die Task Argumente an, die für die mit-TN angegebene Aufgabe verwendet werden sollen.                                                |
 
 ## <a name="remarks"></a>Hinweise  
-Wobei [-] aufgelistet ist, negiert ein zusätzliches - die Option.  
-## <a name="BKMK_examples"></a>Beispiele für  
-Das folgende Beispiel aktualisiert die vorhandene New_alert zur Data-Sammlung, Festlegen des Schwellenwerts für den Indikator % Prozessorzeit in Prozessor(_Total) Indikatorengruppe auf 40 %.  
+Wenn [-] aufgeführt ist, wird die-Option durch ein extra negiert.  
+## <a name="BKMK_examples"></a>Beispiele  
+Im folgenden Beispiel wird der vorhandene Datensammler new_alert aktualisiert. dabei wird der Schwellenwert für den Leistungs Schwellenwert% Processor Time in der Prozessor-(_Total)-Leistungs Zählers auf 40% festgelegt.  
 ```  
 logman update alert new_alert -th "\Processor(_Total)\% Processor time>40"  
 ```  
-#### <a name="additional-references"></a>Zusätzliche Referenzen  
+#### <a name="additional-references"></a>Weitere Verweise  
 [logman](logman.md)  
-[Logman Warnung erstellen](logman-create-alert.md)  
+[Warnung zu logman Create](logman-create-alert.md)  

@@ -1,6 +1,6 @@
 ---
-title: Logman Leistungsindikator erstellen.
-description: 'Windows-Befehle Thema ***- '
+title: logman Create Counter
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -14,17 +14,17 @@ ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: 3d9099fa4540a1d9c91a714ada8a1dbba13f051e
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.sourcegitcommit: af80963a1d16c0b836da31efd9c5caaaf6708133
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "66437812"
 ---
-# <a name="logman-create-counter"></a>Logman Leistungsindikator erstellen.
+# <a name="logman-create-counter"></a>logman Create Counter
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, WindowsServer 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Erstellen Sie einen Datensammler ein Zähler an.  
+Erstellen Sie einen Counter-Datensammler.  
 
 ## <a name="syntax"></a>Syntax  
 ```  
@@ -34,40 +34,40 @@ logman create counter <[-n] <name>> [options]
 
 |                    Parameter                     |                                                                               Beschreibung                                                                               |
 |--------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|                        /?                        |                                                                    Zeigt, die kontextbezogene Hilfe an.                                                                     |
-|                -s <computer name>                |                                                          Führen Sie den Befehl auf dem angegebenen Remotecomputer.                                                          |
-|                 -config <value>                  |                                                         Gibt an, die Befehlsoptionen enthält Datei mit den Einstellungen.                                                         |
-|                   [-n] <name>                    |                                                                       Der Name des Zielobjekts.                                                                        |
-| -f < Bin&#124;Bincirc&#124;Csv&#124;Tsv&#124;Sql > |                                                            Gibt das Protokollformat für den Datensammler.                                                             |
-|             -[-] u < Benutzer [Kennwort] >              | Gibt die Ausführung als Benutzer an. Eingeben einer \* für das Kennwort eine Aufforderung zur Kennworteingabe erzeugt. Das Kennwort wird nicht angezeigt, wenn Sie es an der kennworteingabeaufforderung eingeben. |
-|    -m < [Start] [Start] [[Start] [Start] [...]] >    |                                                Ändern Sie in den manuellen Start oder beenden Sie, anstatt einem geplanten Zeitpunkt von Begin- und End.                                                 |
-|                -rf < [[Hh:] mm:] ss >                |                                                        Führen Sie den Datensammler für den angegebenen Zeitraum.                                                         |
-|        -b < m/JJJJ hh: mm: [Uhr&#124;PM] >         |                                                              Starten Sie das Sammeln von Daten zum angegebenen Zeitpunkt.                                                               |
-|        -e: < m/JJJJ hh: mm: [Uhr&#124;PM] >         |                                                               Beenden der Datensammlung von zum angegebenen Zeitpunkt.                                                                |
-|                -si <[[hh:]mm:]ss>                |                                                 Gibt das Beispiel für Performance Counter-Datensammler an.                                                  |
-|              -o <path&#124;dsn!log>              |                                              Gibt an, dass die Ausgabeprotokolldatei oder der DSN einzurichten und sich Name in einer SQL­Datenbank.                                               |
-|                      -[-]r                       |                                                  Wiederholen Sie den Datensammler täglich um bestimmten Anfangs- und Endzeit ein.                                                  |
-|                      -[-]a                       |                                                                     Fügen Sie an einer vorhandenen Protokolldatei.                                                                     |
-|                      -[-]ow                      |                                                                     Überschreiben einer vorhandenen Protokolldatei an.                                                                     |
-|           -[-]v <nnnnnn&#124;mmddhhmm>           |                                                   Fügen Sie Versionsinformationen für die Datei an das Ende der Name der Protokolldatei.                                                   |
-|                  -[-]rc <task>                   |                                                         Führen Sie den Befehl angegebenen jedes Mal, die das Protokoll geschlossen wird.                                                          |
-|                 -[-]max <value>                  |                                                 Maximale Größe der Protokolldatei in MB oder die maximale Anzahl von Datensätzen für die SQL-Protokolle.                                                  |
-|              -[-]cnf <[[hh:]mm:]ss>              |     Wenn Zeit angegeben wird, erstellen Sie eine neue Datei, wenn die angegebene Zeit verstrichen ist. Wenn Zeit nicht angegeben ist, erstellen eine neue Datei ein, wenn die maximale Größe überschritten wird.     |
-|                        -y                        |                                                             Beantworten Sie Ja, alle Fragen ohne Eingabeaufforderung.                                                              |
-|                  -cf <filename>                  |                       Gibt die Auflistung der zu erfassenden Leistungsindikatoren an. Die Datei sollte ein Name des Leistungsindikators pro Zeile enthalten.                        |
-|               -c <path [path [ ]]>               |                                                              Gibt an, Leistung-Indikatoren zum Sammeln.                                                               |
-|                   -sc <value>                    |                                      Gibt die maximale Anzahl der Beispiele, die mit einem Leistungsindikatorsammlung für die Daten erfasst werden sollen.                                      |
+|                        /?                        |                                                                    Zeigt die kontextbezogene Hilfe an.                                                                     |
+|                -s<computer name>                |                                                          Führen Sie den Befehl auf dem angegebenen Remote Computer aus.                                                          |
+|                 -config <value>                  |                                                         Gibt die Einstellungsdatei an, die Befehlsoptionen enthält.                                                         |
+|                   [-n]<name>                    |                                                                       Der Name des Zielobjekts.                                                                        |
+| -f < bin&#124;bincirc&#124;CSV&#124;TSV&#124;SQL > |                                                            Gibt das Protokoll Format für den Datensammler an.                                                             |
+|             -[-] u < Benutzer [Kennwort] >              | Gibt den Benutzer an, der als ausgeführt werden soll. Wenn Sie \* einen als Kennwort eingeben, wird eine Eingabeaufforderung für das Kennwort ausgegeben. Das Kennwort wird nicht angezeigt, wenn Sie es an der Eingabeaufforderung eingeben. |
+|    -m < [Start] [Ende] [[Start] [Ende] [...]] >    |                                                Wechseln Sie zu "manueller Start" oder "beenden" anstelle eines geplanten Anfangs-oder Endzeit Zeitraums.                                                 |
+|                -RF < [[hh:] mm:] SS >                |                                                        Führt den Datensammler für den angegebenen Zeitraum aus.                                                         |
+|        -b < M/d/yyyy h:mm: SS [am&#124;pm] >         |                                                              Beginnt mit dem Sammeln von Daten zum angegebenen Zeitpunkt.                                                               |
+|        -e < M/d/yyyy h:mm: SS [am&#124;pm] >         |                                                               Beenden Sie die Datensammlung zum angegebenen Zeitpunkt.                                                                |
+|                -Si < [[hh:] mm:] SS >                |                                                 Gibt das Stichproben Intervall für Leistungsdaten Sammler an.                                                  |
+|              -o < Pfad&#124;DSN! Log >              |                                              Gibt die Ausgabeprotokoll Datei oder den DSN-und Protokoll Satz Namen in einer SQL-Datenbank an.                                               |
+|                      -[-] r                       |                                                  Wiederholen Sie den Datensammler täglich zu den angegebenen Anfangs-und Endzeiten.                                                  |
+|                      -[-] a                       |                                                                     Fügen Sie an eine vorhandene Protokolldatei an.                                                                     |
+|                      -[-] OW                      |                                                                     Hiermit wird eine vorhandene Protokolldatei überschrieben.                                                                     |
+|           -[-] v < nnnnnn&#124;mmddhhmm >           |                                                   Fügen Sie Datei Versionsinformationen an das Ende des Protokoll Dateinamens an.                                                   |
+|                  -[-] RC<task>                   |                                                         Führen Sie den Befehl aus, der bei jedem Schließen des Protokolls angegeben wird.                                                          |
+|                 -[-] max. <value>                  |                                                 Maximale Protokolldatei Größe in MB oder maximale Anzahl von Datensätzen für SQL-Protokolle.                                                  |
+|              -[-] cnf-< [[hh:] mm:] SS >              |     Wenn Time angegeben ist, wird eine neue Datei erstellt, wenn die angegebene Zeit abgelaufen ist. Wenn Time nicht angegeben ist, erstellen Sie eine neue Datei, wenn die maximale Größe überschritten wird.     |
+|                        -y                        |                                                             Antworten Sie auf Ja, um alle Fragen zu beantworten.                                                              |
+|                  -CF<filename>                  |                       Gibt die zu sammelnden Leistungsindikatoren zum Auflisten von Dateien an. Die Datei sollte einen Leistungs Leistungs beendenamen pro Zeile enthalten.                        |
+|               -c < Pfad [Pfad []] >               |                                                              Gibt die zu sammelnden Leistungs Zählers an.                                                               |
+|                   -SC <value>                    |                                      Gibt die maximale Anzahl von Stichproben an, die mit einem Leistungsdaten Sammler erfasst werden sollen.                                      |
 
 ## <a name="remarks"></a>Hinweise  
-Wobei [-] aufgelistet ist, negiert ein zusätzliches - die Option.  
-## <a name="BKMK_examples"></a>Beispiele für  
-Der folgende Befehl erstellt einen Indikator mit % Indikator für die Prozessorzeit von Indikatorkategorie Prozessor(_Total) Perf_log aufgerufen.  
+Wenn [-] aufgeführt ist, wird die-Option durch ein extra negiert.  
+## <a name="BKMK_examples"></a>Beispiele  
+Der folgende Befehl erstellt einen Counter mit dem Namen "perf_log" und verwendet dabei den Wert "Prozessorzeit (%)" aus der Prozessor Kategorie (_Total).  
 ```  
 logman create counter perf_log -c "\Processor(_Total)\% Processor time"  
 ```  
-Der folgende Befehl erstellt einen Zähler Perf_log % Indikator für die Prozessorzeit von Prozessor(_Total) Indikatorkategorie verwenden, erstellen eine Protokolldatei mit einer maximalen Größe von 10 MB und Sammeln von Daten für 1 Minute und 0 Sekunden aufgerufen.  
+Der folgende Befehl erstellt einen Counter mit dem Namen perf_log unter Verwendung des Zählers "Prozessorzeit (%)" aus der Prozessor Kategorie (_Total), wobei eine Protokolldatei mit einer maximalen Größe von 10 MB erstellt und Daten für 1 Minute und 0 Sekunden gesammelt werden.  
 ```  
 logman create counter perf_log -c "\Processor(_Total)\% Processor time" -max 10 -rf 01:00  
 ```  
-#### <a name="additional-references"></a>Zusätzliche Referenzen  
+#### <a name="additional-references"></a>Weitere Verweise  
 [logman](logman.md)  
