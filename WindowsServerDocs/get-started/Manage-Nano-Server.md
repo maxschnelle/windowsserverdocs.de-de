@@ -13,10 +13,10 @@ author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
 ms.openlocfilehash: 165b7e7aea7a7d0bb56d21f350f6ee646d5fa973
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.sourcegitcommit: af80963a1d16c0b836da31efd9c5caaaf6708133
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "67280410"
 ---
 # <a name="manage-nano-server"></a>Verwalten von Nano Server
@@ -40,7 +40,7 @@ Um Remoteverwaltungstools verwenden zu können, müssen Sie wahrscheinlich die I
 Um Nano Server mit Windows PowerShell-Remoting zu verwalten, müssen Sie zuerst die IP-Adresse des Nano Servers der Liste vertrauenswürdiger Hosts hinzufügen, die Ihr Verwaltungscomputer besitzt, dann das Konto, das Sie verwenden, zu den Nano Server-Administratoren hinzufügen und schließlich CredSSP aktivieren, wenn Sie dieses Feature verwenden möchten.  
 
 > [!NOTE]
-> Wenn sich die Zielinstanz von Nano Server und Ihr Verwaltungscomputer in derselben AD DS-Gesamtstruktur (oder in Gesamtstrukturen mit einer Vertrauensstellung) befinden, sollten Sie Nano Server nicht zur Liste der vertrauenswürdigen Hosts hinzufügen. Sie können eine Verbindung mit Nano Server herstellen, indem Sie dessen vollständig qualifizierten Domänennamen verwenden, z.B.: PS C:\> Enter-PSSession -ComputerName nanoserver.contoso.com -Credential (Get-Credential).
+> Wenn sich die Zielinstanz von Nano Server und dein Verwaltungscomputer in derselben AD DS-Gesamtstruktur (oder in Gesamtstrukturen mit einer Vertrauensstellung) befinden, solltest du Nano Server nicht zur Liste der vertrauenswürdigen Hosts hinzufügen. Du kannst eine Verbindung mit Nano Server herstellen, indem du dessen vollständig qualifizierten Domänennamen verwendest, z. B.: PS C:\> Enter-PSSession -ComputerName nanoserver.contoso.com -Credential (Get-Credential).
   
   
 Um den Nano Server zu der Liste der vertrauenswürdigen Hosts hinzuzufügen, führen Sie diesen Befehl über eine Windows PowerShell-Eingabeaufforderung mit erhöhten Rechten aus:  
