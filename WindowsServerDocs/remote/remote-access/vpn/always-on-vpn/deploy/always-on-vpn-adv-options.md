@@ -10,12 +10,12 @@ ms.author: pashort, v-tea
 author: shortpatti
 ms.localizationpriority: medium
 ms.reviewer: deverette
-ms.openlocfilehash: ae3c088122a0100f94b4d9bca41078d901487237
-ms.sourcegitcommit: 9f955be34c641b58ae8b3000768caa46ad535d43
+ms.openlocfilehash: e09a23b6f1c14c4c14b00fd19d84d0abb71d0163
+ms.sourcegitcommit: e40fce7b8b4bc0bef278e676435306f14078cf00
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2019
-ms.locfileid: "68590410"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68787216"
 ---
 # <a name="advanced-features-of-always-on-vpn"></a>Erweiterte Features von Always on-VPN
 
@@ -62,17 +62,15 @@ Nachdem Sie Updates installiert haben, kann der RRAS-Server die Zertifikat Sperr
 
 **Verfügbarkeit**
 
-In der folgenden Tabelle sind die ungefähren releasedates der Fixes für jede Windows-Version aufgeführt.
+In der folgenden Tabelle sind die Versionen aufgeführt, die die Fixes für jede Windows-Version enthalten.
 
-|Version des Betriebssystems |Veröffentlichungs-oder Veröffentlichungsdatum * |
+|Version des Betriebssystems |Version  |
 |---------|---------|
 |Windows Server, Version 1903  |[KB4501375](https://support.microsoft.com/help/4501375/windows-10-update-kb4501375) |
-|Windows Server 2019<br />Windows Server, Version 1809  |Q3, 2019  |
-|Windows Server, Version 1803  |Q3, 2019  |
-|Windows Server, Version 1709  |Q3, 2019  |
+|Windows Server 2019<br />Windows Server, Version 1809  |[KB4505658](https://support.microsoft.com/help/4505658/windows-10-update-kb4505658)  |
+|Windows Server, Version 1803  |[KB4507466](https://support.microsoft.com/help/4507466/windows-10-update-kb4507466)  |
+|Windows Server, Version 1709  |[KB4507465](https://support.microsoft.com/help/4507465/windows-10-update-kb4507465)  |
 |Windows Server 2016, Version 1607  |[KB4503294](https://support.microsoft.com/help/4503294/windows-10-update-kb4503294) |
-  
-\*Alle Veröffentlichungsdaten werden in Kalender Quartalen aufgelistet. Datumsangaben sind ungefähr annähernd und können ohne vorherige Ankündigung geändert werden. Wenn ein Update veröffentlicht wird, ersetzt ein Link zum Release das Veröffentlichungsdatum.
 
 **Vorgehensweise beim Konfigurieren der Voraussetzungen** 
 
@@ -81,7 +79,7 @@ In der folgenden Tabelle sind die ungefähren releasedates der Fixes für jede W
 1. Verwenden Sie auf dem RRAS-Server das PowerShell-Cmdlet **Set-vpnauthprotocol** , um den Parameter **rootcertificatenametoaccept** zu konfigurieren.<br /><br />
    Im folgenden Beispiel werden die zu diesem Zweck aufgeführten Befehle aufgelistet. Im Beispiel stellt CN = die Stamm Zertifizierungsstelle von " **CN =** " den Distinguished Name der Stamm Zertifizierungsstelle dar. 
    ``` powershell
-   $cert1 = ( Get-ChildItem -Path cert:LocalMachine\root | Where-Object -FilterScript { $_.Subject -Like "*CN=Contoso Root Certification Authority,*" } )
+   $cert1 = ( Get-ChildItem -Path cert:LocalMachine\root | Where-Object -FilterScript { $_.Subject -Like "*CN=Contoso Root Certification Authority*" } )
    Set-VpnAuthProtocol -RootCertificateNameToAccept $cert1 -PassThru
    ```
 **Konfigurieren des RRAS-Servers, um die Zertifikat Sperrung für VPN-Verbindungen zu erzwingen, die auf IKEv2-Computer Zertifikaten basieren**
