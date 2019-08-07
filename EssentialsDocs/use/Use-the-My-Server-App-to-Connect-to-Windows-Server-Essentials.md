@@ -94,7 +94,7 @@ Der My Server-apps für Windows Server Essentials können Sie eine Verbindung mi
   
 2.  Installieren Sie das Zertifikat:  
   
-    1.  Öffnen Sie auf der **** Startseite den **** Datei-Explorer.  
+    1.  Öffnen Sie auf der **Startseite** de **Datei-Explorer**.  
   
     2.  Vergewissern Sie sich, dass ausgeblendete Elemente und Dateinamenerweiterungen angezeigt werden: Aktivieren Sie auf der Registerkarte **Ansicht** in der Gruppe **Anzeigen/Ausblenden** die Kontrollkästchen **Ausgeblendete Elemente** und **Dateinamenerweiterungen**.  
   

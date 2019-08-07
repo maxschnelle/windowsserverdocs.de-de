@@ -82,7 +82,7 @@ ms.locfileid: "66433236"
   
 2.  Klicken Sie auf das Warnungssymbol, um zu starten, klicken Sie im Navigationsbereich der **Alert Viewer** in Windows Server Essentials oder **Systemüberwachung** Registerkarte in Windows Server Essentials.  
   
-3.  Klicken Sie in der **** Meldungsanzeige oder auf der Registerkarte **Systemüberwachung** auf die Warnung, und klicken Sie dann im Aufgabenbereich auf **Problem behandeln**.  
+3.  Klicken Sie in der Meldungsanzeige oder auf der Registerkarte **Systemüberwachung** auf die Warnung, und klicken Sie dann im Aufgabenbereich auf **Problem behandeln**.  
   
 4.  Befolgen Sie die Anweisungen, um den Assistenten zum Hinzufügen einer neuen Festplatte abzuschließen.  
   
@@ -234,7 +234,7 @@ ms.locfileid: "66433236"
   
 3. Folgen Sie den Anweisungen, um den Assistenten fertigzustellen.  
   
-   Informationen zum Erhöhen der Speicherpoolkapazität finden Sie unter [Use the new hard drive to increase storage pool capacity](Manage-Server-Storage-in-Windows-Server-Essentials.md#BKMK_4c).  
+   Informationen zum Erhöhen der Speicherpoolkapazität finden Sie unter [verwenden Sie die neue Festplatte zum Erhöhen der Speicherpoolkapazität](Manage-Server-Storage-in-Windows-Server-Essentials.md#BKMK_4c).  
   
 ## <a name="see-also"></a>Siehe auch  
   

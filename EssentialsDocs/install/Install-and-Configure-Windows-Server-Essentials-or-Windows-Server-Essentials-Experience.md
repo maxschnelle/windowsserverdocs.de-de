@@ -73,7 +73,7 @@ Bevor Sie Windows Server Essentials oder die Essentials Experience-Rolle install
   
 ##### <a name="to-configure-windows-server-essentials-on-a-physical-server"></a>So konfigurieren Sie Windows Server Essentials auf einem physischen server  
   
-1. Im Anschluss an die Windows-Startseite **** wird der Assistent für die Konfiguration von Windows Server Essentials **** auf Ihrem Desktop angezeigt.  
+1. Im Anschluss an die **Windows-Startseitewird** der Assistent für **die Konfiguration von Windows Server Essentialsauf** Ihrem Desktop angezeigt.  
   
 2. Befolgen Sie die Anweisungen, um den Assistenten wie folgt abzuschließen:  
   
@@ -83,7 +83,7 @@ Bevor Sie Windows Server Essentials oder die Essentials Experience-Rolle install
   
    3.  Geben Sie unter **Firmeninformationen**Ihren Unternehmensnamen wie **Contoso,Ltd.** ein, und klicken Sie dann auf **Weiter**. Optional können Sie den internen Domänennamen und den Servernamen ändern.  
   
-   4.  Geben Sie unter der Option zum Erstellen eines Netzwerkadministrators **** einen neuen Administratorkontonamen und ein -kennwort ein.  
+   4.  Geben Sie unter der Option zum Erstellen eines **Netzwerkadministrators** einen neuen Administratorkontonamen und ein -kennwort ein.  
   
        > [!NOTE]
        >  Verwenden Sie nicht den bzw. das standardmäßige(n) **Administrator**-Kontonamen und -kennwort.  
@@ -92,7 +92,7 @@ Bevor Sie Windows Server Essentials oder die Essentials Experience-Rolle install
   
 3. Während des Konfigurationsvorgangs wird der Server mehrfach neu gestartet, und Ihre Anmeldungen erfolgen automatisch, bis die Konfiguration abgeschlossen ist. Dieser Vorgang nimmt etwa 20 Minuten in Anspruch.  
   
-4. Klicken Sie auf dem Desktop auf das Dashboardsymbol, um das Serverdashboard zu starten. Schließen Sie auf der Startseite **** die Aufgaben **Erste Schritte** ab, die auf der Registerkarte **Einrichtung** aufgelistet sind.  
+4. Klicken Sie auf dem Desktop auf das Dashboardsymbol, um das Serverdashboard zu starten. Schließen Sie auf der Startseitedie Aufgaben **Erste Schritte** ab, die auf der Registerkarte **Einrichtung** aufgelistet sind.  
   
    Nach Abschluss der Serverkonfiguration wird der Server, auf dem Windows Server Essentials ausgeführt wird, als Domänencontroller festgelegt.  
   
