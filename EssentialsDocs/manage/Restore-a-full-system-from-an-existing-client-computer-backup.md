@@ -242,13 +242,13 @@ ms.locfileid: "66433092"
           > [!NOTE]
           >  Wenn ein Clientcomputer Unified Extensible Firmware Interface-UEFI-basiert ist, müssen Sie verwenden die **Diskpart** Tool, um den Systemdatenträger initialisieren. Öffnen Sie dazu ein Befehlsfenster (drücken Sie unter Windows PE 5 Sekunden lang STRG+ALT+UMSCHALT), führen Sie **diskpart.exe** aus, und führen Sie dann die folgenden diskpart-Befehle aus:  
           > 
-          > 1. **DISKPART > Liste Datenträger**  
-          >    2. **DISKPART > Select disk #** *< Datenträger\>*  
-          >    3. **DISKPART > bereinigen**  
-          >    4. **DISKPART > Gpt konvertieren**  
-          >    5. **DISKPART > Erstellen der Partition Efi Size =** *100* (wobei *100* ist eine Beispiel-Partitionsgröße in MB, muss identisch mit der ursprünglichen Partition)  
-          >    6. **DISKPART > Erstellen der Partition Msr Size =** *128* (wobei *128* ist eine Beispiel-Partitionsgröße in MB, muss identisch mit der ursprünglichen Partition)  
-          >    7. **DISKPART > Beenden**  
+          > 1. **DISKPART> list disk**  
+          >    2. **DISKPART> select disk #** *<Datenträger\>*  
+          >    3. **DISKPART> clean**  
+          >    4. **DISKPART> convert gpt**  
+          > 5. **DISKPART> create partition efi size=** *100* (wobei *100* eine Beispielpartitionsgröße in MB darstellt und identisch mit der ursprünglichen Partition sein muss)  
+          > 6. **DISKPART> create partition msr size=** *128* (wobei *128* eine Beispielpartitionsgröße in MB darstellt, muss identisch mit der ursprünglichen Partition sein)  
+          >    7. **DISKPART> exit**  
   
        2. *(Optional)* Wählen Sie die Option **Keinen Laufwerkbuchstaben oder -pfad zuweisen** aus.  
   
