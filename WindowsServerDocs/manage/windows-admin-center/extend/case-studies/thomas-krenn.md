@@ -1,6 +1,6 @@
 ---
-title: 'Windows Admin Center-SDK-Fallstudie: Thomas-Krenn'
-description: 'Windows Admin Center-SDK-Fallstudie: Thomas-Krenn'
+title: 'Fallstudie zum Windows Admin Center SDK: Thomas-Krenn'
+description: 'Fallstudie zum Windows Admin Center SDK: Thomas-Krenn'
 ms.technology: extend
 ms.topic: article
 author: daniellee-msft
@@ -10,52 +10,52 @@ ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 ms.openlocfilehash: 93b8a450aa86a454ec6febd349fcaa35df590266
 ms.sourcegitcommit: 3be280c8638214857dc355b201eb56a04499a5e5
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 06/26/2019
 ms.locfileid: "67396760"
 ---
-# <a name="thomas-krennag-extension"></a>Thomas-Krenn.AG Extension
+# <a name="thomas-krennag-extension"></a>Thomas-Krenn.AG-Erweiterung
 
-## <a name="intuitive-server-and-storage-health-management"></a>Intuitive integritätsverwaltung für Server und Speicher
+## <a name="intuitive-server-and-storage-health-management"></a>Intuitive Server- und Speicherintegritätsverwaltung
 
-Die Erweiterung Thomas Krenn.AG Windows Admin Center wurde speziell für die hoch verfügbare 2 Knoten [S2D Micro-Cluster](https://www.thomas-krenn.com/en/products/application/software-defined-storage/s2d-micro-cluster.html) Appliance. Die benutzerfreundliche, grafische Weboberfläche eine Micro-Cluster-Integritätsstatus über ein einfaches Dashboard visualisiert und ermöglicht Ihnen, um einen Drilldown auf Speichergeräte, Netzwerkschnittstellen oder den gesamten Cluster, um weitere Details anzuzeigen.
+Die Thomas Krenn.AG-Erweiterung für das Windows Admin Center wurde speziell für die [S2D Micro-Cluster](https://www.thomas-krenn.com/en/products/application/software-defined-storage/s2d-micro-cluster.html)-Appliance mit Hochverfügbarkeit und zwei Knoten entwickelt. Die benutzerfreundliche grafische Weboberfläche visualisiert den Integritätsstatus eines Mikroclusters über ein einfaches Dashboard und ermöglicht einen Drilldown auf Speichergeräte, Netzwerkschnittstellen oder den gesamten Cluster, um weitere Details anzuzeigen.
 
-Diese Erweiterung bietet intuitiven Zugriff auf Informationen, die in der Regel auf oberster Ebene Service- und Aufrufe wie z. B. Seriennummern, die Softwareversionen, die speicherauslastung und vieles mehr benötigt. Es soll an Administratoren nützlich sein, die keine Erfahrung mit Windows Server hyper-konvergiert Infrastruktur haben.
+Die Erweiterung bietet intuitiven Zugriff auf Informationen, die häufig für Dienste auf oberster Ebene und Supportanfragen benötigt werden (z. B. Seriennummern, Softwareversionen, Speicherauslastung usw.). Sie ist für Administratoren vorgesehen, die keine Erfahrung mit der hyperkonvergenten Windows Server-Infrastruktur haben.
 
-Einige der Erkenntnisse verfügbar sind:
-- Allgemeine Informationen über die Micro-Knoten und die Micro-Cluster
-- Betriebssystem und dem Gerätestatus
-- Kapazität HDD- und SSD-Status Zwischenspeichern
+Folgenden Erkenntnisse sind u. a. verfügbar:
+- Allgemeine Informationen zu den Mikroknoten und dem Mikrocluster
+- Betriebssystem-/Startgerätestatus
+- Kapazität der HDD und Cachestatus der SSD
 - Clusterereignisse
-- Netzwerkstatus und Informationen
+- Netzwerkstatus und -informationen
 
-Verwenden Sie das Dashboard, um zu bestimmen, Integritätsstatus und wichtigen Systeminformationen, wie z. B. Seriennummern, Modell, Version des Betriebssystems und die Auslastung des Clusters. Darüber hinaus werden-Lüfter, die NIC und die allgemeine Integrität der Knoten-Hardware auf dem Dashboard wird ebenfalls angezeigt.
+Verwenden Sie das Dashboard, um den Integritätsstatus des Clusters und wichtige Systeminformationen wie Seriennummern, Modell, Betriebssystemversion und Auslastung zu ermitteln. Darüber hinaus werden auch Informationen zur Hardwareintegrität z. B. von Lüfter, NIC und gesamtem Knoten auf dem Dashboard angezeigt.
 
-![Thomas Krenn Erweiterung](../../media/extend-case-study-thomas-krenn/thomas-krenn-1.png)
+![Thomas-Krenn-Erweiterung](../../media/extend-case-study-thomas-krenn/thomas-krenn-1.png)
 
-Sie können Storage Geräten anzeigen, Seriennummern, die SMARTCARD-Status und die Ausnutzung der Speicherkapazität aufgliedern. Startgeräte werden auch Wear, Indikatoren, die neu reserviert Sektoren und Power pünktlich, sind die besten Indikatoren SSD-Integrität.
+Sie können einen Drilldown in Speichergeräte durchführen, um Seriennummern, den SMART-Status und die Kapazitätsauslastung anzuzeigen. Startgeräte zeigen auch Abnutzungsindikatoren, neu zugewiesene Sektoren und die aktive Zeit an – also die wichtigsten Daten zur SSD-Integrität.
 
-![Thomas Krenn Erweiterung](../../media/extend-case-study-thomas-krenn/thomas-krenn-2.png)
+![Thomas-Krenn-Erweiterung](../../media/extend-case-study-thomas-krenn/thomas-krenn-2.png)
 
-Das Symbol für den Cluster wird erweitert, um eine Zusammenfassung der Funktionsdetails des Clusters.
+Das Clusterstatussymbol kann erweitert werden, um eine Zusammenfassung der Betriebsdetails des Clusters anzuzeigen.
 
-![Thomas Krenn Erweiterung](../../media/extend-case-study-thomas-krenn/thomas-krenn-3.png)
+![Thomas-Krenn-Erweiterung](../../media/extend-case-study-thomas-krenn/thomas-krenn-3.png)
 
-Nachdem diese Micro-Cluster Azure-Cloud-Zeuge für eine ganze Nacht nicht verfügbar war, ist ein Blick genug, um das Problem zu identifizieren. Klicken auf "Benachrichtigungen" sofort sind relevante Ereignisse für die schnelle Behebung aufgeführt. Clusterereignisse sind lokalisiert und durch die Basissprache des Betriebssystems bestimmt. Die Erweiterung selbst unterstützt Englisch und Deutsch.
+Nachdem der Azure-Cloudzeuge dieses Mikroclusters für eine ganze Nacht nicht verfügbar war, genügt ein Blick, um das Problem zu identifizieren. Wenn Sie auf „Notifications“ (Benachrichtigungen) klicken, werden sofort relevante Ereignisse für eine schnelle Wiederherstellung aufgelistet. Clusterereignisse werden in die Basissprache des Betriebssystems lokalisiert und durch diese festgelegt. Die Erweiterung selbst unterstützt Englisch und Deutsch.
 
-![Thomas Krenn Erweiterung](../../media/extend-case-study-thomas-krenn/thomas-krenn-4.png)
+![Thomas-Krenn-Erweiterung](../../media/extend-case-study-thomas-krenn/thomas-krenn-4.png)
 
-Informationen zum Netzwerk ist ebenfalls verfügbar.
+Netzwerkinformationen sind ebenfalls verfügbar.
 
-![Thomas Krenn Erweiterung](../../media/extend-case-study-thomas-krenn/thomas-krenn-5.png)
+![Thomas-Krenn-Erweiterung](../../media/extend-case-study-thomas-krenn/thomas-krenn-5.png)
 
-Basierend auf Kundenfeedback, haben wir auch "dunkel" Verfügbare Modus in Windows Admin Center v1904 implementiert. Dies ist die wohltuend in dunkel Rechenzentren und schlecht hervorgehobenen CAB-Dateien und Kleiderschrank aufbewahrt werden sollte. Es ist auch Windows Admin Center Zugriff auf durch Verringern der Beschichtung für Administratoren mit bestimmten sehfähigkeit.
+Basierend auf Kundenfeedback haben wir auch den „Dark Mode“ aus Windows Admin Center v1904 implementiert. Dieser eignet sich für dunkle Rechenzentren und schlecht beleuchtete Schaltschränke. Außerdem vereinfacht die Erweiterung die Nutzung des Windows Admin Centers, da der Bildschirm weniger stark leuchtet und so Administratoren mit bestimmten visuellen Beeinträchtigungen entgegenkommt.
 
-![Thomas Krenn Erweiterung](../../media/extend-case-study-thomas-krenn/thomas-krenn-6.png)
+![Thomas-Krenn-Erweiterung](../../media/extend-case-study-thomas-krenn/thomas-krenn-6.png)
 
-Thomas-Krenn realisiert sofort, dass benutzerfreundlichkeit und Barrierefreiheit für untrainiertes Administratoren Taste, um eine große benutzerfreundlichkeit für die hyperkonvergenten Infrastruktur auf dem Markt für kleine und mittelständische Unternehmen wäre. Thomas-Krenn Micro-Cluster-Erweiterung ergänzt perfekt Verwaltungsfunktionen von Windows Admin Center native HCI durch einschließlich proprietären Hardware-Informationen auf dem Dashboard und erneut gruppieren wichtig Integrität Clusterinformationen in einem neuen, Benutzerfreundlicher-Schnittstelle.
+Thomas-Krenn hat sofort erkannt, dass die Benutzerfreundlichkeit und Barrierefreiheit für untrainierte Administratoren ein wichtiger Aspekt hoher Kundenfreundlichkeit bei der hyperkonvergenten Infrastruktur sind und auf dem Markt für kleine und mittlere Unternehmen entscheidend sind. Die Mikrocluster-Erweiterung von Thomas-Krenn ergänzt die nativen HCI-Verwaltungsfunktionen von Windows Admin Center perfekt. Sie können proprietäre Hardwareinformationen auf dem Dashboard hinzufügen und wichtige Informationen zur Clusterintegrität auf einer neuen, benutzerfreundlichen Oberfläche zusammenfassen.
 
-Während des Entwicklungsprozesses wurde beschlossen, Windows Admin Center 1904 in einer Konfiguration mit hoher Verfügbarkeit für den Cluster selbst sicherstellen Verwaltbarkeit auch nach dem Ausfall von Serverknoten bereitstellen. Die Erweiterung ist vorinstalliert, wie das gesamte Betriebssystem.
+Schon während der Entwicklung wurde beschlossen, Windows Admin Center 1904 in einer Konfiguration mit Hochverfügbarkeit im Cluster selbst bereitzustellen, um die Verwaltbarkeit auch nach Knotenausfällen sicherzustellen. Die Erweiterung ist – wie das gesamte Betriebssystem – bereits vorinstalliert.
 
-Die Erweiterung erstellt wurde gleichzeitig mit Windows Admin Center 1904 bei Microsoft entwickelt. Enge Zusammenarbeit und kontinuierliches Feedback verfügbar gemacht werden Probleme auf beiden Seiten, die vor dem Produkt wurde erfolgreich gestartet wird, im April 2019 gemeinsam aufgelöst wurden. Thomas-Krenn ist sehr stolz auf den ersten vollständig unterstützen, und implementieren die neuen Features von Windows Admin Center 1904.
+Die Erweiterung wurde parallel zur Entwicklung von Windows Admin Center 1904 bei Microsoft erstellt. Durch eine enge Zusammenarbeit und kontinuierliches Feedback konnten Probleme auf beiden Seiten schon vor dem erfolgreichen Start des Produkts im April 2019 behoben werden. Thomas-Krenn ist ausgesprochen stolz darauf, als eines der ersten Unternehmen die neuen Features von Windows Admin Center 1904 vollständig zu unterstützen und zu implementieren.
