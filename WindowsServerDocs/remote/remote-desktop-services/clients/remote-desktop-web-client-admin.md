@@ -8,12 +8,12 @@ ms.date: 11/2/2018
 ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
-ms.openlocfilehash: 02c7098c8e3f93ce315e7d9a881613a03924e78b
-ms.sourcegitcommit: 286e3181ebd2cb9d7dc7fe651858a4e0d61d153f
+ms.openlocfilehash: d6761c43eefe04430603a1a16e9e8d256176a736
+ms.sourcegitcommit: 25376e261ebd5e85355c298cfd0bbd6b578a6a0c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68300697"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68729538"
 ---
 # <a name="set-up-the-remote-desktop-web-client-for-your-users"></a>Einrichten des Remotedesktop-Webclients für Ihre Benutzer
 
@@ -251,7 +251,7 @@ Führen Sie die folgenden Schritte aus, wenn sich der Remotedesktop-Sitzungshost
 * Der **alternative Antragstellername** (Subject Alternative Name, SAN) für jedes Zertifikat muss auf den **vollqualifizierten Domänennamen** (Fully Qualified Domain Name, FQDN) des Computers festgelegt werden. Der **allgemeine Name** (Common Name, CN) muss dem alternativen Antragstellernamen entsprechen.
 
 ## <a name="how-to-pre-configure-settings-for-remote-desktop-web-client-users"></a>Vorkonfigurieren von Einstellungen für Benutzer des Remotedesktop-Webclients
-In diesem Abschnitt wird beschrieben, wie Sie die Einstellungen für Ihre Remotedesktop-Webclientbereitstellung mithilfe von PowerShell konfigurieren. Mit diesen PowerShell-Cmdlets wird die Fähigkeit eines Benutzers zum Ändern von Einstellungen basierend auf den Sicherheitsaspekten Ihrer Organisation oder dem vorgesehenen Workflow gesteuert. Die folgenden Einstellungen befinden sich auf der Seitenleiste **Einstellungen** des Webclients. 
+In diesem Abschnitt wird beschrieben, wie Sie die Einstellungen für Ihre Remotedesktop-Webclientbereitstellung mithilfe von PowerShell konfigurieren. Mit diesen PowerShell-Cmdlets wird die Fähigkeit eines Benutzers zum Ändern von Einstellungen basierend auf den Sicherheitsaspekten Ihrer Organisation oder dem vorgesehenen Workflow gesteuert. Die folgenden Einstellungen befinden sich auf der Seitenleiste **Einstellungen** des Webclients.
 
 ### <a name="suppress-telemetry"></a>Unterdrücken von Telemetriedaten
 Standardmäßig können Benutzer auswählen, ob die Erfassung der an Microsoft gesendeten Telemetriedaten aktiviert oder deaktiviert werden soll. Informationen zu den von Microsoft erfassten Telemetriedaten finden Sie in unserer Datenschutzerklärung, auf die Sie über den Link auf der Seitenleiste **Info** zugreifen können.
@@ -274,7 +274,8 @@ Standardmäßig können Benutzer auswählen, ob Remoteressourcen (1) im Browser 
 
 ### <a name="reset-rdwebclientdeploymentsetting-configurations-to-default"></a>Zurücksetzen der RDWebClientDeploymentSetting-Konfigurationen auf die Standardwerte
 Um eine Webclienteinstellung auf Bereitstellungsebene auf die Standardkonfiguration zurückzusetzen, führen Sie das folgende PowerShell-Cmdlet aus, und geben Sie mit dem Parameter „--Name“ die Einstellung an, die Sie zurücksetzen möchten:
-   ```PowerShell
+  
+  ```PowerShell
     Reset-RDWebClientDeploymentSetting -Name "LaunchResourceInBrowser"
     Reset-RDWebClientDeploymentSetting -Name "SuppressTelemetry"
    ```
@@ -316,4 +317,4 @@ Sie können auch über Ihren Browser direkt auf die Konsole zugreifen. Die Konso
 
 ## <a name="get-help-with-the-web-client"></a>Anfordern von Hilfe zum Webclient
 
-Wenn ein Problem aufgetreten ist, das nicht anhand der in diesem Artikel enthaltenen Informationen gelöst werden kann, können Sie uns eine [E-Mail senden](mailto:rdwbclnt@microsoft.com), um das Problem zu melden. Sie können auch auf unserer [Suggestion Box](https://aka.ms/rdwebfbk)-Seite neue Features vorschlagen oder über neue Features abstimmen.
+Wenn ein Problem aufgetreten ist, das nicht anhand der in diesem Artikel enthaltenen Informationen gelöst werden kann, können Sie es der [Tech-Community](https://aka.ms/wvdtc) melden. Sie können auch auf unserer [Suggestion Box](https://remotedesktop.uservoice.com/forums/911494-remote-desktop-web-client)-Seite neue Features vorschlagen oder über neue Features abstimmen.
