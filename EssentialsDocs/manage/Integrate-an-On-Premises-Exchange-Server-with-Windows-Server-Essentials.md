@@ -1,6 +1,6 @@
 ---
 title: Integration eines lokalen Exchange-Servers mit Windows Server Essentials
-description: Beschreibt, wie Windows Server Essentials
+description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -12,12 +12,12 @@ ms.assetid: b56a21e2-c9e3-4ba9-97d9-719ea6a0854b
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 4759d33dc89c0ce458b2143cff94f78ea2d9a5cc
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: ef57ac325465d7b7a5cf65a2931df824c351c6a2
+ms.sourcegitcommit: 02f1e11ba37a83e12d8ffa3372e3b64b20d90d00
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433395"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68863438"
 ---
 # <a name="integrate-an-on-premises-exchange-server-with-windows-server-essentials"></a>Integration eines lokalen Exchange-Servers mit Windows Server Essentials
 
@@ -33,24 +33,24 @@ Diese Anleitung enthält Informationen und grundlegende Anweisungen zur Einricht
 ## <a name="prerequisites"></a>Vorraussetzungen  
  Stellen Sie vor dem Installieren von Exchange Server in einem Windows Server Essentials-Netzwerk sicher, dass Sie die in diesem Abschnitt beschriebenen Aufgaben ausführen.  
 
--   [Einrichten eines Servers, auf denen Windows Server Essentials ausgeführt wird](Integrate-an-On-Premises-Exchange-Server-with-Windows-Server-Essentials.md#BKMK_SetUpSBS8)  
+-   [Einrichten eines Servers, auf dem Windows Server Essentials ausgeführt wird](Integrate-an-On-Premises-Exchange-Server-with-Windows-Server-Essentials.md#BKMK_SetUpSBS8)  
 
--   [Vorbereiten eines zweiten Servers, auf dem Exchange-Server installiert.](Integrate-an-On-Premises-Exchange-Server-with-Windows-Server-Essentials.md#BKMK_SecondServer)  
+-   [Vorbereiten eines zweiten Servers, auf dem Exchange Server installiert werden soll](Integrate-an-On-Premises-Exchange-Server-with-Windows-Server-Essentials.md#BKMK_SecondServer)  
 
--   [Konfigurieren Sie einen Internetdomänennamen](Integrate-an-On-Premises-Exchange-Server-with-Windows-Server-Essentials.md#BKMK_DomainNames)  
+-   [Konfigurieren des Internet Domänen Namens](Integrate-an-On-Premises-Exchange-Server-with-Windows-Server-Essentials.md#BKMK_DomainNames)  
 
-###  <a name="BKMK_SetUpSBS8"></a> Einrichten eines Servers, auf denen Windows Server Essentials ausgeführt wird  
+###  <a name="BKMK_SetUpSBS8"></a>Einrichten eines Servers, auf dem Windows Server Essentials ausgeführt wird  
  Es muss bereits ein Server eingerichtet worden sein, auf dem Windows Server Essentials ausgeführt wird. Dies ist der Domänencontroller für den Server, auf dem Exchange Server ausgeführt wird. Weitere Informationen zum Einrichten von Windows Server Essentials finden Sie unter [Install Windows Server Essentials](../install/Install-Windows-Server-Essentials.md).  
 
-###  <a name="BKMK_SecondServer"></a> Vorbereiten eines zweiten Servers, auf dem Exchange-Server installiert.  
+###  <a name="BKMK_SecondServer"></a>Vorbereiten eines zweiten Servers, auf dem Exchange Server installiert werden soll  
  Sie müssen Exchange Server auf einem zweiten Server mit einer Version des Windows Server-Betriebssystems installieren, von dem die Ausführung von Exchange Server 2010 oder Exchange Server 2013 offiziell unterstützt wird. Anschließend müssen Sie für den zweiten Server den Beitritt zur Windows Server Essentials-Domäne durchführen.  
 
- Informationen dazu, wie Sie einen zweiten Server mit Windows Server Essentials-Domäne zu verknüpfen, finden Sie einen zweiten Server verbinden, mit dem Netzwerk in [Verbindungsherstellung](../use/Get-Connected-in-Windows-Server-Essentials.md).  
+ Informationen dazu, wie Sie einen zweiten Server der Windows Server Essentials-Domäne hinzufügen, finden Sie unter Verbinden eines zweiten Servers mit dem Netzwerk in " [Verbindung](../use/Get-Connected-in-Windows-Server-Essentials.md)herstellen".  
 
 > [!NOTE]
 >  Von Microsoft wird das Installieren von Exchange Server auf einem Server, auf dem Windows Server Essentials ausgeführt wird, nicht unterstützt.  
 
-###  <a name="BKMK_DomainNames"></a> Konfigurieren Sie einen Internetdomänennamen  
+###  <a name="BKMK_DomainNames"></a>Konfigurieren des Internet Domänen Namens  
  Zum Integrieren eines lokalen Servers, auf dem Exchange Server mit Windows Server Essentials ausgeführt wird, müssen Sie für Ihr Unternehmen bereits einen gültigen Internetdomänennamen (z. B. *contoso.com*) registriert haben. Außerdem müssen Sie in Zusammenarbeit mit Ihrem Domänennamenanbieter die DNS-Ressourceneinträge erstellen, die für Exchange Server erforderlich sind.  
 
  Wenn der Internetdomänenname Ihres Unternehmens z. B. %%amp;quot;contoso.com%%amp;quot; lautet und Sie den vollqualifizierten Domänennamen (FQDN) *mail.contoso.com* zum Verweisen auf den lokalen Server mit Exchange Server verwenden möchten, sollten Sie sich wegen der Erstellung der in der folgenden Tabelle aufgeführten DNS-Ressourceneinträge an Ihren Domänennamenanbieter wenden.  
@@ -59,9 +59,9 @@ Diese Anleitung enthält Informationen und grundlegende Anweisungen zur Einricht
 | Name des Ressourceneintrags |     Typ des Eintrags     |                                                                         Einstellung des Eintrags                                                                          |                                                                                                                                                                                                                                                              Beschreibung                                                                                                                                                                                                                                                              |
 |----------------------|---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |         mail         |      Host (A)       |                                                        Address=*Vom Anbieter (ISP) zugewiesene öffentliche IP-Adresse*                                                         |                                                                                                                                                                                                   An %%amp;quot;mail.contoso.com%%amp;quot; adressierte E-Mails werden von Exchange Server empfangen.<br /><br /> Sie können auch einen anderen Namen wählen.                                                                                                                                                                                                    |
-|          MX          | Mail-Exchanger (MX) |                                            Hostname=@<br /><br /> Address=mail.contoso.com<br /><br /> Preference=0                                             |                                                                                                                                                                                                      Enthält die e-Mail-routing von Nachrichten für email@contoso.com um Ihre lokalen Server zu erreichen, die Exchange Server ausgeführt wird.                                                                                                                                                                                                       |
+|          MX          | Mail-Exchanger (MX) |                                            Hostname=@<br /><br /> Address=mail.contoso.com<br /><br /> Preference=0                                             |                                                                                                                                                                                                      Ermöglicht das Senden von e email@contoso.com -Mail-Nachrichten für Ihren lokalen Server, auf dem Exchange Server ausgeführt wird.                                                                                                                                                                                                       |
 |         SPF          |     Text (TXT)      |                                                                        v=spf1 a mx ~all                                                                         |                                                                                                                                                                                                                      Ressourceneintrag, mit dem verhindert wird, dass von Ihrem Server gesendete E-Mail-Nachrichten als Spam identifiziert werden.                                                                                                                                                                                                                      |
-|  autodiscover._tcp   |    Dienst (SRV)    | Service: _autodiscover<br /><br /> Protocol: _tcp<br /><br /> Priorität: 0<br /><br /> Gewichtung: 0<br /><br /> Port: 443<br /><br /> Target host: mail.contoso.com | Ermöglicht Microsoft Office Outlook und mobilen Geräten die automatische Ermittlung Ihres lokalen Servers, auf dem Exchange Server ausgeführt wird.<br /><br /> **Hinweis**: Außerdem können Sie konfigurieren einen Ressourceneintrag für die AutoErmittlung Host (A) und verweisen den Datensatz der öffentlichen IP-Adresse des lokalen Servers, auf denen Exchange Server ausgeführt wird. Wenn Sie diese Option implementieren, müssen Sie auch ein SSL-Zertifikat vom Typ %%amp;quot;alternativer Antragstellername%%amp;quot; bereitstellen, das sowohl den Domänennamen %%amp;quot;mail.contoso.com%%amp;quot; als auch %%amp;quot;autodiscover.contoso.com%%amp;quot; unterstützt. |
+|  autodiscover._tcp   |    Dienst (SRV)    | Service: _autodiscover<br /><br /> Protocol: _tcp<br /><br /> Priorität: 0<br /><br /> Gewichtung: 0<br /><br /> Port: 443<br /><br /> Target host: mail.contoso.com | Ermöglicht Microsoft Office Outlook und mobilen Geräten die automatische Ermittlung Ihres lokalen Servers, auf dem Exchange Server ausgeführt wird.<br /><br /> **Hinweis**: Sie können auch einen Ressourcen Daten Satz für den automatische Erkennung-Host (A) konfigurieren und den Datensatz auf die öffentliche IP-Adresse Ihres lokalen Servers verweisen, auf dem Exchange Server ausgeführt wird. Wenn Sie diese Option implementieren, müssen Sie auch ein SSL-Zertifikat vom Typ %%amp;quot;alternativer Antragstellername%%amp;quot; bereitstellen, das sowohl den Domänennamen %%amp;quot;mail.contoso.com%%amp;quot; als auch %%amp;quot;autodiscover.contoso.com%%amp;quot; unterstützt. |
 
 > [!NOTE]
 >  -   Ersetzen Sie die Instanzen von *contoso.com* in diesem Beispiel durch den Internetdomänennamen, den Sie registriert haben.  
@@ -83,7 +83,7 @@ Diese Anleitung enthält Informationen und grundlegende Anweisungen zur Einricht
 
 2.  Führen Sie Windows PowerShell als Administrator aus.  
 
-3.  Geben Sie an der Windows PowerShell-Eingabeaufforderung **Add-ADGroupMember "Organisations-Admins" $env: Username**, und drücken Sie dann die EINGABETASTE.  
+3.  Geben Sie an der Windows PowerShell-Eingabeaufforderung **Add-adgroupmember "Enterprise Admins" $ENV: username**ein, und drücken Sie dann die EINGABETASTE.  
 
 #### <a name="to-install-exchange-server"></a>So installieren Sie Exchange Server  
 
@@ -242,7 +242,7 @@ New-SendConnector -Name "WSE Internet SendConnector" -Usage "Internet" -AddressS
 15. Starten Sie den Server neu.  
 
 > [!NOTE]
->  Wenn Sie ein öffentlich vertrauenswürdiges SSL-Zertifikat anstelle eines selbst ausgegebenen Zertifikats verwenden möchten, können Sie die Anweisungen im Handbuch für das Erstellen einer zertifikatanforderung und an Ihre gewählte Zertifizierungsstelle senden befolgen. Sie können auch ein Exchange PowerShell-Cmdlet verwenden, um eine Zertifikatanforderung zu erstellen. Unten ist ein Beispiel angegeben.  
+>  Wenn Sie anstelle eines selbst ausgegebenen Zertifikats ein öffentlich vertrauenswürdiges SSL-Zertifikat verwenden möchten, können Sie die Anweisungen im Installationshandbuch befolgen, um eine Zertifikat Anforderung zu erstellen und an die ausgewählte Zertifizierungsstelle zu senden. Sie können auch ein Exchange PowerShell-Cmdlet verwenden, um eine Zertifikatanforderung zu erstellen. Unten ist ein Beispiel angegeben.  
 >   
 >  `New-ExchangeCertificate -GenerateRequest -SubjectName "C=US, S=Washington, L=Redmond, O=contoso, OU=contoso, CN=mail.contoso.com" -DomainName mail.contoso.com -PrivateKeyExportable $true | Set-Content -path "c:\Docs\MyCertRequest.req"`  
 >   
@@ -356,26 +356,26 @@ New-SendConnector -Name "WSE Internet SendConnector" -Usage "Internet" -AddressS
 
 7. Führen Sie je nach Version von Windows Server Essentials, die Sie ausführen, die folgenden Schritte aus:  
 
-   -   Für Windows Server Essentials: Öffnen Sie ein Befehlsfenster mit Administratorrechten, und öffnen Sie dann das Verzeichnis "%ProgramFiles%\Windows Server\Bin".  
+   -   Unter Windows Server Essentials: Öffnen Sie ein Befehlsfenster mit Administratorrechten, und öffnen Sie dann das Verzeichnis "%ProgramFiles%\Windows Server\Bin".  
 
-   -   Für Windows Server Essentials: Öffnen Sie ein Befehlsfenster mit Administratorrechten, und öffnen Sie dann das Verzeichnis "%Windir%\System32\Essentials".  
+   -   Unter Windows Server Essentials: Öffnen Sie ein Befehlsfenster mit Administratorrechten, und öffnen Sie dann das Verzeichnis "%Windir%\System32\Essentials".  
 
 8. Führen Sie basierend auf Ihrem Installationsszenario einen der folgenden Schritte zur Konfiguration von ARR aus:  
 
    - Führen Sie bei einem vollständig neuen Setup den folgenden Befehl aus:  
 
-      **ARRConfig Config – Cert** *Pfad zur Zertifikatdatei* **- Hostnamen** *Hostnamen für Exchange Server* ****  
+      **Arrconfig-Konfiguration-CERT** *Pfad zur Zertifikat Datei* **-hostnames** *Hostnamen für Exchange Server*  
 
      > [!NOTE]
-     >  Beispiel: ** ARRConfig Config – Cert ***c:\temp\certificate.pfx*** - Hostnamen ***mail.contoso.com***  
+     >  Beispiel: **Arrconfig-Konfiguration-CERT** *c:\temp\certificate.pfx* **-hostnames** *Mail.contoso.com*  
      > 
      >  Ersetzen Sie *mail.contoso.com* durch den Namen Ihrer Domäne, die durch das Zertifikat geschützt ist.  
 
    - Führen Sie den folgenden Befehl bei einer Migration von Windows Small Business Server aus:  
 
-      **ARRConfig Config – Cert** *Pfad zur Zertifikatdatei* **- Hostnamen** *Hostnamen für Exchange Server* **– Targetserver** *Servername von Exchange Server* ****  
+      **Arrconfig-Konfiguration-CERT** *Pfad zur Zertifikat Datei* **-hostnames** *Hostnamen für Exchange Server* **-TargetServer** *Servername von Exchange Server*  
 
-      Beispiel: ** ARRConfig Config – Cert ***c:\temp\certificate.pfx*** - Hostnamen ***"Mail.contoso.com"*** – Targetserver *** ExchangeSvr ***  
+      Beispiel: **Arrconfig-Konfiguration-CERT** *c:\temp\certificate.pfx* **-hostnames** *Mail.contoso.com* * *-TargetServer * * *ExchangeSvr*  
 
       Ersetzen Sie *mail.contoso.com* durch den Namen Ihrer Domäne. Ersetzen Sie *ExchangeSvr* durch den Namen des Servers, auf dem Exchange Server ausgeführt wird.  
 
@@ -385,7 +385,7 @@ New-SendConnector -Name "WSE Internet SendConnector" -Usage "Internet" -AddressS
 > - Die von Ihnen angegebenen Hostnamen müssen in dem SSL-Zertifikat enthalten sein, das Sie für Exchange Server erworben haben.  
 >   -   Fügen Sie bei Verwendung mehrerer Hostnamen als Trennzeichen jeweils ein Komma (,) ein.  
 
- Um sicherzustellen, dass die Konfiguration funktioniert, versuchen Sie es auf die OWA-Website für Ihren Server zuzugreifen, die Exchange Server ausgeführt wird (https://mail. *Name_Ihrer_Domäne*.com/owa) von einem Computer aus zuzugreifen, der nicht Mitglied der Domäne ist. Zur Behandlung von Verbindungsproblemen können Sie auch das Onlinetool [Microsoft-Remoteverbindungsuntersuchung](https://go.microsoft.com/fwlink/p/?LinkId=249455) verwenden.  
+ Um zu überprüfen, ob die Konfiguration funktioniert, versuchen Sie, auf die OWA-Website für Ihren Server zuzugreifen https://mail, auf dem Exchange Server ausgeführt wird (. *Name_Ihrer_Domäne*.com/owa) von einem Computer aus zuzugreifen, der nicht Mitglied der Domäne ist. Zur Behandlung von Verbindungsproblemen können Sie auch das Onlinetool [Microsoft-Remoteverbindungsuntersuchung](https://go.microsoft.com/fwlink/p/?LinkId=249455) verwenden.  
 
 ### <a name="configure-split-dns-for-exchange-server"></a>Konfigurieren einer DNS-Aufteilung für Exchange Server  
 
@@ -431,18 +431,18 @@ New-SendConnector -Name "WSE Internet SendConnector" -Usage "Internet" -AddressS
  Wenn Sie die Integration in einen lokalen Exchange-Server deaktivieren, können Sie das Windows Server Essentials-Dashboard nicht länger verwenden, um die Exchange Server-Postfächer anzuzeigen, zu erstellen oder zu verwalten.  
 
 ### <a name="what-do-i-need-to-know-about-email-accounts"></a>Was muss ich über E-Mail-Konten wissen?  
- Eine gehostete E-Mail-Lösung wird auf dem Server konfiguriert. Eine Lösung vom Anbieter einer gehosteten e-Mail, wie z. B. Microsoft Office 365, kann einzelne e-Mail-Konten für Netzwerkbenutzer bereitstellen. Wenn Sie den Assistenten zum Hinzufügen eines Benutzerkontos in Windows Server Essentials ausführen, um ein Benutzerkonto zu erstellen, versucht der Assistent das Benutzerkonto zu der verfügbaren gehosteten E-Mail-Lösung hinzuzufügen. Zur gleichen Zeit weist der Assistent dem Benutzer einen E-Mail-Namen (Alias) zu und legt die maximale Größe der Mailbox (Quote) fest. Die maximale Größe des Postfachs variiert je nach E-Mail-Anbieter, den Sie nutzen. Nachdem das Benutzerkonto hinzugefügt wurde, können Sie die Mailbox-Alias- und Kontingent-Informationen auf der Eigenschaftenseite für den Benutzer weiterhin verwalten. Verwenden Sie für eine umfassende Verwaltung der Benutzerkonten und des gehosteten E-Mail-Anbieters die Verwaltungskonsole des gehosteten Anbieters. Je nach Anbieter können Sie auf die Verwaltungskonsole über ein webbasiertes Portal oder über eine Registerkarte im Serverdashboard zugreifen.  
+ Eine gehostete E-Mail-Lösung wird auf dem Server konfiguriert. Eine Lösung von einem gehosteten e-Mail-Anbieter wie Microsoft Office 365 kann einzelne e-Mail-Konten für Netzwerk Benutzer bereitstellen. Wenn Sie den Assistenten zum Hinzufügen eines Benutzerkontos in Windows Server Essentials ausführen, um ein Benutzerkonto zu erstellen, versucht der Assistent das Benutzerkonto zu der verfügbaren gehosteten E-Mail-Lösung hinzuzufügen. Zur gleichen Zeit weist der Assistent dem Benutzer einen E-Mail-Namen (Alias) zu und legt die maximale Größe der Mailbox (Quote) fest. Die maximale Größe des Postfachs variiert je nach E-Mail-Anbieter, den Sie nutzen. Nachdem das Benutzerkonto hinzugefügt wurde, können Sie die Mailbox-Alias- und Kontingent-Informationen auf der Eigenschaftenseite für den Benutzer weiterhin verwalten. Verwenden Sie für eine umfassende Verwaltung der Benutzerkonten und des gehosteten E-Mail-Anbieters die Verwaltungskonsole des gehosteten Anbieters. Je nach Anbieter können Sie auf die Verwaltungskonsole über ein webbasiertes Portal oder über eine Registerkarte im Serverdashboard zugreifen.  
 
- Der Alias, den Sie beim Ausführen des Assistenten zum Hinzufügen eines Benutzerkontos bereitstellen, wird als vorgeschlagener Name für den Benutzeralias an den gehosteten E-Mail-Anbieter gesendet. Wenn der Benutzeralias ist z. B. *FrankM*, die e-Mail-Adresse des Benutzers eventuell <em>FrankM@Contoso.com</em>.  
+ Der Alias, den Sie beim Ausführen des Assistenten zum Hinzufügen eines Benutzerkontos bereitstellen, wird als vorgeschlagener Name für den Benutzeralias an den gehosteten E-Mail-Anbieter gesendet. Wenn der Benutzeralias beispielsweise *FrankM*ist, kann die e-Mail-Adresse <em>FrankM@Contoso.com</em>des Benutzers lauten.  
 
  Darüber hinaus wird das Kennwort, das Sie für den Benutzer im Assistenten zum Hinzufügen eines Benutzerkontos festlegen, zum Initialkennwort des Benutzers in der gehosteten E-Mail-Lösung.  
 
- Wenn Sie den Benutzer löschen, indem Sie den Assistenten zum Löschen eines Benutzerkontos auf dem Server verwenden, sendet der Assistent auch eine Anforderung an den gehosteten E-Mail-Anbieter, um den Benutzer auch aus dessen System zu löschen. Der Anbieter löscht unter Umständen, sowohl das Konto des Benutzers als auch die e-Mail-Adresse, die dem Konto zugeordnet ist.  
+ Wenn Sie den Benutzer löschen, indem Sie den Assistenten zum Löschen eines Benutzerkontos auf dem Server verwenden, sendet der Assistent auch eine Anforderung an den gehosteten E-Mail-Anbieter, um den Benutzer auch aus dessen System zu löschen. Der Anbieter kann sowohl das Konto des Benutzers als auch die e-Mail, die dem Konto zugeordnet ist, löschen.  
 
  Benutzerinformationen zum Einrichten der erforderlichen E-Mail-Client-Software oder zum Zugriff auf ein E-Mail-Konto finden Sie in der Hilfe-Dokumentation, die von Ihrem gehosteten E-Mail-Anbieter bereitgestellt wird.  
 
 ### <a name="what-is-a-mailbox-quota"></a>Was ist ein Postfachkontingent?  
- Die Menge des Speicherplatzes, der für Exchange-Postfach-Daten eines Netzwerkbenutzers zugeordnet ist, wird als Postfachkontingent bezeichnet.  
+ Der Speicherplatz, der für die Exchange-Post Fach Daten eines Netzwerk Benutzers zugeordnet wird, wird als Post Fach Kontingent bezeichnet.  
 
  Beim Ausführen der Aufgabe **Einrichten der Exchange Server-Integration** auf dem Dashboard fügt der Assistent eine Seite zum Assistenten zum Hinzufügen von Benutzerkonten hinzu. Damit können Sie wählen, ob Sie Postfachkontingente erzwingen möchten, und die Kontingentgröße angeben. Standardmäßig ist die Option **Postfachkontingente erzwingen** aktiviert, und Benutzerpostfächern werden 2 GB an Speicherplatz zugewiesen. Exchange-Administratoren können die Mailbox-Kontingenteinstellungen anpassen, um sie auf die Anforderungen ihres Unternehmens abzustimmen.  
 
@@ -450,6 +450,6 @@ New-SendConnector -Name "WSE Internet SendConnector" -Usage "Internet" -AddressS
 
 -   [Systemanforderungen für Windows Server Essentials](../get-started/system-requirements.md)  
 
--   [Verwalten der e-Maildienstintegration](Manage-Email-Service-Integration-in-Windows-Server-Essentials.md)  
+-   [E-Mail-Dienst Integration verwalten](Manage-Email-Service-Integration-in-Windows-Server-Essentials.md)  
 
 -   [Verwalten von Windows Server Essentials](Manage-Windows-Server-Essentials.md)

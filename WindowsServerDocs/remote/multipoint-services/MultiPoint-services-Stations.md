@@ -1,6 +1,6 @@
 ---
 title: MultiPoint-Stationen
-description: Erfahren Sie mehr über Stationen im MultiPoint Services, einschließlich der verschiedenen Optionen für Benutzer
+description: Erfahren Sie mehr über Stationen in Multipoint Services, einschließlich der verschiedenen Optionen für Benutzer.
 ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server-threshold
@@ -13,116 +13,116 @@ ms.assetid: f9f9d618-ccfe-41ea-a52c-00c3c7adb51a
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: e747826a7cd84521bc62e48abedf3092bf6d844c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 43386f0f4d4020d5e127e7b7cbd918e4c48cec6e
+ms.sourcegitcommit: 02f1e11ba37a83e12d8ffa3372e3b64b20d90d00
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59855651"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68863458"
 ---
-# <a name="multipoint--stations"></a>MultiPoint-Stationen
-In einer Umgebung mit MultiPoint Services-System *Stationen* sind die Benutzer-Endpunkte für die Verbindung mit dem Computer, auf dem MultiPoint Services ausgeführt wird. Jede Station bietet dem Benutzer eine unabhängige Windows 10-Umgebung. Die folgenden Station-Typen werden unterstützt:  
+# <a name="multipoint--stations"></a>Multipoint-Stationen
+In einer Multipoint Services-Systemumgebung sind *Stationen* die Benutzer Endpunkte zum Herstellen einer Verbindung mit dem Computer, auf dem Multipoint Services ausgeführt wird. Jede Station bietet dem Benutzer eine unabhängige Windows 10-Benutzeroberflächen. Die folgenden Stations Typen werden unterstützt:  
   
--   Im Video direkt verbundene Stationen  
+-   Direkt mit Videos verbundene Stationen  
   
--   Stationen mit USB-0 (null)-Client-verbunden (einschließlich USB-Over-Ethernet-0 (null)-Clients)  
+-   Über USB-Verbindungen mit 0 (null) Clients verbundene Stationen (einschließlich USB-over-Ethernet-Clients)  
   
--   RDP-Over-LAN verbundene Stationen (für rich-Client oder thin Client-Computern)  
+-   RDP-über-LAN-verbundene Stationen (für Rich Client-oder Thin Client-Computer)  
   
-Vollständige PCs, auf denen das MultiPoint-Connector installiert ist außerdem überwacht werden können und mithilfe von MultiPoint-Dashboard gesteuert. Unter Windows 10 kann den MultiPoint-Connector über die Systemsteuerung für Windows-Features aktiviert werden. 
+Vollständige PCs, auf denen der Multipoint-Connector installiert ist, können auch über das Multipoint-Dashboard überwacht und gesteuert werden. Unter Windows 10 kann der Multipoint-Connector über die Systemsteuerung für Windows-Features aktiviert werden. 
 
-Multipoint Services unterstützt eine beliebige Kombination dieser Typen Station, aber es wird empfohlen, einer Station eine Station Direct-Video-Verbindung werden die als die primäre Station dienen kann. Der Grund für diese Empfehlung ist Unterstützung von Szenarios erwarten können. Zum Beispiel das BIOS für die Interaktion mit dem System vor dem MultiPoint Services ausgeführt wird.  
+Multipoint Services unterstützt eine beliebige Kombination dieser Stations Typen. es wird jedoch empfohlen, dass eine Station eine Station mit direkt Videoverbindung ist, die als primäre Station fungieren kann. Der Grund für diese Empfehlung ist, dass Sie Support Szenarien erwarten können. Beispielsweise für die Interaktion mit dem BIOS des Systems, bevor Multipoint Services ausgeführt wird.  
   
-## <a name="primary-stations-and-standard-stations"></a>Primäre Stationen und standard-Stationen  
-Einer direkt verbundenen Video Station ist definiert als die *primäre Station*. Die verbleibenden Stationen werden als bezeichnet *standard Stationen*.  
+## <a name="primary-stations-and-standard-stations"></a>Primäre Stationen und Standard Stationen  
+Eine Station mit direkt-Video-Verbindung ist als *primäre Station*definiert. Die verbleibenden Stationen werden als *Standard Stationen*bezeichnet.  
   
-Die primäre Station zeigt den Startbildschirmen aus, wenn der Computer eingeschaltet ist. Es bietet Zugriff auf Konfiguration und Problembehandlung von Informationen, die während des Startvorgangs nur zur Verfügung steht. Die primäre Station muss eine Station Direct-Video-Verbindung sein. Nach dem starten können Sie die primäre Station wie alle anderen MultiPoint-Station verwenden.  
+Die primäre Station zeigt die Startbildschirme an, wenn der Computer eingeschaltet ist. Er bietet Zugriff auf Systemkonfigurations-und Problem Behandlungsinformationen, die nur während des Starts verfügbar sind. Bei der primären Station muss es sich um eine Station mit direkt Videoverbindung handeln. Nach dem Start können Sie die primäre Station wie alle anderen Multipoint-Stationen verwenden.  
   
-## <a name="direct-video-connected-stations"></a>Im Video direkt verbundene Stationen  
-Der Computer mit MultiPoint Services kann mehrere Grafikkarten, enthalten, von die jedes einen oder mehrere video Ports haben kann. Dadurch können Sie Monitore für mehrere Stationen direkt an den Computer anschließen. Tastaturen und Mäusen sind über USB-Hubs verbunden, die jeder Monitor zugeordnet sind. Diese Hubs werden als bezeichnet *station Hubs*. Andere Peripheriegeräte, z. B. Referenten, Kopfhörer oder USB-Speichergeräten können auch an einen stationshub verbunden werden, und stehen nur für den Benutzer, der diese Station.  
+## <a name="direct-video-connected-stations"></a>Direkt mit Videos verbundene Stationen  
+Der Computer, auf dem Multipoint Services ausgeführt wird, kann mehrere Videokarten enthalten, von denen jeder über einen oder mehrere videports verfügen kann. Dadurch können Sie Monitore für mehrere Stationen direkt in den Computer einbinden. Tastaturen und Mäuse sind über USB-Hubs verbunden, die mit jedem Monitor verknüpft sind. Diese Hubs werden als *Stations Hubs*bezeichnet. Andere Peripheriegeräte, wie z. b. Sprecher, Kopfhörer oder USB-Speichergeräte, können auch mit einem stationshub verbunden werden und sind nur für den Benutzer dieser Station verfügbar.  
   
 > [!IMPORTANT]  
-> Es muss mindestens eine *Station Direct-Video-Verbindung* pro Server fungieren, wie die primäre Station, um den Startprozess angezeigt wird, wenn der Computer eingeschaltet ist.  
+> Es sollte mindestens eine Station mit *direkt-Video-Verbindung* pro Server vorhanden sein, die als primäre Station fungiert, um den Startprozess anzuzeigen, wenn der Computer eingeschaltet ist.  
   
-![Layout eines MultiPoint Services-USB-basierten Systems](./media/WMSMultiPointServerUSBSystemLayout.gif)  
+![Abbildung des USB-basierten Multipoint Services-systemlayouts](./media/WMSMultiPointServerUSBSystemLayout.gif)  
   
-**Abbildung 1** MultiPoint services-System mit vier Stationen mit Direct-Video-Verbindung  
+**Abbildung 1** Multipoint Services-System mit vier direkt mit einem Video verbundenen Stationen  
   
 ### <a name="BKMK_PS2stations"></a>PS/2-Stationen  
-Mit MultiPoint Services können Sie einen direkt verbundenen Videomonitor zum Erstellen einer Station PS/2 PS/2-Tastatur und Maus auf der Hauptplatine zuordnen. HD-analoge Audio auf der Hauptplatine ist die Audioinhalte zu diesem Typ der Station. Dies gilt nicht für Computer, es keine Jacks PS/2 auf der Hauptplatine gibt.  
+Mit Multipoint Services können Sie die PS/2-Tastatur und die Maus auf dem Motherboard einem direkt Video verbundenen Monitor zuordnen, um eine PS/2-Station zu erstellen. Eine hochauflösende, analoge Audiodatei auf der Hauptplatine ist das Audiomaterial, das mit dieser Art von Station verknüpft ist. Dies gilt nicht für Computer, bei denen keine PS/2-Jacks auf der Hauptplatine vorhanden sind.  
   
-## <a name="usb-zero-client-connected-stations"></a>Stationen mit USB-0 (null)-Client-verbunden  
-Stationen mit USB-0 (null)-Client-Verbindung nutzen eine *USB-0 (null) Client* als stationshub. USB-0 (null)-Clients werden manchmal als einem multifunktionshub mit Video bezeichnet. Sie einen Hub, der mit dem Computer über ein USB-Kabel verbunden sind, und den Hubs in der Regel eine video-Monitor, einer Tastatur und Maus (PS/2 oder USB), Audio- und zusätzliche USB-Geräte unterstützen. Dieses Handbuch bezieht sich auf diese spezielle Hubs als USB 0 (null) Clients.  
+## <a name="usb-zero-client-connected-stations"></a>An einem USB-Client angeschlossene Stationen  
+An einem USB-Client verbundene Stationen verwenden einen *USB Zero-Client* als stationshub. USB-Clients werden manchmal auch als multifunktionshub mit Video bezeichnet. Dabei handelt es sich um einen Hub, der über ein USB-Kabel mit dem Computer verbunden ist, und diese Hubs unterstützen in der Regel einen Videomonitor, eine Maus und Tastatur (PS/2 oder USB), Audiodaten und zusätzliche USB-Geräte. Dieses Handbuch bezieht sich auf diese spezialisierten Hubs als USB-Clients.  
   
-Das folgende Diagramm zeigt eine MultiPoint-Server-System mit einer primären Station (direkte Video verbundene Station) und zwei zusätzliche USB-0 (null)-Client verbundene Stationen.  
+Das folgende Diagramm zeigt ein Multipoint-Server System mit einer primären Station (Direct Video Connected Station) und zwei zusätzlichen, mit dem USB-Client verbundenen Stationen.  
   
-![Verbundene USB-0 (null)-client](./media/WMS11_diagram7.gif)  
+![Verbundene USB-Verbindungen mit Zero-Client](./media/WMS11_diagram7.gif)  
   
-**Abbildung 2** MultiPoint Services-System mit einer primäre Station und zwei Stationen mit USB-0 (null)-Client-verbunden  
+**Abbildung 2** Multipoint Services-System mit einer primären Station und zwei an einem USB-Client verbundenen Stationen  
   
-### <a name="usb-over-ethernet-zero-clients"></a>USB-Over-Ethernet-0 (null)-clients  
-USB-Over-Ethernet-0 (null)-Clients sind eine Variation des USB-0 (null)-Clients, die USB über LAN an den MultiPoint Services-System zu senden. Diese Arten von USB-0 (null)-Clients auf ähnliche Weise funktionieren auf andere USB keine Clients, aber Sie sind nicht durch USB-Kabel Länge Maximalwerte beschränkt. USB-Over-Ethernet-0 (null)-Clients sind keine herkömmliche thin Clients, und sie werden als virtuelle USB-Geräte auf dem MultiPoint Services-System angezeigt. Wenn Sie diese Geräte verwenden zu können, finden Sie unter der Hersteller des Geräts für die spezifischen Leistungs- und Empfehlungen für die standortplanung. Die meisten Geräte haben eine Drittanbieter--Plug-In für MultiPoint-Manager, mit dem Sie zuordnen, und Verbinden von Geräten mit MultiPoint Services-Systems.  
+### <a name="usb-over-ethernet-zero-clients"></a>USB-over-Ethernet-Clients (null)  
+USB-over-Ethernet-Clients stellen eine Variation von USB-Clients dar, die USB-über-LAN an das Multipoint Services-System senden. Diese Typen von USB-Clients funktionieren ähnlich wie andere USB-Clients, sind aber nicht durch maximale Länge der USB-Kabellänge beschränkt. Bei USB-over-Ethernet-Clients handelt es sich nicht um herkömmliche Thin Clients, und Sie werden als virtuelle USB-Geräte im Multipoint Services-System angezeigt. Wenn Sie diese Geräte verwenden, finden Sie unter Gerätehersteller spezifische Empfehlungen zur Leistung und Website Planung. Die meisten Geräte verfügen über ein Drittanbieter-Plug-in für Multipoint Manager, mit dem Sie Geräte dem Multipoint Services-System zuordnen und verbinden können.  
   
-## <a name="rdp-over-lan-connected-stations"></a>RDP-Over-LAN verbundene Stationen  
-Thin Clients und traditionelle Desktop, Laptop oder Tablet-PCs können mit dem Computer mit MultiPoint Services über das lokale Netzwerk (LAN) mit Remote Desktop Protocol (RDP) oder ein proprietäres Protokoll und das Remotedesktopprotokoll verbinden. Anbieter. RDP-Verbindungen bieten eine Endbenutzer-Erfahrung, die alle anderen MultiPoint-Station sehr ähnlich ist, aber der Hardware des Computers dem lokalen Client verwendet. Erfahren Sie mehr über unsere remote desktop-Anwendungen verfügbar für Android, iOS, Mac und Windows in [Remotedesktopclients](../remote-desktop-services/clients/remote-desktop-clients.md). 
+## <a name="rdp-over-lan-connected-stations"></a>Verbundene RDP-over-LAN-Stationen  
+Thin Clients und herkömmliche Desktop-, Laptop-oder Tablet-Computer können eine Verbindung mit dem Computer herstellen, auf dem Multipoint Services über das lokale Netzwerk (Local Area Network, LAN) ausgeführt wird, indem Remotedesktopprotokoll (RDP) oder ein proprietäres Remotedesktopprotokoll Protokoll verwendet wird. Ab. RDP-Verbindungen bieten eine Endbenutzer Umgebung, die mit jeder anderen Multipoint-Station vergleichbar ist, aber die Hardware des lokalen Client Computers verwendet. Erfahren Sie mehr über unsere Remote Desktop-Anwendungen, die in [Remotedesktop-Clients](../remote-desktop-services/clients/remote-desktop-clients.md)für Android, Ios, Mac und Windows verfügbar sind. 
   
-Clients und Geräten, auf denen Microsoft RemoteFX bieten ein umfangreiches multimedia-Erlebnis nutzen die Hardwarefunktionen Prozessor- und Video des lokalen thin-Client oder des Computers HD-Videos über das Netzwerk bereitstellen.  
+Clients und Geräte, auf denen Microsoft RemoteFX ausgeführt wird, können eine umfangreiche Multimediaumgebung bereitstellen, indem Sie die Prozessor-und Video Hardwarefunktionen des lokalen Thin Client oder des lokalen Computers nutzen, um Videos mit hoher Definition über das Netzwerk bereitzustellen.  
   
-Wenn Sie vorhandene LAN-Clients haben bieten MultiPoint Services eine schnelle und kostengünstige Möglichkeit, alle Benutzer gleichzeitig auf einem Windows 10-Benutzeroberfläche zu aktualisieren.  
+Wenn Sie über vorhandene LAN-Clients verfügen, können Sie mit Multipoint Services eine schnelle und kostengünstige Möglichkeit bereitstellen, um alle Benutzer gleichzeitig auf Windows 10 zu aktualisieren.  
   
-Hinsichtlich der Bereitstellung und Verwaltung sind die folgenden Unterschiede vorhanden, bei der Verwendung von RDP-Over-LAN verbundene Stationen:  
+Aus Bereitstellungs-und Verwaltungs Sicht bestehen die folgenden Unterschiede bei der Verwendung von mit RDP-über-LAN verbundenen Stationen:  
   
--   Nicht beschränkt auf physischen entfernungen von USB-Verbindung  
+-   Nicht beschränkt auf physische USB-Verbindungs Abstände  
   
--   Potenzial für ältere Computerhardware als Stationen wiederverwenden  
+-   Möglichkeit zur Wiederverwendung älterer Computer Hardware als Stationen  
   
--   Skalierung auf eine höhere Anzahl von Stationen leichter. Jeder Client in Ihrem Netzwerk kann als Remotestation verwendet werden  
+-   Die Skalierung auf eine größere Anzahl von Stationen ist einfacher. Alle Clients in Ihrem Netzwerk können möglicherweise als Remote Station verwendet werden.  
   
--   Keine Hardware, die über die MultiPoint-Manager-Konsole zur Problembehandlung  
+-   Keine Hardwareproblem Behandlung über die Multipoint Manager-Konsole  
   
--   Keine geteilten-Funktionalität.  
+-   Keine Split-Screen-Funktionalität.  
   
-    Weitere Informationen finden Sie unter [Stationen mit geteilten Bildschirmen](#a-namebkmksplitscreenstationsasplit-screen-stations) weiter unten in diesem Thema  
+    Weitere Informationen finden Sie unter [Split-Screen-Stationen](#split-screen-stations) weiter unten in diesem Thema.  
   
--   Keine Station umbenennen oder die Konfiguration der automatischen Anmeldung über die MultiPoint-Manager-Konsole  
+-   Keine Stations umbenennen oder Konfigurieren der automatischen Anmeldung über die Multipoint Manager-Konsole  
   
 ![Verbundene USB-Station ohne Clients](./media/Diagram1.gif)  
   
-**Abbildung 3** MultiPoint Services-System mit RDP-Over-LAN verbundene Stationen  
+**Abbildung 3** Multipoint Services-System mit per RDP über LAN verbundenen Stationen  
   
 ## <a name="additional-configuration-options"></a>Zusätzliche Konfigurationsoptionen  
   
-### <a name="BKMK_SplitscreenStations"></a>Stationen mit geteilten Bildschirmen  
-MultiPoint Services bietet eine Option des Split-Bildschirm auf Computern mit Stationen Direct-Video-Verbindung oder andere Stationen mit USB-0 (null)-Client-verbunden. Monitornutzung mittels Split Screen bietet die Möglichkeit, eine zusätzliche Station pro Monitor zu erstellen. Statt zwei Monitore, können Sie einen Monitor mit zwei Station Hub Setups verwenden, um zwei Stationen mit einem Monitor zu erstellen. Sie können schnell die Anzahl der verfügbaren Stationen erhöhen, ohne den Erwerb zusätzlicher Monitore, USB-0 (null)-Clients oder Grafikkarten.  
+### <a name="split-screen-stations"></a>Stationen mit geteiltem Bildschirm  
+Multipoint Services bietet eine Split Screen-Option auf Computern mit direkt mit einem Video verbundenen Stationen oder an an einem USB-Client verbundenen Stationen. Ein geteilter Bildschirm bietet die Möglichkeit, eine zusätzliche Station pro Monitor zu erstellen. Anstatt zwei Monitore zu erfordern, können Sie einen Monitor mit zwei stationshub-Setups verwenden, um zwei Stationen mit einem Monitor zu erstellen. Sie können die Anzahl der verfügbaren Stationen schnell erhöhen, ohne zusätzliche Monitore, USB-Null-Clients oder Grafikkarten erwerben zu müssen.  
   
-Die Vorteile der Verwendung einer Stationen mit geteiltem Bildschirm können Folgendes enthalten:  
+Die Verwendung einer Split-Screen-Station bietet folgende Vorteile:  
   
--   Reduzieren Kosten und Raumbedarf durch mehr Benutzern auf einem MultiPoint Services-System an.  
+-   Verringern von Kosten und Speicherplatz, indem mehr Benutzer in einem Multipoint Services-System untergebracht werden.  
   
--   Zwei Benutzer können die Seite-an-Seite in einem Projekt zusammenarbeiten.  
+-   Ermöglicht zwei Benutzern das parallele zusammenarbeiten mit einem Projekt.  
   
--   Möglichkeit für einen Lehrer, ein Verfahren auf einer Station zu zeigen, während ein Student auf der anderen Station nachvollzieht.  
+-   Ermöglicht es einem Lehrer, eine Prozedur auf einer Station zu veranschaulichen, während ein Student auf der anderen Station zusammenhält.  
   
-Jeder MultiPoint Services-station überwachen, die Auflösung von 1024 x 768 oder höher in zwei stationsbildschirmen aufgeteilt werden kann. Die beste Teilung Bildschirm benutzerfreundlichkeit wird ein große Bildschirm mit einer mindestauflösung von 1600 x 900 empfohlen. Eine kleine Tastatur ohne eine Zehnertastatur wird außerdem empfohlen, die zwei Tastaturen vor der Monitor anpassen können.  
+Jeder Multipoint Services-Stations Monitor mit einer Auflösung von mindestens 1024 x 768 kann in zwei Stations Bildschirme aufgeteilt werden. Für eine optimale Benutzer Darstellung auf dem Bildschirm wird ein breit Bildschirm mit einer Mindestauflösung von 1600 x 900 empfohlen. Es wird auch eine Mini Tastatur ohne einen Zahlenbereich empfohlen, damit die beiden Tastaturen in den Monitor eingefügt werden können.  
   
-Um Stationen mit geteilten Bildschirmen zu erstellen, richten Sie einer Station für im Video direkt verbundene Gruppen oder USB-0 (null)-Client-verbunden. Dann fügen Sie eine zusätzliche stationshub von Plug-in-Tastatur und Maus mit einem USB-Hub, der auf dem Server verbunden ist. Sie können dann die Station in zwei Stationen konvertieren, teilen den Bildschirm, und ordnen den neuen Hub, auf die Hälfte des Monitors mithilfe von MultiPoint-Manager. Die linke Hälfte des Bildschirms wird zu einer Station, und die rechte Hälfte wird eine zweite Station.  
+Zum Erstellen von Split-Screen-Stationen richten Sie eine Station mit direktem bzw. einem USB-oder-Client-Verbindung ein. Dann fügen Sie einen zusätzlichen stationshub hinzu, indem Sie eine Tastatur und eine Maus an einen USB-Hub anschließen, der mit dem Server verbunden ist. Anschließend können Sie die Station in zwei Stationen konvertieren, indem Sie den Bildschirm mithilfe von Multipoint-Manager aufteilen und den neuen Hub der Hälfte des Monitors zuordnen. Die linke Hälfte des Bildschirms wird zu einer Station, und die Rechte Hälfte wird zu einer zweiten Station.  
   
-Nachdem eine Station Teilen ist, kann ein Benutzer auf der linken Station anmelden, während eine andere Benutzer von der rechten Station anmeldet anmelden.  
+Nachdem eine Station aufgeteilt wurde, kann sich ein Benutzer an der linken Station anmelden, während sich ein anderer Benutzer an der rechten Station anmeldet.  
   
 ![Stationen mit geteiltem Bildschirm](./media/WMS_diagram3.gif)  
   
-**Abbildung 4** MultiPoint Services-System mit geteilten Bildschirms Stationen  
+**Abbildung 4** Multipoint Services-System mit unterteilten Bildschirm Stationen  
   
-## <a name="BKMK_StationTypeComparison"></a>Vergleich von Station  
+## <a name="BKMK_StationTypeComparison"></a>Stations Typvergleich  
   
-||Direkte Video verbunden|Verbundene USB-0 (null)-Client|RDP-Over-LAN-Verbindung|  
+||Direktes Video mit Verbindung|USB-Null-Client verbunden|RDP-over-LAN-Verbindung|  
 |-|--------------------------|-----------------------------|----------------------------|  
-|Video-Leistung|Video aus Leistungsgründen empfohlen||Verwenden Sie thin Clients, die Unterstützung von RemoteFX für verbesserte Videoqualität auf niedriger Bandbreite|  
-|Physische Einschränkungen|Begrenzung durch die Länge des Videos Kabel und USB-Hub und die Länge des Kabels (15 empfohlen Meter maximale Länge)|Begrenzt durch USB-Hub und die Länge der Cable (empfohlene 15 Meter maximale Länge)|Begrenzung durch die LAN-Verteilung|  
-|Anzahl von Stationen zulässig |Begrenzung durch die Anzahl der verfügbaren PCIe-Slots auf der Hauptplatine Zeiten der video-Ports pro Grafikkarte|Gesamtanzahl von USB-0 (null)-Client-Hersteller beschränkt werden kann (Weitere Informationen finden Sie auf den Hinweis, der dieser Tabelle gezeigt).|Begrenzung durch verfügbaren Ports im Netzwerk-switch|  
-|Geteilten Bildschirmen|Ja|Ja|Nein|  
-|MultiPoint-Manager peripheren stationsstatus, Konfiguration der automatischen Anmeldung, station umbenennen|Ja|Ja|Nein|  
-|Zugriff auf Server-Start-Menüs|Ja|Nein|Nein|  
+|Video Leistung|Empfohlen für eine optimale Video Leistung||Verwenden von Thin Clients, die remotefx unterstützen, um die Videoqualität bei geringerer Netzwerkbandbreite zu steigern|  
+|Physische Einschränkungen|Begrenzt durch Grafik Kabellänge und USB-Hub und Kabellänge (empfohlene maximale Länge von 15 Metern)|Begrenzt durch USB-Hub und Kabellänge (empfohlene maximale Länge von 15 Metern)|Verteilung durch LAN-Verteilung|  
+|Zulässige Anzahl von Stationen |Begrenzt durch die Anzahl der verfügbaren PCIe-Slots auf den Hauptseiten der Videoanschlüsse Pro Grafikkarte|Die Gesamtanzahl kann durch den USB-Client Hersteller eingeschränkt werden. (Weitere Informationen finden Sie im Hinweis, der dieser Tabelle folgt.)|Begrenzt durch verfügbare Ports auf dem Netzwerk Switch|  
+|Geteilter Bildschirm|Ja|Ja|Nein|  
+|Peripherie Status der Multipoint Manager-Station, Konfiguration der automatischen Anmeldung, Stations umbenennen|Ja|Ja|Nein|  
+|Zugriff auf Serverstart Menüs|Ja|Nein|Nein|  
   
 > [!NOTE]  
-> Die Gesamtanzahl der USB-0 (null)-Clients, die auf dem Server verbunden sind, unter Umständen vom Hersteller oder die Hardwarefunktion, von dem Computer, auf dem MultiPoint Services ausgeführt wird, eingeschränkt werden.
+> Die Gesamtanzahl der USB-Clients, die mit dem Server verbunden sind, wird möglicherweise durch den Hersteller oder die Hardware Funktion des Computers beschränkt, auf dem Multipoint Services ausgeführt wird.
