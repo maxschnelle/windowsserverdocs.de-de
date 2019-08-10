@@ -1,6 +1,6 @@
 ---
 title: Verwalten des Remotewebzugriffs in Windows Server 2012 Essentials
-description: Beschreibt, wie Windows Server Essentials
+description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -12,72 +12,72 @@ ms.assetid: 47ea21a0-5e05-4b4b-8fa4-338c82601276
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: b78d6abbaf287fc56336ff8d16127ce249b97519
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: f6a5d6fd42c5cd7e92821e1157748054c741ef04
+ms.sourcegitcommit: 0e3c2473a54f915d35687d30d1b4b1ac2bae4068
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66435914"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68914687"
 ---
 # <a name="use-remote-web-access-in-windows-server-essentials"></a>Verwalten des Remotewebzugriffs in Windows Server 2012 Essentials
 
 >Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
   
-  Remote Web Access ist ein Feature von Windows Server Essentials, die Sie von überall aus Zugriff auf Datei/Ordner und Computer in Ihrem Netzwerk über einen Webbrowser können mit Internetverbindung. 
+  Remote Webzugriff ist ein Feature von Windows Server Essentials, mit dem Sie über einen Webbrowser von einem beliebigen Standort mit Internet Verbindung auf Dateien/Ordner und Computer in Ihrem Netzwerk zugreifen können. 
   
-  Remotewebzugriff bietet die Möglichkeit, auch unterwegs mit dem Windows Server Essentials-Netzwerk in Verbindung zu bleiben. Wenn Sie sich beim Remotewebzugriff anmelden, können Sie mit den Computern in Ihrem Windows Server Essentials-Netzwerk verbinden, öffnen Sie das Dashboard zum Verwalten Ihres Windows Server Essentials-Netzwerks und Zugriff auf alle freigegebenen Ordner und Mediendateien Dateien auf dem Server.  
+  Remotewebzugriff bietet die Möglichkeit, auch unterwegs mit dem Windows Server Essentials-Netzwerk in Verbindung zu bleiben. Wenn Sie sich bei Remote Webzugriff anmelden, können Sie eine Verbindung mit den Computern in Ihrem Windows Server Essentials-Netzwerk herstellen, das Dashboard zum Verwalten Ihres Windows Server Essentials-Netzwerks öffnen und auf alle freigegebenen Ordner und Mediendateien auf dem Server zugreifen.  
   
  Dieses Thema enthält die folgenden Abschnitte:  
   
 
--   [Herstellen einer Verbindung von Web Access mit](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_Connect)  
+-   [Verbindung mit Remote Webzugriff herstellen](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_Connect)  
   
--   [Freigeben von Dateien und Ordner](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_SharedFolders)  
+-   [Freigeben von Dateien und Ordnern](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_SharedFolders)  
   
--   [Herstellen einer Verbindung von einem mobilen Gerät](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_ConnectMobile)  
+-   [Herstellen einer Verbindung von einem mobilen Gerät aus](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_ConnectMobile)  
   
-##  <a name="BKMK_Connect"></a> Herstellen einer Verbindung von Web Access mit  
+##  <a name="BKMK_Connect"></a>Verbindung mit Remote Webzugriff herstellen  
   
--   [Melden Sie sich bei Remotewebzugriff](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_1)  
+-   [Anmelden bei Remote Webzugriff](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_1)  
   
--   [Remotezugriff auf Ihrem computer](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_1.5)  
+-   [Remote Zugriff auf Ihren Computer](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_1.5)  
 
--   [Herstellen einer Verbindung von Web Access mit](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_Connect)  
+-   [Verbindung mit Remote Webzugriff herstellen](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_Connect)  
   
--   [Freigeben von Dateien und Ordner](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_SharedFolders)  
+-   [Freigeben von Dateien und Ordnern](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_SharedFolders)  
   
--   [Herstellen einer Verbindung von einem mobilen Gerät](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_ConnectMobile)  
+-   [Herstellen einer Verbindung von einem mobilen Gerät aus](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_ConnectMobile)  
   
-##  <a name="BKMK_Connect"></a> Herstellen einer Verbindung von Web Access mit  
+##  <a name="BKMK_Connect"></a>Verbindung mit Remote Webzugriff herstellen  
   
--   [Melden Sie sich bei Remotewebzugriff](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_1)  
+-   [Anmelden bei Remote Webzugriff](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_1)  
   
--   [Remotezugriff auf Ihrem computer](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_1.5)  
+-   [Remote Zugriff auf Ihren Computer](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_1.5)  
 
   
-###  <a name="BKMK_1"></a> Melden Sie sich bei Remotewebzugriff  
- Wenn Sie mit Remote Web Access aus einem lokalen Computer oder Remotecomputer anmelden, können Sie Ressourcen auf Ihrem Server unter Windows Server Essentials und Computer in Ihrem Netzwerk zugreifen.  
+###  <a name="BKMK_1"></a>Anmelden bei Remote Webzugriff  
+ Wenn Sie sich auf einem lokalen Computer oder einem Remote Computer an einer Remote Webzugriff anmelden, können Sie auf Ressourcen auf Ihrem Server mit Windows Server Essentials und Computern in Ihrem Netzwerk zugreifen.  
   
 ##### <a name="to-log-on-to-remote-web-access-from-a-network-computer"></a>So melden Sie sich beim Remotewebzugriff über einen Netzwerkcomputer an  
   
-1.  Öffnen Sie einen Webbrowser, geben **https://***< IhrServername\>***/remote** in die Adressleiste ein, und drücken Sie dann die EINGABETASTE.  
+1.  Öffnen Sie einen Webbrowser, geben Sie **https://** _<\>yourservername_ **/Remote** in der Adressleiste ein, und drücken Sie dann die EINGABETASTE.  
   
     > [!NOTE]
-    >  Stellen Sie sicher, dass Sie die s in Https enthalten.  
+    >  Stellen Sie sicher, dass Sie die s in HTTPS einschließen.  
   
-2.  Geben Sie auf der Anmeldeseite des Remotewebzugriffs Ihren Benutzernamen und Kennwort in die Textfelder ein, und klicken Sie dann auf den Pfeil.  
+2.  Geben Sie auf der Seite Remote Webzugriff Anmeldung Ihren Benutzernamen und Ihr Kennwort in die Textfelder ein, und klicken Sie dann auf den Pfeil.  
   
 ##### <a name="to-log-on-to-remote-web-access-from-a-remote-computer"></a>So melden Sie sich beim Remotewebzugriff über einen Remotecomputer an  
   
-1.  Öffnen Sie einen Webbrowser, geben **https://***< IhrDomänenname\>***/remote** in die Adressleiste ein, und drücken Sie dann die EINGABETASTE.  
+1.  Öffnen Sie einen Webbrowser, geben Sie **https://** _<\>yourDomainName_ **/Remote** in der Adressleiste ein, und drücken Sie dann die EINGABETASTE.  
   
     > [!NOTE]
-    >  Ihre Domänennamensinformationen können Sie von Ihrem Netzwerkadministrator abrufen. Stellen Sie sicher, dass Sie die s in Https enthalten.  
+    >  Ihre Domänennamensinformationen können Sie von Ihrem Netzwerkadministrator abrufen. Stellen Sie sicher, dass Sie die s in HTTPS einschließen.  
   
-2.  Geben Sie auf der Anmeldeseite des Remotewebzugriffs Ihren Benutzernamen und Kennwort in die Textfelder ein, und klicken Sie dann auf den Pfeil.  
+2.  Geben Sie auf der Seite Remote Webzugriff Anmeldung Ihren Benutzernamen und Ihr Kennwort in die Textfelder ein, und klicken Sie dann auf den Pfeil.  
   
-###  <a name="BKMK_1.5"></a> Remotezugriff auf Ihrem computer  
- Wenn Sie nicht im Büro sind, können Sie Ihren Webbrowser, an die Website Remote Web Access, Remotezugriff auf Ihre Windows Server Essentials-Dashboard, freigegebene Ordner und Computer in Ihrem Netzwerk anmelden.  
+###  <a name="BKMK_1.5"></a>Remote Zugriff auf Ihren Computer  
+ Wenn Sie nicht im Büro sind, können Sie sich mit Ihrem Webbrowser bei der Remote Webzugriff-Website anmelden, um per Remote Zugriff auf Ihr Windows Server Essentials-Dashboard, freigegebene Ordner und Computer in Ihrem Netzwerk zuzugreifen.  
   
  Wenn Sie mit dem Dashboard eine Verbindung herstellen, können Sie Windows Server Essentials so verwalten, als würden Sie sich im Büro befinden. Sie können alle gewöhnlichen Verwaltungsaufgaben vornehmen. Dazu zählt auch das Hinzufügen von Benutzerkonten, das Hinzufügen von freigegebenen Ordnern, das Festlegen des Zugriffs auf freigegebene Ordner usw. Wenn Sie eine Verbindung zu Computern in Ihrem Netzwerk herstellen, können Sie so auf deren Desktops zugreifen, als würden Sie sich direkt vor ihnen im Büro befinden.  
   
@@ -95,7 +95,7 @@ ms.locfileid: "66435914"
   
      Remotedesktop wird vom Betriebssystem auf dem Computer nicht unterstützt. Es kann bis zu sechs Stunden dauern, bis der Status auf dem Server aktualisiert wird, wenn eine Änderung durchgeführt wird.  
   
--   **Verbindung ist deaktiviert.**  
+-   **Die Verbindung ist deaktiviert.**  
   
      Die Computerverbindung wird entweder durch eine Firewall blockiert, oder der Remotedesktop ist auf dem Computer oder durch eine Gruppenrichtlinie deaktiviert. Es kann bis zu sechs Stunden dauern, bis der Status auf dem Server aktualisiert wird, wenn eine Änderung durchgeführt wird.  
   
@@ -105,19 +105,19 @@ ms.locfileid: "66435914"
 #### <a name="to-connect-to-the-server-dashboard"></a>So verbinden Sie sich mit dem Serverdashboard  
  Klicken Sie auf der Registerkarte **GERÄTE** auf den Namen Ihres Servers. Sie können ausschließlich Computer mit dem Status **Verfügbar** auswählen. Sie müssen ein Administratorbenutzerkonto und -kennwort auf Ihrem Server bereitstellen können, um das Dashboard verwenden zu können.  
   
-##  <a name="BKMK_SharedFolders"></a> Freigeben von Dateien und Ordner  
+##  <a name="BKMK_SharedFolders"></a>Freigeben von Dateien und Ordnern  
   
 
--   [Hochladen und Herunterladen von Dateien in Remote Web Access](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_UploadRWA)  
+-   [Hochladen und Herunterladen von Dateien in Remote Webzugriff](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_UploadRWA)  
   
--   [Erstellen, umbenennen, verschieben, löschen oder Kopieren von Dateien und Ordner in Remote Web Access](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_2)  
+-   [Erstellen, umbenennen, verschieben, löschen oder Kopieren von Dateien und Ordnern in Remote Webzugriff](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_2)  
 
--   [Hochladen und Herunterladen von Dateien in Remote Web Access](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_UploadRWA)  
+-   [Hochladen und Herunterladen von Dateien in Remote Webzugriff](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_UploadRWA)  
   
--   [Erstellen, umbenennen, verschieben, löschen oder Kopieren von Dateien und Ordner in Remote Web Access](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_2)  
+-   [Erstellen, umbenennen, verschieben, löschen oder Kopieren von Dateien und Ordnern in Remote Webzugriff](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_2)  
 
   
-###  <a name="BKMK_UploadRWA"></a> Hochladen und Herunterladen von Dateien in Remote Web Access  
+###  <a name="BKMK_UploadRWA"></a>Hochladen und Herunterladen von Dateien in Remote Webzugriff  
  Auf der Registerkarte für die **freigegebenen Ordner** im Remotewebzugriff können Sie Folgendes vornehmen:  
   
 -   Hochladen (Senden) von Dateien von Ihrem Computer aus zu Windows Server Essentials.  
@@ -130,9 +130,9 @@ ms.locfileid: "66435914"
 -   Erstellen Sie einen Ordner in einem freigegebenen Ordner auf Windows Server Essentials.  
   
 
--   Verschieben, löschen und benennen Sie Dateien und Ordner auf Windows Server Essentials um. Weitere Informationen finden Sie unter [erstellen, umbenennen, verschieben, löschen oder Kopieren von Dateien und Ordnern im Remotewebzugriff auf](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_2).  
+-   Verschieben, löschen und benennen Sie Dateien und Ordner auf Windows Server Essentials um. Weitere Informationen finden Sie unter [erstellen, umbenennen, verschieben, löschen oder Kopieren von Dateien und Ordnern in Remote Webzugriff](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_2).  
 
--   Verschieben, löschen und benennen Sie Dateien und Ordner auf Windows Server Essentials um. Weitere Informationen finden Sie unter [erstellen, umbenennen, verschieben, löschen oder Kopieren von Dateien und Ordnern im Remotewebzugriff auf](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_2).  
+-   Verschieben, löschen und benennen Sie Dateien und Ordner auf Windows Server Essentials um. Weitere Informationen finden Sie unter [erstellen, umbenennen, verschieben, löschen oder Kopieren von Dateien und Ordnern in Remote Webzugriff](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_2).  
 
   
 #### <a name="upload-files"></a>Hochladen von Dateien  
@@ -193,17 +193,17 @@ ms.locfileid: "66435914"
 > [!NOTE]
 >  Diese Optionen stehen nur zur Verfügung, wenn Sie mehrere Dateien oder Ordner auf Ihren Computer herunterladen.  
   
-- **Selbstextrahierende ausführbare Datei (.exe)**  
+- **Selbst extrahierende ausführbare Datei (. exe)**  
   
   > [!NOTE]
-  >   Dieser Abschnitt gilt für einen Server mit Windows Server Essentials.  
+  >   Dieser Abschnitt gilt für einen Server, auf dem Windows Server Essentials ausgeführt wird.  
   
    Eine selbstextrahierende ausführbare Datei ist eine herunterladbare Datei, die das Dekomprimierungsprogramm (ausführbare Datei) mit den komprimierten Dateien kombiniert. Wenn Sie das ausführbare Programm ausführen, dekomprimiert es automatisch die komprimierten Dateien (selbstextrahierend). Mit diesem gängigen Verfahren können komprimierte Daten verteilt werden, ohne dass der Empfänger über das nötige Dekomprimierungshilfsprogramm verfügen muss.  
   
   > [!NOTE]
   >  Diese Option unterstützt Unicode-Zeichen.  
   
-- **Windows-komprimierten Ordner (.zip)**  
+- **Komprimierter Windows-Ordner (. zip)**  
   
    Durch das Zippen einer Datei wird eine komprimierte Dateiversion erstellt, die kleiner als die Originaldatei ist. Die komprimierte Dateiversion verfügt über die Dateierweiterung ".zip". Dateitypen, die am stärksten verpackt werden, sind textorientierte Dateitypen wie TXT,- DOC-, XLS- und grafische Dateien, die nicht komprimierte Dateitypen wie .bmp verwenden. Einige Grafikdateien wie JPG- und GIF-Dateien nutzen bereits die Komprimierung, sodass sich die Dateigröße durch das Komprimieren nur geringfügig verkleinert. Darüber hinaus reduziert sich die Dateigröße eines Word-Dokuments mit vielen Grafiken nicht in dem Maße wie ein Dokument, das hauptsächlich Text enthält.  
   
@@ -229,7 +229,7 @@ ms.locfileid: "66435914"
 #### <a name="retrieve-compressed-files-downloaded-to-your-computer"></a>Abrufen von auf Ihren Computer heruntergeladener komprimierter Dateien  
   
 > [!NOTE]
->   Dieser Abschnitt gilt für einen Server mit Windows Server Essentials.  
+>   Dieser Abschnitt gilt für einen Server, auf dem Windows Server Essentials ausgeführt wird.  
   
  Wenn Sie auswählen, mehrere Dateien oder Ordner herunterzuladen, erhalten Sie eine selbstextrahierende komprimierte ausführbare Datei (EXE) oder eine komprimierte Datei (ZIP).  
   
@@ -248,7 +248,7 @@ ms.locfileid: "66435914"
     > [!NOTE]
     >  Wenn Sie ein Drittanbieter-Komprimierungsprogramm verwenden, befolgen Sie die Vorgehensweisen für das Programm, um Ihre Dateien aus der komprimierten Datei zu extrahieren.  
   
-###  <a name="BKMK_2"></a> Erstellen, umbenennen, verschieben, löschen oder Kopieren von Dateien und Ordner in Remote Web Access  
+###  <a name="BKMK_2"></a>Erstellen, umbenennen, verschieben, löschen oder Kopieren von Dateien und Ordnern in Remote Webzugriff  
  Sie können den Remotewebzugriff verwenden, um neue Ordner in einem vorhandenen freigegebenen Ordner zu erstellen, um Dateien und Ordner umzubenennen und um Dateien und Ordner auf Ihrem Server zu löschen.  
   
 > [!NOTE]
@@ -294,19 +294,19 @@ ms.locfileid: "66435914"
   
 3.  Klicken Sie mit der rechten Maustaste auf den Ordner, in den die Dateien oder Ordner kopiert werden sollen, und klicken Sie dann auf **Einfügen**.  
   
-##  <a name="BKMK_ConnectMobile"></a> Herstellen einer Verbindung von einem mobilen Gerät  
+##  <a name="BKMK_ConnectMobile"></a>Herstellen einer Verbindung von einem mobilen Gerät aus  
   
 
--   [Verwenden des Remotewebzugriffs über ein mobiles Gerät](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_8)  
+-   [Remote Webzugriff von einem mobilen Gerät aus verwenden](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_8)  
   
--   [Unterstützte Webbrowser für Mobilgeräte](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_9)  
+-   [Unterstützte Webbrowser für mobile Geräte](Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_9)  
 
--   [Verwenden des Remotewebzugriffs über ein mobiles Gerät](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_8)  
+-   [Remote Webzugriff von einem mobilen Gerät aus verwenden](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_8)  
   
--   [Unterstützte Webbrowser für Mobilgeräte](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_9)  
+-   [Unterstützte Webbrowser für mobile Geräte](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_9)  
 
   
-###  <a name="BKMK_8"></a> Verwenden des Remotewebzugriffs über ein mobiles Gerät  
+###  <a name="BKMK_8"></a>Remote Webzugriff von einem mobilen Gerät aus verwenden  
  Sie können sich auf Ihrem Smartphone beim Remotewebzugriff anmelden, um die Dateien und Ordner in den freigegebenen Ordnern auf dem Server anzuzeigen.  
   
 > [!NOTE]
@@ -314,27 +314,27 @@ ms.locfileid: "66435914"
   
 ##### <a name="to-log-on-to-remote-web-access-from-a-mobile-device"></a>So melden Sie sich beim Remotewebzugriff über einen Mobilgerät an  
   
-1.  Öffnen Sie einen Webbrowser und Typ **https://***<IhrDomänenname\>***/remote** in der Adressleiste.  Stellen Sie sicher, dass Sie die s in Https enthalten.  
+1.  Öffnen Sie einen Webbrowser, und geben Sie **https://** _<\>yourDomainName_ **/Remote** in der Adressleiste ein.  Stellen Sie sicher, dass Sie die s in HTTPS einschließen.  
   
-2.  Geben Sie auf der Anmeldeseite des Remotewebzugriffs Ihren Benutzernamen und Kennwort in die Textfelder ein, und klicken Sie dann auf den Pfeil. Sie werden in der mobilen Version des Remotewebzugriffs angemeldet.  
+2.  Geben Sie auf der Seite Remote Webzugriff Anmeldung Ihren Benutzernamen und Ihr Kennwort in die Textfelder ein, und klicken Sie dann auf den Pfeil. Sie werden in der mobilen Version des Remotewebzugriffs angemeldet.  
   
 ##### <a name="to-switch-to-the-desktop-version-of-remote-web-access"></a>So wechseln Sie zur Desktopcomputerversion des Remotewebzugriffs  
   
-1.  Öffnen Sie einen Webbrowser und Typ **https://***<IhrDomänenname\>***/remote** in der Adressleiste.  Stellen Sie sicher, dass Sie die s in Https enthalten.  
+1.  Öffnen Sie einen Webbrowser, und geben Sie **https://** _<\>yourDomainName_ **/Remote** in der Adressleiste ein.  Stellen Sie sicher, dass Sie die s in HTTPS einschließen.  
   
-2.  Geben Sie auf der Anmeldeseite des Remotewebzugriffs, Ihren Benutzernamen und Kennwort in die Textfelder ein, klicken Sie auf **Desktopversion anzeigen**, und klicken Sie dann auf den Pfeil. Sie werden in der Desktopversion des Remotewebzugriffs angemeldet.  
+2.  Geben Sie auf der Seite Remote Webzugriff Anmeldung Ihren Benutzernamen und Ihr Kennwort in die Textfelder ein, klicken Sie auf **Desktop Version anzeigen**, und klicken Sie dann auf den Pfeil. Sie werden in der Desktopversion des Remotewebzugriffs angemeldet.  
   
 ##### <a name="to-return-to-the-mobile-version-of-remote-web-access"></a>So kehren Sie zur mobilen Version des Remotewebzugriffs zurück  
   
 1. Melden Sie sich ab.  
   
-2. Öffnen Sie einen Webbrowser und Typ **https://***<IhrDomänenname\>***/Remote/m** in der Adressleiste. Stellen Sie sicher, dass Sie die s in Https enthalten.  
+2. Öffnen Sie einen Webbrowser, und geben Sie **https://** _<\>yourDomainName_ **/Remote/m** in der Adressleiste ein. Stellen Sie sicher, dass Sie die s in HTTPS einschließen.  
   
-3. Die mobile Version des Remotewebzugriffs wird angezeigt. Geben Sie auf der Anmeldeseite des Remotewebzugriffs Ihren Benutzernamen und Kennwort in die Textfelder ein, und klicken Sie dann auf den Pfeil. Sie sind in der mobilen Version des Remotewebzugriffs angemeldet.  
+3. Die Mobile Version von Remote Webzugriff wird angezeigt. Geben Sie auf der Seite Remote Webzugriff Anmeldung Ihren Benutzernamen und Ihr Kennwort in die Textfelder ein, und klicken Sie dann auf den Pfeil. Sie sind bei der mobilen Version von Remote Webzugriff angemeldet.  
   
    Sie können nach Dateien und Ordnern in den freigegebenen Ordnern auf dem Server suchen.  
   
-###  <a name="BKMK_9"></a> Unterstützte Webbrowser für Mobilgeräte  
+###  <a name="BKMK_9"></a>Unterstützte Webbrowser für mobile Geräte  
  Unterstützte Webbrowser für Mobilgeräte umfassen:  
   
 -   Internet Explorer Mobile 6.0 oder höher  
@@ -353,14 +353,14 @@ ms.locfileid: "66435914"
   
 ## <a name="see-also"></a>Siehe auch  
   
--   [Verwalten des Remotewebzugriffs](../manage/Manage-Remote-Web-Access-in-Windows-Server-Essentials.md)  
+-   [Remote Webzugriff verwalten](../manage/Manage-Remote-Web-Access-in-Windows-Server-Essentials.md)  
   
 
--   [Arbeiten im Remotemodus](Work-Remotely-in-Windows-Server-Essentials.md)  
+-   [Remote arbeiten](Work-Remotely-in-Windows-Server-Essentials.md)  
   
 -   [Verwenden von Windows Server Essentials](Use-Windows-Server-Essentials.md)
 
--   [Arbeiten im Remotemodus](../use/Work-Remotely-in-Windows-Server-Essentials.md)  
+-   [Remote arbeiten](../use/Work-Remotely-in-Windows-Server-Essentials.md)  
   
 -   [Verwenden von Windows Server Essentials](../use/Use-Windows-Server-Essentials.md)
 

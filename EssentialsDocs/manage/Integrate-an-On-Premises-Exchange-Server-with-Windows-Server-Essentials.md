@@ -12,12 +12,12 @@ ms.assetid: b56a21e2-c9e3-4ba9-97d9-719ea6a0854b
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: ef57ac325465d7b7a5cf65a2931df824c351c6a2
-ms.sourcegitcommit: 02f1e11ba37a83e12d8ffa3372e3b64b20d90d00
+ms.openlocfilehash: 142ae8514a6a480f8181ce193c2f437e2f286e2d
+ms.sourcegitcommit: 0e3c2473a54f915d35687d30d1b4b1ac2bae4068
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/09/2019
-ms.locfileid: "68863438"
+ms.locfileid: "68914607"
 ---
 # <a name="integrate-an-on-premises-exchange-server-with-windows-server-essentials"></a>Integration eines lokalen Exchange-Servers mit Windows Server Essentials
 
@@ -364,18 +364,18 @@ New-SendConnector -Name "WSE Internet SendConnector" -Usage "Internet" -AddressS
 
    - Führen Sie bei einem vollständig neuen Setup den folgenden Befehl aus:  
 
-      **Arrconfig-Konfiguration-CERT** *Pfad zur Zertifikat Datei* **-hostnames** *Hostnamen für Exchange Server*  
+      **Arrconfig-Konfiguration-CERT** _Pfad zur Zertifikat Datei_ **-hostnames** _Hostnamen für Exchange Server_  
 
      > [!NOTE]
-     >  Beispiel: **Arrconfig-Konfiguration-CERT** *c:\temp\certificate.pfx* **-hostnames** *Mail.contoso.com*  
+     >  Beispiel: **Arrconfig-Konfiguration-CERT** _c:\temp\certificate.pfx_ **-hostnames** _Mail.contoso.com_  
      > 
      >  Ersetzen Sie *mail.contoso.com* durch den Namen Ihrer Domäne, die durch das Zertifikat geschützt ist.  
 
    - Führen Sie den folgenden Befehl bei einer Migration von Windows Small Business Server aus:  
 
-      **Arrconfig-Konfiguration-CERT** *Pfad zur Zertifikat Datei* **-hostnames** *Hostnamen für Exchange Server* **-TargetServer** *Servername von Exchange Server*  
+      **Arrconfig-Konfiguration-CERT** _Pfad zur Zertifikat Datei_ **-hostnames** _Hostnamen für Exchange Server_ **-TargetServer** _Servername von Exchange Server_  
 
-      Beispiel: **Arrconfig-Konfiguration-CERT** *c:\temp\certificate.pfx* **-hostnames** *Mail.contoso.com* * *-TargetServer * * *ExchangeSvr*  
+      Beispiel: **Arrconfig-Konfiguration-CERT** _c:\temp\certificate.pfx_ **-hostnames** _Mail.contoso.com_ * *-TargetServer * * _ExchangeSvr_  
 
       Ersetzen Sie *mail.contoso.com* durch den Namen Ihrer Domäne. Ersetzen Sie *ExchangeSvr* durch den Namen des Servers, auf dem Exchange Server ausgeführt wird.  
 

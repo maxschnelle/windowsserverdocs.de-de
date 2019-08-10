@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7f898c67755fb8e7874932ea06a7cdf461d1e4bd
-ms.sourcegitcommit: e40fce7b8b4bc0bef278e676435306f14078cf00
+ms.openlocfilehash: fdda956a5da9ec50e44002cd8ab38373396d5713
+ms.sourcegitcommit: 0e3c2473a54f915d35687d30d1b4b1ac2bae4068
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68787206"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68914644"
 ---
 # <a name="schtasks"></a>schtasks
 
@@ -479,7 +479,7 @@ schtasks /create /tn <TaskName> /tr <TaskRun> /sc monthly /mo {FIRST | SECOND | 
 
 #### <a name="remarks"></a>Hinweise
 
-In diesem Zeit Plantyp sind der **/SC monatlich** -Parameter, der **/Monat** -Parameter (Modifier) und der **/d** (Day)-Parameter erforderlich. Der **/Monat** (Modifier)-Parameter gibt die Woche an, in der die Aufgabe ausgeführt wird. Der **/d** -Parameter gibt den Wochentag an. (Sie können für diesen Zeit Plantyp nur einen Tag der Woche angeben.) Dieser Zeitplan verfügt auch über einen optionalen **/m** (month)-Parameter, mit dem Sie den Task für bestimmte Monate oder jeden<em>Monat () planen können. Der Standardwert für den **/m</em>* -Parameter ist monatlich*().
+In diesem Zeit Plantyp sind der **/SC monatlich** -Parameter, der **/Monat** -Parameter (Modifier) und der **/d** (Day)-Parameter erforderlich. Der **/Monat** (Modifier)-Parameter gibt die Woche an, in der die Aufgabe ausgeführt wird. Der **/d** -Parameter gibt den Wochentag an. (Sie können für diesen Zeit Plantyp nur einen Tag der Woche angeben.) Dieser Zeitplan verfügt auch über einen optionalen **/m** (month)-Parameter, mit dem Sie den Task für bestimmte Monate oder jeden\*Monat () planen können. Der Standardwert für den **/m** -Parameter ist monatlich\*().
 
 #### <a name="examples"></a>Beispiele
 

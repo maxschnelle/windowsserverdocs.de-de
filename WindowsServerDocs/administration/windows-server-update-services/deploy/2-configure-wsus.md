@@ -10,12 +10,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 386ef1d8683b75bdc94fc1aa4ac7cb8acf6cd6fa
-ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.openlocfilehash: c5c4ac470d1187aa6186f6f05cab3df185a642fd
+ms.sourcegitcommit: 0e3c2473a54f915d35687d30d1b4b1ac2bae4068
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544484"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68914561"
 ---
 # <a name="step-2-configure-wsus"></a>Schritt 2: Konfigurieren von WSUS
 
@@ -389,11 +389,11 @@ WSUS erfordert zwei Ports für SSL: einen Port, der HTTPS für das Senden versch
 
 2.  Wechseln Sie zu **Start**, geben Sie **cmd**ein, klicken Sie mit der rechten Maustaste auf **Eingabeaufforderung**, und klicken Sie dann auf **als Administrator ausführen**
 
-3.  Navigieren Sie zu der *%ProgramFiles%* **\Update Services\Tools\\* * Ordner.
+3.  Navigieren Sie zum Ordner " _% Program Files%_ **\Update Services\Tools\\**  ".
 
 4.  Geben Sie im Eingabe Aufforderungs Fenster den folgenden Befehl ein:
 
-    **Wsusutil configuressl** *certificateName*
+    **Wsusutil configuressl** _
 
     Dabei gilt:
 
