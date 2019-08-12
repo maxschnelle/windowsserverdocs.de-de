@@ -83,6 +83,10 @@
 #### [Verwenden der DNS-Richtlinie zum Anwenden von Filtern auf DNS-Abfragen](dns/deploy/apply-filters-on-dns-queries.md)
 #### [Verwenden von DNS-Richtlinien für den App-Lastenausgleich](dns/deploy/app-lb.md)
 #### [Verwenden der DNS-Richtlinie für den App-Lastenausgleich mit Geolocation-Informationen](dns/deploy/app-lb-geo.md)
+### [Problembehandlung bei DNS](dns/troubleshoot/troubleshoot-dns-data-collection.md)
+#### [Problembehandlung bei DNS-Clients](dns/troubleshoot/troubleshoot-dns-client.md)
+##### [Deaktivieren des clientseitigen DNS-Cachings auf DNS-Clients](dns/troubleshoot/disable-dns-client-side-caching.md)
+#### [Problembehandlung bei DNS-Servern](dns/troubleshoot/troubleshoot-dns-server.md)
 
 ## [Dynamic Host Configuration-Protokoll (DHCP)](technologies/dhcp/dhcp-top.md)
 ### [Neues in DHCP](technologies/dhcp/What-s-New-in-DHCP.md)

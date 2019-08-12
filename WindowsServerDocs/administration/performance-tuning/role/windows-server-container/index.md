@@ -7,12 +7,12 @@ ms.topic: landing-page
 ms.author: DavSo; Ericam; YaShi
 author: akino
 ms.date: 10/16/2017
-ms.openlocfilehash: 3ac0563975e5ba72d5e4a72c3299233efcc52313
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 072d71a7825907ada7d4bc02eb5390722692e81d
+ms.sourcegitcommit: 02f1e11ba37a83e12d8ffa3372e3b64b20d90d00
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59892071"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68863423"
 ---
 # <a name="performance-tuning-windows-server-containers"></a>Leistungsoptimierung für Windows Server-Container
 
@@ -57,7 +57,7 @@ Für Container ergibt sich hieraus eine Beeinträchtigung, wenn ein Hyper-V-Cont
 
 Bei Containern ist es möglich, dass das Systemlaufwerk des Containerhosts für den sicheren Speicherbereich des Containers verwendet wird. Der sichere Speicherbereich des Containers verfügt aber über eine ähnlich lange Lebensdauer wie der Container. Dies bedeutet, dass der sichere Speicherbereich und alle zugeordneten Daten verloren gehen, wenn der Container angehalten wird.
 
-Es gibt aber viele Szenarien, in denen Daten unabhängig von der Lebensdauer des Containers beibehalten werden sollen. Für diese Fälle wird das Einbinden von Datenvolumes vom Containerhost in den Container unterstützt. Für Windows Server-Container kann der Mehraufwand für den E/A-Pfad, der für eingebundene Datenvolumes anfällt, vernachlässigt werden (nahezu native Leistung). Wenn Datenvolumes aber in Hyper-V-Container eingebunden werden, kommt es für diesen Pfad zu E/A-Leistungsbeeinträchtigungen. Außerdem werden diese Beeinträchtigungen noch verstärkt, wenn Hyper-V-Container auf virtuellen Computern ausgeführt werden.
+Es gibt aber viele Szenarien, in denen Daten unabhängig von der Lebensdauer des Containers beibehalten werden sollen. Für diese Fälle wird das Einbinden von Datenvolumes vom Containerhost in den Container unterstützt. Für Windows Server-Container kann der Mehraufwand für den E/A-Pfad, der bei eingebundenen Datenvolumes anfällt, vernachlässigt werden (nahezu native Leistung). Wenn Datenvolumes aber in Hyper-V-Container eingebunden werden, kommt es für diesen Pfad zu E/A-Leistungsbeeinträchtigungen. Außerdem werden diese Beeinträchtigungen noch verstärkt, wenn Hyper-V-Container auf virtuellen Computern ausgeführt werden.
 
 ### <a name="scratch-space"></a>Sicherer Speicherbereich
 
