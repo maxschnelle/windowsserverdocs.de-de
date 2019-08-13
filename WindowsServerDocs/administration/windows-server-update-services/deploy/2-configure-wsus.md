@@ -10,12 +10,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c5c4ac470d1187aa6186f6f05cab3df185a642fd
-ms.sourcegitcommit: 0e3c2473a54f915d35687d30d1b4b1ac2bae4068
+ms.openlocfilehash: 660cb0412abdf1ecb1afcba53a4aeb79ac407e56
+ms.sourcegitcommit: a9625758fbfb066494fe62e0da5f9570ccb738a3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68914561"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952460"
 ---
 # <a name="step-2-configure-wsus"></a>Schritt 2: Konfigurieren von WSUS
 
@@ -56,33 +56,33 @@ Wenn Sie die Antworten auf diese Fragen kennen, können Sie mit der Konfiguratio
 ### <a name="211-connection-from-the-wsus-server-to-the-internet"></a>2.1.1. Verbindung zwischen WSUS-Server und Internet
 Falls eine Unternehmensfirewall zwischen WSUS und dem Internet vorhanden ist, müssen Sie sie ggf. konfigurieren, um sicherzustellen, dass WSUS Updates abrufen kann. Der WSUS-Server verwendet den Port 443 für das HTTPS-Protokoll, um Updates von Microsoft Update herunterzuladen. Obwohl die meisten Unternehmens Firewalls diese Art von Datenverkehr zulassen, gibt es einige Unternehmen, die den Internet Zugriff von den Servern aufgrund der Sicherheitsrichtlinien des Unternehmens einschränken. Wenn Ihr Unternehmen den Zugriff einschränkt, benötigen Sie eine Autorisierung, um den Internet Zugriff von WSUS auf die folgende Liste von URLs zuzulassen:
 
-- http://windowsupdate.microsoft.com
+- http\://windowsupdate.Microsoft.com
 
-- http://*.windowsupdate.microsoft.com
+- http\://.windowsupdate.Microsoft.com\*
 
-- https://*.windowsupdate.microsoft.com
+- HTTPS\://.windowsupdate.Microsoft.com\*
 
-- http://*.update.microsoft.com
+- http\://.Update.Microsoft.com\*
 
-- https://*.update.microsoft.com
+- HTTPS\://.Update.Microsoft.com\*
 
-- http://*.windowsupdate.com
+- http\://.windowsupdate.com\*
 
-- http://download.windowsupdate.com
+- http\://Download.windowsupdate.com
 
-- https://download.microsoft.com
+- HTTPS\://Download.Microsoft.com
 
-- http://*.download.windowsupdate.com
+- http\://.Download.windowsupdate.com\*
 
-- http://wustat.windows.com
+- http\://wustat.Windows.com
 
-- http://ntservicepack.microsoft.com
+- http\://NtServicePack.Microsoft.com
 
-- http://go.microsoft.com
+- http\://go.Microsoft.com
 
-- http://dl.delivery.mp.microsoft.com
+- http\://DL.Delivery.MP.Microsoft.com
 
-- https://dl.delivery.mp.microsoft.com
+- HTTPS\://DL.Delivery.MP.Microsoft.com
 
 > [!IMPORTANT]
 > Ein Szenario, in dem WSUS aufgrund von Firewallkonfigurationen keine Updates abrufen kann, finden Sie im [Artikel 885819](https://support.microsoft.com/kb/885819) in der Microsoft Knowledge Base.
@@ -389,11 +389,11 @@ WSUS erfordert zwei Ports für SSL: einen Port, der HTTPS für das Senden versch
 
 2.  Wechseln Sie zu **Start**, geben Sie **cmd**ein, klicken Sie mit der rechten Maustaste auf **Eingabeaufforderung**, und klicken Sie dann auf **als Administrator ausführen**
 
-3.  Navigieren Sie zum Ordner " _% Program Files%_ **\Update Services\Tools\\**  ".
+3.  Navigieren Sie zum Ordner " _% Program Files%_ **\\Update\\ Services\\Tools** ".
 
 4.  Geben Sie im Eingabe Aufforderungs Fenster den folgenden Befehl ein:
 
-    **Wsusutil configuressl** _
+    **Wsusutil configuressl**_certificateName_
 
     Dabei gilt:
 

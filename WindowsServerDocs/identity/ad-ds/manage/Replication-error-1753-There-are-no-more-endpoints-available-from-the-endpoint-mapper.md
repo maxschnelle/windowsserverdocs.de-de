@@ -9,83 +9,69 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: e7d2b47c9c14af22cdcf29fb388779e7639e38cb
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 9c8efee98cc8128443d9c835ccc5cb6b7695a094
+ms.sourcegitcommit: a9625758fbfb066494fe62e0da5f9570ccb738a3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66442775"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952471"
 ---
 # <a name="replication-error-1753-there-are-no-more-endpoints-available-from-the-endpoint-mapper"></a>Replikationsfehler 1753: Die Endpunktzuordnung hat keine weiteren Endpunkte verfügbar
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server
 
+In diesem Artikel werden Symptome, Ursachen und Lösungsschritte für Active Directory Vorgänge beschrieben, die mit dem Win32-Fehler 1753 fehlschlagen: "Es sind keine weiteren Endpunkte von der Endpunkt Zuordnung verfügbar."
 
-<developerConceptualDocument xmlns="https://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="https://www.w3.org/1999/xlink" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://ddue.schemas.microsoft.com/authoring/2003/5 http://clixdevr3.blob.core.windows.net/ddueschema/developer.xsd"> <introduction>
-    <para>In diesem Thema wird erläutert, Symptome, Ursachen und Behebung von Active Directory-Replikation Fehler 8524 der DSA-Vorgang kann nicht aufgrund eines DNS-Lookup-Fehlers fortgesetzt wird.</para>
-    <list class="bullet">
-      <listItem>
-        <para>
-          <link xlink:href="f7022f0d-0099-410c-8178-c654e624bc42#BKMK_Symptoms">Symptome</link>
-        </para>
-      </listItem> <listItem>
-        <para>
-          <link xlink:href="f7022f0d-0099-410c-8178-c654e624bc42#BKMK_Cause">Ursache</link>
-        </para>
-      </listItem> <listItem>
-        <para>
-          <link xlink:href="f7022f0d-0099-410c-8178-c654e624bc42#BKMK_Resolutions">Lösungen</link>
-        </para>
-      </listItem> <listItem>
-        <para>
-          <link xlink:href="f7022f0d-0099-410c-8178-c654e624bc42#BKMK_MoreInfo">Weitere Informationen</link>
-        </para>
-      </listItem>
-    </list>
-  </introduction>
-  <section address="BKMK_Symptoms">
-    <title>Symptome</title>
-    <content>
-      <para>Dieser Artikel beschreibt die Symptome, die Ursache und Lösung die Schritte für Active Directory-Vorgänge, bei denen mit Win32-Fehler 1753: &quot;Es sind keine weiteren Endpunkte von der endpunktzuordnung verfügbar.&quot;</para>
-      <list class="ordered">
-        <listItem>
-          <para>DCDIAG-Berichte, die den Test der Netzwerkverbindung, Active Directory-Replikationen oder KnowsOfRoleHolders Test Fehler 1753 fehlgeschlagen ist: &quot;Es sind keine weiteren Endpunkte von der endpunktzuordnung verfügbar.&quot;</para>
-          <code>Testing server: &lt;site&gt;&lt;DC Name&gt;
+Dcdiag meldet, dass der Verbindungstest, Active Directory Replikationen oder der KnowsOfRoleHolders-Test mit dem Fehler 1753 fehlgeschlagen ist: "Es sind keine weiteren Endpunkte von der Endpunkt Zuordnung verfügbar."
+
+```
+Testing server: <site><DC Name>
 Starting test: Connectivity
 * Active Directory LDAP Services Check
 * Active Directory RPC Services Check
-[&lt;DC Name&gt;] <codeFeaturedElement>DsBindWithSpnEx() failed with error 1753,
-There are no more endpoints available from the endpoint mapper..</codeFeaturedElement>
+[<DC Name>] DsBindWithSpnEx() failed with error 1753,
+There are no more endpoints available from the endpoint mapper..
 Printing RPC Extended Error Info:
-Error Record 1, ProcessID is &lt;process ID&gt; (DcDiag) 
-System Time is: &lt;date&gt; &lt;time&gt;
+Error Record 1, ProcessID is <process ID> (DcDiag)
+System Time is: <date> <time>
 Generating component is 2 (RPC runtime)
 Status is 1753: There are no more endpoints available from the endpoint mapper. Detection location is 500
 NumberOfParameters is 4
 Unicode string: ncacn_ip_tcp
-Unicode string: &lt;source DC object GUID&gt;._msdcs.contoso.com
+Unicode string: <source DC object GUID>._msdcs.contoso.com
 Long val: -481213899
 Long val: 65537
-Error Record 2, ProcessID is 700 (DcDiag) 
-System Time is: &lt;date&gt; &lt;time&gt;
+Error Record 2, ProcessID is 700 (DcDiag)
+System Time is: <date> <time>
 Generating component is 2 (RPC runtime)
-<codeFeaturedElement>Status is 1753: There are no more endpoints available from the endpoint mapper.</codeFeaturedElement>
+Status is 1753: There are no more endpoints available from the endpoint mapper.
 NumberOfParameters is 1
 Unicode string: 1025
-[Replications Check,&lt;DC Name&gt;] A recent replication attempt failed:
-From &lt;source DC&gt; to &lt;destination DC&gt;
-Naming Context: &lt;DN path of directory partition&gt;
-The replication generated an error <codeFeaturedElement>(1753):
-There are no more endpoints available from the endpoint mapper.</codeFeaturedElement> 
-The failure occurred at &lt;date&gt; &lt;time&gt;.
-The last success occurred at &lt;date&gt; &lt;time&gt;.
+[Replications Check,<DC Name>] A recent replication attempt failed:
+From <source DC> to <destination DC>
+Naming Context: <DN path of directory partition>
+The replication generated an error (1753):
+There are no more endpoints available from the endpoint mapper.
+The failure occurred at <date> <time>.
+The last success occurred at <date> <time>.
 3 failures have occurred since the last success.
-The directory on &lt;DC name&gt; is in the process.
+The directory on <DC name> is in the process.
 of starting up or shutting down, and is not available.
 Verify machine is not hung during boot.
-</code>
-        </listItem>
-<listItem><para>REPADMIN. EXE-Datei meldet, dass diese Replikationsversuch mit dem Status 1753 fehlgeschlagen ist.</para><para>REPADMIN-Befehle, die, die dies häufig an den 1753 Status enthalten, jedoch sind nicht darauf beschränkt:</para><table xmlns:caps="https://schemas.microsoft.com/build/caps/2013/11"><tbody><tr><TD><list class="bullet"><listItem><para>REPADMIN/REPLSUM</para></listItem><listItem><para>REPADMIN/SHOWREPL</para></listItem></list></TD><TD><list class="bullet"><listItem><para>REPADMIN/SHOWREPS</para></listItem><listItem><para>REPADMIN/SYNCALL</para></listItem></list></TD></tr></tbody></table><para>Beispiel einer Ausgabe &quot;REPADMIN/SHOWREPS&quot; mit eingehende Replikation vom CONTOSO-DC2 CONTOSO-DC1 mit der &quot;Replikationszugriff wurde verweigert&quot; Fehler wird im folgenden dargestellt:</para><code>Default-First-Site-NameCONTOSO-DC1
+```
+
+REPADMIN. EXE meldet, dass der Replikations Versuch mit Status 1753 fehlgeschlagen ist.
+Repadmin-Befehle, die häufig den 1753-Status angeben, enthalten u. a. die folgenden:
+
+* REPADMIN/REPLSUM
+* REPADMIN/SHOWREPL
+* REPADMIN/SHOWREPS
+* REPADMIN/SYNCALL
+
+Die Beispielausgabe von "repadmin/SHOWREPS", die die eingehende Replikation von "Configuration Manager" zu "" darstellt, wird nachstehend angezeigt:
+
+```
+Default-First-Site-NameCONTOSO-DC1
 DSA Options: IS_GC 
 Site Options: (none)
 DSA object GUID: b6dc8589-7e00-4a5d-b688-045aef63ec01
@@ -94,342 +80,200 @@ DSA invocationID: b6dc8589-7e00-4a5d-b688-045aef63ec01
 DC=contoso,DC=com
 Default-First-Site-NameCONTOSO-DC2 via RPC
 DSA object GUID: 74fbe06c-932c-46b5-831b-af9e31f496b2
-Last attempt @ &lt;date&gt; &lt;time&gt; failed, <codeFeaturedElement>result 1753 (0x6d9):
-There are no more endpoints available from the endpoint mapper.</codeFeaturedElement>
-&lt;#&gt; consecutive failure(s).
-Last success @ &lt;date&gt; &lt;time&gt;.
+Last attempt @ <date> <time> failed, result 1753 (0x6d9):
+There are no more endpoints available from the endpoint mapper.
+<#> consecutive failure(s).
+Last success @ <date> <time>.
+```
 
-</code></listItem><listItem><para>Die <ui>überprüfen Sie die Replikationstopologie</ui> gibt der Befehl in Active Directory-Standorte und-Dienste &quot;es sind keine weiteren Endpunkte von der endpunktzuordnung verfügbar.&quot;</para><para>Mit der rechten Maustaste auf das Verbindungsobjekt aus einem Quell-DC und Auswahl <ui>überprüfen Sie die Replikationstopologie</ui> schlägt mit &quot;es sind keine weiteren Endpunkte von der endpunktzuordnung verfügbar.&quot; Die Fehlermeldung wird auf dem Bildschirm unten gezeigt:</para><para>Titel des dialogtexts: Überprüfen Sie die Replikationstopologie</para><para>Dialogfeld-Nachrichtentext: </para><para>Fehler beim Versuch, den Domänencontroller zu kontaktieren: Es sind keine weiteren Endpunkte von der endpunktzuordnung verfügbar.</para></listItem><listItem><para>Die <ui>Jetzt replizieren</ui> gibt der Befehl in Active Directory-Standorte und-Dienste &quot;es sind keine weiteren Endpunkte von der endpunktzuordnung verfügbar.&quot;</para><para>Mit der rechten Maustaste auf das Verbindungsobjekt aus einem Quell-DC und Auswahl <ui>Jetzt replizieren</ui> schlägt mit &quot;es sind keine weiteren Endpunkte von der endpunktzuordnung verfügbar.&quot; Die Fehlermeldung wird auf dem Bildschirm unten gezeigt:</para><para>Titel des dialogtexts: Jetzt replizieren</para><para>Dialogfeld-Nachrichtentext: Der folgende Fehler aufgetreten ist, bei dem Versuch, die namenskontextsynchronisierung &lt;Directory Partition Namen %&gt; vom Domänencontroller &lt;Quelldomänencontroller&gt; auf Domänencontroller &lt;Zieldomänencontroller&gt;:</para><para>
+Der Befehl **Replikations Topologie überprüfen** in Active Directory Sites und Dienste gibt an, dass keine weiteren Endpunkte von der Endpunkt Zuordnung verfügbar sind.
 
-Es sind keine weiteren Endpunkte von der endpunktzuordnung verfügbar.</para><para>Der Vorgang wird nicht fortgesetzt werden.</para></listItem><listItem><para>NTDS KCC, NTDS-Allgemein oder Microsoft-Windows-ActiveDirectory_DomainService Ereignisse mit dem Status-2146893022 werden in das Verzeichnisdienst-Ereignisprotokoll in der Ereignisanzeige protokolliert.</para><para>Active Directory-Ereignisse, die häufig den Status-2146893022 zitieren umfassen, aber es sind nicht darauf beschränkt:</para><table xmlns:caps="https://schemas.microsoft.com/build/caps/2013/11"><thead><tr><TD><para>Ereignis-ID</para></TD><TD><para>Ereignisquelle</para></TD><TD><para>Ereigniszeichenfolge</para></TD></tr></thead><tbody><tr><TD><para>1655</para></TD><TD><para>NTDS Allgemein</para></TD><TD><para>Active Directory versucht, für die Kommunikation mit dem folgenden globalen Katalog und die Versuche nicht erfolgreich waren.</para></TD></tr><tr><TD><para>1925</para></TD><TD><para>NTDS KCC</para></TD><TD><para>Fehler beim Herstellen ein Replikationslinks für die folgenden schreibbare Verzeichnispartition.</para></TD></tr><tr><TD><para>1265</para></TD><TD><para>NTDS KCC</para></TD><TD><para>Fehler beim durch die Konsistenzprüfung (KCC) ein Replikationsvertrags für den folgenden Directory Partition und Quelle Domänencontroller hinzufügen.</para></TD></tr></tbody></table></listItem>
-</list>
-    </content>
-  </section>
-  <section address="BKMK_Cause">
-    <title>Ursache</title>
-    <content>
-      <para>Das folgende Diagramm zeigt die RPC-Workflow mit der Registrierung der Server-Anwendung mit dem RPC Endpoint Mapper (EPM) in Schritt 1, das Übergeben von Daten aus der RPC-Client an die Clientanwendung, die in Schritt 7 ab. </para>
-      <para>&lt;ADDS_RPCWorkflow&gt;</para>
-      <para>Schritte 1 bis 7 Zuordnung auf die folgenden Vorgänge:</para>
-      <list class="ordered">
-        <listItem>
-          <para>Server-app registriert seine Endpunkte mit RPC Endpoint Mapper (EPM) </para>
-        </listItem>
-        <listItem>
-          <para>Client sendet einen RPC-Aufruf (im Auftrag eines Benutzers, Betriebssystem bzw. der Anwendung initiierte Vorgang) </para>
-        </listItem>
-        <listItem>
-          <para>Clientseite RPC-kontaktiert die Zielcomputern EPM und fordern Sie den Endpunkt der Clientaufruf abgeschlossen werden </para>
-        </listItem>
-        <listItem>
-          <para>Server-Computer&#39;s EPM mit einem Endpunkt antwortet </para>
-        </listItem>
-        <listItem>
-          <para>Clientseite RPC kontaktiert die Server-app </para>
-        </listItem>
-        <listItem>
-          <para>Server-app führt der Aufruf, gibt das Ergebnis zurück, an den Client-RPC </para>
-        </listItem>
-        <listItem>
-          <para>Clientseite RPC übergibt das Ergebnis an die Client-app</para>
-        </listItem>
-      </list>
-      <para>Fehler bei 1753 wird durch einen Fehler zwischen den Schritten 3 mit # und #4 generiert. Insbesondere bedeutet Fehler 1753 an, dass der RPC-Client (Ziel-DC) den RPC-Server (Quell-DC) über Port 135 zu kontaktieren konnte, aber der EPM für den RPC-Server (Quell-DC) konnte den RPC-Anwendung von Interesse zu finden und serverseitiger Fehler 1753 zurückgegeben. Das Vorhandensein der 1753 Fehler gibt an, dass der RPC-Client (Ziel-DC) die Antwort des Servers Seite Fehler von der RPC-Server (Active Directory-Replikation Quell-DC) über das Netzwerk empfangen. </para>
-      <para>Bestimmte Ursachen für den Fehler 1753: </para>
-      <list class="ordered">
-        <listItem>
-          <para>Der Server-app, die nie gestartet (z. B. Schritt Nr. 1 in der &quot;Informationen&quot; Diagramm befindet sich oben wurde noch nie versucht).</para>
-        </listItem>
-        <listItem>
-          <para>Die Server-app gestartet, aber ein Fehler aufgetreten, während der Initialisierung, die Registrierung bei der RPC-Endpunktzuordnung verhindert (d. h. Schritt 1 im der &quot;Informationen&quot; im obigen Diagramm war nicht möglich).</para>
-        </listItem>
-        <listItem>
-          <para>Die Server-app gestartet, aber anschließend wurde unerwartet beendet. (d. h. Schritt Nr. 1 in der &quot;Informationen&quot; Diagramm oben wurde erfolgreich abgeschlossen, aber wurde rückgängig gemacht werden später noch Mal, da der Server wurde unerwartet beendet).</para>
-        </listItem>
-        <listItem>
-          <para>Die Server-app nicht manuell registriert seine Endpunkte (ähnlich wie 3 jedoch beabsichtigt. Nicht wahrscheinlich jedoch enthalten aus Gründen der Vollständigkeit.)</para>
-        </listItem>
-        <listItem>
-          <para>Der RPC-Client (Ziel-DC) kontaktiert anderen RPC-Server als das vorgesehene aufgrund einen Namen zu IP-Zuordnungsfehler in DNS, WINS oder Host/Lmhosts-Datei.</para>
-        </listItem>
-      </list>
-      <para>Fehler 1753 wird nicht durch verursacht: </para>
-      <list class="bullet">
-        <listItem>
-          <para>Eine fehlende Netzwerkkonnektivität zwischen dem RPC-Client (Ziel-DC) und RPC-Server (Quell-DC) über Port 135</para>
-        </listItem>
-        <listItem>
-          <para>Eine fehlende Netzwerkkonnektivität zwischen dem RPC-Server (Quell-DC) über Port 135 und der RPC-Client (Ziel-DC) über den kurzlebigen Port. </para>
-        </listItem>
-        <listItem>
-          <para>Einem kennwortkonflikt oder keine von der Quell-DC zum Entschlüsseln eines verschlüsselten Kerberos-Pakets </para>
-        </listItem>
-      </list>
-      <para> </para>
-    </content>
-  </section>
-  <section address="BKMK_Resolutions">
-    <title>Lösungen</title>
-    <content>
-      <list class="ordered">
-        <listItem>
-          <para>
-            <embeddedLabel>Stellen Sie sicher, dass der Dienst den Dienst registrieren, mit der endpunktzuordnung gestartet wurde</embeddedLabel>
-          </para>
-          <para>Für Windows 2000 und Windows Server 2003-DCs: Stellen Sie sicher, dass der Quell-DC im normalen Modus gestartet wird. </para>
-          <para>
-Für Windows Server 2008 oder Windows Server 2008 R2: Klicken Sie in der Konsole von der Quell-DC-Managers (services.msc) starten, und überprüfen, ob die <embeddedLabel>Active Directory Domain Services</embeddedLabel> -Dienst wird ausgeführt. </para>
-        </listItem>
-        <listItem>
-          <para>
-            <embeddedLabel>Stellen Sie sicher, RPC-Clients (Zielendpunkte DC) an, die mit dem gewünschten RPC-Server (Quell-DC) verbunden sind</embeddedLabel>
-          </para>
-          <para>Alle Domänencontroller in einer allgemeinen Active Directory-Gesamtstruktur registrieren Sie einen Domänencontroller CNAME-Eintrag in die "_msdcs". &lt;Gesamtstruktur-Stammdomäne&gt; DNS-Zone, unabhängig davon, welche sie befinden sich im innerhalb der Gesamtstruktur, Domäne. Der DC-CNAME-Eintrag ergibt sich aus der <embeddedLabel>"objectGUID"</embeddedLabel> -Attribut des NTDS-Einstellungsobjekts für jeden Domänencontroller. </para>
-          <para>Bei der Replikation-basierte Vorgänge durchführen, fragt einen Ziel-DC DNS für die Quell-Domänencontroller-CNAME-Eintrag. Der CNAME-Eintrag enthält den vollqualifizierten Quell-DC-Computernamen, mit der die Quell-Domänencontroller-IP-Adresse abgeleitet werden, über DNS-Client-Cache-Lookup, Host / LMHost file, Suche, Host A / AAAA aufzeichnen in DNS oder WINS. </para>
-          <para>NTDS-Einstellungsobjekten veraltete und ungültige Namen zu IP-Zuordnungen in DNS, WINS, Host und LMHOST Dateien können dazu führen, dass des RPC-Clients (Ziel-DC) zur Verbindung mit dem falschen RPC-Server (Quell-DC). Darüber hinaus kann die ungültige Namen zu IP-Zuordnung veranlasst, dass die RPC-(Ziel-DC) zur Verbindung mit eines Computers, die nicht auch der RPC-Server-Anwendung von Interesse sind (in diesem Fall die Active Directory-Rolle) installiert. (Beispiel: ein veraltete Hosteintrag für DC2 enthält die IP-Adresse von DC3 oder einen Computer als Mitglied). </para>
-          <para>Stellen Sie sicher, dass die "objectGUID" für die Quell-DC, die im Ziel-DCs Kopie von Active Directory vorhanden ist. die Quell-DC "objectGUID" gespeichert, in der Quelle DCs Kopie von Active Directory übereinstimmt. Ist eine Abweichung, können Sie Repadmin/showobjmeta für Ntds-Einstellungsobjekt verwenden, um anzuzeigen, die letzte heraufstufung des Quelldomänencontrollers entspricht (Hinweis: Vergleichen von Datumsangaben für das NTDS-Einstellungsobjekt Erstellungsdatum aus/showobjmeta für das Datum der letzten heraufstufung in die DCs dcpromo.log-Quelldatei. Möglicherweise verwenden Sie das letzte "ändern", oder erstellen das DCPROMO-Dienstprogramm Datum. Protokolldatei selbst). Wenn die Objekt-GUIDs nicht identisch sind, hat das Ziel-DC wahrscheinlich ein veralteter NTDS-Einstellungsobjekt für den Quell-DC, dessen CNAME-Datensatz auf einen Hosteintrag mit einem ungültigen Namen für die IP-Zuordnung bezieht sich, auf. </para>
-          <para>Führen Sie auf der Ziel-DC IPCONFIG/all ausgeführt um zu bestimmen, welche DNS-Server das Ziel, die, das Domänencontroller für die namensauflösung verwendet wird:</para>
-          <code>c:&gt;ipconfig /all</code>
-          <para>Führen Sie auf der Ziel-DC NSLOOKUP, für die Quelle DCs vollqualifizierten DC-CNAME-Eintrag:</para>
-          <code>c:&gt;nslookup -type=cname &lt;fully qualified cname of source DC&gt; &lt;destination DCs primary DNS Server IP &gt;
-c:&gt;nslookup -type=cname &lt;fully qualified cname of source DC&gt; &lt;destination DCs secondary DNS Server IP&gt;</code>
-          <para>Stellen Sie sicher, dass die IP-Adresse von NSLOOKUP zurückgegeben &quot;besitzt&quot; den Hostnamen / Sicherheits-ID von der Quell-DC:</para>
-          <code>C:&gt;NBTSTAT -A &lt;IP address returned by NSLOOKUP in the step above&gt;</code>
-          <para>oder</para>
-          <para>Melden Sie sich auf der Konsole von der Quell-DC, führen Sie &quot;IPCONFIG&quot; fordert über den Befehl aus, und stellen Sie sicher, dass der Quell-DC die IP-Adresse, die vom oben genannten Befehls "NSLOOKUP" besitzt</para>
-          <para>Überprüfen Sie für veraltete / doppelte Host-IP-Zuordnungen im DNS</para>
-          <code>NSLOOKUP -type=hostname &lt;single label hostname of source DC&gt; &lt;primary DNS Server IP on destination DC&gt;
-NSLOOKUP -type=hostname &lt;single label hostname of source DC&gt; &lt;secondary DNS Server IP on destination DC&gt;
+Wenn Sie von einem Quell Domänen Controller mit der rechten Maustaste auf das Verbindungs Objekt klicken und **Replikations Topologie überprüfen** auswählen, tritt ein Fehler auf, weil keine weiteren Endpunkte von der Endpunkt Zuordnung verfügbar sind. Die Bildschirm Fehlermeldung wird unten angezeigt:
 
-NSLOOKUP -type=hostname &lt;fully qualified computer name of source DC&gt; &lt;primary DNS Server IP on destination DC&gt;
-NSLOOKUP -type=hostname &lt;fully qualified computer name of source DC&gt; &lt;secondary DNS Server IP on dest. DC&gt;</code>
-<para>Wenn eine ungültige IP-Adresse im Hostdatensätze vorhanden sind, prüfen Sie, ob DNS-Aufräumvorgänge aktiviert und ordnungsgemäß konfiguriert ist. </para><para>Wenn die oben angegebenen Tests oder in einem Netzwerk Ablaufverfolgung&#39;Anzeigen einer benannten Abfrage zurückgeben eine ungültige IP-Adresse, sollten Sie veraltete Einträge im HOST-Dateien, die LMHOSTS-Dateien und WINS-Server. Beachten Sie, dass DNS-Server auch für die WINS-fallback namensauflösung konfiguriert werden können.</para>
-</listItem>
-        <listItem>
-          <para>
-            <embeddedLabel>Stellen Sie sicher, dass die Server-Anwendung (Active Directory Et al.), mit der endpunktzuordnung auf dem RPC-Server (Quell-DC registriert hat)</embeddedLabel>
-          </para>
-          <para>Active Directory verwendet eine Kombination aus bekannten und dynamisch registrierten Ports. Diese Tabelle enthält die bekannten Ports und Protokolle, die von Active Directory-Domänencontrollern verwendet.</para>
-          <table xmlns:caps="https://schemas.microsoft.com/build/caps/2013/11">
-            <thead>
-              <tr>
-                <TD>
-                  <para>RPC-Server-Anwendung</para>
-                </TD>
-                <TD>
-                  <para>Port</para>
-                </TD>
-                <TD>
-                  <para>TCP</para>
-                </TD>
-                <TD>
-                  <para>UDP</para>
-                </TD>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <TD>
-                  <para>DNS-Server</para>
-                </TD>
-                <TD>
-                  <para>53</para>
-                </TD>
-                <TD>
-                  <para>X</para>
-                </TD>
-                <TD>
-                  <para>X</para>
-                </TD>
-              </tr>
-              <tr>
-                <TD>
-                  <para>Kerberos</para>
-                </TD>
-                <TD>
-                  <para>88</para>
-                </TD>
-                <TD>
-                  <para>X</para>
-                </TD>
-                <TD>
-                  <para>X</para>
-                </TD>
-              </tr>
-              <tr>
-                <TD>
-                  <para>LDAP-server</para>
-                </TD>
-                <TD>
-                  <para>389</para>
-                </TD>
-                <TD>
-                  <para>X</para>
-                </TD>
-                <TD>
-                  <para>X</para>
-                </TD>
-              </tr>
-              <tr>
-                <TD>
-                  <para>Microsoft-DS</para>
-                </TD>
-                <TD>
-                  <para>445</para>
-                </TD>
-                <TD>
-                  <para>X</para>
-                </TD>
-                <TD>
-                  <para>X</para>
-                </TD>
-              </tr>
-              <tr>
-                <TD>
-                  <para>LDAP-SSL</para>
-                </TD>
-                <TD>
-                  <para>636</para>
-                </TD>
-                <TD>
-                  <para>X</para>
-                </TD>
-                <TD>
-                  <para>X</para>
-                </TD>
-              </tr>
-              <tr>
-                <TD>
-                  <para>Globaler Katalogserver</para>
-                </TD>
-                <TD>
-                  <para>3268</para>
-                </TD>
-                <TD>
-                  <para>X</para>
-                </TD>
-                <TD>
-                  <para />
-                </TD>
-              </tr>
-              <tr>
-                <TD>
-                  <para>Globaler Katalogserver</para>
-                </TD>
-                <TD>
-                  <para>3269</para>
-                </TD>
-                <TD>
-                  <para>X</para>
-                </TD>
-                <TD>
-                  <para />
-                </TD>
-              </tr>
-            </tbody>
-          </table>
-          <para>Well-Known-Ports sind nicht mit der endpunktzuordnung registriert. </para>
-          <para>Active Directory und anderen Anwendungen registrieren außerdem Dienste, die dynamisch zugewiesene Ports im kurzlebigen RPC-Portbereich zu erhalten. Solche RPC-Server-Anwendungen werden dynamisch TCP-Ports zwischen 1024 und 5000 auf Windows 2000 und Windows Server 2003-Computern und Ports zwischen 49152 und 65535 Bereichs auf Windows Server 2008 und Windows Server 2008 R2-Computern zugewiesen werden. Der RPC-Port, der von der Replikation kann hartcodiert werden, in der Registrierung verwenden die Schritte im <externalLink> <linkText>KB-Artikel 224196</linkText> <linkUri> <a href="https://support.microsoft.com/kb/224196" data-raw-source="https://support.microsoft.com/kb/224196"> https://support.microsoft.com/kb/224196 </a> </linkUri> </externalLink>. Active Directory wird weiterhin mit der EPM konfiguriert verwendet einen hartcodierten Port zu registrieren. </para>
-          <para>Stellen Sie sicher, dass die RPC-Server-Anwendung von Interesse sind mit der RPC-endpunktzuordnung auf dem RPC-Server (der Quell-DC im Fall von Active Directory-Replikation) registriert hat. </para>
-          <para>Es gibt zahlreiche Möglichkeiten zum Ausführen dieser Aufgabe, aber eine besteht darin, installieren und Ausführen von PORTQRY von einem Administrator, privilegierter CMD-Eingabeaufforderung in der Konsole des Quelldomänencontrollers mithilfe der Syntax: </para>
-          <code>c:&amp;gt;portquery -n &lt;source DC&gt; -e 135 &gt;file.txt</code>
-          <para>Beachten Sie in der Ausgabe Portqry die Portnummern, die vom dynamisch registriert die &quot;MS NT Directory DRS Interface&quot; (UUID = 351...) für die <embeddedLabel>Ncacn_ip_tcp Protokoll</embeddedLabel>. Der folgende Codeausschnitt zeigt die Ausgabe des Beispiels Portquery aus einem Windows Server 2008 R2-DC und die UUID / Protokoll-Paar, insbesondere von Active Directory verwendet hervorgehoben <embeddedLabel>fett</embeddedLabel>: </para>
-          <code>UUID: e3514235-4b06-11d1-ab04-00c04fc2dcd2 MS NT Directory DRS Interface
+Text des Dialog Titels: Dialog Meldungs Text der Replikations Topologie prüfen: Fehler beim Versuch, den Domänen Controller zu kontaktieren: Von der Endpunkt Zuordnung sind keine weiteren Endpunkte verfügbar.
+
+Der Befehl " **Jetzt replizieren** " in Active Directory Sites und Dienste gibt "Es sind keine weiteren Endpunkte von der Endpunkt Zuordnung verfügbar".
+Wenn Sie von einem Quell Domänen Controller mit der rechten Maustaste auf das Verbindungs Objekt klicken und **Jetzt replizieren** auswählen, tritt ein Fehler mit der Option "Es sind keine weiteren Endpunkte von der Endpunkt Zuordnung verfügbar".
+Die Bildschirm Fehlermeldung wird unten angezeigt:
+
+Text des Dialog Titels: Dialog Meldungs Text "Jetzt replizieren": Fehler beim Versuch, den namens Kontext \<% Directory Partitions Name% > vom Domänen Controller-Quell Domänen Controller \<> mit dem Domänen Controller \<-Zieldomänen Controller zu synchronisieren >:
+
+Von der Endpunkt Zuordnung sind keine weiteren Endpunkte verfügbar.
+Der Vorgang wird nicht fortgesetzt.
+
+NTDS-KCC-, NTDS-allgemeine oder Microsoft-Windows-ActiveDirectory_DomainService-Ereignisse mit dem Status "-2146893022" werden im Verzeichnisdienste-Protokoll Ereignisanzeige protokolliert.
+
+Active Directory Ereignisse, die den Status "-2146893022" häufig erwähnen, sind u. a. die folgenden:
+
+| Ereignis-ID | Ereignisquelle | Ereignis Zeichenfolge|
+| --- | --- | --- |
+| 1655 | NTDS allgemein | Active Directory versuchte, mit dem folgenden globalen Katalog zu kommunizieren, und die Versuche waren nicht erfolgreich. |
+| 1925 | NTDS-KCC | Der Versuch, einen Replikations Link für die folgende beschreibbare Verzeichnis Partition einzurichten, ist fehlgeschlagen. |
+| 1265 | NTDS-KCC | Ein Versuch der Konsistenzprüfung (KCC) zum Hinzufügen eines Replikations Vertrags für die folgende Verzeichnis Partition und den Quell Domänen Controller ist fehlgeschlagen. |
+
+## <a name="cause"></a>Ursache
+
+Die folgenden Schritte zeigen den RPC-Workflow, beginnend mit der Registrierung der Serveranwendung bei der RPC Endpoint Mapper (EPM) in Schritt 1 zum Übergeben von Daten vom RPC-Client an die Client Anwendung in Schritt 7.
+
+### <a name="adds-rpc-workflow"></a>Fügt den RPC-Workflow
+
+1. Die Server-App registriert Ihre Endpunkte beim RPC-Endpunkt Mapper (EPM).
+1. Der Client sendet einen RPC-Aufruf (im Auftrag eines Benutzer-, Betriebssystem-oder Anwendungs initiierten Vorgangs).
+1. Client seitiges RPC kontaktiert die Zielcomputer (EPM) und fordert den Endpunkt auf, den Client Aufruf abzuschließen.
+1. Das EPM des Server Computers antwortet mit einem Endpunkt.
+1. Client seitiges RPC kontaktiert die Server-App
+1. Die Server-App führt den Aufruf aus und gibt das Ergebnis an den Client-RPC zurück.
+1. Client seitiges RPC übergibt das Ergebnis an die Client-App zurück.
+
+Der Fehler 1753 wird durch einen Fehler zwischen den Schritten #3 und #4 generiert. Insbesondere bedeutet der Fehler 1753, dass der RPC-Client (Ziel-DC) den RPC-Server (Quell Domänen Controller) über Port 135 kontaktieren konnte, aber der EPM auf dem RPC-Server (Quell Domänen Controller) die gewünschte RPC-Anwendung nicht finden konnte und den Server seitigen Fehler 1753 zurückgegeben hat. Das vorhanden sein des Fehlers 1753 zeigt an, dass der RPC-Client (Ziel-DC) die serverseitige Fehler Antwort vom RPC-Server (AD Replication Source DC) über das Netzwerk erhalten hat.
+
+Zu den spezifischen Ursachen für den 1753-Fehler zählen folgende:
+
+* Die Server-App wurde nie gestartet (d. h. Schritt #1 im obigen Diagramm "Weitere Informationen" wurde nie versucht).
+* Die Server-App wurde gestartet, aber während der Initialisierung ist ein Fehler aufgetreten, der die Registrierung beim RPC-Endpunkt-Mapper verhindert hat (d. h., der Schritt #1 im obigen Diagramm "Weitere Informationen" wurde versucht, aber nicht ausgeführt).
+* Die Server-App wurde gestartet, wurde aber anschließend beendet. (Dies bedeutet, dass Schritt #1 im obigen Diagramm "Weitere Informationen" erfolgreich abgeschlossen wurde, aber später rückgängig gemacht wurde, weil der Server ausgefallen ist.)
+* Die Server-APP hat die Registrierung Ihrer Endpunkte (ähnlich wie 3, beabsichtigt) manuell aufgehoben. Nicht wahrscheinlich, aber aus Gründen der Vollständigkeit eingeschlossen.)
+* Der RPC-Client (Ziel-DC) hat eine Verbindung mit einem anderen RPC-Server als beabsichtigt hergestellt, weil in der DNS-, WINS-oder Host/LMHOSTS-Datei der Name der IP-Zuordnung aufgetreten ist.
+
+Der Fehler 1753 wird nicht durch Folgendes verursacht:
+
+* Fehlende Netzwerk Konnektivität zwischen dem RPC-Client (Ziel-DC) und dem RPC-Server (Quell Domänen Controller) über Port 135
+* Fehlende Netzwerk Konnektivität zwischen dem RPC-Server (Quell Domänen Controller) mit Port 135 und dem RPC-Client (Ziel-DC) über den kurzlebigen Port.
+* Ein Kennwort stimmt nicht überein, oder der Quell Domänen Controller konnte ein Kerberos-verschlüsseltes Paket nicht entschlüsseln.
+
+## <a name="resolutions"></a>Lösungen
+
+Überprüfen Sie, ob der Dienst, der seinen Dienst bei der Endpunkt Zuordnung registriert, gestartet wurde.
+
+* Für Windows 2000-und Windows Server 2003-DCS: Stellen Sie sicher, dass der Quell Domänen Controller im normalen Modus gestartet wird.
+* Für Windows Server 2008 oder Windows Server 2008 R2: Starten Sie in der-Konsole des Quell Domänen Controllers Dienste-Manager (Services. msc), und vergewissern Sie sich, dass der Active Directory Domain Services-Dienst ausgeführt wird.
+
+Überprüfen, ob der RPC-Client (Ziel-DC) mit dem gewünschten RPC-Server (Quell Domänen Controller)
+
+Alle DCS in einer allgemeinen Active Directory Gesamtstruktur registrieren einen Domänen Controller-CNAME-Datensatz in der _msdcs. \<Gesamtstruktur-Stamm Domäne > DNS-Zone unabhängig davon, in welcher Domäne Sie sich innerhalb der Gesamtstruktur befinden. Der DC CNAME-Datensatz wird vom objectGUID-Attribut des NTDS-Einstellungs Objekts für jeden Domänen Controller abgeleitet.
+
+Beim Ausführen von Replikations basierten Vorgängen fragt ein Ziel-DC DNS nach dem CNAME-Datensatz des Quell-DCS ab. Der CNAME-Datensatz enthält den voll qualifizierten Domänen Namen des Quell Domänen Controllers, der verwendet wird, um die IP-Adresse des Quell Domänen Controllers über DNS-Client Cache Suche, Host/Lmhost-Dateisuche, Host A/AAAA-Datensatz in DNS oder WINS zu ableiten.
+
+Veraltete NTDS-Einstellungs Objekte und ungültige namens-zu-IP-Zuordnungen in DNS-, WINS-, Host-und Lmhost-Dateien können bewirken, dass der RPC-Client (Ziel-DC) eine Verbindung mit dem falschen RPC-Server (Quell-DC) herstellt Darüber hinaus kann die Zuordnung von "fehlerhafter Name zu IP" dazu führen, dass der RPC-Client (Ziel-DC) eine Verbindung mit einem Computer herstellt, auf dem nicht einmal die von Interesse ist (in diesem Fall die Active Directory Rolle). (Beispiel: ein veralteter Host Daten Satz für DC2 enthält die IP-Adresse von DC3 oder eines Mitglieds Computers).
+
+Vergewissern Sie sich, dass die objectGUID für den Quell Domänen Controller, der in der Ziel-DCS-Kopie von Active Directory vorhanden ist, der Quell-DC-objectGUID entspricht, die in der Quell-DCS-Active Directory Kopie Wenn eine Diskrepanz vorliegt, verwenden Sie Repadmin/showobjmeta für das NTDS-Einstellungs Objekt, um festzustellen, welcher Wert der letzten herauf Stufung des Quell Domänen Controllers entspricht (Hinweis: Vergleichen von Datumsstempeln für das NTDS-Einstellungs Objekt Create Date from/showobjmeta mit dem Datum der letzten Promotion im Quell-DCS Dcpromo. Log-Datei. Möglicherweise müssen Sie das Datum der letzten Änderung/Erstellung der Dcpromo-Datei verwenden. Protokolldatei selbst). Wenn die Objekt-GUIDs nicht identisch sind, verfügt der Ziel-DC wahrscheinlich über ein veraltetes NTDS-Einstellungs Objekt für den Quell Domänen Controller, dessen CNAME-Datensatz auf einen Host Daten Satz mit einem ungültigen Namen für die IP-Zuordnung verweist.
+
+Führen Sie auf dem Ziel-DC ipconfig/all aus, um zu ermitteln, welche DNS-Server der Ziel-DC für die Namensauflösung verwendet:
+
+```
+c:>ipconfig /all
+```
+
+Führen Sie auf dem Ziel-DC nslookup für den voll qualifizierten Domänen Controller-CNAME-Datensatz für den Quellcode aus:
+
+```
+c:>nslookup -type=cname <fully qualified cname of source DC> <destination DCs primary DNS Server IP >
+c:>nslookup -type=cname <fully qualified cname of source DC> <destination DCs secondary DNS Server IP>
+```
+
+Vergewissern Sie sich, dass die von nslookup zurückgegebene IP-Adresse den Hostnamen bzw. die Sicherheitsidentität des Quell Domänen Controllers "besitzt":
+
+```
+C:>NBTSTAT -A <IP address returned by NSLOOKUP in the step above>
+```
+
+Melden Sie sich bei der Konsole des Quell Domänen Controllers an, führen Sie "ipconfig" an der Eingabeaufforderung aus, und überprüfen Sie, ob der Quell Domänen Controller die IP-Adresse besitzt, die vom Befehl "nslookup
+
+Überprüfen Sie, ob Host-zu-IP-Zuordnungen in DNS vorhanden sind
+
+```
+NSLOOKUP -type=hostname <single label hostname of source DC> <primary DNS Server IP on destination DC>
+NSLOOKUP -type=hostname <single label hostname of source DC> <secondary DNS Server IP on destination DC>
+
+NSLOOKUP -type=hostname <fully qualified computer name of source DC> <primary DNS Server IP on destination DC>
+NSLOOKUP -type=hostname <fully qualified computer name of source DC> <secondary DNS Server IP on dest. DC>
+```
+
+Wenn in Host Einträgen ungültige IP-Adressen vorhanden sind, überprüfen Sie, ob das DNS-Bereinigung aktiviert und ordnungsgemäß konfiguriert ist
+
+Wenn die Tests oben oder eine Netzwerk Ablauf Verfolgung keine Namensabfrage anzeigt, die eine ungültige IP-Adresse zurückgibt, sollten Sie veraltete Einträge in Host Dateien, LMHOSTS-Dateien und WINS-Servern in Erwägung gezogen. Beachten Sie, dass DNS-Server auch für die Ausführung der WINS-Fall Back Namen Auflösung konfiguriert werden können.
+
+* Überprüfen Sie, ob die Serveranwendung (Active Directory et al) bei der Endpunkt Zuordnung auf dem RPC-Server (Quell-DC) registriert ist.
+* Active Directory verwendet eine Kombination aus bekannten und dynamisch registrierten Ports. In dieser Tabelle werden bekannte Ports und Protokolle aufgelistet, die von Active Directory Domänen Controllern verwendet werden.
+
+| RPC-Server Anwendung | Port | TCP | UDP |
+| --- | --- | --- | --- |
+| DNS-Server | 53 | X | X |
+| Kerberos | 88 | X | X |
+| LDAP-Server | 389 | X | X |
+| Microsoft-DS | 445 | X | X |
+| LDAP-SSL | 636 | X | X |
+| Globaler Katalogserver | 3268 | X |   |
+| Globaler Katalogserver | 3269 | X |   |
+
+Bekannte Ports sind nicht bei der Endpunkt Zuordnung registriert.
+
+Active Directory und andere Anwendungen registrieren auch Dienste, die dynamisch zugewiesene Ports im kurzlebigen RPC-Port Bereich empfangen. Diese RPC-Server Anwendungen werden dynamisch TCP-Ports zwischen 1024 und 5000 auf Windows 2000-und Windows Server 2003-Computern und Ports zwischen dem 49152-und 65535-Bereich auf Windows Server 2008-und Windows Server 2008 R2-Computern zugewiesen. Der von der Replikation verwendete RPC-Port kann in der Registrierung hart codiert werden, indem Sie die im [KB-Artikel 224196](https://support.microsoft.com/kb/224196)beschriebenen Schritte ausführen. Active Directory wird weiterhin beim EPM registriert, wenn es für die Verwendung eines hart codierten Ports konfiguriert ist.
+
+Stellen Sie sicher, dass sich die zu berücksichtigende RPC-Serveranwendung bei der RPC-Endpunkt Zuordnung auf dem RPC-Server (dem Quell Domänen Controller bei der AD-Replikation) registriert hat.
+
+Es gibt eine Reihe von Möglichkeiten, diese Aufgabe zu erledigen, aber eine ist die Installation und Ausführung von Portqry über eine Eingabeaufforderung für Administratorrechte in der Konsole des Quell Domänen Controllers mit der folgenden Syntax:
+
+```
+portquery -n <source DC> -e 135 > file.txt
+```
+
+Notieren Sie in der PortQry-Ausgabe die Portnummern, die von der "MS NT Directory DRS Interface" (UUID = 351...) für das ncacn_ip_tcp-Protokoll dynamisch registriert werden. Der folgende Code Ausschnitt zeigt eine Beispiel-PortQuery-Ausgabe eines Windows Server 2008 R2-DC:
+
+```
+UUID: e3514235-4b06-11d1-ab04-00c04fc2dcd2 MS NT Directory DRS Interface
 ncacn_np:CONTOSO-DC01[\pipe\lsass] 
 UUID: e3514235-4b06-11d1-ab04-00c04fc2dcd2 MS NT Directory DRS Interface
 ncacn_np:CONTOSO-DC01[\PIPE\protected_storage] 
-<codeFeaturedElement>UUID: e3514235-4b06-11d1-ab04-00c04fc2dcd2 MS NT Directory DRS Interface
-ncacn_ip_tcp:CONTOSO-DC01[49156]</codeFeaturedElement> 
+UUID: e3514235-4b06-11d1-ab04-00c04fc2dcd2 MS NT Directory DRS Interface
+ncacn_ip_tcp:CONTOSO-DC01[49156] 
 UUID: e3514235-4b06-11d1-ab04-00c04fc2dcd2 MS NT Directory DRS Interface
 ncacn_http:CONTOSO-DC01[49157] 
 UUID: e3514235-4b06-11d1-ab04-00c04fc2dcd2 MS NT Directory DRS Interface
-ncacn_http:CONTOSO-DC01[6004]</code>
-          <para />
-        </listItem>
-        <listItem>
-          <para>Andere Möglichkeiten zum Beheben dieses Fehlers:</para>
-          <list class="ordered">
-            <listItem>
-              <para>Stellen Sie sicher, dass der Quell-DC im normalen Modus gestartet wird und die Betriebssystem und DC-Rolle auf der Quell-DC vollständig gestartet haben.</para>
-            </listItem>
-            <listItem>
-              <para>Stellen Sie sicher, dass die Active Directory Domain Services ausgeführt wird. Wenn der Dienst beendet wurde oder nicht mit den Standardwerten für die beim Start konfiguriert wurde, die Start-Standardwerte zurückzusetzen, starten Sie die geänderten DC neu, dann den Vorgang wiederholen.</para>
-            </listItem>
-            <listItem>
-              <para>Stellen Sie sicher, dass der Startstatus-Dienst und dem Wert für RPC-Dienst und RPC-Locator für die Betriebssystemversion des RPC-Clients (Ziel-DC) und RPC-Server (Quell-DC) korrekt ist. Wenn der Dienst beendet wurde oder nicht mit den Standardwerten für die beim Start konfiguriert wurde, die Start-Standardwerte zurückzusetzen, starten Sie die geänderten DC neu, dann den Vorgang wiederholen.</para>
-              <para>Darüber hinaus stellen Sie sicher, dass der Dienstkontext Standardeinstellungen, die in der folgenden Tabelle aufgeführten übereinstimmt.</para>
-              <table xmlns:caps="https://schemas.microsoft.com/build/caps/2013/11">
-                <thead>
-                  <tr>
-                    <TD>
-                      <para>Service</para>
-                    </TD>
-                    <TD>
-                      <para>Standardstatus (Starttyp) in Windows Server 2003 und höher </para>
-                    </TD>
-                    <TD>
-                      <para>Standardstatus (Starttyp) in Windows Server 2000</para>
-                    </TD>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <TD>
-                      <para>Remoteprozeduraufruf</para>
-                    </TD>
-                    <TD>
-                      <para>Gestartet (automatisch)</para>
-                    </TD>
-                    <TD>
-                      <para>Gestartet (automatisch)</para>
-                    </TD>
-                  </tr>
-                  <tr>
-                    <TD>
-                      <para>Remoteprozeduraufruf-Aufruf-Locators</para>
-                    </TD>
-                    <TD>
-                      <para>NULL oder mehr (manuell)</para>
-                    </TD>
-                    <TD>
-                      <para>Gestartet (automatisch)</para>
-                    </TD>
-                  </tr>
-                </tbody>
-              </table>
-            </listItem>
-            <listItem>
-              <para>Stellen Sie sicher, dass die Größe des dynamischen Portbereich nicht eingeschränkt wurde. Die Syntax für Windows Server 2008 und Windows Server 2008 R2 NETSH zum Aufzählen des RPC-Portbereich ist unten dargestellt:</para>
-              <code>&gt;netsh int ipv4 show dynamicport tcp
-&gt;netsh int ipv4 show dynamicport udp
-&gt;netsh int ipv6 show dynamicport tcp
-&gt;netsh int ipv6 show dynamicport udp</code>
-            </listItem>
-            <listItem>
-              <para>Sicherstellen Sie, dass die dynamischen Portbereich für DCs OS Quellversion hartcodierten Port-Definitionen, die in KB 224196 definierten fallen.</para>
-              <para>Überprüfen Sie <externalLink> <linkText>KB-Artikel 224196</linkText> <linkUri> <a href="https://support.microsoft.com/kb/224196" data-raw-source="https://support.microsoft.com/kb/224196"> https://support.microsoft.com/kb/224196 </a> </linkUri> </externalLink> und stellen Sie sicher, dass die hartcodierte Port innerhalb der temporäre Portbereich für liegt der Quell-DC&#39;s Betriebssystemversion.</para>
-            </listItem>
-            <listItem>
-              <para>Stellen Sie sicher, dass der Schlüssel ClientProtocols unter HKLM\Software\Microsoft\Rpc vorhanden und die folgenden 5 Standardwerte enthält:</para>
-              <code>ncacn_http REG_SZ rpcrt4.dll
-ncacn_ip_tcp REG_SZ rpcrt4.dll
-<codeFeaturedElement>ncacn_nb_tcp REG_SZ rpcrt4.dll</codeFeaturedElement>
-ncacn_np REG_SZ rpcrt4.dll
-ncacn_ip_udp REG_SZ rpcrt4.dll</code>
-            </listItem>
-          </list>
-        </listItem>
-      </list>
-    </content>
-  </section>
-  <section address="BKMK_MoreInfo">
-    <title>Weitere Informationen</title>
-    <content>
-      <para>
-        <embeddedLabel>Beispiel für einen ungültigen Namen auf IP-Adresse zuordnen zu RPC-Fehlers 1753 im Vergleich zu-2146893022: der Zielprinzipalname ist falsch</embeddedLabel>
-      </para>
-      <para>Die Domäne "contoso.com" besteht aus DC1 und DC2 mit IP-Adressen x.x.1.1 und x.x.1.2. Der Host &quot;ein&quot; / &quot;AAAA&quot; Datensätze für DC2 sind auf allen für DC1 konfigurierten DNS-Server ordnungsgemäß registriert. Darüber hinaus enthält die Hostdatei auf DC1 einen Eintrag DC2s vollqualifizierter Hostname, IP-Adresse x.x.1.2 zuordnen. Später DC2&#39;IP-Adresse ändert sich von X.X.1.2 in X.X.1.3 und ein neuen Computer als Mitglied der Domäne mit IP-Adresse x.x.1.2 verknüpft ist. Active Directory-Replikation Versuch ausgelöst wird, durch die <ui>Jetzt replizieren</ui> Befehl im Active Directory-Standorte und -Dienste-Snap-in tritt der Fehler 1753 wie in der Ablaufverfolgung unten gezeigt:</para>
-      <code>F# SRC    DEST    Operation 
+ncacn_http:CONTOSO-DC01[6004]
+```
+
+Weitere Möglichkeiten, diesen Fehler zu beheben:
+
+* Vergewissern Sie sich, dass der Quell Domänen Controller im normalen Modus gestartet wurde und dass das Betriebssystem und die DC-Rolle auf dem Quell Domänen Controller vollständig gestartet wurden
+* Überprüfen Sie, ob der Active Directory-Domäne-Dienst ausgeführt wird. Wenn der Dienst derzeit beendet oder nicht mit Standard Startwerten konfiguriert wurde, setzen Sie die Standard Startwerte zurück, starten Sie den geänderten Domänen Controller neu, und wiederholen Sie dann den Vorgang.
+* Überprüfen Sie, ob der Starttyp und der Dienststatus für den RPC-Dienst und den RPC-Locator für die Betriebssystemversion des RPC-Clients (Ziel-DC) und des RPC-Servers (Quell Domänen Wenn der Dienst derzeit beendet oder nicht mit Standard Startwerten konfiguriert wurde, setzen Sie die Standard Startwerte zurück, starten Sie den geänderten Domänen Controller neu, und wiederholen Sie dann den Vorgang.
+   * Stellen Sie außerdem sicher, dass der Dienst Kontext mit den in der folgenden Tabelle aufgeführten Standardeinstellungen übereinstimmt.
+
+      | Dienst | Standardstatus (Starttyp) in Windows Server 2003 und höher | Standardstatus (Starttyp) in Windows Server 2000 |
+      | --- | --- | --- |
+      | Remoteprozeduraufruf | Gestartet (automatisch) | Gestartet (automatisch) |
+      | Locator für Remote Prozedur Aufrufe | NULL oder beendet (manuell) | Gestartet (automatisch) |
+
+* Vergewissern Sie sich, dass die Größe des dynamischen Port Bereichs nicht eingeschränkt wurde. Die Syntax von Windows Server 2008 und Windows Server 2008 R2 netsh zum Auflisten des RPC-Port Bereichs ist unten dargestellt:
+
+   ```
+   netsh int ipv4 show dynamicport tcp
+   netsh int ipv4 show dynamicport udp
+   netsh int ipv6 show dynamicport tcp
+   netsh int ipv6 show dynamicport udp
+   ```
+
+* Vergewissern Sie sich, dass in KB 224196 definierte hart codierte Port Definitionen innerhalb des dynamischen Port Bereichs für die Quell-DCS-Betriebssystemversion liegen. Lesen Sie [KB-Artikel 224196](https://support.microsoft.com/kb/224196) , und stellen Sie sicher, dass der hart codierte Port innerhalb des kurzlebigen Port Bereichs für die Betriebssystemversion des Quell Domänen Controllers liegt.
+
+* Vergewissern Sie sich, dass der Client Protokolls-Schlüssel unter "hklm\software\microsoft\rpc" vorhanden ist und die folgenden fünf Standardwerte enthält:
+
+   ```
+   ncacn_http REG_SZ rpcrt4.dll
+   ncacn_ip_tcp REG_SZ rpcrt4.dll
+   ncacn_nb_tcp REG_SZ rpcrt4.dll
+   ncacn_np REG_SZ rpcrt4.dll
+   ncacn_ip_udp REG_SZ rpcrt4.dll
+   ```
+
+## <a name="more-information"></a>Weitere Informationen
+
+Beispiel für einen ungültigen Namen für die IP-Zuordnung, der RPC-Fehler 1753 und-2146893022 verursacht: der Ziel Prinzipal Name ist falsch.
+
+Die contoso.com-Domäne besteht aus DC1 und DC2 mit den IP-Adressen x. x. 1.1 und x. x. 1.2. Die Host "A"/"AAAA"-Einträge für DC2 sind auf allen für DC1 konfigurierten DNS-Servern ordnungsgemäß registriert. Außerdem enthält die Hostdatei auf DC1 eine Eintrags Zuordnung DC2s voll qualifizierten Hostnamen zur IP-Adresse x. x. 1.2. Später wird die DC2's-IP-Adresse von x. x. 1.2 in X. x. 1.3 geändert, und ein neuer Mitglieds Computer wird mit der IP-Adresse X. x. 1.2 der Domäne hinzugefügt. AD-Replikations Versuche, die vom Befehl " **Jetzt replizieren** " in Active Directory Standorte und Dienste-Snap-in ausgelöst werden, schlagen mit Fehler 1753 wie in der folgenden Ablauf Verfolgung dargestellt
+
+```
+F# SRC    DEST    Operation
 1 x.x.1.1 x.x.1.2 ARP:Request, x.x.1.1 asks for x.x.1.2
 2 x.x.1.2 x.x.1.1 ARP:Response, x.x.1.2 at 00-13-72-28-C8-5E
 3 x.x.1.1 x.x.1.2 TCP:Flags=......S., SrcPort=50206, DstPort=DCE endpoint resolution(135)
@@ -437,28 +281,36 @@ ncacn_ip_udp REG_SZ rpcrt4.dll</code>
 5 x.x.1.1 x.x.1.2 ARP:Response, x.x.1.1 at 00-15-5D-42-2E-00
 6 x.x.1.2 x.x.1.1 TCP:Flags=...A..S., SrcPort=DCE endpoint resolution(135)
 7 x.x.1.1 x.x.1.2 TCP:Flags=...A...., SrcPort=50206, DstPort=DCE endpoint resolution(135)
-8 x.x.1.1 x.x.1.2 MSRPC:c/o Bind: UUID{E1AF8308-5D1F-11C9-91A4-08002B14A0FA} EPT(EPMP) 
-9 x.x.1.2 x.x.1.1 MSRPC:c/o Bind Ack: Call=0x2 Assoc Grp=0x5E68 Xmit=0x16D0 Recv=0x16D0 
-<codeFeaturedElement>10</codeFeaturedElement> x.x.1.1 x.x.1.2 EPM:Request: ept_map: NDR, DRSR(DRSR) {E3514235-4B06-11D1-AB04-00C04FC2DCD2} [DCE endpoint resolution(135)]
-<codeFeaturedElement>11</codeFeaturedElement> x.x.1.2 x.x.1.1 EPM:Response: ept_map: 0x16C9A0D6 - EP_S_NOT_REGISTERED
-</code>
-      <para>Am Frame <embeddedLabel>10</embeddedLabel>, das Ziel-DC-Mapper Datenquelle DCs Endpunkt über Port 135 für die Active Directory-Replikation-Dienstklasse UUID E351 Abfragen... </para>
-      <para>Im Frame <embeddedLabel>11</embeddedLabel>, der Quell-DC, in diesem Fall einen Mitgliedscomputer, der die DC-Rolle ist noch kein host und die E351 wurde nicht registriert... UUID für der Replikationsdienst, mit der lokalen EPM mit symbolischen Fehler EP_S_NOT_REGISTERED reagiert der decimal-Fehler 1753 zuordnet hex-Fehler 0x6d9 und Fehlermeldung &quot;stehen keine Endpunkte mehr von der endpunktzuordnung&quot; .</para>
-      <para>Später, die Member-Computer mit IP-Adresse x.x.1.2 höher gestuft als Replikat &quot;MayberryDC&quot; in der Domäne "contoso.com". In diesem Fall die <ui>Jetzt replizieren</ui> Befehl wird für die Replikation ausgelöst, aber dieses Mal schlägt fehl, mit der auf dem Bildschirm Fehler &quot;der Zielprinzipalname ist falsch.&quot; Der Computer, dessen Netzwerkadapter ist die IP-Adresse zugewiesen, Adresse x.x.1.2 <placeholder>ist</placeholder> ein Domänencontroller wird derzeit im normalen Modus gestartet und wurde die E351 registriert... Replikationsdienst UUID, mit der lokalen EPM jedoch besitzt nicht die Identität oder einer Sicherheitsgruppe von DC2 und die Kerberos-Anforderung von DC1 kann nicht entschlüsselt werden, damit die Anforderung jetzt führt zu einem Fehler &quot;der Zielprinzipalname ist falsch.&quot; Der Fehler ist decimal Fehler-2146893022 / Fehler 0x80090322 hex. </para>
-      <para>Können eine solche ungültige Host-IP-Zuordnungen veraltete Einträge im Host zurückzuführen sein / Lmhost-Dateien, host A / AAAA-Registrierungen in DNS oder WINS. </para>
-      <para>Zusammenfassung In diesem Beispiel ist fehlgeschlagen, da eine ungültige Host-IP-Zuordnung (in der Hosts-Datei in diesem Fall) verursacht, das Ziel-DC in aufgelöst wurde eine &quot;Quelle&quot; DC, der keine der Active Directory Domain Services-Dienst wird ausgeführt (oder sogar für installiert eigentlich), damit die Replikation SPN wurde noch nicht registriert und der Quell-DC Fehler 1753 zurückgegeben. Im zweiten Fall verursacht eine ungültige Host-IP-Zuordnung (wieder in die HOST-Datei) das Ziel-DC die Verbindung mit einem DC, der die E351 registriert haben... Replikations-SPN, aber diese Quelle mussten eine andere Identität für Hostname und die Sicherheit als den vorgesehenen Quelldomänencontroller, daher versucht die-2146893022 fehlgeschlagen: Der Zielprinzipalname ist falsch.</para>
-    </content>
-  </section>
-  <relatedTopics>
-    <externalLink>
-      <linkText>Problembehandlung bei Active Directory-Vorgänge, bei denen Fehler 1753: Es sind keine weiteren Endpunkte von der endpunktzuordnung verfügbar. </linkText> 
-      <linkUri> <a href="https://support.microsoft.com/kb/2089874" data-raw-source="https://support.microsoft.com/kb/2089874"> https://support.microsoft.com/kb/2089874 </a> </linkUri> 
-    </externalLink> 
-<externalLink> <linkText>KB-Artikel 839880 Problembehandlung bei RPC-Endpunktzuordnung Fehler bei der Verwendung der Unterstützung von Windows Server 2003 Tools von der Produkt-CD</linkText><linkUri><a href="https://support.microsoft.com/kb/839880" data-raw-source="https://support.microsoft.com/kb/839880">https://support.microsoft.com/kb/839880</a></linkUri></externalLink>
-<externalLink><linkText>KB-Artikel 832017 dienstübersicht und Dienstport Anforderungen für das Windows Server System</linkText><linkUri><a href="https://support.microsoft.com/kb/832017/" data-raw-source="https://support.microsoft.com/kb/832017/">https://support.microsoft.com/kb/832017/</a></linkUri></externalLink>
-<externalLink><linkText>KB-Artikel 224196 einschränken Active Directory-Replikations-Datenverkehr als auch Client-RPC-Datenverkehr zu einem bestimmten Port</linkText><linkUri><a href="https://support.microsoft.com/kb/224196/" data-raw-source="https://support.microsoft.com/kb/224196/">https://support.microsoft.com/kb/224196/</a></linkUri></externalLink>
-<externalLink><linkText>KB-Artikel 154596 Vorgehensweise: Konfigurieren der dynamischen RPC-portzuweisung portzuweisung</linkText><linkUri><a href="https://support.microsoft.com/kb/154596" data-raw-source="https://support.microsoft.com/kb/154596">https://support.microsoft.com/kb/154596</a></linkUri></externalLink><externalLink><linkText>wie RPC Works</linkText><linkUri><a href="https://msdn.microsoft.com/library/aa373935(VS.85).aspx" data-raw-source="https://msdn.microsoft.com/library/aa373935(VS.85).aspx">https://msdn.microsoft.com/library/aa373935(VS.85).aspx</a></linkUri></externalLink><externalLink><linkText>wie der Server für die eine Verbindung vorbereitet</linkText> <linkUri> <a href="https://msdn.microsoft.com/library/aa373938(VS.85).aspx" data-raw-source="https://msdn.microsoft.com/library/aa373938(VS.85).aspx"> https://msdn.microsoft.com/library/aa373938(VS.85).aspx </a> </linkUri> </externalLink> 
-<externalLink> <linkText>Wie der Client eine Verbindung herstellt</linkText> <linkUri> <a href="https://msdn.microsoft.com/library/aa373937(VS.85).aspx" data-raw-source="https://msdn.microsoft.com/library/aa373937(VS.85).aspx"> https://msdn.microsoft.com/library/aa373937(VS.85).aspx </a> </linkUri> </externalLink> <externalLink> <linkText>Registrieren der Schnittstelle</linkText> <linkUri> <a href="https://msdn.microsoft.com/library/aa375357(VS.85).aspx" data-raw-source="https://msdn.microsoft.com/library/aa375357(VS.85).aspx"> https://msdn.microsoft.com/library/aa375357(VS.85).aspx </a> </linkUri> </externalLink> <externalLink> <linkText>Und der Server im Netzwerk verfügbaren</linkText> <linkUri> <a href="https://msdn.microsoft.com/library/aa373974(VS.85).aspx" data-raw-source="https://msdn.microsoft.com/library/aa373974(VS.85).aspx"> https://msdn.microsoft.com/library/aa373974(VS.85).aspx </a> </linkUri> </externalLink> <externalLink> <linkText>Registrieren von Endpunkten</linkText> <linkUri> <a href="https://msdn.microsoft.com/library/aa375255(VS.85).aspx" data-raw-source="https://msdn.microsoft.com/library/aa375255(VS.85).aspx"> https://msdn.microsoft.com/library/aa375255(VS.85).aspx </a> </linkUri> </externalLink> <externalLink> <linkText>Lauschen auf Clientaufrufe</linkText> <linkUri> <a href="https://msdn.microsoft.com/library/aa373966(VS.85).aspx" data-raw-source="https://msdn.microsoft.com/library/aa373966(VS.85).aspx"> https://msdn.microsoft.com/library/aa373966(VS.85).aspx </a> </linkUri> </externalLink> <externalLink> <linkText>Wie der Client eine Verbindung herstellt</linkText><linkUri><a href="https://msdn.microsoft.com/library/aa373937(VS.85).aspx" data-raw-source="https://msdn.microsoft.com/library/aa373937(VS.85).aspx">https://msdn.microsoft.com/library/aa373937(VS.85).aspx</a></linkUri></externalLink><span class=" class=""></span class="></linkText><linkUri><a href="https://msdn.microsoft.com/library/dd207688(PROT.13).aspx" data-raw-source="https://msdn.microsoft.com/library/dd207688(PROT.13).aspx">https://msdn.microsoft.com/library/dd207688(PROT.13).aspx</a></linkUri></externalLink></relatedTopics>
-</developerConceptualDocument>
+8 x.x.1.1 x.x.1.2 MSRPC:c/o Bind: UUID{E1AF8308-5D1F-11C9-91A4-08002B14A0FA} EPT(EPMP)
+9 x.x.1.2 x.x.1.1 MSRPC:c/o Bind Ack: Call=0x2 Assoc Grp=0x5E68 Xmit=0x16D0 Recv=0x16D0
+10 x.x.1.1 x.x.1.2 EPM:Request: ept_map: NDR, DRSR(DRSR) {E3514235-4B06-11D1-AB04-00C04FC2DCD2} [DCE endpoint resolution(135)]
+11 x.x.1.2 x.x.1.1 EPM:Response: ept_map: 0x16C9A0D6 - EP_S_NOT_REGISTERED
+```
 
+Bei Frame **10**fragt der Ziel-DC die Quell-DCS-Endpunkt Zuordnung über Port 135 für die Active Directory Replikations Dienstklasse UUID E351...
 
+In Frame **11**ist der Quell Domänen Controller, in diesem Fall ein Mitglieds Computer, der die DC-Rolle noch nicht hostet und daher die E351 nicht registriert hat... Die UUID für den Replikations Dienst mit dem lokalen EPM antwortet mit einem symbolischen Fehler EP_S_NOT_REGISTERED dieser wird dem dezimalen Fehler 1753, Hex-Fehler 0x6d9 und dem anzeigen Amen "Es sind keine weiteren Endpunkte von der Endpunkt Zuordnung verfügbar" zugeordnet.
+
+Später wird der Mitglieds Computer mit der IP-Adresse x. x. 1.2 als Replikat "mayberrydc" in der contoso.com-Domäne herauf gestuft. Der Befehl " **Jetzt replizieren** " wird verwendet, um die Replikation zu initiieren. dieses Mal schlägt jedoch mit dem Bildschirm Fehler "der Ziel Prinzipal Name ist falsch" fehl. Der Computer, dessen Netzwerkadapter der IP-Adresse x. x. 1.2 zugewiesen ist, ist ein Domänen Controller, wird zurzeit im normalen Modus gestartet und hat den E351 registriert... die UUID des Replikations Diensts mit dem lokalen EPM ist aber nicht der Besitzer des Namens oder der Sicherheitsidentität von DC2 und kann die Kerberos-Anforderung nicht von DC1 entschlüsseln, sodass die Anforderung jetzt mit dem Fehler "der Ziel Prinzipal Name ist falsch" fehlschlägt. Der Fehler wird dem dezimalen Fehler-2146893022/Hex-Fehler 0x80090322 zugeordnet.
+
+Solche ungültigen Host-zu-IP-Zuordnungen können durch veraltete Einträge in Host-/LM-Host-Dateien, Host A/AAAA-Registrierungen in DNS oder WINS verursacht werden.
+
+Zusammenfassung Bei diesem Beispiel ist ein Fehler aufgetreten, weil eine ungültige Host-zu-IP-Zuordnung (in diesem Fall in der Hostdatei) bewirkt hat, dass der Ziel-DC zu einem "Source"-Domänen Controller aufgelöst wird, auf dem der Active Directory Domain Services-Dienst nicht ausgeführt wird (oder der dafür überhaupt installiert wurde). SPN wurde noch nicht registriert, und der Quell-DC hat den Fehler 1753 zurückgegeben. Im zweiten Fall hat eine ungültige Host-zu-IP-Zuordnung (wieder in der Hostdatei) bewirkt, dass der Domänen Controller eine Verbindung mit einem Domänen Controller herstellt, der die E351 registriert hat... der Replikations-SPN, aber diese Quelle besaß einen anderen Hostnamen und eine andere Sicherheitsidentität als der vorgesehene Quell Domänen Controller, sodass bei den versuchen Fehler 2146893022 aufgetreten sind: Der Ziel Prinzipal Name ist falsch.
+
+## <a name="related-topics"></a>Verwandte Themen
+
+* [Problembehandlung bei Active Directory Vorgängen mit Fehler 1753: Von der Endpunkt Zuordnung sind keine weiteren Endpunkte verfügbar.](https://support.microsoft.com/kb/2089874)
+* [KB-Artikel 839880 Beheben von Fehlern bei der RPC-Endpunkt Zuordnung mithilfe der Windows Server 2003-Support Tools von der Produkt-CD](https://support.microsoft.com/kb/839880)
+* [KB-Artikel 832017 Dienst Übersicht und Netzwerk Port Anforderungen für das Windows Server-System](https://support.microsoft.com/kb/832017/)
+* [KB-Artikel 224196 einschränken Active Directory Replikations Datenverkehrs und RPC-Client Datenverkehr zu einem bestimmten Port](https://support.microsoft.com/kb/224196/)
+* [KB-Artikel 154596 Konfigurieren der dynamischen RPC-Port Zuweisung zum Arbeiten mit Firewalls](https://support.microsoft.com/kb/154596)
+* [Funktionsweise von RPC](https://msdn.microsoft.com/library/aa373935(VS.85).aspx)
+* [Wie der Server eine Verbindung vorbereitet](https://msdn.microsoft.com/library/aa373938(VS.85).aspx)
+* [Einrichten einer Verbindung durch den Client](https://msdn.microsoft.com/library/aa373937(VS.85).aspx)
+* [Registrieren der-Schnittstelle](https://msdn.microsoft.com/library/aa375357(VS.85).aspx)
+* [Verfügbar machung des Servers im Netzwerk](https://msdn.microsoft.com/library/aa373974(VS.85).aspx)
+* [Registrieren von Endpunkten](https://msdn.microsoft.com/library/aa375255(VS.85).aspx)
+* [Lauschen auf Client Anrufe](https://msdn.microsoft.com/library/aa373966(VS.85).aspx)
+* [Einrichten einer Verbindung durch den Client](https://msdn.microsoft.com/library/aa373937(VS.85).aspx)
+* [Einschränken Active Directory Replikations Datenverkehrs und Client-RPC-Datenverkehr an einen bestimmten Port](https://support.microsoft.com/kb/224196)
+* [SPN für einen Ziel-DC in AD DS](https://msdn.microsoft.com/library/dd207688(PROT.13).aspx)

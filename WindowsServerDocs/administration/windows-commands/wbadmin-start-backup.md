@@ -1,6 +1,6 @@
 ---
-title: Sicherung des Wbadmin-starten
-description: 'Windows-Befehle Thema ***- '
+title: Wbadmin-Sicherung starten
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -13,26 +13,26 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2ac602506960b92333750e7a37692c44c92aae22
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: cdd63d0a3a813b32a212b09eb93a64ea1429ee06
+ms.sourcegitcommit: a9625758fbfb066494fe62e0da5f9570ccb738a3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66440277"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952454"
 ---
-# <a name="wbadmin-start-backup"></a>Sicherung des Wbadmin-starten
+# <a name="wbadmin-start-backup"></a>Wbadmin-Sicherung starten
 
 
 
-Erstellt eine Sicherung, die mit angegebenen Parametern. Wenn keine Parameter angegeben werden, und Sie eine geplante tägliche Sicherung erstellt haben, wird dieses Unterbefehl die Sicherung mit den Einstellungen für die geplante Sicherung erstellt. Wenn der Parameter angegeben werden, eine kopiesicherung Volumeschattenkopie-Dienst (Volume Shadow Copy Service, VSS) erstellt und den Verlauf der Dateien, die gesichert werden, werden nicht aktualisiert.
+Erstellt eine Sicherung mithilfe der angegebenen Parameter. Wenn keine Parameter angegeben sind und Sie eine geplante tägliche Sicherung erstellt haben, erstellt dieser Unterbefehl die Sicherung mithilfe der Einstellungen für die geplante Sicherung. Wenn Parameter angegeben werden, wird eine VSS-Kopier Sicherung (Volumeschattenkopie-Dienst) erstellt, und der Verlauf der zu sichernden Dateien wird nicht aktualisiert.
 
-Um eine einmalige Sicherung mit diesem Unterbefehl erstellen zu können, müssen Sie Mitglied werden die **Sicherungs-Operatoren** Gruppe oder der **Administratoren** Gruppe, oder Sie wurde die entsprechenden Berechtigungen delegiert. Darüber hinaus müssen Sie ausführen **Wbadmin** eine Eingabeaufforderung mit erhöhten Rechten. (Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten mit der rechten Maustaste **Eingabeaufforderung** , und klicken Sie dann auf **als Administrator ausführen**.)
+Wenn Sie mit diesem Unterbefehl eine einmalige Sicherung erstellen möchten, müssen Sie Mitglied der Gruppe " **Sicherungs-Operatoren** " oder " **Administratoren** " sein, oder die entsprechenden Berechtigungen müssen an Sie delegiert worden sein. Außerdem müssen Sie **Wbadmin** über eine Eingabeaufforderung mit erhöhten Rechten ausführen. (Um eine Eingabeaufforderung mit erhöhten Rechten zu öffnen, klicken Sie mit der rechten Maustaste auf **Eingabeaufforderung** und dann auf **als Administrator ausführen**.)
 
-Beispiele zur Verwendung dieses Unterbefehl finden Sie in [Beispiele](#BKMK_examples).
+Beispiele für die Verwendung dieses Unterbefehls finden Sie unter [Beispiele](#BKMK_examples).
 
 ## <a name="syntax"></a>Syntax
 
-Syntax für das Windows ° Vista und WindowsServer 2008:
+Syntax für Windows ° Vista und Windows Server 2008:
 ```
 wbadmin start backup
 [-backupTarget:{<BackupTargetLocation> | <TargetNetworkShare>}]
@@ -45,7 +45,7 @@ wbadmin start backup
 [-vssFull]
 [-quiet]
 ```
-Syntax für das Windows ° 7 und Windows Server 2008 R2 und höher:
+Syntax für Windows ° 7 und Windows Server 2008 R2 und höher:
 ```
 Wbadmin start backup
 [-backupTarget:{<BackupTargetLocation> | <TargetNetworkShare>}]
@@ -67,42 +67,42 @@ Wbadmin start backup
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|-backupTarget|Gibt den Speicherort für diese Sicherung an. Erfordert ein Festplattenlaufwerk Buchstabe (f:)), einen Volume-GUID-basierte Pfad im Format \\ \\? \Volume{GUID}, oder ein Universal Naming Convention (UNC)-Pfad zu einem freigegebenen Remoteordner (\\\\\<Servername > \<Sharename >\). Die Sicherung wird standardmäßig unter gespeichert werden: \\ \\ <servername> \<Sharename >\** "WindowsImageBackup" **\\<ComputerBackedUp>\.</br>Wichtig: Wenn Sie eine Sicherung auf einem freigegebenen Remoteordner speichern, werden bei Verwendung des gleichen Ordner auf dem gleichen Computer erneut sichern, dass die Sicherung überschrieben. Darüber hinaus, wenn der Sicherungsvorgang fehlerhaft, können es ohne Sicherung kommen, da die ältere Sicherung überschrieben werden, aber die neuere Sicherung nicht verwendet werden. Sie können dies vermeiden, indem Sie Unterordner erstellen, in den freigegebenen Remoteordner zum Organisieren Ihrer Sicherungen. Wenn Sie dies tun, benötigen die Unterordner zweimal Bereich als den übergeordneten Ordner.|
-|-include|Für Windows ° Vista und Windows Server 2008 gibt die durch Trennzeichen getrennte Liste von volumelaufwerkbuchstaben, Volumebereitstellungspunkten oder GUID-basierten Volumenamen in die Sicherung eingeschlossen werden sollen. Dieser Parameter sollte verwendet werden nur dann, wenn die **- BackupTarget** Parameter wird verwendet.</br>Für Windows ° 7 und Windows Server 2008 R2 und höher gibt an, die durch Trennzeichen getrennte Liste von Elementen, die in die Sicherung einschließen. Sie können mehrere Dateien, Ordner oder Volumes enthalten. Volumepfade können mit Volumelaufwerkbuchstaben, Volumebereitstellungspunkten oder GUID-basierten Volumenamen angegeben werden. Wenn Sie einen GUID-basierten Volumenamen verwenden, sollten sie mit einem umgekehrten Schrägstrich beendet (\\). Sie können das Platzhalterzeichen (\*) in den Dateinamen ein, wenn Sie einen Pfad zu einer Datei angeben. Sollte verwendet werden, nur, wenn die **- BackupTarget** Parameter wird verwendet.|
-|-Ausschließen|Für Windows ° 7 und Windows Server 2008 R2 und höher gibt an, die durch Trennzeichen getrennte Liste von Elementen, die von der Sicherung ausgeschlossen. Sie können Dateien, Ordner oder Volumes ausschließen. Volumepfade können mit Volumelaufwerkbuchstaben, Volumebereitstellungspunkten oder GUID-basierten Volumenamen angegeben werden. Wenn Sie einen GUID-basierten Volumenamen verwenden, sollten sie mit einem umgekehrten Schrägstrich beendet (\\). Sie können das Platzhalterzeichen (\*) in den Dateinamen ein, wenn Sie einen Pfad zu einer Datei angeben. Sollte verwendet werden, nur, wenn die **- BackupTarget** Parameter wird verwendet.|
-|-nonRecurseInclude|Für Windows ° 7 und Windows Server 2008 R2 und höher gibt an, die nicht rekursiven, durch Trennzeichen getrennte Liste von Elementen, die in die Sicherung einschließen. Sie können mehrere Dateien, Ordner oder Volumes enthalten. Volumepfade können mit Volumelaufwerkbuchstaben, Volumebereitstellungspunkten oder GUID-basierten Volumenamen angegeben werden. Wenn Sie einen GUID-basierten Volumenamen verwenden, sollten sie mit einem umgekehrten Schrägstrich beendet (\\). Sie können das Platzhalterzeichen (\*) in den Dateinamen ein, wenn Sie einen Pfad zu einer Datei angeben. Sollte verwendet werden, nur, wenn die **- BackupTarget** Parameter wird verwendet.|
-|-nonRecurseExclude|Für Windows ° 7 und Windows Server 2008 R2 und höher gibt an, die nicht rekursiven, durch Trennzeichen getrennte Liste von Elementen, die von der Sicherung ausgeschlossen. Sie können Dateien, Ordner oder Volumes ausschließen. Volumepfade können mit Volumelaufwerkbuchstaben, Volumebereitstellungspunkten oder GUID-basierten Volumenamen angegeben werden. Wenn Sie einen GUID-basierten Volumenamen verwenden, sollten sie mit einem umgekehrten Schrägstrich beendet (\\). Sie können das Platzhalterzeichen (\*) in den Dateinamen ein, wenn Sie einen Pfad zu einer Datei angeben. Sollte verwendet werden, nur, wenn die **- BackupTarget** Parameter wird verwendet.|
-|-allCritical|Gibt an, dass alle wichtigen Volumes (Volumes, die Status des Betriebssystems enthalten) in die Sicherungen einbezogen werden. Dieser Parameter ist hilfreich, wenn Sie eine Sicherung für eine bare-Metal-Recovery erstellen. Er sollte verwendet werden nur, wenn **- BackupTarget** ist angegeben, andernfalls der Befehl schlägt fehl. Kann verwendet werden, mit der **-umfassen** Option.</br>Tipp: Das Zielvolume für eine kritische-Volume-Sicherung kann ein lokales Laufwerk sein, aber es nicht möglich, alle Volumes, die in der Sicherung enthalten sind.|
-|-"SystemState"|Für Windows ° 7 und Windows Server 2008 R2 und höher, erstellt eine Sicherung, die den Systemstatus zusätzlich zu aller anderen Elemente, die Sie angegeben haben enthält, mit der **-umfassen** Parameter. Der Systemstatus enthält Startdateien (Datei "Boot.ini", NDTLDR, NTDetect.com) der Windows-Registrierung, z. B. com-Einstellungen, SYSVOL (Gruppenrichtlinien und Anmeldeskripts), die Active Directory und NTDS. Die DIT auf einem Domänencontroller und, wenn der Dienst Zertifikate installiert ist, wird das Zertifikat Store. Wenn Ihr Server die Webserverrolle installiert hat, wird das IIS-Metaverzeichnis eingeschlossen werden. Wenn der Server Teil eines Clusters ist, wird der Clusterdienst-Informationen auch enthalten sein.|
-|-noVerify|Gibt an, dass Sicherungen auf ein Wechselmedium (z. B. eine DVD) gespeichert, nicht auf Fehler überprüft werden. Wenn Sie diesen Parameter nicht verwenden, werden Sicherungen gespeichert werden, auf ein Wechselmedium auf Fehler überprüft.|
-|-Benutzer|Wenn die Sicherung in einem freigegebenen Remoteordner gespeichert wird, gibt den Benutzernamen mit Schreibberechtigung auf den Ordner aus.|
-|-Kennwort|Gibt das Kennwort für den Benutzernamen ein, die von den Parameter bereitgestellte **-Benutzer**.|
-|-noInheritAcl|Betrifft die Zugriffssteuerungsliste (ACL) Zugriffsberechtigungen, die entsprechen der Anmeldeinformationen der **-Benutzer** und **-Kennwort** Parameter \\ \\ \< Servername >\<Sharename > \WindowsImageBackup\<ComputerBackedUp > \ (im Ordner mit der Sicherung). Für den Zugriff auf die Sicherung müssen Sie später verwenden Sie diese Anmeldeinformationen oder ein Mitglied der Gruppe "Administratoren" oder die Gruppe "Sicherungsoperatoren" auf dem Computer mit den freigegebenen Ordner sein. Wenn **- NoInheritAcl** wird nicht verwendet, die ACL-Berechtigungen aus dem freigegebenen Remoteordner gelten für die \<ComputerBackedUp > Ordner standardmäßig so, dass alle Personen mit Zugriff auf den freigegebenen Remoteordner die Sicherung zugreifen kann.|
-|-vssFull|Führt eine vollständige Sicherung, mit dem Volumeschattenkopie-Dienst (Volume Shadow Copy Service, VSS). Alle Dateien gesichert werden, jede Dateiverlauf wird aktualisiert, um darauf hinzuweisen, dass sie gesichert wurde, und die Protokolle von vorherigen Sicherungen verkürzt werden. Wenn dieser Parameter nicht verwendet wird **Sicherung des Wbadmin-starten** wird eine kopiesicherung, aber den Verlauf der Dateien, die gesichert werden, wird nicht aktualisiert.</br>Vorsicht: Verwenden Sie diesen Parameter nicht, wenn Sie ein Produkt als Windows Server-Sicherung verwenden, zum Sichern von Anwendungen, die auf den Volumes, die in der aktuellen Sicherung enthalten sind. Dadurch kann also zu schwerwiegenden Fehlern führen die inkrementelle, Differenziell oder andere Art von Sicherungen, die die anderen sicherungsanwendung erstellt wird, da der Verlauf, dem sie verlassen sich auf Sie bestimmen, wie viele Daten für die Sicherung möglicherweise fehlen und sie ggf. eine vollständige ausführen Sicherung unnötig.|
-|-vssCopy|Für Windows 7 und Windows Server 2008 R2 und höher führt eine kopiesicherung mit VSS. Alle Dateien gesichert werden, aber der Verlauf der Dateien gesichert wird nicht aktualisiert werden, sodass Sie beibehalten werden, die alle Informationen, auf welche Dateien von, geändert, gelöscht, usw., sowie alle Protokolldateien für die Anwendung. Verwenden diese Art der Sicherung wirkt sich nicht auf die Reihenfolge der inkrementellen oder differenziellen Sicherungen aus, die unabhängig von dieser Sicherung kopieren auftreten können. Dies ist der Standardwert.</br>Warnung: Eine kopiesicherung kann nicht für inkrementelle oder differenzielle Sicherungen oder Wiederherstellungen verwendet werden.|
-|-quiet|Wird keine aufforderungen den Unterbefehl für dem Benutzer ausgeführt.|
+|-backupTarget|Gibt den Speicherort für diese Sicherung an. Erfordert einen Festplatten Laufwerksbuchstaben (f:), einen auf einem Volume-GUID basierenden Pfad im Format \\?\\ \\ Volume {GUID} oder ein Universal Naming Convention (UNC)-Pfad zu einem freigegebenen Remote Ordner\\(\\\\\<Servername >\\\<ShareName >). Standardmäßig \\wird die Sicherung unter:\\ \< \\\\ \\ \<Servername >\<ShareName > WindowsImageBackup gespeichert. ComputerBackedUp-\\>.</br>Wichtig: Wenn Sie eine Sicherung in einem freigegebenen Remote Ordner speichern, wird diese Sicherung überschrieben, wenn Sie denselben Ordner zum erneuten sichern desselben Computers verwenden. Wenn der Sicherungs Vorgang fehlschlägt, können Sie darüber hinaus keine Sicherung erstellen, da die ältere Sicherung überschrieben wird, aber die neuere Sicherung nicht verwendbar ist. Sie können dies vermeiden, indem Sie Unterordner im freigegebenen Remote Ordner erstellen, um die Sicherungen zu organisieren. Wenn Sie dies tun, benötigen die Unterordner den doppelten Speicherplatz als übergeordneten Ordner.|
+|-include|Gibt für Windows ° Vista und Windows Server 2008 die durch Trennzeichen getrennte Liste der volumelaufwerks Buchstaben, Volumebereitstellungspunkte oder GUID-basierten Volumen Amen an, die in die Sicherung eingeschlossen werden sollen. Dieser Parameter sollte nur verwendet werden, wenn der **-backupTarget-** Parameter verwendet wird.</br>Für Windows 7 und Windows Server 2008 R2 und höher gibt die durch Trennzeichen getrennte Liste der Elemente an, die in die Sicherung eingeschlossen werden sollen. Sie können mehrere Dateien, Ordner oder Volumes einschließen. Volumepfade können mit Volumelaufwerkbuchstaben, Volumebereitstellungspunkten oder GUID-basierten Volumenamen angegeben werden. Wenn Sie einen GUID-basierten Volumenamen verwenden, sollte er mit einem umgekehrten Schrägstrich (\\) beendet werden. Sie können das Platzhalter Zeichen (\*) im Dateinamen verwenden, wenn Sie einen Pfad zu einer Datei angeben. Sollte nur verwendet werden, wenn der **-backupTarget-** Parameter verwendet wird.|
+|-ausschließen|Für Windows 7 und Windows Server 2008 R2 und höher gibt die durch Trennzeichen getrennte Liste der Elemente an, die von der Sicherung ausgeschlossen werden sollen. Dateien, Ordner oder Volumes können ausgeschlossen werden. Volumepfade können mit Volumelaufwerkbuchstaben, Volumebereitstellungspunkten oder GUID-basierten Volumenamen angegeben werden. Wenn Sie einen GUID-basierten Volumenamen verwenden, sollte er mit einem umgekehrten Schrägstrich (\\) beendet werden. Sie können das Platzhalter Zeichen (\*) im Dateinamen verwenden, wenn Sie einen Pfad zu einer Datei angeben. Sollte nur verwendet werden, wenn der **-backupTarget-** Parameter verwendet wird.|
+|-nonRecurseInclude|Gibt für Windows 7 und Windows Server 2008 R2 und höher die nicht rekursive, durch Kommas getrennte Liste der Elemente an, die in die Sicherung eingeschlossen werden sollen. Sie können mehrere Dateien, Ordner oder Volumes einschließen. Volumepfade können mit Volumelaufwerkbuchstaben, Volumebereitstellungspunkten oder GUID-basierten Volumenamen angegeben werden. Wenn Sie einen GUID-basierten Volumenamen verwenden, sollte er mit einem umgekehrten Schrägstrich (\\) beendet werden. Sie können das Platzhalter Zeichen (\*) im Dateinamen verwenden, wenn Sie einen Pfad zu einer Datei angeben. Sollte nur verwendet werden, wenn der **-backupTarget-** Parameter verwendet wird.|
+|-nonrecurabexclude|Gibt für Windows 7 und Windows Server 2008 R2 und höher die nicht rekursive, durch Kommas getrennte Liste von Elementen an, die von der Sicherung ausgeschlossen werden sollen. Dateien, Ordner oder Volumes können ausgeschlossen werden. Volumepfade können mit Volumelaufwerkbuchstaben, Volumebereitstellungspunkten oder GUID-basierten Volumenamen angegeben werden. Wenn Sie einen GUID-basierten Volumenamen verwenden, sollte er mit einem umgekehrten Schrägstrich (\\) beendet werden. Sie können das Platzhalter Zeichen (\*) im Dateinamen verwenden, wenn Sie einen Pfad zu einer Datei angeben. Sollte nur verwendet werden, wenn der **-backupTarget-** Parameter verwendet wird.|
+|-allcritical|Gibt an, dass alle wichtigen Volumes (Volumes, die den Zustand des Betriebssystems enthalten) in den Sicherungen enthalten sein sollen. Dieser Parameter ist hilfreich, wenn Sie eine Sicherung für die Bare-Metal-Recovery erstellen. Sie sollte nur verwendet werden, wenn " **-backupTarget** " angegeben wird, da andernfalls der Befehl fehlschlägt. Kann mit der Option **-include** verwendet werden.</br>Tipp: Das Zielvolume für eine Sicherung mit einem kritischen Volume kann ein lokales Laufwerk sein, aber es darf keines der Volumes sein, die in der Sicherung enthalten sind.|
+|-SystemState|Für Windows 7 und Windows Server 2008 R2 und höher erstellt eine Sicherung, die zusätzlich zu allen anderen Elementen, die Sie mit dem Parameter " **-include** " angegeben haben, auch den Systemstatus enthält. Der Systemstatus enthält Startdateien (Boot. ini, ndtldr, NTDetect.com), die Windows-Registrierung einschließlich com-Einstellungen, SYSVOL (Gruppenrichtlinien und Anmelde Skripts), die Active Directory und NTDS. DIT auf Domänen Controllern und im Zertifikat Speicher, wenn der Zertifikat Dienst installiert ist. Wenn die Webserver Rolle auf dem Server installiert ist, wird das IIS-Metaverzeichnis eingeschlossen. Wenn der Serverteil eines Clusters ist, werden auch Cluster Dienst Informationen eingeschlossen.|
+|-noVerify|Gibt an, dass auf einem Wechselmedium (z. b. einer DVD) gespeicherte Sicherungen nicht auf Fehler überprüft werden. Wenn Sie diesen Parameter nicht verwenden, werden Sicherungen, die auf einem Wechsel Datenträger gespeichert werden, auf Fehler überprüft.|
+|-Benutzer|Wenn die Sicherung in einem freigegebenen Remote Ordner gespeichert wird, gibt Sie den Benutzernamen mit der Schreib Berechtigung für den Ordner an.|
+|-Kennwort|Gibt das Kennwort für den Benutzernamen an, der vom Parameter **-User**bereitgestellt wird.|
+|-nogeerbt ACL|Wendet die Zugriffs Steuerungs Listen-Berechtigungen, die den Anmelde Informationen entsprechen, die von den Parametern " **-User** " und " **-Password** " bereit\\ gestellt werden, auf "Servername" an >\< \\ \\ \< ShareName >\\\\Windows\<Image Backup ComputerBackedUp >\\ (der Ordner, der die Sicherung enthält). Wenn Sie später auf die Sicherung zugreifen möchten, müssen Sie diese Anmelde Informationen verwenden oder Mitglied der Gruppe "Administratoren" oder der Gruppe "Sicherungs-Operatoren" auf dem Computer mit dem freigegebenen Ordner sein. Wenn **-nogeerbt ACL** nicht verwendet wird, werden die ACL-Berechtigungen aus dem freigegebenen Remote Ordner Standard \\mäßig auf den \<Ordner ComputerBackedUp > angewendet, sodass jeder Benutzer mit Zugriff auf den freigegebenen Remote Ordner auf die Sicherung zugreifen kann.|
+|-vssfull|Führt eine vollständige Sicherungskopie mithilfe des Volumeschattenkopie-Dienst (VSS) aus. Alle Dateien werden gesichert, der Verlauf jeder Datei wird aktualisiert, um widerzuspiegeln, dass Sie gesichert wurde, und die Protokolle vorheriger Sicherungen werden möglicherweise abgeschnitten. Wenn dieser Parameter nicht verwendet wird, wird bei der **Start Sicherung von Wbadmin** eine Kopier Sicherung durchgeführt, aber der Verlauf der zu sichernden Dateien wird nicht aktualisiert.</br>Vorsicht: Verwenden Sie diesen Parameter nicht, wenn Sie ein anderes Produkt als Windows Server-Sicherung zum Sichern von Anwendungen verwenden, die sich auf den Volumes befinden, die in der aktuellen Sicherung enthalten sind. Dadurch kann der inkrementelle, differenzielle oder andere Sicherungstyp, der vom anderen Sicherungs Produkt erstellt wird, möglicherweise nicht mehr ausgeführt werden, da der Verlauf, auf den Sie sich verlassen, bestimmt, wie viele Daten gesichert werden können, und Sie können eine vollständige Sicherung durchführen. tigerweise.|
+|-vsscopy|Für Windows 7 und Windows Server 2008 R2 und höher wird eine Kopiesicherung mithilfe von VSS durchführt. Alle Dateien werden gesichert, aber der Verlauf der Dateien, die gesichert werden, wird nicht aktualisiert, sodass Sie alle Informationen darüber erhalten, wo die Dateien geändert, gelöscht usw. sowie beliebige Anwendungsprotokoll Dateien. Die Verwendung dieser Art von Sicherung wirkt sich nicht auf die Sequenz von inkrementellen und differenziellen Sicherungen aus, die unabhängig von dieser Kopier Sicherung auftreten können. Dies ist der Standardwert.</br>Warnung: Eine Kopier Sicherung kann nicht für inkrementelle oder differenzielle Sicherungen oder Wiederherstellungen verwendet werden|
+|-quiet|Führt den Unterbefehl ohne Aufforderungen an den Benutzer aus.|
 
-## <a name="BKMK_examples"></a>Beispiele für
+## <a name="BKMK_examples"></a>Beispiele
 
-Die folgenden Beispiele zeigen die **Sicherung des Wbadmin-starten** in verschiedenen backup-Szenarien verwendet werden:
+In den folgenden Beispielen wird gezeigt, wie der Befehl **Wbadmin start Backup** in verschiedenen sicherungsszenarien verwendet werden kann:
 
 Szenario #1
-- Erstellen Sie eine Sicherung von Volumes "e:", d:\mountpoint, und \\ \\? \Volume{cc566d14-4410-11d9-9d93-806e6f6e6963}
+- Erstellen Sie eine Sicherungskopie der Volumes e:,\\d: Mountpoint \\und\\ \\? Volume {cc566d14-4410-11d9-9d93-806e6f6e6963}
 - Speichern Sie die Sicherung auf Volume f:
   ```
   wbadmin start backup -backupTarget:f: -include:e:,d:\mountpoint,\\?\Volume{cc566d14-44a0-11d9-9d93-806e6f6e6963}\
   ```
   Szenario #2
-- Führen Sie eine Einmalsicherung *f:\folder1* und *h:\folder2* Volume *"d:"* .
-- Sicherung des Systemstatus
-- Stellen Sie eine Sicherung kopieren, damit die Normal geplante differenzielle Sicherung nicht beeinträchtigt wird.
+- Führen Sie eine einmalige Sicherung von *f:\\"Ordner1"* und *h:\\Folder2* für Volume *d:* aus.
+- Sichern des Systemstatus
+- Erstellen Sie eine Kopiesicherung, sodass die normalerweise geplante differenzielle Sicherung nicht beeinträchtigt wird.
   ```
   wbadmin start backup –backupTarget:d: -include:g\folder1,h:\folder2 –systemstate -vsscopy
   ```
-  #3-Szenario
-- Führen Sie eine Einmalsicherung *d:\folder1* , sollte gesichert werden nicht rekursiv.
-- Sichern Sie den Ordner für den Netzwerkspeicherort  *\\ \\backupshare\backup1*
-- Beschränken des Zugriffs auf die Mitglieder der Sicherung der **Administratoren** oder **Sicherungs-Operatoren** Gruppe.
+  Szenario #3
+- Führen Sie eine einmalige Sicherung von *\\d: "Ordner1"* aus, die nicht rekursiv gesichert werden soll.
+- Sichern Sie den Ordner im Netzwerk Speicherort  *\\ \\Sicherungs\\Sicherung 1*
+- Beschränken Sie den Zugriff auf die Sicherung auf Mitglieder der Gruppe " **Administratoren** " oder " **Sicherungs-Operatoren** ".
   ```
   wbadmin start backup –backupTarget: \\backupshare\backup1 -noinheritacl -nonrecurseinclude:d:\folder1
   ```
