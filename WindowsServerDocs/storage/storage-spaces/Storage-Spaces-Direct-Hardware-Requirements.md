@@ -9,12 +9,12 @@ ms.topic: article
 author: eldenchristensen
 ms.date: 08/05/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: d899ec41b9a87089f03a576fa11dfa7d210fe194
-ms.sourcegitcommit: b68ff64ecd87959cd2acde4a47506a01035b542a
+ms.openlocfilehash: 59c04a858ceae44ee51c1de10fc40b27dc22ef90
+ms.sourcegitcommit: e04565e4a1fb7aaed04addd2bc87cc6ec4c82e81
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68830897"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69529891"
 ---
 # <a name="storage-spaces-direct-hardware-requirements"></a>Hardwareanforderungen für „Direkte Speicherplätze“
 
@@ -131,5 +131,5 @@ Laufwerke können für den Server oder ein externes Gehäuse, das mit nur einem 
 
 | Höchstwerte                | Windows Server 2019  | Windows Server 2016  |
 | ---                     | ---------            | ---------            |
-| Rohkapazität pro Server | 100 TB               | 100 TB               |
+| Rohkapazität pro Server | 400 TB               | 100 TB               |
 | Pool Kapazität           | 4 PB (4.000 TB)      | 1 PB                 |
