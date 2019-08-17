@@ -1,6 +1,6 @@
 ---
-Title: Übersicht über Storage-Migration Service
-description: Storage-Migration-Dienst erleichtert es, für die Migration der Server auf eine neuere Version von Windows Server. Es bietet ein grafisches Tool, die inventarisiert, die Daten auf Servern und dann die Daten und die Konfiguration auf neueren Servern übertragen – alles ohne Anwendungen oder Benutzer Änderungen vornehmen müssen.
+Title: Übersicht über den Speicher Migrationsdienst
+description: Mit dem Speichermigrationsdienst können Server einfacher zu einer neueren Version von Windows Server migriert werden. Er bietet ein grafisches Tool, das Daten auf Servern inventarisiert und anschließend die Daten und die Konfiguration auf neuere Server überträgt – ganz ohne Apps oder die Notwendigkeit für Benutzer, irgendetwas zu ändern.
 author: jasongerend
 ms.author: jgerend
 manager: elizapo
@@ -8,116 +8,125 @@ ms.date: 05/21/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: ce4cbdc291d98a180ee6f5b597d322620fa1b19f
-ms.sourcegitcommit: 48bb3e5c179dc520fa879b16c9afe09e07c87629
+ms.openlocfilehash: 8118b58268e88a173a6219631e109ed1c436fea0
+ms.sourcegitcommit: 23a6e83b688119c9357262b6815c9402c2965472
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66453171"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69560553"
 ---
-# <a name="storage-migration-service-overview"></a>Übersicht über Storage-Migration Service
+# <a name="storage-migration-service-overview"></a>Übersicht über den Speicher Migrationsdienst
 
->Gilt für: WindowsServer 2019, Windows Server 2016, Windows Server 2012 R2, WindowsServer (Halbjährlicher Kanal)
+>Gilt für: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server (halbjährlicher Kanal)
 
-Storage-Migration-Dienst erleichtert es, für die Migration der Server auf eine neuere Version von Windows Server. Es bietet ein grafisches Tool, die inventarisiert, die Daten auf Servern und dann die Daten und die Konfiguration auf neueren Servern übertragen – alles ohne Anwendungen oder Benutzer Änderungen vornehmen müssen.
+Mit dem Speichermigrationsdienst können Server einfacher zu einer neueren Version von Windows Server migriert werden. Er bietet ein grafisches Tool, das Daten auf Servern inventarisiert und anschließend die Daten und die Konfiguration auf neuere Server überträgt – ganz ohne Apps oder die Notwendigkeit für Benutzer, irgendetwas zu ändern.
 
-In diesem Thema wird erläutert, warum Sie Storage-Migration-Dienst verwenden möchten, wie während der Migration funktioniert und was die Anforderungen für die Quell-und Zielserver sind.
+In diesem Thema wird erläutert, warum Sie Storage Migration Service verwenden möchten, wie der Migrationsprozess funktioniert und welche Anforderungen für Quell-und Zielserver gelten.
 
-## <a name="why-use-storage-migration-service"></a>Gründe für die Verwendung Storage Migration-Dienst
+## <a name="why-use-storage-migration-service"></a>Gründe für die Verwendung von Storage Migration Service
 
-Verwenden Sie Storage-Migration-Dienst, da Sie haben einen Server (oder viele Server), die Sie zu neuer Hardware oder virtuellen Computern migrieren möchten. Storage-Migration-Dienst soll helfen, indem Sie wie folgt vorgehen:
+Verwenden Sie den Speicher Migrationsdienst, weil Sie einen Server (oder viele Server) haben, den Sie zu neueren Hardware oder virtuellen Computern migrieren möchten. Der Speicher Migrationsdienst wurde entwickelt, um Folgendes zu unterstützen:
 
-- Inventarisieren Sie mehrere Server und ihre Daten
-- Schnell übertragen von Dateien, Dateifreigaben und Security-Konfiguration aus der Quellserver
-- Optional, damit Benutzer und apps keine Änderungen vornehmen, für den Zugriff auf vorhandene Daten haben Sie die Identität der Source Server (auch bekannt als Ausschneiden über)
-- Verwalten Sie eine oder mehrere Migrationen über die Benutzeroberfläche von Windows Admin Center
+- Inventarisieren mehrerer Server und der zugehörigen Daten
+- Schnelles übertragen von Dateien, Dateifreigaben und Sicherheits Konfigurationen von den Quell Servern
+- Übernehmen Sie optional die Identität der Quell Server (auch als "überspringen" bezeichnet), sodass Benutzer und apps nichts ändern müssen, um auf vorhandene Daten zuzugreifen.
+- Verwalten einer oder mehrerer Migrationen über die Benutzeroberfläche des Windows Admin Centers
 
-![Das Diagramm zeigt die Speicherdienst-Migration Migrieren von Dateien und die Konfiguration vom Quellserver auf den Zielserver, Azure-VMs und Azure File Sync.](media/overview/storage-migration-service-diagram.png)
+![Das Diagramm zeigt den Speicher Migrationsdienst, der Dateien & Konfiguration von Quell Servern zu Ziel Servern, Azure-VMS oder Azure-Dateisynchronisierung migriert.](media/overview/storage-migration-service-diagram.png)
 
-**Abbildung 1: Speicherung Datenbankmigrationsdienst Quellen und Ziele**
+**Abbildung 1: Quellen und Ziele des Speicher Migrations Dienstanbieter**
 
-## <a name="how-the-migration-process-works"></a>Wie funktioniert während der migration
+## <a name="how-the-migration-process-works"></a>Funktionsweise des Migrationsprozesses
 
-Migration ist ein dreistufiger Prozess:
+Die Migration ist ein dreistufiger Prozess:
 
-1. **Inventarisieren von Servern** zum Sammeln von Informationen zu den Dateien und die Konfiguration (siehe Abbildung 2).
-2. **Übertragen von Daten (Kopieren)** aus den Quellservern, auf dem Zielserver.
-3. **Zu den neuen Servern Übernahme** (optional).<br>Dem Zielserver davon aus der Quelle Server frühere Identitäten, damit apps und Benutzer keine Änderungen vornehmen. <br>Der Quellserver Geben Sie in einem Wartungszustand, in dem sie immer noch die gleichen enthalten, Dateien, die bislang (wir nie Dateien entfernen aus der Quellserver), aber nicht für Benutzer und apps verfügbar sind. Sie können dann die Server nach Wunsch außer Betrieb setzen.
+1. **Inventur Server** zum Erfassen von Informationen über Ihre Dateien und die Konfiguration (siehe Abbildung 2).
+2. **Übertragen (kopieren) von Daten** von den Quell Servern auf die Zielserver.
+3. **An die neuen Server über** springen (optional).<br>Die Zielserver übernehmen die früheren Identitäten der Quell Server, damit apps und Benutzer nichts ändern müssen. <br>Die Quell Server wechseln in einen Wartungszustand, in dem Sie immer noch dieselben Dateien enthalten, die Sie immer besitzen (es werden niemals Dateien von den Quell Servern entfernt), sind aber für Benutzer und apps nicht verfügbar. Anschließend können Sie die Server in ihrer freundlichen Zeit außer Betrieb setzen.
 
-![Screenshot mit einem Server bereit, die überprüft werden](media/migrate/inventory.png)
-**Abbildung 2: Speicherung Datenbankmigrationsdienst Inventarisierung von Servern**
+![Screenshot, der einen zu überprüfenden](media/migrate/inventory.png)
+**Server anzeigt Abbildung 2: Speicher Migrationsdienst-Inventur Server**
 
 ## <a name="requirements"></a>Anforderungen
 
-Um Speicherung Datenbankmigrationsdienst verwenden zu können, benötigen Sie Folgendes:
+Um Storage Migration Service verwenden zu können, benötigen Sie Folgendes:
 
-- Ein **Quellserver** zum Migrieren von Dateien und Daten aus
-- Ein **Zielserver** unter Windows Server-2019 zu migrieren – Windows Server 2016 und Windows Server 2012 R2, gut geeignet, aber sind ca. 50 % langsamer
-- Ein **Orchestrator-Server** unter Windows Server-2019 zum Verwalten der Migrations  <br>Wenn Sie nur ein paar Server migrieren, und einen der Server die Windows Server-2019 ausgeführt wird, können Sie, die als Orchestrator. Wenn Sie weitere Server migrieren, wird empfohlen, mit einem separaten OrchestratorServer.
-- Ein **PC oder Server mit [Windows Admin Center](../../manage/windows-admin-center/understand/windows-admin-center.md)**  die Benutzeroberfläche für die Speicherung Datenbankmigrationsdienst, ausgeführt werden, es sei denn, Sie mithilfe von PowerShell zum Verwalten der Migrations möchten. Die Version des Windows Admin Center und Windows Server-2019 müssen mindestens Version 1809.
+- Einen **Quell Server** zum Migrieren von Dateien und Daten aus
+- Ein **Zielserver** , auf dem Windows Server 2019 für die Migration zu – Windows Server 2016 und Windows Server 2012 R2 ausgeführt wird, funktioniert ebenfalls, aber Sie sind um 50% langsamer.
+- Ein **Orchestrator-Server** , auf dem Windows Server 2019 zum Verwalten der Migration ausgeführt wird  <br>Wenn Sie nur wenige Server migrieren und auf einem der Server Windows Server 2019 ausgeführt wird, können Sie diesen als Orchestrator verwenden. Wenn Sie weitere Server migrieren, empfiehlt es sich, einen separaten Orchestrator-Server zu verwenden.
+- Ein **PC oder Server, auf dem [Windows Admin Center](../../manage/windows-admin-center/understand/windows-admin-center.md)**  ausgeführt wird, um die Benutzeroberfläche von Storage Migration Service auszuführen, es sei denn, Sie verwenden lieber PowerShell zum Verwalten der Migration. Die Version Windows Admin Center und Windows Server 2019 muss mindestens Version 1809 aufweisen.
 
-Es wird dringend empfohlen, die der Orchestrator und dem Ziel Computer verfügen über mindestens zwei Kerne oder zwei vCPUs und über mindestens 2 GB Arbeitsspeicher. Inventar und Übertragung sind wesentlich schneller mit mehr Prozessoren und Arbeitsspeicher.
+Es wird dringend empfohlen, dass Orchestrator-und Zielcomputer über mindestens zwei Kerne oder zwei vCPUs und mindestens 2 GB Arbeitsspeicher verfügen. Inventur-und Übertragungs Vorgänge werden mit mehr Prozessoren und Arbeitsspeicher erheblich beschleunigt.
 
 ### <a name="security-requirements"></a>Sicherheitsanforderungen
 
-- Eine Migrationskonto, das ein Administrator auf dem Quellcomputer und dem Orchestrator-Computer ist.
-- Eine Migrationskonto, das ein Administrator auf dem Zielcomputer und dem Orchestrator-Computer ist.
-- Der Orchestrator-Computer müssen die Datei- und Druckerfreigabe (SMB eingehend) aktivierte Firewallregel *eingehende*.
-- Die Quelle und Ziel-Computer müssen die folgenden Firewallregeln aktiviert *eingehende* (auch wenn Sie bereits diese aktiviert haben können):
+- Ein Migrations Konto, das Administratorrechte auf den Quell Computern und dem Orchestrator-Computer ist.
+- Ein Migrations Konto, bei dem es sich um einen Administrator auf den Ziel Computern und dem Orchestrator-Computer handelt.
+- Auf dem Orchestrator-Computer muss die Firewallregel für die Datei-und Druckerfreigabe (SMB-in) eingehend aktiviert sein.
+- Auf den Quell-und Ziel Computern müssen die folgenden Firewallregeln in *eingehender* Richtung aktiviert sein (obwohl Sie diese möglicherweise bereits aktiviert haben):
   - Datei- und Druckerfreigabe (SMB eingehend)
-  - Der Netlogon-Dienst (NP eingehend)
+  - Anmeldedienst (NP-in)
   - Windows-Verwaltungsinstrumentation (DCOM-in)
   - Windows-Verwaltungsinstrumentation (WMI-In)
   
   > [!TIP]
-  > Den Proxydienst von Storage Migration-Dienst automatisch auf einem 2019 für Windows Server-Computer installieren, wird die erforderlichen Firewallports auf diesem Computer geöffnet.
-- Wenn die Computer einer Active Directory Domain Services-Domäne gehören, sollten sie alle zur selben Gesamtstruktur gehören. Der Zielserver muss auch in der gleichen Domäne wie der Quellserver sein, wenn Sie den Domänennamen von der Quelle in die Zieldatenbank übertragen werden, wenn über ausschneiden möchten. Aus technischer Sicht Umstellung funktioniert, domänenübergreifend, aber der vollqualifizierten Domänennamen des Ziels unterscheiden sich von der Quelle...
+  > Bei der Installation des Speicher Migrationsdienst-Proxy Dienstanbieter auf einem Computer mit Windows Server 2019 werden automatisch die erforderlichen Firewallports auf diesem Computer geöffnet.
+- Wenn die Computer zu einer Active Directory Domain Services Domäne gehören, sollten Sie alle zur selben Gesamtstruktur gehören. Der Zielserver muss sich auch in derselben Domäne befinden wie der Quell Server, wenn Sie beim überspringen den Domänen Namen der Quelle an das Ziel übertragen möchten. Die Umstellung erfolgt in technischer Hinsicht über Domänen übergreifend, aber der voll qualifizierte Domänen Name des Ziels unterscheidet sich von der Quelle...
 
-### <a name="requirements-for-source-servers"></a>Anforderungen für den Quellserver
+### <a name="requirements-for-source-servers"></a>Anforderungen für Quell Server
 
-Der Quellserver muss es sich um eines der folgenden Betriebssysteme ausgeführt:
+Auf dem Quell Server muss eines der folgenden Betriebssysteme ausgeführt werden:
 
-- WindowsServer Halbjährlicher Kanal
+- Windows Server (halbjährlicher Kanal)
 - Windows Server 2019
 - Windows Server 2016
 - Windows Server 2012 R2
 - Windows Server 2012
 - Windows Server 2008 R2
-- WindowsServer 2008
+- Windows Server 2008
 - Windows Server 2003 R2
 - Windows Server 2003
+- Windows Small Business Server 2003 R2
+- Windows Small Business Server 2008
+- Windows Small Business Server 2011
+- Windows Server 2012 Essentials
+- Windows Server 2012 R2 Essentials
+- Windows Server 2016 Essentials
+- Windows Server 2019 Essentials
 
-Wenn der Orchestrator 1903 oder höher, Windows Server ausgeführt wird, können Sie die folgenden Typen von zusätzlichen Quell-migrieren:
+Hinweis: Windows Small Business Server und Windows Server Essentials sind Domänen Controller. Der Speicher Migrationsdienst kann noch nicht von Domänen Controllern entfernt werden, kann jedoch Dateien inventarisieren und übertragen.   
+
+Wenn auf dem Orchestrator Windows Server, Version 1903 oder höher, ausgeführt wird, können Sie die folgenden zusätzlichen Quell Typen migrieren:
 
 - Failovercluster
-- Linux-Server, die Samba verwenden. Wir haben die folgenden getestet:
-    - RedHat Enterprise Linux 7.6, CentOS 7, Debian 8, Ubuntu 16.04 and 12.04.5, SUSE Linux Enterprise Server (SLES) 11 SP4
-    - Samba 4.x, 3.6.x
+- Linux-Server, die Samba verwenden. Wir haben Folgendes getestet:
+    - RedHat Enterprise Linux 7,6, CentOS 7, Debian 8, Ubuntu 16,04 und 12.04.5, SuSE Linux Enterprise Server (SLES) 11 SP4
+    - Samba 4. x, 3.6. x
 
-### <a name="requirements-for-destination-servers"></a>Anforderungen für den Zielserver
+### <a name="requirements-for-destination-servers"></a>Anforderungen für Zielserver
 
-Der Zielserver muss es sich um eines der folgenden Betriebssysteme ausgeführt:
+Auf dem Zielserver muss eines der folgenden Betriebssysteme ausgeführt werden:
 
-- WindowsServer Halbjährlicher Kanal
+- Windows Server (halbjährlicher Kanal)
 - Windows Server 2019
 - Windows Server 2016
 - Windows Server 2012 R2
 
 > [!TIP]
-> Der Zielserver unter Windows Server-2019 oder Windows Server, haben Halbjährlicher Kanal 1809 oder höher doppelte die übertragungsleistung früherer Versionen von Windows Server. Diese Leistungssteigerung wurde für den integrierten Speicherung Datenbankmigrationsdienst Proxydienst, der wird auch die erforderlichen Firewall geöffnet werden, die Ports, wenn sie nicht bereits sind öffnen.
+> Zielserver mit Windows Server 2019 oder Windows Server, halbjährlicher Kanal Version 1809 oder höher, haben eine doppelte Übertragungsleistung früherer Versionen von Windows Server. Diese Leistungssteigerung ist auf die Einbindung eines integrierten Speicher Migrationsdienst-Proxy Dienstanbieter zurückzuführen, der auch die erforderlichen Firewallports öffnet, sofern diese noch nicht geöffnet sind.
 
-## <a name="whats-new-in-storage-migration-service"></a>Neuerungen im Storage-Migration-Dienst
+## <a name="whats-new-in-storage-migration-service"></a>Neuerungen bei Storage Migration Service
 
-Windows Server-Version 1903 fügt die folgenden neuen Features, die bei Ausführung auf dem Orchestrator-Server:
+Windows Server, Version 1903, bietet die folgenden neuen Features, wenn Sie auf dem Orchestrator-Server ausgeführt werden:
 
-- Migrieren Sie lokale Benutzer und Gruppen mit dem neuen server
-- Migrieren des Speichers von Failoverclustern
-- Migrieren des Speichers von einem Linux-Server, der Samba verwendet
-- Synchronisieren Sie leichter migrierte Dateifreigaben in Azure mithilfe von Azure File Sync
-- Migrieren Sie zu neuen wie z. B. Azure-Netzwerken
+- Migrieren lokaler Benutzer und Gruppen zum neuen Server
+- Migrieren von Speicher von Failoverclustern
+- Migrieren von Speicher von einem Linux-Server, der Samba verwendet
+- Vereinfachte Synchronisierung von migrierten Freigaben zu Azure mithilfe von Azure-Dateisynchronisierung
+- Migrieren zu neuen Netzwerken wie etwa Azure
 
 ## <a name="see-also"></a>Siehe auch
 
-- [Migrieren eines Dateiservers mit Storage-Migration-Dienst](migrate-data.md)
-- [Storage Migration Services: häufig gestellte Fragen (FAQ)](faq.md)
-- [Speicherung Datenbankmigrationsdienst bekannte Probleme](known-issues.md)
+- [Migrieren eines Dateiservers mithilfe von Storage Migration Service](migrate-data.md)
+- [Häufig gestellte Fragen (FAQ) zu Storage Migration Services](faq.md)
+- [Bekannte Probleme bei Storage Migration Service](known-issues.md)

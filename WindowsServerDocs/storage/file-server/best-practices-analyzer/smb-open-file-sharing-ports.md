@@ -1,5 +1,5 @@
 ---
-Title: 'SMB: Datei- und Druckerfreigabe Ports sollte geöffnet sein.'
+title: SMB Datei-und Druckerfreigabe Ports müssen geöffnet sein.
 TOCTitle: 'SMB: File and printer sharing ports should be open'
 ms.date: 07/02/2012
 ms.prod: windows-server-threshold
@@ -7,21 +7,21 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: fae579347a43dfa361206e65032b1f3da512ec4a
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: a22801be6ec73b6819a190c793d28feae4edcf69
+ms.sourcegitcommit: 23a6e83b688119c9357262b6815c9402c2965472
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67284373"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69560424"
 ---
-# <a name="smb-file-and-printer-sharing-ports-should-be-open"></a>SMB: Datei- und Druckerfreigabe Ports sollte geöffnet sein.
+# <a name="smb-file-and-printer-sharing-ports-should-be-open"></a>SMB Datei-und Druckerfreigabe Ports müssen geöffnet sein.
 
 
-Aktualisiert: 2 Februar 2011
+Aktualisiert: 2. Februar 2011
 
-Gilt für: WindowsServer 2019, WindowsServer 2016, Windows Server 2012 R2 und WindowsServer 2012, Windows Server 2008 R2
+Gilt für: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 und Windows Server 2012, Windows Server 2008 R2
 
-*Dieses Thema soll ein spezifisches, durch eine Best Practices Analyzer-Überprüfung ermitteltes Problem behandelt. Sie sollten die Informationen in diesem Thema nur auf Computer anwenden, die der Datei Services Best Practices Analyzer ausführen mussten und stoßen auf das Problem behoben, indem in diesem Thema. Weitere Informationen zu best Practices und Überprüfungen finden Sie unter* [Best Practices Analyzer](http://go.microsoft.com/fwlink/?linkid=122786%0d%0a).
+*Dieses Thema dient der Behebung eines bestimmten Problems, das durch einen Best Practices Analyzer Scan identifiziert wird. Die Informationen in diesem Thema sollten nur auf Computer angewendet werden, auf denen die Dateidienste Best Practices Analyzer ausgeführt wurden und die in diesem Thema behandelt werden. Weitere Informationen zu bewährten Methoden und Scans finden* Sie unter [Best Practices Analyzer](http://go.microsoft.com/fwlink/?linkid=122786%0d%0a).
 
 
 <table>
@@ -35,11 +35,11 @@ Gilt für: WindowsServer 2019, WindowsServer 2016, Windows Server 2012 R2 und Wi
 <td><p>Windows Server</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>Produkt /-Funktion</strong></p></td>
+<td><p><strong>Produkt/Feature</strong></p></td>
 <td><p>Dateidienste</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>Schweregrad</strong></p></td>
+<td><p><strong>Zunehmen</strong></p></td>
 <td><p>Fehler</p></td>
 </tr>
 <tr class="even">
@@ -51,27 +51,27 @@ Gilt für: WindowsServer 2019, WindowsServer 2016, Windows Server 2012 R2 und Wi
 
 ## <a name="issue"></a>Problem
 
-> *Nicht öffnen der Firewallports werden muss, damit die Datei- und Druckerfreigabe (Ports 445 und 139).*
+> *Die Firewallports, die für die Datei-und Druckerfreigabe erforderlich sind, sind nicht geöffnet (Ports 445 und 139).*
 
 ## <a name="impact"></a>Auswirkungen
 
-> *Computer werden nicht auf freigegebene Ordner und andere Server Message Block SMB-basierten Netzwerkdienste auf diesem Server zugreifen können.*
+> *Computer können nicht auf freigegebene Ordner und andere auf Server Message Block (SMB) basierende Netzwerkdienste auf diesem Server zugreifen.*
 
 ## <a name="resolution"></a>Auflösung
 
-> *Aktivieren Sie Datei- und Druckerfreigabe, für die Kommunikation durch Firewall des Computers.*
+> *Aktivieren Sie die Datei-und Druckerfreigabe für die Kommunikation über die Firewall des Computers.*
 
 Zum Ausführen dieser Prozedur müssen Sie Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe sein.
 
-## <a name="to-open-the-firewall-ports-to-enable-file-and-printer-sharing"></a>Zum Öffnen der Firewallports zum Aktivieren der Datei- und Druckerfreigabe
+## <a name="to-open-the-firewall-ports-to-enable-file-and-printer-sharing"></a>So öffnen Sie die Firewallports zum Aktivieren der Datei-und Druckerfreigabe
 
 1.  Öffnen Sie die Systemsteuerung, klicken Sie auf **System und Sicherheit**, und klicken Sie dann auf **Windows-Firewall**.
 
-2.  Klicken Sie im linken Bereich auf **Erweiterte Einstellungen**, und klicken Sie in der Konsolenstruktur auf **Eingangsregeln**.
+2.  Klicken Sie im linken Bereich auf **Erweiterte Einstellungen**, und klicken Sie in der Konsolen Struktur auf **Eingehende Regeln**.
 
-3.  Klicken Sie unter **Eingangsregeln**, suchen Sie die Regeln **Datei- und Druckerfreigabe (NB-Sitzung eingehend)** und **Datei- und Druckerfreigabe (SMB eingehend)** .
+3.  Suchen Sie unter **Eingehende Regeln**die Regel **Datei und die Druckerfreigabe (NB-Session-in)** und **Datei-und Druckerfreigabe (SMB-in)** .
 
-4.  Für jede Regel, mit der rechten Maustaste in der Regelsatzes aus, und klicken Sie dann auf **Regel aktivieren**.
+4.  Klicken Sie für jede Regel mit der rechten Maustaste auf die Regel, und klicken Sie dann auf **Regel aktivieren**.
 
 ## <a name="additional-references"></a>Weitere Verweise
 

@@ -1,6 +1,6 @@
 ---
-title: Speicherung Datenbankmigrationsdienst bekannte Probleme
-description: Bekannte Probleme und Supportinformationen zur Problembehandlung für Storage-Migration-Dienst, wie das Sammeln von Protokollen für Microsoft-Support.
+title: Bekannte Probleme bei Storage Migration Service
+description: Bekannte Probleme und Problembehandlung für den Speicher Migrationsdienst, z. b. das Sammeln von Protokollen für Microsoft-Support.
 author: nedpyle
 ms.author: nedpyle
 manager: siroy
@@ -8,75 +8,75 @@ ms.date: 07/09/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: 08156a09491d66016b5fcfe6056ed318d682b987
-ms.sourcegitcommit: 514d659c3bcbdd60d1e66d3964ede87b85d79ca9
+ms.openlocfilehash: efd92e9f6a199ad901e95b18718f3b448c3207e2
+ms.sourcegitcommit: 23a6e83b688119c9357262b6815c9402c2965472
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67735161"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69560584"
 ---
-# <a name="storage-migration-service-known-issues"></a>Speicherung Datenbankmigrationsdienst bekannte Probleme
+# <a name="storage-migration-service-known-issues"></a>Bekannte Probleme bei Storage Migration Service
 
-Dieses Thema enthält Antworten auf die bekannten Probleme bei der Verwendung von [Speicherung Datenbankmigrationsdienst](overview.md) Servern zu migrieren.
+Dieses Thema enthält Antworten auf bekannte Probleme bei der Verwendung von [Storage Migration Service](overview.md) zum Migrieren von Servern.
 
-## <a name="collecting-logs"></a> Sammeln von Protokolldateien bei der Arbeit mit Microsoft-Support
+## <a name="collecting-logs"></a>Sammeln von Protokolldateien beim Arbeiten mit Microsoft-Support
 
-Die Storage-Migration-Dienst enthält die Ereignisprotokolle für den Orchestrator-Dienst und dem Anwendungsproxydienst. Der Server Urchestrator enthält immer beide Ereignisprotokolle und Zielserver mit dem anwendungsproxydienst installiert enthalten die Proxyprotokolle. Diese Protokolle befinden sich unter:
+Der Speicher Migrationsdienst enthält Ereignisprotokolle für den Orchestrator-Dienst und den Proxy Dienst. Der urchestrator-Server enthält immer Ereignisprotokolle, und Zielserver, auf denen der Proxy Dienst installiert ist, enthalten die Proxy Protokolle. Diese Protokolle befinden sich unter:
 
-- Anwendungs- und Dienstprotokolle \ Microsoft \ Windows \ StorageMigrationService
-- Anwendungs- und Dienstprotokolle \ Microsoft \ Windows \ StorageMigrationService-Proxy
+- Anwendungs-und Dienst Protokolle \ Microsoft \ Windows \ storagemigrationservice
+- Anwendungs-und Dienst Protokolle \ Microsoft \ Windows \ storagemigrationservice-Proxy
 
-Wenn Sie diese Protokolle für die Offlineanzeige sammeln oder an Microsoft Support senden müssen, ist es eine open-Source-PowerShell-Skripts auf GitHub verfügbar:
+Wenn Sie diese Protokolle für die Offline Anzeige oder zum Senden an Microsoft-Support erfassen müssen, ist auf GitHub ein Open-Source-PowerShell-Skript verfügbar:
 
- [Storage-Migration-Dienst-Hilfsprogramm](https://aka.ms/smslogs) 
+ [Hilfsprogramm für den Speicher Migrationsdienst](https://aka.ms/smslogs) 
 
-Infodatei für die Nutzung.
+Lesen Sie die Informationen zur Verwendung.
 
-## <a name="storage-migration-service-doesnt-show-up-in-windows-admin-center-unless-managing-windows-server-2019"></a>Storage Migration-Dienst wird nicht in Windows Admin Center angezeigt, wenn die Verwaltung von Windows Server-2019
+## <a name="storage-migration-service-doesnt-show-up-in-windows-admin-center-unless-managing-windows-server-2019"></a>Der Speicher Migrationsdienst wird nicht im Windows Admin Center angezeigt, es sei denn, Windows Server 2019 wird verwaltet.
 
-Wenn Sie die 1809-Version von Windows Admin Center zum Verwalten von einem Windows Server-2019 "Orchestrator" verwenden, werden keine die Tool-Option für Storage-Migration-Dienst angezeigt. 
+Wenn Sie die Version 1809 von Windows Admin Center zum Verwalten eines Windows Server 2019 Orchestrator verwenden, wird die Option Tool für Storage Migration Service nicht angezeigt. 
 
-Die Windows Admin Center Storage Migration Service-Erweiterung ist Version-Grenze für die alleinige Verwaltung von Windows Server-2019 Version 1809 oder höher. Wenn Sie ihn zum Verwalten von älteren Windows Server-Betriebssystemen oder Insider Preview-Versionen verwenden, wird das Tool nicht angezeigt. Dieses Verhalten ist entwurfsbedingt. 
+Die Windows Admin Center Storage Migration Service-Erweiterung ist nur für die Verwaltung der Betriebssysteme Windows Server 2019, Version 1809 oder höher, Versions gebunden. Wenn Sie damit ältere Windows Server-Betriebssysteme oder Insider-Vorschau Versionen verwalten, wird das Tool nicht angezeigt. Dieses Verhalten ist entwurfsbedingt. 
 
-Um zu beheben, verwenden, oder ein upgrade auf Windows Server-2019 Build 1809 oder höher.
+Verwenden Sie zum Auflösen von Windows Server 2019 Build 1809 oder höher, oder führen Sie ein Upgrade durch.
 
-## <a name="storage-migration-service-doesnt-let-you-choose-static-ip-on-cutover"></a>Speicherung Datenbankmigrationsdienst können nicht Sie statische IP-Adresse für die Umstellung auswählen.
+## <a name="storage-migration-service-doesnt-let-you-choose-static-ip-on-cutover"></a>Der Speicher Migrationsdienst ermöglicht Ihnen nicht, statische IP-Adressen auf dem Umstellung auszuwählen.
 
-Bei Verwendung der 0.57 Version von Storage Migration Service-Erweiterung in Windows Admin Center, und Sie die Umstellung Phase zu erreichen, können nicht Sie eine statische IP-Adresse für eine Adresse auswählen. Sie sind gezwungen, DHCP zu verwenden.
+Wenn Sie die Version 0,57 der Storage Migration Service-Erweiterung im Windows Admin Center verwenden und die Umschalter Phase erreichen, können Sie keine statische IP-Adresse für eine Adresse auswählen. Sie sind gezwungen, DHCP zu verwenden.
 
-Zum Beheben dieses Problems in Windows Admin Center, suchen Sie unter **Einstellungen** > **Erweiterungen** für eine Benachrichtigung angezeigt wird die aktualisierte Version Speicherung Datenbankmigrationsdienst 0.57.2 für die Installation verfügbar ist. Sie müssen möglicherweise Ihre Registerkarte ' Browser ', für Windows-Admin Center neu zu starten.
+Um dieses Problem zu beheben, suchen Sie im Windows Admin Center unter **Einstellungen** > **Erweiterungen** nach einer Warnung, die besagt, dass die aktualisierte Version Storage Migration Service 0.57.2 zur Installation zur Verfügung steht. Möglicherweise müssen Sie die Browser Registerkarte für Windows Admin Center neu starten.
 
-## <a name="storage-migration-service-cutover-validation-fails-with-error-access-is-denied-for-the-token-filter-policy-on-destination-computer"></a>Speicherung Datenbankmigrationsdienst Umstellung Validierung schlägt fehl mit Fehler "Zugriff verweigert für die Richtlinie tokenfilter auf Zielcomputer"
+## <a name="storage-migration-service-cutover-validation-fails-with-error-access-is-denied-for-the-token-filter-policy-on-destination-computer"></a>Die Überprüfung des Speicher Migrationsdienst-cutovers schlägt mit dem Fehler "Zugriff wird für die tokenfilterrichtlinie auf dem Zielcomputer verweigert" fehl
 
-Bei der Umstellung Überprüfung ausgeführt wird, wird die Fehlermeldung "Fehler: Zugriff für die Richtlinie tokenfilter auf Zielcomputer verweigert." Dies tritt auf, auch wenn Sie richtig lokale Administratoranmeldeinformationen für die sowohl die Quell-und Zielcomputer bereitgestellt.
+Beim Ausführen der Überprüfung des cutovers erhalten Sie den Fehler "Fehler: Der Zugriff auf die tokenfilterrichtlinie auf dem Zielcomputer wird verweigert. " Dies geschieht auch, wenn Sie sowohl für den Quell-als auch für den Zielcomputer die richtigen lokalen Administrator Anmelde Informationen angegeben haben
 
-Dieses Problem wird durch einen Codefehler in Windows Server-2019 verursacht. Das Problem treten auf, wenn Sie den Zielcomputer als ein Dienstorchestrator des Storage-Migration verwenden.
+Dieses Problem wird durch einen Code Fehler in Windows Server 2019 verursacht. Das Problem tritt auf, wenn Sie den Zielcomputer als Orchestrator für den Speicher Migrationsdienst verwenden.
 
-Um dieses Problem zu umgehen, installieren Sie den Storage-Migration-Dienst auf einem 2019 für Windows Server-Computer, der nicht die gewünschten Migrationsziel ist dann eine Verbindung mit diesem Server mit Windows Admin Center herstellen Sie, und führen Sie die Migration.
+Um dieses Problem zu umgehen, installieren Sie den Speicher Migrationsdienst auf einem Windows Server 2019-Computer, der nicht das Ziel für die Migration ist. Stellen Sie dann eine Verbindung mit diesem Server über das Windows Admin Center her, und führen Sie die Migration aus.
 
-Wir haben dies in einer späteren Version von Windows Server behoben. Öffnen Sie eine Supportanfrage über [Microsoft-Support](https://support.microsoft.com) zum Anfordern einer Backport von diesem Fix erstellt werden.
+Dies wurde in einer späteren Version von Windows Server korrigiert. Öffnen Sie eine Supportanfrage über [Microsoft-Support](https://support.microsoft.com) , um einen Backport für diesen Fehler zu erstellen.
 
-## <a name="storage-migration-service-isnt-included-in-windows-server-2019-evaluation-edition"></a>Storage-Migration-Dienst ist in der Evaluierungsversion von Windows Server 2019 nicht enthalten.
+## <a name="storage-migration-service-isnt-included-in-windows-server-2019-evaluation-or-windows-server-2019-essentials-edition"></a>Storage Migration Service ist nicht in Windows Server 2019 Evaluation oder Windows Server 2019 Essentials Edition enthalten.
 
-Wenn Windows Admin Center zum Herstellen einer Verbindung mit einem [Evaluierungsversion von Windows Server 2019](https://www.microsoft.com/evalcenter/evaluate-windows-server-2019) gibt es keine Option zum Verwalten von Storage-Migration-Dienst. Storage-Migration-Dienst ist nicht auch in Rollen und Features enthalten.
+Wenn Sie Windows Admin Center verwenden, um eine Verbindung mit einer [Windows Server 2019-Evaluierungsversion](https://www.microsoft.com/evalcenter/evaluate-windows-server-2019) oder Windows Server 2019 Essentials Edition herzustellen, gibt es keine Option zum Verwalten des Speicher Migrations Dienstanbieter. Storage Migration Service ist auch nicht in Rollen und Features enthalten.
 
-Dieses Problem wird durch ein servicing Problem in die Evaluierungsmedien von Windows Server-2019 verursacht. 
+Dieses Problem wird durch ein Wartungsproblem in den Evaluierungs Medien von Windows Server 2019 und Windows Server 2019 Essentials verursacht. 
 
-Um dieses Problem zu umgehen, installieren Sie eine Verkaufsversion, MSDN, OEM oder einem Volume License-Version von Windows Server-2019 aus, und aktivieren Sie nicht. Arbeiten ohne Aktivierung alle Editionen von Windows Server im auswertungsmodus für 180 Tage. 
+Um dieses Problem für die Evaluierung zu umgehen, installieren Sie eine Einzelhandels-, MSDN-, OEM-oder Volumenlizenz Version von Windows Server 2019, und aktivieren Sie Sie nicht. Ohne Aktivierung werden alle Editionen von Windows Server 180 Tage lang im Evaluierungs Modus ausgeführt. 
 
-Wir haben dieses Problem in einer späteren Version von Windows Server-2019 behoben.  
+Dieses Problem wurde in einem späteren Release von Windows Server behoben.  
 
-## <a name="storage-migration-service-times-out-downloading-the-transfer-error-csv"></a>Storage Migration-Dienst ein Timeout auftritt, die Fehler beim Übertragen der CSV-Download
+## <a name="storage-migration-service-times-out-downloading-the-transfer-error-csv"></a>Timeout des Speicher Migrations Dienstanbieter beim Herunterladen des Übertragungsfehler-CSV
 
-Wenn Windows Admin Center oder PowerShell verwenden die Übertragung Vorgänge ausführliche Fehler nur CSV-Protokoll herunterladen, erhalten Sie Fehler auf:
+Wenn Sie das Windows Admin Center oder PowerShell verwenden, um das CSV-Protokoll mit ausführlichen Fehlern bei der Übertragungs Operation herunterzuladen, erhalten Sie folgende Fehlermeldung:
 
- >   Übertragungsprotokoll – überprüfen Sie, ob die Freigabe von Dateien in Ihrer Firewall zulässig ist. : Dieser Anforderungsvorgang gesendet, um die NET. TCP://localhost: 28940/Sms/Service/1/Übertragung hat keine empfangen eine Antwort innerhalb des konfigurierten Timeouts (00: 01:00). Die für diesen Vorgang zugewiesene Zeit war möglicherweise ein Teil eines längeren Timeouts. Dies kann sein, da der Dienst den Vorgang noch verarbeitet oder der Dienst eine Antwortnachricht senden konnte. Erhöhen Sie das Timeout des Vorgangs (durch Umwandeln des Kanals/Proxys in IContextChannel und Festlegen der OperationTimeout-Eigenschaft), und stellen Sie sicher, dass der Dienst an den Client eine Verbindung herstellen können.
+ >   Übertragungsprotokoll: Überprüfen Sie, ob die Dateifreigabe in der Firewall zulässig ist. : Dieser Anforderungs Vorgang, der an net. TCP://localhost: 28940/SMS/Service/1/Transfer gesendet wurde, hat innerhalb des konfigurierten Timeouts (00:01:00) keine Antwort empfangen. Die für diesen Vorgang zugewiesene Zeit war möglicherweise ein Teil eines längeren Timeouts. Dies liegt möglicherweise daran, dass der Dienst den Vorgang noch verarbeitet oder der Dienst keine Antwortnachricht senden konnte. Erhöhen Sie das Timeout für den Vorgang (indem Sie den Kanal/Proxy in IContextChannel umwandeln und die Eigenschaft OperationTimeout festlegen), und stellen Sie sicher, dass der Dienst eine Verbindung mit dem Client herstellen kann.
 
-Dieses Problem wird durch eine extrem hohe Anzahl von übertragenen Dateien verursacht, die in das Standardtimeout-einer Minute zulässig, die vom Speicherdienst für die Migration nicht gefiltert werden können. 
+Dieses Problem wird durch eine extrem große Anzahl übertragener Dateien verursacht, die nicht in dem vom Speicher Migrationsdienst zulässigen Standard Timeout von einer Minute gefiltert werden können. 
 
-Um dieses Problem zu umgehen:
+So umgehen Sie dieses Problem:
 
-1. Bearbeiten Sie auf dem Orchestrator-Computer die *%SYSTEMROOT%\SMS\Microsoft.StorageMigration.Service.exe.config* Datei mithilfe von Notepad.exe, um die "SendTimeout" vom Standardwert eine Minute in 10 Minuten zu ändern.
+1. Bearbeiten Sie auf dem Orchestrator-Computer die Datei *%systemroot%\SMS\Microsoft.StorageMigration.Service.exe.config* mithilfe von "Notepad. exe", um "SendTimeout" von der 1-minütigen Standardeinstellung in 10 Minuten zu ändern.
 
    ```
      <bindings>
@@ -85,128 +85,128 @@ Um dieses Problem zu umgehen:
                  sendTimeout="00:01:00"
    ```
 
-2. Starten Sie den Dienst "Storage-Migration-Dienst" auf dem Orchestrator-Computer neu. 
-3. Starten Sie Regedit.exe, auf dem Orchestrator-computer
+2. Starten Sie den Dienst "Storage Migration Service" auf dem Orchestrator-Computer neu. 
+3. Starten Sie auf dem Orchestrator-Computer "regedit. exe".
 4. Suchen Sie den folgenden Registrierungsunterschlüssel, und klicken Sie darauf: 
 
    `HKEY_LOCAL_MACHINE\\Software\\Microsoft\\SMSPowershell`
 
 5. Zeigen Sie im Menü „Bearbeiten“ auf „Neu“, und klicken Sie dann auf „DWORD-Wert“. 
-6. Geben Sie "WcfOperationTimeoutInMinutes" für den Namen des den DWORD-Wert ein, und drücken Sie dann die EINGABETASTE.
-7. Mit der rechten Maustaste "WcfOperationTimeoutInMinutes", und klicken Sie dann auf ändern. 
-8. Klicken Sie im Feld Basis auf "Decimal"
-9. Klicken Sie im Datenfeld "Wert" Geben Sie "10", und klicken Sie dann auf OK.
+6. Geben Sie "wcfoperationtimeoutinminutes" als Namen für das DWORD ein, und drücken Sie dann die EINGABETASTE.
+7. Klicken Sie mit der rechten Maustaste auf "wcfoperationtimeoutinminutes", und klicken Sie dann auf ändern. 
+8. Klicken Sie im Feld Base Data auf "Decimal".
+9. Geben Sie im Feld Wertdaten den Wert "10" ein, und klicken Sie dann auf OK.
 10. Beenden Sie den Registrierungs-Editor.
-11. Es wurde versucht, die die Fehler nur CSV-Datei erneut herunterladen. 
+11. Es wird erneut versucht, die CSV-Datei mit Fehlern herunterzuladen. 
 
-Ändern Sie dieses Verhalten in einer späteren Version von Windows Server-2019 geplant.  
+Wir beabsichtigen, dieses Verhalten in einer späteren Version von Windows Server 2019 zu ändern.  
 
-## <a name="cutover-fails-when-migrating-between-networks"></a>Umstellung schlägt fehl, wenn die Migration zwischen Netzwerken
+## <a name="cutover-fails-when-migrating-between-networks"></a>Fehler bei der Migration zwischen Netzwerken
 
-Bei der Migration zu einem Zielcomputer ausgeführt wird, in einem anderen Netzwerk als die Quelle, z. B. einer Azure-IaaS-Instanz kann Umstellung abgeschlossen, wenn die Quelle eine statische IP-Adresse verwendet wurde. 
+Beim Migrieren zu einem Zielcomputer, der in einem anderen Netzwerk als der Quelle ausgeführt wird, z. b. eine Azure-IaaS-Instanz, kann Umstellung nicht fertiggestellt werden, wenn die Quelle eine statische IP-Adresse verwendet hat. 
 
-Dieses Verhalten ist beabsichtigt, um Konnektivitätsprobleme nach der Migration von Benutzern, Anwendungen und Skripts, die eine Verbindung über IP-Adresse zu verhindern. Wenn die IP-Adresse aus dem alten Quellcomputer in das neue Ziel verschoben wird, wird nicht sie die neuen Netzwerk-Subnetz-Informationen und vielleicht DNS und WINS-übereinstimmen.
+Dieses Verhalten ist beabsichtigt, um Konnektivitätsprobleme nach der Migration von Benutzern, Anwendungen und Skripts zu verhindern, die über die IP-Adresse verbunden werden Wenn die IP-Adresse vom alten Quellcomputer zum neuen Zielziel verschoben wird, entspricht Sie nicht den neuen netzwerksubnetzinformationen und vielleicht DNS und WINS.
 
-Dieses Problem umgehen, führen Sie eine Migration auf einem Computer im selben Netzwerk. Klicken Sie dann diesen Computer zu einem neuen Netzwerk verschieben und seine IP-Informationen zuweisen. Z. B. bei der Migration zu Azure IaaS, zunächst zu einem lokalen virtuellen Computer migrieren und dann die Verwendung von Azure Migrate die VM nach Azure verschoben.  
+Um dieses Problem zu umgehen, führen Sie eine Migration zu einem Computer im gleichen Netzwerk durch. Verschieben Sie diesen Computer dann in ein neues Netzwerk, und weisen Sie seine IP-Informationen erneut zu. Wenn Sie beispielsweise eine Migration zu Azure IaaS durchführen, führen Sie zuerst eine Migration zu einer lokalen VM durch, und verwenden Sie dann Azure migrate, um den virtuellen Computer in Azure  
 
-Wir haben dieses Problem behoben, in einer späteren Version von Windows Admin Center. Wir werden jetzt können Sie Migrationen an, die Netzwerkeinstellungen des Zielservers nicht ändern. Die aktualisierte Erweiterung werden hier aufgelistet, bei der Veröffentlichung. 
+Dieses Problem wurde in einem späteren Release von Windows Admin Center behoben. Nun können Sie Migrationen angeben, die die Netzwerkeinstellungen des Zielservers nicht ändern. Die aktualisierte Erweiterung wird hier aufgelistet, wenn Sie veröffentlicht wird. 
 
-## <a name="validation-warnings-for-destination-proxy-and-credential-administrative-privileges"></a>Warnungen für die Ziel-Proxy und Anmeldeinformationen über Administratorrechte
+## <a name="validation-warnings-for-destination-proxy-and-credential-administrative-privileges"></a>Validierungs Warnungen für den Ziel Proxy und Administratorrechte für Anmelde Informationen
 
-Bei der Überprüfung eines Übertragungsauftrag des, sehen Sie die folgenden Warnungen:
+Beim Validieren eines Übertragungs Auftrags werden folgende Warnungen angezeigt:
 
- > **Die Anmeldeinformationen über Administratorrechte verfügt.**
- > Warnung: Aktion nicht remote verfügbar.
- > **Der Zielproxy wird registriert.**
- > Warnung: Der Zielproxy wurde nicht gefunden.
+ > **Die Anmelde Informationen verfügen über Administratorrechte.**
+ > Warnung: Die Aktion ist nicht Remote verfügbar.
+ > **Der Ziel Proxy ist registriert.**
+ > Warnung: Der Ziel Proxy wurde nicht gefunden.
 
-Wenn Sie die Storage-Migration-Dienstproxy-Dienst nicht auf dem Zielcomputer Windows Server-2019 installiert haben oder der Ziel-Computer, Windows Server 2016 oder Windows Server 2012 R2 befindet, ist dieses Verhalten beabsichtigt. Wir empfehlen die Migration zu einem 2019 für Windows Server-Computer mit dem Proxy für die deutlich verbesserte übertragungsleistung installiert.  
+Wenn Sie den Speicher Migrationsdienst-Proxy Dienst auf dem Zielcomputer mit Windows Server 2019 nicht installiert haben, oder wenn der Zielcomputer Windows Server 2016 oder Windows Server 2012 R2 ist, ist dieses Verhalten Entwurfs bedingt. Es wird empfohlen, zu einem Windows Server 2019-Computer zu migrieren, auf dem der Proxy installiert ist  
 
-## <a name="certain-files-do-not-inventory-or-transfer-error-5-access-is-denied"></a>Bestimmte Dateien nicht inventarisiert oder übertragen, 5-Fehler "Zugriff verweigert"
+## <a name="certain-files-do-not-inventory-or-transfer-error-5-access-is-denied"></a>Bestimmte Dateien werden nicht inventarisiert oder übertragen, Fehler 5: "Zugriff verweigert"
 
-Bei der Inventur oder Übertragung der Dateien aus der Quelle an die Zielcomputer verwendet werden sollen, nicht Dateien, die aus denen ein Benutzer Berechtigungen für Administratoren-Gruppe entfernt wurde migriert. Untersuchen die Storage-Migration-Dienst-Proxy-Debug zeigt:
+Bei der Inventarisierung oder Übertragung von Dateien von einer Quell-auf einen Zielcomputer können Dateien, von denen ein Benutzer die Administrator Gruppenberechtigungen entfernt hat, nicht migriert werden. Überprüfen des Speicher Migrations Dienstanbieter: Proxy Debug zeigt Folgendes an:
 
-  Protokollname:      Microsoft-Windows-StorageMigrationService-Proxy/Debug Source:        Microsoft-Windows-StorageMigrationService-Proxy Date:          2/26/2019 9:00:04 Uhr-Ereignis-ID:      10000 Aufgabenkategorie: Keine Ebene:         Fehlerschlüsselwörter:      
-  Benutzer:          Netzwerkcomputer-Dienst: srv1.contoso.com Beschreibung:
+  Protokoll Name:      Microsoft-Windows-storagemigrationservice-Proxy/debugquelle:        Microsoft-Windows-storagemigrationservice-Proxy Datum:          2/26/2019 9:00:04 Uhr Ereignis-ID:      10000 Aufgaben Kategorie: Keine Ebene:         Fehler Schlüsselwörter:      
+  Benutzer:          Netzwerkdienst Computer: SRV1.contoso.com Beschreibung:
 
-  02/26/2019-09:00:04.860 [Aufgabenschema] Fehler beim Übertragen der für \\srv1.contoso.com\public\indy.png: (5) Zugriff wird verweigert.
-Stapelüberwachung: Am Microsoft.StorageMigration.Proxy.Service.Transfer.FileDirUtils.OpenFile (String FileName, DesiredAccess DesiredAccess, ShareMode ShareMode, CreationDisposition CreationDisposition, FlagsAndAttributes FlagsAndAttributes) an Microsoft.StorageMigration.Proxy.Service.Transfer.FileDirUtils.GetTargetFile (Zeichenfolgenpfad) am Microsoft.StorageMigration.Proxy.Service.Transfer.FileDirUtils.GetTargetFile ("FileInfo"-Datei) an Microsoft.StorageMigration.Proxy.Service.Transfer.FileTransfer.InitializeSourceFileInfo() am Microsoft.StorageMigration.Proxy.Service.Transfer.FileTransfer.Transfer() an Microsoft.StorageMigration.Proxy.Service.Transfer.FileTransfer.TryTransfer() [d:\os\src\base\dms\proxy\transfer\transferproxy\FileTransfer.cs::TryTransfer::55]
+  02/26/2019-09:00:04.860 [ERRO] Übertragungsfehler für \\SRV1. ". com\public\indy.png": (5) der Zugriff wurde verweigert.
+Stapel Überwachung: bei Microsoft. storagemigration. Proxy. Service. Transfer. filedirutils. OpenFile (Zeichenfolge Dateiname, desiredAccess desiredAccess, share Mode Share Mode, kreationdisposition erationdisposition, flagsandattribute flagsandattribute) unter Microsoft. storagemigration. Proxy. Service. Transfer. filedirutils. gettargetfile (Zeichen folgen Pfad) bei Microsoft. storagemigration. Proxy. Service. Transfer. filedirutils. gettargetfile (FileInfo-Datei) unter Microsoft. storagemigration. Proxy. Service. Transfer. Filetransfer. initializesourcefileingefo () bei Microsoft. storagemigration. Proxy. Service. Transfer. Filetransfer. Transfer () at Microsoft. storagemigration. Proxy. Service. Transfer. Filetransfer. trytransfer () [d:\os\src\base\dms\proxy\transfer\transferproxy\filetransfer.cs:: trytransfer:: 55]
 
 
-Dieses Problem wird durch einen Codefehler im Storage-Migration-Dienst verursacht, in dem die Sicherung Berechtigung nicht aufgerufen wurde. 
+Dieses Problem wird durch einen Code Fehler im Speicher Migrationsdienst verursacht, bei dem die Sicherungs Berechtigung nicht aufgerufen wurde. 
 
-Um dieses Problem zu beheben, installieren [Windows Update 2 April 2019 – KB4490481 (OS Build 17763.404)](https://support.microsoft.com/help/4490481/windows-10-update-kb4490481) auf dem Orchestrator-Computer und dem Zielcomputer, wenn der Dienst gibt es installiert ist. Stellen Sie sicher, dass die Benutzer-Konto des Quellstandorts-Migration ein lokaler Administrator auf dem Quellcomputer und der Speicherung Datenbankmigrationsdienst Orchestrator ist. Stellen Sie sicher, dass das Benutzerkonto des Ziel-Migration ein lokaler Administrator auf dem Zielcomputer und der Speicherung Datenbankmigrationsdienst Orchestrator ist. 
+Um dieses Problem zu beheben, installieren Sie [Windows Update 2. April 2019 – KB4490481 (OS Build 17763,404)](https://support.microsoft.com/help/4490481/windows-10-update-kb4490481) auf dem Orchestrator-Computer und dem Zielcomputer, wenn der Proxy Dienst dort installiert ist. Stellen Sie sicher, dass das Benutzerkonto der Quell Migration ein lokaler Administrator auf dem Quellcomputer und der Orchestrator für den Speicher Migrationsdienst ist. Stellen Sie sicher, dass das Benutzerkonto für die Ziel Migration ein lokaler Administrator auf dem Zielcomputer und der Orchestrator für den Speicher Migrationsdienst ist. 
 
-## <a name="dfsr-hashes-mismatch-when-using-storage-migration-service-to-preseed-data"></a>DFSR-Hashes Konflikt, wenn Storage-Migration-Dienst zum Seeding von Daten
+## <a name="dfsr-hashes-mismatch-when-using-storage-migration-service-to-preseed-data"></a>Nicht übereinstimmende DFSR-Hashes bei der Verwendung von Storage Migration Service zum vorab Seed von Daten
 
-Wenn Sie den Storage-Migration-Dienst zum Übertragen von Dateien an ein neues Ziel verwenden, klicken Sie dann konfigurieren die DFS-Replikation (DFSR) zum Replizieren von Daten mit einem vorhandenen DFSR-Server über Presseded Replikation oder DFSR-Datenbank beim Klonen, alle Dateien Experiemce einen hash Konflikt und werden erneut repliziert werden. Die Datenströme, Sicherheitsdatenströme, Größen und Attribute, die alle perfekt abgeglichen wird, nach der Verwendung von SMS an sie übertragen werden. Examing zeigt die Dateien mit ICACLS oder das Debugprotokoll der DFSR-Datenbank zum Klonen:
+Wenn Sie den Speicher Migrationsdienst zum Übertragen von Dateien an ein neues Ziel verwenden und dann die DFS-Replikation (DFSR) konfigurieren, um diese Daten mit einem vorhandenen DFSR-Server durch die Press-oder DFSR-Daten Bank Klonen zu replizieren, wird für alle Dateien ein Hash verwendet. nicht übereinstimmende und werden erneut repliziert. Die Datenströme, Sicherheitsdaten Ströme, Größen und Attribute werden nach der Verwendung von SMS für die Übertragung der Datenströme angezeigt. Wenn Sie die Dateien mit icacls oder dem Klon-Debugprotokoll der DFSR-Datenbank Überprüfung
 
 Quelldatei:
 
-  Icacls d:\test\Source:
+  icacls d:\test\quelle:
 
-  icacls d:\test\thatcher.png /save out.txt /t thatcher.png D:AI(A;;FA;;;BA)(A;;0x1200a9;;;DD)(A;;0x1301bf;;;DU)(A;ID;FA;;;BA)(A;ID;FA;;;SY)(A;ID;0x1200a9;;;BU)
+  icacls d:\test\thatcher.png/Save out. txt/t Thatcher. png d:Ai (A;; FA;;; BA) (A;; 0 x1200a9;;;D D) (A;; 0 x1301bf;;;D U) (A; ID; FA;;; BA) (A; ID; FA;;; SY) (A; ID; 0x1200a9;;; ECM
 
 Zieldatei:
 
-  icacls d:\test\thatcher.png /save out.txt /t thatcher.png D:AI(A;;FA;;;BA)(A;;0x1301bf;;;DU)(A;;0x1200a9;;;DD)(A;ID;FA;;;BA)(A;ID;FA;;;SY)(A;ID;0x1200a9;;;BU)**S:PAINO_ACCESS_CONTROL**
+  icacls d:\test\thatcher.png/Save out. txt/t Thatcher. png d:Ai (A;; FA;;; BA) (A;; 0 x1301bf;;;D U) (A;; 0 x1200a9;;;D D) (A; ID; FA;;; BA) (A; ID; FA;;; SY) (A; ID; 0x1200a9;;; BU)**S:PAINO_ACCESS_CONTROL**
 
 DFSR-Debugprotokoll:
 
-  20190308 10:18:53.116 3948 DBCL 4045 [Warnung] stimmt nicht überein. DBClone::IDTableImportUpdate Datensatz wurde gefunden. 
+  20190308 10:18:53.116 3948 dbcl 4045 [warn] dbclone:: idtableimportupdate-Konflikt Daten Satz gefunden. 
 
-  Lokale ACL-Hash: 1BCDFE03-A18BCE01-D1AE9859-23A0A5F6 LastWriteTime:20190308 18:09:44.876 FileSizeLow:1131654 FileSizeHigh:0 Attribute: 32 
+  Lokaler ACL-Hash: 1bcdfe03-A18BCE01-D1AE9859-23a0a5f 6 LastWrite-Time: 20190308 18:09:44.876 filesizelow: 1131654 filesizehigh: 0 Attribute: 32 
 
-  Klonen Sie ACL-Hash:**DDC4FCE4-DDF329C4-977CED6D-F4D72A5B** LastWriteTime:20190308 18:09:44.876 FileSizeLow:1131654 FileSizeHigh:0 Attribute: 32 
+  Klon-ACL-Hash:**DDC4FCE4-DDF329C4-977ced6d-F4D72A5B** LastWrite-Time: 20190308 18:09:44.876 filesizelow: 1131654 filesizehigh: 0 Attribute: 32 
 
-Dieses Problem wird durch einen Codefehler in einer Bibliothek, die vom Speicherdienst Migration verwendet werden, um die sicherheitsüberwachung ACLs (SACL) festgelegt, verursacht. Eine SACL ungleich Null ist versehentlich festgelegt werden, wenn die SACL leer ist, wurde führende DFSR einen Hash-Konflikt ordnungsgemäß zu identifizieren. 
+Dieses Problem wird durch einen Code Fehler in einer Bibliothek verursacht, die vom Speicher Migrationsdienst zum Festlegen von Sicherheits Überwachungs-Zugriffs Steuerungs Listen (Security Audit ACLs, SACL) verwendet wird. Eine SACL, die keine NULL-Werte ist, wird versehentlich festgelegt, wenn die SACL leer war, was dazu führte, dass DFSR den Hash nicht übereinstimmt. 
 
-Zur Umgehung dieses Problem, weiterhin mit Robocopy für [vorabseedings DFSR-als auch DFSR-Datenbank Klonvorgänge](../dfs-replication/preseed-dfsr-with-robocopy.md) anstelle von dem Storage-Migration-Dienst. Wir werden das Problem zu untersuchen und zum Beheben dieses Problems in einer späteren Version von Windows Server und möglicherweise einen Windows Update-bereitgestellt werden soll. 
+Um dieses Problem zu umgehen, verwenden Sie weiterhin Robocopy für [DFSR-Pre-Seeding-und DFSR-Daten Bank Klon Vorgänge](../dfs-replication/preseed-dfsr-with-robocopy.md) anstelle des Storage Migration Service. Wir untersuchen dieses Problem und beabsichtigen, dieses Problem in einer neueren Version von Windows Server und möglicherweise einer backportiert-Windows Update zu beheben. 
 
-## <a name="error-404-when-downloading-csv-logs"></a>Fehler 404 beim Herunterladen der CSV-Protokolle
+## <a name="error-404-when-downloading-csv-logs"></a>Fehler 404 beim Herunterladen von CSV-Protokollen
 
-Beim Versuch, die die Übertragung oder Fehler Protokolle am Ende der einem Übertragungsvorgang herunterzuladen, erhalten Sie Fehler auf:
+Wenn Sie versuchen, die Übertragungs-oder Fehlerprotokolle am Ende eines Übertragungs Vorgangs herunterzuladen, erhalten Sie folgende Fehlermeldung:
 
-  $jobname: Übertragungsprotokoll: Ajax-Fehler 404
+  $Jobname: Übertragungsprotokoll: AJAX-Fehler 404
 
-Dieser Fehler wird erwartet, wenn Sie die Firewallregel "Datei- und Druckerfreigabe (SMB eingehend)" auf dem OrchestratorServer nicht aktiviert haben. Dateidownloads Windows Admin Center müssen Port TCP/445 (SMB) auf verbundenen Computern.  
+Dieser Fehler wird erwartet, wenn Sie die Firewallregel "Datei-und Druckerfreigabe (SMB-in)" auf dem Orchestrator-Server nicht aktiviert haben. Zum Herunterladen von Windows Admin Center-Dateien ist Port TCP/445 (SMB) auf verbundenen Computern erforderlich.  
 
-## <a name="error-couldnt-transfer-storage-on-any-of-the-endpoints-when-transfering-from-windows-server-2008-r2"></a>Fehler "konnte nicht transfer Speicher auf einem der Endpunkte" beim Übertragen von Windows Server 2008 R2
+## <a name="error-couldnt-transfer-storage-on-any-of-the-endpoints-when-transfering-from-windows-server-2008-r2"></a>Fehler "der Speicher konnte bei der Übertragung von Windows Server 2008 R2 nicht an einen der Endpunkte übertragen werden.
 
-Beim Versuch, Daten von einem Windows Server 2008 R2-Quellcomputer zu übertragen, erhalten keine Datenübertragungen und Sie zu einem Fehler:  
+Beim Versuch, Daten von einem Windows Server 2008 R2-Quellcomputer zu übertragen, erhalten Sie keine Datenübertragungen, und Sie erhalten eine Fehlermeldung:  
 
-  Speicherkonto konnte nicht auf einem der Endpunkte übertragen werden.
+  Der Speicher konnte auf keinem der Endpunkte übertragen werden.
 0x9044
 
-Dieser Fehler wird erwartet, wenn es sich bei Ihrem Windows Server 2008 R2-Computer mit allen kritischen und wichtigen Updates über Windows Update ist nicht alle Patches installiert. Unabhängig von der Speicherung Datenbankmigrationsdienst empfehlen wir grundsätzlich die Patchen von eines Windows Server 2008 R2-Computers aus Sicherheitsgründen wie das Betriebssystem nicht zu die sicherheitsverbesserungen neuerer Versionen von Windows Server enthält.
+Dieser Fehler wird erwartet, wenn Ihr Windows Server 2008 R2-Computer nicht vollständig mit allen kritischen und wichtigen Updates von Windows Update gepatcht ist. Unabhängig vom Speicher Migrationsdienst empfehlen wir immer, einen Windows Server 2008 R2-Computer zu Sicherheitszwecken zu patchen, da dieses Betriebssystem nicht die Sicherheitsverbesserungen von neueren Versionen von Windows Server enthält.
 
-## <a name="error-couldnt-transfer-storage-on-any-of-the-endpoints-and-check-if-the-source-device-is-online---we-couldnt-access-it"></a>Fehler "konnte nicht transfer Speicher auf einem der Endpunkte" und "Überprüfen ist das Quellgerät online - konnte nicht wir darauf zugreifen."
+## <a name="error-couldnt-transfer-storage-on-any-of-the-endpoints-and-check-if-the-source-device-is-online---we-couldnt-access-it"></a>Fehler "der Speicher konnte nicht an einen der Endpunkte übertragen werden", und "Überprüfen Sie, ob das Quellgerät Online ist-wir konnten nicht darauf zugreifen."
 
-Beim Versuch, Daten von einem Quellcomputer zu übertragen, werden einige oder alle Freigaben nicht, mit der Zusammenfassung Fehler übertragen:
+Beim Versuch, Daten von einem Quellcomputer zu übertragen, werden einige oder alle Freigaben nicht übertragen, zusammenfassende Fehler:
 
-   Speicherkonto konnte nicht auf einem der Endpunkte übertragen werden.
+   Der Speicher konnte auf keinem der Endpunkte übertragen werden.
 0x9044
 
-Untersuchen die Details der SMB-Übertragung wird Fehler angezeigt:
+Die Überprüfung der Details zur SMB-Übertragung zeigt Folgendes
 
-   Überprüfen Sie, wenn das Quellgerät online - ist es darauf zugreifen konnte nicht.
+   Überprüfen Sie, ob das Quellgerät Online ist-wir konnten nicht darauf zugreifen.
 
-Zeigt das StorageMigrationService/Admin-Ereignisprotokoll untersucht:
+Die Untersuchung des storagemigrationservice/Admin-Ereignis Protokolls zeigt Folgendes:
 
-   Speicherkonto konnte nicht übertragen werden.
+   Speicher konnte nicht übertragen werden.
 
-   Auftrag: Job1 ID:  
-   Status: Fehler: 36931 Fehlermeldung angezeigt: 
+   Auftrag Den job1-ID:  
+   Land Fehler: 36931-Fehlermeldung: 
 
-   Leitfaden: Prüfen Sie die ausführliche Fehlermeldung, und stellen Sie sicher, dass die Übertragung Anforderungen erfüllt werden. Der Übertragungsauftrag konnten keine Quell- und Ziel-Computer übertragen. Dies möglicherweise daran, dass der Orchestrator-Computer konnten keine Computer Quell- oder Zielschema, möglicherweise aufgrund einer Firewallregel erreichen oder Berechtigungen fehlt.
+   Leitfaden: Überprüfen Sie den detaillierten Fehler, und stellen Sie sicher, dass die Übertragungsanforderungen erfüllt sind. Der Übertragungs Auftrag konnte keine Quell-und Zielcomputer übertragen. Dies kann darauf zurückzuführen sein, dass der Orchestrator-Computer keinen Quell-oder Zielcomputer erreichen konnte, möglicherweise aufgrund einer Firewallregel oder fehlender Berechtigungen.
 
-Untersuchen die StorageMigrationService-Proxy/Debug Protokoll zeigt:
+Die Untersuchung des storagemigrationservice-Proxy/Debug-Protokolls zeigt Folgendes:
 
-   Fehler beim Überprüfen von 07/02/2019-13:35:57.231 [Aufgabenschema] übertragen. ErrorCode: 40961, Quellendpunkt ist nicht erreichbar oder nicht vorhanden ist, Datenquellen-Anmeldeinformationen sind ungültig oder authentifizierter Benutzer verfügt nicht über ausreichende Berechtigungen für den Zugriff.
-am Microsoft.StorageMigration.Proxy.Service.Transfer.TransferOperation.Validate() am Microsoft.StorageMigration.Proxy.Service.Transfer.TransferRequestHandler.ProcessRequest ("FileTransferRequest FileTransferRequest", "Guid" operationId "")    [d:\os\src\base\dms\proxy\transfer\transferproxy\TransferRequestHandler.cs::
+   07/02/2019-13:35:57.231 [ERRO] Überprüfung der Übertragung fehlgeschlagen. ErrorCode 40961, der Quell Endpunkt ist nicht erreichbar oder nicht vorhanden, oder die Quell Anmelde Informationen sind ungültig, oder der authentifizierte Benutzer verfügt nicht über ausreichende Zugriffsberechtigungen.
+bei Microsoft. storagemigration. Proxy. Service. Transfer. transferoperation. Validate () bei Microsoft. storagemigration. Proxy. Service. Transfer. transferrequesthandler. ProcessRequest (filetransferrequest filetransferrequest, GUID operationId)    [d:\os\src\base\dms\proxy\transfer\transferproxy\transferrequesthandler.cs::
 
-Dieser Fehler wird erwartet, verfügt Ihr Migrationskonto nicht mindestens Lesezugriff auf die SMB-Freigaben. Zur Umgehung dieses Fehlers fügen Sie eine Sicherheitsgruppe mit den Konto des Quellstandorts-Migration auf die SMB-Freigaben auf dem Quellcomputer hinzu, und lesen, ändern oder Vollzugriff zu gewähren. Nachdem die Migration abgeschlossen ist, können Sie dieser Gruppe entfernen. Eine zukünftige Version von Windows Server kann dieses Verhalten dahingehend, dass nicht mehr explizite Berechtigungen für die Quellfreigaben ändern.
+Dieser Fehler wird erwartet, wenn Ihr Migrations Konto nicht mindestens über Lese Zugriffsberechtigungen für die SMB-Freigaben verfügt. Um diesen Fehler zu umgehen, fügen Sie eine Sicherheitsgruppe mit dem Quell Migrations Konto zu den SMB-Freigaben auf dem Quellcomputer hinzu, und erteilen Sie Lese-, Änderungs-oder Vollzugriff. Nachdem die Migration abgeschlossen ist, können Sie diese Gruppe entfernen. In einer zukünftigen Version von Windows Server kann dieses Verhalten geändert werden, sodass keine expliziten Berechtigungen für die Quell Freigaben mehr erforderlich sind.
 
 ## <a name="see-also"></a>Siehe auch
 
-- [Übersicht über Storage-Migration Service](overview.md)
+- [Übersicht über den Speicher Migrationsdienst](overview.md)

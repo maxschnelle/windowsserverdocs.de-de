@@ -10,12 +10,12 @@ ms.topic: article
 author: KBDAzure
 ms.author: kathydav
 ms.date: 09/28/2016
-ms.openlocfilehash: 534de49e50d7b415c9d64c32927418a4395f6f4f
-ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.openlocfilehash: b54d3e655d10d2dbb015d57f2b1be86a803d9911
+ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544749"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69546633"
 ---
 # <a name="plan-for-hyper-v-scalability-in-windows-server-2016"></a>Planen der Hyper-V-Skalierbarkeit in Windows Server 2016
 
@@ -44,7 +44,7 @@ Diese Höchstwerte gelten für jeden virtuellen Computer. Nicht alle Komponenten
 |Virtuelle Prozessoren|240 für Generation 2;<br>64 für Generation 1;<br>320 verfügbar für das Host Betriebssystem (Stamm Partition)|Die Anzahl der von einem Gastbetriebssystem unterstützten virtuellen Prozessoren kann niedriger sein. Weitere Informationen finden Sie in den Informationen, die für das jeweilige Betriebssystem veröffentlicht wurden.|
 |Virtuelle SCSI-Controller|4|Die Verwendung von virtuellen SCSI-Geräten erfordert Integration Services, die für unterstützte Gast Betriebssysteme verfügbar sind. Ausführliche Informationen dazu, welche Betriebssysteme unterstützt werden, finden Sie [unter Unterstützte virtuelle Linux-und FreeBSD](../Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md) -Computer und [unterstützte Windows-Gast Betriebssysteme](../supported-windows-guest-operating-systems-for-hyper-v-on-windows.md).|  
 |Virtuelle SCSI-Datenträger|256|Jeder SCSI-Controller unterstützt maximal 64 Datenträger. Das heißt, für jeden virtuellen Computer können bis zu 256 virtuelle SCSI-Datenträger konfiguriert werden. (4 Controller x 64 Datenträger pro Controller)|  
-|Virtuelle Netzwerkkarten|Windows Server 2016 unterstützt 12 gesamt:<br> -8 Hyper-V-spezifische Netzwerkadapter<br>-4 Legacy-Netzwerkadapter <br> Windows Server 2019 unterstützt 72 gesamt: <br> -64 Hyper-V-spezifische Netzwerkadapter<br>-4 Legacy-Netzwerkadapter  |Der Hyper-V-spezifische Netzwerkadapter bietet eine bessere Leistung und erfordert einen Treiber, der in Integration Services enthalten ist. Weitere Informationen finden Sie unter [Planen von Hyper-V-Netzwerken in Windows Server](plan-hyper-v-networking-in-windows-server.md).|  
+|Virtuelle Netzwerkkarten|Windows Server 2016 unterstützt 12 gesamt:<br> -8 Hyper-V-spezifische Netzwerkadapter<br>-4 Legacy-Netzwerkadapter <br> Windows Server 2019 unterstützt 68 gesamt: <br> -64 Hyper-V-spezifische Netzwerkadapter<br>-4 Legacy-Netzwerkadapter  |Der Hyper-V-spezifische Netzwerkadapter bietet eine bessere Leistung und erfordert einen Treiber, der in Integration Services enthalten ist. Weitere Informationen finden Sie unter [Planen von Hyper-V-Netzwerken in Windows Server](plan-hyper-v-networking-in-windows-server.md).|  
   
 ## <a name="maximums-for-hyper-v-hosts"></a>Maximums für Hyper-V-Hosts  
 Diese Höchstwerte gelten für jeden Hyper-V-Host.  

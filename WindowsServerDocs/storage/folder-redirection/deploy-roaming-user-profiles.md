@@ -1,5 +1,5 @@
 ---
-Title: Bereitstellen von Server gespeicherten Benutzerprofilen
+title: Bereitstellen von Server gespeicherten Benutzerprofilen
 TOCTitle: Deploying Roaming User Profiles
 ms.prod: windows-server-threshold
 ms.technology: storage
@@ -8,12 +8,12 @@ author: JasonGerend
 manager: brianlic
 ms.date: 06/07/2019
 ms.author: jgerend
-ms.openlocfilehash: e6e2e32ff9aeb1b3bcfc8fed9027c7e92e13b118
-ms.sourcegitcommit: af80963a1d16c0b836da31efd9c5caaaf6708133
+ms.openlocfilehash: 1fcabf890c0c54e12c1650c31a072d17a33e292f
+ms.sourcegitcommit: 23a6e83b688119c9357262b6815c9402c2965472
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "66812485"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69560545"
 ---
 # <a name="deploying-roaming-user-profiles"></a>Bereitstellen von Server gespeicherten Benutzerprofilen
 
@@ -33,7 +33,7 @@ Eine Liste der zuletzt vorgenommenen Änderungen an diesem Thema finden Sie im A
 >
 > Folglich wird das Startmenü nach dem direkten Upgrade des Betriebssystems auf den Standardwert der neuen Betriebssystemversion zurückgesetzt. Informationen zu Problem Umgehungen finden [Sie in Anhang C: Arbeiten mit dem Zurücksetzen von Start Menü](#appendix-c-working-around-reset-start-menu-layouts-after-upgrades)Layouts nach Upgrades.
 
-## <a name="prerequisites"></a>Vorraussetzungen
+## <a name="prerequisites"></a>Erforderliche Komponenten
 
 ### <a name="hardware-requirements"></a>Hardwareanforderungen
 
@@ -98,7 +98,7 @@ Wenn Ihre Umgebung nicht bereits mit Roamingbenutzerprofilen eingerichtet wurde,
 So erstellen Sie eine Sicherheitsgruppe für Roamingbenutzerprofile:
 
 1. Öffnen Sie Server-Manager auf einem Computer, auf dem Active Directory-Verwaltungs Center installiert ist.
-2. Wählen Sie **im Menü Extras** **Active Directory Verwaltungs Center**aus. Das Active Directory-Verwaltungscenter wird angezeigt.
+2. Wählen Sie im Menü Extras **Active Directory Verwaltungs Center**aus. Das Active Directory-Verwaltungscenter wird angezeigt.
 3. Klicken Sie mit der rechten Maustaste auf die entsprechende Domäne oder Organisationseinheit, und wählen Sie **neu**und dann **Gruppe**aus.
 4. Geben Sie im Fenster **Gruppe erstellen** im Abschnitt **Gruppe** die folgenden Einstellungen an:
 
@@ -118,7 +118,7 @@ Wenn Sie nicht bereits über eine separate Dateifreigabe für Roamingbenutzerpro
 
 So erstellen Sie eine Dateifreigabe unter Windows Server:
 
-1. Wählen Sie im Navigationsbereich Server-Manager die Option **Datei-und Speicherdienste**aus, und klicken Sie dann auf Freigaben **, um die** Seite Freigaben anzuzeigen.
+1. Wählen Sie im Navigationsbereich Server-Manager die Option **Datei-und Speicherdienste**aus, und klicken Sie dann auf Freigaben, um die Seite Freigaben anzuzeigen.
 2. Wählen Sie auf der Kachel Freigaben die Option **Tasks**aus, und wählen Sie dann **neue Freigabe**aus. Der Assistent für neue Freigaben wird angezeigt.
 3. Wählen Sie auf der Seite **Profil auswählen** die Option **SMB-Freigabe – schnell**aus. Wenn Sie Datei Server Ressourcen-Manager installiert haben und Ordner Verwaltungs Eigenschaften verwenden, klicken Sie stattdessen auf **SMB-Freigabe-erweitert**.
 4. Wählen Sie auf der Seite **Freigabeort** den Server und das Volume aus, auf dem Sie die Freigabe erstellen möchten.
@@ -156,7 +156,7 @@ Wenn Sie für die Roamingbenutzerprofileinstellungen noch kein Gruppenrichtlinie
 So erstellen Sie ein Gruppenrichtlinien Objekt für Roamingbenutzerprofile:
 
 1. Öffnen Sie den Server-Manager auf einem Computer, auf dem die Gruppenrichtlinienverwaltung installiert ist.
-2. Wählen Sie **im Menü** Extras die Option **Gruppenrichtlinie Verwaltung**aus. Die Gruppenrichtlinienverwaltung wird angezeigt.
+2. Wählen Sie im Menü Extras die Option **Gruppenrichtlinie Verwaltung**aus. Die Gruppenrichtlinienverwaltung wird angezeigt.
 3. Klicken Sie mit der rechten Maustaste auf die Domäne oder die Organisationseinheit, in der Sie Roamingbenutzerprofile einrichten möchten, und klicken Sie dann auf Gruppenrichtlinien Objekt **in dieser Domäne erstellen und verknüpfen**.
 4. Geben Sie im Dialogfeld **Neues** Gruppenrichtlinien Objekt einen Namen für das Gruppenrichtlinien Objekt ein (z. b. **roamingbenutzerprofileinstellungen**), und klicken Sie dann auf **OK**.
 5. Klicken Sie mit der rechten Maustaste auf das neu erstellte Gruppenrichtlinienobjekt und deaktivieren Sie das Kontrollkästchen **Verknüpfung aktiviert** . Dadurch wird verhindert, dass das Gruppenrichtlinienobjekt angewendet wird, bis Sie es konfiguriert haben.
@@ -205,7 +205,7 @@ Sie können Gruppenrichtlinie verwenden, um Roamingbenutzerprofile auf Computern
 So richten Sie Roamingbenutzerprofile auf Computern ein:
 
 1. Öffnen Sie den Server-Manager auf einem Computer, auf dem die Gruppenrichtlinienverwaltung installiert ist.
-2. Wählen Sie **im Menü** Extras die Option **Gruppenrichtlinie Verwaltung**aus. Gruppenrichtlinie Verwaltung wird angezeigt.
+2. Wählen Sie im Menü Extras die Option **Gruppenrichtlinie Verwaltung**aus. Gruppenrichtlinie Verwaltung wird angezeigt.
 3. Klicken Sie in Gruppenrichtlinie Verwaltung mit der rechten Maustaste auf das GPO, das Sie in Schritt 3 erstellt haben (z.b. **roamingbenutzerprofileinstellungen**), und wählen Sie dann **Bearbeiten**aus.
 4. Navigieren Sie im Fenster des Gruppenrichtlinienverwaltungs-Editors zu **Computerkonfiguration**, **Richtlinien**, **Administrative Vorlagen**, **System** und dann zu **Benutzerprofile**.
 5. Klicken Sie mit der rechten Maustaste auf **roamingprofilpfad festlegen für alle Benutzer, die sich auf diesem Computer anmelden**

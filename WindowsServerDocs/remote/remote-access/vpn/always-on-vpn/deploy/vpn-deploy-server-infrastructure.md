@@ -1,6 +1,6 @@
 ---
-title: Konfigurieren der Serverinfrastruktur
-description: In diesem Schritt installieren und konfigurieren Sie die serverseitigen Komponenten erforderlich, um das VPN zu unterstützen. Die serverseitigen Komponenten ist die Konfiguration von PKI zum Verteilen der von dem Benutzer, dem VPN-Server und dem NPS-Server verwendeten Zertifikate umfassen.
+title: Konfigurieren der Server Infrastruktur
+description: In diesem Schritt installieren und konfigurieren Sie die serverseitigen Komponenten, die zur Unterstützung des VPN erforderlich sind. Zu den serverseitigen Komponenten gehört das Konfigurieren der PKI für die Verteilung der Zertifikate, die von Benutzern, dem VPN-Server und dem NPS-Server verwendet werden.
 ms.prod: windows-server-threshold
 ms.technology: networking-ras
 ms.topic: article
@@ -10,57 +10,57 @@ ms.author: pashort
 author: shortpatti
 ms.date: 08/30/2018
 ms.reviewer: deverette
-ms.openlocfilehash: 8a07d84427b770da465b8712d71eb846a7c9cf8d
-ms.sourcegitcommit: 0948a1abff1c1be506216eeb51ffc6f752a9fe7e
+ms.openlocfilehash: b954419904f97102cef14fbd4a7a68496e8730af
+ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66749603"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69546511"
 ---
 # <a name="step-2-configure-the-server-infrastructure"></a>Schritt 2 Konfigurieren der Serverinfrastruktur
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows 10
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-- [**Vorherige:** Schritt 1 Planen der Always On VPN-Bereitstellung](always-on-vpn-deploy-planning.md)
-- [**nächster:** Schritt 3 Konfigurieren des RAS-Servers für Always On VPN](vpn-deploy-ras.md)
+- [**Vorher** Schritt 1 Planen der Always On VPN-Bereitstellung](always-on-vpn-deploy-planning.md)
+- [**Weiter** Schritt 3 Konfigurieren des RAS-Servers für Always On VPN](vpn-deploy-ras.md)
 
-In diesem Schritt haben Sie installieren und konfigurieren Sie die serverseitigen Komponenten erforderlich, um das VPN zu unterstützen. Die serverseitigen Komponenten ist die Konfiguration von PKI zum Verteilen der von dem Benutzer, dem VPN-Server und dem NPS-Server verwendeten Zertifikate umfassen.  Außerdem konfigurieren Sie RRAS, um IKEv2-Verbindungen und der NPS-Server für die Autorisierung für die VPN-Verbindungen zu unterstützen.
+In diesem Schritt installieren und konfigurieren Sie die serverseitigen Komponenten, die zur Unterstützung des VPN erforderlich sind. Zu den serverseitigen Komponenten gehört das Konfigurieren der PKI für die Verteilung der Zertifikate, die von Benutzern, dem VPN-Server und dem NPS-Server verwendet werden.  Außerdem konfigurieren Sie RRAS für die Unterstützung von IKEv2-Verbindungen und den NPS-Server zum Ausführen der Autorisierung für die VPN-Verbindungen.
 
-## <a name="configure-certificate-autoenrollment-in-group-policy"></a>Konfigurieren der automatischen Registrierung von Zertifikaten in der Gruppenrichtlinie
-In diesem Verfahren konfigurieren Sie die Gruppenrichtlinie auf dem Domänencontroller, damit Mitglieder der Domäne automatisch Zertifikate für Benutzer und Computer anfordern. Auf diese Weise können VPN-Benutzer anfordern und Abrufen von Benutzerzertifikaten, die VPN-Verbindungen automatisch authentifizieren. Ebenso kann diese Richtlinie NPS-Servern zum Server anfordern Authentifizierungszertifikate automatisch. 
+## <a name="configure-certificate-autoenrollment-in-group-policy"></a>Konfigurieren der automatischen Zertifikat Registrierung in Gruppenrichtlinie
+In diesem Verfahren konfigurieren Sie Gruppenrichtlinie auf dem Domänen Controller, damit Domänen Mitglieder automatisch Benutzer-und Computer Zertifikate anfordern. Auf diese Weise können VPN-Benutzer Benutzerzertifikate anfordern und abrufen, die VPN-Verbindungen automatisch authentifizieren. Ebenso ermöglicht diese Richtlinie NPS-Servern das automatische anfordern von Server Authentifizierungs Zertifikaten. 
 
-Manuelles Registrieren Sie Zertifikate für VPN-Server.
+Sie registrieren Zertifikate manuell auf VPN-Servern.
 
 >[!TIP]
->Nicht-domained verknüpften Computern finden Sie unter [Zertifizierungsstellenkonfiguration für nicht in die Domäne eingebundenen Computern](#ca-configuration-for-non-domain-joined-computers). Da der RRAS-Server keine Domäne eingebunden ist, kann nicht automatische Registrierung verwendet werden, um das VPN-Gateway-Zertifikat zu registrieren.  Aus diesem Grund gehen Sie eine offline-Zertifikat-Anforderung.
+>Informationen zu nicht in Domänen eingebundenen Computern finden Sie unter Zertifizierungsstellen [Konfiguration für Computer, die keiner Domäne beigetreten](#ca-configuration-for-non-domain-joined-computers)sind. Da der RRAS-Server keiner Domäne beigetreten ist, kann die automatische Registrierung nicht zum Registrieren des VPN Gateway-Zertifikats verwendet werden.  Verwenden Sie daher eine Offline-Zertifikat Anforderungs Prozedur.
 
-1. Öffnen Sie auf einem Domänencontroller die Gruppenrichtlinienverwaltung.
+1. Öffnen Sie auf einem Domänen Controller Gruppenrichtlinie-Verwaltung.
 
-2. Klicken Sie im Navigationsbereich mit der rechten Maustaste in der Domäne (z. B. "corp.contoso.com"), und wählen Sie dann **erstellen Sie ein Gruppenrichtlinienobjekt in dieser Domäne, und hier**.
+2. Klicken Sie im Navigationsbereich mit der rechten Maustaste auf Ihre Domäne (z. b. Corp.contoso.com), und wählen Sie dann Gruppenrichtlinien Objekt **in dieser Domäne erstellen und verknüpfen aus**.
 
-3. Geben Sie auf das Dialogfeld Neues Gruppenrichtlinienobjekt, **Richtlinie für die automatische Registrierung**, und wählen Sie dann **OK**.
+3. Geben Sie im Dialogfeld Neues Gruppenrichtlinien Objekt die **Richtlinie**für die automatische Registrierung ein, und klicken Sie dann auf **OK**.
 
-4. Klicken Sie im Navigationsbereich mit der Maustaste **Richtlinie für die automatische Registrierung**, und wählen Sie dann **bearbeiten**.
+4. Klicken Sie im Navigationsbereich mit der rechten Maustaste auf **Richtlinie**für die automatische Registrierung, und wählen Sie dann **Bearbeiten**aus.
 
-5. Führen Sie in der Gruppenrichtlinienverwaltungs-Editor, die folgenden Schritte aus, um die zertifikatregistrierung für Computer zu konfigurieren:
+5. Führen Sie im Gruppenrichtlinienverwaltungs-Editor die folgenden Schritte aus, um die automatische Registrierung von Computer Zertifikaten zu konfigurieren:
 
-    1. Navigieren Sie im Navigationsbereich zu **Computerkonfiguration** > **Richtlinien** > **Windows-Einstellungen**  >   **Sicherheitseinstellungen** > **Richtlinien für öffentliche Schlüssel**.
+    1. Navigieren Sie im Navigationsbereich zu **Computer Konfiguration** > **Richtlinien** > **Windows-Einstellungen** > **Sicherheitseinstellungen** > **Richtlinien für öffentliche Schlüssel**.
 
-    2. Klicken Sie im Detailbereich mit der Maustaste **Zertifikatdiensteclient – automatische Registrierung**, und wählen Sie dann **Eigenschaften**.
+    2. Klicken Sie im Detailfenster mit der rechten Maustaste auf **Zertifikat Dienst Client – automatische**Registrierung, und wählen Sie dann **Eigenschaften**aus.
 
-    3. Auf der Zertifikatdiensteclient – automatische Registrierung Eigenschaften Dialogfeld **Konfigurationsmodell**Option **aktiviert**.
+    3. Wählen Sie im Dialogfeld Zertifikat Dienst Client – Eigenschaften für automatische Registrierung unter **Konfigurations Modell**die **Option aktiviert**aus.
 
     4. Wählen Sie **Abgelaufene Zertifikate erneuern, ausstehende Zertifikate aktualisieren und gesperrte Zertifikate entfernen** und **Zertifikate, die Zertifikatvorlagen verwenden, aktualisieren** aus.
 
     5. Wählen Sie **OK**.
 
-6. Führen Sie in der Gruppenrichtlinienverwaltungs-Editor, die folgenden Schritte aus, um die Benutzer-zertifikatregistrierung konfigurieren:
+6. Führen Sie im Gruppenrichtlinienverwaltungs-Editor die folgenden Schritte aus, um die automatische Registrierung von Benutzer Zertifikaten zu konfigurieren:
 
-    1. Navigieren Sie im Navigationsbereich zu **Benutzerkonfiguration** > **Richtlinien** > **Windows-Einstellungen**  >   **Sicherheitseinstellungen** > **Richtlinien für öffentliche Schlüssel**.
+    1. Navigieren Sie im Navigationsbereich zu **Benutzerkonfiguration** > **Richtlinien** > **Windows-Einstellungen** > **Sicherheitseinstellungen** > **Richtlinien für öffentliche Schlüssel**.
 
     2. Klicken Sie im Detailbereich mit der rechten Maustaste auf **Zertifikatdienstclient - Automatische Registrierung**, und wählen Sie **Eigenschaften** aus.
 
-    3. Auf der Zertifikatdiensteclient – automatische Registrierung Eigenschaften Dialogfeld **Konfigurationsmodell**Option **aktiviert**.
+    3. Wählen Sie im Dialogfeld Zertifikat Dienst Client – Eigenschaften für automatische Registrierung unter **Konfigurations Modell**die **Option aktiviert**aus.
 
     4. Wählen Sie **Abgelaufene Zertifikate erneuern, ausstehende Zertifikate aktualisieren und gesperrte Zertifikate entfernen** und **Zertifikate, die Zertifikatvorlagen verwenden, aktualisieren** aus.
 
@@ -70,60 +70,60 @@ Manuelles Registrieren Sie Zertifikate für VPN-Server.
 
 7. Schließen Sie die Gruppenrichtlinienverwaltung.
 
-### <a name="ca-configuration-for-non-domain-joined-computers"></a>Konfiguration der Zertifizierungsstelle für nicht in die Domäne eingebundenen Computer
+### <a name="ca-configuration-for-non-domain-joined-computers"></a>Zertifizierungsstellen Konfiguration für Computer, die keiner Domäne beigetreten sind
 
-Da der RRAS-Server keine Domäne eingebunden ist, kann nicht automatische Registrierung verwendet werden, um das VPN-Gateway-Zertifikat zu registrieren.  Aus diesem Grund gehen Sie eine offline-Zertifikat-Anforderung.
+Da der RRAS-Server keiner Domäne beigetreten ist, kann die automatische Registrierung nicht zum Registrieren des VPN Gateway-Zertifikats verwendet werden.  Verwenden Sie daher eine Offline-Zertifikat Anforderungs Prozedur.
 
-1. Generieren Sie auf dem RRAS-Server, eine Datei namens **VPNGateway.inf** basierend auf der Beispiel-Richtlinie zertifikatanforderung im Anhang bereitgestellt, (Abschnitt 0), und passen Sie die folgenden Einträge:
+1. Generieren Sie auf dem RRAS-Server eine Datei mit dem Namen **vpngateway. inf** , die auf der in Anhang a (Abschnitt 0) bereitgestellten Beispiel Zertifikat Richtlinien Anforderung basiert, und passen Sie die folgenden Einträge an:
 
-   - Ersetzen Sie im Abschnitt [NewRequest] verwendet, für den Antragstellernamen, mit der ausgewählten vpn.contoso.com [_Kunden_] VPN-Endpunkt FQDN.
+   - Ersetzen Sie im Abschnitt [newrequest] VPN.contoso.com, der für den Antragsteller Namen verwendet wird, durch den ausgewählten [_Customer_] VPN Endpoint-voll qualifizierten Namen.
 
-   - Ersetzen Sie im Abschnitt [Extensions] verwendet, für den alternativen Antragstellernamen mit der ausgewählten vpn.contoso.com [_Kunden_] VPN-Endpunkt FQDN.
+   - Ersetzen Sie im Abschnitt [Extensions] VPN.contoso.com, das für den alternativen Antragsteller Namen verwendet wird, durch den ausgewählten [_Customer_] VPN Endpoint-voll qualifizierten Namen.
 
-2. Speichern oder kopieren Sie die **VPNGateway.inf** Datei in einer ausgewählten Stelle ein.
+2. Speichern oder kopieren Sie die Datei " **vpngateway. inf** " an einen ausgewählten Speicherort.
 
-3. Eine Eingabeaufforderung mit erhöhten Rechten, navigieren Sie zu dem Ordner mit den **VPNGateway.inf** Datei, und geben:
+3. Navigieren Sie an einer Eingabeaufforderung mit erhöhten Rechten zu dem Ordner, der die Datei " **vpngateway. inf** " enthält, und geben Sie Folgendes ein:
 
    ```
    certreq -new VPNGateway.inf VPNGateway.req
    ```
 
-4. Kopieren Sie die neu erstellte **VPNGateway.req** Ausgabedatei auf einer Zertifizierungsstelle oder (Privileged Access Workstation, PAW).
+4. Kopieren Sie die neu erstellte **vpngateway. req** -Ausgabedatei auf einen Zertifizierungsstellen Server oder eine Arbeitsstation mit privilegiertem Zugriff (PW).
 
-5. Speichern oder kopieren Sie die **VPNGateway.req** Datei an einem ausgewählten Speicherort auf dem Server der Zertifizierungsstelle, oder (Privileged Access Workstation, PAW).
+5. Speichern oder kopieren Sie die Datei " **vpngateway. req** " an einen ausgewählten Speicherort auf dem Zertifizierungsstellen Server oder auf der Arbeitsstation mit privilegiertem Zugriff (PW).
 
-6. Eine Eingabeaufforderung mit erhöhten Rechten navigieren Sie zu dem Ordner, der die in den vorherigen Schritt und den Typ erstellte VPNGateway.req-Datei enthält:
+6. Navigieren Sie an einer Eingabeaufforderung mit erhöhten Rechten zu dem Ordner, der die im vorherigen Schritt erstellte vpngateway. req-Datei enthält, und geben Sie Folgendes ein:
 
    ```
    certreq -attrib “CertificateTemplate:[Customer]VPNGateway” -submit VPNgateway.req VPNgateway.cer
    ```
 
-7. Wenn Sie dazu aufgefordert werden, indem Sie die Liste der Zertifizierungsstellen-Fenster, wählen Sie die entsprechende Enterprise-Zertifizierungsstelle die zertifikatanforderung zu verarbeiten.
+7. Wenn Sie im Fenster "Zertifizierungsstellen Liste" aufgefordert werden, wählen Sie die entsprechende Unternehmens Zertifizierungsstelle für die Zertifikat Anforderung aus.
 
-8. Kopieren Sie die neu erstellte **VPNGateway.cer** Ausgabedatei auf dem RRAS-Server. 
+8. Kopieren Sie die neu erstellte **vpngateway. CER** -Ausgabedatei auf den RRAS-Server. 
 
-9. Speichern oder kopieren Sie die **VPNGateway.cer** Datei an einem ausgewählten Speicherort auf dem RRAS-Server.
+9. Speichern oder kopieren Sie die Datei " **vpngateway. CER** " an einen ausgewählten Speicherort auf dem RRAS-Server.
 
-10. Eine Eingabeaufforderung mit erhöhten Rechten navigieren Sie zu dem Ordner, der die in den vorherigen Schritt und den Typ erstellte VPNGateway.cer-Datei enthält:
+10. Navigieren Sie an einer Eingabeaufforderung mit erhöhten Rechten zu dem Ordner, der die im vorherigen Schritt erstellte vpngateway. CER-Datei enthält, und geben Sie Folgendes ein:
 
     ```
     certreq -accept VPNGateway.cer
     ```
 
-11. Führen das Zertifikate-MMC-Snap-in, wie beschrieben [hier](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) Auswählen der **Computerkonto** Option.
+11. Führen Sie das MMC-Snap-in "Zertifikate" aus, wie [hier](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) beschrieben: Auswählen der Option **Computer Konto** .
 
-12. Stellen Sie sicher, dass ein gültiges Zertifikat für den RRAS-Server mit den folgenden Eigenschaften vorhanden ist:
+12. Stellen Sie sicher, dass für den RRAS-Server ein gültiges Zertifikat mit den folgenden Eigenschaften vorhanden ist:
 
-    - **Beabsichtigte Zwecke:** Server-Authentifizierung, IP-Sicherheits-IKE, dazwischenliegend 
+    - **Beabsichtigte Zwecke:** Server Authentifizierung, IP-Sicherheits-IKE-zwischen 
 
-    - **Zertifikatvorlage:** [_Kunden_] VPN-Server
+    - **Zertifikat Vorlage:** [_Kunde_] VPN-Server
 
-#### <a name="example-vpngatewayinf-script"></a>Beispiel: VPNGateway.inf script
+#### <a name="example-vpngatewayinf-script"></a>Beispiel: Vpngateway. inf-Skript
 
-Hier sehen Sie ein Beispielskript, der eine Zertifikatrichtlinie-Anforderung verwendet, um ein VPN-Gateway-Zertifikat mithilfe eines Out-of-Band-Prozesses anzufordern.
+Hier sehen Sie ein Beispielskript für eine Richtlinie für Zertifikat Anforderungen, die verwendet wird, um ein VPN-Gatewayzertifikat mithilfe eines Out-of-Band-Prozesses anzufordern.
 
 >[!TIP]
->Eine Kopie des Skripts VPNGateway.inf finden Sie im VPN-Angebot IP-Kit unter dem Ordner Zertifikatsrichtlinien anfordern. Aktualisiert nur die "Subject" und "\_weiterhin\_" kundenspezifische Werte.
+>Eine Kopie des Skripts vpngateway. inf finden Sie im IP-Kit für VPN-Angebote unter dem Ordner Zertifikat Anforderungs Richtlinien. Aktualisieren Sie nur "Subject" und "\_Continue\_" mit kundenspezifischen Werten.
 
 ```
 [Version] 
@@ -145,319 +145,333 @@ RequestType = PKCS10
 _continue_ = "dns=vpn.contoso.com&"
 ```
 
-## <a name="create-the-vpn-users-vpn-servers-and-nps-servers-groups"></a>Erstellen von VPN-Benutzer, VPN-Server und NPS-Server-Gruppen
+## <a name="create-the-vpn-users-vpn-servers-and-nps-servers-groups"></a>Erstellen der Gruppen VPN-Benutzer, VPN-Server und NPS-Server
 
-In diesem Verfahren können Sie eine neue Active Directory (AD)-Gruppe hinzufügen, die der Benutzer auf das VPN verwenden, für die Verbindung mit dem Netzwerk Ihrer Organisation enthält.
+In diesem Verfahren können Sie eine neue Active Directory (AD)-Gruppe hinzufügen, die die Benutzer enthält, die das VPN verwenden dürfen, um eine Verbindung mit Ihrem Organisations Netzwerk herzustellen.
 
 Diese Gruppe dient zwei Zwecken:
 
-- Sie definiert, welche Benutzer zur automatischen Registrierung für Benutzerzertifikate zulässig sind, die das VPN erforderlich sind.
+- Es definiert, welche Benutzer die automatische Registrierung für die für das VPN erforderlichen Benutzerzertifikate durchführen dürfen.
 
-- Es definiert, welche Benutzer der NPS für VPN-Zugriff autorisiert.
+- Es definiert, welche Benutzer der NPS für den VPN-Zugriff autorisiert.
 
-Verwenden Sie eine benutzerdefinierte Gruppe, wenn Sie VPN-Zugriff des Benutzers widerrufen möchten können Sie diesen Benutzer aus der Gruppe entfernen.
+Wenn Sie mit einer benutzerdefinierten Gruppe den VPN-Zugriff eines Benutzers widerrufen möchten, können Sie diesen Benutzer aus der Gruppe entfernen.
 
-Sie fügen auch eine Gruppe, die VPN-Server und eine andere Gruppe, die mit der NPS-Server hinzu. Sie können diese Gruppen verwenden, um zertifikatanforderungen an ihre Member zu beschränken.
+Außerdem fügen Sie eine Gruppe hinzu, die VPN-Server und eine andere Gruppe mit NPS-Servern enthält. Sie verwenden diese Gruppen, um Zertifikat Anforderungen auf ihre Mitglieder einzuschränken.
 
 >[!NOTE]
->Es wird empfohlen, VPN-Server, die im DMA/Umkreisnetzwerk befinden sich nicht mit domänenverknüpfung. Jedoch wenn Sie die VPN-Server mit domänenverknüpfung zur Verbesserung der Verwaltbarkeit möchten hinzufügen (Gruppenrichtlinien, Sicherung/Überwachungsagent keine lokalen Benutzer verwalten und so weiter), klicken Sie dann eine AD-Gruppe mit der Zertifikatvorlage für VPN-Server.
+>Wir empfehlen, dass VPN-Server, die sich im DMA/Umkreis befinden, nicht in die Domäne aufgenommen werden. Wenn Sie jedoch bevorzugen, dass die VPN-Server der Domäne beitreten, um eine bessere Verwaltbarkeit zu erzielen (Gruppenrichtlinien, Sicherungs-/Überwachungs-Agent, keine lokalen Benutzer zu verwalten usw.), fügen Sie der VPN-Serverzertifikat Vorlage eine Ad-Gruppe hinzu.
 
-### <a name="configure-the-vpn-users-group"></a>Konfigurieren Sie die VPN-Benutzer-Gruppe
+### <a name="configure-the-vpn-users-group"></a>Konfigurieren der Gruppe "VPN-Benutzer"
 
-1. Öffnen Sie auf einem Domänencontroller Active Directory-Benutzer und Computer aus.
+1. Öffnen Sie auf einem Domänen Controller Active Directory Benutzer und Computer.
 
-2. Mit der rechten Maustaste einen Container oder die Organisationseinheit, Option **neu**, und wählen Sie dann **Gruppe**.
+2. Klicken Sie mit der rechten Maustaste auf einen Container oder eine Organisationseinheit, und wählen Sie **neu**und dann **Gruppe**aus.
 
-3. In **Gruppenname**, geben Sie **VPN-Benutzer**, und wählen Sie dann **OK**.
+3. Geben Sie unter **Gruppenname den Namen** **VPN-Benutzer**ein, und klicken Sie auf **OK**.
 
-4. Mit der rechten Maustaste **VPN-Benutzer** , und wählen Sie **Eigenschaften**.
+4. Klicken Sie mit der rechten Maustaste auf **VPN-Benutzer** und wählen Sie **Eigenschaften**
 
-5. Auf der **Mitglieder** die Eigenschaften der VPN-Benutzer wählen Sie im Dialogfeld auf der Registerkarte **hinzufügen**.
+5. Wählen Sie im Dialogfeld Eigenschaften von VPN-Benutzer auf der Registerkarte **Mitglieder** die Option **Hinzufügen**aus.
 
-6. Fügen Sie auf das Dialogfeld Auswahl von Benutzern, alle Benutzer, die VPN-Zugriff, und wählen **OK**.
+6. Fügen Sie im Dialogfeld Benutzer auswählen alle Benutzer hinzu, die VPN-Zugriff benötigen, und wählen Sie **OK**aus.
 
 7. Schließen Sie %%amp;quot;Active Directory-Benutzer und -Computer%%amp;quot;.
 
-### <a name="configure-the-vpn-servers-and-nps-servers-groups"></a>Konfigurieren Sie die VPN-Server und NPS-Server-Gruppen
+### <a name="configure-the-vpn-servers-and-nps-servers-groups"></a>Konfigurieren der VPN-Server und NPS-Server Gruppen
 
-1. Öffnen Sie auf einem Domänencontroller Active Directory-Benutzer und Computer aus.
+1. Öffnen Sie auf einem Domänen Controller Active Directory Benutzer und Computer.
 
-2. Mit der rechten Maustaste einen Container oder die Organisationseinheit, Option **neu**, und wählen Sie dann **Gruppe**.
+2. Klicken Sie mit der rechten Maustaste auf einen Container oder eine Organisationseinheit, und wählen Sie **neu**und dann **Gruppe**aus.
 
-3. In **Gruppenname**, geben Sie **VPN-Server**, und wählen Sie dann **OK**.
+3. Geben Sie unter **Gruppenname den Namen** **VPN-Server**ein, und klicken Sie auf **OK**.
 
-4. Mit der rechten Maustaste **VPN-Server** , und wählen Sie **Eigenschaften**.
+4. Klicken Sie mit der rechten Maustaste auf **VPN-Server** und wählen Sie **Eigenschaften**
 
-5. Auf der **Mitglieder** die Eigenschaften der VPN-Server wählen Sie im Dialogfeld auf der Registerkarte **hinzufügen**.
+5. Wählen Sie im Dialogfeld Eigenschaften von VPN-Server auf der Registerkarte **Mitglieder** die Option **Hinzufügen**aus.
 
-6. Wählen Sie **Objekttypen**, wählen die **Computer** Kontrollkästchen aus, und wählen Sie dann **OK**.
+6. Wählen Sie **Objekttypen**aus, aktivieren Sie das Kontrollkästchen **Computer** , und klicken Sie dann auf **OK**.
 
-7. In **Geben Sie die zu verwendenden Objektnamen**, geben Sie den Namen Ihrer VPN-Server, und wählen Sie dann **OK**.
+7. Geben Sie unter **Geben Sie die zu ausgewäfenden Objektnamen**ein die Namen Ihrer VPN-Server ein, und klicken Sie dann auf **OK**.
 
-8. Wählen Sie **OK** um das Dialogfeld Eigenschaften von VPN-Servers zu schließen.
+8. Wählen Sie **OK** aus, um das Dialogfeld VPN-Server Eigenschaften zu schließen.
 
-9. Wiederholen Sie die vorherigen Schritte für die NPS-Server-Gruppe ein.
+9. Wiederholen Sie die vorherigen Schritte für die NPS-Server Gruppe.
 
 10. Schließen Sie %%amp;quot;Active Directory-Benutzer und -Computer%%amp;quot;.
 
-## <a name="create-the-user-authentication-template"></a>Erstellen Sie die Vorlage für die Benutzerauthentifizierung
+## <a name="create-the-user-authentication-template"></a>Erstellen der Benutzer Authentifizierungs Vorlage
 
-In diesem Verfahren konfigurieren Sie eine benutzerdefinierten Client / Server-Authentifizierung-Vorlage. Diese Vorlage ist erforderlich, da Sie die allgemeine Sicherheit des Zertifikats zu verbessern, indem Sie die aktualisierten Kompatibilitätsgrade möchten und wählen den Kryptografieanbieter für Microsoft-Plattform. Dieser letzten Änderung können Sie das TPM auf den Clientcomputern zu verwenden, um das Zertifikat zu sichern. Eine Übersicht über das TPM, finden Sie unter [Trusted Platform Module – Technologieübersicht](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview).
+In diesem Verfahren konfigurieren Sie eine benutzerdefinierte Client-Server-Authentifizierungs Vorlage. Diese Vorlage ist erforderlich, da Sie die Gesamtsicherheit des Zertifikats verbessern möchten, indem Sie aktualisierte Kompatibilitäts Grade auswählen und den Kryptografieanbieter der Microsoft-Plattform auswählen. Mit dieser letzten Änderung können Sie das TPM auf den Client Computern zum Sichern des Zertifikats verwenden. Eine Übersicht über das TPM finden Sie unter [Übersicht](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview)über die Trusted Platform Module-Technologie.
 
-**Vorgehensweise:**
+>[!IMPORTANT] 
+>Der Kryptografieanbieter für Microsoft-Plattformen erfordert einen TPM-Chip, wenn Sie einen virtuellen Computer ausführen, und Sie erhalten die folgende Fehlermeldung: "Es wurde kein gültiger CSP auf dem lokalen Computer gefunden." Wenn Sie versuchen, das Zertifikat manuell zu registrieren, müssen Sie "Microsoft Software Key Storage Provider" (Microsoft-Software Schlüsselspeicher-Anbieter) aktivieren und auf der Registerkarte Cryptography (Zertifikat Eigenschaften.
 
-1. Öffnen Sie auf der Zertifizierungsstelle Zertifizierungsstelle ein.
+**Dringlichkeit**
 
-2. Klicken Sie im Navigationsbereich mit der Maustaste **Zertifikatvorlagen** , und wählen Sie **verwalten**.
+1. Öffnen Sie auf der Zertifizierungsstelle die Zertifizierungsstelle.
 
-3. In der Verwaltungskonsole Zertifikatvorlagen mit der Maustaste **Benutzer** , und wählen Sie **Doppelte Vorlage**.
+2. Klicken Sie im Navigationsbereich mit der rechten Maustaste auf **Zertifikat Vorlagen** , und wählen Sie **Verwalten**aus.
+
+3. Klicken Sie in der Konsole Zertifikat Vorlagen mit der rechten Maustaste auf **Benutzer** , und wählen Sie **Doppelte Vorlage**aus.
 
    >[!WARNING]
-   >Aktivieren Sie nicht **übernehmen** oder **OK** jederzeit vor dem Schritt 10 fort.  Wenn Sie diese Schaltflächen auswählen, bevor Sie alle Parameter eingeben, werden viele Möglichkeiten, festen und nicht mehr bearbeitet werden. Z. B. auf die **Kryptografie** bei Registerkarte _Legacy-Speicher Kryptografieanbieter_ zeigt in den Anbieterkategorie, er wird deaktiviert, verhindern, dass keine weiteren Änderungen. Die einzige alternative ist die Vorlage löschen und neu erstellen.  
+   >Wählen Sie vor Schritt 10 nicht **anwenden** oder **OK** aus.  Wenn Sie diese Schaltflächen vor dem Eingeben aller Parameter auswählen, werden viele Optionen korrigiert und können nicht mehr bearbeitet werden. Wenn z. b. auf der Registerkarte **Cryptography** der _Legacy-Kryptografiespeicheranbieter_ im Feld Anbieter Kategorie angezeigt wird, wird dieser deaktiviert und verhindert weitere Änderungen. Die einzige Alternative besteht darin, die Vorlage zu löschen und neu zu erstellen.  
 
-4. Klicken Sie im Dialogfeld Eigenschaften der neuen Vorlage für die **allgemeine** Registerkarte, die folgenden Schritte ausführen:
+4. Führen Sie im Dialogfeld Eigenschaften der neuen Vorlage auf der Registerkarte **Allgemein** die folgenden Schritte aus:
 
-   1. In **Vorlagenanzeigename**, Typ **VPN-Benutzerauthentifizierung**.
+   1. Geben Sie unter **Vorlagen Anzeige Name den Namen** **VPN-Benutzerauthentifizierung**ein.
 
-   2. Deaktivieren der **Zertifikat in Active Directory veröffentlichen** Kontrollkästchen.
+   2. Deaktivieren Sie das Kontrollkästchen **Zertifikat in Active Directory veröffentlichen** .
 
-5. Auf der **Sicherheit** Registerkarte, die folgenden Schritte ausführen:
+5. Führen Sie auf der Registerkarte **Sicherheit** die folgenden Schritte aus:
 
-   1. Wählen Sie **hinzufügen**.
+   1. Wählen Sie **Hinzufügen**.
 
-   2. Geben Sie auf die Auswahl von Benutzern, Computer, Dienstkonten oder Gruppen (Dialogfeld), **VPN-Benutzer**, und wählen Sie dann **OK**.
+   2. Geben Sie im Dialogfeld Benutzer, Computer, Dienst Konten oder Gruppen auswählen die Option **VPN-Benutzer**ein, und klicken Sie dann auf **OK**.
 
-   3. In **Gruppen-oder Benutzernamen**Option **VPN-Benutzer**.
+   3. Wählen Sie unter **Gruppen-oder Benutzernamen**die Option **VPN-Benutzer**aus.
 
-   4. In **Berechtigungen für die VPN-Benutzer**, wählen die **registrieren** und **automatisch registrieren** Kontrollkästchen in der **zulassen** Spalte.
+   4. Aktivieren Sie in **Berechtigungen für VPN**-Benutzer in der Spalte **zulassen** die Kontrollkästchen registrieren und **automatisch registrieren** .
 
       >[!TIP]
-      >Stellen Sie sicher, dass das Kontrollkästchen "Lesen" aktiviert bleiben. Das heißt, benötigen Sie die Berechtigungen zum Lesen, für die Registrierung. 
+      >Stellen Sie sicher, dass das Kontrollkästchen Lesen aktiviert ist. Anders ausgedrückt: Sie benötigen die Leseberechtigungen für die Registrierung. 
 
-   5. In **Gruppen-oder Benutzernamen**Option **Domänenbenutzer**, und wählen Sie dann **entfernen**.
+   5. Klicken Sie unter **Gruppen-oder Benutzernamen**auf **Domänen Benutzer**, und wählen Sie dann **Entfernen**aus.
 
-6. Auf der **Kompatibilität** Registerkarte, die folgenden Schritte ausführen:
+6. Führen Sie auf der Registerkarte **Kompatibilität** die folgenden Schritte aus:
 
-   1. In **Zertifizierungsstelle**Option **Windows Server 2012 R2**.
+   1. Wählen Sie unter **Zertifizierungs**Stelle die Option **Windows Server 2012 R2**aus.
 
-   2. Auf der **resultierende Änderungen** wählen Sie im Dialogfeld **OK**.
+   2. Klicken Sie im Dialogfeld **resultierende Änderungen** auf **OK**.
 
-   3. In **Zertifikatsempfänger**Option **Windows 8.1 / Windows Server 2012 R2**.
+   3. Wählen Sie unter **Zertifikat Empfänger**den Eintrag **Windows 8.1/Windows Server 2012 R2**aus.
 
-   4. Auf der **resultierende Änderungen** wählen Sie im Dialogfeld **OK**.
+   4. Klicken Sie im Dialogfeld **resultierende Änderungen** auf **OK**.
 
-7. Auf der **Anforderungsverarbeitung** Registerkarte die **privatem Schlüssel zulassen zu exportierenden** Kontrollkästchen.
+7. Deaktivieren Sie auf der Registerkarte **Anforderungs Verarbeitung** das Kontrollkästchen **Exportieren von privatem Schlüssel zulassen** .
 
-8. Auf der **Kryptografie** Registerkarte, die folgenden Schritte ausführen:
+8. Führen Sie auf der Registerkarte **Cryptography** die folgenden Schritte aus:
 
-   1. In **Anbieterkategorie**Option **Schlüsselspeicheranbieter**.
+   1. Wählen Sie unter **Anbieter Kategorie**die Option **Schlüsselspeicher Anbieter**aus.
 
-   2. Wählen Sie **Anforderungen müssen eine der folgenden Anbieter verwenden**.
+   2. Für SELECT- **Anforderungen muss einer der folgenden Anbieter verwendet**werden.
 
-   3. Wählen Sie die **Kryptografieanbieter für Microsoft-Plattform** Kontrollkästchen.
+   3. Aktivieren Sie das Kontrollkästchen Kryptografieanbieter für **Microsoft-Plattform** .
 
-9. Auf der **Antragstellername** Registerkarte, wenn Ihnen eine e-Mail-Adresse, die auf alle Benutzerkonten aufgelistet sind, Löschen keine der **-e-Mail-Name im Antragstellernamen einschließen** und **e-Mail-Name** Kontrollkästchen.
+9. Wenn Sie auf der Registerkarte Antragsteller **Name** keine e-Mail-Adresse für alle Benutzerkonten aufgelistet haben, deaktivieren Sie die Kontrollkästchen **e-Mail-Name in** Antragsteller Name und **e-Mail-Name** einschließen.
 
-10. Wählen Sie **OK** zum Speichern der Benutzerauthentifizierung für die VPN-Zertifikat-Vorlage.
+10. Wählen Sie **OK** aus, um die Zertifikat Vorlage VPN-Benutzerauthentifizierung zu speichern.
 
 11. Schließen Sie die Zertifikatvorlagenkonsole.
 
-12. Klicken Sie im Navigationsbereich des Zertifizierungsstellen-Snap-in der Maustaste **Zertifikatvorlagen**Option **neu** und wählen Sie dann **Auszustellende Zertifikatvorlage**.
+12. Klicken Sie im Navigationsbereich des Zertifizierungsstellen-Snap-Ins mit der rechten Maustaste auf **Zertifikat Vorlagen**, wählen Sie **neu** und dann auszustellende **Zertifikat Vorlage**aus.
 
-13. Wählen Sie **VPN-Benutzerauthentifizierung**, und wählen Sie dann **OK**.
+13. Wählen Sie **VPN-Benutzerauthentifizierung**, und klicken Sie dann auf **OK**.
 
-14. Schließen Sie das Zertifizierungsstelle-Snap-in.
+14. Schließen Sie das Snap-in "Zertifizierungsstelle".
 
-## <a name="create-the-vpn-server-authentication-template"></a>Erstellen Sie die Vorlage für VPN-Server-Authentifizierung
+## <a name="create-the-vpn-server-authentication-template"></a>Erstellen der Vorlage für die VPN-Server Authentifizierung
 
-In diesem Verfahren können Sie eine neue Vorlage für den Server-Authentifizierung für Ihre VPN-Server konfigurieren. Hinzufügen, dass die IP-Sicherheit (IPsec) IKE Intermediate-Anwendungsrichtlinie kann der Server zum Filtern von Zertifikaten aus, wenn mehr als ein Zertifikat mit dem Server-Authentifizierung verfügbar ist, erweiterte Schlüsselverwendung.
+In diesem Verfahren können Sie eine neue Server Authentifizierungs Vorlage für den VPN-Server konfigurieren. Durch das Hinzufügen der IPSec-IKE-zwischen Anwendungs Richtlinie (IP Security, IPSec) kann der Server Zertifikate filtern, wenn mehr als ein Zertifikat mit der erweiterten Schlüssel Verwendung der Server Authentifizierung verfügbar ist.
 
 >[!IMPORTANT]
->Da VPN-Clients auf diesem Server über das öffentliche Internet zugreifen, unterscheiden sich die Antragsteller und alternativen Namen als Namen des internen Servers. Daher können Sie nicht automatisch registrieren dieses Zertifikat auf VPN-Servern.
+>Da VPN-Clients über das öffentliche Internet auf diesen Server zugreifen, unterscheiden sich die Antragsteller Namen und alternativen Namen von dem internen Servernamen. Daher können Sie dieses Zertifikat nicht automatisch auf VPN-Servern registrieren.
 
-**Voraussetzungen:**
+**Voraussetzung**
 
-VPN-Server mit domänenverknüpfung
+In die Domäne eingebundenen VPN-Servern
 
-**Vorgehensweise:**
+**Dringlichkeit**
 
-1. Öffnen Sie auf der Zertifizierungsstelle Zertifizierungsstelle ein.
+1. Öffnen Sie auf der Zertifizierungsstelle die Zertifizierungsstelle.
 
-2. Klicken Sie im Navigationsbereich mit der Maustaste **Zertifikatvorlagen** , und wählen Sie **verwalten**.
+2. Klicken Sie im Navigationsbereich mit der rechten Maustaste auf **Zertifikat Vorlagen** , und wählen Sie **Verwalten**aus.
 
-3. In der Verwaltungskonsole Zertifikatvorlagen mit der Maustaste **RAS- und IAS-Server** , und wählen Sie **Doppelte Vorlage**.
+3. Klicken Sie in der Konsole Zertifikat Vorlagen mit der rechten Maustaste auf **RAS-und IAS-Server** , und wählen Sie **Doppelte Vorlage**.
 
-4. Klicken Sie im Dialogfeld Eigenschaften der neuen Vorlage für die **allgemeine** Registerkarte **Vorlagenanzeigename**, geben Sie einen beschreibenden Namen für die VPN-Server, z. B. **VPN-Server-Authentifizierung** oder **RADIUS-Server**.
+4. Geben Sie im Dialogfeld Eigenschaften der neuen Vorlage auf der Registerkarte **Allgemein** unter **Vorlagen Anzeige Name**einen beschreibenden Namen für den VPN-Server ein, z. b. **VPN-Server Authentifizierung** oder **RADIUS-Server**.
 
-5. Auf der **Erweiterungen** Registerkarte, die folgenden Schritte ausführen:
+5. Führen Sie auf der Registerkarte **Erweiterungen** die folgenden Schritte aus:
 
-    1. Wählen Sie **Anwendungsrichtlinien**, und wählen Sie dann **bearbeiten**.
+    1. Wählen Sie **Anwendungsrichtlinien**und dann **Bearbeiten**aus.
 
-    2. In der **Anwendungsrichtlinienerweiterung** wählen Sie im Dialogfeld **hinzufügen**.
+    2. Wählen Sie im Dialogfeld **Anwendungsrichtlinien Erweiterung bearbeiten** die Option **Hinzufügen**aus.
 
-    3. Auf der **Anwendungsrichtlinie hinzufügen** wählen Sie im Dialogfeld **IP-Sicherheits-IKE, dazwischenliegend**, und wählen Sie dann **OK**.
+    3. Wählen Sie im Dialogfeld **Anwendungs Richtlinie hinzufügen** die Option **IP-Sicherheit IKE zwischen**aus, und klicken Sie dann auf **OK**.
    
-        Hinzufügen von IP-hilft Sicherheits-IKE, dazwischenliegend EKU in Szenarien, in denen mehrere CMG-Serverauthentifizierungszertifikat auf dem VPN-Server vorhanden ist. Wenn IP-Sicherheits-IKE, dazwischenliegend vorhanden ist, verwendet IPSec nur das Zertifikat mit EKU. Ohne diesen Schritt tritt Fehler 13801 IKEv2-Authentifizierung konnte: IKE-Authentifizierungsinformationen sind nicht akzeptabel.
+        Das Hinzufügen der IP-Sicherheits-IKE Intermediate zur EKU unterstützt Szenarien, in denen mehrere Server Authentifizierungs Zertifikate auf dem VPN-Server vorhanden sind. Wenn IP-Sicherheits-IKE Intermediate vorhanden ist, verwendet IPSec nur das Zertifikat mit beiden EKU-Optionen. Ohne diesen Fehler kann die IKEv2-Authentifizierung mit Fehler 13801 fehlschlagen: Die Anmelde Informationen für die IKE-Authentifizierung sind unzulässig.
 
-    4. Wählen Sie **OK** zum Zurückgeben der **Eigenschaften der neuen Vorlage** Dialogfeld.
+    4. Wählen Sie **OK** aus, um zum Dialogfeld **Eigenschaften der neuen Vorlage** zurückzukehren.
 
-6. Auf der **Sicherheit** Registerkarte, die folgenden Schritte ausführen:
+6. Führen Sie auf der Registerkarte **Sicherheit** die folgenden Schritte aus:
 
-    1. Wählen Sie **hinzufügen**.
+    1. Wählen Sie **Hinzufügen**.
 
-    2. Auf der **Auswahl von Benutzern, Computern, Dienstkonten oder Gruppen** Dialogfeld Geben Sie **VPN-Server**, und wählen Sie dann **OK**.
+    2. Geben Sie im Dialogfeld **Benutzer, Computer, Dienst Konten oder Gruppen auswählen** die Option **VPN-Server**ein, und klicken Sie dann auf **OK**.
 
-    3. In **Gruppen-oder Benutzernamen**Option **VPN-Server**.
+    3. Wählen Sie unter **Gruppen-oder Benutzernamen**die Option **VPN-Server**aus.
 
-    4. In **Berechtigungen für die VPN-Server**, wählen die **registrieren** Kontrollkästchen in der **zulassen** Spalte.
+    4. Aktivieren Sie in **Berechtigungen für VPN-Server**in der Spalte **zulassen** das Kontrollkästchen **registrieren** .
 
-    5. In **Gruppen-oder Benutzernamen**Option **RAS- und IAS-Server**, und wählen Sie dann **entfernen**.
+    5. Wählen Sie unter **Gruppen-oder Benutzernamen** **RAS-und IAS-Server**aus, und klicken Sie dann auf **Entfernen**.
 
-7. Auf der **Antragstellername** Registerkarte, die folgenden Schritte ausführen:
+7. Führen Sie auf der Registerkarte Antragsteller **Name** die folgenden Schritte aus:
 
-    1. Wählen Sie **Geben Sie in der Anforderung**.
+    1. Wählen Sie **in der Anforderung bereitstellen aus**.
 
-    2. Auf der **Zertifikatvorlagen** Warnung wählen Sie im Dialogfeld **OK**.
+    2. Wählen Sie im Dialogfeld **Zertifikat Vorlagen** Warnung die Option **OK**aus.
 
-8. (Optional) Wenn Sie bedingten Zugriff für VPN-Verbindungen konfigurieren, wählen Sie die **Anforderungsverarbeitung** Registerkarte aus, und wählen Sie dann **privatem Schlüssel zulassen zu exportierenden**.
+8. Optionale Wenn Sie den bedingten Zugriff für VPN-Konnektivität konfigurieren, klicken Sie auf die Registerkarte **Anforderungs Verarbeitung** , und wählen Sie dann die Option **zum Exportieren von privatem Schlüssel zulassen**aus.
 
-9. Wählen Sie **OK** um die Zertifikatvorlage für die VPN-Server zu speichern.
+9. Wählen Sie **OK** aus, um die VPN-Server Zertifikat Vorlage zu speichern.
 
 10. Schließen Sie die Zertifikatvorlagenkonsole.
 
-11. Klicken Sie im Navigationsbereich des Zertifizierungsstellen-Snap-in der Maustaste **Zertifikatvorlagen**Option **neu** und wählen Sie dann **Auszustellende Zertifikatvorlage**.
+11. Klicken Sie im Navigationsbereich des Zertifizierungsstellen-Snap-Ins mit der rechten Maustaste auf **Zertifikat Vorlagen**, klicken Sie auf **neu** , und klicken Sie dann auf Auszustellende **Zertifikat Vorlage**.
 
-12. Wählen Sie den Namen, die Sie in Schritt 4 ausgewählt haben, und klicken Sie auf **OK**.
+12. Starten Sie die Zertifizierungsstellen Dienste neu. (*)
 
-13. Schließen Sie das Zertifizierungsstelle-Snap-in.
+13. Klicken Sie im Navigationsbereich des Zertifizierungsstellen-Snap-Ins mit der rechten Maustaste auf **Zertifikat Vorlagen**, wählen Sie **neu** und dann auszustellende **Zertifikat Vorlage**aus.
 
-## <a name="create-the-nps-server-authentication-template"></a>Erstellen Sie die Vorlage für die NPS-Server-Authentifizierung
+14. Wählen Sie den Namen aus Schritt 4 oben aus, und klicken Sie auf **OK**.
 
-Die dritte und letzte Zertifikatvorlage erstellen wird die Vorlage für die NPS-Server-Authentifizierung. Die Vorlage für die NPS-Server-Authentifizierung ist eine einfache Kopie der Vorlage RAS- und IAS-Server geschützt werden, um die NPS-Server-Gruppe, die Sie zuvor in diesem Abschnitt erstellt haben.
+15. Schließen Sie das Snap-in "Zertifizierungsstelle".
 
-Konfigurieren Sie dieses Zertifikat für die automatische Registrierung.
+* **Sie können den Zertifizierungsstellen Dienst durch Ausführen des folgenden Befehls in cmd Abbrechen/starten:**
 
-**Vorgehensweise:**
+```
+Net Stop "certsvc"
+Net Start "certsvc"
+```
 
-1. Öffnen Sie auf der Zertifizierungsstelle Zertifizierungsstelle ein.
+## <a name="create-the-nps-server-authentication-template"></a>Erstellen der NPS-Server Authentifizierungs Vorlage
 
-2. Klicken Sie im Navigationsbereich mit der Maustaste **Zertifikatvorlagen** , und wählen Sie **verwalten**.
+Die dritte und letzte zu Erstell Bare Zertifikat Vorlage ist die NPS-Server Authentifizierungs Vorlage. Die NPS-Server Authentifizierungs Vorlage ist eine einfache Kopie der RAS-und IAS-Server Vorlage, die für die NPS-Server Gruppe gesichert ist, die Sie zuvor in diesem Abschnitt erstellt haben.
 
-3. In der Verwaltungskonsole Zertifikatvorlagen mit der Maustaste **RAS- und IAS-Server**, und wählen Sie **Doppelte Vorlage**.
+Dieses Zertifikat wird für die automatische Registrierung konfiguriert.
 
-4. Klicken Sie im Dialogfeld Eigenschaften der neuen Vorlage für die **allgemeine** Registerkarte **Vorlagenanzeigename**, Typ **NPS-Server-Authentifizierung**.
+**Dringlichkeit**
 
-5. Auf der **Sicherheit** Registerkarte, die folgenden Schritte ausführen:
+1. Öffnen Sie auf der Zertifizierungsstelle die Zertifizierungsstelle.
 
-    1. Wählen Sie **hinzufügen**.
+2. Klicken Sie im Navigationsbereich mit der rechten Maustaste auf **Zertifikat Vorlagen** , und wählen Sie **Verwalten**aus.
 
-    2. Auf der **Auswahl von Benutzern, Computern, Dienstkonten oder Gruppen** Dialogfeld Geben Sie **NPS-Server**, und wählen Sie dann **OK**.
+3. Klicken Sie in der Konsole Zertifikat Vorlagen mit der rechten Maustaste auf **RAS-und IAS-Server**, und wählen Sie **Doppelte Vorlage**aus.
 
-    3. In **Gruppen-oder Benutzernamen**Option **NPS-Server**.
+4. Geben Sie im Dialogfeld Eigenschaften der neuen Vorlage auf der Registerkarte **Allgemein** unter **Vorlagen Anzeige Name**den Namen **NPS-Server Authentifizierung**ein.
 
-    4. In **Berechtigungen für die NPS-Server**, wählen die **registrieren** und **automatisch registrieren** Kontrollkästchen in der **zulassen** Spalte.
+5. Führen Sie auf der Registerkarte **Sicherheit** die folgenden Schritte aus:
 
-    5. In **Gruppen-oder Benutzernamen**Option **RAS- und IAS-Server**, und wählen Sie dann **entfernen**.
+    1. Wählen Sie **Hinzufügen**.
 
-6. Wählen Sie **OK** um die NPS-Server-Zertifikatvorlage zu speichern.
+    2. Geben Sie im Dialogfeld **Benutzer, Computer, Dienst Konten oder Gruppen auswählen** die **NPS-Server**ein, und klicken Sie dann auf **OK**.
+
+    3. Wählen Sie unter **Gruppen-oder Benutzernamen**die Option **NPS-Server**aus.
+
+    4. Aktivieren Sie in **Berechtigungen für NPS**-Server in der Spalte **zulassen** die Kontrollkästchen registrieren und **automatisch registrieren** .
+
+    5. Wählen Sie unter **Gruppen-oder Benutzernamen** **RAS-und IAS-Server**aus, und klicken Sie dann auf **Entfernen**.
+
+6. Wählen Sie **OK** aus, um die NPS-Server Zertifikat Vorlage zu speichern.
 
 7. Schließen Sie die Zertifikatvorlagenkonsole.
 
-8. Klicken Sie im Navigationsbereich des Zertifizierungsstellen-Snap-in der Maustaste **Zertifikatvorlagen**Option **neu** und wählen Sie dann **Auszustellende Zertifikatvorlage**.
+8. Klicken Sie im Navigationsbereich des Zertifizierungsstellen-Snap-Ins mit der rechten Maustaste auf **Zertifikat Vorlagen**, wählen Sie **neu** und dann auszustellende **Zertifikat Vorlage**aus.
 
-9. Wählen Sie **NPS-Server-Authentifizierung**, und wählen Sie **OK**.
+9. Wählen Sie **NPS-Server Authentifizierung**aus, und klicken Sie auf **OK**.
 
-10. Schließen Sie das Zertifizierungsstelle-Snap-in.
+10. Schließen Sie das Snap-in "Zertifizierungsstelle".
 
-## <a name="enroll-and-validate-the-user-certificate"></a>Registrieren Sie und überprüfen Sie das Benutzerzertifikat
+## <a name="enroll-and-validate-the-user-certificate"></a>Registrieren und Validieren des Benutzer Zertifikats
 
-Da Sie die Gruppenrichtlinie, damit Benutzerzertifikate verwenden, müssen Sie nur die Richtlinie aktualisieren und Windows 10 wird automatisch das Benutzerkonto für das richtige Zertifikat registrieren. Sie können dann das Zertifikat in der Zertifikatkonsole überprüfen.
+Da Sie Gruppenrichtlinie für die automatische Registrierung von Benutzer Zertifikaten verwenden, müssen Sie die Richtlinie nur aktualisieren, und Windows 10 registriert automatisch das Benutzerkonto für das korrekte Zertifikat. Anschließend können Sie das Zertifikat in der Zertifikat Konsole überprüfen.
 
-**Vorgehensweise:**
+**Dringlichkeit**
 
-1. Melden Sie sich bei einer Domäne eingebundenen Client-Computer als Mitglied der **VPN-Benutzer** Gruppe.
+1. Melden Sie sich bei einem in die Domäne eingebundenen Client Computer als Mitglied der Gruppe " **VPN-Benutzer** " an.
 
-2. Drücken Sie die Windows-Taste + R, Typ **Gpupdate/force**, und drücken Sie EINGABETASTE.
+2. Drücken Sie Windows-Taste + R, geben Sie **gpupdate/force**ein, und drücken Sie die EINGABETASTE.
 
-3. Geben Sie im Menü Start **"Certmgr.msc"** , und drücken Sie EINGABETASTE.
+3. Geben Sie im Menü Start den Befehl **Certmgr. msc**ein, und drücken Sie die EINGABETASTE.
 
-4. Klicken Sie in das Zertifikate-Snap-in unter **persönliche**Option **Zertifikate**. Die Zertifikate werden im Detailbereich angezeigt.
+4. Wählen Sie im Zertifikate-Snap-in unter **persönlich**die Option **Zertifikate**aus. Die Zertifikate werden im Bereich Details angezeigt.
 
-5. Mit der rechten Maustaste in des Zertifikats mit Ihrer aktuellen Domäne Benutzername ein, und wählen Sie dann **öffnen**.
+5. Klicken Sie mit der rechten Maustaste auf das Zertifikat mit Ihrem aktuellen Domänen Benutzernamen, und wählen Sie dann **Öffnen**aus.
 
-6. Auf der **allgemeine** Registerkarte, zu bestätigen, dass das Datum unter aufgeführt **gültig ab** ist das aktuelle Datum. Wenn sie nicht der Fall ist, haben Sie möglicherweise das falsche Zertifikat ausgewählt.
+6. Vergewissern Sie sich auf der Registerkarte **Allgemein** , dass das Datum unter **gültig ab** das heutige Datum ist. Wenn dies nicht der Fall ist, haben Sie möglicherweise das falsche Zertifikat ausgewählt.
 
-7. Wählen Sie **OK**, und schließen Sie das Zertifikate-Snap-in.
+7. Wählen Sie **OK**aus, und schließen Sie das Snap-in Zertifikate.
 
-## <a name="enroll-and-validate-the-server-certificates"></a>Registrieren Sie und überprüfen Sie die Serverzertifikate
+## <a name="enroll-and-validate-the-server-certificates"></a>Registrieren und Validieren der Server Zertifikate
 
-Im Gegensatz zu das Zertifikat müssen Sie das VPN-Zertifikat des Servers manuell registrieren. Nachdem sie registriert haben, überprüfen Sie sie durch die gleiche Weise wie für das Benutzerzertifikat. Wie das Benutzerzertifikat registriert der NPS-Server automatisch ein Clientauthentifizierungszertifikat, also alles, was Sie tun müssen sie überprüfen.
+Im Gegensatz zum Benutzerzertifikat müssen Sie das Zertifikat des VPN-Servers manuell registrieren. Nachdem Sie diese registriert haben, überprüfen Sie Sie mithilfe desselben Prozesses, den Sie für das Benutzerzertifikat verwendet haben. Ebenso wie das Benutzerzertifikat registriert der NPS-Server automatisch sein Authentifizierungszertifikat, sodass Sie es nur überprüfen müssen.
 
 >[!NOTE]
->Sie müssen möglicherweise neu starten der VPN- und NPS-Server können sie Gruppenmitgliedschaften zu aktualisieren, bevor Sie diese Schritte ausführen können.
+>Möglicherweise müssen Sie die VPN-und NPS-Server neu starten, damit Sie Ihre Gruppenmitgliedschaften aktualisieren können, bevor Sie diese Schritte ausführen können.
 
-### <a name="enroll-and-validate-the-vpn-server-certificate"></a>Registrieren Sie und überprüfen Sie des VPN-Server-Zertifikats
+### <a name="enroll-and-validate-the-vpn-server-certificate"></a>Registrieren und Validieren des VPN-Serverzertifikats
 
-1. Geben Sie auf das Menü "Start" die VPN-Server, **"certlm.msc"** , und drücken Sie EINGABETASTE.
+1. Geben Sie im Startmenü des VPN-Servers **certlm. msc**ein, und drücken Sie die EINGABETASTE.
 
-2. Mit der rechten Maustaste **persönliche**Option **alle Aufgaben** und wählen Sie dann **neues Zertifikat anfordern** der Zertifikatregistrierungs-Assistent gestartet.
+2. Klicken Sie mit der rechten Maustaste auf **persönlich**, wählen Sie **alle Aufgaben** aus, und wählen Sie dann **Neues Zertifikat anfordern** , um den Zertifikatregistrierungs-Assistenten
 
-3. Wählen Sie auf der Seite Vorbemerkungen **Weiter**.
+3. Wählen Sie auf der Seite Vorbereitung die Option **weiter**aus.
 
-4. Wählen Sie auf der Seite Zertifikatregistrierungsrichtlinie auswählen **Weiter**.
+4. Wählen Sie auf der Seite Zertifikat Registrierungs Richtlinie auswählen die Option **weiter**aus.
 
-5. Wählen Sie das Kontrollkästchen neben dem VPN-Server, um es auszuwählen, auf der Seite Zertifikate anfordern.
+5. Aktivieren Sie auf der Seite Zertifikate anfordern das Kontrollkästchen neben dem VPN-Server, um es auszuwählen.
 
-6. Wählen Sie das Kontrollkästchen VPN-Server **ist erforderlich, Weitere Informationen** zum Öffnen des Dialogfelds Eigenschaften des Zertifikats, und führen die folgenden Schritte aus:
+6. Wählen Sie unter dem Kontrollkästchen VPN-Server die Option **Weitere Informationen sind erforderlich** aus, um das Dialogfeld Zertifikat Eigenschaften zu öffnen, und führen Sie die folgenden Schritte aus:
 
-    1. Wählen Sie die **Betreff** Registerkarte **allgemeiner Name** unter **Antragstellername**im **Typ**.
+    1. Wählen Sie die Registerkarte **Betreff** aus, und wählen Sie unter Antragsteller **Name**die Option allgemeiner **Name** in **Typ**.
 
-    2. Klicken Sie unter **Antragstellername**im **Wert**, geben Sie den Namen der externen Domänenclients verwendet, um die Verbindung zum VPN, z. B. vpn.contoso.com, und wählen Sie dann **hinzufügen**.
+    2. Geben Sie unter Antragsteller **Name**unter **Wert**den Namen der externen Domänen Clients ein, die für die Verbindung mit dem VPN verwendet werden, z. b. VPN.contoso.com, und klicken Sie dann auf **Hinzufügen**.
 
-    3. Klicken Sie unter **alternativen Antragstellernamen**im **Typ**Option **DNS**.
+    3. Wählen Sie unter **alternativer Name**in **Typ**die Option **DNS**aus.
 
-    4. Klicken Sie unter **alternativen Antragstellernamen**im **Wert**, geben Sie alle Servernamen, die Clients verwenden, um mit dem VPN, z. B. eine Verbindung herstellen, vpn.contoso.com, Vpn, 132.64.86.2.
+    4. Geben Sie unter **alternativer Name**unter **Wert**den Namen aller Servernamen ein, die von Clients zum Herstellen einer Verbindung mit dem VPN verwendet werden, z. b. VPN.contoso.com, VPN, 132.64.86.2.
 
-    5. Wählen Sie **hinzufügen** nach dem Eingeben der Namen der einzelnen.
+    5. Wählen Sie nach Eingabe der einzelnen Namen **Hinzufügen** aus.
 
-    6. Wählen Sie **OK** Abschluss.
+    6. Klicken Sie abschließend auf **OK** .
 
-7. Wählen Sie **registrieren**.
+7. Wählen Sie **Anmelden**aus.
 
-8. Wählen Sie **Fertig stellen**.
+8. Wählen Sie **Fertig**stellen.
 
-9. Klicken Sie in das Zertifikate-Snap-in unter **persönliche**Option **Zertifikate**.
+9. Wählen Sie im Zertifikate-Snap-in unter **persönlich**die Option **Zertifikate**aus.
     
-    Die aufgeführten Zertifikate werden im Detailbereich angezeigt.
+    Die aufgelisteten Zertifikate werden im Bereich Details angezeigt.
 
-10. Mit der rechten Maustaste in des Zertifikats mit der VPN-Server den Namen, und wählen Sie dann **öffnen**.
+10. Klicken Sie mit der rechten Maustaste auf das Zertifikat mit dem Namen des VPN-Servers, und wählen Sie dann **Öffnen**aus.
 
-11. Auf der **allgemeine** Registerkarte, zu bestätigen, dass das Datum unter aufgeführt **gültig ab** ist das aktuelle Datum. Falls nicht, können Sie nicht das richtige Zertifikat ausgewählt haben.
+11. Vergewissern Sie sich auf der Registerkarte **Allgemein** , dass das Datum unter **gültig ab** das heutige Datum ist. Wenn dies nicht der Fall ist, haben Sie möglicherweise das falsche Zertifikat ausgewählt.
 
-12. Auf der **Details** Registerkarte **Enhanced Key Usage**, und überprüfen Sie, ob **IP-Sicherheits-IKE, dazwischenliegend** und **Serverauthentifizierung** in der Liste angezeigt.
+12. Wählen Sie auf der Registerkarte **Details** die Option **Erweiterte Schlüssel Verwendung**aus, und überprüfen Sie, ob **IP-Sicherheits-IKE zwischen** und **Server Authentifizierung** in der Liste angezeigt werden
 
-13. Wählen Sie **OK** um das Zertifikat zu schließen.
+13. Wählen Sie **OK** aus, um das Zertifikat zu schließen.
 
-14. Schließen Sie das Zertifikate-Snap-in.
+14. Schließen Sie das Snap-in "Zertifikate".
 
-### <a name="validate-the-nps-server-certificate"></a>Überprüfen Sie die NPS-Serverzertifikats
+### <a name="validate-the-nps-server-certificate"></a>Validieren des NPS-Serverzertifikats
 
 1. Starten Sie den NPS-Server neu.
 
-2. Geben Sie auf dem NPS-Server im Menü Start **"certlm.msc"** , und drücken Sie EINGABETASTE.
+2. Geben Sie im Startmenü des NPS-Servers **certlm. msc**ein, und drücken Sie die EINGABETASTE.
 
-3. Klicken Sie in das Zertifikate-Snap-in unter **persönliche**Option **Zertifikate**.
+3. Wählen Sie im Zertifikate-Snap-in unter **persönlich**die Option **Zertifikate**aus.
 
-    Die aufgeführten Zertifikate werden im Detailbereich angezeigt.
+    Die aufgelisteten Zertifikate werden im Bereich Details angezeigt.
 
-4. Mit der rechten Maustaste in des Zertifikats mit dem NPS-Server Namen, und wählen Sie dann **öffnen**.
+4. Klicken Sie mit der rechten Maustaste auf das Zertifikat mit dem Namen des NPS-Servers, und wählen Sie dann **Öffnen**aus.
 
-5. Auf der **allgemeine** Registerkarte, zu bestätigen, dass das Datum unter aufgeführt **gültig ab** ist das aktuelle Datum. Falls nicht, können Sie nicht das richtige Zertifikat ausgewählt haben.
+5. Vergewissern Sie sich auf der Registerkarte **Allgemein** , dass das Datum unter **gültig ab** das heutige Datum ist. Wenn dies nicht der Fall ist, haben Sie möglicherweise das falsche Zertifikat ausgewählt.
 
-6. Wählen Sie **OK** um das Zertifikat zu schließen.
+6. Wählen Sie **OK** aus, um das Zertifikat zu schließen.
 
-7. Schließen Sie das Zertifikate-Snap-in.
+7. Schließen Sie das Snap-in "Zertifikate".
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Schritt 3: Konfigurieren Sie die RAS-Server für Always On-VPN-](vpn-deploy-ras.md): In diesem Schritt konfigurieren Sie RAS-VPN IKEv2-VPN-Verbindungen zulassen, verweigern Verbindungen von anderen VPN-Protokolle und zuweisen einen statischen IP-Adresspool für die Ausstellung von IP-Adressen zum Herstellen einer Verbindung autorisierte VPN-Clients.
+[Schritt 3: Konfigurieren Sie den Remote Zugriffs Server für Always on](vpn-deploy-ras.md)VPN: In diesem Schritt konfigurieren Sie das RAS-VPN, um IKEv2-VPN-Verbindungen zuzulassen, Verbindungen von anderen VPN-Protokollen zu verweigern und einen statischen IP-Adresspool für die Ausstellung von IP-Adressen für die Verbindung mit autorisierten VPN-Clients zuzuweisen.

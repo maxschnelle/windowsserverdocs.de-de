@@ -1,6 +1,6 @@
 ---
-title: Delegieren von AD FS Powershell-Cmdlet auf Benutzer ohne Administratorrechte
-description: Dieses Dokument Descirbes Vorgehensweise beim Delegieren von Berechtigungen für nicht-Administratoren für AD FS-PowerShell-Dienstes.
+title: Delegieren AD FS PowerShell-Commandlets Zugriff für Benutzer ohne Administratorrechte
+description: In diesem Dokument wird beschrieben, wie Berechtigungen für AD FS PowerShell-cmdlts an nicht-Administratoren delegiert werden.
 author: billmath
 ms.author: billmath
 manager: daveba
@@ -9,31 +9,31 @@ ms.date: 01/31/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 265d22b045011e34192e56bdb970955b601cda56
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 86bbb562e223fdf61dac3ce5646d97a57b2eba4c
+ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883561"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69546305"
 ---
-# <a name="delegate-ad-fs-powershell-commandlet-access-to-non-admin-users"></a>Delegieren von AD FS Powershell-Cmdlet auf Benutzer ohne Administratorrechte 
-Standardmäßig kann AD FS-Verwaltung über PowerShell nur von AD FS-Administratoren erreicht werden. Für viele große Organisationen kann dies keine geeignete Betriebsmodell beim Umgang mit anderen Rollen wie z. B. ein Helpdeskmitarbeiter.  
+# <a name="delegate-ad-fs-powershell-commandlet-access-to-non-admin-users"></a>Delegieren AD FS PowerShell-Commandlets Zugriff für Benutzer ohne Administratorrechte 
+Standardmäßig kann AD FS Verwaltung über PowerShell nur AD FS Administratoren durchgeführt werden. Für viele große Organisationen ist dies möglicherweise kein funktionierendes Betriebsmodell, wenn Sie mit anderen Personen wie einem Helpdeskpersonal beschäftigt sind.  
 
-Mit Just Enough Administration (JEA), können Kunden jetzt spezifische Cmdlets für andere Mitarbeiter Gruppen delegieren.  
-Ein gutes Beispiel in diesem Fall lässt das Helpdeskpersonal Abfrage AD FS Lockout Status des Datenquellenkontos und Konto-Sperrzustands in AD FS zurückgesetzt, sobald ein Benutzer überprüft wurde. In diesem Fall sind die Cmdlets, die delegiert werden müssten: 
+Mit Just Enough Administration (Jea) können Kunden jetzt bestimmte Cmdlets an verschiedene personalgruppen delegieren.  
+Ein gutes Beispiel für diesen Anwendungsfall besteht darin, dass das Helpdesk-Personal AD FS Konto Sperr Statusabfragen und den Konto Sperrungs Status in AD FS zurücksetzen kann, sobald ein Benutzer eine Prüfung durchführen kann. In diesem Fall müssen folgende Cmdlets delegiert werden: 
 - `Get-ADFSAccountActivity`
 - `Set-ADFSAccountActivity` 
 - `Reset-ADFSAccountLockout` 
 
-Wir verwenden in diesem Beispiel wird im weiteren Verlauf dieses Dokuments. Allerdings kann eine anpassen, diese Option, um auch die Delegierung zu legen Sie Eigenschaften der vertrauenden Seiten, und übergeben dies aus an die Anwendungsbesitzer innerhalb der Organisation ermöglichen.  
+Wir verwenden dieses Beispiel für den Rest dieses Dokuments. Dies kann jedoch angepasst werden, um auch die Delegierung zu ermöglichen, Eigenschaften Vertrauender Seiten festzulegen und diese an die Besitzer der Anwendung in der Organisation zu übergeben.  
 
 
-##  <a name="create-the-required-groups-necessary-to-grant-users-permissions"></a>Erstellen Sie die erforderlichen Gruppen erforderlich, um Benutzerberechtigungen gewähren 
-1. Erstellen Sie eine [Gruppenverwaltetes Dienstkonto](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview). Das gMSA-Konto wird verwendet, um die JEA-Benutzer Zugriff auf Netzwerkressourcen als der andere Computer oder die Webdienste zu ermöglichen. Es bietet eine Domänenidentität, die zum Authentifizieren von Ressourcen auf einem beliebigen Computer innerhalb der Domäne verwendet werden kann. Das gMSA-Konto wird später im Setup die erforderlichen Administratorrechte gewährt werden. In diesem Beispiel rufen wir das Konto **gMSAContoso**. 
-2. Erstellen einer Active Directory-Gruppe mit Benutzern, die die Rechte für die delegierte Befehle erteilt werden müssen aufgefüllt werden kann. In diesem Beispiel werden Helpdeskpersonal gewährt Berechtigungen zum Lesen, aktualisieren und den Status der AD FS-Sperre zurücksetzen. Wir bezeichnen diese Gruppe in der gesamten das Beispiel als **JEAContoso**. 
+##  <a name="create-the-required-groups-necessary-to-grant-users-permissions"></a>Erstellen der erforderlichen Gruppen zum Erteilen von Berechtigungen für Benutzer 
+1. Erstellen Sie ein [Gruppen verwaltetes Dienst Konto](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview). Das GMSA-Konto wird verwendet, um dem Jea-Benutzer den Zugriff auf Netzwerkressourcen als andere Computer oder Webdienste zu ermöglichen. Sie stellt eine Domänen Identität bereit, die für die Authentifizierung mit Ressourcen auf jedem Computer in der Domäne verwendet werden kann. Das GMSA-Konto erhält später in der Einrichtung die erforderlichen Administratorrechte. In diesem Beispiel nennen wir das Konto **gmsacontoso**. 
+2. Erstellen Sie eine Active Directory Gruppe kann mit Benutzern aufgefüllt werden, denen die Rechte für die Delegierten Befehle erteilt werden müssen. In diesem Beispiel werden Helpdeskmitarbeiter Berechtigungen zum Lesen, aktualisieren und Zurücksetzen des AD FS-Sperr Zustands erteilt. Wir bezeichnen diese Gruppe im gesamten Beispiel als **jeaconto**. 
 
-### <a name="install-the-gmsa-account-on-the-adfs-server"></a>Installieren Sie das gMSA-Konto auf dem AD FS-Server: 
-Erstellen Sie ein Dienstkonto, das über Administratorrechte für AD FS-Server verfügt. Dies kann erfolgen auf dem Domänencontroller oder von einem Remotestandort, so lange wie das Active Directory-RSAT-Paket installiert wird.  Das Dienstkonto muss in derselben Gesamtstruktur wie der AD FS-Server erstellt werden. Ändern Sie die Beispielwerte an der Konfiguration der Farm. 
+### <a name="install-the-gmsa-account-on-the-adfs-server"></a>Installieren Sie das GMSA-Konto auf dem ADFS-Server: 
+Erstellen Sie ein Dienst Konto, das über Administratorrechte für die AD FS-Server verfügt. Dies kann auf dem Domänen Controller oder Remote ausgeführt werden, solange das AD RSAT-Paket installiert ist.  Das Dienst Konto muss in derselben Gesamtstruktur wie der AD FS-Server erstellt werden. Ändern Sie die Beispiel Werte in die Konfiguration der Farm. 
 
 ```powershell
  # This command should only be run if this is the first time gMSA accounts are enabled in the forest 
@@ -49,25 +49,25 @@ $serviceaccount = New-ADServiceAccount gMSAcontoso -DNSHostName <FQDN of the dom
 Add-ADComputerServiceAccount -Identity server01.contoso.com -ServiceAccount $ServiceAccount 
 ```
 
-Installieren Sie das gMSA-Konto auf dem AD FS-Server.  Dies muss auf jedem AD FS-Knoten in der Farm ausgeführt werden. 
+Installieren Sie das GMSA-Konto auf dem ADFS-Server.  Diese muss auf jedem AD FS-Knoten in der Farm ausgeführt werden. 
  
 ```powershell
 Install-ADServiceAccount gMSAcontoso 
 ```
 
-### <a name="grant-the-gmsa-account-admin-rights"></a>Das gMSA-Konto über Administratorrechte zu gewähren 
-Wenn die Farm delegierte Verwaltung verwendet wird, gewähren Sie gMSA Konto über Administratorrechte, indem Sie es an die vorhandene Gruppe, die administrativen Zugriff delegiert hat.  
+### <a name="grant-the-gmsa-account-admin-rights"></a>Erteilen von Administratorrechten für das GMSA-Konto 
+Wenn die Farm die delegierte Administration verwendet, erteilen Sie dem GMSA-Konto Administratorrechte, indem Sie Sie der vorhandenen Gruppe hinzufügen, die über delegierten Administrator Zugriff verfügt.  
  
-Wenn die Farm nicht delegierte Verwaltung verwendet wird, gewähren Sie gMSA Konto über Administratorrechte und es der lokalen Administratorgruppe auf allen AD FS-Server mit. 
+Wenn die Farm keine delegierte Administration verwendet, erteilen Sie dem GMSA-Konto Administratorrechte, indem Sie Sie auf allen AD FS-Servern zur lokalen Administrator Gruppe machen. 
  
  
-### <a name="create-the-jea-role-file"></a>Erstellen Sie die Datei der JEA-Rolle 
+### <a name="create-the-jea-role-file"></a>Erstellen der Jea-Rollen Datei 
  
-Erstellen Sie die JEA-Rolle in eine Editor-Datei an. Anweisungen zum Erstellen der Rolle wird bereitgestellt, auf [JEA-rollenfunktionen](https://docs.microsoft.com/powershell/jea/role-capabilities). 
+Erstellen Sie auf dem AD FS Server die Jea-Rolle in einer Editor-Datei. Anweisungen zum Erstellen der Rolle werden für [Jea-Rollen Funktionen](https://docs.microsoft.com/powershell/jea/role-capabilities)bereitgestellt. 
  
-Die Cmdlets, die in diesem Beispiel delegiert werden `Reset-AdfsAccountLockout, Get-ADFSAccountActivity, and Set-ADFSAccountActivity`. 
+Die in diesem Beispiel Delegierten Cmdlets sind `Reset-AdfsAccountLockout, Get-ADFSAccountActivity, and Set-ADFSAccountActivity`. 
 
-Beispiel-JEA-Rolle delegieren des Zugriffs von "Get-ADFSAccountActivity", "Reset-ADFSAccountLockout" und "Set-ADFSAccountActivity"-Cmdlets:
+Beispiel für eine Jea-Rolle, die den Zugriff auf die Commandlets "Reset-adfsaccountlockout", "Get-adfsaccountactivity" und "Set-adfsaccountactivity" delegiert:
 
 ```powershell
 @{
@@ -78,14 +78,14 @@ VisibleCmdlets = 'Reset-AdfsAccountLockout', 'Get-ADFSAccountActivity', 'Set-ADF
 ```
 
 
-### <a name="create-the-jea-session-configuration-file"></a>Erstellen Sie die Konfigurationsdatei für JEA-Sitzung 
-Führen Sie die Anweisungen zum Erstellen der [JEA-Sitzungskonfiguration](https://docs.microsoft.com/powershell/jea/session-configurations) Datei. Die Konfigurationsdatei bestimmt, die auf den JEA-Endpunkt verwenden können und welche Funktionen sie Zugriff haben. 
+### <a name="create-the-jea-session-configuration-file"></a>Erstellen der Jea-Sitzungs Konfigurationsdatei 
+Befolgen Sie die Anweisungen zum Erstellen der [Jea-Sitzungs](https://docs.microsoft.com/powershell/jea/session-configurations) Konfigurationsdatei. Die Konfigurationsdatei bestimmt, wer den Jea-Endpunkt verwenden kann und auf welche Funktionen Sie zugreifen können. 
 
-Rollenfunktionen werden durch den flachen Namen (Dateiname ohne Erweiterung), der die rollenfunktionsdatei auf die verwiesen wird. Wenn mehrere rollenfunktionen auf dem System mit dem gleichen flachen Namen verfügbar sind, verwendet PowerShell die implizite Suchreihenfolge, um die zutreffende rollenfunktionsdatei auszuwählen. Es wird kein Zugriff auf alle rollenfunktionsdateien mit dem gleichen Namen ermöglicht. 
+Auf Rollen Funktionen wird durch den flachen Namen (Dateiname ohne Erweiterung) der Rollen Funktions Datei verwiesen. Wenn mehrere Rollen Funktionen auf dem System mit dem gleichen flatname verfügbar sind, verwendet PowerShell die implizite Such Reihenfolge, um die effektive Rollen Funktions Datei auszuwählen. Er gewährt keinen Zugriff auf alle Rollen Funktions Dateien mit demselben Namen. 
 
-Verwenden Sie zum Angeben einer Rollenfunktionsdatei mit einem Pfad der `RoleCapabilityFiles` Argument. Für einen Unterordner, JEA, sucht Sie nach gültigen Powershell-Modulen, die enthalten eine `RoleCapabilities` Unterordner, in denen die `RoleCapabilityFiles` Argument sollte geändert werden `RoleCapabilities`. 
+Um eine Rollen Funktions Datei mit einem Pfad anzugeben, verwenden Sie `RoleCapabilityFiles` das-Argument. Für einen Unterordner sucht Jea nach gültigen PowerShell-Modulen, die einen `RoleCapabilities` Unterordner enthalten, in `RoleCapabilityFiles` dem das Argument in geändert werden `RoleCapabilities`sollte. 
 
-Beispielkonfigurationsdatei Sitzung: 
+Beispiel für eine Sitzungs Konfigurationsdatei: 
 
 ```powershell
 @{
@@ -97,23 +97,25 @@ RoleDefinitions = @{ JEAcontoso = @{ RoleCapabilityFiles = 'C:\Program Files\Win
 }
 ```
 
-Speichern Sie die Sitzungskonfigurationsdatei. 
+Speichern Sie die Sitzungs Konfigurationsdatei. 
  
-Es wird dringend empfohlen, [testen Sie die Sitzungskonfigurationsdatei](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Core/Test-PSSessionConfigurationFile?view=powershell-5.1) , wenn Sie die Pssc-Datei manuell bearbeitet haben, mit einem Text-Editor, um sicherzustellen, dass die Syntax korrekt ist. Wenn eine Sitzungskonfigurationsdatei den Test nicht bestanden, ist es nicht erfolgreich auf dem System registriert.  
+Es wird dringend empfohlen, die [Sitzungs Konfigurationsdatei zu testen](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Core/Test-PSSessionConfigurationFile?view=powershell-5.1) , wenn Sie die PSSC-Datei manuell mithilfe eines Text-Editors bearbeitet haben, um sicherzustellen, dass die Syntax korrekt ist. Wenn eine Sitzungs Konfigurationsdatei den Test nicht bestanden hat, wird Sie nicht erfolgreich auf dem System registriert.  
  
-### <a name="install-the-jea-session-configuration-on-the-ad-fs-server"></a>Installieren von JEA-Sitzungskonfiguration auf dem AD FS-Server 
+### <a name="install-the-jea-session-configuration-on-the-ad-fs-server"></a>Installieren der Jea-Sitzungs Konfiguration auf dem AD FS Server 
 
-Installieren von JEA-Sitzungskonfiguration auf dem AD FS-server 
+Installieren der Jea-Sitzungs Konfiguration auf dem AD FS Server 
  
 ```powershell
 Register-PSSessionConfiguration -Path .\JEASessionConfig.pssc -name "AccountActivityAdministration" -force
 ``` 
-## <a name="operational-instructions"></a>Operational-Anweisungen 
-Nach der Einrichtung JEA, Protokollierung und Überwachung kann verwendet werden, um festzustellen, ob die richtigen Benutzer haben Zugriff auf den JEA-Endpunkt. 
+## <a name="operational-instructions"></a>Betriebsanweisungen 
+Nach der Einrichtung kann die Jea-Protokollierung und-Überwachung verwendet werden, um zu bestimmen, ob die richtigen Benutzer Zugriff auf den Jea-Endpunkt haben. 
 
-So verwenden Sie die delegierte Befehle: 
+So verwenden Sie die Delegierten Befehle: 
 
 ```powershell
 Enter-pssession -ComputerName server01.contoso.com -ConfigurationName "AccountActivityAdministration" -Credential <User Using JEA> 
 Get-AdfsAccountActivity <User> 
+
+
 ```

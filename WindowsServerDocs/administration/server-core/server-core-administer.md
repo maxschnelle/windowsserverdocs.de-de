@@ -8,12 +8,12 @@ author: lizap
 ms.author: elizapo
 ms.localizationpriority: medium
 ms.date: 12/18/2018
-ms.openlocfilehash: b144127de2ceea99e36549974101d190154aaeaf
-ms.sourcegitcommit: 216d97ad843d59f12bf0b563b4192b75f66c7742
+ms.openlocfilehash: 78006dbbd2bdc569c15ac9967d8c5c542664312c
+ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68476523"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69546286"
 ---
 # <a name="administer-a-server-core-server"></a>Verwalten eines Server Core-Servers
 
@@ -90,8 +90,8 @@ Führen Sie **slmgr. VSB – IPK\<ProductKey\>** aus. Führen Sie dann **slmgr. 
 > [!NOTE]
 > Sie können den Server auch per Telefon aktivieren, indem Sie einen [KMS-Server (Key Management Service)](../../get-started/server-2016-activation.md)oder Remote verwenden. Um Remote zu aktivieren, führen Sie das folgende Cmdlet auf einem Remote Computer aus: 
 > 
-> ```powershell
-> **cscript windows\system32\slmgr.vbs <ServerName> <UserName> <password>:-ato**
+> ```
+> cscript windows\system32\slmgr.vbs <ServerName> <UserName> <password>:-ato
 > ```
  
 ### <a name="configure-windows-firewall"></a>Konfigurieren der Windows-Firewall
@@ -136,7 +136,7 @@ Verwenden Sie die folgenden Referenzinformationen, um Verwaltungsaufgaben über 
 |Aufgabe|Befehl| 
 |----|-------|
 |Konfigurieren des Servers für die Verwendung eines Proxy Servers|**Netsh WinHTTP Set Proxy \<Servername\>:\<Portnummer\>** <br>**Hinweis**: Server Core-Installationen können nicht über einen Proxy auf das Internet zugreifen, das ein Kennwort erfordert, um Verbindungen zuzulassen.|
-|Konfigurieren Sie den Server so, dass der Proxy für Internet Adressen umgangen wird.|**Netsh winttp Set Proxy \<Servername\>:\<Portnummer\> Bypass-List = "\<local\>"**| 
+|Konfigurieren Sie den Server so, dass der Proxy für Internet Adressen umgangen wird.|**Netsh WinHTTP Set Proxy \<Servername\>:\<Portnummer\> Bypass-List = "\<local\>"**| 
 |Anzeigen oder Ändern der IPSec-Konfiguration|**Netsh IPSec**| 
 |Anzeigen oder Ändern der NAP-Konfiguration|**netsh nap**| 
 |Anzeigen oder Ändern der IP-Adresse für die physische Adressübersetzung|**arp**| 
@@ -147,7 +147,7 @@ Verwenden Sie die folgenden Referenzinformationen, um Verwaltungsaufgaben über 
 |Anzeigen von Hops für Netzwerkverbindungen|**pathping**| 
 |Ablaufverfolgungs-Hops für Netzwerkverbindungen|**tracert**| 
 |Anzeigen der Konfiguration des Multicastrouters|**mrinfo**| 
-|Aktivieren der Remote Verwaltung der Firewall|**netsh advfirewall firewall set rule Group = "Windows Firewall Remote Management" New enable = yes**| 
+|Aktivieren der Remote Verwaltung der Firewall|**netsh advfirewall firewall set rule Group = "Windows Defender Firewall Remote Management" New enable = yes**| 
  
 
 ### <a name="updates-error-reporting-and-feedback"></a>Updates, Fehlerberichterstattung und Feedback

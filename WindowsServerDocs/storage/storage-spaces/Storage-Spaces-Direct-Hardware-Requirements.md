@@ -9,12 +9,12 @@ ms.topic: article
 author: eldenchristensen
 ms.date: 08/05/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 59c04a858ceae44ee51c1de10fc40b27dc22ef90
-ms.sourcegitcommit: e04565e4a1fb7aaed04addd2bc87cc6ec4c82e81
+ms.openlocfilehash: 2f3f8bff39550108b0417b9513bee4a248dca432
+ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 08/16/2019
-ms.locfileid: "69529891"
+ms.locfileid: "69546371"
 ---
 # <a name="storage-spaces-direct-hardware-requirements"></a>Hardwareanforderungen für „Direkte Speicherplätze“
 
@@ -86,7 +86,7 @@ Direkte Speicherplätze funktioniert mit direkt angeschlossenen SATA-, SAS-oder 
 - Gleiche Anzahl und Arten von Laufwerken auf jedem Server – siehe [Überlegungen zur Laufwerk Symmetrie](drive-symmetry-considerations.md)
 - Cache Geräte müssen 32 GB oder größer sein.
 - Wenn Sie persistente Speichergeräte als Cache Geräte verwenden, müssen Sie nvme-oder SSD-Kapazitäts Geräte verwenden (HDDs können nicht verwendet werden).
-- Der nvme-Treiber ist der in-Box-oder aktualisierte nvme-Treiber von Microsoft.
+- Der nvme-Treiber ist der von Microsoft bereitgestellte, der in Windows enthalten ist. (stornvme. sys)
 - Empfohlen: Die Anzahl der Kapazitäts Laufwerke ist ein gesamtes Vielfaches der Anzahl von Cache Laufwerken.
 - Empfohlen: Cache Laufwerke sollten eine hohe Schreib Ausdauer aufweisen: mindestens 3 Laufwerk-Schreibvorgänge pro Tag (dwpd) oder mindestens 4 Terabyte (TBW) pro Tag – Siehe Grundlegendes zu [Laufwerks Schreibvorgängen pro Tag (dwpd), Terabyte (TBW) und die empfohlene Mindestanzahl für direkte Speicherplätze ](https://blogs.technet.microsoft.com/filecab/2017/08/11/understanding-dwpd-tbw/)
 
