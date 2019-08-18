@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 ms.date: 10/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: a54ffd3d5596ba8c71deab668e4952da445ca12e
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 17df3ca3b88404a2775790d7a4a8206b7aa5befa
+ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66804941"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69546345"
 ---
 # <a name="get-started-with-remote-desktop-on-mac"></a>Erste Schritte mit Remotedesktop unter Mac
 
@@ -35,7 +35,7 @@ Sie können den Remotedesktopclient für Mac verwenden, um mit Windows-Apps, -Re
 ## <a name="get-the-remote-desktop-client"></a>Abrufen des Remotedesktopclients
 Führen Sie die folgenden Schritte für den Einstieg in Remotedesktop auf Ihrem Mac aus:
 
-1. Laden Sie den Microsoft-Remotedesktopclient aus dem [Mac App Store](https://itunes.apple.com/us/app/microsoft-remote-desktop/id1295203466?mt=12) herunter.
+1. Laden Sie den Microsoft-Remotedesktopclient aus dem [Mac App Store](https://itunes.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) herunter.
 2. [Richten Sie Ihren PC so ein, dass Remoteverbindungen zulässig sind](remote-desktop-client-faq.md#how-do-i-set-up-a-pc-for-remote-desktop). (Wenn Sie diesen Schritt überspringen, können Sie keine Verbindung mit Ihrem PC herstellen.)
 3. Fügen Sie eine Remotedesktopverbindung oder eine Remoteressource hinzu. Mit einer Verbindung können Sie eine direkte Verbindung mit einem Windows-PC herstellen, und mit einer Remoteressource können Sie ein RemoteApp-Programm, einen sitzungsbasierten Desktop oder einen virtuellen Desktop verwenden, das/der mithilfe von RemoteApp- und Desktopverbindungen veröffentlicht wird. Dieses Feature ist in der Regel in Unternehmensumgebungen verfügbar.
 
