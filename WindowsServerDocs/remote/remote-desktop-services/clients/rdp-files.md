@@ -13,18 +13,18 @@ manager: dongill
 ms.author: helohr
 ms.date: 05/20/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 2b11f4356496607d59e6c1b8dff2fb8edc0535cb
-ms.sourcegitcommit: 25376e261ebd5e85355c298cfd0bbd6b578a6a0c
+ms.openlocfilehash: ecc3236d44146015564fa593aaf8a20d3bfa42ff
+ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68729560"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69546464"
 ---
 # <a name="supported-remote-desktop-rdp-file-settings"></a>Unterstützte RDP-Dateieinstellungen für Remotedesktop
 
 Die folgende Tabelle enthält eine Liste der unterstützten RDP-Dateieinstellungen, die du mit Windows- und HTML-Clients verwenden kannst. Ein „x“ in der Spalte mit der Plattform gibt an, dass die Einstellung unterstützt wird. Dies ist jedoch keine vollständige Liste der unterstützten Einstellungen für die Windows- und HTML5-Clients. Wir werden diese Tabelle im Lauf der Zeit aktualisieren und weitere unterstützte RDP-Einstellungen für die Windows- und HTML5-Clients sowie für die macOS-, iOS- und Android-Clients hinzufügen.
 
-Weitere Informationen zur Verwendung von PowerShell zum Anpassen von RDP-Eigenschaften finden Sie unter [Anpassen von Remotedesktopprotokoll-Eigenschaften für einen Hostpool](https://docs.microsoft.com/azure/virtual-desktop/customize-rdp-properties).
+In [dieser Dokumentation](https://go.microsoft.com/fwlink/?linkid=2098243&clcid=0x409) findest du Informationen dazu, wie du RDP-Eigenschaften für einen Hostpool mithilfe von PowerShell anpasst.
 
 | RDP-Einstellung                        | Beschreibung            | Werte                 | Standardwert          | Virtueller Windows-Desktop | Windows | HTML5   |
 |------------------------------------|------------------------|------------------------|:----------------------:|:-----------------------:|:-------:|:-------:|

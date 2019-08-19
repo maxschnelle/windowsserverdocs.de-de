@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 date: 01/13/2017
 ms.localizationpriority: medium
-ms.openlocfilehash: 71fe969de4d21f7fa3c134b0f80fc7f69e5b2da8
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: ebb169ee3b733bd5e7aade6636e078d54a6f09b3
+ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66446704"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69546397"
 ---
 # <a name="get-started-with-remote-desktop-on-ios"></a>Erste Schritte mit Remotedesktop unter iOS
 
@@ -38,7 +38,7 @@ Verwenden Sie die folgenden Informationen für die ersten Schritte. Lesen Sie un
 ### <a name="download-the-remote-desktop-client-from-the-ios-store"></a>Herunterladen des Remotedesktopclients aus dem App Store für iOS-Geräte
 Führen Sie die folgenden Schritte für den Einstieg in Remotedesktop auf Ihrem iOS-Gerät aus:
 
-1. Laden Sie den Microsoft-Remotedesktopclient von [iTunes](https://itunes.apple.com/us/app/microsoft-remote-desktop/id714464092?mt=8) herunter.
+1. Laden Sie den Microsoft-Remotedesktopclient von [iTunes](https://itunes.apple.com/app/microsoft-remote-desktop/id714464092?mt=8) herunter.
 2. [Richten Sie Ihren PC so ein, dass Remoteverbindungen zulässig sind](remote-desktop-client-faq.md#how-do-i-set-up-a-pc-for-remote-desktop).
 3. Fügen Sie eine [Remotedesktopverbindung](#add-a-remote-desktop-connection) oder eine [Remoteressource](#add-a-remote-resource) hinzu. Mit einer Verbindung können Sie eine direkte Verbindung mit einem Windows-PC herstellen, und mit einer Remoteressource können Sie ein RemoteApp-Programm, einen sitzungsbasierten Desktop oder einen virtuellen Desktop verwenden, das/der mithilfe von RemoteApp- und Desktopverbindungen veröffentlicht wird. Dieses Feature ist in der Regel in Unternehmensumgebungen verfügbar.
 
@@ -158,7 +158,7 @@ Ab Version 8.0.1 wird die Utility-Leiste durch die Befehlsleiste ersetzt. Über 
 Der Client verwendet Standardtouchgesten. Sie können auch Touchgesten verwenden, um Mausaktionen auf dem Remotedesktop zu replizieren. Die verfügbaren Mausmodi sind in der folgenden Tabelle aufgeführt.
 
 > [!NOTE]
-> Bei der Interaktion mit Windows 8 oder höher werden die nativen Touchgesten im Modus für die direkte Touchbewegung unterstützt. Weitere Informationen zu Windows 8-Gesten finden Sie unter [Touchscreen: Streif- und Tippbewegungen und vieles mehr](https://windows.microsoft.com/en-US/windows-8/touch-swipe-tap-beyond).
+> Bei der Interaktion mit Windows 8 oder höher werden die nativen Touchgesten im Modus für die direkte Touchbewegung unterstützt. Weitere Informationen zu Windows 8-Gesten findest du unter [Touchbewegung: Wischen, Tippen und vieles mehr](https://windows.microsoft.com/en-US/windows-8/touch-swipe-tap-beyond).
 
 | Mausmodus    | Mausvorgang      | Geste                                                    |
 |---------------|----------------------|------------------------------------------------------------|

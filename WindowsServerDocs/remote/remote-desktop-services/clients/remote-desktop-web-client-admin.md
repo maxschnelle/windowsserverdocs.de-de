@@ -8,12 +8,12 @@ ms.date: 11/2/2018
 ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
-ms.openlocfilehash: d6761c43eefe04430603a1a16e9e8d256176a736
-ms.sourcegitcommit: 25376e261ebd5e85355c298cfd0bbd6b578a6a0c
+ms.openlocfilehash: d167fb5dfdfbb2a302c2b0fca9286dc034b730e3
+ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68729538"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69546334"
 ---
 # <a name="set-up-the-remote-desktop-web-client-for-your-users"></a>Einrichten des Remotedesktop-Webclients für Ihre Benutzer
 
@@ -273,9 +273,10 @@ Standardmäßig können Benutzer auswählen, ob Remoteressourcen (1) im Browser 
  Standardmäßig kann der Benutzer eine der Startmethoden auswählen. Der boolesche Wert **$true** zwingt den Benutzer, die Ressourcen im Browser zu starten. Der boolesche Wert **$false** zwingt den Benutzer, die Ressourcen durch Herunterladen einer RDP-Datei zur Bearbeitung mit einem lokal installierten RDP-Client zu starten.
 
 ### <a name="reset-rdwebclientdeploymentsetting-configurations-to-default"></a>Zurücksetzen der RDWebClientDeploymentSetting-Konfigurationen auf die Standardwerte
-Um eine Webclienteinstellung auf Bereitstellungsebene auf die Standardkonfiguration zurückzusetzen, führen Sie das folgende PowerShell-Cmdlet aus, und geben Sie mit dem Parameter „--Name“ die Einstellung an, die Sie zurücksetzen möchten:
-  
-  ```PowerShell
+
+Um eine Webclienteinstellung auf Bereitstellungsebene auf die Standardkonfiguration zurückzusetzen, führe das folgende PowerShell-Cmdlet aus, und gib mit dem Parameter „-name“ die Einstellung an, die du zurücksetzen möchtest:
+
+   ```PowerShell
     Reset-RDWebClientDeploymentSetting -Name "LaunchResourceInBrowser"
     Reset-RDWebClientDeploymentSetting -Name "SuppressTelemetry"
    ```
