@@ -10,13 +10,13 @@ ms.topic: article
 ms.assetid: 95ea5f7c-25c6-494b-8ffd-2a77f631ee94
 author: shirgall
 ms.author: shirgall
-ms.date: 11/19/2018
-ms.openlocfilehash: 8dad054e79a155e6aa3ba123aba4566f0f675a9d
-ms.sourcegitcommit: 6f968368c12b9dd699c197afb3a3d13c2211f85b
+ms.date: 06/13/2019
+ms.openlocfilehash: ad0f79767310595244d0d57876c20b9548a81a96
+ms.sourcegitcommit: e2b565ce85a97c0c51f6dfe7041f875a265b35dd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544700"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69584808"
 ---
 # <a name="supported-ubuntu-virtual-machines-on-hyper-v"></a>Unterstützte virtuelle Ubuntu-Computer auf Hyper-V
 
@@ -36,44 +36,43 @@ Die folgende featureverteilungszuordnung gibt die Features in den einzelnen Vers
 
 * (*leer*): Feature nicht verfügbar
 
-| **Funktion**                                                                                                                                  | **Windows Server-Betriebssystemversion** | **19,04**             | **18,10**             | **18,04 LTS**         | **16,04 LTS**         | **14,04 LTS**         | **12,04 LTS**       |
-|----------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|---------------------|
-| **Verfügbarkeit**                                                                                                                             |                                             | Integrierte              | Integrierte              | Integrierte              | Integrierte              | Integrierte              | Integrierte            |
-| **[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#core)**                                                   | 2019, 2016, 2012 R2, 2012, 2008 R2          | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;            |
-| Windows Server 2016 genaue Zeit                                                                                                            | 2019, 2016                                  | &#10004;              | &#10004;              | &#10004;              | &#10004;              |                       |                     |
-| **[Ungs](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#networking)**                                       |                                             |                       |                       |                       |                       |                       |                     |
-| Großrahmen                                                                                                                                 | 2019, 2016, 2012 R2, 2012, 2008 R2          | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;            |
-| VLAN-Tagging und-Abschneiden                                                                                                                    | 2019, 2016, 2012 R2, 2012, 2008 R2          | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;            |
-| Livemigration                                                                                                                               | 2019, 2016, 2012 R2, 2012, 2008 R2          | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;            |
-| Statische IP-Injektion                                                                                                                          | 2019, 2016, 2012 R2, 2012                   | &#10004;Hinweis 1       | &#10004;Hinweis 1       | &#10004;Hinweis 1       | &#10004;Hinweis 1       | &#10004;Hinweis 1       | &#10004;Hinweis 1     |
-| vRSS                                                                                                                                         | 2019, 2016, 2012 R2                         | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              |                     |
-| TCP-Segmentierung und Prüfsummen Offloads                                                                                                       | 2019, 2016, 2012 R2, 2012, 2008 R2          | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              |                     |
-| SR-IOV                                                                                                                                       | 2019, 2016                                  | &#10004;              | &#10004;              | &#10004;              | &#10004;              |                       |                     |
-| **[Speicher](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**                                             |                                             |                       |                       |                       |                       |                       |                     |
-| Vhdx-Größe ändern                                                                                                                                  | 2019, 2016, 2012 R2                         | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              |                     |
-| Virtueller Fibre Channel                                                                                                                        | 2019, 2016, 2012 R2                         | &#10004;Hinweis 2       | &#10004;Hinweis 2       | &#10004;Hinweis 2       | &#10004;Hinweis 2       | &#10004;Hinweis 2       |                     |
-| Sicherung virtueller Computer                                                                                                                  | 2019, 2016, 2012 R2                         | &#10004;Hinweis 3, 4, 6 | &#10004;Hinweis 3, 4, 6 | &#10004;Hinweis 3, 4, 5 | &#10004;Hinweis 3, 4, 5 | &#10004;Hinweis 3, 4, 5 |                     |
-| Trim-Unterstützung                                                                                                                                 | 2019, 2016, 2012 R2                         | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;            |
-| SCSI-WWN                                                                                                                                     | 2019, 2016, 2012 R2                         | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              |                     |
-| **[Gedenkens](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#memory)**                                               |                                             |                       |                       |                       |                       |                       |                     |
-| Unterstützung für den unterstützten Kernel                                                                                                                           | 2019, 2016, 2012 R2, 2012, 2008 R2          | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;            |
-| MMIO-Lücke konfigurieren                                                                                                                    | 2019, 2016, 2012 R2                         | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;            |
-| Dynamischer Arbeitsspeicher-Hot-Add                                                                                                                     | 2019, 2016, 2012 R2, 2012                   | &#10004;Hinweis 7, 8, 9 | &#10004;Hinweis 7, 8, 9 | &#10004;Hinweis 7, 8, 9 | &#10004;Hinweis 7, 8, 9 | &#10004;Hinweis 7, 8, 9 |                     |
-| Dynamischer Arbeitsspeicher-Ballooning                                                                                                                  | 2019, 2016, 2012 R2, 2012                   | &#10004;Hinweis 7, 8, 9 | &#10004;Hinweis 7, 8, 9 | &#10004;Hinweis 7, 8, 9 | &#10004;Hinweis 7, 8, 9 | &#10004;Hinweis 7, 8, 9 |                     |
-| Größenänderung des Lauf Zeit Speichers                                                                                                                        | 2019, 2016                                  | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              |                     |
-| **[Video](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#video)**                                                 |                                             |                       |                       |                       |                       |                       |                     |
-| Hyper-V-spezifisches Videogerät                                                                                                                | 2019, 2016, 2012 R2, 2012, 2008 R2          | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              |                     |
-| **[Verschiedensten](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#miscellaneous)**                                 |                                             |                       |                       |                       |                       |                       |                     |
-| Schlüssel-Wert-Paar                                                                                                                               | 2019, 2016, 2012 R2, 2012, 2008 R2          | &#10004;Hinweis 6, 10   | &#10004;Hinweis 6, 10   | &#10004;Hinweis 5, 10   | &#10004;Hinweis 5, 10   | &#10004;Hinweis 5, 10   | &#10004;Hinweis 5, 10 |
-| Nicht mastbare Unterbrechung                                                                                                                       | 2019, 2016, 2012 R2                         | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;            |
-| Dateikopie von Host zu Gast                                                                                                                 | 2019, 2016, 2012 R2                         | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              |                     |
-| lsvmbus-Befehl                                                                                                                              | 2019, 2016, 2012 R2, 2012, 2008 R2          | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              |                     |
-| Hyper-V-Sockets                                                                                                                              | 2019, 2016                                  |                       |                       |                       |                       |                       |                     |
-| PCI-Passthrough/DDA                                                                                                                          | 2019, 2016                                  | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              |                     |
-| **[Virtuelle Maschinen der Generation 2](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#generation-2-virtual-machines)** |                                             |                       |                       |                       |                       |                       |                     |
-| Starten mithilfe von UEFI                                                                                                                              | 2019, 2016, 2012 R2                         | &#10004;Hinweis 11, 12  | &#10004;Hinweis 11, 12  | &#10004;Hinweis 11, 12  | &#10004;Hinweis 11, 12  | &#10004;Hinweis 11, 12  |                     |
-| Sicherer Start                                                                                                                                  | 2019, 2016                                  | &#10004;              | &#10004;              | &#10004;              | &#10004;              | &#10004;              |                     |
-
+|**Funktion**|**Windows Server-Betriebssystemversion**|**18,10/19,04**|**18,04 LTS**|**16,04 LTS**|**14,04 LTS**|**12,04 LTS**|
+|-|-|-|-|-|-|-|
+|**Verfügbarkeit**||Integrierte|Integrierte|Integrierte|Integrierte|Integrierte|
+|**[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#core)**|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|Windows Server 2016 genaue Zeit|2019, 2016|&#10004;|&#10004;|&#10004;|||
+|**[Ungs](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#networking)**|||||||
+|Großrahmen|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|VLAN-Tagging und-Abschneiden|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|Livemigration|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|Statische IP-Injektion|2019, 2016, 2012 R2, 2012|&#10004;Hinweis 1|&#10004;Hinweis 1|&#10004;Hinweis 1|&#10004;Hinweis 1|&#10004;Hinweis 1|
+|vRSS|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;||
+|TCP-Segmentierung und Prüfsummen Offloads|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;||
+|SR-IOV|2019, 2016|&#10004;|&#10004;|&#10004;|||
+|**[Speicher](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**||||||
+|Vhdx-Größe ändern|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;||
+|Virtueller Fibre Channel|2019, 2016, 2012 R2|&#10004;Hinweis 2|&#10004;Hinweis 2|&#10004;Hinweis 2|&#10004;Hinweis 2||
+|Sicherung virtueller Computer|2019, 2016, 2012 R2|&#10004;Hinweis 3, 4, 6|&#10004;Hinweis 3, 4, 5|&#10004;Hinweis 3, 4, 5|&#10004;Hinweis 3, 4, 5||
+|Trim-Unterstützung|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|SCSI-WWN|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;||
+|**[Gedenkens](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#memory)**||||||
+|Unterstützung für den unterstützten Kernel|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|MMIO-Lücke konfigurieren|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|Dynamischer Arbeitsspeicher-Hot-Add|2019, 2016, 2012 R2, 2012|&#10004;Hinweis 7, 8, 9|&#10004;Hinweis 7, 8, 9|&#10004;Hinweis 7, 8, 9|&#10004;Hinweis 7, 8, 9||
+|Dynamischer Arbeitsspeicher-Ballooning|2019, 2016, 2012 R2, 2012|&#10004;Hinweis 7, 8, 9|&#10004;Hinweis 7, 8, 9|&#10004;Hinweis 7, 8, 9|&#10004;Hinweis 7, 8, 9||
+|Größenänderung des Lauf Zeit Speichers|2019, 2016|&#10004;|&#10004;|&#10004;|&#10004;||
+|**[Video](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#video)**|||||||
+|Hyper-V-spezifisches Videogerät|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;||
+|**[Verschiedensten](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#miscellaneous)**||||||
+|Schlüssel-Wert-Paar|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;Hinweis 6, 10|&#10004;Hinweis 5, 10|&#10004;Hinweis 5, 10|&#10004;Hinweis 5, 10|&#10004;Hinweis 5, 10|
+|Nicht mastbare Unterbrechung|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
+|Dateikopie von Host zu Gast|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;||
+|lsvmbus-Befehl|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;||
+|Hyper-V-Sockets|2019, 2016||||||
+|PCI-Passthrough/DDA|2019, 2016|&#10004;|&#10004;|&#10004;|&#10004;||
+|**[Virtuelle Maschinen der Generation 2](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#generation-2-virtual-machines)**||||||
+|Starten mithilfe von UEFI|2019, 2016, 2012 R2|&#10004;Hinweis 11, 12|&#10004;Hinweis 11, 12|&#10004;Hinweis 11, 12|&#10004;Hinweis 11, 12||
+|Sicherer Start|2019, 2016|&#10004;|&#10004;|&#10004;|&#10004;||
 
 ## <a name="notes"></a>Hinweise
 

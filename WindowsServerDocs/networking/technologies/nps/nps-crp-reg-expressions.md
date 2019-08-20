@@ -1,34 +1,34 @@
 ---
 title: Verwenden regulärer Ausdrücke in NPS
-description: In diesem Thema wird die Verwendung regulärer Ausdrücke für den Musterabgleich in NPS unter Windows Server 2016 erläutert. Mit dieser Syntax können Sie die Bedingungen von Netzwerk Richtlinien Attributen und RADIUS-Bereichen angeben.
+description: In diesem Thema wird die Verwendung regulärer Ausdrücke für den Musterabgleich in NPS unter Windows Server erläutert. Mit dieser Syntax können Sie die Bedingungen von Netzwerk Richtlinien Attributen und RADIUS-Bereichen angeben.
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking
 ms.topic: article
 ms.assetid: bc22d29c-678c-462d-88b3-1c737dceca75
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 2a47403d4f88d5487fb4ffb0e35c46438aadcd8a
-ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
+ms.author: jgerend
+author: jasongerend
+msdate: 08/16/2019
+ms.openlocfilehash: 76615fcccfe06333a76f872b52d2e88182fd60e5
+ms.sourcegitcommit: e2b565ce85a97c0c51f6dfe7041f875a265b35dd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69546524"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69584790"
 ---
 # <a name="use-regular-expressions-in-nps"></a>Verwenden regulärer Ausdrücke in NPS
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+> Gilt für:  Windows Server 2019, Windows Server 2016, Windows Server (halbjährlicher Kanal)
 
-In diesem Thema wird die Verwendung regulärer Ausdrücke für den Musterabgleich in NPS unter Windows Server 2016 erläutert. Mit dieser Syntax können Sie die Bedingungen von Netzwerk Richtlinien Attributen und RADIUS-Bereichen angeben.
+In diesem Thema wird die Verwendung regulärer Ausdrücke für den Musterabgleich in NPS unter Windows Server erläutert. Mit dieser Syntax können Sie die Bedingungen von Netzwerk Richtlinien Attributen und RADIUS-Bereichen angeben.
 
 ## <a name="pattern-matching-reference"></a>Muster Vergleichs Verweis
 
-Sie können die folgende Tabelle als Verweis Quelle verwenden, wenn Sie reguläre Ausdrücke mit Muster Vergleichs Syntax erstellen.
+Sie können die folgende Tabelle als Verweis Quelle verwenden, wenn Sie reguläre Ausdrücke mit Muster Vergleichs Syntax erstellen. Beachten Sie, dass Muster für reguläre Ausdrücke häufig durch Schrägstriche (/) eingeschlossen werden.
 
-
-|  Zeichen  |                                                                                 Beschreibung                                                                                  |                                                                 Beispiel                                                                 |
-|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-|     `\ `     |                                                              Markiert das nächste Zeichen als Zeichen, das abgeglichen werden soll.                                                               |                      `/n/ matches the character "n". The sequence /\n/ matches a line feed or newline character.`                       |
+|  Zeichen  |  Beschreibung  |   Beispiel                                                                 |
+| ----------- | ------------- | ------------------------------------------------------------------------  |
+|     `\ `     | Gibt an, dass das nachfolgende Zeichen ein Sonderzeichen ist oder wörtlich interpretiert werden soll.  | `/n/ matches the character "n" while the sequence /\n/ matches a line feed or newline character.`  |
 |     `^`     |                                                                 Entspricht dem Anfang der Eingabe oder Zeile.                                                                  |                                                                 &nbsp;                                                                  |
 |     `$`     |                                                                    Entspricht dem Ende der Eingabe oder Zeile.                                                                     |                                                                 &nbsp;                                                                  |
 |     `*`     |                                                             Gleicht das vorangehende Zeichen NULL oder mehrmals ab.                                                              |                                                  `/zo*/ matches either "z" or "zoo."`                                                   |

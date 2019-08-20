@@ -1,6 +1,6 @@
 ---
 title: Verschieben von Windows SBS 2003-Einstellungen und -Daten auf den Zielserver für die Migration zu Windows Server Essentials
-description: Beschreibt, wie Windows Server Essentials
+description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -12,12 +12,12 @@ ms.assetid: 67087ccb-d820-4642-8ca2-7d2d38714014
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 9fd9cdfaea641a0aee615befb5d400fa45160d97
-ms.sourcegitcommit: 9a4ab3a0d00b06ff16173aed616624c857589459
+ms.openlocfilehash: ba6fbf0237a16451403a7d4618b935c7c01f7064
+ms.sourcegitcommit: e2b565ce85a97c0c51f6dfe7041f875a265b35dd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828554"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69584784"
 ---
 # <a name="move-windows-sbs-2003-settings-and-data-to-the-destination-server-for-windows-server-essentials-migration"></a>Verschieben von Windows SBS 2003-Einstellungen und -Daten auf den Zielserver für die Migration zu Windows Server Essentials
 
@@ -25,17 +25,17 @@ ms.locfileid: "66828554"
 
 Verschieben von Einstellungen und Daten auf den Zielserver:
 
-1. [Kopieren von Daten auf den Zielserver](#copy-data-to-the-destination-server)
+1. [Kopieren von Daten auf den Ziel Server](#copy-data-to-the-destination-server)
 
-2. [Importieren von Active Directory-Benutzerkonten in Windows Server Essentials-Dashboard (optional)](#import-active-directory-user-accounts-to-the-windows-server-essentials-dashboard)
+2. [Importieren von Active Directory Benutzerkonten in das Windows Server Essentials-Dashboard (optional)](#import-active-directory-user-accounts-to-the-windows-server-essentials-dashboard)
 
-3. [Entfernen Sie ALTER Anmeldeskripts (optional)](#remove-old-logon-scripts)
+3. [Alte Anmelde Skripts entfernen (optional)](#remove-old-logon-scripts)
 
-4. [Entfernen Sie älterer Active Directory Group Policy Objects (optional)](#remove-legacy-active-directory-group-policy-objects) 
+4. [Entfernen von Legacy Active Directory Gruppenrichtlinie Objekten (optional)](#remove-legacy-active-directory-group-policy-objects) 
 
-5. [Konfigurieren des Netzwerks](#configure-the-network) 
+5. [Netzwerk konfigurieren](#configure-the-network) 
 
-6. [Ordnen Sie zugelassener Computer zu Benutzerkonten zu](#map-permitted-computers-to-user-accounts)
+6. [Zuordnen zulässiger Computer zu Benutzerkonten](#map-permitted-computers-to-user-accounts)
 
 ## <a name="copy-data-to-the-destination-server"></a>Kopieren von Daten auf den Zielserver.
 Führen Sie die folgenden Aufgaben aus, bevor Sie Daten vom Quellserver zum Zielserver kopieren: 
@@ -57,17 +57,17 @@ Führen Sie die folgenden Aufgaben aus, bevor Sie Daten vom Quellserver zum Ziel
     `robocopy \\<SourceServerName> \<SharedSourceFolderName> \\<DestinationServerName> \<SharedDestinationFolderName> /E /B /COPY:DATSOU /LOG:C:\Copyresults.txt` 
 
 Erläuterungen:
- - \<Quellservername\> ist der Name des Quellservers
- - \<Namedesfreigegebenenquellordners\> ist der Name des freigegebenen Ordners auf dem Quellserver
- - \<Zielservername\> ist der Name des Zielservers,
- - \<Namedesfreigegebenenzielordners\> ist der freigegebene Ordner auf dem Zielserver, auf denen die Daten kopiert werden. 
+ - \<Sourceservername\> ist der Name des Quell Servers.
+ - \<Sharedsourcefoldername\> ist der Name des freigegebenen Ordners auf dem Quell Server.
+ - \<Destinationservername\> ist der Name des Zielservers.
+ - \<Shareddestinationfoldername\> ist der freigegebene Ordner auf dem Ziel Server, in den die Daten kopiert werden. 
 
 4. Wiederholen Sie den vorherigen Schritt für jeden freigegebenen Ordner, zu dem Sie die Migration vom Quellserver aus vornehmen.
 
-## <a name="import-active-directory-user-accounts-to-the-windows-server-essentials-dashboard"></a>Importieren von Active Directory-Benutzerkonten in Windows Server Essentials-Dashboard
- Standardmäßig werden alle auf dem Quellserver erstellte Benutzerkonten automatisch an das Dashboard in Windows Server Essentials migriert. Die automatische Migration eines Active Directory-Benutzerkontos schlägt jedoch fehl, wenn einige Eigenschaften den Migrationsanforderungen nicht entsprechen. Sie können das folgende Windows PowerShell-Cmdlet verwenden, um Active Directory-Benutzer zu importieren.
+## <a name="import-active-directory-user-accounts-to-the-windows-server-essentials-dashboard"></a>Importieren von Active Directory Benutzerkonten in das Windows Server Essentials-Dashboard
+ Standardmäßig werden alle auf dem Quell Server erstellten Benutzerkonten automatisch auf das Dashboard in Windows Server Essentials migriert. Die automatische Migration eines Active Directory-Benutzerkontos schlägt jedoch fehl, wenn einige Eigenschaften den Migrationsanforderungen nicht entsprechen. Sie können das folgende Windows PowerShell-Cmdlet verwenden, um Active Directory-Benutzer zu importieren.
 
-#### <a name="to-import-an-active-directory-user-account-to-the-windows-server-essentials-dashboard"></a>So importieren Sie ein Active Directory-Benutzerkonto in Windows Server Essentials-Dashboard
+#### <a name="to-import-an-active-directory-user-account-to-the-windows-server-essentials-dashboard"></a>So importieren Sie ein Active Directory Benutzerkonto in das Windows Server Essentials-Dashboard
 
 1. Melden Sie sich auf den Zielserver als Domänenadministrator an.
 
@@ -77,8 +77,8 @@ Erläuterungen:
 
     `Import-WssUser SamAccountName [AD username]`
 
-## <a name="remove-old-logon-scripts"></a>Entfernen alter Anmeldeskripts
-Windows SBS 2003 verwendet Anmeldeskripts für Aufgaben wie das Installieren von Software und das Anpassen von Desktops. Windows Server Essentials ersetzt die Windows SBS 2003-Anmeldeskripts durch eine Kombination aus Anmeldeskripts und Gruppenrichtlinienobjekten.
+## <a name="remove-old-logon-scripts"></a>Alte Anmelde Skripts entfernen
+Windows SBS 2003 verwendet Anmeldeskripts für Aufgaben wie das Installieren von Software und das Anpassen von Desktops. Windows Server Essentials ersetzt die Windows SSB 2003-Anmelde Skripts durch eine Kombination aus Anmelde Skripts und Gruppenrichtlinie Objekten.
 
 > [!NOTE]
 > Wenn Sie die Windows SBS 2003-Anmeldeskripts geändert haben, sollten Sie die Skripts umbenennen, um Ihre Anpassungen beizubehalten.
@@ -97,8 +97,8 @@ Windows SBS 2003 verwendet Anmeldeskripts für Aufgaben wie das Installieren von
 
 5. Wiederholen Sie die Schritte 3 und 4 für jeden Benutzer.
 
-## <a name="remove-legacy-active-directory-group-policy-objects"></a>Entfernen Sie älterer Active Directory-Gruppenrichtlinienobjekte
-Die Gruppenrichtlinienobjekte (GPOs) werden für Windows Server Essentials aktualisiert. Sie sind eine Untergruppe der Windows SBS 2003-Gruppenrichtlinienobjekte. Für Windows Server Essentials muss eine Reihe von Windows SBS 2003-Gruppenrichtlinienobjekten und Windows-Verwaltungsinstrumentation (Windows Management Instrumentation, WMI) manuell gelöscht werden, um Konflikte mit den Windows Server Essentials-Gruppenrichtlinienobjekten und WMI-Filtern zu verhindern. 
+## <a name="remove-legacy-active-directory-group-policy-objects"></a>Entfernen von Legacy-Active Directory Gruppenrichtlinie Objekten
+Die Gruppenrichtlinie Objekte (GPOs) werden für Windows Server Essentials aktualisiert. Sie sind eine Untergruppe der Windows SBS 2003-Gruppenrichtlinienobjekte. Für Windows Server Essentials müssen eine Reihe von Windows SSB 2003-GPOs und-Windows-Verwaltungsinstrumentation-Filtern (WMI) manuell gelöscht werden, um Konflikte mit den Windows Server Essentials-Gruppenrichtlinien Objekten und WMI-Filtern zu verhindern. 
 
 > [!NOTE]
 > Wenn Sie die ursprünglichen Windows SBS 2003-Gruppenrichtlinienobjekte geändert haben, sollten Sie Kopien davon an einem anderen Speicherort speichern und sie dann aus Windows SBS 2003 entfernen.
@@ -109,9 +109,9 @@ Die Gruppenrichtlinienobjekte (GPOs) werden für Windows Server Essentials aktua
 
 2. Klicken Sie auf **Start** und anschließend auf **Serververwaltung**. 
 
-3. Klicken Sie im Navigationsbereich auf **Advanced Management**, klicken Sie auf **Gruppenrichtlinienverwaltung**, und klicken Sie dann auf **Gesamtstruktur:** *<IhrDomänenname\>* . 
+3. Klicken Sie im Navigationsbereich auf **Erweiterte Verwaltung**, klicken Sie auf **Gruppenrichtlinie Verwaltung**, und klicken Sie dann auf Gesamtstruktur **:** _< yourDomainName\>_ . 
 
-4. Klicken Sie auf **Domänen**, klicken Sie auf *< IhrDomänenname\>* , und klicken Sie dann auf **Group Policy Objects**. 
+4. Klicken Sie auf **Domänen**, klicken Sie auf *<\>yourDomainName*, und klicken Sie dann auf **Gruppenrichtlinie Objekte**. 
 
 5. Klicken Sie mit der rechten Maustaste auf **Small Business Server Auditing Policy**, klicken Sie auf **Löschen** und dann auf **OK**. 
 
@@ -121,7 +121,7 @@ Die Gruppenrichtlinienobjekte (GPOs) werden für Windows Server Essentials aktua
 
  - Small Business Server-Domänenkennwortrichtlinie 
 
-Es wird empfohlen, dass die Kennwortrichtlinie zu konfigurieren, in Windows Server Essentials auf sichere Kennwörter zu erzwingen. Um die Kennwortrichtlinie zu konfigurieren, verwenden Sie das Dashboard, das die Konfiguration in die Standarddomänenrichtlinie schreibt. Die Konfiguration der Kennwortrichtlinie wird nicht in das Small Business Server Domain Password-Richtlinienobjekt geschrieben, wie es in Windows SBS 2003 der Fall war. 
+Es wird empfohlen, die Kenn Wort Richtlinie in Windows Server Essentials zu konfigurieren, um sichere Kenn Wörter zu erzwingen. Um die Kennwortrichtlinie zu konfigurieren, verwenden Sie das Dashboard, das die Konfiguration in die Standarddomänenrichtlinie schreibt. Die Konfiguration der Kennwortrichtlinie wird nicht in das Small Business Server Domain Password-Richtlinienobjekt geschrieben, wie es in Windows SBS 2003 der Fall war. 
 
  - Small Business Server Internet Connection Firewall 
 
@@ -151,9 +151,9 @@ Es wird empfohlen, dass die Kennwortrichtlinie zu konfigurieren, in Windows Serv
 
 2. Klicken Sie auf **Start** und anschließend auf **Serververwaltung**.
 
-3. Klicken Sie im Navigationsbereich auf **Advanced Management**, klicken Sie auf **Gruppenrichtlinienverwaltung**, und klicken Sie dann auf **Gesamtstruktur:** *<Ihrnetzwerkdomänenname\>*
+3. Klicken Sie im Navigationsbereich auf **Erweiterte Verwaltung**, klicken Sie auf **Gruppenrichtlinie Verwaltung**, und klicken Sie dann auf Gesamtstruktur **:** _< yournetworkdomainname\>_
 
-4. Klicken Sie auf **Domänen**, klicken Sie auf *< Ihrnetzwerkdomänenname\>* , und klicken Sie dann auf **WMI-Filter**.
+4. Klicken Sie auf **Domänen**, klicken Sie auf *<\>yournetworkdomainname*, und klicken Sie dann auf **WMI-Filter**.
 
 5. Klicken Sie mit der rechten Maustaste auf **PostSP2**, klicken Sie auf **Löschen** und dann auf **Ja**.
 
@@ -181,11 +181,11 @@ Es wird empfohlen, dass die Kennwortrichtlinie zu konfigurieren, in Windows Serv
 > Wenn Sie einen lokalen Exchange-Server auf einem zweiten Server eingerichtet haben, müssen Sie sicherstellen, dass auch Port 25 (SMTP) geöffnet ist und an die IP-Adresse des lokalen Exchange-Server umgeleitet wird.
 
 ## <a name="map-permitted-computers-to-user-accounts"></a>Zuordnen zugelassener Computer zu Benutzerkonten
- Wenn ein Benutzer in Windows SBS 2003 eine Verbindung mit Remote Web Access herstellt, werden alle Computer im Netzwerk angezeigt. Dies kann Computer umfassen, für die der Benutzer keine Zugriffsberechtigung hat. In Windows Server Essentials muss ein Benutzer einen Computer für die er in Remote Web Access angezeigt werden explizit zugewiesen werden. Jedes Benutzerkonto, das von Windows SBS 2003 migriert werden, muss mindestens einem Computer zugeordnet werden. 
+ Wenn ein Benutzer in Windows SBS 2003 eine Verbindung mit Remote Web Access herstellt, werden alle Computer im Netzwerk angezeigt. Dies kann Computer umfassen, für die der Benutzer keine Zugriffsberechtigung hat. In Windows Server Essentials muss ein Benutzer explizit einem Computer zugewiesen werden, damit er in Remote Webzugriff angezeigt wird. Jedes Benutzerkonto, das von Windows SBS 2003 migriert werden, muss mindestens einem Computer zugeordnet werden. 
 
 #### <a name="to-map-user-accounts-to-computers"></a>So weisen Sie Benutzerkonten Computern zu 
 
-1. Öffnen Sie auf dem Zielserver Windows Server Essentials-Dashboard ein. 
+1. Öffnen Sie auf dem Ziel Server das Windows Server Essentials-Dashboard. 
 
 2. Klicken Sie auf der Navigationsleiste auf **Benutzer**. 
 

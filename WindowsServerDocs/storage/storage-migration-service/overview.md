@@ -1,19 +1,19 @@
 ---
-Title: Übersicht über den Speicher Migrationsdienst
+title: Übersicht über den Speicher Migrationsdienst
 description: Mit dem Speichermigrationsdienst können Server einfacher zu einer neueren Version von Windows Server migriert werden. Er bietet ein grafisches Tool, das Daten auf Servern inventarisiert und anschließend die Daten und die Konfiguration auf neuere Server überträgt – ganz ohne Apps oder die Notwendigkeit für Benutzer, irgendetwas zu ändern.
 author: jasongerend
 ms.author: jgerend
 manager: elizapo
-ms.date: 05/21/2019
+ms.date: 08/16/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: storage
-ms.openlocfilehash: 8118b58268e88a173a6219631e109ed1c436fea0
-ms.sourcegitcommit: 23a6e83b688119c9357262b6815c9402c2965472
+ms.openlocfilehash: dae64b81c48b9ae6bf84c3558066ebbdf9c06ace
+ms.sourcegitcommit: e2b565ce85a97c0c51f6dfe7041f875a265b35dd
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69560553"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69584833"
 ---
 # <a name="storage-migration-service-overview"></a>Übersicht über den Speicher Migrationsdienst
 
@@ -58,7 +58,7 @@ Um Storage Migration Service verwenden zu können, benötigen Sie Folgendes:
 
 Es wird dringend empfohlen, dass Orchestrator-und Zielcomputer über mindestens zwei Kerne oder zwei vCPUs und mindestens 2 GB Arbeitsspeicher verfügen. Inventur-und Übertragungs Vorgänge werden mit mehr Prozessoren und Arbeitsspeicher erheblich beschleunigt.
 
-### <a name="security-requirements"></a>Sicherheitsanforderungen
+### <a name="security-requirements-the-storage-migration-service-proxy-service-and-firewall-ports"></a>Sicherheitsanforderungen, Speicher Migrationsdienst-Proxy Dienst und Firewallports
 
 - Ein Migrations Konto, das Administratorrechte auf den Quell Computern und dem Orchestrator-Computer ist.
 - Ein Migrations Konto, bei dem es sich um einen Administrator auf den Ziel Computern und dem Orchestrator-Computer handelt.
@@ -70,7 +70,9 @@ Es wird dringend empfohlen, dass Orchestrator-und Zielcomputer über mindestens 
   - Windows-Verwaltungsinstrumentation (WMI-In)
   
   > [!TIP]
-  > Bei der Installation des Speicher Migrationsdienst-Proxy Dienstanbieter auf einem Computer mit Windows Server 2019 werden automatisch die erforderlichen Firewallports auf diesem Computer geöffnet.
+  > Bei der Installation des Speicher Migrationsdienst-Proxy Dienstanbieter auf einem Computer mit Windows Server 2019 werden automatisch die erforderlichen Firewallports auf diesem Computer geöffnet. Stellen Sie hierzu im Windows Admin Center eine Verbindung mit dem Zielserver her, und navigieren Sie dann zu **Server-Manager** (im Windows Admin Center) > **Rollen und Features**, wählen Sie **Speicher Migrationsdienst-Proxy**aus, und klicken Sie dann auf **Installieren**.
+
+
 - Wenn die Computer zu einer Active Directory Domain Services Domäne gehören, sollten Sie alle zur selben Gesamtstruktur gehören. Der Zielserver muss sich auch in derselben Domäne befinden wie der Quell Server, wenn Sie beim überspringen den Domänen Namen der Quelle an das Ziel übertragen möchten. Die Umstellung erfolgt in technischer Hinsicht über Domänen übergreifend, aber der voll qualifizierte Domänen Name des Ziels unterscheidet sich von der Quelle...
 
 ### <a name="requirements-for-source-servers"></a>Anforderungen für Quell Server
