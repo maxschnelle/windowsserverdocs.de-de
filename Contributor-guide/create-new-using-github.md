@@ -1,83 +1,83 @@
 ---
-title: Erstellen Sie neue Windows Server-Artikel, die mithilfe von GitHub und Visual Studio Code
-description: 'Vorgehensweise: Erstellen Sie neue Windows Server-bezogenen Artikeln, GitHub und Visual Studio Code als ein Mitarbeiter von Microsoft.'
+title: Erstellen Sie neue Windows Server-Artikel mithilfe von GitHub und Visual Studio Code
+description: Erstellen neuer Windows Server-bezogener Artikel mithilfe von GitHub und Visual Studio Code als Microsoft-Mitarbeiter.
 author: eross-msft
 ms.author: lizross
 ms.date: 05/02/2019
-ms.openlocfilehash: d75bf135266a4783ab2617977b344782cea679ef
-ms.sourcegitcommit: 29ad32b9dea298a7fe81dcc33d2a42d383018e82
+ms.openlocfilehash: f5e7e3d0cd17c64175fddaaac73c12daa2c2a32c
+ms.sourcegitcommit: ffd9c42374c7448deb5f53f7a865cb427b5e4e9e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65624561"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69887947"
 ---
-# <a name="create-new-windows-server-articles-using-github-and-visual-studio-code"></a>Erstellen Sie neue Windows Server-Artikel, die mithilfe von GitHub und Visual Studio Code
+# <a name="create-new-windows-server-articles-using-github-and-visual-studio-code"></a>Erstellen Sie neue Windows Server-Artikel mithilfe von GitHub und Visual Studio Code
 
-Es gibt zwei verschiedenen Standorten, in dem wir Windows Server technische Inhalte zu halten. Einen der Standorte ist öffentlich (Windowsserverdocs), während die andere privat ist (Windowsserverdocs-Pr). Die Sie bestimmt, welchem Speicherort, die Sie an mitwirken:
+Es gibt zwei separate Standorte, an denen wir technische Inhalte von Windows Server aufbewahren. Einer der Standorte ist Public (Windows Server docs), während die andere privat ist (windowsserverdocs-PR). Von wem Sie den Speicherort, an dem Sie mitwirken, bestimmen:
 
-- **Ich bin ein Microsoft-Mitarbeiter.** Als Mitarbeiter von Microsoft haben Sie die Optionen, die basierend auf was Sie tun möchten:
+- **Ich bin ein Microsoft-Mitarbeiter.** Als Microsoft-Mitarbeiter haben Sie Optionen, die auf dem zu tun haben:
 
-    - **Erstellen Sie einen ganz neuen Artikel.** Um einen ganz neuen Artikel erstellen möchten, müssen Sie erstellen und richten Ihre GitHub-Konto und die Tools, Verzweigen und Klonen das Repository Windowsserverdocs-Pr Ihre remotebranch einrichten, erstellen Sie im Artikel und schließlich erstellen Sie einen neuen Pull Request zur Genehmigung und Veröffentlichung. Diese Anweisungen die weiteren Sie Verlauf dieses Artikels aus.
+    - **Erstellen Sie einen brandneuen Artikel.** Zum Erstellen eines ganz neuen Artikels müssen Sie Ihr GitHub-Konto und die Tools erstellen und einrichten, das Repository "Windows Server docs-PR", verzweigen und Klonen, den remotebranch einrichten, den Artikel erstellen und schließlich einen neuen Pull Request für die Genehmigung und Veröffentlichung erstellen. Weitere Informationen finden Sie in diesem Artikel.
 
-    - **Große Änderungen an einem vorhandenen Artikel vornehmen.** Um wesentliche Änderungen an einem vorhandenen Artikel vornehmen, befolgen Sie die Anweisungen in der [bearbeiten einen vorhandenen Windows Server-Artikel, die mithilfe von GitHub und Visual Studio Code](edit-existing-using-github.md) Artikel.
+    - **Nehmen Sie große Änderungen an einem vorhandenen Artikel vor.** Um wesentliche Änderungen an einem vorhandenen Artikel vorzunehmen, befolgen Sie die Anweisungen im [Artikel Bearbeiten eines vorhandenen Windows-Servers mithilfe von GitHub und Visual Studio Code](edit-existing-using-github.md) .
 
-    - **Geringfügige Änderungen an einen vorhandenen Artikel vornehmen.** Um kleinere Änderungen an einem vorhandenen Artikel vornehmen möchten, befolgen Sie die Anweisungen in der [Aktualisieren von vorhandenen Windows Server-Artikel, die über einen Webbrowser und GitHub](github-browser-updates.md) Artikel.
+    - **Nehmen Sie geringfügige Änderungen an einem vorhandenen Artikel vor.** Wenn Sie kleinere Änderungen an einem vorhandenen Artikel vornehmen möchten, befolgen Sie die Anweisungen im Artikel [Aktualisieren vorhandener Windows Server-Artikel mithilfe eines Webbrowsers und eines GitHub-](github-browser-updates.md) Artikels.
 
-- **Ich bin kein Microsoft-Mitarbeiter.** Als Mitarbeiter von nicht-Microsoft müssen Sie sich an den öffentlichen Ort mitwirken. Informationen dazu, wie Sie dies tun, finden Sie unter den [beitragen, technische Dokumentation zu Windows Server](https://github.com/MicrosoftDocs/windowsserverdocs/blob/master/CONTRIBUTING.md) Artikel.
+- **Ich bin kein Microsoft-Mitarbeiter.** Als Mitarbeiter, die nicht von Microsoft sind, müssen Sie am öffentlichen Standort mitwirken. Weitere Informationen hierzu finden Sie im Artikel [Beitrag zur technischen Dokumentation zu Windows Server](https://github.com/MicrosoftDocs/windowsserverdocs/blob/master/CONTRIBUTING.md) .
 
-## <a name="prerequisites"></a>Vorraussetzungen
+## <a name="prerequisites"></a>Erforderliche Komponenten
 
-Bevor Sie beginnen können, in das Repository arbeiten, müssen Sie zu erstellen und richten Sie Ihr GitHub-Konto, Einrichten der zweistufigen Überprüfung, und installieren und konfigurieren alle notwendigen Tools. Wenn Sie dies getan haben, können Sie nach unten zum Überspringen der [Abschnitt Repository Forken](#fork-the-repository) dieses Artikels.
+Bevor Sie mit der Arbeit im Repository beginnen können, müssen Sie Ihr GitHub-Konto erstellen und einrichten, die zweistufige Überprüfung einrichten und alle notwendigen Tools installieren und konfigurieren. Wenn Sie dies bereits getan haben, können Sie zum [Abschnitt verzweigen des Repository](#fork-the-repository) in diesem Artikel springen.
 
-1. [Erstellen Sie eine GitHub-Konto und ein Profil](https://review.docs.microsoft.com/help/contribute/contribute-get-started-setup-github?branch=master#create-a-github-account-and-set-up-your-profile)
+1. [Erstellen eines GitHub-Kontos und-Profils](https://review.docs.microsoft.com/help/contribute/contribute-get-started-setup-github?branch=master#create-a-github-account-and-set-up-your-profile)
 
-2. [Verknüpfen Sie Ihr Konto aus, um Ihr Microsoft-Konto und die Organisationen "Microsoft" und "MicrosoftDocs](https://review.docs.microsoft.com/help/contribute/contribute-get-started-setup-github?branch=master#link-your-github-and-microsoft-accounts)
+2. [Verknüpfen Sie Ihr Konto mit Ihrem Microsoft-Konto und mit den Microsoft-und microsoftdocs-Organisationen.](https://review.docs.microsoft.com/help/contribute/contribute-get-started-setup-github?branch=master#link-your-github-and-microsoft-accounts)
 
-3. [Zweistufige Überprüfung aktivieren](https://review.docs.microsoft.com/help/contribute/contribute-get-started-setup-github?branch=master#enable-two-factor-authentication-and-create-an-access-token)
+3. [Aktivieren der zweistufigen Überprüfung](https://review.docs.microsoft.com/help/contribute/contribute-get-started-setup-github?branch=master#enable-two-factor-authentication-and-create-an-access-token)
 
 4. [Autorisieren des Buildsystems für den Zugriff auf Ihr GitHub-Konto](https://review.docs.microsoft.com/help/contribute/contribute-get-started-setup-github?branch=master#authorize-the-ops-build-system-to-access-your-github-account)
 
 5. [Installieren von Visual Studio Code](https://review.docs.microsoft.com/help/contribute/contribute-get-started-setup-tools?branch=master#install-visual-studio-code)
 
-6. [Installieren von GitHub und die zugehörigen tools](https://review.docs.microsoft.com/help/contribute/contribute-get-started-setup-tools?branch=master#install-git-client-tools)
+6. [Installieren von GitHub und der dazugehörigen Tools](https://review.docs.microsoft.com/help/contribute/contribute-get-started-setup-tools?branch=master#install-git-client-tools)
 
-7. [Installieren Sie das Docs Authoring Pack](https://review.docs.microsoft.com/help/contribute/contribute-get-started-setup-tools?branch=master#install-the-docs-authoring-pack)
+7. [Installieren des docs Authoring Pack](https://review.docs.microsoft.com/help/contribute/contribute-get-started-setup-tools?branch=master#install-the-docs-authoring-pack)
 
-## <a name="set-up-your-own-version-of-the-repo"></a>Richten Sie Ihre eigene Version des Repositorys
+## <a name="set-up-your-own-version-of-the-repo"></a>Einrichten Ihrer eigenen Version des Repository
 
-Nachdem Sie erstellt und richten Sie Ihre GitHub-Konto und die Tools haben, können Sie eine persönliche Version des Repositorys erstellen. Dies ist, in dem Sie Ihre Branches erstellen und alle Änderungen vornehmen.
+Nachdem Sie Ihr GitHub-Konto und die Tools erstellt und eingerichtet haben, können Sie eine persönliche Version Ihres Repository erstellen. Hier erstellen Sie Ihre branches und nehmen alle Änderungen vor.
 
 ### <a name="fork-the-repository"></a>Verzweigen Sie das Repository
 
-Sie benötigen eine lokale Kopie der Quelldateien an, damit Sie aus Ihrem Fork Pull-Anforderungen an das Repository für die Produktion erstellen können.
+Sie benötigen eine lokale Kopie der Quelldateien, damit Sie Pull Requests von ihrer Verzweigung zum produktionsrepository erstellen können.
 
-#### <a name="to-fork-the-repository"></a>Das Repository zu forken
+#### <a name="to-fork-the-repository"></a>So verzweigen Sie das Repository
 
-1. Melden Sie sich bei Ihrem GitHub-Konto, und wechseln Sie zu https://github.com/microsoftdocs/windowsserverdocs-pr.
+1. Melden Sie sich bei Ihrem GitHub-Konto an https://github.com/microsoftdocs/windowsserverdocs-pr , und navigieren Sie zu.
 
-2. Wählen Sie **Fork**.
+2. Wählen Sie **Fork**aus.
 
-    ![Schaltfläche zum forken auf der Seite hervorgehoben sind](media/create-new-using-github/fork-button.png)
+    ![Auf Seite hervorgehobene Fork-Schaltfläche](media/create-new-using-github/fork-button.png)
 
-3. Wählen Sie Ihr GitHub-Konto als Speicherort für die Verzweigung.
+3. Wählen Sie Ihr GitHub-Konto als Verzweigungs Speicherort aus.
 
-    ![Schaltfläche zum forken auf der Seite hervorgehoben sind](media/create-new-using-github/fork-location.png)
+    ![Auf Seite hervorgehobene Fork-Schaltfläche](media/create-new-using-github/fork-location.png)
 
 ### <a name="clone-the-repository"></a>Klonen Sie das Repository
 
-Sie müssen die Repository-Get eine lokale Kopie des Repositorys auf Ihrem lokalen Gerät klonen.
+Sie müssen das Repository Klonen, um eine lokale Kopie des Repository auf Ihrem lokalen Gerät zu erhalten.
 
-#### <a name="to-clone-the-repository"></a>Um das Repository Klonen
+#### <a name="to-clone-the-repository"></a>So Klonen Sie das Repository
 
-1. Wechseln Sie zu https://github.com/settings/developers, und wählen Sie dann **persönliche Zugriffstoken** im linken Bereich.
+1. Wechseln Sie https://github.com/settings/developers zu, und wählen Sie dann im linken Bereich **persönliche Zugriffs Token** aus.
 
-2. Wählen Sie **neues Token generieren**, benennen Sie Ihr Token sinnvolle und eindeutige, wählen Sie alle verfügbaren Bereiche, und wählen Sie dann **Token generieren**.
+2. Wählen Sie **neues Token generieren**aus, benennen Sie das Token mit einem sinnvollen und eindeutigen Namen, wählen Sie alle verfügbaren Bereiche aus, und wählen Sie dann **Token generieren**aus.
 
-3. Kopieren Sie das Token, und speichern Sie diese an einem sicheren Ort. Sie benötigen diese für den Rest des Prozesses, und nachdem Sie die Seite verlassen, nicht möglich, Sie zu ihr zurückgelangen.
+3. Kopieren Sie das Token, und platzieren Sie es an einem sicheren Ort. Sie benötigen dies für den Rest des Prozesses, und nachdem Sie die Seite verlassen haben, können Sie nicht mehr dorthin zurückkehren.
 
-4. Öffnen Sie einen Git Bash-Befehl aus, und wechseln Sie in Ihrem Repository gespeichert werden sollen. Es wird empfohlen, `C:\users\<your_name>\GitHub`.
+4. Öffnen Sie einen git bash-Befehl, und wechseln Sie in das Verzeichnis, in dem Sie Ihr Repository speichern möchten. Wir empfehlen die Verwendung `C:\users\<your_name>\GitHub`von,.
 
-5. Geben Sie die folgenden Befehle, die über Ihre jeweiligen Informationen, einzeln nacheinander, Klonen Ihres Repositorys aus, und richten Sie Ihre remotebranches:
+5. Geben Sie nacheinander die folgenden Befehle ein, um Ihr Repository zu klonen und ihre remotebranches einzurichten:
 
     ```markdown
 
@@ -90,11 +90,11 @@ Sie müssen die Repository-Get eine lokale Kopie des Repositorys auf Ihrem lokal
     git fetch upstream master
     ```
 
-6. Führen Sie diesen Befehl aus, um sicherzustellen, dass der Remoteverweise ordnungsgemäß eingerichtet ist:
+6. Führen Sie diesen Befehl aus, um sicherzustellen, dass die Remote Einrichtung ordnungsgemäß eingerichtet ist:
 
     `git remote -v`
 
-7. Sie sollten etwa folgende Ausgabe angezeigt:
+7. Ihnen sollte etwa folgende Ausgabe angezeigt werden:
 
     ```markdown
     $ git remote -v
@@ -105,19 +105,19 @@ Sie müssen die Repository-Get eine lokale Kopie des Repositorys auf Ihrem lokal
     upstream https://github.com/MicrosoftDocs/windowsserverdocs-pr.git (push)
     ```
 
-    Wenn die remote-Ausgabe wie folgt aussieht, können Sie erneut versuchen nach der ersten Ausführung `git remote remove upstream`.
+    Wenn die Remote Ausgabe nicht wie folgt aussieht, können Sie den Vorgang wiederholen, `git remote remove upstream`indem Sie zuerst ausführen.
 
-## <a name="create-a-branch-and-a-new-article"></a>Erstellen Sie einen Branch und ein neuer Artikel
+## <a name="create-a-branch-and-a-new-article"></a>Erstellen einer Verzweigung und eines neuen Artikels
 
-Um einen Artikel zu erstellen, gehen Sie wie folgt vor.
+Führen Sie diese Schritte aus, um einen Artikel zu erstellen.
 
-### <a name="create-a-new-branch-and-a-new-file"></a>Erstellen Sie einen neuen Branch und eine neue Datei
+### <a name="create-a-new-branch-and-a-new-file"></a>Erstellen einer neuen Verzweigung und einer neuen Datei
 
-Bevor Sie beginnen können, um auf Ihre Inhalte zu arbeiten, müssen Sie einen neuen Branch in Ihrem lokalen Repository erstellen.
+Bevor Sie mit der Arbeit an den Inhalten beginnen können, müssen Sie in Ihrem lokalen Repository einen neuen Branch erstellen.
 
-#### <a name="to-create-a-new-branch-in-git-bash"></a>Zum Erstellen eines neuen branchs in Git Bash
+#### <a name="to-create-a-new-branch-in-git-bash"></a>So erstellen Sie einen neuen Branch in git bash
 
-- Öffnen Sie Git Bash, und geben Sie die Befehle (einzeln):
+- Öffnen Sie git bash, und geben Sie die Befehle (nacheinander) ein:
 
     ```markdown
     cd windowsserverdocs-pr
@@ -128,45 +128,47 @@ Bevor Sie beginnen können, um auf Ihre Inhalte zu arbeiten, müssen Sie einen n
     ```
 
     >[!Note]
-    >Es wird dringend empfohlen, benennen Ihres branchs klar und eindeutig, damit Sie es später noch Mal gefunden werden können.
+    >Wir empfehlen Ihnen dringend, ihre Verzweigung etwas offensichtlich und eindeutig zu benennen, damit Sie Sie später wiederfinden können.
 
-    Nachdem die Befehle abgeschlossen haben, Sie werden in Ihren neuen Branch und bereit für die neue Datei erstellen. Sie müssen nur so ändern Sie in das Repository Windowsserverdocs-Pr, jede Instanz von Ihrer Git Bash. Wenn Sie Git Bash schließen, müssen Sie Verzeichnisse wieder ändern, nachdem Sie es öffnen.
+    Nachdem die Befehle abgeschlossen sind, befinden Sie sich in der neuen Verzweigung und können die neue Datei erstellen. Sie müssen nur einmal pro Instanz von git bash in das Repository "windowsserverdocs-PR" wechseln. Wenn Sie git bash schließen, müssen Sie die Verzeichnisse nach dem Öffnen erneut ändern.
 
-#### <a name="to-create-a-new-file-in-your-branch"></a>Um eine neue Datei in Ihrem Branch zu erstellen.
+#### <a name="to-create-a-new-file-in-your-branch"></a>So erstellen Sie eine neue Datei in Ihrem Branch
 
-1. Öffnen Sie Windows Explorer, wechseln Sie zu Ihrem GitHub-Verzeichnis, und erstellen Sie eine neue Textdatei, in der Ordnerstruktur. Dem Namen Ihrer Datei muss es sich um alle Kleinbuchstaben und durch Bindestriche getrennt sein. Z. B. _Was-ist-Windows-server.md_.
+1. Öffnen Sie Windows-Explorer, navigieren Sie zu Ihrem GitHub-Verzeichnis, und erstellen Sie eine neue Textdatei in der Ordnerstruktur. Der Dateiname darf nur aus Kleinbuchstaben bestehen und durch Bindestriche getrennt sein. Beispielsweise _What-is-Windows-Server.MD_.
 
-     Sie müssen auch die Dateierweiterung von .txt zu ändern. Md. Wählen Sie in der Fehlermeldung, die angezeigt wird, **Ja** zum Speichern der Datei mit der neuen Erweiterung.
+     Außerdem müssen Sie die Dateierweiterung von ". txt" in ". MD" ändern. Wählen Sie in der angezeigten Fehlermeldung **Ja** aus, um die Datei mit der neuen Dateierweiterung zu speichern.
 
-2. Öffnen Sie Visual Studio Code, und wechseln Sie zu **Datei**Option **"Ordner öffnen"** , und fahren Sie mit der GitHub-Speicherort der Datei, die Sie in Schritt 1 erstellt haben.
+2. Öffnen Sie Visual Studio Code, navigieren Sie zu **Datei**, wählen Sie **Ordner öffnen**aus, und navigieren Sie dann zum GitHub-Speicherort der Datei, die Sie in Schritt 1 erstellt haben.
 
-3. Von der **Explorer** Bereich, wählen Sie die neue Datei.
+3. Wählen Sie im Bereich **Explorer** die neue Datei aus.
 
-4. Fügen Sie den Text auf der Seite hinzu, und wählen Sie dann **Datei** > **speichern**.
+4. Fügen Sie den Text der Seite hinzu. Wenn Sie einen neuen Artikel erstellen, stellen Sie sicher, dass Sie [die erforderlichen Metadatentags zu Ihrem Windows Server-bezogenen Artikel hinzufügen](metadata-requirements-for-articles.md).
 
-### <a name="preview-your-text"></a>Eine Vorschau Ihres Texts
+5. Wählen Sie **Datei** > **Speichern**aus.
 
-Nachdem Sie den Text auf die neue Datei hinzufügen, müssen Sie eine Vorschau die Änderungen, um sicherzustellen, dass sie ordnungsgemäß angezeigt werden.
+### <a name="preview-your-text"></a>Anzeigen einer Vorschau des Texts
 
-#### <a name="to-preview-your-text"></a>Den Text-Vorschau
+Nachdem Sie den Text der neuen Datei hinzugefügt haben, müssen Sie die Änderungen in der Vorschau anzeigen, um sicherzustellen, dass Sie richtig angezeigt werden.
 
-1. Wählen Sie in Visual Studio Code, entweder von der **Vorschau** Schaltflächen in der oberen rechten Ecke.
+#### <a name="to-preview-your-text"></a>So sehen Sie eine Vorschau des Texts
 
-    ![Symbol für die Vorschau](media/create-new-using-github/preview-button-full-page.png): Wechselt zu einer ganzseitigen Vorschau Ihrer Inhalte.
+1. Wählen Sie in Visual Studio Code eine der **Vorschau** Schaltflächen in der oberen rechten Ecke aus.
 
-    ![Symbol für die Vorschau](media/create-new-using-github/preview-button-side-by-side.png): Öffnet die Seite "Vorschau" neben Ihrer Arbeit-Seite, Seite-an-Seite.
+    ![Symbol "Vorschau"](media/create-new-using-github/preview-button-full-page.png): Wechselt zu einer vollständigen Vorschau Ihrer Inhalte.
 
-2. Stellen Sie sicher, dass Ihr Artikel aussieht, wie Sie sehen wie erwartet.
+    ![Symbol "Vorschau"](media/create-new-using-github/preview-button-side-by-side.png): Öffnet die Vorschau Seite neben ihrer Arbeitsseite nebeneinander.
 
-    Nachdem Sie sichergestellt, dass sie das richtige Aussehen, können committen Ihrer Änderungen und erstellen eine Pull-Anforderung für die Veröffentlichung.
+2. Stellen Sie sicher, dass Ihr Artikel aussieht, wie Sie es erwarten.
 
-### <a name="commit-your-changes"></a>Committen Sie Ihrer Änderungen
+    Nachdem Sie sicher sind, dass Sie richtig aussieht, können Sie Ihre Änderungen übertragen und einen Pull Request für die Veröffentlichung erstellen.
 
-Wenn Sie, dass der Text das richtige Aussehen sicherstellen, können Sie Ihre Änderungen an der lokalen Version Ihres Repositorys bestätigen.
+### <a name="commit-your-changes"></a>Commit für Ihre Änderungen
 
-#### <a name="to-commit-your-changes"></a>Um Ihre Änderungen zu übernehmen.
+Nachdem Sie sichergestellt haben, dass Ihr Text richtig aussieht, können Sie Ihre Änderungen auf Ihre lokale Version Ihres Repository übertragen.
 
-- Öffnen Sie Git Bash, und geben Sie die Befehle (einzeln nacheinander, entfernen die optionale Tags ein):
+#### <a name="to-commit-your-changes"></a>So übertragen Sie die Änderungen
+
+- Öffnen Sie git bash, und geben Sie die Befehle ein (jeweils nacheinander, und entfernen Sie die optionalen Tags):
 
     ```markdown
     OPTIONAL: git status
@@ -181,49 +183,49 @@ Wenn Sie, dass der Text das richtige Aussehen sicherstellen, können Sie Ihre Ä
 
     ```
 
-    Die optionale Git-statusbefehls erfahren Sie, welche Dateien als Teil dieser Commit geändert wurden. Die optionale Git pull upstream master ruft Sie die neuesten Inhalte Änderungen aus dem masterbranch MicrosoftDocs Synchronisieren Ihrer lokalen Inhalte mit dem Hauptinhalt der master. Dadurch soll veranschaulicht werden mögliche Zusammenführungskonflikte voraus, damit Sie sie beheben können, bevor Sie an die Pull Request-Phase erhalten.
+    Der optionale Befehl git-Status zeigt an, welche Dateien im Rahmen dieses Commit geändert wurden. Der optionale git Pull Upstream-Master Ruft die neuesten Inhalts Änderungen aus der microsoftdocs-masterb Ranch ab und synchronisiert Ihren lokalen Inhalt mit dem primären Master Inhalt. Auf diese Weise können Sie potenzielle Mergekonflikte im Voraus anzeigen, damit Sie Sie beheben können, bevor Sie zur PR-Phase gelangen.
 
-### <a name="submit-a-pull-request-for-review-and-publication"></a>Senden eines Pull Requests für die Überprüfung und Veröffentlichung
+### <a name="submit-a-pull-request-for-review-and-publication"></a>Übermitteln eines Pull Request zur Überprüfung und Veröffentlichung
 
-Nachdem Sie Ihren Artikel abgeschlossen haben, müssen Sie die Genehmigung erhalten, aus Ihrem Writer (einige Zeit, bis dies zulassen) für die Veröffentlichung.
+Nachdem Sie den Artikel abgeschlossen haben, müssen Sie für die Veröffentlichung eine Genehmigung von Ihrem Writer erhalten (einige Zeit hierfür erlauben).
 
-#### <a name="to-submit-your-pull-request"></a>Um Ihr Pull Request zu übermitteln.
+#### <a name="to-submit-your-pull-request"></a>So senden Sie Ihre Pull Request
 
-1. Wechseln Sie zu https://github.com/MicrosoftDocs/windowsserverdocs-pr , und wählen Sie die **Pullanforderungen** Registerkarte.
+1. Wechseln Sie https://github.com/MicrosoftDocs/windowsserverdocs-pr zu, und wählen Sie die Registerkarte **Pull Requests** aus.
 
-2. In der **Reviewer** Teil des rechten Bereichs, wählen Sie das Zahnradsymbol, und geben Sie dann die _Windowsservercontent_ Alias zur Überprüfung.
+2. Wählen Sie im Bereich **Reviewer** des rechten Bereichs das Zahnrad Symbol aus, und geben Sie dann den _Windows Server Content_ -Alias für Review ein.
 
-    Ein Mitglied der _Windowsservercontent_ Alias wird Ihre Änderungen zu überprüfen oder Hinzufügen von Kommentaren zu Programmen, die geändert werden müssen, bevor das Zusammenführen von auftreten kann.
+    Ein Mitglied des Alias _Windows Server Content_ überprüft Ihre Änderungen oder fügt Kommentare zu Dingen hinzu, die vor dem Zusammenführen geändert werden müssen.
 
-3. Typ **#-Sign-off** in den Kommentaren, damit die Reviewer wissen Sie sind Dienstprozessen für Überprüfung und Veröffentlichung. Die **#-Sign-off** Kommentar:
+3. Geben Sie **#Sign-Off** in die Kommentare ein, damit die Reviewer wissen, dass Sie sowohl für die Überprüfung als auch für die Veröffentlichung ausgeben. Der **#Sign** Kommentar:
 
-    - Aktualisiert die Bezeichnung für den Pull Request aus **-Not-Merge** zu **Ready-to-Merge**.
+    - Aktualisiert die Bezeichnung für Ihre Pull Request von " **nicht zusammenführen** " zu " **bereit zum Zusammenführen**".
 
-    - Können den Alias und Writer, die wissen, dass Sie bereit sind, haben Ihre Inhalte geprüft.
+    - Ermöglicht dem Alias und den Writern, dass Sie bereit sind, ihre Inhalte zu überprüfen.
 
-    - Können die Administratoren wissen, dass nach der Genehmigung Ihrer Inhalte bereit, Go live.
+    - Ermöglicht den Administratoren, dass Ihre Inhalte nach der Genehmigung sofort online geschaltet sind.
 
     >[!Important]
-    >Nachdem Sie die #-Sign-off-Kommentar hinzugefügt haben, ein Mitglied des Teams Windowsservercontent wird Überprüfen Sie den Text und per push zu zeitaufwändig, damit sie mit der nächsten raus werden geplante Live-(10:30 Uhr und 15:30 Uhr an Wochentagen) veröffentlichen.
+    >Nachdem Sie den #Sign Kommentar hinzugefügt haben, prüft ein Mitglied des Windows Server Content-Teams den Text und überträgt ihn an den Master, damit er mit der nächsten geplanten Veröffentlichung in Live (10:30 Uhr und 3:30Uhr Wochentage) fortgesetzt wird.
     >
-    >Wenn Sie #-Sign-off als eine letzte Bemerkung zu Ihrem PR nicht hinzufügen, Ihre Inhalte bleiben in der Warteschlange ohne Push zu Master und schließlich Gültigkeitsdauer.
+    >Wenn Sie Ihrem PR nicht als Abschließender Kommentar #Sign hinzufügen, verbleiben Ihre Inhalte in der Warteschlange, ohne dass Sie per Pushvorgang an den Master übertragen werden.
 
 ## <a name="related-information"></a>Verwandte Informationen
 
-Weitere Informationen zu GitHub und die Markdown-Sprache finden Sie unter:
+Weitere Informationen zu GitHub und der markdown-Sprache finden Sie unter:
 
 ### <a name="git-concepts"></a>Git-Konzepte
 
-- [GitHub-Leitfäden-Git-Benutzerhandbuch:-Einführung](https://guides.github.com/introduction/git-handbook/)
+- [GitHub-Leitfäden: git-Handbuch Intro](https://guides.github.com/introduction/git-handbook/)
 
-- [Führungslinien GitHub-Verzweigung-Projekte](https://guides.github.com/activities/forking/)
+- [GitHub-Leitfäden: Forking-Projekte](https://guides.github.com/activities/forking/)
 
-- [GitHub Anleitungen: Grundlegendes zu GitHub-Flows](https://guides.github.com/introduction/flow/)
+- [GitHub-Leitfäden: Grundlegendes zum GitHub-Flow](https://guides.github.com/introduction/flow/)
 
-- [Erfahren Sie, Git-Verzweigung](https://learngitbranching.js.org/ (visual lerner geeignet!))
+- [Erlernen von git-Verzweigungen] (https://learngitbranching.js.org/ (Hervorragend für visuelle Lernmodule!))
 
 ### <a name="markdown"></a>Markdown
 
-- [Unsere interne Markdown-Leitfaden](https://review.docs.microsoft.com/help/contribute/markdown-reference?branch=master)
+- [Unsere interne markdown-Anleitung](https://review.docs.microsoft.com/help/contribute/markdown-reference?branch=master)
 
-- [Extern und GitHub-tutorial](https://www.markdowntutorial.com/)
+- [Externes, GitHub-Tutorial](https://www.markdowntutorial.com/)
