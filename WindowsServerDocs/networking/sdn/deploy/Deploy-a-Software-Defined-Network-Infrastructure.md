@@ -1,52 +1,48 @@
 ---
 title: Bereitstellen einer Software-Defined Networking-Infrastruktur
-description: Dieses Thema enthält Links zu Themen zum Bereitstellen einer Software Defined Network (SDN) von Microsoft-Infrastruktur, die mithilfe von Skripts in Windows Server 2016.
-manager: dougkim
-ms.custom: na
+description: Dieses Thema enthält Links zu Themen, in denen beschrieben wird, wie Sie eine Sdn-Infrastruktur (Software Defined Network) mithilfe von Skripts in Windows Server 2016 bereitstellen.
 ms.prod: windows-server-threshold
-ms.reviewer: na
 ms.service: virtual-network
-ms.suite: na
 ms.technology: networking-sdn
-ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 6c665c88-df28-4150-81d4-a47e9fa5255c
-ms.author: pashort
+ms.author: daveba
 ms.date: 08/23/2018
-ms.openlocfilehash: 30d5597cdeb76d636cdf5236228f035999a6bdf6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+author: daveba
+ms.openlocfilehash: 098b061acbb222d2038486f58081812a3ec67cfb
+ms.sourcegitcommit: 2082335e1260826fcbc3dccc208870d2d9be9306
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59878021"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69980282"
 ---
-# <a name="deploy-a-software-defined-network-infrastructure"></a>Bereitstellen einer Software-Defined Networking-Infrastruktur
+# <a name="deploy-a-software-defined-network-infrastructure"></a>Bereitstellen einer Software definierten Netzwerkinfrastruktur
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Bereitstellen Sie Microsoft Software-Defined Networking (SDN)-Infrastruktur.   
+Stellen Sie die Software-Defined Networking-Infrastruktur (SDN) von Microsoft bereit.   
   
-Diese Bereitstellungen enthalten alle Technologien, die Sie für eine voll funktionsfähige Infrastruktur, einschließlich Hyper-V-Netzwerkvirtualisierung (HNV), Netzwerkcontroller, Software Load balancer (SLB/MUX-Instanz) und Gateways benötigen.  
+Diese bereit Stellungen umfassen alle Technologien, die Sie für eine voll funktionsfähige Infrastruktur benötigen, einschließlich Hyper-v-Netzwerkvirtualisierung (HNV), Netzwerk Controller, Software Lastenausgleich (SLB/MUX) und Gateways.  
   
-## <a name="set-up-sdn-infrastructure-in-the-vmm-fabric"></a>Einrichten von SDN-Infrastruktur im VMM-fabric
+## <a name="set-up-sdn-infrastructure-in-the-vmm-fabric"></a>Einrichten der Sdn-Infrastruktur im VMM-Fabric
 
 
 
   
--   [Richten Sie eine Infrastruktur (Software Defined Network, SDN) im VMM-fabric](https://docs.microsoft.com/system-center/vmm/deploy-sdn)  
+-   [Einrichten einer Sdn-Infrastruktur (Software Defined Network) im VMM-Fabric](https://docs.microsoft.com/system-center/vmm/deploy-sdn)  
   
-    Verwenden Sie diese Methode, wenn Sie System Center Virtual Machine Manager (VMM) zur Verwaltung Ihrer SDN-Infrastruktur integrieren möchten.  
+    Verwenden Sie diese Methode, wenn Sie System Center Virtual Machine Manager (VMM) zum Verwalten der Sdn-Infrastruktur integrieren möchten.  
  
-## <a name="deploy-sdn-infrastructure-using-scripts"></a>Bereitstellen von SDN-Infrastruktur, die mithilfe von Skripts
+## <a name="deploy-sdn-infrastructure-using-scripts"></a>Bereitstellen der Sdn-Infrastruktur mit Skripts
  
--   [Bereitstellen einer Software-Defined Networking-Infrastruktur mithilfe von Skripts](../../sdn/deploy/Deploy-a-Software-Defined-Network-infrastructure-using-scripts.md)  
+-   [Bereitstellen einer Software definierten Netzwerkinfrastruktur mithilfe von Skripts](../../sdn/deploy/Deploy-a-Software-Defined-Network-infrastructure-using-scripts.md)  
   
-    Verwenden Sie diese Methode, wenn Sie kein VMM verwenden, um Ihre SDN-Infrastruktur verwalten möchten oder wenn Sie einen anderen Verwaltungsmethode verfügen.  
+    Verwenden Sie diese Methode, wenn Sie VMM nicht zum Verwalten Ihrer Sdn-Infrastruktur verwenden möchten oder wenn Sie über eine andere Verwaltungsmethode verfügen.  
 
 
-## <a name="deploy-individual-sdn-technologies-instead-of-an-entire-infrastructure"></a>Bereitstellen von einzelnen SDN-Technologien, statt eine ganze Infrastruktur  
- Wenn Sie die einzelne SDN-Technologien, statt eine ganze Infrastruktur bereitstellen möchten, finden Sie unter:  
-[Bereitstellen von Software Defined Networking-Technologien mithilfe von Windows PowerShell](Deploy-Software-Defined-Network-Technologies-using-Windows-PowerShell.md).    
+## <a name="deploy-individual-sdn-technologies-instead-of-an-entire-infrastructure"></a>Bereitstellen einzelner Sdn-Technologien anstelle einer gesamten Infrastruktur  
+ Wenn Sie einzelne Sdn-Technologien anstelle einer gesamten Infrastruktur bereitstellen möchten, finden Sie weitere Informationen unter:  
+Stellen [Sie Software definierte Netzwerktechnologien mithilfe von Windows PowerShell](Deploy-Software-Defined-Network-Technologies-using-Windows-PowerShell.md)bereit.    
   
 
 
@@ -58,7 +54,7 @@ Diese Bereitstellungen enthalten alle Technologien, die Sie für eine voll funkt
 ## <a name="related-topics"></a>Verwandte Themen
 - [Software-Defined Networking (SDN)](../Software-Defined-Networking--SDN-.md)  
 - [SDN-Technologien](../technologies/Software-Defined-Networking-Technologies.md)  
-- [Plan SDN](../plan/plan-a-software-defined-network-infrastructure.md)  
+- [SDN planen](../plan/plan-a-software-defined-network-infrastructure.md)  
 - [Verwalten von SDN](../manage/manage-sdn.md)
 - [Sicherheit für SDN](../security/sdn-security-top.md)
 - [Problembehandlung für SDN](../troubleshoot/Troubleshoot-Software-Defined-Networking.md)

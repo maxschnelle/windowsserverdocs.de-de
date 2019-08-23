@@ -1,36 +1,38 @@
 ---
 title: Konfigurieren von Kerberos für die IP-Adresse
 description: Kerberos-Unterstützung für IP-basierte SPNs
-ms.openlocfilehash: aa2685fcff2fdf231e5e5884d25885585f0bd6c9
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+author: daveba
+ms.author: daveba
+ms.openlocfilehash: 1061364528100fe005e80f64c6315f9fca69ad98
+ms.sourcegitcommit: 2082335e1260826fcbc3dccc208870d2d9be9306
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67279968"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69980298"
 ---
-# <a name="kerberos-clients-allow-ipv4-and-ipv6-address-hostnames-in-service-principal-names-spns"></a>Kerberos-Clients zulassen IPv4 und IPv6-Adresse-Hostnamen in Service Principal Names (SPNs)
+# <a name="kerberos-clients-allow-ipv4-and-ipv6-address-hostnames-in-service-principal-names-spns"></a>Kerberos-Clients lassen IPv4-und IPv6-Adress Hostnamen in Dienst Prinzipal Namen (SPNs) zu.
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Ab Windows 10 Version 1507 und Windows Server 2016, können Kerberos-Clients konfiguriert werden, zur Unterstützung von IPv4 und IPv6-Hostnamen in SPNs.
+Ab Windows 10, Version 1507 und Windows Server 2016, können Kerberos-Clients für die Unterstützung von IPv4-und IPv6-Hostnamen in SPNs konfiguriert werden.
 
-Standardmäßig wird Windows Kerberos-Authentifizierung für einen Host nicht versuchen, wenn der Hostname eine IP-Adresse ist. Mit anderen Protokollen der aktivierten Authentifizierungsoptionen wie NTLM wird zurückgegriffen. Anwendungen sind jedoch manchmal hartcodierte IP-Adressen verwenden, das bedeutet, die Anwendung dass auf NTLM zurückgegriffen wird, und Kerberos nicht verwendet. Dies kann Kompatibilitätsprobleme verursachen, wenn Umgebungen verschieben, um NTLM zu deaktivieren.
+Standardmäßig versucht Windows nicht, die Kerberos-Authentifizierung für einen Host durchführen, wenn der Hostname eine IP-Adresse ist. Es wird auf andere aktivierte Authentifizierungsprotokolle wie NTLM zurückgegriffen. Anwendungen sind jedoch manchmal hart codiert, um IP-Adressen zu verwenden. Dies bedeutet, dass die Anwendung auf NTLM zurückgreift und nicht Kerberos verwendet. Dies kann zu Kompatibilitätsproblemen führen, wenn Umgebungen zum Deaktivieren von NTLM verschoben werden.
 
-Zur Reduzierung der Auswirkungen einer Deaktivierung von NTLM eine neue Funktion wurde eingeführt, die Administratoren, die IP-Adressen als Hostnamen im Service Principal Names verwenden können. Diese Funktion ist auf dem Client über einen Wert des Registrierungsschlüssels aktiviert.
+Um die Auswirkung der Deaktivierung von NTLM zu reduzieren, wurde eine neue Funktion eingeführt, die es Administratoren ermöglicht, IP-Adressen als Hostnamen in Dienst Prinzipal Namen zu verwenden. Diese Funktion wird auf dem Client über einen Registrierungsschlüssel Wert aktiviert.
 
 ```cmd
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Kerberos\Parameters" /v TryIPSPN /t REG_DWORD /d 1 /f
 ```
 
-Erstellen Sie einen TryIPSPN-Eintrag, um Unterstützung für IP-Adresse Hostnamen in SPNs zu konfigurieren. Dieser Eintrag ist nicht standardmäßig in der Registrierung vorhanden. Nachdem Sie den Eintrag erstellt haben, ändern Sie den DWORD-Wert auf 1 fest. Dieser Registrierungswert auf jedem Clientcomputer, die Zugriff auf Kerberos-geschützten Ressourcen über die IP-Adresse festgelegt werden müssen.
+Erstellen Sie einen tryipspn-Eintrag, um die Unterstützung für IP-Adress Hostnamen in SPNs zu konfigurieren. Dieser Eintrag ist nicht standardmäßig in der Registrierung vorhanden. Nachdem Sie den Eintrag erstellt haben, ändern Sie den DWORD-Wert in 1. Dieser Registrierungs Wert muss auf jedem Client Computer festgelegt werden, der über die IP-Adresse auf durch Kerberos geschützte Ressourcen zugreifen muss.
 
-## <a name="configuring-a-service-principal-name-as-ip-address"></a>Konfigurieren eines Dienstprinzipalnamens als IP-Adresse
+## <a name="configuring-a-service-principal-name-as-ip-address"></a>Konfigurieren eines Dienst Prinzipal namens als IP-Adresse
 
-A Service Principal Name ist ein eindeutiger Bezeichner, die während der Kerberos-Authentifizierung verwendet wird, um einen Dienst im Netzwerk zu identifizieren. Ein SPN besteht aus einem Dienst, Hostnamen und optional einen Port in Form von `service/hostname[:port]` wie z. B. `host/fs.contoso.com`. Windows wird mehrere SPNs, um ein Computerobjekt registriert, wenn ein Computer mit Active Directory verknüpft ist.
+Ein Dienst Prinzipal Name ist ein eindeutiger Bezeichner, der während der Kerberos-Authentifizierung zum Identifizieren eines Dienstanbieter verwendet wird. Ein SPN besteht aus einem Dienst, einem Hostnamen und optional einem Port in Form von `service/hostname[:port]` , wie `host/fs.contoso.com`z. b. Windows registriert mehrere SPNs bei einem Computer Objekt, wenn ein Computer mit Active Directory verknüpft ist.
 
-IP-Adressen sind normalerweise nicht anstelle von Hostnamen verwendet, da es sich bei IP-Adressen oft temporär sind. Dies kann zu Konflikten und Authentifizierungsfehlern führen, wie Adressleases laufen ab und zu erneuern. Aus diesem Grund registrieren einen IP-Adressen basierenden SPN ist ein manueller Prozess, und sollte nur verwendet werden, wenn es nicht möglich, wechseln Sie auf eine Basis von DNS-Hostname ist.
+IP-Adressen werden normalerweise nicht anstelle von Hostnamen verwendet, da IP-Adressen häufig temporär sind. Dies kann zu Konflikten und Authentifizierungs Fehlern führen, wenn Adressleases ablaufen und erneuert werden. Daher ist die Registrierung eines auf IP-Adressen basierenden SPN ein manueller Prozess und sollte nur verwendet werden, wenn es unmöglich ist, zu einem DNS-basierten Hostnamen zu wechseln.
 
-Der empfohlene Ansatz ist die Verwendung der [Setspn.exe](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11)) Tool. Beachten Sie, dass ein SPN nur registriert werden kann, die einem einzelnen Konto in Active Directory zu einem Zeitpunkt daher wird empfohlen, dass die IP-Adressen statisch Leases aufweisen, wenn DHCP verwendet wird.
+Die empfohlene Vorgehensweise ist die Verwendung des Tools [Setspn. exe](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11)) . Beachten Sie, dass ein SPN nur für ein einzelnes Konto in Active Directory registriert werden kann, daher wird empfohlen, dass IP-Adressen bei Verwendung von DHCP statische Leases aufweisen.
 
 ```
 Setspn -s <service>/ip.address> <domain-user-account>  
