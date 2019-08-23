@@ -204,7 +204,7 @@
 
 ### [Übersicht über AD FS](ad-fs/AD-FS-Overview.md)
 #### [Neues in den Active Directory-Verbunddiensten (AD FS)](ad-fs/overview/whats-new-active-directory-federation-services-windows-server.md)
-#### [AD FS-Szenarien für Entwickler](ad-fs/overview/AD-FS-Scenarios-for-Developers.md)
+
 #### [Anforderungen für AD FS 2016](ad-fs/overview/AD-FS-Requirements.md)
 
 ### [AD FS-Entwurf](ad-fs/AD-FS-Design.md)
@@ -365,18 +365,25 @@
 
 
 
-### [AD FS-Entwicklung](ad-fs/AD-FS-Development.md)
+### AD FS-Entwicklung
+#### [Moderne AD FS-Authentifizierung: Konzepte](ad-fs/development/ad-fs-openid-connect-oauth-concepts.md)
+#### [Moderne AD FS-Authentifizierung: Flows und App-Szenarien](ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios.md)
 
 #### [Erstellen einer benutzerdefinierten Authentifizierungsmethode für AD FS](ad-fs/development/ad-fs-build-custom-auth-method.md)
 #### [Erstellen von Plug-Ins mit dem Risikobewertungsmodell von AD FS 2019](ad-fs/development/ad-fs-risk-assessment-model.md)
-#### [Benutzerdefinierte ID-Token in AD FS](ad-fs/development/Custom-Id-Tokens-in-AD-FS.md)
-#### [AD FS: Authentifizierung im Auftrag einer anderen Person unter Windows Server 2016](ad-fs/development/AD-FS-On-behalf-of-Authentication-in-Windows-Server.md)
-#### [Aktivieren von OpenID Connect mit AD FS 2016](ad-fs/development/Enabling-OpenId-Connect-with-AD-FS.md)
-#### [Aktivieren vertraulicher OAuth-Clients mit AD FS 2016](ad-fs/development/Enabling-Oauth-Confidential-Clients-with-AD-FS.md)
 #### [Einmaliges Abmelden für OpenID Connect mit AD FS](ad-fs/development/ad-fs-logout-openid-connect.md)
-#### [Single-Page-Anwendung mit AD FS](ad-fs/development/Single-Page-Application-with-AD-FS.md)
-#### [Erstellen einer nativen Clientanwendung unter Verwendung öffentlicher OAuth-Clients mit AD FS](ad-fs/development/native-client-with-ad-fs.md)
+#### ADAL
 
+##### [Benutzerdefinierte ID-Token in AD FS](ad-fs/development/Custom-Id-Tokens-in-AD-FS.md)
+##### [AD FS: Authentifizierung im Auftrag einer anderen Person unter Windows Server 2016](ad-fs/development/AD-FS-On-behalf-of-Authentication-in-Windows-Server.md)
+##### [Aktivieren von OpenID Connect mit AD FS 2016](ad-fs/development/Enabling-OpenId-Connect-with-AD-FS.md)
+##### [Aktivieren vertraulicher OAuth-Clients mit AD FS 2016](ad-fs/development/Enabling-Oauth-Confidential-Clients-with-AD-FS.md)
+##### [Single-Page-Anwendung mit AD FS](ad-fs/development/Single-Page-Application-with-AD-FS.md)
+##### [Erstellen einer nativen Clientanwendung unter Verwendung öffentlicher OAuth-Clients mit AD FS](ad-fs/development/native-client-with-ad-fs.md)
+#### MSAL
+##### [Aufrufen einer Web-API durch eine native App](ad-fs/development/msal/adfs-msal-native-app-web-api.md) 
+##### [Aufrufen einer Web-API durch eine Web-API (Szenario „Im Auftrag von“)](ad-fs/development/msal/adfs-msal-web-api-web-api.md) 
+##### [Aufrufen von Web-APIs durch eine Web-App (Server-App)](ad-fs/development/msal/adfs-msal-web-app-web-api.md) 
 
 ### [AD FS-Vorgänge](ad-fs/AD-FS-Operations.md)
 #### [Zugriffssteuerungsrichtlinien in AD FS](ad-fs/operations/AD-FS-Client-Access-Policies.md)
