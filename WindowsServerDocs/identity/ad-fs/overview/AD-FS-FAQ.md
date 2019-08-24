@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: it-pro
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 7bc98a8c9a57b2b7f63523f0411d648ca82137aa
-ms.sourcegitcommit: 2082335e1260826fcbc3dccc208870d2d9be9306
+ms.openlocfilehash: 46e8548e24f0d0991f69427741b0e04da6398334
+ms.sourcegitcommit: 4fa147d552481d8279a5390f458a9f7788061977
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980335"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70009094"
 ---
 # <a name="ad-fs-frequently-asked-questions-faq"></a>AD FS häufig gestellte Fragen (FAQ)
 
@@ -76,9 +76,9 @@ AD FS unterstützt eine Konfiguration mit mehreren Gesamtstrukturen und basiert 
 ## <a name="design"></a>Entwurf
 
 ### <a name="what-third-party-multi-factor-authentication-providers-are-available-for-ad-fs"></a>Welche Multi-Factor Authentication-Anbieter von Drittanbietern sind für AD FS verfügbar?
-AD FS bietet einen Erweiterbarkeits Mechanismus, mit dem MFA-Anbieter von Drittanbietern integriert werden können. Hierfür gibt es kein fest Geleges Zertifizierungsprogramm. Es wird davon ausgegangen, dass der Hersteller vor der Freigabe die erforderlichen Überprüfungen durchgeführt hat. 
+AD FS bietet einen erweiterbaren Mechanismus für die Integration von Drittanbieter-MFA-Anbietern. Hierfür gibt es kein fest Geleges Zertifizierungsprogramm. Es wird davon ausgegangen, dass der Hersteller vor der Freigabe die erforderlichen Überprüfungen durchgeführt hat. 
 
-Die Liste der Anbieter, die Microsoft benachrichtigt haben, wird bei [MFA-Anbietern für AD FS](..\operations\Configure-Additional-Authentication-Methods-for-AD-FS.md)veröffentlicht.  Möglicherweise sind immer Anbieter verfügbar, die wir nicht kennen, und wir aktualisieren die Liste, wie wir Sie darüber erfahren.
+Die Liste der Anbieter, die Microsoft benachrichtigt haben, wird bei [MFA-Anbietern für AD FS](../operations/Configure-Additional-Authentication-Methods-for-AD-FS.md)veröffentlicht.  Möglicherweise sind immer Anbieter verfügbar, die wir nicht kennen, und wir aktualisieren die Liste, wie wir Sie darüber erfahren.
 
 ### <a name="are-third-party-proxies-supported-with-ad-fs"></a>Werden Drittanbieter Proxys mit AD FS unterstützt?
 Ja, Proxys von Drittanbietern können vor dem webanwendungsproxy eingefügt werden, aber jeder Drittanbieter Proxy muss das [MS-adfspip-Protokoll](https://msdn.microsoft.com/library/dn392811.aspx) unterstützen, das anstelle des webanwendungsproxys verwendet werden soll.
