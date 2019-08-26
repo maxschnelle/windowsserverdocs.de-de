@@ -375,7 +375,7 @@ New-SendConnector -Name "WSE Internet SendConnector" -Usage "Internet" -AddressS
 
       **Arrconfig-Konfiguration-CERT** _Pfad zur Zertifikat Datei_ **-hostnames** _Hostnamen für Exchange Server_ **-TargetServer** _Servername von Exchange Server_  
 
-      Beispiel: **Arrconfig-Konfiguration-CERT** _c:\temp\certificate.pfx_ **-hostnames** _Mail.contoso.com_ * *-TargetServer * * _ExchangeSvr_  
+      Beispiel: **Arrconfig-Konfiguration-CERT** _c:\temp\certificate.pfx_ **-hostnames** _Mail.contoso.com_ **-TargetServer ** _ExchangeSvr_  
 
       Ersetzen Sie *mail.contoso.com* durch den Namen Ihrer Domäne. Ersetzen Sie *ExchangeSvr* durch den Namen des Servers, auf dem Exchange Server ausgeführt wird.  
 
