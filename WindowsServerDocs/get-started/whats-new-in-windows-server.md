@@ -2,22 +2,22 @@
 title: Neues in Windows Server
 description: Welche neuen Features sind für Compute, Identitäten, Verwaltung, Automatisierung, Netzwerk, Sicherheit und Speicher verfügbar?
 ms.prod: windows-server
-ms.date: 06/03/2019
+ms.date: 08/22/2019
 ms.technology: server-general
 ms.topic: article
 author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: medium
-ms.openlocfilehash: 8e19c7a51ef1f50f974dc380e00315f9980da560
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: a6a093f873ee925a2763ba5243f868204bd077f3
+ms.sourcegitcommit: 6f8993e2180c4d3c177e3e1934d378959396b935
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66501356"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70000653"
 ---
 # <a name="whats-new-in-windows-server"></a>Neues in Windows Server
 
->Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (halbjährlicher Kanal)
+> Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (halbjährlicher Kanal)
 
 Hier finden Sie die neuen Features für jede der folgenden Windows Server-Releases.  
 
@@ -35,7 +35,8 @@ Releases im halbjährlichen Kanal:
 
 Releases von Windows Server (halbjährlicher Kanal) stellen in kürzeren Abständen neue Betriebssystemfunktionen zur Verfügung. Alle sechs Monate wird ein neues Release veröffentlicht, und es wird 18 Monate Support bereitgestellt. In den [Versionsinformationen zu Windows Server](windows-server-release-info.md) und auf der [Microsoft Lifecycle-Seite](https://support.microsoft.com/lifecycle) finden Sie Informationen zum Supportlifecycle. Verwenden Sie möglichst immer das neueste Release.
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="see-also"></a>Siehe auch
 
 - [Versionshinweise: Wichtige Probleme in Windows Server 2019](../get-started-19/rel-notes-19.md)
 - [Versionshinweise: Wichtige Probleme in Windows Server 2016](Windows-Server-2016-GA-Release-Notes.md)
+- [Features, die entfernt wurden bzw. deren Ersetzung in Windows Server geplant ist](../get-started-19/removed-features.md)
