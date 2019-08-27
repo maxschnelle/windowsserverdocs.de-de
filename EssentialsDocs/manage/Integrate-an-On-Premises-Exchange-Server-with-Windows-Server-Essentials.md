@@ -12,12 +12,12 @@ ms.assetid: b56a21e2-c9e3-4ba9-97d9-719ea6a0854b
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 142ae8514a6a480f8181ce193c2f437e2f286e2d
-ms.sourcegitcommit: 0e3c2473a54f915d35687d30d1b4b1ac2bae4068
+ms.openlocfilehash: 689f293acf1e87e135f6f8cf5c7eac2a7d8033b9
+ms.sourcegitcommit: 213989f29cc0c30a39a78573bd4396128a59e729
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68914607"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70031503"
 ---
 # <a name="integrate-an-on-premises-exchange-server-with-windows-server-essentials"></a>Integration eines lokalen Exchange-Servers mit Windows Server Essentials
 
@@ -30,7 +30,7 @@ Diese Anleitung enthält Informationen und grundlegende Anweisungen zur Einricht
 > [!NOTE]
 >  Für Exchange Server 2010 wird die Installation nicht auf Computern unterstützt, auf denen Windows Server 2012 ausgeführt wird.  
 
-## <a name="prerequisites"></a>Vorraussetzungen  
+## <a name="prerequisites"></a>Erforderliche Komponenten  
  Stellen Sie vor dem Installieren von Exchange Server in einem Windows Server Essentials-Netzwerk sicher, dass Sie die in diesem Abschnitt beschriebenen Aufgaben ausführen.  
 
 -   [Einrichten eines Servers, auf dem Windows Server Essentials ausgeführt wird](Integrate-an-On-Premises-Exchange-Server-with-Windows-Server-Essentials.md#BKMK_SetUpSBS8)  
@@ -375,7 +375,7 @@ New-SendConnector -Name "WSE Internet SendConnector" -Usage "Internet" -AddressS
 
       **Arrconfig-Konfiguration-CERT** _Pfad zur Zertifikat Datei_ **-hostnames** _Hostnamen für Exchange Server_ **-TargetServer** _Servername von Exchange Server_  
 
-      Beispiel: **Arrconfig-Konfiguration-CERT** _c:\temp\certificate.pfx_ **-hostnames** _Mail.contoso.com_ **-TargetServer ** _ExchangeSvr_  
+      Beispiel: **Arrconfig-Konfiguration-CERT** _c:\temp\certificate.pfx_ **-hostnames** _Mail.contoso.com_ **-TargetServer** _ExchangeSvr_  
 
       Ersetzen Sie *mail.contoso.com* durch den Namen Ihrer Domäne. Ersetzen Sie *ExchangeSvr* durch den Namen des Servers, auf dem Exchange Server ausgeführt wird.  
 

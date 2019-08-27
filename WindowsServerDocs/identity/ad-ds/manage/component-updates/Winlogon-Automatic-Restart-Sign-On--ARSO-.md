@@ -1,148 +1,175 @@
 ---
 ms.assetid: cb834273-828a-4141-9387-37dd8270e932
-title: Winlogon-Anmeldung nach einem automatischen Neustart
-description: ''
+title: Automatische Winlogon-Neustart Anmeldung (ARSO)
+description: Wie Sie mit dem automatischen Neustart von Windows die Benutzerproduktivität steigern können.
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
-ms.date: 05/31/2017
+ms.reviewer: cahick
+ms.date: 08/20/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adds
-ms.openlocfilehash: 4024a00c6c186aa929e88cb2aa86b0ec04a731b3
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 180ffbd1e96448d7a7ea12c5e08e9fc5b35f7f8b
+ms.sourcegitcommit: 213989f29cc0c30a39a78573bd4396128a59e729
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59883621"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70031576"
 ---
-# <a name="winlogon-automatic-restart-sign-on-arso"></a>Winlogon-Anmeldung nach einem automatischen Neustart
+# <a name="winlogon-automatic-restart-sign-on-arso"></a>Automatische Winlogon-Neustart Anmeldung (ARSO)
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+Während eines Windows Update müssen benutzerspezifische Prozesse ausgeführt werden, damit das Update fertiggestellt wird. Diese Prozesse erfordern, dass der Benutzer bei seinem Gerät angemeldet ist. Bei der ersten Anmeldung nach dem Initiieren eines Updates müssen die Benutzer warten, bis diese benutzerspezifischen Prozesse abgeschlossen sind, bevor Sie mit der Verwendung Ihres Geräts beginnen können.
 
-**Autor**: Justin Turner, Senior Support Escalation Engineer für die Windows-Gruppe
+## <a name="how-does-it-work"></a>Wie funktioniert das?
+
+Wenn Windows Update einen automatischen Neustart initiiert, extrahiert ARSO die abgeleiteten Anmelde Informationen des aktuell angemeldeten Benutzers, speichert Sie auf dem Datenträger und konfiguriert die automatische Anmeldung für den Benutzer. Windows Update, das als System mit TCB-Berechtigung ausgeführt wird, wird der RPC-Aufruf zu diesem Zweck initiiert.
+
+Nachdem der endgültige Windows Update neu gestartet wurde, wird der Benutzer automatisch über den automatischen Anmelde Mechanismus angemeldet, und die Sitzung des Benutzers wird mit den beibehaltenen Geheimnissen reaktiviert. Außerdem ist das Gerät gesperrt, um die Sitzung des Benutzers zu schützen. Die Sperrung wird über Winlogon initiiert, während die Verwaltung der Anmelde Informationen von der lokalen Sicherheits Autorität (Local Security Authority, LSA) erfolgt. Bei erfolgreicher Konfiguration und Anmeldung von ARSO werden die gespeicherten Anmelde Informationen sofort von der Festplatte gelöscht.
+
+Wenn Sie den Benutzer in der Konsole automatisch anmelden und sperren, können Windows Update die benutzerspezifischen Prozesse durchführen, bevor der Benutzer zum Gerät zurückkehrt. Auf diese Weise kann der Benutzer sofort mit der Verwendung des Geräts beginnen.
+
+ARSO behandelt nicht verwaltete und verwaltete Geräte anders. Bei nicht verwalteten Geräten wird die Geräteverschlüsselung verwendet, ist aber nicht erforderlich, damit der Benutzer ARSO erhält. Für verwaltete Geräte sind TPM 2,0, secureboot und BitLocker für die Konfiguration von ARSO erforderlich. IT-Administratoren können diese Anforderung über Gruppenrichtlinie außer Kraft setzen. ARSO für verwaltete Geräte ist zurzeit nur für Geräte verfügbar, die mit Azure Active Directory verknüpft sind.
+
+|   | Windows Update| Herunterfahren-g-t 0  | Vom Benutzer initiierte Neustarts | APIs mit SHUTDOWN_ARSO/EWX_ARSO-Flags |
+| --- | :---: | :---: | :---: | :---: |
+| Verwaltete Geräte | :heavy_check_mark:  | :heavy_check_mark: |   | :heavy_check_mark: |
+| Nicht verwaltete Geräte | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
 > [!NOTE]
-> Dieser Inhalt wurde von einem Mitarbeiter des Microsoft-Kundendiensts geschrieben und richtet sich an erfahrene Administratoren und Systemarchitekten, die einen tieferen technischen Einblick in die Funktionen und Lösungen von Windows Server 2012 R2 suchen, als Ihnen die Themen im TechNet bieten können. Allerdings wurde er nicht mit der gleichen linguistischen Sorgfalt überprüft wie für die Artikel des TechNet üblich, so dass die Sprache gelegentlich holprig klingen mag.
+> Nach einem Windows Update induzierten Neustart wird der letzte interaktive Benutzer automatisch angemeldet, und die Sitzung wird gesperrt. Dies bietet die Möglichkeit, dass die Sperrbildschirm-apps eines Benutzers trotz des Windows Update Neustarts weiterhin ausgeführt werden.
 
-## <a name="overview"></a>Übersicht
-Windows 8 wurde die Sperre Bildschirm apps eingeführt.  Hierbei handelt es sich um die Anwendungen, die Benachrichtigungen angezeigt, während die Sitzung des Benutzers gesperrt ist und ausgeführt (Kalender, Termine, e-Mail- und Nachrichten.).  Geräte, die aufgrund der Windows Update-Vorgang neu gestartet werden nicht mehr diese Benachrichtigungen bei gesperrtem Bildschirm nach dem Neustart angezeigt.  Einige Benutzer, die diese Sperre Bildschirm-Anwendungen abhängig ist.
+![Seite „Einstellungen“](media/Winlogon-Automatic-Restart-Sign-On--ARSO-/gtr-adds-lockscreenapp.png)
 
-## <a name="whats-changed"></a>Änderungen
-Wenn ein Benutzer auf einem Windows 8.1-Gerät anmeldet, speichert der LSA die Anmeldeinformationen des Benutzers im verschlüsselten Speicher zugegriffen werden kann nur von lsass.exe. Wenn Windows Update einen automatischen Neustart ohne Benutzeranwesenheit initiiert wird, werden diese Anmeldeinformationen verwendet werden, so konfigurieren Sie die automatische Anmeldung für den Benutzer. Windows Update als System mit TCB-Berechtigung wird der RPC-Aufruf zu diesem Zweck initiiert.
+## <a name="policy-1"></a>Richtlinien #1
 
-Beim Neustart wird der Benutzer automatisch über den Mechanismus für die automatische Anmeldung angemeldet sein, und klicken Sie dann darüber gesperrt, um die Sitzung des Benutzers zu schützen. Das Sperren wird über Windows-Anmeldung initiiert werden, während die Verwaltung von Anmeldeinformationen von LSA durchgeführt wird.  Anmeldung automatisch an, und Sperren den Benutzer in der Konsole werden Anwendungen Sperren des Benutzers neu gestartet wurde und verfügbar.
+### <a name="sign-in-and-lock-last-interactive-user-automatically-after-a-restart"></a>Nach einem Neustart automatisch anmelden und letzten interaktiven Benutzer sperren
 
-> [!NOTE]
-> Nach dem ein Windows-Update Neustarts verursachte und die letzte interaktive Benutzer automatisch angemeldet wird die Sitzung gesperrt können also auf des Benutzers sperren Bildschirm apps ausführen.
+In Windows 10 ist ARSO für Server-SKUs deaktiviert und für Client-SKUs deaktiviert.
 
-![winlogon](media/Winlogon-Automatic-Restart-Sign-On--ARSO-/GTR_ADDS_LockScreenApp.gif)
+**Speicherort der Gruppenrichtlinie:** Computer Konfigurations > Administrative Vorlagen > Windows-Komponenten > Windows-Anmelde Optionen
 
-![winlogon](media/Winlogon-Automatic-Restart-Sign-On--ARSO-/GTR_ADDS_LockScreen.gif)
+**InTune-Richtlinie:**
 
-**Kurze Übersicht**
+- Plattform Windows 10 und höher
+- Profiltyp: Administrative Vorlagen
+- Pfad: \Windows components\windows Logon Options
 
--   Windows Update-Neustart erforderlich ist
+**Unterstützt für:** Mindestens Windows 10, Version 1903
 
--   Ist der Computer neu starten (*keine apps ausgeführt, die Daten verlieren würden*)?
+**Beschreibung:**
 
-    -   Neustart für Sie
+Mit dieser Richtlinien Einstellung wird gesteuert, ob ein Gerät sich automatisch anmeldet und den letzten interaktiven Benutzer sperrt, nachdem das System neu gestartet wurde, oder nach einem Herunterfahren und einem Kaltstart.
 
-    -   Melden Sie sich wieder
+Dies geschieht nur, wenn sich der letzte interaktive Benutzer vor dem Neustart oder dem Herunterfahren nicht abgemeldet hat.
 
-    -   Lock-Computer
+Wenn das Gerät mit Active Directory oder Azure Active Directory verknüpft ist, gilt diese Richtlinie nur für Windows Update Neustarts. Andernfalls gilt dies für Windows Update Neustarts und vom Benutzer initiierte Neustarts und Herunterfahren.
 
--   Von der Gruppenrichtlinie aktiviert oder deaktiviert
+Wenn Sie diese Richtlinien Einstellung nicht konfigurieren, ist Sie standardmäßig aktiviert. Wenn die Richtlinie aktiviert ist, wird der Benutzer automatisch angemeldet, und die Sitzung wird automatisch mit allen Sperrbildschirm-apps gesperrt, die für diesen Benutzer konfiguriert sind, nachdem das Gerät gestartet wurde.
 
-    -   In Server-SKUs standardmäßig deaktiviert.
+Nachdem Sie diese Richtlinie aktiviert haben, können Sie Ihre Einstellungen über die configautomatikrestartsignon-Richtlinie konfigurieren, die den Modus für die automatische Anmeldung und Sperrung des letzten interaktiven Benutzers nach einem Neustart oder Kaltstart konfiguriert.
 
--   Weshalb?
+Wenn Sie diese Richtlinien Einstellung deaktivieren, wird die automatische Anmeldung vom Gerät nicht konfiguriert. Die apps für den Sperrbildschirm des Benutzers werden nach dem Neustart des Systems nicht neu gestartet.
 
-    -   Einige Updates abschließen nicht, bis der Benutzer wieder anmeldet.
+**Registrierungs-Editor:**
 
-    -   Bessere Benutzererlebnis: keine Updates für den Abschluss der Installation von 15 Minuten warten, bis
+| Wertname | Typ | Daten |
+| --- | --- | --- |
+| Disableautomatikrestartsignon | DWORD | 0 (ARSO aktivieren) |
+|   |   | 1 (ARSO deaktivieren) |
 
--   Wie? AutoLogon
+**Registrierungs Speicherort der Richtlinie:** Hklm\software\microsoft\windows\currentversion\policies\system
 
-    -   Speichert das Kennwort, verwendet diese Anmeldeinformationen, um die Anmeldung
+**Sorte** DWORD
 
-    -   speichert Anmeldeinformationen als LSA-Schlüssel in ausgelagerter Speicher
+![Winlogon](media/Winlogon-Automatic-Restart-Sign-On--ARSO-/gtr-adds-signinpolicy.png)
 
-    -   Kann nur aktiviert werden, wenn BitLocker aktiviert ist
+## <a name="policy-2"></a>Richtlinien #2
 
-## <a name="group-policy-sign-in-last-interactive-user-automatically-after-a-system-initiated-restart"></a>Gruppenrichtlinie: Anmeldung letzten interaktiven Benutzer automatisch nach einem vom System initiierte Neustart
-In Windows 8.1 / Windows Server 2012 R2, die automatische Anmeldung des Benutzers Bildschirm sperren nach ein Neustart des Windows Update ist wurde für Server-SKUs aktivieren und Deaktivieren der für Client-SKUs.
+### <a name="configure-the-mode-of-automatically-signing-in-and-locking-last-interactive-user-after-a-restart-or-cold-boot"></a>Konfigurieren des Modus für das automatische anmelden und Sperren des letzten interaktiven Benutzers nach einem Neustart oder einem Kaltstart
 
-**Richtlinienspeicherort:** Computerkonfiguration > Richtlinien > Administrative Vorlagen > Windows-Komponenten > Option der Windows-Anmeldung
+**Speicherort der Gruppenrichtlinie:** Computer Konfigurations > Administrative Vorlagen > Windows-Komponenten > Windows-Anmelde Optionen
 
-**Richtlinienname:** Anmeldung letzten interaktiven Benutzer automatisch nach einem vom System initiierte Neustart
+**InTune-Richtlinie:**
 
-**Unterstützt auf:** Mindestens WindowsServer 2012 R2, Windows 8.1 oder Windows RT 8.1
+- Plattform Windows 10 und höher
+- Profiltyp: Administrative Vorlagen
+- Pfad: \Windows components\windows Logon Options
 
-**Beschreibung/Hilfe:**
+**Unterstützt für:** Mindestens Windows 10, Version 1903
 
-Diese Einstellung steuert, ob ein Gerät automatisch die letzte interaktive Benutzer anmelden wird nach dem Neustart des Systems durch Windows Update-Richtlinie.
+**Beschreibung:**
 
-Wenn Sie aktivieren oder diese richtlinieneinstellung nicht konfigurieren, speichert das Gerät sicher die Anmeldeinformationen des Benutzers (einschließlich Benutzername, Domäne und das verschlüsselte Kennwort) um die automatische Anmeldung zu konfigurieren, nach dem Neustart eines Windows-Updates. Nach dem Neustart des Windows Update der Benutzer automatisch angemeldet wird, und alle Sperren Bildschirm-Apps, die für diesen Benutzer konfiguriert wird automatisch die Sitzung gesperrt.
+Mit dieser Richtlinien Einstellung wird die Konfiguration gesteuert, unter der nach einem Neustart oder einem Kaltstart ein automatischer Neustart, eine Anmeldung und eine Sperre erfolgt. Wenn Sie in der Richtlinie "der letzte interaktive Benutzer automatisch nach einem Neustart" die Option "deaktiviert" ausgewählt haben, erfolgt keine automatische Anmeldung, und diese Richtlinie muss nicht konfiguriert werden.
 
-Wenn Sie diese richtlinieneinstellung deaktivieren, speichert das Gerät keine Anmeldeinformationen für die automatische Anmeldung des Benutzers, nach dem Neustart eines Windows-Updates. Der Benutzer sperren Bildschirm apps werden nicht neu gestartet, nach dem Neustart des Systems.
+Wenn Sie diese Richtlinien Einstellung aktivieren, können Sie eine der folgenden beiden Optionen auswählen:
+
+1. "Aktiviert, wenn BitLocker aktiviert und nicht angehalten wird" gibt an, dass die automatische Anmeldung und Sperre nur dann erfolgt, wenn BitLocker aktiv ist und während des Neustarts oder herunter Fahrens nicht angehalten wird. Auf persönliche Daten kann auf der Festplatte des Geräts zu diesem Zeitpunkt zugegriffen werden, wenn BitLocker während eines Updates nicht eingeschaltet oder angehalten wird. Durch die BitLocker-Unterbrechung wird der Schutz für Systemkomponenten und Daten vorübergehend aufgehoben, kann jedoch unter bestimmten Umständen erforderlich sein, um die Start kritischen Komponenten erfolgreich zu aktualisieren
+   - BitLocker wird bei Updates angehalten, wenn Folgendes gilt:
+      - Das Gerät verfügt nicht über TPM 2,0 und PCR7, oder
+      - Das Gerät verwendet keine nur-TPM-Schutzvorrichtung.
+2. "Immer aktiviert" gibt an, dass die automatische Anmeldung auch dann erfolgt, wenn BitLocker während des Neustarts oder herunter Fahrens deaktiviert oder angehalten wird. Wenn BitLocker nicht aktiviert ist, kann auf der Festplatte auf persönliche Daten zugegriffen werden. Der automatische Neustart und die Anmeldung sollten nur unter dieser Bedingung ausgeführt werden, wenn Sie sicher sind, dass sich das konfigurierte Gerät an einem sicheren physischen Speicherort befindet.
+
+Wenn Sie diese Einstellung deaktivieren oder nicht konfigurieren, wird die automatische Anmeldung standardmäßig auf das Verhalten aktiviert, wenn BitLocker aktiviert und nicht angehalten ist.
 
 **Registrierungs-Editor**
 
-|Wertname|Typ|Daten|
-|--------------|--------|--------|
-|DisableAutomaticRestartSignOn|DWORD|0<br /><br />**Beispiel:**<br /><br />0 (aktiviert)<br /><br />1 (deaktiviert)|
+| Wertname | Typ | Daten |
+| --- | --- | --- |
+| Automatikrestartsignonconfig | DWORD | 0 (ARSO aktivieren, falls sicher) |
+|   |   | 1 (ARSO immer aktivieren) |
 
-**Registrierungspfad der Richtlinie:** HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
+**Registrierungs Speicherort der Richtlinie:** Hklm\software\microsoft\windows\currentversion\policies\system
 
-**Typ:** DWORD
+**Sorte** DWORD
 
-**Registrierungsname:** DisableAutomaticRestartSignOn
-
-Wert: 0 oder 1
-
-0 = aktiviert
-
-1 = deaktiviert
-
-![winlogon](media/Winlogon-Automatic-Restart-Sign-On--ARSO-/GTR_ADDS_SignInPolicy.gif)
+![Winlogon](media/Winlogon-Automatic-Restart-Sign-On--ARSO-/arso-policy-setting.png)
 
 ## <a name="troubleshooting"></a>Problembehandlung
-Bei der Windows-Anmeldung automatisch gesperrt wird, werden im Ereignisprotokoll Windows-Anmeldung WinLogons-Status-Ablaufverfolgung gespeichert.
 
-Der Status eines Versuchs der automatische Konfiguration wird protokolliert.
+Wenn Winlogon automatisch gesperrt wird, wird die Zustands Ablauf Verfolgung von Winlogon im Ereignisprotokoll Winlogon gespeichert.
 
--   Bei Erfolg
+Der Status eines automatischen Konfigurations Versuchs wird protokolliert.
 
-    -   Zeichnet sie als solche
+- Wenn erfolgreich
+   - zeichnet ihn als solche auf
+- Wenn ein Fehler auftritt:
+   - zeichnet den Fehler auf
+- Wenn sich der Status von BitLocker ändert:
+   - das Entfernen von Anmelde Informationen wird protokolliert.
+   - Diese werden im LSA-Betriebsprotokoll gespeichert.
 
--   Wenn es sich um ein Fehler ist:
+### <a name="reasons-why-autologon-might-fail"></a>Gründe für Fehler bei automatische Anmeldung
 
-    -   zeichnet, was der Fehler aufgetreten
+Es gibt mehrere Fälle, in denen der automatische Anmelde Name eines Benutzers nicht erreicht werden kann.  In diesem Abschnitt werden die bekannten Szenarien erfasst, in denen dies vorkommen kann.
 
--   Wenn sich BitLockers-Zustand ändert:
+### <a name="user-must-change-password-at-next-login"></a>Benutzer muss das Kennwort bei der nächsten Anmeldung ändern
 
-    -   das Entfernen der Anmeldeinformationen werden protokolliert
+Die Benutzeranmeldung kann einen blockierten Zustand eingeben, wenn eine Kenn Wort Änderung bei der nächsten Anmeldung erforderlich ist.  Dies kann vor dem Neustart in den meisten Fällen erkannt werden, aber nicht alle (z. b. kann das Kenn Wort Ablauf zwischen dem Herunterfahren und der nächsten Anmeldung erreicht werden.
 
-        -   Diese werden in der LSA-Betriebsprotokoll gespeichert werden.
+### <a name="user-account-disabled"></a>Benutzerkonto deaktiviert
 
-### <a name="reasons-why-autologon-might-fail"></a>Gründe, warum die automatische Anmeldung fehlschlägt
-Es gibt mehrere Fälle, in denen eine automatische Anmeldung der Benutzer nicht erreicht werden.  In diesem Abschnitt soll die bekannten Szenarien zu erfassen, in denen dies auftreten kann.
+Eine vorhandene Benutzersitzung kann auch dann beibehalten werden, wenn Sie deaktiviert ist.  Der Neustart für ein deaktiviertes Konto kann in den meisten Fällen lokal erkannt werden, abhängig von der Verwendung von Domänen Konten, die nicht für Domänen Konten gelten (einige Domänen zwischengespeicherte Anmelde Szenarios funktionieren auch dann, wenn das Konto auf dem DC deaktiviert ist).
 
-### <a name="user-must-change-password-at-next-login"></a>Benutzer muss Kennwort bei der nächsten Anmeldung ändern.
-Anmeldung des Benutzers kann einen blockierten Zustand eingeben, wenn eine kennwortänderung bei der nächsten Anmeldung erforderlich ist.  Dies kann vor dem Neustart in den meisten Fällen erkannt, aber nicht alle sein (beispielsweise bei Ablauf des Kennworts erreicht werden kann. zwischen dem Schließen und die nächste Anmeldung.
+### <a name="logon-hours-and-parental-controls"></a>Anmeldezeiten und Eltern Kontrollen
 
-### <a name="user-account-disabled"></a>Benutzerkonto wurde deaktiviert.
-Auch wenn deaktiviert, kann eine vorhandene benutzersitzung verwaltet werden.  Neustart für ein Konto, das deaktiviert ist kann lokal in den meisten Fällen im voraus, dass je nach Gp erkannt werden, die möglicherweise nicht für Domänenkonten (eine Domäne zwischengespeichert Anmeldung funktionieren, auch wenn das Konto auf dem Domänencontroller deaktiviert ist).
+Die Anmeldezeiten und die Steuerelement-Steuerelemente können verhindern, dass eine neue Benutzersitzung erstellt wird.  Wenn während dieses Fensters ein Neustart stattfindet, ist der Benutzer nicht berechtigt, sich anzumelden.  Es gibt zusätzliche Richtlinien, die eine Sperr-oder Abmelde Aktion als Konformitäts Aktion verursachen. Der Status eines automatischen Konfigurations Versuchs wird protokolliert.
 
-### <a name="logon-hours-and-parental-controls"></a>Anmeldezeiten und Jugendschutz
-Die Anmeldezeiten und Jugendschutz können verhindern, dass eine neue benutzersitzung erstellt wird.  Wenn ein Neustart während dieses Zeitfensters ausgeführt wurden, würde der Benutzer nicht zugelassen anmelden.  Es gibt zusätzliche Richtlinie, die Sperre oder Abmelden als Compliance Aktion bewirkt, dass ein.  Dies kann für viele untergeordnete Fälle, in dem Konto Sperrung zwischen konzentrieren und Reaktivierung auftreten können, problematisch sein, insbesondere, wenn das Wartungsfenster häufig während dieser Zeit ist.
+## <a name="security-details"></a>Sicherheitsdetails
+
+### <a name="credentials-stored"></a>Gespeicherte Anmelde Informationen
+
+|   | Kenn Wort Hash | Anmelde Informations Schlüssel | Ticket für Ticket Gewährung | Primäres Aktualisierungs Token |
+| --- | :---: | :---: | :---: | :---: |
+| Lokales Konto | :heavy_check_mark: | :heavy_check_mark: |   |   |
+| MSA-Konto | :heavy_check_mark: | :heavy_check_mark: |   |   |
+| Azure AD beige hörenden Konto | :heavy_check_mark: | :heavy_check_mark: | : heavy_check_mark: (bei Hybrid) | :heavy_check_mark: |
+| Domänen gebundenes Konto | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | : heavy_check_mark: (bei Hybrid) |
+
+### <a name="credential-guard-interaction"></a>Credential Guard-Interaktion
+
+Wenn für ein Gerät Credential Guard aktiviert ist, werden die abgeleiteten geheimen Schlüssel eines Benutzers mit einem Schlüssel verschlüsselt, der für die aktuelle Start Sitzung spezifisch ist. Daher wird ARSO derzeit nicht auf Geräten unterstützt, auf denen Credential Guard aktiviert ist.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
-**Tabelle SEQ Tabelle \\ \* Arabisch 3: Nach einem-Glossar**
 
-|Begriff|Definition|
-|--------|--------------|
-|Automatische Anmeldung|Automatische Anmeldung ist ein Feature, das in Windows für mehrere Versionen vorhanden war.  Es ist eine dokumentierte Funktion von Windows, die auch Tools wie z. B. die automatische Anmeldung für Windows-v3.01  *[http:/technet.microsoft.com/sysinternals/bb963905.aspx](https://technet.microsoft.com/sysinternals/bb963905.aspx)*<br /><br />Sie können einen einzelnen Benutzer des Geräts und der automatisch ohne Eingabe von Anmeldeinformationen anmelden. Die Anmeldeinformationen sind konfiguriert und in der Registrierung als verschlüsselte LSA-Schlüssel gespeichert.|
-
-
+Autologon ist ein Feature, das in Windows für mehrere Versionen vorhanden ist. Dabei handelt es sich um ein dokumentiertes Feature von Windows, das auch Tools wie Autologon für Windows [http:/technet. Microsoft. com/Sysinternals/bb963905. aspx](https://technet.microsoft.com/sysinternals/bb963905.aspx)enthält. Dadurch kann sich ein einzelner Benutzer des Geräts automatisch anmelden, ohne Anmelde Informationen einzugeben. Die Anmelde Informationen werden konfiguriert und als verschlüsselter LSA-Schlüssel in der Registrierung gespeichert. Dies könnte für viele untergeordnete Fälle problematisch sein, bei denen eine Kontosperrung zwischen der Zeit des Abrufs und der Reaktivierung auftreten kann, insbesondere, wenn das Wartungsfenster in der Regel während dieser Zeit liegt.

@@ -1,19 +1,19 @@
 ---
-title: Beispiel für generierte Go-Code für die oberste Ebene IPAM & Subnetzobjekt
+title: Beispiel für generierten go-Code für das IPAM-& Subnetzobjekt der obersten Ebene
 description: ''
 ms.author: jmesser
 author: jmesser81
 ms.date: 11/05/2018
-ms.openlocfilehash: 428566411920e55d444890898d0f02a1e6cc81ca
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2c823a9994e96b3f22acd15ca639f773f4d6ab63
+ms.sourcegitcommit: 213989f29cc0c30a39a78573bd4396128a59e729
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59870941"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70031561"
 ---
 # <a name="example-of-go-generated-code"></a>Beispiel für von Go generierten Code 
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019
 
 ```Go
 /*

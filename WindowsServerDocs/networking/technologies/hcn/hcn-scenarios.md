@@ -1,26 +1,26 @@
 ---
-title: Host-Compute-Netzwerk (HCN)-Szenarien
+title: HCN-Szenarios (Host Compute Network)
 description: ''
 ms.author: jmesser
 author: jmesser81
 ms.date: 11/05/2018
-ms.openlocfilehash: 2a81b09c41c3b665d6a026da4b63a6119fbe202d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 91cdafa9699cd213156d872090034dd4ea67108e
+ms.sourcegitcommit: 213989f29cc0c30a39a78573bd4396128a59e729
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816301"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70031535"
 ---
 # <a name="common-scenarios"></a>Häufige Szenarien
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019
 
 ## <a name="scenario-hcn"></a>Szenario: HCN 
 
 
-### <a name="create-an-hcn"></a>Erstellen Sie eine HCN
+### <a name="create-an-hcn"></a>Erstellen einer HCN
 
-Dieses Beispiel zeigt, wie Sie Host Compute-Network-Dienst-API zu verwenden, um einen Host Compute-Netzwerk auf dem Host zu erstellen, die Verbindung virtuelle NICS auf virtuelle Maschinen oder Container verwendet werden können.
+In diesem Beispiel wird gezeigt, wie Sie mithilfe der hostcompute-Netzwerkdienst-API ein hostcomputenetzwerk auf dem Host erstellen, das zum Herstellen einer Verbindung von virtuellen NICs mit Virtual Machines oder Containern verwendet werden kann.
 
 ```C++
 using unique_hcn_network = wil::unique_any< 
@@ -119,7 +119,7 @@ void CreateHcnNetwork()
 
 ### <a name="delete-an-hcn"></a>Löschen einer HCN
 
-Dieses Beispiel zeigt, wie Sie mit der Host Compute-Network-Dienst-API zu öffnen, und Löschen eines Netzwerks für die Host-Compute 
+In diesem Beispiel wird gezeigt, wie Sie die Host Compute Network Service-API zum Öffnen & Löschen eines hostcompute-Netzwerks verwenden. 
 
 ```C++
     wil::unique_cotaskmem_string errorRecord;
@@ -136,7 +136,7 @@ Dieses Beispiel zeigt, wie Sie mit der Host Compute-Network-Dienst-API zu öffne
 
 ### <a name="enumerate-all-networks"></a>Alle Netzwerke auflisten
 
-Dieses Beispiel zeigt, wie Sie Host Compute-Network-Dienst-API zu verwenden, um alle Compute-hostnetzwerke aufzulisten.
+In diesem Beispiel wird gezeigt, wie Sie die hostcompute-Netzwerkdienst-API verwenden, um alle hostcomputenetzwerke aufzulisten.
 
 ```C++
      wil::unique_cotaskmem_string resultNetworks;
@@ -157,9 +157,9 @@ Dieses Beispiel zeigt, wie Sie Host Compute-Network-Dienst-API zu verwenden, um 
 ```
 
 
-### <a name="query-network-properties"></a>Abfrage-Netzwerkeigenschaften
+### <a name="query-network-properties"></a>Abfragen von Netzwerk Eigenschaften
 
-Dieses Beispiel zeigt, wie Sie Host Compute-Network-Dienst-API zum Abfrage-Netzwerkeigenschaften verwenden.
+In diesem Beispiel wird gezeigt, wie die Host Compute Network Service-API zum Abfragen von Netzwerk Eigenschaften verwendet wird.
 
 ```C++
     unique_hcn_network hcnnetwork;
@@ -191,9 +191,9 @@ Dieses Beispiel zeigt, wie Sie Host Compute-Network-Dienst-API zum Abfrage-Netzw
 
 ## <a name="scenario-hcn-endpoint"></a>Szenario: HCN-Endpunkt
 
-### <a name="create-an-hcn-endpoint"></a>Erstellen Sie einen Endpunkt HCN
+### <a name="create-an-hcn-endpoint"></a>Erstellen eines HCN-Endpunkts
 
-Dieses Beispiel zeigt, wie Sie mit einem Host Compute-Network-Dienstendpunkt zu erstellen und Speicherebenen "Hot" Fügen Sie es auf dem virtuellen Computer oder einen Container Host Compute-Network-Dienst-API.
+In diesem Beispiel wird gezeigt, wie Sie die hostcompute-Netzwerkdienst-API verwenden, um einen hostcompute-Netzwerk Endpunkt zu erstellen und ihn dann dem virtuellen Computer oder einem Container hinzuzufügen.
 
 ```C++
 using unique_hcn_endpoint = wil::unique_any< 
@@ -268,7 +268,7 @@ void CreateAndHotAddEndpoint()
 
 ### <a name="delete-an-endpoint"></a>Löschen eines Endpunkts
 
-Dieses Beispiel zeigt, wie Sie Host Compute-Network-Dienst-API verwenden, um einen Host Compute-Netzwerk-Dienstendpunkt zu löschen.
+Dieses Beispiel zeigt, wie Sie mithilfe der Host Compute Network Service-API einen hostcompute-Netzwerk Endpunkt löschen.
 
 ```C++
     wil::unique_cotaskmem_string errorRecord;
@@ -285,7 +285,7 @@ Dieses Beispiel zeigt, wie Sie Host Compute-Network-Dienst-API verwenden, um ein
 
 ### <a name="modify-and-endpoint"></a>Ändern und Endpunkt
 
-Dieses Beispiel zeigt, wie Sie Host Compute-Network-Dienst-API verwenden, um einen Host Compute-Netzwerk-Dienstendpunkt zu ändern.
+Dieses Beispiel zeigt, wie Sie mithilfe der Host Compute Network Service-API einen hostcompute-Netzwerk Endpunkt ändern.
 
 ```C++
     unique_hcn_endpoint hcnendpoint;
@@ -323,9 +323,9 @@ Dieses Beispiel zeigt, wie Sie Host Compute-Network-Dienst-API verwenden, um ein
 ```
 
 
-### <a name="enumerate-all-enpoints"></a>Auflisten Sie aller enpoints
+### <a name="enumerate-all-enpoints"></a>Alle-Punkte aufzählen
 
-Dieses Beispiel zeigt, wie Sie Host Compute-Network-Dienst-API zu verwenden, um alle Host Compute Netzwerkendpunkte aufzulisten.
+In diesem Beispiel wird gezeigt, wie Sie die hostcompute-Netzwerkdienst-API verwenden, um alle hostcompute-Netzwerk Endpunkte aufzulisten.
 
 ```C++
     wil::unique_cotaskmem_string errorRecord;
@@ -346,9 +346,9 @@ Dieses Beispiel zeigt, wie Sie Host Compute-Network-Dienst-API zu verwenden, um 
 ```
 
 
-### <a name="query-endpoint-properties"></a>Endpunkt-Abfrageeigenschaften
+### <a name="query-endpoint-properties"></a>Eigenschaften von Abfrage Endpunkt
 
-Dieses Beispiel zeigt, wie Sie Host Compute-Network-Dienst-API zu verwenden, um alle Eigenschaften von einem Host Compute-Network-Dienstendpunkt abzufragen.
+In diesem Beispiel wird gezeigt, wie Sie die hostcompute-Netzwerkdienst-API verwenden, um alle Eigenschaften eines Host Compute-Netzwerk Endpunkts abzufragen.
 
 ```C++
     unique_hcn_endpoint hcnendpoint;
@@ -381,11 +381,11 @@ Dieses Beispiel zeigt, wie Sie Host Compute-Network-Dienst-API zu verwenden, um 
 ```
 
 
-## <a name="scenario-hcn-namespace"></a>Szenario: HCN-namespace
+## <a name="scenario-hcn-namespace"></a>Szenario: HCN-Namespace
 
-### <a name="create-an-hcn-namespace"></a>Erstellen eines HCN-namespace
+### <a name="create-an-hcn-namespace"></a>Erstellen eines HCN-Namespace
 
-Dieses Beispiel zeigt, wie Sie Host Compute-Network-Dienst-API zu verwenden, um einen Host Compute-Netzwerk-Namespace auf dem Host zu erstellen, die mit dem Endpunkt und Container verbinden werden kann.
+In diesem Beispiel wird gezeigt, wie Sie mithilfe der hostcompute-Netzwerkdienst-API einen hostcompute-Netzwerk Namespace auf dem Host erstellen, der zum Verbinden von Endpunkten und Containern verwendet werden kann.
 
 ```C++
 using unique_hcn_namespace = wil::unique_any< 
@@ -445,9 +445,9 @@ void CreateHcnNamespace()
 ```
 
 
-### <a name="delete-an-hcn-namespace"></a>Löschen eines HCN-Namespaces
+### <a name="delete-an-hcn-namespace"></a>Löschen eines HCN-Namespace
 
-Dieses Beispiel zeigt, wie Sie Host Compute-Network-Dienst-API verwenden, um einen Host Compute-Netzwerk-Namespace zu löschen.
+In diesem Beispiel wird gezeigt, wie Sie mit der Host Compute Network Service-API einen hostcompute-Netzwerk Namespace löschen.
 
 ```C++
     wil::unique_cotaskmem_string errorRecord;
@@ -463,9 +463,9 @@ Dieses Beispiel zeigt, wie Sie Host Compute-Network-Dienst-API verwenden, um ein
 ```
 
 
-### <a name="modify-an-hcn-namespace"></a>Ändern eines HCN-Namespaces
+### <a name="modify-an-hcn-namespace"></a>Ändern eines HCN-Namespace
 
-Dieses Beispiel zeigt, wie Sie Host Compute-Network-Dienst-API verwenden, um einen Host Compute-Netzwerk-Namespace zu ändern.
+In diesem Beispiel wird gezeigt, wie Sie die Host Compute Network Service-API verwenden, um einen hostcompute-Netzwerk Namespace zu ändern.
 
 ```C++
     unique_hcn_namespace handle;
@@ -508,9 +508,9 @@ Dieses Beispiel zeigt, wie Sie Host Compute-Network-Dienst-API verwenden, um ein
 ```
 
 
-### <a name="enumerate-all-namespaces"></a>Alle Namespaces aufzählen
+### <a name="enumerate-all-namespaces"></a>Alle Namespaces auflisten
 
-Dieses Beispiel zeigt, wie Sie Host Compute-Network-Dienst-API zu verwenden, um alle Host Compute Netzwerknamespaces aufzulisten.
+In diesem Beispiel wird gezeigt, wie Sie die hostcompute-Netzwerkdienst-API verwenden, um alle hostcompute-Netzwerk Namespaces aufzuzählen.
 
 ```C++
     wil::unique_cotaskmem_string resultNamespaces;
@@ -530,9 +530,9 @@ Dieses Beispiel zeigt, wie Sie Host Compute-Network-Dienst-API zu verwenden, um 
 ```
 
 
-### <a name="query-namespace-properties"></a>Namespace-Abfrageeigenschaften
+### <a name="query-namespace-properties"></a>Eigenschaften von "Abfrage Namespace"
 
-Dieses Beispiel zeigt, wie Sie Host Compute-Network-Dienst-API zu verwenden, um Eigenschaften von Host Compute-Netzwerk-Namespace
+In diesem Beispiel wird gezeigt, wie die hostcompute-Netzwerkdienst-API verwendet wird, um Eigenschaften des Host Compute-Netzwerk Namespace
 
 ```C++
     unique_hcn_namespace handle;
@@ -564,11 +564,11 @@ Dieses Beispiel zeigt, wie Sie Host Compute-Network-Dienst-API zu verwenden, um 
 ```
 
 
-## <a name="scenario-hcn-load-balancer"></a>Szenario: HCN Load Balancers
+## <a name="scenario-hcn-load-balancer"></a>Szenario: HCN Load Balancer
 
-### <a name="create-an-hcn-load-balancer"></a>Erstellen eines Lastenausgleichs HCN
+### <a name="create-an-hcn-load-balancer"></a>Erstellen eines HCN-Lasten Ausgleichs
 
-Dieses Beispiel zeigt, wie Sie Host Compute-Network-Dienst-API verwenden, um ein Host Compute Netzwerklastenausgleich auf dem Host zu erstellen, die für den Endpunkt für Compute Lastenausgleich verwendet werden können.
+In diesem Beispiel wird gezeigt, wie Sie mithilfe der hostcompute-Netzwerkdienst-API ein hostcompute-Netzwerk Load Balancer auf dem Host erstellen, mit dem ein Lastenausgleich für den Endpunkt über Compute erfolgen kann.
 
 ```C++
 using unique_hcn_loadbalancer = wil::unique_any< 
@@ -641,9 +641,9 @@ void CreateHcnLoadBalancer()
 ```
 
 
-### <a name="delete-an-hcn-load-balancer"></a>Löschen eines HCN Load Balancers
+### <a name="delete-an-hcn-load-balancer"></a>Löschen eines HCN-Lasten Ausgleichs
 
-Dieses Beispiel zeigt, wie Sie Host Compute-Network-Dienst-API verwenden, um "LoadBalancer" auf einem Host Compute-Netzwerk zu löschen.
+In diesem Beispiel wird gezeigt, wie Sie mithilfe der Host Compute Network Service-API einen Compute Network-LoadBalancer eines Hosts löschen.
 
 ```C++
     wil::unique_cotaskmem_string errorRecord;
@@ -658,9 +658,9 @@ Dieses Beispiel zeigt, wie Sie Host Compute-Network-Dienst-API verwenden, um "Lo
 ```
 
 
-### <a name="modify-an-hcn-load-balancer"></a>Ändern Sie einen HCN Load balancer
+### <a name="modify-an-hcn-load-balancer"></a>Ändern eines HCN-Lasten Ausgleichs
 
-Dieses Beispiel zeigt, wie Sie Host Compute-Network-Dienst-API verwenden, um einen Host Compute-Netzwerk-Namespace zu ändern.
+In diesem Beispiel wird gezeigt, wie Sie die Host Compute Network Service-API verwenden, um einen hostcompute-Netzwerk Namespace zu ändern.
 
 ```C++
     unique_hcn_loadbalancer handle;
@@ -703,9 +703,9 @@ Dieses Beispiel zeigt, wie Sie Host Compute-Network-Dienst-API verwenden, um ein
 ```
 
 
-### <a name="enumerate-all-load-balancers"></a>Auflisten Sie aller Lastenausgleichsmodule
+### <a name="enumerate-all-load-balancers"></a>Alle Load Balancer auflisten
 
-Dieses Beispiel zeigt, wie Sie Host Compute-Network-Dienst-API zu verwenden, um alle Host Compute-Netzwerk-Load Balancer aufzulisten.
+In diesem Beispiel wird gezeigt, wie die hostcompute-Netzwerkdienst-API verwendet wird, um alle hostcompute-Netzwerk Load Balancer aufzuzählen.
 
 ```C++
     wil::unique_cotaskmem_string resultLoadBalancers;
@@ -726,9 +726,9 @@ Dieses Beispiel zeigt, wie Sie Host Compute-Network-Dienst-API zu verwenden, um 
 ```
 
 
-### <a name="query-load-balancer-properties"></a>Load Balancer-Abfrageeigenschaften
+### <a name="query-load-balancer-properties"></a>Eigenschaften des Abfrage Load Balancers
 
-Dieses Beispiel zeigt, wie Sie Host Compute-Network-Dienst-API zu verwenden, um Eigenschaften von Netzwerk-Compute-LoadBalancer-Host.
+In diesem Beispiel wird gezeigt, wie die hostcompute-Netzwerkdienst-API verwendet wird, um die Eigenschaften des Host Compute-Netzwerks zu Abfragen.
 
 ```C++
     unique_hcn_loadbalancer handle;
@@ -761,11 +761,11 @@ Dieses Beispiel zeigt, wie Sie Host Compute-Network-Dienst-API zu verwenden, um 
 ```
 
 
-## <a name="scenario-hcn-notifications"></a>Szenario: HCN Benachrichtigungen
+## <a name="scenario-hcn-notifications"></a>Szenario: HCN-Benachrichtigungen
 
-### <a name="register-and-unregister-service-wide-notifications"></a>An- und Abmelden dienstweite Benachrichtigungen
+### <a name="register-and-unregister-service-wide-notifications"></a>Registrieren und Aufheben der Registrierung von Dienst weiten Benachrichtigungen
 
-In diesem Beispiel wird veranschaulicht, wie Sie mit der Host Compute-Netzwerk-API registrieren und Aufheben der Registrierung für den gesamten Dienst umfassenden Benachrichtigungen. Dies ermöglicht dem Aufrufer erhalten eine Benachrichtigung (über die Callback-Funktion, die sie während der Registrierung angegeben) jedes Mal, wenn ein dienstweite Vorgang wie z. B. ein neues Netzwerk erstellen-Ereignis ist aufgetreten.
+In diesem Beispiel wird veranschaulicht, wie Sie die Host-Compute-Netzwerkdienst-API verwenden, um Dienst weite Benachrichtigungen zu registrieren und deren Registrierung aufzuheben. Dies ermöglicht es dem Aufrufer, eine Benachrichtigung (über die Rückruffunktion, die Sie während der Registrierung angegeben haben) zu empfangen, wenn ein Dienst weiter Vorgang wie ein neues Netzwerk Erstellungs Ereignis aufgetreten ist.
 
 ```C++
 using unique_hcn_callback = wil::unique_any< 
@@ -834,6 +834,6 @@ void UnregisterForServiceNotifications()
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Erfahren Sie mehr über die [RPC-Kontext für HCN behandelt](hcn-declaration-handles.md).
+- Erfahren Sie mehr über die [RPC-Kontext Handles für HCN](hcn-declaration-handles.md).
 
-- Erfahren Sie mehr über die [HCN JSON-Dokumentschemas](hcn-json-document-schemas.md).
+- Erfahren Sie mehr über die [JSON-Dokument Schemas für HCN](hcn-json-document-schemas.md).

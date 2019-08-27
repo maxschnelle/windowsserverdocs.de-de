@@ -1,65 +1,65 @@
 ---
-title: Hosten von Compute-Netzwerk (HCN)-Dienst-API für virtuelle Computer und Container
-description: Der Host Compute-Netzwerk (HCN)-Dienst-API ist eine öffentlich zugängliche Win32-API, die Zugriff auf Plattformebene, um den virtuellen Netzwerken, die Endpunkte des virtuellen Netzwerks und die zugeordneten Richtlinien zu verwalten. Zusammen bietet diese Konnektivität und Sicherheit für virtuelle Computer (VMs) und Container, die auf einem Windows-Host ausgeführt.
+title: Host Compute Network (HCN)-Dienst-API für VMS und Container
+description: Die HCN-Dienst-API (Host Compute Network) ist eine öffentlich zugänglichen Win32-API, die Zugriff auf Platt Form Ebene zum Verwalten der virtuellen Netzwerke, der virtuellen Netzwerk Endpunkte und der zugehörigen Richtlinien bietet. Dies ermöglicht die Konnektivität und Sicherheit für virtuelle Computer (Virtual Machines, VMS) und Container, die auf einem Windows-Host ausgeführt werden.
 ms.author: jmesser
 author: jmesser81
 ms.date: 11/05/2018
-ms.openlocfilehash: 50af0dab69633aa6e07ded68e9246aa0315377f0
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e30a778d661fa7c6d2e248234218eb25fba007a1
+ms.sourcegitcommit: 213989f29cc0c30a39a78573bd4396128a59e729
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59844981"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70031551"
 ---
-# <a name="host-compute-network-hcn-service-api-for-vms-and-containers"></a>Hosten von Compute-Netzwerk (HCN)-Dienst-API für virtuelle Computer und Container
+# <a name="host-compute-network-hcn-service-api-for-vms-and-containers"></a>Host Compute Network (HCN)-Dienst-API für VMS und Container
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019
 
-Der Host Compute-Netzwerk (HCN)-Dienst-API ist eine öffentlich zugängliche Win32-API, die Zugriff auf Plattformebene, um den virtuellen Netzwerken, die Endpunkte des virtuellen Netzwerks und die zugeordneten Richtlinien zu verwalten. Zusammen bietet diese Konnektivität und Sicherheit für virtuelle Computer (VMs) und Container, die auf einem Windows-Host ausgeführt. 
+Die HCN-Dienst-API (Host Compute Network) ist eine öffentlich zugänglichen Win32-API, die Zugriff auf Platt Form Ebene zum Verwalten der virtuellen Netzwerke, der virtuellen Netzwerk Endpunkte und der zugehörigen Richtlinien bietet. Dies ermöglicht die Konnektivität und Sicherheit für virtuelle Computer (Virtual Machines, VMS) und Container, die auf einem Windows-Host ausgeführt werden. 
 
-Entwickler verwenden die HCN-API zum Verwalten von Netzwerken für virtuelle Computer und Container in ihrer anwendungsworkflows. Die HCN-API-wurde entwickelt, um die beste für Entwickler bereit. Endbenutzer nicht direkt mit diesen APIs interagieren werden.  
+Entwickler verwenden die HCN-Dienst-API, um Netzwerke für VMS und Container in ihren Anwendungs Workflows zu verwalten. Die HCN-API wurde entwickelt, um Entwicklern das beste Verhalten zu bieten. Endbenutzer interagieren nicht direkt mit diesen APIs.  
 
-## <a name="features-of-the-hcn-service-api"></a>Features der HCN-API
--   Als C-API, die vom Host Network Service (HNS) auf dem OnCore/virtuellen Computer gehostete implementiert.
+## <a name="features-of-the-hcn-service-api"></a>Features der HCN-Dienst-API
+-   Wird als C-API implementiert, die vom Host Netzwerkdienst (HNS) auf der Oncore/VM gehostet wird.
 
--   Bietet die Möglichkeit zum Erstellen, ändern, löschen und Auflisten von HCN-Objekte, z. B. Netzwerke, Endpunkte, Namespaces und Richtlinien. Operationen auf Handles an den Objekten (z. B. einen Netzwerkhandle), und intern sind diese Handles mithilfe von RPC-Kontexthandles implementiert.
+-   Bietet die Möglichkeit, HCN-Objekte, z. b. Netzwerke, Endpunkte, Namespaces und Richtlinien, zu erstellen, zu ändern, zu löschen und aufzuzählen. Vorgänge werden in Handles für die Objekte (z. b. ein Netzwerk handle) durchgeführt, und intern werden diese Handles mithilfe von RPC-Kontext Handles implementiert.
 
--   Schema-basiert. Die meisten Funktionen der API definieren die ein- und Ausgabeparameter als Zeichenfolgen, die die Argumente des Funktionsaufrufs als JSON-Dokumente enthält. Die JSON-Dokumente basieren auf stark typisierte und mit Versionsangabe Schemas, die diese Schemas sind Teil der öffentlichen Dokumentation. 
+-   Schema basiert. Die meisten Funktionen der API definieren Eingabe-und Ausgabeparameter als Zeichen folgen, die die Argumente des Funktions Aufrufes als JSON-Dokumente enthalten. Die JSON-Dokumente basieren auf stark typisierten und versionierten Schemas. diese Schemas sind Teil der öffentlichen Dokumentation. 
 
--   So ermöglichen Sie Clients zur Registrierung für Benachrichtigungen von den gesamten Dienst umfassenden Ereignissen wie z. B. Netzwerk, wann ein Abonnement/Rückruf-API bereitgestellt.
+-   Eine Abonnement-/Rückruf-API wird bereitgestellt, um Clients das Registrieren für Benachrichtigungen von Dienst weiten Ereignissen wie z. b. Netzwerk Erstellungen und Löschungen zu ermöglichen.
 
--   HCN API funktioniert in Desktop-Brücke (auch als) Centennial)-apps, die in die Systemdienste ausgeführt. Die API überprüft die ACL durch Abrufen von Benutzertoken vom Aufrufer an.
+-   HCN-API funktioniert in Desktop Bridge (auch bekannt als Centennial) apps, die in System Diensten ausgeführt werden. Die API überprüft die ACL, indem das Benutzer Token vom Aufrufer abgerufen wird.
 
 >[!TIP]
->Die HCN-API wird in Hintergrundaufgaben und Foreground-nicht-Windows unterstützt. 
+>Die HCN-Dienst-API wird in Hintergrundaufgaben und nicht-Vordergrund-Fenstern unterstützt. 
 
-## <a name="terminology-host-vs-compute"></a>Terminologie: Im Vergleich zu hosten. Compute
-Der Host Compute-Dienst ermöglicht es dem Aufrufer erstellen und Verwalten von virtuellen Computern und Containern in einem einzelnen physischen Computer. Es heißt, Branche, Terminologie zu befolgen. 
+## <a name="terminology-host-vs-compute"></a>Terminologie: Host im Vergleich zu Compute
+Der hostcomputedienst ermöglicht es Aufrufern, virtuelle Maschinen und Container auf einem einzelnen physischen Computer zu erstellen und zu verwalten. Sie hat den Namen, um die Branchen Terminologie zu befolgen. 
 
-- **Host** ist branchenweit verbreitet in der Branche Virtualisierung des Betriebssystems zu verweisen, die Ressourcen bereitstellt.
+- Der **Host** wird in der Virtualisierungstechnologie häufig verwendet, um auf das Betriebssystem zu verweisen, das virtualisierte Ressourcen bereitstellt.
 
-- **Compute-** wird verwendet, um auf Virtualisierung-Methoden zu verweisen, die umfangreicher als nur virtuelle Computer sind. Netzwerk-Compute-Hostdienst können Aufrufer zum Erstellen und Verwalten von Netzwerken für virtuelle Computer und Container auf einem einzelnen physischen Computer.
+- **Compute** bezieht sich auf virtualisierungsmethoden, die breiter als nur virtuelle Computer sind. Der Host Compute-Netzwerkdienst ermöglicht Aufrufern das Erstellen und Verwalten von Netzwerken für virtuelle Maschinen und Container auf einem einzelnen physischen Computer.
 
-## <a name="schema-based-configuration-documents"></a>Schema-basierte Konfigurationsdokumente
-Konfigurationsdokumente basierend auf umfassend definierte Schemas ist ein Branchenstandard im Bereich der Virtualisierung. Die meisten Virtualisierungslösungen, z. B. Docker und Kubernetes, geben Sie, dass die Konfigurationsdokumente APIs abhängig. Mehrere Branche, mit die Teilnahme von Microsoft oder kompetente ein Ökosystem zum Definieren und überprüfen diese Schemas, z. B. [OpenAPI](https://www.openapis.org/).  Diese auch kompetente der Standardisierung von bestimmten Schemadefinitionen für die Schemas verwendet für Container, z. B. [Open Container Initiative (OCI)](https://www.opencontainers.org/).
+## <a name="schema-based-configuration-documents"></a>Schema basierte Konfigurations Dokumente
+Konfigurations Dokumente, die auf klar definierten Schemas basieren, sind im Virtualisierungsbereich ein etablierter Industriestandard. Die meisten Virtualisierungslösungen, wie z. b. docker und Kubernetes, stellen APIs auf der Grundlage von Konfigurations Dokumenten bereit. Mehrere Brancheninitiativen, mit der Teilnahme von Microsoft, fördern ein Ökosystem zum Definieren und validieren dieser Schemas, z. b. [OpenAPI](https://www.openapis.org/).  Diese Initiativen Steuern auch die Standardisierung spezifischer Schema Definitionen für die Schemas, die für Container verwendet werden, wie z. b. [Open Container Initiative (OCI)](https://www.opencontainers.org/).
 
-Die verwendete Sprache zum Erstellen von Dokumenten [JSON](https://tools.ietf.org/html/rfc8259), die Sie in Kombination mit verwenden:
--   Schema-Definitionen, die ein Objektmodell für das Dokument definieren.
--   Überprüfung, ob ein JSON-Dokument ein Schema entspricht
--   Automatisiert die Konvertierung von JSON-Dokumente in und aus systemeigenen Darstellungen dieser Schemas in den Programmiersprachen, die verwendet werden, durch den Aufrufer der APIs 
+Die Sprache, die zum Erstellen von Konfigurations Dokumenten verwendet wird, ist [JSON](https://tools.ietf.org/html/rfc8259), die Sie in Kombination mit verwenden:
+-   Schema Definitionen, die ein Objektmodell für das Dokument definieren
+-   Validierung, ob ein JSON-Dokument einem Schema entspricht
+-   Automatisierte Konvertierung von JSON-Dokumenten in und aus nativen Darstellungen dieser Schemas in den Programmiersprachen, die von den Aufrufern der APIs verwendet werden 
 
-Werden Sie häufig verwendete Schemadefinitionen [OpenAPI](https://www.openapis.org/) und [JSON-Schema](http://json-schema.org/), dem Sie die ausführlichen Definitionen der Eigenschaften in einem Dokument, z. B. angeben können:
--   Die gültigen Satz von Werten für eine Eigenschaft, z. B. 0 – 100 für eine Eigenschaft, die einen Prozentsatz darstellt.
--   Die Definition von Enumerationen, die als einen Satz von gültigen Zeichenfolgen für eine Eigenschaft dargestellt werden.
+Häufig verwendete Schema Definitionen sind das [OpenAPI](https://www.openapis.org/) -und [JSON-Schema](http://json-schema.org/), mit dem Sie die detaillierten Definitionen der Eigenschaften in einem Dokument angeben können, z. b.:
+-   Der gültige Satz von Werten für eine Eigenschaft, z. b. 0-100 für eine Eigenschaft, die einen Prozentsatz darstellt.
+-   Die Definition von Enumerationen, die als Satz gültiger Zeichen folgen für eine Eigenschaft dargestellt werden.
 -   Ein regulärer Ausdruck für das erwartete Format einer Zeichenfolge. 
 
-Im Rahmen der HCN APIs dokumentieren planen wir das Schema von unserem JSON-Dokumenten als einer OpenAPI-Spezifikation zu veröffentlichen. Auf der Grundlage dieser Spezifikation, können sprachspezifische Darstellung des Schemas für die typsichere Verwendung Schemaobjekte in der Programmiersprache, die vom Client verwendet wird. 
+Als Teil der Dokumentation der HCN-APIs planen wir, das Schema unserer JSON-Dokumente als OpenAPI-Spezifikation zu veröffentlichen. Basierend auf dieser Spezifikation können sprachspezifische Darstellungen des Schemas eine typsichere Verwendung der Schema Objekte in der vom Client verwendeten Programmiersprache ermöglichen. 
 
 ### <a name="example"></a>Beispiel 
 
-Folgendes ist ein Beispiel für diesen Workflow für das Objekt, das einen SCSI-Controller, in dem Dokument zur Konfiguration eines virtuellen Computers darstellt. 
+Im folgenden finden Sie ein Beispiel für diesen Workflow für das-Objekt, das einen SCSI-Controller im Konfigurations Dokument einer VM darstellt. 
 
-In der Windows-Quellcode, definieren wir die Schemas, die mithilfe von .mars-Dateien: onecore/vm/dv/net/hns/schema/mars/Schema/HCN.Schema.Network.mars
+Im Windows-Quellcode definieren wir Schemas mithilfe von Mars-Dateien: onecore/VM/DV/net/HNS/Schema/Mars/Schema/HCN. Schema. Network. Mars
 
 ```
 enum IpamType
@@ -114,9 +114,9 @@ class Route
 ```
 
 >[!TIP]
->Die [NewIn("2.0") Anmerkungen sind Teil der Unterstützung der versionsverwaltung für die Schemadefinitionen.
+>Die [newIn ("2.0")-Anmerkungen sind Teil der Versions Unterstützung für die Schema Definitionen.
 
-Aus dieser Definition interne generieren wir die OpenAPI-Spezifikationen für das Schema ein:
+Aus dieser internen Definition generieren wir die OpenAPI-Spezifikationen für das Schema:
 
 ```
 { 
@@ -223,22 +223,22 @@ Aus dieser Definition interne generieren wir die OpenAPI-Spezifikationen für da
 } 
 ```
 
-Sie verwenden die Tools, z. B. [Swagger](https://swagger.io/), um sprachspezifische Darstellung des Schemas von einem Client verwendete Programmiersprache zu generieren. Swagger unterstützt eine Vielzahl von Sprachen wie z. B. C#, Go, Javascript und Python).
+Sie können Tools wie [Swagger](https://swagger.io/)verwenden, um sprachspezifische Darstellungen der von einem Client verwendeten Schema Programmiersprache zu generieren. Swagger unterstützt eine Vielzahl von Sprachen C#, wie z. b., go, JavaScript und python.
 
-- [Beispiel für generierte C# Code](example-c-sharp.md) Objekt der obersten Ebene IPAM & Subnetz.
+- [Beispiel für generierten C# Code](example-c-sharp.md) für das IPAM-& Subnetzobjekt der obersten Ebene.
 
-- [Beispiel für Go-Code generierten](example-go.md) Objekt der obersten Ebene IPAM & Subnetz. Go wird von Docker und Kubernetes sind zwei der Nutzer von der Host Compute-Netzwerk-APIs verwendet. Wechseln Sie verfügt über integrierte Unterstützung für das Marshalling von Go-Typen in und aus JSON-Dokumente.
+- [Beispiel für generierten go-Code](example-go.md) für das IPAM-& Subnetzobjekt der obersten Ebene. Go wird von Docker und Kubernetes verwendet, bei denen es sich um zwei der Consumer der hostcompute Network Service-APIs handelt. Go verfügt über integrierte Unterstützung für das Mars Hallen von Go-Typen in und aus JSON-Dokumenten.
 
-Zusätzlich zur codegenerierung und-Validierung, können Sie Tools zur Vereinfachung der Arbeit mit JSON-Dokumenten, d. h. [Visual Studio Code](https://code.visualstudio.com/Docs/languages/json).
+Zusätzlich zur Codegenerierung und-Validierung können Sie Tools verwenden, um die Arbeit mit JSON-Dokumenten zu vereinfachen, d. –. [Visual Studio Code](https://code.visualstudio.com/Docs/languages/json).
 
-### <a name="top-level-objects-defined-in-the-hcnschemasmars-file"></a>Objekte der obersten Ebene in der HCN definiert. Schemas.MARS-Datei
-Wie bereits erwähnt, finden Sie das Dokumentschema für Dokumente, die von den HCN-APIs in einem Satz von .mars-Dateien verwendet: Onecore/Vm/Dv/Net/Hns/Schema/Mars/Schema
+### <a name="top-level-objects-defined-in-the-hcnschemasmars-file"></a>Objekte der obersten Ebene, die in der HCN definiert sind. Datei "Schemas. Mars"
+Wie bereits erwähnt, finden Sie das Dokument Schema für Dokumente, die von den HCN-APIs verwendet werden, in einem Satz von Mars-Dateien unter: onecore/VM/DV/net/HNS/Schema/Mars/Schema.
 
-Objekte der obersten Ebene sind:
-- [HostComputeNetwork](hcn-scenarios.md#scenario-hcn)
-- [HostComputeEndpoint](hcn-scenarios.md#scenario-hcn-endpoint)
-- [HostComputeNamespace](hcn-scenarios.md#scenario-hcn-namespace)
-- [HostComputeLoadBalancer](hcn-scenarios.md#scenario-hcn-load-balancer)
+Die Objekte der obersten Ebene sind:
+- [Hostcomputenetwork](hcn-scenarios.md#scenario-hcn)
+- [Hostcomputeendpoint](hcn-scenarios.md#scenario-hcn-endpoint)
+- [Hostcomputenamespace](hcn-scenarios.md#scenario-hcn-namespace)
+- [Hostcomputeloadbalancer](hcn-scenarios.md#scenario-hcn-load-balancer)
 
 ```
 class HostComputeNetwork : HCN.Schema.Common.Base
@@ -279,8 +279,8 @@ class HostComputeLoadBalancer : HCN.Schema.Common.Base
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-- Erfahren Sie mehr über die [Szenarios HCN](hcn-scenarios.md).
+- Erfahren Sie mehr über die [gängigen HCN-Szenarios](hcn-scenarios.md).
 
-- Erfahren Sie mehr über die [RPC-Kontext für HCN behandelt](hcn-declaration-handles.md).
+- Erfahren Sie mehr über die [RPC-Kontext Handles für HCN](hcn-declaration-handles.md).
 
-- Erfahren Sie mehr über die [HCN JSON-Dokumentschemas](hcn-json-document-schemas.md).
+- Erfahren Sie mehr über die [JSON-Dokument Schemas für HCN](hcn-json-document-schemas.md).

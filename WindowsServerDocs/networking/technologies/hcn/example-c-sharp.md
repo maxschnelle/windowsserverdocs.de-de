@@ -1,19 +1,19 @@
 ---
-title: Beispiel für generierte C# Code für die oberste Ebene IPAM & Subnetzobjekt
+title: Beispiel für generierten C# Code für das IPAM-& Subnetzobjekt der obersten Ebene
 description: ''
 ms.author: jmesser
 author: jmesser81
 ms.date: 11/05/2018
-ms.openlocfilehash: 8e96136eaeee5f98a919b26791994c1b00a0c45c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: ae324b0a376f4fdf55cf09df652893b7894cc73e
+ms.sourcegitcommit: 213989f29cc0c30a39a78573bd4396128a59e729
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59875541"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70031500"
 ---
 # <a name="example-of-c-generated-code"></a>Beispiel für von C#-generierten Code 
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019
 
 ```C#
 /* 
