@@ -1,24 +1,20 @@
 ---
 title: Entfernte oder für den Austausch geplante Features ab Windows Server (Version 1709)
 description: Features und Funktionen, die entfernt wurden bzw. deren Entfernung aus künftigen Versionen geplant ist.
-ms.custom: na
 ms.prod: windows-server-threshold
-ms.reviewer: na
-ms.suite: na
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/05/2018
-author: jaimeo
-ms.author: jaimeo
+ms.date: 08/22/2019
+author: jasongerend
+ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: 37970f3bee2070cffc77bff855a8f28641196b24
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: b4303d05a87fe06e84df0cc55e2c1af8b34047e6
+ms.sourcegitcommit: 6f8993e2180c4d3c177e3e1934d378959396b935
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66452861"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70000638"
 ---
 # <a name="features-removed-or-planned-for-replacement-starting-with-windows-server-version-1709"></a>Entfernte oder für den Austausch geplante Features ab Windows Server (Version 1709)
 
@@ -26,12 +22,17 @@ ms.locfileid: "66452861"
 
 Die folgende Liste enthält Features und Funktionen der Version 1709 von Windows Server, die entweder in diesem Release aus dem Produkt entfernt wurden oder potenziell in künftigen Releases ersetzt werden. Sie ist für IT-Experten vorgesehen, die Betriebssysteme in einer kommerziellen Umgebung aktualisieren. **Für diese Liste sind Änderungen in zukünftigen Releases vorbehalten. Zudem enthält sie möglicherweise nicht alle betroffenen Features oder Funktionen.** 
 
+> [!TIP]
+> - Sie können frühzeitig Zugriff auf Windows Server-Builds erhalten, indem Sie am [Windows-Insider-Programm](https://insider.windows.com) teilnehmen – das ist eine hervorragende Möglichkeit, Änderungen an Features zu testen.
+> - Haben Sie Fragen zu anderen Releases? Weitere Informationen: [Features, die entfernt wurden bzw. deren Ersetzung in Windows Server geplant ist](../get-started-19/removed-features.md).
+
 ## <a name="features-removed-from-windows-server-version-1709"></a>Aus Windows Server (Version 1709) entfernte Features
+
 Die Version 1709 von Windows Server enthält die gleichen Features wie Windows Server 2016. Dieses Release bietet allerdings andere Installationsoptionen als Windows Server 2016:
 
 - Als Release des halbjährlichen Kanals steht für die Version 1709 von Windows Server nur die Server Core-Installationsoption zur Verfügung. Ausführliche Informationen findest du unter [Windows Server-Wartungskanäle: LTSC und SAC](../get-started-19/servicing-channels-19.md).
 - Ab diesem Release steht Nano Server nicht mehr als installierbares Hostbetriebssystem zur Verfügung. Stattdessen ist Nano Server als Containerbetriebssystem verfügbar. Weitere Informationen findest du unter [Changes to Nano Server in Windows Server Semi-Annual Channel](nano-in-semi-annual-channel.md) (Änderungen für Nano Server in Windows Server (halbjährlicher Kanal)).
-- Ab diesem Release wird die Version 1 von Server Message Block (SMB) standardmäßig nicht mehr installiert. Ausführliche Informationen findest du unter [SMBv1 wird für die Versionen Windows 10 Fall Creators Update und Windows Server, Version 1709 und höher, standardmäßig nicht installiert.](https://support.microsoft.com/help/4034314/smbv1-is-not-installed-by-default-in-windows).
+- Ab diesem Release wird die Version 1 von Server Message Block (SMB) standardmäßig nicht mehr installiert. Ausführliche Informationen findest du unter [SMBv1 wird für die Versionen Windows 10 Fall Creators Update und Windows Server, Version 1709 und höher, standardmäßig nicht installiert](https://support.microsoft.com/help/4034314/smbv1-is-not-installed-by-default-in-windows).
 
 
 ## <a name="features-being-considered-for-replacement-starting-with-subsequent-releases"></a>Features, die in späteren Releases möglicherweise ersetzt werden
