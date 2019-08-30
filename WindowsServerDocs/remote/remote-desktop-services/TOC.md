@@ -64,9 +64,35 @@
 ### [Anpassen des RDS-Titels „Work Resources“ mithilfe von PowerShell unter Windows Server](rds-work-resources.md)
 ### [Diagnostizieren von App-Leistungsproblemen mit Leistungsindikatoren](rds-rdsh-performance-counters.md)
 
-## [Zusätzliche Unterstützung zum Thema Remotedesktop](rds-get-support.md)
-## [Remotedesktopclients](clients/remote-desktop-clients.md)
-### Bekannte Probleme mit Remotedesktop
+## Zugriff auf Remotedesktopressourcen
+### [Verfügbare Remotedesktopclients](clients/remote-desktop-clients.md)
+### Windows Store-Client
+#### [Erste Schritte mit dem Windows Store-Client](clients/windows.md)
+#### [Neuigkeiten zum Windows Store-Client](clients/windows-whatsnew.md)
+### Android-Client
+#### [Erste Schritte mit dem Android-Client](clients/remote-desktop-android.md)
+#### [Neues beim Android-Client](clients/android-whatsnew.md)
+### iOS-Client
+#### [Erste Schritte mit dem iOS-Client](clients/remote-desktop-ios.md)
+#### [Neues beim iOS-Client](clients/ios-whatsnew.md)
+### macOS-Client
+#### [Erste Schritte mit dem macOS-Client](clients/remote-desktop-mac.md)
+#### [Neues beim macOS-Client](clients/mac-whatsnew.md)
+### Webclient
+#### [Erste Schritte mit dem Webclient](clients/remote-desktop-web-client.md)
+#### [Neues beim Webclient](clients/web-client-whatsnew.md)
+### Einrichten Ihres PC für Remotedesktop
+#### [Unterstützte PCs](clients/remote-desktop-supported-config.md)
+#### [Gewähren des Zugriffs auf Ihren PC für Remotedesktop](clients/remote-desktop-allow-access.md)
+#### [Gewähren des Zugriffs auf Ihren PC von außerhalb Ihres Netzwerks](clients/remote-desktop-allow-outside-access.md)
+#### [Ändern des RD-Abhörports auf Ihrem PC](clients/change-listening-port.md)
+### Weiterführende Informationen
+#### [Welcher Client eignet sich am besten für Sie?](clients/remote-desktop-app-compare.md)
+#### [Remotedesktop: Einstellungen für RDP-Datei](clients/rdp-files.md)
+#### [Remotedesktop-URI-Schema](clients/remote-desktop-uri.md)
+#### [Remotedesktopclient – Häufig gestellte Fragen](clients/remote-desktop-client-faq.md)
+#### [Privacy settings for managed apps and desktops](clients/remote-privacy-settings.md) (Datenschutzeinstellungen für verwaltete Apps und Desktops)
+### Bekannte Probleme
 #### [Allgemeine Problembehandlung bei Remotedesktopverbindungen](troubleshoot/rdp-error-general-troubleshooting.md)
 #### [Clients können keine Verbindung herstellen und erhalten den Fehler „Klasse nicht registriert“](troubleshoot/rdp-error-class-not-registered.md)
 #### [Clients können keine Verbindung herstellen und erhalten den Fehler „Keine Lizenzen verfügbar“](troubleshoot/rdp-error-no-licenses-available.md)
@@ -75,29 +101,5 @@
 #### [Remotedesktopclient wird getrennt und kann die Verbindung zur gleichen Sitzung nicht wiederherstellen](troubleshoot/rdp-client-disconnects-cannot-reconnect-same-session.md)
 #### [Remotelaptop trennt die WLAN-Verbindung](troubleshoot/remote-laptop-disconnects-wireless-network.md)
 #### [Eingeschränkte Leistung oder Anwendungsprobleme während der Remotedesktopverbindung](troubleshoot/poor-performance-or-application-problems.md)
-### Allgemeine Informationen
-#### [Welcher Client eignet sich am besten für Sie?](clients/remote-desktop-app-compare.md)
-#### [Remotedesktop: Einstellungen für RDP-Datei](clients/rdp-files.md)
-#### [Remotedesktop-URI-Schema](clients/remote-desktop-uri.md)
-#### [Remotedesktopclient – Häufig gestellte Fragen](clients/remote-desktop-client-faq.md)
-#### [Privacy settings for managed apps and desktops](clients/remote-privacy-settings.md) (Datenschutzeinstellungen für verwaltete Apps und Desktops)
-### Remotedesktopclient für Windows
-#### [Erste Schritte](clients/windows.md)
-#### [Neuigkeiten zum Windows-Client](clients/windows-whatsnew.md)
-### Remotedesktopclient für Android
-#### [Erste Schritte](clients/remote-desktop-android.md)
-#### [Neues beim Android-Client](clients/android-whatsnew.md)
-### Remotedesktopclient für iOS
-#### [Erste Schritte](clients/remote-desktop-ios.md)
-#### [Neues beim iOS-Client](clients/ios-whatsnew.md)
-### Remotedesktopclient für Mac
-#### [Erste Schritte](clients/remote-desktop-mac.md)
-#### [Neues beim MacOS-Client](clients/mac-whatsnew.md)
-### Remotedesktop-Webclient
-#### [Zugriff auf den Remotedesktop-Webclient](clients/remote-desktop-web-client.md)
-#### [Neues beim Webclient](clients/web-client-whatsnew.md)
-### Einrichten Ihres PC für Remotedesktop
-#### [Unterstützte PCs](clients/remote-desktop-supported-config.md)
-#### [Gewähren des Zugriffs auf Ihren PC für Remotedesktop](clients/remote-desktop-allow-access.md)
-#### [Gewähren des Zugriffs auf Ihren PC von außerhalb Ihres Netzwerks](clients/remote-desktop-allow-outside-access.md)
-#### [Ändern des RD-Abhörports auf Ihrem PC](clients/change-listening-port.md)
+
+## [Weitere Ressourcen](rds-get-support.md)
