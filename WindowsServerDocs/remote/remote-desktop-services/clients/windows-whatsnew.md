@@ -1,6 +1,6 @@
 ---
-title: Neuerungen bei Remotedesktop unter Windows
-description: Hier erfährst du mehr über aktuelle Änderungen am Remotedesktopclient für Windows.
+title: Neuigkeiten zum Windows Store-Client
+description: Hier erfährst du mehr über aktuelle Änderungen am Remotedesktopclient für Windows Store.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -11,20 +11,21 @@ ms.topic: article
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.date: 03/19/2019
+ms.date: 08/27/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 18c14da5b5b16ed20005515fde46235e4cf27331
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: a8ecdf217f847f495b2cb90dd3511a8db9e72c95
+ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63748832"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70150986"
 ---
-# <a name="whats-new-for-the-remote-desktop-client-on-windows"></a>Neuerungen beim Remotedesktopclient unter Windows
+# <a name="whats-new-in-the-windows-store-client"></a>Neuigkeiten zum Windows Store-Client
 
 Der [Remotedesktopclient für Windows](windows.md) wird regelmäßig mit neuen Features und Problembehebungen aktualisiert. Im Anschluss findest du die neuesten Aktualisierungen.
 
 ## <a name="updates-for-version-1011098"></a>Updates für Version 10.1.1098
+
 *Veröffentlichungsdatum: 15.03.2019*
 
 - Du kannst nun einen Anzeigenamen für Benutzerkonten festlegen und dadurch den gleichen Benutzernamen mit verschiedenen Kennwörtern speichern.
@@ -34,6 +35,7 @@ Der [Remotedesktopclient für Windows](windows.md) wird regelmäßig mit neuen F
 - Zusätzliche Fehlerbehebungen
 
 ## <a name="updates-for-version-1011088"></a>Updates für Version 10.1.1088
+
 *Veröffentlichungsdatum: 06.11.2018*
 
 - Der Anzeigename der Verbindung ist jetzt leichter auffindbar.
@@ -44,20 +46,23 @@ Der [Remotedesktopclient für Windows](windows.md) wird regelmäßig mit neuen F
 - Zusätzliche Fehlerbehebungen
 
 ## <a name="updates-for-version-1011060"></a>Updates für Version 10.1.1060
+
 *Veröffentlichungsdatum: 14.09.2018*
 
 - Ein Problem wurde behoben, das dazu führte, dass beim Doppelklicken auf eine Desktopverbindung zwei Sitzungen gestartet wurden.
 - Ein Absturz wurde behoben, der beim lokalen Wechseln zwischen virtuellen Desktops auftrat.
-- Beim Verschieben einer Sitzung auf einen anderen Monitor wird nun auch der Skalierungsfaktor der Sitzung aktualisiert. 
+- Beim Verschieben einer Sitzung auf einen anderen Monitor wird nun auch der Skalierungsfaktor der Sitzung aktualisiert.
 - Behandlung zusätzlicher Systemtasten wie ALT GR.
 - Zusätzliche Fehlerbehebungen
 
 ## <a name="updates-for-version-1011046"></a>Updates für Version 10.1.1046
+
 *Veröffentlichungsdatum: 20.06.2018*
 
 - Fehlerbehebungen
 
 ## <a name="updates-for-version-1011042"></a>Updates für Version 10.1.1042
+
 *Veröffentlichungsdatum: 02.04.2018*
 
 - Aktualisierungen für die in CVE-2018-0886 beschriebene CredSSP-Encryption Oracle-Abwehr

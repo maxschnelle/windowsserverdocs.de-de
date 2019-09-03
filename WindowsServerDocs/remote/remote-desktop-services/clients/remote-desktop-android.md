@@ -1,5 +1,5 @@
 ---
-title: Erste Schritte mit Remotedesktop unter Android
+title: Erste Schritte mit dem Android-Client
 description: Hier finden Sie grundlegende Einrichtungsschritte für den Remotedesktopclient für Android.
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -12,16 +12,16 @@ ms.assetid: 64f038e1-40ec-4c67-938b-72edea49e5d8
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.date: 07/24/2018
+ms.date: 08/27/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: b4b188eb8148b2f4e5c6672b07884af8fdcd0c60
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: ccc96013efb71a2403f9be2df03461eba5ff1fc1
+ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66446739"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70151010"
 ---
-# <a name="get-started-with-remote-desktop-on-android"></a>Erste Schritte mit Remotedesktop unter Android
+# <a name="get-started-with-the-android-client"></a>Erste Schritte mit dem Android-Client
 
 >Gilt für: Windows 10, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2
 
@@ -86,9 +86,9 @@ Gehen Sie wie folgt vor, um eine Remoteressource hinzuzufügen:
 Die Remoteressourcen werden im Connection Center angezeigt.
 
 
-Gehen Sie wie folgt vor, um Remoteressourcen zu löschen:
+Gehe wie folgt vor, um Remoteressourcen zu löschen:
 
-1. Tippen Sie im Connection Center auf das Überlaufmenü ( **...** ) neben der Remoteressource.
+1. Tippe im Connection Center auf das Überlaufmenü ( **...** ) neben der Remoteressource.
 2. Tippen Sie auf **Entfernen**.
 3. Bestätigen Sie den Löschvorgang.
 
@@ -120,7 +120,7 @@ Gehen Sie wie folgt vor, um ein neues Gateway einzurichten:
 
 ## <a name="manage-your-user-accounts"></a>Verwalten Ihrer Benutzerkonten
 
-Wenn Sie eine Verbindung mit einem Desktop oder Remoteressourcen herstellen, können Sie die Benutzerkonten speichern, um sie erneut auswählen zu können. Sie können auch Benutzerkonten auf dem Client selbst definieren, statt die Benutzerdaten zu speichern, wenn Sie eine Verbindung mit einem Desktop herstellen.
+Wenn du eine Verbindung mit einem Desktop oder mit Remoteressourcen herstellst, kannst du die Benutzerkonten speichern, um sie erneut auswählen zu können. Du kannst auch Benutzerkonten auf dem Client selbst definieren, anstatt die Benutzerdaten zu speichern, wenn du eine Verbindung mit einem Desktop herstellst.
 
 Gehen Sie wie folgt vor, um ein neues Benutzerkonto zu erstellen:
 
@@ -138,7 +138,7 @@ Gehen Sie wie folgt vor, um ein Benutzerkonto zu löschen:
 3. Tippen Sie auf den Papierkorb, um den ausgewählten Benutzer zu löschen.
 
 ## <a name="navigate-the-remote-desktop-session"></a>Navigieren in der Remotedesktopsitzung
-Wenn Sie eine Remotedesktopverbindung starten, stehen Tools zur Verfügung, die Sie für die Navigation in der Sitzung verwenden können.
+Wenn du eine Remotedesktopverbindung startest, stehen Tools zur Verfügung, die du für die Navigation in der Sitzung verwenden kannst.
 
 ### <a name="start-a-remote-desktop-connection"></a>Starten einer Remotedesktopverbindung
 
@@ -163,7 +163,7 @@ Sie können die folgenden globalen Einstellungen auf Ihrem Android-Client festle
 
 ### <a name="connection-bar"></a>Verbindungsleiste
 
-Die Verbindungsleiste bietet Ihnen Zugriff auf zusätzliche Navigationssteuerelemente. Die Verbindungsleiste befindet sich standardmäßig in der Mitte am oberen Rand des Bildschirms. Doppeltippen Sie auf die Leiste, und ziehen Sie die Leiste nach links oder rechts, um sie zu verschieben.
+Die Verbindungsleiste ermöglicht den Zugriff auf zusätzliche Navigationssteuerelemente. Die Verbindungsleiste befindet sich standardmäßig in der Mitte am oberen Rand des Bildschirms. Doppeltippen Sie auf die Leiste, und ziehen Sie die Leiste nach links oder rechts, um sie zu verschieben.
 
 - **Schwenken-Steuerelement**: Mit dem Schwenken-Steuerelement kann der Bildschirm vergrößert und verschoben werden. Beachten Sie, dass das Schwenken-Steuerelement nur mithilfe direkter Touchbewegung verfügbar ist.
    - Aktivieren/Deaktivieren des Schwenken-Steuerelements: Tippen Sie auf der Verbindungsleiste auf das Schwenksymbol, um das Schwenken-Steuerelement anzuzeigen und den Bildschirm zu vergrößern. Tippen Sie auf der Verbindungsleiste erneut auf das Schwenksymbol, um das Steuerelement auszublenden und die ursprüngliche Auflösung des Bildschirms wiederherzustellen.
@@ -198,4 +198,4 @@ Der Client verwendet Standardtouchgesten. Sie können auch Touchgesten verwenden
 | Mauszeiger | Mausrad          | Mit zwei Fingern tippen und halten, dann nach oben oder unten ziehen                           |
 
 > [!TIP]
-> Fragen und Kommentare sind immer willkommen. Verwenden Sie jedoch NICHT die Kommentarfunktion am Ende dieses Artikels, um Hilfe bei der Problembehandlung anzufordern. Navigieren Sie stattdessen zum [Remotedesktopclient-Forum](https://social.technet.microsoft.com/forums/windowsserver/en-us/home?forum=winrdc), und erstellen Sie einen neuen Thread. Haben Sie einen Vorschlag für ein Feature? Teilen Sie uns dies im [UserVoice-Forum für den Client](https://remotedesktop.uservoice.com/forums/272085-remote-desktop-for-android) mit.
+> Fragen und Kommentare sind immer willkommen. Verwenden Sie jedoch NICHT die Kommentarfunktion am Ende dieses Artikels, um Hilfe bei der Problembehandlung anzufordern. Verwenden Sie stattdessen das [Remotedesktopclient-Forum](https://social.technet.microsoft.com/forums/windowsserver/en-us/home?forum=winrdc), und erstellen Sie einen neuen Thread. Haben Sie einen Vorschlag für ein Feature? Teilen Sie uns dies im [UserVoice-Forum für den Client](https://remotedesktop.uservoice.com/forums/272085-remote-desktop-for-android) mit.

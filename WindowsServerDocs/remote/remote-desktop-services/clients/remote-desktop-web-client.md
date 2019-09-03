@@ -1,21 +1,21 @@
 ---
-title: Zugriff auf den Remotedesktop-Webclient
+title: Erste Schritte mit dem Webclient
 description: Hier wird beschrieben, wie du dich beim Remotedesktop-Webclient anmeldest.
 ms.prod: windows-server-threshold
 ms.technology: remote-desktop-services
 ms.author: helohr
-ms.date: 07/20/2018
+ms.date: 08/27/2019
 ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
-ms.openlocfilehash: f4433ad592219d6ed15b28fd0514790b078525fd
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 11e68821fb095617cea19ee83c057d247a909604
+ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "63743832"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70150974"
 ---
-# <a name="access-the-remote-desktop-web-client"></a>Zugriff auf den Remotedesktop-Webclient
+# <a name="get-started-with-the-web-client"></a>Erste Schritte mit dem Webclient
 
 Der Remotedesktop-Webclient ermöglicht dir, mit einem kompatiblen Webbrowser auf die Remoteressourcen (Apps und Desktops) deiner Organisation zuzugreifen, die dir von deinem Administrator zur Verfügung gestellt werden. Egal wo du dich befindest, kannst du mit den Remote-Apps und -desktops wie mit einem lokalen PC interagieren, ohne zu einem anderen Desktop-PC wechseln zu müssen. Sobald dein Administrator deine Remoteressourcen eingerichtet hat, benötigst du nur noch deine Domäne, deinen Benutzernamen, dein Kennwort, die URL, die dir dein Administrator geschickt hat, und einen unterstützten Webbrowser, und schon kannst du loslegen.
 

@@ -1,55 +1,54 @@
 ---
 title: Migrieren von Rollen und Features
-description: ''
-ms.custom: na
+description: Informationen zum Migrieren von Rollen und Features zu einer neueren Version von Windows Server.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.date: 04/03/2017
+ms.date: 08/28/2019
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0f78ef4c-dd12-4b1b-8c6e-251dd803c5d1
-author: jaimeo
-ms.author: jaimeo
+author: jasongerend
+ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: 486c11ebd46c6fd23b3bd16cd90463f8d607287e
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 33c1aa654e4c660b4fe2f3305bfaf78b5191220a
+ms.sourcegitcommit: e58e1646ffd75d4a89576d967b2dbbbb84764303
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66443545"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70119201"
 ---
 # <a name="migrating-roles-and-features-in-windows-server"></a>Migrieren von Rollen und Features in Windows Server
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Diese Seite enthält Links zu hilfreichen Informationen und Tools für die Migration von Rollen und Features zu Windows Server 2016, Windows Server 2012 R2 und Windows Server 2012. Viele Rollen und Features können mit den Windows Server-Migrationstools migriert werden. Hierbei handelt es sich um eine Gruppe von fünf Windows PowerShell-Cmdlets, die in Windows Server 2008 R2 zum einfachen Migrieren von Rollen- und Featureelementen und Daten eingeführt wurde.
+Diese Seite enthält Links zu Informationen und Tools, die dich durch den Migrationsvorgang für Rollen und Features zu einer neuen Version von Windows Server führen können. Du kannst Dateiserver und Speicher mit dem [Speichermigrationsdienst](../storage/storage-migration-service/overview.md) migrieren, während viele andere Rollen und Features mithilfe der Windows Server-Migrationstools migriert werden können, einer Reihe von PowerShell-Cmdlets, die in Windows Server 2008 R2 zum Migrieren von Rollen und Features eingeführt wurden.
 
-Die Migrationshandbücher unterstützen Migrationen von angegebenen Rollen und Features zwischen Servern (keine direkten Upgrades). Sofern in den Anleitungen nicht anders angegeben, werden Migrationen zwischen physischen und virtuellen Computern sowie zwischen vollständigen Windows Server-Installationen und Servern mit Server Core-Installation unterstützt.  
+Die Migrationshandbücher unterstützen Migrationen von angegebenen Rollen und Features zwischen Servern (keine direkten Upgrades). Sofern in den Anleitungen nicht anders angegeben, werden Migrationen zwischen physischen und virtuellen Computern sowie zwischen vollständigen Windows Server-Installationen und Servern mit Server Core-Installation unterstützt.
 
 ## <a name="before-you-begin"></a>Vorbemerkungen
 
-Vergewissere dich vor Beginn der Migration von Rollen und Features, dass Quell- und Zielserver über die neuesten Service Packs verfügen, die für das jeweilige Betriebssystem verfügbar sind.
-Es ist jetzt auch ein E-Book mit den Windows Server 2012 R2- und Windows Server 2012-Migrationshandbüchern verfügbar. Weitere Informationen findest du im [Katalog mit den E-Books für Technologie von Microsoft](https://social.technet.microsoft.com/wiki/contents/articles/11608.e-book-gallery-for-microsoft-technologies.aspx#MigrateRoles). Hier kannst du auch das E-Book herunterladen. 
+Vergewissere dich vor Beginn der Migration von Rollen und Features, dass Quell- und Zielserver über die neuesten Service Packs verfügen, die für das jeweilige Betriebssystem verfügbar sind. 
 
->[!NOTE]
->Bei jeder Migration und jedem Upgrade auf eine Version von Windows Server solltest du dich mit der [Microsoft Lifecycle-Richtlinie für den Support](https://support.microsoft.com/lifecycle) und dem Zeitrahmen für die jeweilige Version vertraut machen und entsprechend planen. Du kannst [nach den Lebenszyklusinformationen für die jeweils gewünschte Windows Server-Version suchen](https://support.microsoft.com/lifecycle).
- 
+> [!NOTE]
+> Bei jeder Migration und jedem Upgrade auf eine Version von Windows Server solltest du dich mit der [Microsoft Lifecycle-Richtlinie für den Support](https://support.microsoft.com/lifecycle) und dem Zeitrahmen für die jeweilige Version vertraut machen und entsprechend planen. Du kannst [nach den Lebenszyklusinformationen für die jeweils gewünschte Windows Server-Version suchen](https://support.microsoft.com/lifecycle).
+
+## <a name="windows-server-2019"></a>Windows Server 2019
+
+Wir empfehlen die Verwendung des [Speichermigrationsdiensts](../storage/storage-migration-service/overview.md) zum Migrieren von Dateiservern und Speicher zu Windows Server 2019 oder Windows Server 2016. Informationen zum Migrieren anderer Rollen findest du in der Anleitung für Windows Server 2016 und Windows Server 2012 R2.
+
 ## <a name="windows-server-2016"></a>Windows Server 2016
 
-### <a name="migration-guides"></a>Migrationshandbücher
-Derzeit werden aktualisierte Migrationshandbücher für Windows Server 2016 entwickelt. Wenn sie verfügbar sind, werden die Informationen in diesem Artikel entsprechend aktualisiert. In vielen Fällen sind die Schritte in den Windows Server 2012 R2-Migrationshandbüchern auch für Windows Server 2016 noch relevant.
+Hier findest du die Migrationshandbücher zu Windows Server 2016. Beachte, dass du in vielen Fällen auch die Migrationshandbücher für Windows Server 2012 R2 verwenden kannst.
 
 - [Remotedesktopdienste](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/migrate-rds-role-services)
 - [Webserver (IIS)](https://www.iis.net/downloads/microsoft/web-deploy)
 - [Windows Server Update Services](https://technet.microsoft.com/library/hh852339.aspx)
 - [MultiPoint Services](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/multipoint-services/multipoint-services-migrate)
- 
+
+Wir empfehlen die Verwendung des [Speichermigrationsdiensts](../storage/storage-migration-service/overview.md) zum Migrieren von Dateiservern zu Windows Server 2019 oder Windows Server 2016.
+
 ## <a name="windows-server-2012-r2"></a>Windows Server 2012 R2
 
-### <a name="migration-guides"></a>Migrationshandbücher
 Führe die Schritte in diesen Handbüchern aus, um Rollen und Features von Servern unter Windows Server 2003, Windows Server 2008, Windows Server 2008 R2, Windows Server 2012 oder Windows Server 2012 R2 zu Windows Server 2012 R2 zu migrieren. Windows Server-Migrationstools in Windows Server 2012 R2 unterstützen subnetzübergreifende Migrationen.
 
 - [Install, Use, and Remove Windows Server Migration Tools](https://technet.microsoft.com/library/jj134202.aspx) (Installieren, Verwenden und Entfernen von Windows Server-Migrationstools)
@@ -63,10 +62,11 @@ Führe die Schritte in diesen Handbüchern aus, um Rollen und Features von Serve
 - [Migrate Windows Server Update Services to Windows Server 2012 R2](https://technet.microsoft.com/library/hh852339.aspx) (Migrieren von Windows Server Update Services zu Windows Server 2012 R2)
 - [Migrate Cluster Roles to Windows Server 2012 R2](https://technet.microsoft.com/library/dn530779.aspx) (Migrieren von Clusterrollen zu Windows Server 2012 R2)
 - [Migrate DHCP Server to Windows Server 2012 R2](https://technet.microsoft.com/library/dn495425.aspx) (Migrieren eines DHCP-Servers zu Windows Server 2012 R2)
- 
+
+Es ist jetzt auch ein E-Book mit den Windows Server 2012 R2- und Windows Server 2012-Migrationshandbüchern verfügbar. Weitere Informationen findest du im [Katalog mit den E-Books für Technologie von Microsoft](https://social.technet.microsoft.com/wiki/contents/articles/11608.e-book-gallery-for-microsoft-technologies.aspx#MigrateRoles). Hier kannst du auch das E-Book herunterladen.
+
 ## <a name="windows-server-2012"></a>Windows Server 2012
 
-### <a name="migration-guides"></a>Migrationshandbücher
 Führe die Schritte in diesen Handbüchern aus, um Rollen und Features von Servern unter Windows Server 2003, Windows Server 2008, Windows Server 2008 R2 oder Windows Server 2012 zu Windows Server 2012 zu migrieren. Die Windows Server-Migrationstools in Windows Server 2012 unterstützen subnetzübergreifende Migrationen.
 
 - [Install, Use, and Remove Windows Server Migration Tools](https://technet.microsoft.com/library/jj134202) (Installieren, Verwenden und Entfernen von Windows Server-Migrationstools)
@@ -86,7 +86,6 @@ Weitere Ressourcen zur Migration findest du unter [Migrate Roles and Features to
 
 ## <a name="windows-server-2008-r2"></a>Windows Server 2008 R2
 
-### <a name="migration-guides"></a>Migrationshandbücher
 Führe die Schritte in diesen Handbüchern aus, um Rollen und Features von Servern unter Windows Server 2003, Windows Server 2008 oder Windows Server 2008 R2 zu Windows Server 2008 R2 zu migrieren. Die Windows Server-Migrationstools in Windows Server 2008 R2 unterstützen keine subnetzübergreifenden Migrationen.
 
 - [Windows Server Migration Tools Installation, Access, and Removal](https://technet.microsoft.com/library/dd379545) (Windows Server-Migrationstools: Installation, Zugriff und Entfernung)

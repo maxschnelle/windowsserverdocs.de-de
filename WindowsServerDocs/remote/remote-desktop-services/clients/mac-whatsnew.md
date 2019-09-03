@@ -1,5 +1,5 @@
 ---
-title: Neuerungen bei Remotedesktop auf Mac-Systemen
+title: Neues beim macOS-Client
 description: Hier erfährst du mehr über aktuelle Änderungen beim Remotedesktopclient für Mac.
 ms.custom: na
 ms.prod: windows-server-threshold
@@ -11,29 +11,49 @@ ms.topic: article
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.date: 04/29/2019
+ms.date: 08/27/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 6cfd8a6338d283b7ff42b091e686a31b044a6b7b
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 9ae58103b00941bb71d447641b1cdab7c02fa20b
+ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "65564763"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70151019"
 ---
-# <a name="whats-new-for-the-remote-desktop-client-on-macos"></a>Neuerungen beim Remotedesktopclient unter macOS
+# <a name="whats-new-in-the-macos-client"></a>Neues beim macOS-Client
 
 Der [Remotedesktopclient für macOS](remote-desktop-mac.md) wird regelmäßig mit neuen Features und Problembehebungen aktualisiert. Hier findest du die neuesten Updates.
 
 Bei Problemen kannst du dich jederzeit gern über **Hilfe > Problem melden** an uns wenden.
 
+## <a name="updates-for-version-1030"></a>Updates für Version 10.3.0
+*Veröffentlichungsdatum: 27.08.19*
+
+Seit der letzten Aktualisierung sind einige Wochen vergangen, aber wir haben in dieser Zeit hart gearbeitet. Version 10.3.0 bietet einige neue Features und viele Korrekturen hinter den Kulissen.
+
+ - Kameraumleitung ist jetzt möglich, wenn eine Verbindung mit Windows 10 1809, Windows Server 2019 und höher hergestellt wird.
+ - Für Mojave und Catalina haben wir ein neues Dialogfeld hinzugefügt,das deine Erlaubnis anfordert, wenn Geräteumleitung für Mikrofon und Kamera verwendet werden soll.
+ - Der Feed-Abonnementablauf wurde neu geschrieben und ist jetzt einfacher und schneller.
+ - Die Umleitung der Zwischenablage schließt jetzt das RTF-Format (Rich-Text) ein.
+ - Bei der Kennworteingabe hast du jetzt die Option, es mithilfe des Kontrollkästchens „Kennwort anzeigen“ anzuzeigen.
+ - Es wurden Szenarien berücksichtigt, bei denen das Sitzungsfenster zwischen Monitoren hin- und her wechselte.
+ - Im Connection Center werden Remote-App-Symbole in hoher Auflösung angezeigt (sofern verfügbar).
+ - BEFEHL+A ist STRG+A zugeordnet, wenn Tastenkombinationen der Mac-Zwischenablage verwendet werden.
+ - BEFEHL+R aktualisiert jetzt alle von dir abonnierten Feeds.
+ - Es wurden neue Optionen für sekundäre Klicks hinzugefügt, um alle Gruppen oder Feeds im Connection Center zu erweitern oder zu reduzieren.
+ - Es wurde eine neue Option für sekundäre Klicks hinzugefügt, um die Symbolgröße auf der Feeds-Registerkarte im Connection Center zu ändern.
+ - Ein neues, vereinfachtes und übersichtlicheres App-Symbol.
+
 ## <a name="updates-for-version-10213"></a>Updates für Version 10.2.13
+
 *Veröffentlichungsdatum: 8.5.2019*
 
 - Ein Problem mit einer Blockade beim Herstellen einer Verbindung über ein Remotedesktopgateway wurde behoben.
 - Dem Dialogfeld „Feed hinzufügen“ wurde ein Datenschutzhinweis hinzugefügt.
 
 ## <a name="updates-for-version-10212"></a>Updates für Version 10.2.12
-*Veröffentlichungsdatum: 16.4.2019* 
+
+*Veröffentlichungsdatum: 16.4.2019*
 
 - Ein Problem mit zufälligen Verbindungstrennungen (mit Fehlercode 0x904) wurde behoben, das beim Herstellen einer Verbindung über ein Remotedesktopgateway auftrat.
 - Ein Fehler wurde korrigiert, der zu einer leeren Auflösungsliste in den Anwendungseinstellungen nach einer Installation führte.
@@ -41,17 +61,20 @@ Bei Problemen kannst du dich jederzeit gern über **Hilfe > Problem melden** an 
 - Eine Schleife bei ADAL-Authentifizierungsaufforderungen wurde entfernt, die beim Herstellen einer Verbindung mit Bereitstellungen von virtuellen Windows-Desktops auftrat.
 
 ## <a name="updates-for-version-10210"></a>Updates für Version 10.2.10
+
 *Veröffentlichungsdatum: 30.3.2019*
 
 - In dieser Version haben wir eine Instabilität behoben, die durch ein kürzlich erfolgtes Update für macOS 10.14.4 verursacht wurde. Wir haben außerdem Darstellungsfehler bei der Decodierung von AVC-Codecdaten korrigiert, die von einem Server mit NVIDIA-Hardware codiert wurden.
 
 ## <a name="updates-for-version-1029"></a>Updates für Version 10.2.9
+
 *Veröffentlichungsdatum: 6.3.2019*
 
 - In dieser Version haben wir ein Konnektivitätsproblem beim Remotedesktopgateway behoben, das bei einer Serverumleitung auftreten kann.
 - Wir haben auch eine Regression beim Remotedesktopgateway korrigiert, die durch das Update für 10.2.8 verursacht wurde.
 
 ## <a name="updates-for-version-1028"></a>Updates für Version 10.2.8
+
 *Veröffentlichungsdatum: 1.3.2019*
 
 - Konnektivitätsprobleme wurden behoben, die beim Verwenden eines Remotedesktopgateways auftreten konnten.
@@ -61,11 +84,13 @@ Bei Problemen kannst du dich jederzeit gern über **Hilfe > Problem melden** an 
 - Ein Fehler wurde korrigiert, der dazu führte, dass das Connection Center beim Starten einer Verbindung unnötigerweise scrollt.
 
 ## <a name="updates-for-version-1027"></a>Updates für Version 10.2.7
+
 *Veröffentlichungsdatum: 6.2.2019*
 
 - In dieser Version haben wir (durch einen Codierungsfehler auf dem Server entstandene) Grafikfehler korrigiert, die bei Verwendung des AVC444-Modus auftraten.
 
 ## <a name="updates-for-version-1026"></a>Updates für Version 10.2.6
+
 *Veröffentlichungsdatum: 28.1.2019*
 
 - Wir haben Unterstützung für den AVC-Codec (420 und 444) hinzugefügt, der beim Herstellen einer Verbindung mit aktuellen Windows 10-Versionen verfügbar ist.
@@ -79,6 +104,7 @@ Bei Problemen kannst du dich jederzeit gern über **Hilfe > Problem melden** an 
 >In macOS 10.14.0 und 10.14.1 ist ein Fehler vorhanden, der dazu führen kann, dass der Ordner „.com.microsoft.rdc.application-data_SUPPORT/_EXTERNAL_DATA“ (der sich in einem Unterverzeichnis des Ordners „~/Library“ befindet) sehr viel Speicherplatz belegt. Um dieses Problem zu beheben, lösche die Inhalte dieses Ordners, und führe ein Upgrade auf macOS 10.14.2 durch. Beachte, dass beim Löschen von Ordnerinhalten auch Momentaufnahmenbilder gelöscht werden, die Lesezeichen zugewiesen sind. Diese Bilder werden erneut generiert, wenn erneut eine Verbindung mit dem Remote-PC hergestellt wird.
 
 ## <a name="updates-for-version-1024"></a>Updates für Version 10.2.4
+
 *Veröffentlichungsdatum: 18.12.2018*
 
 - Unterstützung für den dunklen Modus für macOS Mojave 10.14 wurde hinzugefügt.
@@ -90,6 +116,7 @@ Bei Problemen kannst du dich jederzeit gern über **Hilfe > Problem melden** an 
 - Das Scrollen mit der Maus in kleinen Scrollbereichen wurde verbessert.
 
 ## <a name="updates-for-version-1023"></a>Updates für Version 10.2.3
+
 *Veröffentlichungsdatum: 06.11.2018*
 
 - Unterstützung für die RDP-Dateieinstellung „remoteapplicationcmdline“ für Remote-App-Szenarien wurde hinzufügen.
@@ -100,11 +127,12 @@ Bei Problemen kannst du dich jederzeit gern über **Hilfe > Problem melden** an 
 - Die Anzeige von Remote-Apps mit Vollbildschirm wurde durch intelligentes Ausblenden von Menüleiste und Dock verbessert.
 - Szenarien wurden korrigiert, in denen Remote-Apps nach dem Start ausgeblendet blieben.
 - Langsame Renderingupdates bei Verwendung der Option „An Fenster anpassen“ mit deaktivierter Hardwarebeschleunigung wurden behoben.
-- Fehler bei der Datenbankerstellung wurden korrigiert, die durch falsche Berechtigungen beim Clientstart verursacht wurden. 
+- Fehler bei der Datenbankerstellung wurden korrigiert, die durch falsche Berechtigungen beim Clientstart verursacht wurden.
 - Ein Problem wurde behoben, bei dem bei einigen Benutzern der Client beim Start immer wieder abstürzte und nicht gestartet werden konnte.
 - Ein Szenario wurde korrigiert, bei dem Verbindungen fälschlicherweise im Vollbildmodus aus Remotedesktop 8 importiert wurden.
 
 ## <a name="updates-for-version-1022"></a>Updates für Version 10.2.2
+
 *Veröffentlichungsdatum: 09.10.2018*
 
 - Ein völlig neues Connection Center, das Drag & Drop-Vorgänge, die manuelle Gestaltung von Desktops, anpassbare Spalten im Listenansichtsmodus, spaltenbasiertes Sortieren und einfachere Gruppenverwaltung unterstützt.
@@ -133,12 +161,14 @@ Bei Problemen kannst du dich jederzeit gern über **Hilfe > Problem melden** an 
 - Ein Problem wurde behoben, das das Herunterladen von Feedressourcen mit Leerzeichen in der URL verhinderte.
 
 ## <a name="updates-for-version-1021"></a>Updates für Version 10.2.1
+
 *Veröffentlichungsdatum: 06.08.2018*
 
 - Konnektivität mit über Azure Active Directory (AAD) eingebundenen PCs wurde ermöglicht. Um eine Verbindung mit einem über AAD eingebundenen PC herzustellen, muss dein Benutzername in einem der folgenden Formate vorliegen: „AzureAD\Benutzer“ oder „AzureAD\user@domain“.
 - Einige Fehler wurden korrigiert, die sich auf die Verwendung von Smartcards in einer Remotesitzung auswirkten.
 
 ## <a name="updates-for-version-1020"></a>Updates für Version 10.2.0
+
 *Veröffentlichungsdatum: 24.7.2018*
 
 - Updates zum Zweck der Einhaltung der DSGVO wurden eingepflegt.
@@ -167,6 +197,7 @@ Bei Problemen kannst du dich jederzeit gern über **Hilfe > Problem melden** an 
 - Einige Ausrichtungsprobleme im Connection Center wurden behoben, die bei der Ausführung unter Mojave auftraten.
 
 ## <a name="updates-for-version-1018"></a>Updates für Version 10.1.8
+
 *Veröffentlichungsdatum: 4.5.2018*
 
 - Unterstützung für das Ändern der Remoteauflösung durch Ändern der Größe des Sitzungsfensters wurde hinzugefügt.
@@ -174,6 +205,7 @@ Bei Problemen kannst du dich jederzeit gern über **Hilfe > Problem melden** an 
 - Der 0x207-Fehler wurde korrigiert, der beim Herstellen einer Verbindung mit Servern auftreten konnte, die nicht mit dem CredSSP-Update für „Encryption Oracle Remediation“ (CVE-2018-0886) gepatcht sind.
 
 ## <a name="updates-for-version-1017"></a>Updates für Version 10.1.7
+
 *Veröffentlichungsdatum: 5.4.2018*
 
 - Sicherheitsfixes zur Einbindung von CredSSP-Updates für „Encryption Oracle Remediation“, wie in CVE-2018-0886 beschrieben.
@@ -185,8 +217,9 @@ Bei Problemen kannst du dich jederzeit gern über **Hilfe > Problem melden** an 
 - Die Fenster „Connection Center“, „Einstellungen“ und „Info“ reagieren jetzt auf BEFEHLSTASTE+M.
 - Du kannst mit dem Erkunden von Feeds beginnen, indem du auf der Seite **Remoteressourcen hinzufügen** die EINGABETASTE drückst.
 - Ein Fehler wurde behoben, der dazu führte, dass ein neuer Remoteressourcenfeed im Connection Center leer war, bis die Anzeige aktualisiert wurde.
- 
+
 ## <a name="updates-for-version-1016"></a>Updates für Version 10.1.6
+
 *Veröffentlichungsdatum: 26.3.2018*
 
 - Ein Problem wurde behoben, bei dem RemoteApp-Fenster sich selbst neu anordneten.

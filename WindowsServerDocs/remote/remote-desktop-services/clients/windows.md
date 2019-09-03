@@ -1,6 +1,6 @@
 ---
-title: Erste Schritte mit Remotedesktop unter Windows
-description: Enthält grundlegende Einrichtungsschritte für den Remotedesktopclient für Windows.
+title: Erste Schritte mit dem Windows Store-Client
+description: Enthält grundlegende Einrichtungsschritte für den Remotedesktopclient für Windows Store.
 ms.custom: na
 ms.prod: windows-server-threshold
 ms.reviewer: na
@@ -12,18 +12,18 @@ ms.assetid: 64f038e1-40ec-4c67-938b-72edea49e5d8
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.date: 05/07/2018
+ms.date: 08/27/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: b2141a6a57629ccbb585b2f74c581eba5ba2b1b1
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 03927cd531617c6e0c9572fc4ce74768e10bc66a
+ms.sourcegitcommit: 51eaab0f860312d97293fd90f3e632e7caee3df1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66446682"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70150933"
 ---
-# <a name="get-started-with-remote-desktop-on-windows"></a>Erste Schritte mit Remotedesktop unter Windows
+# <a name="get-started-with-the-windows-store-client"></a>Erste Schritte mit dem Windows Store-Client
 
->Gilt für: Windows 10, Windows 8.1, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2
+>Gilt für: Windows 10
 
 Du kannst den Remotedesktopclient für Windows verwenden, um Windows-Apps und -Desktops über ein anderes Windows-Gerät per Remotezugriff zu nutzen.
 
@@ -69,16 +69,16 @@ Musst du diese Einstellungen bearbeiten? Tippe auf das Überlaufmenü ( **...** 
 Möchtest du die Verbindung löschen? Tippe erneut auf das Überlaufmenü ( **...** ) und dann auf **Entfernen**.
 
 ### <a name="add-a-remote-resource"></a>Hinzufügen einer Remoteressource
+
 Bei Remoteressourcen handelt es sich um RemoteApp-Programme, sitzungsbasierte Desktops und virtuelle Desktops, die mithilfe von Remotedesktopdiensten von deinem Administrator veröffentlicht werden.
 
 Gehe wie folgt vor, um eine Remoteressource hinzuzufügen:
 
-1. Tippe auf dem Bildschirm „Connection Center“ auf **+ Hinzufügen** und dann auf **Remoteressourcen**. 
+1. Tippe auf dem Bildschirm „Connection Center“ auf **+ Hinzufügen** und dann auf **Remoteressourcen**.
 2. Gib die **Feed-URL** ein, die du von deinem Administrator erhalten hast, und tippe auf **Find feeds** (Feeds suchen).
 3. Gib bei entsprechender Aufforderung die Anmeldeinformationen an, die zum Abonnieren des Feeds verwendet werden sollen.
 
 Die Remoteressourcen werden im Connection Center angezeigt.
-
 
 Gehe wie folgt vor, um Remoteressourcen zu löschen:
 
@@ -93,14 +93,14 @@ Jetzt kannst du die Remotedesktopverbindung direkt über das Startmenü starten,
 
 ## <a name="connect-to-an-rd-gateway-to-access-internal-assets"></a>Herstellen einer Verbindung mit einem Remotedesktopgateway zum Zugreifen auf interne Ressourcen
 
-Mit einem Remotedesktopgateway (RD-Gateway) kannst du eine Verbindung mit einem Remotecomputer in einem Unternehmensnetzwerk über das Internet herstellen. Du kannst deine Gateways mit dem Remotedesktopclient erstellen und verwalten.
+Mit einem Remotedesktopgateway (RD-Gateway) können Sie eine Verbindung mit einem Remotecomputer in einem Unternehmensnetzwerk über das Internet herstellen. Sie können Ihre Gateways mit dem Remotedesktopclient erstellen und verwalten.
 
 Gehe wie folgt vor, um ein neues Gateway einzurichten:
 
 1. Tippe im Connection Center auf **Einstellungen**.
 2. Tippe neben dem Gateway auf **+** , um ein neues Gateway hinzuzufügen. Hinweis: Ein Gateway kann auch beim Hinzufügen einer neuen Verbindung hinzugefügt werden.
 3. Gib die folgenden Informationen ein:
-   - **Servername**: Der Name des Computers, den du als Gateway verwenden möchtest. Dies kann der Name eines Windows-Computers, ein Internetdomänenname oder eine IP-Adresse sein. Du kannst dem Servernamen auch Portinformationen hinzufügen (z. B. **RDGateway:443** oder **10.0.0.1:443**).
+   - **Servername**: Der Name des Computers, den Sie als Gateway verwenden möchten. Dies kann der Name eines Windows-Computers, ein Internetdomänenname oder eine IP-Adresse sein. Sie können dem Servernamen auch Portinformationen hinzufügen (z. B.: **RDGateway:443** oder **10.0.0.1:443**).
    - **Benutzerkonto**: Wähle ein Benutzerkonto für das Remotedesktopgateway aus (bzw. füge es hinzu), mit dem du eine Verbindung herstellst. Du kannst auch die Option **Desktopbenutzerkonto verwenden** wählen, damit die gleichen Anmeldeinformationen wie für die Remotedesktopverbindung verwendet werden.
 4. Tippe auf **Speichern**.  
 
@@ -109,11 +109,13 @@ Gehe wie folgt vor, um ein neues Gateway einzurichten:
 Du kannst die folgenden globalen Einstellungen in deinem Client festlegen, indem du auf **Einstellungen** tippst:
 
 VERWALTETE ELEMENTE
+
 - **Benutzerkonto**: Ermöglicht das Hinzufügen, Bearbeiten und Löschen von auf dem Client gespeicherten Benutzerkonten. Dies ist eine gute Möglichkeit, das Kennwort für ein Konto zu aktualisieren, nachdem es geändert wurde.
 - **Gateway**: Ermöglicht das Hinzufügen, Bearbeiten und Löschen von auf dem Client gespeicherten Gatewayservern.
 - **Gruppe**: Ermöglicht das Hinzufügen, Bearbeiten und Löschen von auf dem Client gespeicherten Gruppen. Diese werden zum einfachen Gruppieren von Verbindungen genutzt.
 
 SITZUNGSEINSTELLUNGEN
+
 - **Start connections in full screen** (Verbindungen im Vollbildmodus starten): Wenn diese Option aktiviert ist, verwendet der Client bei jedem Verbindungsstart den gesamten Bildschirm des aktuellen Monitors.
 - **Start each connection in a new window** (Jede Verbindung in einem neuen Fenster starten): Wenn diese Option aktiviert ist, wird jede Verbindung in einem neuen Fenster gestartet. Du kannst sie auf unterschiedlichen Monitoren anordnen und über die Taskleiste dazwischen umschalten.
 - **When resizing the app** (Beim Ändern der App-Größe): Ermöglicht die Steuerung der Vorgänge, die beim Ändern der Größe des Clientfensters ablaufen. Standardmäßig ist **Stretch the content, preserving aspect ratio** (Inhalt strecken, Seitenverhältnis beibehalten) festgelegt.
@@ -121,6 +123,7 @@ SITZUNGSEINSTELLUNGEN
 - **Prevent the screen from timing out** (Timeout für Bildschirm verhindern): Ermöglicht die Verhinderung eines Timeouts, wenn eine Sitzung aktiv ist. Dies ist hilfreich, wenn für die Verbindung keine Interaktionen von längerer Dauer benötigt werden.
 
 APP-EINSTELLUNGEN
+
 - **Show Desktop Previews** (Desktopvorschauen anzeigen): Mit dieser Option kannst du eine Vorschau des Desktops im Connection Center anzeigen, bevor du eine Verbindung damit herstellst. Diese Option ist standardmäßig auf **Ein** festgelegt.
 - **Help improve Remote Desktop** (Zur Verbesserung von Remotedesktop beitragen): Sendet anonyme Daten an Microsoft. Wir verwenden diese Daten, um den Client zu verbessern. Weitere Informationen dazu, wie wir mit diesen anonymen privaten Daten umgehen, findest du unter [Datenschutzerklärung von Microsoft](https://privacy.microsoft.com/en-us/privacystatement). Diese Einstellung ist standardmäßig auf **Ein** festgelegt.
 
@@ -159,7 +162,7 @@ Wenn du eine Remotedesktopverbindung startest, stehen Tools zur Verfügung, die 
 Die Verbindungsleiste ermöglicht den Zugriff auf zusätzliche Navigationssteuerelemente. Standardmäßig befindet sich die Verbindungsleiste in der Mitte am oberen Rand des Bildschirms. Tippe auf die Leiste, und ziehe sie nach links oder rechts, um sie zu verschieben.
 
 - **Schwenken-Steuerelement**: Mit dem Schwenken-Steuerelement kann der Bildschirm vergrößert und verschoben werden. Beachte, dass das Schwenken-Steuerelement nur auf touchfähigen Geräten verfügbar ist und dass der Modus für die direkte Toucheingabe verwendet wird.
-   - Aktivieren/Deaktivieren des Schwenken-Steuerelements: Tippe auf der Verbindungsleiste auf das Schwenksymbol, um das Schwenken-Steuerelement anzuzeigen und den Bildschirm zu vergrößern. Tippe auf der Verbindungsleiste erneut auf das Schwenksymbol, um das Steuerelement auszublenden und die ursprüngliche Auflösung des Bildschirms wiederherzustellen.
+   - Aktivieren/Deaktivieren des Schwenken-Steuerelements: Tippen Sie auf der Verbindungsleiste auf das Schwenksymbol, um das Schwenken-Steuerelement anzuzeigen und den Bildschirm zu vergrößern. Tippe auf der Verbindungsleiste erneut auf das Schwenksymbol, um das Steuerelement auszublenden und die ursprüngliche Auflösung des Bildschirms wiederherzustellen.
    - Verwenden des Schwenken-Steuerelements: Tippe auf das Schwenken-Steuerelement, halte es gedrückt, und ziehe es dann in die Richtung, in der du den Bildschirm verschieben möchtest.
    - Verschieben des Schwenken-Steuerelements: Doppeltippe auf das Schwenken-Steuerelement, und halte es gedrückt, um es auf dem Bildschirm zu verschieben.
 - **Zusätzliche Optionen**: Tippe auf das Symbol für zusätzliche Optionen, um die Auswahl- und die Befehlsleiste (siehe unten) der Sitzung anzuzeigen.
@@ -181,18 +184,19 @@ Tippe auf der Verbindungsleiste auf **...** , um die Befehlsleiste rechts auf de
 ### <a name="use-direct-touch-gestures-and-mouse-modes-in-a-remote-session"></a>Verwenden von Gesten für die direkte Toucheingabe und Mausmodi in einer Remotesitzung
 
 Für die Interaktion mit der Sitzung sind zwei Mausmodi verfügbar.
+
 - **Direkte Toucheingabe**: Alle Berührungen werden an die Sitzung übergeben, damit sie remote interpretiert werden können.
   - Dies entspricht der Nutzung von Windows mit einem Touchscreen.
 - **Mauszeiger**: Wandelt deinen lokalen Touchscreen in ein großes Touchpad um, damit ein Mauszeiger in der Sitzung verschoben werden kann.
   - Dies entspricht der Nutzung von Windows mit einem Touchpad.
 
 > [!NOTE]
-> Bei der Interaktion mit Windows 8 oder höher werden die nativen Touchgesten im Modus für die direkte Toucheingabe unterstützt. 
+> Bei der Interaktion mit Windows 8 oder höher werden die nativen Touchgesten im Modus für die direkte Touchbewegung unterstützt.
 
 | Mausmodus    | Mausvorgang      | Geste                                                               |
 |---------------|----------------------|-----------------------------------------------------------------------|
-| Direkte Toucheingabe  | Linksklick           | Mit einem Finger tippen                                                          |
-| Direkte Toucheingabe  | Rechtsklick          | Mit einem Finger tippen und halten                                                 |
+| Direkte Touchbewegung  | Linksklick           | Mit einem Finger tippen                                                          |
+| Direkte Touchbewegung  | Rechtsklick          | Mit einem Finger tippen und halten                                                 |
 | Mauszeiger | Linksklick           | Mit einem Finger tippen                                                          |
 | Mauszeiger | Linksklick und ziehen  | Mit einem Finger doppeltippen und halten, dann ziehen                               |
 | Mauszeiger | Rechtsklick          | Mit zwei Fingern tippen                                                          |
@@ -201,4 +205,4 @@ Für die Interaktion mit der Sitzung sind zwei Mausmodi verfügbar.
 | Mauszeiger | Zoom                 | Zwei Finger zusammenführen, um die Ansicht zu vergrößern, oder auseinander, um sie zu verkleinern. |
 
 > [!TIP]
-> Fragen und Kommentare sind immer willkommen. Nutze aber NICHT die Kommentarfunktion am Ende dieses Artikels, um Hilfe bei der Problembehandlung anzufordern. Verwende stattdessen das [Remotedesktopclient-Forum](https://social.technet.microsoft.com/forums/windowsserver/en-us/home?forum=winrdc), und erstelle einen neuen Thread. Hast du einen Vorschlag für ein Feature? Teile uns den Vorschlag über den [Feedback-Hub](feedback-hub://?tabid=2&contextid=605) mit.
+> Fragen und Kommentare sind immer willkommen. Verwenden Sie jedoch NICHT die Kommentarfunktion am Ende dieses Artikels, um Hilfe bei der Problembehandlung anzufordern. Verwenden Sie stattdessen das [Remotedesktopclient-Forum](https://social.technet.microsoft.com/forums/windowsserver/en-us/home?forum=winrdc), und erstellen Sie einen neuen Thread. Hast du einen Vorschlag für ein Feature? Teile uns den Vorschlag über den [Feedback-Hub](feedback-hub://?tabid=2&contextid=605) mit.
