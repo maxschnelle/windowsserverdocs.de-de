@@ -1,6 +1,6 @@
 ---
-title: Konfigurieren der Verschlüsselung für ein virtuelles Netzwerk
-description: Verschlüsselung des virtuellen Netzwerks ermöglicht die Verschlüsselung der virtuellen Netzwerkdatenverkehr zwischen virtuellen Computern, die miteinander kommunizieren, in Subnetzen, die als "Verschlüsselung aktiviert."
+title: Konfigurieren der Verschlüsselung für eine Virtual Network
+description: Die Verschlüsselung virtueller Netzwerke ermöglicht die Verschlüsselung des Datenverkehrs von virtuellen Netzwerken zwischen virtuellen Computern, die in Subnetzen, die als "Verschlüsselung aktiviert" gekennzeichnet sind, miteinander kommunizieren.
 manager: brianlic
 ms.prod: windows-server-threshold
 ms.technology: networking-hv-switch
@@ -9,35 +9,35 @@ ms.assetid: 378213f5-2d59-4c9b-9607-1fc83f8072f1
 ms.author: pashort
 author: shortpatti
 ms.date: 08/08/2018
-ms.openlocfilehash: d2c09c83a227c5a75ff5b1b39b2ef6d1286bbfc8
-ms.sourcegitcommit: cd12ace92e7251daaa4e9fabf1d8418632879d38
+ms.openlocfilehash: 1d61748e4cc5eac2d656e61c1f1ecc30dfe8672c
+ms.sourcegitcommit: f3b61dcd8aa0aa744db4ea938aac633c19217b0a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66501564"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70746320"
 ---
 # <a name="configure-encryption-for-a-virtual-subnet"></a>Konfigurieren der Verschlüsselung für ein virtuelles Subnetz
 
 >Gilt für: Windows Server
 
-Verschlüsselung des virtuellen Netzwerks können für die Verschlüsselung von virtuellen Netzwerkdatenverkehr zwischen virtuellen Computern, die in Subnetzen, die als "Verschlüsselung aktiviert." gekennzeichnet miteinander kommunizieren Es nutzt auch Datagram Transport Layer Security (DTLS) im virtuellen Subnetz, um Pakete zu verschlüsseln. DTLS schützt vor Abhörversuchen, Manipulation und Fälschung durch jeden, der Zugriff auf das physische Netzwerk hat.
+Die Verschlüsselung virtueller Netzwerke ermöglicht die Verschlüsselung des Datenverkehrs von virtuellen Netzwerken zwischen virtuellen Computern, die in Subnetzen, die als "Verschlüsselung aktiviert" gekennzeichnet sind, miteinander kommunizieren. Es nutzt auch Datagram Transport Layer Security (DTLS) im virtuellen Subnetz, um Pakete zu verschlüsseln. DTLS schützt vor Abhörversuchen, Manipulation und Fälschung durch jeden, der Zugriff auf das physische Netzwerk hat.
 
-Verschlüsselung für virtuelle Netzwerke sind erforderlich:
-- Verschlüsselungszertifikate, die auf jedem der SDN-fähige Hyper-V-Hosts installiert werden.
-- Ein Objekt mit Anmeldeinformationen in den Netzwerkcontroller verweisen auf den Fingerabdruck des Zertifikats.
-- Konfiguration auf alle virtuellen Netzwerke enthalten, Subnetze, die Verschlüsselung erforderlich ist.
+Die Verschlüsselung virtueller Netzwerke erfordert Folgendes:
+- Auf jedem der Sdn-aktivierten Hyper-V-Hosts sind Verschlüsselungs Zertifikate installiert.
+- Ein Anmelde Informationen-Objekt im Netzwerk Controller, das auf den Fingerabdruck des Zertifikats verweist.
+- Die Konfiguration der einzelnen virtuellen Netzwerke enthält Subnetze, für die eine Verschlüsselung erforderlich ist.
 
-Nach Aktivieren der Verschlüsselung in einem Subnetz wird neben jeder Verschlüsselung auf Anwendungsebene, die auch ausgeführt werden kann, automatisch alle Netzwerkdatenverkehr innerhalb dieses Subnetzes verschlüsselt.  Datenverkehr, der zwischen Subnetzen, überschreitet, auch wenn markiert als verschlüsselte, wird automatisch unverschlüsselt gesendet. Jeglicher Datenverkehr, der die Begrenzung des virtuellen Netzwerks überschreitet, ruft auch unverschlüsselt gesendet.
+Wenn Sie die Verschlüsselung in einem Subnetz aktivieren, wird der gesamte Netzwerk Datenverkehr in diesem Subnetz zusätzlich zu sämtlichen Verschlüsselung auf Anwendungsebene, die möglicherweise auch stattfindet, automatisch verschlüsselt.  Datenverkehr zwischen Subnetzen, auch wenn Sie als verschlüsselt gekennzeichnet ist, wird automatisch unverschlüsselt gesendet. Sämtlicher Datenverkehr, der die Grenze des virtuellen Netzwerks überschreitet, wird auch unverschlüsselt gesendet.
 
 >[!NOTE]
->Bei der Kommunikation mit einem anderen virtuellen Computer im gleichen Subnetz, ob die derzeit verbundene oder zu einem späteren Zeitpunkt, den Datenverkehr verbundene ruft automatisch verschlüsselt.
+>Bei der Kommunikation mit einem anderen virtuellen Computer im gleichen Subnetz, unabhängig davon, ob er zu einem späteren Zeitpunkt verbunden oder verbunden ist, wird der Datenverkehr automatisch verschlüsselt.
 
 >[!TIP]
->Wenn Sie nur im Subnetz verschlüsselte Kommunikation zwischen Anwendungen einschränken müssen, können Sie die Zugriffssteuerungslisten (ACLs) verwenden, nur um die Kommunikation im aktuellen Subnetz zuzulassen. Weitere Informationen finden Sie unter [verwenden Zugriffssteuerungslisten (ACLs) zum Verwalten von Datencenter-Netzwerk fließt der Datenverkehr](https://docs.microsoft.com/windows-server/networking/sdn/manage/use-acls-for-traffic-flow).
+>Wenn Sie Anwendungen darauf beschränken müssen, nur im verschlüsselten Subnetz zu kommunizieren, können Sie Access Control Listen (ACLs) nur verwenden, um die Kommunikation innerhalb des aktuellen Subnetzes zuzulassen. Weitere Informationen finden [Sie unter Verwenden von Access Control Listen (ACLs) zum Verwalten des Netzwerk Datenverkehrs Flusses des Daten](https://docs.microsoft.com/windows-server/networking/sdn/manage/use-acls-for-traffic-flow)Centers.
 
 
-## <a name="step-1-create-the-encryption-certificate"></a>Schritt 1 Erstellen Sie das Verschlüsselungszertifikat
-Jeder Host muss ein Verschlüsselungszertifikat installiert haben. Sie können verwenden das gleiche Zertifikat für alle Mandanten oder generieren ein eindeutiges Element für jeden Mandanten. 
+## <a name="step-1-create-the-encryption-certificate"></a>Schritt 1 Erstellen des Verschlüsselungs Zertifikats
+Auf jedem Host muss ein Verschlüsselungs Zertifikat installiert sein. Sie können das gleiche Zertifikat für alle Mandanten verwenden oder für jeden Mandanten ein eindeutiges Zertifikat generieren. 
 
 1.  Generieren des Zertifikats  
 
@@ -95,7 +95,7 @@ Jeder Host muss ein Verschlüsselungszertifikat installiert haben. Sie können v
     $enrollment.InstallResponse(2, $certdata, 0, "")
 ```
 
-Nachdem das Skript ausgeführt, ein neues Zertifikat angezeigt wird, der My-Zertifikatspeicher:
+Nach dem Ausführen des Skripts wird im eigenen Speicher ein neues Zertifikat angezeigt:
 
     PS D:\> dir cert:\\localmachine\my
 
@@ -107,7 +107,7 @@ Nachdem das Skript ausgeführt, ein neues Zertifikat angezeigt wird, der My-Zert
     84857CBBE7A1C851A80AE22391EB2C39BF820CE7  CN=MyNetwork
     5EFF2CE51EACA82408572A56AE1A9BCC7E0843C6  CN=EncryptedVirtualNetworks
 
-2. Exportieren des Zertifikats in eine Datei an.<p>Sie benötigen zwei Kopien des Zertifikats, mit dem privaten Schlüssel und eine ohne.
+2. Exportieren Sie das Zertifikat in eine Datei.<p>Sie benötigen zwei Kopien des Zertifikats, eines mit dem privaten Schlüssel und eines ohne.
 
 ```
    $subjectName = "EncryptedVirtualNetworks"
@@ -116,9 +116,9 @@ Nachdem das Skript ausgeführt, ein neues Zertifikat angezeigt wird, der My-Zert
    Export-Certificate -Type CERT -FilePath "c:\$subjectName.cer" -cert $cert
 ```
 
-3. Installieren Sie die Zertifikate auf jedem hyper-V-Hosts 
+3. Installieren Sie die Zertifikate auf den einzelnen Hyper-v-Hosts. 
 
-   PS: C:\> Dir c:\$subjectname.*
+   PS c:\> dir c:\$subjetname. *
 
 
 ~~~
@@ -131,7 +131,7 @@ Mode                LastWriteTime         Length Name
 -a----        9/22/2017   4:54 PM           1706 EncryptedVirtualNetworks.pfx
 ~~~
 
-4. Installieren auf einem Hyper-V-host
+4. Installieren von auf einem Hyper-V-Host
 
 ```
    $server = "Server01"
@@ -171,11 +171,11 @@ Mode                LastWriteTime         Length Name
    }
 ```
 
-5. Wiederholen Sie für jeden Server in Ihrer Umgebung.<p>Nach dem für jeden Server wiederholen, benötigen Sie ein Zertifikat in den Stammseiten und my-Zertifikatspeicher der einzelnen Hyper-V-Hosts installiert. 
+5. Wiederholen Sie diesen Vorgang für jeden Server in Ihrer Umgebung.<p>Wenn Sie sich für jeden Server wiederholen, sollten Sie über ein Zertifikat verfügen, das im Stammverzeichnis und im Speicher jedes Hyper-V-Hosts installiert ist. 
 
-6. Überprüfen Sie die Installation des Zertifikats ein.<p>Überprüfen Sie die Zertifikate den Inhalt der meine und die Stamm-Zertifikatsspeicher:
+6. Überprüfen Sie die Installation des Zertifikats.<p>Überprüfen Sie die Zertifikate, indem Sie den Inhalt des Zertifikats "My" und "root" überprüfen:
 
-   PS C:\> Geben Sie-Pssession-Server1
+   PS C:\> Enter-PSSession Server1
 
 ~~~
 [Server1]: PS C:\> get-childitem cert://localmachine/my,cert://localmachine/root | ? {$_.Subject -eq "CN=EncryptedVirtualNetworks"}
@@ -194,13 +194,13 @@ Thumbprint                                Subject
 5EFF2CE51EACA82408572A56AE1A9BCC7E0843C6  CN=EncryptedVirtualNetworks
 ~~~
 
-7. Notieren Sie den Fingerabdruck.<p>Sie müssen sich den Fingerabdruck, Sie brauchen ihn zum Erstellen des Zertifikat-Credential-Objekts im Netzwerkcontroller.
+7. Notieren Sie sich den Fingerabdruck.<p>Sie müssen den Fingerabdruck notieren, da Sie ihn benötigen, um das Zertifikat Anmelde Informationen-Objekt im Netzwerk Controller zu erstellen.
 
-## <a name="step-2-create-the-certificate-credential"></a>Schritt 2 Erstellen Sie die Zertifikatanmeldeinformationen
+## <a name="step-2-create-the-certificate-credential"></a>Schritt 2 Erstellen der Zertifikat Anmelde Informationen
 
-Nach der Installation des Zertifikats auf jedem Hyper-V-Host mit Netzwerkcontroller verbunden, müssen Sie jetzt den Netzwerkcontroller für dessen Verwendung konfigurieren.  Zu diesem Zweck müssen Sie ein Anmeldeinformationsobjekt mit den Fingerabdruck des Zertifikats auf dem Computer mit der installierten Network Controller PowerShell-Module erstellen. 
+Nachdem Sie das Zertifikat auf allen Hyper-V-Hosts installiert haben, die mit dem Netzwerk Controller verbunden sind, müssen Sie den Netzwerk Controller jetzt für die Verwendung konfigurieren.  Zu diesem Zweck müssen Sie ein Anmelde Informationsobjekt erstellen, das den Zertifikat Fingerabdruck des Computers enthält, auf dem die PowerShell-Module für den Netzwerk Controller installiert sind. 
 
-
+```
     # Replace with thumbprint from your certificate
     $thumbprint = "5EFF2CE51EACA82408572A56AE1A9BCC7E0843C6"  
 
@@ -213,36 +213,37 @@ Nach der Installation des Zertifikats auf jedem Hyper-V-Host mit Netzwerkcontrol
     $credproperties.Type = "X509Certificate"
     $credproperties.Value = $thumbprint
     New-networkcontrollercredential -connectionuri $uri -resourceid "EncryptedNetworkCertificate" -properties $credproperties -force
-
+```
 >[!TIP]
->Sie können diese Anmeldeinformationen für jede verschlüsselte virtuelle Netzwerk wiederverwenden, oder Sie bereitstellen und ein eindeutiges Zertifikat für jeden Mandanten verwenden können.
+>Sie können diese Anmelde Informationen für jedes verschlüsselte virtuelle Netzwerk wieder verwenden, oder Sie können ein eindeutiges Zertifikat für jeden Mandanten bereitstellen und verwenden.
 
 
-## <a name="step-3-configuring-a-virtual-network-for-encryption"></a>Schritt 3 Konfigurieren eines virtuellen Netzwerks für die Verschlüsselung
+## <a name="step-3-configuring-a-virtual-network-for-encryption"></a>Schritt 3 Konfigurieren einer Virtual Network für die Verschlüsselung
 
-Dieser Schritt setzt voraus, Sie haben bereits einen virtuellen Netzwerknamen "My Network" erstellt und enthält mindestens ein virtuelles Subnetz.  Informationen zum Erstellen von virtueller Netzwerks finden Sie unter [erstellen, löschen oder aktualisieren virtueller Mandantennetzwerke](../Manage/Create,-Delete,-or-Update-Tenant-Virtual-Networks.md).
+Bei diesem Schritt wird davon ausgegangen, dass Sie bereits einen virtuellen Netzwerknamen "Mein Netzwerk" erstellt haben und mindestens ein virtuelles Subnetz enthält.  Weitere Informationen zum Erstellen virtueller Netzwerke finden Sie unter [erstellen, löschen oder Aktualisieren von virtuellen Mandanten Netzwerken](../Manage/Create,-Delete,-or-Update-Tenant-Virtual-Networks.md).
 
 >[!NOTE]
->Bei der Kommunikation mit einem anderen virtuellen Computer im gleichen Subnetz, ob die derzeit verbundene oder zu einem späteren Zeitpunkt, den Datenverkehr verbundene ruft automatisch verschlüsselt.
+>Bei der Kommunikation mit einem anderen virtuellen Computer im gleichen Subnetz, unabhängig davon, ob er zu einem späteren Zeitpunkt verbunden oder verbunden ist, wird der Datenverkehr automatisch verschlüsselt.
 
-1.  Das virtuelle Netzwerk und die Anmeldeinformationen-Objekte aus dem Netzwerkcontroller abrufen
-
-    $vnet = Get-NetworkControllerVirtualNetwork -ConnectionUri $uri -ResourceId "MyNetwork" $certcred = Get-NetworkControllerCredential -ConnectionUri $uri -ResourceId "EncryptedNetworkCertificate"
-
-2.  Hinzufügen eines Verweises auf das Zertifikat für die Anmeldeinformationen ein, und Aktivieren der Verschlüsselung in einzelnen Subnetzen
-
+1.  Abrufen der Virtual Network-und Anmelde Informationsobjekte vom Netzwerk Controller
+```
+    $vnet = Get-NetworkControllerVirtualNetwork -ConnectionUri $uri -ResourceId "MyNetwork"
+    $certcred = Get-NetworkControllerCredential -ConnectionUri $uri -ResourceId "EncryptedNetworkCertificate"
+```
+2.  Fügen Sie einen Verweis auf die Zertifikat Anmelde Informationen hinzu, und aktivieren Sie die Verschlüsselung in einzelnen Subnetzen.
+```
     $vnet.properties.EncryptionCredential = $certcred
 
-    # <a name="replace-the-subnets-index-with-the-value-corresponding-to-the-subnet-you-want-encrypted"></a>Ersetzen Sie den Index für die Subnetze, durch den Wert für das Subnetz, die verschlüsselt werden sollen.  
-    # <a name="repeat-for-each-subnet-where-encryption-is-needed"></a>Wiederholen Sie für jedes Subnetz, in denen Verschlüsselung erforderlich ist
+    # Replace the Subnets index with the value corresponding to the subnet you want encrypted.  
+    # Repeat for each subnet where encryption is needed
     $vnet.properties.Subnets[0].properties.EncryptionEnabled = $true
-
-3.  Fügen Sie das aktualisierte virtuelle Netzwerkobjekt in den Netzwerkcontroller
-
+```
+3.  Versetzen Sie das aktualisierte Virtual Network Objekt in den Netzwerk Controller.
+```
     New-NetworkControllerVirtualNetwork -ConnectionUri $uri -ResourceId $vnet.ResourceId -Properties $vnet.Properties -force
+```
 
-
-_**Herzlichen Glückwunsch!** _ Sie sind fertig, nachdem Sie diese Schritte abgeschlossen haben. 
+_**Gratul!**_ Nachdem Sie diese Schritte ausgeführt haben, sind Sie fertig. 
 
 
 ## <a name="next-steps"></a>Nächste Schritte
