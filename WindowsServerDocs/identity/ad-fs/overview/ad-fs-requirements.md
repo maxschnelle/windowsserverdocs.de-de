@@ -1,7 +1,7 @@
 ---
 ms.assetid: 28f4a518-1341-4a10-8a4e-5f84625b314b
 title: Anforderungen für AD FS 2016
-description: Die softwareanforderungen zum Installieren von Active Directory Federation Services.
+description: Anforderungen für die Installation von Active Directory-Verbunddienste (AD FS).
 author: billmath
 ms.author: billmath
 manager: mtillman
@@ -9,236 +9,236 @@ ms.date: 03/06/2018
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 1e72556f9a630e188b59722e09650f9e48fb6852
-ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
+ms.openlocfilehash: c330b5f65b2862628fd23e288c95e81653da5c5b
+ms.sourcegitcommit: 4fa147d552481d8279a5390f458a9f7788061977
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67280469"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70009077"
 ---
 # <a name="ad-fs-requirements"></a>AD FS-Anforderungen
 
 
 
-Es folgen die Anforderungen für die Bereitstellung von AD FS:  
+Nachfolgend sind die Anforderungen für die Bereitstellung von AD FS aufgeführt:  
   
 -   [Zertifikatanforderungen](ad-fs-requirements.md#BKMK_1)  
   
 -   [Hardwareanforderungen](ad-fs-requirements.md#BKMK_2)  
   
--   [Proxyanforderungen](ad-fs-requirements.md#BKMK_3)  
+-   [Proxy Anforderungen](ad-fs-requirements.md#BKMK_3)  
   
--   [AD DS-Anforderungen](ad-fs-requirements.md#BKMK_4)  
+-   [AD DS Anforderungen](ad-fs-requirements.md#BKMK_4)  
   
--   [Anforderungen an die Datenbank](ad-fs-requirements.md#BKMK_5)  
+-   [Anforderungen an die Konfigurations Datenbank](ad-fs-requirements.md#BKMK_5)  
   
--   [Browseranforderungen](ad-fs-requirements.md#BKMK_6)  
+-   [Browser Anforderungen](ad-fs-requirements.md#BKMK_6)  
 
--   [Netzwerkanforderungen](ad-fs-requirements.md#BKMK_7)  
+-   [Netzwerk Anforderungen](ad-fs-requirements.md#BKMK_7)  
   
--   [Erforderliche Berechtigungen](ad-fs-requirements.md#BKMK_13)  
+-   [Berechtigungsanforderungen](ad-fs-requirements.md#BKMK_13)  
   
-## <a name="BKMK_1"></a>Zertifikatanforderungen  
+## <a name="BKMK_1"></a>Zertifikat Anforderungen  
   
 ### <a name="ssl-certificates"></a>SSL-Zertifikate
 
-Jedem AD FS- und Webanwendungsproxy-Server hat ein SSL-Zertifikat für HTTPS-dienstanforderungen für den Verbunddienst an.  Die Web Application Proxy haben zusätzliche SSL-Zertifikate, Anforderungen an die veröffentlichte Anwendungen.
+Jeder AD FS und webanwendungsproxy-Server verfügt über ein SSL-Zertifikat für die HTTPS-Anforderungen an den Verbund Dienst.  Der webanwendungsproxy kann über zusätzliche SSL-Zertifikate verfügen, um Anforderungen an veröffentlichte Anwendungen zu bedienen.
 
-**Empfehlung:** Verwenden Sie dasselbe SSL-Zertifikat für alle AD FS-Verbundserver und Webanwendung Proxys ein. 
+**Sonder** Verwenden Sie das gleiche SSL-Zertifikat für alle AD FS Verbund Server und webanwendungsproxys. 
 
-**Anforderungen:**
+**Bedingungen**
 
-SSL-Zertifikate auf Verbundservern müssen die folgenden Anforderungen erfüllen.
-- Das Zertifikat ist öffentlich vertrauenswürdig (für Bereitstellungen in der Produktion)
-- Zertifikat enthält den Wert Server Authentication erweiterten Schlüsselverwendung (EKU)
-- Zertifikat enthält den Namen des Verbunddiensts, z. B. "fs.contoso.com" im Betreff oder alternativen Antragstellernamen (SAN)
-- Für die Authentifizierung mit Benutzerzertifikat an Port 443 ist "Certauth das Zertifikat enthält. \<verbunddienstname\>", wie z. B."certauth.fs.contoso.com"im SAN
-- Für die geräteregistrierung oder für die moderne Authentifizierung auf lokale Ressourcen Prä-Windows 10-Clients verwenden darf die SAN "Enterpriseregistration. \<Upn-Suffix\>"für jede UPN-Suffix in Ihrer Organisation verwendet werden soll.
+SSL-Zertifikate auf Verbund Servern müssen die folgenden Anforderungen erfüllen:
+- Zertifikat ist öffentlich vertrauenswürdig (für Produktions Bereitstellungen)
+- Das Zertifikat enthält den EKU-Wert (Enhanced Key Usage) für die Server Authentifizierung.
+- Das Zertifikat enthält den Verbund Dienstnamen, z. b. "FS.contoso.com" im Betreff oder alternativen Antragsteller Namen (San).
+- Für die Benutzerzertifikat Authentifizierung auf Port 443 enthält das Zertifikat "certauth. Verbund Dienst Name\>", z. b." certauth.fs.contoso.com "im San \<
+- Für die Geräteregistrierung oder die moderne Authentifizierung bei lokalen Ressourcen mithilfe von Clients vor Windows 10 muss das San "enterpriseregistration" enthalten. UPN-\>Suffix "für jedes UPN-Suffix, das in Ihrer Organisation verwendet wird. \<
 
-SSL-Zertifikate auf den Webanwendungsproxy müssen die folgenden Anforderungen erfüllen.
-- Wenn der Proxy, um verwendet wird müssen AD FS-Proxy für Anforderungen, die integrierte Windows-Authentifizierung, die SSL-Zertifikat verwenden identisch sein (verwenden Sie den gleichen Schlüssel) als Verbund-Server SSL-Zertifikat
-- Wenn die AD FS-Eigenschaft, die "ExtendedProtectionTokenCheck" ist (die Standardeinstellung bei AD FS) aktiviert, muss die SSL-Zertifikat identisch sein (verwenden Sie den gleichen Schlüssel) als Verbund-Server SSL-Zertifikat
-- Andernfalls sind die Anforderungen für die SSL-Zertifikat identisch mit denen für den Verbund SSL-Zertifikat
+SSL-Zertifikate auf dem webanwendungsproxy müssen die folgenden Anforderungen erfüllen:
+- Wenn der Proxy für die Proxy AD FS Anforderungen verwendet wird, die die integrierte Windows-Authentifizierung verwenden, muss das Proxy-SSL-Zertifikat mit dem SSL-Zertifikat des Verbund Servers identisch sein (verwenden Sie denselben Schlüssel).
+- Wenn die AD FS-Eigenschaft "extendedschutztokencheck" aktiviert ist (die Standardeinstellung in AD FS), muss das Proxy-SSL-Zertifikat mit dem SSL-Zertifikat des Verbund Servers identisch sein (verwenden Sie denselben Schlüssel).
+- Andernfalls sind die Anforderungen für das Proxy-SSL-Zertifikat identisch mit denen für das SSL-Zertifikat des Verbund Servers.
 
-### <a name="service-communication-certificate"></a>Dienstkommunikationszertifikat
-Dieses Zertifikat ist nicht erforderlich, für die meisten AD FS-Szenarien einschließlich der Azure AD und Office 365. Standardmäßig konfiguriert AD FS das SSL-Zertifikat, das nach der Erstkonfiguration als das dienstkommunikationszertifikat bereitgestellt.
+### <a name="service-communication-certificate"></a>Dienst Kommunikations Zertifikat
+Dieses Zertifikat ist für die meisten AD FS Szenarien, einschließlich Azure AD und Office 365, nicht erforderlich. Standardmäßig konfiguriert AD FS das bei der Erstkonfiguration bereitgestellte SSL-Zertifikat als Dienst Kommunikations Zertifikat.
 
-**Empfehlung:**
-- Verwenden Sie das gleiche Zertifikat, wie Sie für SSL verwenden.  
+**Sonder**
+- Verwenden Sie das Zertifikat, das Sie für SSL verwenden.  
 
 ### <a name="token-signing-certificate"></a>Tokensignaturzertifikat
-Dieses Zertifikat wird zum Signieren von ausgestellter Tokens für vertrauende Seiten, damit Anwendungen der vertrauenden Seite, dass das Zertifikat erkennen müssen und die dazugehörigen Schlüssel als bekannten und vertrauenswürdigen verwendet. Wenn das token Signieren Zertifikats ändert sich, wie z. B. wenn er abläuft, und Sie ein neues Zertifikat konfigurieren, müssen alle vertrauende Seiten aktualisiert werden.
+Dieses Zertifikat wird zum Signieren von ausgestellten Token an vertrauende Seiten verwendet, damit Anwendungen der vertrauenden Seite das Zertifikat erkennen und den Schlüssel wie bekannt und vertrauenswürdig erhalten. Wenn sich das Tokensignaturzertifikat ändert (z. b. wenn es abläuft und Sie ein neues Zertifikat konfigurieren), müssen alle vertrauenden Seiten aktualisiert werden.
 
-**Empfehlung:** Verwenden Sie die AD FS-Standard, der intern generierte, selbstsignierte Token-Signaturzertifikate.  
+**Sonder** Verwenden Sie die AD FS standardmäßig generierten, selbst signierten Tokensignaturzertifikate.  
 
-**Anforderungen:**
-- Wenn Ihre Organisation erfordert, dass die Zertifikate aus dem Unternehmens-PKI für die Tokensignatur verwendet werden, dies ist möglich mit dem Cmdlet Install-AdfsFarm SigningCertificateThumbprint-Parameter.
-- Ob Sie standardmäßig intern generierte Zertifikate verwenden oder extern registrierte Zertifikate, wenn Sie das Tokensignaturzertifikat geändert wird müssen Sie sicherstellen, dass alle vertrauende Seiten mit den neuen Zertifikatsinformationen aktualisiert werden.  Andernfalls schlägt fehl Anmeldungen für alle vertrauenden Seiten, die nicht aktualisiert.
+**Bedingungen**
+- Wenn Ihre Organisation erfordert, dass Zertifikate aus der Unternehmens-PKI für die Tokensignierung verwendet werden, kann dies mit dem Parameter signingcertifikatethumbprint des Cmdlets install-adfsfarm erfolgen.
+- Unabhängig davon, ob Sie die standardmäßigen intern generierten Zertifikate oder extern registrierte Zertifikate verwenden, müssen Sie beim Ändern des Tokensignaturzertifikats sicherstellen, dass alle vertrauenden Seiten mit den neuen Zertifikat Informationen aktualisiert werden.  Andernfalls können Anmeldungen bei nicht aktualisierten vertrauenden Seiten fehlschlagen.
 
-### <a name="token-encryptingdecrypting-certificate"></a>Verschlüsseln/Tokenentschlüsselungszertifikat
-Dieses Zertifikat wird von Anspruchsanbietern verwendet, die mit AD FS ausgestellte Token zu verschlüsseln.
+### <a name="token-encryptingdecrypting-certificate"></a>Zertifikatverschlüsselungs-/Entschlüsselungszertifikat
+Dieses Zertifikat wird von Anspruchs Anbietern verwendet, die Token verschlüsseln, die für AD FS ausgestellt wurden.
 
-**Empfehlung:** Verwenden Sie die AD FS-Standard, der intern generierte, selbstsignierte tokenentschlüsselungszertifikaten.  
+**Sonder** Verwenden Sie die AD FS standardmäßig generierten, selbst signierten tokenentschlüsselungszertifikate.  
 
-**Anforderungen:**
-- Wenn Ihre Organisation erfordert, dass die Zertifikate aus dem Unternehmens-PKI für die Tokensignatur verwendet werden, dies ist möglich mit dem Cmdlet Install-AdfsFarm DecryptingCertificateThumbprint-Parameter.
-- Ob Sie standardmäßig intern generierte Zertifikate verwenden oder extern registrierte Zertifikate, wenn das Token, das Zertifikat zu entschlüsseln, die Sie geändert wird müssen Sie sicherstellen, dass alle Anspruchsanbietern mit den neuen Zertifikatsinformationen aktualisiert werden.  Andernfalls schlägt fehl Anmeldungen mithilfe einer Anspruchsanbieter-Anbieter, die nicht aktualisiert.
+**Bedingungen**
+- Wenn Ihre Organisation erfordert, dass Zertifikate aus der Unternehmens-PKI für die Tokensignierung verwendet werden, können Sie dies mithilfe des Parameters decryptingcertifigatethumbprint des Cmdlets install-adfsfarm durcharbeiten.
+- Unabhängig davon, ob Sie die standardmäßig generierten Zertifikate oder extern registrierten Zertifikate verwenden, müssen Sie, wenn das tokenentschlüsselungszertifikat geändert wird, sicherstellen, dass alle Anspruchs Anbieter mit den neuen Zertifikat Informationen aktualisiert werden.  Andernfalls tritt bei Anmeldungen, die keine aktualisierten Anspruchs Anbieter verwenden, ein Fehler auf.
   
 > [!CAUTION]  
-> Zertifikate, die für Token verwendet werden\-signier- und token\-entschlüsseln\/Verschlüsselung sind entscheidend, um die Stabilität des Verbunddiensts. Kunden verwalten ihre eigenen Token\-Signierung & token\-entschlüsseln\/Verschlüsselungszertifikate sorgen dafür, dass diese Zertifikate gesichert werden und sind unabhängig voneinander während eines Ereignisses für die Wiederherstellung verfügbar.  
+> Zertifikate, die für die Tokensignatur\-und die\/tokenentschlüsselungsverschlüsselung\-verwendet werden, sind wichtig für die Stabilität der Verbunddienst. Kunden, die ihre eigene\-Tokensignatur\-& Token zum\/Entschlüsseln verschlüsselter Zertifikate verwalten, sollten sicherstellen, dass diese Zertifikate gesichert werden und während eines Wiederherstellungs Ereignisses unabhängig verfügbar sind.  
 
 ### <a name="user-certificates"></a>Benutzerzertifikate
-- Wenn Sie X509 verwenden, die Authentifizierung mit Benutzerzertifikat mit AD FS, Zertifikate für alle Benutzer mit einer Stammzertifizierungsstelle verkettet muss, die durch die AD FS- und Webanwendungsproxy-Server als vertrauenswürdig eingestuft wird.
+- Bei Verwendung der x. 509-Benutzerzertifikat Authentifizierung mit AD FS müssen alle Benutzerzertifikate an eine Stamm Zertifizierungsstelle verkettet sein, die von den AD FS und webanwendungsproxy-Servern als vertrauenswürdig eingestuft wird
 
-## <a name="BKMK_2"></a>Hardwareanforderungen  
-AD FS und Webanwendungsproxy hardwareanforderungen (physisch oder virtuell) sind auf CPU, gated-damit Sie die Größe der Farm für die Verarbeitung von Kapazität sollte.  
-- Verwenden der [AD FS 2016 Kapazitätsplanung Arbeitsblatt](http://adfsdocs.blob.core.windows.net/adfs/ADFSCapacity2016.xlsx) um zu bestimmen, die Anzahl der AD FS- und Webanwendungsproxy-Server Sie benötigen.
+## <a name="BKMK_2"></a>Hardware Anforderungen  
+AD FS-und webanwendungsproxy-Hardwareanforderungen (physisch oder virtuell) werden auf der CPU-Größe abgegrenzt, sodass Sie die Größe Ihrer Farm für die Verarbeitungskapazität  
+- Verwenden Sie das Arbeitsblatt " [Kapazitätsplanung für AD FS 2016](http://adfsdocs.blob.core.windows.net/adfs/ADFSCapacity2016.xlsx) ", um die Anzahl der benötigten AD FS und webanwendungsproxy-Server zu ermitteln
 
-Die Anforderungen für Arbeitsspeicher- und speicherplatzanforderungen für AD FS relativ statisch sind, finden Sie in der folgenden Tabelle:
+Die Arbeitsspeicher-und Datenträger Anforderungen für AD FS sind recht statisch. Weitere Informationen finden Sie in der folgenden Tabelle:
 
 
-|**Hardwareanforderung**|**Mindestanforderung**|**Empfehlung**|
+|**Hardware Anforderung**|**Mindestanforderung**|**Empfohlene Anforderung**|
 |----- | ----- |-----|
 |RAM|2 GB|4 GB |
-|Speicherplatz|32 GB|100 GB |
+|Speicherplatz|32 GB|100 GB |
 
-**SQL Server-Hardware-Anforderungen**
+**SQL Server Hardware Anforderungen**
 
-Wenn Sie SQL Server für die AD FS-Konfigurationsdatenbank verwenden, die Größe der SQL Server entsprechend den Empfehlungen für die meisten grundlegenden SQL Server.  Die Größe der AD FS-Datenbank ist sehr klein wird, und AD FS keine erhebliche Verarbeitungslast auf die Datenbank-Instanz.  AD FS der Fall ist, jedoch Herstellen einer Verbindung mit der Datenbank mehrere Male während der Authentifizierung, die Netzwerkverbindung stabil sein sollte.  Leider ist SQL Azure, für die AD FS-Konfigurationsdatenbank nicht unterstützt.
+Wenn Sie SQL Server für die AD FS Konfigurations Datenbank verwenden, können Sie die SQL Server entsprechend den grundlegendsten SQL Server Empfehlungen anpassen.  Die AD FS-Datenbankgröße ist sehr klein, und AD FS führt nicht zu einer erheblichen Verarbeitungs Last für die Daten Bank Instanz.  AD FS stellt jedoch während einer Authentifizierung mehrmals eine Verbindung mit der Datenbank her, sodass die Netzwerkverbindung robust sein sollte.  Leider wird SQL Azure für die AD FS Konfigurations Datenbank nicht unterstützt.
   
-## <a name="BKMK_3"></a>Proxyanforderungen  
+## <a name="BKMK_3"></a>Proxy Anforderungen  
   
--   Für den Extranetzugriff, müssen Sie die Webanwendungsproxy-Rollendienst bereitstellen \- Teil der Serverrolle "Remotezugriff". 
+-   Für den Extranetzugriff müssen Sie den webanwendungsproxy-Rollen Dienst \- Teil der Remote Zugriffs-Server Rolle bereitstellen. 
 
--   Unterstützung von Drittanbieter-Proxys müssen die [MS-ADFSPIP Protokoll](https://msdn.microsoft.com/library/dn392811.aspx) als AD FS-Proxy unterstützt werden müssen.  Eine Liste der 3rd Party Anbietern finden Sie unter den [– häufig gestellte Fragen](AD-FS-FAQ.md#what-third-party-proxies-are-available-for-ad-fs-that-support-ms-adfspip).
+-   Proxys von Drittanbietern müssen das [MS-adfspip-Protokoll](https://msdn.microsoft.com/library/dn392811.aspx) unterstützen, um als AD FS Proxy unterstützt zu werden.  Eine Liste von Drittanbietern finden Sie [in den häufig](AD-FS-FAQ.md)gestellten Fragen.
 
--   AD FS 2016 ist die Webanwendungsproxy-Server unter Windows Server 2016 erforderlich.  Ein Downlevel-Proxy kann nicht für eine der verhaltensebene 2016-Farm mit AD FS 2016-Farm konfiguriert werden.
+-   AD FS 2016 erfordert webanwendungsproxy-Server unter Windows Server 2016.  Ein downlevelproxy kann nicht für eine AD FS 2016-Farm konfiguriert werden, die auf der 2016-Farm Verhaltensebene ausgeführt wird.
   
--   Verbundserver und den Webanwendungsproxy-Rollendienst können nicht auf demselben Computer installiert werden.  
+-   Ein Verbund Server und der webanwendungsproxy-Rollen Dienst können nicht auf demselben Computer installiert werden.  
   
-## <a name="BKMK_4"></a>AD DS-Anforderungen  
-**Anforderungen an den Domänencontroller**  
+## <a name="BKMK_4"></a>AD DS Anforderungen  
+**Domänen Controller Anforderungen**  
   
-- AD FS erfordert Domänencontroller mit WindowsServer 2008 oder höher.
+- AD FS erfordert Domänen Controller, auf denen Windows Server 2008 oder höher ausgeführt wird.
 
-- Mindestens ein Windows Server 2016-Domänencontroller ist erforderlich, damit Microsoft Passport for Work.
+- Mindestens ein Windows Server 2016-Domänen Controller ist für Microsoft Passport for Work erforderlich.
   
 > [!NOTE]  
-> Alle Unterstützung für Umgebungen mit Windows Server 2003-Domänencontrollern wurde beendet. Besuchen Sie [auf dieser Seite](https://support.microsoft.com/lifecycle/search/default.aspx?sort=PN&alpha=Windows+Server+2003&Filter=FilterNO) für Weitere Informationen zu den Microsoft Support-Lebenszyklus.  
+> Die Unterstützung für Umgebungen mit Windows Server 2003-Domänen Controllern wurde beendet. Besuchen Sie [Diese Seite](https://support.microsoft.com/lifecycle/search/default.aspx?sort=PN&alpha=Windows+Server+2003&Filter=FilterNO) , um weitere Informationen zum Microsoft-Support Lebenszyklus zu erhalten.  
   
-**Domänenfunktionsebene\-Anforderungen**  
+**Anforderungen an\-die Domänen Funktionsebene**  
   
- - Alle Domänen-Benutzerkonten und die Domäne, die mit der AD FS-Servern verknüpft sind, müssen auf die Domänenfunktionsebene von Windows Server 2003 oder höher ausgeführt werden.  
+ - Alle Benutzerkonto Domänen und die Domäne, der die AD FS Server beitreten, müssen auf der Domänen Funktionsebene von Windows Server 2003 oder höher ausgeführt werden.  
   
- - Ein Windows Server 2008-Domänenfunktionsebene ist oder höher für die Authentifizierung per Clientzertifikat erforderlich, wenn das Zertifikat explizit einem Benutzerkonto in AD DS zugeordnet ist.  
+ - Eine Windows Server 2008-Domänen Funktionsebene oder höher ist für die Client Zertifikat Authentifizierung erforderlich, wenn das Zertifikat in AD DS explizit einem Benutzerkonto zugeordnet ist.  
   
-**Schemaanforderungen**  
+**Schema Anforderungen**  
   
--   Neue Installationen von AD FS 2016 müssen das Active Directory-2016-Schema (Mindestversion 85).
+-   Neue Installationen von AD FS 2016 erfordern das Active Directory 2016-Schema (mindestens Version 85).
 
--   Auslösen von AD FS-Farm Verhalten-Ebene (FBL) auf 2016 ist erforderlich, das Active Directory-2016-Schema (Mindestversion 85).  
+-   Für das Erhöhen des AD FS-Farm Verhaltens Level (FBL) auf die 2016-Ebene ist das Active Directory 2016-Schema erforderlich (mindestens Version 85).  
 
   
-**Anforderungen an das Dienstkonto**  
+**Dienst Kontoanforderungen**  
   
--   Alle standard-Domänenkonto als Dienstkonto für AD FS dienen. Verwaltete gruppendienstkonten werden ebenfalls unterstützt. Die Berechtigungen, die zur Laufzeit erforderlich werden automatisch hinzugefügt werden, wenn Sie AD FS konfigurieren.
+-   Jedes Standard Domänen Konto kann als Dienst Konto für AD FS verwendet werden. Gruppen verwaltete Dienst Konten werden ebenfalls unterstützt. Die zur Laufzeit erforderlichen Berechtigungen werden automatisch hinzugefügt, wenn Sie AD FS konfigurieren.
 
--   Das Zuweisen von Benutzerrechten für das AD-Dienstkonto erforderlich sind, wird "Anmelden als Dienst"
+-   Die für das AD-Dienst Konto erforderliche Zuweisung von Benutzerrechten ist "Anmelden als Dienst".
 
--   Das Zuweisen von Benutzerrechten für die 'NT Service\adfssrv' und "NT Service\drs" erforderlich sind, "Sicherheitsüberprüfung generieren" und "Anmelden als Dienst".
+-   Die für "NT service\adf" und "NT service\drs" erforderlichen Benutzerrechte Zuweisungen sind "Generieren von Sicherheits Überwachungen" und "Anmelden als Dienst".
 
--   Gruppe verwaltete Dienstkonten müssen mindestens einen Domänencontroller unter WindowsServer 2012 oder höher.  Das gruppenverwaltete Dienstkonto muss sind, unter der Standardwert "CN = Managed Service Accounts-Container.  
+-   Gruppen verwaltete Dienst Konten erfordern mindestens einen Domänen Controller, auf dem Windows Server 2012 oder höher ausgeführt wird.  Das GMSA muss sich im Standardcontainer "CN = Managed Service Accounts" befinden.  
 
--   Für die Kerberos-Authentifizierung, Service principal Name "`HOST/<adfs\_service\_name>`" muss auf dem AD FS-Dienstkonto registriert werden. Standardmäßig werden AD FS dies konfigurieren, wenn eine neue AD FS-Farm erstellen.  Wenn dies fehlschlägt, wie z. B. bei einem Konflikt oder keine ausreichenden Berechtigungen, sehen Sie eine Warnung, und sollten Sie sie manuell hinzufügen.  
+-   Bei der Kerberos-Authentifizierung muss der Dienst Prinzipal Name "`HOST/<adfs\_service\_name>`" für das AD FS Dienst Konto registriert sein. Standardmäßig konfiguriert AD FS dies, wenn eine neue AD FS Farm erstellt wird.  Wenn dies nicht möglich ist (z. b. bei einem Konflikt oder bei unzureichenden Berechtigungen), wird eine Warnung angezeigt, und Sie sollten Sie manuell hinzufügen.  
    
-**Domänenanforderungen**  
+**Domänen Anforderungen**  
   
--   Alle AD FS-Server müssen zu einer AD DS-Domäne eingebunden sein.  
+-   Alle AD FS Server müssen einer AD DS Domäne beitreten.  
   
--   Alle AD FS-Server innerhalb einer Farm müssen in der gleichen Domäne bereitgestellt werden.  
+-   Alle AD FS Server innerhalb einer Farm müssen in derselben Domäne bereitgestellt werden.  
    
 **Anforderungen für mehrere Gesamtstrukturen**  
   
--   Jede Domäne oder Gesamtstruktur, die Benutzer, die Authentifizierung bei AD FS-Diensts enthält, muss die Domäne, die mit der AD FS-Servern verknüpft sind vertrauen.  
+-   Die Domäne, der die AD FS Server beitreten, muss jede Domäne oder Gesamtstruktur vertrauen, die Benutzer enthält, die sich für den AD FS-Dienst authentifizieren.  
 
--   Die Gesamtstruktur, der die AD FS-Dienstkonto Mitglied ist, muss alle Gesamtstrukturen für die Anmeldung von Benutzer vertrauen. 
+-   Die Gesamtstruktur, in der das AD FS-Dienst Konto Mitglied ist, muss allen Benutzer Anmelde-Gesamtstrukturen vertrauen. 
   
--   Das AD FS-Dienstkonto benötigen Berechtigungen zum Lesen von Benutzerattributen in jeder Domäne, die enthält, Benutzer zu authentifizieren, um AD FS-Diensts.  
+-   Das AD FS-Dienst Konto muss über Berechtigungen zum Lesen von Benutzer Attributen in jeder Domäne verfügen, die Benutzer enthält, die sich für den AD FS-Dienst authentifizieren.  
   
-## <a name="BKMK_5"></a>Anforderungen an die Datenbank  
-Dieser Abschnitt beschreibt die Anforderungen und Einschränkungen für AD FS-Farmen, die die Windows Internal Database (WID) oder SQL Server wie die Datenbank verwenden:  
+## <a name="BKMK_5"></a>Anforderungen an die Konfigurations Datenbank  
+In diesem Abschnitt werden die Anforderungen und Einschränkungen für AD FS Farmen beschrieben, die die interne Windows-Datenbank (WID) oder SQL Server als Datenbank verwenden:  
   
 **WID**  
   
--   Das Artefakt Auflösung-Profil des SAML 2.0 wird in einer WID-Farm nicht unterstützt.    
+-   Das artefaktauflösungs Profil von SAML 2,0 wird in einer wid-Farm nicht unterstützt.    
 
--   Erkennung von tokenwiederholungen ist eine WID-Farm unterstützt. (Diese Funktion wird nur nur in Szenarien, in dem AD FS fungiert als verbundanbieter ist, und Nutzen von Sicherheitstoken von externen Anspruchsanbietern, verwendet.)  
+-   Die Erkennung von tokenwiedergabe wird in einer wid-Farm nicht unterstützt (Diese Funktion wird nur in Szenarien verwendet, in denen AD FS als Verbund Anbieter fungiert und Sicherheits Token von externen Anspruchs Anbietern beansprucht.)  
   
-Die folgende Tabelle enthält einen Überblick darüber, wie viele AD FS-Server unterstützt in einer WID-Visual Studio eine SQL Server-Farm.    
+Die folgende Tabelle enthält eine Zusammenfassung der Anzahl von AD FS Servern, die in einer wid-oder einer SQL Server Farm unterstützt werden.    
   
   
-|| 1 - 100, die vertrauenden Seite (Relying Party, RP) Vertrauensstellungen in AD FS konfiguriert | Mehr als 100 RP-Vertrauensstellungen konfiguriert  |
+|| 1-100 in AD FS konfigurierte Vertrauens Stellungen der vertrauenden Seite (RP) | Mehr als 100 RP-Vertrauens Stellungen konfiguriert  |
 | --- |--- | --- |
-|1-30 AD FS-Server|WID unterstützt|Nicht unterstützt, mit WID - SQL-Server, die erforderlich sind |
-|Mehr als 30 AD FS-Server|Nicht unterstützt, mit WID - SQL-Server, die erforderlich sind|Nicht unterstützt, mit WID - SQL-Server, die erforderlich sind  
+|1-30 AD FS Server|Unterstützt wid|Nicht unterstützt mit wid-SQL Server erforderlich |
+|Mehr als 30 AD FS Server|Nicht unterstützt mit wid-SQL Server erforderlich|Nicht unterstützt mit wid-SQL Server erforderlich  
   
 **SQL Server**  
   
-- Für AD FS unter Windows Server 2016 werden SQL Server 2008 und höheren Versionen unterstützt.
+- Für AD FS in Windows Server 2016 werden SQL Server 2008 und höhere Versionen unterstützt.
 
-- Sowohl die SAML-artefaktauflösung als auch die Erkennung einer tokenmehrfachverwendung werden in einer SQL Server-Farm unterstützt.  
+- Die SAML-artefaktauflösung und die Erkennung von tokenwiedergabe werden in einer SQL Server-Farm unterstützt.  
   
-## <a name="BKMK_6"></a>Browseranforderungen  
-Wenn AD FS-Authentifizierung über einen Browser bzw. ein Webbrowser-Steuerelement ausgeführt wird, muss Ihr Browser die folgenden Anforderungen erfüllt werden:  
+## <a name="BKMK_6"></a>Browser Anforderungen  
+Wenn AD FS Authentifizierung über ein Browser-oder Browser-Steuerelement ausgeführt wird, muss der Browser die folgenden Anforderungen erfüllen:  
   
 - JavaScript muss aktiviert sein  
   
-- Für einmaliges Anmelden muss der Clientbrowser konfiguriert werden Cookies zulassen  
+- Für einmaliges Anmelden muss der Client Browser so konfiguriert sein, dass Cookies zulässig sind.  
   
-- Server Name Indication \(SNI\) unterstützt werden müssen  
+- Servernamensanzeige \(SNI\) muss unterstützt werden.  
   
-- Für die Benutzer-Zertifikat & ät Zertifikatauthentifizierung muss der Browser unterstützt SSL-Clientzertifikatauthentifizierung  
+- Bei der Authentifizierung von Benutzer Zertifikaten & Geräte Zertifikaten muss der Browser SSL-Client Zertifikat Authentifizierung unterstützen.  
 
-- Für die nahtlose Anmeldung mithilfe der integrierten Windows-Authentifizierung, dem Namen des Verbunddiensts (z. B. Https:\/\/"FS.contoso.com") muss in der lokalen Intranetzone oder der Zone vertrauenswürdiger Sites konfiguriert sein.
-  ## <a name="BKMK_7"></a>Netzwerkanforderungen  
+- Für eine nahtlose Anmeldung mithilfe der integrierten Windows-Authentifizierung muss der Verbund Dienst Name (z.\/b. https:\/FS.contoso.com) in der Zone "Lokales Intranet" oder "Vertrauenswürdige Sites" konfiguriert werden.
+  ## <a name="BKMK_7"></a>Netzwerk Anforderungen  
  
 **Firewallanforderungen**  
   
-Sowohl die Firewall zwischen Webanwendungsproxy und der Verbundserverfarm und der Firewall zwischen den Clients und des Webanwendungsproxys müssen TCP-Port 443 aktiviert eingehende.  
+Sowohl für die Firewall zwischen dem webanwendungsproxy als auch der Verbund Serverfarm und der Firewall zwischen den Clients und dem webanwendungsproxy muss der TCP-Port 443 in eingehender Richtung aktiviert sein.  
   
-Darüber hinaus, wenn der Clientbenutzer-Zertifikatauthentifizierung \(ClientTLS-Authentifizierung mit X509 Benutzerzertifikate\) ist erforderlich, und die Certauth-Endpunkt an Port 443 ist nicht aktiviert, AD FS 2016 erfordert, dass TCP-Port 49443 verwendet eingehende Daten Sie in der Firewall zwischen den Clients und des Webanwendungsproxys. Dies ist nicht erforderlich, in der Firewall zwischen dem Webanwendungsproxy und den Verbundservern\). 
+Wenn außerdem die \(clienttls-Authentifizierung des Client Benutzer Zertifikats mit X509-Benutzer\) Zertifikaten erforderlich ist und der certauth-Endpunkt an Port 443 nicht aktiviert ist, erfordert AD FS 2016, dass TCP-Port 49443 aktiviert ist. eingehende Daten in der Firewall zwischen den Clients und dem webanwendungsproxy. Dies ist für die Firewall zwischen dem webanwendungsproxy und den Verbund\)Servern nicht erforderlich. 
 
-Weitere Informationen zur Hybrid-Ports finden Sie unter [Hybrid Identity Ports und Protokolle](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-ports). 
+Weitere Informationen zu den Anforderungen an Hybrid Anschlüsse finden Sie unter [hybride identitätsports und-Protokolle](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-ports). 
 
-Weitere Informationen finden Sie [bewährte Methoden zum Schützen von Active Directory Federation Services](../deployment/Best-Practices-Securing-AD-FS.md)
+Weitere Informationen finden Sie unter [bewährte Methoden für das Sichern Active Directory-Verbunddienste (AD FS)](../deployment/Best-Practices-Securing-AD-FS.md)
   
 **DNS-Anforderungen**  
   
--   Für den Intranetzugriff, alle Clients, die Zugriff auf AD FS-Dienst im internen Unternehmensnetzwerk \(Intranet\) muss in der Lage, den AD FS-Dienstnamen für den Load Balancer für die AD FS-Server oder dem AD FS-Server aufzulösen.  
+-   Für den Intranetzugriff\) müssen alle Clients, die auf AD FS Dienst \(innerhalb des internen Unternehmensnetzwerks zugreifen, in der Lage sein, den AD FS Dienstnamen in den Load Balancer für die AD FS Server oder den AD FS Server aufzulösen.  
   
--   Für den Extranetzugriff, alle Clients, die Zugriff auf AD FS-Diensts über außerhalb des Unternehmensnetzwerks \(extranet\/Internet\) muss der AD FS-Dienstname in der Load Balancer für den Webanwendungsproxy-Servern aufgelöst werden oder der Webanwendungsproxy-Server.  
+-   Für den Extranetzugriff müssen alle Clients, die von außerhalb des Unternehmens \(Netzwerks extranetinternet\/\) auf AD FS-Dienst zugreifen, den AD FS Dienstnamen in den Load Balancer für die webanwendungsproxy-Server auflösen können. der webanwendungsproxy-Server.  
   
--   Jedem Webanwendungsproxy-Server in der DMZ muss AD FS-Dienstnamen in der Load Balancer für den AD FS-Servern oder AD FS-Servers auflösen können. Dies kann erreicht werden, verwenden einen alternativen DNS-Server in der DMZ-Netzwerk oder lokalen Server Auflösung mithilfe der HOSTS-Datei ändern.  
+-   Jeder webanwendungsproxy-Server in der DMZ muss in der Lage sein, AD FS Dienstnamen in den Load Balancer für die AD FS-Server oder den AD FS-Server aufzulösen. Dies kann mithilfe eines alternativen DNS-Servers im DMZ-Netzwerk oder durch Ändern der Auflösung des lokalen Servers mithilfe der Hosts-Datei erreicht werden.  
   
--   Für integrierte Windows-Authentifizierung, müssen Sie einen DNS-A-Eintrag verwenden \(nicht CNAME\) für den Namen des Verbunddiensts.  
+-   Bei der integrierten Windows-Authentifizierung müssen Sie einen DNS a- \(Datensatz für den\) Verbund Dienstnamen verwenden, der nicht CNAME ist.  
 
--   Für die Authentifizierung mit Benutzerzertifikat an Port 443 "Certauth. \<verbunddienstname\>"muss im DNS zum Auflösen in den Verbund-Server oder Web-Anwendungsproxy konfiguriert werden.
+-   Für die Benutzerzertifikat Authentifizierung an Port 443, "certauth. der Verbund Dienst\>Name muss in DNS für die Auflösung auf den Verbund Server oder webanwendungsproxy konfiguriert werden. \<
 
--   Für die geräteregistrierung oder für die moderne Authentifizierung zu lokalen Ressourcen mithilfe der Prä-Windows 10-Clients "Enterpriseregistration. \<Upn-Suffix\>", für jede UPN-Suffix verwendet, die in Ihrer Organisation muss konfiguriert werden, um in den Verbund-Server oder Web-Anwendungsproxy aufzulösen.
+-   Zur Geräteregistrierung oder zur modernen Authentifizierung bei lokalen Ressourcen mithilfe von Windows 10-Clients vor Windows 10, "enterpriseregistration". UPN-\>Suffix: muss für jedes UPN-Suffix, das in Ihrer Organisation verwendet wird, so konfiguriert werden, dass es auf den Verbund Server oder webanwendungsproxy aufgelöst wird. \<
 
-**Lastenausgleichsmodule**
-- Der Load Balancer darf nicht SSL zu beenden. AD FS unterstützt mehrere Anwendungsfälle mit zertifikatbasierter Authentifizierung die unterbricht, wenn SSL zu beenden. Beenden von SSL auf dem Load Balancer wird für jeden Anwendungsfall nicht unterstützt. 
-- Es wird empfohlen, einen Load Balancer zu verwenden, der unterstützt SNI. Im Ereignis nicht, verwenden das fallback-Bindung für AD FS "0.0.0.0" / Web Application Proxy-Server sollte dieses Problem zu umgehen bereitstellen.
-- Es wird empfohlen, mit der Integritätstest-Endpunkte HTTP (nicht HTTPS) Load Balancer-integritätsprüfungen für die Weiterleitung des Datenverkehrs durchführen. Dies vermeidet Probleme im Zusammenhang mit SNI. Die Antwort, die diesen Endpunkten Test ist eine HTTP 200 OK und lokal mit keine Abhängigkeit mehr von Back-End-Diensten bereitgestellt wird. Der HTTP-Test kann über HTTP mit dem Pfad "/ Adfs/Probe" zugegriffen werden
-    - http://&lt;Namen für Webanwendungsproxy &gt; /Adfs/Probe
-    - http://&lt;AD FS-Servername &gt; /Adfs/Probe
-    - http://&lt;Web Application Proxy-IP-Adresse &gt; /Adfs/Probe
-    - http://&lt;ADFS IP-Adresse &gt; /Adfs/Probe
-- Es wird nicht empfohlen, DNS zu verwenden Roundrobin als Methode für den Lastenausgleich. Verwenden diese Art von Lastenausgleich bietet keine automatisierte Möglichkeit zum Entfernen eines Knotens aus dem Load Balancer mit Integritätstests. 
-- Es wird nicht empfohlen, IP-basierten sitzungsaffinität oder persistente Sitzungen für den Authentifizierungsdatenverkehr mit AD FS innerhalb der Load Balancer verwenden. Dies kann eine Überladung von bestimmten Knoten führen, bei der älteren Authentifizierungsprotokoll für die e-Mail-Clients mit Office 365 (Exchange Online)-e-Mail-Diensten herstellen. 
+**Load Balancer Anforderungen**
+- Der Load Balancer darf SSL nicht beenden. AD FS unterstützt mehrere Anwendungsfälle mit Zertifikat Authentifizierung, die beim Beenden von SSL abgebrochen werden. Das Beenden von SSL auf dem Load Balancer wird für keinen Anwendungsfall unterstützt. 
+- Es wird empfohlen, einen Load Balancer zu verwenden, der SNI unterstützt. Wenn dies nicht der Fall ist, sollte die Verwendung der 0.0.0.0-Fall Back-Bindung auf Ihrem AD FS/webanwendungsproxy-Server eine Problem Umgehung bereitstellen.
+- Es wird empfohlen, die Integritätstest-Endpunkte von http (nicht HTTPS) zum Ausführen von Load Balancer-Integritätsprüfungen für den Routing Datenverkehr zu verwenden. Dadurch werden alle Probleme im Zusammenhang mit SNI vermieden. Die Antwort auf diese Test Endpunkte ist ein HTTP 200 OK und wird lokal ohne Abhängigkeit von Back-End-Diensten bereitgestellt. Auf den HTTP-Test kann über HTTP mit dem Pfad "/ADFS/Probe" zugegriffen werden.
+    - http://&lt;webanwendungsproxy-Name&gt;/ADFS/Probe
+    - http://&lt;ADFS-Server&gt;Name/ADFS/Probe
+    - http://&lt;webanwendungsproxy-IP-Adresse&gt;/ADFS/Probe
+    - http://&lt;ADFS-IP&gt;-Adresse/ADFS/Probe
+- Es wird nicht empfohlen, DNS-Roundrobin als Methode für den Lastenausgleich zu verwenden. Die Verwendung dieser Art von Lastenausgleich bietet keine automatisierte Möglichkeit zum Entfernen eines Knotens aus dem Load Balancer mithilfe von Integritätstests. 
+- Es wird nicht empfohlen, IP-basierte Sitzungs Affinität oder persistente Sitzungen zu verwenden, damit der Authentifizierungs Datenverkehr innerhalb des Load Balancers AD FS wird. Dies kann eine Überladung bestimmter Knoten verursachen, wenn das Legacy Authentifizierungsprotokoll verwendet wird, damit e-Mail-Clients eine Verbindung mit Office 365 Mail Services (Exchange Online) herstellen können. 
 
-## <a name="BKMK_13"></a>Erforderliche Berechtigungen  
-Der Administrator, der die Installation und die Erstkonfiguration von AD FS durchführt, muss lokale Administratorberechtigungen auf dem AD FS-Server verfügen.  Wenn der lokale Administrator keine Berechtigungen zum Erstellen von Objekten in Active Directory, müssen sie ein Domänenadministrator haben die erforderlichen Active Directory-Objekte erstellen, und konfigurieren Sie AD FS-Farm mit dem AdminConfiguration-Parameter.  
+## <a name="BKMK_13"></a>Berechtigungsanforderungen  
+Der Administrator, der die Installation und Erstkonfiguration von AD FS durchführt, muss über lokale Administrator Berechtigungen für den AD FS Server verfügen.  Wenn der lokale Administrator nicht über Berechtigungen zum Erstellen von Objekten in Active Directory verfügt, muss der Domänen Administrator zuerst die erforderlichen AD-Objekte erstellen und dann die AD FS Farm mithilfe des Parameters "AdminConfiguration" konfigurieren.  
   
   
 
