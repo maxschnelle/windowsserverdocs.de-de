@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 ms.date: 05/31/2019
-ms.openlocfilehash: 460399a57bc229b44d37a9fdd1e4938bf9e7d6ac
-ms.sourcegitcommit: fe621b72d45d0259bac1d5b9031deed3dcbed29d
+ms.openlocfilehash: b4b1f42db7d80fabe2e3361f3ab9ebf41ad8bc29
+ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/01/2019
-ms.locfileid: "66455361"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70865430"
 ---
 # <a name="connecting-windows-server-to-azure-hybrid-services"></a>Verbinden von Windows Server mit Azure Hybriddiensten
 
@@ -22,7 +22,7 @@ ms.locfileid: "66455361"
 Du kannst lokale Bereitstellungen von Windows Server mithilfe von Azure-Hybriddiensten auf die Cloud erweitern. Diese Clouddienste bieten eine Reihe nützlicher Funktionen, darunter die folgenden:
 
 - Schützen von virtuellen Computern und Verwenden von cloudbasierter Sicherung und Notfallwiederherstellung (HA/DR) mit Azure Site Recovery 
-- Nachverfolgen von Anwendungen, Netzwerk und Infrastruktur mithilfe von erweiterten Analysefunktionen und maschinellem Lernen in Azure Monitor 
+- Nachverfolgen von Anwendungen, Netzwerk und Infrastruktur mithilfe von erweiterten Analysefunktionen und maschinellem Lernen in Azure Monitor. 
 - Vereinfachen der Netzwerkverbindung zu Azure mit dem Azure Netzwerkadapter
 - Virtuelle Computer mit der Azure-Updateverwaltung auf dem neuesten Stand halten
 
